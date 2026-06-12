@@ -1,6 +1,6 @@
 import React from 'react';
-import { useCurrentFrame } from 'remotion';
-import { C, E, prog, lerpF, a } from '../tokens';
+import { useCurrentFrame, useVideoConfig, spring, interpolate } from 'remotion';
+import { C, E, prog, lerpF, a, CLAMP } from '../tokens';
 import { FONT } from '../fonts';
 
 // ─── Typewriter — Zeichen erscheinen nacheinander ─────────────────────────────
@@ -72,6 +72,110 @@ export const Underline: React.FC<{
       {children}
       <span style={{ position: 'absolute', left: 0, bottom: -8, height: 8, width: `${p * 100}%`,
         background: color, borderRadius: 4, boxShadow: `0 0 12px ${a(color, 0.7)}` }} />
+    </span>
+  );
+};
+
+// ─── Scramble — Zeichen-Wirrwarr löst sich von links nach rechts auf ──────────
+//    Perfekt für „geheime" Zahlen/Begriffe: <Scramble text="121.997 €" at={10} />
+export const Scramble: React.FC<{
+  text: string; at: number; dur?: number; size?: number; color?: string;
+  fontFamily?: string; weight?: number;
+}> = ({ text, at, dur = 30, size = 96, color = C.white, fontFamily = FONT.title, weight = 400 }) => {
+  const f = useCurrentFrame();
+  const POOL = '!<>-_\\/[]{}—=+*^?#ABCDEFGHKMNPRSTUWXZ0123456789';
+  const chars = text.split('');
+  return (
+    <span style={{ fontFamily, fontSize: size, fontWeight: weight, color, whiteSpace: 'pre' }}>
+      {chars.map((ch, i) => {
+        if (ch === ' ') return ' ';
+        const resolveAt = at + (i / Math.max(chars.length - 1, 1)) * dur;
+        if (f >= resolveAt) return ch;
+        if (f < at) return ' ';
+        // deterministisches Flackern
+        const r = POOL[(i * 13 + f * 7) % POOL.length];
+        return <span key={i} style={{ opacity: 0.6 }}>{r}</span>;
+      })}
+    </span>
+  );
+};
+
+// ─── KineticPunch — Wörter knallen nacheinander groß rein (Kinetic Typography) ─
+//    <KineticPunch words={['SPAREN.','WARTEN.','VERLIEREN.']} at={0} per={18} />
+export const KineticPunch: React.FC<{
+  words: string[]; at: number; per?: number; size?: number;
+  colors?: string[]; holdLast?: boolean;
+}> = ({ words, at, per = 18, size = 130, colors = [C.white], holdLast = true }) => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const t = f - at;
+  if (t < 0) return null;
+  const idx = Math.min(Math.floor(t / per), words.length - 1);
+  const local = t - idx * per;
+  const isLast = idx === words.length - 1;
+  const inP = spring({ frame: local, fps, config: { damping: 11, stiffness: 320 } });
+  const out = !isLast || !holdLast
+    ? interpolate(local, [per - 5, per], [0, 1], CLAMP) : 0;
+  const rot = (idx % 2 === 0 ? 1 : -1) * (1 - inP) * 8;
+  return (
+    <span style={{
+      fontFamily: FONT.title, fontSize: size, color: colors[idx % colors.length],
+      display: 'inline-block', whiteSpace: 'nowrap',
+      transform: `scale(${0.7 + inP * 0.3}) rotate(${rot}deg)`,
+      opacity: Math.min(inP * 1.4, 1) * (1 - out),
+    }}>
+      {words[idx]}
+    </span>
+  );
+};
+
+// ─── FlipIn3D — Zeichen klappen nacheinander aus der Tiefe ────────────────────
+export const FlipIn3D: React.FC<{
+  text: string; at: number; size?: number; color?: string; stagger?: number;
+}> = ({ text, at, size = 96, color = C.white, stagger = 2.5 }) => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  return (
+    <span style={{ display: 'inline-block', perspective: 800, whiteSpace: 'pre' }}>
+      {text.split('').map((ch, i) => {
+        const p = spring({ frame: f - at - i * stagger, fps, config: { damping: 14, stiffness: 220 } });
+        return (
+          <span key={i} style={{
+            fontFamily: FONT.title, fontSize: size, color,
+            display: 'inline-block',
+            transform: `rotateX(${(1 - p) * -90}deg) translateY(${(1 - p) * 18}px)`,
+            transformOrigin: '50% 100%',
+            opacity: Math.min(p * 1.5, 1),
+          }}>
+            {ch === ' ' ? ' ' : ch}
+          </span>
+        );
+      })}
+    </span>
+  );
+};
+
+// ─── WaveText — sanfte stehende Welle (für Akzent-Worte, dezent einsetzen) ────
+export const WaveText: React.FC<{
+  text: string; at?: number; size?: number; color?: string; amplitude?: number;
+}> = ({ text, at = 0, size = 80, color = C.accent, amplitude = 7 }) => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  return (
+    <span style={{ whiteSpace: 'pre', display: 'inline-block' }}>
+      {text.split('').map((ch, i) => {
+        const inP = spring({ frame: f - at - i * 2, fps, config: { damping: 13, stiffness: 200 } });
+        const y = Math.sin((f - at) * 0.18 - i * 0.55) * amplitude;
+        return (
+          <span key={i} style={{
+            fontFamily: FONT.title, fontSize: size, color,
+            display: 'inline-block', opacity: Math.min(inP * 1.4, 1),
+            transform: `translateY(${(1 - inP) * 24 + y}px)`,
+          }}>
+            {ch === ' ' ? ' ' : ch}
+          </span>
+        );
+      })}
     </span>
   );
 };

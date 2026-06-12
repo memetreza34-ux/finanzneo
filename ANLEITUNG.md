@@ -9,8 +9,9 @@
 ---
 
 ## ⚡ AKTUELLE PFLICHT-REGELN (Stand Juni 2026 — gelten immer)
-1. ⚖️ **Haftungsausschluss-Intro** ist Pflicht als allererste Szene jedes Videos (~10s, nicht
-   gesprochen): `<Disclaimer durationInSeconds={10}/>` aus `./brand`.
+1. ⚖️ **Hook zuerst** (Retention!). **Haftungsausschluss ans ENDE** des Hauptvideos (~10s, nicht
+   gesprochen): `<Disclaimer durationInSeconds={10}/>` aus `./brand` + immer in die Beschreibung.
+   Shorts: kein Intro-Disclaimer, nur kleiner Text + Beschreibung.
 2. 🚫 **Claude erstellt NIE Audio** (kein TTS/say). Stimme kommt immer von dir als Datei →
    `public/audio/<name>.mp3`. Claude macht nur Whisper-Wort-Timing + Sync.
 3. 🎬 **Standard-Look = Clean-Bold** (`Signature.tsx`/`CleanReel.tsx`). **Kein 3D, kein Manim** (verworfen).
@@ -18,6 +19,8 @@
    ExchangeRate, gratis) → `public/data/*.json` → in Charts. Immer Quelle + Datum zeigen.
 5. ✨ **Motion-Blur** (`<CameraBlur>`) bei schnellen Bewegungen. **Spacing wahren — nie quetschen.**
 6. 🔍 Claude kann **selbst recherchieren + Script schreiben** (Web + Daten) — kein fremdes Video nötig.
+7. 🎰 **Geld-Zahlen-Reveals:** für große Beträge die neuen ROLLERS nutzen (`DigitSlots`,
+   `DramaticNumber`, `SplitFlap` …) statt nur RollingNumber — mehr Spannung, mehr Abwechslung.
 
 ---
 

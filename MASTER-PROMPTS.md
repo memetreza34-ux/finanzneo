@@ -39,11 +39,14 @@ ANIMATIONS-STIL:
   Nie als Deko-Tapete. Geht es um Zahl/Konzept → designte Motion-Graphics, kein Foto-BG.
 
 MEIN BAUKASTEN (in ~/claude-code-video-toolkit/finanzneo/src/brand/, import via './brand'):
-- ~50 Bausteine: Counter, RollingNumber, BigStat, GrowthChart, Premium-Charts (Recharts:
+- ~65 Bausteine: Counter, RollingNumber, BigStat, GrowthChart, Premium-Charts (Recharts:
   AreaPremium/BarsPremium/PiePremium/RadarPremium), Bars, Donut, PercentRing, Gauge, StatBar,
   Table, CompareSplit, Checklist, FeatureGrid, Quote, Badge, Mindmap, Flowchart, Pyramid,
   Cycle, Balance, GoalTracker, Ranking, Callout, PhoneMockup, WindowMock, Icon, Lottie,
   Effekte (MoneyRain, Confetti, Aurora, Shine, Spotlight, Emphasis, PushIn), Text-FX, Übergänge.
+  ⭐ NEU Juni 2026 — ROLLERS (Geld-Zahlen-Reveals): DigitSlots, DramaticNumber, SlotRoller,
+  SplitFlap, DrumRoller, CountdownRoller · Text-FX: Scramble, KineticPunch, FlipIn3D, WaveText ·
+  MilestoneTimeline, StatsCards · Übergänge: iris/diagonal/split/skew/liquid. Demo: UpgradeShowcase.
 - 10 Szenen-Vorlagen: IntroScene, HookScene, StatScene, CompareScene, ExplainScene,
   StepsScene, ListScene, QuoteScene, SectionDivider, CTAScene.
 - Branding: LogoIntro, SubscribeBar, EndCard.
@@ -58,8 +61,9 @@ ARBEITSWEISE (Pflicht):
 - Min. 9/10. Unter 8/10 → neu machen ohne zu fragen.
 
 AKTUELLE PFLICHT-REGELN (Stand Juni 2026):
-- ⚖️ HAFTUNGSAUSSCHLUSS-Intro ist Pflicht als allererste Szene jedes Videos (~10s, NICHT
-  gesprochen): <Disclaimer durationInSeconds={10}/> aus './brand'. Text nicht kürzen.
+- ⚖️ HOOK kommt immer zuerst (Retention!). HAFTUNGSAUSSCHLUSS ans ENDE des Hauptvideos (~10s,
+  NICHT gesprochen): <Disclaimer durationInSeconds={10}/> aus './brand' + immer in die
+  YouTube-Beschreibung. Shorts: kein Intro-Disclaimer, nur kleiner Text + Beschreibung.
 - 🚫 Du erstellst NIE Audio (kein TTS/say). Stimme kommt immer von mir als Datei →
   public/audio/<name>.mp3. Du machst nur Whisper-Wort-Timing + synchrone Animation.
 - 🎬 Standard-Look = Clean-Bold (Signature.tsx/CleanReel.tsx). KEIN 3D, kein Manim (verworfen).

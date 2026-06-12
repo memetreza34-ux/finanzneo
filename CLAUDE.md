@@ -7,7 +7,7 @@
 
 ## ⚡ SCHNELLSTART (für jede neue Session)
 - **Alles liegt hier:** `~/claude-code-video-toolkit/finanzneo/` (ein Ordner).
-- **Baukasten:** `src/brand/` — ~50 Bausteine, importieren via `from './brand'`.
+- **Baukasten:** `src/brand/` — ~65 Bausteine, importieren via `from './brand'`.
 - **Demos zum Anschauen:** Compositions `Showcase`, `Showcase2`–`5`, `TemplateDemo`, `Overview`, `Thumbnail`, `MockMindmap`, `MockTest`.
 - **Render:** `cd ~/claude-code-video-toolkit/finanzneo && ./node_modules/.bin/remotion render src/index.ts <Comp> out/<name>.mp4 --concurrency=4`
 - **Still prüfen (immer vor Voll-Render):** `./node_modules/.bin/remotion still src/index.ts <Comp> frames/x.png --frame=<n>`
@@ -106,12 +106,13 @@ Komponenten in **`src/brand/`** — importieren via `from './brand'`:
 - `Card` · `Counter` · `GrowthChart`, `Bars` · `Donut`, `PercentRing` · `NumberedSteps`, `CheckCards`, `Timeline`
 - `PhoneMockup` + `AppScreenDemo` (App-Szenen) · `Icon` (Flat-Set) · `Particles` (drift/burst)
 - **Tech-Demo-Stil (hell, macOS):** `WindowMock` (Fenster mit Ampel-Punkten) + `IconTile` (farbige R/M/S/T-Kacheln). Für den hellen, cleanen Product-Demo-Look (wie Claude-Code-TikToks). → Zweiter Stil neben dem dunkelgrünen FinanzNeo-Look.
-- **Text-FX:** `MaskReveal`, `Typewriter`, `WordStagger`, `Underline`, `WordReveal`
-- **Daten/Finanz:** `Table`, `BigStat`, `Gauge` (Tacho), `StatBar`, `CompareSplit` (A vs B), `Checklist`, `FeatureGrid`, `Quote`, `Badge`
+- **Text-FX:** `MaskReveal`, `Typewriter`, `WordStagger`, `Underline`, `WordReveal` + ⭐NEU (Juni 2026): `Scramble` (Zeichen-Wirrwarr löst sich auf), `KineticPunch` (Wörter knallen nacheinander rein), `FlipIn3D` (Zeichen klappen aus der Tiefe), `WaveText` (sanfte Welle, dezent)
+- **⭐ ROLLERS (`components/Rollers.tsx`, NEU Juni 2026)** — Slot-Machine-Reveals für Geld-Zahlen (aus remotion-scenes MIT adaptiert, einbettbar, Brand-Tokens): `DigitSlots` (jede Ziffer rollt + rastet gestaffelt ein — DAS Geld-Reveal), `DramaticNumber` (Zähler mit Fake-Stopp → Re-Beschleunigung → Bounce, Spannung pur), `SlotRoller` (rollt durch Begriffe, stoppt auf letztem), `SplitFlap` (Flughafen-Klapptafel), `DrumRoller` (3D-Trommel), `CountdownRoller` (3·2·1 + Finalwort). Showcase: `UpgradeShowcase` Composition.
+- **Daten/Finanz:** `Table`, `BigStat`, `Gauge` (Tacho), `StatBar`, `CompareSplit` (A vs B), `Checklist`, `FeatureGrid`, `Quote`, `Badge` + ⭐NEU: `MilestoneTimeline` (Meilensteine an wachsender Linie), `StatsCards` (Kennzahlen-Karten poppen versetzt)
 - **Diagramme:** `Balance` (Waage), `GoalTracker` (Thermometer), `Ranking`, `Callout`, `Flowchart`.
   🚫 **KEIN 3D, KEIN Manim im aktiven Workflow.** Getestet & verworfen (Arman, Juni 2026): 3D-Münze/Balken/Kugel-Netzwerk passen NICHT zum Finanz-Look — wirken techy/wissenschaftlich (Kugel-Netzwerk = Chemie-Molekül), lenken vom Inhalt ab. Premium-Finanz = **clean 2D**: fette Typo, smoothe Counter, saubere Charts, viel dunkler Raum. Der `finanzneo_diagrams.py` (Manim) bleibt nur als Archiv liegen — **nicht verwenden**, außer Arman fragt explizit nach Punkt-auf-Zinseszins-Kurve oder Zahl-Morph (die 2 einzigen Manim-Ausnahmen).
 - **Premium-Effekte** (`components/Effects.tsx`): `RollingNumber` (Odometer), `MoneyRain`, `Confetti`, `Sparkles`, `AuroraBG` (lebendiger Hintergrund), `PulseGrid`, `Shine` (Glanz-Sweep), `SpotlightReveal` (Iris), `Emphasis` (Pop+Wackeln), `PushIn` (Kamerafahrt)
-- **Übergänge** (`transitions.ts`): `slideIn`, `zoomIn`, `wipeIn`, `blurIn`, `popIn`, `fadeIn`, `glitchStyle`, `sceneTransition` + offizielles `@remotion/transitions` verfügbar — nie 2× derselbe hintereinander
+- **Übergänge** (`transitions.ts`): `slideIn`, `zoomIn`, `wipeIn`, `blurIn`, `popIn`, `fadeIn`, `glitchStyle`, `sceneTransition` + ⭐NEU: `irisIn` (Kreis öffnet sich), `diagonalWipe` (schräge Kante, passt zum Diagonal-Look), `splitReveal` (Vorhang aus der Mitte), `skewSlide` (cinematisch schräg), `liquidIn` (organischer Blob) — alle auch in `sceneTransition(type: 'iris'|'diagonal'|'split'|'skew'|'liquid')`. Offizielles `@remotion/transitions` ebenfalls verfügbar — nie 2× derselbe hintereinander
 - ⚠️ Render-Tipp: KEINE großen `filter: blur()`-Flächen (langsam → Font-Timeout). Weiche Looks via Radial-Gradienten.
 - `LottieBox` (`components/Lottie.tsx`) — **Profi-Animationen** (After-Effects-Qualität) aus `public/lottie/*.json`. Für Objekte/Effekte die echt aussehen müssen (Rakete, wachsender Chart, Münzen, Sanduhr) statt selbstgemalter SVGs. Quelle z.B. Lordicon-CDN `https://cdn.lordicon.com/<id>.json`.
 - Tokens: `C` (Farben), `E` (Easing), `sec()`, `prog()`, `lerpF()`, `life()`, `euro()`, `num()`
@@ -136,8 +137,10 @@ Beats per `style={{opacity: life(f, inFrame, outFrame)}}` ein-/ausblenden.
 **Kein `<Sequence>` fürs Beat-Timing innerhalb einer Szene** (sonst sehen Bausteine lokale statt absolute Frames). `<Sequence>` nur beim Stitchen mehrerer Szenen (jede dann 0-basiert).
 Demo aller Bausteine: `src/Showcase.tsx` (Composition `Showcase`).
 
-### ⚖️ HAFTUNGSAUSSCHLUSS — PFLICHT am Anfang JEDES Videos
-`<Disclaimer durationInSeconds={10} />` (aus `./brand`) läuft **immer als allererste Szene**, **NICHT gesprochen**, ~10s, vor dem Hook. Schützt rechtlich (keine Anlageberatung, § 85 WpHG). Format-agnostisch (9:16 & 16:9). Beim Stitchen: `<Sequence from={0} durationInFrames={sec(10)}><Disclaimer/></Sequence>`, restliche Szenen danach. Text ist fertig formuliert in der Komponente — nicht kürzen.
+### ⚖️ HAFTUNGSAUSSCHLUSS — am ENDE (Retention!), nicht am Anfang
+**HOOK kommt IMMER zuerst** (erste 3-5s entscheiden über Retention — nie mit Rechtstext öffnen).
+`<Disclaimer durationInSeconds={10} />` (aus `./brand`) läuft **am ENDE des Hauptvideos**, NICHT gesprochen, ~10s. Schützt rechtlich (keine Anlageberatung, § 85 WpHG). **Plus IMMER der Disclaimer-Text in der YouTube-Beschreibung** (rechtlich wichtigster Ort). Format-agnostisch. Text in der Komponente nicht kürzen.
+**Shorts (9:16):** KEIN Intro-Disclaimer (killt Hook) — nur kleiner Text „Keine Anlageberatung" + in der Beschreibung.
 
 ### ⭐ AUDIO-SYNC WORKFLOW (das Herzstück — `src/FullVideoSynced.tsx` ist die Referenz)
 🚫 **REGEL: Claude erstellt NIEMALS Audio.** Kein `say`, kein TTS, keine KI-Stimme. Die Stimme kommt **immer fertig von Arman als Datei** (Google Vids, menschlich). Wenn keine Audiodatei da ist → Arman danach fragen, NICHT selbst generieren. (Die eine `say`-Demo war ein einmaliger Sync-Test, kein Workflow-Teil.)

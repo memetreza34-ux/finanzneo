@@ -33,10 +33,14 @@ Prinzip: **Qualität vor Quantität, min. 9/10.**
 - Ton: wie ein guter Freund, IMMER "du". Kein Gesicht, keine Musik, KEINE Untertitel.
 
 ## MEIN BAUKASTEN (nutze das, nicht von null bauen)
-~50 fertige Remotion-Bausteine: Counter/RollingNumber, BigStat, Premium-Charts (Recharts),
+~65 fertige Remotion-Bausteine: Counter/RollingNumber, BigStat, Premium-Charts (Recharts),
 GrowthChart, Donut, Gauge, Table, CompareSplit, Checklist, Mindmap, Flowchart, Pyramid,
 Cycle, Balance, Ranking, PhoneMockup, WindowMock, Icons, Lottie, Effekte (MoneyRain,
 Confetti, Aurora, Shine, Emphasis), Text-FX, Übergänge.
+⭐ NEU (Juni 2026): ROLLERS für Geld-Zahlen-Reveals — DigitSlots (Ziffern rasten gestaffelt
+ein), DramaticNumber (Fake-Stopp + Endspurt), SlotRoller, SplitFlap (Klapptafel), DrumRoller,
+CountdownRoller · Text-FX: Scramble, KineticPunch, FlipIn3D, WaveText · MilestoneTimeline,
+StatsCards · 5 neue Übergänge (iris/diagonal/split/skew/liquid). Demo: `UpgradeShowcase`.
 10 Szenen-Vorlagen: IntroScene, HookScene, StatScene, CompareScene, ExplainScene,
 StepsScene, ListScene, QuoteScene, SectionDivider, CTAScene. Plus LogoIntro/EndCard.
 Zwei Stile: dunkelgrün-premium (FinanzNeo) + hell-clean (macOS-Fenster, Tech-Demo).
@@ -55,8 +59,9 @@ Zwei Stile: dunkelgrün-premium (FinanzNeo) + hell-clean (macOS-Fenster, Tech-De
 8. 🚫 **Du erstellst NIEMALS Audio.** Kein `say`, kein TTS, keine KI-Stimme. Die Stimme
    kommt IMMER fertig von mir als Datei (`public/audio/<name>.mp3`). Keine Datei da? → mich
    fragen, nicht selbst generieren. Dann nur Whisper-Wort-Timing + synchrone Animation.
-9. ⚖️ **Haftungsausschluss ist PFLICHT** als allererste Szene JEDES Videos (~10s, NICHT
-   gesprochen): `<Disclaimer durationInSeconds={10} />` aus `./brand`. Text nicht kürzen.
+9. ⚖️ **Hook IMMER zuerst** (Retention!). **Haftungsausschluss ans ENDE** des Hauptvideos
+   (~10s, NICHT gesprochen): `<Disclaimer durationInSeconds={10} />` aus `./brand` + immer in
+   die YouTube-Beschreibung. Shorts: kein Intro-Disclaimer, nur kleiner Text + Beschreibung.
 10. 🎬 **Standard-Look = Clean-Bold** (siehe `src/Signature.tsx` / `src/CleanReel.tsx`):
     klare Flächen, große Typo, diagonaler Grün-Akzent, RollingNumber, smooth. **KEIN 3D,
     kein Manim** (getestet & verworfen — wirkt techy, passt nicht zu Finanzen).

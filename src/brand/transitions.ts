@@ -63,6 +63,50 @@ export const blurIn = (p: number): React.CSSProperties => ({
   opacity: p, filter: `blur(${(1 - E.out(p)) * 16}px)`,
 });
 
+// IRIS — Kreis öffnet sich aus der Mitte (cinematisch, für große Reveals)
+export const irisIn = (p: number, cx = 50, cy = 50): React.CSSProperties => {
+  const e = E.inOut(p);
+  const r = e * 120; // 120% deckt jede Ecke ab
+  return { clipPath: `circle(${r}% at ${cx}% ${cy}%)`,
+           WebkitClipPath: `circle(${r}% at ${cx}% ${cy}%)` };
+};
+
+// DIAGONAL-WIPE — schräge Kante zieht durch (passt zum Diagonal-Look)
+export const diagonalWipe = (p: number): React.CSSProperties => {
+  const e = E.inOut(p);
+  const x = -30 + e * 160; // Kante wandert von links-unten nach rechts-oben
+  const poly = `polygon(0 0, ${x}% 0, ${x - 30}% 100%, 0 100%)`;
+  return { clipPath: poly, WebkitClipPath: poly };
+};
+
+// SPLIT — öffnet sich wie ein Vorhang aus der Mitte
+export const splitReveal = (p: number, vertical = false): React.CSSProperties => {
+  const e = E.inOut(p);
+  const half = (1 - e) * 50;
+  const ins = vertical ? `inset(${half}% 0 ${half}% 0)` : `inset(0 ${half}% 0 ${half}%)`;
+  return { clipPath: ins, WebkitClipPath: ins };
+};
+
+// SKEW-SLIDE — cinematisch: schräg reinziehen, richtet sich auf
+export const skewSlide = (p: number, dir: 'left' | 'right' = 'left'): React.CSSProperties => {
+  const e = E.out(p);
+  const sgn = dir === 'left' ? -1 : 1;
+  return {
+    opacity: Math.min(1, p * 1.4),
+    transform: `translateX(${sgn * (1 - e) * 220}px) skewX(${sgn * (1 - e) * 10}deg)`,
+  };
+};
+
+// LIQUID — weiche Blob-Kante morpht auf (organisch, sparsam einsetzen)
+export const liquidIn = (p: number): React.CSSProperties => {
+  const e = E.inOut(p);
+  const r = e * 130;
+  // Ellipse statt Kreis + leichte Versetzung wirkt „flüssiger"
+  const cy = 60 - e * 10;
+  return { clipPath: `ellipse(${r}% ${r * 0.8}% at 50% ${cy}%)`,
+           WebkitClipPath: `ellipse(${r}% ${r * 0.8}% at 50% ${cy}%)` };
+};
+
 // Hilfsfunktion: kombiniere mehrere Style-Objekte
 export const combine = (...styles: React.CSSProperties[]): React.CSSProperties =>
   Object.assign({}, ...styles);
@@ -71,17 +115,22 @@ export const combine = (...styles: React.CSSProperties[]): React.CSSProperties =
 // type wählt den Effekt; gibt fertiges Style-Objekt zurück.
 export const sceneTransition = (
   frame: number, inF: number, outF: number,
-  type: 'fade' | 'slide' | 'zoom' | 'wipe' | 'blur' = 'fade',
+  type: 'fade' | 'slide' | 'zoom' | 'wipe' | 'blur' | 'iris' | 'diagonal' | 'split' | 'skew' | 'liquid' = 'fade',
   ramp = 12,
 ): React.CSSProperties => {
   const pIn = interpolate(frame, [inF, inF + ramp], [0, 1], CLAMP);
   const pOut = interpolate(frame, [outF - ramp, outF], [1, 0], CLAMP);
   const p = Math.min(pIn, pOut);
   switch (type) {
-    case 'slide': return slideIn(p, 'up');
-    case 'zoom':  return zoomIn(p);
-    case 'wipe':  return { ...fadeIn(p), ...wipeIn(pIn, 'left') };
-    case 'blur':  return blurIn(p);
-    default:      return fadeIn(p);
+    case 'slide':    return slideIn(p, 'up');
+    case 'zoom':     return zoomIn(p);
+    case 'wipe':     return { ...fadeIn(p), ...wipeIn(pIn, 'left') };
+    case 'blur':     return blurIn(p);
+    case 'iris':     return { ...fadeIn(Math.min(1, p * 2)), ...irisIn(p) };
+    case 'diagonal': return { ...fadeIn(Math.min(1, p * 2)), ...diagonalWipe(p) };
+    case 'split':    return { ...fadeIn(Math.min(1, p * 2)), ...splitReveal(p) };
+    case 'skew':     return skewSlide(p);
+    case 'liquid':   return { ...fadeIn(Math.min(1, p * 2)), ...liquidIn(p) };
+    default:         return fadeIn(p);
   }
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCurrentFrame } from 'remotion';
+import { useCurrentFrame, useVideoConfig, spring } from 'remotion';
 import { C, E, prog, lerpF, a, num } from '../tokens';
 import { FONT } from '../fonts';
 
@@ -108,6 +108,91 @@ export const StatBar: React.FC<{
           background: `linear-gradient(90deg, ${a(color, 0.7)}, ${color})`,
           boxShadow: `0 0 18px ${a(color, 0.6)}` }} />
       </div>
+    </div>
+  );
+};
+
+// ─── TIMELINE — Meilensteine bauen sich entlang einer Linie auf ───────────────
+//    <MilestoneTimeline at={10} items={[{label:'2015', title:'Start', desc:'…'}, …]} />
+export const MilestoneTimeline: React.FC<{
+  items: { label: string; title: string; desc?: string; color?: string }[];
+  at: number; per?: number; width?: number;
+}> = ({ items, at, per = 10, width = 760 }) => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const rowH = 108;
+  const lineP = prog(f, at, at + items.length * per + 16, E.out);
+  return (
+    <div style={{ position: 'relative', width, paddingLeft: 56 }}>
+      {/* wachsende Linie */}
+      <div style={{ position: 'absolute', left: 9, top: 6, width: 4, borderRadius: 2,
+        height: lineP * (items.length * rowH - 60),
+        background: `linear-gradient(${C.accent}, ${a(C.accent, 0.15)})` }} />
+      {items.map((it, i) => {
+        const p = spring({ frame: f - at - i * per, fps, config: { damping: 15, stiffness: 170 } });
+        const c = it.color ?? C.accent;
+        return (
+          <div key={i} style={{ position: 'relative', height: rowH,
+            transform: `translateX(${(1 - p) * 44}px)`, opacity: Math.min(p * 1.3, 1) }}>
+            <div style={{ position: 'absolute', left: -56, top: 2, width: 22, height: 22,
+              borderRadius: '50%', background: c, boxShadow: `0 0 14px ${a(c, 0.6)}`,
+              transform: `scale(${0.5 + p * 0.5})` }} />
+            <div style={{ fontFamily: FONT.title, fontSize: 30, color: c, lineHeight: 1 }}>
+              {it.label}
+            </div>
+            <div style={{ fontFamily: FONT.body, fontWeight: 800, fontSize: 30, color: C.white,
+              marginTop: 6 }}>
+              {it.title}
+            </div>
+            {it.desc && (
+              <div style={{ fontFamily: FONT.body, fontSize: 21, color: C.gray, marginTop: 4 }}>
+                {it.desc}
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+// ─── STATS-CARDS — Kennzahlen-Karten poppen versetzt auf ──────────────────────
+//    <StatsCards at={10} items={[{value:'121.997 €', label:'Endwert', color:C.gold}, …]} />
+export const StatsCards: React.FC<{
+  items: { value: string; label: string; color?: string; sub?: string }[];
+  at: number; per?: number; cardWidth?: number;
+}> = ({ items, at, per = 7, cardWidth = 330 }) => {
+  const f = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  return (
+    <div style={{ display: 'flex', gap: 30, justifyContent: 'center' }}>
+      {items.map((it, i) => {
+        const p = spring({ frame: f - at - i * per, fps, config: { damping: 13, stiffness: 190 } });
+        const c = it.color ?? C.accent;
+        return (
+          <div key={i} style={{
+            width: cardWidth, padding: '38px 34px', borderRadius: 22,
+            background: a('#FFFFFF', 0.04), border: `1px solid ${a(c, 0.35)}`,
+            boxShadow: `0 18px 50px ${a('#000000', 0.35)}, inset 0 1px 0 ${a('#FFFFFF', 0.06)}`,
+            transform: `translateY(${(1 - p) * 56}px) scale(${0.92 + p * 0.08})`,
+            opacity: Math.min(p * 1.3, 1),
+          }}>
+            <div style={{ fontFamily: FONT.title, fontSize: 64, color: c, lineHeight: 1,
+              whiteSpace: 'nowrap' }}>
+              {it.value}
+            </div>
+            <div style={{ fontFamily: FONT.body, fontWeight: 700, fontSize: 24, color: C.white,
+              marginTop: 14 }}>
+              {it.label}
+            </div>
+            {it.sub && (
+              <div style={{ fontFamily: FONT.body, fontSize: 19, color: C.gray, marginTop: 6 }}>
+                {it.sub}
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 };
