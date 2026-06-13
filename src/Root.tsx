@@ -22,6 +22,7 @@ import { LottieTest } from './LottieTest';
 import { CleanReel, CLEAN_REEL_FRAMES } from './CleanReel';
 import { RealDataDemo, REAL_DATA_FRAMES } from './RealDataDemo';
 import { UpgradeShowcase, UPGRADE_SHOWCASE_DURATION } from './UpgradeShowcase';
+import { LottieFinanzGrid } from './LottieFinanzGrid';
 import { DisclaimerPreview } from './DisclaimerPreview';
 // FullVideoSynced = Audio-Sync-Vorlage. Erst registrieren, wenn echtes Audio + Captions da sind
 // (public/audio/<name>.mp3 + public/captions/<name>.json) — siehe Kopf von FullVideoSynced.tsx.
@@ -87,6 +88,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="CleanReel" component={CleanReel} durationInFrames={CLEAN_REEL_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="RealDataDemo" component={RealDataDemo} durationInFrames={REAL_DATA_FRAMES} fps={30} width={1080} height={1920} />
     <Composition id="UpgradeShowcase" component={UpgradeShowcase} durationInFrames={UPGRADE_SHOWCASE_DURATION} fps={30} width={1920} height={1080} />
+    <Composition id="LottieFinanzGrid" component={LottieFinanzGrid} durationInFrames={90} fps={30} width={1920} height={1080} />
     <Composition id="DisclaimerVertical" component={DisclaimerPreview} durationInFrames={300} fps={30} width={1080} height={1920} />
     <Composition id="DisclaimerWide" component={DisclaimerPreview} durationInFrames={300} fps={30} width={1920} height={1080} />
     {/* Lottie-Test-Raster */}
