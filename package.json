@@ -21,7 +21,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "recharts": "^3.8.1",
-    "remotion": "^4.0.473"
+    "remotion": "^4.0.473",
+    "@remotion/google-fonts": "^4.0.473"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
