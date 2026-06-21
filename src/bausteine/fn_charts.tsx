@@ -1,6 +1,7 @@
 // FinanzNeo Chart-Bausteine — aus KI-Kit portiert, FinanzNeo-Marke + Glassmorphism.
 import {useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
 import {C, bebas, inter, Glass} from './fn_core';
+import {PremiumChart} from './fn_chart_base';
 
 const eo = (t: number) => 1 - Math.pow(1 - t, 3);
 const c01 = (t: number) => Math.max(0, Math.min(1, t));
@@ -102,15 +103,10 @@ export const FNRanking: React.FC<{items?: [string, number][]}> =
   </div>;
 };
 
-export const FNAreaChart: React.FC<{points?: number[]; color?: string}> =
-({points = [0.2, 0.4, 0.3, 0.6, 0.55, 0.85, 1.0], color = C.green}) => {
-  const f = useCurrentFrame(); const W = 1300, H = 560; const draw = c01((f - 6) / 50);
-  const pts = points.map((p, i) => [60 + (i / (points.length - 1)) * (W - 120), H - 60 - p * (H - 130)]);
-  const line = pts.map((p, i) => `${i ? 'L' : 'M'}${p[0]},${p[1]}`).join(' ');
-  const area = `${line} L${pts[pts.length - 1][0]},${H - 60} L${pts[0][0]},${H - 60} Z`;
-  return <svg width={W} height={H} style={{fontFamily: bebas}}>
-    <defs><linearGradient id="fnar" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={color} stopOpacity={0.5} /><stop offset="100%" stopColor={color} stopOpacity={0} /></linearGradient></defs>
-    <path d={area} fill="url(#fnar)" opacity={draw} />
-    <path d={line} fill="none" stroke={color} strokeWidth={8} pathLength={1} strokeDasharray={1} strokeDashoffset={1 - draw} style={{filter: `drop-shadow(0 0 12px ${color})`}} />
-  </svg>;
-};
+const areaData = (max: number, k = 2.4, N = 31) => new Array(N).fill(0).map((_, i) => {const x = i / (N - 1); return (Math.exp(k * x) - 1) / (Math.exp(k) - 1) * max;});
+export const FNAreaChart: React.FC = () => (
+  <PremiumChart title="Vermögen über die Jahre" caption="Mit Sparplan & Zinseszins wächst der Wert stetig."
+    xTitle="Jahre" yTitle="Wert (€)" xLabels={['0', '5', '10', '15', '20', '25', '30']}
+    yMax={200000} yTicks={[0, 50000, 100000, 150000, 200000]} yFmt={(n) => `${n / 1000}k`}
+    series={[{label: 'Wert', color: C.green, data: areaData(195000), area: true}]} />
+);

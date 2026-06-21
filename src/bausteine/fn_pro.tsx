@@ -1,13 +1,9 @@
 // FinanzNeo PRO — volle Premium-Qualität, STRENGE Farbführung (Grün + Gold + Neutral),
 // dezenter Glow, feine Typo, viel Luft. Keine bunten Kombis.
 import {useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
-import {C, bebas, inter} from './fn_core';
-
-// Disziplinierte Mini-Palette (nur diese benutzen)
-export const P = {
-  ink: '#F4FAF6', muted: '#8FA89A', line: 'rgba(255,255,255,0.10)',
-  green: '#00D26A', greenLt: '#7BFFC0', greenDeep: '#0E3B27', gold: '#FFC83D', loss: '#FF6B6B',
-};
+import {C, bebas, inter, P} from './fn_core';
+import {PremiumChart} from './fn_chart_base';
+export {P};
 const CL = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 const de = (n: number) => Math.round(n).toLocaleString('de-DE');
 const eo = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -52,25 +48,14 @@ export const FNBarsClean: React.FC<{title?: string; data?: [string, number, bool
   </div>;
 };
 
-// 3) Linie — eine grüne Kurve, weiche Fläche, Hairline-Achse
-export const FNLineClean: React.FC<{points?: number[]; delta?: string}> =
-({points = [0.15, 0.25, 0.22, 0.4, 0.38, 0.62, 0.78, 1.0], delta = '+312 %'}) => {
-  const f = useCurrentFrame(); const W = 1400, H = 620; const draw = Math.max(0, Math.min(1, (f - 8) / 60));
-  const pts = points.map((p, i) => [90 + (i / (points.length - 1)) * (W - 180), H - 80 - p * (H - 200)]);
-  const line = pts.map((p, i) => `${i ? 'L' : 'M'}${p[0]},${p[1]}`).join(' ');
-  const area = `${line} L${pts[pts.length - 1][0]},${H - 80} L${pts[0][0]},${H - 80} Z`;
-  const tip = pts[Math.max(0, Math.floor(draw * (pts.length - 1)))];
-  return <div style={{position: 'relative'}}>
-    <svg width={W} height={H} style={{fontFamily: bebas}}>
-      <defs><linearGradient id="proln" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={P.green} stopOpacity={0.28} /><stop offset="100%" stopColor={P.green} stopOpacity={0} /></linearGradient></defs>
-      <line x1={90} y1={H - 80} x2={W - 90} y2={H - 80} stroke={P.line} strokeWidth={1.5} />
-      <path d={area} fill="url(#proln)" opacity={draw} />
-      <path d={line} fill="none" stroke={P.green} strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - draw} style={{filter: glow(P.green, 0.3)}} />
-      <circle cx={tip[0]} cy={tip[1]} r={13} fill={P.greenLt} style={{filter: glow(P.greenLt, 0.5)}} />
-    </svg>
-    <div style={{position: 'absolute', right: 110, top: 40, fontFamily: bebas, fontSize: 110, color: P.gold, opacity: rev(f, 50), filter: glow(P.gold, 0.2)}}>{delta}</div>
-  </div>;
-};
+// 3) Linie — jetzt mit beschrifteten Achsen (PremiumChart)
+const expData = (max: number, k = 2.6, N = 31) => new Array(N).fill(0).map((_, i) => {const x = i / (N - 1); return (Math.exp(k * x) - 1) / (Math.exp(k) - 1) * max;});
+export const FNLineClean: React.FC = () => (
+  <PremiumChart title="Dein Depot über die Zeit" caption="Breit gestreut investiert — der Wert wächst mit den Jahren."
+    xTitle="Jahre" yTitle="Wert (€)" xLabels={['0', '5', '10', '15', '20', '25', '30']}
+    yMax={250000} yTicks={[0, 50000, 100000, 150000, 200000, 250000]} yFmt={(n) => `${n / 1000}k`}
+    series={[{label: 'Depot', color: P.green, data: expData(242000), area: true}]} />
+);
 
 // 4) Stat-Triptychon — 3 Kennzahlen mit Hairline-Trennern (editorial)
 export const FNStatTriptych: React.FC<{stats?: [string, string][]}> =

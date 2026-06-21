@@ -1,8 +1,8 @@
 // FinanzNeo KONZEPT-Bausteine — komplexe Themen EINFACH & PREMIUM erklärt.
 // Strenge Palette (P): Grün + Gold + Neutral. Jeder Baustein = Titel + Visual + Caption.
 import {useCurrentFrame, interpolate} from 'remotion';
-import {C, bebas, inter} from './fn_core';
-import {P} from './fn_pro';
+import {C, bebas, inter, P} from './fn_core';
+import {PremiumChart} from './fn_chart_base';
 
 const CL = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 const de = (n: number) => Math.round(n).toLocaleString('de-DE');
@@ -37,18 +37,28 @@ export const FNSnowball: React.FC = () => {
   </Frame>;
 };
 
-// 2) Sparplan / Cost-Average
+// 2) Sparplan / Cost-Average — mit beschrifteten Achsen + Kaufpunkten
 export const FNCostAverage: React.FC = () => {
-  const f = useCurrentFrame(); const W = 1400, H = 540; const draw = c01((f - 8) / 60);
-  const price = (x: number) => H / 2 + Math.sin(x / 130) * 140 + Math.sin(x / 47) * 50;
-  const linePts = []; for (let x = 60; x <= W - 60; x += 14) linePts.push(`${x},${price(x)}`);
-  const buys = new Array(8).fill(0).map((_, i) => 120 + i * ((W - 240) / 7));
-  return <Frame title="Der Sparplan-Trick" caption="Automatisch kaufen — mal teuer, mal günstig. Der Schnitt macht's.">
-    <svg width={W} height={H}>
-      <polyline points={linePts.join(' ')} fill="none" stroke={P.muted} strokeWidth={3} opacity={0.5} />
-      <line x1={60} y1={H / 2} x2={W - 60} y2={H / 2} stroke={P.gold} strokeWidth={3} strokeDasharray="10 10" opacity={rev(f, 50)} />
-      {buys.map((x, i) => {const show = draw > i / buys.length; return show ? <g key={i}><circle cx={x} cy={price(x)} r={16} fill={P.green} style={{filter: glow(P.green, 0.4)}} /></g> : null;})}
-      <text x={W - 70} y={H / 2 - 18} fontSize={30} fontFamily={inter} fill={P.gold} textAnchor="end" opacity={rev(f, 56)}>Ø Kaufpreis</text>
+  const f = useCurrentFrame(); const W = 1400, H = 560, L = 150, B = 100, T = 40, R = 70; const draw = c01((f - 8) / 60);
+  const prices = [108, 96, 120, 84, 100, 78, 112, 90, 104, 82, 116, 94];
+  const yMin = 60, yMax = 130; const n = prices.length;
+  const px = (i: number) => L + (i / (n - 1)) * (W - L - R);
+  const py = (v: number) => (H - B) - (v - yMin) / (yMax - yMin) * (H - B - T);
+  const avg = prices.reduce((a, b) => a + b, 0) / n;
+  const linePts = prices.map((p, i) => `${px(i)},${py(p)}`).join(' ');
+  return <Frame title="Der Sparplan-Trick" caption="Jeden Monat automatisch kaufen — mal teuer, mal günstig. Der Schnitt macht's.">
+    <svg width={W} height={H} style={{fontFamily: inter}}>
+      {[60, 80, 100, 120].map((t, i) => <g key={i}><line x1={L} y1={py(t)} x2={W - R} y2={py(t)} stroke="rgba(255,255,255,0.07)" strokeWidth={1.5} />
+        <text x={L - 24} y={py(t) + 10} fontSize={30} fill={P.muted} textAnchor="end" opacity={rev(f, 4)}>{t} €</text></g>)}
+      <line x1={L} y1={T} x2={L} y2={H - B} stroke="rgba(255,255,255,0.25)" strokeWidth={2.5} />
+      <line x1={L} y1={H - B} x2={W - R} y2={H - B} stroke="rgba(255,255,255,0.25)" strokeWidth={2.5} />
+      {['Jan', 'Mär', 'Mai', 'Jul', 'Sep', 'Nov'].map((m, i) => <text key={i} x={px(i * 2)} y={H - B + 44} fontSize={28} fill={P.muted} textAnchor="middle" opacity={rev(f, 6)}>{m}</text>)}
+      <text x={(L + W - R) / 2} y={H - 16} fontSize={32} fontWeight={600} fill={P.ink} textAnchor="middle" opacity={rev(f, 10)}>Monat</text>
+      <text x={48} y={(T + H - B) / 2} fontSize={32} fontWeight={600} fill={P.ink} textAnchor="middle" transform={`rotate(-90 48 ${(T + H - B) / 2})`} opacity={rev(f, 10)}>Kurs</text>
+      <polyline points={linePts} fill="none" stroke={P.muted} strokeWidth={4} opacity={0.6} />
+      <line x1={L} y1={py(avg)} x2={W - R} y2={py(avg)} stroke={P.gold} strokeWidth={3} strokeDasharray="12 10" opacity={rev(f, 50)} />
+      <text x={W - R - 8} y={py(avg) - 16} fontSize={30} fill={P.gold} textAnchor="end" opacity={rev(f, 56)}>Ø Kaufpreis</text>
+      {prices.map((p, i) => {const show = draw > i / n; return show ? <circle key={i} cx={px(i)} cy={py(p)} r={14} fill={P.green} style={{filter: glow(P.green, 0.4)}} /> : null;})}
     </svg>
   </Frame>;
 };
@@ -95,40 +105,23 @@ export const FNRiskReturn: React.FC = () => {
   </Frame>;
 };
 
-// 5) Drawdown — Crash & Erholung
-export const FNDrawdown: React.FC = () => {
-  const f = useCurrentFrame(); const W = 1400, H = 540; const draw = c01((f - 8) / 70);
-  const pts = [[60, 320], [320, 240], [520, 200], [700, 430], [820, 400], [1000, 250], [1200, 150], [1340, 90]];
-  const shown = pts.slice(0, Math.max(2, Math.ceil(draw * pts.length)));
-  const d = shown.map((p, i) => `${i ? 'L' : 'M'}${p[0]},${p[1]}`).join(' ');
-  return <Frame title="Crash? Kein Drama." caption="Märkte fallen — und erholen sich. Wer dabei bleibt, gewinnt.">
-    <svg width={W} height={H} style={{fontFamily: bebas}}>
-      <path d={d} fill="none" stroke={P.green} strokeWidth={8} strokeLinecap="round" strokeLinejoin="round" style={{filter: glow(P.green, 0.3)}} />
-      {draw > 0.45 && <g opacity={rev(f, 40)}><circle cx={700} cy={430} r={12} fill={P.loss} /><text x={700} y={490} fontSize={44} fill={P.loss} textAnchor="middle">−40%</text></g>}
-      {draw > 0.95 && <g opacity={rev(f, 70)}><circle cx={1340} cy={90} r={14} fill={P.greenLt} style={{filter: glow(P.greenLt, 0.5)}} /><text x={1300} y={60} fontSize={40} fill={P.greenLt} textAnchor="end">neues Hoch</text></g>}
-    </svg>
-  </Frame>;
-};
+// 5) Drawdown — Crash & Erholung (mit beschrifteten Achsen)
+export const FNDrawdown: React.FC = () => (
+  <PremiumChart title="Crash? Kein Drama." caption="Märkte fallen — und erreichen danach neue Höchststände. Dranbleiben gewinnt."
+    xTitle="Jahre" yTitle="Index" xLabels={['2018', '2020', '2022', '2024', '2026']}
+    yMax={200} yTicks={[0, 50, 100, 150, 200]} yFmt={(n) => `${n}`}
+    series={[{label: 'Weltindex', color: P.green, data: [80, 95, 110, 70, 88, 120, 150, 175, 200], area: true}]} />
+);
 
-// 6) Vermögensaufbau — Einzahlung vs. Gewinn (gestapelt)
-export const FNNetWorth: React.FC = () => {
-  const f = useCurrentFrame(); const W = 1400, H = 560; const draw = c01((f - 8) / 65); const N = 40;
-  const contrib = (x: number) => x * 0.35; const total = (x: number) => (Math.exp(2.4 * x) - 1) / (Math.exp(2.4) - 1);
-  const band = (fn: (x: number) => number, col: string, op: number) => {
-    const pts = new Array(N).fill(0).map((_, i) => {const x = i / (N - 1); return [60 + x * (W - 120), H - 60 - fn(x) * (H - 130)];});
-    const shown = pts.slice(0, Math.max(2, Math.ceil(draw * N)));
-    const d = shown.map((p, i) => `${i ? 'L' : 'M'}${p[0]},${p[1]}`).join(' ') + ` L${shown[shown.length - 1][0]},${H - 60} L60,${H - 60} Z`;
-    return <path d={d} fill={col} opacity={op} />;
-  };
-  return <Frame title="Vermögen wächst" caption="Irgendwann erwirtschaften die Gewinne mehr als deine Einzahlungen.">
-    <svg width={W} height={H}>
-      {band(total, P.green, 0.85)}
-      {band(contrib, P.greenDeep, 1)}
-      <text x={W - 90} y={H - 80} fontSize={28} fontFamily={inter} fill={P.greenLt} textAnchor="end" opacity={rev(f, 55)}>Gewinne</text>
-      <text x={120} y={H - 90} fontSize={28} fontFamily={inter} fill={P.muted} opacity={rev(f, 55)}>Einzahlungen</text>
-    </svg>
-  </Frame>;
-};
+// 6) Vermögensaufbau — Einzahlung vs. Gesamt (mit beschrifteten Achsen)
+const lin6 = (max: number, N = 31) => new Array(N).fill(0).map((_, i) => (i / (N - 1)) * max);
+const exp6 = (max: number, k = 2.4, N = 31) => new Array(N).fill(0).map((_, i) => {const x = i / (N - 1); return (Math.exp(k * x) - 1) / (Math.exp(k) - 1) * max;});
+export const FNNetWorth: React.FC = () => (
+  <PremiumChart title="Vermögen wächst" caption="Irgendwann erwirtschaften die Gewinne mehr als deine Einzahlungen."
+    xTitle="Jahre" yTitle="Wert (€)" xLabels={['0', '10', '20', '30']}
+    yMax={250000} yTicks={[0, 50000, 100000, 150000, 200000, 250000]} yFmt={(n) => `${n / 1000}k`}
+    series={[{label: 'Einzahlungen', color: P.muted, data: lin6(108000), dash: true}, {label: 'Gesamt', color: P.green, data: exp6(240000), area: true}]} />
+);
 
 // 7) 4%-Regel — von den Zinsen leben
 export const FNFourPercent: React.FC = () => {

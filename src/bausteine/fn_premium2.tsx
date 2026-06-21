@@ -1,6 +1,7 @@
 // FinanzNeo PREMIUM-Bausteine — Border-Beam, Candles, Gold, Mountain, Ringe (FinanzNeo-Marke).
 import {useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
-import {C, bebas, inter} from './fn_core';
+import {C, bebas, inter, P as PP} from './fn_core';
+import {PremiumChart} from './fn_chart_base';
 
 const c01 = (t: number) => Math.max(0, Math.min(1, t));
 const eo = (t: number) => 1 - Math.pow(1 - t, 3);
@@ -79,24 +80,14 @@ export const FNNeonNumber: React.FC<{to?: number; suffix?: string; label?: strin
   </div>;
 };
 
-// 5) Wealth-Mountain — Premium-Flächenchart mit Sonne + Ebenen
-export const FNWealthMountain: React.FC = () => {
-  const f = useCurrentFrame(); const W = 1500, H = 700; const draw = c01((f - 6) / 60);
-  const layer = (amp: number, yb: number, col: string, op: number) => {
-    const pts = new Array(40).fill(0).map((_, i) => {const x = i / 39; const y = yb - (Math.exp(2.6 * x) - 1) / (Math.exp(2.6) - 1) * amp;
-      return [x * W, y];});
-    const shown = pts.slice(0, Math.max(2, Math.ceil(draw * pts.length)));
-    const d = shown.map((p, i) => `${i ? 'L' : 'M'}${p[0]},${p[1]}`).join(' ') + ` L${shown[shown.length - 1][0]},${H} L0,${H} Z`;
-    return <path d={d} fill={col} opacity={op} />;
-  };
-  return <svg width={W} height={H} style={{fontFamily: bebas}}>
-    <defs><radialGradient id="sun"><stop offset="0%" stopColor={C.gold} /><stop offset="100%" stopColor="transparent" /></radialGradient>
-      <linearGradient id="mg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={C.green} stopOpacity={0.6} /><stop offset="100%" stopColor={C.green} stopOpacity={0.05} /></linearGradient></defs>
-    <circle cx={W - 320} cy={170} r={220} fill="url(#sun)" opacity={0.5 * draw} />
-    {layer(360, H - 60, 'rgba(0,210,106,0.15)', 1)}
-    {layer(480, H - 60, 'url(#mg1)', 1)}
-  </svg>;
-};
+// 5) Wealth-Mountain — jetzt mit beschrifteten Achsen (PremiumChart)
+const mountainData = (max: number, k = 2.6, N = 31) => new Array(N).fill(0).map((_, i) => {const x = i / (N - 1); return (Math.exp(k * x) - 1) / (Math.exp(k) - 1) * max;});
+export const FNWealthMountain: React.FC = () => (
+  <PremiumChart title="Der Vermögens-Berg" caption="Jahr für Jahr aufgebaut — am Ende ein stattlicher Betrag."
+    xTitle="Jahre" yTitle="Wert (€)" xLabels={['0', '5', '10', '15', '20', '25', '30']}
+    yMax={300000} yTicks={[0, 100000, 200000, 300000]} yFmt={(n) => `${n / 1000}k`}
+    series={[{label: 'Vermögen', color: PP.green, data: mountainData(285000), area: true}]} />
+);
 
 // 6) Portfolio-Ringe — konzentrische Allokation (Premium-Donut)
 export const FNPortfolioRings: React.FC<{rings?: [string, number, string][]}> =

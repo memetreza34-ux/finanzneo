@@ -1,5 +1,6 @@
 import {AbsoluteFill, useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
 import {C, bebas, inter, Glass} from './fn_core';
+import {PremiumChart} from './fn_chart_base';
 
 const CL = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 const de = (n: number) => Math.round(n).toLocaleString('de-DE');
@@ -75,32 +76,14 @@ export const FNCompareBars: React.FC<{title?: string; sub?: string; left?: Side;
   </AbsoluteFill>;
 };
 
-// ── FNGrowthCurve ── SVG Exp-Kurve, Gradient-Stroke, Glow, gezeichnet
-export const FNGrowthCurve: React.FC<{label?: string}> = ({label = '+240 %'}) => {
-  const f = useCurrentFrame(); const W = 1920, H = 1080;
-  const draw = interpolate(f, [6, 70], [0, 1], CL);
-  const pts = Array.from({length: 40}, (_, i) => {
-    const t = i / 39; const y = (Math.exp(3.2 * t) - 1) / (Math.exp(3.2) - 1);
-    return [180 + t * (W - 360), H - 200 - y * (H - 460)];
-  });
-  const d = pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(' ');
-  const tip = pts[Math.max(0, Math.floor(draw * (pts.length - 1)))];
-  return <AbsoluteFill>
-    <svg width={W} height={H}>
-      <defs>
-        <linearGradient id="fkg" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stopColor={C.green} /><stop offset="100%" stopColor={C.gold} /></linearGradient>
-        <linearGradient id="fka" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={C.green} stopOpacity={0.35} /><stop offset="100%" stopColor={C.green} stopOpacity={0} /></linearGradient>
-      </defs>
-      <line x1={180} y1={H - 200} x2={W - 180} y2={H - 200} stroke="rgba(255,255,255,0.18)" strokeWidth={2} />
-      <path d={`${d} L${pts[pts.length - 1][0]},${H - 200} L${pts[0][0]},${H - 200} Z`} fill="url(#fka)" opacity={draw} />
-      <path d={d} fill="none" stroke="url(#fkg)" strokeWidth={10} strokeLinecap="round"
-        pathLength={1} strokeDasharray={1} strokeDashoffset={1 - draw} style={{filter: 'drop-shadow(0 0 16px rgba(0,210,106,0.7))'}} />
-      <circle cx={tip[0]} cy={tip[1]} r={16} fill={C.greenLt} style={{filter: 'drop-shadow(0 0 20px rgba(92,255,173,0.9))'}} />
-    </svg>
-    <div style={{position: 'absolute', left: 200, top: 150, fontFamily: bebas, fontSize: 130, color: C.gold,
-      opacity: interpolate(f, [50, 70], [0, 1], CL), filter: 'drop-shadow(0 0 30px rgba(255,200,61,0.5))'}}>{label}</div>
-  </AbsoluteFill>;
-};
+// ── FNGrowthCurve ── jetzt mit beschrifteten Achsen (PremiumChart)
+const growthData = (max: number, k = 3.2, N = 31) => new Array(N).fill(0).map((_, i) => {const x = i / (N - 1); return (Math.exp(k * x) - 1) / (Math.exp(k) - 1) * max;});
+export const FNGrowthCurve: React.FC = () => (
+  <PremiumChart title="Dein Wachstum" caption="Anfangs flach, dann steil — so wirkt der Zinseszins über die Jahre."
+    xTitle="Jahre" yTitle="Wert (€)" xLabels={['0', '5', '10', '15', '20', '25', '30']}
+    yMax={300000} yTicks={[0, 100000, 200000, 300000]} yFmt={(n) => `${n / 1000}k`}
+    series={[{label: 'Vermögen', color: C.green, data: growthData(290000), area: true}]} />
+);
 
 // ── FNDonut ── Conic-Gradient-Donut + Legende
 export const FNDonut: React.FC<{title?: string; segments?: {v: number; color: string; label: string}[]}> =

@@ -1,8 +1,7 @@
 // FinanzNeo PREMIUM-CHART-Fundament — echte beschriftete Achsen (X & Y), Gitternetz,
 // großzügige Abstände, Legende. Alle Kurven bauen darauf auf.
 import {useCurrentFrame, interpolate} from 'remotion';
-import {bebas, inter} from './fn_core';
-import {P} from './fn_pro';
+import {bebas, inter, P} from './fn_core';
 
 const c01 = (t: number) => Math.max(0, Math.min(1, t));
 const rev = (f: number, s: number, d = 16) => c01((f - s) / d);

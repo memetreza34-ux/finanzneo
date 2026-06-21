@@ -12,6 +12,12 @@ export const C = {
   blue: '#3D8BFF', red: '#FF3333', purple: '#B98CFF',
 };
 
+// Disziplinierte Premium-Palette (Pro-Stil): nur Grün + Gold + Neutral
+export const P = {
+  ink: '#F4FAF6', muted: '#8FA89A', line: 'rgba(255,255,255,0.10)',
+  green: '#00D26A', greenLt: '#7BFFC0', greenDeep: '#0E3B27', gold: '#FFC83D', loss: '#FF6B6B',
+};
+
 export const rand = (i: number) => {
   const x = Math.sin(i * 127.1 + 311.7) * 43758.5;
   return x - Math.floor(x);
