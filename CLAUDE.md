@@ -122,10 +122,13 @@ Komponenten in **`src/brand/`** — importieren via `from './brand'`:
 - **DER FinanzNeo-Look = Remotion Clean-Bold** (siehe `Signature.tsx`): klare Flächen, große Typo, mutiger diagonaler Grün-Akzent, RollingNumber, smooth. Das ist der Standard-Stil für alles. Kein 3D, keine Spielereien.
 - **Selbst (Remotion, meine Stärke):** Texte, Counter, Charts, Balken, Daten, Übergänge, Captions, Layout, Sync → 9/10.
 - **Lottie:** professionelle Objekt-/Effekt-Animationen (statt billig/komisch selbstgemalt).
-- **Bilder selbst generieren (GRATIS, lokal!):** FLUX läuft lokal auf dem M4 via mflux.
-  Befehl: `source ~/mflux-env/bin/activate && mflux-generate -m ~/mflux-models/schnell-4bit --base-model schnell --prompt "..." --steps 2 --seed 42 --height 1216 --width 832 --output <pfad>`
-  → ~1,5 Min/Bild, kostenlos, unbegrenzt. Claude generiert Bilder direkt in `szene-N/bilder/`.
-  Stil-Prompt für FinanzNeo: "cinematic 3D render, ... dark futuristic circuit board, dark background, green neon glow, depth of field, ultra detailed, premium". Alternativ Google Flow / Nano Banana / ImageFX (Browser, Arman).
+- **Bilder: Claude generiert NICHT selbst** (Arman-Regel Juni 2026 — spart Tokens, bessere Qualität).
+  Stattdessen liefert Claude **fertige, kopierbare Bild-Prompts** (Code-Block, Englisch) + nennt
+  **Dateiname + Zielordner** (z.B. `szene-N/bilder/` bzw. `shorts/short-NN/bilder/`). **Arman**
+  generiert die Bilder in **Google Flow / Nano Banana** und lädt sie in den genannten Ordner hoch.
+  Stil-Suffix für FinanzNeo: "cinematic 3D render, dark futuristic circuit board, dark background,
+  green neon glow, depth of field, ultra detailed, premium, no text/logo".
+  (FLUX/mflux lokal ist nur noch Notfall-Fallback, nicht Standard.)
 - **KI-Video (LTX-2 / Veo / Kling):** echtes Bewegtbild / B-Roll, wenn eine Szene das braucht.
 - Regel: **Wo eine Profi-Quelle besser ist als meine Handarbeit → von dort holen, nicht billig nachbauen.**
 
