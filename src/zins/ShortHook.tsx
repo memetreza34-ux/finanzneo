@@ -8,6 +8,7 @@ import {AbsoluteFill, Audio, staticFile, useCurrentFrame} from 'remotion';
 import {
   C, FONT, sec, prog, lerpF, life, a, euro,
   Background, Vignette, Captions, DigitSlots, KineticPunch, Emphasis, Shine,
+  FINANCE_EXAMPLES,
   calculateSavingsPlanFutureValue, calculateTotalContributions,
 } from '../design-system';
 import {clipCaptionWords, normalizeCaptionData} from '../lib/captions';
@@ -18,24 +19,15 @@ export const SHORT_HOOK_FRAMES = Math.round(37 * 30);
 // Unterstützt FinanzNeo v1 sowie die beiden früheren Whisper-Formate.
 const WORDS = clipCaptionWords(normalizeCaptionData(capData), {endAt: 34.5});
 
-// Zentrale Beispielannahmen. Keine frei eingetragenen Endwerte.
-const EXAMPLE = {
-  monthlyContribution: 100,
-  annualReturnRate: 0.07,
-  years: 30,
-} as const;
+// Verbindliche Beispielannahmen aus src/finance/examples.ts.
+const EXAMPLE = FINANCE_EXAMPLES.savingsPlan;
 
-const FUTURE_VALUE = Math.round(calculateSavingsPlanFutureValue({
-  contributionPerPeriod: EXAMPLE.monthlyContribution,
-  annualReturnRate: EXAMPLE.annualReturnRate,
-  years: EXAMPLE.years,
-  periodsPerYear: 12,
-}));
+const FUTURE_VALUE = Math.round(calculateSavingsPlanFutureValue(EXAMPLE));
 
 const CONTRIBUTIONS = Math.round(calculateTotalContributions({
-  contributionPerPeriod: EXAMPLE.monthlyContribution,
+  contributionPerPeriod: EXAMPLE.contributionPerPeriod,
   years: EXAMPLE.years,
-  periodsPerYear: 12,
+  periodsPerYear: EXAMPLE.periodsPerYear,
 }));
 
 // Beat-Zeiten (s)
@@ -75,7 +67,7 @@ export const ShortHook: React.FC = () => {
 
       {/* A · 100 € pro Monat */}
       <Stage a={T.hundert} b={T.depot} style={{marginTop: -120}}>
-        <KineticPunch words={[euro(EXAMPLE.monthlyContribution)]} at={sec(T.hundert)} size={250} colors={[C.gold]} />
+        <KineticPunch words={[euro(EXAMPLE.contributionPerPeriod)]} at={sec(T.hundert)} size={250} colors={[C.gold]} />
         <div style={{fontFamily: FONT.body, fontWeight: 800, fontSize: 60, color: C.white, marginTop: 8}}>pro Monat</div>
         <div style={{marginTop: 46, fontFamily: FONT.body, fontWeight: 700, fontSize: 52,
           color: a(C.white, 0.85), opacity: prog(f, sec(T.pizza), sec(T.pizza + 0.5))}}>
@@ -95,8 +87,8 @@ export const ShortHook: React.FC = () => {
           eingezahlt: {euro(CONTRIBUTIONS)}
         </div>
         <div style={{marginTop: 16, fontFamily: FONT.body, fontWeight: 600, fontSize: 25,
-          color: a(C.gray, 0.66)}}>
-          Beispiel: 7 % p. a., monatliche Einzahlung, vor Kosten und Steuern
+          color: a(C.gray, 0.66), maxWidth: 900, textAlign: 'center'}}>
+          {EXAMPLE.disclosure}
         </div>
       </Stage>
 
