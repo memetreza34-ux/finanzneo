@@ -12,16 +12,23 @@ export const C = {
   bgDeep:   '#06120A',   // tiefer (Vignette)
   bgNeutral:'#0B0F14',   // dunkel-neutral (wenn Grün nicht passt)
   bgLight:  '#F4F7F5',   // heller BG (für seltene Hell-Szenen)
+  surface:  '#11261A',   // Premium-Fläche / radialer Mittelpunkt
+  surfaceStrong: '#112A1B',
+  surfacePositive: '#0E3B27',
 
   // Neutral / Text
   white:    '#FFFFFF',   // ⚪ neutral, clean, Aussagen — Haupt-Textfarbe
+  whiteSoft:'#F4FAF6',
   gray:     '#9DB0A6',   // gedämpfter Text
+  graySoft: '#8FA89A',
   grayDk:   '#5A6B61',
   ink:      '#0A1410',   // dunkler Text auf hellem BG
+  line:     'rgba(255,255,255,0.10)',
 
   // 🟢 Grün — Wachstum, positiv, Lösung (Signatur)
   accent:   '#00D26A',
   accentLt: '#5CFFAD',
+  accentSoft:'#7BFFC0',
   accentDk: '#00803F',
 
   // 🔴 Rot — Verlust, Problem, Gefahr
@@ -52,11 +59,32 @@ export const MEANING = {
   neutral:  C.white,    // Aussage
 } as const;
 
+// Disziplinierte Premium-Palette für ruhige Finanzgrafiken.
+// Diese Alias-Struktur ersetzt die frühere zweite Palette in src/bausteine.
+export const PREMIUM = {
+  ink: C.whiteSoft,
+  muted: C.graySoft,
+  line: C.line,
+  positive: C.accent,
+  positiveLight: C.accentSoft,
+  positiveDeep: C.surfacePositive,
+  money: C.gold,
+  loss: C.negativeLt,
+} as const;
+
 // ─── Format ───────────────────────────────────────────────────────────────────
 export const FORMAT = {
   landscape: { width: 1920, height: 1080 },  // YouTube
   vertical:  { width: 1080, height: 1920 },  // Shorts/TikTok/Reels
   fps: 30,
+} as const;
+
+// ─── Safe Areas für vertikale Reels ─────────────────────────────────────────
+export const SAFE_AREA = {
+  topRatio: 0.18,
+  bottomRatio: 0.22,
+  topPx: Math.round(FORMAT.vertical.height * 0.18),
+  bottomPx: Math.round(FORMAT.vertical.height * 0.22),
 } as const;
 
 // ─── Easing (Spring Physics als Standard) ────────────────────────────────────
