@@ -31,16 +31,19 @@ import {validateReelConfig} from './types';
 
 const CONTENT_HORIZONTAL_PADDING = 72;
 
-const formatTemplateNumber = (beat: NumberBeat): string => {
-  if (beat.format === 'euro') {
-    return `${Math.round(beat.value).toLocaleString('de-DE')} €`;
+const formatTemplateNumber = (
+  value: number,
+  format: NumberBeat['format'],
+): string => {
+  if (format === 'euro') {
+    return `${Math.round(value).toLocaleString('de-DE')} €`;
   }
 
-  if (beat.format === 'percent') {
-    return `${beat.value.toLocaleString('de-DE', {maximumFractionDigits: 2})} %`;
+  if (format === 'percent') {
+    return `${value.toLocaleString('de-DE', {maximumFractionDigits: 2})} %`;
   }
 
-  return beat.value.toLocaleString('de-DE', {maximumFractionDigits: 2});
+  return value.toLocaleString('de-DE', {maximumFractionDigits: 2});
 };
 
 const toneColor = (tone: CompareBeat['left']['tone']): string => {
@@ -225,7 +228,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
             <div style={{marginTop: 26}}>
               <DramaticNumber
                 to={beat.value}
-                format={() => formatTemplateNumber(beat)}
+                format={(value) => formatTemplateNumber(value, beat.format)}
                 fontSize={174}
                 color={C.gold}
                 startAt={10}
@@ -285,7 +288,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
                 border: `1px solid ${a(C.accent, 0.26)}`,
                 fontFamily: FONT.body,
                 fontSize: 37,
-                fontWeight: 750,
+                fontWeight: 700,
                 color: C.white,
                 opacity: appear,
                 transform: `translateY(${(1 - appear) * 24}px)`,
