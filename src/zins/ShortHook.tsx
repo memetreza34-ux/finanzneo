@@ -1,14 +1,15 @@
 // ════════════════════════════════════════════════════════════════════════════
 //  ZINSESZINS · SHORT 1 — HOOK  (9:16 · 1080×1920)
 //  Audio: public/audio/short-01.mp3 (0–34,5s aus Szene 1)  ·  Endcard bis 37s.
-//  Captions wortgenau unten, Key-Moments (100€ / 120.000€ / 1 Effekt) groß mittig.
+//  Captions wortgenau unten, Key-Moments groß mittig.
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
 import {AbsoluteFill, Audio, staticFile, useCurrentFrame} from 'remotion';
 import {
   C, FONT, sec, prog, lerpF, life, a, euro,
   Background, Vignette, Captions, DigitSlots, KineticPunch, Emphasis, Shine,
-} from '../brand';
+  calculateSavingsPlanFutureValue, calculateTotalContributions,
+} from '../design-system';
 import {clipCaptionWords, normalizeCaptionData} from '../lib/captions';
 import capData from '../../public/captions/szene-01-hook.json';
 
@@ -16,6 +17,26 @@ export const SHORT_HOOK_FRAMES = Math.round(37 * 30);
 
 // Unterstützt FinanzNeo v1 sowie die beiden früheren Whisper-Formate.
 const WORDS = clipCaptionWords(normalizeCaptionData(capData), {endAt: 34.5});
+
+// Zentrale Beispielannahmen. Keine frei eingetragenen Endwerte.
+const EXAMPLE = {
+  monthlyContribution: 100,
+  annualReturnRate: 0.07,
+  years: 30,
+} as const;
+
+const FUTURE_VALUE = Math.round(calculateSavingsPlanFutureValue({
+  contributionPerPeriod: EXAMPLE.monthlyContribution,
+  annualReturnRate: EXAMPLE.annualReturnRate,
+  years: EXAMPLE.years,
+  periodsPerYear: 12,
+}));
+
+const CONTRIBUTIONS = Math.round(calculateTotalContributions({
+  contributionPerPeriod: EXAMPLE.monthlyContribution,
+  years: EXAMPLE.years,
+  periodsPerYear: 12,
+}));
 
 // Beat-Zeiten (s)
 const T = {
@@ -52,9 +73,9 @@ export const ShortHook: React.FC = () => {
         KEINE ANLAGEBERATUNG
       </div>
 
-      {/* A · 100€ / Monat + Pizza */}
+      {/* A · 100 € pro Monat */}
       <Stage a={T.hundert} b={T.depot} style={{marginTop: -120}}>
-        <KineticPunch words={['100 €']} at={sec(T.hundert)} size={250} colors={[C.gold]} />
+        <KineticPunch words={[euro(EXAMPLE.monthlyContribution)]} at={sec(T.hundert)} size={250} colors={[C.gold]} />
         <div style={{fontFamily: FONT.body, fontWeight: 800, fontSize: 60, color: C.white, marginTop: 8}}>pro Monat</div>
         <div style={{marginTop: 46, fontFamily: FONT.body, fontWeight: 700, fontSize: 52,
           color: a(C.white, 0.85), opacity: prog(f, sec(T.pizza), sec(T.pizza + 0.5))}}>
@@ -62,16 +83,20 @@ export const ShortHook: React.FC = () => {
         </div>
       </Stage>
 
-      {/* B · 120.000 € Reveal */}
+      {/* B · berechneter Endwert */}
       <Stage a={T.reveal} b={T.negation} style={{marginTop: -140}}>
         <div style={{fontFamily: FONT.body, fontWeight: 800, fontSize: 46, letterSpacing: 2,
-          color: C.accentLt, marginBottom: 18}}>NACH ~30 JAHREN</div>
+          color: C.accentLt, marginBottom: 18}}>NACH {EXAMPLE.years} JAHREN</div>
         <Shine at={sec(T.num)}>
-          <DigitSlots value={`${euro(120000)}`} fontSize={210} color={C.accent} startAt={sec(T.num)} />
+          <DigitSlots value={euro(FUTURE_VALUE)} fontSize={210} color={C.accent} startAt={sec(T.num)} />
         </Shine>
         <div style={{marginTop: 40, fontFamily: FONT.body, fontWeight: 700, fontSize: 44,
           color: a(C.gray, 0.85), opacity: prog(f, sec(T.bruchteil), sec(T.bruchteil + 0.5))}}>
-          eingezahlt: nur ≈ {euro(36000)}
+          eingezahlt: {euro(CONTRIBUTIONS)}
+        </div>
+        <div style={{marginTop: 16, fontFamily: FONT.body, fontWeight: 600, fontSize: 25,
+          color: a(C.gray, 0.66)}}>
+          Beispiel: 7 % p. a., monatliche Einzahlung, vor Kosten und Steuern
         </div>
       </Stage>
 
