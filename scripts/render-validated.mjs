@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {validateManifest} from './validate-assets.mjs';
