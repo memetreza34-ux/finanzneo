@@ -2,6 +2,15 @@
 
 > Verbindliche Regeln stehen in `CLAUDE.md`. Dieses Dokument beschreibt nur den Ablauf.
 
+## Pflichtdokumente für Bildaufgaben
+
+Vor jeder Bildplanung lesen:
+
+- `docs/IMAGE-SYSTEM.md`
+- `docs/BEAT-TO-IMAGE-RULES.md`
+- `docs/IMAGE-PROMPT-LIBRARY.md`
+- `docs/IMAGE-QA-CHECKLIST.md`
+
 ## Schritt 1 — Thema und Recherche
 
 ```text
@@ -46,49 +55,94 @@ Regeln:
 ```text
 Teile das Skript in ungefähr 6 bis 10 visuelle Beats.
 
-Entscheide je Beat:
+Entscheide je Beat nach docs/BEAT-TO-IMAGE-RULES.md:
 - KI-Bild
 - Remotion
 - Kombination
 
-Begründe die Entscheidung kurz.
+Begründe jede Entscheidung.
 Nutze ein KI-Bild nur, wenn eine konkrete räumliche Szene, ein Gegenstand oder eine visuelle Metapher erklärt werden soll.
 Nutze Remotion für Überschriften, Untertitel, Beträge, Zahlen, Quellen, Diagramme und Tabellen.
+
+Gib jeden Beat im verbindlichen Format aus:
+- Sprechtext
+- Hauptaussage
+- Visualtyp
+- Begründung
+- Bildinhalt
+- Remotion-Inhalt
+- benötigte Daten
+- Dauer
+- Übergang
 ```
 
 ## Schritt 4 — Bildprompts
 
 ```text
-Erstelle für alle benötigten KI-Bilder vollständige Prompts nach docs/IMAGE-SYSTEM.md.
+Erstelle für alle benötigten KI-Bilder vollständige Prompts nach:
+- docs/IMAGE-SYSTEM.md
+- docs/IMAGE-PROMPT-LIBRARY.md
 
 Pflicht:
 - Premium-isometrische redaktionelle 3D-Finanzwelt
 - vollständige erklärende Szene statt Einzelobjekt
+- Ausgangspunkt → Entwicklung → Ergebnis
+- 2 bis 4 große Hauptelemente
 - obere 18 % frei
 - untere 22 % frei
 - standardmäßig kein Text
 - höchstens drei kleine deutsche Labels
 - klare Ursache-Wirkungs-Logik
 - Dateiname und Zielordner nennen
+
+Nutze vorhandene Vorlagen aus der Prompt-Bibliothek als Grundlage und passe nur die konkrete Aussage an.
 ```
 
 Arman generiert die Bilder in Google Flow / Nano Banana und legt sie in den genannten Ordner.
 
-## Schritt 5 — Voiceover und Assetprüfung
+## Schritt 5 — Bild-QA
+
+Jedes generierte Bild wird vor der Animation mit `docs/IMAGE-QA-CHECKLIST.md` geprüft.
+
+```text
+Prüfe jedes Bild einzeln mit der FinanzNeo-Bild-QA.
+
+Gib aus:
+Bild-QA: [FREIGEGEBEN / ÜBERARBEITEN / NEU ERSTELLEN]
+Punkte: [X/14]
+
+Bestanden:
+- ...
+
+Fehler:
+- ...
+
+Konkrekte Korrektur:
+- ...
+```
+
+Direkte Freigabe nur bei:
+
+- 13 bis 14 Punkten
+- keiner verletzten Regel unter „Sofort neu erstellen“
+- vollständig freien Safe Areas
+- sofort verständlicher Aussage
+
+## Schritt 6 — Voiceover und Assetprüfung
 
 Arman legt die fertige Voiceover-Datei ab.
 
 Vor dem Bauen müssen vorhanden sein:
 
 - finale Voiceover-Datei
-- alle benötigten Bilder
+- alle benötigten und freigegebenen Bilder
 - validierte Fakten und Zahlen
 - festgelegte Composition-ID
 - Zielplattformen
 
 Wenn ein Pflichtasset fehlt, wird nicht mit Ersatzmaterial begonnen.
 
-## Schritt 6 — Untertitel und Beat-Sync
+## Schritt 7 — Untertitel und Beat-Sync
 
 ```text
 Erzeuge Wort-Timings aus der finalen Voiceover-Datei.
@@ -99,7 +153,7 @@ Zeige zuerst den Beat-für-Beat-Plan.
 
 Untertitel sind bei allen vertikalen Videos Pflicht.
 
-## Schritt 7 — Remotion-Bau
+## Schritt 8 — Remotion-Bau
 
 ```text
 Baue das vertikale Reel in 1080 × 1920 bei 30 fps.
@@ -113,9 +167,10 @@ Prüfe:
 - Bilder nicht als bedeutungslose Tapete
 - klare Übergänge
 - kurzer CTA
+- Bildbewegung unterstützt die Aussage
 ```
 
-## Schritt 8 — QA und Ausgabe
+## Schritt 9 — QA und Ausgabe
 
 Vor dem Vollrender:
 
@@ -124,6 +179,7 @@ Vor dem Vollrender:
 3. Untertitel prüfen
 4. Fakten und Zahlen erneut prüfen
 5. visuelle Hierarchie bewerten
+6. Bild-QA-Ergebnisse kontrollieren
 
 Danach:
 
@@ -144,3 +200,5 @@ Folgende frühere Standards sind aufgehoben:
 - reine Clean-2D-Bilder als alleiniger Hauptstil
 - überfüllte KI-Infografiken mit langen Texten
 - Animation starten, bevor alle Pflichtassets vorhanden sind
+- KI-Bilder ohne begründete Beat-Entscheidung
+- Bildfreigabe nur nach subjektivem Eindruck
