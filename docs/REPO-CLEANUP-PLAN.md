@@ -13,6 +13,10 @@ Status: **abgeschlossen**
 - [x] Safe Areas oben und unten festschreiben
 - [x] Monetarisierungsweg PDF → Leads → Affiliate dokumentieren
 - [x] alte widersprüchliche Anleitungen ersetzen
+- [x] wiederverwendbare Bildprompt-Bibliothek mit acht Finanzthemen anlegen
+- [x] harte Bild-QA-Checkliste mit Punktefreigabe einführen
+- [x] verbindliche Beat-zu-Bild-Entscheidungsregeln dokumentieren
+- [x] Bildsystem in Startanleitung, Produktionsablauf und Master-Prompts verankern
 
 ## Phase 2 — Produktionssicherheit
 
