@@ -1,13 +1,17 @@
 // FinanzNeo Design System — einziger öffentlicher Importpfad für neue Produktion.
 //
 // Beispiel:
-// import {C, FONT, SAFE_AREA, Captions, PremiumCharts} from '../design-system';
+// import {C, FONT, SAFE_AREA, Captions, FinanceBackground, PremiumCharts} from '../design-system';
 
 // Bewährtes Kernsystem: Tokens, Layout, Captions, Charts, Templates und Branding.
 export * from '../brand';
 
 // Reproduzierbare Finanzberechnungen.
 export * from '../finance/calculations';
+
+// Verbindliche Hintergrundauswahl und visuelle Safe-Area-Prüfung.
+export {FinanceBackground, VerticalSafeAreaGuide} from './FinanceBackground';
+export type {FinanceBackgroundVariant} from './FinanceBackground';
 
 // Premium-Erweiterungen bleiben bewusst in Namensräumen.
 // Dadurch entstehen keine Export-Kollisionen zwischen alten und neuen Komponenten.
