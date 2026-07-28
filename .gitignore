@@ -12,11 +12,13 @@ thumbnails/*.mp4
 dist/
 .remotion/
 
-# Meine Audio-Dateien (kommen pro Video von Arman, nicht ins Repo)
+# Voiceover-Dateien bleiben lokal und werden pro Produktion bereitgestellt
 public/audio/*.mp3
 public/audio/*.wav
 public/audio/*.aiff
-public/captions/*.json
+
+# Caption-JSONs werden absichtlich versioniert.
+# Produktive Kompositionen müssen in einem frischen Clone reproduzierbar bleiben.
 
 # System
 .DS_Store
