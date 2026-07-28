@@ -53,7 +53,8 @@ src/
 - [x] `Root.tsx` in Production-, Experiment- und Showcase-Registries aufteilen
 - [x] Regeln für die Zuordnung neuer Compositions dokumentieren
 - [x] automatische Prüfung auf doppelte oder falsch platzierte Composition-IDs ergänzen
-- [ ] Quellkomponenten selbst in `production/`, `experiments/` und `showcases/` verschieben
+- [x] neue Reel-Vorlage unter `src/production/reel-template` einordnen
+- [ ] weitere Quellkomponenten selbst in `production/`, `experiments/` und `showcases/` verschieben
 - [ ] alte Varianten bewerten und schwache Varianten archivieren
 - [ ] verbleibende unklare Dateinamen vereinheitlichen
 
@@ -75,7 +76,8 @@ Status: **in Arbeit**
 - [x] verbindlichen Komponenten-Katalog mit Standard- und Spezialfällen erstellen
 - [x] riskante synthetische Chart-Komponenten im Katalog als ungeeignet für reale Finanzbehauptungen markieren
 - [x] bessere Spezialkomponenten aus `src/bausteine` als empfohlene Namensräume markieren
-- [ ] weitere produktive Dateien schrittweise auf `src/design-system` migrieren
+- [x] neue Reel-Vorlage vollständig auf `src/design-system` aufbauen
+- [ ] weitere produktive Altdateien schrittweise auf `src/design-system` migrieren
 - [ ] alte Varianten bewerten und schwache Varianten archivieren
 - [ ] ungenutzte `@remotion/google-fonts`-Abhängigkeit nach vollständigem Importsuchlauf entfernen
 
@@ -91,12 +93,15 @@ Status: **in Arbeit**
 - [x] Referenzwerte und verbotene Fantasiekurven automatisch validieren
 - [x] ShortHook-Endwert und Einzahlungen an den zentralen Rechner anbinden
 - [x] Hintergrund-Demo von frei eingetragener Zahl auf zentrale Sparplanrechnung umstellen
+- [x] Demo der Reel-Vorlage verwendet nachvollziehbare Notgroschen-Annahmen
 - [ ] weitere JSX-Dateien vollständig auf frei eingetragene Finanzzahlen prüfen
 - [ ] zentrale Rechner für Inflation und Kredit ergänzen
 - [ ] Rechenannahmen als wiederverwendbare strukturierte Datensätze speichern
 - [ ] Datenquelle und Datenstand für echte historische Daten verpflichtend machen
 
 ## Phase 6 — Qualitätsautomatisierung
+
+Status: **in Arbeit**
 
 - [ ] TypeScript `strict` schrittweise aktivieren
 - [x] `typecheck`-Script hinzufügen
@@ -105,28 +110,39 @@ Status: **in Arbeit**
 - [x] Composition-Registry-Validator hinzufügen
 - [x] Design-System-Validator hinzufügen
 - [x] Finanzformel- und Chart-Validator hinzufügen
+- [x] Reel-Vorlagen-Validator hinzufügen
+- [x] Reel-Vorlagen-Validator in `npm run validate` aufnehmen
 - [x] visuelles 18-/22-Prozent-Safe-Area-Prüfraster ergänzen
-- [ ] Render-Smoke-Test für eine vertikale Testkomposition
+- [x] Preview-Renderbefehl für die Reel-Vorlagen-Demo ergänzen
+- [ ] Render-Smoke-Test tatsächlich in einer lokalen Installation ausführen
 - [ ] automatisierte Keyframe-Prüfung ergänzen
 
 ## Phase 7 — Produktionsvorlage
 
-Status: **als Nächstes**
+Status: **Grundsystem abgeschlossen – echte Produktionsfreigabe offen**
 
 Eine standardisierte 60–90-Sekunden-Reel-Vorlage bauen:
 
-- [ ] datengetriebene Beat-Konfiguration
-- [ ] Hook
-- [ ] Problem
-- [ ] Erklärung
-- [ ] Beispiel
-- [ ] Lösung oder Merksatz
-- [ ] CTA
-- [ ] Untertitel
-- [ ] dezenter Rechtshinweis
-- [ ] Bild- und Remotion-Safe-Areas
-- [ ] Quellenblock für Caption/Description
-- [ ] experimentelle Demo-Composition
+- [x] datengetriebene Beat-Konfiguration
+- [x] automatische Prüfung auf 60 bis 90 Sekunden
+- [x] Hook-Beat
+- [x] Problem- und Erklär-Beat
+- [x] Zahlen- und Beispiel-Beat
+- [x] Vergleichs-Beat
+- [x] Checklisten- und Lösungs-Beat
+- [x] KI-Bild-Beat
+- [x] CTA mit Kommentar-Keyword und PDF-Angebot
+- [x] optionale Wortuntertitel
+- [x] optionales Voiceover
+- [x] dezenter Rechtshinweis
+- [x] Bild- und Remotion-Safe-Areas
+- [x] Quellen- und Annahmenhinweis pro Beat
+- [x] 65-Sekunden-Notgroschen-Demo
+- [x] Demo ausschließlich unter Experiments registrieren
+- [x] eigene Dokumentation und zentraler Export
+- [ ] Demo lokal typechecken und als Vorschau rendern
+- [ ] erstes echtes Reel mit finalem Voiceover, Captions und freigegebenen Bildern erstellen
+- [ ] für das erste echte Template-Reel ein Produktionsmanifest anlegen
 
 ## Phase 8 — Serienproduktion
 
