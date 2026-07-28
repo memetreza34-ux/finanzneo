@@ -1,6 +1,6 @@
 {
-  "name": "finanzneo-studio",
-  "version": "1.1.0",
+  "name": "finanzneo-brandkit",
+  "version": "1.0.0",
   "description": "FinanzNeo Remotion-Studio für vertikale Finanz-Erklärvideos",
   "scripts": {
     "studio": "npx remotion studio",
@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@remotion/cli": "^4.0.473",
-    "@remotion/google-fonts": "^4.0.473",
     "@remotion/lottie": "^4.0.473",
     "@remotion/media-utils": "^4.0.473",
     "@remotion/motion-blur": "^4.0.473",
@@ -25,7 +24,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "recharts": "^3.8.1",
-    "remotion": "^4.0.473"
+    "remotion": "^4.0.473",
+    "@remotion/google-fonts": "^4.0.473"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
