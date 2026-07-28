@@ -70,11 +70,13 @@ Status: **in Arbeit**
 - [x] Premium-Bausteine über kollisionsfreie Namensräume exportieren
 - [x] Design-System-Validator gegen neue Farb- und Font-Duplikate ergänzen
 - [x] erste produktive Komposition auf `src/design-system` migrieren
+- [x] Hintergründe auf `standard`, `data` und `premium` als offizielle Varianten reduzieren
+- [x] experimentelle Hintergrundvarianten klar kennzeichnen
+- [x] verbindlichen Komponenten-Katalog mit Standard- und Spezialfällen erstellen
+- [x] riskante synthetische Chart-Komponenten im Katalog als ungeeignet für reale Finanzbehauptungen markieren
+- [x] bessere Spezialkomponenten aus `src/bausteine` als empfohlene Namensräume markieren
 - [ ] weitere produktive Dateien schrittweise auf `src/design-system` migrieren
-- [ ] doppelte Hintergrundvarianten vergleichen und auf wenige Standards reduzieren
-- [ ] pro Funktion nur eine empfohlene Hauptkomponente bestimmen
-- [ ] bessere Spezialkomponenten aus `src/bausteine` als empfohlen markieren
-- [ ] veraltete oder schwache Komponenten archivieren
+- [ ] alte Varianten bewerten und schwache Varianten archivieren
 - [ ] ungenutzte `@remotion/google-fonts`-Abhängigkeit nach vollständigem Importsuchlauf entfernen
 
 ## Phase 5 — Finanzielle Faktensicherheit
@@ -88,6 +90,7 @@ Status: **in Arbeit**
 - [x] scheinbar historische Crash-Daten als schematisches Beispiel kennzeichnen
 - [x] Referenzwerte und verbotene Fantasiekurven automatisch validieren
 - [x] ShortHook-Endwert und Einzahlungen an den zentralen Rechner anbinden
+- [x] Hintergrund-Demo von frei eingetragener Zahl auf zentrale Sparplanrechnung umstellen
 - [ ] weitere JSX-Dateien vollständig auf frei eingetragene Finanzzahlen prüfen
 - [ ] zentrale Rechner für Inflation und Kredit ergänzen
 - [ ] Rechenannahmen als wiederverwendbare strukturierte Datensätze speichern
@@ -102,13 +105,17 @@ Status: **in Arbeit**
 - [x] Composition-Registry-Validator hinzufügen
 - [x] Design-System-Validator hinzufügen
 - [x] Finanzformel- und Chart-Validator hinzufügen
+- [x] visuelles 18-/22-Prozent-Safe-Area-Prüfraster ergänzen
 - [ ] Render-Smoke-Test für eine vertikale Testkomposition
-- [ ] Safe-Area-Test oder visuelle Prüfraster ergänzen
+- [ ] automatisierte Keyframe-Prüfung ergänzen
 
 ## Phase 7 — Produktionsvorlage
 
+Status: **als Nächstes**
+
 Eine standardisierte 60–90-Sekunden-Reel-Vorlage bauen:
 
+- [ ] datengetriebene Beat-Konfiguration
 - [ ] Hook
 - [ ] Problem
 - [ ] Erklärung
@@ -119,6 +126,7 @@ Eine standardisierte 60–90-Sekunden-Reel-Vorlage bauen:
 - [ ] dezenter Rechtshinweis
 - [ ] Bild- und Remotion-Safe-Areas
 - [ ] Quellenblock für Caption/Description
+- [ ] experimentelle Demo-Composition
 
 ## Phase 8 — Serienproduktion
 
