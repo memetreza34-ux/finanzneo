@@ -11,6 +11,10 @@ import {V1Clean, V2Glass, V3Editorial, V4Neon, V5Gradient, V6Duotone} from '../V
 import {CleanReel, CLEAN_REEL_FRAMES} from '../CleanReel';
 import {RealDataDemo, REAL_DATA_FRAMES} from '../RealDataDemo';
 import {LottieTest} from '../LottieTest';
+import {
+  ReelTemplateDemo,
+  REEL_TEMPLATE_DEMO_FRAMES,
+} from '../production/reel-template';
 import {FORMAT} from '../brand/tokens';
 
 const FPS = 30;
@@ -23,6 +27,8 @@ const WIDE = {width: 1920, height: 1080} as const;
  */
 export const ExperimentCompositions: React.FC = () => (
   <>
+    <Composition id="ReelTemplateDemo" component={ReelTemplateDemo} durationInFrames={REEL_TEMPLATE_DEMO_FRAMES} fps={FPS} {...VERTICAL} />
+
     <Composition id="MockTest" component={MockTest} durationInFrames={90} fps={FPS} {...WIDE} />
     <Composition id="MockMindmap" component={MockMindmap} durationInFrames={150} fps={FPS} {...WIDE} />
     <Composition id="PassivTest" component={PassivTest} durationInFrames={360} fps={FPS} {...VERTICAL} />
