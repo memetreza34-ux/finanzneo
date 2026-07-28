@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
 import {Background, Vignette} from '../brand/components/Background';
+import {FONT} from '../brand/fonts';
 import {C, SAFE_AREA} from '../brand/tokens';
 import {FNBgAurora, FNBgGrid} from '../bausteine/fn_backgrounds';
 
@@ -52,7 +53,7 @@ export const VerticalSafeAreaGuide: React.FC<{
           bottom: 12,
           left: 24,
           color: C.negativeLt,
-          fontFamily: 'Inter',
+          fontFamily: FONT.body,
           fontSize: 24,
           fontWeight: 800,
           letterSpacing: 1,
@@ -73,7 +74,7 @@ export const VerticalSafeAreaGuide: React.FC<{
           top: 12,
           left: 24,
           color: C.negativeLt,
-          fontFamily: 'Inter',
+          fontFamily: FONT.body,
           fontSize: 24,
           fontWeight: 800,
           letterSpacing: 1,
