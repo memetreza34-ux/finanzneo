@@ -1,110 +1,146 @@
-# FinanzNeo — Step-by-Step Prompts (zum Einfügen)
+# FinanzNeo — aktueller Produktionsablauf
 
-> So nutzt du dein System. Starte immer mit:
-> `cd ~/claude-code-video-toolkit/finanzneo && claude`
-> Dann kennt der Chat automatisch dein Gehirn (Marke, Bausteine, Regeln).
-> Fülle bei jedem Prompt die **[ECKIGEN KLAMMERN]** aus und füge ihn ein.
-> Nach jedem Schritt: Claude zeigt Plan/Ergebnis → du sagst JA → weiter.
+> Verbindliche Regeln stehen in `CLAUDE.md`. Dieses Dokument beschreibt nur den Ablauf.
 
----
+## Schritt 1 — Thema und Recherche
 
-## ⚡ AKTUELLE PFLICHT-REGELN (Stand Juni 2026 — gelten immer)
-1. ⚖️ **Hook zuerst** (Retention!). **Haftungsausschluss ans ENDE** des Hauptvideos (~10s, nicht
-   gesprochen): `<Disclaimer durationInSeconds={10}/>` aus `./brand` + immer in die Beschreibung.
-   Shorts: kein Intro-Disclaimer, nur kleiner Text + Beschreibung.
-2. 🚫 **Claude erstellt NIE Audio** (kein TTS/say). Stimme kommt immer von dir als Datei →
-   `public/audio/<name>.mp3`. Claude macht nur Whisper-Wort-Timing + Sync.
-3. 🎬 **Standard-Look = Clean-Bold** (`Signature.tsx`/`CleanReel.tsx`). **Kein 3D, kein Manim** (verworfen).
-4. 📈 **Echte Daten** statt erfundener Zahlen: `node scripts/fetch-data.mjs` (Yahoo/CoinGecko/
-   ExchangeRate, gratis) → `public/data/*.json` → in Charts. Immer Quelle + Datum zeigen.
-5. ✨ **Motion-Blur** (`<CameraBlur>`) bei schnellen Bewegungen. **Spacing wahren — nie quetschen.**
-6. 🔍 Claude kann **selbst recherchieren + Script schreiben** (Web + Daten) — kein fremdes Video nötig.
-7. 🎰 **Geld-Zahlen-Reveals:** für große Beträge die neuen ROLLERS nutzen (`DigitSlots`,
-   `DramaticNumber`, `SplitFlap` …) statt nur RollingNumber — mehr Spannung, mehr Abwechslung.
+```text
+Thema: [THEMA]
 
----
+Recherchiere die notwendigen Fakten für ein deutsches FinanzNeo-Reel von 60 bis 90 Sekunden.
+Nutze nachvollziehbare Quellen, nenne den Datenstand und trenne Fakten von Beispielannahmen.
+Erfinde keine Zahlen.
 
-## 🎬 DER ABLAUF (Überblick)
-
-```
-1 Video finden + analysieren   → Claude (OpenMontage)
-2 Script schreiben             → Claude
-3 Bilder planen                → Claude  (du generierst sie dann in Flow/Nano Banana)
-   ↳ Audio                     → DU (Google Vids, echte Stimme) → in szene-X/audio/
-   ↳ Bilder                    → DU (Flow/Nano Banana)          → in szene-X/bilder/
-4 Animationen bauen            → Claude (Remotion-Baukasten)  ← Hauptschritt
-5 Zusammenfügen + Audio        → Claude → final/
-6 Thumbnail + YouTube-Text     → Claude
-7 Shorts                       → Claude → shorts/
+Gib danach aus:
+- Kernaussage
+- Zielgruppe und Lernziel
+- geprüfte Fakten
+- Quellen
+- mögliche Risiken oder Missverständnisse
 ```
 
----
+## Schritt 2 — Skript
 
-## SCHRITT 1 — Video analysieren + Ordner anlegen
-```
-Neues FinanzNeo-Video. Referenz-Video: [YOUTUBE-LINK]
-Thema: [THEMA]   Videoname: [VIDEONAME]
+```text
+Schreibe ein FinanzNeo-Skript von 60 bis 90 Sekunden.
 
-Lade das Video mit yt-dlp, extrahier alle 2s einen Frame, schau sie dir an.
-Analysiere: Struktur (Szenen+Dauer), Hook, Pacing, Stil, Schwächen.
-Nur STIL & STRUKTUR übernehmen — Inhalt wird komplett eigen (rechtlich!).
-Lege dann ~/Videos/Finanz-Kanal/[VIDEONAME]/ an, mit szene-N-[name]/{audio,bilder}/ + final/ + shorts/.
-Zeig mir die Analyse + Ordnerstruktur. Dann warte auf mich.
-```
+Struktur:
+1. Hook innerhalb der ersten 2 Sekunden
+2. Problem
+3. einfache Erklärung
+4. konkretes Beispiel
+5. Lösung oder Merksatz
+6. kurzer CTA zu einer passenden kostenlosen PDF
 
-## SCHRITT 2 — Script schreiben
-```
-Schreib das komplette Script (~12 Min) basierend auf der Analyse.
-Regeln (Gehirn): kurze Sätze, immer "du", konkrete Zahlen, jeder Satz visualisierbar,
-keine Füllwörter, "..." für Pausen, Spannungsbogen Problem→Lösung→CTA.
-Format: Szene für Szene, NUR Sprechtext. Zeig mir alle Szenen. Dann warte.
-```
-
-## SCHRITT 3 — Bilder planen
-```
-Plane pro Szene: braucht sie ein Bild? (Option A klein / B groß / keins)
-Denk an die Regel: großes Bild NUR wenn die Stimme über genau dieses Bild redet,
-sonst Motion-Graphics aus dem Baukasten. Bild-Stil: futuristisch, dunkel, grüner Glow, kein Text.
-Gib mir die fertige Bilder-Liste mit Beschreibungen — die generiere ich in Flow/Nano Banana.
-```
-> ⏸️ **Jetzt machst DU:** Audio in Google Vids aufnehmen → in `szene-N/audio/` ·
-> Bilder generieren → in `szene-N/bilder/`. Dann Schritt 4.
-
-## SCHRITT 4 — Animationen bauen  (Hauptschritt)
-```
-Bau die Animationen mit dem FinanzNeo-Baukasten. Audio + Bilder liegen in den Ordnern.
-Pro Szene: Audio mit Whisper wortgenau transkribieren → Beat-für-Beat-Plan zeigen →
-mein JA abwarten → bauen → Stills SELBST prüfen → min. 9/10.
-Nutze Szenen-Vorlagen + Bausteine, abwechslungsreiche Übergänge (nie 2× gleich),
-Farben nach Bedeutung, Bilder nie als Deko-Tapete. Format: [16:9 fürs Hauptvideo].
-Fang mit Szene 1 an: erst Plan, dann warte.
+Regeln:
+- immer „du“
+- kurze Sätze
+- kein unnötiger Fachjargon
+- jeder Satz muss visualisierbar sein
+- keine Wiederholungen
+- keine individuelle Anlageempfehlung
 ```
 
-## SCHRITT 5 — Zusammenfügen + Audio
-```
-Füge alle Szenen in Reihenfolge zu EINEM Video zusammen, Original-Audio durchgehend,
-smoothe Übergänge zwischen Szenen. Finale QA (Gehirn Schritt 4): synchron? nichts hängt?
-Übergänge smooth? konsistent? Bewerte 1-10, unter 9 → fixen. Output: final/[VIDEONAME]-final.mp4
+## Schritt 3 — Visuelle Beat-Liste
+
+```text
+Teile das Skript in ungefähr 6 bis 10 visuelle Beats.
+
+Entscheide je Beat:
+- KI-Bild
+- Remotion
+- Kombination
+
+Begründe die Entscheidung kurz.
+Nutze ein KI-Bild nur, wenn eine konkrete räumliche Szene, ein Gegenstand oder eine visuelle Metapher erklärt werden soll.
+Nutze Remotion für Überschriften, Untertitel, Beträge, Zahlen, Quellen, Diagramme und Tabellen.
 ```
 
-## SCHRITT 6 — Thumbnail + YouTube
-```
-Erstelle: (1) Thumbnail 1280×720 in Brand (fette Zahl + Hook + Wachstum),
-(2) 5 Titel-Optionen + Empfehlung, (3) YouTube-Beschreibung mit Kapiteln + CTA,
-(4) Tags (5 Haupt + 10 Neben + 5 Long-Tail, deutsch).
+## Schritt 4 — Bildprompts
+
+```text
+Erstelle für alle benötigten KI-Bilder vollständige Prompts nach docs/IMAGE-SYSTEM.md.
+
+Pflicht:
+- Premium-isometrische redaktionelle 3D-Finanzwelt
+- vollständige erklärende Szene statt Einzelobjekt
+- obere 18 % frei
+- untere 22 % frei
+- standardmäßig kein Text
+- höchstens drei kleine deutsche Labels
+- klare Ursache-Wirkungs-Logik
+- Dateiname und Zielordner nennen
 ```
 
-## SCHRITT 7 — Shorts
-```
-Finde die 3 stärksten Momente fürs virale Potenzial. Baue pro Short:
-1080×1920, 60-75s, starker Hook in 2s.
-Pro Short: short-N.mp4 + short-N-info.txt (Timestamp, Titel, Caption, 5 Hashtags, Warum-viral).
-Output: shorts/
+Arman generiert die Bilder in Google Flow / Nano Banana und legt sie in den genannten Ordner.
+
+## Schritt 5 — Voiceover und Assetprüfung
+
+Arman legt die fertige Voiceover-Datei ab.
+
+Vor dem Bauen müssen vorhanden sein:
+
+- finale Voiceover-Datei
+- alle benötigten Bilder
+- validierte Fakten und Zahlen
+- festgelegte Composition-ID
+- Zielplattformen
+
+Wenn ein Pflichtasset fehlt, wird nicht mit Ersatzmaterial begonnen.
+
+## Schritt 6 — Untertitel und Beat-Sync
+
+```text
+Erzeuge Wort-Timings aus der finalen Voiceover-Datei.
+Verwende das einheitliche Caption-Format des Projekts.
+Plane jede Animation passend zum gesprochenen Wort.
+Zeige zuerst den Beat-für-Beat-Plan.
 ```
 
----
+Untertitel sind bei allen vertikalen Videos Pflicht.
 
-## 💡 Spar-Tipps
-- **Modell:** Opus 4.8 · **High** für die meiste Arbeit. Max nur bei harten Problemen, Sonnet für Kleinkram.
-- **Neuer großer Schritt = neuer Chat** (frischer Kontext-Speicher) — das Gehirn lädt eh automatisch.
-- Bei „zu langweilig/billig/unpassend" → sag's sofort, Claude ändert vor dem Voll-Render.
+## Schritt 7 — Remotion-Bau
+
+```text
+Baue das vertikale Reel in 1080 × 1920 bei 30 fps.
+
+Prüfe:
+- Hook sofort sichtbar
+- Bild-Safe-Areas frei
+- Untertitel nicht über wichtigen Objekten
+- keine überfüllten Szenen
+- Zahlen und Diagramme korrekt
+- Bilder nicht als bedeutungslose Tapete
+- klare Übergänge
+- kurzer CTA
+```
+
+## Schritt 8 — QA und Ausgabe
+
+Vor dem Vollrender:
+
+1. Keyframes rendern
+2. Safe Areas prüfen
+3. Untertitel prüfen
+4. Fakten und Zahlen erneut prüfen
+5. visuelle Hierarchie bewerten
+
+Danach:
+
+- finales 9:16-Video
+- Plattform-Caption
+- Quellen und Datenstand
+- kurzer Hinweis „Keine Anlageberatung“
+- PDF-CTA
+- genau passende Hashtags
+
+## Nicht mehr gültig
+
+Folgende frühere Standards sind aufgehoben:
+
+- Longform als primäres Produktionsformat
+- zehnsekündiger Disclaimer vor der Hook
+- Shorts ohne Untertitel
+- reine Clean-2D-Bilder als alleiniger Hauptstil
+- überfüllte KI-Infografiken mit langen Texten
+- Animation starten, bevor alle Pflichtassets vorhanden sind
