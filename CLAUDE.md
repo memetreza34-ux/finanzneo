@@ -125,7 +125,15 @@ Beispiele:
 - keine kleinen Panels nur zur Dekoration
 - Verständlichkeit ist wichtiger als Informationsmenge
 
-Die vollständige Vorlage steht in `docs/IMAGE-SYSTEM.md`.
+### Verbindliche Bilddokumente
+
+- `docs/IMAGE-SYSTEM.md` — Stil und Grundregeln
+- `docs/BEAT-TO-IMAGE-RULES.md` — Entscheidung zwischen KI-Bild, Remotion und Kombination
+- `docs/IMAGE-PROMPT-LIBRARY.md` — wiederverwendbare Prompts für typische Finanzthemen
+- `docs/IMAGE-QA-CHECKLIST.md` — Freigabe oder Neuerstellung jedes generierten Bildes
+
+Kein KI-Bild wird geplant, ohne den Visualtyp nach `docs/BEAT-TO-IMAGE-RULES.md` zu begründen.
+Kein KI-Bild wird verwendet, ohne die Bild-QA bestanden zu haben.
 
 ## 6. Aufgabenverteilung Bild und Remotion
 
@@ -155,6 +163,7 @@ Remotion übernimmt:
 - CTA
 
 Bilder dürfen nie nur als bedeutungslose Hintergrundtapete dienen.
+Als Richtwert werden in einem 60- bis 90-Sekunden-Reel ungefähr 2 bis 5 KI-Bilder verwendet; die übrigen Beats bestehen aus Remotion oder Kombinationen.
 
 ## 7. Finanzdaten und Faktenprüfung
 
@@ -167,6 +176,7 @@ Bilder dürfen nie nur als bedeutungslose Hintergrundtapete dienen.
 - bei aktuellen Fakten zuerst recherchieren
 - Diagramme dürfen nur validierte Daten verwenden
 - Demo-Komponenten mit Platzhalterzahlen dürfen nicht ungeprüft veröffentlicht werden
+- Geldbeträge werden in Euro dargestellt, sofern das konkrete Thema keine andere Währung verlangt
 
 ## 8. Produktionsablauf
 
@@ -175,17 +185,18 @@ Bilder dürfen nie nur als bedeutungslose Hintergrundtapete dienen.
 3. Skript schreiben
 4. Zahlen und Aussagen prüfen
 5. visuelle Beats planen
-6. pro Beat entscheiden: Bild, Remotion oder Kombination
-7. Bildprompts erstellen
+6. pro Beat nach `docs/BEAT-TO-IMAGE-RULES.md` entscheiden: Bild, Remotion oder Kombination
+7. Bildprompts mit `docs/IMAGE-PROMPT-LIBRARY.md` erstellen
 8. Arman generiert die Bilder in Google Flow / Nano Banana und legt sie im Zielordner ab
-9. Arman legt die fertige Voiceover-Datei ab
-10. erst starten, wenn alle benötigten Assets vorhanden sind
-11. Wort-Timings und Untertitel erzeugen
-12. Remotion-Szenen bauen
-13. Keyframes und Safe Areas prüfen
-14. vollständigen Render prüfen
-15. Caption, Quellen, CTA und PDF-Angebot erstellen
-16. für alle Plattformen ausgeben
+9. jedes Bild mit `docs/IMAGE-QA-CHECKLIST.md` prüfen
+10. Arman legt die fertige Voiceover-Datei ab
+11. erst starten, wenn alle benötigten Assets vorhanden sind
+12. Wort-Timings und Untertitel erzeugen
+13. Remotion-Szenen bauen
+14. Keyframes und Safe Areas prüfen
+15. vollständigen Render prüfen
+16. Caption, Quellen, CTA und PDF-Angebot erstellen
+17. für alle Plattformen ausgeben
 
 Claude erstellt keine Ersatz-Audiodatei, wenn die Voiceover-Datei fehlt.
 
@@ -196,6 +207,8 @@ Vor Veröffentlichung prüfen:
 - Hook in den ersten 2 Sekunden klar?
 - Thema sofort verständlich?
 - Bild und gesprochener Satz passen exakt zusammen?
+- jedes verwendete Bild hat mindestens 13 von 14 QA-Punkten?
+- keine Regel unter „Sofort neu erstellen“ verletzt?
 - oben 18 % frei?
 - unten 22 % frei?
 - keine unnötigen Texte im Bild?
