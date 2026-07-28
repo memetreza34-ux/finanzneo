@@ -36,6 +36,8 @@ Status: **in Arbeit**
 
 ## Phase 3 — Repo-Struktur
 
+Status: **in Arbeit**
+
 Zielstruktur:
 
 ```text
@@ -47,10 +49,13 @@ src/
 └── root/
 ```
 
-- [ ] produktive Reels von Demos und Stiltests trennen
-- [ ] `Root.tsx` in Production-, Experiment- und Showcase-Registries aufteilen
-- [ ] alte Varianten archivieren
-- [ ] eindeutige Dateinamen und Composition-IDs verwenden
+- [x] produktive Registrierungen von Demos und Stiltests trennen
+- [x] `Root.tsx` in Production-, Experiment- und Showcase-Registries aufteilen
+- [x] Regeln für die Zuordnung neuer Compositions dokumentieren
+- [x] automatische Prüfung auf doppelte oder falsch platzierte Composition-IDs ergänzen
+- [ ] Quellkomponenten selbst in `production/`, `experiments/` und `showcases/` verschieben
+- [ ] alte Varianten bewerten und schwache Varianten archivieren
+- [ ] verbleibende unklare Dateinamen vereinheitlichen
 
 ## Phase 4 — Baukästen konsolidieren
 
@@ -76,6 +81,7 @@ src/
 - [x] `typecheck`-Script hinzufügen
 - [ ] Linting ergänzen
 - [x] Asset-Validator hinzufügen
+- [x] Composition-Registry-Validator hinzufügen
 - [ ] Daten-Validator hinzufügen
 - [ ] Render-Smoke-Test für eine vertikale Testkomposition
 - [ ] Safe-Area-Test oder visuelle Prüfraster ergänzen
