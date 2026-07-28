@@ -1,13 +1,16 @@
 import React from 'react';
+import {
+  FINANCE_EXAMPLES,
+  getEmergencyFundTarget,
+} from '../../design-system';
 import {ReelTemplate} from './ReelTemplate';
 import {
   getReelDurationInFrames,
   type ReelConfig,
 } from './types';
 
-const MONTHLY_NECESSARY_EXPENSES = 1500;
-const TARGET_MONTHS = 3;
-const EMERGENCY_FUND_TARGET = MONTHLY_NECESSARY_EXPENSES * TARGET_MONTHS;
+const EMERGENCY_EXAMPLE = FINANCE_EXAMPLES.emergencyFund;
+const EMERGENCY_FUND_TARGET = getEmergencyFundTarget();
 
 export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
   id: 'notgroschen-demo',
@@ -47,12 +50,12 @@ export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
       background: 'data',
       kicker: 'BEISPIEL',
       headline: 'WIE HOCH SOLLTE DER PUFFER SEIN?',
-      label: `${TARGET_MONTHS} notwendige Monatsausgaben`,
+      label: `${EMERGENCY_EXAMPLE.targetMonths} notwendige Monatsausgaben`,
       value: EMERGENCY_FUND_TARGET,
       format: 'euro',
       detail: 'Das ist kein Pflichtwert, sondern ein verständlicher Startpunkt.',
-      assumptions: `${MONTHLY_NECESSARY_EXPENSES.toLocaleString('de-DE')} € notwendige Ausgaben × ${TARGET_MONTHS} Monate`,
-      sourceNote: 'Persönliche Situation, Arbeitsplatzsicherheit und Versicherungen können den sinnvollen Betrag verändern.',
+      assumptions: `${EMERGENCY_EXAMPLE.monthlyNecessaryExpenses.toLocaleString('de-DE')} € notwendige Ausgaben × ${EMERGENCY_EXAMPLE.targetMonths} Monate`,
+      sourceNote: EMERGENCY_EXAMPLE.disclosure,
     },
     {
       id: 'comparison',
