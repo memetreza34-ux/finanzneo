@@ -1,6 +1,7 @@
 // FinanzNeo PREMIUM-CHART-Fundament — echte beschriftete Achsen (X & Y), Gitternetz,
 // großzügige Abstände, Legende. Alle Kurven bauen darauf auf.
-import {useCurrentFrame, interpolate} from 'remotion';
+import {useCurrentFrame} from 'remotion';
+import {calculateSavingsPlanSeries} from '../finance/calculations';
 import {bebas, inter, P} from './fn_core';
 
 const c01 = (t: number) => Math.max(0, Math.min(1, t));
@@ -61,34 +62,82 @@ export const PremiumChart: React.FC<{
   </div>;
 };
 
-// ---- Konkrete Premium-Charts ----
-const expSeries = (max: number, k = 2.6) => new Array(31).fill(0).map((_, i) => {const x = i / 30; return (Math.exp(k * x) - 1) / (Math.exp(k) - 1) * max;});
-const linSeries = (max: number) => new Array(31).fill(0).map((_, i) => (i / 30) * max);
+// ---- Konkrete Premium-Charts mit nachvollziehbaren Beispielannahmen ----
+const monthly100At7For30Years = calculateSavingsPlanSeries({
+  contributionPerPeriod: 100,
+  annualReturnRate: 0.07,
+  years: 30,
+}).map((point) => point.value);
+
+const monthly100At1Point2For30Years = calculateSavingsPlanSeries({
+  contributionPerPeriod: 100,
+  annualReturnRate: 0.012,
+  years: 30,
+}).map((point) => point.value);
+
+const monthly100At7For40Years = calculateSavingsPlanSeries({
+  contributionPerPeriod: 100,
+  annualReturnRate: 0.07,
+  years: 40,
+}).map((point) => point.value);
+
+const euroThousands = (value: number) => value === 0 ? '0' : `${Math.round(value / 1000)} Tsd.`;
 
 export const FNLineChartPro: React.FC = () => (
-  <PremiumChart title="So wächst dein Vermögen" caption="100 € pro Monat, 7 % Rendite — der Zinseszins zieht spät steil an."
-    xTitle="Jahre" yTitle="Wert (€)" xLabels={['0', '5', '10', '15', '20', '25', '30']}
-    yMax={250000} yTicks={[0, 50000, 100000, 150000, 200000, 250000]} yFmt={(n) => `${n / 1000}k`}
-    series={[{label: 'Vermögen', color: P.green, data: expSeries(248000), area: true}]} />
+  <PremiumChart
+    title="So wächst ein Sparplan"
+    caption="Beispielrechnung: 100 € monatlich, 7 % p. a., 30 Jahre, Einzahlung am Monatsende — ohne Kosten, Steuern und Inflation."
+    xTitle="Jahre"
+    yTitle="Wert (€)"
+    xLabels={['0', '5', '10', '15', '20', '25', '30']}
+    yMax={125000}
+    yTicks={[0, 25000, 50000, 75000, 100000, 125000]}
+    yFmt={euroThousands}
+    series={[{label: 'Beispiel-Sparplan', color: P.green, data: monthly100At7For30Years, area: true}]}
+  />
 );
 
 export const FNDualLinePro: React.FC = () => (
-  <PremiumChart title="Sparen vs. Investieren" caption="Gleicher Einsatz über 30 Jahre — die Schere geht immer weiter auf."
-    xTitle="Jahre" yTitle="Wert (€)" xLabels={['0', '5', '10', '15', '20', '25', '30']}
-    yMax={250000} yTicks={[0, 50000, 100000, 150000, 200000, 250000]} yFmt={(n) => `${n / 1000}k`}
-    series={[{label: 'Sparbuch', color: P.muted, data: linSeries(44000), dash: true}, {label: 'ETF (Welt)', color: P.green, data: expSeries(248000), area: true}]} />
+  <PremiumChart
+    title="Zwei Rendite-Annahmen"
+    caption="Beispielrechnung: jeweils 100 € monatlich über 30 Jahre; 1,2 % p. a. gegenüber 7 % p. a. — keine Renditegarantie."
+    xTitle="Jahre"
+    yTitle="Wert (€)"
+    xLabels={['0', '5', '10', '15', '20', '25', '30']}
+    yMax={125000}
+    yTicks={[0, 25000, 50000, 75000, 100000, 125000]}
+    yFmt={euroThousands}
+    series={[
+      {label: '1,2 % p. a.', color: P.muted, data: monthly100At1Point2For30Years, dash: true},
+      {label: '7 % p. a.', color: P.green, data: monthly100At7For30Years, area: true},
+    ]}
+  />
 );
 
 export const FNCompoundPro: React.FC = () => (
-  <PremiumChart title="Die Macht des Zinseszins" caption="Erst flach, dann exponentiell — Zeit ist der wichtigste Faktor."
-    xTitle="Jahre" yTitle="Kapital (€)" xLabels={['0', '10', '20', '30', '40']}
-    yMax={400000} yTicks={[0, 100000, 200000, 300000, 400000]} yFmt={(n) => `${n / 1000}k`}
-    series={[{label: 'Kapital', color: P.gold, data: new Array(41).fill(0).map((_, i) => {const x = i / 40; return (Math.exp(3 * x) - 1) / (Math.exp(3) - 1) * 380000;}), area: true}]} />
+  <PremiumChart
+    title="Zeit verändert das Ergebnis"
+    caption="Beispielrechnung: 100 € monatlich, 7 % p. a., 40 Jahre, Einzahlung am Monatsende — ohne Kosten, Steuern und Inflation."
+    xTitle="Jahre"
+    yTitle="Wert (€)"
+    xLabels={['0', '10', '20', '30', '40']}
+    yMax={275000}
+    yTicks={[0, 50000, 100000, 150000, 200000, 250000]}
+    yFmt={euroThousands}
+    series={[{label: 'Beispiel-Sparplan', color: P.gold, data: monthly100At7For40Years, area: true}]}
+  />
 );
 
 export const FNDrawdownPro: React.FC = () => (
-  <PremiumChart title="Crash & Erholung" caption="Märkte fallen — und erreichen danach neue Höchststände. Dranbleiben zahlt sich aus."
-    xTitle="Jahre" yTitle="Index" xLabels={['2018', '2020', '2022', '2024', '2026']}
-    yMax={200} yTicks={[0, 50, 100, 150, 200]} yFmt={(n) => `${n}`}
-    series={[{label: 'Weltindex', color: P.green, data: [80, 95, 110, 70, 88, 120, 150, 175, 200].map((v) => v), area: true}]} />
+  <PremiumChart
+    title="Schematischer Crash-Verlauf"
+    caption="Illustratives Beispiel — keine historischen Marktdaten und keine Prognose für zukünftige Entwicklungen."
+    xTitle="Phasen"
+    yTitle="Beispielindex"
+    xLabels={['Start', 'Anstieg', 'Crash', 'Erholung', 'Neues Hoch']}
+    yMax={150}
+    yTicks={[0, 30, 60, 90, 120, 150]}
+    yFmt={(n) => `${n}`}
+    series={[{label: 'Beispielindex', color: P.green, data: [100, 110, 95, 70, 82, 96, 108, 120, 135], area: true}]}
+  />
 );
