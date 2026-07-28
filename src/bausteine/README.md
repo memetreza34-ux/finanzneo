@@ -1,48 +1,79 @@
-# FinanzNeo Remotion-Kit (Premium-Look)
+# FinanzNeo Premium-Bausteine — Kompatibilitätsschicht
 
-Der PREMIUM-Weg für FinanzNeo (CSS/WebGL: Blur, Glow, Gradient, Glassmorphism, Spring) — Manim kann das nicht.
-Marke: BG #0A1A0F, green #00D26A, gold #FFC83D, Fonts Bebas Neue + Inter.
+> Neue produktive Reels importieren nicht direkt aus diesem Ordner.
+> Verwende `src/design-system/index.ts`.
 
-## Dateien
-- `fn_core.tsx` — Marke (C), Fonts, AuroraBG (driftende Blur-Blobs+Conic+Grain+Vignette), Glass (Glassmorphism)
-- `fn_kit.tsx` — Basis-Bausteine: FNTitle, FNBigNumber, FNStatCard, FNCompareBars, FNGrowthCurve, FNDonut, FNHook, FNTicker, FNEndCard
-- `fn_premium.tsx` — KOMPLEX/finanz-spezifisch: FNPortfolioGlobe (3D-Globe), FNWealthOrbit (Anlageklassen umkreisen),
-  FNMoneyMorph (Partikel Chaos→Balken), FNWealthTower (iso 3D-Stapel), FNCompoundLoop (Zinseszins-Kreislauf+Puls),
-  FNInflationErode (Wert zerbröselt), FNRiskReturn (Risiko/Rendite-Quadrant), FNCashflowSplit (Einkommen→Töpfe, fließende Partikel)
-- `fn_text.tsx` — aus KI-Kit portiert (FN-Marke): FNShimmer, FNType, FNWordReveal, FNHighlight, FNKineticParagraph
-- `fn_charts.tsx` — FNHBars, FNProgressRing, FNGauge, FNKPIGrid, FNSparkline, FNStackedBar, FNRanking, FNAreaChart
-- `fn_diagrams.tsx` — FNProcess, FNTimeline, FNPipeline, FNChecklist, FNCallout, FNVS
-- `fn_effects.tsx` — FNCheckmark, FNConfetti, FNRingPulse, FNFlashWord, FNMoneyCounter, FNCoinBurst
-- `fn_hooks.tsx` — FNStopScroll, FNFactHook, FNWarning, FNQuestion, FNHotTake
-- `fn_complex.tsx` — FNConceptMorph, FNDataStory, FNCard3DStack, FNExponential, FNParticleMorph, FNCompareStory
-- **`StaticBG`** (in fn_core) — einfacher RUHIGER Hintergrund OHNE Animation (Armans Wunsch); für neue Showcases nutzen
-- `fn_premium2.tsx` — RICHTIG PREMIUM: FNShineCard (Border-Beam+Sweep), FNCandles (Candlestick), FNGoldBars,
-  FNNeonNumber, FNWealthMountain, FNPortfolioRings, FNBeamStat, FNMarketHeat. Showcase: FNPremium2Showcase.
-- `fn_scenes.tsx` — VOLL-SZENEN (Split-Layout Visual+Text, ganze Fläche): FNCompoundScene, FNInflationScene,
-  FNCompareScene, FNPortfolioScene, FNMarketScene. Helfer `Split` + `TextPanel` (Kicker/Title/Punkte/Stat) →
-  neue Szenen einfach: `<Split left={<Visual/>} right={<TextPanel .../>} flip?/>`. Showcase: FNScenesShowcase.
-- `fn_pro.tsx` — PRO: strenge Palette `P` (Grün+Gold+Neutral, KEIN Buntmix), dezenter Glow, viel Luft.
-  FNHeroNumber, FNBarsClean, FNLineClean, FNStatTriptych, FNDonutClean, FNCompareClean, FNQuoteClean. Showcase: FNProShowcase.
-- `fn_concepts.tsx` — KONZEPTE (komplex→einfach, Titel+Visual+Caption): FNSnowball (Zinseszins), FNCostAverage (Sparplan),
-  FNDiversification, FNRiskReturn, FNDrawdown, FNNetWorth, FNFourPercent (4%-Regel), FNEmergencyFund. Showcase: FNConceptsShowcase.
-- `fn_choreo.tsx` — CHOREO-Reel-Vorlage (Series-Beats, synchron): FNSparbuchVsETF.
-- `fn_transitions.tsx` (8) — WipeIn/CircleReveal/SlideOver/ZoomBlur/BarsWipe/FadeThrough/PixelDissolve/BlurIn
-- `fn_decor.tsx` (12) — Deko: WaveDivider/Marquee/GradientBar/DotsPattern/Spinner/TickerTape +
-  Betonung: ArrowPointer/CircleHighlight/Underline/Spotlight/BigArrowUp/ZoomBox
-- `fn_extra.tsx` (14) — Zeit: Countdown/Clock/Calendar/ProgressDays/Hourglass/Schedule +
-  Maps: WorldDots/LocationPin/ConnectionArc/RegionHighlight + Personen: Avatar/PersonaCard/TeamGrid/CrowdGrow
-- `fn_ui2.tsx` (8) — End-Cards: FollowBar/NextVideo/LogoSting/Thanks + UI: Badge/Chip/LowerThird/ListReveal
-→ Showcase aller neuen: FNExtraShowcase.
-- `fn_finance_core.tsx` (7) — FINANZ-ESSENTIALS: FNCompareTable, FNDualLine, FNFormula (Zinseszins),
-  FNLoanAmort (Tilgung), FNPyramid (Anlage-Pyramide), FNTermCard (Begriffskarte), FNCalculator (Spar-Rechner).
-  Showcase: FNFinanceCoreShowcase.
-- `fn_chart_base.tsx` — **PremiumChart** (Fundament): echte beschriftete Achsen (X/Y + Titel), Gitternetz,
-  großzügige Ränder (L210/B140), Legende, Glow. Props: title/xTitle/yTitle/xLabels/yMax/yTicks/yFmt/series.
-  Fertige: FNLineChartPro, FNDualLinePro, FNCompoundPro, FNDrawdownPro. Showcase: FNChartProShowcase.
-  → ALLE künftigen Kurven über PremiumChart bauen (NICHT die alten achsenlosen aus fn_concepts/fn_pro).
-  **FN-Kit gesamt: 163 Bausteine.**
-- Showcases: FNShowcase / FNKitShowcase / FNPremiumShowcase / **FNKit2Showcase** (Compositions in Root.tsx)
+## Status
 
-## Render
-cd gehirn/remotion && npx tsc --noEmit && npx remotion render FNPremiumShowcase out/fn_premium.mp4 --concurrency=4
-Einzeln: jede Composition-ID in Root.tsx. Format 1920x1080, 30fps.
+`src/bausteine` enthält rund 163 experimentelle und spezialisierte FinanzNeo-Komponenten. Der Ordner bleibt erhalten, damit bestehende Szenen nicht brechen. Er ist aber nicht mehr das zweite unabhängige Designsystem.
+
+Verbindliche Grundlagen:
+
+- Farben: `src/brand/tokens.ts`
+- Fonts: `src/brand/fonts.ts`
+- öffentlicher Import: `src/design-system/index.ts`
+- Finanzrechner: `src/finance/calculations.ts`
+
+`fn_core.tsx` exportiert alte Namen wie `C`, `P`, `bebas` und `inter` nur noch als Kompatibilitäts-Aliase auf diese zentralen Grundlagen.
+
+## Neue Verwendung
+
+```ts
+import {
+  C,
+  FONT,
+  PremiumCharts,
+  FinanceConcepts,
+  HookBlocks,
+} from '../design-system';
+
+const Chart = PremiumCharts.FNLineChartPro;
+const EmergencyFund = FinanceConcepts.FNEmergencyFund;
+```
+
+## Gruppen
+
+| Namensraum im Designsystem | Quelldatei | Zweck |
+|---|---|---|
+| `PremiumCharts` | `fn_chart_base.tsx` | beschriftete Premium-Charts |
+| `ChartBlocks` | `fn_charts.tsx` | KPI-, Balken-, Ring- und Flächencharts |
+| `FinanceConcepts` | `fn_concepts.tsx` | Zinseszins, Streuung, Risiko, Notgroschen |
+| `FinanceBlocks` | `fn_finance_core.tsx` | Formeln, Rechner, Tilgung, Tabellen |
+| `TextBlocks` | `fn_text.tsx` | Textanimationen |
+| `DiagramBlocks` | `fn_diagrams.tsx` | Prozess, Timeline, Pipeline, Vergleich |
+| `HookBlocks` | `fn_hooks.tsx` | Fragen, Warnungen und Fakten-Hooks |
+| `EffectBlocks` | `fn_effects.tsx` | Checkmark, Counter, Confetti und Akzente |
+| `ComplexBlocks` | `fn_complex.tsx` | komplexe Daten- und Vergleichsstorys |
+| `PremiumBlocks` | `fn_premium.tsx` | finanzspezifische Premium-Visuals |
+| `PremiumBlocks2` | `fn_premium2.tsx` | weitere Premium-Karten und Marktvisuals |
+| `ProBlocks` | `fn_pro.tsx` | ruhige Grün-Gold-Komponenten |
+| `SceneBlocks` | `fn_scenes.tsx` | vollständige Split-Szenen |
+| `StoryBlocks` | `fn_story.tsx` | Story-Bausteine |
+| `Choreography` | `fn_choreo.tsx` | choreografierte Sequenzen |
+| `TransitionBlocks` | `fn_transitions.tsx` | Übergänge |
+| `DecorationBlocks` | `fn_decor.tsx` | sparsame Betonung und Dekoration |
+| `ExtraBlocks` | `fn_extra.tsx` | Zeit, Karten und Personen-Symbole |
+| `UIBlocks` | `fn_ui2.tsx` | Endcards und UI-Helfer |
+| `GlassBlocks` | `fn_glass.tsx` | Glas-Layouts |
+| `GlobeBlocks` | `fn_globe.tsx` | Welt- und Portfolio-Visuals |
+| `LegacyKit` | `fn_kit.tsx` | frühe Basisbausteine |
+
+## Qualitätsregeln
+
+- keine eigenen Markenfarben definieren
+- keine externen Fonts laden
+- keine Finanzwerte frei im JSX erfinden
+- Charts mit Zahlen verwenden zentrale Rechner oder validierte Datendateien
+- produktive Szenen bevorzugen ruhige Hintergründe
+- neue Komponenten nur ergänzen, wenn keine bestehende Komponente denselben Zweck bereits gut erfüllt
+
+## Schrittweise Konsolidierung
+
+Der Ordner wird nicht auf einmal umbenannt oder gelöscht. Stattdessen werden Komponenten bei tatsächlicher Nutzung geprüft:
+
+1. Duplikat im Kernsystem suchen.
+2. bessere Variante bestimmen.
+3. Farben und Fonts zentral anbinden.
+4. Finanzwerte validieren.
+5. über `src/design-system` exportieren.
+6. schwächere Variante erst nach erfolgreicher Migration archivieren.
