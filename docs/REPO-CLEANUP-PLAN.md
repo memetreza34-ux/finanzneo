@@ -31,8 +31,11 @@ Status: **in Arbeit**
 - [x] fehlende Audio-Dateien vor Produktionsrender erkennen und verständlich melden
 - [x] manifestbasierte Asset-Prüfung einbauen
 - [x] Standard-Render über Asset-Prüfung absichern
+- [x] Setup-Check für Node, Lockfile, Pflichtdateien und lokale Fonts ergänzen
+- [x] verwaiste Google-Font-Abhängigkeit aus `package.json` entfernen
+- [x] GitHub-Actions-Workflow für Installation, Validierung und Remotion-Bundle ergänzen
 - [ ] weitere produktive Kompositionen mit eigenen Manifesten ausstatten
-- [ ] reproduzierbaren Setup-Befehl und vollständige Installationsprüfung herstellen
+- [ ] ersten vollständigen CI-Lauf erfolgreich bestätigen
 
 ## Phase 3 — Repo-Struktur
 
@@ -77,26 +80,28 @@ Status: **in Arbeit**
 - [x] riskante synthetische Chart-Komponenten im Katalog als ungeeignet für reale Finanzbehauptungen markieren
 - [x] bessere Spezialkomponenten aus `src/bausteine` als empfohlene Namensräume markieren
 - [x] neue Reel-Vorlage vollständig auf `src/design-system` aufbauen
+- [x] ungenutzte `@remotion/google-fonts`-Abhängigkeit entfernen
 - [ ] weitere produktive Altdateien schrittweise auf `src/design-system` migrieren
 - [ ] alte Varianten bewerten und schwache Varianten archivieren
-- [ ] ungenutzte `@remotion/google-fonts`-Abhängigkeit nach vollständigem Importsuchlauf entfernen
 
 ## Phase 5 — Finanzielle Faktensicherheit
 
-Status: **in Arbeit**
+Status: **Kernrechner abgeschlossen – Altdateienprüfung offen**
 
 - [x] bekannten falschen 248.000-€-Demoendwert entfernen
 - [x] synthetische Zinseszins-Kurven in den Premium-Charts durch echte Sparplanrechnungen ersetzen
 - [x] zentralen Sparplanrechner unter `src/finance/calculations.ts` anlegen
+- [x] zentralen Inflations- und Kaufkraftrechner ergänzen
+- [x] zentralen Kredit-, Gesamtzins- und Tilgungsrechner ergänzen
+- [x] zentrale Beispielannahmen für Sparplan, Inflation, Kredit und Notgroschen speichern
 - [x] Einzahlungen, Renditeannahmen, Laufzeit und Einschränkungen in Chart-Captions sichtbar machen
 - [x] scheinbar historische Crash-Daten als schematisches Beispiel kennzeichnen
 - [x] Referenzwerte und verbotene Fantasiekurven automatisch validieren
-- [x] ShortHook-Endwert und Einzahlungen an den zentralen Rechner anbinden
+- [x] ShortHook-Endwert und Einzahlungen an zentrale Rechner und Annahmen anbinden
 - [x] Hintergrund-Demo von frei eingetragener Zahl auf zentrale Sparplanrechnung umstellen
-- [x] Demo der Reel-Vorlage verwendet nachvollziehbare Notgroschen-Annahmen
+- [x] Reel-Vorlagen-Demo an zentrale Notgroschen-Annahmen anbinden
+- [x] Referenztests für Sparplan, Inflation, Kaufkraft, Kreditrate und Gesamtzins ergänzen
 - [ ] weitere JSX-Dateien vollständig auf frei eingetragene Finanzzahlen prüfen
-- [ ] zentrale Rechner für Inflation und Kredit ergänzen
-- [ ] Rechenannahmen als wiederverwendbare strukturierte Datensätze speichern
 - [ ] Datenquelle und Datenstand für echte historische Daten verpflichtend machen
 
 ## Phase 6 — Qualitätsautomatisierung
@@ -111,10 +116,13 @@ Status: **in Arbeit**
 - [x] Design-System-Validator hinzufügen
 - [x] Finanzformel- und Chart-Validator hinzufügen
 - [x] Reel-Vorlagen-Validator hinzufügen
-- [x] Reel-Vorlagen-Validator in `npm run validate` aufnehmen
+- [x] Setup- und Lockfile-Validator hinzufügen
+- [x] alle Validatoren in `npm run validate` bündeln
+- [x] GitHub Actions mit `npm ci`, Validierung und Remotion-Bundle ergänzen
 - [x] visuelles 18-/22-Prozent-Safe-Area-Prüfraster ergänzen
 - [x] Preview-Renderbefehl für die Reel-Vorlagen-Demo ergänzen
-- [ ] Render-Smoke-Test tatsächlich in einer lokalen Installation ausführen
+- [ ] GitHub-Actions-Lauf erfolgreich bestätigen
+- [ ] Render-Smoke-Test tatsächlich ausführen
 - [ ] automatisierte Keyframe-Prüfung ergänzen
 
 ## Phase 7 — Produktionsvorlage
@@ -140,7 +148,7 @@ Eine standardisierte 60–90-Sekunden-Reel-Vorlage bauen:
 - [x] 65-Sekunden-Notgroschen-Demo
 - [x] Demo ausschließlich unter Experiments registrieren
 - [x] eigene Dokumentation und zentraler Export
-- [ ] Demo lokal typechecken und als Vorschau rendern
+- [ ] Demo lokal oder über CI typechecken und als Vorschau rendern
 - [ ] erstes echtes Reel mit finalem Voiceover, Captions und freigegebenen Bildern erstellen
 - [ ] für das erste echte Template-Reel ein Produktionsmanifest anlegen
 
