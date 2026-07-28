@@ -25,6 +25,7 @@ const walk = (directory) => {
 const requiredFiles = [
   'src/design-system/index.ts',
   'src/design-system/README.md',
+  'src/design-system/FinanceBackground.tsx',
   'src/brand/tokens.ts',
   'src/brand/fonts.ts',
   'src/bausteine/fn_core.tsx',
@@ -40,6 +41,7 @@ if (errors.length === 0) {
   const core = read('src/bausteine/fn_core.tsx');
   const publicIndex = read('src/design-system/index.ts');
   const tokens = read('src/brand/tokens.ts');
+  const backgrounds = read('src/design-system/FinanceBackground.tsx');
 
   if (core.includes('@remotion/google-fonts')) {
     errors.push('src/bausteine/fn_core.tsx lädt weiterhin externe Google Fonts.');
@@ -49,7 +51,7 @@ if (errors.length === 0) {
     errors.push('fn_core.tsx bezieht Farben nicht eindeutig aus src/brand/tokens.ts.');
   }
 
-  if (!core.includes("FONT") || !core.includes("from '../brand/fonts'")) {
+  if (!core.includes('FONT') || !core.includes("from '../brand/fonts'")) {
     errors.push('fn_core.tsx bezieht Fonts nicht eindeutig aus src/brand/fonts.ts.');
   }
 
@@ -72,6 +74,8 @@ if (errors.length === 0) {
   const requiredIndexExports = [
     "export * from '../brand'",
     "export * from '../finance/calculations'",
+    'FinanceBackground',
+    'VerticalSafeAreaGuide',
     'PremiumCharts',
     'FinanceConcepts',
     'FinanceBlocks',
@@ -89,6 +93,16 @@ if (errors.length === 0) {
     if (!tokens.includes(token)) {
       errors.push(`Zentraler Design-Token fehlt: ${token}`);
     }
+  }
+
+  for (const variant of ["'standard'", "'data'", "'premium'"]) {
+    if (!backgrounds.includes(variant)) {
+      errors.push(`Verbindliche Hintergrundvariante fehlt: ${variant}.`);
+    }
+  }
+
+  if (!backgrounds.includes('SAFE_AREA.topPx') || !backgrounds.includes('SAFE_AREA.bottomPx')) {
+    errors.push('VerticalSafeAreaGuide verwendet nicht die zentralen Safe-Area-Tokens.');
   }
 }
 
@@ -120,6 +134,10 @@ if (existsSync(migratedShort)) {
   } else {
     notes.push('ShortHook nutzt den zentralen Design-System-Import.');
   }
+
+  if (!content.includes('calculateSavingsPlanFutureValue')) {
+    errors.push('ShortHook.tsx verwendet weiterhin einen frei eingetragenen Sparplan-Endwert.');
+  }
 }
 
 if (errors.length > 0) {
@@ -129,5 +147,7 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ Design-System-Grundlagen sind konsistent.');
+console.log('✓ Hintergrundvarianten standard, data und premium sind definiert.');
+console.log('✓ Safe-Area-Prüfraster nutzt zentrale 18-/22-Prozent-Tokens.');
 console.log(`✓ ${bausteinFiles.length} Baustein-Dateien ohne externe Font-Imports geprüft.`);
 for (const note of notes) console.log(`✓ ${note}`);
