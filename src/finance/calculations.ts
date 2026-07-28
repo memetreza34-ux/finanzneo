@@ -12,9 +12,17 @@ export type SavingsPlanPoint = {
   growth: number;
 };
 
+const assertFinite = (name: string, value: number): void => {
+  if (!Number.isFinite(value)) {
+    throw new Error(`${name} muss eine endliche Zahl sein.`);
+  }
+};
+
 const assertFiniteNonNegative = (name: string, value: number): void => {
-  if (!Number.isFinite(value) || value < 0) {
-    throw new Error(`${name} muss eine endliche Zahl größer oder gleich 0 sein.`);
+  assertFinite(name, value);
+
+  if (value < 0) {
+    throw new Error(`${name} muss größer oder gleich 0 sein.`);
   }
 };
 
@@ -39,12 +47,16 @@ export const calculateSavingsPlanFutureValue = ({
   periodsPerYear = 12,
 }: SavingsPlanInput): number => {
   assertFiniteNonNegative('contributionPerPeriod', contributionPerPeriod);
-  assertFiniteNonNegative('annualReturnRate', annualReturnRate);
+  assertFinite('annualReturnRate', annualReturnRate);
   assertFiniteNonNegative('years', years);
 
   const periods = normalizePeriodsPerYear(periodsPerYear);
   const totalPeriods = Math.round(years * periods);
   const periodicRate = annualReturnRate / periods;
+
+  if (periodicRate <= -1) {
+    throw new Error('Die Renditeannahme führt zu einem ungültigen Periodenzins von höchstens -100 %.');
+  }
 
   if (totalPeriods === 0) return 0;
   if (periodicRate === 0) return contributionPerPeriod * totalPeriods;
