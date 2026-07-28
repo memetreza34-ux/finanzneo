@@ -1,16 +1,20 @@
 {
-  "name": "finanzneo-brandkit",
-  "version": "1.0.0",
-  "description": "Minimal hello-world video — renders in 2 minutes, zero API keys",
+  "name": "finanzneo-studio",
+  "version": "1.1.0",
+  "description": "FinanzNeo Remotion-Studio für vertikale Finanz-Erklärvideos",
   "scripts": {
     "studio": "npx remotion studio",
-    "render": "npx remotion render src/index.ts ETFSzene1 out/etf-szene1.mp4",
-    "render:preview": "npx remotion render src/index.ts SprintReview out/preview.mp4 --scale=0.5",
+    "typecheck": "tsc --noEmit",
     "build": "npx remotion bundle src/index.ts",
+    "validate:short-hook": "node scripts/validate-assets.mjs manifests/short-hook.json",
+    "render": "npm run render:short-hook",
+    "render:short-hook": "node scripts/render-validated.mjs manifests/short-hook.json",
+    "render:preview": "npx remotion render src/index.ts ShortHook out/short-hook-preview.mp4 --scale=0.5",
     "upgrade": "npx remotion upgrade"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.473",
+    "@remotion/google-fonts": "^4.0.473",
     "@remotion/lottie": "^4.0.473",
     "@remotion/media-utils": "^4.0.473",
     "@remotion/motion-blur": "^4.0.473",
@@ -21,8 +25,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "recharts": "^3.8.1",
-    "remotion": "^4.0.473",
-    "@remotion/google-fonts": "^4.0.473"
+    "remotion": "^4.0.473"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
