@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "FinanzNeo Remotion-Studio für vertikale Finanz-Erklärvideos",
   "scripts": {
+    "setup:check": "node scripts/check-setup.mjs",
     "studio": "npx remotion studio",
     "typecheck": "tsc --noEmit",
     "build": "npx remotion bundle src/index.ts",
@@ -11,7 +12,7 @@
     "validate:finance": "node scripts/validate-finance.mjs",
     "validate:reel-template": "node scripts/validate-reel-template.mjs",
     "validate:short-hook": "node scripts/validate-assets.mjs manifests/short-hook.json",
-    "validate": "npm run validate:compositions && npm run validate:design-system && npm run validate:finance && npm run validate:reel-template && npm run typecheck",
+    "validate": "npm run setup:check && npm run validate:compositions && npm run validate:design-system && npm run validate:finance && npm run validate:reel-template && npm run typecheck",
     "render": "npm run render:short-hook",
     "render:short-hook": "node scripts/render-validated.mjs manifests/short-hook.json",
     "render:preview": "npx remotion render src/index.ts ShortHook out/short-hook-preview.mp4 --scale=0.5",
