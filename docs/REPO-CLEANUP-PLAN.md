@@ -68,12 +68,18 @@ src/
 
 ## Phase 5 — Finanzielle Faktensicherheit
 
-- [ ] falsche Demo-Zahlen entfernen
-- [ ] zentrale Rechner für Zinseszins, Sparplan, Kredit und Inflation anlegen
-- [ ] Rechenannahmen als strukturierte Daten speichern
-- [ ] Zahlen in Charts nicht mehr frei im JSX erfinden
-- [ ] Datenquelle, Stand und Annahmen verpflichtend machen
-- [ ] Validierungstests für bekannte Beispielwerte ergänzen
+Status: **in Arbeit**
+
+- [x] bekannten falschen 248.000-€-Demoendwert entfernen
+- [x] synthetische Zinseszins-Kurven in den Premium-Charts durch echte Sparplanrechnungen ersetzen
+- [x] zentralen Sparplanrechner unter `src/finance/calculations.ts` anlegen
+- [x] Einzahlungen, Renditeannahmen, Laufzeit und Einschränkungen in Chart-Captions sichtbar machen
+- [x] scheinbar historische Crash-Daten als schematisches Beispiel kennzeichnen
+- [x] Referenzwerte und verbotene Fantasiekurven automatisch validieren
+- [ ] weitere JSX-Dateien vollständig auf frei eingetragene Finanzzahlen prüfen
+- [ ] zentrale Rechner für Inflation und Kredit ergänzen
+- [ ] Rechenannahmen als wiederverwendbare strukturierte Datensätze speichern
+- [ ] Datenquelle und Datenstand für echte historische Daten verpflichtend machen
 
 ## Phase 6 — Qualitätsautomatisierung
 
@@ -82,7 +88,7 @@ src/
 - [ ] Linting ergänzen
 - [x] Asset-Validator hinzufügen
 - [x] Composition-Registry-Validator hinzufügen
-- [ ] Daten-Validator hinzufügen
+- [x] Finanzformel- und Chart-Validator hinzufügen
 - [ ] Render-Smoke-Test für eine vertikale Testkomposition
 - [ ] Safe-Area-Test oder visuelle Prüfraster ergänzen
 
@@ -117,6 +123,6 @@ Diese Punkte haben Vorrang vor neuen Animationseffekten:
 
 1. ~~Caption-Format stimmt nicht zwischen Generator und Short-Komponente überein~~ **behoben**
 2. ~~Pflicht-Caption-Dateien werden ignoriert, aber direkt importiert~~ **behoben**
-3. ein Premium-Chart verwendet unpassende Zinseszins-Zahlen
+3. ~~ein Premium-Chart verwendet unpassende Zinseszins-Zahlen~~ **behoben**
 4. zwei parallele Komponentensysteme definieren Farben und Fonts doppelt
 5. ~~Dokumente enthalten widersprüchliche Disclaimer-, Untertitel- und Formatregeln~~ **behoben**
