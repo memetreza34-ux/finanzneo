@@ -23,6 +23,7 @@ const walk = (directory) => {
 };
 
 const requiredFiles = [
+  'docs/COMPONENT-CATALOG.md',
   'src/design-system/index.ts',
   'src/design-system/README.md',
   'src/design-system/FinanceBackground.tsx',
@@ -42,6 +43,7 @@ if (errors.length === 0) {
   const publicIndex = read('src/design-system/index.ts');
   const tokens = read('src/brand/tokens.ts');
   const backgrounds = read('src/design-system/FinanceBackground.tsx');
+  const catalog = read('docs/COMPONENT-CATALOG.md');
 
   if (core.includes('@remotion/google-fonts')) {
     errors.push('src/bausteine/fn_core.tsx lädt weiterhin externe Google Fonts.');
@@ -104,6 +106,38 @@ if (errors.length === 0) {
   if (!backgrounds.includes('SAFE_AREA.topPx') || !backgrounds.includes('SAFE_AREA.bottomPx')) {
     errors.push('VerticalSafeAreaGuide verwendet nicht die zentralen Safe-Area-Tokens.');
   }
+
+  if (!backgrounds.includes('FONT.body')) {
+    errors.push('VerticalSafeAreaGuide verwendet nicht die zentrale Fontdefinition.');
+  }
+
+  const requiredCatalogEntries = [
+    'FinanceBackground',
+    'VerticalSafeAreaGuide',
+    'Captions',
+    'DramaticNumber',
+    'PremiumCharts.PremiumChart',
+    'CompareSplit',
+    'EndCard',
+  ];
+
+  for (const entry of requiredCatalogEntries) {
+    if (!catalog.includes(entry)) {
+      errors.push(`Komponenten-Katalog enthält keinen Standard für ${entry}.`);
+    }
+  }
+
+  const requiredWarnings = [
+    'LegacyKit.FNGrowthCurve',
+    'ComplexBlocks.FNExponential',
+    'GrowthChart` ohne explizite',
+  ];
+
+  for (const warning of requiredWarnings) {
+    if (!catalog.includes(warning)) {
+      errors.push(`Komponenten-Katalog enthält die notwendige Warnung nicht: ${warning}.`);
+    }
+  }
 }
 
 const bausteinFiles = walk('src/bausteine').filter((path) => /\.(ts|tsx)$/.test(path));
@@ -147,7 +181,8 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ Design-System-Grundlagen sind konsistent.');
+console.log('✓ Komponenten-Katalog enthält verbindliche Standards und Warnungen.');
 console.log('✓ Hintergrundvarianten standard, data und premium sind definiert.');
-console.log('✓ Safe-Area-Prüfraster nutzt zentrale 18-/22-Prozent-Tokens.');
+console.log('✓ Safe-Area-Prüfraster nutzt zentrale 18-/22-Prozent-Tokens und Fonts.');
 console.log(`✓ ${bausteinFiles.length} Baustein-Dateien ohne externe Font-Imports geprüft.`);
 for (const note of notes) console.log(`✓ ${note}`);
