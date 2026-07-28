@@ -27,6 +27,9 @@ jobs:
           node-version: 20
           cache: npm
 
+      - name: Setup und Lockfile vorab prüfen
+        run: node scripts/check-setup.mjs
+
       - name: Abhängigkeiten reproduzierbar installieren
         run: npm ci
 
