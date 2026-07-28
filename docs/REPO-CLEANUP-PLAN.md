@@ -23,10 +23,12 @@ Status: **in Arbeit**
 - [x] frühere Caption-Formate über `src/lib/captions.ts` normalisieren
 - [x] produktiv importierte Caption-Dateien nicht mehr über `.gitignore` ausschließen
 - [x] versionierten Platzhalter für die bisher fehlende Hook-Caption anlegen
-- [ ] Platzhalter vor Produktionsrender automatisch erkennen und blockieren
-- [ ] fehlende Audio-Dateien mit verständlichen Fehlern behandeln
-- [ ] alle Assets vor dem Build validieren
-- [ ] reproduzierbaren Setup- und Render-Befehl herstellen
+- [x] Caption-Platzhalter vor Produktionsrender erkennen und blockieren
+- [x] fehlende Audio-Dateien vor Produktionsrender erkennen und verständlich melden
+- [x] manifestbasierte Asset-Prüfung einbauen
+- [x] Standard-Render über Asset-Prüfung absichern
+- [ ] weitere produktive Kompositionen mit eigenen Manifesten ausstatten
+- [ ] reproduzierbaren Setup-Befehl und vollständige Installationsprüfung herstellen
 
 ## Phase 3 — Repo-Struktur
 
@@ -67,9 +69,9 @@ src/
 ## Phase 6 — Qualitätsautomatisierung
 
 - [ ] TypeScript `strict` schrittweise aktivieren
-- [ ] `typecheck`-Script hinzufügen
+- [x] `typecheck`-Script hinzufügen
 - [ ] Linting ergänzen
-- [ ] Asset-Validator hinzufügen
+- [x] Asset-Validator hinzufügen
 - [ ] Daten-Validator hinzufügen
 - [ ] Render-Smoke-Test für eine vertikale Testkomposition
 - [ ] Safe-Area-Test oder visuelle Prüfraster ergänzen
