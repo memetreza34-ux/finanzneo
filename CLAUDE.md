@@ -165,7 +165,25 @@ Remotion übernimmt:
 Bilder dürfen nie nur als bedeutungslose Hintergrundtapete dienen.
 Als Richtwert werden in einem 60- bis 90-Sekunden-Reel ungefähr 2 bis 5 KI-Bilder verwendet; die übrigen Beats bestehen aus Remotion oder Kombinationen.
 
-## 7. Finanzdaten und Faktenprüfung
+## 7. Technisches Designsystem
+
+- Neue produktive Remotion-Dateien importieren ausschließlich aus `src/design-system`.
+- Direkte Imports aus `src/bausteine` sind in neuer Produktion nicht erlaubt.
+- Direkte Imports aus `src/brand` bleiben nur für bestehende Altdateien vorübergehend kompatibel.
+- Farben, Premium-Palette, Formate und Safe Areas stammen ausschließlich aus `src/brand/tokens.ts`.
+- Fonts stammen ausschließlich aus `src/brand/fonts.ts`.
+- Finanzrechner stammen aus `src/finance/calculations.ts`.
+- `src/bausteine/fn_core.tsx` ist nur noch eine Kompatibilitätsschicht und darf keine eigenen Markenfarben oder Fontquellen definieren.
+- Premium-Bausteine werden über Namensräume wie `PremiumCharts`, `FinanceConcepts` oder `HookBlocks` aus `src/design-system` verwendet.
+- Vor einer neuen Komponente muss geprüft werden, ob bereits eine gleichwertige Komponente existiert.
+- Neue Produktion darf keine frei erfundenen Finanzwerte direkt im JSX enthalten.
+
+Verbindliche technische Dokumentation:
+
+- `src/design-system/README.md`
+- `src/bausteine/README.md`
+
+## 8. Finanzdaten und Faktenprüfung
 
 - keine erfundenen Zahlen
 - jede Rechnung muss reproduzierbar sein
@@ -178,7 +196,7 @@ Als Richtwert werden in einem 60- bis 90-Sekunden-Reel ungefähr 2 bis 5 KI-Bild
 - Demo-Komponenten mit Platzhalterzahlen dürfen nicht ungeprüft veröffentlicht werden
 - Geldbeträge werden in Euro dargestellt, sofern das konkrete Thema keine andere Währung verlangt
 
-## 8. Produktionsablauf
+## 9. Produktionsablauf
 
 1. Thema auswählen
 2. Fakten und Quellen recherchieren
@@ -192,7 +210,7 @@ Als Richtwert werden in einem 60- bis 90-Sekunden-Reel ungefähr 2 bis 5 KI-Bild
 10. Arman legt die fertige Voiceover-Datei ab
 11. erst starten, wenn alle benötigten Assets vorhanden sind
 12. Wort-Timings und Untertitel erzeugen
-13. Remotion-Szenen bauen
+13. Remotion-Szenen mit Imports aus `src/design-system` bauen
 14. Keyframes und Safe Areas prüfen
 15. vollständigen Render prüfen
 16. Caption, Quellen, CTA und PDF-Angebot erstellen
@@ -200,7 +218,7 @@ Als Richtwert werden in einem 60- bis 90-Sekunden-Reel ungefähr 2 bis 5 KI-Bild
 
 Claude erstellt keine Ersatz-Audiodatei, wenn die Voiceover-Datei fehlt.
 
-## 9. Qualitätsprüfung pro Reel
+## 10. Qualitätsprüfung pro Reel
 
 Vor Veröffentlichung prüfen:
 
@@ -221,14 +239,14 @@ Vor Veröffentlichung prüfen:
 
 Unter 8/10 wird überarbeitet. „9/10“ muss durch diese Prüfungen begründet sein, nicht nur behauptet werden.
 
-## 10. Aktive technische Prioritäten
+## 11. Aktive technische Prioritäten
 
 Die Bereinigung erfolgt in dieser Reihenfolge:
 
 1. Dokumentation und Bildsystem widerspruchsfrei machen
 2. Caption-Format vereinheitlichen und fehlende Assets sauber behandeln
 3. produktive Videos, Experimente und Showcases trennen
-4. `src/brand` und `src/bausteine` konsolidieren
+4. `src/brand` und `src/bausteine` über `src/design-system` konsolidieren
 5. falsche Demo-Finanzzahlen entfernen und Berechnungen zentralisieren
 6. Typecheck, Tests und Render-Smoke-Tests ergänzen
 7. standardisierte Reel-Vorlage für 60–90 Sekunden bauen
