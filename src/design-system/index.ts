@@ -6,8 +6,9 @@
 // Bewährtes Kernsystem: Tokens, Layout, Captions, Charts, Templates und Branding.
 export * from '../brand';
 
-// Reproduzierbare Finanzberechnungen.
+// Reproduzierbare Finanzberechnungen und zentrale Beispielannahmen.
 export * from '../finance/calculations';
+export * from '../finance/examples';
 
 // Verbindliche Hintergrundauswahl und visuelle Safe-Area-Prüfung.
 export {FinanceBackground, VerticalSafeAreaGuide} from './FinanceBackground';
