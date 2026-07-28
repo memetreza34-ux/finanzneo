@@ -9,11 +9,13 @@
     "validate:compositions": "node scripts/validate-compositions.mjs",
     "validate:design-system": "node scripts/validate-design-system.mjs",
     "validate:finance": "node scripts/validate-finance.mjs",
+    "validate:reel-template": "node scripts/validate-reel-template.mjs",
     "validate:short-hook": "node scripts/validate-assets.mjs manifests/short-hook.json",
-    "validate": "npm run validate:compositions && npm run validate:design-system && npm run validate:finance && npm run typecheck",
+    "validate": "npm run validate:compositions && npm run validate:design-system && npm run validate:finance && npm run validate:reel-template && npm run typecheck",
     "render": "npm run render:short-hook",
     "render:short-hook": "node scripts/render-validated.mjs manifests/short-hook.json",
     "render:preview": "npx remotion render src/index.ts ShortHook out/short-hook-preview.mp4 --scale=0.5",
+    "render:template-demo": "npx remotion render src/index.ts ReelTemplateDemo out/reel-template-demo.mp4 --scale=0.5",
     "upgrade": "npx remotion upgrade"
   },
   "dependencies": {
