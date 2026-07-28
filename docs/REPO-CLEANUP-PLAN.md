@@ -59,12 +59,23 @@ src/
 
 ## Phase 4 — Baukästen konsolidieren
 
-- [ ] `src/brand` und `src/bausteine` vollständig inventarisieren
-- [ ] doppelte Tokens, Fonts und Hintergründe entfernen
-- [ ] pro Funktion nur eine empfohlene Hauptkomponente behalten
-- [ ] bessere Spezialkomponenten aus `src/bausteine` in das zentrale Designsystem übernehmen
+Status: **in Arbeit**
+
+- [x] `src/brand` und `src/bausteine` vollständig inventarisieren
+- [x] `src/design-system/index.ts` als einzigen öffentlichen Importpfad anlegen
+- [x] zentrale Dokumentation für Kernsystem und Premium-Erweiterungen erstellen
+- [x] doppelte Markenfarben aus `src/bausteine/fn_core.tsx` entfernen
+- [x] externe Google-Font-Ladung aus `src/bausteine/fn_core.tsx` entfernen
+- [x] Premium-Palette und Safe-Area-Werte in `src/brand/tokens.ts` zentralisieren
+- [x] Premium-Bausteine über kollisionsfreie Namensräume exportieren
+- [x] Design-System-Validator gegen neue Farb- und Font-Duplikate ergänzen
+- [x] erste produktive Komposition auf `src/design-system` migrieren
+- [ ] weitere produktive Dateien schrittweise auf `src/design-system` migrieren
+- [ ] doppelte Hintergrundvarianten vergleichen und auf wenige Standards reduzieren
+- [ ] pro Funktion nur eine empfohlene Hauptkomponente bestimmen
+- [ ] bessere Spezialkomponenten aus `src/bausteine` als empfohlen markieren
 - [ ] veraltete oder schwache Komponenten archivieren
-- [ ] zentrale Exports und Dokumentation erzeugen
+- [ ] ungenutzte `@remotion/google-fonts`-Abhängigkeit nach vollständigem Importsuchlauf entfernen
 
 ## Phase 5 — Finanzielle Faktensicherheit
 
@@ -76,6 +87,7 @@ Status: **in Arbeit**
 - [x] Einzahlungen, Renditeannahmen, Laufzeit und Einschränkungen in Chart-Captions sichtbar machen
 - [x] scheinbar historische Crash-Daten als schematisches Beispiel kennzeichnen
 - [x] Referenzwerte und verbotene Fantasiekurven automatisch validieren
+- [x] ShortHook-Endwert und Einzahlungen an den zentralen Rechner anbinden
 - [ ] weitere JSX-Dateien vollständig auf frei eingetragene Finanzzahlen prüfen
 - [ ] zentrale Rechner für Inflation und Kredit ergänzen
 - [ ] Rechenannahmen als wiederverwendbare strukturierte Datensätze speichern
@@ -88,6 +100,7 @@ Status: **in Arbeit**
 - [ ] Linting ergänzen
 - [x] Asset-Validator hinzufügen
 - [x] Composition-Registry-Validator hinzufügen
+- [x] Design-System-Validator hinzufügen
 - [x] Finanzformel- und Chart-Validator hinzufügen
 - [ ] Render-Smoke-Test für eine vertikale Testkomposition
 - [ ] Safe-Area-Test oder visuelle Prüfraster ergänzen
@@ -124,5 +137,5 @@ Diese Punkte haben Vorrang vor neuen Animationseffekten:
 1. ~~Caption-Format stimmt nicht zwischen Generator und Short-Komponente überein~~ **behoben**
 2. ~~Pflicht-Caption-Dateien werden ignoriert, aber direkt importiert~~ **behoben**
 3. ~~ein Premium-Chart verwendet unpassende Zinseszins-Zahlen~~ **behoben**
-4. zwei parallele Komponentensysteme definieren Farben und Fonts doppelt
+4. ~~zwei parallele Komponentensysteme definieren Farben und Fonts doppelt~~ **Kernproblem behoben**
 5. ~~Dokumente enthalten widersprüchliche Disclaimer-, Untertitel- und Formatregeln~~ **behoben**
