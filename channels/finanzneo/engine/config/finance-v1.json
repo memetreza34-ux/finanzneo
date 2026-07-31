@@ -1,0 +1,122 @@
+{
+  "version": "finance-v1",
+  "format": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationSeconds": {"min": 60, "ideal": 68, "max": 75}
+  },
+  "script": {
+    "words": {"min": 150, "ideal": 175, "max": 200},
+    "mainIdeas": {"min": 3, "max": 5},
+    "oneCentralQuestion": true,
+    "onePayoff": true,
+    "hookConsequenceBySeconds": 1.5
+  },
+  "voice": {
+    "speed": 1.1,
+    "speedRange": {"min": 1.08, "max": 1.13},
+    "silenceThresholdMs": 400,
+    "keptPauseMs": 160,
+    "silenceThresholdDb": -45,
+    "loudness": {"integratedLufs": -16, "truePeakDb": -1.5, "loudnessRange": 11}
+  },
+  "visuals": {
+    "productionMode": "image-first-lite",
+    "beats": {"min": 10, "max": 14},
+    "minimumLayoutTypes": 1,
+    "minimumImageLedScenes": 8,
+    "targetImageLedScenes": {"min": 8, "ideal": 8, "max": 10},
+    "recommendedVisiblePatterns": 1,
+    "maximumConsecutiveVisiblePatterns": 10,
+    "maximumConsecutiveFramedImages": 10,
+    "maximumSecondsWithoutSemanticChange": 10,
+    "maximumPhaseGapSeconds": 10,
+    "maximumTextOnlySceneSeconds": 5,
+    "maximumTextOnlyScenesPerReel": 2,
+    "minimumPhasesFromSeconds": 999,
+    "recommendedThreePhasesFromSeconds": 999,
+    "frameZeroMustContainMainMotif": true,
+    "zoomAloneCountsAsAnimation": true,
+    "fillerIconsAllowed": false,
+    "sceneHeader": {"required": true, "iconRequired": true, "kickerWordsMax": 4},
+    "supportDetails": {"maximumPerScene": 2, "recommendedMinimumForImageScene": 0, "recommendFromSeconds": 99, "maximumWordsPerDetail": 6},
+    "minimalMotion": {
+      "transition": "cut",
+      "imageScaleStart": 1,
+      "imageScaleEnd": 1.035,
+      "imagePanPixels": 12,
+      "headerAnimated": true,
+      "headerFadeFrames": 8,
+      "headerTranslatePixels": 10,
+      "sfxEnabled": false
+    },
+    "ctaSeconds": {"min": 3, "max": 5}
+  },
+  "textQuality": {
+    "headlineWordsMax": 9,
+    "bodyWordsMax": 22,
+    "duplicatePhraseMinimumWords": 4,
+    "vaguePhrases": ["das musst du wissen", "was bedeutet das konkret", "fühlt sich sicher an", "die wichtige frage", "der wichtigste punkt", "so funktioniert es", "hier ist die antwort"]
+  },
+  "captions": {
+    "maximumStartDelayMs": 750,
+    "maximumEndDriftMs": 750,
+    "maximumGapMs": 1800,
+    "maximumOverlapMs": 80,
+    "perGroup": 4,
+    "fontSize": 62,
+    "bottom": 285,
+    "showOnCta": true,
+    "maximumLines": 2
+  },
+  "alignment": {"minimumWordMatchRatio": 0.82},
+  "sound": {
+    "musicBedAllowed": false,
+    "maximumCuesPerScene": 0,
+    "recommendedCuesPerReel": {"min": 0, "max": 0},
+    "defaultCueVolume": 0.18,
+    "maximumCueVolume": 0.3,
+    "allowedRoles": ["sfx-soft-whoosh", "sfx-number-impact", "sfx-click", "sfx-warning", "sfx-success"]
+  },
+  "imageAnalysis": {
+    "portraitAspectMin": 0.48,
+    "portraitAspectMax": 0.65,
+    "lowBrightness": 0.2,
+    "highBrightness": 0.82,
+    "lowDensityEntropy": 3.6,
+    "highDensityEntropy": 6.6,
+    "safeZoneHeightRatio": 0.2,
+    "safeZoneMaximumStdDev": 48,
+    "nearDuplicateMaximumHammingDistance": 5
+  },
+  "render": {"codec": "h264", "crf": 18, "pixelFormat": "yuv420p", "audioCodec": "aac", "audioBitrate": "192k", "x264Preset": "medium"},
+  "renderQa": {
+    "blackMinimumDurationSeconds": 0.35,
+    "freezeMinimumDurationSeconds": 2.5,
+    "maximumInitialSilenceSeconds": 0.7,
+    "maximumEndSilenceSeconds": 0.7,
+    "integratedLufsMin": -18,
+    "integratedLufsMax": -14,
+    "truePeakMaximumDb": -1,
+    "controlFrameCount": 8
+  },
+  "financialSafety": {
+    "riskyPhrases": ["garantierte rendite", "garantierter gewinn", "sicherer gewinn", "risikolos", "du musst kaufen", "du solltest kaufen", "kauf jetzt", "100 prozent sicher", "verliert nur auf dem papier", "macht ihn oft wieder wett", "erholen sich meist", "erholen sich oft innerhalb weniger monate"],
+    "absoluteClaimPhrases": ["jedes jahr", "immer", "niemals", "genau so", "für alle", "ohne ausnahme"],
+    "dateSensitiveTerms": ["aktuell", "heute", "dieses jahr", "steuer", "gesetz", "zinssatz", "inflation", "ezb", "seit juni", "aktien", "kurs", "index", "marktwert", "rekordumsatz", "historisch", "erholen", "korrektur"]
+  },
+  "textLimits": {
+    "kicker": 32,
+    "headline": 80,
+    "body": 160,
+    "formula": 100,
+    "outcome": 140,
+    "label": 30,
+    "step": 70,
+    "ctaKeyword": 18,
+    "ctaBenefit": 120,
+    "imagePrompt": 7000,
+    "voiceoverInstruction": 1200
+  }
+}

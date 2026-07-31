@@ -1,0 +1,63 @@
+{
+  "version": "finance-v1",
+  "folderStructureVersion": 4,
+  "slug": "notgroschen-hoehe",
+  "topic": "Wie hoch dein Notgroschen wirklich sein sollte",
+  "title": "Wie hoch sollte dein Notgroschen sein?",
+  "createdAt": "2026-07-30T09:46:00.449Z",
+  "projectPath": "channels/finanzneo/reels/2026-07-27_bis_2026-08-02/04_Wie-hoch-sollte-dein-Notgroschen-sein",
+  "stage": "prompts-ready",
+  "approvals": {
+    "topicSelected": true,
+    "scriptApproved": true,
+    "designAnchorApproved": true,
+    "assetsReviewed": false
+  },
+  "required": {
+    "scenePlan": "06-projektdateien/scene-plan.json",
+    "sources": "06-projektdateien/sources.md",
+    "voiceScript": "01-script-audio/script-fliesstext.txt",
+    "voiceoverPrompt": "01-script-audio/voiceover.txt",
+    "imagePromptIndex": "02-bilder/bildprompts.md",
+    "imagePromptManifest": "06-projektdateien/prompt-manifest.json",
+    "voiceoverFinal": "01-script-audio/audio/voiceover-final.wav",
+    "captionsFinal": "03-caption/voiceover-final.captions.json",
+    "socialCaption": "03-caption/social-caption.md",
+    "manifest": "06-projektdateien/asset-manifest.json",
+    "pdfDirectory": "04-pdf",
+    "exportDirectory": "05-export",
+    "storyboard": "06-projektdateien/storyboard.md",
+    "motionDesign": "06-projektdateien/motion-design.md"
+  },
+  "publishDate": "2026-07-30",
+  "weekFolder": "2026-07-27_bis_2026-08-02",
+  "dayNumber": 4,
+  "dayName": "Donnerstag",
+  "reelFolder": "04_Wie-hoch-sollte-dein-Notgroschen-sein",
+  "dayFolder": "04_Wie-hoch-sollte-dein-Notgroschen-sein",
+  "sourceCodePath": "channels/finanzneo/src/reels/2026-07-30-notgroschen-hoehe",
+  "publicRuntimePath": "channels/finanzneo/public/reels/notgroschen-hoehe",
+  "outPath": "channels/finanzneo/out/reels/2026-07-30-notgroschen-hoehe",
+  "topicSelection": {
+    "selectedBy": "assistant",
+    "mode": "evergreen",
+    "reason": "Noch unbenutztes Grundlagenthema mit hohem Alltagsnutzen, klarer Geldentscheidung und einfacher Visualisierung (Sparschwein/Monatsausgaben), unabhängig von Marktbewegungen",
+    "selectedAt": "2026-07-30T09:46:00.457Z"
+  },
+  "imagePromptsGeneratedAt": "2026-07-30T12:56:51.612Z",
+  "imagePromptSystem": "concrete-scene-v3",
+  "imageStyleVersion": "finance-illustration-v5",
+  "imagePromptManifest": "06-projektdateien/prompt-manifest.json",
+  "imagePromptFiles": [
+    "02-bilder/prompts/01-hook.txt",
+    "02-bilder/prompts/02-relevanz.txt",
+    "02-bilder/prompts/03-mechanismus.txt",
+    "02-bilder/prompts/04-beispiel.txt",
+    "02-bilder/prompts/05-vergleich.txt",
+    "02-bilder/prompts/06-entwicklung.txt",
+    "02-bilder/prompts/07-rechnung.txt"
+  ],
+  "lastContentReadyAt": "2026-07-30T12:06:49.355Z",
+  "imagePromptLanguage": "English",
+  "imageVisibleTextLanguage": "German"
+}

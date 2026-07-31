@@ -1,0 +1,74 @@
+{
+  "version": "finance-v1",
+  "promptSystem": "concrete-scene-v3",
+  "styleVersion": "finance-illustration-v5",
+  "promptLanguage": "English",
+  "visibleTextLanguage": "German",
+  "slug": "notgroschen-hoehe",
+  "generatedAt": "2026-07-30T12:56:51.611Z",
+  "prompts": [
+    {
+      "order": 1,
+      "sceneId": "hook",
+      "spokenSentence": "Wie viel Geld brauchst du wirklich als Notgroschen, bevor du überhaupt an Investieren denkst?",
+      "composition": "CONNECTED_CAUSE_EFFECT_SCENE",
+      "promptFile": "01-hook.txt",
+      "expectedImageFile": "02-bilder/images/01-hook.png",
+      "imageAssetId": "images-01-hook"
+    },
+    {
+      "order": 2,
+      "sceneId": "relevanz",
+      "spokenSentence": "Ohne Puffer musst du bei einer kaputten Waschmaschine oder einem Jobverlust oft genau dann Aktien verkaufen, wenn die Kurse gerade niedrig stehen.",
+      "composition": "CONNECTED_CAUSE_EFFECT_SCENE",
+      "promptFile": "02-relevanz.txt",
+      "expectedImageFile": "02-bilder/images/02-relevanz.png",
+      "imageAssetId": "images-02-relevanz"
+    },
+    {
+      "order": 3,
+      "sceneId": "mechanismus",
+      "spokenSentence": "Der Notgroschen liegt auf einem separaten Tagesgeldkonto, damit du sofort darauf zugreifen kannst, ohne Kurse oder Kündigungsfristen abzuwarten.",
+      "composition": "CONNECTED_CAUSE_EFFECT_SCENE",
+      "promptFile": "03-mechanismus.txt",
+      "expectedImageFile": "02-bilder/images/03-mechanismus.png",
+      "imageAssetId": "images-03-mechanismus"
+    },
+    {
+      "order": 4,
+      "sceneId": "beispiel",
+      "spokenSentence": "Bei 1.800 Euro Monatsausgaben entspricht das einem Zielbetrag zwischen 5.400 und 10.800 Euro.",
+      "composition": "CONNECTED_CAUSE_EFFECT_SCENE",
+      "promptFile": "04-beispiel.txt",
+      "expectedImageFile": "02-bilder/images/04-beispiel.png",
+      "imageAssetId": "images-04-beispiel"
+    },
+    {
+      "order": 5,
+      "sceneId": "vergleich",
+      "spokenSentence": "Zu wenig Puffer zwingt dich in schlechten Momenten zum Verkaufen, zu viel Puffer auf dem Tagesgeldkonto verschenkt langfristig Rendite.",
+      "composition": "CONNECTED_COMPARISON",
+      "promptFile": "05-vergleich.txt",
+      "expectedImageFile": "02-bilder/images/05-vergleich.png",
+      "imageAssetId": "images-05-vergleich"
+    },
+    {
+      "order": 6,
+      "sceneId": "entwicklung",
+      "spokenSentence": "Ein fester Dauerauftrag von 100 bis 200 Euro monatlich baut den Puffer zuverlässig auf, ganz ohne Disziplinstress.",
+      "composition": "CONNECTED_CAUSE_EFFECT_SCENE",
+      "promptFile": "06-entwicklung.txt",
+      "expectedImageFile": "02-bilder/images/06-entwicklung.png",
+      "imageAssetId": "images-06-entwicklung"
+    },
+    {
+      "order": 7,
+      "sceneId": "rechnung",
+      "spokenSentence": "Bei 150 Euro monatlich erreichst du 5.400 Euro nach 36 Monaten, also in genau drei Jahren.",
+      "composition": "CONTINUOUS_CAUSE_EFFECT_PATH",
+      "promptFile": "07-rechnung.txt",
+      "expectedImageFile": "02-bilder/images/07-rechnung.png",
+      "imageAssetId": "images-07-rechnung"
+    }
+  ]
+}

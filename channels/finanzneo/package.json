@@ -1,0 +1,9 @@
+{
+  "name": "@studio/finanzneo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Kanal: FinanzNeo — Finanzen für Anfänger",
+  "dependencies": {
+    "@studio/core": "*"
+  }
+}

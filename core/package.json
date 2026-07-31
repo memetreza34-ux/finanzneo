@@ -1,0 +1,15 @@
+{
+  "name": "@studio/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Geteiltes Grundgerüst: Remotion-Bausteine, Brand-System, Wissen",
+  "main": "brand-kit/index.ts",
+  "types": "brand-kit/index.ts",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "remotion": "^4.0.473"
+  },
+  "devDependencies": {
+    "remotion": "^4.0.473"
+  }
+}

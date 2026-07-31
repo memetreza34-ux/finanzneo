@@ -1,0 +1,17 @@
+Premium stylized 3D financial editorial illustration in vertical 9:16, clear and immediately understandable, mature and not overly abstract, one seamless evenly dark charcoal background across the entire canvas, no visible support surface or horizon line, natural realistic object colors, subtle deep-green accents only as supporting light trails, arrows or connections and never recoloring any object, soft studio lighting, premium matte materials, believable local shadows and spatial depth, serious, not photorealistic and not childish. Show the starting state, visible transformation and result as one continuous cause-and-effect path.
+
+Visual meaning: 150 euros per month adds up to exactly 5,400 euros after 36 months.
+
+Topic-specific visual concept: Topic-specific anchor: a calculator display shows a rising total number beside a glass jar filling gradually with coins as calendar tabs shift forward. Supporting objects: coins accumulate inside the glass jar; the calendar tabs mark each month.
+
+Camera and arrangement: The calculator sits left, the jar stands center, the tabs move toward the background. The scene fills most of the usable image height; fill most of the usable image height with large centered subjects. Keep only slightly calmer near the top and bottom in the same background; no color bars or separated empty zones.
+
+Visible action: Each calendar tab fills the glass jar with another group of coins. Final visual state: First the jar appears empty, then it fills completely.
+
+World and color control: One seamless evenly dark charcoal background fills the entire canvas. Use one seamless charcoal background; no second background color or visible dividing line. Preserve realistic euro colors. Green effects must never recolor any object.
+
+Text inside the image: Render exactly these German labels and no other text: "36 Monate Ziel". Place them beside the concepts they explain.
+
+Series diversity rule: use a unique topic-specific anchor; do not repeat generic money compositions. Money may support, never replace, the subject.
+
+No invented brands.

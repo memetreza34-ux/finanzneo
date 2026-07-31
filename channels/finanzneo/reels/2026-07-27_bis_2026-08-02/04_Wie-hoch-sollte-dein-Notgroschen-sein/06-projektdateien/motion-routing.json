@@ -1,0 +1,260 @@
+{
+  "version": "motion-routing-v1",
+  "channel": "finanzneo",
+  "source": "channels/finanzneo/reels/2026-07-27_bis_2026-08-02/04_Wie-hoch-sollte-dein-Notgroschen-sein/06-projektdateien/scene-plan.json",
+  "slug": "notgroschen-hoehe",
+  "title": "Wie hoch sollte dein Notgroschen sein?",
+  "generatedAt": "2026-07-30T12:06:49.171Z",
+  "beats": [
+    {
+      "sceneId": "hook",
+      "beatType": "hook",
+      "pattern": "spotlight-push-in",
+      "skills": [
+        "remotion-best-practices",
+        "motion-graphics",
+        "cinematic-camera",
+        "video-shotcraft"
+      ],
+      "preferredCoreComponents": [
+        "PushIn",
+        "Move",
+        "Focus",
+        "Title"
+      ],
+      "camera": "Hauptmotiv in Frame 0; kurzer Start-Hold, kontrollierter Push-in, stabiler End-Hold.",
+      "timing": "Konflikt oder Konsequenz spätestens nach 1,5 Sekunden sichtbar machen.",
+      "checks": [
+        "eine primäre Bewegung",
+        "sichtbarer Ausgangs- und Endzustand",
+        "Caption- und Header-Safe-Zone frei",
+        "deterministische frame-basierte Animation",
+        "stabiler End-Hold"
+      ]
+    },
+    {
+      "sceneId": "relevanz",
+      "beatType": "cause-effect",
+      "pattern": "layered-cause-effect",
+      "skills": [
+        "remotion-best-practices",
+        "motion-graphics",
+        "cinematic-camera"
+      ],
+      "preferredCoreComponents": [
+        "Move",
+        "Focus",
+        "AnimatedBeam",
+        "ParallaxLayer"
+      ],
+      "camera": "Ursache, Veränderung und Ergebnis in derselben räumlichen Welt halten.",
+      "timing": "Maximal 2,8 Sekunden zwischen neuen inhaltlichen Zuständen.",
+      "checks": [
+        "eine primäre Bewegung",
+        "sichtbarer Ausgangs- und Endzustand",
+        "Caption- und Header-Safe-Zone frei",
+        "deterministische frame-basierte Animation",
+        "stabiler End-Hold"
+      ]
+    },
+    {
+      "sceneId": "zahl",
+      "beatType": "calculation",
+      "pattern": "formula-assembly",
+      "skills": [
+        "remotion-best-practices",
+        "motion-graphics",
+        "remotion-bits"
+      ],
+      "preferredCoreComponents": [
+        "DramaticNumber",
+        "RollingNumber",
+        "Gauge",
+        "Title"
+      ],
+      "camera": "Kamera ruhig halten; Wert, Operation und Ergebnis nacheinander aufbauen.",
+      "timing": "Ergebnis mindestens 0,7 Sekunden lesbar halten.",
+      "checks": [
+        "eine primäre Bewegung",
+        "sichtbarer Ausgangs- und Endzustand",
+        "Caption- und Header-Safe-Zone frei",
+        "deterministische frame-basierte Animation",
+        "stabiler End-Hold"
+      ]
+    },
+    {
+      "sceneId": "mechanismus",
+      "beatType": "cause-effect",
+      "pattern": "layered-cause-effect",
+      "skills": [
+        "remotion-best-practices",
+        "motion-graphics",
+        "cinematic-camera"
+      ],
+      "preferredCoreComponents": [
+        "Move",
+        "Focus",
+        "AnimatedBeam",
+        "ParallaxLayer"
+      ],
+      "camera": "Ursache, Veränderung und Ergebnis in derselben räumlichen Welt halten.",
+      "timing": "Maximal 2,8 Sekunden zwischen neuen inhaltlichen Zuständen.",
+      "checks": [
+        "eine primäre Bewegung",
+        "sichtbarer Ausgangs- und Endzustand",
+        "Caption- und Header-Safe-Zone frei",
+        "deterministische frame-basierte Animation",
+        "stabiler End-Hold"
+      ]
+    },
+    {
+      "sceneId": "beispiel",
+      "beatType": "cause-effect",
+      "pattern": "layered-cause-effect",
+      "skills": [
+        "remotion-best-practices",
+        "motion-graphics",
+        "cinematic-camera"
+      ],
+      "preferredCoreComponents": [
+        "Move",
+        "Focus",
+        "AnimatedBeam",
+        "ParallaxLayer"
+      ],
+      "camera": "Ursache, Veränderung und Ergebnis in derselben räumlichen Welt halten.",
+      "timing": "Maximal 2,8 Sekunden zwischen neuen inhaltlichen Zuständen.",
+      "checks": [
+        "eine primäre Bewegung",
+        "sichtbarer Ausgangs- und Endzustand",
+        "Caption- und Header-Safe-Zone frei",
+        "deterministische frame-basierte Animation",
+        "stabiler End-Hold"
+      ]
+    },
+    {
+      "sceneId": "vergleich",
+      "beatType": "comparison",
+      "pattern": "matched-comparison",
+      "skills": [
+        "remotion-best-practices",
+        "motion-graphics",
+        "video-shotcraft"
+      ],
+      "preferredCoreComponents": [
+        "ComparisonBars",
+        "DualAreaCompare",
+        "Move",
+        "Focus"
+      ],
+      "camera": "Gleiche Perspektive, Größe und Ausgangsbasis; nur die relevante Variable verändern.",
+      "timing": "Beide Ausgangszustände früh zeigen, Unterschied anschließend klar hervorheben.",
+      "checks": [
+        "eine primäre Bewegung",
+        "sichtbarer Ausgangs- und Endzustand",
+        "Caption- und Header-Safe-Zone frei",
+        "deterministische frame-basierte Animation",
+        "stabiler End-Hold"
+      ]
+    },
+    {
+      "sceneId": "entwicklung",
+      "beatType": "timeline",
+      "pattern": "timeline-traverse",
+      "skills": [
+        "remotion-best-practices",
+        "motion-graphics",
+        "cinematic-camera",
+        "video-shotcraft"
+      ],
+      "preferredCoreComponents": [
+        "AreaPremium",
+        "DualAreaCompare",
+        "MilestoneTimeline",
+        "Move"
+      ],
+      "camera": "Durch zwei bis vier klar verbundene Zeitpunkte reisen und an jedem Punkt halten.",
+      "timing": "Achsen, Einheit und Annahmen vor dem finalen Wert sichtbar machen.",
+      "checks": [
+        "eine primäre Bewegung",
+        "sichtbarer Ausgangs- und Endzustand",
+        "Caption- und Header-Safe-Zone frei",
+        "deterministische frame-basierte Animation",
+        "stabiler End-Hold"
+      ]
+    },
+    {
+      "sceneId": "rechnung",
+      "beatType": "calculation",
+      "pattern": "formula-assembly",
+      "skills": [
+        "remotion-best-practices",
+        "motion-graphics",
+        "remotion-bits"
+      ],
+      "preferredCoreComponents": [
+        "DramaticNumber",
+        "RollingNumber",
+        "Gauge",
+        "Title"
+      ],
+      "camera": "Kamera ruhig halten; Wert, Operation und Ergebnis nacheinander aufbauen.",
+      "timing": "Ergebnis mindestens 0,7 Sekunden lesbar halten.",
+      "checks": [
+        "eine primäre Bewegung",
+        "sichtbarer Ausgangs- und Endzustand",
+        "Caption- und Header-Safe-Zone frei",
+        "deterministische frame-basierte Animation",
+        "stabiler End-Hold"
+      ]
+    },
+    {
+      "sceneId": "payoff",
+      "beatType": "cause-effect",
+      "pattern": "layered-cause-effect",
+      "skills": [
+        "remotion-best-practices",
+        "motion-graphics",
+        "cinematic-camera"
+      ],
+      "preferredCoreComponents": [
+        "Move",
+        "Focus",
+        "AnimatedBeam",
+        "ParallaxLayer"
+      ],
+      "camera": "Ursache, Veränderung und Ergebnis in derselben räumlichen Welt halten.",
+      "timing": "Maximal 2,8 Sekunden zwischen neuen inhaltlichen Zuständen.",
+      "checks": [
+        "eine primäre Bewegung",
+        "sichtbarer Ausgangs- und Endzustand",
+        "Caption- und Header-Safe-Zone frei",
+        "deterministische frame-basierte Animation",
+        "stabiler End-Hold"
+      ]
+    },
+    {
+      "sceneId": "cta",
+      "beatType": "cta",
+      "pattern": "end-hold-cta",
+      "skills": [
+        "remotion-best-practices",
+        "motion-graphics"
+      ],
+      "preferredCoreComponents": [
+        "Title",
+        "Emphasis",
+        "Focus"
+      ],
+      "camera": "Keine neue Kamerafahrt; Handlung und Nutzen stabil präsentieren.",
+      "timing": "Keyword und Nutzen sofort zeigen; mindestens 0,8 Sekunden End-Hold.",
+      "checks": [
+        "eine primäre Bewegung",
+        "sichtbarer Ausgangs- und Endzustand",
+        "Caption- und Header-Safe-Zone frei",
+        "deterministische frame-basierte Animation",
+        "stabiler End-Hold"
+      ]
+    }
+  ]
+}

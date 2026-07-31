@@ -1,0 +1,33 @@
+{
+  "version": "finance-v1",
+  "topicSelectionVersion": 2,
+  "rules": {
+    "oneTopicPerDay": true,
+    "assistantChoosesByDefault": true,
+    "trendOnlyWhenUsefulAndVerified": true,
+    "doNotPrecreateEmptyDayFolders": true
+  },
+  "topics": [
+    {
+      "slug": "notgroschen-hoehe",
+      "topic": "Wie hoch dein Notgroschen wirklich sein sollte",
+      "status": "reserved",
+      "createdAt": "2026-07-30T09:46:00.449Z",
+      "projectPath": "channels/finanzneo/reels/2026-07-27_bis_2026-08-02/04_Wie-hoch-sollte-dein-Notgroschen-sein",
+      "publishDate": "2026-07-30",
+      "weekFolder": "2026-07-27_bis_2026-08-02",
+      "dayNumber": 4,
+      "dayName": "Donnerstag",
+      "reelFolder": "04_Wie-hoch-sollte-dein-Notgroschen-sein",
+      "selectedBy": "assistant",
+      "selectionMode": "evergreen",
+      "selectionReason": "Noch unbenutztes Grundlagenthema mit hohem Alltagsnutzen, klarer Geldentscheidung und einfacher Visualisierung (Sparschwein/Monatsausgaben), unabhängig von Marktbewegungen"
+    },
+    {
+      "slug": "inflation-kaufkraft",
+      "topic": "Inflation und Kaufkraft",
+      "status": "used",
+      "note": "Erstes getestetes Finance-V1-Reel"
+    }
+  ]
+}
