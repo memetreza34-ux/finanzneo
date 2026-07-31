@@ -5,12 +5,14 @@ Eigenständiges Repo für den FinanzNeo-Kanal, extrahiert aus `studio-clon` am 2
 ## Struktur
 
 ```text
-core/brand-kit/     — Remotion-Bausteine (Snapshot aus studio-clon/core/brand-kit, @studio/core)
+core/brand-kit/     — nur die von FinanzNeo tatsächlich genutzten Remotion-Bausteine (@studio/core, getrimmt)
 channels/finanzneo/ — der Kanal selbst (src, engine, gehirn, skills, public, reels)
 scripts/            — Produktions-/QA-Pipeline (Skript-QA, Creative-QA, Content-Gate, Render, Export)
 ```
 
-`core/brand-kit` ist ein **Snapshot** (kein Submodule) — Verbesserungen aus `studio-clon/core` kommen nicht automatisch hierher.
+Kein zweiter Kanal, kein KI-Anteil — dieses Repo enthält ausschließlich FinanzNeo.
+
+`core/brand-kit` ist ein **getrimmter Snapshot** aus `studio-clon/core/brand-kit` (nur genutzte Bausteine: Tokens, Theme, Fonts, Lucide, Sound, Captions, PremiumIcon, PremiumGrade) — kein Submodule, Verbesserungen aus `studio-clon/core` kommen nicht automatisch hierher.
 
 ## Setup
 
