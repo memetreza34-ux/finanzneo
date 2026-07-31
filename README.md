@@ -23,7 +23,15 @@ npm test
 
 ## Bildstil
 
-Aktuell **kein definierter Bildstil** — das alte v6-System wurde entfernt. Siehe `channels/finanzneo/CLAUDE.md`.
+FinanzNeo verwendet ein verbindliches stilisiertes 3D-Illustrationssystem für alle Bildprompts:
+
+```text
+channels/finanzneo/gehirn/BILDSTIL.md
+channels/finanzneo/gehirn/MASTER-STYLE-PROMPT.md
+channels/finanzneo/gehirn/IMAGE-PROMPT-TEMPLATE.md
+```
+
+Der Inhalt jeder Szene darf wechseln, der Master-Stil bleibt unverändert. Bildprompts bestehen aus Kernaussage, einer zusammenhängenden visuellen Metapher, optionalen kurzen deutschen Labels, Kompositionsvorgaben und dem vollständigen Master-Stilblock.
 
 ## Wichtigste Befehle
 

@@ -30,6 +30,16 @@ Nicht planen:
 - SFX oder Musik,
 - starke oder hektische Bewegung.
 
+## Verbindliche Bildstil-Dateien
+
+Vor der Bildplanung lesen:
+
+- `../gehirn/BILDSTIL.md`
+- `../gehirn/MASTER-STYLE-PROMPT.md`
+- `../gehirn/IMAGE-PROMPT-TEMPLATE.md`
+
+Der Stil bleibt über alle Reels gleich. Nur Aussage, Szene, Figuren, Objekte und kurze deutsche Labels dürfen sich ändern.
+
 ## Ablauf
 
 1. Genau ein Thema für einen freien Wochentag verwenden.
@@ -40,12 +50,14 @@ Nicht planen:
 6. Quellen und Claim-IDs dokumentieren.
 7. Für jede Szene Kicker, Icon und kurze Headline festlegen.
 8. Acht bis zehn Szenen als `full-bleed`-Bildszene planen.
-9. Jede Bildszene erhält ein `imagePrompt` (freier englischer Text, kein festes Feldschema mehr). Es gibt aktuell **kein festes Bildstil-Regelwerk** — vor der nächsten Produktion mit Arman einen neuen Stil festlegen.
-10. Jede Szene verwendet `transition: "cut"`.
-11. Jede Szene besitzt höchstens eine `visualPhase` bei `at: 0`.
-12. `soundCues` bleibt leer.
-13. Storyboard, einfachen Schnitt- und Bewegungsplan, Caption und PDF-Inhalt schreiben.
-14. Bildprompts manuell nach neuem Stil schreiben (kein automatisches Tool aktuell), dann Content-Gate (`finance:content-ready`) ausführen.
+9. Jede Bildszene erhält ein englisches `imagePrompt` nach `IMAGE-PROMPT-TEMPLATE.md`.
+10. An jeden Szenenprompt wird der vollständige, unveränderte Block aus `MASTER-STYLE-PROMPT.md` angehängt.
+11. Jede Szene verwendet `transition: "cut"`.
+12. Jede Szene besitzt höchstens eine `visualPhase` bei `at: 0`.
+13. `soundCues` bleibt leer.
+14. Storyboard, einfachen Schnitt- und Bewegungsplan, Caption und PDF-Inhalt schreiben.
+15. `02-bilder/prompt-manifest.json` mit Satz, Bildaussage, Prompt und Zieldatei schreiben.
+16. Danach Content-Gate (`finance:content-ready`) ausführen.
 
 ## Bildentscheidung pro Satz
 
@@ -53,11 +65,25 @@ Ein neues Bild ist nötig, wenn der Satz einen neuen Gegenstand, Ort, Vergleich,
 
 Ein bestehendes Bild darf nur weiterlaufen, wenn der folgende Satz dieselbe Aussage abschließt. Zoom oder minimale Bildfahrt gelten nicht als neues Bild.
 
-## Bildstil — aktuell nicht definiert
+## Szenenlogik
 
-Das bisherige Bildpromptsystem (v6) wurde entfernt, weil die erzeugten Bilder nicht dem gewünschten Look entsprachen. Es gibt aktuell **keine verbindliche Feldstruktur, Wortzahl- oder Stilvorgabe** — `imagePrompt` ist ein freier englischer Text pro Bildszene.
+Jeder Prompt muss enthalten:
 
-Bis ein neuer Stil mit Arman festgelegt ist: Prompt auf Englisch, sichtbarer Bildtext (falls nötig) nur kurze deutsche Labels, Überschrift/Icon/CTA/Untertitel entstehen später in Remotion.
+1. `MESSAGE TO COMMUNICATE` — die sichtbare Kernaussage,
+2. `SCENE` — eine zusammenhängende Szene oder Metapher,
+3. `GERMAN LABELS` — optional null bis fünf kurze Begriffe,
+4. `COMPOSITION` — Hauptmotiv und Freiraum,
+5. den unveränderten Master-Stilblock.
+
+Regeln:
+
+- Illustration statt Dashboard.
+- Eine starke Metapher statt vieler kleiner Symbole.
+- Figuren nur verwenden, wenn sie eine Handlung klarer machen.
+- Höchstens drei bis fünf unterstützende Elemente.
+- Ein Bild darf keine mehreren unverbundenen Aussagen tragen.
+- Sichtbarer Text nur als kurze deutsche Labels.
+- Überschrift, Untertitel und CTA werden nicht ins Bild generiert.
 
 ## Schnitt- und Bewegungsplan
 
@@ -82,7 +108,5 @@ npm run finance:script-qa -- <projektordner>/06-projektdateien/scene-plan.json
 npm run finance:creative-qa -- <projektordner>/06-projektdateien/scene-plan.json
 npm run finance:content-ready -- <projektordner>
 ```
-
-Bildprompts (`imagePrompt` je Szene, `prompt-manifest.json`) müssen aktuell manuell nach dem neuen Stil geschrieben werden — es gibt kein automatisches Erzeugungs-/QA-Tool mehr, bis der neue Stil steht.
 
 Nicht zur Medienphase wechseln, solange einer dieser Befehle rot ist.
