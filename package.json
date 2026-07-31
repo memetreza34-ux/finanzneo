@@ -30,8 +30,8 @@
     "finance:render": "node scripts/render-finance-reel.mjs",
     "finance:export": "node scripts/run-finance-with-folder-check.mjs scripts/export-finance-deliverables.mjs",
     "finance:e2e": "node scripts/test-finance-e2e.mjs",
-    "finance:system-test": "npm test && npm run typecheck && npm run finance:scaffold-test && npm run finance:e2e && npm run finance:render-qa-test && npm run smoke",
-    "test": "npm run validate:finanzneo-syntax && npm run validate:finance-template && npm run validate:finanzneo-system && npm run validate:finanzneo-consistency && vitest run"
+    "finance:system-test": "npm test && npm run finance:scaffold-test && npm run finance:e2e && npm run finance:render-qa-test && npm run smoke",
+    "test": "npm run validate:finanzneo-syntax && npm run validate:finance-template && npm run validate:finanzneo-system && npm run validate:finanzneo-consistency && npm run typecheck && vitest run"
   },
   "dependencies": {
     "@remotion/captions": "4.0.488",
@@ -42,7 +42,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remotion": "4.0.488",
-    "sharp": "^0.33.5",
+    "sharp": "^0.35.3",
     "zod": "4.3.6"
   },
   "devDependencies": {

@@ -11,7 +11,6 @@ import {
 } from 'remotion';
 import {
   Captions,
-  LivingBackground,
   PremiumGrade,
   ThemeProvider,
   Voiceover,
@@ -515,7 +514,6 @@ export const FinanceReel: React.FC<FinanceReelProps> = ({
   return (
     <DebugContext.Provider value={debug}>
       <ThemeProvider value={BRAND}>
-        <LivingBackground speed={0.55} />
         {sequences}
         {captionsVisible && <Captions captions={captions} perGroup={4} bottom={captionBottom} size={62} hardBreaksMs={startsMs} instant />}
         {voiceover && <Voiceover src={joinPublicPath(publicBasePath, voiceover.file)} playbackRate={1} />}
