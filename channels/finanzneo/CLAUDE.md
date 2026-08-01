@@ -26,6 +26,9 @@ Claude liest:
 - `skills/reel-starten.md`
 - `skills/script-schreiben.md`
 - `skills/reel-planen.md`
+- `gehirn/BILDSTIL.md`
+- `gehirn/MASTER-STYLE-PROMPT.md`
+- `gehirn/IMAGE-PROMPT-TEMPLATE.md`
 - `engine/topic-history.json`
 
 Bereits verwendete, reservierte oder sehr ähnliche Themen werden ausgeschlossen. Genau ein Thema wird genau einem freien Wochentag zugeordnet.
@@ -86,15 +89,39 @@ Für ein normales Reel werden **8–10 eigenständige Bilder** geplant. Zielwert
 
 Payoff und CTA dürfen das unmittelbar vorherige Bild weiterverwenden. Ein Bild darf keine mehreren unverbundenen Aussagen tragen.
 
-## Bildstil — aktuell nicht definiert
+## Bildstil — verbindlich
 
-Das bisherige Bildpromptsystem (v6, inkl. `gehirn/BILDSTIL.md`) wurde am 2026-07-31 komplett entfernt, weil die erzeugten Bilder nicht dem gewünschten Look entsprachen. Es gibt aktuell **keine verbindlichen Stilregeln**.
+FinanzNeo verwendet ab jetzt ein festes stilisiertes 3D-Illustrationssystem.
 
-Bis ein neuer Stil festgelegt ist:
+Verbindliche Dateien:
 
-- Das strukturierte `imageBrief`-Feld gibt es nicht mehr (aus dem Szenen-Schema entfernt). Jede Bildszene bekommt stattdessen direkt ein `imagePrompt` (freier englischer Text).
-- Es gibt aktuell **kein automatisches Werkzeug**, das den Bildprompt baut — `imagePrompt` je Szene und `prompt-manifest.json` müssen manuell geschrieben werden, sobald der neue Stil steht.
-- Vor dem nächsten Reel mit Arman gemeinsam einen neuen Bildstil definieren und dokumentieren, bevor wieder produktiv Bilder generiert werden.
+- `gehirn/BILDSTIL.md` — Regeln, Figuren, Farben, Komposition und Verbote
+- `gehirn/MASTER-STYLE-PROMPT.md` — unveränderter Master-Stilblock für jeden Bildprompt
+- `gehirn/IMAGE-PROMPT-TEMPLATE.md` — Aufbau, Szenenlogik und Beispiele
+
+Jede Bildszene bekommt weiterhin direkt ein freies englisches `imagePrompt`-Feld. Der Prompt muss jedoch immer aus folgenden Teilen bestehen:
+
+1. finanzielle Kernaussage,
+2. eine konkrete zusammenhängende Szene oder visuelle Metapher,
+3. optionale kurze deutsche Labels,
+4. Komposition und Negativraum,
+5. vollständiger unveränderter Master-Stilblock.
+
+Der Agent darf Szene, Figuren, Objekte und Labels verändern. Er darf den Master-Stil nicht umformulieren, verkürzen oder durch andere Stilrichtungen ersetzen.
+
+Nicht verwenden:
+
+- Fotorealismus,
+- reale Menschen,
+- Pixar-, Clay- oder Kinderfilmstil,
+- UI-Dashboards als Bild,
+- sterile Produkt-Renderings,
+- flache 2D-Infografiken,
+- überladene Miniaturstädte,
+- viele unverbundene Icons,
+- übermäßige Lichtleitungen, Partikel oder Neon.
+
+`prompt-manifest.json` wird weiterhin pro Projekt geschrieben. Jeder Eintrag muss erkennen lassen, welcher gesprochene Satz, welche Bildaussage und welche Bilddatei zusammengehören.
 
 ## Pflichtablauf
 
@@ -110,6 +137,7 @@ Nach dem Scaffold vollständig schreiben:
 8. `06-projektdateien/motion-design.md` als einfacher Schnitt- und Bewegungsplan
 9. `06-projektdateien/scene-plan.json`
 10. `06-projektdateien/production-status.json`
+11. `02-bilder/prompt-manifest.json`
 
 Danach:
 
@@ -126,14 +154,16 @@ Vor `assetsReviewed=true` jedes Bild prüfen:
 1. Aussage ohne Prompt verständlich,
 2. Hauptmotiv sofort erkennbar,
 3. Handlung und Ergebnis sichtbar,
-4. realer Ort und Gegenstände plausibel,
-5. keine erfundene Maschine,
-6. natürliche Farben,
-7. kein unerwünschter Text, Logo oder Wasserzeichen,
-8. genug Platz für Überschrift und Untertitel,
-9. gleiche Bildwelt innerhalb des Reels.
+4. eine klare finanzielle Aussage statt mehrerer unverbundener Ideen,
+5. stilisierte 3D-Illustration statt Fotorealismus oder Dashboard,
+6. Figuren und Objekte entsprechen `gehirn/BILDSTIL.md`,
+7. natürliche Farben mit gezielten grünen Akzenten,
+8. kein unerwünschter Text, Logo oder Wasserzeichen,
+9. kurze deutsche Labels korrekt geschrieben,
+10. genug Platz für Überschrift und Untertitel,
+11. gleiche Bildwelt innerhalb des Reels und zwischen verschiedenen Reels.
 
-Ein schönes, aber inhaltlich falsches Bild wird ersetzt.
+Ein schönes, aber inhaltlich oder stilistisch falsches Bild wird ersetzt.
 
 ## Medien und Render
 
