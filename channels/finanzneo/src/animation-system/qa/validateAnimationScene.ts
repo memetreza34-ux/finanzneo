@@ -6,8 +6,13 @@ export type AnimationValidationIssue = {
   message: string;
 };
 
+type FinanceAnimationValidationInput =
+  | FinanceAnimationRequest
+  | FinanceAnimationScene
+  | (FinanceAnimationRequest & {mode: 'image'});
+
 export const validateAnimationRequest = (
-  scene: FinanceAnimationRequest | FinanceAnimationScene,
+  scene: FinanceAnimationValidationInput,
 ): AnimationValidationIssue[] => {
   if ('mode' in scene && scene.mode === 'image') {
     return [];
