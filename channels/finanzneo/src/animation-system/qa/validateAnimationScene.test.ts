@@ -46,4 +46,24 @@ describe('validateAnimationScene', () => {
       expect.arrayContaining(['too-many-labels', 'missing-data']),
     );
   });
+
+  it('warnt bei leeren und doppelten Labels', () => {
+    const issues = validateAnimationScene({
+      ...baseScene,
+      labels: ['ETF', ' ', 'etf'],
+    });
+
+    expect(issues.map((issue) => issue.code)).toEqual(
+      expect.arrayContaining(['empty-label', 'duplicate-labels']),
+    );
+  });
+
+  it('erkennt doppelte Labels unabhängig von Groß- und Kleinschreibung', () => {
+    const issues = validateAnimationScene({
+      ...baseScene,
+      labels: ['Rendite', 'RENDiTE'],
+    });
+
+    expect(issues.map((issue) => issue.code)).toContain('duplicate-labels');
+  });
 });
