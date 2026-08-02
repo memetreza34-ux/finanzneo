@@ -19,6 +19,22 @@ describe('planFinanceAnimationInput', () => {
       expect(result.request.data?.startCapital).toBe(1000);
       expect(result.plan.decision.mode).toBe('image');
       expect(result.plan.scene).toBeUndefined();
+      expect(result.warnings).toEqual([]);
+    }
+  });
+
+  it('preserves non-blocking parser warnings for a valid request', () => {
+    const result = planFinanceAnimationInput({
+      message: 'Eine allgemeine Finanzsituation wird erklärt.',
+      voiceText: 'Ohne strukturierte Zahlen bleibt der Bildmodus sicherer.',
+    });
+
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.warnings).toContain(
+        'Animationsszene enthält keine strukturierten Finanzdaten.',
+      );
+      expect(result.plan.decision.mode).toBe('image');
     }
   });
 
