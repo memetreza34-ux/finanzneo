@@ -1,5 +1,6 @@
 import {describe, expect, it} from 'vitest';
-import type {FinanceAnimationRequest, FinanceAnimationScene} from '../contracts';
+import type {FinanceAnimationScene} from '../contracts';
+import type {FinanceImageSceneValidationInput} from './validateAnimationScene';
 import {validateAnimationScene} from './validateAnimationScene';
 
 const baseScene: FinanceAnimationScene = {
@@ -17,10 +18,13 @@ describe('validateAnimationScene', () => {
   });
 
   it('überspringt reine Bildszenen', () => {
-    const imageScene = {
-      ...baseScene,
+    const imageScene: FinanceImageSceneValidationInput = {
+      message: baseScene.message,
+      voiceText: baseScene.voiceText,
+      labels: baseScene.labels,
+      data: baseScene.data,
       mode: 'image',
-    } as unknown as FinanceAnimationRequest & {mode: 'image'};
+    };
 
     expect(validateAnimationScene(imageScene)).toEqual([]);
   });
