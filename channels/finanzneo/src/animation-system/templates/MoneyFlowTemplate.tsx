@@ -21,6 +21,8 @@ export type MoneyFlowTemplateProps = {
 };
 
 const integerPercentages = (shares: readonly number[]): number[] => {
+  if (shares.length === 0) return [];
+
   const raw = shares.map((share) => share * 100);
   const floors = raw.map(Math.floor);
   const remaining = Math.max(0, 100 - floors.reduce((sum, value) => sum + value, 0));
