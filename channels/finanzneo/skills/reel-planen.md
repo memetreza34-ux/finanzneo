@@ -55,14 +55,14 @@ Der Stil bleibt über alle Reels gleich. Nur Aussage, Szene, Figuren, Objekte un
 11. Jede Szene verwendet `transition: "cut"`.
 12. Jede Szene besitzt höchstens eine `visualPhase` bei `at: 0`.
 13. `soundCues` bleibt leer.
-14. Storyboard, einfachen Schnitt- und Bewegungsplan, Caption und PDF-Inhalt schreiben.
+14. Storyboard, einfachen Schnitt- und Bewegungsplan sowie Social Caption schreiben.
 15. `02-bilder/prompt-manifest.json` mit Satz, Bildaussage, Prompt und Zieldatei schreiben.
 16. `02-bilder/alle-bildprompts.txt` als komplett kopierbare Prompt-Sammlung für Google Flow schreiben.
 17. Danach Content-Gate (`finance:content-ready`) ausführen.
 
-## PDF bleibt Pflicht
+## Keine PDF-Ausgabe
 
-Der Ordner `04-pdf/` und die Datei `04-pdf/inhalt.md` gehören weiterhin zu jedem Reel-Projekt. Sie dürfen nicht entfernt, ausgelassen oder durch die Bildprompt-Dateien ersetzt werden.
+Für FinanzNeo wird kein PDF erstellt. `04-pdf/` und `04-pdf/inhalt.md` gehören nicht mehr zum Pflichtablauf.
 
 ## Alle Bildprompts für Google Flow
 
