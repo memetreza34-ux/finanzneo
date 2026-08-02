@@ -30,6 +30,11 @@ const TEMPLATE_KEYWORDS: TemplateKeywordDefinition[] = [
 ];
 
 const normalize = (value: string): string => value.toLocaleLowerCase('de-DE');
+const escapeRegExp = (value: string): string => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const containsKeyword = (text: string, keyword: string): boolean => {
+  const escapedKeyword = escapeRegExp(normalize(keyword));
+  return new RegExp(`(^|[^\\p{L}\\p{N}])${escapedKeyword}([^\\p{L}\\p{N}]|$)`, 'u').test(text);
+};
 
 export const resolveFinanceAnimationMode = (
   features: FinanceAnimationFeatureFlags,
@@ -63,7 +68,7 @@ export const classifyFinanceSceneWithFeatures = (
 
   const haystack = normalize(`${request.message} ${request.voiceText}`);
   const rankedMatches = TEMPLATE_KEYWORDS.map((definition) => {
-    const keywordMatches = definition.keywords.filter((keyword) => haystack.includes(keyword));
+    const keywordMatches = definition.keywords.filter((keyword) => containsKeyword(haystack, keyword));
     const preferredBonus = request.preferredTemplate === definition.template ? 2 : 0;
     return {
       template: definition.template,
