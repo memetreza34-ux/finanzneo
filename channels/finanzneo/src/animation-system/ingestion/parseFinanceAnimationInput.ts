@@ -89,40 +89,57 @@ export const parseFinanceAnimationRequest = (
     };
   }
 
-  const errors: string[] = [];
+  const structuralErrors: string[] = [];
   if (typeof input.message !== 'string') {
-    errors.push('Kernaussage muss ein Text sein.');
+    structuralErrors.push('Kernaussage muss ein Text sein.');
   }
   if (typeof input.voiceText !== 'string') {
-    errors.push('Voiceover muss ein Text sein.');
+    structuralErrors.push('Voiceover muss ein Text sein.');
   }
 
-  const labels = parseLabels(input.labels, errors);
-  const data = parseData(input.data, errors);
+  const labels = parseLabels(input.labels, structuralErrors);
+  const data = parseData(input.data, structuralErrors);
 
   let preferredTemplate: FinanceAnimationTemplate | undefined;
   if (input.preferredTemplate !== undefined) {
     if (isTemplate(input.preferredTemplate)) {
       preferredTemplate = input.preferredTemplate;
     } else {
-      errors.push('Bevorzugtes Animationstemplate ist unbekannt.');
+      structuralErrors.push('Bevorzugtes Animationstemplate ist unbekannt.');
     }
   }
 
+  if (structuralErrors.length > 0) {
+    return {ok: false, errors: uniqueMessages(structuralErrors), warnings: []};
+  }
+
+  const request: FinanceAnimationRequest = {
+    message: input.message as string,
+    voiceText: input.voiceText as string,
+    ...(labels ? {labels} : {}),
+    ...(data ? {data} : {}),
+    ...(preferredTemplate ? {preferredTemplate} : {}),
+  };
+  const genericIssues = validateAnimationScene(request);
+  const errors = genericIssues
+    .filter((issue) => issue.level === 'error')
+    .map((issue) => issue.message);
+  const warnings = genericIssues
+    .filter((issue) => issue.level === 'warning')
+    .map((issue) => issue.message);
+
   if (errors.length > 0) {
-    return {ok: false, errors: uniqueMessages(errors), warnings: []};
+    return {
+      ok: false,
+      errors: uniqueMessages(errors),
+      warnings: uniqueMessages(warnings),
+    };
   }
 
   return {
     ok: true,
-    value: {
-      message: input.message as string,
-      voiceText: input.voiceText as string,
-      ...(labels ? {labels} : {}),
-      ...(data ? {data} : {}),
-      ...(preferredTemplate ? {preferredTemplate} : {}),
-    },
-    warnings: [],
+    value: request,
+    warnings: uniqueMessages(warnings),
   };
 };
 
@@ -147,7 +164,11 @@ export const parseFinanceAnimationScene = (
     errors.push('Animationsszene enthält ein unbekanntes Template.');
   }
   if (errors.length > 0) {
-    return {ok: false, errors: uniqueMessages(errors), warnings: []};
+    return {
+      ok: false,
+      errors: uniqueMessages(errors),
+      warnings: requestResult.warnings,
+    };
   }
 
   const scene: FinanceAnimationScene = {
@@ -165,6 +186,7 @@ export const parseFinanceAnimationScene = (
     ...templateValidation.errors,
   ];
   const warnings = [
+    ...requestResult.warnings,
     ...genericIssues
       .filter((issue) => issue.level === 'warning')
       .map((issue) => issue.message),
