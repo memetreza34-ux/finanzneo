@@ -14,6 +14,7 @@ import {
   TaxFeeFlowTemplate,
   TimelineMilestonesTemplate,
 } from '../templates';
+import {calculateCompoundInterest, calculateMonthlyInvestment} from '../calculations/financeMath';
 
 export type FinanceAnimationRendererProps = {
   scene: FinanceAnimationScene;
@@ -31,8 +32,22 @@ const stringValue = (scene: FinanceAnimationScene, key: string, fallback = ''): 
 
 export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> = ({scene}) => {
   switch (scene.template) {
-    case 'compound-growth':
-      return <CompoundGrowthTemplate startCapital={numberValue(scene, 'startCapital')} monthlyRate={numberValue(scene, 'monthlyRate')} annualReturn={numberValue(scene, 'annualReturn')} years={numberValue(scene, 'years')} />;
+    case 'compound-growth': {
+      const principal = numberValue(scene, 'principal', numberValue(scene, 'startCapital'));
+      const monthlyRate = numberValue(scene, 'monthlyRate');
+      const annualReturnPercent = numberValue(scene, 'annualReturn');
+      const years = numberValue(scene, 'years');
+      const annualRate = annualReturnPercent / 100;
+      const lumpSum = calculateCompoundInterest({principal, annualRate, years});
+      const monthlyPlan = calculateMonthlyInvestment({monthlyRate, annualRate, years});
+      return (
+        <CompoundGrowthTemplate
+          principal={principal}
+          finalValue={lumpSum + monthlyPlan.finalValue}
+          years={years}
+        />
+      );
+    }
     case 'money-flow':
       return <MoneyFlowTemplate amount={numberValue(scene, 'amount')} fromLabel={stringValue(scene, 'fromLabel', 'Quelle')} toLabel={stringValue(scene, 'toLabel', 'Ziel')} />;
     case 'budget-split':
