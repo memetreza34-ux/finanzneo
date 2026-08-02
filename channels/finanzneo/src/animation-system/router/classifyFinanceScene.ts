@@ -1,37 +1,18 @@
 import type {
   FinanceAnimationDecision,
   FinanceAnimationRequest,
-  FinanceAnimationTemplate,
   FinanceSceneMode,
 } from '../contracts';
 import {
   FINANCE_ANIMATION_FEATURES,
   type FinanceAnimationFeatureFlags,
 } from '../featureFlags';
+import {FINANCE_ANIMATION_TEMPLATES} from '../templates/registry';
+import {FINANCE_ANIMATION_KEYWORDS} from './financeAnimationKeywords';
 import {
   containsFinanceKeyword,
   normalizeFinanceText,
 } from './financeKeywordMatching';
-
-type TemplateKeywordDefinition = {
-  template: FinanceAnimationTemplate;
-  keywords: string[];
-};
-
-const TEMPLATE_KEYWORDS: TemplateKeywordDefinition[] = [
-  {template: 'compound-growth', keywords: ['zinseszins', 'rendite', 'wachstum', 'gewinn']},
-  {template: 'monthly-investment', keywords: ['sparplan', 'monatlich', 'rate', 'einzahlen']},
-  {template: 'inflation-erosion', keywords: ['inflation', 'kaufkraft', 'preise']},
-  {template: 'budget-split', keywords: ['budget', 'fixkosten', 'sparquote', 'aufteilen']},
-  {template: 'portfolio-allocation', keywords: ['portfolio', 'diversifikation', 'etf', 'aufteilung']},
-  {template: 'debt-paydown', keywords: ['schuld', 'tilgung', 'kredit', 'restschuld']},
-  {template: 'money-flow', keywords: ['geldfluss', 'einnahmen', 'ausgaben', 'gehalt']},
-  {template: 'tax-fee-flow', keywords: ['steuer', 'gebühr', 'fondskosten', 'kostenquote']},
-  {template: 'risk-return-scale', keywords: ['risiko', 'rendite']},
-  {template: 'timeline-milestones', keywords: ['jahre', 'zeit', 'entwicklung']},
-  {template: 'before-after-comparison', keywords: ['vergleich', 'stattdessen', 'gegenüber']},
-  {template: 'income-expense-balance', keywords: ['einkommen', 'ausgaben', 'saldo']},
-];
 
 export const resolveFinanceAnimationMode = (
   features: FinanceAnimationFeatureFlags,
@@ -64,13 +45,13 @@ export const classifyFinanceSceneWithFeatures = (
   }
 
   const haystack = normalizeFinanceText(`${request.message} ${request.voiceText}`);
-  const rankedMatches = TEMPLATE_KEYWORDS.map((definition) => {
-    const keywordMatches = definition.keywords.filter((keyword) =>
+  const rankedMatches = FINANCE_ANIMATION_TEMPLATES.map((definition) => {
+    const keywordMatches = FINANCE_ANIMATION_KEYWORDS[definition.id].filter((keyword) =>
       containsFinanceKeyword(haystack, keyword),
     );
-    const preferredBonus = request.preferredTemplate === definition.template ? 2 : 0;
+    const preferredBonus = request.preferredTemplate === definition.id ? 2 : 0;
     return {
-      template: definition.template,
+      template: definition.id,
       score: keywordMatches.length + preferredBonus,
       keywordMatches,
     };
