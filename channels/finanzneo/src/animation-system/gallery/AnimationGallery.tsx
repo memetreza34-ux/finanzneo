@@ -14,11 +14,18 @@ import {
   TaxFeeFlowTemplate,
   TimelineMilestonesTemplate,
 } from '../templates';
+import {calculateCompoundInterest, calculateMonthlyInvestment} from '../calculations/financeMath';
 
 const CARD_DURATION = 180;
+const principal = 1000;
+const years = 20;
+const annualRate = 0.07;
+const finalValue =
+  calculateCompoundInterest({principal, annualRate, years}) +
+  calculateMonthlyInvestment({monthlyRate: 200, annualRate, years}).finalValue;
 
 const galleryItems = [
-  <CompoundGrowthTemplate key="compound" startCapital={1000} monthlyRate={200} annualReturn={7} years={20} />,
+  <CompoundGrowthTemplate key="compound" principal={principal} finalValue={finalValue} years={years} />,
   <MoneyFlowTemplate key="flow" amount={300} fromLabel="Gehalt" toLabel="ETF" />,
   <BudgetSplitTemplate key="budget" income={2500} needsPercent={50} wantsPercent={30} savingsPercent={20} />,
   <InflationErosionTemplate key="inflation" startingValue={100} inflationPercent={2.5} years={10} />,
