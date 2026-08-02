@@ -1,6 +1,7 @@
 export * from './contracts';
 export * from './featureFlags';
 export * from './router/classifyFinanceScene';
+export * from './router/financeKeywordMatching';
 export * from './calculations/financeMath';
 export * from './templates/registry';
 export * from './templates';
