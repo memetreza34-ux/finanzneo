@@ -1,5 +1,4 @@
 import type {
-  FinanceAnimationData,
   FinanceAnimationScene,
   FinanceAnimationTemplate,
 } from './contracts';
@@ -16,72 +15,76 @@ export type TimelineMilestoneDatum = {
 };
 
 /**
- * Statische Datenverträge je Animationstemplate.
+ * Exakte statische Datenverträge je Animationstemplate.
+ *
+ * Die Typen besitzen bewusst keinen offenen String-Index. Dadurch können
+ * Registry-Pflichtfelder mit `keyof` tatsächlich gegen existierende Felder
+ * geprüft werden und Tippfehler werden beim Typecheck erkannt.
  *
  * Prozentfelder verwenden immer Prozentpunkte: `7` bedeutet 7 Prozent und
  * `0.5` bedeutet 0,5 Prozent. Erst der Renderer wandelt diese Werte für die
  * Finanzformeln in Dezimalraten um.
  *
- * Der bestehende Request-Vertrag bleibt bewusst flexibel, damit eingehende
- * KI-Daten zuerst validiert werden können. Intern erzeugte Fixtures und
- * spätere kontrollierte Aufrufer können dagegen diese strengeren Typen nutzen.
+ * Der Request-Vertrag bleibt bewusst flexibel, damit eingehende KI-Daten
+ * zuerst validiert werden können. Intern erzeugte Fixtures und kontrollierte
+ * Aufrufer verwenden dagegen diese strengeren Typen.
  */
 export type FinanceAnimationTemplateDataMap = {
-  'money-flow': FinanceAnimationData & {
+  'money-flow': {
     amount: number;
     fromLabel: string;
     toLabel: string;
   };
-  'budget-split': FinanceAnimationData & {
+  'budget-split': {
     income: number;
     needsPercent: number;
     wantsPercent: number;
     savingsPercent: number;
   };
-  'compound-growth': FinanceAnimationData & {
+  'compound-growth': {
     startCapital: number;
     monthlyRate: number;
     annualReturn: number;
     years: number;
   };
-  'portfolio-allocation': FinanceAnimationData & {
+  'portfolio-allocation': {
     allocations: PortfolioAllocationDatum[];
     total?: number;
   };
-  'inflation-erosion': FinanceAnimationData & {
+  'inflation-erosion': {
     startingValue: number;
     inflationPercent: number;
     years: number;
   };
-  'debt-paydown': FinanceAnimationData & {
+  'debt-paydown': {
     originalDebt: number;
     remainingDebt: number;
     paidInstallments?: number;
     totalInstallments?: number;
   };
-  'monthly-investment': FinanceAnimationData & {
+  'monthly-investment': {
     monthlyRate: number;
     months: number;
     annualReturn?: number;
   };
-  'before-after-comparison': FinanceAnimationData & {
+  'before-after-comparison': {
     beforeLabel: string;
     afterLabel: string;
     beforeValue: number;
     afterValue: number;
   };
-  'risk-return-scale': FinanceAnimationData & {
+  'risk-return-scale': {
     riskPercent: number;
     returnPercent: number;
   };
-  'timeline-milestones': FinanceAnimationData & {
+  'timeline-milestones': {
     milestones: TimelineMilestoneDatum[];
   };
-  'income-expense-balance': FinanceAnimationData & {
+  'income-expense-balance': {
     income: number;
     expenses: number;
   };
-  'tax-fee-flow': FinanceAnimationData & {
+  'tax-fee-flow': {
     grossAmount: number;
     taxes: number;
     fees: number;
