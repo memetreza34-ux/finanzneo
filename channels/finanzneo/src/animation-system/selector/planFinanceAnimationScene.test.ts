@@ -40,7 +40,7 @@ describe('planFinanceAnimationScene', () => {
     expect(result.issues.filter((issue) => issue.level === 'error')).toEqual([]);
   });
 
-  it('verwendet bei fehlendem Template den Bildmodus', () => {
+  it('verwendet bei fehlendem Template den Bildmodus mit verständlichem Grund', () => {
     const result = planFinanceAnimationSceneFromDecision(compoundRequest, {
       mode: 'hybrid',
       confidence: 0.7,
@@ -50,9 +50,13 @@ describe('planFinanceAnimationScene', () => {
     expect(result.decision.mode).toBe('image');
     expect(result.scene).toBeUndefined();
     expect(result.issues.map((issue) => issue.code)).toContain('missing-template');
+    expect(result.decision.blockedReasons).toContain(
+      'Eine Animationsentscheidung benötigt ein Template.',
+    );
+    expect(result.decision.blockedReasons).not.toContain('missing-template');
   });
 
-  it('verwendet bei unvollständigen Daten den Bildmodus', () => {
+  it('verwendet bei unvollständigen Daten den Bildmodus mit konkreten Feldnamen', () => {
     const result = planFinanceAnimationSceneFromDecision({
       ...compoundRequest,
       data: {startCapital: 1000},
@@ -61,5 +65,29 @@ describe('planFinanceAnimationScene', () => {
     expect(result.decision.mode).toBe('image');
     expect(result.scene).toBeUndefined();
     expect(result.issues.some((issue) => issue.message.includes('monthlyRate'))).toBe(true);
+    expect(result.decision.blockedReasons?.some((reason) => reason.includes('monthlyRate'))).toBe(true);
+    expect(result.decision.blockedReasons?.some((reason) => reason.startsWith('template-data-error-'))).toBe(false);
+  });
+
+  it('blocks visually inconsistent template data before rendering', () => {
+    const result = planFinanceAnimationSceneFromDecision({
+      message: 'Das Budget wird aufgeteilt.',
+      voiceText: 'Die Anteile sollen zusammen ein vollständiges Budget ergeben.',
+      data: {
+        income: 2500,
+        needsPercent: 50,
+        wantsPercent: 20,
+        savingsPercent: 10,
+      },
+    }, {
+      mode: 'full-animation',
+      template: 'budget-split',
+      confidence: 0.9,
+      reason: 'Expliziter Budget-Test.',
+    });
+
+    expect(result.decision.mode).toBe('image');
+    expect(result.scene).toBeUndefined();
+    expect(result.decision.blockedReasons?.some((reason) => reason.includes('statt 100 Prozent'))).toBe(true);
   });
 });
