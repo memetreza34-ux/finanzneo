@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'channels/finanzneo/src/animation-system/**'
+      - 'channels/finanzneo/tsconfig.animation-system.json'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/finance-animation-foundation.yml'
@@ -30,10 +31,10 @@ jobs:
         run: npm ci
 
       - name: Typecheck animation foundation
-        run: npx tsc --noEmit -p channels/finanzneo/tsconfig.json
+        run: npm run finance:animation-typecheck
 
       - name: Run animation foundation tests
-        run: npx vitest run channels/finanzneo/src/animation-system
+        run: npm run finance:animation-test
 
       - name: Render isolated animation gallery still
         run: npm run finance:animation-gallery:still
