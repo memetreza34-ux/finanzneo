@@ -3,6 +3,7 @@ import {interpolate, useCurrentFrame} from 'remotion';
 
 export type ProgressBarProps = {
   progress: number;
+  animated?: boolean;
   label?: string;
   startFrame?: number;
   durationInFrames?: number;
@@ -14,8 +15,37 @@ export type ProgressBarProps = {
   labelStyle?: React.CSSProperties;
 };
 
+export type ResolveProgressBarValueInput = Pick<
+  ProgressBarProps,
+  'progress' | 'animated' | 'startFrame' | 'durationInFrames'
+> & {
+  frame: number;
+};
+
+const clampProgress = (value: number): number =>
+  Math.max(0, Math.min(1, Number.isFinite(value) ? value : 0));
+
+export const resolveProgressBarValue = ({
+  frame,
+  progress,
+  animated = true,
+  startFrame = 0,
+  durationInFrames = 24,
+}: ResolveProgressBarValueInput): number => {
+  const target = clampProgress(progress);
+  if (!animated) return target;
+
+  return interpolate(
+    frame,
+    [startFrame, startFrame + Math.max(1, durationInFrames)],
+    [0, target],
+    {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
+  );
+};
+
 export const ProgressBar: React.FC<ProgressBarProps> = ({
   progress,
+  animated = true,
   label,
   startFrame = 0,
   durationInFrames = 24,
@@ -27,12 +57,13 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   labelStyle,
 }) => {
   const frame = useCurrentFrame();
-  const reveal = interpolate(
+  const resolvedProgress = resolveProgressBarValue({
     frame,
-    [startFrame, startFrame + Math.max(1, durationInFrames)],
-    [0, Math.max(0, Math.min(1, progress))],
-    {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
-  );
+    progress,
+    animated,
+    startFrame,
+    durationInFrames,
+  });
 
   return (
     <div style={{width: '100%'}}>
@@ -42,7 +73,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
         </div>
       ) : null}
       <div style={{height, borderRadius: radius, overflow: 'hidden', background, ...style}}>
-        <div style={{height: '100%', width: `${reveal * 100}%`, background: fill, borderRadius: radius}} />
+        <div style={{height: '100%', width: `${resolvedProgress * 100}%`, background: fill, borderRadius: radius}} />
       </div>
     </div>
   );
