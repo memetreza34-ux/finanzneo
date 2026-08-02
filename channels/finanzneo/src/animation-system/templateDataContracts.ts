@@ -49,7 +49,7 @@ export type FinanceAnimationTemplateDataMap = {
   };
   'portfolio-allocation': {
     allocations: PortfolioAllocationDatum[];
-    total?: number;
+    total: number;
   };
   'inflation-erosion': {
     startingValue: number;
@@ -59,8 +59,8 @@ export type FinanceAnimationTemplateDataMap = {
   'debt-paydown': {
     originalDebt: number;
     remainingDebt: number;
-    paidInstallments?: number;
-    totalInstallments?: number;
+    paidInstallments: number;
+    totalInstallments: number;
   };
   'monthly-investment': {
     monthlyRate: number;
