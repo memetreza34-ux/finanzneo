@@ -33,6 +33,23 @@ channels/finanzneo/gehirn/IMAGE-PROMPT-TEMPLATE.md
 
 Der Inhalt jeder Szene darf wechseln, der Master-Stil bleibt unverändert. Bildprompts bestehen aus Kernaussage, einer zusammenhängenden visuellen Metapher, optionalen kurzen deutschen Labels, Kompositionsvorgaben und dem vollständigen Master-Stilblock.
 
+## Reel-Ausgabe
+
+Jedes Reel behält den PDF-Bereich:
+
+```text
+04-pdf/inhalt.md
+```
+
+Zusätzlich entstehen im Bilderordner zwei Prompt-Dateien:
+
+```text
+02-bilder/prompt-manifest.json
+02-bilder/alle-bildprompts.txt
+```
+
+`alle-bildprompts.txt` enthält alle vollständigen Szenenprompts in chronologischer Reihenfolge und kann komplett kopiert und direkt in Google Flow eingefügt werden.
+
 ## Wichtigste Befehle
 
 ```bash
