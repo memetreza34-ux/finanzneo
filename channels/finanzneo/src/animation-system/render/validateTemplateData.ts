@@ -154,6 +154,13 @@ export const validateTemplateData = (
 
   validateNumericData(scene, errors);
 
+  if (scene.template === 'compound-growth') {
+    const annualReturn = data.annualReturn;
+    if (typeof annualReturn === 'number' && Number.isFinite(annualReturn) && annualReturn < 0) {
+      errors.push('Das Zinseszins-Template benötigt eine nichtnegative Rendite.');
+    }
+  }
+
   if (scene.template === 'portfolio-allocation') {
     errors.push(...structuredArrayErrors(scene.template, data.allocations));
   }
