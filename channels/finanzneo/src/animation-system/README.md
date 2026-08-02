@@ -27,14 +27,15 @@ Der bestehende Bild-Workflow bleibt unverändert.
 
 - Typen für Szenenmodi, Entscheidungen, Requests und Template-Daten
 - zentral typisierte und standardmäßig deaktivierte Feature Flags
+- gemeinsamer Begriffskatalog für Router und Template-Selector
 - konservatives Routing mit vollständigen Begriffen statt unsicherer Teilworttreffer
 - Template-Auswahl anhand von Inhalt, bevorzugtem Template und Datenabdeckung
 - strukturierter Animationsplan mit sicherem Bild-Fallback
 - generische Szenenprüfung und templatespezifische Datenvalidierung
 - robuste Finanzberechnungen für Zinseszins, Sparplan, Inflation, Kredit und Portfolio-Aufteilung
 - wiederverwendbare visuelle Primitive:
-  - animierte Zahlen
-  - Fortschrittsbalken
+  - animierte oder bereits framegenau berechnete Zahlen
+  - animierte oder bereits framegenau berechnete Fortschrittsbalken
   - Finanz-Flussknoten
 - zwölf getrennte Remotion-Finanztemplates:
   - `money-flow`
@@ -50,8 +51,8 @@ Der bestehende Bild-Workflow bleibt unverändert.
   - `income-expense-balance`
   - `tax-fee-flow`
 - zentraler `FinanceAnimationRenderer`
-- isolierte Galerie-Composition
-- Tests für Berechnungen, Router, Selector, Planung, Registry, Renderer, QA und Fallback
+- sequenzielle Galerie und Kontaktbogen mit allen zwölf Templates
+- Tests für Berechnungen, Router, Begriffskatalog, Selector, Planung, Registry, Renderer, Galerie, Primitive, QA und Fallback
 - isolierte TypeScript-Konfiguration für das Animationssystem
 
 ## Lokal prüfen
@@ -68,7 +69,7 @@ Nur die Animationstests ausführen:
 npm run finance:animation-test
 ```
 
-Typecheck, Tests und Galerie-Still gemeinsam ausführen:
+Typecheck, Tests und Galerie-Kontaktbogen gemeinsam ausführen:
 
 ```bash
 npm run finance:animation-validate
@@ -82,10 +83,16 @@ Die Galerie ist vom normalen FinanzNeo-Root getrennt:
 npm run finance:animation-gallery
 ```
 
-Ein einzelnes Vorschaubild wird separat erzeugt mit:
+Der Standard-Still zeigt alle zwölf Templates gleichzeitig als Kontaktbogen bei einem mittleren Animationsframe:
 
 ```bash
 npm run finance:animation-gallery:still
+```
+
+Ein Still aus der sequenziellen 9:16-Galerie kann separat erzeugt werden:
+
+```bash
+npm run finance:animation-gallery:sequence-still
 ```
 
 Diese Befehle verwenden ausschließlich den isolierten Galerie-Entry-Point und aktivieren keine Animation im produktiven Reel-Workflow.
@@ -95,13 +102,14 @@ Diese Befehle verwenden ausschließlich den isolierten Galerie-Entry-Point und a
 Vor einem Render werden unter anderem geprüft:
 
 - vorhandene Pflichtfelder des ausgewählten Templates
-- endliche und nichtnegative Geldwerte
-- gültige Prozentwerte
+- endliche, nichtnegative oder fachlich zulässige Zahlenwerte
+- gültige Prozentwerte und Laufzeiten
 - strukturierte Portfolio- und Timeline-Daten
 - Budgetanteile und deren Summe
 - Verhältnis von Ausgangs- und Restschuld
+- bezahlte und gesamte Kreditraten
 - Steuern und Gebühren im Verhältnis zum Bruttobetrag
-- Kernaussage, Voiceover und Anzahl sichtbarer Labels
+- Kernaussage, Voiceover, leere oder doppelte Labels und Anzahl sichtbarer Labels
 
 Bei einem Fehler erzeugt der Planner keine Animationsszene. Der bestehende Bildmodus bleibt der sichere Rückfall.
 
@@ -119,11 +127,12 @@ Die Grundlage ist technisch vorbereitet, aber erst nach einem bestätigten volls
 ## Spätere Aktivierung
 
 1. Typecheck, Tests und Galerie-Render erfolgreich bestätigen.
-2. Galerie visuell prüfen und Templates gestalterisch freigeben.
-3. mindestens ein vollständiges Test-Reel rendern.
-4. Animationsfelder kontrolliert in die produktiven Scene-Plan-Verträge aufnehmen.
-5. `FinanceAnimationRenderer` hinter dem bestehenden Bild-Fallback anbinden.
-6. Feature Flags einzeln aktivieren.
-7. erst danach automatische Auswahl freigeben.
+2. Kontaktbogen und sequenzielle Galerie visuell prüfen.
+3. Templates gestalterisch freigeben.
+4. mindestens ein vollständiges Test-Reel rendern.
+5. Animationsfelder kontrolliert in die produktiven Scene-Plan-Verträge aufnehmen.
+6. `FinanceAnimationRenderer` hinter dem bestehenden Bild-Fallback anbinden.
+7. Feature Flags einzeln aktivieren.
+8. erst danach automatische Auswahl freigeben.
 
 Bis dahin verwendet jedes normale FinanzNeo-Reel weiterhin ausschließlich den bestehenden Bild-Workflow.
