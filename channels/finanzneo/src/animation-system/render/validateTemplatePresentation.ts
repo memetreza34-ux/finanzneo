@@ -41,13 +41,11 @@ export const validateTemplatePresentation = (
     const percentageValues = data.allocations
       .filter(isRecord)
       .map((entry) => entry.percent);
-    if (
-      percentageValues.length === data.allocations.length &&
-      percentageValues.every(
-        (value): value is number => typeof value === 'number' && Number.isFinite(value),
-      )
-    ) {
-      const total = percentageValues.reduce((sum, value) => sum + value, 0);
+    const numericPercentages = percentageValues.filter(
+      (value): value is number => typeof value === 'number' && Number.isFinite(value),
+    );
+    if (numericPercentages.length === data.allocations.length) {
+      const total = numericPercentages.reduce((sum, value) => sum + value, 0);
       if (Math.abs(total - 100) > 0.5) {
         warnings.push(`Portfolio-Prozentwerte ergeben ${total.toFixed(1)} statt 100 Prozent.`);
       }
