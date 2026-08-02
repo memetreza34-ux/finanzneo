@@ -1,64 +1,35 @@
 import type {
   FinanceAnimationDecision,
   FinanceAnimationRequest,
-  FinanceAnimationTemplate,
 } from '../contracts';
-import {FINANCE_ANIMATION_KEYWORDS} from '../router/financeAnimationKeywords';
 import {
-  containsFinanceKeyword,
-  normalizeFinanceText,
-} from '../router/financeKeywordMatching';
-import {FINANCE_ANIMATION_TEMPLATES} from '../templates/registry';
+  haveAmbiguousTopCandidates,
+  rankFinanceAnimationCandidates,
+  type FinanceAnimationRoutingCandidate,
+} from '../router/rankFinanceAnimationCandidates';
 
-export type AnimationSelectionCandidate = {
-  template: FinanceAnimationTemplate;
-  score: number;
-  keywordMatches: readonly string[];
-  dataMatches: readonly string[];
-  preferred: boolean;
+export type AnimationSelectionCandidate = FinanceAnimationRoutingCandidate & {
   reasons: string[];
 };
 
 export const rankAnimationTemplates = (
   request: FinanceAnimationRequest,
-): AnimationSelectionCandidate[] => {
-  const haystack = normalizeFinanceText(`${request.message} ${request.voiceText}`);
-
-  return FINANCE_ANIMATION_TEMPLATES.map((definition) => {
-    const keywordMatches = FINANCE_ANIMATION_KEYWORDS[definition.id].filter((keyword) =>
-      containsFinanceKeyword(haystack, keyword),
-    );
-    const preferred = request.preferredTemplate === definition.id;
-    const preferredBonus = preferred ? 5 : 0;
-    const dataMatches = definition.requiredData.filter((key) => {
-      const value = request.data?.[key];
-      return value !== undefined && value !== null && value !== '';
-    });
-    const score = keywordMatches.length * 2 + preferredBonus + dataMatches.length;
-
-    return {
-      template: definition.id,
-      score,
-      keywordMatches,
-      dataMatches,
-      preferred,
-      reasons: [
-        ...keywordMatches.map((keyword) => `Keyword: ${keyword}`),
-        ...(preferred ? ['Bevorzugtes Template'] : []),
-        ...(dataMatches.length ? [`${dataMatches.length} passende Datenfelder`] : []),
-      ],
-    };
-  }).sort((left, right) =>
-    right.score - left.score ||
-    right.dataMatches.length - left.dataMatches.length ||
-    right.keywordMatches.length - left.keywordMatches.length,
-  );
-};
+): AnimationSelectionCandidate[] => rankFinanceAnimationCandidates(request).map((candidate) => ({
+  ...candidate,
+  reasons: [
+    ...candidate.keywordMatches.map((keyword) => `Keyword: ${keyword}`),
+    ...(candidate.preferred ? ['Bevorzugtes Template'] : []),
+    ...(candidate.dataMatches.length
+      ? [`${candidate.dataMatches.length} passende Datenfelder`]
+      : []),
+  ],
+}));
 
 export const selectAnimationTemplate = (
   request: FinanceAnimationRequest,
 ): FinanceAnimationDecision => {
-  const [best, second] = rankAnimationTemplates(request);
+  const candidates = rankAnimationTemplates(request);
+  const [best, second] = candidates;
 
   if (!best || best.score <= 0) {
     return {
@@ -68,13 +39,7 @@ export const selectAnimationTemplate = (
     };
   }
 
-  if (
-    second &&
-    best.score === second.score &&
-    best.dataMatches.length === second.dataMatches.length &&
-    !best.preferred &&
-    !second.preferred
-  ) {
+  if (haveAmbiguousTopCandidates(candidates) && second) {
     return {
       mode: 'image',
       confidence: 0.82,
