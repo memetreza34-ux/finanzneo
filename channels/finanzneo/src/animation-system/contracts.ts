@@ -14,6 +14,9 @@ export type FinanceAnimationTemplate =
   | 'income-expense-balance'
   | 'tax-fee-flow';
 
+export type FinanceAnimationScalar = number | string | boolean | null;
+export type FinanceAnimationData = Record<string, FinanceAnimationScalar | unknown[]>;
+
 export type FinanceAnimationDecision = {
   mode: FinanceSceneMode;
   template?: FinanceAnimationTemplate;
@@ -26,11 +29,18 @@ export type FinanceAnimationRequest = {
   message: string;
   voiceText: string;
   labels?: string[];
-  data?: Record<string, number | string | boolean | null>;
+  data?: FinanceAnimationData;
   preferredTemplate?: FinanceAnimationTemplate;
 };
 
 export type FinanceAnimationScene = FinanceAnimationRequest & {
   mode: Exclude<FinanceSceneMode, 'image'>;
   template: FinanceAnimationTemplate;
+};
+
+export type FinanceAnimationRenderResult = {
+  ok: boolean;
+  template: FinanceAnimationTemplate;
+  errors: string[];
+  warnings: string[];
 };
