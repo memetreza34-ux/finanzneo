@@ -21,7 +21,7 @@ import {
   normalizePortfolioAllocation,
 } from '../calculations/financeMath';
 
-const CARD_DURATION = 180;
+export const FINANCE_ANIMATION_CARD_DURATION = 180;
 const principal = 1000;
 const years = 20;
 const annualRate = 0.07;
@@ -36,7 +36,12 @@ const portfolioAllocations = normalizePortfolioAllocation([
   {label: 'Cash', value: 10},
 ]);
 
-const galleryItems: Array<{name: string; render: () => React.ReactNode}> = [
+export type FinanceAnimationGalleryItem = {
+  readonly name: string;
+  readonly render: () => React.ReactNode;
+};
+
+export const FINANCE_ANIMATION_GALLERY_ITEMS: readonly FinanceAnimationGalleryItem[] = [
   {
     name: 'Zinseszins',
     render: () => <CompoundGrowthTemplate principal={principal} finalValue={compoundFinalValue} years={years} />,
@@ -135,15 +140,16 @@ const galleryItems: Array<{name: string; render: () => React.ReactNode}> = [
   },
 ];
 
-export const FINANCE_ANIMATION_GALLERY_DURATION = galleryItems.length * CARD_DURATION;
+export const FINANCE_ANIMATION_GALLERY_DURATION =
+  FINANCE_ANIMATION_GALLERY_ITEMS.length * FINANCE_ANIMATION_CARD_DURATION;
 
 export const AnimationGallery: React.FC = () => (
   <AbsoluteFill style={{backgroundColor: '#06110A'}}>
-    {galleryItems.map((item, index) => (
+    {FINANCE_ANIMATION_GALLERY_ITEMS.map((item, index) => (
       <Sequence
         key={item.name}
-        from={index * CARD_DURATION}
-        durationInFrames={CARD_DURATION}
+        from={index * FINANCE_ANIMATION_CARD_DURATION}
+        durationInFrames={FINANCE_ANIMATION_CARD_DURATION}
         name={item.name}
       >
         {item.render()}
