@@ -1,5 +1,5 @@
 import type {FinanceAnimationRequest} from '../contracts';
-import {planFinanceAnimationScene} from './planFinanceAnimationScene';
+import {planFinanceAnimationScene} from '../selector/planFinanceAnimationScene';
 import type {FinanceAnimationPlan} from './animationPlanTypes';
 
 export const buildAnimationPlan = (
