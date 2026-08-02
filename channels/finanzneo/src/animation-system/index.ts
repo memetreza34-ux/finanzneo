@@ -4,6 +4,7 @@ export * from './featureFlags';
 export * from './router/classifyFinanceScene';
 export * from './router/financeAnimationKeywords';
 export * from './router/financeKeywordMatching';
+export * from './router/rankFinanceAnimationCandidates';
 export * from './calculations/financeMath';
 export * from './fixtures';
 export * from './templates/registry';
