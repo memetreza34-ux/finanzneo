@@ -9,6 +9,10 @@ export type AnimationValidationIssue = {
 export const validateAnimationRequest = (
   scene: FinanceAnimationRequest | FinanceAnimationScene,
 ): AnimationValidationIssue[] => {
+  if ('mode' in scene && scene.mode === 'image') {
+    return [];
+  }
+
   const issues: AnimationValidationIssue[] = [];
 
   if (!scene.message?.trim()) {
