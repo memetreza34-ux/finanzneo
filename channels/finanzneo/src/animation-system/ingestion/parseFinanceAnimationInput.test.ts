@@ -1,5 +1,5 @@
 import {describe, expect, it} from 'vitest';
-import {getFinanceAnimationFixture} from '../fixtures';
+import {FINANCE_ANIMATION_FIXTURES} from '../fixtures';
 import {
   parseFinanceAnimationRequest,
   parseFinanceAnimationScene,
@@ -72,14 +72,13 @@ describe('parseFinanceAnimationRequest', () => {
 
 describe('parseFinanceAnimationScene', () => {
   it('parses every canonical fixture through the untrusted boundary', () => {
-    const fixture = getFinanceAnimationFixture('compound-growth');
-    expect(fixture).toBeDefined();
-
-    const result = parseFinanceAnimationScene(fixture?.scene);
-    expect(result.ok).toBe(true);
-    if (result.ok) {
-      expect(result.value.template).toBe('compound-growth');
-      expect(result.warnings).toEqual([]);
+    for (const fixture of FINANCE_ANIMATION_FIXTURES) {
+      const result = parseFinanceAnimationScene(fixture.scene);
+      expect(result.ok).toBe(true);
+      if (result.ok) {
+        expect(result.value.template).toBe(fixture.scene.template);
+        expect(result.warnings).toEqual([]);
+      }
     }
   });
 
