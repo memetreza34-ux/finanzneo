@@ -1,6 +1,9 @@
 import {describe, expect, it} from 'vitest';
 import type {FinanceAnimationScene} from '../contracts';
-import type {FinanceImageSceneValidationInput} from './validateAnimationScene';
+import type {
+  FinanceAnimationValidationInput,
+  FinanceImageSceneValidationInput,
+} from './validateAnimationScene';
 import {validateAnimationScene} from './validateAnimationScene';
 
 const baseScene: FinanceAnimationScene = {
@@ -65,5 +68,26 @@ describe('validateAnimationScene', () => {
     });
 
     expect(issues.map((issue) => issue.code)).toContain('duplicate-labels');
+  });
+
+  it('verarbeitet fehlerhafte Laufzeitwerte ohne Ausnahme', () => {
+    const malformed = {
+      ...baseScene,
+      message: 123,
+      voiceText: null,
+      labels: ['ETF', 42],
+      data: [],
+    } as unknown as FinanceAnimationValidationInput;
+
+    expect(() => validateAnimationScene(malformed)).not.toThrow();
+    expect(validateAnimationScene(malformed).map((issue) => issue.code)).toEqual(
+      expect.arrayContaining([
+        'missing-message',
+        'missing-voice-text',
+        'invalid-data',
+        'invalid-labels',
+        'empty-label',
+      ]),
+    );
   });
 });
