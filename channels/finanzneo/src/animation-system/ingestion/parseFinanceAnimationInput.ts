@@ -21,12 +21,26 @@ export type FinanceAnimationParseResult<TValue> =
       warnings: string[];
     };
 
+export const FINANCE_ANIMATION_INPUT_LIMITS = Object.freeze({
+  maxTextLength: 5000,
+  maxLabels: 20,
+  maxLabelLength: 160,
+  maxDataFields: 64,
+  maxStructuredArrayItems: 50,
+});
+
 const TEMPLATE_IDS = new Set<string>(
   FINANCE_ANIMATION_TEMPLATES.map((definition) => definition.id),
 );
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
+
+const isPlainRecord = (value: unknown): value is Record<string, unknown> => {
+  if (!isRecord(value)) return false;
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === Object.prototype || prototype === null;
+};
 
 const isTemplate = (value: unknown): value is FinanceAnimationTemplate =>
   typeof value === 'string' && TEMPLATE_IDS.has(value);
@@ -38,26 +52,72 @@ const isAllowedScalar = (value: unknown): value is FinanceAnimationScalar =>
   typeof value === 'boolean' ||
   (typeof value === 'number' && Number.isFinite(value));
 
+const isSafeStructuredArrayEntry = (value: unknown): boolean => {
+  if (isAllowedScalar(value)) return true;
+  if (!isPlainRecord(value)) return false;
+  return Object.values(value).every(isAllowedScalar);
+};
+
 const uniqueMessages = (messages: readonly string[]): string[] =>
   [...new Set(messages)];
+
+const validateTextLength = (
+  value: unknown,
+  fieldName: string,
+  errors: string[],
+): void => {
+  if (
+    typeof value === 'string' &&
+    value.length > FINANCE_ANIMATION_INPUT_LIMITS.maxTextLength
+  ) {
+    errors.push(
+      `${fieldName} überschreitet ${FINANCE_ANIMATION_INPUT_LIMITS.maxTextLength} Zeichen.`,
+    );
+  }
+};
 
 const parseData = (
   value: unknown,
   errors: string[],
 ): FinanceAnimationData | undefined => {
   if (value === undefined) return undefined;
-  if (!isRecord(value)) {
-    errors.push('Animationsdaten müssen als Objekt vorliegen.');
+  if (!isPlainRecord(value)) {
+    errors.push('Animationsdaten müssen als einfaches Objekt vorliegen.');
     return undefined;
   }
 
+  const entries = Object.entries(value);
+  if (entries.length > FINANCE_ANIMATION_INPUT_LIMITS.maxDataFields) {
+    errors.push(
+      `Animationsdaten enthalten mehr als ${FINANCE_ANIMATION_INPUT_LIMITS.maxDataFields} Felder.`,
+    );
+  }
+
   const data: FinanceAnimationData = {};
-  for (const [key, entry] of Object.entries(value)) {
-    if (isAllowedScalar(entry) || Array.isArray(entry)) {
+  for (const [key, entry] of entries) {
+    if (isAllowedScalar(entry)) {
       data[key] = entry;
-    } else {
-      errors.push(`Animationsdatenfeld ${key} enthält ein nicht unterstütztes Objekt.`);
+      continue;
     }
+
+    if (Array.isArray(entry)) {
+      if (entry.length > FINANCE_ANIMATION_INPUT_LIMITS.maxStructuredArrayItems) {
+        errors.push(
+          `Animationsdatenfeld ${key} enthält mehr als ${FINANCE_ANIMATION_INPUT_LIMITS.maxStructuredArrayItems} Listeneinträge.`,
+        );
+        continue;
+      }
+      if (!entry.every(isSafeStructuredArrayEntry)) {
+        errors.push(
+          `Animationsdatenfeld ${key} enthält verschachtelte oder nicht unterstützte Listenwerte.`,
+        );
+        continue;
+      }
+      data[key] = entry;
+      continue;
+    }
+
+    errors.push(`Animationsdatenfeld ${key} enthält ein nicht unterstütztes Objekt.`);
   }
   return data;
 };
@@ -71,9 +131,23 @@ const parseLabels = (
     errors.push('Labels müssen als Textliste vorliegen.');
     return undefined;
   }
+  if (value.length > FINANCE_ANIMATION_INPUT_LIMITS.maxLabels) {
+    errors.push(
+      `Labels enthalten mehr als ${FINANCE_ANIMATION_INPUT_LIMITS.maxLabels} Einträge.`,
+    );
+  }
   if (!value.every((label) => typeof label === 'string')) {
     errors.push('Jedes Label muss ein Text sein.');
     return undefined;
+  }
+  if (
+    value.some(
+      (label) => label.length > FINANCE_ANIMATION_INPUT_LIMITS.maxLabelLength,
+    )
+  ) {
+    errors.push(
+      `Ein Label überschreitet ${FINANCE_ANIMATION_INPUT_LIMITS.maxLabelLength} Zeichen.`,
+    );
   }
   return value;
 };
@@ -81,10 +155,10 @@ const parseLabels = (
 export const parseFinanceAnimationRequest = (
   input: unknown,
 ): FinanceAnimationParseResult<FinanceAnimationRequest> => {
-  if (!isRecord(input)) {
+  if (!isPlainRecord(input)) {
     return {
       ok: false,
-      errors: ['Animationsanfrage muss als Objekt vorliegen.'],
+      errors: ['Animationsanfrage muss als einfaches Objekt vorliegen.'],
       warnings: [],
     };
   }
@@ -96,6 +170,8 @@ export const parseFinanceAnimationRequest = (
   if (typeof input.voiceText !== 'string') {
     structuralErrors.push('Voiceover muss ein Text sein.');
   }
+  validateTextLength(input.message, 'Kernaussage', structuralErrors);
+  validateTextLength(input.voiceText, 'Voiceover', structuralErrors);
 
   const labels = parseLabels(input.labels, structuralErrors);
   const data = parseData(input.data, structuralErrors);
@@ -148,10 +224,10 @@ export const parseFinanceAnimationScene = (
 ): FinanceAnimationParseResult<FinanceAnimationScene> => {
   const requestResult = parseFinanceAnimationRequest(input);
   if (!requestResult.ok) return requestResult;
-  if (!isRecord(input)) {
+  if (!isPlainRecord(input)) {
     return {
       ok: false,
-      errors: ['Animationsszene muss als Objekt vorliegen.'],
+      errors: ['Animationsszene muss als einfaches Objekt vorliegen.'],
       warnings: [],
     };
   }
