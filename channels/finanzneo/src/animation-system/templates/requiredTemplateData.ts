@@ -29,5 +29,4 @@ export const FINANCE_ANIMATION_REQUIRED_DATA = {
 
 export const getRequiredTemplateData = <
   TTemplate extends FinanceAnimationTemplate,
->(template: TTemplate): FinanceAnimationRequiredDataMap[TTemplate] =>
-  FINANCE_ANIMATION_REQUIRED_DATA[template];
+>(template: TTemplate) => FINANCE_ANIMATION_REQUIRED_DATA[template];
