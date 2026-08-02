@@ -1,5 +1,6 @@
 import type {
   FinanceAnimationData,
+  FinanceAnimationScene,
   FinanceAnimationTemplate,
 } from './contracts';
 
@@ -16,6 +17,10 @@ export type TimelineMilestoneDatum = {
 
 /**
  * Statische Datenverträge je Animationstemplate.
+ *
+ * Prozentfelder verwenden immer Prozentpunkte: `7` bedeutet 7 Prozent und
+ * `0.5` bedeutet 0,5 Prozent. Erst der Renderer wandelt diese Werte für die
+ * Finanzformeln in Dezimalraten um.
  *
  * Der bestehende Request-Vertrag bleibt bewusst flexibel, damit eingehende
  * KI-Daten zuerst validiert werden können. Intern erzeugte Fixtures und
@@ -87,9 +92,27 @@ export type FinanceAnimationTemplateData<
   TTemplate extends FinanceAnimationTemplate,
 > = FinanceAnimationTemplateDataMap[TTemplate];
 
+export type TypedFinanceAnimationScene<
+  TTemplate extends FinanceAnimationTemplate,
+> = Omit<FinanceAnimationScene, 'template' | 'data'> & {
+  template: TTemplate;
+  data: FinanceAnimationTemplateData<TTemplate>;
+};
+
 export const defineFinanceAnimationData = <
   TTemplate extends FinanceAnimationTemplate,
 >(
   _template: TTemplate,
   data: FinanceAnimationTemplateData<TTemplate>,
 ): FinanceAnimationTemplateData<TTemplate> => data;
+
+/**
+ * Factory für intern kontrollierte Szenen. Template-ID und Datenstruktur
+ * bleiben dabei statisch miteinander verknüpft, während der Rückgabewert mit
+ * dem allgemeinen Renderer-Vertrag kompatibel bleibt.
+ */
+export const defineFinanceAnimationScene = <
+  TTemplate extends FinanceAnimationTemplate,
+>(
+  scene: TypedFinanceAnimationScene<TTemplate>,
+): FinanceAnimationScene => scene;
