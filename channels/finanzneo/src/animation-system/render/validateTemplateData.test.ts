@@ -66,7 +66,7 @@ describe('validateTemplateData', () => {
     expect(result.errors).toContain('Zahlenwert muss ganzzahlig sein: months');
   });
 
-  it('allows negative returns above minus one hundred percent', () => {
+  it('allows negative returns above minus one hundred percent for a monthly plan', () => {
     const result = validateTemplateData(makeScene('monthly-investment', {
       monthlyRate: 250,
       months: 12,
@@ -105,6 +105,18 @@ describe('validateTemplateData', () => {
     expect(result.errors).toContain('Portfolio-Gewichtungen müssen zusammen größer als null sein.');
   });
 
+  it('rejects explicit portfolio percentages that do not total one hundred', () => {
+    const result = validateTemplateData(makeScene('portfolio-allocation', {
+      allocations: [
+        {label: 'ETF', percent: 60},
+        {label: 'Cash', percent: 20},
+      ],
+    }));
+
+    expect(result.ok).toBe(false);
+    expect(result.errors.some((error) => error.includes('statt 100 Prozent'))).toBe(true);
+  });
+
   it('warns when a timeline has no visible development', () => {
     const result = validateTemplateData(makeScene('timeline-milestones', {
       milestones: [{label: 'Start', value: 0}],
@@ -114,7 +126,7 @@ describe('validateTemplateData', () => {
     expect(result.warnings).toContain('Eine Zeitleiste mit nur einem Meilenstein zeigt keine Entwicklung.');
   });
 
-  it('warns when budget percentages do not total one hundred', () => {
+  it('rejects budget percentages that do not total one hundred', () => {
     const result = validateTemplateData(makeScene('budget-split', {
       income: 2500,
       needsPercent: 50,
@@ -122,8 +134,8 @@ describe('validateTemplateData', () => {
       savingsPercent: 10,
     }));
 
-    expect(result.ok).toBe(true);
-    expect(result.warnings[0]).toContain('statt 100 Prozent');
+    expect(result.ok).toBe(false);
+    expect(result.errors[0]).toContain('statt 100 Prozent');
   });
 
   it('rejects paid installments above the installment total', () => {
@@ -138,15 +150,29 @@ describe('validateTemplateData', () => {
     expect(result.errors).toContain('Bezahlte Raten überschreiten die Gesamtzahl der Raten.');
   });
 
-  it('warns about identical flow labels', () => {
+  it('rejects remaining debt above the original debt', () => {
+    const result = validateTemplateData(makeScene('debt-paydown', {
+      originalDebt: 12000,
+      remainingDebt: 14000,
+    }));
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain(
+      'Die Restschuld darf nicht über der ursprünglichen Schuld liegen.',
+    );
+  });
+
+  it('rejects identical flow labels', () => {
     const result = validateTemplateData(makeScene('money-flow', {
       amount: 300,
       fromLabel: 'ETF',
       toLabel: 'ETF',
     }));
 
-    expect(result.ok).toBe(true);
-    expect(result.warnings).toContain('Quelle und Ziel des Geldflusses sind identisch.');
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain(
+      'Quelle und Ziel des Geldflusses müssen unterschiedlich sein.',
+    );
   });
 
   it('rejects deductions above the gross amount', () => {
