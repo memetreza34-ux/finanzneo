@@ -1,5 +1,9 @@
 import {describe, expect, it} from 'vitest';
-import {resolveAnimatedNumberValue} from './AnimatedNumber';
+import {
+  normalizeNumberForDisplay,
+  resolveAnimatedNumberValue,
+  resolveNumberDecimals,
+} from './AnimatedNumber';
 
 describe('resolveAnimatedNumberValue', () => {
   it('returns an externally resolved value without applying a second animation', () => {
@@ -51,5 +55,20 @@ describe('resolveAnimatedNumberValue', () => {
       startFrame: Number.NaN,
       durationInFrames: Number.NaN,
     })).toBe(0);
+  });
+});
+
+describe('animated number display normalization', () => {
+  it('removes negative zero at the selected precision', () => {
+    expect(normalizeNumberForDisplay(-0.4, 0)).toBe(0);
+    expect(normalizeNumberForDisplay(-0.004, 2)).toBe(0);
+    expect(normalizeNumberForDisplay(-0.006, 2)).toBe(-0.006);
+  });
+
+  it('sanitizes and clamps decimal precision', () => {
+    expect(resolveNumberDecimals(Number.NaN)).toBe(0);
+    expect(resolveNumberDecimals(-4)).toBe(0);
+    expect(resolveNumberDecimals(2.4)).toBe(2);
+    expect(resolveNumberDecimals(40)).toBe(20);
   });
 });
