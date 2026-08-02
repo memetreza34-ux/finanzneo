@@ -35,6 +35,10 @@ describe('normalizeMoneyFlowItems', () => {
     expect(result.map((item) => item.displayPercent)).toEqual([50, 50]);
   });
 
+  it('returns an empty result for a money flow without destinations', () => {
+    expect(normalizeMoneyFlowItems([])).toEqual([]);
+  });
+
   it('limits the visual to four destinations', () => {
     const result = normalizeMoneyFlowItems([
       {label: '1', value: '1 €', share: 1},
