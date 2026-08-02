@@ -14,8 +14,11 @@ const fail = (message) => {
 const forbiddenProductionReferences = [
   'animation-system',
   'FinanceAnimationRenderer',
+  'SafeFinanceAnimationRenderer',
   'FinanceAnimationGalleryRoot',
   'buildAnimationPlan',
+  'planFinanceAnimationInput',
+  'parseFinanceAnimationScene',
   'classifyFinanceScene',
 ];
 
