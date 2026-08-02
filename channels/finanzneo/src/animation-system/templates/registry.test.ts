@@ -4,6 +4,7 @@ import {
   getFinanceAnimationTemplate,
   getRequiredFinanceAnimationData,
 } from './registry';
+import {FINANCE_ANIMATION_REQUIRED_DATA} from './requiredTemplateData';
 
 const EXPECTED_IDS = [
   'money-flow',
@@ -44,6 +45,14 @@ describe('finance animation template registry', () => {
       'taxes',
       'fees',
     ]);
+  });
+
+  it('derives every registry entry from the typed required-data map', () => {
+    for (const template of FINANCE_ANIMATION_TEMPLATES) {
+      expect(template.requiredData).toBe(
+        FINANCE_ANIMATION_REQUIRED_DATA[template.id],
+      );
+    }
   });
 
   it('requires unique structured data keys for every template', () => {
