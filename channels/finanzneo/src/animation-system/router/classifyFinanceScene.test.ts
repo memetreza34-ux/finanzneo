@@ -44,10 +44,10 @@ describe('classifyFinanceScene', () => {
     expect(decision.template).toBe('income-expense-balance');
   });
 
-  it('uses matching data to resolve shared finance keywords', () => {
+  it('uses matching data alone to resolve shared finance keywords', () => {
     const decision = classifyFinanceSceneWithFeatures({
       message: 'Einnahmen und Ausgaben werden gegenübergestellt.',
-      voiceText: 'So erkennst du den monatlichen Überschuss.',
+      voiceText: 'Beide Werte werden direkt verglichen.',
       data: {
         income: 2800,
         expenses: 2100,
