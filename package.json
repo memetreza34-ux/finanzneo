@@ -24,7 +24,7 @@
     "finance:animation-gallery": "cd channels/finanzneo && npx remotion studio src/animation-system/gallery/gallery-index.ts",
     "finance:animation-gallery:still": "cd channels/finanzneo && npx remotion still src/animation-system/gallery/gallery-index.ts FinanceAnimationGalleryOverview /tmp/finance-animation-gallery.png --frame=90",
     "finance:animation-gallery:sequence-still": "cd channels/finanzneo && npx remotion still src/animation-system/gallery/gallery-index.ts FinanceAnimationGallery /tmp/finance-animation-gallery-sequence.png --frame=90",
-    "finance:animation-validate": "npm run finance:animation-structure && npm run finance:animation-isolation && npm run finance:animation-typecheck && npm run finance:animation-test && npm run finance:animation-gallery:still",
+    "finance:animation-validate": "npm run finance:animation-structure && npm run finance:animation-isolation && npm run finance:animation-typecheck && npm run finance:animation-test && npm run finance:animation-gallery:still && npm run finance:animation-gallery:sequence-still",
     "finance:align": "node scripts/align-finance-plan.mjs",
     "finance:assets": "node scripts/run-finance-with-folder-check.mjs scripts/ingest-finance-assets.mjs",
     "finance:script-qa": "node scripts/run-finance-script-qa.mjs",
