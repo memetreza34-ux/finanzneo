@@ -22,7 +22,18 @@ describe('validateTemplateSemantics', () => {
     }));
 
     expect(result.errors).toContain('Der Geldfluss-Betrag muss größer als null sein.');
-    expect(result.errors).toContain('Beschriftung darf nicht leer sein: fromLabel');
+    expect(result.errors).toContain('Beschriftung muss ein sichtbarer Text sein: fromLabel');
+  });
+
+  it('rejects non-string labels at untrusted input boundaries', () => {
+    const result = validateTemplateSemantics(scene('before-after-comparison', {
+      beforeLabel: 100,
+      afterLabel: 'Nachher',
+      beforeValue: 1000,
+      afterValue: 1200,
+    }));
+
+    expect(result.errors).toContain('Beschriftung muss ein sichtbarer Text sein: beforeLabel');
   });
 
   it('detects flow labels that only differ by casing and whitespace', () => {
@@ -47,6 +58,53 @@ describe('validateTemplateSemantics', () => {
 
     expect(result.errors).toContain(
       'Zinseszins benötigt Startkapital oder eine positive monatliche Einzahlung.',
+    );
+  });
+
+  it('rejects a flat compound-growth scene without contribution or return', () => {
+    const result = validateTemplateSemantics(scene('compound-growth', {
+      startCapital: 1000,
+      monthlyRate: 0,
+      annualReturn: 0,
+      years: 20,
+    }));
+
+    expect(result.errors).toContain(
+      'Das Wachstumstemplate benötigt eine positive Einzahlung oder Rendite.',
+    );
+  });
+
+  it('requires a positive inflation rate for an erosion scene', () => {
+    const result = validateTemplateSemantics(scene('inflation-erosion', {
+      startingValue: 100,
+      inflationPercent: 0,
+      years: 10,
+    }));
+
+    expect(result.errors).toContain(
+      'Das Kaufkraftverlust-Template benötigt eine positive Inflationsrate.',
+    );
+  });
+
+  it('keeps debt amount and installment progress logically consistent', () => {
+    const noPayments = validateTemplateSemantics(scene('debt-paydown', {
+      originalDebt: 12000,
+      remainingDebt: 8000,
+      paidInstallments: 0,
+      totalInstallments: 40,
+    }));
+    expect(noPayments.errors).toContain(
+      'Die Restschuld ist gesunken, obwohl keine Raten bezahlt wurden.',
+    );
+
+    const noReduction = validateTemplateSemantics(scene('debt-paydown', {
+      originalDebt: 12000,
+      remainingDebt: 12000,
+      paidInstallments: 10,
+      totalInstallments: 40,
+    }));
+    expect(noReduction.errors).toContain(
+      'Schuldenabbau benötigt nach bezahlten Raten eine niedrigere Restschuld.',
     );
   });
 
