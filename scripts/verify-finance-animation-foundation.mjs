@@ -48,6 +48,10 @@ const criticalFiles = [
   'channels/finanzneo/src/animation-system/featureFlags.ts',
   'channels/finanzneo/src/animation-system/templates/registry.ts',
   'channels/finanzneo/src/animation-system/templates/requiredTemplateData.ts',
+  'channels/finanzneo/src/animation-system/router/financeAnimationKeywords.ts',
+  'channels/finanzneo/src/animation-system/router/rankFinanceAnimationCandidates.ts',
+  'channels/finanzneo/src/animation-system/router/classifyFinanceScene.ts',
+  'channels/finanzneo/src/animation-system/planning/selectAnimationTemplate.ts',
   'channels/finanzneo/src/animation-system/fixtures/financeAnimationFixtures.ts',
   'channels/finanzneo/src/animation-system/render/FinanceAnimationRenderer.tsx',
   'channels/finanzneo/src/animation-system/render/validateTemplateData.ts',
@@ -86,6 +90,23 @@ const checkTemplateCoverage = async () => {
       if (!content.includes(`'${templateId}'`)) {
         fail(`${coverageFiles[index]} enthält Template-ID ${templateId} nicht.`);
       }
+    }
+  }
+};
+
+const checkSharedCandidateRanking = async () => {
+  const consumers = [
+    'channels/finanzneo/src/animation-system/router/classifyFinanceScene.ts',
+    'channels/finanzneo/src/animation-system/planning/selectAnimationTemplate.ts',
+  ];
+
+  for (const consumer of consumers) {
+    const content = await readRepositoryFile(consumer);
+    if (!content.includes('rankFinanceAnimationCandidates')) {
+      fail(`${consumer} umgeht die gemeinsame Kandidatenbewertung.`);
+    }
+    if (!content.includes('haveAmbiguousTopCandidates')) {
+      fail(`${consumer} besitzt keinen gemeinsamen Mehrdeutigkeits-Fallback.`);
     }
   }
 };
@@ -135,6 +156,7 @@ const checkDedicatedTypeScriptScope = async () => {
 const run = async () => {
   await checkFilesExist();
   await checkTemplateCoverage();
+  await checkSharedCandidateRanking();
   await checkPackageScripts();
   await checkDedicatedTypeScriptScope();
 
@@ -149,6 +171,7 @@ const run = async () => {
   console.log('Finance animation foundation structure check passed.');
   console.log(`Verified ${templateIds.length} template identifiers.`);
   console.log(`Verified ${criticalFiles.length} required files.`);
+  console.log('Verified shared routing and ambiguity handling.');
 };
 
 run().catch((error) => {
