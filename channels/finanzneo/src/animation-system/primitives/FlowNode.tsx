@@ -11,6 +11,14 @@ export type FlowNodeProps = {
   style?: React.CSSProperties;
 };
 
+const finiteOr = (value: number | undefined, fallback: number): number =>
+  typeof value === 'number' && Number.isFinite(value) ? value : fallback;
+
+export const resolveFlowNodeLocalFrame = (
+  frame: number,
+  startFrame: number,
+): number => Math.max(0, finiteOr(frame, 0) - finiteOr(startFrame, 0));
+
 export const FlowNode: React.FC<FlowNodeProps> = ({
   label,
   value,
@@ -22,15 +30,17 @@ export const FlowNode: React.FC<FlowNodeProps> = ({
 }) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const local = Math.max(0, frame - startFrame);
-  const enter = spring({frame: local, fps, config: {damping: 18, stiffness: 120}});
+  const local = resolveFlowNodeLocalFrame(frame, startFrame);
+  const safeFps = Math.max(1, finiteOr(fps, 30));
+  const safeWidth = Math.max(0, finiteOr(width, 260));
+  const enter = spring({frame: local, fps: safeFps, config: {damping: 18, stiffness: 120}});
   const opacity = interpolate(local, [0, 8], [0, 1], {
     extrapolateLeft: 'clamp', extrapolateRight: 'clamp',
   });
 
   return (
     <div style={{
-      width,
+      width: safeWidth,
       minHeight: 132,
       borderRadius: 28,
       padding: '24px 26px',
