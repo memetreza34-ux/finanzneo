@@ -29,3 +29,5 @@ export const validateAnimationRequest = (
 
   return issues;
 };
+
+export const validateAnimationScene = validateAnimationRequest;
