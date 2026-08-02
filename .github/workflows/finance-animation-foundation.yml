@@ -5,6 +5,7 @@ on:
     paths:
       - 'channels/finanzneo/src/animation-system/**'
       - 'channels/finanzneo/tsconfig.animation-system.json'
+      - 'scripts/verify-finance-animation-foundation.mjs'
       - 'scripts/verify-finance-animation-isolation.mjs'
       - 'package.json'
       - 'package-lock.json'
@@ -37,11 +38,14 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Verify animation foundation structure
+        run: npm run finance:animation-structure
 
       - name: Verify production isolation and disabled flags
         run: npm run finance:animation-isolation
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Typecheck animation foundation
         run: npm run finance:animation-typecheck
