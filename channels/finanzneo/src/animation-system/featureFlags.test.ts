@@ -14,6 +14,10 @@ describe('finance animation feature flags', () => {
     });
   });
 
+  it('freezes the production safety configuration at runtime', () => {
+    expect(Object.isFrozen(FINANCE_ANIMATION_FEATURES)).toBe(true);
+  });
+
   it('reports the animation system as disabled', () => {
     expect(isFinanceAnimationEnabled()).toBe(false);
   });
