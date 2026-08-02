@@ -105,11 +105,11 @@ const structuredArrayErrors = (
 };
 
 const validateNumericData = (
-  scene: FinanceAnimationScene,
+  template: FinanceAnimationTemplate,
+  data: Record<string, unknown>,
   errors: string[],
 ): void => {
-  const data = scene.data ?? {};
-  for (const key of NUMERIC_KEYS[scene.template] ?? []) {
+  for (const key of NUMERIC_KEYS[template] ?? []) {
     const value = data[key];
     if (value === undefined || value === null) continue;
     if (typeof value !== 'number' || !Number.isFinite(value)) {
@@ -134,13 +134,21 @@ const validateNumericData = (
   }
 };
 
+const uniqueMessages = (messages: readonly string[]): string[] =>
+  [...new Set(messages)];
+
 export const validateTemplateData = (
   scene: FinanceAnimationScene,
 ): FinanceAnimationRenderResult => {
   const errors: string[] = [];
   const warnings: string[] = [];
-  const data = scene.data ?? {};
+  const rawData: unknown = scene.data;
+  const data = isRecord(rawData) ? rawData : {};
   const definition = getFinanceAnimationTemplate(scene.template);
+
+  if (rawData !== undefined && !isRecord(rawData)) {
+    errors.push('Animationsdaten müssen als strukturiertes Objekt vorliegen.');
+  }
 
   if (!definition) {
     errors.push(`Unbekanntes Animationstemplate: ${scene.template}`);
@@ -153,7 +161,7 @@ export const validateTemplateData = (
     }
   }
 
-  validateNumericData(scene, errors);
+  validateNumericData(scene.template, data, errors);
 
   if (scene.template === 'compound-growth') {
     const annualReturn = data.annualReturn;
@@ -218,24 +226,28 @@ export const validateTemplateData = (
     }
   }
 
-  const semanticValidation = validateTemplateSemantics(scene);
+  const validatedScene = {...scene, data};
+  const semanticValidation = validateTemplateSemantics(validatedScene);
   errors.push(...semanticValidation.errors);
   warnings.push(...semanticValidation.warnings);
 
-  const presentationValidation = validateTemplatePresentation(scene);
+  const presentationValidation = validateTemplatePresentation(validatedScene);
   errors.push(...presentationValidation.errors);
   warnings.push(...presentationValidation.warnings);
 
-  if (!scene.message.trim()) errors.push('Kernaussage fehlt.');
-  if (!scene.voiceText.trim()) errors.push('Voiceover-Text fehlt.');
-  if ((scene.labels?.length ?? 0) > 5) {
+  if (!isNonEmptyString(scene.message)) errors.push('Kernaussage fehlt.');
+  if (!isNonEmptyString(scene.voiceText)) errors.push('Voiceover-Text fehlt.');
+  if (Array.isArray(scene.labels) && scene.labels.length > 5) {
     warnings.push('Mehr als fünf Labels können die Szene überladen.');
   }
 
+  const uniqueErrors = uniqueMessages(errors);
+  const uniqueWarnings = uniqueMessages(warnings);
+
   return {
-    ok: errors.length === 0,
+    ok: uniqueErrors.length === 0,
     template: scene.template,
-    errors,
-    warnings,
+    errors: uniqueErrors,
+    warnings: uniqueWarnings,
   };
 };
