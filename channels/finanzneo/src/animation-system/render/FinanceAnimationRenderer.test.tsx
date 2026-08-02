@@ -20,12 +20,12 @@ describe('FinanceAnimationRenderer', () => {
     ['money-flow', {amount: 300, fromLabel: 'Gehalt', toLabel: 'ETF'}],
     ['budget-split', {income: 2500, needsPercent: 50, wantsPercent: 30, savingsPercent: 20}],
     ['inflation-erosion', {startingValue: 100, inflationPercent: 2.5, years: 10}],
-    ['portfolio-allocation', {allocations: []}],
+    ['portfolio-allocation', {allocations: [{label: 'ETF', value: 70}, {label: 'Cash', value: 30}]}],
     ['debt-paydown', {originalDebt: 12000, remainingDebt: 4200}],
     ['monthly-investment', {monthlyRate: 250, months: 12}],
     ['before-after-comparison', {beforeLabel: 'Vorher', afterLabel: 'Nachher', beforeValue: 12000, afterValue: 17800}],
     ['risk-return-scale', {riskPercent: 45, returnPercent: 65}],
-    ['timeline-milestones', {milestones: []}],
+    ['timeline-milestones', {milestones: [{label: 'Start', value: 0}, {label: 'Ziel', value: 10000}]}],
     ['income-expense-balance', {income: 2800, expenses: 2100}],
     ['tax-fee-flow', {grossAmount: 3000, taxes: 620, fees: 30}],
   ];
@@ -33,5 +33,13 @@ describe('FinanceAnimationRenderer', () => {
   it.each(cases)('maps %s to a renderable React element', (template, data) => {
     const element = FinanceAnimationRenderer({scene: makeScene(template, data)});
     expect(React.isValidElement(element)).toBe(true);
+  });
+
+  it('refuses to render incomplete template data', () => {
+    const element = FinanceAnimationRenderer({
+      scene: makeScene('money-flow', {amount: 300}),
+    });
+
+    expect(element).toBeNull();
   });
 });
