@@ -14,7 +14,12 @@ export type FinanceAnimationTemplate =
   | 'income-expense-balance'
   | 'tax-fee-flow';
 
-export type FinanceAnimationScalar = number | string | boolean | null;
+/**
+ * Untrusted scene data may contain explicit `undefined` values. Validators
+ * treat them exactly like missing fields instead of forcing unsafe casts at
+ * ingestion boundaries.
+ */
+export type FinanceAnimationScalar = number | string | boolean | null | undefined;
 export type FinanceAnimationData = Record<string, FinanceAnimationScalar | unknown[]>;
 
 export type FinanceAnimationDecision = {
