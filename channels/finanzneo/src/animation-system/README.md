@@ -27,19 +27,21 @@ Der bestehende Bild-Workflow bleibt unverändert.
 ## Enthalten
 
 - Typen für Szenenmodi, Entscheidungen, Requests und Template-Daten
-- strenge Datenverträge für jedes der zwölf Templates
+- exakte Datenverträge für jedes der zwölf Templates
+- sichere Parser für unbekannte KI- und JSON-Eingaben
+- sicherer Planner- und Renderer-Einstieg für untrusted Input
 - zentral typisierte, eingefrorene und standardmäßig deaktivierte Feature Flags
-- gemeinsamer Begriffskatalog für Router und Template-Selector
-- konservatives Routing mit vollständigen Begriffen statt unsicherer Teilworttreffer
-- Template-Auswahl anhand von Inhalt, bevorzugtem Template und Datenabdeckung
-- strukturierter Animationsplan mit sicherem Bild-Fallback
-- generische Szenenprüfung, Datenvalidierung und Präsentationsgrenzen
+- gemeinsamer Begriffskatalog und gemeinsame Kandidatenbewertung für Router und Selector
+- mehrdeutigkeitssicheres Routing mit Datenabdeckung, Wortgrenzen und Bild-Fallback
+- strukturierter Animationsplan mit verständlichen Fallback-Gründen
+- generische Szenenprüfung, fachliche Datenvalidierung und Präsentationsgrenzen
 - robuste Finanzberechnungen für Zinseszins, Sparplan, Inflation, Kredit und Portfolio-Aufteilung
 - kanonische, vollständig validierbare Beispielszenen für alle zwölf Templates
 - wiederverwendbare visuelle Primitive:
   - animierte oder bereits framegenau berechnete Zahlen
+  - Schutz gegen sichtbares `-0`
   - animierte oder bereits framegenau berechnete Fortschrittsbalken
-  - Finanz-Flussknoten
+  - robuste Finanz-Flussknoten
 - zwölf getrennte Remotion-Finanztemplates:
   - `money-flow`
   - `budget-split`
@@ -56,11 +58,17 @@ Der bestehende Bild-Workflow bleibt unverändert.
 - zentraler `FinanceAnimationRenderer`
 - sequenzielle Galerie und Kontaktbogen mit allen zwölf Templates
 - Galerie läuft durch denselben Renderer und dieselben Beispielszenen wie die Tests
-- Tests für Berechnungen, Router, Begriffskatalog, Selector, Planung, Registry, Renderer, Datenverträge, Fixtures, Galerie, Primitive, QA und Fallback
+- Tests für Berechnungen, Router, Kandidatenranking, Selector, Planung, Registry, Renderer, Parser, Datenverträge, Fixtures, Galerie, Primitive, QA und Fallback
 - isolierte TypeScript-Konfiguration für das Animationssystem
-- ausführbarer Produktions-Isolationscheck
+- dependency-freier Strukturcheck und Produktions-Isolationscheck
 
 ## Lokal prüfen
+
+Struktur, Pflichtdateien und gemeinsame Systemverträge prüfen:
+
+```bash
+npm run finance:animation-structure
+```
 
 Produktionsisolation und deaktivierte Feature Flags prüfen:
 
@@ -80,25 +88,66 @@ Nur die Animationstests ausführen:
 npm run finance:animation-test
 ```
 
-Isolation, Typecheck, Tests und Galerie-Kontaktbogen gemeinsam ausführen:
+Struktur, Isolation, Typecheck, Tests und Galerie-Kontaktbogen gemeinsam ausführen:
 
 ```bash
 npm run finance:animation-validate
 ```
 
+## Sichere Eingabegrenzen
+
+`ingestion/parseFinanceAnimationInput.ts` behandelt unbekannte KI- oder JSON-Daten als `unknown` und prüft sie vor jeder Nutzung.
+
+Geprüft werden unter anderem:
+
+- Request und Daten müssen Objekte sein
+- Kernaussage und Voiceover müssen sichtbare Texte sein
+- Labels müssen als Textliste vorliegen
+- direkte verschachtelte Objekte werden abgelehnt
+- strukturierte Arrays bleiben für Portfolio und Timeline erlaubt
+- Modus und Template-ID müssen bekannt sein
+- anschließend laufen generische QA und templatespezifische Validierung
+
+Für spätere Integrationen stehen zwei abgesicherte Einstiege bereit:
+
+- `planFinanceAnimationInput(input)` für unbekannte Requests
+- `SafeFinanceAnimationRenderer` für unbekannte vollständige Szenen
+
+Nur erfolgreich geparste und validierte Werte erreichen Router, Planner oder Renderer.
+
 ## Strenge Template-Datenverträge
 
-`templateDataContracts.ts` definiert für jede Template-ID den passenden Datenvertrag. Intern erzeugte Szenen können damit nicht mehr versehentlich Felder eines anderen Templates erhalten.
+`templateDataContracts.ts` definiert für jede Template-ID den passenden exakten Datenvertrag. Die Typen besitzen absichtlich keinen offenen String-Index. Tippfehler bei Feldnamen werden dadurch beim Typecheck erkannt.
 
 Beispiele:
 
 - `money-flow` verlangt Betrag, Quelle und Ziel
 - `compound-growth` verlangt Startkapital, Sparrate, Rendite und Jahre
-- `portfolio-allocation` verlangt strukturierte Positionen
+- `portfolio-allocation` verlangt Positionen **und den dargestellten Gesamtwert**
+- `debt-paydown` verlangt Schuldwerte **und den vollständigen Ratenfortschritt**
 - `timeline-milestones` verlangt strukturierte Meilensteine
 - `tax-fee-flow` verlangt Brutto, Steuern und Gebühren
 
-Eingehende KI-Daten bleiben zunächst flexibel und werden weiterhin zur Laufzeit geprüft. Interne Fixtures und spätere kontrollierte Aufrufer nutzen dagegen die strengeren Typen.
+Der Renderer erfindet keine Portfoliowerte oder Kreditraten. Jeder sichtbar dargestellte Finanzwert muss in der Szene vorhanden sein.
+
+Prozentfelder verwenden durchgehend Prozentpunkte:
+
+- `7` bedeutet 7 Prozent
+- `0.5` bedeutet 0,5 Prozent
+
+Erst der Renderer wandelt Prozentpunkte für Finanzformeln in Dezimalraten um.
+
+## Routing und Mehrdeutigkeit
+
+Router und eigenständiger Template-Selector verwenden dieselbe Kandidatenbewertung.
+
+Bewertet werden:
+
+- vollständige Finanzbegriffe
+- vorhandene Pflichtdaten
+- ein explizit bevorzugtes Template
+
+Ein echter Gleichstand wird nicht anhand der Registry-Reihenfolge entschieden. Das System bleibt stattdessen im Bildmodus und dokumentiert die Mehrdeutigkeit. Passende Daten oder ein bewusst bevorzugtes Template können den Gleichstand auflösen.
 
 ## Kanonische Beispielszenen
 
@@ -108,12 +157,13 @@ Diese Szenen werden gemeinsam verwendet von:
 
 - Galerie
 - Kontaktbogen
+- Parser-Tests
 - Datenvalidierungstests
 - Registry-Abgleich
 - zentralem Renderer
 - späteren Smoke- und Integrationstests
 
-Dadurch können Galerie und Tests nicht mehr unbemerkt mit voneinander abweichenden Daten arbeiten.
+Dadurch können Galerie und Tests nicht unbemerkt mit voneinander abweichenden Daten arbeiten.
 
 ## Galerie prüfen
 
@@ -142,21 +192,37 @@ Diese Befehle verwenden ausschließlich den isolierten Galerie-Entry-Point und a
 Vor einem Render werden unter anderem geprüft:
 
 - vorhandene Pflichtfelder des ausgewählten Templates
+- jeder sichtbar dargestellte Wert ist tatsächlich vorhanden
 - endliche, nichtnegative oder fachlich zulässige Zahlenwerte
 - gültige Prozentwerte und Laufzeiten
 - negative Renditen nur bei Templates, die sie sinnvoll darstellen können
+- Zinseszins zeigt tatsächlich Einzahlung oder Wachstum
+- Kaufkraftverlust benötigt positive Inflation
 - strukturierte Portfolio- und Timeline-Daten
 - maximale Anzahl sichtbarer Portfolio-Positionen und Meilensteine
 - doppelte Portfolio- und Timeline-Labels
 - Budgetanteile und deren Summe
 - Portfolio-Prozentwerte und deren Summe
 - Verhältnis von Ausgangs- und Restschuld
-- bezahlte und gesamte Kreditraten
+- bezahlte und gesamte Kreditraten sowie deren logische Entwicklung
 - Steuern und Gebühren im Verhältnis zum Bruttobetrag
 - Vorher-Nachher-Vergleiche ohne sichtbaren Unterschied
 - Kernaussage, Voiceover, leere oder doppelte Labels und Anzahl sichtbarer Labels
 
-Bei einem Fehler erzeugt der Planner keine Animationsszene. Der bestehende Bildmodus bleibt der sichere Rückfall.
+Bei einem Fehler erzeugt der Planner keine Animationsszene. Der bestehende Bildmodus bleibt der sichere Rückfall. Die dokumentierten Gründe enthalten verständliche Meldungen statt instabiler interner Fehlercodes.
+
+## Visuelle Konsistenz
+
+Die Template-Logik wurde zusätzlich abgesichert:
+
+- Budgetbalken starten wirklich bei null
+- Portfoliogewichte und daraus berechnete Geldwerte bleiben synchron
+- Geldfluss-Prozentanzeigen ergeben als ganze Zahlen exakt 100 Prozent
+- Schuldstand und bezahlte Raten animieren im gleichen Fortschritt
+- Inflation, Kaufkraftbalken und vergangene Jahre laufen synchron
+- positive und negative Vorher-Nachher-Ergebnisse erhalten passende Farben
+- Überschuss und Defizit werden unterschiedlich dargestellt
+- Risiko- und Fortschrittswerte werden sicher begrenzt
 
 ## Produktionsisolation
 
@@ -168,7 +234,16 @@ Bei einem Fehler erzeugt der Planner keine Animationsszene. Der bestehende Bildm
 - `FinanceImageFirstReel.tsx` importiert das Animationssystem nicht
 - `FinanzNeoRoot.tsx` registriert weder Renderer noch Galerie
 
-Der GitHub-Actions-Workflow führt diesen Check vor Typecheck, Tests und Rendering aus.
+`scripts/verify-finance-animation-foundation.mjs` prüft zusätzlich:
+
+- Pflichtdateien und alle zwölf Template-IDs
+- gemeinsame Kandidatenbewertung und Mehrdeutigkeits-Fallback
+- sichere Parser- und Renderer-Grenze
+- Pflichtwerte für Portfolio und Kreditfortschritt
+- keine erfundenen Renderer-Defaults
+- lokale Prüfskripte und isolierten TypeScript-Umfang
+
+Der GitHub-Actions-Workflow führt die dependency-freien Struktur- und Isolationschecks vor `npm ci`, Typecheck, Tests und Rendering aus.
 
 ## Produktionsstatus
 
@@ -183,12 +258,12 @@ Die Grundlage ist technisch vorbereitet, aber erst nach einem bestätigten volls
 
 ## Spätere Aktivierung
 
-1. Isolationscheck, Typecheck, Tests und Galerie-Render erfolgreich bestätigen.
+1. Strukturcheck, Isolationscheck, Typecheck, Tests und Galerie-Render erfolgreich bestätigen.
 2. Kontaktbogen und sequenzielle Galerie visuell prüfen.
 3. Templates gestalterisch freigeben.
 4. mindestens ein vollständiges Test-Reel rendern.
 5. Animationsfelder kontrolliert in die produktiven Scene-Plan-Verträge aufnehmen.
-6. `FinanceAnimationRenderer` hinter dem bestehenden Bild-Fallback anbinden.
+6. ausschließlich den sicheren Parser-/Renderer-Einstieg an den bestehenden Bild-Fallback anbinden.
 7. Feature Flags einzeln aktivieren.
 8. erst danach automatische Auswahl freigeben.
 
