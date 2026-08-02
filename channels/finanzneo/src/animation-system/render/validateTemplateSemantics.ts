@@ -16,8 +16,9 @@ const requireVisibleLabel = (
   fieldName: string,
   errors: string[],
 ): void => {
-  if (trimmedString(value)?.length === 0) {
-    errors.push(`Beschriftung darf nicht leer sein: ${fieldName}`);
+  const label = trimmedString(value);
+  if (!label) {
+    errors.push(`Beschriftung muss ein sichtbarer Text sein: ${fieldName}`);
   }
 };
 
@@ -37,12 +38,7 @@ export const validateTemplateSemantics = (
       requireVisibleLabel(data.toLabel, 'toLabel', errors);
       const source = trimmedString(data.fromLabel)?.toLocaleLowerCase('de-DE');
       const target = trimmedString(data.toLabel)?.toLocaleLowerCase('de-DE');
-      if (
-        source &&
-        target &&
-        source === target &&
-        data.fromLabel !== data.toLabel
-      ) {
+      if (source && target && source === target && data.fromLabel !== data.toLabel) {
         errors.push('Quelle und Ziel des Geldflusses sind auch nach Normalisierung identisch.');
       }
       break;
@@ -55,8 +51,11 @@ export const validateTemplateSemantics = (
     case 'compound-growth': {
       const principal = isFiniteNumber(data.startCapital) ? data.startCapital : 0;
       const contribution = isFiniteNumber(data.monthlyRate) ? data.monthlyRate : 0;
+      const annualReturn = isFiniteNumber(data.annualReturn) ? data.annualReturn : 0;
       if (principal <= 0 && contribution <= 0) {
         errors.push('Zinseszins benötigt Startkapital oder eine positive monatliche Einzahlung.');
+      } else if (contribution <= 0 && annualReturn <= 0) {
+        errors.push('Das Wachstumstemplate benötigt eine positive Einzahlung oder Rendite.');
       }
       break;
     }
@@ -69,12 +68,31 @@ export const validateTemplateSemantics = (
       if (isFiniteNumber(data.startingValue) && data.startingValue <= 0) {
         errors.push('Der Ausgangswert für die Kaufkraft muss größer als null sein.');
       }
+      if (isFiniteNumber(data.inflationPercent) && data.inflationPercent <= 0) {
+        errors.push('Das Kaufkraftverlust-Template benötigt eine positive Inflationsrate.');
+      }
       break;
-    case 'debt-paydown':
+    case 'debt-paydown': {
       if (isFiniteNumber(data.originalDebt) && data.originalDebt <= 0) {
         errors.push('Die ursprüngliche Schuld muss größer als null sein.');
       }
+      const originalDebt = data.originalDebt;
+      const remainingDebt = data.remainingDebt;
+      const paidInstallments = data.paidInstallments;
+      if (
+        isFiniteNumber(originalDebt) &&
+        isFiniteNumber(remainingDebt) &&
+        isFiniteNumber(paidInstallments)
+      ) {
+        if (paidInstallments === 0 && remainingDebt < originalDebt) {
+          errors.push('Die Restschuld ist gesunken, obwohl keine Raten bezahlt wurden.');
+        }
+        if (paidInstallments > 0 && remainingDebt >= originalDebt) {
+          errors.push('Schuldenabbau benötigt nach bezahlten Raten eine niedrigere Restschuld.');
+        }
+      }
       break;
+    }
     case 'monthly-investment':
       if (isFiniteNumber(data.monthlyRate) && data.monthlyRate <= 0) {
         errors.push('Die monatliche Sparrate muss größer als null sein.');
