@@ -33,14 +33,21 @@ export const validateTemplatePresentation = (
       errors.push('Das Portfolio-Template unterstützt höchstens sechs Positionen.');
     }
 
+    const entries = data.allocations.filter(isRecord);
+    if (
+      entries.some(
+        (entry) => entry.percent !== undefined && entry.value !== undefined,
+      )
+    ) {
+      errors.push('Portfolio-Positionen dürfen nicht gleichzeitig value und percent enthalten.');
+    }
+
     const labels = normalizedEntryLabels(data.allocations);
     if (hasDuplicates(labels)) {
       errors.push('Doppelte Portfolio-Labels sind nicht eindeutig darstellbar.');
     }
 
-    const percentageValues = data.allocations
-      .filter(isRecord)
-      .map((entry) => entry.percent);
+    const percentageValues = entries.map((entry) => entry.percent);
     const numericPercentages = percentageValues.filter(
       (value): value is number => typeof value === 'number' && Number.isFinite(value),
     );
