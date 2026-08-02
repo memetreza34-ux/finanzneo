@@ -38,6 +38,14 @@ jobs:
       - name: Render isolated animation gallery still
         run: npm run finance:animation-gallery:still
 
+      - name: Upload gallery preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: finance-animation-gallery-preview
+          path: /tmp/finance-animation-gallery.png
+          if-no-files-found: warn
+
       - name: Verify productive renderer stayed untouched
         shell: bash
         run: |
