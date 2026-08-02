@@ -1,4 +1,4 @@
-import type {AnimationSceneConfig} from '../contracts/types';
+import type {FinanceAnimationRequest, FinanceAnimationScene} from '../contracts';
 
 export type AnimationValidationIssue = {
   level: 'error' | 'warning';
@@ -6,21 +6,25 @@ export type AnimationValidationIssue = {
   message: string;
 };
 
-export const validateAnimationScene = (scene: AnimationSceneConfig): AnimationValidationIssue[] => {
+export const validateAnimationRequest = (
+  scene: FinanceAnimationRequest | FinanceAnimationScene,
+): AnimationValidationIssue[] => {
   const issues: AnimationValidationIssue[] = [];
 
-  if (scene.mode === 'image') return issues;
-  if (!scene.template) {
-    issues.push({level: 'error', code: 'missing-template', message: 'Animationsszene benötigt ein Template.'});
-  }
   if (!scene.message?.trim()) {
     issues.push({level: 'error', code: 'missing-message', message: 'Animationsszene benötigt eine klare Kernaussage.'});
+  }
+  if (!scene.voiceText?.trim()) {
+    issues.push({level: 'error', code: 'missing-voice-text', message: 'Animationsszene benötigt den zugehörigen Voiceover-Satz.'});
   }
   if (!scene.data || Object.keys(scene.data).length === 0) {
     issues.push({level: 'warning', code: 'missing-data', message: 'Animationsszene enthält keine strukturierten Finanzdaten.'});
   }
   if ((scene.labels?.length ?? 0) > 5) {
     issues.push({level: 'warning', code: 'too-many-labels', message: 'Mehr als fünf Labels können die Szene überladen.'});
+  }
+  if ('mode' in scene && scene.mode !== 'image' && !scene.template) {
+    issues.push({level: 'error', code: 'missing-template', message: 'Eine Hybrid- oder Vollanimationsszene benötigt ein Template.'});
   }
 
   return issues;
