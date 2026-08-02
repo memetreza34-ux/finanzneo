@@ -1,5 +1,9 @@
 import {describe, expect, it} from 'vitest';
-import {FINANCE_ANIMATION_TEMPLATES, getFinanceAnimationTemplate} from './registry';
+import {
+  FINANCE_ANIMATION_TEMPLATES,
+  getFinanceAnimationTemplate,
+  getRequiredFinanceAnimationData,
+} from './registry';
 
 const EXPECTED_IDS = [
   'money-flow',
@@ -21,6 +25,11 @@ describe('finance animation template registry', () => {
     expect(FINANCE_ANIMATION_TEMPLATES.map((item) => item.id)).toEqual(EXPECTED_IDS);
   });
 
+  it('contains no duplicate template identifiers', () => {
+    const ids = FINANCE_ANIMATION_TEMPLATES.map((item) => item.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
   it('marks every existing template as foundation-ready', () => {
     expect(FINANCE_ANIMATION_TEMPLATES.every((item) => item.status === 'foundation-ready')).toBe(true);
   });
@@ -29,7 +38,18 @@ describe('finance animation template registry', () => {
     expect(getFinanceAnimationTemplate('compound-growth')?.title).toBe('Zinseszins');
   });
 
-  it('requires structured data for every template', () => {
-    expect(FINANCE_ANIMATION_TEMPLATES.every((item) => item.requiredData.length > 0)).toBe(true);
+  it('returns the canonical required data for a template', () => {
+    expect(getRequiredFinanceAnimationData('tax-fee-flow')).toEqual([
+      'grossAmount',
+      'taxes',
+      'fees',
+    ]);
+  });
+
+  it('requires unique structured data keys for every template', () => {
+    expect(FINANCE_ANIMATION_TEMPLATES.every((item) => {
+      const uniqueKeys = new Set(item.requiredData);
+      return item.requiredData.length > 0 && uniqueKeys.size === item.requiredData.length;
+    })).toBe(true);
   });
 });
