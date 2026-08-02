@@ -8,6 +8,33 @@ export type PortfolioAllocationTemplateProps = {
   currency?: string;
 };
 
+export type NormalizedPortfolioAllocation = {
+  label: string;
+  percent: number;
+};
+
+/**
+ * Normalisiert Gewichtungen auf exakt 100 Prozent. Dadurch stimmen die
+ * angezeigte Prozentzahl und der daraus berechnete Geldbetrag immer überein,
+ * selbst wenn ein direkter Template-Aufrufer relative Gewichte übergibt.
+ */
+export const normalizePortfolioPercentages = (
+  allocations: Array<{label: string; percent: number}>,
+): NormalizedPortfolioAllocation[] => {
+  const sanitized = allocations.map((item) => ({
+    label: item.label,
+    percent: Number.isFinite(item.percent) ? Math.max(0, item.percent) : 0,
+  }));
+  const totalWeight = sanitized.reduce((sum, item) => sum + item.percent, 0);
+  if (totalWeight <= 0) {
+    return sanitized.map((item) => ({...item, percent: 0}));
+  }
+  return sanitized.map((item) => ({
+    ...item,
+    percent: item.percent / totalWeight * 100,
+  }));
+};
+
 export const PortfolioAllocationTemplate: React.FC<PortfolioAllocationTemplateProps> = ({
   total,
   allocations,
@@ -19,8 +46,7 @@ export const PortfolioAllocationTemplate: React.FC<PortfolioAllocationTemplatePr
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
-  const normalized = allocations.map((item) => ({...item, percent: Math.max(0, item.percent)}));
-  const totalPercent = Math.max(1, normalized.reduce((sum, item) => sum + item.percent, 0));
+  const normalized = normalizePortfolioPercentages(allocations);
 
   return (
     <AbsoluteFill style={{background: '#07120B', padding: 76, fontFamily: 'Inter, sans-serif', color: '#F5F7F4'}}>
@@ -28,7 +54,7 @@ export const PortfolioAllocationTemplate: React.FC<PortfolioAllocationTemplatePr
       <div style={{fontSize: 86, fontWeight: 950, marginTop: 18}}><AnimatedNumber value={total} suffix={` ${currency}`} /></div>
       <div style={{marginTop: 76, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24}}>
         {normalized.map((item, index) => {
-          const value = total * (item.percent / totalPercent);
+          const value = total * (item.percent / 100);
           const reveal = interpolate(progress, [Math.min(0.8, index * 0.08), Math.min(1, index * 0.08 + 0.35)], [0, 1], {
             extrapolateLeft: 'clamp',
             extrapolateRight: 'clamp',
@@ -36,7 +62,7 @@ export const PortfolioAllocationTemplate: React.FC<PortfolioAllocationTemplatePr
           return (
             <div key={`${item.label}-${index}`} style={{borderRadius: 34, padding: 30, background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(92,255,154,0.18)', opacity: reveal, transform: `translateY(${(1 - reveal) * 32}px)`}}>
               <div style={{fontSize: 30, color: '#AFC0B4', fontWeight: 800}}>{item.label}</div>
-              <div style={{fontSize: 56, fontWeight: 950, marginTop: 10}}><AnimatedNumber value={item.percent} suffix=" %" /></div>
+              <div style={{fontSize: 56, fontWeight: 950, marginTop: 10}}><AnimatedNumber value={item.percent} suffix=" %" decimals={1} /></div>
               <div style={{fontSize: 30, fontWeight: 750, color: '#5CFF9A', marginTop: 12}}><AnimatedNumber value={value} suffix={` ${currency}`} /></div>
             </div>
           );
