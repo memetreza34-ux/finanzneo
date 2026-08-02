@@ -1,6 +1,7 @@
 import {describe, expect, it} from 'vitest';
 import {FINANCE_ANIMATION_FIXTURES} from '../fixtures';
 import {
+  FINANCE_ANIMATION_INPUT_LIMITS,
   parseFinanceAnimationRequest,
   parseFinanceAnimationScene,
 } from './parseFinanceAnimationInput';
@@ -29,7 +30,7 @@ describe('parseFinanceAnimationRequest', () => {
   it('rejects non-object requests and malformed base fields', () => {
     expect(parseFinanceAnimationRequest(null)).toEqual({
       ok: false,
-      errors: ['Animationsanfrage muss als Objekt vorliegen.'],
+      errors: ['Animationsanfrage muss als einfaches Objekt vorliegen.'],
       warnings: [],
     });
 
@@ -47,13 +48,13 @@ describe('parseFinanceAnimationRequest', () => {
         'Kernaussage muss ein Text sein.',
         'Voiceover muss ein Text sein.',
         'Jedes Label muss ein Text sein.',
-        'Animationsdaten müssen als Objekt vorliegen.',
+        'Animationsdaten müssen als einfaches Objekt vorliegen.',
         'Bevorzugtes Animationstemplate ist unbekannt.',
       ]));
     }
   });
 
-  it('rejects unsupported nested objects while allowing structured arrays', () => {
+  it('rejects unsupported nested objects while allowing flat structured arrays', () => {
     const nestedObject = parseFinanceAnimationRequest({
       message: 'Test',
       voiceText: 'Test',
@@ -67,6 +68,64 @@ describe('parseFinanceAnimationRequest', () => {
       data: {allocations: [{label: 'ETF', percent: 100}]},
     });
     expect(structuredArray.ok).toBe(true);
+  });
+
+  it('rejects nested arrays, nested objects and executable values inside arrays', () => {
+    for (const allocations of [
+      [[{label: 'ETF', percent: 100}]],
+      [{label: 'ETF', metadata: {hidden: true}}],
+      [{label: 'ETF', formatter: () => '100 %'}],
+    ]) {
+      const result = parseFinanceAnimationRequest({
+        message: 'Portfolio',
+        voiceText: 'Portfolio',
+        data: {allocations},
+      });
+
+      expect(result.ok).toBe(false);
+      if (!result.ok) {
+        expect(result.errors).toContain(
+          'Animationsdatenfeld allocations enthält verschachtelte oder nicht unterstützte Listenwerte.',
+        );
+      }
+    }
+  });
+
+  it('enforces bounded text, label, field and structured-array input sizes', () => {
+    const oversized = parseFinanceAnimationRequest({
+      message: 'M'.repeat(FINANCE_ANIMATION_INPUT_LIMITS.maxTextLength + 1),
+      voiceText: 'V'.repeat(FINANCE_ANIMATION_INPUT_LIMITS.maxTextLength + 1),
+      labels: Array.from(
+        {length: FINANCE_ANIMATION_INPUT_LIMITS.maxLabels + 1},
+        (_, index) => index === 0
+          ? 'L'.repeat(FINANCE_ANIMATION_INPUT_LIMITS.maxLabelLength + 1)
+          : `Label ${index}`,
+      ),
+      data: {
+        ...Object.fromEntries(
+          Array.from(
+            {length: FINANCE_ANIMATION_INPUT_LIMITS.maxDataFields + 1},
+            (_, index) => [`field${index}`, index],
+          ),
+        ),
+        milestones: Array.from(
+          {length: FINANCE_ANIMATION_INPUT_LIMITS.maxStructuredArrayItems + 1},
+          (_, index) => ({label: `Jahr ${index}`, value: index}),
+        ),
+      },
+    });
+
+    expect(oversized.ok).toBe(false);
+    if (!oversized.ok) {
+      expect(oversized.errors).toEqual(expect.arrayContaining([
+        `Kernaussage überschreitet ${FINANCE_ANIMATION_INPUT_LIMITS.maxTextLength} Zeichen.`,
+        `Voiceover überschreitet ${FINANCE_ANIMATION_INPUT_LIMITS.maxTextLength} Zeichen.`,
+        `Labels enthalten mehr als ${FINANCE_ANIMATION_INPUT_LIMITS.maxLabels} Einträge.`,
+        `Ein Label überschreitet ${FINANCE_ANIMATION_INPUT_LIMITS.maxLabelLength} Zeichen.`,
+        `Animationsdaten enthalten mehr als ${FINANCE_ANIMATION_INPUT_LIMITS.maxDataFields} Felder.`,
+        `Animationsdatenfeld milestones enthält mehr als ${FINANCE_ANIMATION_INPUT_LIMITS.maxStructuredArrayItems} Listeneinträge.`,
+      ]));
+    }
   });
 });
 
