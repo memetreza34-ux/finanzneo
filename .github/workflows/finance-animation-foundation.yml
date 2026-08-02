@@ -10,10 +10,19 @@ on:
       - '.github/workflows/finance-animation-foundation.yml'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: finance-animation-foundation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate-animation-foundation:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      CI: true
 
     steps:
       - name: Checkout repository
@@ -46,6 +55,7 @@ jobs:
           name: finance-animation-gallery-preview
           path: /tmp/finance-animation-gallery.png
           if-no-files-found: warn
+          retention-days: 7
 
       - name: Verify productive renderer stayed untouched
         shell: bash
