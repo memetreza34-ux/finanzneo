@@ -54,6 +54,8 @@ export const CompoundGrowthTemplate: React.FC<CompoundGrowthTemplateProps> = ({
     extrapolateLeft: 'clamp', extrapolateRight: 'clamp',
   });
   const bars = resolveCompoundGrowthBars(principal, finalValue, years);
+  const safePrincipal = Math.max(0, Number.isFinite(principal) ? principal : 0);
+  const safeFinalValue = bars.at(-1)?.value ?? safePrincipal;
 
   return (
     <AbsoluteFill style={{background: 'linear-gradient(180deg, #07120B 0%, #030805 100%)', color: '#F5F7F4', padding: 72, boxSizing: 'border-box'}}>
@@ -76,11 +78,11 @@ export const CompoundGrowthTemplate: React.FC<CompoundGrowthTemplateProps> = ({
       <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, marginTop: 42}}>
         <div style={{borderRadius: 28, padding: 28, background: 'rgba(255,255,255,0.05)'}}>
           <div style={{fontSize: 24, color: '#AFC0B4'}}>Startkapital</div>
-          <AnimatedNumber to={principal} suffix=" €" style={{fontSize: 54, fontWeight: 950}} />
+          <AnimatedNumber to={safePrincipal} suffix=" €" style={{fontSize: 54, fontWeight: 950}} />
         </div>
         <div style={{borderRadius: 28, padding: 28, background: 'rgba(92,255,154,0.08)'}}>
           <div style={{fontSize: 24, color: '#AFC0B4'}}>Endkapital</div>
-          <AnimatedNumber to={finalValue} suffix=" €" startFrame={12} durationInFrames={42} style={{fontSize: 54, fontWeight: 950, color: accent}} />
+          <AnimatedNumber to={safeFinalValue} suffix=" €" startFrame={12} durationInFrames={42} style={{fontSize: 54, fontWeight: 950, color: accent}} />
         </div>
       </div>
       <ProgressBar progress={progress} animated={false} style={{marginTop: 36}} />
