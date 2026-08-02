@@ -49,15 +49,25 @@ export const classifyFinanceSceneWithFeatures = (
     const keywordMatches = FINANCE_ANIMATION_KEYWORDS[definition.id].filter((keyword) =>
       containsFinanceKeyword(haystack, keyword),
     );
-    const preferredBonus = request.preferredTemplate === definition.id ? 2 : 0;
+    const preferredBonus = request.preferredTemplate === definition.id ? 5 : 0;
+    const dataMatches = definition.requiredData.filter((key) => {
+      const value = request.data?.[key];
+      return value !== undefined && value !== null && value !== '';
+    });
     return {
       template: definition.id,
-      score: keywordMatches.length + preferredBonus,
+      score: keywordMatches.length * 2 + preferredBonus + dataMatches.length,
       keywordMatches,
+      dataMatches,
+      preferred: preferredBonus > 0,
     };
   })
     .filter((candidate) => candidate.score > 0)
-    .sort((left, right) => right.score - left.score);
+    .sort((left, right) =>
+      right.score - left.score ||
+      right.dataMatches.length - left.dataMatches.length ||
+      right.keywordMatches.length - left.keywordMatches.length,
+    );
 
   const match = rankedMatches[0];
   if (!match) {
@@ -68,13 +78,40 @@ export const classifyFinanceSceneWithFeatures = (
     };
   }
 
+  const secondMatch = rankedMatches[1];
+  if (
+    secondMatch &&
+    match.score === secondMatch.score &&
+    match.dataMatches.length === secondMatch.dataMatches.length &&
+    !match.preferred &&
+    !secondMatch.preferred
+  ) {
+    return {
+      mode: 'image',
+      confidence: 0.82,
+      reason: `Mehrdeutige Zuordnung zwischen ${match.template} und ${secondMatch.template}; Bildmodus ist sicherer.`,
+      blockedReasons: [
+        `Gleichstand bei Routing-Punktzahl: ${match.score}.`,
+      ],
+    };
+  }
+
+  const reasonParts = [];
+  if (match.keywordMatches.length > 0) {
+    reasonParts.push(`Finanzbegriffe: ${match.keywordMatches.join(', ')}`);
+  }
+  if (match.dataMatches.length > 0) {
+    reasonParts.push(`Datenfelder: ${match.dataMatches.join(', ')}`);
+  }
+  if (match.preferred) {
+    reasonParts.push('explizit bevorzugtes Template');
+  }
+
   return {
     mode,
     template: match.template,
-    confidence: Math.min(0.95, 0.68 + match.score * 0.06),
-    reason: match.keywordMatches.length > 0
-      ? `Passende Finanzbegriffe erkannt: ${match.keywordMatches.join(', ')}.`
-      : 'Explizit bevorzugtes Finanzanimationstemplate ausgewählt.',
+    confidence: Math.min(0.95, 0.62 + match.score * 0.04),
+    reason: `${reasonParts.join('; ')}.`,
   };
 };
 
