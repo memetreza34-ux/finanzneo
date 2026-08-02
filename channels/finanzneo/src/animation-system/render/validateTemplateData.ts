@@ -5,6 +5,7 @@ import type {
 } from '../contracts';
 import {getFinanceAnimationTemplate} from '../templates/registry';
 import {validateTemplatePresentation} from './validateTemplatePresentation';
+import {validateTemplateSemantics} from './validateTemplateSemantics';
 
 const NUMERIC_KEYS: Partial<Record<FinanceAnimationTemplate, readonly string[]>> = {
   'money-flow': ['amount'],
@@ -216,6 +217,10 @@ export const validateTemplateData = (
       errors.push('Steuern und Gebühren überschreiten den Bruttobetrag.');
     }
   }
+
+  const semanticValidation = validateTemplateSemantics(scene);
+  errors.push(...semanticValidation.errors);
+  warnings.push(...semanticValidation.warnings);
 
   const presentationValidation = validateTemplatePresentation(scene);
   errors.push(...presentationValidation.errors);
