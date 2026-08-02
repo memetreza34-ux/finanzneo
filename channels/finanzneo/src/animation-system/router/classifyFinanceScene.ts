@@ -7,12 +7,10 @@ import {
   FINANCE_ANIMATION_FEATURES,
   type FinanceAnimationFeatureFlags,
 } from '../featureFlags';
-import {FINANCE_ANIMATION_TEMPLATES} from '../templates/registry';
-import {FINANCE_ANIMATION_KEYWORDS} from './financeAnimationKeywords';
 import {
-  containsFinanceKeyword,
-  normalizeFinanceText,
-} from './financeKeywordMatching';
+  haveAmbiguousTopCandidates,
+  rankFinanceAnimationCandidates,
+} from './rankFinanceAnimationCandidates';
 
 export const resolveFinanceAnimationMode = (
   features: FinanceAnimationFeatureFlags,
@@ -44,33 +42,9 @@ export const classifyFinanceSceneWithFeatures = (
     };
   }
 
-  const haystack = normalizeFinanceText(`${request.message} ${request.voiceText}`);
-  const rankedMatches = FINANCE_ANIMATION_TEMPLATES.map((definition) => {
-    const keywordMatches = FINANCE_ANIMATION_KEYWORDS[definition.id].filter((keyword) =>
-      containsFinanceKeyword(haystack, keyword),
-    );
-    const preferredBonus = request.preferredTemplate === definition.id ? 5 : 0;
-    const dataMatches = definition.requiredData.filter((key) => {
-      const value = request.data?.[key];
-      return value !== undefined && value !== null && value !== '';
-    });
-    return {
-      template: definition.id,
-      score: keywordMatches.length * 2 + preferredBonus + dataMatches.length,
-      keywordMatches,
-      dataMatches,
-      preferred: preferredBonus > 0,
-    };
-  })
-    .filter((candidate) => candidate.score > 0)
-    .sort((left, right) =>
-      right.score - left.score ||
-      right.dataMatches.length - left.dataMatches.length ||
-      right.keywordMatches.length - left.keywordMatches.length,
-    );
-
+  const rankedMatches = rankFinanceAnimationCandidates(request);
   const match = rankedMatches[0];
-  if (!match) {
+  if (!match || match.score <= 0) {
     return {
       mode: 'image',
       confidence: 0.9,
@@ -78,14 +52,8 @@ export const classifyFinanceSceneWithFeatures = (
     };
   }
 
-  const secondMatch = rankedMatches[1];
-  if (
-    secondMatch &&
-    match.score === secondMatch.score &&
-    match.dataMatches.length === secondMatch.dataMatches.length &&
-    !match.preferred &&
-    !secondMatch.preferred
-  ) {
+  if (haveAmbiguousTopCandidates(rankedMatches)) {
+    const secondMatch = rankedMatches[1];
     return {
       mode: 'image',
       confidence: 0.82,
@@ -96,7 +64,7 @@ export const classifyFinanceSceneWithFeatures = (
     };
   }
 
-  const reasonParts = [];
+  const reasonParts: string[] = [];
   if (match.keywordMatches.length > 0) {
     reasonParts.push(`Finanzbegriffe: ${match.keywordMatches.join(', ')}`);
   }
