@@ -5,6 +5,7 @@ on:
     paths:
       - 'channels/finanzneo/src/animation-system/**'
       - 'channels/finanzneo/tsconfig.animation-system.json'
+      - 'scripts/verify-finance-animation-isolation.mjs'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/finance-animation-foundation.yml'
@@ -39,6 +40,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify production isolation and disabled flags
+        run: npm run finance:animation-isolation
+
       - name: Typecheck animation foundation
         run: npm run finance:animation-typecheck
 
@@ -57,7 +61,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
 
-      - name: Verify productive renderer stayed untouched
+      - name: Verify productive renderer stayed untouched in the PR diff
         shell: bash
         run: |
           BASE_SHA="${{ github.event.pull_request.base.sha }}"
