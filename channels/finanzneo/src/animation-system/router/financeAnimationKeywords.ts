@@ -7,7 +7,7 @@ import type {FinanceAnimationTemplate} from '../contracts';
 export const FINANCE_ANIMATION_KEYWORDS: Readonly<
   Record<FinanceAnimationTemplate, readonly string[]>
 > = {
-  'money-flow': ['geldfluss', 'gehalt', 'einnahmen', 'ausgaben'],
+  'money-flow': ['geldfluss', 'gehalt', 'einnahmen', 'ausgaben', 'fließt', 'fließen', 'verteilen'],
   'budget-split': ['budget', 'fixkosten', 'sparquote', 'aufteilen'],
   'compound-growth': ['zinseszins', 'rendite', 'wachstum', 'gewinn'],
   'portfolio-allocation': ['portfolio', 'diversifikation', 'etf', 'aufteilung'],
