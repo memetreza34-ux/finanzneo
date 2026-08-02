@@ -21,5 +21,13 @@ Allow only short, correctly written German labels when they materially improve u
 
 Keep the entire top 15 percent of the frame as clean negative space for a later German headline overlay. Keep the entire bottom 25 percent of the frame clear, uncluttered and free of any important subject detail, reserved for a later German subtitle strip — do not place faces, labels or key story elements that low in the frame. Keep the main subject readable on a phone screen. Use a vertical 9:16 composition, premium render quality, balanced visual hierarchy and consistent FinanzNeo art direction.
 
-Avoid: photorealism, real humans, Pixar style, clay style, flat 2D infographics, UI dashboards, sterile product renders, cyberpunk neon, excessive particles, excessive bloom, floating unrelated icons, overcrowding, long text, logos and watermarks.
+Outside of the reserved top and bottom zones, the main scene must fill the available space generously and confidently — large, close, dominant in the frame. Do not shrink the subject into a small island surrounded by large areas of empty dark background; empty space is only intentional in the reserved top and bottom zones, not around the sides or center of the main scene.
+
+The image must be one single seamless render filling the entire canvas edge to edge. Never leave a blank, white, gray or differently colored strip, bar or border at the top or bottom of the frame. Never split the background into two visually distinct segments, panels or color bands — the background must be one continuous environment from top to bottom with no visible seam, crop line or letterboxing.
+
+Any pedestal, platform, table or base must sit flush and solid on the ground with zero gap underneath it. Never render a visible slit, crack, glowing line, floating shadow or strip of background showing through between a pedestal/platform and the floor beneath it, and never let a pedestal appear to hover or float above the ground. The base and the ground must read as one uninterrupted solid surface with no visible separation of any kind.
+
+The scene's meaning must be understood immediately and directly, without requiring the viewer to interpret, guess or think about it — someone who already knows the spoken sentence must recognize on the very first glance exactly how this image matches it, with no ambiguity about which object represents what.
+
+Avoid: photorealism, real humans, Pixar style, clay style, flat 2D infographics, UI dashboards, sterile product renders, cyberpunk neon, excessive particles, excessive bloom, floating unrelated icons, overcrowding, long text, logos and watermarks, blank or white margins at the top or bottom edge, letterboxing bars, split or banded backgrounds, visible canvas seams, gaps or slits under pedestals, floating platforms.
 ```

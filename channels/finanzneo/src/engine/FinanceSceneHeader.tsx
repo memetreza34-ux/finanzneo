@@ -24,10 +24,13 @@ import {
   WalletCards,
   type LucideIcon,
 } from 'lucide-react';
+import {Lottie} from '@remotion/lottie';
 import {interpolate, useCurrentFrame} from 'remotion';
 import type {FinanceSceneIcon} from './contracts';
 // @ts-ignore — zentrale FinanzNeo-Produktionskonfiguration.
 import financeConfig from '../../engine/config/finance-v1.json';
+// @ts-ignore — Lottie-Animationsdaten (JSON), kein TS-Modultyp nötig.
+import iconBadgePulse from '../../public/lottie/icon-badge-pulse.json';
 
 const ICONS: Record<FinanceSceneIcon, LucideIcon> = {
   wallet: WalletCards,
@@ -72,52 +75,74 @@ export const FinanceSceneHeader: React.FC<{
     ? interpolate(frame, [0, motion.headerFadeFrames], [motion.headerTranslatePixels, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})
     : 0;
 
+  const badgeEl = (
+    <div
+      style={{
+        position: 'relative',
+        width: badge,
+        height: badge,
+        flexShrink: 0,
+      }}
+    >
+      <div style={{position: 'absolute', inset: -badge * 0.3}}>
+        <Lottie animationData={iconBadgePulse} style={{width: '100%', height: '100%'}} />
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          borderRadius: compact ? 15 : 17,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'var(--accent)',
+          border: '1.5px solid color-mix(in srgb, var(--accent) 42%, transparent)',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.32)',
+        }}
+      >
+        <Icon size={compact ? 27 : 30} strokeWidth={2.35} />
+      </div>
+    </div>
+  );
+
   return (
     <div
       style={{
         display: 'flex',
-        alignItems: 'flex-start',
-        justifyContent: center ? 'center' : 'flex-start',
-        gap: compact ? 14 : 16,
+        flexDirection: 'column',
+        alignItems: center ? 'center' : 'flex-start',
         opacity,
         transform: `translateY(${translateY}px)`,
       }}
     >
       <div
         style={{
-          width: badge,
-          height: badge,
-          borderRadius: compact ? 15 : 17,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
           color: 'var(--accent)',
-          background: 'rgba(6, 24, 13, 0.92)',
-          border: '1.5px solid color-mix(in srgb, var(--accent) 42%, transparent)',
-          boxShadow: '0 10px 30px rgba(0,0,0,0.32)',
-          flexShrink: 0,
+          fontSize: compact ? 24 : 28,
+          fontWeight: 850,
+          letterSpacing: compact ? 2.6 : 3.2,
+          lineHeight: 1,
+          textTransform: 'uppercase',
         }}
       >
-        <Icon size={compact ? 27 : 30} strokeWidth={2.35} />
+        {label}
       </div>
-      <div style={{minWidth: 0, textAlign: center ? 'center' : 'left'}}>
-        <div
-          style={{
-            color: 'var(--accent)',
-            fontSize: compact ? 24 : 28,
-            fontWeight: 850,
-            letterSpacing: compact ? 2.6 : 3.2,
-            lineHeight: 1,
-            textTransform: 'uppercase',
-          }}
-        >
-          {label}
-        </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: center ? 'center' : 'flex-start',
+          gap: compact ? 14 : 16,
+          marginTop: 14,
+        }}
+      >
+        {badgeEl}
         {headline && (
           <div
             style={{
-              marginTop: 14,
+              minWidth: 0,
               maxWidth: 850,
+              textAlign: center ? 'center' : 'left',
               color: '#F5F7F4',
               fontSize: compact ? 54 : 62,
               fontWeight: 900,

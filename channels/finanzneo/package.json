@@ -4,6 +4,7 @@
   "private": true,
   "description": "Kanal: FinanzNeo — Finanzen für Anfänger",
   "dependencies": {
+    "@remotion/lottie": "^4.0.488",
     "@studio/core": "*"
   }
 }

@@ -60,7 +60,7 @@ forbid('channels/finanzneo/CLAUDE.md', [/^\s*git\s+(?:switch|checkout)\s+main\s*
 const config = loadFinanceConfig();
 if (config.visuals?.productionMode !== 'image-first-lite') errors.push('Produktionsmodus muss image-first-lite sein.');
 if (config.visuals?.minimumImageLedScenes !== 8) errors.push('Mindestens acht eigenständige Bilder müssen geplant werden.');
-if (config.visuals?.targetImageLedScenes?.max !== 10) errors.push('Höchstens zehn eigenständige Bilder müssen vorgesehen sein.');
+if (config.visuals?.targetImageLedScenes?.max !== 12) errors.push('Höchstens zwölf eigenständige Bilder müssen vorgesehen sein.');
 if (config.visuals?.minimumPhasesFromSeconds !== 999) errors.push('Mehrstufige Phasenpflicht muss deaktiviert sein.');
 if (config.visuals?.minimalMotion?.transition !== 'cut') errors.push('Minimaler Produktionsmodus muss harte Schnitte verwenden.');
 if (config.visuals?.minimalMotion?.imageScaleEnd !== 1.035) errors.push('Sanfter Bildzoom muss bei maximal 1,035 enden.');

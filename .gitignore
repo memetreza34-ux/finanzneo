@@ -13,6 +13,9 @@ frames/
 *.mov
 *.mkv
 
+# ---- Laufzeit-Staging fürs Rendern (regenerierbar aus reels/) ----
+channels/finanzneo/public/reels/
+
 # ---- Audio (kommt pro Video von Arman) ----
 *.wav
 *.mp3

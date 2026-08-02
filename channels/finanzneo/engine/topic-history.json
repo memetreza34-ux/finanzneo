@@ -28,6 +28,22 @@
       "topic": "Inflation und Kaufkraft",
       "status": "used",
       "note": "Erstes getestetes Finance-V1-Reel"
+    },
+    {
+      "slug": "zinseszins-fruehstart",
+      "topic": "Warum ein frueher Start beim Investieren mehr zaehlt als eine hohe Einzahlung (Zinseszins)",
+      "status": "used",
+      "createdAt": "2026-08-01T04:01:41.390Z",
+      "projectPath": "channels/finanzneo/reels/2026-07-27_bis_2026-08-02/06_Zinseszins-Fruehstart",
+      "publishDate": "2026-08-01",
+      "weekFolder": "2026-07-27_bis_2026-08-02",
+      "dayNumber": 6,
+      "dayName": "Samstag",
+      "reelFolder": "06_Zinseszins-Fruehstart",
+      "selectedBy": "assistant",
+      "selectionMode": "evergreen",
+      "selectionReason": "Noch unbenutztes Grundlagenthema mit hohem Alltagsnutzen, klarer Geldentscheidung (frueh anfangen statt spaeter mehr einzahlen) und einfacher Visualisierung, unabhaengig von Marktbewegungen",
+      "lastReadyAt": "2026-08-01T06:44:59.410Z"
     }
   ]
 }

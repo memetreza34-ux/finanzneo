@@ -53,7 +53,6 @@ Erlaubt:
 - Voiceover,
 - deutsche Zwischenüberschrift und passendes Icon,
 - deutsche Wortuntertitel,
-- statisches CTA-Keyword,
 - harte Schnitte,
 - langsamer Zoom bis höchstens 1,035,
 - minimale horizontale oder vertikale Bildfahrt bis höchstens 12 Pixel,
@@ -76,18 +75,20 @@ Alle Szenen verwenden `transition: "cut"`. Jede Szene besitzt höchstens eine `v
 ## Skript
 
 - 150–200 Wörter,
-- 10–14 kurze Szenen,
+- 9–13 kurze Szenen,
 - normalerweise ein Satz pro Szene,
 - starke Hook mit sofortiger persönlicher Geldfolge,
 - pro Szene genau eine neue Aussage,
 - Payoff beantwortet die Hook,
 - jede Aussage muss als einzelnes Bild verständlich sein.
 
+Kein CTA-Baustein ("Kommentiere X …") am Ende — der Payoff ist die letzte Szene. Nur auf ausdrücklichen Wunsch des Nutzers wieder eine CTA-Szene (`layout: "cta"`) ergänzen.
+
 ## Bildanzahl
 
-Für ein normales Reel werden **8–10 eigenständige Bilder** geplant. Zielwert: 8.
+Für ein normales Reel werden **8–12 eigenständige Bilder** geplant. Zielwert: 8, aber bei Bedarf (z.B. mehr Zwischenschritte oder Vergleiche) dürfen es mehr sein.
 
-Payoff und CTA dürfen das unmittelbar vorherige Bild weiterverwenden. Ein Bild darf keine mehreren unverbundenen Aussagen tragen.
+Der Payoff darf das unmittelbar vorherige Bild weiterverwenden. Ein Bild darf keine mehreren unverbundenen Aussagen tragen.
 
 ## Bildstil — verbindlich
 

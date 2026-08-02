@@ -43,8 +43,8 @@ describe('Finance Exportpaket', () => {
     const reelDir = fs.mkdtempSync(path.join(os.tmpdir(), 'finance-export-'));
     tempDirs.push(reelDir);
     const plan = createFinanceTestPlan({slug: 'export-fixture', title: 'Export Fixture'});
-    plan.scenes[9].voiceText = 'Kommentiere PDF für die kostenlose Checkliste.';
-    plan.scenes[9].content.ctaBenefit = 'kostenlose PDF-Checkliste';
+    plan.scenes.at(-1)!.voiceText = 'Kommentiere PDF für die kostenlose Checkliste.';
+    plan.scenes.at(-1)!.content.ctaBenefit = 'kostenlose PDF-Checkliste';
     plan.scriptText = plan.scenes.map((scene: any) => scene.voiceText).join(' ');
     const paths = ensureFinanceProjectStructure(reelDir, {title: plan.title, topic: 'Export-Test'});
     fs.writeFileSync(paths.scenePlan, JSON.stringify(plan, null, 2));
@@ -127,7 +127,7 @@ describe('Finance Exportpaket', () => {
     const reelDir = fs.mkdtempSync(path.join(os.tmpdir(), 'finance-export-missing-pdf-'));
     tempDirs.push(reelDir);
     const {plan, paths} = prepareBasic(reelDir, 'export-missing-pdf');
-    plan.scenes[9].voiceText = 'Kommentiere PDF für die kostenlose Checkliste.';
+    plan.scenes.at(-1)!.voiceText = 'Kommentiere PDF für die kostenlose Checkliste.';
     plan.scriptText = plan.scenes.map((scene: any) => scene.voiceText).join(' ');
     fs.writeFileSync(paths.scenePlan, JSON.stringify(plan, null, 2));
     fs.writeFileSync(path.join(paths.pdfDir, 'falsch.pdf'), 'keine echte PDF');

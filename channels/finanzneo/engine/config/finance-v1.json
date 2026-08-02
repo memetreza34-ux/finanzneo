@@ -23,10 +23,10 @@
   },
   "visuals": {
     "productionMode": "image-first-lite",
-    "beats": {"min": 10, "max": 14},
+    "beats": {"min": 9, "max": 14},
     "minimumLayoutTypes": 1,
     "minimumImageLedScenes": 8,
-    "targetImageLedScenes": {"min": 8, "ideal": 8, "max": 10},
+    "targetImageLedScenes": {"min": 8, "ideal": 8, "max": 12},
     "recommendedVisiblePatterns": 1,
     "maximumConsecutiveVisiblePatterns": 10,
     "maximumConsecutiveFramedImages": 10,

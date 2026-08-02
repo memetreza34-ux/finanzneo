@@ -1,0 +1,31 @@
+MESSAGE TO COMMUNICATE:
+Every year of waiting permanently removes interest that can never be recovered later.
+
+SCENE:
+A stylized 3D person stands beside a tall hourglass filled with glowing euro coins instead of sand. As coins fall through the narrow neck, a visible portion of them vanishes into a dark crack at the base, glowing faintly as lost light, while the coin pile collecting in the lower chamber stays noticeably smaller than the coins remaining in the upper chamber, making clear that time lost through waiting removes coins permanently rather than only delaying them.
+
+GERMAN LABELS:
+"Wartezeit", "Verlorene Zinsen"
+
+COMPOSITION:
+Place the hourglass as the single dominant vertical focal point, person slightly to one side. Keep the top clear for the headline and the bottom ~25% of the frame clear for the subtitle strip.
+
+Create a premium stylized 3D finance illustration for a modern German financial education channel.
+
+The image must feel like a polished editorial fintech explainer illustration: clearly illustrated, never photorealistic, never childish, and never a dashboard.
+
+Use simplified rounded 3D geometry, soft bevelled edges, smooth high-quality materials, subtle reflections, confident studio lighting with bold rim light, gentle ambient occlusion, restrained depth of field and clean cinematic composition. The overall impression should feel bold and vivid rather than muted or timid: strong contrast between the dark background and the glowing accent elements, punchy highlights on the focal point, no washed-out or low-contrast rendering.
+
+Use a deep charcoal to green-black background. Keep objects in recognizable natural colors and use emerald green and mint green as bold, saturated, clearly glowing accent colors for money, growth, positive development, guidance and focal lighting — vivid and confident, never pale or desaturated. Use warm gold, orange or muted red only when the scene needs to represent consumption, cost, risk, warning or loss. Do not apply a global green color cast.
+
+Build one coherent illustrated scene or one clear visual metaphor with one dominant focal point and no more than three to five supporting elements. The scene must feel spatial and narrative, not like loose icons, a UI layout, a presentation slide or a technical diagram.
+
+Stylized 3D human figures may appear when they clarify an action. They must be generic fictional characters with simplified proportions, neutral friendly facial features and modern understated clothing. Never use real people, celebrity likenesses, photorealistic humans, exaggerated animated-movie faces or toy-like clay characters.
+
+Objects and locations must be instantly recognizable but elegantly simplified: wallets, euro coins, apartment buildings, supermarkets, offices, factories, ETF containers, investment trees, shopping carts and similar financial metaphors. Avoid realistic architectural visualization, fantasy machines, overcrowded miniature cities and excessive glowing network lines.
+
+Allow only short, correctly written German labels when they materially improve understanding. Use one to three words per label and no more than three to five labels in total. Do not generate a title, subtitle, paragraph, logo, brand name, watermark or interface text. Main headline, captions and CTA will be added later in Remotion.
+
+Keep the entire top 15 percent of the frame as clean negative space for a later German headline overlay. Keep the entire bottom 25 percent of the frame clear, uncluttered and free of any important subject detail, reserved for a later German subtitle strip — do not place faces, labels or key story elements that low in the frame. Keep the main subject readable on a phone screen. Use a vertical 9:16 composition, premium render quality, balanced visual hierarchy and consistent FinanzNeo art direction.
+
+Avoid: photorealism, real humans, Pixar style, clay style, flat 2D infographics, UI dashboards, sterile product renders, cyberpunk neon, excessive particles, excessive bloom, floating unrelated icons, overcrowding, long text, logos and watermarks.

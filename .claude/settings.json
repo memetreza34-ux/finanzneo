@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(open *)",
+      "Bash(npm run typecheck:all *)",
+      "Bash(npm run build *)",
+      "Bash(npm test)",
+      "Bash(ffprobe *)",
+      "Bash(npm run prompt:check *)",
+      "Bash(gh repo view *)",
+      "Bash(npm run finance:system-test *)",
+      "Bash(npm run finance:image-brief-qa *)",
+      "Bash(npm run finance:image-prompt-qa *)",
+      "Bash(npm run script:check *)",
+      "Bash(npm run finance:e2e *)",
+      "Bash(npm run finance:script-qa *)",
+      "Bash(npm run finance:content-ready *)",
+      "Bash(gh auth status)",
+      "Bash(gh pr view *)",
+      "Bash(gh repo list *)"
+    ]
+  }
+}

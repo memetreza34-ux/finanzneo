@@ -213,14 +213,21 @@ for (let index = 1; index < plan.scenes.length; index += 1) {
   if (similarity > 0.62) add('warning', 'ADJACENT_REPETITION', `Aufeinanderfolgende Szenen wiederholen sich stark (${Math.round(similarity * 100)} % Wortüberschneidung).`, plan.scenes[index].id);
 }
 
-const cta = plan.scenes.at(-1);
-if (cta.layout !== 'cta') add('error', 'CTA_NOT_LAST', 'Die letzte Szene muss das CTA-Layout verwenden.', cta.id);
-if ((cta.claimIds ?? []).length > 0) add('error', 'CTA_NEW_CLAIM', 'Die CTA-Szene darf keine neue Finanzbehauptung einführen.', cta.id);
-if (/\d/.test(cta.voiceText)) add('warning', 'CTA_NEW_NUMBER', 'Die CTA-Szene enthält eine Zahl; prüfen, ob neue Information eingeführt wird.', cta.id);
+// FinanzNeo verwendet standardmäßig keine CTA-Szene mit Kommentar-Mechanik mehr.
+// Wenn eine CTA-Szene vorhanden ist, gelten weiterhin die alten Regeln; ohne CTA
+// muss stattdessen der Payoff die letzte Szene sein.
+const lastScene = plan.scenes.at(-1);
+const hasCta = lastScene.layout === 'cta';
+if (hasCta) {
+  if ((lastScene.claimIds ?? []).length > 0) add('error', 'CTA_NEW_CLAIM', 'Die CTA-Szene darf keine neue Finanzbehauptung einführen.', lastScene.id);
+  if (/\d/.test(lastScene.voiceText)) add('warning', 'CTA_NEW_NUMBER', 'Die CTA-Szene enthält eine Zahl; prüfen, ob neue Information eingeführt wird.', lastScene.id);
+}
 
-const payoffScene = plan.scenes.at(-2);
+const payoffScene = hasCta ? plan.scenes.at(-2) : plan.scenes.at(-1);
 if (payoffScene.layout !== 'text-punch' || payoffScene.variant !== 'payoff') {
-  add('error', 'PAYOFF_POSITION', 'Die vorletzte Szene muss den klaren Text-Punch-Payoff liefern.', payoffScene.id);
+  add('error', 'PAYOFF_POSITION', hasCta
+    ? 'Die vorletzte Szene muss den klaren Text-Punch-Payoff liefern.'
+    : 'Ohne CTA-Szene muss die letzte Szene den klaren Text-Punch-Payoff liefern.', payoffScene.id);
 }
 const payoffTokens = meaningfulTokens(plan.payoff);
 const payoffVoiceTokens = meaningfulTokens(payoffScene.voiceText);

@@ -22,7 +22,9 @@ Jedes Bild erklärt genau eine finanzielle Aussage. Der Inhalt darf wechseln, de
 
 ## Figuren
 
-Figuren dürfen verwendet werden, wenn eine Handlung dadurch klarer wird.
+Figuren sind eine Option, kein Standard. Viele Szenen funktionieren genauso gut oder besser als reines Objekt-/Szenenbild ohne Menschen (z.B. Münzbaum, Sanduhr, ETF-Behälter, Verdopplungs-Stapel für sich allein) — solange das Bild die Aussage ohne Figur klar zeigt, ist das die einfachere und oft stärkere Wahl. Figuren nur dann einsetzen, wenn eine konkrete menschliche Handlung (einzahlen, vergleichen, entscheiden) die Aussage tatsächlich klarer macht als das Objekt allein. Innerhalb eines Reels bewusst zwischen Bildern mit und ohne Figuren abwechseln, nicht in jeder Szene automatisch eine Person einbauen.
+
+Wenn eine Figur verwendet wird, gilt:
 
 Verbindlich:
 
@@ -116,6 +118,8 @@ Nicht erlaubt:
 - schwebende Icons ohne räumlichen Zusammenhang
 - übermäßige Partikel, Glow oder Neon
 - mehrere unverbundene Aussagen in einem Bild
+- weiße, graue oder andersfarbige Ränder/Balken oben oder unten im Bild
+- zweigeteilter oder gebänderter Hintergrund (sichtbare Nahtstelle zwischen zwei Bildsegmenten)
 
 ## Prompt-Aufbau
 
@@ -140,4 +144,5 @@ Ein Bild ist nur freigegeben, wenn:
 6. natürliche Farben mit gezielten grünen Akzenten verwendet werden,
 7. kurze deutsche Labels korrekt geschrieben sind,
 8. genug Platz für Remotion-Text bleibt,
-9. das Bild zur bestehenden FinanzNeo-Bildwelt passt.
+9. das Bild zur bestehenden FinanzNeo-Bildwelt passt,
+10. das Bild randlos und als ein durchgehender Hintergrund gerendert ist (kein weißer/grauer Rand, kein zweigeteilter oder gebänderter Hintergrund).

@@ -10,8 +10,7 @@ const voiceTexts = [
   'Ein günstiger ETF lässt bei gleicher Marktentwicklung deshalb mehr von deinem Geld arbeiten als ein teurer ETF.',
   'Nach zehn Jahren ist der Abstand noch überschaubar, nach 30 Jahren kann er deutlich größer sein.',
   'Vergleichst du Kostenquote, Sparrate und Laufzeit gemeinsam, erkennst du den möglichen Unterschied schon vor dem Kauf.',
-  'Kleine laufende Gebühren werden langfristig teuer, weil sie jedes Jahr Kapital und mögliche zukünftige Rendite reduzieren.',
-  'Kommentiere KOSTEN und ich schicke dir kostenlos die Gebühren-Checkliste für deinen nächsten ETF-Vergleich per DM.',
+  'Kleine laufende Gebühren werden langfristig teuer, weil sie jedes Jahr Kapital und mögliche zukünftige Rendite reduzieren, obwohl der monatliche Unterschied zunächst winzig wirkt.',
 ];
 
 const negatives = [
@@ -139,7 +138,6 @@ const contentById = {
   entwicklung: {kicker: 'ÜBER DIE ZEIT', headline: 'Der Abstand wächst langsam'},
   rechnung: {kicker: 'EINFACH GERECHNET', headline: 'So entsteht der Abzug', primaryNumber: '0,5 %', secondaryNumber: '50 € pro Jahr', formula: '10.000 € × 0,5 %', outcome: '50 € jährliche Kosten', calculation: {input: 10000, operation: 'multiply', operand: 0.005, result: 50, currency: 'EUR', tolerance: 0.01}},
   payoff: {kicker: 'MERKSATZ', headline: 'Laufende Kosten wirken mit', body: 'Vergleiche Kostenquote und Laufzeit gemeinsam'},
-  cta: {kicker: 'KOSTENLOSE CHECKLISTE', headline: 'Prüfe deinen ETF vor dem Kauf', ctaKeyword: 'KOSTEN', ctaBenefit: 'Kostenlose ETF-Gebühren-Checkliste'},
 };
 
 export const createFinanceTestPlan = ({slug = 'finance-test-plan', title = 'ETF-Gebühren über 30 Jahre', topic = 'ETF-Gebühren'} = {}) => {

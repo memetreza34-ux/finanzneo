@@ -12,12 +12,11 @@ const plan = createFinanceScenePlanTemplate({slug: 'template-check', title: 'Tem
 const parsed = ScenePlan.safeParse(plan);
 if (!parsed.success) errors.push(`Template verletzt ScenePlan: ${parsed.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`).join('; ')}`);
 
-if (plan.scenes.length !== 10) errors.push(`Template benötigt 10 Szenen, gefunden: ${plan.scenes.length}.`);
+if (plan.scenes.length !== 9) errors.push(`Template benötigt 9 Szenen, gefunden: ${plan.scenes.length}.`);
 const imageScenes = plan.scenes.filter((scene) => scene.layout === 'full-bleed' || scene.layout === 'framed-image');
 if (imageScenes.length !== 8) errors.push(`Template benötigt 8 Bildszenen, gefunden: ${imageScenes.length}.`);
 if (plan.scenes[0]?.id !== 'hook') errors.push('Erste Szene muss hook sein.');
-if (plan.scenes.at(-2)?.id !== 'payoff') errors.push('Vorletzte Szene muss payoff sein.');
-if (plan.scenes.at(-1)?.id !== 'cta') errors.push('Letzte Szene muss cta sein.');
+if (plan.scenes.at(-1)?.id !== 'payoff') errors.push('Letzte Szene muss payoff sein (kein CTA-Baustein mehr im Standard-Template).');
 
 const serialized = JSON.stringify(plan);
 for (const token of ['FINANCE_TODO_SCRIPT', 'FINANCE_TODO_IMAGE_BRIEF', 'FINANCE_TODO_CONTENT']) {

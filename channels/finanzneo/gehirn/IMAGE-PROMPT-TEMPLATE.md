@@ -22,7 +22,7 @@ COMPOSITION:
 
 - Nicht den gesprochenen Satz wortwörtlich illustrieren, sondern seine finanzielle Kernaussage sichtbar machen.
 - Eine starke Metapher ist besser als viele kleine Symbole.
-- Figuren nur einsetzen, wenn eine Handlung gezeigt werden muss.
+- Figuren nur einsetzen, wenn eine Handlung gezeigt werden muss — reine Objekt-/Szenenbilder ohne Menschen sind der einfachere Normalfall, nicht die Ausnahme. Innerhalb eines Reels zwischen Bildern mit und ohne Figuren abwechseln.
 - Nie mehrere unabhängige Szenen in ein Bild pressen.
 - Das Bild muss auch ohne sichtbaren Text verständlich bleiben.
 - Beschriftungen nur verwenden, wenn Verwechslung möglich wäre.

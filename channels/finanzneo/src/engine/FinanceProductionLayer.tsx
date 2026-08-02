@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Sequence} from 'remotion';
-import {Captions, type Caption} from '@studio/core';
+import {Captions, ThemeProvider, type Caption} from '@studio/core';
 import {BRAND} from '../../brand/brand';
 import {FinanceImageFirstReel} from './FinanceImageFirstReel';
 import {FinanceSceneHeader} from './FinanceSceneHeader';
@@ -49,6 +49,7 @@ export const FinanceProductionLayer: React.FC<FinanceProductionLayerProps> = ({
               label={scene.content.kicker}
               headline={scene.content.headline}
               compact
+              center
             />
           </div>
           {scene.layout === 'cta' && scene.content.ctaKeyword && (
@@ -87,7 +88,7 @@ export const FinanceProductionLayer: React.FC<FinanceProductionLayerProps> = ({
   }
 
   return (
-    <>
+    <ThemeProvider value={BRAND}>
       <FinanceImageFirstReel
         plan={plan}
         manifest={manifest}
@@ -105,6 +106,6 @@ export const FinanceProductionLayer: React.FC<FinanceProductionLayerProps> = ({
           instant
         />
       )}
-    </>
+    </ThemeProvider>
   );
 };

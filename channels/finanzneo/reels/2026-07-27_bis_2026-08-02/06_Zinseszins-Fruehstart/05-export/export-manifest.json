@@ -1,0 +1,16 @@
+{
+  "version": "finance-v1",
+  "slug": "zinseszins-fruehstart",
+  "readyReportGeneratedAt": "2026-08-01T06:44:59.411Z",
+  "renderQaReport": "06-projektdateien/render/zinseszins-fruehstart-render-qa/report.json",
+  "generatedAt": "2026-08-01T06:47:59.073Z",
+  "files": [
+    "checkliste-etf-sparplan-start.pdf",
+    "social-caption.md",
+    "social-caption.txt",
+    "voiceover-final.captions.json",
+    "voiceover-final.srt",
+    "voiceover-final.vtt",
+    "zinseszins-fruehstart.mp4"
+  ]
+}
