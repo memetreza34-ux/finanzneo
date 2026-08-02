@@ -3,7 +3,8 @@ import {interpolate, useCurrentFrame} from 'remotion';
 
 export type AnimatedNumberProps = {
   from?: number;
-  to: number;
+  to?: number;
+  value?: number;
   startFrame?: number;
   durationInFrames?: number;
   prefix?: string;
@@ -16,6 +17,7 @@ export type AnimatedNumberProps = {
 export const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
   from = 0,
   to,
+  value,
   startFrame = 0,
   durationInFrames = 30,
   prefix = '',
@@ -25,16 +27,17 @@ export const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
   style,
 }) => {
   const frame = useCurrentFrame();
-  const value = interpolate(
+  const target = to ?? value ?? 0;
+  const animatedValue = interpolate(
     frame,
     [startFrame, startFrame + Math.max(1, durationInFrames)],
-    [from, to],
+    [from, target],
     {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
   );
   const formatted = new Intl.NumberFormat(locale, {
     minimumFractionDigits: decimals,
     maximumFractionDigits: decimals,
-  }).format(value);
+  }).format(animatedValue);
 
   return <span style={style}>{prefix}{formatted}{suffix}</span>;
 };
