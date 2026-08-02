@@ -46,6 +46,7 @@ const criticalFiles = [
   'channels/finanzneo/src/animation-system/contracts.ts',
   'channels/finanzneo/src/animation-system/templateDataContracts.ts',
   'channels/finanzneo/src/animation-system/featureFlags.ts',
+  'channels/finanzneo/src/animation-system/ingestion/parseFinanceAnimationInput.ts',
   'channels/finanzneo/src/animation-system/templates/registry.ts',
   'channels/finanzneo/src/animation-system/templates/requiredTemplateData.ts',
   'channels/finanzneo/src/animation-system/router/financeAnimationKeywords.ts',
@@ -54,6 +55,7 @@ const criticalFiles = [
   'channels/finanzneo/src/animation-system/planning/selectAnimationTemplate.ts',
   'channels/finanzneo/src/animation-system/fixtures/financeAnimationFixtures.ts',
   'channels/finanzneo/src/animation-system/render/FinanceAnimationRenderer.tsx',
+  'channels/finanzneo/src/animation-system/render/SafeFinanceAnimationRenderer.tsx',
   'channels/finanzneo/src/animation-system/render/validateTemplateData.ts',
   'channels/finanzneo/src/animation-system/render/validateTemplateSemantics.ts',
   'channels/finanzneo/src/animation-system/render/validateTemplatePresentation.ts',
@@ -94,6 +96,39 @@ const checkTemplateCoverage = async () => {
   }
 };
 
+const checkVisibleValuesAreRequired = async () => {
+  const requiredData = await readRepositoryFile(
+    'channels/finanzneo/src/animation-system/templates/requiredTemplateData.ts',
+  );
+  const requiredPatterns = [
+    [
+      /'portfolio-allocation':\s*\[[^\]]*'allocations'[^\]]*'total'/s,
+      'Portfolio-Total ist nicht als Pflichtwert hinterlegt.',
+    ],
+    [
+      /'debt-paydown':\s*\[[^\]]*'originalDebt'[^\]]*'remainingDebt'[^\]]*'paidInstallments'[^\]]*'totalInstallments'/s,
+      'Kreditratenfortschritt ist nicht vollständig als Pflichtwert hinterlegt.',
+    ],
+  ];
+
+  for (const [pattern, message] of requiredPatterns) {
+    if (!pattern.test(requiredData)) fail(message);
+  }
+
+  const renderer = await readRepositoryFile(
+    'channels/finanzneo/src/animation-system/render/FinanceAnimationRenderer.tsx',
+  );
+  if (/numberValue\(scene, 'total',\s*\d+\)/.test(renderer)) {
+    fail('Der Renderer erfindet weiterhin einen Portfoliowert.');
+  }
+  if (/numberValue\(scene, 'paidInstallments',\s*\d+\)/.test(renderer)) {
+    fail('Der Renderer erfindet weiterhin bezahlte Kreditraten.');
+  }
+  if (/numberValue\(scene, 'totalInstallments',\s*\d+\)/.test(renderer)) {
+    fail('Der Renderer erfindet weiterhin die Gesamtzahl der Kreditraten.');
+  }
+};
+
 const checkSharedCandidateRanking = async () => {
   const consumers = [
     'channels/finanzneo/src/animation-system/router/classifyFinanceScene.ts',
@@ -107,6 +142,24 @@ const checkSharedCandidateRanking = async () => {
     }
     if (!content.includes('haveAmbiguousTopCandidates')) {
       fail(`${consumer} besitzt keinen gemeinsamen Mehrdeutigkeits-Fallback.`);
+    }
+  }
+};
+
+const checkSafeInputBoundary = async () => {
+  const safeRenderer = await readRepositoryFile(
+    'channels/finanzneo/src/animation-system/render/SafeFinanceAnimationRenderer.tsx',
+  );
+  if (!safeRenderer.includes('parseFinanceAnimationScene')) {
+    fail('Der sichere Renderer umgeht die Parser- und Validierungsgrenze.');
+  }
+
+  const parser = await readRepositoryFile(
+    'channels/finanzneo/src/animation-system/ingestion/parseFinanceAnimationInput.ts',
+  );
+  for (const requiredValidation of ['validateAnimationScene', 'validateTemplateData']) {
+    if (!parser.includes(requiredValidation)) {
+      fail(`Der Eingabeparser führt ${requiredValidation} nicht aus.`);
     }
   }
 };
@@ -156,7 +209,9 @@ const checkDedicatedTypeScriptScope = async () => {
 const run = async () => {
   await checkFilesExist();
   await checkTemplateCoverage();
+  await checkVisibleValuesAreRequired();
   await checkSharedCandidateRanking();
+  await checkSafeInputBoundary();
   await checkPackageScripts();
   await checkDedicatedTypeScriptScope();
 
@@ -171,7 +226,7 @@ const run = async () => {
   console.log('Finance animation foundation structure check passed.');
   console.log(`Verified ${templateIds.length} template identifiers.`);
   console.log(`Verified ${criticalFiles.length} required files.`);
-  console.log('Verified shared routing and ambiguity handling.');
+  console.log('Verified shared routing, safe ingestion and visible-value requirements.');
 };
 
 run().catch((error) => {
