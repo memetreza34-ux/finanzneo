@@ -16,6 +16,7 @@ export * from './fallback';
 export * from './planning/animationPlanTypes';
 export * from './planning/buildAnimationPlan';
 export * from './planning/selectAnimationTemplate';
+export * from './selector/planFinanceAnimationInput';
 export * from './selector/planFinanceAnimationScene';
 export * from './render';
 export * from './gallery';
