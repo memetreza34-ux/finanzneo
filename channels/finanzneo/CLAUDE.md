@@ -138,6 +138,49 @@ Nach dem Scaffold vollständig schreiben:
 9. `06-projektdateien/scene-plan.json`
 10. `06-projektdateien/production-status.json`
 11. `02-bilder/prompt-manifest.json`
+12. `02-bilder/alle-bildprompts.txt`
+
+### PDF ist Pflicht
+
+Der Ordner `04-pdf/` und die Datei `04-pdf/inhalt.md` dürfen nicht entfernt oder übersprungen werden. Der PDF-Inhalt gehört weiterhin zu jedem Reel-Paket.
+
+### Alle Bildprompts als kopierbarer Fließtext
+
+Zusätzlich zu `prompt-manifest.json` muss in jedem Reel-Projekt die Datei
+
+```text
+02-bilder/alle-bildprompts.txt
+```
+
+erstellt werden.
+
+Zweck: Arman kann den gesamten Inhalt der Datei komplett kopieren und direkt in Google Flow einfügen, damit Flow alle Bilder nacheinander erzeugt.
+
+Verbindliches Format:
+
+```text
+SZENE 1 – BILDPROMPT
+<vollständiger englischer Bildprompt inklusive unverändertem Master-Style-Prompt>
+
+SZENE 2 – BILDPROMPT
+<vollständiger englischer Bildprompt inklusive unverändertem Master-Style-Prompt>
+
+SZENE 3 – BILDPROMPT
+<vollständiger englischer Bildprompt inklusive unverändertem Master-Style-Prompt>
+```
+
+Regeln:
+
+- alle Bildszenen in chronologischer Reihenfolge,
+- jede Szene beginnt exakt mit `SZENE X – BILDPROMPT`,
+- darunter steht immer der vollständige Prompt, nicht nur eine Kurzfassung,
+- keine Markdown-Codeblöcke,
+- keine Tabellen,
+- keine JSON-Syntax,
+- keine zusätzlichen Erklärungen zwischen den Szenen,
+- zwischen zwei Szenen genau eine Leerzeile,
+- wiederverwendete Bilder werden klar als Wiederverwendung markiert und nicht als neuer Prompt dupliziert,
+- der Text muss direkt komplett kopierbar sein.
 
 Danach:
 
