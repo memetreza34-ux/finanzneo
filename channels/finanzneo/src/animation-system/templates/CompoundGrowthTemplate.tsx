@@ -55,7 +55,7 @@ export const CompoundGrowthTemplate: React.FC<CompoundGrowthTemplateProps> = ({
           <AnimatedNumber to={finalValue} suffix=" €" startFrame={12} durationInFrames={42} style={{fontSize: 54, fontWeight: 950, color: accent}} />
         </div>
       </div>
-      <ProgressBar progress={progress} style={{marginTop: 36}} />
+      <ProgressBar progress={progress} animated={false} style={{marginTop: 36}} />
     </AbsoluteFill>
   );
 };
