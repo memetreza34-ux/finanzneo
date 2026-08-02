@@ -226,12 +226,11 @@ export const validateTemplateData = (
     }
   }
 
-  const validatedScene = {...scene, data};
-  const semanticValidation = validateTemplateSemantics(validatedScene);
+  const semanticValidation = validateTemplateSemantics(scene);
   errors.push(...semanticValidation.errors);
   warnings.push(...semanticValidation.warnings);
 
-  const presentationValidation = validateTemplatePresentation(validatedScene);
+  const presentationValidation = validateTemplatePresentation(scene);
   errors.push(...presentationValidation.errors);
   warnings.push(...presentationValidation.warnings);
 
