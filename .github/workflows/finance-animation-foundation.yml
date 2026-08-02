@@ -53,15 +53,20 @@ jobs:
       - name: Run animation foundation tests
         run: npm run finance:animation-test
 
-      - name: Render isolated animation gallery still
+      - name: Render animation gallery contact sheet
         run: npm run finance:animation-gallery:still
 
-      - name: Upload gallery preview
+      - name: Render sequential animation gallery still
+        run: npm run finance:animation-gallery:sequence-still
+
+      - name: Upload gallery previews
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: finance-animation-gallery-preview
-          path: /tmp/finance-animation-gallery.png
+          name: finance-animation-gallery-previews
+          path: |
+            /tmp/finance-animation-gallery.png
+            /tmp/finance-animation-gallery-sequence.png
           if-no-files-found: warn
           retention-days: 7
 
