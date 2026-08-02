@@ -3,6 +3,7 @@ import {interpolate, useCurrentFrame} from 'remotion';
 
 export type ProgressBarProps = {
   progress: number;
+  label?: string;
   startFrame?: number;
   durationInFrames?: number;
   height?: number;
@@ -10,10 +11,12 @@ export type ProgressBarProps = {
   fill?: string;
   radius?: number;
   style?: React.CSSProperties;
+  labelStyle?: React.CSSProperties;
 };
 
 export const ProgressBar: React.FC<ProgressBarProps> = ({
   progress,
+  label,
   startFrame = 0,
   durationInFrames = 24,
   height = 24,
@@ -21,6 +24,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   fill = '#5CFF9A',
   radius = 999,
   style,
+  labelStyle,
 }) => {
   const frame = useCurrentFrame();
   const reveal = interpolate(
@@ -31,8 +35,15 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   );
 
   return (
-    <div style={{height, borderRadius: radius, overflow: 'hidden', background, ...style}}>
-      <div style={{height: '100%', width: `${reveal * 100}%`, background: fill, borderRadius: radius}} />
+    <div style={{width: '100%'}}>
+      {label ? (
+        <div style={{fontSize: 24, fontWeight: 800, color: '#AFC0B4', marginBottom: 12, ...labelStyle}}>
+          {label}
+        </div>
+      ) : null}
+      <div style={{height, borderRadius: radius, overflow: 'hidden', background, ...style}}>
+        <div style={{height: '100%', width: `${reveal * 100}%`, background: fill, borderRadius: radius}} />
+      </div>
     </div>
   );
 };
