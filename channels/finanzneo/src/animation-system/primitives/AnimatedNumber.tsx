@@ -21,6 +21,9 @@ export type ResolveAnimatedNumberValueInput = Pick<
   frame: number;
 };
 
+const finiteOr = (value: number | undefined, fallback: number): number =>
+  typeof value === 'number' && Number.isFinite(value) ? value : fallback;
+
 /**
  * `to` bezeichnet einen Zielwert, der intern animiert wird.
  * `value` bezeichnet dagegen einen bereits berechneten Wert und wird exakt angezeigt.
@@ -34,12 +37,16 @@ export const resolveAnimatedNumberValue = ({
   startFrame = 0,
   durationInFrames = 30,
 }: ResolveAnimatedNumberValueInput): number => {
-  if (to === undefined) return value ?? 0;
+  if (to === undefined) return finiteOr(value, 0);
+
+  const safeFrame = finiteOr(frame, 0);
+  const safeStartFrame = finiteOr(startFrame, 0);
+  const safeDuration = Math.max(1, finiteOr(durationInFrames, 30));
 
   return interpolate(
-    frame,
-    [startFrame, startFrame + Math.max(1, durationInFrames)],
-    [from, to],
+    safeFrame,
+    [safeStartFrame, safeStartFrame + safeDuration],
+    [finiteOr(from, 0), finiteOr(to, 0)],
     {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
   );
 };
@@ -65,9 +72,10 @@ export const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
     startFrame,
     durationInFrames,
   });
+  const safeDecimals = Math.max(0, Math.min(20, Math.round(finiteOr(decimals, 0))));
   const formatted = new Intl.NumberFormat(locale, {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
+    minimumFractionDigits: safeDecimals,
+    maximumFractionDigits: safeDecimals,
   }).format(resolvedValue);
 
   return <span style={style}>{prefix}{formatted}{suffix}</span>;
