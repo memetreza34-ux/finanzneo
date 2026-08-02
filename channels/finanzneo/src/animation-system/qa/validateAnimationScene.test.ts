@@ -1,9 +1,10 @@
 import {describe, expect, it} from 'vitest';
+import type {FinanceAnimationRequest, FinanceAnimationScene} from '../contracts';
 import {validateAnimationScene} from './validateAnimationScene';
 
-const baseScene = {
-  mode: 'full-animation' as const,
-  template: 'compound-growth' as const,
+const baseScene: FinanceAnimationScene = {
+  mode: 'full-animation',
+  template: 'compound-growth',
   message: 'Zinseszins beschleunigt das Wachstum.',
   voiceText: 'Deine Erträge erwirtschaften mit der Zeit neue Erträge.',
   labels: ['Einzahlung', 'Rendite'],
@@ -16,7 +17,12 @@ describe('validateAnimationScene', () => {
   });
 
   it('überspringt reine Bildszenen', () => {
-    expect(validateAnimationScene({...baseScene, mode: 'image'})).toEqual([]);
+    const imageScene = {
+      ...baseScene,
+      mode: 'image',
+    } as unknown as FinanceAnimationRequest & {mode: 'image'};
+
+    expect(validateAnimationScene(imageScene)).toEqual([]);
   });
 
   it('meldet fehlende Kernaussage und Voiceover', () => {
