@@ -103,7 +103,7 @@ export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> =
     }
     case 'portfolio-allocation': {
       const rawAllocations = arrayValue<{label: string; value?: number; percent?: number}>(scene, 'allocations');
-      const total = numberValue(scene, 'total', 10000);
+      const total = numberValue(scene, 'total');
       const allocations = rawAllocations.map((item) => ({
         label: item.label,
         percent: typeof item.percent === 'number' ? item.percent : (item.value ?? 0),
@@ -115,8 +115,8 @@ export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> =
         <DebtPaydownTemplate
           startingDebt={numberValue(scene, 'originalDebt')}
           remainingDebt={numberValue(scene, 'remainingDebt')}
-          paidInstallments={numberValue(scene, 'paidInstallments', 12)}
-          totalInstallments={numberValue(scene, 'totalInstallments', 36)}
+          paidInstallments={numberValue(scene, 'paidInstallments')}
+          totalInstallments={numberValue(scene, 'totalInstallments')}
         />
       );
     case 'monthly-investment': {
