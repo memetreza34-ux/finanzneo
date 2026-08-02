@@ -20,6 +20,13 @@ describe('financeMath', () => {
     expect(result.finalValue).toBeGreaterThan(result.totalContributions);
   });
 
+  it('keeps negative investment performance visible', () => {
+    const result = calculateMonthlyInvestment({monthlyRate: 100, annualRate: -0.1, years: 1});
+    expect(result.totalContributions).toBe(1200);
+    expect(result.finalValue).toBeLessThan(result.totalContributions);
+    expect(result.earnings).toBeLessThan(0);
+  });
+
   it('reduces purchasing power through inflation', () => {
     const value = calculateInflationAdjustedValue({amount: 100, inflationRate: 0.02, years: 10});
     expect(value).toBeLessThan(100);
@@ -30,6 +37,17 @@ describe('financeMath', () => {
     const result = calculateLoanBalance({principal: 12000, annualRate: 0.04, monthlyPayment: 300, months: 12});
     expect(result.remainingBalance).toBeLessThan(12000);
     expect(result.totalPaid).toBe(3600);
+  });
+
+  it('sanitizes invalid and negative allocation values', () => {
+    const result = normalizePortfolioAllocation([
+      {label: 'Ungültig', value: Number.NaN},
+      {label: 'Negativ', value: -5},
+      {label: 'ETF', value: 5},
+    ]);
+
+    expect(result.map((item) => item.value)).toEqual([0, 0, 5]);
+    expect(result.map((item) => item.percent)).toEqual([0, 0, 100]);
   });
 
   it('normalizes portfolio allocations to one hundred percent', () => {
