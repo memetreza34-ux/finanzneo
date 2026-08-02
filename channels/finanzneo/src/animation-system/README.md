@@ -27,16 +27,28 @@ Der aktuelle Bild-Workflow bleibt vollständig unverändert.
 - Finanzberechnungen für Zinseszins, Sparplan, Inflation, Kredit und Portfolio-Aufteilung
 - Registry für zwölf geplante Finanzanimationstemplates
 - zentrale Feature Flags
+- wiederverwendbare visuelle Primitive:
+  - animierte Zahlen
+  - Fortschrittsbalken
+  - Finanz-Flussknoten
+- erste nicht angebundene Remotion-Templates:
+  - `compound-growth`
+  - `money-flow`
+- einfache QA für Kernaussage, Voiceover, Daten, Labels und Template-Zuordnung
+
+## Wichtig
+
+Die neuen Templates sind nur Bausteine im Branch. Sie werden nirgends automatisch gerendert und sind nicht mit `FinanceProductionLayer` verbunden.
 
 ## Spätere Aktivierung
 
 Vor einer Aktivierung müssen mindestens folgende Punkte abgeschlossen sein:
 
-1. visuelle Primitive im FinanzNeo-Stil,
-2. produktionsreife Templates,
+1. weitere visuelle Primitive im FinanzNeo-Stil,
+2. mindestens sechs produktionsreife Templates,
 3. eigene Galerie-Composition,
 4. visuelle und fachliche QA,
-5. Tests für Berechnungen und Router,
+5. Tests für Berechnungen, Router und Templates,
 6. bewusste Integration in `FinanceProductionLayer`,
 7. Feature Flags erst danach einzeln freischalten.
 
