@@ -14,7 +14,12 @@ import {
   TaxFeeFlowTemplate,
   TimelineMilestonesTemplate,
 } from '../templates';
-import {calculateCompoundInterest, calculateMonthlyInvestment} from '../calculations/financeMath';
+import {
+  futureValueLumpSum,
+  futureValueMonthlyInvestment,
+  inflationAdjustedValue,
+  normalizeAllocation,
+} from '../calculations/financeMath';
 
 export type FinanceAnimationRendererProps = {
   scene: FinanceAnimationScene;
@@ -33,33 +38,54 @@ const stringValue = (scene: FinanceAnimationScene, key: string, fallback = ''): 
 export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> = ({scene}) => {
   switch (scene.template) {
     case 'compound-growth': {
-      const principal = numberValue(scene, 'principal', numberValue(scene, 'startCapital'));
-      const monthlyRate = numberValue(scene, 'monthlyRate');
-      const annualReturnPercent = numberValue(scene, 'annualReturn');
+      const principal = numberValue(scene, 'startCapital', numberValue(scene, 'principal'));
+      const monthlyRate = numberValue(scene, 'monthlyRate', numberValue(scene, 'monthlyContribution'));
+      const annualReturn = numberValue(scene, 'annualReturn', numberValue(scene, 'annualRate')) / 100;
       const years = numberValue(scene, 'years');
-      const annualRate = annualReturnPercent / 100;
-      const lumpSum = calculateCompoundInterest({principal, annualRate, years});
-      const monthlyPlan = calculateMonthlyInvestment({monthlyRate, annualRate, years});
-      return (
-        <CompoundGrowthTemplate
-          principal={principal}
-          finalValue={lumpSum + monthlyPlan.finalValue}
-          years={years}
-        />
-      );
+      const finalValue = futureValueLumpSum(principal, annualReturn, years)
+        + futureValueMonthlyInvestment(monthlyRate, annualReturn, years);
+      return <CompoundGrowthTemplate principal={principal} finalValue={finalValue} years={years} />;
     }
-    case 'money-flow':
-      return <MoneyFlowTemplate amount={numberValue(scene, 'amount')} fromLabel={stringValue(scene, 'fromLabel', 'Quelle')} toLabel={stringValue(scene, 'toLabel', 'Ziel')} />;
-    case 'budget-split':
-      return <BudgetSplitTemplate income={numberValue(scene, 'income')} needsPercent={numberValue(scene, 'needsPercent')} wantsPercent={numberValue(scene, 'wantsPercent')} savingsPercent={numberValue(scene, 'savingsPercent')} />;
-    case 'inflation-erosion':
-      return <InflationErosionTemplate startingValue={numberValue(scene, 'startingValue')} inflationPercent={numberValue(scene, 'inflationPercent')} years={numberValue(scene, 'years')} />;
-    case 'portfolio-allocation':
-      return <PortfolioAllocationTemplate allocations={Array.isArray(scene.data?.allocations) ? scene.data?.allocations as never : []} />;
+    case 'money-flow': {
+      const amount = numberValue(scene, 'amount');
+      const fromLabel = stringValue(scene, 'fromLabel', 'Gehalt');
+      const toLabel = stringValue(scene, 'toLabel', 'Ziel');
+      return <MoneyFlowTemplate incomeLabel={fromLabel} incomeValue={`${amount.toLocaleString('de-DE')} €`} items={[{label: toLabel, value: `${amount.toLocaleString('de-DE')} €`, share: 1}]} />;
+    }
+    case 'budget-split': {
+      const income = numberValue(scene, 'income');
+      const needsPercent = numberValue(scene, 'needsPercent');
+      const wantsPercent = numberValue(scene, 'wantsPercent');
+      const savingsPercent = numberValue(scene, 'savingsPercent');
+      return <BudgetSplitTemplate income={income} categories={[
+        {label: 'Fixkosten', value: income * needsPercent / 100},
+        {label: 'Wünsche', value: income * wantsPercent / 100},
+        {label: 'Sparen', value: income * savingsPercent / 100},
+      ]} />;
+    }
+    case 'inflation-erosion': {
+      const startValue = numberValue(scene, 'startingValue', numberValue(scene, 'startValue'));
+      const inflationPercent = numberValue(scene, 'inflationPercent');
+      const years = numberValue(scene, 'years');
+      const endValue = inflationAdjustedValue(startValue, inflationPercent / 100, years);
+      return <InflationErosionTemplate startValue={startValue} endValue={endValue} years={years} />;
+    }
+    case 'portfolio-allocation': {
+      const raw = Array.isArray(scene.data?.allocations) ? scene.data?.allocations : [];
+      const labels = raw.map((item) => typeof item === 'object' && item !== null && 'label' in item ? String(item.label) : 'Anlage');
+      const values = raw.map((item) => typeof item === 'object' && item !== null && 'value' in item && typeof item.value === 'number' ? item.value : 0);
+      const normalized = normalizeAllocation(values);
+      return <PortfolioAllocationTemplate total={numberValue(scene, 'total', 10000)} allocations={labels.map((label, index) => ({label, percent: normalized[index] * 100}))} />;
+    }
     case 'debt-paydown':
-      return <DebtPaydownTemplate originalDebt={numberValue(scene, 'originalDebt')} remainingDebt={numberValue(scene, 'remainingDebt')} />;
-    case 'monthly-investment':
-      return <MonthlyInvestmentTemplate monthlyRate={numberValue(scene, 'monthlyRate')} months={numberValue(scene, 'months')} />;
+      return <DebtPaydownTemplate startingDebt={numberValue(scene, 'originalDebt', numberValue(scene, 'startingDebt'))} remainingDebt={numberValue(scene, 'remainingDebt')} paidInstallments={numberValue(scene, 'paidInstallments', 12)} totalInstallments={numberValue(scene, 'totalInstallments', 36)} />;
+    case 'monthly-investment': {
+      const monthlyAmount = numberValue(scene, 'monthlyRate', numberValue(scene, 'monthlyAmount'));
+      const months = numberValue(scene, 'months');
+      const annualRate = numberValue(scene, 'annualReturn', numberValue(scene, 'annualRate')) / 100;
+      const finalValue = futureValueMonthlyInvestment(monthlyAmount, annualRate, months / 12);
+      return <MonthlyInvestmentTemplate monthlyAmount={monthlyAmount} months={months} finalValue={finalValue} />;
+    }
     case 'before-after-comparison':
       return <BeforeAfterComparisonTemplate beforeLabel={stringValue(scene, 'beforeLabel', 'Vorher')} afterLabel={stringValue(scene, 'afterLabel', 'Nachher')} beforeValue={numberValue(scene, 'beforeValue')} afterValue={numberValue(scene, 'afterValue')} />;
     case 'risk-return-scale':
