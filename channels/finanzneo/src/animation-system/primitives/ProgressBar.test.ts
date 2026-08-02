@@ -23,4 +23,19 @@ describe('resolveProgressBarValue', () => {
     expect(resolveProgressBarValue({frame: 30, progress: -1})).toBe(0);
     expect(resolveProgressBarValue({frame: 30, progress: Number.NaN})).toBe(0);
   });
+
+  it('sanitizes malformed timing inputs', () => {
+    expect(resolveProgressBarValue({
+      frame: Number.NaN,
+      progress: 1,
+      startFrame: Number.NaN,
+      durationInFrames: Number.NaN,
+    })).toBe(0);
+
+    expect(resolveProgressBarValue({
+      frame: 1,
+      progress: 1,
+      durationInFrames: 0,
+    })).toBe(1);
+  });
 });
