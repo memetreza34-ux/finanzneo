@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/animation-system/**/*.ts",
+    "src/animation-system/**/*.tsx"
+  ],
+  "exclude": [
+    "src/_archive/**",
+    "src/vendor-templates/**"
+  ]
+}
