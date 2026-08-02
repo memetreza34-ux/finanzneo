@@ -2,8 +2,9 @@ import type {
   FinanceAnimationScene,
   FinanceAnimationTemplate,
 } from '../contracts';
-import type {
-  FinanceAnimationTemplateData,
+import {
+  defineFinanceAnimationScene,
+  type FinanceAnimationTemplateData,
 } from '../templateDataContracts';
 
 export type FinanceAnimationFixture = {
@@ -18,14 +19,14 @@ const createFixture = <TTemplate extends FinanceAnimationTemplate>(
   labels: string[],
 ): FinanceAnimationFixture => ({
   name,
-  scene: {
+  scene: defineFinanceAnimationScene({
     mode: 'full-animation',
     template,
     message: `${name} verständlich darstellen.`,
     voiceText: `${name} wird mit strukturierten Finanzdaten erklärt.`,
     labels,
     data,
-  },
+  }),
 });
 
 /**
