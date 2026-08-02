@@ -29,7 +29,7 @@ describe('SafeFinanceAnimationRenderer', () => {
     });
 
     expect(React.isValidElement(element)).toBe(true);
-    if (React.isValidElement(element)) {
+    if (React.isValidElement<{children: React.ReactNode}>(element)) {
       expect(element.props.children).toBe(fallback);
     }
   });
@@ -38,7 +38,7 @@ describe('SafeFinanceAnimationRenderer', () => {
     const element = SafeFinanceAnimationRenderer({input: null});
 
     expect(React.isValidElement(element)).toBe(true);
-    if (React.isValidElement(element)) {
+    if (React.isValidElement<{children: React.ReactNode}>(element)) {
       expect(element.props.children).toBeNull();
     }
   });
