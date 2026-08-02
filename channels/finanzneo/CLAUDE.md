@@ -131,18 +131,17 @@ Nach dem Scaffold vollständig schreiben:
 2. `01-script-audio/script-fliesstext.txt`
 3. `01-script-audio/voiceover.txt`
 4. `03-caption/social-caption.md`
-5. `04-pdf/inhalt.md`
-6. `06-projektdateien/sources.md`
-7. `06-projektdateien/storyboard.md`
-8. `06-projektdateien/motion-design.md` als einfacher Schnitt- und Bewegungsplan
-9. `06-projektdateien/scene-plan.json`
-10. `06-projektdateien/production-status.json`
-11. `02-bilder/prompt-manifest.json`
-12. `02-bilder/alle-bildprompts.txt`
+5. `06-projektdateien/sources.md`
+6. `06-projektdateien/storyboard.md`
+7. `06-projektdateien/motion-design.md` als einfacher Schnitt- und Bewegungsplan
+8. `06-projektdateien/scene-plan.json`
+9. `06-projektdateien/production-status.json`
+10. `02-bilder/prompt-manifest.json`
+11. `02-bilder/alle-bildprompts.txt`
 
-### PDF ist Pflicht
+### Keine PDF-Ausgabe
 
-Der Ordner `04-pdf/` und die Datei `04-pdf/inhalt.md` dürfen nicht entfernt oder übersprungen werden. Der PDF-Inhalt gehört weiterhin zu jedem Reel-Paket.
+Für FinanzNeo wird kein PDF-Inhalt mehr erstellt. Der Ordner `04-pdf/` und Dateien wie `04-pdf/inhalt.md` gehören nicht mehr zum Pflichtablauf und dürfen weggelassen oder entfernt werden, sofern sie nicht für bestehende Altprojekte benötigt werden.
 
 ### Alle Bildprompts als kopierbarer Fließtext
 
