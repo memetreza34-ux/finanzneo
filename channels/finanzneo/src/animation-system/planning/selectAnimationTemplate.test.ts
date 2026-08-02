@@ -21,6 +21,7 @@ describe('selectAnimationTemplate', () => {
     });
 
     expect(candidates[0]?.template).toBe('before-after-comparison');
+    expect(candidates[0]?.preferred).toBe(true);
   });
 
   it('can select a template from complete structured data', () => {
@@ -31,6 +32,46 @@ describe('selectAnimationTemplate', () => {
     });
 
     expect(candidates[0]?.template).toBe('budget-split');
+    expect(candidates[0]?.dataMatches).toEqual([
+      'income',
+      'needsPercent',
+      'wantsPercent',
+      'savingsPercent',
+    ]);
+  });
+
+  it('uses structured data to resolve shared income and expense keywords', () => {
+    const decision = selectAnimationTemplate({
+      message: 'Einnahmen und Ausgaben.',
+      voiceText: 'Einnahmen und Ausgaben.',
+      data: {income: 2800, expenses: 2100},
+    });
+
+    expect(decision.mode).toBe('hybrid');
+    expect(decision.template).toBe('income-expense-balance');
+  });
+
+  it('falls back when shared keywords produce a true tie', () => {
+    const decision = selectAnimationTemplate({
+      message: 'Einnahmen und Ausgaben.',
+      voiceText: 'Einnahmen und Ausgaben.',
+    });
+
+    expect(decision.mode).toBe('image');
+    expect(decision.template).toBeUndefined();
+    expect(decision.reason).toContain('mehrdeutig');
+    expect(decision.blockedReasons?.[0]).toContain('Gleichstand');
+  });
+
+  it('lets an explicit preferred template resolve a keyword tie', () => {
+    const decision = selectAnimationTemplate({
+      message: 'Einnahmen und Ausgaben.',
+      voiceText: 'Einnahmen und Ausgaben.',
+      preferredTemplate: 'income-expense-balance',
+    });
+
+    expect(decision.mode).toBe('hybrid');
+    expect(decision.template).toBe('income-expense-balance');
   });
 
   it('does not match short keywords inside unrelated words', () => {
