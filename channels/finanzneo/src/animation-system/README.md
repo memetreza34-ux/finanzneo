@@ -10,6 +10,7 @@ Das System ist **nicht produktiv aktiv**:
 - `allowHybrid: false`
 - `allowFullAnimation: false`
 - `allowAutomaticRouting: false`
+- Feature Flags sind zusätzlich mit `Object.freeze` zur Laufzeit gesperrt
 - keine Registrierung im produktiven `FinanzNeoRoot`
 - keine Änderung an bestehenden Scene-Plan-Verträgen
 - keine Anbindung an `FinanceProductionLayer`
@@ -26,13 +27,14 @@ Der bestehende Bild-Workflow bleibt unverändert.
 ## Enthalten
 
 - Typen für Szenenmodi, Entscheidungen, Requests und Template-Daten
-- zentral typisierte und standardmäßig deaktivierte Feature Flags
+- zentral typisierte, eingefrorene und standardmäßig deaktivierte Feature Flags
 - gemeinsamer Begriffskatalog für Router und Template-Selector
 - konservatives Routing mit vollständigen Begriffen statt unsicherer Teilworttreffer
 - Template-Auswahl anhand von Inhalt, bevorzugtem Template und Datenabdeckung
 - strukturierter Animationsplan mit sicherem Bild-Fallback
 - generische Szenenprüfung und templatespezifische Datenvalidierung
 - robuste Finanzberechnungen für Zinseszins, Sparplan, Inflation, Kredit und Portfolio-Aufteilung
+- kanonische, vollständig validierbare Beispielszenen für alle zwölf Templates
 - wiederverwendbare visuelle Primitive:
   - animierte oder bereits framegenau berechnete Zahlen
   - animierte oder bereits framegenau berechnete Fortschrittsbalken
@@ -52,10 +54,18 @@ Der bestehende Bild-Workflow bleibt unverändert.
   - `tax-fee-flow`
 - zentraler `FinanceAnimationRenderer`
 - sequenzielle Galerie und Kontaktbogen mit allen zwölf Templates
-- Tests für Berechnungen, Router, Begriffskatalog, Selector, Planung, Registry, Renderer, Galerie, Primitive, QA und Fallback
+- Galerie läuft durch denselben Renderer und dieselben Beispielszenen wie die Tests
+- Tests für Berechnungen, Router, Begriffskatalog, Selector, Planung, Registry, Renderer, Fixtures, Galerie, Primitive, QA und Fallback
 - isolierte TypeScript-Konfiguration für das Animationssystem
+- ausführbarer Produktions-Isolationscheck
 
 ## Lokal prüfen
+
+Produktionsisolation und deaktivierte Feature Flags prüfen:
+
+```bash
+npm run finance:animation-isolation
+```
 
 Nur TypeScript prüfen:
 
@@ -69,11 +79,25 @@ Nur die Animationstests ausführen:
 npm run finance:animation-test
 ```
 
-Typecheck, Tests und Galerie-Kontaktbogen gemeinsam ausführen:
+Isolation, Typecheck, Tests und Galerie-Kontaktbogen gemeinsam ausführen:
 
 ```bash
 npm run finance:animation-validate
 ```
+
+## Kanonische Beispielszenen
+
+Die Datei `fixtures/financeAnimationFixtures.ts` enthält genau eine gültige Beispielszene pro registriertem Template.
+
+Diese Szenen werden gemeinsam verwendet von:
+
+- Galerie
+- Kontaktbogen
+- Datenvalidierungstests
+- Registry-Abgleich
+- späteren Smoke- und Integrationstests
+
+Dadurch können Galerie und Tests nicht mehr unbemerkt mit voneinander abweichenden Daten arbeiten.
 
 ## Galerie prüfen
 
@@ -113,6 +137,18 @@ Vor einem Render werden unter anderem geprüft:
 
 Bei einem Fehler erzeugt der Planner keine Animationsszene. Der bestehende Bildmodus bleibt der sichere Rückfall.
 
+## Produktionsisolation
+
+`scripts/verify-finance-animation-isolation.mjs` prüft unabhängig von TypeScript und Remotion:
+
+- alle vier Feature Flags bleiben deaktiviert
+- das Flag-Objekt bleibt zur Laufzeit eingefroren
+- `FinanceProductionLayer.tsx` importiert das Animationssystem nicht
+- `FinanceImageFirstReel.tsx` importiert das Animationssystem nicht
+- `FinanzNeoRoot.tsx` registriert weder Renderer noch Galerie
+
+Der GitHub-Actions-Workflow führt diesen Check vor Typecheck, Tests und Rendering aus.
+
 ## Produktionsstatus
 
 Nicht angebunden sind weiterhin:
@@ -126,7 +162,7 @@ Die Grundlage ist technisch vorbereitet, aber erst nach einem bestätigten volls
 
 ## Spätere Aktivierung
 
-1. Typecheck, Tests und Galerie-Render erfolgreich bestätigen.
+1. Isolationscheck, Typecheck, Tests und Galerie-Render erfolgreich bestätigen.
 2. Kontaktbogen und sequenzielle Galerie visuell prüfen.
 3. Templates gestalterisch freigeben.
 4. mindestens ein vollständiges Test-Reel rendern.
