@@ -1,23 +1,31 @@
 import type {FinanceAnimationRequest} from '../contracts';
-import {planFinanceAnimationScene} from '../selector/planFinanceAnimationScene';
+import {
+  planFinanceAnimationScene,
+  type FinanceAnimationPlanResult,
+} from '../selector/planFinanceAnimationScene';
+import type {AnimationValidationIssue} from '../qa/validateAnimationScene';
 import type {FinanceAnimationPlan} from './animationPlanTypes';
 
-export const buildAnimationPlan = (
-  request: FinanceAnimationRequest,
+const messagesForLevel = (
+  issues: AnimationValidationIssue[],
+  level: AnimationValidationIssue['level'],
+): string[] => issues
+  .filter((issue) => issue.level === level)
+  .map((issue) => issue.message);
+
+export const buildAnimationPlanFromResult = (
+  result: FinanceAnimationPlanResult,
 ): FinanceAnimationPlan => {
-  const result = planFinanceAnimationScene(request);
+  const warnings = messagesForLevel(result.issues, 'warning');
+  const errors = messagesForLevel(result.issues, 'error');
 
   if (result.decision.mode === 'image') {
     return {
       status: 'image-fallback',
       mode: 'image',
       decision: result.decision,
-      warnings: result.issues
-        .filter((issue) => issue.level === 'warning')
-        .map((issue) => issue.message),
-      errors: result.issues
-        .filter((issue) => issue.level === 'error')
-        .map((issue) => issue.message),
+      warnings,
+      errors,
     };
   }
 
@@ -27,12 +35,8 @@ export const buildAnimationPlan = (
       mode: result.decision.mode,
       decision: result.decision,
       template: result.decision.template,
-      warnings: result.issues
-        .filter((issue) => issue.level === 'warning')
-        .map((issue) => issue.message),
-      errors: result.issues
-        .filter((issue) => issue.level === 'error')
-        .map((issue) => issue.message),
+      warnings,
+      errors,
     };
   }
 
@@ -42,9 +46,13 @@ export const buildAnimationPlan = (
     decision: result.decision,
     scene: result.scene,
     template: result.scene.template,
-    warnings: result.issues
-      .filter((issue) => issue.level === 'warning')
-      .map((issue) => issue.message),
-    errors: [],
+    warnings,
+    errors,
   };
 };
+
+export const buildAnimationPlan = (
+  request: FinanceAnimationRequest,
+): FinanceAnimationPlan => buildAnimationPlanFromResult(
+  planFinanceAnimationScene(request),
+);
