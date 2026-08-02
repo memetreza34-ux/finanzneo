@@ -6,10 +6,14 @@ export type AnimationValidationIssue = {
   message: string;
 };
 
-type FinanceAnimationValidationInput =
+export type FinanceImageSceneValidationInput = FinanceAnimationRequest & {
+  mode: 'image';
+};
+
+export type FinanceAnimationValidationInput =
   | FinanceAnimationRequest
   | FinanceAnimationScene
-  | (FinanceAnimationRequest & {mode: 'image'});
+  | FinanceImageSceneValidationInput;
 
 export const validateAnimationRequest = (
   scene: FinanceAnimationValidationInput,
