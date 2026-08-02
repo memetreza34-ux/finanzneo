@@ -40,8 +40,12 @@ const arrayValue = <T,>(scene: FinanceAnimationScene, key: string): T[] => {
   return Array.isArray(value) ? (value as T[]) : [];
 };
 
-const percentageToRatio = (value: number): number =>
-  Math.abs(value) >= 1 ? value / 100 : value;
+/**
+ * Szenendaten verwenden Prozentpunkte: 7 bedeutet 7 %, 0.5 bedeutet 0,5 %.
+ * Finanzberechnungen arbeiten intern mit Dezimalraten und erhalten deshalb
+ * immer eine eindeutige Division durch 100 statt einer mehrdeutigen Heuristik.
+ */
+export const percentagePointsToRatio = (value: number): number => value / 100;
 
 export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> = ({scene}) => {
   const validation = validateTemplateData(scene);
@@ -51,7 +55,7 @@ export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> =
     case 'compound-growth': {
       const startCapital = numberValue(scene, 'startCapital');
       const monthlyRate = numberValue(scene, 'monthlyRate');
-      const annualReturn = percentageToRatio(numberValue(scene, 'annualReturn'));
+      const annualReturn = percentagePointsToRatio(numberValue(scene, 'annualReturn'));
       const years = numberValue(scene, 'years');
       const finalValue = futureValueLumpSum(startCapital, annualReturn, years)
         + futureValueMonthlyInvestment(monthlyRate, annualReturn, years);
@@ -87,7 +91,7 @@ export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> =
     }
     case 'inflation-erosion': {
       const startingValue = numberValue(scene, 'startingValue');
-      const inflationRate = percentageToRatio(numberValue(scene, 'inflationPercent'));
+      const inflationRate = percentagePointsToRatio(numberValue(scene, 'inflationPercent'));
       const years = numberValue(scene, 'years');
       return (
         <InflationErosionTemplate
@@ -118,7 +122,7 @@ export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> =
     case 'monthly-investment': {
       const monthlyRate = numberValue(scene, 'monthlyRate');
       const months = numberValue(scene, 'months');
-      const annualReturn = percentageToRatio(numberValue(scene, 'annualReturn', 0));
+      const annualReturn = percentagePointsToRatio(numberValue(scene, 'annualReturn', 0));
       const finalValue = futureValueMonthlyInvestment(monthlyRate, annualReturn, months / 12);
       return (
         <MonthlyInvestmentTemplate
@@ -140,8 +144,8 @@ export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> =
     case 'risk-return-scale':
       return (
         <RiskReturnScaleTemplate
-          risk={percentageToRatio(numberValue(scene, 'riskPercent'))}
-          returnPotential={percentageToRatio(numberValue(scene, 'returnPercent'))}
+          risk={percentagePointsToRatio(numberValue(scene, 'riskPercent'))}
+          returnPotential={percentagePointsToRatio(numberValue(scene, 'returnPercent'))}
         />
       );
     case 'timeline-milestones': {
