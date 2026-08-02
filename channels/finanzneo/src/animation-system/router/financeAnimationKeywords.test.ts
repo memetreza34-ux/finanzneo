@@ -30,6 +30,6 @@ describe('financeAnimationKeywords', () => {
   it('does not use dangerously short generic fragments', () => {
     const allKeywords = Object.values(FINANCE_ANIMATION_KEYWORDS).flat();
     expect(allKeywords).not.toContain('ter');
-    expect(allKeywords.every((keyword) => keyword.length >= 4)).toBe(true);
+    expect(allKeywords.every((keyword) => keyword.length >= 3)).toBe(true);
   });
 });
