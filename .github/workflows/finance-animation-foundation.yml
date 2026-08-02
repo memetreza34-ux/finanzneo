@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -36,7 +38,11 @@ jobs:
       - name: Verify productive renderer stayed untouched
         shell: bash
         run: |
-          git diff --exit-code origin/${{ github.base_ref }}...HEAD -- \
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          if [ -z "$BASE_SHA" ]; then
+            BASE_SHA="origin/main"
+          fi
+          git diff --exit-code "$BASE_SHA"...HEAD -- \
             channels/finanzneo/src/engine/FinanceProductionLayer.tsx \
             channels/finanzneo/src/engine/FinanceImageFirstReel.tsx \
             channels/finanzneo/src/FinanzNeoRoot.tsx
