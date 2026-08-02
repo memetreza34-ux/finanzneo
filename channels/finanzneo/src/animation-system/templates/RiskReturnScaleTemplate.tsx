@@ -8,7 +8,8 @@ export type RiskReturnScaleTemplateProps = {
   returnLabel?: string;
 };
 
-const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
+export const clampUnitInterval = (value: number): number =>
+  Math.max(0, Math.min(1, Number.isFinite(value) ? value : 0));
 
 export const RiskReturnScaleTemplate: React.FC<RiskReturnScaleTemplateProps> = ({
   risk,
@@ -22,8 +23,8 @@ export const RiskReturnScaleTemplate: React.FC<RiskReturnScaleTemplateProps> = (
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
-  const riskProgress = clamp01(risk) * progress;
-  const returnProgress = clamp01(returnPotential) * progress;
+  const riskProgress = clampUnitInterval(risk) * progress;
+  const returnProgress = clampUnitInterval(returnPotential) * progress;
 
   return (
     <AbsoluteFill style={{padding: 72, background: '#07120B', color: '#F5F7F4', fontFamily: 'Arial, sans-serif'}}>
@@ -39,7 +40,7 @@ export const RiskReturnScaleTemplate: React.FC<RiskReturnScaleTemplateProps> = (
               <span>{Math.round(item.value * 100)} %</span>
             </div>
             <div style={{height: 42, borderRadius: 999, background: 'rgba(255,255,255,0.1)', marginTop: 18, overflow: 'hidden'}}>
-              <div style={{width: `${item.value * 100}%`, height: '100%', borderRadius: 999, background: item.color, boxShadow: `0 0 34px ${item.color}55`}} />
+              <div style={{width: `${item.value * 100}%`, height: '100%', borderRadius: 999, background: item.color, boxShadow: item.value > 0 ? `0 0 34px ${item.color}55` : 'none'}} />
             </div>
           </div>
         ))}
