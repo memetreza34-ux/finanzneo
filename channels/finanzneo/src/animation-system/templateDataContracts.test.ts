@@ -28,6 +28,13 @@ if (false) {
   // @ts-expect-error tax-fee-flow uses grossAmount instead of gross
   const wrongTaxField: FinanceAnimationTemplateData<'tax-fee-flow'> = {gross: 3000, taxes: 620, fees: 30};
   void wrongTaxField;
+
+  // @ts-expect-error a portfolio position must not define value and percent together
+  const ambiguousPortfolio: FinanceAnimationTemplateData<'portfolio-allocation'> = {
+    total: 25000,
+    allocations: [{label: 'ETF', value: 70, percent: 70}],
+  };
+  void ambiguousPortfolio;
 }
 
 describe('templateDataContracts', () => {
