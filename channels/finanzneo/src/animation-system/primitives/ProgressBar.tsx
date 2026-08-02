@@ -22,6 +22,9 @@ export type ResolveProgressBarValueInput = Pick<
   frame: number;
 };
 
+const finiteOr = (value: number | undefined, fallback: number): number =>
+  typeof value === 'number' && Number.isFinite(value) ? value : fallback;
+
 const clampProgress = (value: number): number =>
   Math.max(0, Math.min(1, Number.isFinite(value) ? value : 0));
 
@@ -35,9 +38,13 @@ export const resolveProgressBarValue = ({
   const target = clampProgress(progress);
   if (!animated) return target;
 
+  const safeFrame = finiteOr(frame, 0);
+  const safeStartFrame = finiteOr(startFrame, 0);
+  const safeDuration = Math.max(1, finiteOr(durationInFrames, 24));
+
   return interpolate(
-    frame,
-    [startFrame, startFrame + Math.max(1, durationInFrames)],
+    safeFrame,
+    [safeStartFrame, safeStartFrame + safeDuration],
     [0, target],
     {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'},
   );
