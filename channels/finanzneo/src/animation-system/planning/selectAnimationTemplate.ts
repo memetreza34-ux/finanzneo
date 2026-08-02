@@ -3,6 +3,7 @@ import type {
   FinanceAnimationRequest,
   FinanceAnimationTemplate,
 } from '../contracts';
+import {FINANCE_ANIMATION_KEYWORDS} from '../router/financeAnimationKeywords';
 import {
   containsFinanceKeyword,
   normalizeFinanceText,
@@ -15,28 +16,13 @@ export type AnimationSelectionCandidate = {
   reasons: string[];
 };
 
-const KEYWORDS: Record<FinanceAnimationTemplate, string[]> = {
-  'money-flow': ['geldfluss', 'gehalt', 'einnahmen', 'ausgaben'],
-  'budget-split': ['budget', 'fixkosten', 'sparquote', 'aufteilen'],
-  'compound-growth': ['zinseszins', 'rendite', 'wachstum', 'gewinn'],
-  'portfolio-allocation': ['portfolio', 'diversifikation', 'etf', 'aufteilung'],
-  'inflation-erosion': ['inflation', 'kaufkraft', 'preise'],
-  'debt-paydown': ['schuld', 'tilgung', 'kredit', 'restschuld'],
-  'monthly-investment': ['sparplan', 'monatlich', 'rate', 'einzahlen'],
-  'before-after-comparison': ['vergleich', 'stattdessen', 'gegenüber', 'vorher', 'nachher'],
-  'risk-return-scale': ['risiko', 'rendite'],
-  'timeline-milestones': ['jahre', 'zeit', 'entwicklung', 'meilenstein'],
-  'income-expense-balance': ['einkommen', 'ausgaben', 'saldo'],
-  'tax-fee-flow': ['steuer', 'gebühr', 'fondskosten', 'kostenquote'],
-};
-
 export const rankAnimationTemplates = (
   request: FinanceAnimationRequest,
 ): AnimationSelectionCandidate[] => {
   const haystack = normalizeFinanceText(`${request.message} ${request.voiceText}`);
 
   return FINANCE_ANIMATION_TEMPLATES.map((definition) => {
-    const matches = KEYWORDS[definition.id].filter((keyword) =>
+    const matches = FINANCE_ANIMATION_KEYWORDS[definition.id].filter((keyword) =>
       containsFinanceKeyword(haystack, keyword),
     );
     const preferredBonus = request.preferredTemplate === definition.id ? 3 : 0;
