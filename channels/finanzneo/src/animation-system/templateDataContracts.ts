@@ -3,11 +3,17 @@ import type {
   FinanceAnimationTemplate,
 } from './contracts';
 
-export type PortfolioAllocationDatum = {
-  label: string;
-  value?: number;
-  percent?: number;
-};
+export type PortfolioAllocationDatum =
+  | {
+      label: string;
+      percent: number;
+      value?: never;
+    }
+  | {
+      label: string;
+      value: number;
+      percent?: never;
+    };
 
 export type TimelineMilestoneDatum = {
   label: string;
@@ -20,6 +26,9 @@ export type TimelineMilestoneDatum = {
  * Die Typen besitzen bewusst keinen offenen String-Index. Dadurch können
  * Registry-Pflichtfelder mit `keyof` tatsächlich gegen existierende Felder
  * geprüft werden und Tippfehler werden beim Typecheck erkannt.
+ *
+ * Portfolio-Positionen verwenden entweder `percent` oder `value`, nie beide
+ * gleichzeitig. Dadurch gibt es keine widersprüchliche Gewichtungsquelle.
  *
  * Prozentfelder verwenden immer Prozentpunkte: `7` bedeutet 7 Prozent und
  * `0.5` bedeutet 0,5 Prozent. Erst der Renderer wandelt diese Werte für die
