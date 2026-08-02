@@ -11,14 +11,17 @@ type FinanceAnimationRequiredDataMap = {
  * Einzige kanonische Liste der Pflichtfelder je Template.
  * `satisfies` verhindert, dass ein Feld eingetragen wird, das im zugehörigen
  * streng typisierten Datenvertrag nicht existiert.
+ *
+ * Jeder Wert, den ein Template sichtbar darstellt, ist hier verpflichtend.
+ * Der Renderer erfindet dadurch keine Portfoliowerte oder Kreditraten.
  */
 export const FINANCE_ANIMATION_REQUIRED_DATA = {
   'money-flow': ['amount', 'fromLabel', 'toLabel'],
   'budget-split': ['income', 'needsPercent', 'wantsPercent', 'savingsPercent'],
   'compound-growth': ['startCapital', 'monthlyRate', 'annualReturn', 'years'],
-  'portfolio-allocation': ['allocations'],
+  'portfolio-allocation': ['allocations', 'total'],
   'inflation-erosion': ['startingValue', 'inflationPercent', 'years'],
-  'debt-paydown': ['originalDebt', 'remainingDebt'],
+  'debt-paydown': ['originalDebt', 'remainingDebt', 'paidInstallments', 'totalInstallments'],
   'monthly-investment': ['monthlyRate', 'months'],
   'before-after-comparison': ['beforeLabel', 'afterLabel', 'beforeValue', 'afterValue'],
   'risk-return-scale': ['riskPercent', 'returnPercent'],
