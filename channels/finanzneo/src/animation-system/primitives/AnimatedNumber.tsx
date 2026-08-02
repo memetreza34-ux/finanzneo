@@ -24,6 +24,23 @@ export type ResolveAnimatedNumberValueInput = Pick<
 const finiteOr = (value: number | undefined, fallback: number): number =>
   typeof value === 'number' && Number.isFinite(value) ? value : fallback;
 
+export const resolveNumberDecimals = (decimals: number | undefined): number =>
+  Math.max(0, Math.min(20, Math.round(finiteOr(decimals, 0))));
+
+/**
+ * Verhindert eine sichtbare Ausgabe wie „-0 €“, wenn ein interpolierter Wert
+ * innerhalb der gewählten Dezimalgenauigkeit auf null gerundet wird.
+ */
+export const normalizeNumberForDisplay = (
+  value: number,
+  decimals: number,
+): number => {
+  const safeValue = finiteOr(value, 0);
+  const safeDecimals = resolveNumberDecimals(decimals);
+  const zeroThreshold = 0.5 * 10 ** -safeDecimals;
+  return Math.abs(safeValue) < zeroThreshold ? 0 : safeValue;
+};
+
 /**
  * `to` bezeichnet einen Zielwert, der intern animiert wird.
  * `value` bezeichnet dagegen einen bereits berechneten Wert und wird exakt angezeigt.
@@ -72,11 +89,12 @@ export const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
     startFrame,
     durationInFrames,
   });
-  const safeDecimals = Math.max(0, Math.min(20, Math.round(finiteOr(decimals, 0))));
+  const safeDecimals = resolveNumberDecimals(decimals);
+  const displayValue = normalizeNumberForDisplay(resolvedValue, safeDecimals);
   const formatted = new Intl.NumberFormat(locale, {
     minimumFractionDigits: safeDecimals,
     maximumFractionDigits: safeDecimals,
-  }).format(resolvedValue);
+  }).format(displayValue);
 
   return <span style={style}>{prefix}{formatted}{suffix}</span>;
 };
