@@ -20,6 +20,35 @@ const portfolioData = {
   ],
 } satisfies FinanceAnimationTemplateData<'portfolio-allocation'>;
 
+if (false) {
+  // @ts-expect-error money-flow requires a numeric amount
+  defineFinanceAnimationData('money-flow', {
+    fromLabel: 'Gehalt',
+    toLabel: 'ETF',
+  });
+
+  // @ts-expect-error tax-fee-flow uses grossAmount instead of gross
+  defineFinanceAnimationData('tax-fee-flow', {
+    gross: 3000,
+    taxes: 620,
+    fees: 30,
+  });
+
+  // @ts-expect-error compound-growth data cannot be used for a money-flow scene
+  defineFinanceAnimationScene({
+    mode: 'full-animation',
+    template: 'money-flow',
+    message: 'Falscher statischer Testfall.',
+    voiceText: 'Die Daten gehören nicht zum angegebenen Template.',
+    data: {
+      startCapital: 1000,
+      monthlyRate: 200,
+      annualReturn: 7,
+      years: 20,
+    },
+  });
+}
+
 describe('templateDataContracts', () => {
   it('preserves strongly typed money-flow data', () => {
     const result = defineFinanceAnimationData('money-flow', moneyFlowData);
