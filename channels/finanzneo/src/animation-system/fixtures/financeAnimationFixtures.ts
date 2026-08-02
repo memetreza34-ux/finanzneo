@@ -2,16 +2,19 @@ import type {
   FinanceAnimationScene,
   FinanceAnimationTemplate,
 } from '../contracts';
+import type {
+  FinanceAnimationTemplateData,
+} from '../templateDataContracts';
 
 export type FinanceAnimationFixture = {
   readonly name: string;
   readonly scene: FinanceAnimationScene;
 };
 
-const createFixture = (
+const createFixture = <TTemplate extends FinanceAnimationTemplate>(
   name: string,
-  template: FinanceAnimationTemplate,
-  data: NonNullable<FinanceAnimationScene['data']>,
+  template: TTemplate,
+  data: FinanceAnimationTemplateData<TTemplate>,
   labels: string[],
 ): FinanceAnimationFixture => ({
   name,
@@ -28,6 +31,8 @@ const createFixture = (
 /**
  * Kanonische, vollständig validierbare Beispielszenen für alle Templates.
  * Galerie, Tests und spätere Smoke-Checks verwenden damit dieselben Daten.
+ * Der generische Fixture-Builder erzwingt dabei den passenden Datenvertrag
+ * für die jeweils angegebene Template-ID.
  */
 export const FINANCE_ANIMATION_FIXTURES: readonly FinanceAnimationFixture[] = [
   createFixture(
