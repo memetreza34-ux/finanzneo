@@ -1,6 +1,7 @@
 import {describe, expect, it} from 'vitest';
 import {
   defineFinanceAnimationData,
+  defineFinanceAnimationScene,
   type FinanceAnimationTemplateData,
 } from './templateDataContracts';
 
@@ -30,5 +31,19 @@ describe('templateDataContracts', () => {
     const result = defineFinanceAnimationData('portfolio-allocation', portfolioData);
     expect(result.allocations).toHaveLength(3);
     expect(result.total).toBe(25000);
+  });
+
+  it('creates a renderer-compatible scene while preserving template data', () => {
+    const result = defineFinanceAnimationScene({
+      mode: 'full-animation',
+      template: 'money-flow',
+      message: '600 Euro fließen in den Welt-ETF.',
+      voiceText: 'Ein Teil des Gehalts wird jeden Monat investiert.',
+      labels: ['Gehalt', 'Welt-ETF'],
+      data: moneyFlowData,
+    });
+
+    expect(result.template).toBe('money-flow');
+    expect(result.data?.amount).toBe(600);
   });
 });
