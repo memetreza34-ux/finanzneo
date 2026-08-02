@@ -53,6 +53,8 @@ const criticalFiles = [
   'channels/finanzneo/src/animation-system/router/rankFinanceAnimationCandidates.ts',
   'channels/finanzneo/src/animation-system/router/classifyFinanceScene.ts',
   'channels/finanzneo/src/animation-system/planning/selectAnimationTemplate.ts',
+  'channels/finanzneo/src/animation-system/selector/planFinanceAnimationInput.ts',
+  'channels/finanzneo/src/animation-system/selector/planFinanceAnimationScene.ts',
   'channels/finanzneo/src/animation-system/fixtures/financeAnimationFixtures.ts',
   'channels/finanzneo/src/animation-system/render/FinanceAnimationRenderer.tsx',
   'channels/finanzneo/src/animation-system/render/SafeFinanceAnimationRenderer.tsx',
@@ -154,12 +156,35 @@ const checkSafeInputBoundary = async () => {
     fail('Der sichere Renderer umgeht die Parser- und Validierungsgrenze.');
   }
 
+  const safePlanner = await readRepositoryFile(
+    'channels/finanzneo/src/animation-system/selector/planFinanceAnimationInput.ts',
+  );
+  if (!safePlanner.includes('parseFinanceAnimationRequest')) {
+    fail('Der sichere Planner umgeht die Request-Parsergrenze.');
+  }
+  if (!safePlanner.includes('planFinanceAnimationScene')) {
+    fail('Der sichere Planner reicht gültige Requests nicht an den zentralen Planner weiter.');
+  }
+
   const parser = await readRepositoryFile(
     'channels/finanzneo/src/animation-system/ingestion/parseFinanceAnimationInput.ts',
   );
   for (const requiredValidation of ['validateAnimationScene', 'validateTemplateData']) {
     if (!parser.includes(requiredValidation)) {
       fail(`Der Eingabeparser führt ${requiredValidation} nicht aus.`);
+    }
+  }
+
+  const publicIndex = await readRepositoryFile(
+    'channels/finanzneo/src/animation-system/index.ts',
+  );
+  for (const safeEntryPoint of [
+    "export * from './ingestion'",
+    "export * from './selector/planFinanceAnimationInput'",
+    "export * from './render'",
+  ]) {
+    if (!publicIndex.includes(safeEntryPoint)) {
+      fail(`Öffentlicher Animationsexport enthält ${safeEntryPoint} nicht.`);
     }
   }
 };
@@ -226,7 +251,7 @@ const run = async () => {
   console.log('Finance animation foundation structure check passed.');
   console.log(`Verified ${templateIds.length} template identifiers.`);
   console.log(`Verified ${criticalFiles.length} required files.`);
-  console.log('Verified shared routing, safe ingestion and visible-value requirements.');
+  console.log('Verified shared routing, safe planning/rendering and visible-value requirements.');
 };
 
 run().catch((error) => {
