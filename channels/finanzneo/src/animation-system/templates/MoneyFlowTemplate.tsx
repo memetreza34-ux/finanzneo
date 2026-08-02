@@ -10,6 +10,7 @@ export type MoneyFlowItem = {
 
 export type ResolvedMoneyFlowItem = MoneyFlowItem & {
   normalizedShare: number;
+  displayPercent: number;
 };
 
 export type MoneyFlowTemplateProps = {
@@ -17,6 +18,22 @@ export type MoneyFlowTemplateProps = {
   incomeValue: string;
   items: MoneyFlowItem[];
   accent?: string;
+};
+
+const integerPercentages = (shares: readonly number[]): number[] => {
+  const raw = shares.map((share) => share * 100);
+  const floors = raw.map(Math.floor);
+  const remaining = Math.max(0, 100 - floors.reduce((sum, value) => sum + value, 0));
+  const rankedRemainders = raw
+    .map((value, index) => ({index, remainder: value - floors[index]}))
+    .sort((left, right) => right.remainder - left.remainder || left.index - right.index);
+
+  const result = [...floors];
+  for (let index = 0; index < remaining; index += 1) {
+    const target = rankedRemainders[index % rankedRemainders.length];
+    if (target) result[target.index] += 1;
+  }
+  return result;
 };
 
 export const normalizeMoneyFlowItems = (
@@ -28,10 +45,15 @@ export const normalizeMoneyFlowItems = (
   );
   const total = safeShares.reduce((sum, share) => sum + share, 0);
   const equalShare = visibleItems.length > 0 ? 1 / visibleItems.length : 0;
+  const normalizedShares = visibleItems.map((_, index) =>
+    total > 0 ? safeShares[index] / total : equalShare,
+  );
+  const displayPercentages = integerPercentages(normalizedShares);
 
   return visibleItems.map((item, index) => ({
     ...item,
-    normalizedShare: total > 0 ? safeShares[index] / total : equalShare,
+    normalizedShare: normalizedShares[index],
+    displayPercent: displayPercentages[index],
   }));
 };
 
@@ -84,7 +106,7 @@ export const MoneyFlowTemplate: React.FC<MoneyFlowTemplateProps> = ({
                 color: '#D8E5DB',
                 opacity: lineProgress,
               }}>
-                {Math.round(item.normalizedShare * 100)} %
+                {item.displayPercent} %
               </div>
               <FlowNode
                 label={item.label}
