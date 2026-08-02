@@ -35,7 +35,7 @@ export const validateTemplatePresentation = (
 
     const labels = normalizedEntryLabels(data.allocations);
     if (hasDuplicates(labels)) {
-      warnings.push('Doppelte Portfolio-Labels erschweren die visuelle Zuordnung.');
+      errors.push('Doppelte Portfolio-Labels sind nicht eindeutig darstellbar.');
     }
 
     const percentageValues = data.allocations
@@ -47,7 +47,7 @@ export const validateTemplatePresentation = (
     if (numericPercentages.length === data.allocations.length) {
       const total = numericPercentages.reduce((sum, value) => sum + value, 0);
       if (Math.abs(total - 100) > 0.5) {
-        warnings.push(`Portfolio-Prozentwerte ergeben ${total.toFixed(1)} statt 100 Prozent.`);
+        errors.push(`Portfolio-Prozentwerte ergeben ${total.toFixed(1)} statt 100 Prozent.`);
       }
     }
   }
@@ -59,7 +59,7 @@ export const validateTemplatePresentation = (
 
     const labels = normalizedEntryLabels(data.milestones);
     if (hasDuplicates(labels)) {
-      warnings.push('Doppelte Meilenstein-Labels erschweren die zeitliche Zuordnung.');
+      errors.push('Doppelte Meilenstein-Labels sind zeitlich nicht eindeutig.');
     }
   }
 
