@@ -3,6 +3,10 @@ import type {
   FinanceAnimationRequest,
   FinanceAnimationTemplate,
 } from '../contracts';
+import {
+  containsFinanceKeyword,
+  normalizeFinanceText,
+} from '../router/financeKeywordMatching';
 import {FINANCE_ANIMATION_TEMPLATES} from '../templates/registry';
 
 export type AnimationSelectionCandidate = {
@@ -23,20 +27,22 @@ const KEYWORDS: Record<FinanceAnimationTemplate, string[]> = {
   'risk-return-scale': ['risiko', 'rendite'],
   'timeline-milestones': ['jahre', 'zeit', 'entwicklung', 'meilenstein'],
   'income-expense-balance': ['einkommen', 'ausgaben', 'saldo'],
-  'tax-fee-flow': ['steuer', 'gebühr', 'ter', 'kosten'],
+  'tax-fee-flow': ['steuer', 'gebühr', 'fondskosten', 'kostenquote'],
 };
-
-const normalize = (value: string): string => value.toLocaleLowerCase('de-DE');
 
 export const rankAnimationTemplates = (
   request: FinanceAnimationRequest,
 ): AnimationSelectionCandidate[] => {
-  const haystack = normalize(`${request.message} ${request.voiceText}`);
+  const haystack = normalizeFinanceText(`${request.message} ${request.voiceText}`);
 
   return FINANCE_ANIMATION_TEMPLATES.map((definition) => {
-    const matches = KEYWORDS[definition.id].filter((keyword) => haystack.includes(keyword));
+    const matches = KEYWORDS[definition.id].filter((keyword) =>
+      containsFinanceKeyword(haystack, keyword),
+    );
     const preferredBonus = request.preferredTemplate === definition.id ? 3 : 0;
-    const dataCoverage = definition.requiredData.filter((key) => request.data?.[key] !== undefined).length;
+    const dataCoverage = definition.requiredData.filter((key) =>
+      request.data?.[key] !== undefined,
+    ).length;
     const score = matches.length * 2 + preferredBonus + dataCoverage;
 
     return {
