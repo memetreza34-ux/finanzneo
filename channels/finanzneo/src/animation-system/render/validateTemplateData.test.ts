@@ -56,6 +56,37 @@ describe('validateTemplateData', () => {
     expect(result.errors).toContain('Zahlenwert ist ungültig: returnPercent');
   });
 
+  it('rejects non-positive and non-integer durations', () => {
+    const result = validateTemplateData(makeScene('monthly-investment', {
+      monthlyRate: 250,
+      months: 0.5,
+    }));
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('Zahlenwert muss ganzzahlig sein: months');
+  });
+
+  it('allows negative returns above minus one hundred percent', () => {
+    const result = validateTemplateData(makeScene('monthly-investment', {
+      monthlyRate: 250,
+      months: 12,
+      annualReturn: -10,
+    }));
+
+    expect(result.ok).toBe(true);
+  });
+
+  it('rejects a return of minus one hundred percent or lower', () => {
+    const result = validateTemplateData(makeScene('monthly-investment', {
+      monthlyRate: 250,
+      months: 12,
+      annualReturn: -100,
+    }));
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('Rendite muss größer als -100 Prozent sein.');
+  });
+
   it('rejects malformed structured lists', () => {
     const result = validateTemplateData(makeScene('portfolio-allocation', {
       allocations: [{label: '', value: -10}],
@@ -63,6 +94,24 @@ describe('validateTemplateData', () => {
 
     expect(result.ok).toBe(false);
     expect(result.errors).toContain('Portfolio-Einträge benötigen Label und nichtnegative Zahl.');
+  });
+
+  it('rejects a portfolio with zero total allocation', () => {
+    const result = validateTemplateData(makeScene('portfolio-allocation', {
+      allocations: [{label: 'ETF', value: 0}, {label: 'Cash', value: 0}],
+    }));
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('Portfolio-Gewichtungen müssen zusammen größer als null sein.');
+  });
+
+  it('warns when a timeline has no visible development', () => {
+    const result = validateTemplateData(makeScene('timeline-milestones', {
+      milestones: [{label: 'Start', value: 0}],
+    }));
+
+    expect(result.ok).toBe(true);
+    expect(result.warnings).toContain('Eine Zeitleiste mit nur einem Meilenstein zeigt keine Entwicklung.');
   });
 
   it('warns when budget percentages do not total one hundred', () => {
@@ -75,6 +124,29 @@ describe('validateTemplateData', () => {
 
     expect(result.ok).toBe(true);
     expect(result.warnings[0]).toContain('statt 100 Prozent');
+  });
+
+  it('rejects paid installments above the installment total', () => {
+    const result = validateTemplateData(makeScene('debt-paydown', {
+      originalDebt: 12000,
+      remainingDebt: 4000,
+      paidInstallments: 30,
+      totalInstallments: 24,
+    }));
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('Bezahlte Raten überschreiten die Gesamtzahl der Raten.');
+  });
+
+  it('warns about identical flow labels', () => {
+    const result = validateTemplateData(makeScene('money-flow', {
+      amount: 300,
+      fromLabel: 'ETF',
+      toLabel: 'ETF',
+    }));
+
+    expect(result.ok).toBe(true);
+    expect(result.warnings).toContain('Quelle und Ziel des Geldflusses sind identisch.');
   });
 
   it('rejects deductions above the gross amount', () => {
