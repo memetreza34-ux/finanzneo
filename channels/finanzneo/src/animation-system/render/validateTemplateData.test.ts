@@ -1,5 +1,9 @@
 import {describe, expect, it} from 'vitest';
-import type {FinanceAnimationScene} from '../contracts';
+import type {
+  FinanceAnimationData,
+  FinanceAnimationScene,
+  FinanceAnimationTemplate,
+} from '../contracts';
 import {validateTemplateData} from './validateTemplateData';
 
 const baseScene: FinanceAnimationScene = {
@@ -14,6 +18,15 @@ const baseScene: FinanceAnimationScene = {
     toLabel: 'ETF',
   },
 };
+
+const makeScene = (
+  template: FinanceAnimationTemplate,
+  data: FinanceAnimationData,
+): FinanceAnimationScene => ({
+  ...baseScene,
+  template,
+  data,
+});
 
 describe('validateTemplateData', () => {
   it('accepts complete template data', () => {
@@ -30,6 +43,49 @@ describe('validateTemplateData', () => {
     expect(result.ok).toBe(false);
     expect(result.errors).toContain('Pflichtwert fehlt: fromLabel');
     expect(result.errors).toContain('Pflichtwert fehlt: toLabel');
+  });
+
+  it('rejects invalid numeric and percentage values', () => {
+    const result = validateTemplateData(makeScene('risk-return-scale', {
+      riskPercent: 140,
+      returnPercent: Number.NaN,
+    }));
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('Prozentwert liegt über 100: riskPercent');
+    expect(result.errors).toContain('Zahlenwert ist ungültig: returnPercent');
+  });
+
+  it('rejects malformed structured lists', () => {
+    const result = validateTemplateData(makeScene('portfolio-allocation', {
+      allocations: [{label: '', value: -10}],
+    }));
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('Portfolio-Einträge benötigen Label und nichtnegative Zahl.');
+  });
+
+  it('warns when budget percentages do not total one hundred', () => {
+    const result = validateTemplateData(makeScene('budget-split', {
+      income: 2500,
+      needsPercent: 50,
+      wantsPercent: 20,
+      savingsPercent: 10,
+    }));
+
+    expect(result.ok).toBe(true);
+    expect(result.warnings[0]).toContain('statt 100 Prozent');
+  });
+
+  it('rejects deductions above the gross amount', () => {
+    const result = validateTemplateData(makeScene('tax-fee-flow', {
+      grossAmount: 1000,
+      taxes: 800,
+      fees: 300,
+    }));
+
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('Steuern und Gebühren überschreiten den Bruttobetrag.');
   });
 
   it('warns about excessive labels', () => {
