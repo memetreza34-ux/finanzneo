@@ -50,7 +50,7 @@ describe('planFinanceAnimationInput', () => {
       expect(result.errors).toEqual(expect.arrayContaining([
         'Kernaussage muss ein Text sein.',
         'Voiceover muss ein Text sein.',
-        'Animationsdaten müssen als Objekt vorliegen.',
+        'Animationsdaten müssen als einfaches Objekt vorliegen.',
       ]));
     }
   });
