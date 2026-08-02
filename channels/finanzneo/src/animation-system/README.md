@@ -1,18 +1,21 @@
 # FinanzNeo Animation System (vorbereitet, deaktiviert)
 
-Dieses Verzeichnis enthält die Grundlage für spätere vollständige Remotion-Finanzanimationen.
+Dieses Verzeichnis enthält die technische Grundlage für spätere Remotion-Finanzanimationen. Das System ist bewusst von der produktiven `image-first-lite`-Pipeline getrennt.
 
 ## Sicherheitszustand
 
-Das System ist absichtlich **nicht produktiv aktiv**.
+Das System ist **nicht produktiv aktiv**:
 
 - `enabled: false`
-- keine automatische Szenenklassifikation
-- keine Änderung am bestehenden `image-first-lite`-Renderer
+- `allowHybrid: false`
+- `allowFullAnimation: false`
+- `allowAutomaticRouting: false`
+- keine Registrierung im produktiven `FinanzNeoRoot`
 - keine Änderung an bestehenden Scene-Plan-Verträgen
-- keine produktive Composition registriert
+- keine Anbindung an `FinanceProductionLayer`
+- ungültige Animationsdaten werden nicht gerendert
 
-Der aktuelle Bild-Workflow bleibt vollständig unverändert.
+Der bestehende Bild-Workflow bleibt unverändert.
 
 ## Zielmodi
 
@@ -23,12 +26,12 @@ Der aktuelle Bild-Workflow bleibt vollständig unverändert.
 ## Enthalten
 
 - Typen für Szenenmodi, Entscheidungen, Requests und Template-Daten
-- zentrale Feature Flags, standardmäßig vollständig deaktiviert
-- konservativer Scene Classifier
-- Template-Selector und strukturierter Animationsplan
-- sicherer Bild-Fallback mit dokumentierten Gründen
-- Datenvalidierung und fachliche QA
-- Finanzberechnungen für Zinseszins, Sparplan, Inflation, Kredit und Portfolio-Aufteilung
+- zentral typisierte und standardmäßig deaktivierte Feature Flags
+- konservatives Routing mit vollständigen Begriffen statt unsicherer Teilworttreffer
+- Template-Auswahl anhand von Inhalt, bevorzugtem Template und Datenabdeckung
+- strukturierter Animationsplan mit sicherem Bild-Fallback
+- generische Szenenprüfung und templatespezifische Datenvalidierung
+- robuste Finanzberechnungen für Zinseszins, Sparplan, Inflation, Kredit und Portfolio-Aufteilung
 - wiederverwendbare visuelle Primitive:
   - animierte Zahlen
   - Fortschrittsbalken
@@ -49,8 +52,29 @@ Der aktuelle Bild-Workflow bleibt vollständig unverändert.
 - zentraler `FinanceAnimationRenderer`
 - isolierte Galerie-Composition
 - Tests für Berechnungen, Router, Selector, Planung, Registry, Renderer, QA und Fallback
+- isolierte TypeScript-Konfiguration für das Animationssystem
 
-## Galerie lokal prüfen
+## Lokal prüfen
+
+Nur TypeScript prüfen:
+
+```bash
+npm run finance:animation-typecheck
+```
+
+Nur die Animationstests ausführen:
+
+```bash
+npm run finance:animation-test
+```
+
+Typecheck, Tests und Galerie-Still gemeinsam ausführen:
+
+```bash
+npm run finance:animation-validate
+```
+
+## Galerie prüfen
 
 Die Galerie ist vom normalen FinanzNeo-Root getrennt:
 
@@ -58,17 +82,30 @@ Die Galerie ist vom normalen FinanzNeo-Root getrennt:
 npm run finance:animation-gallery
 ```
 
-Ein einzelnes Vorschaubild kann separat erzeugt werden:
+Ein einzelnes Vorschaubild wird separat erzeugt mit:
 
 ```bash
 npm run finance:animation-gallery:still
 ```
 
-Diese Befehle starten ausschließlich den isolierten Galerie-Entry-Point. Sie aktivieren keine Animationen im produktiven Reel-Workflow.
+Diese Befehle verwenden ausschließlich den isolierten Galerie-Entry-Point und aktivieren keine Animation im produktiven Reel-Workflow.
+
+## Validierungsregeln
+
+Vor einem Render werden unter anderem geprüft:
+
+- vorhandene Pflichtfelder des ausgewählten Templates
+- endliche und nichtnegative Geldwerte
+- gültige Prozentwerte
+- strukturierte Portfolio- und Timeline-Daten
+- Budgetanteile und deren Summe
+- Verhältnis von Ausgangs- und Restschuld
+- Steuern und Gebühren im Verhältnis zum Bruttobetrag
+- Kernaussage, Voiceover und Anzahl sichtbarer Labels
+
+Bei einem Fehler erzeugt der Planner keine Animationsszene. Der bestehende Bildmodus bleibt der sichere Rückfall.
 
 ## Produktionsstatus
-
-Die vorbereitete Grundlage ist vollständig vorhanden. Sie wird dennoch absichtlich nicht benutzt.
 
 Nicht angebunden sind weiterhin:
 
@@ -77,15 +114,16 @@ Nicht angebunden sind weiterhin:
 - produktive Scene-Plan-Verträge
 - automatische Szenenauswahl für bestehende Reels
 
+Die Grundlage ist technisch vorbereitet, aber erst nach einem bestätigten vollständigen Testlauf und einer visuellen Galerieprüfung aktivierbar.
+
 ## Spätere Aktivierung
 
-Eine spätere Aktivierung erfolgt bewusst in einem separaten Schritt:
+1. Typecheck, Tests und Galerie-Render erfolgreich bestätigen.
+2. Galerie visuell prüfen und Templates gestalterisch freigeben.
+3. mindestens ein vollständiges Test-Reel rendern.
+4. Animationsfelder kontrolliert in die produktiven Scene-Plan-Verträge aufnehmen.
+5. `FinanceAnimationRenderer` hinter dem bestehenden Bild-Fallback anbinden.
+6. Feature Flags einzeln aktivieren.
+7. erst danach automatische Auswahl freigeben.
 
-1. Galerie visuell prüfen und Templates bei Bedarf gestalterisch verfeinern.
-2. Feature Flags einzeln aktivieren.
-3. Animationsfelder kontrolliert in die produktiven Scene-Plan-Verträge aufnehmen.
-4. `FinanceAnimationRenderer` hinter einem sicheren Fallback an `FinanceProductionLayer` anbinden.
-5. mindestens ein vollständiges Test-Reel rendern und prüfen.
-6. erst danach automatische Auswahl freigeben.
-
-Bis zu diesem Aktivierungsschritt verwendet jedes normale FinanzNeo-Reel weiterhin den bestehenden Bild-Workflow.
+Bis dahin verwendet jedes normale FinanzNeo-Reel weiterhin ausschließlich den bestehenden Bild-Workflow.
