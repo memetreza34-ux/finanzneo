@@ -1,6 +1,9 @@
 import React from 'react';
 import {describe, expect, it} from 'vitest';
-import {FinanceAnimationRenderer} from './FinanceAnimationRenderer';
+import {
+  FinanceAnimationRenderer,
+  percentagePointsToRatio,
+} from './FinanceAnimationRenderer';
 import type {FinanceAnimationScene, FinanceAnimationTemplate} from '../contracts';
 
 const makeScene = (
@@ -41,5 +44,27 @@ describe('FinanceAnimationRenderer', () => {
     });
 
     expect(element).toBeNull();
+  });
+
+  it('refuses to render semantically inconsistent template data', () => {
+    const element = FinanceAnimationRenderer({
+      scene: makeScene('budget-split', {
+        income: 2500,
+        needsPercent: 50,
+        wantsPercent: 20,
+        savingsPercent: 10,
+      }),
+    });
+
+    expect(element).toBeNull();
+  });
+});
+
+describe('percentagePointsToRatio', () => {
+  it('converts percentage points without ambiguous threshold heuristics', () => {
+    expect(percentagePointsToRatio(7)).toBeCloseTo(0.07, 8);
+    expect(percentagePointsToRatio(1)).toBeCloseTo(0.01, 8);
+    expect(percentagePointsToRatio(0.5)).toBeCloseTo(0.005, 8);
+    expect(percentagePointsToRatio(-10)).toBeCloseTo(-0.1, 8);
   });
 });
