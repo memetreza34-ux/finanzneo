@@ -29,6 +29,12 @@ const mergeUniqueIssues = (
   });
 };
 
+const fallbackReasonsFromIssues = (
+  issues: readonly AnimationValidationIssue[],
+): string[] => issues
+  .filter((issue) => issue.level === 'error')
+  .map((issue) => issue.message);
+
 export const planFinanceAnimationSceneFromDecision = (
   request: FinanceAnimationRequest,
   decision: FinanceAnimationDecision,
@@ -47,7 +53,7 @@ export const planFinanceAnimationSceneFromDecision = (
       message: 'Eine Animationsentscheidung benötigt ein Template.',
     }];
     return {
-      decision: createImageFallback(request, issues.map((issue) => issue.code)),
+      decision: createImageFallback(request, fallbackReasonsFromIssues(issues)),
       issues,
     };
   }
@@ -79,7 +85,7 @@ export const planFinanceAnimationSceneFromDecision = (
     return {
       decision: createImageFallback(
         request,
-        errors.map((issue) => issue.code),
+        fallbackReasonsFromIssues(errors),
       ),
       issues,
     };
