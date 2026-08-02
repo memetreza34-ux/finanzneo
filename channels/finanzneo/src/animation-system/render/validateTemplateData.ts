@@ -41,7 +41,6 @@ const NON_NEGATIVE_KEYS = new Set([
   'afterValue',
   'riskPercent',
   'returnPercent',
-  'income',
   'expenses',
   'grossAmount',
   'taxes',
@@ -179,14 +178,14 @@ export const validateTemplateData = (
     if (values.length === 3) {
       const total = values.reduce((sum, value) => sum + value, 0);
       if (Math.abs(total - 100) > 0.5) {
-        warnings.push(`Budgetanteile ergeben ${total.toFixed(1)} statt 100 Prozent.`);
+        errors.push(`Budgetanteile ergeben ${total.toFixed(1)} statt 100 Prozent.`);
       }
     }
   }
 
   if (scene.template === 'money-flow') {
     if (data.fromLabel === data.toLabel && isNonEmptyString(data.fromLabel)) {
-      warnings.push('Quelle und Ziel des Geldflusses sind identisch.');
+      errors.push('Quelle und Ziel des Geldflusses müssen unterschiedlich sein.');
     }
   }
 
@@ -194,7 +193,7 @@ export const validateTemplateData = (
     const originalDebt = data.originalDebt;
     const remainingDebt = data.remainingDebt;
     if (typeof originalDebt === 'number' && typeof remainingDebt === 'number' && remainingDebt > originalDebt) {
-      warnings.push('Die Restschuld liegt über der ursprünglichen Schuld.');
+      errors.push('Die Restschuld darf nicht über der ursprünglichen Schuld liegen.');
     }
     const paid = data.paidInstallments;
     const total = data.totalInstallments;
