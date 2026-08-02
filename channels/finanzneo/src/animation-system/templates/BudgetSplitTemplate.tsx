@@ -8,6 +8,20 @@ export type BudgetSplitTemplateProps = {
   currency?: string;
 };
 
+export const resolveBudgetBarWidth = (
+  value: number,
+  total: number,
+  progress: number,
+): number => {
+  const safeValue = Number.isFinite(value) ? Math.max(0, value) : 0;
+  const safeTotal = Number.isFinite(total) ? Math.max(0, total) : 0;
+  const safeProgress = Number.isFinite(progress)
+    ? Math.max(0, Math.min(1, progress))
+    : 0;
+  if (safeValue === 0 || safeTotal === 0 || safeProgress === 0) return 0;
+  return Math.min(100, safeValue / safeTotal * 100 * safeProgress);
+};
+
 export const BudgetSplitTemplate: React.FC<BudgetSplitTemplateProps> = ({
   income,
   categories,
@@ -15,7 +29,10 @@ export const BudgetSplitTemplate: React.FC<BudgetSplitTemplateProps> = ({
 }) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
-  const total = Math.max(1, categories.reduce((sum, item) => sum + item.value, 0));
+  const total = categories.reduce(
+    (sum, item) => sum + (Number.isFinite(item.value) ? Math.max(0, item.value) : 0),
+    0,
+  );
 
   return (
     <AbsoluteFill style={{background: '#07120B', padding: 76, fontFamily: 'Inter, sans-serif', color: '#F5F7F4'}}>
@@ -26,11 +43,11 @@ export const BudgetSplitTemplate: React.FC<BudgetSplitTemplateProps> = ({
       <div style={{marginTop: 80, display: 'grid', gap: 26}}>
         {categories.map((item, index) => {
           const start = index * 8;
-          const progress = interpolate(frame, [start, Math.min(durationInFrames - 1, start + 24)], [0, 1], {
+          const progress = interpolate(frame, [start, Math.max(start + 1, Math.min(durationInFrames - 1, start + 24))], [0, 1], {
             extrapolateLeft: 'clamp',
             extrapolateRight: 'clamp',
           });
-          const width = Math.max(6, (item.value / total) * 100 * progress);
+          const width = resolveBudgetBarWidth(item.value, total, progress);
           return (
             <div key={`${item.label}-${index}`}>
               <div style={{display: 'flex', justifyContent: 'space-between', gap: 30, fontSize: 34, fontWeight: 800}}>
@@ -38,7 +55,7 @@ export const BudgetSplitTemplate: React.FC<BudgetSplitTemplateProps> = ({
                 <span><AnimatedNumber value={item.value} suffix={` ${currency}`} /></span>
               </div>
               <div style={{height: 38, borderRadius: 999, marginTop: 14, background: 'rgba(255,255,255,0.09)', overflow: 'hidden'}}>
-                <div style={{width: `${width}%`, height: '100%', borderRadius: 999, background: '#5CFF9A', boxShadow: '0 0 28px rgba(92,255,154,0.34)'}} />
+                <div style={{width: `${width}%`, height: '100%', borderRadius: 999, background: '#5CFF9A', boxShadow: width > 0 ? '0 0 28px rgba(92,255,154,0.34)' : 'none'}} />
               </div>
             </div>
           );
