@@ -35,7 +35,11 @@ export const MonthlyInvestmentTemplate: React.FC<MonthlyInvestmentTemplateProps>
         Eingezahlt: <AnimatedNumber value={invested} suffix=" €" decimals={0} />
       </div>
       <div style={{marginTop: 72}}>
-        <ProgressBar progress={progress} label={`${completedMonths} von ${months} Monaten`} />
+        <ProgressBar
+          progress={progress}
+          animated={false}
+          label={`${completedMonths} von ${months} Monaten`}
+        />
       </div>
       <div style={{position: 'absolute', left: 72, right: 72, bottom: 120, display: 'flex', justifyContent: 'space-between', fontSize: 30}}>
         <span>{monthlyAmount.toLocaleString('de-DE')} € pro Monat</span>
