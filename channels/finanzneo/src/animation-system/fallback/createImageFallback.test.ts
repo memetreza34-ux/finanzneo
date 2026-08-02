@@ -1,5 +1,8 @@
 import {describe, expect, it} from 'vitest';
-import {createImageFallback} from './createImageFallback';
+import {
+  createImageFallback,
+  normalizeFallbackReasons,
+} from './createImageFallback';
 
 describe('createImageFallback', () => {
   it('returns the image mode with full confidence', () => {
@@ -19,5 +22,26 @@ describe('createImageFallback', () => {
     expect(decision.blockedReasons).toContain('Kein passendes Template.');
     expect(decision.blockedReasons).toContain('Kernaussage fehlt.');
     expect(decision.blockedReasons).toContain('Voiceover-Text fehlt.');
+  });
+
+  it('normalizes empty and duplicate reasons', () => {
+    expect(normalizeFallbackReasons([
+      ' Daten fehlen. ',
+      '',
+      'Daten fehlen.',
+      'Template fehlt.',
+    ])).toEqual([
+      'Daten fehlen.',
+      'Template fehlt.',
+    ]);
+  });
+
+  it('does not duplicate generated and supplied reasons', () => {
+    const decision = createImageFallback(
+      {message: '', voiceText: 'Vorhandener Text.'},
+      ['Kernaussage fehlt.', ' Kernaussage fehlt. '],
+    );
+
+    expect(decision.blockedReasons).toEqual(['Kernaussage fehlt.']);
   });
 });
