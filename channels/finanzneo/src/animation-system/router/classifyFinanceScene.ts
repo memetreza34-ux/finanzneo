@@ -52,8 +52,8 @@ export const classifyFinanceSceneWithFeatures = (
     };
   }
 
-  if (haveAmbiguousTopCandidates(rankedMatches)) {
-    const secondMatch = rankedMatches[1];
+  const secondMatch = rankedMatches[1];
+  if (haveAmbiguousTopCandidates(rankedMatches) && secondMatch) {
     return {
       mode: 'image',
       confidence: 0.82,
