@@ -28,29 +28,48 @@ export type PortfolioAllocationInput = {
   value: number;
 };
 
+const finiteOrZero = (value: number): number =>
+  Number.isFinite(value) ? value : 0;
+
+const nonNegativeFinite = (value: number): number =>
+  Math.max(0, finiteOrZero(value));
+
+const safeAnnualRate = (value: number): number =>
+  Math.max(-0.999999, finiteOrZero(value));
+
+const safeYears = (value: number): number =>
+  nonNegativeFinite(value);
+
 export const futureValueLumpSum = (
   principal: number,
   annualRate: number,
   years: number,
-): number => principal * (1 + annualRate) ** years;
+): number => {
+  const safePrincipal = nonNegativeFinite(principal);
+  return safePrincipal * (1 + safeAnnualRate(annualRate)) ** safeYears(years);
+};
 
 export const futureValueMonthlyInvestment = (
   monthlyContribution: number,
   annualRate: number,
   years: number,
 ): number => {
-  const months = Math.max(0, Math.round(years * 12));
-  const monthlyRate = annualRate / 12;
-  if (months === 0) return 0;
-  if (monthlyRate === 0) return monthlyContribution * months;
-  return monthlyContribution * (((1 + monthlyRate) ** months - 1) / monthlyRate);
+  const contribution = nonNegativeFinite(monthlyContribution);
+  const months = Math.max(0, Math.round(safeYears(years) * 12));
+  const monthlyRate = safeAnnualRate(annualRate) / 12;
+  if (months === 0 || contribution === 0) return 0;
+  if (Math.abs(monthlyRate) < Number.EPSILON) return contribution * months;
+  return contribution * (((1 + monthlyRate) ** months - 1) / monthlyRate);
 };
 
 export const inflationAdjustedValue = (
   nominalValue: number,
   annualInflation: number,
   years: number,
-): number => nominalValue / (1 + annualInflation) ** years;
+): number => {
+  const amount = nonNegativeFinite(nominalValue);
+  return amount / (1 + safeAnnualRate(annualInflation)) ** safeYears(years);
+};
 
 export const remainingLoanBalance = (
   principal: number,
@@ -58,15 +77,20 @@ export const remainingLoanBalance = (
   monthlyPayment: number,
   paidMonths: number,
 ): number => {
-  const monthlyRate = annualRate / 12;
-  if (paidMonths <= 0) return principal;
-  if (monthlyRate === 0) return Math.max(0, principal - monthlyPayment * paidMonths);
-  const growth = (1 + monthlyRate) ** paidMonths;
-  return Math.max(0, principal * growth - monthlyPayment * ((growth - 1) / monthlyRate));
+  const safePrincipal = nonNegativeFinite(principal);
+  const payment = nonNegativeFinite(monthlyPayment);
+  const months = Math.max(0, Math.round(nonNegativeFinite(paidMonths)));
+  const monthlyRate = safeAnnualRate(annualRate) / 12;
+  if (months === 0) return safePrincipal;
+  if (Math.abs(monthlyRate) < Number.EPSILON) {
+    return Math.max(0, safePrincipal - payment * months);
+  }
+  const growth = (1 + monthlyRate) ** months;
+  return Math.max(0, safePrincipal * growth - payment * ((growth - 1) / monthlyRate));
 };
 
 export const normalizeAllocation = (values: number[]): number[] => {
-  const safeValues = values.map((value) => Math.max(0, value));
+  const safeValues = values.map(nonNegativeFinite);
   const total = safeValues.reduce((sum, value) => sum + value, 0);
   if (total === 0) return safeValues.map(() => 0);
   return safeValues.map((value) => value / total);
@@ -87,13 +111,14 @@ export const calculateMonthlyInvestment = ({
   finalValue: number;
   earnings: number;
 } => {
-  const months = Math.max(0, Math.round(years * 12));
-  const totalContributions = monthlyRate * months;
-  const finalValue = futureValueMonthlyInvestment(monthlyRate, annualRate, years);
+  const contribution = nonNegativeFinite(monthlyRate);
+  const months = Math.max(0, Math.round(safeYears(years) * 12));
+  const totalContributions = contribution * months;
+  const finalValue = futureValueMonthlyInvestment(contribution, annualRate, years);
   return {
     totalContributions,
     finalValue,
-    earnings: Math.max(0, finalValue - totalContributions),
+    earnings: finalValue - totalContributions,
   };
 };
 
@@ -111,10 +136,14 @@ export const calculateLoanBalance = ({
 }: LoanBalanceInput): {
   remainingBalance: number;
   totalPaid: number;
-} => ({
-  remainingBalance: remainingLoanBalance(principal, annualRate, monthlyPayment, months),
-  totalPaid: monthlyPayment * Math.max(0, months),
-});
+} => {
+  const safeMonths = Math.max(0, Math.round(nonNegativeFinite(months)));
+  const payment = nonNegativeFinite(monthlyPayment);
+  return {
+    remainingBalance: remainingLoanBalance(principal, annualRate, payment, safeMonths),
+    totalPaid: payment * safeMonths,
+  };
+};
 
 export const normalizePortfolioAllocation = (
   allocations: PortfolioAllocationInput[],
@@ -122,6 +151,7 @@ export const normalizePortfolioAllocation = (
   const normalized = normalizeAllocation(allocations.map((item) => item.value));
   return allocations.map((item, index) => ({
     ...item,
+    value: nonNegativeFinite(item.value),
     percent: normalized[index] * 100,
   }));
 };
