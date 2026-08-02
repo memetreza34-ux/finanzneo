@@ -5,7 +5,7 @@ export * from './router/classifyFinanceScene';
 export * from './router/financeAnimationKeywords';
 export * from './router/financeKeywordMatching';
 export * from './calculations/financeMath';
-export * from './fixtures/financeAnimationFixtures';
+export * from './fixtures';
 export * from './templates/registry';
 export * from './templates';
 export * from './primitives';
