@@ -20,36 +20,72 @@ Der aktuelle Bild-Workflow bleibt vollständig unverändert.
 - `hybrid`: Bild plus gezielte Remotion-Erklärung
 - `full-animation`: komplette Szene als Remotion-Animation
 
-## Enthaltene Grundlage
+## Enthalten
 
-- Typen für Szenenmodi und Templates
-- konservativer, deaktivierter Scene Classifier
+- Typen für Szenenmodi, Entscheidungen, Requests und Template-Daten
+- zentrale Feature Flags, standardmäßig vollständig deaktiviert
+- konservativer Scene Classifier
+- Template-Selector und strukturierter Animationsplan
+- sicherer Bild-Fallback mit dokumentierten Gründen
+- Datenvalidierung und fachliche QA
 - Finanzberechnungen für Zinseszins, Sparplan, Inflation, Kredit und Portfolio-Aufteilung
-- Registry für zwölf geplante Finanzanimationstemplates
-- zentrale Feature Flags
 - wiederverwendbare visuelle Primitive:
   - animierte Zahlen
   - Fortschrittsbalken
   - Finanz-Flussknoten
-- erste nicht angebundene Remotion-Templates:
-  - `compound-growth`
+- zwölf getrennte Remotion-Finanztemplates:
   - `money-flow`
-- einfache QA für Kernaussage, Voiceover, Daten, Labels und Template-Zuordnung
+  - `budget-split`
+  - `compound-growth`
+  - `portfolio-allocation`
+  - `inflation-erosion`
+  - `debt-paydown`
+  - `monthly-investment`
+  - `before-after-comparison`
+  - `risk-return-scale`
+  - `timeline-milestones`
+  - `income-expense-balance`
+  - `tax-fee-flow`
+- zentraler `FinanceAnimationRenderer`
+- isolierte Galerie-Composition
+- Tests für Berechnungen, Router, Selector, Planung, Registry, Renderer, QA und Fallback
 
-## Wichtig
+## Galerie lokal prüfen
 
-Die neuen Templates sind nur Bausteine im Branch. Sie werden nirgends automatisch gerendert und sind nicht mit `FinanceProductionLayer` verbunden.
+Die Galerie ist vom normalen FinanzNeo-Root getrennt:
+
+```bash
+npm run finance:animation-gallery
+```
+
+Ein einzelnes Vorschaubild kann separat erzeugt werden:
+
+```bash
+npm run finance:animation-gallery:still
+```
+
+Diese Befehle starten ausschließlich den isolierten Galerie-Entry-Point. Sie aktivieren keine Animationen im produktiven Reel-Workflow.
+
+## Produktionsstatus
+
+Die vorbereitete Grundlage ist vollständig vorhanden. Sie wird dennoch absichtlich nicht benutzt.
+
+Nicht angebunden sind weiterhin:
+
+- `FinanceProductionLayer`
+- `FinanceImageFirstReel`
+- produktive Scene-Plan-Verträge
+- automatische Szenenauswahl für bestehende Reels
 
 ## Spätere Aktivierung
 
-Vor einer Aktivierung müssen mindestens folgende Punkte abgeschlossen sein:
+Eine spätere Aktivierung erfolgt bewusst in einem separaten Schritt:
 
-1. weitere visuelle Primitive im FinanzNeo-Stil,
-2. mindestens sechs produktionsreife Templates,
-3. eigene Galerie-Composition,
-4. visuelle und fachliche QA,
-5. Tests für Berechnungen, Router und Templates,
-6. bewusste Integration in `FinanceProductionLayer`,
-7. Feature Flags erst danach einzeln freischalten.
+1. Galerie visuell prüfen und Templates bei Bedarf gestalterisch verfeinern.
+2. Feature Flags einzeln aktivieren.
+3. Animationsfelder kontrolliert in die produktiven Scene-Plan-Verträge aufnehmen.
+4. `FinanceAnimationRenderer` hinter einem sicheren Fallback an `FinanceProductionLayer` anbinden.
+5. mindestens ein vollständiges Test-Reel rendern und prüfen.
+6. erst danach automatische Auswahl freigeben.
 
-Bis dahin darf kein bestehendes Reel automatisch eine Animation verwenden.
+Bis zu diesem Aktivierungsschritt verwendet jedes normale FinanzNeo-Reel weiterhin den bestehenden Bild-Workflow.
