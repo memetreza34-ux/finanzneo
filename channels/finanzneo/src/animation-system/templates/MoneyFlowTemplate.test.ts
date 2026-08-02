@@ -10,7 +10,19 @@ describe('normalizeMoneyFlowItems', () => {
     ]);
 
     expect(result.map((item) => item.normalizedShare)).toEqual([0.5, 0.3, 0.2]);
+    expect(result.map((item) => item.displayPercent)).toEqual([50, 30, 20]);
     expect(result.reduce((sum, item) => sum + item.normalizedShare, 0)).toBeCloseTo(1, 8);
+    expect(result.reduce((sum, item) => sum + item.displayPercent, 0)).toBe(100);
+  });
+
+  it('uses a stable largest-remainder distribution for thirds', () => {
+    const result = normalizeMoneyFlowItems([
+      {label: 'A', value: '1 €', share: 1},
+      {label: 'B', value: '1 €', share: 1},
+      {label: 'C', value: '1 €', share: 1},
+    ]);
+
+    expect(result.map((item) => item.displayPercent)).toEqual([34, 33, 33]);
   });
 
   it('uses equal shares when all inputs are invalid or zero', () => {
@@ -20,6 +32,7 @@ describe('normalizeMoneyFlowItems', () => {
     ]);
 
     expect(result.map((item) => item.normalizedShare)).toEqual([0.5, 0.5]);
+    expect(result.map((item) => item.displayPercent)).toEqual([50, 50]);
   });
 
   it('limits the visual to four destinations', () => {
@@ -32,5 +45,6 @@ describe('normalizeMoneyFlowItems', () => {
     ]);
 
     expect(result).toHaveLength(4);
+    expect(result.reduce((sum, item) => sum + item.displayPercent, 0)).toBe(100);
   });
 });
