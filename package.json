@@ -17,6 +17,8 @@
     "finance:new": "node scripts/safe-new-finance-week-reel.mjs",
     "finance:scaffold-test": "node scripts/test-finance-scaffold-transaction.mjs",
     "finance:gallery": "cd channels/finanzneo && npx remotion studio src/layout-gallery-index.ts",
+    "finance:animation-gallery": "cd channels/finanzneo && npx remotion studio src/animation-system/gallery/gallery-index.ts",
+    "finance:animation-gallery:still": "cd channels/finanzneo && npx remotion still src/animation-system/gallery/gallery-index.ts FinanceAnimationGallery /tmp/finance-animation-gallery.png --frame=0",
     "finance:align": "node scripts/align-finance-plan.mjs",
     "finance:assets": "node scripts/run-finance-with-folder-check.mjs scripts/ingest-finance-assets.mjs",
     "finance:script-qa": "node scripts/run-finance-script-qa.mjs",
