@@ -1,4 +1,6 @@
+import React from 'react';
 import {describe, expect, it} from 'vitest';
+import {FinanceAnimationRenderer} from '../render/FinanceAnimationRenderer';
 import {validateTemplateData} from '../render/validateTemplateData';
 import {FINANCE_ANIMATION_TEMPLATES} from '../templates/registry';
 import {
@@ -19,7 +21,7 @@ describe('financeAnimationFixtures', () => {
     expect(new Set(fixtureTemplates).size).toBe(fixtureTemplates.length);
   });
 
-  it('keeps every canonical fixture fully renderable', () => {
+  it('keeps every canonical fixture fully valid', () => {
     for (const fixture of FINANCE_ANIMATION_FIXTURES) {
       expect(validateTemplateData(fixture.scene)).toEqual({
         ok: true,
@@ -27,6 +29,13 @@ describe('financeAnimationFixtures', () => {
         errors: [],
         warnings: [],
       });
+    }
+  });
+
+  it('maps every canonical fixture through the central renderer', () => {
+    for (const fixture of FINANCE_ANIMATION_FIXTURES) {
+      const element = FinanceAnimationRenderer({scene: fixture.scene});
+      expect(React.isValidElement(element)).toBe(true);
     }
   });
 
