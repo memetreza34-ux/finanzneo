@@ -5,7 +5,7 @@ import type {
 } from '../contracts';
 import {classifyFinanceScene} from '../router/classifyFinanceScene';
 import {validateAnimationScene} from '../qa/validateAnimationScene';
-import {createImageFallbackDecision} from '../fallback/createImageFallbackDecision';
+import {createImageFallback} from '../fallback/createImageFallback';
 
 export type FinanceAnimationPlanResult = {
   decision: FinanceAnimationDecision;
@@ -36,8 +36,8 @@ export const planFinanceAnimationScene = (
 
   if (errors.length > 0) {
     return {
-      decision: createImageFallbackDecision(
-        'Animationsszene ist unvollständig und fällt deshalb sicher auf den Bildmodus zurück.',
+      decision: createImageFallback(
+        request,
         errors.map((issue) => issue.code),
       ),
       issues,
