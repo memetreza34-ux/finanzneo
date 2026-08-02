@@ -27,12 +27,13 @@ Der bestehende Bild-Workflow bleibt unverändert.
 ## Enthalten
 
 - Typen für Szenenmodi, Entscheidungen, Requests und Template-Daten
+- strenge Datenverträge für jedes der zwölf Templates
 - zentral typisierte, eingefrorene und standardmäßig deaktivierte Feature Flags
 - gemeinsamer Begriffskatalog für Router und Template-Selector
 - konservatives Routing mit vollständigen Begriffen statt unsicherer Teilworttreffer
 - Template-Auswahl anhand von Inhalt, bevorzugtem Template und Datenabdeckung
 - strukturierter Animationsplan mit sicherem Bild-Fallback
-- generische Szenenprüfung und templatespezifische Datenvalidierung
+- generische Szenenprüfung, Datenvalidierung und Präsentationsgrenzen
 - robuste Finanzberechnungen für Zinseszins, Sparplan, Inflation, Kredit und Portfolio-Aufteilung
 - kanonische, vollständig validierbare Beispielszenen für alle zwölf Templates
 - wiederverwendbare visuelle Primitive:
@@ -55,7 +56,7 @@ Der bestehende Bild-Workflow bleibt unverändert.
 - zentraler `FinanceAnimationRenderer`
 - sequenzielle Galerie und Kontaktbogen mit allen zwölf Templates
 - Galerie läuft durch denselben Renderer und dieselben Beispielszenen wie die Tests
-- Tests für Berechnungen, Router, Begriffskatalog, Selector, Planung, Registry, Renderer, Fixtures, Galerie, Primitive, QA und Fallback
+- Tests für Berechnungen, Router, Begriffskatalog, Selector, Planung, Registry, Renderer, Datenverträge, Fixtures, Galerie, Primitive, QA und Fallback
 - isolierte TypeScript-Konfiguration für das Animationssystem
 - ausführbarer Produktions-Isolationscheck
 
@@ -85,6 +86,20 @@ Isolation, Typecheck, Tests und Galerie-Kontaktbogen gemeinsam ausführen:
 npm run finance:animation-validate
 ```
 
+## Strenge Template-Datenverträge
+
+`templateDataContracts.ts` definiert für jede Template-ID den passenden Datenvertrag. Intern erzeugte Szenen können damit nicht mehr versehentlich Felder eines anderen Templates erhalten.
+
+Beispiele:
+
+- `money-flow` verlangt Betrag, Quelle und Ziel
+- `compound-growth` verlangt Startkapital, Sparrate, Rendite und Jahre
+- `portfolio-allocation` verlangt strukturierte Positionen
+- `timeline-milestones` verlangt strukturierte Meilensteine
+- `tax-fee-flow` verlangt Brutto, Steuern und Gebühren
+
+Eingehende KI-Daten bleiben zunächst flexibel und werden weiterhin zur Laufzeit geprüft. Interne Fixtures und spätere kontrollierte Aufrufer nutzen dagegen die strengeren Typen.
+
 ## Kanonische Beispielszenen
 
 Die Datei `fixtures/financeAnimationFixtures.ts` enthält genau eine gültige Beispielszene pro registriertem Template.
@@ -95,6 +110,7 @@ Diese Szenen werden gemeinsam verwendet von:
 - Kontaktbogen
 - Datenvalidierungstests
 - Registry-Abgleich
+- zentralem Renderer
 - späteren Smoke- und Integrationstests
 
 Dadurch können Galerie und Tests nicht mehr unbemerkt mit voneinander abweichenden Daten arbeiten.
@@ -128,11 +144,16 @@ Vor einem Render werden unter anderem geprüft:
 - vorhandene Pflichtfelder des ausgewählten Templates
 - endliche, nichtnegative oder fachlich zulässige Zahlenwerte
 - gültige Prozentwerte und Laufzeiten
+- negative Renditen nur bei Templates, die sie sinnvoll darstellen können
 - strukturierte Portfolio- und Timeline-Daten
+- maximale Anzahl sichtbarer Portfolio-Positionen und Meilensteine
+- doppelte Portfolio- und Timeline-Labels
 - Budgetanteile und deren Summe
+- Portfolio-Prozentwerte und deren Summe
 - Verhältnis von Ausgangs- und Restschuld
 - bezahlte und gesamte Kreditraten
 - Steuern und Gebühren im Verhältnis zum Bruttobetrag
+- Vorher-Nachher-Vergleiche ohne sichtbaren Unterschied
 - Kernaussage, Voiceover, leere oder doppelte Labels und Anzahl sichtbarer Labels
 
 Bei einem Fehler erzeugt der Planner keine Animationsszene. Der bestehende Bildmodus bleibt der sichere Rückfall.
