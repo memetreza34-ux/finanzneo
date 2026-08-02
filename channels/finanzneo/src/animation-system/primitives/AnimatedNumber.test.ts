@@ -41,4 +41,15 @@ describe('resolveAnimatedNumberValue', () => {
       durationInFrames: 0,
     })).toBe(10);
   });
+
+  it('sanitizes non-finite resolved and target values', () => {
+    expect(resolveAnimatedNumberValue({frame: 10, value: Number.NaN})).toBe(0);
+    expect(resolveAnimatedNumberValue({
+      frame: Number.NaN,
+      from: Number.NaN,
+      to: Number.POSITIVE_INFINITY,
+      startFrame: Number.NaN,
+      durationInFrames: Number.NaN,
+    })).toBe(0);
+  });
 });
