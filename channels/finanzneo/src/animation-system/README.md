@@ -233,6 +233,7 @@ Die Template-Logik wurde zusätzlich abgesichert:
 - `FinanceProductionLayer.tsx` importiert das Animationssystem nicht
 - `FinanceImageFirstReel.tsx` importiert das Animationssystem nicht
 - `FinanzNeoRoot.tsx` registriert weder Renderer noch Galerie
+- auch sichere Parser-, Planner- und Renderer-APIs bleiben aus der Produktion ausgeschlossen
 
 `scripts/verify-finance-animation-foundation.mjs` prüft zusätzlich:
 
