@@ -27,7 +27,7 @@ describe('validateTemplatePresentation', () => {
     );
   });
 
-  it('warns about duplicate portfolio labels and incorrect percentage totals', () => {
+  it('rejects duplicate portfolio labels and incorrect percentage totals', () => {
     const result = validateTemplatePresentation(scene('portfolio-allocation', {
       allocations: [
         {label: 'ETF', percent: 60},
@@ -35,10 +35,10 @@ describe('validateTemplatePresentation', () => {
       ],
     }));
 
-    expect(result.warnings).toContain(
-      'Doppelte Portfolio-Labels erschweren die visuelle Zuordnung.',
+    expect(result.errors).toContain(
+      'Doppelte Portfolio-Labels sind nicht eindeutig darstellbar.',
     );
-    expect(result.warnings[1]).toContain('statt 100 Prozent');
+    expect(result.errors.some((error) => error.includes('statt 100 Prozent'))).toBe(true);
   });
 
   it('rejects timelines that exceed the horizontal layout', () => {
@@ -51,6 +51,19 @@ describe('validateTemplatePresentation', () => {
 
     expect(result.errors).toContain(
       'Das Zeitleisten-Template unterstützt höchstens fünf Meilensteine.',
+    );
+  });
+
+  it('rejects duplicate timeline labels', () => {
+    const result = validateTemplatePresentation(scene('timeline-milestones', {
+      milestones: [
+        {label: 'Start', value: 0},
+        {label: 'Start', value: 1000},
+      ],
+    }));
+
+    expect(result.errors).toContain(
+      'Doppelte Meilenstein-Labels sind zeitlich nicht eindeutig.',
     );
   });
 
