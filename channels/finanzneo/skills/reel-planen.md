@@ -57,7 +57,42 @@ Der Stil bleibt über alle Reels gleich. Nur Aussage, Szene, Figuren, Objekte un
 13. `soundCues` bleibt leer.
 14. Storyboard, einfachen Schnitt- und Bewegungsplan, Caption und PDF-Inhalt schreiben.
 15. `02-bilder/prompt-manifest.json` mit Satz, Bildaussage, Prompt und Zieldatei schreiben.
-16. Danach Content-Gate (`finance:content-ready`) ausführen.
+16. `02-bilder/alle-bildprompts.txt` als komplett kopierbare Prompt-Sammlung für Google Flow schreiben.
+17. Danach Content-Gate (`finance:content-ready`) ausführen.
+
+## PDF bleibt Pflicht
+
+Der Ordner `04-pdf/` und die Datei `04-pdf/inhalt.md` gehören weiterhin zu jedem Reel-Projekt. Sie dürfen nicht entfernt, ausgelassen oder durch die Bildprompt-Dateien ersetzt werden.
+
+## Alle Bildprompts für Google Flow
+
+Zusätzlich zum JSON-Manifest muss immer diese Datei entstehen:
+
+```text
+02-bilder/alle-bildprompts.txt
+```
+
+Sie enthält alle vollständigen Bildprompts in der Reihenfolge des Reels. Arman soll den kompletten Text markieren, kopieren und direkt in Google Flow einfügen können.
+
+Exaktes Format:
+
+```text
+SZENE 1 – BILDPROMPT
+<vollständiger englischer Prompt inklusive Master-Style-Prompt>
+
+SZENE 2 – BILDPROMPT
+<vollständiger englischer Prompt inklusive Master-Style-Prompt>
+```
+
+Verbindliche Regeln:
+
+- chronologische Reihenfolge,
+- jede Überschrift exakt `SZENE X – BILDPROMPT`,
+- immer der komplette Prompt,
+- keine Codeblöcke, Tabellen oder JSON-Zeichen,
+- keine Kommentare oder Erklärungen zwischen den Prompts,
+- genau eine Leerzeile zwischen zwei Szenen,
+- Bildwiederverwendungen nur markieren, nicht als neuen Prompt doppeln.
 
 ## Bildentscheidung pro Satz
 
