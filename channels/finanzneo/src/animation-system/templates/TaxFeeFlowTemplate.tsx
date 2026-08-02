@@ -9,6 +9,39 @@ export type TaxFeeFlowTemplateProps = {
   currency?: string;
 };
 
+export type TaxFeeFlowBreakdown = {
+  gross: number;
+  taxes: number;
+  fees: number;
+  net: number;
+  taxPercent: number;
+  feePercent: number;
+  netPercent: number;
+};
+
+export const resolveTaxFeeFlow = (
+  gross: number,
+  taxes: number,
+  fees: number,
+): TaxFeeFlowBreakdown => {
+  const safeGross = Math.max(0, Number.isFinite(gross) ? gross : 0);
+  const safeTaxes = Math.max(0, Number.isFinite(taxes) ? taxes : 0);
+  const safeFees = Math.max(0, Number.isFinite(fees) ? fees : 0);
+  const deductions = Math.min(safeGross, safeTaxes + safeFees);
+  const net = Math.max(0, safeGross - deductions);
+  const ratio = (value: number): number => safeGross > 0 ? value / safeGross * 100 : 0;
+
+  return {
+    gross: safeGross,
+    taxes: safeTaxes,
+    fees: safeFees,
+    net,
+    taxPercent: ratio(safeTaxes),
+    feePercent: ratio(safeFees),
+    netPercent: ratio(net),
+  };
+};
+
 export const TaxFeeFlowTemplate: React.FC<TaxFeeFlowTemplateProps> = ({
   gross,
   taxes,
@@ -17,7 +50,7 @@ export const TaxFeeFlowTemplate: React.FC<TaxFeeFlowTemplateProps> = ({
 }) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const net = Math.max(0, gross - taxes - fees);
+  const resolved = resolveTaxFeeFlow(gross, taxes, fees);
   const revealTax = interpolate(frame, [fps * 0.2, fps * 0.7], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
@@ -44,13 +77,13 @@ export const TaxFeeFlowTemplate: React.FC<TaxFeeFlowTemplateProps> = ({
       <div style={{fontSize: 58, fontWeight: 900, marginBottom: 54}}>Was vom Brutto übrig bleibt</div>
 
       <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28, alignItems: 'center'}}>
-        <FlowNode label="Brutto" value={`${gross.toLocaleString('de-DE')} ${currency}`} />
+        <FlowNode label="Brutto" value={`${resolved.gross.toLocaleString('de-DE')} ${currency}`} />
         <div style={{display: 'grid', gap: 22}}>
           <div style={{opacity: revealTax, transform: `translateX(${(1 - revealTax) * 36}px)`}}>
-            <FlowNode label="Steuern" value={`− ${taxes.toLocaleString('de-DE')} ${currency}`} />
+            <FlowNode label={`Steuern · ${resolved.taxPercent.toFixed(1)} %`} value={`− ${resolved.taxes.toLocaleString('de-DE')} ${currency}`} accent="#FF7C83" />
           </div>
           <div style={{opacity: revealFees, transform: `translateX(${(1 - revealFees) * 36}px)`}}>
-            <FlowNode label="Gebühren" value={`− ${fees.toLocaleString('de-DE')} ${currency}`} />
+            <FlowNode label={`Gebühren · ${resolved.feePercent.toFixed(1)} %`} value={`− ${resolved.fees.toLocaleString('de-DE')} ${currency}`} accent="#F2C14E" />
           </div>
         </div>
       </div>
@@ -66,9 +99,9 @@ export const TaxFeeFlowTemplate: React.FC<TaxFeeFlowTemplateProps> = ({
           transform: `scale(${0.94 + revealNet * 0.06})`,
         }}
       >
-        <div style={{fontSize: 28, opacity: 0.72, marginBottom: 10}}>Netto</div>
+        <div style={{fontSize: 28, opacity: 0.72, marginBottom: 10}}>Netto · {resolved.netPercent.toFixed(1)} %</div>
         <div style={{fontSize: 78, fontWeight: 950}}>
-          <AnimatedNumber value={net} suffix={` ${currency}`} />
+          <AnimatedNumber value={resolved.net} suffix={` ${currency}`} />
         </div>
       </div>
     </AbsoluteFill>
