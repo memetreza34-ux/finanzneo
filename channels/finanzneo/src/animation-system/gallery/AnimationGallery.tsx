@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Sequence} from 'remotion';
+import type {FinanceAnimationTemplate} from '../contracts';
 import {FINANCE_ANIMATION_FIXTURES} from '../fixtures/financeAnimationFixtures';
 import {FinanceAnimationRenderer} from '../render/FinanceAnimationRenderer';
 
@@ -7,7 +8,7 @@ export const FINANCE_ANIMATION_CARD_DURATION = 180;
 
 export type FinanceAnimationGalleryItem = {
   readonly name: string;
-  readonly template: string;
+  readonly template: FinanceAnimationTemplate;
   readonly render: () => React.ReactNode;
 };
 
