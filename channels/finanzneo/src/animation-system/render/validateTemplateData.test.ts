@@ -45,6 +45,22 @@ describe('validateTemplateData', () => {
     expect(result.errors).toContain('Pflichtwert fehlt: toLabel');
   });
 
+  it('requires values that are visibly rendered instead of accepting defaults', () => {
+    const portfolio = validateTemplateData(makeScene('portfolio-allocation', {
+      allocations: [{label: 'ETF', percent: 100}],
+    }));
+    expect(portfolio.errors).toContain('Pflichtwert fehlt: total');
+
+    const debt = validateTemplateData(makeScene('debt-paydown', {
+      originalDebt: 12000,
+      remainingDebt: 4200,
+    }));
+    expect(debt.errors).toEqual(expect.arrayContaining([
+      'Pflichtwert fehlt: paidInstallments',
+      'Pflichtwert fehlt: totalInstallments',
+    ]));
+  });
+
   it('rejects invalid numeric and percentage values', () => {
     const result = validateTemplateData(makeScene('risk-return-scale', {
       riskPercent: 140,
@@ -89,6 +105,7 @@ describe('validateTemplateData', () => {
 
   it('rejects malformed structured lists', () => {
     const result = validateTemplateData(makeScene('portfolio-allocation', {
+      total: 10000,
       allocations: [{label: '', value: -10}],
     }));
 
@@ -98,6 +115,7 @@ describe('validateTemplateData', () => {
 
   it('rejects a portfolio with zero total allocation', () => {
     const result = validateTemplateData(makeScene('portfolio-allocation', {
+      total: 10000,
       allocations: [{label: 'ETF', value: 0}, {label: 'Cash', value: 0}],
     }));
 
@@ -107,6 +125,7 @@ describe('validateTemplateData', () => {
 
   it('rejects explicit portfolio percentages that do not total one hundred', () => {
     const result = validateTemplateData(makeScene('portfolio-allocation', {
+      total: 10000,
       allocations: [
         {label: 'ETF', percent: 60},
         {label: 'Cash', percent: 20},
@@ -154,6 +173,8 @@ describe('validateTemplateData', () => {
     const result = validateTemplateData(makeScene('debt-paydown', {
       originalDebt: 12000,
       remainingDebt: 14000,
+      paidInstallments: 10,
+      totalInstallments: 40,
     }));
 
     expect(result.ok).toBe(false);
@@ -190,5 +211,22 @@ describe('validateTemplateData', () => {
     const result = validateTemplateData({...baseScene, labels: ['1', '2', '3', '4', '5', '6']});
     expect(result.ok).toBe(true);
     expect(result.warnings).toHaveLength(1);
+  });
+
+  it('handles malformed runtime payloads without throwing or duplicating messages', () => {
+    const malformed = {
+      ...baseScene,
+      message: 123,
+      voiceText: null,
+      data: [],
+    } as unknown as FinanceAnimationScene;
+
+    expect(() => validateTemplateData(malformed)).not.toThrow();
+    const result = validateTemplateData(malformed);
+    expect(result.ok).toBe(false);
+    expect(result.errors).toContain('Animationsdaten müssen als strukturiertes Objekt vorliegen.');
+    expect(result.errors).toContain('Kernaussage fehlt.');
+    expect(result.errors).toContain('Voiceover-Text fehlt.');
+    expect(new Set(result.errors).size).toBe(result.errors.length);
   });
 });
