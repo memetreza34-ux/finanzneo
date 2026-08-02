@@ -15,8 +15,29 @@ export type FinanceAnimationValidationInput =
   | FinanceAnimationScene
   | FinanceImageSceneValidationInput;
 
-const normalizedLabels = (labels: readonly string[] | undefined): string[] =>
-  (labels ?? []).map((label) => label.trim());
+const hasVisibleText = (value: unknown): value is string =>
+  typeof value === 'string' && value.trim().length > 0;
+
+const normalizeLabels = (labels: unknown): {
+  labels: string[];
+  invalidCount: number;
+} => {
+  if (!Array.isArray(labels)) return {labels: [], invalidCount: labels === undefined ? 0 : 1};
+
+  let invalidCount = 0;
+  const normalized = labels.map((label) => {
+    if (typeof label !== 'string') {
+      invalidCount += 1;
+      return '';
+    }
+    return label.trim();
+  });
+
+  return {labels: normalized, invalidCount};
+};
+
+const isStructuredData = (value: unknown): value is Record<string, unknown> =>
+  typeof value === 'object' && value !== null && !Array.isArray(value);
 
 export const validateAnimationRequest = (
   scene: FinanceAnimationValidationInput,
@@ -26,17 +47,23 @@ export const validateAnimationRequest = (
   }
 
   const issues: AnimationValidationIssue[] = [];
-  const labels = normalizedLabels(scene.labels);
+  const normalized = normalizeLabels(scene.labels);
+  const labels = normalized.labels;
   const nonEmptyLabels = labels.filter((label) => label.length > 0);
 
-  if (!scene.message?.trim()) {
+  if (!hasVisibleText(scene.message)) {
     issues.push({level: 'error', code: 'missing-message', message: 'Animationsszene benötigt eine klare Kernaussage.'});
   }
-  if (!scene.voiceText?.trim()) {
+  if (!hasVisibleText(scene.voiceText)) {
     issues.push({level: 'error', code: 'missing-voice-text', message: 'Animationsszene benötigt den zugehörigen Voiceover-Satz.'});
   }
-  if (!scene.data || Object.keys(scene.data).length === 0) {
+  if (scene.data !== undefined && !isStructuredData(scene.data)) {
+    issues.push({level: 'error', code: 'invalid-data', message: 'Animationsdaten müssen als strukturiertes Objekt vorliegen.'});
+  } else if (!scene.data || Object.keys(scene.data).length === 0) {
     issues.push({level: 'warning', code: 'missing-data', message: 'Animationsszene enthält keine strukturierten Finanzdaten.'});
+  }
+  if (normalized.invalidCount > 0) {
+    issues.push({level: 'warning', code: 'invalid-labels', message: 'Nicht-textuelle Labels werden in der Animation nicht angezeigt.'});
   }
   if (labels.length > 5) {
     issues.push({level: 'warning', code: 'too-many-labels', message: 'Mehr als fünf Labels können die Szene überladen.'});
@@ -47,7 +74,7 @@ export const validateAnimationRequest = (
   if (new Set(nonEmptyLabels.map((label) => label.toLocaleLowerCase('de-DE'))).size !== nonEmptyLabels.length) {
     issues.push({level: 'warning', code: 'duplicate-labels', message: 'Doppelte Labels können die visuelle Zuordnung erschweren.'});
   }
-  if ('mode' in scene && scene.mode !== 'image' && !scene.template) {
+  if ('mode' in scene && !scene.template) {
     issues.push({level: 'error', code: 'missing-template', message: 'Eine Hybrid- oder Vollanimationsszene benötigt ein Template.'});
   }
 
