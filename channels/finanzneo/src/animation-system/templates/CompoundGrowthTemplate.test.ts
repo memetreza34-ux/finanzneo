@@ -1,39 +1,81 @@
 import {describe, expect, it} from 'vitest';
+import {
+  futureValueLumpSum,
+  futureValueMonthlyInvestment,
+} from '../calculations/financeMath';
 import {resolveCompoundGrowthBars} from './CompoundGrowthTemplate';
 
+const expectedValue = (
+  principal: number,
+  monthlyContribution: number,
+  annualReturnPercent: number,
+  years: number,
+): number =>
+  futureValueLumpSum(principal, annualReturnPercent / 100, years) +
+  futureValueMonthlyInvestment(
+    monthlyContribution,
+    annualReturnPercent / 100,
+    years,
+  );
+
 describe('resolveCompoundGrowthBars', () => {
-  it('creates a monotonic value and height progression', () => {
-    const bars = resolveCompoundGrowthBars(1000, 50000, 20, 8);
+  it('calculates every visible bar from the supplied financial inputs', () => {
+    const bars = resolveCompoundGrowthBars(1000, 200, 7, 20, 8);
 
     expect(bars).toHaveLength(8);
-    expect(bars[0]?.year).toBeGreaterThanOrEqual(1);
-    expect(bars.at(-1)?.year).toBe(20);
-    expect(bars.at(-1)?.value).toBeCloseTo(50000, 8);
-    for (let index = 1; index < bars.length; index += 1) {
-      expect(bars[index].value).toBeGreaterThanOrEqual(bars[index - 1].value);
-      expect(bars[index].height).toBeGreaterThanOrEqual(bars[index - 1].height);
+    expect(bars[0]).toEqual({elapsedYears: 0, value: 1000, height: expect.any(Number)});
+    expect(bars.at(-1)?.elapsedYears).toBe(20);
+
+    for (const bar of bars) {
+      expect(bar.value).toBeCloseTo(
+        expectedValue(1000, 200, 7, bar.elapsedYears),
+        8,
+      );
     }
   });
 
-  it('uses the requested number of bars', () => {
-    expect(resolveCompoundGrowthBars(1000, 2000, 10, 4)).toHaveLength(4);
+  it('ends at the exact compound-growth result', () => {
+    const bars = resolveCompoundGrowthBars(1000, 200, 7, 20, 8);
+
+    expect(bars.at(-1)?.value).toBeCloseTo(
+      expectedValue(1000, 200, 7, 20),
+      8,
+    );
+    expect(bars.at(-1)?.height).toBeCloseTo(730, 8);
   });
 
-  it('does not visualize a direct-template decline as compound growth', () => {
-    const bars = resolveCompoundGrowthBars(1000, 500, 10, 4);
+  it('creates monotonic values and heights for nonnegative returns', () => {
+    const bars = resolveCompoundGrowthBars(1000, 200, 7, 20, 8);
 
-    expect(bars.every((bar) => bar.value >= 1000)).toBe(true);
-    expect(bars.at(-1)?.value).toBe(1000);
+    for (let index = 1; index < bars.length; index += 1) {
+      expect(bars[index]!.value).toBeGreaterThanOrEqual(bars[index - 1]!.value);
+      expect(bars[index]!.height).toBeGreaterThanOrEqual(bars[index - 1]!.height);
+    }
   });
 
-  it('sanitizes invalid values and count', () => {
+  it('uses the requested number of bars including start and end', () => {
+    const bars = resolveCompoundGrowthBars(1000, 100, 5, 10, 4);
+
+    expect(bars).toHaveLength(4);
+    expect(bars[0]?.elapsedYears).toBe(0);
+    expect(bars.at(-1)?.elapsedYears).toBe(10);
+  });
+
+  it('shows contributions without inventing a return', () => {
+    const bars = resolveCompoundGrowthBars(0, 100, 0, 1, 3);
+
+    expect(bars.map((bar) => bar.value)).toEqual([0, 600, 1200]);
+  });
+
+  it('sanitizes invalid direct-template values and count', () => {
     const bars = resolveCompoundGrowthBars(
       Number.NaN,
       Number.POSITIVE_INFINITY,
       Number.NaN,
+      Number.NaN,
       0,
     );
 
-    expect(bars).toEqual([{year: 1, value: 0, height: 730}]);
+    expect(bars).toEqual([{elapsedYears: 0, value: 0, height: 0}]);
   });
 });
