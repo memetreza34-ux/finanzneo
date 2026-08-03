@@ -1,10 +1,18 @@
 import React from 'react';
 import {describe, expect, it} from 'vitest';
+import type {FinanceAnimationScene, FinanceAnimationTemplate} from '../contracts';
+import {
+  CompoundGrowthTemplate,
+  type CompoundGrowthTemplateProps,
+  InflationErosionTemplate,
+  type InflationErosionTemplateProps,
+  MonthlyInvestmentTemplate,
+  type MonthlyInvestmentTemplateProps,
+} from '../templates';
 import {
   FinanceAnimationRenderer,
   percentagePointsToRatio,
 } from './FinanceAnimationRenderer';
-import type {FinanceAnimationScene, FinanceAnimationTemplate} from '../contracts';
 
 const makeScene = (
   template: FinanceAnimationTemplate,
@@ -23,7 +31,7 @@ describe('FinanceAnimationRenderer', () => {
     ['money-flow', {amount: 300, fromLabel: 'Gehalt', toLabel: 'ETF'}],
     ['budget-split', {income: 2500, needsPercent: 50, wantsPercent: 30, savingsPercent: 20}],
     ['inflation-erosion', {startingValue: 100, inflationPercent: 2.5, years: 10}],
-    ['portfolio-allocation', {total: 10000, allocations: [{label: 'ETF', value: 70}, {label: 'Cash', value: 30}]}],
+    ['portfolio-allocation', {total: 10000, allocations: [{label: 'ETF', value: 7000}, {label: 'Cash', value: 3000}]}],
     ['debt-paydown', {originalDebt: 12000, remainingDebt: 4200, paidInstallments: 26, totalInstallments: 40}],
     ['monthly-investment', {monthlyRate: 250, months: 12}],
     ['before-after-comparison', {beforeLabel: 'Vorher', afterLabel: 'Nachher', beforeValue: 12000, afterValue: 17800}],
@@ -36,6 +44,81 @@ describe('FinanceAnimationRenderer', () => {
   it.each(cases)('maps %s to a renderable React element', (template, data) => {
     const element = FinanceAnimationRenderer({scene: makeScene(template, data)});
     expect(React.isValidElement(element)).toBe(true);
+  });
+
+  it('passes raw compound inputs instead of a precomputed endpoint', () => {
+    const element = FinanceAnimationRenderer({
+      scene: makeScene('compound-growth', {
+        startCapital: 1000,
+        monthlyRate: 200,
+        annualReturn: 7,
+        years: 20,
+      }),
+    });
+
+    expect(React.isValidElement<CompoundGrowthTemplateProps>(element)).toBe(true);
+    if (!React.isValidElement<CompoundGrowthTemplateProps>(element)) return;
+    expect(element.type).toBe(CompoundGrowthTemplate);
+    expect(element.props).toEqual({
+      principal: 1000,
+      monthlyContribution: 200,
+      annualReturnPercent: 7,
+      years: 20,
+    });
+    expect(element.props).not.toHaveProperty('finalValue');
+  });
+
+  it('passes the inflation rate so every elapsed-time state can be calculated', () => {
+    const element = FinanceAnimationRenderer({
+      scene: makeScene('inflation-erosion', {
+        startingValue: 100,
+        inflationPercent: 2.5,
+        years: 10,
+      }),
+    });
+
+    expect(React.isValidElement<InflationErosionTemplateProps>(element)).toBe(true);
+    if (!React.isValidElement<InflationErosionTemplateProps>(element)) return;
+    expect(element.type).toBe(InflationErosionTemplate);
+    expect(element.props).toEqual({
+      startValue: 100,
+      inflationPercent: 2.5,
+      years: 10,
+    });
+    expect(element.props).not.toHaveProperty('endValue');
+  });
+
+  it('passes the annual return so every completed-month state can be calculated', () => {
+    const element = FinanceAnimationRenderer({
+      scene: makeScene('monthly-investment', {
+        monthlyRate: 250,
+        months: 12,
+        annualReturn: 7,
+      }),
+    });
+
+    expect(React.isValidElement<MonthlyInvestmentTemplateProps>(element)).toBe(true);
+    if (!React.isValidElement<MonthlyInvestmentTemplateProps>(element)) return;
+    expect(element.type).toBe(MonthlyInvestmentTemplate);
+    expect(element.props).toEqual({
+      monthlyAmount: 250,
+      months: 12,
+      annualReturnPercent: 7,
+    });
+    expect(element.props).not.toHaveProperty('finalValue');
+  });
+
+  it('uses zero return when the optional monthly-investment rate is absent', () => {
+    const element = FinanceAnimationRenderer({
+      scene: makeScene('monthly-investment', {
+        monthlyRate: 250,
+        months: 12,
+      }),
+    });
+
+    expect(React.isValidElement<MonthlyInvestmentTemplateProps>(element)).toBe(true);
+    if (!React.isValidElement<MonthlyInvestmentTemplateProps>(element)) return;
+    expect(element.props.annualReturnPercent).toBe(0);
   });
 
   it('refuses to render incomplete template data', () => {
