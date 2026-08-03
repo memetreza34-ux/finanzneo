@@ -15,11 +15,17 @@ const messagesForLevel = (
   .filter((issue) => issue.level === level)
   .map((issue) => issue.message);
 
+const uniqueMessages = (messages: readonly string[]): string[] =>
+  [...new Set(messages)];
+
 export const buildAnimationPlanFromResult = (
   result: FinanceAnimationPlanResult,
 ): FinanceAnimationPlan => {
-  const warnings = messagesForLevel(result.issues, 'warning');
-  const errors = messagesForLevel(result.issues, 'error');
+  const warnings = uniqueMessages(messagesForLevel(result.issues, 'warning'));
+  const errors = uniqueMessages([
+    ...messagesForLevel(result.issues, 'error'),
+    ...(result.decision.blockedReasons ?? []),
+  ]);
 
   if (result.decision.mode === 'image') {
     return {
