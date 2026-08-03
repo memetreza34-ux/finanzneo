@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Freeze} from 'remotion';
+import {AbsoluteFill, Sequence} from 'remotion';
 import {
   FINANCE_ANIMATION_CARD_DURATION,
   FINANCE_ANIMATION_GALLERY_ITEMS,
@@ -53,8 +53,10 @@ export const FINANCE_ANIMATION_FRAME_MATRIX_ITEMS: readonly FinanceAnimationFram
 
 /**
  * Visueller QA-Kontaktbogen für Start-, Mittel- und Endframe jedes Templates.
- * `Freeze` setzt den Frame pro Zelle explizit, sodass ein einziger Still alle
- * 36 relevanten Zustände reproduzierbar abbildet.
+ * Jede Zelle liegt in einer 180-Frame-Sequence mit originaler 9:16-Größe.
+ * Dadurch erhalten `useVideoConfig()`-Aufrufer weiterhin die echte Szenendauer
+ * und nicht die ein Frame lange Matrix-Composition. `freeze` setzt anschließend
+ * den reproduzierbaren Prüfzeitpunkt.
  */
 export const AnimationFrameMatrix: React.FC = () => (
   <AbsoluteFill
@@ -134,9 +136,14 @@ export const AnimationFrameMatrix: React.FC = () => (
                 transformOrigin: 'top left',
               }}
             >
-              <Freeze frame={item.checkpoint.frame}>
+              <Sequence
+                durationInFrames={FINANCE_ANIMATION_CARD_DURATION}
+                width={SOURCE_WIDTH}
+                height={SOURCE_HEIGHT}
+                freeze={item.checkpoint.frame}
+              >
                 {item.render()}
-              </Freeze>
+              </Sequence>
             </div>
           </div>
 
