@@ -17,7 +17,7 @@
     "finance:new": "node scripts/safe-new-finance-week-reel.mjs",
     "finance:scaffold-test": "node scripts/test-finance-scaffold-transaction.mjs",
     "finance:gallery": "cd channels/finanzneo && npx remotion studio src/layout-gallery-index.ts",
-    "finance:animation-structure": "node scripts/verify-finance-animation-foundation.mjs",
+    "finance:animation-structure": "node scripts/verify-finance-animation-foundation.mjs && node scripts/verify-finance-animation-frame-matrix.mjs",
     "finance:animation-isolation": "node scripts/verify-finance-animation-isolation.mjs",
     "finance:animation-typecheck": "npx tsc --noEmit -p channels/finanzneo/tsconfig.animation-system.json",
     "finance:animation-test": "npx vitest run channels/finanzneo/src/animation-system",
