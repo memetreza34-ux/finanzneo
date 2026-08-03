@@ -24,7 +24,7 @@ describe('resolveCompoundGrowthBars', () => {
 
     expect(bars).toHaveLength(8);
     expect(bars[0]).toEqual({elapsedYears: 0, value: 1000, height: expect.any(Number)});
-    expect(bars.at(-1)?.elapsedYears).toBe(20);
+    expect(bars[bars.length - 1]?.elapsedYears).toBe(20);
 
     for (const bar of bars) {
       expect(bar.value).toBeCloseTo(
@@ -36,12 +36,13 @@ describe('resolveCompoundGrowthBars', () => {
 
   it('ends at the exact compound-growth result', () => {
     const bars = resolveCompoundGrowthBars(1000, 200, 7, 20, 8);
+    const finalBar = bars[bars.length - 1];
 
-    expect(bars.at(-1)?.value).toBeCloseTo(
+    expect(finalBar?.value).toBeCloseTo(
       expectedValue(1000, 200, 7, 20),
       8,
     );
-    expect(bars.at(-1)?.height).toBeCloseTo(730, 8);
+    expect(finalBar?.height).toBeCloseTo(730, 8);
   });
 
   it('creates monotonic values and heights for nonnegative returns', () => {
@@ -58,7 +59,7 @@ describe('resolveCompoundGrowthBars', () => {
 
     expect(bars).toHaveLength(4);
     expect(bars[0]?.elapsedYears).toBe(0);
-    expect(bars.at(-1)?.elapsedYears).toBe(10);
+    expect(bars[bars.length - 1]?.elapsedYears).toBe(10);
   });
 
   it('shows contributions without inventing a return', () => {
