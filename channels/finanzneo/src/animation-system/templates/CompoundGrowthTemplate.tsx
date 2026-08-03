@@ -1,50 +1,90 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
+import {
+  futureValueLumpSum,
+  futureValueMonthlyInvestment,
+} from '../calculations/financeMath';
 import {AnimatedNumber, ProgressBar} from '../primitives';
 
 export type CompoundGrowthTemplateProps = {
   principal: number;
-  finalValue: number;
+  monthlyContribution: number;
+  annualReturnPercent: number;
   years: number;
   accent?: string;
 };
 
 export type CompoundGrowthBar = {
-  year: number;
+  elapsedYears: number;
   value: number;
   height: number;
 };
 
+const safeNonNegative = (value: number): number =>
+  Number.isFinite(value) ? Math.max(0, value) : 0;
+
+const calculateCompoundValue = (
+  principal: number,
+  monthlyContribution: number,
+  annualReturnPercent: number,
+  elapsedYears: number,
+): number => {
+  const rate = safeNonNegative(annualReturnPercent) / 100;
+  return (
+    futureValueLumpSum(safeNonNegative(principal), rate, elapsedYears) +
+    futureValueMonthlyInvestment(
+      safeNonNegative(monthlyContribution),
+      rate,
+      elapsedYears,
+    )
+  );
+};
+
+/**
+ * Jeder sichtbare Balken wird aus denselben Eingabedaten wie der Endwert
+ * berechnet. Es gibt keine frei interpolierten oder erfundenen Zwischenwerte.
+ */
 export const resolveCompoundGrowthBars = (
   principal: number,
-  finalValue: number,
+  monthlyContribution: number,
+  annualReturnPercent: number,
   years: number,
   count = 8,
 ): CompoundGrowthBar[] => {
-  const safePrincipal = Math.max(0, Number.isFinite(principal) ? principal : 0);
-  const safeFinalValue = Math.max(
-    safePrincipal,
-    Number.isFinite(finalValue) ? finalValue : safePrincipal,
-  );
-  const safeYears = Math.max(1, Number.isFinite(years) ? years : 1);
+  const safeYears = Math.max(0, Number.isFinite(years) ? years : 0);
   const safeCount = Math.max(1, Math.round(Number.isFinite(count) ? count : 8));
-  const range = safeFinalValue - safePrincipal;
+  const elapsedYears = Array.from({length: safeCount}, (_, index) =>
+    safeCount === 1 ? safeYears : safeYears * index / (safeCount - 1),
+  );
+  const values = elapsedYears.map((elapsed) =>
+    calculateCompoundValue(
+      principal,
+      monthlyContribution,
+      annualReturnPercent,
+      elapsed,
+    ),
+  );
+  const maximumValue = Math.max(0, ...values);
 
-  return Array.from({length: safeCount}, (_, index) => {
-    const timeProgress = (index + 1) / safeCount;
-    const value = safePrincipal + range * Math.pow(timeProgress, 1.8);
-    const valueProgress = range > 0 ? (value - safePrincipal) / range : timeProgress;
-    return {
-      year: Math.max(1, Math.round((index + 1) * safeYears / safeCount)),
-      value,
-      height: 110 + valueProgress * 620,
-    };
-  });
+  return values.map((value, index) => ({
+    elapsedYears: elapsedYears[index] ?? 0,
+    value,
+    height: value > 0 && maximumValue > 0
+      ? 110 + value / maximumValue * 620
+      : 0,
+  }));
+};
+
+const formatElapsedYears = (elapsedYears: number): string => {
+  if (elapsedYears === 0) return 'Start';
+  const rounded = Math.round(elapsedYears * 10) / 10;
+  return `Jahr ${rounded.toLocaleString('de-DE', {maximumFractionDigits: 1})}`;
 };
 
 export const CompoundGrowthTemplate: React.FC<CompoundGrowthTemplateProps> = ({
   principal,
-  finalValue,
+  monthlyContribution,
+  annualReturnPercent,
   years,
   accent = '#5CFF9A',
 }) => {
@@ -53,9 +93,14 @@ export const CompoundGrowthTemplate: React.FC<CompoundGrowthTemplateProps> = ({
   const progress = interpolate(frame, [0, Math.max(1, durationInFrames - 1)], [0, 1], {
     extrapolateLeft: 'clamp', extrapolateRight: 'clamp',
   });
-  const bars = resolveCompoundGrowthBars(principal, finalValue, years);
-  const safePrincipal = Math.max(0, Number.isFinite(principal) ? principal : 0);
-  const safeFinalValue = bars.at(-1)?.value ?? safePrincipal;
+  const bars = resolveCompoundGrowthBars(
+    principal,
+    monthlyContribution,
+    annualReturnPercent,
+    years,
+  );
+  const safePrincipal = safeNonNegative(principal);
+  const finalValue = bars.at(-1)?.value ?? safePrincipal;
 
   return (
     <AbsoluteFill style={{background: 'linear-gradient(180deg, #07120B 0%, #030805 100%)', color: '#F5F7F4', padding: 72, boxSizing: 'border-box'}}>
@@ -65,12 +110,12 @@ export const CompoundGrowthTemplate: React.FC<CompoundGrowthTemplateProps> = ({
         {bars.map((bar, index) => {
           const local = Math.max(0, Math.min(1, progress * bars.length - index));
           return (
-            <div key={`${bar.year}-${index}`} style={{flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center', gap: 14}}>
+            <div key={`${bar.elapsedYears}-${index}`} style={{flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center', gap: 14}}>
               <div style={{fontSize: 24, fontWeight: 800, opacity: local}}>
                 {Math.round(bar.value).toLocaleString('de-DE')} €
               </div>
-              <div style={{width: '100%', height: bar.height * local, borderRadius: '22px 22px 8px 8px', background: `linear-gradient(180deg, ${accent}, rgba(92,255,154,0.28))`, boxShadow: local > 0 ? '0 14px 40px rgba(0,0,0,0.28)' : 'none'}} />
-              <div style={{fontSize: 22, color: '#AFC0B4'}}>Jahr {bar.year}</div>
+              <div style={{width: '100%', height: bar.height * local, borderRadius: '22px 22px 8px 8px', background: `linear-gradient(180deg, ${accent}, rgba(92,255,154,0.28))`, boxShadow: local > 0 && bar.height > 0 ? '0 14px 40px rgba(0,0,0,0.28)' : 'none'}} />
+              <div style={{fontSize: 22, color: '#AFC0B4'}}>{formatElapsedYears(bar.elapsedYears)}</div>
             </div>
           );
         })}
@@ -82,7 +127,7 @@ export const CompoundGrowthTemplate: React.FC<CompoundGrowthTemplateProps> = ({
         </div>
         <div style={{borderRadius: 28, padding: 28, background: 'rgba(92,255,154,0.08)'}}>
           <div style={{fontSize: 24, color: '#AFC0B4'}}>Endkapital</div>
-          <AnimatedNumber to={safeFinalValue} suffix=" €" startFrame={12} durationInFrames={42} style={{fontSize: 54, fontWeight: 950, color: accent}} />
+          <AnimatedNumber to={finalValue} suffix=" €" startFrame={12} durationInFrames={42} style={{fontSize: 54, fontWeight: 950, color: accent}} />
         </div>
       </div>
       <ProgressBar progress={progress} animated={false} style={{marginTop: 36}} />
