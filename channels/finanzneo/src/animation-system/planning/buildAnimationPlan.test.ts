@@ -1,8 +1,10 @@
 import {describe, expect, it} from 'vitest';
+import {getFinanceAnimationFixture} from '../fixtures';
 import type {FinanceAnimationPlanResult} from '../selector/planFinanceAnimationScene';
 import {
   buildAnimationPlan,
   buildAnimationPlanFromResult,
+  buildAnimationPlanWithFeatures,
 } from './buildAnimationPlan';
 
 const readyResult: FinanceAnimationPlanResult = {
@@ -79,5 +81,74 @@ describe('buildAnimationPlan', () => {
     expect(plan.mode).toBe('hybrid');
     expect(plan.scene).toBeUndefined();
     expect(plan.errors).toEqual(['Template-Daten fehlen.']);
+  });
+
+  it('simulates a complete hybrid plan without changing global flags', () => {
+    const fixture = getFinanceAnimationFixture('compound-growth');
+    expect(fixture).toBeDefined();
+    if (!fixture) return;
+
+    const plan = buildAnimationPlanWithFeatures(fixture.scene, {
+      enabled: true,
+      allowHybrid: true,
+      allowFullAnimation: false,
+      allowAutomaticRouting: true,
+    });
+
+    expect(plan.status).toBe('animation-ready');
+    expect(plan.mode).toBe('hybrid');
+    expect(plan.template).toBe('compound-growth');
+    expect(plan.scene?.mode).toBe('hybrid');
+    expect(plan.errors).toEqual([]);
+    expect(buildAnimationPlan(fixture.scene).mode).toBe('image');
+  });
+
+  it('simulates a complete full-animation plan when explicitly released', () => {
+    const fixture = getFinanceAnimationFixture('tax-fee-flow');
+    expect(fixture).toBeDefined();
+    if (!fixture) return;
+
+    const plan = buildAnimationPlanWithFeatures(fixture.scene, {
+      enabled: true,
+      allowHybrid: true,
+      allowFullAnimation: true,
+      allowAutomaticRouting: true,
+    });
+
+    expect(plan.status).toBe('animation-ready');
+    expect(plan.mode).toBe('full-animation');
+    expect(plan.template).toBe('tax-fee-flow');
+    expect(plan.scene?.mode).toBe('full-animation');
+    expect(plan.errors).toEqual([]);
+  });
+
+  it('returns an image fallback plan when exact data contracts are violated', () => {
+    const plan = buildAnimationPlanWithFeatures({
+      message: 'Portfolio-Aufteilung',
+      voiceText: 'Die Positionen sollen den Gesamtwert vollständig abbilden.',
+      preferredTemplate: 'portfolio-allocation',
+      data: {
+        total: 10000,
+        allocations: [
+          {label: 'ETF', value: 6000},
+          {label: 'Tagesgeld', value: 3000},
+        ],
+      },
+    }, {
+      enabled: true,
+      allowHybrid: true,
+      allowFullAnimation: true,
+      allowAutomaticRouting: true,
+    });
+
+    expect(plan.status).toBe('image-fallback');
+    expect(plan.mode).toBe('image');
+    expect(plan.scene).toBeUndefined();
+    expect(plan.errors).toContain(
+      'Portfolio-Werte ergeben 9000.00 statt 10000.00 Gesamtwert.',
+    );
+    expect(plan.decision.blockedReasons).toContain(
+      'Portfolio-Werte ergeben 9000.00 statt 10000.00 Gesamtwert.',
+    );
   });
 });
