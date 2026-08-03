@@ -3,6 +3,7 @@ import {describe, expect, it, vi} from 'vitest';
 import {getFinanceAnimationFixture} from '../fixtures';
 import {FinanceAnimationRenderer} from './FinanceAnimationRenderer';
 import {
+  type FinanceAnimationFallbackContext,
   resolveFinanceAnimationFallbackContext,
   SafeFinanceAnimationRenderer,
 } from './SafeFinanceAnimationRenderer';
@@ -40,8 +41,8 @@ describe('SafeFinanceAnimationRenderer', () => {
   });
 
   it('passes normalized parser diagnostics to a dynamic fallback', () => {
-    const renderFallback = vi.fn(({errors}: {errors: readonly string[]}) => (
-      <div>{errors.join(' | ')}</div>
+    const renderFallback = vi.fn((context: FinanceAnimationFallbackContext) => (
+      <div>{context.errors.join(' | ')}</div>
     ));
     const element = SafeFinanceAnimationRenderer({
       input: invalidMoneyFlowInput,
