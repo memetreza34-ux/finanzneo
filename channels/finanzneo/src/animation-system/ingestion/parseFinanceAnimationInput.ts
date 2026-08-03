@@ -62,6 +62,13 @@ const isAllowedScalar = (value: unknown): value is FinanceAnimationScalar =>
 const uniqueMessages = (messages: readonly string[]): string[] =>
   [...new Set(messages)];
 
+const freezeArray = <TValue>(values: TValue[]): TValue[] =>
+  Object.freeze(values) as unknown as TValue[];
+
+const freezeRecord = <TValue extends Record<string, unknown>>(
+  value: TValue,
+): TValue => Object.freeze(value);
+
 const failedParse = <TValue>(message: string): FinanceAnimationParseResult<TValue> => ({
   ok: false,
   errors: [message],
@@ -143,7 +150,9 @@ const parseStructuredArrayEntry = (
     sanitized[key] = entry;
   }
 
-  return valid ? {ok: true, value: sanitized} : {ok: false};
+  return valid
+    ? {ok: true, value: freezeRecord(sanitized)}
+    : {ok: false};
 };
 
 const parseData = (
@@ -200,13 +209,13 @@ const parseData = (
         );
         continue;
       }
-      data[key] = parsedEntries;
+      data[key] = freezeArray(parsedEntries);
       continue;
     }
 
     errors.push(`Animationsdatenfeld ${key} enthält ein nicht unterstütztes Objekt.`);
   }
-  return data;
+  return freezeRecord(data);
 };
 
 const parseLabels = (
@@ -236,7 +245,7 @@ const parseLabels = (
       `Ein Label überschreitet ${FINANCE_ANIMATION_INPUT_LIMITS.maxLabelLength} Zeichen.`,
     );
   }
-  return [...value];
+  return freezeArray([...value]);
 };
 
 const parseFinanceAnimationRequestInternal = (
@@ -278,13 +287,13 @@ const parseFinanceAnimationRequestInternal = (
     return {ok: false, errors: uniqueMessages(structuralErrors), warnings: []};
   }
 
-  const request: FinanceAnimationRequest = {
+  const request = Object.freeze({
     message: requestInput.message as string,
     voiceText: requestInput.voiceText as string,
     ...(labels ? {labels} : {}),
     ...(data ? {data} : {}),
     ...(preferredTemplate ? {preferredTemplate} : {}),
-  };
+  }) as FinanceAnimationRequest;
   const genericIssues = validateAnimationScene(request);
   const errors = genericIssues
     .filter((issue) => issue.level === 'error')
@@ -347,11 +356,11 @@ const parseFinanceAnimationSceneInternal = (
     };
   }
 
-  const scene: FinanceAnimationScene = {
+  const scene = Object.freeze({
     ...requestResult.value,
     mode: sceneInput.mode as FinanceAnimationScene['mode'],
     template: sceneInput.template as FinanceAnimationTemplate,
-  };
+  }) as FinanceAnimationScene;
 
   const genericIssues = validateAnimationScene(scene);
   const templateValidation = validateTemplateData(scene);
