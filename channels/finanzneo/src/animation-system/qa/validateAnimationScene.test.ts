@@ -1,5 +1,6 @@
 import {describe, expect, it} from 'vitest';
 import type {FinanceAnimationScene} from '../contracts';
+import {FINANCE_ANIMATION_INPUT_LIMITS} from '../inputLimits';
 import type {
   FinanceAnimationValidationInput,
   FinanceImageSceneValidationInput,
@@ -39,7 +40,7 @@ describe('validateAnimationScene', () => {
     );
   });
 
-  it('warnt bei zu vielen Labels und fehlenden Daten', () => {
+  it('warnt bei zu vielen sichtbaren Labels und fehlenden Daten', () => {
     const issues = validateAnimationScene({
       ...baseScene,
       labels: ['1', '2', '3', '4', '5', '6'],
@@ -68,6 +69,44 @@ describe('validateAnimationScene', () => {
     });
 
     expect(issues.map((issue) => issue.code)).toContain('duplicate-labels');
+  });
+
+  it('blockiert überlange Texte auch bei typisierten Direktaufrufen', () => {
+    const issues = validateAnimationScene({
+      ...baseScene,
+      message: 'M'.repeat(FINANCE_ANIMATION_INPUT_LIMITS.maxTextLength + 1),
+      voiceText: 'V'.repeat(FINANCE_ANIMATION_INPUT_LIMITS.maxTextLength + 1),
+    });
+
+    expect(issues.map((issue) => issue.code)).toEqual(
+      expect.arrayContaining(['message-too-long', 'voice-text-too-long']),
+    );
+  });
+
+  it('blockiert Labelanzahl und Labellänge über der Eingabegrenze', () => {
+    const labels = Array.from(
+      {length: FINANCE_ANIMATION_INPUT_LIMITS.maxLabels + 1},
+      (_, index) => index === 0
+        ? 'L'.repeat(FINANCE_ANIMATION_INPUT_LIMITS.maxLabelLength + 1)
+        : `Label ${index}`,
+    );
+    const issues = validateAnimationScene({...baseScene, labels});
+
+    expect(issues.map((issue) => issue.code)).toEqual(
+      expect.arrayContaining(['too-many-input-labels', 'input-label-too-long']),
+    );
+  });
+
+  it('blockiert zu viele Datenfelder bei typisierten Direktaufrufen', () => {
+    const data = Object.fromEntries(
+      Array.from(
+        {length: FINANCE_ANIMATION_INPUT_LIMITS.maxDataFields + 1},
+        (_, index) => [`field${index}`, index],
+      ),
+    );
+    const issues = validateAnimationScene({...baseScene, data});
+
+    expect(issues.map((issue) => issue.code)).toContain('too-many-data-fields');
   });
 
   it('verarbeitet fehlerhafte Laufzeitwerte ohne Ausnahme', () => {
