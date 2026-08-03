@@ -3,6 +3,10 @@ import type {
   FinanceAnimationScene,
   FinanceAnimationTemplate,
 } from '../contracts';
+import {
+  FINANCE_ANIMATION_ALLOWED_DATA,
+  FINANCE_ANIMATION_STRUCTURED_ENTRY_KEYS,
+} from '../templates/allowedTemplateData';
 import {getFinanceAnimationTemplate} from '../templates/registry';
 import {validateTemplatePresentation} from './validateTemplatePresentation';
 import {validateTemplateSemantics} from './validateTemplateSemantics';
@@ -67,6 +71,14 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 const isNonEmptyString = (value: unknown): value is string =>
   typeof value === 'string' && value.trim().length > 0;
 
+const unknownKeys = (
+  value: Record<string, unknown>,
+  allowedKeys: readonly string[],
+): string[] => {
+  const allowed = new Set(allowedKeys);
+  return Object.keys(value).filter((key) => !allowed.has(key));
+};
+
 const structuredArrayErrors = (
   template: FinanceAnimationTemplate,
   value: unknown,
@@ -77,8 +89,17 @@ const structuredArrayErrors = (
 
   if (template === 'portfolio-allocation') {
     const values: number[] = [];
-    const invalid = value.some((entry) => {
+    const errors: string[] = [];
+    const invalid = value.some((entry, index) => {
       if (!isRecord(entry) || !isNonEmptyString(entry.label)) return true;
+
+      for (const key of unknownKeys(
+        entry,
+        FINANCE_ANIMATION_STRUCTURED_ENTRY_KEYS['portfolio-allocation'],
+      )) {
+        errors.push(`Unbekanntes Portfolio-Feld in Position ${index + 1}: ${key}`);
+      }
+
       const numericValue = entry.percent ?? entry.value;
       if (typeof numericValue !== 'number' || !Number.isFinite(numericValue) || numericValue < 0) {
         return true;
@@ -86,19 +107,30 @@ const structuredArrayErrors = (
       values.push(numericValue);
       return false;
     });
-    if (invalid) return ['Portfolio-Einträge benötigen Label und nichtnegative Zahl.'];
+    if (invalid) errors.push('Portfolio-Einträge benötigen Label und nichtnegative Zahl.');
     if (values.reduce((sum, item) => sum + item, 0) <= 0) {
-      return ['Portfolio-Gewichtungen müssen zusammen größer als null sein.'];
+      errors.push('Portfolio-Gewichtungen müssen zusammen größer als null sein.');
     }
+    return errors;
   }
 
   if (template === 'timeline-milestones') {
-    const invalid = value.some((entry) => {
+    const errors: string[] = [];
+    const invalid = value.some((entry, index) => {
       if (!isRecord(entry) || !isNonEmptyString(entry.label)) return true;
+
+      for (const key of unknownKeys(
+        entry,
+        FINANCE_ANIMATION_STRUCTURED_ENTRY_KEYS['timeline-milestones'],
+      )) {
+        errors.push(`Unbekanntes Meilenstein-Feld in Position ${index + 1}: ${key}`);
+      }
+
       return !isNonEmptyString(entry.value) &&
         !(typeof entry.value === 'number' && Number.isFinite(entry.value));
     });
-    if (invalid) return ['Meilensteine benötigen Label und gültigen Wert.'];
+    if (invalid) errors.push('Meilensteine benötigen Label und gültigen Wert.');
+    return errors;
   }
 
   return [];
@@ -158,6 +190,13 @@ export const validateTemplateData = (
       if (value === undefined || value === null || value === '') {
         errors.push(`Pflichtwert fehlt: ${key}`);
       }
+    }
+
+    for (const key of unknownKeys(
+      data,
+      FINANCE_ANIMATION_ALLOWED_DATA[scene.template],
+    )) {
+      errors.push(`Unbekanntes Datenfeld für ${scene.template}: ${key}`);
     }
   }
 
