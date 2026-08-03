@@ -1,9 +1,11 @@
 import type {FinanceAnimationRequest} from '../contracts';
+import type {FinanceAnimationFeatureFlags} from '../featureFlags';
+import type {AnimationValidationIssue} from '../qa/validateAnimationScene';
 import {
   planFinanceAnimationScene,
+  planFinanceAnimationSceneWithFeatures,
   type FinanceAnimationPlanResult,
 } from '../selector/planFinanceAnimationScene';
-import type {AnimationValidationIssue} from '../qa/validateAnimationScene';
 import type {FinanceAnimationPlan} from './animationPlanTypes';
 
 const messagesForLevel = (
@@ -50,6 +52,18 @@ export const buildAnimationPlanFromResult = (
     errors,
   };
 };
+
+/**
+ * Vollständige Plan-Simulation mit expliziten Testflags. Diese Funktion
+ * verändert die global deaktivierten Produktionsflags nicht und eignet sich
+ * ausschließlich für Aktivierungs-, QA- und Integrationsprüfungen.
+ */
+export const buildAnimationPlanWithFeatures = (
+  request: FinanceAnimationRequest,
+  features: FinanceAnimationFeatureFlags,
+): FinanceAnimationPlan => buildAnimationPlanFromResult(
+  planFinanceAnimationSceneWithFeatures(request, features),
+);
 
 export const buildAnimationPlan = (
   request: FinanceAnimationRequest,
