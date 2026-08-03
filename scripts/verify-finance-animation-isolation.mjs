@@ -16,8 +16,13 @@ const forbiddenProductionReferences = [
   'FinanceAnimationRenderer',
   'SafeFinanceAnimationRenderer',
   'FinanceAnimationGalleryRoot',
+  'FinanceAnimationTestReelRoot',
+  'FinanceAnimationFallbackPreview',
+  'FinanceAnimationFallbackCard',
+  'AnimationTestReel',
   'buildAnimationPlan',
   'planFinanceAnimationInput',
+  'parseFinanceAnimationRequest',
   'parseFinanceAnimationScene',
   'classifyFinanceScene',
 ];
@@ -63,6 +68,7 @@ const run = async () => {
 
   console.log('Finance animation isolation check passed.');
   console.log(`Checked ${productionFiles.length} production files.`);
+  console.log(`Blocked ${forbiddenProductionReferences.length} animation integration references.`);
   console.log('All animation feature flags remain disabled and frozen.');
 };
 
