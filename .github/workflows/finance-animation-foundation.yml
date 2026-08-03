@@ -22,7 +22,7 @@ concurrency:
 jobs:
   validate-animation-foundation:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     env:
       CI: true
 
@@ -59,6 +59,9 @@ jobs:
       - name: Render sequential animation gallery still
         run: npm run finance:animation-gallery:sequence-still
 
+      - name: Render start-middle-end QA matrix
+        run: npm run finance:animation-gallery:matrix-still
+
       - name: Render safe fallback preview
         run: npm run finance:animation-test-reel:still
 
@@ -70,6 +73,7 @@ jobs:
           path: |
             /tmp/finance-animation-gallery.png
             /tmp/finance-animation-gallery-sequence.png
+            /tmp/finance-animation-frame-matrix.png
             /tmp/finance-animation-fallback-preview.png
           if-no-files-found: warn
           retention-days: 7
