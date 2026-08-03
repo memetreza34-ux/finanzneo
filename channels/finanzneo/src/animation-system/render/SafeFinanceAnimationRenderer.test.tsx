@@ -40,7 +40,7 @@ describe('SafeFinanceAnimationRenderer', () => {
     }
   });
 
-  it('passes normalized diagnostics without raw input to a dynamic fallback', () => {
+  it('passes immutable normalized diagnostics without raw input', () => {
     const renderFallback = vi.fn((context: FinanceAnimationFallbackContext) => (
       <div>{context.errors.join(' | ')}</div>
     ));
@@ -56,6 +56,9 @@ describe('SafeFinanceAnimationRenderer', () => {
       warnings: [],
     });
     expect(Object.keys(context ?? {})).toEqual(['errors', 'warnings']);
+    expect(Object.isFrozen(context)).toBe(true);
+    expect(Object.isFrozen(context?.errors)).toBe(true);
+    expect(Object.isFrozen(context?.warnings)).toBe(true);
     expect(React.isValidElement(element)).toBe(true);
   });
 
@@ -82,16 +85,21 @@ describe('SafeFinanceAnimationRenderer', () => {
 });
 
 describe('resolveFinanceAnimationFallbackContext', () => {
-  it('preserves parser errors and warnings without exposing input', () => {
-    const result = {
-      ok: false as const,
-      errors: ['Fehler A'],
-      warnings: ['Warnung A'],
-    };
+  it('copies parser errors and warnings without exposing input', () => {
+    const sourceErrors = ['Fehler A'];
+    const sourceWarnings = ['Warnung A'];
+    const context = resolveFinanceAnimationFallbackContext({
+      ok: false,
+      errors: sourceErrors,
+      warnings: sourceWarnings,
+    });
 
-    expect(resolveFinanceAnimationFallbackContext(result)).toEqual({
+    expect(context).toEqual({
       errors: ['Fehler A'],
       warnings: ['Warnung A'],
     });
+    expect(context.errors).not.toBe(sourceErrors);
+    expect(context.warnings).not.toBe(sourceWarnings);
+    expect(Object.isFrozen(context)).toBe(true);
   });
 });
