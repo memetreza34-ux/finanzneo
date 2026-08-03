@@ -21,9 +21,11 @@ export {
 } from './featureFlags';
 export type {FinanceAnimationFeatureFlags} from './featureFlags';
 
+export {FINANCE_ANIMATION_INPUT_LIMITS} from './inputLimits';
+export type {FinanceAnimationInputLimits} from './inputLimits';
+
 export {
   FINANCE_ANIMATION_FORBIDDEN_KEYS,
-  FINANCE_ANIMATION_INPUT_LIMITS,
   parseFinanceAnimationRequest,
   parseFinanceAnimationScene,
 } from './ingestion/parseFinanceAnimationInput';
