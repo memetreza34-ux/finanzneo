@@ -13,25 +13,89 @@ const hybridFeatures: FinanceAnimationFeatureFlags = {
   allowAutomaticRouting: true,
 };
 
+const financeRequest = {
+  message: 'Zinseszins lässt dein Vermögen wachsen.',
+  voiceText: 'Zinseszins lässt dein Vermögen wachsen.',
+};
+
 describe('classifyFinanceScene', () => {
-  it('always falls back to image while feature flags are disabled', () => {
-    const decision = classifyFinanceScene({
-      message: 'Zinseszins lässt dein Vermögen wachsen.',
-      voiceText: 'Zinseszins lässt dein Vermögen wachsen.',
-    });
+  it('always falls back to image while production feature flags are disabled', () => {
+    const decision = classifyFinanceScene(financeRequest);
 
     expect(decision.mode).toBe('image');
     expect(decision.template).toBeUndefined();
     expect(decision.confidence).toBe(1);
+    expect(decision.reason).toContain('noch deaktiviert');
   });
 
-  it('does not route when no animation mode is released', () => {
+  it('does not resolve an animation mode when no mode is released', () => {
     const mode = resolveFinanceAnimationMode({
-      ...hybridFeatures,
+      enabled: true,
       allowHybrid: false,
+      allowFullAnimation: false,
+      allowAutomaticRouting: false,
     });
 
     expect(mode).toBe('image');
+  });
+
+  it('uses a precise image-fallback reason while automatic routing is disabled', () => {
+    const decision = classifyFinanceSceneWithFeatures(financeRequest, {
+      enabled: true,
+      allowHybrid: true,
+      allowFullAnimation: false,
+      allowAutomaticRouting: false,
+    });
+
+    expect(decision.mode).toBe('image');
+    expect(decision.reason).toBe(
+      'Automatische Animationsauswahl ist noch nicht freigegeben.',
+    );
+    expect(decision.blockedReasons).toBeUndefined();
+  });
+
+  it('blocks active modes behind a disabled master switch', () => {
+    const decision = classifyFinanceSceneWithFeatures(financeRequest, {
+      enabled: false,
+      allowHybrid: true,
+      allowFullAnimation: false,
+      allowAutomaticRouting: false,
+    });
+
+    expect(decision.mode).toBe('image');
+    expect(decision.reason).toContain('sichere Aktivierungsreihenfolge');
+    expect(decision.blockedReasons).toContain(
+      'Animationsmodi und automatisches Routing müssen deaktiviert bleiben, solange enabled false ist.',
+    );
+  });
+
+  it('blocks full animation before hybrid mode', () => {
+    const decision = classifyFinanceSceneWithFeatures(financeRequest, {
+      enabled: true,
+      allowHybrid: false,
+      allowFullAnimation: true,
+      allowAutomaticRouting: true,
+    });
+
+    expect(decision.mode).toBe('image');
+    expect(decision.template).toBeUndefined();
+    expect(decision.blockedReasons).toContain(
+      'Vollanimation darf erst nach Freigabe des Hybridmodus aktiviert werden.',
+    );
+  });
+
+  it('blocks automatic routing without a released animation mode', () => {
+    const decision = classifyFinanceSceneWithFeatures(financeRequest, {
+      enabled: true,
+      allowHybrid: false,
+      allowFullAnimation: false,
+      allowAutomaticRouting: true,
+    });
+
+    expect(decision.mode).toBe('image');
+    expect(decision.blockedReasons).toContain(
+      'Automatisches Routing benötigt mindestens einen freigegebenen Animationsmodus.',
+    );
   });
 
   it('chooses the strongest matching finance template', () => {
@@ -99,7 +163,7 @@ describe('classifyFinanceScene', () => {
     expect(decision.reason).toContain('explizit bevorzugtes Template');
   });
 
-  it('uses full animation only when that mode is explicitly released', () => {
+  it('uses full animation only when hybrid and full mode are released', () => {
     const decision = classifyFinanceSceneWithFeatures({
       message: 'Inflation senkt deine Kaufkraft.',
       voiceText: 'Steigende Preise verringern den realen Wert deines Geldes.',
