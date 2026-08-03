@@ -9,6 +9,7 @@ on:
       - 'scripts/verify-finance-animation-data-contracts.mjs'
       - 'scripts/verify-finance-animation-input-limits.mjs'
       - 'scripts/verify-finance-animation-domain-limits.mjs'
+      - 'scripts/verify-finance-animation-trajectories.mjs'
       - 'scripts/verify-finance-animation-parser-immutability.mjs'
       - 'scripts/verify-finance-animation-activation-policy.mjs'
       - 'scripts/verify-finance-animation-public-api.mjs'
@@ -45,7 +46,7 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Verify structure, contracts, limits, immutability, activation policy and public API
+      - name: Verify structure, contracts, limits, exact trajectories, immutability, activation policy and public API
         run: npm run finance:animation-structure
 
       - name: Verify production isolation and disabled flags
