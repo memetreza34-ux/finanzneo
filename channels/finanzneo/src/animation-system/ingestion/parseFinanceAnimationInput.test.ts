@@ -168,6 +168,35 @@ describe('parseFinanceAnimationRequest', () => {
     }
   });
 
+  it('never throws for hostile proxies or proxied arrays', () => {
+    const hostileObject = new Proxy({}, {
+      getPrototypeOf: () => {
+        throw new Error('blocked prototype trap');
+      },
+    });
+    expect(parseFinanceAnimationRequest(hostileObject)).toEqual({
+      ok: false,
+      errors: ['Animationsanfrage konnte nicht sicher gelesen werden.'],
+      warnings: [],
+    });
+
+    const hostileLabels = new Proxy<string[]>([], {
+      get: (target, property, receiver) => {
+        if (property === 'length') throw new Error('blocked length trap');
+        return Reflect.get(target, property, receiver);
+      },
+    });
+    expect(parseFinanceAnimationRequest({
+      message: 'Test',
+      voiceText: 'Test',
+      labels: hostileLabels,
+    })).toEqual({
+      ok: false,
+      errors: ['Animationsanfrage konnte nicht sicher gelesen werden.'],
+      warnings: [],
+    });
+  });
+
   it('copies accepted data into null-prototype containers', () => {
     const allocations = [{label: 'ETF', percent: 100}];
     const data = {total: 25000, allocations};
@@ -184,6 +213,11 @@ describe('parseFinanceAnimationRequest', () => {
       const copiedAllocations = result.value.data?.allocations as unknown[];
       expect(copiedAllocations).not.toBe(allocations);
       expect(Object.getPrototypeOf(copiedAllocations[0])).toBeNull();
+
+      allocations[0].percent = 25;
+      expect(
+        (copiedAllocations[0] as Record<string, unknown>).percent,
+      ).toBe(100);
     }
   });
 
