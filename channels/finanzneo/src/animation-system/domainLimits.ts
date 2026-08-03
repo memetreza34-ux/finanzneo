@@ -14,10 +14,10 @@ export type FinanceAnimationDomainLimits = {
  */
 export const FINANCE_ANIMATION_DOMAIN_LIMITS: Readonly<FinanceAnimationDomainLimits> =
   Object.freeze({
-    maxAbsoluteMoney: 1_000_000_000_000_000,
+    maxAbsoluteMoney: 1_000_000_000_000,
     maxYears: 100,
     maxMonths: 1200,
     maxInstallments: 1200,
-    maxTimelineAbsoluteValue: 1_000_000_000_000_000,
+    maxTimelineAbsoluteValue: 1_000_000_000_000,
     maxVisibleLabelLength: 80,
   });
