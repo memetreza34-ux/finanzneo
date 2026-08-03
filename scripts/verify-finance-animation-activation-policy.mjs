@@ -46,17 +46,21 @@ const run = async () => {
     'channels/finanzneo/src/animation-system/selector/planFinanceAnimationScene.ts';
   const scenePlanner = await readRepositoryFile(scenePlannerPath);
   requireTokens(scenePlanner, scenePlannerPath, [
+    'planFinanceAnimationSceneForTemplate',
     'planFinanceAnimationSceneWithFeatures',
     'classifyFinanceSceneWithFeatures',
     'planFinanceAnimationSceneFromDecision',
+    'Automatisches Routing kann deaktiviert bleiben',
   ]);
 
   const inputPlannerPath =
     'channels/finanzneo/src/animation-system/selector/planFinanceAnimationInput.ts';
   const inputPlanner = await readRepositoryFile(inputPlannerPath);
   requireTokens(inputPlanner, inputPlannerPath, [
+    'planFinanceAnimationInputForTemplate',
     'planFinanceAnimationInputWithFeatures',
     'parseFinanceAnimationRequest',
+    'planFinanceAnimationSceneForTemplate',
     'planFinanceAnimationSceneWithFeatures',
     'planParsedInput',
   ]);
@@ -65,14 +69,19 @@ const run = async () => {
     'channels/finanzneo/src/animation-system/planning/buildAnimationPlan.ts';
   const buildPlan = await readRepositoryFile(buildPlanPath);
   requireTokens(buildPlan, buildPlanPath, [
+    'buildAnimationPlanForTemplate',
     'buildAnimationPlanWithFeatures',
+    'planFinanceAnimationSceneForTemplate',
     'planFinanceAnimationSceneWithFeatures',
     'buildAnimationPlanFromResult',
+    'result.decision.blockedReasons',
   ]);
 
   const activationTests = [
     'channels/finanzneo/src/animation-system/selector/planFinanceAnimationActivation.test.ts',
+    'channels/finanzneo/src/animation-system/selector/planFinanceAnimationManualSelection.test.ts',
     'channels/finanzneo/src/animation-system/planning/buildAnimationPlanActivation.test.ts',
+    'channels/finanzneo/src/animation-system/planning/buildAnimationPlanManualSelection.test.ts',
     'channels/finanzneo/src/animation-system/selector/planFinanceAnimationInput.test.ts',
     'channels/finanzneo/src/animation-system/router/classifyFinanceScene.test.ts',
     'channels/finanzneo/src/animation-system/featureFlags.test.ts',
@@ -83,10 +92,14 @@ const run = async () => {
   const combinedTests = testContents.join('\n');
   requireTokens(combinedTests, 'Aktivierungs-Tests', [
     'FINANCE_ANIMATION_FIXTURES',
+    'planFinanceAnimationSceneForTemplate',
+    'planFinanceAnimationInputForTemplate',
+    'buildAnimationPlanForTemplate',
     'buildAnimationPlanWithFeatures',
     'planFinanceAnimationInputWithFeatures',
     'allowAutomaticRouting: false',
     'Vollanimation darf erst nach Freigabe des Hybridmodus aktiviert werden.',
+    'does not alter the globally disabled production plan',
     'keeps global production',
   ]);
 
@@ -100,6 +113,7 @@ const run = async () => {
 
   console.log('Finance animation activation policy check passed.');
   console.log('Verified disabled immutable production flags and staged feature dependencies.');
+  console.log('Verified manual hybrid activation before automatic routing release.');
   console.log('Verified typed, untrusted-input and final-plan activation simulations.');
 };
 
