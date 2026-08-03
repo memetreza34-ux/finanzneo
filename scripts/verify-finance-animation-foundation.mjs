@@ -2,7 +2,6 @@ import {access, readFile} from 'node:fs/promises';
 import process from 'node:process';
 
 const repositoryRoot = new URL('../', import.meta.url);
-
 const pathUrl = (relativePath) => new URL(relativePath, repositoryRoot);
 const readRepositoryFile = async (relativePath) =>
   readFile(pathUrl(relativePath), 'utf8');
@@ -43,11 +42,13 @@ const templateFiles = [
 );
 
 const criticalFiles = [
+  'channels/finanzneo/src/animation-system/README.md',
   'channels/finanzneo/src/animation-system/ACTIVATION_CHECKLIST.md',
   'channels/finanzneo/src/animation-system/contracts.ts',
   'channels/finanzneo/src/animation-system/templateDataContracts.ts',
   'channels/finanzneo/src/animation-system/featureFlags.ts',
   'channels/finanzneo/src/animation-system/ingestion/parseFinanceAnimationInput.ts',
+  'channels/finanzneo/src/animation-system/ingestion/parseFinanceAnimationInput.test.ts',
   'channels/finanzneo/src/animation-system/templates/registry.ts',
   'channels/finanzneo/src/animation-system/templates/requiredTemplateData.ts',
   'channels/finanzneo/src/animation-system/router/financeAnimationKeywords.ts',
@@ -56,9 +57,11 @@ const criticalFiles = [
   'channels/finanzneo/src/animation-system/planning/selectAnimationTemplate.ts',
   'channels/finanzneo/src/animation-system/selector/planFinanceAnimationInput.ts',
   'channels/finanzneo/src/animation-system/selector/planFinanceAnimationScene.ts',
+  'channels/finanzneo/src/animation-system/selector/planFinanceAnimationActivation.test.ts',
   'channels/finanzneo/src/animation-system/fixtures/financeAnimationFixtures.ts',
   'channels/finanzneo/src/animation-system/render/FinanceAnimationRenderer.tsx',
   'channels/finanzneo/src/animation-system/render/SafeFinanceAnimationRenderer.tsx',
+  'channels/finanzneo/src/animation-system/render/SafeFinanceAnimationRenderer.test.tsx',
   'channels/finanzneo/src/animation-system/render/validateTemplateData.ts',
   'channels/finanzneo/src/animation-system/render/validateTemplateSemantics.ts',
   'channels/finanzneo/src/animation-system/render/validateTemplatePresentation.ts',
@@ -66,13 +69,23 @@ const criticalFiles = [
   'channels/finanzneo/src/animation-system/gallery/AnimationGalleryOverview.tsx',
   'channels/finanzneo/src/animation-system/gallery/AnimationGalleryRoot.tsx',
   'channels/finanzneo/src/animation-system/test-reel/AnimationTestReel.tsx',
+  'channels/finanzneo/src/animation-system/test-reel/AnimationTestReel.test.tsx',
   'channels/finanzneo/src/animation-system/test-reel/AnimationTestReelRoot.tsx',
+  'channels/finanzneo/src/animation-system/test-reel/AnimationTestReelRoot.test.tsx',
   'channels/finanzneo/src/animation-system/test-reel/test-reel-index.ts',
   'channels/finanzneo/tsconfig.animation-system.json',
   '.github/workflows/finance-animation-foundation.yml',
   '.github/workflows/finance-animation-runner-diagnostic.yml',
   ...templateFiles,
 ];
+
+const requireTokens = (content, filePath, tokens) => {
+  for (const token of tokens) {
+    if (!content.includes(token)) {
+      fail(`${filePath} enthält ${token} nicht.`);
+    }
+  }
+};
 
 const checkFilesExist = async () => {
   await Promise.all(criticalFiles.map(async (filePath) => {
@@ -104,9 +117,9 @@ const checkTemplateCoverage = async () => {
 };
 
 const checkVisibleValuesAreRequired = async () => {
-  const requiredData = await readRepositoryFile(
-    'channels/finanzneo/src/animation-system/templates/requiredTemplateData.ts',
-  );
+  const requiredDataPath =
+    'channels/finanzneo/src/animation-system/templates/requiredTemplateData.ts';
+  const requiredData = await readRepositoryFile(requiredDataPath);
   const requiredPatterns = [
     [
       /'portfolio-allocation':\s*\[[^\]]*'allocations'[^\]]*'total'/s,
@@ -117,105 +130,106 @@ const checkVisibleValuesAreRequired = async () => {
       'Kreditratenfortschritt ist nicht vollständig als Pflichtwert hinterlegt.',
     ],
   ];
-
   for (const [pattern, message] of requiredPatterns) {
     if (!pattern.test(requiredData)) fail(message);
   }
 
-  const renderer = await readRepositoryFile(
-    'channels/finanzneo/src/animation-system/render/FinanceAnimationRenderer.tsx',
-  );
-  if (/numberValue\(scene, 'total',\s*\d+\)/.test(renderer)) {
-    fail('Der Renderer erfindet weiterhin einen Portfoliowert.');
-  }
-  if (/numberValue\(scene, 'paidInstallments',\s*\d+\)/.test(renderer)) {
-    fail('Der Renderer erfindet weiterhin bezahlte Kreditraten.');
-  }
-  if (/numberValue\(scene, 'totalInstallments',\s*\d+\)/.test(renderer)) {
-    fail('Der Renderer erfindet weiterhin die Gesamtzahl der Kreditraten.');
+  const rendererPath =
+    'channels/finanzneo/src/animation-system/render/FinanceAnimationRenderer.tsx';
+  const renderer = await readRepositoryFile(rendererPath);
+  for (const [pattern, message] of [
+    [/numberValue\(scene, 'total',\s*\d+\)/, 'Der Renderer erfindet einen Portfoliowert.'],
+    [/numberValue\(scene, 'paidInstallments',\s*\d+\)/, 'Der Renderer erfindet bezahlte Kreditraten.'],
+    [/numberValue\(scene, 'totalInstallments',\s*\d+\)/, 'Der Renderer erfindet die Gesamtzahl der Kreditraten.'],
+  ]) {
+    if (pattern.test(renderer)) fail(message);
   }
 };
 
-const checkSharedCandidateRanking = async () => {
+const checkSharedRouting = async () => {
   const consumers = [
     'channels/finanzneo/src/animation-system/router/classifyFinanceScene.ts',
     'channels/finanzneo/src/animation-system/planning/selectAnimationTemplate.ts',
   ];
-
   for (const consumer of consumers) {
-    const content = await readRepositoryFile(consumer);
-    if (!content.includes('rankFinanceAnimationCandidates')) {
-      fail(`${consumer} umgeht die gemeinsame Kandidatenbewertung.`);
-    }
-    if (!content.includes('haveAmbiguousTopCandidates')) {
-      fail(`${consumer} besitzt keinen gemeinsamen Mehrdeutigkeits-Fallback.`);
-    }
+    requireTokens(await readRepositoryFile(consumer), consumer, [
+      'rankFinanceAnimationCandidates',
+      'haveAmbiguousTopCandidates',
+    ]);
   }
 };
 
 const checkSafeInputBoundary = async () => {
-  const safeRenderer = await readRepositoryFile(
-    'channels/finanzneo/src/animation-system/render/SafeFinanceAnimationRenderer.tsx',
-  );
-  for (const requiredToken of [
-    'parseFinanceAnimationScene',
-    'renderFallback',
-    'resolveFinanceAnimationFallbackContext',
-  ]) {
-    if (!safeRenderer.includes(requiredToken)) {
-      fail(`Der sichere Renderer enthält ${requiredToken} nicht.`);
-    }
-  }
-
-  const safePlanner = await readRepositoryFile(
-    'channels/finanzneo/src/animation-system/selector/planFinanceAnimationInput.ts',
-  );
-  if (!safePlanner.includes('parseFinanceAnimationRequest')) {
-    fail('Der sichere Planner umgeht die Request-Parsergrenze.');
-  }
-  if (!safePlanner.includes('planFinanceAnimationScene')) {
-    fail('Der sichere Planner reicht gültige Requests nicht an den zentralen Planner weiter.');
-  }
-
-  const parser = await readRepositoryFile(
-    'channels/finanzneo/src/animation-system/ingestion/parseFinanceAnimationInput.ts',
-  );
-  for (const requiredValidation of ['validateAnimationScene', 'validateTemplateData']) {
-    if (!parser.includes(requiredValidation)) {
-      fail(`Der Eingabeparser führt ${requiredValidation} nicht aus.`);
-    }
-  }
-  for (const hardeningToken of [
+  const parserPath =
+    'channels/finanzneo/src/animation-system/ingestion/parseFinanceAnimationInput.ts';
+  const parser = await readRepositoryFile(parserPath);
+  requireTokens(parser, parserPath, [
+    'validateAnimationScene',
+    'validateTemplateData',
     'Object.getOwnPropertyDescriptors',
     'Object.getOwnPropertySymbols',
     'FINANCE_ANIMATION_FORBIDDEN_KEYS',
     'Object.create(null)',
-  ]) {
-    if (!parser.includes(hardeningToken)) {
-      fail(`Der Eingabeparser enthält die Schutzmaßnahme ${hardeningToken} nicht.`);
-    }
+    'parseFinanceAnimationRequestInternal',
+    'parseFinanceAnimationSceneInternal',
+    'konnte nicht sicher gelesen werden',
+  ]);
+
+  const safeRendererPath =
+    'channels/finanzneo/src/animation-system/render/SafeFinanceAnimationRenderer.tsx';
+  const safeRenderer = await readRepositoryFile(safeRendererPath);
+  requireTokens(safeRenderer, safeRendererPath, [
+    'parseFinanceAnimationScene',
+    'renderFallback',
+    'resolveFinanceAnimationFallbackContext',
+    'errors: Object.freeze([...result.errors])',
+    'warnings: Object.freeze([...result.warnings])',
+  ]);
+  if (/FinanceAnimationFallbackContext\s*=\s*\{[^}]*\binput\s*:/s.test(safeRenderer)) {
+    fail('Der Fallback-Kontext exponiert weiterhin das rohe Eingabeobjekt.');
   }
 
-  const publicIndex = await readRepositoryFile(
-    'channels/finanzneo/src/animation-system/index.ts',
-  );
-  for (const safeEntryPoint of [
+  const safePlannerPath =
+    'channels/finanzneo/src/animation-system/selector/planFinanceAnimationInput.ts';
+  requireTokens(await readRepositoryFile(safePlannerPath), safePlannerPath, [
+    'parseFinanceAnimationRequest',
+    'planFinanceAnimationScene',
+  ]);
+
+  const publicIndexPath =
+    'channels/finanzneo/src/animation-system/index.ts';
+  requireTokens(await readRepositoryFile(publicIndexPath), publicIndexPath, [
     "export * from './ingestion'",
     "export * from './selector/planFinanceAnimationInput'",
+    "export * from './selector/planFinanceAnimationScene'",
     "export * from './render'",
-  ]) {
-    if (!publicIndex.includes(safeEntryPoint)) {
-      fail(`Öffentlicher Animationsexport enthält ${safeEntryPoint} nicht.`);
-    }
-  }
+  ]);
+};
+
+const checkActivationSimulation = async () => {
+  const plannerPath =
+    'channels/finanzneo/src/animation-system/selector/planFinanceAnimationScene.ts';
+  requireTokens(await readRepositoryFile(plannerPath), plannerPath, [
+    'planFinanceAnimationSceneWithFeatures',
+    'classifyFinanceSceneWithFeatures',
+    'planFinanceAnimationSceneFromDecision',
+  ]);
+
+  const activationTestPath =
+    'channels/finanzneo/src/animation-system/selector/planFinanceAnimationActivation.test.ts';
+  const activationTest = await readRepositoryFile(activationTestPath);
+  requireTokens(activationTest, activationTestPath, [
+    'FINANCE_ANIMATION_FIXTURES',
+    'hybridFeatures',
+    'fullAnimationFeatures',
+    'allowAutomaticRouting: false',
+  ]);
 };
 
 const checkTestReelCoverage = async () => {
   const reelPath =
     'channels/finanzneo/src/animation-system/test-reel/AnimationTestReel.tsx';
-  const reel = await readRepositoryFile(reelPath);
-
-  for (const requiredToken of [
+  requireTokens(await readRepositoryFile(reelPath), reelPath, [
     'FINANCE_ANIMATION_TEMPLATES.map',
     'SafeFinanceAnimationRenderer',
     "fallbackKind: 'missing-data'",
@@ -223,23 +237,14 @@ const checkTestReelCoverage = async () => {
     "fallbackKind: 'invalid-mode'",
     'FinanceAnimationFallbackCard',
     'AnimationFallbackPreview',
-  ]) {
-    if (!reel.includes(requiredToken)) {
-      fail(`${reelPath} enthält ${requiredToken} nicht.`);
-    }
-  }
+  ]);
 
   const rootPath =
     'channels/finanzneo/src/animation-system/test-reel/AnimationTestReelRoot.tsx';
-  const root = await readRepositoryFile(rootPath);
-  for (const compositionId of [
-    'FinanceAnimationTestReel',
-    'FinanceAnimationFallbackPreview',
-  ]) {
-    if (!root.includes(`id="${compositionId}"`)) {
-      fail(`${rootPath} registriert ${compositionId} nicht.`);
-    }
-  }
+  requireTokens(await readRepositoryFile(rootPath), rootPath, [
+    'id="FinanceAnimationTestReel"',
+    'id="FinanceAnimationFallbackPreview"',
+  ]);
 };
 
 const checkPackageScripts = async () => {
@@ -256,7 +261,6 @@ const checkPackageScripts = async () => {
     'finance:animation-test-reel:render',
     'finance:animation-validate',
   ];
-
   for (const scriptName of requiredScripts) {
     if (typeof scripts[scriptName] !== 'string' || scripts[scriptName].trim() === '') {
       fail(`package.json enthält kein ausführbares Skript ${scriptName}.`);
@@ -264,15 +268,7 @@ const checkPackageScripts = async () => {
   }
 
   const validationScript = scripts['finance:animation-validate'] ?? '';
-  for (const requiredStep of [
-    'finance:animation-structure',
-    'finance:animation-isolation',
-    'finance:animation-typecheck',
-    'finance:animation-test',
-    'finance:animation-gallery:still',
-    'finance:animation-gallery:sequence-still',
-    'finance:animation-test-reel:still',
-  ]) {
+  for (const requiredStep of requiredScripts.slice(0, -2)) {
     if (!validationScript.includes(requiredStep)) {
       fail(`finance:animation-validate führt ${requiredStep} nicht aus.`);
     }
@@ -280,10 +276,9 @@ const checkPackageScripts = async () => {
 };
 
 const checkWorkflowCoverage = async () => {
-  const workflow = await readRepositoryFile(
-    '.github/workflows/finance-animation-foundation.yml',
-  );
-  for (const requiredCommand of [
+  const workflowPath = '.github/workflows/finance-animation-foundation.yml';
+  const workflow = await readRepositoryFile(workflowPath);
+  requireTokens(workflow, workflowPath, [
     'finance:animation-structure',
     'finance:animation-isolation',
     'finance:animation-typecheck',
@@ -291,14 +286,8 @@ const checkWorkflowCoverage = async () => {
     'finance:animation-gallery:still',
     'finance:animation-gallery:sequence-still',
     'finance:animation-test-reel:still',
-  ]) {
-    if (!workflow.includes(requiredCommand)) {
-      fail(`Foundation-Workflow führt ${requiredCommand} nicht aus.`);
-    }
-  }
-  if (!workflow.includes('/tmp/finance-animation-fallback-preview.png')) {
-    fail('Foundation-Workflow lädt die Fallback-Vorschau nicht als Artefakt hoch.');
-  }
+    '/tmp/finance-animation-fallback-preview.png',
+  ]);
 };
 
 const checkDedicatedTypeScriptScope = async () => {
@@ -315,8 +304,9 @@ const run = async () => {
   await checkFilesExist();
   await checkTemplateCoverage();
   await checkVisibleValuesAreRequired();
-  await checkSharedCandidateRanking();
+  await checkSharedRouting();
   await checkSafeInputBoundary();
+  await checkActivationSimulation();
   await checkTestReelCoverage();
   await checkPackageScripts();
   await checkWorkflowCoverage();
@@ -333,7 +323,7 @@ const run = async () => {
   console.log('Finance animation foundation structure check passed.');
   console.log(`Verified ${templateIds.length} template identifiers.`);
   console.log(`Verified ${criticalFiles.length} required files.`);
-  console.log('Verified shared routing, hardened ingestion, safe fallbacks and full test-reel coverage.');
+  console.log('Verified shared routing, hardened ingestion, sanitized fallbacks, activation simulation and full test-reel coverage.');
 };
 
 run().catch((error) => {
