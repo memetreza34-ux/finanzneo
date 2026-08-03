@@ -1,8 +1,12 @@
-import type {FinanceAnimationRequest} from '../contracts';
+import type {
+  FinanceAnimationRequest,
+  FinanceAnimationTemplate,
+} from '../contracts';
 import type {FinanceAnimationFeatureFlags} from '../featureFlags';
 import type {AnimationValidationIssue} from '../qa/validateAnimationScene';
 import {
   planFinanceAnimationScene,
+  planFinanceAnimationSceneForTemplate,
   planFinanceAnimationSceneWithFeatures,
   type FinanceAnimationPlanResult,
 } from '../selector/planFinanceAnimationScene';
@@ -60,9 +64,22 @@ export const buildAnimationPlanFromResult = (
 };
 
 /**
- * Vollständige Plan-Simulation mit expliziten Testflags. Diese Funktion
- * verändert die global deaktivierten Produktionsflags nicht und eignet sich
- * ausschließlich für Aktivierungs-, QA- und Integrationsprüfungen.
+ * Finale Planansicht für ein manuell ausgewähltes Template. Dieser Pfad ist
+ * für die erste Hybrid-Aktivierungsstufe vorgesehen und funktioniert bewusst
+ * auch bei deaktiviertem automatischem Routing.
+ */
+export const buildAnimationPlanForTemplate = (
+  request: FinanceAnimationRequest,
+  template: FinanceAnimationTemplate,
+  features: FinanceAnimationFeatureFlags,
+): FinanceAnimationPlan => buildAnimationPlanFromResult(
+  planFinanceAnimationSceneForTemplate(request, template, features),
+);
+
+/**
+ * Vollständige automatische Plan-Simulation mit expliziten Testflags. Diese
+ * Funktion verändert die global deaktivierten Produktionsflags nicht und
+ * eignet sich ausschließlich für Aktivierungs-, QA- und Integrationsprüfungen.
  */
 export const buildAnimationPlanWithFeatures = (
   request: FinanceAnimationRequest,
