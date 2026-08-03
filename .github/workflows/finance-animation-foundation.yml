@@ -22,7 +22,7 @@ concurrency:
 jobs:
   validate-animation-foundation:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     env:
       CI: true
 
@@ -59,14 +59,18 @@ jobs:
       - name: Render sequential animation gallery still
         run: npm run finance:animation-gallery:sequence-still
 
-      - name: Upload gallery previews
+      - name: Render safe fallback preview
+        run: npm run finance:animation-test-reel:still
+
+      - name: Upload animation previews
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: finance-animation-gallery-previews
+          name: finance-animation-previews
           path: |
             /tmp/finance-animation-gallery.png
             /tmp/finance-animation-gallery-sequence.png
+            /tmp/finance-animation-fallback-preview.png
           if-no-files-found: warn
           retention-days: 7
 
