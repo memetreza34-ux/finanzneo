@@ -16,9 +16,15 @@ const forbiddenPublicRuntimeExports = [
   'buildAnimationPlanFromResult',
   'classifyFinanceSceneWithFeatures',
   'validateTemplateData',
+  'futureValueLumpSum',
+  'futureValueMonthlyInvestment',
+  'calculateCompoundInterest',
+  'calculateMonthlyInvestment',
+  'calculateLoanBalance',
 ] as const;
 
 const requiredPublicRuntimeExports = [
+  'FINANCE_ANIMATION_DOMAIN_LIMITS',
   'FINANCE_ANIMATION_FEATURES',
   'validateFinanceAnimationFeatureFlags',
   'parseFinanceAnimationRequest',
@@ -45,7 +51,7 @@ describe('finance animation public API', () => {
     }
   });
 
-  it('does not expose raw renderer, gallery, test or decision bypass APIs', () => {
+  it('does not expose raw renderer, gallery, test, decision or calculation bypass APIs', () => {
     for (const exportName of forbiddenPublicRuntimeExports) {
       expect(publicApi).not.toHaveProperty(exportName);
     }
