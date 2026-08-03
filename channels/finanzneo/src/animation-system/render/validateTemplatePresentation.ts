@@ -1,4 +1,5 @@
 import type {FinanceAnimationScene} from '../contracts';
+import {FINANCE_ANIMATION_DOMAIN_LIMITS} from '../domainLimits';
 
 export type TemplatePresentationValidation = {
   errors: string[];
@@ -27,12 +28,49 @@ const isFiniteNumber = (value: unknown): value is number =>
 const portfolioValueTolerance = (total: number): number =>
   Math.max(0.01, Math.abs(total) * 0.0001);
 
+const validateVisibleTextLength = (
+  value: unknown,
+  fieldName: string,
+  errors: string[],
+): void => {
+  if (
+    typeof value === 'string' &&
+    value.trim().length > FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength
+  ) {
+    errors.push(
+      `Sichtbarer Text ist länger als ${FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength} Zeichen: ${fieldName}`,
+    );
+  }
+};
+
+const visibleDataLabelKeys = (
+  scene: FinanceAnimationScene,
+): readonly string[] => {
+  switch (scene.template) {
+    case 'money-flow':
+      return ['fromLabel', 'toLabel'];
+    case 'before-after-comparison':
+      return ['beforeLabel', 'afterLabel'];
+    default:
+      return [];
+  }
+};
+
 export const validateTemplatePresentation = (
   scene: FinanceAnimationScene,
 ): TemplatePresentationValidation => {
   const errors: string[] = [];
   const warnings: string[] = [];
   const data = scene.data ?? {};
+
+  for (const key of visibleDataLabelKeys(scene)) {
+    validateVisibleTextLength(data[key], key, errors);
+  }
+  if (Array.isArray(scene.labels)) {
+    scene.labels.forEach((label, index) => {
+      validateVisibleTextLength(label, `labels[${index}]`, errors);
+    });
+  }
 
   if (scene.template === 'portfolio-allocation' && Array.isArray(data.allocations)) {
     if (data.allocations.length > 6) {
@@ -93,6 +131,11 @@ export const validateTemplatePresentation = (
     if (data.milestones.length > 5) {
       errors.push('Das Zeitleisten-Template unterstützt höchstens fünf Meilensteine.');
     }
+
+    const entries = data.milestones.filter(isRecord);
+    entries.forEach((entry, index) => {
+      validateVisibleTextLength(entry.value, `milestones[${index}].value`, errors);
+    });
 
     const labels = normalizedEntryLabels(data.milestones);
     if (hasDuplicates(labels)) {
