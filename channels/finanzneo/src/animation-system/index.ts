@@ -1,22 +1,4 @@
-export * from './contracts';
-export * from './templateDataContracts';
-export * from './featureFlags';
-export * from './ingestion';
-export * from './router/classifyFinanceScene';
-export * from './router/financeAnimationKeywords';
-export * from './router/financeKeywordMatching';
-export * from './router/rankFinanceAnimationCandidates';
-export * from './calculations/financeMath';
-export * from './fixtures';
-export * from './templates/registry';
-export * from './templates';
-export * from './primitives';
-export * from './qa/validateAnimationScene';
-export * from './fallback';
-export * from './planning/animationPlanTypes';
-export * from './planning/buildAnimationPlan';
-export * from './planning/selectAnimationTemplate';
-export * from './selector/planFinanceAnimationInput';
-export * from './selector/planFinanceAnimationScene';
-export * from './render';
-export * from './gallery';
+// Öffentliche Integrationsgrenze: ausschließlich sichere, feature-gesteuerte
+// APIs. Renderer, Galerie, Test-Reel, Rohentscheidungen und interne Validatoren
+// bleiben bewusst in `internal.ts` oder ihren direkten Modulen.
+export * from './public';
