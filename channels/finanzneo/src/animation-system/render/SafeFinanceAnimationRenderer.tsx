@@ -21,9 +21,9 @@ export type SafeFinanceAnimationRendererProps = {
 
 export const resolveFinanceAnimationFallbackContext = (
   result: Extract<FinanceAnimationParseResult<FinanceAnimationScene>, {ok: false}>,
-): FinanceAnimationFallbackContext => ({
-  errors: result.errors,
-  warnings: result.warnings,
+): FinanceAnimationFallbackContext => Object.freeze({
+  errors: Object.freeze([...result.errors]),
+  warnings: Object.freeze([...result.warnings]),
 });
 
 /**
@@ -33,9 +33,9 @@ export const resolveFinanceAnimationFallbackContext = (
  *
  * Ungültige Eingaben können entweder über einen statischen `fallback` oder
  * über `renderFallback` behandelt werden. Der Callback erhält ausschließlich
- * normalisierte Parserfehler und Warnungen. Das rohe untrusted Input-Objekt
- * wird absichtlich nicht weitergereicht und kann im Fallback weder gelesen
- * noch versehentlich ausgeführt werden.
+ * eingefrorene Kopien normalisierter Parserfehler und Warnungen. Das rohe
+ * untrusted Input-Objekt wird absichtlich nicht weitergereicht und kann im
+ * Fallback weder gelesen noch versehentlich ausgeführt werden.
  */
 export const SafeFinanceAnimationRenderer: React.FC<
   SafeFinanceAnimationRendererProps
