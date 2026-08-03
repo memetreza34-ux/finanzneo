@@ -7,6 +7,7 @@ on:
       - 'channels/finanzneo/tsconfig.animation-system.json'
       - 'scripts/verify-finance-animation-foundation.mjs'
       - 'scripts/verify-finance-animation-data-contracts.mjs'
+      - 'scripts/verify-finance-animation-activation-policy.mjs'
       - 'scripts/verify-finance-animation-frame-matrix.mjs'
       - 'scripts/verify-finance-animation-isolation.mjs'
       - 'package.json'
@@ -40,7 +41,7 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Verify animation foundation structure and exact data contracts
+      - name: Verify structure, exact data contracts and activation policy
         run: npm run finance:animation-structure
 
       - name: Verify production isolation and disabled flags
