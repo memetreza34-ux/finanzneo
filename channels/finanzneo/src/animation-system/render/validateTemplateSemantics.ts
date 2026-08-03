@@ -1,4 +1,9 @@
+import {
+  futureValueLumpSum,
+  futureValueMonthlyInvestment,
+} from '../calculations/financeMath';
 import type {FinanceAnimationScene} from '../contracts';
+import {FINANCE_ANIMATION_DOMAIN_LIMITS} from '../domainLimits';
 
 export type TemplateSemanticValidation = {
   errors: string[];
@@ -21,6 +26,10 @@ const requireVisibleLabel = (
     errors.push(`Beschriftung muss ein sichtbarer Text sein: ${fieldName}`);
   }
 };
+
+const exceedsDisplayDomain = (value: number): boolean =>
+  !Number.isFinite(value) ||
+  Math.abs(value) > FINANCE_ANIMATION_DOMAIN_LIMITS.maxAbsoluteMoney;
 
 export const validateTemplateSemantics = (
   scene: FinanceAnimationScene,
@@ -52,10 +61,26 @@ export const validateTemplateSemantics = (
       const principal = isFiniteNumber(data.startCapital) ? data.startCapital : 0;
       const contribution = isFiniteNumber(data.monthlyRate) ? data.monthlyRate : 0;
       const annualReturn = isFiniteNumber(data.annualReturn) ? data.annualReturn : 0;
+      const years = isFiniteNumber(data.years) ? data.years : 0;
       if (principal <= 0 && contribution <= 0) {
         errors.push('Zinseszins benötigt Startkapital oder eine positive monatliche Einzahlung.');
       } else if (contribution <= 0 && annualReturn <= 0) {
         errors.push('Das Wachstumstemplate benötigt eine positive Einzahlung oder Rendite.');
+      }
+
+      if (
+        principal >= 0 &&
+        contribution >= 0 &&
+        annualReturn >= 0 &&
+        years > 0
+      ) {
+        const decimalReturn = annualReturn / 100;
+        const finalValue =
+          futureValueLumpSum(principal, decimalReturn, years) +
+          futureValueMonthlyInvestment(contribution, decimalReturn, years);
+        if (exceedsDisplayDomain(finalValue)) {
+          errors.push('Der berechnete Zinseszins-Endwert überschreitet das Darstellungsmaximum.');
+        }
       }
       break;
     }
@@ -93,11 +118,31 @@ export const validateTemplateSemantics = (
       }
       break;
     }
-    case 'monthly-investment':
+    case 'monthly-investment': {
       if (isFiniteNumber(data.monthlyRate) && data.monthlyRate <= 0) {
         errors.push('Die monatliche Sparrate muss größer als null sein.');
       }
+
+      if (
+        isFiniteNumber(data.monthlyRate) &&
+        data.monthlyRate > 0 &&
+        isFiniteNumber(data.months) &&
+        data.months > 0
+      ) {
+        const annualReturn = isFiniteNumber(data.annualReturn)
+          ? data.annualReturn
+          : 0;
+        const finalValue = futureValueMonthlyInvestment(
+          data.monthlyRate,
+          annualReturn / 100,
+          data.months / 12,
+        );
+        if (exceedsDisplayDomain(finalValue)) {
+          errors.push('Der berechnete Sparplan-Endwert überschreitet das Darstellungsmaximum.');
+        }
+      }
       break;
+    }
     case 'before-after-comparison':
       requireVisibleLabel(data.beforeLabel, 'beforeLabel', errors);
       requireVisibleLabel(data.afterLabel, 'afterLabel', errors);
