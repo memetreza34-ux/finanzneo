@@ -16,6 +16,7 @@ import {
 export const resolveFinanceAnimationMode = (
   features: FinanceAnimationFeatureFlags,
 ): FinanceSceneMode => {
+  if (validateFinanceAnimationFeatureFlags(features).length > 0) return 'image';
   if (!features.enabled) return 'image';
   if (features.allowFullAnimation) return 'full-animation';
   if (features.allowHybrid) return 'hybrid';
