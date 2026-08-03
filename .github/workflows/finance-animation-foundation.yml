@@ -8,6 +8,7 @@ on:
       - 'scripts/verify-finance-animation-foundation.mjs'
       - 'scripts/verify-finance-animation-data-contracts.mjs'
       - 'scripts/verify-finance-animation-activation-policy.mjs'
+      - 'scripts/verify-finance-animation-public-api.mjs'
       - 'scripts/verify-finance-animation-frame-matrix.mjs'
       - 'scripts/verify-finance-animation-isolation.mjs'
       - 'package.json'
@@ -41,7 +42,7 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Verify structure, exact data contracts and activation policy
+      - name: Verify structure, contracts, activation policy and public API
         run: npm run finance:animation-structure
 
       - name: Verify production isolation and disabled flags
