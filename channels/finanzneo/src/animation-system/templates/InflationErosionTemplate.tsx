@@ -1,10 +1,11 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
+import {inflationAdjustedValue} from '../calculations/financeMath';
 import {AnimatedNumber} from '../primitives/AnimatedNumber';
 
 export type InflationErosionTemplateProps = {
   startValue: number;
-  endValue: number;
+  inflationPercent: number;
   years: number;
   currency?: string;
 };
@@ -18,28 +19,48 @@ export type InflationErosionFrame = {
 const clamp01 = (value: number): number =>
   Math.max(0, Math.min(1, Number.isFinite(value) ? value : 0));
 
+/**
+ * Die Kaufkraft wird für den tatsächlich verstrichenen Zeitraum mit der
+ * gelieferten Inflationsrate berechnet. Eine lineare Annäherung zwischen
+ * Start- und Endwert wird bewusst vermieden.
+ */
 export const resolveInflationErosionFrame = ({
   startValue,
-  endValue,
+  inflationPercent,
   years,
   progress,
 }: Omit<InflationErosionTemplateProps, 'currency'> & {progress: number}): InflationErosionFrame => {
   const safeStartValue = Math.max(0, Number.isFinite(startValue) ? startValue : 0);
-  const safeEndValue = Math.max(0, Number.isFinite(endValue) ? endValue : 0);
+  const safeInflationPercent = Math.max(
+    0,
+    Number.isFinite(inflationPercent) ? inflationPercent : 0,
+  );
   const safeYears = Math.max(0, Number.isFinite(years) ? years : 0);
   const frameProgress = clamp01(progress);
-  const currentValue = safeStartValue + (safeEndValue - safeStartValue) * frameProgress;
+  const elapsedYears = safeYears * frameProgress;
+  const currentValue = inflationAdjustedValue(
+    safeStartValue,
+    safeInflationPercent / 100,
+    elapsedYears,
+  );
 
   return {
     currentValue,
     remainingRatio: safeStartValue > 0 ? clamp01(currentValue / safeStartValue) : 0,
-    elapsedYears: Math.round(safeYears * frameProgress),
+    elapsedYears,
   };
+};
+
+const formatElapsedYears = (elapsedYears: number): string => {
+  if (elapsedYears === 0) return 'heute';
+  const rounded = Math.round(elapsedYears * 10) / 10;
+  const amount = rounded.toLocaleString('de-DE', {maximumFractionDigits: 1});
+  return `nach ${amount} ${rounded === 1 ? 'Jahr' : 'Jahren'}`;
 };
 
 export const InflationErosionTemplate: React.FC<InflationErosionTemplateProps> = ({
   startValue,
-  endValue,
+  inflationPercent,
   years,
   currency = '€',
 }) => {
@@ -49,17 +70,19 @@ export const InflationErosionTemplate: React.FC<InflationErosionTemplateProps> =
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
-  const resolved = resolveInflationErosionFrame({startValue, endValue, years, progress});
-  const timeLabel = resolved.elapsedYears === 0
-    ? 'heute'
-    : `nach ${resolved.elapsedYears} ${resolved.elapsedYears === 1 ? 'Jahr' : 'Jahren'}`;
+  const resolved = resolveInflationErosionFrame({
+    startValue,
+    inflationPercent,
+    years,
+    progress,
+  });
 
   return (
     <AbsoluteFill style={{background: '#07120B', padding: 78, fontFamily: 'Inter, sans-serif', color: '#F5F7F4'}}>
       <div style={{fontSize: 34, fontWeight: 800, letterSpacing: 2.5, color: '#5CFF9A'}}>KAUFKRAFT</div>
       <div style={{display: 'flex', alignItems: 'flex-end', gap: 18, marginTop: 30}}>
         <div style={{fontSize: 92, fontWeight: 950}}><AnimatedNumber value={resolved.currentValue} suffix={` ${currency}`} /></div>
-        <div style={{fontSize: 34, fontWeight: 750, color: '#AFC0B4', paddingBottom: 14}}>{timeLabel}</div>
+        <div style={{fontSize: 34, fontWeight: 750, color: '#AFC0B4', paddingBottom: 14}}>{formatElapsedYears(resolved.elapsedYears)}</div>
       </div>
       <div style={{marginTop: 90, height: 560, display: 'flex', alignItems: 'flex-end', gap: 42}}>
         <div style={{flex: 1, height: '100%', borderRadius: 42, background: 'rgba(255,255,255,0.08)', padding: 28, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end'}}>
@@ -71,7 +94,9 @@ export const InflationErosionTemplate: React.FC<InflationErosionTemplateProps> =
           <div style={{fontSize: 28, fontWeight: 800, marginTop: 18}}>Später</div>
         </div>
       </div>
-      <div style={{fontSize: 32, color: '#AFC0B4', fontWeight: 750, marginTop: 44}}>Gleicher Kontostand, geringere Kaufkraft.</div>
+      <div style={{fontSize: 32, color: '#AFC0B4', fontWeight: 750, marginTop: 44}}>
+        {inflationPercent.toLocaleString('de-DE', {maximumFractionDigits: 2})} % Inflation pro Jahr
+      </div>
     </AbsoluteFill>
   );
 };
