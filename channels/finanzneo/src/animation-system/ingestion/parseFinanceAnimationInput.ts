@@ -5,9 +5,12 @@ import type {
   FinanceAnimationScene,
   FinanceAnimationTemplate,
 } from '../contracts';
+import {FINANCE_ANIMATION_INPUT_LIMITS} from '../inputLimits';
 import {validateAnimationScene} from '../qa/validateAnimationScene';
 import {validateTemplateData} from '../render/validateTemplateData';
 import {FINANCE_ANIMATION_TEMPLATES} from '../templates/registry';
+
+export {FINANCE_ANIMATION_INPUT_LIMITS} from '../inputLimits';
 
 export type FinanceAnimationParseResult<TValue> =
   | {
@@ -20,14 +23,6 @@ export type FinanceAnimationParseResult<TValue> =
       errors: string[];
       warnings: string[];
     };
-
-export const FINANCE_ANIMATION_INPUT_LIMITS = Object.freeze({
-  maxTextLength: 5000,
-  maxLabels: 20,
-  maxLabelLength: 160,
-  maxDataFields: 64,
-  maxStructuredArrayItems: 50,
-});
 
 export const FINANCE_ANIMATION_FORBIDDEN_KEYS = Object.freeze([
   '__proto__',
