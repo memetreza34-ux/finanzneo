@@ -102,7 +102,15 @@ export const getFinanceAnimationTestSceneMiddleFrame = (index: number): number =
   getFinanceAnimationTestSceneStartFrame(index) +
   Math.floor(FINANCE_ANIMATION_TEST_SCENE_DURATION / 2);
 
-const ImageFallbackCard: React.FC<{
+export const getFirstFinanceAnimationFallbackScene = (): FinanceAnimationTestReelScene => {
+  const scene = FINANCE_ANIMATION_TEST_REEL_SCENES.find(
+    (candidate) => candidate.expectsFallback,
+  );
+  if (!scene) throw new Error('Test-Reel enthält keinen Fallback-Fall.');
+  return scene;
+};
+
+export const FinanceAnimationFallbackCard: React.FC<{
   sceneName: string;
   context: FinanceAnimationFallbackContext;
 }> = ({sceneName, context}) => (
@@ -148,6 +156,23 @@ const ImageFallbackCard: React.FC<{
   </AbsoluteFill>
 );
 
+const TestSceneRenderer: React.FC<{
+  scene: FinanceAnimationTestReelScene;
+}> = ({scene}) => (
+  <SafeFinanceAnimationRenderer
+    input={scene.input}
+    renderFallback={(context) => (
+      <FinanceAnimationFallbackCard sceneName={scene.name} context={context} />
+    )}
+  />
+);
+
+export const AnimationFallbackPreview: React.FC = () => (
+  <AbsoluteFill style={{background: '#06110A'}}>
+    <TestSceneRenderer scene={getFirstFinanceAnimationFallbackScene()} />
+  </AbsoluteFill>
+);
+
 export const AnimationTestReel: React.FC = () => (
   <AbsoluteFill style={{background: '#06110A'}}>
     {FINANCE_ANIMATION_TEST_REEL_SCENES.map((scene, index) => (
@@ -157,12 +182,7 @@ export const AnimationTestReel: React.FC = () => (
         from={getFinanceAnimationTestSceneStartFrame(index)}
         durationInFrames={FINANCE_ANIMATION_TEST_SCENE_DURATION}
       >
-        <SafeFinanceAnimationRenderer
-          input={scene.input}
-          renderFallback={(context) => (
-            <ImageFallbackCard sceneName={scene.name} context={context} />
-          )}
-        />
+        <TestSceneRenderer scene={scene} />
       </Sequence>
     ))}
   </AbsoluteFill>
