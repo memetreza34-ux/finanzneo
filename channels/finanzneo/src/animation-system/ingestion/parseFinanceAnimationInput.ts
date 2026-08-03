@@ -29,6 +29,13 @@ export const FINANCE_ANIMATION_INPUT_LIMITS = Object.freeze({
   maxStructuredArrayItems: 50,
 });
 
+export const FINANCE_ANIMATION_FORBIDDEN_KEYS = Object.freeze([
+  '__proto__',
+  'prototype',
+  'constructor',
+] as const);
+
+const FORBIDDEN_KEY_SET = new Set<string>(FINANCE_ANIMATION_FORBIDDEN_KEYS);
 const TEMPLATE_IDS = new Set<string>(
   FINANCE_ANIMATION_TEMPLATES.map((definition) => definition.id),
 );
@@ -52,14 +59,43 @@ const isAllowedScalar = (value: unknown): value is FinanceAnimationScalar =>
   typeof value === 'boolean' ||
   (typeof value === 'number' && Number.isFinite(value));
 
-const isSafeStructuredArrayEntry = (value: unknown): boolean => {
-  if (isAllowedScalar(value)) return true;
-  if (!isPlainRecord(value)) return false;
-  return Object.values(value).every(isAllowedScalar);
-};
-
 const uniqueMessages = (messages: readonly string[]): string[] =>
   [...new Set(messages)];
+
+const copyPlainDataProperties = (
+  value: Record<string, unknown>,
+  scope: string,
+  errors: string[],
+): Record<string, unknown> => {
+  const copy = Object.create(null) as Record<string, unknown>;
+  const symbolKeys = Object.getOwnPropertySymbols(value);
+  if (symbolKeys.length > 0) {
+    errors.push(`${scope} enthält nicht unterstützte Symbol-Schlüssel.`);
+  }
+
+  const descriptors = Object.getOwnPropertyDescriptors(value);
+  for (const [key, descriptor] of Object.entries(descriptors)) {
+    if (FORBIDDEN_KEY_SET.has(key)) {
+      errors.push(`${scope} verwendet den gesperrten Schlüssel ${key}.`);
+      continue;
+    }
+    if (!('value' in descriptor)) {
+      errors.push(`${scope} enthält einen Getter oder Setter: ${key}.`);
+      continue;
+    }
+    copy[key] = descriptor.value;
+  }
+  return copy;
+};
+
+const parsePlainObject = (
+  value: unknown,
+  scope: string,
+  errors: string[],
+): Record<string, unknown> | undefined => {
+  if (!isPlainRecord(value)) return undefined;
+  return copyPlainDataProperties(value, scope, errors);
+};
 
 const validateTextLength = (
   value: unknown,
@@ -76,24 +112,53 @@ const validateTextLength = (
   }
 };
 
+type StructuredEntryParseResult =
+  | {ok: true; value: unknown}
+  | {ok: false};
+
+const parseStructuredArrayEntry = (
+  value: unknown,
+  path: string,
+  errors: string[],
+): StructuredEntryParseResult => {
+  if (isAllowedScalar(value)) return {ok: true, value};
+
+  const record = parsePlainObject(value, path, errors);
+  if (!record) return {ok: false};
+
+  const sanitized = Object.create(null) as Record<string, FinanceAnimationScalar>;
+  let valid = true;
+  for (const [key, entry] of Object.entries(record)) {
+    if (!isAllowedScalar(entry)) {
+      errors.push(`${path}.${key} enthält einen nicht unterstützten Wert.`);
+      valid = false;
+      continue;
+    }
+    sanitized[key] = entry;
+  }
+
+  return valid ? {ok: true, value: sanitized} : {ok: false};
+};
+
 const parseData = (
   value: unknown,
   errors: string[],
 ): FinanceAnimationData | undefined => {
   if (value === undefined) return undefined;
-  if (!isPlainRecord(value)) {
+  const source = parsePlainObject(value, 'Animationsdaten', errors);
+  if (!source) {
     errors.push('Animationsdaten müssen als einfaches Objekt vorliegen.');
     return undefined;
   }
 
-  const entries = Object.entries(value);
+  const entries = Object.entries(source);
   if (entries.length > FINANCE_ANIMATION_INPUT_LIMITS.maxDataFields) {
     errors.push(
       `Animationsdaten enthalten mehr als ${FINANCE_ANIMATION_INPUT_LIMITS.maxDataFields} Felder.`,
     );
   }
 
-  const data: FinanceAnimationData = {};
+  const data = Object.create(null) as FinanceAnimationData;
   for (const [key, entry] of entries) {
     if (isAllowedScalar(entry)) {
       data[key] = entry;
@@ -107,13 +172,29 @@ const parseData = (
         );
         continue;
       }
-      if (!entry.every(isSafeStructuredArrayEntry)) {
+
+      const parsedEntries: unknown[] = [];
+      let valid = true;
+      for (const [index, item] of entry.entries()) {
+        const parsed = parseStructuredArrayEntry(
+          item,
+          `Animationsdatenfeld ${key}[${index}]`,
+          errors,
+        );
+        if (!parsed.ok) {
+          valid = false;
+          continue;
+        }
+        parsedEntries.push(parsed.value);
+      }
+
+      if (!valid) {
         errors.push(
           `Animationsdatenfeld ${key} enthält verschachtelte oder nicht unterstützte Listenwerte.`,
         );
         continue;
       }
-      data[key] = entry;
+      data[key] = parsedEntries;
       continue;
     }
 
@@ -149,7 +230,7 @@ const parseLabels = (
       `Ein Label überschreitet ${FINANCE_ANIMATION_INPUT_LIMITS.maxLabelLength} Zeichen.`,
     );
   }
-  return value;
+  return [...value];
 };
 
 export const parseFinanceAnimationRequest = (
@@ -164,22 +245,28 @@ export const parseFinanceAnimationRequest = (
   }
 
   const structuralErrors: string[] = [];
-  if (typeof input.message !== 'string') {
+  const requestInput = copyPlainDataProperties(
+    input,
+    'Animationsanfrage',
+    structuralErrors,
+  );
+
+  if (typeof requestInput.message !== 'string') {
     structuralErrors.push('Kernaussage muss ein Text sein.');
   }
-  if (typeof input.voiceText !== 'string') {
+  if (typeof requestInput.voiceText !== 'string') {
     structuralErrors.push('Voiceover muss ein Text sein.');
   }
-  validateTextLength(input.message, 'Kernaussage', structuralErrors);
-  validateTextLength(input.voiceText, 'Voiceover', structuralErrors);
+  validateTextLength(requestInput.message, 'Kernaussage', structuralErrors);
+  validateTextLength(requestInput.voiceText, 'Voiceover', structuralErrors);
 
-  const labels = parseLabels(input.labels, structuralErrors);
-  const data = parseData(input.data, structuralErrors);
+  const labels = parseLabels(requestInput.labels, structuralErrors);
+  const data = parseData(requestInput.data, structuralErrors);
 
   let preferredTemplate: FinanceAnimationTemplate | undefined;
-  if (input.preferredTemplate !== undefined) {
-    if (isTemplate(input.preferredTemplate)) {
-      preferredTemplate = input.preferredTemplate;
+  if (requestInput.preferredTemplate !== undefined) {
+    if (isTemplate(requestInput.preferredTemplate)) {
+      preferredTemplate = requestInput.preferredTemplate;
     } else {
       structuralErrors.push('Bevorzugtes Animationstemplate ist unbekannt.');
     }
@@ -190,8 +277,8 @@ export const parseFinanceAnimationRequest = (
   }
 
   const request: FinanceAnimationRequest = {
-    message: input.message as string,
-    voiceText: input.voiceText as string,
+    message: requestInput.message as string,
+    voiceText: requestInput.voiceText as string,
     ...(labels ? {labels} : {}),
     ...(data ? {data} : {}),
     ...(preferredTemplate ? {preferredTemplate} : {}),
@@ -233,10 +320,11 @@ export const parseFinanceAnimationScene = (
   }
 
   const errors: string[] = [];
-  if (input.mode !== 'hybrid' && input.mode !== 'full-animation') {
+  const sceneInput = copyPlainDataProperties(input, 'Animationsszene', errors);
+  if (sceneInput.mode !== 'hybrid' && sceneInput.mode !== 'full-animation') {
     errors.push('Animationsszene benötigt den Modus hybrid oder full-animation.');
   }
-  if (!isTemplate(input.template)) {
+  if (!isTemplate(sceneInput.template)) {
     errors.push('Animationsszene enthält ein unbekanntes Template.');
   }
   if (errors.length > 0) {
@@ -249,8 +337,8 @@ export const parseFinanceAnimationScene = (
 
   const scene: FinanceAnimationScene = {
     ...requestResult.value,
-    mode: input.mode as FinanceAnimationScene['mode'],
-    template: input.template as FinanceAnimationTemplate,
+    mode: sceneInput.mode as FinanceAnimationScene['mode'],
+    template: sceneInput.template as FinanceAnimationTemplate,
   };
 
   const genericIssues = validateAnimationScene(scene);
