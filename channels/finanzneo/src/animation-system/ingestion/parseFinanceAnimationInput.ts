@@ -62,6 +62,12 @@ const isAllowedScalar = (value: unknown): value is FinanceAnimationScalar =>
 const uniqueMessages = (messages: readonly string[]): string[] =>
   [...new Set(messages)];
 
+const failedParse = <TValue>(message: string): FinanceAnimationParseResult<TValue> => ({
+  ok: false,
+  errors: [message],
+  warnings: [],
+});
+
 const copyPlainDataProperties = (
   value: Record<string, unknown>,
   scope: string,
@@ -233,15 +239,11 @@ const parseLabels = (
   return [...value];
 };
 
-export const parseFinanceAnimationRequest = (
+const parseFinanceAnimationRequestInternal = (
   input: unknown,
 ): FinanceAnimationParseResult<FinanceAnimationRequest> => {
   if (!isPlainRecord(input)) {
-    return {
-      ok: false,
-      errors: ['Animationsanfrage muss als einfaches Objekt vorliegen.'],
-      warnings: [],
-    };
+    return failedParse('Animationsanfrage muss als einfaches Objekt vorliegen.');
   }
 
   const structuralErrors: string[] = [];
@@ -306,17 +308,27 @@ export const parseFinanceAnimationRequest = (
   };
 };
 
-export const parseFinanceAnimationScene = (
+/**
+ * Öffentliche Parsergrenze. Auch absichtlich fehlerhafte Proxies oder andere
+ * hostile Werte dürfen keine Ausnahme aus dem Parser entkommen lassen.
+ */
+export const parseFinanceAnimationRequest = (
+  input: unknown,
+): FinanceAnimationParseResult<FinanceAnimationRequest> => {
+  try {
+    return parseFinanceAnimationRequestInternal(input);
+  } catch {
+    return failedParse('Animationsanfrage konnte nicht sicher gelesen werden.');
+  }
+};
+
+const parseFinanceAnimationSceneInternal = (
   input: unknown,
 ): FinanceAnimationParseResult<FinanceAnimationScene> => {
   const requestResult = parseFinanceAnimationRequest(input);
   if (!requestResult.ok) return requestResult;
   if (!isPlainRecord(input)) {
-    return {
-      ok: false,
-      errors: ['Animationsszene muss als einfaches Objekt vorliegen.'],
-      warnings: [],
-    };
+    return failedParse('Animationsszene muss als einfaches Objekt vorliegen.');
   }
 
   const errors: string[] = [];
@@ -370,4 +382,14 @@ export const parseFinanceAnimationScene = (
     value: scene,
     warnings: uniqueMessages(warnings),
   };
+};
+
+export const parseFinanceAnimationScene = (
+  input: unknown,
+): FinanceAnimationParseResult<FinanceAnimationScene> => {
+  try {
+    return parseFinanceAnimationSceneInternal(input);
+  } catch {
+    return failedParse('Animationsszene konnte nicht sicher gelesen werden.');
+  }
 };
