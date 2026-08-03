@@ -1,6 +1,7 @@
 import {describe, expect, it} from 'vitest';
 import {
   planFinanceAnimationInput,
+  planFinanceAnimationInputForTemplate,
   planFinanceAnimationInputWithFeatures,
 } from './planFinanceAnimationInput';
 
@@ -9,6 +10,11 @@ const hybridFeatures = {
   allowHybrid: true,
   allowFullAnimation: false,
   allowAutomaticRouting: true,
+} as const;
+
+const manualHybridFeatures = {
+  ...hybridFeatures,
+  allowAutomaticRouting: false,
 } as const;
 
 describe('planFinanceAnimationInput', () => {
@@ -98,6 +104,64 @@ describe('planFinanceAnimationInput', () => {
       expect(result.plan.decision.template).toBe('compound-growth');
       expect(result.plan.scene?.template).toBe('compound-growth');
       expect(result.plan.issues.filter((issue) => issue.level === 'error')).toEqual([]);
+    }
+  });
+
+  it('supports a manually selected template before automatic routing is released', () => {
+    const result = planFinanceAnimationInputForTemplate({
+      message: 'Zinseszins lässt Vermögen wachsen.',
+      voiceText: 'Erträge erwirtschaften neue Erträge.',
+      data: {
+        startCapital: 1000,
+        monthlyRate: 200,
+        annualReturn: 7,
+        years: 20,
+      },
+    }, 'compound-growth', manualHybridFeatures);
+
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.plan.decision.mode).toBe('hybrid');
+      expect(result.plan.decision.template).toBe('compound-growth');
+      expect(result.plan.decision.reason).toContain('manuell ausgewählt');
+      expect(result.plan.scene?.template).toBe('compound-growth');
+    }
+  });
+
+  it('validates a manually selected template against the supplied data', () => {
+    const result = planFinanceAnimationInputForTemplate({
+      message: 'Geld fließt vom Gehalt ins Depot.',
+      voiceText: 'Der Betrag wird jeden Monat investiert.',
+      data: {
+        amount: 300,
+        fromLabel: 'Gehalt',
+        toLabel: 'Depot',
+      },
+    }, 'compound-growth', manualHybridFeatures);
+
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.plan.decision.mode).toBe('image');
+      expect(result.plan.scene).toBeUndefined();
+      expect(result.plan.decision.blockedReasons).toEqual(expect.arrayContaining([
+        'Pflichtwert fehlt: startCapital',
+        'Unbekanntes Datenfeld für compound-growth: amount',
+      ]));
+    }
+  });
+
+  it('stops malformed input before manual template selection', () => {
+    const result = planFinanceAnimationInputForTemplate({
+      message: 123,
+      voiceText: null,
+    }, 'money-flow', manualHybridFeatures);
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.errors).toEqual(expect.arrayContaining([
+        'Kernaussage muss ein Text sein.',
+        'Voiceover muss ein Text sein.',
+      ]));
     }
   });
 
