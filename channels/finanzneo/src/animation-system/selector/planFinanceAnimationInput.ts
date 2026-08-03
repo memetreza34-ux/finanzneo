@@ -1,4 +1,7 @@
-import type {FinanceAnimationRequest} from '../contracts';
+import type {
+  FinanceAnimationRequest,
+  FinanceAnimationTemplate,
+} from '../contracts';
 import type {FinanceAnimationFeatureFlags} from '../featureFlags';
 import {
   parseFinanceAnimationRequest,
@@ -6,6 +9,7 @@ import {
 } from '../ingestion';
 import {
   planFinanceAnimationScene,
+  planFinanceAnimationSceneForTemplate,
   planFinanceAnimationSceneWithFeatures,
   type FinanceAnimationPlanResult,
 } from './planFinanceAnimationScene';
@@ -58,10 +62,28 @@ export const planFinanceAnimationInput = (
 );
 
 /**
- * Sichere End-to-End-Simulation der späteren Aktivierung. Untrusted Input
- * durchläuft zuerst dieselbe Parsergrenze und anschließend Router, Planner und
- * Template-Validierung mit expliziten Testflags. Globale Produktionsflags
- * werden dabei nicht verändert.
+ * Sichere manuelle Template-Auswahl für die erste Aktivierungsstufe.
+ * Automatisches Routing kann deaktiviert bleiben; das untrusted Input-Objekt
+ * durchläuft trotzdem Parser und vollständige Template-Validierung.
+ */
+export const planFinanceAnimationInputForTemplate = (
+  input: unknown,
+  template: FinanceAnimationTemplate,
+  features: FinanceAnimationFeatureFlags,
+): FinanceAnimationInputPlanResult => planParsedInput(
+  input,
+  (request) => planFinanceAnimationSceneForTemplate(
+    request,
+    template,
+    features,
+  ),
+);
+
+/**
+ * Sichere End-to-End-Simulation der späteren automatischen Aktivierung.
+ * Untrusted Input durchläuft zuerst dieselbe Parsergrenze und anschließend
+ * Router, Planner und Template-Validierung mit expliziten Testflags. Globale
+ * Produktionsflags werden dabei nicht verändert.
  */
 export const planFinanceAnimationInputWithFeatures = (
   input: unknown,
