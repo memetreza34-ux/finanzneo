@@ -1,6 +1,9 @@
 import React from 'react';
-import {AbsoluteFill} from 'remotion';
-import {FINANCE_ANIMATION_GALLERY_ITEMS} from './AnimationGallery';
+import {AbsoluteFill, Sequence} from 'remotion';
+import {
+  FINANCE_ANIMATION_CARD_DURATION,
+  FINANCE_ANIMATION_GALLERY_ITEMS,
+} from './AnimationGallery';
 
 const SOURCE_WIDTH = 1080;
 const SOURCE_HEIGHT = 1920;
@@ -10,8 +13,8 @@ const PREVIEW_WIDTH = SOURCE_WIDTH * PREVIEW_SCALE;
 
 /**
  * Kontaktbogen für die visuelle Prüfung aller vorbereiteten Templates.
- * Jedes Template wird in seiner ursprünglichen 9:16-Fläche gerendert und
- * anschließend nur für die Übersicht skaliert.
+ * Jedes Template läuft innerhalb einer eigenen 180-Frame-Sequence in seiner
+ * ursprünglichen 1080×1920-VideoConfig und wird anschließend nur skaliert.
  */
 export const AnimationGalleryOverview: React.FC = () => (
   <AbsoluteFill
@@ -85,7 +88,13 @@ export const AnimationGalleryOverview: React.FC = () => (
                 transformOrigin: 'top left',
               }}
             >
-              {item.render()}
+              <Sequence
+                durationInFrames={FINANCE_ANIMATION_CARD_DURATION}
+                width={SOURCE_WIDTH}
+                height={SOURCE_HEIGHT}
+              >
+                {item.render()}
+              </Sequence>
             </div>
           </div>
         </div>
