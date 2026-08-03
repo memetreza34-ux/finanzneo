@@ -10,4 +10,5 @@ export * from './PortfolioAllocationTemplate';
 export * from './RiskReturnScaleTemplate';
 export * from './TaxFeeFlowTemplate';
 export * from './TimelineMilestonesTemplate';
+export * from './allowedTemplateData';
 export * from './requiredTemplateData';
