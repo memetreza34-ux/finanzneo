@@ -21,6 +21,12 @@ const normalizedEntryLabels = (value: unknown): string[] => {
 const hasDuplicates = (values: readonly string[]): boolean =>
   new Set(values).size !== values.length;
 
+const isFiniteNumber = (value: unknown): value is number =>
+  typeof value === 'number' && Number.isFinite(value);
+
+const portfolioValueTolerance = (total: number): number =>
+  Math.max(0.01, Math.abs(total) * 0.0001);
+
 export const validateTemplatePresentation = (
   scene: FinanceAnimationScene,
 ): TemplatePresentationValidation => {
@@ -48,13 +54,37 @@ export const validateTemplatePresentation = (
     }
 
     const percentageValues = entries.map((entry) => entry.percent);
-    const numericPercentages = percentageValues.filter(
-      (value): value is number => typeof value === 'number' && Number.isFinite(value),
-    );
+    const numericPercentages = percentageValues.filter(isFiniteNumber);
+    const valueValues = entries.map((entry) => entry.value);
+    const numericValues = valueValues.filter(isFiniteNumber);
+
+    const usesPercentages = numericPercentages.length > 0;
+    const usesValues = numericValues.length > 0;
+    if (usesPercentages && usesValues) {
+      errors.push(
+        'Portfolio-Positionen müssen einheitlich entweder percent oder value verwenden.',
+      );
+    }
+
     if (numericPercentages.length === data.allocations.length) {
       const total = numericPercentages.reduce((sum, value) => sum + value, 0);
       if (Math.abs(total - 100) > 0.5) {
         errors.push(`Portfolio-Prozentwerte ergeben ${total.toFixed(1)} statt 100 Prozent.`);
+      }
+    }
+
+    if (
+      numericValues.length === data.allocations.length &&
+      isFiniteNumber(data.total)
+    ) {
+      const allocationTotal = numericValues.reduce((sum, value) => sum + value, 0);
+      if (
+        Math.abs(allocationTotal - data.total) >
+        portfolioValueTolerance(data.total)
+      ) {
+        errors.push(
+          `Portfolio-Werte ergeben ${allocationTotal.toFixed(2)} statt ${data.total.toFixed(2)} Gesamtwert.`,
+        );
       }
     }
   }
