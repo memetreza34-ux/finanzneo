@@ -1,11 +1,12 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
+import {futureValueMonthlyInvestment} from '../calculations/financeMath';
 import {AnimatedNumber, ProgressBar} from '../primitives';
 
 export type MonthlyInvestmentTemplateProps = {
   monthlyAmount: number;
   months: number;
-  finalValue: number;
+  annualReturnPercent: number;
   label?: string;
 };
 
@@ -20,15 +21,22 @@ export type MonthlyInvestmentFrame = {
 const clamp01 = (value: number): number =>
   Math.max(0, Math.min(1, Number.isFinite(value) ? value : 0));
 
+/**
+ * Der sichtbare Zwischenwert wird aus den tatsächlich abgeschlossenen Monaten
+ * und der gelieferten Rendite berechnet. Eine lineare Schätzung zwischen null
+ * und dem Endwert wird bewusst nicht verwendet.
+ */
 export const resolveMonthlyInvestmentFrame = ({
   monthlyAmount,
   months,
-  finalValue,
+  annualReturnPercent,
   progress,
 }: Omit<MonthlyInvestmentTemplateProps, 'label'> & {progress: number}): MonthlyInvestmentFrame => {
   const safeMonthlyAmount = Math.max(0, Number.isFinite(monthlyAmount) ? monthlyAmount : 0);
   const safeMonths = Math.max(0, Math.round(Number.isFinite(months) ? months : 0));
-  const safeFinalValue = Math.max(0, Number.isFinite(finalValue) ? finalValue : 0);
+  const safeAnnualReturnPercent = Number.isFinite(annualReturnPercent)
+    ? Math.max(-99.999, annualReturnPercent)
+    : 0;
   const frameProgress = clamp01(progress);
   const completedMonths = Math.min(
     safeMonths,
@@ -36,7 +44,11 @@ export const resolveMonthlyInvestmentFrame = ({
   );
   const completedRatio = safeMonths > 0 ? completedMonths / safeMonths : 0;
   const invested = safeMonthlyAmount * completedMonths;
-  const currentValue = safeFinalValue * completedRatio;
+  const currentValue = futureValueMonthlyInvestment(
+    safeMonthlyAmount,
+    safeAnnualReturnPercent / 100,
+    completedMonths / 12,
+  );
 
   return {
     completedMonths,
@@ -50,7 +62,7 @@ export const resolveMonthlyInvestmentFrame = ({
 export const MonthlyInvestmentTemplate: React.FC<MonthlyInvestmentTemplateProps> = ({
   monthlyAmount,
   months,
-  finalValue,
+  annualReturnPercent,
   label = 'Monatlicher Sparplan',
 }) => {
   const frame = useCurrentFrame();
@@ -62,7 +74,7 @@ export const MonthlyInvestmentTemplate: React.FC<MonthlyInvestmentTemplateProps>
   const resolved = resolveMonthlyInvestmentFrame({
     monthlyAmount,
     months,
-    finalValue,
+    annualReturnPercent,
     progress,
   });
   const earningsAccent = resolved.earnings >= 0 ? '#5CFF9A' : '#FF7C83';
@@ -88,7 +100,7 @@ export const MonthlyInvestmentTemplate: React.FC<MonthlyInvestmentTemplateProps>
       </div>
       <div style={{position: 'absolute', left: 72, right: 72, bottom: 120, display: 'flex', justifyContent: 'space-between', fontSize: 30}}>
         <span>{monthlyAmount.toLocaleString('de-DE')} € pro Monat</span>
-        <span>{months} Monate</span>
+        <span>{annualReturnPercent.toLocaleString('de-DE', {maximumFractionDigits: 2})} % p.a.</span>
       </div>
     </AbsoluteFill>
   );
