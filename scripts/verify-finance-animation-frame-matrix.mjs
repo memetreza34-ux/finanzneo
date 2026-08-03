@@ -16,6 +16,15 @@ const requireTokens = (content, filePath, tokens) => {
   }
 };
 
+const requireLocalVideoConfig = (content, filePath) => {
+  requireTokens(content, filePath, [
+    '<Sequence',
+    'durationInFrames={FINANCE_ANIMATION_CARD_DURATION}',
+    'width={SOURCE_WIDTH}',
+    'height={SOURCE_HEIGHT}',
+  ]);
+};
+
 const run = async () => {
   const matrixPath =
     'channels/finanzneo/src/animation-system/gallery/AnimationFrameMatrix.tsx';
@@ -28,17 +37,19 @@ const run = async () => {
     'Math.floor(FINANCE_ANIMATION_CARD_DURATION / 2)',
     'FINANCE_ANIMATION_CARD_DURATION - 1',
     'FINANCE_ANIMATION_GALLERY_ITEMS.flatMap',
-    '<Sequence',
-    'durationInFrames={FINANCE_ANIMATION_CARD_DURATION}',
-    'width={SOURCE_WIDTH}',
-    'height={SOURCE_HEIGHT}',
     'freeze={item.checkpoint.frame}',
     'gridTemplateColumns: \'repeat(6, minmax(0, 1fr))\'',
   ]);
+  requireLocalVideoConfig(matrix, matrixPath);
 
   if (matrix.includes('<Freeze')) {
     fail('Die Matrix verwendet Freeze ohne lokale Sequence-VideoConfig.');
   }
+
+  const overviewPath =
+    'channels/finanzneo/src/animation-system/gallery/AnimationGalleryOverview.tsx';
+  const overview = await readRepositoryFile(overviewPath);
+  requireLocalVideoConfig(overview, overviewPath);
 
   const matrixTestPath =
     'channels/finanzneo/src/animation-system/gallery/AnimationFrameMatrix.test.tsx';
@@ -94,7 +105,7 @@ const run = async () => {
 
   console.log('Finance animation frame matrix check passed.');
   console.log('Verified 12 templates × 3 review checkpoints = 36 visual states.');
-  console.log('Verified local 180-frame 1080×1920 video config for every frozen preview.');
+  console.log('Verified local 180-frame 1080×1920 video config for overview and frozen previews.');
 };
 
 run().catch((error) => {
