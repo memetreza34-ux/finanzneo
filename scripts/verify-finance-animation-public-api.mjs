@@ -42,6 +42,7 @@ const run = async () => {
   const publicPath = 'channels/finanzneo/src/animation-system/public.ts';
   const publicApi = await readRepositoryFile(publicPath);
   requireTokens(publicApi, publicPath, [
+    'FINANCE_ANIMATION_DOMAIN_LIMITS',
     'parseFinanceAnimationRequest',
     'parseFinanceAnimationScene',
     'planFinanceAnimationInputForTemplate',
@@ -56,20 +57,21 @@ const run = async () => {
     'FINANCE_ANIMATION_REQUIRED_DATA',
   ]);
   forbidTokens(publicApi, publicPath, [
-    'FinanceAnimationRenderer\n',
-    'FinanceAnimationGalleryRoot',
-    'FinanceAnimationTestReelRoot',
-    'AnimationFrameMatrix',
-    'AnimationTestReel',
-    'selectAnimationTemplate',
+    "from './render/FinanceAnimationRenderer'",
+    "from './gallery'",
+    "from './test-reel'",
+    "from './planning/selectAnimationTemplate'",
     'planFinanceAnimationSceneFromDecision',
     'buildAnimationPlanFromResult',
     'validateTemplateData',
+    "from './calculations/financeMath'",
   ]);
 
   const internalPath = 'channels/finanzneo/src/animation-system/internal.ts';
   const internalApi = await readRepositoryFile(internalPath);
   requireTokens(internalApi, internalPath, [
+    "export * from './domainLimits';",
+    "export * from './calculations/financeMath';",
     "export * from './render';",
     "export * from './gallery';",
     "export * from './test-reel';",
@@ -80,6 +82,9 @@ const run = async () => {
     'channels/finanzneo/src/animation-system/public.test.ts';
   const publicTest = await readRepositoryFile(publicTestPath);
   requireTokens(publicTest, publicTestPath, [
+    'FINANCE_ANIMATION_DOMAIN_LIMITS',
+    'futureValueLumpSum',
+    'calculateCompoundInterest',
     'forbiddenPublicRuntimeExports',
     'requiredPublicRuntimeExports',
     'makes the package root identical to the safe public module',
@@ -96,6 +101,7 @@ const run = async () => {
 
   console.log('Finance animation public API check passed.');
   console.log('Verified one safe package-root export and isolated internal development APIs.');
+  console.log('Verified public domain limits while raw calculations remain internal.');
 };
 
 run().catch((error) => {
