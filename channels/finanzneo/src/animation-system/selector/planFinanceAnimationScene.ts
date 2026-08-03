@@ -4,12 +4,16 @@ import type {
   FinanceAnimationScene,
 } from '../contracts';
 import {createImageFallback} from '../fallback/createImageFallback';
+import type {FinanceAnimationFeatureFlags} from '../featureFlags';
 import {
   type AnimationValidationIssue,
   validateAnimationScene,
 } from '../qa/validateAnimationScene';
 import {validateTemplateData} from '../render/validateTemplateData';
-import {classifyFinanceScene} from '../router/classifyFinanceScene';
+import {
+  classifyFinanceScene,
+  classifyFinanceSceneWithFeatures,
+} from '../router/classifyFinanceScene';
 
 export type FinanceAnimationPlanResult = {
   decision: FinanceAnimationDecision;
@@ -97,6 +101,18 @@ export const planFinanceAnimationSceneFromDecision = (
     issues,
   };
 };
+
+/**
+ * Vollständige Simulation der späteren Aktivierung mit expliziten Flags.
+ * Die global deaktivierten Produktionsflags werden dabei nicht verändert.
+ */
+export const planFinanceAnimationSceneWithFeatures = (
+  request: FinanceAnimationRequest,
+  features: FinanceAnimationFeatureFlags,
+): FinanceAnimationPlanResult => planFinanceAnimationSceneFromDecision(
+  request,
+  classifyFinanceSceneWithFeatures(request, features),
+);
 
 export const planFinanceAnimationScene = (
   request: FinanceAnimationRequest,
