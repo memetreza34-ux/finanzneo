@@ -1,5 +1,15 @@
 import {describe, expect, it} from 'vitest';
-import {planFinanceAnimationInput} from './planFinanceAnimationInput';
+import {
+  planFinanceAnimationInput,
+  planFinanceAnimationInputWithFeatures,
+} from './planFinanceAnimationInput';
+
+const hybridFeatures = {
+  enabled: true,
+  allowHybrid: true,
+  allowFullAnimation: false,
+  allowAutomaticRouting: true,
+} as const;
 
 describe('planFinanceAnimationInput', () => {
   it('parses a valid request before planning it', () => {
@@ -66,6 +76,100 @@ describe('planFinanceAnimationInput', () => {
     if (!result.ok) {
       expect(result.errors).toContain(
         'Animationsdatenfeld configuration enthält ein nicht unterstütztes Objekt.',
+      );
+    }
+  });
+
+  it('runs valid untrusted input through parser, router, planner and validator', () => {
+    const result = planFinanceAnimationInputWithFeatures({
+      message: 'Zinseszins lässt Vermögen wachsen.',
+      voiceText: 'Erträge erwirtschaften neue Erträge.',
+      data: {
+        startCapital: 1000,
+        monthlyRate: 200,
+        annualReturn: 7,
+        years: 20,
+      },
+    }, hybridFeatures);
+
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.plan.decision.mode).toBe('hybrid');
+      expect(result.plan.decision.template).toBe('compound-growth');
+      expect(result.plan.scene?.template).toBe('compound-growth');
+      expect(result.plan.issues.filter((issue) => issue.level === 'error')).toEqual([]);
+    }
+  });
+
+  it('keeps global production planning disabled after feature simulation', () => {
+    const input = {
+      message: 'Inflation senkt die Kaufkraft.',
+      voiceText: 'Steigende Preise verringern den realen Wert des Geldes.',
+      data: {
+        startingValue: 100,
+        inflationPercent: 2.5,
+        years: 10,
+      },
+    };
+
+    const simulated = planFinanceAnimationInputWithFeatures(input, hybridFeatures);
+    const production = planFinanceAnimationInput(input);
+
+    expect(simulated.ok).toBe(true);
+    expect(production.ok).toBe(true);
+    if (simulated.ok && production.ok) {
+      expect(simulated.plan.decision.mode).toBe('hybrid');
+      expect(production.plan.decision.mode).toBe('image');
+    }
+  });
+
+  it('returns a safe image fallback when exact data contracts fail', () => {
+    const result = planFinanceAnimationInputWithFeatures({
+      message: 'Portfolio wird aufgeteilt.',
+      voiceText: 'Die Positionen sollen den gesamten Portfoliowert zeigen.',
+      preferredTemplate: 'portfolio-allocation',
+      data: {
+        total: 10000,
+        allocations: [
+          {label: 'ETF', value: 6000},
+          {label: 'Tagesgeld', value: 3000},
+        ],
+      },
+    }, hybridFeatures);
+
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.plan.decision.mode).toBe('image');
+      expect(result.plan.scene).toBeUndefined();
+      expect(result.plan.decision.blockedReasons).toContain(
+        'Portfolio-Werte ergeben 9000.00 statt 10000.00 Gesamtwert.',
+      );
+    }
+  });
+
+  it('blocks invalid feature configurations before any animation scene is built', () => {
+    const result = planFinanceAnimationInputWithFeatures({
+      message: 'Zinseszins lässt Vermögen wachsen.',
+      voiceText: 'Erträge erwirtschaften neue Erträge.',
+      data: {
+        startCapital: 1000,
+        monthlyRate: 200,
+        annualReturn: 7,
+        years: 20,
+      },
+    }, {
+      enabled: true,
+      allowHybrid: false,
+      allowFullAnimation: true,
+      allowAutomaticRouting: true,
+    });
+
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.plan.decision.mode).toBe('image');
+      expect(result.plan.scene).toBeUndefined();
+      expect(result.plan.decision.blockedReasons).toContain(
+        'Vollanimation darf erst nach Freigabe des Hybridmodus aktiviert werden.',
       );
     }
   });
