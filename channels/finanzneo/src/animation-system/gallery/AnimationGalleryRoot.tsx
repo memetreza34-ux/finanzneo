@@ -5,6 +5,7 @@ import {
   FINANCE_ANIMATION_CARD_DURATION,
   FINANCE_ANIMATION_GALLERY_DURATION,
 } from './AnimationGallery';
+import {AnimationFrameMatrix} from './AnimationFrameMatrix';
 import {AnimationGalleryOverview} from './AnimationGalleryOverview';
 
 /**
@@ -25,6 +26,14 @@ export const FinanceAnimationGalleryRoot: React.FC = () => (
       id="FinanceAnimationGalleryOverview"
       component={AnimationGalleryOverview}
       durationInFrames={FINANCE_ANIMATION_CARD_DURATION}
+      fps={30}
+      width={2160}
+      height={3840}
+    />
+    <Composition
+      id="FinanceAnimationFrameMatrix"
+      component={AnimationFrameMatrix}
+      durationInFrames={1}
       fps={30}
       width={2160}
       height={3840}
