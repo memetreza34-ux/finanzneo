@@ -3,12 +3,14 @@ import {describe, expect, it} from 'vitest';
 import {parseFinanceAnimationScene} from '../ingestion';
 import {FINANCE_ANIMATION_TEMPLATES} from '../templates/registry';
 import {
+  AnimationFallbackPreview,
   AnimationTestReel,
   FINANCE_ANIMATION_TEST_REEL_DURATION,
   FINANCE_ANIMATION_TEST_REEL_SCENES,
   FINANCE_ANIMATION_TEST_SCENE_DURATION,
   getFinanceAnimationTestSceneMiddleFrame,
   getFinanceAnimationTestSceneStartFrame,
+  getFirstFinanceAnimationFallbackScene,
 } from './AnimationTestReel';
 
 describe('AnimationTestReel', () => {
@@ -49,6 +51,15 @@ describe('AnimationTestReel', () => {
       'unsafe-data',
       'invalid-mode',
     ]);
+  });
+
+  it('selects the missing-data case for the stable fallback preview', () => {
+    const fallback = getFirstFinanceAnimationFallbackScene();
+
+    expect(fallback.expectsFallback).toBe(true);
+    expect(fallback.fallbackKind).toBe('missing-data');
+    expect(parseFinanceAnimationScene(fallback.input).ok).toBe(false);
+    expect(React.isValidElement(<AnimationFallbackPreview />)).toBe(true);
   });
 
   it('derives total duration from scene count', () => {
