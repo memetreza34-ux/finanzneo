@@ -100,7 +100,7 @@ export const CompoundGrowthTemplate: React.FC<CompoundGrowthTemplateProps> = ({
     years,
   );
   const safePrincipal = safeNonNegative(principal);
-  const finalValue = bars.at(-1)?.value ?? safePrincipal;
+  const finalValue = bars[bars.length - 1]?.value ?? safePrincipal;
 
   return (
     <AbsoluteFill style={{background: 'linear-gradient(180deg, #07120B 0%, #030805 100%)', color: '#F5F7F4', padding: 72, boxSizing: 'border-box'}}>
