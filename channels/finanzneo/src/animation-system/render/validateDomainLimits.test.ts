@@ -6,12 +6,14 @@ import {validateTemplateData} from './validateTemplateData';
 const scene = (
   template: FinanceAnimationScene['template'],
   data: NonNullable<FinanceAnimationScene['data']>,
+  labels?: string[],
 ): FinanceAnimationScene => ({
   mode: 'full-animation',
   template,
   message: 'Testszene',
   voiceText: 'Testszene',
   data,
+  ...(labels ? {labels} : {}),
 });
 
 describe('finance animation domain limits', () => {
@@ -120,10 +122,42 @@ describe('finance animation domain limits', () => {
     );
   });
 
+  it('rejects oversized top-level and auxiliary visible labels', () => {
+    const label = 'L'.repeat(
+      FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength + 1,
+    );
+    const result = validateTemplateData(scene('money-flow', {
+      amount: 300,
+      fromLabel: label,
+      toLabel: 'Depot',
+    }, [label]));
+
+    expect(result.errors).toEqual(expect.arrayContaining([
+      `Sichtbarer Text ist länger als ${FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength} Zeichen: fromLabel`,
+      `Sichtbarer Text ist länger als ${FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength} Zeichen: labels[0]`,
+    ]));
+  });
+
+  it('rejects oversized string values inside timeline cards', () => {
+    const value = 'W'.repeat(
+      FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength + 1,
+    );
+    const result = validateTemplateData(scene('timeline-milestones', {
+      milestones: [{label: 'Ziel', value}],
+    }));
+
+    expect(result.errors).toContain(
+      `Sichtbarer Text ist länger als ${FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength} Zeichen: milestones[0].value`,
+    );
+  });
+
   it('accepts exact upper boundaries', () => {
+    const exactLabel = 'L'.repeat(
+      FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength,
+    );
     const moneyFlow = validateTemplateData(scene('money-flow', {
       amount: FINANCE_ANIMATION_DOMAIN_LIMITS.maxAbsoluteMoney,
-      fromLabel: 'Quelle',
+      fromLabel: exactLabel,
       toLabel: 'Ziel',
     }));
     const monthly = validateTemplateData(scene('monthly-investment', {
