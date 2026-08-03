@@ -9,8 +9,10 @@ Diese Checkliste verhindert, dass die vorbereitete Foundation versehentlich zu f
 - [ ] `npm run finance:animation-typecheck` erfolgreich
 - [ ] `npm run finance:animation-test` erfolgreich
 - [ ] `npm run finance:animation-gallery:still` erfolgreich
-- [ ] sequenzieller Galerie-Still erfolgreich
+- [ ] `npm run finance:animation-gallery:sequence-still` erfolgreich
+- [ ] `npm run finance:animation-test-reel:still` erfolgreich
 - [ ] GitHub-Actions-Lauf enthält echte Steps und Logs
+- [ ] Galerie- und Fallback-Artefakte wurden vom Workflow hochgeladen
 
 ## Gate 2 – Visuelle Freigabe
 
@@ -39,6 +41,7 @@ Prüfkriterien:
 - [ ] negative Ergebnisse werden nicht positiv eingefärbt
 - [ ] Startframe enthält keine künstlichen Mindestbalken
 - [ ] Endframe entspricht exakt den gelieferten Daten
+- [ ] Bewegung bleibt erklärend und nicht dekorativ überladen
 
 ## Gate 3 – Eingabe- und Fallback-Sicherheit
 
@@ -46,21 +49,31 @@ Prüfkriterien:
 - [ ] unbekannte vollständige Szenen laufen ausschließlich über `parseFinanceAnimationScene`
 - [ ] Planung unbekannter Requests läuft ausschließlich über `planFinanceAnimationInput`
 - [ ] Rendering unbekannter Szenen läuft ausschließlich über `SafeFinanceAnimationRenderer`
+- [ ] Getter und Setter werden abgelehnt, ohne ausgeführt zu werden
+- [ ] Symbol-Schlüssel werden abgelehnt
+- [ ] `__proto__`, `prototype` und `constructor` werden auf allen Eingabeebenen blockiert
+- [ ] akzeptierte Daten werden in kopierte Null-Prototyp-Container überführt
+- [ ] verschachtelte Objekte, verschachtelte Arrays und ausführbare Werte werden blockiert
 - [ ] ungültige Daten erzeugen immer den bestehenden Bild-Fallback
-- [ ] Fallback-Gründe sind verständlich und enthalten keine internen Fehlercodes
+- [ ] dynamische Fallbacks erhalten ausschließlich normalisierte Fehler und Warnungen
+- [ ] Fallback-Gründe sind verständlich und enthalten keine internen Stacktraces
 - [ ] Mehrdeutigkeit zwischen Templates führt zum Bildmodus
 - [ ] Input-Limits wurden mit realistischen Maximalwerten getestet
 
-## Gate 4 – Test-Reel
+## Gate 4 – Vollständiges Test-Reel
 
-- [ ] separates Testprojekt mit mindestens fünf Szenen erstellt
-- [ ] mindestens eine Bildszene enthalten
-- [ ] mindestens eine Hybrid-Szene enthalten
-- [ ] mindestens eine Vollanimationsszene enthalten
-- [ ] mindestens ein absichtlich ungültiger Fall fällt korrekt auf Bild zurück
-- [ ] Audio, Szenendauer und Animation sind synchron
-- [ ] vollständiger 9:16-Render erfolgreich
-- [ ] Render visuell manuell freigegeben
+Das isolierte Test-Reel muss alle registrierten Templates enthalten:
+
+- [ ] alle zwölf Templates genau einmal als gültige Szene enthalten
+- [ ] Reihenfolge wird aus `FINANCE_ANIMATION_TEMPLATES` abgeleitet
+- [ ] Pflichtdaten-Fallback enthalten
+- [ ] Fallback für unsichere Datenstruktur enthalten
+- [ ] Fallback für ungültigen Szenenmodus enthalten
+- [ ] stabile `FinanceAnimationFallbackPreview`-Composition rendert erfolgreich
+- [ ] vollständiger 9:16-Render über `npm run finance:animation-test-reel:render` erfolgreich
+- [ ] Szenendauer und Animation sind synchron
+- [ ] alle Fallback-Karten zeigen die erwarteten Parserfehler
+- [ ] vollständiger Render wurde visuell manuell freigegeben
 
 ## Gate 5 – Kontrollierte Produktionsanbindung
 
@@ -80,12 +93,14 @@ Erst nach Abschluss der vorherigen Gates:
 Vor Abschluss aller Gates nicht erlaubt:
 
 - direkte Registrierung der Galerie im produktiven Root
+- direkte Registrierung des Test-Reels im produktiven Root
 - direkter Import von `FinanceAnimationRenderer` in die Produktion
 - Umgehung von Parser oder Validator
+- Ausführung unbekannter Getter, Setter oder Funktionen
 - Aktivierung mehrerer Feature Flags in einem Schritt
 - Entfernung des Bild-Fallbacks
 - Merge des Draft-PRs ohne bestätigten Test- und Renderlauf
 
 ## Aktueller Zustand
 
-Alle produktionsbezogenen Feature Flags bleiben deaktiviert. Die Foundation ist vorbereitet, aber nicht freigegeben. Der Pull Request bleibt Draft, bis die technischen Prüfungen tatsächlich ausgeführt und die Galerie visuell geprüft wurden.
+Alle produktionsbezogenen Feature Flags bleiben deaktiviert. Die Foundation ist vorbereitet, aber nicht freigegeben. Der Pull Request bleibt Draft, bis die technischen Prüfungen tatsächlich ausgeführt, die Fallback-Vorschau bestätigt und das vollständige Test-Reel visuell geprüft wurden.
