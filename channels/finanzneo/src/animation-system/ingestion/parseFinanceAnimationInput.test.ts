@@ -1,6 +1,7 @@
-import {describe, expect, it} from 'vitest';
+import {describe, expect, it, vi} from 'vitest';
 import {FINANCE_ANIMATION_FIXTURES} from '../fixtures';
 import {
+  FINANCE_ANIMATION_FORBIDDEN_KEYS,
   FINANCE_ANIMATION_INPUT_LIMITS,
   parseFinanceAnimationRequest,
   parseFinanceAnimationScene,
@@ -88,6 +89,101 @@ describe('parseFinanceAnimationRequest', () => {
           'Animationsdatenfeld allocations enthält verschachtelte oder nicht unterstützte Listenwerte.',
         );
       }
+    }
+  });
+
+  it('rejects prototype-related keys at the request, data and array-entry levels', () => {
+    expect(FINANCE_ANIMATION_FORBIDDEN_KEYS).toEqual([
+      '__proto__',
+      'prototype',
+      'constructor',
+    ]);
+
+    const requestWithForbiddenKey = Object.create(null) as Record<string, unknown>;
+    requestWithForbiddenKey.message = 'Test';
+    requestWithForbiddenKey.voiceText = 'Test';
+    requestWithForbiddenKey.constructor = 'blocked';
+
+    const requestResult = parseFinanceAnimationRequest(requestWithForbiddenKey);
+    expect(requestResult.ok).toBe(false);
+    if (!requestResult.ok) {
+      expect(requestResult.errors).toContain(
+        'Animationsanfrage verwendet den gesperrten Schlüssel constructor.',
+      );
+    }
+
+    const dataWithForbiddenKey = Object.create(null) as Record<string, unknown>;
+    dataWithForbiddenKey.amount = 300;
+    dataWithForbiddenKey.__proto__ = 'blocked';
+
+    const dataResult = parseFinanceAnimationRequest({
+      message: 'Test',
+      voiceText: 'Test',
+      data: dataWithForbiddenKey,
+    });
+    expect(dataResult.ok).toBe(false);
+    if (!dataResult.ok) {
+      expect(dataResult.errors).toContain(
+        'Animationsdaten verwendet den gesperrten Schlüssel __proto__.',
+      );
+    }
+
+    const allocation = Object.create(null) as Record<string, unknown>;
+    allocation.label = 'ETF';
+    allocation.percent = 100;
+    allocation.prototype = 'blocked';
+
+    const arrayResult = parseFinanceAnimationRequest({
+      message: 'Portfolio',
+      voiceText: 'Portfolio',
+      data: {allocations: [allocation]},
+    });
+    expect(arrayResult.ok).toBe(false);
+    if (!arrayResult.ok) {
+      expect(arrayResult.errors).toContain(
+        'Animationsdatenfeld allocations[0] verwendet den gesperrten Schlüssel prototype.',
+      );
+    }
+  });
+
+  it('rejects getters without executing them', () => {
+    const getter = vi.fn(() => 'should not run');
+    const request = {
+      voiceText: 'Test',
+      data: {},
+    } as Record<string, unknown>;
+    Object.defineProperty(request, 'message', {
+      enumerable: true,
+      get: getter,
+    });
+
+    const result = parseFinanceAnimationRequest(request);
+
+    expect(getter).not.toHaveBeenCalled();
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.errors).toContain(
+        'Animationsanfrage enthält einen Getter oder Setter: message.',
+      );
+    }
+  });
+
+  it('copies accepted data into null-prototype containers', () => {
+    const allocations = [{label: 'ETF', percent: 100}];
+    const data = {total: 25000, allocations};
+    const result = parseFinanceAnimationRequest({
+      message: 'Portfolio',
+      voiceText: 'Portfolio',
+      data,
+    });
+
+    expect(result.ok).toBe(true);
+    if (result.ok) {
+      expect(result.value.data).not.toBe(data);
+      expect(Object.getPrototypeOf(result.value.data)).toBeNull();
+      const copiedAllocations = result.value.data?.allocations as unknown[];
+      expect(copiedAllocations).not.toBe(allocations);
+      expect(Object.getPrototypeOf(copiedAllocations[0])).toBeNull();
     }
   });
 
