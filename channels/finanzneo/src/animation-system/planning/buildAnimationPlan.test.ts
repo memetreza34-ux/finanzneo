@@ -150,5 +150,45 @@ describe('buildAnimationPlan', () => {
     expect(plan.decision.blockedReasons).toContain(
       'Portfolio-Werte ergeben 9000.00 statt 10000.00 Gesamtwert.',
     );
+    expect(plan.errors.filter((error) => error.includes('Portfolio-Werte ergeben'))).toHaveLength(1);
+  });
+
+  it('preserves invalid feature configuration reasons in the final plan', () => {
+    const plan = buildAnimationPlanWithFeatures({
+      message: 'Zinseszins lässt Vermögen wachsen.',
+      voiceText: 'Erträge erwirtschaften neue Erträge.',
+      data: {
+        startCapital: 1000,
+        monthlyRate: 200,
+        annualReturn: 7,
+        years: 20,
+      },
+    }, {
+      enabled: true,
+      allowHybrid: false,
+      allowFullAnimation: true,
+      allowAutomaticRouting: true,
+    });
+
+    expect(plan.status).toBe('image-fallback');
+    expect(plan.errors).toContain(
+      'Vollanimation darf erst nach Freigabe des Hybridmodus aktiviert werden.',
+    );
+  });
+
+  it('preserves ambiguity reasons in the final plan', () => {
+    const plan = buildAnimationPlanWithFeatures({
+      message: 'Einnahmen und Ausgaben.',
+      voiceText: 'Einnahmen und Ausgaben.',
+    }, {
+      enabled: true,
+      allowHybrid: true,
+      allowFullAnimation: false,
+      allowAutomaticRouting: true,
+    });
+
+    expect(plan.status).toBe('image-fallback');
+    expect(plan.decision.reason).toContain('Mehrdeutige Zuordnung');
+    expect(plan.errors.some((error) => error.includes('Gleichstand bei Routing-Punktzahl'))).toBe(true);
   });
 });
