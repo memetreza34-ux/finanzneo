@@ -5,6 +5,10 @@ Diese Checkliste verhindert, dass die vorbereitete Foundation versehentlich zu f
 ## Gate 1 – Technische Foundation
 
 - [ ] `npm run finance:animation-structure` erfolgreich
+- [ ] Foundation-Strukturcheck erfolgreich
+- [ ] exakter Datenvertragscheck erfolgreich
+- [ ] Aktivierungspolicy-Check erfolgreich
+- [ ] Frame-Matrix-Strukturcheck erfolgreich
 - [ ] `npm run finance:animation-isolation` erfolgreich
 - [ ] `npm run finance:animation-typecheck` erfolgreich
 - [ ] `npm run finance:animation-test` erfolgreich
@@ -15,7 +19,21 @@ Diese Checkliste verhindert, dass die vorbereitete Foundation versehentlich zu f
 - [ ] GitHub-Actions-Lauf enthält echte Steps und Logs
 - [ ] Galerie-, Frame-Matrix- und Fallback-Artefakte wurden hochgeladen
 
-## Gate 2 – Visuelle Freigabe
+## Gate 2 – Exakte Datenverträge
+
+- [ ] jedes der zwölf Templates besitzt eine vollständige Laufzeit-Allowlist
+- [ ] alle Pflichtfelder sind Teil der jeweiligen Allowlist
+- [ ] optionale Felder sind ausdrücklich dokumentiert
+- [ ] unbekannte Top-Level-Datenfelder werden blockiert
+- [ ] unbekannte Felder in Portfolio-Positionen werden blockiert
+- [ ] unbekannte Felder in Timeline-Meilensteinen werden blockiert
+- [ ] Portfolio-Positionen mischen `percent` und `value` nicht
+- [ ] Prozent-Portfolios ergeben ungefähr 100 Prozent
+- [ ] Wert-Portfolios ergeben den dargestellten Gesamtwert
+- [ ] doppelte Portfolio- und Timeline-Labels werden blockiert
+- [ ] der Renderer erfindet keine sichtbaren Werte
+
+## Gate 3 – Visuelle Freigabe
 
 Die Composition `FinanceAnimationFrameMatrix` muss für jedes der zwölf Templates drei reproduzierbare Zustände zeigen:
 
@@ -43,6 +61,7 @@ Templates:
 Prüfkriterien:
 
 - [ ] alle 36 Zellen sind vorhanden und eindeutig beschriftet
+- [ ] jede Zelle verwendet lokal 180 Frames und 1080 × 1920 Pixel
 - [ ] keine abgeschnittenen Texte
 - [ ] keine überlappenden Labels
 - [ ] keine sichtbaren Sprünge oder Doppelanimationen
@@ -53,12 +72,15 @@ Prüfkriterien:
 - [ ] Mittelframe zeigt einen nachvollziehbaren Erklärungsfortschritt
 - [ ] Endframe entspricht exakt den gelieferten Daten
 - [ ] Bewegung bleibt erklärend und nicht dekorativ überladen
+- [ ] `gallery/VISUAL_QA_REPORT.md` vollständig ausgefüllt
 
-## Gate 3 – Eingabe- und Fallback-Sicherheit
+## Gate 4 – Eingabe- und Fallback-Sicherheit
 
 - [ ] unbekannte JSON-Daten laufen ausschließlich über `parseFinanceAnimationRequest`
 - [ ] unbekannte vollständige Szenen laufen ausschließlich über `parseFinanceAnimationScene`
-- [ ] Planung unbekannter Requests läuft ausschließlich über `planFinanceAnimationInput`
+- [ ] produktive Planung unbekannter Requests läuft über `planFinanceAnimationInput`
+- [ ] manuelle Testauswahl unbekannter Requests läuft über `planFinanceAnimationInputForTemplate`
+- [ ] automatische Testsimulation unbekannter Requests läuft über `planFinanceAnimationInputWithFeatures`
 - [ ] Rendering unbekannter Szenen läuft ausschließlich über `SafeFinanceAnimationRenderer`
 - [ ] Getter und Setter werden abgelehnt, ohne ausgeführt zu werden
 - [ ] Symbol-Schlüssel werden abgelehnt
@@ -70,17 +92,20 @@ Prüfkriterien:
 - [ ] dynamische Fallbacks erhalten ausschließlich eingefrorene Fehler- und Warnungslisten
 - [ ] das rohe untrusted Eingabeobjekt wird nicht an Fallback-Komponenten weitergegeben
 - [ ] Fallback-Gründe sind verständlich und enthalten keine internen Stacktraces
+- [ ] Blockgründe werden bis in den finalen Plan übernommen und dedupliziert
 - [ ] Mehrdeutigkeit zwischen Templates führt zum Bildmodus
 - [ ] Input-Limits wurden mit realistischen Maximalwerten getestet
 
-## Gate 4 – Vollständiges Test-Reel
+## Gate 5 – Vollständiges Test-Reel und Aktivierungssimulation
 
-Das isolierte Test-Reel muss alle registrierten Templates enthalten:
-
-- [ ] alle zwölf Templates genau einmal als gültige Szene enthalten
+- [ ] alle zwölf Templates genau einmal als gültige Test-Reel-Szene enthalten
 - [ ] Reihenfolge wird aus `FINANCE_ANIMATION_TEMPLATES` abgeleitet
-- [ ] vollständiger Hybridpfad wurde für alle Fixtures simuliert
-- [ ] vollständiger Vollanimationspfad wurde für alle Fixtures simuliert
+- [ ] manuelle Hybridplanung wurde für alle zwölf Fixtures simuliert
+- [ ] manuelle Planung funktioniert bei `allowAutomaticRouting: false`
+- [ ] automatischer Hybridpfad wurde für alle Fixtures simuliert
+- [ ] automatischer Vollanimationspfad wurde für alle Fixtures simuliert
+- [ ] globaler Produktionspfad bleibt für alle Fixtures im Bildmodus
+- [ ] ungültige Feature-Kombinationen führen zum Bildmodus
 - [ ] Pflichtdaten-Fallback enthalten
 - [ ] Fallback für unsichere Datenstruktur enthalten
 - [ ] Fallback für ungültigen Szenenmodus enthalten
@@ -90,18 +115,70 @@ Das isolierte Test-Reel muss alle registrierten Templates enthalten:
 - [ ] alle Fallback-Karten zeigen die erwarteten Parserfehler
 - [ ] vollständiger Render wurde visuell manuell freigegeben
 
-## Gate 5 – Kontrollierte Produktionsanbindung
+## Gate 6 – Kontrollierte Produktionsanbindung
 
-Erst nach Abschluss der vorherigen Gates:
+Die Aktivierungsreihenfolge ist verbindlich:
 
-- [ ] produktive Scene-Plan-Verträge separat erweitern
-- [ ] sichere Parsergrenze vor jede Animationsszene setzen
-- [ ] `SafeFinanceAnimationRenderer` hinter dem bestehenden Bild-Fallback anbinden
-- [ ] zuerst nur `allowHybrid` aktivieren
-- [ ] automatische Auswahl weiterhin deaktiviert lassen
-- [ ] mindestens ein reales Reel mit Hybridmodus prüfen
-- [ ] erst danach `allowFullAnimation` aktivieren
-- [ ] automatische Auswahl zuletzt und separat aktivieren
+### Stufe A – alles deaktiviert
+
+```ts
+{
+  enabled: false,
+  allowHybrid: false,
+  allowFullAnimation: false,
+  allowAutomaticRouting: false,
+}
+```
+
+- [ ] bestehender Bild-Workflow unverändert bestätigt
+
+### Stufe B – manuelle Hybridprüfung
+
+```ts
+{
+  enabled: true,
+  allowHybrid: true,
+  allowFullAnimation: false,
+  allowAutomaticRouting: false,
+}
+```
+
+- [ ] produktive Scene-Plan-Verträge separat erweitert
+- [ ] sichere Parsergrenze vor jede Animationsszene gesetzt
+- [ ] `SafeFinanceAnimationRenderer` hinter dem bestehenden Bild-Fallback angebunden
+- [ ] Template ausschließlich explizit ausgewählt
+- [ ] mindestens ein reales Reel pro freizugebendem Template geprüft
+- [ ] Rückfall in den Bildmodus praktisch geprüft
+
+### Stufe C – Vollanimation manuell
+
+```ts
+{
+  enabled: true,
+  allowHybrid: true,
+  allowFullAnimation: true,
+  allowAutomaticRouting: false,
+}
+```
+
+- [ ] vollständige Animation zunächst nur mit expliziter Template-Auswahl geprüft
+- [ ] Renderzeit und Ressourcenverbrauch geprüft
+- [ ] Bild-Fallback weiterhin erreichbar
+
+### Stufe D – automatisches Routing zuletzt
+
+```ts
+{
+  enabled: true,
+  allowHybrid: true,
+  allowFullAnimation: true,
+  allowAutomaticRouting: true,
+}
+```
+
+- [ ] Mehrdeutigkeitsfälle praktisch geprüft
+- [ ] Fehlklassifizierungen dokumentiert
+- [ ] automatische Auswahl erst nach separatem Review aktiviert
 
 ## Verbotene Abkürzungen
 
@@ -110,9 +187,11 @@ Vor Abschluss aller Gates nicht erlaubt:
 - direkte Registrierung der Galerie im produktiven Root
 - direkte Registrierung des Test-Reels im produktiven Root
 - direkter Import von `FinanceAnimationRenderer` in die Produktion
-- Umgehung von Parser oder Validator
+- Umgehung von Parser, Allowlist oder Validator
 - Ausführung unbekannter Getter, Setter oder Funktionen
-- Aktivierung mehrerer Feature Flags in einem Schritt
+- Aktivierung von Vollanimation vor Hybrid
+- Aktivierung automatischen Routings vor manueller Hybridprüfung
+- Aktivierung von Unterflags bei `enabled: false`
 - Entfernung des Bild-Fallbacks
 - Merge des Draft-PRs ohne bestätigten Test- und Renderlauf
 
