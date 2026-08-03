@@ -25,6 +25,7 @@ const forbiddenPublicRuntimeExports = [
 
 const requiredPublicRuntimeExports = [
   'FINANCE_ANIMATION_DOMAIN_LIMITS',
+  'FINANCE_ANIMATION_INPUT_LIMITS',
   'FINANCE_ANIMATION_FEATURES',
   'validateFinanceAnimationFeatureFlags',
   'parseFinanceAnimationRequest',
@@ -65,5 +66,16 @@ describe('finance animation public API', () => {
     for (const exportName of forbiddenPublicRuntimeExports) {
       expect(internalApi).toHaveProperty(exportName);
     }
+  });
+
+  it('shares immutable input and domain limit objects with internal tools', () => {
+    expect(publicApi.FINANCE_ANIMATION_INPUT_LIMITS).toBe(
+      internalApi.FINANCE_ANIMATION_INPUT_LIMITS,
+    );
+    expect(publicApi.FINANCE_ANIMATION_DOMAIN_LIMITS).toBe(
+      internalApi.FINANCE_ANIMATION_DOMAIN_LIMITS,
+    );
+    expect(Object.isFrozen(publicApi.FINANCE_ANIMATION_INPUT_LIMITS)).toBe(true);
+    expect(Object.isFrozen(publicApi.FINANCE_ANIMATION_DOMAIN_LIMITS)).toBe(true);
   });
 });
