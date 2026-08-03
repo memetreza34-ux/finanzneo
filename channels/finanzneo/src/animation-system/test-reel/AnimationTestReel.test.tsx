@@ -37,7 +37,7 @@ describe('AnimationTestReel', () => {
   it('keeps valid and invalid scene expectations aligned with the parser', () => {
     for (const scene of FINANCE_ANIMATION_TEST_REEL_SCENES) {
       const parsed = parseFinanceAnimationScene(scene.input);
-      expect(parsed.ok, scene.name).toBe(!scene.expectsFallback);
+      expect(parsed.ok).toBe(!scene.expectsFallback);
     }
   });
 
