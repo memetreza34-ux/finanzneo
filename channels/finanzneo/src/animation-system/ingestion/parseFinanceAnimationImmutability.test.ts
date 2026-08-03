@@ -76,7 +76,7 @@ describe('animation parser immutability', () => {
 
     input.labels[0] = 'Manipuliert';
     input.data.total = 1;
-    input.data.allocations[0].percent = 1;
+    input.data.allocations[0]!.percent = 1;
 
     const parsedAllocations = result.value.data?.allocations as Array<
       Record<string, unknown>
