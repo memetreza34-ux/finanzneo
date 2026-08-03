@@ -10,6 +10,11 @@ export type {
 } from './contracts';
 
 export {
+  FINANCE_ANIMATION_DOMAIN_LIMITS,
+} from './domainLimits';
+export type {FinanceAnimationDomainLimits} from './domainLimits';
+
+export {
   FINANCE_ANIMATION_FEATURES,
   isFinanceAnimationEnabled,
   validateFinanceAnimationFeatureFlags,
@@ -78,23 +83,3 @@ export type {
   TimelineMilestoneDatum,
   TypedFinanceAnimationScene,
 } from './templateDataContracts';
-
-export {
-  calculateCompoundInterest,
-  calculateInflationAdjustedValue,
-  calculateLoanBalance,
-  calculateMonthlyInvestment,
-  futureValueLumpSum,
-  futureValueMonthlyInvestment,
-  inflationAdjustedValue,
-  normalizeAllocation,
-  normalizePortfolioAllocation,
-  remainingLoanBalance,
-} from './calculations/financeMath';
-export type {
-  CompoundInterestInput,
-  InflationInput,
-  LoanBalanceInput,
-  MonthlyInvestmentInput,
-  PortfolioAllocationInput,
-} from './calculations/financeMath';
