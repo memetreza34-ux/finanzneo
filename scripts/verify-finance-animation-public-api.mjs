@@ -43,6 +43,8 @@ const run = async () => {
   const publicApi = await readRepositoryFile(publicPath);
   requireTokens(publicApi, publicPath, [
     'FINANCE_ANIMATION_DOMAIN_LIMITS',
+    'FINANCE_ANIMATION_INPUT_LIMITS',
+    'FinanceAnimationInputLimits',
     'parseFinanceAnimationRequest',
     'parseFinanceAnimationScene',
     'planFinanceAnimationInputForTemplate',
@@ -71,6 +73,8 @@ const run = async () => {
   const internalApi = await readRepositoryFile(internalPath);
   requireTokens(internalApi, internalPath, [
     "export * from './domainLimits';",
+    "export type {FinanceAnimationInputLimits} from './inputLimits';",
+    "export * from './ingestion';",
     "export * from './calculations/financeMath';",
     "export * from './render';",
     "export * from './gallery';",
@@ -83,11 +87,13 @@ const run = async () => {
   const publicTest = await readRepositoryFile(publicTestPath);
   requireTokens(publicTest, publicTestPath, [
     'FINANCE_ANIMATION_DOMAIN_LIMITS',
+    'FINANCE_ANIMATION_INPUT_LIMITS',
     'futureValueLumpSum',
     'calculateCompoundInterest',
     'forbiddenPublicRuntimeExports',
     'requiredPublicRuntimeExports',
     'makes the package root identical to the safe public module',
+    'shares immutable input and domain limit objects with internal tools',
     'keeps development-only APIs available only through the internal module',
   ]);
 
@@ -101,7 +107,7 @@ const run = async () => {
 
   console.log('Finance animation public API check passed.');
   console.log('Verified one safe package-root export and isolated internal development APIs.');
-  console.log('Verified public domain limits while raw calculations remain internal.');
+  console.log('Verified shared immutable input/domain limits while raw calculations remain internal.');
 };
 
 run().catch((error) => {
