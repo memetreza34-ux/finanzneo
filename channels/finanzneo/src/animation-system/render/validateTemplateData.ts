@@ -3,6 +3,7 @@ import type {
   FinanceAnimationScene,
   FinanceAnimationTemplate,
 } from '../contracts';
+import {FINANCE_ANIMATION_DOMAIN_LIMITS} from '../domainLimits';
 import {
   FINANCE_ANIMATION_ALLOWED_DATA,
   FINANCE_ANIMATION_STRUCTURED_ENTRY_KEYS,
@@ -52,6 +53,23 @@ const NON_NEGATIVE_KEYS = new Set([
   'fees',
 ]);
 
+const MONEY_KEYS = new Set([
+  'amount',
+  'income',
+  'startCapital',
+  'monthlyRate',
+  'total',
+  'startingValue',
+  'originalDebt',
+  'remainingDebt',
+  'beforeValue',
+  'afterValue',
+  'expenses',
+  'grossAmount',
+  'taxes',
+  'fees',
+]);
+
 const PERCENT_KEYS = new Set([
   'needsPercent',
   'wantsPercent',
@@ -93,6 +111,10 @@ const structuredArrayErrors = (
     const invalid = value.some((entry, index) => {
       if (!isRecord(entry) || !isNonEmptyString(entry.label)) return true;
 
+      if (entry.label.trim().length > FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength) {
+        errors.push(`Portfolio-Label in Position ${index + 1} ist länger als ${FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength} Zeichen.`);
+      }
+
       for (const key of unknownKeys(
         entry,
         FINANCE_ANIMATION_STRUCTURED_ENTRY_KEYS['portfolio-allocation'],
@@ -103,6 +125,15 @@ const structuredArrayErrors = (
       const numericValue = entry.percent ?? entry.value;
       if (typeof numericValue !== 'number' || !Number.isFinite(numericValue) || numericValue < 0) {
         return true;
+      }
+      if (entry.percent !== undefined && numericValue > 100) {
+        errors.push(`Portfolio-Prozentwert in Position ${index + 1} liegt über 100.`);
+      }
+      if (
+        entry.value !== undefined &&
+        numericValue > FINANCE_ANIMATION_DOMAIN_LIMITS.maxAbsoluteMoney
+      ) {
+        errors.push(`Portfolio-Wert in Position ${index + 1} überschreitet das Darstellungsmaximum.`);
       }
       values.push(numericValue);
       return false;
@@ -119,11 +150,23 @@ const structuredArrayErrors = (
     const invalid = value.some((entry, index) => {
       if (!isRecord(entry) || !isNonEmptyString(entry.label)) return true;
 
+      if (entry.label.trim().length > FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength) {
+        errors.push(`Meilenstein-Label in Position ${index + 1} ist länger als ${FINANCE_ANIMATION_DOMAIN_LIMITS.maxVisibleLabelLength} Zeichen.`);
+      }
+
       for (const key of unknownKeys(
         entry,
         FINANCE_ANIMATION_STRUCTURED_ENTRY_KEYS['timeline-milestones'],
       )) {
         errors.push(`Unbekanntes Meilenstein-Feld in Position ${index + 1}: ${key}`);
+      }
+
+      if (
+        typeof entry.value === 'number' &&
+        Number.isFinite(entry.value) &&
+        Math.abs(entry.value) > FINANCE_ANIMATION_DOMAIN_LIMITS.maxTimelineAbsoluteValue
+      ) {
+        errors.push(`Meilenstein-Wert in Position ${index + 1} überschreitet das Darstellungsmaximum.`);
       }
 
       return !isNonEmptyString(entry.value) &&
@@ -151,6 +194,9 @@ const validateNumericData = (
     if (NON_NEGATIVE_KEYS.has(key) && value < 0) {
       errors.push(`Zahlenwert darf nicht negativ sein: ${key}`);
     }
+    if (MONEY_KEYS.has(key) && value > FINANCE_ANIMATION_DOMAIN_LIMITS.maxAbsoluteMoney) {
+      errors.push(`Geldwert überschreitet das Darstellungsmaximum: ${key}`);
+    }
     if (PERCENT_KEYS.has(key) && value > 100) {
       errors.push(`Prozentwert liegt über 100: ${key}`);
     }
@@ -162,6 +208,18 @@ const validateNumericData = (
     }
     if (INTEGER_KEYS.has(key) && !Number.isInteger(value)) {
       errors.push(`Zahlenwert muss ganzzahlig sein: ${key}`);
+    }
+    if (key === 'years' && value > FINANCE_ANIMATION_DOMAIN_LIMITS.maxYears) {
+      errors.push(`Laufzeit überschreitet ${FINANCE_ANIMATION_DOMAIN_LIMITS.maxYears} Jahre.`);
+    }
+    if (key === 'months' && value > FINANCE_ANIMATION_DOMAIN_LIMITS.maxMonths) {
+      errors.push(`Laufzeit überschreitet ${FINANCE_ANIMATION_DOMAIN_LIMITS.maxMonths} Monate.`);
+    }
+    if (
+      (key === 'paidInstallments' || key === 'totalInstallments') &&
+      value > FINANCE_ANIMATION_DOMAIN_LIMITS.maxInstallments
+    ) {
+      errors.push(`Ratenzahl überschreitet ${FINANCE_ANIMATION_DOMAIN_LIMITS.maxInstallments}: ${key}`);
     }
   }
 };
