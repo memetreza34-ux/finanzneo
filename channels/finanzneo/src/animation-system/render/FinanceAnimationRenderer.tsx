@@ -14,11 +14,6 @@ import {
   TaxFeeFlowTemplate,
   TimelineMilestonesTemplate,
 } from '../templates';
-import {
-  futureValueLumpSum,
-  futureValueMonthlyInvestment,
-  inflationAdjustedValue,
-} from '../calculations/financeMath';
 import {validateTemplateData} from './validateTemplateData';
 
 export type FinanceAnimationRendererProps = {
@@ -42,8 +37,9 @@ const arrayValue = <T,>(scene: FinanceAnimationScene, key: string): T[] => {
 
 /**
  * Szenendaten verwenden Prozentpunkte: 7 bedeutet 7 %, 0.5 bedeutet 0,5 %.
- * Finanzberechnungen arbeiten intern mit Dezimalraten und erhalten deshalb
- * immer eine eindeutige Division durch 100 statt einer mehrdeutigen Heuristik.
+ * Nur Templates, die ausdrücklich mit Verhältnissen arbeiten, erhalten eine
+ * Dezimalrate. Finanzberechnungstemplates erhalten die originalen Prozentpunkte
+ * und berechnen daraus jeden sichtbaren Zwischenwert selbst.
  */
 export const percentagePointsToRatio = (value: number): number => value / 100;
 
@@ -52,15 +48,15 @@ export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> =
   if (!validation.ok) return null;
 
   switch (scene.template) {
-    case 'compound-growth': {
-      const startCapital = numberValue(scene, 'startCapital');
-      const monthlyRate = numberValue(scene, 'monthlyRate');
-      const annualReturn = percentagePointsToRatio(numberValue(scene, 'annualReturn'));
-      const years = numberValue(scene, 'years');
-      const finalValue = futureValueLumpSum(startCapital, annualReturn, years)
-        + futureValueMonthlyInvestment(monthlyRate, annualReturn, years);
-      return <CompoundGrowthTemplate principal={startCapital} finalValue={finalValue} years={years} />;
-    }
+    case 'compound-growth':
+      return (
+        <CompoundGrowthTemplate
+          principal={numberValue(scene, 'startCapital')}
+          monthlyContribution={numberValue(scene, 'monthlyRate')}
+          annualReturnPercent={numberValue(scene, 'annualReturn')}
+          years={numberValue(scene, 'years')}
+        />
+      );
     case 'money-flow': {
       const amount = numberValue(scene, 'amount');
       const fromLabel = stringValue(scene, 'fromLabel', 'Quelle');
@@ -89,18 +85,14 @@ export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> =
         />
       );
     }
-    case 'inflation-erosion': {
-      const startingValue = numberValue(scene, 'startingValue');
-      const inflationRate = percentagePointsToRatio(numberValue(scene, 'inflationPercent'));
-      const years = numberValue(scene, 'years');
+    case 'inflation-erosion':
       return (
         <InflationErosionTemplate
-          startValue={startingValue}
-          endValue={inflationAdjustedValue(startingValue, inflationRate, years)}
-          years={years}
+          startValue={numberValue(scene, 'startingValue')}
+          inflationPercent={numberValue(scene, 'inflationPercent')}
+          years={numberValue(scene, 'years')}
         />
       );
-    }
     case 'portfolio-allocation': {
       const rawAllocations = arrayValue<{label: string; value?: number; percent?: number}>(scene, 'allocations');
       const total = numberValue(scene, 'total');
@@ -119,19 +111,14 @@ export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> =
           totalInstallments={numberValue(scene, 'totalInstallments')}
         />
       );
-    case 'monthly-investment': {
-      const monthlyRate = numberValue(scene, 'monthlyRate');
-      const months = numberValue(scene, 'months');
-      const annualReturn = percentagePointsToRatio(numberValue(scene, 'annualReturn', 0));
-      const finalValue = futureValueMonthlyInvestment(monthlyRate, annualReturn, months / 12);
+    case 'monthly-investment':
       return (
         <MonthlyInvestmentTemplate
-          monthlyAmount={monthlyRate}
-          months={months}
-          finalValue={finalValue}
+          monthlyAmount={numberValue(scene, 'monthlyRate')}
+          months={numberValue(scene, 'months')}
+          annualReturnPercent={numberValue(scene, 'annualReturn', 0)}
         />
       );
-    }
     case 'before-after-comparison':
       return (
         <BeforeAfterComparisonTemplate
