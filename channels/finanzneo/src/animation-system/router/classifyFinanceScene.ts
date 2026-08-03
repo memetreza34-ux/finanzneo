@@ -6,6 +6,7 @@ import type {
 import {
   FINANCE_ANIMATION_FEATURES,
   type FinanceAnimationFeatureFlags,
+  validateFinanceAnimationFeatureFlags,
 } from '../featureFlags';
 import {
   haveAmbiguousTopCandidates,
@@ -25,11 +26,29 @@ export const classifyFinanceSceneWithFeatures = (
   request: FinanceAnimationRequest,
   features: FinanceAnimationFeatureFlags,
 ): FinanceAnimationDecision => {
-  if (!features.enabled || !features.allowAutomaticRouting) {
+  const featureErrors = validateFinanceAnimationFeatureFlags(features);
+  if (featureErrors.length > 0) {
+    return {
+      mode: 'image',
+      confidence: 1,
+      reason: 'Die Animations-Feature-Konfiguration verletzt die sichere Aktivierungsreihenfolge.',
+      blockedReasons: featureErrors,
+    };
+  }
+
+  if (!features.enabled) {
     return {
       mode: 'image',
       confidence: 1,
       reason: 'Animationssystem ist vorbereitet, aber noch deaktiviert.',
+    };
+  }
+
+  if (!features.allowAutomaticRouting) {
+    return {
+      mode: 'image',
+      confidence: 1,
+      reason: 'Automatische Animationsauswahl ist noch nicht freigegeben.',
     };
   }
 
