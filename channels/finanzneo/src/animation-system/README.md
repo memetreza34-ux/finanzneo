@@ -2,7 +2,7 @@
 
 > Vorbereitet, vollständig deaktiviert und vom produktiven `image-first-lite`-Workflow getrennt.
 
-Dieses Verzeichnis enthält die technische Grundlage für spätere gezielte Remotion-Finanzanimationen. Es ersetzt den bestehenden Bild-Workflow nicht und ist aktuell weder im produktiven Root noch im produktiven Renderer registriert.
+Dieses Verzeichnis enthält die technische Grundlage für spätere gezielte Remotion-Finanzanimationen. Es ersetzt den bestehenden Bild-Workflow nicht und ist weder im produktiven Root noch im produktiven Renderer registriert.
 
 ## Sicherheitszustand
 
@@ -24,7 +24,7 @@ Zusätzlich gilt:
 - keine Anbindung an `FinanceImageFirstReel`
 - keine Änderung an produktiven Scene-Plan-Verträgen
 - Galerie und Test-Reel besitzen eigene isolierte Entry-Points
-- ungültige oder mehrdeutige Daten bleiben im Bildmodus
+- ungültige, mehrdeutige oder nicht exakt passende Daten bleiben im Bildmodus
 
 ## Vorbereitete Modi
 
@@ -49,7 +49,16 @@ Keiner dieser Animationsmodi ist produktiv freigegeben.
 11. `income-expense-balance`
 12. `tax-fee-flow`
 
-Jedes Template besitzt einen exakten Datenvertrag, eine zentrale Pflichtfelddefinition, kanonische Beispieldaten, fachliche und visuelle Validierung, Renderer-Abbildung, Galerie-Abdeckung und Tests.
+Jedes Template besitzt:
+
+- einen exakten statischen Datenvertrag
+- eine vollständige Laufzeit-Allowlist
+- eine zentrale Pflichtfelddefinition
+- kanonische Beispieldaten
+- fachliche und visuelle Validierung
+- Renderer-Abbildung
+- Galerie- und Test-Reel-Abdeckung
+- Aktivierungs- und Fallback-Tests
 
 ## Sichere Eingabegrenzen
 
@@ -61,6 +70,8 @@ Sichere Einstiegspunkte:
 parseFinanceAnimationRequest(input)
 parseFinanceAnimationScene(input)
 planFinanceAnimationInput(input)
+planFinanceAnimationInputForTemplate(input, template, features)
+planFinanceAnimationInputWithFeatures(input, features)
 SafeFinanceAnimationRenderer
 ```
 
@@ -87,6 +98,44 @@ Der Parser prüft unter anderem:
 
 Nicht sicher lesbare Werte liefern ein kontrolliertes Fehlerergebnis statt eines ungefangenen Fehlers.
 
+## Exakte Laufzeit-Datenverträge
+
+`templateDataContracts.ts` verknüpft jede Template-ID statisch mit der passenden Datenstruktur.
+
+`templates/allowedTemplateData.ts` bildet dieselben Verträge als vollständige Laufzeit-Allowlist ab. Dadurch werden auch skalare Tippfehler oder ungenutzte Zusatzfelder abgelehnt, die der grundlegende Sicherheitsparser technisch lesen könnte.
+
+Beispiele:
+
+- `money-flow`: nur `amount`, `fromLabel`, `toLabel`
+- `compound-growth`: nur `startCapital`, `monthlyRate`, `annualReturn`, `years`
+- `monthly-investment`: `monthlyRate`, `months` und optional `annualReturn`
+- `portfolio-allocation`: nur `allocations` und `total`
+- `timeline-milestones`: nur `milestones`
+
+Für strukturierte Einträge gelten ebenfalls exakte Schlüssel:
+
+```ts
+portfolio: ['label', 'percent', 'value']
+timeline: ['label', 'value']
+```
+
+Unbekannte Felder blockieren die Animation mit einem konkreten Feldnamen.
+
+## Portfolio-Garantien
+
+Portfolio-Positionen verwenden entweder vollständig Prozentwerte oder vollständig absolute Werte.
+
+Nicht zulässig:
+
+- `percent` und `value` im selben Eintrag
+- Mischung von Prozent- und Wertmodus zwischen Positionen
+- Prozentwerte, die nicht ungefähr 100 Prozent ergeben
+- absolute Werte, deren Summe nicht zum dargestellten Gesamtwert passt
+- doppelte Labels
+- mehr als sechs Positionen
+
+Damit stimmen Prozentanzeige, Positionswert und dargestellter Gesamtwert immer überein. Der Renderer erfindet keinen Portfoliogesamtwert.
+
 ## Sicherer Renderer-Fallback
 
 `SafeFinanceAnimationRenderer` führt vor jedem Render `parseFinanceAnimationScene` aus. Ungültige Eingaben erreichen `FinanceAnimationRenderer` nicht.
@@ -105,24 +154,7 @@ Der dynamische Kontext enthält ausschließlich eingefrorene Kopien der normalis
 }
 ```
 
-Das rohe untrusted Eingabeobjekt wird absichtlich nicht an den Fallback weitergereicht. Dadurch kann eine Fallback-Komponente weder Getter lesen noch andere unbekannte Werte versehentlich ausführen.
-
-## Strenge Datenverträge
-
-`templateDataContracts.ts` verknüpft jede Template-ID mit der exakt passenden Datenstruktur.
-
-Beispiele:
-
-- `money-flow`: Betrag, Quelle und Ziel
-- `compound-growth`: Startkapital, Monatsrate, Rendite und Jahre
-- `portfolio-allocation`: Positionen und dargestellter Gesamtwert
-- `debt-paydown`: ursprüngliche Schuld, Restschuld und vollständiger Ratenfortschritt
-- `timeline-milestones`: strukturierte Meilensteine
-- `tax-fee-flow`: Brutto, Steuern und Gebühren
-
-Der Renderer erfindet keine sichtbaren Portfoliowerte oder Kreditraten.
-
-Prozentfelder verwenden immer Prozentpunkte: `7` bedeutet 7 Prozent und `0.5` bedeutet 0,5 Prozent. Erst Finanzberechnungen wandeln diese Werte in Dezimalraten um.
+Das rohe untrusted Eingabeobjekt wird nicht an den Fallback weitergereicht.
 
 ## Routing und Mehrdeutigkeit
 
@@ -130,23 +162,63 @@ Router und Template-Selector verwenden dieselbe Kandidatenbewertung. Bewertet we
 
 Ein echter Gleichstand wird nicht über die Registry-Reihenfolge entschieden. Das System fällt kontrolliert auf `image` zurück und dokumentiert die Mehrdeutigkeit.
 
-Für Tests der späteren Aktivierung steht zusätzlich bereit:
+Blockierte Routing-, Feature- und Daten-Gründe werden bis in den finalen `FinanceAnimationPlan` übernommen und dedupliziert.
+
+## Stufenweise Aktivierung
+
+Die sichere Reihenfolge wird durch `validateFinanceAnimationFeatureFlags()` geprüft:
+
+1. alle Flags deaktiviert
+2. `enabled` und `allowHybrid` aktivieren
+3. ein Template manuell auswählen und reale Hybrid-Szenen prüfen
+4. `allowFullAnimation` erst nach erfolgreichem Hybridtest aktivieren
+5. `allowAutomaticRouting` zuletzt aktivieren
+
+Ungültige Kombinationen werden blockiert:
+
+- aktive Modi bei `enabled: false`
+- Vollanimation ohne Hybridmodus
+- automatisches Routing ohne freigegebenen Animationsmodus
+
+### Manuelle erste Aktivierungsstufe
+
+Die erste Hybridprüfung benötigt kein automatisches Routing:
+
+```ts
+planFinanceAnimationSceneForTemplate(request, template, features)
+planFinanceAnimationInputForTemplate(input, template, features)
+buildAnimationPlanForTemplate(request, template, features)
+```
+
+Der Aufrufer wählt das Template explizit. Trotzdem durchlaufen Daten Parser, exakte Verträge, Semantik, Präsentationsregeln und Fallback-Logik.
+
+### Automatische Aktivierungssimulation
 
 ```ts
 planFinanceAnimationSceneWithFeatures(request, features)
+planFinanceAnimationInputWithFeatures(input, features)
+buildAnimationPlanWithFeatures(request, features)
 ```
 
-Damit werden Hybrid- und Vollanimationspfad über den vollständigen Router-, Planner- und Validator-Ablauf simuliert, ohne die global deaktivierten Produktionsflags zu verändern. Die kanonischen Fixtures durchlaufen beide simulierten Aktivierungspfade in eigenen Tests.
+Damit werden Router, Planner, Validator und finaler Plan mit expliziten Testflags simuliert, ohne die global deaktivierten Produktionsflags zu verändern.
 
-## Validierung
+Alle zwölf kanonischen Fixtures werden geprüft für:
+
+- manuelle Hybridauswahl bei deaktiviertem automatischem Routing
+- automatischen Hybridpfad
+- automatischen Vollanimationspfad
+- sicheren Bildmodus bei deaktiviertem Routing
+- unverändert deaktivierten globalen Produktionspfad
+
+## Fachliche und visuelle Validierung
 
 Vor einem Render werden unter anderem geprüft:
 
-- Pflichtfelder
+- Pflichtfelder und unbekannte Zusatzfelder
 - endliche und fachlich erlaubte Zahlen
 - Prozentwerte und Laufzeiten
 - Budgetsumme von ungefähr 100 Prozent
-- explizite Portfolio-Prozentsumme von ungefähr 100 Prozent
+- konsistente Portfolio-Gewichtungsart und Gesamtsumme
 - eindeutige Portfolio- und Timeline-Labels
 - maximale sichtbare Anzahl von Positionen und Meilensteinen
 - Restschuld nicht über Ausgangsschuld
@@ -176,14 +248,15 @@ Fehler blockieren den Render. Warnungen bleiben als Diagnosen erhalten.
 
 ## Kanonische Fixtures
 
-`fixtures/financeAnimationFixtures.ts` enthält genau eine gültige Szene pro registriertem Template. Dieselben Fixtures werden von Galerie, Parser-, Renderer- und Validierungstests sowie vom vollständigen Test-Reel verwendet.
+`fixtures/financeAnimationFixtures.ts` enthält genau eine gültige Szene pro registriertem Template. Dieselben Fixtures werden von Galerie, Parser-, Renderer-, Planungs- und Validierungstests sowie vom vollständigen Test-Reel verwendet.
 
-## Isolierte Galerie
+## Isolierte Galerie und Frame-Matrix
 
 ```bash
 npm run finance:animation-gallery
 npm run finance:animation-gallery:still
 npm run finance:animation-gallery:sequence-still
+npm run finance:animation-gallery:matrix-still
 ```
 
 Ausgaben:
@@ -191,6 +264,15 @@ Ausgaben:
 ```text
 /tmp/finance-animation-gallery.png
 /tmp/finance-animation-gallery-sequence.png
+/tmp/finance-animation-frame-matrix.png
+```
+
+`FinanceAnimationFrameMatrix` zeigt für jedes Template Startframe `0`, Mittelframe `90` und Endframe `179`. Das ergibt 36 reproduzierbare Zustände. Jede Vorschau erhält eine eigene 180-Frame-Sequence in 1080 × 1920 Pixeln.
+
+Der manuelle Freigabebericht liegt unter:
+
+```text
+gallery/VISUAL_QA_REPORT.md
 ```
 
 ## Vollständiges Test-Reel
@@ -214,8 +296,6 @@ Ausgaben:
 /tmp/finance-animation-test-reel.mp4
 ```
 
-Die eigene Composition `FinanceAnimationFallbackPreview` liefert einen stabilen Fallback-Still unabhängig von der Länge des vollständigen Reels.
-
 ## Prüfung
 
 ```bash
@@ -226,13 +306,18 @@ npm run finance:animation-test
 npm run finance:animation-validate
 ```
 
-Die Gesamtprüfung umfasst Struktur, Isolation, Typecheck, Tests, beide Galerie-Stills und die sichere Fallback-Vorschau.
+`finance:animation-structure` führt vier dependency-freie Prüfungen aus:
 
-## Automatische Struktur- und Isolationsprüfung
+1. Foundation-Struktur
+2. exakte Datenverträge
+3. Aktivierungsreihenfolge und manuelle Vorstufe
+4. visuelle Frame-Matrix-Struktur
 
-`scripts/verify-finance-animation-foundation.mjs` prüft ohne installierte Abhängigkeiten unter anderem Pflichtdateien, zwölf Template-IDs, gemeinsames Routing, Parser-Härtung, sichere Fallbacks, Test-Reel-Abdeckung, Composition-IDs, npm-Skripte, Workflow-Schritte und TypeScript-Umfang.
+Die Gesamtprüfung ergänzt Isolation, Typecheck, Tests, drei Galerie-Stills und die sichere Fallback-Vorschau.
 
-`scripts/verify-finance-animation-isolation.mjs` stellt sicher, dass die produktiven Dateien keine Referenz auf Renderer, Parser, Planner, Galerie oder Test-Reel besitzen.
+## Produktionsisolation
+
+`scripts/verify-finance-animation-isolation.mjs` stellt sicher, dass die produktiven Dateien keine Referenz auf Renderer, Parser, Planner, Galerie, Frame-Matrix oder Test-Reel besitzen.
 
 Geschützt werden insbesondere:
 
@@ -244,9 +329,9 @@ channels/finanzneo/src/FinanzNeoRoot.tsx
 
 ## GitHub Actions
 
-Der Foundation-Workflow ist für Strukturcheck, Isolation, Installation, Typecheck, Tests, Galerie-Stills, Fallback-Vorschau, Artefakt-Upload und Produktionsschutz vorbereitet.
+Der Foundation-Workflow ist für Struktur- und Vertragschecks, Aktivierungspolicy, Isolation, Installation, Typecheck, Tests, Galerie-Stills, Frame-Matrix, Fallback-Vorschau, Artefakt-Upload und Produktionsschutz vorbereitet.
 
-Ein separater minimaler Diagnose-Workflow besitzt nur einen Echo-Schritt. Auch dieser Lauf endet derzeit vor der Step-Ausführung: GitHub liefert für den Job weder Steps noch Logs. Damit liegt der aktuelle Blocker außerhalb der eigentlichen Animationsbefehle; ein erfolgreicher CI-Test- oder Renderlauf ist dennoch noch nicht bestätigt.
+Ein separater minimaler Diagnose-Workflow besitzt nur einen Echo-Schritt. Dieser endet derzeit vor der Step-Ausführung: GitHub liefert für den Job weder Steps noch Logs. Der Blocker wird in Issue #3 dokumentiert. Ein erfolgreicher CI-Typecheck, Test- oder Renderlauf ist daher noch nicht bestätigt.
 
 ## Aktivierung
 
