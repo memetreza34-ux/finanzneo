@@ -1,5 +1,6 @@
 export * from './contracts';
 export * from './domainLimits';
+export * from './inputLimits';
 export * from './templateDataContracts';
 export * from './featureFlags';
 export * from './ingestion';
