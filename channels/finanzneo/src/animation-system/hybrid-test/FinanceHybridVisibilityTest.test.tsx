@@ -4,6 +4,7 @@ import {
   FinanceHybridAnimationLayer,
   getFinanceHybridAnimatedSceneIds,
   getFinanceHybridPresentationStyle,
+  type FinanceHybridAnimationLayerProps,
 } from '../../engine/FinanceHybridAnimationLayer';
 import {FinanceImageFirstReel} from '../../engine/FinanceImageFirstReel';
 import {FinanceProductionLayer} from '../../engine/FinanceProductionLayer';
@@ -92,6 +93,31 @@ describe('FinanceHybridVisibilityTest', () => {
     if (!React.isValidElement(children[0]) || !React.isValidElement(children[1])) return;
     expect(children[0].type).toBe(FinanceImageFirstReel);
     expect(children[1].type).toBe(FinanceHybridAnimationLayer);
+  });
+
+  it('forwards assignments and debug visibility to the animation layer', () => {
+    const rendered = FinanceProductionLayer({
+      plan: FINANCE_HYBRID_VISIBILITY_PLAN,
+      manifest: FINANCE_HYBRID_VISIBILITY_MANIFEST,
+      captions: [],
+      publicBasePath: 'reels/test',
+      hybridAnimations: FINANCE_HYBRID_VISIBILITY_ASSIGNMENTS,
+      showAnimationDebugLabels: true,
+    });
+
+    expect(React.isValidElement<{children?: React.ReactNode}>(rendered)).toBe(true);
+    if (!React.isValidElement<{children?: React.ReactNode}>(rendered)) return;
+    const animationLayer = React.Children.toArray(rendered.props.children).find(
+      (child) => React.isValidElement(child) && child.type === FinanceHybridAnimationLayer,
+    );
+
+    expect(React.isValidElement<FinanceHybridAnimationLayerProps>(animationLayer)).toBe(true);
+    if (!React.isValidElement<FinanceHybridAnimationLayerProps>(animationLayer)) return;
+    expect(animationLayer.props.assignments).toBe(
+      FINANCE_HYBRID_VISIBILITY_ASSIGNMENTS,
+    );
+    expect(animationLayer.props.showDebugLabels).toBe(true);
+    expect(animationLayer.props.plan).toBe(FINANCE_HYBRID_VISIBILITY_PLAN);
   });
 
   it('does not render old scene headers over animation-replacement scenes', () => {
