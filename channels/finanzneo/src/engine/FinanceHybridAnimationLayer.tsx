@@ -8,7 +8,8 @@ import type {FinanceScenePlan} from './contracts';
 
 export type FinanceHybridAnimationPresentation =
   | 'replace-image'
-  | 'framed';
+  | 'framed'
+  | 'caption-safe';
 
 export type FinanceHybridAnimationAssignment = {
   readonly input: unknown;
@@ -62,20 +63,36 @@ const HybridAnimationFallback: React.FC<{
   </AbsoluteFill>
 );
 
-const presentationStyle = (
+export const getFinanceHybridPresentationStyle = (
   presentation: FinanceHybridAnimationPresentation,
-): React.CSSProperties => presentation === 'framed'
-  ? {
+): React.CSSProperties => {
+  if (presentation === 'framed') {
+    return {
       inset: 52,
       borderRadius: 44,
       overflow: 'hidden',
       boxShadow: '0 30px 90px rgba(0,0,0,0.48)',
       border: '2px solid rgba(92,255,154,0.28)',
-    }
-  : {
+    };
+  }
+
+  if (presentation === 'caption-safe') {
+    return {
       inset: 0,
       overflow: 'hidden',
+      borderRadius: 46,
+      transform: 'translateY(-100px) scale(0.78)',
+      transformOrigin: '50% 50%',
+      boxShadow: '0 34px 110px rgba(0,0,0,0.58)',
+      border: '2px solid rgba(92,255,154,0.24)',
     };
+  }
+
+  return {
+    inset: 0,
+    overflow: 'hidden',
+  };
+};
 
 export const FinanceHybridAnimationLayer: React.FC<
   FinanceHybridAnimationLayerProps
@@ -93,7 +110,7 @@ export const FinanceHybridAnimationLayer: React.FC<
     const assignment = assignments[scene.id];
     if (!assignment) continue;
 
-    const presentation = assignment.presentation ?? 'replace-image';
+    const presentation = assignment.presentation ?? 'caption-safe';
     sequences.push(
       <Sequence
         key={`${scene.id}-hybrid-animation`}
@@ -110,7 +127,7 @@ export const FinanceHybridAnimationLayer: React.FC<
             pointerEvents: 'none',
           }}
         >
-          <AbsoluteFill style={presentationStyle(presentation)}>
+          <AbsoluteFill style={getFinanceHybridPresentationStyle(presentation)}>
             <SafeFinanceAnimationRenderer
               input={assignment.input}
               renderFallback={(context) => (
