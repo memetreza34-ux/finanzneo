@@ -4,7 +4,7 @@ import {AnimatedNumber} from '../primitives/AnimatedNumber';
 
 export type PortfolioAllocationTemplateProps = {
   total: number;
-  allocations: Array<{label: string; percent: number}>;
+  allocations: Array<{label: string; weight: number}>;
   currency?: string;
 };
 
@@ -14,24 +14,25 @@ export type NormalizedPortfolioAllocation = {
 };
 
 /**
- * Normalisiert Gewichtungen auf exakt 100 Prozent. Dadurch stimmen die
- * angezeigte Prozentzahl und der daraus berechnete Geldbetrag immer überein,
- * selbst wenn ein direkter Template-Aufrufer relative Gewichte übergibt.
+ * Normalisiert neutrale Gewichtungen auf exakt 100 Prozent. Dadurch stimmen
+ * die angezeigte Prozentzahl und der daraus berechnete Geldbetrag immer
+ * überein, unabhängig davon, ob der Renderer Prozentwerte oder absolute
+ * Beträge als Gewichtung übergibt.
  */
 export const normalizePortfolioPercentages = (
-  allocations: Array<{label: string; percent: number}>,
+  allocations: Array<{label: string; weight: number}>,
 ): NormalizedPortfolioAllocation[] => {
   const sanitized = allocations.map((item) => ({
     label: item.label,
-    percent: Number.isFinite(item.percent) ? Math.max(0, item.percent) : 0,
+    weight: Number.isFinite(item.weight) ? Math.max(0, item.weight) : 0,
   }));
-  const totalWeight = sanitized.reduce((sum, item) => sum + item.percent, 0);
+  const totalWeight = sanitized.reduce((sum, item) => sum + item.weight, 0);
   if (totalWeight <= 0) {
-    return sanitized.map((item) => ({...item, percent: 0}));
+    return sanitized.map((item) => ({label: item.label, percent: 0}));
   }
   return sanitized.map((item) => ({
-    ...item,
-    percent: item.percent / totalWeight * 100,
+    label: item.label,
+    percent: item.weight / totalWeight * 100,
   }));
 };
 
