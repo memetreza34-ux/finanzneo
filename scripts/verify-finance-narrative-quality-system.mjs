@@ -13,10 +13,14 @@ const plansPath = 'channels/finanzneo/src/animation-system/full-animation-reel/N
 const testsPath = 'channels/finanzneo/src/animation-system/full-animation-reel/NarrativeAnimationQuality.test.ts';
 const currentPlanPath = 'channels/finanzneo/src/animation-system/full-animation-reel/narrative-plan.current.json';
 const manifestPath = 'channels/finanzneo/src/animation-system/full-animation-reel/full-animation-reel-quality.json';
+const workflowPath = 'channels/finanzneo/src/animation-system/full-animation-reel/NARRATIVE_QUALITY_WORKFLOW.md';
+const claudePath = 'CLAUDE.md';
 
 const quality = await read(qualityPath);
 const plans = await read(plansPath);
 const tests = await read(testsPath);
+const workflow = await read(workflowPath);
+const claude = await read(claudePath);
 const currentPlan = JSON.parse(await read(currentPlanPath));
 const manifest = JSON.parse(await read(manifestPath));
 const packageJson = JSON.parse(await read('package.json'));
@@ -42,6 +46,18 @@ requireTokens(tests, testsPath, [
   'accepts a narrative plan',
   'technically renamed plan',
   'visible state change',
+]);
+requireTokens(workflow, workflowPath, [
+  'Storyboard vor Code',
+  'Mindestens 60 %',
+  'Technische Prüfung ist keine kreative Freigabe',
+  'approvedByHuman',
+]);
+requireTokens(claude, claudePath, [
+  '@channels/finanzneo/src/animation-system/full-animation-reel/NARRATIVE_QUALITY_WORKFLOW.md',
+  'Bei einem Fehler stoppen. Noch keine Animation programmieren.',
+  'Ein neuer Komponentenname beweist keine neue visuelle Idee.',
+  'approvedByHuman',
 ]);
 
 if (currentPlan.status !== 'rejected') failures.push('Der aktuell geprüfte Fehlversuch muss weiterhin als rejected dokumentiert sein.');
@@ -72,5 +88,6 @@ if (failures.length > 0) {
   process.exitCode = 1;
 } else {
   console.log('Narrative quality system check passed.');
+  console.log('Claude Code project memory loads the mandatory storyboard-first workflow.');
   console.log('The rejected reel remains blocked while a passing narrative reference plan is covered by tests.');
 }
