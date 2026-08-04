@@ -50,7 +50,7 @@ describe('FinanceAnimationLibraryBatchTwo', () => {
   it('calculates market changes and real salary values', () => {
     expect(calculatePercentChange(10000, 14600)).toBeCloseTo(46, 8);
     expect(calculateNominalSalary(3000, 2, 10)).toBeCloseTo(3656.9833, 3);
-    expect(calculateRealSalary(3000, 2, 3, 10)).toBeCloseTo(2720.2694, 3);
+    expect(calculateRealSalary(3000, 2, 3, 10)).toBeCloseTo(2721.1390, 3);
     expect(calculateRealSalary(3000, 2, 3, 10)).toBeLessThan(3000);
   });
 
