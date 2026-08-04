@@ -28,11 +28,14 @@ const BATCH_THREE_IDS = [
 ] as const;
 
 describe('FinanceAnimationLibraryBatchThree', () => {
-  it('registers six additional reusable animations with unique ids', () => {
+  it('keeps the third six reusable animations intact', () => {
     const items = getFinanceAnimationLibraryItemsByBatch(3);
     expect(items).toHaveLength(6);
     expect(items.map((item) => item.id)).toEqual(BATCH_THREE_IDS);
-    expect(new Set(FINANCE_ANIMATION_LIBRARY_ITEMS.map((item) => item.id)).size).toBe(18);
+    expect(FINANCE_ANIMATION_LIBRARY_ITEMS.length).toBeGreaterThanOrEqual(18);
+    expect(new Set(FINANCE_ANIMATION_LIBRARY_ITEMS.map((item) => item.id)).size).toBe(
+      FINANCE_ANIMATION_LIBRARY_ITEMS.length,
+    );
   });
 
   it('keeps every third-batch item named, categorized and searchable', () => {
