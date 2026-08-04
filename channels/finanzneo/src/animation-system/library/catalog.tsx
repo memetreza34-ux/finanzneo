@@ -31,6 +31,14 @@ import {
   RentVsBuyBreakEvenAnimation,
   SequenceRiskAnimation,
 } from './FinanceAnimationLibraryBatchFour';
+import {
+  BondRatePriceSeesawAnimation,
+  BusinessProfitCashflowAnimation,
+  CapitalGainsTaxWaterfallAnimation,
+  DiversificationShockAbsorberAnimation,
+  LifestyleInflationAnimation,
+  RentalYieldBreakdownAnimation,
+} from './FinanceAnimationLibraryBatchFive';
 
 export type FinanceAnimationLibraryCategoryId =
   | 'markets'
@@ -44,7 +52,9 @@ export type FinanceAnimationLibraryCategoryId =
   | 'costs-fees'
   | 'taxes-payroll'
   | 'insurance'
-  | 'budget-cashflow';
+  | 'budget-cashflow'
+  | 'bonds-interest'
+  | 'business-self-employment';
 
 export type FinanceAnimationLibraryItemId =
   | 'market-crash-recovery'
@@ -70,7 +80,13 @@ export type FinanceAnimationLibraryItemId =
   | 'portfolio-rebalancing'
   | 'rent-vs-buy-break-even'
   | 'drawdown-recovery-time'
-  | 'sequence-of-returns-risk';
+  | 'sequence-of-returns-risk'
+  | 'bond-rate-price-seesaw'
+  | 'capital-gains-tax-waterfall'
+  | 'business-profit-cashflow'
+  | 'rental-yield-breakdown'
+  | 'diversification-shock-absorber'
+  | 'lifestyle-inflation';
 
 export type FinanceAnimationLibraryCategory = {
   readonly id: FinanceAnimationLibraryCategoryId;
@@ -87,7 +103,7 @@ export type FinanceAnimationLibraryItem = {
   readonly keywords: readonly string[];
   readonly durationInFrames: number;
   readonly status: 'library-ready';
-  readonly batch: 1 | 2 | 3 | 4;
+  readonly batch: 1 | 2 | 3 | 4 | 5;
   readonly renderDemo: () => React.ReactNode;
 };
 
@@ -104,6 +120,8 @@ export const FINANCE_ANIMATION_LIBRARY_CATEGORIES = [
   {id: 'taxes-payroll', title: 'Steuern & Gehalt', description: 'Brutto-Netto-Abzüge und unterschiedliche Auszahlungsvarianten.', order: 100},
   {id: 'insurance', title: 'Versicherungen', description: 'Beiträge, Absicherung und jährliche Gesamtkosten.', order: 110},
   {id: 'budget-cashflow', title: 'Budget & Cashflow', description: 'Monatliche Geldströme, Überschüsse und Budgetengpässe.', order: 120},
+  {id: 'bonds-interest', title: 'Anleihen & Zinsen', description: 'Zinsänderungen, Duration und Kursreaktionen von Anleihen.', order: 130},
+  {id: 'business-self-employment', title: 'Business & Selbstständigkeit', description: 'Umsatz, Gewinn, Liquidität und unternehmerische Kennzahlen.', order: 140},
 ] as const satisfies readonly FinanceAnimationLibraryCategory[];
 
 export const FINANCE_ANIMATION_LIBRARY_ITEMS = [
@@ -131,6 +149,12 @@ export const FINANCE_ANIMATION_LIBRARY_ITEMS = [
   {id: 'rent-vs-buy-break-even', name: 'Mieten-gegen-Kaufen-Schnittpunkt', category: 'real-estate-credit', purpose: 'Kumulierte Miet- und Eigentümerkosten über mehrere Jahre gegenüberstellen.', keywords: ['mieten', 'kaufen', 'immobilie', 'break-even', 'wohnkosten', 'kaufnebenkosten'], durationInFrames: 180, status: 'library-ready', batch: 4, renderDemo: () => <RentVsBuyBreakEvenAnimation monthlyRent={1350} annualRentIncreasePercent={2.5} upfrontBuyingCosts={52000} monthlyOwnerCost={1050} />},
   {id: 'drawdown-recovery-time', name: 'Verlust-und-Erholung', category: 'markets', purpose: 'Den asymmetrischen Zusammenhang zwischen Kursverlust und benötigtem Erholungsgewinn zeigen.', keywords: ['drawdown', 'verlust', 'erholung', 'rendite', 'börsencrash', 'prozentrechnung'], durationInFrames: 180, status: 'library-ready', batch: 4, renderDemo: () => <DrawdownRecoveryAnimation startValue={10000} drawdownPercent={50} />},
   {id: 'sequence-of-returns-risk', name: 'Reihenfolge-Risiko', category: 'retirement', purpose: 'Unterschiedliche Ruhestandsverläufe trotz gleicher Renditebausteine sichtbar machen.', keywords: ['sequence risk', 'reihenfolgerisiko', 'ruhestand', 'entnahme', 'portfolio', 'rente'], durationInFrames: 180, status: 'library-ready', batch: 4, renderDemo: () => <SequenceRiskAnimation initialPortfolio={500000} annualWithdrawal={24000} returnsA={[12, 9, 7, 5, -4, -8, 6, 8]} returnsB={[-8, -4, 5, 7, 9, 12, 6, 8]} />},
+  {id: 'bond-rate-price-seesaw', name: 'Zinswende bei Anleihen', category: 'bonds-interest', purpose: 'Den gegenläufigen Zusammenhang zwischen Marktzins und Kurs bestehender Anleihen erklären.', keywords: ['anleihe', 'zinswende', 'duration', 'marktzins', 'kursrisiko', 'rentenfonds'], durationInFrames: 180, status: 'library-ready', batch: 5, renderDemo: () => <BondRatePriceSeesawAnimation bondValue={10000} modifiedDuration={6.5} oldYieldPercent={2} newYieldPercent={4} />},
+  {id: 'capital-gains-tax-waterfall', name: 'Kapitalertragsteuer-Abzug', category: 'taxes-payroll', purpose: 'Gewinn, Freibetrag, Steuer und Netto-Verkaufserlös einer Geldanlage auseinanderziehen.', keywords: ['kapitalertragsteuer', 'abgeltungsteuer', 'freibetrag', 'gewinn', 'verkauf', 'steuerabzug'], durationInFrames: 180, status: 'library-ready', batch: 5, renderDemo: () => <CapitalGainsTaxWaterfallAnimation saleValue={25000} costBasis={16000} allowance={1000} taxPercent={26.375} />},
+  {id: 'business-profit-cashflow', name: 'Umsatz, Gewinn, Cashflow', category: 'business-self-employment', purpose: 'Umsatz, Kosten, Gewinn und operativen Cashflow eines Geschäfts klar voneinander trennen.', keywords: ['umsatz', 'gewinn', 'cashflow', 'selbstständigkeit', 'unternehmen', 'liquidität'], durationInFrames: 180, status: 'library-ready', batch: 5, renderDemo: () => <BusinessProfitCashflowAnimation revenue={48000} expenses={36000} depreciation={3500} receivablesIncrease={5200} />},
+  {id: 'rental-yield-breakdown', name: 'Mietrendite-Aufschlüsselung', category: 'real-estate-credit', purpose: 'Brutto- und Nettomietrendite unter Berücksichtigung von Kaufnebenkosten und laufenden Kosten zeigen.', keywords: ['mietrendite', 'bruttorendite', 'nettorendite', 'kaltmiete', 'kaufpreis', 'immobilie'], durationInFrames: 180, status: 'library-ready', batch: 5, renderDemo: () => <RentalYieldBreakdownAnimation monthlyColdRent={1250} annualNonRecoverableCosts={2700} purchasePrice={310000} buyingCosts={34000} />},
+  {id: 'diversification-shock-absorber', name: 'Diversifikations-Puffer', category: 'investing', purpose: 'Zeigen, wie mehrere Anlageklassen einen starken Einzelschock im Gesamtportfolio abfedern.', keywords: ['diversifikation', 'risikostreuung', 'portfolio', 'einzelschock', 'anlageklassen', 'verlust'], durationInFrames: 180, status: 'library-ready', batch: 5, renderDemo: () => <DiversificationShockAbsorberAnimation portfolioValue={100000} concentratedShockPercent={-35} positions={[{label: 'Aktien', weightPercent: 55, shockPercent: -18}, {label: 'Anleihen', weightPercent: 25, shockPercent: 4}, {label: 'Gold', weightPercent: 10, shockPercent: 8}, {label: 'Cash', weightPercent: 10, shockPercent: 0}]} />},
+  {id: 'lifestyle-inflation', name: 'Lifestyle-Inflation', category: 'income-purchasing-power', purpose: 'Den Verlust zusätzlichen Sparpotenzials durch gleichzeitig wachsende Ausgaben sichtbar machen.', keywords: ['lifestyle-inflation', 'gehaltserhöhung', 'ausgaben', 'sparquote', 'konsum', 'vermögensaufbau'], durationInFrames: 180, status: 'library-ready', batch: 5, renderDemo: () => <LifestyleInflationAnimation oldIncome={2800} oldExpenses={2200} newIncome={3600} newExpenses={3050} />},
 ] as const satisfies readonly FinanceAnimationLibraryItem[];
 
 const CATEGORY_BY_ID = new Map<FinanceAnimationLibraryCategoryId, FinanceAnimationLibraryCategory>(
@@ -147,6 +171,6 @@ export const getFinanceAnimationLibraryItemsByCategory = (
   FINANCE_ANIMATION_LIBRARY_ITEMS.filter((item) => item.category === category);
 
 export const getFinanceAnimationLibraryItemsByBatch = (
-  batch: 1 | 2 | 3 | 4,
+  batch: 1 | 2 | 3 | 4 | 5,
 ): readonly FinanceAnimationLibraryItem[] =>
   FINANCE_ANIMATION_LIBRARY_ITEMS.filter((item) => item.batch === batch);
