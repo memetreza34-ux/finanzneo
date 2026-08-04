@@ -102,7 +102,7 @@ describe('parseFinanceAnimationRequest', () => {
     const requestWithForbiddenKey = Object.create(null) as Record<string, unknown>;
     requestWithForbiddenKey.message = 'Test';
     requestWithForbiddenKey.voiceText = 'Test';
-    requestWithForbiddenKey.constructor = 'blocked';
+    requestWithForbiddenKey['constructor'] = 'blocked';
 
     const requestResult = parseFinanceAnimationRequest(requestWithForbiddenKey);
     expect(requestResult.ok).toBe(false);
