@@ -11,7 +11,6 @@ import {
   calculateTotalDebt,
 } from './FinanceAnimationLibraryBatchTwo';
 import {
-  FINANCE_ANIMATION_LIBRARY_ITEMS,
   getFinanceAnimationLibraryCategory,
   getFinanceAnimationLibraryItemsByBatch,
   getFinanceAnimationLibraryItemsByCategory,
@@ -27,11 +26,13 @@ const BATCH_TWO_IDS = [
 ] as const;
 
 describe('FinanceAnimationLibraryBatchTwo', () => {
-  it('registers six additional reusable animations with unique ids', () => {
-    const items = getFinanceAnimationLibraryItemsByBatch(2);
-    expect(items).toHaveLength(6);
-    expect(items.map((item) => item.id)).toEqual(BATCH_TWO_IDS);
-    expect(new Set(FINANCE_ANIMATION_LIBRARY_ITEMS.map((item) => item.id)).size).toBe(12);
+  it('keeps the second six reusable animations intact', () => {
+    const batchOne = getFinanceAnimationLibraryItemsByBatch(1);
+    const batchTwo = getFinanceAnimationLibraryItemsByBatch(2);
+    const firstTwelve = [...batchOne, ...batchTwo];
+    expect(batchTwo).toHaveLength(6);
+    expect(batchTwo.map((item) => item.id)).toEqual(BATCH_TWO_IDS);
+    expect(new Set(firstTwelve.map((item) => item.id)).size).toBe(12);
   });
 
   it('keeps every second-batch item named, categorized and searchable', () => {
