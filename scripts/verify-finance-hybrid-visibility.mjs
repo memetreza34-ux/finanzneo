@@ -38,7 +38,8 @@ const run = async () => {
   requireTokens(layer, layerPath, [
     "| 'caption-safe';",
     "transform: 'translateY(-100px) scale(0.78)'",
-    "zIndex: 20",
+    'const presentation = assignment.presentation ?? \'caption-safe\';',
+    'zIndex: 20',
     'SafeFinanceAnimationRenderer',
     'HybridAnimationFallback',
     'premountFor={Math.round(plan.fps * 0.5)}',
@@ -76,6 +77,9 @@ const run = async () => {
     "requiredFixture('portfolio-allocation')",
     "presentation: 'caption-safe'",
     'showAnimationDebugLabels',
+    'UNTERTITEL-BEREICH BLEIBT FREI',
+    'bottom: 118',
+    'zIndex: 70',
   ]);
 
   const rootPath =
@@ -99,9 +103,23 @@ const run = async () => {
     'does not render old scene headers over animation-replacement scenes',
   ]);
 
+  const readmePath =
+    'channels/finanzneo/src/animation-system/hybrid-test/README.md';
+  const readme = await readRepositoryFile(readmePath);
+  requireTokens(readme, readmePath, [
+    'bestehendes Bild-Reel',
+    'ausgewählte Finanzanimation',
+    'Untertitelbereich',
+    'Zinseszins-Animation',
+    'Inflations-Animation',
+    'Portfolio-Animation',
+    'finance:hybrid-visibility:render',
+  ]);
+
   const packageJson = JSON.parse(await readRepositoryFile('package.json'));
   const scripts = packageJson.scripts ?? {};
   for (const scriptName of [
+    'finance:hybrid-visibility:structure',
     'finance:hybrid-visibility:studio',
     'finance:hybrid-visibility:compound-still',
     'finance:hybrid-visibility:inflation-still',
@@ -115,6 +133,12 @@ const run = async () => {
     }
   }
 
+  if (!scripts['finance:hybrid-visibility:validate']?.includes(
+    'finance:hybrid-visibility:structure',
+  )) {
+    fail('finance:hybrid-visibility:validate führt den Strukturcheck nicht zuerst aus.');
+  }
+
   if (failures.length > 0) {
     for (const failure of failures) {
       console.error(`Finance hybrid visibility check failed: ${failure}`);
@@ -125,7 +149,7 @@ const run = async () => {
 
   console.log('Finance hybrid visibility check passed.');
   console.log('Verified image -> animation -> header -> caption layer order.');
-  console.log('Verified three caption-safe animation scenes inside a six-scene hybrid reel.');
+  console.log('Verified three caption-safe animation scenes and a visible caption-zone probe.');
 };
 
 run().catch((error) => {
