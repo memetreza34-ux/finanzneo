@@ -27,8 +27,8 @@ export const FinanceAnimationLibraryGallery: React.FC = () => (
 
 const SOURCE_WIDTH = 1080;
 const SOURCE_HEIGHT = 1920;
-const CELL_WIDTH = 560;
-const CELL_HEIGHT = 820;
+const CELL_WIDTH = 190;
+const CELL_HEIGHT = 338;
 const PREVIEW_SCALE = Math.min(CELL_WIDTH / SOURCE_WIDTH, CELL_HEIGHT / SOURCE_HEIGHT);
 
 export const FinanceAnimationLibraryOverview: React.FC = () => (
@@ -39,6 +39,8 @@ export const FinanceAnimationLibraryOverview: React.FC = () => (
       boxSizing: 'border-box',
       color: '#F5F7F4',
       fontFamily: 'Inter, Arial, sans-serif',
+      display: 'flex',
+      flexDirection: 'column',
     }}
   >
     <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: 28}}>
@@ -70,18 +72,20 @@ export const FinanceAnimationLibraryOverview: React.FC = () => (
               minWidth: 0,
               minHeight: 0,
               borderRadius: 28,
-              padding: '18px 18px 20px',
+              padding: '16px 18px 18px',
               background: 'rgba(10,31,18,0.94)',
               border: '1px solid rgba(92,255,154,0.18)',
               overflow: 'hidden',
+              display: 'flex',
+              flexDirection: 'column',
             }}
           >
             <div style={{display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'start'}}>
               <div>
-                <div style={{fontSize: 17, color: '#5CFF9A', fontWeight: 800, letterSpacing: 1.2}}>{category?.title}</div>
-                <div style={{fontSize: 26, fontWeight: 900, marginTop: 3}}>{item.name}</div>
+                <div style={{fontSize: 16, color: '#5CFF9A', fontWeight: 800, letterSpacing: 1.2}}>{category?.title}</div>
+                <div style={{fontSize: 24, fontWeight: 900, marginTop: 3}}>{item.name}</div>
               </div>
-              <div style={{fontSize: 21, fontWeight: 900, color: '#AFC0B4'}}>{String(index + 1).padStart(2, '0')}</div>
+              <div style={{fontSize: 20, fontWeight: 900, color: '#AFC0B4'}}>{String(index + 1).padStart(2, '0')}</div>
             </div>
 
             <div
@@ -89,10 +93,11 @@ export const FinanceAnimationLibraryOverview: React.FC = () => (
                 position: 'relative',
                 width: CELL_WIDTH,
                 height: CELL_HEIGHT,
-                margin: '12px auto 0',
+                margin: '10px auto 0',
                 overflow: 'hidden',
-                borderRadius: 18,
+                borderRadius: 16,
                 background: '#06110A',
+                flex: '0 0 auto',
               }}
             >
               <div
