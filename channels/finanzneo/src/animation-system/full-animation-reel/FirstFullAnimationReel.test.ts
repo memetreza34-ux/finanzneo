@@ -64,8 +64,8 @@ describe('FirstFullAnimationReel', () => {
     expect(late).toHaveLength(41);
     expect(early[0]).toEqual({age: 20, value: 0});
     expect(late[10]).toEqual({age: 30, value: 0});
-    expect(early.at(-1)?.value).toBeCloseTo(EARLY_FINAL, 8);
-    expect(late.at(-1)?.value).toBeCloseTo(LATE_FINAL, 8);
+    expect(early[early.length - 1]?.value).toBeCloseTo(EARLY_FINAL, 8);
+    expect(late[late.length - 1]?.value).toBeCloseTo(LATE_FINAL, 8);
     expect(monthlyFutureValue(100, 0, 12)).toBe(1200);
     expect(monthlyFutureValue(0, 7, 120)).toBe(0);
   });
