@@ -1,64 +1,74 @@
-# FinanzNeo – erstes vollständig animiertes Reel
+# FinanzNeo – erster Full-Animation-Versuch
 
-## Thema
+## Status: visuell abgelehnt
 
-**100 € ab 20 oder 200 € ab 30?**
+Das 40-Sekunden-Reel **„100 € ab 20 oder 200 € ab 30?“** ist technisch renderbar und mathematisch korrekt, hat die kreative und visuelle Prüfung aber nicht bestanden.
 
-Das Reel erklärt mit einer konsistenten Beispielrechnung, warum ein früherer Start trotz niedrigerer monatlicher Einzahlung zu einem höheren Endvermögen führen kann.
+Festgestellte Probleme:
 
-## Annahmen
+- sieben Komponenten wiederholen überwiegend denselben Früh-gegen-spät-Vergleich
+- fünf von sieben Szenen sind reine Datenvisualisierungen
+- alle sieben Szenen verwenden Dashboard- oder Karten-Framing
+- die Kameraführung bleibt praktisch statisch
+- Inhalt wird überwiegend angezeigt statt durch Objekte, Räume und Handlungen animiert
+- finales Voiceover und sinnvolles Sounddesign fehlen
 
-- monatliche Einzahlung
-- Sparen bis Alter 60
-- angenommene Rendite: 7 % pro Jahr
-- monatliche Verzinsung
-- vor Kosten, Steuern und Inflation
-- keine Renditegarantie
+Der Versuch bleibt als **abgelehntes Referenzbeispiel** erhalten. Er darf nicht als Qualitätsvorlage, freigegebenes Reel oder Nachweis für narrative Animationsqualität bezeichnet werden.
 
-Ergebnisse der Beispielrechnung:
-
-- 100 € monatlich ab 20: 48.000 € eingezahlt, rund 262.481 € Endvermögen
-- 200 € monatlich ab 30: 72.000 € eingezahlt, rund 243.994 € Endvermögen
-
-## Sieben neue Animationen
-
-1. `EarlyVsLateRace` – zwei Sparrouten mit zehn Jahren Startunterschied
-2. `DualContributionTimeline` – Einzahlungen auf zwei Lebenszeitachsen
-3. `ContributionResultFlip` – Wende von Einzahlungen zu Endvermögen
-4. `CompoundEngine` – Rendite erzeugt weitere Rendite
-5. `DelayedGrowthRace` – korrekte Wachstumskurven von Alter 20 bis 60
-6. `CapitalCompositionReveal` – Einzahlung und Wachstum werden getrennt
-7. `TimeAdvantageFinale` – Uhr und Vermögenshebel als Schlussbild
-
-Das Reel besteht ausschließlich aus programmierten Animationen. Es verwendet keine normalen Bildszenen und ist als isolierte Remotion-Composition umgesetzt.
-
-## Dauer und Format
+## Technisch bestätigte Eigenschaften
 
 - 40 Sekunden
 - 1.200 Frames
 - 30 fps
 - 1080 × 1920
-- Composition-ID: `FinanzNeoFirstFullAnimationReel`
+- isolierte Remotion-Composition
+- korrekte Beispielrechnung
+- keine normalen Bildszenen
+- keine produktive Aktivierung
 
-## Befehle
+Diese Eigenschaften beweisen nur die technische Funktionsfähigkeit.
+
+## Neues verbindliches Quality Gate
+
+Vor jeder weiteren Full-Animation-Produktion gelten vier getrennte Prüfungen:
 
 ```bash
-npm run finance:full-animation-reel:structure
+npm run finance:full-animation-reel:quality-system
+npm run finance:full-animation-reel:storyboard-quality
+npm run finance:full-animation-reel:technical-validate
+npm run finance:full-animation-reel:approval
+```
+
+Der Gesamtbefehl lautet:
+
+```bash
 npm run finance:full-animation-reel:validate
-npm run finance:full-animation-reel:studio
-npm run finance:full-animation-reel:stills
-npm run finance:full-animation-reel:render
 ```
 
-Ausgaben:
+Der aktuelle Versuch muss bei `storyboard-quality` und `approval` fehlschlagen. Das ist beabsichtigt: Ein abgelehntes Reel darf nicht mehr allein wegen bestandener TypeScript-, Mathematik- oder Renderprüfungen als erfolgreich gelten.
 
-```text
-/tmp/finanzneo-full-animation-hook.png
-/tmp/finanzneo-full-animation-compound.png
-/tmp/finanzneo-full-animation-growth.png
-/tmp/finanzneo-full-animation-composition.png
-/tmp/finanzneo-first-full-animation-reel.mp4
-```
+## Neue Mindestanforderungen
+
+- 5 bis 9 unterschiedliche Inhaltsbeats
+- mindestens 60 % narrative Objekt-, Raum-, Prozess- oder Transformationsszenen
+- höchstens 40 % reine Datenvisualisierung
+- höchstens eine Dashboard-Szene
+- derselbe Kernvergleich maximal zweimal
+- eine Layoutfamilie maximal zweimal
+- überwiegend aktive Kameraführung
+- sichtbarer Start- und Endzustand in jeder Szene
+- finales Voiceover und Sounddesign
+- vollständige menschliche Video- und Frameprüfung
+
+Die vollständige Arbeitsweise steht in [`NARRATIVE_QUALITY_WORKFLOW.md`](./NARRATIVE_QUALITY_WORKFLOW.md).
+
+## Dateien zur Qualitätskontrolle
+
+- `NarrativeAnimationQuality.ts` – automatisierte Qualitätsregeln
+- `NarrativeAnimationPlans.ts` – abgelehntes und positives Referenz-Storyboard
+- `narrative-plan.current.json` – aktiver, maschinenprüfbarer Szenenplan
+- `full-animation-reel-quality.json` – manuelle Render- und Audiofreigabe
+- `NarrativeAnimationQuality.test.ts` – Tests gegen bloß umbenannte, aber visuell gleiche Szenen
 
 ## Sicherheitszustand
 
@@ -66,8 +76,4 @@ Ausgaben:
 - keine globalen Feature-Flags aktiviert
 - kein automatisches Routing aktiviert
 - keine Änderung an `main`
-- ausschließlich Test- und Entwicklungsbranch
-
-## Noch erforderlich
-
-Vor einer Veröffentlichung müssen der vollständige MP4-Render und mehrere Frames pro Szene visuell geprüft werden. Für eine finale Veröffentlichung fehlt außerdem eine echte Voiceover-Audiodatei; der aktuelle Build enthält den synchronisierten Sprechertext als sichtbaren Caption-Bereich.
+- keine Freigabe und kein Merge
