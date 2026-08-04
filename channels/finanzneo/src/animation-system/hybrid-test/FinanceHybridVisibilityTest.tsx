@@ -1,4 +1,5 @@
 import React from 'react';
+import {AbsoluteFill} from 'remotion';
 import type {FinanceHybridAnimationAssignments} from '../../engine/FinanceHybridAnimationLayer';
 import {FinanceProductionLayer} from '../../engine/FinanceProductionLayer';
 import type {
@@ -158,12 +159,43 @@ export const getFinanceHybridVisibilitySceneStart = (sceneId: string): number =>
 };
 
 export const FinanceHybridVisibilityTest: React.FC = () => (
-  <FinanceProductionLayer
-    plan={FINANCE_HYBRID_VISIBILITY_PLAN}
-    manifest={FINANCE_HYBRID_VISIBILITY_MANIFEST}
-    captions={[]}
-    publicBasePath="reels/finanzneo-hybrid-visibility-test"
-    hybridAnimations={FINANCE_HYBRID_VISIBILITY_ASSIGNMENTS}
-    showAnimationDebugLabels
-  />
+  <AbsoluteFill style={{background: '#07120B'}}>
+    <FinanceProductionLayer
+      plan={FINANCE_HYBRID_VISIBILITY_PLAN}
+      manifest={FINANCE_HYBRID_VISIBILITY_MANIFEST}
+      captions={[]}
+      publicBasePath="reels/finanzneo-hybrid-visibility-test"
+      hybridAnimations={FINANCE_HYBRID_VISIBILITY_ASSIGNMENTS}
+      showAnimationDebugLabels
+    />
+    <div
+      style={{
+        position: 'absolute',
+        left: 72,
+        right: 72,
+        bottom: 118,
+        zIndex: 70,
+        display: 'flex',
+        justifyContent: 'center',
+        pointerEvents: 'none',
+      }}
+    >
+      <div
+        style={{
+          padding: '18px 26px',
+          borderRadius: 22,
+          background: 'rgba(5,12,8,0.9)',
+          border: '1px solid rgba(255,255,255,0.16)',
+          color: '#F5F7F4',
+          fontFamily: 'Inter, Arial, sans-serif',
+          fontSize: 34,
+          fontWeight: 900,
+          textAlign: 'center',
+          boxShadow: '0 14px 44px rgba(0,0,0,0.45)',
+        }}
+      >
+        UNTERTITEL-BEREICH BLEIBT FREI
+      </div>
+    </div>
+  </AbsoluteFill>
 );
