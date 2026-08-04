@@ -13,8 +13,8 @@ import {
   monthlyFutureValue,
 } from './FirstFullAnimationReel';
 
-describe('FirstFullAnimationReel', () => {
-  it('uses seven distinct fully animated scenes over exactly forty seconds', () => {
+describe('FirstFullAnimationReel technical checks', () => {
+  it('uses seven separately registered components over exactly forty seconds', () => {
     expect(FIRST_FULL_ANIMATION_SCENES).toHaveLength(7);
     expect(new Set(FIRST_FULL_ANIMATION_SCENES.map((scene) => scene.id)).size).toBe(7);
     expect(FIRST_FULL_ANIMATION_DURATION).toBe(1200);
