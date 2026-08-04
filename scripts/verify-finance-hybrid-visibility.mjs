@@ -50,10 +50,12 @@ const run = async () => {
     'channels/finanzneo/src/engine/FinanceProductionLayer.tsx';
   const production = await readRepositoryFile(productionPath);
   requireTokens(production, productionPath, [
-    'getFinanceHybridAnimatedSceneIds',
+    'hybridAnimations?: FinanceHybridAnimationAssignments;',
+    'getFinanceHybridAnimatedSceneIds(hybridAnimations)',
     'animatedSceneIds.has(scene.id)',
     'const shouldRenderHeader = !animationReplacesSceneVisual;',
-    'hybridAnimations={hybridAnimations}',
+    'assignments={hybridAnimations}',
+    'showDebugLabels={showAnimationDebugLabels}',
   ]);
   assertOrder(production, productionPath, [
     '<FinanceImageFirstReel',
@@ -76,6 +78,7 @@ const run = async () => {
     "requiredFixture('inflation-erosion')",
     "requiredFixture('portfolio-allocation')",
     "presentation: 'caption-safe'",
+    'hybridAnimations={FINANCE_HYBRID_VISIBILITY_ASSIGNMENTS}',
     'showAnimationDebugLabels',
     'UNTERTITEL-BEREICH BLEIBT FREI',
     'bottom: 118',
@@ -100,6 +103,7 @@ const run = async () => {
     'alternates image and animation scenes instead of animating everything',
     'uses caption-safe presentation for every animation scene',
     'places the animation layer directly above the image layer',
+    'forwards assignments and debug visibility to the animation layer',
     'does not render old scene headers over animation-replacement scenes',
   ]);
 
@@ -148,6 +152,7 @@ const run = async () => {
   }
 
   console.log('Finance hybrid visibility check passed.');
+  console.log('Verified test assignment -> production prop -> animation layer wiring.');
   console.log('Verified image -> animation -> header -> caption layer order.');
   console.log('Verified three caption-safe animation scenes and a visible caption-zone probe.');
 };
