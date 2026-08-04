@@ -18,6 +18,7 @@
     "finance:codex-reel:check": "node scripts/verify-finance-codex-reel-package.mjs",
     "finance:codex-reel:check-ready": "node scripts/verify-finance-codex-reel-package.mjs --require-assets",
     "finance:codex-reel:captions": "node scripts/create-finance-codex-captions.mjs",
+    "finance:codex-reel:test": "node scripts/test-finance-codex-reel-workflow.mjs",
     "finance:scaffold-test": "node scripts/test-finance-scaffold-transaction.mjs",
     "finance:gallery": "cd channels/finanzneo && npx remotion studio src/layout-gallery-index.ts",
     "finance:animation-structure": "node scripts/verify-finance-animation-foundation.mjs && node scripts/verify-finance-animation-data-contracts.mjs && node scripts/verify-finance-animation-input-limits.mjs && node scripts/verify-finance-animation-domain-limits.mjs && node scripts/verify-finance-animation-trajectories.mjs && node scripts/verify-finance-animation-parser-immutability.mjs && node scripts/verify-finance-animation-activation-policy.mjs && node scripts/verify-finance-animation-public-api.mjs && node scripts/verify-finance-animation-frame-matrix.mjs",
