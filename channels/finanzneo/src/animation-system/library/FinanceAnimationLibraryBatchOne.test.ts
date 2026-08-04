@@ -11,26 +11,36 @@ import {
 } from './FinanceAnimationLibraryBatchOne';
 import {
   FINANCE_ANIMATION_LIBRARY_CATEGORIES,
-  FINANCE_ANIMATION_LIBRARY_ITEMS,
   getFinanceAnimationLibraryCategory,
+  getFinanceAnimationLibraryItemsByBatch,
   getFinanceAnimationLibraryItemsByCategory,
 } from './catalog';
 
+const BATCH_ONE_IDS = [
+  'market-crash-recovery',
+  'dividend-snowball',
+  'emergency-fund-progress',
+  'mortgage-amortization',
+  'net-worth-stack',
+  'fire-progress',
+] as const;
+
 describe('FinanceAnimationLibraryBatchOne', () => {
-  it('registers six reusable animations in six explicit categories', () => {
-    expect(FINANCE_ANIMATION_LIBRARY_CATEGORIES).toHaveLength(6);
-    expect(FINANCE_ANIMATION_LIBRARY_ITEMS).toHaveLength(6);
-    expect(new Set(FINANCE_ANIMATION_LIBRARY_CATEGORIES.map((item) => item.id)).size).toBe(6);
-    expect(new Set(FINANCE_ANIMATION_LIBRARY_ITEMS.map((item) => item.id)).size).toBe(6);
+  it('keeps the first six reusable animations intact', () => {
+    const items = getFinanceAnimationLibraryItemsByBatch(1);
+    expect(items).toHaveLength(6);
+    expect(items.map((item) => item.id)).toEqual(BATCH_ONE_IDS);
+    expect(new Set(FINANCE_ANIMATION_LIBRARY_CATEGORIES.map((item) => item.id)).size).toBe(FINANCE_ANIMATION_LIBRARY_CATEGORIES.length);
   });
 
-  it('keeps every library item named, categorized and searchable', () => {
-    for (const item of FINANCE_ANIMATION_LIBRARY_ITEMS) {
+  it('keeps every first-batch item named, categorized and searchable', () => {
+    for (const item of getFinanceAnimationLibraryItemsByBatch(1)) {
       expect(item.name.length).toBeGreaterThan(5);
       expect(item.purpose.length).toBeGreaterThan(20);
       expect(item.keywords.length).toBeGreaterThanOrEqual(4);
       expect(item.durationInFrames).toBe(180);
       expect(item.status).toBe('library-ready');
+      expect(item.batch).toBe(1);
       expect(getFinanceAnimationLibraryCategory(item.category)).toBeDefined();
       expect(getFinanceAnimationLibraryItemsByCategory(item.category)).toContain(item);
     }
