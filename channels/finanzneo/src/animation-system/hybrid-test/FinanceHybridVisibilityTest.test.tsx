@@ -3,6 +3,7 @@ import {describe, expect, it} from 'vitest';
 import {
   FinanceHybridAnimationLayer,
   getFinanceHybridAnimatedSceneIds,
+  getFinanceHybridPresentationStyle,
 } from '../../engine/FinanceHybridAnimationLayer';
 import {FinanceImageFirstReel} from '../../engine/FinanceImageFirstReel';
 import {FinanceProductionLayer} from '../../engine/FinanceProductionLayer';
@@ -52,6 +53,17 @@ describe('FinanceHybridVisibilityTest', () => {
       'inflation-animation',
       'portfolio-animation',
     ]);
+  });
+
+  it('uses caption-safe presentation for every animation scene', () => {
+    for (const assignment of Object.values(FINANCE_HYBRID_VISIBILITY_ASSIGNMENTS)) {
+      expect(assignment?.presentation).toBe('caption-safe');
+    }
+
+    const style = getFinanceHybridPresentationStyle('caption-safe');
+    expect(style.transform).toContain('translateY(-100px)');
+    expect(style.transform).toContain('scale(0.78)');
+    expect(style.overflow).toBe('hidden');
   });
 
   it('calculates exact local start frames for each visible animation', () => {
