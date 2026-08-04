@@ -1,0 +1,65 @@
+name: Finance Full Animation Reel
+
+on:
+  pull_request:
+    paths:
+      - 'channels/finanzneo/src/animation-system/full-animation-reel/**'
+      - 'scripts/verify-finance-full-animation-reel.mjs'
+      - 'package.json'
+      - '.github/workflows/finance-full-animation-reel.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-and-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Verify isolated structure before dependencies
+        run: npm run finance:full-animation-reel:structure
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck animation system
+        run: npm run finance:animation-typecheck
+
+      - name: Run animation tests
+        run: npm run finance:animation-test
+
+      - name: Render representative stills
+        run: npm run finance:full-animation-reel:stills
+
+      - name: Render full forty-second reel
+        run: npm run finance:full-animation-reel:render
+
+      - name: Confirm global flags remain disabled
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const path = 'channels/finanzneo/src/animation-system/featureFlags.ts';
+          const content = fs.readFileSync(path, 'utf8');
+          for (const token of ['enabled: false', 'allowHybrid: false', 'allowFullAnimation: false', 'allowAutomaticRouting: false']) {
+            if (!content.includes(token)) throw new Error(`Missing disabled flag token: ${token}`);
+          }
+          NODE
+
+      - name: Upload full-animation outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: finanzneo-first-full-animation-reel
+          path: |
+            /tmp/finanzneo-full-animation-hook.png
+            /tmp/finanzneo-full-animation-compound.png
+            /tmp/finanzneo-full-animation-growth.png
+            /tmp/finanzneo-full-animation-composition.png
+            /tmp/finanzneo-first-full-animation-reel.mp4
+          if-no-files-found: error
