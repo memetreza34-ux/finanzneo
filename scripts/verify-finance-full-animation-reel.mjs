@@ -10,23 +10,18 @@ const fail = (message) => failures.push(message);
 
 const requireTokens = (content, filePath, tokens) => {
   for (const token of tokens) {
-    if (!content.includes(token)) {
-      fail(`${filePath} enthält ${token} nicht.`);
-    }
+    if (!content.includes(token)) fail(`${filePath} enthält ${token} nicht.`);
   }
 };
 
 const forbidTokens = (content, filePath, tokens) => {
   for (const token of tokens) {
-    if (content.includes(token)) {
-      fail(`${filePath} enthält verbotenen Token ${token}.`);
-    }
+    if (content.includes(token)) fail(`${filePath} enthält verbotenen Token ${token}.`);
   }
 };
 
 const run = async () => {
-  const reelPath =
-    'channels/finanzneo/src/animation-system/full-animation-reel/FirstFullAnimationReel.tsx';
+  const reelPath = 'channels/finanzneo/src/animation-system/full-animation-reel/FirstFullAnimationReel.tsx';
   const reel = await readRepositoryFile(reelPath);
   requireTokens(reel, reelPath, [
     "id: 'early-vs-late-race'",
@@ -53,8 +48,7 @@ const run = async () => {
     'FINANCE_ANIMATION_FEATURES',
   ]);
 
-  const rootPath =
-    'channels/finanzneo/src/animation-system/full-animation-reel/FirstFullAnimationReelRoot.tsx';
+  const rootPath = 'channels/finanzneo/src/animation-system/full-animation-reel/FirstFullAnimationReelRoot.tsx';
   const root = await readRepositoryFile(rootPath);
   requireTokens(root, rootPath, [
     'id="FinanzNeoFirstFullAnimationReel"',
@@ -64,11 +58,10 @@ const run = async () => {
     'height={1920}',
   ]);
 
-  const testPath =
-    'channels/finanzneo/src/animation-system/full-animation-reel/FirstFullAnimationReel.test.ts';
+  const testPath = 'channels/finanzneo/src/animation-system/full-animation-reel/FirstFullAnimationReel.test.ts';
   const test = await readRepositoryFile(testPath);
   requireTokens(test, testPath, [
-    'seven distinct fully animated scenes over exactly forty seconds',
+    'seven separately registered components over exactly forty seconds',
     'matches the monthly contribution future-value example',
     'earlier investing wins despite lower contributions',
     'keeps the early-start balance ahead from age thirty through sixty',
@@ -77,26 +70,37 @@ const run = async () => {
     'expect(Math.round(LATE_FINAL)).toBe(243994)',
   ]);
 
-  const readmePath =
-    'channels/finanzneo/src/animation-system/full-animation-reel/README.md';
-  const readme = await readRepositoryFile(readmePath);
-  requireTokens(readme, readmePath, [
-    '100 € ab 20 oder 200 € ab 30?',
-    'Sieben neue Animationen',
-    'ausschließlich aus programmierten Animationen',
-    'keine globalen Feature-Flags aktiviert',
-    'echte Voiceover-Audiodatei',
-  ]);
+  const qualityFiles = [
+    'channels/finanzneo/src/animation-system/full-animation-reel/NarrativeAnimationQuality.ts',
+    'channels/finanzneo/src/animation-system/full-animation-reel/NarrativeAnimationPlans.ts',
+    'channels/finanzneo/src/animation-system/full-animation-reel/NarrativeAnimationQuality.test.ts',
+    'channels/finanzneo/src/animation-system/full-animation-reel/narrative-plan.current.json',
+    'channels/finanzneo/src/animation-system/full-animation-reel/full-animation-reel-quality.json',
+    'scripts/verify-finance-narrative-plan.mjs',
+    'scripts/verify-finance-full-animation-approval.mjs',
+    'scripts/verify-finance-narrative-quality-system.mjs',
+  ];
+  for (const qualityFile of qualityFiles) await readRepositoryFile(qualityFile);
+
+  const currentPlan = JSON.parse(await readRepositoryFile(
+    'channels/finanzneo/src/animation-system/full-animation-reel/narrative-plan.current.json',
+  ));
+  const qualityManifest = JSON.parse(await readRepositoryFile(
+    'channels/finanzneo/src/animation-system/full-animation-reel/full-animation-reel-quality.json',
+  ));
+  if (currentPlan.status !== 'rejected') fail('Der aktuelle Storyboard-Plan darf nicht als freigegeben gelten.');
+  if (qualityManifest.status !== 'rejected') fail('Der aktuelle Render darf nicht als freigegeben gelten.');
+  if (qualityManifest.manualEvidence?.approvedByHuman !== false) fail('Der aktuelle Render behauptet fälschlich eine menschliche Freigabe.');
 
   const packageJson = JSON.parse(await readRepositoryFile('package.json'));
   const scripts = packageJson.scripts ?? {};
   for (const scriptName of [
     'finance:full-animation-reel:structure',
+    'finance:full-animation-reel:quality-system',
+    'finance:full-animation-reel:storyboard-quality',
+    'finance:full-animation-reel:technical-validate',
+    'finance:full-animation-reel:approval',
     'finance:full-animation-reel:studio',
-    'finance:full-animation-reel:hook-still',
-    'finance:full-animation-reel:compound-still',
-    'finance:full-animation-reel:growth-still',
-    'finance:full-animation-reel:composition-still',
     'finance:full-animation-reel:stills',
     'finance:full-animation-reel:render',
     'finance:full-animation-reel:validate',
@@ -106,30 +110,28 @@ const run = async () => {
     }
   }
 
-  if (!scripts['finance:full-animation-reel:validate']?.includes(
-    'finance:full-animation-reel:structure',
-  )) {
-    fail('finance:full-animation-reel:validate führt den Strukturcheck nicht zuerst aus.');
+  const validate = scripts['finance:full-animation-reel:validate'] ?? '';
+  for (const requiredScript of [
+    'finance:full-animation-reel:quality-system',
+    'finance:full-animation-reel:storyboard-quality',
+    'finance:full-animation-reel:technical-validate',
+    'finance:full-animation-reel:approval',
+  ]) {
+    if (!validate.includes(requiredScript)) fail(`finance:full-animation-reel:validate umgeht ${requiredScript}.`);
   }
 
   if (failures.length > 0) {
-    for (const failure of failures) {
-      console.error(`Finance full animation reel check failed: ${failure}`);
-    }
+    for (const failure of failures) console.error(`Finance full animation technical check failed: ${failure}`);
     process.exitCode = 1;
     return;
   }
 
-  console.log('Finance full animation reel check passed.');
-  console.log('Verified seven animation-only scenes, exact 40-second schedule and finance math coverage.');
-  console.log('Verified isolated 1080x1920 composition without image-reel or global feature activation.');
+  console.log('Finance full animation technical structure check passed.');
+  console.log('Verified timing, finance math, isolated composition and mandatory quality-gate wiring.');
+  console.log('This technical check does not prove narrative diversity, visual quality, audio quality or approval.');
 };
 
 run().catch((error) => {
-  console.error(
-    `Finance full animation reel check failed: ${
-      error instanceof Error ? error.message : String(error)
-    }`,
-  );
+  console.error(`Finance full animation technical check failed: ${error instanceof Error ? error.message : String(error)}`);
   process.exitCode = 1;
 });
