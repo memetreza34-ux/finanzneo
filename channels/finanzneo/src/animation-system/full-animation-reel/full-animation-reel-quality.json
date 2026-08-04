@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "reelId": "finanzneo-first-full-animation-reel",
+  "status": "rejected",
+  "reviewedAt": "2026-08-04",
+  "reviewSource": "manual review of rendered MP4 and contact sheet",
+  "rejectionReasons": [
+    "seven components repeat essentially the same early-versus-late comparison",
+    "five of seven scenes are pure data visualizations",
+    "all seven scenes use dashboard-style framing",
+    "camera and staging remain effectively static",
+    "the content is displayed as charts instead of being acted out through objects and environments",
+    "no final voiceover or meaningful sound design is present"
+  ],
+  "approvalRules": {
+    "minimumNarrativeScore": 90,
+    "minimumDistinctContentBeatRatio": 0.85,
+    "minimumDistinctActionRatio": 0.72,
+    "minimumDistinctMetaphorRatio": 0.72,
+    "maximumDataVizShare": 0.4,
+    "maximumDashboardScenes": 1,
+    "maximumRepeatedCoreComparisonScenes": 2,
+    "maximumStaticCameraShare": 0.4,
+    "requiresVoiceover": true,
+    "requiresSoundDesign": true,
+    "requiresManualFrameReview": true,
+    "requiresFullVideoReview": true
+  },
+  "manualEvidence": {
+    "fullVideoReviewed": true,
+    "contactSheetReviewed": true,
+    "voiceoverPresent": false,
+    "soundDesignPresent": false,
+    "minimumThreeFramesPerSceneReviewed": false,
+    "approvedByHuman": false
+  }
+}
