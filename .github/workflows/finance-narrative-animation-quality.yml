@@ -1,0 +1,28 @@
+name: Finance narrative animation quality
+
+on:
+  pull_request:
+    paths:
+      - 'channels/finanzneo/src/animation-system/full-animation-reel/**'
+      - 'scripts/verify-finance-narrative-*.mjs'
+      - 'scripts/verify-finance-full-animation-*.mjs'
+      - 'scripts/test-finance-rejected-full-animation-gates.mjs'
+      - 'package.json'
+      - '.github/workflows/finance-narrative-animation-quality.yml'
+  workflow_dispatch:
+
+jobs:
+  narrative-quality-system:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Verify quality system and reference plans
+        run: npm run finance:full-animation-reel:quality-system
+      - name: Confirm rejected reel remains blocked
+        run: node scripts/test-finance-rejected-full-animation-gates.mjs
