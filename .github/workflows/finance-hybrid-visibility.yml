@@ -1,0 +1,90 @@
+name: Finance Hybrid Visibility
+
+on:
+  pull_request:
+    paths:
+      - 'channels/finanzneo/src/animation-system/hybrid-test/**'
+      - 'channels/finanzneo/src/engine/FinanceHybridAnimationLayer.tsx'
+      - 'channels/finanzneo/src/engine/FinanceProductionLayer.tsx'
+      - 'scripts/verify-finance-hybrid-visibility.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/finance-hybrid-visibility.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: finance-hybrid-visibility-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render-visible-hybrid-reel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      CI: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Verify hybrid layer order and caption-safe visibility
+        run: npm run finance:hybrid-visibility:structure
+
+      - name: Verify global animation flags remain disabled
+        shell: bash
+        run: |
+          grep -q 'enabled: false' channels/finanzneo/src/animation-system/featureFlags.ts
+          grep -q 'allowHybrid: false' channels/finanzneo/src/animation-system/featureFlags.ts
+          grep -q 'allowFullAnimation: false' channels/finanzneo/src/animation-system/featureFlags.ts
+          grep -q 'allowAutomaticRouting: false' channels/finanzneo/src/animation-system/featureFlags.ts
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck animation and hybrid test modules
+        run: npm run finance:animation-typecheck
+
+      - name: Run animation and hybrid visibility tests
+        run: npm run finance:animation-test
+
+      - name: Render three visible animation checkpoints
+        run: npm run finance:hybrid-visibility:stills
+
+      - name: Render complete 30-second hybrid reel
+        run: npm run finance:hybrid-visibility:render
+
+      - name: Upload hybrid visibility previews
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: finance-hybrid-visibility
+          path: |
+            /tmp/finance-hybrid-visible-compound.png
+            /tmp/finance-hybrid-visible-inflation.png
+            /tmp/finance-hybrid-visible-portfolio.png
+            /tmp/finance-hybrid-visibility-test.mp4
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Verify unrelated production entry files stayed unchanged
+        shell: bash
+        run: |
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          if [ -z "$BASE_SHA" ]; then
+            BASE_SHA="origin/feat/finance-animation-foundation"
+          fi
+          git diff --exit-code "$BASE_SHA"...HEAD -- \
+            channels/finanzneo/src/engine/FinanceImageFirstReel.tsx \
+            channels/finanzneo/src/FinanzNeoRoot.tsx \
+            channels/finanzneo/src/animation-system/featureFlags.ts
