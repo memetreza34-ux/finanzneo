@@ -3,6 +3,7 @@ name: Finance narrative animation quality
 on:
   pull_request:
     paths:
+      - 'CLAUDE.md'
       - 'channels/finanzneo/src/animation-system/full-animation-reel/**'
       - 'scripts/verify-finance-narrative-*.mjs'
       - 'scripts/verify-finance-full-animation-*.mjs'
