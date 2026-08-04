@@ -2,17 +2,18 @@ import React from 'react';
 import {AbsoluteFill, Sequence} from 'remotion';
 import {
   FINANCE_ANIMATION_LIBRARY_CATEGORIES,
-  FINANCE_ANIMATION_LIBRARY_ITEMS,
   getFinanceAnimationLibraryCategory,
+  getFinanceAnimationLibraryItemsByBatch,
 } from './catalog';
 
 export const FINANCE_ANIMATION_LIBRARY_ITEM_DURATION = 180;
+export const FINANCE_ANIMATION_LIBRARY_BATCH_ONE_ITEMS = getFinanceAnimationLibraryItemsByBatch(1);
 export const FINANCE_ANIMATION_LIBRARY_GALLERY_DURATION =
-  FINANCE_ANIMATION_LIBRARY_ITEMS.length * FINANCE_ANIMATION_LIBRARY_ITEM_DURATION;
+  FINANCE_ANIMATION_LIBRARY_BATCH_ONE_ITEMS.length * FINANCE_ANIMATION_LIBRARY_ITEM_DURATION;
 
 export const FinanceAnimationLibraryGallery: React.FC = () => (
   <AbsoluteFill style={{background: '#06110A'}}>
-    {FINANCE_ANIMATION_LIBRARY_ITEMS.map((item, index) => (
+    {FINANCE_ANIMATION_LIBRARY_BATCH_ONE_ITEMS.map((item, index) => (
       <Sequence
         key={item.id}
         from={index * FINANCE_ANIMATION_LIBRARY_ITEM_DURATION}
@@ -49,7 +50,7 @@ export const FinanceAnimationLibraryOverview: React.FC = () => (
         <div style={{fontSize: 52, fontWeight: 950, marginTop: 6}}>Animationsbibliothek · Batch 1</div>
       </div>
       <div style={{fontSize: 25, color: '#AFC0B4'}}>
-        {FINANCE_ANIMATION_LIBRARY_CATEGORIES.length} Kategorien · {FINANCE_ANIMATION_LIBRARY_ITEMS.length} Animationen
+        {FINANCE_ANIMATION_LIBRARY_CATEGORIES.length} Kategorien insgesamt · {FINANCE_ANIMATION_LIBRARY_BATCH_ONE_ITEMS.length} Animationen in Batch 1
       </div>
     </div>
 
@@ -63,7 +64,7 @@ export const FinanceAnimationLibraryOverview: React.FC = () => (
         minHeight: 0,
       }}
     >
-      {FINANCE_ANIMATION_LIBRARY_ITEMS.map((item, index) => {
+      {FINANCE_ANIMATION_LIBRARY_BATCH_ONE_ITEMS.map((item, index) => {
         const category = getFinanceAnimationLibraryCategory(item.category);
         return (
           <div
