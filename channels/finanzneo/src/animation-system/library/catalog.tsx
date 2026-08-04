@@ -23,6 +23,14 @@ import {
   TaxClassComparisonAnimation,
   WealthDistributionAnimation,
 } from './FinanceAnimationLibraryBatchThree';
+import {
+  CashflowSurplusFunnelAnimation,
+  CreditCardMinimumPaymentAnimation,
+  DrawdownRecoveryAnimation,
+  PortfolioRebalancingAnimation,
+  RentVsBuyBreakEvenAnimation,
+  SequenceRiskAnimation,
+} from './FinanceAnimationLibraryBatchFour';
 
 export type FinanceAnimationLibraryCategoryId =
   | 'markets'
@@ -35,7 +43,8 @@ export type FinanceAnimationLibraryCategoryId =
   | 'retirement'
   | 'costs-fees'
   | 'taxes-payroll'
-  | 'insurance';
+  | 'insurance'
+  | 'budget-cashflow';
 
 export type FinanceAnimationLibraryItemId =
   | 'market-crash-recovery'
@@ -55,7 +64,13 @@ export type FinanceAnimationLibraryItemId =
   | 'dca-vs-lump-sum'
   | 'market-bubble-cycle'
   | 'insurance-cost-stack'
-  | 'wealth-distribution';
+  | 'wealth-distribution'
+  | 'cashflow-surplus-funnel'
+  | 'credit-card-minimum-payment'
+  | 'portfolio-rebalancing'
+  | 'rent-vs-buy-break-even'
+  | 'drawdown-recovery-time'
+  | 'sequence-of-returns-risk';
 
 export type FinanceAnimationLibraryCategory = {
   readonly id: FinanceAnimationLibraryCategoryId;
@@ -72,7 +87,7 @@ export type FinanceAnimationLibraryItem = {
   readonly keywords: readonly string[];
   readonly durationInFrames: number;
   readonly status: 'library-ready';
-  readonly batch: 1 | 2 | 3;
+  readonly batch: 1 | 2 | 3 | 4;
   readonly renderDemo: () => React.ReactNode;
 };
 
@@ -88,6 +103,7 @@ export const FINANCE_ANIMATION_LIBRARY_CATEGORIES = [
   {id: 'costs-fees', title: 'Kosten & Gebühren', description: 'Laufende Gebühren und ihre langfristige Vermögenswirkung.', order: 90},
   {id: 'taxes-payroll', title: 'Steuern & Gehalt', description: 'Brutto-Netto-Abzüge und unterschiedliche Auszahlungsvarianten.', order: 100},
   {id: 'insurance', title: 'Versicherungen', description: 'Beiträge, Absicherung und jährliche Gesamtkosten.', order: 110},
+  {id: 'budget-cashflow', title: 'Budget & Cashflow', description: 'Monatliche Geldströme, Überschüsse und Budgetengpässe.', order: 120},
 ] as const satisfies readonly FinanceAnimationLibraryCategory[];
 
 export const FINANCE_ANIMATION_LIBRARY_ITEMS = [
@@ -109,6 +125,12 @@ export const FINANCE_ANIMATION_LIBRARY_ITEMS = [
   {id: 'market-bubble-cycle', name: 'Börsenblase und Absturz', category: 'markets', purpose: 'Hoffnung, Euphorie und den anschließenden Absturz einer spekulativen Blase zeigen.', keywords: ['börsenblase', 'euphorie', 'spekulation', 'absturz', 'panik', 'marktzyklus'], durationInFrames: 180, status: 'library-ready', batch: 3, renderDemo: () => <MarketBubbleCycleAnimation startValue={10000} peakIncreasePercent={180} crashFromPeakPercent={72} />},
   {id: 'insurance-cost-stack', name: 'Versicherungskosten-Stapel', category: 'insurance', purpose: 'Mehrere kleine Monatsbeiträge zu ihrer jährlichen Gesamtbelastung zusammenführen.', keywords: ['versicherung', 'beitrag', 'kosten', 'haftpflicht', 'berufsunfähigkeit', 'schutz'], durationInFrames: 180, status: 'library-ready', batch: 3, renderDemo: () => <InsuranceCostStackAnimation monthlyIncome={2800} policies={[{label: 'Haftpflicht', monthlyPremium: 8}, {label: 'Hausrat', monthlyPremium: 14}, {label: 'Rechtsschutz', monthlyPremium: 29}, {label: 'Berufsunfähigkeit', monthlyPremium: 96}, {label: 'Kfz', monthlyPremium: 74}]} />},
   {id: 'wealth-distribution', name: 'Vermögensverteilung', category: 'wealth', purpose: 'Bevölkerungsanteile und ihren jeweiligen Anteil am Gesamtvermögen gegenüberstellen.', keywords: ['vermögensverteilung', 'ungleichheit', 'reichste', 'bevölkerung', 'vermögen', 'anteil'], durationInFrames: 180, status: 'library-ready', batch: 3, renderDemo: () => <WealthDistributionAnimation groups={[{label: 'Untere 50 %', populationPercent: 50, wealthPercent: 3}, {label: 'Mittlere 40 %', populationPercent: 40, wealthPercent: 31}, {label: 'Obere 10 %', populationPercent: 10, wealthPercent: 66}]} />},
+  {id: 'cashflow-surplus-funnel', name: 'Cashflow-Trichter', category: 'budget-cashflow', purpose: 'Monatliches Einkommen auf Fixkosten verteilen und den freien Überschuss sichtbar machen.', keywords: ['cashflow', 'budget', 'überschuss', 'fixkosten', 'einkommen', 'ausgaben'], durationInFrames: 180, status: 'library-ready', batch: 4, renderDemo: () => <CashflowSurplusFunnelAnimation monthlyIncome={3200} expenses={[{label: 'Wohnen', amount: 1150}, {label: 'Lebensmittel', amount: 420}, {label: 'Mobilität', amount: 260}, {label: 'Verträge', amount: 190}, {label: 'Freizeit', amount: 310}]} />},
+  {id: 'credit-card-minimum-payment', name: 'Mindestzahlungs-Falle', category: 'real-estate-credit', purpose: 'Lange Laufzeit und hohe Zinskosten bei kleinen Kreditkarten-Mindestzahlungen erklären.', keywords: ['kreditkarte', 'mindestzahlung', 'zinsen', 'schuldenfalle', 'restschuld', 'laufzeit'], durationInFrames: 180, status: 'library-ready', batch: 4, renderDemo: () => <CreditCardMinimumPaymentAnimation balance={5000} annualInterestPercent={19.9} minimumPaymentPercent={3} minimumPaymentFloor={50} />},
+  {id: 'portfolio-rebalancing', name: 'Portfolio-Rebalancing', category: 'investing', purpose: 'Übergewichtete und untergewichtete Anlageklassen zurück auf die Zielverteilung verschieben.', keywords: ['rebalancing', 'portfolio', 'gewichtung', 'zielallokation', 'etf', 'risiko'], durationInFrames: 180, status: 'library-ready', batch: 4, renderDemo: () => <PortfolioRebalancingAnimation portfolioValue={100000} current={[{label: 'Aktien', percent: 78}, {label: 'Anleihen', percent: 14}, {label: 'Cash', percent: 8}]} target={[{label: 'Aktien', percent: 70}, {label: 'Anleihen', percent: 20}, {label: 'Cash', percent: 10}]} />},
+  {id: 'rent-vs-buy-break-even', name: 'Mieten-gegen-Kaufen-Schnittpunkt', category: 'real-estate-credit', purpose: 'Kumulierte Miet- und Eigentümerkosten über mehrere Jahre gegenüberstellen.', keywords: ['mieten', 'kaufen', 'immobilie', 'break-even', 'wohnkosten', 'kaufnebenkosten'], durationInFrames: 180, status: 'library-ready', batch: 4, renderDemo: () => <RentVsBuyBreakEvenAnimation monthlyRent={1350} annualRentIncreasePercent={2.5} upfrontBuyingCosts={52000} monthlyOwnerCost={1050} />},
+  {id: 'drawdown-recovery-time', name: 'Verlust-und-Erholung', category: 'markets', purpose: 'Den asymmetrischen Zusammenhang zwischen Kursverlust und benötigtem Erholungsgewinn zeigen.', keywords: ['drawdown', 'verlust', 'erholung', 'rendite', 'börsencrash', 'prozentrechnung'], durationInFrames: 180, status: 'library-ready', batch: 4, renderDemo: () => <DrawdownRecoveryAnimation startValue={10000} drawdownPercent={50} />},
+  {id: 'sequence-of-returns-risk', name: 'Reihenfolge-Risiko', category: 'retirement', purpose: 'Unterschiedliche Ruhestandsverläufe trotz gleicher Renditebausteine sichtbar machen.', keywords: ['sequence risk', 'reihenfolgerisiko', 'ruhestand', 'entnahme', 'portfolio', 'rente'], durationInFrames: 180, status: 'library-ready', batch: 4, renderDemo: () => <SequenceRiskAnimation initialPortfolio={500000} annualWithdrawal={24000} returnsA={[12, 9, 7, 5, -4, -8, 6, 8]} returnsB={[-8, -4, 5, 7, 9, 12, 6, 8]} />},
 ] as const satisfies readonly FinanceAnimationLibraryItem[];
 
 const CATEGORY_BY_ID = new Map<FinanceAnimationLibraryCategoryId, FinanceAnimationLibraryCategory>(
@@ -125,6 +147,6 @@ export const getFinanceAnimationLibraryItemsByCategory = (
   FINANCE_ANIMATION_LIBRARY_ITEMS.filter((item) => item.category === category);
 
 export const getFinanceAnimationLibraryItemsByBatch = (
-  batch: 1 | 2 | 3,
+  batch: 1 | 2 | 3 | 4,
 ): readonly FinanceAnimationLibraryItem[] =>
   FINANCE_ANIMATION_LIBRARY_ITEMS.filter((item) => item.batch === batch);
