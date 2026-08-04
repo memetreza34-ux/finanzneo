@@ -123,17 +123,17 @@ const requiredFixture = (template: Parameters<typeof getFinanceAnimationFixture>
 export const FINANCE_HYBRID_VISIBILITY_ASSIGNMENTS: FinanceHybridAnimationAssignments = {
   'compound-animation': {
     input: requiredFixture('compound-growth'),
-    presentation: 'replace-image',
+    presentation: 'caption-safe',
     debugLabel: 'SICHTBAR · ZINSESZINS',
   },
   'inflation-animation': {
     input: requiredFixture('inflation-erosion'),
-    presentation: 'replace-image',
+    presentation: 'caption-safe',
     debugLabel: 'SICHTBAR · INFLATION',
   },
   'portfolio-animation': {
     input: requiredFixture('portfolio-allocation'),
-    presentation: 'replace-image',
+    presentation: 'caption-safe',
     debugLabel: 'SICHTBAR · PORTFOLIO',
   },
 };
