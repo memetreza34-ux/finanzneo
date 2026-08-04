@@ -98,7 +98,7 @@ export const FinanceAnimationRenderer: React.FC<FinanceAnimationRendererProps> =
       const total = numberValue(scene, 'total');
       const allocations = rawAllocations.map((item) => ({
         label: item.label,
-        percent: typeof item.percent === 'number' ? item.percent : (item.value ?? 0),
+        weight: typeof item.percent === 'number' ? item.percent : (item.value ?? 0),
       }));
       return <PortfolioAllocationTemplate total={total} allocations={allocations} />;
     }
