@@ -12,7 +12,11 @@ if (!projectArg) {
 }
 
 const projectRoot = path.resolve(projectArg);
-const packageFile = path.join(projectRoot, '06-projektdateien', 'codex-reel-package.json');
+const packageCandidates = [
+  path.join(projectRoot, 'timeline', 'codex-reel-package.json'),
+  path.join(projectRoot, '06-projektdateien', 'codex-reel-package.json'),
+];
+const packageFile = packageCandidates.find((candidate) => fs.existsSync(candidate));
 const errors = [];
 const warnings = [];
 const fail = (message) => errors.push(message);
@@ -24,8 +28,8 @@ const isRelativeSafePath = (value) => isText(value) && !path.isAbsolute(value) &
 if (!fs.existsSync(projectRoot) || !fs.statSync(projectRoot).isDirectory()) {
   throw new Error(`Projektordner nicht gefunden: ${projectRoot}`);
 }
-if (!fs.existsSync(packageFile)) {
-  throw new Error(`Codex-Reel-Paket fehlt: ${packageFile}`);
+if (!packageFile) {
+  throw new Error(`Codex-Reel-Paket fehlt. Erwartet: ${packageCandidates.join(' oder ')}`);
 }
 
 let reel;
