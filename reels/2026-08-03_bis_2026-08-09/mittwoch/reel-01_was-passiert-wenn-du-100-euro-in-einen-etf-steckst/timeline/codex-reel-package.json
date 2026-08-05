@@ -28,7 +28,7 @@
   },
   "voiceover": {
     "script": "Was passiert eigentlich, wenn du 100 Euro in einen ETF steckst? Wohin geht das Geld – und was bekommst du dafür? Zuerst wird aus deinem Klick eine Kauforder. Der Broker schickt sie an den gewählten Handelsplatz, wo sie im Orderbuch auf ein passendes Verkaufsangebot trifft – oft von einem anderen Anleger oder einem Market Maker. Sobald Preis und Menge zusammenpassen, wird der Handel ausgeführt: Der Verkäufer bekommt dein Geld, und der ETF-Anteil wird deinem Depot gutgeschrieben. Dieser Anteil gehört zu einem Fonds, der bereits viele Wertpapiere hält. Du kaufst also nicht selbst jede einzelne Aktie, sondern einen Anteil am gesamten Fondsvermögen. Steigt die Nachfrage so stark, dass neue Anteile gebraucht werden, kann ein Authorized Participant einen passenden Wertpapierkorb an den Fonds liefern und dafür neue ETF-Anteile erhalten. Ab dann bewegt sich der Wert deines Anteils mit den enthaltenen Wertpapieren. Bei einem Sparplan kannst du je nach Anbieter auch nur einen Bruchteil eines Anteils besitzen. Der wichtigste Punkt: Deine 100 Euro gehen beim normalen Börsenkauf an die Gegenseite des Handels. Du erhältst dafür einen Fondsanteil, der wirtschaftlich an einem ganzen Wertpapierkorb hängt.",
-    "asset": "02-audio/voiceover-final.wav",
+    "asset": "01-voice-script/voiceover-final.wav",
     "instruction": "Deutsch, klar, modern und neugierig erklärend. Keine Begrüßung. Die erste Frage direkt betonen, damit das Thema sofort klar ist. Fachbegriffe ruhig und verständlich sprechen."
   },
   "captions": {
@@ -45,7 +45,7 @@
       "purpose": "Die zentrale Anfängerfrage sofort und ohne Umweg sichtbar machen.",
       "visualFamily": "editorial-3d-etf-investment-path",
       "image": {
-        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-01-hook.png",
+        "asset": "03-szenen/EINZELNE-SZENEN/scene-01/scene-01-hook.png",
         "promptFile": "03-szenen/EINZELNE-SZENEN/scene-01/bildprompt.txt",
         "motion": {
           "type": "push-in",
@@ -113,7 +113,7 @@
       "purpose": "Den eigentlichen Tausch zwischen Geld und ETF-Anteil eindeutig darstellen.",
       "visualFamily": "editorial-3d-two-way-settlement",
       "image": {
-        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-03-settlement.png",
+        "asset": "03-szenen/EINZELNE-SZENEN/scene-03/scene-03-settlement.png",
         "promptFile": "03-szenen/EINZELNE-SZENEN/scene-03/bildprompt.txt",
         "motion": {
           "type": "pan-right",
@@ -142,7 +142,7 @@
       "purpose": "Den ETF-Anteil als proportionalen Anteil am gesamten Fondsvermögen erklären.",
       "visualFamily": "editorial-3d-transparent-fund-vault",
       "image": {
-        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-04-fund-basket.png",
+        "asset": "03-szenen/EINZELNE-SZENEN/scene-04/scene-04-fund-basket.png",
         "promptFile": "03-szenen/EINZELNE-SZENEN/scene-04/bildprompt.txt",
         "motion": {
           "type": "pull-out",
@@ -211,7 +211,7 @@
       "purpose": "Die wirtschaftliche Verbindung zwischen Fondsvermögen, Anteilswert und möglichen Bruchstücken erklären.",
       "visualFamily": "editorial-3d-mechanical-value-link",
       "image": {
-        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-06-value-link.png",
+        "asset": "03-szenen/EINZELNE-SZENEN/scene-06/scene-06-value-link.png",
         "promptFile": "03-szenen/EINZELNE-SZENEN/scene-06/bildprompt.txt",
         "motion": {
           "type": "push-in",
@@ -240,7 +240,7 @@
       "purpose": "Die zentrale Frage mit einer eindeutigen Besitz- und Geldflussaussage abschließen.",
       "visualFamily": "editorial-3d-final-fund-ownership",
       "image": {
-        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-07-payoff.png",
+        "asset": "03-szenen/EINZELNE-SZENEN/scene-07/scene-07-payoff.png",
         "promptFile": "03-szenen/EINZELNE-SZENEN/scene-07/bildprompt.txt",
         "motion": {
           "type": "push-in",
