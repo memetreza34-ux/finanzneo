@@ -4,11 +4,13 @@ on:
   pull_request:
     paths:
       - 'CLAUDE.md'
-      - 'channels/finanzneo/src/animation-system/full-animation-reel/**'
-      - 'scripts/verify-finance-narrative-*.mjs'
-      - 'scripts/verify-finance-full-animation-*.mjs'
-      - 'scripts/test-finance-rejected-full-animation-gates.mjs'
-      - 'package.json'
+      - 'alles/CLAUDE.md'
+      - 'alles/channels/finanzneo/src/animation-system/full-animation-reel/**'
+      - 'alles/scripts/verify-finance-narrative-*.mjs'
+      - 'alles/scripts/verify-finance-full-animation-*.mjs'
+      - 'alles/scripts/test-finance-rejected-full-animation-gates.mjs'
+      - 'alles/package.json'
+      - 'alles/package-lock.json'
       - '.github/workflows/finance-narrative-animation-quality.yml'
   workflow_dispatch:
 
@@ -16,12 +18,16 @@ jobs:
   narrative-quality-system:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: alles
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: alles/package-lock.json
       - run: npm ci
       - name: Verify quality system and reference plans
         run: npm run finance:full-animation-reel:quality-system
