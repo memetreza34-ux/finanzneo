@@ -51,11 +51,11 @@ Vor Codex müssen feststehen:
 - Thema, zentrale Frage, Hook und Payoff,
 - vollständiger Voiceover-Text,
 - Cover-Text,
-- Szenenreihenfolge und Szenenlängen,
+- Szenenreihenfolge und vorläufige Szenenlängen,
 - `image` oder `animation` pro Szene,
 - vollständiger Bildprompt für jede Bildszene,
 - genaue Remotion-Beschreibung für jede Animationsszene,
-- Overlays, Captions, Übergänge und optionale Sound-Cues,
+- Overlays, Übergänge und optionale Sound-Cues,
 - Quellen und geprüfte Finanzrechnungen.
 
 Maschinenlesbares Paket:
@@ -64,11 +64,7 @@ Maschinenlesbares Paket:
 <projekt>/timeline/codex-reel-package.json
 ```
 
-Vorlage:
-
-```text
-channels/finanzneo/templates/codex-reel-package.template.json
-```
+Die geplanten Szenenzeiten sind noch nicht die endgültigen Renderzeiten.
 
 ## Phase B – Medien durch den Nutzer
 
@@ -101,44 +97,70 @@ scene-03/export.png               → Szene 3
 
 Bei null oder mehreren passenden Dateien stoppt der Validator, damit nichts verwechselt wird.
 
-Vor Codex aus `alles/`:
+## Phase C – Audio synchronisieren und transkribieren
 
-```bash
-npm run finance:codex-reel:check-ready -- <projekt>
-```
-
-Die Ausgabe nennt den tatsächlich erkannten Audio- und Bildpfad für jede Bildszene.
-
-## Laufzeitregel
-
-Die reale Voiceover-Datei ist die zeitliche Quelle der Wahrheit. Das Paket darf zwischen 25 und 90 Sekunden lang sein.
-
-Wenn die gemessene Audiodauer deutlich von der geplanten Szenensumme abweicht, wird nicht automatisch beschleunigt, gekürzt oder gestreckt. Stattdessen müssen `composition.targetDurationSec`, `composition.durationInFrames`, `voiceover.measuredDurationSec` und alle `scene.durationSec` auf dieselbe reale Laufzeit abgestimmt werden.
-
-Bei längeren Bildszenen sind mindestens zwei kontrollierte Bewegungsphasen vorzusehen, damit das Bild nicht über viele Sekunden statisch bleibt.
-
-## Phase C – Codex baut das Reel
-
-Codex übernimmt:
-
-1. Projekt- und Assetprüfung.
-2. Übernahme der automatisch erkannten Medienpfade.
-3. Reel-spezifische Remotion-Composition.
-4. Einbindung aller Bilder.
-5. Bildfahrten und Zooms laut Paket.
-6. Umsetzung der beschriebenen narrativen Animationen.
-7. Voiceover-Einbindung.
-8. Untertitel.
-9. Overlays, Cover, Übergänge und freigegebene Sound-Cues.
-10. TypeScript, Tests, Stills, MP4-Render und visuelle Prüfung.
-
-Fehlen finale Wort-Zeitstempel:
+Vor dem eigentlichen Build aus `alles/` ausführen:
 
 ```bash
 npm run finance:codex-reel:captions -- <projekt>
 ```
 
-Die erzeugten Captions basieren auf Skript und Audiodauer, nicht auf Spracherkennung.
+Der Befehl führt die vollständige Audio- und Timing-Pipeline aus:
+
+1. einzige Originalaufnahme in `02-audio/` erkennen,
+2. Originaldatei unverändert lassen,
+3. mit FFmpeg `atempo=1.10` eine pitch-erhaltende 1,10×-Version erzeugen,
+4. eine 16-kHz-WAV-Datei für Whisper erstellen,
+5. lokal mit Whisper.cpp auf Deutsch transkribieren,
+6. echte Wort-Zeitstempel erzeugen,
+7. das Transkript mit den freigegebenen `voiceText`-Blöcken abgleichen,
+8. Szenengrenzen an den tatsächlich gesprochenen Abschnitten setzen,
+9. Composition-Dauer und Szenendauern aktualisieren.
+
+Erzeugte Dateien:
+
+```text
+<projekt>/render/audio/voiceover-runtime-1-10x.wav
+<projekt>/04-caption/voiceover-final.captions.json
+<projekt>/04-caption/voiceover-transcript.json
+<projekt>/timeline/scene-timing.json
+<projekt>/timeline/transcript-timing.md
+<projekt>/05-review/audio-sync-report.json
+```
+
+### Zeitregeln
+
+- Die Originalaufnahme und die 1,10×-Runtime-Datei dürfen unterschiedliche Dauern haben.
+- Geplante und endgültige Szenenzeiten dürfen unterschiedlich sein.
+- Die Szenenreihenfolge und die freigegebenen Aussagen bleiben unverändert.
+- Nach der Transkription ist `timeline/scene-timing.json` die zeitliche Quelle der Wahrheit.
+- Im Render wird die erzeugte Runtime-Datei verwendet, nicht die langsame Originalaufnahme.
+- Echte Whisper-Zeitstempel ersetzen rechnerisch verteilte Untertitel.
+- Bei zu geringer Übereinstimmung zwischen Transkript und freigegebenem Skript stoppt die Pipeline.
+
+Anschließend prüfen:
+
+```bash
+npm run finance:codex-reel:check-ready -- <projekt>
+```
+
+Die Prüfung verlangt danach Runtime-Audio, Transkript, Captions und echte Szenengrenzen.
+
+## Phase D – Codex baut das Reel
+
+Codex übernimmt:
+
+1. Projekt- und Assetprüfung.
+2. Übernahme der automatisch erkannten Medienpfade.
+3. Übernahme der transkriptbasierten Szenenzeiten.
+4. Reel-spezifische Remotion-Composition.
+5. Einbindung aller Bilder.
+6. Bildfahrten und Zooms relativ zur finalen Szenendauer.
+7. Umsetzung der beschriebenen narrativen Animationen.
+8. Einbindung des 1,10×-Runtime-Voiceovers.
+9. Einbindung der echten Wort-Captions.
+10. Overlays, Cover, Übergänge und freigegebene Sound-Cues.
+11. TypeScript, Tests, Stills, MP4-Render und visuelle Prüfung.
 
 ## Standardauftrag für Codex
 
@@ -157,28 +179,30 @@ Lies zuerst:
 - <PROJEKTORDNER>/05-review/production-status.json
 
 Führe vor jeder Codeänderung aus:
+npm run finance:codex-reel:captions -- <PROJEKTORDNER>
 npm run finance:codex-reel:check-ready -- <PROJEKTORDNER>
 
-Verwende exakt die in der Ausgabe automatisch erkannten Medienpfade. Fordere keine Umbenennung an.
+Verwende exakt die automatisch erkannten Bildpfade, die erzeugte 1,10×-Runtime-Audiodatei und die transkriptbasierten Szenenzeiten.
 
 Regeln:
 - Genau eine unterstützte Datei in 02-audio; Dateiname egal.
 - Genau eine unterstützte Bilddatei pro erwarteter Bildszene; Dateiname egal.
 - Der scene-XX-Ordner bestimmt die Szenennummer.
-- Die gemessene Audiodauer ist die zeitliche Quelle der Wahrheit.
-- Audio nicht automatisch beschleunigen, kürzen oder zeitlich strecken.
-- Bei null oder mehreren passenden Dateien stoppen und die Kandidaten nennen.
+- Das Original-Audio bleibt unverändert.
+- Das Runtime-Audio wird pitch-erhaltend auf 1,10× erzeugt.
+- timeline/scene-timing.json bestimmt die Szenengrenzen.
+- Keine geschätzten Caption-Zeiten verwenden, wenn Whisper-Zeitstempel existieren.
+- Bei null oder mehreren Medien oder zu geringer Transkript-Abdeckung stoppen.
 
 Wenn die Prüfung erfolgreich ist:
 1. Erstelle eine isolierte reel-spezifische Remotion-Composition.
 2. Übernimm Skript, Reihenfolge, Cover, erkannte Bilder und Animationsbeschreibungen unverändert.
 3. Bildszenen nehmen die Hauptfläche ein und werden nicht in Dashboard-Karten verwandelt.
-4. Längere Bildszenen erhalten mindestens zwei geplante Bewegungsphasen.
-5. Entwickle nur die vorgesehenen Animationsszenen.
-6. Integriere Voiceover, Captions, Overlays und Übergänge.
-7. Erzeuge reel-spezifische Befehle für Studio, Stills, Render und Validierung.
-8. Führe Typecheck, Tests, Stills und den vollständigen MP4-Render aus.
-9. Prüfe mindestens einen Frame pro Szene, alle Übergänge, Untertitelbereich, Cover, Synchronität und Videoende.
+4. Bild- und Animationsphasen relativ zur endgültigen Szenendauer skalieren.
+5. Integriere Runtime-Voiceover, echte Captions, Overlays und Übergänge.
+6. Erzeuge reel-spezifische Befehle für Studio, Stills, Render und Validierung.
+7. Führe Regressionstest, Typecheck, Tests, Stills und vollständigen MP4-Render aus.
+8. Prüfe mindestens einen Frame pro Szene, alle Übergänge, Untertitelbereich, Cover, Audio-Synchronität und Videoende.
 
 Nicht mergen, keine Feature-Flags aktivieren, keine produktive Composition ersetzen und den PR nicht auf Ready setzen.
 
@@ -187,6 +211,9 @@ Berichte getrennt:
 - tatsächlich ausgeführte Befehle,
 - bestandene Tests,
 - erkannte Medienpfade,
+- Original- und Runtime-Audiodauer,
+- Transkript-Abdeckung,
+- endgültige Szenenzeiten,
 - Renderpfade und Dateigrößen,
 - visuelle Prüfung pro Szene,
 - verbleibende Probleme,
@@ -195,4 +222,4 @@ Berichte getrennt:
 
 ## Abnahme
 
-Ein Reel ist erst fertig, wenn MP4, Bilder, Voiceover, Captions, Kontaktbogen, technische Prüfungen, visuelle Prüfung und Nutzerfreigabe vollständig vorhanden sind.
+Ein Reel ist erst fertig, wenn Runtime-Audio, Transkript, echte Captions, endgültige Szenenzeiten, MP4, Kontaktbogen, technische Prüfungen, visuelle Synchronitätsprüfung und Nutzerfreigabe vollständig vorhanden sind.
