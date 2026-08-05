@@ -121,10 +121,12 @@ const {
 
 const whisperCppVersion = reel.voiceover?.processing?.transcription?.whisperCppVersion ?? '1.5.5';
 const whisperPath = path.join(technicalRoot, '.cache', 'finanzneo-whisper', whisperCppVersion);
+const modelFolder = path.join(whisperPath, 'models');
 fs.mkdirSync(path.dirname(whisperPath), {recursive: true});
+fs.mkdirSync(modelFolder, {recursive: true});
 console.log(`Whisper.cpp: ${whisperPath}`);
 await installWhisperCpp({to: whisperPath, version: whisperCppVersion});
-await downloadWhisperModel({model, folder: whisperPath});
+await downloadWhisperModel({model, folder: modelFolder});
 
 console.log(`Transkribiere mit Whisper.cpp, Modell ${model}, Sprache Deutsch ...`);
 const whisperCppOutput = await transcribe({
@@ -132,6 +134,7 @@ const whisperCppOutput = await transcribe({
   whisperPath,
   whisperCppVersion,
   model,
+  modelFolder,
   tokenLevelTimestamps: true,
   language: 'de',
   printOutput: false,
@@ -163,6 +166,8 @@ const timingMarkdownRelative = 'timeline/transcript-timing.md';
 const timingMarkdownFile = path.resolve(projectRoot, timingMarkdownRelative);
 const reportRelative = '05-review/audio-sync-report.json';
 const reportFile = path.resolve(projectRoot, reportRelative);
+const productionStatusRelative = '05-review/production-status.json';
+const productionStatusFile = path.resolve(projectRoot, productionStatusRelative);
 for (const file of [captionsFile, transcriptFile, timingFile, timingMarkdownFile, reportFile]) {
   fs.mkdirSync(path.dirname(file), {recursive: true});
 }
@@ -193,6 +198,7 @@ fs.writeFileSync(timingFile, JSON.stringify({
     packageVersion: whisperPackageVersion,
     whisperCppVersion,
     model,
+    modelFolder: path.relative(technicalRoot, modelFolder),
     language: 'de',
     tokenLevelTimestamps: true,
   },
@@ -209,6 +215,7 @@ fs.writeFileSync(timingMarkdownFile, `# Transkriptbasierte Reel-Zeiten\n\nDiese 
 const updatedScenes = scenes.map((scene, index) => ({
   ...scene,
   durationSec: sceneTiming[index].durationSec,
+  timingStatus: 'transcript-aligned',
   timing: {
     startMs: sceneTiming[index].startMs,
     endMs: sceneTiming[index].endMs,
@@ -217,11 +224,13 @@ const updatedScenes = scenes.map((scene, index) => ({
     source: 'whisper.cpp-word-alignment',
   },
 }));
+const generatedAt = new Date().toISOString();
 const updatedPackage = {
   ...reel,
   composition: {
     ...reel.composition,
     durationInFrames,
+    targetDurationSec: Number(runtimeDurationSec.toFixed(3)),
   },
   voiceover: {
     ...reel.voiceover,
@@ -254,9 +263,10 @@ const updatedPackage = {
   },
   timing: {
     mode: 'transcript-aligned',
+    status: 'completed',
     asset: timingRelative,
     sourceOfTruth: true,
-    generatedAt: new Date().toISOString(),
+    generatedAt,
   },
   scenes: updatedScenes,
 };
@@ -264,7 +274,7 @@ fs.writeFileSync(packageFile, `${JSON.stringify(updatedPackage, null, 2)}\n`);
 
 const report = {
   version: 'finanzneo-audio-sync-v1',
-  generatedAt: new Date().toISOString(),
+  generatedAt,
   status: 'transcribed-and-aligned',
   sourceAudio: source.relativeFile,
   sourceDurationSec: Number(sourceDurationSec.toFixed(3)),
@@ -288,6 +298,37 @@ const report = {
 };
 fs.writeFileSync(reportFile, `${JSON.stringify(report, null, 2)}\n`);
 
+if (fs.existsSync(productionStatusFile)) {
+  const productionStatus = JSON.parse(fs.readFileSync(productionStatusFile, 'utf8'));
+  productionStatus.stage = 'audio-synchronized-ready-for-build';
+  productionStatus.timing = {
+    ...(productionStatus.timing ?? {}),
+    mode: 'transcript-aligned',
+    originalVoiceoverDurationSec: Number(sourceDurationSec.toFixed(3)),
+    playbackRate: speed,
+    preservePitch: true,
+    runtimeVoiceoverDurationSec: Number(runtimeDurationSec.toFixed(3)),
+    durationInFrames,
+    finalTimingSource: timingRelative,
+    transcriptCoverage: resolved.alignment.coverage,
+    syncCompleted: true,
+    synchronizedAt: generatedAt,
+    sceneDurationsSec: sceneTiming.map((timing) => timing.durationSec),
+  };
+  productionStatus.media = {
+    ...(productionStatus.media ?? {}),
+    runtimeVoiceoverCreated: true,
+    transcriptCreated: true,
+    captionsReceived: true,
+  };
+  productionStatus.implementation = {
+    ...(productionStatus.implementation ?? {}),
+    audioSyncPipelineImplemented: true,
+    audioSyncPipelineExecuted: true,
+  };
+  fs.writeFileSync(productionStatusFile, `${JSON.stringify(productionStatus, null, 2)}\n`);
+}
+
 console.log('✓ Voiceover pitch-erhaltend verarbeitet.');
 console.log(`  Original: ${sourceDurationSec.toFixed(3)} s`);
 console.log(`  ${speed.toFixed(2)}×: ${runtimeDurationSec.toFixed(3)} s`);
@@ -297,3 +338,4 @@ console.log(`✓ Szenen anhand des Transkripts ausgerichtet: ${timingRelative}`)
 console.log(`  Skriptabdeckung: ${(resolved.alignment.coverage * 100).toFixed(1)}%`);
 console.log(`✓ Codex-Paket aktualisiert: ${path.relative(technicalRoot, packageFile)}`);
 console.log(`✓ Prüfbericht: ${reportRelative}`);
+if (fs.existsSync(productionStatusFile)) console.log(`✓ Produktionsstatus aktualisiert: ${productionStatusRelative}`);
