@@ -20,11 +20,17 @@ Technische Befehle werden aus `alles/` ausgeführt. Aktive Reel-Projekte liegen 
 ```text
 00-cover/
 01-voice-script/
-02-audio/
+  script.md
+  script-fliesstext.txt
+  voiceover-anweisung.txt
+  voiceover-final.wav
 03-szenen/
   alle-bildprompts.txt
-  BILDER-HIER-EINFUEGEN/
   EINZELNE-SZENEN/
+    scene-01/
+      bildprompt.txt
+      scene-01-<name>.png
+      szene.md
   scene-index.json
 04-caption/
 05-review/
@@ -32,6 +38,8 @@ Technische Befehle werden aus `alles/` ausgeführt. Aktive Reel-Projekte liegen 
 render/
 timeline/
 ```
+
+Das Voiceover liegt direkt beim Skript. Jedes Bild liegt direkt beim zugehörigen Bildprompt. Es gibt weder einen getrennten Audioordner noch einen zentralen Bilder-Einfügeordner.
 
 ## Phase A – kreatives Paket
 
@@ -64,10 +72,12 @@ channels/finanzneo/templates/codex-reel-package.template.json
 Pflichtpfade:
 
 ```text
-<projekt>/02-audio/voiceover-final.wav
-<projekt>/03-szenen/BILDER-HIER-EINFUEGEN/<scene>.png
+<projekt>/01-voice-script/voiceover-final.wav
 <projekt>/03-szenen/EINZELNE-SZENEN/<scene>/bildprompt.txt
+<projekt>/03-szenen/EINZELNE-SZENEN/<scene>/<bilddatei>.png
 ```
+
+Bei jeder Bildszene müssen Bild und Prompt denselben Elternordner haben.
 
 Vor Codex aus `alles/`:
 
@@ -120,6 +130,11 @@ Führe vor jeder Codeänderung aus:
 npm run finance:codex-reel:check-ready -- <PROJEKTORDNER>
 
 Stoppe bei einem Fehler und nenne die exakten fehlenden oder widersprüchlichen Felder und Dateien.
+
+Prüfe zusätzlich:
+- Voiceover liegt unter 01-voice-script/voiceover-final.wav.
+- Jede Bilddatei liegt im selben Szenenordner wie bildprompt.txt.
+- Es existieren weder 02-audio/ noch 03-szenen/BILDER-HIER-EINFUEGEN/.
 
 Wenn die Prüfung erfolgreich ist:
 1. Erstelle eine isolierte reel-spezifische Remotion-Composition.
