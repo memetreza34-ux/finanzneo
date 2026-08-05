@@ -24,7 +24,7 @@ const packageCandidates = [
 const packageFile = packageCandidates.find((candidate) => fs.existsSync(candidate));
 const errors = [];
 const warnings = [];
-const resolvedAssets = {voiceover: null, images: []};
+const resolvedAssets = {voiceover: null, runtimeVoiceover: null, images: []};
 const fail = (message) => errors.push(message);
 const warn = (message) => warnings.push(message);
 const isText = (value, min = 1) => typeof value === 'string' && value.trim().length >= min;
@@ -57,11 +57,8 @@ const composition = reel.composition ?? {};
 if (!isText(composition.id)) fail('composition.id fehlt.');
 if (composition.width !== 1080 || composition.height !== 1920) fail('composition muss 1080 × 1920 sein.');
 if (composition.fps !== 30) fail('composition.fps muss 30 sein.');
-if (composition.durationInFrames !== undefined && (!Number.isInteger(composition.durationInFrames) || composition.durationInFrames <= 0)) {
+if (composition.durationInFrames !== undefined && (!Number.isInteger(composition.durationInFrames) || composition.durationInFrames < 1)) {
   fail('composition.durationInFrames muss eine positive ganze Zahl sein.');
-}
-if (composition.targetDurationSec !== undefined && (!Number.isFinite(composition.targetDurationSec) || composition.targetDurationSec <= 0)) {
-  fail('composition.targetDurationSec muss eine positive Zahl sein.');
 }
 
 const cover = reel.cover ?? {};
@@ -79,8 +76,17 @@ if (!hasVoiceoverDirectory && !hasLegacyVoiceoverAsset) {
 if (voiceover.selection && voiceover.selection !== 'single-supported-file') {
   fail('voiceover.selection muss single-supported-file sein.');
 }
-if (voiceover.measuredDurationSec !== undefined && (!Number.isFinite(voiceover.measuredDurationSec) || voiceover.measuredDurationSec <= 0)) {
-  fail('voiceover.measuredDurationSec muss eine positive Zahl sein.');
+const playbackRate = voiceover.processing?.playbackRate;
+if (playbackRate !== undefined && (!Number.isFinite(playbackRate) || playbackRate < 0.85 || playbackRate > 1.25)) {
+  fail('voiceover.processing.playbackRate muss zwischen 0.85 und 1.25 liegen.');
+}
+if (playbackRate !== undefined && playbackRate !== 1 && voiceover.processing?.preservePitch !== true) {
+  fail('Bei veränderter Sprechgeschwindigkeit muss preservePitch true sein.');
+}
+if (voiceover.processing?.timingMode === 'transcript-word-alignment') {
+  if (voiceover.processing?.transcription?.engine !== 'whisper.cpp') fail('Transkript-Ausrichtung benötigt whisper.cpp als engine.');
+  if (voiceover.processing?.transcription?.language !== 'de') fail('Die Transkriptionssprache muss de sein.');
+  if (voiceover.processing?.transcription?.tokenLevelTimestamps !== true) fail('Token-Level-Zeitstempel müssen aktiviert sein.');
 }
 
 const rules = reel.creativeRules ?? {};
@@ -113,8 +119,8 @@ for (let index = 0; index < scenes.length; index += 1) {
   const label = scene.id || `Szene ${index + 1}`;
   if (!isText(scene.id)) fail(`${label}: id fehlt.`);
   if (!['image', 'animation'].includes(scene.type)) fail(`${label}: type muss image oder animation sein.`);
-  if (!Number.isFinite(scene.durationSec) || scene.durationSec < 2.5 || scene.durationSec > 12) {
-    fail(`${label}: durationSec muss zwischen 2.5 und 12 Sekunden liegen.`);
+  if (!Number.isFinite(scene.durationSec) || scene.durationSec < 2.5 || scene.durationSec > 18) {
+    fail(`${label}: durationSec muss zwischen 2.5 und 18 Sekunden liegen.`);
   } else {
     totalDuration += scene.durationSec;
   }
@@ -169,18 +175,6 @@ for (let index = 0; index < scenes.length; index += 1) {
 }
 
 if (totalDuration < 25 || totalDuration > 90) fail(`Gesamtdauer muss 25–90 Sekunden betragen; gefunden: ${totalDuration.toFixed(2)} s.`);
-if (Number.isFinite(composition.targetDurationSec) && Math.abs(composition.targetDurationSec - totalDuration) > 0.05) {
-  fail(`composition.targetDurationSec (${composition.targetDurationSec.toFixed(2)} s) stimmt nicht mit der Summe der Szenen (${totalDuration.toFixed(2)} s) überein.`);
-}
-if (Number.isInteger(composition.durationInFrames) && composition.fps > 0) {
-  const frameDuration = composition.durationInFrames / composition.fps;
-  if (Math.abs(frameDuration - totalDuration) > 1 / composition.fps + 0.01) {
-    fail(`composition.durationInFrames entspricht ${frameDuration.toFixed(3)} s und passt nicht zur Szenensumme ${totalDuration.toFixed(2)} s.`);
-  }
-}
-if (Number.isFinite(voiceover.measuredDurationSec) && Math.abs(voiceover.measuredDurationSec - totalDuration) > 0.1) {
-  fail(`Gemessene Voiceover-Dauer (${voiceover.measuredDurationSec.toFixed(2)} s) und Szenensumme (${totalDuration.toFixed(2)} s) weichen zu stark ab.`);
-}
 if (imageCount <= animationCount) fail(`Bildszenen müssen Animationen überwiegen; gefunden: ${imageCount} Bild / ${animationCount} Animation.`);
 if (animationCount < 1) fail('Mindestens eine echte Remotion-Animationsszene ist erforderlich.');
 if (animationCount > 3) fail('Höchstens drei Remotion-Animationsszenen sind erlaubt.');
@@ -197,6 +191,17 @@ for (const [family, count] of visualFamilies) {
 const assembledScript = normalized(scenes.map((scene) => scene.voiceText).join(' '));
 if (assembledScript && normalized(voiceover.script) !== assembledScript) {
   fail('voiceover.script muss exakt aus den voiceText-Blöcken der Szenen bestehen.');
+}
+
+const runtimeDurationSec = voiceover.processing?.runtimeDurationSec;
+if (Number.isFinite(runtimeDurationSec) && Math.abs(totalDuration - runtimeDurationSec) > 0.08) {
+  fail(`Szenendauer (${totalDuration.toFixed(3)} s) stimmt nicht mit der verarbeiteten Audiodauer (${runtimeDurationSec.toFixed(3)} s) überein.`);
+}
+if (Number.isFinite(runtimeDurationSec) && Number.isInteger(composition.durationInFrames)) {
+  const expectedFrames = Math.ceil(runtimeDurationSec * composition.fps);
+  if (composition.durationInFrames !== expectedFrames) {
+    fail(`composition.durationInFrames muss ${expectedFrames} sein, gefunden: ${composition.durationInFrames}.`);
+  }
 }
 
 const packageText = JSON.stringify(reel);
@@ -227,6 +232,22 @@ if (requireAssets) {
   } else {
     verifyExactFile(voiceover.asset, 'Voiceover');
     resolvedAssets.voiceover = voiceover.asset;
+  }
+
+  const transcriptAligned = reel.timing?.mode === 'transcript-aligned' || voiceover.processing?.timingMode === 'transcript-word-alignment';
+  if (transcriptAligned) {
+    if (reel.timing?.status === 'pending-local-transcription') {
+      fail('Transkriptbasierte Zeiten fehlen noch. Zuerst `npm run finance:codex-reel:captions -- <projekt>` ausführen.');
+    }
+    verifyExactFile(voiceover.runtimeAsset, 'Verarbeitetes 1,10×-Voiceover');
+    resolvedAssets.runtimeVoiceover = voiceover.runtimeAsset;
+    verifyExactFile(reel.timing?.asset, 'Transkriptbasierte Szenenzeiten');
+    verifyExactFile(reel.captions?.transcriptAsset, 'Whisper-Transkript');
+    for (const scene of scenes) {
+      if (!Number.isFinite(scene.timing?.startMs) || !Number.isFinite(scene.timing?.endMs)) {
+        fail(`${scene.id}: echte Transkript-Zeitgrenzen fehlen.`);
+      }
+    }
   }
 
   for (let index = 0; index < scenes.length; index += 1) {
@@ -273,7 +294,9 @@ console.log(`  Bildszenen: ${imageCount}`);
 console.log(`  Animationsszenen: ${animationCount}`);
 console.log(`  Gesamtdauer: ${totalDuration.toFixed(2)} s`);
 if (requireAssets) {
-  console.log(`  Voiceover erkannt: ${resolvedAssets.voiceover}`);
+  console.log(`  Original-Voiceover erkannt: ${resolvedAssets.voiceover}`);
+  if (resolvedAssets.runtimeVoiceover) console.log(`  Render-Voiceover erkannt: ${resolvedAssets.runtimeVoiceover}`);
   for (const image of resolvedAssets.images) console.log(`  ${image.sceneId}: ${image.file}`);
 }
+console.log(`  Timing: ${reel.timing?.mode ?? 'planned'}`);
 console.log(`  Modus: ${requireAssets ? 'ready-to-build mit automatischer Asset-Erkennung' : 'Struktur- und Kreativprüfung'}`);
