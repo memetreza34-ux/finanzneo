@@ -1,0 +1,21 @@
+Create a vertical 9:16 narrative finance illustration in a calm, organized financial planning room. Use the same recurring fictional young adult character, now relaxed and confident in the center, wearing the same charcoal jacket and muted beige trousers. Arrange four distinct physical money destinations in a clean semicircle around the character: a container with an apartment key for fixed costs, a grocery basket container for everyday spending, a protected emerald savings jar locked behind a small shield, and a flexible wallet for freely available money. Salary coins are already placed neatly inside the four destinations, no money is leaking or rolling away, and the character holds a simple control dial that visually connects the system. Use soft morning light and balanced depth to communicate control rather than restriction. Keep the locked savings jar as the secondary focal point and leave clean negative space in the upper third for the payoff headline. No generated words, labels, numbers, logos, interface panels, charts or watermarks.
+
+Create a premium stylized 3D finance illustration for a modern German financial education channel.
+
+The image must feel like a polished editorial fintech explainer illustration: clearly illustrated, never photorealistic, never childish, and never a dashboard.
+
+Use simplified rounded 3D geometry, soft bevelled edges, smooth high-quality materials, subtle reflections, soft studio lighting, gentle ambient occlusion, restrained depth of field and clean cinematic composition.
+
+Use a deep charcoal to green-black background. Keep objects in recognizable natural colors and use emerald green and mint green only as controlled accent colors for money, growth, positive development, guidance and focal lighting. Use warm gold, orange or muted red only when the scene needs to represent consumption, cost, risk, warning or loss. Do not apply a global green color cast.
+
+Build one coherent illustrated scene or one clear visual metaphor with one dominant focal point and no more than three to five supporting elements. The scene must feel spatial and narrative, not like loose icons, a UI layout, a presentation slide or a technical diagram.
+
+Stylized 3D human figures may appear when they clarify an action. They must be generic fictional characters with simplified proportions, neutral friendly facial features and modern understated clothing. Never use real people, celebrity likenesses, photorealistic humans, exaggerated animated-movie faces or toy-like clay characters.
+
+Objects and locations must be instantly recognizable but elegantly simplified. Avoid realistic architectural visualization, fantasy machines, overcrowded miniature cities and excessive glowing network lines.
+
+Do not generate a title, subtitle, paragraph, logo, brand name, watermark or interface text. Main headline, captions and CTA will be added later in Remotion.
+
+Leave clean negative space for later German headline and subtitle overlays. Keep the main subject readable on a phone screen. Use a vertical 9:16 composition, premium render quality, balanced visual hierarchy and consistent FinanzNeo art direction.
+
+Avoid: photorealism, real humans, Pixar style, clay style, flat 2D infographics, UI dashboards, sterile product renders, cyberpunk neon, excessive particles, excessive bloom, floating unrelated icons, overcrowding, long text, logos and watermarks.
