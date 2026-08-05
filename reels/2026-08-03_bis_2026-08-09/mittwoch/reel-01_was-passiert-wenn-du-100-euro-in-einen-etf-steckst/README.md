@@ -14,11 +14,18 @@ Dieses Reel ist kreativ geplant und technisch vorprogrammiert. Codex soll keine 
 - automatische Szenengrenzen aus echten Wort-Zeitstempeln
 - automatische Bilderkennung nach `scene-XX`-Ordner
 - Cover-, MP4-, Kontaktbogen- und QA-Erzeugung
+- allgemeines Build-System für alle zukünftigen Reels
 
 Der vorprogrammierte Code liegt unter:
 
 ```text
 alles/channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/
+```
+
+Das allgemeine Build-Manifest liegt unter:
+
+```text
+timeline/reel-build-manifest.json
 ```
 
 ## Deine Medien
@@ -52,22 +59,25 @@ Der Ordner bestimmt die Szene. Der Dateiname ist egal. Pro erwarteter Bildszene 
 Aus `alles/`:
 
 ```bash
-npm run finance:etf-reel:build -- \
+npm run finance:reel:build -- \
 ../reels/2026-08-03_bis_2026-08-09/mittwoch/reel-01_was-passiert-wenn-du-100-euro-in-einen-etf-steckst
 ```
 
+Derselbe Befehl gilt künftig für jedes Reel. Nur der Projektpfad ändert sich.
+
 Dieser Befehl führt automatisch aus:
 
-1. prüfen, dass beide Animationen bereits programmiert sind,
-2. Stimme pitch-erhaltend auf 1,10× verarbeiten,
-3. Audio lokal auf Deutsch transkribieren,
-4. echte Wort-Zeitstempel und Szenengrenzen erzeugen,
-5. Bilder automatisch erkennen und für Remotion bereitstellen,
-6. Regressionstest und TypeScript-Prüfung ausführen,
-7. das vollständige Reel rendern,
-8. Cover erstellen,
-9. technische Video- und Audio-QA ausführen,
-10. Kontaktbogen und Build-Bericht erzeugen.
+1. allgemeines Build-Manifest prüfen,
+2. bestätigen, dass Composition und Animationen bereits programmiert sind,
+3. Stimme pitch-erhaltend auf 1,10× verarbeiten,
+4. Audio lokal auf Deutsch transkribieren,
+5. echte Wort-Zeitstempel und Szenengrenzen erzeugen,
+6. Bilder automatisch erkennen und für Remotion bereitstellen,
+7. Regressionstest und TypeScript-Prüfung ausführen,
+8. das vollständige Reel rendern,
+9. Cover erstellen,
+10. technische Video- und Audio-QA ausführen,
+11. Kontaktbogen und Build-Bericht erzeugen.
 
 ## Automatische Ausgaben
 
@@ -89,12 +99,22 @@ timeline/scene-timing.json
 
 Die Animations- und Bildbewegungsphasen skalieren automatisch zur endgültigen Szenendauer. Codex muss keine Frames neu planen.
 
+## System für zukünftige Reels
+
+Jedes neu angelegte Reel erhält automatisch:
+
+```text
+timeline/reel-build-manifest.json
+```
+
+Anfangs steht es auf `awaiting-prebuild`. In diesem Zustand darf Codex keine Animation programmieren. Erst nachdem die Vorarbeit alle individuellen Animationen und die Composition fertiggestellt hat, wird es auf `prebuilt-ready` gesetzt. Danach übernimmt der allgemeine Build alles Weitere.
+
 ## Aktueller Stand
 
 - Skript freigegeben
 - fünf Bildprompts fertig
 - beide Remotion-Animationen programmiert
 - vollständige Reel-Composition programmiert
-- automatischer Gesamtbuilder programmiert
+- allgemeiner Zukunfts-Builder programmiert
 - lokale Transkription, TypeScript-Prüfung, Tests und Render noch nicht ausgeführt
 - manuelle visuelle Freigabe weiterhin erforderlich
