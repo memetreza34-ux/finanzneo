@@ -1,223 +1,127 @@
 # FinanzNeo — verbindliche Claude-Code-Regeln
 
-## Arbeitsbereich
+## Repository-Struktur
 
-Das Repository besitzt am Root drei Benutzerbereiche:
-
-- `reels/`
-- `youtube/`
-- `alles/`
-
-Technische Befehle werden aus `alles/` ausgeführt. Aktive Reel-Projekte liegen unter:
+Aktive Reel-Projekte liegen unter:
 
 ```text
 ../reels/<woche>/<wochentag>/<reel-name>/
 ```
 
-Nie erneut `channels/finanzneo/reels` als Produktionsablage erzeugen.
+Technischer Code liegt unter `alles/`. Nie erneut `channels/finanzneo/reels` als Produktionsablage erzeugen.
 
-## Verbindliche Ordnerstruktur pro Reel
+## Zwei klar getrennte Phasen
 
-```text
-00-cover/
-01-voice-script/
-  script.md
-  script-fliesstext.txt
-  voiceover-anweisung.txt
-02-audio/
-  <genau eine Audiodatei mit beliebigem Namen>
-03-szenen/
-  alle-bildprompts.txt
-  EINZELNE-SZENEN/
-    scene-01/
-      bildprompt.txt
-      szene.md
-      <genau eine Bilddatei mit beliebigem Namen>
-    scene-02/
-      animation.md
-  scene-index.json
-04-caption/
-05-review/
-06-video/
-render/
-timeline/
-```
+### Phase 1: vollständige Vorarbeit
 
-Die Reihenfolge außerhalb des Reels ist immer:
+Bei einem neuen Reel werden vor dem technischen Handoff vollständig erstellt:
+
+- Thema, Quellen, Skript, Hook und Payoff,
+- Szenenreihenfolge,
+- vollständige Bildprompts,
+- alle individuellen Remotion-Animationen als fertiger Code,
+- komplette Reel-Composition,
+- eigener Remotion-Einstiegspunkt,
+- allgemeines Build-Manifest.
+
+Jedes neue Projekt besitzt:
 
 ```text
-Woche → Wochentag → Reel-Thema
+timeline/reel-build-manifest.json
 ```
 
-## Automatische Medienerkennung
+Während der Vorarbeit bleibt der Status:
+
+```text
+awaiting-prebuild
+```
+
+Erst wenn Composition und alle Animationen wirklich implementiert sind, wird gesetzt:
+
+```text
+status: prebuilt-ready
+codexAnimationCodingRequired: false
+prebuiltApproval.approvedByPlanningAssistant: true
+prebuiltApproval.animationsImplemented: true
+prebuiltApproval.compositionImplemented: true
+```
+
+Animationsphasen müssen relativ zur späteren transkriptbasierten Szenendauer funktionieren. Keine alten festen Planungsframes verwenden.
+
+### Phase 2: automatische Assembly
+
+Bei einem Reel mit `prebuilt-ready` nichts kreativ neu planen und keine Animation neu programmieren. Aus `alles/` nur ausführen:
+
+```bash
+npm run finance:reel:build -- <projektordner>
+```
+
+Der allgemeine Build übernimmt automatisch:
+
+- Manifest- und Quellcodeprüfung,
+- beliebig benannte Medien erkennen,
+- Voiceover pitch-erhaltend auf 1,10× bringen,
+- lokale deutsche Whisper-Transkription,
+- echte Wort- und Szenenzeiten,
+- Runtime-Asset-Staging,
+- TypeScript und Regressionstests,
+- Remotion-Render,
+- Cover, Kontaktbogen und QA-Berichte.
+
+## Medienregeln
 
 ### Audio
 
-Der Nutzer legt genau eine unterstützte Datei in `02-audio/` ab. Der Dateiname ist egal.
-
-Unterstützte Formate:
+Genau eine unterstützte Datei in `02-audio/`. Dateiname egal.
 
 ```text
 .wav .mp3 .m4a .aac .flac .ogg .opus .mp4 .mov .m4v .webm
 ```
 
-Auch eine Datei wie `F 1.mp4` ist gültig, sofern sie eine Audiospur enthält.
-
 ### Bilder
 
-Bei einer Bildszene liegt genau eine unterstützte Bilddatei im zugehörigen `scene-XX`-Ordner. Der Ordner bestimmt die Szenennummer, nicht der Dateiname.
-
-Unterstützte Formate:
+Bei jeder Bildszene genau eine Datei im passenden `scene-XX`-Ordner. Der Ordner bestimmt die Szene, nicht der Dateiname.
 
 ```text
 .png .jpg .jpeg .webp .avif
 ```
 
-Beispiele:
+Bei null oder mehreren passenden Dateien stoppen.
 
-```text
-scene-01/irgendein-name.jpeg → Szene 1
-scene-03/bild-final.png       → Szene 3
-scene-06/export.webp          → Szene 6
-```
-
-Bei null oder mehreren passenden Mediendateien in einem erwarteten Ordner stoppen und die gefundenen Kandidaten nennen. Niemals raten.
-
-## Verbindliche Audio- und Timing-Pipeline
-
-Die ursprünglich geplanten Szenenzeiten sind nur kreative Startwerte. Die endgültigen Zeiten entstehen aus der tatsächlich gesprochenen Aufnahme.
-
-Vor dem Build aus `alles/` ausführen:
-
-```bash
-npm run finance:codex-reel:captions -- <projektordner>
-npm run finance:codex-reel:check-ready -- <projektordner>
-```
-
-Der erste Befehl führt verbindlich aus:
-
-1. die einzige Originalaufnahme in `02-audio/` erkennen,
-2. das Original unverändert aufbewahren,
-3. eine pitch-erhaltende **1,10×-Version** mit FFmpeg `atempo` erzeugen,
-4. die verarbeitete Aufnahme lokal mit Whisper.cpp auf Deutsch transkribieren,
-5. echte Wort-Zeitstempel erzeugen,
-6. das freigegebene Szenenskript mit dem Transkript abgleichen,
-7. Szenengrenzen an den gesprochenen Abschnitten ausrichten,
-8. Composition-Dauer, Szenendauern und Captions aktualisieren.
-
-Erzeugte zeitliche Quellen der Wahrheit:
-
-```text
-render/audio/voiceover-runtime-1-10x.wav
-04-caption/voiceover-final.captions.json
-04-caption/voiceover-transcript.json
-timeline/scene-timing.json
-timeline/transcript-timing.md
-05-review/audio-sync-report.json
-```
-
-Regeln:
-
-- Das Original in `02-audio/` niemals überschreiben.
-- Im fertigen Render die erzeugte Runtime-Datei verwenden.
-- Die Tonhöhe bei 1,10× erhalten.
-- Keine Wörter oder Sätze entfernen.
-- Geplante und endgültige Szenenzeiten müssen nicht identisch sein.
-- Nach der Transkription ist `timeline/scene-timing.json` verbindlich.
-- Keine rechnerisch verteilten Pseudo-Zeitstempel verwenden, wenn echte Whisper-Zeitstempel vorhanden sind.
-- Bei zu geringer Übereinstimmung zwischen Skript und Transkript stoppen.
-
-## Automatischer Reel-Start
-
-Bei „Mach ein Reel“, „Erstelle das nächste Finanz-Reel“ oder einer gleichwertigen Anweisung arbeitet Claude ohne unnötige Rückfrage weiter, sofern Thema und kreative Vorgaben eindeutig sind.
-
-Vor der Planung lesen:
-
-- `skills/thema-auswaehlen.md`
-- `skills/reel-starten.md`
-- `skills/script-schreiben.md`
-- `skills/reel-planen.md`
-- `gehirn/BILDSTIL.md`
-- `gehirn/MASTER-STYLE-PROMPT.md`
-- `gehirn/IMAGE-PROMPT-TEMPLATE.md`
-- `engine/topic-history.json`
-
-## Produktionsmodus: bildgeführtes Hybrid-Reel
+## Produktionsmodus
 
 Standardmäßig:
 
 - 5 bis 9 Szenen,
 - mehr Bildszenen als Animationsszenen,
-- Zielwert 5 Bilder und 2 Remotion-Animationen,
+- Zielwert 5 Bilder und 2 Animationen,
 - höchstens 40 Prozent Animationsszenen,
 - keine zwei Animationen direkt hintereinander,
 - keine Dashboard-Szene als Standardlösung.
 
-Bilder tragen die Hauptästhetik. Remotion-Animationen erklären nur Abläufe, Transformationen, Ursache-Wirkung, Zeitverläufe oder Mechanismen, die als Standbild schlechter verständlich wären.
+Bilder bleiben Vollbild. Längere Bildszenen erhalten mindestens zwei kontrollierte Bewegungsphasen. Animationen zeigen konkrete Prozesse, Transformationen oder Ursache-Wirkung und werden vor dem Handoff vollständig programmiert.
 
-Längere Bildszenen erhalten mindestens zwei kontrollierte Bewegungsphasen. Alle Bild- und Animationsphasen relativ zur endgültigen transkriptbasierten Szenendauer skalieren, nicht anhand veralteter fixer Frames.
+## Zeitliche Quelle der Wahrheit
 
-## Skript
+Nach der lokalen Audioverarbeitung gilt:
 
-- klare Anfängerfrage oder sofort verständlicher Erklär-Hook,
-- pro Szene genau eine neue Aussage,
-- keine künstliche Motivation oder unklare Metaphern,
-- Payoff beantwortet die Hook,
-- Finanzbehauptungen mit Quellen oder nachvollziehbarer Rechnung absichern.
-
-## Bildstil
-
-Verbindliche Dateien:
-
-- `gehirn/BILDSTIL.md`
-- `gehirn/MASTER-STYLE-PROMPT.md`
-- `gehirn/IMAGE-PROMPT-TEMPLATE.md`
-
-Jede Bildszene erhält einen vollständigen englischen Bildprompt. Zusätzlich stehen alle Bildprompts gemeinsam in `03-szenen/alle-bildprompts.txt`.
-
-Nicht verwenden:
-
-- Fotorealismus,
-- reale Menschen,
-- Pixar-, Clay- oder Kinderfilmstil,
-- UI-Dashboards,
-- sterile Produkt-Renderings,
-- flache 2D-Infografiken,
-- überladene Miniaturstädte,
-- unverbundene Icon-Sammlungen,
-- unnötige Partikel oder Neon.
-
-## Pflichtdateien
-
-1. `01-voice-script/script.md`
-2. `01-voice-script/script-fliesstext.txt`
-3. `01-voice-script/voiceover-anweisung.txt`
-4. `03-szenen/alle-bildprompts.txt`
-5. `03-szenen/scene-index.json`
-6. `04-caption/social-caption.md`
-7. `05-review/quellen.md`
-8. `05-review/production-status.json`
-9. `timeline/storyboard.md`
-10. `timeline/motion-design.md`
-11. `timeline/codex-reel-package.json`
-
-## Befehle
-
-Aus `alles/`:
-
-```bash
-npm run finance:codex-reel:captions -- <projektordner>
-npm run finance:codex-reel:check-ready -- <projektordner>
-npm run finance:codex-reel:test
+```text
+timeline/scene-timing.json
 ```
 
-Danach Typecheck, Tests, Stills und vollständigen Render ausführen.
+Geplante und endgültige Zeiten müssen nicht identisch sein. Die Originalaufnahme bleibt unverändert. Im Render wird die erzeugte 1,10×-Runtime-Datei verwendet.
 
-## Sicherheitsregeln
+## Fehlerbehebung in Phase 2
 
-- Keine globalen Animations-Feature-Flags aktivieren.
-- Kein automatisches Routing aktivieren.
-- Keine produktive Composition ohne ausdrückliche Freigabe verändern.
-- Draft-PRs nicht selbst auf „Ready for review“ setzen.
-- Nichts nach `main` mergen.
-- Technische Prüfung nicht als kreative oder menschliche Freigabe darstellen.
+Nur den kleinsten konkret nachgewiesenen technischen Fehler beheben und denselben allgemeinen Build erneut ausführen.
+
+Nicht erlaubt:
+
+- kreative Neuentwicklung,
+- alternative Animationen,
+- spekulative Refaktorierung,
+- globale Feature-Flags,
+- automatisches Routing,
+- Merge nach `main`,
+- PR auf Ready setzen,
+- menschliche Freigabe selbst behaupten.
