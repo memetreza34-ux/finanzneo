@@ -109,6 +109,14 @@ npm run finance:codex-reel:check-ready -- <projekt>
 
 Die Ausgabe nennt den tatsächlich erkannten Audio- und Bildpfad für jede Bildszene.
 
+## Laufzeitregel
+
+Die reale Voiceover-Datei ist die zeitliche Quelle der Wahrheit. Das Paket darf zwischen 25 und 90 Sekunden lang sein.
+
+Wenn die gemessene Audiodauer deutlich von der geplanten Szenensumme abweicht, wird nicht automatisch beschleunigt, gekürzt oder gestreckt. Stattdessen müssen `composition.targetDurationSec`, `composition.durationInFrames`, `voiceover.measuredDurationSec` und alle `scene.durationSec` auf dieselbe reale Laufzeit abgestimmt werden.
+
+Bei längeren Bildszenen sind mindestens zwei kontrollierte Bewegungsphasen vorzusehen, damit das Bild nicht über viele Sekunden statisch bleibt.
+
 ## Phase C – Codex baut das Reel
 
 Codex übernimmt:
@@ -157,17 +165,20 @@ Regeln:
 - Genau eine unterstützte Datei in 02-audio; Dateiname egal.
 - Genau eine unterstützte Bilddatei pro erwarteter Bildszene; Dateiname egal.
 - Der scene-XX-Ordner bestimmt die Szenennummer.
+- Die gemessene Audiodauer ist die zeitliche Quelle der Wahrheit.
+- Audio nicht automatisch beschleunigen, kürzen oder zeitlich strecken.
 - Bei null oder mehreren passenden Dateien stoppen und die Kandidaten nennen.
 
 Wenn die Prüfung erfolgreich ist:
 1. Erstelle eine isolierte reel-spezifische Remotion-Composition.
 2. Übernimm Skript, Reihenfolge, Cover, erkannte Bilder und Animationsbeschreibungen unverändert.
 3. Bildszenen nehmen die Hauptfläche ein und werden nicht in Dashboard-Karten verwandelt.
-4. Entwickle nur die vorgesehenen Animationsszenen.
-5. Integriere Voiceover, Captions, Overlays und Übergänge.
-6. Erzeuge reel-spezifische Befehle für Studio, Stills, Render und Validierung.
-7. Führe Typecheck, Tests, Stills und den vollständigen MP4-Render aus.
-8. Prüfe mindestens einen Frame pro Szene, alle Übergänge, Untertitelbereich, Cover und Videoende.
+4. Längere Bildszenen erhalten mindestens zwei geplante Bewegungsphasen.
+5. Entwickle nur die vorgesehenen Animationsszenen.
+6. Integriere Voiceover, Captions, Overlays und Übergänge.
+7. Erzeuge reel-spezifische Befehle für Studio, Stills, Render und Validierung.
+8. Führe Typecheck, Tests, Stills und den vollständigen MP4-Render aus.
+9. Prüfe mindestens einen Frame pro Szene, alle Übergänge, Untertitelbereich, Cover, Synchronität und Videoende.
 
 Nicht mergen, keine Feature-Flags aktivieren, keine produktive Composition ersetzen und den PR nicht auf Ready setzen.
 
