@@ -1,14 +1,14 @@
 MESSAGE TO COMMUNICATE:
-Buying an ETF does not send the investor's 100 euros directly to individual companies.
+What happens to 100 euros when someone invests them in an ETF?
 
 SCENE:
-A generic stylized 3D investor taps a smartphone while one large glowing 100-euro token leaves the phone and enters a clearly recognizable stock-exchange gateway in the center. Behind the gateway stands a balanced group of different company buildings representing technology, healthcare, industry and consumer goods, but there is no direct money path from the investor to those buildings. The exchange gateway is the unavoidable middle station and the visual answer to the question. Keep the action immediate, bold and understandable at first glance.
+A generic stylized 3D investor taps a smartphone while one large glowing 100-euro token enters a clear physical ETF investment path. The path has three immediately recognizable connected stations: a broker gate, a stock-exchange gate and one large ETF share token linked to a transparent diversified fund container. The entire journey is visible as one coherent scene, so the viewer instantly understands that the reel will explain what happens after investing 100 euros in an ETF. Keep the composition simple, bold and easy to read. No company logos and no detailed interface.
 
 GERMAN LABELS:
-"100 €", "Börse"
+"100 €", "Broker", "Börse", "ETF-Anteil"
 
 COMPOSITION:
-Place the smartphone and 100-euro token large in the center foreground, with the exchange gateway directly behind them and the diverse company buildings in the upper-middle background. Keep the entire top 15 percent clean for the later cover text and the bottom 25 percent free for subtitles. The main motif must already be visible at frame zero. No brand logos and no readable app interface.
+Place the glowing 100-euro token large in the center foreground at the beginning of the connected path. Arrange the broker gate, exchange gate and ETF share from front to back in one clear visual direction. Keep the entire top 15 percent clean for the later hook text and the bottom 25 percent free for subtitles. The 100-euro token and ETF path must already be visible at frame zero.
 
 Create a premium stylized 3D finance illustration for a modern German financial education channel.
 
