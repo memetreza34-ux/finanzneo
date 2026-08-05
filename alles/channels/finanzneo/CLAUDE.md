@@ -2,7 +2,7 @@
 
 ## Arbeitsbereich
 
-Das Repository besitzt am Root nur drei Benutzerbereiche:
+Das Repository besitzt am Root drei Benutzerbereiche:
 
 - `reels/`
 - `youtube/`
@@ -14,7 +14,74 @@ Technische Befehle werden aus `alles/` ausgeführt. Aktive Reel-Projekte liegen 
 ../reels/<woche>/<wochentag>/<reel-name>/
 ```
 
-Nie erneut `channels/finanzneo/reels` am Root oder innerhalb des Technikordners als Produktionsablage erzeugen.
+Nie erneut `channels/finanzneo/reels` als Produktionsablage erzeugen.
+
+## Verbindliche Ordnerstruktur pro Reel
+
+```text
+00-cover/
+01-voice-script/
+  script.md
+  script-fliesstext.txt
+  voiceover-anweisung.txt
+02-audio/
+  <genau eine Audiodatei mit beliebigem Namen>
+03-szenen/
+  alle-bildprompts.txt
+  EINZELNE-SZENEN/
+    scene-01/
+      bildprompt.txt
+      szene.md
+      <genau eine Bilddatei mit beliebigem Namen>
+    scene-02/
+      animation.md
+  scene-index.json
+04-caption/
+05-review/
+06-video/
+render/
+timeline/
+```
+
+Die Reihenfolge außerhalb des Reels ist immer:
+
+```text
+Woche → Wochentag → Reel-Thema
+```
+
+## Automatische Medienerkennung
+
+### Audio
+
+Der Nutzer legt genau eine unterstützte Datei in `02-audio/` ab. Der Dateiname ist egal.
+
+Unterstützte Formate:
+
+```text
+.wav .mp3 .m4a .aac .flac .ogg .opus .mp4 .mov .m4v .webm
+```
+
+Auch eine Datei wie `F 1.mp4` ist gültig, sofern sie eine Audiospur enthält. Claude verwendet den Pfad, den `finance:codex-reel:check-ready` ausgibt.
+
+### Bilder
+
+Bei einer Bildszene liegt genau eine unterstützte Bilddatei im zugehörigen `scene-XX`-Ordner. Der Ordner bestimmt die Szenennummer, nicht der Dateiname.
+
+Unterstützte Formate:
+
+```text
+.png .jpg .jpeg .webp .avif
+```
+
+Beispiele:
+
+```text
+scene-01/irgendein-name.jpeg → Szene 1
+scene-03/bild-final.png       → Szene 3
+scene-06/export.webp          → Szene 6
+```
+
+Bei null oder mehreren passenden Mediendateien in einem erwarteten Ordner stoppen und die gefundenen Kandidaten nennen. Niemals raten.
 
 ## Automatischer Reel-Start
 
@@ -30,38 +97,6 @@ Vor der Planung lesen:
 - `gehirn/MASTER-STYLE-PROMPT.md`
 - `gehirn/IMAGE-PROMPT-TEMPLATE.md`
 - `engine/topic-history.json`
-
-## Verbindliche Ordnerstruktur pro Reel
-
-```text
-00-cover/
-01-voice-script/
-  script.md
-  script-fliesstext.txt
-  voiceover-anweisung.txt
-  voiceover-final.wav
-03-szenen/
-  alle-bildprompts.txt
-  EINZELNE-SZENEN/
-    scene-01/
-      bildprompt.txt
-      scene-01-<name>.png
-      szene.md
-  scene-index.json
-04-caption/
-05-review/
-06-video/
-render/
-timeline/
-```
-
-Es gibt keinen getrennten `02-audio/`-Ordner. Es gibt keinen zentralen `BILDER-HIER-EINFUEGEN/`-Ordner. Jede Bilddatei liegt direkt neben dem zugehörigen `bildprompt.txt`.
-
-Die Reihenfolge außerhalb des Reels ist immer:
-
-```text
-Woche → Wochentag → Reel-Thema
-```
 
 ## Produktionsmodus: bildgeführtes Hybrid-Reel
 
@@ -92,7 +127,7 @@ Verbindliche Dateien:
 - `gehirn/MASTER-STYLE-PROMPT.md`
 - `gehirn/IMAGE-PROMPT-TEMPLATE.md`
 
-Jede Bildszene erhält einen vollständigen englischen Bildprompt. Zusätzlich müssen alle Bildprompts gemeinsam in `03-szenen/alle-bildprompts.txt` stehen.
+Jede Bildszene erhält einen vollständigen englischen Bildprompt. Zusätzlich stehen alle Bildprompts gemeinsam in `03-szenen/alle-bildprompts.txt`.
 
 Nicht verwenden:
 
@@ -119,16 +154,6 @@ Nicht verwenden:
 9. `timeline/storyboard.md`
 10. `timeline/motion-design.md`
 11. `timeline/codex-reel-package.json`
-
-## Medien
-
-```text
-<projektordner>/01-voice-script/voiceover-final.wav
-<projektordner>/03-szenen/EINZELNE-SZENEN/<scene>/<bilddatei>.png
-<projektordner>/04-caption/voiceover-final.captions.json
-```
-
-Der Bildpfad und der Promptpfad jeder Bildszene müssen denselben Elternordner verwenden.
 
 ## Befehle
 
