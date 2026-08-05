@@ -11,20 +11,20 @@
 - keine zwei Animationen direkt hintereinander
 - keine Dashboard-Szene
 
-## Szene 1 — Die falsche Vorstellung
+## Szene 1 — Direkte Einstiegsfrage
 
 **Zeit:** 0:00–0:05,5  
 **Typ:** Bild  
-**Voiceover:** Du klickst beim Broker auf „ETF kaufen“. Aber landen deine 100 Euro jetzt direkt bei Apple, Microsoft und Co.? Nein.
+**Voiceover:** Was passiert eigentlich, wenn du 100 Euro in einen ETF steckst? Wohin geht das Geld – und was bekommst du dafür?
 
-**Bildhandlung:** Eine große 100-Euro-Münze verlässt ein Smartphone und läuft zuerst in ein Börsentor. Unternehmensgebäude stehen sichtbar dahinter, erhalten das Geld aber nicht direkt.
+**Bildhandlung:** Eine große 100-Euro-Münze startet sichtbar ihren Weg über Broker und Börse bis zu einem ETF-Anteil. Schon im ersten Bild ist klar, dass das Reel den Weg des Geldes beim ETF-Kauf erklärt.
 
 **Overlay:**
 
-- Kicker: `ETF-KAUF`
-- Headline: `Wohin gehen deine 100 €?`
+- Kicker: `ETF EINFACH ERKLÄRT`
+- Headline: `Was passiert mit 100 € im ETF?`
 
-**Bewegung:** langsamer Push-in von 1,00 auf 1,055; leichte Fahrt nach oben.
+**Bewegung:** langsamer Push-in von 1,00 auf 1,055; leichte Fahrt entlang des sichtbaren ETF-Wegs.
 
 ## Szene 2 — Aus dem Klick wird eine Order
 
@@ -32,7 +32,7 @@
 **Typ:** Remotion-Animation  
 **Komponente:** `EtfOrderMatchAnimation`
 
-**Voiceover:** Aus deinem Klick wird zuerst eine Kauforder. Der Broker schickt sie an den gewählten Handelsplatz, wo sie im Orderbuch auf ein passendes Verkaufsangebot trifft – oft von einem anderen Anleger oder einem Market Maker.
+**Voiceover:** Zuerst wird aus deinem Klick eine Kauforder. Der Broker schickt sie an den gewählten Handelsplatz, wo sie im Orderbuch auf ein passendes Verkaufsangebot trifft – oft von einem anderen Anleger oder einem Market Maker.
 
 **Startzustand:** Ein einzelner Kaufauftrag entsteht am Smartphone.
 
@@ -135,6 +135,6 @@
 
 ## Cover
 
-**Text:** `WOHIN GEHEN DEINE 100 €?`  
-**Unterzeile:** `Das passiert beim ETF-Kauf`  
+**Text:** `100 € IN EINEN ETF – WAS PASSIERT?`  
+**Unterzeile:** `Der Weg deines Geldes`  
 **Quelle:** Szene 1
