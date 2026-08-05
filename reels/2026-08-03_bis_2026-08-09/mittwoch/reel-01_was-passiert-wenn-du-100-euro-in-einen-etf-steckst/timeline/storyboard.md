@@ -4,8 +4,10 @@
 
 - 1080 × 1920
 - 30 FPS
-- gemessene Voiceover-Dauer: 72,42 Sekunden
-- 2.173 Frames für die Remotion-Composition
+- Original-Voiceover: 72,42 Sekunden
+- Verarbeitung: pitch-erhaltend auf 1,10×
+- erwartete Laufzeit vor Transkription: ungefähr 65,84 Sekunden
+- erwartete Composition vor Transkription: ungefähr 1.976 Frames
 - 7 Szenen
 - 5 Bildszenen
 - 2 Remotion-Animationsszenen
@@ -14,12 +16,23 @@
 
 ## Zeitliche Quelle der Wahrheit
 
-Die automatisch erkannte Datei in `02-audio/` bestimmt die Gesamtdauer. Das Voiceover wird nicht beschleunigt, gekürzt oder zeitlich gestreckt. Die Szenen wurden auf 72,42 Sekunden verlängert.
+Die Zeiten in diesem Dokument sind **vorläufige Startwerte**. Vor dem Build wird die Aufnahme auf 1,10× beschleunigt und lokal mit Whisper.cpp transkribiert. Danach bestimmen die echten Wort- und Satzzeitstempel die endgültigen Szenengrenzen.
+
+Verbindliche Dateien nach der Verarbeitung:
+
+```text
+timeline/scene-timing.json
+timeline/transcript-timing.md
+04-caption/voiceover-final.captions.json
+render/audio/voiceover-runtime-1-10x.wav
+```
+
+Geplante und echte Zeiten müssen nicht identisch sein. Inhalt, Szenenreihenfolge und Voiceover-Zuordnung bleiben unverändert.
 
 ## Szene 1 — Direkte Einstiegsfrage
 
-**Zeit:** 0:00–0:07,73  
-**Dauer:** 7,73 Sekunden  
+**Vorläufige Zeit:** 0:00–0:07,64  
+**Vorläufige Dauer:** 7,64 Sekunden  
 **Typ:** Bild  
 **Voiceover:** Was passiert eigentlich, wenn du 100 Euro in einen ETF steckst? Wohin geht das Geld – und was bekommst du dafür?
 
@@ -37,8 +50,8 @@ Die automatisch erkannte Datei in `02-audio/` bestimmt die Gesamtdauer. Das Voic
 
 ## Szene 2 — Aus dem Klick wird eine Order
 
-**Zeit:** 0:07,73–0:18,97  
-**Dauer:** 11,24 Sekunden  
+**Vorläufige Zeit:** 0:07,64–0:20,01  
+**Vorläufige Dauer:** 12,37 Sekunden  
 **Typ:** Remotion-Animation  
 **Komponente:** `EtfOrderMatchAnimation`
 
@@ -61,8 +74,8 @@ Die automatisch erkannte Datei in `02-audio/` bestimmt die Gesamtdauer. Das Voic
 
 ## Szene 3 — Geld gegen ETF-Anteil
 
-**Zeit:** 0:18,97–0:29,50  
-**Dauer:** 10,53 Sekunden  
+**Vorläufige Zeit:** 0:20,01–0:27,65  
+**Vorläufige Dauer:** 7,64 Sekunden  
 **Typ:** Bild  
 **Voiceover:** Sobald Preis und Menge zusammenpassen, wird der Handel ausgeführt: Der Verkäufer bekommt dein Geld, und der ETF-Anteil wird deinem Depot gutgeschrieben.
 
@@ -80,8 +93,8 @@ Die automatisch erkannte Datei in `02-audio/` bestimmt die Gesamtdauer. Das Voic
 
 ## Szene 4 — Was ein ETF-Anteil bedeutet
 
-**Zeit:** 0:29,50–0:40,03  
-**Dauer:** 10,53 Sekunden  
+**Vorläufige Zeit:** 0:27,65–0:36,74  
+**Vorläufige Dauer:** 9,09 Sekunden  
 **Typ:** Bild  
 **Voiceover:** Dieser Anteil gehört zu einem Fonds, der bereits viele Wertpapiere hält. Du kaufst also nicht selbst jede einzelne Aktie, sondern einen Anteil am gesamten Fondsvermögen.
 
@@ -99,8 +112,8 @@ Die automatisch erkannte Datei in `02-audio/` bestimmt die Gesamtdauer. Das Voic
 
 ## Szene 5 — Wie neue ETF-Anteile entstehen
 
-**Zeit:** 0:40,03–0:52,03  
-**Dauer:** 12,00 Sekunden  
+**Vorläufige Zeit:** 0:36,74–0:46,20  
+**Vorläufige Dauer:** 9,46 Sekunden  
 **Typ:** Remotion-Animation  
 **Komponente:** `EtfCreationBasketExchangeAnimation`
 
@@ -123,8 +136,8 @@ Die automatisch erkannte Datei in `02-audio/` bestimmt die Gesamtdauer. Das Voic
 
 ## Szene 6 — Wovon der Anteilswert abhängt
 
-**Zeit:** 0:52,03–1:01,90  
-**Dauer:** 9,87 Sekunden  
+**Vorläufige Zeit:** 0:46,20–0:56,02  
+**Vorläufige Dauer:** 9,82 Sekunden  
 **Typ:** Bild  
 **Voiceover:** Ab dann bewegt sich der Wert deines Anteils mit den enthaltenen Wertpapieren. Bei einem Sparplan kannst du je nach Anbieter auch nur einen Bruchteil eines Anteils besitzen.
 
@@ -142,8 +155,8 @@ Die automatisch erkannte Datei in `02-audio/` bestimmt die Gesamtdauer. Das Voic
 
 ## Szene 7 — Klare Antwort
 
-**Zeit:** 1:01,90–1:12,42  
-**Dauer:** 10,52 Sekunden  
+**Vorläufige Zeit:** 0:56,02–1:05,84  
+**Vorläufige Dauer:** 9,82 Sekunden  
 **Typ:** Bild  
 **Voiceover:** Der wichtigste Punkt: Deine 100 Euro gehen beim normalen Börsenkauf an die Gegenseite des Handels. Du erhältst dafür einen Fondsanteil, der wirtschaftlich an einem ganzen Wertpapierkorb hängt.
 
