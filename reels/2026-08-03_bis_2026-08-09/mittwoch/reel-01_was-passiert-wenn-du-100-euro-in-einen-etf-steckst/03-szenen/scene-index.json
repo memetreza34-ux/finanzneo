@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "sceneCount": 7,
+  "imageSceneCount": 5,
+  "animationSceneCount": 2,
+  "scenes": [
+    {"id":"scene-01","type":"image","asset":"BILDER-HIER-EINFUEGEN/scene-01-hook.png","instructions":"EINZELNE-SZENEN/scene-01"},
+    {"id":"scene-02","type":"animation","component":"EtfOrderMatchAnimation","instructions":"EINZELNE-SZENEN/scene-02"},
+    {"id":"scene-03","type":"image","asset":"BILDER-HIER-EINFUEGEN/scene-03-settlement.png","instructions":"EINZELNE-SZENEN/scene-03"},
+    {"id":"scene-04","type":"image","asset":"BILDER-HIER-EINFUEGEN/scene-04-fund-basket.png","instructions":"EINZELNE-SZENEN/scene-04"},
+    {"id":"scene-05","type":"animation","component":"EtfCreationBasketExchangeAnimation","instructions":"EINZELNE-SZENEN/scene-05"},
+    {"id":"scene-06","type":"image","asset":"BILDER-HIER-EINFUEGEN/scene-06-value-link.png","instructions":"EINZELNE-SZENEN/scene-06"},
+    {"id":"scene-07","type":"image","asset":"BILDER-HIER-EINFUEGEN/scene-07-payoff.png","instructions":"EINZELNE-SZENEN/scene-07"}
+  ]
+}
