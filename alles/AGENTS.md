@@ -1,6 +1,6 @@
 # FinanzNeo – Codex repository rules
 
-These instructions apply to the entire repository. More specific `AGENTS.md` files may add stricter rules for their directory.
+These instructions apply to the technical workspace inside `alles/`. The repository root contains the user-facing areas `reels/`, `youtube/` and `alles/`.
 
 ## Mission
 
@@ -8,14 +8,21 @@ Codex implements FinanzNeo reels from a complete, user-approved handoff package.
 
 Codex must not silently rewrite the topic, script, scene order, image prompts, cover text, financial claims or approved visual concept.
 
+## Working directories
+
+- Run technical commands from `alles/`.
+- Active reel projects live outside this folder under `../reels/<week>/<weekday>/<reel-name>/`.
+- YouTube projects live under `../youtube/`.
+- Do not recreate a root-level `channels/` folder.
+- Do not place reel projects back under `alles/channels/finanzneo/reels/`.
+
 ## Source-of-truth order
 
 1. The user's current task.
-2. `<project>/06-projektdateien/codex-reel-package.json`.
-3. `<project>/06-projektdateien/scene-plan.json` and `production-status.json`.
-4. `<project>/06-projektdateien/asset-manifest.json`.
-5. The closest nested `AGENTS.md`.
-6. Existing repository documentation and reusable components.
+2. `<project>/timeline/codex-reel-package.json`.
+3. `<project>/03-szenen/scene-index.json` and `<project>/05-review/production-status.json`.
+4. The closest nested `AGENTS.md`.
+5. Existing repository documentation and reusable components.
 
 If these sources conflict, stop and report the exact conflict instead of guessing.
 
@@ -41,8 +48,8 @@ If these sources conflict, stop and report the exact conflict instead of guessin
 
 ## Required implementation sequence
 
-1. Read this file and the closest nested `AGENTS.md`.
-2. Locate the active reel project and read its Codex package, scene plan, status and manifest.
+1. Read the root `AGENTS.md`, this file and `channels/finanzneo/AGENTS.md`.
+2. Locate the active reel under `../reels/` and read its timeline package, scene index and production status.
 3. Run the Codex package validator before writing reel code.
 4. Confirm that image scenes outnumber Remotion animation scenes.
 5. Confirm that every animation explains a process, transformation, timing relationship or cause-and-effect action that a still image cannot explain as clearly.
