@@ -1,15 +1,56 @@
 {
-  "version": 1,
+  "version": 2,
   "sceneCount": 7,
   "imageSceneCount": 5,
   "animationSceneCount": 2,
+  "storageRule": "Bilddateien liegen direkt im jeweiligen Szenenordner neben bildprompt.txt.",
   "scenes": [
-    {"id":"scene-01","type":"image","asset":"BILDER-HIER-EINFUEGEN/scene-01-hook.png","instructions":"EINZELNE-SZENEN/scene-01"},
-    {"id":"scene-02","type":"animation","component":"EtfOrderMatchAnimation","instructions":"EINZELNE-SZENEN/scene-02"},
-    {"id":"scene-03","type":"image","asset":"BILDER-HIER-EINFUEGEN/scene-03-settlement.png","instructions":"EINZELNE-SZENEN/scene-03"},
-    {"id":"scene-04","type":"image","asset":"BILDER-HIER-EINFUEGEN/scene-04-fund-basket.png","instructions":"EINZELNE-SZENEN/scene-04"},
-    {"id":"scene-05","type":"animation","component":"EtfCreationBasketExchangeAnimation","instructions":"EINZELNE-SZENEN/scene-05"},
-    {"id":"scene-06","type":"image","asset":"BILDER-HIER-EINFUEGEN/scene-06-value-link.png","instructions":"EINZELNE-SZENEN/scene-06"},
-    {"id":"scene-07","type":"image","asset":"BILDER-HIER-EINFUEGEN/scene-07-payoff.png","instructions":"EINZELNE-SZENEN/scene-07"}
+    {
+      "id": "scene-01",
+      "type": "image",
+      "asset": "EINZELNE-SZENEN/scene-01/scene-01-hook.png",
+      "prompt": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
+      "instructions": "EINZELNE-SZENEN/scene-01"
+    },
+    {
+      "id": "scene-02",
+      "type": "animation",
+      "component": "EtfOrderMatchAnimation",
+      "instructions": "EINZELNE-SZENEN/scene-02"
+    },
+    {
+      "id": "scene-03",
+      "type": "image",
+      "asset": "EINZELNE-SZENEN/scene-03/scene-03-settlement.png",
+      "prompt": "EINZELNE-SZENEN/scene-03/bildprompt.txt",
+      "instructions": "EINZELNE-SZENEN/scene-03"
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "asset": "EINZELNE-SZENEN/scene-04/scene-04-fund-basket.png",
+      "prompt": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
+      "instructions": "EINZELNE-SZENEN/scene-04"
+    },
+    {
+      "id": "scene-05",
+      "type": "animation",
+      "component": "EtfCreationBasketExchangeAnimation",
+      "instructions": "EINZELNE-SZENEN/scene-05"
+    },
+    {
+      "id": "scene-06",
+      "type": "image",
+      "asset": "EINZELNE-SZENEN/scene-06/scene-06-value-link.png",
+      "prompt": "EINZELNE-SZENEN/scene-06/bildprompt.txt",
+      "instructions": "EINZELNE-SZENEN/scene-06"
+    },
+    {
+      "id": "scene-07",
+      "type": "image",
+      "asset": "EINZELNE-SZENEN/scene-07/scene-07-payoff.png",
+      "prompt": "EINZELNE-SZENEN/scene-07/bildprompt.txt",
+      "instructions": "EINZELNE-SZENEN/scene-07"
+    }
   ]
 }
