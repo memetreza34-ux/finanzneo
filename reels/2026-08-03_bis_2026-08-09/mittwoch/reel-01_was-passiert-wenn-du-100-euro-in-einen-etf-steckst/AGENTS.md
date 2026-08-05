@@ -2,6 +2,14 @@
 
 Die kreative Planung, die beiden Animationen und die vollständige Remotion-Composition sind abgeschlossen.
 
+Das allgemeine Build-Manifest liegt unter:
+
+```text
+timeline/reel-build-manifest.json
+```
+
+Es besitzt den Status `prebuilt-ready`. Die Animationen sind für Codex gesperrt.
+
 ## Codex darf nicht
 
 - neue Animationen entwerfen,
@@ -9,19 +17,19 @@ Die kreative Planung, die beiden Animationen und die vollständige Remotion-Comp
 - alternative Komponenten erzeugen,
 - das Storyboard umdeuten,
 - feste Mediendateinamen verlangen,
-- die Stimme erneut inhaltlich bearbeiten,
+- die Stimme inhaltlich kürzen,
 - globale Feature-Flags aktivieren.
 
-## Codex soll nur diesen Befehl ausführen
+## Codex soll nur den allgemeinen Befehl ausführen
 
 Aus `alles/`:
 
 ```bash
-npm run finance:etf-reel:build -- \
+npm run finance:reel:build -- \
 ../reels/2026-08-03_bis_2026-08-09/mittwoch/reel-01_was-passiert-wenn-du-100-euro-in-einen-etf-steckst
 ```
 
-Der Befehl prüft den vorprogrammierten Code, verarbeitet und transkribiert die Stimme, übernimmt die Bilder, rendert das Reel und erzeugt die technischen Prüfdateien.
+Der Befehl liest Composition, Einstiegspunkt, Animationen, Runtime-Props und Exportpfade aus dem allgemeinen Manifest. Er verarbeitet und transkribiert die Stimme, übernimmt die Bilder, prüft den vorprogrammierten Code, rendert das Reel und erzeugt die technischen Prüfdateien.
 
 ## Fehlerbehebung
 
