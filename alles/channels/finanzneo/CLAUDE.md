@@ -83,6 +83,22 @@ scene-06/export.webp          → Szene 6
 
 Bei null oder mehreren passenden Mediendateien in einem erwarteten Ordner stoppen und die gefundenen Kandidaten nennen. Niemals raten.
 
+## Laufzeit und KI-Stimme
+
+Die gemessene Dauer der erkannten Voiceover-Datei ist die zeitliche Quelle der Wahrheit. Reel-Pakete dürfen 25 bis 90 Sekunden lang sein.
+
+Die KI-Stimme niemals automatisch beschleunigen, kürzen oder zeitlich strecken. Bei einer Abweichung zwischen Audio und Szenenplan müssen vor dem Build angepasst werden:
+
+- `composition.targetDurationSec`
+- `composition.durationInFrames`
+- `voiceover.measuredDurationSec`
+- alle `scene.durationSec`
+- Storyboard
+- Motion-Plan
+- Captions
+
+Längere Bildszenen erhalten mindestens zwei kontrollierte Bewegungsphasen.
+
 ## Automatischer Reel-Start
 
 Bei „Mach ein Reel“, „Erstelle das nächste Finanz-Reel“ oder einer gleichwertigen Anweisung arbeitet Claude ohne unnötige Rückfrage weiter, sofern Thema und kreative Vorgaben eindeutig sind.
