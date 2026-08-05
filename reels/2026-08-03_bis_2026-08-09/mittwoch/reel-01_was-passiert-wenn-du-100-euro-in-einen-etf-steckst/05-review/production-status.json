@@ -14,7 +14,7 @@
   "sourceCodePath": "alles/channels/finanzneo/src/reels/2026-08-05-was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
   "publicRuntimePath": "alles/channels/finanzneo/public/reels/was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
   "outPath": "alles/channels/finanzneo/out/reels/2026-08-05-was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
-  "stage": "ready-for-local-asset-check",
+  "stage": "ready-for-local-validation",
   "topicSelection": {
     "selectedBy": "user",
     "mode": "user",
@@ -26,6 +26,17 @@
     "scriptApproved": true,
     "designAnchorApproved": true,
     "assetsReviewed": false
+  },
+  "timing": {
+    "sourceOfTruth": "automatically-detected-voiceover",
+    "measuredVoiceoverDurationSec": 72.42,
+    "plannedReelDurationSec": 72.42,
+    "fps": 30,
+    "durationInFrames": 2173,
+    "audioMayBeAccelerated": false,
+    "audioMayBeTrimmed": false,
+    "audioMayBeTimeStretched": false,
+    "sceneDurationsSec": [7.73, 11.24, 10.53, 10.53, 12, 9.87, 10.52]
   },
   "required": {
     "voiceScript": "01-voice-script/script-fliesstext.txt",
