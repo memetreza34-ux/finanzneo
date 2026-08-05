@@ -16,7 +16,7 @@ if (!slugArg || !option('topic')) {
   process.exit(1);
 }
 
-const slug = slugArg.trim().toLowerCase().replace(/[^a-z0-9äöüß]+/g, '-').replace(/^-+|-+$/g, '');
+const slug = slugArg.trim().toLocaleLowerCase('de-DE').replace(/[^a-z0-9äöüß]+/g, '-').replace(/^-+|-+$/g, '');
 if (!slug) throw new Error('Der Slug ist leer oder ungültig.');
 const topic = option('topic');
 const title = option('title') ?? slug.split('-').map((part) => part.charAt(0).toUpperCase() + part.slice(1)).join(' ');
@@ -33,10 +33,11 @@ const similarity = (left, right) => {
   return smaller >= 2 && intersection === smaller ? 1 : intersection / union;
 };
 
-const root = process.cwd();
-const reelsRoot = path.resolve(process.env.FINANCE_REELS_ROOT ?? path.join(root, 'channels', 'finanzneo', 'reels'));
+const technicalRoot = process.cwd();
+const repositoryRoot = path.resolve(technicalRoot, '..');
+const reelsRoot = path.resolve(process.env.FINANCE_REELS_ROOT ?? path.join(repositoryRoot, 'reels'));
 const target = path.join(reelsRoot, slug);
-const historyFile = path.resolve(process.env.FINANCE_TOPIC_HISTORY_FILE ?? path.join(root, 'channels', 'finanzneo', 'engine', 'topic-history.json'));
+const historyFile = path.resolve(process.env.FINANCE_TOPIC_HISTORY_FILE ?? path.join(technicalRoot, 'channels', 'finanzneo', 'engine', 'topic-history.json'));
 if (fs.existsSync(target)) throw new Error(`Reel-Projekt "${slug}" existiert bereits.`);
 if (!fs.existsSync(historyFile)) throw new Error(`Themenregister fehlt: ${historyFile}`);
 
@@ -54,12 +55,36 @@ try {
   ScenePlan.parse(plan);
   const paths = ensureFinanceProjectStructure(target, {title, topic});
   fs.writeFileSync(paths.scenePlan, JSON.stringify(plan, null, 2));
-  fs.writeFileSync(paths.scriptMarkdown, `# Skript — ${title}\n\n**Thema:** ${topic}\n\nAlle FINANCE_TODO-Felder müssen im selben Arbeitsdurchlauf durch natürliche, konkrete und belegbare Inhalte ersetzt werden. Vor der Bildphase müssen Skript-QA und Content-Ready grün sein.\n\n${plan.scenes.map((scene, index) => `## ${index + 1}. ${scene.id}\n\n${scene.voiceText}`).join('\n\n')}\n`);
+  fs.writeFileSync(paths.scriptMarkdown, `# Skript — ${title}\n\n**Thema:** ${topic}\n\nAlle FINANCE_TODO-Felder müssen im selben Arbeitsdurchlauf durch natürliche, konkrete und belegbare Inhalte ersetzt werden.\n\n${plan.scenes.map((scene, index) => `## ${index + 1}. ${scene.id}\n\n${scene.voiceText}`).join('\n\n')}\n`);
   fs.writeFileSync(paths.voiceScript, `${plan.scriptText}\n`);
   fs.writeFileSync(paths.voicePrompt, 'NOCH NICHT FREIGEGEBEN\n\nFINANCE_TODO_FINAL_SCRIPT\n');
 
+  const sceneIndex = {
+    version: 1,
+    sceneCount: plan.scenes.length,
+    scenes: plan.scenes.map((scene, index) => ({
+      id: `scene-${String(index + 1).padStart(2, '0')}`,
+      sourceId: scene.id,
+      type: scene.type ?? scene.mode ?? 'image',
+      instructions: `EINZELNE-SZENEN/scene-${String(index + 1).padStart(2, '0')}`,
+    })),
+  };
+  fs.writeFileSync(paths.sceneIndex, JSON.stringify(sceneIndex, null, 2));
+  for (let index = 0; index < plan.scenes.length; index += 1) {
+    const scene = plan.scenes[index];
+    const sceneNumber = String(index + 1).padStart(2, '0');
+    const sceneDir = path.join(paths.individualScenesDir, `scene-${sceneNumber}`);
+    fs.mkdirSync(sceneDir, {recursive: true});
+    fs.writeFileSync(path.join(sceneDir, 'szene.md'), `# Szene ${sceneNumber}\n\n**Plan-ID:** ${scene.id}\n\n**Voiceover:** ${scene.voiceText}\n\n<!-- FINANCE_TODO_SCENE_DETAILS -->\n`);
+    if ((scene.type ?? scene.mode ?? 'image') !== 'animation') {
+      fs.writeFileSync(path.join(sceneDir, 'bildprompt.txt'), 'FINANCE_TODO_COMPLETE_IMAGE_PROMPT\n');
+    } else {
+      fs.writeFileSync(path.join(sceneDir, 'animation.md'), '# Remotion-Animation\n\nFINANCE_TODO_COMPLETE_ANIMATION_SPEC\n');
+    }
+  }
+
   const now = new Date().toISOString();
-  const relativeTarget = path.relative(root, target).split(path.sep).join('/');
+  const relativeTarget = path.relative(repositoryRoot, target).split(path.sep).join('/');
   const status = {
     version: 'finance-v1',
     folderStructureVersion: FINANCE_STRUCTURE_VERSION,
@@ -71,31 +96,31 @@ try {
     stage: 'planning',
     approvals: {topicSelected: true, scriptApproved: false, designAnchorApproved: false, assetsReviewed: false},
     required: {
-      scenePlan: '06-projektdateien/scene-plan.json',
-      sources: '06-projektdateien/sources.md',
-      voiceScript: '01-script-audio/script-fliesstext.txt',
-      voiceoverPrompt: '01-script-audio/voiceover.txt',
-      imagePromptIndex: '02-bilder/bildprompts.md',
-      imagePromptManifest: '06-projektdateien/prompt-manifest.json',
-      voiceoverFinal: '01-script-audio/audio/voiceover-final.wav',
-      captionsFinal: '03-caption/voiceover-final.captions.json',
-      socialCaption: '03-caption/social-caption.md',
-      manifest: '06-projektdateien/asset-manifest.json',
-      pdfDirectory: '04-pdf',
-      exportDirectory: '05-export',
-      storyboard: '06-projektdateien/storyboard.md',
-      motionDesign: '06-projektdateien/motion-design.md',
+      scenePlan: 'timeline/scene-plan.json',
+      sources: '05-review/quellen.md',
+      voiceScript: '01-voice-script/script-fliesstext.txt',
+      voiceoverPrompt: '01-voice-script/voiceover-anweisung.txt',
+      imagePromptIndex: '03-szenen/alle-bildprompts.txt',
+      sceneIndex: '03-szenen/scene-index.json',
+      imagePromptManifest: 'timeline/prompt-manifest.json',
+      voiceoverFinal: '02-audio/voiceover-final.wav',
+      captionsFinal: '04-caption/voiceover-final.captions.json',
+      socialCaption: '04-caption/social-caption.md',
+      manifest: 'timeline/asset-manifest.json',
+      videoDirectory: '06-video',
+      storyboard: 'timeline/storyboard.md',
+      motionDesign: 'timeline/motion-design.md',
+      codexPackage: 'timeline/codex-reel-package.json'
     },
   };
   fs.writeFileSync(paths.status, JSON.stringify(status, null, 2));
 
-  const readme = `# ${title}\n\n**Thema:** ${topic}\n\n## Produktionsstruktur\n\n1. \`01-script-audio/\` — Skript, Voiceover-Text und Audio\n2. \`02-bilder/\` — Bildprompt-Übersicht, einzelne Prompts und Bilder\n3. \`03-caption/\` — Wort-Untertitel und Social-Media-Caption\n4. \`04-pdf/\` — PDF-Inhalt und fertige PDF\n5. \`05-export/\` — finales MP4, Caption, Untertitel und PDF\n6. \`06-projektdateien/\` — Storyboard, Motion Design und technische Dateien\n\n## Verbindlich\n\n- Alle \`FINANCE_TODO\`-Felder vollständig ersetzen.\n- Für jede Bildszene konkrete reale Objekte, räumlichen Aufbau und Ursache → Wirkung festlegen.\n- Kein Text, keine Labels und keine Zahlen im generierten Bild.\n- Audio exakt als \`01-script-audio/audio/voiceover-final.wav\`.\n- Vor Render: \`npm run finance:content-ready -- <projektordner>\` und \`npm run finance:ready -- <projektordner>\`.\n`;
-  fs.writeFileSync(path.join(target, 'README.md'), readme);
+  fs.writeFileSync(path.join(target, 'README.md'), `# ${title}\n\n**Thema:** ${topic}\n\n## Produktionsstruktur\n\n- \`00-cover/\`\n- \`01-voice-script/\`\n- \`02-audio/\`\n- \`03-szenen/\`\n- \`04-caption/\`\n- \`05-review/\`\n- \`06-video/\`\n- \`render/\`\n- \`timeline/\`\n\nBilder gehören nach \`03-szenen/BILDER-HIER-EINFUEGEN/\`. Das Voiceover gehört als \`02-audio/voiceover-final.wav\` in das Projekt.\n`);
 
   history.topics = [...(history.topics ?? []), {slug, topic, status: 'reserved', createdAt: now, projectPath: relativeTarget}];
   fs.writeFileSync(historyFile, JSON.stringify(history, null, 2));
   console.log(`✓ Finance-Projekt atomar vorbereitet: ${relativeTarget}`);
-  console.log('  Erst alle Skript-, Quellen-, Bildbrief- und Content-Felder ausarbeiten; danach Freigaben setzen.');
+  console.log('  Neue Struktur: 00-cover bis 06-video sowie render und timeline.');
 } catch (error) {
   if (created) fs.rmSync(target, {recursive: true, force: true});
   fs.writeFileSync(historyFile, historyOriginal);
