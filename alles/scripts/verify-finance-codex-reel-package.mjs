@@ -57,6 +57,12 @@ const composition = reel.composition ?? {};
 if (!isText(composition.id)) fail('composition.id fehlt.');
 if (composition.width !== 1080 || composition.height !== 1920) fail('composition muss 1080 × 1920 sein.');
 if (composition.fps !== 30) fail('composition.fps muss 30 sein.');
+if (composition.durationInFrames !== undefined && (!Number.isInteger(composition.durationInFrames) || composition.durationInFrames <= 0)) {
+  fail('composition.durationInFrames muss eine positive ganze Zahl sein.');
+}
+if (composition.targetDurationSec !== undefined && (!Number.isFinite(composition.targetDurationSec) || composition.targetDurationSec <= 0)) {
+  fail('composition.targetDurationSec muss eine positive Zahl sein.');
+}
 
 const cover = reel.cover ?? {};
 if (!isText(cover.text, 3)) fail('cover.text fehlt oder ist zu kurz.');
@@ -72,6 +78,9 @@ if (!hasVoiceoverDirectory && !hasLegacyVoiceoverAsset) {
 }
 if (voiceover.selection && voiceover.selection !== 'single-supported-file') {
   fail('voiceover.selection muss single-supported-file sein.');
+}
+if (voiceover.measuredDurationSec !== undefined && (!Number.isFinite(voiceover.measuredDurationSec) || voiceover.measuredDurationSec <= 0)) {
+  fail('voiceover.measuredDurationSec muss eine positive Zahl sein.');
 }
 
 const rules = reel.creativeRules ?? {};
@@ -159,7 +168,19 @@ for (let index = 0; index < scenes.length; index += 1) {
   }
 }
 
-if (totalDuration < 25 || totalDuration > 60) fail(`Gesamtdauer muss 25–60 Sekunden betragen; gefunden: ${totalDuration.toFixed(2)} s.`);
+if (totalDuration < 25 || totalDuration > 90) fail(`Gesamtdauer muss 25–90 Sekunden betragen; gefunden: ${totalDuration.toFixed(2)} s.`);
+if (Number.isFinite(composition.targetDurationSec) && Math.abs(composition.targetDurationSec - totalDuration) > 0.05) {
+  fail(`composition.targetDurationSec (${composition.targetDurationSec.toFixed(2)} s) stimmt nicht mit der Summe der Szenen (${totalDuration.toFixed(2)} s) überein.`);
+}
+if (Number.isInteger(composition.durationInFrames) && composition.fps > 0) {
+  const frameDuration = composition.durationInFrames / composition.fps;
+  if (Math.abs(frameDuration - totalDuration) > 1 / composition.fps + 0.01) {
+    fail(`composition.durationInFrames entspricht ${frameDuration.toFixed(3)} s und passt nicht zur Szenensumme ${totalDuration.toFixed(2)} s.`);
+  }
+}
+if (Number.isFinite(voiceover.measuredDurationSec) && Math.abs(voiceover.measuredDurationSec - totalDuration) > 0.1) {
+  fail(`Gemessene Voiceover-Dauer (${voiceover.measuredDurationSec.toFixed(2)} s) und Szenensumme (${totalDuration.toFixed(2)} s) weichen zu stark ab.`);
+}
 if (imageCount <= animationCount) fail(`Bildszenen müssen Animationen überwiegen; gefunden: ${imageCount} Bild / ${animationCount} Animation.`);
 if (animationCount < 1) fail('Mindestens eine echte Remotion-Animationsszene ist erforderlich.');
 if (animationCount > 3) fail('Höchstens drei Remotion-Animationsszenen sind erlaubt.');
