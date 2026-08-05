@@ -1,0 +1,37 @@
+{
+  "version": "finanzneo-prebuilt-animation-v1",
+  "slug": "was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
+  "status": "implemented-awaiting-local-validation",
+  "codexAnimationCodingRequired": false,
+  "entryPoint": "alles/channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/index.ts",
+  "compositionId": "FinanzNeoEtfKauf100Euro",
+  "composition": "alles/channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/EtfKauf100EuroReel.tsx",
+  "sharedVisuals": "alles/channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/visual.tsx",
+  "runtimeTypes": "alles/channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/types.ts",
+  "animations": [
+    {
+      "sceneId": "scene-02-order-match",
+      "component": "PrebuiltEtfOrderMatchAnimation",
+      "source": "alles/channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/PrebuiltEtfAnimations.tsx",
+      "timing": "relative-to-transcript-scene-duration",
+      "editableByCodex": false
+    },
+    {
+      "sceneId": "scene-05-creation",
+      "component": "PrebuiltEtfCreationAnimation",
+      "source": "alles/channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/PrebuiltEtfAnimations.tsx",
+      "timing": "relative-to-transcript-scene-duration",
+      "editableByCodex": false
+    }
+  ],
+  "automation": {
+    "verify": "node scripts/verify-finance-etf-prebuilt-reel.mjs <projekt>",
+    "prepare": "npm run finance:etf-reel:prepare -- <projekt>",
+    "build": "npm run finance:etf-reel:build -- <projekt>"
+  },
+  "remainingHumanInput": [
+    "genau eine Audiodatei in 02-audio",
+    "genau ein Bild in jedem erwarteten Bildszenenordner",
+    "manuelle visuelle Freigabe nach dem Render"
+  ]
+}
