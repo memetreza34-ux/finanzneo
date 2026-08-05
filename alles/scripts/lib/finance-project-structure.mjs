@@ -1,70 +1,88 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-export const FINANCE_STRUCTURE_VERSION = 4;
+export const FINANCE_STRUCTURE_VERSION = 5;
 
 export const financeProjectPaths = (reelDir) => ({
   projectDir: reelDir,
 
-  scriptAudioDir: path.join(reelDir, '01-script-audio'),
-  scriptMarkdown: path.join(reelDir, '01-script-audio', 'script.md'),
-  voiceScript: path.join(reelDir, '01-script-audio', 'script-fliesstext.txt'),
-  voicePrompt: path.join(reelDir, '01-script-audio', 'voiceover.txt'),
-  audioDir: path.join(reelDir, '01-script-audio', 'audio'),
-  voiceoverFinal: path.join(reelDir, '01-script-audio', 'audio', 'voiceover-final.wav'),
-  sfxDir: path.join(reelDir, '01-script-audio', 'audio', 'sfx'),
+  coverDir: path.join(reelDir, '00-cover'),
+  coverText: path.join(reelDir, '00-cover', 'cover.txt'),
 
-  imagesSectionDir: path.join(reelDir, '02-bilder'),
-  imagePromptIndex: path.join(reelDir, '02-bilder', 'bildprompts.md'),
-  imagePromptsDir: path.join(reelDir, '02-bilder', 'prompts'),
-  imagesDir: path.join(reelDir, '02-bilder', 'images'),
+  voiceScriptDir: path.join(reelDir, '01-voice-script'),
+  scriptAudioDir: path.join(reelDir, '01-voice-script'),
+  scriptMarkdown: path.join(reelDir, '01-voice-script', 'script.md'),
+  voiceScript: path.join(reelDir, '01-voice-script', 'script-fliesstext.txt'),
+  voicePrompt: path.join(reelDir, '01-voice-script', 'voiceover-anweisung.txt'),
 
-  captionsDir: path.join(reelDir, '03-caption'),
-  captionsFinal: path.join(reelDir, '03-caption', 'voiceover-final.captions.json'),
-  socialCaption: path.join(reelDir, '03-caption', 'social-caption.md'),
+  audioDir: path.join(reelDir, '02-audio'),
+  voiceoverFinal: path.join(reelDir, '02-audio', 'voiceover-final.wav'),
+  sfxDir: path.join(reelDir, '02-audio', 'sfx'),
 
-  pdfDir: path.join(reelDir, '04-pdf'),
-  pdfContent: path.join(reelDir, '04-pdf', 'inhalt.md'),
+  scenesDir: path.join(reelDir, '03-szenen'),
+  imagesSectionDir: path.join(reelDir, '03-szenen'),
+  allImagePrompts: path.join(reelDir, '03-szenen', 'alle-bildprompts.txt'),
+  imagePromptIndex: path.join(reelDir, '03-szenen', 'alle-bildprompts.txt'),
+  imageDropDir: path.join(reelDir, '03-szenen', 'BILDER-HIER-EINFUEGEN'),
+  imagesDir: path.join(reelDir, '03-szenen', 'BILDER-HIER-EINFUEGEN'),
+  individualScenesDir: path.join(reelDir, '03-szenen', 'EINZELNE-SZENEN'),
+  imagePromptsDir: path.join(reelDir, '03-szenen', 'EINZELNE-SZENEN'),
+  sceneIndex: path.join(reelDir, '03-szenen', 'scene-index.json'),
 
-  exportDir: path.join(reelDir, '05-export'),
-  exportVideoDir: path.join(reelDir, '05-export'),
-  exportCaptionsDir: path.join(reelDir, '05-export'),
-  exportPdfDir: path.join(reelDir, '05-export'),
+  captionsDir: path.join(reelDir, '04-caption'),
+  captionsFinal: path.join(reelDir, '04-caption', 'voiceover-final.captions.json'),
+  socialCaption: path.join(reelDir, '04-caption', 'social-caption.md'),
 
-  projectFilesDir: path.join(reelDir, '06-projektdateien'),
-  scenePlan: path.join(reelDir, '06-projektdateien', 'scene-plan.json'),
-  status: path.join(reelDir, '06-projektdateien', 'production-status.json'),
-  sources: path.join(reelDir, '06-projektdateien', 'sources.md'),
-  imagePromptManifest: path.join(reelDir, '06-projektdateien', 'prompt-manifest.json'),
-  manifest: path.join(reelDir, '06-projektdateien', 'asset-manifest.json'),
-  readyReport: path.join(reelDir, '06-projektdateien', 'ready-report.json'),
-  qaReport: path.join(reelDir, '06-projektdateien', 'qa-report.json'),
-  storyboard: path.join(reelDir, '06-projektdateien', 'storyboard.md'),
-  motionDesign: path.join(reelDir, '06-projektdateien', 'motion-design.md'),
-  videoDir: path.join(reelDir, '06-projektdateien', 'render'),
-  dataDir: path.join(reelDir, '06-projektdateien', 'data'),
+  reviewDir: path.join(reelDir, '05-review'),
+  status: path.join(reelDir, '05-review', 'production-status.json'),
+  sources: path.join(reelDir, '05-review', 'quellen.md'),
+  pdfDir: path.join(reelDir, '05-review'),
+  pdfContent: path.join(reelDir, '05-review', 'fachlicher-inhalt.md'),
+  readyReport: path.join(reelDir, '05-review', 'ready-report.json'),
+  qaReport: path.join(reelDir, '05-review', 'qa-report.json'),
+
+  finalVideoDir: path.join(reelDir, '06-video'),
+  exportDir: path.join(reelDir, '06-video'),
+  exportVideoDir: path.join(reelDir, '06-video'),
+  exportCaptionsDir: path.join(reelDir, '06-video'),
+  exportPdfDir: path.join(reelDir, '06-video'),
+
+  renderDir: path.join(reelDir, 'render'),
+  videoDir: path.join(reelDir, 'render'),
+
+  timelineDir: path.join(reelDir, 'timeline'),
+  projectFilesDir: path.join(reelDir, 'timeline'),
+  scenePlan: path.join(reelDir, 'timeline', 'scene-plan.json'),
+  codexPackage: path.join(reelDir, 'timeline', 'codex-reel-package.json'),
+  storyboard: path.join(reelDir, 'timeline', 'storyboard.md'),
+  motionDesign: path.join(reelDir, 'timeline', 'motion-design.md'),
+  imagePromptManifest: path.join(reelDir, 'timeline', 'prompt-manifest.json'),
+  manifest: path.join(reelDir, 'timeline', 'asset-manifest.json'),
+  dataDir: path.join(reelDir, 'timeline', 'data'),
 });
 
 export const financeRequiredDirectories = (reelDir) => {
   const p = financeProjectPaths(reelDir);
   return [
     reelDir,
-    p.scriptAudioDir,
+    p.coverDir,
+    p.voiceScriptDir,
     p.audioDir,
     p.sfxDir,
-    p.imagesSectionDir,
-    p.imagePromptsDir,
-    p.imagesDir,
+    p.scenesDir,
+    p.imageDropDir,
+    p.individualScenesDir,
     p.captionsDir,
-    p.pdfDir,
-    p.exportDir,
-    p.projectFilesDir,
-    p.videoDir,
+    p.reviewDir,
+    p.finalVideoDir,
+    p.renderDir,
+    p.timelineDir,
     p.dataDir,
   ];
 };
 
 const writeIfMissing = (file, content) => {
+  fs.mkdirSync(path.dirname(file), {recursive: true});
   if (!fs.existsSync(file)) fs.writeFileSync(file, content);
 };
 
@@ -113,25 +131,21 @@ const transliterateGerman = (value) => String(value ?? '')
   .replace(/ü/g, 'ue')
   .replace(/ß/g, 'ss');
 
-export const sanitizeReelFolderTitle = (value) => transliterateGerman(value ?? 'Reel')
+export const sanitizeReelFolderTitle = (value) => transliterateGerman(value ?? 'reel')
   .trim()
-  .replace(/[^a-zA-Z0-9]+/g, '-')
-  .replace(/^-+|-+$/g, '') || 'Reel';
+  .toLocaleLowerCase('de-DE')
+  .replace(/[^a-z0-9]+/g, '-')
+  .replace(/^-+|-+$/g, '') || 'reel';
 
-export const promptFileName = (index, sceneId) => `${String(index + 1).padStart(2, '0')}-${sanitizeSceneId(sceneId)}.txt`;
-export const suggestedImageFileName = (index, sceneId) => `${String(index + 1).padStart(2, '0')}-${sanitizeSceneId(sceneId)}.png`;
+export const promptFileName = (index, sceneId) => `scene-${String(index + 1).padStart(2, '0')}-${sanitizeSceneId(sceneId)}.txt`;
+export const suggestedImageFileName = (index, sceneId) => `scene-${String(index + 1).padStart(2, '0')}-${sanitizeSceneId(sceneId)}.png`;
 
 export const planRequiresPdf = (plan) => {
   if (!plan) return false;
   const text = [
     plan.scriptText,
     plan.payoff,
-    ...((plan.scenes ?? []).flatMap((scene) => [
-      scene.voiceText,
-      scene.content?.ctaBenefit,
-      scene.content?.headline,
-      scene.content?.body,
-    ])),
+    ...((plan.scenes ?? []).flatMap((scene) => [scene.voiceText, scene.content?.headline, scene.content?.body])),
   ].filter(Boolean).join(' ').toLocaleLowerCase('de-DE');
   return /\b(pdf|checkliste|guide|vorlage|e-?book|planer|leitfaden)\b/.test(text);
 };
@@ -148,34 +162,46 @@ export const isValidPdfFile = (file) => {
   }
 };
 
-const migrateOldStructure = (reelDir, p) => {
-  moveFile(path.join(reelDir, 'scene-plan.json'), p.scenePlan);
-  moveFile(path.join(reelDir, 'production-status.json'), p.status);
-  moveFile(path.join(reelDir, 'sources.md'), p.sources);
-  moveFile(path.join(reelDir, 'asset-manifest.json'), p.manifest);
-  moveFile(path.join(reelDir, 'ready-report.json'), p.readyReport);
-  moveFile(path.join(reelDir, 'qa-report.json'), p.qaReport);
-  moveFile(path.join(reelDir, 'voiceover-prompt.md'), p.voicePrompt);
-  moveFile(path.join(reelDir, 'image-prompts.md'), p.imagePromptIndex);
+const migrateLegacyStructure = (reelDir, p) => {
+  moveFile(path.join(reelDir, '01-script-audio', 'script.md'), p.scriptMarkdown);
+  moveFile(path.join(reelDir, '01-script-audio', 'script-fliesstext.txt'), p.voiceScript);
+  moveFile(path.join(reelDir, '01-script-audio', 'voiceover.txt'), p.voicePrompt);
+  moveDirectoryContents(path.join(reelDir, '01-script-audio', 'audio'), p.audioDir);
 
-  moveFile(path.join(reelDir, 'voice', 'script.txt'), p.voiceScript);
-  moveFile(path.join(reelDir, 'voice', 'voiceover-prompt.md'), p.voicePrompt);
-  moveDirectoryContents(path.join(reelDir, 'audio'), p.audioDir);
-  moveFile(path.join(reelDir, 'image-prompts', '00_alle-bildprompts.md'), p.imagePromptIndex);
-  moveFile(path.join(reelDir, 'image-prompts', 'prompt-manifest.json'), p.imagePromptManifest);
-  moveDirectoryContents(path.join(reelDir, 'image-prompts'), p.imagePromptsDir, (entry) => entry.isDirectory() || entry.name.toLowerCase().endsWith('.txt'));
-  moveDirectoryContents(path.join(reelDir, 'images'), p.imagesDir);
-  moveDirectoryContents(path.join(reelDir, 'captions'), p.captionsDir);
-  moveDirectoryContents(path.join(reelDir, 'pdf'), p.pdfDir);
-  moveDirectoryContents(path.join(reelDir, 'export'), p.exportDir);
-  moveDirectoryContents(path.join(reelDir, 'video'), p.videoDir);
-  moveDirectoryContents(path.join(reelDir, 'data'), p.dataDir);
+  moveFile(path.join(reelDir, '02-bilder', 'ALLE-BILDPROMPTS-ZUM-KOPIEREN.md'), p.allImagePrompts);
+  moveFile(path.join(reelDir, '02-bilder', 'bildprompts.md'), p.allImagePrompts);
+  moveDirectoryContents(path.join(reelDir, '02-bilder', 'images'), p.imageDropDir);
+
+  const oldPrompts = path.join(reelDir, '02-bilder', 'prompts');
+  if (fs.existsSync(oldPrompts)) {
+    const files = fs.readdirSync(oldPrompts, {withFileTypes: true}).filter((entry) => entry.isFile());
+    files.forEach((entry, index) => {
+      const sceneDir = path.join(p.individualScenesDir, `scene-${String(index + 1).padStart(2, '0')}`);
+      moveFile(path.join(oldPrompts, entry.name), path.join(sceneDir, 'bildprompt.txt'));
+    });
+    if (fs.existsSync(oldPrompts) && fs.readdirSync(oldPrompts).length === 0) fs.rmdirSync(oldPrompts);
+  }
+
+  moveDirectoryContents(path.join(reelDir, '03-caption'), p.captionsDir);
+  moveDirectoryContents(path.join(reelDir, '04-pdf'), p.reviewDir);
+  moveDirectoryContents(path.join(reelDir, '05-export'), p.finalVideoDir);
+
+  moveFile(path.join(reelDir, '06-projektdateien', 'production-status.json'), p.status);
+  moveFile(path.join(reelDir, '06-projektdateien', 'sources.md'), p.sources);
+  moveFile(path.join(reelDir, '06-projektdateien', 'storyboard.md'), p.storyboard);
+  moveFile(path.join(reelDir, '06-projektdateien', 'motion-design.md'), p.motionDesign);
+  moveFile(path.join(reelDir, '06-projektdateien', 'scene-plan.json'), p.scenePlan);
+  moveFile(path.join(reelDir, '06-projektdateien', 'codex-reel-package.json'), p.codexPackage);
+  moveFile(path.join(reelDir, '06-projektdateien', 'prompt-manifest.json'), p.imagePromptManifest);
+  moveFile(path.join(reelDir, '06-projektdateien', 'asset-manifest.json'), p.manifest);
+  moveDirectoryContents(path.join(reelDir, '06-projektdateien', 'render'), p.renderDir);
+  moveDirectoryContents(path.join(reelDir, '06-projektdateien', 'data'), p.dataDir);
 };
 
 export const ensureFinanceProjectStructure = (reelDir, {title = 'FinanzNeo-Reel', topic = 'Noch nicht festgelegt'} = {}) => {
   const p = financeProjectPaths(reelDir);
   for (const directory of financeRequiredDirectories(reelDir)) fs.mkdirSync(directory, {recursive: true});
-  migrateOldStructure(reelDir, p);
+  migrateLegacyStructure(reelDir, p);
 
   let scriptText = '<!-- FINANCE_TODO_FINAL_SCRIPT -->\nFinales Skript nach Freigabe hier einfügen.\n';
   if (fs.existsSync(p.scenePlan)) {
@@ -187,19 +213,26 @@ export const ensureFinanceProjectStructure = (reelDir, {title = 'FinanzNeo-Reel'
     }
   }
 
+  writeIfMissing(p.coverText, `COVER-TEXT\nFINANCE_TODO_COVER\n\nUNTERZEILE\nFINANCE_TODO_SUBLINE\n`);
   writeIfMissing(p.voiceScript, scriptText);
-  writeIfMissing(p.scriptMarkdown, `# Skript — ${title}\n\n**Thema:** ${topic}\n\n## Hook\n\n<!-- FINANCE_TODO_FINAL_SCRIPT -->\n\n## Szenenaufteilung\n\nDie finale Szenenaufteilung aus \`06-projektdateien/scene-plan.json\` hier verständlich dokumentieren.\n`);
-  writeIfMissing(p.voicePrompt, `Sprich auf Deutsch, seriös, klar und direkt. Keine Begrüßung, kein Musikbett und keine künstliche Dramatik. Hook, Zahlen, Wendepunkt und Payoff deutlich betonen. Kurze natürliche Pausen.\n\n<!-- FINANCE_TODO_FINAL_SCRIPT -->\n${scriptText}`);
-  writeIfMissing(p.imagePromptIndex, `# Bildprompts — ${title}\n\n**Thema:** ${topic}\n\n<!-- FINANCE_TODO_DESIGN_ANCHOR -->\nDesignanker noch nicht freigegeben.\n\n<!-- FINANCE_TODO_SCENE_PROMPTS -->\nDie einzelnen kopierbaren Prompts werden in \`prompts/\` erzeugt.\n`);
-  writeIfMissing(p.sources, `# Quellen — ${title}\n\n**Thema:** ${topic}\n\nPrimärquellen, Abrufdatum und Claim-IDs dokumentieren.\n`);
-  writeIfMissing(p.socialCaption, `<!-- FINANCE_TODO_SOCIAL_CAPTION -->\n💬 Kommentiere KEYWORD und ich schicke dir kostenlos die passende PDF per DM.\n\nStarke Überschrift\n\nKurze Zusammenfassung mit echtem Mehrwert.\n\nWelche Frage beantwortest du in den Kommentaren?\n\n#Finanzen #Geld #Finanzwissen #Investieren #FinanzNeo\n`);
-  writeIfMissing(p.pdfContent, `# PDF-Inhalt — ${title}\n\n**Thema:** ${topic}\n\nHier den vollständigen Inhalt des Lead-Magnets planen. Die fertige PDF ebenfalls in diesen Ordner legen.\n`);
-  writeIfMissing(p.storyboard, `# Storyboard — ${title}\n\nSzenen, Timing, Texte, Bilder und Übergänge aus \`scene-plan.json\` verständlich dokumentieren.\n`);
-  writeIfMissing(p.motionDesign, `# Motion Design — ${title}\n\nPro Szene Bewegung, Zustandsänderung, Fokus, Übergang und SFX dokumentieren.\n`);
-  writeIfMissing(path.join(p.audioDir, '00_AUDIO_HIER_EINFUEGEN.md'), '# Audio\n\nFinales Voiceover exakt als `voiceover-final.wav` hier einfügen. SFX gehören in `sfx/`.\n');
-  writeIfMissing(path.join(p.imagesDir, '00_BILDER_HIER_EINFUEGEN.md'), '# Bilder\n\nDie fertigen Bilder mit den Dateinamen aus `../bildprompts.md` hier einfügen.\n');
-  writeIfMissing(path.join(p.captionsDir, '00_CAPTION_INFO.md'), '# Caption\n\nWort-Untertitel: `voiceover-final.captions.json`. Social-Media-Caption: `social-caption.md`.\n');
-  writeIfMissing(path.join(p.exportDir, '00_EXPORT_HIER.md'), '# Export\n\nHier landen das finale MP4, Social Caption, Untertitel und PDF gemeinsam.\n');
+  writeIfMissing(p.scriptMarkdown, `# Skript — ${title}\n\n**Thema:** ${topic}\n\n## Hook\n\n<!-- FINANCE_TODO_FINAL_SCRIPT -->\n\n## Szenen\n\nDie finale Aufteilung steht in \`../timeline/scene-plan.json\`.\n`);
+  writeIfMissing(p.voicePrompt, `Sprich auf Deutsch, klar, modern und direkt. Keine Begrüßung und keine künstliche Dramatik.\n\n<!-- FINANCE_TODO_FINAL_SCRIPT -->\n${scriptText}`);
+  writeIfMissing(p.allImagePrompts, `# Alle Bildprompts — ${title}\n\n**Thema:** ${topic}\n\n<!-- FINANCE_TODO_SCENE_PROMPTS -->\n`);
+  writeIfMissing(p.sceneIndex, JSON.stringify({version: 1, sceneCount: 0, scenes: []}, null, 2));
+  writeIfMissing(p.sources, `# Quellen — ${title}\n\n**Thema:** ${topic}\n\nPrimärquellen, Abrufdatum und verwendete Aussagen dokumentieren.\n`);
+  writeIfMissing(p.socialCaption, `<!-- FINANCE_TODO_SOCIAL_CAPTION -->\n\nKurze, sachliche Caption mit passenden Hashtags.\n`);
+  writeIfMissing(p.pdfContent, `# Fachlicher Inhalt — ${title}\n\n**Thema:** ${topic}\n\nFachliche Kernaussagen und Erklärungen dokumentieren.\n`);
+  writeIfMissing(p.storyboard, `# Storyboard — ${title}\n\nSzenen, Timing, Texte, Bilder und Übergänge dokumentieren.\n`);
+  writeIfMissing(p.motionDesign, `# Motion Design — ${title}\n\nPro Szene Bewegung, Fokus, Übergang und Animationsablauf dokumentieren.\n`);
+
+  writeIfMissing(path.join(p.audioDir, 'README.md'), '# Audio hier einfügen\n\nFinales Voiceover exakt als `voiceover-final.wav` ablegen.\n');
+  writeIfMissing(path.join(p.imageDropDir, 'README.md'), '# Bilder hier einfügen\n\nDie fertigen Szenenbilder mit den Namen aus `../scene-index.json` ablegen.\n');
+  writeIfMissing(path.join(p.individualScenesDir, 'README.md'), '# Einzelne Szenen\n\nFür jede Szene einen eigenen Ordner `scene-01`, `scene-02` usw. anlegen.\n');
+  writeIfMissing(path.join(p.captionsDir, 'README.md'), '# Caption\n\nWortuntertitel als `voiceover-final.captions.json`, Social Caption als `social-caption.md`.\n');
+  writeIfMissing(path.join(p.reviewDir, 'README.md'), '# Review\n\nQuellen, Status, Kontaktbogen und QA-Berichte.\n');
+  writeIfMissing(path.join(p.finalVideoDir, 'README.md'), '# Fertiges Video\n\nFinales Reel als `final-reel.mp4` ablegen.\n');
+  writeIfMissing(path.join(p.renderDir, 'README.md'), '# Render\n\nTemporäre Renderausgaben und Stills.\n');
+  writeIfMissing(path.join(p.timelineDir, 'README.md'), '# Timeline\n\nStoryboard, Motion-Plan, Szenenplan und Codex-Paket.\n');
 
   return p;
 };
