@@ -39,10 +39,35 @@ Der Ordner bestimmt die Szene. Der Name der Bilddatei ist egal. In einem Bildsze
 
 Unterstützte Bildformate: PNG, JPG, JPEG, WEBP und AVIF.
 
+## Verbindliche Laufzeit
+
+Die erkannte KI-Stimme läuft **72,42 Sekunden**. Diese Audiodauer ist jetzt die zeitliche Quelle der Wahrheit.
+
+- Audio wird nicht beschleunigt
+- Audio wird nicht gekürzt
+- Audio wird nicht zeitlich gestreckt
+- Composition: 2.173 Frames bei 30 FPS
+- Szenenplan: insgesamt 72,42 Sekunden
+
+Neue Szenenlängen:
+
+| Szene | Dauer |
+|---|---:|
+| 1 | 7,73 s |
+| 2 | 11,24 s |
+| 3 | 10,53 s |
+| 4 | 10,53 s |
+| 5 | 12,00 s |
+| 6 | 9,87 s |
+| 7 | 10,52 s |
+
+Längere Bildszenen verwenden mindestens zwei kontrollierte Bewegungsphasen, damit kein Bild rund zehn Sekunden statisch stehen bleibt.
+
 ## Aktueller Stand
 
 - Skript freigegeben
 - fünf Bildprompts fertig
 - zwei Remotion-Animationen geplant
 - lokale Bilder und Audio werden automatisch erkannt
+- Reel-Paket, Storyboard und Motion-Plan auf 72,42 Sekunden aktualisiert
 - Remotion-Code und finales Video sind noch nicht gebaut oder geprüft
