@@ -6,6 +6,7 @@ import path from 'node:path';
 
 const repoRoot = process.cwd();
 const validator = path.join(repoRoot, 'scripts', 'verify-finance-codex-reel-package.mjs');
+const transcriptAlignmentTest = path.join(repoRoot, 'scripts', 'test-finance-transcript-alignment.mjs');
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'finanzneo-codex-reel-'));
 const projectRoot = path.join(tempRoot, 'project');
 const projectFile = path.join(projectRoot, 'timeline', 'codex-reel-package.json');
@@ -180,6 +181,13 @@ try {
   writeFile('02-audio/zweite-aufnahme.m4a');
   result = run(['--require-assets']);
   expect(result.status !== 0 && result.stderr.includes('mehrere passende Dateien'), 'Mehrdeutiger Audioordner wurde nicht abgelehnt.', result);
+
+  const alignment = spawnSync(process.execPath, [transcriptAlignmentTest], {
+    cwd: repoRoot,
+    encoding: 'utf8'
+  });
+  expect(alignment.status === 0, 'Transkriptbasierte Szenenausrichtung ist fehlgeschlagen.', alignment);
+  process.stdout.write(alignment.stdout || '');
 
   console.log('✓ Codex-Reel-Workflow-Regressionstests bestanden.');
 } finally {
