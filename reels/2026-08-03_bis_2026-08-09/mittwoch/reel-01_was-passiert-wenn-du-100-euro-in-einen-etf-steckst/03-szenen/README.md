@@ -1,14 +1,20 @@
 # Szenen
 
 - `alle-bildprompts.txt`: alle Bildprompts direkt hintereinander
-- `BILDER-HIER-EINFUEGEN`: hier kommen die fünf erzeugten Bilder hinein
-- `EINZELNE-SZENEN`: jede Szene einzeln mit Bildprompt oder Animationsbeschreibung
-- `scene-index.json`: Reihenfolge, Typ und Dateinamen aller Szenen
+- `EINZELNE-SZENEN`: jede Szene einzeln mit Prompt, Szenenbeschreibung und dem dazugehörigen Bild
+- `scene-index.json`: Reihenfolge, Typ und genaue Pfade aller Szenen
 
-Erwartete Bilddateien:
+## Verbindliche Ablage
 
-- `scene-01-hook.png`
-- `scene-03-settlement.png`
-- `scene-04-fund-basket.png`
-- `scene-06-value-link.png`
-- `scene-07-payoff.png`
+Bei einer Bildszene kommen Prompt und Bild in denselben Ordner:
+
+```text
+EINZELNE-SZENEN/scene-01/
+├── bildprompt.txt
+├── scene-01-hook.png
+└── szene.md
+```
+
+Entsprechend gilt dies auch für Szene 03, 04, 06 und 07. Die Animationsszenen enthalten stattdessen `animation.md`.
+
+Es gibt keinen zusätzlichen Ordner `BILDER-HIER-EINFUEGEN` mehr.
