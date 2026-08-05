@@ -2,11 +2,11 @@
 
 ## Szene 1 — Hook
 
-Du klickst beim Broker auf „ETF kaufen“. Aber landen deine 100 Euro jetzt direkt bei Apple, Microsoft und Co.? Nein.
+Was passiert eigentlich, wenn du 100 Euro in einen ETF steckst? Wohin geht das Geld – und was bekommst du dafür?
 
 ## Szene 2 — Der Auftrag
 
-Aus deinem Klick wird zuerst eine Kauforder. Der Broker schickt sie an den gewählten Handelsplatz, wo sie im Orderbuch auf ein passendes Verkaufsangebot trifft – oft von einem anderen Anleger oder einem Market Maker.
+Zuerst wird aus deinem Klick eine Kauforder. Der Broker schickt sie an den gewählten Handelsplatz, wo sie im Orderbuch auf ein passendes Verkaufsangebot trifft – oft von einem anderen Anleger oder einem Market Maker.
 
 ## Szene 3 — Der eigentliche Tausch
 
