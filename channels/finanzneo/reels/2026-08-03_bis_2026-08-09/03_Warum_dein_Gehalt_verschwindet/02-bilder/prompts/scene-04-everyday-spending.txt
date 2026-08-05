@@ -1,0 +1,21 @@
+Create a vertical 9:16 narrative finance illustration at a modern supermarket checkout. Use the same recurring fictional young adult from the previous scenes, wearing a charcoal jacket and muted beige trousers. The character stands beside a partially empty wallet while a single checkout conveyor carries a compact basket of basic groceries, one delivery-food bag and one small impulse purchase. Each item physically pulls a few coins from the wallet toward the scanner, and a surprisingly long receipt unrolls from the register and curls across the foreground. The visual message must be clear: each purchase looks small, but together they empty the remaining money. Keep the checkout and wallet as the main focal action, place supporting purchases along the same coherent conveyor rather than as floating icons, and leave negative space in the upper third for later Remotion text. No generated words, prices, numbers, logos, brand packaging, interface panels or charts.
+
+Create a premium stylized 3D finance illustration for a modern German financial education channel.
+
+The image must feel like a polished editorial fintech explainer illustration: clearly illustrated, never photorealistic, never childish, and never a dashboard.
+
+Use simplified rounded 3D geometry, soft bevelled edges, smooth high-quality materials, subtle reflections, soft studio lighting, gentle ambient occlusion, restrained depth of field and clean cinematic composition.
+
+Use a deep charcoal to green-black background. Keep objects in recognizable natural colors and use emerald green and mint green only as controlled accent colors for money, growth, positive development, guidance and focal lighting. Use warm gold, orange or muted red only when the scene needs to represent consumption, cost, risk, warning or loss. Do not apply a global green color cast.
+
+Build one coherent illustrated scene or one clear visual metaphor with one dominant focal point and no more than three to five supporting elements. The scene must feel spatial and narrative, not like loose icons, a UI layout, a presentation slide or a technical diagram.
+
+Stylized 3D human figures may appear when they clarify an action. They must be generic fictional characters with simplified proportions, neutral friendly facial features and modern understated clothing. Never use real people, celebrity likenesses, photorealistic humans, exaggerated animated-movie faces or toy-like clay characters.
+
+Objects and locations must be instantly recognizable but elegantly simplified. Avoid realistic architectural visualization, fantasy machines, overcrowded miniature cities and excessive glowing network lines.
+
+Do not generate a title, subtitle, paragraph, logo, brand name, watermark or interface text. Main headline, captions and CTA will be added later in Remotion.
+
+Leave clean negative space for later German headline and subtitle overlays. Keep the main subject readable on a phone screen. Use a vertical 9:16 composition, premium render quality, balanced visual hierarchy and consistent FinanzNeo art direction.
+
+Avoid: photorealism, real humans, Pixar style, clay style, flat 2D infographics, UI dashboards, sterile product renders, cyberpunk neon, excessive particles, excessive bloom, floating unrelated icons, overcrowding, long text, logos and watermarks.
