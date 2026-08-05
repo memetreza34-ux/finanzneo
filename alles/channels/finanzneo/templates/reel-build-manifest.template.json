@@ -1,0 +1,52 @@
+{
+  "version": "finanzneo-reel-build-v1",
+  "slug": "FINANCE_TODO_SLUG",
+  "status": "awaiting-prebuild",
+  "codexAnimationCodingRequired": false,
+  "expectedSceneCount": 7,
+  "composition": {
+    "id": "FINANCE_TODO_COMPOSITION_ID",
+    "entryPoint": "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/index.ts",
+    "sourceRoot": "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE"
+  },
+  "runtime": {
+    "prepareScript": "scripts/prepare-finance-reel-runtime.mjs",
+    "propsFile": "render/reel-render-props.json",
+    "manifestFile": "timeline/runtime-manifest.json"
+  },
+  "expectedSourceFiles": [
+    "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/index.ts",
+    "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/Root.tsx",
+    "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/Reel.tsx",
+    "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/PrebuiltAnimations.tsx"
+  ],
+  "animations": [
+    {
+      "sceneId": "FINANCE_TODO_ANIMATION_SCENE_ID",
+      "component": "FINANCE_TODO_COMPONENT",
+      "source": "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/PrebuiltAnimations.tsx",
+      "timing": "relative-to-transcript-scene-duration",
+      "editableByCodex": false
+    }
+  ],
+  "additionalChecks": [],
+  "outputs": {
+    "video": "06-video/final-reel.mp4",
+    "cover": "00-cover/cover.png",
+    "contactSheet": "05-review/contact-sheet.png",
+    "qaReport": "05-review/codex-render-qa.json",
+    "buildReport": "05-review/build-report.json",
+    "qaDirectory": "05-review/render-qa"
+  },
+  "prebuiltApproval": {
+    "approvedByPlanningAssistant": false,
+    "animationsImplemented": false,
+    "compositionImplemented": false,
+    "approvedAt": null
+  },
+  "remainingHumanInput": [
+    "genau eine Audiodatei in 02-audio",
+    "genau ein Bild in jedem erwarteten Bildszenenordner",
+    "manuelle visuelle Freigabe nach dem Render"
+  ]
+}
