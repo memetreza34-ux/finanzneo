@@ -16,6 +16,7 @@ if (!projectArg) {
 const technicalRoot = process.cwd();
 const projectRoot = path.resolve(projectArg);
 const packageFile = path.join(projectRoot, 'timeline', 'codex-reel-package.json');
+const timingFile = path.join(projectRoot, 'timeline', 'scene-timing.json');
 if (!fs.existsSync(packageFile)) throw new Error(`Codex-Reel-Paket fehlt: ${packageFile}`);
 const reel = JSON.parse(fs.readFileSync(packageFile, 'utf8'));
 
@@ -45,6 +46,28 @@ if (!fs.existsSync(captionsSource) || !fs.statSync(captionsSource).isFile()) {
 const captions = JSON.parse(fs.readFileSync(captionsSource, 'utf8'));
 if (!Array.isArray(captions) || captions.length === 0) throw new Error('Caption-Datei enthält keine Einträge.');
 
+const fps = Number(reel.composition?.fps ?? 30);
+const width = Number(reel.composition?.width ?? 1080);
+const height = Number(reel.composition?.height ?? 1920);
+const durationInFrames = Number(reel.composition?.durationInFrames);
+if (!Number.isFinite(fps) || fps <= 0) throw new Error('composition.fps ist ungültig.');
+if (!Number.isInteger(durationInFrames) || durationInFrames <= 0) throw new Error('composition.durationInFrames fehlt.');
+if (!Array.isArray(reel.scenes) || reel.scenes.length !== 7) throw new Error('Das vorprogrammierte ETF-Reel benötigt genau sieben Szenen.');
+
+const frameBoundaries = [0];
+for (let index = 0; index < reel.scenes.length - 1; index += 1) {
+  const endMs = Number(reel.scenes[index]?.timing?.endMs);
+  if (!Number.isFinite(endMs) || endMs <= 0) {
+    throw new Error(`${reel.scenes[index]?.id ?? `Szene ${index + 1}`}: transcriptbasierte endMs fehlen.`);
+  }
+  const remainingScenes = reel.scenes.length - index - 1;
+  const earliest = frameBoundaries[index] + 1;
+  const latest = durationInFrames - remainingScenes;
+  const rounded = Math.round(endMs / 1000 * fps);
+  frameBoundaries.push(Math.min(latest, Math.max(earliest, rounded)));
+}
+frameBoundaries.push(durationInFrames);
+
 const publicRuntimeRoot = path.join(technicalRoot, 'channels', 'finanzneo', 'public', 'reels', reel.slug);
 const publicImageRoot = path.join(publicRuntimeRoot, 'images');
 const publicAudioRoot = path.join(publicRuntimeRoot, 'audio');
@@ -58,12 +81,10 @@ const runtimeAudioPublic = `reels/${reel.slug}/audio/voiceover-runtime.wav`;
 
 const assets = [];
 const scenes = reel.scenes.map((scene, index) => {
-  const timing = scene.timing ?? {};
-  const startFrame = Number(timing.startFrame);
-  const endFrameExclusive = Number(timing.endFrameExclusive);
-  if (!Number.isInteger(startFrame) || !Number.isInteger(endFrameExclusive) || endFrameExclusive <= startFrame) {
-    throw new Error(`${scene.id}: gültige transkriptbasierte Framegrenzen fehlen.`);
-  }
+  const startFrame = frameBoundaries[index];
+  const endFrameExclusive = frameBoundaries[index + 1];
+  const durationInSceneFrames = endFrameExclusive - startFrame;
+  if (durationInSceneFrames <= 0) throw new Error(`${scene.id}: normalisierte Szenendauer ist nicht positiv.`);
 
   let image;
   if (scene.type === 'image') {
@@ -88,7 +109,7 @@ const scenes = reel.scenes.map((scene, index) => {
     type: scene.type,
     startFrame,
     endFrameExclusive,
-    durationInFrames: endFrameExclusive - startFrame,
+    durationInFrames: durationInSceneFrames,
     kicker: scene.overlay?.kicker ?? '',
     headline: scene.overlay?.headline ?? '',
     body: scene.overlay?.body ?? '',
@@ -97,19 +118,42 @@ const scenes = reel.scenes.map((scene, index) => {
   };
 });
 
-const fps = Number(reel.composition?.fps ?? 30);
-const width = Number(reel.composition?.width ?? 1080);
-const height = Number(reel.composition?.height ?? 1920);
-const durationInFrames = Number(reel.composition?.durationInFrames);
-if (!Number.isInteger(durationInFrames) || durationInFrames <= 0) throw new Error('composition.durationInFrames fehlt.');
-if (scenes[0]?.startFrame !== 0) throw new Error('Die erste Szene muss bei Frame 0 beginnen.');
-if (scenes.at(-1)?.endFrameExclusive !== durationInFrames) {
-  throw new Error(`Letzte Szene endet bei ${scenes.at(-1)?.endFrameExclusive}; Composition endet bei ${durationInFrames}.`);
-}
 for (let index = 1; index < scenes.length; index += 1) {
   if (scenes[index].startFrame !== scenes[index - 1].endFrameExclusive) {
-    throw new Error(`Szenen ${index} und ${index + 1} sind nicht lückenlos.`);
+    throw new Error(`Szenen ${index} und ${index + 1} sind nach der Normalisierung nicht lückenlos.`);
   }
+}
+if (scenes[0].startFrame !== 0 || scenes.at(-1).endFrameExclusive !== durationInFrames) {
+  throw new Error('Normalisierte Framegrenzen decken die Composition nicht vollständig ab.');
+}
+
+const updatedPackage = {
+  ...reel,
+  scenes: reel.scenes.map((scene, index) => ({
+    ...scene,
+    durationSec: Number((scenes[index].durationInFrames / fps).toFixed(3)),
+    timing: {
+      ...(scene.timing ?? {}),
+      startFrame: scenes[index].startFrame,
+      endFrameExclusive: scenes[index].endFrameExclusive,
+      durationInFrames: scenes[index].durationInFrames,
+      frameNormalization: 'gapless-rounding',
+    },
+  })),
+};
+fs.writeFileSync(packageFile, `${JSON.stringify(updatedPackage, null, 2)}\n`);
+
+if (fs.existsSync(timingFile)) {
+  const timing = JSON.parse(fs.readFileSync(timingFile, 'utf8'));
+  timing.frameNormalization = 'gapless-rounding';
+  timing.durationInFrames = durationInFrames;
+  timing.scenes = (timing.scenes ?? []).map((scene, index) => ({
+    ...scene,
+    startFrame: scenes[index]?.startFrame,
+    endFrameExclusive: scenes[index]?.endFrameExclusive,
+    durationInFrames: scenes[index]?.durationInFrames,
+  }));
+  fs.writeFileSync(timingFile, `${JSON.stringify(timing, null, 2)}\n`);
 }
 
 const props = {
@@ -122,7 +166,7 @@ const props = {
   runtimeAudio: runtimeAudioPublic,
   captions,
   scenes,
-  debug: false,
+  debug: args.includes('--debug'),
 };
 
 const propsFile = path.join(projectRoot, 'render', 'etf-kauf-render-props.json');
@@ -137,6 +181,7 @@ fs.writeFileSync(manifestFile, `${JSON.stringify({
   projectRoot,
   publicRuntimeRoot: path.relative(technicalRoot, publicRuntimeRoot),
   propsFile: path.relative(projectRoot, propsFile),
+  frameNormalization: 'gapless-rounding',
   runtimeAudio: {
     source: reel.voiceover.runtimeAsset,
     publicFile: runtimeAudioPublic,
@@ -159,6 +204,7 @@ fs.writeFileSync(manifestFile, `${JSON.stringify({
 
 console.log(`✓ Laufzeit-Assets vorbereitet: ${path.relative(technicalRoot, publicRuntimeRoot)}`);
 console.log(`✓ Remotion-Props: ${path.relative(technicalRoot, propsFile)}`);
+console.log('✓ Transkriptgrenzen wurden auf lückenlose Renderframes normalisiert.');
 console.log(`  Bilder: ${assets.length}`);
 console.log(`  Captions: ${captions.length}`);
 console.log(`  Frames: ${durationInFrames}`);
