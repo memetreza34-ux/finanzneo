@@ -3,20 +3,20 @@ name: Finance Animation Foundation
 on:
   pull_request:
     paths:
-      - 'channels/finanzneo/src/animation-system/**'
-      - 'channels/finanzneo/tsconfig.animation-system.json'
-      - 'scripts/verify-finance-animation-foundation.mjs'
-      - 'scripts/verify-finance-animation-data-contracts.mjs'
-      - 'scripts/verify-finance-animation-input-limits.mjs'
-      - 'scripts/verify-finance-animation-domain-limits.mjs'
-      - 'scripts/verify-finance-animation-trajectories.mjs'
-      - 'scripts/verify-finance-animation-parser-immutability.mjs'
-      - 'scripts/verify-finance-animation-activation-policy.mjs'
-      - 'scripts/verify-finance-animation-public-api.mjs'
-      - 'scripts/verify-finance-animation-frame-matrix.mjs'
-      - 'scripts/verify-finance-animation-isolation.mjs'
-      - 'package.json'
-      - 'package-lock.json'
+      - 'alles/channels/finanzneo/src/animation-system/**'
+      - 'alles/channels/finanzneo/tsconfig.animation-system.json'
+      - 'alles/scripts/verify-finance-animation-foundation.mjs'
+      - 'alles/scripts/verify-finance-animation-data-contracts.mjs'
+      - 'alles/scripts/verify-finance-animation-input-limits.mjs'
+      - 'alles/scripts/verify-finance-animation-domain-limits.mjs'
+      - 'alles/scripts/verify-finance-animation-trajectories.mjs'
+      - 'alles/scripts/verify-finance-animation-parser-immutability.mjs'
+      - 'alles/scripts/verify-finance-animation-activation-policy.mjs'
+      - 'alles/scripts/verify-finance-animation-public-api.mjs'
+      - 'alles/scripts/verify-finance-animation-frame-matrix.mjs'
+      - 'alles/scripts/verify-finance-animation-isolation.mjs'
+      - 'alles/package.json'
+      - 'alles/package-lock.json'
       - '.github/workflows/finance-animation-foundation.yml'
   workflow_dispatch:
 
@@ -31,6 +31,9 @@ jobs:
   validate-animation-foundation:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: alles
     env:
       CI: true
 
@@ -45,6 +48,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: alles/package-lock.json
 
       - name: Verify structure, contracts, limits, exact trajectories, immutability, activation policy and public API
         run: npm run finance:animation-structure
