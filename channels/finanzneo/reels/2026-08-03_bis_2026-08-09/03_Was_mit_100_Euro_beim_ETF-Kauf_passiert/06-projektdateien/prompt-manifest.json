@@ -5,8 +5,8 @@
   "prompts": [
     {
       "sceneId": "scene-01-hook",
-      "voiceText": "Du klickst beim Broker auf „ETF kaufen“. Aber landen deine 100 Euro jetzt direkt bei Apple, Microsoft und Co.? Nein.",
-      "visualStatement": "Die 100 Euro passieren zuerst den Börsenhandel und fließen nicht direkt zu einzelnen Unternehmen.",
+      "voiceText": "Was passiert eigentlich, wenn du 100 Euro in einen ETF steckst? Wohin geht das Geld – und was bekommst du dafür?",
+      "visualStatement": "Der Weg von 100 Euro über Broker und Börse bis zum ETF-Anteil wird als zentrale Frage sichtbar.",
       "promptFile": "02-bilder/prompts/scene-01-hook.txt",
       "imageFile": "02-bilder/images/scene-01-hook.png",
       "status": "prompt-ready-asset-missing"
