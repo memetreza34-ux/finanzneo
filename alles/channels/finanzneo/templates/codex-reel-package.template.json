@@ -28,11 +28,11 @@
   },
   "voiceover": {
     "script": "FINANCE_TODO_COMPLETE_APPROVED_SCRIPT",
-    "asset": "01-script-audio/audio/voiceover-final.wav",
+    "asset": "02-audio/voiceover-final.wav",
     "instruction": "Deutsch, klar, direkt und seriös. Keine Begrüßung. Hook, Wendepunkt und Payoff deutlich betonen."
   },
   "captions": {
-    "asset": "03-caption/voiceover-final.captions.json",
+    "asset": "04-caption/voiceover-final.captions.json",
     "mayGenerateProvisionalTimings": true,
     "style": "finanzneo-word-captions"
   },
@@ -45,8 +45,8 @@
       "purpose": "Starke persönliche Hook mit sofort verständlicher Geldfolge.",
       "visualFamily": "editorial-3d-environment",
       "image": {
-        "asset": "02-bilder/images/scene-01-hook.png",
-        "promptFile": "02-bilder/prompts/scene-01-hook.txt",
+        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-01-hook.png",
+        "promptFile": "03-szenen/EINZELNE-SZENEN/scene-01/bildprompt.txt",
         "motion": {
           "type": "push-in",
           "scaleFrom": 1,
@@ -74,8 +74,8 @@
       "purpose": "Das konkrete Alltagsproblem sichtbar machen.",
       "visualFamily": "editorial-3d-closeup",
       "image": {
-        "asset": "02-bilder/images/scene-02-problem.png",
-        "promptFile": "02-bilder/prompts/scene-02-problem.txt",
+        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-02-problem.png",
+        "promptFile": "03-szenen/EINZELNE-SZENEN/scene-02/bildprompt.txt",
         "motion": {
           "type": "pan-right",
           "scaleFrom": 1.04,
@@ -136,8 +136,8 @@
       "purpose": "Ein konkretes Beispiel in einer anderen Bildwelt zeigen.",
       "visualFamily": "editorial-3d-real-world-example",
       "image": {
-        "asset": "02-bilder/images/scene-04-example.png",
-        "promptFile": "02-bilder/prompts/scene-04-example.txt",
+        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-04-example.png",
+        "promptFile": "03-szenen/EINZELNE-SZENEN/scene-04/bildprompt.txt",
         "motion": {
           "type": "pull-out",
           "scaleFrom": 1.07,
@@ -165,8 +165,8 @@
       "purpose": "Die sichtbare Folge des Problems zeigen.",
       "visualFamily": "editorial-3d-consequence",
       "image": {
-        "asset": "02-bilder/images/scene-05-consequence.png",
-        "promptFile": "02-bilder/prompts/scene-05-consequence.txt",
+        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-05-consequence.png",
+        "promptFile": "03-szenen/EINZELNE-SZENEN/scene-05/bildprompt.txt",
         "motion": {
           "type": "push-in",
           "scaleFrom": 1,
@@ -227,8 +227,8 @@
       "purpose": "Hook beantworten und die praktische Kernaussage abschließen.",
       "visualFamily": "editorial-3d-payoff",
       "image": {
-        "asset": "02-bilder/images/scene-07-payoff.png",
-        "promptFile": "02-bilder/prompts/scene-07-payoff.txt",
+        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-07-payoff.png",
+        "promptFile": "03-szenen/EINZELNE-SZENEN/scene-07/bildprompt.txt",
         "motion": {
           "type": "push-in",
           "scaleFrom": 1,
@@ -250,10 +250,10 @@
     }
   ],
   "deliverables": {
-    "video": "05-export/final-reel.mp4",
-    "cover": "05-export/cover.png",
-    "contactSheet": "05-export/contact-sheet.png",
-    "qaReport": "06-projektdateien/codex-render-qa.json"
+    "video": "06-video/final-reel.mp4",
+    "cover": "00-cover/cover.png",
+    "contactSheet": "05-review/contact-sheet.png",
+    "qaReport": "05-review/codex-render-qa.json"
   },
   "approval": {
     "scriptApprovedByUser": false,
