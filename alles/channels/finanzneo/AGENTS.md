@@ -71,6 +71,20 @@ Codex must use the path printed by `finance:codex-reel:check-ready`. If the sour
 
 If zero or multiple supported files are found, stop and report the exact folder and candidates.
 
+## Voiceover-led timing
+
+The measured voiceover duration is the timing source of truth. A reel package may be 25–90 seconds long.
+
+Do not automatically accelerate, trim or time-stretch the voiceover. If measured audio and planned scene duration disagree, update the package timing before implementation:
+
+- `composition.targetDurationSec`
+- `composition.durationInFrames`
+- `voiceover.measuredDurationSec`
+- every `scene.durationSec`
+- storyboard, motion plan and generated captions
+
+Longer image scenes require at least two controlled movement phases rather than one static hold.
+
 ## Automatic image discovery
 
 For every scene whose package type is `image`, the user places exactly one supported image in that scene's folder:
