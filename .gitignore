@@ -1,5 +1,6 @@
 # ---- Abhängigkeiten / Build ----
 node_modules/
+alles/node_modules/
 dist/
 .remotion/
 .cache/
@@ -13,16 +14,16 @@ frames/
 *.mov
 *.mkv
 
-# ---- Laufzeit-Staging fürs Rendern (regenerierbar aus reels/) ----
-channels/finanzneo/public/reels/
+# ---- Laufzeit-Staging fürs Rendern ----
+alles/channels/finanzneo/public/reels/
 
-# ---- Audio (kommt pro Video von Arman) ----
+# ---- Audio (kommt pro Video vom Nutzer) ----
 *.wav
 *.mp3
 *.m4a
 *.aiff
 
-# ---- Secrets / Keys (NIE auf GitHub) ----
+# ---- Secrets / Keys ----
 .env
 .env.local
 *.key
@@ -34,5 +35,6 @@ channels/finanzneo/public/reels/
 __pycache__/
 *.pyc
 
-# Claude Code worktree sessions (local, not project data)
+# Claude Code worktree sessions
 .claude/worktrees/
+alles/.claude/worktrees/
