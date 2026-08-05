@@ -1,0 +1,61 @@
+{
+  "version": "finanzneo-reel-build-v1",
+  "slug": "was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
+  "status": "prebuilt-ready",
+  "codexAnimationCodingRequired": false,
+  "expectedSceneCount": 7,
+  "composition": {
+    "id": "FinanzNeoEtfKauf100Euro",
+    "entryPoint": "channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/index.ts",
+    "sourceRoot": "channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro"
+  },
+  "runtime": {
+    "prepareScript": "scripts/prepare-finance-reel-runtime.mjs",
+    "propsFile": "render/etf-kauf-render-props.json",
+    "manifestFile": "timeline/runtime-manifest.json"
+  },
+  "expectedSourceFiles": [
+    "channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/types.ts",
+    "channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/visual.tsx",
+    "channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/PrebuiltEtfAnimations.tsx",
+    "channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/EtfKauf100EuroReel.tsx",
+    "channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/EtfKauf100EuroRoot.tsx",
+    "channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/index.ts"
+  ],
+  "animations": [
+    {
+      "sceneId": "scene-02-order-match",
+      "component": "PrebuiltEtfOrderMatchAnimation",
+      "source": "channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/PrebuiltEtfAnimations.tsx",
+      "timing": "relative-to-transcript-scene-duration",
+      "editableByCodex": false
+    },
+    {
+      "sceneId": "scene-05-creation",
+      "component": "PrebuiltEtfCreationAnimation",
+      "source": "channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/PrebuiltEtfAnimations.tsx",
+      "timing": "relative-to-transcript-scene-duration",
+      "editableByCodex": false
+    }
+  ],
+  "additionalChecks": [],
+  "outputs": {
+    "video": "06-video/final-reel.mp4",
+    "cover": "00-cover/cover.png",
+    "contactSheet": "05-review/contact-sheet.png",
+    "qaReport": "05-review/codex-render-qa.json",
+    "buildReport": "05-review/build-report.json",
+    "qaDirectory": "05-review/render-qa"
+  },
+  "prebuiltApproval": {
+    "approvedByPlanningAssistant": true,
+    "animationsImplemented": true,
+    "compositionImplemented": true,
+    "approvedAt": "2026-08-05T19:22:00+02:00"
+  },
+  "remainingHumanInput": [
+    "genau eine Audiodatei in 02-audio",
+    "genau ein Bild in jedem erwarteten Bildszenenordner",
+    "manuelle visuelle Freigabe nach dem Render"
+  ]
+}
