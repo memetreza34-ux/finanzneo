@@ -11,8 +11,12 @@ if (!projectArg) {
 }
 
 const projectRoot = path.resolve(projectArg);
-const packageFile = path.join(projectRoot, '06-projektdateien', 'codex-reel-package.json');
-if (!fs.existsSync(packageFile)) throw new Error(`Codex-Reel-Paket fehlt: ${packageFile}`);
+const packageCandidates = [
+  path.join(projectRoot, 'timeline', 'codex-reel-package.json'),
+  path.join(projectRoot, '06-projektdateien', 'codex-reel-package.json'),
+];
+const packageFile = packageCandidates.find((candidate) => fs.existsSync(candidate));
+if (!packageFile) throw new Error(`Codex-Reel-Paket fehlt. Erwartet: ${packageCandidates.join(' oder ')}`);
 const reel = JSON.parse(fs.readFileSync(packageFile, 'utf8'));
 
 const audioRelative = reel.voiceover?.asset;
@@ -78,7 +82,7 @@ for (let sceneIndex = 0; sceneIndex < scenes.length; sceneIndex += 1) {
       startMs: wordCursor,
       endMs: Math.max(wordCursor + 1, next),
       timestampMs: wordCursor,
-      confidence: null
+      confidence: null,
     });
     wordCursor = Math.max(wordCursor + 1, next);
   }
@@ -88,7 +92,7 @@ for (let sceneIndex = 0; sceneIndex < scenes.length; sceneIndex += 1) {
     startMs: sceneStartMs,
     endMs: sceneEndMs,
     durationSec: Number(((sceneEndMs - sceneStartMs) / 1000).toFixed(3)),
-    wordCount: words.length
+    wordCount: words.length,
   });
   cursorMs = sceneEndMs;
 }
@@ -97,7 +101,11 @@ if (captions.at(-1)) captions.at(-1).endMs = audioDurationMs;
 fs.mkdirSync(path.dirname(captionsFile), {recursive: true});
 fs.writeFileSync(captionsFile, JSON.stringify(captions, null, 2));
 
-const reportFile = path.join(projectRoot, '06-projektdateien', 'codex-caption-generation.json');
+const reviewDirectory = fs.existsSync(path.join(projectRoot, '05-review'))
+  ? path.join(projectRoot, '05-review')
+  : path.join(projectRoot, '06-projektdateien');
+fs.mkdirSync(reviewDirectory, {recursive: true});
+const reportFile = path.join(reviewDirectory, 'codex-caption-generation.json');
 fs.writeFileSync(reportFile, JSON.stringify({
   version: 'finanzneo-codex-caption-v1',
   generatedAt: new Date().toISOString(),
@@ -108,11 +116,11 @@ fs.writeFileSync(reportFile, JSON.stringify({
   captions: captionsRelative,
   captionCount: captions.length,
   scenes: sceneTiming,
-  warning: 'Provisorische, skriptbasierte Zeitstempel. Synchronität muss im vollständigen Render visuell geprüft werden.'
+  warning: 'Provisorische, skriptbasierte Zeitstempel. Synchronität muss im vollständigen Render visuell geprüft werden.',
 }, null, 2));
 
 console.log(`✓ Provisorische Wort-Captions erzeugt: ${path.relative(process.cwd(), captionsFile)}`);
 console.log(`  Wörter: ${captions.length}`);
 console.log(`  Audiodauer: ${durationSeconds.toFixed(3)} s`);
-console.log(`  Methode: skriptbasierte Gewichtung, keine Spracherkennung`);
+console.log('  Methode: skriptbasierte Gewichtung, keine Spracherkennung');
 console.log(`  Prüfbericht: ${path.relative(process.cwd(), reportFile)}`);
