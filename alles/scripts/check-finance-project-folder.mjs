@@ -13,34 +13,32 @@ if (!reelDirArg) {
   process.exit(1);
 }
 
-const root = process.cwd();
-const reelsRoot = path.resolve(process.env.FINANCE_REELS_ROOT ?? path.join(root, 'channels', 'finanzneo', 'reels'));
+const technicalRoot = process.cwd();
+const repositoryRoot = path.resolve(technicalRoot, '..');
+const reelsRoot = path.resolve(process.env.FINANCE_REELS_ROOT ?? path.join(repositoryRoot, 'reels'));
 const reelDir = path.resolve(reelDirArg);
 const relative = path.relative(reelsRoot, reelDir);
 const parts = relative.split(path.sep).filter(Boolean);
 const weekPattern = /^(\d{4}-\d{2}-\d{2})_bis_(\d{4}-\d{2}-\d{2})$/;
-const reelPattern = /^(0[1-7])_(.+)$/;
-const dayNames = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
+const reelPattern = /^reel-(\d{2})_(.+)$/;
+const dayNames = ['montag', 'dienstag', 'mittwoch', 'donnerstag', 'freitag', 'samstag', 'sonntag'];
 
 const fail = (message) => {
   console.error(`✗ FINANCE_FOLDER_INVALID: ${message}`);
-  console.error('  Erwartet: channels/finanzneo/reels/YYYY-MM-DD_bis_YYYY-MM-DD/NN_Reel-Name');
-  console.error('  Beispiel: channels/finanzneo/reels/2026-07-27_bis_2026-08-02/01_Inflation-und-Kaufkraft');
+  console.error('  Erwartet: reels/YYYY-MM-DD_bis_YYYY-MM-DD/wochentag/reel-01_thema');
+  console.error('  Beispiel: reels/2026-08-03_bis_2026-08-09/mittwoch/reel-01_was-ist-ein-etf');
   process.exit(1);
 };
 
-if (relative.startsWith('..') || path.isAbsolute(relative)) fail('Projekt liegt außerhalb von channels/finanzneo/reels.');
-if (parts.length !== 2) fail(`Falsche Ordnertiefe: ${relative.split(path.sep).join('/')}.`);
-const [weekFolder, reelFolder] = parts;
+if (relative.startsWith('..') || path.isAbsolute(relative)) fail('Projekt liegt außerhalb des Reel-Hauptordners.');
+if (parts.length !== 3) fail(`Falsche Ordnertiefe: ${relative.split(path.sep).join('/')}.`);
+const [weekFolder, weekdayFolder, reelFolder] = parts;
 const weekMatch = weekFolder.match(weekPattern);
 const reelMatch = reelFolder.match(reelPattern);
 if (!weekMatch) fail(`Ungültiger Wochenordner: ${weekFolder}.`);
-if (!reelMatch) fail(`Ungültiger Reel-Ordner: ${reelFolder}. Nummer und Reel-Name sind Pflicht.`);
-const reelName = reelMatch[2].trim();
-if (!reelName) fail('Der Reel-Name hinter der Tagesnummer fehlt.');
-if (dayNames.some((day) => day.toLocaleLowerCase('de-DE') === reelName.toLocaleLowerCase('de-DE'))) {
-  fail(`Der Ordner ${reelFolder} enthält nur den Wochentag. Hinter der Nummer muss ein verständlicher Reel-Name stehen.`);
-}
+if (!dayNames.includes(weekdayFolder)) fail(`Ungültiger Wochentagsordner: ${weekdayFolder}.`);
+if (!reelMatch) fail(`Ungültiger Reel-Ordner: ${reelFolder}. Erwartet wird reel-01_thema.`);
+if (!reelMatch[2].trim()) fail('Der Reel-Name hinter reel-01_ fehlt.');
 
 const parseDate = (value) => {
   const date = new Date(`${value}T00:00:00Z`);
@@ -60,13 +58,15 @@ for (const directory of financeRequiredDirectories(reelDir)) {
   if (!fs.existsSync(directory) || !fs.statSync(directory).isDirectory()) fail(`Pflichtordner fehlt: ${path.relative(reelDir, directory)}.`);
 }
 for (const file of [
+  p.coverText,
   p.scenePlan,
+  p.sceneIndex,
   p.status,
   p.sources,
   p.scriptMarkdown,
   p.voiceScript,
   p.voicePrompt,
-  p.imagePromptIndex,
+  p.allImagePrompts,
   p.socialCaption,
   p.pdfContent,
   p.storyboard,
@@ -76,24 +76,28 @@ for (const file of [
   if (!fs.existsSync(file) || !fs.statSync(file).isFile() || fs.statSync(file).size === 0) fail(`Pflichtdatei fehlt oder ist leer: ${path.relative(reelDir, file)}.`);
 }
 
-for (const legacy of ['voice', 'audio', 'image-prompts', 'images', 'captions', 'pdf', 'export', 'video', 'data']) {
-  if (fs.existsSync(path.join(reelDir, legacy))) fail(`Veralteter Hauptordner gefunden: ${legacy}/. Inhalte in die nummerierten Produktionsordner verschieben.`);
+for (const legacy of ['01-script-audio', '02-bilder', '03-caption', '04-pdf', '05-export', '06-projektdateien', 'voice', 'image-prompts', 'images', 'captions', 'pdf', 'export', 'video', 'data']) {
+  if (fs.existsSync(path.join(reelDir, legacy))) fail(`Veralteter Hauptordner gefunden: ${legacy}/.`);
 }
 for (const legacyFile of ['scene-plan.json', 'production-status.json', 'sources.md', 'asset-manifest.json', 'ready-report.json', 'qa-report.json']) {
-  if (fs.existsSync(path.join(reelDir, legacyFile))) fail(`Technische Datei liegt noch im Projektroot: ${legacyFile}. Sie gehört nach 06-projektdateien/.`);
+  if (fs.existsSync(path.join(reelDir, legacyFile))) fail(`Technische Datei liegt noch im Projektroot: ${legacyFile}.`);
 }
 
 const status = JSON.parse(fs.readFileSync(p.status, 'utf8'));
 if ((status.folderStructureVersion ?? 0) < FINANCE_STRUCTURE_VERSION) fail(`folderStructureVersion ist veraltet: ${status.folderStructureVersion ?? 'fehlt'}.`);
 if (status.weekFolder !== weekFolder) fail(`production-status.weekFolder stimmt nicht: ${status.weekFolder ?? 'fehlt'}.`);
-if ((status.reelFolder ?? status.dayFolder) !== reelFolder) fail(`production-status.reelFolder stimmt nicht: ${status.reelFolder ?? status.dayFolder ?? 'fehlt'}.`);
-const expectedProjectPath = path.relative(root, reelDir).split(path.sep).join('/');
+if (status.weekdayFolder !== weekdayFolder) fail(`production-status.weekdayFolder stimmt nicht: ${status.weekdayFolder ?? 'fehlt'}.`);
+if (status.reelFolder !== reelFolder) fail(`production-status.reelFolder stimmt nicht: ${status.reelFolder ?? 'fehlt'}.`);
+const expectedProjectPath = path.relative(repositoryRoot, reelDir).split(path.sep).join('/');
 if (status.projectPath !== expectedProjectPath) fail(`production-status.projectPath stimmt nicht: ${status.projectPath ?? 'fehlt'}.`);
 if (!/^\d{4}-\d{2}-\d{2}$/.test(status.publishDate ?? '')) fail('production-status.publishDate fehlt oder ist ungültig.');
 const publish = parseDate(status.publishDate);
-const dayNumber = Number(reelMatch[1]);
 const offsetDays = Math.round((publish.getTime() - start.getTime()) / 86400000);
-if (offsetDays !== dayNumber - 1) fail(`publishDate ${status.publishDate} passt nicht zu Tagesnummer ${reelMatch[1]} (${dayNames[dayNumber - 1]}).`);
+const expectedWeekday = dayNames[offsetDays];
+if (offsetDays < 0 || offsetDays > 6 || expectedWeekday !== weekdayFolder) {
+  fail(`publishDate ${status.publishDate} passt nicht zum Wochentagsordner ${weekdayFolder}.`);
+}
+if (status.dayNumber !== offsetDays + 1) fail(`production-status.dayNumber stimmt nicht: ${status.dayNumber ?? 'fehlt'}.`);
 
 console.log(`✓ FINANCE_FOLDER_OK: ${expectedProjectPath}`);
-console.log(`  ${dayNames[dayNumber - 1]} · ${reelName}`);
+console.log(`  ${weekdayFolder} · ${reelFolder}`);
