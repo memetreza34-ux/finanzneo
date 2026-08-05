@@ -1,0 +1,36 @@
+{
+  "version": "finance-v1",
+  "slug": "warum-dein-gehalt-verschwindet",
+  "topic": "Warum ein Gehalt ohne feste Aufteilung schon am Monatsanfang verplant ist und wie ein Vier-Töpfe-System Kontrolle schafft",
+  "title": "Warum dein Gehalt sofort kleiner wird",
+  "publishDate": "2026-08-05",
+  "weekFolder": "2026-08-03_bis_2026-08-09",
+  "dayNumber": 3,
+  "dayName": "Mittwoch",
+  "reelFolder": "03_Warum_dein_Gehalt_verschwindet",
+  "projectPath": "channels/finanzneo/reels/2026-08-03_bis_2026-08-09/03_Warum_dein_Gehalt_verschwindet",
+  "sourceCodePath": "channels/finanzneo/src/reels/2026-08-05-warum-dein-gehalt-verschwindet",
+  "stage": "creative-package-complete",
+  "approvals": {
+    "topicSelected": true,
+    "scriptApproved": false,
+    "imagePromptsApproved": false,
+    "assetsReviewed": false,
+    "finalVideoApproved": false
+  },
+  "mediaStatus": {
+    "voiceoverPresent": false,
+    "imageCountRequired": 5,
+    "imageCountPresent": 0,
+    "captionsPresent": false,
+    "renderPresent": false
+  },
+  "creativeStructure": {
+    "sceneCount": 7,
+    "imageScenes": 5,
+    "animationScenes": 2,
+    "targetDurationSec": 55.5,
+    "mode": "image-first-hybrid"
+  },
+  "nextRequiredAction": "Nutzer prüft Skript und Bildprompts, erzeugt fünf Bilder und das finale Voiceover und legt sie unter den festgelegten Dateinamen ab."
+}
