@@ -1,0 +1,47 @@
+{
+  "version": "finance-v1",
+  "slug": "was-passiert-mit-100-euro-beim-etf-kauf",
+  "generatedAt": "2026-08-05T04:20:00.000Z",
+  "prompts": [
+    {
+      "sceneId": "scene-01-hook",
+      "voiceText": "Du klickst beim Broker auf „ETF kaufen“. Aber landen deine 100 Euro jetzt direkt bei Apple, Microsoft und Co.? Nein.",
+      "visualStatement": "Die 100 Euro passieren zuerst den Börsenhandel und fließen nicht direkt zu einzelnen Unternehmen.",
+      "promptFile": "02-bilder/prompts/scene-01-hook.txt",
+      "imageFile": "02-bilder/images/scene-01-hook.png",
+      "status": "prompt-ready-asset-missing"
+    },
+    {
+      "sceneId": "scene-03-settlement",
+      "voiceText": "Sobald Preis und Menge zusammenpassen, wird der Handel ausgeführt: Der Verkäufer bekommt dein Geld, und der ETF-Anteil wird deinem Depot gutgeschrieben.",
+      "visualStatement": "Geld und ETF-Anteil bewegen sich beim ausgeführten Handel in entgegengesetzte Richtungen.",
+      "promptFile": "02-bilder/prompts/scene-03-settlement.txt",
+      "imageFile": "02-bilder/images/scene-03-settlement.png",
+      "status": "prompt-ready-asset-missing"
+    },
+    {
+      "sceneId": "scene-04-fund-basket",
+      "voiceText": "Dieser Anteil gehört zu einem Fonds, der bereits viele Wertpapiere hält. Du kaufst also nicht selbst jede einzelne Aktie, sondern einen Anteil am gesamten Fondsvermögen.",
+      "visualStatement": "Ein einzelner ETF-Anteil ist proportional mit einem ganzen Fondsvermögen verbunden.",
+      "promptFile": "02-bilder/prompts/scene-04-fund-basket.txt",
+      "imageFile": "02-bilder/images/scene-04-fund-basket.png",
+      "status": "prompt-ready-asset-missing"
+    },
+    {
+      "sceneId": "scene-06-value-link",
+      "voiceText": "Ab dann bewegt sich der Wert deines Anteils mit den enthaltenen Wertpapieren. Bei einem Sparplan kannst du je nach Anbieter auch nur einen Bruchteil eines Anteils besitzen.",
+      "visualStatement": "Der ETF-Anteilswert ist mechanisch mit dem gemeinsamen Wert der enthaltenen Wertpapiere verbunden.",
+      "promptFile": "02-bilder/prompts/scene-06-value-link.txt",
+      "imageFile": "02-bilder/images/scene-06-value-link.png",
+      "status": "prompt-ready-asset-missing"
+    },
+    {
+      "sceneId": "scene-07-payoff",
+      "voiceText": "Der wichtigste Punkt: Deine 100 Euro gehen beim normalen Börsenkauf an die Gegenseite des Handels. Du erhältst dafür einen Fondsanteil, der wirtschaftlich an einem ganzen Wertpapierkorb hängt.",
+      "visualStatement": "Der Anleger besitzt einen Fondsanteil, der am gesamten Wertpapierkorb hängt; der Geldweg endet bei der Handelsgegenseite.",
+      "promptFile": "02-bilder/prompts/scene-07-payoff.txt",
+      "imageFile": "02-bilder/images/scene-07-payoff.png",
+      "status": "prompt-ready-asset-missing"
+    }
+  ]
+}
