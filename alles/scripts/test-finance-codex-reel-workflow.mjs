@@ -11,10 +11,10 @@ const projectRoot = path.join(tempRoot, 'project');
 const projectFile = path.join(projectRoot, 'timeline', 'codex-reel-package.json');
 
 const sceneDirectory = (index) => `03-szenen/EINZELNE-SZENEN/scene-${String(index).padStart(2, '0')}`;
-const imageScene = (index) => ({
+const imageScene = (index, durationSec = 4) => ({
   id: `scene-${String(index).padStart(2, '0')}-image`,
   type: 'image',
-  durationSec: 4,
+  durationSec,
   voiceText: `Bildszene ${index} erklärt eine eigene konkrete Aussage.`,
   purpose: `Eigener Inhaltsbeat für Bildszene ${index}.`,
   visualFamily: `image-family-${index}`,
@@ -29,10 +29,10 @@ const imageScene = (index) => ({
   soundCues: []
 });
 
-const animationScene = (index) => ({
+const animationScene = (index, durationSec = 5) => ({
   id: `scene-${String(index).padStart(2, '0')}-animation`,
   type: 'animation',
-  durationSec: 5,
+  durationSec,
   voiceText: `Animation ${index} zeigt einen eigenen Finanzprozess mit sichtbarer Veränderung.`,
   purpose: `Eigener bewegter Inhaltsbeat für Animation ${index}.`,
   visualFamily: `animation-family-${index}`,
@@ -50,14 +50,15 @@ const animationScene = (index) => ({
   soundCues: []
 });
 
+const sceneDurations = [7.73, 11.24, 10.53, 10.53, 12, 9.87, 10.52];
 const scenes = [
-  imageScene(1),
-  imageScene(2),
-  animationScene(3),
-  imageScene(4),
-  imageScene(5),
-  animationScene(6),
-  imageScene(7)
+  imageScene(1, sceneDurations[0]),
+  animationScene(2, sceneDurations[1]),
+  imageScene(3, sceneDurations[2]),
+  imageScene(4, sceneDurations[3]),
+  animationScene(5, sceneDurations[4]),
+  imageScene(6, sceneDurations[5]),
+  imageScene(7, sceneDurations[6])
 ];
 const voiceScript = scenes.map((scene) => scene.voiceText).join(' ');
 const validPackage = {
@@ -69,7 +70,14 @@ const validPackage = {
   publishDate: '2026-08-04',
   centralQuestion: 'Kann Codex ein bildgeführtes Hybrid-Reel sicher umsetzen?',
   payoff: 'Ja, wenn Paket, Medien und Qualitätsregeln vollständig sind.',
-  composition: {id: 'FinanzNeoCodexWorkflowTest', width: 1080, height: 1920, fps: 30},
+  composition: {
+    id: 'FinanzNeoCodexWorkflowTest',
+    width: 1080,
+    height: 1920,
+    fps: 30,
+    durationInFrames: 2173,
+    targetDurationSec: 72.42
+  },
   creativeRules: {
     mode: 'image-first-hybrid',
     imageScenesMustOutnumberAnimations: true,
@@ -83,6 +91,7 @@ const validPackage = {
     script: voiceScript,
     directory: '02-audio',
     selection: 'single-supported-file',
+    measuredDurationSec: 72.42,
     instruction: 'Deutsch und klar.'
   },
   captions: {asset: '04-caption/voiceover-final.captions.json', mayGenerateProvisionalTimings: true, style: 'finanzneo-word-captions'},
@@ -137,11 +146,12 @@ const expect = (condition, message, result) => {
 try {
   writePackage(validPackage);
   let result = run();
-  expect(result.status === 0, 'Gültiges Strukturpaket wurde abgelehnt.', result);
+  expect(result.status === 0, 'Gültiges 72,42-Sekunden-Strukturpaket wurde abgelehnt.', result);
 
   createAssets(validPackage);
   result = run(['--require-assets']);
   expect(result.status === 0, 'Beliebig benannte Medien wurden im Ready-Paket abgelehnt.', result);
+  expect(result.stdout.includes('72.42 s'), 'Die verlängerte Gesamtdauer wurde nicht bestätigt.', result);
   expect(result.stdout.includes('F 1.mp4'), 'Automatisch erkanntes Voiceover wurde nicht ausgegeben.', result);
   expect(result.stdout.includes('100_euros.jpeg'), 'Automatisch erkanntes Szenenbild wurde nicht ausgegeben.', result);
 
@@ -149,6 +159,9 @@ try {
   invalidRatio.scenes = [imageScene(1), imageScene(2), imageScene(3), animationScene(4), animationScene(5), animationScene(6), animationScene(7)];
   invalidRatio.voiceover.script = invalidRatio.scenes.map((scene) => scene.voiceText).join(' ');
   invalidRatio.cover.sourceSceneId = invalidRatio.scenes[0].id;
+  delete invalidRatio.composition.durationInFrames;
+  delete invalidRatio.composition.targetDurationSec;
+  delete invalidRatio.voiceover.measuredDurationSec;
   writePackage(invalidRatio);
   result = run();
   expect(result.status !== 0 && result.stderr.includes('Bildszenen müssen Animationen überwiegen'), 'Ungültiges Bild-Animations-Verhältnis wurde nicht abgelehnt.', result);
