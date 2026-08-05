@@ -2,6 +2,10 @@
 import {execFileSync} from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import {
+  resolveVoiceoverAsset,
+  isSafeRelativePath,
+} from './lib/finance-user-asset-discovery.mjs';
 
 const args = process.argv.slice(2);
 const projectArg = args.find((arg) => !arg.startsWith('--'));
@@ -19,18 +23,30 @@ const packageFile = packageCandidates.find((candidate) => fs.existsSync(candidat
 if (!packageFile) throw new Error(`Codex-Reel-Paket fehlt. Erwartet: ${packageCandidates.join(' oder ')}`);
 const reel = JSON.parse(fs.readFileSync(packageFile, 'utf8'));
 
-const audioRelative = reel.voiceover?.asset;
+const voiceover = reel.voiceover ?? {};
 const captionsRelative = reel.captions?.asset;
-if (typeof audioRelative !== 'string' || !audioRelative.trim()) throw new Error('voiceover.asset fehlt im Codex-Reel-Paket.');
 if (typeof captionsRelative !== 'string' || !captionsRelative.trim()) throw new Error('captions.asset fehlt im Codex-Reel-Paket.');
+if (!isSafeRelativePath(captionsRelative)) throw new Error(`Unsicherer Caption-Pfad: ${captionsRelative}.`);
 if (reel.captions?.mayGenerateProvisionalTimings !== true) {
   throw new Error('Das Codex-Reel-Paket erlaubt keine provisorischen Caption-Zeitstempel.');
 }
 
-const audioFile = path.resolve(projectRoot, audioRelative);
-const captionsFile = path.resolve(projectRoot, captionsRelative);
-if (!fs.existsSync(audioFile) || !fs.statSync(audioFile).isFile()) throw new Error(`Voiceover fehlt: ${audioRelative}`);
+let audioRelative;
+let audioFile;
+if (isSafeRelativePath(voiceover.directory ?? voiceover.assetDirectory)) {
+  const resolved = resolveVoiceoverAsset(projectRoot, voiceover);
+  if (!resolved.ok) throw new Error(resolved.message);
+  audioRelative = resolved.relativeFile;
+  audioFile = resolved.absoluteFile;
+} else if (isSafeRelativePath(voiceover.asset)) {
+  audioRelative = voiceover.asset;
+  audioFile = path.resolve(projectRoot, audioRelative);
+  if (!fs.existsSync(audioFile) || !fs.statSync(audioFile).isFile()) throw new Error(`Voiceover fehlt: ${audioRelative}`);
+} else {
+  throw new Error('voiceover.directory oder voiceover.asset fehlt im Codex-Reel-Paket.');
+}
 
+const captionsFile = path.resolve(projectRoot, captionsRelative);
 const durationSeconds = Number(execFileSync('ffprobe', [
   '-v', 'error',
   '-show_entries', 'format=duration',
@@ -112,6 +128,7 @@ fs.writeFileSync(reportFile, JSON.stringify({
   method: 'provisional-weighted-word-distribution',
   speechRecognitionUsed: false,
   audio: audioRelative,
+  audioWasAutoDetected: Boolean(voiceover.directory ?? voiceover.assetDirectory),
   audioDurationSec: Number(durationSeconds.toFixed(3)),
   captions: captionsRelative,
   captionCount: captions.length,
@@ -119,6 +136,7 @@ fs.writeFileSync(reportFile, JSON.stringify({
   warning: 'Provisorische, skriptbasierte Zeitstempel. Synchronität muss im vollständigen Render visuell geprüft werden.',
 }, null, 2));
 
+console.log(`✓ Voiceover automatisch erkannt: ${audioRelative}`);
 console.log(`✓ Provisorische Wort-Captions erzeugt: ${path.relative(process.cwd(), captionsFile)}`);
 console.log(`  Wörter: ${captions.length}`);
 console.log(`  Audiodauer: ${durationSeconds.toFixed(3)} s`);
