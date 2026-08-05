@@ -2,37 +2,59 @@
 
 ## Entscheidung
 
-Das vorhandene Voiceover wird vollständig und unverändert verwendet.
+Die vorhandene KI-Stimme wird vollständig verwendet, aber **pitch-erhaltend auf 1,10× beschleunigt**.
 
-- gemessene Audiodauer: **72,42 Sekunden**
-- frühere Planung: 51,50 Sekunden
-- neue Reel-Dauer: **72,42 Sekunden**
-- Remotion-Composition: **2.173 Frames bei 30 FPS**
+- gemessene Originaldauer: **72,42 Sekunden**
+- erwartete Laufzeit bei 1,10×: ungefähr **65,84 Sekunden**
+- erwartete Composition: ungefähr **1.976 Frames bei 30 FPS**
+- endgültige Laufzeit und Szenengrenzen werden lokal aus der verarbeiteten Datei und echten Whisper-Wortzeitstempeln erzeugt
 
-## Nicht erlaubt
+## Verbindliche Regeln
 
-- Voiceover beschleunigen
-- Voiceover kürzen
-- Voiceover zeitlich strecken
-- Satzteile entfernen
+- Kein Satz und kein Wort wird entfernt.
+- Die Tonhöhe darf sich durch die Beschleunigung nicht verändern.
+- Die Originaldatei in `02-audio/` bleibt unverändert.
+- Das Render verwendet die erzeugte Datei unter `render/audio/voiceover-runtime-1-10x.wav`.
+- Geplante Szenenzeiten sind nur Startwerte.
+- Die endgültigen Szenenwechsel folgen den tatsächlich gesprochenen Abschnitten.
+- Die fertigen Zeiten stehen nach der lokalen Verarbeitung in `timeline/scene-timing.json` und `timeline/transcript-timing.md`.
 
-## Neue Szenenzeiten
+## Vorläufige Zeiten vor der Transkription
 
 | Szene | Start | Ende | Dauer |
 |---|---:|---:|---:|
-| 1 | 0,00 s | 7,73 s | 7,73 s |
-| 2 | 7,73 s | 18,97 s | 11,24 s |
-| 3 | 18,97 s | 29,50 s | 10,53 s |
-| 4 | 29,50 s | 40,03 s | 10,53 s |
-| 5 | 40,03 s | 52,03 s | 12,00 s |
-| 6 | 52,03 s | 61,90 s | 9,87 s |
-| 7 | 61,90 s | 72,42 s | 10,52 s |
+| 1 | 0,00 s | 7,64 s | 7,64 s |
+| 2 | 7,64 s | 20,01 s | 12,37 s |
+| 3 | 20,01 s | 27,65 s | 7,64 s |
+| 4 | 27,65 s | 36,74 s | 9,09 s |
+| 5 | 36,74 s | 46,20 s | 9,46 s |
+| 6 | 46,20 s | 56,02 s | 9,82 s |
+| 7 | 56,02 s | 65,84 s | 9,82 s |
 
-## Umsetzung
+Diese Tabelle wird nach der Transkription durch die echten Satz- und Wortgrenzen ersetzt.
 
-- `timeline/codex-reel-package.json` aktualisiert
-- `timeline/storyboard.md` aktualisiert
-- `timeline/motion-design.md` aktualisiert
-- Validator auf 25–90 Sekunden erweitert
-- Regressionstest für 72,42 Sekunden ergänzt
-- Captions müssen aus der realen Audiodauer neu erzeugt und anschließend visuell geprüft werden
+## Automatische Verarbeitung
+
+Aus `alles/` ausführen:
+
+```bash
+npm run finance:codex-reel:captions -- \
+../reels/2026-08-03_bis_2026-08-09/mittwoch/reel-01_was-passiert-wenn-du-100-euro-in-einen-etf-steckst
+```
+
+Der Befehl:
+
+1. erkennt die einzige Datei in `02-audio/`,
+2. erzeugt eine 1,10×-Version mit erhaltener Tonhöhe,
+3. transkribiert sie lokal mit Whisper.cpp auf Deutsch,
+4. erzeugt echte Wort-Zeitstempel,
+5. ordnet das Transkript dem freigegebenen Szenenskript zu,
+6. aktualisiert die Szenendauern und die Composition,
+7. schreibt Captions, Transkript, Szenenzeiten und einen Prüfbericht.
+
+## Manuelle Prüfung bleibt erforderlich
+
+- Stimme klingt bei 1,10× natürlich
+- Szenenwechsel liegen an sinnvollen Satzgrenzen
+- Captions stimmen sichtbar mit der Stimme überein
+- längere Bildszenen wirken weder statisch noch hektisch
