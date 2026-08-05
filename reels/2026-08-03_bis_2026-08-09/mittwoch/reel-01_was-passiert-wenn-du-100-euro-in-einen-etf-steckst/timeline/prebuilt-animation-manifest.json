@@ -3,6 +3,7 @@
   "slug": "was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
   "status": "implemented-awaiting-local-validation",
   "codexAnimationCodingRequired": false,
+  "generalBuildManifest": "timeline/reel-build-manifest.json",
   "entryPoint": "alles/channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/index.ts",
   "compositionId": "FinanzNeoEtfKauf100Euro",
   "composition": "alles/channels/finanzneo/src/reels/2026-08-05-etf-kauf-100-euro/EtfKauf100EuroReel.tsx",
@@ -25,9 +26,10 @@
     }
   ],
   "automation": {
-    "verify": "node scripts/verify-finance-etf-prebuilt-reel.mjs <projekt>",
-    "prepare": "npm run finance:etf-reel:prepare -- <projekt>",
-    "build": "npm run finance:etf-reel:build -- <projekt>"
+    "scope": "all-future-reels",
+    "verify": "npm run finance:reel:verify -- <projekt>",
+    "prepare": "npm run finance:reel:prepare -- <projekt>",
+    "build": "npm run finance:reel:build -- <projekt>"
   },
   "remainingHumanInput": [
     "genau eine Audiodatei in 02-audio",
