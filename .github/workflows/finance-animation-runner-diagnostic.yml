@@ -3,7 +3,7 @@ name: Finance Animation Runner Diagnostic
 on:
   pull_request:
     paths:
-      - 'channels/finanzneo/src/animation-system/**'
+      - 'alles/channels/finanzneo/src/animation-system/**'
       - '.github/workflows/finance-animation-runner-diagnostic.yml'
   workflow_dispatch:
 
