@@ -59,7 +59,6 @@ for (const directory of financeRequiredDirectories(reelDir)) {
 }
 for (const file of [
   p.coverText,
-  p.scenePlan,
   p.sceneIndex,
   p.status,
   p.sources,
@@ -75,6 +74,9 @@ for (const file of [
 ]) {
   if (!fs.existsSync(file) || !fs.statSync(file).isFile() || fs.statSync(file).size === 0) fail(`Pflichtdatei fehlt oder ist leer: ${path.relative(reelDir, file)}.`);
 }
+const hasScenePlan = fs.existsSync(p.scenePlan) && fs.statSync(p.scenePlan).isFile() && fs.statSync(p.scenePlan).size > 0;
+const hasCodexPackage = fs.existsSync(p.codexPackage) && fs.statSync(p.codexPackage).isFile() && fs.statSync(p.codexPackage).size > 0;
+if (!hasScenePlan && !hasCodexPackage) fail('In timeline/ fehlt sowohl scene-plan.json als auch codex-reel-package.json.');
 
 for (const legacy of ['01-script-audio', '02-bilder', '03-caption', '04-pdf', '05-export', '06-projektdateien', 'voice', 'image-prompts', 'images', 'captions', 'pdf', 'export', 'video', 'data']) {
   if (fs.existsSync(path.join(reelDir, legacy))) fail(`Veralteter Hauptordner gefunden: ${legacy}/.`);
