@@ -3,7 +3,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {ScenePlan} from './lib/finance-contracts.mjs';
 import {createFinanceScenePlanTemplate} from './lib/create-finance-scene-plan-template.mjs';
-import {ensureFinanceProjectStructure, FINANCE_STRUCTURE_VERSION} from './lib/finance-project-structure.mjs';
+import {
+  ensureFinanceProjectStructure,
+  FINANCE_STRUCTURE_VERSION,
+  suggestedImageFileName,
+} from './lib/finance-project-structure.mjs';
 
 const args = process.argv.slice(2);
 const slugArg = args.find((arg) => !arg.startsWith('--'));
@@ -60,23 +64,38 @@ try {
   fs.writeFileSync(paths.voicePrompt, 'NOCH NICHT FREIGEGEBEN\n\nFINANCE_TODO_FINAL_SCRIPT\n');
 
   const sceneIndex = {
-    version: 1,
+    version: 2,
     sceneCount: plan.scenes.length,
-    scenes: plan.scenes.map((scene, index) => ({
-      id: `scene-${String(index + 1).padStart(2, '0')}`,
-      sourceId: scene.id,
-      type: scene.type ?? scene.mode ?? 'image',
-      instructions: `EINZELNE-SZENEN/scene-${String(index + 1).padStart(2, '0')}`,
-    })),
+    storageRule: 'Bilddatei und bildprompt.txt liegen im selben Szenenordner.',
+    scenes: plan.scenes.map((scene, index) => {
+      const number = String(index + 1).padStart(2, '0');
+      const sceneFolder = `EINZELNE-SZENEN/scene-${number}`;
+      const type = scene.type ?? scene.mode ?? 'image';
+      return {
+        id: `scene-${number}`,
+        sourceId: scene.id,
+        type,
+        instructions: sceneFolder,
+        ...(type === 'animation'
+          ? {}
+          : {
+              prompt: `${sceneFolder}/bildprompt.txt`,
+              asset: `${sceneFolder}/${suggestedImageFileName(index, scene.id)}`,
+            }),
+      };
+    }),
   };
   fs.writeFileSync(paths.sceneIndex, JSON.stringify(sceneIndex, null, 2));
+
   for (let index = 0; index < plan.scenes.length; index += 1) {
     const scene = plan.scenes[index];
     const sceneNumber = String(index + 1).padStart(2, '0');
     const sceneDir = path.join(paths.individualScenesDir, `scene-${sceneNumber}`);
+    const type = scene.type ?? scene.mode ?? 'image';
     fs.mkdirSync(sceneDir, {recursive: true});
-    fs.writeFileSync(path.join(sceneDir, 'szene.md'), `# Szene ${sceneNumber}\n\n**Plan-ID:** ${scene.id}\n\n**Voiceover:** ${scene.voiceText}\n\n<!-- FINANCE_TODO_SCENE_DETAILS -->\n`);
-    if ((scene.type ?? scene.mode ?? 'image') !== 'animation') {
+    const imageFile = suggestedImageFileName(index, scene.id);
+    fs.writeFileSync(path.join(sceneDir, 'szene.md'), `# Szene ${sceneNumber}\n\n**Plan-ID:** ${scene.id}\n\n**Typ:** ${type}\n\n**Voiceover:** ${scene.voiceText}\n\n${type === 'animation' ? '**Animationsdatei:** `animation.md`' : `**Bildprompt:** \`bildprompt.txt\`\n\n**Bilddatei:** \`${imageFile}\``}\n\n<!-- FINANCE_TODO_SCENE_DETAILS -->\n`);
+    if (type !== 'animation') {
       fs.writeFileSync(path.join(sceneDir, 'bildprompt.txt'), 'FINANCE_TODO_COMPLETE_IMAGE_PROMPT\n');
     } else {
       fs.writeFileSync(path.join(sceneDir, 'animation.md'), '# Remotion-Animation\n\nFINANCE_TODO_COMPLETE_ANIMATION_SPEC\n');
@@ -100,10 +119,11 @@ try {
       sources: '05-review/quellen.md',
       voiceScript: '01-voice-script/script-fliesstext.txt',
       voiceoverPrompt: '01-voice-script/voiceover-anweisung.txt',
+      voiceoverFinal: '01-voice-script/voiceover-final.wav',
       imagePromptIndex: '03-szenen/alle-bildprompts.txt',
       sceneIndex: '03-szenen/scene-index.json',
+      imageStorageRule: 'Jedes Bild liegt direkt neben dem zugehörigen bildprompt.txt.',
       imagePromptManifest: 'timeline/prompt-manifest.json',
-      voiceoverFinal: '02-audio/voiceover-final.wav',
       captionsFinal: '04-caption/voiceover-final.captions.json',
       socialCaption: '04-caption/social-caption.md',
       manifest: 'timeline/asset-manifest.json',
@@ -115,12 +135,12 @@ try {
   };
   fs.writeFileSync(paths.status, JSON.stringify(status, null, 2));
 
-  fs.writeFileSync(path.join(target, 'README.md'), `# ${title}\n\n**Thema:** ${topic}\n\n## Produktionsstruktur\n\n- \`00-cover/\`\n- \`01-voice-script/\`\n- \`02-audio/\`\n- \`03-szenen/\`\n- \`04-caption/\`\n- \`05-review/\`\n- \`06-video/\`\n- \`render/\`\n- \`timeline/\`\n\nBilder gehören nach \`03-szenen/BILDER-HIER-EINFUEGEN/\`. Das Voiceover gehört als \`02-audio/voiceover-final.wav\` in das Projekt.\n`);
+  fs.writeFileSync(path.join(target, 'README.md'), `# ${title}\n\n**Thema:** ${topic}\n\n## Produktionsstruktur\n\n- \`00-cover/\`\n- \`01-voice-script/\` — Skript und \`voiceover-final.wav\`\n- \`03-szenen/\` — Prompt und Bild gemeinsam pro Szenenordner\n- \`04-caption/\`\n- \`05-review/\`\n- \`06-video/\`\n- \`render/\`\n- \`timeline/\`\n\nDas Voiceover gehört direkt nach \`01-voice-script/voiceover-final.wav\`. Jede Bilddatei gehört in denselben Ordner wie ihr \`bildprompt.txt\`. Es werden weder \`02-audio/\` noch \`BILDER-HIER-EINFUEGEN/\` angelegt.\n`);
 
   history.topics = [...(history.topics ?? []), {slug, topic, status: 'reserved', createdAt: now, projectPath: relativeTarget}];
   fs.writeFileSync(historyFile, JSON.stringify(history, null, 2));
   console.log(`✓ Finance-Projekt atomar vorbereitet: ${relativeTarget}`);
-  console.log('  Neue Struktur: 00-cover bis 06-video sowie render und timeline.');
+  console.log('  Medienablage: Voiceover beim Skript; jedes Bild direkt beim Szenenprompt.');
 } catch (error) {
   if (created) fs.rmSync(target, {recursive: true, force: true});
   fs.writeFileSync(historyFile, historyOriginal);
