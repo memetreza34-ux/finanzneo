@@ -106,6 +106,62 @@ try {
     }
   }
 
+  const animationScenes = plan.scenes
+    .map((scene, index) => ({scene, index}))
+    .filter(({scene}) => (scene.type ?? scene.mode ?? 'image') === 'animation');
+  const prebuiltSourceRoot = `channels/finanzneo/src/reels/${slug}`;
+  const buildManifest = {
+    version: 'finanzneo-reel-build-v1',
+    slug,
+    status: 'awaiting-prebuild',
+    codexAnimationCodingRequired: false,
+    expectedSceneCount: plan.scenes.length,
+    composition: {
+      id: 'FINANCE_TODO_COMPOSITION_ID',
+      entryPoint: `${prebuiltSourceRoot}/index.ts`,
+      sourceRoot: prebuiltSourceRoot,
+    },
+    runtime: {
+      prepareScript: 'scripts/prepare-finance-reel-runtime.mjs',
+      propsFile: 'render/reel-render-props.json',
+      manifestFile: 'timeline/runtime-manifest.json',
+    },
+    expectedSourceFiles: [
+      `${prebuiltSourceRoot}/index.ts`,
+      `${prebuiltSourceRoot}/Root.tsx`,
+      `${prebuiltSourceRoot}/Reel.tsx`,
+      `${prebuiltSourceRoot}/PrebuiltAnimations.tsx`,
+    ],
+    animations: animationScenes.map(({scene, index}) => ({
+      sceneId: scene.id ?? `scene-${String(index + 1).padStart(2, '0')}`,
+      component: 'FINANCE_TODO_PREBUILT_COMPONENT',
+      source: `${prebuiltSourceRoot}/PrebuiltAnimations.tsx`,
+      timing: 'relative-to-transcript-scene-duration',
+      editableByCodex: false,
+    })),
+    additionalChecks: [],
+    outputs: {
+      video: '06-video/final-reel.mp4',
+      cover: '00-cover/cover.png',
+      contactSheet: '05-review/contact-sheet.png',
+      qaReport: '05-review/codex-render-qa.json',
+      buildReport: '05-review/build-report.json',
+      qaDirectory: '05-review/render-qa',
+    },
+    prebuiltApproval: {
+      approvedByPlanningAssistant: false,
+      animationsImplemented: false,
+      compositionImplemented: false,
+      approvedAt: null,
+    },
+    remainingHumanInput: [
+      'genau eine Audiodatei in 02-audio',
+      'genau ein Bild in jedem erwarteten Bildszenenordner',
+      'manuelle visuelle Freigabe nach dem Render',
+    ],
+  };
+  fs.writeFileSync(path.join(paths.timelineDir, 'reel-build-manifest.json'), `${JSON.stringify(buildManifest, null, 2)}\n`);
+
   const now = new Date().toISOString();
   const relativeTarget = path.relative(repositoryRoot, target).split(path.sep).join('/');
   const status = {
@@ -116,7 +172,7 @@ try {
     title,
     createdAt: now,
     projectPath: relativeTarget,
-    stage: 'planning',
+    stage: 'planning-awaiting-prebuilt-composition',
     approvals: {topicSelected: true, scriptApproved: false, designAnchorApproved: false, assetsReviewed: false},
     required: {
       scenePlan: 'timeline/scene-plan.json',
@@ -132,19 +188,33 @@ try {
       captionsFinal: '04-caption/voiceover-final.captions.json',
       socialCaption: '04-caption/social-caption.md',
       manifest: 'timeline/asset-manifest.json',
+      reelBuildManifest: 'timeline/reel-build-manifest.json',
       videoDirectory: '06-video',
       storyboard: 'timeline/storyboard.md',
       motionDesign: 'timeline/motion-design.md',
       codexPackage: 'timeline/codex-reel-package.json'
     },
+    implementation: {
+      prebuiltAnimationsImplemented: false,
+      prebuiltCompositionImplemented: false,
+      codexAnimationCodingRequired: false,
+      generalFutureReelBuilderAvailable: true,
+      renderCompleted: false,
+      manualVisualQaCompleted: false,
+      merged: false,
+    },
   };
   fs.writeFileSync(paths.status, JSON.stringify(status, null, 2));
 
-  fs.writeFileSync(path.join(target, 'README.md'), `# ${title}\n\n**Thema:** ${topic}\n\n## Produktionsstruktur\n\n- \`00-cover/\`\n- \`01-voice-script/\` — Skript und Voiceover-Anweisung\n- \`02-audio/\` — genau eine Audiodatei, Dateiname egal\n- \`03-szenen/\` — pro Bildszene genau eine Bilddatei im passenden \`scene-XX\`-Ordner, Dateiname egal\n- \`04-caption/\`\n- \`05-review/\`\n- \`06-video/\`\n- \`render/\`\n- \`timeline/\`\n\nDer Ordner bestimmt die Szene. Bei null oder mehreren passenden Dateien stoppt die Prüfung.\n`);
+  fs.writeFileSync(path.join(target, 'AGENTS.md'), `# Allgemeiner FinanzNeo-Reel-Build\n\nDieses Projekt verwendet den allgemeinen Buildvertrag in \`timeline/reel-build-manifest.json\`.\n\n## Strikte Regel\n\nCodex darf Animationen und Composition nicht selbst entwerfen oder programmieren. Solange das Manifest \`status: awaiting-prebuild\` enthält, muss Codex stoppen und melden, dass die kreative Vorarbeit noch nicht abgeschlossen ist.\n\nNach vollständiger Vorprogrammierung wird das Manifest auf \`prebuilt-ready\` gesetzt. Dann soll Codex ausschließlich aus \`alles/\` ausführen:\n\n\`\`\`bash\nnpm run finance:reel:build -- <projektordner>\n\`\`\`\n\nNur konkrete technische Fehler minimal beheben. Keine kreative Neuentwicklung, kein Merge und keine automatische Nutzerfreigabe.\n`);
+
+  fs.writeFileSync(path.join(target, 'README.md'), `# ${title}\n\n**Thema:** ${topic}\n\n## Produktionsstruktur\n\n- \`00-cover/\`\n- \`01-voice-script/\` — Skript und Voiceover-Anweisung\n- \`02-audio/\` — genau eine Audiodatei, Dateiname egal\n- \`03-szenen/\` — pro Bildszene genau eine Bilddatei im passenden \`scene-XX\`-Ordner, Dateiname egal\n- \`04-caption/\`\n- \`05-review/\`\n- \`06-video/\`\n- \`render/\`\n- \`timeline/\`\n\n## Allgemeiner Zukunfts-Builder\n\nJedes Reel besitzt ab Erstellung \`timeline/reel-build-manifest.json\`. Zuerst werden Composition und individuelle Animationen vollständig vorprogrammiert. Danach wird der Status auf \`prebuilt-ready\` gesetzt und Codex führt nur noch aus:\n\n\`\`\`bash\nnpm run finance:reel:build -- <projektordner>\n\`\`\`\n\nCodex darf die Animationen nicht selbst neu planen. Der Ordner bestimmt die Medienzuordnung. Bei null oder mehreren passenden Dateien stoppt die Prüfung.\n`);
 
   history.topics = [...(history.topics ?? []), {slug, topic, status: 'reserved', createdAt: now, projectPath: relativeTarget}];
   fs.writeFileSync(historyFile, JSON.stringify(history, null, 2));
   console.log(`✓ Finance-Projekt atomar vorbereitet: ${relativeTarget}`);
+  console.log('  Allgemeiner Zukunfts-Builder: timeline/reel-build-manifest.json');
+  console.log('  Status: awaiting-prebuild — Codex darf noch keine Animation programmieren.');
   console.log('  Medienablage: eine beliebig benannte Audiodatei in 02-audio; eine beliebig benannte Bilddatei pro Bildszenenordner.');
   console.log(`  Erstes Bildverzeichnis: ${imageDirectoryForScene(0)}`);
 } catch (error) {
