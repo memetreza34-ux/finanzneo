@@ -46,6 +46,8 @@ const writeBuildReport = (status, error = null) => {
     projectRoot,
     entryPoint,
     compositionId,
+    animationsPrebuilt: true,
+    codexCodeGenerationRequired: false,
     outputs: {
       video: path.relative(projectRoot, videoFile),
       cover: path.relative(projectRoot, coverFile),
@@ -95,6 +97,8 @@ try {
   fs.mkdirSync(path.dirname(videoFile), {recursive: true});
   fs.mkdirSync(path.dirname(coverFile), {recursive: true});
   fs.mkdirSync(qaDirectory, {recursive: true});
+
+  execute(node, ['scripts/verify-finance-etf-prebuilt-reel.mjs', projectRoot], {cwd: technicalRoot});
 
   if (!args.includes('--skip-sync')) {
     execute(node, ['scripts/sync-finance-reel-to-voiceover.mjs', projectRoot], {cwd: technicalRoot});
@@ -155,6 +159,7 @@ try {
     status.implementation = {
       ...(status.implementation ?? {}),
       prebuiltAnimationsImplemented: true,
+      codexAnimationCodingRequired: false,
       automaticAssemblyImplemented: true,
       audioSyncPipelineExecuted: true,
       typecheckPassed: !args.includes('--skip-tests'),
@@ -178,6 +183,7 @@ try {
 
   writeBuildReport('completed');
   console.log('✓ Vollständiger ETF-Reel-Build abgeschlossen.');
+  console.log('  Animationen waren bereits programmiert; keine Codex-Codegenerierung nötig.');
   console.log(`  Video: ${videoFile}`);
   console.log(`  Cover: ${coverFile}`);
   console.log(`  Kontaktbogen: ${contactSheetFile}`);
