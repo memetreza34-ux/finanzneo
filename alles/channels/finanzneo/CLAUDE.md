@@ -61,7 +61,7 @@ Unterstützte Formate:
 .wav .mp3 .m4a .aac .flac .ogg .opus .mp4 .mov .m4v .webm
 ```
 
-Auch eine Datei wie `F 1.mp4` ist gültig, sofern sie eine Audiospur enthält. Claude verwendet den Pfad, den `finance:codex-reel:check-ready` ausgibt.
+Auch eine Datei wie `F 1.mp4` ist gültig, sofern sie eine Audiospur enthält.
 
 ### Bilder
 
@@ -83,21 +83,49 @@ scene-06/export.webp          → Szene 6
 
 Bei null oder mehreren passenden Mediendateien in einem erwarteten Ordner stoppen und die gefundenen Kandidaten nennen. Niemals raten.
 
-## Laufzeit und KI-Stimme
+## Verbindliche Audio- und Timing-Pipeline
 
-Die gemessene Dauer der erkannten Voiceover-Datei ist die zeitliche Quelle der Wahrheit. Reel-Pakete dürfen 25 bis 90 Sekunden lang sein.
+Die ursprünglich geplanten Szenenzeiten sind nur kreative Startwerte. Die endgültigen Zeiten entstehen aus der tatsächlich gesprochenen Aufnahme.
 
-Die KI-Stimme niemals automatisch beschleunigen, kürzen oder zeitlich strecken. Bei einer Abweichung zwischen Audio und Szenenplan müssen vor dem Build angepasst werden:
+Vor dem Build aus `alles/` ausführen:
 
-- `composition.targetDurationSec`
-- `composition.durationInFrames`
-- `voiceover.measuredDurationSec`
-- alle `scene.durationSec`
-- Storyboard
-- Motion-Plan
-- Captions
+```bash
+npm run finance:codex-reel:captions -- <projektordner>
+npm run finance:codex-reel:check-ready -- <projektordner>
+```
 
-Längere Bildszenen erhalten mindestens zwei kontrollierte Bewegungsphasen.
+Der erste Befehl führt verbindlich aus:
+
+1. die einzige Originalaufnahme in `02-audio/` erkennen,
+2. das Original unverändert aufbewahren,
+3. eine pitch-erhaltende **1,10×-Version** mit FFmpeg `atempo` erzeugen,
+4. die verarbeitete Aufnahme lokal mit Whisper.cpp auf Deutsch transkribieren,
+5. echte Wort-Zeitstempel erzeugen,
+6. das freigegebene Szenenskript mit dem Transkript abgleichen,
+7. Szenengrenzen an den gesprochenen Abschnitten ausrichten,
+8. Composition-Dauer, Szenendauern und Captions aktualisieren.
+
+Erzeugte zeitliche Quellen der Wahrheit:
+
+```text
+render/audio/voiceover-runtime-1-10x.wav
+04-caption/voiceover-final.captions.json
+04-caption/voiceover-transcript.json
+timeline/scene-timing.json
+timeline/transcript-timing.md
+05-review/audio-sync-report.json
+```
+
+Regeln:
+
+- Das Original in `02-audio/` niemals überschreiben.
+- Im fertigen Render die erzeugte Runtime-Datei verwenden.
+- Die Tonhöhe bei 1,10× erhalten.
+- Keine Wörter oder Sätze entfernen.
+- Geplante und endgültige Szenenzeiten müssen nicht identisch sein.
+- Nach der Transkription ist `timeline/scene-timing.json` verbindlich.
+- Keine rechnerisch verteilten Pseudo-Zeitstempel verwenden, wenn echte Whisper-Zeitstempel vorhanden sind.
+- Bei zu geringer Übereinstimmung zwischen Skript und Transkript stoppen.
 
 ## Automatischer Reel-Start
 
@@ -126,6 +154,8 @@ Standardmäßig:
 - keine Dashboard-Szene als Standardlösung.
 
 Bilder tragen die Hauptästhetik. Remotion-Animationen erklären nur Abläufe, Transformationen, Ursache-Wirkung, Zeitverläufe oder Mechanismen, die als Standbild schlechter verständlich wären.
+
+Längere Bildszenen erhalten mindestens zwei kontrollierte Bewegungsphasen. Alle Bild- und Animationsphasen relativ zur endgültigen transkriptbasierten Szenendauer skalieren, nicht anhand veralteter fixer Frames.
 
 ## Skript
 
@@ -176,12 +206,12 @@ Nicht verwenden:
 Aus `alles/`:
 
 ```bash
-npm run finance:codex-reel:check -- <projektordner>
-npm run finance:codex-reel:check-ready -- <projektordner>
 npm run finance:codex-reel:captions -- <projektordner>
+npm run finance:codex-reel:check-ready -- <projektordner>
+npm run finance:codex-reel:test
 ```
 
-Ein Projektpfad beginnt normalerweise mit `../reels/`.
+Danach Typecheck, Tests, Stills und vollständigen Render ausführen.
 
 ## Sicherheitsregeln
 
