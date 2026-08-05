@@ -3,9 +3,10 @@ name: Finance Full Animation Reel
 on:
   pull_request:
     paths:
-      - 'channels/finanzneo/src/animation-system/full-animation-reel/**'
-      - 'scripts/verify-finance-full-animation-reel.mjs'
-      - 'package.json'
+      - 'alles/channels/finanzneo/src/animation-system/full-animation-reel/**'
+      - 'alles/scripts/verify-finance-full-animation-reel.mjs'
+      - 'alles/package.json'
+      - 'alles/package-lock.json'
       - '.github/workflows/finance-full-animation-reel.yml'
   workflow_dispatch:
 
@@ -13,6 +14,9 @@ jobs:
   validate-and-render:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: alles
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,6 +26,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: alles/package-lock.json
 
       - name: Verify isolated structure before dependencies
         run: npm run finance:full-animation-reel:structure
