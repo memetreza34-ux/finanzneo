@@ -5,7 +5,7 @@
   "title": "Was passiert mit deinen 100 Euro beim ETF-Kauf?",
   "topic": "Der tatsächliche Weg einer ETF-Kauforder vom Broker über den Handelsplatz bis zum Fondsanteil im Depot",
   "publishDate": "2026-08-05",
-  "centralQuestion": "Wohin gehen 100 Euro wirklich, wenn man bei einem Broker einen ETF kauft?",
+  "centralQuestion": "Was passiert mit 100 Euro, wenn man sie in einen ETF investiert?",
   "payoff": "Beim normalen Börsenkauf geht das Geld an die Gegenseite des Handels; der Käufer erhält dafür einen ETF-Anteil, der wirtschaftlich am gesamten Fondsvermögen hängt.",
   "composition": {
     "id": "FinanzNeoEtfKauf100EuroErklaert",
@@ -22,14 +22,14 @@
     "subtitleSafeBottomPx": 330
   },
   "cover": {
-    "text": "WOHIN GEHEN DEINE 100 €?",
-    "subtext": "Das passiert beim ETF-Kauf",
+    "text": "100 € IN EINEN ETF – WAS PASSIERT?",
+    "subtext": "Der Weg deines Geldes",
     "sourceSceneId": "scene-01-hook"
   },
   "voiceover": {
-    "script": "Du klickst beim Broker auf „ETF kaufen“. Aber landen deine 100 Euro jetzt direkt bei Apple, Microsoft und Co.? Nein. Aus deinem Klick wird zuerst eine Kauforder. Der Broker schickt sie an den gewählten Handelsplatz, wo sie im Orderbuch auf ein passendes Verkaufsangebot trifft – oft von einem anderen Anleger oder einem Market Maker. Sobald Preis und Menge zusammenpassen, wird der Handel ausgeführt: Der Verkäufer bekommt dein Geld, und der ETF-Anteil wird deinem Depot gutgeschrieben. Dieser Anteil gehört zu einem Fonds, der bereits viele Wertpapiere hält. Du kaufst also nicht selbst jede einzelne Aktie, sondern einen Anteil am gesamten Fondsvermögen. Steigt die Nachfrage so stark, dass neue Anteile gebraucht werden, kann ein Authorized Participant einen passenden Wertpapierkorb an den Fonds liefern und dafür neue ETF-Anteile erhalten. Ab dann bewegt sich der Wert deines Anteils mit den enthaltenen Wertpapieren. Bei einem Sparplan kannst du je nach Anbieter auch nur einen Bruchteil eines Anteils besitzen. Der wichtigste Punkt: Deine 100 Euro gehen beim normalen Börsenkauf an die Gegenseite des Handels. Du erhältst dafür einen Fondsanteil, der wirtschaftlich an einem ganzen Wertpapierkorb hängt.",
+    "script": "Was passiert eigentlich, wenn du 100 Euro in einen ETF steckst? Wohin geht das Geld – und was bekommst du dafür? Zuerst wird aus deinem Klick eine Kauforder. Der Broker schickt sie an den gewählten Handelsplatz, wo sie im Orderbuch auf ein passendes Verkaufsangebot trifft – oft von einem anderen Anleger oder einem Market Maker. Sobald Preis und Menge zusammenpassen, wird der Handel ausgeführt: Der Verkäufer bekommt dein Geld, und der ETF-Anteil wird deinem Depot gutgeschrieben. Dieser Anteil gehört zu einem Fonds, der bereits viele Wertpapiere hält. Du kaufst also nicht selbst jede einzelne Aktie, sondern einen Anteil am gesamten Fondsvermögen. Steigt die Nachfrage so stark, dass neue Anteile gebraucht werden, kann ein Authorized Participant einen passenden Wertpapierkorb an den Fonds liefern und dafür neue ETF-Anteile erhalten. Ab dann bewegt sich der Wert deines Anteils mit den enthaltenen Wertpapieren. Bei einem Sparplan kannst du je nach Anbieter auch nur einen Bruchteil eines Anteils besitzen. Der wichtigste Punkt: Deine 100 Euro gehen beim normalen Börsenkauf an die Gegenseite des Handels. Du erhältst dafür einen Fondsanteil, der wirtschaftlich an einem ganzen Wertpapierkorb hängt.",
     "asset": "01-script-audio/audio/voiceover-final.wav",
-    "instruction": "Deutsch, klar, modern und neugierig erklärend. Keine Begrüßung. Die Hook-Frage und das kurze Nein betonen. Fachbegriffe ruhig und verständlich sprechen."
+    "instruction": "Deutsch, klar, modern und neugierig erklärend. Keine Begrüßung. Die erste Frage direkt betonen, damit das Thema sofort klar ist. Fachbegriffe ruhig und verständlich sprechen."
   },
   "captions": {
     "asset": "03-caption/voiceover-final.captions.json",
@@ -41,9 +41,9 @@
       "id": "scene-01-hook",
       "type": "image",
       "durationSec": 5.5,
-      "voiceText": "Du klickst beim Broker auf „ETF kaufen“. Aber landen deine 100 Euro jetzt direkt bei Apple, Microsoft und Co.? Nein.",
-      "purpose": "Die verbreitete falsche Vorstellung sichtbar machen, dass das Geld direkt zu den Unternehmen fließt.",
-      "visualFamily": "editorial-3d-exchange-gateway",
+      "voiceText": "Was passiert eigentlich, wenn du 100 Euro in einen ETF steckst? Wohin geht das Geld – und was bekommst du dafür?",
+      "purpose": "Die zentrale Anfängerfrage sofort und ohne Umweg sichtbar machen.",
+      "visualFamily": "editorial-3d-etf-investment-path",
       "image": {
         "asset": "02-bilder/images/scene-01-hook.png",
         "promptFile": "02-bilder/prompts/scene-01-hook.txt",
@@ -56,8 +56,8 @@
         }
       },
       "overlay": {
-        "kicker": "ETF-KAUF",
-        "headline": "Wohin gehen deine 100 €?",
+        "kicker": "ETF EINFACH ERKLÄRT",
+        "headline": "Was passiert mit 100 € im ETF?",
         "body": ""
       },
       "transition": {
@@ -70,7 +70,7 @@
       "id": "scene-02-order-match",
       "type": "animation",
       "durationSec": 8.0,
-      "voiceText": "Aus deinem Klick wird zuerst eine Kauforder. Der Broker schickt sie an den gewählten Handelsplatz, wo sie im Orderbuch auf ein passendes Verkaufsangebot trifft – oft von einem anderen Anleger oder einem Market Maker.",
+      "voiceText": "Zuerst wird aus deinem Klick eine Kauforder. Der Broker schickt sie an den gewählten Handelsplatz, wo sie im Orderbuch auf ein passendes Verkaufsangebot trifft – oft von einem anderen Anleger oder einem Market Maker.",
       "purpose": "Den Weg und die Zusammenführung einer ETF-Kauforder als zeitlichen Prozess erklären.",
       "visualFamily": "physical-order-matching-hall",
       "animation": {
