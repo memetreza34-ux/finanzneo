@@ -4,16 +4,22 @@
 
 - 1080 × 1920
 - 30 FPS
-- 51,5 Sekunden
+- gemessene Voiceover-Dauer: 72,42 Sekunden
+- 2.173 Frames für die Remotion-Composition
 - 7 Szenen
 - 5 Bildszenen
 - 2 Remotion-Animationsszenen
 - keine zwei Animationen direkt hintereinander
 - keine Dashboard-Szene
 
+## Zeitliche Quelle der Wahrheit
+
+Die automatisch erkannte Datei in `02-audio/` bestimmt die Gesamtdauer. Das Voiceover wird nicht beschleunigt, gekürzt oder zeitlich gestreckt. Die Szenen wurden auf 72,42 Sekunden verlängert.
+
 ## Szene 1 — Direkte Einstiegsfrage
 
-**Zeit:** 0:00–0:05,5  
+**Zeit:** 0:00–0:07,73  
+**Dauer:** 7,73 Sekunden  
 **Typ:** Bild  
 **Voiceover:** Was passiert eigentlich, wenn du 100 Euro in einen ETF steckst? Wohin geht das Geld – und was bekommst du dafür?
 
@@ -24,11 +30,15 @@
 - Kicker: `ETF EINFACH ERKLÄRT`
 - Headline: `Was passiert mit 100 € im ETF?`
 
-**Bewegung:** langsamer Push-in von 1,00 auf 1,055; leichte Fahrt entlang des sichtbaren ETF-Wegs.
+**Bewegung in zwei Phasen:**
+
+1. Gesamtansicht mit ruhigem Push-in.
+2. Engerer Fokus auf den Weg der 100 Euro Richtung Börse und ETF-Anteil.
 
 ## Szene 2 — Aus dem Klick wird eine Order
 
-**Zeit:** 0:05,5–0:13,5  
+**Zeit:** 0:07,73–0:18,97  
+**Dauer:** 11,24 Sekunden  
 **Typ:** Remotion-Animation  
 **Komponente:** `EtfOrderMatchAnimation`
 
@@ -42,16 +52,17 @@
 2. Er passiert eine Broker-Schleuse.
 3. Die Kamera folgt der Kapsel in eine räumliche Börsenhalle.
 4. Dort stehen Verkaufsangebote als physische Preisstecker in einer geordneten Schiene.
-5. Ein passendes Angebot rast aus der Gegenschiene heran.
-6. Beide Kapseln rasten hör- und sichtbar zusammen.
-
-**Endzustand:** Eine bestätigte Transaktion verlässt die Börsenhalle als versiegeltes Tauschpaket.
+5. Die Kauforder passiert unpassende Angebote.
+6. Ein passendes Verkaufsangebot rast aus der Gegenschiene heran.
+7. Beide Kapseln rasten hör- und sichtbar zusammen.
+8. Die bestätigte Transaktion verlässt die Börsenhalle als versiegeltes Tauschpaket.
 
 **Wichtig:** Kein Bildschirm-Orderbuch, keine Tabellen, keine Balken. Das Orderbuch wird als räumliches Sortier- und Matching-System dargestellt.
 
 ## Szene 3 — Geld gegen ETF-Anteil
 
-**Zeit:** 0:13,5–0:21  
+**Zeit:** 0:18,97–0:29,50  
+**Dauer:** 10,53 Sekunden  
 **Typ:** Bild  
 **Voiceover:** Sobald Preis und Menge zusammenpassen, wird der Handel ausgeführt: Der Verkäufer bekommt dein Geld, und der ETF-Anteil wird deinem Depot gutgeschrieben.
 
@@ -62,11 +73,15 @@
 - Kicker: `DER TAUSCH`
 - Headline: `Geld raus – ETF-Anteil ins Depot`
 
-**Bewegung:** leichte horizontale Fahrt entlang der beiden gekreuzten Wege.
+**Bewegung in zwei Phasen:**
+
+1. Gesamtansicht beider Tauschwege.
+2. Fokusfahrt vom Geldweg zum ETF-Anteil im Depot.
 
 ## Szene 4 — Was ein ETF-Anteil bedeutet
 
-**Zeit:** 0:21–0:28,5  
+**Zeit:** 0:29,50–0:40,03  
+**Dauer:** 10,53 Sekunden  
 **Typ:** Bild  
 **Voiceover:** Dieser Anteil gehört zu einem Fonds, der bereits viele Wertpapiere hält. Du kaufst also nicht selbst jede einzelne Aktie, sondern einen Anteil am gesamten Fondsvermögen.
 
@@ -77,11 +92,15 @@
 - Kicker: `DEIN BESITZ`
 - Headline: `Ein Anteil am ganzen Fonds`
 
-**Bewegung:** ruhiger Pull-out, damit aus dem einzelnen Anteil der gesamte Fonds sichtbar wird.
+**Bewegung in zwei Phasen:**
+
+1. Enger Fokus auf den einzelnen ETF-Anteil.
+2. Ruhiger Pull-out zum vollständigen Fondsvermögen.
 
 ## Szene 5 — Wie neue ETF-Anteile entstehen
 
-**Zeit:** 0:28,5–0:37,5  
+**Zeit:** 0:40,03–0:52,03  
+**Dauer:** 12,00 Sekunden  
 **Typ:** Remotion-Animation  
 **Komponente:** `EtfCreationBasketExchangeAnimation`
 
@@ -104,7 +123,8 @@
 
 ## Szene 6 — Wovon der Anteilswert abhängt
 
-**Zeit:** 0:37,5–0:44,5  
+**Zeit:** 0:52,03–1:01,90  
+**Dauer:** 9,87 Sekunden  
 **Typ:** Bild  
 **Voiceover:** Ab dann bewegt sich der Wert deines Anteils mit den enthaltenen Wertpapieren. Bei einem Sparplan kannst du je nach Anbieter auch nur einen Bruchteil eines Anteils besitzen.
 
@@ -115,11 +135,15 @@
 - Kicker: `DANACH`
 - Headline: `Der Anteil folgt dem Fondsvermögen`
 
-**Bewegung:** langsamer Push-in auf die mechanische Verbindung.
+**Bewegung in zwei Phasen:**
+
+1. Fokus auf die enthaltenen Wertpapiere.
+2. Kamerafahrt entlang der Verbindung zum ETF-Anteil und zum Bruchteil.
 
 ## Szene 7 — Klare Antwort
 
-**Zeit:** 0:44,5–0:51,5  
+**Zeit:** 1:01,90–1:12,42  
+**Dauer:** 10,52 Sekunden  
 **Typ:** Bild  
 **Voiceover:** Der wichtigste Punkt: Deine 100 Euro gehen beim normalen Börsenkauf an die Gegenseite des Handels. Du erhältst dafür einen Fondsanteil, der wirtschaftlich an einem ganzen Wertpapierkorb hängt.
 
@@ -131,7 +155,10 @@
 - Headline: `Du kaufst einen Fondsanteil`
 - Body: `Nicht direkt jede einzelne Aktie`
 
-**Bewegung:** sehr ruhiger finaler Push-in von 1,00 auf 1,035.
+**Bewegung in zwei Phasen:**
+
+1. Gesamtansicht von Anleger, Anteil, Fonds und Geldweg.
+2. Ruhiger finaler Fokus auf ETF-Anteil und Fondsvermögen.
 
 ## Cover
 
