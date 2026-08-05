@@ -36,6 +36,7 @@ const parsedDate = new Date(`${publishDate}T00:00:00Z`);
 if (Number.isNaN(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== publishDate) throw new Error(`Ungültiges Veröffentlichungsdatum: ${publishDate}`);
 
 const slug = sanitizeReelFolderTitle(slugArg);
+const tempSlug = `temp-${slug}`;
 const germanDays = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
 const mondayOffset = (parsedDate.getUTCDay() + 6) % 7;
 const dayNumber = mondayOffset + 1;
@@ -56,7 +57,7 @@ const historyFile = path.resolve(process.env.FINANCE_TOPIC_HISTORY_FILE ?? path.
 const weekTarget = path.join(reelsRoot, weekFolder);
 const weekdayTarget = path.join(weekTarget, weekdayFolder);
 const finalTarget = path.join(weekdayTarget, reelFolder);
-const tempTarget = path.join(reelsRoot, `.tmp-${slug}`);
+const tempTarget = path.join(reelsRoot, tempSlug);
 const relativeFinal = path.relative(repositoryRoot, finalTarget).split(path.sep).join('/');
 
 if (!fs.existsSync(historyFile)) throw new Error(`Themenregister fehlt: ${historyFile}`);
@@ -141,12 +142,14 @@ const writeMetadata = (target) => {
   fs.writeFileSync(p.status, JSON.stringify(status, null, 2));
 
   history = JSON.parse(fs.readFileSync(historyFile, 'utf8'));
-  historyEntry = (history.topics ?? []).find((item) => item.slug === slug);
+  history.topics = (history.topics ?? []).filter((item) => item.slug !== tempSlug);
+  historyEntry = history.topics.find((item) => item.slug === slug);
   if (!historyEntry) {
     historyEntry = {slug, topic, status: 'reserved', createdAt: new Date().toISOString()};
-    history.topics = [...(history.topics ?? []), historyEntry];
+    history.topics.push(historyEntry);
   }
   Object.assign(historyEntry, {
+    topic,
     publishDate,
     weekFolder,
     dayNumber,
@@ -173,8 +176,8 @@ let createdTemp = false;
 let movedToFinal = false;
 try {
   if (!fs.existsSync(tempTarget)) {
-    const forwardedArgs = args.filter((arg) => !arg.startsWith('--publish-date='));
-    const result = spawnSync(process.execPath, ['scripts/new-finance-reel.mjs', `.tmp-${slug}`, ...forwardedArgs.filter((arg) => arg !== slugArg)], {
+    const forwardedOptions = args.filter((arg) => arg.startsWith('--') && !arg.startsWith('--publish-date='));
+    const result = spawnSync(process.execPath, ['scripts/new-finance-reel.mjs', tempSlug, ...forwardedOptions], {
       cwd: technicalRoot,
       encoding: 'utf8',
       env: {...process.env, FINANCE_REELS_ROOT: reelsRoot},
@@ -199,7 +202,7 @@ try {
       if (entry.isDirectory()) rewriteReferences(file);
       else if (textExtensions.has(path.extname(entry.name).toLowerCase())) {
         const current = fs.readFileSync(file, 'utf8');
-        const updated = current.split(temporaryRelative).join(relativeFinal).split(`.tmp-${slug}`).join(slug);
+        const updated = current.split(temporaryRelative).join(relativeFinal).split(tempSlug).join(slug);
         if (updated !== current) fs.writeFileSync(file, updated);
       }
     }
