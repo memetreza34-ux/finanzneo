@@ -1,6 +1,6 @@
 {
   "version": "finance-v1",
-  "folderStructureVersion": 5,
+  "folderStructureVersion": 6,
   "slug": "was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
   "topic": "Der tatsächliche Weg einer ETF-Kauforder vom Broker über den Handelsplatz bis zum Fondsanteil im Depot",
   "title": "Was passiert, wenn du 100 Euro in einen ETF steckst?",
@@ -30,9 +30,10 @@
   "required": {
     "voiceScript": "01-voice-script/script-fliesstext.txt",
     "voiceoverPrompt": "01-voice-script/voiceover-anweisung.txt",
-    "voiceoverFinal": "02-audio/voiceover-final.wav",
+    "voiceoverFinal": "01-voice-script/voiceover-final.wav",
     "imagePromptIndex": "03-szenen/alle-bildprompts.txt",
     "sceneIndex": "03-szenen/scene-index.json",
+    "imageStorageRule": "Jedes Szenenbild liegt im selben Szenenordner wie bildprompt.txt.",
     "captionsFinal": "04-caption/voiceover-final.captions.json",
     "socialCaption": "04-caption/social-caption.md",
     "storyboard": "timeline/storyboard.md",
