@@ -100,10 +100,11 @@ const required = {
   sources: '05-review/quellen.md',
   voiceScript: '01-voice-script/script-fliesstext.txt',
   voiceoverPrompt: '01-voice-script/voiceover-anweisung.txt',
+  voiceoverFinal: '01-voice-script/voiceover-final.wav',
   imagePromptIndex: '03-szenen/alle-bildprompts.txt',
   sceneIndex: '03-szenen/scene-index.json',
+  imageStorageRule: 'Jedes Bild liegt direkt neben dem zugehörigen bildprompt.txt.',
   imagePromptManifest: 'timeline/prompt-manifest.json',
-  voiceoverFinal: '02-audio/voiceover-final.wav',
   captionsFinal: '04-caption/voiceover-final.captions.json',
   socialCaption: '04-caption/social-caption.md',
   manifest: 'timeline/asset-manifest.json',
@@ -228,4 +229,4 @@ console.log(`✓ Finance-Reel korrekt angelegt: ${relativeFinal}`);
 console.log(`  ${dayName}: ${reelFolder}`);
 console.log(`  Themenwahl: ${selectionMode} — ${selectionReason}`);
 console.log('  Struktur: Woche → Wochentag → Reel-Thema');
-console.log('  Projekt: 00-cover bis 06-video sowie render und timeline');
+console.log('  Medien: Voiceover beim Skript; Bilder direkt in den jeweiligen Szenenordnern.');
