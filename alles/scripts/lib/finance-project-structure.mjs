@@ -1,10 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-export const FINANCE_STRUCTURE_VERSION = 6;
+export const FINANCE_STRUCTURE_VERSION = 7;
 
 export const financeProjectPaths = (reelDir) => {
   const voiceScriptDir = path.join(reelDir, '01-voice-script');
+  const audioDir = path.join(reelDir, '02-audio');
   const scenesDir = path.join(reelDir, '03-szenen');
   const individualScenesDir = path.join(scenesDir, 'EINZELNE-SZENEN');
 
@@ -19,10 +20,12 @@ export const financeProjectPaths = (reelDir) => {
     scriptMarkdown: path.join(voiceScriptDir, 'script.md'),
     voiceScript: path.join(voiceScriptDir, 'script-fliesstext.txt'),
     voicePrompt: path.join(voiceScriptDir, 'voiceover-anweisung.txt'),
-    voiceoverFinal: path.join(voiceScriptDir, 'voiceover-final.wav'),
-    voiceReadme: path.join(voiceScriptDir, 'README.md'),
-    sfxDir: path.join(voiceScriptDir, 'sfx'),
-    audioDir: voiceScriptDir,
+
+    audioDir,
+    voiceoverFinal: path.join(audioDir, 'voiceover-final.wav'),
+    voiceReadme: path.join(audioDir, 'README.md'),
+    audioReadme: path.join(audioDir, 'README.md'),
+    sfxDir: path.join(audioDir, 'sfx'),
 
     scenesDir,
     imagesSectionDir: scenesDir,
@@ -73,6 +76,7 @@ export const financeRequiredDirectories = (reelDir) => {
     reelDir,
     p.coverDir,
     p.voiceScriptDir,
+    p.audioDir,
     p.sfxDir,
     p.scenesDir,
     p.individualScenesDir,
@@ -144,16 +148,17 @@ export const sanitizeReelFolderTitle = (value) => transliterateGerman(value ?? '
 export const promptFileName = (index, sceneId) => `scene-${String(index + 1).padStart(2, '0')}-${sanitizeSceneId(sceneId)}.txt`;
 export const suggestedImageFileName = (index, sceneId) => `scene-${String(index + 1).padStart(2, '0')}-${sanitizeSceneId(sceneId)}.png`;
 export const sceneFolderName = (index) => `scene-${String(index + 1).padStart(2, '0')}`;
-export const imagePathForScene = (index, sceneId) => path.posix.join(
+export const imageDirectoryForScene = (index) => path.posix.join(
   '03-szenen',
   'EINZELNE-SZENEN',
   sceneFolderName(index),
+);
+export const imagePathForScene = (index, sceneId) => path.posix.join(
+  imageDirectoryForScene(index),
   suggestedImageFileName(index, sceneId),
 );
 export const promptPathForScene = (index) => path.posix.join(
-  '03-szenen',
-  'EINZELNE-SZENEN',
-  sceneFolderName(index),
+  imageDirectoryForScene(index),
   'bildprompt.txt',
 );
 
@@ -202,15 +207,11 @@ const migrateLegacyStructure = (reelDir, p) => {
   moveFile(path.join(reelDir, '01-script-audio', 'script.md'), p.scriptMarkdown);
   moveFile(path.join(reelDir, '01-script-audio', 'script-fliesstext.txt'), p.voiceScript);
   moveFile(path.join(reelDir, '01-script-audio', 'voiceover.txt'), p.voicePrompt);
-  moveFile(path.join(reelDir, '01-script-audio', 'audio', 'voiceover-final.wav'), p.voiceoverFinal);
-  moveDirectoryContents(path.join(reelDir, '01-script-audio', 'audio', 'sfx'), p.sfxDir);
+  moveDirectoryContents(path.join(reelDir, '01-script-audio', 'audio'), p.audioDir);
 
-  moveFile(path.join(reelDir, '02-audio', 'voiceover-final.wav'), p.voiceoverFinal);
-  moveDirectoryContents(path.join(reelDir, '02-audio', 'sfx'), p.sfxDir);
-  const obsoleteAudioReadme = path.join(reelDir, '02-audio', 'README.md');
-  if (fs.existsSync(obsoleteAudioReadme)) fs.rmSync(obsoleteAudioReadme, {force: true});
-  const obsoleteAudioDir = path.join(reelDir, '02-audio');
-  if (fs.existsSync(obsoleteAudioDir) && fs.readdirSync(obsoleteAudioDir).length === 0) fs.rmdirSync(obsoleteAudioDir);
+  moveFile(path.join(reelDir, '01-voice-script', 'voiceover-final.wav'), path.join(p.audioDir, 'voiceover-final.wav'));
+  moveFile(path.join(reelDir, '01-voice-script', 'voiceover-final.mp3'), path.join(p.audioDir, 'voiceover-final.mp3'));
+  moveDirectoryContents(path.join(reelDir, '01-voice-script', 'sfx'), p.sfxDir);
 
   moveFile(path.join(reelDir, '02-bilder', 'ALLE-BILDPROMPTS-ZUM-KOPIEREN.md'), p.allImagePrompts);
   moveFile(path.join(reelDir, '02-bilder', 'bildprompts.md'), p.allImagePrompts);
@@ -258,20 +259,25 @@ export const ensureFinanceProjectStructure = (reelDir, {title = 'FinanzNeo-Reel'
     }
   }
 
-  writeIfMissing(p.coverText, `COVER-TEXT\nFINANCE_TODO_COVER\n\nUNTERZEILE\nFINANCE_TODO_SUBLINE\n`);
+  writeIfMissing(p.coverText, 'COVER-TEXT\nFINANCE_TODO_COVER\n\nUNTERZEILE\nFINANCE_TODO_SUBLINE\n');
   writeIfMissing(p.voiceScript, scriptText);
   writeIfMissing(p.scriptMarkdown, `# Skript — ${title}\n\n**Thema:** ${topic}\n\n## Hook\n\n<!-- FINANCE_TODO_FINAL_SCRIPT -->\n\n## Szenen\n\nDie finale Aufteilung steht in \`../timeline/scene-plan.json\`.\n`);
   writeIfMissing(p.voicePrompt, `Sprich auf Deutsch, klar, modern und direkt. Keine Begrüßung und keine künstliche Dramatik.\n\n<!-- FINANCE_TODO_FINAL_SCRIPT -->\n${scriptText}`);
-  writeIfMissing(p.voiceReadme, '# Voiceover und Skript\n\nDas finale Voiceover direkt in diesem Ordner als `voiceover-final.wav` ablegen.\n');
+  writeIfMissing(p.audioReadme, '# Audio hier ablegen\n\nLege genau **eine** Voiceover-Datei in diesen Ordner. Der Dateiname ist egal.\n\nUnterstützt: WAV, MP3, M4A, AAC, FLAC, OGG, OPUS sowie MP4, MOV, M4V und WEBM mit Audiospur.\n\nCodex erkennt die einzige passende Datei automatisch. Bei mehreren passenden Dateien stoppt die Prüfung, damit nichts verwechselt wird.\n');
   writeIfMissing(p.allImagePrompts, `# Alle Bildprompts — ${title}\n\n**Thema:** ${topic}\n\n<!-- FINANCE_TODO_SCENE_PROMPTS -->\n`);
-  writeIfMissing(p.sceneIndex, JSON.stringify({version: 2, sceneCount: 0, storageRule: 'Bild und bildprompt.txt liegen im selben Szenenordner.', scenes: []}, null, 2));
+  writeIfMissing(p.sceneIndex, JSON.stringify({
+    version: 3,
+    sceneCount: 0,
+    storageRule: 'Bei einer Bildszene liegt genau eine Bilddatei beliebigen Namens zusammen mit bildprompt.txt im zugehörigen scene-XX-Ordner.',
+    scenes: [],
+  }, null, 2));
   writeIfMissing(p.sources, `# Quellen — ${title}\n\n**Thema:** ${topic}\n\nPrimärquellen, Abrufdatum und verwendete Aussagen dokumentieren.\n`);
-  writeIfMissing(p.socialCaption, `<!-- FINANCE_TODO_SOCIAL_CAPTION -->\n\nKurze, sachliche Caption mit passenden Hashtags.\n`);
+  writeIfMissing(p.socialCaption, '<!-- FINANCE_TODO_SOCIAL_CAPTION -->\n\nKurze, sachliche Caption mit passenden Hashtags.\n');
   writeIfMissing(p.pdfContent, `# Fachlicher Inhalt — ${title}\n\n**Thema:** ${topic}\n\nFachliche Kernaussagen und Erklärungen dokumentieren.\n`);
   writeIfMissing(p.storyboard, `# Storyboard — ${title}\n\nSzenen, Timing, Texte, Bilder und Übergänge dokumentieren.\n`);
   writeIfMissing(p.motionDesign, `# Motion Design — ${title}\n\nPro Szene Bewegung, Fokus, Übergang und Animationsablauf dokumentieren.\n`);
 
-  writeIfMissing(path.join(p.individualScenesDir, 'README.md'), '# Einzelne Szenen\n\nJede Bildszene enthält `bildprompt.txt`, die fertige PNG-Datei und `szene.md` im selben Ordner. Animationsszenen enthalten `animation.md`.\n');
+  writeIfMissing(path.join(p.individualScenesDir, 'README.md'), '# Einzelne Szenen\n\nBei einer Bildszene legst du genau **eine** Bilddatei direkt in den passenden `scene-XX`-Ordner. Der Dateiname ist egal. `scene-01` gehört zur ersten Szene, `scene-03` zur dritten Szene usw.\n\nErlaubte Bildformate: PNG, JPG, JPEG, WEBP und AVIF.\n\nAnimationsszenen enthalten `animation.md` und benötigen kein Bild.\n');
   writeIfMissing(path.join(p.captionsDir, 'README.md'), '# Caption\n\nWortuntertitel als `voiceover-final.captions.json`, Social Caption als `social-caption.md`.\n');
   writeIfMissing(path.join(p.reviewDir, 'README.md'), '# Review\n\nQuellen, Status, Kontaktbogen und QA-Berichte.\n');
   writeIfMissing(path.join(p.finalVideoDir, 'README.md'), '# Fertiges Video\n\nFinales Reel als `final-reel.mp4` ablegen.\n');
