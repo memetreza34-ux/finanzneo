@@ -28,7 +28,7 @@
   },
   "voiceover": {
     "script": "FINANCE_TODO_COMPLETE_APPROVED_SCRIPT",
-    "asset": "02-audio/voiceover-final.wav",
+    "asset": "01-voice-script/voiceover-final.wav",
     "instruction": "Deutsch, klar, direkt und seriös. Keine Begrüßung. Hook, Wendepunkt und Payoff deutlich betonen."
   },
   "captions": {
@@ -45,7 +45,7 @@
       "purpose": "Starke persönliche Hook mit sofort verständlicher Geldfolge.",
       "visualFamily": "editorial-3d-environment",
       "image": {
-        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-01-hook.png",
+        "asset": "03-szenen/EINZELNE-SZENEN/scene-01/scene-01-hook.png",
         "promptFile": "03-szenen/EINZELNE-SZENEN/scene-01/bildprompt.txt",
         "motion": {
           "type": "push-in",
@@ -74,7 +74,7 @@
       "purpose": "Das konkrete Alltagsproblem sichtbar machen.",
       "visualFamily": "editorial-3d-closeup",
       "image": {
-        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-02-problem.png",
+        "asset": "03-szenen/EINZELNE-SZENEN/scene-02/scene-02-problem.png",
         "promptFile": "03-szenen/EINZELNE-SZENEN/scene-02/bildprompt.txt",
         "motion": {
           "type": "pan-right",
@@ -136,7 +136,7 @@
       "purpose": "Ein konkretes Beispiel in einer anderen Bildwelt zeigen.",
       "visualFamily": "editorial-3d-real-world-example",
       "image": {
-        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-04-example.png",
+        "asset": "03-szenen/EINZELNE-SZENEN/scene-04/scene-04-example.png",
         "promptFile": "03-szenen/EINZELNE-SZENEN/scene-04/bildprompt.txt",
         "motion": {
           "type": "pull-out",
@@ -165,7 +165,7 @@
       "purpose": "Die sichtbare Folge des Problems zeigen.",
       "visualFamily": "editorial-3d-consequence",
       "image": {
-        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-05-consequence.png",
+        "asset": "03-szenen/EINZELNE-SZENEN/scene-05/scene-05-consequence.png",
         "promptFile": "03-szenen/EINZELNE-SZENEN/scene-05/bildprompt.txt",
         "motion": {
           "type": "push-in",
@@ -227,7 +227,7 @@
       "purpose": "Hook beantworten und die praktische Kernaussage abschließen.",
       "visualFamily": "editorial-3d-payoff",
       "image": {
-        "asset": "03-szenen/BILDER-HIER-EINFUEGEN/scene-07-payoff.png",
+        "asset": "03-szenen/EINZELNE-SZENEN/scene-07/scene-07-payoff.png",
         "promptFile": "03-szenen/EINZELNE-SZENEN/scene-07/bildprompt.txt",
         "motion": {
           "type": "push-in",
