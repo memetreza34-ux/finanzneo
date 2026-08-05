@@ -36,11 +36,17 @@ Vor der Planung lesen:
 ```text
 00-cover/
 01-voice-script/
-02-audio/
+  script.md
+  script-fliesstext.txt
+  voiceover-anweisung.txt
+  voiceover-final.wav
 03-szenen/
   alle-bildprompts.txt
-  BILDER-HIER-EINFUEGEN/
   EINZELNE-SZENEN/
+    scene-01/
+      bildprompt.txt
+      scene-01-<name>.png
+      szene.md
   scene-index.json
 04-caption/
 05-review/
@@ -48,6 +54,8 @@ Vor der Planung lesen:
 render/
 timeline/
 ```
+
+Es gibt keinen getrennten `02-audio/`-Ordner. Es gibt keinen zentralen `BILDER-HIER-EINFUEGEN/`-Ordner. Jede Bilddatei liegt direkt neben dem zugehörigen `bildprompt.txt`.
 
 Die Reihenfolge außerhalb des Reels ist immer:
 
@@ -115,10 +123,12 @@ Nicht verwenden:
 ## Medien
 
 ```text
-<projektordner>/02-audio/voiceover-final.wav
-<projektordner>/03-szenen/BILDER-HIER-EINFUEGEN/
+<projektordner>/01-voice-script/voiceover-final.wav
+<projektordner>/03-szenen/EINZELNE-SZENEN/<scene>/<bilddatei>.png
 <projektordner>/04-caption/voiceover-final.captions.json
 ```
+
+Der Bildpfad und der Promptpfad jeder Bildszene müssen denselben Elternordner verwenden.
 
 ## Befehle
 
