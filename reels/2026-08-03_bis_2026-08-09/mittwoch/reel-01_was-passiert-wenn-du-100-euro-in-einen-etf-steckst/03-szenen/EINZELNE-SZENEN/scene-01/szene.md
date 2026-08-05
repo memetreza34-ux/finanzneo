@@ -4,7 +4,7 @@
 
 **Voiceover:** Was passiert eigentlich, wenn du 100 Euro in einen ETF steckst? Wohin geht das Geld – und was bekommst du dafür?
 
-**Bilddatei:** `scene-01-hook.png`
+**Bilddatei:** Lege genau eine Bilddatei beliebigen Namens in diesen Ordner. Weil sie in `scene-01` liegt, wird sie automatisch als Bild der ersten Szene verwendet.
 
 **Overlay:** Was passiert mit 100 € im ETF?
 
