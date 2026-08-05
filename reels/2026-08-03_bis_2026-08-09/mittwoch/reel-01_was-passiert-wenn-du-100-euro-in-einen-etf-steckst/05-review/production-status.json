@@ -1,6 +1,6 @@
 {
   "version": "finance-v1",
-  "folderStructureVersion": 6,
+  "folderStructureVersion": 7,
   "slug": "was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
   "topic": "Der tatsächliche Weg einer ETF-Kauforder vom Broker über den Handelsplatz bis zum Fondsanteil im Depot",
   "title": "Was passiert, wenn du 100 Euro in einen ETF steckst?",
@@ -14,7 +14,7 @@
   "sourceCodePath": "alles/channels/finanzneo/src/reels/2026-08-05-was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
   "publicRuntimePath": "alles/channels/finanzneo/public/reels/was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
   "outPath": "alles/channels/finanzneo/out/reels/2026-08-05-was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
-  "stage": "planning",
+  "stage": "ready-for-local-asset-check",
   "topicSelection": {
     "selectedBy": "user",
     "mode": "user",
@@ -23,17 +23,18 @@
   },
   "approvals": {
     "topicSelected": true,
-    "scriptApproved": false,
+    "scriptApproved": true,
     "designAnchorApproved": true,
     "assetsReviewed": false
   },
   "required": {
     "voiceScript": "01-voice-script/script-fliesstext.txt",
     "voiceoverPrompt": "01-voice-script/voiceover-anweisung.txt",
-    "voiceoverFinal": "01-voice-script/voiceover-final.wav",
+    "voiceoverDirectory": "02-audio",
+    "voiceoverSelection": "single-supported-file",
     "imagePromptIndex": "03-szenen/alle-bildprompts.txt",
     "sceneIndex": "03-szenen/scene-index.json",
-    "imageStorageRule": "Jedes Szenenbild liegt im selben Szenenordner wie bildprompt.txt.",
+    "imageStorageRule": "Jede Bildszene enthält genau eine Bilddatei beliebigen Namens im passenden scene-XX-Ordner. Der Ordner bestimmt die Szene.",
     "captionsFinal": "04-caption/voiceover-final.captions.json",
     "socialCaption": "04-caption/social-caption.md",
     "storyboard": "timeline/storyboard.md",
@@ -44,8 +45,10 @@
   },
   "media": {
     "expectedImages": 5,
-    "receivedImages": 0,
-    "voiceoverReceived": false,
+    "imageDetection": "automatic-per-scene-folder",
+    "voiceoverDetection": "automatic-in-02-audio",
+    "receivedImages": "local-check-required",
+    "voiceoverReceived": "local-check-required",
     "captionsReceived": false
   },
   "implementation": {
