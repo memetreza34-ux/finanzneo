@@ -1,0 +1,57 @@
+{
+  "version": "finance-v1",
+  "slug": "was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
+  "topic": "Der tatsächliche Weg einer ETF-Kauforder vom Broker über den Handelsplatz bis zum Fondsanteil im Depot",
+  "title": "Was passiert, wenn du 100 Euro in einen ETF steckst?",
+  "publishDate": "2026-08-05",
+  "weekFolder": "2026-08-03_bis_2026-08-09",
+  "dayNumber": 3,
+  "dayName": "Mittwoch",
+  "reelFolder": "reel-01_was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
+  "projectPath": "reels/2026-08-03_bis_2026-08-09/mittwoch/reel-01_was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
+  "sourceCodePath": "alles/channels/finanzneo/src/reels/2026-08-05-was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
+  "publicRuntimePath": "alles/channels/finanzneo/public/reels/was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
+  "outPath": "alles/channels/finanzneo/out/reels/2026-08-05-was-passiert-wenn-du-100-euro-in-einen-etf-steckst",
+  "stage": "planning",
+  "topicSelection": {
+    "selectedBy": "user",
+    "mode": "user",
+    "reason": "Start der neuen Nische Finanzwissen visuell erklärt mit einer klaren Anfängerfrage, einem echten Börsenprozess und zwei unterschiedlich aufgebauten Remotion-Animationen.",
+    "selectedAt": "2026-08-05T04:20:00.000Z"
+  },
+  "approvals": {
+    "topicSelected": true,
+    "scriptApproved": false,
+    "designAnchorApproved": true,
+    "assetsReviewed": false
+  },
+  "required": {
+    "voiceScript": "01-voice-script/script-fliesstext.txt",
+    "voiceoverPrompt": "01-voice-script/voiceover-anweisung.txt",
+    "voiceoverFinal": "02-audio/voiceover-final.wav",
+    "imagePromptIndex": "03-szenen/alle-bildprompts.txt",
+    "sceneIndex": "03-szenen/scene-index.json",
+    "captionsFinal": "04-caption/voiceover-final.captions.json",
+    "socialCaption": "04-caption/social-caption.md",
+    "storyboard": "timeline/storyboard.md",
+    "motionDesign": "timeline/motion-design.md",
+    "sources": "05-review/quellen.md",
+    "codexPackage": "timeline/codex-reel-package.json",
+    "videoDirectory": "06-video"
+  },
+  "media": {
+    "expectedImages": 5,
+    "receivedImages": 0,
+    "voiceoverReceived": false,
+    "captionsReceived": false
+  },
+  "implementation": {
+    "remotionBuilt": false,
+    "typecheckPassed": false,
+    "testsPassed": false,
+    "renderCompleted": false,
+    "manualVisualQaCompleted": false,
+    "productionIntegrated": false,
+    "merged": false
+  }
+}
