@@ -1,0 +1,58 @@
+{
+  "version": "finance-v1",
+  "slug": "was-passiert-mit-100-euro-beim-etf-kauf",
+  "topic": "Der tatsächliche Weg einer ETF-Kauforder vom Broker über den Handelsplatz bis zum Fondsanteil im Depot",
+  "title": "Was passiert mit deinen 100 Euro beim ETF-Kauf?",
+  "publishDate": "2026-08-05",
+  "weekFolder": "2026-08-03_bis_2026-08-09",
+  "dayNumber": 3,
+  "dayName": "Mittwoch",
+  "reelFolder": "03_Was_mit_100_Euro_beim_ETF-Kauf_passiert",
+  "projectPath": "channels/finanzneo/reels/2026-08-03_bis_2026-08-09/03_Was_mit_100_Euro_beim_ETF-Kauf_passiert",
+  "sourceCodePath": "channels/finanzneo/src/reels/2026-08-05-was-passiert-mit-100-euro-beim-etf-kauf",
+  "publicRuntimePath": "channels/finanzneo/public/reels/was-passiert-mit-100-euro-beim-etf-kauf",
+  "outPath": "channels/finanzneo/out/reels/2026-08-05-was-passiert-mit-100-euro-beim-etf-kauf",
+  "stage": "planning",
+  "topicSelection": {
+    "selectedBy": "user",
+    "mode": "user",
+    "reason": "Start der neuen Nische Finanzwissen visuell erklärt mit einer klaren Anfängerfrage, einem echten Börsenprozess und zwei sinnvoll unterschiedlichen Remotion-Animationen.",
+    "selectedAt": "2026-08-05T04:20:00.000Z"
+  },
+  "approvals": {
+    "topicSelected": true,
+    "scriptApproved": false,
+    "designAnchorApproved": true,
+    "assetsReviewed": false
+  },
+  "required": {
+    "voiceScript": "01-script-audio/script-fliesstext.txt",
+    "voiceoverPrompt": "01-script-audio/voiceover.txt",
+    "voiceoverFinal": "01-script-audio/audio/voiceover-final.wav",
+    "imagePromptIndex": "02-bilder/bildprompts.md",
+    "imagePromptManifest": "06-projektdateien/prompt-manifest.json",
+    "captionsFinal": "03-caption/voiceover-final.captions.json",
+    "socialCaption": "03-caption/social-caption.md",
+    "storyboard": "06-projektdateien/storyboard.md",
+    "motionDesign": "06-projektdateien/motion-design.md",
+    "sources": "06-projektdateien/sources.md",
+    "codexPackage": "06-projektdateien/codex-reel-package.json",
+    "manifest": "06-projektdateien/asset-manifest.json",
+    "exportDirectory": "05-export"
+  },
+  "media": {
+    "expectedImages": 5,
+    "receivedImages": 0,
+    "voiceoverReceived": false,
+    "captionsReceived": false
+  },
+  "implementation": {
+    "remotionBuilt": false,
+    "typecheckPassed": false,
+    "testsPassed": false,
+    "renderCompleted": false,
+    "manualVisualQaCompleted": false,
+    "productionIntegrated": false,
+    "merged": false
+  }
+}
