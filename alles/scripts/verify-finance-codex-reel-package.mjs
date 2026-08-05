@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import {
+  resolveSceneImageAsset,
+  resolveVoiceoverAsset,
+  isSafeRelativePath,
+} from './lib/finance-user-asset-discovery.mjs';
 
 const args = process.argv.slice(2);
 const projectArg = args.find((arg) => !arg.startsWith('--'));
@@ -19,11 +24,12 @@ const packageCandidates = [
 const packageFile = packageCandidates.find((candidate) => fs.existsSync(candidate));
 const errors = [];
 const warnings = [];
+const resolvedAssets = {voiceover: null, images: []};
 const fail = (message) => errors.push(message);
 const warn = (message) => warnings.push(message);
 const isText = (value, min = 1) => typeof value === 'string' && value.trim().length >= min;
 const normalized = (value) => String(value ?? '').replace(/\s+/g, ' ').trim();
-const isRelativeSafePath = (value) => isText(value) && !path.isAbsolute(value) && !value.split(/[\\/]+/).includes('..');
+const isRelativeSafePath = (value) => isSafeRelativePath(value);
 
 if (!fs.existsSync(projectRoot) || !fs.statSync(projectRoot).isDirectory()) {
   throw new Error(`Projektordner nicht gefunden: ${projectRoot}`);
@@ -59,7 +65,14 @@ if (!isText(cover.sourceSceneId)) fail('cover.sourceSceneId fehlt.');
 
 const voiceover = reel.voiceover ?? {};
 if (!isText(voiceover.script, 20)) fail('voiceover.script fehlt oder ist zu kurz.');
-if (!isRelativeSafePath(voiceover.asset)) fail('voiceover.asset muss ein sicherer relativer Projektpfad sein.');
+const hasVoiceoverDirectory = isRelativeSafePath(voiceover.directory ?? voiceover.assetDirectory);
+const hasLegacyVoiceoverAsset = isRelativeSafePath(voiceover.asset);
+if (!hasVoiceoverDirectory && !hasLegacyVoiceoverAsset) {
+  fail('voiceover benötigt directory (bevorzugt) oder einen sicheren relativen asset-Pfad.');
+}
+if (voiceover.selection && voiceover.selection !== 'single-supported-file') {
+  fail('voiceover.selection muss single-supported-file sein.');
+}
 
 const rules = reel.creativeRules ?? {};
 if (rules.mode !== 'image-first-hybrid') fail('creativeRules.mode muss image-first-hybrid sein.');
@@ -111,7 +124,14 @@ for (let index = 0; index < scenes.length; index += 1) {
 
   if (scene.type === 'image') {
     imageCount += 1;
-    if (!isRelativeSafePath(scene.image?.asset)) fail(`${label}: image.asset muss ein sicherer relativer Projektpfad sein.`);
+    const hasImageDirectory = isRelativeSafePath(scene.image?.directory ?? scene.image?.assetDirectory);
+    const hasLegacyImageAsset = isRelativeSafePath(scene.image?.asset);
+    if (!hasImageDirectory && !hasLegacyImageAsset) {
+      fail(`${label}: image benötigt directory (bevorzugt) oder einen sicheren relativen asset-Pfad.`);
+    }
+    if (scene.image?.selection && scene.image.selection !== 'single-supported-file') {
+      fail(`${label}: image.selection muss single-supported-file sein.`);
+    }
     if (!isRelativeSafePath(scene.image?.promptFile)) fail(`${label}: image.promptFile muss ein sicherer relativer Projektpfad sein.`);
     if (!isText(scene.image?.motion?.type)) fail(`${label}: image.motion.type fehlt.`);
     for (const key of ['scaleFrom', 'scaleTo', 'panX', 'panY']) {
@@ -161,25 +181,48 @@ if (assembledScript && normalized(voiceover.script) !== assembledScript) {
 const packageText = JSON.stringify(reel);
 if (requireAssets && packageText.includes('FINANCE_TODO')) fail('Das Build-Paket enthält noch FINANCE_TODO-Platzhalter.');
 
+const verifyExactFile = (relative, label) => {
+  if (!isRelativeSafePath(relative)) {
+    fail(`${label}: unsicherer oder leerer Dateipfad.`);
+    return;
+  }
+  const absolute = path.resolve(projectRoot, relative);
+  if (!absolute.startsWith(`${projectRoot}${path.sep}`)) {
+    fail(`${label}: Pfad liegt außerhalb des Projekts: ${relative}.`);
+  } else if (!fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) {
+    fail(`${label}: Datei fehlt: ${relative}.`);
+  }
+};
+
 if (requireAssets) {
   if (reel.status !== 'ready-to-build') fail('status muss für den Build ready-to-build sein.');
   if (reel.approval?.scriptApprovedByUser !== true) fail('scriptApprovedByUser muss true sein.');
   if (reel.approval?.imagePromptsApprovedByUser !== true) fail('imagePromptsApprovedByUser muss true sein.');
-  if (reel.approval?.assetsSuppliedByUser !== true) fail('assetsSuppliedByUser muss true sein.');
 
-  const requiredFiles = [voiceover.asset];
-  for (const scene of scenes) {
-    if (scene.type === 'image') requiredFiles.push(scene.image.asset, scene.image.promptFile);
-    for (const cue of scene.soundCues ?? []) {
-      if (isText(cue.asset)) requiredFiles.push(cue.asset);
-    }
+  if (hasVoiceoverDirectory) {
+    const result = resolveVoiceoverAsset(projectRoot, voiceover);
+    if (!result.ok) fail(result.message);
+    else resolvedAssets.voiceover = result.relativeFile;
+  } else {
+    verifyExactFile(voiceover.asset, 'Voiceover');
+    resolvedAssets.voiceover = voiceover.asset;
   }
-  for (const relative of [...new Set(requiredFiles.filter(Boolean))]) {
-    const absolute = path.resolve(projectRoot, relative);
-    if (!absolute.startsWith(`${projectRoot}${path.sep}`) && absolute !== projectRoot) {
-      fail(`Unsicherer Assetpfad: ${relative}.`);
-    } else if (!fs.existsSync(absolute) || !fs.statSync(absolute).isFile()) {
-      fail(`Erforderliche Datei fehlt: ${relative}.`);
+
+  for (let index = 0; index < scenes.length; index += 1) {
+    const scene = scenes[index];
+    if (scene.type === 'image') {
+      verifyExactFile(scene.image.promptFile, `${scene.id}: Bildprompt`);
+      if (isRelativeSafePath(scene.image.directory ?? scene.image.assetDirectory)) {
+        const result = resolveSceneImageAsset(projectRoot, scene, index);
+        if (!result.ok) fail(result.message);
+        else resolvedAssets.images.push({sceneId: scene.id, file: result.relativeFile});
+      } else {
+        verifyExactFile(scene.image.asset, `${scene.id}: Bild`);
+        resolvedAssets.images.push({sceneId: scene.id, file: scene.image.asset});
+      }
+    }
+    for (const cue of scene.soundCues ?? []) {
+      if (isText(cue.asset)) verifyExactFile(cue.asset, `${scene.id}: Sound-Cue`);
     }
   }
 
@@ -208,4 +251,8 @@ console.log(`  Szenen: ${scenes.length}`);
 console.log(`  Bildszenen: ${imageCount}`);
 console.log(`  Animationsszenen: ${animationCount}`);
 console.log(`  Gesamtdauer: ${totalDuration.toFixed(2)} s`);
-console.log(`  Modus: ${requireAssets ? 'ready-to-build mit Assetprüfung' : 'Struktur- und Kreativprüfung'}`);
+if (requireAssets) {
+  console.log(`  Voiceover erkannt: ${resolvedAssets.voiceover}`);
+  for (const image of resolvedAssets.images) console.log(`  ${image.sceneId}: ${image.file}`);
+}
+console.log(`  Modus: ${requireAssets ? 'ready-to-build mit automatischer Asset-Erkennung' : 'Struktur- und Kreativprüfung'}`);
