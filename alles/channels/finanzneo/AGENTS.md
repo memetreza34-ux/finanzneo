@@ -64,7 +64,6 @@ Every reel uses:
 ```text
 00-cover/
 01-voice-script/
-02-audio/
 03-szenen/
 04-caption/
 05-review/
@@ -72,6 +71,8 @@ Every reel uses:
 render/
 timeline/
 ```
+
+There is no separate `02-audio/` folder. There is also no central `BILDER-HIER-EINFUEGEN/` folder.
 
 Reel-specific source code belongs under:
 
@@ -86,14 +87,19 @@ Use a dedicated composition ID from `timeline/codex-reel-package.json`. Do not r
 Expected voiceover path:
 
 ```text
-<project>/02-audio/voiceover-final.wav
+<project>/01-voice-script/voiceover-final.wav
 ```
 
-Expected user images:
+Every image must be stored directly beside its own prompt and scene description:
 
 ```text
-<project>/03-szenen/BILDER-HIER-EINFUEGEN/
+<project>/03-szenen/EINZELNE-SZENEN/scene-01/
+├── bildprompt.txt
+├── scene-01-<name>.png
+└── szene.md
 ```
+
+The parent directory of `image.asset` must equal the parent directory of `image.promptFile`.
 
 If final word captions are missing, create deterministic provisional captions from the approved scene voice text and final audio duration:
 
@@ -138,4 +144,4 @@ Then run reel-specific still and render commands. Inspect the full MP4, first fr
 
 ## Stop conditions
 
-Stop instead of guessing when an image or voiceover file is missing, package and files disagree, script differs from audio, an animation is too vague, planned duration cannot fit audio, a financial claim lacks support or the package fails the image-first ratio.
+Stop instead of guessing when an image or voiceover file is missing, package and files disagree, an image is not stored beside its prompt, the script differs from audio, an animation is too vague, planned duration cannot fit audio, a financial claim lacks support or the package fails the image-first ratio.
