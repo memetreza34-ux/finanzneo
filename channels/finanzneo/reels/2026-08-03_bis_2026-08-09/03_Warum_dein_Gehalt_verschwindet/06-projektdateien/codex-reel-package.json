@@ -1,0 +1,278 @@
+{
+  "version": "finanzneo-codex-reel-v1",
+  "status": "planning",
+  "slug": "warum-dein-gehalt-verschwindet",
+  "title": "Warum dein Gehalt sofort kleiner wird",
+  "topic": "Warum ein Gehalt ohne feste Aufteilung schon am Monatsanfang verplant ist und wie ein Vier-Töpfe-System Kontrolle schafft",
+  "publishDate": "2026-08-05",
+  "centralQuestion": "Warum fühlt sich ein gutes Gehalt so schnell weg an, obwohl du noch kaum bewusst etwas gekauft hast?",
+  "payoff": "Teile dein Gehalt direkt nach Eingang auf und schütze die Rücklage, statt nur den zufälligen Monatsrest zu sparen.",
+  "composition": {
+    "id": "FinanzNeoWarumDeinGehaltVerschwindet",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "creativeRules": {
+    "mode": "image-first-hybrid",
+    "imageScenesMustOutnumberAnimations": true,
+    "maximumAnimationShare": 0.4,
+    "maximumDashboardScenes": 0,
+    "allowConsecutiveAnimations": false,
+    "subtitleSafeBottomPx": 330
+  },
+  "cover": {
+    "text": "WO IST DEIN GEHALT?",
+    "subtext": "Warum es sofort kleiner wird",
+    "sourceSceneId": "scene-01-hook"
+  },
+  "voiceover": {
+    "script": "Dein Gehalt verschwindet nicht am Monatsende. Oft ist es schon am ersten Tag fast vollständig verplant. Miete, Strom, Versicherungen und Verträge greifen gleichzeitig zu, bevor du überhaupt bewusst etwas gekauft hast. In diesem Beispiel laufen 3.000 Euro durch vier Kostentore. Nach Wohnen, Alltag und Verträgen bleibt nur ein ungeschützter Rest. Dann kommen Lebensmittel, Lieferdienste und spontane Käufe. Jede Ausgabe wirkt klein, gemeinsam leeren sie den Rest. Besonders tückisch sind automatische Abbuchungen. Viele kleine Abos bleiben unsichtbar, blockieren aber jeden Monat echtes Geld. Dreh die Reihenfolge um: Teile dein Gehalt direkt nach Eingang in Fixkosten, Alltag, Rücklage und frei verfügbares Geld. So sparst du nicht, was zufällig übrig bleibt. Jeder Euro bekommt zuerst einen Platz, und du behältst die Kontrolle.",
+    "asset": "01-script-audio/audio/voiceover-final.wav",
+    "instruction": "Deutsch, klar, direkt und seriös. Keine Begrüßung. Leicht erstaunt in der Hook, sachlich in der Erklärung und ruhig bestimmt im Payoff. Keine künstliche Dramatik."
+  },
+  "captions": {
+    "asset": "03-caption/voiceover-final.captions.json",
+    "mayGenerateProvisionalTimings": true,
+    "style": "finanzneo-word-captions"
+  },
+  "scenes": [
+    {
+      "id": "scene-01-hook",
+      "type": "image",
+      "durationSec": 6.0,
+      "voiceText": "Dein Gehalt verschwindet nicht am Monatsende. Oft ist es schon am ersten Tag fast vollständig verplant.",
+      "purpose": "Die persönliche Geldfolge sofort als visuelle Hook zeigen.",
+      "visualFamily": "editorial-3d-salary-drain",
+      "image": {
+        "asset": "02-bilder/images/scene-01-hook.png",
+        "promptFile": "02-bilder/prompts/scene-01-hook.txt",
+        "motion": {
+          "type": "push-in",
+          "scaleFrom": 1.0,
+          "scaleTo": 1.055,
+          "panX": 0,
+          "panY": -10
+        }
+      },
+      "overlay": {
+        "kicker": "DEIN GELD",
+        "headline": "Schon am ersten Tag verplant",
+        "body": ""
+      },
+      "transition": {
+        "type": "match-cut",
+        "durationSec": 0.25
+      },
+      "soundCues": []
+    },
+    {
+      "id": "scene-02-fixed-costs",
+      "type": "image",
+      "durationSec": 7.5,
+      "voiceText": "Miete, Strom, Versicherungen und Verträge greifen gleichzeitig zu, bevor du überhaupt bewusst etwas gekauft hast.",
+      "purpose": "Die gleichzeitige Belastung durch feste monatliche Verpflichtungen sichtbar machen.",
+      "visualFamily": "editorial-3d-obligation-room",
+      "image": {
+        "asset": "02-bilder/images/scene-02-fixed-costs.png",
+        "promptFile": "02-bilder/prompts/scene-02-fixed-costs.txt",
+        "motion": {
+          "type": "pan-right",
+          "scaleFrom": 1.04,
+          "scaleTo": 1.04,
+          "panX": 14,
+          "panY": 0
+        }
+      },
+      "overlay": {
+        "kicker": "FIXKOSTEN",
+        "headline": "Sie greifen zuerst zu",
+        "body": ""
+      },
+      "transition": {
+        "type": "object-wipe",
+        "durationSec": 0.35
+      },
+      "soundCues": []
+    },
+    {
+      "id": "scene-03-cost-gates",
+      "type": "animation",
+      "durationSec": 8.5,
+      "voiceText": "In diesem Beispiel laufen 3.000 Euro durch vier Kostentore. Nach Wohnen, Alltag und Verträgen bleibt nur ein ungeschützter Rest.",
+      "purpose": "Den Abfluss eines Beispielgehalts als zeitlichen Prozess erklären.",
+      "visualFamily": "physical-toll-tunnel",
+      "animation": {
+        "componentName": "SalaryCostGatesAnimation",
+        "narrativeAction": "Ein kompakter 3.000-Euro-Block fährt durch einen räumlichen Kostentunnel; jedes Tor schneidet sichtbar einen Teil ab und leitet ihn in einen eigenen Seitenschacht.",
+        "startState": "Ein vollständiger grüner Geldblock mit 3.000 Euro steht am Eingang des Tunnels.",
+        "endState": "Ein deutlich kleinerer Reststapel verlässt den Tunnel ungeschützt, während drei gefüllte Seitenschächte die vorherigen Abzüge zeigen.",
+        "camera": "Niedrige Verfolgungskamera fährt mit dem Geldblock durch den Tunnel und zieht am Ausgang leicht zurück.",
+        "requiredElements": [
+          "3.000-Euro-Startblock",
+          "Tor Wohnen 1.200 Euro",
+          "Tor Alltag 600 Euro",
+          "Tor Verträge 300 Euro",
+          "Rest 900 Euro",
+          "physische Seitenschächte statt Diagrammkarten"
+        ],
+        "forbiddenPatterns": [
+          "dashboard card",
+          "bar chart as the only action",
+          "counter as the only action",
+          "split-screen comparison"
+        ]
+      },
+      "overlay": {
+        "kicker": "BEISPIEL",
+        "headline": "Jedes Kostentor macht den Rest kleiner",
+        "body": "Beispielwerte zur Veranschaulichung"
+      },
+      "transition": {
+        "type": "object-wipe",
+        "durationSec": 0.35
+      },
+      "soundCues": []
+    },
+    {
+      "id": "scene-04-everyday-spending",
+      "type": "image",
+      "durationSec": 7.5,
+      "voiceText": "Dann kommen Lebensmittel, Lieferdienste und spontane Käufe. Jede Ausgabe wirkt klein, gemeinsam leeren sie den Rest.",
+      "purpose": "Variable Alltagsausgaben in einer erkennbaren Kaufsituation zeigen.",
+      "visualFamily": "editorial-3d-supermarket-checkout",
+      "image": {
+        "asset": "02-bilder/images/scene-04-everyday-spending.png",
+        "promptFile": "02-bilder/prompts/scene-04-everyday-spending.txt",
+        "motion": {
+          "type": "pull-out",
+          "scaleFrom": 1.07,
+          "scaleTo": 1.01,
+          "panX": 0,
+          "panY": 8
+        }
+      },
+      "overlay": {
+        "kicker": "ALLTAG",
+        "headline": "Kleine Käufe summieren sich",
+        "body": ""
+      },
+      "transition": {
+        "type": "cut",
+        "durationSec": 0
+      },
+      "soundCues": []
+    },
+    {
+      "id": "scene-05-subscriptions",
+      "type": "image",
+      "durationSec": 7.5,
+      "voiceText": "Besonders tückisch sind automatische Abbuchungen. Viele kleine Abos bleiben unsichtbar, blockieren aber jeden Monat echtes Geld.",
+      "purpose": "Unsichtbare wiederkehrende Abbuchungen als zusammenhängenden Geldabfluss zeigen.",
+      "visualFamily": "editorial-3d-subscription-wall",
+      "image": {
+        "asset": "02-bilder/images/scene-05-subscriptions.png",
+        "promptFile": "02-bilder/prompts/scene-05-subscriptions.txt",
+        "motion": {
+          "type": "push-in",
+          "scaleFrom": 1.0,
+          "scaleTo": 1.05,
+          "panX": -10,
+          "panY": 0
+        }
+      },
+      "overlay": {
+        "kicker": "ABOS",
+        "headline": "Unsichtbar, aber jeden Monat da",
+        "body": ""
+      },
+      "transition": {
+        "type": "match-cut",
+        "durationSec": 0.25
+      },
+      "soundCues": []
+    },
+    {
+      "id": "scene-06-envelope-system",
+      "type": "animation",
+      "durationSec": 10.0,
+      "voiceText": "Dreh die Reihenfolge um: Teile dein Gehalt direkt nach Eingang in Fixkosten, Alltag, Rücklage und frei verfügbares Geld.",
+      "purpose": "Die Lösung als aktives, geschütztes Verteilungssystem erklären.",
+      "visualFamily": "circular-envelope-vault",
+      "animation": {
+        "componentName": "FourEnvelopeLockAnimation",
+        "narrativeAction": "Ein Gehaltsstrom fällt von oben auf einen zentralen Drehverteiler; vier Bahnen öffnen nacheinander, wobei die Rücklage zuerst in einem geschützten Behälter verriegelt wird und danach die übrigen Geldtöpfe gefüllt werden.",
+        "startState": "Der gesamte Geldstrom landet ungeordnet in einer offenen Mitte und einzelne Münzen rollen unkontrolliert weg.",
+        "endState": "Vier räumlich getrennte Behälter sind sauber gefüllt; die Rücklage ist sichtbar verriegelt und kein Geld läuft mehr aus.",
+        "camera": "Top-down-Kamera dreht sich während der Verteilung langsam um 15 Grad und zieht am Ende zurück, damit alle vier Behälter gleichzeitig sichtbar sind.",
+        "requiredElements": [
+          "zentraler mechanischer Drehverteiler",
+          "Behälter Fixkosten",
+          "Behälter Alltag",
+          "verriegelter Behälter Rücklage",
+          "Behälter Frei",
+          "sichtbare Reihenfolge Rücklage zuerst",
+          "keine Tabellen oder Karten"
+        ],
+        "forbiddenPatterns": [
+          "same layout as scene-03-cost-gates",
+          "dashboard card",
+          "static comparison",
+          "bar chart",
+          "four identical UI tiles"
+        ]
+      },
+      "overlay": {
+        "kicker": "DIE LÖSUNG",
+        "headline": "Gib jedem Euro sofort einen Platz",
+        "body": "Rücklage zuerst schützen"
+      },
+      "transition": {
+        "type": "object-reveal",
+        "durationSec": 0.35
+      },
+      "soundCues": []
+    },
+    {
+      "id": "scene-07-payoff",
+      "type": "image",
+      "durationSec": 8.5,
+      "voiceText": "So sparst du nicht, was zufällig übrig bleibt. Jeder Euro bekommt zuerst einen Platz, und du behältst die Kontrolle.",
+      "purpose": "Die Hook mit einem ruhigen, kontrollierten Endzustand beantworten.",
+      "visualFamily": "editorial-3d-organized-finance-room",
+      "image": {
+        "asset": "02-bilder/images/scene-07-payoff.png",
+        "promptFile": "02-bilder/prompts/scene-07-payoff.txt",
+        "motion": {
+          "type": "push-in",
+          "scaleFrom": 1.0,
+          "scaleTo": 1.035,
+          "panX": 0,
+          "panY": 0
+        }
+      },
+      "overlay": {
+        "kicker": "KONTROLLE",
+        "headline": "Nicht den Rest sparen – zuerst verteilen",
+        "body": "Beispiel, keine individuelle Finanzberatung"
+      },
+      "transition": {
+        "type": "cut",
+        "durationSec": 0
+      },
+      "soundCues": []
+    }
+  ],
+  "deliverables": {
+    "video": "05-export/final-reel.mp4",
+    "cover": "05-export/cover.png",
+    "contactSheet": "05-export/contact-sheet.png",
+    "qaReport": "06-projektdateien/codex-render-qa.json"
+  },
+  "approval": {
+    "scriptApprovedByUser": false,
+    "imagePromptsApprovedByUser": false,
+    "assetsSuppliedByUser": false,
+    "finalVideoApprovedByUser": false
+  }
+}
