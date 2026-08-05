@@ -8,8 +8,9 @@ const repoRoot = process.cwd();
 const validator = path.join(repoRoot, 'scripts', 'verify-finance-codex-reel-package.mjs');
 const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'finanzneo-codex-reel-'));
 const projectRoot = path.join(tempRoot, 'project');
-const projectFile = path.join(projectRoot, '06-projektdateien', 'codex-reel-package.json');
+const projectFile = path.join(projectRoot, 'timeline', 'codex-reel-package.json');
 
+const sceneDirectory = (index) => `03-szenen/EINZELNE-SZENEN/scene-${String(index).padStart(2, '0')}`;
 const imageScene = (index) => ({
   id: `scene-${String(index).padStart(2, '0')}-image`,
   type: 'image',
@@ -18,8 +19,9 @@ const imageScene = (index) => ({
   purpose: `Eigener Inhaltsbeat für Bildszene ${index}.`,
   visualFamily: `image-family-${index}`,
   image: {
-    asset: `02-bilder/images/scene-${index}.png`,
-    promptFile: `02-bilder/prompts/scene-${index}.txt`,
+    directory: sceneDirectory(index),
+    selection: 'single-supported-file',
+    promptFile: `${sceneDirectory(index)}/bildprompt.txt`,
     motion: {type: 'push-in', scaleFrom: 1, scaleTo: 1.04, panX: 0, panY: 0}
   },
   overlay: {kicker: 'FinanzNeo', headline: `Bild ${index}`, body: ''},
@@ -77,14 +79,19 @@ const validPackage = {
     subtitleSafeBottomPx: 330
   },
   cover: {text: 'BILDER + ANIMATIONEN', subtext: 'Der sichere Codex-Workflow', sourceSceneId: scenes[0].id},
-  voiceover: {script: voiceScript, asset: '01-script-audio/audio/voiceover-final.wav', instruction: 'Deutsch und klar.'},
-  captions: {asset: '03-caption/voiceover-final.captions.json', mayGenerateProvisionalTimings: true, style: 'finanzneo-word-captions'},
+  voiceover: {
+    script: voiceScript,
+    directory: '02-audio',
+    selection: 'single-supported-file',
+    instruction: 'Deutsch und klar.'
+  },
+  captions: {asset: '04-caption/voiceover-final.captions.json', mayGenerateProvisionalTimings: true, style: 'finanzneo-word-captions'},
   scenes,
   deliverables: {
-    video: '05-export/final-reel.mp4',
-    cover: '05-export/cover.png',
-    contactSheet: '05-export/contact-sheet.png',
-    qaReport: '06-projektdateien/codex-render-qa.json'
+    video: '06-video/final-reel.mp4',
+    cover: '00-cover/cover.png',
+    contactSheet: '05-review/contact-sheet.png',
+    qaReport: '05-review/codex-render-qa.json'
   },
   approval: {
     scriptApprovedByUser: true,
@@ -94,19 +101,24 @@ const validPackage = {
   }
 };
 
+const writeFile = (relative, content = 'test') => {
+  const file = path.join(projectRoot, relative);
+  fs.mkdirSync(path.dirname(file), {recursive: true});
+  fs.writeFileSync(file, content);
+};
 const writePackage = (value) => {
   fs.mkdirSync(path.dirname(projectFile), {recursive: true});
   fs.writeFileSync(projectFile, JSON.stringify(value, null, 2));
 };
 const createAssets = (value) => {
-  const files = [value.voiceover.asset];
+  writeFile('02-audio/F 1.mp4');
+  const arbitraryNames = ['100_euros.jpeg', 'export-final.webp', 'bild ohne norm.jpg', 'render.avif', 'mein-payoff.png'];
+  let imageIndex = 0;
   for (const scene of value.scenes) {
-    if (scene.type === 'image') files.push(scene.image.asset, scene.image.promptFile);
-  }
-  for (const relative of files) {
-    const file = path.join(projectRoot, relative);
-    fs.mkdirSync(path.dirname(file), {recursive: true});
-    fs.writeFileSync(file, 'test');
+    if (scene.type !== 'image') continue;
+    writeFile(scene.image.promptFile, 'complete prompt');
+    writeFile(`${scene.image.directory}/${arbitraryNames[imageIndex]}`);
+    imageIndex += 1;
   }
 };
 const run = (extra = []) => spawnSync(process.execPath, [validator, projectRoot, ...extra], {
@@ -129,7 +141,9 @@ try {
 
   createAssets(validPackage);
   result = run(['--require-assets']);
-  expect(result.status === 0, 'Gültiges Ready-Paket wurde abgelehnt.', result);
+  expect(result.status === 0, 'Beliebig benannte Medien wurden im Ready-Paket abgelehnt.', result);
+  expect(result.stdout.includes('F 1.mp4'), 'Automatisch erkanntes Voiceover wurde nicht ausgegeben.', result);
+  expect(result.stdout.includes('100_euros.jpeg'), 'Automatisch erkanntes Szenenbild wurde nicht ausgegeben.', result);
 
   const invalidRatio = structuredClone(validPackage);
   invalidRatio.scenes = [imageScene(1), imageScene(2), imageScene(3), animationScene(4), animationScene(5), animationScene(6), animationScene(7)];
@@ -140,9 +154,19 @@ try {
   expect(result.status !== 0 && result.stderr.includes('Bildszenen müssen Animationen überwiegen'), 'Ungültiges Bild-Animations-Verhältnis wurde nicht abgelehnt.', result);
 
   writePackage(validPackage);
-  fs.rmSync(path.join(projectRoot, validPackage.scenes[0].image.asset), {force: true});
+  fs.rmSync(path.join(projectRoot, scenes[0].image.directory, '100_euros.jpeg'), {force: true});
   result = run(['--require-assets']);
-  expect(result.status !== 0 && result.stderr.includes('Erforderliche Datei fehlt'), 'Fehlendes Bild wurde nicht abgelehnt.', result);
+  expect(result.status !== 0 && result.stderr.includes('keine unterstützte Mediendatei'), 'Fehlendes Bild wurde nicht abgelehnt.', result);
+
+  writeFile(`${scenes[0].image.directory}/erstes.png`);
+  writeFile(`${scenes[0].image.directory}/zweites.jpg`);
+  result = run(['--require-assets']);
+  expect(result.status !== 0 && result.stderr.includes('mehrere passende Dateien'), 'Mehrdeutiger Szenenordner wurde nicht abgelehnt.', result);
+
+  fs.rmSync(path.join(projectRoot, scenes[0].image.directory, 'zweites.jpg'), {force: true});
+  writeFile('02-audio/zweite-aufnahme.m4a');
+  result = run(['--require-assets']);
+  expect(result.status !== 0 && result.stderr.includes('mehrere passende Dateien'), 'Mehrdeutiger Audioordner wurde nicht abgelehnt.', result);
 
   console.log('✓ Codex-Reel-Workflow-Regressionstests bestanden.');
 } finally {
