@@ -12,8 +12,8 @@
     "width": 1080,
     "height": 1920,
     "fps": 30,
-    "durationInFrames": 2173,
-    "targetDurationSec": 72.42
+    "durationInFrames": 1976,
+    "targetDurationSec": 65.84
   },
   "creativeRules": {
     "mode": "image-first-hybrid",
@@ -33,19 +33,44 @@
     "directory": "02-audio",
     "selection": "single-supported-file",
     "measuredDurationSec": 72.42,
-    "timingSource": "Die automatisch erkannte Voiceover-Datei ist die zeitliche Quelle der Wahrheit. Nicht beschleunigen, kürzen oder zeitlich strecken.",
+    "runtimeAsset": "render/audio/voiceover-runtime-1-10x.wav",
+    "processing": {
+      "playbackRate": 1.1,
+      "preservePitch": true,
+      "expectedRuntimeDurationSec": 65.84,
+      "timingMode": "transcript-word-alignment",
+      "transcription": {
+        "engine": "whisper.cpp",
+        "packageVersion": "4.0.488",
+        "whisperCppVersion": "1.5.5",
+        "model": "small",
+        "language": "de",
+        "tokenLevelTimestamps": true
+      }
+    },
+    "timingSource": "Die Originalaufnahme wird pitch-erhaltend auf 1,10× beschleunigt. Danach bestimmen echte Whisper-Wortzeitstempel die endgültigen Szenengrenzen. Die geplanten Zeiten sind nur Startwerte.",
     "instruction": "Deutsch, klar, modern und neugierig erklärend. Keine Begrüßung. Die erste Frage direkt betonen, damit das Thema sofort klar ist. Fachbegriffe ruhig und verständlich sprechen."
   },
   "captions": {
     "asset": "04-caption/voiceover-final.captions.json",
-    "mayGenerateProvisionalTimings": true,
+    "transcriptAsset": "04-caption/voiceover-transcript.json",
+    "source": "whisper.cpp-word-timestamps",
+    "mayGenerateProvisionalTimings": false,
     "style": "finanzneo-word-captions"
+  },
+  "timing": {
+    "mode": "transcript-aligned",
+    "asset": "timeline/scene-timing.json",
+    "sourceOfTruth": true,
+    "status": "pending-local-transcription",
+    "rule": "Szenenwechsel folgen den tatsächlich gesprochenen Abschnitten. Geplante und echte Zeiten müssen nicht identisch sein."
   },
   "scenes": [
     {
       "id": "scene-01-hook",
       "type": "image",
-      "durationSec": 7.73,
+      "durationSec": 7.64,
+      "timingStatus": "provisional-until-transcription",
       "voiceText": "Was passiert eigentlich, wenn du 100 Euro in einen ETF steckst? Wohin geht das Geld – und was bekommst du dafür?",
       "purpose": "Die zentrale Anfängerfrage sofort und ohne Umweg sichtbar machen.",
       "visualFamily": "editorial-3d-etf-investment-path",
@@ -75,7 +100,8 @@
     {
       "id": "scene-02-order-match",
       "type": "animation",
-      "durationSec": 11.24,
+      "durationSec": 12.37,
+      "timingStatus": "provisional-until-transcription",
       "voiceText": "Zuerst wird aus deinem Klick eine Kauforder. Der Broker schickt sie an den gewählten Handelsplatz, wo sie im Orderbuch auf ein passendes Verkaufsangebot trifft – oft von einem anderen Anleger oder einem Market Maker.",
       "purpose": "Den Weg und die Zusammenführung einer ETF-Kauforder als zeitlichen Prozess erklären.",
       "visualFamily": "physical-order-matching-hall",
@@ -114,7 +140,8 @@
     {
       "id": "scene-03-settlement",
       "type": "image",
-      "durationSec": 10.53,
+      "durationSec": 7.64,
+      "timingStatus": "provisional-until-transcription",
       "voiceText": "Sobald Preis und Menge zusammenpassen, wird der Handel ausgeführt: Der Verkäufer bekommt dein Geld, und der ETF-Anteil wird deinem Depot gutgeschrieben.",
       "purpose": "Den eigentlichen Tausch zwischen Geld und ETF-Anteil eindeutig darstellen.",
       "visualFamily": "editorial-3d-two-way-settlement",
@@ -144,7 +171,8 @@
     {
       "id": "scene-04-fund-basket",
       "type": "image",
-      "durationSec": 10.53,
+      "durationSec": 9.09,
+      "timingStatus": "provisional-until-transcription",
       "voiceText": "Dieser Anteil gehört zu einem Fonds, der bereits viele Wertpapiere hält. Du kaufst also nicht selbst jede einzelne Aktie, sondern einen Anteil am gesamten Fondsvermögen.",
       "purpose": "Den ETF-Anteil als proportionalen Anteil am gesamten Fondsvermögen erklären.",
       "visualFamily": "editorial-3d-transparent-fund-vault",
@@ -174,7 +202,8 @@
     {
       "id": "scene-05-creation",
       "type": "animation",
-      "durationSec": 12,
+      "durationSec": 9.46,
+      "timingStatus": "provisional-until-transcription",
       "voiceText": "Steigt die Nachfrage so stark, dass neue Anteile gebraucht werden, kann ein Authorized Participant einen passenden Wertpapierkorb an den Fonds liefern und dafür neue ETF-Anteile erhalten.",
       "purpose": "Den Creation-Prozess als getrennten Primärmarktmechanismus erklären, ohne zu behaupten, dass jeder Privatanlegerkauf ihn auslöst.",
       "visualFamily": "warehouse-basket-for-share-exchange",
@@ -214,7 +243,8 @@
     {
       "id": "scene-06-value-link",
       "type": "image",
-      "durationSec": 9.87,
+      "durationSec": 9.82,
+      "timingStatus": "provisional-until-transcription",
       "voiceText": "Ab dann bewegt sich der Wert deines Anteils mit den enthaltenen Wertpapieren. Bei einem Sparplan kannst du je nach Anbieter auch nur einen Bruchteil eines Anteils besitzen.",
       "purpose": "Die wirtschaftliche Verbindung zwischen Fondsvermögen, Anteilswert und möglichen Bruchstücken erklären.",
       "visualFamily": "editorial-3d-mechanical-value-link",
@@ -244,7 +274,8 @@
     {
       "id": "scene-07-payoff",
       "type": "image",
-      "durationSec": 10.52,
+      "durationSec": 9.82,
+      "timingStatus": "provisional-until-transcription",
       "voiceText": "Der wichtigste Punkt: Deine 100 Euro gehen beim normalen Börsenkauf an die Gegenseite des Handels. Du erhältst dafür einen Fondsanteil, der wirtschaftlich an einem ganzen Wertpapierkorb hängt.",
       "purpose": "Die zentrale Frage mit einer eindeutigen Besitz- und Geldflussaussage abschließen.",
       "visualFamily": "editorial-3d-final-fund-ownership",
