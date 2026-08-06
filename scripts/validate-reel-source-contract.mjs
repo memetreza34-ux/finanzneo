@@ -12,6 +12,7 @@ const root = resolve(target);
 const sceneRoot = resolve(root, '03-szenen/EINZELNE-SZENEN');
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 const errors = [];
+let missingFinalImages = 0;
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 
 assert(existsSync(sceneRoot), '03-szenen/EINZELNE-SZENEN fehlt.');
@@ -25,6 +26,7 @@ const findForbidden = (directory) => {
     const path = resolve(directory, entry);
     if (statSync(path).isDirectory()) findForbidden(path);
     else if (entry.toLowerCase() === 'motionprompt.txt') errors.push(`Verbotene Datei: ${path}`);
+    else if (entry.toLowerCase() === 'placeholder.svg' && path.startsWith(sceneRoot)) errors.push(`Platzhalter im Szenenordner verboten: ${path}`);
   }
 };
 findForbidden(root);
@@ -45,26 +47,26 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
     const hasSceneInfo = existsSync(resolve(directory, 'szene.md'));
     const sourceCount = Number(hasImagePrompt) + Number(hasRemotion);
     const indexed = index.scenes?.[position];
+    const supported = new Set(['.png','.jpg','.jpeg','.webp','.avif','.svg']);
+    const images = readdirSync(directory).filter((entry) => supported.has(extname(entry).toLowerCase()));
 
     assert(sourceCount === 1, `${id}: exakt eine Produktionsquelle erforderlich (bildprompt.txt ODER remotion.md).`);
     assert(hasSceneInfo, `${id}: szene.md fehlt.`);
     assert(indexed?.id === id, `${id}: Reihenfolge oder ID im scene-index stimmt nicht.`);
     assert(!Object.prototype.hasOwnProperty.call(indexed ?? {}, 'motionPrompt'), `${id}: motionPrompt-Feld ist verboten.`);
+    assert(!existsSync(resolve(directory, 'placeholder.svg')), `${id}: placeholder.svg ist im Szenenordner verboten.`);
 
     if (hasImagePrompt) {
       assert(indexed?.type === 'image', `${id}: scene-index-Typ muss image sein.`);
       assert(indexed?.planFile?.endsWith('/bildprompt.txt'), `${id}: planFile muss auf bildprompt.txt zeigen.`);
-      const supported = new Set(['.png','.jpg','.jpeg','.webp','.avif','.svg']);
-      const images = readdirSync(directory).filter((entry) => supported.has(extname(entry).toLowerCase()));
-      const finals = images.filter((entry) => entry !== 'placeholder.svg');
-      assert(finals.length <= 1, `${id}: höchstens ein finales Bild erlaubt.`);
-      assert(images.includes('placeholder.svg') || finals.length === 1, `${id}: Bild oder placeholder.svg fehlt.`);
+      assert(images.length <= 1, `${id}: höchstens ein finales Bild erlaubt.`);
+      if (images.length === 0) missingFinalImages += 1;
     }
 
     if (hasRemotion) {
       assert(indexed?.type === 'animation', `${id}: scene-index-Typ muss animation sein.`);
       assert(indexed?.planFile?.endsWith('/remotion.md'), `${id}: planFile muss auf remotion.md zeigen.`);
-      assert(!existsSync(resolve(directory, 'placeholder.svg')), `${id}: Animationsszene darf keinen Bildplatzhalter enthalten.`);
+      assert(images.length === 0, `${id}: Remotion-Szene darf keine Bilddatei enthalten.`);
     }
   });
 }
@@ -76,4 +78,5 @@ if (errors.length) {
 }
 
 console.log('\n✓ Reel-Quellenvertrag erfüllt.');
-console.log('  Bildszene = bildprompt.txt · Remotion-Szene = remotion.md · keine Motionprompt-Dateien');
+console.log('  Bildszene = bildprompt.txt · Remotion-Szene = remotion.md · keine Prompt- oder Bildplatzhalter');
+if (missingFinalImages > 0) console.log(`  Hinweis: ${missingFinalImages} finale Bilddateien fehlen noch.`);

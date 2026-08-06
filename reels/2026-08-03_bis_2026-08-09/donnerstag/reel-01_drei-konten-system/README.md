@@ -12,17 +12,18 @@
 
 ## Ein-Quellen-Vertrag
 
-- Bildszene: ausschließlich `bildprompt.txt` plus Bild und `szene.md`.
+- Bildszene: ausschließlich `bildprompt.txt`, später genau eine finale Bilddatei und `szene.md`.
 - Remotion-Szene: ausschließlich `remotion.md` plus `szene.md`.
-- `motionprompt.txt` und `alle-motionprompts.txt` sind verboten.
+- `motionprompt.txt`, `alle-motionprompts.txt` und `placeholder.svg` in Szenenordnern sind verboten.
 - Einfache Bewegungen der Bildszenen sind zentral in `src/reels/drei-konten/shared.tsx` programmiert.
+- Technische Vorschau-Fallbacks liegen nur unter `public/`, nicht in den Produktionsordnern.
 
 ## Produktionsordner
 
 - `00-cover`: Cover-Prompt und Coverbild
 - `01-voice-script`: kompletter Sprechtext
 - `02-audio`: finales Voiceover
-- `03-szenen`: Bildprompts, Remotion-Spezifikationen, Szenenindex und Bildablage
+- `03-szenen`: Bildprompts, Remotion-Spezifikationen, Szenenindex und finale Bildablage
 - `04-caption`: Social Caption und spätere Wort-Captions
 - `05-review`: Quellen und Freigabecheck
 - `06-video`: finaler Export
@@ -37,4 +38,4 @@
 - Vorschau: `npm run render:drei-konten:preview`
 - Final: `npm run render:drei-konten`
 
-Vor Studio oder Render synchronisiert `npm run assets:drei-konten` die sechs Bildszenen aus den jeweiligen `scene-XX`-Ordnern nach `public/`.
+Vor Studio oder Render synchronisiert `npm run assets:drei-konten` vorhandene finale Bilder. Solange sie fehlen, verwendet Remotion ausschließlich die zentralen technischen Fallbacks unter `public/`.

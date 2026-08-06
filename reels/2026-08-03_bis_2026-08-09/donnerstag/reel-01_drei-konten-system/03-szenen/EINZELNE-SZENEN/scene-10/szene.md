@@ -6,6 +6,6 @@
 
 **Einzige Produktionsquelle:** `bildprompt.txt`
 
-Lege ein finales Bild direkt in diesen Ordner. Sobald ein finales PNG, JPG, JPEG, WEBP oder AVIF vorhanden ist, ignoriert der Asset-Sync `placeholder.svg`.
+Lege das finale PNG, JPG, JPEG, WEBP, AVIF oder SVG direkt in diesen Ordner. Bis dahin bleibt der Ordner absichtlich ohne Bilddatei. Es wird keine `placeholder.svg` angelegt.
 
 Zoom und minimale Kamerafahrt werden zentral in `src/reels/drei-konten/shared.tsx` gesteuert. Keine `motionprompt.txt` anlegen.

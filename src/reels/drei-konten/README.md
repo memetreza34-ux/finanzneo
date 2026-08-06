@@ -8,9 +8,10 @@
 
 ## Quellenvertrag
 
-- Bildszene wird durch `bildprompt.txt` und das fertige Bild definiert.
+- Bildszene wird durch `bildprompt.txt` und später genau eine finale Bilddatei definiert.
 - Animationsszene wird durch `remotion.md` und die React-Komponente definiert.
 - Es existieren keine Motionprompt-Dateien.
+- In den redaktionellen Szenenordnern existieren keine Platzhalterbilder.
 - Standbildbewegungen sind zentral in `shared.tsx` implementiert.
 
-Vor Studio oder Render kopiert `npm run assets:drei-konten` die jeweils gültige Bilddatei nach `public/reels/drei-konten-system/` und aktualisiert `asset-manifest.json`.
+Vor Studio oder Render kopiert `npm run assets:drei-konten` vorhandene finale Bilddateien nach `public/reels/drei-konten-system/` und aktualisiert `asset-manifest.json`. Fehlt ein finales Bild, bleibt der bereits zentrale technische Fallback unter `public/` aktiv.

@@ -10,6 +10,7 @@
 - [x] Bildszenen besitzen ausschließlich `bildprompt.txt`
 - [x] Remotion-Szenen besitzen ausschließlich `remotion.md`
 - [x] keine `motionprompt.txt` oder `alle-motionprompts.txt`
+- [x] keine `placeholder.svg` in Szenenordnern
 - [x] vollständiger Remotion-Code vorhanden
 - [x] Composition `DreiKontenSystem` registriert
 - [x] Asset-Sync und Strukturvalidator vorhanden
@@ -18,8 +19,8 @@
 
 ## Vor finalem Render
 
-- [ ] sechs Platzhalterbilder durch finale Bilder ersetzen
-- [ ] pro Bildszene höchstens eine finale Bilddatei
+- [ ] sechs finale KI-Bilder direkt in die passenden Bildszenenordner legen
+- [ ] pro Bildszene genau eine finale Bilddatei
 - [ ] `npm run assets:drei-konten` ausführen
 - [ ] finales Voiceover als `02-audio/voiceover-final.wav` ablegen
 - [ ] Audio in der Composition als `audioSrc` setzen oder beim Render über Input Props übergeben

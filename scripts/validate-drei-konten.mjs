@@ -9,6 +9,7 @@ const timeline = JSON.parse(readFileSync(resolve(reelRoot, 'timeline/timeline.js
 const expectedOrder = ['image','image','image','animation','image','animation','image','animation','animation','image'];
 const supported = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif', '.svg']);
 const errors = [];
+let missingFinalImages = 0;
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 
 assert(index.sceneCount === 10, 'sceneCount muss 10 sein.');
@@ -29,23 +30,24 @@ index.scenes.forEach((scene, indexNumber) => {
   const directory = resolve(sceneRoot, expectedId);
   const imagePrompt = existsSync(resolve(directory, 'bildprompt.txt'));
   const remotionPlan = existsSync(resolve(directory, 'remotion.md'));
+  const imageFiles = readdirSync(directory).filter((name) => supported.has(extname(name).toLowerCase()));
   assert(scene.id === expectedId, `Falsche Reihenfolge bei ${expectedId}.`);
   assert(scene.type === expectedOrder[indexNumber], `${expectedId}: Typ muss ${expectedOrder[indexNumber]} sein.`);
   assert(existsSync(resolve(directory, 'szene.md')), `${expectedId}: szene.md fehlt.`);
   assert(!existsSync(resolve(directory, 'motionprompt.txt')), `${expectedId}: motionprompt.txt ist verboten.`);
+  assert(!existsSync(resolve(directory, 'placeholder.svg')), `${expectedId}: placeholder.svg ist im Szenenordner verboten.`);
   assert(Number(imagePrompt) + Number(remotionPlan) === 1, `${expectedId}: genau eine Produktionsquelle erforderlich.`);
   assert(!Object.prototype.hasOwnProperty.call(scene, 'motionPrompt'), `${expectedId}: motionPrompt-Feld ist verboten.`);
 
   if (scene.type === 'image') {
     assert(imagePrompt && !remotionPlan, `${expectedId}: Bildszene benötigt ausschließlich bildprompt.txt.`);
     assert(scene.planFile?.endsWith('/bildprompt.txt'), `${expectedId}: planFile muss bildprompt.txt sein.`);
-    const candidates = readdirSync(directory).filter((name) => supported.has(extname(name).toLowerCase()));
-    const finals = candidates.filter((name) => name !== 'placeholder.svg');
-    assert(finals.length <= 1, `${expectedId}: Mehr als ein finales Bild vorhanden.`);
-    assert(finals.length === 1 || candidates.includes('placeholder.svg'), `${expectedId}: Bild oder placeholder.svg fehlt.`);
+    assert(imageFiles.length <= 1, `${expectedId}: Mehr als ein finales Bild vorhanden.`);
+    if (imageFiles.length === 0) missingFinalImages += 1;
   } else {
     assert(remotionPlan && !imagePrompt, `${expectedId}: Animationsszene benötigt ausschließlich remotion.md.`);
     assert(scene.planFile?.endsWith('/remotion.md'), `${expectedId}: planFile muss remotion.md sein.`);
+    assert(imageFiles.length === 0, `${expectedId}: Remotion-Szene darf keine Bilddatei enthalten.`);
   }
 });
 
@@ -56,4 +58,5 @@ if (errors.length) {
 }
 
 console.log('\n✓ Drei-Konten-System ist strukturell valide.');
-console.log('  10 Szenen · 6 Bilder · 4 Animationen · 60,0 Sekunden · Ein-Quellen-Vertrag erfüllt');
+console.log('  10 Szenen · 6 Bilder · 4 Animationen · 60,0 Sekunden · keine Platzhalter in Szenenordnern');
+if (missingFinalImages > 0) console.log(`  Hinweis: ${missingFinalImages} finale Bilddateien fehlen noch; zentrale public-Fallbacks halten die Vorschau renderbar.`);

@@ -9,9 +9,11 @@ Jede Szene besitzt exakt eine fachliche Quelle für ihre visuelle Umsetzung.
 ```text
 scene-XX/
 ├── bildprompt.txt
-├── placeholder.svg oder ein finales Bild
+├── finales-bild.png   ← erst nach der Generierung
 └── szene.md
 ```
+
+Vor der Bildgenerierung enthält der Ordner nur `bildprompt.txt` und `szene.md`. Es wird kein Platzhalterbild angelegt.
 
 `bildprompt.txt` beschreibt das zu erzeugende Bild. Die Bewegung des fertigen Standbilds wird nicht in einer zweiten Promptdatei beschrieben. Zoom, Pan, Fokusfahrt und Ein-/Ausblendung gehören in eine zentrale Remotion-Komponente.
 
@@ -29,8 +31,11 @@ scene-XX/
 
 - `motionprompt.txt`
 - `alle-motionprompts.txt`
+- `placeholder.svg` in einem Szenenordner
 - `bildprompt.txt` und `remotion.md` im selben Szenenordner
-- Bildplatzhalter in einer reinen Remotion-Szene
+- Bilddateien in einer reinen Remotion-Szene
+
+Technische Render-Fallbacks dürfen ausschließlich zentral unter `public/` oder direkt im Remotion-Code liegen. Sie gehören niemals in den redaktionellen `scene-XX`-Ordner.
 
 ## Sammeldatei
 
@@ -53,7 +58,7 @@ npm run reel:create -- \
   --types image,image,animation,image,animation,image
 ```
 
-Der Scaffolder erzeugt niemals Motionprompt-Dateien.
+Der Scaffolder erzeugt weder Motionprompt- noch Platzhalterdateien.
 
 ## Automatische Prüfung
 
@@ -65,7 +70,10 @@ Der Validator schlägt unter anderem fehl bei:
 
 - fehlender oder doppelter Produktionsquelle,
 - Motionprompt-Dateien,
+- Platzhalterbildern in Szenenordnern,
 - falschem Szenentyp im Index,
 - mehreren finalen Bildern in einem Bildordner,
-- Bildplatzhaltern in Remotion-Szenen,
+- Bilddateien in Remotion-Szenen,
 - falschem `planFile` im `scene-index.json`.
+
+Fehlende finale Bilder werden während der Planung nur als Hinweis gemeldet. Vor dem finalen Render müssen alle benötigten Bilddateien vorhanden sein.
