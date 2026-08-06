@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "title": "Drei-Konten-System",
   "sceneCount": 10,
   "imageSceneCount": 6,
@@ -15,14 +15,24 @@
   "music": false,
   "sfx": false,
   "sourceContract": "exactly-one-of-bildprompt-or-remotion",
-  "layoutContract": "headline-top_visual-above-center_subtitle-bottom_one-sentence",
-  "subtitleRule": "one-complete-sentence-per-cue",
-  "layout": {
-    "headlineTop": 92,
-    "visualTop": 300,
-    "visualBottom": 1410,
-    "subtitleBottom": 180
+  "layoutContract": "headline-icon-top_visual-above-center_subtitle-safe-no-gaps",
+  "subtitleRule": "one-complete-sentence-visible_active-word-green_hold-during-pauses",
+  "headlineIconRule": "matching-icon-centered-next-to-accent-same-visual-size",
+  "subtitleDisplay": {
+    "maxLines": 2,
+    "holdDuringPauses": true,
+    "noDeadGaps": true,
+    "activeWordColor": "finance-green"
   },
+  "layout": {
+    "headlineTop": 74,
+    "visualTop": 270,
+    "visualBottom": 1310,
+    "subtitleBottom": 270
+  },
+  "imageFit": "contain",
+  "maxIntentionalImageScale": 1.18,
+  "cropRule": "scale above 1.05 only when cropSafe is true and no embedded label or subject is cut",
   "forbiddenFiles": ["motionprompt.txt", "alle-motionprompts.txt", "placeholder.svg"],
   "imageMotionOwner": "src/reels/drei-konten/shared.tsx",
   "technicalFallbackLocation": "public-or-remotion-code-only",
@@ -37,6 +47,8 @@
       "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
       "headline": "WARUM DEIN KONTOSTAND",
       "accent": "DICH TÄUSCHT",
+      "icon": "wallet",
+      "imagePresentation": {"scale": 1.08, "positionY": 46, "cropSafe": true},
       "subtitles": [{"fromFrame": 0, "toFrame": 180, "text": "Warum gibst du Geld aus, das auf deinem einzigen Konto längst für Miete, Jahreskosten und Rücklagen reserviert ist?"}],
       "expectedVisual": "Ein einziges gemischtes Konto mit bereits reserviertem Geld."
     },
@@ -48,6 +60,8 @@
       "planFile": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
       "headline": "DEIN EINKOMMEN IST",
       "accent": "NICHT DAS PROBLEM",
+      "icon": "coins",
+      "imagePresentation": {"scale": 1.12, "positionY": 47, "cropSafe": true},
       "subtitles": [
         {"fromFrame": 0, "toFrame": 72, "text": "Das Problem ist nicht immer dein Einkommen."},
         {"fromFrame": 72, "toFrame": 180, "text": "Freies und bereits verplantes Geld erscheint als dieselbe Zahl."}
@@ -62,6 +76,8 @@
       "planFile": "EINZELNE-SZENEN/scene-03/bildprompt.txt",
       "headline": "WIE VIEL GELD IST",
       "accent": "WIRKLICH FREI?",
+      "icon": "eye",
+      "imagePresentation": {"scale": 1.13, "positionY": 47, "cropSafe": true},
       "subtitles": [{"fromFrame": 0, "toFrame": 180, "text": "Dadurch wirkt dein Kontostand größer, als dein echtes Wochenbudget tatsächlich ist."}],
       "expectedVisual": "Kontostand-Illusion mit verplantem und wirklich freiem Anteil, kein Rücklagensafe."
     },
@@ -73,6 +89,7 @@
       "planFile": "EINZELNE-SZENEN/scene-04/remotion.md",
       "headline": "TEILE DEIN GELD",
       "accent": "AM ZAHLTAG",
+      "icon": "split",
       "subtitles": [{"fromFrame": 0, "toFrame": 180, "text": "Teile dein Gehalt direkt in drei Bereiche: Fixkosten, Rücklagen und Wochenbudget."}],
       "remotionComponent": "SalarySplitAnimation"
     },
@@ -84,6 +101,8 @@
       "planFile": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
       "headline": "KONTO 1 SCHÜTZT",
       "accent": "DEINE FIXKOSTEN",
+      "icon": "house",
+      "imagePresentation": {"scale": 1.18, "positionY": 46, "cropSafe": true},
       "subtitles": [{"fromFrame": 0, "toFrame": 180, "text": "Konto eins bezahlt Miete, Strom, Versicherungen und alle festen Abbuchungen – bevor du etwas kaufst."}],
       "expectedVisual": "Konto 1 als Fixkostenhaus für Miete, Strom, Versicherungen und Verträge."
     },
@@ -95,6 +114,7 @@
       "planFile": "EINZELNE-SZENEN/scene-06/remotion.md",
       "headline": "WAS BLEIBT NACH",
       "accent": "DEN FIXKOSTEN?",
+      "icon": "calculator",
       "accentTone": "gold",
       "subtitles": [{"fromFrame": 0, "toFrame": 180, "text": "Bei 1.800 Euro Einkommen und 1.100 Euro Fixkosten bleiben 700 Euro übrig."}],
       "remotionComponent": "FixedCostsMathAnimation"
@@ -107,6 +127,8 @@
       "planFile": "EINZELNE-SZENEN/scene-07/bildprompt.txt",
       "headline": "KONTO 2 BAUT",
       "accent": "DEINE RÜCKLAGE",
+      "icon": "shield",
+      "imagePresentation": {"scale": 1.15, "positionY": 47, "cropSafe": true},
       "subtitles": [
         {"fromFrame": 0, "toFrame": 108, "text": "Von diesen 700 Euro wandert zuerst deine Rücklage auf Konto zwei."},
         {"fromFrame": 108, "toFrame": 180, "text": "Sie schützt Notfälle und geplante Anschaffungen."}
@@ -121,6 +143,7 @@
       "planFile": "EINZELNE-SZENEN/scene-08/remotion.md",
       "headline": "JAHRESKOSTEN",
       "accent": "MONATLICH PLANEN",
+      "icon": "calendar",
       "subtitles": [{"fromFrame": 0, "toFrame": 180, "text": "1.200 Euro Versicherung geteilt durch zwölf ergeben 100 Euro Rücklage pro Monat."}],
       "remotionComponent": "AnnualCostsAnimation"
     },
@@ -132,6 +155,7 @@
       "planFile": "EINZELNE-SZENEN/scene-09/remotion.md",
       "headline": "600 € WERDEN",
       "accent": "4 WOCHEN",
+      "icon": "weeks",
       "subtitles": [{"fromFrame": 0, "toFrame": 180, "text": "Bleiben danach 600 Euro, sind das geteilt durch vier ungefähr 150 Euro pro Woche."}],
       "remotionComponent": "WeeklyBudgetAnimation"
     },
@@ -143,6 +167,8 @@
       "planFile": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
       "headline": "GELD ZUERST",
       "accent": "SCHÜTZEN",
+      "icon": "lock",
+      "imagePresentation": {"scale": 1.16, "positionY": 46, "cropSafe": true},
       "subtitles": [{"fromFrame": 0, "toFrame": 180, "text": "So sparst du nicht, was zufällig übrig bleibt, sondern schützt dein Geld direkt am Zahltag."}],
       "expectedVisual": "Fertiges Drei-Konten-System mit geschützten Fixkosten und Rücklagen sowie offenem Wochenbudget."
     }
