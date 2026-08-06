@@ -1,0 +1,14 @@
+MESSAGE TO COMMUNICATE:
+One account balance does not visually separate freely spendable euros from euros already committed to future payments.
+
+SCENE:
+A single large glowing euro number stands above a physical coin reservoir. Half of the coins are visibly connected by solid cables to a home, an energy meter and an insurance envelope, while the other half remain loose. The number above still shows the full combined amount, making the mismatch immediately obvious without using a dashboard.
+
+GERMAN LABELS:
+"Kontostand", "Verplant", "Frei"
+
+COMPOSITION:
+Make the combined euro number and the split coin reservoir the dominant center. The obligations must be visibly connected to the reserved half. Preserve clean overlay zones.
+
+MASTER STYLE:
+Append the exact unchanged text block from `channels/finanzneo/gehirn/MASTER-STYLE-PROMPT.md` before image generation.

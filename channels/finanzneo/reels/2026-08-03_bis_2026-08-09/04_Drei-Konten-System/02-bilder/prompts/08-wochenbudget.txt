@@ -1,0 +1,14 @@
+MESSAGE TO COMMUNICATE:
+The remaining money goes to the third account and is divided into four visible weekly budgets.
+
+SCENE:
+A remaining pile of spendable euro coins enters one simple divider and fills four equal solid boxes arranged vertically, each clearly representing one week. The boxes are sequential and connected, not floating icons, with a small shopping basket beside only the first active box.
+
+GERMAN LABELS:
+"Woche 1", "Woche 2", "Woche 3", "Woche 4"
+
+COMPOSITION:
+Use the four equal weekly boxes as the dominant structure. Make the first week active and the later weeks protected behind it.
+
+MASTER STYLE:
+Append the exact unchanged text block from `channels/finanzneo/gehirn/MASTER-STYLE-PROMPT.md` before image generation.

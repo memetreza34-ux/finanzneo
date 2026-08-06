@@ -1,0 +1,14 @@
+MESSAGE TO COMMUNICATE:
+The first account holds rent, electricity, insurance and other fixed debits before any discretionary purchase happens.
+
+SCENE:
+A secure house-shaped vault receives four neatly separated payment envelopes through a protected slot: rent key, electricity plug, insurance shield and phone contract. A shopping cart remains outside a clear barrier, showing that discretionary spending cannot touch this money.
+
+GERMAN LABELS:
+"Miete", "Strom", "Versicherung", "Fixkosten"
+
+COMPOSITION:
+Use the house-shaped vault as the main focal object. Place the four payment envelopes close and readable, with the blocked shopping cart secondary.
+
+MASTER STYLE:
+Append the exact unchanged text block from `channels/finanzneo/gehirn/MASTER-STYLE-PROMPT.md` before image generation.

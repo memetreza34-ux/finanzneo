@@ -1,0 +1,14 @@
+MESSAGE TO COMMUNICATE:
+A single salary account mixes money reserved for rent, annual bills and savings with money that is actually free to spend.
+
+SCENE:
+A large transparent bank-account vault stands as the dominant focal point, filled with one mixed pile of euro coins. Three clearly different obligations are physically attached to parts of the pile: a small apartment key for rent, a calendar envelope for annual bills and a shielded reserve box. A generic stylized person reaches toward the mixed pile as if all coins were available, while subtle warm warning light marks the already-reserved coins.
+
+GERMAN LABELS:
+"Miete", "Jahreskosten", "Rücklagen"
+
+COMPOSITION:
+Use one close, dominant vault and coin pile. Place the person to the side, with all reserved-money symbols clearly connected to the same pile. Keep the top and bottom safety zones empty.
+
+MASTER STYLE:
+Append the exact unchanged text block from `channels/finanzneo/gehirn/MASTER-STYLE-PROMPT.md` before image generation.

@@ -1,0 +1,14 @@
+MESSAGE TO COMMUNICATE:
+Transfer the reserve first, for example 100 euros for emergencies or planned purchases.
+
+SCENE:
+A payday coin stream automatically diverts a clearly marked 100 € stack into a strong shielded reserve safe before the remaining coins continue toward everyday spending. Inside the safe are only two coherent symbols: a small emergency wrench and a future appliance box.
+
+GERMAN LABELS:
+"100 €", "Notfälle", "Anschaffungen"
+
+COMPOSITION:
+The automatic diversion into the safe must dominate the scene. Show the remaining salary continuing onward only as a secondary flow.
+
+MASTER STYLE:
+Append the exact unchanged text block from `channels/finanzneo/gehirn/MASTER-STYLE-PROMPT.md` before image generation.

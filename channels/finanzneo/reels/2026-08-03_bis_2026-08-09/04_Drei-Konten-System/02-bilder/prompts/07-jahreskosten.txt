@@ -1,0 +1,14 @@
+MESSAGE TO COMMUNICATE:
+An annual insurance bill of 1,200 euros becomes a monthly reserve of 100 euros when divided across twelve months.
+
+SCENE:
+A circular calendar with twelve large month segments surrounds a secure insurance envelope marked 1.200 €. Each month segment contributes one identical 100 € coin bundle toward the envelope, clearly showing twelve monthly reserves building one annual payment.
+
+GERMAN LABELS:
+"1.200 €", "12 Monate", "100 €"
+
+COMPOSITION:
+Make the twelve-part calendar ring and the central insurance envelope one coherent object. The monthly 100 € bundles must be immediately countable as repeated equal contributions.
+
+MASTER STYLE:
+Append the exact unchanged text block from `channels/finanzneo/gehirn/MASTER-STYLE-PROMPT.md` before image generation.

@@ -1,0 +1,14 @@
+MESSAGE TO COMMUNICATE:
+At payday, split the salary into three clear areas: fixed costs, reserves and freely spendable weekly money.
+
+SCENE:
+A bright salary stream of euro coins enters one solid three-way divider and flows into three large connected containers. The containers are unmistakably different: a house-shaped fixed-cost vault, a shielded reserve safe and four compact weekly spending boxes. No loose icons; the physical flow must clearly show one salary becoming three protected money areas.
+
+GERMAN LABELS:
+"Fixkosten", "Rücklagen", "Wochenbudget"
+
+COMPOSITION:
+Center the three-way divider and make all three destinations large and easy to compare. Keep the salary flow readable from left to right within a vertical composition.
+
+MASTER STYLE:
+Append the exact unchanged text block from `channels/finanzneo/gehirn/MASTER-STYLE-PROMPT.md` before image generation.

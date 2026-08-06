@@ -1,0 +1,14 @@
+MESSAGE TO COMMUNICATE:
+If 600 euros remain, four equal weekly budgets contain about 150 euros each without touching fixed payments.
+
+SCENE:
+One large 600 € coin block is physically cut into four perfectly equal solid blocks, each marked 150 €. Behind them, a locked fixed-cost vault stays untouched and clearly separate. The four equal results must be the central focal point.
+
+GERMAN LABELS:
+"600 €", "4 Wochen", "150 €"
+
+COMPOSITION:
+Place the original 600 € block above or beside the four equal 150 € blocks. Keep the protected fixed-cost vault secondary but visibly untouched.
+
+MASTER STYLE:
+Append the exact unchanged text block from `channels/finanzneo/gehirn/MASTER-STYLE-PROMPT.md` before image generation.

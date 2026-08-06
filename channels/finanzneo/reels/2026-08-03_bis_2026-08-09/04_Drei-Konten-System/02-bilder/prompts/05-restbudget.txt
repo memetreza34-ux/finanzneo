@@ -1,0 +1,14 @@
+MESSAGE TO COMMUNICATE:
+With 1,800 euros income and 1,100 euros fixed costs, 700 euros remain for reserves and everyday spending.
+
+SCENE:
+A physical balance table shows a tall stack marked 1.800 € on the left. A clearly separated block marked 1.100 € moves into a fixed-cost vault, leaving one bright stack marked 700 € in the center. The subtraction must be understandable instantly as a concrete money movement, not as a dashboard or abstract formula screen.
+
+GERMAN LABELS:
+"1.800 €", "1.100 €", "700 €"
+
+COMPOSITION:
+Make the original stack, removed fixed-cost block and remaining stack form one clear visual subtraction. The 700 € result must be the brightest focal point.
+
+MASTER STYLE:
+Append the exact unchanged text block from `channels/finanzneo/gehirn/MASTER-STYLE-PROMPT.md` before image generation.
