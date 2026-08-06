@@ -1,0 +1,59 @@
+{
+  "version": "finance-v1",
+  "prompts": [
+    {
+      "sceneId": "hook",
+      "promptFile": "01-hook.txt",
+      "expectedImageFile": "02-bilder/images/01-hook/01-hook.jpg",
+      "imageAssetId": "images-01-hook-01-hook"
+    },
+    {
+      "sceneId": "kontostand-illusion",
+      "promptFile": "02-kontostand-illusion.txt",
+      "expectedImageFile": "02-bilder/images/02-kontostand-illusion/02-kontostand-illusion.jpg",
+      "imageAssetId": "images-02-kontostand-illusion-02-kontostand-illusion"
+    },
+    {
+      "sceneId": "drei-bereiche",
+      "promptFile": "03-drei-bereiche.txt",
+      "expectedImageFile": "02-bilder/images/03-drei-bereiche/03-drei-bereiche.jpg",
+      "imageAssetId": "images-03-drei-bereiche-03-drei-bereiche"
+    },
+    {
+      "sceneId": "fixkostenkonto",
+      "promptFile": "04-fixkostenkonto.txt",
+      "expectedImageFile": "02-bilder/images/04-fixkostenkonto/04-fixkostenkonto.jpg",
+      "imageAssetId": "images-04-fixkostenkonto-04-fixkostenkonto"
+    },
+    {
+      "sceneId": "restbudget",
+      "promptFile": "05-restbudget.txt",
+      "expectedImageFile": "02-bilder/images/05-restbudget/05-restbudget.jpg",
+      "imageAssetId": "images-05-restbudget-05-restbudget"
+    },
+    {
+      "sceneId": "ruecklagenkonto",
+      "promptFile": "06-ruecklagenkonto.txt",
+      "expectedImageFile": "02-bilder/images/06-ruecklagenkonto/06-ruecklagenkonto.jpg",
+      "imageAssetId": "images-06-ruecklagenkonto-06-ruecklagenkonto"
+    },
+    {
+      "sceneId": "jahreskosten",
+      "promptFile": "07-jahreskosten.txt",
+      "expectedImageFile": "02-bilder/images/07-jahreskosten/07-jahreskosten.jpg",
+      "imageAssetId": "images-07-jahreskosten-07-jahreskosten"
+    },
+    {
+      "sceneId": "wochenbudget",
+      "promptFile": "08-wochenbudget.txt",
+      "expectedImageFile": "02-bilder/images/08-wochenbudget/08-wochenbudget.jpg",
+      "imageAssetId": "images-08-wochenbudget-08-wochenbudget"
+    },
+    {
+      "sceneId": "wochenrechnung",
+      "promptFile": "09-wochenrechnung.txt",
+      "expectedImageFile": "02-bilder/images/09-wochenrechnung/09-wochenrechnung.jpg",
+      "imageAssetId": "images-09-wochenrechnung-09-wochenrechnung"
+    }
+  ]
+}

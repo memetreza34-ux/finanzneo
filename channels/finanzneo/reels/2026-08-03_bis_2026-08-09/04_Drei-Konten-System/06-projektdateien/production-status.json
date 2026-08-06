@@ -1,0 +1,48 @@
+{
+  "version": "finance-v1",
+  "folderStructureVersion": 4,
+  "slug": "drei-konten-system",
+  "topic": "Wie du dein Gehalt am Zahltag mit einem Drei-Konten-System aufteilst",
+  "title": "Drei-Konten-System",
+  "createdAt": "2026-08-06T04:59:00.000Z",
+  "projectPath": "channels/finanzneo/reels/2026-08-03_bis_2026-08-09/04_Drei-Konten-System",
+  "stage": "content-drafted",
+  "approvals": {
+    "topicSelected": true,
+    "scriptApproved": true,
+    "designAnchorApproved": true,
+    "assetsReviewed": false
+  },
+  "required": {
+    "scenePlan": "06-projektdateien/scene-plan.json",
+    "sources": "06-projektdateien/sources.md",
+    "voiceScript": "01-script-audio/script-fliesstext.txt",
+    "voiceoverPrompt": "01-script-audio/voiceover.txt",
+    "imagePromptIndex": "02-bilder/bildprompts.md",
+    "imagePromptManifest": "06-projektdateien/prompt-manifest.json",
+    "voiceoverFinal": "01-script-audio/audio/voiceover-final.wav",
+    "captionsFinal": "03-caption/voiceover-final.captions.json",
+    "socialCaption": "03-caption/social-caption.md",
+    "manifest": "06-projektdateien/asset-manifest.json",
+    "pdfDirectory": "04-pdf",
+    "exportDirectory": "05-export",
+    "storyboard": "06-projektdateien/storyboard.md",
+    "motionDesign": "06-projektdateien/motion-design.md"
+  },
+  "publishDate": "2026-08-06",
+  "weekFolder": "2026-08-03_bis_2026-08-09",
+  "dayNumber": 4,
+  "dayName": "Donnerstag",
+  "reelFolder": "04_Drei-Konten-System",
+  "dayFolder": "04_Drei-Konten-System",
+  "sourceCodePath": "channels/finanzneo/src/reels/2026-08-06-drei-konten-system",
+  "publicRuntimePath": "channels/finanzneo/public/reels/drei-konten-system",
+  "outPath": "channels/finanzneo/out/reels/2026-08-06-drei-konten-system",
+  "topicSelection": {
+    "selectedBy": "assistant",
+    "mode": "evergreen",
+    "reason": "Noch unbenutztes Alltagsthema mit direkter Geldfolge, klarer Schritt-für-Schritt-Struktur und neun eindeutig visualisierbaren Szenen ohne aktuelle Marktannahmen.",
+    "selectedAt": "2026-08-06T04:59:00.000Z"
+  },
+  "productionMode": "image-first-lite"
+}
