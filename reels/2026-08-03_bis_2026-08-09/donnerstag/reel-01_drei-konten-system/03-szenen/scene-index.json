@@ -1,0 +1,128 @@
+{
+  "version": 3,
+  "title": "Drei-Konten-System",
+  "sceneCount": 14,
+  "imageSceneCount": 14,
+  "cover": {
+    "directory": "../00-cover",
+    "prompt": "../00-cover/cover.txt",
+    "imageRule": "Genau eine Bilddatei direkt im Ordner 00-cover"
+  },
+  "storageRule": "Bei jeder Szene liegt genau eine Bilddatei beliebigen Namens direkt im passenden scene-XX-Ordner. Der Ordnername bestimmt die Szenennummer.",
+  "imageSelection": "single-supported-file",
+  "supportedImageExtensions": [".png", ".jpg", ".jpeg", ".webp", ".avif"],
+  "scenes": [
+    {
+      "id": "scene-01",
+      "title": "Hook",
+      "voiceText": "Warum gibst du Geld aus, das auf deinem einzigen Konto eigentlich schon für Miete, Jahreskosten und Rücklagen reserviert ist?",
+      "directory": "EINZELNE-SZENEN/scene-01",
+      "prompt": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
+      "durationSec": 5.822
+    },
+    {
+      "id": "scene-02",
+      "title": "Das Problem",
+      "voiceText": "Das Problem liegt oft nicht nur am Einkommen.",
+      "directory": "EINZELNE-SZENEN/scene-02",
+      "prompt": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
+      "durationSec": 3.378
+    },
+    {
+      "id": "scene-03",
+      "title": "Kontostand-Illusion",
+      "voiceText": "Verfügbare und bereits verplante Euro liegen auf derselben Zahl.",
+      "directory": "EINZELNE-SZENEN/scene-03",
+      "prompt": "EINZELNE-SZENEN/scene-03/bildprompt.txt",
+      "durationSec": 3.6
+    },
+    {
+      "id": "scene-04",
+      "title": "Die Lösung",
+      "voiceText": "Teile dein Geld deshalb direkt am Zahltag in drei Bereiche.",
+      "directory": "EINZELNE-SZENEN/scene-04",
+      "prompt": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
+      "durationSec": 3.822
+    },
+    {
+      "id": "scene-05",
+      "title": "Drei Bereiche",
+      "voiceText": "Fixkosten, Rücklagen und frei verfügbares Wochenbudget.",
+      "directory": "EINZELNE-SZENEN/scene-05",
+      "prompt": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
+      "durationSec": 2.933
+    },
+    {
+      "id": "scene-06",
+      "title": "Konto eins",
+      "voiceText": "Auf Konto eins landen Miete, Strom, Versicherungen und alle anderen festen Abbuchungen.",
+      "directory": "EINZELNE-SZENEN/scene-06",
+      "prompt": "EINZELNE-SZENEN/scene-06/bildprompt.txt",
+      "durationSec": 4.267
+    },
+    {
+      "id": "scene-07",
+      "title": "Zuerst schützen",
+      "voiceText": "Das geschieht, bevor du irgendetwas kaufst.",
+      "directory": "EINZELNE-SZENEN/scene-07",
+      "prompt": "EINZELNE-SZENEN/scene-07/bildprompt.txt",
+      "durationSec": 2.933
+    },
+    {
+      "id": "scene-08",
+      "title": "Restbudget",
+      "voiceText": "Bei 1.800 Euro Einkommen und 1.100 Euro Fixkosten bleiben rechnerisch 700 Euro.",
+      "directory": "EINZELNE-SZENEN/scene-08",
+      "prompt": "EINZELNE-SZENEN/scene-08/bildprompt.txt",
+      "durationSec": 4.267
+    },
+    {
+      "id": "scene-09",
+      "title": "Konto zwei",
+      "voiceText": "Auf Konto zwei überweist du zuerst deine Rücklage, zum Beispiel 100 Euro.",
+      "directory": "EINZELNE-SZENEN/scene-09",
+      "prompt": "EINZELNE-SZENEN/scene-09/bildprompt.txt",
+      "durationSec": 4.267
+    },
+    {
+      "id": "scene-10",
+      "title": "Rücklagen",
+      "voiceText": "Sie schützt dich bei Notfällen oder geplanten Anschaffungen.",
+      "directory": "EINZELNE-SZENEN/scene-10",
+      "prompt": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
+      "durationSec": 3.378
+    },
+    {
+      "id": "scene-11",
+      "title": "Jahreskosten",
+      "voiceText": "Auch jährliche Rechnungen gehören dorthin: 1.200 Euro Versicherungskosten werden zu 100 Euro Rücklage pro Monat.",
+      "directory": "EINZELNE-SZENEN/scene-11",
+      "prompt": "EINZELNE-SZENEN/scene-11/bildprompt.txt",
+      "durationSec": 4.933
+    },
+    {
+      "id": "scene-12",
+      "title": "Konto drei",
+      "voiceText": "Was danach übrig bleibt, kommt auf Konto drei und wird durch vier geteilt.",
+      "directory": "EINZELNE-SZENEN/scene-12",
+      "prompt": "EINZELNE-SZENEN/scene-12/bildprompt.txt",
+      "durationSec": 4.489
+    },
+    {
+      "id": "scene-13",
+      "title": "Wochenbudget",
+      "voiceText": "Bleiben 600 Euro übrig, kannst du jede Woche ungefähr 150 Euro ausgeben, ohne feste Zahlungen anzutasten.",
+      "directory": "EINZELNE-SZENEN/scene-13",
+      "prompt": "EINZELNE-SZENEN/scene-13/bildprompt.txt",
+      "durationSec": 5.156
+    },
+    {
+      "id": "scene-14",
+      "title": "Payoff",
+      "voiceText": "Du sparst nicht, was am Monatsende zufällig übrig ist, sondern schützt dein Geld direkt am Zahltag.",
+      "directory": "EINZELNE-SZENEN/scene-14",
+      "prompt": "EINZELNE-SZENEN/scene-14/bildprompt.txt",
+      "durationSec": 5.155
+    }
+  ]
+}

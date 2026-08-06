@@ -1,0 +1,11 @@
+MESSAGE:
+Split the salary immediately on payday.
+
+SCENE:
+Show a bright salary stream of euro coins arriving from above and entering a strong three-way divider at the center. The flow cleanly separates into three protected directions. The moment should feel automatic and decisive, like a reliable financial routing system, but never like a technical dashboard. Make the divider and the three outgoing money paths the dominant motif.
+
+TEXT IN IMAGE:
+No text.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.

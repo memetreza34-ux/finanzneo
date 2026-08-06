@@ -1,0 +1,263 @@
+FINANZNEO — DREI-KONTEN-SYSTEM
+ALLE BILDPROMPTS IN PRODUKTIONSREIHENFOLGE
+
+Reihenfolge:
+1. Cover
+2. Szene 01 bis Szene 14
+
+Jeder Promptblock ist vollständig und kann einzeln kopiert werden.
+
+======================================================================
+COVER
+Zielordner: 00-cover/
+======================================================================
+
+MESSAGE:
+A powerful cover image for a reel about the three-account system.
+
+SCENE:
+Show one dramatic salary stream of euro coins hitting a central three-way divider and flowing into three large premium containers: a house-shaped fixed-cost vault, a shielded reserve safe and four weekly spending boxes. The three destinations must be instantly recognizable and visibly connected. Make the divider and protected money flow large, bold and central. Leave strong clean space in the upper third for the later cover headline, but do not generate the headline inside the image.
+
+TEXT IN IMAGE:
+No text.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 01 — HOOK
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-01/
+======================================================================
+
+MESSAGE:
+Money on one single account looks available even though parts are already reserved for rent, annual bills and savings.
+
+SCENE:
+Show one dominant transparent bank-account vault filled with a single mixed pile of euro coins. Three obligations are physically attached to different parts of the pile: an apartment key for rent, a calendar envelope for annual bills and a shielded reserve box. A generic simplified hand reaches toward the pile as if every coin were spendable, while the reserved coins are held back by subtle warm warning bands. The misunderstanding must be obvious at first glance.
+
+TEXT IN IMAGE:
+No text.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 02 — DAS PROBLEM
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-02/
+======================================================================
+
+MESSAGE:
+The problem is often not only the income, but the lack of separation.
+
+SCENE:
+Show a salary stream entering one large undivided glass container. The container is full enough to look reassuring, but inside it fixed-cost symbols, reserve symbols and shopping money are mixed together without barriers. Use one clear central container, not several loose icons. A small generic stylized person studies the container with uncertainty. The scene must communicate that the amount may be sufficient while the organization is still confusing.
+
+TEXT IN IMAGE:
+No text.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 03 — KONTOSTAND-ILLUSION
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-03/
+======================================================================
+
+MESSAGE:
+Freely spendable euros and already committed euros appear in the same account balance.
+
+SCENE:
+Show one large glowing account-balance number above a physical coin reservoir. Half of the coins are visibly connected by solid cables to a home, an electricity meter and an insurance envelope; the other half remain loose. The number still represents the full combined amount, making the illusion immediately clear. The reserved and free halves must look different without turning the image into a dashboard.
+
+TEXT IN IMAGE:
+Only the short label “Kontostand”.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 04 — DIE LÖSUNG
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-04/
+======================================================================
+
+MESSAGE:
+Split the salary immediately on payday.
+
+SCENE:
+Show a bright salary stream of euro coins arriving from above and entering a strong three-way divider at the center. The flow cleanly separates into three protected directions. The moment should feel automatic and decisive, like a reliable financial routing system, but never like a technical dashboard. Make the divider and the three outgoing money paths the dominant motif.
+
+TEXT IN IMAGE:
+No text.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 05 — DREI BEREICHE
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-05/
+======================================================================
+
+MESSAGE:
+The three areas are fixed costs, reserves and freely spendable weekly money.
+
+SCENE:
+Show three large connected containers receiving equal visual attention: a house-shaped fixed-cost vault, a shielded reserve safe and four compact weekly spending boxes. All three stand on one continuous solid floor and are visibly connected to the salary divider. Their purpose must be recognizable through their shapes and supporting objects alone. The composition must read as one coherent system, not as three unrelated icons.
+
+TEXT IN IMAGE:
+Only these three labels: “Fixkosten”, “Rücklagen”, “Wochenbudget”.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 06 — KONTO EINS
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-06/
+======================================================================
+
+MESSAGE:
+Account one holds rent, electricity, insurance and all other fixed debits.
+
+SCENE:
+Show a secure house-shaped vault receiving four clearly separated payment objects through a protected slot: an apartment key, an electricity plug, an insurance shield and a phone contract. The vault is the dominant focal point. The fixed payments look orderly and protected before anything else happens. All objects must belong to one coherent physical scene.
+
+TEXT IN IMAGE:
+Only the short label “Konto 1”.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 07 — ZUERST SCHÜTZEN
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-07/
+======================================================================
+
+MESSAGE:
+Fixed costs are protected before discretionary shopping begins.
+
+SCENE:
+Show the fixed-cost vault behind a strong transparent barrier. In front of it, a shopping cart approaches but cannot cross the barrier or reach the protected coins. The protected money remains calm and untouched. The cause-and-effect relationship must be direct and unmistakable: shopping happens only after the fixed-cost money has been secured.
+
+TEXT IN IMAGE:
+No text.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 08 — RESTBUDGET
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-08/
+======================================================================
+
+MESSAGE:
+With 1,800 euros income and 1,100 euros fixed costs, 700 euros remain.
+
+SCENE:
+Show one physical subtraction using three large money blocks. A tall block marked 1.800 € enters from the left. A clearly separated block marked 1.100 € moves into the fixed-cost vault. One bright remaining block marked 700 € stays in the center as the result. Avoid a calculator screen; make it a real spatial money movement. The 700 € result must be the brightest focal point.
+
+TEXT IN IMAGE:
+Only “1.800 €”, “1.100 €” and “700 €”.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 09 — KONTO ZWEI
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-09/
+======================================================================
+
+MESSAGE:
+Account two receives the reserve first, for example 100 euros.
+
+SCENE:
+Show a payday coin stream automatically diverting one clearly marked 100 € stack into a strong shielded reserve safe before the remaining coins continue toward everyday spending. The automatic diversion and the safe must dominate the scene. The reserve should feel protected and intentional, not like leftover money.
+
+TEXT IN IMAGE:
+Only “Konto 2” and “100 €”.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 10 — RÜCKLAGEN
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-10/
+======================================================================
+
+MESSAGE:
+The reserve protects against emergencies and planned purchases.
+
+SCENE:
+Show the reserve safe open just enough to reveal two coherent protected items: an emergency repair wrench and a boxed future appliance. A strong emerald shield surrounds both. Outside the shield, an unexpected repair warning approaches but cannot disturb the normal spending money. The protection must feel practical and realistic rather than dramatic.
+
+TEXT IN IMAGE:
+No text.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 11 — JAHRESKOSTEN
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-11/
+======================================================================
+
+MESSAGE:
+An annual bill of 1,200 euros becomes a monthly reserve of 100 euros.
+
+SCENE:
+Show a circular calendar with twelve clear month segments surrounding one insurance envelope marked 1.200 €. Each month contributes one identical 100 € coin bundle toward the center. The repeated monthly preparation must be instantly understandable, with the annual bill fully funded by the twelve equal bundles. Keep all elements part of one solid calendar object, not floating icons.
+
+TEXT IN IMAGE:
+Only “1.200 €”, “12 Monate” and “100 €”.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 12 — KONTO DREI
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-12/
+======================================================================
+
+MESSAGE:
+The remaining money goes to account three and is divided into four weekly budgets.
+
+SCENE:
+Show the remaining spendable coin pile entering a third account container and then flowing into four equal solid weekly boxes arranged in a clear sequence. The first box is active beside a small shopping basket; the later boxes remain protected and closed. The four boxes must be connected and easy to compare, not floating independently.
+
+TEXT IN IMAGE:
+Only “Konto 3” and the four labels “Woche 1”, “Woche 2”, “Woche 3”, “Woche 4”.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 13 — WOCHENBUDGET
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-13/
+======================================================================
+
+MESSAGE:
+If 600 euros remain, about 150 euros are available per week without touching fixed payments.
+
+SCENE:
+Show one large 600 € money block being divided into four perfectly equal solid blocks, each marked 150 €. Behind them, the fixed-cost vault remains locked and untouched. The four equal weekly results are the brightest focal point. The division must be understood immediately as one amount becoming four weekly limits.
+
+TEXT IN IMAGE:
+Only “600 €”, “4 Wochen” and “150 €”.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+
+======================================================================
+SZENE 14 — PAYOFF
+Zielordner: 03-szenen/EINZELNE-SZENEN/scene-14/
+======================================================================
+
+MESSAGE:
+Protect money directly on payday instead of hoping something remains at the end of the month.
+
+SCENE:
+Show a calm final overview: the payday salary stream has already filled the fixed-cost vault and reserve safe, while a generic stylized person spends only from the current weekly box. The other protected containers remain sealed and untouched. Use a subtle emerald shield around the complete system to communicate control and security. The final scene must feel resolved, practical and confident.
+
+TEXT IN IMAGE:
+No text.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.

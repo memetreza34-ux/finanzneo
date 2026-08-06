@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "title": "Drei-Konten-System",
+  "fps": 30,
+  "estimatedDurationSec": 58.4,
+  "transition": "cut",
+  "motion": {
+    "type": "minimal-image-motion",
+    "scaleStart": 1,
+    "scaleEndMaximum": 1.035,
+    "panMaximumPixels": 12
+  },
+  "scenes": [
+    {"id": "scene-01", "startSec": 0, "durationSec": 5.822, "endSec": 5.822},
+    {"id": "scene-02", "startSec": 5.822, "durationSec": 3.378, "endSec": 9.2},
+    {"id": "scene-03", "startSec": 9.2, "durationSec": 3.6, "endSec": 12.8},
+    {"id": "scene-04", "startSec": 12.8, "durationSec": 3.822, "endSec": 16.622},
+    {"id": "scene-05", "startSec": 16.622, "durationSec": 2.933, "endSec": 19.555},
+    {"id": "scene-06", "startSec": 19.555, "durationSec": 4.267, "endSec": 23.822},
+    {"id": "scene-07", "startSec": 23.822, "durationSec": 2.933, "endSec": 26.755},
+    {"id": "scene-08", "startSec": 26.755, "durationSec": 4.267, "endSec": 31.022},
+    {"id": "scene-09", "startSec": 31.022, "durationSec": 4.267, "endSec": 35.289},
+    {"id": "scene-10", "startSec": 35.289, "durationSec": 3.378, "endSec": 38.667},
+    {"id": "scene-11", "startSec": 38.667, "durationSec": 4.933, "endSec": 43.6},
+    {"id": "scene-12", "startSec": 43.6, "durationSec": 4.489, "endSec": 48.089},
+    {"id": "scene-13", "startSec": 48.089, "durationSec": 5.156, "endSec": 53.245},
+    {"id": "scene-14", "startSec": 53.245, "durationSec": 5.155, "endSec": 58.4}
+  ],
+  "note": "Die Zeiten sind eine redaktionelle Vorplanung und werden nach dem finalen Voiceover über Wort-Zeitstempel exakt angepasst."
+}

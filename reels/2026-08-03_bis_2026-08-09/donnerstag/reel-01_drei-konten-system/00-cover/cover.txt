@@ -1,0 +1,11 @@
+MESSAGE:
+A powerful cover image for a reel about the three-account system.
+
+SCENE:
+Show one dramatic salary stream of euro coins hitting a central three-way divider and flowing into three large premium containers: a house-shaped fixed-cost vault, a shielded reserve safe and four weekly spending boxes. The three destinations must be instantly recognizable and visibly connected. Make the divider and protected money flow large, bold and central. Leave strong clean space in the upper third for the later cover headline, but do not generate the headline inside the image.
+
+TEXT IN IMAGE:
+No text.
+
+STYLE AND TECHNICAL REQUIREMENTS:
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
