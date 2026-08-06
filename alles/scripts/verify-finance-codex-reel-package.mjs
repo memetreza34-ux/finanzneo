@@ -91,13 +91,47 @@ if (voiceover.processing?.timingMode === 'transcript-word-alignment') {
 
 const rules = reel.creativeRules ?? {};
 if (rules.mode !== 'image-first-hybrid') fail('creativeRules.mode muss image-first-hybrid sein.');
-const maximumAnimationShare = Number.isFinite(rules.maximumAnimationShare) ? rules.maximumAnimationShare : 0.4;
-if (maximumAnimationShare <= 0 || maximumAnimationShare > 0.4) fail('maximumAnimationShare muss größer als 0 und höchstens 0.4 sein.');
+const usesVisualQualityV2 = rules.visualQualityProfile === 'finanzneo-process-v2';
+const maximumAllowedAnimationShare = usesVisualQualityV2 ? 0.45 : 0.4;
+const maximumAnimationShare = Number.isFinite(rules.maximumAnimationShare)
+  ? rules.maximumAnimationShare
+  : maximumAllowedAnimationShare;
+const minimumAnimationShare = Number.isFinite(rules.minimumAnimationShare)
+  ? rules.minimumAnimationShare
+  : 0;
+if (maximumAnimationShare <= 0 || maximumAnimationShare > maximumAllowedAnimationShare) {
+  fail(`maximumAnimationShare muss größer als 0 und höchstens ${maximumAllowedAnimationShare} sein.`);
+}
+if (minimumAnimationShare < 0 || minimumAnimationShare > maximumAnimationShare) {
+  fail('minimumAnimationShare muss zwischen 0 und maximumAnimationShare liegen.');
+}
 if (!Number.isInteger(rules.maximumDashboardScenes) || rules.maximumDashboardScenes < 0 || rules.maximumDashboardScenes > 1) {
   fail('maximumDashboardScenes muss 0 oder 1 sein.');
 }
 if (!Number.isFinite(rules.subtitleSafeBottomPx) || rules.subtitleSafeBottomPx < 260) {
   fail('subtitleSafeBottomPx muss mindestens 260 Pixel betragen.');
+}
+
+if (usesVisualQualityV2) {
+  if (rules.targetImageShare !== 0.6) fail('Visual Quality V2 benötigt targetImageShare: 0.6.');
+  if (rules.targetAnimationShare !== 0.4) fail('Visual Quality V2 benötigt targetAnimationShare: 0.4.');
+  if (minimumAnimationShare < 0.35) fail('Visual Quality V2 benötigt mindestens 35 Prozent Animationsanteil.');
+  if (maximumAnimationShare > 0.45) fail('Visual Quality V2 erlaubt höchstens 45 Prozent Animationsanteil.');
+  if (rules.maximumAnimationScenes !== 4) fail('Visual Quality V2 benötigt maximumAnimationScenes: 4.');
+  const processRules = rules.processImages ?? {};
+  if (processRules.required !== true) fail('Visual Quality V2 benötigt processImages.required: true.');
+  if (!Number.isFinite(processRules.instantReadabilitySeconds) || processRules.instantReadabilitySeconds > 1) {
+    fail('Prozessbilder müssen innerhalb von höchstens einer Sekunde verständlich sein.');
+  }
+  const header = rules.sceneHeader ?? {};
+  if (header.profile !== 'finanzneo-scene-header-v2') fail('sceneHeader.profile muss finanzneo-scene-header-v2 sein.');
+  if (header.component !== 'FinanzNeoSceneHeader') fail('sceneHeader.component muss FinanzNeoSceneHeader sein.');
+  if (!Number.isFinite(header.headlineMinPx) || header.headlineMinPx < 72) fail('Die Hauptüberschrift muss mindestens 72 Pixel groß sein.');
+  if (!Number.isInteger(header.maxLines) || header.maxLines < 1 || header.maxLines > 2) fail('Die Hauptüberschrift darf höchstens zwei Zeilen verwenden.');
+  if (header.textTone !== 'light') fail('Visual Quality V2 benötigt eine helle Hauptüberschrift.');
+  if (header.requireSceneIcon !== true) fail('Jede Szene benötigt ein passendes Icon.');
+  if (header.requireTopGradient !== true) fail('Der weiche dunkle obere Kontrastverlauf ist Pflicht.');
+  if (header.forbidDarkHeadlineOnDarkBackground !== true) fail('Dunkle Überschrift auf dunklem Hintergrund muss verboten sein.');
 }
 
 const scenes = Array.isArray(reel.scenes) ? reel.scenes : [];
@@ -131,6 +165,14 @@ for (let index = 0; index < scenes.length; index += 1) {
   if (!isText(scene.transition?.type)) fail(`${label}: transition.type fehlt.`);
   if (!Array.isArray(scene.soundCues)) fail(`${label}: soundCues muss ein Array sein.`);
 
+  if (usesVisualQualityV2) {
+    if (scene.overlay?.profile !== 'finanzneo-scene-header-v2') fail(`${label}: overlay.profile muss finanzneo-scene-header-v2 sein.`);
+    if (!isText(scene.overlay?.icon, 2)) fail(`${label}: passendes overlay.icon fehlt.`);
+    if (typeof scene.overlay?.headline === 'string' && scene.overlay.headline.includes('\n\n')) {
+      fail(`${label}: Hauptüberschrift darf nicht mehr als zwei Zeilen erzwingen.`);
+    }
+  }
+
   const family = normalized(scene.visualFamily).toLowerCase();
   if (family) visualFamilies.set(family, (visualFamilies.get(family) ?? 0) + 1);
   if ([family, normalized(scene.purpose).toLowerCase(), normalized(scene.animation?.narrativeAction).toLowerCase()].some((value) => value.includes('dashboard'))) {
@@ -151,6 +193,17 @@ for (let index = 0; index < scenes.length; index += 1) {
     if (!isText(scene.image?.motion?.type)) fail(`${label}: image.motion.type fehlt.`);
     for (const key of ['scaleFrom', 'scaleTo', 'panX', 'panY']) {
       if (!Number.isFinite(scene.image?.motion?.[key])) fail(`${label}: image.motion.${key} muss eine Zahl sein.`);
+    }
+
+    if (usesVisualQualityV2) {
+      const process = scene.image?.process ?? {};
+      if (!isText(process.startState, 8)) fail(`${label}: image.process.startState fehlt oder ist zu kurz.`);
+      if (!isText(process.processPath, 8)) fail(`${label}: image.process.processPath fehlt oder ist zu kurz.`);
+      if (!isText(process.resultState, 8)) fail(`${label}: image.process.resultState fehlt oder ist zu kurz.`);
+      if (!Number.isFinite(process.instantReadabilitySeconds) || process.instantReadabilitySeconds > 1) {
+        fail(`${label}: Prozessbild muss innerhalb einer Sekunde verständlich sein.`);
+      }
+      if (process.decorativeOnly !== false) fail(`${label}: Prozessbild darf nicht dekorativOnly sein.`);
     }
   }
 
@@ -177,9 +230,23 @@ for (let index = 0; index < scenes.length; index += 1) {
 if (totalDuration < 25 || totalDuration > 90) fail(`Gesamtdauer muss 25–90 Sekunden betragen; gefunden: ${totalDuration.toFixed(2)} s.`);
 if (imageCount <= animationCount) fail(`Bildszenen müssen Animationen überwiegen; gefunden: ${imageCount} Bild / ${animationCount} Animation.`);
 if (animationCount < 1) fail('Mindestens eine echte Remotion-Animationsszene ist erforderlich.');
-if (animationCount > 3) fail('Höchstens drei Remotion-Animationsszenen sind erlaubt.');
-if (scenes.length && animationCount / scenes.length > maximumAnimationShare + 1e-9) {
+const maximumAnimationScenes = usesVisualQualityV2 ? 4 : 3;
+if (animationCount > maximumAnimationScenes) fail(`Höchstens ${maximumAnimationScenes} Remotion-Animationsszenen sind erlaubt.`);
+const animationShare = scenes.length ? animationCount / scenes.length : 0;
+if (scenes.length && animationShare > maximumAnimationShare + 1e-9) {
   fail(`Animationsanteil ist zu hoch: ${animationCount}/${scenes.length} > ${maximumAnimationShare}.`);
+}
+if (scenes.length && animationShare + 1e-9 < minimumAnimationShare) {
+  fail(`Animationsanteil ist zu niedrig: ${animationCount}/${scenes.length} < ${minimumAnimationShare}.`);
+}
+if (usesVisualQualityV2) {
+  const imageShare = imageCount / scenes.length;
+  if (imageShare < 0.55 || imageShare > 0.65) {
+    fail(`Visual Quality V2 benötigt 55–65 Prozent Bildszenen; gefunden: ${(imageShare * 100).toFixed(1)} Prozent.`);
+  }
+  if (animationShare < 0.35 || animationShare > 0.45) {
+    fail(`Visual Quality V2 benötigt 35–45 Prozent Animationen; gefunden: ${(animationShare * 100).toFixed(1)} Prozent.`);
+  }
 }
 if (dashboardCount > rules.maximumDashboardScenes) {
   fail(`Zu viele Dashboard-Szenen: ${dashboardCount}; erlaubt: ${rules.maximumDashboardScenes}.`);
@@ -292,7 +359,9 @@ console.log(`✓ Codex-Reel-Paket gültig: ${path.relative(process.cwd(), packag
 console.log(`  Szenen: ${scenes.length}`);
 console.log(`  Bildszenen: ${imageCount}`);
 console.log(`  Animationsszenen: ${animationCount}`);
+console.log(`  Verteilung: ${(imageCount / scenes.length * 100).toFixed(1)}% Bild / ${(animationCount / scenes.length * 100).toFixed(1)}% Animation`);
 console.log(`  Gesamtdauer: ${totalDuration.toFixed(2)} s`);
+if (usesVisualQualityV2) console.log('  Visual Quality: finanzneo-process-v2 mit Scene Header V2');
 if (requireAssets) {
   console.log(`  Original-Voiceover erkannt: ${resolvedAssets.voiceover}`);
   if (resolvedAssets.runtimeVoiceover) console.log(`  Render-Voiceover erkannt: ${resolvedAssets.runtimeVoiceover}`);
