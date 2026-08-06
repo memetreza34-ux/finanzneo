@@ -1,0 +1,23 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+Create the canonical style and environment reference for the Notgroschen reel.
+
+CAMERA LOCK:
+Vertical 9:16. Slight isometric three-quarter camera, approximately 35mm-equivalent perspective, fixed camera height, looking gently downward from front-left toward back-right.
+
+ENVIRONMENT LOCK:
+One connected premium finance-explainer studio. A curved dark-charcoal back wall flows seamlessly into a matte charcoal floor. Integrated emerald architectural light channels run through wall and floor. Include restrained structural alcoves, soft depth and quiet foreground framing. The room must feel designed and continuous, never like an object floating in black space.
+
+LIGHTING LOCK:
+Soft large key light from upper-left, restrained emerald rim light from the right, soft floor bounce, readable shadows and controlled reflections.
+
+MATERIAL LOCK:
+Premium matte dark surfaces, softly bevelled geometry, restrained transparent glass for protected reserves, brushed gold only for money, red only for danger, debt or blocked spending.
+
+COMPOSITION LOCK:
+The central 64 percent is the active scene area. Upper and lower 18 percent remain calm and crop-safe while visibly continuing the same wall, floor and lighting. Future main objects fill approximately 68 to 78 percent of usable width.
+
+TEXT:
+No text, number, label, logo, interface or watermark.
+
+Generate the empty but fully designed studio reference without a financial story object. This file is used only as the fixed camera, environment, material, lighting and scale reference for all six scene images.

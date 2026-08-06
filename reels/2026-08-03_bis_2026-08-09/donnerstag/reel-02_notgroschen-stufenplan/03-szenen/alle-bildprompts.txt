@@ -1,0 +1,20 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+All six scene images use the exact same `bildwelt-referenz.png`. Do not redesign the world. No empty black background. No headline, subtitle, sentence, number, label, logo, watermark or interface text inside any image.
+
+Required blocks in every prompt:
+
+SERIES CONTINUITY LOCK:
+ENVIRONMENT:
+COMPOSITION LOCK:
+TEXT:
+CONSISTENCY NEGATIVES:
+SCENE MESSAGE:
+CONNECTED VISUAL STORY:
+
+Scene 01: unexpected repair turns into a debt trap without a buffer.
+Scene 02: an accessible emergency reserve blocks the financial shock.
+Scene 04: a small first buffer is achievable and protected.
+Scene 06: real emergencies are necessary, unexpected and too large for the normal monthly budget.
+Scene 09: the reserve is separate but quickly accessible.
+Scene 10: after using the reserve, a controlled refill restores protection.
