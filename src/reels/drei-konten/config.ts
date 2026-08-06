@@ -1,6 +1,17 @@
 import {sec} from '../../brand';
 
 export type AccentTone = 'green' | 'gold';
+export type HeadlineIconName =
+  | 'wallet'
+  | 'coins'
+  | 'eye'
+  | 'split'
+  | 'house'
+  | 'calculator'
+  | 'shield'
+  | 'calendar'
+  | 'weeks'
+  | 'lock';
 
 export type SubtitleCue = {
   fromFrame: number;
@@ -11,6 +22,7 @@ export type SubtitleCue = {
 export type SceneCopy = {
   headline: string;
   accent: string;
+  icon: HeadlineIconName;
   accentTone?: AccentTone;
   subtitles: readonly SubtitleCue[];
 };
@@ -50,6 +62,7 @@ export const SCENE_COPY: readonly SceneCopy[] = [
   {
     headline: 'WARUM DEIN KONTOSTAND',
     accent: 'DICH TÄUSCHT',
+    icon: 'wallet',
     subtitles: [
       {
         fromFrame: 0,
@@ -61,6 +74,7 @@ export const SCENE_COPY: readonly SceneCopy[] = [
   {
     headline: 'DEIN EINKOMMEN IST',
     accent: 'NICHT DAS PROBLEM',
+    icon: 'coins',
     subtitles: [
       {
         fromFrame: 0,
@@ -77,6 +91,7 @@ export const SCENE_COPY: readonly SceneCopy[] = [
   {
     headline: 'WIE VIEL GELD IST',
     accent: 'WIRKLICH FREI?',
+    icon: 'eye',
     subtitles: [
       {
         fromFrame: 0,
@@ -88,6 +103,7 @@ export const SCENE_COPY: readonly SceneCopy[] = [
   {
     headline: 'TEILE DEIN GELD',
     accent: 'AM ZAHLTAG',
+    icon: 'split',
     subtitles: [
       {
         fromFrame: 0,
@@ -99,6 +115,7 @@ export const SCENE_COPY: readonly SceneCopy[] = [
   {
     headline: 'KONTO 1 SCHÜTZT',
     accent: 'DEINE FIXKOSTEN',
+    icon: 'house',
     subtitles: [
       {
         fromFrame: 0,
@@ -110,6 +127,7 @@ export const SCENE_COPY: readonly SceneCopy[] = [
   {
     headline: 'WAS BLEIBT NACH',
     accent: 'DEN FIXKOSTEN?',
+    icon: 'calculator',
     accentTone: 'gold',
     subtitles: [
       {
@@ -122,6 +140,7 @@ export const SCENE_COPY: readonly SceneCopy[] = [
   {
     headline: 'KONTO 2 BAUT',
     accent: 'DEINE RÜCKLAGE',
+    icon: 'shield',
     subtitles: [
       {
         fromFrame: 0,
@@ -138,6 +157,7 @@ export const SCENE_COPY: readonly SceneCopy[] = [
   {
     headline: 'JAHRESKOSTEN',
     accent: 'MONATLICH PLANEN',
+    icon: 'calendar',
     subtitles: [
       {
         fromFrame: 0,
@@ -149,6 +169,7 @@ export const SCENE_COPY: readonly SceneCopy[] = [
   {
     headline: '600 € WERDEN',
     accent: '4 WOCHEN',
+    icon: 'weeks',
     subtitles: [
       {
         fromFrame: 0,
@@ -160,6 +181,7 @@ export const SCENE_COPY: readonly SceneCopy[] = [
   {
     headline: 'GELD ZUERST',
     accent: 'SCHÜTZEN',
+    icon: 'lock',
     subtitles: [
       {
         fromFrame: 0,

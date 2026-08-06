@@ -16,25 +16,25 @@ type DreiKontenSystemProps = {audioSrc?: string};
 const renderScene = (index: number, durationInFrames: number) => {
   switch (index) {
     case 0:
-      return <StillScene sceneId="scene-01" copy={SCENE_COPY[0]} panX={6} durationInFrames={durationInFrames} />;
+      return <StillScene sceneId="scene-01" copy={SCENE_COPY[0]} panX={3} imageScale={1.08} imagePositionY={46} durationInFrames={durationInFrames} />;
     case 1:
-      return <StillScene sceneId="scene-02" copy={SCENE_COPY[1]} panX={-6} imageScale={1.02} durationInFrames={durationInFrames} />;
+      return <StillScene sceneId="scene-02" copy={SCENE_COPY[1]} panX={-3} imageScale={1.12} imagePositionY={47} durationInFrames={durationInFrames} />;
     case 2:
-      return <StillScene sceneId="scene-05" copy={SCENE_COPY[2]} panY={5} durationInFrames={durationInFrames} />;
+      return <StillScene sceneId="scene-05" copy={SCENE_COPY[2]} panY={3} imageScale={1.13} imagePositionY={47} durationInFrames={durationInFrames} />;
     case 3:
       return <SalarySplitAnimation durationInFrames={durationInFrames} />;
     case 4:
-      return <StillScene sceneId="scene-07" copy={SCENE_COPY[4]} panX={5} durationInFrames={durationInFrames} />;
+      return <StillScene sceneId="scene-07" copy={SCENE_COPY[4]} panX={3} imageScale={1.18} imagePositionY={46} durationInFrames={durationInFrames} />;
     case 5:
       return <FixedCostsMathAnimation durationInFrames={durationInFrames} />;
     case 6:
-      return <StillScene sceneId="scene-03" copy={SCENE_COPY[6]} panX={-5} durationInFrames={durationInFrames} />;
+      return <StillScene sceneId="scene-03" copy={SCENE_COPY[6]} panX={-3} imageScale={1.15} imagePositionY={47} durationInFrames={durationInFrames} />;
     case 7:
       return <AnnualCostsAnimation durationInFrames={durationInFrames} />;
     case 8:
       return <WeeklyBudgetAnimation durationInFrames={durationInFrames} />;
     case 9:
-      return <StillScene sceneId="scene-10" copy={SCENE_COPY[9]} panY={4} durationInFrames={durationInFrames} />;
+      return <StillScene sceneId="scene-10" copy={SCENE_COPY[9]} panY={2} imageScale={1.16} imagePositionY={46} durationInFrames={durationInFrames} />;
     default:
       return null;
   }

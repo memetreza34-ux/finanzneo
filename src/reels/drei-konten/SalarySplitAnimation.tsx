@@ -1,5 +1,5 @@
 import React from 'react';
-import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {spring, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, FONT, a} from '../../brand';
 import {SCENE_COPY} from './config';
 import {Headline, SceneBackground, VisualStage, clamp, clamp01} from './shared';
@@ -74,7 +74,7 @@ export const SalarySplitAnimation: React.FC<{durationInFrames: number}> = () => 
 
   return (
     <SceneBackground>
-      <Headline headline={copy.headline} accent={copy.accent} accentTone={copy.accentTone} />
+      <Headline headline={copy.headline} accent={copy.accent} accentTone={copy.accentTone} icon={copy.icon} />
       <VisualStage>
         <div
           style={{
@@ -98,11 +98,10 @@ export const SalarySplitAnimation: React.FC<{durationInFrames: number}> = () => 
         >
           €
         </div>
-
         <div
           style={{
             position: 'absolute',
-            top: 420,
+            top: 400,
             left: '50%',
             transform: `translateX(-50%) scale(${0.7 + split * 0.3})`,
             width: 210,
@@ -122,13 +121,12 @@ export const SalarySplitAnimation: React.FC<{durationInFrames: number}> = () => 
         >
           ZAHLTAG
         </div>
-
         {[-1, 0, 1].map((direction) => (
           <div
             key={direction}
             style={{
               position: 'absolute',
-              top: 528,
+              top: 508,
               left: '50%',
               width: Math.abs(direction) === 1 ? 300 : 8,
               height: Math.abs(direction) === 1 ? 8 : 138,
@@ -144,11 +142,10 @@ export const SalarySplitAnimation: React.FC<{durationInFrames: number}> = () => 
             }}
           />
         ))}
-
         <div
           style={{
             position: 'absolute',
-            top: 680,
+            top: 650,
             left: 66,
             right: 66,
             display: 'flex',
