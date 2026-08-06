@@ -20,16 +20,16 @@ const write = (path, content) => { const absolute = resolve(root, path); mkdirSy
 const imageSceneIds = types.flatMap((type, index) => type === 'image' ? [`scene-${String(index + 1).padStart(2, '0')}`] : []);
 const animationSceneIds = types.flatMap((type, index) => type === 'animation' ? [`scene-${String(index + 1).padStart(2, '0')}`] : []);
 
-write('README.md', `# ${title}\n\n- Bildszene nur mit bildprompt.txt\n- Remotion-Szene nur mit remotion.md\n- Überschrift oben mit passendem Icon\n- Visual Y=270–1310\n- Untertitel mit 270 px unterer Safe-Area\n- ein Satz sichtbar, aktuelles Wort grün, keine Caption-Lücken\n- Vordergrund contain; Scale über 1.05 nur mit cropSafe=true; Maximum 1.18\n`);
+write('README.md', `# ${title}\n\n- Bildszene nur mit bildprompt.txt\n- Remotion-Szene nur mit remotion.md\n- Überschrift oben mit passendem Icon\n- Visual Y=270–1350\n- Untertitel mit 320 px unterer Safe-Area und 150 px rechter UI-Safe-Area\n- genau ein Satz, aktuelles Wort grün, keine Caption-Lücken\n- maximal zwei ausgewogene Untertitelzeilen\n- Vordergrund contain; Scale maximal 1.06\n- sichere Leerraum-Crops pro Seite maximal 0.22, insgesamt maximal 0.36\n`);
 write('00-cover/cover.txt', '[VOLLSTÄNDIGEN COVER-PROMPT EINFÜGEN]\n');
 write('00-cover/README.md', '# Cover\n\nPrompt in cover.txt; finales Coverbild direkt in diesen Ordner.\n');
 write('01-voice-script/script.txt', '[VOLLSTÄNDIGES SPRECHSKRIPT EINFÜGEN]\n');
 write('01-voice-script/voiceover-prompt.txt', '[VOICEOVER-REGIE EINFÜGEN]\n');
 write('02-audio/README.md', '# Audio\n\nFinales Voiceover hier ablegen. Wortzeiten aus genau dieser Datei erzeugen.\n');
-write('04-caption/README.md', '# Untertitel\n\nEin Satz sichtbar. Aktuelles Wort grün. Vorheriger Satz bleibt während kurzer Pausen stehen. Höchstens zwei Zeilen.\n');
+write('04-caption/README.md', '# Untertitel\n\nEin Satz sichtbar. Aktuelles Wort grün. Keine Lücken. Algorithmisch auf höchstens zwei ausgewogene Zeilen teilen.\n');
 write('04-caption/word-timings.json', `${JSON.stringify({version: 1, fps: 30, subtitleMode: 'sentence-with-audio-synced-active-word', activeWordColor: 'finance-green', sentences: []}, null, 2)}\n`);
 write('04-caption/social-caption.txt', '[SOCIAL CAPTION EINFÜGEN]\n');
-write('05-review/checkliste.md', '# Checkliste\n\n- [ ] Quellen und Zahlen geprüft\n- [ ] passendes Icon pro Überschrift\n- [ ] Bildgrößen wirken einheitlich\n- [ ] Scale über 1.05 nur bei cropSafe=true\n- [ ] keine Bildbeschriftung oder Motivteile abgeschnitten\n- [ ] Untertitel oberhalb der Plattform-Totzone\n- [ ] keine Caption-Lücken\n- [ ] höchstens zwei Untertitelzeilen\n- [ ] finalen Render vollständig angesehen\n');
+write('05-review/checkliste.md', '# Checkliste\n\n- [ ] Quellen und Zahlen geprüft\n- [ ] passendes Icon pro Überschrift\n- [ ] Bilder wirken ähnlich groß\n- [ ] nur leerer Quellraum beschnitten\n- [ ] sourceCropTop/sourceCropBottom je <= 0.22 und zusammen <= 0.36\n- [ ] keine Bildbeschriftung, Zahl oder Motivkante abgeschnitten\n- [ ] Untertitel oberhalb der Plattform-Totzone\n- [ ] höchstens zwei Untertitelzeilen\n- [ ] finalen Render vollständig angesehen\n');
 write('05-review/quellen.md', '# Quellen\n\n[QUELLEN EINFÜGEN]\n');
 write('06-video/README.md', '# Finales Video\n');
 write('render/README.md', '# Test-Render\n');
@@ -39,18 +39,18 @@ write('timeline/timeline.json', `${JSON.stringify({version: 1, title, fps: 30, s
 const scenes = types.map((type, index) => {
   const id = `scene-${String(index + 1).padStart(2, '0')}`;
   const directory = `03-szenen/EINZELNE-SZENEN/${id}`;
-  write(`${directory}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n\n**Überschrift:** [EINFÜGEN]\n\n**Schwerpunktzeile:** [EINFÜGEN]\n\n**Passendes Icon:** [EINFÜGEN]\n\n**Sprechtext:** [EINFÜGEN]\n\n${type === 'image' ? '**Expected Visual:** [EINFÜGEN]\n\n**Bilddarstellung:** scale=1.0, positionY=46, cropSafe=false\n' : '**Remotion-Komponente:** [EINFÜGEN]\n'}`);
+  write(`${directory}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n\n**Überschrift:** [EINFÜGEN]\n\n**Schwerpunktzeile:** [EINFÜGEN]\n\n**Passendes Icon:** [EINFÜGEN]\n\n**Sprechtext:** [EINFÜGEN]\n\n${type === 'image' ? '**Expected Visual:** [EINFÜGEN]\n\n**Bilddarstellung:** scale=1.02, sourceCropTop=0, sourceCropBottom=0, cropSafe=false\n' : '**Remotion-Komponente:** [EINFÜGEN]\n'}`);
   const common = {id, type, directory: `EINZELNE-SZENEN/${id}`, headline: '[EINFÜGEN]', accent: '[EINFÜGEN]', icon: '[EINFÜGEN]'};
   if (type === 'image') {
     write(`${directory}/bildprompt.txt`, `[VOLLSTÄNDIGEN BILDPROMPT FÜR ${id} EINFÜGEN]\n`);
-    return {...common, planFile: `EINZELNE-SZENEN/${id}/bildprompt.txt`, expectedVisual: '[EINFÜGEN]', imagePresentation: {scale: 1, positionY: 46, cropSafe: false}};
+    return {...common, planFile: `EINZELNE-SZENEN/${id}/bildprompt.txt`, expectedVisual: '[EINFÜGEN]', imagePresentation: {scale: 1.02, sourceCropTop: 0, sourceCropBottom: 0, cropSafe: false}};
   }
   write(`${directory}/remotion.md`, `# Remotion-Spezifikation ${id}\n\n- Komponente: [NAME]\n- Ablauf: [EINFÜGEN]\n`);
   return {...common, planFile: `EINZELNE-SZENEN/${id}/remotion.md`};
 });
 
-write('03-szenen/README.md', '# Szenen\n\nBildszene: bildprompt.txt. Remotion-Szene: remotion.md. Passendes Icon, expectedVisual und Bilddarstellung im scene-index pflegen.\n');
+write('03-szenen/README.md', '# Szenen\n\nBildszene: bildprompt.txt. Remotion-Szene: remotion.md. Icon, expectedVisual und sichere Source-Crops im scene-index pflegen.\n');
 write('03-szenen/alle-bildprompts.txt', `FINANZNEO — ALLE BILDPROMPTS\n\nCOVER\n=====\n[VOLLSTÄNDIGEN COVER-PROMPT EINFÜGEN]\n\n${imageSceneIds.map((id) => `${id.toUpperCase()}\n${'='.repeat(id.length)}\n[VOLLSTÄNDIGEN BILDPROMPT EINFÜGEN]\n`).join('\n')}`);
-write('03-szenen/scene-index.json', `${JSON.stringify({version: 4, title, sceneCount: scenes.length, imageSceneCount: imageSceneIds.length, animationSceneCount: animationSceneIds.length, headlineIconRule: 'matching-icon-centered-next-to-accent-same-visual-size', subtitleMode: 'sentence-with-audio-synced-active-word', activeWordColor: 'finance-green', wordTimingFile: '04-caption/word-timings.json', subtitleDisplay: {maxLines: 2, holdDuringPauses: true, noDeadGaps: true}, layout: {headlineTop: 74, visualTop: 270, visualBottom: 1310, subtitleBottom: 270}, imageFit: 'contain', maxIntentionalImageScale: 1.18, forbiddenFiles: ['motionprompt.txt','alle-motionprompts.txt','placeholder.svg'], scenes}, null, 2)}\n`);
+write('03-szenen/scene-index.json', `${JSON.stringify({version: 5, title, sceneCount: scenes.length, imageSceneCount: imageSceneIds.length, animationSceneCount: animationSceneIds.length, headlineIconRule: 'matching-icon-centered-next-to-accent-same-visual-size', subtitleMode: 'sentence-with-audio-synced-active-word', activeWordColor: 'finance-green', wordTimingFile: '04-caption/word-timings.json', subtitleDisplay: {maxLines: 2, balancedLines: true, holdDuringPauses: true, noDeadGaps: true}, layout: {headlineTop: 78, visualTop: 270, visualBottom: 1350, subtitleBottom: 320, subtitleLeft: 62, subtitleRight: 150}, imageFit: 'contain', maxIntentionalImageScale: 1.06, maxSourceCropPerSide: 0.22, maxSourceCropTotal: 0.36, forbiddenFiles: ['motionprompt.txt','alle-motionprompts.txt','placeholder.svg'], scenes}, null, 2)}\n`);
 console.log(`✓ Reel-Gerüst erstellt: ${root}`);
-console.log(`  ${imageSceneIds.length} Bildszenen · ${animationSceneIds.length} Remotion-Szenen · Icon- und Safe-Area-Vertrag aktiv`);
+console.log(`  ${imageSceneIds.length} Bildszenen · ${animationSceneIds.length} Remotion-Szenen · Zwei-Zeilen- und Source-Crop-Vertrag aktiv`);

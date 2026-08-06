@@ -13,10 +13,12 @@ import assetManifest from './asset-manifest.json';
 import type {HeadlineIconName, SceneCopy} from './config';
 
 export const REEL_LAYOUT = {
-  headlineTop: 74,
+  headlineTop: 78,
   visualTop: 270,
-  visualHeight: 1040,
-  subtitleBottom: 270,
+  visualHeight: 1080,
+  subtitleBottom: 320,
+  subtitleLeft: 62,
+  subtitleRight: 150,
 } as const;
 
 export const clamp = {
@@ -73,18 +75,15 @@ export const Headline: React.FC<Pick<SceneCopy, 'headline' | 'accent' | 'accentT
 }) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const reveal = clamp01(
-    spring({
-      frame,
-      fps,
-      config: {damping: 18, stiffness: 170, mass: 0.72},
-      durationInFrames: 24,
-    }),
-  );
-  const totalLength = headline.length + accent.length;
-  const compact = totalLength > 33;
+  const reveal = clamp01(spring({
+    frame,
+    fps,
+    config: {damping: 18, stiffness: 170, mass: 0.72},
+    durationInFrames: 24,
+  }));
+  const compact = headline.length + accent.length > 33;
   const accentColor = accentTone === 'gold' ? C.gold : C.accentLt;
-  const iconSize = compact ? 64 : 72;
+  const accentSize = compact ? 67 : 74;
 
   return (
     <div
@@ -96,87 +95,37 @@ export const Headline: React.FC<Pick<SceneCopy, 'headline' | 'accent' | 'accentT
         zIndex: 30,
         textAlign: 'center',
         opacity: reveal,
-        transform: `translateY(${(1 - reveal) * 24}px)`,
+        transform: `translateY(${(1 - reveal) * 22}px)`,
         textShadow: '0 5px 28px rgba(0,0,0,.62)',
       }}
     >
-      <div
-        style={{
-          color: C.white,
-          fontFamily: FONT.title,
-          fontSize: compact ? 57 : 64,
-          lineHeight: 0.98,
-          letterSpacing: 1.1,
-        }}
-      >
+      <div style={{color: C.white, fontFamily: FONT.title, fontSize: compact ? 55 : 61, lineHeight: 0.98, letterSpacing: 1.1}}>
         {headline}
       </div>
-      <div
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 15,
-          color: accentColor,
-          marginTop: 6,
-        }}
-      >
-        <Icon name={icon} size={iconSize} color={accentColor} />
-        <span
-          style={{
-            fontFamily: FONT.title,
-            fontSize: compact ? 70 : 78,
-            lineHeight: 0.98,
-            letterSpacing: 1.3,
-          }}
-        >
-          {accent}
-        </span>
+      <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 14, color: accentColor, marginTop: 7}}>
+        <Icon name={icon} size={accentSize} color={accentColor} />
+        <span style={{fontFamily: FONT.title, fontSize: accentSize, lineHeight: 0.98, letterSpacing: 1.25}}>{accent}</span>
       </div>
     </div>
   );
 };
 
-export const VisualStage: React.FC<React.PropsWithChildren<{style?: React.CSSProperties}>> = ({
-  children,
-  style,
-}) => (
-  <div
-    style={{
-      position: 'absolute',
-      top: REEL_LAYOUT.visualTop,
-      left: 0,
-      right: 0,
-      height: REEL_LAYOUT.visualHeight,
-      overflow: 'hidden',
-      ...style,
-    }}
-  >
+export const VisualStage: React.FC<React.PropsWithChildren<{style?: React.CSSProperties}>> = ({children, style}) => (
+  <div style={{position: 'absolute', top: REEL_LAYOUT.visualTop, left: 0, right: 0, height: REEL_LAYOUT.visualHeight, overflow: 'hidden', ...style}}>
     {children}
   </div>
 );
 
-export const SceneBackground: React.FC<React.PropsWithChildren<{tone?: 'green' | 'neutral'}>> = ({
-  children,
-  tone = 'green',
-}) => (
+export const SceneBackground: React.FC<React.PropsWithChildren<{tone?: 'green' | 'neutral'}>> = ({children, tone = 'green'}) => (
   <AbsoluteFill
     style={{
       overflow: 'hidden',
-      background:
-        tone === 'green'
-          ? `radial-gradient(110% 72% at 50% 28%, ${C.surfaceStrong} 0%, ${C.bg} 58%, ${C.bgDeep} 100%)`
-          : `radial-gradient(110% 72% at 50% 28%, #152019 0%, ${C.bgNeutral} 60%, #05080A 100%)`,
+      background: tone === 'green'
+        ? `radial-gradient(110% 72% at 50% 28%, ${C.surfaceStrong} 0%, ${C.bg} 58%, ${C.bgDeep} 100%)`
+        : `radial-gradient(110% 72% at 50% 28%, #152019 0%, ${C.bgNeutral} 60%, #05080A 100%)`,
     }}
   >
-    <AbsoluteFill
-      style={{
-        opacity: 0.22,
-        backgroundImage:
-          'linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px)',
-        backgroundSize: '72px 72px',
-      }}
-    />
+    <AbsoluteFill style={{opacity: 0.22, backgroundImage: 'linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px)', backgroundSize: '72px 72px'}} />
     {children}
   </AbsoluteFill>
 );
@@ -187,7 +136,8 @@ type StillSceneProps = {
   panX?: number;
   panY?: number;
   imageScale?: number;
-  imagePositionY?: number;
+  sourceCropTop?: number;
+  sourceCropBottom?: number;
   durationInFrames: number;
 };
 
@@ -195,15 +145,25 @@ export const StillScene: React.FC<StillSceneProps> = ({
   sceneId,
   copy,
   panX = 0,
-  panY = -5,
-  imageScale = 1,
-  imagePositionY = 46,
+  panY = -4,
+  imageScale = 1.02,
+  sourceCropTop = 0,
+  sourceCropBottom = 0,
   durationInFrames,
 }) => {
   const frame = useCurrentFrame();
   const progress = interpolate(frame, [0, Math.max(1, durationInFrames - 1)], [0, 1], clamp);
-  const safeScale = Math.max(1, Math.min(1.18, imageScale));
-  const scale = Math.min(1.18, safeScale + progress * 0.01);
+  const top = Math.max(0, Math.min(0.22, sourceCropTop));
+  const bottom = Math.max(0, Math.min(0.22, sourceCropBottom));
+  const total = Math.min(0.36, top + bottom);
+  const ratio = top + bottom === 0 ? 0 : total / (top + bottom);
+  const safeTop = top * ratio;
+  const safeBottom = bottom * ratio;
+  const visibleFraction = Math.max(0.64, 1 - safeTop - safeBottom);
+  const elementHeight = 100 / visibleFraction;
+  const elementTop = -(safeTop / visibleFraction) * 100;
+  const safeScale = Math.max(1, Math.min(1.06, imageScale));
+  const scale = Math.min(1.06, safeScale + progress * 0.006);
   const x = panX * (progress - 0.5);
   const y = panY * (progress - 0.5);
   const src = staticFile(assetManifest[sceneId]);
@@ -214,36 +174,23 @@ export const StillScene: React.FC<StillSceneProps> = ({
       <VisualStage style={{background: C.bgDeep}}>
         <Img
           src={src}
-          style={{
-            position: 'absolute',
-            inset: -40,
-            width: 'calc(100% + 80px)',
-            height: 'calc(100% + 80px)',
-            objectFit: 'cover',
-            filter: 'blur(34px)',
-            opacity: 0.22,
-            transform: 'scale(1.08)',
-          }}
+          style={{position: 'absolute', inset: -40, width: 'calc(100% + 80px)', height: 'calc(100% + 80px)', objectFit: 'cover', filter: 'blur(34px)', opacity: 0.2, transform: 'scale(1.08)'}}
         />
         <Img
           src={src}
           style={{
             position: 'absolute',
-            inset: 0,
+            left: 0,
+            top: `${elementTop}%`,
             width: '100%',
-            height: '100%',
+            height: `${elementHeight}%`,
             objectFit: 'contain',
-            objectPosition: `center ${imagePositionY}%`,
+            objectPosition: 'center center',
             filter: 'drop-shadow(0 22px 34px rgba(0,0,0,.28))',
             transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
           }}
         />
-        <AbsoluteFill
-          style={{
-            background:
-              'linear-gradient(180deg, rgba(4,10,7,.36) 0%, rgba(4,10,7,0) 10%, rgba(4,10,7,0) 90%, rgba(4,10,7,.32) 100%)',
-          }}
-        />
+        <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(4,10,7,.34) 0%, rgba(4,10,7,0) 9%, rgba(4,10,7,0) 92%, rgba(4,10,7,.28) 100%)'}} />
       </VisualStage>
     </SceneBackground>
   );
