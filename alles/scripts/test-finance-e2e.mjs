@@ -31,7 +31,7 @@ process.on('exit', clean);
 fs.rmSync(reelDir, {recursive: true, force: true});
 fs.rmSync(runtimeDir, {recursive: true, force: true});
 
-run(process.execPath, ['scripts/new-finance-week-reel.mjs', slug, `--topic=${topic}`, '--title=ETF-Gebühren E2E Fixture', `--publish-date=${publishDate}`, '--selection-mode=evergreen', '--selection-reason=Technische End-to-End-Fixture für sämtliche FinanzNeo-Produktionsgates']);
+run(process.execPath, ['scripts/new-finance-week-reel.mjs', slug, `--topic=${topic}`, '--title=ETF-Gebühren E2E Fixture', `--publish-date=${publishDate}`, '--selection-mode=evergreen', '--selection-reason=Technische End-to-End-Fixture für Visual Quality V2 und sämtliche FinanzNeo-Produktionsgates']);
 const paths = financeProjectPaths(reelDir);
 run(process.execPath, ['scripts/check-finance-project-folder.mjs', reelDir]);
 
@@ -45,8 +45,8 @@ plan.sources = [{
   accessedAt: '2099-12-27',
   claimIds: ['claim-fixture-cost'],
 }];
-const numberScene = plan.scenes.find((scene) => scene.id === 'zahl');
-if (!numberScene) throw new Error('Zahl-Szene fehlt in der zentralen E2E-Fixture.');
+const numberScene = plan.scenes.find((scene) => scene.id === 'scene-03-intermediate-result');
+if (!numberScene) throw new Error('Zahl-Szene fehlt in der Visual-Quality-V2-Fixture.');
 numberScene.claimIds = ['claim-fixture-cost'];
 plan.scriptText = plan.scenes.map((scene) => scene.voiceText).join(' ');
 ScenePlan.parse(plan);
@@ -59,11 +59,12 @@ fs.writeFileSync(paths.voicePrompt, `Sprich seriös, klar und auf Deutsch. Beton
 fs.writeFileSync(paths.sources, '# Quellen — ETF-Gebühren E2E\n\n## claim-fixture-cost\n\n- Aussage: 0,5 Prozent von 10.000 Euro entsprechen 50 Euro.\n- Quelle: technische Rechenfixture\n- URL: https://example.com/finance-e2e-fixture\n- Abgerufen: 2099-12-27\n');
 fs.writeFileSync(paths.socialCaption, '# ETF-Kosten wirken länger als gedacht\n\n💬 Kommentiere KOSTEN und ich schicke dir kostenlos die ETF-Kosten-Checkliste per DM.\n\nSchon kleine laufende Gebühren reduzieren Kapital und mögliche zukünftige Rendite. Vergleiche deshalb Kostenquote, Sparrate und Laufzeit gemeinsam.\n\nWelche Kostenquote prüfst du zuerst?\n\n#Finanzen #ETF #Gebühren #Sparen #FinanzNeo\n');
 fs.writeFileSync(paths.pdfContent, '# PDF-Inhalt — ETF-Kosten-Checkliste\n\n1. Kostenquote notieren.\n2. Sparrate und Laufzeit festlegen.\n3. Kosten in Euro berechnen.\n4. Produkte mit denselben Annahmen vergleichen.\n5. Keine Rendite garantieren.\n');
-fs.writeFileSync(paths.storyboard, `# Storyboard — ETF-Gebühren E2E\n\n${plan.scenes.map((scene, index) => `${index + 1}. **${scene.id}** — ${scene.durationSec}s — ${scene.voiceText} — ${scene.layout}/${scene.variant}`).join('\n')}\n`);
-fs.writeFileSync(paths.motionDesign, `# Einfacher Schnittplan — ETF-Gebühren E2E\n\n${plan.scenes.map((scene, index) => `${index + 1}. **${scene.id}** — Bild ab Frame 0 — Übergang: ${scene.transition} — Icon: ${scene.content.icon ?? 'kein Icon'} — Headline: ${scene.content.headline ?? ''}`).join('\n')}\n`);
+fs.writeFileSync(paths.storyboard, `# Storyboard — ETF-Gebühren E2E\n\n${plan.scenes.map((scene, index) => `${index + 1}. **${scene.id}** — ${scene.durationSec}s — ${scene.type} — ${scene.voiceText} — ${scene.layout}/${scene.variant}`).join('\n')}\n`);
+fs.writeFileSync(paths.motionDesign, `# Visual Quality V2 — ETF-Gebühren E2E\n\n${plan.scenes.map((scene, index) => `${index + 1}. **${scene.id}** — Typ: ${scene.type} — Übergang: ${scene.transition} — Phasen: ${scene.visualPhases.length} — Icon: ${scene.content.icon ?? 'kein Icon'} — Headline: ${scene.content.headline ?? ''}`).join('\n')}\n`);
 const status = JSON.parse(fs.readFileSync(paths.status, 'utf8'));
 status.title = plan.title;
-status.productionMode = 'image-first-lite';
+status.productionMode = 'process-hybrid-v2';
+status.visualQualityProfile = 'finanzneo-process-v2';
 status.approvals = {topicSelected: true, scriptApproved: true, designAnchorApproved: true, assetsReviewed: false};
 status.stage = 'script-approved';
 fs.writeFileSync(paths.status, JSON.stringify(status, null, 2));
@@ -71,11 +72,9 @@ fs.writeFileSync(paths.status, JSON.stringify(status, null, 2));
 run(process.execPath, ['scripts/run-finance-script-qa.mjs', paths.scenePlan]);
 run(process.execPath, ['scripts/run-finance-creative-qa.mjs', paths.scenePlan]);
 
-// Es gibt aktuell kein automatisiertes Bildpromptsystem (Stil wird neu definiert).
-// Die Fixture (createFinanceTestPlan) liefert scene.imagePrompt bereits als fertigen Text;
-// hier wird daraus nur Manifest/Dateien gebaut, um die übrige Pipeline (Assets, Render, Export) zu prüfen.
-const isImageScene = (scene) => scene.layout === 'full-bleed' || scene.layout === 'framed-image';
+const isImageScene = (scene) => scene.type === 'image';
 const imageScenes = plan.scenes.filter(isImageScene);
+const animationScenes = plan.scenes.filter((scene) => scene.type === 'animation');
 const promptEntries = [];
 const updatedScenes = plan.scenes.map((scene) => {
   if (!isImageScene(scene)) return scene;
@@ -86,7 +85,7 @@ const updatedScenes = plan.scenes.map((scene) => {
   const imageAssetId = `images-${imageFile.replace(/\.[^.]+$/, '')}`;
   const expectedImageFile = path.relative(reelDir, path.join(paths.imagesDir, imageFile)).split(path.sep).join('/');
   promptEntries.push({order: order + 1, sceneId: scene.id, spokenSentence: scene.voiceText, promptFile, expectedImageFile, imageAssetId, prompt});
-  return {...scene, assetIds: [...new Set([...(scene.assetIds ?? []), imageAssetId])]};
+  return {...scene, assetIds: [imageAssetId]};
 });
 const planWithPrompts = {...plan, scenes: updatedScenes};
 ScenePlan.parse(planWithPrompts);
@@ -94,16 +93,18 @@ fs.mkdirSync(paths.imagePromptsDir, {recursive: true});
 fs.mkdirSync(paths.imagesDir, {recursive: true});
 for (const entry of promptEntries) fs.writeFileSync(path.join(paths.imagePromptsDir, entry.promptFile), `${entry.prompt}\n`);
 fs.writeFileSync(paths.scenePlan, JSON.stringify(planWithPrompts, null, 2));
-fs.writeFileSync(paths.imagePromptManifest, JSON.stringify({version: 'finance-v1', promptSystem: 'e2e-fixture', styleVersion: 'none', slug: planWithPrompts.slug, generatedAt: new Date().toISOString(), prompts: promptEntries.map(({prompt, ...entry}) => entry)}, null, 2));
+fs.writeFileSync(paths.imagePromptManifest, JSON.stringify({version: 'finance-v1', promptSystem: 'visual-quality-v2-e2e-fixture', styleVersion: 'process-v2', slug: planWithPrompts.slug, generatedAt: new Date().toISOString(), prompts: promptEntries.map(({prompt, ...entry}) => entry)}, null, 2));
 const promptSections = promptEntries.map((entry) => `## ${entry.order}. ${entry.sceneId}\n\n**Promptdatei:** \`prompts/${entry.promptFile}\`  \n**Bild hier ablegen:** \`${entry.expectedImageFile}\`\n\n\`\`\`text\n${entry.prompt}\n\`\`\``).join('\n\n');
-fs.writeFileSync(paths.imagePromptIndex, `# Bildprompts — ${planWithPrompts.title}\n\n${promptSections}\n`);
+fs.writeFileSync(paths.imagePromptIndex, `# Prozess-Bildprompts — ${planWithPrompts.title}\n\n${promptSections}\n`);
 
 run(process.execPath, ['scripts/run-finance-with-folder-check.mjs', 'scripts/check-finance-content-package.mjs', reelDir]);
 const builtPlan = ScenePlan.parse(JSON.parse(fs.readFileSync(paths.scenePlan, 'utf8')));
 const promptManifest = JSON.parse(fs.readFileSync(paths.imagePromptManifest, 'utf8'));
-if (promptManifest.prompts.length !== 8) throw new Error('E2E erwartet acht einzelne Bildprompts.');
-if (builtPlan.scenes.some((scene) => scene.transition !== 'cut')) throw new Error('E2E erwartet ausschließlich harte Schnitte.');
-if (builtPlan.scenes.some((scene) => scene.visualPhases.length > 1)) throw new Error('E2E erwartet höchstens einen Bildzustand pro Szene.');
+if (promptManifest.prompts.length !== 5) throw new Error('E2E erwartet fünf einzelne Prozess-Bildprompts.');
+if (builtPlan.scenes.filter((scene) => scene.type === 'image').length !== 5) throw new Error('E2E erwartet fünf Prozessbilder.');
+if (builtPlan.scenes.filter((scene) => scene.type === 'animation').length !== 4) throw new Error('E2E erwartet vier Animationen.');
+if (builtPlan.scenes.filter((scene) => scene.type === 'image').some((scene) => scene.visualPhases.length < 2)) throw new Error('E2E erwartet mindestens zwei Phasen pro Prozessbild.');
+if (builtPlan.scenes.filter((scene) => scene.type === 'animation').some((scene) => scene.visualPhases.length < 3)) throw new Error('E2E erwartet mindestens drei Phasen pro Animation.');
 
 const totalDuration = builtPlan.scenes.reduce((sum, scene) => sum + scene.durationSec, 0);
 run('ffmpeg', ['-y', '-f', 'lavfi', '-i', 'anullsrc=r=48000:cl=mono', '-t', String(totalDuration), '-c:a', 'pcm_s24le', paths.voiceoverFinal]);
@@ -132,7 +133,7 @@ if (readyReport.ready !== true) throw new Error('E2E-Ready-Bericht ist nicht gr�
 
 const alignedPlan = ScenePlan.parse(JSON.parse(fs.readFileSync(paths.scenePlan, 'utf8')));
 const manifest = AssetManifest.parse(JSON.parse(fs.readFileSync(paths.manifest, 'utf8')));
-if (manifest.assets.filter((asset) => asset.kind === 'image').length !== 8) throw new Error('E2E erwartet acht analysierte Bilder.');
+if (manifest.assets.filter((asset) => asset.kind === 'image').length !== 5) throw new Error('E2E erwartet fünf analysierte Prozessbilder.');
 run(process.execPath, ['scripts/stage-finance-runtime-assets.mjs', reelDir]);
 const propsFile = path.join(os.tmpdir(), `finanzneo-e2e-props-${process.pid}.json`);
 const frameFile = path.join(os.tmpdir(), `finanzneo-e2e-frame-${process.pid}.png`);
@@ -153,4 +154,4 @@ fs.mkdirSync(renderQaDir, {recursive: true});
 fs.writeFileSync(path.join(renderQaDir, 'report.json'), JSON.stringify({version: 'finance-render-qa-v1', video: path.resolve(dummyVideo), passed: true, generatedAt: new Date().toISOString(), findings: []}, null, 2));
 run(process.execPath, ['scripts/export-finance-deliverables.mjs', reelDir, `--video=${dummyVideo}`]);
 for (const file of [path.join(paths.exportDir, `${slug}.mp4`), path.join(paths.exportDir, 'voiceover-final.captions.json'), path.join(paths.exportDir, 'voiceover-final.srt'), path.join(paths.exportDir, 'voiceover-final.vtt'), path.join(paths.exportDir, 'social-caption.md'), path.join(paths.exportDir, 'social-caption.txt'), path.join(paths.exportDir, 'etf-gebuehren-checkliste.pdf'), path.join(paths.exportDir, 'export-manifest.json')]) if (!fs.existsSync(file) || fs.statSync(file).size === 0) throw new Error(`Exportdatei fehlt: ${file}`);
-console.log('✓ FinanzNeo-End-to-End-Test bestanden: Scaffold → neutrale Bildprompts (kein Stilsystem) → Assets → READY → Kontrollframe → Export.');
+console.log('✓ FinanzNeo-End-to-End-Test bestanden: Visual Quality V2 → fünf Prozessbilder → vier Animationen → Assets → READY → Kontrollframe → Export.');
