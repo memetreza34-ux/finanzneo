@@ -21,13 +21,50 @@ finanzneo-reel-build-v1
 Die kreative Vorarbeit erstellt vor dem Codex-Build vollständig:
 
 - Skript und Szenenreihenfolge,
-- Bildprompts,
+- Prozess-Bildprompts,
 - individuelle Animationen als fertigen Remotion-Code,
 - vollständige Reel-Composition,
+- standardisiertes Überschriftensystem,
 - Remotion-Einstiegspunkt,
 - Manifest mit allen Quell- und Exportpfaden.
 
-Codex darf diese Animationen nicht neu planen, umdeuten oder programmieren.
+Codex darf diese Animationen, Bilder oder das Überschriftensystem nicht neu planen, umdeuten oder programmieren.
+
+## Visual Quality V2
+
+Alle Reels nach dem ETF-Testreel verwenden:
+
+```text
+creativeRules.visualQualityProfile: finanzneo-process-v2
+```
+
+Zielverteilung:
+
+```text
+60 % Bilder / 40 % Animationen
+```
+
+Erlaubter Bereich:
+
+```text
+55–65 % Bilder / 35–45 % Animationen
+```
+
+Bevorzugt bei sieben Szenen:
+
+```text
+4 Prozessbilder + 3 hochwertige Animationen
+```
+
+Jedes Bild muss Ausgangslage, Prozessweg und Ergebnis sichtbar verbinden. Reine Dekorationsbilder sind nicht zulässig.
+
+Jede Composition verwendet:
+
+```text
+alles/channels/finanzneo/src/reels/shared/FinanzNeoSceneHeader.tsx
+```
+
+Die Hauptüberschrift ist hell, mindestens 72 px groß, maximal zweizeilig und besitzt ein passendes Icon sowie einen weichen dunklen oberen Verlauf. Schwarze Schrift auf dunklem Hintergrund ist verboten.
 
 ## Manifeststatus
 
@@ -46,6 +83,7 @@ npm run finance:reel:build -- <projektordner>
 ## Der allgemeine Build übernimmt
 
 - Medienerkennung ohne feste Dateinamen,
+- Prüfung des V2-Qualitätsprofils,
 - 1,10×-Voiceover mit erhaltener Tonhöhe,
 - lokale Whisper-Transkription,
 - echte Wort- und Szenenzeiten,
