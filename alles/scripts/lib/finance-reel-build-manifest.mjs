@@ -31,6 +31,12 @@ const requireText = (value, label) => {
   return value.trim();
 };
 
+const requireShare = (value, label, minimum, maximum) => {
+  if (!Number.isFinite(value) || value < minimum || value > maximum) {
+    throw new Error(`${label} muss zwischen ${minimum} und ${maximum} liegen.`);
+  }
+};
+
 export const loadFinanceReelBuildManifest = ({projectRoot, technicalRoot = process.cwd(), requireReady = false}) => {
   const absoluteProjectRoot = path.resolve(projectRoot);
   const absoluteTechnicalRoot = path.resolve(technicalRoot);
@@ -58,6 +64,31 @@ export const loadFinanceReelBuildManifest = ({projectRoot, technicalRoot = proce
   }
   if (requireReady && manifest.status !== 'prebuilt-ready') {
     throw new Error('Dieses Reel ist noch nicht vorprogrammiert. Die Vorarbeit muss Composition und Animationen fertigstellen und status auf prebuilt-ready setzen. Codex darf sie nicht selbst entwerfen.');
+  }
+
+  const usesVisualQualityV2 = manifest.visualQualityProfile === 'finanzneo-process-v2';
+  if (usesVisualQualityV2) {
+    if (manifest.sceneHeaderProfile !== 'finanzneo-scene-header-v2') {
+      throw new Error('Visual Quality V2 benötigt sceneHeaderProfile: finanzneo-scene-header-v2.');
+    }
+    const distribution = manifest.expectedDistribution ?? {};
+    if (!Number.isInteger(distribution.imageCount) || distribution.imageCount < 1) {
+      throw new Error('expectedDistribution.imageCount muss eine positive ganze Zahl sein.');
+    }
+    if (!Number.isInteger(distribution.animationCount) || distribution.animationCount < 1 || distribution.animationCount > 4) {
+      throw new Error('expectedDistribution.animationCount muss zwischen 1 und 4 liegen.');
+    }
+    requireShare(distribution.imageShare, 'expectedDistribution.imageShare', 0.55, 0.65);
+    requireShare(distribution.animationShare, 'expectedDistribution.animationShare', 0.35, 0.45);
+    if (distribution.imageCount + distribution.animationCount !== manifest.expectedSceneCount) {
+      throw new Error('expectedDistribution stimmt nicht mit expectedSceneCount überein.');
+    }
+    if (Math.abs(distribution.imageShare + distribution.animationShare - 1) > 0.001) {
+      throw new Error('Bild- und Animationsanteil müssen zusammen 1 ergeben.');
+    }
+    if (requireReady && manifest.prebuiltApproval?.visualQualityV2Implemented !== true) {
+      throw new Error('prebuiltApproval.visualQualityV2Implemented muss vor dem Build true sein.');
+    }
   }
 
   const composition = manifest.composition ?? {};
@@ -89,6 +120,12 @@ export const loadFinanceReelBuildManifest = ({projectRoot, technicalRoot = proce
     requireText(animation.component, `animations[${index}].component`);
     assertSafePath(animation.source, `animations[${index}].source`);
     if (animation.editableByCodex !== false) throw new Error(`animations[${index}].editableByCodex muss false sein.`);
+    if (usesVisualQualityV2 && animation.qualityFloor !== 'ETF process animation level or better') {
+      throw new Error(`animations[${index}].qualityFloor muss das ETF-Prozessniveau oder besser verlangen.`);
+    }
+  }
+  if (usesVisualQualityV2 && animations.length !== manifest.expectedDistribution.animationCount) {
+    throw new Error(`Manifest erwartet ${manifest.expectedDistribution.animationCount} Animationen, enthält aber ${animations.length}.`);
   }
 
   return {
