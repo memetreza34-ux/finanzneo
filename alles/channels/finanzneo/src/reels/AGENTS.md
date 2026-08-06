@@ -18,7 +18,7 @@ Alle neuen Quellordner nach dem ETF-Testreel setzen im Paket:
 creativeRules.visualQualityProfile: finanzneo-process-v2
 ```
 
-Die Composition muss 55–65 Prozent Bildszenen und 35–45 Prozent Animationsszenen enthalten. Bevorzugter Standard bei sieben Szenen: vier Prozessbilder und drei hochwertige Animationen.
+Die Composition muss 55–65 Prozent Bildszenen und 35–45 Prozent Animationsszenen enthalten. Bevorzugter Produktionsstandard: **neun Szenen mit fünf Prozessbildern und vier hochwertigen Animationen**.
 
 ### Prozessbilder
 
