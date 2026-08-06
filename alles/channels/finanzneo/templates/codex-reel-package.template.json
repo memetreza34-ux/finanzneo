@@ -70,7 +70,7 @@
     {
       "id": "scene-01-hook",
       "type": "image",
-      "durationSec": 6,
+      "durationSec": 7,
       "voiceText": "FINANCE_TODO_SCENE_01_VOICE",
       "purpose": "Die zentrale Finanzfrage als sofort verständlichen Prozess zeigen.",
       "visualFamily": "editorial-process-hook",
@@ -109,7 +109,7 @@
     {
       "id": "scene-02-mechanism-a",
       "type": "animation",
-      "durationSec": 9,
+      "durationSec": 8,
       "voiceText": "FINANCE_TODO_SCENE_02_VOICE",
       "purpose": "Den ersten entscheidenden Finanzmechanismus durch Bewegung erklären.",
       "visualFamily": "physical-process-route",
@@ -184,7 +184,7 @@
     {
       "id": "scene-04-mechanism-b",
       "type": "animation",
-      "durationSec": 9,
+      "durationSec": 8,
       "voiceText": "FINANCE_TODO_SCENE_04_VOICE",
       "purpose": "Einen zweiten, räumlich und mechanisch anderen Prozess erklären.",
       "visualFamily": "warehouse-transformation-system",
@@ -256,12 +256,12 @@
       "soundCues": []
     },
     {
-      "id": "scene-06-consequence-or-solution",
+      "id": "scene-06-mechanism-c",
       "type": "animation",
-      "durationSec": 9,
+      "durationSec": 8,
       "voiceText": "FINANCE_TODO_SCENE_06_VOICE",
-      "purpose": "Folge, Risiko oder Lösung als dritte eigenständige Ursache-Wirkung-Handlung zeigen.",
-      "visualFamily": "cause-effect-transformation",
+      "purpose": "Einen dritten Mechanismus oder eine zeitliche Veränderung erklären.",
+      "visualFamily": "time-value-transformation",
       "animation": {
         "componentName": "FINANCE_TODO_PREBUILT_COMPONENT_C",
         "narrativeAction": "FINANCE_TODO_VISIBLE_ACTION_C",
@@ -280,7 +280,7 @@
       },
       "overlay": {
         "profile": "finanzneo-scene-header-v2",
-        "icon": "shield",
+        "icon": "calculator",
         "kicker": "FINANCE_TODO_KICKER",
         "headline": "FINANCE_TODO_HEADLINE",
         "body": ""
@@ -292,16 +292,91 @@
       "soundCues": []
     },
     {
-      "id": "scene-07-payoff",
+      "id": "scene-07-example-or-consequence",
       "type": "image",
       "durationSec": 7,
       "voiceText": "FINANCE_TODO_SCENE_07_VOICE",
-      "purpose": "Hook beantworten und die praktische Kernaussage visuell zusammenfassen.",
-      "visualFamily": "editorial-process-payoff",
+      "purpose": "Ein konkretes Beispiel oder die praktische Folge als Prozessbild zeigen.",
+      "visualFamily": "editorial-process-example",
       "image": {
         "directory": "03-szenen/EINZELNE-SZENEN/scene-07",
         "selection": "single-supported-file",
         "promptFile": "03-szenen/EINZELNE-SZENEN/scene-07/bildprompt.txt",
+        "process": {
+          "startState": "FINANCE_TODO_REAL_WORLD_STARTING_OBJECT",
+          "processPath": "FINANCE_TODO_REAL_WORLD_ACTION_OR_CONNECTION",
+          "resultState": "FINANCE_TODO_VISIBLE_PRACTICAL_CONSEQUENCE",
+          "instantReadabilitySeconds": 1,
+          "decorativeOnly": false
+        },
+        "motion": {
+          "type": "two-phase-example-focus",
+          "scaleFrom": 1.02,
+          "scaleTo": 1.06,
+          "panX": 18,
+          "panY": 0
+        }
+      },
+      "overlay": {
+        "profile": "finanzneo-scene-header-v2",
+        "icon": "shopping-cart",
+        "kicker": "FINANCE_TODO_KICKER",
+        "headline": "FINANCE_TODO_HEADLINE",
+        "body": ""
+      },
+      "transition": {
+        "type": "match-cut",
+        "durationSec": 0.3
+      },
+      "soundCues": []
+    },
+    {
+      "id": "scene-08-solution",
+      "type": "animation",
+      "durationSec": 8,
+      "voiceText": "FINANCE_TODO_SCENE_08_VOICE",
+      "purpose": "Die Lösung oder den abschließenden Ursache-Wirkung-Schritt als vierte hochwertige Animation zeigen.",
+      "visualFamily": "solution-cause-effect-system",
+      "animation": {
+        "componentName": "FINANCE_TODO_PREBUILT_COMPONENT_D",
+        "narrativeAction": "FINANCE_TODO_VISIBLE_ACTION_D",
+        "startState": "FINANCE_TODO_START_STATE_D",
+        "endState": "FINANCE_TODO_END_STATE_D",
+        "camera": "FINANCE_TODO_ACTIVE_CAMERA_D",
+        "requiredElements": [
+          "FINANCE_TODO_REQUIRED_ELEMENT_D"
+        ],
+        "forbiddenPatterns": [
+          "same layout as another animation",
+          "dashboard card",
+          "static comparison",
+          "counter as the only action"
+        ]
+      },
+      "overlay": {
+        "profile": "finanzneo-scene-header-v2",
+        "icon": "shield",
+        "kicker": "FINANCE_TODO_KICKER",
+        "headline": "FINANCE_TODO_HEADLINE",
+        "body": ""
+      },
+      "transition": {
+        "type": "object-wipe",
+        "durationSec": 0.35
+      },
+      "soundCues": []
+    },
+    {
+      "id": "scene-09-payoff",
+      "type": "image",
+      "durationSec": 7,
+      "voiceText": "FINANCE_TODO_SCENE_09_VOICE",
+      "purpose": "Hook beantworten und die praktische Kernaussage visuell zusammenfassen.",
+      "visualFamily": "editorial-process-payoff",
+      "image": {
+        "directory": "03-szenen/EINZELNE-SZENEN/scene-09",
+        "selection": "single-supported-file",
+        "promptFile": "03-szenen/EINZELNE-SZENEN/scene-09/bildprompt.txt",
         "process": {
           "startState": "FINANCE_TODO_ORIGINAL_QUESTION_OBJECT",
           "processPath": "FINANCE_TODO_CONDENSED_PROCESS_CONNECTION",
