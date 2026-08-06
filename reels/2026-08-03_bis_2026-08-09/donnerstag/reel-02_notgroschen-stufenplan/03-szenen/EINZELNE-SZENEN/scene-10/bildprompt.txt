@@ -1,0 +1,22 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+SERIES CONTINUITY LOCK:
+Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+
+ENVIRONMENT:
+One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three depth layers. No empty black background.
+
+COMPOSITION LOCK:
+Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no unresolved debt, no luxury spending, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
+
+SCENE MESSAGE:
+After an emergency withdrawal, regular saving restores the protective buffer.
+
+CONNECTED VISUAL STORY:
+Show the repaired washing machine operating calmly on one side. In the center, the transparent reserve vault is partially lower after paying the repair. A steady stream of small gold contributions refills it while the emerald shield becomes complete again. End with a controlled, protected and optimistic composition.

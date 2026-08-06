@@ -1,0 +1,22 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+SERIES CONTINUITY LOCK:
+Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+
+ENVIRONMENT:
+One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
+
+COMPOSITION LOCK:
+Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no text symbols, no checklist poster, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
+
+SCENE MESSAGE:
+A true emergency is necessary, unexpected and too large for the normal monthly budget.
+
+CONNECTED VISUAL STORY:
+Show three connected visual tests around one protected reserve: a broken essential appliance, a sudden urgent repair and an exposed monthly wallet that is clearly too small to cover it. On the opposite side, a luxury shopping object and vacation object are stopped outside the emergency path. Communicate the decision through spatial logic, not labels.

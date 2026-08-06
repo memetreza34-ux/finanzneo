@@ -1,0 +1,22 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+SERIES CONTINUITY LOCK:
+Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+
+ENVIRONMENT:
+One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
+
+COMPOSITION LOCK:
+Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no bank logo, no app UI, no locked long-term investment vault, no cash under a mattress, no floating platform, no different world, no photorealism, no cartoon, no Pixar, no clay style.
+
+SCENE MESSAGE:
+The emergency reserve is separate from everyday spending but remains quickly accessible.
+
+CONNECTED VISUAL STORY:
+Show two connected but clearly separated money areas. The everyday wallet sits on the active spending path. A protected transparent reserve vault stands beside it with a short controlled transfer bridge back to the wallet. The reserve is not visible to the normal spending stream, yet can be reached quickly during an emergency.

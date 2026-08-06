@@ -1,0 +1,22 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+SERIES CONTINUITY LOCK:
+Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+
+ENVIRONMENT:
+One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three depth layers. No empty black background.
+
+COMPOSITION LOCK:
+Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no giant final reserve, no isolated coin stack, no floating platform, no different camera or palette, no dashboard, no app UI, no photorealism, no cartoon, no Pixar, no clay style.
+
+SCENE MESSAGE:
+A small first emergency buffer is achievable and already useful.
+
+CONNECTED VISUAL STORY:
+Show a modest gold reserve stack growing inside a compact transparent protection capsule. A short reachable path of incoming coins leads into it. The capsule already blocks one small repair risk, while a much larger distant target remains softly visible in the background. Make the first step feel achievable, not insignificant.

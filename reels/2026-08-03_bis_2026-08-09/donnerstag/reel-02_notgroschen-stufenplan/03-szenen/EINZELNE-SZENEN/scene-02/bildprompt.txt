@@ -1,0 +1,22 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+SERIES CONTINUITY LOCK:
+Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+
+ENVIRONMENT:
+One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
+
+COMPOSITION LOCK:
+Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no isolated product, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
+
+SCENE MESSAGE:
+A liquid emergency reserve absorbs a sudden expense before debt is needed.
+
+CONNECTED VISUAL STORY:
+Show a protected transparent reserve vault filled with gold money between a broken appliance and the exposed household wallet. The reserve releases exactly enough gold to cover the repair while an emerald shield blocks the red debt chains. The reserve must look quickly accessible, not locked for years.
