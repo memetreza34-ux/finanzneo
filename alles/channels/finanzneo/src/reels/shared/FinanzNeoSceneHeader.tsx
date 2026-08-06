@@ -1,11 +1,12 @@
 import React from 'react';
 import {
   Banknote,
+  BarChart3,
   Calculator,
-  ChartNoAxesCombined,
   CircleDollarSign,
   Clock3,
   Coins,
+  FileText,
   Landmark,
   Lightbulb,
   PackageCheck,
@@ -17,7 +18,7 @@ import {
   Target,
   TrendingDown,
   TrendingUp,
-  WalletCards,
+  Wallet,
   Workflow,
   type LucideIcon,
 } from 'lucide-react';
@@ -32,6 +33,7 @@ export type FinanzNeoSceneIcon =
   | 'chart'
   | 'clock'
   | 'coins'
+  | 'document'
   | 'euro'
   | 'idea'
   | 'package'
@@ -50,9 +52,10 @@ const ICONS: Record<FinanzNeoSceneIcon, LucideIcon> = {
   bank: Landmark,
   banknote: Banknote,
   calculator: Calculator,
-  chart: ChartNoAxesCombined,
+  chart: BarChart3,
   clock: Clock3,
   coins: Coins,
+  document: FileText,
   euro: CircleDollarSign,
   idea: Lightbulb,
   package: PackageCheck,
@@ -64,7 +67,7 @@ const ICONS: Record<FinanzNeoSceneIcon, LucideIcon> = {
   target: Target,
   'trend-down': TrendingDown,
   'trend-up': TrendingUp,
-  wallet: WalletCards,
+  wallet: Wallet,
   workflow: Workflow,
 };
 
