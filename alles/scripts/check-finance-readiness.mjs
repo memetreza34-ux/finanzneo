@@ -34,11 +34,12 @@ const readJson = (file, code) => {
     return undefined;
   }
 };
-const writeReport = (ready, slug) => writeJsonAtomic(reportFile, {
+const writeReport = (ready, slug, visualQualityProfile = null) => writeJsonAtomic(reportFile, {
   version: 'finance-v1',
   slug: slug ?? path.basename(reelDir),
   ready,
   generatedAt: new Date().toISOString(),
+  ...(visualQualityProfile ? {visualQualityProfile} : {}),
   findings,
 });
 const runGate = (script, args, code, label) => {
@@ -58,7 +59,6 @@ if (!fs.existsSync(reelDir) || !fs.statSync(reelDir).isDirectory()) {
   console.error(`Reel-Ordner nicht gefunden: ${reelDir}`);
   process.exit(1);
 }
-// Ein alter grüner Bericht darf einen neuen fehlgeschlagenen Prüfversuch niemals überleben.
 fs.rmSync(reportFile, {force: true});
 
 if (!runGate('scripts/check-finance-content-package.mjs', [reelDir], 'CONTENT_PACKAGE_FAILED', 'Inhaltspaket-Prüfung')) {
@@ -106,21 +106,75 @@ if (existsFile(paths.scenePlan)) {
   }
 }
 
+const usesVisualQualityV2 = plan?.visualQualityProfile === 'finanzneo-process-v2';
+const visualQualityFile = path.join(reelDir, 'timeline', 'visual-quality-profile.json');
+if (usesVisualQualityV2 && !existsFile(visualQualityFile)) {
+  add('V2_PROFILE_FILE_MISSING', 'timeline/visual-quality-profile.json fehlt oder ist leer.');
+}
+if (usesVisualQualityV2 && status?.visualQualityProfile !== 'finanzneo-process-v2') {
+  add('V2_STATUS_PROFILE_MISMATCH', 'Produktionsstatus muss visualQualityProfile finanzneo-process-v2 verwenden.');
+}
+
 const placeholderPatterns = [/hier steht/i, /arbeitstitel/i, /welche eine frage/i, /welche klare erkenntnis/i, /verständlicher vergleichswert/i, /kurze einordnung mit neuer information/i, /option a/i, /option b/i, /FINANCE_TODO/i];
 if (plan) {
   if (status?.slug && status.slug !== plan.slug) add('STATUS_SLUG_MISMATCH', 'Status und Szenenplan verwenden unterschiedliche Slugs.');
-  const imageLedScenes = plan.scenes.filter((scene) => scene.layout === 'full-bleed' || scene.layout === 'framed-image');
-  if (imageLedScenes.length < config.visuals.minimumImageLedScenes) add('TOO_FEW_IMAGE_LED_SCENES', `Mindestens ${config.visuals.minimumImageLedScenes} Bildszenen sind Pflicht.`);
-  const searchable = [plan.title, plan.centralQuestion, plan.payoff, plan.scriptText, ...plan.scenes.flatMap((scene) => [scene.voiceText, scene.purpose, scene.visualAction, scene.content?.headline, scene.content?.body, scene.content?.secondaryNumber, scene.content?.outcome, scene.imagePrompt, ...(scene.content?.steps ?? [])])].filter(Boolean).join('\n');
+
+  const imageScenes = usesVisualQualityV2
+    ? plan.scenes.filter((scene) => scene.type === 'image')
+    : plan.scenes.filter((scene) => scene.layout === 'full-bleed' || scene.layout === 'framed-image');
+  const animationScenes = usesVisualQualityV2 ? plan.scenes.filter((scene) => scene.type === 'animation') : [];
+
+  if (usesVisualQualityV2) {
+    const imageShare = imageScenes.length / plan.scenes.length;
+    const animationShare = animationScenes.length / plan.scenes.length;
+    if (imageShare < 0.55 || imageShare > 0.65) add('V2_IMAGE_SHARE_INVALID', `Bildanteil muss 55–65 Prozent betragen; gefunden: ${(imageShare * 100).toFixed(1)} Prozent.`);
+    if (animationShare < 0.35 || animationShare > 0.45) add('V2_ANIMATION_SHARE_INVALID', `Animationsanteil muss 35–45 Prozent betragen; gefunden: ${(animationShare * 100).toFixed(1)} Prozent.`);
+    if (animationScenes.length > 4) add('V2_TOO_MANY_ANIMATIONS', 'Visual Quality V2 erlaubt höchstens vier Animationsszenen.');
+    for (const scene of imageScenes) {
+      if (!scene.processImage) add('V2_PROCESS_IMAGE_MISSING', 'Prozessbildvertrag fehlt.', scene.id);
+      if ((scene.visualPhases ?? []).length < 2) add('V2_IMAGE_PHASES_MISSING', 'Prozessbild benötigt mindestens zwei Bewegungsphasen.', scene.id);
+    }
+    for (const scene of animationScenes) {
+      if (!scene.animation) add('V2_ANIMATION_CONTRACT_MISSING', 'Animationsvertrag fehlt.', scene.id);
+      if ((scene.visualPhases ?? []).length < 3) add('V2_ANIMATION_PHASES_MISSING', 'Animation benötigt mindestens drei Phasen.', scene.id);
+    }
+    for (const scene of plan.scenes) {
+      if (scene.content?.profile !== 'finanzneo-scene-header-v2') add('V2_HEADER_PROFILE_MISSING', 'Scene Header V2 fehlt.', scene.id);
+      if (!scene.content?.icon) add('V2_HEADER_ICON_MISSING', 'Passendes Szenen-Icon fehlt.', scene.id);
+      if ((scene.content?.headlineMinPx ?? 0) < 72) add('V2_HEADLINE_TOO_SMALL', 'Hauptüberschrift ist kleiner als 72 px.', scene.id);
+      if ((scene.content?.maxLines ?? 3) > 2) add('V2_HEADLINE_TOO_MANY_LINES', 'Hauptüberschrift darf höchstens zwei Zeilen verwenden.', scene.id);
+      if (scene.content?.textTone !== 'light' || scene.content?.topGradient !== true) add('V2_HEADER_CONTRAST_INVALID', 'Helle Schrift und oberer Kontrastverlauf sind Pflicht.', scene.id);
+    }
+  } else if (imageScenes.length < config.visuals.minimumImageLedScenes) {
+    add('TOO_FEW_IMAGE_LED_SCENES', `Mindestens ${config.visuals.minimumImageLedScenes} Bildszenen sind im Legacy-Modus Pflicht.`);
+  }
+
+  const searchable = [plan.title, plan.centralQuestion, plan.payoff, plan.scriptText, ...plan.scenes.flatMap((scene) => [
+    scene.voiceText,
+    scene.purpose,
+    scene.visualAction,
+    scene.content?.headline,
+    scene.content?.body,
+    scene.content?.secondaryNumber,
+    scene.content?.outcome,
+    scene.imagePrompt,
+    scene.processImage?.startState,
+    scene.processImage?.processPath,
+    scene.processImage?.resultState,
+    scene.animation?.narrativeAction,
+    scene.animation?.startState,
+    scene.animation?.endState,
+    ...(scene.content?.steps ?? []),
+  ])].filter(Boolean).join('\n');
   for (const pattern of placeholderPatterns) if (pattern.test(searchable)) add('PLACEHOLDER_CONTENT', `Szenenplan enthält Platzhaltertext: ${pattern}`);
   if (!plan.alignment) add('ALIGNMENT_MISSING', 'Finales Transkript-Alignment fehlt.');
   else if (plan.alignment.matchRatio < config.alignment.minimumWordMatchRatio) add('ALIGNMENT_WEAK', `Alignment liegt nur bei ${(plan.alignment.matchRatio * 100).toFixed(1)} %.`);
 
   const voiceScript = existsFile(paths.voiceScript) ? fs.readFileSync(paths.voiceScript, 'utf8').trim() : '';
-  if (voiceScript && voiceScript !== plan.scriptText.trim()) add('VOICE_SCRIPT_OUT_OF_SYNC', '01-script-audio/script-fliesstext.txt stimmt nicht exakt mit 06-projektdateien/scene-plan.json überein.');
+  if (voiceScript && voiceScript !== plan.scriptText.trim()) add('VOICE_SCRIPT_OUT_OF_SYNC', 'script-fliesstext.txt stimmt nicht exakt mit scene-plan.json überein.');
   if (planRequiresPdf(plan)) {
     const pdfCandidates = fs.existsSync(paths.pdfDir) ? fs.readdirSync(paths.pdfDir).filter((name) => name.toLowerCase().endsWith('.pdf')).map((name) => path.join(paths.pdfDir, name)) : [];
-    if (!pdfCandidates.some(isValidPdfFile)) add('CTA_PDF_MISSING', 'PDF-CTA erkannt, aber unter 04-pdf/ liegt keine gültige PDF-Datei.');
+    if (!pdfCandidates.some(isValidPdfFile)) add('CTA_PDF_MISSING', 'PDF-CTA erkannt, aber im PDF-Ordner liegt keine gültige PDF-Datei.');
   }
 }
 
@@ -166,14 +220,17 @@ if (plan && manifest) {
   for (const scene of plan.scenes) {
     const requested = [...new Set([...(scene.assetIds ?? []), ...(scene.visualPhases ?? []).flatMap((phase) => phase.assetId ? [phase.assetId] : [])])];
     const assets = requested.map((id) => verifyAsset(id, 'SCENE_ASSET_MISSING', scene.id)).filter(Boolean);
-    if (scene.layout === 'full-bleed' || scene.layout === 'framed-image') {
-      if (!assets.some((asset) => asset.kind === 'image' || asset.kind === 'video')) add('SCENE_IMAGE_MISSING', `${scene.layout} benötigt ein echtes Bild oder Video.`, scene.id);
+    const requiresImage = usesVisualQualityV2
+      ? scene.type === 'image'
+      : scene.layout === 'full-bleed' || scene.layout === 'framed-image';
+    if (requiresImage) {
+      if (!assets.some((asset) => asset.kind === 'image' || asset.kind === 'video')) add('SCENE_IMAGE_MISSING', 'Bildszene benötigt ein echtes Bild oder Video.', scene.id);
       if (!scene.imagePrompt?.trim()) add('SCENE_IMAGE_PROMPT_MISSING', 'Bildszene besitzt keinen imagePrompt.', scene.id);
     }
   }
 }
 
-const historyFile = path.resolve(process.env.FINANCE_TOPIC_HISTORY_FILE ?? path.join(root, 'channels/finanzneo/engine/topic-history.json'));
+const historyFile = path.resolve(process.env.FINANCE_TOPIC_HISTORY_FILE ?? path.join(root, 'channels', 'finanzneo/engine/topic-history.json'));
 let history;
 let historyEntry;
 if (!existsFile(historyFile)) add('TOPIC_HISTORY_MISSING', 'Zentrales Themenregister fehlt.');
@@ -185,7 +242,7 @@ else if (status) {
 
 const slug = plan?.slug ?? status?.slug ?? path.basename(reelDir);
 if (findings.length) {
-  writeReport(false, slug);
+  writeReport(false, slug, plan?.visualQualityProfile ?? null);
   console.error(`✗ Finance-Projekt nicht produktionsbereit: ${findings.length} Sperre(n).`);
   for (const finding of findings) console.error(`  [${finding.code}]${finding.sceneId ? ` ${finding.sceneId}:` : ''} ${finding.message}`);
   console.error(`  Bericht: ${path.relative(root, reportFile)}`);
@@ -196,11 +253,10 @@ const validation = spawnSync(process.execPath, ['scripts/validate-finance-projec
 if (validation.error) throw validation.error;
 if (validation.status !== 0) {
   add('FINAL_QA_FAILED', 'Vollständige Finance-Validierung ist fehlgeschlagen.');
-  writeReport(false, slug);
+  writeReport(false, slug, plan?.visualQualityProfile ?? null);
   process.exit(validation.status ?? 1);
 }
 
-// Alle veränderlichen Metadaten werden vor dem Ready-Bericht geschrieben. Der Bericht ist damit garantiert die neueste Freigabedatei.
 if (history && historyEntry) {
   historyEntry.status = 'used';
   historyEntry.lastReadyAt = new Date().toISOString();
@@ -211,6 +267,10 @@ if (status) {
   status.lastReadinessAt = new Date().toISOString();
   writeJsonAtomic(paths.status, status);
 }
-writeReport(true, slug);
-console.log('✓ READY: Inhalt, Quellen, Audio, Einzelprompts, Bilder, Captions, PDF-Regel, Alignment und Final-QA sind vollständig.');
+writeReport(true, slug, plan?.visualQualityProfile ?? null);
+if (usesVisualQualityV2) {
+  console.log('✓ READY V2: Prozessbilder, Animationen, heller Scene Header, Quellen, Audio, Captions, Alignment und Final-QA sind vollständig.');
+} else {
+  console.log('✓ READY Legacy: Inhalt, Quellen, Audio, Bilder, Captions, PDF-Regel, Alignment und Final-QA sind vollständig.');
+}
 console.log(`  Projekt: ${path.relative(root, reelDir)}`);
