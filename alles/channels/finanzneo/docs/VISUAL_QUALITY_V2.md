@@ -27,7 +27,7 @@ Zulässige Standardverteilungen:
 | 8 | 5 | 3 |
 | 9 | 5 | 4 |
 
-Bevorzugter Standard: **7 Szenen = 4 Prozessbilder + 3 hochwertige Animationen**.
+Bevorzugter Produktionsstandard: **9 Szenen = 5 Prozessbilder + 4 hochwertige Animationen**. Damit passen die neuen Reels zugleich zum bestehenden 60–75-Sekunden- und 9–14-Beat-System.
 
 Eine Animation wird nur verwendet, wenn sie einen Ablauf, eine Transformation, Ursache-Wirkung oder einen Zustandswechsel besser erklärt als ein Standbild. Schwache Animationen werden nicht ergänzt, nur um die Quote zu erreichen.
 
@@ -104,7 +104,8 @@ Neue `codex-reel-package.json`-Dateien setzen:
     "targetImageShare": 0.6,
     "targetAnimationShare": 0.4,
     "minimumAnimationShare": 0.35,
-    "maximumAnimationShare": 0.45
+    "maximumAnimationShare": 0.45,
+    "maximumAnimationScenes": 4
   }
 }
 ```
