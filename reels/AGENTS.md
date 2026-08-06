@@ -50,11 +50,13 @@ Erlaubter Bereich:
 55–65 % Bilder / 35–45 % Animationen
 ```
 
-Bevorzugt bei sieben Szenen:
+Bevorzugter Produktionsstandard:
 
 ```text
-4 Prozessbilder + 3 hochwertige Animationen
+9 Szenen = 5 Prozessbilder + 4 hochwertige Animationen
 ```
+
+Diese Verteilung passt zum verbindlichen 60–75-Sekunden- und 9–14-Beat-System. Kleinere zulässige Verteilungen bleiben möglich, wenn das Thema weniger Schritte benötigt.
 
 Jedes Bild muss Ausgangslage, Prozessweg und Ergebnis sichtbar verbinden. Reine Dekorationsbilder sind nicht zulässig.
 
