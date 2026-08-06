@@ -37,6 +37,10 @@ export const SceneIcon = z.enum([
   'wallet',
   'bank',
   'cart',
+  'shopping-cart',
+  'smartphone',
+  'workflow',
+  'package',
   'trend-down',
   'trend-up',
   'percent',
@@ -57,6 +61,8 @@ export const SceneIcon = z.enum([
   'banknote',
   'money',
 ]);
+
+export const SceneType = z.enum(['image', 'animation']);
 
 export const FocusPoint = z.object({
   x: z.number().min(0).max(1),
@@ -137,6 +143,24 @@ export const Calculation = z.object({
   tolerance: z.number().positive().max(1).default(0.01),
 });
 
+export const ProcessImage = z.object({
+  startState: z.string().min(8).max(320),
+  processPath: z.string().min(8).max(320),
+  resultState: z.string().min(8).max(320),
+  instantReadabilitySeconds: z.number().positive().max(1),
+  decorativeOnly: z.literal(false),
+});
+
+export const SceneAnimation = z.object({
+  componentName: z.string().min(3).max(160),
+  narrativeAction: z.string().min(12).max(500),
+  startState: z.string().min(8).max(320),
+  endState: z.string().min(8).max(320),
+  camera: z.string().min(5).max(320),
+  requiredElements: z.array(z.string().min(1).max(180)).min(1).max(12),
+  forbiddenPatterns: z.array(z.string().min(1).max(180)).max(12).default([]),
+});
+
 export const SceneContent = z.object({
   icon: SceneIcon.optional(),
   kicker: z.string().max(limits.kicker).optional(),
@@ -156,13 +180,22 @@ export const SceneContent = z.object({
   ctaKeyword: z.string().max(limits.ctaKeyword).optional(),
   ctaBenefit: z.string().max(limits.ctaBenefit).optional(),
   calculation: Calculation.optional(),
+  profile: z.literal('finanzneo-scene-header-v2').optional(),
+  headlineMinPx: z.number().int().min(72).max(120).optional(),
+  maxLines: z.number().int().min(1).max(2).optional(),
+  textTone: z.enum(['light', 'dark']).optional(),
+  topGradient: z.boolean().optional(),
 }).default({});
 
 export const Scene = z.object({
   id: z.string().min(1),
+  type: SceneType.optional(),
   durationSec: z.number().positive(),
   voiceText: z.string().min(1),
   imagePrompt: z.string().max(limits.imagePrompt).optional(),
+  processImage: ProcessImage.optional(),
+  visualFamily: z.string().min(3).max(180).optional(),
+  animation: SceneAnimation.optional(),
   claimIds: z.array(z.string().min(1).max(80)).default([]),
   layout: LayoutType,
   variant: LayoutVariant.default('default'),
@@ -202,6 +235,21 @@ export const Scene = z.object({
       message: `Szenen ab ${config.visuals.minimumPhasesFromSeconds} Sekunden benötigen mindestens zwei visuelle Phasen.`,
     });
   }
+
+  if (scene.type === 'image' && scene.animation) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['animation'],
+      message: 'Eine Bildszene darf keinen Animationsvertrag enthalten.',
+    });
+  }
+  if (scene.type === 'animation' && scene.processImage) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ['processImage'],
+      message: 'Eine Animationsszene darf keinen Prozessbildvertrag enthalten.',
+    });
+  }
 });
 
 const normalizeWords = (value) => value
@@ -214,6 +262,14 @@ const normalizeWords = (value) => value
 
 export const ScenePlan = z.object({
   version: z.literal('finance-v1'),
+  visualQualityProfile: z.literal('finanzneo-process-v2').optional(),
+  sceneDistribution: z.object({
+    targetImageShare: z.number().min(0).max(1),
+    targetAnimationShare: z.number().min(0).max(1),
+    actualImages: z.number().int().nonnegative(),
+    actualAnimations: z.number().int().nonnegative(),
+  }).optional(),
+  headerProfile: z.literal('finanzneo-scene-header-v2').optional(),
   slug: z.string().min(1),
   title: z.string().min(1).max(140),
   fps: z.literal(config.format.fps).default(config.format.fps),
@@ -277,6 +333,110 @@ export const ScenePlan = z.object({
       path: ['scriptText'],
       message: 'scriptText muss exakt aus den voiceText-Blöcken der Szenen bestehen.',
     });
+  }
+
+  if (plan.visualQualityProfile === 'finanzneo-process-v2') {
+    const imageScenes = plan.scenes.filter((scene) => scene.type === 'image');
+    const animationScenes = plan.scenes.filter((scene) => scene.type === 'animation');
+    const typedScenes = imageScenes.length + animationScenes.length;
+    const imageShare = imageScenes.length / plan.scenes.length;
+    const animationShare = animationScenes.length / plan.scenes.length;
+
+    if (typedScenes !== plan.scenes.length) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['scenes'],
+        message: 'Visual Quality V2 benötigt für jede Szene type: image oder animation.',
+      });
+    }
+    if (plan.headerProfile !== 'finanzneo-scene-header-v2') {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['headerProfile'],
+        message: 'Visual Quality V2 benötigt headerProfile finanzneo-scene-header-v2.',
+      });
+    }
+    if (imageShare < 0.55 || imageShare > 0.65) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['scenes'],
+        message: `Bildanteil muss 55–65 Prozent betragen; gefunden: ${(imageShare * 100).toFixed(1)} Prozent.`,
+      });
+    }
+    if (animationShare < 0.35 || animationShare > 0.45) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['scenes'],
+        message: `Animationsanteil muss 35–45 Prozent betragen; gefunden: ${(animationShare * 100).toFixed(1)} Prozent.`,
+      });
+    }
+    if (animationScenes.length > 4) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['scenes'],
+        message: 'Visual Quality V2 erlaubt höchstens vier Animationen.',
+      });
+    }
+    if (plan.sceneDistribution) {
+      if (plan.sceneDistribution.targetImageShare !== 0.6 || plan.sceneDistribution.targetAnimationShare !== 0.4) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['sceneDistribution'],
+          message: 'Zielverteilung muss 60 Prozent Bilder und 40 Prozent Animationen sein.',
+        });
+      }
+      if (plan.sceneDistribution.actualImages !== imageScenes.length || plan.sceneDistribution.actualAnimations !== animationScenes.length) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ['sceneDistribution'],
+          message: 'sceneDistribution stimmt nicht mit den tatsächlichen Szenentypen überein.',
+        });
+      }
+    }
+
+    for (const [index, scene] of plan.scenes.entries()) {
+      if (scene.content.profile !== 'finanzneo-scene-header-v2') {
+        ctx.addIssue({code: z.ZodIssueCode.custom, path: ['scenes', index, 'content', 'profile'], message: 'Scene Header V2 ist Pflicht.'});
+      }
+      if (!scene.content.icon) {
+        ctx.addIssue({code: z.ZodIssueCode.custom, path: ['scenes', index, 'content', 'icon'], message: 'Passendes Szenen-Icon ist Pflicht.'});
+      }
+      if ((scene.content.headlineMinPx ?? 0) < 72) {
+        ctx.addIssue({code: z.ZodIssueCode.custom, path: ['scenes', index, 'content', 'headlineMinPx'], message: 'Hauptüberschrift muss mindestens 72 px groß sein.'});
+      }
+      if ((scene.content.maxLines ?? 3) > 2) {
+        ctx.addIssue({code: z.ZodIssueCode.custom, path: ['scenes', index, 'content', 'maxLines'], message: 'Hauptüberschrift darf höchstens zwei Zeilen nutzen.'});
+      }
+      if (scene.content.textTone !== 'light' || scene.content.topGradient !== true) {
+        ctx.addIssue({code: z.ZodIssueCode.custom, path: ['scenes', index, 'content'], message: 'Helle Schrift und oberer Kontrastverlauf sind Pflicht.'});
+      }
+
+      if (scene.type === 'image') {
+        if (!scene.processImage) {
+          ctx.addIssue({code: z.ZodIssueCode.custom, path: ['scenes', index, 'processImage'], message: 'Prozessbildvertrag fehlt.'});
+        }
+        if (scene.visualPhases.length < 2) {
+          ctx.addIssue({code: z.ZodIssueCode.custom, path: ['scenes', index, 'visualPhases'], message: 'Prozessbilder benötigen mindestens zwei Bewegungsphasen.'});
+        }
+      }
+      if (scene.type === 'animation') {
+        if (!scene.animation) {
+          ctx.addIssue({code: z.ZodIssueCode.custom, path: ['scenes', index, 'animation'], message: 'Animationsvertrag fehlt.'});
+        }
+        if (scene.visualPhases.length < 3) {
+          ctx.addIssue({code: z.ZodIssueCode.custom, path: ['scenes', index, 'visualPhases'], message: 'Animationen benötigen mindestens drei Phasen.'});
+        }
+      }
+    }
+
+    const families = animationScenes.map((scene) => scene.visualFamily).filter(Boolean);
+    if (new Set(families).size !== families.length) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ['scenes'],
+        message: 'Animationsszenen benötigen unterschiedliche Raum- oder Bewegungslogiken.',
+      });
+    }
   }
 });
 
