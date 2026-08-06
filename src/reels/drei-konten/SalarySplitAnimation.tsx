@@ -8,8 +8,9 @@ const AccountCard: React.FC<{
   label: string;
   icon: string;
   delay: number;
+  revealDuration: number;
   active?: boolean;
-}> = ({label, icon, delay, active = false}) => {
+}> = ({label, icon, delay, revealDuration, active = false}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const reveal = clamp01(
@@ -17,6 +18,7 @@ const AccountCard: React.FC<{
       frame: frame - delay,
       fps,
       config: {damping: 17, stiffness: 170, mass: 0.75},
+      durationInFrames: revealDuration,
     }),
   );
 
@@ -51,23 +53,31 @@ const AccountCard: React.FC<{
   );
 };
 
-export const SalarySplitAnimation: React.FC<{durationInFrames: number}> = () => {
+export const SalarySplitAnimation: React.FC<{durationInFrames: number}> = ({durationInFrames}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const copy = SCENE_COPY[3];
+  const dropDuration = Math.max(24, Math.round(durationInFrames * 0.24));
+  const splitStart = Math.round(durationInFrames * 0.18);
+  const splitDuration = Math.max(24, Math.round(durationInFrames * 0.22));
+  const firstCard = Math.round(durationInFrames * 0.31);
+  const cardStep = Math.max(6, Math.round(durationInFrames * 0.055));
+  const cardRevealDuration = Math.max(22, Math.round(durationInFrames * 0.18));
+
   const drop = clamp01(
     spring({
       frame,
       fps,
       config: {damping: 18, stiffness: 140, mass: 0.8},
-      durationInFrames: 42,
+      durationInFrames: dropDuration,
     }),
   );
   const split = clamp01(
     spring({
-      frame: frame - 32,
+      frame: frame - splitStart,
       fps,
       config: {damping: 20, stiffness: 155, mass: 0.75},
+      durationInFrames: splitDuration,
     }),
   );
   const coinY = interpolate(drop, [0, 1], [-170, 150], clamp);
@@ -152,9 +162,9 @@ export const SalarySplitAnimation: React.FC<{durationInFrames: number}> = () => 
             justifyContent: 'space-between',
           }}
         >
-          <AccountCard label="FIXKOSTEN" icon="01" delay={48} />
-          <AccountCard label="RÜCKLAGE" icon="02" delay={57} active />
-          <AccountCard label="WOCHE" icon="03" delay={66} />
+          <AccountCard label="FIXKOSTEN" icon="01" delay={firstCard} revealDuration={cardRevealDuration} />
+          <AccountCard label="RÜCKLAGE" icon="02" delay={firstCard + cardStep} revealDuration={cardRevealDuration} active />
+          <AccountCard label="WOCHE" icon="03" delay={firstCard + cardStep * 2} revealDuration={cardRevealDuration} />
         </div>
       </VisualStage>
     </SceneBackground>
