@@ -5,12 +5,12 @@
   "visualQualityProfile": "finanzneo-process-v2",
   "sceneHeaderProfile": "finanzneo-scene-header-v2",
   "codexAnimationCodingRequired": false,
-  "expectedSceneCount": 7,
+  "expectedSceneCount": 9,
   "expectedDistribution": {
-    "imageCount": 4,
-    "animationCount": 3,
-    "imageShare": 0.5714,
-    "animationShare": 0.4286
+    "imageCount": 5,
+    "animationCount": 4,
+    "imageShare": 0.5556,
+    "animationShare": 0.4444
   },
   "composition": {
     "id": "FINANCE_TODO_COMPOSITION_ID",
@@ -30,7 +30,7 @@
   ],
   "animations": [
     {
-      "sceneId": "FINANCE_TODO_ANIMATION_SCENE_A",
+      "sceneId": "scene-02-mechanism-a",
       "component": "FINANCE_TODO_COMPONENT_A",
       "source": "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/PrebuiltAnimations.tsx",
       "timing": "relative-to-transcript-scene-duration",
@@ -38,7 +38,7 @@
       "editableByCodex": false
     },
     {
-      "sceneId": "FINANCE_TODO_ANIMATION_SCENE_B",
+      "sceneId": "scene-04-mechanism-b",
       "component": "FINANCE_TODO_COMPONENT_B",
       "source": "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/PrebuiltAnimations.tsx",
       "timing": "relative-to-transcript-scene-duration",
@@ -46,8 +46,16 @@
       "editableByCodex": false
     },
     {
-      "sceneId": "FINANCE_TODO_ANIMATION_SCENE_C",
+      "sceneId": "scene-06-mechanism-c",
       "component": "FINANCE_TODO_COMPONENT_C",
+      "source": "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/PrebuiltAnimations.tsx",
+      "timing": "relative-to-transcript-scene-duration",
+      "qualityFloor": "ETF process animation level or better",
+      "editableByCodex": false
+    },
+    {
+      "sceneId": "scene-08-solution",
+      "component": "FINANCE_TODO_COMPONENT_D",
       "source": "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/PrebuiltAnimations.tsx",
       "timing": "relative-to-transcript-scene-duration",
       "qualityFloor": "ETF process animation level or better",
