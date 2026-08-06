@@ -121,7 +121,7 @@ const animationScene = ({
 export const createFinanceScenePlanTemplate = ({slug = 'thema-slug', title = 'FinanzNeo-Reel', topic = 'Finanzthema'} = {}) => {
   const scenes = [
     imageScene({
-      id: 'hook',
+      id: 'scene-01-hook',
       durationSec: 6,
       topic,
       purpose: 'Die zentrale Finanzfrage als sofort verständlichen Prozess zeigen.',
@@ -133,7 +133,7 @@ export const createFinanceScenePlanTemplate = ({slug = 'thema-slug', title = 'Fi
       frameZeroMainMotif: true,
     }),
     animationScene({
-      id: 'mechanismus-a',
+      id: 'scene-02-mechanism-a',
       durationSec: 9,
       topic,
       purpose: 'Den ersten entscheidenden Finanzmechanismus durch Bewegung erklären.',
@@ -143,7 +143,7 @@ export const createFinanceScenePlanTemplate = ({slug = 'thema-slug', title = 'Fi
       transition: 'match-move',
     }),
     imageScene({
-      id: 'zwischenstand',
+      id: 'scene-03-intermediate-result',
       durationSec: 7,
       topic,
       purpose: 'Den nach dem ersten Mechanismus entstandenen Tausch oder Zwischenstand eindeutig zeigen.',
@@ -155,7 +155,7 @@ export const createFinanceScenePlanTemplate = ({slug = 'thema-slug', title = 'Fi
       transition: 'match-move',
     }),
     animationScene({
-      id: 'mechanismus-b',
+      id: 'scene-04-mechanism-b',
       durationSec: 9,
       topic,
       purpose: 'Einen zweiten, räumlich und mechanisch anderen Prozess erklären.',
@@ -165,7 +165,7 @@ export const createFinanceScenePlanTemplate = ({slug = 'thema-slug', title = 'Fi
       transition: 'wipe',
     }),
     imageScene({
-      id: 'bedeutung',
+      id: 'scene-05-meaning',
       durationSec: 7,
       topic,
       purpose: 'Die wirtschaftliche Bedeutung des bisherigen Prozesses als klare Besitz-, Kosten- oder Nutzenbeziehung zeigen.',
@@ -177,7 +177,7 @@ export const createFinanceScenePlanTemplate = ({slug = 'thema-slug', title = 'Fi
       transition: 'cut',
     }),
     animationScene({
-      id: 'folge-oder-loesung',
+      id: 'scene-06-consequence-or-solution',
       durationSec: 9,
       topic,
       purpose: 'Folge, Risiko oder Lösung als dritte eigenständige Ursache-Wirkung-Handlung zeigen.',
@@ -187,7 +187,7 @@ export const createFinanceScenePlanTemplate = ({slug = 'thema-slug', title = 'Fi
       transition: 'zoom-through',
     }),
     imageScene({
-      id: 'payoff',
+      id: 'scene-07-payoff',
       durationSec: 7,
       topic,
       purpose: 'Die Hook mit einer visuellen Zusammenfassung und einer konkreten Antwort abschließen.',
