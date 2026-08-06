@@ -25,6 +25,7 @@
     "finance:reel:build": "node scripts/build-finance-reel.mjs",
     "finance:etf-reel:prepare": "node scripts/prepare-finance-reel-runtime.mjs",
     "finance:etf-reel:build": "node scripts/build-finance-reel.mjs",
+    "finance:visual-quality-v2:test": "node scripts/test-finance-visual-quality-v2.mjs",
     "finance:scaffold-test": "node scripts/test-finance-scaffold-transaction.mjs",
     "finance:gallery": "cd channels/finanzneo && npx remotion studio src/layout-gallery-index.ts",
     "finance:animation-structure": "node scripts/verify-finance-animation-foundation.mjs && node scripts/verify-finance-animation-data-contracts.mjs && node scripts/verify-finance-animation-input-limits.mjs && node scripts/verify-finance-animation-domain-limits.mjs && node scripts/verify-finance-animation-trajectories.mjs && node scripts/verify-finance-animation-parser-immutability.mjs && node scripts/verify-finance-animation-activation-policy.mjs && node scripts/verify-finance-animation-public-api.mjs && node scripts/verify-finance-animation-frame-matrix.mjs",
@@ -73,8 +74,8 @@
     "finance:render": "node scripts/render-finance-reel.mjs",
     "finance:export": "node scripts/run-finance-with-folder-check.mjs scripts/export-finance-deliverables.mjs",
     "finance:e2e": "node scripts/test-finance-e2e.mjs",
-    "finance:system-test": "npm test && npm run finance:scaffold-test && npm run finance:e2e && npm run finance:render-qa-test && npm run smoke",
-    "test": "npm run validate:finanzneo-syntax && npm run validate:finance-template && npm run validate:finanzneo-system && npm run validate:finanzneo-consistency && npm run typecheck && vitest run"
+    "finance:system-test": "npm test && npm run finance:visual-quality-v2:test && npm run finance:scaffold-test && npm run finance:e2e && npm run finance:render-qa-test && npm run smoke",
+    "test": "npm run validate:finanzneo-syntax && npm run validate:finance-template && npm run validate:finanzneo-system && npm run finance:visual-quality-v2:test && npm run validate:finanzneo-consistency && npm run typecheck && vitest run"
   },
   "dependencies": {
     "@remotion/captions": "4.0.488",
