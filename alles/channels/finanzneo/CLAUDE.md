@@ -45,6 +45,7 @@ codexAnimationCodingRequired: false
 prebuiltApproval.approvedByPlanningAssistant: true
 prebuiltApproval.animationsImplemented: true
 prebuiltApproval.compositionImplemented: true
+prebuiltApproval.visualQualityV2Implemented: true
 ```
 
 Animationsphasen müssen relativ zur späteren transkriptbasierten Szenendauer funktionieren. Keine alten festen Planungsframes verwenden.
@@ -120,7 +121,7 @@ Standardaufteilungen:
 - 8 Szenen: 5 Bilder + 3 Animationen
 - 9 Szenen: 5 Bilder + 4 Animationen
 
-Bevorzugter Standard: **7 Szenen mit 4 Prozessbildern und 3 hochwertigen Animationen**.
+Bevorzugter Produktionsstandard: **9 Szenen mit 5 Prozessbildern und 4 hochwertigen Animationen**. Das passt zum bestehenden 60–75-Sekunden- und 9–14-Beat-System.
 
 Keine schwache Animation nur zur Erfüllung der Quote. Jede Animation muss mindestens das Niveau der guten ETF-Prozessanimationen erreichen und einen eigenen Startzustand, eine sichtbare Handlung, einen eigenen Endzustand sowie eine andere Raumlogik besitzen.
 
