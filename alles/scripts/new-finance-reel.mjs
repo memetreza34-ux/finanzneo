@@ -57,16 +57,34 @@ try {
   created = true;
   const plan = createFinanceScenePlanTemplate({slug, title, topic});
   ScenePlan.parse(plan);
+
+  const imageCount = plan.scenes.filter((scene) => (scene.type ?? scene.mode ?? 'image') === 'image').length;
+  const animationCount = plan.scenes.filter((scene) => (scene.type ?? scene.mode ?? 'image') === 'animation').length;
+  const imageShare = imageCount / plan.scenes.length;
+  const animationShare = animationCount / plan.scenes.length;
+  if (imageShare < 0.55 || imageShare > 0.65 || animationShare < 0.35 || animationShare > 0.45) {
+    throw new Error(`Visual Quality V2 verletzt: ${imageCount} Bilder / ${animationCount} Animationen bei ${plan.scenes.length} Szenen.`);
+  }
+
   const paths = ensureFinanceProjectStructure(target, {title, topic});
   fs.writeFileSync(paths.scenePlan, JSON.stringify(plan, null, 2));
-  fs.writeFileSync(paths.scriptMarkdown, `# Skript — ${title}\n\n**Thema:** ${topic}\n\nAlle FINANCE_TODO-Felder müssen im selben Arbeitsdurchlauf durch natürliche, konkrete und belegbare Inhalte ersetzt werden.\n\n${plan.scenes.map((scene, index) => `## ${index + 1}. ${scene.id}\n\n${scene.voiceText}`).join('\n\n')}\n`);
+  fs.writeFileSync(paths.scriptMarkdown, `# Skript — ${title}\n\n**Thema:** ${topic}\n\nAlle FINANCE_TODO-Felder müssen im selben Arbeitsdurchlauf durch natürliche, konkrete und belegbare Inhalte ersetzt werden.\n\n**Visual Quality:** 4 Prozessbilder + 3 hochwertige Animationen.\n\n${plan.scenes.map((scene, index) => `## ${index + 1}. ${scene.id}\n\n**Typ:** ${scene.type ?? 'image'}\n\n${scene.voiceText}`).join('\n\n')}\n`);
   fs.writeFileSync(paths.voiceScript, `${plan.scriptText}\n`);
   fs.writeFileSync(paths.voicePrompt, 'NOCH NICHT FREIGEGEBEN\n\nFINANCE_TODO_FINAL_SCRIPT\n');
 
   const sceneIndex = {
-    version: 3,
+    version: 4,
+    visualQualityProfile: 'finanzneo-process-v2',
+    sceneHeaderProfile: 'finanzneo-scene-header-v2',
     sceneCount: plan.scenes.length,
+    distribution: {
+      imageCount,
+      animationCount,
+      imageShare: Number(imageShare.toFixed(4)),
+      animationShare: Number(animationShare.toFixed(4)),
+    },
     storageRule: 'Bei jeder Bildszene liegt genau eine Bilddatei beliebigen Namens im passenden scene-XX-Ordner. Der Ordner bestimmt die Szenennummer.',
+    processImageRule: 'Jede Bildszene zeigt Ausgangslage, Prozessweg und Ergebnis in einem innerhalb einer Sekunde verständlichen Vollbild.',
     imageSelection: 'single-supported-file',
     supportedImageExtensions: ['.png', '.jpg', '.jpeg', '.webp', '.avif'],
     scenes: plan.scenes.map((scene, index) => {
@@ -78,12 +96,18 @@ try {
         sourceId: scene.id,
         type,
         instructions: directory,
+        headerProfile: 'finanzneo-scene-header-v2',
+        headerIcon: scene.content?.icon ?? 'idea',
         ...(type === 'animation'
-          ? {}
+          ? {
+              prebuiltRequired: true,
+              editableByCodex: false,
+            }
           : {
               directory,
               selection: 'single-supported-file',
               prompt: `${directory}/bildprompt.txt`,
+              processImage: scene.processImage,
             }),
       };
     }),
@@ -96,15 +120,39 @@ try {
     const sceneDir = path.join(paths.individualScenesDir, `scene-${sceneNumber}`);
     const type = scene.type ?? scene.mode ?? 'image';
     fs.mkdirSync(sceneDir, {recursive: true});
-    fs.writeFileSync(path.join(sceneDir, 'szene.md'), `# Szene ${sceneNumber}\n\n**Plan-ID:** ${scene.id}\n\n**Typ:** ${type}\n\n**Voiceover:** ${scene.voiceText}\n\n${type === 'animation'
-      ? '**Animationsdatei:** `animation.md`'
-      : '**Bildprompt:** `bildprompt.txt`\n\n**Bilddatei:** Lege genau eine Bilddatei beliebigen Namens in diesen Ordner. Der Ordner bestimmt die Szene.'}\n\n<!-- FINANCE_TODO_SCENE_DETAILS -->\n`);
+    const visualDetails = type === 'animation'
+      ? `**Animationsdatei:** \`animation.md\`\n\nDie Animation muss vor dem Codex-Handoff vollständig programmiert sein. Startzustand, sichtbare Handlung und Endzustand müssen sich klar unterscheiden.`
+      : `**Bildprompt:** \`bildprompt.txt\`\n\n**Prozessbild:**\n- Ausgangslage: ${scene.processImage?.startState ?? 'FINANCE_TODO'}\n- Prozessweg: ${scene.processImage?.processPath ?? 'FINANCE_TODO'}\n- Ergebnis: ${scene.processImage?.resultState ?? 'FINANCE_TODO'}\n\n**Bilddatei:** Lege genau eine Bilddatei beliebigen Namens in diesen Ordner. Der Ordner bestimmt die Szene.`;
+    fs.writeFileSync(path.join(sceneDir, 'szene.md'), `# Szene ${sceneNumber}\n\n**Plan-ID:** ${scene.id}\n\n**Typ:** ${type}\n\n**Voiceover:** ${scene.voiceText}\n\n**Scene Header:** finanzneo-scene-header-v2 mit Icon \`${scene.content?.icon ?? 'idea'}\`\n\n${visualDetails}\n\n<!-- FINANCE_TODO_SCENE_DETAILS -->\n`);
     if (type !== 'animation') {
-      fs.writeFileSync(path.join(sceneDir, 'bildprompt.txt'), 'FINANCE_TODO_COMPLETE_IMAGE_PROMPT\n');
+      fs.writeFileSync(path.join(sceneDir, 'bildprompt.txt'), `${scene.imagePrompt}\n`);
     } else {
-      fs.writeFileSync(path.join(sceneDir, 'animation.md'), '# Remotion-Animation\n\nFINANCE_TODO_COMPLETE_ANIMATION_SPEC\n');
+      fs.writeFileSync(path.join(sceneDir, 'animation.md'), `# Remotion-Animation\n\n## Qualitätsniveau\n\n- vollständig vor dem Codex-Handoff programmieren\n- eigener Startzustand\n- konkrete sichtbare Handlung\n- eigener Endzustand\n- andere Raumlogik als die übrigen Animationen\n- relative Phasen anhand der finalen transkriptbasierten Szenendauer\n- keine Dashboard-Karte, kein Balken und kein Zähler als einzige Handlung\n\nFINANCE_TODO_COMPLETE_ANIMATION_SPEC\n`);
     }
   }
+
+  const visualQualityProfile = {
+    version: 'finanzneo-visual-quality-v2',
+    profile: 'finanzneo-process-v2',
+    targetImageShare: 0.6,
+    targetAnimationShare: 0.4,
+    allowedImageShare: {min: 0.55, max: 0.65},
+    allowedAnimationShare: {min: 0.35, max: 0.45},
+    currentDistribution: {imageCount, animationCount},
+    processImagesRequired: true,
+    sceneHeader: {
+      profile: 'finanzneo-scene-header-v2',
+      component: 'alles/channels/finanzneo/src/reels/shared/FinanzNeoSceneHeader.tsx',
+      headlineMinPx: 72,
+      headlineDefaultPx: 78,
+      maxLines: 2,
+      lightTextRequired: true,
+      sceneIconRequired: true,
+      topGradientRequired: true,
+      darkHeadlineOnDarkBackgroundForbidden: true,
+    },
+  };
+  fs.writeFileSync(path.join(paths.timelineDir, 'visual-quality-profile.json'), `${JSON.stringify(visualQualityProfile, null, 2)}\n`);
 
   const animationScenes = plan.scenes
     .map((scene, index) => ({scene, index}))
@@ -114,8 +162,16 @@ try {
     version: 'finanzneo-reel-build-v1',
     slug,
     status: 'awaiting-prebuild',
+    visualQualityProfile: 'finanzneo-process-v2',
+    sceneHeaderProfile: 'finanzneo-scene-header-v2',
     codexAnimationCodingRequired: false,
     expectedSceneCount: plan.scenes.length,
+    expectedDistribution: {
+      imageCount,
+      animationCount,
+      imageShare: Number(imageShare.toFixed(4)),
+      animationShare: Number(animationShare.toFixed(4)),
+    },
     composition: {
       id: 'FINANCE_TODO_COMPOSITION_ID',
       entryPoint: `${prebuiltSourceRoot}/index.ts`,
@@ -137,6 +193,7 @@ try {
       component: 'FINANCE_TODO_PREBUILT_COMPONENT',
       source: `${prebuiltSourceRoot}/PrebuiltAnimations.tsx`,
       timing: 'relative-to-transcript-scene-duration',
+      qualityFloor: 'ETF process animation level or better',
       editableByCodex: false,
     })),
     additionalChecks: [],
@@ -152,11 +209,12 @@ try {
       approvedByPlanningAssistant: false,
       animationsImplemented: false,
       compositionImplemented: false,
+      visualQualityV2Implemented: false,
       approvedAt: null,
     },
     remainingHumanInput: [
       'genau eine Audiodatei in 02-audio',
-      'genau ein Bild in jedem erwarteten Bildszenenordner',
+      'genau ein Prozessbild in jedem erwarteten Bildszenenordner',
       'manuelle visuelle Freigabe nach dem Render',
     ],
   };
@@ -173,9 +231,11 @@ try {
     createdAt: now,
     projectPath: relativeTarget,
     stage: 'planning-awaiting-prebuilt-composition',
+    visualQualityProfile: 'finanzneo-process-v2',
     approvals: {topicSelected: true, scriptApproved: false, designAnchorApproved: false, assetsReviewed: false},
     required: {
       scenePlan: 'timeline/scene-plan.json',
+      visualQualityProfile: 'timeline/visual-quality-profile.json',
       sources: '05-review/quellen.md',
       voiceScript: '01-voice-script/script-fliesstext.txt',
       voiceoverPrompt: '01-voice-script/voiceover-anweisung.txt',
@@ -184,6 +244,8 @@ try {
       imagePromptIndex: '03-szenen/alle-bildprompts.txt',
       sceneIndex: '03-szenen/scene-index.json',
       imageStorageRule: 'Jede Bildszene enthält genau eine Bilddatei beliebigen Namens im passenden scene-XX-Ordner.',
+      processImageRule: 'Jedes Bild zeigt Ausgangslage, Prozessweg und Ergebnis.',
+      sharedSceneHeader: 'alles/channels/finanzneo/src/reels/shared/FinanzNeoSceneHeader.tsx',
       imagePromptManifest: 'timeline/prompt-manifest.json',
       captionsFinal: '04-caption/voiceover-final.captions.json',
       socialCaption: '04-caption/social-caption.md',
@@ -197,6 +259,9 @@ try {
     implementation: {
       prebuiltAnimationsImplemented: false,
       prebuiltCompositionImplemented: false,
+      visualQualityV2Implemented: false,
+      processImagesPrepared: false,
+      sharedSceneHeaderIntegrated: false,
       codexAnimationCodingRequired: false,
       generalFutureReelBuilderAvailable: true,
       renderCompleted: false,
@@ -206,13 +271,15 @@ try {
   };
   fs.writeFileSync(paths.status, JSON.stringify(status, null, 2));
 
-  fs.writeFileSync(path.join(target, 'AGENTS.md'), `# Allgemeiner FinanzNeo-Reel-Build\n\nDieses Projekt verwendet den allgemeinen Buildvertrag in \`timeline/reel-build-manifest.json\`.\n\n## Strikte Regel\n\nCodex darf Animationen und Composition nicht selbst entwerfen oder programmieren. Solange das Manifest \`status: awaiting-prebuild\` enthält, muss Codex stoppen und melden, dass die kreative Vorarbeit noch nicht abgeschlossen ist.\n\nNach vollständiger Vorprogrammierung wird das Manifest auf \`prebuilt-ready\` gesetzt. Dann soll Codex ausschließlich aus \`alles/\` ausführen:\n\n\`\`\`bash\nnpm run finance:reel:build -- <projektordner>\n\`\`\`\n\nNur konkrete technische Fehler minimal beheben. Keine kreative Neuentwicklung, kein Merge und keine automatische Nutzerfreigabe.\n`);
+  fs.writeFileSync(path.join(target, 'AGENTS.md'), `# Allgemeiner FinanzNeo-Reel-Build\n\nDieses Projekt verwendet den allgemeinen Buildvertrag in \`timeline/reel-build-manifest.json\` und das Qualitätsprofil \`finanzneo-process-v2\`.\n\n## Strikte Regel\n\nCodex darf Animationen und Composition nicht selbst entwerfen oder programmieren. Solange das Manifest \`status: awaiting-prebuild\` enthält, muss Codex stoppen und melden, dass die kreative Vorarbeit noch nicht abgeschlossen ist.\n\n## Visuelle Pflicht\n\n- 4 Prozessbilder + 3 hochwertige Animationen bei sieben Szenen\n- jedes Bild zeigt Ausgangslage, Prozessweg und Ergebnis\n- jede Composition verwendet \`FinanzNeoSceneHeader\`\n- helle Überschrift ab 72 px, maximal zwei Zeilen, passendes Icon und weicher dunkler Verlauf\n- schwarze Schrift auf dunklem Hintergrund ist verboten\n\nNach vollständiger Vorprogrammierung wird das Manifest auf \`prebuilt-ready\` gesetzt. Dann soll Codex ausschließlich aus \`alles/\` ausführen:\n\n\`\`\`bash\nnpm run finance:reel:build -- <projektordner>\n\`\`\`\n\nNur konkrete technische Fehler minimal beheben. Keine kreative Neuentwicklung, kein Merge und keine automatische Nutzerfreigabe.\n`);
 
-  fs.writeFileSync(path.join(target, 'README.md'), `# ${title}\n\n**Thema:** ${topic}\n\n## Produktionsstruktur\n\n- \`00-cover/\`\n- \`01-voice-script/\` — Skript und Voiceover-Anweisung\n- \`02-audio/\` — genau eine Audiodatei, Dateiname egal\n- \`03-szenen/\` — pro Bildszene genau eine Bilddatei im passenden \`scene-XX\`-Ordner, Dateiname egal\n- \`04-caption/\`\n- \`05-review/\`\n- \`06-video/\`\n- \`render/\`\n- \`timeline/\`\n\n## Allgemeiner Zukunfts-Builder\n\nJedes Reel besitzt ab Erstellung \`timeline/reel-build-manifest.json\`. Zuerst werden Composition und individuelle Animationen vollständig vorprogrammiert. Danach wird der Status auf \`prebuilt-ready\` gesetzt und Codex führt nur noch aus:\n\n\`\`\`bash\nnpm run finance:reel:build -- <projektordner>\n\`\`\`\n\nCodex darf die Animationen nicht selbst neu planen. Der Ordner bestimmt die Medienzuordnung. Bei null oder mehreren passenden Dateien stoppt die Prüfung.\n`);
+  fs.writeFileSync(path.join(target, 'README.md'), `# ${title}\n\n**Thema:** ${topic}\n\n## Visual Quality V2\n\nDieses Reel startet mit dem Standard **4 Prozessbilder + 3 hochwertige Animationen**. Jedes Bild erklärt Ausgangslage, Prozessweg und Ergebnis. Alle Szenen verwenden den hellen, großen \`FinanzNeoSceneHeader\` mit passendem Icon und weichem oberen Kontrastverlauf.\n\n## Produktionsstruktur\n\n- \`00-cover/\`\n- \`01-voice-script/\` — Skript und Voiceover-Anweisung\n- \`02-audio/\` — genau eine Audiodatei, Dateiname egal\n- \`03-szenen/\` — pro Bildszene genau ein Prozessbild im passenden \`scene-XX\`-Ordner\n- \`04-caption/\`\n- \`05-review/\`\n- \`06-video/\`\n- \`render/\`\n- \`timeline/\`\n\n## Allgemeiner Zukunfts-Builder\n\nZuerst werden Composition und individuelle Animationen vollständig vorprogrammiert. Danach wird der Status auf \`prebuilt-ready\` gesetzt und Codex führt nur noch aus:\n\n\`\`\`bash\nnpm run finance:reel:build -- <projektordner>\n\`\`\`\n\nCodex darf die Animationen nicht selbst neu planen. Der Ordner bestimmt die Medienzuordnung. Bei null oder mehreren passenden Dateien stoppt die Prüfung.\n`);
 
   history.topics = [...(history.topics ?? []), {slug, topic, status: 'reserved', createdAt: now, projectPath: relativeTarget}];
   fs.writeFileSync(historyFile, JSON.stringify(history, null, 2));
   console.log(`✓ Finance-Projekt atomar vorbereitet: ${relativeTarget}`);
+  console.log(`  Visual Quality V2: ${imageCount} Prozessbilder / ${animationCount} Animationen.`);
+  console.log('  Scene Header: finanzneo-scene-header-v2.');
   console.log('  Allgemeiner Zukunfts-Builder: timeline/reel-build-manifest.json');
   console.log('  Status: awaiting-prebuild — Codex darf noch keine Animation programmieren.');
   console.log('  Medienablage: eine beliebig benannte Audiodatei in 02-audio; eine beliebig benannte Bilddatei pro Bildszenenordner.');
