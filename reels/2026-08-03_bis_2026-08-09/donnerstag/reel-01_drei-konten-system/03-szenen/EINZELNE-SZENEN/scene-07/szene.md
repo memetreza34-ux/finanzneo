@@ -1,14 +1,10 @@
-# Szene 07 — Zuerst schützen
+# Szene 07 — Konto zwei
 
-**Sprechtext:**  
-Das geschieht, bevor du irgendetwas kaufst.
+**Typ:** image  
+**Dauer:** 6,0 Sekunden  
+**Sprechtext:** Von diesen 700 Euro wandert zuerst deine Rücklage auf Konto zwei. Sie schützt Notfälle und geplante Anschaffungen.
 
-**Bildidee:**  
-Eine Barriere schützt das Fixkostenkonto vor dem Einkaufswagen.
+**Bild:** Lege ein finales Bild direkt in diesen Ordner. Wenn ein finales PNG/JPG/WEBP/AVIF vorhanden ist, wird `placeholder.svg` beim Sync automatisch ignoriert.
 
-**Bild einfügen:**  
-Lege genau eine fertige Bilddatei direkt in diesen Ordner. Der Dateiname ist frei wählbar.
-
-**Prompt:** `bildprompt.txt`  
-**Dauer:** 2,933 Sekunden  
-**Motion:** minimale Fahrt vom Einkaufswagen zum geschützten Tresor; harter Schnitt.
+**Motion:** `motionprompt.txt`  
+**Umsetzung:** `bildprompt.txt` + Bilddatei

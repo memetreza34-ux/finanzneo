@@ -1,10 +1,5 @@
 # Audio
 
-Lege das finale deutsche Voiceover hier als `voiceover-final.wav` ab.
+Finales Voiceover: `voiceover-final.wav`
 
-Optional erlaubte Arbeitsdateien:
-
-- `voiceover-roh.wav`
-- `voiceover-final.mp3`
-
-Für die Timeline und den finalen Render ist `voiceover-final.wav` maßgeblich.
+Der Remotion-Code unterstützt optional `audioSrc`. Für einen Render mit Audio muss der Pfad relativ zu `public/` verfügbar sein. Die Rohdatei in diesem Ordner bleibt die redaktionelle Masterdatei; sie kann vor dem Render nach `public/reels/drei-konten-system/voiceover-final.wav` kopiert und als Input Prop gesetzt werden.

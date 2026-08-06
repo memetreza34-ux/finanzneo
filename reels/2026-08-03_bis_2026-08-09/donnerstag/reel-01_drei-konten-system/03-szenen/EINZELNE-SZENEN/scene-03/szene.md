@@ -1,14 +1,10 @@
 # Szene 03 — Kontostand-Illusion
 
-**Sprechtext:**  
-Verfügbare und bereits verplante Euro liegen auf derselben Zahl.
+**Typ:** image  
+**Dauer:** 6,0 Sekunden  
+**Sprechtext:** Dadurch wirkt dein Kontostand größer, als dein echtes Wochenbudget tatsächlich ist.
 
-**Bildidee:**  
-Ein Kontostand zeigt eine Gesamtsumme, obwohl ein Teil bereits mit Verpflichtungen verbunden ist.
+**Bild:** Lege ein finales Bild direkt in diesen Ordner. Wenn ein finales PNG/JPG/WEBP/AVIF vorhanden ist, wird `placeholder.svg` beim Sync automatisch ignoriert.
 
-**Bild einfügen:**  
-Lege genau eine fertige Bilddatei direkt in diesen Ordner. Der Dateiname ist frei wählbar.
-
-**Prompt:** `bildprompt.txt`  
-**Dauer:** 3,600 Sekunden  
-**Motion:** minimaler Zoom und höchstens 12 Pixel Bildfahrt; harter Schnitt.
+**Motion:** `motionprompt.txt`  
+**Umsetzung:** `bildprompt.txt` + Bilddatei

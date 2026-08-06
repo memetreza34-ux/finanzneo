@@ -1,15 +1,11 @@
 # Finales Video
 
-Lege den freigegebenen Export hier ab:
+Composition-ID: `DreiKontenSystem`
 
-- `drei-konten-system-final.mp4`
+```bash
+npm run render:drei-konten:preview
+npm run render:drei-konten
+```
 
-Empfohlene Ausgabe:
-
-- 1080 × 1920
-- H.264
-- AAC-Audio
-- 30 fps
-- keine eingebrannte Plattform-Wasserzeichen
-
-Arbeits- und Test-Render gehören nicht hierher, sondern nach `../render/`.
+Finaler Zielname: `drei-konten-system-final.mp4`  
+Format: 1080 × 1920, 30 fps, H.264, AAC, keine Musik, keine SFX.

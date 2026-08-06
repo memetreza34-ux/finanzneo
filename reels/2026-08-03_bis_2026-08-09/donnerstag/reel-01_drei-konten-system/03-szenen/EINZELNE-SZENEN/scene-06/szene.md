@@ -1,14 +1,10 @@
-# Szene 06 — Konto eins
+# Szene 06 — Restbetrag
 
-**Sprechtext:**  
-Auf Konto eins landen Miete, Strom, Versicherungen und alle anderen festen Abbuchungen.
+**Typ:** animation  
+**Dauer:** 6,0 Sekunden  
+**Sprechtext:** Bei 1.800 Euro Einkommen und 1.100 Euro Fixkosten bleiben 700 Euro übrig.
 
-**Bildidee:**  
-Alle festen Zahlungen landen geordnet in einem geschützten Fixkostenkonto.
+**Bild:** Nicht erforderlich. Diese Szene wird nativ in Remotion animiert.
 
-**Bild einfügen:**  
-Lege genau eine fertige Bilddatei direkt in diesen Ordner. Der Dateiname ist frei wählbar.
-
-**Prompt:** `bildprompt.txt`  
-**Dauer:** 4,267 Sekunden  
-**Motion:** sanfter Zoom auf den Fixkostentresor; harter Schnitt.
+**Motion:** `motionprompt.txt`  
+**Umsetzung:** `remotion.md` + Remotion-Code

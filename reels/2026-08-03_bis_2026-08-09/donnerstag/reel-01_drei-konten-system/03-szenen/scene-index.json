@@ -1,128 +1,35 @@
 {
-  "version": 3,
+  "version": 4,
   "title": "Drei-Konten-System",
-  "sceneCount": 14,
-  "imageSceneCount": 14,
-  "cover": {
-    "directory": "../00-cover",
-    "prompt": "../00-cover/cover.txt",
-    "imageRule": "Genau eine Bilddatei direkt im Ordner 00-cover"
-  },
-  "storageRule": "Bei jeder Szene liegt genau eine Bilddatei beliebigen Namens direkt im passenden scene-XX-Ordner. Der Ordnername bestimmt die Szenennummer.",
-  "imageSelection": "single-supported-file",
-  "supportedImageExtensions": [".png", ".jpg", ".jpeg", ".webp", ".avif"],
+  "sceneCount": 10,
+  "imageSceneCount": 6,
+  "animationSceneCount": 4,
+  "imageShare": 0.6,
+  "animationShare": 0.4,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "totalFrames": 1800,
+  "durationSec": 60,
+  "transition": "hard-cut",
+  "music": false,
+  "sfx": false,
+  "imageScenes": ["scene-01","scene-02","scene-03","scene-05","scene-07","scene-10"],
+  "animationScenes": ["scene-04","scene-06","scene-08","scene-09"],
+  "storageRule": "Finales Bild direkt im passenden scene-XX-Ordner. Höchstens ein finales Bild; placeholder.svg bleibt als renderbarer Fallback.",
+  "supportedImageExtensions": [".png",".jpg",".jpeg",".webp",".avif",".svg"],
+  "remotionFile": "src/reels/drei-konten/DreiKontenSystem.tsx",
+  "compositionId": "DreiKontenSystem",
   "scenes": [
-    {
-      "id": "scene-01",
-      "title": "Hook",
-      "voiceText": "Warum gibst du Geld aus, das auf deinem einzigen Konto eigentlich schon für Miete, Jahreskosten und Rücklagen reserviert ist?",
-      "directory": "EINZELNE-SZENEN/scene-01",
-      "prompt": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
-      "durationSec": 5.822
-    },
-    {
-      "id": "scene-02",
-      "title": "Das Problem",
-      "voiceText": "Das Problem liegt oft nicht nur am Einkommen.",
-      "directory": "EINZELNE-SZENEN/scene-02",
-      "prompt": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
-      "durationSec": 3.378
-    },
-    {
-      "id": "scene-03",
-      "title": "Kontostand-Illusion",
-      "voiceText": "Verfügbare und bereits verplante Euro liegen auf derselben Zahl.",
-      "directory": "EINZELNE-SZENEN/scene-03",
-      "prompt": "EINZELNE-SZENEN/scene-03/bildprompt.txt",
-      "durationSec": 3.6
-    },
-    {
-      "id": "scene-04",
-      "title": "Die Lösung",
-      "voiceText": "Teile dein Geld deshalb direkt am Zahltag in drei Bereiche.",
-      "directory": "EINZELNE-SZENEN/scene-04",
-      "prompt": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
-      "durationSec": 3.822
-    },
-    {
-      "id": "scene-05",
-      "title": "Drei Bereiche",
-      "voiceText": "Fixkosten, Rücklagen und frei verfügbares Wochenbudget.",
-      "directory": "EINZELNE-SZENEN/scene-05",
-      "prompt": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
-      "durationSec": 2.933
-    },
-    {
-      "id": "scene-06",
-      "title": "Konto eins",
-      "voiceText": "Auf Konto eins landen Miete, Strom, Versicherungen und alle anderen festen Abbuchungen.",
-      "directory": "EINZELNE-SZENEN/scene-06",
-      "prompt": "EINZELNE-SZENEN/scene-06/bildprompt.txt",
-      "durationSec": 4.267
-    },
-    {
-      "id": "scene-07",
-      "title": "Zuerst schützen",
-      "voiceText": "Das geschieht, bevor du irgendetwas kaufst.",
-      "directory": "EINZELNE-SZENEN/scene-07",
-      "prompt": "EINZELNE-SZENEN/scene-07/bildprompt.txt",
-      "durationSec": 2.933
-    },
-    {
-      "id": "scene-08",
-      "title": "Restbudget",
-      "voiceText": "Bei 1.800 Euro Einkommen und 1.100 Euro Fixkosten bleiben rechnerisch 700 Euro.",
-      "directory": "EINZELNE-SZENEN/scene-08",
-      "prompt": "EINZELNE-SZENEN/scene-08/bildprompt.txt",
-      "durationSec": 4.267
-    },
-    {
-      "id": "scene-09",
-      "title": "Konto zwei",
-      "voiceText": "Auf Konto zwei überweist du zuerst deine Rücklage, zum Beispiel 100 Euro.",
-      "directory": "EINZELNE-SZENEN/scene-09",
-      "prompt": "EINZELNE-SZENEN/scene-09/bildprompt.txt",
-      "durationSec": 4.267
-    },
-    {
-      "id": "scene-10",
-      "title": "Rücklagen",
-      "voiceText": "Sie schützt dich bei Notfällen oder geplanten Anschaffungen.",
-      "directory": "EINZELNE-SZENEN/scene-10",
-      "prompt": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
-      "durationSec": 3.378
-    },
-    {
-      "id": "scene-11",
-      "title": "Jahreskosten",
-      "voiceText": "Auch jährliche Rechnungen gehören dorthin: 1.200 Euro Versicherungskosten werden zu 100 Euro Rücklage pro Monat.",
-      "directory": "EINZELNE-SZENEN/scene-11",
-      "prompt": "EINZELNE-SZENEN/scene-11/bildprompt.txt",
-      "durationSec": 4.933
-    },
-    {
-      "id": "scene-12",
-      "title": "Konto drei",
-      "voiceText": "Was danach übrig bleibt, kommt auf Konto drei und wird durch vier geteilt.",
-      "directory": "EINZELNE-SZENEN/scene-12",
-      "prompt": "EINZELNE-SZENEN/scene-12/bildprompt.txt",
-      "durationSec": 4.489
-    },
-    {
-      "id": "scene-13",
-      "title": "Wochenbudget",
-      "voiceText": "Bleiben 600 Euro übrig, kannst du jede Woche ungefähr 150 Euro ausgeben, ohne feste Zahlungen anzutasten.",
-      "directory": "EINZELNE-SZENEN/scene-13",
-      "prompt": "EINZELNE-SZENEN/scene-13/bildprompt.txt",
-      "durationSec": 5.156
-    },
-    {
-      "id": "scene-14",
-      "title": "Payoff",
-      "voiceText": "Du sparst nicht, was am Monatsende zufällig übrig ist, sondern schützt dein Geld direkt am Zahltag.",
-      "directory": "EINZELNE-SZENEN/scene-14",
-      "prompt": "EINZELNE-SZENEN/scene-14/bildprompt.txt",
-      "durationSec": 5.155
-    }
+    {"id":"scene-01","title":"Hook","type":"image","durationSec":6,"durationFrames":180,"startFrame":0,"endFrameExclusive":180,"voiceText":"Warum gibst du Geld aus, das auf deinem einzigen Konto längst für Miete, Jahreskosten und Rücklagen reserviert ist?","directory":"EINZELNE-SZENEN/scene-01","motionPrompt":"EINZELNE-SZENEN/scene-01/motionprompt.txt","imageSelection":"single-supported-file-with-placeholder-fallback","imagePrompt":"EINZELNE-SZENEN/scene-01/bildprompt.txt"},
+    {"id":"scene-02","title":"Eine Zahl","type":"image","durationSec":6,"durationFrames":180,"startFrame":180,"endFrameExclusive":360,"voiceText":"Das Problem ist nicht immer dein Einkommen. Freies und bereits verplantes Geld erscheint als dieselbe Zahl.","directory":"EINZELNE-SZENEN/scene-02","motionPrompt":"EINZELNE-SZENEN/scene-02/motionprompt.txt","imageSelection":"single-supported-file-with-placeholder-fallback","imagePrompt":"EINZELNE-SZENEN/scene-02/bildprompt.txt"},
+    {"id":"scene-03","title":"Kontostand-Illusion","type":"image","durationSec":6,"durationFrames":180,"startFrame":360,"endFrameExclusive":540,"voiceText":"Dadurch wirkt dein Kontostand größer, als dein echtes Wochenbudget tatsächlich ist.","directory":"EINZELNE-SZENEN/scene-03","motionPrompt":"EINZELNE-SZENEN/scene-03/motionprompt.txt","imageSelection":"single-supported-file-with-placeholder-fallback","imagePrompt":"EINZELNE-SZENEN/scene-03/bildprompt.txt"},
+    {"id":"scene-04","title":"Aufteilung am Zahltag","type":"animation","durationSec":6,"durationFrames":180,"startFrame":540,"endFrameExclusive":720,"voiceText":"Teile dein Gehalt deshalb direkt am Zahltag in drei Bereiche: Fixkosten, Rücklagen und Wochenbudget.","directory":"EINZELNE-SZENEN/scene-04","motionPrompt":"EINZELNE-SZENEN/scene-04/motionprompt.txt","remotionComponent":"SalarySplitAnimation","remotionNotes":"EINZELNE-SZENEN/scene-04/remotion.md"},
+    {"id":"scene-05","title":"Konto eins","type":"image","durationSec":6,"durationFrames":180,"startFrame":720,"endFrameExclusive":900,"voiceText":"Konto eins bezahlt Miete, Strom, Versicherungen und alle festen Abbuchungen – bevor du irgendetwas kaufst.","directory":"EINZELNE-SZENEN/scene-05","motionPrompt":"EINZELNE-SZENEN/scene-05/motionprompt.txt","imageSelection":"single-supported-file-with-placeholder-fallback","imagePrompt":"EINZELNE-SZENEN/scene-05/bildprompt.txt"},
+    {"id":"scene-06","title":"Restbetrag","type":"animation","durationSec":6,"durationFrames":180,"startFrame":900,"endFrameExclusive":1080,"voiceText":"Bei 1.800 Euro Einkommen und 1.100 Euro Fixkosten bleiben 700 Euro übrig.","directory":"EINZELNE-SZENEN/scene-06","motionPrompt":"EINZELNE-SZENEN/scene-06/motionprompt.txt","remotionComponent":"FixedCostsMathAnimation","remotionNotes":"EINZELNE-SZENEN/scene-06/remotion.md"},
+    {"id":"scene-07","title":"Konto zwei","type":"image","durationSec":6,"durationFrames":180,"startFrame":1080,"endFrameExclusive":1260,"voiceText":"Von diesen 700 Euro wandert zuerst deine Rücklage auf Konto zwei. Sie schützt Notfälle und geplante Anschaffungen.","directory":"EINZELNE-SZENEN/scene-07","motionPrompt":"EINZELNE-SZENEN/scene-07/motionprompt.txt","imageSelection":"single-supported-file-with-placeholder-fallback","imagePrompt":"EINZELNE-SZENEN/scene-07/bildprompt.txt"},
+    {"id":"scene-08","title":"Jahreskosten","type":"animation","durationSec":6,"durationFrames":180,"startFrame":1260,"endFrameExclusive":1440,"voiceText":"Auch Jahreskosten werden monatlich vorbereitet: 1.200 Euro Versicherung geteilt durch zwölf ergeben 100 Euro pro Monat.","directory":"EINZELNE-SZENEN/scene-08","motionPrompt":"EINZELNE-SZENEN/scene-08/motionprompt.txt","remotionComponent":"AnnualCostsAnimation","remotionNotes":"EINZELNE-SZENEN/scene-08/remotion.md"},
+    {"id":"scene-09","title":"Wochenbudget","type":"animation","durationSec":6,"durationFrames":180,"startFrame":1440,"endFrameExclusive":1620,"voiceText":"Bleiben danach 600 Euro, kommen sie auf Konto drei: geteilt durch vier sind das ungefähr 150 Euro pro Woche.","directory":"EINZELNE-SZENEN/scene-09","motionPrompt":"EINZELNE-SZENEN/scene-09/motionprompt.txt","remotionComponent":"WeeklyBudgetAnimation","remotionNotes":"EINZELNE-SZENEN/scene-09/remotion.md"},
+    {"id":"scene-10","title":"Payoff","type":"image","durationSec":6,"durationFrames":180,"startFrame":1620,"endFrameExclusive":1800,"voiceText":"So sparst du nicht, was zufällig übrig bleibt, sondern schützt dein Geld direkt am Zahltag.","directory":"EINZELNE-SZENEN/scene-10","motionPrompt":"EINZELNE-SZENEN/scene-10/motionprompt.txt","imageSelection":"single-supported-file-with-placeholder-fallback","imagePrompt":"EINZELNE-SZENEN/scene-10/bildprompt.txt"}
   ]
 }

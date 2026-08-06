@@ -1,11 +1,11 @@
 MESSAGE:
-Money on one single account looks available even though parts are already reserved for rent, annual bills and savings.
+One mixed account hides reserved money.
 
 SCENE:
-Show one dominant transparent bank-account vault filled with a single mixed pile of euro coins. Three obligations are physically attached to different parts of the pile: an apartment key for rent, a calendar envelope for annual bills and a shielded reserve box. A generic simplified hand reaches toward the pile as if every coin were spendable, while the reserved coins are held back by subtle warm warning bands. The misunderstanding must be obvious at first glance.
+Show one dominant transparent account vault filled with euro coins. Different parts of the same pile are visibly tied to rent, annual bills and reserves, while a generic hand reaches toward all coins as if they were freely spendable. The misunderstanding must be obvious immediately.
 
 TEXT IN IMAGE:
 No text.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.

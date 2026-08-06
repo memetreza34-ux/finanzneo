@@ -1,21 +1,33 @@
-# Szenen
+# Szenen — Drei-Konten-System
 
-## Zentrale Dateien
+## Exakte Verteilung
 
-- `alle-bildprompts.txt`: zuerst der vollständige Cover-Prompt, danach Szene 01 bis Szene 14 in chronologischer Reihenfolge.
-- `scene-index.json`: maschinenlesbare Zuordnung zwischen Szenennummer, Sprechtext, Promptdatei und Bildordner.
+| Typ | Szenen | Anteil |
+|---|---|---:|
+| Bild | 01, 02, 03, 05, 07, 10 | 60 % |
+| Remotion-Animation | 04, 06, 08, 09 | 40 % |
 
-## Bilder einfügen
+## Bildablage
 
-Für jede Szene existiert unter `EINZELNE-SZENEN/scene-XX/` ein eigener Ordner. Lege das fertige Bild direkt in den passenden Ordner, neben `bildprompt.txt` und `szene.md`.
-
-Beispiel:
+Bei einer Bildszene liegt das fertige Bild direkt im passenden Ordner:
 
 ```text
-EINZELNE-SZENEN/scene-04/
+EINZELNE-SZENEN/scene-01/
 ├── bildprompt.txt
+├── motionprompt.txt
+├── placeholder.svg
 ├── szene.md
-└── mein-fertiges-bild.png
+└── DEIN-FERTIGES-BILD.png
 ```
 
-Pro Szenenordner ist genau eine Bilddatei erlaubt. Unterstützt werden `.png`, `.jpg`, `.jpeg`, `.webp` und `.avif`. Der Ordnername bestimmt die Szene; der Bilddateiname ist frei wählbar.
+Sobald ein finales PNG, JPG, JPEG, WEBP oder AVIF vorhanden ist, ignoriert der Asset-Sync automatisch `placeholder.svg`. Pro Bildszene darf höchstens ein finales Bild liegen.
+
+## Animationen
+
+Die Szenen 04, 06, 08 und 09 benötigen kein generiertes Bild. Ihre Umsetzung steht in `remotion.md`; der Code liegt in `src/reels/drei-konten/DreiKontenSystem.tsx`.
+
+## Sammeldateien
+
+- `alle-bildprompts.txt`: Cover + sechs Bildprompts
+- `alle-motionprompts.txt`: Motion-Anweisung für alle zehn Szenen
+- `scene-index.json`: eindeutige Zuordnung von Typ, Dauer, Prompt, Bild oder Remotion-Komponente

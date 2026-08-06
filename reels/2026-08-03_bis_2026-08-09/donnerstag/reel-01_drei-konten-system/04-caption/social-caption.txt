@@ -1,17 +1,13 @@
-Dein Kontostand zeigt dir nur eine Summe – aber nicht, welcher Euro längst für Miete, Jahreskosten oder Rücklagen reserviert ist.
+Dein Kontostand zeigt nur eine Summe – nicht, welcher Euro längst für Miete, Jahreskosten oder Rücklagen reserviert ist.
 
 Das Drei-Konten-System trennt dein Geld direkt am Zahltag:
 
 1. Fixkosten
 2. Rücklagen
-3. frei verfügbares Wochenbudget
+3. Wochenbudget
 
-Beispiel: Von 1.800 € Einkommen bleiben nach 1.100 € Fixkosten 700 €. Jährliche Kosten werden auf Monatsbeträge heruntergerechnet. Was nach der Rücklage übrig bleibt, wird durch vier geteilt.
+Beispiel: Von 1.800 € Einkommen bleiben nach 1.100 € Fixkosten 700 €. Jahreskosten von 1.200 € werden zu 100 € pro Monat. Bleiben nach der Rücklage 600 €, sind das ungefähr 150 € pro Woche.
 
-So siehst du, was du in dieser Woche tatsächlich ausgeben kannst, ohne deine festen Zahlungen anzutasten.
+Die Zahlen sind ein Rechenbeispiel. Entscheidend ist die Reihenfolge: erst schützen, dann ausgeben.
 
-Die Zahlen sind nur ein Rechenbeispiel. Entscheidend ist die Reihenfolge: wichtige Beträge zuerst schützen.
-
-Welche Ausgabe überrascht dich jeden Monat am meisten?
-
-#Finanzen #Geld #Budget #Sparen #Finanzwissen #FinanzNeo
+#Finanzen #Budget #Geld #Sparen #Finanzwissen #FinanzNeo

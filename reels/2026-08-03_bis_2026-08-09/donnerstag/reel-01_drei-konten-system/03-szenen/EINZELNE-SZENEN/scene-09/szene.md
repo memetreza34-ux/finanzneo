@@ -1,14 +1,10 @@
-# Szene 09 — Konto zwei
+# Szene 09 — Wochenbudget
 
-**Sprechtext:**  
-Auf Konto zwei überweist du zuerst deine Rücklage, zum Beispiel 100 Euro.
+**Typ:** animation  
+**Dauer:** 6,0 Sekunden  
+**Sprechtext:** Bleiben danach 600 Euro, kommen sie auf Konto drei: geteilt durch vier sind das ungefähr 150 Euro pro Woche.
 
-**Bildidee:**  
-100 € werden automatisch vor allen Alltagsausgaben in einen geschützten Rücklagentresor umgeleitet.
+**Bild:** Nicht erforderlich. Diese Szene wird nativ in Remotion animiert.
 
-**Bild einfügen:**  
-Lege genau eine fertige Bilddatei direkt in diesen Ordner. Der Dateiname ist frei wählbar.
-
-**Prompt:** `bildprompt.txt`  
-**Dauer:** 4,267 Sekunden  
-**Motion:** sanfter Zoom auf die automatische Umleitung; harter Schnitt.
+**Motion:** `motionprompt.txt`  
+**Umsetzung:** `remotion.md` + Remotion-Code

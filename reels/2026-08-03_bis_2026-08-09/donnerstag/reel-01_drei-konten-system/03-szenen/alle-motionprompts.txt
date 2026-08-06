@@ -1,0 +1,114 @@
+FINANZNEO — DREI-KONTEN-SYSTEM
+ALLE MOTIONPROMPTS
+
+Exakt 10 Szenen: 6 Bildbewegungen und 4 native Remotion-Animationen.
+
+========================================================================
+SZENE 01
+========================================================================
+
+SCENE 01 MOTION PROMPT
+
+Use the still image only. Apply a slow 1.015 to 1.043 scale over the full scene and a maximum 10 pixel horizontal drift. Keep all objects, labels, numbers and geometry perfectly stable. No morphing, no new objects, no parallax layers, no lip sync. Hard cut at the end.
+
+GLOBAL RULES:
+30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.
+
+========================================================================
+SZENE 02
+========================================================================
+
+SCENE 02 MOTION PROMPT
+
+Use the still image only. Apply a slow 1.015 to 1.043 scale and a maximum 10 pixel drift in the opposite direction from scene 1. Do not animate individual coins or symbols. Preserve exact composition and all text. Hard cut.
+
+GLOBAL RULES:
+30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.
+
+========================================================================
+SZENE 03
+========================================================================
+
+SCENE 03 MOTION PROMPT
+
+Use the still image only. Apply a slow 1.015 to 1.043 scale with a maximum 10 pixel vertical drift. Keep the account number and labels completely sharp and unchanged. No number deformation. Hard cut.
+
+GLOBAL RULES:
+30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.
+
+========================================================================
+SZENE 04
+========================================================================
+
+SCENE 04 MOTION PROMPT
+
+Native Remotion animation. A gold euro coin drops into a central payday router. The router scales in, then three emerald paths grow toward fixed costs, reserve and weekly budget cards. Cards enter sequentially with controlled spring motion. Camera remains locked; no global zoom. All text stays crisp. Hard cut.
+
+GLOBAL RULES:
+30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.
+
+========================================================================
+SZENE 05
+========================================================================
+
+SCENE 05 MOTION PROMPT
+
+Use the still image only. Apply a slow 1.015 to 1.043 scale and an 8 pixel horizontal drift. The fixed-cost vault and barrier remain stable. No moving shopping cart, no generated particles, no text deformation. Hard cut.
+
+GLOBAL RULES:
+30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.
+
+========================================================================
+SZENE 06
+========================================================================
+
+SCENE 06 MOTION PROMPT
+
+Native Remotion animation. The 1,800 euro income block enters first. A 1,100 euro fixed-cost block enters second. The minus sign appears between them. A line draws below and a green result panel reveals 700 euros. Numbers count only during their reveal and then remain fixed. No camera movement. Hard cut.
+
+GLOBAL RULES:
+30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.
+
+========================================================================
+SZENE 07
+========================================================================
+
+SCENE 07 MOTION PROMPT
+
+Use the still image only. Apply a slow 1.015 to 1.043 scale with an 8 pixel drift toward the reserve shield. Keep shield, tool, purchase and all labels unchanged. No object generation. Hard cut.
+
+GLOBAL RULES:
+30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.
+
+========================================================================
+SZENE 08
+========================================================================
+
+SCENE 08 MOTION PROMPT
+
+Native Remotion animation. Twelve month cards fill one after another in a fixed four-by-three grid. After all months are active, 1,200 euros divided by 12 resolves into a highlighted 100 euro monthly reserve. Camera remains locked. No spinning calendar, no number morphing after reveal. Hard cut.
+
+GLOBAL RULES:
+30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.
+
+========================================================================
+SZENE 09
+========================================================================
+
+SCENE 09 MOTION PROMPT
+
+Native Remotion animation. A central 600 euro block appears, then splits into four equal 150 euro weekly cards. The cards reveal in reading order and become active one by one. The source amount remains visible until the split is understandable. No camera movement. Hard cut.
+
+GLOBAL RULES:
+30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.
+
+========================================================================
+SZENE 10
+========================================================================
+
+SCENE 10 MOTION PROMPT
+
+Use the still image only. Apply a calm 1.015 to 1.04 closing zoom with a maximum 8 pixel vertical drift. Keep all three account areas and shield perfectly stable. No CTA button, no new objects, no confetti. End cleanly on the protected system.
+
+GLOBAL RULES:
+30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.

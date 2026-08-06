@@ -1,0 +1,6 @@
+SCENE 07 MOTION PROMPT
+
+Use the still image only. Apply a slow 1.015 to 1.043 scale with an 8 pixel drift toward the reserve shield. Keep shield, tool, purchase and all labels unchanged. No object generation. Hard cut.
+
+GLOBAL RULES:
+30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.

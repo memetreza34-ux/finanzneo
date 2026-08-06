@@ -1,22 +1,33 @@
 # Reel 01 — Drei-Konten-System
 
 **Veröffentlichung:** Donnerstag, 6. August 2026  
-**Thema:** Wie du dein Gehalt direkt am Zahltag aufteilst  
-**Format:** vertikales FinanzNeo-Reel, 9:16  
-**Länge:** ungefähr 58,4 Sekunden  
-**Umfang:** 1 Cover + 14 Bildszenen
+**Format:** vertikales FinanzNeo-Reel, 1080 × 1920, 30 fps  
+**Geplante Länge:** 60,0 Sekunden  
+**Szenen:** 10
 
-## Wo kommt was hinein?
+## Verbindliches Verhältnis
 
-- `00-cover/`: Cover-Prompt und später das fertige Coverbild.
-- `01-voice-script/`: kompletter Sprechtext und Voiceover-Anweisung.
-- `02-audio/`: finales Voiceover.
-- `03-szenen/alle-bildprompts.txt`: Cover und alle 14 Bildprompts in einer Datei.
-- `03-szenen/EINZELNE-SZENEN/scene-XX/`: pro Szene `bildprompt.txt`, `szene.md` und später genau ein fertiges Bild.
-- `04-caption/`: Social Caption und später Wort-Untertitel.
-- `05-review/`: Quellen, Rechnungen und Kontrollcheckliste.
-- `06-video/`: finales Reel.
-- `render/`: temporäre Renderdateien.
-- `timeline/`: Reihenfolge und Szenenlängen.
+- 6 Bildszenen = 60 %
+- 4 native Remotion-Animationsszenen = 40 %
 
-Die Szenenzuordnung erfolgt ausschließlich über den Ordnernamen `scene-01` bis `scene-14`. Der Dateiname des eingefügten Bildes ist egal, solange pro Szenenordner genau eine unterstützte Bilddatei liegt.
+## Produktionsordner
+
+- `00-cover`: Cover-Prompt und Coverbild
+- `01-voice-script`: kompletter Sprechtext
+- `02-audio`: finales Voiceover
+- `03-szenen`: Prompts, Szenenindex und Bildablage
+- `04-caption`: Social Caption und spätere Wort-Captions
+- `05-review`: Quellen und Freigabecheck
+- `06-video`: finaler Export
+- `render`: Test-Render
+- `timeline`: Szenenlängen
+
+## Remotion
+
+- Composition-ID: `DreiKontenSystem`
+- Code: `src/reels/drei-konten/DreiKontenSystem.tsx`
+- Studio: `npm run studio:drei-konten`
+- Vorschau: `npm run render:drei-konten:preview`
+- Final: `npm run render:drei-konten`
+
+Vor Studio oder Render synchronisiert `npm run assets:drei-konten` die sechs Bildszenen aus den jeweiligen `scene-XX`-Ordnern nach `public/`.

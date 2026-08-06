@@ -1,14 +1,10 @@
-# Szene 10 — Rücklagen
+# Szene 10 — Payoff
 
-**Sprechtext:**  
-Sie schützt dich bei Notfällen oder geplanten Anschaffungen.
+**Typ:** image  
+**Dauer:** 6,0 Sekunden  
+**Sprechtext:** So sparst du nicht, was zufällig übrig bleibt, sondern schützt dein Geld direkt am Zahltag.
 
-**Bildidee:**  
-Der Rücklagentresor schützt Reparaturen und geplante Käufe, ohne das Alltagsgeld zu belasten.
+**Bild:** Lege ein finales Bild direkt in diesen Ordner. Wenn ein finales PNG/JPG/WEBP/AVIF vorhanden ist, wird `placeholder.svg` beim Sync automatisch ignoriert.
 
-**Bild einfügen:**  
-Lege genau eine fertige Bilddatei direkt in diesen Ordner. Der Dateiname ist frei wählbar.
-
-**Prompt:** `bildprompt.txt`  
-**Dauer:** 3,378 Sekunden  
-**Motion:** leichte Fahrt zum Schutzschild; harter Schnitt.
+**Motion:** `motionprompt.txt`  
+**Umsetzung:** `bildprompt.txt` + Bilddatei

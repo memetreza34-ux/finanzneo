@@ -1,14 +1,10 @@
-# Szene 02 — Das Problem
+# Szene 02 — Eine Zahl
 
-**Sprechtext:**  
-Das Problem liegt oft nicht nur am Einkommen.
+**Typ:** image  
+**Dauer:** 6,0 Sekunden  
+**Sprechtext:** Das Problem ist nicht immer dein Einkommen. Freies und bereits verplantes Geld erscheint als dieselbe Zahl.
 
-**Bildidee:**  
-Ein ausreichendes Gehalt fließt in einen ungeordneten gemeinsamen Geldbehälter.
+**Bild:** Lege ein finales Bild direkt in diesen Ordner. Wenn ein finales PNG/JPG/WEBP/AVIF vorhanden ist, wird `placeholder.svg` beim Sync automatisch ignoriert.
 
-**Bild einfügen:**  
-Lege genau eine fertige Bilddatei direkt in diesen Ordner. Der Dateiname ist frei wählbar.
-
-**Prompt:** `bildprompt.txt`  
-**Dauer:** 3,378 Sekunden  
-**Motion:** sehr langsamer Zoom; harter Schnitt.
+**Motion:** `motionprompt.txt`  
+**Umsetzung:** `bildprompt.txt` + Bilddatei

@@ -4,6 +4,7 @@ import {Thumbnail} from '../Thumbnail';
 import {ThumbnailFlux} from '../ThumbnailFlux';
 import {ProfilePic1, ProfilePic2, ProfilePic3} from '../ProfilePic';
 import {DisclaimerPreview} from '../DisclaimerPreview';
+import {DreiKontenSystem, DREI_KONTEN_SYSTEM_FRAMES} from '../reels/drei-konten/DreiKontenSystem';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
 import {Scene03SparbuchVs, SCENE03_FRAMES} from '../zins/Scene03SparbuchVs';
@@ -27,14 +28,18 @@ const FPS = 30;
 const VERTICAL = {width: 1080, height: 1920} as const;
 const WIDE = {width: 1920, height: 1080} as const;
 
-/**
- * Veröffentlichbare Inhalte und direkt exportierbare Kanal-Assets.
- *
- * Bestehende Composition-IDs bleiben absichtlich unverändert, damit
- * Render-Manifeste und externe Befehle weiterhin funktionieren.
- */
+/** Veröffentlichbare Inhalte und direkt exportierbare Kanal-Assets. */
 export const ProductionCompositions: React.FC = () => (
   <>
+    {/* Aktuelles FinanzNeo-Reel: exakt 40 % Remotion-Animation und 60 % Bildszenen */}
+    <Composition
+      id="DreiKontenSystem"
+      component={DreiKontenSystem}
+      durationInFrames={DREI_KONTEN_SYSTEM_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
     {/* Vertikale Zinseszins-Shorts */}
     <Composition id="ShortHook" component={ShortHook} durationInFrames={SHORT_HOOK_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="ShortAnnaTom" component={ShortAnnaTom} durationInFrames={SHORT_ANNATOM_FRAMES} fps={FPS} {...VERTICAL} />
@@ -44,7 +49,7 @@ export const ProductionCompositions: React.FC = () => (
     <Composition id="ShortStart" component={ShortStart} durationInFrames={SHORT_START_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="ShortMSCI" component={ShortMSCI} durationInFrames={SHORT_MSCI_FRAMES} fps={FPS} {...VERTICAL} />
 
-    {/* Bestehende Longform-Szenen: Produktionsbestand, aber aktuell nicht Primärformat */}
+    {/* Bestehende Longform-Szenen: Produktionsbestand, aktuell nicht Primärformat */}
     <Composition id="S1Hook" component={Scene01Hook} durationInFrames={SCENE01_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="S2Zinseszins" component={Scene02Zinseszins} durationInFrames={SCENE02_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="S3SparbuchVs" component={Scene03SparbuchVs} durationInFrames={SCENE03_FRAMES} fps={FPS} {...WIDE} />

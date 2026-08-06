@@ -1,14 +1,10 @@
-# Szene 05 — Drei Bereiche
+# Szene 05 — Konto eins
 
-**Sprechtext:**  
-Fixkosten, Rücklagen und frei verfügbares Wochenbudget.
+**Typ:** image  
+**Dauer:** 6,0 Sekunden  
+**Sprechtext:** Konto eins bezahlt Miete, Strom, Versicherungen und alle festen Abbuchungen – bevor du irgendetwas kaufst.
 
-**Bildidee:**  
-Drei klar erkennbare Geldbereiche bilden gemeinsam ein geschlossenes System.
+**Bild:** Lege ein finales Bild direkt in diesen Ordner. Wenn ein finales PNG/JPG/WEBP/AVIF vorhanden ist, wird `placeholder.svg` beim Sync automatisch ignoriert.
 
-**Bild einfügen:**  
-Lege genau eine fertige Bilddatei direkt in diesen Ordner. Der Dateiname ist frei wählbar.
-
-**Prompt:** `bildprompt.txt`  
-**Dauer:** 2,933 Sekunden  
-**Motion:** leichter Zoom auf die drei Behälter; harter Schnitt.
+**Motion:** `motionprompt.txt`  
+**Umsetzung:** `bildprompt.txt` + Bilddatei

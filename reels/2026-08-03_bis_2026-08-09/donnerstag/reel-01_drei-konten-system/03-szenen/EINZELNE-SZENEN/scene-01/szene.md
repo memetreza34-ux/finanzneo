@@ -1,14 +1,10 @@
 # Szene 01 — Hook
 
-**Sprechtext:**  
-Warum gibst du Geld aus, das auf deinem einzigen Konto eigentlich schon für Miete, Jahreskosten und Rücklagen reserviert ist?
+**Typ:** image  
+**Dauer:** 6,0 Sekunden  
+**Sprechtext:** Warum gibst du Geld aus, das auf deinem einzigen Konto längst für Miete, Jahreskosten und Rücklagen reserviert ist?
 
-**Bildidee:**  
-Ein einziges Konto vermischt frei verfügbares und bereits reserviertes Geld.
+**Bild:** Lege ein finales Bild direkt in diesen Ordner. Wenn ein finales PNG/JPG/WEBP/AVIF vorhanden ist, wird `placeholder.svg` beim Sync automatisch ignoriert.
 
-**Bild einfügen:**  
-Lege genau eine fertige Bilddatei direkt in diesen Ordner. Der Dateiname ist frei wählbar.
-
-**Prompt:** `bildprompt.txt`  
-**Dauer:** 5,822 Sekunden  
-**Motion:** sehr langsamer Zoom 1,000 → 1,035; harter Schnitt zur nächsten Szene.
+**Motion:** `motionprompt.txt`  
+**Umsetzung:** `bildprompt.txt` + Bilddatei

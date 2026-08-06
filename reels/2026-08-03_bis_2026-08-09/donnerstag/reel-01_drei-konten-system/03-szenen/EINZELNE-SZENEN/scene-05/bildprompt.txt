@@ -1,11 +1,11 @@
 MESSAGE:
-The three areas are fixed costs, reserves and freely spendable weekly money.
+Account one protects every fixed debit before spending begins.
 
 SCENE:
-Show three large connected containers receiving equal visual attention: a house-shaped fixed-cost vault, a shielded reserve safe and four compact weekly spending boxes. All three stand on one continuous solid floor and are visibly connected to the salary divider. Their purpose must be recognizable through their shapes and supporting objects alone. The composition must read as one coherent system, not as three unrelated icons.
+Show a secure house-shaped vault receiving rent, electricity, insurance and contract payments. A shopping cart remains outside a transparent barrier. The fixed-cost vault must be the clear focal point.
 
 TEXT IN IMAGE:
-Only these three labels: “Fixkosten”, “Rücklagen”, “Wochenbudget”.
+Only ‘Konto 1’ and ‘Fixkosten’.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16 composition, 1080x1920. Use a single seamless deep charcoal to green-black environment, simplified rounded geometry, soft bevelled edges, premium materials, subtle reflections, strong studio lighting, emerald and mint accents for protected money, and restrained warm gold or orange only for costs and spending. The main subject must be large, close and immediately understandable on a phone screen. Keep the top 18 percent and bottom 22 percent visually calm for later overlays, but fill the central area confidently. No photorealism, no real people, no Pixar, no clay style, no flat infographic, no dashboard, no app interface, no logos, no watermarks, no paragraph text, no borders, no letterboxing, no split background bands, no floating platforms, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
