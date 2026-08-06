@@ -8,6 +8,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
 const files = [
   'scripts/lib/load-finance-config.mjs',
+  'scripts/lib/finance-contracts.mjs',
   'scripts/lib/create-finance-scene-plan-template.mjs',
   'scripts/lib/create-finance-test-plan.mjs',
   'scripts/lib/finance-reel-build-manifest.mjs',
@@ -18,6 +19,7 @@ const files = [
   'scripts/test-finance-visual-quality-v2.mjs',
   'scripts/check-finance-content-package.mjs',
   'scripts/check-finance-readiness.mjs',
+  'scripts/run-finance-creative-qa.mjs',
   'scripts/run-finance-qa.mjs',
   'scripts/run-finance-qa-from-project.mjs',
   'scripts/validate-finance-project.mjs',
