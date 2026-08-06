@@ -18,9 +18,10 @@ Bei einem neuen Reel werden vor dem technischen Handoff vollständig erstellt:
 
 - Thema, Quellen, Skript, Hook und Payoff,
 - Szenenreihenfolge,
-- vollständige Bildprompts,
+- vollständige Prozess-Bildprompts,
 - alle individuellen Remotion-Animationen als fertiger Code,
 - komplette Reel-Composition,
+- gemeinsames Überschriftensystem,
 - eigener Remotion-Einstiegspunkt,
 - allgemeines Build-Manifest.
 
@@ -88,18 +89,95 @@ Bei jeder Bildszene genau eine Datei im passenden `scene-XX`-Ordner. Der Ordner 
 
 Bei null oder mehreren passenden Dateien stoppen.
 
-## Produktionsmodus
+## Visual Quality V2 für alle zukünftigen Reels
 
-Standardmäßig:
+Das bestehende ETF-Testreel bleibt im bisherigen Profil. Alle danach geplanten Reels verwenden:
 
-- 5 bis 9 Szenen,
-- mehr Bildszenen als Animationsszenen,
-- Zielwert 5 Bilder und 2 Animationen,
-- höchstens 40 Prozent Animationsszenen,
-- keine zwei Animationen direkt hintereinander,
-- keine Dashboard-Szene als Standardlösung.
+```text
+creativeRules.visualQualityProfile: finanzneo-process-v2
+```
 
-Bilder bleiben Vollbild. Längere Bildszenen erhalten mindestens zwei kontrollierte Bewegungsphasen. Animationen zeigen konkrete Prozesse, Transformationen oder Ursache-Wirkung und werden vor dem Handoff vollständig programmiert.
+### Szenenverteilung
+
+Ziel:
+
+```text
+60 % Bilder
+40 % Animationen
+```
+
+Erlaubter ganzzahliger Bereich:
+
+```text
+55–65 % Bilder
+35–45 % Animationen
+```
+
+Standardaufteilungen:
+
+- 5 Szenen: 3 Bilder + 2 Animationen
+- 7 Szenen: 4 Bilder + 3 Animationen
+- 8 Szenen: 5 Bilder + 3 Animationen
+- 9 Szenen: 5 Bilder + 4 Animationen
+
+Bevorzugter Standard: **7 Szenen mit 4 Prozessbildern und 3 hochwertigen Animationen**.
+
+Keine schwache Animation nur zur Erfüllung der Quote. Jede Animation muss mindestens das Niveau der guten ETF-Prozessanimationen erreichen und einen eigenen Startzustand, eine sichtbare Handlung, einen eigenen Endzustand sowie eine andere Raumlogik besitzen.
+
+## Prozessbilder
+
+Bilder bleiben Vollbild, dürfen aber nicht bloß dekorativ sein. Jede Bildszene zeigt gleichzeitig:
+
+1. sichtbare Ausgangslage,
+2. sichtbaren Prozessweg oder eine klare Verbindung,
+3. sichtbares Ergebnis.
+
+Jeder Bildprompt und jedes Codex-Paket benötigen:
+
+```text
+image.process.startState
+image.process.processPath
+image.process.resultState
+image.process.instantReadabilitySeconds: 1
+image.process.decorativeOnly: false
+```
+
+Verboten:
+
+- Figur steht nur neben einem Finanzobjekt,
+- wiederholte transparente Miniaturkästen,
+- viele kleine Dekorationen ohne Erklärwert,
+- winzige Beschriftungen im generierten Bild,
+- unverbundene Symbole,
+- Dashboard-Karten als Bildersatz.
+
+Längere Bildszenen erhalten mindestens zwei kontrollierte Bewegungsphasen, die entlang des Prozesswegs vom Ausgangspunkt zum Ergebnis führen.
+
+## Überschriftensystem
+
+Alle zukünftigen Compositions müssen verwenden:
+
+```text
+alles/channels/finanzneo/src/reels/shared/FinanzNeoSceneHeader.tsx
+```
+
+Profil:
+
+```text
+finanzneo-scene-header-v2
+```
+
+Pflicht:
+
+- Hauptüberschrift mindestens 72 px, Standard 78 px,
+- maximal zwei Zeilen,
+- sehr helle Schrift,
+- passendes Icon pro Szene,
+- weicher dunkler Verlauf im oberen Bildbereich,
+- deutlicher Textschatten,
+- heller grüner oder mintfarbener Kicker,
+- niemals schwarze oder dunkelgraue Hauptschrift auf dunklem Hintergrund,
+- keine harte schwarze Rechteckbox hinter der Überschrift.
 
 ## Zeitliche Quelle der Wahrheit
 
