@@ -138,7 +138,7 @@ export const createFinanceScenePlanTemplate = ({slug = 'thema-slug', title = 'Fi
       topic,
       purpose: 'Den ersten entscheidenden Finanzmechanismus durch Bewegung erklären.',
       headline: 'FINANCE_TODO_CONTENT',
-      icon: 'workflow',
+      icon: 'document',
       visualFamily: 'physical-process-route',
       transition: 'match-move',
     }),
