@@ -2,8 +2,16 @@
   "version": "finanzneo-reel-build-v1",
   "slug": "FINANCE_TODO_SLUG",
   "status": "awaiting-prebuild",
+  "visualQualityProfile": "finanzneo-process-v2",
+  "sceneHeaderProfile": "finanzneo-scene-header-v2",
   "codexAnimationCodingRequired": false,
   "expectedSceneCount": 7,
+  "expectedDistribution": {
+    "imageCount": 4,
+    "animationCount": 3,
+    "imageShare": 0.5714,
+    "animationShare": 0.4286
+  },
   "composition": {
     "id": "FINANCE_TODO_COMPOSITION_ID",
     "entryPoint": "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/index.ts",
@@ -22,10 +30,27 @@
   ],
   "animations": [
     {
-      "sceneId": "FINANCE_TODO_ANIMATION_SCENE_ID",
-      "component": "FINANCE_TODO_COMPONENT",
+      "sceneId": "FINANCE_TODO_ANIMATION_SCENE_A",
+      "component": "FINANCE_TODO_COMPONENT_A",
       "source": "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/PrebuiltAnimations.tsx",
       "timing": "relative-to-transcript-scene-duration",
+      "qualityFloor": "ETF process animation level or better",
+      "editableByCodex": false
+    },
+    {
+      "sceneId": "FINANCE_TODO_ANIMATION_SCENE_B",
+      "component": "FINANCE_TODO_COMPONENT_B",
+      "source": "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/PrebuiltAnimations.tsx",
+      "timing": "relative-to-transcript-scene-duration",
+      "qualityFloor": "ETF process animation level or better",
+      "editableByCodex": false
+    },
+    {
+      "sceneId": "FINANCE_TODO_ANIMATION_SCENE_C",
+      "component": "FINANCE_TODO_COMPONENT_C",
+      "source": "channels/finanzneo/src/reels/FINANCE_TODO_SOURCE/PrebuiltAnimations.tsx",
+      "timing": "relative-to-transcript-scene-duration",
+      "qualityFloor": "ETF process animation level or better",
       "editableByCodex": false
     }
   ],
@@ -42,11 +67,12 @@
     "approvedByPlanningAssistant": false,
     "animationsImplemented": false,
     "compositionImplemented": false,
+    "visualQualityV2Implemented": false,
     "approvedAt": null
   },
   "remainingHumanInput": [
     "genau eine Audiodatei in 02-audio",
-    "genau ein Bild in jedem erwarteten Bildszenenordner",
+    "genau ein Prozessbild in jedem erwarteten Bildszenenordner",
     "manuelle visuelle Freigabe nach dem Render"
   ]
 }
