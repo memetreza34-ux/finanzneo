@@ -5,6 +5,7 @@ import {ThumbnailFlux} from '../ThumbnailFlux';
 import {ProfilePic1, ProfilePic2, ProfilePic3} from '../ProfilePic';
 import {DisclaimerPreview} from '../DisclaimerPreview';
 import {DreiKontenSystem, DREI_KONTEN_SYSTEM_FRAMES} from '../reels/drei-konten/DreiKontenSystem';
+import {NotgroschenStufenplan, NOTGROSCHEN_TOTAL_FRAMES} from '../reels/notgroschen/NotgroschenStufenplan';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
 import {Scene03SparbuchVs, SCENE03_FRAMES} from '../zins/Scene03SparbuchVs';
@@ -31,16 +32,10 @@ const WIDE = {width: 1920, height: 1080} as const;
 /** Veröffentlichbare Inhalte und direkt exportierbare Kanal-Assets. */
 export const ProductionCompositions: React.FC = () => (
   <>
-    {/* Aktuelles FinanzNeo-Reel: exakt 40 % Remotion-Animation und 60 % Bildszenen */}
-    <Composition
-      id="DreiKontenSystem"
-      component={DreiKontenSystem}
-      durationInFrames={DREI_KONTEN_SYSTEM_FRAMES}
-      fps={FPS}
-      {...VERTICAL}
-    />
+    <Composition id="NotgroschenStufenplan" component={NotgroschenStufenplan} durationInFrames={NOTGROSCHEN_TOTAL_FRAMES} fps={FPS} {...VERTICAL} />
 
-    {/* Vertikale Zinseszins-Shorts */}
+    <Composition id="DreiKontenSystem" component={DreiKontenSystem} durationInFrames={DREI_KONTEN_SYSTEM_FRAMES} fps={FPS} {...VERTICAL} />
+
     <Composition id="ShortHook" component={ShortHook} durationInFrames={SHORT_HOOK_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="ShortAnnaTom" component={ShortAnnaTom} durationInFrames={SHORT_ANNATOM_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="ShortSparbuch" component={ShortSparbuch} durationInFrames={SHORT_SPARBUCH_FRAMES} fps={FPS} {...VERTICAL} />
@@ -49,7 +44,6 @@ export const ProductionCompositions: React.FC = () => (
     <Composition id="ShortStart" component={ShortStart} durationInFrames={SHORT_START_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="ShortMSCI" component={ShortMSCI} durationInFrames={SHORT_MSCI_FRAMES} fps={FPS} {...VERTICAL} />
 
-    {/* Bestehende Longform-Szenen: Produktionsbestand, aktuell nicht Primärformat */}
     <Composition id="S1Hook" component={Scene01Hook} durationInFrames={SCENE01_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="S2Zinseszins" component={Scene02Zinseszins} durationInFrames={SCENE02_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="S3SparbuchVs" component={Scene03SparbuchVs} durationInFrames={SCENE03_FRAMES} fps={FPS} {...WIDE} />
@@ -62,7 +56,6 @@ export const ProductionCompositions: React.FC = () => (
     <Composition id="S10ErsterSchritt" component={Scene10ErsterSchritt} durationInFrames={SCENE10_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="S11PayoffCTA" component={Scene11PayoffCTA} durationInFrames={SCENE11_FRAMES} fps={FPS} {...WIDE} />
 
-    {/* Exportierbare Kanal-Assets */}
     <Composition id="Thumbnail" component={Thumbnail} durationInFrames={1} fps={FPS} width={1280} height={720} />
     <Composition id="ThumbnailFlux" component={ThumbnailFlux} durationInFrames={1} fps={FPS} width={1280} height={720} />
     <Composition id="ProfilePic1" component={ProfilePic1} durationInFrames={1} fps={FPS} width={1080} height={1080} />
