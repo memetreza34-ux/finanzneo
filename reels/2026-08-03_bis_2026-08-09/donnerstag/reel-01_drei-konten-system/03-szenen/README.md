@@ -7,27 +7,40 @@
 | Bild | 01, 02, 03, 05, 07, 10 | 60 % |
 | Remotion-Animation | 04, 06, 08, 09 | 40 % |
 
-## Bildablage
+## Verbindlicher Ein-Quellen-Vertrag
 
-Bei einer Bildszene liegt das fertige Bild direkt im passenden Ordner:
+### Bildszene
 
 ```text
-EINZELNE-SZENEN/scene-01/
+scene-01/
 ├── bildprompt.txt
-├── motionprompt.txt
-├── placeholder.svg
-├── szene.md
-└── DEIN-FERTIGES-BILD.png
+├── placeholder.svg oder finales-bild.png
+└── szene.md
 ```
 
-Sobald ein finales PNG, JPG, JPEG, WEBP oder AVIF vorhanden ist, ignoriert der Asset-Sync automatisch `placeholder.svg`. Pro Bildszene darf höchstens ein finales Bild liegen.
+Die Standbildbewegung wird zentral in `src/reels/drei-konten/shared.tsx` gesteuert. Es gibt keine zusätzliche Motionprompt-Datei.
 
-## Animationen
+### Remotion-Szene
 
-Die Szenen 04, 06, 08 und 09 benötigen kein generiertes Bild. Ihre Umsetzung steht in `remotion.md`; der Code liegt in `src/reels/drei-konten/DreiKontenSystem.tsx`.
+```text
+scene-04/
+├── remotion.md
+└── szene.md
+```
 
-## Sammeldateien
+Die Animation wird vollständig als React-/Remotion-Code umgesetzt. Es gibt weder Bildprompt noch Motionprompt.
 
-- `alle-bildprompts.txt`: Cover + sechs Bildprompts
-- `alle-motionprompts.txt`: Motion-Anweisung für alle zehn Szenen
-- `scene-index.json`: eindeutige Zuordnung von Typ, Dauer, Prompt, Bild oder Remotion-Komponente
+## Verbote
+
+- `motionprompt.txt`
+- `alle-motionprompts.txt`
+- `bildprompt.txt` und `remotion.md` in derselben Szene
+- Bildplatzhalter in einer Remotion-Szene
+
+## Bildablage
+
+Sobald in einer Bildszene ein finales PNG, JPG, JPEG, WEBP oder AVIF liegt, ignoriert der Asset-Sync automatisch `placeholder.svg`. Pro Bildszene darf höchstens ein finales Bild liegen.
+
+## Sammeldatei
+
+`alle-bildprompts.txt` enthält Cover zuerst und danach ausschließlich die sechs Bildprompts in chronologischer Reihenfolge.

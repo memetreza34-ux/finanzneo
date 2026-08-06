@@ -10,12 +10,19 @@
 - 6 Bildszenen = 60 %
 - 4 native Remotion-Animationsszenen = 40 %
 
+## Ein-Quellen-Vertrag
+
+- Bildszene: ausschließlich `bildprompt.txt` plus Bild und `szene.md`.
+- Remotion-Szene: ausschließlich `remotion.md` plus `szene.md`.
+- `motionprompt.txt` und `alle-motionprompts.txt` sind verboten.
+- Einfache Bewegungen der Bildszenen sind zentral in `src/reels/drei-konten/shared.tsx` programmiert.
+
 ## Produktionsordner
 
 - `00-cover`: Cover-Prompt und Coverbild
 - `01-voice-script`: kompletter Sprechtext
 - `02-audio`: finales Voiceover
-- `03-szenen`: Prompts, Szenenindex und Bildablage
+- `03-szenen`: Bildprompts, Remotion-Spezifikationen, Szenenindex und Bildablage
 - `04-caption`: Social Caption und spätere Wort-Captions
 - `05-review`: Quellen und Freigabecheck
 - `06-video`: finaler Export

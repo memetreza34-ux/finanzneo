@@ -4,7 +4,8 @@
 **Dauer:** 6,0 Sekunden  
 **Sprechtext:** Das Problem ist nicht immer dein Einkommen. Freies und bereits verplantes Geld erscheint als dieselbe Zahl.
 
-**Bild:** Lege ein finales Bild direkt in diesen Ordner. Wenn ein finales PNG/JPG/WEBP/AVIF vorhanden ist, wird `placeholder.svg` beim Sync automatisch ignoriert.
+**Einzige Produktionsquelle:** `bildprompt.txt`
 
-**Motion:** `motionprompt.txt`  
-**Umsetzung:** `bildprompt.txt` + Bilddatei
+Lege ein finales Bild direkt in diesen Ordner. Sobald ein finales PNG, JPG, JPEG, WEBP oder AVIF vorhanden ist, ignoriert der Asset-Sync `placeholder.svg`.
+
+Zoom und minimale Kamerafahrt werden zentral in `src/reels/drei-konten/shared.tsx` gesteuert. Keine `motionprompt.txt` anlegen.

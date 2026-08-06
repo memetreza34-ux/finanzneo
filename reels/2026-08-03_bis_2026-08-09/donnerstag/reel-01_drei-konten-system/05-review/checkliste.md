@@ -6,10 +6,14 @@
 - [x] exakt 6 Bildszenen
 - [x] exakt 4 Remotion-Animationsszenen
 - [x] Verhältnis exakt 60 % / 40 %
+- [x] jede Szene besitzt exakt eine Produktionsquelle
+- [x] Bildszenen besitzen ausschließlich `bildprompt.txt`
+- [x] Remotion-Szenen besitzen ausschließlich `remotion.md`
+- [x] keine `motionprompt.txt` oder `alle-motionprompts.txt`
 - [x] vollständiger Remotion-Code vorhanden
 - [x] Composition `DreiKontenSystem` registriert
 - [x] Asset-Sync und Strukturvalidator vorhanden
-- [x] Cover-, Bild- und Motionprompts vorhanden
+- [x] Cover- und Bildprompts vorhanden
 - [x] Quellen und Rechnungen dokumentiert
 
 ## Vor finalem Render

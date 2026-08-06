@@ -4,7 +4,6 @@
 **Dauer:** 6,0 Sekunden  
 **Sprechtext:** Auch Jahreskosten werden monatlich vorbereitet: 1.200 Euro Versicherung geteilt durch zwölf ergeben 100 Euro pro Monat.
 
-**Bild:** Nicht erforderlich. Diese Szene wird nativ in Remotion animiert.
+**Einzige Produktionsquelle:** `remotion.md`
 
-**Motion:** `motionprompt.txt`  
-**Umsetzung:** `remotion.md` + Remotion-Code
+Die Szene wird vollständig durch `AnnualCostsAnimation.tsx` umgesetzt. Kein `bildprompt.txt`, kein Bildplatzhalter und keine `motionprompt.txt` anlegen.

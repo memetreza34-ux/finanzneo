@@ -1,6 +1,0 @@
-SCENE 08 MOTION PROMPT
-
-Native Remotion animation. Twelve month cards fill one after another in a fixed four-by-three grid. After all months are active, 1,200 euros divided by 12 resolves into a highlighted 100 euro monthly reserve. Camera remains locked. No spinning calendar, no number morphing after reveal. Hard cut.
-
-GLOBAL RULES:
-30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.

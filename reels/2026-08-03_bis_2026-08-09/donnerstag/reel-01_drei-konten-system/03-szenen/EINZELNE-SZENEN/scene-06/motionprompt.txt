@@ -1,6 +1,0 @@
-SCENE 06 MOTION PROMPT
-
-Native Remotion animation. The 1,800 euro income block enters first. A 1,100 euro fixed-cost block enters second. The minus sign appears between them. A line draws below and a green result panel reveals 700 euros. Numbers count only during their reveal and then remain fixed. No camera movement. Hard cut.
-
-GLOBAL RULES:
-30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.

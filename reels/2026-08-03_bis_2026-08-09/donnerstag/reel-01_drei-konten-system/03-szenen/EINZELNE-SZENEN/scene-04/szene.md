@@ -4,7 +4,6 @@
 **Dauer:** 6,0 Sekunden  
 **Sprechtext:** Teile dein Gehalt deshalb direkt am Zahltag in drei Bereiche: Fixkosten, Rücklagen und Wochenbudget.
 
-**Bild:** Nicht erforderlich. Diese Szene wird nativ in Remotion animiert.
+**Einzige Produktionsquelle:** `remotion.md`
 
-**Motion:** `motionprompt.txt`  
-**Umsetzung:** `remotion.md` + Remotion-Code
+Die Szene wird vollständig durch `SalarySplitAnimation.tsx` umgesetzt. Kein `bildprompt.txt`, kein Bildplatzhalter und keine `motionprompt.txt` anlegen.

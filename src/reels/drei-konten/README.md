@@ -6,5 +6,11 @@
 - 6 Bildszenen
 - Verhältnis: exakt 40 % Animation / 60 % Bilder
 
-Die Bildquellen liegen im jeweiligen Produktionsordner unter `03-szenen/EINZELNE-SZENEN/scene-XX/`.
+## Quellenvertrag
+
+- Bildszene wird durch `bildprompt.txt` und das fertige Bild definiert.
+- Animationsszene wird durch `remotion.md` und die React-Komponente definiert.
+- Es existieren keine Motionprompt-Dateien.
+- Standbildbewegungen sind zentral in `shared.tsx` implementiert.
+
 Vor Studio oder Render kopiert `npm run assets:drei-konten` die jeweils gültige Bilddatei nach `public/reels/drei-konten-system/` und aktualisiert `asset-manifest.json`.

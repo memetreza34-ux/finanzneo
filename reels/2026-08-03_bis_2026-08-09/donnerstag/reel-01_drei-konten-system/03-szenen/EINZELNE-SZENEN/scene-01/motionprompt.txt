@@ -1,6 +1,0 @@
-SCENE 01 MOTION PROMPT
-
-Use the still image only. Apply a slow 1.015 to 1.043 scale over the full scene and a maximum 10 pixel horizontal drift. Keep all objects, labels, numbers and geometry perfectly stable. No morphing, no new objects, no parallax layers, no lip sync. Hard cut at the end.
-
-GLOBAL RULES:
-30 fps, 1080x1920, hard cut only, no transition overlap, no music, no SFX, keep top 18 percent and bottom 22 percent safe, never distort euro amounts or German labels.
