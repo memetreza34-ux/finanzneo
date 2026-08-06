@@ -2,7 +2,7 @@ import React from 'react';
 import {spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, FONT, a} from '../../brand';
 import {SCENE_COPY} from './config';
-import {Headline, SceneBackground, SentenceCaption, VisualStage, clamp01} from './shared';
+import {Headline, SceneBackground, VisualStage, clamp01} from './shared';
 
 export const WeeklyBudgetAnimation: React.FC<{durationInFrames: number}> = () => {
   const frame = useCurrentFrame();
@@ -76,7 +76,6 @@ export const WeeklyBudgetAnimation: React.FC<{durationInFrames: number}> = () =>
           })}
         </div>
       </VisualStage>
-      <SentenceCaption cues={copy.subtitles} />
     </SceneBackground>
   );
 };

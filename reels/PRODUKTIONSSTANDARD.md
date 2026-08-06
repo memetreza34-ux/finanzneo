@@ -47,24 +47,51 @@ Technische Referenz für 1080 × 1920:
 - Überschrift immer oben, niemals im Untertitelkasten.
 - Maximal zwei kurze Zeilen.
 - Erste Zeile weiß, zweite Schwerpunktzeile grün oder bei Geldrechnungen gold.
-- Keine zusätzliche Kicker-Pille wie „Das Problem“, „Konto 1“ oder „Der Payoff“ im Untertitelbereich.
+- Keine zusätzliche Kicker-Pille im Untertitelbereich.
 - KI-Bilder enthalten standardmäßig keine eigene Überschrift und keinen erklärenden Text.
 
-## 4. Untertitel
+## 4. Untertitel und Wortverfolgung
 
-- Zu jedem Zeitpunkt ist höchstens **ein vollständiger Satz** sichtbar.
-- Zwei gesprochene Sätze werden als zwei getrennte Zeit-Cues angelegt.
-- Ein langer Satz darf auf mehrere Textzeilen umbrechen, bleibt aber ein einzelner Satz.
-- Untertitel erscheinen und verschwinden kurz, ohne sich zeitlich zu überlappen.
+- Zu jedem Zeitpunkt ist genau **ein vollständiger Satz** sichtbar.
+- Beim nächsten Satz wird der vorherige Satz vollständig ersetzt.
+- Alle Wörter des aktiven Satzes bleiben sichtbar.
+- Normale Wörter sind weiß.
+- Nur das aktuell gesprochene Wort ist im FinanzNeo-Grün hervorgehoben.
+- Die grüne Hervorhebung folgt Wort-Zeitstempeln des finalen Audios.
+- Keine springenden Wörter, keine Größenanimation und kein Wort-für-Wort-Einblenden.
+- Zwei gesprochene Sätze werden als zwei getrennte Sätze mit eigenen Wortzeiten angelegt.
+- Ein langer Satz darf auf mehrere Textzeilen umbrechen.
 - Untertitel dürfen das Bild oder die Animation nicht verdecken.
-- Wort-für-Wort-Captions können später ergänzt werden, müssen aber denselben Satzvertrag einhalten.
+
+Verbindliche Metadaten:
+
+```json
+{
+  "subtitleMode": "sentence-with-audio-synced-active-word",
+  "activeWordColor": "finance-green",
+  "wordTimingFile": "04-caption/word-timings.json"
+}
+```
 
 ## 5. Bildbereich
 
-- Bilder werden in einem begrenzten visuellen Bereich gerendert, nicht unkontrolliert über den gesamten Bildschirm.
-- Bei vertikalen 9:16-Bildern darf oben und unten beschnitten werden, damit das Hauptmotiv größer und oberhalb der Mitte erscheint.
+- Das eigentliche Motivbild wird standardmäßig mit `object-fit: contain` vollständig gezeigt.
+- Wichtige Motivteile dürfen nicht abgeschnitten werden.
+- Leere Seitenflächen dürfen mit einer unscharfen, abgedunkelten Kopie desselben Bildes gefüllt werden; nur diese Hintergrundkopie darf `cover` verwenden.
+- Das Vordergrundbild darf nur bei sichtbar übermäßigem Leerraum bewusst vergrößert werden.
+- Die maximale bewusste Vergrößerung beträgt `1.05`.
 - Zoom und Pan werden zentral im Remotion-Code gesteuert.
 - Text, Beträge und Überschriften werden grundsätzlich durch Remotion gerendert.
+
+Verbindliche Metadaten:
+
+```json
+{
+  "imageFit": "contain",
+  "maxIntentionalImageScale": 1.05,
+  "backgroundFill": "optional-blurred-cover-copy"
+}
+```
 
 ## 6. Bildzuordnung
 
@@ -78,6 +105,8 @@ Jede Bildszene erhält im `scene-index.json` ein `expectedVisual`. Vor dem Rende
 - `bildprompt.txt` und `remotion.md` im selben Szenenordner
 - Bilddateien in einer reinen Remotion-Szene
 - mehr als ein finales Bild in einer Bildszene
+- `object-fit: cover` für das eigentliche Vordergrundmotiv
+- zwei vollständige Sätze gleichzeitig im Untertitel
 
 ## 8. Automatische Erstellung
 
@@ -87,7 +116,7 @@ npm run reel:create -- \
   --title "Reel-Titel"
 ```
 
-Der Scaffolder erzeugt für jede Szene Felder für Überschrift, Schwerpunktzeile, Untertitel-Cues und erwartetes Visual.
+Der Scaffolder erzeugt für jede Szene Felder für Überschrift, Schwerpunktzeile, Untertitel, erwartetes Visual sowie die verbindlichen Caption- und Bildfit-Metadaten.
 
 ## 9. Automatische Prüfung
 
@@ -100,7 +129,10 @@ Der Validator prüft unter anderem:
 - genau eine Produktionsquelle,
 - keine verbotenen Dateien,
 - Überschrift und Schwerpunktzeile vorhanden,
-- Untertitel-Cues überschneiden sich nicht,
-- pro Cue höchstens ein Satz,
+- Caption-Modus und Worttiming-Datei vorhanden,
+- pro Zeitpunkt nur ein Satz,
+- aktive Wortfarbe FinanzNeo-Grün,
+- Vordergrundbild verwendet `contain`,
+- maximale bewusste Bildvergrößerung höchstens `1.05`,
 - Bildszenen besitzen ein erwartetes Visual,
 - Remotion-Szenen enthalten keine Bilddateien.

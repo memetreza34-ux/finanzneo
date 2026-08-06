@@ -8,9 +8,9 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
-import {C, FONT, a} from '../../brand';
+import {C, FONT} from '../../brand';
 import assetManifest from './asset-manifest.json';
-import type {SceneCopy, SubtitleCue} from './config';
+import type {SceneCopy} from './config';
 
 export const REEL_LAYOUT = {
   headlineTop: 92,
@@ -105,66 +105,6 @@ export const VisualStage: React.FC<React.PropsWithChildren<{style?: React.CSSPro
   </div>
 );
 
-type SentenceCaptionProps = {
-  cues: readonly SubtitleCue[];
-};
-
-export const SentenceCaption: React.FC<SentenceCaptionProps> = ({cues}) => {
-  const frame = useCurrentFrame();
-  const activeCue = cues.find((cue) => frame >= cue.fromFrame && frame < cue.toFrame);
-
-  if (!activeCue) return null;
-
-  const localFrame = frame - activeCue.fromFrame;
-  const cueLength = activeCue.toFrame - activeCue.fromFrame;
-  const enter = interpolate(localFrame, [0, 6], [0, 1], clamp);
-  const exit = interpolate(
-    localFrame,
-    [Math.max(0, cueLength - 7), Math.max(1, cueLength - 1)],
-    [1, 0],
-    clamp,
-  );
-  const textLength = activeCue.text.length;
-  const fontSize = textLength > 105 ? 34 : textLength > 78 ? 37 : 41;
-
-  return (
-    <div
-      style={{
-        position: 'absolute',
-        left: 66,
-        right: 66,
-        bottom: REEL_LAYOUT.subtitleBottom,
-        zIndex: 40,
-        opacity: enter * exit,
-        transform: `translateY(${(1 - enter) * 22}px)`,
-      }}
-    >
-      <div
-        style={{
-          minHeight: 112,
-          borderRadius: 28,
-          padding: '22px 28px 24px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          textAlign: 'center',
-          background: 'rgba(3, 12, 7, 0.91)',
-          border: '1px solid rgba(255,255,255,0.13)',
-          boxShadow: '0 22px 70px rgba(0,0,0,0.38)',
-          color: C.white,
-          fontFamily: FONT.body,
-          fontWeight: 800,
-          fontSize,
-          lineHeight: 1.18,
-          textShadow: '0 2px 16px rgba(0,0,0,0.8)',
-        }}
-      >
-        {activeCue.text}
-      </div>
-    </div>
-  );
-};
-
 export const SceneBackground: React.FC<React.PropsWithChildren<{tone?: 'green' | 'neutral'}>> = ({
   children,
   tone = 'green',
@@ -195,6 +135,7 @@ type StillSceneProps = {
   copy: SceneCopy;
   panX?: number;
   panY?: number;
+  imageScale?: number;
   durationInFrames: number;
 };
 
@@ -203,36 +144,53 @@ export const StillScene: React.FC<StillSceneProps> = ({
   copy,
   panX = 0,
   panY = -8,
+  imageScale = 1,
   durationInFrames,
 }) => {
   const frame = useCurrentFrame();
   const progress = interpolate(frame, [0, Math.max(1, durationInFrames - 1)], [0, 1], clamp);
-  const scale = 1.01 + progress * 0.025;
+  const safeScale = Math.max(1, Math.min(1.05, imageScale));
+  const scale = safeScale + progress * 0.018;
   const x = panX * (progress - 0.5);
   const y = panY * (progress - 0.5);
+  const src = staticFile(assetManifest[sceneId]);
 
   return (
     <SceneBackground tone="neutral">
       <Headline headline={copy.headline} accent={copy.accent} accentTone={copy.accentTone} />
       <VisualStage style={{background: C.bgDeep}}>
         <Img
-          src={staticFile(assetManifest[sceneId])}
+          src={src}
           style={{
+            position: 'absolute',
+            inset: -40,
+            width: 'calc(100% + 80px)',
+            height: 'calc(100% + 80px)',
+            objectFit: 'cover',
+            filter: 'blur(34px)',
+            opacity: 0.24,
+            transform: 'scale(1.08)',
+          }}
+        />
+        <Img
+          src={src}
+          style={{
+            position: 'absolute',
+            inset: 0,
             width: '100%',
             height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center 48%',
+            objectFit: 'contain',
+            objectPosition: 'center 45%',
             transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
           }}
         />
         <AbsoluteFill
           style={{
             background:
-              'linear-gradient(180deg, rgba(4,10,7,.52) 0%, rgba(4,10,7,0) 11%, rgba(4,10,7,0) 82%, rgba(4,10,7,.66) 100%)',
+              'linear-gradient(180deg, rgba(4,10,7,.42) 0%, rgba(4,10,7,0) 10%, rgba(4,10,7,0) 88%, rgba(4,10,7,.38) 100%)',
           }}
         />
       </VisualStage>
-      <SentenceCaption cues={copy.subtitles} />
     </SceneBackground>
   );
 };

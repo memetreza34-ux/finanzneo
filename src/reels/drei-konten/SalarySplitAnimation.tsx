@@ -2,7 +2,7 @@ import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, FONT, a} from '../../brand';
 import {SCENE_COPY} from './config';
-import {Headline, SceneBackground, SentenceCaption, VisualStage, clamp, clamp01} from './shared';
+import {Headline, SceneBackground, VisualStage, clamp, clamp01} from './shared';
 
 const AccountCard: React.FC<{
   label: string;
@@ -160,7 +160,6 @@ export const SalarySplitAnimation: React.FC<{durationInFrames: number}> = () => 
           <AccountCard label="WOCHE" icon="03" delay={66} />
         </div>
       </VisualStage>
-      <SentenceCaption cues={copy.subtitles} />
     </SceneBackground>
   );
 };

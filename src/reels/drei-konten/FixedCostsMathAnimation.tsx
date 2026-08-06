@@ -2,7 +2,7 @@ import React from 'react';
 import {spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, FONT, a, euro} from '../../brand';
 import {SCENE_COPY} from './config';
-import {Headline, SceneBackground, SentenceCaption, VisualStage, clamp01} from './shared';
+import {Headline, SceneBackground, VisualStage, clamp01} from './shared';
 
 const AnimatedMoneyBlock: React.FC<{
   amount: number;
@@ -123,7 +123,6 @@ export const FixedCostsMathAnimation: React.FC<{durationInFrames: number}> = () 
           </div>
         </div>
       </VisualStage>
-      <SentenceCaption cues={copy.subtitles} />
     </SceneBackground>
   );
 };

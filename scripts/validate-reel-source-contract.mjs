@@ -14,7 +14,6 @@ const indexPath = resolve(root, '03-szenen/scene-index.json');
 const errors = [];
 let missingFinalImages = 0;
 const assert = (condition, message) => { if (!condition) errors.push(message); };
-const sentenceCount = (text) => (text.match(/[.!?](?=\s|$)/g) ?? []).length;
 
 assert(existsSync(sceneRoot), '03-szenen/EINZELNE-SZENEN fehlt.');
 assert(existsSync(indexPath), '03-szenen/scene-index.json fehlt.');
@@ -40,12 +39,25 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
 
   assert(Array.isArray(index.scenes), 'scene-index.json benötigt scenes[].');
   assert(index.sceneCount === directories.length, 'sceneCount stimmt nicht mit den Szenenordnern überein.');
-  assert(index.layoutContract === 'headline-top_visual-above-center_subtitle-bottom_one-sentence', 'layoutContract fehlt.');
-  assert(index.subtitleRule === 'one-complete-sentence-per-cue', 'subtitleRule fehlt.');
-  assert(index.layout?.headlineTop <= 120, 'Überschrift muss im oberen Bereich beginnen.');
-  assert(index.layout?.visualTop >= 260, 'Visueller Bereich beginnt zu hoch.');
-  assert(index.layout?.visualBottom <= 1450, 'Visueller Bereich reicht in den Untertitel hinein.');
-  assert(index.layout?.subtitleBottom >= 150, 'Untere Safe-Area ist zu klein.');
+
+  const timingPath = resolve(root, index.wordTimingFile ?? '04-caption/word-timings.json');
+  assert(existsSync(timingPath), `Worttiming-Datei fehlt: ${timingPath}`);
+  let timing = null;
+  if (existsSync(timingPath)) {
+    timing = JSON.parse(readFileSync(timingPath, 'utf8'));
+    assert(timing.subtitleMode === 'sentence-with-audio-synced-active-word', 'Worttiming-Datei hat falschen subtitleMode.');
+    assert(timing.activeWordColor === 'finance-green', 'Worttiming-Datei hat falsche aktive Wortfarbe.');
+    assert(Array.isArray(timing.sentences), 'Worttiming-Datei benötigt sentences[].');
+  }
+
+  const subtitleMode = index.subtitleMode ?? timing?.subtitleMode;
+  const activeWordColor = index.activeWordColor ?? timing?.activeWordColor;
+  assert(subtitleMode === 'sentence-with-audio-synced-active-word', 'Audio-synchrone Wortverfolgung fehlt.');
+  assert(activeWordColor === 'finance-green', 'Aktive Wortfarbe muss finance-green sein.');
+  if (index.imageFit !== undefined) assert(index.imageFit === 'contain', 'imageFit muss contain sein.');
+  if (index.maxIntentionalImageScale !== undefined) {
+    assert(Number(index.maxIntentionalImageScale) <= 1.05, 'maxIntentionalImageScale darf 1.05 nicht überschreiten.');
+  }
 
   directories.forEach((id, position) => {
     const directory = resolve(sceneRoot, id);
@@ -57,27 +69,16 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
     const supported = new Set(['.png','.jpg','.jpeg','.webp','.avif','.svg']);
     const images = readdirSync(directory).filter((entry) => supported.has(extname(entry).toLowerCase()));
 
-    assert(sourceCount === 1, `${id}: exakt eine Produktionsquelle erforderlich.`);
+    assert(sourceCount === 1, `${id}: exakt eine Produktionsquelle erforderlich (bildprompt.txt ODER remotion.md).`);
     assert(hasSceneInfo, `${id}: szene.md fehlt.`);
     assert(indexed?.id === id, `${id}: Reihenfolge oder ID im scene-index stimmt nicht.`);
-    assert(typeof indexed?.headline === 'string' && indexed.headline.trim(), `${id}: Überschrift fehlt.`);
-    assert(typeof indexed?.accent === 'string' && indexed.accent.trim(), `${id}: Schwerpunktzeile fehlt.`);
-    assert(Array.isArray(indexed?.subtitles) && indexed.subtitles.length > 0, `${id}: Untertitel-Cues fehlen.`);
-    assert(!existsSync(resolve(directory, 'placeholder.svg')), `${id}: placeholder.svg ist verboten.`);
-
-    let previousEnd = 0;
-    for (const cue of indexed?.subtitles ?? []) {
-      assert(cue.fromFrame >= previousEnd, `${id}: Untertitel-Cues überlappen sich.`);
-      assert(cue.toFrame > cue.fromFrame && cue.toFrame <= indexed.durationFrames, `${id}: ungültige Cue-Dauer.`);
-      assert(sentenceCount(cue.text ?? '') <= 1, `${id}: ein Cue darf höchstens einen Satz enthalten.`);
-      previousEnd = cue.toFrame;
-    }
-    assert(previousEnd === indexed?.durationFrames, `${id}: Untertitel-Cues müssen die Szene vollständig abdecken.`);
+    assert(!Object.prototype.hasOwnProperty.call(indexed ?? {}, 'motionPrompt'), `${id}: motionPrompt-Feld ist verboten.`);
+    assert(!existsSync(resolve(directory, 'placeholder.svg')), `${id}: placeholder.svg ist im Szenenordner verboten.`);
 
     if (hasImagePrompt) {
       assert(indexed?.type === 'image', `${id}: scene-index-Typ muss image sein.`);
       assert(indexed?.planFile?.endsWith('/bildprompt.txt'), `${id}: planFile muss auf bildprompt.txt zeigen.`);
-      assert(typeof indexed?.expectedVisual === 'string' && indexed.expectedVisual.trim(), `${id}: expectedVisual fehlt.`);
+      assert(typeof indexed?.expectedVisual === 'string' && indexed.expectedVisual.trim().length > 0, `${id}: expectedVisual fehlt.`);
       assert(images.length <= 1, `${id}: höchstens ein finales Bild erlaubt.`);
       if (images.length === 0) missingFinalImages += 1;
     }
@@ -96,6 +97,6 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('\n✓ Reel-Quellen- und Layoutvertrag erfüllt.');
-console.log('  Überschrift oben · Visual oberhalb der Mitte · Untertitel unten · maximal ein Satz pro Cue');
+console.log('\n✓ Reel-Quellen- und Präsentationsvertrag erfüllt.');
+console.log('  Ein Satz · aktives Wort grün · Wortzeiten aus Audio · Vordergrundbild contain · max. Scale 1.05');
 if (missingFinalImages > 0) console.log(`  Hinweis: ${missingFinalImages} finale Bilddateien fehlen noch.`);
