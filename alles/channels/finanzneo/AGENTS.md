@@ -71,11 +71,13 @@ Required distribution:
 35–45% animation scenes
 ```
 
-Preferred seven-scene structure:
+Preferred production structure:
 
 ```text
-4 process images + 3 high-quality animations
+9 scenes = 5 process images + 4 high-quality animations
 ```
+
+This matches the existing 60–75-second and 9–14-beat production system.
 
 Allowed standard distributions:
 
