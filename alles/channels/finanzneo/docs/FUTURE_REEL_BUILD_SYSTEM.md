@@ -35,7 +35,7 @@ Standardverteilungen:
 | 8 | 5 | 3 |
 | 9 | 5 | 4 |
 
-Bevorzugter Standard: **7 Szenen mit 4 Prozessbildern und 3 hochwertigen Animationen**.
+Bevorzugter Produktionsstandard: **9 Szenen mit 5 Prozessbildern und 4 hochwertigen Animationen**. Damit bleibt das Reel im bestehenden 60–75-Sekunden- und 9–14-Beat-System.
 
 ### Prozessbilder
 
