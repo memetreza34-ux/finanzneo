@@ -2,10 +2,10 @@ MESSAGE:
 Account two protects emergencies and planned purchases.
 
 SCENE:
-Show a shielded reserve safe holding an emergency repair tool and one planned future purchase. Outside the shield, an unexpected repair warning approaches but cannot disturb everyday spending money.
+Show a shielded reserve safe holding emergency cash, a repair tool and one planned future purchase. Outside the shield, an unexpected repair warning approaches but cannot disturb the separate everyday spending area. Make protection and preparation obvious without any labels.
 
 TEXT IN IMAGE:
-Only ‘Konto 2’ and ‘Rücklage’.
+No text.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for external risk. Keep the top 18 percent and bottom 22 percent visually calm for Remotion overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no letters, no numbers, no labels, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.

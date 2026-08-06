@@ -17,7 +17,7 @@ TEXT IN IMAGE:
 No text.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no text, no split background, no floating platform, no unrelated icons, no excessive particles.
 
 ========================================================================
 SZENE 01
@@ -34,7 +34,7 @@ TEXT IN IMAGE:
 No text.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no text, no split background, no floating platform, no unrelated icons, no excessive particles.
 
 ========================================================================
 SZENE 02
@@ -51,7 +51,7 @@ TEXT IN IMAGE:
 No text.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no text, no split background, no floating platform, no unrelated icons, no excessive particles.
 
 ========================================================================
 SZENE 03
@@ -62,13 +62,13 @@ MESSAGE:
 A single account balance combines committed and free money.
 
 SCENE:
-Show one large account balance above a coin reservoir. One portion is physically connected to a home, electricity and insurance obligations, while the smaller free portion remains loose. Make the difference between total balance and real free budget unmistakable.
+Show one large account balance above a coin reservoir. One portion is physically connected to a home, electricity and insurance obligations, while the smaller free portion remains loose. Make the difference between total balance and real free budget unmistakable through physical separation, scale and color only.
 
 TEXT IN IMAGE:
-Only the short labels ‘Kontostand’, ‘verplant’ and ‘frei’.
+No text.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for committed obligations. Keep the top 18 percent and bottom 22 percent visually calm for Remotion overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no letters, no numbers, no labels, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
 
 ========================================================================
 SZENE 05
@@ -79,13 +79,13 @@ MESSAGE:
 Account one protects every fixed debit before spending begins.
 
 SCENE:
-Show a secure house-shaped vault receiving rent, electricity, insurance and contract payments. A shopping cart remains outside a transparent barrier. The fixed-cost vault must be the clear focal point.
+Show a secure house-shaped vault receiving four clearly different obligation objects representing rent, electricity, insurance and contracts. A shopping cart remains outside a transparent protective barrier. The fixed-cost vault must be the clear focal point and the separation from optional spending must be obvious without labels.
 
 TEXT IN IMAGE:
-Only ‘Konto 1’ and ‘Fixkosten’.
+No text.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for blocked spending. Keep the top 18 percent and bottom 22 percent visually calm for Remotion overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no letters, no numbers, no labels, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
 
 ========================================================================
 SZENE 07
@@ -96,13 +96,13 @@ MESSAGE:
 Account two protects emergencies and planned purchases.
 
 SCENE:
-Show a shielded reserve safe holding an emergency repair tool and one planned future purchase. Outside the shield, an unexpected repair warning approaches but cannot disturb everyday spending money.
+Show a shielded reserve safe holding emergency cash, a repair tool and one planned future purchase. Outside the shield, an unexpected repair warning approaches but cannot disturb the separate everyday spending area. Make protection and preparation obvious without any labels.
 
 TEXT IN IMAGE:
-Only ‘Konto 2’ and ‘Rücklage’.
+No text.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for external risk. Keep the top 18 percent and bottom 22 percent visually calm for Remotion overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no letters, no numbers, no labels, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
 
 ========================================================================
 SZENE 10
@@ -119,4 +119,4 @@ TEXT IN IMAGE:
 No text.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no text, no split background, no floating platform, no unrelated icons, no excessive particles.

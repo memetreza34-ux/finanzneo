@@ -2,10 +2,10 @@ MESSAGE:
 Account one protects every fixed debit before spending begins.
 
 SCENE:
-Show a secure house-shaped vault receiving rent, electricity, insurance and contract payments. A shopping cart remains outside a transparent barrier. The fixed-cost vault must be the clear focal point.
+Show a secure house-shaped vault receiving four clearly different obligation objects representing rent, electricity, insurance and contracts. A shopping cart remains outside a transparent protective barrier. The fixed-cost vault must be the clear focal point and the separation from optional spending must be obvious without labels.
 
 TEXT IN IMAGE:
-Only ‘Konto 1’ and ‘Fixkosten’.
+No text.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for blocked spending. Keep the top 18 percent and bottom 22 percent visually calm for Remotion overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no letters, no numbers, no labels, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.

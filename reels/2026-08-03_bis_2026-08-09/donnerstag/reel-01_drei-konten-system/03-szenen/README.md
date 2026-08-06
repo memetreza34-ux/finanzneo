@@ -7,20 +7,18 @@
 | Bild | 01, 02, 03, 05, 07, 10 | 60 % |
 | Remotion-Animation | 04, 06, 08, 09 | 40 % |
 
-## Verbindlicher Ein-Quellen-Vertrag
+## Ein-Quellen-Vertrag
 
 ### Bildszene
 
 ```text
 scene-01/
 ├── bildprompt.txt
-├── finales-bild.png   ← erst nach der Generierung
+├── finales-bild.png
 └── szene.md
 ```
 
-Vor der Bildgenerierung enthält der Ordner absichtlich nur `bildprompt.txt` und `szene.md`. Es gibt dort kein Platzhalterbild.
-
-Die Standbildbewegung wird zentral in `src/reels/drei-konten/shared.tsx` gesteuert. Es gibt keine zusätzliche Motionprompt-Datei.
+Vor dem Einfügen des finalen Bildes enthält der Ordner nur `bildprompt.txt` und `szene.md`.
 
 ### Remotion-Szene
 
@@ -30,22 +28,28 @@ scene-04/
 └── szene.md
 ```
 
-Die Animation wird vollständig als React-/Remotion-Code umgesetzt. Es gibt weder Bildprompt, Bilddatei noch Motionprompt.
+## Verbindliches Layout
+
+- Überschrift immer oben bei ungefähr `Y = 92`.
+- Bild oder Animation ausschließlich im Bereich `Y = 300–1410`.
+- Hauptmotiv leicht oberhalb der Bildschirmmitte.
+- Untertitel separat darunter, mit 180 px freier Safe-Area am unteren Rand.
+- Keine Kicker-Pille im Untertitelbereich.
+- Zu jedem Zeitpunkt höchstens ein vollständiger Satz.
+- Szene 02 und Szene 07 verwenden deshalb jeweils zwei getrennte Untertitel-Cues.
+
+## Bildtexte
+
+Die sechs Bildprompts verlangen kein Text-Rendering im KI-Bild. Überschriften, Untertitel, Beträge und Labels werden durch Remotion kontrolliert erzeugt.
+
+## Bildzuordnung
+
+Siehe `../05-review/BILD-ZUORDNUNG.md`. Insbesondere müssen die Motive für Szene 03, 05 und 07 vor jedem Render kontrolliert werden.
 
 ## Verbote
 
 - `motionprompt.txt`
 - `alle-motionprompts.txt`
-- `placeholder.svg` in einem Szenenordner
+- `placeholder.svg` im Szenenordner
 - `bildprompt.txt` und `remotion.md` in derselben Szene
-- Bilddateien in einer Remotion-Szene
-
-## Bildablage
-
-Das finale PNG, JPG, JPEG, WEBP, AVIF oder SVG wird direkt in den passenden Bildszenenordner gelegt. Pro Bildszene darf höchstens eine finale Bilddatei liegen.
-
-Technische Vorschau-Fallbacks liegen ausschließlich zentral unter `public/reels/drei-konten-system/`. Dadurch bleiben die redaktionellen Szenenordner sauber und eindeutig.
-
-## Sammeldatei
-
-`alle-bildprompts.txt` enthält Cover zuerst und danach ausschließlich die sechs Bildprompts in chronologischer Reihenfolge.
+- Bilddateien in Remotion-Szenen

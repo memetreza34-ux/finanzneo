@@ -2,10 +2,10 @@ MESSAGE:
 A single account balance combines committed and free money.
 
 SCENE:
-Show one large account balance above a coin reservoir. One portion is physically connected to a home, electricity and insurance obligations, while the smaller free portion remains loose. Make the difference between total balance and real free budget unmistakable.
+Show one large account balance above a coin reservoir. One portion is physically connected to a home, electricity and insurance obligations, while the smaller free portion remains loose. Make the difference between total balance and real free budget unmistakable through physical separation, scale and color only.
 
 TEXT IN IMAGE:
-Only the short labels ‘Kontostand’, ‘verplant’ and ‘frei’.
+No text.
 
 STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for committed obligations. Keep the top 18 percent and bottom 22 percent visually calm for Remotion overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no letters, no numbers, no labels, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
