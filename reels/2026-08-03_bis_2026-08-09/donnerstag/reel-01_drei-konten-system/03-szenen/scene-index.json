@@ -1,1 +1,357 @@
-{"version":11,"title":"Drei-Konten-System","sceneCount":10,"imageSceneCount":6,"animationSceneCount":4,"imageShare":0.6,"animationShare":0.4,"fps":30,"width":1080,"height":1920,"totalFrames":1800,"durationSec":60,"transition":"hard-cut","music":false,"sfx":false,"sourceContract":"exactly-one-of-bildprompt-or-remotion","layoutContract":"headline-top_visual-above-center_subtitle-platform-safe_one-sentence","headlineIconRule":"matching-icon-centered-next-to-accent-same-visual-size","subtitleRule":"one-complete-sentence-at-a-time","subtitleDisplay":{"maxLines":2,"balancedLines":true,"holdDuringPauses":true,"noDeadGaps":true},"layout":{"headlineTop":78,"visualTop":270,"visualBottom":1350,"subtitleBottom":320,"subtitleLeft":62,"subtitleRight":150},"imageFit":"contain","maxIntentionalImageScale":1.06,"maxSourceCropPerSide":0.22,"maxSourceCropTotal":0.36,"backgroundFill":"optional-blurred-cover-copy","forbiddenFiles":["motionprompt.txt","alle-motionprompts.txt","placeholder.svg"],"imageScenes":["scene-01","scene-02","scene-03","scene-05","scene-07","scene-10"],"animationScenes":["scene-04","scene-06","scene-08","scene-09"],"scenes":[{"id":"scene-01","type":"image","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-01","planFile":"EINZELNE-SZENEN/scene-01/bildprompt.txt","headline":"WARUM DEIN KONTOSTAND","accent":"DICH TÄUSCHT","icon":"wallet","subtitles":[{"fromFrame":0,"toFrame":180,"text":"Warum gibst du Geld aus, das auf deinem einzigen Konto längst für Miete, Jahreskosten und Rücklagen reserviert ist?"}],"expectedVisual":"Ein einziges gemischtes Konto mit bereits reserviertem Geld.","imagePresentation":{"scale":1.02,"sourceCropTop":0.12,"sourceCropBottom":0.17,"cropSafe":true}},{"id":"scene-02","type":"image","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-02","planFile":"EINZELNE-SZENEN/scene-02/bildprompt.txt","headline":"DEIN EINKOMMEN IST","accent":"NICHT DAS PROBLEM","icon":"coins","subtitles":[{"fromFrame":0,"toFrame":72,"text":"Das Problem ist nicht immer dein Einkommen."},{"fromFrame":72,"toFrame":180,"text":"Freies und bereits verplantes Geld erscheint als dieselbe Zahl."}],"expectedVisual":"Ein großer ungeteilter Behälter mit vermischten Geldarten, keine Drei-Wege-Aufteilung.","imagePresentation":{"scale":1.02,"sourceCropTop":0.14,"sourceCropBottom":0.18,"cropSafe":true}},{"id":"scene-03","type":"image","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-03","planFile":"EINZELNE-SZENEN/scene-03/bildprompt.txt","headline":"WIE VIEL GELD IST","accent":"WIRKLICH FREI?","icon":"eye","subtitles":[{"fromFrame":0,"toFrame":180,"text":"Dadurch wirkt dein Kontostand größer, als dein echtes Wochenbudget tatsächlich ist."}],"expectedVisual":"Kontostand-Illusion mit verplantem und wirklich freiem Anteil, kein Rücklagensafe.","imagePresentation":{"scale":1.03,"sourceCropTop":0.09,"sourceCropBottom":0.17,"cropSafe":true}},{"id":"scene-04","type":"animation","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-04","planFile":"EINZELNE-SZENEN/scene-04/remotion.md","headline":"TEILE DEIN GELD","accent":"AM ZAHLTAG","icon":"split","subtitles":[{"fromFrame":0,"toFrame":180,"text":"Teile dein Gehalt direkt in drei Bereiche: Fixkosten, Rücklagen und Wochenbudget."}],"remotionComponent":"SalarySplitAnimation"},{"id":"scene-05","type":"image","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-05","planFile":"EINZELNE-SZENEN/scene-05/bildprompt.txt","headline":"KONTO 1 SCHÜTZT","accent":"DEINE FIXKOSTEN","icon":"house","subtitles":[{"fromFrame":0,"toFrame":180,"text":"Konto eins bezahlt Miete, Strom, Versicherungen und alle festen Abbuchungen – bevor du etwas kaufst."}],"expectedVisual":"Konto 1 als Fixkostenhaus für Miete, Strom, Versicherungen und Verträge.","imagePresentation":{"scale":1.04,"sourceCropTop":0.06,"sourceCropBottom":0.2,"cropSafe":true}},{"id":"scene-06","type":"animation","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-06","planFile":"EINZELNE-SZENEN/scene-06/remotion.md","headline":"WAS BLEIBT NACH","accent":"DEN FIXKOSTEN?","accentTone":"gold","icon":"calculator","subtitles":[{"fromFrame":0,"toFrame":180,"text":"Bei 1.800 Euro Einkommen und 1.100 Euro Fixkosten bleiben 700 Euro übrig."}],"remotionComponent":"FixedCostsMathAnimation"},{"id":"scene-07","type":"image","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-07","planFile":"EINZELNE-SZENEN/scene-07/bildprompt.txt","headline":"KONTO 2 BAUT","accent":"DEINE RÜCKLAGE","icon":"shield","subtitles":[{"fromFrame":0,"toFrame":108,"text":"Von diesen 700 Euro wandert zuerst deine Rücklage auf Konto zwei."},{"fromFrame":108,"toFrame":180,"text":"Sie schützt Notfälle und geplante Anschaffungen."}],"expectedVisual":"Konto 2 als geschützter Rücklagensafe für Notfälle und geplante Anschaffungen.","imagePresentation":{"scale":1.04,"sourceCropTop":0.06,"sourceCropBottom":0.19,"cropSafe":true}},{"id":"scene-08","type":"animation","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-08","planFile":"EINZELNE-SZENEN/scene-08/remotion.md","headline":"JAHRESKOSTEN","accent":"MONATLICH PLANEN","icon":"calendar","subtitles":[{"fromFrame":0,"toFrame":180,"text":"1.200 Euro Versicherung geteilt durch zwölf ergeben 100 Euro Rücklage pro Monat."}],"remotionComponent":"AnnualCostsAnimation"},{"id":"scene-09","type":"animation","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-09","planFile":"EINZELNE-SZENEN/scene-09/remotion.md","headline":"600 € WERDEN","accent":"4 WOCHEN","icon":"weeks","subtitles":[{"fromFrame":0,"toFrame":180,"text":"Bleiben danach 600 Euro, sind das geteilt durch vier ungefähr 150 Euro pro Woche."}],"remotionComponent":"WeeklyBudgetAnimation"},{"id":"scene-10","type":"image","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-10","planFile":"EINZELNE-SZENEN/scene-10/bildprompt.txt","headline":"GELD ZUERST","accent":"SCHÜTZEN","icon":"lock","subtitles":[{"fromFrame":0,"toFrame":180,"text":"So sparst du nicht, was zufällig übrig bleibt, sondern schützt dein Geld direkt am Zahltag."}],"expectedVisual":"Fertiges Drei-Konten-System mit geschützten Fixkosten und Rücklagen sowie offenem Wochenbudget.","imagePresentation":{"scale":1.03,"sourceCropTop":0.05,"sourceCropBottom":0.18,"cropSafe":true}}]}
+{
+  "version": 12,
+  "title": "Drei-Konten-System",
+  "sceneCount": 10,
+  "imageSceneCount": 6,
+  "animationSceneCount": 4,
+  "targetImageShare": 0.6,
+  "targetAnimationShare": 0.4,
+  "actualImageFrameShare": 0.611111,
+  "actualAnimationFrameShare": 0.388889,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "totalFrames": 1800,
+  "durationSec": 60,
+  "transition": "hard-cut",
+  "music": false,
+  "sfx": false,
+  "sourceContract": "exactly-one-of-bildprompt-or-remotion",
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "referencePromptFile": "03-szenen/bildwelt.txt",
+    "referenceImageFile": "03-szenen/bildwelt-referenz.png",
+    "referenceImageRequired": false,
+    "legacyAssetSet": true,
+    "promptMarker": "FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3",
+    "cameraLock": "slightly-isometric-three-quarter-35mm-equivalent",
+    "environmentLock": "connected-charcoal-emerald-finance-studio",
+    "noEmptyBackground": true,
+    "backgroundFill": "finanzneo-world-stage-v3"
+  },
+  "timelineRules": {
+    "timingSource": "04-caption/word-timings.json",
+    "cutsFollowSentenceStarts": true,
+    "equalLengthScenesForbiddenByDefault": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1,
+    "codePreviewGain": 1.55,
+    "finalMeasurementRequired": true
+  },
+  "headlineIconRule": "matching-icon-centered-next-to-accent-same-visual-size",
+  "subtitleDisplay": {
+    "mode": "sentence-with-audio-synced-active-word",
+    "maxLines": 2,
+    "balancedLines": true,
+    "holdDuringPauses": true,
+    "noDeadGaps": true,
+    "activeWordColor": "finance-green"
+  },
+  "layout": {
+    "headlineTop": 78,
+    "visualTop": 270,
+    "visualBottom": 1350,
+    "subtitleBottom": 320,
+    "subtitleLeft": 62,
+    "subtitleRight": 150
+  },
+  "imagePresentationContract": {
+    "imageFit": "contain",
+    "maxIntentionalImageScale": 1.04,
+    "maxSourceCropPerSide": 0.2,
+    "maxSourceCropTotal": 0.34,
+    "blurredImageBackgroundForbidden": true
+  },
+  "forbiddenFiles": [
+    "motionprompt.txt",
+    "alle-motionprompts.txt",
+    "placeholder.svg"
+  ],
+  "imageScenes": [
+    "scene-01",
+    "scene-02",
+    "scene-03",
+    "scene-05",
+    "scene-07",
+    "scene-10"
+  ],
+  "animationScenes": [
+    "scene-04",
+    "scene-06",
+    "scene-08",
+    "scene-09"
+  ],
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 203,
+      "endFrame": 203,
+      "directory": "EINZELNE-SZENEN/scene-01",
+      "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
+      "headline": "WARUM DEIN KONTOSTAND",
+      "accent": "DICH TÄUSCHT",
+      "icon": "wallet",
+      "subtitles": [
+        {
+          "fromFrame": 0,
+          "toFrame": 203,
+          "text": "Warum gibst du Geld aus, das auf deinem einzigen Konto längst für Miete, Jahreskosten und Rücklagen reserviert ist?"
+        }
+      ],
+      "cutReason": "voice-sentence-start",
+      "expectedVisual": "Ein einziges gemischtes Konto mit bereits reserviertem Geld.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0.14,
+        "sourceCropBottom": 0.18,
+        "cropSafe": true
+      },
+      "promptVersion": "finanzneo-image-world-v3",
+      "assetReviewStatus": "visual-review-required"
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "startFrame": 203,
+      "durationFrames": 181,
+      "endFrame": 384,
+      "directory": "EINZELNE-SZENEN/scene-02",
+      "planFile": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
+      "headline": "DEIN EINKOMMEN IST",
+      "accent": "NICHT DAS PROBLEM",
+      "icon": "coins",
+      "subtitles": [
+        {
+          "fromFrame": 0,
+          "toFrame": 67,
+          "text": "Das Problem ist nicht immer dein Einkommen."
+        },
+        {
+          "fromFrame": 67,
+          "toFrame": 181,
+          "text": "Freies und bereits verplantes Geld erscheint als dieselbe Zahl."
+        }
+      ],
+      "cutReason": "voice-sentence-start",
+      "expectedVisual": "Ein großer ungeteilter Behälter mit vermischten Geldarten; keine Drei-Wege-Aufteilung und keine Lösung.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0.16,
+        "sourceCropBottom": 0.18,
+        "cropSafe": true
+      },
+      "promptVersion": "finanzneo-image-world-v3",
+      "assetReviewStatus": "regenerate-required-before-final-publish"
+    },
+    {
+      "id": "scene-03",
+      "type": "image",
+      "startFrame": 384,
+      "durationFrames": 142,
+      "endFrame": 526,
+      "directory": "EINZELNE-SZENEN/scene-03",
+      "planFile": "EINZELNE-SZENEN/scene-03/bildprompt.txt",
+      "headline": "WIE VIEL GELD IST",
+      "accent": "WIRKLICH FREI?",
+      "icon": "eye",
+      "subtitles": [
+        {
+          "fromFrame": 0,
+          "toFrame": 142,
+          "text": "Dadurch wirkt dein Kontostand größer, als dein echtes Wochenbudget tatsächlich ist."
+        }
+      ],
+      "cutReason": "voice-sentence-start",
+      "expectedVisual": "Kontostand-Illusion mit großem gebundenem und deutlich kleinerem frei verfügbarem Anteil.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0.11,
+        "sourceCropBottom": 0.18,
+        "cropSafe": true
+      },
+      "promptVersion": "finanzneo-image-world-v3",
+      "assetReviewStatus": "visual-review-required"
+    },
+    {
+      "id": "scene-04",
+      "type": "animation",
+      "startFrame": 526,
+      "durationFrames": 188,
+      "endFrame": 714,
+      "directory": "EINZELNE-SZENEN/scene-04",
+      "planFile": "EINZELNE-SZENEN/scene-04/remotion.md",
+      "headline": "TEILE DEIN GELD",
+      "accent": "AM ZAHLTAG",
+      "icon": "split",
+      "subtitles": [
+        {
+          "fromFrame": 0,
+          "toFrame": 188,
+          "text": "Teile dein Gehalt deshalb direkt am Zahltag in drei Bereiche: Fixkosten, Rücklagen und Wochenbudget."
+        }
+      ],
+      "cutReason": "voice-sentence-start",
+      "remotionComponent": "SalarySplitAnimation"
+    },
+    {
+      "id": "scene-05",
+      "type": "image",
+      "startFrame": 714,
+      "durationFrames": 193,
+      "endFrame": 907,
+      "directory": "EINZELNE-SZENEN/scene-05",
+      "planFile": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
+      "headline": "KONTO 1 SCHÜTZT",
+      "accent": "DEINE FIXKOSTEN",
+      "icon": "house",
+      "subtitles": [
+        {
+          "fromFrame": 0,
+          "toFrame": 193,
+          "text": "Konto eins bezahlt Miete, Strom, Versicherungen und alle festen Abbuchungen – bevor du irgendetwas kaufst."
+        }
+      ],
+      "cutReason": "voice-sentence-start",
+      "expectedVisual": "Konto eins als integrierter Fixkosten-Safe; optionale Ausgaben bleiben außerhalb.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0.13,
+        "sourceCropBottom": 0.18,
+        "cropSafe": true
+      },
+      "promptVersion": "finanzneo-image-world-v3",
+      "assetReviewStatus": "visual-review-required"
+    },
+    {
+      "id": "scene-06",
+      "type": "animation",
+      "startFrame": 907,
+      "durationFrames": 173,
+      "endFrame": 1080,
+      "directory": "EINZELNE-SZENEN/scene-06",
+      "planFile": "EINZELNE-SZENEN/scene-06/remotion.md",
+      "headline": "WAS BLEIBT NACH",
+      "accent": "DEN FIXKOSTEN?",
+      "icon": "calculator",
+      "subtitles": [
+        {
+          "fromFrame": 0,
+          "toFrame": 173,
+          "text": "Bei 1.800 Euro Einkommen und 1.100 Euro Fixkosten bleiben 700 Euro übrig."
+        }
+      ],
+      "cutReason": "voice-sentence-start",
+      "accentTone": "gold",
+      "remotionComponent": "FixedCostsMathAnimation"
+    },
+    {
+      "id": "scene-07",
+      "type": "image",
+      "startFrame": 1080,
+      "durationFrames": 192,
+      "endFrame": 1272,
+      "directory": "EINZELNE-SZENEN/scene-07",
+      "planFile": "EINZELNE-SZENEN/scene-07/bildprompt.txt",
+      "headline": "KONTO 2 BAUT",
+      "accent": "DEINE RÜCKLAGE",
+      "icon": "shield",
+      "subtitles": [
+        {
+          "fromFrame": 0,
+          "toFrame": 110,
+          "text": "Von diesen 700 Euro wandert zuerst deine Rücklage auf Konto zwei."
+        },
+        {
+          "fromFrame": 110,
+          "toFrame": 192,
+          "text": "Sie schützt Notfälle und geplante Anschaffungen."
+        }
+      ],
+      "cutReason": "voice-sentence-start",
+      "expectedVisual": "Konto zwei als geschützter Rücklagensafe für Notfälle und geplante Anschaffungen.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0.1,
+        "sourceCropBottom": 0.18,
+        "cropSafe": true
+      },
+      "promptVersion": "finanzneo-image-world-v3",
+      "assetReviewStatus": "visual-review-required"
+    },
+    {
+      "id": "scene-08",
+      "type": "animation",
+      "startFrame": 1272,
+      "durationFrames": 210,
+      "endFrame": 1482,
+      "directory": "EINZELNE-SZENEN/scene-08",
+      "planFile": "EINZELNE-SZENEN/scene-08/remotion.md",
+      "headline": "JAHRESKOSTEN",
+      "accent": "MONATLICH PLANEN",
+      "icon": "calendar",
+      "subtitles": [
+        {
+          "fromFrame": 0,
+          "toFrame": 210,
+          "text": "Auch Jahreskosten werden monatlich vorbereitet: 1.200 Euro Versicherung geteilt durch zwölf ergeben 100 Euro pro Monat."
+        }
+      ],
+      "cutReason": "voice-sentence-start",
+      "remotionComponent": "AnnualCostsAnimation"
+    },
+    {
+      "id": "scene-09",
+      "type": "animation",
+      "startFrame": 1482,
+      "durationFrames": 129,
+      "endFrame": 1611,
+      "directory": "EINZELNE-SZENEN/scene-09",
+      "planFile": "EINZELNE-SZENEN/scene-09/remotion.md",
+      "headline": "600 € WERDEN",
+      "accent": "4 WOCHEN",
+      "icon": "weeks",
+      "subtitles": [
+        {
+          "fromFrame": 0,
+          "toFrame": 129,
+          "text": "Bleiben danach 600 Euro, kommen sie auf Konto drei: geteilt durch vier sind das ungefähr 150 Euro pro Woche."
+        }
+      ],
+      "cutReason": "voice-sentence-start",
+      "remotionComponent": "WeeklyBudgetAnimation"
+    },
+    {
+      "id": "scene-10",
+      "type": "image",
+      "startFrame": 1611,
+      "durationFrames": 189,
+      "endFrame": 1800,
+      "directory": "EINZELNE-SZENEN/scene-10",
+      "planFile": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
+      "headline": "GELD ZUERST",
+      "accent": "SCHÜTZEN",
+      "icon": "lock",
+      "subtitles": [
+        {
+          "fromFrame": 0,
+          "toFrame": 189,
+          "text": "So sparst du nicht, was zufällig übrig bleibt, sondern schützt dein Geld direkt am Zahltag."
+        }
+      ],
+      "cutReason": "voice-sentence-start",
+      "expectedVisual": "Fertiges Drei-Konten-System mit geschützten Fixkosten und Rücklagen sowie offenem Wochenbudget.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0.09,
+        "sourceCropBottom": 0.19,
+        "cropSafe": true
+      },
+      "promptVersion": "finanzneo-image-world-v3",
+      "assetReviewStatus": "visual-review-required"
+    }
+  ]
+}

@@ -5,19 +5,27 @@
 - [x] 10 Szenen vorhanden
 - [x] exakt 6 Bildszenen und 4 Remotion-Animationen
 - [x] jede Szene besitzt exakt eine Produktionsquelle
-- [x] jede Überschrift besitzt ein passendes zentriertes Icon
-- [x] Icon und Schwerpunktzeile haben dieselbe visuelle Höhe
-- [x] Visual endet oberhalb der Untertitelzone
-- [x] Untertitel-Safe-Area beträgt 320 px
-- [x] rechter Abstand zur Reels-Bedienleiste beträgt 150 px
-- [x] genau ein vollständiger Satz gleichzeitig
-- [x] aktuelles Wort wird grün verfolgt
-- [x] Satz bleibt während kurzer Sprechpausen sichtbar
-- [x] Untertitel werden auf höchstens zwei ausgewogene Zeilen verteilt
-- [x] Vordergrundbilder bleiben `contain`
-- [x] Scale ist auf maximal 1.06 begrenzt
-- [x] Bildgröße wird über sichere obere und untere Source-Crops vereinheitlicht
-- [x] Crop pro Seite maximal 0.22, insgesamt maximal 0.36
+- [x] Überschrift oben mit passendem Icon
+- [x] Untertitel außerhalb der Plattform-Totzone
+- [x] genau ein Satz sichtbar; aktuelles Wort grün
+- [x] höchstens zwei ausgewogene Untertitelzeilen
+- [x] Szenenstarts folgen den Satzanfängen des finalen Voiceovers
+- [x] Image World V3 im Repo hinterlegt
+- [x] alle Bildprompts verwenden denselben Kamera-, Licht-, Material- und Umgebungsvertrag
+- [x] Bildtexte und Zahlen in generierten Bildern vollständig verboten
+- [x] Remotion verwendet eine einheitliche Studiofläche statt einer unscharfen Bildkopie
+- [x] Vordergrundbilder verwenden contain
+- [x] Scale maximal 1.04
+- [x] Source-Crop je Seite maximal 0.20 und insgesamt maximal 0.34
+
+## Vor erneuter Bildgenerierung
+
+- [ ] `03-szenen/bildwelt.txt` zuerst generieren
+- [ ] reales Referenzbild als `03-szenen/bildwelt-referenz.png` speichern
+- [ ] jede Bildszene mit genau dieser Referenz als Stilreferenz erzeugen
+- [ ] Szene 02 zwingend neu erzeugen: ein ungeteilter Behälter, keine Drei-Wege-Lösung
+- [ ] keine Szene vor leerem schwarzem Hintergrund akzeptieren
+- [ ] alle sechs Bilder als Kontaktbogen auf gleiche Kamera, Architektur, Licht und Motivgröße prüfen
 
 ## Vor finalem Render
 
@@ -25,13 +33,13 @@
 - [ ] `npm run validate:drei-konten` ausführen
 - [ ] `npm run typecheck` ausführen
 - [ ] neuen Preview-Render erzeugen
-- [ ] alle sechs Bilder nebeneinander auf ähnliche Motivgröße prüfen
-- [ ] nur tatsächlich leerer Quellraum wurde entfernt
-- [ ] keine eingebaute Beschriftung, Zahl, Icon oder Motivkante angeschnitten
+- [ ] Bildwechsel beginnen exakt mit dem zugehörigen neuen Satz
+- [ ] Szene 05 besitzt keinen unscharfen Streifen am oberen Bildrand
+- [ ] kein Motiv, Pfeil, Geldobjekt oder erklärendes Element ist abgeschnitten
 - [ ] Szene 03 = Kontostand, Szene 05 = Fixkosten, Szene 07 = Rücklage
+- [ ] alle Bildmotive wirken ähnlich groß und ähnlich hoch
 - [ ] Untertitel liegen nicht in der unteren Reels-Totzone
-- [ ] rechte Reels-Icons verdecken keinen Untertitel
-- [ ] kein Untertitel umfasst mehr als zwei sichtbare Zeilen
-- [ ] niemals zwei Sätze gleichzeitig sichtbar
+- [ ] zu keinem Zeitpunkt sind zwei oder drei Sätze gleichzeitig sichtbar
 - [ ] grüne Wortverfolgung vollständig mit Kopfhörern kontrollieren
+- [ ] Voiceover ungefähr auf -16 LUFS Integrated und höchstens -1 dBTP prüfen
 - [ ] finalen Export vollständig ansehen

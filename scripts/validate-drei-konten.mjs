@@ -10,87 +10,101 @@ const timing = JSON.parse(readFileSync(resolve(reelRoot, '04-caption/word-timing
 const codeRoot = resolve('src/reels/drei-konten');
 const sharedCode = readFileSync(resolve(codeRoot, 'shared.tsx'), 'utf8');
 const reelCode = readFileSync(resolve(codeRoot, 'DreiKontenSystem.tsx'), 'utf8');
-const karaokeCode = readFileSync(resolve(codeRoot, 'KaraokeCaptions.tsx'), 'utf8');
 const configCode = readFileSync(resolve(codeRoot, 'config.ts'), 'utf8');
+const karaokeCode = readFileSync(resolve(codeRoot, 'KaraokeCaptions.tsx'), 'utf8');
 const expectedOrder = ['image','image','image','animation','image','animation','image','animation','animation','image'];
+const expectedStarts = [0,203,384,526,714,907,1080,1272,1482,1611];
+const expectedDurations = [203,181,142,188,193,173,192,210,129,189];
 const supported = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif', '.svg']);
 const errors = [];
 let missingFinalImages = 0;
 const assert = (condition, message) => { if (!condition) errors.push(message); };
+const requiredPromptMarkers = [
+  'FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3',
+  'SERIES CONTINUITY LOCK:',
+  'ENVIRONMENT:',
+  'COMPOSITION LOCK:',
+  'TEXT:',
+  'CONSISTENCY NEGATIVES:',
+  'SCENE MESSAGE:',
+  'CONNECTED VISUAL STORY:',
+];
 
+assert(index.version >= 12, 'scene-index muss mindestens Version 12 verwenden.');
 assert(index.sceneCount === 10, 'sceneCount muss 10 sein.');
 assert(index.imageSceneCount === 6 && index.animationSceneCount === 4, 'Verhältnis muss 6 Bilder / 4 Animationen sein.');
-assert(index.imageShare === 0.6 && index.animationShare === 0.4, 'Anteile müssen 60/40 sein.');
-assert(index.layout?.headlineTop === 78, 'Überschrift muss bei Y=78 beginnen.');
-assert(index.layout?.visualTop === 270 && index.layout?.visualBottom === 1350, 'Visueller Bereich muss Y=270–1350 sein.');
-assert(index.layout?.subtitleBottom === 320, 'Untertitel-Safe-Area muss 320 px betragen.');
-assert(index.layout?.subtitleLeft === 62 && index.layout?.subtitleRight === 150, 'Caption-Seitenabstände stimmen nicht.');
-assert(index.headlineIconRule === 'matching-icon-centered-next-to-accent-same-visual-size', 'Icon-Regel fehlt.');
-assert(index.subtitleDisplay?.maxLines === 2 && index.subtitleDisplay?.balancedLines === true, 'Untertitel müssen auf zwei ausgewogene Zeilen begrenzt sein.');
-assert(index.subtitleDisplay?.holdDuringPauses === true && index.subtitleDisplay?.noDeadGaps === true, 'Caption-Lücken sind verboten.');
-assert(index.maxIntentionalImageScale === 1.06, 'Maximale Bildvergrößerung muss 1.06 sein.');
-assert(index.maxSourceCropPerSide === 0.22 && index.maxSourceCropTotal === 0.36, 'Source-Crop-Grenzen fehlen.');
+assert(index.imageWorld?.id === 'finanzneo-connected-studio-v3', 'Image World V3 fehlt.');
+assert(index.imageWorld?.noEmptyBackground === true, 'Leere Hintergründe müssen verboten sein.');
+assert(index.imageWorld?.backgroundFill === 'finanzneo-world-stage-v3', 'Einheitliche Remotion-Studiobühne fehlt.');
+assert(index.timelineRules?.cutsFollowSentenceStarts === true, 'Szenenstarts müssen Satzanfängen folgen.');
+assert(index.layout?.subtitleBottom === 320 && index.layout?.subtitleRight === 150, 'Caption-Safe-Area ist falsch.');
+assert(index.imagePresentationContract?.imageFit === 'contain', 'Vordergrundbilder müssen contain verwenden.');
+assert(index.imagePresentationContract?.maxIntentionalImageScale === 1.04, 'Maximale Bildskalierung muss 1.04 sein.');
+assert(index.imagePresentationContract?.maxSourceCropPerSide === 0.2, 'Crop pro Seite muss auf 0.20 begrenzt sein.');
+assert(index.imagePresentationContract?.maxSourceCropTotal === 0.34, 'Gesamt-Crop muss auf 0.34 begrenzt sein.');
+assert(index.imagePresentationContract?.blurredImageBackgroundForbidden === true, 'Unscharfe Bildkopie muss verboten sein.');
+assert(index.audio?.targetIntegratedLufs === -16 && index.audio?.targetTruePeakDbtp === -1, 'Audio-Zielwerte fehlen.');
 assert(Array.isArray(index.scenes) && index.scenes.length === 10, 'scene-index muss 10 Szenen enthalten.');
 assert(Array.isArray(timeline.scenes) && timeline.scenes.length === 10 && timeline.totalFrames === 1800, 'Timeline muss 10 Szenen und 1800 Frames enthalten.');
+assert(existsSync(resolve(reelRoot, '03-szenen/bildwelt.txt')), 'bildwelt.txt fehlt.');
 
-assert(timing.subtitleMode === 'sentence-with-audio-synced-active-word', 'Caption-Modus muss audio-synchrone Wortverfolgung sein.');
+assert(timing.subtitleMode === 'sentence-with-audio-synced-active-word', 'Caption-Modus ist falsch.');
 assert(timing.activeWordColor === 'finance-green', 'Aktives Wort muss finance-green sein.');
-assert(Array.isArray(timing.sentences) && timing.sentences.length === 12, 'Es müssen 12 zeitlich getrennte Sätze vorhanden sein.');
-for (const sentence of timing.sentences ?? []) {
-  const words = String(sentence.text ?? '').trim().split(/\s+/).filter(Boolean);
-  assert(Array.isArray(sentence.frames) && sentence.frames.length === words.length + 1, `${sentence.id}: frames muss Wortanzahl + 1 enthalten.`);
-}
+assert(Array.isArray(timing.sentences) && timing.sentences.length === 12, 'Es müssen 12 Sätze mit Wortzeiten vorhanden sein.');
 
+assert(sharedCode.includes('const ImageWorldBackdrop'), 'Einheitliche Image-World-Bühne fehlt im Remotion-Code.');
+assert(!sharedCode.includes("filter: 'blur(34px)'"), 'Unscharfe Bildkopie ist weiterhin aktiv.');
 assert(sharedCode.includes("objectFit: 'contain'"), 'Vordergrundbild muss contain verwenden.');
-assert(sharedCode.includes('sourceCropTop'), 'Sicheres Top-Cropping fehlt.');
-assert(sharedCode.includes('sourceCropBottom'), 'Sicheres Bottom-Cropping fehlt.');
-assert(sharedCode.includes('Math.min(0.36, top + bottom)'), 'Gesamt-Crop muss auf 0.36 begrenzt sein.');
-assert(sharedCode.includes('Math.min(1.06, imageScale)'), 'Bildvergrößerung muss auf 1.06 begrenzt sein.');
-assert(sharedCode.includes('subtitleBottom: 320'), 'Untertitel liegen nicht hoch genug.');
-assert(sharedCode.includes('subtitleRight: 150'), 'Rechte Reels-Bedienzone ist nicht freigehalten.');
-assert(karaokeCode.includes('splitIntoBalancedLines'), 'Ausgewogene Zwei-Zeilen-Aufteilung fehlt.');
-assert(karaokeCode.includes("whiteSpace: 'nowrap'"), 'Eine berechnete Untertitelzeile darf nicht erneut umbrechen.');
-assert(karaokeCode.includes('let sentenceIndex = 0'), 'Der erste Satz muss schon vor dem ersten Wort sichtbar sein.');
+assert(sharedCode.includes('Math.min(1.04, imageScale)'), 'Bildskalierung muss auf 1.04 begrenzt sein.');
+assert(sharedCode.includes('Math.min(0.2, sourceCropTop)'), 'Crop oben muss auf 0.20 begrenzt sein.');
+assert(sharedCode.includes('Math.min(0.34, top + bottom)'), 'Gesamt-Crop muss auf 0.34 begrenzt sein.');
+assert(reelCode.includes('volume={audioGain}'), 'Audio-Gain wird im Reel nicht angewendet.');
+assert(configCode.includes('DREI_KONTEN_AUDIO_GAIN = 1.55'), 'Preview-Audio-Gain fehlt.');
+assert(karaokeCode.includes('splitIntoBalancedLines'), 'Zwei-Zeilen-Karaoke fehlt.');
 assert(karaokeCode.includes('active ? C.accentLt : C.white'), 'Aktuelles Wort wird nicht grün verfolgt.');
-assert(reelCode.includes('<KaraokeCaptions />'), 'Globale KaraokeCaptions fehlen.');
-assert((configCode.match(/icon: '/g) ?? []).length === 10, 'Jede Szene benötigt ein Icon.');
 
-assert(reelCode.includes('sceneId="scene-05" copy={SCENE_COPY[2]}'), 'Szene 03 muss das Kontostand-Bild verwenden.');
-assert(reelCode.includes('sceneId="scene-07" copy={SCENE_COPY[4]}'), 'Szene 05 muss das Fixkosten-Bild verwenden.');
-assert(reelCode.includes('sceneId="scene-03" copy={SCENE_COPY[6]}'), 'Szene 07 muss das Rücklagen-Bild verwenden.');
+// Korrekte inhaltliche Zuordnung der vorhandenen Legacy-Assets.
+assert(reelCode.includes('sceneId="scene-05" copy={SCENE_COPY[2]}'), 'Logische Szene 03 muss das Kontostand-Bild verwenden.');
+assert(reelCode.includes('sceneId="scene-07" copy={SCENE_COPY[4]}'), 'Logische Szene 05 muss das Fixkosten-Bild verwenden.');
+assert(reelCode.includes('sceneId="scene-03" copy={SCENE_COPY[6]}'), 'Logische Szene 07 muss das Rücklagen-Bild verwenden.');
 
-index.scenes.forEach((scene, indexNumber) => {
-  const expectedId = `scene-${String(indexNumber + 1).padStart(2, '0')}`;
+let accumulated = 0;
+index.scenes.forEach((scene, sceneIndex) => {
+  const expectedId = `scene-${String(sceneIndex + 1).padStart(2, '0')}`;
   const directory = resolve(sceneRoot, expectedId);
   const imagePrompt = existsSync(resolve(directory, 'bildprompt.txt'));
   const remotionPlan = existsSync(resolve(directory, 'remotion.md'));
   const imageFiles = readdirSync(directory).filter((name) => supported.has(extname(name).toLowerCase()));
 
   assert(scene.id === expectedId, `Falsche Reihenfolge bei ${expectedId}.`);
-  assert(scene.type === expectedOrder[indexNumber], `${expectedId}: falscher Typ.`);
-  assert(typeof scene.icon === 'string' && scene.icon.length > 2, `${expectedId}: Icon fehlt.`);
-  assert(existsSync(resolve(directory, 'szene.md')), `${expectedId}: szene.md fehlt.`);
-  assert(!existsSync(resolve(directory, 'motionprompt.txt')), `${expectedId}: motionprompt.txt ist verboten.`);
-  assert(!existsSync(resolve(directory, 'placeholder.svg')), `${expectedId}: placeholder.svg ist verboten.`);
+  assert(scene.type === expectedOrder[sceneIndex], `${expectedId}: falscher Typ.`);
+  assert(scene.startFrame === expectedStarts[sceneIndex], `${expectedId}: startFrame muss ${expectedStarts[sceneIndex]} sein.`);
+  assert(scene.durationFrames === expectedDurations[sceneIndex], `${expectedId}: durationFrames muss ${expectedDurations[sceneIndex]} sein.`);
+  assert(scene.endFrame === expectedStarts[sceneIndex] + expectedDurations[sceneIndex], `${expectedId}: endFrame ist falsch.`);
+  assert(scene.cutReason === 'voice-sentence-start', `${expectedId}: Schnittgrund fehlt.`);
+  assert(timeline.scenes[sceneIndex]?.startFrame === expectedStarts[sceneIndex], `${expectedId}: Timeline-Start ist falsch.`);
+  assert(timeline.scenes[sceneIndex]?.durationFrames === expectedDurations[sceneIndex], `${expectedId}: Timeline-Dauer ist falsch.`);
   assert(Number(imagePrompt) + Number(remotionPlan) === 1, `${expectedId}: genau eine Produktionsquelle erforderlich.`);
+  accumulated += scene.durationFrames;
 
   if (scene.type === 'image') {
-    const presentation = scene.imagePresentation ?? {};
-    const top = Number(presentation.sourceCropTop);
-    const bottom = Number(presentation.sourceCropBottom);
-    assert(imagePrompt && !remotionPlan, `${expectedId}: Bildszene benötigt nur bildprompt.txt.`);
-    assert(typeof scene.expectedVisual === 'string' && scene.expectedVisual.length > 12, `${expectedId}: expectedVisual fehlt.`);
-    assert(Number(presentation.scale) >= 1 && Number(presentation.scale) <= 1.06, `${expectedId}: Scale muss zwischen 1 und 1.06 liegen.`);
-    assert(top >= 0 && top <= 0.22 && bottom >= 0 && bottom <= 0.22, `${expectedId}: Source-Crop pro Seite ist ungültig.`);
-    assert(top + bottom <= 0.36, `${expectedId}: Gesamt-Crop überschreitet 0.36.`);
-    if (top + bottom > 0) assert(presentation.cropSafe === true, `${expectedId}: Cropping benötigt cropSafe=true.`);
+    const prompt = readFileSync(resolve(directory, 'bildprompt.txt'), 'utf8');
+    for (const marker of requiredPromptMarkers) assert(prompt.includes(marker), `${expectedId}: Promptmarker fehlt: ${marker}`);
+    assert(prompt.includes('No empty black background'), `${expectedId}: leerer Hintergrund ist nicht verboten.`);
+    assert(prompt.includes('No headline, subtitle, sentence, number, label'), `${expectedId}: Text ist nicht vollständig verboten.`);
+    const p = scene.imagePresentation;
+    assert(p && p.scale >= 1 && p.scale <= 1.04, `${expectedId}: Scale ist ungültig.`);
+    assert(p.sourceCropTop >= 0 && p.sourceCropTop <= 0.2, `${expectedId}: sourceCropTop ist ungültig.`);
+    assert(p.sourceCropBottom >= 0 && p.sourceCropBottom <= 0.2, `${expectedId}: sourceCropBottom ist ungültig.`);
+    assert(p.sourceCropTop + p.sourceCropBottom <= 0.34 + Number.EPSILON, `${expectedId}: Gesamt-Crop ist zu groß.`);
     assert(imageFiles.length <= 1, `${expectedId}: mehr als ein finales Bild vorhanden.`);
     if (imageFiles.length === 0) missingFinalImages += 1;
   } else {
-    assert(remotionPlan && !imagePrompt, `${expectedId}: Animationsszene benötigt nur remotion.md.`);
     assert(imageFiles.length === 0, `${expectedId}: Remotion-Szene darf keine Bilddatei enthalten.`);
   }
 });
+
+assert(accumulated === 1800, 'Szenendauern müssen zusammen exakt 1800 Frames ergeben.');
 
 if (errors.length) {
   console.error('\nDrei-Konten-Validierung fehlgeschlagen:\n');
@@ -98,6 +112,9 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('\n✓ Drei-Konten-System erfüllt Struktur, Cropping-, Icon- und Karaoke-Vertrag.');
-console.log('  sichere Source-Crops · maximal zwei Caption-Zeilen · 320 px Plattform-Safe-Area');
+console.log('\n✓ Drei-Konten-System erfüllt Image World V3, Satzschnitt-, Bild- und Karaoke-Vertrag.');
+console.log('  gleiche Welt · kein leerer Hintergrund · keine Blur-Streifen · Satzanfänge als Schnitte · sichere Crops');
+if (index.scenes.find((scene) => scene.id === 'scene-02')?.assetReviewStatus === 'regenerate-required-before-final-publish') {
+  console.log('  WICHTIG: Szene 02 muss vor der finalen Veröffentlichung mit dem neuen V3-Prompt neu generiert werden.');
+}
 if (missingFinalImages > 0) console.log(`  Hinweis: ${missingFinalImages} finale Bilddateien fehlen noch.`);

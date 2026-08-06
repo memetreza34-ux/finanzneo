@@ -130,6 +130,81 @@ export const SceneBackground: React.FC<React.PropsWithChildren<{tone?: 'green' |
   </AbsoluteFill>
 );
 
+const ImageWorldBackdrop: React.FC = () => (
+  <AbsoluteFill
+    style={{
+      overflow: 'hidden',
+      background: 'radial-gradient(85% 70% at 50% 37%, #163626 0%, #0A1B12 54%, #040806 100%)',
+    }}
+  >
+    <div
+      style={{
+        position: 'absolute',
+        left: 72,
+        right: 72,
+        top: 38,
+        height: 620,
+        borderRadius: '48% 48% 26% 26% / 22% 22% 12% 12%',
+        border: '1px solid rgba(116,255,175,.14)',
+        boxShadow: 'inset 0 0 110px rgba(54,255,138,.05)',
+        background: 'linear-gradient(180deg, rgba(24,57,40,.46), rgba(5,13,9,.08))',
+      }}
+    />
+    <div
+      style={{
+        position: 'absolute',
+        left: -120,
+        right: -120,
+        bottom: -215,
+        height: 610,
+        borderRadius: '50%',
+        transform: 'perspective(800px) rotateX(66deg)',
+        transformOrigin: 'center bottom',
+        backgroundImage: 'linear-gradient(rgba(93,255,160,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(93,255,160,.07) 1px, transparent 1px)',
+        backgroundSize: '92px 92px',
+        border: '1px solid rgba(116,255,175,.11)',
+        opacity: 0.7,
+      }}
+    />
+    <div
+      style={{
+        position: 'absolute',
+        left: '18%',
+        right: '18%',
+        bottom: 90,
+        height: 180,
+        borderRadius: '50%',
+        background: 'radial-gradient(ellipse, rgba(56,255,139,.18) 0%, rgba(56,255,139,.04) 46%, transparent 72%)',
+        filter: 'blur(16px)',
+      }}
+    />
+    <div
+      style={{
+        position: 'absolute',
+        top: 70,
+        left: 102,
+        width: 7,
+        height: 520,
+        borderRadius: 8,
+        background: 'linear-gradient(180deg, transparent, rgba(75,255,153,.42), transparent)',
+        boxShadow: '0 0 32px rgba(75,255,153,.22)',
+      }}
+    />
+    <div
+      style={{
+        position: 'absolute',
+        top: 70,
+        right: 102,
+        width: 7,
+        height: 520,
+        borderRadius: 8,
+        background: 'linear-gradient(180deg, transparent, rgba(75,255,153,.42), transparent)',
+        boxShadow: '0 0 32px rgba(75,255,153,.22)',
+      }}
+    />
+  </AbsoluteFill>
+);
+
 type StillSceneProps = {
   sceneId: keyof typeof assetManifest;
   copy: SceneCopy;
@@ -145,25 +220,25 @@ export const StillScene: React.FC<StillSceneProps> = ({
   sceneId,
   copy,
   panX = 0,
-  panY = -4,
-  imageScale = 1.02,
+  panY = -3,
+  imageScale = 1.01,
   sourceCropTop = 0,
   sourceCropBottom = 0,
   durationInFrames,
 }) => {
   const frame = useCurrentFrame();
   const progress = interpolate(frame, [0, Math.max(1, durationInFrames - 1)], [0, 1], clamp);
-  const top = Math.max(0, Math.min(0.22, sourceCropTop));
-  const bottom = Math.max(0, Math.min(0.22, sourceCropBottom));
-  const total = Math.min(0.36, top + bottom);
+  const top = Math.max(0, Math.min(0.2, sourceCropTop));
+  const bottom = Math.max(0, Math.min(0.2, sourceCropBottom));
+  const total = Math.min(0.34, top + bottom);
   const ratio = top + bottom === 0 ? 0 : total / (top + bottom);
   const safeTop = top * ratio;
   const safeBottom = bottom * ratio;
-  const visibleFraction = Math.max(0.64, 1 - safeTop - safeBottom);
+  const visibleFraction = Math.max(0.66, 1 - safeTop - safeBottom);
   const elementHeight = 100 / visibleFraction;
   const elementTop = -(safeTop / visibleFraction) * 100;
-  const safeScale = Math.max(1, Math.min(1.06, imageScale));
-  const scale = Math.min(1.06, safeScale + progress * 0.006);
+  const safeScale = Math.max(1, Math.min(1.04, imageScale));
+  const scale = Math.min(1.04, safeScale + progress * 0.004);
   const x = panX * (progress - 0.5);
   const y = panY * (progress - 0.5);
   const src = staticFile(assetManifest[sceneId]);
@@ -171,11 +246,8 @@ export const StillScene: React.FC<StillSceneProps> = ({
   return (
     <SceneBackground tone="neutral">
       <Headline headline={copy.headline} accent={copy.accent} accentTone={copy.accentTone} icon={copy.icon} />
-      <VisualStage style={{background: C.bgDeep}}>
-        <Img
-          src={src}
-          style={{position: 'absolute', inset: -40, width: 'calc(100% + 80px)', height: 'calc(100% + 80px)', objectFit: 'cover', filter: 'blur(34px)', opacity: 0.2, transform: 'scale(1.08)'}}
-        />
+      <VisualStage>
+        <ImageWorldBackdrop />
         <Img
           src={src}
           style={{
@@ -186,11 +258,11 @@ export const StillScene: React.FC<StillSceneProps> = ({
             height: `${elementHeight}%`,
             objectFit: 'contain',
             objectPosition: 'center center',
-            filter: 'drop-shadow(0 22px 34px rgba(0,0,0,.28))',
+            filter: 'drop-shadow(0 24px 38px rgba(0,0,0,.32))',
             transform: `translate3d(${x}px, ${y}px, 0) scale(${scale})`,
           }}
         />
-        <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(4,10,7,.34) 0%, rgba(4,10,7,0) 9%, rgba(4,10,7,0) 92%, rgba(4,10,7,.28) 100%)'}} />
+        <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(3,10,6,.24) 0%, transparent 8%, transparent 92%, rgba(3,10,6,.25) 100%)'}} />
       </VisualStage>
     </SceneBackground>
   );

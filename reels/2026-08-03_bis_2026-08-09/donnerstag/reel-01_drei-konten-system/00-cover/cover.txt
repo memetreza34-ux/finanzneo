@@ -1,11 +1,34 @@
-MESSAGE:
-A powerful cover image for the three-account system.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-SCENE:
-Show one dramatic salary stream of euro coins hitting a central three-way divider and flowing into three large connected destinations: a house-shaped fixed-cost vault, a shielded reserve safe and four weekly spending boxes. Make the splitter and protected money flow large, bold and instantly understandable. Leave the upper third calm for a later headline, but do not generate the headline inside the image.
+USE STYLE REFERENCE:
+Use `03-szenen/bildwelt-referenz.png` only as a style and environment reference. Match its camera angle, 35mm-equivalent perspective, camera height, curved charcoal studio architecture, matte floor, emerald architectural light channels, lighting, materials, depth and subject scale. Do not redesign the world.
 
-TEXT IN IMAGE:
-No text.
+SERIES CONTINUITY LOCK:
+The image must look like another frame from exactly the same FinanzNeo studio as every scene image in this reel.
 
-STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+ENVIRONMENT:
+Create one connected premium finance-explainer environment with a visible matte floor, a curved charcoal back wall, integrated emerald light channels and subtle architectural depth. The scene must not look like an isolated object in an empty black void. Use three depth layers: supporting foreground, explanatory midground action and quiet architectural background.
+
+COMPOSITION LOCK:
+Vertical 9:16 source image. The complete main action sits inside the central 64 percent of the image height and fills approximately 72 to 80 percent of the usable width. Keep the upper 18 percent and lower 18 percent crop-safe and low-detail, but continue the same studio wall, floor and lighting there instead of leaving blank black space.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no isolated floating product, no floating platform, no different camera angle, no different color palette, no blue or purple neon world, no photorealism, no cartoon, no Pixar, no clay style, no dashboard, no app UI, no advertising layout, no random particles and no decorative filler.
+
+SCENE MESSAGE:
+The three-account system protects money immediately on payday.
+
+CONNECTED VISUAL STORY:
+A strong stream of gold euro coins enters from the foreground and reaches one large integrated three-way financial junction in the center. The junction sends the money through three clearly connected emerald paths toward a house-shaped fixed-cost vault, a protected reserve safe with a shield and four compact weekly spending compartments. The three destinations are built into the same studio floor and architecture, not placed on separate floating platforms. The fixed-cost and reserve paths glow protected green; only the weekly-spending path remains openly accessible.
+
+PRIMARY OBJECTS:
+1. central salary stream and integrated three-way junction
+2. house-shaped fixed-cost vault
+3. shielded reserve safe
+4. four weekly spending compartments
+
+READABILITY:
+The viewer must understand salary divided into three protected purposes within one second on a smartphone. Make the central junction large, bold and visually dominant.

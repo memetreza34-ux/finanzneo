@@ -1,122 +1,164 @@
 FINANZNEO — DREI-KONTEN-SYSTEM
-ALLE BILDPROMPTS
+ALLE BILDPROMPTS — IMAGE WORLD V3
 
-Reihenfolge: Cover, Szene 01, 02, 03, 05, 07, 10. Die vier übrigen Szenen sind native Remotion-Animationen.
+Reihenfolge: Cover, Szene 01, 02, 03, 05, 07, 10.
+Die vier übrigen Szenen sind native Remotion-Animationen.
+
+========================================================================
+VERBINDLICHER WELTBLOCK FÜR JEDES BILD
+========================================================================
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+USE STYLE REFERENCE:
+Use `03-szenen/bildwelt-referenz.png` only as a style and environment reference. Match its camera angle, 35mm-equivalent perspective, camera height, curved charcoal studio architecture, matte floor, emerald architectural light channels, lighting, materials, depth and subject scale. Do not redesign the world.
+
+SERIES CONTINUITY LOCK:
+Every image must look like another frame from exactly the same FinanzNeo studio.
+
+ENVIRONMENT:
+Create one connected premium finance-explainer environment with a visible matte floor, a curved charcoal back wall, integrated emerald light channels and subtle architectural depth. Never show an isolated object in an empty black void. Use three depth layers: supporting foreground, explanatory midground action and quiet architectural background.
+
+COMPOSITION LOCK:
+Vertical 9:16 source image. The complete main action sits inside the central 64 percent of the image height and fills approximately 68 to 78 percent of the usable width. Keep the upper 18 percent and lower 18 percent crop-safe and low-detail, but continue the same studio wall, floor and lighting there instead of leaving blank black space.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image. Remotion renders all typography and validated values.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no isolated floating product, no floating platform, no different camera angle, no different color palette, no blue or purple neon world, no photorealism, no cartoon, no Pixar, no clay style, no dashboard, no app UI, no advertising layout, no random particles and no decorative filler.
+
+Apply this complete world block to every prompt below.
 
 ========================================================================
 COVER
 ========================================================================
 
-MESSAGE:
-A powerful cover image for the three-account system.
+SCENE MESSAGE:
+The three-account system protects money immediately on payday.
 
-SCENE:
-Show one dramatic salary stream of euro coins hitting a central three-way divider and flowing into three large connected destinations: a house-shaped fixed-cost vault, a shielded reserve safe and four weekly spending boxes. Make the splitter and protected money flow large, bold and instantly understandable. Leave the upper third calm for a later headline, but do not generate the headline inside the image.
+CONNECTED VISUAL STORY:
+A strong stream of gold euro coins enters from the foreground and reaches one large integrated three-way financial junction in the center. The junction sends the money through three clearly connected emerald paths toward a house-shaped fixed-cost vault, a protected reserve safe with a shield and four compact weekly spending compartments. The three destinations are built into the same studio floor and architecture, not placed on separate floating platforms. The fixed-cost and reserve paths glow protected green; only the weekly-spending path remains openly accessible.
 
-TEXT IN IMAGE:
-No text.
+PRIMARY OBJECTS:
+1. central salary stream and integrated three-way junction
+2. house-shaped fixed-cost vault
+3. shielded reserve safe
+4. four weekly spending compartments
 
-STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no text, no split background, no floating platform, no unrelated icons, no excessive particles.
-
-========================================================================
-SZENE 01
-Zielordner: 03-szenen/EINZELNE-SZENEN/scene-01/
-========================================================================
-
-MESSAGE:
-One mixed account hides reserved money.
-
-SCENE:
-Show one dominant transparent account vault filled with euro coins. Different parts of the same pile are visibly tied to rent, annual bills and reserves, while a generic hand reaches toward all coins as if they were freely spendable. The misunderstanding must be obvious immediately.
-
-TEXT IN IMAGE:
-No text.
-
-STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no text, no split background, no floating platform, no unrelated icons, no excessive particles.
+READABILITY:
+The viewer must understand salary divided into three protected purposes within one second. Make the central junction large, bold and visually dominant.
 
 ========================================================================
-SZENE 02
-Zielordner: 03-szenen/EINZELNE-SZENEN/scene-02/
+SZENE 01 — GEMISCHTES KONTO
 ========================================================================
 
-MESSAGE:
-The amount may be sufficient while the organization is still wrong.
+SCENE MESSAGE:
+One mixed account makes already reserved money look freely spendable.
 
-SCENE:
-Show a healthy salary stream entering one large undivided container. Inside, fixed-cost money, reserve money and shopping money are mixed without barriers. The container should look reassuring at first but structurally confusing on closer inspection.
+CONNECTED VISUAL STORY:
+Show one large transparent account reservoir built into the studio floor and filled with a single visually unified pile of gold euro coins. Subtle physical commitment lines run from parts of the same pile toward a house obligation, an annual-bill calendar object and a protected reserve shield in the background. At the front, one open spending chute reaches toward the entire pile as though all coins were available. The conflict must be obvious: one visible total pile, but several parts are already committed.
 
-TEXT IN IMAGE:
-No text.
+PRIMARY OBJECTS:
+1. dominant mixed-account reservoir
+2. one unified coin pile
+3. three quiet commitment connections
+4. one open spending chute incorrectly reaching the whole pile
 
-STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no text, no split background, no floating platform, no unrelated icons, no excessive particles.
-
-========================================================================
-SZENE 03
-Zielordner: 03-szenen/EINZELNE-SZENEN/scene-03/
-========================================================================
-
-MESSAGE:
-A single account balance combines committed and free money.
-
-SCENE:
-Show one large account balance above a coin reservoir. One portion is physically connected to a home, electricity and insurance obligations, while the smaller free portion remains loose. Make the difference between total balance and real free budget unmistakable through physical separation, scale and color only.
-
-TEXT IN IMAGE:
-No text.
-
-STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for committed obligations. Keep the top 18 percent and bottom 22 percent visually calm for Remotion overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no letters, no numbers, no labels, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+READABILITY:
+Do not show separate accounts or the solved three-way system.
 
 ========================================================================
-SZENE 05
-Zielordner: 03-szenen/EINZELNE-SZENEN/scene-05/
+SZENE 02 — EINKOMMEN REICHT, ORGANISATION FALSCH
 ========================================================================
 
-MESSAGE:
-Account one protects every fixed debit before spending begins.
+SCENE MESSAGE:
+The income can be sufficient while the organization of the money is still wrong.
 
-SCENE:
-Show a secure house-shaped vault receiving four clearly different obligation objects representing rent, electricity, insurance and contracts. A shopping cart remains outside a transparent protective barrier. The fixed-cost vault must be the clear focal point and the separation from optional spending must be obvious without labels.
+CONNECTED VISUAL STORY:
+Show a healthy substantial salary stream entering one single oversized undivided account container. Inside the same container, money for housing, annual obligations, reserves and everyday purchases is visibly mixed together without walls, lanes, compartments or protected zones. The container should look financially healthy because it contains enough money, yet structurally confusing because every purpose occupies the same unrestricted space.
 
-TEXT IN IMAGE:
-No text.
+PRIMARY OBJECTS:
+1. strong salary stream
+2. one large undivided account container
+3. one mixed mass of money with several hidden purposes
+4. one open spending exit
 
-STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for blocked spending. Keep the top 18 percent and bottom 22 percent visually calm for Remotion overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no letters, no numbers, no labels, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
-
-========================================================================
-SZENE 07
-Zielordner: 03-szenen/EINZELNE-SZENEN/scene-07/
-========================================================================
-
-MESSAGE:
-Account two protects emergencies and planned purchases.
-
-SCENE:
-Show a shielded reserve safe holding emergency cash, a repair tool and one planned future purchase. Outside the shield, an unexpected repair warning approaches but cannot disturb the separate everyday spending area. Make protection and preparation obvious without any labels.
-
-TEXT IN IMAGE:
-No text.
-
-STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for external risk. Keep the top 18 percent and bottom 22 percent visually calm for Remotion overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no letters, no numbers, no labels, no paragraph text, no split background, no floating platform, no unrelated icons, no excessive particles.
+READABILITY:
+Absolutely no three-way splitter, no separate accounts, no divided boxes and no solved system.
 
 ========================================================================
-SZENE 10
-Zielordner: 03-szenen/EINZELNE-SZENEN/scene-10/
+SZENE 03 — KONTENSTAND-ILLUSION
 ========================================================================
 
-MESSAGE:
-The complete system protects money on payday.
+SCENE MESSAGE:
+The visible account balance is larger than the money that is actually free to spend.
 
-SCENE:
-Show a resolved final overview with three connected areas: fixed costs protected, reserves protected, and only the current weekly budget open for spending. A subtle emerald shield surrounds the system. The scene must feel controlled, practical and calm.
+CONNECTED VISUAL STORY:
+Create one central account reservoir with one large total pile of gold coins. Most of the pile is physically anchored by restrained red commitment cables to a house, an electricity unit and an insurance shield. Only a clearly smaller group of loose coins remains accessible through a green weekly-spending path. Use scale, connection and color to show large total balance versus small real free budget without text or numbers.
 
-TEXT IN IMAGE:
-No text.
+PRIMARY OBJECTS:
+1. total account reservoir
+2. large committed portion
+3. much smaller loose free portion
+4. accessible weekly-spending path
 
-STYLE AND TECHNICAL REQUIREMENTS:
-Create a premium stylized 3D editorial finance illustration for a modern German financial education channel. Vertical 9:16, 1080x1920. One seamless deep green-black environment, bold central subject, simplified rounded premium geometry, soft bevelled edges, controlled reflections, strong studio lighting, emerald and mint for protected money, restrained gold for money and red only for risk. Keep the top 18 percent and bottom 22 percent visually calm for overlays. No photorealism, no real people, no Pixar, no clay style, no flat dashboard, no app UI, no logos, no watermark, no text, no split background, no floating platform, no unrelated icons, no excessive particles.
+READABILITY:
+Do not show a reserve safe or the final three-account solution.
+
+========================================================================
+SZENE 05 — FIXKOSTEN
+========================================================================
+
+SCENE MESSAGE:
+Account one protects fixed costs before optional spending begins.
+
+CONNECTED VISUAL STORY:
+Build one large house-shaped fixed-cost vault directly into the central studio floor. Four clear obligation streams enter the vault, represented through housing, electricity, insurance and recurring-contract objects without text. A transparent emerald protection barrier closes around the vault. A shopping cart and optional-spending path stop outside and cannot access the protected money.
+
+PRIMARY OBJECTS:
+1. dominant house-shaped fixed-cost vault
+2. four connected obligation streams
+3. emerald protection barrier
+4. shopping cart blocked outside
+
+READABILITY:
+No generated labels or account names.
+
+========================================================================
+SZENE 07 — RÜCKLAGE
+========================================================================
+
+SCENE MESSAGE:
+Account two protects emergencies and planned future purchases.
+
+CONNECTED VISUAL STORY:
+Create one large reserve safe integrated into the studio architecture and surrounded by a calm emerald shield. Inside, show protected cash, one repair tool and one neutral future-purchase object. A restrained red unexpected-repair warning approaches but is absorbed by the shield. A separate everyday-spending path continues undisturbed in the foreground.
+
+PRIMARY OBJECTS:
+1. integrated reserve safe
+2. protected reserve money and preparation objects
+3. emerald shield
+4. incoming unexpected expense being absorbed
+
+READABILITY:
+No account labels, words, numbers or fixed-cost house.
+
+========================================================================
+SZENE 10 — FERTIGES SYSTEM
+========================================================================
+
+SCENE MESSAGE:
+The completed three-account system protects money directly on payday.
+
+CONNECTED VISUAL STORY:
+Show one resolved connected system built into the same studio floor. A central salary channel has divided into a protected fixed-cost house vault, a protected reserve safe and one accessible weekly-spending zone with four compact compartments. A broad subtle emerald shield surrounds the organized system while the spending zone remains intentionally open. Use calm balanced architecture and clean connected paths.
+
+PRIMARY OBJECTS:
+1. central salary junction
+2. protected fixed-cost vault
+3. protected reserve safe
+4. accessible four-part weekly budget zone
+
+READABILITY:
+No labels, account numbers, text or dashboard elements.
