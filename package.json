@@ -13,6 +13,7 @@
     "reel:validate": "node scripts/validate-reel-source-contract.mjs",
     "assets:drei-konten": "node scripts/sync-drei-konten-assets.mjs",
     "assets:notgroschen": "node scripts/sync-notgroschen-assets.mjs",
+    "antigravity:safety": "node scripts/antigravity-repo-safety-check.mjs",
     "validate:compositions": "node scripts/validate-compositions.mjs",
     "validate:design-system": "node scripts/validate-design-system.mjs",
     "validate:finance": "node scripts/validate-finance.mjs",
