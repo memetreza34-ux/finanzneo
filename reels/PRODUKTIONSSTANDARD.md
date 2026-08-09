@@ -32,19 +32,26 @@ Verboten:
 - Bilddateien in einer Remotion-Szene
 - mehr als ein finales Bild in einer Bildszene
 
-## 2. Zentraler Bilder-Eingang und verbindliche Nummerierung
+## 2. Google Flow: Einzelbild-Erzeugung, Benennung und Sammelordner
 
-Jedes neue Reel besitzt zusätzlich:
-
-```text
-03-szenen/BILDER-EINGANG/
-```
-
-Der Nutzer muss fertige Bilder nicht mehr manuell auf einzelne Szenenordner verteilen. Alle Bilder dürfen gesammelt in diesen Ordner gelegt werden.
+Für Google Flow gilt ein eigener verbindlicher Ablauf. Dieser Abschnitt gilt **ausschließlich für den Google-Flow-KI-Agenten**, nicht für Codex, Antigravity oder andere Agenten.
 
 ### Grundregel
 
-Die Bildnummer entspricht **immer exakt der echten chronologischen Szenennummer im Reel**.
+Google Flow erzeugt immer genau **ein einziges benötigtes Bild** nach dem anderen.
+
+```text
+1 Bild generieren
+→ sofort endgültig umbenennen
+→ genau dieses Bild prüfen
+→ erst dann das nächste Bild generieren
+```
+
+Google Flow darf niemals mehrere neue Bilder gleichzeitig erzeugen und sie später gesammelt umbenennen.
+
+### Verbindliche Nummerierung
+
+Die Bildnummer entspricht immer exakt der echten chronologischen Szenennummer im Reel.
 
 ```text
 Bild 00 → Cover
@@ -54,7 +61,7 @@ Bild 03 → Szene 03
 ...
 ```
 
-Die Nummer ist **nicht** die laufende Nummer der erzeugten Bilddateien.
+Die Nummer ist **nicht** die laufende Nummer der tatsächlich erzeugten Bilddateien.
 
 ### Animationsszenen erzeugen Lücken
 
@@ -68,11 +75,11 @@ Szene 02 = Animation → kein Bild 02
 Szene 03 = Bild      → Bild 03.png
 ```
 
-In diesem Beispiel ist `Bild 02.png` für Szene 03 ausdrücklich falsch.
+`Bild 03` ist hier zwar das zweite tatsächlich erzeugte Szenenbild, heißt aber trotzdem `Bild 03`, weil es zu Szene 03 gehört. `Bild 02` wäre ausdrücklich falsch.
 
-Die KI darf Bildnummern niemals nach der Anzahl bereits generierter Bilder weiterzählen. Maßgeblich ist ausschließlich die Szenennummer aus `03-szenen/scene-index.json`.
+Maßgeblich ist ausschließlich die echte Szenennummer aus `03-szenen/scene-index.json`.
 
-### Pflichtblock am Ende aller Sammel-Bildprompts
+### Pflichtblock am Ende von `alle-bildprompts.txt`
 
 Jede Datei
 
@@ -80,83 +87,48 @@ Jede Datei
 03-szenen/alle-bildprompts.txt
 ```
 
-endet mit einer eindeutigen Dateinamen-Anweisung für genau dieses Reel. Sie muss enthalten:
+endet mit einer ausdrücklichen Google-Flow-Anweisung für genau dieses Reel. Sie muss enthalten:
 
+- Einzelbild-Schleife: `GENERIEREN → SOFORT UMBENENNEN → PRÜFEN → NÄCHSTES BILD`
 - Cover = `Bild 00`
 - jede echte Bildszene mit ihrer exakten Szenennummer
-- jede Remotion-Szene als ausdrücklich reservierte Nummer ohne Bild
-- den Hinweis, Bildszenen niemals lückenlos neu durchzunummerieren
-- den Zielordner `03-szenen/BILDER-EINGANG/`
-- den Hinweis, `scene-index.json` als alleinige Nummerierungsquelle zu verwenden
+- jede Remotion-Szene als reservierte Nummer ohne Bild
+- einen konkreten endgültigen Dateinamen je benötigtem Bild
+- den Hinweis, Animationslücken niemals zu schließen oder neu durchzunummerieren
+- die vollständige erwartete Dateiliste für genau dieses Reel
+- den finalen Google-Flow-Sammelordner `00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
 
-### Google-Flow-Agent: verbindliche 3-Schritt-Schleife
+### Verbindlicher Ablauf pro einzelnes Bild
 
-Dieser Unterpunkt gilt **ausschließlich für den Google-Flow-KI-Agenten**, nicht für Codex, Antigravity oder andere Agenten.
+Für jedes benötigte Bild gilt:
 
-Am Ende jeder `03-szenen/alle-bildprompts.txt` muss für Google Flow zusätzlich ausdrücklich stehen:
+1. **Generieren:** genau das Cover oder genau die aktuelle echte Bildszene mit dem zugehörigen Prompt und derselben `bildwelt-referenz.png` erzeugen. Nur ein Bild gleichzeitig.
+2. **Sofort umbenennen:** unmittelbar nach der Generierung den endgültigen Namen vergeben: `Bild XX - Kurzer Szenenname.png`.
+3. **Prüfen:** Motiv, echte Szenennummer, Szenenname, Dateiname, Textfreiheit und Bildwelt prüfen.
+4. **Erst danach weiter:** nur wenn dieses eine Bild vollständig korrekt ist, darf das nächste benötigte Bild generiert werden.
 
-```text
-GENERIEREN → SOFORT UMBENENNEN → PRÜFEN → NÄCHSTES BILD
-```
+Wenn ein Bild falsch ist, wird genau dieses Bild korrigiert oder neu generiert, erneut korrekt benannt und erneut geprüft, bevor Google Flow fortfährt.
 
-Google Flow arbeitet Bild für Bild und darf nicht erst alle Bilder erzeugen und sie erst später gesammelt umbenennen.
+### Sammeln erst ganz am Ende
 
-Für jedes einzelne benötigte Bild gilt:
+Erst wenn Cover und **alle** benötigten Bildszenen einzeln vollständig generiert, endgültig benannt und geprüft sind, erfolgt die Abschlussprüfung:
 
-1. **Generieren:** genau das Cover oder genau die aktuelle echte Bildszene mit der gemeinsamen `bildwelt-referenz.png` erzeugen. Animationsszenen erzeugen kein Bild.
-2. **Sofort umbenennen:** unmittelbar nach erfolgreicher Generierung den endgültigen Dateinamen vergeben: `Bild XX - Kurzer Szenenname.png`. `XX` ist immer die echte Szenennummer.
-3. **Prüfen:** Motiv, echte Szenennummer, Szenenname und Textfreiheit des Bildes prüfen. Erst wenn alles stimmt, darf Google Flow das nächste Bild generieren.
+- keine erwartete Bilddatei fehlt
+- keine Bildnummer doppelt
+- keine Bildnummer vertauscht
+- jedes Bild gehört zur richtigen echten Szene
+- Animationsszenen wurden ausgelassen
+- Lücken durch Animationsszenen wurden nicht geschlossen
 
-Diese drei Schritte werden wiederholt, bis Cover und alle echten Bildszenen vollständig generiert, korrekt benannt und geprüft sind.
-
-**Erst nachdem alle Bilder fertig sind**, darf der Google-Flow-Agent die bereits final benannten Dateien gemeinsam in `03-szenen/BILDER-EINGANG/` legen. Der Sammelordner ist für Google Flow ausdrücklich der letzte Schritt der Bildproduktion.
-
-Animationsszenen bleiben bei der Nummerierung reserviert. Beispiel:
-
-```text
-Szene 01 = Bild      → Bild 01 - <Szenenname>.png
-Szene 02 = Animation → kein Bild 02
-Szene 03 = Bild      → Bild 03 - <Szenenname>.png
-```
-
-`Bild 02` darf in diesem Beispiel niemals als Name für Szene 03 verwendet werden.
-
-Nummer und Szenenname gehören ausschließlich in den Dateinamen beziehungsweise in die Google-Flow-Ausgabebezeichnung. Sie dürfen niemals als sichtbarer Text in das generierte Bild geschrieben werden.
-
-Akzeptierte Beispiele für Dateien:
+Erst danach legt Google Flow alle fertigen Bilder gemeinsam in:
 
 ```text
-Bild 00.png
-bild01.jpg
-image_04.webp
-09.png
+00-bildprompts/00-ALLE-BILDER-HIER-REIN/
 ```
 
-Danach wird zuerst geprüft:
+Google Flow verteilt diese Bilder **nicht** auf einzelne Szenenordner. Die weitere technische Einsortierung ist nicht Teil der Google-Flow-Bildaufgabe.
 
-```bash
-npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel> --dry-run
-```
-
-und erst danach tatsächlich einsortiert:
-
-```bash
-npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
-```
-
-Sicherheitsregeln:
-
-- Das Skript prüft zuerst den gesamten Eingang und verschiebt erst danach.
-- Bei einem Fehler wird kein einziges Bild verschoben.
-- Eine Nummer darf nur einmal vorkommen.
-- `00` ist ausschließlich das Cover.
-- Bilder dürfen nur einer laut `scene-index.json` als `image` markierten Szene zugeordnet werden.
-- Ein Bild für eine Remotion-Szene wird abgelehnt.
-- Bestehende Cover- oder Szenenbilder werden niemals überschrieben.
-- Nicht eindeutig nummerierte Bilder bleiben im Eingang und führen zu einem klaren Fehler.
-- Nach erfolgreichem Sortieren arbeitet die restliche Produktion ausschließlich mit den einsortierten Zielbildern.
-
-Die KI beziehungsweise der Agent soll diese Sortierung selbst ausführen. Der Nutzer soll nur noch alle Bilder gesammelt in `BILDER-EINGANG` ablegen müssen.
+Nummer, Szenenname und Dateiname gehören ausschließlich in den Dateinamen beziehungsweise die Ausgabebezeichnung. Sie dürfen niemals sichtbar in das generierte Bild geschrieben werden.
 
 ## 3. FinanzNeo Image World V3
 
@@ -328,7 +300,6 @@ npm run reel:create -- \
 
 Der Scaffolder erzeugt die Produktionsstruktur inklusive:
 
-- `03-szenen/BILDER-EINGANG/`
 - `alle-bildprompts.txt` mit verbindlichem Nummerierungsblock am Ende
 - `bildwelt.txt`
 - Weltmetadaten im `scene-index.json`
@@ -336,7 +307,11 @@ Der Scaffolder erzeugt die Produktionsstruktur inklusive:
 - Bilddarstellungswerte
 - Caption-, Timing- und Audioverträge
 
-Für neue Reels muss der Agent den Google-Flow-3-Schritt-Block am Ende von `alle-bildprompts.txt` vollständig ausfüllen, einschließlich der konkreten Dateinamen für Cover und jede echte Bildszene dieses Reels.
+Für jedes neue Reel muss `alle-bildprompts.txt` am Ende den vollständigen **Google-Flow-Einzelbild-Block** enthalten, einschließlich der konkreten endgültigen Dateinamen für Cover und jede echte Bildszene sowie des finalen Sammelordners:
+
+```text
+00-bildprompts/00-ALLE-BILDER-HIER-REIN/
+```
 
 ## 15. Automatische Prüfung
 
@@ -358,5 +333,3 @@ Der Validator prüft unter anderem:
 - mindestens 250 px untere Safe-Area
 - Satzanfänge als Schnittgrundlage
 - Audio-Zielmetadaten
-
-Vor Asset-Sync oder Render muss der Agent außerdem den Bilder-Eingang prüfen und gegebenenfalls automatisch sortieren.
