@@ -2,22 +2,23 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 10 - Notgroschen wieder auffuellen.png`
 
 WICHTIG:
-Erzeuge ausschließlich dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv + Text + Dateiname prüfen. Der Dateiname selbst darf NICHT im Bild stehen.
+Erzeuge nur dieses eine Bild. Danach sofort umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
 
 BILDSTIL:
-Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic everyday objects with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray environment. FinanzNeo green = Schutz/Erholung, gold = Geld. No dark background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating platform, no Pixar, no clay.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`PUFFER WIEDER AUFFÜLLEN`
+Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, Gold für Geld. Große klare Objekte, kein Miniatur-Diorama, kein Tunnel, kein Sci-Fi-Korridor.
 
 TEXTREGEL:
-Groß, fett, moderne Sans-Serif-Schrift im oberen Drittel. Exakt dieser deutsche Text, keine weiteren Wörter oder Zahlen, keine Schreibfehler.
+Keine Überschrift. Kein Untertitel. Kein Satz. Nur kurze deutsche Objekt-Beschriftungen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- an der teilweise geleerten Reserve: `Entnahme`
+- an den neu einfließenden Sparbeträgen: `Auffüllen`
 
 SZENENINHALT:
-Zeige die reparierte Waschmaschine wieder funktionsfähig. Daneben steht die transparente Notgroschen-Reserve nach der Ausgabe sichtbar teilweise geleert. Eine klare Reihe kleiner goldener Sparbeträge fließt wieder in die Reserve, bis ein FinanzNeo-grünes Schutzschild sichtbar stärker und vollständig wird. Die Szene soll optimistisch und kontrolliert wirken.
+Reparierte Waschmaschine funktioniert wieder. Daneben steht die transparente Notgroschen-Reserve sichtbar teilweise geleert. Kleine goldene Sparbeträge fließen wieder hinein und das FinanzNeo-grüne Schutzschild wird sichtbar vollständig.
 
 BILDAUSSAGE:
-Nach einem echten Notfall wird der benutzte Notgroschen Schritt für Schritt wieder aufgefüllt.
+Nach einem echten Notfall wird der benutzte Puffer Schritt für Schritt wieder aufgebaut.
 
 KOMPOSITION:
-Reparierte Waschmaschine links, teilweise geleerte Reserve zentral, wieder einfließendes Geld und grünes Schutzschild rechts. Große klare Elemente, heller Hintergrund, kein abstraktes Netzwerk.
+Waschmaschine, Reserve und einfließendes Geld groß und klar. `Entnahme` und `Auffüllen` direkt an den passenden Objekten, niemals als Headline.
