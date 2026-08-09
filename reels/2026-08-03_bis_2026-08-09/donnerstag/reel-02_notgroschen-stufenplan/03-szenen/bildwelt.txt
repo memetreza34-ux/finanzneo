@@ -1,21 +1,27 @@
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-VERBINDLICHER LOOK:
-Premium stylized 3D CGI finance illustration. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look mit kontrolliertem smaragdgrünem Licht, weichen Bodenschatten und hochwertiger Materialwirkung. Gold nur für Geld/Wert, Rot nur für Risiko/Schulden/Verlust. Große zentrale Motive, keine kleinen Dioramen, keine Neon-Tunnel, keine Sci-Fi-Korridore, kein Pixar, kein Clay.
+VERBINDLICHER REFERENZSTIL
 
-KOMPOSITION:
-Vertical 9:16. Ein großes dominantes Hauptmotiv, ungefähr 65–85 % der nutzbaren Breite. Maximal 3–5 klare Hauptelemente. Das Motiv muss auf Smartphone-Größe sofort verständlich sein.
+Use this exact visual language for every generated image in this reel:
 
-TEXTREGEL:
-NIEMALS Überschrift.
-NIEMALS Untertitel.
-NIEMALS ganzer Satz.
+Premium fintech editorial 3D render style. Deep charcoal green-black background. Vivid emerald and mint-green accents. Gold only for euro coins, cash and financial value. Warm red-orange glow only for loss, debt, danger or blocked money.
 
-Erlaubt sind nur kurze deutsche Objekt-Beschriftungen, meist 1–3 Wörter, direkt am passenden Objekt, klein bis mittelgroß und nicht wie eine Headline.
+Use smooth rounded 3D geometry, soft bevelled edges, premium matte and glass materials, confident high-contrast studio lighting and a bold emerald rim light. The result should feel like a polished modern fintech editorial illustration, not a miniature environment or game level.
 
-Beispiele: Notgroschen, Reparatur, Dispo, Ratenzahlung, Tagesgeld, Notfall, Konsum, 500 €, Auffüllen.
+The image should normally contain ONE dominant visual metaphor and only a few supporting elements. A stylized anonymous 3D adult person may be used when it improves the explanation. The person must look like a designed 3D editorial character, never photorealistic and never like a real identifiable human.
 
-Keine englischen Wörter, keine Fantasietexte, keine zusätzlichen Labels, keine Logos, keine Wasserzeichen, keine App-UI.
+TEXT RULE:
+No headline. No subtitle. No explanatory sentence. Use only 1–3 short German object labels placed directly near the object they describe. Labels are small to medium sized, clean sans-serif, white or light gray, and never dominate the composition.
 
-COVER:
-Auch das Cover hat keine klassische Überschrift. Das Thema wird über Objekt-Beschriftungen vermittelt, zum Beispiel `Notgroschen` an der Reserve sowie `Stufe 1`, `Stufe 2`, `Stufe 3` an drei sichtbaren Stufen.
+COMPOSITION LOCK:
+Vertical 9:16.
+The top 15 percent of the image must be completely empty dark negative space.
+The bottom 25 percent of the image must also be completely empty, dark and uncluttered negative space.
+Keep the main visual story in the middle 60 percent.
+Use one clear focal object, large enough to read immediately on a phone.
+
+DO NOT USE:
+No photorealism. No real humans. No UI dashboards. No app screens. No tiny isometric diorama. No neon tunnel. No sci-fi corridor. No many-room studio architecture. No miniature game level. No clutter. No giant headline typography. No full sentence inside the image. No random labels.
+
+QUALITY REFERENCE:
+The intended style is comparable to: a stylized 3D person standing beside one large visual metaphor such as an hourglass filled with glowing euro coins, with short labels like `Wartezeit` and `Verlorene Zinsen`, deep charcoal green-black background, emerald rim light, warm red-orange loss accent, and large clean negative space above and below.
