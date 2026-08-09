@@ -89,6 +89,40 @@ endet mit einer eindeutigen Dateinamen-Anweisung für genau dieses Reel. Sie mus
 - den Zielordner `03-szenen/BILDER-EINGANG/`
 - den Hinweis, `scene-index.json` als alleinige Nummerierungsquelle zu verwenden
 
+### Google-Flow-Agent: verbindliche 3-Schritt-Schleife
+
+Dieser Unterpunkt gilt **ausschließlich für den Google-Flow-KI-Agenten**, nicht für Codex, Antigravity oder andere Agenten.
+
+Am Ende jeder `03-szenen/alle-bildprompts.txt` muss für Google Flow zusätzlich ausdrücklich stehen:
+
+```text
+GENERIEREN → SOFORT UMBENENNEN → PRÜFEN → NÄCHSTES BILD
+```
+
+Google Flow arbeitet Bild für Bild und darf nicht erst alle Bilder erzeugen und sie erst später gesammelt umbenennen.
+
+Für jedes einzelne benötigte Bild gilt:
+
+1. **Generieren:** genau das Cover oder genau die aktuelle echte Bildszene mit der gemeinsamen `bildwelt-referenz.png` erzeugen. Animationsszenen erzeugen kein Bild.
+2. **Sofort umbenennen:** unmittelbar nach erfolgreicher Generierung den endgültigen Dateinamen vergeben: `Bild XX - Kurzer Szenenname.png`. `XX` ist immer die echte Szenennummer.
+3. **Prüfen:** Motiv, echte Szenennummer, Szenenname und Textfreiheit des Bildes prüfen. Erst wenn alles stimmt, darf Google Flow das nächste Bild generieren.
+
+Diese drei Schritte werden wiederholt, bis Cover und alle echten Bildszenen vollständig generiert, korrekt benannt und geprüft sind.
+
+**Erst nachdem alle Bilder fertig sind**, darf der Google-Flow-Agent die bereits final benannten Dateien gemeinsam in `03-szenen/BILDER-EINGANG/` legen. Der Sammelordner ist für Google Flow ausdrücklich der letzte Schritt der Bildproduktion.
+
+Animationsszenen bleiben bei der Nummerierung reserviert. Beispiel:
+
+```text
+Szene 01 = Bild      → Bild 01 - <Szenenname>.png
+Szene 02 = Animation → kein Bild 02
+Szene 03 = Bild      → Bild 03 - <Szenenname>.png
+```
+
+`Bild 02` darf in diesem Beispiel niemals als Name für Szene 03 verwendet werden.
+
+Nummer und Szenenname gehören ausschließlich in den Dateinamen beziehungsweise in die Google-Flow-Ausgabebezeichnung. Sie dürfen niemals als sichtbarer Text in das generierte Bild geschrieben werden.
+
 Akzeptierte Beispiele für Dateien:
 
 ```text
@@ -301,6 +335,8 @@ Der Scaffolder erzeugt die Produktionsstruktur inklusive:
 - vollständige V3-Promptstruktur pro Bildszene
 - Bilddarstellungswerte
 - Caption-, Timing- und Audioverträge
+
+Für neue Reels muss der Agent den Google-Flow-3-Schritt-Block am Ende von `alle-bildprompts.txt` vollständig ausfüllen, einschließlich der konkreten Dateinamen für Cover und jede echte Bildszene dieses Reels.
 
 ## 15. Automatische Prüfung
 
