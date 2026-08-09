@@ -38,20 +38,23 @@ Default target: 10 scenes with 6 Image World V3 scenes and 4 native Remotion ani
 4. Otherwise use Antigravity's integrated generative-image tool and record the real tool/model in `05-review/image-generation-report.md`.
 5. Generate each final image from its scene prompt while attaching the same world reference.
 6. No text, numbers, labels, logos, UI, web images or stock images.
-7. Save every generated final image first into `03-szenen/BILDER-EINGANG/` with its destination number:
-   - `Bild 00` = Cover
-   - `Bild 01` = Szene 01
-   - `Bild 02` = Szene 02
-   - usw.
-8. Do not manually drag files into individual scene folders.
-9. Inspect all generated images side by side and regenerate inconsistent images before sorting.
-10. Run a dry run first:
+7. Read the final naming block at the END of `03-szenen/alle-bildprompts.txt` before saving any image.
+8. Save every generated final image first into `03-szenen/BILDER-EINGANG/` using the REAL reel position:
+   - `Bild 00` = Cover.
+   - `Bild 01` = Szene 01.
+   - `Bild 02` = Szene 02.
+   - usw. bis zur letzten Szene.
+9. **Never renumber only the image scenes consecutively.** A Remotion animation keeps its scene number but gets no image file. Example: Szene 01 image → `Bild 01`; Szene 02 animation → no `Bild 02`; Szene 03 image → `Bild 03`, never `Bild 02`.
+10. `scene-index.json` is the authority. Never infer a number from how many images have already been generated.
+11. Do not manually drag files into individual scene folders.
+12. Inspect all generated images side by side and regenerate inconsistent images before sorting.
+13. Run a dry run first:
 
 ```bash
 npm run reel:sort-images -- <REEL-ORDNER> --dry-run
 ```
 
-11. If the mapping is correct, run:
+14. If the mapping is correct, run:
 
 ```bash
 npm run reel:sort-images -- <REEL-ORDNER>
