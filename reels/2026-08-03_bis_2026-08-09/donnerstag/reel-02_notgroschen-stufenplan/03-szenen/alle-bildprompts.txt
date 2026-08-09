@@ -1,37 +1,28 @@
 FINANZNEO — NOTGROSCHEN IN DREI STUFEN
-ALLE BILDPROMPTS FÜR GOOGLE FLOW — NEUER QUALITÄTSSTIL
+ALLE BILDPROMPTS FÜR GOOGLE FLOW
 
 GOOGLE FLOW KI-AGENT – VERBINDLICHER ABLAUF
 
-1. Arbeite diese Datei streng von oben nach unten ab.
-2. Erzeuge IMMER genau EIN Bild gleichzeitig.
-3. Bei JEDEM Bild steht der endgültige Dateiname direkt am Prompt.
-4. Ablauf pro Bild:
-   PROMPT LESEN → GENAU 1 BILD GENERIEREN → SOFORT UMBENENNEN → MOTIV + TEXT + DATEINAME PRÜFEN → ERST DANN NÄCHSTES BILD.
-5. Animationsszenen werden übersprungen. Ihre Nummer bleibt trotzdem reserviert.
-6. Bildnummer = echte Szenennummer. Niemals nach Anzahl der erzeugten Bilder neu nummerieren.
-7. Der Dateiname darf NICHT als sichtbarer Text im Bild erscheinen.
-8. Der im jeweiligen Prompt ausdrücklich angegebene DEUTSCHE BILDTEXT MUSS dagegen sichtbar im Bild stehen.
-9. Keine englischen Wörter, keine zufälligen Labels, keine Fantasieschrift und keine zusätzlichen Zahlen.
-10. Erst wenn alle benötigten Bilder fertig, korrekt benannt und geprüft sind, alle gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` legen.
+1. Arbeite streng von oben nach unten.
+2. Erzeuge immer GENAU EIN Bild.
+3. Sofort danach mit dem direkt am Prompt angegebenen Dateinamen umbenennen.
+4. Motiv, kurze deutsche Beschriftungen und Dateiname prüfen.
+5. Erst danach das nächste Bild erzeugen.
+6. Animationsszenen überspringen; ihre echte Szenennummer bleibt reserviert.
+7. Bildnummer = echte Szenennummer, niemals Anzahl der erzeugten Bilder.
+8. Erst wenn alle Bilder fertig sind, alle gemeinsam nach `03-szenen/00-ALLE-BILDER-HIER-REIN/` legen.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-NEUER VERBINDLICHER BILDSTIL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERBINDLICHE BILDWELT
 
-Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic proportions with polished stylization, crisp details, soft premium shadows, professional Social-Media-Finanzlook.
+Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, hochwertige Materialien, weiche Bodenschatten. Gold nur für Geld/Wert, Rot nur für Risiko/Schulden/Verlust. Ein großes dominantes Hauptmotiv, keine winzigen Dioramen, keine Neon-Tunnel, keine Sci-Fi-Korridore, kein Pixar, kein Clay.
 
-HINTERGRUND:
-Warm off-white, light gray or another very light neutral premium environment. FinanzNeo green may appear as clean accents/protection elements. Gold only for money/value. Red only for risk/debt/problem.
+TEXTREGEL FÜR JEDES BILD
 
-NICHT ERLAUBT:
-No dark black background, no neon tunnel, no sci-fi corridor, no green glowing tunnel world, no tiny isometric diorama, no miniature game level, no floating miniature platform, no clutter, no random dashboard, no excessive glow, no Pixar, no clay, no childish cartoon, no low-detail objects.
+NIEMALS eine Überschrift.
+NIEMALS einen Untertitel.
+NIEMALS einen ganzen Satz.
 
-KOMPOSITION:
-One large obvious hero concept per image. Main objects approximately 70–85% of usable width. Maximum 3–5 clear main elements. Must be understandable within one second on a smartphone.
-
-DEUTSCHER TEXT:
-Every final image contains exactly the short German phrase specified in its own prompt. Large modern bold sans-serif typography, high contrast, clean placement in the upper third or another calm free area. Exact spelling. No additional words.
+Nur kurze deutsche Objekt-Beschriftungen, meist 1–3 Wörter, direkt am passenden Objekt, klein bis mittelgroß. Keine englischen Wörter, keine Fantasietexte, keine zusätzlichen Labels, keine Logos oder App-UI.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 COVER
@@ -40,19 +31,12 @@ COVER
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 00 - Cover Notgroschen.png`
 
-NACH DER GENERIERUNG:
-Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach Szene 01 erzeugen.
-
-DEUTSCHER COVER-TEXT – EXAKT SO INS BILD:
-`NOTGROSCHEN`
-`IN 3 STUFEN`
+BESCHRIFTUNGEN – EXAKT SO:
+- an der zentralen Reserve: `Notgroschen`
+- an drei Stufen: `Stufe 1`, `Stufe 2`, `Stufe 3`
 
 BILDPROMPT:
-Create a premium bright vertical 9:16 3D CGI editorial finance cover. Show one large modern broken washing machine as the everyday emergency, one clearly visible unexpected repair bill and a red financial danger cue. In the center show a strong transparent emergency-reserve box containing gold money, protected by a large clean FinanzNeo-green shield. The visual story must instantly read: unexpected repair → emergency fund protects from debt.
-
-Place the exact German title `NOTGROSCHEN` and directly below it `IN 3 STUFEN` in large bold modern typography in the upper third. No other visible words or numbers.
-
-Use large crisp objects, bright off-white/light-gray premium background, subtle green accents, realistic proportions with polished stylization, commercial editorial quality. No dark neon world, no tunnel, no tiny diorama, no floating platform, no clutter.
+Große transparente Geldreserve mit goldenen Münzen als Hauptobjekt, geschützt durch ein kräftiges FinanzNeo-grünes Schild. Daneben drei klar erkennbare aufsteigende Stufen/Podeste. Eine kaputte Waschmaschine und rote Reparaturrechnung dürfen klein unterstützend zeigen, warum die Reserve gebraucht wird. Dunkler hochwertiger Tiefgrün-/Anthrazit-Look, starke grüne Kantenbeleuchtung, große klare Objekte. Die Beschriftungen stehen direkt an den passenden Objekten und wirken wie Labels, nicht wie eine Überschrift. Keine weiteren Texte.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 01 – BILDSZENE
@@ -61,20 +45,13 @@ SZENE 01 – BILDSZENE
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 01 - Defekt wird Schuldenfalle.png`
 
-NACH DER GENERIERUNG:
-Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach nächste Szene.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`OHNE PUFFER WIRD ES TEUER`
+BESCHRIFTUNGEN – EXAKT SO:
+- `Reparatur`
+- `Dispo`
+- `Ratenzahlung`
 
 BILDPROMPT:
-Create a premium bright vertical 9:16 3D CGI editorial finance illustration. Show a large broken washing machine, a clearly visible unexpected repair bill and an almost empty wallet. From one side, clear red financial danger objects approach: credit card, overdraft/debt warning and installment-payment risk. Do NOT show an emergency reserve yet.
-
-The viewer must instantly understand: a necessary unexpected repair becomes expensive and can push the household toward debt when there is no cash buffer.
-
-Place only the exact German text `OHNE PUFFER WIRD ES TEUER` in large bold modern typography in the upper third. No other visible text.
-
-Bright off-white/light-gray environment, large smartphone-readable objects, crisp premium shadows, green only for neutral FinanzNeo accents, red for risk. No dark black background, no neon tunnel, no sci-fi, no tiny diorama, no abstract financial network.
+Große kaputte Waschmaschine, sichtbare Reparaturrechnung und fast leeres Portemonnaie. Rote finanzielle Gefahren nähern sich. Noch keinen Notgroschen zeigen. `Reparatur` direkt an Rechnung/Waschmaschine, `Dispo` und `Ratenzahlung` direkt an den roten Schuldengefahren. Keine Überschrift, kein Satz.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 02 – BILDSZENE
@@ -83,28 +60,21 @@ SZENE 02 – BILDSZENE
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 02 - Notgroschen faengt Schock ab.png`
 
-NACH DER GENERIERUNG:
-Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach Szene 03 überspringen und mit Szene 04 weitermachen.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`DEIN NOTGROSCHEN SCHÜTZT DICH`
+BESCHRIFTUNGEN – EXAKT SO:
+- `Notgroschen`
+- `Reparatur`
+- `Schulden`
 
 BILDPROMPT:
-Create a premium bright vertical 9:16 3D CGI editorial finance illustration. Show the same kind of washing-machine repair problem, but now place a large transparent emergency-reserve box filled with gold money between the repair bill and the household wallet. A strong clean FinanzNeo-green shield blocks the red debt/credit-card danger. Show the repair being paid from the reserve without needing debt.
-
-The visual story must instantly read: emergency reserve absorbs the shock before debt becomes necessary.
-
-Place only the exact German text `DEIN NOTGROSCHEN SCHÜTZT DICH` in large bold modern typography in the upper third. No other visible text.
-
-Bright neutral premium environment, large hero objects, simple left-to-right logic, no dark neon world, no tunnel, no tiny diorama, no clutter.
+Große transparente Geldreserve mit goldenen Münzen zwischen Reparaturproblem und Portemonnaie. FinanzNeo-grünes Schild blockiert die rote Schuldengefahr. Zeige klar, dass die Reparatur aus der Reserve bezahlt wird. Labels direkt an Reserve, Rechnung und blockierter roter Gefahr. Keine Überschrift, kein Satz.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 03 – REMOTION-ANIMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 KEIN BILD 03 ERZEUGEN.
-Nummer 03 bleibt für Szene 03 reserviert.
-Die nächste Bildszene ist Szene 04 und heißt deshalb `Bild 04`, NICHT `Bild 03`.
+Nummer 03 bleibt reserviert.
+Nächste Bildszene = Szene 04 → `Bild 04`.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 04 – BILDSZENE
@@ -113,28 +83,20 @@ SZENE 04 – BILDSZENE
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 04 - Erster 500 Euro Puffer.png`
 
-NACH DER GENERIERUNG:
-Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach Szene 05 überspringen und mit Szene 06 weitermachen.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`ERSTES ZIEL: 500 €`
+BESCHRIFTUNGEN – EXAKT SO:
+- `500 €`
+- optional klein: `Mini-Puffer`
 
 BILDPROMPT:
-Create a premium bright vertical 9:16 3D CGI editorial finance illustration. Show a modest but clearly useful first emergency reserve: a transparent modern reserve container holding a visible manageable amount of gold money. Beside it show one smaller unexpected repair expense that this first buffer can already absorb. A much larger future reserve may be hinted softly in the background, but without any extra numbers or labels.
-
-The main message is: do not start with an intimidating giant goal; first build an achievable 500-euro buffer.
-
-Place only the exact German text `ERSTES ZIEL: 500 €` in large bold modern typography in the upper third. No other visible text or numbers.
-
-Bright off-white/light-gray premium background, big clear objects, polished editorial quality. No neon tunnel, no dark room, no tiny coin diorama, no complicated path system.
+Kompakte transparente Reserve mit überschaubarem goldenen Geldbetrag als großes Hauptobjekt. Eine kleinere unerwartete Reparaturausgabe daneben zeigt, dass dieser erste Puffer bereits nützlich ist. `500 €` direkt an der Reserve, optional `Mini-Puffer` unmittelbar darunter. Keine Headline, kein Satz.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 05 – REMOTION-ANIMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 KEIN BILD 05 ERZEUGEN.
-Nummer 05 bleibt für Szene 05 reserviert.
-Die nächste Bildszene ist Szene 06 und heißt deshalb `Bild 06`, NICHT `Bild 05`.
+Nummer 05 bleibt reserviert.
+Nächste Bildszene = Szene 06 → `Bild 06`.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 06 – BILDSZENE
@@ -143,35 +105,27 @@ SZENE 06 – BILDSZENE
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 06 - Echter Notfall oder Konsum.png`
 
-NACH DER GENERIERUNG:
-Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach Szene 07 und 08 überspringen und mit Szene 09 weitermachen.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`ECHTER NOTFALL?`
+BESCHRIFTUNGEN – EXAKT SO:
+- `Notfall`
+- `Konsum`
 
 BILDPROMPT:
-Create a premium bright vertical 9:16 3D CGI editorial finance illustration with a very clear comparison. On the correct green side show a broken essential washing machine, urgent repair tool/bill and a normal wallet that cannot comfortably cover the expense. On the wrong red side show planned/non-emergency consumption such as shopping bags, a luxury gadget and a vacation suitcase. A clean green approval path points only to the necessary unexpected repair; a red stop symbol blocks the consumption side.
-
-The viewer must instantly understand: emergency fund for necessary unexpected expenses, not normal or planned consumption.
-
-Place only the exact German text `ECHTER NOTFALL?` in large bold modern typography in the upper third. No other visible text.
-
-Use two large readable sides and no more than five main elements. No checklist dashboard, no neon world, no tiny diorama, no clutter.
+Klare Gegenüberstellung. Grüne Seite: kaputte notwendige Waschmaschine mit Reparaturwerkzeug/Rechnung. Rote Seite: Shoppingtaschen, Luxus-Gadget und Urlaubskoffer. Grüner Weg zur Reparatur, rotes Stoppsignal vor Konsum. `Notfall` direkt an der Reparaturseite, `Konsum` direkt an der Konsumseite. Keine Überschrift, kein Satz.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 07 – REMOTION-ANIMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 KEIN BILD 07 ERZEUGEN.
-Nummer 07 bleibt für Szene 07 reserviert.
+Nummer 07 bleibt reserviert.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 08 – REMOTION-ANIMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 KEIN BILD 08 ERZEUGEN.
-Nummer 08 bleibt für Szene 08 reserviert.
-Die nächste Bildszene ist Szene 09 und heißt deshalb `Bild 09`, NICHT `Bild 07` oder `Bild 08`.
+Nummer 08 bleibt reserviert.
+Nächste Bildszene = Szene 09 → `Bild 09`.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 09 – BILDSZENE
@@ -180,18 +134,12 @@ SZENE 09 – BILDSZENE
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 09 - Puffer getrennt erreichbar.png`
 
-NACH DER GENERIERUNG:
-Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach Szene 10 erzeugen.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`GETRENNT & VERFÜGBAR`
+BESCHRIFTUNGEN – EXAKT SO:
+- `Alltag`
+- `Tagesgeld`
 
 BILDPROMPT:
-Create a premium bright vertical 9:16 3D CGI editorial finance illustration. Show two clearly separated money areas: one normal everyday wallet/current-account object with a small spending amount, and one separate transparent emergency-reserve/tagesgeld-style container holding gold money. Connect them only with one short clean green transfer path to communicate: separate from everyday spending, but quickly accessible in an emergency. Do not use a long-term lock or investment symbolism.
-
-Place only the exact German text `GETRENNT & VERFÜGBAR` in large bold modern typography in the upper third. No other visible text.
-
-Bright neutral background, two large understandable hero areas, simple composition. No bank app, no dashboard, no dark neon tunnel, no tiny diorama.
+Zwei klar getrennte große Geldbereiche: normales Portemonnaie/Girokonto-Objekt für Ausgaben und separate transparente Reserve mit goldenen Münzen. Kurze grüne Verbindung zeigt schnelle Erreichbarkeit. `Alltag` direkt am normalen Ausgabengeld, `Tagesgeld` direkt an der Reserve. Keine Überschrift, kein Satz.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 10 – BILDSZENE
@@ -200,26 +148,18 @@ SZENE 10 – BILDSZENE
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 10 - Notgroschen wieder auffuellen.png`
 
-NACH DER GENERIERUNG:
-Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Danach sind alle benötigten Bilder fertig.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`PUFFER WIEDER AUFFÜLLEN`
+BESCHRIFTUNGEN – EXAKT SO:
+- `Entnahme`
+- `Auffüllen`
 
 BILDPROMPT:
-Create a premium bright vertical 9:16 3D CGI editorial finance illustration. Show the washing machine repaired and working normally. Next to it, show the emergency-reserve container visibly partly depleted after paying the repair. A clear stream of small gold savings contributions refills the reserve while a FinanzNeo-green protection shield becomes complete again.
-
-The scene must instantly communicate: after using the emergency fund, rebuild it step by step.
-
-Place only the exact German text `PUFFER WIEDER AUFFÜLLEN` in large bold modern typography in the upper third. No other visible text or numbers.
-
-Bright off-white/light-gray premium environment, large clear objects, optimistic clean ending. No dark room, no tunnel, no abstract network, no tiny diorama.
+Reparierte Waschmaschine funktioniert wieder. Transparente Notgroschen-Reserve ist sichtbar teilweise geleert. Kleine goldene Sparbeträge fließen wieder hinein und das grüne Schutzschild wird vollständig. `Entnahme` direkt an der geleerten Reserve, `Auffüllen` direkt an den neu einfließenden Beträgen. Keine Überschrift, kein Satz.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ABSCHLUSS – ERST NACH ALLEN EINZELBILDERN
+ABSCHLUSS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Erwartete fertige Dateien:
+Erwartete Dateien:
 - `Bild 00 - Cover Notgroschen.png`
 - `Bild 01 - Defekt wird Schuldenfalle.png`
 - `Bild 02 - Notgroschen faengt Schock ab.png`
@@ -228,16 +168,15 @@ Erwartete fertige Dateien:
 - `Bild 09 - Puffer getrennt erreichbar.png`
 - `Bild 10 - Notgroschen wieder auffuellen.png`
 
-Prüfe jetzt:
-- alle erwarteten Bilder vorhanden
-- richtige echte Szenennummern
-- kein Bild für Animationsszenen 03, 05, 07, 08
-- jeder deutsche Bildtext exakt richtig geschrieben
-- keine zusätzlichen/englischen Texte
-- keine dunkle Neon-/Tunnel-/Miniaturwelt
-- Motive groß, hochwertig und inhaltlich klar
+Prüfen:
+- keine Bilder 03, 05, 07, 08
+- keine Überschrift / kein Untertitel / kein Satz in einem Bild
+- nur die vorgegebenen kurzen deutschen Labels
+- keine zusätzlichen oder englischen Texte
+- dunkler hochwertiger FinanzNeo-3D-Look
+- große klare Motive, keine Miniatur-Dioramen oder Tunnel
 
 ERST DANACH alle fertigen Bilder gemeinsam in:
 `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 
-Google Flow verteilt die Bilder NICHT auf einzelne Szenenordner.
+Nicht auf einzelne Szenenordner verteilen.
