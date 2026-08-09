@@ -13,7 +13,7 @@ if (!targetArg) {
 
 const root = resolve(targetArg);
 const sceneIndexPath = resolve(root, '03-szenen/scene-index.json');
-const inbox = resolve(root, '03-szenen/BILDER-EINGANG');
+const inbox = resolve(root, '03-szenen/00-ALLE-BILDER-HIER-REIN');
 const inboxReadme = resolve(inbox, 'README.md');
 const supported = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
 
@@ -30,7 +30,7 @@ mkdirSync(inbox, {recursive: true});
 if (!existsSync(inboxReadme)) {
   writeFileSync(
     inboxReadme,
-    `# Bilder-Eingang\n\nLege hier alle finalen Bilder gesammelt ab. Die Nummer im Dateinamen bestimmt das Ziel.\n\n- Bild 00 → Cover\n- Bild 01 → Szene 01\n- Bild 02 → Szene 02\n- usw.\n\nAkzeptierte Beispiele: \`Bild 00.png\`, \`bild01.jpg\`, \`image_02.webp\`, \`03.png\`.\n\nDanach ausführen:\n\n\`npm run reel:sort-images -- <REEL-ORDNER>\`\n\nBestehende Zielbilder werden niemals überschrieben. Bilder für Remotion-Szenen werden abgelehnt.\n`,
+    `# 00-ALLE-BILDER-HIER-REIN\n\nGoogle Flow legt hier ERST NACH Abschluss der gesamten Bildproduktion alle bereits korrekt benannten finalen Bilder gemeinsam ab.\n\n- Bild 00 → Cover\n- Bild 01 → Szene 01\n- Bild 02 → Szene 02\n- usw.\n\nAnimationsszenen erhalten kein Bild; ihre Nummer bleibt reserviert. Beispiel: Szene 02 Animation → kein Bild 02; Szene 03 Bild → Bild 03.\n\nDanach kann technisch sortiert werden mit:\n\n\`npm run reel:sort-images -- <REEL-ORDNER>\`\n\nBestehende Zielbilder werden niemals überschrieben. Bilder für Remotion-Szenen werden abgelehnt.\n`,
     'utf8',
   );
 }
@@ -50,7 +50,7 @@ const imageFiles = readdirSync(inbox)
   .filter((name) => supported.has(extname(name).toLowerCase()));
 
 if (imageFiles.length === 0) {
-  console.log(`✓ Bilder-Eingang bereit: ${inbox}`);
+  console.log(`✓ Finaler Bilderordner bereit: ${inbox}`);
   console.log('  Noch keine einsortierbaren Bilder vorhanden.');
   process.exit(0);
 }
@@ -82,7 +82,7 @@ for (const file of imageFiles) {
   const source = resolve(inbox, file);
 
   if (number === 0) {
-    const destinationDir = resolve(root, '00-cover');
+    const destinationDir = resolve(root, '03-szenen/00-cover');
     mkdirSync(destinationDir, {recursive: true});
     const existing = readdirSync(destinationDir).filter((name) => supported.has(extname(name).toLowerCase()));
     if (existing.length > 0) {
@@ -141,5 +141,5 @@ if (dryRun) {
   console.log('\n✓ Trockenlauf erfolgreich. Keine Datei wurde verändert.');
 } else {
   console.log(`\n✓ ${planned.length} Bild${planned.length === 1 ? '' : 'er'} sicher einsortiert.`);
-  console.log('  Der Bilder-Eingang enthält danach nur noch nicht unterstützte/administrative Dateien.');
+  console.log('  Der gemeinsame Bilderordner enthält danach nur noch administrative/nicht unterstützte Dateien.');
 }
