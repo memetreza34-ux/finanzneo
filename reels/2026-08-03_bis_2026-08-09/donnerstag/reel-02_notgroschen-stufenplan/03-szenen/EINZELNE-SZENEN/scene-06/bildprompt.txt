@@ -2,23 +2,11 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 06 - Echter Notfall oder Konsum.png`
 
 WICHTIG:
-Erzeuge nur dieses eine Bild. Danach sofort umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
-
-BILDSTIL:
-Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, Rot nur für falschen Konsum/Risiko. Große klare Objekte, kein Miniatur-Diorama, kein Tunnel, kein Sci-Fi-Korridor.
-
-TEXTREGEL:
-Keine Überschrift. Kein Untertitel. Kein Satz. Nur kurze deutsche Objekt-Beschriftungen.
+Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen und Dateiname prüfen. Erst dann nächstes Bild.
 
 BESCHRIFTUNGEN – EXAKT SO:
-- an der notwendigen Reparaturseite: `Notfall`
-- an Shopping/Luxus/Urlaub: `Konsum`
+- `Notfall`
+- `Konsum`
 
-SZENENINHALT:
-Klare Gegenüberstellung: auf der grünen Seite eine kaputte notwendige Waschmaschine mit Reparaturwerkzeug/Rechnung; auf der roten Seite Shoppingtaschen, Luxus-Gadget und Urlaubskoffer. Ein grüner Schutzweg führt zur Notfallseite, ein rotes Stoppsignal blockiert Konsum.
-
-BILDAUSSAGE:
-Der Notgroschen ist für notwendige ungeplante Ausgaben, nicht für planbaren Konsum.
-
-KOMPOSITION:
-Zwei große Bereiche. `Notfall` und `Konsum` direkt an den jeweiligen Seiten, nicht als Überschrift oben.
+BILDPROMPT:
+A stylized 3D adult person standing at the center of one clean visual decision scene. On the left, a broken washing machine and repair tool sit inside a vivid emerald-green protected zone. On the right, a luxury shopping bag, premium gadget and vacation suitcase sit inside a warm red-orange blocked zone. Keep both sides simple and large, with no small icon clutter. Include German labels: `Notfall` directly beside the broken washing-machine side and `Konsum` directly beside the shopping/vacation side. Premium fintech editorial 3D render style. Background is deep charcoal green-black. Accents in vivid emerald and mint green for the correct side and warm red-orange for the blocked side. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Ensure the top 15 percent is completely empty dark negative space and the bottom 25 percent is completely empty uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
