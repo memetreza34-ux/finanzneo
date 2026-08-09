@@ -1,0 +1,26 @@
+NOTGROSCHEN IN DREI STUFEN – CAPTION-SÄTZE
+
+REGEL:
+Im fertigen Reel ist immer genau EIN vollständiger Satz sichtbar. Nur das aktuell gesprochene Wort wird FinanzNeo-grün, alle übrigen Wörter bleiben weiß. Maximal zwei Zeilen. Keine Wort-Sprunganimation. Die echten Wortzeiten werden erst aus dem finalen Voiceover erzeugt.
+
+01 | Eine kaputte Waschmaschine wird richtig teuer, wenn du dafür Dispo, Ratenzahlung oder Kredit brauchst.
+02 | Genau dafür ist ein Notgroschen da: schnell verfügbares Geld für ungeplante Ausgaben.
+03 | Als Daumenregel nennt die Verbraucherzentrale zwei bis drei Monatsgehälter.
+04 | Die passende Höhe hängt aber von deiner persönlichen Situation ab.
+05 | Starte deshalb nicht sofort mit dem großen Ziel.
+06 | Baue zuerst einen Mini-Puffer von 500 Euro auf.
+07 | Danach sicherst du einen Monat deiner notwendigen Ausgaben.
+08 | Erst dann wächst der Puffer bis zu deinem persönlichen Ziel.
+09 | Ein echter Notfall ist notwendig, ungeplant und nicht aus deinem Monatsbudget bezahlbar.
+10 | Bei 1.800 Euro netto wären zwei bis drei Monatsgehälter 3.600 bis 5.400 Euro.
+11 | Mit 150 Euro monatlich hast du den 500-Euro-Puffer im vierten Monat und 3.600 Euro nach 24 Monaten.
+12 | Parke das Geld getrennt auf einem Tagesgeldkonto, damit es verfügbar bleibt.
+13 | Nutze den Notgroschen nur für echte Notfälle und fülle ihn danach wieder auf.
+
+SAFE AREA:
+- untere 320 px frei halten
+- rechts 150 px für Reels-Bedienleiste
+- links mindestens 62 px
+
+STATUS:
+Noch keine finalen Wort-Zeitstempel. Erst nach finalem Voiceover synchronisieren.
