@@ -1,6 +1,6 @@
 ---
 name: finanzneo-reel
-description: Safely creates, repairs or reviews FinanzNeo vertical Remotion reels while preserving repository rules, existing reels, Image World V3 consistency, karaoke captions and validation requirements.
+description: Safely creates, repairs or reviews FinanzNeo vertical Remotion reels while preserving repository rules, image-prompt consistency, karaoke captions and validation requirements.
 ---
 
 # FinanzNeo Reel Skill
@@ -17,7 +17,27 @@ Read `.agents/rules/finanzneo-reel-safety.md`, `CLAUDE.md`, linked production do
 - Antigravity prepares image prompts and filenames, but MUST NOT generate any final image or world-reference image.
 - The user exclusively creates `bildwelt-referenz.png`, the cover image and all final scene images outside Antigravity.
 - Never call Antigravity's integrated image generator, Imagen, Nano Banana, web image search, stock-image sources or placeholder-image generation as a substitute.
-- Keep the prompt contract text-free: generated scene images are expected to contain no text, numbers, labels, logos, watermarks or app UI.
+
+## Verbindlicher Bildprompt-Stil
+
+Every generated-image prompt must follow the FinanzNeo Premium Fintech Editorial 3D reference from `CLAUDE.md` and `docs/FINANZNEO-IMAGE-WORLD-V3.md`:
+
+- one dominant financial metaphor or one large hero object
+- a stylized anonymous 3D adult person may stand beside the metaphor when useful
+- deep charcoal green-black background
+- vivid emerald and mint-green accents
+- gold only for money/value
+- warm red-orange only for loss, risk, debt or blocked money
+- smooth rounded 3D geometry
+- soft bevelled edges
+- confident high-contrast studio lighting with bold emerald rim light
+- top 15 percent completely empty dark negative space
+- bottom 25 percent completely empty dark uncluttered negative space
+- no photorealism, no real humans, no UI dashboards
+- no tiny diorama, neon tunnel, sci-fi corridor or miniature game level
+
+Generated images may contain ONLY the explicitly requested short German object labels, normally 1–3 words, placed directly near the related object. No headline, subtitle, explanatory sentence, CTA, random labels or English text.
+
 - Every `03-szenen/alle-bildprompts.txt` must include the exact filename directly at each individual cover/scene prompt.
 - Numbering always follows the actual chronological reel position: `Bild 00` = cover, `Bild 01` = scene 01, `Bild 02` = scene 02, and so on.
 - A Remotion animation reserves its scene number but has no image file. Never close the numbering gap. Example: scene 01 image = `Bild 01`, scene 02 animation = no `Bild 02`, scene 03 image = `Bild 03`.
