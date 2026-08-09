@@ -1,3 +1,8 @@
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 00 - Cover Notgroschen.png`
+
+WICHTIG: Erzeuge zuerst ausschließlich dieses eine Bild. Sobald es fertig ist, benenne es sofort exakt wie oben. Prüfe es danach. Erst dann darf das nächste Bild erzeugt werden. Der Dateiname darf niemals sichtbar in das Bild gerendert werden.
+
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
 Create a premium vertical cover image in the exact connected FinanzNeo studio.
