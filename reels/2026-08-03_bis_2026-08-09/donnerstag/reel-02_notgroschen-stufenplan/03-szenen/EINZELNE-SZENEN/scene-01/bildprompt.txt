@@ -2,24 +2,12 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 01 - Defekt wird Schuldenfalle.png`
 
 WICHTIG:
-Erzeuge nur dieses eine Bild. Danach sofort umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
-
-BILDSTIL:
-Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, Rot für Schuldenrisiko, Gold nur für Geld. Großes zentrales Hauptmotiv, keine Miniaturwelt, kein Tunnel, kein Sci-Fi-Korridor, kein Pixar, kein Clay.
-
-TEXTREGEL:
-Keine Überschrift. Kein Untertitel. Kein Satz. Nur kleine kurze deutsche Objekt-Beschriftungen direkt an den passenden Elementen.
+Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen und Dateiname prüfen. Erst dann nächstes Bild.
 
 BESCHRIFTUNGEN – EXAKT SO:
-- an der Rechnung/Waschmaschine: `Reparatur`
-- an der roten Überziehungsgefahr: `Dispo`
-- an der roten Zahlungsgefahr: `Ratenzahlung`
+- `Reparatur`
+- `Dispo`
+- `Ratenzahlung`
 
-SZENENINHALT:
-Große kaputte Waschmaschine als Hauptobjekt, daneben eine sichtbare Reparaturrechnung und ein fast leeres Portemonnaie. Rote finanzielle Gefahren nähern sich von der Seite. Noch keinen Notgroschen zeigen.
-
-BILDAUSSAGE:
-Ohne Puffer kann eine notwendige ungeplante Reparatur schnell zu Dispo oder Ratenzahlung führen.
-
-KOMPOSITION:
-Waschmaschine, Rechnung und Portemonnaie groß und sofort verständlich. Beschriftungen klein bis mittelgroß direkt an den Objekten, niemals oben als Headline.
+BILDPROMPT:
+A stylized 3D adult person standing beside one large broken washing machine. The washing machine is the dominant object and has a clear visible defect. A repair invoice card sits beside the machine and an almost empty wallet lies nearby. Two red-orange financial danger paths emerge from the repair cost and lead toward a credit-card/overdraft object and an installment-payment object. Include German labels: `Reparatur` beside the invoice or damaged washer, `Dispo` beside the overdraft danger object, and `Ratenzahlung` beside the installment-payment object. Do not show an emergency fund yet. Premium fintech editorial 3D render style. Background is deep charcoal green-black. Accents in vivid emerald and mint green, with warm red-orange only for debt danger. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Ensure the top 15 percent is completely empty dark negative space and the bottom 25 percent is completely empty uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
