@@ -1,27 +1,23 @@
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 02 - Notgroschen faengt Schock ab.png`
 
-WICHTIG: Erzeuge zuerst ausschließlich dieses eine Bild anhand dieses Prompts. Sobald es fertig ist, benenne es sofort exakt wie oben. Prüfe danach Motiv und Dateiname. Erst dann darf das nächste Bild erzeugt werden. Der Dateiname darf niemals sichtbar in das Bild gerendert werden.
+WICHTIG:
+Erzeuge ausschließlich dieses eine Bild. Danach sofort exakt wie oben umbenennen, Motiv + Text + Dateiname prüfen und erst dann weitermachen. Der Dateiname selbst darf NICHT im Bild stehen.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+BILDSTIL:
+Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic everyday objects with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray environment. FinanzNeo green = Schutz, gold = Geld, red = Risiko. Large smartphone-readable objects. No dark black background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating miniature platform, no Pixar, no clay.
 
-SERIES CONTINUITY LOCK:
-Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+DEUTSCHER TEXT – EXAKT SO INS BILD:
+`DEIN NOTGROSCHEN SCHÜTZT DICH`
 
-ENVIRONMENT:
-One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
+TEXTREGEL:
+Groß, fett, moderne Sans-Serif-Schrift im oberen Drittel. Exakt dieser deutsche Satz, keine weiteren Texte, keine englischen Begriffe, keine Schreibfehler.
 
-COMPOSITION LOCK:
-Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+SZENENINHALT:
+Zeige dieselbe Art unerwarteter Waschmaschinen-Reparatur wie zuvor. Diesmal steht zwischen Reparaturrechnung und Portemonnaie eine deutlich sichtbare transparente Reservebox mit goldenen Euro-Münzen/Scheinen. Ein großes FinanzNeo-grünes Schutzschild fängt die rote Schuldengefahr ab. Die Rechnung wird sichtbar aus dem Geldpuffer bezahlt, ohne dass Kreditkarte oder Ratenzahlung nötig werden.
 
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+BILDAUSSAGE:
+Der Notgroschen fängt die ungeplante Ausgabe ab, bevor Schulden nötig werden.
 
-CONSISTENCY NEGATIVES:
-No empty black background, no isolated product, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
-
-SCENE MESSAGE:
-A liquid emergency reserve absorbs a sudden expense before debt is needed.
-
-CONNECTED VISUAL STORY:
-Show a protected transparent reserve vault filled with gold money between a broken appliance and the exposed household wallet. The reserve releases exactly enough gold to cover the repair while an emerald shield blocks the red debt chains. The reserve must look quickly accessible, not locked for years.
+KOMPOSITION:
+Reservebox und Schutzschild groß im Zentrum, Reparaturproblem links, geschütztes Portemonnaie rechts. Einfacher klarer Vorher-Nachher-Fluss, keine komplizierten Wege oder Miniaturarchitektur. Das Bild muss sofort verständlich sein.
