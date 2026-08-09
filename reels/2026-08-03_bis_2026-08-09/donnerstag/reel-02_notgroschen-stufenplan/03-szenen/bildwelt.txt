@@ -1,23 +1,35 @@
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-Create the canonical style and environment reference for the Notgroschen reel.
+REEL-SPEZIFISCHER BILDSTIL – NOTGROSCHEN
 
-CAMERA LOCK:
-Vertical 9:16. Slight isometric three-quarter camera, approximately 35mm-equivalent perspective, fixed camera height, looking gently downward from front-left toward back-right.
+ZIEL:
+Erzeuge hochwertige, moderne Social-Media-Finanzillustrationen, die den Inhalt innerhalb einer Sekunde verständlich machen. Die bisherigen dunklen Neon-/Tunnel-/Miniatur-Diorama-Bilder sind ausdrücklich NICHT gewünscht.
 
-ENVIRONMENT LOCK:
-One connected premium finance-explainer studio. A curved dark-charcoal back wall flows seamlessly into a matte charcoal floor. Integrated emerald architectural light channels run through wall and floor. Include restrained structural alcoves, soft depth and quiet foreground framing. The room must feel designed and continuous, never like an object floating in black space.
+STYLE LOCK:
+Premium high-end 3D CGI editorial illustration, clean financial explainer aesthetic, realistic proportions with polished stylization, crisp details, premium materials, strong depth, professional commercial quality. Not childish, not cartoon, not Pixar, not clay.
 
-LIGHTING LOCK:
-Soft large key light from upper-left, restrained emerald rim light from the right, soft floor bounce, readable shadows and controlled reflections.
+HELLIGKEIT UND UMGEBUNG:
+Heller, hochwertiger Hintergrund in warmem Off-White, hellem Grau oder sehr hellem neutralem Studio-Ton. Dezente FinanzNeo-grüne Flächen oder Architekturdetails dürfen vorkommen. Kein schwarzer Raum, kein dunkler Neon-Tunnel, keine grün leuchtenden Korridore, keine Sci-Fi-Kulisse, kein winziges Diorama.
 
-MATERIAL LOCK:
-Premium matte dark surfaces, softly bevelled geometry, restrained transparent glass for protected reserves, brushed gold only for money, red only for danger, debt or blocked spending.
+FARBLOGIK:
+- FinanzNeo-Grün = Schutz, richtige Lösung, Fortschritt
+- Gold = Geld, Sparbetrag, finanzieller Wert
+- Rot = Risiko, Schulden, Problem
+- neutrale helle Grau-/Beigetöne = Umgebung
 
-COMPOSITION LOCK:
-The central 64 percent is the active scene area. Upper and lower 18 percent remain calm and crop-safe while visibly continuing the same wall, floor and lighting. Future main objects fill approximately 68 to 78 percent of usable width.
+KOMPOSITION:
+Vertical 9:16. Ein großes, klar erkennbares Hauptmotiv. Das Hauptmotiv soll ungefähr 70–85 % der nutzbaren Bildbreite einnehmen und auf Smartphone-Größe sofort lesbar sein. Keine winzigen Objekte in riesiger leerer Fläche. Keine komplizierten Tunnel oder abstrakten Leitungsnetze. Maximal 3–5 klar verständliche Hauptelemente.
 
-TEXT:
-No text, number, label, logo, interface or watermark.
+INHALT:
+Jedes Bild muss den jeweiligen Satz direkt bildlich erklären. Bevorzuge echte, verständliche Alltagsobjekte wie Waschmaschine, Rechnung, Geld, Wallet, Sparkonto/Reserve, Schild, Einkaufsobjekte oder Reparaturwerkzeug. Keine abstrakten Symbole, wenn ein konkretes Objekt die Aussage besser erklärt.
 
-Generate the empty but fully designed studio reference without a financial story object. This file is used only as the fixed camera, environment, material, lighting and scale reference for all six scene images.
+DEUTSCHER TEXT IM BILD:
+Jedes finale Bild enthält genau EINE kurze, gut lesbare deutsche Kernaussage. Beim Cover darf sie aus zwei kurzen Zeilen bestehen. Verwende große moderne fette Sans-Serif-Typografie mit sehr hohem Kontrast. Der Text muss exakt so geschrieben werden, wie im jeweiligen Szenenprompt angegeben. Keine englischen Wörter, keine Fantasieschrift, keine zusätzlichen Labels, keine zufälligen Zahlen.
+
+TEXT-PLATZIERUNG:
+Text im oberen Drittel oder in einer klaren freien Fläche. Motiv und Text dürfen sich nicht überdecken. Genügend Rand für Social-Media-Crops lassen.
+
+QUALITÄTSNEGATIVE:
+No dark black background, no neon tunnel, no sci-fi corridor, no tiny isometric diorama, no floating miniature platform, no clutter, no random UI, no dashboard, no excessive glow, no childish cartoon, no Pixar, no clay, no low-detail objects, no illegible typography, no misspelled German text, no extra text beyond the explicitly requested German phrase.
+
+Die einzelnen Szenenprompts definieren Motiv und exakten deutschen Text.
