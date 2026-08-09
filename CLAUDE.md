@@ -71,7 +71,7 @@ Eine schwache Animation wird nicht nur zur Erfüllung einer Quote verwendet. Bil
 - keine Behauptung ohne nachvollziehbare Quelle oder klar erkennbare Beispielannahme
 - Problem-Szenen dürfen visuell noch nicht die spätere Lösung zeigen
 
-## 5. Verbindliche Bildwelt: Premium Dark 3D Finance
+## 5. Verbindliche Bildwelt: Premium Fintech Editorial 3D
 
 Technische World-ID:
 
@@ -79,7 +79,11 @@ Technische World-ID:
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 ```
 
-Der verbindliche Look ist ein hochwertiger dunkler 3D-Finanzstil mit großen klaren Objekten und kurzen Objekt-Beschriftungen.
+Der verbindliche Bildstil entspricht diesem visuellen Prinzip:
+
+> Eine stilisierte 3D-Person steht neben EINER großen Finanzmetapher. Beispiel: eine hohe Sanduhr mit leuchtenden Euro-Münzen; Münzen fallen sichtbar durch die Sanduhr, ein Teil verschwindet unten in einem rot-orange leuchtenden Verlust-Riss. Kurze deutsche Labels wie `Wartezeit` und `Verlorene Zinsen` erklären nur die relevanten Objekte.
+
+Nicht die konkrete Sanduhr ist verbindlich, sondern diese **Art der visuellen Erklärung**.
 
 Verbindliche Dokumente:
 
@@ -111,18 +115,33 @@ Eine vorhandene Referenz dient nur für:
 
 ### Unveränderliche Serienmerkmale
 
-- hochwertiger moderner stylized 3D/CGI-Finanzlook
-- dunkler Anthrazit-/Tiefgrün-Hintergrund oder dezente dunkle Studiofläche
-- kontrollierte smaragdgrüne Kantenbeleuchtung
-- weiche realistische Bodenschatten
-- Gold ausschließlich für Geld und finanzielle Werte
-- Rot ausschließlich für Risiko, Schulden, Verlust oder falsche Ausgabe
-- Weiß/Hellgrau für kurze deutsche Objekt-Beschriftungen
-- große konkrete Alltagsobjekte
-- klare Smartphone-Lesbarkeit
+- Premium fintech editorial 3D render style
+- deep charcoal green-black background
+- vivid emerald and mint-green accents
+- Gold ausschließlich für Euro-Münzen, Geld und finanziellen Wert
+- warmes Rot-Orange ausschließlich für Risiko, Schulden, Verlust oder blockiertes Geld
+- smooth rounded 3D geometry
+- soft bevelled edges
+- hochwertige matte und transparente Materialien
+- confident high-contrast studio lighting
+- kräftiges smaragdgrünes Rim Light
+- große klar erkennbare Hauptmetapher
+- stilisierte anonyme 3D-Person erlaubt, wenn sie die Erklärung verbessert
 - nicht fotorealistisch
-- nicht kindlich oder cartoonhaft
+- keine reale oder identifizierbare Person
 - kein Pixar- oder Clay-Stil
+
+### Verbindliche Bildlogik
+
+Jede Bildszene verwendet möglichst:
+
+1. **eine dominante Finanzmetapher oder ein großes Hauptobjekt**
+2. optional **eine stilisierte anonyme 3D-Person** daneben
+3. nur wenige unterstützende Objekte
+4. einen sichtbaren Ursache-Wirkungs-Zusammenhang
+5. 1–3 kurze deutsche Objektlabels
+
+Das Bild wirkt wie eine einzelne hochwertige Editorial-Illustration, nicht wie eine kleine Welt oder ein Game-Level.
 
 ### Verbotene Fehlinterpretationen
 
@@ -136,38 +155,25 @@ Nicht verwenden:
 - lange Neon-Tunnel
 - Sci-Fi-Korridore
 - futuristische Game-Level
-- kleine schwebende Plattformen
-- komplizierte abstrakte Rohr-/Pfad-/Netzsysteme, wenn konkrete Objekte die Aussage besser erklären
-- winzige Motive in riesiger leerer Fläche
+- mehrere kleine Räume oder Plattformen
+- komplizierte abstrakte Rohr-/Pfad-/Netzsysteme
+- Dashboard-/App-UI
+- viele kleine Icons und Miniobjekte
+- überladene Szenen
 
-### Hintergründe
+### Verbindliche Negativfläche
 
-Jedes Bild besitzt einen dunklen, ruhigen, hochwertigen Hintergrund mit genügend räumlicher Tiefe.
+Jedes 9:16-Quellbild verwendet:
 
-Erlaubt:
+```text
+obere 15 % = komplett leerer dunkler Negativraum
+mittlere 60 % = gesamte Bildhandlung
+untere 25 % = komplett leerer dunkler, uncluttered Negativraum
+```
 
-- dunkler Anthrazit-/Tiefgrün-Verlauf
-- dezente Bodenfläche
-- weiche grüne Kantenbeleuchtung
-- zurückhaltende Architektur, wenn sie das Hauptmotiv nicht dominiert
+In den oberen 15 % und unteren 25 % liegen keine wichtigen Gegenstände, Münzen, Personen, Labels oder Effekte.
 
-Verboten:
-
-- leeres schwarzes Nichts ohne Tiefe
-- visuell unruhige Sci-Fi-Architektur
-- komplett anderer Stil pro Szene
-- winzige Motive in riesiger Fläche
-
-### Einheitliche Komposition
-
-- vertikale 9:16-Quelle
-- ein großes dominantes Hauptmotiv
-- Hauptmotiv ungefähr 65–85 % der nutzbaren Breite
-- maximal ungefähr 3–5 verständliche Hauptelemente
-- wichtigste Objekte groß genug für Smartphone-Anzeige
-- klare Leserichtung oder einfache Gegenüberstellung
-- Aussage innerhalb einer Sekunde verständlich
-- konkrete Alltagsobjekte bevorzugen
+Diese Bereiche bleiben wirklich ruhig und werden nicht mit Architektur, Plattformen oder Dekoration gefüllt.
 
 ### Textregel: nur kurze deutsche Objekt-Beschriftungen
 
@@ -190,10 +196,13 @@ Im generierten Bild gilt strikt:
 - klein bis mittelgroß
 - moderne klare Sans-Serif-Schrift
 - wenige Labels pro Bild
+- Weiß oder Hellgrau
 
 Beispiele:
 
 ```text
+Wartezeit
+Verlorene Zinsen
 Notgroschen
 Reparatur
 Dispo
@@ -203,8 +212,6 @@ Notfall
 Konsum
 500 €
 Auffüllen
-Wartezeit
-Verlorene Zinsen
 ```
 
 Verboten:
@@ -222,29 +229,32 @@ Wenn eine Zahl fachlicher Bestandteil der Aussage ist, muss sie vorher geprüft 
 
 Auch das Cover bekommt **keine klassische Überschrift**.
 
-Das Thema wird über Motiv + kurze Objekt-Beschriftungen sofort klar.
+Das Thema wird über eine starke Metapher + kurze Objekt-Beschriftungen sofort klar.
 
 Beispiel für ein Notgroschen-Cover:
 
 - zentrale Reserve mit Label `Notgroschen`
 - drei sichtbare Stufen mit `Stufe 1`, `Stufe 2`, `Stufe 3`
 
-So hat das Cover Text und erklärt das Thema, ohne eine große Headline zu verwenden.
+### Verbindliches Prompt-Grundmuster
 
-### Verbindliche Promptmarker
-
-Jeder Bildprompt enthält klar erkennbar:
+Bildprompts orientieren sich sprachlich an diesem Muster:
 
 ```text
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-GOOGLE FLOW – FINALER DATEINAME:
-BILDSTIL:
-TEXTREGEL:
-BESCHRIFTUNGEN:
-SZENENINHALT:
-BILDAUSSAGE:
-KOMPOSITION:
+A stylized 3D person standing beside [ONE LARGE FINANCIAL METAPHOR].
+[Describe a visible cause-and-effect action using only a few objects.]
+Include German text labels: '[Label 1]' near [object 1], and '[Label 2]' near [object 2].
+Premium fintech editorial render style.
+Background is deep charcoal green-black.
+Accents in vivid emerald and mint green.
+Use smooth rounded 3D geometry, soft bevelled edges, confident high-contrast studio lighting with bold rim light.
+Ensure the top 15 percent of the image is completely empty dark negative space,
+and the bottom 25 percent is also completely empty uncluttered negative space.
+The composition is vertical 9:16.
+No photorealism, no real humans, no UI dashboards.
 ```
+
+Jeder Szenenprompt wird inhaltlich neu formuliert, behält aber dieses visuelle Sprachmuster.
 
 Der Dateiname steht direkt beim jeweiligen Google-Flow-Prompt. Die Bildnummer entspricht immer der echten Szenennummer.
 
@@ -260,6 +270,7 @@ Das Bild übernimmt:
 - visuelle Metaphern
 - Problem-, Schutz- und Ergebnissituationen
 - kurze deutsche Objekt-Beschriftungen
+- optional eine stilisierte anonyme 3D-Person zur Unterstützung der Erklärung
 
 ### Remotion
 
@@ -401,23 +412,26 @@ Verbindliche technische Dokumentation:
 8. echte Wort-Zeitstempel erzeugen
 9. Szenenstarts aus den Satzanfängen ableiten
 10. `03-szenen/bildwelt.txt` erstellen
-11. für jedes benötigte Bild einen konkreten Premium-Dark-3D-Prompt erstellen
-12. direkt bei jedem Prompt exakte kurze deutsche Objekt-Beschriftungen und den endgültigen Dateinamen festlegen
-13. keine Überschrift/Untertitel/Sätze in die generierten Bilder schreiben
-14. der Nutzer erzeugt die Bilder selbst, immer einzeln
-15. nach jedem erzeugten Bild sofort korrekt umbenennen und prüfen
-16. Animationsszenen überspringen; ihre Nummer bleibt reserviert
-17. alle fertigen Bilder erst am Ende gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` legen
-18. jedes Bild gegen Satz, Motiv und Labels prüfen
-19. Remotion-Animationen relativ zu den echten Szenendauern bauen
-20. Remotion-Überschriften, Icons und Karaoke-Untertitel einbinden
-21. Asset-Sync, Validatoren und Typecheck ausführen
-22. Preview rendern
-23. Anfang, Mitte und Ende jeder Bildszene prüfen
-24. komplette MP4 mit Kopfhörern ansehen
-25. Audio-Lautheit messen
-26. Caption, Quellen, CTA und gegebenenfalls PDF-Angebot erstellen
-27. erst nach menschlicher Sichtprüfung final freigeben
+11. für jedes benötigte Bild einen konkreten Premium-Fintech-Editorial-3D-Prompt nach dem verbindlichen Grundmuster erstellen
+12. pro Bild genau eine dominante Metapher oder ein großes Hauptobjekt planen
+13. optional eine stilisierte anonyme 3D-Person einsetzen, wenn sie die Erklärung verbessert
+14. direkt bei jedem Prompt exakte kurze deutsche Objekt-Beschriftungen und den endgültigen Dateinamen festlegen
+15. obere 15 % komplett leer und untere 25 % komplett leer halten
+16. keine Überschrift/Untertitel/Sätze in die generierten Bilder schreiben
+17. der Nutzer erzeugt die Bilder selbst, immer einzeln
+18. nach jedem erzeugten Bild sofort korrekt umbenennen und prüfen
+19. Animationsszenen überspringen; ihre Nummer bleibt reserviert
+20. alle fertigen Bilder erst am Ende gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` legen
+21. jedes Bild gegen Satz, Metapher, Labels und Negativfläche prüfen
+22. Remotion-Animationen relativ zu den echten Szenendauern bauen
+23. Remotion-Überschriften, Icons und Karaoke-Untertitel einbinden
+24. Asset-Sync, Validatoren und Typecheck ausführen
+25. Preview rendern
+26. Anfang, Mitte und Ende jeder Bildszene prüfen
+27. komplette MP4 mit Kopfhörern ansehen
+28. Audio-Lautheit messen
+29. Caption, Quellen, CTA und gegebenenfalls PDF-Angebot erstellen
+30. erst nach menschlicher Sichtprüfung final freigeben
 
 ## 13. Qualitätsprüfung pro Reel
 
@@ -432,18 +446,22 @@ Verbindliche technische Dokumentation:
 ### Bildsatz
 
 - wirken alle Bilder wie dieselbe hochwertige FinanzNeo-Serie?
-- dunkler Premium-3D-Finanzlook konsistent?
+- Premium-Fintech-Editorial-3D-Look konsistent?
+- deep charcoal green-black Hintergrund?
+- vivid emerald/mint accents und kräftiges Rim Light?
+- smooth rounded 3D geometry und soft bevelled edges?
+- eine starke dominante Metapher statt Miniaturwelt?
 - sind die Hauptmotive groß und sofort verständlich?
-- sind konkrete Alltagsobjekte statt unnötiger abstrakter Systeme verwendet?
-- keine Miniatur-Dioramen oder Tunnel?
+- keine Miniatur-Dioramen, Tunnel oder Sci-Fi-Korridore?
 - keine Überschrift im Bild?
 - kein Untertitel im Bild?
 - kein ganzer Satz im Bild?
 - nur die vorgesehenen kurzen deutschen Objekt-Beschriftungen?
 - Labels korrekt geschrieben und direkt am passenden Objekt?
 - kein zusätzlicher englischer oder zufälliger Text?
+- obere 15 % wirklich komplett leer?
+- untere 25 % wirklich komplett leer?
 - erklärt jedes Bild genau eine Aussage?
-- erklärt das Cover das Thema über Motiv + kurze Labels?
 
 ### Render
 
@@ -464,13 +482,14 @@ Verbindliche technische Dokumentation:
 - Eine visuell falsche Satzzuordnung führt zur Neuerstellung oder Neuzuordnung.
 - Eine große Headline oder ein Satz im KI-Bild führt zur Neuerstellung.
 - Falsch geschriebene Objekt-Beschriftungen führen zur Neuerstellung.
+- Fehlende freie obere 15 % oder untere 25 % führen zur Neuerstellung.
 - Technischer Erfolg ist keine kreative Freigabe.
 - Unter 8/10 wird überarbeitet.
 - „9/10“ muss durch Kontaktbogen, geprüfte Frames und vollständige MP4-Prüfung begründet sein.
 
 ## 14. Aktive technische Prioritäten
 
-1. Premium-Dark-3D-Bildwelt und Bildsatz-QA konsequent verwenden
+1. Premium-Fintech-Editorial-3D-Bildwelt und Bildsatz-QA konsequent verwenden
 2. Caption-, Safe-Area- und Satzschnittsystem stabil halten
 3. produktive Videos, Experimente und Showcases trennen
 4. `src/brand` und `src/bausteine` über `src/design-system` konsolidieren
