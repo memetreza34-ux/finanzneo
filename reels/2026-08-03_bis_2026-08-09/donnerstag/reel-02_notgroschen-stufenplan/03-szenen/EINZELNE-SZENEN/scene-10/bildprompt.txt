@@ -2,23 +2,11 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 10 - Notgroschen wieder auffuellen.png`
 
 WICHTIG:
-Erzeuge nur dieses eine Bild. Danach sofort umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
-
-BILDSTIL:
-Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, Gold für Geld. Große klare Objekte, kein Miniatur-Diorama, kein Tunnel, kein Sci-Fi-Korridor.
-
-TEXTREGEL:
-Keine Überschrift. Kein Untertitel. Kein Satz. Nur kurze deutsche Objekt-Beschriftungen.
+Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
 
 BESCHRIFTUNGEN – EXAKT SO:
-- an der teilweise geleerten Reserve: `Entnahme`
-- an den neu einfließenden Sparbeträgen: `Auffüllen`
+- `Entnahme`
+- `Auffüllen`
 
-SZENENINHALT:
-Reparierte Waschmaschine funktioniert wieder. Daneben steht die transparente Notgroschen-Reserve sichtbar teilweise geleert. Kleine goldene Sparbeträge fließen wieder hinein und das FinanzNeo-grüne Schutzschild wird sichtbar vollständig.
-
-BILDAUSSAGE:
-Nach einem echten Notfall wird der benutzte Puffer Schritt für Schritt wieder aufgebaut.
-
-KOMPOSITION:
-Waschmaschine, Reserve und einfließendes Geld groß und klar. `Entnahme` und `Auffüllen` direkt an den passenden Objekten, niemals als Headline.
+BILDPROMPT:
+A stylized 3D adult person standing beside one large transparent emergency-fund container that is visibly partly empty after a repair. A repaired washing machine stands calmly on one side. A few gold coins are shown leaving the reserve toward the repaired machine, while a second stream of fresh gold coins flows back into the reserve from the other side. The refill stream glows vivid emerald, while the previous withdrawal path is subdued warm red-orange. Include German labels: `Entnahme` beside the outgoing coin path and `Auffüllen` beside the incoming coin path. Premium fintech editorial 3D render style. Background is deep charcoal green-black. Accents in vivid emerald and mint green, gold for money and warm red-orange for the previous loss path. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Ensure the top 15 percent is completely empty dark negative space and the bottom 25 percent is completely empty uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
