@@ -4,21 +4,11 @@ GOOGLE FLOW – FINALER DATEINAME:
 WICHTIG:
 Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen und Dateiname prüfen. Erst dann nächstes Bild.
 
-BILDSTIL:
-Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Leuchten, Gold für Geld, Rot nur für Risiko. Großes zentrales Motiv, weiche Bodenschatten, hochwertige Materialien. Kein Neon-Tunnel, kein Sci-Fi-Korridor, kein kleines Diorama, kein Pixar, kein Clay.
-
-WICHTIG ZUM TEXT:
-KEINE Überschrift.
-KEIN Untertitel.
-KEIN Satz.
-Nur kurze deutsche Objekt-Beschriftungen.
-
 BESCHRIFTUNGEN – EXAKT SO:
-- an der zentralen Geldreserve: `Notgroschen`
-- an drei klaren Stufen-Elementen: `Stufe 1`, `Stufe 2`, `Stufe 3`
+- `Notgroschen`
+- `Stufe 1`
+- `Stufe 2`
+- `Stufe 3`
 
-MOTIV:
-Große transparente Reserve mit goldenen Münzen als Hauptobjekt, geschützt durch ein FinanzNeo-grünes Schild. Daneben drei klar erkennbare aufsteigende Stufen/Podeste als Symbol für den Aufbau in drei Etappen. Eine kaputte Waschmaschine und eine rote Reparaturrechnung dürfen klein unterstützend zeigen, warum der Notgroschen gebraucht wird.
-
-KOMPOSITION:
-Reserve und drei Stufen groß und dominant. Die Beschriftungen stehen direkt an den passenden Objekten und wirken wie kleine informative Labels, nicht wie Werbeheadline. Keine weiteren Wörter oder Zahlen.
+BILDPROMPT:
+A stylized 3D adult person standing beside one large transparent vertical emergency-fund container filled with glowing euro coins. The container is the dominant object. Three clear ascending sections or steps are integrated into the container, each visually higher and fuller than the previous one. A small broken washing-machine part and a restrained red-orange repair warning appear near the lower side to explain why the reserve exists. Include German object labels: `Notgroschen` directly on or beside the reserve container, and `Stufe 1`, `Stufe 2`, `Stufe 3` beside the three ascending sections. Premium fintech editorial 3D render style. Background is deep charcoal green-black. Accents in vivid emerald and mint green. Use smooth rounded 3D geometry, soft bevelled edges, premium matte and glass materials, confident high-contrast studio lighting with bold emerald rim light. Ensure the top 15 percent of the image is completely empty dark negative space, and the bottom 25 percent is also completely empty uncluttered negative space. The composition is vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
