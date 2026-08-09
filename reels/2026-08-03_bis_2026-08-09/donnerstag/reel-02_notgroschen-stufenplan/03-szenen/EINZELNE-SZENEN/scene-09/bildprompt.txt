@@ -1,27 +1,23 @@
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 09 - Puffer getrennt erreichbar.png`
 
-WICHTIG: Erzeuge zuerst ausschließlich dieses eine Bild anhand dieses Prompts. Sobald es fertig ist, benenne es sofort exakt wie oben. Prüfe danach Motiv und Dateiname. Erst dann darf das nächste Bild erzeugt werden. Der Dateiname darf niemals sichtbar in das Bild gerendert werden.
+WICHTIG:
+Erzeuge ausschließlich dieses eine Bild. Danach sofort exakt wie oben umbenennen, Motiv + Text + Dateiname prüfen und erst dann weitermachen. Der Dateiname selbst darf NICHT im Bild stehen.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+BILDSTIL:
+Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic everyday finance objects with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray environment. FinanzNeo green = sicher/verfügbar, gold = Geld. No dark background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating platform, no Pixar, no clay.
 
-SERIES CONTINUITY LOCK:
-Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+DEUTSCHER TEXT – EXAKT SO INS BILD:
+`GETRENNT & VERFÜGBAR`
 
-ENVIRONMENT:
-One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
+TEXTREGEL:
+Groß, fett, moderne Sans-Serif-Schrift im oberen Drittel. Exakt dieser Text, keine weiteren Wörter, keine englischen Begriffe, keine Schreibfehler.
 
-COMPOSITION LOCK:
-Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+SZENENINHALT:
+Zeige klar zwei getrennte Geldbereiche: links ein normales Alltags-Portemonnaie bzw. Girokonto-Symbol mit wenigen frei verfügbaren Münzen; rechts ein eigenständiger transparenter Notgroschen-/Tagesgeld-Behälter mit goldener Reserve. Zwischen beiden nur eine kurze, einfache grüne Verbindung, die zeigt: getrennt vom Alltag, aber im Notfall schnell erreichbar. Kein Schloss für langfristige Bindung.
 
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+BILDAUSSAGE:
+Der Notgroschen liegt getrennt vom Alltagsgeld, bleibt aber kurzfristig erreichbar.
 
-CONSISTENCY NEGATIVES:
-No empty black background, no bank logo, no app UI, no locked long-term investment vault, no cash under a mattress, no floating platform, no different world, no photorealism, no cartoon, no Pixar, no clay style.
-
-SCENE MESSAGE:
-The emergency reserve is separate from everyday spending but remains quickly accessible.
-
-CONNECTED VISUAL STORY:
-Show two connected but clearly separated money areas. The everyday wallet sits on the active spending path. A protected transparent reserve vault stands beside it with a short controlled transfer bridge back to the wallet. The reserve is not visible to the normal spending stream, yet can be reached quickly during an emergency.
+KOMPOSITION:
+Zwei große verständliche Bereiche nebeneinander, klare Trennung, kurze Verbindung. Heller ruhiger Hintergrund. Keine Bank-App, kein Dashboard, keine abstrakten Tunnel.
