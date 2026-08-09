@@ -1,32 +1,50 @@
 # Notgroschen in drei Stufen
 
-Neues FinanzNeo-Reel mit eigenem Thema, Skript, Bildsatz und Remotion-Animationen.
+Die Reel-Struktur ist bewusst einfach gehalten.
 
-## Format
+```text
+reel-02_notgroschen-stufenplan/
+├── 01-script/
+│   └── script-fliess-text.txt
+├── 02-audio/
+│   └── README.md + später genau eine finale Audiodatei
+├── 03-szenen/
+│   ├── alle-bildprompts.txt
+│   ├── 00-cover/
+│   ├── 00-ALLE-BILDER-HIER-REIN/
+│   ├── EINZELNE-SZENEN/
+│   ├── bildwelt.txt
+│   └── scene-index.json
+├── 04-caption/
+│   ├── caption.txt
+│   └── word-timings.json
+└── 05-projektdateien/
+    ├── animationen.md
+    ├── szenenplan.md
+    ├── recherche-quellen.md
+    ├── technische-hinweise.md
+    └── timeline.json
+```
 
+## Dein Ablauf
+
+1. `01-script/script-fliess-text.txt` öffnen und daraus das Voiceover erzeugen.
+2. Die fertige Audiodatei in `02-audio/` legen.
+3. `03-szenen/alle-bildprompts.txt` an Google Flow geben.
+4. Google Flow erzeugt immer nur ein Bild, benennt es sofort korrekt um und macht erst danach das nächste Bild.
+5. Animationsszenen bekommen kein Bild; ihre Szenennummer bleibt reserviert.
+6. Wenn alle Bilder fertig sind, legt Google Flow alle gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
+7. `04-caption/` enthält die Social-Caption und später die echten Wort-Zeitstempel.
+8. `05-projektdateien/` ist für Animationen, Recherche und technische Umsetzung.
+
+## Reel
+- 1080 × 1920
+- 30 fps
+- ca. 60 Sekunden
 - 10 Szenen
-- 60 Sekunden / 1.800 Frames / 30 fps
 - 6 Bildszenen
-- 4 native Remotion-Animationen
-- harte satzgenaue Schnitte
-- genau ein Untertitelsatz gleichzeitig
-- aktuelles Wort grün
-- kein Musikbett und keine Soundeffekte
+- 4 Remotion-Animationen
+- keine Musik und keine SFX
 
-## Bildszenen
-
-`01`, `02`, `04`, `06`, `09`, `10`
-
-## Animationen
-
-`03`, `05`, `07`, `08`
-
-## Produktionsreihenfolge
-
-1. `03-szenen/bildwelt.txt` generieren.
-2. Ergebnis als `03-szenen/bildwelt-referenz.png` speichern.
-3. Alle sechs Szenenbilder mit derselben Referenz erzeugen.
-4. Eine finale Voiceover-Datei in `02-audio/` ablegen.
-5. Wortzeiten nach dem finalen Voiceover korrigieren.
-6. Asset-Sync, Validator und Typecheck ausführen.
-7. Preview rendern und vollständig prüfen.
+Bildszenen: 01, 02, 04, 06, 09, 10.  
+Animationsszenen: 03, 05, 07, 08.
