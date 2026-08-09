@@ -2,23 +2,11 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 09 - Puffer getrennt erreichbar.png`
 
 WICHTIG:
-Erzeuge nur dieses eine Bild. Danach sofort umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
-
-BILDSTIL:
-Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, Gold für Geld. Große klare Objekte, kein Miniatur-Diorama, kein Tunnel, kein Sci-Fi-Korridor.
-
-TEXTREGEL:
-Keine Überschrift. Kein Untertitel. Kein Satz. Nur kurze deutsche Objekt-Beschriftungen.
+Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen und Dateiname prüfen. Erst dann nächstes Bild.
 
 BESCHRIFTUNGEN – EXAKT SO:
-- am normalen Ausgabengeld: `Alltag`
-- an der separaten Reserve: `Tagesgeld`
+- `Alltag`
+- `Tagesgeld`
 
-SZENENINHALT:
-Zwei klar getrennte große Geldbereiche: ein normales Portemonnaie/Girokonto-Objekt für Alltagsausgaben und daneben eine transparente separate Reserve mit goldenen Münzen. Eine kurze grüne Verbindung zeigt, dass die Reserve im Notfall schnell erreichbar bleibt.
-
-BILDAUSSAGE:
-Der Notgroschen liegt getrennt vom Alltagsgeld, bleibt aber verfügbar.
-
-KOMPOSITION:
-Zwei große verständliche Bereiche nebeneinander. `Alltag` und `Tagesgeld` direkt an den passenden Objekten, niemals als große Überschrift.
+BILDPROMPT:
+A stylized 3D adult person standing beside two large clearly separated money containers. One smaller open wallet-like container represents everyday spending and contains only a few coins. A second protected transparent container holds a larger emergency reserve of glowing euro coins. A short vivid emerald transfer bridge connects the two containers, showing that the reserve is separate but quickly reachable. Include German labels: `Alltag` beside the everyday-money container and `Tagesgeld` beside the protected reserve. Premium fintech editorial 3D render style. Background is deep charcoal green-black. Accents in vivid emerald and mint green, gold for money. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Ensure the top 15 percent is completely empty dark negative space and the bottom 25 percent is completely empty uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no bank app screen, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
