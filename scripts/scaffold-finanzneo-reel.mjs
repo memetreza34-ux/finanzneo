@@ -2,31 +2,31 @@
 import {existsSync, mkdirSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 
-const DEFAULT_TYPES = ['image','image','image','animation','image','animation','image','animation','animation','image'];
+const DEFAULT_TYPES = ['image','image','animation','image','animation','image','animation','animation','image','image'];
 const args = process.argv.slice(2);
 const readArg = (name) => {
-  const index = args.indexOf(`--${name}`);
-  return index === -1 ? null : args[index + 1] ?? null;
+  const i = args.indexOf(`--${name}`);
+  return i === -1 ? null : args[i + 1] ?? null;
 };
 
 const targetArg = readArg('target');
 const title = readArg('title') ?? 'Neues FinanzNeo-Reel';
 const typeArg = readArg('types');
-const types = typeArg ? typeArg.split(',').map((value) => value.trim()) : DEFAULT_TYPES;
+const types = typeArg ? typeArg.split(',').map((v) => v.trim()) : DEFAULT_TYPES;
 
 if (!targetArg) {
   console.error('Nutzung: npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel" [--types image,image,animation]');
   process.exit(1);
 }
-if (types.length < 5 || types.length > 12 || types.some((type) => !['image', 'animation'].includes(type))) {
-  console.error('Die Szenentypen müssen aus 5 bis 12 Einträgen bestehen und dürfen nur image oder animation enthalten.');
+if (types.length < 5 || types.length > 12 || types.some((t) => !['image', 'animation'].includes(t))) {
+  console.error('Szenentypen: 5–12 Einträge, nur image oder animation.');
   process.exit(1);
 }
 
 const root = resolve(targetArg);
-const relativeToReels = relative(resolve('reels'), root);
-if (relativeToReels.startsWith('..') || relativeToReels === '' || relativeToReels.split(sep).includes('..')) {
-  console.error('Das Ziel muss ein neuer Projektordner unter reels/ sein.');
+const rel = relative(resolve('reels'), root);
+if (rel.startsWith('..') || rel === '' || rel.split(sep).includes('..')) {
+  console.error('Ziel muss ein neuer Ordner unter reels/ sein.');
   process.exit(1);
 }
 if (existsSync(root)) {
@@ -35,138 +35,84 @@ if (existsSync(root)) {
 }
 
 const write = (path, content) => {
-  const absolute = resolve(root, path);
-  mkdirSync(resolve(absolute, '..'), {recursive: true});
-  writeFileSync(absolute, content, 'utf8');
+  const abs = resolve(root, path);
+  mkdirSync(resolve(abs, '..'), {recursive: true});
+  writeFileSync(abs, content, 'utf8');
 };
 
 const WORLD_ID = 'finanzneo-connected-studio-v3';
-const sceneNumber = (index) => String(index + 1).padStart(2, '0');
-const sceneFileName = (index) => `Bild ${sceneNumber(index)} - [KURZER SZENENNAME].png`;
+const num = (index) => String(index + 1).padStart(2, '0');
+const sceneFileName = (index) => `Bild ${num(index)} - [KURZER SZENENNAME].png`;
 
-const WORLD_BLOCK = `FINANZNEO_WORLD_ID: ${WORLD_ID}\n\nSERIES CONTINUITY LOCK:\nUse 03-szenen/bildwelt-referenz.png only as a style and environment reference. Match camera, approximately 35mm-equivalent perspective, camera height, curved charcoal studio architecture, matte floor, emerald architectural light channels, lighting, materials, depth and subject scale. Do not redesign the world.\n\nENVIRONMENT:\nOne connected premium finance-explainer studio with visible matte floor, curved charcoal back wall, emerald architectural light channels, supporting foreground, explanatory midground and quiet architectural background. No empty black background.\n\nCOMPOSITION LOCK:\nVertical 9:16. Keep the complete main action inside the central safe area. Upper and lower areas remain calm but continue the same studio environment.\n\nTEXT:\nNo headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.\n\nCONSISTENCY NEGATIVES:\nNo empty black background, no isolated floating product, no floating platform, no different camera, no different palette, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.\n`;
+const STYLE_BLOCK = `FINANZNEO_WORLD_ID: ${WORLD_ID}\n\nBILDSTIL:\nPremium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic proportions with polished stylization, crisp details, soft premium shadows, warm off-white or light-gray environment. FinanzNeo green = Schutz/Fortschritt, gold = Geld/Wert, red = Risiko/Schulden. Large smartphone-readable hero objects.\n\nVERBOTEN:\nNo dark black background, no neon tunnel, no sci-fi corridor, no green glowing tunnel world, no tiny isometric diorama, no miniature game level, no floating miniature platform, no clutter, no dashboard, no excessive glow, no Pixar, no clay, no childish cartoon.\n\nKOMPOSITION:\nOne large obvious hero concept. Main objects approximately 70–85% of usable width. Maximum 3–5 clear main elements. The message must be understandable within one second on a smartphone.\n`;
 
-const worldReferencePrompt = `FINANZNEO WORLD REFERENCE PROMPT\n\nFINANZNEO_WORLD_ID: ${WORLD_ID}\n\nCreate the fixed visual reference for this reel: vertical 9:16, slightly isometric three-quarter camera, approximately 35mm-equivalent perspective, curved dark-charcoal back wall flowing into a matte floor, restrained emerald architectural light channels, soft key light from upper left, emerald rim light from right, premium matte materials, restrained clear glass and warm gold only for money/value. Keep visible foreground, midground and background depth. No empty black background. No text, labels, numbers, logos or watermark. Not photorealistic, not cartoon, not Pixar, not clay.\n`;
+const googleFlowInstruction = (fileName) => `GOOGLE FLOW – FINALER DATEINAME:\n\`${fileName}\`\n\nWICHTIG:\nErzeuge GENAU EIN Bild. Danach SOFORT exakt wie oben umbenennen, Motiv + deutschen Text + Dateiname prüfen und erst dann das nächste Bild erzeugen. Der Dateiname selbst darf NICHT sichtbar im Bild erscheinen.\n`;
 
-const googleFlowInstruction = (fileName) => `GOOGLE FLOW – FINALER DATEINAME:\n${fileName}\n\nWICHTIG FÜR GOOGLE FLOW:\nErzeuge anhand dieses Prompts GENAU EIN Bild. Sobald es fertig ist, benenne es SOFORT exakt wie oben, prüfe Bild und Dateiname und erzeuge ERST DANACH das nächste Bild. Der Dateiname darf niemals sichtbar im Bild erscheinen.\n`;
+const imagePrompt = (id, index) => `${googleFlowInstruction(sceneFileName(index))}\n${STYLE_BLOCK}\nDEUTSCHER TEXT – EXAKT SO INS BILD:\n\`[KURZER DEUTSCHER BILDTEXT FÜR ${id}]\`\n\nTEXTREGEL:\nGroß, fett, moderne Sans-Serif-Schrift. Nur dieser eine deutsche Text. Keine englischen Wörter, keine Zusatzlabels, keine Schreibfehler.\n\nSZENENINHALT:\n[KONKRETES HAUPTMOTIV + KLARE HANDLUNG EINFÜGEN]\n\nBILDAUSSAGE:\n[VOLLSTÄNDIGEN SPRECHSATZ / KERNAUSSAGE EINFÜGEN]\n\nKOMPOSITION:\n[2–5 GROSSE KLARE ELEMENTE; KEIN ABSTRAKTES MINIATURSYSTEM]\n`;
 
-const imagePrompt = (id, index) => `${googleFlowInstruction(sceneFileName(index))}\n${WORLD_BLOCK}\nSCENE MESSAGE:\n[VOLLSTÄNDIGEN SPRECHSATZ FÜR ${id} EINFÜGEN]\n\nCONNECTED VISUAL STORY:\n[Ausgangspunkt] → [sichtbare Handlung] → [verständliches Ergebnis]\n\nREADABILITY:\nThe concept must be understandable within one second on a smartphone.\n`;
+const coverPrompt = `${googleFlowInstruction('Bild 00 - [KURZER COVER-NAME].png')}\n${STYLE_BLOCK}\nDEUTSCHER COVER-TEXT – EXAKT SO INS BILD:\n\`[THEMA]\`\n\`[KURZE ZWEITE ZEILE]\`\n\nTEXTREGEL:\nCover-Titel zwingend sichtbar, groß und sofort verständlich. Zwei kurze deutsche Zeilen. Keine weiteren Wörter oder Zahlen.\n\nSZENENINHALT:\n[STARKES GROSSES COVER-HAUPTMOTIV, DAS DAS THEMA DIREKT ERKLÄRT]\n`;
 
-const coverPrompt = `${googleFlowInstruction('Bild 00 - [KURZER COVER-NAME].png')}\n${WORLD_BLOCK}\nSCENE MESSAGE:\n[VOLLSTÄNDIGE COVER-AUSSAGE EINFÜGEN]\n\nCONNECTED VISUAL STORY:\n[VOLLSTÄNDIGEN COVER-AUFBAU EINFÜGEN]\n`;
+const worldPrompt = `FINANZNEO WORLD REFERENCE\n\nFINANZNEO_WORLD_ID: ${WORLD_ID}\n\nCreate a bright premium 3D CGI editorial finance style reference. Warm off-white/light-gray environment, crisp commercial quality, soft premium shadows, realistic proportions with polished stylization, FinanzNeo green accents, gold only for money/value, red only for risk. Large clear objects, simple composition, smartphone readability. No dark black background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating miniature platform, no Pixar, no clay. Leave a calm area for short bold German typography.\n`;
 
-const imageSceneIds = types.flatMap((type, index) => type === 'image' ? [`scene-${sceneNumber(index)}`] : []);
-const animationSceneIds = types.flatMap((type, index) => type === 'animation' ? [`scene-${sceneNumber(index)}`] : []);
+const imageSceneIds = types.flatMap((t, i) => t === 'image' ? [`scene-${num(i)}`] : []);
+const animationSceneIds = types.flatMap((t, i) => t === 'animation' ? [`scene-${num(i)}`] : []);
 
-write('README.md', `# ${title}\n\nEINFACHE FINANZNEO-STRUKTUR:\n\n01-script/ = nur der Fließtext fürs Voiceover\n02-audio/ = hier legt der Nutzer die fertige Audiodatei ab\n03-szenen/ = Cover, alle Bildprompts, Szenen und alle fertigen Bilder\n04-caption/ = Social Caption und Wort-Timings\n05-projektdateien/ = Animationen, Recherche, Szenenplan und technische Dateien\n\nDer Nutzer erstellt alle tatsächlichen Bilder selbst. Antigravity generiert keine Bilder.\n`);
+write('README.md', `# ${title}\n\nEinfache Struktur:\n- 01-script = Fließtext fürs Voiceover\n- 02-audio = fertiges Audio\n- 03-szenen = Cover, Bildprompts, Szenen, fertige Nutzerbilder\n- 04-caption = Caption + Wort-Timings\n- 05-projektdateien = Animationen, Recherche, Technik\n\nDer Nutzer erstellt alle tatsächlichen Bilder selbst. Antigravity generiert keine Bilder.\n`);
 
-write('01-script/script-fliess-text.txt', '[VOLLSTÄNDIGEN FLIESSTEXT FÜR DAS VOICEOVER EINFÜGEN]\n');
-
-write('02-audio/README.md', '# AUDIO HIER REIN\n\nHier genau eine finale Voiceover-Datei ablegen (.wav, .mp3, .m4a oder .aac).\n\nErst danach echte Wort-Zeitstempel erzeugen.\n');
-
-write('03-szenen/00-ALLE-BILDER-HIER-REIN/README.md', `# ALLE FERTIGEN BILDER HIER REIN\n\nDer Nutzer erstellt die Bilder selbst mit Google Flow.\n\nAblauf in Google Flow:\n1. genau ein Bild erzeugen\n2. sofort mit dem direkt am Prompt angegebenen Namen umbenennen\n3. prüfen\n4. erst dann das nächste Bild\n\nErst wenn ALLE benötigten Bilder fertig und korrekt benannt sind, alle gemeinsam hier hineinlegen.\n\nBildnummer = echte Szenennummer. Animationsszenen erhalten kein Bild und ihre Nummer bleibt reserviert.\n`);
-
+write('01-script/script-fliess-text.txt', '[VOLLSTÄNDIGEN FLIESSTEXT EINFÜGEN]\n');
+write('02-audio/README.md', '# AUDIO HIER REIN\n\nHier genau eine finale Voiceover-Datei ablegen. Danach echte Wort-Zeitstempel erzeugen.\n');
+write('03-szenen/00-ALLE-BILDER-HIER-REIN/README.md', '# ALLE FERTIGEN BILDER HIER REIN\n\nErst wenn alle Bilder einzeln erzeugt, sofort korrekt benannt und geprüft sind, alle gemeinsam hier hineinlegen. Animationsszenen erhalten kein Bild; ihre Nummer bleibt reserviert.\n');
 write('03-szenen/00-cover/cover.txt', coverPrompt);
-write('03-szenen/bildwelt.txt', worldReferencePrompt);
-write('03-szenen/README.md', '# SZENEN\n\nHier liegen Cover, alle Bildprompts, die einzelnen Szenen und der gemeinsame Ordner für alle fertigen Nutzerbilder.\n');
-
+write('03-szenen/bildwelt.txt', worldPrompt);
+write('03-szenen/README.md', '# SZENEN\n\nGoogle Flow: 1 Bild erzeugen → sofort umbenennen → Text/Motiv prüfen → erst dann nächstes Bild. Cover braucht immer einen klaren deutschen Titel. Jede Bildszene braucht genau einen kurzen deutschen Bildtext.\n');
 write('04-caption/caption.txt', '[SOCIAL CAPTION EINFÜGEN]\n');
-write('04-caption/word-timings.json', `${JSON.stringify({version: 1, fps: 30, subtitleMode: 'sentence-with-audio-synced-active-word', activeWordColor: 'finance-green', sentences: []}, null, 2)}\n`);
-
-write('05-projektdateien/animationen.md', '# ANIMATIONEN\n\n[REMOTION-ANIMATIONEN UND ABLAUF EINFÜGEN]\n');
+write('04-caption/word-timings.json', `${JSON.stringify({version:1,fps:30,subtitleMode:'sentence-with-audio-synced-active-word',activeWordColor:'finance-green',sentences:[]}, null, 2)}\n`);
+write('05-projektdateien/animationen.md', '# ANIMATIONEN\n\n[REMOTION-ANIMATIONEN EINFÜGEN]\n');
 write('05-projektdateien/recherche-quellen.md', '# RECHERCHE UND QUELLEN\n\n[QUELLEN EINFÜGEN]\n');
 write('05-projektdateien/szenenplan.md', '# SZENENPLAN\n\n[SZENENPLAN EINFÜGEN]\n');
-write('05-projektdateien/technische-hinweise.md', '# TECHNISCHE HINWEISE\n\n- 1080 × 1920\n- 30 fps\n- Bilddarstellung: contain\n- aktuelles gesprochenes Wort grün\n- maximal zwei Caption-Zeilen\n- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP\n');
-write('05-projektdateien/timeline.json', `${JSON.stringify({version: 1, title, fps: 30, timingSource: '04-caption/word-timings.json', cutRule: 'voice-sentence-start', scenes: types.map((type, index) => ({id: `scene-${sceneNumber(index)}`, type, startFrame: 0, durationFrames: 0, cutReason: 'voice-sentence-start'}))}, null, 2)}\n`);
+write('05-projektdateien/technische-hinweise.md', '# TECHNISCHE HINWEISE\n\n- 1080 × 1920\n- 30 fps\n- Bilder: heller Premium-3D/CGI-Editorial-Look\n- jedes Bild: kurzer deutscher Text\n- Cover: klarer deutscher Titel\n- keine Neon-Tunnel-/Miniatur-Diorama-Welt\n- Bilddarstellung in Remotion: contain\n- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP\n');
+write('05-projektdateien/timeline.json', `${JSON.stringify({version:1,title,fps:30,timingSource:'04-caption/word-timings.json',cutRule:'voice-sentence-start',scenes:types.map((type,index)=>({id:`scene-${num(index)}`,type,startFrame:0,durationFrames:0,cutReason:'voice-sentence-start'}))}, null, 2)}\n`);
 
 const scenes = types.map((type, index) => {
-  const number = sceneNumber(index);
+  const number = num(index);
   const id = `scene-${number}`;
-  const directory = `03-szenen/EINZELNE-SZENEN/${id}`;
+  const dir = `03-szenen/EINZELNE-SZENEN/${id}`;
+  write(`${dir}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n\n**Sprechtext:** [EINFÜGEN]\n\n${type === 'image' ? `**Google-Flow-Dateiname:** ${sceneFileName(index)}\n**Deutscher Bildtext:** [EINFÜGEN]\n` : `**Google Flow:** KEIN Bild ${number}; Nummer bleibt reserviert.\n`}`);
 
-  write(`${directory}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n\n**Überschrift:** [EINFÜGEN]\n\n**Schwerpunktzeile:** [EINFÜGEN]\n\n**Passendes Icon:** [EINFÜGEN]\n\n**Sprechtext:** [EINFÜGEN]\n\n${type === 'image' ? `**Google-Flow-Dateiname:** ${sceneFileName(index)}\n` : `**Google Flow:** KEIN Bild ${number}; Nummer bleibt reserviert.\n`}`);
-
-  const common = {
-    id,
-    type,
-    startFrame: 0,
-    durationFrames: 0,
-    cutReason: 'voice-sentence-start',
-    directory: `EINZELNE-SZENEN/${id}`,
-    headline: '[EINFÜGEN]',
-    accent: '[EINFÜGEN]',
-    icon: '[EINFÜGEN]',
-  };
-
+  const common = {id,type,startFrame:0,durationFrames:0,cutReason:'voice-sentence-start',directory:`EINZELNE-SZENEN/${id}`,headline:'[EINFÜGEN]',accent:'[EINFÜGEN]',icon:'[EINFÜGEN]'};
   if (type === 'image') {
-    write(`${directory}/bildprompt.txt`, imagePrompt(id, index));
-    return {
-      ...common,
-      planFile: `EINZELNE-SZENEN/${id}/bildprompt.txt`,
-      googleFlowFileName: sceneFileName(index),
-      expectedVisual: '[EINFÜGEN]',
-      promptVersion: 'finanzneo-image-world-v3',
-      imagePresentation: {scale: 1.01, sourceCropTop: 0, sourceCropBottom: 0, cropSafe: true},
-    };
+    write(`${dir}/bildprompt.txt`, imagePrompt(id, index));
+    return {...common,planFile:`EINZELNE-SZENEN/${id}/bildprompt.txt`,googleFlowFileName:sceneFileName(index),imageText:'[EINFÜGEN]',expectedVisual:'[EINFÜGEN]',imagePresentation:{scale:1.01,sourceCropTop:0,sourceCropBottom:0,cropSafe:true}};
   }
-
-  write(`${directory}/remotion.md`, `# Remotion-Spezifikation ${id}\n\n- Komponente: [NAME]\n- Startzustand: [EINFÜGEN]\n- sichtbare Handlung: [EINFÜGEN]\n- Endzustand: [EINFÜGEN]\n- relative Ablaufphasen: [EINFÜGEN]\n`);
-  return {...common, planFile: `EINZELNE-SZENEN/${id}/remotion.md`};
+  write(`${dir}/remotion.md`, `# Remotion-Spezifikation ${id}\n\n- Komponente: [NAME]\n- Startzustand: [EINFÜGEN]\n- Handlung: [EINFÜGEN]\n- Endzustand: [EINFÜGEN]\n`);
+  return {...common,planFile:`EINZELNE-SZENEN/${id}/remotion.md`};
 });
 
-const allPromptSections = types.map((type, index) => {
-  const number = sceneNumber(index);
-  if (type === 'animation') {
-    return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSZENE ${number} – REMOTION-ANIMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nKEIN BILD ${number} ERZEUGEN.\nNummer ${number} bleibt reserviert.\n`;
-  }
+const allSections = types.map((type,index) => {
+  const number = num(index);
+  if (type === 'animation') return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSZENE ${number} – REMOTION-ANIMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nKEIN BILD ${number} ERZEUGEN. Nummer ${number} bleibt reserviert.\n`;
   return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSZENE ${number} – BILDSZENE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${imagePrompt(`scene-${number}`, index)}`;
 }).join('\n');
 
-write('03-szenen/alle-bildprompts.txt', `FINANZNEO — ALLE BILDPROMPTS FÜR GOOGLE FLOW\n\nGOOGLE FLOW KI-AGENT – VERBINDLICHER ABLAUF:\nImmer genau EIN Bild erzeugen → SOFORT umbenennen → prüfen → erst dann nächstes Bild.\nDie Nummer entspricht immer der echten Szenennummer. Eine Animationsszene erzeugt kein Bild, ihre Nummer bleibt aber reserviert.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${coverPrompt}\n${allPromptSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nErst wenn ALLE benötigten Bilder vollständig erzeugt, korrekt benannt und geprüft sind, alle gemeinsam in:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n\nNicht auf einzelne Szenenordner verteilen.\n`);
+write('03-szenen/alle-bildprompts.txt', `FINANZNEO — ALLE BILDPROMPTS FÜR GOOGLE FLOW\n\nVERBINDLICH:\n1 Bild erzeugen → sofort umbenennen → Motiv + deutschen Text prüfen → erst dann nächstes Bild.\nBildnummer = echte Szenennummer. Animationsnummern bleiben reserviert.\nJedes Bild enthält genau den direkt am Prompt festgelegten deutschen Bildtext. Cover braucht immer einen klaren deutschen Titel.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${coverPrompt}\n${allSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nErst wenn alle benötigten Bilder fertig, korrekt benannt und geprüft sind, alle gemeinsam nach:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n`);
 
 write('03-szenen/scene-index.json', `${JSON.stringify({
-  version: 7,
+  version:8,
   title,
-  sceneCount: scenes.length,
-  imageSceneCount: imageSceneIds.length,
-  animationSceneCount: animationSceneIds.length,
-  sourceContract: 'exactly-one-of-bildprompt-or-remotion',
-  userCreatesImages: true,
-  antigravityGeneratesImages: false,
-  googleFlow: {
-    generationMode: 'one-image-at-a-time',
-    fileNameRule: 'Bild XX - Kurzer Szenenname.png',
-    numberSource: 'real-scene-number',
-    animationNumbersStayReserved: true,
-    finalCollectionDirectory: '03-szenen/00-ALLE-BILDER-HIER-REIN/',
-    distributeToSceneFolders: false,
-  },
-  imageWorld: {
-    id: WORLD_ID,
-    referencePromptFile: '03-szenen/bildwelt.txt',
-    referenceImageFile: '03-szenen/bildwelt-referenz.png',
-    referenceImageRequired: true,
-    legacyAssetSet: false,
-    promptMarker: `FINANZNEO_WORLD_ID: ${WORLD_ID}`,
-    cameraLock: 'slightly-isometric-three-quarter-35mm-equivalent',
-    environmentLock: 'connected-charcoal-emerald-finance-studio',
-    noEmptyBackground: true,
-    backgroundFill: 'finanzneo-world-stage-v3',
-  },
-  timelineRules: {
-    timingSource: '04-caption/word-timings.json',
-    cutsFollowSentenceStarts: true,
-    equalLengthScenesForbiddenByDefault: true,
-  },
-  audio: {targetIntegratedLufs: -16, targetTruePeakDbtp: -1, finalMeasurementRequired: true},
-  headlineIconRule: 'matching-icon-centered-next-to-accent-same-visual-size',
-  subtitleDisplay: {mode: 'sentence-with-audio-synced-active-word', maxLines: 2, balancedLines: true, holdDuringPauses: true, noDeadGaps: true, activeWordColor: 'finance-green'},
-  layout: {headlineTop: 78, visualTop: 270, visualBottom: 1350, subtitleBottom: 320, subtitleLeft: 62, subtitleRight: 150},
-  imagePresentationContract: {imageFit: 'contain', maxIntentionalImageScale: 1.04, maxSourceCropPerSide: 0.2, maxSourceCropTotal: 0.34, blurredImageBackgroundForbidden: true},
-  forbiddenFiles: ['motionprompt.txt', 'alle-motionprompts.txt', 'placeholder.svg'],
-  scenes,
+  sceneCount:scenes.length,
+  imageSceneCount:imageSceneIds.length,
+  animationSceneCount:animationSceneIds.length,
+  userCreatesImages:true,
+  antigravityGeneratesImages:false,
+  googleFlow:{generationMode:'one-image-at-a-time',fileNameRule:'Bild XX - Kurzer Szenenname.png',numberSource:'real-scene-number',animationNumbersStayReserved:true,finalCollectionDirectory:'03-szenen/00-ALLE-BILDER-HIER-REIN/',distributeToSceneFolders:false},
+  imageWorld:{id:WORLD_ID,style:'bright-premium-3d-editorial',germanImageTextRequired:true,coverGermanTitleRequired:true,darkNeonTunnelForbidden:true,tinyDioramaForbidden:true,noEmptyBackground:true},
+  timelineRules:{timingSource:'04-caption/word-timings.json',cutsFollowSentenceStarts:true,equalLengthScenesForbiddenByDefault:true},
+  audio:{targetIntegratedLufs:-16,targetTruePeakDbtp:-1},
+  imagePresentationContract:{imageFit:'contain',maxIntentionalImageScale:1.04,maxSourceCropPerSide:0.2,maxSourceCropTotal:0.34,blurredImageBackgroundForbidden:true},
+  scenes
 }, null, 2)}\n`);
 
-console.log(`✓ Einfaches Reel-Gerüst erstellt: ${root}`);
-console.log('  01-script · 02-audio · 03-szenen · 04-caption · 05-projektdateien');
+console.log(`✓ Reel-Gerüst erstellt: ${root}`);
 console.log(`  ${imageSceneIds.length} Bildszenen · ${animationSceneIds.length} Remotion-Szenen`);
-console.log('  Bilder erstellt ausschließlich der Nutzer; Antigravity generiert keine Bilder.');
+console.log('  Bilder: heller Premium-3D/CGI-Editorial-Look · kurzer deutscher Text · Cover mit deutschem Titel');
+console.log('  Antigravity generiert keine Bilder; der Nutzer erstellt sie selbst.');
