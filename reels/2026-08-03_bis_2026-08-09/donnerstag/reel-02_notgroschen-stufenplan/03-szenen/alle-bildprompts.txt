@@ -20,47 +20,51 @@ Scene 09: the reserve is separate but quickly accessible.
 Scene 10: after using the reserve, a controlled refill restores protection.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VERBINDLICHE DATEINAMEN NACH DER BILDGENERIERUNG
+GOOGLE FLOW – VERBINDLICHE AUSGABENAMEN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Nach der Generierung müssen die fertigen Bilder nach ihrer ECHTEN chronologischen Position im Reel benannt werden. Die Nummer ist immer identisch mit der Szenennummer und NICHT mit der laufenden Anzahl der erzeugten Bilder.
+ANWEISUNG AN GOOGLE FLOW:
+Erstelle die Bilder in der oben angegebenen chronologischen Reel-Reihenfolge. Nach jeder erfolgreichen Bildgenerierung muss das Ergebnis eindeutig mit seiner ECHTEN Szenennummer und einem kurzen Szenennamen bezeichnet beziehungsweise beim Export so benannt werden.
 
-- Cover = `Bild 00`
-- Szene 01 = `Bild 01`
-- Szene 02 = `Bild 02`
-- Szene 03 = `Bild 03`
-- usw. bis zur letzten Szene.
+DATEINAMEN-FORMAT:
+`Bild XX - Kurzer Szenenname.png`
 
-WICHTIG BEI REMOTION-ANIMATIONEN:
-Eine Animationsszene behält ihre Szenennummer, bekommt aber KEINE Bilddatei. Die Nummer darf nicht an die nächste Bildszene weitergegeben oder neu durchgezählt werden.
+WICHTIG:
+- `XX` ist IMMER die echte Szenennummer im gesamten Reel.
+- Die Nummer richtet sich NICHT nach der Anzahl der tatsächlich erzeugten Bilder.
+- Animationsszenen behalten ihre Nummer, erzeugen aber KEIN Bild.
+- Nach einer Animationsszene wird NICHT neu durchgezählt.
+- Der kurze Szenenname soll 2 bis 5 verständliche Wörter enthalten und die Szene eindeutig beschreiben.
+- Nummer und Szenenname gehören ausschließlich in den DATEINAMEN beziehungsweise in die Ausgabebezeichnung von Google Flow.
+- Nummer, Szenenname und Dateiname dürfen NIEMALS sichtbar in das generierte Bild geschrieben oder gerendert werden.
+- Falls Google Flow die physische Datei nicht direkt umbenennen kann, muss unmittelbar beim jeweiligen Ergebnis der exakt vorgesehene Dateiname angegeben werden, damit die Datei anschließend exakt so gespeichert werden kann.
 
-Beispiel:
-- Szene 01 = Bildszene → `Bild 01.png`
+VERBINDLICHE DATEINAMEN FÜR DIESES REEL:
+
+- Cover → `Bild 00 - Cover Notgroschen.png`
+- Szene 01 → `Bild 01 - Defekt wird Schuldenfalle.png`
+- Szene 02 → `Bild 02 - Notgroschen faengt Schock ab.png`
+- Szene 03 = Remotion-Animation → KEIN `Bild 03`
+- Szene 04 → `Bild 04 - Erster 500 Euro Puffer.png`
+- Szene 05 = Remotion-Animation → KEIN `Bild 05`
+- Szene 06 → `Bild 06 - Echter Notfall oder Konsum.png`
+- Szene 07 = Remotion-Animation → KEIN `Bild 07`
+- Szene 08 = Remotion-Animation → KEIN `Bild 08`
+- Szene 09 → `Bild 09 - Puffer getrennt erreichbar.png`
+- Szene 10 → `Bild 10 - Notgroschen wieder auffuellen.png`
+
+BEISPIEL FÜR DIE NUMMERIERUNGSLOGIK:
+- Szene 01 = Bildszene → `Bild 01 - ...png`
 - Szene 02 = Remotion-Animation → KEIN `Bild 02`
-- Szene 03 = Bildszene → `Bild 03.png`
+- Szene 03 = Bildszene → `Bild 03 - ...png`
 
 NIEMALS Szene 03 in diesem Beispiel als `Bild 02` benennen.
 
-Für dieses Notgroschen-Reel gilt konkret:
-- Cover → `Bild 00`
-- Szene 01 → `Bild 01`
-- Szene 02 → `Bild 02`
-- Szene 03 = Animation → kein Bild
-- Szene 04 → `Bild 04`
-- Szene 05 = Animation → kein Bild
-- Szene 06 → `Bild 06`
-- Szene 07 = Animation → kein Bild
-- Szene 08 = Animation → kein Bild
-- Szene 09 → `Bild 09`
-- Szene 10 → `Bild 10`
-
-Die Dateiendung bleibt erhalten, zum Beispiel `.png`, `.jpg` oder `.webp`.
-
-Nach dem Umbenennen alle fertigen Bilder GEMEINSAM in diesen einen Ordner legen:
+Nach der Generierung alle fertigen Bilddateien GEMEINSAM in diesen einen Ordner legen:
 `03-szenen/BILDER-EINGANG/`
 
 Die KI darf die Nummer niemals anhand der Anzahl bereits generierter Bilder erraten. Maßgeblich ist ausschließlich die echte Szenennummer in `03-szenen/scene-index.json`.
 
-Danach zuerst prüfen und anschließend einsortieren:
+Danach zuerst prüfen und anschließend automatisch einsortieren:
 `npm run reel:sort-images -- <REEL-ORDNER> --dry-run`
 `npm run reel:sort-images -- <REEL-ORDNER>`
