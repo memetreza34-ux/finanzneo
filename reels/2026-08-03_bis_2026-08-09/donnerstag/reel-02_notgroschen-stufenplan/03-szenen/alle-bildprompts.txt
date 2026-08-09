@@ -1,12 +1,37 @@
-FINANZNEO — ALLE BILDPROMPTS FÜR GOOGLE FLOW
+FINANZNEO — NOTGROSCHEN IN DREI STUFEN
+ALLE BILDPROMPTS FÜR GOOGLE FLOW — NEUER QUALITÄTSSTIL
 
-GOOGLE FLOW KI-AGENT – VERBINDLICHER ABLAUF:
-Arbeite diese Datei streng von oben nach unten ab. Erzeuge immer nur EIN Bild gleichzeitig.
-Bei JEDEM Bild steht der endgültige Dateiname DIREKT AM ZUGEHÖRIGEN PROMPT.
-Ablauf pro Bild: `PROMPT LESEN → GENAU 1 BILD GENERIEREN → SOFORT WIE ANGEGEBEN UMBENENNEN → PRÜFEN → ERST DANN WEITER`.
-Animationsszenen werden übersprungen. Ihre Nummer bleibt trotzdem reserviert.
-Die Bildnummer entspricht immer der echten Szenennummer und niemals der laufenden Anzahl erzeugter Bilder.
-Der Dateiname darf niemals sichtbar in das Bild gerendert werden.
+GOOGLE FLOW KI-AGENT – VERBINDLICHER ABLAUF
+
+1. Arbeite diese Datei streng von oben nach unten ab.
+2. Erzeuge IMMER genau EIN Bild gleichzeitig.
+3. Bei JEDEM Bild steht der endgültige Dateiname direkt am Prompt.
+4. Ablauf pro Bild:
+   PROMPT LESEN → GENAU 1 BILD GENERIEREN → SOFORT UMBENENNEN → MOTIV + TEXT + DATEINAME PRÜFEN → ERST DANN NÄCHSTES BILD.
+5. Animationsszenen werden übersprungen. Ihre Nummer bleibt trotzdem reserviert.
+6. Bildnummer = echte Szenennummer. Niemals nach Anzahl der erzeugten Bilder neu nummerieren.
+7. Der Dateiname darf NICHT als sichtbarer Text im Bild erscheinen.
+8. Der im jeweiligen Prompt ausdrücklich angegebene DEUTSCHE BILDTEXT MUSS dagegen sichtbar im Bild stehen.
+9. Keine englischen Wörter, keine zufälligen Labels, keine Fantasieschrift und keine zusätzlichen Zahlen.
+10. Erst wenn alle benötigten Bilder fertig, korrekt benannt und geprüft sind, alle gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` legen.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NEUER VERBINDLICHER BILDSTIL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic proportions with polished stylization, crisp details, soft premium shadows, professional Social-Media-Finanzlook.
+
+HINTERGRUND:
+Warm off-white, light gray or another very light neutral premium environment. FinanzNeo green may appear as clean accents/protection elements. Gold only for money/value. Red only for risk/debt/problem.
+
+NICHT ERLAUBT:
+No dark black background, no neon tunnel, no sci-fi corridor, no green glowing tunnel world, no tiny isometric diorama, no miniature game level, no floating miniature platform, no clutter, no random dashboard, no excessive glow, no Pixar, no clay, no childish cartoon, no low-detail objects.
+
+KOMPOSITION:
+One large obvious hero concept per image. Main objects approximately 70–85% of usable width. Maximum 3–5 clear main elements. Must be understandable within one second on a smartphone.
+
+DEUTSCHER TEXT:
+Every final image contains exactly the short German phrase specified in its own prompt. Large modern bold sans-serif typography, high contrast, clean placement in the upper third or another calm free area. Exact spelling. No additional words.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 COVER
@@ -16,18 +41,18 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 00 - Cover Notgroschen.png`
 
 NACH DER GENERIERUNG:
-Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit Szene 01 fortfahren.
+Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach Szene 01 erzeugen.
+
+DEUTSCHER COVER-TEXT – EXAKT SO INS BILD:
+`NOTGROSCHEN`
+`IN 3 STUFEN`
 
 BILDPROMPT:
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+Create a premium bright vertical 9:16 3D CGI editorial finance cover. Show one large modern broken washing machine as the everyday emergency, one clearly visible unexpected repair bill and a red financial danger cue. In the center show a strong transparent emergency-reserve box containing gold money, protected by a large clean FinanzNeo-green shield. The visual story must instantly read: unexpected repair → emergency fund protects from debt.
 
-Create a premium vertical cover image in the exact connected FinanzNeo studio.
+Place the exact German title `NOTGROSCHEN` and directly below it `IN 3 STUFEN` in large bold modern typography in the upper third. No other visible words or numbers.
 
-Show a broken washing machine and one urgent repair bill approaching from the left. In the center, a protected gold emergency reserve stands behind a strong emerald shield. On the right, the same household continues calmly without credit cards, debt chains or payment-plan traps.
-
-Use the same fixed three-quarter camera, charcoal curved wall, matte floor, emerald architectural light channels, materials and lighting as the scene reference. Keep the upper 30 percent calm for a Remotion headline.
-
-No text, numbers, labels, logos, app interface or watermark. No isolated object, no black void, no floating platform, no photorealism, no cartoon, no Pixar and no clay style. Vertical 9:16.
+Use large crisp objects, bright off-white/light-gray premium background, subtle green accents, realistic proportions with polished stylization, commercial editorial quality. No dark neon world, no tunnel, no tiny diorama, no floating platform, no clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 01 – BILDSZENE
@@ -37,31 +62,19 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 01 - Defekt wird Schuldenfalle.png`
 
 NACH DER GENERIERUNG:
-Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit der nächsten chronologischen Szene fortfahren.
+Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach nächste Szene.
+
+DEUTSCHER TEXT – EXAKT SO INS BILD:
+`OHNE PUFFER WIRD ES TEUER`
 
 BILDPROMPT:
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+Create a premium bright vertical 9:16 3D CGI editorial finance illustration. Show a large broken washing machine, a clearly visible unexpected repair bill and an almost empty wallet. From one side, clear red financial danger objects approach: credit card, overdraft/debt warning and installment-payment risk. Do NOT show an emergency reserve yet.
 
-SERIES CONTINUITY LOCK:
-Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+The viewer must instantly understand: a necessary unexpected repair becomes expensive and can push the household toward debt when there is no cash buffer.
 
-ENVIRONMENT:
-One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights, foreground, midground and calm background. No empty black background.
+Place only the exact German text `OHNE PUFFER WIRD ES TEUER` in large bold modern typography in the upper third. No other visible text.
 
-COMPOSITION LOCK:
-Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm while continuing the same studio.
-
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
-
-CONSISTENCY NEGATIVES:
-No empty black background, no isolated product, no floating platform, no different camera or palette, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
-
-SCENE MESSAGE:
-An unexpected necessary repair becomes financially dangerous without a cash buffer.
-
-CONNECTED VISUAL STORY:
-Show a broken washing machine in the same studio. One urgent repair object moves toward an exposed wallet while red debt chains from a credit card, overdraft and payment-plan trap close around it. The danger should be clear without text. Do not show an existing emergency reserve yet.
+Bright off-white/light-gray environment, large smartphone-readable objects, crisp premium shadows, green only for neutral FinanzNeo accents, red for risk. No dark black background, no neon tunnel, no sci-fi, no tiny diorama, no abstract financial network.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 02 – BILDSZENE
@@ -71,38 +84,26 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 02 - Notgroschen faengt Schock ab.png`
 
 NACH DER GENERIERUNG:
-Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit der nächsten chronologischen Szene fortfahren.
+Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach Szene 03 überspringen und mit Szene 04 weitermachen.
+
+DEUTSCHER TEXT – EXAKT SO INS BILD:
+`DEIN NOTGROSCHEN SCHÜTZT DICH`
 
 BILDPROMPT:
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+Create a premium bright vertical 9:16 3D CGI editorial finance illustration. Show the same kind of washing-machine repair problem, but now place a large transparent emergency-reserve box filled with gold money between the repair bill and the household wallet. A strong clean FinanzNeo-green shield blocks the red debt/credit-card danger. Show the repair being paid from the reserve without needing debt.
 
-SERIES CONTINUITY LOCK:
-Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+The visual story must instantly read: emergency reserve absorbs the shock before debt becomes necessary.
 
-ENVIRONMENT:
-One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
+Place only the exact German text `DEIN NOTGROSCHEN SCHÜTZT DICH` in large bold modern typography in the upper third. No other visible text.
 
-COMPOSITION LOCK:
-Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
-
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
-
-CONSISTENCY NEGATIVES:
-No empty black background, no isolated product, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
-
-SCENE MESSAGE:
-A liquid emergency reserve absorbs a sudden expense before debt is needed.
-
-CONNECTED VISUAL STORY:
-Show a protected transparent reserve vault filled with gold money between a broken appliance and the exposed household wallet. The reserve releases exactly enough gold to cover the repair while an emerald shield blocks the red debt chains. The reserve must look quickly accessible, not locked for years.
+Bright neutral premium environment, large hero objects, simple left-to-right logic, no dark neon world, no tunnel, no tiny diorama, no clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 03 – REMOTION-ANIMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 KEIN BILD 03 ERZEUGEN.
-Die Nummer 03 bleibt für Szene 03 reserviert.
+Nummer 03 bleibt für Szene 03 reserviert.
 Die nächste Bildszene ist Szene 04 und heißt deshalb `Bild 04`, NICHT `Bild 03`.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -113,38 +114,26 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 04 - Erster 500 Euro Puffer.png`
 
 NACH DER GENERIERUNG:
-Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit der nächsten chronologischen Szene fortfahren.
+Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach Szene 05 überspringen und mit Szene 06 weitermachen.
+
+DEUTSCHER TEXT – EXAKT SO INS BILD:
+`ERSTES ZIEL: 500 €`
 
 BILDPROMPT:
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+Create a premium bright vertical 9:16 3D CGI editorial finance illustration. Show a modest but clearly useful first emergency reserve: a transparent modern reserve container holding a visible manageable amount of gold money. Beside it show one smaller unexpected repair expense that this first buffer can already absorb. A much larger future reserve may be hinted softly in the background, but without any extra numbers or labels.
 
-SERIES CONTINUITY LOCK:
-Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+The main message is: do not start with an intimidating giant goal; first build an achievable 500-euro buffer.
 
-ENVIRONMENT:
-One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three depth layers. No empty black background.
+Place only the exact German text `ERSTES ZIEL: 500 €` in large bold modern typography in the upper third. No other visible text or numbers.
 
-COMPOSITION LOCK:
-Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
-
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
-
-CONSISTENCY NEGATIVES:
-No empty black background, no giant final reserve, no isolated coin stack, no floating platform, no different camera or palette, no dashboard, no app UI, no photorealism, no cartoon, no Pixar, no clay style.
-
-SCENE MESSAGE:
-A small first emergency buffer is achievable and already useful.
-
-CONNECTED VISUAL STORY:
-Show a modest gold reserve stack growing inside a compact transparent protection capsule. A short reachable path of incoming coins leads into it. The capsule already blocks one small repair risk, while a much larger distant target remains softly visible in the background. Make the first step feel achievable, not insignificant.
+Bright off-white/light-gray premium background, big clear objects, polished editorial quality. No neon tunnel, no dark room, no tiny coin diorama, no complicated path system.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 05 – REMOTION-ANIMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 KEIN BILD 05 ERZEUGEN.
-Die Nummer 05 bleibt für Szene 05 reserviert.
+Nummer 05 bleibt für Szene 05 reserviert.
 Die nächste Bildszene ist Szene 06 und heißt deshalb `Bild 06`, NICHT `Bild 05`.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -155,45 +144,33 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 06 - Echter Notfall oder Konsum.png`
 
 NACH DER GENERIERUNG:
-Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit der nächsten chronologischen Szene fortfahren.
+Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach Szene 07 und 08 überspringen und mit Szene 09 weitermachen.
+
+DEUTSCHER TEXT – EXAKT SO INS BILD:
+`ECHTER NOTFALL?`
 
 BILDPROMPT:
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+Create a premium bright vertical 9:16 3D CGI editorial finance illustration with a very clear comparison. On the correct green side show a broken essential washing machine, urgent repair tool/bill and a normal wallet that cannot comfortably cover the expense. On the wrong red side show planned/non-emergency consumption such as shopping bags, a luxury gadget and a vacation suitcase. A clean green approval path points only to the necessary unexpected repair; a red stop symbol blocks the consumption side.
 
-SERIES CONTINUITY LOCK:
-Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+The viewer must instantly understand: emergency fund for necessary unexpected expenses, not normal or planned consumption.
 
-ENVIRONMENT:
-One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
+Place only the exact German text `ECHTER NOTFALL?` in large bold modern typography in the upper third. No other visible text.
 
-COMPOSITION LOCK:
-Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
-
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
-
-CONSISTENCY NEGATIVES:
-No empty black background, no text symbols, no checklist poster, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
-
-SCENE MESSAGE:
-A true emergency is necessary, unexpected and too large for the normal monthly budget.
-
-CONNECTED VISUAL STORY:
-Show three connected visual tests around one protected reserve: a broken essential appliance, a sudden urgent repair and an exposed monthly wallet that is clearly too small to cover it. On the opposite side, a luxury shopping object and vacation object are stopped outside the emergency path. Communicate the decision through spatial logic, not labels.
+Use two large readable sides and no more than five main elements. No checklist dashboard, no neon world, no tiny diorama, no clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 07 – REMOTION-ANIMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 KEIN BILD 07 ERZEUGEN.
-Die Nummer 07 bleibt für Szene 07 reserviert.
+Nummer 07 bleibt für Szene 07 reserviert.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 08 – REMOTION-ANIMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 KEIN BILD 08 ERZEUGEN.
-Die Nummer 08 bleibt für Szene 08 reserviert.
+Nummer 08 bleibt für Szene 08 reserviert.
 Die nächste Bildszene ist Szene 09 und heißt deshalb `Bild 09`, NICHT `Bild 07` oder `Bild 08`.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -204,31 +181,17 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 09 - Puffer getrennt erreichbar.png`
 
 NACH DER GENERIERUNG:
-Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit der nächsten chronologischen Szene fortfahren.
+Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Erst danach Szene 10 erzeugen.
+
+DEUTSCHER TEXT – EXAKT SO INS BILD:
+`GETRENNT & VERFÜGBAR`
 
 BILDPROMPT:
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+Create a premium bright vertical 9:16 3D CGI editorial finance illustration. Show two clearly separated money areas: one normal everyday wallet/current-account object with a small spending amount, and one separate transparent emergency-reserve/tagesgeld-style container holding gold money. Connect them only with one short clean green transfer path to communicate: separate from everyday spending, but quickly accessible in an emergency. Do not use a long-term lock or investment symbolism.
 
-SERIES CONTINUITY LOCK:
-Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+Place only the exact German text `GETRENNT & VERFÜGBAR` in large bold modern typography in the upper third. No other visible text.
 
-ENVIRONMENT:
-One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
-
-COMPOSITION LOCK:
-Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
-
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
-
-CONSISTENCY NEGATIVES:
-No empty black background, no bank logo, no app UI, no locked long-term investment vault, no cash under a mattress, no floating platform, no different world, no photorealism, no cartoon, no Pixar, no clay style.
-
-SCENE MESSAGE:
-The emergency reserve is separate from everyday spending but remains quickly accessible.
-
-CONNECTED VISUAL STORY:
-Show two connected but clearly separated money areas. The everyday wallet sits on the active spending path. A protected transparent reserve vault stands beside it with a short controlled transfer bridge back to the wallet. The reserve is not visible to the normal spending stream, yet can be reached quickly during an emergency.
+Bright neutral background, two large understandable hero areas, simple composition. No bank app, no dashboard, no dark neon tunnel, no tiny diorama.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 10 – BILDSZENE
@@ -238,31 +201,19 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 10 - Notgroschen wieder auffuellen.png`
 
 NACH DER GENERIERUNG:
-Dieses eine Bild sofort exakt so benennen und prüfen. Danach sind alle benötigten Bilder dieses Reels erzeugt.
+Sofort exakt so umbenennen. Motiv, Text und Dateiname prüfen. Danach sind alle benötigten Bilder fertig.
+
+DEUTSCHER TEXT – EXAKT SO INS BILD:
+`PUFFER WIEDER AUFFÜLLEN`
 
 BILDPROMPT:
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+Create a premium bright vertical 9:16 3D CGI editorial finance illustration. Show the washing machine repaired and working normally. Next to it, show the emergency-reserve container visibly partly depleted after paying the repair. A clear stream of small gold savings contributions refills the reserve while a FinanzNeo-green protection shield becomes complete again.
 
-SERIES CONTINUITY LOCK:
-Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+The scene must instantly communicate: after using the emergency fund, rebuild it step by step.
 
-ENVIRONMENT:
-One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three depth layers. No empty black background.
+Place only the exact German text `PUFFER WIEDER AUFFÜLLEN` in large bold modern typography in the upper third. No other visible text or numbers.
 
-COMPOSITION LOCK:
-Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
-
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
-
-CONSISTENCY NEGATIVES:
-No empty black background, no unresolved debt, no luxury spending, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
-
-SCENE MESSAGE:
-After an emergency withdrawal, regular saving restores the protective buffer.
-
-CONNECTED VISUAL STORY:
-Show the repaired washing machine operating calmly on one side. In the center, the transparent reserve vault is partially lower after paying the repair. A steady stream of small gold contributions refills it while the emerald shield becomes complete again. End with a controlled, protected and optimistic composition.
+Bright off-white/light-gray premium environment, large clear objects, optimistic clean ending. No dark room, no tunnel, no abstract network, no tiny diorama.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ABSCHLUSS – ERST NACH ALLEN EINZELBILDERN
@@ -277,8 +228,16 @@ Erwartete fertige Dateien:
 - `Bild 09 - Puffer getrennt erreichbar.png`
 - `Bild 10 - Notgroschen wieder auffuellen.png`
 
-Prüfe erst jetzt, dass alle erwarteten Dateien vorhanden, korrekt benannt und der richtigen Szene zugeordnet sind.
-Erst danach alle fertigen Bilder gemeinsam in genau diesen einen Ordner legen:
+Prüfe jetzt:
+- alle erwarteten Bilder vorhanden
+- richtige echte Szenennummern
+- kein Bild für Animationsszenen 03, 05, 07, 08
+- jeder deutsche Bildtext exakt richtig geschrieben
+- keine zusätzlichen/englischen Texte
+- keine dunkle Neon-/Tunnel-/Miniaturwelt
+- Motive groß, hochwertig und inhaltlich klar
+
+ERST DANACH alle fertigen Bilder gemeinsam in:
 `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 
 Google Flow verteilt die Bilder NICHT auf einzelne Szenenordner.
