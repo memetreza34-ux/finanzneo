@@ -26,6 +26,20 @@ GOOGLE FLOW KI-AGENT – VERBINDLICHER ABLAUF
 DIESE ANWEISUNG GILT AUSSCHLIESSLICH FÜR DEN GOOGLE-FLOW-KI-AGENTEN.
 Nicht für Codex, nicht für Antigravity und nicht für andere Agenten.
 
+GRUNDREGEL FÜR 3ER-STEPS:
+Ein 3er-Step bedeutet immer: die nächsten höchstens 3 TATSÄCHLICH BENÖTIGTEN Bilder in der chronologischen Szenenreihenfolge erzeugen. Ein 3er-Step bedeutet NICHT, dass die Dateinummern zwingend drei fortlaufende Zahlen sein müssen.
+
+Wenn zwischen zwei Bildszenen eine Remotion-Animation liegt, wird diese Szene übersprungen, ihre Szenennummer bleibt aber reserviert.
+
+Beispiel:
+- Szene 01 = Bildszene → `Bild 01`
+- Szene 02 = Animation → KEIN `Bild 02`
+- Szene 03 = Bildszene → `Bild 03`
+
+Damit ist `Bild 03` zwar das zweite tatsächlich erzeugte Szenenbild, heißt aber IMMER `Bild 03`, weil es zu Szene 03 gehört. Es darf NIEMALS in `Bild 02` umbenannt werden.
+
+Ein möglicher 3er-Step kann deshalb zum Beispiel aus `Bild 01`, `Bild 03`, `Bild 04` bestehen. Die Batch-Größe zählt erzeugte Bilder; der Dateiname richtet sich ausschließlich nach der echten Szenennummer.
+
 1. Erzeuge immer höchstens 3 benötigte Bilder gleichzeitig.
 
 2. Erster 3er-Step für dieses Reel:
@@ -44,7 +58,7 @@ Nicht für Codex, nicht für Antigravity und nicht für andere Agenten.
    `Bild 09 - Puffer getrennt erreichbar.png` = Szene 09
 
 5. Danach wieder:
-   erzeugen → umbenennen → prüfen → nächste höchstens 3 Bilder erzeugen.
+   erzeugen → umbenennen → prüfen → nächste höchstens 3 benötigte Bilder in Szenenreihenfolge erzeugen.
 
 6. So lange weitermachen, bis ALLE benötigten Bilder vollständig generiert UND korrekt umbenannt sind.
 
@@ -56,8 +70,9 @@ Nicht für Codex, nicht für Antigravity und nicht für andere Agenten.
    - keine erwartete Bildnummer fehlt
    - keine Bildnummer doppelt
    - keine Bildnummer vertauscht
-   - jedes Bild gehört zur richtigen Szene
+   - jedes Bild gehört zur richtigen echten Szene
    - Animationsszenen wurden korrekt ausgelassen
+   - Lücken durch Animationsszenen wurden NICHT geschlossen oder neu nummeriert
 
 9. ERST DANACH alle fertigen und bereits korrekt umbenannten Bilder gemeinsam in:
 
