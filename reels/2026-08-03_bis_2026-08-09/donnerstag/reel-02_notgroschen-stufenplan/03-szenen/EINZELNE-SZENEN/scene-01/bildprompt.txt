@@ -2,22 +2,24 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 01 - Defekt wird Schuldenfalle.png`
 
 WICHTIG:
-Erzeuge ausschließlich dieses eine Bild. Danach sofort exakt wie oben umbenennen, Motiv + Text + Dateiname prüfen und erst dann weitermachen. Der Dateiname selbst darf NICHT im Bild stehen.
+Erzeuge nur dieses eine Bild. Danach sofort umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
 
 BILDSTIL:
-Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic everyday objects with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray environment. FinanzNeo green only for positive/protective elements, red for debt/risk, gold for money. Large smartphone-readable composition. No dark background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating platform, no Pixar, no clay.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`OHNE PUFFER WIRD ES TEUER`
+Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, Rot für Schuldenrisiko, Gold nur für Geld. Großes zentrales Hauptmotiv, keine Miniaturwelt, kein Tunnel, kein Sci-Fi-Korridor, kein Pixar, kein Clay.
 
 TEXTREGEL:
-Groß, fett, moderne Sans-Serif-Schrift im oberen Drittel. Exakt diese Wörter, keine weiteren Texte, keine englischen Begriffe, keine Schreibfehler.
+Keine Überschrift. Kein Untertitel. Kein Satz. Nur kleine kurze deutsche Objekt-Beschriftungen direkt an den passenden Elementen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- an der Rechnung/Waschmaschine: `Reparatur`
+- an der roten Überziehungsgefahr: `Dispo`
+- an der roten Zahlungsgefahr: `Ratenzahlung`
 
 SZENENINHALT:
-Eine große kaputte Waschmaschine mit sichtbar geöffnetem/defektem Bereich steht als Hauptmotiv. Direkt daneben liegt eine unerwartete Reparaturrechnung. Ein fast leeres Portemonnaie ist sichtbar. Von der Problemseite kommen drei rote finanzielle Gefahren in verständlicher Form: Kreditkarte, Dispo-Symbolik und Ratenzahlung. Sie dürfen als klare Objekte/rote Warnmarkierungen erscheinen, aber ohne zusätzliche Beschriftung.
+Große kaputte Waschmaschine als Hauptobjekt, daneben eine sichtbare Reparaturrechnung und ein fast leeres Portemonnaie. Rote finanzielle Gefahren nähern sich von der Seite. Noch keinen Notgroschen zeigen.
 
 BILDAUSSAGE:
-Eine notwendige Reparatur wird ohne finanziellen Puffer schnell zum Schuldenproblem.
+Ohne Puffer kann eine notwendige ungeplante Reparatur schnell zu Dispo oder Ratenzahlung führen.
 
 KOMPOSITION:
-Waschmaschine + Rechnung + leeres Portemonnaie groß im Zentrum. Rote Schuldengefahr nähert sich von einer Seite. Keine Lösung/Reserve zeigen – diese kommt erst in Szene 02. Das Bild muss innerhalb einer Sekunde verständlich sein.
+Waschmaschine, Rechnung und Portemonnaie groß und sofort verständlich. Beschriftungen klein bis mittelgroß direkt an den Objekten, niemals oben als Headline.
