@@ -1,3 +1,8 @@
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 09 - Puffer getrennt erreichbar.png`
+
+WICHTIG: Erzeuge zuerst ausschließlich dieses eine Bild anhand dieses Prompts. Sobald es fertig ist, benenne es sofort exakt wie oben. Prüfe danach Motiv und Dateiname. Erst dann darf das nächste Bild erzeugt werden. Der Dateiname darf niemals sichtbar in das Bild gerendert werden.
+
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
 SERIES CONTINUITY LOCK:
