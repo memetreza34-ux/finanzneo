@@ -2,22 +2,23 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 04 - Erster 500 Euro Puffer.png`
 
 WICHTIG:
-Erzeuge ausschließlich dieses eine Bild. Danach sofort exakt wie oben umbenennen, Motiv + Text + Dateiname prüfen und erst dann weitermachen. Der Dateiname selbst darf NICHT im Bild stehen.
+Erzeuge nur dieses eine Bild. Danach sofort umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
 
 BILDSTIL:
-Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic proportions with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray environment. FinanzNeo green = Fortschritt/Schutz, gold = Geld. No dark background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating platform, no Pixar, no clay.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`ERSTES ZIEL: 500 €`
+Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, Gold für Geld. Großes klares Hauptmotiv, kein Miniatur-Diorama, kein Tunnel, kein Sci-Fi-Korridor.
 
 TEXTREGEL:
-Groß, fett, moderne Sans-Serif-Schrift im oberen Drittel. Exakt dieser Text inklusive 500 €; keine weiteren Wörter oder Zahlen, keine Schreibfehler.
+Keine Überschrift. Kein Untertitel. Kein Satz. Nur kurze deutsche Objekt-Beschriftungen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- an der kleinen Geldreserve: `500 €`
+- optional direkt darunter klein: `Mini-Puffer`
 
 SZENENINHALT:
-Zeige einen überschaubaren ersten Geldpuffer als klaren goldenen Betrag in einer kleinen transparenten Reservebox oder einem modernen Sparbehälter. Der Puffer soll bewusst noch nicht riesig wirken. Daneben liegt eine kleinere unerwartete Reparatur-/Notfallausgabe, die durch diesen ersten Puffer bereits aufgefangen werden kann. Im Hintergrund darf ein deutlich größeres Sparziel sehr dezent angedeutet sein, aber ohne Zahlen oder Text.
+Eine kompakte transparente Reserve mit einem überschaubaren goldenen Geldbetrag als großes Hauptobjekt. Daneben eine kleinere unerwartete Reparaturausgabe, die dieser erste Puffer bereits auffangen kann. Ein größeres späteres Ziel darf nur dezent im Hintergrund angedeutet werden und bekommt keine Beschriftung.
 
 BILDAUSSAGE:
-Nicht sofort das riesige Endziel verfolgen – zuerst einen erreichbaren 500-Euro-Puffer aufbauen.
+Der erste erreichbare Schritt ist ein kleiner 500-Euro-Puffer.
 
 KOMPOSITION:
-500-Euro-Puffer als großes klares Hero-Motiv im Zentrum, verständlicher Schutz vor einer kleineren Notfallausgabe daneben. Heller hochwertiger Hintergrund, wenige große Elemente, kein abstraktes Finanzsystem.
+Reserve groß im Zentrum. `500 €` direkt an der Reserve als Beschriftung, nicht oben als Headline.
