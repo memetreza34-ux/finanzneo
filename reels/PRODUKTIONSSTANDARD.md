@@ -32,7 +32,7 @@ Verboten:
 - Bilddateien in einer Remotion-Szene
 - mehr als ein finales Bild in einer Bildszene
 
-## 2. Zentraler Bilder-Eingang
+## 2. Zentraler Bilder-Eingang und verbindliche Nummerierung
 
 Jedes neue Reel besitzt zusätzlich:
 
@@ -42,35 +42,72 @@ Jedes neue Reel besitzt zusätzlich:
 
 Der Nutzer muss fertige Bilder nicht mehr manuell auf einzelne Szenenordner verteilen. Alle Bilder dürfen gesammelt in diesen Ordner gelegt werden.
 
-Die Nummer im Dateinamen ist verbindlich:
+### Grundregel
+
+Die Bildnummer entspricht **immer exakt der echten chronologischen Szenennummer im Reel**.
 
 ```text
-Bild 00 → 00-cover/
-Bild 01 → scene-01/
-Bild 02 → scene-02/
-Bild 03 → scene-03/
+Bild 00 → Cover
+Bild 01 → Szene 01
+Bild 02 → Szene 02
+Bild 03 → Szene 03
 ...
 ```
 
-Akzeptierte Beispiele:
+Die Nummer ist **nicht** die laufende Nummer der erzeugten Bilddateien.
+
+### Animationsszenen erzeugen Lücken
+
+Eine Remotion-Animationsszene behält ihre Szenennummer, bekommt aber keine Bilddatei. Diese Nummer darf niemals an die nächste Bildszene weitergegeben werden.
+
+Beispiel:
+
+```text
+Szene 01 = Bild      → Bild 01.png
+Szene 02 = Animation → kein Bild 02
+Szene 03 = Bild      → Bild 03.png
+```
+
+In diesem Beispiel ist `Bild 02.png` für Szene 03 ausdrücklich falsch.
+
+Die KI darf Bildnummern niemals nach der Anzahl bereits generierter Bilder weiterzählen. Maßgeblich ist ausschließlich die Szenennummer aus `03-szenen/scene-index.json`.
+
+### Pflichtblock am Ende aller Sammel-Bildprompts
+
+Jede Datei
+
+```text
+03-szenen/alle-bildprompts.txt
+```
+
+endet mit einer eindeutigen Dateinamen-Anweisung für genau dieses Reel. Sie muss enthalten:
+
+- Cover = `Bild 00`
+- jede echte Bildszene mit ihrer exakten Szenennummer
+- jede Remotion-Szene als ausdrücklich reservierte Nummer ohne Bild
+- den Hinweis, Bildszenen niemals lückenlos neu durchzunummerieren
+- den Zielordner `03-szenen/BILDER-EINGANG/`
+- den Hinweis, `scene-index.json` als alleinige Nummerierungsquelle zu verwenden
+
+Akzeptierte Beispiele für Dateien:
 
 ```text
 Bild 00.png
 bild01.jpg
-image_02.webp
-03.png
+image_04.webp
+09.png
 ```
 
-Danach wird ausgeführt:
-
-```bash
-npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
-```
-
-Vor einer echten Verschiebung kann geprüft werden:
+Danach wird zuerst geprüft:
 
 ```bash
 npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel> --dry-run
+```
+
+und erst danach tatsächlich einsortiert:
+
+```bash
+npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
 ```
 
 Sicherheitsregeln:
@@ -241,8 +278,9 @@ Vor Freigabe:
 1. alle Bilder als Kontaktbogen nebeneinander prüfen
 2. gleiche Kamera, Architektur, Palette, Licht und Motivgröße bestätigen
 3. Satzgenauigkeit jedes Bildes prüfen
-4. Anfang, Mitte und Ende jeder Bildszene im Render prüfen
-5. vollständige MP4 mit Ton ansehen
+4. Bildnummer gegen die echte Szenennummer prüfen
+5. Anfang, Mitte und Ende jeder Bildszene im Render prüfen
+6. vollständige MP4 mit Ton ansehen
 
 Ein Bildsatz wird neu erstellt, wenn ein einzelnes Bild sichtbar aus einer anderen Welt stammt oder dem gesprochenen Satz widerspricht.
 
@@ -254,16 +292,10 @@ npm run reel:create -- \
   --title "Reel-Titel"
 ```
 
-Der Scaffolder erzeugt die Produktionsstruktur. Direkt danach muss der Agent den zentralen Bilder-Eingang initialisieren:
+Der Scaffolder erzeugt die Produktionsstruktur inklusive:
 
-```bash
-npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
-```
-
-Damit ist `03-szenen/BILDER-EINGANG/` sofort vorhanden, bevor der Nutzer Bilder ablegt.
-
-Zusätzlich enthält das Reel:
-
+- `03-szenen/BILDER-EINGANG/`
+- `alle-bildprompts.txt` mit verbindlichem Nummerierungsblock am Ende
 - `bildwelt.txt`
 - Weltmetadaten im `scene-index.json`
 - vollständige V3-Promptstruktur pro Bildszene
