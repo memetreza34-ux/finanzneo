@@ -1,118 +1,273 @@
+FINANZNEO — ALLE BILDPROMPTS FÜR GOOGLE FLOW
+
+GOOGLE FLOW KI-AGENT – WICHTIG:
+Arbeite diese Datei streng von oben nach unten ab. Erzeuge immer nur EIN Bild gleichzeitig.
+Bei JEDEM Bild steht der endgültige Dateiname DIREKT AM ZUGEHÖRIGEN PROMPT.
+Ablauf pro Bild: `PROMPT LESEN → GENAU 1 BILD GENERIEREN → SOFORT WIE ANGEGEBEN UMBENENNEN → PRÜFEN → ERST DANN WEITER`.
+Animationsszenen werden übersprungen. Ihre Nummer bleibt trotzdem reserviert.
+Der Dateiname darf niemals sichtbar in das Bild gerendert werden.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 00 - Cover Notgroschen.png`
+
+NACH DER GENERIERUNG:
+Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit Szene 01 fortfahren.
+
+BILDPROMPT:
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-All six scene images use the exact same `bildwelt-referenz.png`. Do not redesign the world. No empty black background. No headline, subtitle, sentence, number, label, logo, watermark or interface text inside any image.
+Create a premium vertical cover image in the exact connected FinanzNeo studio.
 
-Required blocks in every prompt:
+Show a broken washing machine and one urgent repair bill approaching from the left. In the center, a protected gold emergency reserve stands behind a strong emerald shield. On the right, the same household continues calmly without credit cards, debt chains or payment-plan traps.
+
+Use the same fixed three-quarter camera, charcoal curved wall, matte floor, emerald architectural light channels, materials and lighting as the scene reference. Keep the upper 30 percent calm for a Remotion headline.
+
+No text, numbers, labels, logos, app interface or watermark. No isolated object, no black void, no floating platform, no photorealism, no cartoon, no Pixar and no clay style. Vertical 9:16.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 01 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 01 - Defekt wird Schuldenfalle.png`
+
+NACH DER GENERIERUNG:
+Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit der nächsten chronologischen Szene fortfahren.
+
+BILDPROMPT:
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
 SERIES CONTINUITY LOCK:
+Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+
 ENVIRONMENT:
+One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights, foreground, midground and calm background. No empty black background.
+
 COMPOSITION LOCK:
+Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm while continuing the same studio.
+
 TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
 CONSISTENCY NEGATIVES:
+No empty black background, no isolated product, no floating platform, no different camera or palette, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
+
 SCENE MESSAGE:
+An unexpected necessary repair becomes financially dangerous without a cash buffer.
+
 CONNECTED VISUAL STORY:
-
-Scene 01: unexpected repair turns into a debt trap without a buffer.
-Scene 02: an accessible emergency reserve blocks the financial shock.
-Scene 04: a small first buffer is achievable and protected.
-Scene 06: real emergencies are necessary, unexpected and too large for the normal monthly budget.
-Scene 09: the reserve is separate but quickly accessible.
-Scene 10: after using the reserve, a controlled refill restores protection.
+Show a broken washing machine in the same studio. One urgent repair object moves toward an exposed wallet while red debt chains from a credit card, overdraft and payment-plan trap close around it. The danger should be clear without text. Do not show an existing emergency reserve yet.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-GOOGLE FLOW KI-AGENT – VERBINDLICHER EINZELBILD-ABLAUF
+SZENE 02 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-DIESE ANWEISUNG GILT AUSSCHLIESSLICH FÜR DEN GOOGLE-FLOW-KI-AGENTEN.
-Nicht für Codex, nicht für Antigravity und nicht für andere Agenten.
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 02 - Notgroschen faengt Schock ab.png`
 
-GRUNDREGEL:
-Google Flow erstellt immer genau EIN benötigtes Bild nach dem anderen.
-Es dürfen niemals zwei oder mehr neue Bilder gleichzeitig erzeugt werden.
-Nach jeder einzelnen Generierung muss dieses eine Bild sofort korrekt benannt und geprüft werden. Erst danach darf das nächste Bild erzeugt werden.
+NACH DER GENERIERUNG:
+Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit der nächsten chronologischen Szene fortfahren.
 
-VERBINDLICHE SCHLEIFE:
+BILDPROMPT:
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-`1 BILD GENERIEREN → SOFORT UMBENENNEN → PRÜFEN → ERST DANN NÄCHSTES BILD`
+SERIES CONTINUITY LOCK:
+Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
 
-Diese Schleife wird so lange wiederholt, bis Cover und alle echten Bildszenen vollständig fertig sind.
+ENVIRONMENT:
+One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SCHRITT 1 – GENAU EIN BILD GENERIEREN
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPOSITION LOCK:
+Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
 
-- Beginne mit dem Cover.
-- Verwende danach die Bildszenen in chronologischer Reel-Reihenfolge.
-- Verwende immer den exakt zugehörigen Bildprompt.
-- Verwende für alle Bilder dieselbe `bildwelt-referenz.png`.
-- Remotion-Animationsszenen werden vollständig übersprungen und erhalten kein Bild.
-- Erzeuge zu diesem Zeitpunkt wirklich nur EIN einziges Bild.
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SCHRITT 2 – DIESES EINE BILD SOFORT UMBENENNEN
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONSISTENCY NEGATIVES:
+No empty black background, no isolated product, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
 
-Sobald genau dieses Bild fertig generiert wurde, muss es sofort seinen endgültigen Dateinamen erhalten.
-Nicht erst mehrere Bilder sammeln. Nicht später gesammelt umbenennen.
+SCENE MESSAGE:
+A liquid emergency reserve absorbs a sudden expense before debt is needed.
 
-Dateinamen-Format:
-`Bild XX - Kurzer Szenenname.png`
-
-Dabei gilt:
-- `Bild 00` = Cover.
-- `XX` entspricht danach immer exakt der ECHTEN Szenennummer.
-- Der kurze Szenenname enthält 2 bis 5 verständliche Wörter.
-- Die Bildnummer richtet sich niemals nach der Anzahl bereits erzeugter Bilder.
-- Eine Animationsszene behält ihre Nummer, erzeugt aber keine Datei.
-- Die Nummer einer Animationsszene darf niemals an eine spätere Bildszene weitergegeben werden.
-
-Beispiel:
-- Szene 01 = Bildszene → `Bild 01 - ...png`
-- Szene 02 = Animation → KEIN `Bild 02`
-- Szene 03 = Bildszene → `Bild 03 - ...png`
-
-Damit ist `Bild 03` zwar erst das zweite tatsächlich erzeugte Szenenbild, heißt aber trotzdem `Bild 03`, weil es zu Szene 03 gehört.
-NIEMALS in `Bild 02` umbenennen.
-
-Wenn Google Flow die physische Datei technisch nicht direkt umbenennen kann, muss der Agent unmittelbar nach der Generierung diesem einzelnen Ergebnis eindeutig den exakt vorgesehenen endgültigen Dateinamen zuordnen, bevor irgendetwas Weiteres generiert wird.
+CONNECTED VISUAL STORY:
+Show a protected transparent reserve vault filled with gold money between a broken appliance and the exposed household wallet. The reserve releases exactly enough gold to cover the repair while an emerald shield blocks the red debt chains. The reserve must look quickly accessible, not locked for years.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SCHRITT 3 – DIESES EINE BILD PRÜFEN
+SZENE 03 – REMOTION-ANIMATION
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Vor der nächsten Generierung prüfen:
-- Gehört das Motiv wirklich zur richtigen Szene?
-- Ist die echte Szenennummer korrekt?
-- Ist der kurze Szenenname korrekt und eindeutig?
-- Ist der endgültige Dateiname bereits gesetzt beziehungsweise eindeutig zugeordnet?
-- Wurde keine Animationsnummer auf dieses Bild übertragen?
-- Enthält das Bild selbst keinen sichtbaren Dateinamen, keine Szenennummer und keinen Szenennamen?
-- Passt das Bild weiterhin zur gemeinsamen FinanzNeo-Bildwelt?
-
-Wenn etwas falsch ist:
-Dieses Bild korrigieren beziehungsweise neu generieren, erneut korrekt benennen und erneut prüfen.
-Erst wenn dieses einzelne Bild vollständig korrekt ist, darf Google Flow zum nächsten benötigten Bild wechseln.
+KEIN BILD 03 ERZEUGEN.
+Die Nummer 03 bleibt für Szene 03 reserviert.
+Die nächste Bildszene ist Szene 04 und heißt deshalb `Bild 04`, NICHT `Bild 03`.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VERBINDLICHE REIHENFOLGE FÜR DIESES REEL
+SZENE 04 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Google Flow arbeitet exakt in dieser Reihenfolge:
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 04 - Erster 500 Euro Puffer.png`
 
-1. Cover erzeugen → sofort `Bild 00 - Cover Notgroschen.png` nennen → prüfen.
-2. Szene 01 erzeugen → sofort `Bild 01 - Defekt wird Schuldenfalle.png` nennen → prüfen.
-3. Szene 02 erzeugen → sofort `Bild 02 - Notgroschen faengt Schock ab.png` nennen → prüfen.
-4. Szene 03 ist Animation → kein Bild erzeugen, Nummer 03 bleibt reserviert.
-5. Szene 04 erzeugen → sofort `Bild 04 - Erster 500 Euro Puffer.png` nennen → prüfen.
-6. Szene 05 ist Animation → kein Bild erzeugen, Nummer 05 bleibt reserviert.
-7. Szene 06 erzeugen → sofort `Bild 06 - Echter Notfall oder Konsum.png` nennen → prüfen.
-8. Szene 07 ist Animation → kein Bild erzeugen, Nummer 07 bleibt reserviert.
-9. Szene 08 ist Animation → kein Bild erzeugen, Nummer 08 bleibt reserviert.
-10. Szene 09 erzeugen → sofort `Bild 09 - Puffer getrennt erreichbar.png` nennen → prüfen.
-11. Szene 10 erzeugen → sofort `Bild 10 - Notgroschen wieder auffuellen.png` nennen → prüfen.
+NACH DER GENERIERUNG:
+Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit der nächsten chronologischen Szene fortfahren.
 
-Erwartete fertige Bilddateien sind deshalb exakt:
+BILDPROMPT:
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
+SERIES CONTINUITY LOCK:
+Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+
+ENVIRONMENT:
+One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three depth layers. No empty black background.
+
+COMPOSITION LOCK:
+Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no giant final reserve, no isolated coin stack, no floating platform, no different camera or palette, no dashboard, no app UI, no photorealism, no cartoon, no Pixar, no clay style.
+
+SCENE MESSAGE:
+A small first emergency buffer is achievable and already useful.
+
+CONNECTED VISUAL STORY:
+Show a modest gold reserve stack growing inside a compact transparent protection capsule. A short reachable path of incoming coins leads into it. The capsule already blocks one small repair risk, while a much larger distant target remains softly visible in the background. Make the first step feel achievable, not insignificant.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 05 – REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 05 ERZEUGEN.
+Die Nummer 05 bleibt für Szene 05 reserviert.
+Die nächste Bildszene ist Szene 06 und heißt deshalb `Bild 06`, NICHT `Bild 05`.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 06 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 06 - Echter Notfall oder Konsum.png`
+
+NACH DER GENERIERUNG:
+Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit der nächsten chronologischen Szene fortfahren.
+
+BILDPROMPT:
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+SERIES CONTINUITY LOCK:
+Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+
+ENVIRONMENT:
+One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
+
+COMPOSITION LOCK:
+Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no text symbols, no checklist poster, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
+
+SCENE MESSAGE:
+A true emergency is necessary, unexpected and too large for the normal monthly budget.
+
+CONNECTED VISUAL STORY:
+Show three connected visual tests around one protected reserve: a broken essential appliance, a sudden urgent repair and an exposed monthly wallet that is clearly too small to cover it. On the opposite side, a luxury shopping object and vacation object are stopped outside the emergency path. Communicate the decision through spatial logic, not labels.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 07 – REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 07 ERZEUGEN.
+Die Nummer 07 bleibt für Szene 07 reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 08 – REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 08 ERZEUGEN.
+Die Nummer 08 bleibt für Szene 08 reserviert.
+Die nächste Bildszene ist Szene 09 und heißt deshalb `Bild 09`, NICHT `Bild 07` oder `Bild 08`.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 09 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 09 - Puffer getrennt erreichbar.png`
+
+NACH DER GENERIERUNG:
+Dieses eine Bild sofort exakt so benennen, prüfen und erst danach mit der nächsten chronologischen Szene fortfahren.
+
+BILDPROMPT:
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+SERIES CONTINUITY LOCK:
+Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+
+ENVIRONMENT:
+One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
+
+COMPOSITION LOCK:
+Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no bank logo, no app UI, no locked long-term investment vault, no cash under a mattress, no floating platform, no different world, no photorealism, no cartoon, no Pixar, no clay style.
+
+SCENE MESSAGE:
+The emergency reserve is separate from everyday spending but remains quickly accessible.
+
+CONNECTED VISUAL STORY:
+Show two connected but clearly separated money areas. The everyday wallet sits on the active spending path. A protected transparent reserve vault stands beside it with a short controlled transfer bridge back to the wallet. The reserve is not visible to the normal spending stream, yet can be reached quickly during an emergency.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 10 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 10 - Notgroschen wieder auffuellen.png`
+
+NACH DER GENERIERUNG:
+Dieses eine Bild sofort exakt so benennen und prüfen. Danach sind alle benötigten Bilder dieses Reels erzeugt.
+
+BILDPROMPT:
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+SERIES CONTINUITY LOCK:
+Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+
+ENVIRONMENT:
+One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three depth layers. No empty black background.
+
+COMPOSITION LOCK:
+Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no unresolved debt, no luxury spending, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
+
+SCENE MESSAGE:
+After an emergency withdrawal, regular saving restores the protective buffer.
+
+CONNECTED VISUAL STORY:
+Show the repaired washing machine operating calmly on one side. In the center, the transparent reserve vault is partially lower after paying the repair. A steady stream of small gold contributions refills it while the emerald shield becomes complete again. End with a controlled, protected and optimistic composition.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSCHLUSS – ERST NACH ALLEN EINZELBILDERN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Erwartete fertige Dateien:
 - `Bild 00 - Cover Notgroschen.png`
 - `Bild 01 - Defekt wird Schuldenfalle.png`
 - `Bild 02 - Notgroschen faengt Schock ab.png`
@@ -121,32 +276,8 @@ Erwartete fertige Bilddateien sind deshalb exakt:
 - `Bild 09 - Puffer getrennt erreichbar.png`
 - `Bild 10 - Notgroschen wieder auffuellen.png`
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ERST WENN ALLE EINZELBILDER FERTIG SIND
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Google Flow darf den Sammelschritt erst beginnen, wenn jedes benötigte Bild einzeln:
-- generiert,
-- endgültig benannt,
-- geprüft
-und korrekt abgeschlossen wurde.
-
-Danach eine vollständige Abschlussprüfung:
-- keine erwartete Bilddatei fehlt,
-- keine Bildnummer ist doppelt,
-- keine Bildnummer ist vertauscht,
-- jedes Bild gehört zur richtigen echten Szene,
-- Animationsszenen wurden korrekt ausgelassen,
-- Lücken durch Animationen wurden nicht geschlossen oder neu nummeriert.
-
-ERST DANACH alle fertigen und bereits korrekt benannten Bilder gemeinsam in genau diesen einen Ordner legen:
-
+Prüfe erst jetzt, dass alle erwarteten Dateien vorhanden, korrekt benannt und der richtigen Szene zugeordnet sind.
+Danach alle fertigen Bilder gemeinsam in genau diesen einen Ordner legen:
 `00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
 
-WICHTIG:
-- Alle Bilder gemeinsam in diesen einen Ordner.
-- Google Flow verteilt sie NICHT auf einzelne Szenenordner.
-- Google Flow benennt sie im Sammelordner nicht erneut um.
-- Google Flow übernimmt danach keine Codex-, Antigravity- oder Remotion-Aufgaben, sofern das nicht separat verlangt wird.
-
-Nummer, Szenenname und Dateiname gehören ausschließlich in den Dateinamen beziehungsweise die Dateibezeichnung. Sie dürfen NIEMALS sichtbar in das generierte Bild geschrieben oder gerendert werden.
+Google Flow verteilt die Bilder NICHT auf einzelne Szenenordner.
