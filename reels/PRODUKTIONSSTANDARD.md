@@ -32,7 +32,105 @@ Verboten:
 - Bilddateien in einer Remotion-Szene
 - mehr als ein finales Bild in einer Bildszene
 
-## 2. FinanzNeo Image World V3
+## 2. Google Flow: Einzelbild-Erzeugung, Benennung und Sammelordner
+
+Für Google Flow gilt ein eigener verbindlicher Ablauf. Dieser Abschnitt gilt **ausschließlich für den Google-Flow-KI-Agenten**, nicht für Codex, Antigravity oder andere Agenten.
+
+### Grundregel
+
+Google Flow erzeugt immer genau **ein einziges benötigtes Bild** nach dem anderen.
+
+```text
+1 Bild generieren
+→ sofort endgültig umbenennen
+→ genau dieses Bild prüfen
+→ erst dann das nächste Bild generieren
+```
+
+Google Flow darf niemals mehrere neue Bilder gleichzeitig erzeugen und sie später gesammelt umbenennen.
+
+### Verbindliche Nummerierung
+
+Die Bildnummer entspricht immer exakt der echten chronologischen Szenennummer im Reel.
+
+```text
+Bild 00 → Cover
+Bild 01 → Szene 01
+Bild 02 → Szene 02
+Bild 03 → Szene 03
+...
+```
+
+Die Nummer ist **nicht** die laufende Nummer der tatsächlich erzeugten Bilddateien.
+
+### Animationsszenen erzeugen Lücken
+
+Eine Remotion-Animationsszene behält ihre Szenennummer, bekommt aber keine Bilddatei. Diese Nummer darf niemals an die nächste Bildszene weitergegeben werden.
+
+Beispiel:
+
+```text
+Szene 01 = Bild      → Bild 01.png
+Szene 02 = Animation → kein Bild 02
+Szene 03 = Bild      → Bild 03.png
+```
+
+`Bild 03` ist hier zwar das zweite tatsächlich erzeugte Szenenbild, heißt aber trotzdem `Bild 03`, weil es zu Szene 03 gehört. `Bild 02` wäre ausdrücklich falsch.
+
+Maßgeblich ist ausschließlich die echte Szenennummer aus `03-szenen/scene-index.json`.
+
+### Pflichtblock am Ende von `alle-bildprompts.txt`
+
+Jede Datei
+
+```text
+03-szenen/alle-bildprompts.txt
+```
+
+endet mit einer ausdrücklichen Google-Flow-Anweisung für genau dieses Reel. Sie muss enthalten:
+
+- Einzelbild-Schleife: `GENERIEREN → SOFORT UMBENENNEN → PRÜFEN → NÄCHSTES BILD`
+- Cover = `Bild 00`
+- jede echte Bildszene mit ihrer exakten Szenennummer
+- jede Remotion-Szene als reservierte Nummer ohne Bild
+- einen konkreten endgültigen Dateinamen je benötigtem Bild
+- den Hinweis, Animationslücken niemals zu schließen oder neu durchzunummerieren
+- die vollständige erwartete Dateiliste für genau dieses Reel
+- den finalen Google-Flow-Sammelordner `00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+
+### Verbindlicher Ablauf pro einzelnes Bild
+
+Für jedes benötigte Bild gilt:
+
+1. **Generieren:** genau das Cover oder genau die aktuelle echte Bildszene mit dem zugehörigen Prompt und derselben `bildwelt-referenz.png` erzeugen. Nur ein Bild gleichzeitig.
+2. **Sofort umbenennen:** unmittelbar nach der Generierung den endgültigen Namen vergeben: `Bild XX - Kurzer Szenenname.png`.
+3. **Prüfen:** Motiv, echte Szenennummer, Szenenname, Dateiname, Textfreiheit und Bildwelt prüfen.
+4. **Erst danach weiter:** nur wenn dieses eine Bild vollständig korrekt ist, darf das nächste benötigte Bild generiert werden.
+
+Wenn ein Bild falsch ist, wird genau dieses Bild korrigiert oder neu generiert, erneut korrekt benannt und erneut geprüft, bevor Google Flow fortfährt.
+
+### Sammeln erst ganz am Ende
+
+Erst wenn Cover und **alle** benötigten Bildszenen einzeln vollständig generiert, endgültig benannt und geprüft sind, erfolgt die Abschlussprüfung:
+
+- keine erwartete Bilddatei fehlt
+- keine Bildnummer doppelt
+- keine Bildnummer vertauscht
+- jedes Bild gehört zur richtigen echten Szene
+- Animationsszenen wurden ausgelassen
+- Lücken durch Animationsszenen wurden nicht geschlossen
+
+Erst danach legt Google Flow alle fertigen Bilder gemeinsam in:
+
+```text
+00-bildprompts/00-ALLE-BILDER-HIER-REIN/
+```
+
+Google Flow verteilt diese Bilder **nicht** auf einzelne Szenenordner. Die weitere technische Einsortierung ist nicht Teil der Google-Flow-Bildaufgabe.
+
+Nummer, Szenenname und Dateiname gehören ausschließlich in den Dateinamen beziehungsweise die Ausgabebezeichnung. Sie dürfen niemals sichtbar in das generierte Bild geschrieben werden.
+
+## 3. FinanzNeo Image World V3
 
 Alle neuen Reels verwenden:
 
@@ -55,7 +153,7 @@ Jedes Reel besitzt:
 
 Die Referenz wird zuerst erzeugt. Alle Szenenbilder verwenden sie ausschließlich als Stil- und Weltreferenz.
 
-## 3. Einheitliche Bildwelt
+## 4. Einheitliche Bildwelt
 
 Alle Bilder eines Reels behalten dieselben Merkmale:
 
@@ -70,7 +168,7 @@ Alle Bilder eines Reels behalten dieselben Merkmale:
 
 Die finanzielle Handlung darf wechseln. Die Welt darf nicht wechseln.
 
-## 4. Kein leerer Hintergrund
+## 5. Kein leerer Hintergrund
 
 Ein Szenenbild zeigt niemals nur ein isoliertes Objekt vor schwarzem Nichts.
 
@@ -90,7 +188,7 @@ Verboten:
 - freigestellter Produkt-Render
 - zufällige Umgebung pro Szene
 
-## 5. Textfreie Bildquellen
+## 6. Textfreie Bildquellen
 
 Neue Bilder enthalten grundsätzlich keinen Text:
 
@@ -103,7 +201,7 @@ Neue Bilder enthalten grundsätzlich keinen Text:
 
 Remotion rendert sämtliche Typografie und geprüften Werte.
 
-## 6. Bildprompt-Vertrag
+## 7. Bildprompt-Vertrag
 
 Jeder Bildprompt enthält exakt folgende Marker:
 
@@ -120,7 +218,7 @@ CONNECTED VISUAL STORY:
 
 Die Weltbeschreibung bleibt in allen Prompts gleich. Nur `SCENE MESSAGE`, Objekte und Handlung werden individuell angepasst.
 
-## 7. Darstellung in Remotion
+## 8. Darstellung in Remotion
 
 - Vordergrundbild mit `object-fit: contain`.
 - Keine sichtbare unscharfe Kopie desselben Bildes im Hintergrund.
@@ -132,7 +230,7 @@ Die Weltbeschreibung bleibt in allen Prompts gleich. Nur `SCENE MESSAGE`, Objekt
 - Nur nachweislich ruhige Umgebungsfläche darf beschnitten werden.
 - Wichtige Objekte, Pfeile, Geld und erklärende Elemente dürfen nie abgeschnitten werden.
 
-## 8. Verbindliches 9:16-Layout
+## 9. Verbindliches 9:16-Layout
 
 ```text
 0–250 px       Überschrift mit passendem Icon
@@ -148,7 +246,7 @@ rechte 150 px  Reels-Bedienleiste freihalten
 - Passendes Linien-Icon neben der Schwerpunktzeile.
 - Icon und Schwerpunktzeile besitzen dieselbe visuelle Höhe.
 
-## 9. Untertitel
+## 10. Untertitel
 
 - Immer genau ein vollständiger Satz sichtbar.
 - Nur das aktuell gesprochene Wort ist FinanzNeo-grün.
@@ -158,7 +256,7 @@ rechte 150 px  Reels-Bedienleiste freihalten
 - Höchstens zwei fest berechnete Zeilen.
 - Keine springenden Wörter und keine Größenanimation.
 
-## 10. Satzbasierte Szenenschnitte
+## 11. Satzbasierte Szenenschnitte
 
 Szenenlängen werden aus den finalen Wort-Zeitstempeln abgeleitet.
 
@@ -168,7 +266,7 @@ Der Beginn einer neuen Szene entspricht dem Beginn des ersten zugehörigen Satze
 word-timings → Satzanfänge → Szenenstarts → relative Animationsdauer
 ```
 
-## 11. Audio
+## 12. Audio
 
 Ziel für das veröffentlichte Voiceover:
 
@@ -179,19 +277,20 @@ True Peak: höchstens -1 dBTP
 
 Der genaue Wert wird am finalen Export gemessen. Eine reine Code-Verstärkung ersetzt keine finale Audiokontrolle.
 
-## 12. Bildsatz-QA
+## 13. Bildsatz-QA
 
 Vor Freigabe:
 
 1. alle Bilder als Kontaktbogen nebeneinander prüfen
 2. gleiche Kamera, Architektur, Palette, Licht und Motivgröße bestätigen
 3. Satzgenauigkeit jedes Bildes prüfen
-4. Anfang, Mitte und Ende jeder Bildszene im Render prüfen
-5. vollständige MP4 mit Ton ansehen
+4. Bildnummer gegen die echte Szenennummer prüfen
+5. Anfang, Mitte und Ende jeder Bildszene im Render prüfen
+6. vollständige MP4 mit Ton ansehen
 
 Ein Bildsatz wird neu erstellt, wenn ein einzelnes Bild sichtbar aus einer anderen Welt stammt oder dem gesprochenen Satz widerspricht.
 
-## 13. Automatische Erstellung
+## 14. Automatische Erstellung
 
 ```bash
 npm run reel:create -- \
@@ -199,15 +298,22 @@ npm run reel:create -- \
   --title "Reel-Titel"
 ```
 
-Der Scaffolder erzeugt:
+Der Scaffolder erzeugt die Produktionsstruktur inklusive:
 
+- `alle-bildprompts.txt` mit verbindlichem Nummerierungsblock am Ende
 - `bildwelt.txt`
 - Weltmetadaten im `scene-index.json`
 - vollständige V3-Promptstruktur pro Bildszene
 - Bilddarstellungswerte
 - Caption-, Timing- und Audioverträge
 
-## 14. Automatische Prüfung
+Für jedes neue Reel muss `alle-bildprompts.txt` am Ende den vollständigen **Google-Flow-Einzelbild-Block** enthalten, einschließlich der konkreten endgültigen Dateinamen für Cover und jede echte Bildszene sowie des finalen Sammelordners:
+
+```text
+00-bildprompts/00-ALLE-BILDER-HIER-REIN/
+```
+
+## 15. Automatische Prüfung
 
 ```bash
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
