@@ -9,15 +9,22 @@ Dieser Ordner ist für die interne technische Umsetzung. Die normalen Produktion
 - 10 Szenen
 - 6 Bildszenen, 4 Animationen
 
-## Bildwelt
-- World ID: `finanzneo-connected-studio-v3`
-- Weltprompt: `03-szenen/bildwelt.txt`
-- Weltreferenz: `03-szenen/bildwelt-referenz.png`
-- Bilder ohne eingebauten Text, Zahlen, Labels, Logos oder App-UI
+## Bildwelt dieses Reels
+- World ID bleibt technisch: `finanzneo-connected-studio-v3`
+- reel-spezifischer Weltprompt: `03-szenen/bildwelt.txt`
+- heller Premium-3D/CGI-Editorial-Look statt dunkler Neon-/Tunnelwelt
+- große konkrete Alltagsmotive statt Miniatur-Dioramen
+- jedes finale Bild enthält genau den kurzen deutschen Bildtext, der direkt im jeweiligen Prompt vorgeschrieben ist
+- Cover enthält zwingend `NOTGROSCHEN` / `IN 3 STUFEN`
+- keine zusätzlichen englischen Texte, Fantasielabels, Logos oder App-UI
 
 ## Bilder
-Google Flow legt nach vollständiger Einzelbild-Produktion alle fertig benannten Bilder gemeinsam in:
+Google Flow erzeugt immer genau ein Bild, benennt es sofort um und prüft Motiv, deutschen Text und Dateiname vor dem nächsten Bild.
+
+Nach vollständiger Einzelbild-Produktion legt Google Flow alle fertig benannten Bilder gemeinsam in:
 `03-szenen/00-ALLE-BILDER-HIER-REIN/`
+
+Animationsszenen erhalten kein Bild und behalten ihre echte Szenennummer.
 
 Danach kann das Repo-Sortierskript die Bilder anhand ihrer echten Szenennummer technisch einsortieren.
 
@@ -30,3 +37,10 @@ Danach kann das Repo-Sortierskript die Bilder anhand ihrer echten Szenennummer t
 
 ## QA
 Ein finaler Render ist erst bestätigt nach Asset-Sync, Validator, Typecheck, Preview, Kontaktbogen/visueller Prüfung und Audio-Lautheitsprüfung.
+
+Bei der Bild-QA zusätzlich prüfen:
+- deutscher Bildtext exakt geschrieben
+- kein zusätzlicher Text
+- Motiv erklärt den Satz innerhalb einer Sekunde
+- keine dunkle Neon-/Tunnel-/Miniaturwelt
+- Hauptmotiv groß und hochwertig
