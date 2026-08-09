@@ -10,16 +10,19 @@ Dieser Ordner ist für die interne technische Umsetzung. Die normalen Produktion
 - 6 Bildszenen, 4 Animationen
 
 ## Bildwelt dieses Reels
-- World ID bleibt technisch: `finanzneo-connected-studio-v3`
+- World ID: `finanzneo-connected-studio-v3`
 - reel-spezifischer Weltprompt: `03-szenen/bildwelt.txt`
-- heller Premium-3D/CGI-Editorial-Look statt dunkler Neon-/Tunnelwelt
-- große konkrete Alltagsmotive statt Miniatur-Dioramen
-- jedes finale Bild enthält genau den kurzen deutschen Bildtext, der direkt im jeweiligen Prompt vorgeschrieben ist
-- Cover enthält zwingend `NOTGROSCHEN` / `IN 3 STUFEN`
+- Premium Dark 3D Finance Look: Anthrazit/Tiefgrün, smaragdgrünes Licht, Gold für Geld, Rot für Risiko
+- große konkrete Hauptobjekte, keine Miniatur-Dioramen, keine Neon-Tunnel, keine Sci-Fi-Korridore
+- KEINE Überschrift im generierten Bild
+- KEIN Untertitel im generierten Bild
+- KEIN ganzer Satz im generierten Bild
+- nur die direkt im Prompt erlaubten kurzen deutschen Objekt-Beschriftungen, meist 1–3 Wörter
+- Beschriftungen direkt am passenden Objekt, klein bis mittelgroß
 - keine zusätzlichen englischen Texte, Fantasielabels, Logos oder App-UI
 
 ## Bilder
-Google Flow erzeugt immer genau ein Bild, benennt es sofort um und prüft Motiv, deutschen Text und Dateiname vor dem nächsten Bild.
+Google Flow erzeugt immer genau ein Bild, benennt es sofort um und prüft Motiv, erlaubte Objekt-Beschriftungen und Dateiname vor dem nächsten Bild.
 
 Nach vollständiger Einzelbild-Produktion legt Google Flow alle fertig benannten Bilder gemeinsam in:
 `03-szenen/00-ALLE-BILDER-HIER-REIN/`
@@ -35,12 +38,14 @@ Danach kann das Repo-Sortierskript die Bilder anhand ihrer echten Szenennummer t
 - aktuelles Wort grün, Rest weiß
 - maximal zwei Zeilen
 
-## QA
-Ein finaler Render ist erst bestätigt nach Asset-Sync, Validator, Typecheck, Preview, Kontaktbogen/visueller Prüfung und Audio-Lautheitsprüfung.
-
-Bei der Bild-QA zusätzlich prüfen:
-- deutscher Bildtext exakt geschrieben
-- kein zusätzlicher Text
+## QA Bild
+- keine Headline/Untertitel/Sätze im KI-Bild
+- nur vorgegebene kurze deutsche Objekt-Labels
+- Label korrekt geschrieben und am richtigen Objekt
 - Motiv erklärt den Satz innerhalb einer Sekunde
-- keine dunkle Neon-/Tunnel-/Miniaturwelt
-- Hauptmotiv groß und hochwertig
+- große hochwertige Hauptobjekte
+- keine Miniatur-Dioramen/Tunnel
+- konsistenter Premium-Dark-3D-Look
+
+## QA Gesamt
+Ein finaler Render ist erst bestätigt nach Asset-Sync, Validator, Typecheck, Preview, Kontaktbogen/visueller Prüfung und Audio-Lautheitsprüfung.
