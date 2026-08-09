@@ -12,17 +12,20 @@ GOOGLE FLOW KI-AGENT – VERBINDLICHER ABLAUF
 7. Bildnummer = echte Szenennummer, niemals Anzahl der erzeugten Bilder.
 8. Erst wenn alle Bilder fertig sind, alle gemeinsam nach `03-szenen/00-ALLE-BILDER-HIER-REIN/` legen.
 
-VERBINDLICHE BILDWELT
+VERBINDLICHE BILDWELT FÜR JEDEN PROMPT
 
-Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, hochwertige Materialien, weiche Bodenschatten. Gold nur für Geld/Wert, Rot nur für Risiko/Schulden/Verlust. Ein großes dominantes Hauptmotiv, keine winzigen Dioramen, keine Neon-Tunnel, keine Sci-Fi-Korridore, kein Pixar, kein Clay.
+Premium fintech editorial 3D render style. Background is deep charcoal green-black. Accents in vivid emerald and mint green. Gold only for euro coins, money and financial value. Warm red-orange light only for danger, debt, loss or blocked money. Use smooth rounded 3D geometry, soft bevelled edges, premium matte and glass materials, confident high-contrast studio lighting with a bold emerald rim light.
 
-TEXTREGEL FÜR JEDES BILD
+Each image should use ONE dominant visual metaphor and only a few supporting objects. A stylized anonymous 3D adult person may be included when useful. No photorealism and no real identifiable human.
 
-NIEMALS eine Überschrift.
-NIEMALS einen Untertitel.
-NIEMALS einen ganzen Satz.
+TEXT RULE:
+No headline. No subtitle. No explanatory sentence. Only 1–3 short German object labels directly near the object they describe. Small to medium clean sans-serif text. Labels must never dominate the composition.
 
-Nur kurze deutsche Objekt-Beschriftungen, meist 1–3 Wörter, direkt am passenden Objekt, klein bis mittelgroß. Keine englischen Wörter, keine Fantasietexte, keine zusätzlichen Labels, keine Logos oder App-UI.
+COMPOSITION LOCK:
+Vertical 9:16. Keep the top 15 percent completely empty dark negative space. Keep the bottom 25 percent completely empty dark uncluttered negative space. Place the complete visual story inside the middle 60 percent. No important object or label may enter the top 15 or bottom 25 percent.
+
+FORBIDDEN:
+No UI dashboards, no app screens, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no many-room studio architecture, no miniature game level, no clutter, no giant typography, no full sentences, no random labels, no Pixar, no clay.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 COVER
@@ -32,11 +35,13 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 00 - Cover Notgroschen.png`
 
 BESCHRIFTUNGEN – EXAKT SO:
-- an der zentralen Reserve: `Notgroschen`
-- an drei Stufen: `Stufe 1`, `Stufe 2`, `Stufe 3`
+- `Notgroschen`
+- `Stufe 1`
+- `Stufe 2`
+- `Stufe 3`
 
 BILDPROMPT:
-Große transparente Geldreserve mit goldenen Münzen als Hauptobjekt, geschützt durch ein kräftiges FinanzNeo-grünes Schild. Daneben drei klar erkennbare aufsteigende Stufen/Podeste. Eine kaputte Waschmaschine und rote Reparaturrechnung dürfen klein unterstützend zeigen, warum die Reserve gebraucht wird. Dunkler hochwertiger Tiefgrün-/Anthrazit-Look, starke grüne Kantenbeleuchtung, große klare Objekte. Die Beschriftungen stehen direkt an den passenden Objekten und wirken wie Labels, nicht wie eine Überschrift. Keine weiteren Texte.
+A stylized 3D adult person standing beside one large transparent vertical emergency-fund container filled with glowing euro coins. The container is the dominant object. Three clear ascending sections or steps are integrated into the container, each visually higher and fuller than the previous one. A small broken washing-machine part and a restrained red-orange repair warning appear near the lower side to explain why the reserve exists. Include German object labels: `Notgroschen` directly on or beside the reserve container, and `Stufe 1`, `Stufe 2`, `Stufe 3` beside the three ascending sections. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents, gold coins, warm red-orange risk accent. Smooth rounded 3D geometry, soft bevelled edges, high-contrast studio lighting with bold rim light. Keep top 15% completely empty dark negative space and bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no sentence.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 01 – BILDSZENE
@@ -51,7 +56,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Ratenzahlung`
 
 BILDPROMPT:
-Große kaputte Waschmaschine, sichtbare Reparaturrechnung und fast leeres Portemonnaie. Rote finanzielle Gefahren nähern sich. Noch keinen Notgroschen zeigen. `Reparatur` direkt an Rechnung/Waschmaschine, `Dispo` und `Ratenzahlung` direkt an den roten Schuldengefahren. Keine Überschrift, kein Satz.
+A stylized 3D adult person standing beside one large broken washing machine. The washing machine is the dominant object and has a clear visible defect. A repair invoice card sits beside the machine and an almost empty wallet lies nearby. Two red-orange financial danger paths emerge from the repair cost and lead toward a credit-card/overdraft object and an installment-payment object. Include German labels: `Reparatur` beside the invoice or damaged washer, `Dispo` beside the overdraft danger object, and `Ratenzahlung` beside the installment-payment object. Do not show an emergency fund yet. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents only as neutral brand light, red-orange for danger, smooth rounded 3D geometry, soft bevelled edges, strong studio rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no full sentence.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 02 – BILDSZENE
@@ -66,7 +71,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Schulden`
 
 BILDPROMPT:
-Große transparente Geldreserve mit goldenen Münzen zwischen Reparaturproblem und Portemonnaie. FinanzNeo-grünes Schild blockiert die rote Schuldengefahr. Zeige klar, dass die Reparatur aus der Reserve bezahlt wird. Labels direkt an Reserve, Rechnung und blockierter roter Gefahr. Keine Überschrift, kein Satz.
+A stylized 3D adult person standing beside one large transparent emergency-fund container filled with glowing euro coins. A broken washing machine and repair invoice approach from one side. A warm red-orange debt crack or debt path approaches from the opposite side but is stopped by a vivid emerald protective barrier surrounding the emergency fund. Show a few gold coins leaving the reserve toward the repair invoice, making the cause-and-effect obvious. Include German labels: `Notgroschen` beside the reserve, `Reparatur` beside the invoice, and `Schulden` beside the blocked red-orange danger path. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents, gold money, warm red-orange danger. Smooth rounded 3D geometry, soft bevelled edges, high-contrast studio lighting and bold rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no sentence.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 03 – REMOTION-ANIMATION
@@ -85,10 +90,10 @@ GOOGLE FLOW – FINALER DATEINAME:
 
 BESCHRIFTUNGEN – EXAKT SO:
 - `500 €`
-- optional klein: `Mini-Puffer`
+- `Mini-Puffer`
 
 BILDPROMPT:
-Kompakte transparente Reserve mit überschaubarem goldenen Geldbetrag als großes Hauptobjekt. Eine kleinere unerwartete Reparaturausgabe daneben zeigt, dass dieser erste Puffer bereits nützlich ist. `500 €` direkt an der Reserve, optional `Mini-Puffer` unmittelbar darunter. Keine Headline, kein Satz.
+A stylized 3D adult person standing beside one compact transparent savings container holding a modest stack of glowing euro coins. The container is the dominant object and clearly represents a first small emergency reserve, not a huge final target. A small red-orange repair cost object approaches from the side and is visibly covered by the reserve. Include German labels: `500 €` directly on or beside the reserve amount, and `Mini-Puffer` beside the container. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents, gold coins, warm red-orange only for the small emergency cost. Smooth rounded 3D geometry, soft bevelled edges, confident high-contrast studio lighting with bold rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no sentence.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 05 – REMOTION-ANIMATION
@@ -110,7 +115,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Konsum`
 
 BILDPROMPT:
-Klare Gegenüberstellung. Grüne Seite: kaputte notwendige Waschmaschine mit Reparaturwerkzeug/Rechnung. Rote Seite: Shoppingtaschen, Luxus-Gadget und Urlaubskoffer. Grüner Weg zur Reparatur, rotes Stoppsignal vor Konsum. `Notfall` direkt an der Reparaturseite, `Konsum` direkt an der Konsumseite. Keine Überschrift, kein Satz.
+A stylized 3D adult person standing at the center of one clean visual decision scene. On the left, a broken washing machine and repair tool sit inside a vivid emerald-green protected zone. On the right, a luxury shopping bag, premium gadget and vacation suitcase sit inside a warm red-orange blocked zone. Keep both sides simple and large, with no small icon clutter. Include German labels: `Notfall` directly beside the broken washing-machine side, and `Konsum` directly beside the shopping/vacation side. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint for the correct side, warm red-orange for the blocked side, smooth rounded 3D geometry, soft bevelled edges, bold studio rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no explanatory sentence.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 07 – REMOTION-ANIMATION
@@ -139,7 +144,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Tagesgeld`
 
 BILDPROMPT:
-Zwei klar getrennte große Geldbereiche: normales Portemonnaie/Girokonto-Objekt für Ausgaben und separate transparente Reserve mit goldenen Münzen. Kurze grüne Verbindung zeigt schnelle Erreichbarkeit. `Alltag` direkt am normalen Ausgabengeld, `Tagesgeld` direkt an der Reserve. Keine Überschrift, kein Satz.
+A stylized 3D adult person standing beside two large clearly separated money containers. One smaller open wallet-like container represents everyday spending and contains only a few coins. A second protected transparent container holds a larger emergency reserve of glowing euro coins. A short vivid emerald transfer bridge connects the two containers, showing that the reserve is separate but quickly reachable. Include German labels: `Alltag` beside the everyday-money container and `Tagesgeld` beside the protected reserve. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents, gold coins, smooth rounded 3D geometry, soft bevelled edges, strong rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no bank app screen, no headline, no sentence.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 10 – BILDSZENE
@@ -153,7 +158,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Auffüllen`
 
 BILDPROMPT:
-Reparierte Waschmaschine funktioniert wieder. Transparente Notgroschen-Reserve ist sichtbar teilweise geleert. Kleine goldene Sparbeträge fließen wieder hinein und das grüne Schutzschild wird vollständig. `Entnahme` direkt an der geleerten Reserve, `Auffüllen` direkt an den neu einfließenden Beträgen. Keine Überschrift, kein Satz.
+A stylized 3D adult person standing beside one large transparent emergency-fund container that is visibly partly empty after a repair. A repaired washing machine stands calmly on one side. A few gold coins are shown leaving the reserve toward the repaired machine, while a second stream of fresh gold coins flows back into the reserve from the other side. The refill stream glows vivid emerald, while the previous withdrawal path is subdued warm red-orange. Include German labels: `Entnahme` beside the outgoing coin path and `Auffüllen` beside the incoming coin path. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents, gold coins, smooth rounded 3D geometry, soft bevelled edges, confident high-contrast studio lighting with bold rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no explanatory sentence.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ABSCHLUSS
@@ -168,13 +173,19 @@ Erwartete Dateien:
 - `Bild 09 - Puffer getrennt erreichbar.png`
 - `Bild 10 - Notgroschen wieder auffuellen.png`
 
-Prüfen:
+PRÜFUNG:
 - keine Bilder 03, 05, 07, 08
-- keine Überschrift / kein Untertitel / kein Satz in einem Bild
-- nur die vorgegebenen kurzen deutschen Labels
-- keine zusätzlichen oder englischen Texte
-- dunkler hochwertiger FinanzNeo-3D-Look
-- große klare Motive, keine Miniatur-Dioramen oder Tunnel
+- keine Überschrift, kein Untertitel, kein ganzer Satz
+- nur die explizit vorgegebenen kurzen deutschen Objektlabels
+- keine englischen oder zufälligen Texte
+- eine starke zentrale 3D-Metapher statt Miniatur-Diorama
+- Premium-Fintech-Editorial-Look wie im Referenzbeispiel
+- Deep charcoal green-black background
+- vivid emerald/mint accents
+- smooth rounded 3D geometry and soft bevelled edges
+- bold high-contrast studio rim light
+- obere 15 % komplett leer
+- untere 25 % komplett leer
 
 ERST DANACH alle fertigen Bilder gemeinsam in:
 `03-szenen/00-ALLE-BILDER-HIER-REIN/`
