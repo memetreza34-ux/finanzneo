@@ -1,27 +1,23 @@
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 06 - Echter Notfall oder Konsum.png`
 
-WICHTIG: Erzeuge zuerst ausschließlich dieses eine Bild anhand dieses Prompts. Sobald es fertig ist, benenne es sofort exakt wie oben. Prüfe danach Motiv und Dateiname. Erst dann darf das nächste Bild erzeugt werden. Der Dateiname darf niemals sichtbar in das Bild gerendert werden.
+WICHTIG:
+Erzeuge ausschließlich dieses eine Bild. Danach sofort exakt wie oben umbenennen, Motiv + Text + Dateiname prüfen und erst dann weitermachen. Der Dateiname selbst darf NICHT im Bild stehen.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+BILDSTIL:
+Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic everyday objects with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray environment. FinanzNeo green for the correct emergency path, red for non-emergency/risk. No dark background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating platform, no Pixar, no clay.
 
-SERIES CONTINUITY LOCK:
-Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+DEUTSCHER TEXT – EXAKT SO INS BILD:
+`ECHTER NOTFALL?`
 
-ENVIRONMENT:
-One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three visible depth layers. No empty black background.
+TEXTREGEL:
+Groß, fett, moderne Sans-Serif-Schrift im oberen Drittel. Exakt diese zwei Wörter, keine weiteren Überschriften, keine englischen Begriffe, keine Schreibfehler.
 
-COMPOSITION LOCK:
-Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+SZENENINHALT:
+Baue eine sehr klare visuelle Gegenüberstellung. Auf der grünen richtigen Seite: kaputte notwendige Waschmaschine, dringendes Reparaturwerkzeug und ein normales Portemonnaie, das die Ausgabe nicht tragen kann. Auf der roten falschen Seite: Shoppingtaschen, neues Luxus-Gadget und Urlaubskoffer als planbarer Konsum. Ein klarer grüner Haken/Schutzweg führt nur zur notwendigen ungeplanten Reparatur, die Konsumseite wird mit rotem Stopp-Symbol blockiert.
 
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+BILDAUSSAGE:
+Notgroschen nur für notwendige, ungeplante Ausgaben nutzen – nicht für normalen oder planbaren Konsum.
 
-CONSISTENCY NEGATIVES:
-No empty black background, no text symbols, no checklist poster, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
-
-SCENE MESSAGE:
-A true emergency is necessary, unexpected and too large for the normal monthly budget.
-
-CONNECTED VISUAL STORY:
-Show three connected visual tests around one protected reserve: a broken essential appliance, a sudden urgent repair and an exposed monthly wallet that is clearly too small to cover it. On the opposite side, a luxury shopping object and vacation object are stopped outside the emergency path. Communicate the decision through spatial logic, not labels.
+KOMPOSITION:
+Zwei große verständliche Bereiche, nicht mehr als fünf Hauptelemente. Der Unterschied muss ohne Lesen der Details sofort erkennbar sein. Kein abstraktes Checklisten-Dashboard.
