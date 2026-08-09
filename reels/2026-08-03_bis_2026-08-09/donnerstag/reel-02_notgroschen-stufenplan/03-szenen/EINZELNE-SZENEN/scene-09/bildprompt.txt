@@ -2,22 +2,23 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 09 - Puffer getrennt erreichbar.png`
 
 WICHTIG:
-Erzeuge ausschließlich dieses eine Bild. Danach sofort exakt wie oben umbenennen, Motiv + Text + Dateiname prüfen und erst dann weitermachen. Der Dateiname selbst darf NICHT im Bild stehen.
+Erzeuge nur dieses eine Bild. Danach sofort umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
 
 BILDSTIL:
-Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic everyday finance objects with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray environment. FinanzNeo green = sicher/verfügbar, gold = Geld. No dark background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating platform, no Pixar, no clay.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`GETRENNT & VERFÜGBAR`
+Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, Gold für Geld. Große klare Objekte, kein Miniatur-Diorama, kein Tunnel, kein Sci-Fi-Korridor.
 
 TEXTREGEL:
-Groß, fett, moderne Sans-Serif-Schrift im oberen Drittel. Exakt dieser Text, keine weiteren Wörter, keine englischen Begriffe, keine Schreibfehler.
+Keine Überschrift. Kein Untertitel. Kein Satz. Nur kurze deutsche Objekt-Beschriftungen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- am normalen Ausgabengeld: `Alltag`
+- an der separaten Reserve: `Tagesgeld`
 
 SZENENINHALT:
-Zeige klar zwei getrennte Geldbereiche: links ein normales Alltags-Portemonnaie bzw. Girokonto-Symbol mit wenigen frei verfügbaren Münzen; rechts ein eigenständiger transparenter Notgroschen-/Tagesgeld-Behälter mit goldener Reserve. Zwischen beiden nur eine kurze, einfache grüne Verbindung, die zeigt: getrennt vom Alltag, aber im Notfall schnell erreichbar. Kein Schloss für langfristige Bindung.
+Zwei klar getrennte große Geldbereiche: ein normales Portemonnaie/Girokonto-Objekt für Alltagsausgaben und daneben eine transparente separate Reserve mit goldenen Münzen. Eine kurze grüne Verbindung zeigt, dass die Reserve im Notfall schnell erreichbar bleibt.
 
 BILDAUSSAGE:
-Der Notgroschen liegt getrennt vom Alltagsgeld, bleibt aber kurzfristig erreichbar.
+Der Notgroschen liegt getrennt vom Alltagsgeld, bleibt aber verfügbar.
 
 KOMPOSITION:
-Zwei große verständliche Bereiche nebeneinander, klare Trennung, kurze Verbindung. Heller ruhiger Hintergrund. Keine Bank-App, kein Dashboard, keine abstrakten Tunnel.
+Zwei große verständliche Bereiche nebeneinander. `Alltag` und `Tagesgeld` direkt an den passenden Objekten, niemals als große Überschrift.
