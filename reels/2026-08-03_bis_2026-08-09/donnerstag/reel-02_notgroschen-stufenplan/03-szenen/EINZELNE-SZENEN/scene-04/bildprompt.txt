@@ -2,23 +2,11 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 04 - Erster 500 Euro Puffer.png`
 
 WICHTIG:
-Erzeuge nur dieses eine Bild. Danach sofort umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
-
-BILDSTIL:
-Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, Gold für Geld. Großes klares Hauptmotiv, kein Miniatur-Diorama, kein Tunnel, kein Sci-Fi-Korridor.
-
-TEXTREGEL:
-Keine Überschrift. Kein Untertitel. Kein Satz. Nur kurze deutsche Objekt-Beschriftungen.
+Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen und Dateiname prüfen. Erst dann nächstes Bild.
 
 BESCHRIFTUNGEN – EXAKT SO:
-- an der kleinen Geldreserve: `500 €`
-- optional direkt darunter klein: `Mini-Puffer`
+- `500 €`
+- `Mini-Puffer`
 
-SZENENINHALT:
-Eine kompakte transparente Reserve mit einem überschaubaren goldenen Geldbetrag als großes Hauptobjekt. Daneben eine kleinere unerwartete Reparaturausgabe, die dieser erste Puffer bereits auffangen kann. Ein größeres späteres Ziel darf nur dezent im Hintergrund angedeutet werden und bekommt keine Beschriftung.
-
-BILDAUSSAGE:
-Der erste erreichbare Schritt ist ein kleiner 500-Euro-Puffer.
-
-KOMPOSITION:
-Reserve groß im Zentrum. `500 €` direkt an der Reserve als Beschriftung, nicht oben als Headline.
+BILDPROMPT:
+A stylized 3D adult person standing beside one compact transparent savings container holding a modest stack of glowing euro coins. The container is the dominant object and clearly represents a first small emergency reserve, not a huge final target. A small warm red-orange repair cost object approaches from the side and is visibly covered by the reserve. Include German labels: `500 €` directly on or beside the reserve amount and `Mini-Puffer` beside the container. Premium fintech editorial 3D render style. Background is deep charcoal green-black. Accents in vivid emerald and mint green, gold for money, warm red-orange only for the emergency cost. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Ensure the top 15 percent is completely empty dark negative space and the bottom 25 percent is completely empty uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
