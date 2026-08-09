@@ -20,87 +20,98 @@ Scene 09: the reserve is separate but quickly accessible.
 Scene 10: after using the reserve, a controlled refill restores protection.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-GOOGLE FLOW KI-AGENT – VERBINDLICHER ABLAUF
+GOOGLE FLOW KI-AGENT – VERBINDLICHER EINZELBILD-ABLAUF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 DIESE ANWEISUNG GILT AUSSCHLIESSLICH FÜR DEN GOOGLE-FLOW-KI-AGENTEN.
 Nicht für Codex, nicht für Antigravity und nicht für andere Agenten.
 
-GRUNDREGEL FÜR 3ER-STEPS:
-Ein 3er-Step bedeutet immer: die nächsten höchstens 3 TATSÄCHLICH BENÖTIGTEN Bilder in der chronologischen Szenenreihenfolge erzeugen. Ein 3er-Step bedeutet NICHT, dass die Dateinummern zwingend drei fortlaufende Zahlen sein müssen.
+GRUNDREGEL:
+Google Flow erstellt immer genau EIN benötigtes Bild nach dem anderen.
+Es dürfen niemals zwei oder mehr neue Bilder gleichzeitig erzeugt werden.
+Nach jeder einzelnen Generierung muss dieses eine Bild sofort korrekt benannt und geprüft werden. Erst danach darf das nächste Bild erzeugt werden.
 
-Wenn zwischen zwei Bildszenen eine Remotion-Animation liegt, wird diese Szene übersprungen, ihre Szenennummer bleibt aber reserviert.
+VERBINDLICHE SCHLEIFE:
+
+`1 BILD GENERIEREN → SOFORT UMBENENNEN → PRÜFEN → ERST DANN NÄCHSTES BILD`
+
+Diese Schleife wird so lange wiederholt, bis Cover und alle echten Bildszenen vollständig fertig sind.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SCHRITT 1 – GENAU EIN BILD GENERIEREN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Beginne mit dem Cover.
+- Verwende danach die Bildszenen in chronologischer Reel-Reihenfolge.
+- Verwende immer den exakt zugehörigen Bildprompt.
+- Verwende für alle Bilder dieselbe `bildwelt-referenz.png`.
+- Remotion-Animationsszenen werden vollständig übersprungen und erhalten kein Bild.
+- Erzeuge zu diesem Zeitpunkt wirklich nur EIN einziges Bild.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SCHRITT 2 – DIESES EINE BILD SOFORT UMBENENNEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Sobald genau dieses Bild fertig generiert wurde, muss es sofort seinen endgültigen Dateinamen erhalten.
+Nicht erst mehrere Bilder sammeln. Nicht später gesammelt umbenennen.
+
+Dateinamen-Format:
+`Bild XX - Kurzer Szenenname.png`
+
+Dabei gilt:
+- `Bild 00` = Cover.
+- `XX` entspricht danach immer exakt der ECHTEN Szenennummer.
+- Der kurze Szenenname enthält 2 bis 5 verständliche Wörter.
+- Die Bildnummer richtet sich niemals nach der Anzahl bereits erzeugter Bilder.
+- Eine Animationsszene behält ihre Nummer, erzeugt aber keine Datei.
+- Die Nummer einer Animationsszene darf niemals an eine spätere Bildszene weitergegeben werden.
 
 Beispiel:
-- Szene 01 = Bildszene → `Bild 01`
+- Szene 01 = Bildszene → `Bild 01 - ...png`
 - Szene 02 = Animation → KEIN `Bild 02`
-- Szene 03 = Bildszene → `Bild 03`
+- Szene 03 = Bildszene → `Bild 03 - ...png`
 
-Damit ist `Bild 03` zwar das zweite tatsächlich erzeugte Szenenbild, heißt aber IMMER `Bild 03`, weil es zu Szene 03 gehört. Es darf NIEMALS in `Bild 02` umbenannt werden.
+Damit ist `Bild 03` zwar erst das zweite tatsächlich erzeugte Szenenbild, heißt aber trotzdem `Bild 03`, weil es zu Szene 03 gehört.
+NIEMALS in `Bild 02` umbenennen.
 
-Ein möglicher 3er-Step kann deshalb zum Beispiel aus `Bild 01`, `Bild 03`, `Bild 04` bestehen. Die Batch-Größe zählt erzeugte Bilder; der Dateiname richtet sich ausschließlich nach der echten Szenennummer.
-
-1. Erzeuge immer höchstens 3 benötigte Bilder gleichzeitig.
-
-2. Erster 3er-Step für dieses Reel:
-   `Bild 00 - Cover Notgroschen.png` = Cover
-   `Bild 01 - Defekt wird Schuldenfalle.png` = Szene 01
-   `Bild 02 - Notgroschen faengt Schock ab.png` = Szene 02
-
-3. Sobald diese Bilder fertig generiert sind:
-   sofort alle Bilder dieses Steps korrekt umbenennen.
-   Nicht den nächsten Step starten, solange auch nur ein Bild dieses Steps noch nicht korrekt benannt ist.
-
-4. Erst danach nächster Step.
-   Für dieses Reel ist der nächste benötigte 3er-Step:
-   `Bild 04 - Erster 500 Euro Puffer.png` = Szene 04
-   `Bild 06 - Echter Notfall oder Konsum.png` = Szene 06
-   `Bild 09 - Puffer getrennt erreichbar.png` = Szene 09
-
-5. Danach wieder:
-   erzeugen → umbenennen → prüfen → nächste höchstens 3 benötigte Bilder in Szenenreihenfolge erzeugen.
-
-6. So lange weitermachen, bis ALLE benötigten Bilder vollständig generiert UND korrekt umbenannt sind.
-
-7. Der letzte Step darf auch nur 1 oder 2 Bilder enthalten.
-   Für dieses Reel ist der letzte Step:
-   `Bild 10 - Notgroschen wieder auffuellen.png` = Szene 10
-
-8. Danach die komplette erwartete Nummerierung prüfen:
-   - keine erwartete Bildnummer fehlt
-   - keine Bildnummer doppelt
-   - keine Bildnummer vertauscht
-   - jedes Bild gehört zur richtigen echten Szene
-   - Animationsszenen wurden korrekt ausgelassen
-   - Lücken durch Animationsszenen wurden NICHT geschlossen oder neu nummeriert
-
-9. ERST DANACH alle fertigen und bereits korrekt umbenannten Bilder gemeinsam in:
-
-   `00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
-
-10. Nicht auf einzelne Szenenordner verteilen.
-    Der Google-Flow-KI-Agent legt ALLE fertigen Bilder nur gemeinsam in diesen einen Ordner.
+Wenn Google Flow die physische Datei technisch nicht direkt umbenennen kann, muss der Agent unmittelbar nach der Generierung diesem einzelnen Ergebnis eindeutig den exakt vorgesehenen endgültigen Dateinamen zuordnen, bevor irgendetwas Weiteres generiert wird.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-WICHTIGE NUMMERIERUNGSREGEL
+SCHRITT 3 – DIESES EINE BILD PRÜFEN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Die Nummer im Dateinamen ist immer die ECHTE Szenennummer im Reel und nicht die laufende Anzahl der erzeugten Bilder.
+Vor der nächsten Generierung prüfen:
+- Gehört das Motiv wirklich zur richtigen Szene?
+- Ist die echte Szenennummer korrekt?
+- Ist der kurze Szenenname korrekt und eindeutig?
+- Ist der endgültige Dateiname bereits gesetzt beziehungsweise eindeutig zugeordnet?
+- Wurde keine Animationsnummer auf dieses Bild übertragen?
+- Enthält das Bild selbst keinen sichtbaren Dateinamen, keine Szenennummer und keinen Szenennamen?
+- Passt das Bild weiterhin zur gemeinsamen FinanzNeo-Bildwelt?
 
-- `Bild 00` = Cover
-- `Bild 01` = Szene 01
-- `Bild 02` = Szene 02
-- usw.
+Wenn etwas falsch ist:
+Dieses Bild korrigieren beziehungsweise neu generieren, erneut korrekt benennen und erneut prüfen.
+Erst wenn dieses einzelne Bild vollständig korrekt ist, darf Google Flow zum nächsten benötigten Bild wechseln.
 
-Wenn eine Szene eine Remotion-Animation ist, wird für diese Szene KEIN Bild erzeugt. Die Nummer bleibt trotzdem reserviert und darf nicht an eine spätere Bildszene weitergegeben werden.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERBINDLICHE REIHENFOLGE FÜR DIESES REEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Für dieses Reel:
-- Szene 03 = Animation → KEIN `Bild 03`
-- Szene 05 = Animation → KEIN `Bild 05`
-- Szene 07 = Animation → KEIN `Bild 07`
-- Szene 08 = Animation → KEIN `Bild 08`
+Google Flow arbeitet exakt in dieser Reihenfolge:
 
-Deshalb sind die erwarteten fertigen Dateien dieses Reels exakt:
+1. Cover erzeugen → sofort `Bild 00 - Cover Notgroschen.png` nennen → prüfen.
+2. Szene 01 erzeugen → sofort `Bild 01 - Defekt wird Schuldenfalle.png` nennen → prüfen.
+3. Szene 02 erzeugen → sofort `Bild 02 - Notgroschen faengt Schock ab.png` nennen → prüfen.
+4. Szene 03 ist Animation → kein Bild erzeugen, Nummer 03 bleibt reserviert.
+5. Szene 04 erzeugen → sofort `Bild 04 - Erster 500 Euro Puffer.png` nennen → prüfen.
+6. Szene 05 ist Animation → kein Bild erzeugen, Nummer 05 bleibt reserviert.
+7. Szene 06 erzeugen → sofort `Bild 06 - Echter Notfall oder Konsum.png` nennen → prüfen.
+8. Szene 07 ist Animation → kein Bild erzeugen, Nummer 07 bleibt reserviert.
+9. Szene 08 ist Animation → kein Bild erzeugen, Nummer 08 bleibt reserviert.
+10. Szene 09 erzeugen → sofort `Bild 09 - Puffer getrennt erreichbar.png` nennen → prüfen.
+11. Szene 10 erzeugen → sofort `Bild 10 - Notgroschen wieder auffuellen.png` nennen → prüfen.
+
+Erwartete fertige Bilddateien sind deshalb exakt:
 
 - `Bild 00 - Cover Notgroschen.png`
 - `Bild 01 - Defekt wird Schuldenfalle.png`
@@ -110,9 +121,32 @@ Deshalb sind die erwarteten fertigen Dateien dieses Reels exakt:
 - `Bild 09 - Puffer getrennt erreichbar.png`
 - `Bild 10 - Notgroschen wieder auffuellen.png`
 
-Nummer, Dateiname und Szenenname gehören ausschließlich in den DATEINAMEN beziehungsweise die Dateibezeichnung. Sie dürfen NIEMALS sichtbar in das generierte Bild geschrieben oder gerendert werden.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ERST WENN ALLE EINZELBILDER FERTIG SIND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Falls Google Flow eine Datei technisch nicht direkt umbenennen kann, muss der KI-Agent unmittelbar nach dem jeweiligen 3er-Step jedem Ergebnis eindeutig den exakten endgültigen Dateinamen zuordnen, bevor der nächste Step beginnt.
+Google Flow darf den Sammelschritt erst beginnen, wenn jedes benötigte Bild einzeln:
+- generiert,
+- endgültig benannt,
+- geprüft
+und korrekt abgeschlossen wurde.
 
-ABSCHLUSSREGEL:
-Erst wenn alle erwarteten Bilder fertig, geprüft und korrekt benannt sind, werden sie gemeinsam in `00-bildprompts/00-ALLE-BILDER-HIER-REIN/` abgelegt. Google Flow verteilt sie danach nicht weiter.
+Danach eine vollständige Abschlussprüfung:
+- keine erwartete Bilddatei fehlt,
+- keine Bildnummer ist doppelt,
+- keine Bildnummer ist vertauscht,
+- jedes Bild gehört zur richtigen echten Szene,
+- Animationsszenen wurden korrekt ausgelassen,
+- Lücken durch Animationen wurden nicht geschlossen oder neu nummeriert.
+
+ERST DANACH alle fertigen und bereits korrekt benannten Bilder gemeinsam in genau diesen einen Ordner legen:
+
+`00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+
+WICHTIG:
+- Alle Bilder gemeinsam in diesen einen Ordner.
+- Google Flow verteilt sie NICHT auf einzelne Szenenordner.
+- Google Flow benennt sie im Sammelordner nicht erneut um.
+- Google Flow übernimmt danach keine Codex-, Antigravity- oder Remotion-Aufgaben, sofern das nicht separat verlangt wird.
+
+Nummer, Szenenname und Dateiname gehören ausschließlich in den Dateinamen beziehungsweise die Dateibezeichnung. Sie dürfen NIEMALS sichtbar in das generierte Bild geschrieben oder gerendert werden.
