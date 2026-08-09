@@ -71,13 +71,15 @@ Eine schwache Animation wird nicht nur zur Erfüllung einer Quote verwendet. Bil
 - keine Behauptung ohne nachvollziehbare Quelle oder klar erkennbare Beispielannahme
 - Problem-Szenen dürfen visuell noch nicht die spätere Lösung zeigen
 
-## 5. Verbindliche Bildwelt: Image World V3
+## 5. Verbindliche Bildwelt: Premium Editorial 3D
 
-Alle neuen FinanzNeo-Bildszenen verwenden genau diese Welt:
+Alle neuen FinanzNeo-Bildszenen verwenden technisch weiterhin diese Kennung:
 
 ```text
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 ```
+
+Die visuelle Ausführung ist ab jetzt jedoch verbindlich **heller Premium-3D/CGI-Editorial-Stil**. Die frühere dunkle Neon-/Tunnel-/Miniatur-Diorama-Auslegung ist nicht mehr gewünscht.
 
 Verbindliche Dokumente:
 
@@ -89,105 +91,124 @@ Verbindliche Dokumente:
 
 ### Weltreferenz pro Reel
 
-Vor den eigentlichen Szenenbildern wird zuerst eine Weltreferenz erzeugt:
+Vor den eigentlichen Szenenbildern kann pro Reel eine Weltreferenz vorbereitet werden:
 
 ```text
 03-szenen/bildwelt.txt
 03-szenen/bildwelt-referenz.png
 ```
 
-Alle weiteren Bilder desselben Reels verwenden `bildwelt-referenz.png` ausschließlich als Referenz für:
+Der Nutzer erzeugt die tatsächlichen Bilder selbst. Antigravity erzeugt keine finalen Bilder und keine Weltreferenz.
 
-- Kamera und Perspektive
-- Kamerahöhe und Blickrichtung
-- Architektur und räumliche Tiefe
-- Lichtführung
-- Materialien
+Eine vorhandene Weltreferenz dient nur als Stilreferenz für:
+
+- Helligkeit und Gesamtlook
+- Materialqualität
 - Farbpalette
-- Größe des Hauptmotivs
+- Objektgröße
+- Perspektivwirkung
+- Typografie-Stil
 
-Die finanzielle Handlung darf wechseln. Die Bildwelt darf nicht wechseln.
+Die finanzielle Handlung darf wechseln. Die Serie muss trotzdem zusammengehören.
 
 ### Unveränderliche Serienmerkmale
 
-- leicht isometrische Drei-Viertel-Kamera
-- ungefähr 35-mm-äquivalente Perspektive
-- gebogene dunkle Anthrazit-Rückwand
-- nahtlos verbundener matter Studioboden
-- integrierte smaragdgrüne Lichtkanäle
-- weiches Hauptlicht links oben
-- grünes Kantenlicht rechts
+- hochwertiger moderner 3D/CGI-Editorial-Look
+- realistische Proportionen mit sauberer, leicht stilisierter Premium-Darstellung
+- heller Hintergrund: warmes Off-White, helles Grau oder vergleichbar heller neutraler Ton
+- FinanzNeo-Grün für Schutz, richtige Lösung und Fortschritt
 - Gold ausschließlich für Geld und finanzielle Werte
-- Rot ausschließlich für Risiko, Verlust oder blockierte Ausgaben
-- hochwertige matte Materialien
-- wenige kontrollierte Glasdetails
-- nicht fotorealistisch
+- Rot ausschließlich für Risiko, Verlust, Schulden oder falschen Konsum
+- klare hochwertige Materialien
+- kontrollierte transparente Glas-/Reserveelemente
+- starke Smartphone-Lesbarkeit
+- große konkrete Alltagsobjekte statt abstrakter Miniatursysteme
 - nicht kindlich oder cartoonhaft
 - kein Pixar- oder Clay-Stil
 
-### Keine leeren oder zufälligen Hintergründe
+### Verbotene alte Bildwelt
 
-Jedes Bild enthält:
+Nicht mehr verwenden:
 
-1. unterstützenden Vordergrund
-2. erklärende Handlung im Mittelgrund
-3. ruhige, sichtbare Studioarchitektur im Hintergrund
+- dunkler schwarzer Raum als Hauptlook
+- grüne Neon-Tunnel
+- Sci-Fi-Korridore
+- futuristische Game-Level
+- winzige isometrische Dioramen
+- kleine schwebende Plattformen
+- übermäßige Leuchtlinien
+- komplizierte abstrakte Rohr-/Pfad-/Netzsysteme, wenn konkrete Alltagsobjekte die Aussage besser erklären
+
+### Hintergründe
+
+Jedes Bild besitzt einen hellen, ruhigen, hochwertigen Hintergrund mit genügend Tiefe und Schatten, aber ohne unnötige Kulissenkomplexität.
 
 Verboten:
 
-- isoliertes Objekt vor schwarzem Nichts
-- reiner Verlauf oder Glow ohne Raum
-- freigestellter Produkt-Render
-- schwebende Werbeplattform
-- zufällige neue Umgebung pro Szene
-- sichtbarer Stilwechsel zwischen Bildern
-
-Die oberen und unteren Randbereiche bleiben crop-sicher und detailarm, zeigen aber weiterhin dieselbe Wand, denselben Boden und dieselbe Lichtwelt. Sie dürfen nicht wie leere schwarze Balken aussehen.
+- schwarzes Nichts
+- reiner Glow ohne glaubwürdige Fläche
+- zufällig komplett anderer Stil pro Szene
+- visuell unruhige Sci-Fi-Architektur
+- winzige Motive in riesiger leerer Fläche
 
 ### Einheitliche Komposition
 
 - vertikale 9:16-Quelle
-- Hauptaktion im mittleren 64-%-Bereich der Quellhöhe
-- obere 18 % ruhig und crop-sicher
-- untere 18 % ruhig und crop-sicher
-- Hauptszene füllt ungefähr 68–78 % der nutzbaren Breite
-- zwei bis vier große verbundene Hauptelemente
-- wichtigstes Objekt über alle Bilder ähnlich groß
-- klare Leserichtung oder ein klarer Prozessweg
-- Aussage innerhalb einer Sekunde auf dem Smartphone verständlich
+- ein großes klar dominantes Hauptmotiv
+- Hauptmotiv ungefähr 70–85 % der nutzbaren Breite
+- maximal ungefähr 3–5 verständliche Hauptelemente
+- wichtigste Objekte groß genug für Smartphone-Anzeige
+- klare Leserichtung oder einfache Gegenüberstellung
+- Aussage innerhalb einer Sekunde verständlich
 - keine kleinen Dashboard-Panels oder zufälligen Mini-Icons
+- konkrete Alltagsobjekte bevorzugen, wenn sie die Aussage besser erklären
 
-### Sämtlicher Text im KI-Bild ist verboten
+### Kurzer deutscher Text im KI-Bild ist verbindlich
 
-Neue Szenenbilder enthalten:
+Jedes finale Bild enthält **genau eine kurze deutsche Kernaussage**, die direkt im jeweiligen Bildprompt festgelegt wird.
 
-- keine Überschrift
-- keinen Untertitel
-- keine Labels
-- keine Zahlen
-- keine Konto-Namen
-- keine Logos
-- keine Wasserzeichen
-- keine App-Oberflächen
+Für Cover gilt zwingend:
 
-Remotion rendert alle Texte, Zahlen, Pfeile, Quellen und geprüften Rechenwerte. Dadurch können generierte Schreibfehler oder abgeschnittene Bildbeschriftungen nicht mehr entstehen.
+- Cover enthält einen klaren deutschen Titel, der sofort sagt, worum es geht
+- Titel darf aus zwei kurzen Zeilen bestehen
+- Titel groß und dominant
+
+Für normale Bildszenen gilt:
+
+- meistens 2–5 kurze deutsche Wörter oder ein sehr kurzer Satz
+- nur eine Kernaussage
+- große moderne fette Sans-Serif-Typografie
+- hohe Lesbarkeit und klarer Kontrast
+- Text bevorzugt im oberen Drittel oder in einer ruhigen freien Fläche
+- exakte deutsche Schreibweise
+
+Verboten:
+
+- englischer Text
+- Fantasiewörter
+- zusätzliche zufällige Labels
+- unnötige zweite Überschrift
+- generierte Logos oder Wasserzeichen
+- App-Oberflächen
+- zusätzliche ungeprüfte Zahlen
+
+Wenn eine Zahl Teil der fachlichen Aussage ist, muss sie vorab geprüft und im Prompt exakt vorgegeben werden.
 
 ### Verbindliche Promptmarker
 
-Jeder Bildprompt enthält:
+Jeder Bildprompt enthält klar erkennbar:
 
 ```text
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-SERIES CONTINUITY LOCK:
-ENVIRONMENT:
-COMPOSITION LOCK:
-TEXT:
-CONSISTENCY NEGATIVES:
-SCENE MESSAGE:
-CONNECTED VISUAL STORY:
+BILDSTIL:
+DEUTSCHER TEXT:
+TEXTREGEL:
+SZENENINHALT:
+BILDAUSSAGE:
+KOMPOSITION:
 ```
 
-Der Weltblock bleibt unverändert. Nur Aussage, Objekte und Handlung werden pro Szene angepasst.
+Der Dateiname steht bei Google-Flow-Prompts direkt am jeweiligen Prompt. Die Bildnummer entspricht immer der echten Szenennummer.
 
 ## 6. Aufgabenverteilung Bild und Remotion
 
@@ -201,31 +222,35 @@ Das Bild übernimmt:
 - visuelle Metaphern
 - Problem-, Schutz- und Ergebnissituationen
 - eine zusammenhängende erklärende Handlung
+- eine kurze deutsche Kernaussage direkt im Bild
+- beim Cover den klaren deutschen Reel-Titel
 
 ### Remotion
 
-Remotion übernimmt:
+Remotion übernimmt weiterhin:
 
-- Überschriften und passende Icons
+- zusätzliche Überschriften und passende Icons, wenn sie im finalen Layout benötigt werden
 - Untertitel und grüne Wortverfolgung
-- Zahlen, Beträge und Formeln
+- komplexere Zahlen, Beträge und Formeln
 - Diagramme und Tabellen
 - Quellen und Datenstand
 - zusätzliche Pfeile und Hervorhebungen
 - Übergänge und Fortschritt
 - CTA
 
+Die kurze Bildaussage ersetzt nicht die Karaoke-Untertitel.
+
 ### Bilddarstellung in Remotion
 
 - Vordergrundbild verwendet `object-fit: contain`.
 - Keine sichtbare unscharfe Kopie desselben Bildes als Hintergrund.
-- Freie Fläche wird durch die einheitliche FinanzNeo-Studiobühne gefüllt.
+- Freie Fläche wird durch einen ruhigen passenden FinanzNeo-Hintergrund gefüllt.
 - Source-Crop oben höchstens `0.20`.
 - Source-Crop unten höchstens `0.20`.
 - Source-Crop insgesamt höchstens `0.34`.
 - zusätzliche Skalierung höchstens `1.04`.
 - nur nachweislich ruhige Umgebungsfläche darf entfernt werden.
-- Motive, Geld, Pfeile oder erklärende Elemente dürfen nie abgeschnitten werden.
+- Motive, Geld, Bildtext oder erklärende Elemente dürfen nie abgeschnitten werden.
 
 ## 7. Überschriften und Untertitel
 
@@ -339,20 +364,23 @@ Verbindliche technische Dokumentation:
 8. echte Wort-Zeitstempel erzeugen
 9. Szenenstarts aus den Satzanfängen ableiten
 10. `03-szenen/bildwelt.txt` erstellen
-11. Weltreferenz generieren und als `03-szenen/bildwelt-referenz.png` speichern
-12. alle Bildprompts mit demselben V3-Weltblock erstellen
-13. alle Szenenbilder mit derselben Weltreferenz generieren
-14. jedes Bild gegen den exakten Satz prüfen
-15. alle Bilder als Kontaktbogen auf Weltkonsistenz prüfen
-16. Remotion-Animationen relativ zu den echten Szenendauern bauen
-17. Überschriften, Icons und Karaoke-Untertitel einbinden
-18. Asset-Sync, Validatoren und Typecheck ausführen
-19. Preview rendern
-20. Anfang, Mitte und Ende jeder Bildszene prüfen
-21. komplette MP4 mit Kopfhörern ansehen
-22. Audio-Lautheit messen
-23. Caption, Quellen, CTA und gegebenenfalls PDF-Angebot erstellen
-24. erst nach menschlicher Sichtprüfung final freigeben
+11. für jedes benötigte Bild einen konkreten hellen Premium-3D/CGI-Prompt erstellen
+12. direkt bei jedem Prompt den exakten deutschen Bildtext und den endgültigen Dateinamen festlegen
+13. Cover immer mit klarem deutschem Titel planen
+14. der Nutzer erzeugt die Bilder selbst, immer einzeln
+15. nach jedem erzeugten Bild sofort korrekt umbenennen und prüfen
+16. Animationsszenen überspringen; ihre Nummer bleibt reserviert
+17. alle fertigen Bilder erst am Ende gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` legen
+18. jedes Bild gegen den exakten Satz und den vorgeschriebenen deutschen Text prüfen
+19. Remotion-Animationen relativ zu den echten Szenendauern bauen
+20. Überschriften, Icons und Karaoke-Untertitel einbinden
+21. Asset-Sync, Validatoren und Typecheck ausführen
+22. Preview rendern
+23. Anfang, Mitte und Ende jeder Bildszene prüfen
+24. komplette MP4 mit Kopfhörern ansehen
+25. Audio-Lautheit messen
+26. Caption, Quellen, CTA und gegebenenfalls PDF-Angebot erstellen
+27. erst nach menschlicher Sichtprüfung final freigeben
 
 ## 13. Qualitätsprüfung pro Reel
 
@@ -366,20 +394,23 @@ Verbindliche technische Dokumentation:
 
 ### Bildsatz
 
-- verwenden alle Bilder dieselbe V3-Weltreferenz?
-- sind Kamera, Perspektive und Kamerahöhe gleich?
-- sind Architektur, Licht, Materialien und Palette gleich?
-- wirken die Hauptmotive ähnlich groß?
-- besitzt jedes Bild Vordergrund, Mittelgrund und Hintergrund?
+- wirken alle Bilder wie dieselbe hochwertige FinanzNeo-Serie?
+- ist der Look hell, hochwertig und smartphone-lesbar?
+- sind die Hauptmotive groß und sofort verständlich?
+- sind konkrete Alltagsobjekte statt unnötiger abstrakter Systeme verwendet?
 - gibt es keinen leeren schwarzen Hintergrund?
-- ist sämtlicher Text aus den Bildern entfernt?
+- gibt es keine Neon-Tunnel-/Sci-Fi-/Miniatur-Diorama-Welt?
+- enthält jedes Bild genau den vorgesehenen kurzen deutschen Text?
+- ist der deutsche Text korrekt geschrieben und gut lesbar?
+- gibt es keinen zusätzlichen englischen oder zufälligen Text?
 - erklärt jedes Bild genau eine Aussage?
+- hat das Cover einen klaren deutschen Titel, der das Thema sofort nennt?
 
 ### Render
 
 - Vordergrundbilder vollständig und mit `contain` sichtbar?
 - keine sichtbaren Blur-Streifen?
-- keine wichtigen Motivteile abgeschnitten?
+- keine wichtigen Motivteile oder Bildtexte abgeschnitten?
 - Szenenschnitte exakt an Satzanfängen?
 - genau ein Untertitelsatz sichtbar?
 - aktuelles Wort grün?
@@ -390,15 +421,16 @@ Verbindliche technische Dokumentation:
 
 ### Freigaberegel
 
-- Ein einzelnes Bild aus einer anderen Welt führt zur Neuerstellung dieses Bildes.
+- Ein einzelnes Bild aus einer deutlich anderen Qualität oder Stilwelt führt zur Neuerstellung dieses Bildes.
 - Eine visuell falsche Satzzuordnung führt zur Neuerstellung oder Neuzuordnung.
+- Falsch geschriebener deutscher Bildtext führt zur Neuerstellung.
 - Technischer Erfolg ist keine kreative Freigabe.
 - Unter 8/10 wird überarbeitet.
 - „9/10“ muss durch Kontaktbogen, geprüfte Frames und vollständige MP4-Prüfung begründet sein.
 
 ## 14. Aktive technische Prioritäten
 
-1. Image World V3 und Bildsatz-QA konsequent verwenden
+1. Premium-Editorial-Bildwelt und Bildsatz-QA konsequent verwenden
 2. Caption-, Safe-Area- und Satzschnittsystem stabil halten
 3. produktive Videos, Experimente und Showcases trennen
 4. `src/brand` und `src/bausteine` über `src/design-system` konsolidieren
