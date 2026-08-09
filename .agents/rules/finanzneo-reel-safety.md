@@ -34,15 +34,29 @@ Before implementation run `git status --short`, record branch and HEAD, and reco
 ## Post-change safety review
 Before claiming completion compare against the recorded starting HEAD. Verify no existing reel was deleted or unintentionally modified, no lockfile/dependency change occurred without permission, and validators/typecheck/preview all succeed.
 
-## Image generation — Antigravity only
-For Antigravity-produced reels, generate the final scene images inside Antigravity whenever its integrated image tool is available.
-- First generate `03-szenen/bildwelt-referenz.png` from `03-szenen/bildwelt.txt`.
-- Then generate every image scene from its `bildprompt.txt` using that exact reference.
-- Prefer an explicitly exposed `Image 3` / `Imagen 3` option if Antigravity actually offers it.
-- If it does not, use Antigravity's native generative-image tool and record the actual system used. Never pretend another model is Image 3.
-- Never silently fall back to web images, stock images, placeholders or a different visual world.
-- Generated scene images contain no text, numbers, labels, logos, watermarks or app UI.
-- Review all generated images together as one contact sheet and regenerate inconsistent frames.
+## Image boundary — Antigravity MUST NOT generate images
+The user exclusively creates all actual images for FinanzNeo reels.
+
+Antigravity MAY:
+- write `03-szenen/bildwelt.txt`
+- write cover and scene `bildprompt.txt` files
+- write/update `03-szenen/alle-bildprompts.txt`
+- define exact expected filenames and scene numbers
+- inspect user-supplied images after they are provided
+
+Antigravity MUST NOT:
+- generate `bildwelt-referenz.png`
+- generate the cover image
+- generate any final scene image
+- call an integrated image generator, Imagen, Nano Banana or any other image-generation model
+- use web images, stock images or generated placeholders as substitutes
+- overwrite or replace a user-provided image
+
+The user creates the world-reference image and all final scene images externally and places the completed, correctly named final images together in:
+
+`03-szenen/00-ALLE-BILDER-HIER-REIN/`
+
+If required images are missing, Antigravity must report the exact missing filenames and wait. If a supplied image is visually inconsistent or incorrect, Antigravity reports the problem to the user and does not regenerate the image itself.
 
 ## Final permission boundary
 Antigravity may create commits and a draft PR. It must not merge, publish, delete previous work or mark a reel final without explicit user instruction.
