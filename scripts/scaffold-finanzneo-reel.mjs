@@ -53,25 +53,25 @@ const animationSceneIds = types.flatMap((type, index) => type === 'animation' ? 
 const chronologicalImageNaming = types.map((type, index) => {
   const number = String(index + 1).padStart(2, '0');
   return type === 'image'
-    ? `- Szene ${number} = Bildszene → \`Bild ${number}\``
+    ? `- Szene ${number} = Bildszene → \`Bild ${number} - <kurzer Szenenname>.png\``
     : `- Szene ${number} = Remotion-Animation → KEIN \`Bild ${number}\``;
 }).join('\n');
 
-const imageNamingBlock = `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nVERBINDLICHE DATEINAMEN NACH DER BILDGENERIERUNG\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nNach der Generierung müssen die fertigen Bilder nach ihrer ECHTEN chronologischen Position im Reel benannt werden. Die Nummer ist immer identisch mit der Szenennummer und NICHT mit der laufenden Anzahl der erzeugten Bilder.\n\n- Cover = \`Bild 00\`\n- Szene 01 = \`Bild 01\`\n- Szene 02 = \`Bild 02\`\n- Szene 03 = \`Bild 03\`\n- usw. bis zur letzten Szene.\n\nWICHTIG BEI REMOTION-ANIMATIONEN:\nEine Animationsszene behält ihre Szenennummer, bekommt aber KEINE Bilddatei. Die Nummer darf nicht an die nächste Bildszene weitergegeben oder neu durchgezählt werden.\n\nBeispiel:\n- Szene 01 = Bildszene → \`Bild 01.png\`\n- Szene 02 = Remotion-Animation → KEIN \`Bild 02\`\n- Szene 03 = Bildszene → \`Bild 03.png\`\n\nNIEMALS Szene 03 in diesem Beispiel als \`Bild 02\` benennen.\n\nVERBINDLICHE NUMMERIERUNG FÜR DIESES REEL:\n${chronologicalImageNaming}\n\nDie Dateiendung bleibt erhalten. Nach dem Umbenennen alle finalen Bilder gemeinsam in \`03-szenen/BILDER-EINGANG/\` legen.\n\nDie KI darf die Nummer niemals anhand der Anzahl bereits generierter Bilder erraten. Maßgeblich ist ausschließlich die echte Szenennummer in \`03-szenen/scene-index.json\`.\n\nDanach zuerst prüfen und anschließend einsortieren:\n\`npm run reel:sort-images -- <REEL-ORDNER> --dry-run\`\n\`npm run reel:sort-images -- <REEL-ORDNER>\`\n`;
+const googleFlowBlock = `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nGOOGLE FLOW KI-AGENT – VERBINDLICHER EINZELBILD-ABLAUF\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nDIESE ANWEISUNG GILT AUSSCHLIESSLICH FÜR DEN GOOGLE-FLOW-KI-AGENTEN.\nNicht für Codex, nicht für Antigravity und nicht für andere Agenten.\n\nGoogle Flow erstellt immer genau EIN benötigtes Bild nach dem anderen.\n\nVERBINDLICHE SCHLEIFE:\n\`1 BILD GENERIEREN → SOFORT UMBENENNEN → PRÜFEN → ERST DANN NÄCHSTES BILD\`\n\nFür jedes einzelne benötigte Bild:\n1. Genau den zugehörigen Prompt verwenden und genau EIN Bild generieren.\n2. Dieses eine Bild sofort endgültig benennen: \`Bild XX - Kurzer Szenenname.png\`.\n3. Motiv, echte Szenennummer, Szenenname, Dateiname, Textfreiheit und gemeinsame Bildwelt prüfen.\n4. Bei einem Fehler genau dieses Bild korrigieren oder neu generieren.\n5. Erst wenn dieses Bild vollständig korrekt ist, das nächste benötigte Bild erzeugen.\n\nNUMMERIERUNGSREGEL:\n- \`Bild 00\` = Cover.\n- Danach ist XX immer exakt die echte Szenennummer.\n- Die Nummer ist niemals die laufende Anzahl der erzeugten Bilder.\n- Eine Animationsszene erzeugt kein Bild und ihre Nummer bleibt reserviert.\n- Eine Animationslücke darf niemals geschlossen oder an eine spätere Bildszene weitergegeben werden.\n\nBeispiel:\n- Szene 01 = Bild → \`Bild 01\`\n- Szene 02 = Animation → kein \`Bild 02\`\n- Szene 03 = Bild → \`Bild 03\`\n\nAuch wenn \`Bild 03\` erst das zweite erzeugte Szenenbild ist, bleibt es \`Bild 03\`.\n\nVERBINDLICHE NUMMERIERUNG FÜR DIESES REEL:\n- Cover → \`Bild 00 - <kurzer Covername>.png\`\n${chronologicalImageNaming}\n\nVor dem Sammeln vollständig prüfen:\n- keine erwartete Bilddatei fehlt\n- keine Bildnummer doppelt\n- keine Bildnummer vertauscht\n- jedes Bild gehört zur richtigen Szene\n- Animationsszenen wurden ausgelassen\n- Animationslücken wurden nicht neu nummeriert\n\nERST WENN ALLE EINZELBILDER generiert, endgültig benannt und geprüft sind, alle fertigen Bilder gemeinsam in genau diesen einen Ordner legen:\n\n\`00-bildprompts/00-ALLE-BILDER-HIER-REIN/\`\n\nGoogle Flow verteilt die Bilder NICHT auf einzelne Szenenordner. Nummer, Szenenname und Dateiname dürfen niemals sichtbar in das Bild gerendert werden.\n`;
 
-write('README.md', `# ${title}\n\n- Bildszene: bildprompt.txt + szene.md + später genau ein finales Bild\n- Remotion-Szene: remotion.md + szene.md\n- Image World: ${WORLD_ID}\n- zuerst bildwelt-referenz.png erzeugen, dann alle Szenenbilder mit derselben Referenz\n- keine leeren Hintergründe, keine Bildtexte, keine zufälligen Stilwechsel\n- Szenenschnitte folgen Satzanfängen statt einem starren Zeitraster\n- ein vollständiger Satz sichtbar, aktuelles Wort grün\n- finale Bildnummer = echte Szenennummer; Animationsnummern werden nicht neu vergeben\n`);
+write('README.md', `# ${title}\n\n- Bildszene: bildprompt.txt + szene.md + später genau ein finales Bild\n- Remotion-Szene: remotion.md + szene.md\n- Image World: ${WORLD_ID}\n- zuerst bildwelt-referenz.png erzeugen, dann alle Szenenbilder mit derselben Referenz\n- keine leeren Hintergründe, keine Bildtexte, keine zufälligen Stilwechsel\n- Szenenschnitte folgen Satzanfängen statt einem starren Zeitraster\n- ein vollständiger Satz sichtbar, aktuelles Wort grün\n- Google Flow erzeugt Bilder einzeln und benennt jedes sofort; Bildnummer = echte Szenennummer\n`);
 write('00-cover/cover.txt', `${WORLD_BLOCK}\nSCENE MESSAGE:\n[VOLLSTÄNDIGE COVER-AUSSAGE EINFÜGEN]\n\nCONNECTED VISUAL STORY:\n[VOLLSTÄNDIGEN COVER-AUFBAU EINFÜGEN]\n`);
-write('00-cover/README.md', '# Cover\n\nCover verwendet dieselbe Bildwelt-Referenz wie alle Szenenbilder. Das finale Cover heißt `Bild 00` und wird zusammen mit allen Szenenbildern in `03-szenen/BILDER-EINGANG/` abgelegt.\n');
+write('00-cover/README.md', '# Cover\n\nCover verwendet dieselbe Bildwelt-Referenz wie alle Szenenbilder. Für Google Flow ist das Cover immer `Bild 00 - <kurzer Covername>.png`.\n');
+write('00-bildprompts/00-ALLE-BILDER-HIER-REIN/README.md', '# Google-Flow-Sammelordner\n\nGoogle Flow legt hier ERST AM ENDE alle bereits einzeln generierten, endgültig benannten und geprüften Bilder gemeinsam ab. Keine Verteilung auf einzelne Szenenordner.\n');
 write('01-voice-script/script.txt', '[VOLLSTÄNDIGES SPRECHSKRIPT EINFÜGEN]\n');
 write('01-voice-script/voiceover-prompt.txt', '[VOICEOVER-REGIE EINFÜGEN]\n');
 write('02-audio/README.md', '# Audio\n\nFinales Voiceover hier ablegen. Ziel: ungefähr -16 LUFS Integrated und höchstens -1 dBTP. Wortzeiten und Szenenschnitte müssen aus genau dieser finalen Datei erzeugt werden.\n');
 write('03-szenen/bildwelt.txt', worldReferencePrompt);
-write('03-szenen/README.md', '# Szenen\n\n1. bildwelt.txt verwenden und bildwelt-referenz.png erzeugen.\n2. Jedes Bild mit derselben Referenz generieren.\n3. Bildszene: bildprompt.txt + szene.md + genau ein finales Bild.\n4. Remotion-Szene: remotion.md + szene.md.\n5. Keine Motionprompts oder Platzhalter.\n6. Alle finalen Bilder zunächst gemeinsam in BILDER-EINGANG ablegen. Die Bildnummer entspricht immer der echten Szenennummer. Eine Animationsszene behält ihre Nummer, erzeugt aber kein Bild.\n');
-write('03-szenen/BILDER-EINGANG/README.md', `# Bilder-Eingang\n\nAlle finalen Bilder gemeinsam hier ablegen.\n\n${imageNamingBlock}\n`);
+write('03-szenen/README.md', '# Szenen\n\n1. bildwelt.txt verwenden und bildwelt-referenz.png erzeugen.\n2. Jedes Bild mit derselben Referenz generieren.\n3. Bildszene: bildprompt.txt + szene.md + genau ein finales Bild.\n4. Remotion-Szene: remotion.md + szene.md.\n5. Keine Motionprompts oder Platzhalter.\n6. Google Flow erzeugt immer nur ein Bild, benennt es sofort und prüft es, bevor das nächste Bild erzeugt wird.\n7. Die Bildnummer entspricht immer der echten Szenennummer; Animationen erzeugen Lücken.\n8. Erst wenn alle Bilder fertig sind, legt Google Flow sie gemeinsam in 00-bildprompts/00-ALLE-BILDER-HIER-REIN/.\n');
 write('04-caption/README.md', '# Untertitel\n\nEin vollständiger Satz sichtbar. Aktuelles Wort grün. Vorheriger Satz bleibt während kurzer Pausen stehen. Höchstens zwei Zeilen. Szenenstarts folgen den Satzanfängen.\n');
 write('04-caption/word-timings.json', `${JSON.stringify({version: 1, fps: 30, subtitleMode: 'sentence-with-audio-synced-active-word', activeWordColor: 'finance-green', sentences: []}, null, 2)}\n`);
 write('04-caption/social-caption.txt', '[SOCIAL CAPTION EINFÜGEN]\n');
-write('05-review/checkliste.md', '# Checkliste\n\n- [ ] Bildwelt-Referenz zuerst erzeugt\n- [ ] alle Bilder mit derselben Referenz generiert\n- [ ] Bildnummer entspricht echter Szenennummer; Animationsszenen wurden nicht neu durchgezählt\n- [ ] Kamera, Architektur, Licht, Materialien und Motivgröße im Kontaktbogen einheitlich\n- [ ] kein leerer schwarzer Hintergrund\n- [ ] keine Bildtexte oder Zahlen\n- [ ] jedes Bild erklärt exakt seinen Satz\n- [ ] Vordergrundbilder contain; Scale maximal 1.04\n- [ ] Crop pro Seite maximal 0.20, insgesamt maximal 0.34\n- [ ] keine unscharfe Bildkopie als sichtbarer Hintergrund\n- [ ] Szenenschnitte folgen Satzanfängen\n- [ ] Audio ungefähr -16 LUFS / höchstens -1 dBTP geprüft\n- [ ] finalen Render vollständig angesehen\n');
+write('05-review/checkliste.md', '# Checkliste\n\n- [ ] Bildwelt-Referenz zuerst erzeugt\n- [ ] alle Bilder mit derselben Referenz generiert\n- [ ] Google Flow erzeugte immer nur ein Bild gleichzeitig\n- [ ] jedes Bild wurde direkt nach seiner Generierung endgültig benannt und geprüft\n- [ ] Bildnummer entspricht echter Szenennummer; Animationsszenen wurden nicht neu durchgezählt\n- [ ] Kamera, Architektur, Licht, Materialien und Motivgröße im Kontaktbogen einheitlich\n- [ ] kein leerer schwarzer Hintergrund\n- [ ] keine Bildtexte oder Zahlen\n- [ ] jedes Bild erklärt exakt seinen Satz\n- [ ] Vordergrundbilder contain; Scale maximal 1.04\n- [ ] Crop pro Seite maximal 0.20, insgesamt maximal 0.34\n- [ ] keine unscharfe Bildkopie als sichtbarer Hintergrund\n- [ ] Szenenschnitte folgen Satzanfängen\n- [ ] Audio ungefähr -16 LUFS / höchstens -1 dBTP geprüft\n- [ ] finalen Render vollständig angesehen\n');
 write('05-review/quellen.md', '# Quellen\n\n[QUELLEN EINFÜGEN]\n');
 write('06-video/README.md', '# Finales Video\n\nFinalen freigegebenen Export hier ablegen.\n');
 write('render/README.md', '# Test-Render\n');
@@ -80,8 +80,9 @@ write('timeline/timeline.json', `${JSON.stringify({version: 1, title, fps: 30, t
 
 const scenes = types.map((type, index) => {
   const id = `scene-${String(index + 1).padStart(2, '0')}`;
+  const number = String(index + 1).padStart(2, '0');
   const directory = `03-szenen/EINZELNE-SZENEN/${id}`;
-  write(`${directory}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n\n**Überschrift:** [EINFÜGEN]\n\n**Schwerpunktzeile:** [EINFÜGEN]\n\n**Passendes Icon:** [EINFÜGEN]\n\n**Sprechtext:** [EINFÜGEN]\n\n**Satzstart im finalen Audio:** [FRAME EINFÜGEN]\n\n${type === 'image' ? `**Expected Visual:** [EINFÜGEN]\n\n**Image World:** ${WORLD_ID}\n\n**Bilddarstellung:** scale=1.01, sourceCropTop=0.17, sourceCropBottom=0.17, cropSafe=true\n\n**Finaler Dateiname im Bilder-Eingang:** Bild ${String(index + 1).padStart(2, '0')}\n` : `**Remotion-Komponente:** [EINFÜGEN]\n\n**Kein finales Bild:** Die Szenennummer ${String(index + 1).padStart(2, '0')} bleibt reserviert und wird nicht an eine andere Bildszene vergeben.\n`}`);
+  write(`${directory}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n\n**Überschrift:** [EINFÜGEN]\n\n**Schwerpunktzeile:** [EINFÜGEN]\n\n**Passendes Icon:** [EINFÜGEN]\n\n**Sprechtext:** [EINFÜGEN]\n\n**Satzstart im finalen Audio:** [FRAME EINFÜGEN]\n\n${type === 'image' ? `**Expected Visual:** [EINFÜGEN]\n\n**Image World:** ${WORLD_ID}\n\n**Bilddarstellung:** scale=1.01, sourceCropTop=0.17, sourceCropBottom=0.17, cropSafe=true\n\n**Google-Flow-Dateiname:** Bild ${number} - <kurzer Szenenname>.png\n` : `**Remotion-Komponente:** [EINFÜGEN]\n\n**Kein finales Bild:** Die Szenennummer ${number} bleibt reserviert und wird nicht an eine andere Bildszene vergeben.\n`}`);
 
   const common = {
     id,
@@ -110,15 +111,24 @@ const scenes = types.map((type, index) => {
   return {...common, planFile: `EINZELNE-SZENEN/${id}/remotion.md`};
 });
 
-write('03-szenen/alle-bildprompts.txt', `FINANZNEO — ALLE BILDPROMPTS\n\nWELTBLOCK\n=========\n${WORLD_BLOCK}\n\nCOVER\n=====\n[VOLLSTÄNDIGEN COVER-INHALT EINFÜGEN]\n\n${imageSceneIds.map((id) => `${id.toUpperCase()}\n${'='.repeat(id.length)}\nSCENE MESSAGE:\n[EINFÜGEN]\n\nCONNECTED VISUAL STORY:\n[EINFÜGEN]\n`).join('\n')}\n${imageNamingBlock}`);
+write('03-szenen/alle-bildprompts.txt', `FINANZNEO — ALLE BILDPROMPTS\n\nWELTBLOCK\n=========\n${WORLD_BLOCK}\n\nCOVER\n=====\n[VOLLSTÄNDIGEN COVER-INHALT EINFÜGEN]\n\n${imageSceneIds.map((id) => `${id.toUpperCase()}\n${'='.repeat(id.length)}\nSCENE MESSAGE:\n[EINFÜGEN]\n\nCONNECTED VISUAL STORY:\n[EINFÜGEN]\n`).join('\n')}\n${googleFlowBlock}`);
 
 write('03-szenen/scene-index.json', `${JSON.stringify({
-  version: 5,
+  version: 6,
   title,
   sceneCount: scenes.length,
   imageSceneCount: imageSceneIds.length,
   animationSceneCount: animationSceneIds.length,
   sourceContract: 'exactly-one-of-bildprompt-or-remotion',
+  googleFlowImageWorkflow: {
+    mode: 'one-image-at-a-time',
+    renameImmediately: true,
+    verifyBeforeNext: true,
+    numberingSource: 'real-scene-number',
+    animationNumbersReserved: true,
+    finalCollectionFolder: '00-bildprompts/00-ALLE-BILDER-HIER-REIN/',
+    distributeToSceneFolders: false,
+  },
   imageWorld: {
     id: WORLD_ID,
     referencePromptFile: '03-szenen/bildwelt.txt',
@@ -148,4 +158,5 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
 console.log(`✓ Reel-Gerüst erstellt: ${root}`);
 console.log(`  ${imageSceneIds.length} Bildszenen · ${animationSceneIds.length} Remotion-Szenen`);
 console.log(`  Image World ${WORLD_ID} · Satzschnitte · keine leeren Hintergründe · textfreie Bilder`);
-console.log('  Bildnummern sind 1:1 an echte Szenennummern gebunden; Animationsnummern bleiben reserviert.');
+console.log('  Google Flow: genau ein Bild → sofort umbenennen → prüfen → nächstes Bild.');
+console.log('  Bildnummern bleiben 1:1 an echte Szenennummern gebunden; Animationsnummern bleiben reserviert.');
