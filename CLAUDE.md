@@ -71,15 +71,15 @@ Eine schwache Animation wird nicht nur zur Erfüllung einer Quote verwendet. Bil
 - keine Behauptung ohne nachvollziehbare Quelle oder klar erkennbare Beispielannahme
 - Problem-Szenen dürfen visuell noch nicht die spätere Lösung zeigen
 
-## 5. Verbindliche Bildwelt: Premium Editorial 3D
+## 5. Verbindliche Bildwelt: Premium Dark 3D Finance
 
-Alle neuen FinanzNeo-Bildszenen verwenden technisch weiterhin diese Kennung:
+Technische World-ID:
 
 ```text
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 ```
 
-Die visuelle Ausführung ist ab jetzt jedoch verbindlich **heller Premium-3D/CGI-Editorial-Stil**. Die frühere dunkle Neon-/Tunnel-/Miniatur-Diorama-Auslegung ist nicht mehr gewünscht.
+Der verbindliche Look ist ein hochwertiger dunkler 3D-Finanzstil mit großen klaren Objekten und kurzen Objekt-Beschriftungen.
 
 Verbindliche Dokumente:
 
@@ -91,7 +91,7 @@ Verbindliche Dokumente:
 
 ### Weltreferenz pro Reel
 
-Vor den eigentlichen Szenenbildern kann pro Reel eine Weltreferenz vorbereitet werden:
+Pro Reel kann vorbereitet werden:
 
 ```text
 03-szenen/bildwelt.txt
@@ -100,99 +100,136 @@ Vor den eigentlichen Szenenbildern kann pro Reel eine Weltreferenz vorbereitet w
 
 Der Nutzer erzeugt die tatsächlichen Bilder selbst. Antigravity erzeugt keine finalen Bilder und keine Weltreferenz.
 
-Eine vorhandene Weltreferenz dient nur als Stilreferenz für:
+Eine vorhandene Referenz dient nur für:
 
-- Helligkeit und Gesamtlook
 - Materialqualität
+- Lichtstimmung
 - Farbpalette
-- Objektgröße
 - Perspektivwirkung
-- Typografie-Stil
-
-Die finanzielle Handlung darf wechseln. Die Serie muss trotzdem zusammengehören.
+- Objektgröße
+- Beschriftungsstil
 
 ### Unveränderliche Serienmerkmale
 
-- hochwertiger moderner 3D/CGI-Editorial-Look
-- realistische Proportionen mit sauberer, leicht stilisierter Premium-Darstellung
-- heller Hintergrund: warmes Off-White, helles Grau oder vergleichbar heller neutraler Ton
-- FinanzNeo-Grün für Schutz, richtige Lösung und Fortschritt
+- hochwertiger moderner stylized 3D/CGI-Finanzlook
+- dunkler Anthrazit-/Tiefgrün-Hintergrund oder dezente dunkle Studiofläche
+- kontrollierte smaragdgrüne Kantenbeleuchtung
+- weiche realistische Bodenschatten
 - Gold ausschließlich für Geld und finanzielle Werte
-- Rot ausschließlich für Risiko, Verlust, Schulden oder falschen Konsum
-- klare hochwertige Materialien
-- kontrollierte transparente Glas-/Reserveelemente
-- starke Smartphone-Lesbarkeit
-- große konkrete Alltagsobjekte statt abstrakter Miniatursysteme
+- Rot ausschließlich für Risiko, Schulden, Verlust oder falsche Ausgabe
+- Weiß/Hellgrau für kurze deutsche Objekt-Beschriftungen
+- große konkrete Alltagsobjekte
+- klare Smartphone-Lesbarkeit
+- nicht fotorealistisch
 - nicht kindlich oder cartoonhaft
 - kein Pixar- oder Clay-Stil
 
-### Verbotene alte Bildwelt
+### Verbotene Fehlinterpretationen
 
-Nicht mehr verwenden:
+Nicht verwenden:
 
-- dunkler schwarzer Raum als Hauptlook
-- grüne Neon-Tunnel
+- riesige Überschriften im Bild
+- Untertitel im Bild
+- erklärende ganze Sätze im Bild
+- heller Poster-/Werbeplakat-Look mit dominanter Typografie
+- winzige isometrische Dioramen
+- lange Neon-Tunnel
 - Sci-Fi-Korridore
 - futuristische Game-Level
-- winzige isometrische Dioramen
 - kleine schwebende Plattformen
-- übermäßige Leuchtlinien
-- komplizierte abstrakte Rohr-/Pfad-/Netzsysteme, wenn konkrete Alltagsobjekte die Aussage besser erklären
+- komplizierte abstrakte Rohr-/Pfad-/Netzsysteme, wenn konkrete Objekte die Aussage besser erklären
+- winzige Motive in riesiger leerer Fläche
 
 ### Hintergründe
 
-Jedes Bild besitzt einen hellen, ruhigen, hochwertigen Hintergrund mit genügend Tiefe und Schatten, aber ohne unnötige Kulissenkomplexität.
+Jedes Bild besitzt einen dunklen, ruhigen, hochwertigen Hintergrund mit genügend räumlicher Tiefe.
+
+Erlaubt:
+
+- dunkler Anthrazit-/Tiefgrün-Verlauf
+- dezente Bodenfläche
+- weiche grüne Kantenbeleuchtung
+- zurückhaltende Architektur, wenn sie das Hauptmotiv nicht dominiert
 
 Verboten:
 
-- schwarzes Nichts
-- reiner Glow ohne glaubwürdige Fläche
-- zufällig komplett anderer Stil pro Szene
+- leeres schwarzes Nichts ohne Tiefe
 - visuell unruhige Sci-Fi-Architektur
-- winzige Motive in riesiger leerer Fläche
+- komplett anderer Stil pro Szene
+- winzige Motive in riesiger Fläche
 
 ### Einheitliche Komposition
 
 - vertikale 9:16-Quelle
-- ein großes klar dominantes Hauptmotiv
-- Hauptmotiv ungefähr 70–85 % der nutzbaren Breite
+- ein großes dominantes Hauptmotiv
+- Hauptmotiv ungefähr 65–85 % der nutzbaren Breite
 - maximal ungefähr 3–5 verständliche Hauptelemente
 - wichtigste Objekte groß genug für Smartphone-Anzeige
 - klare Leserichtung oder einfache Gegenüberstellung
 - Aussage innerhalb einer Sekunde verständlich
-- keine kleinen Dashboard-Panels oder zufälligen Mini-Icons
-- konkrete Alltagsobjekte bevorzugen, wenn sie die Aussage besser erklären
+- konkrete Alltagsobjekte bevorzugen
 
-### Kurzer deutscher Text im KI-Bild ist verbindlich
+### Textregel: nur kurze deutsche Objekt-Beschriftungen
 
-Jedes finale Bild enthält **genau eine kurze deutsche Kernaussage**, die direkt im jeweiligen Bildprompt festgelegt wird.
+Im generierten Bild gilt strikt:
 
-Für Cover gilt zwingend:
+**NIEMALS:**
 
-- Cover enthält einen klaren deutschen Titel, der sofort sagt, worum es geht
-- Titel darf aus zwei kurzen Zeilen bestehen
-- Titel groß und dominant
+- Überschrift
+- Untertitel
+- ganzer erklärender Satz
+- CTA
+- Absatz
+- große Werbeheadline
 
-Für normale Bildszenen gilt:
+**ERLAUBT UND GEWÜNSCHT:**
 
-- meistens 2–5 kurze deutsche Wörter oder ein sehr kurzer Satz
-- nur eine Kernaussage
-- große moderne fette Sans-Serif-Typografie
-- hohe Lesbarkeit und klarer Kontrast
-- Text bevorzugt im oberen Drittel oder in einer ruhigen freien Fläche
-- exakte deutsche Schreibweise
+- kurze deutsche Objekt-Beschriftungen
+- meistens 1–3 Wörter
+- direkt am oder nahe beim zugehörigen Objekt
+- klein bis mittelgroß
+- moderne klare Sans-Serif-Schrift
+- wenige Labels pro Bild
+
+Beispiele:
+
+```text
+Notgroschen
+Reparatur
+Dispo
+Ratenzahlung
+Tagesgeld
+Notfall
+Konsum
+500 €
+Auffüllen
+Wartezeit
+Verlorene Zinsen
+```
 
 Verboten:
 
-- englischer Text
+- englische Bildtexte
 - Fantasiewörter
 - zusätzliche zufällige Labels
-- unnötige zweite Überschrift
 - generierte Logos oder Wasserzeichen
 - App-Oberflächen
 - zusätzliche ungeprüfte Zahlen
 
-Wenn eine Zahl Teil der fachlichen Aussage ist, muss sie vorab geprüft und im Prompt exakt vorgegeben werden.
+Wenn eine Zahl fachlicher Bestandteil der Aussage ist, muss sie vorher geprüft und im Prompt exakt vorgegeben werden.
+
+### Cover-Regel
+
+Auch das Cover bekommt **keine klassische Überschrift**.
+
+Das Thema wird über Motiv + kurze Objekt-Beschriftungen sofort klar.
+
+Beispiel für ein Notgroschen-Cover:
+
+- zentrale Reserve mit Label `Notgroschen`
+- drei sichtbare Stufen mit `Stufe 1`, `Stufe 2`, `Stufe 3`
+
+So hat das Cover Text und erklärt das Thema, ohne eine große Headline zu verwenden.
 
 ### Verbindliche Promptmarker
 
@@ -200,15 +237,16 @@ Jeder Bildprompt enthält klar erkennbar:
 
 ```text
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+GOOGLE FLOW – FINALER DATEINAME:
 BILDSTIL:
-DEUTSCHER TEXT:
 TEXTREGEL:
+BESCHRIFTUNGEN:
 SZENENINHALT:
 BILDAUSSAGE:
 KOMPOSITION:
 ```
 
-Der Dateiname steht bei Google-Flow-Prompts direkt am jeweiligen Prompt. Die Bildnummer entspricht immer der echten Szenennummer.
+Der Dateiname steht direkt beim jeweiligen Google-Flow-Prompt. Die Bildnummer entspricht immer der echten Szenennummer.
 
 ## 6. Aufgabenverteilung Bild und Remotion
 
@@ -221,15 +259,14 @@ Das Bild übernimmt:
 - Ursache-Wirkungs-Szenen
 - visuelle Metaphern
 - Problem-, Schutz- und Ergebnissituationen
-- eine zusammenhängende erklärende Handlung
-- eine kurze deutsche Kernaussage direkt im Bild
-- beim Cover den klaren deutschen Reel-Titel
+- kurze deutsche Objekt-Beschriftungen
 
 ### Remotion
 
-Remotion übernimmt weiterhin:
+Remotion übernimmt:
 
-- zusätzliche Überschriften und passende Icons, wenn sie im finalen Layout benötigt werden
+- eigentliche Überschriften
+- passende Icons
 - Untertitel und grüne Wortverfolgung
 - komplexere Zahlen, Beträge und Formeln
 - Diagramme und Tabellen
@@ -238,24 +275,24 @@ Remotion übernimmt weiterhin:
 - Übergänge und Fortschritt
 - CTA
 
-Die kurze Bildaussage ersetzt nicht die Karaoke-Untertitel.
+Die Objekt-Beschriftungen im Bild ersetzen keine Remotion-Überschrift und keine Karaoke-Untertitel.
 
 ### Bilddarstellung in Remotion
 
 - Vordergrundbild verwendet `object-fit: contain`.
 - Keine sichtbare unscharfe Kopie desselben Bildes als Hintergrund.
-- Freie Fläche wird durch einen ruhigen passenden FinanzNeo-Hintergrund gefüllt.
 - Source-Crop oben höchstens `0.20`.
 - Source-Crop unten höchstens `0.20`.
 - Source-Crop insgesamt höchstens `0.34`.
 - zusätzliche Skalierung höchstens `1.04`.
 - nur nachweislich ruhige Umgebungsfläche darf entfernt werden.
-- Motive, Geld, Bildtext oder erklärende Elemente dürfen nie abgeschnitten werden.
+- Motive, Geld oder Beschriftungen dürfen nie abgeschnitten werden.
 
 ## 7. Überschriften und Untertitel
 
 ### Überschriften
 
+- werden in Remotion gerendert, nicht im KI-Bild
 - immer oben
 - erste Zeile weiß
 - Schwerpunktzeile grün oder bei Geldrechnungen gold
@@ -364,16 +401,16 @@ Verbindliche technische Dokumentation:
 8. echte Wort-Zeitstempel erzeugen
 9. Szenenstarts aus den Satzanfängen ableiten
 10. `03-szenen/bildwelt.txt` erstellen
-11. für jedes benötigte Bild einen konkreten hellen Premium-3D/CGI-Prompt erstellen
-12. direkt bei jedem Prompt den exakten deutschen Bildtext und den endgültigen Dateinamen festlegen
-13. Cover immer mit klarem deutschem Titel planen
+11. für jedes benötigte Bild einen konkreten Premium-Dark-3D-Prompt erstellen
+12. direkt bei jedem Prompt exakte kurze deutsche Objekt-Beschriftungen und den endgültigen Dateinamen festlegen
+13. keine Überschrift/Untertitel/Sätze in die generierten Bilder schreiben
 14. der Nutzer erzeugt die Bilder selbst, immer einzeln
 15. nach jedem erzeugten Bild sofort korrekt umbenennen und prüfen
 16. Animationsszenen überspringen; ihre Nummer bleibt reserviert
 17. alle fertigen Bilder erst am Ende gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` legen
-18. jedes Bild gegen den exakten Satz und den vorgeschriebenen deutschen Text prüfen
+18. jedes Bild gegen Satz, Motiv und Labels prüfen
 19. Remotion-Animationen relativ zu den echten Szenendauern bauen
-20. Überschriften, Icons und Karaoke-Untertitel einbinden
+20. Remotion-Überschriften, Icons und Karaoke-Untertitel einbinden
 21. Asset-Sync, Validatoren und Typecheck ausführen
 22. Preview rendern
 23. Anfang, Mitte und Ende jeder Bildszene prüfen
@@ -395,22 +432,24 @@ Verbindliche technische Dokumentation:
 ### Bildsatz
 
 - wirken alle Bilder wie dieselbe hochwertige FinanzNeo-Serie?
-- ist der Look hell, hochwertig und smartphone-lesbar?
+- dunkler Premium-3D-Finanzlook konsistent?
 - sind die Hauptmotive groß und sofort verständlich?
 - sind konkrete Alltagsobjekte statt unnötiger abstrakter Systeme verwendet?
-- gibt es keinen leeren schwarzen Hintergrund?
-- gibt es keine Neon-Tunnel-/Sci-Fi-/Miniatur-Diorama-Welt?
-- enthält jedes Bild genau den vorgesehenen kurzen deutschen Text?
-- ist der deutsche Text korrekt geschrieben und gut lesbar?
-- gibt es keinen zusätzlichen englischen oder zufälligen Text?
+- keine Miniatur-Dioramen oder Tunnel?
+- keine Überschrift im Bild?
+- kein Untertitel im Bild?
+- kein ganzer Satz im Bild?
+- nur die vorgesehenen kurzen deutschen Objekt-Beschriftungen?
+- Labels korrekt geschrieben und direkt am passenden Objekt?
+- kein zusätzlicher englischer oder zufälliger Text?
 - erklärt jedes Bild genau eine Aussage?
-- hat das Cover einen klaren deutschen Titel, der das Thema sofort nennt?
+- erklärt das Cover das Thema über Motiv + kurze Labels?
 
 ### Render
 
 - Vordergrundbilder vollständig und mit `contain` sichtbar?
 - keine sichtbaren Blur-Streifen?
-- keine wichtigen Motivteile oder Bildtexte abgeschnitten?
+- keine wichtigen Motivteile oder Labels abgeschnitten?
 - Szenenschnitte exakt an Satzanfängen?
 - genau ein Untertitelsatz sichtbar?
 - aktuelles Wort grün?
@@ -423,14 +462,15 @@ Verbindliche technische Dokumentation:
 
 - Ein einzelnes Bild aus einer deutlich anderen Qualität oder Stilwelt führt zur Neuerstellung dieses Bildes.
 - Eine visuell falsche Satzzuordnung führt zur Neuerstellung oder Neuzuordnung.
-- Falsch geschriebener deutscher Bildtext führt zur Neuerstellung.
+- Eine große Headline oder ein Satz im KI-Bild führt zur Neuerstellung.
+- Falsch geschriebene Objekt-Beschriftungen führen zur Neuerstellung.
 - Technischer Erfolg ist keine kreative Freigabe.
 - Unter 8/10 wird überarbeitet.
 - „9/10“ muss durch Kontaktbogen, geprüfte Frames und vollständige MP4-Prüfung begründet sein.
 
 ## 14. Aktive technische Prioritäten
 
-1. Premium-Editorial-Bildwelt und Bildsatz-QA konsequent verwenden
+1. Premium-Dark-3D-Bildwelt und Bildsatz-QA konsequent verwenden
 2. Caption-, Safe-Area- und Satzschnittsystem stabil halten
 3. produktive Videos, Experimente und Showcases trennen
 4. `src/brand` und `src/bausteine` über `src/design-system` konsolidieren
