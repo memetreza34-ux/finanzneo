@@ -2,168 +2,179 @@
 
 **World ID:** `finanzneo-connected-studio-v3`
 
-Die technische World-ID bleibt bestehen. Der verbindliche Look ist ein **hochwertiger dunkler 3D-Finanzstil mit großen klaren Motiven und kurzen deutschen Objekt-Beschriftungen**.
+Dieses Dokument beschreibt ab jetzt den verbindlichen Referenzstil für FinanzNeo-KI-Bilder.
 
-## 1. Grundlook
+## 1. Referenzbild-Idee
 
-- Premium stylized 3D CGI finance illustration
-- dunkler Anthrazit-/Tiefgrün-Look
-- kontrolliertes smaragdgrünes Kantenlicht
-- weiche hochwertige Bodenschatten
-- klare Materialqualität
-- Gold nur für Geld/Wert
-- Rot nur für Risiko/Schulden/Verlust
-- Weiß/Hellgrau für kurze Objekt-Beschriftungen
-- große Smartphone-lesbare Hauptmotive
-- nicht photorealistisch
-- nicht kindlich
-- kein Pixar, kein Clay
+Der gewünschte Look entspricht diesem Prinzip:
 
-## 2. Komposition
+> Eine stilisierte 3D-Person steht neben EINER großen, klaren Finanzmetapher. Beispiel: eine hohe Sanduhr mit leuchtenden Euro-Münzen. Münzen fallen sichtbar durch die Sanduhr, ein Teil verschwindet unten in einem rot-orange leuchtenden Verlust-Riss. Kurze deutsche Objektlabels wie `Wartezeit` und `Verlorene Zinsen` erklären nur die relevanten Elemente.
 
-- vertical 9:16
-- ein großes dominantes Hauptmotiv
-- ungefähr 65–85 % der nutzbaren Breite
-- maximal 3–5 verständliche Hauptelemente
-- konkrete Alltagsobjekte bevorzugen
-- Aussage innerhalb einer Sekunde verständlich
-- ruhiger dunkler Hintergrund mit Tiefe
+Nicht die konkrete Sanduhr ist verbindlich, sondern **diese Art der visuellen Erklärung**.
 
-Nicht verwenden:
+## 2. Verbindlicher Stil
 
-- winzige isometrische Dioramen
-- lange Neon-Tunnel
-- Sci-Fi-Korridore
-- futuristische Game-Level
-- kleine schwebende Plattformen
-- komplizierte abstrakte Netzwerke ohne Nutzen
-- winzige Motive in riesiger leerer Fläche
+- Premium fintech editorial 3D render style
+- deep charcoal green-black background
+- vivid emerald and mint-green accents
+- Gold ausschließlich für Euro-Münzen, Geld und finanziellen Wert
+- warmes Rot-Orange ausschließlich für Verlust, Risiko, Schulden oder blockiertes Geld
+- smooth rounded 3D geometry
+- soft bevelled edges
+- hochwertige matte und transparente Materialien
+- confident high-contrast studio lighting
+- kräftiges smaragdgrünes Rim Light
+- stilisiert, hochwertig und modern
+- nicht fotorealistisch
+- kein Pixar-/Clay-/Kindercartoon-Look
 
-## 3. Beschriftungsregel
+## 3. Bildaufbau
 
-### Strikt verboten
+Jede Bildszene verwendet möglichst:
 
-- Überschrift im KI-Bild
-- Untertitel im KI-Bild
+1. **eine dominante Metapher oder ein großes Hauptobjekt**
+2. optional **eine stilisierte anonyme 3D-Person** daneben
+3. nur wenige unterstützende Objekte
+4. einen klar sichtbaren Ursache-Wirkungs-Zusammenhang
+5. 1–3 kurze deutsche Objektlabels
+
+Das Bild soll wie eine einzelne hochwertige Editorial-Illustration wirken, nicht wie eine kleine Welt oder ein Game-Level.
+
+## 4. Stilisierte Person
+
+Eine stilisierte 3D-Person ist erlaubt und oft erwünscht, wenn sie Maßstab, Aufmerksamkeit oder Handlung verbessert.
+
+- anonym
+- erwachsen
+- glatte stilisierte 3D-Geometrie
+- natürliche einfache Pose
+- keine erkennbare reale Person
+- kein Fotorealismus
+- Person darf das Hauptobjekt nicht verdecken
+
+Nicht jede Szene muss eine Person enthalten. Die Metapher bleibt wichtiger als die Figur.
+
+## 5. Textregel
+
+### Niemals
+
+- große Überschrift
+- Untertitel
 - ganzer erklärender Satz
-- Absatz
 - CTA
-- große Werbeheadline
+- Absatz
+- große Poster-Typografie
 
-### Erlaubt und gewünscht
+### Gewünscht
 
 Nur kurze deutsche Objekt-Beschriftungen:
 
 - normalerweise 1–3 Wörter
-- direkt am oder nahe beim passenden Objekt
+- direkt neben dem zugehörigen Objekt
 - klein bis mittelgroß
-- klare moderne Sans-Serif-Schrift
-- wenige Labels pro Bild
+- klare Sans-Serif-Schrift
+- weiß oder hellgrau
+- nur so viele Labels wie nötig
 
 Beispiele:
 
 ```text
+Wartezeit
+Verlorene Zinsen
 Notgroschen
 Reparatur
 Dispo
 Ratenzahlung
-Tagesgeld
+500 €
 Notfall
 Konsum
-500 €
+Tagesgeld
 Auffüllen
-Wartezeit
-Verlorene Zinsen
 ```
 
-Keine englischen Wörter, Fantasietexte, zusätzlichen zufälligen Labels, Logos, Wasserzeichen oder App-Oberflächen.
+Keine englischen Labels, keine Fantasiewörter und keine zufälligen Zusatztexte.
 
-## 4. Cover
+## 6. Verbindliche Negativfläche
 
-Auch das Cover enthält **keine klassische Headline**.
-
-Das Thema muss über Motiv + Objekt-Beschriftungen klar werden.
-
-Beispiel:
+Für jedes 9:16-Quellbild:
 
 ```text
-zentrale Reserve → Notgroschen
-Stufe 1 → Stufe 1
-Stufe 2 → Stufe 2
-Stufe 3 → Stufe 3
+obere 15 % = komplett leerer dunkler Negativraum
+mittlere 60 % = gesamte Bildhandlung
+untere 25 % = komplett leerer dunkler, uncluttered Negativraum
 ```
 
-Damit enthält das Cover Text, ohne als Poster mit großer Überschrift gestaltet zu sein.
+In den oberen 15 % und unteren 25 % dürfen keine wichtigen Gegenstände, Münzen, Personen, Labels oder Effekte liegen.
 
-## 5. Motivwahl
+Die Bereiche sollen wirklich ruhig sein, nicht mit Architektur, Plattformen oder Deko gefüllt werden.
 
-Bevorzuge konkrete Objekte:
+## 7. Was ausdrücklich nicht gewünscht ist
 
-- Waschmaschine / Haushaltsgerät
-- Reparaturrechnung
-- Portemonnaie
-- Geldreserve
-- Schild
-- Kreditkarte
-- Reparaturwerkzeug
-- Shoppingobjekte
-- Tagesgeld-/Reserve-Metapher
+- winzige isometrische Dioramen
+- mehrere kleine Räume oder Plattformen
+- Neon-Tunnel
+- Sci-Fi-Korridore
+- futuristische Game-Level
+- viele kleine Icons und Miniobjekte
+- Dashboard-/App-UI
+- abstrakte Rohrsysteme
+- überladene Szenen
+- riesige Typografie
+- Fotorealismus
+- reale Menschen
 
-Abstrakte Systeme nur, wenn sie verständlicher sind als reale Objekte.
+## 8. Prompt-Grundmuster
 
-## 6. Farbregeln
-
-- Grün = Schutz, richtig, Fortschritt
-- Gold = Geld, Wert
-- Rot = Risiko, Schulden, Verlust
-- Dunkles Anthrazit/Tiefgrün = Grundwelt
-- Weiß/Hellgrau = Beschriftungen
-
-## 7. Google-Flow-Promptaufbau
-
-Jeder Bildprompt enthält:
+Ein guter Prompt soll sprachlich ungefähr diesem Muster folgen:
 
 ```text
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-GOOGLE FLOW – FINALER DATEINAME:
-BILDSTIL:
-TEXTREGEL:
-BESCHRIFTUNGEN:
-SZENENINHALT:
-BILDAUSSAGE:
-KOMPOSITION:
+A stylized 3D person standing beside [ONE LARGE FINANCIAL METAPHOR].
+[Describe a visible cause-and-effect action using only a few objects.]
+Include German text labels: '[Label 1]' near [object 1], and '[Label 2]' near [object 2].
+Premium fintech editorial render style.
+Background is deep charcoal green-black.
+Accents in vivid emerald and mint green.
+Use smooth rounded 3D geometry, soft bevelled edges, confident high-contrast studio lighting with bold rim light.
+Ensure the top 15 percent of the image is completely empty dark negative space,
+and the bottom 25 percent is also completely empty uncluttered negative space.
+The composition is vertical 9:16.
+No photorealism, no real humans, no UI dashboards.
 ```
 
-Bildnummer = echte Szenennummer.
+Jeder Szenenprompt wird inhaltlich neu formuliert, behält aber dieses visuelle Sprachmuster.
 
-Animationsszenen bekommen kein Bild und ihre Nummer bleibt reserviert.
-
-## 8. Google-Flow-Ablauf
+## 9. Google-Flow-Ablauf
 
 ```text
 PROMPT LESEN
-→ GENAU 1 BILD ERZEUGEN
+→ GENAU EIN BILD ERZEUGEN
 → SOFORT KORREKT UMBENENNEN
 → MOTIV + LABELS + DATEINAME PRÜFEN
 → ERST DANN NÄCHSTES BILD
 ```
 
-Erst nach allen Bildern gemeinsam nach:
+Bildnummer = echte Szenennummer.
+
+Animationsszenen erhalten kein Bild und behalten ihre Nummer.
+
+Erst nach Abschluss kommen alle Nutzerbilder gemeinsam nach:
 
 ```text
 03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-## 9. Ablehnungskriterien
+## 10. Ablehnungskriterien
 
-Ein Bild muss neu erzeugt werden, wenn:
+Bild neu erzeugen, wenn:
 
-- große Headline im Bild
-- Untertitel oder ganzer Satz im Bild
-- falsche/englische/zusätzliche Labels
-- winziges Diorama statt großem Hauptmotiv
-- Neon-Tunnel/Sci-Fi-Korridor
-- Motiv erklärt den Satz nicht
-- falsche Farbwelt
-- Beschriftung gehört nicht eindeutig zum Objekt
-- Text ist schlecht lesbar oder falsch geschrieben
+- es wie ein Diorama oder Game-Level aussieht
+- die Metapher nicht sofort verständlich ist
+- zu viele kleine Objekte vorkommen
+- obere 15 % nicht frei sind
+- untere 25 % nicht frei sind
+- große Headline oder ganzer Satz generiert wurde
+- Objektlabels falsch geschrieben sind
+- zusätzliche Texte auftauchen
+- die Figur fotorealistisch wirkt
+- Hintergrund nicht deep charcoal green-black ist
+- Emerald/Mint-Rim-Light und Premium-3D-Qualität fehlen
