@@ -1,27 +1,23 @@
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 10 - Notgroschen wieder auffuellen.png`
 
-WICHTIG: Erzeuge zuerst ausschließlich dieses eine Bild anhand dieses Prompts. Sobald es fertig ist, benenne es sofort exakt wie oben. Prüfe danach Motiv und Dateiname. Erst dann darf das nächste Bild erzeugt werden. Der Dateiname darf niemals sichtbar in das Bild gerendert werden.
+WICHTIG:
+Erzeuge ausschließlich dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv + Text + Dateiname prüfen. Der Dateiname selbst darf NICHT im Bild stehen.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+BILDSTIL:
+Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic everyday objects with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray environment. FinanzNeo green = Schutz/Erholung, gold = Geld. No dark background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating platform, no Pixar, no clay.
 
-SERIES CONTINUITY LOCK:
-Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+DEUTSCHER TEXT – EXAKT SO INS BILD:
+`PUFFER WIEDER AUFFÜLLEN`
 
-ENVIRONMENT:
-One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights and three depth layers. No empty black background.
+TEXTREGEL:
+Groß, fett, moderne Sans-Serif-Schrift im oberen Drittel. Exakt dieser deutsche Text, keine weiteren Wörter oder Zahlen, keine Schreibfehler.
 
-COMPOSITION LOCK:
-Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm and continue the studio.
+SZENENINHALT:
+Zeige die reparierte Waschmaschine wieder funktionsfähig. Daneben steht die transparente Notgroschen-Reserve nach der Ausgabe sichtbar teilweise geleert. Eine klare Reihe kleiner goldener Sparbeträge fließt wieder in die Reserve, bis ein FinanzNeo-grünes Schutzschild sichtbar stärker und vollständig wird. Die Szene soll optimistisch und kontrolliert wirken.
 
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+BILDAUSSAGE:
+Nach einem echten Notfall wird der benutzte Notgroschen Schritt für Schritt wieder aufgefüllt.
 
-CONSISTENCY NEGATIVES:
-No empty black background, no unresolved debt, no luxury spending, no floating platform, no different world, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
-
-SCENE MESSAGE:
-After an emergency withdrawal, regular saving restores the protective buffer.
-
-CONNECTED VISUAL STORY:
-Show the repaired washing machine operating calmly on one side. In the center, the transparent reserve vault is partially lower after paying the repair. A steady stream of small gold contributions refills it while the emerald shield becomes complete again. End with a controlled, protected and optimistic composition.
+KOMPOSITION:
+Reparierte Waschmaschine links, teilweise geleerte Reserve zentral, wieder einfließendes Geld und grünes Schutzschild rechts. Große klare Elemente, heller Hintergrund, kein abstraktes Netzwerk.
