@@ -20,26 +20,81 @@ Scene 09: the reserve is separate but quickly accessible.
 Scene 10: after using the reserve, a controlled refill restores protection.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-GOOGLE FLOW – VERBINDLICHE AUSGABENAMEN
+GOOGLE FLOW AGENT – VERBINDLICHER BILDABLAUF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-ANWEISUNG AN GOOGLE FLOW:
-Erstelle die Bilder in der oben angegebenen chronologischen Reel-Reihenfolge. Nach jeder erfolgreichen Bildgenerierung muss das Ergebnis eindeutig mit seiner ECHTEN Szenennummer und einem kurzen Szenennamen bezeichnet beziehungsweise beim Export so benannt werden.
+DIE FOLGENDEN REGELN GELTEN AUSSCHLIESSLICH FÜR DEN GOOGLE-FLOW-KI-AGENTEN.
+Nicht für Codex, nicht für Antigravity und nicht für einen anderen Agenten.
 
-DATEINAMEN-FORMAT:
-`Bild XX - Kurzer Szenenname.png`
+Der Google-Flow-Agent darf NICHT erst alle Bilder erzeugen und sie erst am Ende ungeprüft umbenennen. Er arbeitet streng Bild für Bild in einer festen 3-Schritt-Schleife.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3-SCHRITT-SCHLEIFE FÜR JEDES EINZELNE BILD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SCHRITT 1 – BILD GENERIEREN
+- Nimm genau den vorgesehenen Prompt für Cover oder die aktuelle Bildszene.
+- Verwende dieselbe `bildwelt-referenz.png` für die gemeinsame FinanzNeo-Bildwelt.
+- Generiere genau das Bild, das zu dieser echten Szene gehört.
+- Animationsszenen werden vollständig übersprungen und erhalten kein Bild.
+
+SCHRITT 2 – SOFORT KORREKT BENENNEN
+- Sobald das Bild erfolgreich generiert wurde, muss es SOFORT den endgültigen Namen erhalten.
+- Nicht bis zum Ende warten.
+- Dateinamen-Format: `Bild XX - Kurzer Szenenname.png`
+- `XX` ist immer die ECHTE Szenennummer im gesamten Reel.
+- Der kurze Szenenname enthält 2 bis 5 verständliche Wörter und beschreibt die Szene eindeutig.
+- Wenn Google Flow die physische Datei technisch nicht direkt umbenennen kann, muss der Agent unmittelbar bei diesem Ergebnis den exakt vorgesehenen Dateinamen ausgeben und sicherstellen, dass genau dieser Name beim Speichern verwendet wird.
+
+SCHRITT 3 – PRÜFEN UND ERST DANN WEITER
+Vor der nächsten Bildgenerierung muss der Google-Flow-Agent prüfen:
+- Wurde das richtige Motiv für die richtige Szene erzeugt?
+- Ist die echte Szenennummer korrekt?
+- Ist der Szenenname korrekt und eindeutig?
+- Ist die Datei bereits mit dem endgültigen Namen versehen beziehungsweise eindeutig so zur Speicherung markiert?
+- Enthält das Bild selbst KEINEN sichtbaren Dateinamen, keine Szenennummer, keinen Szenennamen und keinen sonstigen Text?
+
+Nur wenn alle Punkte stimmen, darf Google Flow mit dem nächsten Bild fortfahren.
+Wenn etwas falsch ist, muss genau dieses Bild korrigiert beziehungsweise neu generiert und erneut korrekt benannt werden, bevor die nächste Szene beginnt.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DIESE 3 SCHRITTE WIEDERHOLEN, BIS ALLE BILDER FERTIG SIND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Google Flow wiederholt immer:
+
+`GENERIEREN → SOFORT UMBENENNEN → PRÜFEN → NÄCHSTES BILD`
+
+und zwar so lange, bis:
+- das Cover fertig generiert und korrekt benannt ist,
+- jede echte Bildszene fertig generiert und korrekt benannt ist,
+- jede Animationsszene korrekt ausgelassen wurde,
+- kein benötigtes Bild mehr fehlt,
+- keine Bildnummer falsch oder doppelt vergeben wurde.
+
+ERST DANACH beginnt der Sammelschritt.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERBINDLICHE NUMMERIERUNGSLOGIK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 WICHTIG:
-- `XX` ist IMMER die echte Szenennummer im gesamten Reel.
+- `Bild 00` ist immer das Cover.
+- Danach entspricht die Bildnummer immer 1:1 der echten Szenennummer.
 - Die Nummer richtet sich NICHT nach der Anzahl der tatsächlich erzeugten Bilder.
-- Animationsszenen behalten ihre Nummer, erzeugen aber KEIN Bild.
-- Nach einer Animationsszene wird NICHT neu durchgezählt.
-- Der kurze Szenenname soll 2 bis 5 verständliche Wörter enthalten und die Szene eindeutig beschreiben.
-- Nummer und Szenenname gehören ausschließlich in den DATEINAMEN beziehungsweise in die Ausgabebezeichnung von Google Flow.
-- Nummer, Szenenname und Dateiname dürfen NIEMALS sichtbar in das generierte Bild geschrieben oder gerendert werden.
-- Falls Google Flow die physische Datei nicht direkt umbenennen kann, muss unmittelbar beim jeweiligen Ergebnis der exakt vorgesehene Dateiname angegeben werden, damit die Datei anschließend exakt so gespeichert werden kann.
+- Eine Remotion-Animationsszene behält ihre Szenennummer, erzeugt aber KEINE Bilddatei.
+- Nach einer Animationsszene wird niemals neu durchgezählt.
 
-VERBINDLICHE DATEINAMEN FÜR DIESES REEL:
+Beispiel:
+- Szene 01 = Bildszene → `Bild 01 - ...png`
+- Szene 02 = Remotion-Animation → KEIN `Bild 02`
+- Szene 03 = Bildszene → `Bild 03 - ...png`
+
+NIEMALS Szene 03 in diesem Beispiel als `Bild 02` benennen.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERBINDLICHE DATEINAMEN FÜR DIESES REEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 - Cover → `Bild 00 - Cover Notgroschen.png`
 - Szene 01 → `Bild 01 - Defekt wird Schuldenfalle.png`
@@ -53,18 +108,27 @@ VERBINDLICHE DATEINAMEN FÜR DIESES REEL:
 - Szene 09 → `Bild 09 - Puffer getrennt erreichbar.png`
 - Szene 10 → `Bild 10 - Notgroschen wieder auffuellen.png`
 
-BEISPIEL FÜR DIE NUMMERIERUNGSLOGIK:
-- Szene 01 = Bildszene → `Bild 01 - ...png`
-- Szene 02 = Remotion-Animation → KEIN `Bild 02`
-- Szene 03 = Bildszene → `Bild 03 - ...png`
+Nummer und Szenenname gehören ausschließlich in den DATEINAMEN beziehungsweise in die Ausgabebezeichnung von Google Flow.
+Sie dürfen NIEMALS sichtbar in das generierte Bild geschrieben oder gerendert werden.
 
-NIEMALS Szene 03 in diesem Beispiel als `Bild 02` benennen.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ERST NACHDEM ALLE BILDER FERTIG UND KORREKT BENANNT SIND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Nach der Generierung alle fertigen Bilddateien GEMEINSAM in diesen einen Ordner legen:
+Der Google-Flow-Agent muss vor dem Sammeln eine Abschlussprüfung machen:
+- Sind alle benötigten Bilder vorhanden?
+- Sind alle bereits endgültig korrekt benannt?
+- Stimmen die Nummern exakt mit den echten Szenennummern überein?
+- Wurden Animationsszenen ausgelassen, ohne spätere Nummern zu verschieben?
+- Gibt es keine Doppelungen?
+
+NUR WENN DIESE ABSCHLUSSPRÜFUNG BESTANDEN IST:
+Alle fertig generierten UND bereits korrekt benannten Bilddateien gemeinsam in genau diesen einen Ordner legen:
+
 `03-szenen/BILDER-EINGANG/`
 
-Die KI darf die Nummer niemals anhand der Anzahl bereits generierter Bilder erraten. Maßgeblich ist ausschließlich die echte Szenennummer in `03-szenen/scene-index.json`.
+Der Sammelordner ist also der LETZTE Schritt, nicht der erste.
+Google Flow darf dort nur bereits fertige, geprüfte und endgültig benannte Bilder ablegen.
 
-Danach zuerst prüfen und anschließend automatisch einsortieren:
-`npm run reel:sort-images -- <REEL-ORDNER> --dry-run`
-`npm run reel:sort-images -- <REEL-ORDNER>`
+Danach endet die Aufgabe des Google-Flow-Agenten für die Bildproduktion.
+Der Google-Flow-Agent soll NICHT selbst Codex-Aufgaben, Remotion-Codeänderungen oder andere Agenten-Workflows übernehmen, sofern dies nicht ausdrücklich separat verlangt wird.
