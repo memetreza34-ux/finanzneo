@@ -1,14 +1,24 @@
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 00 - Cover Notgroschen.png`
 
-WICHTIG: Erzeuge zuerst ausschließlich dieses eine Bild. Sobald es fertig ist, benenne es sofort exakt wie oben. Prüfe es danach. Erst dann darf das nächste Bild erzeugt werden. Der Dateiname darf niemals sichtbar in das Bild gerendert werden.
+WICHTIG:
+Erzeuge ausschließlich dieses eine Bild. Sobald es fertig ist, benenne es sofort exakt wie oben. Prüfe Motiv, Text und Dateiname. Erst danach darf das nächste Bild erzeugt werden. Der Dateiname selbst darf NICHT sichtbar im Bild erscheinen.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+BILDSTIL:
+Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic proportions with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray background, FinanzNeo green for protection, gold for money, red only for financial danger. Large smartphone-readable objects. No dark black background, no neon tunnel, no sci-fi corridor, no tiny isometric diorama, no floating miniature platform, no Pixar, no clay, no childish cartoon.
 
-Create a premium vertical cover image in the exact connected FinanzNeo studio.
+COVER-TEXT – EXAKT SO INS BILD:
+`NOTGROSCHEN`
+`IN 3 STUFEN`
 
-Show a broken washing machine and one urgent repair bill approaching from the left. In the center, a protected gold emergency reserve stands behind a strong emerald shield. On the right, the same household continues calmly without credit cards, debt chains or payment-plan traps.
+TEXTREGEL:
+Der Titel ist groß, fett, modern, deutsch und sofort lesbar. Zwei klare Zeilen im oberen Drittel. Keine weiteren Wörter oder Zahlen im Bild. Keine Schreibfehler. Kein englischer Text.
 
-Use the same fixed three-quarter camera, charcoal curved wall, matte floor, emerald architectural light channels, materials and lighting as the scene reference. Keep the upper 30 percent calm for a Remotion headline.
+MOTIV:
+Zeige eine große moderne Waschmaschine als sofort verständliches Alltagsproblem. Daneben eine deutlich sichtbare unerwartete Reparaturrechnung und ein rotes Warnsignal für drohende Schulden. Im Zentrum steht ein klarer goldener Geldpuffer in einer transparenten Reservebox, geschützt durch ein kräftiges FinanzNeo-grünes Schild. Das Bild soll auf einen Blick erzählen: ungeplante Reparatur → Notgroschen schützt vor Schulden.
 
-No text, numbers, labels, logos, app interface or watermark. No isolated object, no black void, no floating platform, no photorealism, no cartoon, no Pixar and no clay style. Vertical 9:16.
+KOMPOSITION:
+Das Hauptmotiv groß und dominant, ungefähr 75–85 % der nutzbaren Breite. Waschmaschine und geschützter Geldpuffer klar im Vorder-/Mittelgrund. Hintergrund hell, hochwertig und ruhig. Kein überladenes abstraktes Finanzsystem. Keine kleinen versteckten Objekte.
+
+QUALITÄTSZIEL:
+Wie eine hochwertige professionelle Social-Media-Finanzkampagne oder moderne 3D-Editorial-Illustration, nicht wie ein Game-Level oder futuristische Neonwelt.
