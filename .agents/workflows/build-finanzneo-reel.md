@@ -1,5 +1,5 @@
 ---
-description: Build a complete new FinanzNeo Reel safely, including images, Remotion animation, captions, validation and preview render.
+description: Build a complete new FinanzNeo Reel safely using user-provided images, Remotion animation, captions, validation and preview render.
 ---
 
 # Build a complete FinanzNeo Reel
@@ -20,47 +20,29 @@ Record the starting HEAD. Never clean unrelated work destructively.
 ## Topic and branch
 Search existing reels so the topic is genuinely new. Create a dedicated `reel/YYYY-MM-DD-topic-slug` branch and a new reel folder.
 
-Immediately initialize the central image inbox:
-
-```bash
-npm run reel:sort-images -- <REEL-ORDNER>
-```
-
-This creates `03-szenen/BILDER-EINGANG/` when it does not exist.
-
 ## Visual plan
 Default target: 10 scenes with 6 Image World V3 scenes and 4 native Remotion animations, unless a different split is clearly stronger.
 
-## Generate images inside Antigravity
-1. Create `03-szenen/bildwelt.txt`.
-2. Generate `03-szenen/bildwelt-referenz.png`.
-3. If Antigravity explicitly offers **Image 3 / Imagen 3**, use it.
-4. Otherwise use Antigravity's integrated generative-image tool and record the real tool/model in `05-review/image-generation-report.md`.
-5. Generate each final image from its scene prompt while attaching the same world reference.
-6. No text, numbers, labels, logos, UI, web images or stock images.
-7. Read the final naming block at the END of `03-szenen/alle-bildprompts.txt` before saving any image.
-8. Save every generated final image first into `03-szenen/BILDER-EINGANG/` using the REAL reel position:
-   - `Bild 00` = Cover.
-   - `Bild 01` = Szene 01.
-   - `Bild 02` = Szene 02.
-   - usw. bis zur letzten Szene.
-9. **Never renumber only the image scenes consecutively.** A Remotion animation keeps its scene number but gets no image file. Example: Szene 01 image → `Bild 01`; Szene 02 animation → no `Bild 02`; Szene 03 image → `Bild 03`, never `Bild 02`.
-10. `scene-index.json` is the authority. Never infer a number from how many images have already been generated.
-11. Do not manually drag files into individual scene folders.
-12. Inspect all generated images side by side and regenerate inconsistent images before sorting.
-13. Run a dry run first:
+## Bildprompts vorbereiten — Bilder kommen ausschließlich vom Nutzer
+Antigravity erzeugt KEINE Bilder.
 
-```bash
-npm run reel:sort-images -- <REEL-ORDNER> --dry-run
+1. Create `03-szenen/bildwelt.txt` as the text prompt for the shared FinanzNeo world.
+2. Create the cover prompt and every required scene `bildprompt.txt`.
+3. Create/update `03-szenen/alle-bildprompts.txt` so Google Flow can process all required image prompts in chronological order.
+4. Put the exact final filename directly next to every individual image prompt.
+5. `Bild 00` is the cover. Every scene image uses its REAL chronological scene number.
+6. A Remotion animation keeps its scene number but gets no image. Never close the numbering gap. Example: Szene 01 image → `Bild 01`; Szene 02 animation → no `Bild 02`; Szene 03 image → `Bild 03`.
+7. `scene-index.json` is the authority for scene numbers and image/animation type.
+8. The user creates `bildwelt-referenz.png` and ALL final scene images externally. Antigravity must not call an integrated image generator, Imagen, Nano Banana, web image search, stock images or placeholders as a substitute.
+9. The user places the completed, already correctly named images together in:
+
+```text
+03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-14. If the mapping is correct, run:
-
-```bash
-npm run reel:sort-images -- <REEL-ORDNER>
-```
-
-The sorter must refuse duplicates, unknown scene numbers, animation scenes and existing destination images. Never bypass those protections.
+10. If required user images are missing, STOP at the asset boundary and report the exact missing filenames. Do not create replacements.
+11. When user images are present, inspect their numbering and scene assignment before continuing. If an image is visually wrong or inconsistent, report it to the user; do not regenerate it yourself.
+12. Never overwrite an existing user-provided image.
 
 ## Audio and timing
 Use one final voiceover and derive real word timings from that audio. Scene cuts follow sentence starts, not equal-duration blocks.
@@ -69,7 +51,7 @@ Use one final voiceover and derive real word timings from that audio. Scene cuts
 1080×1920 at 30fps. Headline plus matching icon on top. Images use `contain`. No blurred image copy as background. Exactly one full subtitle sentence, current word green, max two lines, safe above platform controls. Animation timing is relative to actual scene duration.
 
 ## Validation
-Before asset sync or rendering, confirm `BILDER-EINGANG` contains no still-unresolved numbered image files. Then run asset sync, source-contract validation, TypeScript check and preview render. Inspect first/middle/last frame of each scene, transitions, captions, contact sheet and full MP4. Target voiceover around -16 LUFS and no higher than about -1 dBTP true peak.
+If required user images or final audio are still missing, report the reel as waiting for assets and do not claim a final render. Once the assets are present, run the repository's supported asset-ingest/sync flow, source-contract validation, TypeScript check and preview render. Inspect first/middle/last frame of each scene, transitions, captions, contact sheet and full MP4. Target voiceover around -16 LUFS and no higher than about -1 dBTP true peak.
 
 ## Safety audit
 Run:
