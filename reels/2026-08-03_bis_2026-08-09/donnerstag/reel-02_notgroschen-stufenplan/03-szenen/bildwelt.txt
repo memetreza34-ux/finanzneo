@@ -1,35 +1,21 @@
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-REEL-SPEZIFISCHER BILDSTIL – NOTGROSCHEN
-
-ZIEL:
-Erzeuge hochwertige, moderne Social-Media-Finanzillustrationen, die den Inhalt innerhalb einer Sekunde verständlich machen. Die bisherigen dunklen Neon-/Tunnel-/Miniatur-Diorama-Bilder sind ausdrücklich NICHT gewünscht.
-
-STYLE LOCK:
-Premium high-end 3D CGI editorial illustration, clean financial explainer aesthetic, realistic proportions with polished stylization, crisp details, premium materials, strong depth, professional commercial quality. Not childish, not cartoon, not Pixar, not clay.
-
-HELLIGKEIT UND UMGEBUNG:
-Heller, hochwertiger Hintergrund in warmem Off-White, hellem Grau oder sehr hellem neutralem Studio-Ton. Dezente FinanzNeo-grüne Flächen oder Architekturdetails dürfen vorkommen. Kein schwarzer Raum, kein dunkler Neon-Tunnel, keine grün leuchtenden Korridore, keine Sci-Fi-Kulisse, kein winziges Diorama.
-
-FARBLOGIK:
-- FinanzNeo-Grün = Schutz, richtige Lösung, Fortschritt
-- Gold = Geld, Sparbetrag, finanzieller Wert
-- Rot = Risiko, Schulden, Problem
-- neutrale helle Grau-/Beigetöne = Umgebung
+VERBINDLICHER LOOK:
+Premium stylized 3D CGI finance illustration. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look mit kontrolliertem smaragdgrünem Licht, weichen Bodenschatten und hochwertiger Materialwirkung. Gold nur für Geld/Wert, Rot nur für Risiko/Schulden/Verlust. Große zentrale Motive, keine kleinen Dioramen, keine Neon-Tunnel, keine Sci-Fi-Korridore, kein Pixar, kein Clay.
 
 KOMPOSITION:
-Vertical 9:16. Ein großes, klar erkennbares Hauptmotiv. Das Hauptmotiv soll ungefähr 70–85 % der nutzbaren Bildbreite einnehmen und auf Smartphone-Größe sofort lesbar sein. Keine winzigen Objekte in riesiger leerer Fläche. Keine komplizierten Tunnel oder abstrakten Leitungsnetze. Maximal 3–5 klar verständliche Hauptelemente.
+Vertical 9:16. Ein großes dominantes Hauptmotiv, ungefähr 65–85 % der nutzbaren Breite. Maximal 3–5 klare Hauptelemente. Das Motiv muss auf Smartphone-Größe sofort verständlich sein.
 
-INHALT:
-Jedes Bild muss den jeweiligen Satz direkt bildlich erklären. Bevorzuge echte, verständliche Alltagsobjekte wie Waschmaschine, Rechnung, Geld, Wallet, Sparkonto/Reserve, Schild, Einkaufsobjekte oder Reparaturwerkzeug. Keine abstrakten Symbole, wenn ein konkretes Objekt die Aussage besser erklärt.
+TEXTREGEL:
+NIEMALS Überschrift.
+NIEMALS Untertitel.
+NIEMALS ganzer Satz.
 
-DEUTSCHER TEXT IM BILD:
-Jedes finale Bild enthält genau EINE kurze, gut lesbare deutsche Kernaussage. Beim Cover darf sie aus zwei kurzen Zeilen bestehen. Verwende große moderne fette Sans-Serif-Typografie mit sehr hohem Kontrast. Der Text muss exakt so geschrieben werden, wie im jeweiligen Szenenprompt angegeben. Keine englischen Wörter, keine Fantasieschrift, keine zusätzlichen Labels, keine zufälligen Zahlen.
+Erlaubt sind nur kurze deutsche Objekt-Beschriftungen, meist 1–3 Wörter, direkt am passenden Objekt, klein bis mittelgroß und nicht wie eine Headline.
 
-TEXT-PLATZIERUNG:
-Text im oberen Drittel oder in einer klaren freien Fläche. Motiv und Text dürfen sich nicht überdecken. Genügend Rand für Social-Media-Crops lassen.
+Beispiele: Notgroschen, Reparatur, Dispo, Ratenzahlung, Tagesgeld, Notfall, Konsum, 500 €, Auffüllen.
 
-QUALITÄTSNEGATIVE:
-No dark black background, no neon tunnel, no sci-fi corridor, no tiny isometric diorama, no floating miniature platform, no clutter, no random UI, no dashboard, no excessive glow, no childish cartoon, no Pixar, no clay, no low-detail objects, no illegible typography, no misspelled German text, no extra text beyond the explicitly requested German phrase.
+Keine englischen Wörter, keine Fantasietexte, keine zusätzlichen Labels, keine Logos, keine Wasserzeichen, keine App-UI.
 
-Die einzelnen Szenenprompts definieren Motiv und exakten deutschen Text.
+COVER:
+Auch das Cover hat keine klassische Überschrift. Das Thema wird über Objekt-Beschriftungen vermittelt, zum Beispiel `Notgroschen` an der Reserve sowie `Stufe 1`, `Stufe 2`, `Stufe 3` an drei sichtbaren Stufen.
