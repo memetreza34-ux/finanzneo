@@ -32,7 +32,62 @@ Verboten:
 - Bilddateien in einer Remotion-Szene
 - mehr als ein finales Bild in einer Bildszene
 
-## 2. FinanzNeo Image World V3
+## 2. Zentraler Bilder-Eingang
+
+Jedes neue Reel besitzt zusätzlich:
+
+```text
+03-szenen/BILDER-EINGANG/
+```
+
+Der Nutzer muss fertige Bilder nicht mehr manuell auf einzelne Szenenordner verteilen. Alle Bilder dürfen gesammelt in diesen Ordner gelegt werden.
+
+Die Nummer im Dateinamen ist verbindlich:
+
+```text
+Bild 00 → 00-cover/
+Bild 01 → scene-01/
+Bild 02 → scene-02/
+Bild 03 → scene-03/
+...
+```
+
+Akzeptierte Beispiele:
+
+```text
+Bild 00.png
+bild01.jpg
+image_02.webp
+03.png
+```
+
+Danach wird ausgeführt:
+
+```bash
+npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
+```
+
+Vor einer echten Verschiebung kann geprüft werden:
+
+```bash
+npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel> --dry-run
+```
+
+Sicherheitsregeln:
+
+- Das Skript prüft zuerst den gesamten Eingang und verschiebt erst danach.
+- Bei einem Fehler wird kein einziges Bild verschoben.
+- Eine Nummer darf nur einmal vorkommen.
+- `00` ist ausschließlich das Cover.
+- Bilder dürfen nur einer laut `scene-index.json` als `image` markierten Szene zugeordnet werden.
+- Ein Bild für eine Remotion-Szene wird abgelehnt.
+- Bestehende Cover- oder Szenenbilder werden niemals überschrieben.
+- Nicht eindeutig nummerierte Bilder bleiben im Eingang und führen zu einem klaren Fehler.
+- Nach erfolgreichem Sortieren arbeitet die restliche Produktion ausschließlich mit den einsortierten Zielbildern.
+
+Die KI beziehungsweise der Agent soll diese Sortierung selbst ausführen. Der Nutzer soll nur noch alle Bilder gesammelt in `BILDER-EINGANG` ablegen müssen.
+
+## 3. FinanzNeo Image World V3
 
 Alle neuen Reels verwenden:
 
@@ -55,7 +110,7 @@ Jedes Reel besitzt:
 
 Die Referenz wird zuerst erzeugt. Alle Szenenbilder verwenden sie ausschließlich als Stil- und Weltreferenz.
 
-## 3. Einheitliche Bildwelt
+## 4. Einheitliche Bildwelt
 
 Alle Bilder eines Reels behalten dieselben Merkmale:
 
@@ -70,7 +125,7 @@ Alle Bilder eines Reels behalten dieselben Merkmale:
 
 Die finanzielle Handlung darf wechseln. Die Welt darf nicht wechseln.
 
-## 4. Kein leerer Hintergrund
+## 5. Kein leerer Hintergrund
 
 Ein Szenenbild zeigt niemals nur ein isoliertes Objekt vor schwarzem Nichts.
 
@@ -90,7 +145,7 @@ Verboten:
 - freigestellter Produkt-Render
 - zufällige Umgebung pro Szene
 
-## 5. Textfreie Bildquellen
+## 6. Textfreie Bildquellen
 
 Neue Bilder enthalten grundsätzlich keinen Text:
 
@@ -103,7 +158,7 @@ Neue Bilder enthalten grundsätzlich keinen Text:
 
 Remotion rendert sämtliche Typografie und geprüften Werte.
 
-## 6. Bildprompt-Vertrag
+## 7. Bildprompt-Vertrag
 
 Jeder Bildprompt enthält exakt folgende Marker:
 
@@ -120,7 +175,7 @@ CONNECTED VISUAL STORY:
 
 Die Weltbeschreibung bleibt in allen Prompts gleich. Nur `SCENE MESSAGE`, Objekte und Handlung werden individuell angepasst.
 
-## 7. Darstellung in Remotion
+## 8. Darstellung in Remotion
 
 - Vordergrundbild mit `object-fit: contain`.
 - Keine sichtbare unscharfe Kopie desselben Bildes im Hintergrund.
@@ -132,7 +187,7 @@ Die Weltbeschreibung bleibt in allen Prompts gleich. Nur `SCENE MESSAGE`, Objekt
 - Nur nachweislich ruhige Umgebungsfläche darf beschnitten werden.
 - Wichtige Objekte, Pfeile, Geld und erklärende Elemente dürfen nie abgeschnitten werden.
 
-## 8. Verbindliches 9:16-Layout
+## 9. Verbindliches 9:16-Layout
 
 ```text
 0–250 px       Überschrift mit passendem Icon
@@ -148,7 +203,7 @@ rechte 150 px  Reels-Bedienleiste freihalten
 - Passendes Linien-Icon neben der Schwerpunktzeile.
 - Icon und Schwerpunktzeile besitzen dieselbe visuelle Höhe.
 
-## 9. Untertitel
+## 10. Untertitel
 
 - Immer genau ein vollständiger Satz sichtbar.
 - Nur das aktuell gesprochene Wort ist FinanzNeo-grün.
@@ -158,7 +213,7 @@ rechte 150 px  Reels-Bedienleiste freihalten
 - Höchstens zwei fest berechnete Zeilen.
 - Keine springenden Wörter und keine Größenanimation.
 
-## 10. Satzbasierte Szenenschnitte
+## 11. Satzbasierte Szenenschnitte
 
 Szenenlängen werden aus den finalen Wort-Zeitstempeln abgeleitet.
 
@@ -168,7 +223,7 @@ Der Beginn einer neuen Szene entspricht dem Beginn des ersten zugehörigen Satze
 word-timings → Satzanfänge → Szenenstarts → relative Animationsdauer
 ```
 
-## 11. Audio
+## 12. Audio
 
 Ziel für das veröffentlichte Voiceover:
 
@@ -179,7 +234,7 @@ True Peak: höchstens -1 dBTP
 
 Der genaue Wert wird am finalen Export gemessen. Eine reine Code-Verstärkung ersetzt keine finale Audiokontrolle.
 
-## 12. Bildsatz-QA
+## 13. Bildsatz-QA
 
 Vor Freigabe:
 
@@ -191,7 +246,7 @@ Vor Freigabe:
 
 Ein Bildsatz wird neu erstellt, wenn ein einzelnes Bild sichtbar aus einer anderen Welt stammt oder dem gesprochenen Satz widerspricht.
 
-## 13. Automatische Erstellung
+## 14. Automatische Erstellung
 
 ```bash
 npm run reel:create -- \
@@ -199,7 +254,15 @@ npm run reel:create -- \
   --title "Reel-Titel"
 ```
 
-Der Scaffolder erzeugt:
+Der Scaffolder erzeugt die Produktionsstruktur. Direkt danach muss der Agent den zentralen Bilder-Eingang initialisieren:
+
+```bash
+npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
+```
+
+Damit ist `03-szenen/BILDER-EINGANG/` sofort vorhanden, bevor der Nutzer Bilder ablegt.
+
+Zusätzlich enthält das Reel:
 
 - `bildwelt.txt`
 - Weltmetadaten im `scene-index.json`
@@ -207,7 +270,7 @@ Der Scaffolder erzeugt:
 - Bilddarstellungswerte
 - Caption-, Timing- und Audioverträge
 
-## 14. Automatische Prüfung
+## 15. Automatische Prüfung
 
 ```bash
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
@@ -227,3 +290,5 @@ Der Validator prüft unter anderem:
 - mindestens 250 px untere Safe-Area
 - Satzanfänge als Schnittgrundlage
 - Audio-Zielmetadaten
+
+Vor Asset-Sync oder Render muss der Agent außerdem den Bilder-Eingang prüfen und gegebenenfalls automatisch sortieren.
