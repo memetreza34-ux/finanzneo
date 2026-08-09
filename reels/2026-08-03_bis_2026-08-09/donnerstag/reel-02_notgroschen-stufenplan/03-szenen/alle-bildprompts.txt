@@ -1,10 +1,11 @@
 FINANZNEO — ALLE BILDPROMPTS FÜR GOOGLE FLOW
 
-GOOGLE FLOW KI-AGENT – WICHTIG:
+GOOGLE FLOW KI-AGENT – VERBINDLICHER ABLAUF:
 Arbeite diese Datei streng von oben nach unten ab. Erzeuge immer nur EIN Bild gleichzeitig.
 Bei JEDEM Bild steht der endgültige Dateiname DIREKT AM ZUGEHÖRIGEN PROMPT.
 Ablauf pro Bild: `PROMPT LESEN → GENAU 1 BILD GENERIEREN → SOFORT WIE ANGEGEBEN UMBENENNEN → PRÜFEN → ERST DANN WEITER`.
 Animationsszenen werden übersprungen. Ihre Nummer bleibt trotzdem reserviert.
+Die Bildnummer entspricht immer der echten Szenennummer und niemals der laufenden Anzahl erzeugter Bilder.
 Der Dateiname darf niemals sichtbar in das Bild gerendert werden.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -277,7 +278,7 @@ Erwartete fertige Dateien:
 - `Bild 10 - Notgroschen wieder auffuellen.png`
 
 Prüfe erst jetzt, dass alle erwarteten Dateien vorhanden, korrekt benannt und der richtigen Szene zugeordnet sind.
-Danach alle fertigen Bilder gemeinsam in genau diesen einen Ordner legen:
-`00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+Erst danach alle fertigen Bilder gemeinsam in genau diesen einen Ordner legen:
+`03-szenen/00-ALLE-BILDER-HIER-REIN/`
 
 Google Flow verteilt die Bilder NICHT auf einzelne Szenenordner.
