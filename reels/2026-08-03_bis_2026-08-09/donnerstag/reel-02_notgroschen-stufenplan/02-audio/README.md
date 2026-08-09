@@ -1,10 +1,11 @@
-# Finale Audiodatei
+# 02-audio
 
-Hier genau eine Datei ablegen: `.wav`, `.mp3`, `.m4a` oder `.aac`.
+Hier kommt NUR die fertige Voiceover-Datei hinein, die aus `../01-script/script-fliess-text.txt` erzeugt wurde.
 
-Nach dem finalen Voiceover müssen `04-caption/word-timings.json` und die Timeline akustisch geprüft werden.
+Erlaubt: `.wav`, `.mp3`, `.m4a` oder `.aac`.
 
-Audioziel im fertigen MP4:
+Bitte genau EINE finale Audiodatei hier ablegen.
 
-- ungefähr -16 LUFS integriert
-- True Peak höchstens -1 dBTP
+Danach werden die echten Wort-Zeitstempel für `04-caption/word-timings.json` erzeugt.
+
+Audioziel im fertigen Reel: ungefähr -16 LUFS Integrated, True Peak höchstens -1 dBTP.
