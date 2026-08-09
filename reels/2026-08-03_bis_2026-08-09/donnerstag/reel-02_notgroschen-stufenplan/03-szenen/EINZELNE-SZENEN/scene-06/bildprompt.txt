@@ -2,22 +2,23 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 06 - Echter Notfall oder Konsum.png`
 
 WICHTIG:
-Erzeuge ausschließlich dieses eine Bild. Danach sofort exakt wie oben umbenennen, Motiv + Text + Dateiname prüfen und erst dann weitermachen. Der Dateiname selbst darf NICHT im Bild stehen.
+Erzeuge nur dieses eine Bild. Danach sofort umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
 
 BILDSTIL:
-Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic everyday objects with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray environment. FinanzNeo green for the correct emergency path, red for non-emergency/risk. No dark background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating platform, no Pixar, no clay.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`ECHTER NOTFALL?`
+Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, Rot nur für falschen Konsum/Risiko. Große klare Objekte, kein Miniatur-Diorama, kein Tunnel, kein Sci-Fi-Korridor.
 
 TEXTREGEL:
-Groß, fett, moderne Sans-Serif-Schrift im oberen Drittel. Exakt diese zwei Wörter, keine weiteren Überschriften, keine englischen Begriffe, keine Schreibfehler.
+Keine Überschrift. Kein Untertitel. Kein Satz. Nur kurze deutsche Objekt-Beschriftungen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- an der notwendigen Reparaturseite: `Notfall`
+- an Shopping/Luxus/Urlaub: `Konsum`
 
 SZENENINHALT:
-Baue eine sehr klare visuelle Gegenüberstellung. Auf der grünen richtigen Seite: kaputte notwendige Waschmaschine, dringendes Reparaturwerkzeug und ein normales Portemonnaie, das die Ausgabe nicht tragen kann. Auf der roten falschen Seite: Shoppingtaschen, neues Luxus-Gadget und Urlaubskoffer als planbarer Konsum. Ein klarer grüner Haken/Schutzweg führt nur zur notwendigen ungeplanten Reparatur, die Konsumseite wird mit rotem Stopp-Symbol blockiert.
+Klare Gegenüberstellung: auf der grünen Seite eine kaputte notwendige Waschmaschine mit Reparaturwerkzeug/Rechnung; auf der roten Seite Shoppingtaschen, Luxus-Gadget und Urlaubskoffer. Ein grüner Schutzweg führt zur Notfallseite, ein rotes Stoppsignal blockiert Konsum.
 
 BILDAUSSAGE:
-Notgroschen nur für notwendige, ungeplante Ausgaben nutzen – nicht für normalen oder planbaren Konsum.
+Der Notgroschen ist für notwendige ungeplante Ausgaben, nicht für planbaren Konsum.
 
 KOMPOSITION:
-Zwei große verständliche Bereiche, nicht mehr als fünf Hauptelemente. Der Unterschied muss ohne Lesen der Details sofort erkennbar sein. Kein abstraktes Checklisten-Dashboard.
+Zwei große Bereiche. `Notfall` und `Konsum` direkt an den jeweiligen Seiten, nicht als Überschrift oben.
