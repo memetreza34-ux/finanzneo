@@ -2,22 +2,24 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 02 - Notgroschen faengt Schock ab.png`
 
 WICHTIG:
-Erzeuge ausschließlich dieses eine Bild. Danach sofort exakt wie oben umbenennen, Motiv + Text + Dateiname prüfen und erst dann weitermachen. Der Dateiname selbst darf NICHT im Bild stehen.
+Erzeuge nur dieses eine Bild. Danach sofort umbenennen und Motiv, Beschriftungen und Dateiname prüfen.
 
 BILDSTIL:
-Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic everyday objects with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray environment. FinanzNeo green = Schutz, gold = Geld, red = Risiko. Large smartphone-readable objects. No dark black background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating miniature platform, no Pixar, no clay.
-
-DEUTSCHER TEXT – EXAKT SO INS BILD:
-`DEIN NOTGROSCHEN SCHÜTZT DICH`
+Premium stylized 3D CGI finance illustration, vertical 9:16. Dunkler hochwertiger Anthrazit-/Tiefgrün-Look, kontrolliertes smaragdgrünes Licht, Gold für Geld, Rot nur für Schuldenrisiko. Großes klares Hauptmotiv, kein Miniatur-Diorama, kein Tunnel, kein Sci-Fi-Korridor.
 
 TEXTREGEL:
-Groß, fett, moderne Sans-Serif-Schrift im oberen Drittel. Exakt dieser deutsche Satz, keine weiteren Texte, keine englischen Begriffe, keine Schreibfehler.
+Keine Überschrift. Kein Untertitel. Kein Satz. Nur kurze deutsche Objekt-Beschriftungen direkt am passenden Objekt.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- an der Geldreserve: `Notgroschen`
+- an der Rechnung: `Reparatur`
+- an der blockierten roten Gefahr: `Schulden`
 
 SZENENINHALT:
-Zeige dieselbe Art unerwarteter Waschmaschinen-Reparatur wie zuvor. Diesmal steht zwischen Reparaturrechnung und Portemonnaie eine deutlich sichtbare transparente Reservebox mit goldenen Euro-Münzen/Scheinen. Ein großes FinanzNeo-grünes Schutzschild fängt die rote Schuldengefahr ab. Die Rechnung wird sichtbar aus dem Geldpuffer bezahlt, ohne dass Kreditkarte oder Ratenzahlung nötig werden.
+Große transparente Geldreserve mit goldenen Münzen zwischen einer kaputten Waschmaschine/Reparaturrechnung und dem Portemonnaie. Ein kräftiges FinanzNeo-grünes Schild blockiert die rote Schuldengefahr. Zeige klar, dass die Reparatur aus der Reserve bezahlt wird.
 
 BILDAUSSAGE:
 Der Notgroschen fängt die ungeplante Ausgabe ab, bevor Schulden nötig werden.
 
 KOMPOSITION:
-Reservebox und Schutzschild groß im Zentrum, Reparaturproblem links, geschütztes Portemonnaie rechts. Einfacher klarer Vorher-Nachher-Fluss, keine komplizierten Wege oder Miniaturarchitektur. Das Bild muss sofort verständlich sein.
+Reserve und Schild groß im Zentrum. Beschriftungen direkt an den Objekten, klein bis mittelgroß, niemals als große Headline oben.
