@@ -1,27 +1,23 @@
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 01 - Defekt wird Schuldenfalle.png`
 
-WICHTIG: Erzeuge zuerst ausschließlich dieses eine Bild anhand dieses Prompts. Sobald es fertig ist, benenne es sofort exakt wie oben. Prüfe danach Motiv und Dateiname. Erst dann darf das nächste Bild erzeugt werden. Der Dateiname darf niemals sichtbar in das Bild gerendert werden.
+WICHTIG:
+Erzeuge ausschließlich dieses eine Bild. Danach sofort exakt wie oben umbenennen, Motiv + Text + Dateiname prüfen und erst dann weitermachen. Der Dateiname selbst darf NICHT im Bild stehen.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+BILDSTIL:
+Premium high-end 3D CGI editorial finance illustration, vertical 9:16, bright clean commercial quality, realistic everyday objects with polished stylization, crisp details, soft premium shadows, warm off-white/light-gray environment. FinanzNeo green only for positive/protective elements, red for debt/risk, gold for money. Large smartphone-readable composition. No dark background, no neon tunnel, no sci-fi corridor, no tiny diorama, no floating platform, no Pixar, no clay.
 
-SERIES CONTINUITY LOCK:
-Use `03-szenen/bildwelt-referenz.png` only as the fixed style and environment reference. Match camera, perspective, architecture, lighting, materials and scale. Do not redesign the world.
+DEUTSCHER TEXT – EXAKT SO INS BILD:
+`OHNE PUFFER WIRD ES TEUER`
 
-ENVIRONMENT:
-One connected charcoal FinanzNeo studio with curved wall, matte floor, emerald architectural lights, foreground, midground and calm background. No empty black background.
+TEXTREGEL:
+Groß, fett, moderne Sans-Serif-Schrift im oberen Drittel. Exakt diese Wörter, keine weiteren Texte, keine englischen Begriffe, keine Schreibfehler.
 
-COMPOSITION LOCK:
-Vertical 9:16. Main action inside the central 64 percent and approximately 68–78 percent of usable width. Upper and lower 18 percent remain calm while continuing the same studio.
+SZENENINHALT:
+Eine große kaputte Waschmaschine mit sichtbar geöffnetem/defektem Bereich steht als Hauptmotiv. Direkt daneben liegt eine unerwartete Reparaturrechnung. Ein fast leeres Portemonnaie ist sichtbar. Von der Problemseite kommen drei rote finanzielle Gefahren in verständlicher Form: Kreditkarte, Dispo-Symbolik und Ratenzahlung. Sie dürfen als klare Objekte/rote Warnmarkierungen erscheinen, aber ohne zusätzliche Beschriftung.
 
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+BILDAUSSAGE:
+Eine notwendige Reparatur wird ohne finanziellen Puffer schnell zum Schuldenproblem.
 
-CONSISTENCY NEGATIVES:
-No empty black background, no isolated product, no floating platform, no different camera or palette, no dashboard, no app UI, no advertisement, no photorealism, no cartoon, no Pixar, no clay style.
-
-SCENE MESSAGE:
-An unexpected necessary repair becomes financially dangerous without a cash buffer.
-
-CONNECTED VISUAL STORY:
-Show a broken washing machine in the same studio. One urgent repair object moves toward an exposed wallet while red debt chains from a credit card, overdraft and payment-plan trap close around it. The danger should be clear without text. Do not show an existing emergency reserve yet.
+KOMPOSITION:
+Waschmaschine + Rechnung + leeres Portemonnaie groß im Zentrum. Rote Schuldengefahr nähert sich von einer Seite. Keine Lösung/Reserve zeigen – diese kommt erst in Szene 02. Das Bild muss innerhalb einer Sekunde verständlich sein.
