@@ -18,3 +18,49 @@ Scene 04: a small first buffer is achievable and protected.
 Scene 06: real emergencies are necessary, unexpected and too large for the normal monthly budget.
 Scene 09: the reserve is separate but quickly accessible.
 Scene 10: after using the reserve, a controlled refill restores protection.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VERBINDLICHE DATEINAMEN NACH DER BILDGENERIERUNG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Nach der Generierung müssen die fertigen Bilder nach ihrer ECHTEN chronologischen Position im Reel benannt werden. Die Nummer ist immer identisch mit der Szenennummer und NICHT mit der laufenden Anzahl der erzeugten Bilder.
+
+- Cover = `Bild 00`
+- Szene 01 = `Bild 01`
+- Szene 02 = `Bild 02`
+- Szene 03 = `Bild 03`
+- usw. bis zur letzten Szene.
+
+WICHTIG BEI REMOTION-ANIMATIONEN:
+Eine Animationsszene behält ihre Szenennummer, bekommt aber KEINE Bilddatei. Die Nummer darf nicht an die nächste Bildszene weitergegeben oder neu durchgezählt werden.
+
+Beispiel:
+- Szene 01 = Bildszene → `Bild 01.png`
+- Szene 02 = Remotion-Animation → KEIN `Bild 02`
+- Szene 03 = Bildszene → `Bild 03.png`
+
+NIEMALS Szene 03 in diesem Beispiel als `Bild 02` benennen.
+
+Für dieses Notgroschen-Reel gilt konkret:
+- Cover → `Bild 00`
+- Szene 01 → `Bild 01`
+- Szene 02 → `Bild 02`
+- Szene 03 = Animation → kein Bild
+- Szene 04 → `Bild 04`
+- Szene 05 = Animation → kein Bild
+- Szene 06 → `Bild 06`
+- Szene 07 = Animation → kein Bild
+- Szene 08 = Animation → kein Bild
+- Szene 09 → `Bild 09`
+- Szene 10 → `Bild 10`
+
+Die Dateiendung bleibt erhalten, zum Beispiel `.png`, `.jpg` oder `.webp`.
+
+Nach dem Umbenennen alle fertigen Bilder GEMEINSAM in diesen einen Ordner legen:
+`03-szenen/BILDER-EINGANG/`
+
+Die KI darf die Nummer niemals anhand der Anzahl bereits generierter Bilder erraten. Maßgeblich ist ausschließlich die echte Szenennummer in `03-szenen/scene-index.json`.
+
+Danach zuerst prüfen und anschließend einsortieren:
+`npm run reel:sort-images -- <REEL-ORDNER> --dry-run`
+`npm run reel:sort-images -- <REEL-ORDNER>`
