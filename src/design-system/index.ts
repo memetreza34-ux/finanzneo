@@ -1,29 +1,23 @@
 // FinanzNeo Design System — einziger öffentlicher Importpfad für neue Produktion.
 //
 // Beispiel:
-// import {C, FONT, SAFE_AREA, FinanceBackground, AdaptiveSafeFillImage, SentenceKaraokeCaptions} from '../design-system';
+// import {C, FONT, SAFE_AREA, FinanceBackground, FullFrameImage, SentenceKaraokeCaptions} from '../design-system';
 
-// Bewährtes Kernsystem: Tokens, Layout, Captions, Charts, Templates und Branding.
 export * from '../brand';
-
-// Reproduzierbare Finanzberechnungen und zentrale Beispielannahmen.
 export * from '../finance/calculations';
 export * from '../finance/examples';
 
-// Verbindliche Hintergrundauswahl und visuelle Safe-Area-Prüfung.
 export {FinanceBackground, VerticalSafeAreaGuide} from './FinanceBackground';
 export type {FinanceBackgroundVariant} from './FinanceBackground';
 
-// Verbindliche Vollflächen-Präsentation für Nutzerbilder in vertikalen Reels.
-export {AdaptiveSafeFillImage} from './AdaptiveSafeFillImage';
-export type {AdaptiveSafeFillImageProps} from './AdaptiveSafeFillImage';
+// Verbindliche Darstellung für Nutzerbilder: vollständiges 9:16-Bild, kein Crop.
+export {FullFrameImage} from './FullFrameImage';
+export type {FullFrameImageProps} from './FullFrameImage';
 
 // Satzbasierte Karaoke-Untertitel mit echten Audio-Wortgrenzen.
 export {SentenceKaraokeCaptions} from './SentenceKaraokeCaptions';
 export type {SentenceKaraokeCaptionsProps} from './SentenceKaraokeCaptions';
 
-// Premium-Erweiterungen bleiben bewusst in Namensräumen.
-// Dadurch entstehen keine Export-Kollisionen zwischen alten und neuen Komponenten.
 export * as PremiumCore from '../bausteine/fn_core';
 export * as PremiumBackgrounds from '../bausteine/fn_backgrounds';
 export * as PremiumCharts from '../bausteine/fn_chart_base';
