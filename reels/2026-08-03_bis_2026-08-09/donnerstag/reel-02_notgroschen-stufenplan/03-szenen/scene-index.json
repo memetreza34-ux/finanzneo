@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "title": "Notgroschen in drei Stufen",
   "sceneCount": 10,
   "imageSceneCount": 6,
@@ -7,8 +7,27 @@
   "fps": 30,
   "totalFrames": 1800,
   "headlineIconRule": "matching-icon-centered-next-to-accent-same-visual-size",
-  "subtitleDisplay": {"maxLines": 2, "balancedLines": true, "holdDuringPauses": true, "noDeadGaps": true},
-  "layout": {"headlineTop": 78, "visualTop": 270, "visualBottom": 1350, "subtitleBottom": 320, "subtitleLeft": 62, "subtitleRight": 150},
+  "subtitleDisplay": {
+    "preferredSentences": 1,
+    "maxSentences": 2,
+    "maxLines": 2,
+    "balancedLines": true,
+    "holdDuringPauses": true,
+    "noDeadGaps": true,
+    "timingSource": "real-audio-word-timestamps",
+    "activeWordTiming": "exact-word-start-end",
+    "sentenceSwitch": "next-sentence-first-word-start",
+    "equalWordSpacingForbidden": true
+  },
+  "layout": {
+    "headlineTop": 70,
+    "visualTop": 210,
+    "visualBottom": 1515,
+    "subtitleBottom": 280,
+    "subtitleLeft": 60,
+    "subtitleRight": 180,
+    "platformUiSafeBottom": 260
+  },
   "imageWorld": {
     "id": "finanzneo-connected-studio-v3",
     "referencePromptFile": "03-szenen/bildwelt.txt",
@@ -46,6 +65,13 @@
     "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
     "distributeToSceneFolders": false
   },
+  "userMediaBoundary": {
+    "imagesDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
+    "audioDirectory": "02-audio/",
+    "outsideMediaForbidden": true,
+    "substitutesForbidden": true,
+    "missingRequiredMediaIsBlocker": true
+  },
   "platformPublishing": {
     "directory": "04-caption",
     "masterCaption": "04-caption/caption.txt",
@@ -57,26 +83,33 @@
   "timelineRules": {
     "timingSource": "04-caption/word-timings.json",
     "cutsFollowSentenceStarts": true,
-    "equalLengthScenesForbiddenByDefault": true
+    "equalLengthScenesForbiddenByDefault": true,
+    "wordTimingsMustComeFromFinalAudio": true,
+    "evenlyDistributedWordTimingsForbidden": true
   },
   "imagePresentationContract": {
-    "imageFit": "contain",
-    "maxIntentionalImageScale": 1.04,
-    "maxSourceCropPerSide": 0.2,
-    "maxSourceCropTotal": 0.34,
-    "blurredImageBackgroundForbidden": true
+    "mode": "adaptive-safe-fill",
+    "maximizeVisualArea": true,
+    "preferCropEmptyBackground": true,
+    "preserveFace": true,
+    "preserveObjectLabels": true,
+    "preserveHeroObject": true,
+    "preserveMoneyAndValue": true,
+    "blurredImageBackgroundForbidden": true,
+    "visibleInsetPanelForbidden": true,
+    "containAsDefaultForbidden": true
   },
   "audio": {"targetIntegratedLufs": -16, "targetTruePeakDbtp": -1},
   "scenes": [
-    {"id":"scene-01","type":"image","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-01","planFile":"EINZELNE-SZENEN/scene-01/bildprompt.txt","headline":"EIN DEFEKT WIRD","accent":"ZUR SCHULDENFALLE","icon":"warning","accentTone":"red","expectedVisual":"Kaputte Waschmaschine und Reparaturkosten führen ohne Puffer in Dispo oder Ratenzahlung.","allowedObjectLabels":["Reparatur","Dispo","Ratenzahlung"],"imagePresentation":{"scale":1.01,"sourceCropTop":0,"sourceCropBottom":0}},
-    {"id":"scene-02","type":"image","durationFrames":150,"directory":"EINZELNE-SZENEN/scene-02","planFile":"EINZELNE-SZENEN/scene-02/bildprompt.txt","headline":"DAFÜR BRAUCHST DU","accent":"EINEN NOTGROSCHEN","icon":"shield","expectedVisual":"Ein schnell zugänglicher Geldpuffer fängt eine unerwartete Ausgabe ab.","allowedObjectLabels":["Notgroschen","Reparatur","Schulden"],"imagePresentation":{"scale":1.01,"sourceCropTop":0,"sourceCropBottom":0}},
+    {"id":"scene-01","type":"image","durationFrames":180,"directory":"EINZELNE-SZENEN/scene-01","planFile":"EINZELNE-SZENEN/scene-01/bildprompt.txt","googleFlowFileName":"Bild 01 - Defekt wird Schuldenfalle.png","headline":"EIN DEFEKT WIRD","accent":"ZUR SCHULDENFALLE","icon":"warning","accentTone":"red","expectedVisual":"Kaputte Waschmaschine und Reparaturkosten führen ohne Puffer in Dispo oder Ratenzahlung.","allowedObjectLabels":["Reparatur","Dispo","Ratenzahlung"],"imagePresentation":{"mode":"adaptive-safe-fill","focalX":0.5,"focalY":0.52}},
+    {"id":"scene-02","type":"image","durationFrames":150,"directory":"EINZELNE-SZENEN/scene-02","planFile":"EINZELNE-SZENEN/scene-02/bildprompt.txt","googleFlowFileName":"Bild 02 - Notgroschen faengt Schock ab.png","headline":"DAFÜR BRAUCHST DU","accent":"EINEN NOTGROSCHEN","icon":"shield","expectedVisual":"Ein schnell zugänglicher Geldpuffer fängt eine unerwartete Ausgabe ab.","allowedObjectLabels":["Notgroschen","Reparatur","Schulden"],"imagePresentation":{"mode":"adaptive-safe-fill","focalX":0.5,"focalY":0.52}},
     {"id":"scene-03","type":"animation","durationFrames":225,"directory":"EINZELNE-SZENEN/scene-03","planFile":"EINZELNE-SZENEN/scene-03/remotion.md","headline":"WIE GROSS SOLL","accent":"DER PUFFER SEIN?","icon":"range","remotionComponent":"TargetRangeAnimation"},
-    {"id":"scene-04","type":"image","durationFrames":195,"directory":"EINZELNE-SZENEN/scene-04","planFile":"EINZELNE-SZENEN/scene-04/bildprompt.txt","headline":"STARTE MIT","accent":"500 EURO","icon":"coins","accentTone":"gold","expectedVisual":"Ein kleiner, geschützter und erreichbarer erster Geldpuffer.","allowedObjectLabels":["500 €","Mini-Puffer"],"imagePresentation":{"scale":1.01,"sourceCropTop":0,"sourceCropBottom":0}},
+    {"id":"scene-04","type":"image","durationFrames":195,"directory":"EINZELNE-SZENEN/scene-04","planFile":"EINZELNE-SZENEN/scene-04/bildprompt.txt","googleFlowFileName":"Bild 04 - Erster 500 Euro Puffer.png","headline":"STARTE MIT","accent":"500 EURO","icon":"coins","accentTone":"gold","expectedVisual":"Ein kleiner, geschützter und erreichbarer erster Geldpuffer.","allowedObjectLabels":["500 €","Mini-Puffer"],"imagePresentation":{"mode":"adaptive-safe-fill","focalX":0.5,"focalY":0.54}},
     {"id":"scene-05","type":"animation","durationFrames":210,"directory":"EINZELNE-SZENEN/scene-05","planFile":"EINZELNE-SZENEN/scene-05/remotion.md","headline":"BAUE IHN","accent":"IN 3 STUFEN","icon":"steps","remotionComponent":"ThreeStageAnimation"},
-    {"id":"scene-06","type":"image","durationFrames":150,"directory":"EINZELNE-SZENEN/scene-06","planFile":"EINZELNE-SZENEN/scene-06/bildprompt.txt","headline":"IST DAS WIRKLICH","accent":"EIN NOTFALL?","icon":"check","expectedVisual":"Notwendige und ungeplante Reparatur trifft auf einen geschützten Puffer; freiwilliger Konsum bleibt außen.","allowedObjectLabels":["Notfall","Konsum"],"imagePresentation":{"scale":1.01,"sourceCropTop":0,"sourceCropBottom":0}},
+    {"id":"scene-06","type":"image","durationFrames":150,"directory":"EINZELNE-SZENEN/scene-06","planFile":"EINZELNE-SZENEN/scene-06/bildprompt.txt","googleFlowFileName":"Bild 06 - Echter Notfall oder Konsum.png","headline":"IST DAS WIRKLICH","accent":"EIN NOTFALL?","icon":"check","expectedVisual":"Notwendige und ungeplante Reparatur trifft auf einen geschützten Puffer; freiwilliger Konsum bleibt außen.","allowedObjectLabels":["Notfall","Konsum"],"imagePresentation":{"mode":"adaptive-safe-fill","focalX":0.5,"focalY":0.52}},
     {"id":"scene-07","type":"animation","durationFrames":165,"directory":"EINZELNE-SZENEN/scene-07","planFile":"EINZELNE-SZENEN/scene-07/remotion.md","headline":"BEISPIEL MIT","accent":"1.800 EURO NETTO","icon":"calculator","accentTone":"gold","remotionComponent":"ExampleTargetAnimation"},
     {"id":"scene-08","type":"animation","durationFrames":225,"directory":"EINZELNE-SZENEN/scene-08","planFile":"EINZELNE-SZENEN/scene-08/remotion.md","headline":"150 EURO","accent":"JEDEN MONAT","icon":"calendar","accentTone":"gold","remotionComponent":"SavingsTimelineAnimation"},
-    {"id":"scene-09","type":"image","durationFrames":135,"directory":"EINZELNE-SZENEN/scene-09","planFile":"EINZELNE-SZENEN/scene-09/bildprompt.txt","headline":"PARKEN, NICHT","accent":"VERSTECKEN","icon":"bank","expectedVisual":"Separater und schnell erreichbarer Tagesgeld-Puffer außerhalb des Ausgabenkontos.","allowedObjectLabels":["Alltag","Tagesgeld"],"imagePresentation":{"scale":1.01,"sourceCropTop":0,"sourceCropBottom":0}},
-    {"id":"scene-10","type":"image","durationFrames":165,"directory":"EINZELNE-SZENEN/scene-10","planFile":"EINZELNE-SZENEN/scene-10/bildprompt.txt","headline":"NACH DEM NOTFALL","accent":"WIEDER AUFFÜLLEN","icon":"refresh","expectedVisual":"Nach einer Reparatur wird der teilweise geleerte Puffer systematisch wieder aufgebaut.","allowedObjectLabels":["Entnahme","Auffüllen"],"imagePresentation":{"scale":1.01,"sourceCropTop":0,"sourceCropBottom":0}}
+    {"id":"scene-09","type":"image","durationFrames":135,"directory":"EINZELNE-SZENEN/scene-09","planFile":"EINZELNE-SZENEN/scene-09/bildprompt.txt","googleFlowFileName":"Bild 09 - Puffer getrennt erreichbar.png","headline":"PARKEN, NICHT","accent":"VERSTECKEN","icon":"bank","expectedVisual":"Separater und schnell erreichbarer Tagesgeld-Puffer außerhalb des Ausgabenkontos.","allowedObjectLabels":["Alltag","Tagesgeld"],"imagePresentation":{"mode":"adaptive-safe-fill","focalX":0.5,"focalY":0.52}},
+    {"id":"scene-10","type":"image","durationFrames":165,"directory":"EINZELNE-SZENEN/scene-10","planFile":"EINZELNE-SZENEN/scene-10/bildprompt.txt","googleFlowFileName":"Bild 10 - Notgroschen wieder auffuellen.png","headline":"NACH DEM NOTFALL","accent":"WIEDER AUFFÜLLEN","icon":"refresh","expectedVisual":"Nach einer Reparatur wird der teilweise geleerte Puffer systematisch wieder aufgebaut.","allowedObjectLabels":["Entnahme","Auffüllen"],"imagePresentation":{"mode":"adaptive-safe-fill","focalX":0.5,"focalY":0.52}}
   ]
 }
