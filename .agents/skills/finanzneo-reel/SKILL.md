@@ -147,7 +147,6 @@ Keep the simple five-folder reel structure. Publishing files live directly in `0
 
 ```text
 caption.txt
-youtube-shorts.txt
 instagram-reels.txt
 tiktok.txt
 facebook-reels.txt
@@ -156,13 +155,13 @@ word-timings.json
 ```
 
 - `caption.txt` is the verified master facts/caption basis.
-- YouTube Shorts: title, description, CTA, source/note when needed, hashtags, optional pinned comment.
 - Instagram Reels: caption, CTA, source/note, hashtags, optional pinned comment.
 - TikTok: short caption, CTA, source/note, hashtags.
 - Facebook Reels: reel text, CTA, source/note, hashtags.
 - Snapchat: very short caption, optional CTA, note only when needed.
+- Never create `youtube-shorts.txt` or any YouTube Shorts publishing artifact.
+- YouTube is exclusively a separate long-form workflow under `youtube/`; Reel projects are not mirrored to YouTube.
 - Platform files must not invent facts beyond the master caption/script.
 - If exact current platform limits or upload features matter, verify official platform documentation before publishing rather than hard-coding old limits.
-- Longform YouTube is separate from the normal short-reel folder.
 
-A reel is not complete without required user assets or an explicit missing-asset report, real audio timings, successful validation/typecheck/preview, visual review and safety audit. Cross-platform publishing additionally requires the five platform files to be prepared for the same final reel.
+A reel is not complete without required user assets or an explicit missing-asset report, real audio timings, successful validation/typecheck/preview, visual review and safety audit. Cross-platform Reel publishing additionally requires the four Reel platform files to be prepared for the same final reel.
