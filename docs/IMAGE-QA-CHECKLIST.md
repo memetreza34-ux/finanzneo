@@ -1,123 +1,98 @@
-# FinanzNeo — Bild-QA-Checkliste
+# FinanzNeo — Bild- und Render-QA
 
-Diese Checkliste gilt für einzelne Bilder und den gesamten Bildsatz. Bei Widerspruch gilt `CLAUDE.md`.
+> Bei Widerspruch gilt `CLAUDE.md`.
 
-## 1. Satzgenauigkeit
+## Einzelbild
 
-- [ ] Bild erklärt exakt den zugehörigen gesprochenen Satz.
-- [ ] Problem/Lösung werden nicht vertauscht.
-- [ ] Aussage innerhalb einer Sekunde erkennbar.
-- [ ] Nur eine Hauptaussage pro Bild.
-
-## 2. Verbindlicher Bildstil
-
-- [ ] Premium fintech editorial 3D render style.
-- [ ] Deep charcoal green-black Grundwelt.
-- [ ] Emerald/Mint-Akzente konsistent.
-- [ ] Gold nur für Geld/Wert.
-- [ ] Warmes Rot-Orange nur für Risiko/Verlust/Schulden.
-- [ ] Smooth rounded geometry, soft bevelled edges.
-- [ ] Eine starke Metapher / ein großes Hauptobjekt.
-- [ ] Keine Miniatur-Dioramen, Game-Level, Neon-Tunnel oder Sci-Fi-Korridore.
-
-## 3. Hintergrund — kritischer Pflichtpunkt
-
+- [ ] Bild erklärt exakt den gesprochenen Satz.
+- [ ] Eine dominante Finanzmetapher / Hero-Objekt.
+- [ ] Premium Fintech Editorial 3D.
+- [ ] Deep charcoal green-black + Emerald/Mint.
+- [ ] Gold nur für Geld/Wert; Rot-Orange für Risiko/Verlust/Schulden.
 - [ ] Genau EIN nahtloser Hintergrund von oben bis unten.
-- [ ] Gleicher Material-/Ton-/Gradient-Verlauf über das ganze Bild.
-- [ ] Keine horizontale Trennlinie.
-- [ ] Kein anderes oberes oder unteres Band.
-- [ ] Keine separaten Zonen/Panels.
-- [ ] Keine sichtbare Boden-Wand-Grenze.
-- [ ] Kein sichtbarer Horizont/Studio-Split.
-- [ ] Freie Fläche oberhalb/unterhalb des Motivs entsteht natürlich, ohne Hintergrundwechsel.
+- [ ] Keine horizontalen Bänder, Panels, Floor-Wall-Grenze oder Horizont.
+- [ ] Wenn Person: Gesicht klar sichtbar, frontal/3⁄4, Augen/Nase/Mund erkennbar.
+- [ ] Nur erlaubte kurze deutsche Objektlabels.
+- [ ] Keine KI-Headline, kein KI-Untertitel, kein erklärender Satz.
+- [ ] Keine Dioramen, Game-Level, Neon-Tunnel, Sci-Fi-Korridore oder Dashboards.
 
-**Sofort neu erzeugen:** zwei Hintergründe, Tonwertband, Boden-Wand-Kante oder sichtbare horizontale Zone.
+## Remotion-Framing — Pflicht
 
-## 4. Person
+- [ ] `adaptive-safe-fill`, nicht `contain`.
+- [ ] Bild nutzt die verfügbare Fläche zwischen Headline und Caption maximal.
+- [ ] Kein kleines Hochkant-Poster innerhalb des Hochkant-Reels.
+- [ ] Kein sichtbarer rechteckiger Bildrand.
+- [ ] Keine unscharfe Bildkopie als Hintergrund.
+- [ ] Leerer nahtloser Hintergrund wird vor wichtigem Inhalt gecroppt.
+- [ ] Gesicht bleibt vollständig lesbar.
+- [ ] Objektlabels bleiben lesbar.
+- [ ] Hero-Objekt bleibt verständlich.
+- [ ] Geld/Wert wird nicht abgeschnitten.
+- [ ] `focalX`/`focalY` pro Szene angepasst, falls nötig.
+- [ ] Keine alte 1.04-Scale-Grenze oder 0.20/0.34-Crop-Regel verwendet.
 
-Wenn eine Person vorkommt:
+## Layout / Plattform-Safe-Area
 
-- [ ] Gesicht klar sichtbar.
-- [ ] Augen, Nase und Mund stilisiert erkennbar.
-- [ ] frontal oder natürliche 3/4-Ansicht.
-- [ ] keine reale identifizierbare Person.
-- [ ] keine gesichtslose/blanke Figur.
-- [ ] keine reine Rückenansicht.
+Richtwerte 1080×1920:
 
-## 5. Text und Labels
+- [ ] Headline ungefähr ab Y 70.
+- [ ] Visual beginnt ungefähr Y 210 oder früher, wenn sicher.
+- [ ] Visual reicht ungefähr bis Y 1515.
+- [ ] Caption ungefähr 280 px über Bottom.
+- [ ] unten mindestens ca. 260 px Plattform-UI-Sicherheitszone.
+- [ ] rechts ungefähr 180 px Abstand für Plattform-Buttons.
+- [ ] keine unnötig großen leeren Bereiche zwischen Headline, Visual und Caption.
 
-- [ ] Keine große Überschrift im KI-Bild.
-- [ ] Kein Untertitel.
-- [ ] Kein ganzer erklärender Satz.
-- [ ] Nur explizit erlaubte kurze deutsche Objektlabels.
-- [ ] Labels korrekt geschrieben.
-- [ ] Labels direkt am passenden Objekt.
-- [ ] Keine zufälligen Zusatztexte/Fantasiewörter.
+## Untertitel / Synchronität
 
-## 6. Marken
+- [ ] Wortzeiten stammen aus dem exakten finalen Voiceover.
+- [ ] Keine gleichmäßig geschätzte Wortverteilung.
+- [ ] Bevorzugt genau ein vollständiger Satz gleichzeitig.
+- [ ] Maximal zwei sehr kurze Sätze nur wenn nötig.
+- [ ] Hart maximal zwei sichtbare Zeilen.
+- [ ] Aktives Wort exakt während seiner echten `start/end`-Zeit grün.
+- [ ] Rest weiß.
+- [ ] Satzwechsel beim ersten gesprochenen Wort des nächsten Satzes.
+- [ ] Kurze Sprachpause hält den bisherigen Satz sichtbar.
+- [ ] Keine Caption-Lücken oder Wort-Sprünge.
 
-Wenn Marken verwendet werden:
+## Gesamtreel
 
-- [ ] Marke ist inhaltlich relevant.
-- [ ] Name korrekt geschrieben.
-- [ ] keine erfundene Partnerschaft/Empfehlung suggeriert.
-- [ ] keine unnötige Marken-Deko.
+1. Alle Nutzerbilder als Kontaktbogen prüfen.
+2. Für jede Bildszene Anfang/Mitte/Ende prüfen.
+3. Bild- und Animationsszenen auf vergleichbare visuelle Präsenz prüfen.
+4. Caption-Safe-Area auf Plattform-UI prüfen.
+5. Karaoke-Sync stichprobenartig und an schnellen/langsamen Wörtern prüfen.
+6. Vollständige MP4 mit Ton ansehen.
+7. Wenn ein Fehler technisch behebbar ist: fixen, neu rendern, erneut prüfen.
 
-## 7. Komposition
+## Sofortige Ablehnung
 
-- [ ] vertical 9:16.
-- [ ] Hauptmotiv groß und smartphone-lesbar.
-- [ ] wenige große unterstützende Elemente.
-- [ ] natürlicher freier Raum oberhalb und unterhalb.
-- [ ] keine Prozent-Zonen im Prompt oder sichtbare Zonen im Ergebnis.
-- [ ] keine Dashboard-/Mini-Panel-Komposition.
+Nutzerbild neu erzeugen bei:
 
-## 8. Remotion-Darstellung
+- zwei sichtbaren Hintergründen/Bändern
+- Floor-Wall-Grenze/Horizont
+- gesichtsloser/abgewandter Person
+- falschen Labels
+- großer KI-Headline/Satz
+- falscher Bildaussage
 
-- [ ] Bild mit `contain`.
-- [ ] keine unscharfe Bildkopie als sichtbarer Hintergrund.
-- [ ] Source-Crop oben höchstens 0.20.
-- [ ] Source-Crop unten höchstens 0.20.
-- [ ] Gesamt-Crop höchstens 0.34.
-- [ ] zusätzliche Skalierung höchstens 1.04.
-- [ ] kein Motiv/Label abgeschnitten.
+Remotion-Framing reparieren bei:
 
-## 9. Timing und Untertitel
-
-- [ ] Bildwechsel am Beginn des zugehörigen Satzes.
-- [ ] genau ein vollständiger Untertitelsatz sichtbar.
-- [ ] aktuelles Wort grün, Rest weiß.
-- [ ] maximal zwei Zeilen.
-- [ ] keine Caption-Lücken.
-
-## 10. Freigabeablauf
-
-1. Einzelbild gegen Satz prüfen.
-2. Hintergrund explizit auf horizontale Bänder/Zonen prüfen.
-3. Person/Gesicht prüfen.
-4. Labels prüfen.
-5. alle Bilder als Kontaktbogen prüfen.
-6. Anfang/Mitte/Ende jeder Bildszene im Render prüfen.
-7. komplette MP4 mit Ton ansehen.
-
-## Sofort neu erzeugen
-
-- zwei sichtbare Hintergründe/Bänder
-- Boden-Wand-Grenze/Horizont
-- gesichtslose oder abgewandte Person
-- falsche/zusätzliche Labels
-- große Headline oder Satz
-- Diorama/Game-Level
-- falsche Farbwelt
-- Bildaussage passt nicht zum Satz
+- kleinem Poster/Inlay
+- sichtbarem Bildrand
+- unnötig großer Leerfläche
+- abgeschnittenem Gesicht/Label/Hero-Objekt/Geld
+- Caption in Plattform-UI
 
 ## Protokoll
 
 ```text
-Bildsatz-QA: [FREIGEGEBEN / ÜBERARBEITEN / NEU ERSTELLEN]
-Seamless Background: [BESTANDEN / NICHT BESTANDEN]
-Gesicht: [BESTANDEN / NICHT BESTANDEN / NICHT RELEVANT]
-Labels: [BESTANDEN / NICHT BESTANDEN]
-Satzgenauigkeit: [BESTANDEN / NICHT BESTANDEN]
-Render-Crops: [BESTANDEN / NICHT BESTANDEN]
+Bildwelt: [BESTANDEN / NICHT BESTANDEN]
+Adaptive Safe Fill: [BESTANDEN / NICHT BESTANDEN]
+Headline/Visual-Flächennutzung: [BESTANDEN / NICHT BESTANDEN]
+Caption Safe Area: [BESTANDEN / NICHT BESTANDEN]
+Wort-Sync: [BESTANDEN / NICHT BESTANDEN]
+Max. 2 Zeilen: [BESTANDEN / NICHT BESTANDEN]
+Full-MP4-QA: [BESTANDEN / NICHT BESTANDEN]
 ```
