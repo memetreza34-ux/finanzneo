@@ -24,15 +24,19 @@ Every generated-image prompt must follow the FinanzNeo Premium Fintech Editorial
 
 - one dominant financial metaphor or one large hero object
 - a stylized anonymous 3D adult person may stand beside the metaphor when useful
-- deep charcoal green-black background
+- whenever a person appears, the face must be clearly visible with stylized eyes, nose and mouth
+- prefer front-facing or a natural three-quarter view
+- no faceless mannequin, blank face, hidden face or back-view-only person
+- ONE seamless deep charcoal green-black background from top edge to bottom edge
+- no horizontal top band, bottom band, tonal slab, panel or visible background transition
+- top 15 percent contains no objects/labels/effects but uses the SAME continuous background
+- bottom 25 percent contains no objects/labels/effects but uses the SAME continuous background
 - vivid emerald and mint-green accents
 - gold only for money/value
 - warm red-orange only for loss, risk, debt or blocked money
 - smooth rounded 3D geometry
 - soft bevelled edges
 - confident high-contrast studio lighting with bold emerald rim light
-- top 15 percent completely empty dark negative space
-- bottom 25 percent completely empty dark uncluttered negative space
 - no photorealism, no real humans, no UI dashboards
 - no tiny diorama, neon tunnel, sci-fi corridor or miniature game level
 
@@ -44,7 +48,7 @@ Generated images may contain ONLY the explicitly requested short German object l
 - Never number images by the count of image files. `scene-index.json` is the authority.
 - User-created final images are collected together in `03-szenen/00-ALLE-BILDER-HIER-REIN/` after they are all generated and renamed.
 - If required user images are missing, report the exact missing filenames and wait. Do not fabricate replacements.
-- If a supplied image is inconsistent or incorrect, report it to the user so the user can regenerate it. Antigravity must not regenerate it.
+- If a supplied image contains background bands/transitions, a faceless/hidden-face person, wrong labels, a wrong visual world or another inconsistency, report it to the user so the user can regenerate it. Antigravity must not regenerate it.
 - After all user-provided images and final audio are present, continue with the repository-supported asset ingest/sync, validation, safety check and preview.
 
 A reel is not complete without the required user-provided images/audio or an explicit missing-asset report, real audio-derived timings, successful validation/typecheck/preview, visual review, and a clean safety audit.
