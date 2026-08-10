@@ -2,133 +2,215 @@
 
 **World ID:** `finanzneo-connected-studio-v3`
 
-Dieses Dokument ist der verbindliche Stilanker für alle zukünftigen FinanzNeo-Bildszenen. Einzelne Bilder dürfen unterschiedliche Inhalte zeigen, müssen aber sichtbar aus derselben Welt stammen.
+Dieses Dokument beschreibt den verbindlichen Referenzstil für FinanzNeo-KI-Bilder.
 
-## 1. Serienprinzip
+## 1. Referenzbild-Idee
 
-Alle Bilder eines Reels verwenden dieselben unveränderlichen Eigenschaften:
+Der gewünschte Look entspricht diesem Prinzip:
 
-- gleiche leicht isometrische Drei-Viertel-Kamera
-- gleiche Brennweitenwirkung, ungefähr 35-mm-Äquivalent
-- gleiche Kamerahöhe und gleiche Blickrichtung
-- gleiche dunkel-anthrazitfarbene Studioarchitektur
-- gleicher nahtloser Übergang von Rückwand zu Boden
-- gleiche smaragdgrünen Lichtkanäle
-- gleiche matte Materialien und zurückhaltenden Glasflächen
-- gleiche Lichtführung: weiches Hauptlicht links oben, grünes Kantenlicht rechts
-- Gold ausschließlich für Geld und finanzielle Werte
-- Rot ausschließlich für Risiko, Verlust oder blockierte Ausgaben
+> Eine stilisierte 3D-Person mit klar sichtbarem Gesicht steht neben EINER großen, klaren Finanzmetapher. Beispiel: eine hohe Sanduhr mit leuchtenden Euro-Münzen. Münzen fallen sichtbar durch die Sanduhr, ein Teil verschwindet unten in einem rot-orange leuchtenden Verlust-Riss. Kurze deutsche Objektlabels wie `Wartezeit` und `Verlorene Zinsen` erklären nur die relevanten Elemente.
 
-Das Ergebnis soll wie eine fortlaufende Serie wirken, nicht wie Bilder aus verschiedenen Generatoren.
+Nicht die konkrete Sanduhr ist verbindlich, sondern **diese Art der visuellen Erklärung**.
 
-## 2. Keine leeren Hintergründe
+## 2. Verbindlicher Stil
 
-Die Welt ist niemals ein leerer schwarzer Raum und niemals nur ein freigestelltes Objekt.
+- Premium fintech editorial 3D render style
+- ein einziger durchgehender deep charcoal green-black background
+- vivid emerald and mint-green accents
+- Gold ausschließlich für Euro-Münzen, Geld und finanziellen Wert
+- warmes Rot-Orange ausschließlich für Verlust, Risiko, Schulden oder blockiertes Geld
+- smooth rounded 3D geometry
+- soft bevelled edges
+- hochwertige matte und transparente Materialien
+- confident high-contrast studio lighting
+- kräftiges smaragdgrünes Rim Light
+- stilisiert, hochwertig und modern
+- nicht fotorealistisch
+- kein Pixar-/Clay-/Kindercartoon-Look
 
-Jede Szene enthält:
+## 3. Bildaufbau
 
-1. **Vordergrund:** ein kleines unterstützendes Element oder ein einlaufender Weg
-2. **Mittelgrund:** die eigentliche finanzielle Handlung
-3. **Hintergrund:** ruhige, aber sichtbare Studioarchitektur mit Boden, Rückwand, Lichtkanal oder eingelassener Nische
+Jede Bildszene verwendet möglichst:
 
-Die oberen und unteren crop-sicheren Bereiche bleiben detailarm, zeigen aber weiterhin die gleiche Architektur. Sie dürfen nicht wie leere schwarze Balken wirken.
+1. **eine dominante Metapher oder ein großes Hauptobjekt**
+2. optional **eine stilisierte anonyme 3D-Person mit sichtbarem Gesicht** daneben
+3. nur wenige unterstützende Objekte
+4. einen klar sichtbaren Ursache-Wirkungs-Zusammenhang
+5. 1–3 kurze deutsche Objektlabels
 
-## 3. Einheitliche Motivgröße
+Das Bild soll wie eine einzelne hochwertige Editorial-Illustration wirken, nicht wie eine kleine Welt oder ein Game-Level.
 
-- Die zusammenhängende Hauptszene füllt ungefähr 68–78 % der nutzbaren Breite.
-- Das wichtigste Objekt ist in allen Bildern ähnlich groß.
-- Die Hauptaktion liegt im mittleren 64-%-Bereich des 9:16-Quellbildes.
-- Oben und unten bleiben jeweils ungefähr 18 % als ruhige, aber nicht leere Fortsetzung der Umgebung.
-- Keine winzigen Motive in einer großen leeren Fläche.
-- Keine extremen Nahaufnahmen, sofern der Satz sie nicht ausdrücklich benötigt.
+## 4. Stilisierte Person — Gesicht verbindlich
 
-## 4. Referenzbild-Workflow
+Wenn eine Person im Bild vorkommt, muss ihr Gesicht klar sichtbar sein.
 
-Vor den eigentlichen Szenenbildern wird pro Reel zuerst eine Bildwelt-Referenz erzeugt:
+- anonym
+- erwachsen
+- glatte stilisierte 3D-Geometrie
+- frontal oder natürliche 3/4-Ansicht bevorzugt
+- Augen, Nase und Mund klar als stilisierte Gesichtszüge erkennbar
+- natürliche einfache Pose
+- keine erkennbare reale Person
+- kein Fotorealismus
+- Person darf das Hauptobjekt nicht verdecken
 
-```text
-03-szenen/bildwelt.txt
-03-szenen/bildwelt-referenz.png
-```
+Nicht erlaubt:
 
-Bei jeder weiteren Bildgenerierung wird `bildwelt-referenz.png` ausschließlich als Stil- und Weltreferenz verwendet. Inhalt und Objekte stammen weiterhin aus dem jeweiligen Szenenprompt.
+- gesichtslose Mannequin-Figur
+- komplett glattes/blankes Gesicht
+- verstecktes Gesicht
+- reine Rückenansicht
+- komplett von der Kamera abgewandte Person
 
-Verbindliche Anweisung für jedes Bild:
+Nicht jede Szene muss eine Person enthalten. Wenn eine Person vorkommt, gilt die Gesichtsregel immer.
 
-```text
-Use the supplied FinanzNeo world reference image for camera, environment architecture,
-lighting, materials, palette, depth and object scale. Do not redesign the world.
-```
+## 5. Textregel
 
-## 5. Verbindlicher Promptblock
+### Niemals
 
-Jeder Bildprompt muss diesen Block unverändert enthalten:
+- große Überschrift
+- Untertitel
+- ganzer erklärender Satz
+- CTA
+- Absatz
+- große Poster-Typografie
 
-```text
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+### Gewünscht
 
-SERIES CONTINUITY LOCK:
-Use the supplied FinanzNeo world reference image only as a style and environment reference.
-Match its camera angle, 35mm-equivalent perspective, camera height, curved charcoal studio architecture,
-matte floor, emerald architectural light channels, soft upper-left key light, green right-side rim light,
-restrained gold money accents, material quality, depth and main-subject scale.
-Do not redesign the environment between scenes.
+Nur kurze deutsche Objekt-Beschriftungen:
 
-ENVIRONMENT:
-Create one connected premium finance-explainer environment with a visible matte floor,
-a curved charcoal back wall, integrated emerald light channels and subtle architectural depth.
-The scene must not look like an isolated object in an empty black void.
-Use three depth layers: supporting foreground, explanatory midground action and quiet architectural background.
+- normalerweise 1–3 Wörter
+- direkt neben dem zugehörigen Objekt
+- klein bis mittelgroß
+- klare Sans-Serif-Schrift
+- weiß oder hellgrau
+- nur so viele Labels wie nötig
 
-COMPOSITION LOCK:
-Vertical 9:16 source image.
-The complete main action must sit inside the central 64 percent of the image height.
-The connected main scene must fill approximately 68 to 78 percent of the usable width.
-Keep the upper 18 percent and lower 18 percent crop-safe and low-detail,
-but continue the same studio floor, wall and lighting there instead of leaving empty black space.
-Use two to four large connected objects with one obvious visual path.
-
-TEXT:
-No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
-Remotion renders all typography and validated numbers.
-
-CONSISTENCY NEGATIVES:
-No empty black background, no isolated floating product, no floating platform,
-no different camera angle, no different color palette, no blue or purple neon world,
-no photorealism, no cartoon, no Pixar, no clay style, no dashboard, no app UI,
-no advertising layout, no random particles and no decorative filler.
-```
-
-## 6. Szenenspezifischer Teil
-
-Nach dem unveränderten Weltblock folgt nur der konkrete Inhalt:
+Beispiele:
 
 ```text
-SCENE MESSAGE:
-[ein gesprochener Satz]
-
-CONNECTED VISUAL STORY:
-[Ausgangspunkt] → [sichtbare Handlung] → [verständliches Ergebnis]
-
-PRIMARY OBJECTS:
-1. ...
-2. ...
-3. ...
-
-READABILITY:
-The concept must be understandable within one second on a smartphone.
+Wartezeit
+Verlorene Zinsen
+Notgroschen
+Reparatur
+Dispo
+Ratenzahlung
+500 €
+Notfall
+Konsum
+Tagesgeld
+Auffüllen
 ```
 
-## 7. Ablehnungskriterien
+Keine englischen Labels, keine Fantasiewörter und keine zufälligen Zusatztexte.
 
-Ein Bild wird neu generiert, wenn mindestens einer dieser Punkte zutrifft:
+## 6. Ein einziger durchgehender Hintergrund
 
-- es wirkt wie eine andere Bildwelt als die übrigen Szenen
-- Kamera, Licht oder Materialien wechseln sichtbar
-- das Motiv ist deutlich kleiner oder größer als in den übrigen Bildern
-- der Hintergrund ist leer, schwarz oder nur ein Glow
-- das Motiv schwebt isoliert ohne Boden und Raumbezug
-- die Umgebung ist zufällig oder szenenweise komplett verschieden
-- Text oder Zahlen wurden ins Bild generiert
-- die Aussage widerspricht dem gesprochenen Satz
-- wichtige Motivteile liegen ausschließlich in den crop-sicheren Randzonen
+Das gesamte 9:16-Bild verwendet **einen einzigen nahtlosen Hintergrund** von der oberen bis zur unteren Bildkante.
+
+Verbindlich:
+
+- deep charcoal green-black als Grundwelt
+- derselbe Hintergrund oben, in der Mitte und unten
+- subtile weiche Vignette oder Lichtabstufung erlaubt
+- jede Abstufung muss kontinuierlich und nahtlos verlaufen
+
+Nicht erlaubt:
+
+- horizontale Farbübergänge
+- sichtbare Linie zwischen oberem/mittlerem/unterem Bereich
+- dunkleres oder helleres Band oben
+- separates Band unten
+- unterschiedliche Hintergrund-Panels
+- separate Bodenfläche, die wie ein horizontaler Farbstreifen wirkt
+- drei erkennbare Hintergrundzonen
+
+## 7. Negativfläche ohne Bänder
+
+Für jedes 9:16-Quellbild:
+
+```text
+obere 15 % = keine Objekte/Labels/Effekte
+mittlere 60 % = gesamte Bildhandlung
+untere 25 % = keine Objekte/Labels/Effekte
+```
+
+WICHTIG: Oben und unten wird **kein anderer Hintergrund** erzeugt. Die freien Bereiche sind lediglich objektfreie Teile **desselben durchgehenden Hintergrunds**.
+
+Die Bereiche dürfen niemals wie eigene Balken, Panels oder Farbzonen aussehen.
+
+## 8. Was ausdrücklich nicht gewünscht ist
+
+- winzige isometrische Dioramen
+- mehrere kleine Räume oder Plattformen
+- Neon-Tunnel
+- Sci-Fi-Korridore
+- futuristische Game-Level
+- viele kleine Icons und Miniobjekte
+- Dashboard-/App-UI
+- abstrakte Rohrsysteme
+- überladene Szenen
+- riesige Typografie
+- Fotorealismus
+- reale Menschen
+- gesichtslose Personen
+- horizontale Hintergrundbänder oder sichtbare Übergänge oben/unten
+
+## 9. Prompt-Grundmuster
+
+Ein guter Prompt soll sprachlich ungefähr diesem Muster folgen:
+
+```text
+A stylized 3D person with a clearly visible stylized face, readable eyes, nose and mouth, front-facing or in a natural three-quarter view, standing beside [ONE LARGE FINANCIAL METAPHOR].
+[Describe a visible cause-and-effect action using only a few objects.]
+Include German text labels: '[Label 1]' near [object 1], and '[Label 2]' near [object 2].
+Premium fintech editorial render style.
+Use ONE seamless deep charcoal green-black background from top edge to bottom edge, with no horizontal bands or top/bottom transitions.
+Accents in vivid emerald and mint green.
+Use smooth rounded 3D geometry, soft bevelled edges, confident high-contrast studio lighting with bold rim light.
+Keep the top 15 percent free of objects and labels, and keep the bottom 25 percent free of objects and labels, while using exactly the SAME continuous background in both areas.
+The composition is vertical 9:16.
+No photorealism, no real humans, no faceless characters, no hidden faces, no UI dashboards.
+```
+
+Jeder Szenenprompt wird inhaltlich neu formuliert, behält aber dieses visuelle Sprachmuster.
+
+## 10. Google-Flow-Ablauf
+
+```text
+PROMPT LESEN
+→ GENAU EIN BILD ERZEUGEN
+→ SOFORT KORREKT UMBENENNEN
+→ MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
+→ ERST DANN NÄCHSTES BILD
+```
+
+Bildnummer = echte Szenennummer.
+
+Animationsszenen erhalten kein Bild und behalten ihre Nummer.
+
+Erst nach Abschluss kommen alle Nutzerbilder gemeinsam nach:
+
+```text
+03-szenen/00-ALLE-BILDER-HIER-REIN/
+```
+
+## 11. Ablehnungskriterien
+
+Bild neu erzeugen, wenn:
+
+- es wie ein Diorama oder Game-Level aussieht
+- die Metapher nicht sofort verständlich ist
+- zu viele kleine Objekte vorkommen
+- obere 15 % mit Objekten/Labels gefüllt sind
+- untere 25 % mit Objekten/Labels gefüllt sind
+- oben/unten sichtbare Hintergrundbänder oder Übergänge entstehen
+- der Hintergrund nicht durchgehend einheitlich wirkt
+- große Headline oder ganzer Satz generiert wurde
+- Objektlabels falsch geschrieben sind
+- zusätzliche Texte auftauchen
+- eine dargestellte Person kein klar sichtbares Gesicht hat
+- die Figur nur von hinten gezeigt wird
+- die Figur fotorealistisch wirkt
+- Hintergrund nicht deep charcoal green-black ist
+- Emerald/Mint-Rim-Light und Premium-3D-Qualität fehlen
