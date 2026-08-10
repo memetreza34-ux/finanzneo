@@ -2,35 +2,41 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
 VERBINDLICHER REFERENZSTIL
 
-Use this exact visual language for every generated image in this reel:
+Premium fintech editorial 3D render style. Deep charcoal green-black world. Vivid emerald and mint-green accents. Gold only for euro coins, cash and financial value. Warm red-orange glow only for loss, debt, danger or blocked money.
 
-Premium fintech editorial 3D render style. Deep charcoal green-black background. Vivid emerald and mint-green accents. Gold only for euro coins, cash and financial value. Warm red-orange glow only for loss, debt, danger or blocked money.
+Use smooth rounded 3D geometry, soft bevelled edges, premium matte and glass materials, confident high-contrast studio lighting and a bold emerald rim light. The result should feel like one polished modern fintech editorial illustration, not a miniature environment or game level.
 
-Use smooth rounded 3D geometry, soft bevelled edges, premium matte and glass materials, confident high-contrast studio lighting and a bold emerald rim light. The result should feel like a polished modern fintech editorial illustration, not a miniature environment or game level.
-
-The image should normally contain ONE dominant visual metaphor and only a few supporting elements. A stylized anonymous 3D adult person may be used when it improves the explanation.
+Each image should normally contain ONE dominant visual metaphor and only a few supporting elements.
 
 PERSON RULE — VERBINDLICH:
-Whenever a person appears, the face must be clearly visible. Prefer front-facing or a natural three-quarter view. Show readable stylized facial features including eyes, nose and mouth. No faceless mannequin, no blank featureless face, no person turned fully away from camera, no back-view-only character and no hidden face. The character remains stylized and anonymous, never photorealistic and never a real identifiable human.
+Whenever a person appears, the face must be clearly visible. Prefer front-facing or a natural three-quarter view. Show readable stylized facial features including eyes, nose and mouth. No faceless mannequin, no blank featureless face, no hidden face, no back-view-only character. The character remains stylized and anonymous, never photorealistic and never a real identifiable human.
 
 TEXT RULE:
-No headline. No subtitle. No explanatory sentence. Use only 1–3 short German object labels placed directly near the object they describe. Labels are small to medium sized, clean sans-serif, white or light gray, and never dominate the composition.
+No headline. No subtitle. No explanatory sentence. Use only the explicitly requested short German object labels, normally 1–3 words, placed directly near the object they describe.
 
-BACKGROUND CONTINUITY — VERBINDLICH:
-Use ONE single continuous deep charcoal green-black background from the very top edge to the very bottom edge of the image.
-There must be NO horizontal background transition, NO top band, NO bottom band, NO tonal slab, NO visible horizontal boundary, NO separate floor strip and NO different background zone above or below the main scene.
-The background may have a subtle natural studio gradient or vignette, but it must flow continuously and seamlessly across the full 9:16 canvas.
+BACKGROUND CONTINUITY — HÖCHSTE REGEL:
+Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
+The background must keep the same continuous material, tone and gradient from the very top edge to the very bottom edge.
+NO horizontal divisions.
+NO visible top section.
+NO visible bottom section.
+NO separate zones.
+NO dark band at the top.
+NO dark band at the bottom.
+NO floor-wall boundary.
+NO horizon line.
+NO studio wall split.
+NO panel background.
+NO layered backdrop.
+Use only one subtle continuous background gradient or vignette across the whole image.
+Do not create a visible floor, visible wall or visible studio horizon.
+Objects may cast soft contact shadows, but the background itself remains one uninterrupted surface.
 
-COMPOSITION LOCK:
-Vertical 9:16.
-Keep the top 15 percent free of objects, labels and effects, but fill it with the SAME continuous background as the middle of the image.
-Keep the bottom 25 percent free of objects, labels and effects, but fill it with the SAME continuous background as the middle of the image.
-The top and bottom free areas are negative space only — they must NOT look like separate bands or sections.
-Keep the main visual story in the middle 60 percent.
-Use one clear focal object, large enough to read immediately on a phone.
+COMPOSITION:
+Vertical 9:16. Place the main subject around the visual center. Leave generous natural empty space above and below the subject, but WITHOUT changing the background in those areas. Do not use percentage-based top/middle/bottom zones.
 
 DO NOT USE:
-No photorealism. No real humans. No faceless people. No hidden faces. No UI dashboards. No app screens. No tiny isometric diorama. No neon tunnel. No sci-fi corridor. No many-room studio architecture. No miniature game level. No clutter. No giant headline typography. No full sentence inside the image. No random labels. No horizontal background bands or top/bottom transitions.
+No percentage zones. No photorealism. No real identifiable humans. No faceless people. No hidden faces. No UI dashboards. No app screens. No tiny isometric diorama. No neon tunnel. No sci-fi corridor. No many-room studio architecture. No miniature game level. No clutter. No giant headline typography. No full explanatory sentence. No random labels. No horizontal background bands or top/bottom transitions.
 
 QUALITY REFERENCE:
-The intended style is comparable to: a stylized 3D person with a clearly visible face standing beside one large visual metaphor such as an hourglass filled with glowing euro coins, with short labels like `Wartezeit` and `Verlorene Zinsen`, one seamless deep charcoal green-black background, emerald rim light, warm red-orange loss accent, and uncluttered negative space above and below without any visible background transitions.
+A stylized 3D person with a clearly visible face beside one large visual metaphor, short German labels directly at relevant objects, a single seamless deep charcoal green-black background, emerald rim light, warm red-orange risk accents and generous natural empty space without any visible background transition.
