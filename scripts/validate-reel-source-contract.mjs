@@ -12,21 +12,12 @@ const root = resolve(target);
 const sceneRoot = resolve(root, '03-szenen/EINZELNE-SZENEN');
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 const allPromptsPath = resolve(root, '03-szenen/alle-bildprompts.txt');
+const imageInbox = resolve(root, '03-szenen/00-ALLE-BILDER-HIER-REIN');
 const errors = [];
 let missingFinalImages = 0;
 let finalImageCount = 0;
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 const supported = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif', '.svg']);
-const promptMarkers = [
-  'FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3',
-  'SERIES CONTINUITY LOCK:',
-  'ENVIRONMENT:',
-  'COMPOSITION LOCK:',
-  'TEXT:',
-  'CONSISTENCY NEGATIVES:',
-  'SCENE MESSAGE:',
-  'CONNECTED VISUAL STORY:',
-];
 
 assert(existsSync(sceneRoot), '03-szenen/EINZELNE-SZENEN fehlt.');
 assert(existsSync(indexPath), '03-szenen/scene-index.json fehlt.');
@@ -45,31 +36,63 @@ const findForbidden = (directory) => {
 };
 findForbidden(root);
 
+const containsObsoleteZoning = (text) => {
+  const lower = text.toLowerCase();
+  return [
+    'top 15 percent',
+    'top 15%',
+    'bottom 25 percent',
+    'bottom 25%',
+    'middle 60 percent',
+    'middle 60%',
+    'central 64 percent',
+  ].some((needle) => lower.includes(needle));
+};
+
 if (existsSync(sceneRoot) && existsSync(indexPath)) {
   const index = JSON.parse(readFileSync(indexPath, 'utf8'));
+  const legacyImageWorld = index.imageWorld?.legacyAssetSet === true;
   const directories = readdirSync(sceneRoot)
     .filter((entry) => /^scene-\d{2}$/.test(entry) && statSync(resolve(sceneRoot, entry)).isDirectory())
     .sort();
 
   assert(Array.isArray(index.scenes), 'scene-index.json benötigt scenes[].');
   assert(index.sceneCount === directories.length, 'sceneCount stimmt nicht mit den Szenenordnern überein.');
-  assert(index.imageWorld?.id === 'finanzneo-connected-studio-v3', 'Image World V3 fehlt.');
-  assert(index.imageWorld?.noEmptyBackground === true, 'Leere Hintergründe müssen ausdrücklich verboten sein.');
-  assert(index.imageWorld?.backgroundFill === 'finanzneo-world-stage-v3', 'Einheitliche Remotion-Studiobühne fehlt.');
+  assert(index.imageWorld?.id === 'finanzneo-connected-studio-v3', 'FinanzNeo Image World ID fehlt.');
   assert(index.imageWorld?.referencePromptFile === '03-szenen/bildwelt.txt', 'referencePromptFile ist falsch.');
   assert(index.timelineRules?.cutsFollowSentenceStarts === true, 'Szenenschnitte müssen Satzanfängen folgen.');
   assert(index.timelineRules?.equalLengthScenesForbiddenByDefault === true, 'Starre gleich lange Szenen müssen standardmäßig verboten sein.');
-  assert(index.headlineIconRule === 'matching-icon-centered-next-to-accent-same-visual-size', 'Headline-Icon-Regel fehlt.');
-  assert(index.subtitleDisplay?.maxLines === 2, 'Untertitel müssen auf zwei Zeilen begrenzt sein.');
-  assert(index.subtitleDisplay?.noDeadGaps === true && index.subtitleDisplay?.holdDuringPauses === true, 'Leere Caption-Lücken sind verboten.');
-  assert(Number(index.layout?.subtitleBottom) >= 250, 'Untertitel liegen zu tief in der Plattform-Totzone.');
-  assert(index.imagePresentationContract?.imageFit === 'contain', 'Vordergrundbilder müssen contain verwenden.');
-  assert(Number(index.imagePresentationContract?.maxIntentionalImageScale) <= 1.04, 'Bildskalierung darf 1.04 nicht überschreiten.');
-  assert(Number(index.imagePresentationContract?.maxSourceCropPerSide) <= 0.2, 'Source-Crop pro Seite darf 0.20 nicht überschreiten.');
-  assert(Number(index.imagePresentationContract?.maxSourceCropTotal) <= 0.34, 'Gesamt-Crop darf 0.34 nicht überschreiten.');
-  assert(index.imagePresentationContract?.blurredImageBackgroundForbidden === true, 'Unscharfe Bildkopien als Hintergrund müssen verboten sein.');
+
+  if (legacyImageWorld) {
+    assert(index.imageWorld?.noEmptyBackground === true, 'Legacy-Reel: leere Hintergründe müssen verboten sein.');
+    assert(index.imageWorld?.backgroundFill === 'finanzneo-world-stage-v3', 'Legacy-Reel: alte Remotion-Studiobühne fehlt.');
+  } else {
+    assert(index.imageWorld?.seamlessSingleBackgroundRequired === true, 'Ein nahtloser Hintergrund muss verbindlich sein.');
+    assert(index.imageWorld?.percentageZonesForbidden === true, 'Prozent-Zonen müssen ausdrücklich verboten sein.');
+    assert(index.imageWorld?.backgroundBandsForbidden === true, 'Hintergrundbänder müssen verboten sein.');
+    assert(index.imageWorld?.floorWallBoundaryForbidden === true, 'Boden-Wand-Grenzen müssen verboten sein.');
+    assert(index.imageWorld?.horizonLineForbidden === true, 'Horizontlinien müssen verboten sein.');
+    assert(index.imageWorld?.visibleFaceRequiredWhenPersonPresent === true, 'Bei Personen muss ein sichtbares Gesicht vorgeschrieben sein.');
+    assert(index.imageWorld?.objectLabelsOnly === true, 'KI-Bilder dürfen nur kurze Objektlabels als Text enthalten.');
+    assert(existsSync(imageInbox), '03-szenen/00-ALLE-BILDER-HIER-REIN fehlt.');
+  }
+
+  const presentationContract = index.imagePresentationContract;
+  assert(presentationContract?.imageFit === 'contain', 'Vordergrundbilder müssen contain verwenden.');
+  assert(Number(presentationContract?.maxIntentionalImageScale) <= 1.04, 'Bildskalierung darf 1.04 nicht überschreiten.');
+  assert(Number(presentationContract?.maxSourceCropPerSide) <= 0.2, 'Source-Crop pro Seite darf 0.20 nicht überschreiten.');
+  assert(Number(presentationContract?.maxSourceCropTotal) <= 0.34, 'Gesamt-Crop darf 0.34 nicht überschreiten.');
+  assert(presentationContract?.blurredImageBackgroundForbidden === true, 'Unscharfe Bildkopien als Hintergrund müssen verboten sein.');
   assert(Number(index.audio?.targetIntegratedLufs) === -16, 'Audioziel muss ungefähr -16 LUFS sein.');
   assert(Number(index.audio?.targetTruePeakDbtp) === -1, 'True-Peak-Ziel muss -1 dBTP sein.');
+
+  if (index.subtitleDisplay) {
+    assert(index.subtitleDisplay.maxLines === 2, 'Untertitel müssen auf zwei Zeilen begrenzt sein.');
+    assert(index.subtitleDisplay.noDeadGaps === true && index.subtitleDisplay.holdDuringPauses === true, 'Leere Caption-Lücken sind verboten.');
+  }
+  if (index.layout) {
+    assert(Number(index.layout.subtitleBottom) >= 250, 'Untertitel liegen zu tief in der Plattform-Totzone.');
+  }
 
   const timingPath = resolve(root, index.timelineRules?.timingSource ?? '04-caption/word-timings.json');
   assert(existsSync(timingPath), `Worttiming-Datei fehlt: ${timingPath}`);
@@ -81,8 +104,15 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   }
 
   const allPrompts = existsSync(allPromptsPath) ? readFileSync(allPromptsPath, 'utf8') : '';
-  assert(allPrompts.includes('FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3'), 'alle-bildprompts.txt verwendet nicht Image World V3.');
-  assert(allPrompts.includes('No empty black background'), 'alle-bildprompts.txt verbietet leere Hintergründe nicht.');
+  assert(allPrompts.includes('FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3'), 'alle-bildprompts.txt verwendet nicht die FinanzNeo World ID.');
+
+  if (!legacyImageWorld) {
+    assert(allPrompts.includes('ONE single seamless continuous deep charcoal green-black background'), 'alle-bildprompts.txt fordert keinen nahtlosen Einzelhintergrund.');
+    assert(!containsObsoleteZoning(allPrompts), 'alle-bildprompts.txt enthält verbotene Prozent-Zonen.');
+    assert(allPrompts.includes('No headline') || allPrompts.includes('No headline.'), 'alle-bildprompts.txt verbietet generierte Headlines nicht.');
+    assert(allPrompts.includes('short German object labels') || allPrompts.includes('kurzen deutschen') || allPrompts.includes('kurze deutsche'), 'alle-bildprompts.txt definiert kurze deutsche Objektlabels nicht.');
+    assert(allPrompts.includes('00-ALLE-BILDER-HIER-REIN'), 'Finaler gemeinsamer Bilderordner fehlt in alle-bildprompts.txt.');
+  }
 
   directories.forEach((id, position) => {
     const directory = resolve(sceneRoot, id);
@@ -96,7 +126,6 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
     assert(sourceCount === 1, `${id}: exakt eine Produktionsquelle erforderlich.`);
     assert(hasSceneInfo, `${id}: szene.md fehlt.`);
     assert(indexed?.id === id, `${id}: Reihenfolge oder ID im scene-index stimmt nicht.`);
-    assert(typeof indexed?.icon === 'string' && indexed.icon.trim(), `${id}: passendes Überschriften-Icon fehlt.`);
     assert(!Object.prototype.hasOwnProperty.call(indexed ?? {}, 'motionPrompt'), `${id}: motionPrompt-Feld ist verboten.`);
     assert(!existsSync(resolve(directory, 'placeholder.svg')), `${id}: placeholder.svg ist im Szenenordner verboten.`);
 
@@ -105,9 +134,16 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
       assert(indexed?.planFile?.endsWith('/bildprompt.txt'), `${id}: planFile muss auf bildprompt.txt zeigen.`);
       assert(typeof indexed?.expectedVisual === 'string' && indexed.expectedVisual.trim(), `${id}: expectedVisual fehlt.`);
       const prompt = readFileSync(resolve(directory, 'bildprompt.txt'), 'utf8');
-      for (const marker of promptMarkers) assert(prompt.includes(marker), `${id}: Promptmarker fehlt: ${marker}`);
-      assert(prompt.includes('Do not redesign the world.'), `${id}: Weltkontinuität ist nicht gesperrt.`);
-      assert(prompt.includes('No headline, subtitle, sentence, number, label'), `${id}: Bildtext ist nicht vollständig verboten.`);
+
+      if (legacyImageWorld) {
+        assert(prompt.includes('FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3'), `${id}: Legacy-World-ID fehlt.`);
+      } else {
+        assert(prompt.includes('GOOGLE FLOW – FINALER DATEINAME:'), `${id}: finaler Google-Flow-Dateiname fehlt direkt am Prompt.`);
+        assert(prompt.includes('ONE single seamless continuous deep charcoal green-black background'), `${id}: nahtloser Einzelhintergrund fehlt.`);
+        assert(!containsObsoleteZoning(prompt), `${id}: Prompt enthält verbotene Prozent-Zonen.`);
+        assert(prompt.toLowerCase().includes('no headline'), `${id}: große generierte Headline ist nicht verboten.`);
+        assert(prompt.toLowerCase().includes('face') || prompt.toLowerCase().includes('gesicht'), `${id}: Gesichtsregel fehlt.`);
+      }
 
       const presentation = indexed?.imagePresentation;
       const scale = Number(presentation?.scale);
@@ -140,6 +176,6 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('\n✓ Reel-Quellen-, Image-World-, Timing- und Präsentationsvertrag erfüllt.');
-console.log('  Image World V3 · kein leerer Hintergrund · Satzschnitte · contain · sichere Crops · Karaoke-Safe-Area');
+console.log('\n✓ Reel-Quellen-, Bildwelt-, Timing- und Präsentationsvertrag erfüllt.');
+console.log('  Neue Reels: ein nahtloser Hintergrund · keine Prozent-Zonen · sichtbares Gesicht bei Personen · kurze deutsche Objektlabels');
 if (missingFinalImages > 0) console.log(`  Hinweis: ${missingFinalImages} finale Bilddateien fehlen noch.`);
