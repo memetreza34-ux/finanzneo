@@ -22,13 +22,16 @@ const assert=(condition,message)=>{if(!condition)errors.push(message);};
 const imageExt=new Set(['.png','.jpg','.jpeg','.webp','.avif']);
 const audioExt=new Set(['.wav','.mp3','.m4a','.aac']);
 
-assert(existsSync(sceneRoot),'03-szenen/EINZELNE-SZENEN fehlt.');
-assert(existsSync(indexPath),'03-szenen/scene-index.json fehlt.');
-assert(existsSync(allPromptsPath),'03-szenen/alle-bildprompts.txt fehlt.');
-assert(existsSync(resolve(root,'03-szenen/bildwelt.txt')),'03-szenen/bildwelt.txt fehlt.');
-assert(existsSync(imageInbox),'03-szenen/00-ALLE-BILDER-HIER-REIN fehlt.');
+for(const [path,message] of [
+  [sceneRoot,'03-szenen/EINZELNE-SZENEN fehlt.'],
+  [indexPath,'03-szenen/scene-index.json fehlt.'],
+  [allPromptsPath,'03-szenen/alle-bildprompts.txt fehlt.'],
+  [resolve(root,'03-szenen/bildwelt.txt'),'03-szenen/bildwelt.txt fehlt.'],
+  [imageInbox,'03-szenen/00-ALLE-BILDER-HIER-REIN fehlt.'],
+  [resolve(root,'04-caption/caption.txt'),'04-caption/caption.txt fehlt.'],
+  [resolve(root,'04-caption/word-timings.json'),'04-caption/word-timings.json fehlt.'],
+]) assert(existsSync(path),message);
 assert(!existsSync(resolve(root,'03-szenen/alle-motionprompts.txt')),'alle-motionprompts.txt ist verboten.');
-assert(!existsSync(resolve(root,'04-caption/youtube-shorts.txt')),'YouTube-Shorts-Artefakte sind verboten. YouTube ist ausschließlich Longform unter youtube/.');
 
 const walk=(directory)=>{
   if(!existsSync(directory))return;
@@ -41,11 +44,7 @@ const walk=(directory)=>{
 };
 walk(root);
 
-const containsObsoleteZoning=(text)=>{
-  const lower=text.toLowerCase();
-  return ['top 15 percent','top 15%','bottom 25 percent','bottom 25%','middle 60 percent','middle 60%','central 64 percent'].some((needle)=>lower.includes(needle));
-};
-
+const containsObsoleteZoning=(text)=>['top 15 percent','top 15%','bottom 25 percent','bottom 25%','middle 60 percent','middle 60%','central 64 percent'].some((needle)=>text.toLowerCase().includes(needle));
 const isAscending=(frames)=>frames.every((value,index)=>index===0||value>frames[index-1]);
 
 if(existsSync(sceneRoot)&&existsSync(indexPath)){
@@ -76,19 +75,15 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
     assert(media?.missingRequiredMediaIsBlocker===true,'Fehlende Pflichtmedien müssen BLOCKED auslösen.');
 
     const publishing=index.platformPublishing;
-    const expectedPublishing={
-      masterCaption:'04-caption/caption.txt',
-      instagramReels:'04-caption/instagram-reels.txt',
-      tiktok:'04-caption/tiktok.txt',
-      facebookReels:'04-caption/facebook-reels.txt',
-      snapchat:'04-caption/snapchat.txt',
-    };
     assert(publishing?.directory==='04-caption','Plattform-Publishing muss direkt in 04-caption liegen.');
-    assert(!Object.prototype.hasOwnProperty.call(publishing??{},'youtubeShorts'),'platformPublishing.youtubeShorts ist verboten.');
-    for(const [key,expectedPath] of Object.entries(expectedPublishing)){
-      assert(publishing?.[key]===expectedPath,`platformPublishing.${key} muss auf ${expectedPath} zeigen.`);
-      assert(existsSync(resolve(root,expectedPath)),`Plattformdatei fehlt: ${expectedPath}`);
-    }
+    assert(publishing?.universalCaption==='04-caption/caption.txt','Universal-Caption muss 04-caption/caption.txt sein.');
+    assert(publishing?.sameCaptionForAllReelPlatforms===true,'Dieselbe Caption muss für alle Reel-Plattformen gelten.');
+    assert(publishing?.separatePlatformCaptionsForbidden===true,'Separate Plattform-Captions müssen verboten sein.');
+    assert(Number(publishing?.hashtagCount)===5,'Universal-Caption muss exakt 5 Hashtags verlangen.');
+    const expectedPlatforms=['instagram-reels','tiktok','facebook-reels','snapchat'];
+    assert(Array.isArray(publishing?.platforms)&&publishing.platforms.length===4&&expectedPlatforms.every((p)=>publishing.platforms.includes(p)),'platformPublishing.platforms ist unvollständig.');
+    for(const oldKey of ['masterCaption','instagramReels','tiktok','facebookReels','snapchat','youtubeShorts'])assert(!Object.prototype.hasOwnProperty.call(publishing??{},oldKey),`Altes platformPublishing-Feld ist verboten: ${oldKey}.`);
+    for(const oldFile of ['instagram-reels.txt','tiktok.txt','facebook-reels.txt','snapchat.txt','youtube-shorts.txt'])assert(!existsSync(resolve(root,'04-caption',oldFile)),`Verbotene alte Publishing-Datei vorhanden: 04-caption/${oldFile}`);
   }
 
   const presentation=index.imagePresentationContract;
@@ -222,6 +217,6 @@ if(errors.length){
 
 console.log('\n✓ Reel-Quellen-, Medien-, Timing-, Publishing- und Präsentationsvertrag erfüllt.');
 console.log('  Bilder: adaptive-safe-fill · maximale Nutzfläche · kein sichtbares Inset-Panel');
-console.log('  Captions: bevorzugt 1 Satz · max. 2 Sätze/2 Zeilen · echte Audio-Wortgrenzen');
-console.log('  Publishing: Instagram Reels · TikTok · Facebook Reels · Snapchat · keine YouTube Shorts');
+console.log('  Captions im Video: bevorzugt 1 Satz · max. 2 Sätze/2 Zeilen · echte Audio-Wortgrenzen');
+console.log('  Social: eine universelle caption.txt · Instagram/TikTok/Facebook/Snapchat · exakt 5 Hashtags im Finalmodus');
 for(const warning of warnings)console.log(`  Hinweis: ${warning}`);
