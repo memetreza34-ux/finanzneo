@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "title": "Notgroschen in drei Stufen",
   "sceneCount": 10,
   "imageSceneCount": 6,
@@ -45,6 +45,15 @@
     "animationNumbersStayReserved": true,
     "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
     "distributeToSceneFolders": false
+  },
+  "platformPublishing": {
+    "directory": "04-caption",
+    "masterCaption": "04-caption/caption.txt",
+    "youtubeShorts": "04-caption/youtube-shorts.txt",
+    "instagramReels": "04-caption/instagram-reels.txt",
+    "tiktok": "04-caption/tiktok.txt",
+    "facebookReels": "04-caption/facebook-reels.txt",
+    "snapchat": "04-caption/snapchat.txt"
   },
   "timelineRules": {
     "timingSource": "04-caption/word-timings.json",
