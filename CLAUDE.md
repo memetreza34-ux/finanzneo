@@ -9,8 +9,9 @@
 - Sprache: Deutsch
 - Inhalt: Finanzgrundlagen für Menschen mit wenig oder keinem Vorwissen
 - Hauptziel: Reichweite, Vertrauen und später Einnahmen
-- Plattformen: TikTok, Instagram Reels, YouTube Shorts, Facebook Reels und Snapchat
-- Primärformat: vertikale Videos von 60 bis 90 Sekunden
+- Reel-Plattformen: TikTok, Instagram Reels, Facebook Reels und Snapchat
+- YouTube: ausschließlich eigenständige längere Videos unter `youtube/`; **keine YouTube Shorts** und keine automatische Spiegelung von Reels nach YouTube
+- Primärformat der Reels: vertikale Videos von 60 bis 90 Sekunden
 - Ansprache: direkt mit **du**, einfach, professionell und nahbar
 - Kein fester Avatar und kein sichtbarer Moderator als Pflicht
 
