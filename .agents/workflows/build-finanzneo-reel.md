@@ -13,7 +13,7 @@ Read in this order before editing:
 5. `docs/IMAGE-SYSTEM.md`
 6. `docs/PLATFORM-PUBLISHING.md`
 
-`CLAUDE.md` wins on conflicts.
+`CLAUDE.md` wins on conflicts, except stricter Antigravity-only safety rules remain binding for Antigravity execution.
 
 ## AUTOPILOT EXECUTION CONTRACT — mandatory
 If the user says the required images and final audio are ready and gives a command such as **„Mach das Reel“**, **„Erstelle das Reel“**, **„Mach es fertig“** or equivalent, execute this workflow as ONE continuous production run.
@@ -30,6 +30,40 @@ Progress messages are informational only and MUST NOT become checkpoints.
 If a recoverable command/check/render fails, diagnose → fix → rerun → continue. Repeat until the completion contract is satisfied. Never stop merely because the first validation or render attempt failed.
 
 The user's production command authorizes completion of the Reel and Antigravity QA, but never authorizes merge, publish, deletion, force-push or history rewrite.
+
+## HARD ASSET GATE — before any production work
+When finishing an existing target Reel, user media must come **only from that target Reel's designated folders**.
+
+Allowed image source:
+
+```text
+<TARGET-REEL>/03-szenen/00-ALLE-BILDER-HIER-REIN/
+```
+
+Allowed final voiceover source:
+
+```text
+<TARGET-REEL>/02-audio/
+```
+
+Determine the required image set from the target Reel's own `03-szenen/scene-index.json`, scene files and expected filenames.
+
+Before timing, coding or rendering:
+
+1. verify every required image exists with the expected filename
+2. verify final audio exists and is readable
+3. verify the audio choice is unambiguous
+4. verify no required media is being substituted from outside the target Reel
+
+Never use another Reel, another folder, `legacy-main/`, Downloads/Desktop, web/stock assets, placeholders, previous exports, cached media or similarly named outside files as a fallback.
+
+Shared repository source code, Remotion components, design-system files, scripts and docs remain allowed; the restriction applies to **user media inputs**.
+
+If any required user-media file is missing, wrong, unreadable or ambiguous, STOP immediately and report **BLOCKED** with the exact expected path/filename. Do not continue with fewer assets and do not render a knowingly incomplete final MP4.
+
+If multiple plausible final audio files exist and the Reel does not clearly identify one, do not guess. Report the filenames and stop.
+
+If the complete required asset set is present, clear the gate automatically and continue end-to-end without asking for confirmation.
 
 ## Pre-flight
 
@@ -115,9 +149,9 @@ If all required images are present, this asset boundary is automatically cleared
 
 ## Audio and timing
 
-Use one final voiceover and derive real word timings from that exact audio. Scene cuts follow sentence starts, not equal-duration blocks.
+Use one final voiceover from the target Reel's `02-audio/` folder and derive real word timings from that exact audio. Scene cuts follow sentence starts, not equal-duration blocks.
 
-When final audio is present, generate the timings and continue directly into scene timing and Remotion implementation. Do not pause for approval of the timing file unless a true blocker exists.
+When final audio is present and unambiguous, generate the timings and continue directly into scene timing and Remotion implementation. Do not pause for approval of the timing file unless a true blocker exists.
 
 ## Remotion
 
@@ -150,11 +184,11 @@ word-timings.json
 
 ## Validation and completion loop
 
-If required user images or final audio are missing, report waiting for those exact assets and do not claim final render.
+If required user images or final audio are missing, wrong, unreadable or ambiguous, report waiting for those exact assets and do not claim final render.
 
 When assets exist, run this chain without user checkpoints:
 
-1. supported asset ingest/sync
+1. supported asset ingest/sync from the target Reel's designated media folders only
 2. source-contract validation
 3. TypeScript check
 4. preview render
@@ -186,4 +220,4 @@ After the safety audit, commit completed work and create/update a draft PR when 
 Only then report one of two outcomes:
 
 - **PRODUCTION COMPLETE:** final MP4 exists and the required checks/reviews completed; list artifact paths and any non-blocking notes.
-- **BLOCKED:** name the exact blocker and the exact user action required. Do not ask for generic `weiter`.
+- **BLOCKED:** name the exact blocker and the exact expected target-Reel asset/action required. Do not ask for generic `weiter`.
