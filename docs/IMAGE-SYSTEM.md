@@ -1,6 +1,6 @@
 # FinanzNeo — verbindliches Bildsystem
 
-Dieses Dokument definiert das Bildsystem für alle neuen FinanzNeo-Reels.
+Dieses Dokument definiert das Bildsystem für neue FinanzNeo-Reels. Bei Widerspruch gilt `CLAUDE.md`.
 
 Verbindlicher Stilanker:
 
@@ -9,142 +9,117 @@ Verbindlicher Stilanker:
 
 ## Ziel
 
-Jedes Bild erklärt genau einen gesprochenen Satz durch eine zusammenhängende visuelle Handlung:
+Jedes Bild erklärt genau eine Aussage durch eine klare visuelle Handlung:
 
 ```text
 Ausgangspunkt → sichtbare Veränderung → verständliches Ergebnis
 ```
 
-Ein optisch hochwertiges Einzelobjekt reicht nicht. Alle Bildszenen eines Reels müssen außerdem sichtbar aus derselben FinanzNeo-Welt stammen.
+## Visueller Stil
 
-## Weltkonsistenz
+- Premium fintech editorial 3D render style
+- eine dominante Finanzmetapher / ein großes Hauptobjekt
+- optional eine stilisierte erwachsene 3D-Person mit klar sichtbarem Gesicht
+- deep charcoal green-black Grundwelt
+- vivid emerald/mint Akzente
+- Gold nur für Geld/Wert
+- warmes Rot-Orange nur für Risiko/Verlust/Schulden
+- smooth rounded geometry, soft bevelled edges
+- starkes kontrolliertes Rim Light
+- nicht fotorealistisch, kein Pixar/Clay
 
-Vor den Szenenbildern wird pro Reel eine Weltreferenz vorbereitet:
+## Hintergrund — verbindlich nahtlos
+
+**Keine Prozent-Zonen verwenden.**
+
+Das gesamte 9:16-Bild verwendet genau **einen nahtlosen Hintergrund** von oben bis unten.
 
 ```text
-03-szenen/bildwelt.txt
-03-szenen/bildwelt-referenz.png
+Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
+Keep the same continuous material, tone and gradient from top edge to bottom edge.
+No horizontal divisions, no top/bottom sections, no bands, no floor-wall boundary, no horizon line, no panels.
+Use only one subtle continuous gradient/vignette.
+Do not create a visible floor, wall or studio horizon.
+Objects may cast soft contact shadows.
+Place the subject near the visual center and leave generous natural empty space above and below without changing the background.
 ```
 
-Alle Szenenprompts verwenden diese Referenz nur für:
+## Person
 
-- Kamera und Perspektive
-- Architektur und Raum
-- Lichtführung
-- Materialien
-- Farbpalette
-- Tiefenwirkung
-- einheitliche Motivgröße
+Wenn eine Person vorkommt:
 
-Die Welt bleibt gleich. Nur die finanzielle Handlung und die dafür benötigten Objekte wechseln.
+- Gesicht klar sichtbar
+- Augen, Nase und Mund erkennbar
+- frontal oder natürliche 3/4-Ansicht bevorzugt
+- keine gesichtslose Figur
+- keine reine Rückenansicht
+- keine reale/identifizierbare Person
 
-## Verbindlicher visueller Stil
+## Text im KI-Bild
 
-- premium isometric editorial finance illustration
-- leicht isometrische Drei-Viertel-Kamera
-- ungefähr 35-mm-äquivalente Perspektive
-- dunkle, gebogene Anthrazit-Rückwand
-- nahtlos verbundener matter Studioboden
-- integrierte smaragdgrüne Lichtkanäle
-- weiches Hauptlicht links oben
-- grünes Kantenlicht rechts
-- Gold nur für Geld und finanzielle Werte
-- Rot nur für Risiko, Verlust oder blockierte Ausgaben
-- hochwertige matte Materialien
-- wenige dezente Glasdetails
-- nicht fotorealistisch
-- nicht kindlich, cartoonhaft, Pixar- oder Clay-artig
+Erlaubt:
 
-## Keine leere Bildfläche
-
-Die oberen und unteren Randbereiche sind crop-sicher und detailarm, aber nicht leer. Wand, Boden, Licht und räumliche Tiefe laufen sichtbar weiter.
+- nur explizit vorgegebene kurze deutsche Objektlabels
+- normalerweise 1–3 Wörter
+- direkt am passenden Objekt
 
 Verboten:
 
-- isoliertes Objekt vor schwarzem Nichts
-- reiner Farbverlauf ohne Raum
-- zufälliger Glow als einziger Hintergrund
-- schwebende Plattform ohne Verbindung zur Umgebung
-- Motive, die wie Produktwerbung freigestellt wurden
+- Headline
+- Untertitel
+- ganzer Satz
+- CTA
+- zufällige Zusatztexte
+- Fantasiewörter
 
-Jede Szene besitzt drei Tiefenebenen:
+## Marken
 
-1. unterstützender Vordergrund
-2. erklärende Handlung im Mittelgrund
-3. ruhige Studioarchitektur im Hintergrund
+Reale Marken/Dienste dürfen verwendet werden, wenn sie für die konkrete Erklärung relevant sind. Namen korrekt schreiben; keine erfundene Partnerschaft/Empfehlung suggerieren.
 
-## Einheitliche Komposition
+## Komposition
 
-- Hauptszene füllt ungefähr 68–78 % der nutzbaren Breite.
-- Wichtigstes Objekt bleibt zwischen den Bildern ähnlich groß.
-- Hauptaktion liegt im mittleren 64-%-Bereich der Quellhöhe.
-- Oben und unten bleiben jeweils ungefähr 18 % crop-sicher.
-- Crop-sichere Bereiche zeigen weiterhin die gleiche Umgebung.
-- Zwei bis vier große Hauptelemente.
-- Nur ein eindeutiger Weg, Fluss oder Ursache-Wirkung-Zusammenhang.
-- Smartphone-Verständlichkeit innerhalb einer Sekunde.
-
-## Textregeln
-
-In neuen Szenenbildern ist sämtlicher Text verboten:
-
-- keine Überschrift
-- kein Untertitel
-- keine Labels
-- keine Zahlen
-- keine Karten- oder Kontobezeichnungen
-- keine Logos oder Wasserzeichen
-
-Remotion rendert alle Texte, Zahlen und geprüften Rechenwerte. Dadurch können Bildbeschriftungen weder falsch geschrieben noch beim späteren Crop abgeschnitten werden.
+- vertical 9:16
+- Hauptmotiv groß und smartphone-lesbar
+- wenige große Hauptelemente
+- ein klarer Ursache-Wirkungs-Zusammenhang
+- großzügige natürliche freie Fläche oberhalb/unterhalb des Motivs
+- keine harte Zonenaufteilung
+- keine Miniatur-Dioramen, Dashboards oder Game-Level
 
 ## Darstellung in Remotion
 
-- Vordergrundbild grundsätzlich mit `object-fit: contain`.
-- Keine unscharfe Kopie desselben Bildes als sichtbarer Hintergrundstreifen.
-- Freie Flächen werden durch die zentrale FinanzNeo-Studiofläche aus Remotion gefüllt.
-- Nur nachweislich ruhige Quellbereiche oben und unten dürfen beschnitten werden.
-- Source-Crop pro Seite höchstens `0.20`.
-- Source-Crop insgesamt höchstens `0.34`.
-- Zusätzliche Skalierung höchstens `1.04`.
-- Kein Crop von Motiven, Pfeilen, Geld, Icons oder erklärenden Objekten.
+- `object-fit: contain`
+- keine sichtbare unscharfe Kopie desselben Bildes als Hintergrund
+- Source-Crop oben höchstens `0.20`
+- Source-Crop unten höchstens `0.20`
+- Source-Crop insgesamt höchstens `0.34`
+- zusätzliche Skalierung höchstens `1.04`
+- Motive und Labels nie abschneiden
 
 ## Timing
 
-Szenenschnitte folgen den tatsächlichen Satzanfängen aus den Wort-Zeitstempeln. Gleich lange Sechs-Sekunden-Szenen sind kein Standard.
+Szenenwechsel folgen Satzanfängen aus dem finalen Audio. Gleich lange Szenen sind kein Standard.
 
-Richtig:
-
-```text
-neuer Satz beginnt → passendes neues Bild oder passende Animation beginnt
-```
-
-Falsch:
-
-```text
-starres Zeitraster → Bild wechselt mitten im vorherigen Satz
-```
-
-## Pflichtstruktur eines Bildprompts
+## Pflichtinhalt eines Bildprompts
 
 Jeder Prompt enthält:
 
-1. `FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3`
-2. `SERIES CONTINUITY LOCK`
-3. `ENVIRONMENT`
-4. `COMPOSITION LOCK`
-5. `TEXT`
-6. `CONSISTENCY NEGATIVES`
-7. konkrete Szenenaussage und visuelle Handlung
+1. finalen Google-Flow-Dateinamen
+2. konkrete erlaubte deutsche Labels
+3. eine dominante Metapher / ein Hauptobjekt
+4. sichtbare Ursache-Wirkung
+5. Premium-Fintech-Editorial-3D-Stil
+6. seamless-background-Regel
+7. Personenregel, falls eine Person vorkommt
+8. Negativregeln
 
-## Sofortige Neuerstellung
+## Sofort neu erzeugen
 
-Ein Bild wird neu erzeugt, wenn:
-
-- es wie eine andere Serie aussieht
-- Kamera, Licht oder Architektur sichtbar abweichen
-- der Hintergrund leer oder zufällig ist
-- die Motivgröße deutlich von den übrigen Bildern abweicht
-- das Bild bereits die Lösung zeigt, obwohl der Sprecher noch das Problem erklärt
-- Text oder Zahlen im Bild stehen
-- die visuelle Aussage nicht exakt zum gesprochenen Satz passt
-- wichtige Inhalte nur durch aggressives Cropping nutzbar wären
+- zwei sichtbare Hintergründe/Bänder
+- horizontale Trennlinie
+- Boden-/Wand-Grenze oder Horizont
+- gesichtslose/abgewandte Person
+- Diorama/Game-Level
+- falsche/zusätzliche Labels
+- große Headline oder Satz
+- Aussage passt nicht zum Voiceover
