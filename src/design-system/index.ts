@@ -1,7 +1,7 @@
 // FinanzNeo Design System — einziger öffentlicher Importpfad für neue Produktion.
 //
 // Beispiel:
-// import {C, FONT, SAFE_AREA, Captions, FinanceBackground, AdaptiveSafeFillImage} from '../design-system';
+// import {C, FONT, SAFE_AREA, FinanceBackground, AdaptiveSafeFillImage, SentenceKaraokeCaptions} from '../design-system';
 
 // Bewährtes Kernsystem: Tokens, Layout, Captions, Charts, Templates und Branding.
 export * from '../brand';
@@ -17,6 +17,10 @@ export type {FinanceBackgroundVariant} from './FinanceBackground';
 // Verbindliche Vollflächen-Präsentation für Nutzerbilder in vertikalen Reels.
 export {AdaptiveSafeFillImage} from './AdaptiveSafeFillImage';
 export type {AdaptiveSafeFillImageProps} from './AdaptiveSafeFillImage';
+
+// Satzbasierte Karaoke-Untertitel mit echten Audio-Wortgrenzen.
+export {SentenceKaraokeCaptions} from './SentenceKaraokeCaptions';
+export type {SentenceKaraokeCaptionsProps} from './SentenceKaraokeCaptions';
 
 // Premium-Erweiterungen bleiben bewusst in Namensräumen.
 // Dadurch entstehen keine Export-Kollisionen zwischen alten und neuen Komponenten.
