@@ -1,235 +1,174 @@
 # FinanzNeo — aktuelle Master-Prompts
 
-> `CLAUDE.md` ist die verbindliche Quelle. Diese Prompts setzen die dort definierten Regeln um.
+> `CLAUDE.md` ist die höchste Regelquelle.
 
-## Pflichtdokumente für Bildarbeit
+Vor neuen Reels zusätzlich lesen:
 
+- `reels/PRODUKTIONSSTANDARD.md`
+- `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 - `docs/IMAGE-SYSTEM.md`
 - `docs/BEAT-TO-IMAGE-RULES.md`
 - `docs/IMAGE-PROMPT-LIBRARY.md`
 - `docs/IMAGE-QA-CHECKLIST.md`
+- `docs/PLATFORM-PUBLISHING.md`
 
-## 1. Neues Reel planen
+## 1. Neues Reel komplett vorbereiten
 
 ```text
 Neues FinanzNeo-Reel.
 
 Thema: [THEMA]
 
-Ziel:
-Ein deutscher Finanzanfänger soll das Thema nach 60 bis 90 Sekunden verstehen.
-
-Arbeite verbindlich nach:
-- CLAUDE.md
-- docs/IMAGE-SYSTEM.md
-- docs/BEAT-TO-IMAGE-RULES.md
-- docs/IMAGE-PROMPT-LIBRARY.md
-- docs/IMAGE-QA-CHECKLIST.md
-
-Erstelle zuerst:
+Arbeite nach allen aktuellen Repo-Regeln und erstelle selbstständig:
 1. Recherche mit Quellen und Datenstand
 2. Lernziel und Kernaussage
-3. geprüftes Skript
-4. visuelle Beat-Liste mit ungefähr 6 bis 10 Beats
-5. begründete Entscheidung je Beat: KI-Bild, Remotion oder Kombination
-6. Liste aller benötigten Assets und Zielordner
+3. geprüftes 60–90-Sekunden-Skript
+4. Szenen-/Beat-Liste
+5. begründete Zuordnung KI-Bild / Remotion / Kombination
+6. vollständige Google-Flow-Bildprompts mit echtem Szenen-Dateinamen
+7. Remotion-Spezifikationen
+8. Master-Caption + Plattformdateien für YouTube Shorts, Instagram Reels, TikTok, Facebook Reels und Snapchat
 
-Baue noch nichts. Warte, bis Voiceover und Bilder vollständig vorhanden sind.
+Antigravity erzeugt keine Bilder. Der Nutzer erzeugt alle Bilder selbst mit Google Flow.
 ```
 
-## 2. Skript prüfen und verbessern
+## 2. Bildprompt erstellen
 
 ```text
-Prüfe dieses FinanzNeo-Skript streng:
+Erstelle einen FinanzNeo-Bildprompt für diesen gesprochenen Satz:
+[SATZ]
 
-[SKRIPT]
+Verbindlich:
+- Premium Fintech Editorial 3D
+- EINE dominante Finanzmetapher / großes Hauptobjekt
+- optional stilisierte erwachsene 3D-Person
+- wenn Person: Gesicht mit Augen, Nase und Mund klar sichtbar; frontal oder natürliche 3/4-Ansicht
+- deep charcoal green-black
+- vivid emerald/mint
+- Gold nur für Geld/Wert
+- warmes Rot-Orange nur für Risiko/Verlust/Schulden
+- smooth rounded 3D geometry, soft bevelled edges
+- nur explizit notwendige kurze deutsche Objektlabels, normalerweise 1–3 Wörter
+- keine große Headline, kein Untertitel, kein erklärender Satz
+- relevante bekannte Marken erlaubt, wenn sie wirklich zur Aussage gehören und keine Partnerschaft suggeriert wird
 
-Bewerte:
-- Hook innerhalb der ersten 2 Sekunden
-- sofort verständliches Thema
-- einfache Sprache
-- keine Füllsätze
-- keine Wiederholungen
-- jeder Satz visualisierbar
-- Zahlen und Aussagen belegbar
-- keine individuelle Anlageempfehlung
-- Dauer 60 bis 90 Sekunden
-- klarer Merksatz
-- kurzer passender PDF-CTA
+KRITISCHER HINTERGRUND:
+Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge.
+No horizontal bands.
+No top/bottom sections.
+No percentage zones.
+No floor-wall boundary.
+No horizon line.
+No panels.
+Leave natural empty space above/below only by reducing objects, never by changing the background.
 
-Überarbeite alle Schwächen und gib danach nur die verbesserte Fassung plus eine kurze Liste der geprüften Fakten aus.
+Nicht verwenden:
+- Diorama
+- Game-Level
+- Neon-Tunnel
+- Sci-Fi-Korridor
+- Dashboard/App-UI
+- Fotorealismus
+- gesichtslose Figur
+
+Direkt am Prompt den endgültigen Dateinamen angeben.
+Bildnummer = echte Szenennummer; Animationsnummern bleiben reserviert.
 ```
 
-## 3. Visuelle Beat-Liste erstellen
+## 3. Google-Flow-Sammelprompt erstellen
 
 ```text
-Teile dieses Skript in ungefähr 6 bis 10 visuelle Beats:
+Erstelle `03-szenen/alle-bildprompts.txt` in chronologischer Szenenreihenfolge.
 
-[SKRIPT]
+Für jedes benötigte Bild:
+1. Prompt lesen
+2. GENAU EIN Bild erzeugen
+3. sofort endgültig umbenennen
+4. Motiv + Labels + Gesicht + nahtlosen Hintergrund + Dateiname prüfen
+5. erst dann nächstes Bild
 
-Arbeite nach docs/BEAT-TO-IMAGE-RULES.md.
-
-Gib je Beat aus:
-- zugehöriger Sprechtext
-- Hauptaussage
-- Visualtyp: KI-Bild, Remotion oder Kombination
-- Begründung für den Visualtyp
-- konkrete Bildidee
-- konkrete Remotion-Komponenten
-- benötigte Daten/Zahlen
-- Dauer
-- Übergangslogik
-
-Regeln:
-- KI-Bilder für konkrete Szenen, Gegenstände und visuelle Metaphern
-- Remotion für Überschriften, Untertitel, Zahlen, Quellen, Diagramme und Tabellen
-- Kombination für erklärende Szene plus genaue Daten oder Hervorhebungen
-- keine bedeutungslosen Hintergrundbilder
-- kein Bild ohne sichtbare Entwicklung länger stehen lassen
-- ungefähr 2 bis 5 KI-Bilder pro Reel als Richtwert
+Cover = Bild 00.
+Jede Bildszene nutzt ihre echte Szenennummer.
+Animationsszenen bekommen kein Bild; ihre Nummer bleibt reserviert.
+Erst nach Abschluss alle Bilder gemeinsam nach `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
 ```
 
-## 4. Bildprompts erstellen
+## 4. Bild-QA
 
 ```text
-Erstelle für die markierten KI-Bild-Beats vollständige Bildprompts nach:
-- docs/IMAGE-SYSTEM.md
-- docs/IMAGE-PROMPT-LIBRARY.md
+Prüfe jedes Nutzerbild nach den aktuellen FinanzNeo-Regeln.
 
-Nutze vorhandene Themenvorlagen, wenn eine passende Vorlage existiert.
+Sofort NEU ERSTELLEN melden bei:
+- zwei sichtbaren Hintergründen/Bändern
+- horizontaler Trennkante
+- Floor-Wall-Grenze/Horizont
+- gesichtsloser/abgewandter Person
+- falschen oder zusätzlichen Labels
+- großer Headline/Untertitel/erklärendem Satz
+- Diorama/Game-Level/Tunnel-Look
+- falscher Zuordnung zum gesprochenen Satz
 
-Pflicht pro Prompt:
-- gesprochener Satz am Anfang
-- Premium-isometrische redaktionelle 3D-Finanzwelt
-- dunkler Anthrazit-Hintergrund
-- tiefe grüne Akzente
-- Gold nur bei Geld
-- vollständige erklärende Szene
-- Ausgangspunkt → Entwicklung → Ergebnis
-- 2 bis 4 große Hauptelemente
-- obere 18 % frei
-- untere 22 % frei
-- kein Text als Standard
-- höchstens drei kleine deutsche Labels mit maximal drei Wörtern
-- keine unnötigen Marken
-- Dateiname und Zielordner
-
-Gib jeden Prompt einzeln in einem kopierbaren Codeblock aus.
+Antigravity darf das Bild nicht selbst neu generieren.
 ```
 
-## 5. Generierte Bilder prüfen
+## 5. Voiceover, Timing und Remotion
 
 ```text
-Prüfe jedes generierte Bild einzeln nach docs/IMAGE-QA-CHECKLIST.md.
+Nutze ausschließlich das finale Voiceover.
+Erzeuge echte Wort-Timings daraus.
+Szenenschnitte beginnen an den echten Satzanfängen.
 
-Gib aus:
-Bild-QA: [FREIGEGEBEN / ÜBERARBEITEN / NEU ERSTELLEN]
-Punkte: [X/14]
-
-Bestanden:
-- ...
-
-Fehler:
-- ...
-
-Konkrete Korrektur:
-- ...
-
-Direkte Freigabe nur bei 13 bis 14 Punkten und keiner Regel unter „Sofort neu erstellen“.
+Baue 1080×1920 bei 30 fps.
+Bilder mit contain.
+Keine unscharfe Bildkopie als Hintergrund.
+Überschriften/Icons in Remotion.
+Genau ein vollständiger Untertitelsatz sichtbar.
+Aktuelles Wort grün, Rest weiß.
+Maximal zwei Zeilen.
+Animationen relativ zur tatsächlichen Szenendauer.
 ```
 
-## 6. Assets prüfen
+## 6. Finale technische QA
 
 ```text
-Prüfe vor dem Remotion-Bau alle Pflichtassets.
+Wenn Nutzerbilder und finales Audio vorhanden sind:
+- Asset-Sync/Ingest
+- Reel-Validator
+- Typecheck
+- Preview-Render
+- Kontaktbogen / erste-mittlere-letzte Frames
+- komplette MP4 mit Ton
+- Audio-Lautheit am finalen Export
 
-Benötigt:
-- finale Voiceover-Datei
-- alle geplanten Bilder
-- Bild-QA-Freigabe für jedes verwendete Bild
-- richtige Dateinamen
-- freie obere 18 % in jedem Bild
-- freie untere 22 % in jedem Bild
-- validierte Zahlen
-- Quellen und Datenstand
-
-Wenn etwas fehlt, liste nur die fehlenden Punkte auf und beginne nicht mit dem Bau.
+Keine Prüfung als bestanden behaupten, wenn sie nicht tatsächlich ausgeführt wurde.
 ```
 
-## 7. Untertitel und Sync
+## 7. Plattform-Publishing
 
 ```text
-Erzeuge aus der finalen Voiceover-Datei Wort-Timings im einheitlichen Projektformat.
+Erstelle aus der geprüften Master-Caption alle Veröffentlichungsdateien in `04-caption/`.
 
-Danach:
-- prüfe die Transkription
-- korrigiere erkennbare deutsche Fehler
-- gruppiere Untertitel in kurze lesbare Einheiten
-- hebe nur relevante Keywords hervor
-- halte den unteren Safe-Bereich ein
-- synchronisiere Animationen mit den gesprochenen Begriffen
+Pflichtdateien:
+- youtube-shorts.txt
+- instagram-reels.txt
+- tiktok.txt
+- facebook-reels.txt
+- snapchat.txt
 
-Zeige zuerst den Beat-für-Beat-Sync-Plan.
-```
+YouTube Shorts:
+TITEL / BESCHREIBUNG / CTA / QUELLEN-HINWEIS / HASHTAGS / optional ANGEHEFTETER KOMMENTAR
 
-## 8. Reel bauen
+Instagram Reels:
+CAPTION / CTA / QUELLEN-HINWEIS / HASHTAGS / optional ANGEHEFTETER KOMMENTAR
 
-```text
-Baue das freigegebene FinanzNeo-Reel in Remotion.
+TikTok:
+CAPTION / CTA / QUELLEN-HINWEIS / HASHTAGS
 
-Format:
-- 1080 × 1920
-- 30 fps
-- 60 bis 90 Sekunden
-- Untertitel Pflicht
+Facebook Reels:
+REEL-TEXT / CTA / QUELLEN-HINWEIS / HASHTAGS
 
-Pflicht:
-- Hook zuerst
-- kein langer Intro-Disclaimer
-- nur freigegebene Premium-isometrische Bilder verwenden
-- Bilder nur passend zum gesprochenen Inhalt
-- Remotion für Titel, Untertitel, Zahlen, Charts, Quellen und CTA
-- obere und untere Safe Areas respektieren
-- jedes Element erscheint und verschwindet sauber
-- keine überfüllten Szenen
-- keine falschen oder ungeprüften Zahlen
-- Kamerabewegung und Hervorhebung müssen die Aussage unterstützen
+Snapchat:
+CAPTION / optional CTA / Hinweis nur wenn nötig
 
-Rendere zuerst repräsentative Keyframes und prüfe sie selbst, bevor du den Vollrender startest.
-```
-
-## 9. Finale QA
-
-```text
-Prüfe das fertige Reel anhand von CLAUDE.md und docs/IMAGE-QA-CHECKLIST.md.
-
-Bewerte konkret:
-- Hook
-- Verständlichkeit
-- Bild-Skript-Passung
-- Safe Areas
-- Untertitel
-- visuelle Hierarchie
-- Fakten und Zahlen
-- Quellen
-- CTA
-- Plattformtauglichkeit
-
-Nenne konkrete Fehler. Eine Bewertung von 9/10 ist nur erlaubt, wenn keine kritischen Fehler vorhanden sind.
-```
-
-## 10. Caption und PDF-CTA
-
-```text
-Erstelle die Plattform-Caption für dieses FinanzNeo-Reel.
-
-Sie soll:
-- mit einem passenden Kommentar-Keyword und einer kostenlosen PDF beginnen
-- den Inhalt kurz zusammenfassen
-- keine unrealistischen Versprechen enthalten
-- Quellen oder Datenstand nennen, wenn nötig
-- Affiliate-Beziehungen später klar kennzeichnen
-- mit einer Frage enden
-- genau fünf passende deutsche Hashtags enthalten
-- einen kurzen Hinweis „Keine Anlageberatung“ enthalten
+Alle Plattformtexte müssen dieselben geprüften Fakten verwenden. Keine neuen Behauptungen erfinden. Exakte aktuelle Plattform-Limits nur nach Prüfung offizieller Plattformquellen verwenden.
 ```
