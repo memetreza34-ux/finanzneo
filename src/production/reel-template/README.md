@@ -4,9 +4,9 @@ Datengetriebene Vorlage für vertikale FinanzNeo-Reels von 60 bis 90 Sekunden.
 
 ## Ziel
 
-Ein neues Reel soll hauptsächlich über eine Konfiguration entstehen, nicht durch vollständiges Neuprogrammieren jeder Szene.
+Neue Reels sollen den kanonischen FinanceNeo-Vertrag automatisch übernehmen, statt alte Layout-/Caption-Regeln neu zu erfinden.
 
-## Unterstützte Beat-Typen
+## Beat-Typen
 
 - `hook`
 - `explain`
@@ -16,104 +16,89 @@ Ein neues Reel soll hauptsächlich über eine Konfiguration entstehen, nicht dur
 - `image`
 - `cta`
 
-## Verbindliche Regeln
+## Image-Beats — verbindlich adaptive-safe-fill
 
-Die Konfiguration wird vor dem Render geprüft:
+Image-Beats verwenden `AdaptiveSafeFillImage`.
 
-- Gesamtdauer zwischen 60 und 90 Sekunden
-- erster Beat ist `hook`
-- letzter Beat ist `cta`
-- jede Beat-ID ist eindeutig
-- jede Dauer ist eine positive ganze Framezahl
-- Image-Beats besitzen eine Datei
-- Checklisten besitzen mindestens einen Punkt
+- kein `contain`-Standard
+- kein kleines 9:16-Poster innerhalb des 9:16-Reels
+- Bildfläche maximal zwischen Headline und Caption
+- leeren nahtlosen Hintergrund zuerst croppen
+- Gesicht, Labels, Hero-Objekt und Geld/Wert schützen
+- optional `focalX` / `focalY` zwischen 0 und 1 setzen
+- kein sichtbarer Bildrand
+- keine unscharfe Bildkopie als Hintergrund
 
-## Beispiel
+Beispiel:
 
 ```tsx
-import type {ReelConfig} from './types';
-
-export const config: ReelConfig = {
-  id: 'inflation-grundlage',
-  title: 'Was macht Inflation mit deinem Geld?',
-  fps: 30,
-  audioSrc: 'audio/inflation.mp3',
-  captions: words,
-  beats: [
-    {
-      id: 'hook',
-      type: 'hook',
-      durationInFrames: 240,
-      headline: 'DEIN GELD WIRD WENIGER WERT',
-      subline: 'Auch wenn die Zahl auf dem Konto gleich bleibt.',
-    },
-    {
-      id: 'image',
-      type: 'image',
-      durationInFrames: 330,
-      headline: 'DIESELBE SUMME KAUFT WENIGER',
-      imageSrc: 'images/inflation-01.webp',
-      alt: 'Geld verliert auf dem Weg zu einem Warenkorb sichtbar an Kaufkraft',
-    },
-    {
-      id: 'cta',
-      type: 'cta',
-      durationInFrames: 270,
-      headline: 'PRÜFE DEINE KAUFKRAFT',
-      body: 'Nutze den kostenlosen Inflationsrechner.',
-      keyword: 'INFLATION',
-      offer: 'Kostenlose Checkliste und Rechner-Anleitung',
-    },
-  ],
-};
+{
+  id: 'image',
+  type: 'image',
+  durationInFrames: 330,
+  headline: 'DIESELBE SUMME KAUFT WENIGER',
+  imageSrc: 'images/inflation-01.webp',
+  alt: 'Geld verliert auf dem Weg zu einem Warenkorb sichtbar an Kaufkraft',
+  focalX: 0.5,
+  focalY: 0.52,
+}
 ```
 
-Das Beispiel oben ist absichtlich unvollständig und muss vor Nutzung auf mindestens 60 Sekunden erweitert werden. Die automatische Validierung verhindert einen zu kurzen Render.
+## Captions
 
-## Safe Areas
+Die Vorlage verwendet `SentenceKaraokeCaptions` statt alter fester Wortgruppen.
 
-Die Vorlage trennt:
+- Caption-Wörter benötigen echte `start`/`end`-Zeitstempel aus dem finalen Audio
+- bevorzugt ein vollständiger Satz gleichzeitig
+- hart maximal zwei sichtbare Zeilen
+- aktives Wort grün
+- Satz bleibt durch kurze Pausen sichtbar
+- Satzwechsel beim ersten Wort des nächsten Satzes
+- keine gleichmäßig geschätzten Wortzeiten
 
-- oberen Bereich für Remotion-Überschriften
-- mittleren Bereich für Bild, Zahl oder Erklärung
-- unteren Bereich für Untertitel
+## Layout
 
-Für die Studio-Prüfung:
+Für Bildszenen gilt ungefähr:
+
+```text
+Visual Y ≈ 210–1515
+Caption Bottom ≈ 280
+Caption Left ≈ 60
+Caption Right ≈ 180
+```
+
+Untertitel bleiben oberhalb der Plattform-UI-Totzone; rechts bleibt zusätzlicher Abstand für vertikale UI-Buttons.
+
+## Konfigurationsprüfung
+
+Vor dem Render werden u. a. geprüft:
+
+- 60–90 Sekunden
+- Hook zuerst, CTA zuletzt
+- eindeutige Beat-IDs
+- positive ganzzahlige Frame-Dauern
+- Image-Beats besitzen Bildquelle
+- `focalX`/`focalY` liegen zwischen 0 und 1
+- Caption-Zeitstempel sind chronologisch und gültig
+
+## Safe-Area-Guide
+
+Für Studio-Prüfung:
 
 ```ts
 showSafeAreaGuide: true
 ```
 
-Vor dem Produktionsrender:
+Vor Produktionsrender:
 
 ```ts
 showSafeAreaGuide: false
 ```
 
-## Bilder
-
-Image-Beats erwarten Bilder, die bereits nach diesen Dokumenten freigegeben wurden:
-
-- `docs/IMAGE-SYSTEM.md`
-- `docs/IMAGE-QA-CHECKLIST.md`
-
-Die Vorlage repariert kein falsch komponiertes KI-Bild.
-
 ## Zahlen
 
-Zahlenbeats dürfen keine erfundenen Ergebnisse enthalten. Werte kommen aus:
-
-- `src/finance/calculations.ts`
-- validierten Datendateien
-- klar markierten Beispielannahmen
+Zahlenbeats dürfen keine erfundenen Ergebnisse enthalten. Werte kommen aus zentralen Finanzberechnungen, validierten Daten oder klar markierten Beispielannahmen.
 
 ## Demo
 
-`ReelTemplateDemo.tsx` enthält eine 65-Sekunden-Demo zum Thema Notgroschen.
-
-Die Demo:
-
-- liegt unter Experiments
-- zeigt das Safe-Area-Raster
-- besitzt noch kein Voiceover und keine echten Untertitel
-- ist nicht zur Veröffentlichung freigegeben
+`ReelTemplateDemo.tsx` liegt unter Experiments und ist keine Produktionsfreigabe. Der Validator verhindert, dass alte `contain`-/gruppenbasierte Caption-Regeln wieder in das produktive Template zurückkehren.
