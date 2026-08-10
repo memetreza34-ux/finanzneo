@@ -20,7 +20,8 @@ const run=(script,scriptArgs)=>{
   if(result.status!==0)process.exit(result.status??1);
 };
 
-run('scripts/validate-reel-source-contract.mjs',[target,...(final?['--final']:[])]);
-run('scripts/validate-platform-publishing.mjs',[target]);
+const finalArg=final?['--final']:[];
+run('scripts/validate-reel-source-contract.mjs',[target,...finalArg]);
+run('scripts/validate-platform-publishing.mjs',[target,...finalArg]);
 
-console.log(`\n✓ Gesamter Reel-Validator erfolgreich${final?' (FINAL-ASSET-MODUS)':''}.`);
+console.log(`\n✓ Gesamter Reel-Validator erfolgreich${final?' (FINAL-ASSET-UND-CAPTION-MODUS)':''}.`);
