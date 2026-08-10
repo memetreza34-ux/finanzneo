@@ -15,6 +15,18 @@ README.md
 
 Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Video anlegen, wenn sie nicht technisch zwingend nötig sind.
 
+`04-caption/` enthält Master-Caption, Plattformtexte und Wort-Timings:
+
+```text
+caption.txt
+youtube-shorts.txt
+instagram-reels.txt
+tiktok.txt
+facebook-reels.txt
+snapchat.txt
+word-timings.json
+```
+
 ## 2. Genau eine Produktionsquelle pro Szene
 
 ### Bildszene
@@ -38,8 +50,6 @@ scene-XX/
 Eine Remotion-Szene enthält keinen Bildprompt und erzeugt kein Bild.
 
 ## 3. Google Flow — Einzelbild-Ablauf
-
-Google Flow erzeugt immer genau **ein** benötigtes Bild:
 
 ```text
 PROMPT LESEN
@@ -86,7 +96,7 @@ Animationsszenen stehen chronologisch an ihrer Stelle mit `KEIN BILD XX ERZEUGEN
 
 ## 6. Finaler Sammelordner
 
-Erst wenn **alle** Bilder einzeln erzeugt, umbenannt und geprüft wurden, kommen sie gemeinsam nach:
+Erst wenn alle Bilder einzeln erzeugt, umbenannt und geprüft wurden, kommen sie gemeinsam nach:
 
 ```text
 03-szenen/00-ALLE-BILDER-HIER-REIN/
@@ -97,7 +107,7 @@ Google Flow verteilt die Bilder nicht auf einzelne Szenenordner.
 ## 7. Antigravity erzeugt keine Bilder
 
 - Der Nutzer erstellt Cover und finale Szenenbilder selbst.
-- Antigravity erstellt nur Recherche, Skript, Szenenplan, Bildprompts, Dateinamen, Remotion, Captions und technische Verarbeitung.
+- Antigravity erstellt Recherche, Skript, Szenenplan, Bildprompts, Dateinamen, Remotion, Captions und technische Verarbeitung.
 - Fehlt ein Nutzerbild, genaue fehlende Datei melden und warten.
 - Keine Ersatzbilder, Stockbilder oder integrierte Bildgeneratoren verwenden.
 
@@ -135,7 +145,7 @@ Stil:
 
 **Keine Prozent-Zonen verwenden.**
 
-Jedes Bild nutzt genau **einen nahtlosen Hintergrund von oben bis unten**:
+Jedes Bild nutzt genau einen nahtlosen Hintergrund von oben bis unten:
 
 ```text
 Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
@@ -268,7 +278,66 @@ Sofort neu erzeugen bei:
 - Diorama/Game-Level
 - falscher Satzzuordnung
 
-## 17. Automatische Erstellung
+## 17. Plattform-Publishing
+
+Verbindlich ist `docs/PLATFORM-PUBLISHING.md`.
+
+Die fünf Plattformdateien liegen direkt in `04-caption/`, damit keine neue komplizierte Hauptstruktur entsteht.
+
+### YouTube Shorts
+
+`youtube-shorts.txt`:
+
+- Titel
+- Beschreibung
+- CTA
+- Quellen/Hinweis bei Bedarf
+- Hashtags
+- optional angehefteter Kommentar
+
+### Instagram Reels
+
+`instagram-reels.txt`:
+
+- Caption
+- CTA
+- Quellen/Hinweis
+- Hashtags
+- optional angehefteter Kommentar
+
+### TikTok
+
+`tiktok.txt`:
+
+- kurze Caption
+- CTA
+- Quellen/Hinweis
+- Hashtags
+
+### Facebook Reels
+
+`facebook-reels.txt`:
+
+- Reel-Text
+- CTA
+- Quellen/Hinweis
+- Hashtags
+
+### Snapchat
+
+`snapchat.txt`:
+
+- sehr kurze Caption
+- optional CTA
+- Hinweis nur wenn nötig
+
+`caption.txt` bleibt die gemeinsame geprüfte Faktenbasis. Plattformdateien dürfen keine neue unbelegte Aussage erfinden.
+
+Wenn exakte aktuelle Plattform-Limits oder Upload-Funktionen relevant sind, vor Veröffentlichung offizielle Plattformquellen prüfen statt Limits im Repo fest zu verdrahten.
+
+Longform-YouTube ist ein separates späteres Format und wird nicht in einen normalen Short-Reel-Ordner gemischt.
+
+## 18. Automatische Erstellung
 
 ```bash
 npm run reel:create -- \
@@ -276,9 +345,9 @@ npm run reel:create -- \
   --title "Reel-Titel"
 ```
 
-Der Scaffolder erzeugt die einfache Struktur, Bildprompts, `scene-index.json`, Caption-/Timing-Dateien und technische Hinweise nach den aktuellen Regeln.
+Der Scaffolder erzeugt die einfache Struktur, Bildprompts, `scene-index.json`, Master-Caption, alle fünf Plattformdateien, Wort-Timings und technische Hinweise nach den aktuellen Regeln.
 
-## 18. Automatische Prüfung
+## 19. Automatische Prüfung
 
 ```bash
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
