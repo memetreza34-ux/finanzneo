@@ -52,4 +52,7 @@ export const Headline:React.FC<{copy:SceneCopy}> = ({copy}) => <div style={{posi
   </div>
 </div>;
 
-export const VisualStage:React.FC<React.PropsWithChildren> = ({children}) => <div style={{position:'absolute',top:LAYOUT.visualTop,left:0,right:0,height:LAYOUT.visualBottom-LAYOUT.visualTop,overflow:'hidden'}}>{children}</div>;
+export const VisualStage:React.FC<React.PropsWithChildren> = ({children}) => <div className="finanzneo-visual-stage" style={{position:'absolute',top:LAYOUT.visualTop,left:0,right:0,height:LAYOUT.visualBottom-LAYOUT.visualTop,overflow:'hidden'}}>
+  <style>{`.finanzneo-visual-stage > img { object-fit: cover !important; filter: none !important; }`}</style>
+  {children}
+</div>;
