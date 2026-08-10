@@ -17,6 +17,8 @@
 - 1080 × 1920, 30 fps
 - 60–90 Sekunden als Reel-Standard
 - Reel-Plattformen: Instagram Reels, TikTok, Facebook Reels und Snapchat
+- dieselbe universelle Social-Caption auf allen vier Reel-Plattformen
+- genau 5 relevante Hashtags pro Caption
 - YouTube: ausschließlich eigenständige längere Videos unter `youtube/`; keine YouTube Shorts
 - Untertitel Pflicht
 - Premium Fintech Editorial 3D + Remotion
@@ -39,16 +41,24 @@
 README.md
 ```
 
-`04-caption/` enthält zusätzlich zur Master-Caption und den Wort-Timings die vier Reel-Plattformdateien:
+`04-caption/` enthält nur:
+
+```text
+caption.txt
+word-timings.json
+```
+
+`caption.txt` ist direkt kopierfertig und wird 1:1 für Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet. Sie enthält eine starke erste Zeile, kurzen Nutzen/Aha, optional einen natürlichen CTA und exakt 5 passende Hashtags.
+
+Nicht mehr erstellen:
 
 ```text
 instagram-reels.txt
 tiktok.txt
 facebook-reels.txt
 snapchat.txt
+youtube-shorts.txt
 ```
-
-`youtube-shorts.txt` wird nicht erstellt. Longform-YouTube wird unabhängig davon unter `youtube/` produziert.
 
 ## Neuer Reel-Start
 
@@ -74,7 +84,7 @@ Erstelle selbstständig:
 4. Bild-/Remotion-Zuordnung
 5. vollständige Google-Flow-Bildprompts mit echten Szenennummern
 6. Remotion-Spezifikationen
-7. Caption- und Reel-Plattformstruktur für Instagram, TikTok, Facebook und Snapchat
+7. genau eine universelle Social-Caption für alle vier Reel-Plattformen mit exakt 5 relevanten Hashtags
 
 Bilder erzeugt ausschließlich der Nutzer. Antigravity erzeugt keine Bilder.
 Keine YouTube Shorts erzeugen. YouTube ist ausschließlich Longform unter `youtube/`.
@@ -93,6 +103,4 @@ Bild neu erzeugen, wenn unter anderem:
 
 ## Produktionsfreigabe
 
-Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover vorhanden sind, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview tatsächlich ausgeführt wurden und Bildsatz + komplette MP4 geprüft wurden.
-
-Vor Cross-Platform-Reel-Publishing zusätzlich alle vier Reel-Plattformdateien in `04-caption/` fertigstellen und auf dasselbe finale Reel abstimmen.
+Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover vorhanden sind, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview tatsächlich ausgeführt wurden, Bildsatz + komplette MP4 geprüft wurden und die universelle Caption mit genau 5 relevanten Hashtags fertig ist.
