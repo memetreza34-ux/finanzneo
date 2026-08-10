@@ -2,7 +2,7 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 00 - Cover Notgroschen.png`
 
 WICHTIG:
-Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen, Gesicht und Dateiname prüfen. Erst dann nächstes Bild.
+Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen, Gesicht, Hintergrund und Dateiname prüfen. Erst dann nächstes Bild.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - `Notgroschen`
@@ -11,4 +11,11 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Stufe 3`
 
 BILDPROMPT:
-A stylized 3D adult person with a clearly visible stylized face, readable eyes, nose and mouth, front-facing or in a natural three-quarter view, standing beside one large transparent vertical emergency-fund container filled with glowing euro coins. The container is the dominant object. Three clear ascending sections or steps are integrated into the container, each visually higher and fuller than the previous one. A small broken washing-machine part and a restrained red-orange repair warning appear near the lower side to explain why the reserve exists. Include German object labels: `Notgroschen` directly on or beside the reserve container, and `Stufe 1`, `Stufe 2`, `Stufe 3` beside the three ascending sections. Premium fintech editorial 3D render style. Use ONE single seamless deep charcoal green-black background from the top edge to the bottom edge. No horizontal top band, no bottom band, no tonal slab, no visible background transition. Accents in vivid emerald and mint green. Use smooth rounded 3D geometry, soft bevelled edges, premium matte and glass materials, confident high-contrast studio lighting with bold emerald rim light. Keep the top 15 percent and bottom 25 percent free of objects and labels, but fill both with exactly the same continuous background as the middle. The free areas must not look like separate zones. Vertical 9:16. No photorealism, no real human, no faceless person, no blank face, no hidden face, no back-view-only character, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
+A stylized 3D adult person with a clearly visible friendly stylized face, readable eyes, nose and mouth, front-facing or in a natural three-quarter view, standing beside one large transparent vertical emergency-fund container filled with glowing euro coins. The container is the dominant object. Three clear ascending sections or steps are integrated into the container, each visually higher and fuller than the previous one. A small broken washing-machine part and a restrained warm red-orange repair warning explain why the reserve exists. Include German object labels: `Notgroschen` directly beside the reserve container and `Stufe 1`, `Stufe 2`, `Stufe 3` beside the three ascending sections.
+
+Premium fintech editorial 3D render style. Deep charcoal green-black world. Vivid emerald and mint accents. Gold only for money/value. Warm red-orange only for risk/loss. Smooth rounded 3D geometry, soft bevelled edges, premium matte/glass materials and bold emerald rim light.
+
+BACKGROUND — VERBINDLICH:
+Use ONE single seamless continuous deep charcoal green-black background from the very top edge to the very bottom edge. No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line, no panels and no layered backdrop. Use only one subtle continuous gradient/vignette. Do not create a visible floor or visible wall. Objects may cast soft contact shadows. Leave generous natural empty space above and below the central subject WITHOUT changing the background. Do NOT use percentage-based zones.
+
+No headline, no subtitle, no explanatory sentence, no faceless person, no blank face, no hidden face, no back-view-only character, no UI dashboard, no tiny diorama, no neon tunnel, no sci-fi corridor, no photorealism.
