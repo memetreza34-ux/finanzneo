@@ -50,16 +50,7 @@ Before coding/timing/rendering verify:
 - exactly one readable final audio file exists
 - no user media is sourced outside the target Reel
 
-Never substitute from:
-
-- another Reel
-- `legacy-main/`
-- Desktop/Downloads
-- web/stock media
-- placeholders
-- previous exports
-- caches
-- similarly named files outside the target Reel
+Never substitute from another Reel, `legacy-main/`, Desktop/Downloads, web/stock media, placeholders, previous exports, caches or similarly named files outside the target Reel.
 
 Shared repository code, design-system components, scripts and docs remain allowed. The restriction applies to user-media inputs.
 
@@ -94,11 +85,7 @@ For every image scene:
 - preserve face, object labels, hero object, money/value
 - use per-scene `focalX` / `focalY` when necessary
 
-Use the central component for new productive scenes:
-
-```text
-src/design-system/AdaptiveSafeFillImage.tsx
-```
+Use `src/design-system/AdaptiveSafeFillImage.tsx` for new productive scenes.
 
 Target vertical layout at 1080×1920:
 
@@ -112,15 +99,13 @@ subtitleRight    ≈ 180
 platformUiBottom ≥ 260
 ```
 
-The image/animation should consume almost all usable space between headline and captions.
-
 ## Audio and captions — exact final-audio timing
 
 Use only the exact final voiceover from `<TARGET-REEL>/02-audio/`.
 
 Create real word-level `start/end` timestamps from that audio. Never distribute words evenly across sentence duration and never reuse provisional timings as final.
 
-Required caption behavior:
+Required in-video caption behavior:
 
 - preferred: one full sentence visible
 - maximum: two very short sentences only when semantically necessary
@@ -131,11 +116,7 @@ Required caption behavior:
 - sentence changes exactly when the next sentence's first spoken word begins
 - no dead caption gaps
 
-Use:
-
-```text
-src/design-system/SentenceKaraokeCaptions.tsx
-```
+Use `src/design-system/SentenceKaraokeCaptions.tsx`.
 
 `04-caption/word-timings.json` may be final only with:
 
@@ -144,6 +125,37 @@ timingStatus: final-audio-aligned
 ```
 
 If exact word alignment cannot be created with available tooling, report **BLOCKED** instead of estimating.
+
+## Universal social caption
+
+Create exactly one publishing caption:
+
+```text
+04-caption/caption.txt
+```
+
+Use this exact same file unchanged for Instagram Reels, TikTok, Facebook Reels and Snapchat.
+
+Caption requirements:
+
+- strong truthful first-line hook
+- concise value / aha matching the Reel
+- optional natural save/follow/comment CTA
+- **exactly 5 relevant hashtags**
+- no platform-specific variants
+- no `CAPTION:` or `CTA:` template headers in final text
+- no random trend tags, spam or irrelevant `#fyp`
+- no invented facts or viral guarantee
+
+Forbidden active files:
+
+```text
+04-caption/instagram-reels.txt
+04-caption/tiktok.txt
+04-caption/facebook-reels.txt
+04-caption/snapchat.txt
+04-caption/youtube-shorts.txt
+```
 
 ## Continuous production order
 
@@ -157,7 +169,7 @@ After the hard media gate passes, continue without user checkpoints:
 6. frame every user image with adaptive-safe-fill
 7. add headlines/icons
 8. add sentence-based karaoke captions
-9. prepare master caption + Instagram/TikTok/Facebook/Snapchat publishing files
+9. prepare one universal social caption with exactly 5 relevant hashtags
 10. run final Reel validation
 11. run TypeScript checks
 12. render preview
@@ -175,21 +187,6 @@ Final validation must use:
 ```bash
 npm run reel:validate -- <TARGET-REEL> --final
 ```
-
-## Publishing files
-
-The Reel uses:
-
-```text
-04-caption/caption.txt
-04-caption/instagram-reels.txt
-04-caption/tiktok.txt
-04-caption/facebook-reels.txt
-04-caption/snapchat.txt
-04-caption/word-timings.json
-```
-
-Never create `youtube-shorts.txt`. YouTube is a separate long-form workflow under `youtube/`.
 
 ## Stop conditions
 
@@ -210,7 +207,7 @@ End only as:
 PRODUCTION COMPLETE
 ```
 
-when the final MP4 exists and final validation, TypeScript, preview, visual/caption review and safety audit actually completed; or:
+when the final MP4 exists and final validation, TypeScript, preview, visual/caption review, the universal five-hashtag caption and safety audit actually completed; or:
 
 ```text
 BLOCKED
