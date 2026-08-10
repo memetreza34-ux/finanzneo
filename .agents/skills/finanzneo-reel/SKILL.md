@@ -1,6 +1,6 @@
 ---
 name: finanzneo-reel
-description: Safely creates, repairs or reviews FinanzNeo vertical Remotion reels while preserving repository rules, image-prompt consistency, karaoke captions and validation requirements.
+description: Safely creates, repairs or reviews FinanzNeo vertical Remotion reels while preserving repository rules, image-prompt consistency, karaoke captions, platform publishing and validation requirements.
 ---
 
 # FinanzNeo Reel Skill
@@ -8,10 +8,12 @@ description: Safely creates, repairs or reviews FinanzNeo vertical Remotion reel
 Read these first and treat them as authoritative:
 
 1. `CLAUDE.md`
-2. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-3. `docs/IMAGE-SYSTEM.md`
-4. target reel `03-szenen/alle-bildprompts.txt`
-5. target reel `03-szenen/scene-index.json`
+2. `reels/PRODUKTIONSSTANDARD.md`
+3. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
+4. `docs/IMAGE-SYSTEM.md`
+5. `docs/PLATFORM-PUBLISHING.md`
+6. target reel `03-szenen/alle-bildprompts.txt`
+7. target reel `03-szenen/scene-index.json`
 
 `CLAUDE.md` wins on conflicts.
 
@@ -139,4 +141,28 @@ After all user images and final audio are present:
 - inspect image set/contact sheet and full MP4
 - target audio around -16 LUFS and <= -1 dBTP true peak
 
-A reel is not complete without required user assets or an explicit missing-asset report, real audio timings, successful validation/typecheck/preview, visual review and safety audit.
+## Platform publishing
+
+Keep the simple five-folder reel structure. Publishing files live directly in `04-caption/`:
+
+```text
+caption.txt
+youtube-shorts.txt
+instagram-reels.txt
+tiktok.txt
+facebook-reels.txt
+snapchat.txt
+word-timings.json
+```
+
+- `caption.txt` is the verified master facts/caption basis.
+- YouTube Shorts: title, description, CTA, source/note when needed, hashtags, optional pinned comment.
+- Instagram Reels: caption, CTA, source/note, hashtags, optional pinned comment.
+- TikTok: short caption, CTA, source/note, hashtags.
+- Facebook Reels: reel text, CTA, source/note, hashtags.
+- Snapchat: very short caption, optional CTA, note only when needed.
+- Platform files must not invent facts beyond the master caption/script.
+- If exact current platform limits or upload features matter, verify official platform documentation before publishing rather than hard-coding old limits.
+- Longform YouTube is separate from the normal short-reel folder.
+
+A reel is not complete without required user assets or an explicit missing-asset report, real audio timings, successful validation/typecheck/preview, visual review and safety audit. Cross-platform publishing additionally requires the five platform files to be prepared for the same final reel.
