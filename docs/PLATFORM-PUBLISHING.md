@@ -21,7 +21,7 @@ Keine zusätzlichen plattformspezifischen Caption-Dateien.
 
 ## 2. Eine Caption für alle Plattformen
 
-Dieselbe `caption.txt` wird unverändert verwendet für:
+Dieselbe `caption.txt` wird **1:1 und unverändert** verwendet für:
 
 - Instagram Reels
 - TikTok
@@ -51,12 +51,12 @@ Regeln:
 - erste Zeile soll sofort Neugier, ein konkretes Problem oder einen klaren Nutzen auslösen
 - kurz genug, dass dieselbe Caption plattformübergreifend sinnvoll bleibt
 - Inhalt muss exakt zum Reel passen
-- gern speicher-/teilbar formulieren, aber nicht künstlich clickbaiten
+- möglichst speicher-/teilbar formulieren, aber nicht künstlich clickbaiten
 - kein Versprechen wie `geht garantiert viral`
 - CTA nur, wenn er natürlich passt
 - **genau 5 Hashtags**
-- alle 5 Hashtags müssen thematisch relevant sein
-- keine zufälligen Trend-Tags, kein Hashtag-Spam und kein irrelevantes `#fyp`
+- alle 5 Hashtags müssen thematisch relevant und eindeutig sein
+- keine zufälligen Trend-Tags, kein Hashtag-Spam und kein irrelevantes `#fyp`, `#foryou` oder `#viral`
 - Fakten nicht verändern oder neue unbelegte Behauptungen hinzufügen
 - Quellen/Datenstand bleiben primär in `05-projektdateien/recherche-quellen.md`
 - `Keine Anlageberatung` nur in die Caption aufnehmen, wenn es für das konkrete Reel sinnvoll/notwendig ist
@@ -88,6 +88,6 @@ Die Caption soll möglichst stark für Aufmerksamkeit, Saves, Shares und Komment
 
 ## 6. Abschlussregel
 
-Publishing-seitig ist ein neues Reel vorbereitet, wenn `04-caption/caption.txt` als finale universelle Caption vorliegt und exakt fünf relevante Hashtags enthält.
+Publishing-seitig ist ein neues Reel vorbereitet, wenn `04-caption/caption.txt` als finale universelle Caption vorliegt und exakt fünf relevante, eindeutige Hashtags enthält.
 
 YouTube gehört nicht zu diesem Reel-Publishing-Schritt. Longform-YouTube wird separat unter `youtube/` produziert.
