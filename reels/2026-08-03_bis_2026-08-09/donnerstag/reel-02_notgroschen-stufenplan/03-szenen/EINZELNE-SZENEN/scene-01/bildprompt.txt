@@ -2,7 +2,7 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 01 - Defekt wird Schuldenfalle.png`
 
 WICHTIG:
-Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen, Gesicht und Dateiname prüfen. Erst dann nächstes Bild.
+Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen, Gesicht, Hintergrund und Dateiname prüfen. Erst dann nächstes Bild.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - `Reparatur`
@@ -10,4 +10,11 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Ratenzahlung`
 
 BILDPROMPT:
-A stylized 3D adult person with a clearly visible stylized face, readable eyes, nose and mouth, front-facing or in a natural three-quarter view, standing beside one large broken washing machine. The washing machine is the dominant object and has a clear visible defect. A repair invoice card sits beside the machine and an almost empty wallet lies nearby. Two red-orange financial danger paths emerge from the repair cost and lead toward a credit-card/overdraft object and an installment-payment object. Include German labels: `Reparatur` beside the invoice or damaged washer, `Dispo` beside the overdraft danger object, and `Ratenzahlung` beside the installment-payment object. Do not show an emergency fund yet. Premium fintech editorial 3D render style. Use ONE seamless deep charcoal green-black background from top edge to bottom edge, with no horizontal bands, no tonal slabs and no top/bottom transitions. Accents in vivid emerald and mint green, with warm red-orange only for debt danger. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Keep top 15% and bottom 25% free of objects/labels but on exactly the same continuous background. Vertical 9:16. No photorealism, no real human, no faceless person, no blank face, no hidden face, no back-view-only character, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
+A stylized 3D adult person with a clearly visible stylized face, front-facing or natural three-quarter view, standing beside one large broken washing machine. The washing machine is the dominant object and has a clear visible defect. A repair invoice sits beside it and an almost empty wallet lies nearby. Two warm red-orange financial danger paths emerge from the repair cost and lead toward an overdraft/credit object and an installment-payment object. Include German labels: `Reparatur` beside the damaged washer or invoice, `Dispo` beside the overdraft danger object and `Ratenzahlung` beside the installment object. Do not show an emergency fund yet.
+
+Premium fintech editorial 3D render style. Deep charcoal green-black world. Vivid emerald/mint accents, warm red-orange only for debt danger. Smooth rounded geometry, soft bevelled edges and bold emerald rim light.
+
+BACKGROUND — VERBINDLICH:
+Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line, no panels. Use only one subtle continuous gradient/vignette. Do not create a visible floor or wall. Leave generous natural empty space above and below without changing the background. Do NOT use percentage-based zones.
+
+No photorealism, no real identifiable human, no faceless person, no hidden face, no back-view-only character, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
