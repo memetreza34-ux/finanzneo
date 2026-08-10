@@ -178,20 +178,39 @@ Verboten:
 - Headlines/Icons in Remotion
 - Bild- und Animationsszenen müssen visuell ähnlich präsent sein
 
-## 12. Publishing
+## 12. Publishing — eine Caption für alle Plattformen
 
-`04-caption/`:
+`04-caption/` enthält nur:
 
 ```text
 caption.txt
+word-timings.json
+```
+
+`caption.txt` wird **unverändert** für Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet.
+
+Die finale Caption ist direkt kopierfertig und folgt diesem Standard:
+
+- starke ehrliche Hook-Zeile am Anfang
+- kurze Kernaussage / Aha-Nutzen
+- natürlicher Save-/Follow-/Kommentar-CTA nur wenn passend
+- **genau 5 passende Hashtags**
+- keine zufälligen Trend-Tags, kein Hashtag-Spam
+- keine garantierten Viralitätsversprechen
+- kein `CAPTION:`-Header oder andere Template-Marker im finalen Text
+- keine Fakten, die nicht durch Skript/Recherche gedeckt sind
+
+Diese alten Dateien sind in aktiven neuen Reels verboten:
+
+```text
 instagram-reels.txt
 tiktok.txt
 facebook-reels.txt
 snapchat.txt
-word-timings.json
+youtube-shorts.txt
 ```
 
-Keine YouTube Shorts. YouTube ausschließlich Longform unter `youtube/`.
+YouTube ausschließlich Longform unter `youtube/`.
 
 ## 13. Autopilot-Finalisierung
 
@@ -204,7 +223,7 @@ Medien prüfen
 → Remotion
 → adaptive-safe-fill Framing
 → Satz-Karaoke
-→ Plattformtexte
+→ eine universelle Caption + genau 5 Hashtags
 → finaler Validator
 → TypeScript
 → Preview
@@ -226,6 +245,6 @@ Normale technische Fehler werden selbstständig behoben. Stoppen nur bei echten 
 
 ## 14. Freigabe
 
-**PRODUCTION COMPLETE** erst nach tatsächlicher finaler Validierung, Typecheck, Preview, visueller Prüfung, vollständigem MP4 und Safety Audit.
+**PRODUCTION COMPLETE** erst nach tatsächlicher finaler Validierung, Typecheck, Preview, visueller Prüfung, vollständigem MP4, fertiger universeller Caption mit genau 5 Hashtags und Safety Audit.
 
 Merge und Publishing bleiben separate Nutzerfreigaben.
