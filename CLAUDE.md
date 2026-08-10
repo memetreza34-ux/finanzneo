@@ -1,6 +1,6 @@
 # FinanzNeo — verbindliches Projekt-Gehirn
 
-> Diese Datei ist die einzige verbindliche Quelle für Strategie, Gestaltung und Produktion.
+> Diese Datei ist die höchste interne Quelle für Strategie, Gestaltung und Produktion.
 > Bei Widersprüchen mit älteren Dateien gilt immer `CLAUDE.md`.
 
 ## 1. Kanal und Ziel
@@ -10,246 +10,445 @@
 - Inhalt: Finanzgrundlagen für Menschen mit wenig oder keinem Vorwissen
 - Hauptziel: Reichweite, Vertrauen und später Einnahmen
 - Plattformen: TikTok, Instagram Reels, YouTube Shorts, Facebook Reels und Snapchat
-- Primärformat: **vertikale Videos von 60 bis 90 Sekunden**
-- Longform-YouTube ist eine spätere Erweiterung und aktuell nicht der Standard
-- Ansprache: immer direkt mit **du**, einfach, professionell und nahbar
-- Keine feste Figur, kein Avatar und kein sichtbarer Moderator
+- Primärformat: vertikale Videos von 60 bis 90 Sekunden
+- Ansprache: direkt mit **du**, einfach, professionell und nahbar
+- Kein fester Avatar und kein sichtbarer Moderator als Pflicht
 
-## 2. Monetarisierung
+## 2. Repository-Sicherheit
 
-Die Reihenfolge ist verbindlich:
+- Nie direkt auf `main` arbeiten.
+- Neues Thema = neuer Branch + neuer Reel-Ordner.
+- Bestehende Reels sind read-only, außer sie werden ausdrücklich als Ziel genannt.
+- Nie mergen, force-pushen, Shared History umschreiben oder Branches/Reels löschen, außer ausdrücklich angefordert.
+- Keine Regeln, Validatoren, Tests, Finance-Berechnungen oder Lockfiles schwächen, nur damit etwas „grün“ wird.
+- Vor Änderungen Git-Status/Branch/HEAD prüfen; danach Safety-Review.
 
-1. hochwertige kostenlose Finanzbildung
-2. kostenlose PDFs, Checklisten oder Vorlagen als Kommentar-/DM-Angebot
-3. Aufbau einer E-Mail- oder Interessentenliste
-4. später transparente Affiliate-Empfehlungen
-5. langfristig eigene Rechner, Vorlagen, digitale Produkte oder Apps
+## 3. Einfache Reel-Struktur
 
-Werbung, Affiliate-Links und Interessenkonflikte müssen klar gekennzeichnet werden.
+Neue Reels verwenden diese einfache Hauptstruktur:
 
-## 3. Verbindlicher Reel-Standard
+```text
+01-script/
+02-audio/
+03-szenen/
+04-caption/
+05-projektdateien/
+README.md
+```
 
-- Dauer: 60 bis 90 Sekunden
-- Format: 1080 × 1920, 30 fps
+- `01-script/` = fertiger Fließtext für das Voiceover
+- `02-audio/` = finale Audiodatei des Nutzers
+- `03-szenen/` = Cover, alle Bildprompts, Szenen, gemeinsame Nutzerbilder
+- `04-caption/` = Social Caption + echte Wort-Timings
+- `05-projektdateien/` = Recherche, Quellen, Animationen, Szenenplan, technische Dateien
+
+Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Video anlegen, wenn sie nicht technisch zwingend erforderlich sind.
+
+## 4. Reel-Standard
+
+- 1080 × 1920
+- 30 fps
+- 60–90 Sekunden als Standard
 - Hook innerhalb der ersten 2 Sekunden
-- Thema muss sofort verständlich sein
-- ungefähr 6 bis 10 visuelle Beats pro Reel
-- jeder Satz muss visualisierbar sein
-- Untertitel sind bei jedem vertikalen Video Pflicht
-- CTA kurz und passend zum Inhalt
+- ungefähr 6–10 visuelle Beats
+- bei 10 Szenen bevorzugt ungefähr 6 Bildszenen + 4 Remotion-Animationen
+- Qualität wichtiger als starre Quote
 - keine langen Intros
-- kein Disclaimer vor der Hook
-- kleiner Hinweis „Keine Anlageberatung“ darf dezent eingeblendet werden
-- ausführliche Hinweise und Quellen gehören in Caption oder Beschreibung
+- Untertitel sind Pflicht
+- ausführliche Quellen/Disclaimer gehören in Caption/Beschreibung, nicht vor die Hook
 
-## 4. Skriptregeln
+## 5. Skriptregeln
 
-- kurze und verständliche Sätze
+- kurze, verständliche deutsche Sätze
 - kein unnötiger Fachjargon
-- konkrete Zahlen nur nach Prüfung
-- keine Füllsätze und keine Wiederholungen
-- klare Struktur: Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz → CTA
-- jeder Satz erhält einen visuellen Zweck
-- Vergleiche, Ursachen, Entwicklungen und Ergebnisse müssen klar voneinander getrennt sein
+- keine Füllsätze oder Wiederholungen
+- klare Logik: Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz → CTA
+- Zahlen nur nach Prüfung
+- Beispielannahmen klar als Beispiele behandeln
 - keine individuelle Anlageempfehlung
-- keine Behauptung ohne nachvollziehbare Quelle oder klar erkennbare Beispielannahme
+- Problem-Szenen dürfen die spätere Lösung nicht vorwegnehmen
 
-## 5. Verbindlicher Bildstil
+## 6. Verbindliche Bildwelt — Premium Fintech Editorial 3D
 
-FinanzNeo verwendet **Premium-isometrische redaktionelle 3D-Erklärbilder** in Kombination mit Remotion.
+Technische World-ID:
 
-### Stil
+```text
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+```
 
-- dunkler Anthrazit-Hintergrund
-- tiefgrüne Markenakzente
-- Gold nur für Geld, Beträge und finanzielle Highlights
-- hochwertige matte Materialien
-- dezente Glasdetails
-- weiches volumetrisches Licht
-- klare Tiefenwirkung
+Der verbindliche Stil entspricht diesem Prinzip:
+
+> Eine stilisierte 3D-Person mit klar sichtbarem Gesicht steht neben EINER großen Finanzmetapher. Beispiel: eine hohe Sanduhr mit leuchtenden Euro-Münzen; ein Teil der Münzen verschwindet in einem rot-orange leuchtenden Verlust-Riss. Kurze deutsche Labels wie `Wartezeit` und `Verlorene Zinsen` erklären nur die relevanten Objekte.
+
+Nicht die konkrete Sanduhr ist verbindlich, sondern diese **Art der visuellen Erklärung**.
+
+Verbindliche Bilddokumente:
+
+- `docs/FINANZNEO-IMAGE-WORLD-V3.md`
+- `docs/IMAGE-SYSTEM.md`
+- `docs/BEAT-TO-IMAGE-RULES.md`
+- `docs/IMAGE-PROMPT-LIBRARY.md`
+- `docs/IMAGE-QA-CHECKLIST.md`
+
+### 6.1 Serienmerkmale
+
+- Premium fintech editorial 3D render style
+- deep charcoal green-black Grundwelt
+- vivid emerald und mint-green Akzente
+- Gold nur für Geld, Euro-Münzen und finanziellen Wert
+- warmes Rot-Orange nur für Verlust, Risiko, Schulden oder blockiertes Geld
+- smooth rounded 3D geometry
+- soft bevelled edges
+- hochwertige matte und transparente Materialien
+- confident high-contrast studio lighting
+- kräftiges smaragdgrünes Rim Light
+- ein großes dominantes Hauptmotiv / eine starke Finanzmetapher
+- wenige unterstützende Elemente
 - nicht fotorealistisch
-- nicht kindlich
-- nicht cartoonhaft
-- keine leeren Produkt-Render
-- keine überfüllten Infografikposter
+- kein Pixar-, Clay- oder Kindercartoon-Look
 
-### Bildaufgabe
+### 6.2 Ein einziger nahtloser Hintergrund — höchste Bildregel
 
-Ein Bild soll eine **vollständige erklärende Szene** zeigen, nicht nur ein Einzelobjekt.
+**Keine Prozent-Zonen mehr in Bildprompts verwenden.**
 
-Bevorzugte Logik:
+Jedes Bild verwendet **einen einzigen durchgehenden Hintergrund von der oberen bis zur unteren Bildkante**.
 
-`Ausgangspunkt → sichtbare Entwicklung → verständliches Ergebnis`
+Verbindliche Promptlogik:
+
+```text
+Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
+The background must keep the same continuous material, tone and gradient from the very top edge to the very bottom edge.
+NO horizontal divisions.
+NO visible top section.
+NO visible bottom section.
+NO separate zones.
+NO dark band at the top.
+NO dark band at the bottom.
+NO floor-wall boundary.
+NO horizon line.
+NO studio wall split.
+NO panel background.
+NO layered backdrop.
+Use only one subtle continuous background gradient or vignette across the whole image.
+Do not create a visible floor, visible wall or visible studio horizon.
+Objects may cast soft contact shadows, but the background itself remains one uninterrupted surface.
+Place the main subject around the visual center and leave generous natural empty space above and below WITHOUT changing the background there.
+```
+
+Verboten:
+
+- `top 15% / middle 60% / bottom 25%` als harte Bildzonen
+- jede andere Prozentaufteilung, die separate Bereiche erzeugen kann
+- sichtbare horizontale Tonwertkante
+- Boden-/Wand-Trennung
+- obere oder untere Farbbänder
+- mehrere Hintergrund-Panels
+
+### 6.3 Personenregel
+
+Eine Person ist optional. Wenn eine Person vorkommt:
+
+- stilisierte anonyme erwachsene 3D-Person
+- Gesicht **immer klar sichtbar**
+- Augen, Nase und Mund als stilisierte Gesichtszüge erkennbar
+- bevorzugt frontal oder natürliche 3/4-Ansicht
+- natürliche einfache Pose
+- keine reale/identifizierbare Person
+- kein Fotorealismus
+
+Nicht erlaubt:
+
+- gesichtslose Mannequin-Figur
+- blankes/glattes Gesicht
+- verstecktes Gesicht
+- reine Rückenansicht
+- komplett von der Kamera abgewandte Person
+
+### 6.4 Textregel im generierten Bild
+
+**NIEMALS:**
+
+- große Überschrift
+- Untertitel
+- ganzer erklärender Satz
+- CTA
+- Absatz
+- große Poster-Typografie
+
+**ERLAUBT UND GEWÜNSCHT:**
+
+- nur kurze deutsche Objekt-Beschriftungen
+- normalerweise 1–3 Wörter
+- direkt am oder nahe beim zugehörigen Objekt
+- klein bis mittelgroß
+- klare Sans-Serif-Schrift
+- wenige Labels pro Bild
 
 Beispiele:
 
-- Geld → steigende Preise → weniger Kaufkraft
-- unerwartete Rechnung → Notgroschen → Schulden werden vermieden
-- frühes Investieren → Zeitverlauf → größeres Endvermögen
+```text
+Wartezeit
+Verlorene Zinsen
+Notgroschen
+Reparatur
+Dispo
+Ratenzahlung
+Tagesgeld
+Notfall
+Konsum
+500 €
+Auffüllen
+```
 
-### Komposition
+Keine zufälligen Zusatztexte, Fantasiewörter oder englischen Erklärtexte.
 
-- vertikal 9:16
-- obere **18 %** bleiben ruhig und frei
-- untere **22 %** bleiben ruhig und frei
-- keine wichtigen Objekte, Pfeile, Labels oder Charts in diesen Safe Areas
-- Hauptszene liegt im mittleren Bereich
-- 2 bis 4 große Hauptelemente
-- klare Größenhierarchie
-- auf einem Smartphone sofort verständlich
-- ein klarer visueller Fokus pro Bild
+### 6.5 Marken und bekannte Namen
 
-### Text im Bild
+Reale bekannte Marken, Dienste oder Produktnamen dürfen in einer Bildszene verwendet werden, **wenn sie für die Aussage konkret relevant sind**.
 
-- standardmäßig kein Text
-- keine Überschrift
-- kein Untertitel
-- keine Absätze
-- keine erklärenden Sätze
-- höchstens drei kleine deutsche Labels
-- jedes Label maximal ein bis drei Wörter
-- Labels nur direkt neben dem erklärten Objekt
-- Remotion übernimmt Überschrift, Untertitel, Zahlen, Quellen und zusätzliche Diagramme
+Beispiele: Netflix, Spotify, Disney+, Amazon, Apple.
 
-### Marken und reale Elemente
+Regeln:
 
-- reale Marken, Logos oder Oberflächen nur verwenden, wenn sie für das konkrete Thema wirklich nötig sind
-- ansonsten originale generische Finanzobjekte verwenden
-- keine zufälligen Marken als Dekoration
-- keine Produktwerbung im Bildstil
+- Marken nicht zufällig als Deko verwenden
+- keine erfundene Partnerschaft oder Empfehlung suggerieren
+- Namen/Labels korrekt schreiben
+- nur so viele Marken wie für die Erklärung nötig
+- Markenbeispiel bleibt eine illustrative Alltagssituation, keine Werbeaussage
 
-### Mehrteilige Bilder
+### 6.6 Bildlogik
 
-- ein zusammenhängendes Einzelbild ist der Standard
-- 2-in-1, 3-in-1 oder 4-in-1 nur bei echter zeitlicher Abfolge oder einem notwendigen Vergleich
-- keine kleinen Panels nur zur Dekoration
-- Verständlichkeit ist wichtiger als Informationsmenge
+Jede Bildszene verwendet möglichst:
 
-### Verbindliche Bilddokumente
+1. eine dominante Finanzmetapher oder ein großes Hauptobjekt
+2. optional eine stilisierte Person mit sichtbarem Gesicht
+3. wenige unterstützende Objekte
+4. klaren Ursache-Wirkungs-Zusammenhang
+5. 1–3 kurze deutsche Labels
 
-- `docs/IMAGE-SYSTEM.md` — Stil und Grundregeln
-- `docs/BEAT-TO-IMAGE-RULES.md` — Entscheidung zwischen KI-Bild, Remotion und Kombination
-- `docs/IMAGE-PROMPT-LIBRARY.md` — wiederverwendbare Prompts für typische Finanzthemen
-- `docs/IMAGE-QA-CHECKLIST.md` — Freigabe oder Neuerstellung jedes generierten Bildes
+Das Bild soll wie **eine einzelne hochwertige Editorial-Illustration** wirken, nicht wie:
 
-Kein KI-Bild wird geplant, ohne den Visualtyp nach `docs/BEAT-TO-IMAGE-RULES.md` zu begründen.
-Kein KI-Bild wird verwendet, ohne die Bild-QA bestanden zu haben.
+- Miniatur-Diorama
+- Game-Level
+- Neon-Tunnel
+- Sci-Fi-Korridor
+- Dashboard/App-UI
+- mehrere kleine Räume/Plattformen
+- überladene Icon-Sammlung
 
-## 6. Aufgabenverteilung Bild und Remotion
+### 6.7 Prompt-Grundmuster
 
-### KI-Bild
+```text
+A stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE FINANCIAL METAPHOR].
+[Describe one visible cause-and-effect action using only a few large objects.]
+Include German object labels: '[Label 1]' near [object 1], and '[Label 2]' near [object 2].
+Premium fintech editorial 3D render style.
+Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge.
+No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line, no panels.
+Accents in vivid emerald and mint green. Gold only for money/value. Warm red-orange only for danger/loss.
+Use smooth rounded 3D geometry, soft bevelled edges and confident high-contrast studio lighting with bold emerald rim light.
+Place the main subject around the visual center and leave generous natural empty space above and below without changing the background.
+Vertical 9:16.
+No photorealism, no real identifiable human, no faceless character, no UI dashboard, no headline, no subtitle, no explanatory sentence.
+```
 
-Das Bild übernimmt:
+## 7. Bildproduktion — Nutzer + Google Flow
 
-- konkrete Gegenstände
-- räumliche Situationen
-- Ursache-Wirkungs-Szenen
-- emotionale oder anschauliche Vergleiche
-- visuelle Metaphern
+- **Antigravity erzeugt keine Bilder.**
+- Der Nutzer erzeugt Cover und Szenenbilder selbst mit Google Flow.
+- Antigravity/der Agent erstellt nur Bildprompts, Dateinamen, Szenenplanung und spätere technische Verarbeitung.
 
-### Remotion
+Google Flow arbeitet pro Bild strikt:
 
-Remotion übernimmt:
+```text
+PROMPT LESEN
+→ GENAU EIN BILD ERZEUGEN
+→ SOFORT KORREKT UMBENENNEN
+→ MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
+→ ERST DANN NÄCHSTES BILD
+```
 
-- Überschriften
-- Untertitel
-- Geldbeträge
-- Zahlen-Reveals
-- Diagramme und Tabellen
-- Quellen und Datenstand
-- zusätzliche Pfeile oder Hervorhebungen
-- Übergänge
-- Fortschritt
-- CTA
+### Nummerierung
 
-Bilder dürfen nie nur als bedeutungslose Hintergrundtapete dienen.
-Als Richtwert werden in einem 60- bis 90-Sekunden-Reel ungefähr 2 bis 5 KI-Bilder verwendet; die übrigen Beats bestehen aus Remotion oder Kombinationen.
+- Cover = `Bild 00`
+- Szene 01 = `Bild 01`
+- Szene 02 = `Bild 02`
+- usw.
+- **Bildnummer = echte Szenennummer**, niemals Anzahl erzeugter Bilder
+- Remotion-Animation = kein Bild, Nummer bleibt reserviert
 
-## 7. Technisches Designsystem
+Beispiel:
 
-- Neue produktive Remotion-Dateien importieren ausschließlich aus `src/design-system`.
-- Direkte Imports aus `src/bausteine` sind in neuer Produktion nicht erlaubt.
-- Direkte Imports aus `src/brand` bleiben nur für bestehende Altdateien vorübergehend kompatibel.
-- Farben, Premium-Palette, Formate und Safe Areas stammen ausschließlich aus `src/brand/tokens.ts`.
-- Fonts stammen ausschließlich aus `src/brand/fonts.ts`.
-- Finanzrechner stammen aus `src/finance/calculations.ts`.
-- `src/bausteine/fn_core.tsx` ist nur noch eine Kompatibilitätsschicht und darf keine eigenen Markenfarben oder Fontquellen definieren.
-- Premium-Bausteine werden über Namensräume wie `PremiumCharts`, `FinanceConcepts` oder `HookBlocks` aus `src/design-system` verwendet.
-- Vor einer neuen Komponente muss geprüft werden, ob bereits eine gleichwertige Komponente existiert.
-- Neue Produktion darf keine frei erfundenen Finanzwerte direkt im JSX enthalten.
+```text
+Szene 01 = Bild      → Bild 01
+Szene 02 = Animation → kein Bild 02
+Szene 03 = Bild      → Bild 03
+```
 
-Verbindliche technische Dokumentation:
+Direkt bei **jedem einzelnen Bildprompt** steht der endgültige Dateiname.
 
-- `src/design-system/README.md`
-- `src/bausteine/README.md`
+Erst wenn alle Bilder fertig, korrekt benannt und geprüft sind, kommen sie gemeinsam nach:
 
-## 8. Finanzdaten und Faktenprüfung
+```text
+03-szenen/00-ALLE-BILDER-HIER-REIN/
+```
+
+Google Flow verteilt sie nicht auf einzelne Szenenordner.
+
+## 8. Bilddarstellung in Remotion
+
+- Bilder mit `object-fit: contain`
+- keine sichtbare unscharfe Kopie desselben Bildes als Hintergrund
+- Source-Crop oben höchstens `0.20`
+- Source-Crop unten höchstens `0.20`
+- Source-Crop insgesamt höchstens `0.34`
+- zusätzliche Skalierung höchstens `1.04`
+- Motive, Geld und Labels nie abschneiden
+
+## 9. Überschriften und Karaoke-Untertitel
+
+### Remotion-Überschriften
+
+- werden in Remotion gerendert, nicht als große KI-Bildheadline
+- oben
+- erste Zeile weiß
+- Schwerpunktzeile grün oder bei Geldwerten gold
+- passendes Linien-Icon
+
+### Karaoke-Untertitel
+
+- genau ein vollständiger Satz gleichzeitig
+- aktuelles gesprochenes Wort FinanzNeo-grün
+- restliche Wörter weiß
+- maximal zwei ausgewogene Zeilen
+- keine springenden Wörter
+- keine Größenanimation
+- keine Wort-für-Wort-Einblendung
+- vorheriger Satz bleibt während kurzer Pausen sichtbar
+- keine Caption-Lücken
+
+Safe Area bei 1080 × 1920:
+
+```text
+Headline ungefähr ab Y = 78
+Visual ungefähr Y = 270–1350
+Untertitel 320 px über dem unteren Rand
+links 62 px
+rechts 150 px
+```
+
+## 10. Timing
+
+Szenenschnitte folgen dem finalen Audio:
+
+```text
+finales Voiceover
+→ echte Wort-Zeitstempel
+→ Satzanfänge
+→ Szenenstarts
+→ relative Animationsdauern
+```
+
+Keine pauschal gleich langen Szenen als Standard.
+
+## 11. Audio
+
+Ziel im finalen Export:
+
+```text
+Integrated Loudness: ungefähr -16 LUFS
+True Peak: höchstens -1 dBTP
+```
+
+- finale Werte am gerenderten MP4 messen
+- keine Ersatz-Audiodatei erzeugen, wenn finales Voiceover fehlt
+- nach Audioänderungen Wortzeiten/Timeline neu prüfen
+
+## 12. Technisches Designsystem
+
+- neue produktive Remotion-Dateien importieren aus `src/design-system`
+- `src/bausteine` nur als bestehende Kompatibilitätsschicht
+- Farben/Safe Areas aus `src/brand/tokens.ts`
+- Fonts aus `src/brand/fonts.ts`
+- Finanzrechner aus `src/finance/calculations.ts`
+- keine frei erfundenen Finanzwerte direkt im JSX
+
+## 13. Finanzdaten und Faktenprüfung
 
 - keine erfundenen Zahlen
-- jede Rechnung muss reproduzierbar sein
-- Annahmen müssen genannt werden
-- historische Daten benötigen Quelle und Stand
-- Beispielrechnungen müssen als Beispiel gekennzeichnet sein
-- Kursdaten dürfen nicht mit zukünftigen Renditeversprechen verwechselt werden
-- bei aktuellen Fakten zuerst recherchieren
-- Diagramme dürfen nur validierte Daten verwenden
-- Demo-Komponenten mit Platzhalterzahlen dürfen nicht ungeprüft veröffentlicht werden
-- Geldbeträge werden in Euro dargestellt, sofern das konkrete Thema keine andere Währung verlangt
+- jede Rechnung reproduzierbar
+- Annahmen nennen
+- aktuelle Fakten zuerst recherchieren
+- historische Daten mit Quelle und Stand
+- Beispielrechnungen als Beispiel kennzeichnen
+- Rendite nie als sicher darstellen
+- Geldbeträge standardmäßig Euro
 
-## 9. Produktionsablauf
+## 14. Produktionsablauf
 
 1. Thema auswählen
-2. Fakten und Quellen recherchieren
-3. Skript schreiben
-4. Zahlen und Aussagen prüfen
-5. visuelle Beats planen
-6. pro Beat nach `docs/BEAT-TO-IMAGE-RULES.md` entscheiden: Bild, Remotion oder Kombination
-7. Bildprompts mit `docs/IMAGE-PROMPT-LIBRARY.md` erstellen
-8. Arman generiert die Bilder in Google Flow / Nano Banana und legt sie im Zielordner ab
-9. jedes Bild mit `docs/IMAGE-QA-CHECKLIST.md` prüfen
-10. Arman legt die fertige Voiceover-Datei ab
-11. erst starten, wenn alle benötigten Assets vorhanden sind
-12. Wort-Timings und Untertitel erzeugen
-13. Remotion-Szenen mit Imports aus `src/design-system` bauen
-14. Keyframes und Safe Areas prüfen
-15. vollständigen Render prüfen
-16. Caption, Quellen, CTA und PDF-Angebot erstellen
-17. für alle Plattformen ausgeben
+2. bestehende Reels prüfen, damit Thema nicht unnötig doppelt ist
+3. Fakten und Quellen recherchieren
+4. Skript schreiben
+5. Zahlen/Aussagen prüfen
+6. visuelle Beats planen
+7. Bild / Remotion / Kombination festlegen
+8. finales Voiceover ablegen
+9. echte Wort-Zeitstempel erzeugen
+10. Szenenstarts aus Satzanfängen ableiten
+11. `03-szenen/bildwelt.txt` nach der **seamless-background-Regel** erstellen
+12. für jede Bildszene konkreten Premium-Fintech-Editorial-3D-Prompt erstellen
+13. Dateiname + erlaubte Labels direkt am Prompt festlegen
+14. Nutzer erzeugt jedes Bild einzeln und benennt es sofort um
+15. Animationsszenen überspringen; Nummern bleiben reserviert
+16. alle fertigen Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
+17. Bild-QA: Metapher, Labels, Gesicht, **ein Hintergrund ohne Bänder**
+18. Remotion-Animationen bauen
+19. Überschriften/Karaoke-Captions einbinden
+20. Asset-Sync, Validatoren, Typecheck
+21. Preview rendern
+22. Kontaktbogen/Frames prüfen
+23. komplette MP4 mit Ton ansehen
+24. Audio-Lautheit messen
+25. Caption/Quellen/CTA finalisieren
+26. erst nach menschlicher Sichtprüfung freigeben
 
-Claude erstellt keine Ersatz-Audiodatei, wenn die Voiceover-Datei fehlt.
+## 15. Bild-QA — sofort neu erzeugen, wenn
 
-## 10. Qualitätsprüfung pro Reel
+- sichtbarer zweiter Hintergrund / oberes oder unteres Band
+- horizontale Trennlinie oder Tonwertkante
+- sichtbare Boden-/Wand-Grenze oder Studio-Horizont
+- Hintergrund nicht von oben bis unten nahtlos wirkt
+- Bild wie Diorama/Game-Level wirkt
+- Metapher nicht sofort verständlich ist
+- zu viele kleine Objekte vorkommen
+- große Headline/Untertitel/ganzer Satz im Bild steht
+- Labels falsch oder zusätzlich sind
+- Person ohne klar sichtbares Gesicht vorkommt
+- reine Rückenansicht verwendet wird
+- Stil fotorealistisch/Pixar/Clay ist
+- Bildaussage nicht zum gesprochenen Satz passt
 
-Vor Veröffentlichung prüfen:
+## 16. Abschlussdefinition
 
-- Hook in den ersten 2 Sekunden klar?
-- Thema sofort verständlich?
-- Bild und gesprochener Satz passen exakt zusammen?
-- jedes verwendete Bild hat mindestens 13 von 14 QA-Punkten?
-- keine Regel unter „Sofort neu erstellen“ verletzt?
-- oben 18 % frei?
-- unten 22 % frei?
-- keine unnötigen Texte im Bild?
-- Untertitel gut lesbar?
-- keine falschen Zahlen?
-- Quellen und Annahmen vorhanden?
-- keine Szene zu leer oder zu überladen?
-- klare visuelle Entwicklung?
-- CTA kurz und passend?
+Ein Reel ist erst fertig, wenn:
 
-Unter 8/10 wird überarbeitet. „9/10“ muss durch diese Prüfungen begründet sein, nicht nur behauptet werden.
+- erforderliche Nutzerbilder vorhanden oder exakt als fehlend gemeldet sind
+- finales Audio vorhanden ist
+- echte audio-basierte Wortzeiten vorliegen
+- Validator/Typecheck/Preview tatsächlich ausgeführt und erfolgreich sind
+- Bildsatz visuell geprüft wurde
+- komplette MP4 geprüft wurde
+- Audioziel geprüft wurde
 
-## 11. Aktive technische Prioritäten
+Technischer Erfolg allein ist keine kreative Freigabe.
 
-Die Bereinigung erfolgt in dieser Reihenfolge:
+## 17. Aktive Prioritäten
 
-1. Dokumentation und Bildsystem widerspruchsfrei machen
-2. Caption-Format vereinheitlichen und fehlende Assets sauber behandeln
-3. produktive Videos, Experimente und Showcases trennen
-4. `src/brand` und `src/bausteine` über `src/design-system` konsolidieren
-5. falsche Demo-Finanzzahlen entfernen und Berechnungen zentralisieren
-6. Typecheck, Tests und Render-Smoke-Tests ergänzen
-7. standardisierte Reel-Vorlage für 60–90 Sekunden bauen
-8. erst danach größere Serienproduktion starten
-
-Der detaillierte Plan steht in `docs/REPO-CLEANUP-PLAN.md`.
+1. Premium-Fintech-Editorial-3D-Bildwelt mit **einem nahtlosen Hintergrund** konsequent halten
+2. einfache Reel-Ordnerstruktur beibehalten
+3. Caption-, Safe-Area- und Satzschnittsystem stabil halten
+4. produktive Reels, Experimente und Showcases trennen
+5. Finanzberechnungen zentral und reproduzierbar halten
+6. Typecheck, Tests und Render-Smoke-Tests ausbauen
+7. erst danach größere Serienproduktion skalieren

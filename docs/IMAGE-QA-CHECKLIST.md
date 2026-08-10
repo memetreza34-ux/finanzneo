@@ -1,216 +1,123 @@
 # FinanzNeo — Bild-QA-Checkliste
 
-Diese Checkliste entscheidet, ob ein KI-Bild für ein FinanzNeo-Reel freigegeben oder neu erstellt wird.
+Diese Checkliste gilt für einzelne Bilder und den gesamten Bildsatz. Bei Widerspruch gilt `CLAUDE.md`.
 
-Ein Bild wird **nicht** freigegeben, nur weil es optisch hochwertig aussieht. Es muss den gesprochenen Satz klar erklären und später mit Remotion funktionieren.
+## 1. Satzgenauigkeit
 
-## Freigabestatus
+- [ ] Bild erklärt exakt den zugehörigen gesprochenen Satz.
+- [ ] Problem/Lösung werden nicht vertauscht.
+- [ ] Aussage innerhalb einer Sekunde erkennbar.
+- [ ] Nur eine Hauptaussage pro Bild.
 
-- **Freigegeben:** alle Pflichtpunkte bestanden
-- **Überarbeiten:** Grundidee stimmt, aber einzelne Punkte sind fehlerhaft
-- **Neu erstellen:** Aussage, Aufbau oder Stil sind grundsätzlich falsch
+## 2. Verbindlicher Bildstil
 
----
+- [ ] Premium fintech editorial 3D render style.
+- [ ] Deep charcoal green-black Grundwelt.
+- [ ] Emerald/Mint-Akzente konsistent.
+- [ ] Gold nur für Geld/Wert.
+- [ ] Warmes Rot-Orange nur für Risiko/Verlust/Schulden.
+- [ ] Smooth rounded geometry, soft bevelled edges.
+- [ ] Eine starke Metapher / ein großes Hauptobjekt.
+- [ ] Keine Miniatur-Dioramen, Game-Level, Neon-Tunnel oder Sci-Fi-Korridore.
 
-# 1. Aussage und Verständnis
+## 3. Hintergrund — kritischer Pflichtpunkt
 
-## Pflicht
+- [ ] Genau EIN nahtloser Hintergrund von oben bis unten.
+- [ ] Gleicher Material-/Ton-/Gradient-Verlauf über das ganze Bild.
+- [ ] Keine horizontale Trennlinie.
+- [ ] Kein anderes oberes oder unteres Band.
+- [ ] Keine separaten Zonen/Panels.
+- [ ] Keine sichtbare Boden-Wand-Grenze.
+- [ ] Kein sichtbarer Horizont/Studio-Split.
+- [ ] Freie Fläche oberhalb/unterhalb des Motivs entsteht natürlich, ohne Hintergrundwechsel.
 
-- [ ] Das Bild erklärt genau den gesprochenen Satz.
-- [ ] Die Kernaussage ist innerhalb von höchstens zwei Sekunden erkennbar.
-- [ ] Das Bild zeigt eine vollständige Logik und nicht nur ein dekoratives Objekt.
-- [ ] Ausgangspunkt, Entwicklung und Ergebnis sind klar unterscheidbar.
-- [ ] Die Blickrichtung oder Leserichtung ist eindeutig.
-- [ ] Das Bild funktioniert auch ohne erklärenden Fließtext.
-- [ ] Es gibt nur eine Hauptaussage pro Bild.
+**Sofort neu erzeugen:** zwei Hintergründe, Tonwertband, Boden-Wand-Kante oder sichtbare horizontale Zone.
 
-## Sofort neu erstellen, wenn
+## 4. Person
 
-- die Szene ohne Voiceover nicht verständlich ist
-- das Bild nur allgemein nach „Finanzen“ aussieht
-- Hauptobjekte nichts mit dem Satz zu tun haben
-- die Bildlogik dem gesprochenen Satz widerspricht
-- Ursache und Ergebnis verwechselt werden
+Wenn eine Person vorkommt:
 
----
+- [ ] Gesicht klar sichtbar.
+- [ ] Augen, Nase und Mund stilisiert erkennbar.
+- [ ] frontal oder natürliche 3/4-Ansicht.
+- [ ] keine reale identifizierbare Person.
+- [ ] keine gesichtslose/blanke Figur.
+- [ ] keine reine Rückenansicht.
 
-# 2. Safe Areas für Remotion
+## 5. Text und Labels
 
-## Pflicht
+- [ ] Keine große Überschrift im KI-Bild.
+- [ ] Kein Untertitel.
+- [ ] Kein ganzer erklärender Satz.
+- [ ] Nur explizit erlaubte kurze deutsche Objektlabels.
+- [ ] Labels korrekt geschrieben.
+- [ ] Labels direkt am passenden Objekt.
+- [ ] Keine zufälligen Zusatztexte/Fantasiewörter.
 
-- [ ] Die oberen 18 % sind ruhig und frei.
-- [ ] Die unteren 22 % sind ruhig und frei.
-- [ ] Keine wichtigen Objekte liegen in diesen Bereichen.
-- [ ] Keine Pfeile, Charts oder Labels liegen in diesen Bereichen.
-- [ ] Die Hauptszene befindet sich im mittleren Bildbereich.
-- [ ] Die Remotion-Überschrift kann oben ohne Überdeckung platziert werden.
-- [ ] Die Untertitel können unten ohne Überdeckung platziert werden.
+## 6. Marken
 
-## Sofort neu erstellen, wenn
+Wenn Marken verwendet werden:
 
-- das zentrale Objekt oben angeschnitten wird
-- wichtige Erklärteile im Untertitelbereich liegen
-- der Generator die freien Bereiche mit Dekoration füllt
-- die Szene so hoch oder tief sitzt, dass sie nicht sinnvoll verschoben werden kann
+- [ ] Marke ist inhaltlich relevant.
+- [ ] Name korrekt geschrieben.
+- [ ] keine erfundene Partnerschaft/Empfehlung suggeriert.
+- [ ] keine unnötige Marken-Deko.
 
----
+## 7. Komposition
 
-# 3. Text im Bild
+- [ ] vertical 9:16.
+- [ ] Hauptmotiv groß und smartphone-lesbar.
+- [ ] wenige große unterstützende Elemente.
+- [ ] natürlicher freier Raum oberhalb und unterhalb.
+- [ ] keine Prozent-Zonen im Prompt oder sichtbare Zonen im Ergebnis.
+- [ ] keine Dashboard-/Mini-Panel-Komposition.
 
-## Pflicht
+## 8. Remotion-Darstellung
 
-- [ ] Es gibt keine große Überschrift im Bild.
-- [ ] Es gibt keinen Untertitel im Bild.
-- [ ] Es gibt keine Absätze oder erklärenden Sätze.
-- [ ] Es gibt höchstens drei kleine Labels.
-- [ ] Jedes Label besteht aus höchstens ein bis drei Wörtern.
-- [ ] Alle Labels sind auf Deutsch.
-- [ ] Labels stehen direkt beim passenden Objekt.
-- [ ] Zahlen werden nur verwendet, wenn sie ausdrücklich geprüft und im Bild nötig sind.
+- [ ] Bild mit `contain`.
+- [ ] keine unscharfe Bildkopie als sichtbarer Hintergrund.
+- [ ] Source-Crop oben höchstens 0.20.
+- [ ] Source-Crop unten höchstens 0.20.
+- [ ] Gesamt-Crop höchstens 0.34.
+- [ ] zusätzliche Skalierung höchstens 1.04.
+- [ ] kein Motiv/Label abgeschnitten.
 
-## Sofort neu erstellen, wenn
+## 9. Timing und Untertitel
 
-- lange Textblöcke enthalten sind
-- englische Überschriften ohne sachlichen Grund erscheinen
-- Labels falsch geschrieben oder unleserlich sind
-- der Bildtext die spätere Remotion-Überschrift ersetzt
-- mehrere Textkarten oder Infoboxen entstehen
+- [ ] Bildwechsel am Beginn des zugehörigen Satzes.
+- [ ] genau ein vollständiger Untertitelsatz sichtbar.
+- [ ] aktuelles Wort grün, Rest weiß.
+- [ ] maximal zwei Zeilen.
+- [ ] keine Caption-Lücken.
 
----
+## 10. Freigabeablauf
 
-# 4. Komposition und Smartphone-Lesbarkeit
+1. Einzelbild gegen Satz prüfen.
+2. Hintergrund explizit auf horizontale Bänder/Zonen prüfen.
+3. Person/Gesicht prüfen.
+4. Labels prüfen.
+5. alle Bilder als Kontaktbogen prüfen.
+6. Anfang/Mitte/Ende jeder Bildszene im Render prüfen.
+7. komplette MP4 mit Ton ansehen.
 
-## Pflicht
+## Sofort neu erzeugen
 
-- [ ] Es gibt nur 2 bis 4 große Hauptelemente.
-- [ ] Das wichtigste Element ist deutlich größer oder klarer als Nebenelemente.
-- [ ] Alle wichtigen Objekte sind auf einem Smartphone erkennbar.
-- [ ] Die Szene besitzt ausreichend Abstand zwischen den Elementen.
-- [ ] Es gibt keine unnötigen Mini-Icons.
-- [ ] Es gibt keine überfüllten Dashboard-Flächen.
-- [ ] Pfeile oder Pfade verbinden die Elemente logisch.
-- [ ] Die Szene wirkt lebendig, aber nicht chaotisch.
+- zwei sichtbare Hintergründe/Bänder
+- Boden-Wand-Grenze/Horizont
+- gesichtslose oder abgewandte Person
+- falsche/zusätzliche Labels
+- große Headline oder Satz
+- Diorama/Game-Level
+- falsche Farbwelt
+- Bildaussage passt nicht zum Satz
 
-## Sofort neu erstellen, wenn
-
-- viele kleine Panels verwendet werden
-- das Bild wie eine Präsentationsfolie aussieht
-- das Auge keinen klaren Startpunkt findet
-- wichtige Objekte zu klein für 9:16 sind
-- die Szene nur aus einem isolierten Einzelobjekt besteht
-
----
-
-# 5. FinanzNeo-Stil
-
-## Pflicht
-
-- [ ] Dunkler Anthrazit-Hintergrund.
-- [ ] Tiefgrüne Markenakzente.
-- [ ] Gold nur für Geld und finanzielle Werte.
-- [ ] Hochwertige matte Materialien.
-- [ ] Dezente Glasdetails statt übertriebenem Glaslook.
-- [ ] Weiches volumetrisches Licht.
-- [ ] Klare isometrische oder leicht isometrische Tiefenwirkung.
-- [ ] Nicht fotorealistisch.
-- [ ] Nicht kindlich oder cartoonhaft.
-- [ ] Keine zufälligen Neonfarben.
-- [ ] Das Bild passt sichtbar zur bestehenden FinanzNeo-Welt.
-
-## Sofort neu erstellen, wenn
-
-- es wie ein Produkt-Render oder eine Werbeanzeige aussieht
-- es zu fotorealistisch wirkt
-- es wie ein Kinderfilm oder eine Spielzeugwelt aussieht
-- Farben nicht zur FinanzNeo-Palette passen
-- das Bild nur aus Glaskugeln, schwebenden Münzen oder dekorativem Glow besteht
-
----
-
-# 6. Marken, Produkte und reale Elemente
-
-## Pflicht
-
-- [ ] Reale Marken werden nur eingesetzt, wenn das Thema genau diese Marke behandelt.
-- [ ] Generische Szenen enthalten keine zufälligen Logos.
-- [ ] Produktverpackungen sind neutral und ohne Markenkennzeichnung.
-- [ ] Keine geschützten App-Oberflächen werden nachgebaut.
-- [ ] Kein Bild wirkt wie eine Empfehlung für ein konkretes Finanzprodukt.
-
-## Sofort neu erstellen, wenn
-
-- zufällige Banken-, Broker- oder Kartenlogos erscheinen
-- Marken das Bild dominieren, obwohl sie nicht Thema sind
-- ein generisches Erklärbild wie bezahlte Werbung wirkt
-
----
-
-# 7. Finanzielle Richtigkeit
-
-## Pflicht
-
-- [ ] Geldbeträge werden in Euro dargestellt, sofern das Thema keine andere Währung verlangt.
-- [ ] Rechenwerte stammen aus geprüften Daten.
-- [ ] Keine Rendite wird als sicher dargestellt.
-- [ ] Risiko wird nicht visuell verharmlost.
-- [ ] Diagramme zeigen keine erfundenen oder irreführenden Verläufe.
-- [ ] Beispielannahmen werden später durch Remotion oder Caption erklärt.
-
-## Sofort neu erstellen, wenn
-
-- eine sichere Gewinnentwicklung suggeriert wird
-- ein Risiko-Produkt als geschützt oder garantiert dargestellt wird
-- falsche Währungssymbole erscheinen
-- Zahlen im Bild nicht geprüft werden können
-
----
-
-# 8. Bewertung
-
-Jeder Bereich erhält:
-
-- **2 Punkte:** vollständig bestanden
-- **1 Punkt:** kleine Schwäche, leicht korrigierbar
-- **0 Punkte:** nicht bestanden
-
-Bereiche:
-
-1. Aussage und Verständnis
-2. Safe Areas
-3. Textregeln
-4. Komposition
-5. FinanzNeo-Stil
-6. Markenregeln
-7. Finanzielle Richtigkeit
-
-Maximal: **14 Punkte**
-
-## Entscheidung
-
-- **13–14 Punkte:** freigegeben
-- **10–12 Punkte:** überarbeiten
-- **0–9 Punkte:** neu erstellen
-
-Zusätzlich gilt: Ein einziger Punkt unter „Sofort neu erstellen“ führt unabhängig von der Gesamtpunktzahl zur Neuerstellung.
-
----
-
-# Kurzes Freigabeformat
-
-Bei jeder Bildprüfung dieses Format verwenden:
+## Protokoll
 
 ```text
-Bild-QA: [FREIGEGEBEN / ÜBERARBEITEN / NEU ERSTELLEN]
-Punkte: [X/14]
-
-Bestanden:
-- ...
-
-Fehler:
-- ...
-
-Konkrekte Korrektur:
-- ...
+Bildsatz-QA: [FREIGEGEBEN / ÜBERARBEITEN / NEU ERSTELLEN]
+Seamless Background: [BESTANDEN / NICHT BESTANDEN]
+Gesicht: [BESTANDEN / NICHT BESTANDEN / NICHT RELEVANT]
+Labels: [BESTANDEN / NICHT BESTANDEN]
+Satzgenauigkeit: [BESTANDEN / NICHT BESTANDEN]
+Render-Crops: [BESTANDEN / NICHT BESTANDEN]
 ```
-
-Die Aussage „sieht gut aus“ reicht nicht als Freigabe.

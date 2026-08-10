@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920">
+
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#10261A"/><stop offset="1" stop-color="#06120A"/></linearGradient>
+  <linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5CFFAD"/><stop offset="1" stop-color="#00A653"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFE49A"/><stop offset="1" stop-color="#C98900"/></linearGradient>
+  <linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FF6B6B"/><stop offset="1" stop-color="#9B122B"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="24" stdDeviation="32" flood-color="#000" flood-opacity=".45"/></filter>
+  <filter id="glow"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+
+<rect width="1080" height="1920" fill="url(#bg)"/>
+<g opacity=".14" stroke="#FFFFFF"><path d="M0 420H1080M0 620H1080M0 820H1080M0 1020H1080M0 1220H1080M0 1420H1080"/><path d="M180 0V1920M380 0V1920M580 0V1920M780 0V1920M980 0V1920"/></g>
+
+<text x="540" y="400" text-anchor="middle" fill="#FFFFFF" font-family="Inter,Arial" font-size="62" font-weight="800">GELD AM ZAHLTAG SCHÜTZEN</text>
+<g filter="url(#shadow)">
+  <path d="M540 540C760 610 900 730 900 980V1320C900 1490 740 1600 540 1680C340 1600 180 1490 180 1320V980C180 730 320 610 540 540z" fill="#00D26A" fill-opacity=".08" stroke="#5CFFAD" stroke-width="8"/>
+  <g font-family="Inter,Arial" font-weight="800" text-anchor="middle">
+    <rect x="250" y="790" width="580" height="210" rx="52" fill="#112A1B" stroke="#5CFFAD" stroke-width="4"/>
+    <text x="540" y="885" fill="#FFFFFF" font-size="50">FIXKOSTEN</text><text x="540" y="955" fill="#7BFFC0" font-size="34">GESCHÜTZT</text>
+    <rect x="250" y="1040" width="580" height="210" rx="52" fill="#112A1B" stroke="#5CFFAD" stroke-width="4"/>
+    <text x="540" y="1135" fill="#FFFFFF" font-size="50">RÜCKLAGE</text><text x="540" y="1205" fill="#7BFFC0" font-size="34">GESCHÜTZT</text>
+    <rect x="250" y="1290" width="580" height="210" rx="52" fill="#172317" stroke="#FFC83D" stroke-width="4"/>
+    <text x="540" y="1385" fill="#FFFFFF" font-size="50">WOCHENBUDGET</text><text x="540" y="1455" fill="#FFE49A" font-size="34">FREI VERFÜGBAR</text>
+  </g>
+</g>
+
+</svg>
