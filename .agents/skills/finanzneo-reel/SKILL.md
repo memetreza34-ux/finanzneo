@@ -1,6 +1,6 @@
 ---
 name: finanzneo-reel
-description: Build, repair and finish FinanzNeo vertical Remotion reels with strict user-media boundaries, adaptive-safe-fill visuals and final-audio-synced captions.
+description: Build, repair and finish FinanzNeo vertical Remotion reels with strict user-media boundaries, adaptive-safe-fill visuals, exact final-audio captions and one universal social caption.
 ---
 
 # FinanzNeo Reel Skill
@@ -106,7 +106,7 @@ Use only real word-level start/end timestamps derived from the exact final audio
 
 Never evenly distribute or estimate word times.
 
-Caption behavior:
+Caption behavior inside the video:
 
 - preferred one complete sentence visible
 - at most two very short sentences only when needed
@@ -120,6 +120,45 @@ Use `src/design-system/SentenceKaraokeCaptions.tsx` for new productive reels.
 
 Final `word-timings.json` must have `timingStatus: final-audio-aligned`. If exact word alignment cannot be produced, report **BLOCKED** instead of estimating.
 
+## Universal social caption — mandatory
+
+Create exactly **one** publishing caption:
+
+```text
+<TARGET-REEL>/04-caption/caption.txt
+```
+
+The exact same caption is used unchanged for:
+
+- Instagram Reels
+- TikTok
+- Facebook Reels
+- Snapchat
+
+Rules:
+
+- no per-platform variants
+- final file contains copy-ready text, no `CAPTION:`/`CTA:` template headers
+- first line is a strong but truthful hook
+- then concise core value / aha from the Reel
+- optional natural save/follow/comment CTA
+- **exactly 5 relevant hashtags**
+- no random trend tags, hashtag spam or irrelevant `#fyp`
+- no viral guarantee or misleading clickbait
+- no facts beyond verified script/research
+
+Do not create or keep these active publishing files:
+
+```text
+instagram-reels.txt
+tiktok.txt
+facebook-reels.txt
+snapchat.txt
+youtube-shorts.txt
+```
+
+`word-timings.json` remains separate because it powers in-video subtitles, not social publishing.
+
 ## End-to-end finalization
 
 When the media gate passes, continue automatically through:
@@ -130,7 +169,7 @@ When the media gate passes, continue automatically through:
 4. Remotion implementation
 5. adaptive-safe-fill framing
 6. sentence karaoke captions
-7. four Reel-platform publishing files
+7. one universal social caption with exactly 5 relevant hashtags
 8. final validator
 9. TypeScript
 10. preview render
@@ -145,17 +184,6 @@ Final validation:
 
 ```bash
 npm run reel:validate -- <TARGET-REEL> --final
-```
-
-Publishing files are only:
-
-```text
-caption.txt
-instagram-reels.txt
-tiktok.txt
-facebook-reels.txt
-snapchat.txt
-word-timings.json
 ```
 
 No YouTube Shorts. YouTube is separate Longform under `youtube/`.
