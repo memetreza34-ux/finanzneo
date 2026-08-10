@@ -18,7 +18,7 @@ Erstelle selbstständig:
 5. Bild-/Remotion-Zuordnung
 6. vollständige Google-Flow-Bildprompts mit echten Szenennummern und finalen Dateinamen
 7. Remotion-Spezifikationen
-8. Master-Caption + Instagram/TikTok/Facebook/Snapchat-Dateien
+8. genau EINE universelle Social-Caption für Instagram Reels, TikTok, Facebook Reels und Snapchat mit exakt 5 relevanten Hashtags
 
 Antigravity erzeugt keine finalen Bilder.
 Keine YouTube Shorts.
@@ -87,7 +87,10 @@ Verbindlich:
 - aktives Wort exakt nach echtem start/end grün
 - Satzwechsel beim ersten gesprochenen Wort des nächsten Satzes
 - kurze Pausen ohne Caption-Lücke
-- vier Reel-Plattformdateien fertigstellen
+- genau EINE universelle Social-Caption fertigstellen
+- dieselbe Caption unverändert für Instagram Reels, TikTok, Facebook Reels und Snapchat
+- Caption mit starker erster Zeile, kurzem Nutzen/Aha, natürlichem CTA wenn passend und EXAKT 5 relevanten Hashtags
+- keine separaten Plattform-Caption-Dateien
 - npm run reel:validate -- <TARGET-REEL> --final
 - TypeScript prüfen
 - Preview rendern und visuell prüfen
@@ -121,17 +124,33 @@ Prüfe Captions:
 - keine unnötigen Leerphasen
 ```
 
-## 6. Publishing
+## 6. Universelle Social-Caption
 
 ```text
-04-caption/ enthält:
+Erstelle genau EINE Caption für das fertige Reel.
+
+Sie wird 1:1 auf Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet.
+
+Regeln:
+- keine Plattformvarianten
+- keine Überschrift wie CAPTION:
+- erste Zeile = starker ehrlicher Hook
+- danach kurze Kernaussage/Aha-Nutzen
+- kurzer Save-/Follow-/Kommentar-CTA nur wenn passend
+- EXAKT 5 passende Hashtags
+- keine zufälligen Trend-Tags, kein Hashtag-Spam, kein irrelevantes #fyp
+- keine erfundenen Fakten
+- keine Viralitätsgarantie
+- direkt kopierfertig in 04-caption/caption.txt
+
+04-caption/ enthält nur:
 - caption.txt
+- word-timings.json
+
+Nicht erstellen:
 - instagram-reels.txt
 - tiktok.txt
 - facebook-reels.txt
 - snapchat.txt
-- word-timings.json
-
-Keine YouTube Shorts.
-YouTube ausschließlich separater Longform-Workflow unter youtube/.
+- youtube-shorts.txt
 ```
