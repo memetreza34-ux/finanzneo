@@ -1,149 +1,135 @@
 # FinanzNeo — aktueller Produktionsablauf
 
-> `CLAUDE.md` ist die höchste Regelquelle. Dieses Dokument beschreibt den praktischen Ablauf.
+> `CLAUDE.md` ist die höchste Regelquelle. Dieses Dokument ist nur die praktische Kurzfassung.
 
-## Vor jedem neuen Reel lesen
+## 1. Vorbereitung
+
+Vor jedem Reel lesen:
 
 - `CLAUDE.md`
 - `reels/PRODUKTIONSSTANDARD.md`
-- `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-- `docs/IMAGE-SYSTEM.md`
-- `docs/BEAT-TO-IMAGE-RULES.md`
-- `docs/IMAGE-PROMPT-LIBRARY.md`
-- `docs/IMAGE-QA-CHECKLIST.md`
-- `docs/PLATFORM-PUBLISHING.md`
+- Ziel-Reel `03-szenen/scene-index.json`
+- Ziel-Reel `03-szenen/alle-bildprompts.txt`
 
-## Schritt 1 — Thema und Recherche
+Neues Thema gegen bestehende Reels prüfen, Fakten recherchieren, Quellen/Datenstand festhalten und keine Zahlen erfinden.
 
-- neues Thema gegen bestehende Reels prüfen
-- notwendige Fakten recherchieren
-- Quellen und Datenstand festhalten
-- Fakten von Beispielannahmen trennen
-- keine Zahlen erfinden
+## 2. Skript und Szenen
 
-## Schritt 2 — Skript
+- 60–90 Sekunden als Reel-Standard
+- Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz → CTA
+- kurze deutsche Sätze
+- je Beat Bild / Remotion / Kombination wählen
+- Bildnummer = echte Szenennummer; Animationen reservieren ihre Nummer
 
-60–90 Sekunden als Standard:
+## 3. Google Flow
 
-1. Hook innerhalb der ersten 2 Sekunden
-2. Problem
-3. einfache Erklärung
-4. konkretes Beispiel
-5. Lösung oder Merksatz
-6. kurzer CTA, wenn sinnvoll
-
-Kurze deutsche Sätze, direkte Du-Ansprache, kein unnötiger Fachjargon und keine individuelle Anlageempfehlung.
-
-## Schritt 3 — Szenen- und Visualplan
-
-Je Beat entscheiden:
-
-- KI-Bild
-- Remotion
-- Kombination
-
-KI-Bilder für konkrete Gegenstände, Alltagssituationen und visuelle Metaphern. Remotion für Überschriften, Karaoke-Untertitel, Zahlen, Quellen, Diagramme, Tabellen und CTA.
-
-## Schritt 4 — Bildprompts
-
-Jeder Bildprompt folgt dem aktuellen FinanzNeo-Stil:
-
-- Premium Fintech Editorial 3D
-- eine dominante Finanzmetapher / großes Hauptobjekt
-- optional stilisierte erwachsene 3D-Person
-- wenn Person: Gesicht mit Augen, Nase und Mund klar sichtbar; frontal oder 3/4 bevorzugt
-- deep charcoal green-black Grundwelt
-- Emerald/Mint-Akzente
-- Gold nur für Geld/Wert
-- warmes Rot-Orange nur für Risiko/Verlust/Schulden
-- smooth rounded geometry + soft bevelled edges
-- nur kurze deutsche Objektlabels, normalerweise 1–3 Wörter
-- keine große Headline, kein Untertitel, kein ganzer erklärender Satz im KI-Bild
-- keine Dioramen, Neon-Tunnel, Sci-Fi-Korridore, Dashboards oder Game-Level
-
-### Kritische Hintergrundregel
-
-Keine Prozent-Zonen mehr verwenden.
-
-Jeder Prompt verlangt **einen einzigen nahtlosen Hintergrund von oben bis unten**:
-
-- keine horizontalen Bänder
-- keine obere/untere Hintergrundzone
-- keine Floor-Wall-Grenze
-- kein Horizont
-- keine Panels
-- natürliche freie Fläche oberhalb/unterhalb des Motivs nur durch weniger Inhalt, nicht durch einen anderen Hintergrund
-
-## Schritt 5 — Google Flow
-
-Der Nutzer erzeugt die Bilder selbst. Antigravity erzeugt keine Bilder.
-
-Für jedes benötigte Bild:
+Antigravity erzeugt keine finalen Bilder.
 
 ```text
-PROMPT LESEN
-→ GENAU EIN BILD ERZEUGEN
-→ SOFORT ENDGÜLTIG UMBENENNEN
-→ MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
-→ ERST DANN NÄCHSTES BILD
+Prompt lesen
+→ genau EIN Bild erzeugen
+→ sofort endgültig umbenennen
+→ Motiv + Labels + Gesicht + nahtlosen Hintergrund prüfen
+→ erst dann nächstes Bild
 ```
 
-Nummerierung folgt immer der echten Szene. Animationsnummern bleiben reserviert.
-
-Erst nach Abschluss kommen alle Nutzerbilder gemeinsam nach:
+Alle finalen Nutzerbilder ausschließlich nach:
 
 ```text
 03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-## Schritt 6 — Bild-QA
+Finales Voiceover ausschließlich nach:
 
-Neu erzeugen bei:
+```text
+02-audio/
+```
 
-- zwei sichtbaren Hintergründen/Bändern
-- horizontaler Trennkante
-- Floor-Wall-Grenze/Horizont
-- gesichtsloser oder abgewandter Person
-- falschen/zusätzlichen Labels
-- großer KI-Headline oder erklärendem Satz
-- falscher Bild-Skript-Zuordnung
-- Diorama/Game-Level/Tunnel-Look
+Keine Ersatzmedien aus anderen Ordnern/Reels/Downloads/Web/Stock/Cache/Alt-Exporten.
 
-## Schritt 7 — Voiceover und Timing
+## 4. Bildwelt
 
-- finales Voiceover in `02-audio/`
-- echte Wortzeiten aus genau diesem Audio
-- Szenenschnitte an Satzanfängen
-- keine pauschal gleich langen Szenen
+- Premium Fintech Editorial 3D
+- eine dominante Finanzmetapher / Hero-Objekt
+- optional Person; Gesicht klar sichtbar
+- deep charcoal green-black + emerald/mint
+- Gold für Geld/Wert, Rot-Orange für Risiko/Verlust
+- kurze deutsche Objektlabels, normalerweise 1–3 Wörter
+- keine KI-Headline, kein KI-Untertitel, kein erklärender Satz
+- genau ein nahtloser Hintergrund von oben bis unten
+- keine Prozent-Zonen/Bänder/Floor-Wall-Grenze/Horizont/Panels
 
-## Schritt 8 — Remotion
+## 5. Remotion-Bilddarstellung
 
-- 1080 × 1920, 30 fps
-- Bilder mit `contain`
-- keine unscharfe Bildkopie als Hintergrund
-- Überschriften/Icons in Remotion
-- genau ein vollständiger Untertitelsatz sichtbar
-- aktuelles Wort grün, Rest weiß
-- maximal zwei Untertitelzeilen
-- Animationen relativ zur echten Szenendauer
+**Nicht mehr `contain`.**
 
-## Schritt 9 — Technische QA
+Bildszenen verwenden `adaptive-safe-fill`:
 
-Erst wenn Nutzerbilder und Audio vorhanden sind:
+- Bild nimmt nahezu die komplette nutzbare Fläche zwischen Headline und Caption ein
+- kein kleines Poster innerhalb des Reels
+- kein sichtbarer Bildrand und keine unscharfe Bildkopie
+- zuerst leeren Hintergrund croppen
+- Gesicht, Labels, Hero-Objekt und Geld/Wert schützen
+- `focalX`/`focalY` pro Szene nutzen
 
-- Asset-Sync/Ingest
-- Reel-Validator
-- Typecheck
-- Preview-Render
-- Kontaktbogen/Frames prüfen
-- komplette MP4 mit Ton ansehen
-- Audio am finalen Export prüfen: ungefähr -16 LUFS, True Peak höchstens -1 dBTP
+Richtlayout 1080×1920:
 
-Ohne tatsächlichen Lauf nicht behaupten, dass Validator, Typecheck oder Render bestanden haben.
+```text
+Headline ≈ Y 70
+Visual   ≈ Y 210–1515
+Caption  ≈ 280 px über Bottom
+links    ≈ 60 px
+rechts   ≈ 180 px
+```
 
-## Schritt 10 — Plattform-Ausgabe
+## 6. Audio und Untertitel
 
-Die Hauptstruktur bleibt einfach. Alle Reel-Publishing-Texte liegen in `04-caption/`:
+Wortzeiten ausschließlich aus dem exakten finalen Audio.
+
+Verboten:
+
+- gleichmäßiges Verteilen der Wörter
+- geschätzte Wortzeiten
+- provisorische Timings als final deklarieren
+
+Untertitel:
+
+- bevorzugt 1 vollständiger Satz gleichzeitig
+- maximal 2 sehr kurze Sätze, falls nötig
+- hart maximal 2 Zeilen
+- aktives Wort grün nach echtem `start/end`
+- Satz bleibt in kurzer Pause stehen
+- Satzwechsel exakt beim ersten Wort des nächsten Satzes
+
+Wenn echte Wortausrichtung nicht möglich ist → **BLOCKED**, nicht schätzen.
+
+## 7. Antigravity Autopilot
+
+Wenn Pflichtbilder + genau ein finales Audio vorhanden sind und der Nutzer `Mach das Reel` / `Mach es fertig` sagt, läuft der Auftrag ohne `weiter?` bis zum fertigen Ergebnis:
+
+```text
+Medien-Gate
+→ echte Wortzeiten
+→ Szenentiming
+→ Remotion
+→ adaptive-safe-fill
+→ Satz-Karaoke
+→ Plattformtexte
+→ npm run reel:validate -- <TARGET-REEL> --final
+→ TypeScript
+→ Preview
+→ visuelle QA
+→ Full MP4
+→ Fehler selbst beheben und erneut prüfen/rendern
+→ Safety Audit
+→ Commit/Draft-PR
+```
+
+Stoppen nur bei einem echten Blocker nach `CLAUDE.md`.
+
+## 8. Publishing
+
+Reel-Dateien:
 
 ```text
 caption.txt
@@ -154,47 +140,10 @@ snapchat.txt
 word-timings.json
 ```
 
-`caption.txt` ist die gemeinsame geprüfte Faktenbasis. Danach werden die vier Reel-Plattformdateien passend zum selben finalen Reel erstellt.
+Keine YouTube Shorts. YouTube ausschließlich Longform unter `youtube/`.
 
-### Instagram Reels
+## 9. Fertig
 
-- Caption
-- CTA
-- Quellen/Hinweis
-- Hashtags
-- optional angehefteter Kommentar
+`PRODUCTION COMPLETE` nur wenn finaler Validator, TypeScript, Preview, Bild-/Caption-QA, vollständiges MP4 und Safety Audit tatsächlich erfolgt sind.
 
-### TikTok
-
-- kurze Caption
-- CTA
-- Quellen/Hinweis
-- passende Hashtags
-
-### Facebook Reels
-
-- Reel-Text
-- CTA
-- Quellen/Hinweis
-- passende Hashtags
-
-### Snapchat
-
-- sehr kurze Caption
-- optional CTA
-- Hinweis nur wenn nötig
-
-Keine YouTube Shorts erzeugen. `youtube-shorts.txt` ist in aktiven Reel-Projekten verboten. YouTube ist ausschließlich für eigenständige längere Videos unter `youtube/` vorgesehen; Reels werden nicht automatisch dorthin gespiegelt.
-
-Keine plattformspezifischen Fakten erfinden. Wenn aktuelle Plattform-Limits/Funktionen entscheidend sind, vor Veröffentlichung die aktuelle offizielle Plattform-Dokumentation prüfen.
-
-## Nicht mehr gültig
-
-- Prozent-Zonen wie 18/22 oder 15/60/25 in Bildprompts
-- alte isometrische Studioarchitektur als Pflicht
-- vollständig textfreie Bilder als allgemeine Pflicht
-- gesichtslose Figuren
-- sichtbare obere/untere Hintergrundbänder
-- Antigravity als Bildgenerator
-- Longform-YouTube als primäres Reel-Format
-- Animation beginnen, bevor Pflichtassets vorhanden sind
+Merge/Upload sind separate Nutzerfreigaben.
