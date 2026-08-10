@@ -14,8 +14,9 @@ Read these first and treat them as authoritative:
 5. `docs/PLATFORM-PUBLISHING.md`
 6. target reel `03-szenen/alle-bildprompts.txt`
 7. target reel `03-szenen/scene-index.json`
+8. `.agents/rules/finanzneo-reel-safety.md`
 
-`CLAUDE.md` wins on conflicts.
+`CLAUDE.md` wins on general project conflicts; stricter Antigravity-only safety boundaries remain binding for Antigravity execution.
 
 ## Autopilot behavior — mandatory
 When the user says that the required images and final audio are ready and asks to **make/create/finish the Reel**, treat that as a single end-to-end production instruction.
@@ -29,6 +30,35 @@ Recoverable implementation failures are part of the work: diagnose → fix → r
 A genuine blocker is limited to something Antigravity cannot safely solve itself, such as a missing/unreadable required user asset, a user image that must be externally regenerated, an unavoidable external permission/quota/credential failure, or a prohibited action such as merge/publish/delete/force-push/history rewrite.
 
 The user's command to finish the Reel authorizes final rendering and Antigravity technical/visual QA. It does not authorize publishing or merging. Human release approval is separate and must not be used as a production checkpoint.
+
+## Hard target-Reel media boundary — mandatory
+For user-provided media, Antigravity may use **only files physically present in the explicitly targeted Reel project**.
+
+Final images are valid only from:
+
+```text
+<TARGET-REEL>/03-szenen/00-ALLE-BILDER-HIER-REIN/
+```
+
+Final voiceover is valid only from:
+
+```text
+<TARGET-REEL>/02-audio/
+```
+
+The required image filenames come from the target Reel's own `scene-index.json`, scene files and prompt filenames.
+
+Before continuing into timing/Remotion/rendering, verify every required image exists, final audio exists and is readable, and the audio choice is unambiguous.
+
+Never use another Reel, `legacy-main/`, unrelated repo assets, Downloads/Desktop, web/stock media, placeholders, previous exports, cached media or similarly named outside files as a replacement.
+
+Do not guess missing media. Do not silently substitute anything.
+
+Shared source code, Remotion components, design-system files, scripts and documentation may still be used normally. The restriction applies to the **user media inputs** for the Reel.
+
+If even one required media file is missing, wrong, unreadable or ambiguous, STOP and return **BLOCKED** with the exact expected target-Reel path/filename. If multiple plausible final audio files exist and no Reel file identifies the intended one, list the candidates and stop rather than guessing.
+
+If all required media is present and valid, continue Autopilot immediately without another confirmation.
 
 ## Repository safety
 
@@ -142,7 +172,7 @@ Do not distribute them to individual scene folders at generation time.
 
 ## Audio, captions and finalization
 
-After all user images and final audio are present, execute all of the following in one continuous run:
+After all required user images and one unambiguous final audio file are present in the target Reel, execute all of the following in one continuous run:
 
 - use real audio-derived word timings
 - derive scene cuts from sentence starts
@@ -191,6 +221,6 @@ Do not end with a generic request for the user to continue.
 End only with one of these states:
 
 - **PRODUCTION COMPLETE** — the final MP4 exists, required checks/reviews were performed, and paths/results are reported.
-- **BLOCKED** — give the exact blocker and the exact asset/action needed from the user.
+- **BLOCKED** — give the exact blocker and the exact target-Reel asset/action needed from the user.
 
 A Reel is not complete without required user assets or an explicit missing-asset report, real audio timings, successful validation/typecheck/preview, visual review and safety audit. Cross-platform Reel publishing additionally requires the four Reel platform files to be prepared for the same final Reel.
