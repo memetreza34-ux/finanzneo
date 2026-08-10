@@ -57,19 +57,24 @@ const worldPrompt = `FINANZNEO WORLD REFERENCE\n\n${STYLE_BLOCK}`;
 const imageSceneIds = types.flatMap((t, i) => t === 'image' ? [`scene-${num(i)}`] : []);
 const animationSceneIds = types.flatMap((t, i) => t === 'animation' ? [`scene-${num(i)}`] : []);
 
-write('README.md', `# ${title}\n\nEinfache Struktur:\n- 01-script = Fließtext fürs Voiceover\n- 02-audio = fertiges Audio\n- 03-szenen = Cover, Bildprompts, Szenen, fertige Nutzerbilder\n- 04-caption = Caption + Wort-Timings\n- 05-projektdateien = Animationen, Recherche, Technik\n\nDer Nutzer erstellt alle tatsächlichen Bilder selbst. Antigravity generiert keine Bilder.\n`);
+write('README.md', `# ${title}\n\nEinfache Struktur:\n- 01-script = Fließtext fürs Voiceover\n- 02-audio = fertiges Audio\n- 03-szenen = Cover, Bildprompts, Szenen, fertige Nutzerbilder\n- 04-caption = Master-Caption, Plattformtexte und Wort-Timings\n- 05-projektdateien = Animationen, Recherche, Technik\n\nDer Nutzer erstellt alle tatsächlichen Bilder selbst. Antigravity generiert keine Bilder.\n`);
 write('01-script/script-fliess-text.txt', '[VOLLSTÄNDIGEN FLIESSTEXT EINFÜGEN]\n');
 write('02-audio/README.md', '# AUDIO HIER REIN\n\nHier genau eine finale Voiceover-Datei ablegen. Danach echte Wort-Zeitstempel erzeugen.\n');
 write('03-szenen/00-ALLE-BILDER-HIER-REIN/README.md', '# ALLE FERTIGEN BILDER HIER REIN\n\nErst wenn alle Bilder einzeln erzeugt, sofort korrekt benannt und geprüft sind, alle gemeinsam hier hineinlegen. Animationsszenen erhalten kein Bild; ihre Nummer bleibt reserviert.\n');
 write('03-szenen/00-cover/cover.txt', coverPrompt);
 write('03-szenen/bildwelt.txt', worldPrompt);
 write('03-szenen/README.md', '# SZENEN\n\nGoogle Flow: 1 Bild erzeugen → sofort umbenennen → Motiv + Labels + Gesicht + nahtlosen Hintergrund prüfen → erst dann nächstes Bild. Keine Prozent-Zonen; ein durchgehender Hintergrund von oben bis unten.\n');
-write('04-caption/caption.txt', '[SOCIAL CAPTION EINFÜGEN]\n');
+write('04-caption/caption.txt', '[GEPRÜFTE MASTER-CAPTION / GEMEINSAME FAKTENBASIS EINFÜGEN]\n');
+write('04-caption/youtube-shorts.txt', 'TITEL:\n[EINFÜGEN]\n\nBESCHREIBUNG:\n[EINFÜGEN]\n\nCTA:\n[EINFÜGEN ODER ENTFERNEN]\n\nQUELLEN / HINWEIS:\n[EINFÜGEN WENN NÖTIG]\n\nHASHTAGS:\n[EINFÜGEN]\n\nANGEHEFTETER KOMMENTAR:\n[OPTIONAL]\n');
+write('04-caption/instagram-reels.txt', 'CAPTION:\n[EINFÜGEN]\n\nCTA:\n[EINFÜGEN ODER ENTFERNEN]\n\nQUELLEN / HINWEIS:\n[EINFÜGEN WENN NÖTIG]\n\nHASHTAGS:\n[EINFÜGEN]\n\nANGEHEFTETER KOMMENTAR:\n[OPTIONAL]\n');
+write('04-caption/tiktok.txt', 'CAPTION:\n[EINFÜGEN]\n\nCTA:\n[EINFÜGEN ODER ENTFERNEN]\n\nQUELLEN / HINWEIS:\n[EINFÜGEN WENN NÖTIG]\n\nHASHTAGS:\n[EINFÜGEN]\n');
+write('04-caption/facebook-reels.txt', 'REEL-TEXT:\n[EINFÜGEN]\n\nCTA:\n[EINFÜGEN ODER ENTFERNEN]\n\nQUELLEN / HINWEIS:\n[EINFÜGEN WENN NÖTIG]\n\nHASHTAGS:\n[EINFÜGEN]\n');
+write('04-caption/snapchat.txt', 'CAPTION:\n[EINFÜGEN]\n\nCTA:\n[OPTIONAL]\n\nQUELLEN / HINWEIS:\n[NUR WENN NÖTIG]\n');
 write('04-caption/word-timings.json', `${JSON.stringify({version:1,fps:30,subtitleMode:'sentence-with-audio-synced-active-word',activeWordColor:'finance-green',sentences:[]}, null, 2)}\n`);
 write('05-projektdateien/animationen.md', '# ANIMATIONEN\n\n[REMOTION-ANIMATIONEN EINFÜGEN]\n');
 write('05-projektdateien/recherche-quellen.md', '# RECHERCHE UND QUELLEN\n\n[QUELLEN EINFÜGEN]\n');
 write('05-projektdateien/szenenplan.md', '# SZENENPLAN\n\n[SZENENPLAN EINFÜGEN]\n');
-write('05-projektdateien/technische-hinweise.md', '# TECHNISCHE HINWEISE\n\n- 1080 × 1920\n- 30 fps\n- Premium Fintech Editorial 3D\n- eine starke Metapher pro Bild\n- Person optional; wenn vorhanden Gesicht sichtbar\n- nur kurze deutsche Objekt-Beschriftungen\n- ein einziger nahtloser Hintergrund; keine Prozent-Zonen/Bänder\n- keine Headline/Untertitel/Sätze im KI-Bild\n- Bilddarstellung in Remotion: contain\n- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP\n');
+write('05-projektdateien/technische-hinweise.md', '# TECHNISCHE HINWEISE\n\n- 1080 × 1920\n- 30 fps\n- Premium Fintech Editorial 3D\n- eine starke Metapher pro Bild\n- Person optional; wenn vorhanden Gesicht sichtbar\n- nur kurze deutsche Objekt-Beschriftungen\n- ein einziger nahtloser Hintergrund; keine Prozent-Zonen/Bänder\n- keine Headline/Untertitel/Sätze im KI-Bild\n- Bilddarstellung in Remotion: contain\n- Publishing-Dateien für YouTube Shorts, Instagram Reels, TikTok, Facebook Reels und Snapchat in 04-caption\n- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP\n');
 write('05-projektdateien/timeline.json', `${JSON.stringify({version:1,title,fps:30,timingSource:'04-caption/word-timings.json',cutRule:'voice-sentence-start',scenes:types.map((type,index)=>({id:`scene-${num(index)}`,type,startFrame:0,durationFrames:0,cutReason:'voice-sentence-start'}))}, null, 2)}\n`);
 
 const scenes = types.map((type, index) => {
@@ -96,7 +101,7 @@ const allSections = types.map((type,index) => {
 write('03-szenen/alle-bildprompts.txt', `FINANZNEO — ALLE BILDPROMPTS FÜR GOOGLE FLOW\n\nVERBINDLICH:\n1 Bild erzeugen → sofort umbenennen → Motiv + Objekt-Labels + Gesicht + nahtlosen Hintergrund prüfen → erst dann nächstes Bild.\nBildnummer = echte Szenennummer. Animationsnummern bleiben reserviert.\nBildwelt: eine starke Premium-Fintech-3D-Metapher, optional Person mit sichtbarem Gesicht, kurze deutsche Labels, EIN nahtloser Hintergrund ohne Bänder/Zonen.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${coverPrompt}\n${allSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nErst wenn alle benötigten Bilder fertig, korrekt benannt und geprüft sind, alle gemeinsam nach:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n`);
 
 write('03-szenen/scene-index.json', `${JSON.stringify({
-  version:11,
+  version:12,
   title,
   sceneCount:scenes.length,
   imageSceneCount:imageSceneIds.length,
@@ -105,6 +110,7 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
   antigravityGeneratesImages:false,
   googleFlow:{generationMode:'one-image-at-a-time',fileNameRule:'Bild XX - Kurzer Szenenname.png',numberSource:'real-scene-number',animationNumbersStayReserved:true,finalCollectionDirectory:'03-szenen/00-ALLE-BILDER-HIER-REIN/',distributeToSceneFolders:false},
   imageWorld:{id:WORLD_ID,referencePromptFile:'03-szenen/bildwelt.txt',style:'premium-fintech-editorial-3d-metaphor',stylizedPersonAllowed:true,visibleFaceRequiredWhenPersonPresent:true,objectLabelsOnly:true,seamlessSingleBackgroundRequired:true,percentageZonesForbidden:true,floorWallBoundaryForbidden:true,horizonLineForbidden:true,backgroundBandsForbidden:true,headlinesInGeneratedImagesForbidden:true,subtitlesInGeneratedImagesForbidden:true,sentencesInGeneratedImagesForbidden:true,tinyDioramaForbidden:true,neonTunnelForbidden:true},
+  platformPublishing:{directory:'04-caption',masterCaption:'04-caption/caption.txt',youtubeShorts:'04-caption/youtube-shorts.txt',instagramReels:'04-caption/instagram-reels.txt',tiktok:'04-caption/tiktok.txt',facebookReels:'04-caption/facebook-reels.txt',snapchat:'04-caption/snapchat.txt'},
   timelineRules:{timingSource:'04-caption/word-timings.json',cutsFollowSentenceStarts:true,equalLengthScenesForbiddenByDefault:true},
   audio:{targetIntegratedLufs:-16,targetTruePeakDbtp:-1},
   imagePresentationContract:{imageFit:'contain',maxIntentionalImageScale:1.04,maxSourceCropPerSide:0.2,maxSourceCropTotal:0.34,blurredImageBackgroundForbidden:true},
@@ -114,4 +120,5 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
 console.log(`✓ Reel-Gerüst erstellt: ${root}`);
 console.log(`  ${imageSceneIds.length} Bildszenen · ${animationSceneIds.length} Remotion-Szenen`);
 console.log('  Bilder: Premium Fintech Editorial 3D · sichtbares Gesicht bei Personen · EIN nahtloser Hintergrund');
+console.log('  Publishing: YouTube Shorts · Instagram Reels · TikTok · Facebook Reels · Snapchat');
 console.log('  Antigravity generiert keine Bilder; der Nutzer erstellt sie selbst.');
