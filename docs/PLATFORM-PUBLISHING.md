@@ -1,8 +1,10 @@
 # FinanzNeo — Plattform-Publishing
 
-Dieses Dokument definiert die einfache Ausgabe-Struktur für YouTube Shorts, Instagram Reels, TikTok, Facebook Reels und Snapchat.
+Dieses Dokument definiert die einfache Ausgabe-Struktur für Instagram Reels, TikTok, Facebook Reels und Snapchat.
 
 `CLAUDE.md` bleibt die höchste Regelquelle.
+
+**YouTube-Regel:** FinanzNeo veröffentlicht keine YouTube Shorts. YouTube ist ausschließlich für eigenständige längere Videos vorgesehen. Longform-Projekte liegen separat unter `youtube/`; Reel-Projekte werden nicht automatisch nach YouTube gespiegelt.
 
 ## 1. Keine neue Hauptordner-Struktur
 
@@ -17,14 +19,13 @@ Die bestehende einfache Reel-Struktur bleibt unverändert:
 README.md
 ```
 
-Alle plattformspezifischen Veröffentlichungs-Texte liegen direkt in `04-caption/`.
+Alle plattformspezifischen Veröffentlichungs-Texte für Reels liegen direkt in `04-caption/`.
 
 ## 2. Verbindlicher Inhalt von 04-caption
 
 ```text
 04-caption/
 ├── caption.txt
-├── youtube-shorts.txt
 ├── instagram-reels.txt
 ├── tiktok.txt
 ├── facebook-reels.txt
@@ -33,16 +34,17 @@ Alle plattformspezifischen Veröffentlichungs-Texte liegen direkt in `04-caption
 ```
 
 - `caption.txt` = geprüfte Master-Caption / gemeinsame Faktenbasis
-- `youtube-shorts.txt` = YouTube-Shorts-Metadaten
 - `instagram-reels.txt` = Instagram-Reels-Text
 - `tiktok.txt` = TikTok-Text
 - `facebook-reels.txt` = Facebook-Reels-Text
 - `snapchat.txt` = Snapchat-Text
 - `word-timings.json` = echte Wortzeiten für die Video-Untertitel, keine Publishing-Metadaten
 
+`youtube-shorts.txt` ist in aktiven Reel-Projekten verboten.
+
 ## 3. Master-Caption
 
-`caption.txt` ist die gemeinsame inhaltliche Quelle für alle Plattformtexte.
+`caption.txt` ist die gemeinsame inhaltliche Quelle für alle Reel-Plattformtexte.
 
 Sie enthält nur geprüfte Aussagen und bei Bedarf:
 
@@ -54,33 +56,7 @@ Sie enthält nur geprüfte Aussagen und bei Bedarf:
 
 Plattformdateien dürfen die Fakten nicht verändern oder neue unbelegte Behauptungen hinzufügen.
 
-## 4. YouTube Shorts
-
-`youtube-shorts.txt` verwendet diese Struktur:
-
-```text
-TITEL:
-[starker deutscher Titel]
-
-BESCHREIBUNG:
-[kurze verständliche Beschreibung]
-
-CTA:
-[Kommentar-/PDF-/Follow-CTA, falls geplant]
-
-QUELLEN / HINWEIS:
-[bei Bedarf]
-
-HASHTAGS:
-[wenige passende Hashtags]
-
-ANGEHEFTETER KOMMENTAR:
-[optional]
-```
-
-YouTube Shorts ist Teil der normalen Short-Produktion. Longform-YouTube ist ein separates späteres Format und wird nicht in einen Short-Reel-Ordner gemischt.
-
-## 5. Instagram Reels
+## 4. Instagram Reels
 
 `instagram-reels.txt`:
 
@@ -101,7 +77,7 @@ ANGEHEFTETER KOMMENTAR:
 [optional]
 ```
 
-## 6. TikTok
+## 5. TikTok
 
 `tiktok.txt`:
 
@@ -119,7 +95,7 @@ HASHTAGS:
 [passende Hashtags]
 ```
 
-## 7. Facebook Reels
+## 6. Facebook Reels
 
 `facebook-reels.txt`:
 
@@ -137,7 +113,7 @@ HASHTAGS:
 [passende Hashtags]
 ```
 
-## 8. Snapchat
+## 7. Snapchat
 
 `snapchat.txt`:
 
@@ -152,10 +128,12 @@ QUELLEN / HINWEIS:
 [nur wenn nötig]
 ```
 
-## 9. Plattform-Regeln
+## 8. Plattform-Regeln
 
-- Dasselbe finale 9:16-Reel ist der Master für alle Short-Plattformen, solange keine konkrete Plattformanpassung nötig ist.
-- Keine Fakten pro Plattform umformulieren, bis ihre Bedeutung verändert wird.
+- Dasselbe finale 9:16-Reel ist der Master für Instagram Reels, TikTok, Facebook Reels und Snapchat, solange keine konkrete Plattformanpassung nötig ist.
+- Kein YouTube-Shorts-Upload und keine YouTube-Shorts-Metadaten aus einem Reel-Projekt erzeugen.
+- YouTube-Longform ist ein eigenständiges Format unter `youtube/` und erhält einen separaten Workflow.
+- Keine Fakten pro Plattform so umformulieren, dass sich ihre Bedeutung verändert.
 - Keine Clickbait-Behauptung, die das Reel nicht erfüllt.
 - Keine erfundenen Renditen, Garantien oder Finanzversprechen.
 - Affiliate-/Werbebeziehungen transparent kennzeichnen, sobald relevant.
@@ -163,14 +141,15 @@ QUELLEN / HINWEIS:
 - Titel und Caption dürfen neugierig machen, aber nicht irreführen.
 - Wenn exakte aktuelle Plattform-Limits oder neue Upload-Funktionen relevant werden, vor Veröffentlichung die aktuelle offizielle Plattform-Dokumentation prüfen; keine veralteten Limits im Repo fest verdrahten.
 
-## 10. Abschlussregel pro Reel
+## 9. Abschlussregel pro Reel
 
-Ein Reel ist publishing-seitig erst vorbereitet, wenn die fünf Plattformdateien vorhanden und inhaltlich auf dasselbe finale Reel abgestimmt sind:
+Ein Reel ist publishing-seitig erst vorbereitet, wenn die vier Reel-Plattformdateien vorhanden und inhaltlich auf dasselbe finale Reel abgestimmt sind:
 
-- YouTube Shorts
 - Instagram Reels
 - TikTok
 - Facebook Reels
 - Snapchat
 
 Fehlende Plattformtexte verhindern nicht den technischen Remotion-Render, müssen aber vor dem geplanten Cross-Platform-Publishing ergänzt werden.
+
+YouTube gehört nicht zu diesem Reel-Publishing-Schritt. Längere YouTube-Videos werden separat unter `youtube/` produziert.
