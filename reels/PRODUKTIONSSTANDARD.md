@@ -15,17 +15,18 @@ README.md
 
 Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Video anlegen, wenn sie nicht technisch zwingend nötig sind.
 
-`04-caption/` enthält Master-Caption, Plattformtexte und Wort-Timings:
+`04-caption/` enthält Master-Caption, Reel-Plattformtexte und Wort-Timings:
 
 ```text
 caption.txt
-youtube-shorts.txt
 instagram-reels.txt
 tiktok.txt
 facebook-reels.txt
 snapchat.txt
 word-timings.json
 ```
+
+**YouTube-Regel:** Keine YouTube Shorts. Reel-Projekte erzeugen keine `youtube-shorts.txt`. YouTube ist ausschließlich für eigenständige längere Videos unter `youtube/` vorgesehen.
 
 ## 2. Genau eine Produktionsquelle pro Szene
 
@@ -282,18 +283,7 @@ Sofort neu erzeugen bei:
 
 Verbindlich ist `docs/PLATFORM-PUBLISHING.md`.
 
-Die fünf Plattformdateien liegen direkt in `04-caption/`, damit keine neue komplizierte Hauptstruktur entsteht.
-
-### YouTube Shorts
-
-`youtube-shorts.txt`:
-
-- Titel
-- Beschreibung
-- CTA
-- Quellen/Hinweis bei Bedarf
-- Hashtags
-- optional angehefteter Kommentar
+Die vier Reel-Plattformdateien liegen direkt in `04-caption/`, damit keine neue komplizierte Hauptstruktur entsteht.
 
 ### Instagram Reels
 
@@ -333,9 +323,11 @@ Die fünf Plattformdateien liegen direkt in `04-caption/`, damit keine neue komp
 
 `caption.txt` bleibt die gemeinsame geprüfte Faktenbasis. Plattformdateien dürfen keine neue unbelegte Aussage erfinden.
 
+Keine YouTube Shorts erzeugen, validieren oder veröffentlichen. `youtube-shorts.txt` ist in aktiven Reel-Projekten verboten.
+
 Wenn exakte aktuelle Plattform-Limits oder Upload-Funktionen relevant sind, vor Veröffentlichung offizielle Plattformquellen prüfen statt Limits im Repo fest zu verdrahten.
 
-Longform-YouTube ist ein separates späteres Format und wird nicht in einen normalen Short-Reel-Ordner gemischt.
+Longform-YouTube ist ein separates Format unter `youtube/` und wird nicht in Reel-Projekte gemischt oder automatisch aus ihnen gespiegelt.
 
 ## 18. Automatische Erstellung
 
@@ -345,12 +337,14 @@ npm run reel:create -- \
   --title "Reel-Titel"
 ```
 
-Der Scaffolder erzeugt die einfache Struktur, Bildprompts, `scene-index.json`, Master-Caption, alle fünf Plattformdateien, Wort-Timings und technische Hinweise nach den aktuellen Regeln.
+Der Scaffolder erzeugt die einfache Struktur, Bildprompts, `scene-index.json`, Master-Caption, die vier Reel-Plattformdateien, Wort-Timings und technische Hinweise nach den aktuellen Regeln. Er erzeugt keine YouTube-Shorts-Datei.
 
 ## 19. Automatische Prüfung
 
 ```bash
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
 ```
+
+Der Validator verlangt die vier Reel-Plattformdateien und blockiert aktive YouTube-Shorts-Artefakte.
 
 Validator/Typecheck/Preview müssen tatsächlich ausgeführt werden, bevor ein Reel als technisch fertig bezeichnet wird. Technischer Erfolg ersetzt nicht die visuelle Freigabe.
