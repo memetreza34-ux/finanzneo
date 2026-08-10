@@ -62,6 +62,82 @@ The user command to **make/finish the Reel** authorizes the complete production 
 
 The human/user visual review mentioned in project standards is a release/publishing approval boundary. It must not be used as a reason to stop before producing and QA-checking the complete MP4.
 
+## HARD ASSET BOUNDARY — target Reel folder only
+For the actual user-provided media used in a Reel, Antigravity may use **only assets physically present inside the explicitly targeted Reel project folder**.
+
+This rule applies especially after the user says that the images and audio are ready and asks Antigravity to make/finish the Reel.
+
+### Allowed user media sources
+
+Final user-created images may be read only from:
+
+```text
+<TARGET-REEL>/03-szenen/00-ALLE-BILDER-HIER-REIN/
+```
+
+Final voiceover audio may be read only from:
+
+```text
+<TARGET-REEL>/02-audio/
+```
+
+The expected image set must be derived from the target Reel's own `03-szenen/scene-index.json`, scene files and prompt filenames. The expected filenames must match the files actually present in the target Reel.
+
+### Strictly forbidden as media fallbacks
+Antigravity MUST NOT silently use or copy a replacement image/audio file from:
+
+- another Reel folder
+- another branch/reel project's asset folder
+- `legacy-main/`
+- a generic repository asset folder that is not the target Reel's designated user-media folder
+- Downloads, Desktop, temporary directories or unrelated local folders
+- browser/web search
+- stock libraries
+- generated placeholders
+- previous renders or exports as source media
+- a similarly named file found elsewhere
+- cached assets from a previous Antigravity run
+
+Antigravity MUST NOT guess that an outside file is the intended asset, even if the filename looks similar.
+
+Repository source code, shared Remotion components, design-system files, scripts, rules and documentation may still be used normally. This boundary restricts **user media inputs**, not the source code required to build the Reel.
+
+### Mandatory asset gate before production continues
+Before audio timing, Remotion implementation or rendering begins, Antigravity MUST check the target Reel and verify:
+
+1. every required image filename exists in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
+2. the final audio exists in `02-audio/`
+3. required files are readable and usable
+4. no required image is being substituted from another location
+5. the selected audio is unambiguous
+
+If more than one plausible final voiceover file exists and the Reel itself does not unambiguously identify the intended one, STOP rather than guessing. Report the candidate filenames and ask the user to leave/identify the correct final audio.
+
+### Missing means STOP — never substitute
+If even one required user-media asset is missing, unreadable, wrong, or ambiguous, Antigravity MUST stop the production run immediately at the asset gate.
+
+It must respond with **BLOCKED** and state the exact expected path/filename, for example:
+
+```text
+BLOCKED
+Fehlt: 03-szenen/00-ALLE-BILDER-HIER-REIN/Bild 06 - Echter Notfall oder Konsum.png
+Aktion: Bitte genau diese Datei in den vorgesehenen Ordner legen und danach den Reel-Auftrag erneut starten/fortsetzen.
+```
+
+For missing audio, report the exact required folder and what was found there.
+
+Do NOT:
+
+- continue with fewer images
+- replace the missing scene with another image
+- reuse an image from another scene
+- use a placeholder
+- generate an asset
+- search outside the target Reel
+- render a knowingly incomplete final MP4
+
+If all required media is present and valid, the asset gate clears automatically and Autopilot continues end-to-end without asking for `weiter`.
+
 ## Non-destructive repository policy
 - Never work directly on `main`.
 - Never merge a pull request.
