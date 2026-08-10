@@ -1,17 +1,31 @@
 # FinanzNeo-Reel-Produktionsstandard
 
-## 1. Genau eine Produktionsquelle pro Szene
+> Bei Widersprüchen gilt immer `CLAUDE.md`.
+
+## 1. Einfache Reel-Struktur
+
+```text
+01-script/
+02-audio/
+03-szenen/
+04-caption/
+05-projektdateien/
+README.md
+```
+
+Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Video anlegen, wenn sie nicht technisch zwingend nötig sind.
+
+## 2. Genau eine Produktionsquelle pro Szene
 
 ### Bildszene
 
 ```text
 scene-XX/
 ├── bildprompt.txt
-├── finales-bild.png
 └── szene.md
 ```
 
-Vor der Bildgenerierung besteht der Ordner nur aus `bildprompt.txt` und `szene.md`.
+Das finale Nutzerbild wird zunächst nicht manuell in den Szenenordner gelegt, sondern nach vollständiger Google-Flow-Produktion gemeinsam gesammelt.
 
 ### Remotion-Szene
 
@@ -21,276 +35,240 @@ scene-XX/
 └── szene.md
 ```
 
-Eine Remotion-Szene enthält weder Bildprompt noch Bilddatei.
+Eine Remotion-Szene enthält keinen Bildprompt und erzeugt kein Bild.
 
-Verboten:
+## 3. Google Flow — Einzelbild-Ablauf
 
-- `motionprompt.txt`
-- `alle-motionprompts.txt`
-- `placeholder.svg` in einem Szenenordner
-- `bildprompt.txt` und `remotion.md` in derselben Szene
-- Bilddateien in einer Remotion-Szene
-- mehr als ein finales Bild in einer Bildszene
-
-## 2. Google Flow: Einzelbild-Erzeugung, Benennung und Sammelordner
-
-Für Google Flow gilt ein eigener verbindlicher Ablauf. Dieser Abschnitt gilt **ausschließlich für den Google-Flow-KI-Agenten**, nicht für Codex, Antigravity oder andere Agenten.
-
-### Grundregel
-
-Google Flow erzeugt immer genau **ein einziges benötigtes Bild** nach dem anderen.
+Google Flow erzeugt immer genau **ein** benötigtes Bild:
 
 ```text
-1 Bild generieren
-→ sofort endgültig umbenennen
-→ genau dieses Bild prüfen
-→ erst dann das nächste Bild generieren
+PROMPT LESEN
+→ GENAU EIN BILD ERZEUGEN
+→ SOFORT ENDGÜLTIG UMBENENNEN
+→ MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
+→ ERST DANN NÄCHSTES BILD
 ```
 
-Google Flow darf niemals mehrere neue Bilder gleichzeitig erzeugen und sie später gesammelt umbenennen.
+Keine 3er-Batches und kein späteres Sammel-Umbenennen.
 
-### Verbindliche Nummerierung
+## 4. Nummerierung
 
-Die Bildnummer entspricht immer exakt der echten chronologischen Szenennummer im Reel.
+Bildnummer = echte chronologische Szenennummer.
 
 ```text
-Bild 00 → Cover
-Bild 01 → Szene 01
-Bild 02 → Szene 02
-Bild 03 → Szene 03
+Bild 00 = Cover
+Bild 01 = Szene 01
+Bild 02 = Szene 02
 ...
 ```
 
-Die Nummer ist **nicht** die laufende Nummer der tatsächlich erzeugten Bilddateien.
-
-### Animationsszenen erzeugen Lücken
-
-Eine Remotion-Animationsszene behält ihre Szenennummer, bekommt aber keine Bilddatei. Diese Nummer darf niemals an die nächste Bildszene weitergegeben werden.
+Animationsszenen behalten ihre Nummer, bekommen aber kein Bild.
 
 Beispiel:
 
 ```text
-Szene 01 = Bild      → Bild 01.png
+Szene 01 = Bild      → Bild 01
 Szene 02 = Animation → kein Bild 02
-Szene 03 = Bild      → Bild 03.png
+Szene 03 = Bild      → Bild 03
 ```
 
-`Bild 03` ist hier zwar das zweite tatsächlich erzeugte Szenenbild, heißt aber trotzdem `Bild 03`, weil es zu Szene 03 gehört. `Bild 02` wäre ausdrücklich falsch.
+Nie nach der Anzahl tatsächlich erzeugter Bilder neu nummerieren. `03-szenen/scene-index.json` ist die technische Autorität.
 
-Maßgeblich ist ausschließlich die echte Szenennummer aus `03-szenen/scene-index.json`.
+## 5. Dateiname direkt an jedem Prompt
 
-### Pflichtblock am Ende von `alle-bildprompts.txt`
-
-Jede Datei
+In `03-szenen/alle-bildprompts.txt` und jedem einzelnen `bildprompt.txt` steht direkt der endgültige Dateiname:
 
 ```text
-03-szenen/alle-bildprompts.txt
+Bild XX - Kurzer Szenenname.png
 ```
 
-endet mit einer ausdrücklichen Google-Flow-Anweisung für genau dieses Reel. Sie muss enthalten:
+Animationsszenen stehen chronologisch an ihrer Stelle mit `KEIN BILD XX ERZEUGEN`.
 
-- Einzelbild-Schleife: `GENERIEREN → SOFORT UMBENENNEN → PRÜFEN → NÄCHSTES BILD`
-- Cover = `Bild 00`
-- jede echte Bildszene mit ihrer exakten Szenennummer
-- jede Remotion-Szene als reservierte Nummer ohne Bild
-- einen konkreten endgültigen Dateinamen je benötigtem Bild
-- den Hinweis, Animationslücken niemals zu schließen oder neu durchzunummerieren
-- die vollständige erwartete Dateiliste für genau dieses Reel
-- den finalen Google-Flow-Sammelordner `00-bildprompts/00-ALLE-BILDER-HIER-REIN/`
+## 6. Finaler Sammelordner
 
-### Verbindlicher Ablauf pro einzelnes Bild
-
-Für jedes benötigte Bild gilt:
-
-1. **Generieren:** genau das Cover oder genau die aktuelle echte Bildszene mit dem zugehörigen Prompt und derselben `bildwelt-referenz.png` erzeugen. Nur ein Bild gleichzeitig.
-2. **Sofort umbenennen:** unmittelbar nach der Generierung den endgültigen Namen vergeben: `Bild XX - Kurzer Szenenname.png`.
-3. **Prüfen:** Motiv, echte Szenennummer, Szenenname, Dateiname, Textfreiheit und Bildwelt prüfen.
-4. **Erst danach weiter:** nur wenn dieses eine Bild vollständig korrekt ist, darf das nächste benötigte Bild generiert werden.
-
-Wenn ein Bild falsch ist, wird genau dieses Bild korrigiert oder neu generiert, erneut korrekt benannt und erneut geprüft, bevor Google Flow fortfährt.
-
-### Sammeln erst ganz am Ende
-
-Erst wenn Cover und **alle** benötigten Bildszenen einzeln vollständig generiert, endgültig benannt und geprüft sind, erfolgt die Abschlussprüfung:
-
-- keine erwartete Bilddatei fehlt
-- keine Bildnummer doppelt
-- keine Bildnummer vertauscht
-- jedes Bild gehört zur richtigen echten Szene
-- Animationsszenen wurden ausgelassen
-- Lücken durch Animationsszenen wurden nicht geschlossen
-
-Erst danach legt Google Flow alle fertigen Bilder gemeinsam in:
+Erst wenn **alle** Bilder einzeln erzeugt, umbenannt und geprüft wurden, kommen sie gemeinsam nach:
 
 ```text
-00-bildprompts/00-ALLE-BILDER-HIER-REIN/
+03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-Google Flow verteilt diese Bilder **nicht** auf einzelne Szenenordner. Die weitere technische Einsortierung ist nicht Teil der Google-Flow-Bildaufgabe.
+Google Flow verteilt die Bilder nicht auf einzelne Szenenordner.
 
-Nummer, Szenenname und Dateiname gehören ausschließlich in den Dateinamen beziehungsweise die Ausgabebezeichnung. Sie dürfen niemals sichtbar in das generierte Bild geschrieben werden.
+## 7. Antigravity erzeugt keine Bilder
 
-## 3. FinanzNeo Image World V3
+- Der Nutzer erstellt Cover und finale Szenenbilder selbst.
+- Antigravity erstellt nur Recherche, Skript, Szenenplan, Bildprompts, Dateinamen, Remotion, Captions und technische Verarbeitung.
+- Fehlt ein Nutzerbild, genaue fehlende Datei melden und warten.
+- Keine Ersatzbilder, Stockbilder oder integrierte Bildgeneratoren verwenden.
 
-Alle neuen Reels verwenden:
+## 8. Verbindliche Bildwelt
+
+World ID:
 
 ```text
-World ID: finanzneo-connected-studio-v3
+finanzneo-connected-studio-v3
 ```
 
-Verbindliche Dokumentation:
+Verbindlich:
 
+- `CLAUDE.md`
 - `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 - `docs/IMAGE-SYSTEM.md`
+- `docs/IMAGE-PROMPT-LIBRARY.md`
 - `docs/IMAGE-QA-CHECKLIST.md`
 
-Jedes Reel besitzt:
+Stil:
+
+- Premium fintech editorial 3D render
+- eine dominante Finanzmetapher / großes Hauptobjekt
+- optional stilisierte erwachsene 3D-Person
+- wenn Person: Gesicht klar sichtbar, frontal oder 3/4
+- deep charcoal green-black Grundwelt
+- emerald/mint Akzente
+- Gold nur für Geld/Wert
+- warmes Rot-Orange nur für Risiko/Verlust/Schulden
+- smooth rounded geometry, soft bevelled edges
+- kein Fotorealismus, Pixar oder Clay
+- keine Dioramen, Neon-Tunnel, Sci-Fi-Korridore, Dashboards oder Game-Level
+
+## 9. Kritische Hintergrundregel — genau EIN Hintergrund
+
+**Keine Prozent-Zonen verwenden.**
+
+Jedes Bild nutzt genau **einen nahtlosen Hintergrund von oben bis unten**:
 
 ```text
-03-szenen/bildwelt.txt
-03-szenen/bildwelt-referenz.png
+Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
+Keep the same continuous material, tone and gradient from top edge to bottom edge.
+No horizontal divisions.
+No visible top section or bottom section.
+No separate zones or panels.
+No dark/light band at the top or bottom.
+No floor-wall boundary.
+No horizon line.
+No studio wall split.
+Use only one subtle continuous gradient/vignette.
+Do not create a visible floor, wall or studio horizon.
+Objects may cast soft contact shadows.
+Place the main subject around the visual center and leave generous natural empty space above and below without changing the background.
 ```
-
-Die Referenz wird zuerst erzeugt. Alle Szenenbilder verwenden sie ausschließlich als Stil- und Weltreferenz.
-
-## 4. Einheitliche Bildwelt
-
-Alle Bilder eines Reels behalten dieselben Merkmale:
-
-- gleiche leicht isometrische Drei-Viertel-Kamera
-- gleiche 35-mm-äquivalente Perspektive
-- gleiche Kamerahöhe und Blickrichtung
-- gleiche Anthrazit-Studioarchitektur
-- gleicher matter Boden und gebogene Rückwand
-- gleiche smaragdgrünen Lichtkanäle
-- gleiche Lichtführung und Materialien
-- ähnliche Größe des wichtigsten Motivs
-
-Die finanzielle Handlung darf wechseln. Die Welt darf nicht wechseln.
-
-## 5. Kein leerer Hintergrund
-
-Ein Szenenbild zeigt niemals nur ein isoliertes Objekt vor schwarzem Nichts.
-
-Pflicht:
-
-- sichtbare, ruhige Studioarchitektur
-- Vordergrund, Mittelgrund und Hintergrund
-- nahtloser Boden-Rückwand-Übergang
-- crop-sichere Randbereiche als Fortsetzung der Umgebung
-- Hauptszene füllt ungefähr 68–78 % der nutzbaren Breite
 
 Verboten:
 
-- leerer schwarzer Hintergrund
-- reiner Glow oder Verlauf ohne Raum
-- schwebende Werbeplattform
-- freigestellter Produkt-Render
-- zufällige Umgebung pro Szene
+- `top 15 / middle 60 / bottom 25`
+- andere harte Prozentbereiche
+- sichtbare horizontale Tonwertkante
+- Boden-/Wand-Trennung
+- oberes/unteres Band
+- mehrere Hintergrund-Panels
 
-## 6. Textfreie Bildquellen
+## 10. Personenregel
 
-Neue Bilder enthalten grundsätzlich keinen Text:
+Wenn eine Person vorkommt:
 
-- keine Überschrift
-- keine Untertitel
-- keine Labels
-- keine Zahlen
-- keine Konto-Namen
-- keine Logos oder Wasserzeichen
+- klare stilisierte Augen, Nase und Mund
+- Gesicht gut sichtbar
+- frontal oder natürliche 3/4-Ansicht bevorzugt
+- keine gesichtslose Figur
+- keine reine Rückenansicht
+- keine reale/identifizierbare Person
 
-Remotion rendert sämtliche Typografie und geprüften Werte.
+## 11. Text im KI-Bild
 
-## 7. Bildprompt-Vertrag
+Erlaubt:
 
-Jeder Bildprompt enthält exakt folgende Marker:
+- nur explizit vorgegebene kurze deutsche Objektlabels
+- meist 1–3 Wörter
+- direkt am passenden Objekt
 
-```text
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-SERIES CONTINUITY LOCK:
-ENVIRONMENT:
-COMPOSITION LOCK:
-TEXT:
-CONSISTENCY NEGATIVES:
-SCENE MESSAGE:
-CONNECTED VISUAL STORY:
-```
+Verboten:
 
-Die Weltbeschreibung bleibt in allen Prompts gleich. Nur `SCENE MESSAGE`, Objekte und Handlung werden individuell angepasst.
+- große Überschrift
+- Untertitel
+- ganzer erklärender Satz
+- CTA
+- zufällige Zusatztexte
 
-## 8. Darstellung in Remotion
+Reale Marken/Dienste dürfen als relevante Alltagsbeispiele verwendet werden, wenn ihre Namen korrekt geschrieben werden und keine erfundene Partnerschaft suggeriert wird.
 
-- Vordergrundbild mit `object-fit: contain`.
-- Keine sichtbare unscharfe Kopie desselben Bildes im Hintergrund.
-- Freie Flächen werden durch die zentrale FinanzNeo-Studiobühne gefüllt.
-- Source-Crop oben höchstens `0.20`.
-- Source-Crop unten höchstens `0.20`.
-- Source-Crop insgesamt höchstens `0.34`.
-- Zusätzliche Skalierung höchstens `1.04`.
-- Nur nachweislich ruhige Umgebungsfläche darf beschnitten werden.
-- Wichtige Objekte, Pfeile, Geld und erklärende Elemente dürfen nie abgeschnitten werden.
+## 12. Darstellung in Remotion
 
-## 9. Verbindliches 9:16-Layout
+- Bild mit `object-fit: contain`
+- keine sichtbare unscharfe Kopie desselben Bildes im Hintergrund
+- Source-Crop oben höchstens `0.20`
+- Source-Crop unten höchstens `0.20`
+- Source-Crop insgesamt höchstens `0.34`
+- zusätzliche Skalierung höchstens `1.04`
+- wichtige Motive und Labels nie abschneiden
 
-```text
-0–250 px       Überschrift mit passendem Icon
-270–1350 px    Bild oder Remotion-Animation
-ca. 1450 px    Untertitelbereich
-untere 320 px  Plattform-Safe-Area
-rechte 150 px  Reels-Bedienleiste freihalten
-```
+## 13. Layout und Untertitel
 
-- Überschrift oben, nie im Untertitelkasten.
-- Erste Zeile weiß.
-- Schwerpunktzeile grün oder bei Geldrechnungen gold.
-- Passendes Linien-Icon neben der Schwerpunktzeile.
-- Icon und Schwerpunktzeile besitzen dieselbe visuelle Höhe.
-
-## 10. Untertitel
-
-- Immer genau ein vollständiger Satz sichtbar.
-- Nur das aktuell gesprochene Wort ist FinanzNeo-grün.
-- Übrige Wörter bleiben weiß.
-- Vorheriger Satz bleibt während kurzer Pausen sichtbar.
-- Keine leeren Caption-Lücken.
-- Höchstens zwei fest berechnete Zeilen.
-- Keine springenden Wörter und keine Größenanimation.
-
-## 11. Satzbasierte Szenenschnitte
-
-Szenenlängen werden aus den finalen Wort-Zeitstempeln abgeleitet.
-
-Der Beginn einer neuen Szene entspricht dem Beginn des ersten zugehörigen Satzes. Ein starres Raster aus gleich langen Szenen ist standardmäßig verboten.
+1080 × 1920:
 
 ```text
-word-timings → Satzanfänge → Szenenstarts → relative Animationsdauer
+Headline ungefähr ab Y = 78
+Visual ungefähr Y = 270–1350
+Untertitel 320 px über dem unteren Rand
+links 62 px
+rechts 150 px
 ```
 
-## 12. Audio
+Untertitel:
 
-Ziel für das veröffentlichte Voiceover:
+- genau ein vollständiger Satz sichtbar
+- aktuelles Wort FinanzNeo-grün
+- restliche Wörter weiß
+- maximal zwei Zeilen
+- keine springenden Wörter
+- keine Größenanimation
+- keine Caption-Lücken
+
+## 14. Satzbasierte Szenenschnitte
+
+```text
+finales Voiceover
+→ echte Wort-Zeitstempel
+→ Satzanfänge
+→ Szenenstarts
+→ relative Animationsdauer
+```
+
+Kein starres Raster gleich langer Szenen.
+
+## 15. Audio
 
 ```text
 Integrated Loudness: ungefähr -16 LUFS
 True Peak: höchstens -1 dBTP
 ```
 
-Der genaue Wert wird am finalen Export gemessen. Eine reine Code-Verstärkung ersetzt keine finale Audiokontrolle.
+Am finalen Export messen.
 
-## 13. Bildsatz-QA
+## 16. Bildsatz-QA
 
 Vor Freigabe:
 
-1. alle Bilder als Kontaktbogen nebeneinander prüfen
-2. gleiche Kamera, Architektur, Palette, Licht und Motivgröße bestätigen
-3. Satzgenauigkeit jedes Bildes prüfen
-4. Bildnummer gegen die echte Szenennummer prüfen
-5. Anfang, Mitte und Ende jeder Bildszene im Render prüfen
-6. vollständige MP4 mit Ton ansehen
+1. Bild gegen gesprochenen Satz prüfen
+2. nahtlosen Hintergrund prüfen
+3. horizontale Bänder/Floor-Wall-Split ausschließen
+4. Gesicht prüfen, falls Person vorkommt
+5. Labels prüfen
+6. alle Bilder als Kontaktbogen prüfen
+7. Anfang/Mitte/Ende jeder Bildszene im Render prüfen
+8. vollständige MP4 mit Ton ansehen
 
-Ein Bildsatz wird neu erstellt, wenn ein einzelnes Bild sichtbar aus einer anderen Welt stammt oder dem gesprochenen Satz widerspricht.
+Sofort neu erzeugen bei:
 
-## 14. Automatische Erstellung
+- zwei sichtbaren Hintergründen/Bändern
+- horizontaler Trennkante
+- sichtbarer Boden-Wand-Grenze/Horizont
+- gesichtsloser/abgewandter Person
+- falschen Labels
+- großer Headline/Satz
+- Diorama/Game-Level
+- falscher Satzzuordnung
+
+## 17. Automatische Erstellung
 
 ```bash
 npm run reel:create -- \
@@ -298,38 +276,12 @@ npm run reel:create -- \
   --title "Reel-Titel"
 ```
 
-Der Scaffolder erzeugt die Produktionsstruktur inklusive:
+Der Scaffolder erzeugt die einfache Struktur, Bildprompts, `scene-index.json`, Caption-/Timing-Dateien und technische Hinweise nach den aktuellen Regeln.
 
-- `alle-bildprompts.txt` mit verbindlichem Nummerierungsblock am Ende
-- `bildwelt.txt`
-- Weltmetadaten im `scene-index.json`
-- vollständige V3-Promptstruktur pro Bildszene
-- Bilddarstellungswerte
-- Caption-, Timing- und Audioverträge
-
-Für jedes neue Reel muss `alle-bildprompts.txt` am Ende den vollständigen **Google-Flow-Einzelbild-Block** enthalten, einschließlich der konkreten endgültigen Dateinamen für Cover und jede echte Bildszene sowie des finalen Sammelordners:
-
-```text
-00-bildprompts/00-ALLE-BILDER-HIER-REIN/
-```
-
-## 15. Automatische Prüfung
+## 18. Automatische Prüfung
 
 ```bash
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
 ```
 
-Der Validator prüft unter anderem:
-
-- genau eine Produktionsquelle
-- keine verbotenen Dateien
-- Image World V3 und `bildwelt.txt`
-- alle Pflichtmarker in jedem Bildprompt
-- kein leerer Hintergrund als Zielstil
-- `contain` und sichere Crop-Grenzen
-- Icon, Überschrift und Schwerpunktzeile
-- Worttiming-Datei und Satzmodus
-- keine Caption-Lücken
-- mindestens 250 px untere Safe-Area
-- Satzanfänge als Schnittgrundlage
-- Audio-Zielmetadaten
+Validator/Typecheck/Preview müssen tatsächlich ausgeführt werden, bevor ein Reel als technisch fertig bezeichnet wird. Technischer Erfolg ersetzt nicht die visuelle Freigabe.
