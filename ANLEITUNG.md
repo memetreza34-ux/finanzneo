@@ -114,7 +114,7 @@ Medien-Gate
 → Remotion
 → adaptive-safe-fill
 → Satz-Karaoke
-→ Plattformtexte
+→ eine universelle Caption mit genau 5 Hashtags
 → npm run reel:validate -- <TARGET-REEL> --final
 → TypeScript
 → Preview
@@ -129,21 +129,39 @@ Stoppen nur bei einem echten Blocker nach `CLAUDE.md`.
 
 ## 8. Publishing
 
-Reel-Dateien:
+In `04-caption/` gibt es nur:
 
 ```text
 caption.txt
+word-timings.json
+```
+
+`caption.txt` wird unverändert für Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet.
+
+Finale Caption:
+
+- starke ehrliche Hook-Zeile
+- kurze Kernaussage/Aha-Nutzen
+- kurzer CTA nur wenn passend
+- **genau 5 relevante Hashtags**
+- keine separaten Plattformvarianten
+- kein Hashtag-Spam / keine irrelevanten Trend-Tags
+- keine garantierte Viralitätsbehauptung
+
+Verboten in aktiven neuen Reels:
+
+```text
 instagram-reels.txt
 tiktok.txt
 facebook-reels.txt
 snapchat.txt
-word-timings.json
+youtube-shorts.txt
 ```
 
 Keine YouTube Shorts. YouTube ausschließlich Longform unter `youtube/`.
 
 ## 9. Fertig
 
-`PRODUCTION COMPLETE` nur wenn finaler Validator, TypeScript, Preview, Bild-/Caption-QA, vollständiges MP4 und Safety Audit tatsächlich erfolgt sind.
+`PRODUCTION COMPLETE` nur wenn finaler Validator, TypeScript, Preview, Bild-/Caption-QA, vollständiges MP4, universelle Caption mit genau 5 Hashtags und Safety Audit tatsächlich erfolgt sind.
 
 Merge/Upload sind separate Nutzerfreigaben.
