@@ -2,81 +2,94 @@
 
 ## Verbindliche Reihenfolge
 
-1. Lies `CLAUDE.md`.
-2. Lies bei Bildaufgaben `docs/IMAGE-SYSTEM.md`.
-3. Entscheide den Visualtyp mit `docs/BEAT-TO-IMAGE-RULES.md`.
-4. Nutze vorhandene Vorlagen aus `docs/IMAGE-PROMPT-LIBRARY.md`.
-5. Prüfe jedes fertige Bild mit `docs/IMAGE-QA-CHECKLIST.md`.
-6. Prüfe den aktuellen technischen Stand in `docs/REPO-CLEANUP-PLAN.md`.
+1. Lies `CLAUDE.md` vollständig.
+2. Lies `reels/PRODUKTIONSSTANDARD.md`.
+3. Bei Bildaufgaben lies `docs/FINANZNEO-IMAGE-WORLD-V3.md`, `docs/IMAGE-SYSTEM.md`, `docs/IMAGE-PROMPT-LIBRARY.md` und `docs/IMAGE-QA-CHECKLIST.md`.
+4. Entscheide den Visualtyp mit `docs/BEAT-TO-IMAGE-RULES.md`.
+5. Für Veröffentlichung lies `docs/PLATFORM-PUBLISHING.md`.
+6. Beim Ziel-Reel lies `03-szenen/alle-bildprompts.txt`, `03-szenen/scene-index.json` und `05-projektdateien/szenenplan.md`.
 
-`CLAUDE.md` ist die einzige verbindliche Quelle. Ältere Regeln gelten nicht, wenn sie davon abweichen.
+`CLAUDE.md` ist die höchste Regelquelle. Bei Widersprüchen gelten ältere Regeln nicht.
 
 ## Aktueller Kanalstandard
 
 - deutsche Finanzgrundlagen für Anfänger
-- vertikale Reels von 60 bis 90 Sekunden
-- Veröffentlichung auf allen Short-Plattformen
-- Untertitel immer Pflicht
-- Premium-isometrische 3D-Erklärbilder plus Remotion
-- oben 18 % frei für die Überschrift
-- unten 22 % frei für Untertitel
-- kein langer Text im KI-Bild
-- kostenlose PDF als erster Monetarisierungsschritt
-- Affiliate-Angebote erst später und transparent
+- 1080 × 1920, 30 fps
+- 60–90 Sekunden als Standard
+- YouTube Shorts, Instagram Reels, TikTok, Facebook Reels und Snapchat
+- Untertitel Pflicht
+- Premium Fintech Editorial 3D + Remotion
+- eine starke visuelle Metapher pro Bild
+- optional stilisierte 3D-Person; wenn Person, Gesicht klar sichtbar
+- kurze deutsche Objektlabels statt großer KI-Überschriften
+- genau EIN nahtloser deep-charcoal-green-black Hintergrund von oben bis unten
+- keine Prozent-Zonen, Hintergrundbänder, Floor-Wall-Grenze oder sichtbarer Horizont
+- Gold nur für Geld/Wert, Rot-Orange nur für Risiko/Verlust/Schulden
+- Antigravity erzeugt keine Bilder; der Nutzer erstellt sie selbst mit Google Flow
+
+## Einfache Reel-Struktur
+
+```text
+01-script/
+02-audio/
+03-szenen/
+04-caption/
+05-projektdateien/
+README.md
+```
+
+`04-caption/` enthält zusätzlich zur Master-Caption und den Wort-Timings die fünf Plattformdateien:
+
+```text
+youtube-shorts.txt
+instagram-reels.txt
+tiktok.txt
+facebook-reels.txt
+snapchat.txt
+```
 
 ## Neuer Reel-Start
-
-Gib Claude diesen Auftrag:
 
 ```text
 Neues FinanzNeo-Reel.
 
 Thema: [THEMA]
-Ziel: Finanzanfänger sollen den Inhalt nach 60 bis 90 Sekunden verstehen.
 
-Arbeite nach:
+Lies zuerst vollständig:
 - CLAUDE.md
+- reels/PRODUKTIONSSTANDARD.md
+- docs/FINANZNEO-IMAGE-WORLD-V3.md
 - docs/IMAGE-SYSTEM.md
 - docs/BEAT-TO-IMAGE-RULES.md
 - docs/IMAGE-PROMPT-LIBRARY.md
 - docs/IMAGE-QA-CHECKLIST.md
+- docs/PLATFORM-PUBLISHING.md
 
-Erstelle zuerst:
-1. Recherche mit Quellen und Stand
+Erstelle selbstständig:
+1. Recherche + Quellen
 2. geprüftes Skript
-3. visuelle Beat-Liste
-4. begründete Entscheidung je Beat: KI-Bild, Remotion oder Kombination
-5. Bildprompts mit 18 % freiem oberen und 22 % freiem unteren Bereich
-6. benötigte Ordner- und Assetliste
+3. Szenen-/Beat-Plan
+4. Bild-/Remotion-Zuordnung
+5. vollständige Google-Flow-Bildprompts mit echten Szenennummern
+6. Remotion-Spezifikationen
+7. Caption- und Plattformstruktur
 
-Baue noch keine Animation. Warte, bis Voiceover und alle benötigten Bilder vorhanden sind.
+Bilder erzeugt ausschließlich der Nutzer. Antigravity erzeugt keine Bilder.
 ```
 
 ## Bildfreigabe
 
-Jedes generierte Bild wird vor der Nutzung mit `docs/IMAGE-QA-CHECKLIST.md` bewertet.
+Bild neu erzeugen, wenn unter anderem:
 
-Mindestanforderung:
-
-- 13 von 14 Punkten für direkte Freigabe
-- keine Regel unter „Sofort neu erstellen“ verletzt
-- gesprochener Satz sofort verständlich
-- Safe Areas vollständig frei
-- kein langer Text im Bild
+- zwei sichtbare Hintergründe/Bänder entstehen
+- eine horizontale Trennkante, Floor-Wall-Grenze oder ein Horizont sichtbar ist
+- eine dargestellte Person kein klar sichtbares Gesicht hat
+- eine große Headline, ein Untertitel oder ein erklärender Satz im KI-Bild erscheint
+- Labels falsch oder zufällig sind
+- das Bild wie Diorama, Game-Level, Neon-Tunnel, Sci-Fi-Korridor oder Dashboard wirkt
 
 ## Produktionsfreigabe
 
-Erst wenn alle benötigten Assets vorhanden sind:
+Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover vorhanden sind, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview tatsächlich ausgeführt wurden und Bildsatz + komplette MP4 geprüft wurden.
 
-```text
-Alle Pflichtassets sind vorhanden.
-
-Prüfe zuerst:
-- Voiceover-Datei vorhanden
-- Bilder vollständig
-- jedes Bild mit IMAGE-QA-CHECKLIST freigegeben
-- Bild-Safe-Areas eingehalten
-- Fakten und Zahlen validiert
-
-Erzeuge danach Wort-Timings und Untertitel, zeige den Beat-für-Beat-Plan und baue anschließend das Reel mit Remotion.
-```
+Vor Cross-Platform-Publishing zusätzlich alle fünf Dateien in `04-caption/` fertigstellen und auf dasselbe finale Reel abstimmen.
