@@ -46,7 +46,7 @@ Use the simple reel structure:
 README.md
 ```
 
-`04-caption/` contains the master caption, platform publishing files and word timings.
+`04-caption/` contains the master caption, Reel-platform publishing files and word timings.
 
 ## Visual plan
 
@@ -107,7 +107,6 @@ Prepare these files in `04-caption/` for the same final reel:
 
 ```text
 caption.txt
-youtube-shorts.txt
 instagram-reels.txt
 tiktok.txt
 facebook-reels.txt
@@ -116,14 +115,14 @@ word-timings.json
 ```
 
 - `caption.txt` is the verified master caption/facts basis.
-- YouTube Shorts: title, description, CTA, source/note when needed, hashtags, optional pinned comment.
 - Instagram Reels: caption, CTA, source/note, hashtags, optional pinned comment.
 - TikTok: short caption, CTA, source/note, hashtags.
 - Facebook Reels: reel text, CTA, source/note, hashtags.
 - Snapchat: very short caption, optional CTA, note only when needed.
+- Never create `youtube-shorts.txt` and never prepare a YouTube Shorts upload.
+- YouTube is exclusively a separate long-form workflow under `youtube/`; Reel projects are not mirrored there.
 - Never invent new facts for a platform file.
 - If exact current limits/features matter, verify official platform documentation before publishing.
-- Longform YouTube is separate from a Short reel folder.
 
 ## Validation
 

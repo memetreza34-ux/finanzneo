@@ -15,8 +15,9 @@
 
 - deutsche Finanzgrundlagen für Anfänger
 - 1080 × 1920, 30 fps
-- 60–90 Sekunden als Standard
-- YouTube Shorts, Instagram Reels, TikTok, Facebook Reels und Snapchat
+- 60–90 Sekunden als Reel-Standard
+- Reel-Plattformen: Instagram Reels, TikTok, Facebook Reels und Snapchat
+- YouTube: ausschließlich eigenständige längere Videos unter `youtube/`; keine YouTube Shorts
 - Untertitel Pflicht
 - Premium Fintech Editorial 3D + Remotion
 - eine starke visuelle Metapher pro Bild
@@ -38,15 +39,16 @@
 README.md
 ```
 
-`04-caption/` enthält zusätzlich zur Master-Caption und den Wort-Timings die fünf Plattformdateien:
+`04-caption/` enthält zusätzlich zur Master-Caption und den Wort-Timings die vier Reel-Plattformdateien:
 
 ```text
-youtube-shorts.txt
 instagram-reels.txt
 tiktok.txt
 facebook-reels.txt
 snapchat.txt
 ```
+
+`youtube-shorts.txt` wird nicht erstellt. Longform-YouTube wird unabhängig davon unter `youtube/` produziert.
 
 ## Neuer Reel-Start
 
@@ -72,9 +74,10 @@ Erstelle selbstständig:
 4. Bild-/Remotion-Zuordnung
 5. vollständige Google-Flow-Bildprompts mit echten Szenennummern
 6. Remotion-Spezifikationen
-7. Caption- und Plattformstruktur
+7. Caption- und Reel-Plattformstruktur für Instagram, TikTok, Facebook und Snapchat
 
 Bilder erzeugt ausschließlich der Nutzer. Antigravity erzeugt keine Bilder.
+Keine YouTube Shorts erzeugen. YouTube ist ausschließlich Longform unter `youtube/`.
 ```
 
 ## Bildfreigabe
@@ -92,4 +95,4 @@ Bild neu erzeugen, wenn unter anderem:
 
 Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover vorhanden sind, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview tatsächlich ausgeführt wurden und Bildsatz + komplette MP4 geprüft wurden.
 
-Vor Cross-Platform-Publishing zusätzlich alle fünf Dateien in `04-caption/` fertigstellen und auf dasselbe finale Reel abstimmen.
+Vor Cross-Platform-Reel-Publishing zusätzlich alle vier Reel-Plattformdateien in `04-caption/` fertigstellen und auf dasselbe finale Reel abstimmen.

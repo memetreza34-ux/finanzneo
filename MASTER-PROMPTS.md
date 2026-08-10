@@ -27,9 +27,10 @@ Arbeite nach allen aktuellen Repo-Regeln und erstelle selbstständig:
 5. begründete Zuordnung KI-Bild / Remotion / Kombination
 6. vollständige Google-Flow-Bildprompts mit echtem Szenen-Dateinamen
 7. Remotion-Spezifikationen
-8. Master-Caption + Plattformdateien für YouTube Shorts, Instagram Reels, TikTok, Facebook Reels und Snapchat
+8. Master-Caption + Reel-Plattformdateien für Instagram Reels, TikTok, Facebook Reels und Snapchat
 
 Antigravity erzeugt keine Bilder. Der Nutzer erzeugt alle Bilder selbst mit Google Flow.
+Keine YouTube Shorts erzeugen. YouTube ist ausschließlich ein separater Longform-Bereich unter `youtube/`.
 ```
 
 ## 2. Bildprompt erstellen
@@ -143,20 +144,16 @@ Wenn Nutzerbilder und finales Audio vorhanden sind:
 Keine Prüfung als bestanden behaupten, wenn sie nicht tatsächlich ausgeführt wurde.
 ```
 
-## 7. Plattform-Publishing
+## 7. Reel-Plattform-Publishing
 
 ```text
-Erstelle aus der geprüften Master-Caption alle Veröffentlichungsdateien in `04-caption/`.
+Erstelle aus der geprüften Master-Caption alle Reel-Veröffentlichungsdateien in `04-caption/`.
 
 Pflichtdateien:
-- youtube-shorts.txt
 - instagram-reels.txt
 - tiktok.txt
 - facebook-reels.txt
 - snapchat.txt
-
-YouTube Shorts:
-TITEL / BESCHREIBUNG / CTA / QUELLEN-HINWEIS / HASHTAGS / optional ANGEHEFTETER KOMMENTAR
 
 Instagram Reels:
 CAPTION / CTA / QUELLEN-HINWEIS / HASHTAGS / optional ANGEHEFTETER KOMMENTAR
@@ -169,6 +166,9 @@ REEL-TEXT / CTA / QUELLEN-HINWEIS / HASHTAGS
 
 Snapchat:
 CAPTION / optional CTA / Hinweis nur wenn nötig
+
+Keine `youtube-shorts.txt` erstellen. Keine YouTube Shorts vorbereiten oder veröffentlichen.
+YouTube ist ausschließlich für eigenständige längere Videos unter `youtube/` und besitzt einen separaten Workflow.
 
 Alle Plattformtexte müssen dieselben geprüften Fakten verwenden. Keine neuen Behauptungen erfinden. Exakte aktuelle Plattform-Limits nur nach Prüfung offizieller Plattformquellen verwenden.
 ```

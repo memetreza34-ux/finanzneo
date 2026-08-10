@@ -49,7 +49,6 @@
   "platformPublishing": {
     "directory": "04-caption",
     "masterCaption": "04-caption/caption.txt",
-    "youtubeShorts": "04-caption/youtube-shorts.txt",
     "instagramReels": "04-caption/instagram-reels.txt",
     "tiktok": "04-caption/tiktok.txt",
     "facebookReels": "04-caption/facebook-reels.txt",

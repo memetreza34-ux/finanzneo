@@ -28,7 +28,6 @@ if (index.imageWorld?.legacyAssetSet === true) {
 
 const expected = {
   masterCaption: '04-caption/caption.txt',
-  youtubeShorts: '04-caption/youtube-shorts.txt',
   instagramReels: '04-caption/instagram-reels.txt',
   tiktok: '04-caption/tiktok.txt',
   facebookReels: '04-caption/facebook-reels.txt',
@@ -37,6 +36,8 @@ const expected = {
 
 assert(index.platformPublishing && typeof index.platformPublishing === 'object', 'scene-index.json benötigt platformPublishing.');
 assert(index.platformPublishing?.directory === '04-caption', 'platformPublishing.directory muss 04-caption sein.');
+assert(!Object.prototype.hasOwnProperty.call(index.platformPublishing ?? {}, 'youtubeShorts'), 'platformPublishing.youtubeShorts ist verboten: FinanzNeo veröffentlicht keine YouTube Shorts.');
+assert(!existsSync(resolve(root, '04-caption/youtube-shorts.txt')), '04-caption/youtube-shorts.txt ist verboten: YouTube ist ausschließlich Longform unter youtube/.');
 
 for (const [key, relativePath] of Object.entries(expected)) {
   assert(index.platformPublishing?.[key] === relativePath, `platformPublishing.${key} muss auf ${relativePath} zeigen.`);
@@ -51,7 +52,6 @@ for (const [key, relativePath] of Object.entries(expected)) {
 }
 
 const structuralChecks = [
-  ['04-caption/youtube-shorts.txt', ['TITEL:', 'BESCHREIBUNG:']],
   ['04-caption/instagram-reels.txt', ['CAPTION:']],
   ['04-caption/tiktok.txt', ['CAPTION:']],
   ['04-caption/facebook-reels.txt', ['REEL-TEXT:']],
@@ -74,7 +74,8 @@ if (errors.length) {
 }
 
 console.log('\n✓ Plattform-Publishing-Struktur vollständig.');
-console.log('  YouTube Shorts · Instagram Reels · TikTok · Facebook Reels · Snapchat');
+console.log('  Instagram Reels · TikTok · Facebook Reels · Snapchat');
+console.log('  YouTube: ausschließlich eigenständige Longform-Videos unter youtube/.');
 if (warnings.length) {
   warnings.forEach((warning) => console.log(`  Hinweis: ${warning}`));
 }
