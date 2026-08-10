@@ -1,0 +1,53 @@
+{
+  "name": "finanzneo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "FinanzNeo — eigenstaendiges Repo, extrahiert aus Studio-Clon am 2026-07-31",
+  "workspaces": [
+    "core",
+    "channels/finanzneo"
+  ],
+  "scripts": {
+    "validate:finance-template": "node scripts/validate-finance-template.mjs",
+    "validate:finanzneo-syntax": "node scripts/validate-finanzneo-syntax.mjs",
+    "validate:finanzneo-system": "node scripts/validate-finanzneo-system.mjs",
+    "validate:finanzneo-consistency": "node scripts/validate-finanzneo-consistency.mjs",
+    "typecheck": "node scripts/typecheck.mjs",
+    "smoke": "cd channels/finanzneo && npx remotion still src/index.ts FinanzNeo /tmp/ci-smoke.png --frame=0",
+    "finance:new": "node scripts/safe-new-finance-week-reel.mjs",
+    "finance:scaffold-test": "node scripts/test-finance-scaffold-transaction.mjs",
+    "finance:gallery": "cd channels/finanzneo && npx remotion studio src/layout-gallery-index.ts",
+    "finance:align": "node scripts/align-finance-plan.mjs",
+    "finance:assets": "node scripts/run-finance-with-folder-check.mjs scripts/ingest-finance-assets.mjs",
+    "finance:script-qa": "node scripts/run-finance-script-qa.mjs",
+    "finance:creative-qa": "node scripts/run-finance-creative-qa.mjs",
+    "finance:content-ready": "node scripts/run-finance-with-folder-check.mjs scripts/check-finance-content-package.mjs",
+    "finance:qa": "node scripts/run-finance-qa-from-project.mjs",
+    "finance:ready": "node scripts/run-finance-with-folder-check.mjs scripts/check-finance-readiness.mjs",
+    "finance:render-qa": "node scripts/run-finance-render-qa.mjs",
+    "finance:render-qa-test": "node scripts/test-finance-render-qa.mjs",
+    "finance:validate": "node scripts/run-finance-with-folder-check.mjs scripts/validate-finance-project.mjs",
+    "finance:render": "node scripts/render-finance-reel.mjs",
+    "finance:export": "node scripts/run-finance-with-folder-check.mjs scripts/export-finance-deliverables.mjs",
+    "finance:e2e": "node scripts/test-finance-e2e.mjs",
+    "finance:system-test": "npm test && npm run finance:scaffold-test && npm run finance:e2e && npm run finance:render-qa-test && npm run smoke",
+    "test": "npm run validate:finanzneo-syntax && npm run validate:finance-template && npm run validate:finanzneo-system && npm run validate:finanzneo-consistency && npm run typecheck && vitest run"
+  },
+  "dependencies": {
+    "@remotion/captions": "4.0.488",
+    "@remotion/cli": "4.0.488",
+    "@remotion/light-leaks": "4.0.488",
+    "@remotion/media-utils": "4.0.488",
+    "lucide-react": "^0.460.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "4.0.488",
+    "sharp": "^0.35.3",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "typescript": "^5.0.0",
+    "vitest": "4.1.10"
+  }
+}

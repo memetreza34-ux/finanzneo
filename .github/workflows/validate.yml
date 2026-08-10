@@ -1,0 +1,40 @@
+name: FinanzNeo Validate
+
+on:
+  push:
+    branches:
+      - main
+      - 'agent/**'
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Setup und Lockfile vorab prüfen
+        run: node scripts/check-setup.mjs
+
+      - name: Abhängigkeiten reproduzierbar installieren
+        run: npm ci
+
+      - name: Validatoren und TypeScript ausführen
+        run: npm run validate
+
+      - name: Remotion-Bundle erstellen
+        run: npm run build

@@ -1,0 +1,19 @@
+{
+  "name": "FinanzNeo Short Hook",
+  "composition": "ShortHook",
+  "entryPoint": "src/index.ts",
+  "output": "out/short-hook.mp4",
+  "renderArgs": ["--concurrency=4"],
+  "assets": [
+    {
+      "path": "public/audio/short-01.mp3",
+      "type": "audio",
+      "minBytes": 1000
+    },
+    {
+      "path": "public/captions/szene-01-hook.json",
+      "type": "caption",
+      "minWords": 10
+    }
+  ]
+}

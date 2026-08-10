@@ -1,0 +1,34 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+USE STYLE REFERENCE:
+Use `03-szenen/bildwelt-referenz.png` only as a style and environment reference. Match its camera angle, 35mm-equivalent perspective, camera height, curved charcoal studio architecture, matte floor, emerald architectural light channels, lighting, materials, depth and subject scale. Do not redesign the world.
+
+SERIES CONTINUITY LOCK:
+The image must look like another frame from exactly the same FinanzNeo studio as every other image in this reel.
+
+ENVIRONMENT:
+Create one connected premium finance-explainer environment with a visible matte floor, a curved charcoal back wall, integrated emerald light channels and subtle architectural depth. The scene must not look like an isolated object in an empty black void. Use three depth layers: supporting foreground, explanatory midground action and quiet architectural background.
+
+COMPOSITION LOCK:
+Vertical 9:16 source image. The complete main action sits inside the central 64 percent of the image height and fills approximately 68 to 78 percent of the usable width. Keep the upper 18 percent and lower 18 percent crop-safe and low-detail, but continue the same studio wall, floor and lighting there instead of leaving blank black space.
+
+TEXT:
+No headline, subtitle, sentence, number, label, logo, watermark or interface text inside the image.
+
+CONSISTENCY NEGATIVES:
+No empty black background, no isolated floating product, no floating platform, no different camera angle, no different color palette, no blue or purple neon world, no photorealism, no cartoon, no Pixar, no clay style, no dashboard, no app UI, no advertising layout, no random particles and no decorative filler.
+
+SCENE MESSAGE:
+The visible account balance is larger than the money that is actually free to spend.
+
+CONNECTED VISUAL STORY:
+Create one central account reservoir with one large total pile of gold coins. Most of the pile is physically anchored by restrained red commitment cables to three integrated obligation objects: a house, an electricity unit and an insurance shield. Only a clearly smaller group of loose coins remains unconnected and accessible through a green weekly-spending path in the foreground. Use scale, physical connection and color to make the difference between total balance and real free budget unmistakable without text or numbers.
+
+PRIMARY OBJECTS:
+1. one total account reservoir
+2. one large committed portion anchored to obligations
+3. one much smaller loose free portion
+4. one accessible weekly-spending path
+
+READABILITY:
+The viewer must instantly understand “large balance, small genuinely free amount.” Do not show a reserve safe and do not show the final three-account solution.

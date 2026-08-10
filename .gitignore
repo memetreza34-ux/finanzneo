@@ -1,38 +1,31 @@
-# ---- Abhängigkeiten / Build ----
+# Dependencies
 node_modules/
-dist/
-.remotion/
-.cache/
-whisper.cpp/
-*.16k.wav
 
-# ---- Renders (groß, regenerierbar) ----
+# Gerenderte Videos & Frames (groß, regenerierbar)
 out/
 frames/
+thumbnails/*.mp4
 *.mp4
 *.mov
-*.mkv
 
-# ---- Laufzeit-Staging fürs Rendern (regenerierbar aus reels/) ----
-channels/finanzneo/public/reels/
+# Remotion / Build
+dist/
+.remotion/
 
-# ---- Audio (kommt pro Video von Arman) ----
-*.wav
-*.mp3
-*.m4a
-*.aiff
+# Voiceover-Dateien bleiben lokal und werden pro Produktion bereitgestellt
+public/audio/*.mp3
+public/audio/*.wav
+public/audio/*.aiff
 
-# ---- Secrets / Keys (NIE auf GitHub) ----
-.env
-.env.local
-*.key
-*.pem
+# Caption-JSONs werden absichtlich versioniert.
+# Produktive Kompositionen müssen in einem frischen Clone reproduzierbar bleiben.
 
-# ---- System ----
+# System
 .DS_Store
 *.log
-__pycache__/
-*.pyc
+npm-debug.log*
+.cache/
 
-# Claude Code worktree sessions (local, not project data)
-.claude/worktrees/
+# Editor
+.vscode/
+.idea/

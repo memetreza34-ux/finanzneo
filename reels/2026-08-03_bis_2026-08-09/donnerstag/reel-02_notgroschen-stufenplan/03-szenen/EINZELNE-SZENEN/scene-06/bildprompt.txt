@@ -1,0 +1,19 @@
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 06 - Echter Notfall oder Konsum.png`
+
+WICHTIG:
+Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen, Gesicht, Hintergrund und Dateiname prüfen. Erst dann nächstes Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- `Notfall`
+- `Konsum`
+
+BILDPROMPT:
+A stylized 3D adult person with a clearly visible stylized face, front-facing or natural three-quarter view, standing in one clean decision scene. On one side, a broken necessary washing machine and repair tool are emphasized with vivid emerald light. On the other side, a luxury shopping bag, premium gadget and vacation suitcase are marked with warm red-orange blocking light. The distinction must come only from the objects and their lighting, NEVER from separate background panels or colored background zones. Include German labels: `Notfall` beside the repair side and `Konsum` beside the shopping/vacation side.
+
+Premium fintech editorial 3D render style. Deep charcoal green-black world. Vivid emerald/mint accents on the correct side and warm red-orange only on the blocked objects. Smooth rounded geometry, soft bevelled edges and bold emerald rim light.
+
+BACKGROUND — VERBINDLICH:
+Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line, no panels. Use only one subtle continuous gradient/vignette. Do not create a visible floor or wall. Leave generous natural empty space above and below without changing the background. Do NOT use percentage-based zones.
+
+No photorealism, no real identifiable human, no faceless person, no hidden face, no back-view-only character, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
