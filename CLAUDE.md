@@ -36,7 +36,7 @@ README.md
 - `01-script/` = finaler Voiceover-Fließtext
 - `02-audio/` = genau ein finales Nutzer-Voiceover
 - `03-szenen/` = Bildwelt, Prompts, Szenen und finaler Nutzerbilder-Sammelordner
-- `04-caption/` = Master-Caption, vier Reel-Plattformtexte, echte Wort-Timings
+- `04-caption/` = genau **eine universelle Social-Caption** + echte Wort-Timings
 - `05-projektdateien/` = Recherche, Quellen, Animationen, Timeline, Technik
 
 Keine doppelten Hauptordner für dieselbe Funktion anlegen.
@@ -260,20 +260,44 @@ Wenn keine echte Wortausrichtung aus dem finalen Audio erzeugt werden kann: **BL
 - keine individuelle Anlageberatung
 - Geldbeträge standardmäßig Euro
 
-## 15. Publishing
+## 15. Publishing — genau EINE Caption für alle Reel-Plattformen
 
-Direkt in `04-caption/`:
+Direkt in `04-caption/` liegen nur:
 
 ```text
 caption.txt
+word-timings.json
+```
+
+`caption.txt` ist die **eine einzige fertige Social-Caption**, die unverändert für TikTok, Instagram Reels, Facebook Reels und Snapchat verwendet wird.
+
+Verbindlicher Caption-Standard:
+
+- keine separaten plattformspezifischen Caption-Dateien
+- keine Varianten derselben Caption
+- sofort kopierfertiger Text, keine Überschrift wie `CAPTION:` im finalen Inhalt
+- erste Zeile = starker, ehrlicher Hook mit klarer Neugier oder relevantem Problem
+- danach kurze Kernaussage/Aha-Nutzen des Reels
+- kurzer natürlicher Save-/Follow-/Kommentar-CTA nur wenn passend
+- **genau 5 Hashtags**
+- alle 5 Hashtags müssen konkret zum Reel-Thema passen
+- keine zufälligen Trend-Tags und kein irreführendes `#fyp`-Spam
+- keine Behauptung wie „garantiert viral“; Ziel ist eine möglichst starke, teilbare, speicherbare Caption
+- Fakten müssen mit Skript/Recherche übereinstimmen
+- Quellen bleiben in `05-projektdateien/recherche-quellen.md`; die Caption soll nicht unnötig mit Quellenblöcken überladen werden
+- `Keine Anlageberatung` nur ergänzen, wenn für die konkrete Aussage sinnvoll/notwendig
+
+Verbotene alte Dateien in aktiven neuen Reels:
+
+```text
 instagram-reels.txt
 tiktok.txt
 facebook-reels.txt
 snapchat.txt
-word-timings.json
+youtube-shorts.txt
 ```
 
-Keine `youtube-shorts.txt` und keine automatische YouTube-Spiegelung.
+YouTube wird nicht automatisch gespiegelt; YouTube bleibt separater Longform-Bereich.
 
 ## 16. Finaler Produktionslauf / Antigravity Autopilot
 
@@ -288,7 +312,7 @@ Ohne `weiter?` durchlaufen:
 5. Remotion vollständig bauen
 6. Bilder mit adaptive-safe-fill framen
 7. Headlines + satzbasierte Karaoke-Captions einbinden
-8. Plattformtexte vorbereiten
+8. **eine universelle Social-Caption mit genau 5 passenden Hashtags erstellen**
 9. finalen Reel-Validator ausführen
 10. TypeScript prüfen
 11. Preview rendern
@@ -337,6 +361,7 @@ Kein generisches `Weiter?`.
 - echte final-audio-basierte Wortzeiten vorliegen
 - Bildframing visuell geprüft wurde
 - Captions/Safe-Areas geprüft wurden
+- die eine universelle Social-Caption fertig ist und genau 5 passende Hashtags enthält
 - Validator + TypeScript + Preview tatsächlich erfolgreich waren
 - vollständiges MP4 gerendert und geprüft wurde
 - behebbare Fehler beseitigt wurden
