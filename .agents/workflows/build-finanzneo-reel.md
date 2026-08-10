@@ -1,5 +1,5 @@
 ---
-description: Build a complete new FinanzNeo Reel safely using user-provided images, Remotion animation, captions, validation and preview render.
+description: Build a complete new FinanzNeo Reel safely using user-provided images, Remotion animation, captions, platform publishing, validation and preview render.
 ---
 
 # Build a complete FinanzNeo Reel
@@ -8,9 +8,10 @@ Read in this order before editing:
 
 1. `.agents/rules/finanzneo-reel-safety.md`
 2. `CLAUDE.md`
-3. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-4. `docs/IMAGE-SYSTEM.md`
-5. `reels/PRODUKTIONSSTANDARD.md`
+3. `reels/PRODUKTIONSSTANDARD.md`
+4. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
+5. `docs/IMAGE-SYSTEM.md`
+6. `docs/PLATFORM-PUBLISHING.md`
 
 `CLAUDE.md` wins on conflicts.
 
@@ -45,6 +46,8 @@ Use the simple reel structure:
 README.md
 ```
 
+`04-caption/` contains the master caption, platform publishing files and word timings.
+
 ## Visual plan
 
 Default target: 10 scenes with approximately 6 image scenes and 4 native Remotion animations, unless another split is clearly stronger.
@@ -62,8 +65,8 @@ Antigravity generates NO images.
 7. Use one dominant financial metaphor / large hero object and only a few supporting elements.
 8. A stylized adult 3D person is optional. If present, the face must be clearly visible with stylized eyes, nose and mouth; prefer front-facing or natural three-quarter view. No faceless/back-view-only character.
 9. Use Premium Fintech Editorial 3D: deep charcoal green-black, emerald/mint accents, gold for money/value, warm red-orange for risk/loss, rounded geometry and bold rim light.
-10. **Never use percentage-based top/middle/bottom zones.**
-11. Every prompt must require ONE seamless continuous background from top edge to bottom edge: no horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line and no panels. Leave natural empty space above/below without changing the background.
+10. Never use percentage-based top/middle/bottom zones.
+11. Every prompt requires ONE seamless continuous background from top edge to bottom edge: no horizontal bands, top/bottom sections, floor-wall boundary, horizon line or panels. Leave natural empty space above/below without changing the background.
 12. No tiny diorama, game-level, neon tunnel, sci-fi corridor or UI dashboard.
 13. Relevant real brands/services may be used as concrete examples when useful; spell them correctly and do not imply an invented partnership.
 14. `Bild 00` is the cover. Every scene image uses its REAL chronological scene number.
@@ -97,6 +100,30 @@ Use one final voiceover and derive real word timings from that exact audio. Scen
 ## Remotion
 
 1080×1920 at 30fps. Actual scene headlines/icons are rendered in Remotion, not as large generated image typography. Images use `contain`. No blurred duplicate image background. Exactly one full subtitle sentence, current word green, max two lines, platform-safe. Animation timing is relative to actual scene duration.
+
+## Platform publishing
+
+Prepare these files in `04-caption/` for the same final reel:
+
+```text
+caption.txt
+youtube-shorts.txt
+instagram-reels.txt
+tiktok.txt
+facebook-reels.txt
+snapchat.txt
+word-timings.json
+```
+
+- `caption.txt` is the verified master caption/facts basis.
+- YouTube Shorts: title, description, CTA, source/note when needed, hashtags, optional pinned comment.
+- Instagram Reels: caption, CTA, source/note, hashtags, optional pinned comment.
+- TikTok: short caption, CTA, source/note, hashtags.
+- Facebook Reels: reel text, CTA, source/note, hashtags.
+- Snapchat: very short caption, optional CTA, note only when needed.
+- Never invent new facts for a platform file.
+- If exact current limits/features matter, verify official platform documentation before publishing.
+- Longform YouTube is separate from a Short reel folder.
 
 ## Validation
 
