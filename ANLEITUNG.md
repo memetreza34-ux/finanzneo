@@ -143,11 +143,10 @@ Ohne tatsächlichen Lauf nicht behaupten, dass Validator, Typecheck oder Render 
 
 ## Schritt 10 — Plattform-Ausgabe
 
-Die Hauptstruktur bleibt einfach. Alle Publishing-Texte liegen in `04-caption/`:
+Die Hauptstruktur bleibt einfach. Alle Reel-Publishing-Texte liegen in `04-caption/`:
 
 ```text
 caption.txt
-youtube-shorts.txt
 instagram-reels.txt
 tiktok.txt
 facebook-reels.txt
@@ -155,16 +154,7 @@ snapchat.txt
 word-timings.json
 ```
 
-`caption.txt` ist die gemeinsame geprüfte Faktenbasis. Danach werden die Plattformdateien passend zum selben finalen Reel erstellt.
-
-### YouTube Shorts
-
-- Titel
-- Beschreibung
-- CTA
-- Quellen/Hinweis, wenn nötig
-- Hashtags
-- optional angehefteter Kommentar
+`caption.txt` ist die gemeinsame geprüfte Faktenbasis. Danach werden die vier Reel-Plattformdateien passend zum selben finalen Reel erstellt.
 
 ### Instagram Reels
 
@@ -194,6 +184,8 @@ word-timings.json
 - optional CTA
 - Hinweis nur wenn nötig
 
+Keine YouTube Shorts erzeugen. `youtube-shorts.txt` ist in aktiven Reel-Projekten verboten. YouTube ist ausschließlich für eigenständige längere Videos unter `youtube/` vorgesehen; Reels werden nicht automatisch dorthin gespiegelt.
+
 Keine plattformspezifischen Fakten erfinden. Wenn aktuelle Plattform-Limits/Funktionen entscheidend sind, vor Veröffentlichung die aktuelle offizielle Plattform-Dokumentation prüfen.
 
 ## Nicht mehr gültig
@@ -204,5 +196,5 @@ Keine plattformspezifischen Fakten erfinden. Wenn aktuelle Plattform-Limits/Funk
 - gesichtslose Figuren
 - sichtbare obere/untere Hintergrundbänder
 - Antigravity als Bildgenerator
-- Longform-YouTube als primäres Format
+- Longform-YouTube als primäres Reel-Format
 - Animation beginnen, bevor Pflichtassets vorhanden sind
