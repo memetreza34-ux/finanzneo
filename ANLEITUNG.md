@@ -1,204 +1,208 @@
 # FinanzNeo — aktueller Produktionsablauf
 
-> Verbindliche Regeln stehen in `CLAUDE.md`. Dieses Dokument beschreibt nur den Ablauf.
+> `CLAUDE.md` ist die höchste Regelquelle. Dieses Dokument beschreibt den praktischen Ablauf.
 
-## Pflichtdokumente für Bildaufgaben
+## Vor jedem neuen Reel lesen
 
-Vor jeder Bildplanung lesen:
-
+- `CLAUDE.md`
+- `reels/PRODUKTIONSSTANDARD.md`
+- `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 - `docs/IMAGE-SYSTEM.md`
 - `docs/BEAT-TO-IMAGE-RULES.md`
 - `docs/IMAGE-PROMPT-LIBRARY.md`
 - `docs/IMAGE-QA-CHECKLIST.md`
+- `docs/PLATFORM-PUBLISHING.md`
 
 ## Schritt 1 — Thema und Recherche
 
-```text
-Thema: [THEMA]
-
-Recherchiere die notwendigen Fakten für ein deutsches FinanzNeo-Reel von 60 bis 90 Sekunden.
-Nutze nachvollziehbare Quellen, nenne den Datenstand und trenne Fakten von Beispielannahmen.
-Erfinde keine Zahlen.
-
-Gib danach aus:
-- Kernaussage
-- Zielgruppe und Lernziel
-- geprüfte Fakten
-- Quellen
-- mögliche Risiken oder Missverständnisse
-```
+- neues Thema gegen bestehende Reels prüfen
+- notwendige Fakten recherchieren
+- Quellen und Datenstand festhalten
+- Fakten von Beispielannahmen trennen
+- keine Zahlen erfinden
 
 ## Schritt 2 — Skript
 
-```text
-Schreibe ein FinanzNeo-Skript von 60 bis 90 Sekunden.
+60–90 Sekunden als Standard:
 
-Struktur:
 1. Hook innerhalb der ersten 2 Sekunden
 2. Problem
 3. einfache Erklärung
 4. konkretes Beispiel
 5. Lösung oder Merksatz
-6. kurzer CTA zu einer passenden kostenlosen PDF
+6. kurzer CTA, wenn sinnvoll
 
-Regeln:
-- immer „du“
-- kurze Sätze
-- kein unnötiger Fachjargon
-- jeder Satz muss visualisierbar sein
-- keine Wiederholungen
-- keine individuelle Anlageempfehlung
-```
+Kurze deutsche Sätze, direkte Du-Ansprache, kein unnötiger Fachjargon und keine individuelle Anlageempfehlung.
 
-## Schritt 3 — Visuelle Beat-Liste
+## Schritt 3 — Szenen- und Visualplan
 
-```text
-Teile das Skript in ungefähr 6 bis 10 visuelle Beats.
+Je Beat entscheiden:
 
-Entscheide je Beat nach docs/BEAT-TO-IMAGE-RULES.md:
 - KI-Bild
 - Remotion
 - Kombination
 
-Begründe jede Entscheidung.
-Nutze ein KI-Bild nur, wenn eine konkrete räumliche Szene, ein Gegenstand oder eine visuelle Metapher erklärt werden soll.
-Nutze Remotion für Überschriften, Untertitel, Beträge, Zahlen, Quellen, Diagramme und Tabellen.
-
-Gib jeden Beat im verbindlichen Format aus:
-- Sprechtext
-- Hauptaussage
-- Visualtyp
-- Begründung
-- Bildinhalt
-- Remotion-Inhalt
-- benötigte Daten
-- Dauer
-- Übergang
-```
+KI-Bilder für konkrete Gegenstände, Alltagssituationen und visuelle Metaphern. Remotion für Überschriften, Karaoke-Untertitel, Zahlen, Quellen, Diagramme, Tabellen und CTA.
 
 ## Schritt 4 — Bildprompts
 
-```text
-Erstelle für alle benötigten KI-Bilder vollständige Prompts nach:
-- docs/IMAGE-SYSTEM.md
-- docs/IMAGE-PROMPT-LIBRARY.md
+Jeder Bildprompt folgt dem aktuellen FinanzNeo-Stil:
 
-Pflicht:
-- Premium-isometrische redaktionelle 3D-Finanzwelt
-- vollständige erklärende Szene statt Einzelobjekt
-- Ausgangspunkt → Entwicklung → Ergebnis
-- 2 bis 4 große Hauptelemente
-- obere 18 % frei
-- untere 22 % frei
-- standardmäßig kein Text
-- höchstens drei kleine deutsche Labels
-- klare Ursache-Wirkungs-Logik
-- Dateiname und Zielordner nennen
+- Premium Fintech Editorial 3D
+- eine dominante Finanzmetapher / großes Hauptobjekt
+- optional stilisierte erwachsene 3D-Person
+- wenn Person: Gesicht mit Augen, Nase und Mund klar sichtbar; frontal oder 3/4 bevorzugt
+- deep charcoal green-black Grundwelt
+- Emerald/Mint-Akzente
+- Gold nur für Geld/Wert
+- warmes Rot-Orange nur für Risiko/Verlust/Schulden
+- smooth rounded geometry + soft bevelled edges
+- nur kurze deutsche Objektlabels, normalerweise 1–3 Wörter
+- keine große Headline, kein Untertitel, kein ganzer erklärender Satz im KI-Bild
+- keine Dioramen, Neon-Tunnel, Sci-Fi-Korridore, Dashboards oder Game-Level
 
-Nutze vorhandene Vorlagen aus der Prompt-Bibliothek als Grundlage und passe nur die konkrete Aussage an.
-```
+### Kritische Hintergrundregel
 
-Arman generiert die Bilder in Google Flow / Nano Banana und legt sie in den genannten Ordner.
+Keine Prozent-Zonen mehr verwenden.
 
-## Schritt 5 — Bild-QA
+Jeder Prompt verlangt **einen einzigen nahtlosen Hintergrund von oben bis unten**:
 
-Jedes generierte Bild wird vor der Animation mit `docs/IMAGE-QA-CHECKLIST.md` geprüft.
+- keine horizontalen Bänder
+- keine obere/untere Hintergrundzone
+- keine Floor-Wall-Grenze
+- kein Horizont
+- keine Panels
+- natürliche freie Fläche oberhalb/unterhalb des Motivs nur durch weniger Inhalt, nicht durch einen anderen Hintergrund
 
-```text
-Prüfe jedes Bild einzeln mit der FinanzNeo-Bild-QA.
+## Schritt 5 — Google Flow
 
-Gib aus:
-Bild-QA: [FREIGEGEBEN / ÜBERARBEITEN / NEU ERSTELLEN]
-Punkte: [X/14]
+Der Nutzer erzeugt die Bilder selbst. Antigravity erzeugt keine Bilder.
 
-Bestanden:
-- ...
-
-Fehler:
-- ...
-
-Konkrekte Korrektur:
-- ...
-```
-
-Direkte Freigabe nur bei:
-
-- 13 bis 14 Punkten
-- keiner verletzten Regel unter „Sofort neu erstellen“
-- vollständig freien Safe Areas
-- sofort verständlicher Aussage
-
-## Schritt 6 — Voiceover und Assetprüfung
-
-Arman legt die fertige Voiceover-Datei ab.
-
-Vor dem Bauen müssen vorhanden sein:
-
-- finale Voiceover-Datei
-- alle benötigten und freigegebenen Bilder
-- validierte Fakten und Zahlen
-- festgelegte Composition-ID
-- Zielplattformen
-
-Wenn ein Pflichtasset fehlt, wird nicht mit Ersatzmaterial begonnen.
-
-## Schritt 7 — Untertitel und Beat-Sync
+Für jedes benötigte Bild:
 
 ```text
-Erzeuge Wort-Timings aus der finalen Voiceover-Datei.
-Verwende das einheitliche Caption-Format des Projekts.
-Plane jede Animation passend zum gesprochenen Wort.
-Zeige zuerst den Beat-für-Beat-Plan.
+PROMPT LESEN
+→ GENAU EIN BILD ERZEUGEN
+→ SOFORT ENDGÜLTIG UMBENENNEN
+→ MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
+→ ERST DANN NÄCHSTES BILD
 ```
 
-Untertitel sind bei allen vertikalen Videos Pflicht.
+Nummerierung folgt immer der echten Szene. Animationsnummern bleiben reserviert.
 
-## Schritt 8 — Remotion-Bau
+Erst nach Abschluss kommen alle Nutzerbilder gemeinsam nach:
 
 ```text
-Baue das vertikale Reel in 1080 × 1920 bei 30 fps.
-
-Prüfe:
-- Hook sofort sichtbar
-- Bild-Safe-Areas frei
-- Untertitel nicht über wichtigen Objekten
-- keine überfüllten Szenen
-- Zahlen und Diagramme korrekt
-- Bilder nicht als bedeutungslose Tapete
-- klare Übergänge
-- kurzer CTA
-- Bildbewegung unterstützt die Aussage
+03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-## Schritt 9 — QA und Ausgabe
+## Schritt 6 — Bild-QA
 
-Vor dem Vollrender:
+Neu erzeugen bei:
 
-1. Keyframes rendern
-2. Safe Areas prüfen
-3. Untertitel prüfen
-4. Fakten und Zahlen erneut prüfen
-5. visuelle Hierarchie bewerten
-6. Bild-QA-Ergebnisse kontrollieren
+- zwei sichtbaren Hintergründen/Bändern
+- horizontaler Trennkante
+- Floor-Wall-Grenze/Horizont
+- gesichtsloser oder abgewandter Person
+- falschen/zusätzlichen Labels
+- großer KI-Headline oder erklärendem Satz
+- falscher Bild-Skript-Zuordnung
+- Diorama/Game-Level/Tunnel-Look
 
-Danach:
+## Schritt 7 — Voiceover und Timing
 
-- finales 9:16-Video
-- Plattform-Caption
-- Quellen und Datenstand
-- kurzer Hinweis „Keine Anlageberatung“
-- PDF-CTA
-- genau passende Hashtags
+- finales Voiceover in `02-audio/`
+- echte Wortzeiten aus genau diesem Audio
+- Szenenschnitte an Satzanfängen
+- keine pauschal gleich langen Szenen
+
+## Schritt 8 — Remotion
+
+- 1080 × 1920, 30 fps
+- Bilder mit `contain`
+- keine unscharfe Bildkopie als Hintergrund
+- Überschriften/Icons in Remotion
+- genau ein vollständiger Untertitelsatz sichtbar
+- aktuelles Wort grün, Rest weiß
+- maximal zwei Untertitelzeilen
+- Animationen relativ zur echten Szenendauer
+
+## Schritt 9 — Technische QA
+
+Erst wenn Nutzerbilder und Audio vorhanden sind:
+
+- Asset-Sync/Ingest
+- Reel-Validator
+- Typecheck
+- Preview-Render
+- Kontaktbogen/Frames prüfen
+- komplette MP4 mit Ton ansehen
+- Audio am finalen Export prüfen: ungefähr -16 LUFS, True Peak höchstens -1 dBTP
+
+Ohne tatsächlichen Lauf nicht behaupten, dass Validator, Typecheck oder Render bestanden haben.
+
+## Schritt 10 — Plattform-Ausgabe
+
+Die Hauptstruktur bleibt einfach. Alle Publishing-Texte liegen in `04-caption/`:
+
+```text
+caption.txt
+youtube-shorts.txt
+instagram-reels.txt
+tiktok.txt
+facebook-reels.txt
+snapchat.txt
+word-timings.json
+```
+
+`caption.txt` ist die gemeinsame geprüfte Faktenbasis. Danach werden die Plattformdateien passend zum selben finalen Reel erstellt.
+
+### YouTube Shorts
+
+- Titel
+- Beschreibung
+- CTA
+- Quellen/Hinweis, wenn nötig
+- Hashtags
+- optional angehefteter Kommentar
+
+### Instagram Reels
+
+- Caption
+- CTA
+- Quellen/Hinweis
+- Hashtags
+- optional angehefteter Kommentar
+
+### TikTok
+
+- kurze Caption
+- CTA
+- Quellen/Hinweis
+- passende Hashtags
+
+### Facebook Reels
+
+- Reel-Text
+- CTA
+- Quellen/Hinweis
+- passende Hashtags
+
+### Snapchat
+
+- sehr kurze Caption
+- optional CTA
+- Hinweis nur wenn nötig
+
+Keine plattformspezifischen Fakten erfinden. Wenn aktuelle Plattform-Limits/Funktionen entscheidend sind, vor Veröffentlichung die aktuelle offizielle Plattform-Dokumentation prüfen.
 
 ## Nicht mehr gültig
 
-Folgende frühere Standards sind aufgehoben:
-
-- Longform als primäres Produktionsformat
-- zehnsekündiger Disclaimer vor der Hook
-- Shorts ohne Untertitel
-- reine Clean-2D-Bilder als alleiniger Hauptstil
-- überfüllte KI-Infografiken mit langen Texten
-- Animation starten, bevor alle Pflichtassets vorhanden sind
-- KI-Bilder ohne begründete Beat-Entscheidung
-- Bildfreigabe nur nach subjektivem Eindruck
+- Prozent-Zonen wie 18/22 oder 15/60/25 in Bildprompts
+- alte isometrische Studioarchitektur als Pflicht
+- vollständig textfreie Bilder als allgemeine Pflicht
+- gesichtslose Figuren
+- sichtbare obere/untere Hintergrundbänder
+- Antigravity als Bildgenerator
+- Longform-YouTube als primäres Format
+- Animation beginnen, bevor Pflichtassets vorhanden sind
