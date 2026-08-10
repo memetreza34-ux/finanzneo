@@ -17,6 +17,19 @@ Read these first and treat them as authoritative:
 
 `CLAUDE.md` wins on conflicts.
 
+## Autopilot behavior — mandatory
+When the user says that the required images and final audio are ready and asks to **make/create/finish the Reel**, treat that as a single end-to-end production instruction.
+
+Once required assets are confirmed present, do not wait for another user message between steps. Continue automatically through asset ingest, image QA, audio-derived word timings, scene timing, Remotion implementation, captions, platform files, validators, TypeScript, preview render, visual review, full MP4 render/review, audio checks, fixes, reruns, safety audit and draft-PR preparation.
+
+Never ask the user to type `weiter` for a normal next step. Brief progress reports are allowed, but continue immediately after them.
+
+Recoverable implementation failures are part of the work: diagnose → fix → rerun → continue. Keep looping until production is complete or a genuine blocker exists.
+
+A genuine blocker is limited to something Antigravity cannot safely solve itself, such as a missing/unreadable required user asset, a user image that must be externally regenerated, an unavoidable external permission/quota/credential failure, or a prohibited action such as merge/publish/delete/force-push/history rewrite.
+
+The user's command to finish the Reel authorizes final rendering and Antigravity technical/visual QA. It does not authorize publishing or merging. Human release approval is separate and must not be used as a production checkpoint.
+
 ## Repository safety
 
 - New topic = new branch + new reel folder.
@@ -31,6 +44,7 @@ Read these first and treat them as authoritative:
 - Antigravity MUST NOT generate cover images, scene images or world-reference images.
 - Never call Antigravity image generation, Imagen, Nano Banana, web image search, stock images or placeholders as substitutes.
 - If a required user image is missing, report the exact filename and wait.
+- If all required images are present, immediately continue with the full Autopilot production run; do not ask for confirmation again.
 
 ## Final image-prompt style
 
@@ -128,18 +142,24 @@ Do not distribute them to individual scene folders at generation time.
 
 ## Audio, captions and finalization
 
-After all user images and final audio are present:
+After all user images and final audio are present, execute all of the following in one continuous run:
 
 - use real audio-derived word timings
-- scene cuts follow sentence starts
+- derive scene cuts from sentence starts
+- implement all required Remotion scenes
 - one full subtitle sentence visible
 - active spoken word green, remaining words white
 - max two subtitle lines
 - images use `contain`
 - no visible blurred duplicate image background
-- validate/safety-check/typecheck/preview before claiming completion
-- inspect image set/contact sheet and full MP4
-- target audio around -16 LUFS and <= -1 dBTP true peak
+- prepare all required Reel platform files
+- validate/safety-check/typecheck
+- preview render and inspect scene frames/contact sheet
+- render and inspect the full MP4
+- check target audio around -16 LUFS and <= -1 dBTP true peak when tooling allows
+- fix every recoverable issue and rerun affected checks automatically
+
+Do not stop after producing timings, code, a preview or the first render. Continue until the completion contract is satisfied or a genuine blocker remains.
 
 ## Platform publishing
 
@@ -164,4 +184,13 @@ word-timings.json
 - Platform files must not invent facts beyond the master caption/script.
 - If exact current platform limits or upload features matter, verify official platform documentation before publishing rather than hard-coding old limits.
 
-A reel is not complete without required user assets or an explicit missing-asset report, real audio timings, successful validation/typecheck/preview, visual review and safety audit. Cross-platform Reel publishing additionally requires the four Reel platform files to be prepared for the same final reel.
+## Completion response
+
+Do not end with a generic request for the user to continue.
+
+End only with one of these states:
+
+- **PRODUCTION COMPLETE** — the final MP4 exists, required checks/reviews were performed, and paths/results are reported.
+- **BLOCKED** — give the exact blocker and the exact asset/action needed from the user.
+
+A Reel is not complete without required user assets or an explicit missing-asset report, real audio timings, successful validation/typecheck/preview, visual review and safety audit. Cross-platform Reel publishing additionally requires the four Reel platform files to be prepared for the same final Reel.
