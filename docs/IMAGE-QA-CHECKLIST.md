@@ -1,118 +1,123 @@
-# FinanzNeo — Bild-QA-Checkliste V3
+# FinanzNeo — Bild-QA-Checkliste
 
-Diese Checkliste bewertet nicht nur einzelne Bilder, sondern immer den vollständigen Bildsatz eines Reels.
+Diese Checkliste gilt für einzelne Bilder und den gesamten Bildsatz. Bei Widerspruch gilt `CLAUDE.md`.
 
 ## 1. Satzgenauigkeit
 
-- [ ] Jedes Bild erklärt exakt den zugehörigen gesprochenen Satz.
-- [ ] Problem-, Mechanismus-, Lösungs- und Ergebnisszenen werden nicht verwechselt.
-- [ ] Die Aussage ist innerhalb einer Sekunde auf einem Smartphone erkennbar.
-- [ ] Ausgangspunkt, Handlung und Ergebnis sind sichtbar verbunden.
-- [ ] Es gibt nur eine Hauptaussage pro Bild.
+- [ ] Bild erklärt exakt den zugehörigen gesprochenen Satz.
+- [ ] Problem/Lösung werden nicht vertauscht.
+- [ ] Aussage innerhalb einer Sekunde erkennbar.
+- [ ] Nur eine Hauptaussage pro Bild.
 
-**Sofort neu erstellen:** Das Bild zeigt bereits die Lösung, obwohl der Sprecher noch das Problem erklärt, oder umgekehrt.
+## 2. Verbindlicher Bildstil
 
-## 2. Set-Konsistenz
+- [ ] Premium fintech editorial 3D render style.
+- [ ] Deep charcoal green-black Grundwelt.
+- [ ] Emerald/Mint-Akzente konsistent.
+- [ ] Gold nur für Geld/Wert.
+- [ ] Warmes Rot-Orange nur für Risiko/Verlust/Schulden.
+- [ ] Smooth rounded geometry, soft bevelled edges.
+- [ ] Eine starke Metapher / ein großes Hauptobjekt.
+- [ ] Keine Miniatur-Dioramen, Game-Level, Neon-Tunnel oder Sci-Fi-Korridore.
 
-Alle Bildszenen werden als Kontaktbogen nebeneinander geprüft.
+## 3. Hintergrund — kritischer Pflichtpunkt
 
-- [ ] Alle Bilder verwenden `finanzneo-connected-studio-v3`.
-- [ ] Kameraangle und Brennweitenwirkung sind gleich.
-- [ ] Kamerahöhe und Blickrichtung sind gleich.
-- [ ] Rückwand, Boden und Lichtkanäle gehören sichtbar zur selben Studioarchitektur.
-- [ ] Hauptlicht kommt in allen Bildern aus derselben Richtung.
-- [ ] Materialien, Grün- und Goldtöne stimmen überein.
-- [ ] Das wichtigste Motiv besitzt über alle Bilder eine ähnliche visuelle Größe.
-- [ ] Kein Bild sieht aus, als stamme es aus einem anderen Generator oder Stilmodell.
+- [ ] Genau EIN nahtloser Hintergrund von oben bis unten.
+- [ ] Gleicher Material-/Ton-/Gradient-Verlauf über das ganze Bild.
+- [ ] Keine horizontale Trennlinie.
+- [ ] Kein anderes oberes oder unteres Band.
+- [ ] Keine separaten Zonen/Panels.
+- [ ] Keine sichtbare Boden-Wand-Grenze.
+- [ ] Kein sichtbarer Horizont/Studio-Split.
+- [ ] Freie Fläche oberhalb/unterhalb des Motivs entsteht natürlich, ohne Hintergrundwechsel.
 
-**Sofort neu erstellen:** Ein Bild wirkt sichtbar wie eine andere Serie.
+**Sofort neu erzeugen:** zwei Hintergründe, Tonwertband, Boden-Wand-Kante oder sichtbare horizontale Zone.
 
-## 3. Raum statt leerem Hintergrund
+## 4. Person
 
-- [ ] Der Hintergrund zeigt eine erkennbare, ruhige FinanzNeo-Studioumgebung.
-- [ ] Rückwand und Boden sind sichtbar miteinander verbunden.
-- [ ] Die oberen und unteren crop-sicheren Bereiche sind detailarm, aber nicht leer.
-- [ ] Es gibt Vordergrund, Mittelgrund und Hintergrund.
-- [ ] Das Motiv ist räumlich in die Umgebung eingebunden.
+Wenn eine Person vorkommt:
 
-**Sofort neu erstellen:** isoliertes Objekt vor schwarzem Nichts, reiner Glow, leere Fläche oder schwebende Werbeplattform.
+- [ ] Gesicht klar sichtbar.
+- [ ] Augen, Nase und Mund stilisiert erkennbar.
+- [ ] frontal oder natürliche 3/4-Ansicht.
+- [ ] keine reale identifizierbare Person.
+- [ ] keine gesichtslose/blanke Figur.
+- [ ] keine reine Rückenansicht.
 
-## 4. Motivgröße und Komposition
+## 5. Text und Labels
 
-- [ ] Die zusammenhängende Hauptszene füllt ungefähr 68–78 % der nutzbaren Breite.
-- [ ] Zwei bis vier große Hauptelemente reichen aus.
-- [ ] Das wichtigste Objekt ist klar größer als Nebenelemente.
-- [ ] Die Hauptaktion liegt im mittleren 64-%-Bereich der Quellhöhe.
-- [ ] Oben und unten befinden sich nur ruhige, crop-sichere Umgebungsanteile.
-- [ ] Kein wichtiges Objekt liegt ausschließlich am oberen oder unteren Rand.
-- [ ] Keine Mini-Panels, Dashboard-Flächen oder zufälligen Icons.
+- [ ] Keine große Überschrift im KI-Bild.
+- [ ] Kein Untertitel.
+- [ ] Kein ganzer erklärender Satz.
+- [ ] Nur explizit erlaubte kurze deutsche Objektlabels.
+- [ ] Labels korrekt geschrieben.
+- [ ] Labels direkt am passenden Objekt.
+- [ ] Keine zufälligen Zusatztexte/Fantasiewörter.
 
-## 5. Textfreiheit
+## 6. Marken
 
-- [ ] Kein Text im Bild.
-- [ ] Keine Zahlen im Bild.
-- [ ] Keine Labels, Konto-Namen oder Objektbeschriftungen.
-- [ ] Keine Logos, Marken oder Wasserzeichen.
-- [ ] Alle Texte und Rechenwerte kommen ausschließlich aus Remotion.
+Wenn Marken verwendet werden:
 
-**Sofort neu erstellen:** generierter Text, falsche Wörter oder eingebettete Zahlen.
+- [ ] Marke ist inhaltlich relevant.
+- [ ] Name korrekt geschrieben.
+- [ ] keine erfundene Partnerschaft/Empfehlung suggeriert.
+- [ ] keine unnötige Marken-Deko.
 
-## 6. Remotion-Darstellung
+## 7. Komposition
 
-- [ ] Vordergrundbild verwendet `contain`.
-- [ ] Keine unscharfe Bildkopie erzeugt einen sichtbaren Streifen.
-- [ ] Freie Fläche wird durch die einheitliche FinanzNeo-Studiobühne gefüllt.
+- [ ] vertical 9:16.
+- [ ] Hauptmotiv groß und smartphone-lesbar.
+- [ ] wenige große unterstützende Elemente.
+- [ ] natürlicher freier Raum oberhalb und unterhalb.
+- [ ] keine Prozent-Zonen im Prompt oder sichtbare Zonen im Ergebnis.
+- [ ] keine Dashboard-/Mini-Panel-Komposition.
+
+## 8. Remotion-Darstellung
+
+- [ ] Bild mit `contain`.
+- [ ] keine unscharfe Bildkopie als sichtbarer Hintergrund.
 - [ ] Source-Crop oben höchstens 0.20.
 - [ ] Source-Crop unten höchstens 0.20.
 - [ ] Gesamt-Crop höchstens 0.34.
-- [ ] Zusätzliche Skalierung höchstens 1.04.
-- [ ] Kein Motiv, Pfeil, Geldobjekt oder erklärendes Element wird abgeschnitten.
-- [ ] Alle Bildszenen wirken im fertigen Render ähnlich groß und ähnlich hoch.
+- [ ] zusätzliche Skalierung höchstens 1.04.
+- [ ] kein Motiv/Label abgeschnitten.
 
-## 7. Timing und Untertitel
+## 9. Timing und Untertitel
 
-- [ ] Das Bild wechselt genau mit dem Beginn des zugehörigen Satzes.
-- [ ] Kein neues Bild erscheint noch während des vorherigen Satzes.
-- [ ] Ein vollständiger Satz ist sichtbar.
-- [ ] Aktuelles Wort ist grün, übrige Wörter weiß.
-- [ ] Höchstens zwei Untertitelzeilen.
-- [ ] Keine leere Caption-Lücke zwischen Sätzen.
-- [ ] Untertitel liegen außerhalb der unteren Plattform-Totzone.
+- [ ] Bildwechsel am Beginn des zugehörigen Satzes.
+- [ ] genau ein vollständiger Untertitelsatz sichtbar.
+- [ ] aktuelles Wort grün, Rest weiß.
+- [ ] maximal zwei Zeilen.
+- [ ] keine Caption-Lücken.
 
-## 8. Farb- und Materialregeln
+## 10. Freigabeablauf
 
-- [ ] Anthrazit und tiefes Grün dominieren.
-- [ ] Gold wird nur für Geld oder Wert verwendet.
-- [ ] Rot wird nur für Risiko, Verlust oder Blockierung verwendet.
-- [ ] Matte Materialien dominieren.
-- [ ] Glas wird nur dezent eingesetzt.
-- [ ] Keine zufälligen Neonfarben.
-- [ ] Nicht fotorealistisch, nicht kindlich, nicht Pixar- oder Clay-artig.
+1. Einzelbild gegen Satz prüfen.
+2. Hintergrund explizit auf horizontale Bänder/Zonen prüfen.
+3. Person/Gesicht prüfen.
+4. Labels prüfen.
+5. alle Bilder als Kontaktbogen prüfen.
+6. Anfang/Mitte/Ende jeder Bildszene im Render prüfen.
+7. komplette MP4 mit Ton ansehen.
 
-## Freigabeablauf
+## Sofort neu erzeugen
 
-1. Einzelbild gegen den gesprochenen Satz prüfen.
-2. Alle Bilder als Kontaktbogen nebeneinander prüfen.
-3. Drei Frames pro Bildszene im fertigen Render prüfen: Anfang, Mitte, Ende.
-4. Komplette MP4 mit Ton ansehen.
+- zwei sichtbare Hintergründe/Bänder
+- Boden-Wand-Grenze/Horizont
+- gesichtslose oder abgewandte Person
+- falsche/zusätzliche Labels
+- große Headline oder Satz
+- Diorama/Game-Level
+- falsche Farbwelt
+- Bildaussage passt nicht zum Satz
 
-## Entscheidung
-
-- **Freigegeben:** alle Pflichtpunkte bestanden.
-- **Überarbeiten:** nur Position, Crop oder kleine Größenabweichung fehlerhaft.
-- **Neu erstellen:** Aussage, Welt, Kamera, Hintergrund oder Textregeln fehlerhaft.
-
-Kurzes Protokoll:
+## Protokoll
 
 ```text
 Bildsatz-QA: [FREIGEGEBEN / ÜBERARBEITEN / NEU ERSTELLEN]
-Weltkonsistenz: [BESTANDEN / NICHT BESTANDEN]
+Seamless Background: [BESTANDEN / NICHT BESTANDEN]
+Gesicht: [BESTANDEN / NICHT BESTANDEN / NICHT RELEVANT]
+Labels: [BESTANDEN / NICHT BESTANDEN]
 Satzgenauigkeit: [BESTANDEN / NICHT BESTANDEN]
 Render-Crops: [BESTANDEN / NICHT BESTANDEN]
-
-Fehler:
-- ...
-
-Korrektur:
-- ...
 ```
