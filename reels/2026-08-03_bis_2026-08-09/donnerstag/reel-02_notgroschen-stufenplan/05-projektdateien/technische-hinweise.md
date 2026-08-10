@@ -1,60 +1,85 @@
-# Technische Hinweise
-
-Dieser Ordner ist für die interne technische Umsetzung. Die normalen Produktionsdateien für dich liegen nur in `01-script`, `02-audio`, `03-szenen` und `04-caption`.
+# Technische Hinweise — Notgroschen
 
 ## Remotion
+
 - Composition: `NotgroschenStufenplan`
 - Source: `src/reels/notgroschen/NotgroschenStufenplan.tsx`
 - 1080 × 1920, 30 fps
-- 10 Szenen
-- 6 Bildszenen, 4 Animationen
+- 10 Szenen: 6 Bildszenen + 4 Animationen
 
-## Bildwelt dieses Reels
-- World ID: `finanzneo-connected-studio-v3`
+## Nutzer-Medien — harte Grenze
+
+Finale Bilder ausschließlich aus:
+
+```text
+03-szenen/00-ALLE-BILDER-HIER-REIN/
+```
+
+Finales Voiceover ausschließlich aus:
+
+```text
+02-audio/
+```
+
+Fehlt/falsch/mehrdeutig → `BLOCKED`. Keine Ersatzmedien.
+
+## Bildwelt
+
+- World ID `finanzneo-connected-studio-v3`
 - Premium Fintech Editorial 3D
-- eine starke Metapher / ein großes Hauptobjekt
-- optional stilisierte erwachsene 3D-Person
-- wenn Person: Gesicht klar sichtbar, frontal oder 3/4
-- deep charcoal green-black Grundwelt
-- emerald/mint Akzente
-- Gold = Geld/Wert
-- warmes Rot-Orange = Risiko/Verlust/Schulden
-- kurze deutsche Objektlabels, keine Headline/Untertitel/Sätze
+- eine starke Finanzmetapher / Hero-Objekt
+- Person optional; wenn vorhanden Gesicht sichtbar
+- deep charcoal green-black + emerald/mint
+- Gold für Geld/Wert
+- Rot-Orange für Risiko/Verlust/Schulden
+- kurze deutsche Objektlabels
+- genau ein nahtloser Hintergrund
+- keine Prozent-Zonen/Bänder/Floor-Wall-Grenze/Horizont/Panels
 
-## Hintergrund — kritisch
-- genau EIN nahtloser Hintergrund von oben bis unten
-- keine Prozent-Zonen
-- keine horizontalen Bänder
-- keine obere/untere Hintergrundsektion
-- keine Boden-Wand-Grenze
-- kein Horizont
-- keine Panels
-- nur natürlicher freier Raum oberhalb/unterhalb des zentralen Motivs
+## Remotion-Framing — NEUER VERBINDLICHER STAND
 
-## Bilder
-Google Flow erzeugt immer genau ein Bild, benennt es sofort um und prüft Motiv, Labels, Gesicht, nahtlosen Hintergrund und Dateiname vor dem nächsten Bild.
+Alte `contain`-/1.04-/0.20-/0.34-Regeln sind nicht mehr gültig.
 
-Nach vollständiger Einzelbild-Produktion legt Google Flow alle fertig benannten Bilder gemeinsam in:
-`03-szenen/00-ALLE-BILDER-HIER-REIN/`
+Bildszenen verwenden `adaptive-safe-fill`:
 
-Animationsszenen erhalten kein Bild und behalten ihre echte Szenennummer.
+- Bild füllt die nutzbare Visual-Fläche maximal
+- kein kleines Poster/Inlay
+- kein sichtbarer Bildrand
+- keine unscharfe Bildkopie als Hintergrund
+- zuerst leere nahtlose Hintergrundfläche croppen
+- Gesicht, Labels, Hero-Objekt und Geld/Wert schützen
+- pro Szene Focal Point verwenden
+
+Richtlayout:
+
+```text
+headlineTop ≈ 70
+visualTop ≈ 210
+visualBottom ≈ 1515
+subtitleBottom ≈ 280
+subtitleLeft ≈ 60
+subtitleRight ≈ 180
+```
 
 ## Audio und Captions
-- finales Voiceover: genau eine Audiodatei in `02-audio/`
-- echte Wortzeiten: `04-caption/word-timings.json`
-- genau ein vollständiger Untertitelsatz gleichzeitig
-- aktuelles Wort grün, Rest weiß
-- maximal zwei Zeilen
 
-## QA Bild
-- kein zweiter Hintergrund / kein Band
-- keine horizontale Trennkante
-- kein Floor/Wall-Split oder Horizont
-- Person mit sichtbarem Gesicht, falls vorhanden
-- nur erlaubte kurze deutsche Labels
-- keine Headline/Untertitel/Sätze im KI-Bild
-- Motiv erklärt den Satz innerhalb einer Sekunde
-- keine Dioramen/Tunnel/Game-Level
+- genau ein finales Voiceover in `02-audio/`
+- echte Wort-start/end-Zeitstempel aus genau diesem Audio
+- keine gleichmäßig geschätzten Wortzeiten
+- `word-timings.json` final nur mit `timingStatus: final-audio-aligned`
+- bevorzugt 1 vollständiger Satz gleichzeitig
+- maximal 2 sehr kurze Sätze, falls nötig
+- hart maximal 2 Zeilen
+- aktuelles Wort nur während seiner echten Audiozeit grün
+- Satzwechsel exakt beim ersten Wort des nächsten Satzes
+- kurze Pausen halten vorherigen Satz sichtbar
 
-## QA Gesamt
-Ein finaler Render ist erst bestätigt nach Asset-Sync, Validator, Typecheck, Preview, Kontaktbogen/visueller Prüfung und Audio-Lautheitsprüfung.
+## Finaler Build
+
+```bash
+npm run reel:validate -- reels/2026-08-03_bis_2026-08-09/donnerstag/reel-02_notgroschen-stufenplan --final
+```
+
+Danach TypeScript, Preview, Frame-/Kontaktbogen-QA, vollständiges MP4 mit Ton und Safety Audit.
+
+`PRODUCTION COMPLETE` erst nach tatsächlichem Abschluss dieser Prüfungen.
