@@ -6,7 +6,7 @@ GOOGLE FLOW KI-AGENT – VERBINDLICHER ABLAUF
 1. Arbeite streng von oben nach unten.
 2. Erzeuge immer GENAU EIN Bild.
 3. Sofort danach mit dem direkt am Prompt angegebenen Dateinamen umbenennen.
-4. Motiv, kurze deutsche Beschriftungen und Dateiname prüfen.
+4. Motiv, kurze deutsche Beschriftungen, Gesicht der Person und Dateiname prüfen.
 5. Erst danach das nächste Bild erzeugen.
 6. Animationsszenen überspringen; ihre echte Szenennummer bleibt reserviert.
 7. Bildnummer = echte Szenennummer, niemals Anzahl der erzeugten Bilder.
@@ -16,16 +16,24 @@ VERBINDLICHE BILDWELT FÜR JEDEN PROMPT
 
 Premium fintech editorial 3D render style. Background is deep charcoal green-black. Accents in vivid emerald and mint green. Gold only for euro coins, money and financial value. Warm red-orange light only for danger, debt, loss or blocked money. Use smooth rounded 3D geometry, soft bevelled edges, premium matte and glass materials, confident high-contrast studio lighting with a bold emerald rim light.
 
-Each image should use ONE dominant visual metaphor and only a few supporting objects. A stylized anonymous 3D adult person may be included when useful. No photorealism and no real identifiable human.
+Each image should use ONE dominant visual metaphor and only a few supporting objects. A stylized anonymous 3D adult person may be included when useful.
+
+PERSON RULE — VERBINDLICH:
+Whenever a person appears, the face must be clearly visible with readable stylized eyes, nose and mouth. Prefer a front-facing or natural three-quarter view. No faceless mannequin, no blank face, no hidden face, no full back view and no person turned completely away from camera. The person remains stylized and anonymous, never photorealistic and never a real identifiable human.
 
 TEXT RULE:
 No headline. No subtitle. No explanatory sentence. Only 1–3 short German object labels directly near the object they describe. Small to medium clean sans-serif text. Labels must never dominate the composition.
 
+BACKGROUND CONTINUITY — VERBINDLICH:
+Use ONE single continuous deep charcoal green-black background from the top edge to the bottom edge.
+NO horizontal transition lines. NO darker/lighter top band. NO darker/lighter bottom band. NO separate background panels. NO visible horizon-like strip caused by a background color change.
+A subtle natural studio gradient/vignette is allowed only if it remains smooth and seamless across the whole image.
+
 COMPOSITION LOCK:
-Vertical 9:16. Keep the top 15 percent completely empty dark negative space. Keep the bottom 25 percent completely empty dark uncluttered negative space. Place the complete visual story inside the middle 60 percent. No important object or label may enter the top 15 or bottom 25 percent.
+Vertical 9:16. Keep the top 15 percent completely free of objects, labels and effects, but use the SAME continuous background there. Keep the bottom 25 percent completely free of objects, labels and effects, but use the SAME continuous background there. These are only uncluttered negative-space areas, NOT separate visual zones. Place the complete visual story inside the middle 60 percent.
 
 FORBIDDEN:
-No UI dashboards, no app screens, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no many-room studio architecture, no miniature game level, no clutter, no giant typography, no full sentences, no random labels, no Pixar, no clay.
+No UI dashboards, no app screens, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no many-room studio architecture, no miniature game level, no clutter, no giant typography, no full sentences, no random labels, no Pixar, no clay, no faceless people, no hidden faces, no horizontal top/bottom background bands.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 COVER
@@ -41,7 +49,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Stufe 3`
 
 BILDPROMPT:
-A stylized 3D adult person standing beside one large transparent vertical emergency-fund container filled with glowing euro coins. The container is the dominant object. Three clear ascending sections or steps are integrated into the container, each visually higher and fuller than the previous one. A small broken washing-machine part and a restrained red-orange repair warning appear near the lower side to explain why the reserve exists. Include German object labels: `Notgroschen` directly on or beside the reserve container, and `Stufe 1`, `Stufe 2`, `Stufe 3` beside the three ascending sections. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents, gold coins, warm red-orange risk accent. Smooth rounded 3D geometry, soft bevelled edges, high-contrast studio lighting with bold rim light. Keep top 15% completely empty dark negative space and bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no sentence.
+A stylized 3D adult person with a clearly visible friendly stylized face, shown front-facing or in a natural three-quarter view, standing beside one large transparent vertical emergency-fund container filled with glowing euro coins. The container is the dominant object. Three clear ascending sections or steps are integrated into the container, each visually higher and fuller than the previous one. A small broken washing-machine part and a restrained red-orange repair warning appear near the lower side to explain why the reserve exists. Include German object labels: `Notgroschen` directly on or beside the reserve container, and `Stufe 1`, `Stufe 2`, `Stufe 3` beside the three ascending sections. Premium fintech editorial 3D render style. Use ONE seamless deep charcoal green-black background from top edge to bottom edge with no horizontal bands, no top transition and no bottom transition. Accents in vivid emerald and mint green. Use smooth rounded 3D geometry, soft bevelled edges, premium matte and glass materials, confident high-contrast studio lighting with bold emerald rim light. Keep top 15% and bottom 25% free of objects but filled with exactly the same continuous background. Vertical 9:16. No photorealism, no real human, no faceless person, no hidden face, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 01 – BILDSZENE
@@ -56,7 +64,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Ratenzahlung`
 
 BILDPROMPT:
-A stylized 3D adult person standing beside one large broken washing machine. The washing machine is the dominant object and has a clear visible defect. A repair invoice card sits beside the machine and an almost empty wallet lies nearby. Two red-orange financial danger paths emerge from the repair cost and lead toward a credit-card/overdraft object and an installment-payment object. Include German labels: `Reparatur` beside the invoice or damaged washer, `Dispo` beside the overdraft danger object, and `Ratenzahlung` beside the installment-payment object. Do not show an emergency fund yet. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents only as neutral brand light, red-orange for danger, smooth rounded 3D geometry, soft bevelled edges, strong studio rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no full sentence.
+A stylized 3D adult person with a clearly visible stylized face, front-facing or three-quarter view, standing beside one large broken washing machine. The washing machine is the dominant object and has a clear visible defect. A repair invoice card sits beside the machine and an almost empty wallet lies nearby. Two red-orange financial danger paths emerge from the repair cost and lead toward a credit-card/overdraft object and an installment-payment object. Include German labels: `Reparatur` beside the invoice or damaged washer, `Dispo` beside the overdraft danger object, and `Ratenzahlung` beside the installment-payment object. Do not show an emergency fund yet. Premium fintech editorial 3D render style. Use ONE seamless deep charcoal green-black background across the full image with no horizontal bands or top/bottom transitions. Accents in vivid emerald and mint green, with warm red-orange only for debt danger. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Keep top 15% and bottom 25% object-free but on the exact same continuous background. Vertical 9:16. No photorealism, no real human, no faceless person, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 02 – BILDSZENE
@@ -71,7 +79,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Schulden`
 
 BILDPROMPT:
-A stylized 3D adult person standing beside one large transparent emergency-fund container filled with glowing euro coins. A broken washing machine and repair invoice approach from one side. A warm red-orange debt crack or debt path approaches from the opposite side but is stopped by a vivid emerald protective barrier surrounding the emergency fund. Show a few gold coins leaving the reserve toward the repair invoice, making the cause-and-effect obvious. Include German labels: `Notgroschen` beside the reserve, `Reparatur` beside the invoice, and `Schulden` beside the blocked red-orange danger path. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents, gold money, warm red-orange danger. Smooth rounded 3D geometry, soft bevelled edges, high-contrast studio lighting and bold rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no sentence.
+A stylized 3D adult person with a clearly visible stylized face, front-facing or three-quarter view, standing beside one large transparent emergency-fund container filled with glowing euro coins. A broken washing machine and repair invoice approach from one side. A warm red-orange debt crack or debt path approaches from the opposite side but is stopped by a vivid emerald protective barrier surrounding the emergency fund. Show a few gold coins leaving the reserve toward the repair invoice, making the cause-and-effect obvious. Include German labels: `Notgroschen` beside the reserve, `Reparatur` beside the invoice, and `Schulden` beside the blocked red-orange danger path. Premium fintech editorial 3D render style. Use ONE seamless deep charcoal green-black background across the full image with no horizontal bands or top/bottom transitions. Accents in vivid emerald and mint green, gold for money, warm red-orange for danger. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Keep top 15% and bottom 25% object-free but on the same continuous background. Vertical 9:16. No photorealism, no real human, no faceless person, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 03 – REMOTION-ANIMATION
@@ -93,7 +101,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Mini-Puffer`
 
 BILDPROMPT:
-A stylized 3D adult person standing beside one compact transparent savings container holding a modest stack of glowing euro coins. The container is the dominant object and clearly represents a first small emergency reserve, not a huge final target. A small red-orange repair cost object approaches from the side and is visibly covered by the reserve. Include German labels: `500 €` directly on or beside the reserve amount, and `Mini-Puffer` beside the container. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents, gold coins, warm red-orange only for the small emergency cost. Smooth rounded 3D geometry, soft bevelled edges, confident high-contrast studio lighting with bold rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no sentence.
+A stylized 3D adult person with a clearly visible stylized face, front-facing or three-quarter view, standing beside one compact transparent savings container holding a modest stack of glowing euro coins. The container is the dominant object and clearly represents a first small emergency reserve, not a huge final target. A small warm red-orange repair cost object approaches from the side and is visibly covered by the reserve. Include German labels: `500 €` directly on or beside the reserve amount and `Mini-Puffer` beside the container. Premium fintech editorial 3D render style. Use ONE seamless deep charcoal green-black background across the full image with no horizontal bands or top/bottom transitions. Accents in vivid emerald and mint green, gold for money, warm red-orange only for the emergency cost. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Keep top 15% and bottom 25% object-free but on the same continuous background. Vertical 9:16. No photorealism, no real human, no faceless person, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 05 – REMOTION-ANIMATION
@@ -115,7 +123,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Konsum`
 
 BILDPROMPT:
-A stylized 3D adult person standing at the center of one clean visual decision scene. On the left, a broken washing machine and repair tool sit inside a vivid emerald-green protected zone. On the right, a luxury shopping bag, premium gadget and vacation suitcase sit inside a warm red-orange blocked zone. Keep both sides simple and large, with no small icon clutter. Include German labels: `Notfall` directly beside the broken washing-machine side, and `Konsum` directly beside the shopping/vacation side. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint for the correct side, warm red-orange for the blocked side, smooth rounded 3D geometry, soft bevelled edges, bold studio rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no explanatory sentence.
+A stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing at the center of one clean visual decision scene. On the left, a broken washing machine and repair tool sit inside a vivid emerald-green protected area. On the right, a luxury shopping bag, premium gadget and vacation suitcase form a warm red-orange blocked area. Keep both sides simple and large, with no small icon clutter. Include German labels: `Notfall` directly beside the broken washing-machine side and `Konsum` directly beside the shopping/vacation side. Premium fintech editorial 3D render style. The background itself must remain ONE seamless deep charcoal green-black field from top to bottom; the green/red distinction belongs only to the objects and lighting, never to separate background panels or horizontal zones. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Keep top 15% and bottom 25% object-free but on the same continuous background. Vertical 9:16. No photorealism, no real human, no faceless person, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 07 – REMOTION-ANIMATION
@@ -144,7 +152,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Tagesgeld`
 
 BILDPROMPT:
-A stylized 3D adult person standing beside two large clearly separated money containers. One smaller open wallet-like container represents everyday spending and contains only a few coins. A second protected transparent container holds a larger emergency reserve of glowing euro coins. A short vivid emerald transfer bridge connects the two containers, showing that the reserve is separate but quickly reachable. Include German labels: `Alltag` beside the everyday-money container and `Tagesgeld` beside the protected reserve. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents, gold coins, smooth rounded 3D geometry, soft bevelled edges, strong rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no bank app screen, no headline, no sentence.
+A stylized 3D adult person with a clearly visible stylized face, front-facing or three-quarter view, standing beside two large clearly separated money containers. One smaller open wallet-like container represents everyday spending and contains only a few coins. A second protected transparent container holds a larger emergency reserve of glowing euro coins. A short vivid emerald transfer bridge connects the two containers, showing that the reserve is separate but quickly reachable. Include German labels: `Alltag` beside the everyday-money container and `Tagesgeld` beside the protected reserve. Premium fintech editorial 3D render style. Use ONE seamless deep charcoal green-black background across the full image with no horizontal bands or top/bottom transitions. Accents in vivid emerald and mint green, gold for money. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Keep top 15% and bottom 25% object-free but on the same continuous background. Vertical 9:16. No photorealism, no real human, no faceless person, no UI dashboard, no bank app screen, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 10 – BILDSZENE
@@ -158,7 +166,7 @@ BESCHRIFTUNGEN – EXAKT SO:
 - `Auffüllen`
 
 BILDPROMPT:
-A stylized 3D adult person standing beside one large transparent emergency-fund container that is visibly partly empty after a repair. A repaired washing machine stands calmly on one side. A few gold coins are shown leaving the reserve toward the repaired machine, while a second stream of fresh gold coins flows back into the reserve from the other side. The refill stream glows vivid emerald, while the previous withdrawal path is subdued warm red-orange. Include German labels: `Entnahme` beside the outgoing coin path and `Auffüllen` beside the incoming coin path. Premium fintech editorial 3D render style. Deep charcoal green-black background, vivid emerald and mint accents, gold coins, smooth rounded 3D geometry, soft bevelled edges, confident high-contrast studio lighting with bold rim light. Top 15% completely empty dark negative space. Bottom 25% completely empty dark uncluttered negative space. Vertical 9:16. No photorealism, no real human, no UI dashboard, no headline, no explanatory sentence.
+A stylized 3D adult person with a clearly visible stylized face, front-facing or three-quarter view, standing beside one large transparent emergency-fund container that is visibly partly empty after a repair. A repaired washing machine stands calmly on one side. A few gold coins are shown leaving the reserve toward the repaired machine, while a second stream of fresh gold coins flows back into the reserve from the other side. The refill stream glows vivid emerald, while the previous withdrawal path is subdued warm red-orange. Include German labels: `Entnahme` beside the outgoing coin path and `Auffüllen` beside the incoming coin path. Premium fintech editorial 3D render style. Use ONE seamless deep charcoal green-black background across the full image with no horizontal bands or top/bottom transitions. Accents in vivid emerald and mint green, gold for money and warm red-orange for the previous loss path. Use smooth rounded 3D geometry, soft bevelled edges, premium materials, confident high-contrast studio lighting with bold emerald rim light. Keep top 15% and bottom 25% object-free but on the same continuous background. Vertical 9:16. No photorealism, no real human, no faceless person, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ABSCHLUSS
@@ -178,14 +186,13 @@ PRÜFUNG:
 - keine Überschrift, kein Untertitel, kein ganzer Satz
 - nur die explizit vorgegebenen kurzen deutschen Objektlabels
 - keine englischen oder zufälligen Texte
-- eine starke zentrale 3D-Metapher statt Miniatur-Diorama
-- Premium-Fintech-Editorial-Look wie im Referenzbeispiel
-- Deep charcoal green-black background
-- vivid emerald/mint accents
-- smooth rounded 3D geometry and soft bevelled edges
-- bold high-contrast studio rim light
-- obere 15 % komplett leer
-- untere 25 % komplett leer
+- jede dargestellte Person hat ein klar sichtbares Gesicht mit Augen, Nase und Mund
+- keine gesichtslose oder komplett abgewandte Person
+- genau EIN durchgehender Hintergrund von oben bis unten
+- keine horizontalen Übergänge/Bänder oben oder unten
+- top 15% und bottom 25% sind nur objektfreie Bereiche desselben Hintergrunds
+- Premium fintech editorial 3D render style
+- eine dominante visuelle Metapher statt Miniaturwelt
 
 ERST DANACH alle fertigen Bilder gemeinsam in:
 `03-szenen/00-ALLE-BILDER-HIER-REIN/`
