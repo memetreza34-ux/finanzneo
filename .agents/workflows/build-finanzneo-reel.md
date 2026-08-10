@@ -4,10 +4,20 @@ description: Build a complete new FinanzNeo Reel safely using user-provided imag
 
 # Build a complete FinanzNeo Reel
 
-Read `.agents/rules/finanzneo-reel-safety.md`, `CLAUDE.md` and all linked production documents first.
+Read in this order before editing:
+
+1. `.agents/rules/finanzneo-reel-safety.md`
+2. `CLAUDE.md`
+3. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
+4. `docs/IMAGE-SYSTEM.md`
+5. `reels/PRODUKTIONSSTANDARD.md`
+
+`CLAUDE.md` wins on conflicts.
 
 ## Pre-flight
+
 Run:
+
 ```bash
 git status --short
 git branch --show-current
@@ -15,52 +25,102 @@ git rev-parse HEAD
 git diff --stat
 git diff --name-only
 ```
-Record the starting HEAD. Never clean unrelated work destructively.
+
+Record starting HEAD. Never destroy unrelated work.
 
 ## Topic and branch
-Search existing reels so the topic is genuinely new. Create a dedicated `reel/YYYY-MM-DD-topic-slug` branch and a new reel folder.
+
+Search existing reels so the topic is genuinely new. Create a dedicated `reel/YYYY-MM-DD-topic-slug` branch and a new reel folder. Never work directly on main.
+
+## Structure
+
+Use the simple reel structure:
+
+```text
+01-script/
+02-audio/
+03-szenen/
+04-caption/
+05-projektdateien/
+README.md
+```
 
 ## Visual plan
-Default target: 10 scenes with 6 image scenes and 4 native Remotion animations, unless a different split is clearly stronger.
 
-## Bildprompts vorbereiten — Bilder kommen ausschließlich vom Nutzer
-Antigravity erzeugt KEINE Bilder.
+Default target: 10 scenes with approximately 6 image scenes and 4 native Remotion animations, unless another split is clearly stronger.
 
-1. Create `03-szenen/bildwelt.txt` for the shared FinanzNeo image world.
-2. Create the cover prompt and every required scene `bildprompt.txt`.
-3. Create/update `03-szenen/alle-bildprompts.txt` so Google Flow can process all required image prompts in chronological order.
-4. Put the exact final filename directly next to every individual image prompt.
-5. Put the exact allowed short German object labels directly in every image prompt.
-6. Never ask Google Flow to create a headline, subtitle, full explanatory sentence or CTA inside an image.
-7. Object labels are normally 1–3 German words, directly at the related object and small-to-medium, not headline-sized.
-8. Use the premium dark 3D finance look from `CLAUDE.md`: dark charcoal/deep-green environment, controlled emerald lighting, gold for money, red for risk, large clear hero objects, no tiny dioramas/tunnels.
-9. `Bild 00` is the cover. Every scene image uses its REAL chronological scene number.
-10. A Remotion animation keeps its scene number but gets no image. Never close the numbering gap. Example: Szene 01 image → `Bild 01`; Szene 02 animation → no `Bild 02`; Szene 03 image → `Bild 03`.
-11. `scene-index.json` is the authority for scene numbers and image/animation type.
-12. The user creates `bildwelt-referenz.png` and ALL final scene images externally. Antigravity must not call an integrated image generator, Imagen, Nano Banana, web image search, stock images or placeholders as a substitute.
-13. The user places the completed, already correctly named images together in:
+## Bildprompts — images come exclusively from the user
+
+Antigravity generates NO images.
+
+1. Create `03-szenen/bildwelt.txt` using the current canonical FinanzNeo image rules.
+2. Create cover prompt and every required scene `bildprompt.txt`.
+3. Create/update `03-szenen/alle-bildprompts.txt` in chronological order.
+4. Put the exact final filename directly at every individual image prompt.
+5. Put exact allowed short German object labels directly in every image prompt.
+6. Never create headline, subtitle, full explanatory sentence or CTA inside generated images.
+7. Use one dominant financial metaphor / large hero object and only a few supporting elements.
+8. A stylized adult 3D person is optional. If present, the face must be clearly visible with stylized eyes, nose and mouth; prefer front-facing or natural three-quarter view. No faceless/back-view-only character.
+9. Use Premium Fintech Editorial 3D: deep charcoal green-black, emerald/mint accents, gold for money/value, warm red-orange for risk/loss, rounded geometry and bold rim light.
+10. **Never use percentage-based top/middle/bottom zones.**
+11. Every prompt must require ONE seamless continuous background from top edge to bottom edge: no horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line and no panels. Leave natural empty space above/below without changing the background.
+12. No tiny diorama, game-level, neon tunnel, sci-fi corridor or UI dashboard.
+13. Relevant real brands/services may be used as concrete examples when useful; spell them correctly and do not imply an invented partnership.
+14. `Bild 00` is the cover. Every scene image uses its REAL chronological scene number.
+15. A Remotion animation keeps its scene number but gets no image. Never close the numbering gap.
+16. `scene-index.json` is the authority for numbering and scene type.
+17. The user creates ALL final images externally. Antigravity must not call image generators, web image search, stock images or placeholders.
+
+Google Flow user workflow:
+
+```text
+one image generate
+→ immediately rename
+→ check metaphor + labels + face + seamless background + filename
+→ only then next image
+```
+
+After ALL images are complete and correctly named, the user places them together in:
 
 ```text
 03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-14. If required user images are missing, STOP at the asset boundary and report the exact missing filenames. Do not create replacements.
-15. When user images are present, inspect numbering, scene assignment, world consistency and labels before continuing.
-16. Reject/report user images with large headlines, subtitles, sentences, wrong/random English text or wrong labels; do not regenerate them yourself.
-17. Never overwrite an existing user-provided image.
+Do not distribute images to individual scene folders during generation.
+
+If required user images are missing, stop at the asset boundary and report exact missing filenames. Never fabricate replacements or overwrite user images.
 
 ## Audio and timing
-Use one final voiceover and derive real word timings from that audio. Scene cuts follow sentence starts, not equal-duration blocks.
+
+Use one final voiceover and derive real word timings from that exact audio. Scene cuts follow sentence starts, not equal-duration blocks.
 
 ## Remotion
-1080×1920 at 30fps. Actual scene headlines and icons are rendered in Remotion, not generated into the image. Images use `contain`. No blurred image copy as background. Exactly one full subtitle sentence, current word green, max two lines, safe above platform controls. Animation timing is relative to actual scene duration.
+
+1080×1920 at 30fps. Actual scene headlines/icons are rendered in Remotion, not as large generated image typography. Images use `contain`. No blurred duplicate image background. Exactly one full subtitle sentence, current word green, max two lines, platform-safe. Animation timing is relative to actual scene duration.
 
 ## Validation
-If required user images or final audio are still missing, report the reel as waiting for assets and do not claim a final render. Once the assets are present, run the repository's supported asset-ingest/sync flow, source-contract validation, TypeScript check and preview render. Inspect first/middle/last frame of each scene, transitions, captions, contact sheet and full MP4. Target voiceover around -16 LUFS and no higher than about -1 dBTP true peak.
+
+If required user images or final audio are missing, report waiting for assets and do not claim final render.
+
+When assets exist:
+
+- supported asset ingest/sync
+- source-contract validation
+- TypeScript check
+- preview render
+- inspect first/middle/last frame of each scene
+- inspect captions/transitions
+- contact-sheet review
+- full MP4 review
+- explicitly reject any image with two background bands/zones or a faceless person
+- target audio around -16 LUFS and <= -1 dBTP true peak
 
 ## Safety audit
+
 Run:
+
 ```bash
 npm run antigravity:safety -- <starting-head>
 ```
-Existing reels, core rules, dependencies, lockfiles and assets must remain untouched unless explicitly authorized. Create a draft PR only. Never merge.
+
+Create a draft PR only. Never merge.
