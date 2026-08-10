@@ -3,7 +3,20 @@ import {AbsoluteFill} from 'remotion';
 import {C, FONT, a} from '../../brand';
 import type {AccentTone, NotgroschenIcon, SceneCopy} from './config';
 
-export const LAYOUT = {headlineTop:78, visualTop:270, visualBottom:1350, subtitleBottom:320, subtitleLeft:62, subtitleRight:150} as const;
+/**
+ * 1080x1920 cross-platform layout.
+ * The visual stage intentionally occupies almost all space between headline and captions.
+ * The lower 280px remain free for platform UI; captions stay above that zone.
+ */
+export const LAYOUT = {
+  headlineTop: 70,
+  visualTop: 210,
+  visualBottom: 1515,
+  subtitleBottom: 280,
+  subtitleLeft: 60,
+  subtitleRight: 180,
+} as const;
+
 export const clampInput={extrapolateLeft:'clamp',extrapolateRight:'clamp'} as const;
 export const clamp01=(value:number)=>Math.max(0,Math.min(1,value));
 
@@ -33,8 +46,8 @@ const toneColor=(tone:AccentTone|undefined)=>tone==='gold'?C.goldLt:tone==='red'
 
 export const Headline:React.FC<{copy:SceneCopy}> = ({copy}) => <div style={{position:'absolute',top:LAYOUT.headlineTop,left:58,right:58,zIndex:30,textAlign:'center'}}>
   <div style={{fontFamily:FONT.title,fontSize:54,lineHeight:1.02,letterSpacing:1.4,color:C.white}}>{copy.headline}</div>
-  <div style={{marginTop:10,display:'flex',alignItems:'center',justifyContent:'center',gap:14,color:toneColor(copy.accentTone)}}>
-    <svg width="52" height="52" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">{iconPaths[copy.icon]}</svg>
+  <div style={{marginTop:8,display:'flex',alignItems:'center',justifyContent:'center',gap:14,color:toneColor(copy.accentTone)}}>
+    <svg width="50" height="50" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">{iconPaths[copy.icon]}</svg>
     <div style={{fontFamily:FONT.title,fontSize:54,lineHeight:1.02,letterSpacing:1.3}}>{copy.accent}</div>
   </div>
 </div>;
