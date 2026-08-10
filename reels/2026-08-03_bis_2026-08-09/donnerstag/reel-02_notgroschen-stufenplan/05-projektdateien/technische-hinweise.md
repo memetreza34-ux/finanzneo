@@ -36,7 +36,7 @@ Fehlt/falsch/mehrdeutig → `BLOCKED`. Keine Ersatzmedien.
 - genau ein nahtloser Hintergrund
 - keine Prozent-Zonen/Bänder/Floor-Wall-Grenze/Horizont/Panels
 
-## Remotion-Framing — NEUER VERBINDLICHER STAND
+## Remotion-Framing — verbindlicher Stand
 
 Alte `contain`-/1.04-/0.20-/0.34-Regeln sind nicht mehr gültig.
 
@@ -61,7 +61,7 @@ subtitleLeft ≈ 60
 subtitleRight ≈ 180
 ```
 
-## Audio und Captions
+## Audio und Video-Captions
 
 - genau ein finales Voiceover in `02-audio/`
 - echte Wort-start/end-Zeitstempel aus genau diesem Audio
@@ -74,12 +74,32 @@ subtitleRight ≈ 180
 - Satzwechsel exakt beim ersten Wort des nächsten Satzes
 - kurze Pausen halten vorherigen Satz sichtbar
 
+## Social-Caption
+
+In `04-caption/` gibt es nur:
+
+```text
+caption.txt
+word-timings.json
+```
+
+`caption.txt` wird unverändert für Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet.
+
+Pflicht:
+
+- starke ehrliche erste Zeile
+- kurze Kernaussage/Aha-Nutzen
+- natürlicher CTA nur wenn passend
+- exakt 5 relevante Hashtags
+- keine separaten Plattform-Caption-Dateien
+- keine zufälligen Viral-/FYP-Spam-Tags
+
 ## Finaler Build
 
 ```bash
 npm run reel:validate -- reels/2026-08-03_bis_2026-08-09/donnerstag/reel-02_notgroschen-stufenplan --final
 ```
 
-Danach TypeScript, Preview, Frame-/Kontaktbogen-QA, vollständiges MP4 mit Ton und Safety Audit.
+Danach TypeScript, Preview, Frame-/Kontaktbogen-QA, Social-Caption-QA, vollständiges MP4 mit Ton und Safety Audit.
 
 `PRODUCTION COMPLETE` erst nach tatsächlichem Abschluss dieser Prüfungen.
