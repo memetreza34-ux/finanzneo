@@ -1,5 +1,6 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Audio, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AdaptiveSafeFillImage} from '../../design-system';
 import {C, FONT, a, euro} from '../../brand';
 import assetManifest from './asset-manifest.json';
 import {NOTGROSCHEN_COPY, NOTGROSCHEN_DURATIONS, NOTGROSCHEN_TOTAL_FRAMES} from './config';
@@ -8,13 +9,25 @@ import {Headline, SceneBackground, VisualStage, WorldStage, clamp01, clampInput}
 
 export {NOTGROSCHEN_TOTAL_FRAMES};
 type ImageSceneId='scene-01'|'scene-02'|'scene-04'|'scene-06'|'scene-09'|'scene-10';
-type Overlay='none'|'mini'|'test';
 
-const StillScene:React.FC<{sceneId:ImageSceneId;index:number;durationInFrames:number;overlay?:Overlay;panX?:number}>=({sceneId,index,durationInFrames,overlay='none',panX=0})=>{
-  const frame=useCurrentFrame();
-  const progress=interpolate(frame,[0,Math.max(1,durationInFrames-1)],[0,1],clampInput);
-  const src=staticFile((assetManifest as Record<string,string|null>)[sceneId]??String(assetManifest.fallback));
-  return <SceneBackground><Headline copy={NOTGROSCHEN_COPY[index]}/><VisualStage><WorldStage/><Img src={src} style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'contain',objectPosition:'center center',filter:'drop-shadow(0 26px 42px rgba(0,0,0,.34))',transform:`translateX(${panX*(progress-.5)}px) translateY(${(progress-.5)*-3}px) scale(${1+progress*.012})`}}/>{overlay==='mini'?<div style={{position:'absolute',left:'50%',bottom:108,transform:'translateX(-50%)',borderRadius:30,padding:'18px 34px',background:'rgba(6,19,11,.9)',border:`2px solid ${a(C.goldLt,.7)}`,boxShadow:`0 18px 70px ${a(C.gold,.25)}`,textAlign:'center'}}><div style={{fontFamily:FONT.title,fontSize:82,color:C.goldLt,lineHeight:1}}>500 €</div><div style={{fontFamily:FONT.body,fontSize:28,fontWeight:900,color:C.white,letterSpacing:1.5}}>MINI-PUFFER</div></div>:null}{overlay==='test'?<div style={{position:'absolute',left:70,right:70,bottom:82,display:'flex',justifyContent:'center',gap:14,flexWrap:'wrap'}}>{['NOTWENDIG','UNGEPLANT','ZU GROSS FÜRS MONATSBUDGET'].map((label,i)=><div key={label} style={{borderRadius:999,padding:'12px 20px',background:i===2?a(C.gold,.18):a(C.accent,.18),border:`1px solid ${i===2?a(C.goldLt,.65):a(C.accentLt,.6)}`,fontFamily:FONT.body,fontSize:i===2?23:27,fontWeight:900,color:i===2?C.goldLt:C.accentLt}}>{label}</div>)}</div>:null}<AbsoluteFill style={{background:'linear-gradient(180deg,rgba(2,9,5,.22),transparent 9%,transparent 91%,rgba(2,9,5,.24))'}}/></VisualStage></SceneBackground>;
+const focalY:Record<ImageSceneId,number>={
+  'scene-01':.52,
+  'scene-02':.52,
+  'scene-04':.54,
+  'scene-06':.52,
+  'scene-09':.52,
+  'scene-10':.52,
+};
+
+const StillScene:React.FC<{sceneId:ImageSceneId;index:number}>=({sceneId,index})=>{
+  const src=(assetManifest as Record<string,string|null>)[sceneId];
+  if(!src)throw new Error(`BLOCKED: Pflichtbild für ${sceneId} fehlt im synchronisierten Ziel-Reel-Asset-Manifest.`);
+  return <SceneBackground>
+    <Headline copy={NOTGROSCHEN_COPY[index]}/>
+    <VisualStage>
+      <AdaptiveSafeFillImage src={staticFile(src)} focalX={.5} focalY={focalY[sceneId]}/>
+    </VisualStage>
+  </SceneBackground>;
 };
 
 const TargetRangeAnimation:React.FC<{durationInFrames:number}>=({durationInFrames})=>{
@@ -40,7 +53,7 @@ const SavingsTimelineAnimation:React.FC<{durationInFrames:number}>=({durationInF
   return <SceneBackground><Headline copy={NOTGROSCHEN_COPY[7]}/><VisualStage><WorldStage/><div style={{position:'absolute',top:50,left:'50%',transform:'translateX(-50%)',width:430,height:170,borderRadius:36,display:'grid',placeItems:'center',background:a(C.gold,.16),border:`2px solid ${a(C.goldLt,.58)}`}}><div style={{textAlign:'center'}}><div style={{fontFamily:FONT.title,fontSize:88,color:C.goldLt}}>150 €</div><div style={{fontFamily:FONT.body,fontWeight:900,fontSize:27,color:C.white}}>PRO MONAT</div></div></div><div style={{position:'absolute',top:345,left:100,right:100}}><div style={{display:'flex',justifyContent:'space-between',fontFamily:FONT.body,fontWeight:900,fontSize:25,color:C.gray,marginBottom:20}}><span>MONAT 0</span><span>MONAT 24</span></div><div style={{height:18,borderRadius:999,background:'rgba(255,255,255,.08)',position:'relative'}}><div style={{height:'100%',width:`${line*100}%`,borderRadius:999,background:`linear-gradient(90deg,${C.gold},${C.accentLt})`,boxShadow:`0 0 26px ${a(C.accent,.35)}`}}/><div style={{position:'absolute',left:`${line*100}%`,top:'50%',width:42,height:42,borderRadius:'50%',transform:'translate(-50%,-50%)',background:C.white,border:`7px solid ${C.accent}`}}/></div><div style={{marginTop:28,textAlign:'center',fontFamily:FONT.title,fontSize:78,color:C.white}}>{euro(amount)}</div></div><div style={{position:'absolute',top:600,left:75,right:75,display:'grid',gridTemplateColumns:'1fr 1fr',gap:24}}>{[[4,'500 €','IM 4. MONAT'],[24,'3.600 €','NACH 24 MONATEN']].map(([target,value,label],i)=>{const reached=month>=Number(target);return <div key={String(target)} style={{height:220,borderRadius:34,padding:24,textAlign:'center',background:reached?a(C.accent,.18):'rgba(255,255,255,.045)',border:`2px solid ${reached?a(C.accentLt,.62):'rgba(255,255,255,.1)'}`,transform:`scale(${reached?1:.94})`}}><div style={{fontFamily:FONT.title,fontSize:76,color:reached?(i===0?C.goldLt:C.accentLt):C.grayDk}}>{value}</div><div style={{fontFamily:FONT.body,fontSize:24,fontWeight:900,color:reached?C.white:C.grayDk}}>{label}</div></div>})}</div></VisualStage></SceneBackground>;
 };
 
-const scene=(index:number,duration:number)=>{switch(index){case 0:return <StillScene sceneId="scene-01" index={0} durationInFrames={duration} panX={2}/>;case 1:return <StillScene sceneId="scene-02" index={1} durationInFrames={duration} panX={-2}/>;case 2:return <TargetRangeAnimation durationInFrames={duration}/>;case 3:return <StillScene sceneId="scene-04" index={3} durationInFrames={duration} overlay="mini"/>;case 4:return <ThreeStageAnimation durationInFrames={duration}/>;case 5:return <StillScene sceneId="scene-06" index={5} durationInFrames={duration} overlay="test"/>;case 6:return <ExampleTargetAnimation durationInFrames={duration}/>;case 7:return <SavingsTimelineAnimation durationInFrames={duration}/>;case 8:return <StillScene sceneId="scene-09" index={8} durationInFrames={duration} panX={-2}/>;case 9:return <StillScene sceneId="scene-10" index={9} durationInFrames={duration} panX={2}/>;default:return null;}};
+const scene=(index:number,duration:number)=>{switch(index){case 0:return <StillScene sceneId="scene-01" index={0}/>;case 1:return <StillScene sceneId="scene-02" index={1}/>;case 2:return <TargetRangeAnimation durationInFrames={duration}/>;case 3:return <StillScene sceneId="scene-04" index={3}/>;case 4:return <ThreeStageAnimation durationInFrames={duration}/>;case 5:return <StillScene sceneId="scene-06" index={5}/>;case 6:return <ExampleTargetAnimation durationInFrames={duration}/>;case 7:return <SavingsTimelineAnimation durationInFrames={duration}/>;case 8:return <StillScene sceneId="scene-09" index={8}/>;case 9:return <StillScene sceneId="scene-10" index={9}/>;default:return null;}};
 
-export const NotgroschenStufenplan:React.FC=()=>{let from=0;const audio=(assetManifest as {audio:string|null}).audio;return <AbsoluteFill style={{background:C.bg}}>{audio?<Audio src={staticFile(audio)} volume={1}/>:null}{NOTGROSCHEN_DURATIONS.map((duration,index)=>{const start=from;from+=duration;return <Sequence key={index} from={start} durationInFrames={duration}>{scene(index,duration)}</Sequence>})}<NotgroschenKaraokeCaptions/></AbsoluteFill>;
+export const NotgroschenStufenplan:React.FC=()=>{let from=0;const audio=(assetManifest as {audio:string|null}).audio;if(!audio)throw new Error('BLOCKED: Finales Voiceover fehlt im synchronisierten Ziel-Reel-Asset-Manifest.');return <AbsoluteFill style={{background:C.bg}}><Audio src={staticFile(audio)} volume={1}/>{NOTGROSCHEN_DURATIONS.map((duration,index)=>{const start=from;from+=duration;return <Sequence key={index} from={start} durationInFrames={duration}>{scene(index,duration)}</Sequence>})}<NotgroschenKaraokeCaptions/></AbsoluteFill>;
 };
