@@ -15,10 +15,30 @@ const balance=(words:string[]):IndexedWord[][]=>{
 };
 
 export const NotgroschenKaraokeCaptions:React.FC=()=>{
-  const frame=useCurrentFrame();let sentenceIndex=0;
-  for(let index=1;index<NOTGROSCHEN_WORD_TIMINGS.length;index+=1){if(frame>=NOTGROSCHEN_WORD_TIMINGS[index].frames[0])sentenceIndex=index;else break;}
-  const sentence=NOTGROSCHEN_WORD_TIMINGS[sentenceIndex];const words=sentence.text.split(/\s+/);const lines=balance(words);let active=-1;
-  for(let index=0;index<words.length;index+=1){if(frame>=sentence.frames[index]&&frame<sentence.frames[index+1]){active=index;break;}}
-  const longest=Math.max(...lines.map(line=>line.map(item=>item.word).join(' ').length));const fontSize=longest>62?25:longest>56?27:longest>50?29:longest>44?32:36;
-  return <div style={{position:'absolute',left:LAYOUT.subtitleLeft,right:LAYOUT.subtitleRight,bottom:LAYOUT.subtitleBottom,zIndex:100}}><div style={{minHeight:lines.length===2?124:92,borderRadius:26,padding:lines.length===2?'17px 22px 19px':'18px 22px 20px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:2,textAlign:'center',background:'rgba(3,12,7,.93)',border:'1px solid rgba(255,255,255,.13)',boxShadow:'0 22px 70px rgba(0,0,0,.4)',fontFamily:FONT.body,fontWeight:800,fontSize,lineHeight:1.14}}>{lines.map((line,lineIndex)=><div key={`${sentence.id}-${lineIndex}`} style={{whiteSpace:'nowrap'}}>{line.map(({word,index},position)=><React.Fragment key={`${sentence.id}-${index}`}>{position>0?' ':null}<span style={{color:index===active?C.accentLt:C.white,textShadow:index===active?`0 0 18px ${C.accent},0 2px 14px rgba(0,0,0,.8)`:'0 2px 14px rgba(0,0,0,.8)'}}>{word}</span></React.Fragment>)}</div>)}</div></div>;
+  const frame=useCurrentFrame();
+  if(NOTGROSCHEN_WORD_TIMINGS.length===0)return null;
+  if(frame<NOTGROSCHEN_WORD_TIMINGS[0].frames[0])return null;
+
+  let sentenceIndex=0;
+  for(let index=1;index<NOTGROSCHEN_WORD_TIMINGS.length;index+=1){
+    if(frame>=NOTGROSCHEN_WORD_TIMINGS[index].frames[0])sentenceIndex=index;
+    else break;
+  }
+
+  const sentence=NOTGROSCHEN_WORD_TIMINGS[sentenceIndex];
+  const words=sentence.text.split(/\s+/);
+  const lines=balance(words);
+  let active=-1;
+  for(let index=0;index<words.length;index+=1){
+    if(frame>=sentence.frames[index]&&frame<sentence.frames[index+1]){active=index;break;}
+  }
+
+  const longest=Math.max(...lines.map(line=>line.map(item=>item.word).join(' ').length));
+  const fontSize=longest>62?25:longest>56?27:longest>50?29:longest>44?32:36;
+
+  return <div style={{position:'absolute',left:LAYOUT.subtitleLeft,right:LAYOUT.subtitleRight,bottom:LAYOUT.subtitleBottom,zIndex:100}}>
+    <div style={{minHeight:lines.length===2?120:88,borderRadius:24,padding:lines.length===2?'16px 22px 18px':'17px 22px 19px',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',gap:2,textAlign:'center',background:'rgba(3,12,7,.93)',border:'1px solid rgba(255,255,255,.13)',boxShadow:'0 18px 56px rgba(0,0,0,.38)',fontFamily:FONT.body,fontWeight:800,fontSize,lineHeight:1.14}}>
+      {lines.map((line,lineIndex)=><div key={`${sentence.id}-${lineIndex}`} style={{whiteSpace:'nowrap'}}>{line.map(({word,index},position)=><React.Fragment key={`${sentence.id}-${index}`}>{position>0?' ':null}<span style={{color:index===active?C.accentLt:C.white,textShadow:index===active?`0 0 18px ${C.accent},0 2px 14px rgba(0,0,0,.8)`:'0 2px 14px rgba(0,0,0,.8)'}}>{word}</span></React.Fragment>)}</div>)}
+    </div>
+  </div>;
 };
