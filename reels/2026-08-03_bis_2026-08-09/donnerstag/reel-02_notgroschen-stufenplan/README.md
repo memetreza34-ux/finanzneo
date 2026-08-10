@@ -34,8 +34,9 @@ reel-02_notgroschen-stufenplan/
 4. Google Flow erzeugt immer nur ein Bild, benennt es sofort korrekt um und macht erst danach das nächste Bild.
 5. Animationsszenen bekommen kein Bild; ihre Szenennummer bleibt reserviert.
 6. Wenn alle Bilder fertig sind, legt Google Flow alle gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
-7. `04-caption/` enthält die Social-Caption und später die echten Wort-Zeitstempel.
-8. `05-projektdateien/` ist für Animationen, Recherche und technische Umsetzung.
+7. `04-caption/caption.txt` ist die **eine universelle Social-Caption** für Instagram Reels, TikTok, Facebook Reels und Snapchat. Sie wird überall unverändert genutzt und enthält genau 5 relevante Hashtags.
+8. `04-caption/word-timings.json` enthält ausschließlich die echten Wort-Zeitstempel für die Video-Untertitel.
+9. `05-projektdateien/` ist für Animationen, Recherche und technische Umsetzung.
 
 ## Reel
 - 1080 × 1920
