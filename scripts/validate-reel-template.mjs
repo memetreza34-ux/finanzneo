@@ -12,12 +12,12 @@ const requiredFiles = [
   'src/production/reel-template/ReelTemplateDemo.tsx',
   'src/production/reel-template/index.ts',
   'src/production/reel-template/README.md',
+  'src/design-system/AdaptiveSafeFillImage.tsx',
+  'src/design-system/SentenceKaraokeCaptions.tsx',
 ];
 
 for (const file of requiredFiles) {
-  if (!existsSync(resolve(root, file))) {
-    errors.push(`Pflichtdatei fehlt: ${file}`);
-  }
+  if (!existsSync(resolve(root, file))) errors.push(`Pflichtdatei fehlt: ${file}`);
 }
 
 if (errors.length === 0) {
@@ -36,52 +36,30 @@ if (errors.length === 0) {
   }
 
   const beatTypes = [...demo.matchAll(/type:\s*'([^']+)'/g)].map((match) => match[1]);
-  if (beatTypes[0] !== 'hook') {
-    errors.push('Der erste Demo-Beat ist kein Hook.');
-  }
-  if (beatTypes[beatTypes.length - 1] !== 'cta') {
-    errors.push('Der letzte Demo-Beat ist kein CTA.');
+  if (beatTypes[0] !== 'hook') errors.push('Der erste Demo-Beat ist kein Hook.');
+  if (beatTypes[beatTypes.length - 1] !== 'cta') errors.push('Der letzte Demo-Beat ist kein CTA.');
+
+  for (const beatType of ['hook', 'explain', 'number', 'compare', 'checklist', 'cta']) {
+    if (!beatTypes.includes(beatType)) errors.push(`Demo enthält keinen ${beatType}-Beat.`);
   }
 
-  const requiredBeatTypes = ['hook', 'explain', 'number', 'compare', 'checklist', 'cta'];
-  for (const beatType of requiredBeatTypes) {
-    if (!beatTypes.includes(beatType)) {
-      errors.push(`Demo enthält keinen ${beatType}-Beat.`);
-    }
-  }
+  if (!types.includes('validateReelConfig')) errors.push('Konfigurationsvalidator fehlt in types.ts.');
+  if (!types.includes('60') || !types.includes('90')) errors.push('60–90-Sekunden-Grenzen fehlen im Konfigurationsvalidator.');
+  if (types.includes("objectFit?: 'contain'")) errors.push('ImageBeat darf keine alte contain/cover-Auswahl mehr anbieten.');
+  if (!types.includes('focalX?: number') || !types.includes('focalY?: number')) errors.push('ImageBeat benötigt focalX/focalY für adaptive-safe-fill.');
 
-  if (!types.includes('validateReelConfig')) {
-    errors.push('Konfigurationsvalidator fehlt in types.ts.');
-  }
-  if (!types.includes('60') || !types.includes('90')) {
-    errors.push('60–90-Sekunden-Grenzen fehlen im Konfigurationsvalidator.');
-  }
-  if (!template.includes('FinanceBackground')) {
-    errors.push('ReelTemplate verwendet nicht den verbindlichen FinanzNeo-Hintergrund.');
-  }
-  if (!template.includes('SAFE_AREA')) {
-    errors.push('ReelTemplate verwendet nicht die zentralen Safe-Area-Tokens.');
-  }
-  if (!template.includes('Captions')) {
-    errors.push('ReelTemplate unterstützt keine zentralen Untertitel.');
-  }
-  if (!template.includes('VerticalSafeAreaGuide')) {
-    errors.push('ReelTemplate besitzt kein visuelles Safe-Area-Prüfraster.');
-  }
-  if (!template.includes("from '../../design-system'")) {
-    errors.push('ReelTemplate importiert nicht aus dem zentralen Designsystem.');
-  }
+  if (!template.includes('FinanceBackground')) errors.push('ReelTemplate verwendet nicht den verbindlichen FinanzNeo-Hintergrund.');
+  if (!template.includes('SAFE_AREA')) errors.push('ReelTemplate verwendet nicht die zentralen Safe-Area-Tokens.');
+  if (!template.includes('AdaptiveSafeFillImage')) errors.push('ReelTemplate verwendet nicht adaptive-safe-fill für Bildszenen.');
+  if (!template.includes('SentenceKaraokeCaptions')) errors.push('ReelTemplate verwendet nicht die satzbasierten Karaoke-Untertitel.');
+  if (template.includes("objectFit: beat.objectFit ?? 'contain'")) errors.push('Alte contain-Standarddarstellung ist noch im ReelTemplate aktiv.');
+  if (template.includes('<Captions words=')) errors.push('Alte gruppenbasierte Captions-Komponente ist noch im ReelTemplate aktiv.');
+  if (!template.includes('VerticalSafeAreaGuide')) errors.push('ReelTemplate besitzt kein visuelles Safe-Area-Prüfraster.');
+  if (!template.includes("from '../../design-system'")) errors.push('ReelTemplate importiert nicht aus dem zentralen Designsystem.');
 
-  if (!experiments.includes('id="ReelTemplateDemo"')) {
-    errors.push('ReelTemplateDemo ist nicht unter Experiments registriert.');
-  }
-  if (production.includes('ReelTemplateDemo')) {
-    errors.push('ReelTemplateDemo darf nicht unter Production registriert sein.');
-  }
-
-  if (!demo.includes('showSafeAreaGuide: true')) {
-    errors.push('Die Demo muss das Safe-Area-Raster sichtbar zeigen.');
-  }
+  if (!experiments.includes('id="ReelTemplateDemo"')) errors.push('ReelTemplateDemo ist nicht unter Experiments registriert.');
+  if (production.includes('ReelTemplateDemo')) errors.push('ReelTemplateDemo darf nicht unter Production registriert sein.');
+  if (!demo.includes('showSafeAreaGuide: true')) errors.push('Die Demo muss das Safe-Area-Raster sichtbar zeigen.');
 
   console.log(`Geprüfte Demo-Dauer: ${durationSeconds.toFixed(1)} Sekunden (${totalFrames} Frames).`);
 }
@@ -93,5 +71,5 @@ if (errors.length > 0) {
 }
 
 console.log('✓ ReelTemplateDemo liegt korrekt unter Experiments.');
-console.log('✓ Hook, Erklär-, Zahlen-, Vergleichs-, Checklisten- und CTA-Beats sind vorhanden.');
-console.log('✓ Safe Areas, Untertitel und Designsystem sind eingebunden.');
+console.log('✓ Adaptive-safe-fill, satzbasierte Karaoke-Untertitel und Safe Areas sind eingebunden.');
+console.log('✓ Alte contain-Standarddarstellung ist im produktiven ReelTemplate verboten.');
