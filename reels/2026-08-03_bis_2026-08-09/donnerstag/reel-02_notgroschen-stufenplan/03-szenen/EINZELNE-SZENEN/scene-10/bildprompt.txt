@@ -1,0 +1,19 @@
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 10 - Notgroschen wieder auffuellen.png`
+
+WICHTIG:
+Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen, Gesicht, Hintergrund und Dateiname prüfen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- `Entnahme`
+- `Auffüllen`
+
+BILDPROMPT:
+A stylized 3D adult person with a clearly visible stylized face, front-facing or natural three-quarter view, standing beside one large transparent emergency-fund container that is visibly partly empty after a repair. A repaired washing machine stands on one side. A few gold coins leave the reserve toward the repaired machine, while a second stream of fresh gold coins flows back into the reserve. The refill stream glows vivid emerald and the previous withdrawal path uses restrained warm red-orange. Include German labels: `Entnahme` beside the outgoing coin path and `Auffüllen` beside the incoming coin path.
+
+Premium fintech editorial 3D render style. Deep charcoal green-black world. Vivid emerald/mint accents, gold for money and warm red-orange only for the previous loss path. Smooth rounded geometry, soft bevelled edges and bold emerald rim light.
+
+BACKGROUND — VERBINDLICH:
+Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line, no panels. Use only one subtle continuous gradient/vignette. Do not create a visible floor or wall. Leave generous natural empty space above and below without changing the background. Do NOT use percentage-based zones.
+
+No photorealism, no real identifiable human, no faceless person, no hidden face, no back-view-only character, no UI dashboard, no headline, no subtitle, no explanatory sentence, no tiny diorama, no neon tunnel, no sci-fi corridor.
