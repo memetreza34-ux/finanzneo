@@ -75,6 +75,23 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
     assert(index.imageWorld?.visibleFaceRequiredWhenPersonPresent === true, 'Bei Personen muss ein sichtbares Gesicht vorgeschrieben sein.');
     assert(index.imageWorld?.objectLabelsOnly === true, 'KI-Bilder dürfen nur kurze Objektlabels als Text enthalten.');
     assert(existsSync(imageInbox), '03-szenen/00-ALLE-BILDER-HIER-REIN fehlt.');
+
+    const publishing = index.platformPublishing;
+    assert(publishing?.directory === '04-caption', 'Plattform-Publishing muss direkt in 04-caption liegen.');
+
+    const publishingFiles = {
+      masterCaption: '04-caption/caption.txt',
+      youtubeShorts: '04-caption/youtube-shorts.txt',
+      instagramReels: '04-caption/instagram-reels.txt',
+      tiktok: '04-caption/tiktok.txt',
+      facebookReels: '04-caption/facebook-reels.txt',
+      snapchat: '04-caption/snapchat.txt',
+    };
+
+    for (const [key, expectedPath] of Object.entries(publishingFiles)) {
+      assert(publishing?.[key] === expectedPath, `platformPublishing.${key} muss auf ${expectedPath} zeigen.`);
+      assert(existsSync(resolve(root, expectedPath)), `Plattformdatei fehlt: ${expectedPath}`);
+    }
   }
 
   const presentationContract = index.imagePresentationContract;
@@ -176,6 +193,6 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('\n✓ Reel-Quellen-, Bildwelt-, Timing- und Präsentationsvertrag erfüllt.');
-console.log('  Neue Reels: ein nahtloser Hintergrund · keine Prozent-Zonen · sichtbares Gesicht bei Personen · kurze deutsche Objektlabels');
+console.log('\n✓ Reel-Quellen-, Bildwelt-, Timing-, Publishing- und Präsentationsvertrag erfüllt.');
+console.log('  Neue Reels: nahtloser Hintergrund · sichtbares Gesicht bei Personen · kurze deutsche Objektlabels · 5 Plattformdateien');
 if (missingFinalImages > 0) console.log(`  Hinweis: ${missingFinalImages} finale Bilddateien fehlen noch.`);
