@@ -10,7 +10,7 @@
     "build": "npx remotion bundle src/index.ts",
     "reel:create": "node scripts/scaffold-finanzneo-reel.mjs",
     "reel:sort-images": "node scripts/sort-reel-images.mjs",
-    "reel:validate": "node scripts/validate-reel-source-contract.mjs",
+    "reel:validate": "node scripts/validate-reel-source-contract.mjs && node scripts/validate-platform-publishing.mjs",
     "assets:drei-konten": "node scripts/sync-drei-konten-assets.mjs",
     "antigravity:safety": "node scripts/antigravity-repo-safety-check.mjs",
     "validate:compositions": "node scripts/validate-compositions.mjs",
