@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "title": "Notgroschen in drei Stufen",
   "sceneCount": 10,
   "imageSceneCount": 6,
@@ -74,11 +74,11 @@
   },
   "platformPublishing": {
     "directory": "04-caption",
-    "masterCaption": "04-caption/caption.txt",
-    "instagramReels": "04-caption/instagram-reels.txt",
-    "tiktok": "04-caption/tiktok.txt",
-    "facebookReels": "04-caption/facebook-reels.txt",
-    "snapchat": "04-caption/snapchat.txt"
+    "universalCaption": "04-caption/caption.txt",
+    "sameCaptionForAllReelPlatforms": true,
+    "platforms": ["instagram-reels", "tiktok", "facebook-reels", "snapchat"],
+    "hashtagCount": 5,
+    "separatePlatformCaptionsForbidden": true
   },
   "timelineRules": {
     "timingSource": "04-caption/word-timings.json",
