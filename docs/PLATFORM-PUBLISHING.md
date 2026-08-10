@@ -1,155 +1,93 @@
 # FinanzNeo — Plattform-Publishing
 
-Dieses Dokument definiert die einfache Ausgabe-Struktur für Instagram Reels, TikTok, Facebook Reels und Snapchat.
+Dieses Dokument definiert die gemeinsame Publishing-Caption für Instagram Reels, TikTok, Facebook Reels und Snapchat.
 
 `CLAUDE.md` bleibt die höchste Regelquelle.
 
-**YouTube-Regel:** FinanzNeo veröffentlicht keine YouTube Shorts. YouTube ist ausschließlich für eigenständige längere Videos vorgesehen. Longform-Projekte liegen separat unter `youtube/`; Reel-Projekte werden nicht automatisch nach YouTube gespiegelt.
+**YouTube-Regel:** FinanzNeo veröffentlicht keine YouTube Shorts. YouTube ist ausschließlich für eigenständige längere Videos unter `youtube/` vorgesehen.
 
-## 1. Keine neue Hauptordner-Struktur
-
-Die bestehende einfache Reel-Struktur bleibt unverändert:
-
-```text
-01-script/
-02-audio/
-03-szenen/
-04-caption/
-05-projektdateien/
-README.md
-```
-
-Alle plattformspezifischen Veröffentlichungs-Texte für Reels liegen direkt in `04-caption/`.
-
-## 2. Verbindlicher Inhalt von 04-caption
+## 1. Einfache Struktur
 
 ```text
 04-caption/
 ├── caption.txt
-├── instagram-reels.txt
-├── tiktok.txt
-├── facebook-reels.txt
-├── snapchat.txt
 └── word-timings.json
 ```
 
-- `caption.txt` = geprüfte Master-Caption / gemeinsame Faktenbasis
-- `instagram-reels.txt` = Instagram-Reels-Text
-- `tiktok.txt` = TikTok-Text
-- `facebook-reels.txt` = Facebook-Reels-Text
-- `snapchat.txt` = Snapchat-Text
-- `word-timings.json` = echte Wortzeiten für die Video-Untertitel, keine Publishing-Metadaten
+- `caption.txt` = die **eine fertige Social-Caption für alle vier Reel-Plattformen**
+- `word-timings.json` = echte Wortzeiten für die Video-Untertitel; keine Publishing-Metadaten
 
-`youtube-shorts.txt` ist in aktiven Reel-Projekten verboten.
+Keine zusätzlichen plattformspezifischen Caption-Dateien.
 
-## 3. Master-Caption
+## 2. Eine Caption für alle Plattformen
 
-`caption.txt` ist die gemeinsame inhaltliche Quelle für alle Reel-Plattformtexte.
-
-Sie enthält nur geprüfte Aussagen und bei Bedarf:
-
-- kurze Zusammenfassung
-- wichtige Annahmen
-- Quellen-/Datenstand-Hinweis
-- Hinweis `Keine Anlageberatung`, wenn sinnvoll
-- PDF-/Kommentar-CTA, wenn für das Reel geplant
-
-Plattformdateien dürfen die Fakten nicht verändern oder neue unbelegte Behauptungen hinzufügen.
-
-## 4. Instagram Reels
-
-`instagram-reels.txt`:
-
-```text
-CAPTION:
-[plattformgerechter Text]
-
-CTA:
-[Frage / Kommentar-Keyword / PDF, falls geplant]
-
-QUELLEN / HINWEIS:
-[bei Bedarf]
-
-HASHTAGS:
-[passende Hashtags]
-
-ANGEHEFTETER KOMMENTAR:
-[optional]
-```
-
-## 5. TikTok
-
-`tiktok.txt`:
-
-```text
-CAPTION:
-[kurzer direkter Text]
-
-CTA:
-[Kommentar-/Follow-/PDF-CTA, falls geplant]
-
-QUELLEN / HINWEIS:
-[bei Bedarf]
-
-HASHTAGS:
-[passende Hashtags]
-```
-
-## 6. Facebook Reels
-
-`facebook-reels.txt`:
-
-```text
-REEL-TEXT:
-[verständlicher Begleittext]
-
-CTA:
-[Frage / Kommentar / PDF, falls geplant]
-
-QUELLEN / HINWEIS:
-[bei Bedarf]
-
-HASHTAGS:
-[passende Hashtags]
-```
-
-## 7. Snapchat
-
-`snapchat.txt`:
-
-```text
-CAPTION:
-[sehr kurze Begleitzeile]
-
-CTA:
-[optional]
-
-QUELLEN / HINWEIS:
-[nur wenn nötig]
-```
-
-## 8. Plattform-Regeln
-
-- Dasselbe finale 9:16-Reel ist der Master für Instagram Reels, TikTok, Facebook Reels und Snapchat, solange keine konkrete Plattformanpassung nötig ist.
-- Kein YouTube-Shorts-Upload und keine YouTube-Shorts-Metadaten aus einem Reel-Projekt erzeugen.
-- YouTube-Longform ist ein eigenständiges Format unter `youtube/` und erhält einen separaten Workflow.
-- Keine Fakten pro Plattform so umformulieren, dass sich ihre Bedeutung verändert.
-- Keine Clickbait-Behauptung, die das Reel nicht erfüllt.
-- Keine erfundenen Renditen, Garantien oder Finanzversprechen.
-- Affiliate-/Werbebeziehungen transparent kennzeichnen, sobald relevant.
-- Hashtags nur passend zum Inhalt; keine zufälligen Trend-Tags.
-- Titel und Caption dürfen neugierig machen, aber nicht irreführen.
-- Wenn exakte aktuelle Plattform-Limits oder neue Upload-Funktionen relevant werden, vor Veröffentlichung die aktuelle offizielle Plattform-Dokumentation prüfen; keine veralteten Limits im Repo fest verdrahten.
-
-## 9. Abschlussregel pro Reel
-
-Ein Reel ist publishing-seitig erst vorbereitet, wenn die vier Reel-Plattformdateien vorhanden und inhaltlich auf dasselbe finale Reel abgestimmt sind:
+Dieselbe `caption.txt` wird unverändert verwendet für:
 
 - Instagram Reels
 - TikTok
 - Facebook Reels
 - Snapchat
 
-Fehlende Plattformtexte verhindern nicht den technischen Remotion-Render, müssen aber vor dem geplanten Cross-Platform-Publishing ergänzt werden.
+Es werden keine separaten Varianten erstellt.
 
-YouTube gehört nicht zu diesem Reel-Publishing-Schritt. Längere YouTube-Videos werden separat unter `youtube/` produziert.
+## 3. Verbindlicher Caption-Aufbau
+
+Die finale Datei enthält direkt den kopierfertigen Text — ohne `CAPTION:`, `CTA:` oder andere Template-Überschriften.
+
+Empfohlene Dramaturgie:
+
+```text
+[STARKE ERSTE ZEILE / HOOK]
+
+[KURZE KERNAUSSAGE ODER AHA-NUTZEN]
+
+[KURZER NATÜRLICHER CTA, WENN PASSEND]
+
+#Hashtag1 #Hashtag2 #Hashtag3 #Hashtag4 #Hashtag5
+```
+
+Regeln:
+
+- erste Zeile soll sofort Neugier, ein konkretes Problem oder einen klaren Nutzen auslösen
+- kurz genug, dass dieselbe Caption plattformübergreifend sinnvoll bleibt
+- Inhalt muss exakt zum Reel passen
+- gern speicher-/teilbar formulieren, aber nicht künstlich clickbaiten
+- kein Versprechen wie `geht garantiert viral`
+- CTA nur, wenn er natürlich passt
+- **genau 5 Hashtags**
+- alle 5 Hashtags müssen thematisch relevant sein
+- keine zufälligen Trend-Tags, kein Hashtag-Spam und kein irrelevantes `#fyp`
+- Fakten nicht verändern oder neue unbelegte Behauptungen hinzufügen
+- Quellen/Datenstand bleiben primär in `05-projektdateien/recherche-quellen.md`
+- `Keine Anlageberatung` nur in die Caption aufnehmen, wenn es für das konkrete Reel sinnvoll/notwendig ist
+
+## 4. Verbotene alte Dateien
+
+In aktiven neuen Reel-Projekten dürfen diese Dateien nicht existieren:
+
+```text
+instagram-reels.txt
+tiktok.txt
+facebook-reels.txt
+snapchat.txt
+youtube-shorts.txt
+```
+
+Alte Archive können historisch anders aufgebaut sein; sie sind keine Vorlage für neue Reels.
+
+## 5. Qualitätsziel
+
+Die Caption soll möglichst stark für Aufmerksamkeit, Saves, Shares und Kommentare formuliert sein. Viralität kann nicht garantiert werden. Optimiert wird auf:
+
+- starke erste Zeile
+- sofort verständlichen Nutzen
+- konkrete Sprache
+- kurze Lesedauer
+- natürliche Interaktion
+- genau 5 relevante Hashtags
+
+## 6. Abschlussregel
+
+Publishing-seitig ist ein neues Reel vorbereitet, wenn `04-caption/caption.txt` als finale universelle Caption vorliegt und exakt fünf relevante Hashtags enthält.
+
+YouTube gehört nicht zu diesem Reel-Publishing-Schritt. Longform-YouTube wird separat unter `youtube/` produziert.
