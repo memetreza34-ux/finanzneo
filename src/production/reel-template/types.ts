@@ -62,7 +62,10 @@ export type ImageBeat = ReelBeatBase & {
   headline: string;
   imageSrc: string;
   alt: string;
-  objectFit?: 'contain' | 'cover';
+  /** 0..1 focal point used by adaptive-safe-fill. */
+  focalX?: number;
+  /** 0..1 focal point used by adaptive-safe-fill. */
+  focalY?: number;
 };
 
 export type CtaBeat = ReelBeatBase & {
@@ -87,6 +90,7 @@ export type ReelConfig = {
   title: string;
   fps?: number;
   audioSrc?: string;
+  /** Real word-level start/end timestamps from the exact final voiceover. */
   captions?: CaptionWord[];
   disclaimer?: string;
   showSafeAreaGuide?: boolean;
@@ -119,8 +123,14 @@ export const validateReelConfig = (config: ReelConfig): string[] => {
       errors.push(`Beat ${beat.id} hat keine positive ganzzahlige durationInFrames.`);
     }
 
-    if (beat.type === 'image' && !beat.imageSrc.trim()) {
-      errors.push(`Image-Beat ${beat.id} besitzt keine Bilddatei.`);
+    if (beat.type === 'image') {
+      if (!beat.imageSrc.trim()) errors.push(`Image-Beat ${beat.id} besitzt keine Bilddatei.`);
+      if (beat.focalX !== undefined && (beat.focalX < 0 || beat.focalX > 1)) {
+        errors.push(`Image-Beat ${beat.id}: focalX muss zwischen 0 und 1 liegen.`);
+      }
+      if (beat.focalY !== undefined && (beat.focalY < 0 || beat.focalY > 1)) {
+        errors.push(`Image-Beat ${beat.id}: focalY muss zwischen 0 und 1 liegen.`);
+      }
     }
 
     if (beat.type === 'checklist' && beat.items.length === 0) {
@@ -134,6 +144,19 @@ export const validateReelConfig = (config: ReelConfig): string[] => {
 
   if (config.beats[config.beats.length - 1]?.type !== 'cta') {
     errors.push('Der letzte Beat muss ein CTA sein.');
+  }
+
+  if (config.captions) {
+    for (let index = 0; index < config.captions.length; index += 1) {
+      const word = config.captions[index];
+      if (!word.word.trim()) errors.push(`Caption-Wort ${index + 1} ist leer.`);
+      if (!Number.isFinite(word.start) || !Number.isFinite(word.end) || word.start < 0 || word.end <= word.start) {
+        errors.push(`Caption-Wort ${index + 1} benötigt echte start/end-Zeitstempel.`);
+      }
+      if (index > 0 && word.start < config.captions[index - 1].start) {
+        errors.push('Caption-Wörter müssen chronologisch nach echten Audio-Zeitstempeln sortiert sein.');
+      }
+    }
   }
 
   return errors;
