@@ -11,10 +11,11 @@ import {
   FONT,
   SAFE_AREA,
   a,
-  AdaptiveSafeFillImage,
   Body,
   DramaticNumber,
   FinanceBackground,
+  FullFrameImage,
+  FullFrameReadabilityScrim,
   Kicker,
   SentenceKaraokeCaptions,
   Title,
@@ -30,8 +31,6 @@ import type {
 import {validateReelConfig} from './types';
 
 const CONTENT_HORIZONTAL_PADDING = 72;
-const IMAGE_VISUAL_TOP = 210;
-const IMAGE_VISUAL_BOTTOM = 1515;
 
 const formatTemplateNumber = (
   value: number,
@@ -70,6 +69,7 @@ const BeatHeader: React.FC<{
     justifyContent: 'center',
     textAlign: 'center',
     zIndex: 30,
+    textShadow: '0 3px 10px rgba(0,0,0,.84), 0 0 28px rgba(0,0,0,.52)',
   }}>
     {kicker && <Kicker at={0}>{kicker}</Kicker>}
     {headline && <Title at={4} size={82} style={{marginTop: kicker ? 18 : 0}}>{headline}</Title>}
@@ -83,15 +83,16 @@ const SourceNote: React.FC<{children?: string}> = ({children}) => {
     <div style={{
       position: 'absolute',
       left: 64,
-      right: 180,
-      bottom: 254,
-      color: a(C.gray, 0.72),
+      right: 156,
+      bottom: 210,
+      color: a(C.gray, 0.78),
       fontFamily: FONT.body,
-      fontSize: 20,
+      fontSize: 18,
       fontWeight: 600,
       lineHeight: 1.25,
       textAlign: 'center',
       zIndex: 95,
+      textShadow: '0 2px 8px rgba(0,0,0,.9)',
     }}>
       {children}
     </div>
@@ -108,19 +109,6 @@ const CenterArea: React.FC<{children: React.ReactNode}> = ({children}) => (
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-  }}>
-    {children}
-  </div>
-);
-
-const ImageVisualStage: React.FC<{children: React.ReactNode}> = ({children}) => (
-  <div style={{
-    position: 'absolute',
-    top: IMAGE_VISUAL_TOP,
-    left: 0,
-    right: 0,
-    height: IMAGE_VISUAL_BOTTOM - IMAGE_VISUAL_TOP,
-    overflow: 'hidden',
   }}>
     {children}
   </div>
@@ -334,16 +322,10 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
 
   if (beat.type === 'image') {
     return (
-      <AbsoluteFill>
-        <FinanceBackground variant={beat.background ?? 'standard'} />
+      <AbsoluteFill style={{background: C.bg, overflow: 'hidden'}}>
+        <FullFrameImage src={staticFile(beat.imageSrc)} />
+        <FullFrameReadabilityScrim />
         <BeatHeader kicker={beat.kicker} headline={beat.headline} />
-        <ImageVisualStage>
-          <AdaptiveSafeFillImage
-            src={staticFile(beat.imageSrc)}
-            focalX={beat.focalX ?? 0.5}
-            focalY={beat.focalY ?? 0.52}
-          />
-        </ImageVisualStage>
         <SourceNote>{beat.sourceNote}</SourceNote>
       </AbsoluteFill>
     );
@@ -412,9 +394,9 @@ export const ReelTemplate: React.FC<{config: ReelConfig}> = ({config}) => {
       {config.captions && config.captions.length > 0 && (
         <SentenceKaraokeCaptions
           words={config.captions}
-          bottom={280}
-          left={60}
-          right={180}
+          bottom={300}
+          left={64}
+          right={156}
           highlight={C.accentLt}
         />
       )}
