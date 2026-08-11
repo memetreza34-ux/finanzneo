@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "fps": 30,
   "subtitleMode": "sentence-with-audio-synced-active-word",
   "activeWordColor": "finance-green",
@@ -7,11 +7,12 @@
   "timingMethod": "real-word-boundaries-required",
   "rules": {
     "preferredSentencesVisible": 1,
-    "maxSentencesVisible": 2,
+    "maxSentencesVisible": 1,
     "maxLines": 2,
     "sentenceSwitch": "next-sentence-first-word-start",
     "holdPreviousSentenceDuringShortPause": true,
-    "equalWordSpacingForbidden": true
+    "equalWordSpacingForbidden": true,
+    "opaqueCaptionCardForbidden": true
   },
   "sentences": []
 }
