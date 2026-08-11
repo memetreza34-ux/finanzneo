@@ -17,14 +17,15 @@ Erstelle selbstständig:
 4. Szenen-/Beat-Plan
 5. Bild-/Remotion-Zuordnung
 6. vollständige Google-Flow-Bildprompts mit echten Szenennummern und finalen Dateinamen
-7. Remotion-Spezifikationen
-8. genau EINE universelle Social-Caption für Instagram Reels, TikTok, Facebook Reels und Snapchat mit exakt 5 relevanten Hashtags
+7. für Cover Bild 00 zusätzlich eine konkrete deutsche Pflichtüberschrift unter `COVER-ÜBERSCHRIFT – EXAKT SO:`; sie wird direkt in Google Flow erzeugt und später NICHT in Remotion ersetzt
+8. Remotion-Spezifikationen
+9. genau EINE universelle Social-Caption für Instagram Reels, TikTok, Facebook Reels und Snapchat mit exakt 5 relevanten Hashtags
 
 Antigravity erzeugt keine finalen Bilder.
 Keine YouTube Shorts.
 ```
 
-## 2. FinanzNeo-Bildprompt
+## 2. FinanzNeo-Szenenbildprompt `Bild 01+`
 
 ```text
 Erstelle einen FinanzNeo-Bildprompt für:
@@ -40,7 +41,7 @@ Verbindlich:
 - Gold nur für Geld/Wert
 - Rot-Orange nur für Risiko/Verlust/Schulden
 - kurze deutsche Objektlabels, normalerweise 1–3 Wörter
-- keine Headline, kein Untertitel, kein erklärender Satz im KI-Bild
+- keine Headline, kein Untertitel, kein erklärender Satz im Szenenbild
 - genau EIN nahtloser Hintergrund von oben bis unten
 - keine Prozent-Zonen, Bänder, Floor-Wall-Grenze, Horizont oder Panels
 - wichtige Motive und Labels vollständig innerhalb des 9:16-Frames halten; später kein absichtlicher Crop
@@ -51,7 +52,35 @@ Direkt beim Prompt den endgültigen Dateinamen angeben.
 Bildnummer = echte Szenennummer; Animationsnummern bleiben reserviert.
 ```
 
-## 3. Google-Flow-Produktion
+## 3. FinanzNeo-Coverprompt `Bild 00`
+
+```text
+Erstelle den Google-Flow-Coverprompt für das Reel:
+[THEMA]
+
+Verbindlich:
+- Cover = Bild 00
+- vertikal 9:16
+- Premium Fintech Editorial 3D
+- eine große klare Metapher, die das Reel-Thema in einem Blick erklärt
+- genau EIN nahtloser deep-charcoal-green-black Hintergrund
+- EINE große deutsche Cover-Überschrift direkt im generierten Google-Flow-Bild
+- im Prompt steht zwingend:
+
+COVER-ÜBERSCHRIFT – EXAKT SO:
+[EXAKTE DEUTSCHE COVER-ÜBERSCHRIFT]
+
+- ungefähr 3–8 Wörter, maximal 2 Zeilen
+- Überschrift nennt konkret das Reel-Thema
+- große hochwertige Smartphone-lesbare Typografie
+- keine separate Textbox, kein Header-Balken, kein zweiter Hintergrund
+- kein zusätzlicher Subtitle, CTA oder erklärender Satz
+- Schreibweise exakt prüfen
+- fehlt/falsch/abgeschnitten/unlesbar: Cover neu in Google Flow erzeugen
+- Cover-Überschrift niemals später in Remotion ergänzen oder reparieren
+```
+
+## 4. Google-Flow-Produktion
 
 ```text
 Arbeite 03-szenen/alle-bildprompts.txt strikt chronologisch ab.
@@ -59,15 +88,16 @@ Arbeite 03-szenen/alle-bildprompts.txt strikt chronologisch ab.
 Pro Bild:
 1. genau EIN vertikales 9:16-Bild erzeugen
 2. sofort endgültig umbenennen
-3. Motiv + Labels + Gesicht + nahtlosen Hintergrund + Dateiname prüfen
-4. erst dann nächstes Bild
+3. Motiv + erlaubten Text + Gesicht + nahtlosen Hintergrund + Dateiname prüfen
+4. beim Cover zusätzlich die exakte Pflichtüberschrift prüfen
+5. erst dann nächstes Bild
 
-Cover = Bild 00.
+Cover = Bild 00 und enthält die Pflichtüberschrift direkt aus Google Flow.
 Animationsszenen erzeugen kein Bild und behalten ihre Nummer.
 Erst am Ende alle finalen Bilder gemeinsam nach 03-szenen/00-ALLE-BILDER-HIER-REIN/.
 ```
 
-## 4. Reel vollständig fertigstellen — Antigravity Autopilot
+## 5. Reel vollständig fertigstellen — Antigravity Autopilot
 
 ```text
 Die finalen Bilder und das finale Audio sind vorhanden. Mach das Reel vollständig von Anfang bis Ende fertig.
@@ -76,6 +106,8 @@ Verbindlich:
 - Nutzerbilder ausschließlich aus 03-szenen/00-ALLE-BILDER-HIER-REIN/
 - finales Audio ausschließlich aus 02-audio/
 - fehlt/falsch/mehrdeutig: BLOCKED mit exaktem Pfad; nichts ersetzen oder erraten
+- Cover Bild 00 auf exakt vorgegebene Google-Flow-Überschrift prüfen
+- wenn Cover-Überschrift fehlt/falsch/abgeschnitten ist: BLOCKED und Nutzer muss Cover in Google Flow neu erzeugen; NICHT in Remotion reparieren
 - keine Zwischenfragen wie „Weiter?“
 - echte Wort-start/end-Zeitstempel aus genau diesem finalen Audio erzeugen
 - keine gleichmäßig geschätzten Wortzeiten
@@ -83,7 +115,8 @@ Verbindlich:
 - Bildszenen full-frame-no-crop: komplettes vertikales 9:16-Bild über die gesamte 1080×1920-Szene
 - Nutzerbilder NICHT in VisualStage oder einen kleineren Mittel-Container setzen
 - kein absichtlicher Crop, Zoom/Focal-Point-Vertrag, Inset-Panel oder unscharfe Bildkopie
-- Headline und Untertitel als Overlay über demselben Vollbild
+- Szenenheadline 01+ und Untertitel als Overlay über demselben Vollbild
+- KEINE zusätzliche Remotion-Headline auf Bild 00
 - nur weicher kontinuierlicher Transparenz-Scrim; keine harten Header/Footer-Hintergründe
 - native Remotion-Szenen mit EINEM durchgehenden Full-Canvas-Hintergrund, kein Boden/Horizont/Studio-Split
 - Untertitel GENAU 1 vollständiger Satz gleichzeitig, hart max. 2 Zeilen
@@ -107,17 +140,24 @@ Verbindlich:
 Ende nur mit PRODUCTION COMPLETE oder BLOCKED.
 ```
 
-## 5. Bild-/Render-QA
+## 6. Bild-/Render-QA
 
 ```text
-Prüfe jede Bildszene im finalen Render:
+Prüfe Cover Bild 00:
+- exakte Pflichtüberschrift direkt im Google-Flow-Bild
+- korrekt geschrieben, vollständig sichtbar, Smartphone-lesbar
+- kein Subtitle/CTA/erklärender Satz
+- kein separater Textbalken/Panel
+- keine Remotion-Ersatzheadline
+
+Prüfe jede Bildszene 01+ im finalen Render:
 - Nutzerbild läuft vollständig von Y=0 bis Y=1920
 - kein abgeschnittener/abgesetzter unterer Bildbereich
 - kein kleiner Bildcontainer/Posterinlay
 - kein sichtbarer rechteckiger Bildrand
 - keine harte obere/untere Hintergrundfläche
 - kein zweiter/dritter wahrnehmbarer Hintergrund
-- Headline bleibt lesbar als Overlay
+- Szenenheadline bleibt lesbar als Overlay
 - Caption bleibt oberhalb der Plattform-UI-Totzone
 - rechts genügend UI-Abstand
 - keine schwarze Caption-Karte
@@ -135,7 +175,7 @@ Prüfe Captions:
 - keine unnötigen Leerphasen
 ```
 
-## 6. Universelle Social-Caption
+## 7. Universelle Social-Caption
 
 ```text
 Erstelle genau EINE Caption für das fertige Reel.
