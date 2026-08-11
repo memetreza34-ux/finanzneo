@@ -31,7 +31,7 @@ No horizon line.
 Do not create a visible floor, wall or studio horizon.
 ```
 
-Keine Prozent-Zonen.
+Keine Prozent-Zonen. Auch hinter der Cover-Überschrift kein separater Header-Balken oder Panel-Hintergrund.
 
 ## Personen
 
@@ -45,6 +45,22 @@ Wenn eine Person vorkommt:
 - keine reale/identifizierbare Person
 
 ## Text im KI-Bild
+
+### Cover `Bild 00`
+
+Pflicht:
+
+- eine große deutsche Cover-Überschrift direkt im Google-Flow-Bild
+- exakter Text steht im Cover-Prompt unter `COVER-ÜBERSCHRIFT – EXAKT SO:`
+- ungefähr 3–8 Wörter, maximal zwei Zeilen
+- nennt konkret das Reel-Thema
+- auf Smartphone gut lesbar
+- keine separate Textbox/kein Header-Balken/kein zweiter Hintergrund
+- kein zusätzlicher Subtitle, CTA oder erklärender Satz
+- fehlt/falsch/abgeschnitten/unlesbar → Cover in Google Flow neu erzeugen
+- niemals in Remotion ergänzen oder reparieren
+
+### Szenenbilder `Bild 01+`
 
 Erlaubt: explizit vorgegebene kurze deutsche Objektlabels, normalerweise 1–3 Wörter.
 
@@ -60,7 +76,7 @@ Reale Marken/Dienste sind erlaubt, wenn sie für die konkrete Aussage relevant s
 - Hauptmotiv groß und smartphone-lesbar
 - wenige große Hauptelemente
 - klare Ursache-Wirkung
-- wichtige Motive/Labels bequem innerhalb des 9:16-Bildes halten
+- wichtige Motive/Texte bequem innerhalb des 9:16-Bildes halten
 - keine Dioramen, Dashboards, Game-Level, Neon-Tunnel oder Sci-Fi-Korridore
 
 ## Darstellung in Remotion — full-frame-no-crop
@@ -75,7 +91,8 @@ Verbindlich:
 - kein Zoom-/Focal-Point-Vertrag
 - kein sichtbarer Bildrand/Inlay
 - keine unscharfe Kopie als Hintergrund
-- Headline und Untertitel liegen als Overlay über demselben Bild
+- Szenenheadline 01+ und Untertitel liegen als Overlay über demselben Bild
+- Cover behält seine Google-Flow-Überschrift und bekommt keine Remotion-Ersatzheadline
 - nur weicher kontinuierlicher transparenter Lesbarkeits-Scrim, keine harten Header-/Footer-Flächen
 
 Verbindliche Komponente:
@@ -112,7 +129,7 @@ src/design-system/FullFrameImage.tsx
 - kurze Pausen ohne Caption-Lücke
 - keine undurchsichtige/schwarze Caption-Karte
 
-## Pflichtinhalt eines Bildprompts
+## Pflichtinhalt eines Szenenbildprompts `Bild 01+`
 
 1. finaler Google-Flow-Dateiname
 2. erlaubte kurze deutsche Labels
@@ -123,8 +140,27 @@ src/design-system/FullFrameImage.tsx
 7. Personenregel, falls nötig
 8. Negativregeln
 9. vertikales 9:16 mit wichtigen Motiven sicher innerhalb des Frames
+10. explizit: `No headline. No subtitle. No explanatory sentence.`
+
+## Pflichtinhalt des Cover-Prompts `Bild 00`
+
+1. finaler Cover-Dateiname
+2. `COVER-ÜBERSCHRIFT – EXAKT SO:` + konkreter deutscher Text
+3. klare Hero-Metapher für das Reel-Thema
+4. maximale Zwei-Zeilen-Typografie
+5. keine zweite Textzeile als Subtitle/CTA
+6. derselbe nahtlose Hintergrund ohne Headline-Panel
+7. explizite QA: falsche/fehlende Überschrift → neu erzeugen, nicht Remotion-Reparatur
 
 ## Sofort neu erzeugen
+
+Cover:
+
+- Pflichtüberschrift fehlt/falsch/abgeschnitten/unlesbar
+- separater Textbalken/Panel oder zweiter Hintergrund
+- zusätzlicher Subtitle/CTA/Satz
+
+Szenenbild:
 
 - zwei sichtbare Hintergründe/Bänder
 - horizontale Trennlinie
@@ -139,6 +175,7 @@ src/design-system/FullFrameImage.tsx
 
 Reparieren, wenn im Reel:
 
+- Remotion-Ersatzheadline über dem Cover liegt
 - Nutzerbild nicht bis Y=0 und Y=1920 durchläuft
 - Bild unten sichtbar abgeschnitten/abgesetzt wirkt
 - ein anderer Header-/Footer-Hintergrund sichtbar ist
