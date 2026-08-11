@@ -1,0 +1,11 @@
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 10 - Zeit ist ein Faktor.png`
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Zeit
+- Sparrate
+
+BILDPROMPT:
+Premium fintech editorial 3D render of one dominant final metaphor: a huge elegant emerald hourglass-clock hybrid. A modest steady gold coin stream labelled `Sparrate` enters the top, while the much larger visual structure around it is the long glowing time mechanism labelled `Zeit`. At the bottom, compounded gold layers expand progressively outward, clearly showing that the duration is an independent driver of the final result. Keep the scene confident and simple. Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same continuous material, tone and gradient from top edge to bottom edge. No horizontal divisions, no floor-wall boundary, no horizon, no panels. No headline. No subtitle. No explanatory sentence. No dashboard. No tiny diorama. No photorealism. Keep the complete hourglass, coin flow and labels inside the full 9:16 frame.

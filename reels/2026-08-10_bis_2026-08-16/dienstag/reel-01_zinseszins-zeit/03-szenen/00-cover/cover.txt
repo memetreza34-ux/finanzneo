@@ -1,0 +1,15 @@
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 00 - Zinseszins Zeit gegen Sparrate.png`
+
+WICHTIG:
+Erzeuge GENAU EIN vertikales 9:16-Bild und benenne es danach sofort exakt wie oben um. Der Dateiname darf nicht im Bild stehen.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Zeit
+- Sparrate
+- Zinseszins
+
+BILDPROMPT:
+Premium fintech editorial 3D render of one large elegant emerald clock fused with a growing spiral of gold euro coins. On one side a smaller steady stream of coins travels along a very long glowing time arc; on the other side a larger stream travels along a visibly shorter arc. The long-time side ends in the larger accumulated gold mass, making time versus savings rate understandable in one second. Include only the short German object labels `Zeit`, `Sparrate`, and `Zinseszins` close to the relevant objects. Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same continuous material, tone and gradient from top edge to bottom edge. No horizontal divisions, no panels, no floor-wall boundary, no horizon line. No headline. No subtitle. No explanatory sentence. No dashboard, no tiny diorama, no photorealism, no Pixar, no clay. Keep all important objects and labels safely inside the 9:16 frame.

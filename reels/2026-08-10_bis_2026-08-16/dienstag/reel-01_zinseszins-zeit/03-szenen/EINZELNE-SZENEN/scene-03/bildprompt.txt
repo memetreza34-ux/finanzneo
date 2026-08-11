@@ -1,0 +1,11 @@
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 03 - Zinseszins arbeitet weiter.png`
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Ertrag
+- Ertrag auf Ertrag
+
+BILDPROMPT:
+Premium fintech editorial 3D render of one dominant compound-growth metaphor. A large golden sphere made from euro coins grows as smaller glowing gold coins generated from its existing surface rejoin the same sphere and create another larger outer layer. Use clear cause-and-effect: the original capital generates a bright gold `Ertrag`, and that return itself generates a second visible growth ring labelled `Ertrag auf Ertrag`. The visual should feel elegant and financial, not playful. Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same continuous material, tone and gradient from top edge to bottom edge. No horizontal divisions, no floor-wall boundary, no horizon, no panels. No headline. No subtitle. No explanatory sentence. No dashboard, no tiny diorama, no photorealism, no Pixar, no clay. Keep the complete metaphor and both labels inside the 9:16 frame.

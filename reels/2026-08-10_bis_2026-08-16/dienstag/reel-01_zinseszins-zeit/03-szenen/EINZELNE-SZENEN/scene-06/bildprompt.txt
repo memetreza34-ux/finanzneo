@@ -1,0 +1,12 @@
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 06 - 200 Euro 15 Jahre.png`
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 200 €/Monat
+- 15 Jahre
+- ≈ 53.500 €
+
+BILDPROMPT:
+Premium fintech editorial 3D render using the same visual language as scene 05, but with a shorter time mechanism. A visibly larger gold coin stream labelled `200 €/Monat` enters a transparent emerald circular time mechanism that completes only a shorter arc labelled `15 Jahre`. The final gold stack is substantial but clearly smaller than the 30-year example and is labelled `≈ 53.500 €`. Make the shorter time horizon the obvious reason for less compound growth. Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same continuous material, tone and gradient from top edge to bottom edge. No horizontal divisions, no floor-wall boundary, no horizon, no panels. No headline. No subtitle. No explanatory sentence. No UI dashboard. No tiny diorama. Keep every important object and label safely inside the 9:16 frame.

@@ -1,0 +1,13 @@
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 01 - 100 gegen 200 Euro.png`
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 100 €/Monat
+- 30 Jahre
+- 200 €/Monat
+- 15 Jahre
+
+BILDPROMPT:
+Premium fintech editorial 3D render showing one dominant comparison metaphor: two large parallel curved time tracks beginning from the same starting point. The left track receives a small gold 100-euro monthly coin stream and runs far into the distance for 30 years. The right track receives a visibly larger 200-euro monthly coin stream but stops after only 15 years. A large elegant emerald clock integrates both tracks into one scene. Make the comparison instantly readable without showing the final result yet. Include only the exact short German labels `100 €/Monat`, `30 Jahre`, `200 €/Monat`, `15 Jahre` beside the corresponding tracks. Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same continuous material, tone and gradient from top edge to bottom edge. No horizontal divisions. No top or bottom section. No floor-wall boundary. No horizon line. No panels. No headline. No subtitle. No explanatory sentence. No UI dashboard. No tiny diorama. No photorealism. Keep all key objects and labels safely inside the full 9:16 frame.

@@ -1,0 +1,11 @@
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 08 - Zeit arbeitet fuer dich.png`
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Früher Start
+- Mehr Zeit
+
+BILDPROMPT:
+Premium fintech editorial 3D render of a stylized anonymous adult with a clearly visible friendly face placing one small gold euro coin into a large emerald clock mechanism at the beginning of a long glowing time path. Along the path, the single starting stream develops into increasingly larger layers of gold coins without additional dramatic input. Label the starting point `Früher Start` and the long clock path `Mehr Zeit`. The person is secondary; the dominant hero object is the huge clock-and-growth mechanism. Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same continuous material, tone and gradient from top edge to bottom edge. No horizontal divisions, no floor-wall boundary, no horizon, no panels. No headline. No subtitle. No explanatory sentence. No faceless character, no back view, no photorealism, no Pixar, no clay. Keep face, clock, coin path and labels fully inside the frame.

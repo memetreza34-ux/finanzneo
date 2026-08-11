@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "title": "Zinseszins – warum Zeit deine Sparrate schlagen kann",
+  "fps": 30,
+  "timingSource": "04-caption/word-timings.json",
+  "cutRule": "voice-sentence-start",
+  "wordTimingSource": "final-audio-only",
+  "scenes": [
+    {"id":"scene-01","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-02","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-03","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-04","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-05","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-06","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-07","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-08","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-09","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-10","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"}
+  ]
+}
