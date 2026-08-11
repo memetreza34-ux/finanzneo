@@ -14,6 +14,10 @@ const requiredFiles = [
   'src/production/reel-template/README.md',
   'src/design-system/FullFrameImage.tsx',
   'src/design-system/SentenceKaraokeCaptions.tsx',
+  'scripts/scaffold-finanzneo-reel-quality.mjs',
+  'scripts/validate-reel-quality-contract.mjs',
+  'docs/REEL-QUALITY-CONTRACT-V2.md',
+  'package.json',
 ];
 
 for (const file of requiredFiles) {
@@ -32,6 +36,9 @@ if (errors.length === 0) {
   const demo = readFileSync(resolve(root, 'src/production/reel-template/ReelTemplateDemo.tsx'), 'utf8');
   const experiments = readFileSync(resolve(root, 'src/root/ExperimentCompositions.tsx'), 'utf8');
   const production = readFileSync(resolve(root, 'src/root/ProductionCompositions.tsx'), 'utf8');
+  const qualityScaffolder = readFileSync(resolve(root, 'scripts/scaffold-finanzneo-reel-quality.mjs'), 'utf8');
+  const qualityValidator = readFileSync(resolve(root, 'scripts/validate-reel-quality-contract.mjs'), 'utf8');
+  const packageJson = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8'));
 
   const durations = [...demo.matchAll(/durationInFrames:\s*(\d+)/g)].map((match) => Number(match[1]));
   const totalFrames = durations.reduce((sum, value) => sum + value, 0);
@@ -65,6 +72,10 @@ if (errors.length === 0) {
   if (!template.includes('VerticalSafeAreaGuide')) errors.push('ReelTemplate besitzt kein visuelles Safe-Area-Prüfraster.');
   if (!template.includes("from '../../design-system'")) errors.push('ReelTemplate importiert nicht aus dem zentralen Designsystem.');
 
+  for (const oldOverride of ['bottom={300}', 'left={64}', 'right={156}']) {
+    if (template.includes(oldOverride)) errors.push(`ReelTemplate überschreibt den neuen Caption-Safe-Area-Vertrag mit Altwert: ${oldOverride}`);
+  }
+
   if (!fullFrame.includes("objectFit: 'contain'")) errors.push('FullFrameImage muss das vollständige vertikale 9:16-Bild ohne absichtlichen Crop erhalten.');
   if (!fullFrame.includes('inset: 0')) errors.push('FullFrameImage muss die komplette Szenenfläche belegen.');
   if (!fullFrame.includes('FullFrameReadabilityScrim')) errors.push('FullFrameImage-Datei muss den kontinuierlichen Lesbarkeits-Scrim bereitstellen.');
@@ -78,6 +89,17 @@ if (errors.length === 0) {
   if (!captions.includes('splitCaptionUnits')) errors.push('Caption-Komponente muss lange gesprochene Sätze in kurze sequenzielle Caption-Einheiten teilen können.');
   if (!captions.includes('Caption unit too wide for safe area')) errors.push('Caption-Komponente muss zu breite Captions hart blockieren statt überlaufen lassen.');
   if (captions.includes("background:'rgba") || captions.includes('background: \'rgba')) errors.push('Caption-Komponente darf keine undurchsichtige Caption-Karte erzeugen.');
+
+  if (packageJson.scripts?.['reel:create'] !== 'node scripts/scaffold-finanzneo-reel-quality.mjs') {
+    errors.push('npm run reel:create muss zwingend den Quality-V2-Scaffolder verwenden.');
+  }
+  if (!qualityScaffolder.includes("defaultTypes='image,animation,animation,image,animation,image,animation,animation,animation,image'")) {
+    errors.push('Quality-Scaffolder muss standardmäßig 6 Animationen + 4 Bildszenen erzeugen.');
+  }
+  if (!qualityScaffolder.includes('targetAnimationShare:0.60')) errors.push('Quality-Scaffolder enthält kein 60%-Animationsziel.');
+  if (!qualityScaffolder.includes('maxCharactersPerCaptionUnit:68')) errors.push('Quality-Scaffolder enthält nicht die 68-Zeichen-Caption-Grenze.');
+  if (!qualityValidator.includes("const postRender=args.includes('--post-render')")) errors.push('Quality-Validator besitzt keinen separaten Post-Render-QA-Modus.');
+  if (!qualityValidator.includes('animationShare>=0.55&&animationShare<=0.65')) errors.push('Quality-Validator prüft die reale 55–65%-Animationslaufzeit nicht.');
 
   if (!experiments.includes('id="ReelTemplateDemo"')) errors.push('ReelTemplateDemo ist nicht unter Experiments registriert.');
   if (production.includes('ReelTemplateDemo')) errors.push('ReelTemplateDemo darf nicht unter Production registriert sein.');
@@ -94,4 +116,6 @@ if (errors.length > 0) {
 
 console.log('✓ ReelTemplateDemo liegt korrekt unter Experiments.');
 console.log('✓ Nutzerbilder sind full-frame-no-crop; kein mittlerer Bildcontainer/Crop-Vertrag bleibt aktiv.');
-console.log('✓ Karaoke-Captions nutzen eine kurze Einheit, max. 12 Wörter/68 Zeichen, max. 2 Zeilen und min. 42 px.');
+console.log('✓ Karaoke-Captions nutzen 12 Wörter/68 Zeichen/max. 2 Zeilen/min. 42 px ohne alte Safe-Area-Overrides.');
+console.log('✓ npm run reel:create verwendet den 60/40 Quality-V2-Scaffolder.');
+console.log('✓ Pre-Render- und Post-Render-QA sind getrennt validiert.');
