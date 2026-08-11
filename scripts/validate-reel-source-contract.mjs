@@ -44,13 +44,19 @@ const walk=(directory)=>{
 };
 walk(root);
 
-const containsObsoleteZoning=(text)=>['top 15 percent','top 15%','bottom 25 percent','bottom 25%','middle 60 percent','middle 60%','central 64 percent'].some((needle)=>text.toLowerCase().includes(needle));
+const containsObsoleteZoning=(text)=>[
+  'top 15 percent','top 15%','bottom 25 percent','bottom 25%',
+  'middle 60 percent','middle 60%','central 64 percent',
+].some((needle)=>text.toLowerCase().includes(needle));
 const isAscending=(frames)=>frames.every((value,index)=>index===0||value>frames[index-1]);
+const hasOwn=(object,key)=>Object.prototype.hasOwnProperty.call(object??{},key);
 
 if(existsSync(sceneRoot)&&existsSync(indexPath)){
   const index=JSON.parse(readFileSync(indexPath,'utf8'));
   const legacy=index.imageWorld?.legacyAssetSet===true;
-  const directories=readdirSync(sceneRoot).filter((entry)=>/^scene-\d{2}$/.test(entry)&&statSync(resolve(sceneRoot,entry)).isDirectory()).sort();
+  const directories=readdirSync(sceneRoot)
+    .filter((entry)=>/^scene-\d{2}$/.test(entry)&&statSync(resolve(sceneRoot,entry)).isDirectory())
+    .sort();
 
   assert(Array.isArray(index.scenes),'scene-index.json benötigt scenes[].');
   assert(index.sceneCount===directories.length,'sceneCount stimmt nicht mit den Szenenordnern überein.');
@@ -60,7 +66,7 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
   assert(index.timelineRules?.equalLengthScenesForbiddenByDefault===true,'Starre gleich lange Szenen müssen standardmäßig verboten sein.');
 
   if(!legacy){
-    assert(index.imageWorld?.seamlessSingleBackgroundRequired===true,'Ein nahtloser Hintergrund muss verbindlich sein.');
+    assert(index.imageWorld?.seamlessSingleBackgroundRequired===true,'Ein nahtloser Bildhintergrund muss verbindlich sein.');
     assert(index.imageWorld?.percentageZonesForbidden===true,'Prozent-Zonen müssen ausdrücklich verboten sein.');
     assert(index.imageWorld?.backgroundBandsForbidden===true,'Hintergrundbänder müssen verboten sein.');
     assert(index.imageWorld?.floorWallBoundaryForbidden===true,'Boden-Wand-Grenzen müssen verboten sein.');
@@ -82,45 +88,54 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
     assert(Number(publishing?.hashtagCount)===5,'Universal-Caption muss exakt 5 Hashtags verlangen.');
     const expectedPlatforms=['instagram-reels','tiktok','facebook-reels','snapchat'];
     assert(Array.isArray(publishing?.platforms)&&publishing.platforms.length===4&&expectedPlatforms.every((p)=>publishing.platforms.includes(p)),'platformPublishing.platforms ist unvollständig.');
-    for(const oldKey of ['masterCaption','instagramReels','tiktok','facebookReels','snapchat','youtubeShorts'])assert(!Object.prototype.hasOwnProperty.call(publishing??{},oldKey),`Altes platformPublishing-Feld ist verboten: ${oldKey}.`);
-    for(const oldFile of ['instagram-reels.txt','tiktok.txt','facebook-reels.txt','snapchat.txt','youtube-shorts.txt'])assert(!existsSync(resolve(root,'04-caption',oldFile)),`Verbotene alte Publishing-Datei vorhanden: 04-caption/${oldFile}`);
-  }
+    for(const oldKey of ['masterCaption','instagramReels','tiktok','facebookReels','snapchat','youtubeShorts']){
+      assert(!hasOwn(publishing,oldKey),`Altes platformPublishing-Feld ist verboten: ${oldKey}.`);
+    }
+    for(const oldFile of ['instagram-reels.txt','tiktok.txt','facebook-reels.txt','snapchat.txt','youtube-shorts.txt']){
+      assert(!existsSync(resolve(root,'04-caption',oldFile)),`Verbotene alte Publishing-Datei vorhanden: 04-caption/${oldFile}`);
+    }
 
-  const presentation=index.imagePresentationContract;
-  if(!legacy){
-    assert(presentation?.mode==='adaptive-safe-fill','Bilddarstellung muss adaptive-safe-fill verwenden.');
-    assert(presentation?.maximizeVisualArea===true,'Bildfläche muss maximal ausgenutzt werden.');
-    assert(presentation?.preferCropEmptyBackground===true,'Leerer Hintergrund muss vor wichtigem Inhalt gecroppt werden.');
-    assert(presentation?.preserveFace===true,'Gesichter müssen beim Framing geschützt werden.');
-    assert(presentation?.preserveObjectLabels===true,'Objektlabels müssen beim Framing geschützt werden.');
-    assert(presentation?.preserveHeroObject===true,'Hauptobjekt muss beim Framing geschützt werden.');
+    const presentation=index.imagePresentationContract;
+    assert(presentation?.mode==='full-frame-no-crop','Bilddarstellung muss full-frame-no-crop verwenden.');
+    assert(presentation?.fullCanvas===true,'Nutzerbilder müssen die vollständige 1080x1920-Szenenfläche verwenden.');
+    assert(presentation?.sourceMustBeVertical916===true,'Bildquellen müssen als vertikale 9:16-Bilder vorgesehen sein.');
+    assert(presentation?.headlineOverlay===true&&presentation?.captionOverlay===true,'Headline und Untertitel müssen als Overlay über demselben Vollbild liegen.');
+    assert(presentation?.continuousReadabilityScrimOnly===true,'Nur ein weicher kontinuierlicher Lesbarkeits-Scrim ist erlaubt.');
+    assert(presentation?.hardHeaderFooterPanelsForbidden===true,'Harte Header-/Footer-Hintergründe müssen verboten sein.');
+    assert(presentation?.intentionalCropForbidden===true,'Absichtliches Cropping der Nutzerbilder muss verboten sein.');
     assert(presentation?.blurredImageBackgroundForbidden===true,'Unscharfe Bildkopien als Hintergrund sind verboten.');
-    assert(presentation?.visibleInsetPanelForbidden===true,'Kleine sichtbare Bild-im-Bild-Panels sind verboten.');
-    assert(presentation?.containAsDefaultForbidden===true,'contain als Standarddarstellung ist verboten.');
-    assert(!Object.prototype.hasOwnProperty.call(presentation??{},'maxIntentionalImageScale'),'Alte 1.04-Skalierungsgrenze ist verboten.');
-    assert(!Object.prototype.hasOwnProperty.call(presentation??{},'maxSourceCropPerSide'),'Alte starre Crop-Grenze ist verboten.');
-    assert(!Object.prototype.hasOwnProperty.call(presentation??{},'maxSourceCropTotal'),'Alte starre Gesamt-Crop-Grenze ist verboten.');
+    assert(presentation?.visibleInsetPanelForbidden===true,'Sichtbare Bild-im-Bild-Panels sind verboten.');
+
+    for(const obsolete of [
+      'maximizeVisualArea','preferCropEmptyBackground','preserveFace','preserveObjectLabels',
+      'preserveHeroObject','preserveMoneyAndValue','containAsDefaultForbidden',
+      'maxIntentionalImageScale','maxSourceCropPerSide','maxSourceCropTotal',
+    ]) assert(!hasOwn(presentation,obsolete),`Veraltete Bilddarstellungsregel ist verboten: ${obsolete}.`);
   }
 
   assert(Number(index.audio?.targetIntegratedLufs)===-16,'Audioziel muss ungefähr -16 LUFS sein.');
   assert(Number(index.audio?.targetTruePeakDbtp)===-1,'True-Peak-Ziel muss -1 dBTP sein.');
 
   if(index.subtitleDisplay){
-    assert(index.subtitleDisplay.preferredSentences===1,'Bevorzugt muss genau ein Untertitelsatz sichtbar sein.');
-    assert(Number(index.subtitleDisplay.maxSentences)<=2,'Untertitel dürfen maximal zwei sehr kurze Sätze gleichzeitig zeigen.');
-    assert(index.subtitleDisplay.maxLines===2,'Untertitel müssen hart auf zwei Zeilen begrenzt sein.');
+    assert(index.subtitleDisplay.preferredSentences===1,'Genau ein Untertitelsatz muss sichtbar sein.');
+    assert(Number(index.subtitleDisplay.maxSentences)===1,'Untertitel dürfen niemals zwei Sätze gleichzeitig zeigen.');
+    assert(Number(index.subtitleDisplay.maxLines)===2,'Untertitel müssen hart auf zwei Zeilen begrenzt sein.');
     assert(index.subtitleDisplay.noDeadGaps===true&&index.subtitleDisplay.holdDuringPauses===true,'Kurze Pausen dürfen keine Caption-Lücken erzeugen.');
     assert(index.subtitleDisplay.timingSource==='real-audio-word-timestamps','Untertitel müssen echte Audio-Wortzeiten verwenden.');
     assert(index.subtitleDisplay.activeWordTiming==='exact-word-start-end','Aktives Wort muss an echten Wortgrenzen hängen.');
     assert(index.subtitleDisplay.sentenceSwitch==='next-sentence-first-word-start','Satzwechsel muss am ersten Wort des neuen Satzes erfolgen.');
     assert(index.subtitleDisplay.equalWordSpacingForbidden===true,'Gleichmäßig geschätzte Wortzeiten müssen verboten sein.');
+    assert(index.subtitleDisplay.opaqueCaptionCardForbidden===true,'Undurchsichtige Untertitel-Karten müssen verboten sein.');
   }
+
   if(index.layout){
-    assert(Number(index.layout.subtitleBottom)>=260,'Untertitel liegen zu tief in der Plattform-Totzone.');
-    assert(Number(index.layout.subtitleBottom)<=340,'Untertitel liegen unnötig weit oben.');
-    assert(Number(index.layout.visualTop)<=230,'Bildfläche beginnt zu weit unter der Überschrift.');
-    assert(Number(index.layout.visualBottom)>=1480,'Bildfläche endet zu früh vor den Untertiteln.');
-    assert(Number(index.layout.subtitleRight)>=160,'Rechts fehlt Sicherheitsabstand für Plattform-UI.');
+    assert(Number(index.layout.subtitleBottom)>=280&&Number(index.layout.subtitleBottom)<=330,'Untertitelposition muss im unteren, plattformsicheren Bereich liegen.');
+    assert(Number(index.layout.subtitleLeft)>=56,'Links fehlt Untertitel-Sicherheitsabstand.');
+    assert(Number(index.layout.subtitleRight)>=150,'Rechts fehlt Sicherheitsabstand für Plattform-UI.');
+    assert(Number(index.layout.platformUiSafeBottom)>=250,'Untere Plattform-UI-Safe-Area ist zu klein.');
+    assert(index.layout.imageScenesFullFrame===true,'Bildszenen müssen ausdrücklich Full-Frame sein.');
+    assert(Number(index.layout.animationVisualTop)<=230,'Native Animationsfläche beginnt zu tief.');
+    assert(Number(index.layout.animationVisualBottom)>=1450,'Native Animationsfläche endet zu früh.');
   }
 
   const timingPath=resolve(root,index.timelineRules?.timingSource??'04-caption/word-timings.json');
@@ -130,6 +145,9 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
     assert(timing.subtitleMode==='sentence-with-audio-synced-active-word','Worttiming-Datei hat falschen subtitleMode.');
     assert(timing.activeWordColor==='finance-green','Aktive Wortfarbe muss finance-green sein.');
     assert(timing.timingMethod!=='equal-distribution'&&timing.timingMethod!=='estimated-even-spacing','Gleichmäßig verteilte Wortzeiten sind verboten.');
+    assert(Number(timing.rules?.maxSentencesVisible)===1,'word-timings.json muss genau einen sichtbaren Satz erzwingen.');
+    assert(Number(timing.rules?.maxLines)===2,'word-timings.json muss maximal zwei Zeilen erzwingen.');
+    assert(timing.rules?.opaqueCaptionCardForbidden===true,'word-timings.json muss undurchsichtige Caption-Karten verbieten.');
     assert(Array.isArray(timing.sentences),'Worttiming-Datei benötigt sentences[].');
     if(requireFinal){
       assert(timing.timingStatus==='final-audio-aligned','Finaler Render ist BLOCKED: word-timings.json ist nicht am finalen Voiceover ausgerichtet.');
@@ -179,13 +197,12 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
       }
       assert(typeof indexed?.googleFlowFileName==='string'&&indexed.googleFlowFileName.trim(),`${id}: googleFlowFileName fehlt.`);
       if(indexed?.googleFlowFileName)expectedImageNames.add(indexed.googleFlowFileName);
+
       const p=indexed?.imagePresentation;
-      assert(p?.mode==='adaptive-safe-fill',`${id}: imagePresentation.mode muss adaptive-safe-fill sein.`);
-      assert(Number(p?.focalX)>=0&&Number(p?.focalX)<=1,`${id}: focalX muss zwischen 0 und 1 liegen.`);
-      assert(Number(p?.focalY)>=0&&Number(p?.focalY)<=1,`${id}: focalY muss zwischen 0 und 1 liegen.`);
-      assert(!Object.prototype.hasOwnProperty.call(p??{},'scale'),`${id}: alte feste scale-Regel ist verboten.`);
-      assert(!Object.prototype.hasOwnProperty.call(p??{},'sourceCropTop'),`${id}: alte sourceCropTop-Regel ist verboten.`);
-      assert(!Object.prototype.hasOwnProperty.call(p??{},'sourceCropBottom'),`${id}: alte sourceCropBottom-Regel ist verboten.`);
+      assert(p?.mode==='full-frame-no-crop',`${id}: imagePresentation.mode muss full-frame-no-crop sein.`);
+      for(const obsolete of ['focalX','focalY','scale','sourceCropTop','sourceCropBottom','objectFit']){
+        assert(!hasOwn(p,obsolete),`${id}: veraltetes Framing-Feld ist verboten: ${obsolete}.`);
+      }
     }
 
     if(hasRemotion){
@@ -211,12 +228,12 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
 
 if(errors.length){
   console.error('\nReel-Vertrag verletzt:\n');
-  errors.forEach((error)=>console.error(`- ${error}`));
+  for(const error of errors)console.error(`- ${error}`);
   process.exit(1);
 }
 
-console.log('\n✓ Reel-Quellen-, Medien-, Timing-, Publishing- und Präsentationsvertrag erfüllt.');
-console.log('  Bilder: adaptive-safe-fill · maximale Nutzfläche · kein sichtbares Inset-Panel');
-console.log('  Captions im Video: bevorzugt 1 Satz · max. 2 Sätze/2 Zeilen · echte Audio-Wortgrenzen');
+console.log('\n✓ Reel-Quellen-, Medien-, Bild-, Timing- und Publishing-Vertrag erfüllt.');
+console.log('  Bilder: full-frame-no-crop · komplette 9:16-Fläche · keine harten Header/Footer-Panels');
+console.log('  Captions im Video: genau 1 Satz · max. 2 Zeilen · echte Audio-Wortgrenzen · keine schwarze Caption-Karte');
 console.log('  Social: eine universelle caption.txt · Instagram/TikTok/Facebook/Snapchat · exakt 5 Hashtags im Finalmodus');
 for(const warning of warnings)console.log(`  Hinweis: ${warning}`);
