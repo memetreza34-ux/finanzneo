@@ -24,7 +24,8 @@
 - Premium Fintech Editorial 3D + Remotion
 - eine starke visuelle Metapher pro Bild
 - optional stilisierte 3D-Person; wenn Person, Gesicht klar sichtbar
-- kurze deutsche Objektlabels statt großer KI-Überschriften
+- **Cover `Bild 00`: große klare deutsche Überschrift direkt aus Google Flow, die konkret das Reel-Thema nennt; keine Remotion-Ersatzheadline**
+- **Szenenbilder `Bild 01+`: nur kurze deutsche Objektlabels; keine KI-Headline/Untertitel/Sätze**
 - genau EIN nahtloser deep-charcoal-green-black Hintergrund von oben bis unten
 - keine Prozent-Zonen, Hintergrundbänder, Floor-Wall-Grenze oder sichtbarer Horizont
 - Gold nur für Geld/Wert, Rot-Orange nur für Risiko/Verlust/Schulden
@@ -83,8 +84,9 @@ Erstelle selbstständig:
 3. Szenen-/Beat-Plan
 4. Bild-/Remotion-Zuordnung
 5. vollständige Google-Flow-Bildprompts mit echten Szenennummern
-6. Remotion-Spezifikationen
-7. genau eine universelle Social-Caption für alle vier Reel-Plattformen mit exakt 5 relevanten Hashtags
+6. für Cover Bild 00 eine konkrete deutsche Pflichtüberschrift unter `COVER-ÜBERSCHRIFT – EXAKT SO:`; direkt in Google Flow erzeugen, später nicht in Remotion ersetzen
+7. Remotion-Spezifikationen
+8. genau eine universelle Social-Caption für alle vier Reel-Plattformen mit exakt 5 relevanten Hashtags
 
 Bilder erzeugt ausschließlich der Nutzer. Antigravity erzeugt keine Bilder.
 Keine YouTube Shorts erzeugen. YouTube ist ausschließlich Longform unter `youtube/`.
@@ -92,15 +94,23 @@ Keine YouTube Shorts erzeugen. YouTube ist ausschließlich Longform unter `youtu
 
 ## Bildfreigabe
 
-Bild neu erzeugen, wenn unter anderem:
+Cover `Bild 00` neu erzeugen, wenn unter anderem:
+
+- die exakt vorgegebene deutsche Cover-Überschrift fehlt, falsch geschrieben, abgeschnitten oder schlecht lesbar ist
+- ein zusätzlicher Subtitle, CTA oder erklärender Satz erscheint
+- hinter der Überschrift ein eigener Balken/Panel/zweiter Hintergrund entsteht
+
+Szenenbild `Bild 01+` neu erzeugen, wenn unter anderem:
 
 - zwei sichtbare Hintergründe/Bänder entstehen
 - eine horizontale Trennkante, Floor-Wall-Grenze oder ein Horizont sichtbar ist
 - eine dargestellte Person kein klar sichtbares Gesicht hat
-- eine große Headline, ein Untertitel oder ein erklärender Satz im KI-Bild erscheint
+- eine große KI-Headline, ein Untertitel oder ein erklärender Satz erscheint
 - Labels falsch oder zufällig sind
 - das Bild wie Diorama, Game-Level, Neon-Tunnel, Sci-Fi-Korridor oder Dashboard wirkt
 
+Remotion darf eine fehlerhafte Cover-Überschrift niemals reparieren oder ersetzen.
+
 ## Produktionsfreigabe
 
-Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover vorhanden sind, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview tatsächlich ausgeführt wurden, Bildsatz + komplette MP4 geprüft wurden und die universelle Caption mit genau 5 relevanten Hashtags fertig ist.
+Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover vorhanden sind, das Cover die exakte Google-Flow-Pflichtüberschrift enthält, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview tatsächlich ausgeführt wurden, Bildsatz + komplette MP4 geprüft wurden und die universelle Caption mit genau 5 relevanten Hashtags fertig ist.
