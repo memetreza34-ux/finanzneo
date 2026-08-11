@@ -1,6 +1,6 @@
 # FinanzNeo-Reel-Produktionsstandard
 
-> `CLAUDE.md` ist die höchste Regelquelle. Bei Widersprüchen gilt ausschließlich `CLAUDE.md`.
+> `CLAUDE.md` ist die höchste Regelquelle. Für neue Reels gilt zusätzlich `docs/REEL-QUALITY-CONTRACT-V2.md`. Alte widersprüchliche Bild-/Animationsquoten gelten nicht mehr.
 
 ## 1. Reel-Struktur
 
@@ -24,33 +24,69 @@ Bilder: 03-szenen/00-ALLE-BILDER-HIER-REIN/
 Audio:  02-audio/
 ```
 
-- Bilddateien aus Einzel-Szenenordnern sind als Nutzer-Medien verboten.
-- Keine Bilder/Audio aus anderen Reels, Archiv, Desktop, Downloads, Web, Stock, Cache oder alten Exporten.
+- Bilddateien aus anderen Reels oder Einzel-Szenenordnern sind als finale Nutzer-Medien verboten.
+- Keine Medien aus Archiv, Desktop, Downloads, Web, Stock, Cache oder alten Exporten.
 - Keine Platzhalter/Ersatzmedien.
 - Pflichtmedium fehlt/falsch/unlesbar → **BLOCKED** mit exaktem Pfad.
 - Finaler Build verlangt genau eine finale Audiodatei.
 
-## 3. Bild- vs. Remotion-Szene
+## 3. Verbindlicher Visual-Mix — 60 % Animation / 40 % Bilder
 
-Bildszene:
-
-```text
-scene-XX/
-├── bildprompt.txt
-└── szene.md
-```
-
-Remotion-Szene:
+Für normale 60–90-Sekunden-Reels:
 
 ```text
-scene-XX/
-├── remotion.md
-└── szene.md
+Ziel:       60 % native Remotion-Animation
+            40 % Google-Flow-Bildszenen
+
+Final:      55–65 % Animationslaufzeit
+            35–45 % Bildlaufzeit
 ```
 
-Eine Szene hat exakt eine Produktionsquelle. Animationsszenen bekommen kein Nutzerbild.
+Bei 10 Szenen standardmäßig:
 
-## 4. Google Flow
+```text
+6 Remotion-Szenen
+4 Bildszenen
+```
+
+Zusätzlich:
+
+- höchstens eine Bildszene direkt hintereinander
+- statische Bildszene normalerweise maximal 8 Sekunden
+- Laufzeitquote ist wichtiger als nur die Szenenanzahl
+- kein statisches Bild nur zum Auffüllen
+- kein langer statischer Schluss-Tail
+
+Neue Reels werden über `npm run reel:create` mit `scene-index` Version 17 und dem Quality Contract V2 angelegt.
+
+## 4. Animation-first bei dynamischer Information
+
+Remotion ist Standard für:
+
+- Vergleiche und Vorher/Nachher
+- Zahlen, Prozentwerte und Rechnungen
+- Zeitachsen und Entwicklung über Zeit
+- Wachstum und Zinseszins
+- Geldflüsse
+- Schrittfolgen
+- Mechanismen
+- Ursache → Wirkung mit sichtbarer Veränderung
+- Risiko-/Realitätscheck
+- Diagramme/Balken/Kurven
+
+Google-Flow-Bilder sind bevorzugt für:
+
+- Hook / starke Einstiegssituation
+- konkrete Alltagssituation
+- starke einzelne Metapher
+- räumlich sofort erfassbares Problem
+- Abschlussbild / Schlussmetapher
+
+Ein Bild darf nicht nur gewählt werden, weil es einfacher zu produzieren ist. Ein dekoratives oder semantisch schwaches Bild wird durch Remotion ersetzt.
+
+Jede Szene braucht im Plan eine konkrete Visualtyp-Begründung. Bildszenen brauchen zusätzlich ein `expectedVisual`.
+
+## 5. Google Flow und Bild-QA
 
 ```text
 Prompt lesen
@@ -62,159 +98,119 @@ Prompt lesen
 
 Bildnummer = echte Szenennummer. Cover = `Bild 00`. Animationsnummern bleiben reserviert.
 
-Für `Bild 00` zusätzlich immer prüfen: exakte Cover-Überschrift vorhanden, korrekt geschrieben, vollständig sichtbar und auf Smartphone lesbar. Fehlerhaftes Cover wird in Google Flow neu erzeugt; die Überschrift wird nicht in Remotion repariert.
+Vor Remotion-Einbau wird jedes Nutzerbild einzeln gegen seinen Voice-Beat geprüft:
 
-Alle fertigen Nutzerbilder erst nach Abschluss gemeinsam nach:
+- Motiv passt exakt zur gesprochenen Aussage
+- Hauptaussage innerhalb ungefähr einer Sekunde verständlich
+- keine zufälligen/falschen Wörter
+- nur erlaubte Labels
+- Zahlen stimmen mit Skript/Recherche überein
+- keine widersprüchliche Zusatzinformation
+- keine unnötige Dreifach-Wiederholung aus Bildlabel + Headline + Untertitel
 
-```text
-03-szenen/00-ALLE-BILDER-HIER-REIN/
-```
+Wenn ein Bild neu generiert werden muss → **BLOCKED**. Antigravity erzeugt keinen Ersatz.
 
-## 5. Bildwelt und Textregel
+## 6. Cover `Bild 00`
 
-- Premium Fintech Editorial 3D
-- eine dominante Finanzmetapher / Hero-Objekt
-- optional stilisierte erwachsene Person; Gesicht immer klar sichtbar
-- deep charcoal green-black
-- emerald/mint Akzente
-- Gold für Geld/Wert
-- Rot-Orange für Verlust/Risiko/Schulden
-- smooth rounded geometry
-- keine Dioramen, Neon-Tunnel, Sci-Fi-Korridore, Dashboards, Pixar/Clay/Fotorealismus
-
-### Cover `Bild 00`
-
-- **eine große deutsche Cover-Überschrift direkt im Google-Flow-Bild ist Pflicht**
+- eine große deutsche Cover-Überschrift direkt im Google-Flow-Bild ist Pflicht
 - Überschrift nennt konkret das Reel-Thema
-- im Prompt steht sie exakt unter `COVER-ÜBERSCHRIFT – EXAKT SO:`
+- im Prompt exakt unter `COVER-ÜBERSCHRIFT – EXAKT SO:`
 - ungefähr 3–8 Wörter, maximal zwei Zeilen
 - keine separate Textbox, kein Header-Balken, kein zweiter Hintergrund
 - kein zusätzlicher Untertitel, CTA oder erklärender Satz
 - falsche/fehlende/abgeschnittene Überschrift → Cover neu erzeugen
 - **keine Cover-Überschrift in Remotion ergänzen oder ersetzen**
 
-### Szenenbilder `Bild 01+`
+Szenenbilder `Bild 01+` enthalten nur kurze gewünschte Objektlabels; keine KI-Headline, keinen KI-Untertitel und keinen erklärenden Satz.
 
-- nur kurze deutsche Objektlabels, normalerweise 1–3 Wörter
-- keine KI-Headline
-- kein KI-Untertitel
-- kein erklärender Satz
-- Szenenheadline erst in Remotion
+## 7. Bildwelt und Hintergrund
 
-## 6. Hintergrund
+- Premium Fintech Editorial 3D
+- eine dominante Finanzmetapher / Hero-Objekt
+- optional stilisierte erwachsene Person; Gesicht klar sichtbar
+- deep charcoal green-black
+- emerald/mint Akzente
+- Gold für Geld/Wert
+- Rot-Orange für Verlust/Risiko/Schulden
+- keine Dioramen, Neon-Tunnel, Sci-Fi-Korridore, Dashboards, Pixar/Clay/Fotorealismus
 
-Jedes Nutzerbild hat einen einzigen nahtlosen Hintergrund von oben bis unten.
+Jedes Nutzerbild und jede native Remotion-Szene besitzt genau einen durchgehenden Hintergrund ohne Prozent-Zonen, Bänder, Boden-Wand-Grenze, Horizont oder Studio-Split.
 
-Verboten:
+## 8. Bilddarstellung — full-frame-no-crop
 
-- Prozent-Zonen
-- horizontale Bänder
-- separate obere/untere Fläche
-- Floor-Wall-Grenze
-- Horizont
-- Panels
-
-Die Cover-Überschrift liegt direkt auf demselben nahtlosen Hintergrund. Sie bekommt keinen separaten Balken oder Panel-Hintergrund.
-
-Native Remotion-Szenen verwenden ebenfalls genau einen durchgehenden Full-Canvas-Hintergrund ohne Boden, Horizont, Wand-Split oder Studio-Zonen.
-
-## 7. Bilddarstellung — full-frame-no-crop
-
-Verbindlich:
-
-- Nutzerbild ist ein vertikales 9:16-Bild
-- Nutzerbild belegt die **gesamte 1080×1920-Szene**
-- kein `VisualStage` oder anderer kleiner Mittel-Container um Nutzerbilder
-- kein absichtlicher Crop
-- kein Zoom-/Focal-Point-Vertrag
-- kein sichtbarer Inset-Bildrand
+- Nutzerbild ist vertikal 9:16 und belegt die gesamte 1080×1920-Szene
+- kein kleiner `VisualStage` / Inset-Poster
+- kein absichtlicher Crop oder Focal-Zoom-Vertrag
 - keine unscharfe Bildkopie als Hintergrund
-- bei Szene 01+ Headline + Untertitel als Overlay über demselben Vollbild
-- Cover `Bild 00` behält seine Google-Flow-Überschrift; keine Remotion-Ersatzheadline
+- Szene 01+: Headline + Untertitel als Overlay über demselben Vollbild
+- Cover: keine Remotion-Ersatzheadline
 - nur weicher kontinuierlicher Transparenz-Scrim für Lesbarkeit
-- keine harte obere/untere Remotion-Hintergrundfläche
+- keine harten Header-/Footer-Flächen
 
-Produktive Bildszenen verwenden:
+Produktive Bildkomponente:
 
 ```text
 src/design-system/FullFrameImage.tsx
 ```
 
-`object-fit: contain` ist nur auf der kompletten 1080×1920-Szenenfläche für eine vertikale 9:16-Quelle zulässig; die alte kleine `contain`-Poster-Darstellung ist verboten.
+## 9. Untertitel — eine kurze Caption-Einheit gleichzeitig
 
-`AdaptiveSafeFillImage`, `focalX/focalY` und alte Scale-/Crop-Verträge sind nicht mehr aktiv.
+Zu jedem Zeitpunkt ist genau **eine** Caption-Einheit sichtbar. Niemals zwei Einheiten gleichzeitig.
 
-## 8. Vertikales Layout
+Bevorzugt ist ein kurzer vollständiger gesprochener Satz. Ist ein gesprochener Satz zu lang, wird er an einer natürlichen Bedeutungs-/Pausengrenze in mehrere nacheinander gezeigte Einheiten geteilt.
 
-Richtwerte für 1080 × 1920:
+Neue V17-Reels:
 
 ```text
-Szenenheadline 01+ ≈ Y 72
-Bildszene           = Y 0–1920 vollständig
-Animationsinhalt    ≈ Y 220–1490
-subtitleBottom      ≈ 300
-subtitleLeft        ≈ 64
-subtitleRight       ≈ 156
-platformUiBottom    ≥ 260
+max. 12 Wörter pro Einheit
+max. 68 Zeichen pro Einheit
+max. 2 sichtbare Zeilen
+min. 42 px effektive Schriftgröße
+subtitleBottom ≈ 320
+subtitleLeft   ≈ 72
+subtitleRight  ≈ 180
 ```
 
-- Bildszenen besitzen keinen separaten mittleren Visualbereich.
-- Native Animationsinhalte nutzen den Mittelraum, ihr Hintergrund bleibt aber Full-Canvas.
-- Untertitel niedrig, aber oberhalb der Plattform-UI-Totzone.
-- Rechts zusätzliche UI-Safe-Area.
-- Kein schwarzer Footer unter dem Bild und kein separater Header-Hintergrund.
-- Cover-Überschrift ist Teil des Google-Flow-Covers, nicht des Remotion-Headline-Layouts.
-
-## 9. Untertitel
-
-- **genau ein vollständiger Satz gleichzeitig**
-- niemals zwei Sätze gleichzeitig
-- hart maximal zwei sichtbare Zeilen
-- ausreichend große Smartphone-Schrift; zu langen Satz sinnvoll teilen statt Text winzig zu machen
+- kein horizontaler Überlauf
+- kein Abschneiden am Rand
+- keine Mini-Schrift als Rettung
 - aktives Wort grün, Rest weiß
-- vorherigen Satz während kurzer Pause halten
-- Satzwechsel exakt beim Start des ersten gesprochenen Wortes des neuen Satzes
-- keine Caption-Lücken
-- keine springenden Wörter/Größenanimation
+- aktives Wort exakt nach echten Audio-start/end-Zeiten
+- kurze Pause: aktuelle Einheit halten
+- Wechsel beim ersten gesprochenen Wort der nächsten Einheit
 - keine undurchsichtige/schwarze Caption-Karte
 
-Generische Komponente:
+Produktive Komponente:
 
 ```text
 src/design-system/SentenceKaraokeCaptions.tsx
 ```
 
-## 10. Worttiming
+## 10. Timing — ausschließlich finales Audio
 
-Nur echtes finales Voiceover aus `02-audio/`.
+Verbindliche Reihenfolge:
 
 ```text
-finales Audio
-→ echte start/end-Zeitstempel jedes Wortes
-→ Satzanfänge
-→ Szenenschnitte
+finales Audio aus 02-audio
+→ echte Wort-start/end-Zeiten
+→ Caption-Einheiten
+→ Szenenstarts/-enden
+→ Animationsdauer
+→ Render
 ```
 
 Verboten:
 
-- gleichmäßige mathematische Verteilung von Wörtern
+- mathematisch gleichmäßig verteilte Wortzeiten
 - geschätzte Wortzeiten
-- alte provisorische Timingtabellen als finaler Stand
+- alte provisorische Timingtabellen als final
+- finale Timeline mit ungelösten `durationFrames: 0`
 
-`04-caption/word-timings.json` muss für einen finalen Build `timingStatus: final-audio-aligned` enthalten.
+`04-caption/word-timings.json` muss final `timingStatus: final-audio-aligned` enthalten.
 
-## 11. Remotion
+`05-projektdateien/timeline.json` muss im Finalmodus lückenlos, chronologisch und vollständig aufgelöst sein. Das Reel-Ende darf nicht mehr als ungefähr eine Sekunde unbegründet hinter dem letzten gesprochenen Wort liegen.
 
-- 1080 × 1920, 30 fps
-- Szenenschnitte an echten Satzanfängen
-- Animationen relativ zur tatsächlichen Szenendauer
-- keine pauschal gleich langen Szenen
-- Szenenheadlines/Icons ab Szene 01 in Remotion
-- Cover-Überschrift ausschließlich aus Google Flow
-- Bild- und Animationsszenen müssen visuell ähnlich präsent sein
-- alle Szenenhintergründe ohne sichtbaren Floor-/Wall-/Horizont-Split
-
-## 12. Publishing — eine Caption für alle Plattformen
+## 11. Publishing — eine Caption für alle Reel-Plattformen
 
 `04-caption/` enthält nur:
 
@@ -223,67 +219,96 @@ caption.txt
 word-timings.json
 ```
 
-`caption.txt` wird **unverändert** für Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet.
+`caption.txt` wird unverändert für Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet:
 
-Die finale Caption ist direkt kopierfertig und folgt diesem Standard:
+- starke ehrliche Hook-Zeile
+- kurzer Nutzen/Aha
+- natürlicher CTA nur wenn passend
+- **genau 5 relevante Hashtags**
+- keine separaten Plattformvarianten
+- keine Viralitätsgarantie
 
-- starke ehrliche Hook-Zeile am Anfang
-- kurze Kernaussage / Aha-Nutzen
-- natürlicher Save-/Follow-/Kommentar-CTA nur wenn passend
-- **genau 5 passende Hashtags**
-- keine zufälligen Trend-Tags, kein Hashtag-Spam
-- keine garantierten Viralitätsversprechen
-- kein `CAPTION:`-Header oder andere Template-Marker im finalen Text
-- keine Fakten, die nicht durch Skript/Recherche gedeckt sind
+Keine YouTube Shorts. YouTube ist ausschließlich Longform unter `youtube/`.
 
-Diese alten Dateien sind in aktiven neuen Reels verboten:
+## 12. Finale MP4-QA — Pflicht
+
+Ein erfolgreicher Typecheck oder ein technisch fertiger Render reicht nicht.
+
+Vor `PRODUCTION COMPLETE` muss die vollständige finale MP4 tatsächlich geprüft werden. Für neue V17-Reels wird das Ergebnis in:
 
 ```text
-instagram-reels.txt
-tiktok.txt
-facebook-reels.txt
-snapchat.txt
-youtube-shorts.txt
+05-projektdateien/final-qa.json
 ```
 
-YouTube ausschließlich Longform unter `youtube/`.
+dokumentiert.
+
+Pflicht-QA:
+
+- jedes Bild passt zum gesprochenen Moment
+- keine falschen/unpassenden Google-Flow-Texte
+- Szenenwechsel synchron mit Audio
+- tatsächliche Animationslaufzeit 55–65 %
+- keine Bildszene unnötig länger als 8 Sekunden
+- keine zwei Bildszenen direkt hintereinander
+- kein langer statischer Tail
+- Untertitel innerhalb der Safe-Area
+- Untertitel groß genug
+- aktive Wortmarkierung synchron
+- Audio ungefähr -16 LUFS, True Peak höchstens -1 dBTP
+
+`final-qa.json` darf erst nach echter Prüfung auf `passed` gesetzt werden.
 
 ## 13. Autopilot-Finalisierung
 
-Wenn Pflichtbilder + genau ein Audio vorhanden sind und der Nutzer das Reel fertigstellen lässt, arbeitet Antigravity ohne `weiter?` bis zum vollständigen Ergebnis:
+Wenn Pflichtbilder + genau ein finales Audio vorhanden sind und der Nutzer `Mach das Reel` / `Mach es fertig` sagt:
 
 ```text
-Medien prüfen inkl. Cover-Überschrift
+Medien prüfen
+→ jedes Bild semantisch gegen Voice-Beat prüfen
 → echte Wortzeiten
-→ Szenentiming
-→ Remotion
-→ full-frame-no-crop Bilder
-→ Szenenheadlines 01+; keine Remotion-Coverheadline
-→ genau-ein-Satz-Karaoke
-→ eine universelle Caption + genau 5 Hashtags
+→ kurze Caption-Einheiten
+→ finale Szenentimeline
+→ 60/40-Laufzeitmix prüfen
+→ Remotion implementieren
+→ Bilder full-frame integrieren
+→ Untertitel integrieren
+→ universelle Caption + 5 Hashtags
 → finaler Validator
 → TypeScript
 → Preview
-→ visuelle QA
+→ Frame-/Contact-Sheet-QA
 → Full MP4
+→ vollständige MP4-QA
 → Audio-QA
-→ Fehler selbst beheben/rerun
+→ final-qa.json auf passed
+→ Validator erneut im Finalmodus
 → Safety Audit
 → Commit/Draft-PR
 ```
 
-Bei visueller QA explizit prüfen: Cover-Überschrift exakt und lesbar, kein zweiter Hintergrund, kein abgeschnittener Bildboden, keine harten Header/Footer-Flächen, kein Inset-Panel, keine schwarze Caption-Karte, keine zwei Untertitelsätze, sichere Untertitelposition.
+Keine normalen `Weiter?`-Stopps. Behebbare Fehler selbst korrigieren und erneut prüfen. Stop nur bei echten Blockern.
 
-Finaler Validator:
+## 14. Final-Validator
 
 ```bash
 npm run reel:validate -- <TARGET-REEL> --final
 ```
 
-Normale technische Fehler werden selbstständig behoben. Stoppen nur bei echten Blockern gemäß `CLAUDE.md`.
+Für V17-Reels blockiert der Quality-Validator insbesondere:
 
-## 14. Freigabe
+- falschen 60/40-Plan oder falsche finale Laufzeitquote
+- zwei Bildszenen direkt hintereinander
+- Bildszene über 8 Sekunden
+- ungelöste Timeline
+- zu lange Caption-Einheiten
+- fehlende echte Audio-Ausrichtung
+- fehlende/negative Final-MP4-QA
+- unpassende Audiopegel
 
-**PRODUCTION COMPLETE** erst nach tatsächlicher finaler Validierung, Typecheck, Preview, visueller Prüfung, korrekter Google-Flow-Cover-Überschrift, vollständigem MP4, fertiger universeller Caption mit genau 5 Hashtags und Safety Audit.
+Validatoren niemals schwächen, um einen fehlerhaften Reel-Build durchzulassen.
+
+## 15. Freigabe
+
+**PRODUCTION COMPLETE** erst nach tatsächlicher finaler Validierung, Typecheck, Preview, vollständiger MP4-Prüfung, Audio-QA, `final-qa.json: passed`, universeller Caption mit genau 5 Hashtags und Safety Audit.
 
 Merge und Publishing bleiben separate Nutzerfreigaben.
