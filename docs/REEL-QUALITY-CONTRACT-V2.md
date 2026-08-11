@@ -116,7 +116,7 @@ Harte Regeln für neue Reels:
 
 ```text
 max. 12 Wörter pro Caption-Einheit
-max. 72 Zeichen pro Caption-Einheit
+max. 68 Zeichen pro Caption-Einheit
 max. 2 sichtbare Zeilen
 min. 42 px effektive Schriftgröße
 ```
