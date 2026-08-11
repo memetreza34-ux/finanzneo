@@ -35,7 +35,7 @@ Jede Bildszene verwendet möglichst:
 2. optional eine stilisierte anonyme 3D-Person
 3. wenige unterstützende Elemente
 4. sichtbaren Ursache-Wirkungs-Zusammenhang
-5. 1–3 kurze deutsche Objektlabels
+5. bei Szenenbildern wenige kurze deutsche Objektlabels
 
 Das Ergebnis wirkt wie eine einzelne hochwertige Editorial-Illustration, nicht wie eine Miniaturwelt oder ein Game-Level.
 
@@ -58,9 +58,32 @@ Nicht erlaubt:
 - reine Rückenansicht
 - komplett abgewandte Person
 
-## Textregel
+## Textregel — Cover und Szenen trennen
 
-### Niemals
+### Cover `Bild 00` — einzige Headline-Ausnahme
+
+Pflicht:
+
+- eine große klare deutsche Cover-Überschrift direkt im Google-Flow-Bild
+- exakte Vorgabe im Prompt unter:
+
+```text
+COVER-ÜBERSCHRIFT – EXAKT SO:
+[EXAKTE DEUTSCHE COVER-ÜBERSCHRIFT]
+```
+
+- ungefähr 3–8 Wörter
+- maximal zwei Zeilen
+- sagt konkret, worum es im Reel geht
+- hochwertige Smartphone-lesbare Typografie
+- kein separater Header-Balken, keine Textbox, kein zweiter Hintergrund
+- kein Subtitle, CTA oder erklärender Satz
+- fehlend/falsch geschrieben/abgeschnitten/unlesbar → Cover neu in Google Flow erzeugen
+- **niemals in Remotion ergänzen, ersetzen oder reparieren**
+
+### Szenenbilder `Bild 01+`
+
+#### Niemals
 
 - große Überschrift
 - Untertitel
@@ -69,7 +92,7 @@ Nicht erlaubt:
 - Absatz
 - Poster-Typografie
 
-### Gewünscht
+#### Gewünscht
 
 Nur kurze deutsche Objekt-Beschriftungen:
 
@@ -132,6 +155,8 @@ Objects may cast soft contact shadows, but the background itself remains one uni
 Place the main subject around the visual center and leave generous natural empty space above and below WITHOUT changing the background there.
 ```
 
+Auch die Cover-Überschrift liegt direkt auf diesem einen Hintergrund; kein separater Textbereich.
+
 Verboten:
 
 - `top 15% / middle 60% / bottom 25%`
@@ -151,13 +176,13 @@ Verboten:
 - Dashboard-/App-UI
 - abstrakte Rohrsysteme
 - überladene Szenen
-- riesige Typografie
 - Fotorealismus
 - reale Menschen
 - gesichtslose Personen
 - zwei oder mehr sichtbare Hintergrundzonen
+- riesige zufällige Typografie; ausgenommen ist die exakt vorgegebene Cover-Headline auf `Bild 00`
 
-## Prompt-Grundmuster
+## Prompt-Grundmuster für Szenenbilder `Bild 01+`
 
 ```text
 A stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE FINANCIAL METAPHOR].
@@ -168,9 +193,23 @@ Use ONE single seamless continuous deep charcoal green-black background from top
 No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line and no panels.
 Accents in vivid emerald and mint green. Gold only for money/value. Warm red-orange only for danger/loss.
 Use smooth rounded 3D geometry, soft bevelled edges and confident high-contrast studio lighting with bold emerald rim light.
-Place the main subject around the visual center and leave generous natural empty space above and below without changing the background.
+Place the main subject around the visual center and leave natural breathing room without changing the background.
 Vertical 9:16.
 No photorealism, no real identifiable human, no faceless character, no UI dashboard, no headline, no subtitle, no explanatory sentence.
+```
+
+## Cover-Prompt-Grundmuster `Bild 00`
+
+```text
+COVER-ÜBERSCHRIFT – EXAKT SO:
+[EXAKTE DEUTSCHE COVER-ÜBERSCHRIFT]
+
+Show [ONE LARGE COVER METAPHOR THAT EXPLAINS THE REEL TOPIC].
+Include the exact German cover headline '[EXAKTE DEUTSCHE COVER-ÜBERSCHRIFT]' directly in the generated image.
+Large, premium, bold, smartphone-readable, maximum two lines. Spell it exactly.
+No subtitle, CTA, explanatory sentence or extra random text.
+No separate text box, header band, panel or second background.
+Use the same seamless FinanzNeo background and style rules.
 ```
 
 ## Google-Flow-Ablauf
@@ -179,9 +218,11 @@ No photorealism, no real identifiable human, no faceless character, no UI dashbo
 PROMPT LESEN
 → GENAU EIN BILD ERZEUGEN
 → SOFORT KORREKT UMBENENNEN
-→ MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
+→ MOTIV + ERLAUBTEN TEXT + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
 → ERST DANN NÄCHSTES BILD
 ```
+
+Beim Cover zusätzlich die exakte Pflichtüberschrift prüfen.
 
 Bildnummer = echte Szenennummer. Animationsszenen erhalten kein Bild und behalten ihre Nummer.
 
@@ -193,6 +234,8 @@ Erst nach Abschluss kommen alle Nutzerbilder gemeinsam nach:
 
 ## Sofort neu erzeugen, wenn
 
+Allgemein:
+
 - zwei sichtbare Hintergründe/Bänder entstehen
 - horizontale Trennlinie oder Tonwertkante entsteht
 - Boden-/Wand-Grenze oder Horizont sichtbar ist
@@ -201,6 +244,15 @@ Erst nach Abschluss kommen alle Nutzerbilder gemeinsam nach:
 - reine Rückenansicht verwendet wird
 - Diorama/Game-Level entsteht
 - Metapher nicht sofort verständlich ist
+- Stil fotorealistisch/Pixar/Clay wird
+
+Cover `Bild 00` zusätzlich:
+
+- Pflichtüberschrift fehlt/falsch geschrieben/abgeschnitten/unlesbar ist
+- Subtitle/CTA/erklärender Satz entsteht
+- eigener Headline-Balken/Panel entsteht
+
+Szenenbild `Bild 01+` zusätzlich:
+
 - große Headline/Untertitel/Satz entsteht
 - Objektlabels falsch oder zusätzlich sind
-- Stil fotorealistisch/Pixar/Clay wird
