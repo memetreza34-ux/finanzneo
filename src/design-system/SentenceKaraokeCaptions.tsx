@@ -10,10 +10,18 @@ const MAX_WORDS = 12;
 const MAX_CHARS = 68;
 const MIN_FONT_SIZE = 42;
 const MAX_FONT_SIZE = 50;
+const NATURAL_PAUSE_SECONDS = 0.34;
 
 const textLength = (words: CaptionWord[]) => words.map((word) => word.word).join(' ').length;
 const isHardEnd = (word: string) => /[.!?…][\"'»”)]?$/.test(word);
 const isSoftBreak = (word: string) => /[,;:–—-][\"'»”)]?$/.test(word);
+
+const findPreferredBreak = (words: CaptionWord[]): number => {
+  for (let i = words.length - 1; i >= 4; i -= 1) {
+    if (isSoftBreak(words[i - 1].word)) return i;
+  }
+  return -1;
+};
 
 const splitCaptionUnits = (words: CaptionWord[]): TimedSentence[] => {
   const result: TimedSentence[] = [];
@@ -25,30 +33,43 @@ const splitCaptionUnits = (words: CaptionWord[]): TimedSentence[] => {
   };
 
   for (const word of words) {
-    current.push(word);
+    const previous = current[current.length - 1];
+    const pauseBefore = previous ? Math.max(0, word.start - previous.end) : 0;
 
-    if (isHardEnd(word.word)) {
+    if (
+      current.length >= 4 &&
+      pauseBefore >= NATURAL_PAUSE_SECONDS
+    ) {
       push(current);
       current = [];
-      continue;
     }
 
-    if (current.length >= MAX_WORDS || textLength(current) >= MAX_CHARS) {
-      let splitAt = -1;
-      for (let i = current.length - 2; i >= 5; i -= 1) {
-        if (isSoftBreak(current[i].word)) {
-          splitAt = i + 1;
-          break;
-        }
-      }
+    const prospective = [...current, word];
+    const wouldOverflow = prospective.length > MAX_WORDS || textLength(prospective) > MAX_CHARS;
 
-      if (splitAt > 0) {
-        push(current.slice(0, splitAt));
-        current = current.slice(splitAt);
+    if (current.length && wouldOverflow) {
+      const preferredBreak = findPreferredBreak(current);
+
+      if (preferredBreak > 0 && preferredBreak < current.length) {
+        push(current.slice(0, preferredBreak));
+        current = current.slice(preferredBreak);
       } else {
         push(current);
         current = [];
       }
+    }
+
+    current.push(word);
+
+    if (current.length > MAX_WORDS || textLength(current) > MAX_CHARS) {
+      throw new Error(
+        `Single caption unit cannot satisfy ${MAX_WORDS} words / ${MAX_CHARS} characters: "${current.map((item) => item.word).join(' ')}"`,
+      );
+    }
+
+    if (isHardEnd(word.word)) {
+      push(current);
+      current = [];
     }
   }
 
@@ -83,9 +104,10 @@ export type SentenceKaraokeCaptionsProps = {
 };
 
 /**
- * One short spoken caption unit at a time, never two units simultaneously.
- * Long spoken sentences are split sequentially at a natural break when possible.
- * Maximum two visual lines, minimum 42px effective font, real word timing only.
+ * One short spoken caption unit at a time.
+ * Units prefer real sentence endings and actual speech pauses, and split before
+ * they can exceed the safe word/character contract. Real word timing drives
+ * both unit switches and the active-word highlight.
  */
 export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = ({
   words,
