@@ -1,6 +1,6 @@
 ---
 name: finanzneo-reel
-description: Build, repair and finish FinanzNeo vertical Remotion reels with strict user-media boundaries, adaptive-safe-fill visuals, exact final-audio captions and one universal social caption.
+description: Build, repair and finish FinanzNeo vertical Remotion reels with strict user-media boundaries, full-frame user visuals, exact final-audio captions and one universal social caption.
 ---
 
 # FinanzNeo Reel Skill
@@ -74,29 +74,29 @@ Final images are collected only in `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
 
 ## Remotion image presentation — mandatory
 
-The old `contain` poster layout is forbidden.
+Use **full-frame-no-crop** for productive user-image scenes:
 
-Use **adaptive-safe-fill**:
-
-- maximize image area between headline and captions
-- no small inset 9:16 poster
-- no visible image-panel edge
+- complete vertical 9:16 source spans the full 1080×1920 scene
+- never wrap user images in `VisualStage` or a smaller middle container
+- no intentional crop, zoom/focal-point contract or visible inset panel
 - no blurred duplicate image background
-- crop empty seamless background first
-- preserve face, object labels, hero object and money/value
-- use per-scene `focalX`/`focalY`
+- headline and subtitle are overlays over the same full image
+- only a soft continuous transparent readability scrim is allowed; no hard header/footer background blocks
+- `object-fit: contain` is allowed only across the complete 1080×1920 scene for a vertical 9:16 source
 
-Use `src/design-system/AdaptiveSafeFillImage.tsx` for new productive image scenes.
+Use `src/design-system/FullFrameImage.tsx` for new productive image scenes.
+
+Native Remotion animation scenes must use one continuous full-canvas background with no floor, horizon, wall split or segmented studio stage.
 
 Target layout at 1080×1920:
 
 ```text
-headlineTop ≈ 70
-visualTop ≈ 210
-visualBottom ≈ 1515
-subtitleBottom ≈ 280
-subtitleLeft ≈ 60
-subtitleRight ≈ 180
+headlineTop ≈ 72
+image scene = full Y 0–1920
+animation content ≈ Y 220–1490
+subtitleBottom ≈ 300
+subtitleLeft ≈ 64
+subtitleRight ≈ 156
 platform UI bottom safe zone ≥ 260
 ```
 
@@ -108,13 +108,15 @@ Never evenly distribute or estimate word times.
 
 Caption behavior inside the video:
 
-- preferred one complete sentence visible
-- at most two very short sentences only when needed
+- **exactly one complete sentence visible at a time**
+- never two sentences simultaneously
 - hard max two lines
+- use a readable smartphone font size; split/rewrite an overlong sentence instead of making captions tiny
 - active spoken word green, rest white
 - hold previous sentence through short pauses
 - switch exactly at the first spoken word of the next sentence
 - no dead gaps
+- no opaque/black caption card
 
 Use `src/design-system/SentenceKaraokeCaptions.tsx` for new productive reels.
 
@@ -128,12 +130,7 @@ Create exactly **one** publishing caption:
 <TARGET-REEL>/04-caption/caption.txt
 ```
 
-The exact same caption is used unchanged for:
-
-- Instagram Reels
-- TikTok
-- Facebook Reels
-- Snapchat
+The exact same caption is used unchanged for Instagram Reels, TikTok, Facebook Reels and Snapchat.
 
 Rules:
 
@@ -167,18 +164,19 @@ When the media gate passes, continue automatically through:
 2. real final-audio word timings
 3. sentence-based scene timing
 4. Remotion implementation
-5. adaptive-safe-fill framing
-6. sentence karaoke captions
+5. full-frame-no-crop user-image integration
+6. exactly-one-sentence karaoke captions
 7. one universal social caption with exactly 5 relevant hashtags
 8. final validator
 9. TypeScript
 10. preview render
-11. frame/contact-sheet/caption/transition QA
-12. full MP4 render/review
-13. audio-level check when available
-14. fix and rerun every recoverable issue
-15. safety audit
-16. commit + draft PR when appropriate
+11. visual QA: first/middle/last frame of every scene + contact sheet
+12. explicitly reject second background areas, chopped image bottoms, hard header/footer blocks, inset image panels, opaque caption cards or tiny/unsafe captions
+13. full MP4 render/review with audio
+14. audio-level check when available
+15. fix and rerun every recoverable issue
+16. safety audit
+17. commit + draft PR when appropriate
 
 Final validation:
 
