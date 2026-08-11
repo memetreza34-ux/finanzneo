@@ -1,7 +1,7 @@
 // FinanzNeo Design System — einziger öffentlicher Importpfad für neue Produktion.
 //
 // Beispiel:
-// import {C, FONT, SAFE_AREA, FinanceBackground, FullFrameImage, SentenceKaraokeCaptions} from '../design-system';
+// import {C, FONT, SAFE_AREA, FinanceBackground, FullFrameImage, FullFrameReadabilityScrim, SentenceKaraokeCaptions} from '../design-system';
 
 export * from '../brand';
 export * from '../finance/calculations';
@@ -10,8 +10,8 @@ export * from '../finance/examples';
 export {FinanceBackground, VerticalSafeAreaGuide} from './FinanceBackground';
 export type {FinanceBackgroundVariant} from './FinanceBackground';
 
-// Verbindliche Darstellung für Nutzerbilder: vollständiges 9:16-Bild, kein Crop.
-export {FullFrameImage} from './FullFrameImage';
+// Verbindliche Darstellung für Nutzerbilder: vollständiges 9:16-Bild ohne absichtlichen Crop.
+export {FullFrameImage, FullFrameReadabilityScrim} from './FullFrameImage';
 export type {FullFrameImageProps} from './FullFrameImage';
 
 // Satzbasierte Karaoke-Untertitel mit echten Audio-Wortgrenzen.
