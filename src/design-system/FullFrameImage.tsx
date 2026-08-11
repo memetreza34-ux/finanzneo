@@ -1,17 +1,16 @@
 import React from 'react';
-import {Img} from 'remotion';
+import {AbsoluteFill, Img} from 'remotion';
 
 export type FullFrameImageProps = {
   src: string;
 };
 
 /**
- * Canonical FinanzNeo presentation for user-provided 9:16 images.
+ * Canonical FinanzNeo presentation for user-provided vertical 9:16 images.
  *
- * The image spans the complete 1080x1920 canvas and is never intentionally
- * cropped. Headline and captions are overlaid on top of the image. User images
- * are expected to be vertical 9:16; if an asset is not suitable, production
- * must block instead of cutting off important content.
+ * The source spans the complete 1080x1920 canvas. No intentional crop, no
+ * middle image stage, no inset poster and no duplicate/blurred background.
+ * Headline and captions are overlays on top of the same image.
  */
 export const FullFrameImage: React.FC<FullFrameImageProps> = ({src}) => (
   <Img
@@ -23,6 +22,20 @@ export const FullFrameImage: React.FC<FullFrameImageProps> = ({src}) => (
       height: '100%',
       objectFit: 'contain',
       objectPosition: 'center center',
+    }}
+  />
+);
+
+/**
+ * Continuous transparent readability treatment for text overlays.
+ * There are deliberately no hard header/footer panels or visible boundaries.
+ */
+export const FullFrameReadabilityScrim: React.FC = () => (
+  <AbsoluteFill
+    style={{
+      pointerEvents: 'none',
+      background:
+        'linear-gradient(180deg, rgba(1,6,4,.62) 0%, rgba(1,6,4,.26) 12%, rgba(1,6,4,.06) 25%, rgba(1,6,4,0) 36%, rgba(1,6,4,0) 62%, rgba(1,6,4,.10) 72%, rgba(1,6,4,.34) 84%, rgba(1,6,4,.70) 100%)',
     }}
   />
 );
