@@ -2,20 +2,28 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 00 - Cover Notgroschen.png`
 
 WICHTIG:
-Erzeuge nur dieses eine Bild. Danach sofort exakt wie oben umbenennen und Motiv, Beschriftungen, Gesicht, Hintergrund und Dateiname prüfen. Erst dann nächstes Bild.
+Erzeuge nur dieses eine vertikale 9:16-Cover. Danach sofort exakt wie oben umbenennen und Motiv, Cover-Überschrift, Beschriftungen, Gesicht, Hintergrund und Dateiname prüfen. Erst dann nächstes Bild.
+
+COVER-ÜBERSCHRIFT – EXAKT SO:
+`NOTGROSCHEN IN 3 STUFEN`
+
+TYPOGRAFIE:
+Die Cover-Überschrift MUSS direkt im von Google Flow erzeugten Bild enthalten sein. Groß, klar, hochwertig und auf dem Smartphone sofort lesbar. Maximal zwei Zeilen. Spell it exactly. Keine separate Textbox, kein Header-Balken und kein zweiter Hintergrund hinter der Überschrift. Kein zusätzlicher Subtitle, CTA oder erklärender Satz.
 
 BESCHRIFTUNGEN – EXAKT SO:
-- `Notgroschen`
 - `Stufe 1`
 - `Stufe 2`
 - `Stufe 3`
 
 BILDPROMPT:
-A stylized 3D adult person with a clearly visible friendly stylized face, readable eyes, nose and mouth, front-facing or in a natural three-quarter view, standing beside one large transparent vertical emergency-fund container filled with glowing euro coins. The container is the dominant object. Three clear ascending sections or steps are integrated into the container, each visually higher and fuller than the previous one. A small broken washing-machine part and a restrained warm red-orange repair warning explain why the reserve exists. Include German object labels: `Notgroschen` directly beside the reserve container and `Stufe 1`, `Stufe 2`, `Stufe 3` beside the three ascending sections.
+A stylized 3D adult person with a clearly visible friendly stylized face, readable eyes, nose and mouth, front-facing or in a natural three-quarter view, standing beside one large transparent vertical emergency-fund container filled with glowing euro coins. The container is the dominant object. Three clear ascending sections or steps are integrated into the container, each visually higher and fuller than the previous one. A small broken washing-machine part and a restrained warm red-orange repair warning explain why the reserve exists. Include the exact German cover headline `NOTGROSCHEN IN 3 STUFEN` directly in the generated image, large, premium, bold and highly readable, maximum two lines. Include only the supporting German object labels `Stufe 1`, `Stufe 2`, `Stufe 3` beside the three ascending sections. Do not add a subtitle, CTA, explanatory sentence or any other text.
 
 Premium fintech editorial 3D render style. Deep charcoal green-black world. Vivid emerald and mint accents. Gold only for money/value. Warm red-orange only for risk/loss. Smooth rounded 3D geometry, soft bevelled edges, premium matte/glass materials and bold emerald rim light.
 
 BACKGROUND — VERBINDLICH:
-Use ONE single seamless continuous deep charcoal green-black background from the very top edge to the very bottom edge. No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line, no panels and no layered backdrop. Use only one subtle continuous gradient/vignette. Do not create a visible floor or visible wall. Objects may cast soft contact shadows. Leave generous natural empty space above and below the central subject WITHOUT changing the background. Do NOT use percentage-based zones.
+Use ONE single seamless continuous deep charcoal green-black background from the very top edge to the very bottom edge. No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line, no panels and no layered backdrop. Use only one subtle continuous gradient/vignette. Do not create a visible floor or visible wall. Objects may cast soft contact shadows. Leave generous natural empty space above and below the central subject WITHOUT changing the background. Do NOT use percentage-based zones. Do not create a separate headline panel or header band.
 
-No headline, no subtitle, no explanatory sentence, no faceless person, no blank face, no hidden face, no back-view-only character, no UI dashboard, no tiny diorama, no neon tunnel, no sci-fi corridor, no photorealism.
+No faceless person, no blank face, no hidden face, no back-view-only character, no UI dashboard, no tiny diorama, no neon tunnel, no sci-fi corridor, no photorealism.
+
+QA:
+Wenn `NOTGROSCHEN IN 3 STUFEN` fehlt, falsch geschrieben, abgeschnitten oder schlecht lesbar ist, Cover NICHT akzeptieren. In Google Flow neu erzeugen. Die Cover-Überschrift später NICHT in Remotion ergänzen oder reparieren.
