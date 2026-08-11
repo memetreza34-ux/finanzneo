@@ -13,7 +13,7 @@ Lies zuerst CLAUDE.md und reels/PRODUKTIONSSTANDARD.md vollständig.
 Erstelle selbstständig:
 1. Recherche mit Quellen und Datenstand
 2. Lernziel/Kernaussage
-3. geprüftes 60–90-Sekunden-Skript
+3. geprüftes 60–90-Sekunden-Skript mit kurzen, untertitelfreundlichen Sätzen
 4. Szenen-/Beat-Plan
 5. Bild-/Remotion-Zuordnung
 6. vollständige Google-Flow-Bildprompts mit echten Szenennummern und finalen Dateinamen
@@ -31,6 +31,7 @@ Erstelle einen FinanzNeo-Bildprompt für:
 [SATZ]
 
 Verbindlich:
+- vertikal 9:16
 - Premium Fintech Editorial 3D
 - EINE dominante Finanzmetapher / Hero-Objekt
 - optional stilisierte erwachsene 3D-Person; Gesicht klar sichtbar
@@ -42,6 +43,7 @@ Verbindlich:
 - keine Headline, kein Untertitel, kein erklärender Satz im KI-Bild
 - genau EIN nahtloser Hintergrund von oben bis unten
 - keine Prozent-Zonen, Bänder, Floor-Wall-Grenze, Horizont oder Panels
+- wichtige Motive und Labels vollständig innerhalb des 9:16-Frames halten; später kein absichtlicher Crop
 - keine Dioramen, Game-Level, Neon-Tunnel, Sci-Fi-Korridore oder Dashboards
 - bekannte Marken nur, wenn sie konkret relevant sind
 
@@ -55,7 +57,7 @@ Bildnummer = echte Szenennummer; Animationsnummern bleiben reserviert.
 Arbeite 03-szenen/alle-bildprompts.txt strikt chronologisch ab.
 
 Pro Bild:
-1. genau EIN Bild erzeugen
+1. genau EIN vertikales 9:16-Bild erzeugen
 2. sofort endgültig umbenennen
 3. Motiv + Labels + Gesicht + nahtlosen Hintergrund + Dateiname prüfen
 4. erst dann nächstes Bild
@@ -78,12 +80,15 @@ Verbindlich:
 - echte Wort-start/end-Zeitstempel aus genau diesem finalen Audio erzeugen
 - keine gleichmäßig geschätzten Wortzeiten
 - Szenenschnitte an echten Satzanfängen
-- Bildszenen mit adaptive-safe-fill, NICHT contain
-- Bildfläche maximal zwischen Headline und Caption nutzen
-- zuerst nur leeren nahtlosen Hintergrund croppen
-- Gesicht, Labels, Hero-Objekt und Geld/Wert schützen
-- kein sichtbares Bild-im-Bild-Panel, keine unscharfe Bildkopie
-- Untertitel bevorzugt 1 vollständiger Satz, maximal 2 sehr kurze Sätze, hart max. 2 Zeilen
+- Bildszenen full-frame-no-crop: komplettes vertikales 9:16-Bild über die gesamte 1080×1920-Szene
+- Nutzerbilder NICHT in VisualStage oder einen kleineren Mittel-Container setzen
+- kein absichtlicher Crop, Zoom/Focal-Point-Vertrag, Inset-Panel oder unscharfe Bildkopie
+- Headline und Untertitel als Overlay über demselben Vollbild
+- nur weicher kontinuierlicher Transparenz-Scrim; keine harten Header/Footer-Hintergründe
+- native Remotion-Szenen mit EINEM durchgehenden Full-Canvas-Hintergrund, kein Boden/Horizont/Studio-Split
+- Untertitel GENAU 1 vollständiger Satz gleichzeitig, hart max. 2 Zeilen
+- keine schwarze/undurchsichtige Caption-Karte
+- bei zu langem Satz Satz sinnvoll teilen statt Schrift winzig zu machen
 - aktives Wort exakt nach echtem start/end grün
 - Satzwechsel beim ersten gesprochenen Wort des nächsten Satzes
 - kurze Pausen ohne Caption-Lücke
@@ -106,20 +111,26 @@ Ende nur mit PRODUCTION COMPLETE oder BLOCKED.
 
 ```text
 Prüfe jede Bildszene im finalen Render:
-- Bild nutzt die verfügbare Fläche maximal
-- kein kleines Poster/Inlay
+- Nutzerbild läuft vollständig von Y=0 bis Y=1920
+- kein abgeschnittener/abgesetzter unterer Bildbereich
+- kein kleiner Bildcontainer/Posterinlay
 - kein sichtbarer rechteckiger Bildrand
-- Headline bleibt lesbar
+- keine harte obere/untere Hintergrundfläche
+- kein zweiter/dritter wahrnehmbarer Hintergrund
+- Headline bleibt lesbar als Overlay
 - Caption bleibt oberhalb der Plattform-UI-Totzone
 - rechts genügend UI-Abstand
-- Gesicht/Labels/Hero-Objekt/Geld nicht abgeschnitten
-- keine zwei Hintergründe/Bänder
-- keine Floor-Wall-Grenze/Horizont
+- keine schwarze Caption-Karte
+
+Prüfe native Remotion-Szenen:
+- ein durchgehender Full-Canvas-Hintergrund
+- kein Boden/Horizont/Wand-/Studio-Split
 
 Prüfe Captions:
 - echte Audio-Synchronität
+- GENAU 1 Satz gleichzeitig
 - max. 2 Zeilen
-- bevorzugt ein Satz
+- gut lesbare Smartphone-Schrift
 - aktive Wortfarbe stimmt exakt mit gesprochener Position überein
 - keine unnötigen Leerphasen
 ```
