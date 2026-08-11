@@ -1,5 +1,5 @@
 {
-  "version": 15,
+  "version": 16,
   "title": "Zinseszins – warum Zeit deine Sparrate schlagen kann",
   "date": "2026-08-11",
   "sceneCount": 10,
@@ -8,6 +8,16 @@
   "fps": 30,
   "userCreatesImages": true,
   "antigravityGeneratesImages": false,
+  "coverHeadline": {
+    "source": "google-flow",
+    "required": true,
+    "exactTextRequired": true,
+    "exactText": "ZINSESZINS: ZEIT VS. SPARRATE",
+    "googleFlowFileName": "Bild 00 - Zinseszins Zeit gegen Sparrate.png",
+    "maxLines": 2,
+    "remotionOverlayForbidden": true,
+    "regenerateIfMissingOrWrong": true
+  },
   "subtitleDisplay": {
     "preferredSentences": 1,
     "maxSentences": 1,
@@ -37,7 +47,7 @@
     "style": "premium-fintech-editorial-3d-metaphor",
     "stylizedPersonAllowed": true,
     "visibleFaceRequiredWhenPersonPresent": true,
-    "objectLabelsOnly": true,
+    "sceneImagesObjectLabelsOnly": true,
     "seamlessSingleBackgroundRequired": true,
     "percentageZonesForbidden": true,
     "backgroundBandsForbidden": true,
@@ -78,7 +88,8 @@
     "mode": "full-frame-no-crop",
     "fullCanvas": true,
     "sourceMustBeVertical916": true,
-    "headlineOverlay": true,
+    "sceneHeadlineOverlay": true,
+    "coverHeadlineOverlayForbidden": true,
     "captionOverlay": true,
     "continuousReadabilityScrimOnly": true,
     "hardHeaderFooterPanelsForbidden": true,
