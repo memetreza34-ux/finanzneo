@@ -18,6 +18,7 @@ Neues Thema gegen bestehende Reels prüfen, Fakten recherchieren, Quellen/Datens
 - 60–90 Sekunden als Reel-Standard
 - Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz → CTA
 - kurze deutsche Sätze
+- Sätze so schreiben, dass ein vollständiger Untertitelsatz bei guter Smartphone-Schrift in maximal zwei Zeilen passt
 - je Beat Bild / Remotion / Kombination wählen
 - Bildnummer = echte Szenennummer; Animationen reservieren ihre Nummer
 
@@ -27,7 +28,7 @@ Antigravity erzeugt keine finalen Bilder.
 
 ```text
 Prompt lesen
-→ genau EIN Bild erzeugen
+→ genau EIN vertikales 9:16-Bild erzeugen
 → sofort endgültig umbenennen
 → Motiv + Labels + Gesicht + nahtlosen Hintergrund prüfen
 → erst dann nächstes Bild
@@ -61,26 +62,29 @@ Keine Ersatzmedien aus anderen Ordnern/Reels/Downloads/Web/Stock/Cache/Alt-Expor
 
 ## 5. Remotion-Bilddarstellung
 
-**Nicht mehr `contain`.**
+Bildszenen verwenden **full-frame-no-crop**:
 
-Bildszenen verwenden `adaptive-safe-fill`:
-
-- Bild nimmt nahezu die komplette nutzbare Fläche zwischen Headline und Caption ein
-- kein kleines Poster innerhalb des Reels
+- komplettes vertikales 9:16-Nutzerbild über die gesamte 1080×1920-Szene
+- kein kleiner mittlerer Bildcontainer / kein `VisualStage` um Nutzerbilder
+- kein absichtlicher Crop, Zoom oder Focal-Point-Vertrag
 - kein sichtbarer Bildrand und keine unscharfe Bildkopie
-- zuerst leeren Hintergrund croppen
-- Gesicht, Labels, Hero-Objekt und Geld/Wert schützen
-- `focalX`/`focalY` pro Szene nutzen
+- Headline + Untertitel als Overlay über demselben Vollbild
+- nur weicher kontinuierlicher Transparenz-Scrim für Lesbarkeit
+- kein separater Header-/Footer-Hintergrund
 
 Richtlayout 1080×1920:
 
 ```text
-Headline ≈ Y 70
-Visual   ≈ Y 210–1515
-Caption  ≈ 280 px über Bottom
-links    ≈ 60 px
-rechts   ≈ 180 px
+Headline             ≈ Y 72
+Bildszene            = Y 0–1920
+Animationsinhalt     ≈ Y 220–1490
+Caption              ≈ 300 px über Bottom
+links                ≈ 64 px
+rechts               ≈ 156 px
+untere UI-Safe-Area  ≥ 260 px
 ```
+
+Native Remotion-Szenen nutzen ebenfalls einen einzigen durchgehenden Full-Canvas-Hintergrund ohne Boden/Horizont/Studio-Split.
 
 ## 6. Audio und Untertitel
 
@@ -94,12 +98,14 @@ Verboten:
 
 Untertitel:
 
-- bevorzugt 1 vollständiger Satz gleichzeitig
-- maximal 2 sehr kurze Sätze, falls nötig
+- **genau 1 vollständiger Satz gleichzeitig**
+- niemals 2 Sätze gleichzeitig
 - hart maximal 2 Zeilen
+- große lesbare Smartphone-Schrift; zu langen Satz sinnvoll teilen statt extrem verkleinern
 - aktives Wort grün nach echtem `start/end`
 - Satz bleibt in kurzer Pause stehen
 - Satzwechsel exakt beim ersten Wort des nächsten Satzes
+- keine schwarze/undurchsichtige Caption-Karte
 
 Wenn echte Wortausrichtung nicht möglich ist → **BLOCKED**, nicht schätzen.
 
@@ -112,8 +118,8 @@ Medien-Gate
 → echte Wortzeiten
 → Szenentiming
 → Remotion
-→ adaptive-safe-fill
-→ Satz-Karaoke
+→ full-frame-no-crop
+→ genau-ein-Satz-Karaoke
 → eine universelle Caption mit genau 5 Hashtags
 → npm run reel:validate -- <TARGET-REEL> --final
 → TypeScript
@@ -124,6 +130,8 @@ Medien-Gate
 → Safety Audit
 → Commit/Draft-PR
 ```
+
+Visuelle QA prüft explizit: kein zweiter Hintergrund, kein abgeschnittener Bildboden, keine harten Header/Footer-Flächen, kein Inset-Panel, keine schwarze Caption-Karte, genau ein Untertitelsatz, sichere Caption-Position.
 
 Stoppen nur bei einem echten Blocker nach `CLAUDE.md`.
 
