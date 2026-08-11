@@ -7,7 +7,7 @@ type TimedSentence = {id: string; words: CaptionWord[]};
 type IndexedWord = CaptionWord & {index: number};
 
 const MAX_WORDS = 12;
-const MAX_CHARS = 72;
+const MAX_CHARS = 68;
 const MIN_FONT_SIZE = 42;
 const MAX_FONT_SIZE = 50;
 
