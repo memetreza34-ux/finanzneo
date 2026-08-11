@@ -72,7 +72,7 @@ assert(Number(subtitle.maxSentences)===1,'Es darf immer nur eine Caption-Einheit
 assert(Number(subtitle.maxLines)===2,'Captions dürfen maximal zwei Zeilen haben.');
 assert(Number(subtitle.minFontSizePx)>=42,'Caption-Schrift darf nicht unter 42 px fallen.');
 assert(Number(subtitle.maxWordsPerCaptionUnit)<=12,'Caption-Einheit darf maximal 12 Wörter haben.');
-assert(Number(subtitle.maxCharactersPerCaptionUnit)<=72,'Caption-Einheit darf maximal 72 Zeichen haben.');
+assert(Number(subtitle.maxCharactersPerCaptionUnit)<=68,'Caption-Einheit darf maximal 68 Zeichen haben.');
 assert(subtitle.horizontalOverflowForbidden===true&&subtitle.clippingForbidden===true,'Caption-Overflow/Clipping muss ausdrücklich verboten sein.');
 
 const timingPath=resolve(root,'04-caption/word-timings.json');
@@ -85,14 +85,14 @@ if(existsSync(timingPath)){
   assert(Number(rules.maxLines)===2,'word-timings: maximal zwei Zeilen.');
   assert(Number(rules.minFontSizePx)>=42,'word-timings: Mindestschriftgröße 42 px fehlt.');
   assert(Number(rules.maxWordsPerCaptionUnit)<=12,'word-timings: max. 12 Wörter pro Einheit fehlt.');
-  assert(Number(rules.maxCharactersPerCaptionUnit)<=72,'word-timings: max. 72 Zeichen pro Einheit fehlt.');
+  assert(Number(rules.maxCharactersPerCaptionUnit)<=68,'word-timings: max. 68 Zeichen pro Einheit fehlt.');
   if(requireFinal){
     assert(timing.timingStatus==='final-audio-aligned','Finalmodus BLOCKED: Wortzeiten sind nicht final-audio-aligned.');
     for(const sentence of timing.sentences??[]){
       const text=String(sentence.text??'').trim();
       const wordCount=text.split(/\s+/).filter(Boolean).length;
       assert(wordCount<=12,`${sentence.id??'Caption'}: ${wordCount} Wörter; maximal 12. In kurze nacheinander gezeigte Caption-Einheiten teilen.`);
-      assert(text.length<=72,`${sentence.id??'Caption'}: ${text.length} Zeichen; maximal 72.`);
+      assert(text.length<=68,`${sentence.id??'Caption'}: ${text.length} Zeichen; maximal 68.`);
     }
   }
 }
