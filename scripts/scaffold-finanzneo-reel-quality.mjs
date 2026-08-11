@@ -46,7 +46,7 @@ index.subtitleDisplay={
   maxLines:2,
   minFontSizePx:42,
   maxWordsPerCaptionUnit:12,
-  maxCharactersPerCaptionUnit:72,
+  maxCharactersPerCaptionUnit:68,
   semanticSplitAllowedForLongSentence:true,
   horizontalOverflowForbidden:true,
   clippingForbidden:true,
@@ -83,7 +83,7 @@ timing.rules={
   maxLines:2,
   minFontSizePx:42,
   maxWordsPerCaptionUnit:12,
-  maxCharactersPerCaptionUnit:72,
+  maxCharactersPerCaptionUnit:68,
   semanticSplitAllowedForLongSentence:true,
   horizontalOverflowForbidden:true,
   clippingForbidden:true,
@@ -120,11 +120,11 @@ writeFileSync(qaPath,`${JSON.stringify({
   notes:[],
 },null,2)}\n`,'utf8');
 
-const qualityText=`\n\n## QUALITY CONTRACT V2 — VERBINDLICH\n\n- Ziel: 60 % native Remotion-Animation / 40 % Google-Flow-Bild.\n- Finale Laufzeit: Animation 55–65 %, Bilder 35–45 %.\n- Bei 10 Szenen: 6 Animationen + 4 Bilder.\n- Höchstens eine Bildszene direkt hintereinander.\n- Bildszene normalerweise maximal 8 Sekunden.\n- Dynamische Information (Vergleich, Rechnung, Zeit, Wachstum, Geldfluss, Mechanismus, Ursache→Wirkung) bevorzugt Remotion.\n- Jedes Bild muss vor Einbau semantisch gegen den Voice-Beat geprüft werden.\n- Finale Timeline erst aus echtem finalen Audio + echten Wortzeiten.\n- Caption: genau eine kurze Einheit gleichzeitig, max. 12 Wörter / 72 Zeichen / 2 Zeilen, effektive Schrift mindestens 42 px.\n- Finale MP4 vollständig prüfen; Ergebnis in 05-projektdateien/final-qa.json dokumentieren.\n- Details: docs/REEL-QUALITY-CONTRACT-V2.md\n`;
+const qualityText=`\n\n## QUALITY CONTRACT V2 — VERBINDLICH\n\n- Ziel: 60 % native Remotion-Animation / 40 % Google-Flow-Bild.\n- Finale Laufzeit: Animation 55–65 %, Bilder 35–45 %.\n- Bei 10 Szenen: 6 Animationen + 4 Bilder.\n- Höchstens eine Bildszene direkt hintereinander.\n- Bildszene normalerweise maximal 8 Sekunden.\n- Dynamische Information (Vergleich, Rechnung, Zeit, Wachstum, Geldfluss, Mechanismus, Ursache→Wirkung) bevorzugt Remotion.\n- Jedes Bild muss vor Einbau semantisch gegen den Voice-Beat geprüft werden.\n- Finale Timeline erst aus echtem finalen Audio + echten Wortzeiten.\n- Caption: genau eine kurze Einheit gleichzeitig, max. 12 Wörter / 68 Zeichen / 2 Zeilen, effektive Schrift mindestens 42 px.\n- Finale MP4 vollständig prüfen; Ergebnis in 05-projektdateien/final-qa.json dokumentieren.\n- Details: docs/REEL-QUALITY-CONTRACT-V2.md\n`;
 writeFileSync(techPath,`${readFileSync(techPath,'utf8').trimEnd()}${qualityText}`,'utf8');
 writeFileSync(planPath,`${readFileSync(planPath,'utf8').trimEnd()}\n\n## Visual-Auswahl pro Szene\n\nFür jede Szene vor Produktion ausfüllen:\n- Sprechbeat\n- Hauptaussage\n- Visualtyp\n- Visual Role\n- Begründung für Bild/Animation\n- Expected Visual\n\nDynamische Information ist animation-first. Ziel: 60 % Animation / 40 % Bilder.\n`,'utf8');
 
 console.log('✓ Quality Contract V2 ergänzt.');
 console.log('  Zielmix: 60 % Animation / 40 % Bilder (final 55–65 % Animation).');
-console.log('  Captions: 1 kurze Einheit · max. 12 Wörter · 72 Zeichen · 2 Zeilen · min. 42 px.');
+console.log('  Captions: 1 kurze Einheit · max. 12 Wörter · 68 Zeichen · 2 Zeilen · min. 42 px.');
 console.log('  Final QA: 05-projektdateien/final-qa.json ist vor PRODUCTION COMPLETE Pflicht.');
