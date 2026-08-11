@@ -4,7 +4,27 @@ Datengetriebene Vorlage für vertikale FinanzNeo-Reels von 60 bis 90 Sekunden.
 
 ## Ziel
 
-Neue Reels übernehmen den kanonischen FinanceNeo-Vertrag automatisch, statt alte Layout-/Caption-Regeln neu zu erfinden.
+Neue Reels übernehmen den kanonischen FinanceNeo-Vertrag automatisch. Verbindlich sind `CLAUDE.md`, `reels/PRODUKTIONSSTANDARD.md` und für V17+ `docs/REEL-QUALITY-CONTRACT-V2.md`.
+
+## Visual-Mix für neue Reels
+
+Ziel:
+
+```text
+60 % native Remotion-Animation
+40 % Google-Flow-Bilder
+```
+
+Finale V17-Laufzeit:
+
+```text
+55–65 % Animation
+35–45 % Bilder
+```
+
+Bei 10 Szenen standardmäßig 6 Animationen + 4 Bilder. Keine zwei Bildszenen direkt hintereinander; statische Bildszene normalerweise maximal 8 Sekunden.
+
+Dynamische Information wie Vergleich, Rechnung, Timeline, Wachstum, Geldfluss oder Mechanismus ist animation-first.
 
 ## Beat-Typen
 
@@ -16,7 +36,7 @@ Neue Reels übernehmen den kanonischen FinanceNeo-Vertrag automatisch, statt alt
 - `image`
 - `cta`
 
-## Image-Beats — verbindlich full-frame-no-crop
+## Image-Beats — full-frame-no-crop
 
 Image-Beats verwenden `FullFrameImage`.
 
@@ -25,22 +45,11 @@ Image-Beats verwenden `FullFrameImage`.
 - kein absichtlicher Crop oder Focal-Point-Vertrag
 - kein sichtbarer Bildrand
 - keine unscharfe Bildkopie als Hintergrund
-- Headline + Caption liegen als Overlay über demselben Vollbild
-- nur ein weicher kontinuierlicher `FullFrameReadabilityScrim` für Lesbarkeit
+- Szene 01+: Headline + Caption als Overlay über demselben Vollbild
+- nur weicher kontinuierlicher `FullFrameReadabilityScrim`
 - keine harten Header-/Footer-Flächen
 
-Beispiel:
-
-```tsx
-{
-  id: 'image',
-  type: 'image',
-  durationInFrames: 330,
-  headline: 'DIESELBE SUMME KAUFT WENIGER',
-  imageSrc: 'images/inflation-01.webp',
-  alt: 'Geld verliert auf dem Weg zu einem Warenkorb sichtbar an Kaufkraft',
-}
-```
+Jedes Nutzerbild muss vor Einbau semantisch gegen den gesprochenen Beat geprüft werden. Unpassendes/falsches Bild → nicht rendern; wenn Nutzer neu generieren muss → `BLOCKED`.
 
 `focalX`, `focalY`, `objectFit` und Crop-/Scale-Regeln sind kein Teil des produktiven Image-Beat-Vertrags.
 
@@ -48,16 +57,20 @@ Beispiel:
 
 Die Vorlage verwendet `SentenceKaraokeCaptions`.
 
-- Caption-Wörter benötigen echte `start`/`end`-Zeitstempel aus dem finalen Audio
-- **genau ein vollständiger Satz gleichzeitig**
-- niemals zwei Sätze gleichzeitig
+- Wörter benötigen echte `start`/`end`-Zeitstempel aus dem finalen Audio
+- genau **eine kurze Caption-Einheit gleichzeitig**
+- ein langer gesprochener Satz darf in mehrere nacheinander angezeigte Bedeutungs-/Pauseneinheiten geteilt werden
+- niemals zwei Caption-Einheiten gleichzeitig
+- maximal 12 Wörter pro Einheit
+- maximal 68 Zeichen pro Einheit
 - hart maximal zwei sichtbare Zeilen
-- ausreichend große Smartphone-Schrift
-- aktives Wort grün
-- Satz bleibt durch kurze Pausen sichtbar
-- Satzwechsel beim ersten Wort des nächsten Satzes
+- mindestens 42 px effektive Schriftgröße
+- aktives Wort grün nur während echter Wortzeit
+- Einheit bleibt durch kurze Pause sichtbar
+- Wechsel beim ersten gesprochenen Wort der nächsten Einheit
 - keine gleichmäßig geschätzten Wortzeiten
 - keine undurchsichtige/schwarze Caption-Karte
+- horizontaler Overflow/Clipping ist ein Renderfehler
 
 ## Layout
 
@@ -65,29 +78,46 @@ Die Vorlage verwendet `SentenceKaraokeCaptions`.
 Headline Top        ≈ 72
 Image Beat          = Full Frame Y 0–1920
 Native Content      ≈ Y 220–1490
-Caption Bottom      ≈ 300
-Caption Left        ≈ 64
-Caption Right       ≈ 156
-Platform UI Bottom  ≥ 260
+Caption Bottom      ≈ 320
+Caption Left        ≈ 72
+Caption Right       ≈ 180
+Platform UI Bottom  ≥ 280
 ```
-
-Untertitel bleiben oberhalb der Plattform-UI-Totzone; rechts bleibt zusätzlicher Abstand für vertikale UI-Buttons.
 
 ## Native Remotion-Szenen
 
 Der Hintergrund läuft über die komplette 1080×1920-Szene und darf keinen Boden, Horizont, Wand-/Studio-Split oder sichtbare obere/untere Zone erzeugen.
 
+Animationen sind nicht nur Dekoration. Sie erklären Bewegung, Vergleich, Rechnung, Zeitentwicklung oder Mechanismus.
+
+## Timing
+
+Finales Audio ist die einzige Zeitquelle:
+
+```text
+final audio
+→ real word timestamps
+→ caption units
+→ resolved scene timeline
+→ animation timing
+```
+
+Finale Timeline darf keine ungelösten `durationFrames: 0` enthalten.
+
 ## Konfigurationsprüfung
 
-Vor dem Render werden u. a. geprüft:
+Vor finaler Freigabe werden u. a. geprüft:
 
 - 60–90 Sekunden
-- Hook zuerst, CTA zuletzt
-- eindeutige Beat-IDs
-- positive ganzzahlige Frame-Dauern
+- positive reale Frame-Dauern
+- V17-Visualmix und Laufzeitquote
+- keine direkt aufeinanderfolgenden Bildszenen
+- Bildszene normalerweise <= 8 Sekunden
 - Image-Beats besitzen Bildquelle
-- keine alten Framing-Felder wie `focalX`, `focalY` oder `objectFit`
-- Caption-Zeitstempel sind chronologisch und gültig
+- keine alten Framing-Felder
+- echte Caption-Zeitstempel
+- Caption-Längen/Safe-Area
+- vollständige Final-MP4-QA
 
 ## Safe-Area-Guide
 
@@ -107,6 +137,16 @@ showSafeAreaGuide: false
 
 Zahlenbeats dürfen keine erfundenen Ergebnisse enthalten. Werte kommen aus zentralen Finanzberechnungen, validierten Daten oder klar markierten Beispielannahmen.
 
+## Final-QA
+
+Neue V17-Reels dokumentieren die tatsächliche vollständige MP4-Prüfung in:
+
+```text
+05-projektdateien/final-qa.json
+```
+
+`status: passed` erst nach echter Prüfung von Bild/Voice-Match, Szenensync, Caption-Safe-Area, Wort-Sync, 55–65 % Animationslaufzeit, statischen Tails und Audiopegeln.
+
 ## Demo
 
-`ReelTemplateDemo.tsx` liegt unter Experiments und ist keine Produktionsfreigabe. Der Validator verhindert, dass alte Adaptive-Safe-Fill-/Inset-/gruppenbasierte Caption-Regeln wieder in das produktive Template zurückkehren.
+`ReelTemplateDemo.tsx` liegt unter Experiments und ist keine Produktionsfreigabe.
