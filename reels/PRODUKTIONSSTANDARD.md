@@ -56,11 +56,13 @@ Eine Szene hat exakt eine Produktionsquelle. Animationsszenen bekommen kein Nutz
 Prompt lesen
 → genau EIN Bild erzeugen
 → sofort endgültig umbenennen
-→ Motiv + Labels + Gesicht + Hintergrund + Dateiname prüfen
+→ Motiv + Text + Gesicht + Hintergrund + Dateiname prüfen
 → erst dann nächstes Bild
 ```
 
 Bildnummer = echte Szenennummer. Cover = `Bild 00`. Animationsnummern bleiben reserviert.
+
+Für `Bild 00` zusätzlich immer prüfen: exakte Cover-Überschrift vorhanden, korrekt geschrieben, vollständig sichtbar und auf Smartphone lesbar. Fehlerhaftes Cover wird in Google Flow neu erzeugt; die Überschrift wird nicht in Remotion repariert.
 
 Alle fertigen Nutzerbilder erst nach Abschluss gemeinsam nach:
 
@@ -68,7 +70,7 @@ Alle fertigen Nutzerbilder erst nach Abschluss gemeinsam nach:
 03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-## 5. Bildwelt
+## 5. Bildwelt und Textregel
 
 - Premium Fintech Editorial 3D
 - eine dominante Finanzmetapher / Hero-Objekt
@@ -79,8 +81,25 @@ Alle fertigen Nutzerbilder erst nach Abschluss gemeinsam nach:
 - Rot-Orange für Verlust/Risiko/Schulden
 - smooth rounded geometry
 - keine Dioramen, Neon-Tunnel, Sci-Fi-Korridore, Dashboards, Pixar/Clay/Fotorealismus
+
+### Cover `Bild 00`
+
+- **eine große deutsche Cover-Überschrift direkt im Google-Flow-Bild ist Pflicht**
+- Überschrift nennt konkret das Reel-Thema
+- im Prompt steht sie exakt unter `COVER-ÜBERSCHRIFT – EXAKT SO:`
+- ungefähr 3–8 Wörter, maximal zwei Zeilen
+- keine separate Textbox, kein Header-Balken, kein zweiter Hintergrund
+- kein zusätzlicher Untertitel, CTA oder erklärender Satz
+- falsche/fehlende/abgeschnittene Überschrift → Cover neu erzeugen
+- **keine Cover-Überschrift in Remotion ergänzen oder ersetzen**
+
+### Szenenbilder `Bild 01+`
+
 - nur kurze deutsche Objektlabels, normalerweise 1–3 Wörter
-- keine KI-Headline, kein KI-Untertitel, kein erklärender Satz
+- keine KI-Headline
+- kein KI-Untertitel
+- kein erklärender Satz
+- Szenenheadline erst in Remotion
 
 ## 6. Hintergrund
 
@@ -95,6 +114,8 @@ Verboten:
 - Horizont
 - Panels
 
+Die Cover-Überschrift liegt direkt auf demselben nahtlosen Hintergrund. Sie bekommt keinen separaten Balken oder Panel-Hintergrund.
+
 Native Remotion-Szenen verwenden ebenfalls genau einen durchgehenden Full-Canvas-Hintergrund ohne Boden, Horizont, Wand-Split oder Studio-Zonen.
 
 ## 7. Bilddarstellung — full-frame-no-crop
@@ -108,7 +129,8 @@ Verbindlich:
 - kein Zoom-/Focal-Point-Vertrag
 - kein sichtbarer Inset-Bildrand
 - keine unscharfe Bildkopie als Hintergrund
-- Headline + Untertitel als Overlay über demselben Vollbild
+- bei Szene 01+ Headline + Untertitel als Overlay über demselben Vollbild
+- Cover `Bild 00` behält seine Google-Flow-Überschrift; keine Remotion-Ersatzheadline
 - nur weicher kontinuierlicher Transparenz-Scrim für Lesbarkeit
 - keine harte obere/untere Remotion-Hintergrundfläche
 
@@ -127,13 +149,13 @@ src/design-system/FullFrameImage.tsx
 Richtwerte für 1080 × 1920:
 
 ```text
-headlineTop       ≈ 72
-Bildszene          = Y 0–1920 vollständig
-Animationsinhalt   ≈ Y 220–1490
-subtitleBottom    ≈ 300
-subtitleLeft      ≈ 64
-subtitleRight     ≈ 156
-platformUiBottom  ≥ 260
+Szenenheadline 01+ ≈ Y 72
+Bildszene           = Y 0–1920 vollständig
+Animationsinhalt    ≈ Y 220–1490
+subtitleBottom      ≈ 300
+subtitleLeft        ≈ 64
+subtitleRight       ≈ 156
+platformUiBottom    ≥ 260
 ```
 
 - Bildszenen besitzen keinen separaten mittleren Visualbereich.
@@ -141,6 +163,7 @@ platformUiBottom  ≥ 260
 - Untertitel niedrig, aber oberhalb der Plattform-UI-Totzone.
 - Rechts zusätzliche UI-Safe-Area.
 - Kein schwarzer Footer unter dem Bild und kein separater Header-Hintergrund.
+- Cover-Überschrift ist Teil des Google-Flow-Covers, nicht des Remotion-Headline-Layouts.
 
 ## 9. Untertitel
 
@@ -186,7 +209,8 @@ Verboten:
 - Szenenschnitte an echten Satzanfängen
 - Animationen relativ zur tatsächlichen Szenendauer
 - keine pauschal gleich langen Szenen
-- Headlines/Icons in Remotion
+- Szenenheadlines/Icons ab Szene 01 in Remotion
+- Cover-Überschrift ausschließlich aus Google Flow
 - Bild- und Animationsszenen müssen visuell ähnlich präsent sein
 - alle Szenenhintergründe ohne sichtbaren Floor-/Wall-/Horizont-Split
 
@@ -229,11 +253,12 @@ YouTube ausschließlich Longform unter `youtube/`.
 Wenn Pflichtbilder + genau ein Audio vorhanden sind und der Nutzer das Reel fertigstellen lässt, arbeitet Antigravity ohne `weiter?` bis zum vollständigen Ergebnis:
 
 ```text
-Medien prüfen
+Medien prüfen inkl. Cover-Überschrift
 → echte Wortzeiten
 → Szenentiming
 → Remotion
 → full-frame-no-crop Bilder
+→ Szenenheadlines 01+; keine Remotion-Coverheadline
 → genau-ein-Satz-Karaoke
 → eine universelle Caption + genau 5 Hashtags
 → finaler Validator
@@ -247,7 +272,7 @@ Medien prüfen
 → Commit/Draft-PR
 ```
 
-Bei visueller QA explizit prüfen: kein zweiter Hintergrund, kein abgeschnittener Bildboden, keine harten Header/Footer-Flächen, kein Inset-Panel, keine schwarze Caption-Karte, keine zwei Untertitelsätze, sichere Untertitelposition.
+Bei visueller QA explizit prüfen: Cover-Überschrift exakt und lesbar, kein zweiter Hintergrund, kein abgeschnittener Bildboden, keine harten Header/Footer-Flächen, kein Inset-Panel, keine schwarze Caption-Karte, keine zwei Untertitelsätze, sichere Untertitelposition.
 
 Finaler Validator:
 
@@ -259,6 +284,6 @@ Normale technische Fehler werden selbstständig behoben. Stoppen nur bei echten 
 
 ## 14. Freigabe
 
-**PRODUCTION COMPLETE** erst nach tatsächlicher finaler Validierung, Typecheck, Preview, visueller Prüfung, vollständigem MP4, fertiger universeller Caption mit genau 5 Hashtags und Safety Audit.
+**PRODUCTION COMPLETE** erst nach tatsächlicher finaler Validierung, Typecheck, Preview, visueller Prüfung, korrekter Google-Flow-Cover-Überschrift, vollständigem MP4, fertiger universeller Caption mit genau 5 Hashtags und Safety Audit.
 
 Merge und Publishing bleiben separate Nutzerfreigaben.
