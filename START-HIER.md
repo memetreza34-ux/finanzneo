@@ -4,32 +4,47 @@
 
 1. Lies `CLAUDE.md` vollständig.
 2. Lies `reels/PRODUKTIONSSTANDARD.md`.
-3. Bei Bildaufgaben lies `docs/FINANZNEO-IMAGE-WORLD-V3.md`, `docs/IMAGE-SYSTEM.md`, `docs/IMAGE-PROMPT-LIBRARY.md` und `docs/IMAGE-QA-CHECKLIST.md`.
+3. Lies für neue Reels `docs/REEL-QUALITY-CONTRACT-V2.md`.
 4. Entscheide den Visualtyp mit `docs/BEAT-TO-IMAGE-RULES.md`.
-5. Für Veröffentlichung lies `docs/PLATFORM-PUBLISHING.md`.
-6. Beim Ziel-Reel lies `03-szenen/alle-bildprompts.txt`, `03-szenen/scene-index.json` und `05-projektdateien/szenenplan.md`.
+5. Bei Bildaufgaben lies `docs/FINANZNEO-IMAGE-WORLD-V3.md`, `docs/IMAGE-SYSTEM.md`, `docs/IMAGE-PROMPT-LIBRARY.md` und `docs/IMAGE-QA-CHECKLIST.md`.
+6. Für Veröffentlichung lies `docs/PLATFORM-PUBLISHING.md`.
+7. Beim Ziel-Reel lies `03-szenen/scene-index.json`, `05-projektdateien/szenenplan.md` und `03-szenen/alle-bildprompts.txt`.
 
 `CLAUDE.md` ist die höchste Regelquelle. Bei Widersprüchen gelten ältere Regeln nicht.
 
-## Aktueller Kanalstandard
+## Aktueller Reel-Standard
+
+- 1080 × 1920, 30 fps, normalerweise 60–90 Sekunden
+- **Ziel: 60 % native Remotion-Animation / 40 % Google-Flow-Bilder**
+- neue V17-Reels final: **55–65 % Animationslaufzeit / 35–45 % Bildlaufzeit**
+- bei 10 Szenen standardmäßig 6 Animationen + 4 Bilder
+- höchstens eine Bildszene direkt hintereinander
+- statische Bildszene normalerweise maximal 8 Sekunden
+- Vergleich, Rechnung, Timeline, Wachstum, Geldfluss, Mechanismus und sichtbare Veränderung sind animation-first
+- Google-Flow-Bilder hauptsächlich für Hook, konkrete Situation, starke einzelne Metapher und Abschlussbild
+- jedes Nutzerbild vor Einbau semantisch gegen den exakten Voice-Beat prüfen
+- finale Timeline ausschließlich aus dem finalen Audio und echten Wortzeiten erzeugen
+- keine finalen `durationFrames: 0`
+- genau eine kurze Caption-Einheit gleichzeitig
+- max. 12 Wörter / 68 Zeichen / 2 Zeilen / mindestens 42 px
+- Caption ungefähr Bottom 320 / Left 72 / Right 180
+- vollständige finale MP4-QA ist Pflicht
+- für V17-Reels muss `05-projektdateien/final-qa.json` nach echter Prüfung `passed` sein
+
+## Kanal-/Bildstandard
 
 - deutsche Finanzgrundlagen für Anfänger
-- 1080 × 1920, 30 fps
-- 60–90 Sekunden als Reel-Standard
 - Reel-Plattformen: Instagram Reels, TikTok, Facebook Reels und Snapchat
-- dieselbe universelle Social-Caption auf allen vier Reel-Plattformen
-- genau 5 relevante Hashtags pro Caption
-- YouTube: ausschließlich eigenständige längere Videos unter `youtube/`; keine YouTube Shorts
-- Untertitel Pflicht
+- dieselbe universelle Social-Caption auf allen vier Plattformen
+- genau 5 relevante Hashtags
+- YouTube ausschließlich eigenständige Longform-Videos unter `youtube/`; keine YouTube Shorts
 - Premium Fintech Editorial 3D + Remotion
 - eine starke visuelle Metapher pro Bild
 - optional stilisierte 3D-Person; wenn Person, Gesicht klar sichtbar
-- **Cover `Bild 00`: große klare deutsche Überschrift direkt aus Google Flow, die konkret das Reel-Thema nennt; keine Remotion-Ersatzheadline**
+- **Cover `Bild 00`: große klare deutsche Überschrift direkt aus Google Flow; keine Remotion-Ersatzheadline**
 - **Szenenbilder `Bild 01+`: nur kurze deutsche Objektlabels; keine KI-Headline/Untertitel/Sätze**
 - genau EIN nahtloser deep-charcoal-green-black Hintergrund von oben bis unten
-- keine Prozent-Zonen, Hintergrundbänder, Floor-Wall-Grenze oder sichtbarer Horizont
-- Gold nur für Geld/Wert, Rot-Orange nur für Risiko/Verlust/Schulden
-- Antigravity erzeugt keine Bilder; der Nutzer erstellt sie selbst mit Google Flow
+- Antigravity erzeugt keine Bilder; Nutzer erstellt sie selbst mit Google Flow
 
 ## Einfache Reel-Struktur
 
@@ -49,7 +64,7 @@ caption.txt
 word-timings.json
 ```
 
-`caption.txt` ist direkt kopierfertig und wird 1:1 für Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet. Sie enthält eine starke erste Zeile, kurzen Nutzen/Aha, optional einen natürlichen CTA und exakt 5 passende Hashtags.
+`caption.txt` wird 1:1 für Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet und enthält exakt 5 passende Hashtags.
 
 Nicht mehr erstellen:
 
@@ -65,52 +80,71 @@ youtube-shorts.txt
 
 ```text
 Neues FinanzNeo-Reel.
-
 Thema: [THEMA]
 
-Lies zuerst vollständig:
+Lies vollständig:
 - CLAUDE.md
 - reels/PRODUKTIONSSTANDARD.md
+- docs/REEL-QUALITY-CONTRACT-V2.md
+- docs/BEAT-TO-IMAGE-RULES.md
 - docs/FINANZNEO-IMAGE-WORLD-V3.md
 - docs/IMAGE-SYSTEM.md
-- docs/BEAT-TO-IMAGE-RULES.md
 - docs/IMAGE-PROMPT-LIBRARY.md
 - docs/IMAGE-QA-CHECKLIST.md
 - docs/PLATFORM-PUBLISHING.md
 
 Erstelle selbstständig:
 1. Recherche + Quellen
-2. geprüftes Skript
+2. geprüftes Skript mit kurzen caption-tauglichen Aussagen
 3. Szenen-/Beat-Plan
-4. Bild-/Remotion-Zuordnung
-5. vollständige Google-Flow-Bildprompts mit echten Szenennummern
-6. für Cover Bild 00 eine konkrete deutsche Pflichtüberschrift unter `COVER-ÜBERSCHRIFT – EXAKT SO:`; direkt in Google Flow erzeugen, später nicht in Remotion ersetzen
-7. Remotion-Spezifikationen
-8. genau eine universelle Social-Caption für alle vier Reel-Plattformen mit exakt 5 relevanten Hashtags
+4. Bild-/Remotion-Zuordnung MIT Begründung je Szene
+5. Ziel 60 % Animation / 40 % Bilder; bei 10 Szenen standardmäßig 6 Animationen + 4 Bilder
+6. dynamische Information animation-first
+7. höchstens eine Bildszene direkt hintereinander; Bildszene normalerweise max. 8 Sekunden
+8. für jede Bildszene ein konkretes expectedVisual
+9. vollständige Google-Flow-Bildprompts mit echten Szenennummern
+10. Cover Bild 00 mit konkreter Pflichtüberschrift unter COVER-ÜBERSCHRIFT – EXAKT SO:
+11. Remotion-Spezifikationen
+12. eine universelle Social-Caption mit exakt 5 relevanten Hashtags
+13. Quality-Contract-Metadaten + pending final-qa.json
 
-Bilder erzeugt ausschließlich der Nutzer. Antigravity erzeugt keine Bilder.
-Keine YouTube Shorts erzeugen. YouTube ist ausschließlich Longform unter `youtube/`.
+Bilder erzeugt ausschließlich der Nutzer.
+Keine YouTube Shorts.
 ```
 
 ## Bildfreigabe
 
-Cover `Bild 00` neu erzeugen, wenn unter anderem:
+Cover `Bild 00` neu erzeugen, wenn:
 
-- die exakt vorgegebene deutsche Cover-Überschrift fehlt, falsch geschrieben, abgeschnitten oder schlecht lesbar ist
-- ein zusätzlicher Subtitle, CTA oder erklärender Satz erscheint
-- hinter der Überschrift ein eigener Balken/Panel/zweiter Hintergrund entsteht
+- Pflichtüberschrift fehlt/falsch/abgeschnitten/unlesbar ist
+- zusätzlicher Subtitle/CTA/erklärender Satz erscheint
+- eigener Balken/Panel/zweiter Hintergrund entsteht
 
-Szenenbild `Bild 01+` neu erzeugen, wenn unter anderem:
+Szenenbild `Bild 01+` neu erzeugen, wenn:
 
-- zwei sichtbare Hintergründe/Bänder entstehen
-- eine horizontale Trennkante, Floor-Wall-Grenze oder ein Horizont sichtbar ist
-- eine dargestellte Person kein klar sichtbares Gesicht hat
-- eine große KI-Headline, ein Untertitel oder ein erklärender Satz erscheint
-- Labels falsch oder zufällig sind
-- das Bild wie Diorama, Game-Level, Neon-Tunnel, Sci-Fi-Korridor oder Dashboard wirkt
+- Motiv nicht exakt zum gesprochenen Beat passt
+- Aussage nicht schnell verständlich ist
+- zufällige/falsche Wörter oder unerlaubte Labels erscheinen
+- Zahl/Fakt falsch ist
+- widersprüchliche Zusatzinformation erscheint
+- Hintergrund/Bildwelt/Person-Regeln verletzt sind
 
-Remotion darf eine fehlerhafte Cover-Überschrift niemals reparieren oder ersetzen.
+Remotion darf ein falsches Nutzerbild nicht kaschieren und eine fehlerhafte Cover-Überschrift niemals reparieren.
 
 ## Produktionsfreigabe
 
-Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover vorhanden sind, das Cover die exakte Google-Flow-Pflichtüberschrift enthält, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview tatsächlich ausgeführt wurden, Bildsatz + komplette MP4 geprüft wurden und die universelle Caption mit genau 5 relevanten Hashtags fertig ist.
+Ein neues V17-Reel ist erst final, wenn:
+
+- alle erwarteten Nutzerbilder + genau ein finales Voiceover vorhanden sind
+- jedes Bild semantisch gegen den Voice-Beat geprüft wurde
+- echte Wort-Timings `final-audio-aligned` sind
+- finale Timeline vollständig aufgelöst ist
+- tatsächliche Animationslaufzeit 55–65 % beträgt
+- Captions sicher und synchron sind
+- Validator + Typecheck + Preview tatsächlich liefen
+- vollständige finale MP4 tatsächlich geprüft wurde
+- Audio-QA bestanden ist
+- `05-projektdateien/final-qa.json` tatsächlich `passed` ist
+- universelle Caption mit genau 5 Hashtags fertig ist
+
+`PRODUCTION COMPLETE` erst danach.
