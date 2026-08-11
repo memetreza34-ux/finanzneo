@@ -59,17 +59,24 @@ if (errors.length === 0) {
   if (!template.includes('SAFE_AREA')) errors.push('ReelTemplate verwendet nicht die zentralen Safe-Area-Tokens.');
   if (!template.includes('FullFrameImage')) errors.push('ReelTemplate verwendet FullFrameImage nicht für Nutzerbilder.');
   if (!template.includes('FullFrameReadabilityScrim')) errors.push('ReelTemplate verwendet keinen kontinuierlichen FullFrameReadabilityScrim.');
-  if (!template.includes('SentenceKaraokeCaptions')) errors.push('ReelTemplate verwendet nicht die satzbasierten Karaoke-Untertitel.');
+  if (!template.includes('SentenceKaraokeCaptions')) errors.push('ReelTemplate verwendet nicht die sicheren Karaoke-Untertitel.');
   if (template.includes('AdaptiveSafeFillImage')) errors.push('AdaptiveSafeFillImage ist im ReelTemplate verboten.');
   if (template.includes('<Captions words=')) errors.push('Alte gruppenbasierte Captions-Komponente ist noch im ReelTemplate aktiv.');
   if (!template.includes('VerticalSafeAreaGuide')) errors.push('ReelTemplate besitzt kein visuelles Safe-Area-Prüfraster.');
   if (!template.includes("from '../../design-system'")) errors.push('ReelTemplate importiert nicht aus dem zentralen Designsystem.');
 
   if (!fullFrame.includes("objectFit: 'contain'")) errors.push('FullFrameImage muss das vollständige vertikale 9:16-Bild ohne absichtlichen Crop erhalten.');
-  if (!fullFrame.includes("inset: 0")) errors.push('FullFrameImage muss die komplette Szenenfläche belegen.');
+  if (!fullFrame.includes('inset: 0')) errors.push('FullFrameImage muss die komplette Szenenfläche belegen.');
   if (!fullFrame.includes('FullFrameReadabilityScrim')) errors.push('FullFrameImage-Datei muss den kontinuierlichen Lesbarkeits-Scrim bereitstellen.');
 
-  if (!captions.includes('Exactly one spoken sentence')) errors.push('Caption-Komponente dokumentiert die Ein-Satz-Regel nicht.');
+  if (!captions.includes('const MAX_WORDS = 12')) errors.push('Caption-Komponente muss auf maximal 12 Wörter pro Einheit begrenzt sein.');
+  if (!captions.includes('const MAX_CHARS = 68')) errors.push('Caption-Komponente muss auf maximal 68 Zeichen pro Einheit begrenzt sein.');
+  if (!captions.includes('const MIN_FONT_SIZE = 42')) errors.push('Caption-Komponente muss mindestens 42 px effektive Schriftgröße sichern.');
+  if (!captions.includes('bottom = 320')) errors.push('Caption-Komponente muss die neue sichere Bottom-Position 320 verwenden.');
+  if (!captions.includes('left = 72')) errors.push('Caption-Komponente muss links 72 px Safe-Area verwenden.');
+  if (!captions.includes('right = 180')) errors.push('Caption-Komponente muss rechts 180 px Safe-Area verwenden.');
+  if (!captions.includes('splitCaptionUnits')) errors.push('Caption-Komponente muss lange gesprochene Sätze in kurze sequenzielle Caption-Einheiten teilen können.');
+  if (!captions.includes('Caption unit too wide for safe area')) errors.push('Caption-Komponente muss zu breite Captions hart blockieren statt überlaufen lassen.');
   if (captions.includes("background:'rgba") || captions.includes('background: \'rgba')) errors.push('Caption-Komponente darf keine undurchsichtige Caption-Karte erzeugen.');
 
   if (!experiments.includes('id="ReelTemplateDemo"')) errors.push('ReelTemplateDemo ist nicht unter Experiments registriert.');
@@ -87,4 +94,4 @@ if (errors.length > 0) {
 
 console.log('✓ ReelTemplateDemo liegt korrekt unter Experiments.');
 console.log('✓ Nutzerbilder sind full-frame-no-crop; kein mittlerer Bildcontainer/Crop-Vertrag bleibt aktiv.');
-console.log('✓ Satzbasierte Karaoke-Untertitel sind auf genau einen Satz und maximal zwei Zeilen ausgelegt.');
+console.log('✓ Karaoke-Captions nutzen eine kurze Einheit, max. 12 Wörter/68 Zeichen, max. 2 Zeilen und min. 42 px.');
