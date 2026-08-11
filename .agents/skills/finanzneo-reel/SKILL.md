@@ -59,6 +59,8 @@ Final images are collected only in `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
 
 ## Image-world rules
 
+Common:
+
 - Premium Fintech Editorial 3D
 - one dominant financial metaphor / hero object
 - optional stylized adult; visible face required when present
@@ -66,11 +68,28 @@ Final images are collected only in `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
 - emerald/mint accents
 - gold for money/value
 - red-orange for loss/risk/debt
-- short German object labels only, normally 1–3 words
-- no generated headline/subtitle/full explanatory sentence
-- no Pixar/clay/photorealism/diorama/neon tunnel/sci-fi corridor/dashboard
 - one seamless continuous background from top to bottom
 - no percentage zones, bands, floor-wall boundary, horizon or panels
+- no Pixar/clay/photorealism/diorama/neon tunnel/sci-fi corridor/dashboard
+
+### Cover `Bild 00`
+
+The cover is the only generated-headline exception.
+
+- MUST contain one large German cover headline directly in the Google Flow image.
+- The target Reel's cover prompt must contain `COVER-ÜBERSCHRIFT – EXAKT SO:` followed by the exact headline.
+- Headline must state the Reel topic clearly, ideally 3–8 words and max two lines.
+- No subtitle, CTA or explanatory sentence.
+- No separate headline box, header band or second background.
+- Check exact spelling and legibility.
+- Missing/misspelled/clipped/unreadable cover headline → **BLOCKED** and user must regenerate the cover in Google Flow.
+- NEVER add, replace or repair the cover headline in Remotion.
+
+### Scene images `Bild 01+`
+
+- short German object labels only, normally 1–3 words
+- no generated headline/subtitle/full explanatory sentence
+- scene headlines belong to Remotion
 
 ## Remotion image presentation — mandatory
 
@@ -80,7 +99,8 @@ Use **full-frame-no-crop** for productive user-image scenes:
 - never wrap user images in `VisualStage` or a smaller middle container
 - no intentional crop, zoom/focal-point contract or visible inset panel
 - no blurred duplicate image background
-- headline and subtitle are overlays over the same full image
+- scene 01+ headline and subtitle are overlays over the same full image
+- cover uses its Google Flow headline and receives no Remotion replacement headline
 - only a soft continuous transparent readability scrim is allowed; no hard header/footer background blocks
 - `object-fit: contain` is allowed only across the complete 1080×1920 scene for a vertical 9:16 source
 
@@ -91,7 +111,7 @@ Native Remotion animation scenes must use one continuous full-canvas background 
 Target layout at 1080×1920:
 
 ```text
-headlineTop ≈ 72
+scene 01+ headlineTop ≈ 72
 image scene = full Y 0–1920
 animation content ≈ Y 220–1490
 subtitleBottom ≈ 300
@@ -161,22 +181,24 @@ youtube-shorts.txt
 When the media gate passes, continue automatically through:
 
 1. target-media ingest/sync
-2. real final-audio word timings
-3. sentence-based scene timing
-4. Remotion implementation
-5. full-frame-no-crop user-image integration
-6. exactly-one-sentence karaoke captions
-7. one universal social caption with exactly 5 relevant hashtags
-8. final validator
-9. TypeScript
-10. preview render
-11. visual QA: first/middle/last frame of every scene + contact sheet
-12. explicitly reject second background areas, chopped image bottoms, hard header/footer blocks, inset image panels, opaque caption cards or tiny/unsafe captions
-13. full MP4 render/review with audio
-14. audio-level check when available
-15. fix and rerun every recoverable issue
-16. safety audit
-17. commit + draft PR when appropriate
+2. verify cover `Bild 00` contains the exact Google Flow cover headline; if not, BLOCKED rather than Remotion repair
+3. real final-audio word timings
+4. sentence-based scene timing
+5. Remotion implementation
+6. full-frame-no-crop user-image integration
+7. scene 01+ headlines only; no Remotion cover headline
+8. exactly-one-sentence karaoke captions
+9. one universal social caption with exactly 5 relevant hashtags
+10. final validator
+11. TypeScript
+12. preview render
+13. visual QA: first/middle/last frame of every scene + contact sheet
+14. explicitly reject wrong cover headline, second background areas, chopped image bottoms, hard header/footer blocks, inset image panels, opaque caption cards or tiny/unsafe captions
+15. full MP4 render/review with audio
+16. audio-level check when available
+17. fix and rerun every recoverable issue
+18. safety audit
+19. commit + draft PR when appropriate
 
 Final validation:
 
