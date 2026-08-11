@@ -38,28 +38,31 @@ Fehlt/falsch/mehrdeutig → `BLOCKED`. Keine Ersatzmedien.
 
 ## Remotion-Framing — verbindlicher Stand
 
-Alte `contain`-/1.04-/0.20-/0.34-Regeln sind nicht mehr gültig.
+Bildszenen verwenden **full-frame-no-crop**:
 
-Bildszenen verwenden `adaptive-safe-fill`:
-
-- Bild füllt die nutzbare Visual-Fläche maximal
+- komplettes vertikales 9:16-Nutzerbild über die gesamte 1080×1920-Szene
+- kein `VisualStage`/Mittel-Container um Nutzerbilder
+- kein absichtlicher Crop, Zoom oder Focal-Point-Vertrag
 - kein kleines Poster/Inlay
 - kein sichtbarer Bildrand
-- keine unscharfe Bildkopie als Hintergrund
-- zuerst leere nahtlose Hintergrundfläche croppen
-- Gesicht, Labels, Hero-Objekt und Geld/Wert schützen
-- pro Szene Focal Point verwenden
+- keine unscharfe Bildkopie
+- Headline + Untertitel als Overlay über demselben Bild
+- nur kontinuierlicher transparenter Lesbarkeits-Scrim
+- keine harte obere/untere Hintergrundfläche
 
 Richtlayout:
 
 ```text
-headlineTop ≈ 70
-visualTop ≈ 210
-visualBottom ≈ 1515
-subtitleBottom ≈ 280
-subtitleLeft ≈ 60
-subtitleRight ≈ 180
+headlineTop ≈ 72
+imageScene = Y 0–1920
+animationContent ≈ Y 220–1490
+subtitleBottom ≈ 300
+subtitleLeft ≈ 64
+subtitleRight ≈ 156
+platformUiSafeBottom ≥ 260
 ```
+
+Native Remotion-Szenen verwenden einen durchgehenden Full-Canvas-Hintergrund ohne Boden, Horizont oder Studio-Split.
 
 ## Audio und Video-Captions
 
@@ -67,9 +70,11 @@ subtitleRight ≈ 180
 - echte Wort-start/end-Zeitstempel aus genau diesem Audio
 - keine gleichmäßig geschätzten Wortzeiten
 - `word-timings.json` final nur mit `timingStatus: final-audio-aligned`
-- bevorzugt 1 vollständiger Satz gleichzeitig
-- maximal 2 sehr kurze Sätze, falls nötig
+- **genau 1 vollständiger Satz gleichzeitig**
+- niemals 2 Sätze gleichzeitig
 - hart maximal 2 Zeilen
+- ausreichend große Smartphone-Schrift
+- keine schwarze/undurchsichtige Caption-Karte
 - aktuelles Wort nur während seiner echten Audiozeit grün
 - Satzwechsel exakt beim ersten Wort des nächsten Satzes
 - kurze Pausen halten vorherigen Satz sichtbar
@@ -100,6 +105,15 @@ Pflicht:
 npm run reel:validate -- reels/2026-08-03_bis_2026-08-09/donnerstag/reel-02_notgroschen-stufenplan --final
 ```
 
-Danach TypeScript, Preview, Frame-/Kontaktbogen-QA, Social-Caption-QA, vollständiges MP4 mit Ton und Safety Audit.
+Danach TypeScript, Preview, erste/mittlere/letzte Frames jeder Szene, Kontaktbogen, Caption-Safe-Area, vollständiges MP4 mit Ton und Safety Audit.
+
+Bei visueller QA besonders prüfen:
+
+- kein zweiter Hintergrundbereich
+- Bild reicht sichtbar bis zum unteren Frame
+- kein separater Header/Footer
+- kein Inset-Bildpanel
+- keine schwarze Caption-Karte
+- genau ein Untertitelsatz
 
 `PRODUCTION COMPLETE` erst nach tatsächlichem Abschluss dieser Prüfungen.
