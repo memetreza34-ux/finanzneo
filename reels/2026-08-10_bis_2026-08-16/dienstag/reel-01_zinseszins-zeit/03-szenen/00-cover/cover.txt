@@ -2,14 +2,28 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 00 - Zinseszins Zeit gegen Sparrate.png`
 
 WICHTIG:
-Erzeuge GENAU EIN vertikales 9:16-Bild und benenne es danach sofort exakt wie oben um. Der Dateiname darf nicht im Bild stehen.
+Erzeuge GENAU EIN vertikales 9:16-Cover und benenne es danach sofort exakt wie oben um. Der Dateiname darf nicht im Bild stehen.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-BESCHRIFTUNGEN – EXAKT SO:
-- Zeit
-- Sparrate
-- Zinseszins
+COVER-ÜBERSCHRIFT – EXAKT SO:
+`ZINSESZINS: ZEIT VS. SPARRATE`
+
+TYPOGRAFIE:
+Die Cover-Überschrift MUSS direkt im von Google Flow erzeugten Bild enthalten sein. Groß, klar, hochwertig, sofort auf dem Smartphone lesbar. Maximal zwei Zeilen. Empfohlene Aufteilung:
+`ZINSESZINS:`
+`ZEIT VS. SPARRATE`
+Keine separate Textbox, kein Balken und kein zweiter Hintergrund hinter der Überschrift. Die Typografie muss sich direkt in den nahtlosen Hintergrund integrieren.
+
+OBJEKTLABELS:
+Keine zusätzlichen Objektlabels nötig. Die Cover-Überschrift trägt die Textaussage.
 
 BILDPROMPT:
-Premium fintech editorial 3D render of one large elegant emerald clock fused with a growing spiral of gold euro coins. On one side a smaller steady stream of coins travels along a very long glowing time arc; on the other side a larger stream travels along a visibly shorter arc. The long-time side ends in the larger accumulated gold mass, making time versus savings rate understandable in one second. Include only the short German object labels `Zeit`, `Sparrate`, and `Zinseszins` close to the relevant objects. Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same continuous material, tone and gradient from top edge to bottom edge. No horizontal divisions, no panels, no floor-wall boundary, no horizon line. No headline. No subtitle. No explanatory sentence. No dashboard, no tiny diorama, no photorealism, no Pixar, no clay. Keep all important objects and labels safely inside the 9:16 frame.
+Premium fintech editorial 3D render of one large elegant emerald clock fused with a growing spiral of gold euro coins. On one side a smaller steady stream of coins travels along a very long glowing time arc; on the other side a larger stream travels along a visibly shorter arc. The long-time side ends in the larger accumulated gold mass, making time versus savings rate understandable in one second.
+
+Include the exact German cover headline `ZINSESZINS: ZEIT VS. SPARRATE` directly in the generated image. Make the headline large, premium, bold and highly readable on a smartphone, preferably arranged on two lines as `ZINSESZINS:` and `ZEIT VS. SPARRATE`. Spell it exactly. Do not add a subtitle, CTA, explanatory sentence or any other text.
+
+Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same continuous material, tone and gradient from top edge to bottom edge. No horizontal divisions, no panels, no floor-wall boundary, no horizon line. No separate headline panel or dark header band. No dashboard, no tiny diorama, no photorealism, no Pixar, no clay. Keep the headline and all important visual elements safely inside the 9:16 frame.
+
+QA:
+Wenn die Überschrift fehlt, falsch geschrieben, abgeschnitten oder schlecht lesbar ist: Cover NICHT akzeptieren, sondern in Google Flow neu erzeugen. Die Cover-Überschrift später NICHT in Remotion ergänzen oder ersetzen.
