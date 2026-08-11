@@ -11,8 +11,10 @@ Each image should normally contain ONE dominant visual metaphor and only a few s
 PERSON RULE — VERBINDLICH:
 Whenever a person appears, the face must be clearly visible. Prefer front-facing or a natural three-quarter view. Show readable stylized facial features including eyes, nose and mouth. No faceless mannequin, no blank featureless face, no hidden face, no back-view-only character. The character remains stylized and anonymous, never photorealistic and never a real identifiable human.
 
-TEXT RULE:
-No headline. No subtitle. No explanatory sentence. Use only the explicitly requested short German object labels, normally 1–3 words, placed directly near the object they describe.
+TEXT RULE — COVER UND SZENEN TRENNEN:
+Cover `Bild 00`: MUSS die exakte große deutsche Überschrift `NOTGROSCHEN IN 3 STUFEN` direkt im Google-Flow-Bild enthalten. Maximal zwei Zeilen, smartphone-lesbar, keine separate Textbox/kein Header-Balken/kein zweiter Hintergrund. Kein zusätzlicher Subtitle, CTA oder erklärender Satz. Fehlerhafte Typografie → Cover neu in Google Flow erzeugen, niemals in Remotion reparieren.
+
+Szenenbilder `Bild 01+`: No headline. No subtitle. No explanatory sentence. Use only the explicitly requested short German object labels, normally 1–3 words, placed directly near the object they describe.
 
 BACKGROUND CONTINUITY — HÖCHSTE REGEL:
 Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
@@ -36,7 +38,7 @@ COMPOSITION:
 Vertical 9:16. Place the main subject around the visual center. Leave generous natural empty space above and below the subject, but WITHOUT changing the background in those areas. Do not use percentage-based top/middle/bottom zones.
 
 DO NOT USE:
-No percentage zones. No photorealism. No real identifiable humans. No faceless people. No hidden faces. No UI dashboards. No app screens. No tiny isometric diorama. No neon tunnel. No sci-fi corridor. No many-room studio architecture. No miniature game level. No clutter. No giant headline typography. No full explanatory sentence. No random labels. No horizontal background bands or top/bottom transitions.
+No percentage zones. No photorealism. No real identifiable humans. No faceless people. No hidden faces. No UI dashboards. No app screens. No tiny isometric diorama. No neon tunnel. No sci-fi corridor. No many-room studio architecture. No miniature game level. No clutter. No full explanatory sentence. No random labels. No horizontal background bands or top/bottom transitions. Giant scene-image typography is forbidden; the exact Cover-Headline on Bild 00 is the only headline exception.
 
 QUALITY REFERENCE:
-A stylized 3D person with a clearly visible face beside one large visual metaphor, short German labels directly at relevant objects, a single seamless deep charcoal green-black background, emerald rim light, warm red-orange risk accents and generous natural empty space without any visible background transition.
+A stylized 3D person with a clearly visible face beside one large visual metaphor, a single seamless deep charcoal green-black background, emerald rim light, warm red-orange risk accents and generous natural empty space without any visible background transition. Cover Bild 00 adds the exact title `NOTGROSCHEN IN 3 STUFEN`; scene images use only short object labels.
