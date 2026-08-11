@@ -3,12 +3,17 @@ FINANZNEO — ALLE BILDPROMPTS FÜR GOOGLE FLOW
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
 VERBINDLICH:
-1 Bild erzeugen → sofort umbenennen → Motiv + Labels + Gesicht falls vorhanden + nahtlosen Hintergrund prüfen → erst dann nächstes Bild.
+1 Bild erzeugen → sofort umbenennen → Motiv + Text + Gesicht falls vorhanden + nahtlosen Hintergrund prüfen → erst dann nächstes Bild.
 Bildnummer = echte Szenennummer. Animationen 02, 04, 07 und 09 bleiben reserviert und erhalten kein Bild.
 
 GLOBALER STIL:
 Premium fintech editorial 3D render. ONE dominant financial metaphor. Deep charcoal green-black world with emerald/mint accents. Gold only for money/value. Red-orange only for risk/loss. Smooth rounded 3D geometry and premium matte/glass materials.
-Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same material, tone and gradient from top edge to bottom edge. No horizontal divisions. No top/bottom sections. No floor-wall boundary. No horizon. No panels. No headline. No subtitle. No explanatory sentence. Short German object labels only. Keep all important objects and labels safely inside the vertical 9:16 frame so the complete source image can later be used full-frame without intentional crop.
+Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same material, tone and gradient from top edge to bottom edge. No horizontal divisions. No top/bottom sections. No floor-wall boundary. No horizon. No panels. Keep all important objects and text safely inside the vertical 9:16 frame so the complete source image can later be used full-frame without intentional crop.
+
+TEXTREGEL – KLARE AUSNAHME FÜR DAS COVER:
+- COVER `Bild 00`: MUSS eine große, klare deutsche Cover-Überschrift direkt im Google-Flow-Bild enthalten. Die Überschrift nennt das Reel-Thema konkret, ist maximal zwei Zeilen lang und wird NICHT später in Remotion ergänzt.
+- SZENENBILDER `Bild 01+`: No headline. No subtitle. No explanatory sentence. Short German object labels only.
+- Wenn die Cover-Überschrift fehlt, falsch geschrieben, abgeschnitten oder schlecht lesbar ist: Cover neu erzeugen. Remotion darf die Cover-Überschrift nicht reparieren oder ersetzen.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 COVER
@@ -16,8 +21,18 @@ COVER
 GOOGLE FLOW – FINALER DATEINAME:
 `Bild 00 - Zinseszins Zeit gegen Sparrate.png`
 
-Labels: `Zeit`, `Sparrate`, `Zinseszins`
-Prompt: One huge emerald clock fused with a growing spiral of gold euro coins. A smaller coin stream follows a long time arc; a larger coin stream follows a much shorter arc. The long-time side ends in the larger accumulated gold mass. Use the global FinanzNeo style and background rules above.
+COVER-ÜBERSCHRIFT – EXAKT SO:
+`ZINSESZINS: ZEIT VS. SPARRATE`
+
+TYPOGRAFIE:
+Die Überschrift MUSS direkt im erzeugten Cover stehen. Groß, klar, hochwertig und auf dem Smartphone sofort lesbar. Maximal zwei Zeilen. Empfohlene Aufteilung:
+`ZINSESZINS:`
+`ZEIT VS. SPARRATE`
+Keine separate Textbox, kein Header-Balken, kein zweiter Hintergrund.
+
+Objektlabels: keine zusätzlichen nötig.
+
+Prompt: One huge emerald clock fused with a growing spiral of gold euro coins. A smaller coin stream follows a long time arc; a larger coin stream follows a much shorter arc. The long-time side ends in the larger accumulated gold mass. Include the exact German cover headline `ZINSESZINS: ZEIT VS. SPARRATE` directly in the generated image, large, bold, premium and highly readable, preferably on two lines. Spell it exactly. Do not add a subtitle, CTA, explanatory sentence or any other text. Use the global FinanzNeo style and seamless background rules above. Do not create a separate headline panel or background band.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 01 – BILDSZENE
@@ -26,7 +41,7 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 01 - 100 gegen 200 Euro.png`
 
 Labels: `100 €/Monat`, `30 Jahre`, `200 €/Monat`, `15 Jahre`
-Prompt: Two large parallel curved time tracks begin at the same point. Left: small 100-euro monthly coin stream over a very long 30-year path. Right: larger 200-euro monthly stream over a shorter 15-year path. Large emerald clock integrates both. Do not reveal the final result yet. Use the global FinanzNeo style and background rules above.
+Prompt: Two large parallel curved time tracks begin at the same point. Left: small 100-euro monthly coin stream over a very long 30-year path. Right: larger 200-euro monthly stream over a shorter 15-year path. Large emerald clock integrates both. Do not reveal the final result yet. No headline. No subtitle. No explanatory sentence. Use the global FinanzNeo style and background rules above.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 02 – REMOTION
@@ -40,7 +55,7 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 03 - Zinseszins arbeitet weiter.png`
 
 Labels: `Ertrag`, `Ertrag auf Ertrag`
-Prompt: One large gold coin sphere generates smaller returns from its existing surface. Those returns rejoin the sphere and generate a second larger growth ring. Show clear cause-and-effect and use the global FinanzNeo style and background rules above.
+Prompt: One large gold coin sphere generates smaller returns from its existing surface. Those returns rejoin the sphere and generate a second larger growth ring. Show clear cause-and-effect. No headline. No subtitle. No explanatory sentence. Use the global FinanzNeo style and background rules above.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 04 – REMOTION
@@ -54,7 +69,7 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 05 - 100 Euro 30 Jahre.png`
 
 Labels: `100 €/Monat`, `30 Jahre`, `≈ 83.200 €`
-Prompt: Small steady gold coin stream enters a large transparent emerald circular time mechanism. The mechanism runs across a long 30-year arc and compounds into a much larger final gold stack. Emphasize long duration. Use the global FinanzNeo style and background rules above.
+Prompt: Small steady gold coin stream enters a large transparent emerald circular time mechanism. The mechanism runs across a long 30-year arc and compounds into a much larger final gold stack. Emphasize long duration. No headline. No subtitle. No explanatory sentence. Use the global FinanzNeo style and background rules above.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 06 – BILDSZENE
@@ -63,7 +78,7 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 06 - 200 Euro 15 Jahre.png`
 
 Labels: `200 €/Monat`, `15 Jahre`, `≈ 53.500 €`
-Prompt: Same visual language as scene 05. Larger monthly gold coin stream enters a shorter 15-year time mechanism. Final stack is substantial but visibly smaller than the long-duration example. Use the global FinanzNeo style and background rules above.
+Prompt: Same visual language as scene 05. Larger monthly gold coin stream enters a shorter 15-year time mechanism. Final stack is substantial but visibly smaller than the long-duration example. No headline. No subtitle. No explanatory sentence. Use the global FinanzNeo style and background rules above.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 07 – REMOTION
@@ -77,7 +92,7 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 08 - Zeit arbeitet fuer dich.png`
 
 Labels: `Früher Start`, `Mehr Zeit`
-Prompt: Stylized anonymous adult with clearly visible face places one small gold coin into a huge emerald clock mechanism at the beginning of a long time path. The coin layers grow progressively along the path. The clock is the hero object. Use the global FinanzNeo style and background rules above.
+Prompt: Stylized anonymous adult with clearly visible face places one small gold coin into a huge emerald clock mechanism at the beginning of a long time path. The coin layers grow progressively along the path. The clock is the hero object. No headline. No subtitle. No explanatory sentence. Use the global FinanzNeo style and background rules above.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 09 – REMOTION
@@ -91,10 +106,12 @@ GOOGLE FLOW – FINALER DATEINAME:
 `Bild 10 - Zeit ist ein Faktor.png`
 
 Labels: `Zeit`, `Sparrate`
-Prompt: Huge emerald hourglass-clock hybrid. A modest gold coin stream enters the top while the much larger time mechanism surrounds it. Compounded gold layers expand at the bottom. Time must read as an independent factor. Use the global FinanzNeo style and background rules above.
+Prompt: Huge emerald hourglass-clock hybrid. A modest gold coin stream enters the top while the much larger time mechanism surrounds it. Compounded gold layers expand at the bottom. Time must read as an independent factor. No headline. No subtitle. No explanatory sentence. Use the global FinanzNeo style and background rules above.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ABSCHLUSS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Cover-QA zusätzlich: exakte Überschrift vorhanden, korrekt geschrieben, vollständig sichtbar und auf Smartphone lesbar. Wenn nicht: Cover in Google Flow neu erzeugen; nicht in Remotion reparieren.
+
 Erst wenn alle benötigten Bilder fertig, korrekt benannt und geprüft sind, alle gemeinsam nach:
 `03-szenen/00-ALLE-BILDER-HIER-REIN/`
