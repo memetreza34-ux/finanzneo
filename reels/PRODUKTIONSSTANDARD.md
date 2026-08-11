@@ -95,56 +95,67 @@ Verboten:
 - Horizont
 - Panels
 
-## 7. Bilddarstellung — adaptive-safe-fill
+Native Remotion-Szenen verwenden ebenfalls genau einen durchgehenden Full-Canvas-Hintergrund ohne Boden, Horizont, Wand-Split oder Studio-Zonen.
 
-**`contain` als Standard ist nicht mehr gültig.**
+## 7. Bilddarstellung — full-frame-no-crop
 
 Verbindlich:
 
-- Bild füllt die verfügbare visuelle Fläche maximal aus
-- kein kleines Poster innerhalb des Hochkant-Reels
+- Nutzerbild ist ein vertikales 9:16-Bild
+- Nutzerbild belegt die **gesamte 1080×1920-Szene**
+- kein `VisualStage` oder anderer kleiner Mittel-Container um Nutzerbilder
+- kein absichtlicher Crop
+- kein Zoom-/Focal-Point-Vertrag
 - kein sichtbarer Inset-Bildrand
 - keine unscharfe Bildkopie als Hintergrund
-- zuerst leeren nahtlosen Hintergrund croppen
-- Gesicht, Objektlabels, Hero-Objekt und Geld/Wert schützen
-- `focalX`/`focalY` je Szene nutzen
-- keine alte 1.04-Scale-Grenze
-- keine alten `0.20/0.34`-Crop-Grenzen
+- Headline + Untertitel als Overlay über demselben Vollbild
+- nur weicher kontinuierlicher Transparenz-Scrim für Lesbarkeit
+- keine harte obere/untere Remotion-Hintergrundfläche
 
-Neue produktive Bildszenen verwenden:
+Produktive Bildszenen verwenden:
 
 ```text
-src/design-system/AdaptiveSafeFillImage.tsx
+src/design-system/FullFrameImage.tsx
 ```
+
+`object-fit: contain` ist nur auf der kompletten 1080×1920-Szenenfläche für eine vertikale 9:16-Quelle zulässig; die alte kleine `contain`-Poster-Darstellung ist verboten.
+
+`AdaptiveSafeFillImage`, `focalX/focalY` und alte Scale-/Crop-Verträge sind nicht mehr aktiv.
 
 ## 8. Vertikales Layout
 
 Richtwerte für 1080 × 1920:
 
 ```text
-headlineTop      ≈ 70
-visualTop        ≈ 210
-visualBottom     ≈ 1515
-subtitleBottom   ≈ 280
-subtitleLeft     ≈ 60
-subtitleRight    ≈ 180
-platformUiBottom ≥ 260
+headlineTop       ≈ 72
+Bildszene          = Y 0–1920 vollständig
+Animationsinhalt   ≈ Y 220–1490
+subtitleBottom    ≈ 300
+subtitleLeft      ≈ 64
+subtitleRight     ≈ 156
+platformUiBottom  ≥ 260
 ```
 
-Bild/Animation soll nahezu den gesamten Raum zwischen Headline und Caption verwenden. Untertitel niedrig, aber oberhalb der Plattform-UI-Totzone. Rechts zusätzliche UI-Safe-Area.
+- Bildszenen besitzen keinen separaten mittleren Visualbereich.
+- Native Animationsinhalte nutzen den Mittelraum, ihr Hintergrund bleibt aber Full-Canvas.
+- Untertitel niedrig, aber oberhalb der Plattform-UI-Totzone.
+- Rechts zusätzliche UI-Safe-Area.
+- Kein schwarzer Footer unter dem Bild und kein separater Header-Hintergrund.
 
 ## 9. Untertitel
 
-- bevorzugt ein vollständiger Satz gleichzeitig
-- maximal zwei sehr kurze Sätze gleichzeitig
+- **genau ein vollständiger Satz gleichzeitig**
+- niemals zwei Sätze gleichzeitig
 - hart maximal zwei sichtbare Zeilen
+- ausreichend große Smartphone-Schrift; zu langen Satz sinnvoll teilen statt Text winzig zu machen
 - aktives Wort grün, Rest weiß
 - vorherigen Satz während kurzer Pause halten
 - Satzwechsel exakt beim Start des ersten gesprochenen Wortes des neuen Satzes
 - keine Caption-Lücken
 - keine springenden Wörter/Größenanimation
+- keine undurchsichtige/schwarze Caption-Karte
 
-Neue generische Komponente:
+Generische Komponente:
 
 ```text
 src/design-system/SentenceKaraokeCaptions.tsx
@@ -177,6 +188,7 @@ Verboten:
 - keine pauschal gleich langen Szenen
 - Headlines/Icons in Remotion
 - Bild- und Animationsszenen müssen visuell ähnlich präsent sein
+- alle Szenenhintergründe ohne sichtbaren Floor-/Wall-/Horizont-Split
 
 ## 12. Publishing — eine Caption für alle Plattformen
 
@@ -221,8 +233,8 @@ Medien prüfen
 → echte Wortzeiten
 → Szenentiming
 → Remotion
-→ adaptive-safe-fill Framing
-→ Satz-Karaoke
+→ full-frame-no-crop Bilder
+→ genau-ein-Satz-Karaoke
 → eine universelle Caption + genau 5 Hashtags
 → finaler Validator
 → TypeScript
@@ -234,6 +246,8 @@ Medien prüfen
 → Safety Audit
 → Commit/Draft-PR
 ```
+
+Bei visueller QA explizit prüfen: kein zweiter Hintergrund, kein abgeschnittener Bildboden, keine harten Header/Footer-Flächen, kein Inset-Panel, keine schwarze Caption-Karte, keine zwei Untertitelsätze, sichere Untertitelposition.
 
 Finaler Validator:
 
