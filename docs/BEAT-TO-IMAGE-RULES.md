@@ -24,7 +24,7 @@ Jedes KI-Bild folgt `docs/FINANZNEO-IMAGE-WORLD-V3.md`.
 
 Für Information, Struktur und validierte Werte:
 
-- Überschriften
+- **Szenenüberschriften ab Szene 01**
 - Geldbeträge/Prozentwerte
 - Diagramme/Tabellen
 - Zeitachsen
@@ -33,9 +33,11 @@ Für Information, Struktur und validierte Werte:
 - Quellen
 - CTA
 
+**Cover-Ausnahme:** Die große Cover-Überschrift auf `Bild 00` wird direkt in Google Flow erzeugt und niemals durch Remotion ersetzt.
+
 ### C. Kombination
 
-Bild erklärt die Situation, Remotion ergänzt präzise Werte, Pfeile, Hervorhebungen oder Quellen.
+Bild erklärt die Situation, Remotion ergänzt präzise Werte, Pfeile, Hervorhebungen oder Quellen. Die Cover-Überschrift ist davon ausgenommen.
 
 ## 2. Entscheidungsfragen
 
@@ -65,15 +67,18 @@ Das ist ein Zielwert, keine starre Quote. Eine schwache Bildszene/Animation wird
 
 ## 4. Bild-Regel pro Beat
 
-Ein KI-Bild nutzt:
+Ein Szenen-KI-Bild `Bild 01+` nutzt:
 
 - eine dominante Finanzmetapher / ein großes Hauptobjekt
 - wenige unterstützende Elemente
 - optional eine Person mit klar sichtbarem Gesicht
 - kurze deutsche Objektlabels
+- **keine KI-Headline**
 - einen einzigen nahtlosen deep-charcoal-green-black Hintergrund
 
 Keine Prozent-Zonen, keine Hintergrundbänder, keine Miniatur-Dioramen.
+
+Das Cover `Bild 00` folgt derselben Bildwelt, hat aber zusätzlich eine **verbindliche große deutsche Google-Flow-Cover-Überschrift**, exakt wie im Cover-Prompt vorgegeben. Keine Remotion-Reparatur bei falscher Typografie.
 
 ## 5. Mehrteilige Bilder
 
@@ -116,6 +121,13 @@ Remotion-Inhalt: ...
 Benötigte Daten: ...
 ```
 
+Für Cover zusätzlich:
+
+```text
+COVER-ÜBERSCHRIFT – EXAKT SO:
+[EXAKTE DEUTSCHE ÜBERSCHRIFT]
+```
+
 ## 8. Ablehnung
 
 - Bild wäre nur Dekoration
@@ -124,3 +136,5 @@ Benötigte Daten: ...
 - Miniatur-/Dashboard-Logik statt einer starken Metapher
 - Hintergrund enthält Bänder/Zonen
 - Person ist gesichtslos oder nur von hinten
+- Cover-Überschrift fehlt/falsch/abgeschnitten/unlesbar
+- Remotion versucht eine fehlerhafte Cover-Überschrift zu ersetzen
