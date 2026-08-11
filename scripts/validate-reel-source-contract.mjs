@@ -14,6 +14,7 @@ const root=resolve(target);
 const sceneRoot=resolve(root,'03-szenen/EINZELNE-SZENEN');
 const indexPath=resolve(root,'03-szenen/scene-index.json');
 const allPromptsPath=resolve(root,'03-szenen/alle-bildprompts.txt');
+const coverPromptPath=resolve(root,'03-szenen/00-cover/cover.txt');
 const imageInbox=resolve(root,'03-szenen/00-ALLE-BILDER-HIER-REIN');
 const audioRoot=resolve(root,'02-audio');
 const errors=[];
@@ -26,6 +27,7 @@ for(const [path,message] of [
   [sceneRoot,'03-szenen/EINZELNE-SZENEN fehlt.'],
   [indexPath,'03-szenen/scene-index.json fehlt.'],
   [allPromptsPath,'03-szenen/alle-bildprompts.txt fehlt.'],
+  [coverPromptPath,'03-szenen/00-cover/cover.txt fehlt.'],
   [resolve(root,'03-szenen/bildwelt.txt'),'03-szenen/bildwelt.txt fehlt.'],
   [imageInbox,'03-szenen/00-ALLE-BILDER-HIER-REIN fehlt.'],
   [resolve(root,'04-caption/caption.txt'),'04-caption/caption.txt fehlt.'],
@@ -50,6 +52,7 @@ const containsObsoleteZoning=(text)=>[
 ].some((needle)=>text.toLowerCase().includes(needle));
 const isAscending=(frames)=>frames.every((value,index)=>index===0||value>frames[index-1]);
 const hasOwn=(object,key)=>Object.prototype.hasOwnProperty.call(object??{},key);
+const isPlaceholder=(value)=>/\[(?:EXAKTE|KURZER|EINFÜGEN|PLACEHOLDER)/i.test(String(value??''));
 
 if(existsSync(sceneRoot)&&existsSync(indexPath)){
   const index=JSON.parse(readFileSync(indexPath,'utf8'));
@@ -66,13 +69,28 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
   assert(index.timelineRules?.equalLengthScenesForbiddenByDefault===true,'Starre gleich lange Szenen müssen standardmäßig verboten sein.');
 
   if(!legacy){
+    assert(Number(index.version)>=16,'Aktive neue Reels müssen scene-index Version 16 oder höher verwenden.');
     assert(index.imageWorld?.seamlessSingleBackgroundRequired===true,'Ein nahtloser Bildhintergrund muss verbindlich sein.');
     assert(index.imageWorld?.percentageZonesForbidden===true,'Prozent-Zonen müssen ausdrücklich verboten sein.');
     assert(index.imageWorld?.backgroundBandsForbidden===true,'Hintergrundbänder müssen verboten sein.');
     assert(index.imageWorld?.floorWallBoundaryForbidden===true,'Boden-Wand-Grenzen müssen verboten sein.');
     assert(index.imageWorld?.horizonLineForbidden===true,'Horizontlinien müssen verboten sein.');
     assert(index.imageWorld?.visibleFaceRequiredWhenPersonPresent===true,'Bei Personen muss ein sichtbares Gesicht vorgeschrieben sein.');
-    assert(index.imageWorld?.objectLabelsOnly===true,'KI-Bilder dürfen nur kurze Objektlabels als Text enthalten.');
+    assert(index.imageWorld?.sceneImagesObjectLabelsOnly===true,'Szenenbilder Bild 01+ dürfen nur kurze Objektlabels als generierten Text enthalten.');
+    assert(!hasOwn(index.imageWorld,'objectLabelsOnly'),'Mehrdeutiges Alt-Feld imageWorld.objectLabelsOnly ist verboten; Cover und Szenenbilder müssen getrennt geregelt sein.');
+
+    const cover=index.coverHeadline;
+    assert(cover?.source==='google-flow','Cover-Überschrift muss direkt aus Google Flow kommen.');
+    assert(cover?.required===true&&cover?.exactTextRequired===true,'Cover-Überschrift muss verpflichtend und exakt vorgegeben sein.');
+    assert(Number(cover?.maxLines)===2,'Cover-Überschrift muss auf maximal zwei Zeilen begrenzt sein.');
+    assert(cover?.remotionOverlayForbidden===true,'Remotion-Ersatzheadline auf dem Cover muss verboten sein.');
+    assert(cover?.regenerateIfMissingOrWrong===true,'Fehlerhafte Cover-Typografie muss eine Neugenerierung in Google Flow verlangen.');
+    assert(typeof cover?.exactText==='string'&&cover.exactText.trim(),'coverHeadline.exactText fehlt.');
+    assert(typeof cover?.googleFlowFileName==='string'&&cover.googleFlowFileName.trim(),'coverHeadline.googleFlowFileName fehlt.');
+    if(requireFinal){
+      assert(!isPlaceholder(cover?.exactText),'Finaler Render BLOCKED: exakte Cover-Überschrift ist noch ein Platzhalter.');
+      assert(!isPlaceholder(cover?.googleFlowFileName),'Finaler Render BLOCKED: Cover-Dateiname ist noch ein Platzhalter.');
+    }
 
     const media=index.userMediaBoundary;
     assert(media?.imagesDirectory==='03-szenen/00-ALLE-BILDER-HIER-REIN/','Nutzerbilder dürfen nur aus dem finalen Sammelordner kommen.');
@@ -99,7 +117,9 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
     assert(presentation?.mode==='full-frame-no-crop','Bilddarstellung muss full-frame-no-crop verwenden.');
     assert(presentation?.fullCanvas===true,'Nutzerbilder müssen die vollständige 1080x1920-Szenenfläche verwenden.');
     assert(presentation?.sourceMustBeVertical916===true,'Bildquellen müssen als vertikale 9:16-Bilder vorgesehen sein.');
-    assert(presentation?.headlineOverlay===true&&presentation?.captionOverlay===true,'Headline und Untertitel müssen als Overlay über demselben Vollbild liegen.');
+    assert(presentation?.sceneHeadlineOverlay===true&&presentation?.captionOverlay===true,'Szenenheadline 01+ und Untertitel müssen als Overlay über demselben Vollbild liegen.');
+    assert(presentation?.coverHeadlineOverlayForbidden===true,'Eine Remotion-Headline über dem Google-Flow-Cover muss verboten sein.');
+    assert(!hasOwn(presentation,'headlineOverlay'),'Mehrdeutiges Alt-Feld imagePresentationContract.headlineOverlay ist verboten.');
     assert(presentation?.continuousReadabilityScrimOnly===true,'Nur ein weicher kontinuierlicher Lesbarkeits-Scrim ist erlaubt.');
     assert(presentation?.hardHeaderFooterPanelsForbidden===true,'Harte Header-/Footer-Hintergründe müssen verboten sein.');
     assert(presentation?.intentionalCropForbidden===true,'Absichtliches Cropping der Nutzerbilder muss verboten sein.');
@@ -161,15 +181,28 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
   }
 
   const allPrompts=existsSync(allPromptsPath)?readFileSync(allPromptsPath,'utf8'):'';
+  const coverPrompt=existsSync(coverPromptPath)?readFileSync(coverPromptPath,'utf8'):'';
   assert(allPrompts.includes('FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3'),'alle-bildprompts.txt verwendet nicht die FinanzNeo World ID.');
   if(!legacy){
+    const exactCoverText=String(index.coverHeadline?.exactText??'').trim();
     assert(allPrompts.includes('ONE single seamless continuous deep charcoal green-black background'),'alle-bildprompts.txt fordert keinen nahtlosen Einzelhintergrund.');
     assert(!containsObsoleteZoning(allPrompts),'alle-bildprompts.txt enthält verbotene Prozent-Zonen.');
-    assert(allPrompts.toLowerCase().includes('no headline'),'alle-bildprompts.txt verbietet generierte Headlines nicht.');
+    assert(allPrompts.toLowerCase().includes('no headline'),'alle-bildprompts.txt verbietet generierte Headlines für Szenenbilder nicht.');
+    assert(allPrompts.includes('COVER-ÜBERSCHRIFT – EXAKT SO:'),'alle-bildprompts.txt enthält keinen exakten Google-Flow-Cover-Headline-Block.');
+    assert(coverPrompt.includes('COVER-ÜBERSCHRIFT – EXAKT SO:'),'00-cover/cover.txt enthält keinen exakten Google-Flow-Cover-Headline-Block.');
+    assert(!coverPrompt.toLowerCase().includes('no headline'),'Cover-Prompt enthält die widersprüchliche alte Regel „No headline“.');
+    if(exactCoverText&&!isPlaceholder(exactCoverText)){
+      assert(allPrompts.includes(exactCoverText),'alle-bildprompts.txt enthält nicht die exakte Cover-Überschrift aus scene-index.json.');
+      assert(coverPrompt.includes(exactCoverText),'00-cover/cover.txt enthält nicht die exakte Cover-Überschrift aus scene-index.json.');
+    }
     assert(allPrompts.includes('00-ALLE-BILDER-HIER-REIN'),'Finaler gemeinsamer Bilderordner fehlt in alle-bildprompts.txt.');
   }
 
   const expectedImageNames=new Set();
+  if(!legacy&&typeof index.coverHeadline?.googleFlowFileName==='string'&&index.coverHeadline.googleFlowFileName.trim()){
+    expectedImageNames.add(index.coverHeadline.googleFlowFileName);
+  }
+
   directories.forEach((id,position)=>{
     const directory=resolve(sceneRoot,id);
     const hasImagePrompt=existsSync(resolve(directory,'bildprompt.txt'));
@@ -232,7 +265,8 @@ if(errors.length){
   process.exit(1);
 }
 
-console.log('\n✓ Reel-Quellen-, Medien-, Bild-, Timing- und Publishing-Vertrag erfüllt.');
+console.log('\n✓ Reel-Quellen-, Medien-, Cover-, Bild-, Timing- und Publishing-Vertrag erfüllt.');
+console.log('  Cover: exakte Google-Flow-Überschrift · Bild 00 ist Pflichtmedium · keine Remotion-Ersatzheadline');
 console.log('  Bilder: full-frame-no-crop · komplette 9:16-Fläche · keine harten Header/Footer-Panels');
 console.log('  Captions im Video: genau 1 Satz · max. 2 Zeilen · echte Audio-Wortgrenzen · keine schwarze Caption-Karte');
 console.log('  Social: eine universelle caption.txt · Instagram/TikTok/Facebook/Snapchat · exakt 5 Hashtags im Finalmodus');
