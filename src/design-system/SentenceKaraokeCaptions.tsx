@@ -23,13 +23,17 @@ const splitSentences = (words: CaptionWord[]): TimedSentence[] => {
 const balance = (words: CaptionWord[]): IndexedWord[][] => {
   const indexed = words.map((word, index) => ({...word, index}));
   if (words.length < 5) return [indexed];
+
   let best = Math.ceil(words.length / 2);
   let score = Infinity;
   for (let split = 2; split <= words.length - 2; split += 1) {
     const left = words.slice(0, split).map((w) => w.word).join(' ').length;
     const right = words.slice(split).map((w) => w.word).join(' ').length;
     const next = Math.max(left, right) * 2 + Math.abs(left - right);
-    if (next < score) { score = next; best = split; }
+    if (next < score) {
+      score = next;
+      best = split;
+    }
   }
   return [indexed.slice(0, best), indexed.slice(best)];
 };
@@ -37,15 +41,21 @@ const balance = (words: CaptionWord[]): IndexedWord[][] => {
 export type SentenceKaraokeCaptionsProps = {
   words: CaptionWord[];
   bottom?: number;
-  width?: number;
+  left?: number;
+  right?: number;
   highlight?: string;
 };
 
-/** One spoken sentence at a time, centered low on screen, max two lines, no card. */
+/**
+ * Exactly one spoken sentence at a time. Maximum two visual lines.
+ * No opaque caption card: readability comes from text shadow and the scene's
+ * continuous readability scrim, so captions do not create a third background.
+ */
 export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = ({
   words,
-  bottom = 255,
-  width = 820,
+  bottom = 300,
+  left = 64,
+  right = 156,
   highlight = C.accentLt,
 }) => {
   const frame = useCurrentFrame();
@@ -59,45 +69,55 @@ export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = (
     if (time >= sentences[i].words[0].start) sentenceIndex = i;
     else break;
   }
+
   const sentence = sentences[sentenceIndex];
   const lines = balance(sentence.words);
 
   let active = -1;
   for (let i = 0; i < sentence.words.length; i += 1) {
-    if (time >= sentence.words[i].start && time < sentence.words[i].end) { active = i; break; }
+    if (time >= sentence.words[i].start && time < sentence.words[i].end) {
+      active = i;
+      break;
+    }
   }
 
   const longest = Math.max(...lines.map((line) => line.map((w) => w.word).join(' ').length));
-  const fontSize = longest > 58 ? 38 : longest > 50 ? 41 : longest > 42 ? 44 : 48;
+  const fontSize = longest > 64 ? 35 : longest > 56 ? 39 : longest > 48 ? 42 : longest > 40 ? 46 : 50;
 
   return (
-    <div style={{
-      position: 'absolute',
-      left: '50%',
-      bottom,
-      width,
-      transform: 'translateX(-50%)',
-      zIndex: 100,
-      textAlign: 'center',
-      fontFamily: FONT.body,
-      fontWeight: 900,
-      fontSize,
-      lineHeight: 1.12,
-      letterSpacing: -0.4,
-      color: C.white,
-      textShadow: '0 3px 5px rgba(0,0,0,.95), 0 0 18px rgba(0,0,0,.8)',
-    }}>
+    <div
+      style={{
+        position: 'absolute',
+        left,
+        right,
+        bottom,
+        zIndex: 100,
+        textAlign: 'center',
+        fontFamily: FONT.body,
+        fontWeight: 900,
+        fontSize,
+        lineHeight: 1.12,
+        letterSpacing: -0.45,
+        color: C.white,
+        textShadow: '0 3px 6px rgba(0,0,0,.98), 0 0 20px rgba(0,0,0,.88)',
+      }}
+    >
       {lines.map((line, lineIndex) => (
-        <div key={`${sentence.id}-${lineIndex}`} style={{whiteSpace: 'nowrap', marginTop: lineIndex ? 5 : 0}}>
+        <div key={`${sentence.id}-${lineIndex}`} style={{whiteSpace: 'nowrap', marginTop: lineIndex ? 6 : 0}}>
           {line.map((word, position) => (
             <React.Fragment key={`${sentence.id}-${word.index}`}>
               {position ? ' ' : null}
-              <span style={{
-                color: word.index === active ? highlight : C.white,
-                textShadow: word.index === active
-                  ? `0 0 16px ${C.accent}, 0 3px 5px rgba(0,0,0,.95)`
-                  : '0 3px 5px rgba(0,0,0,.95), 0 0 18px rgba(0,0,0,.8)',
-              }}>{word.word}</span>
+              <span
+                style={{
+                  color: word.index === active ? highlight : C.white,
+                  textShadow:
+                    word.index === active
+                      ? `0 0 18px ${C.accent}, 0 3px 6px rgba(0,0,0,.98)`
+                      : '0 3px 6px rgba(0,0,0,.98), 0 0 20px rgba(0,0,0,.88)',
+                }}
+              >
+                {word.word}
+              </span>
             </React.Fragment>
           ))}
         </div>
