@@ -75,7 +75,7 @@ Google Flow Ablauf:
 Prompt lesen
 → GENAU EIN Bild erzeugen
 → sofort endgültig umbenennen
-→ Motiv + Labels + Gesicht + Hintergrund + Dateiname prüfen
+→ Motiv + Text + Gesicht + Hintergrund + Dateiname prüfen
 → erst dann nächstes Bild
 ```
 
@@ -85,6 +85,8 @@ Nummerierung:
 - Bildnummer = echte Szenennummer
 - Animationsszenen behalten ihre Nummer, bekommen aber kein Bild
 - Nummernlücken niemals schließen
+
+Für `Bild 00` zusätzlich immer die **exakt vorgegebene Cover-Überschrift** prüfen. Fehlt sie, ist sie falsch geschrieben, abgeschnitten oder schlecht lesbar, wird das Cover in Google Flow neu erzeugt. Remotion darf die Cover-Überschrift nicht nachträglich ergänzen oder reparieren.
 
 Nach vollständiger Bilderstellung kommen alle finalen Bilder gemeinsam nach:
 
@@ -139,7 +141,33 @@ Verboten sind insbesondere Prozent-Zonen wie `15/60/25` oder `18/64/18`.
 
 Native Remotion-Szenen folgen demselben Prinzip: ein durchgehender Hintergrund über die komplette 1080×1920-Fläche, ohne Boden, Horizont, Wand-Split oder sichtbare Studio-Zonen.
 
-## 8. Text im KI-Bild
+## 8. Text im KI-Bild — Cover und Szenen klar getrennt
+
+### Cover `Bild 00` — Überschrift direkt aus Google Flow
+
+Das Cover ist die **einzige Headline-Ausnahme**.
+
+Verbindlich:
+
+- `Bild 00` enthält **eine große klare deutsche Cover-Überschrift direkt im von Google Flow erzeugten Bild**.
+- Die Überschrift sagt konkret, worum es im Reel geht; kein vager allgemeiner Clickbait.
+- Im Cover-Prompt steht immer ein eigener Block:
+
+```text
+COVER-ÜBERSCHRIFT – EXAKT SO:
+[EXAKTE DEUTSCHE ÜBERSCHRIFT]
+```
+
+- Ziel: ungefähr 3–8 Wörter, maximal zwei Zeilen.
+- Smartphone-lesbar, hochwertig und visuell klar priorisiert.
+- Die Überschrift liegt direkt auf demselben nahtlosen Hintergrund; **keine separate Textbox, kein Header-Balken, kein zweiter Hintergrund**.
+- Kein zusätzlicher Untertitel, CTA oder erklärender Satz im Cover.
+- Schreibweise muss exakt stimmen. Fehlerhafte oder fehlende Cover-Typografie → Cover in Google Flow neu erzeugen.
+- **Cover-Überschrift niemals in Remotion ergänzen, ersetzen oder überdecken.**
+
+Kurze Objektlabels sind auf dem Cover nur erlaubt, wenn sie wirklich zusätzlich nötig sind. Die Cover-Überschrift trägt die Hauptaussage.
+
+### Szenenbilder `Bild 01+`
 
 Erlaubt:
 
@@ -149,13 +177,13 @@ Erlaubt:
 
 Verboten:
 
-- große Headline
+- KI-Headline
 - Untertitel
 - ganzer erklärender Satz
 - CTA/Absatz
 - zufällige Zusatztexte
 
-Headlines und Karaoke-Untertitel werden in Remotion gerendert.
+**Szenenüberschriften ab Szene 01** und Karaoke-Untertitel werden in Remotion gerendert. Die Cover-Überschrift ist davon ausdrücklich ausgenommen.
 
 ## 9. Verbindliche Bilddarstellung in Remotion — full-frame-no-crop
 
@@ -169,8 +197,9 @@ Verbindlich:
 - keine Zoom-/Focal-Point-Regeln als Standard
 - keine unscharfe Kopie desselben Bildes als Hintergrund
 - kein sichtbarer rechteckiger Bildrand
-- Headline liegt als Overlay über demselben Vollbild
+- bei Szenen `01+`: Szenenheadline liegt als Overlay über demselben Vollbild
 - Untertitel liegt als Overlay über demselben Vollbild
+- Cover `Bild 00`: keine zusätzliche Remotion-Headline; die Google-Flow-Cover-Überschrift bleibt unverändert
 - für Lesbarkeit nur ein **weicher kontinuierlicher transparenter Scrim/Gradient**; keine harten Header-/Footer-Flächen
 - da die Quelle vertikal 9:16 ist, darf `object-fit: contain` ausschließlich auf der **kompletten 1080×1920-Fläche** verwendet werden; `contain` in einem kleineren Mittel-Container ist verboten
 
@@ -187,7 +216,7 @@ src/design-system/FullFrameImage.tsx
 Richtwerte bei 1080 × 1920:
 
 ```text
-Headline top:              ca. 72
+Szenenheadline 01+ top:    ca. 72
 Bildszene:                 Y 0–1920 vollständig
 Animationsinhalt start:    ca. 220
 Animationsinhalt end:      ca. 1490
@@ -200,7 +229,8 @@ Platform UI unten:         mindestens ca. 260 px Sicherheitszone
 Prinzipien:
 
 - **Bildszenen besitzen keinen separaten mittleren Visualbereich.** Das Nutzerbild ist die komplette Szenenfläche.
-- Headline und Untertitel sind Overlays, keine eigenen Hintergrundzonen.
+- Szenenheadline 01+ und Untertitel sind Overlays, keine eigenen Hintergrundzonen.
+- Cover-Headline ist Teil von `Bild 00`, nicht Teil des Remotion-Headline-Systems.
 - Native Animationen nutzen den mittleren Inhaltsraum, aber ihr Hintergrund läuft nahtlos über die komplette Szene.
 - Untertitel niedrig positionieren, aber klar oberhalb der TikTok/Instagram/Facebook/Snapchat-UI-Totzone.
 - Rechts zusätzlicher Sicherheitsabstand für vertikale Plattform-Buttons.
@@ -258,7 +288,8 @@ Wenn keine echte Wortausrichtung aus dem finalen Audio erzeugt werden kann: **BL
 - keine pauschal gleich langen Szenen
 - Bild- und Animationsszenen sollen denselben visuellen Flächenwert haben
 - native Remotion-Hintergründe immer vollflächig und nahtlos; kein Boden/Horizont/Studio-Split
-- Überschriften/Icons in Remotion
+- Szenenüberschriften/Icons für Szene 01+ in Remotion
+- Cover-Überschrift ausschließlich aus Google Flow, nicht in Remotion
 - Zahlen/Fakten nur aus geprüften Quellen oder reproduzierbaren Berechnungen
 
 ## 14. Fakten und Finanzdaten
@@ -317,19 +348,19 @@ Wenn alle Pflichtbilder + genau ein finales Audio vorhanden sind und der Nutzer 
 Ohne `weiter?` durchlaufen:
 
 1. Ziel-Reel und harte Mediengrenze prüfen
-2. Pflichtmedien validieren/synchronisieren
+2. Pflichtmedien validieren/synchronisieren; Cover zusätzlich auf exakte Google-Flow-Überschrift prüfen
 3. echte Audio-Wortzeiten erzeugen
 4. Szenenstarts/-dauern aus Audio ableiten
 5. Remotion vollständig bauen
 6. Bildszenen als `full-frame-no-crop` über 1080×1920 integrieren
-7. Headline + genau-ein-Satz-Karaoke-Captions als Overlays einbinden
+7. Szenenheadlines 01+ + genau-ein-Satz-Karaoke-Captions als Overlays einbinden; **keine Remotion-Headline auf dem Cover**
 8. **eine universelle Social-Caption mit genau 5 passenden Hashtags erstellen**
 9. finalen Reel-Validator ausführen
 10. TypeScript prüfen
 11. Preview rendern
 12. erste/mittlere/letzte Frames jeder Szene + Kontaktbogen + Untertitel/Übergänge prüfen
 13. vollständiges MP4 rendern und mit Ton prüfen
-14. explizit prüfen: kein zweiter Hintergrund, kein abgeschnittener Footer, kein Bildpanel, kein Caption-Kasten
+14. explizit prüfen: Cover-Headline korrekt, kein zweiter Hintergrund, kein abgeschnittener Footer, kein Bildpanel, kein Caption-Kasten
 15. Audioziel prüfen, wenn Tooling vorhanden
 16. behebbare Fehler selbst reparieren und Schleife wiederholen
 17. Safety Audit
@@ -348,6 +379,7 @@ Normale Validator-/TypeScript-/Renderfehler sind keine Nutzer-Checkpoints: selbs
 Nur bei echten Blockern:
 
 - Pflichtbild fehlt/ist falsch/unlesbar
+- Cover-Überschrift fehlt/ist falsch geschrieben/abgeschnitten und das Cover muss vom Nutzer in Google Flow neu erzeugt werden
 - genau ein finales Audio fehlt oder ist mehrdeutig
 - Bild muss vom Nutzer neu generiert werden
 - echte Audio-Wortausrichtung technisch nicht möglich
@@ -370,6 +402,7 @@ Kein generisches `Weiter?`.
 **PRODUCTION COMPLETE** erst wenn:
 
 - alle Pflichtmedien aus dem Ziel-Reel verwendet wurden
+- Cover `Bild 00` die exakt vorgegebene, korrekt geschriebene Google-Flow-Überschrift enthält und keine Remotion-Ersatzheadline darüber liegt
 - echte final-audio-basierte Wortzeiten vorliegen
 - jedes Bild als vollständiges Full-Frame-9:16-Bild ohne absichtlichen Crop geprüft wurde
 - kein sichtbarer zweiter Hintergrund/Header/Footer-/Inset-Bereich vorhanden ist
