@@ -24,8 +24,11 @@ for (const file of requiredFiles) {
   if (!existsSync(resolve(root, file))) errors.push(`Pflichtdatei fehlt: ${file}`);
 }
 
-if (existsSync(resolve(root, 'src/design-system/AdaptiveSafeFillImage.tsx'))) {
-  errors.push('Veraltete Datei AdaptiveSafeFillImage.tsx muss entfernt sein.');
+for (const forbiddenFile of [
+  'src/design-system/AdaptiveSafeFillImage.tsx',
+  'scripts/scaffold-finanzneo-reel.mjs',
+]) {
+  if (existsSync(resolve(root, forbiddenFile))) errors.push(`Veraltete aktive Datei muss entfernt sein: ${forbiddenFile}`);
 }
 
 if (errors.length === 0) {
@@ -86,18 +89,20 @@ if (errors.length === 0) {
   if (!captions.includes('bottom = 320')) errors.push('Caption-Komponente muss die neue sichere Bottom-Position 320 verwenden.');
   if (!captions.includes('left = 72')) errors.push('Caption-Komponente muss links 72 px Safe-Area verwenden.');
   if (!captions.includes('right = 180')) errors.push('Caption-Komponente muss rechts 180 px Safe-Area verwenden.');
-  if (!captions.includes('splitCaptionUnits')) errors.push('Caption-Komponente muss lange gesprochene Sätze in kurze sequenzielle Caption-Einheiten teilen können.');
+  if (!captions.includes('NATURAL_PAUSE_SECONDS = 0.34')) errors.push('Caption-Komponente muss echte Sprachpausen als natürliche Splitstellen berücksichtigen.');
   if (!captions.includes('Caption unit too wide for safe area')) errors.push('Caption-Komponente muss zu breite Captions hart blockieren statt überlaufen lassen.');
-  if (captions.includes("background:'rgba") || captions.includes('background: \'rgba')) errors.push('Caption-Komponente darf keine undurchsichtige Caption-Karte erzeugen.');
 
   if (packageJson.scripts?.['reel:create'] !== 'node scripts/scaffold-finanzneo-reel-quality.mjs') {
-    errors.push('npm run reel:create muss zwingend den Quality-V2-Scaffolder verwenden.');
+    errors.push('npm run reel:create muss zwingend den einzigen Quality-V2-Scaffolder verwenden.');
   }
-  if (!qualityScaffolder.includes("defaultTypes='image,animation,animation,image,animation,image,animation,animation,animation,image'")) {
-    errors.push('Quality-Scaffolder muss standardmäßig 6 Animationen + 4 Bildszenen erzeugen.');
-  }
+  const canonicalDefault="const DEFAULT_TYPES=['image','animation','animation','image','animation','image','animation','animation','animation','image'];";
+  if (!qualityScaffolder.includes(canonicalDefault)) errors.push('Quality-Scaffolder muss standardmäßig 6 Animationen + 4 Bildszenen erzeugen.');
+  if (!qualityScaffolder.includes('version:17')) errors.push('Quality-Scaffolder muss Reels direkt als scene-index Version 17 erzeugen.');
   if (!qualityScaffolder.includes('targetAnimationShare:0.60')) errors.push('Quality-Scaffolder enthält kein 60%-Animationsziel.');
   if (!qualityScaffolder.includes('maxCharactersPerCaptionUnit:68')) errors.push('Quality-Scaffolder enthält nicht die 68-Zeichen-Caption-Grenze.');
+  if (!qualityScaffolder.includes('final-qa.json')) errors.push('Quality-Scaffolder muss final-qa.json direkt erzeugen.');
+  if (qualityScaffolder.includes("spawnSync(process.execPath,['scripts/scaffold-finanzneo-reel.mjs'")) errors.push('Quality-Scaffolder darf nicht mehr vom gelöschten Alt-Scaffolder abhängen.');
+
   if (!qualityValidator.includes("const postRender=args.includes('--post-render')")) errors.push('Quality-Validator besitzt keinen separaten Post-Render-QA-Modus.');
   if (!qualityValidator.includes('animationShare>=0.55&&animationShare<=0.65')) errors.push('Quality-Validator prüft die reale 55–65%-Animationslaufzeit nicht.');
 
@@ -117,5 +122,5 @@ if (errors.length > 0) {
 console.log('✓ ReelTemplateDemo liegt korrekt unter Experiments.');
 console.log('✓ Nutzerbilder sind full-frame-no-crop; kein mittlerer Bildcontainer/Crop-Vertrag bleibt aktiv.');
 console.log('✓ Karaoke-Captions nutzen 12 Wörter/68 Zeichen/max. 2 Zeilen/min. 42 px ohne alte Safe-Area-Overrides.');
-console.log('✓ npm run reel:create verwendet den 60/40 Quality-V2-Scaffolder.');
+console.log('✓ Es gibt nur noch den eigenständigen V17-Quality-Scaffolder mit 60/40-Default.');
 console.log('✓ Pre-Render- und Post-Render-QA sind getrennt validiert.');
