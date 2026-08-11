@@ -29,7 +29,6 @@ No bands.
 No floor-wall boundary.
 No horizon line.
 Do not create a visible floor, wall or studio horizon.
-Leave natural empty space by reducing content, not by changing the background.
 ```
 
 Keine Prozent-Zonen.
@@ -61,49 +60,57 @@ Reale Marken/Dienste sind erlaubt, wenn sie für die konkrete Aussage relevant s
 - Hauptmotiv groß und smartphone-lesbar
 - wenige große Hauptelemente
 - klare Ursache-Wirkung
-- natürliche freie Hintergrundfläche oberhalb/unterhalb
+- wichtige Motive/Labels bequem innerhalb des 9:16-Bildes halten
 - keine Dioramen, Dashboards, Game-Level, Neon-Tunnel oder Sci-Fi-Korridore
 
-## Darstellung in Remotion — adaptive-safe-fill
+## Darstellung in Remotion — full-frame-no-crop
 
-Die alte `object-fit: contain`-Standarddarstellung ist verboten.
+Das vertikale 9:16-Nutzerbild wird **vollständig über die gesamte 1080×1920-Szene** gelegt.
 
 Verbindlich:
 
-- Nutzerbild füllt die verfügbare Visual-Fläche maximal
-- kein kleines Poster/Inlay innerhalb des Hochkant-Reels
-- kein sichtbarer rechteckiger Bildrand
-- keine unscharfe Kopie des Bildes als Hintergrund
-- leere nahtlose Hintergrundfläche zuerst croppen
-- Gesicht, Objektlabels, Hero-Objekt und Geld/Wert schützen
-- pro Szene `focalX`/`focalY` nutzen
-- keine alte 1.04-Scale-Grenze
-- keine alten 0.20/0.34-Crop-Grenzen
+- kein kleiner mittlerer Bildcontainer
+- kein `VisualStage` um Nutzerbilder
+- kein absichtlicher Crop
+- kein Zoom-/Focal-Point-Vertrag
+- kein sichtbarer Bildrand/Inlay
+- keine unscharfe Kopie als Hintergrund
+- Headline und Untertitel liegen als Overlay über demselben Bild
+- nur weicher kontinuierlicher transparenter Lesbarkeits-Scrim, keine harten Header-/Footer-Flächen
 
-Verbindliche Komponente für neue produktive Bildszenen:
-
-```text
-src/design-system/AdaptiveSafeFillImage.tsx
-```
-
-Richt-Visualbereich bei 1080×1920:
+Verbindliche Komponente:
 
 ```text
-Y ≈ 210–1515
+src/design-system/FullFrameImage.tsx
 ```
 
-Das Bild soll nahezu den kompletten Raum zwischen Headline und Caption nutzen.
+`object-fit: contain` ist ausschließlich auf der kompletten 1080×1920-Szenenfläche für eine vertikale 9:16-Quelle zulässig. Ein kleines `contain`-Poster in einer Teilfläche bleibt verboten.
+
+`AdaptiveSafeFillImage`, `focalX/focalY`, alte Scale-/Crop-Grenzen und absichtliches Wegcroppen des Nutzerbildes sind nicht mehr Teil des aktiven Systems.
+
+## Native Remotion-Szenen
+
+- Hintergrund immer über komplette 1080×1920-Fläche
+- ein durchgehender deep-charcoal-green-black Verlauf
+- kein Boden
+- kein Horizont
+- kein Wand-/Studio-Split
+- keine sichtbaren oberen/unteren Hintergrundzonen
+- Animationsinhalt darf ungefähr Y 220–1490 nutzen
 
 ## Timing und Untertitel
 
 - Szenenwechsel an echten Satzanfängen des finalen Audios
 - Wortmarkierung ausschließlich über echte `start/end`-Zeitstempel
 - keine gleichmäßig geschätzten Wortzeiten
-- bevorzugt ein vollständiger Satz sichtbar
-- maximal zwei sehr kurze Sätze
+- **genau ein vollständiger Satz sichtbar**
+- niemals zwei Sätze gleichzeitig
 - hart maximal zwei Zeilen
+- ausreichend große Smartphone-Schrift
+- zu langen Satz sinnvoll teilen statt winzige Schrift verwenden
 - Satzwechsel beim ersten Wort des nächsten Satzes
 - kurze Pausen ohne Caption-Lücke
+- keine undurchsichtige/schwarze Caption-Karte
 
 ## Pflichtinhalt eines Bildprompts
 
@@ -115,6 +122,7 @@ Das Bild soll nahezu den kompletten Raum zwischen Headline und Caption nutzen.
 6. nahtlose Hintergrundregel
 7. Personenregel, falls nötig
 8. Negativregeln
+9. vertikales 9:16 mit wichtigen Motiven sicher innerhalb des Frames
 
 ## Sofort neu erzeugen
 
@@ -129,10 +137,12 @@ Das Bild soll nahezu den kompletten Raum zwischen Headline und Caption nutzen.
 
 ## Render-QA
 
-Neu framen/reparieren, wenn im Reel:
+Reparieren, wenn im Reel:
 
-- das Nutzerbild klein wie ein Poster wirkt
-- unnötig große leere Flächen zwischen Headline, Motiv und Caption entstehen
-- Gesicht/Label/Hero-Objekt abgeschnitten ist
-- Bildrand sichtbar wird
-- Caption in Plattform-UI gerät
+- Nutzerbild nicht bis Y=0 und Y=1920 durchläuft
+- Bild unten sichtbar abgeschnitten/abgesetzt wirkt
+- ein anderer Header-/Footer-Hintergrund sichtbar ist
+- ein sichtbarer Bildpanel-Rand entsteht
+- Caption-Karte wie ein dritter Hintergrund wirkt
+- zwei Untertitelsätze gleichzeitig erscheinen
+- Untertitel zu klein oder in Plattform-UI liegen
