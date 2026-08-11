@@ -71,44 +71,38 @@ Do not guess, substitute or render a knowingly incomplete final MP4.
 
 The user exclusively creates all actual FinanceNeo images.
 
-Antigravity MAY:
+Antigravity MAY create/update image prompts, define filenames/scene numbers, inspect user-supplied images and report regeneration requirements.
 
-- create/update image prompts
-- define filenames/scene numbers
-- inspect user-supplied images
-- report regeneration requirements
-
-Antigravity MUST NOT:
-
-- generate final images
-- call Imagen/Nano Banana/other image generators for replacements
-- use web/stock media as replacements
-- create generated placeholders
-- overwrite user-provided images
+Antigravity MUST NOT generate final images, call image generators for replacements, use web/stock media as replacements, create generated placeholders or overwrite user-provided images.
 
 If a supplied image violates a visual rule and needs regeneration, that is a real blocker requiring the user.
 
 ## Canonical Remotion presentation
 
-The old inset `contain` presentation is forbidden for productive FinanceNeo image scenes.
+Productive user-image scenes use **full-frame-no-crop**:
 
-Use `adaptive-safe-fill`:
-
-- maximize the visual area between headline and captions
-- crop empty seamless background before important content
-- preserve face, labels, hero object and money/value
+- the complete vertical 9:16 user image spans the full 1080×1920 scene
+- never place the user image inside `VisualStage` or another smaller middle container
+- no intentional crop, zoom/focal-point contract or blurred duplicate background
 - no visible inset image panel
-- no blurred duplicate image background
-- per-scene focal point when necessary
+- headline and captions are overlays on the same full image
+- readability may use only a soft continuous transparent scrim; no hard header/footer background blocks
+- `object-fit: contain` is acceptable only on the complete 1080×1920 canvas for a vertical 9:16 source, never as an inset-poster layout
+
+Native Remotion scenes must also use one continuous full-canvas background with no floor, horizon, wall split or segmented studio zones.
 
 Captions must use real final-audio word boundaries:
 
-- preferred one full sentence visible
+- exactly one full sentence visible at a time
+- never two sentences simultaneously
 - hard max two lines
+- no opaque/black caption card
 - current word follows exact real start/end timing
 - no evenly estimated word timing
 - hold previous sentence through short pauses
 - sentence switch at next sentence's first spoken word
+
+If a sentence cannot remain readable within two lines at a sensible smartphone font size, split/rewrite the sentence instead of shrinking captions to tiny text.
 
 If exact final-audio word alignment cannot be produced with available tooling, return `BLOCKED`; never fabricate timing.
 
@@ -145,6 +139,16 @@ npm run reel:validate -- <TARGET-REEL> --final
 ```
 
 Then TypeScript, preview, frame/contact-sheet/caption QA, full MP4 review, audio check when available and Antigravity safety audit.
+
+Visual QA must explicitly reject:
+
+- a second/third apparent background region
+- image ending before the bottom of the frame
+- hard header/footer panels
+- inset image panel
+- opaque caption box
+- two subtitle sentences at once
+- captions outside safe areas or too small for smartphone viewing
 
 If a recoverable issue appears, fix and rerun automatically.
 
