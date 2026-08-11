@@ -22,6 +22,7 @@ const run=(script,scriptArgs)=>{
 
 const finalArg=final?['--final']:[];
 run('scripts/validate-reel-source-contract.mjs',[target,...finalArg]);
+run('scripts/validate-reel-quality-contract.mjs',[target,...finalArg]);
 run('scripts/validate-platform-publishing.mjs',[target,...finalArg]);
 
-console.log(`\n✓ Gesamter Reel-Validator erfolgreich${final?' (FINAL-ASSET-UND-CAPTION-MODUS)':''}.`);
+console.log(`\n✓ Gesamter Reel-Validator erfolgreich${final?' (FINAL-ASSET-, QUALITY- UND CAPTION-MODUS)':''}.`);
