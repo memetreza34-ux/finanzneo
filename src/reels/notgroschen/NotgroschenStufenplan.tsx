@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {AdaptiveSafeFillImage} from '../../design-system';
+import {FullFrameImage, FullFrameReadabilityScrim} from '../../design-system';
 import {C, FONT, a, euro} from '../../brand';
 import assetManifest from './asset-manifest.json';
 import {NOTGROSCHEN_COPY, NOTGROSCHEN_DURATIONS, NOTGROSCHEN_TOTAL_FRAMES} from './config';
@@ -10,24 +10,15 @@ import {Headline, SceneBackground, VisualStage, WorldStage, clamp01, clampInput}
 export {NOTGROSCHEN_TOTAL_FRAMES};
 type ImageSceneId='scene-01'|'scene-02'|'scene-04'|'scene-06'|'scene-09'|'scene-10';
 
-const focalY:Record<ImageSceneId,number>={
-  'scene-01':.52,
-  'scene-02':.52,
-  'scene-04':.54,
-  'scene-06':.52,
-  'scene-09':.52,
-  'scene-10':.52,
-};
-
 const StillScene:React.FC<{sceneId:ImageSceneId;index:number}>=({sceneId,index})=>{
   const src=(assetManifest as Record<string,string|null>)[sceneId];
   if(!src)throw new Error(`BLOCKED: Pflichtbild für ${sceneId} fehlt im synchronisierten Ziel-Reel-Asset-Manifest.`);
-  return <SceneBackground>
+
+  return <AbsoluteFill style={{background:C.bg,overflow:'hidden'}}>
+    <FullFrameImage src={staticFile(src)}/>
+    <FullFrameReadabilityScrim/>
     <Headline copy={NOTGROSCHEN_COPY[index]}/>
-    <VisualStage>
-      <AdaptiveSafeFillImage src={staticFile(src)} focalX={.5} focalY={focalY[sceneId]}/>
-    </VisualStage>
-  </SceneBackground>;
+  </AbsoluteFill>;
 };
 
 const TargetRangeAnimation:React.FC<{durationInFrames:number}>=({durationInFrames})=>{
