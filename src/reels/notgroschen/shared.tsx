@@ -5,16 +5,17 @@ import type {AccentTone, NotgroschenIcon, SceneCopy} from './config';
 
 /**
  * 1080x1920 cross-platform layout.
- * The visual stage intentionally occupies almost all space between headline and captions.
- * The lower 280px remain free for platform UI; captions stay above that zone.
+ * Image scenes themselves are full-frame. visualTop/visualBottom only define
+ * the useful content area for native Remotion animation scenes.
  */
 export const LAYOUT = {
-  headlineTop: 70,
-  visualTop: 210,
-  visualBottom: 1515,
-  subtitleBottom: 280,
-  subtitleLeft: 60,
-  subtitleRight: 180,
+  headlineTop: 72,
+  visualTop: 220,
+  visualBottom: 1490,
+  subtitleBottom: 300,
+  subtitleLeft: 64,
+  subtitleRight: 156,
+  platformUiSafeBottom: 260,
 } as const;
 
 export const clampInput={extrapolateLeft:'clamp',extrapolateRight:'clamp'} as const;
@@ -33,26 +34,47 @@ const iconPaths: Record<NotgroschenIcon, React.ReactNode> = {
   refresh:<><path d="M50 20a22 22 0 1 0 3 20M50 20V8M50 20H38"/></>,
 };
 
-export const SceneBackground:React.FC<React.PropsWithChildren> = ({children}) => <AbsoluteFill style={{background:`radial-gradient(100% 64% at 50% 24%,${a(C.accent,.13)} 0%,${C.bg} 58%,#020504 100%)`,overflow:'hidden'}}>{children}</AbsoluteFill>;
+/** One uninterrupted background for native Remotion scenes. */
+export const SceneBackground:React.FC<React.PropsWithChildren> = ({children}) => (
+  <AbsoluteFill
+    style={{
+      background:
+        'radial-gradient(92% 62% at 50% 38%, rgba(27,92,57,.36) 0%, rgba(8,30,19,.42) 38%, rgba(2,8,5,.98) 100%)',
+      overflow:'hidden',
+    }}
+  >
+    {children}
+  </AbsoluteFill>
+);
 
-export const WorldStage:React.FC = () => <AbsoluteFill style={{overflow:'hidden'}}>
-  <div style={{position:'absolute',left:-120,right:-120,top:-370,height:900,borderRadius:'0 0 50% 50%',border:'2px solid rgba(105,255,166,.1)',background:'linear-gradient(180deg,rgba(255,255,255,.034),rgba(255,255,255,.004))',boxShadow:'inset 0 -90px 180px rgba(40,255,135,.05)'}}/>
-  <div style={{position:'absolute',left:-190,right:-190,bottom:-280,height:780,borderRadius:'50%',transform:'perspective(830px) rotateX(67deg)',transformOrigin:'center bottom',backgroundImage:'linear-gradient(rgba(92,255,156,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(92,255,156,.06) 1px,transparent 1px)',backgroundSize:'92px 92px',border:'1px solid rgba(116,255,175,.1)'}}/>
-  <div style={{position:'absolute',left:102,top:60,width:7,height:620,borderRadius:8,background:'linear-gradient(180deg,transparent,rgba(75,255,153,.4),transparent)',boxShadow:'0 0 30px rgba(75,255,153,.2)'}}/>
-  <div style={{position:'absolute',right:102,top:60,width:7,height:620,borderRadius:8,background:'linear-gradient(180deg,transparent,rgba(75,255,153,.4),transparent)',boxShadow:'0 0 30px rgba(75,255,153,.2)'}}/>
-</AbsoluteFill>;
+/**
+ * Seamless ambient decoration only. No floor, horizon, wall split or stage.
+ */
+export const WorldStage:React.FC = () => (
+  <AbsoluteFill style={{overflow:'hidden',pointerEvents:'none'}}>
+    <div style={{position:'absolute',left:-180,top:100,width:520,height:980,borderRadius:'50%',background:'radial-gradient(circle,rgba(52,255,142,.10),transparent 70%)',filter:'blur(28px)'}}/>
+    <div style={{position:'absolute',right:-210,top:340,width:560,height:900,borderRadius:'50%',background:'radial-gradient(circle,rgba(79,255,158,.08),transparent 72%)',filter:'blur(32px)'}}/>
+    <div style={{position:'absolute',left:'50%',top:80,width:760,height:980,transform:'translateX(-50%)',borderRadius:'50%',background:'radial-gradient(ellipse,rgba(255,255,255,.025),transparent 70%)'}}/>
+    <div style={{position:'absolute',left:100,top:170,width:5,height:760,borderRadius:8,background:'linear-gradient(180deg,transparent,rgba(75,255,153,.23),transparent)',boxShadow:'0 0 34px rgba(75,255,153,.12)'}}/>
+    <div style={{position:'absolute',right:100,top:170,width:5,height:760,borderRadius:8,background:'linear-gradient(180deg,transparent,rgba(75,255,153,.23),transparent)',boxShadow:'0 0 34px rgba(75,255,153,.12)'}}/>
+  </AbsoluteFill>
+);
 
 const toneColor=(tone:AccentTone|undefined)=>tone==='gold'?C.goldLt:tone==='red'?'#FF7777':C.accentLt;
 
-export const Headline:React.FC<{copy:SceneCopy}> = ({copy}) => <div style={{position:'absolute',top:LAYOUT.headlineTop,left:58,right:58,zIndex:30,textAlign:'center'}}>
-  <div style={{fontFamily:FONT.title,fontSize:54,lineHeight:1.02,letterSpacing:1.4,color:C.white}}>{copy.headline}</div>
-  <div style={{marginTop:8,display:'flex',alignItems:'center',justifyContent:'center',gap:14,color:toneColor(copy.accentTone)}}>
-    <svg width="50" height="50" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">{iconPaths[copy.icon]}</svg>
-    <div style={{fontFamily:FONT.title,fontSize:54,lineHeight:1.02,letterSpacing:1.3}}>{copy.accent}</div>
+export const Headline:React.FC<{copy:SceneCopy}> = ({copy}) => (
+  <div style={{position:'absolute',top:LAYOUT.headlineTop,left:58,right:58,zIndex:30,textAlign:'center',textShadow:'0 3px 10px rgba(0,0,0,.82),0 0 26px rgba(0,0,0,.5)'}}>
+    <div style={{fontFamily:FONT.title,fontSize:54,lineHeight:1.02,letterSpacing:1.4,color:C.white}}>{copy.headline}</div>
+    <div style={{marginTop:8,display:'flex',alignItems:'center',justifyContent:'center',gap:14,color:toneColor(copy.accentTone)}}>
+      <svg width="50" height="50" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">{iconPaths[copy.icon]}</svg>
+      <div style={{fontFamily:FONT.title,fontSize:54,lineHeight:1.02,letterSpacing:1.3}}>{copy.accent}</div>
+    </div>
   </div>
-</div>;
+);
 
-export const VisualStage:React.FC<React.PropsWithChildren> = ({children}) => <div className="finanzneo-visual-stage" style={{position:'absolute',top:LAYOUT.visualTop,left:0,right:0,height:LAYOUT.visualBottom-LAYOUT.visualTop,overflow:'hidden'}}>
-  <style>{`.finanzneo-visual-stage > img { object-fit: cover !important; filter: none !important; }`}</style>
-  {children}
-</div>;
+/** Native Remotion animation content area only — never wrap user images in this. */
+export const VisualStage:React.FC<React.PropsWithChildren> = ({children}) => (
+  <div style={{position:'absolute',top:LAYOUT.visualTop,left:0,right:0,height:LAYOUT.visualBottom-LAYOUT.visualTop,overflow:'hidden'}}>
+    {children}
+  </div>
+);
