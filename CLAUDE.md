@@ -137,6 +137,8 @@ Leave natural empty space by reducing content, never by changing the background.
 
 Verboten sind insbesondere Prozent-Zonen wie `15/60/25` oder `18/64/18`.
 
+Native Remotion-Szenen folgen demselben Prinzip: ein durchgehender Hintergrund über die komplette 1080×1920-Fläche, ohne Boden, Horizont, Wand-Split oder sichtbare Studio-Zonen.
+
 ## 8. Text im KI-Bild
 
 Erlaubt:
@@ -155,63 +157,71 @@ Verboten:
 
 Headlines und Karaoke-Untertitel werden in Remotion gerendert.
 
-## 9. Verbindliche Bilddarstellung in Remotion — adaptive-safe-fill
+## 9. Verbindliche Bilddarstellung in Remotion — full-frame-no-crop
 
-**Die alte `contain`-Standarddarstellung ist abgeschafft und verboten.**
+Bildszenen verwenden das vollständige vertikale 9:16-Nutzerbild über die **gesamte 1080×1920-Szene**.
 
-Bildszenen verwenden `adaptive-safe-fill`:
+Verbindlich:
 
-- Nutzerbild füllt die verfügbare visuelle Fläche so groß wie möglich aus
-- kein kleines 9:16-Poster innerhalb des 9:16-Reels
-- kein sichtbarer rechteckiger Bild-im-Bild-Rand
+- kein mittlerer `VisualStage` oder anderer kleiner Bildcontainer um Nutzerbilder
+- kein sichtbares 9:16-Poster innerhalb eines 9:16-Reels
+- kein absichtlicher Crop des Nutzerbildes
+- keine Zoom-/Focal-Point-Regeln als Standard
 - keine unscharfe Kopie desselben Bildes als Hintergrund
-- leere nahtlose Hintergrundfläche darf zuerst weggecroppt werden
-- Gesicht, Objektlabels, Hero-Objekt sowie Geld/Wert müssen sichtbar bleiben
-- pro Bild `focalX`/`focalY` verwenden, wenn nötig
-- keine starre globale 1.04-Skalierungsgrenze
-- keine alten starren Crop-Grenzen `0.20/0.34`
+- kein sichtbarer rechteckiger Bildrand
+- Headline liegt als Overlay über demselben Vollbild
+- Untertitel liegt als Overlay über demselben Vollbild
+- für Lesbarkeit nur ein **weicher kontinuierlicher transparenter Scrim/Gradient**; keine harten Header-/Footer-Flächen
+- da die Quelle vertikal 9:16 ist, darf `object-fit: contain` ausschließlich auf der **kompletten 1080×1920-Fläche** verwendet werden; `contain` in einem kleineren Mittel-Container ist verboten
 
 Verbindliche Komponente für neue produktive Bildszenen:
 
 ```text
-src/design-system/AdaptiveSafeFillImage.tsx
+src/design-system/FullFrameImage.tsx
 ```
+
+`AdaptiveSafeFillImage`, `focalX/focalY`, alte Scale-/Crop-Verträge und sichtbare Inset-Panels sind nicht mehr Teil des aktiven Produktionsstandards.
 
 ## 10. Verbindliches vertikales Layout
 
 Richtwerte bei 1080 × 1920:
 
 ```text
-Headline top:      ca. 70
-Visual start:      ca. 210
-Visual end:        ca. 1515
-Subtitle bottom:   ca. 280
-Subtitle left:     ca. 60
-Subtitle right:    ca. 180
-Platform UI unten: mindestens ca. 260 px Sicherheitszone
+Headline top:              ca. 72
+Bildszene:                 Y 0–1920 vollständig
+Animationsinhalt start:    ca. 220
+Animationsinhalt end:      ca. 1490
+Subtitle bottom:           ca. 300
+Subtitle left:             ca. 64
+Subtitle right:            ca. 156
+Platform UI unten:         mindestens ca. 260 px Sicherheitszone
 ```
 
 Prinzipien:
 
-- Bild/Animation bekommt den größtmöglichen Raum zwischen Headline und Caption.
-- Nicht mehrere hundert Pixel unnötige Leerfläche zwischen Headline und Motiv lassen.
+- **Bildszenen besitzen keinen separaten mittleren Visualbereich.** Das Nutzerbild ist die komplette Szenenfläche.
+- Headline und Untertitel sind Overlays, keine eigenen Hintergrundzonen.
+- Native Animationen nutzen den mittleren Inhaltsraum, aber ihr Hintergrund läuft nahtlos über die komplette Szene.
 - Untertitel niedrig positionieren, aber klar oberhalb der TikTok/Instagram/Facebook/Snapchat-UI-Totzone.
 - Rechts zusätzlicher Sicherheitsabstand für vertikale Plattform-Buttons.
-- Richtwerte dürfen pro Szene leicht angepasst werden, aber nie zulasten der Lesbarkeit oder Plattform-Sicherheit.
+- Keine harte schwarze Fläche unter dem Bild und kein separater grüner Header-Balken.
 
-## 11. Untertitel — Satz statt Wortgruppen
+## 11. Untertitel — genau EIN Satz
 
 Verbindlich:
 
-- bevorzugt **genau ein vollständiger Satz gleichzeitig**
-- maximal zwei sehr kurze Sätze gleichzeitig, nur wenn semantisch sinnvoll
+- **genau ein vollständiger Satz gleichzeitig**
+- **niemals zwei Sätze gleichzeitig**
 - **hart maximal zwei sichtbare Textzeilen**
+- Schrift groß genug für Smartphone-Ansicht; nicht auf Mini-Schrift schrumpfen, um zu lange Sätze zu retten
+- wenn ein Satz bei sinnvoller Schriftgröße nicht in zwei Zeilen passt, Skript/Satz sinnvoll aufteilen
 - aktuelles gesprochenes Wort FinanzNeo-grün
 - restliche Wörter weiß
 - Satz bleibt während kurzer Sprachpause stehen
 - Satzwechsel exakt beim ersten gesprochenen Wort des nächsten Satzes
 - keine Caption-Lücken
 - keine springenden Wörter oder Größenanimation
+- **keine undurchsichtige/schwarze Caption-Karte**; Lesbarkeit durch Textschatten + kontinuierlichen Szenen-Scrim
 
 Verbindliche generische Komponente:
 
@@ -247,6 +257,7 @@ Wenn keine echte Wortausrichtung aus dem finalen Audio erzeugt werden kann: **BL
 - Animationen relativ zur tatsächlichen Audio-/Szenendauer
 - keine pauschal gleich langen Szenen
 - Bild- und Animationsszenen sollen denselben visuellen Flächenwert haben
+- native Remotion-Hintergründe immer vollflächig und nahtlos; kein Boden/Horizont/Studio-Split
 - Überschriften/Icons in Remotion
 - Zahlen/Fakten nur aus geprüften Quellen oder reproduzierbaren Berechnungen
 
@@ -310,18 +321,19 @@ Ohne `weiter?` durchlaufen:
 3. echte Audio-Wortzeiten erzeugen
 4. Szenenstarts/-dauern aus Audio ableiten
 5. Remotion vollständig bauen
-6. Bilder mit adaptive-safe-fill framen
-7. Headlines + satzbasierte Karaoke-Captions einbinden
+6. Bildszenen als `full-frame-no-crop` über 1080×1920 integrieren
+7. Headline + genau-ein-Satz-Karaoke-Captions als Overlays einbinden
 8. **eine universelle Social-Caption mit genau 5 passenden Hashtags erstellen**
 9. finalen Reel-Validator ausführen
 10. TypeScript prüfen
 11. Preview rendern
-12. Frames/Kontaktbogen/Untertitel/Übergänge prüfen
+12. erste/mittlere/letzte Frames jeder Szene + Kontaktbogen + Untertitel/Übergänge prüfen
 13. vollständiges MP4 rendern und mit Ton prüfen
-14. Audioziel prüfen, wenn Tooling vorhanden
-15. behebbare Fehler selbst reparieren und Schleife wiederholen
-16. Safety Audit
-17. Commit + Draft-PR, wenn angemessen
+14. explizit prüfen: kein zweiter Hintergrund, kein abgeschnittener Footer, kein Bildpanel, kein Caption-Kasten
+15. Audioziel prüfen, wenn Tooling vorhanden
+16. behebbare Fehler selbst reparieren und Schleife wiederholen
+17. Safety Audit
+18. Commit + Draft-PR, wenn angemessen
 
 Finale Validierung verwendet:
 
@@ -359,8 +371,11 @@ Kein generisches `Weiter?`.
 
 - alle Pflichtmedien aus dem Ziel-Reel verwendet wurden
 - echte final-audio-basierte Wortzeiten vorliegen
-- Bildframing visuell geprüft wurde
-- Captions/Safe-Areas geprüft wurden
+- jedes Bild als vollständiges Full-Frame-9:16-Bild ohne absichtlichen Crop geprüft wurde
+- kein sichtbarer zweiter Hintergrund/Header/Footer-/Inset-Bereich vorhanden ist
+- genau ein Untertitelsatz gleichzeitig sichtbar ist und maximal zwei Zeilen nutzt
+- Untertitelposition/Safe-Areas geprüft wurden
+- keine undurchsichtige Caption-Karte vorhanden ist
 - die eine universelle Social-Caption fertig ist und genau 5 passende Hashtags enthält
 - Validator + TypeScript + Preview tatsächlich erfolgreich waren
 - vollständiges MP4 gerendert und geprüft wurde
