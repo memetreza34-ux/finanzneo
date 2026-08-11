@@ -44,7 +44,7 @@ Native Remotion ist die Standardwahl für:
 - Risiko-/Realitätscheck
 - Diagramme, Balken, Kurven und Zielwerte
 
-Ein dynamischer Beat darf nicht als statisches KI-Bild umgesetzt werden, nur weil bereits ein Bildprompt leichter zu schreiben ist.
+Ein dynamischer Beat darf nicht als statisches KI-Bild umgesetzt werden, nur weil ein Bild einfacher zu produzieren wäre.
 
 ## 3. Wofür Google-Flow-Bilder gedacht sind
 
@@ -101,7 +101,7 @@ Ein finaler Render ist verboten, wenn:
 
 - `word-timings.json` nicht `final-audio-aligned` ist
 - finale Wortzeiten fehlen oder geschätzt wurden
-- `timeline.json` noch `startFrame: 0` / `durationFrames: 0` als ungelöste Platzhalter enthält
+- `timeline.json` noch ungelöste `durationFrames: 0` enthält
 - Szenen nicht aus den echten Audiozeiten abgeleitet wurden
 
 Die finale Timeline muss lückenlos und chronologisch sein. Das Reel-Ende soll dem Ende des finalen gesprochenen Inhalts entsprechen; unbegründete lange Standbild-Tails sind verboten.
@@ -131,13 +131,41 @@ subtitleRight:  ca. 180 px
 
 - kein horizontaler Überlauf
 - kein Abschneiden am Rand
-- kein `nowrap`-Überlauf über die Safe-Area
 - keine Mini-Schrift als Rettung
 - aktuelles Wort nur während seiner echten Audio-start/end-Zeit grün
 - kurze Pause: aktuelle Caption-Einheit halten
 - Wechsel exakt beim ersten gesprochenen Wort der nächsten Einheit
 
-## 7. Finale MP4-QA ist Pflicht
+## 7. Zwei Validator-Phasen — kein Zirkelschluss
+
+### Vor dem Render
+
+```bash
+npm run reel:validate -- <TARGET-REEL> --final
+```
+
+Dieser Pre-Render-Finalcheck verlangt unter anderem:
+
+- richtige Medien
+- echte Audio-Wortzeiten
+- vollständig aufgelöste Timeline
+- korrekte 55–65-%-Animationslaufzeit
+- sichere Caption-Einheiten
+- `final-qa.json` vorhanden, Status darf noch `pending` sein
+
+Er blockiert **nicht** deshalb, weil die finale MP4 naturgemäß noch nicht geprüft sein kann.
+
+### Nach dem finalen MP4-Render
+
+Nach vollständiger MP4-Prüfung, Audio-Messung und wahrheitsgemäßem Ausfüllen von `final-qa.json`:
+
+```bash
+npm run reel:validate -- <TARGET-REEL> --final --post-render
+```
+
+Erst dieser Post-Render-Check verlangt `final-qa.json: passed`, alle QA-Flags und echte Audio-Messwerte.
+
+## 8. Finale MP4-QA ist Pflicht
 
 Ein erfolgreicher Typecheck oder Render reicht nicht.
 
@@ -149,7 +177,7 @@ Pflichtprüfungen:
 - keine falschen/unpassenden Google-Flow-Texte
 - Visualwechsel synchron mit Audio
 - 55–65 % der tatsächlichen Reel-Laufzeit sind Animation
-- keine Bildszene länger als 8 Sekunden ohne ausdrücklich dokumentierte Ausnahme
+- keine Bildszene länger als 8 Sekunden
 - keine zwei Bildszenen direkt hintereinander
 - Untertitel laufen nie aus dem Safe-Bereich
 - Untertitel sind ausreichend groß
@@ -159,17 +187,22 @@ Pflichtprüfungen:
 
 Die Prüfung wird in `05-projektdateien/final-qa.json` dokumentiert. Dieser Nachweis darf erst auf `passed` gesetzt werden, nachdem die finale MP4 tatsächlich geprüft wurde.
 
-## 8. Final-Blocker
+## 9. Final-Blocker
 
-Der Final-Validator blockiert neue V17-Reels, wenn unter anderem:
+Pre-Render blockiert unter anderem:
 
-- Visual-Mix falsch ist
-- zwei Bildszenen direkt hintereinander geplant sind
-- finale Timeline ungelöst ist
-- Bildlaufzeit zu lang ist
-- Caption-Einheit zu lang ist
-- echte Audio-Ausrichtung fehlt
-- finale MP4-QA nicht dokumentiert wurde
-- Audio-QA nicht bestanden wurde
+- falschen Visual-Mix
+- zwei Bildszenen direkt hintereinander
+- ungelöste Timeline
+- Bildlaufzeit über 8 Sekunden
+- zu lange Caption-Einheiten
+- fehlende echte Audio-Ausrichtung
+
+Post-Render blockiert zusätzlich:
+
+- nicht vollständig dokumentierte MP4-QA
+- fehlgeschlagenen Bild-/Voice-/Subtitle-Sync
+- falsche reale Visual-Quote
+- fehlgeschlagenes Audio-QA
 
 Validatoren niemals schwächen, um einen fehlerhaften Reel-Build durchzulassen.
