@@ -6,17 +6,53 @@ import type {CaptionWord} from '../lib/captions';
 type TimedSentence = {id: string; words: CaptionWord[]};
 type IndexedWord = CaptionWord & {index: number};
 
-const splitSentences = (words: CaptionWord[]): TimedSentence[] => {
+const MAX_WORDS = 12;
+const MAX_CHARS = 72;
+const MIN_FONT_SIZE = 42;
+const MAX_FONT_SIZE = 50;
+
+const textLength = (words: CaptionWord[]) => words.map((word) => word.word).join(' ').length;
+const isHardEnd = (word: string) => /[.!?…][\"'»”)]?$/.test(word);
+const isSoftBreak = (word: string) => /[,;:–—-][\"'»”)]?$/.test(word);
+
+const splitCaptionUnits = (words: CaptionWord[]): TimedSentence[] => {
   const result: TimedSentence[] = [];
   let current: CaptionWord[] = [];
+
+  const push = (unit: CaptionWord[]) => {
+    if (!unit.length) return;
+    result.push({id: `caption-${result.length + 1}`, words: unit});
+  };
+
   for (const word of words) {
     current.push(word);
-    if (/[.!?…][\"'»”)]?$/.test(word.word)) {
-      result.push({id: `sentence-${result.length + 1}`, words: current});
+
+    if (isHardEnd(word.word)) {
+      push(current);
       current = [];
+      continue;
+    }
+
+    if (current.length >= MAX_WORDS || textLength(current) >= MAX_CHARS) {
+      let splitAt = -1;
+      for (let i = current.length - 2; i >= 5; i -= 1) {
+        if (isSoftBreak(current[i].word)) {
+          splitAt = i + 1;
+          break;
+        }
+      }
+
+      if (splitAt > 0) {
+        push(current.slice(0, splitAt));
+        current = current.slice(splitAt);
+      } else {
+        push(current);
+        current = [];
+      }
     }
   }
-  if (current.length) result.push({id: `sentence-${result.length + 1}`, words: current});
+
+  push(current);
   return result;
 };
 
@@ -47,21 +83,21 @@ export type SentenceKaraokeCaptionsProps = {
 };
 
 /**
- * Exactly one spoken sentence at a time. Maximum two visual lines.
- * No opaque caption card: readability comes from text shadow and the scene's
- * continuous readability scrim, so captions do not create a third background.
+ * One short spoken caption unit at a time, never two units simultaneously.
+ * Long spoken sentences are split sequentially at a natural break when possible.
+ * Maximum two visual lines, minimum 42px effective font, real word timing only.
  */
 export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = ({
   words,
-  bottom = 300,
-  left = 64,
-  right = 156,
+  bottom = 320,
+  left = 72,
+  right = 180,
   highlight = C.accentLt,
 }) => {
   const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
+  const {fps, width} = useVideoConfig();
   const time = frame / fps;
-  const sentences = React.useMemo(() => splitSentences(words), [words]);
+  const sentences = React.useMemo(() => splitCaptionUnits(words), [words]);
   if (!sentences.length || time < sentences[0].words[0].start) return null;
 
   let sentenceIndex = 0;
@@ -82,7 +118,15 @@ export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = (
   }
 
   const longest = Math.max(...lines.map((line) => line.map((w) => w.word).join(' ').length));
-  const fontSize = longest > 64 ? 35 : longest > 56 ? 39 : longest > 48 ? 42 : longest > 40 ? 46 : 50;
+  const availableWidth = Math.max(1, width - left - right);
+  const estimatedFit = Math.floor(availableWidth / Math.max(1, longest * 0.56));
+  const fontSize = Math.min(MAX_FONT_SIZE, Math.max(MIN_FONT_SIZE, estimatedFit));
+
+  if (estimatedFit < MIN_FONT_SIZE) {
+    throw new Error(
+      `Caption unit too wide for safe area at ${MIN_FONT_SIZE}px: "${sentence.words.map((w) => w.word).join(' ')}"`,
+    );
+  }
 
   return (
     <div
@@ -97,13 +141,20 @@ export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = (
         fontWeight: 900,
         fontSize,
         lineHeight: 1.12,
-        letterSpacing: -0.45,
+        letterSpacing: -0.35,
         color: C.white,
         textShadow: '0 3px 6px rgba(0,0,0,.98), 0 0 20px rgba(0,0,0,.88)',
       }}
     >
       {lines.map((line, lineIndex) => (
-        <div key={`${sentence.id}-${lineIndex}`} style={{whiteSpace: 'nowrap', marginTop: lineIndex ? 6 : 0}}>
+        <div
+          key={`${sentence.id}-${lineIndex}`}
+          style={{
+            whiteSpace: 'nowrap',
+            maxWidth: '100%',
+            marginTop: lineIndex ? 6 : 0,
+          }}
+        >
           {line.map((word, position) => (
             <React.Fragment key={`${sentence.id}-${word.index}`}>
               {position ? ' ' : null}
