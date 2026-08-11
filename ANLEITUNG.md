@@ -30,9 +30,14 @@ Antigravity erzeugt keine finalen Bilder.
 Prompt lesen
 → genau EIN vertikales 9:16-Bild erzeugen
 → sofort endgültig umbenennen
-→ Motiv + Labels + Gesicht + nahtlosen Hintergrund prüfen
+→ Motiv + erlaubten Text + Gesicht + nahtlosen Hintergrund prüfen
+→ beim Cover zusätzlich exakte Pflichtüberschrift prüfen
 → erst dann nächstes Bild
 ```
+
+**Cover `Bild 00`:** große deutsche Überschrift direkt im Google-Flow-Bild. Der exakte Wortlaut steht im Cover-Prompt unter `COVER-ÜBERSCHRIFT – EXAKT SO:`. Fehlt sie, ist sie falsch geschrieben, abgeschnitten oder schlecht lesbar, Cover in Google Flow neu erzeugen. **Nicht in Remotion reparieren.**
+
+**Szenenbilder `Bild 01+`:** keine KI-Headline, kein KI-Untertitel und kein erklärender Satz; nur ausdrücklich gewünschte kurze deutsche Objektlabels.
 
 Alle finalen Nutzerbilder ausschließlich nach:
 
@@ -55,8 +60,8 @@ Keine Ersatzmedien aus anderen Ordnern/Reels/Downloads/Web/Stock/Cache/Alt-Expor
 - optional Person; Gesicht klar sichtbar
 - deep charcoal green-black + emerald/mint
 - Gold für Geld/Wert, Rot-Orange für Risiko/Verlust
-- kurze deutsche Objektlabels, normalerweise 1–3 Wörter
-- keine KI-Headline, kein KI-Untertitel, kein erklärender Satz
+- Cover: große exakte Google-Flow-Pflichtüberschrift, maximal zwei Zeilen, direkt auf demselben nahtlosen Hintergrund
+- Szenenbilder 01+: kurze deutsche Objektlabels, normalerweise 1–3 Wörter; keine KI-Headline/Untertitel/Sätze
 - genau ein nahtloser Hintergrund von oben bis unten
 - keine Prozent-Zonen/Bänder/Floor-Wall-Grenze/Horizont/Panels
 
@@ -68,14 +73,15 @@ Bildszenen verwenden **full-frame-no-crop**:
 - kein kleiner mittlerer Bildcontainer / kein `VisualStage` um Nutzerbilder
 - kein absichtlicher Crop, Zoom oder Focal-Point-Vertrag
 - kein sichtbarer Bildrand und keine unscharfe Bildkopie
-- Headline + Untertitel als Overlay über demselben Vollbild
+- Szenen 01+: Headline + Untertitel als Overlay über demselben Vollbild
+- Cover: **keine Remotion-Headline**; die Google-Flow-Cover-Überschrift bleibt unverändert
 - nur weicher kontinuierlicher Transparenz-Scrim für Lesbarkeit
 - kein separater Header-/Footer-Hintergrund
 
 Richtlayout 1080×1920:
 
 ```text
-Headline             ≈ Y 72
+Szenenheadline 01+   ≈ Y 72
 Bildszene            = Y 0–1920
 Animationsinhalt     ≈ Y 220–1490
 Caption              ≈ 300 px über Bottom
@@ -114,11 +120,12 @@ Wenn echte Wortausrichtung nicht möglich ist → **BLOCKED**, nicht schätzen.
 Wenn Pflichtbilder + genau ein finales Audio vorhanden sind und der Nutzer `Mach das Reel` / `Mach es fertig` sagt, läuft der Auftrag ohne `weiter?` bis zum fertigen Ergebnis:
 
 ```text
-Medien-Gate
+Medien-Gate inkl. Cover-Überschrift
 → echte Wortzeiten
 → Szenentiming
 → Remotion
 → full-frame-no-crop
+→ Szenenheadlines 01+; keine Remotion-Coverheadline
 → genau-ein-Satz-Karaoke
 → eine universelle Caption mit genau 5 Hashtags
 → npm run reel:validate -- <TARGET-REEL> --final
@@ -131,7 +138,7 @@ Medien-Gate
 → Commit/Draft-PR
 ```
 
-Visuelle QA prüft explizit: kein zweiter Hintergrund, kein abgeschnittener Bildboden, keine harten Header/Footer-Flächen, kein Inset-Panel, keine schwarze Caption-Karte, genau ein Untertitelsatz, sichere Caption-Position.
+Visuelle QA prüft explizit: exakte Google-Flow-Cover-Überschrift, keine Remotion-Ersatzheadline, kein zweiter Hintergrund, kein abgeschnittener Bildboden, keine harten Header/Footer-Flächen, kein Inset-Panel, keine schwarze Caption-Karte, genau ein Untertitelsatz, sichere Caption-Position.
 
 Stoppen nur bei einem echten Blocker nach `CLAUDE.md`.
 
@@ -170,6 +177,6 @@ Keine YouTube Shorts. YouTube ausschließlich Longform unter `youtube/`.
 
 ## 9. Fertig
 
-`PRODUCTION COMPLETE` nur wenn finaler Validator, TypeScript, Preview, Bild-/Caption-QA, vollständiges MP4, universelle Caption mit genau 5 Hashtags und Safety Audit tatsächlich erfolgt sind.
+`PRODUCTION COMPLETE` nur wenn finaler Validator, TypeScript, Preview, Cover-/Bild-/Caption-QA, vollständiges MP4, universelle Caption mit genau 5 Hashtags und Safety Audit tatsächlich erfolgt sind.
 
 Merge/Upload sind separate Nutzerfreigaben.
