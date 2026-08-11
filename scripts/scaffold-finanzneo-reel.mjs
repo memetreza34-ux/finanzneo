@@ -50,7 +50,9 @@ const flowInstruction=(fileName)=>`GOOGLE FLOW – FINALER DATEINAME:\n\`${fileN
 
 const imagePrompt=(id,index)=>`${flowInstruction(sceneFileName(index))}\n${STYLE_BLOCK}\n${SCENE_TEXT_RULE}\nBESCHRIFTUNGEN – EXAKT SO:\n- [KURZES DEUTSCHES OBJEKT-LABEL]\n- [OPTIONALES ZWEITES KURZES LABEL]\n\nBILDPROMPT:\nA stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE DOMINANT VISUAL METAPHOR FOR ${id}]. [DESCRIBE ONE CLEAR CAUSE-AND-EFFECT ACTION USING ONLY A FEW LARGE OBJECTS]. Include German object labels: [PLACE EACH SHORT LABEL DIRECTLY BESIDE THE RELEVANT OBJECT]. No headline. No subtitle. No explanatory sentence. ${STYLE_BLOCK}\n`;
 
-const coverPrompt=`${flowInstruction('Bild 00 - [KURZER COVER-NAME].png')}\n${STYLE_BLOCK}\n${COVER_TEXT_RULE}\nCOVER-ÜBERSCHRIFT – EXAKT SO:\n[EXAKTE DEUTSCHE COVER-ÜBERSCHRIFT]\n\nOBJEKTLABELS:\n[NUR WENN ZUSÄTZLICH NÖTIG, SONST: KEINE]\n\nBILDPROMPT:\nA stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE DOMINANT COVER METAPHOR]. [SHOW THE CORE IDEA OF THE REEL IN ONE CLEAR VISUAL]. Include the exact German cover headline '[EXAKTE DEUTSCHE COVER-ÜBERSCHRIFT]' directly in the generated image, large, premium, bold, smartphone-readable and maximum two lines. Spell it exactly. Do not add a subtitle, CTA, explanatory sentence or random extra text. Do not create a separate headline box, header band, panel or second background. ${STYLE_BLOCK}\n`;
+const coverFileName='Bild 00 - [KURZER COVER-NAME].png';
+const coverHeadline='[EXAKTE DEUTSCHE COVER-ÜBERSCHRIFT]';
+const coverPrompt=`${flowInstruction(coverFileName)}\n${STYLE_BLOCK}\n${COVER_TEXT_RULE}\nCOVER-ÜBERSCHRIFT – EXAKT SO:\n${coverHeadline}\n\nOBJEKTLABELS:\n[NUR WENN ZUSÄTZLICH NÖTIG, SONST: KEINE]\n\nBILDPROMPT:\nA stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE DOMINANT COVER METAPHOR]. [SHOW THE CORE IDEA OF THE REEL IN ONE CLEAR VISUAL]. Include the exact German cover headline '${coverHeadline}' directly in the generated image, large, premium, bold, smartphone-readable and maximum two lines. Spell it exactly. Do not add a subtitle, CTA, explanatory sentence or random extra text. Do not create a separate headline box, header band, panel or second background. ${STYLE_BLOCK}\n`;
 
 write('README.md',`# ${title}\n\nEinfache Struktur:\n- 01-script = finaler Fließtext fürs Voiceover\n- 02-audio = genau ein finales Nutzer-Voiceover\n- 03-szenen = Bildprompts, Szenen und finaler gemeinsamer Nutzerbilder-Ordner\n- 04-caption = genau eine universelle Social-Caption + echte Wort-Timings\n- 05-projektdateien = Animationen, Recherche und Technik\n\nAntigravity generiert keine Bilder. Nutzerbilder dürfen für den finalen Build ausschließlich aus 03-szenen/00-ALLE-BILDER-HIER-REIN/ kommen; Audio ausschließlich aus 02-audio/. Fehlende Pflichtmedien blockieren den finalen Build.\n\nCover Bild 00 enthält seine große deutsche Überschrift direkt aus Google Flow. Diese Cover-Überschrift wird nicht in Remotion ergänzt oder repariert. Szenenbilder 01+ enthalten keine KI-Headline.\n\nBildszenen verwenden das komplette vertikale 9:16-Nutzerbild über die gesamte 1080×1920-Szene. Kein mittlerer Bildcontainer und kein absichtlicher Crop. Szenenheadline 01+ + Untertitel liegen als Overlay darüber.\n\nDie Datei 04-caption/caption.txt wird unverändert für Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet und enthält exakt 5 relevante Hashtags.\n\nYouTube Shorts gibt es nicht. YouTube ist ausschließlich Longform unter youtube/.\n`);
 
@@ -151,6 +153,8 @@ write('03-szenen/scene-index.json',`${JSON.stringify({
     source:'google-flow',
     required:true,
     exactTextRequired:true,
+    exactText:coverHeadline,
+    googleFlowFileName:coverFileName,
     maxLines:2,
     remotionOverlayForbidden:true,
     regenerateIfMissingOrWrong:true,
@@ -184,7 +188,7 @@ write('03-szenen/scene-index.json',`${JSON.stringify({
     style:'premium-fintech-editorial-3d-metaphor',
     stylizedPersonAllowed:true,
     visibleFaceRequiredWhenPersonPresent:true,
-    objectLabelsOnly:true,
+    sceneImagesObjectLabelsOnly:true,
     seamlessSingleBackgroundRequired:true,
     percentageZonesForbidden:true,
     backgroundBandsForbidden:true,
@@ -225,7 +229,8 @@ write('03-szenen/scene-index.json',`${JSON.stringify({
     mode:'full-frame-no-crop',
     fullCanvas:true,
     sourceMustBeVertical916:true,
-    headlineOverlay:true,
+    sceneHeadlineOverlay:true,
+    coverHeadlineOverlayForbidden:true,
     captionOverlay:true,
     continuousReadabilityScrimOnly:true,
     hardHeaderFooterPanelsForbidden:true,
@@ -239,7 +244,7 @@ write('03-szenen/scene-index.json',`${JSON.stringify({
 
 console.log(`✓ Neues FinanzNeo-Reel angelegt: ${root}`);
 console.log(`  Szenen: ${scenes.length} · Bilder: ${imageSceneIds.length} · Animationen: ${animationSceneIds.length}`);
-console.log('  Cover: Pflichtüberschrift direkt aus Google Flow · keine Remotion-Ersatzheadline');
+console.log('  Cover: Pflichtüberschrift direkt aus Google Flow · Bild 00 ist Pflichtmedium · keine Remotion-Ersatzheadline');
 console.log('  Bilddarstellung: full-frame-no-crop · vollständiges vertikales 9:16-Bild · Szenenheadline/Caption als Overlay');
 console.log('  Untertitel: genau 1 Satz · max. 2 Zeilen · echte Audio-Wortgrenzen · keine schwarze Caption-Karte');
 console.log('  Medien: nur Ziel-Reel-Sammelordner + 02-audio; fehlende Pflichtmedien blockieren finalen Build');
