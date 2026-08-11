@@ -9,7 +9,7 @@
     "studio:notgroschen": "npm run assets:notgroschen && npx remotion studio",
     "typecheck": "tsc --noEmit",
     "build": "npx remotion bundle src/index.ts",
-    "reel:create": "node scripts/scaffold-finanzneo-reel.mjs",
+    "reel:create": "node scripts/scaffold-finanzneo-reel-quality.mjs",
     "reel:sort-images": "node scripts/sort-reel-images.mjs",
     "reel:validate": "node scripts/validate-reel.mjs",
     "assets:drei-konten": "node scripts/sync-drei-konten-assets.mjs",
