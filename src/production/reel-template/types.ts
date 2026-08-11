@@ -62,10 +62,6 @@ export type ImageBeat = ReelBeatBase & {
   headline: string;
   imageSrc: string;
   alt: string;
-  /** 0..1 focal point used by adaptive-safe-fill. */
-  focalX?: number;
-  /** 0..1 focal point used by adaptive-safe-fill. */
-  focalY?: number;
 };
 
 export type CtaBeat = ReelBeatBase & {
@@ -123,14 +119,8 @@ export const validateReelConfig = (config: ReelConfig): string[] => {
       errors.push(`Beat ${beat.id} hat keine positive ganzzahlige durationInFrames.`);
     }
 
-    if (beat.type === 'image') {
-      if (!beat.imageSrc.trim()) errors.push(`Image-Beat ${beat.id} besitzt keine Bilddatei.`);
-      if (beat.focalX !== undefined && (beat.focalX < 0 || beat.focalX > 1)) {
-        errors.push(`Image-Beat ${beat.id}: focalX muss zwischen 0 und 1 liegen.`);
-      }
-      if (beat.focalY !== undefined && (beat.focalY < 0 || beat.focalY > 1)) {
-        errors.push(`Image-Beat ${beat.id}: focalY muss zwischen 0 und 1 liegen.`);
-      }
+    if (beat.type === 'image' && !beat.imageSrc.trim()) {
+      errors.push(`Image-Beat ${beat.id} besitzt keine Bilddatei.`);
     }
 
     if (beat.type === 'checklist' && beat.items.length === 0) {
