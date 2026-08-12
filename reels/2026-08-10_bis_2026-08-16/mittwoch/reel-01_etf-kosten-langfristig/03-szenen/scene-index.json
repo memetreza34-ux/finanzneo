@@ -1,0 +1,23 @@
+{
+  "version": "quality-contract-v2",
+  "reel": "2026-08-12_etf-kosten-langfristig",
+  "format": {"width": 1080, "height": 1920, "fps": 30},
+  "timingSource": "final-audio-word-timestamps",
+  "timingStatus": "missing-final-audio-alignment",
+  "scenes": [
+    {"scene": 1, "type": "image", "asset": "Bild 01.png", "fit": "full-frame-no-crop"},
+    {"scene": 2, "type": "animation", "animationId": "fee-drag-flow"},
+    {"scene": 3, "type": "image", "asset": "Bild 03.png", "fit": "full-frame-no-crop"},
+    {"scene": 4, "type": "animation", "animationId": "contribution-assumption-build"},
+    {"scene": 5, "type": "animation", "animationId": "low-cost-growth"},
+    {"scene": 6, "type": "image", "asset": "Bild 06.png", "fit": "full-frame-no-crop"},
+    {"scene": 7, "type": "animation", "animationId": "high-cost-growth"},
+    {"scene": 8, "type": "animation", "animationId": "cost-gap-39000"},
+    {"scene": 9, "type": "image", "asset": "Bild 09.png", "fit": "full-frame-no-crop"},
+    {"scene": 10, "type": "animation", "animationId": "small-percent-big-euros-payoff"}
+  ],
+  "cover": {"asset": "Bild 00.png"},
+  "requiredUserImages": ["Bild 00.png", "Bild 01.png", "Bild 03.png", "Bild 06.png", "Bild 09.png"],
+  "reservedAnimationNumbers": [2,4,5,7,8,10],
+  "finalRenderBlockedUntil": ["final voiceover", "real word timestamps", "all required user images", "pre-render validation"]
+}

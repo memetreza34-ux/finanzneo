@@ -2,9 +2,9 @@
 
 > Bei Widerspruch gilt `CLAUDE.md`.
 
-## Einzelbild
+## Einzelbild — allgemein
 
-- [ ] Bild erklärt exakt den gesprochenen Satz.
+- [ ] Bild erklärt exakt den gesprochenen Satz bzw. beim Cover das Reel-Thema.
 - [ ] Eine dominante Finanzmetapher / Hero-Objekt.
 - [ ] Premium Fintech Editorial 3D.
 - [ ] Deep charcoal green-black + Emerald/Mint.
@@ -12,10 +12,30 @@
 - [ ] Genau EIN nahtloser Hintergrund von oben bis unten.
 - [ ] Keine horizontalen Bänder, Panels, Floor-Wall-Grenze oder Horizont.
 - [ ] Wenn Person: Gesicht klar sichtbar, frontal/3⁄4, Augen/Nase/Mund erkennbar.
-- [ ] Nur erlaubte kurze deutsche Objektlabels.
-- [ ] Keine KI-Headline, kein KI-Untertitel, kein erklärender Satz.
 - [ ] Keine Dioramen, Game-Level, Neon-Tunnel, Sci-Fi-Korridore oder Dashboards.
-- [ ] Quelle ist vertikal 9:16 und wichtige Motive/Labels liegen sicher im Frame.
+- [ ] Quelle ist vertikal 9:16 und wichtige Motive/Texte liegen sicher im Frame.
+
+## Cover `Bild 00` — Pflicht
+
+- [ ] Eine große deutsche Cover-Überschrift ist direkt im Google-Flow-Bild vorhanden.
+- [ ] Überschrift entspricht **exakt** dem Block `COVER-ÜBERSCHRIFT – EXAKT SO:` im Cover-Prompt.
+- [ ] Sie nennt konkret das Reel-Thema.
+- [ ] Ungefähr 3–8 Wörter, maximal zwei Zeilen.
+- [ ] Auf Smartphone sofort gut lesbar.
+- [ ] Keine falsche Schreibweise, fehlenden Buchstaben oder abgeschnittenen Wörter.
+- [ ] Kein zusätzlicher Subtitle, CTA oder erklärender Satz.
+- [ ] Keine separate Textbox, kein Header-Balken, kein zweiter Hintergrund hinter der Überschrift.
+- [ ] Remotion legt **keine zusätzliche/reparierende Cover-Headline** darüber.
+
+Wenn die Pflichtüberschrift fehlt, falsch geschrieben, abgeschnitten oder schlecht lesbar ist: **Cover in Google Flow neu erzeugen. Nicht in Remotion reparieren.**
+
+## Szenenbilder `Bild 01+`
+
+- [ ] Nur erlaubte kurze deutsche Objektlabels.
+- [ ] Keine KI-Headline.
+- [ ] Kein KI-Untertitel.
+- [ ] Kein erklärender Satz/CTA.
+- [ ] Szenenheadline kommt später aus Remotion.
 
 ## Remotion-Bilddarstellung — Pflicht
 
@@ -26,7 +46,8 @@
 - [ ] Kein absichtlicher Crop, Zoom oder Focal-Point-Vertrag.
 - [ ] Kein sichtbarer rechteckiger Bildrand.
 - [ ] Keine unscharfe Bildkopie als Hintergrund.
-- [ ] Headline liegt als Overlay über demselben Vollbild.
+- [ ] Bei Szenen 01+: Headline liegt als Overlay über demselben Vollbild.
+- [ ] Cover: keine zusätzliche Remotion-Headline.
 - [ ] Untertitel liegt als Overlay über demselben Vollbild.
 - [ ] Für Lesbarkeit nur ein weicher kontinuierlicher transparenter Scrim.
 - [ ] Kein harter grüner Header-Hintergrund.
@@ -45,7 +66,7 @@
 
 Richtwerte 1080×1920:
 
-- [ ] Headline ungefähr ab Y 72.
+- [ ] Szenenheadline 01+ ungefähr ab Y 72.
 - [ ] Bildszene selbst full-frame Y 0–1920.
 - [ ] Native Animationsinhalte ungefähr Y 220–1490.
 - [ ] Caption ungefähr 300 px über Bottom.
@@ -72,18 +93,29 @@ Richtwerte 1080×1920:
 ## Gesamtreel
 
 1. Alle Nutzerbilder als Kontaktbogen prüfen.
-2. Für jede Bildszene Anfang/Mitte/Ende prüfen.
-3. Prüfen, dass das Bild an keiner Stelle vor dem unteren Frame endet.
-4. Prüfen, dass kein zweiter/dritter Hintergrundbereich sichtbar wird.
-5. Native Animationen auf Boden/Horizont/Studio-Splits prüfen.
-6. Caption-Safe-Area auf Plattform-UI prüfen.
-7. Karaoke-Sync stichprobenartig an kurzen und langen Wörtern prüfen.
-8. Vollständige MP4 mit Ton ansehen.
-9. Wenn ein Fehler technisch behebbar ist: fixen, neu rendern, erneut prüfen.
+2. Cover separat auf exakte Google-Flow-Pflichtüberschrift prüfen.
+3. Für jede Bildszene Anfang/Mitte/Ende prüfen.
+4. Prüfen, dass das Bild an keiner Stelle vor dem unteren Frame endet.
+5. Prüfen, dass kein zweiter/dritter Hintergrundbereich sichtbar wird.
+6. Native Animationen auf Boden/Horizont/Studio-Splits prüfen.
+7. Caption-Safe-Area auf Plattform-UI prüfen.
+8. Karaoke-Sync stichprobenartig an kurzen und langen Wörtern prüfen.
+9. Vollständige MP4 mit Ton ansehen.
+10. Wenn ein Fehler technisch behebbar ist: fixen, neu rendern, erneut prüfen.
 
 ## Sofortige Ablehnung
 
-Nutzerbild neu erzeugen bei:
+Cover neu erzeugen bei:
+
+- Pflichtüberschrift fehlt/falsch geschrieben/abgeschnitten/schlecht lesbar
+- zusätzlichem Subtitle/CTA/erklärendem Satz
+- separatem Headline-Balken/Panel
+- zwei sichtbaren Hintergründen/Bändern
+- Floor-Wall-Grenze/Horizont
+- gesichtsloser/abgewandter Person
+- falscher Bildaussage
+
+Szenenbild neu erzeugen bei:
 
 - zwei sichtbaren Hintergründen/Bändern im Quellbild
 - Floor-Wall-Grenze/Horizont
@@ -94,6 +126,7 @@ Nutzerbild neu erzeugen bei:
 
 Remotion reparieren bei:
 
+- Remotion-Headline über dem Cover
 - kleinem Poster/Inlay
 - Bild endet sichtbar vor Y=1920
 - harter Header-/Footer-Hintergrund
@@ -107,6 +140,7 @@ Remotion reparieren bei:
 ## Protokoll
 
 ```text
+Cover-Headline aus Google Flow: [BESTANDEN / NICHT BESTANDEN]
 Bildwelt: [BESTANDEN / NICHT BESTANDEN]
 Full Frame No Crop: [BESTANDEN / NICHT BESTANDEN]
 Ein Hintergrund / keine Panels: [BESTANDEN / NICHT BESTANDEN]

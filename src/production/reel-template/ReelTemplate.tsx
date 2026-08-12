@@ -36,14 +36,8 @@ const formatTemplateNumber = (
   value: number,
   format: NumberBeat['format'],
 ): string => {
-  if (format === 'euro') {
-    return `${Math.round(value).toLocaleString('de-DE')} €`;
-  }
-
-  if (format === 'percent') {
-    return `${value.toLocaleString('de-DE', {maximumFractionDigits: 2})} %`;
-  }
-
+  if (format === 'euro') return `${Math.round(value).toLocaleString('de-DE')} €`;
+  if (format === 'percent') return `${value.toLocaleString('de-DE', {maximumFractionDigits: 2})} %`;
   return value.toLocaleString('de-DE', {maximumFractionDigits: 2});
 };
 
@@ -53,10 +47,7 @@ const toneColor = (tone: CompareBeat['left']['tone']): string => {
   return C.white;
 };
 
-const BeatHeader: React.FC<{
-  kicker?: string;
-  headline?: string;
-}> = ({kicker, headline}) => (
+const BeatHeader: React.FC<{kicker?: string; headline?: string}> = ({kicker, headline}) => (
   <div style={{
     position: 'absolute',
     top: 66,
@@ -78,13 +69,12 @@ const BeatHeader: React.FC<{
 
 const SourceNote: React.FC<{children?: string}> = ({children}) => {
   if (!children) return null;
-
   return (
     <div style={{
       position: 'absolute',
-      left: 64,
-      right: 156,
-      bottom: 210,
+      left: 72,
+      right: 180,
+      bottom: 220,
       color: a(C.gray, 0.78),
       fontFamily: FONT.body,
       fontSize: 18,
@@ -145,12 +135,8 @@ const CompareCard: React.FC<{
       <div style={{fontFamily: FONT.body, fontSize: 30, fontWeight: 800, color: C.gray, letterSpacing: 2}}>
         {label.toUpperCase()}
       </div>
-      <div style={{fontFamily: FONT.title, fontSize: 100, lineHeight: 1, color, marginTop: 30}}>
-        {value}
-      </div>
-      {detail && <div style={{fontFamily: FONT.body, fontSize: 30, lineHeight: 1.3, color: C.white, marginTop: 34}}>
-        {detail}
-      </div>}
+      <div style={{fontFamily: FONT.title, fontSize: 100, lineHeight: 1, color, marginTop: 30}}>{value}</div>
+      {detail && <div style={{fontFamily: FONT.body, fontSize: 30, lineHeight: 1.3, color: C.white, marginTop: 34}}>{detail}</div>}
     </div>
   );
 };
@@ -166,13 +152,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
           <div style={{textAlign: 'center', width: '100%'}}>
             {beat.kicker && <Kicker at={0}>{beat.kicker}</Kicker>}
             <Title at={4} size={132} style={{marginTop: beat.kicker ? 24 : 0}}>{beat.headline}</Title>
-            {beat.accent && <div style={{
-              marginTop: 26,
-              fontFamily: FONT.title,
-              fontSize: 118,
-              color: C.gold,
-              opacity: prog(frame, 14, 26),
-            }}>{beat.accent}</div>}
+            {beat.accent && <div style={{marginTop: 26,fontFamily: FONT.title,fontSize: 118,color: C.gold,opacity: prog(frame, 14, 26)}}>{beat.accent}</div>}
             {beat.subline && <Body at={22} size={43} color={C.gray} style={{marginTop: 34}}>{beat.subline}</Body>}
           </div>
         </CenterArea>
@@ -193,23 +173,12 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
               {beat.bullets.map((item, index) => {
                 const appear = prog(frame, 16 + index * 8, 28 + index * 8);
                 return <div key={item} style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 22,
-                  padding: '22px 30px',
-                  borderRadius: 22,
-                  background: 'rgba(255,255,255,0.055)',
-                  border: `1px solid ${a(C.accent, 0.22)}`,
-                  color: C.white,
-                  fontFamily: FONT.body,
-                  fontSize: 35,
-                  fontWeight: 700,
-                  textAlign: 'left',
-                  opacity: appear,
-                  transform: `translateX(${(1 - appear) * 28}px)`,
+                  display: 'flex',alignItems: 'center',gap: 22,padding: '22px 30px',borderRadius: 22,
+                  background: 'rgba(255,255,255,0.055)',border: `1px solid ${a(C.accent, 0.22)}`,
+                  color: C.white,fontFamily: FONT.body,fontSize: 35,fontWeight: 700,textAlign: 'left',
+                  opacity: appear,transform: `translateX(${(1 - appear) * 28}px)`,
                 }}>
-                  <span style={{color: C.accent, fontSize: 32}}>✓</span>
-                  <span>{item}</span>
+                  <span style={{color: C.accent, fontSize: 32}}>✓</span><span>{item}</span>
                 </div>;
               })}
             </div>}
@@ -227,28 +196,10 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
         <BeatHeader kicker={beat.kicker} headline={beat.headline} />
         <CenterArea>
           <div style={{textAlign: 'center', width: '100%'}}>
-            <div style={{fontFamily: FONT.body, fontSize: 32, fontWeight: 800, letterSpacing: 4, color: C.gray}}>
-              {beat.label.toUpperCase()}
-            </div>
-            <div style={{marginTop: 26}}>
-              <DramaticNumber
-                to={beat.value}
-                format={(value) => formatTemplateNumber(value, beat.format)}
-                fontSize={174}
-                color={C.gold}
-                startAt={10}
-                durationFrames={72}
-              />
-            </div>
+            <div style={{fontFamily: FONT.body,fontSize: 32,fontWeight: 800,letterSpacing: 4,color: C.gray}}>{beat.label.toUpperCase()}</div>
+            <div style={{marginTop: 26}}><DramaticNumber to={beat.value} format={(value) => formatTemplateNumber(value, beat.format)} fontSize={174} color={C.gold} startAt={10} durationFrames={72} /></div>
             {beat.detail && <Body at={62} size={39} color={C.white} style={{marginTop: 40}}>{beat.detail}</Body>}
-            {beat.assumptions && <div style={{
-              marginTop: 28,
-              color: a(C.gray, 0.78),
-              fontFamily: FONT.body,
-              fontSize: 25,
-              fontWeight: 600,
-              lineHeight: 1.3,
-            }}>{beat.assumptions}</div>}
+            {beat.assumptions && <div style={{marginTop: 28,color: a(C.gray, 0.78),fontFamily: FONT.body,fontSize: 25,fontWeight: 600,lineHeight: 1.3}}>{beat.assumptions}</div>}
           </div>
         </CenterArea>
         <SourceNote>{beat.sourceNote}</SourceNote>
@@ -262,7 +213,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
         <FinanceBackground variant={beat.background ?? 'data'} />
         <BeatHeader kicker={beat.kicker} headline={beat.headline} />
         <CenterArea>
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 34, width: '100%'}}>
+          <div style={{display: 'flex',alignItems: 'center',justifyContent: 'center',gap: 34,width: '100%'}}>
             <CompareCard {...beat.left} delay={6} />
             <div style={{fontFamily: FONT.title, fontSize: 70, color: C.gray}}>VS</div>
             <CompareCard {...beat.right} delay={16} />
@@ -283,33 +234,12 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
             {beat.items.map((item, index) => {
               const appear = prog(frame, 6 + index * 9, 18 + index * 9);
               return <div key={item} style={{
-                minHeight: 98,
-                display: 'flex',
-                alignItems: 'center',
-                gap: 26,
-                padding: '20px 30px',
-                borderRadius: 24,
-                background: 'rgba(255,255,255,0.06)',
-                border: `1px solid ${a(C.accent, 0.26)}`,
-                fontFamily: FONT.body,
-                fontSize: 37,
-                fontWeight: 700,
-                color: C.white,
-                opacity: appear,
-                transform: `translateY(${(1 - appear) * 24}px)`,
+                minHeight: 98,display: 'flex',alignItems: 'center',gap: 26,padding: '20px 30px',borderRadius: 24,
+                background: 'rgba(255,255,255,0.06)',border: `1px solid ${a(C.accent, 0.26)}`,
+                fontFamily: FONT.body,fontSize: 37,fontWeight: 700,color: C.white,
+                opacity: appear,transform: `translateY(${(1 - appear) * 24}px)`,
               }}>
-                <span style={{
-                  width: 50,
-                  height: 50,
-                  borderRadius: 16,
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  background: a(C.accent, 0.16),
-                  color: C.accent,
-                  fontSize: 30,
-                }}>✓</span>
+                <span style={{width: 50,height: 50,borderRadius: 16,display: 'inline-flex',alignItems: 'center',justifyContent: 'center',flexShrink: 0,background: a(C.accent, 0.16),color: C.accent,fontSize: 30}}>✓</span>
                 <span>{item}</span>
               </div>;
             })}
@@ -339,17 +269,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
           {beat.kicker && <Kicker at={0}>{beat.kicker}</Kicker>}
           <Title at={4} size={112} style={{marginTop: beat.kicker ? 24 : 0}}>{beat.headline}</Title>
           <Body at={18} size={42} color={C.gray} style={{marginTop: 34}}>{beat.body}</Body>
-          {beat.keyword && beat.offer && <div style={{
-            marginTop: 54,
-            borderRadius: 28,
-            padding: '30px 34px',
-            background: a(C.accent, 0.12),
-            border: `2px solid ${a(C.accent, 0.48)}`,
-            fontFamily: FONT.body,
-            fontSize: 34,
-            fontWeight: 800,
-            color: C.white,
-          }}>
+          {beat.keyword && beat.offer && <div style={{marginTop: 54,borderRadius: 28,padding: '30px 34px',background: a(C.accent, 0.12),border: `2px solid ${a(C.accent, 0.48)}`,fontFamily: FONT.body,fontSize: 34,fontWeight: 800,color: C.white}}>
             Kommentiere <span style={{color: C.gold}}>„{beat.keyword}“</span><br />
             <span style={{fontSize: 29, color: C.gray}}>{beat.offer}</span>
           </div>}
@@ -362,14 +282,11 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
 
 export const ReelTemplate: React.FC<{config: ReelConfig}> = ({config}) => {
   const errors = validateReelConfig(config);
-  if (errors.length > 0) {
-    throw new Error(`Ungültige FinanzNeo-Reel-Konfiguration:\n${errors.map((error) => `- ${error}`).join('\n')}`);
-  }
+  if (errors.length > 0) throw new Error(`Ungültige FinanzNeo-Reel-Konfiguration:\n${errors.map((error) => `- ${error}`).join('\n')}`);
 
   return (
     <AbsoluteFill style={{background: C.bg}}>
       {config.audioSrc && <Audio src={staticFile(config.audioSrc)} />}
-
       <Series>
         {config.beats.map((beat) => (
           <Series.Sequence key={beat.id} durationInFrames={beat.durationInFrames}>
@@ -378,27 +295,12 @@ export const ReelTemplate: React.FC<{config: ReelConfig}> = ({config}) => {
         ))}
       </Series>
 
-      <div style={{
-        position: 'absolute',
-        top: 22,
-        right: 30,
-        color: a(C.gray, 0.52),
-        fontFamily: FONT.body,
-        fontSize: 18,
-        fontWeight: 700,
-        letterSpacing: 1.4,
-      }}>
+      <div style={{position: 'absolute',top: 22,right: 30,color: a(C.gray, 0.52),fontFamily: FONT.body,fontSize: 18,fontWeight: 700,letterSpacing: 1.4}}>
         {config.disclaimer ?? 'KEINE ANLAGEBERATUNG'}
       </div>
 
       {config.captions && config.captions.length > 0 && (
-        <SentenceKaraokeCaptions
-          words={config.captions}
-          bottom={300}
-          left={64}
-          right={156}
-          highlight={C.accentLt}
-        />
+        <SentenceKaraokeCaptions words={config.captions} highlight={C.accentLt} />
       )}
 
       <VerticalSafeAreaGuide enabled={config.showSafeAreaGuide ?? false} />

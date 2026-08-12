@@ -1,0 +1,45 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+VERBINDLICH FÜR ALLE BILDER:
+Premium fintech editorial 3D render style. Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image, same material/tone/gradient from top edge to bottom edge. NO horizontal divisions, bands, panels, floor-wall boundary, horizon line, studio split or layered backdrop. Vivid emerald and mint-green accents. Gold only for money/value. Warm red-orange only for cost, loss or risk. Smooth rounded 3D geometry, soft bevelled edges, high-contrast studio lighting, bold emerald rim light. No photorealism, no Pixar, no clay look, no dashboard UI, no poster headline, no subtitle, no explanatory sentence, no random text. If a person appears: anonymous stylized adult, clearly visible face with eyes, nose and mouth, natural front or 3/4 view.
+
+━━━━━━━━━━━━━━━━━━━━
+BILD 00 — COVER
+ENDGÜLTIGER DATEINAME: Bild 00.png
+━━━━━━━━━━━━━━━━━━━━
+Create one premium vertical 9:16 FinanzNeo cover illustration. In the visual center, show two enormous transparent investment cylinders growing upward from identical monthly gold coin streams. The left cylinder is tall and full of gold coins with only a tiny warm-red cost valve. The right cylinder is visibly shorter because a larger warm-red cost valve continuously removes coins. Between them, one large floating gold difference stack makes the lost long-term value instantly understandable. Use only these short German object labels: `0,2 % Kosten` near the small valve, `1,5 % Kosten` near the larger valve, and `39.000 €` near the difference stack. Keep generous seamless dark background space above for a Remotion cover headline. No other text.
+
+━━━━━━━━━━━━━━━━━━━━
+BILD 01 — SZENE 01
+ENDGÜLTIGER DATEINAME: Bild 01.png
+━━━━━━━━━━━━━━━━━━━━
+Create a premium fintech editorial 3D scene showing one huge golden long-term investment stream stretching vertically through the composition. Beside it are two physically tiny fee tokens, one much smaller than the other, designed to look deceptively insignificant compared with the large investment stream. Farther along the same visual cause-and-effect path, the larger fee token casts a much larger warm-red shadow over accumulated gold coins, hinting that a tiny annual percentage can become a large long-term effect. Include only the German labels `0,2 %` and `1,5 %` directly beside the two fee tokens. No headline, no sentence.
+
+━━━━━━━━━━━━━━━━━━━━
+BILD 03 — SZENE 03
+ENDGÜLTIGER DATEINAME: Bild 03.png
+━━━━━━━━━━━━━━━━━━━━
+Create a premium fintech editorial 3D scene with one anonymous stylized adult person, clearly visible face, standing beside one large 30-year financial timeline made from 30 clean milestone blocks that recede upward through the same seamless background. A steady stream of identical gold `200 €` monthly coin bundles enters the timeline and builds one increasingly large gold reserve toward the far end. Use only the German object labels `200 € / Monat` near the incoming coin stream and `30 Jahre` near the timeline. The scene must communicate regular investing over a very long period at first glance. No other text.
+
+━━━━━━━━━━━━━━━━━━━━
+BILD 06 — SZENE 06
+ENDGÜLTIGER DATEINAME: Bild 06.png
+━━━━━━━━━━━━━━━━━━━━
+Create a premium fintech editorial 3D cause-and-effect illustration of a large golden investment pipeline carrying value upward. A clearly visible warm red-orange fee valve labeled `1,5 % Kosten` continuously diverts a thin but persistent stream of gold coins away from the main pipeline into a dark loss channel. The remaining main stream continues upward but is visibly reduced. One anonymous stylized adult with a clearly visible face observes the leak from a natural three-quarter view. The dominant object is the pipeline and fee leak, not the person. Include only the German label `1,5 % Kosten`. No headline or explanatory sentence.
+
+━━━━━━━━━━━━━━━━━━━━
+BILD 09 — SZENE 09
+ENDGÜLTIGER DATEINAME: Bild 09.png
+━━━━━━━━━━━━━━━━━━━━
+Create a premium fintech editorial 3D scene showing one enormous magnifying glass inspecting a single broad ETF globe made from many diversified company blocks. Around the inspected object, show four large, clean evaluation markers connected to the same ETF object: a small cost tag, a broad diversified index ring, a large fund-size reservoir, and a target marker representing personal investment purpose. Use only these short German object labels: `Kosten`, `Index`, `Streuung`, `Fondsgröße`. Do not imply that the cheapest ETF is automatically best. No brand logos, no product recommendation, no headline, no sentence.
+
+QA FÜR JEDES BILD:
+- exakt ein nahtloser Hintergrund von oben bis unten
+- keine horizontale Trennkante / kein Boden / kein Horizont
+- Hauptmetapher in unter 1 Sekunde verständlich
+- nur erlaubte deutsche Labels, korrekt geschrieben
+- keine zusätzlichen Fantasiewörter
+- bei Person: Gesicht klar sichtbar
+- keine abgeschnittenen Geldobjekte oder Labels
+- kein Dashboard-, Diorama-, Game-Level- oder Sci-Fi-Korridor-Look
+- sofort neu erzeugen, wenn eine Regel verletzt ist

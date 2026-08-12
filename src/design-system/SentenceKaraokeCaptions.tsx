@@ -6,17 +6,74 @@ import type {CaptionWord} from '../lib/captions';
 type TimedSentence = {id: string; words: CaptionWord[]};
 type IndexedWord = CaptionWord & {index: number};
 
-const splitSentences = (words: CaptionWord[]): TimedSentence[] => {
+const MAX_WORDS = 12;
+const MAX_CHARS = 68;
+const MIN_FONT_SIZE = 42;
+const MAX_FONT_SIZE = 50;
+const NATURAL_PAUSE_SECONDS = 0.34;
+
+const textLength = (words: CaptionWord[]) => words.map((word) => word.word).join(' ').length;
+const isHardEnd = (word: string) => /[.!?…][\"'»”)]?$/.test(word);
+const isSoftBreak = (word: string) => /[,;:–—-][\"'»”)]?$/.test(word);
+
+const findPreferredBreak = (words: CaptionWord[]): number => {
+  for (let i = words.length - 1; i >= 4; i -= 1) {
+    if (isSoftBreak(words[i - 1].word)) return i;
+  }
+  return -1;
+};
+
+const splitCaptionUnits = (words: CaptionWord[]): TimedSentence[] => {
   const result: TimedSentence[] = [];
   let current: CaptionWord[] = [];
+
+  const push = (unit: CaptionWord[]) => {
+    if (!unit.length) return;
+    result.push({id: `caption-${result.length + 1}`, words: unit});
+  };
+
   for (const word of words) {
+    const previous = current[current.length - 1];
+    const pauseBefore = previous ? Math.max(0, word.start - previous.end) : 0;
+
+    if (
+      current.length >= 4 &&
+      pauseBefore >= NATURAL_PAUSE_SECONDS
+    ) {
+      push(current);
+      current = [];
+    }
+
+    const prospective = [...current, word];
+    const wouldOverflow = prospective.length > MAX_WORDS || textLength(prospective) > MAX_CHARS;
+
+    if (current.length && wouldOverflow) {
+      const preferredBreak = findPreferredBreak(current);
+
+      if (preferredBreak > 0 && preferredBreak < current.length) {
+        push(current.slice(0, preferredBreak));
+        current = current.slice(preferredBreak);
+      } else {
+        push(current);
+        current = [];
+      }
+    }
+
     current.push(word);
-    if (/[.!?…][\"'»”)]?$/.test(word.word)) {
-      result.push({id: `sentence-${result.length + 1}`, words: current});
+
+    if (current.length > MAX_WORDS || textLength(current) > MAX_CHARS) {
+      throw new Error(
+        `Single caption unit cannot satisfy ${MAX_WORDS} words / ${MAX_CHARS} characters: "${current.map((item) => item.word).join(' ')}"`,
+      );
+    }
+
+    if (isHardEnd(word.word)) {
+      push(current);
       current = [];
     }
   }
-  if (current.length) result.push({id: `sentence-${result.length + 1}`, words: current});
+
+  push(current);
   return result;
 };
 
@@ -47,9 +104,10 @@ export type SentenceKaraokeCaptionsProps = {
 };
 
 /**
- * Exactly one spoken sentence at a time. Maximum two visual lines.
- * No opaque caption card: readability comes from text shadow and the scene's
- * continuous readability scrim, so captions do not create a third background.
+ * One short spoken caption unit at a time.
+ * Units prefer real sentence endings and actual speech pauses, and split before
+ * they can exceed the safe word/character contract. Real word timing drives
+ * both unit switches and the active-word highlight.
  */
 export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = ({
   words,
@@ -59,9 +117,9 @@ export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = (
   highlight = C.accentLt,
 }) => {
   const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
+  const {fps, width} = useVideoConfig();
   const time = frame / fps;
-  const sentences = React.useMemo(() => splitSentences(words), [words]);
+  const sentences = React.useMemo(() => splitCaptionUnits(words), [words]);
   if (!sentences.length || time < sentences[0].words[0].start) return null;
 
   let sentenceIndex = 0;
@@ -82,8 +140,15 @@ export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = (
   }
 
   const longest = Math.max(...lines.map((line) => line.map((w) => w.word).join(' ').length));
-  // V17 requirement: min 42px font size. (Max chars ~68 means 42px is applied for the longest ones)
-  const fontSize = longest > 60 ? 42 : longest > 48 ? 44 : longest > 40 ? 46 : 50;
+  const availableWidth = Math.max(1, width - left - right);
+  const estimatedFit = Math.floor(availableWidth / Math.max(1, longest * 0.56));
+  const fontSize = Math.min(MAX_FONT_SIZE, Math.max(MIN_FONT_SIZE, estimatedFit));
+
+  if (estimatedFit < MIN_FONT_SIZE) {
+    throw new Error(
+      `Caption unit too wide for safe area at ${MIN_FONT_SIZE}px: "${sentence.words.map((w) => w.word).join(' ')}"`,
+    );
+  }
 
   return (
     <div
@@ -98,13 +163,20 @@ export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = (
         fontWeight: 900,
         fontSize,
         lineHeight: 1.12,
-        letterSpacing: -0.45,
+        letterSpacing: -0.35,
         color: C.white,
         textShadow: '0 3px 6px rgba(0,0,0,.98), 0 0 20px rgba(0,0,0,.88)',
       }}
     >
       {lines.map((line, lineIndex) => (
-        <div key={`${sentence.id}-${lineIndex}`} style={{whiteSpace: 'nowrap', marginTop: lineIndex ? 6 : 0}}>
+        <div
+          key={`${sentence.id}-${lineIndex}`}
+          style={{
+            whiteSpace: 'nowrap',
+            maxWidth: '100%',
+            marginTop: lineIndex ? 6 : 0,
+          }}
+        >
           {line.map((word, position) => (
             <React.Fragment key={`${sentence.id}-${word.index}`}>
               {position ? ' ' : null}

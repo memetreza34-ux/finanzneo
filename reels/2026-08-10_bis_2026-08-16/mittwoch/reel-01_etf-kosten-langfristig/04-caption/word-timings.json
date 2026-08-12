@@ -1,0 +1,6 @@
+{
+  "status": "missing-final-audio-alignment",
+  "source": null,
+  "words": [],
+  "note": "Keine Wortzeiten erfinden. Nach Ablage des finalen Voiceovers echte Wort-Zeitstempel erzeugen und daraus Szenenstarts ableiten."
+}

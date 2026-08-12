@@ -4,60 +4,44 @@ These rules apply only to Google Antigravity in this workspace.
 
 ## Authority
 
-1. Read `CLAUDE.md` completely.
-2. Read `reels/PRODUKTIONSSTANDARD.md`.
-3. This file may be stricter for Antigravity safety/execution boundaries.
-4. Never weaken validators, tests, design tokens, finance calculations or standards just to make a Reel pass.
+Read completely before work:
 
-## Autopilot — mandatory after user production command
+1. `CLAUDE.md`
+2. `reels/PRODUKTIONSSTANDARD.md`
+3. `docs/REEL-QUALITY-CONTRACT-V2.md`
+4. `docs/BEAT-TO-IMAGE-RULES.md`
+5. target Reel files
 
-When the user says the required images and final audio are ready and instructs **„Mach das Reel“**, **„Erstelle das Reel“**, **„Mach es fertig“** or equivalent, treat that as authorization for one continuous non-destructive production run.
+`CLAUDE.md` is the highest production/style authority. Never weaken validators, tests, design tokens, finance calculations or quality gates just to make a Reel pass.
 
-Do not stop between normal phases to ask `Weiter?`, `Soll ich rendern?`, `Soll ich die Untertitel machen?` or similar.
+## Autopilot
 
-Recoverable failures are not blockers:
+When the user says required images and final audio are ready and says `Mach das Reel`, `Erstelle das Reel`, `Mach es fertig` or equivalent:
 
-```text
-diagnose → fix → rerun → continue
-```
+- run continuously until `PRODUCTION COMPLETE` or a genuine `BLOCKED`
+- do not ask `Weiter?` between normal phases
+- recoverable validator/TypeScript/layout/timing/render issues must be fixed and rerun automatically
 
-Continue until `PRODUCTION COMPLETE` or a genuine `BLOCKED` condition.
-
-The production command authorizes final rendering and Antigravity technical/visual QA. It does NOT authorize merge, publish, delete, force-push or history rewrite.
+The command does NOT authorize merge, publish, delete, force-push or history rewrite.
 
 ## Hard target-Reel user-media boundary
 
-For final production, user media is valid only from:
+Final user media only from:
 
 ```text
 <TARGET-REEL>/03-szenen/00-ALLE-BILDER-HIER-REIN/
 <TARGET-REEL>/02-audio/
 ```
 
-Required image filenames come from the target Reel's own `03-szenen/scene-index.json`.
+Never substitute another Reel, archive, Desktop/Downloads, web/stock media, placeholders, previous exports, caches or similarly named outside files.
 
-Never use as a substitute:
+Before production verify:
 
-- media from another Reel
-- `legacy-main/`
-- unrelated repository media
-- Desktop/Downloads
-- web/stock media
-- placeholders
-- previous exports
-- cached files
-- similarly named files outside the target Reel
+- every required image exists with exact expected filename
+- exactly one readable final audio exists
+- `Bild 00` contains the exact required Google-Flow cover headline
 
-Shared repository code, Remotion components, design-system files, scripts and documentation remain allowed. This restriction applies to **user-media inputs**.
-
-Before timing/coding/rendering verify:
-
-- every required image exists with the expected filename
-- final audio exists and is readable
-- exactly one final audio file is selected unambiguously
-- no outside media is being substituted
-
-Missing/wrong/unreadable/ambiguous required media → stop with:
+Missing/wrong/unreadable/ambiguous required media →
 
 ```text
 BLOCKED
@@ -65,98 +49,159 @@ Problem: <exact target-Reel path/file/cause>
 Action: <exact user action required>
 ```
 
-Do not guess, substitute or render a knowingly incomplete final MP4.
+Antigravity never generates replacement images.
 
-## Image-generation boundary
+## V2 visual quality gate
 
-The user exclusively creates all actual FinanceNeo images.
+For V17+ Reels:
 
-Antigravity MAY create/update image prompts, define filenames/scene numbers, inspect user-supplied images and report regeneration requirements.
+```text
+Target: 60 % native Remotion animation / 40 % Google-Flow images
+Final duration: 55–65 % animation / 35–45 % images
+```
 
-Antigravity MUST NOT generate final images, call image generators for replacements, use web/stock media as replacements, create generated placeholders or overwrite user-provided images.
+Rules:
 
-If a supplied image violates a visual rule and needs regeneration, that is a real blocker requiring the user.
+- standard animation count = `round(sceneCount × 0.60)`
+- no two image scenes directly consecutive
+- static image normally <= 8 seconds
+- no long static tail
+- dynamic information is animation-first
+- every scene needs real `visualRole` + `visualSelectionReason`
+- every image scene needs `expectedVisual`
+
+Use Remotion for comparisons, calculations, timelines, growth, money flow, mechanisms, steps and changing cause/effect.
+
+## Mandatory supplied-image QA
+
+Inspect every actual supplied image before integrating it.
+
+Reject if:
+
+- motif does not match the exact spoken beat
+- image is unclear/misleading
+- random/wrong text appears
+- disallowed label appears
+- number conflicts with script/research
+- contradictory information appears
+- image unnecessarily repeats headline + caption information
+- cover headline is wrong/missing/clipped/unreadable
+- background/person/image-world rules fail
+
+If regeneration is needed → `BLOCKED`. Never hide a bad image with Remotion overlays.
 
 ## Canonical Remotion presentation
 
-Productive user-image scenes use **full-frame-no-crop**:
+Image scenes:
 
-- the complete vertical 9:16 user image spans the full 1080×1920 scene
-- never place the user image inside `VisualStage` or another smaller middle container
-- no intentional crop, zoom/focal-point contract or blurred duplicate background
-- no visible inset image panel
-- headline and captions are overlays on the same full image
-- readability may use only a soft continuous transparent scrim; no hard header/footer background blocks
-- `object-fit: contain` is acceptable only on the complete 1080×1920 canvas for a vertical 9:16 source, never as an inset-poster layout
+- complete vertical 9:16 source spans full 1080×1920
+- no inset `VisualStage`
+- no intentional crop/focal zoom
+- scene 01+ headline + caption overlay the same image
+- cover gets no Remotion replacement headline
+- only soft continuous readability scrim
 
-Native Remotion scenes must also use one continuous full-canvas background with no floor, horizon, wall split or segmented studio zones.
+Use `src/design-system/FullFrameImage.tsx`.
 
-Captions must use real final-audio word boundaries:
+Native Remotion scenes use one continuous full-canvas background without floor/horizon/studio split.
 
-- exactly one full sentence visible at a time
-- never two sentences simultaneously
-- hard max two lines
-- no opaque/black caption card
-- current word follows exact real start/end timing
-- no evenly estimated word timing
-- hold previous sentence through short pauses
-- sentence switch at next sentence's first spoken word
+## Exact audio timing
 
-If a sentence cannot remain readable within two lines at a sensible smartphone font size, split/rewrite the sentence instead of shrinking captions to tiny text.
+Only the exact final audio from `02-audio/` may drive timing.
 
-If exact final-audio word alignment cannot be produced with available tooling, return `BLOCKED`; never fabricate timing.
+```text
+final audio
+→ real word start/end timestamps
+→ short caption units
+→ resolved scene start/end frames
+→ animation timing
+→ render
+```
+
+Never estimate/evenly distribute word timing. Final `word-timings.json` requires `timingStatus: final-audio-aligned`.
+
+Final `timeline.json` must have positive real durations, chronological/gapless starts and no unresolved zero-duration placeholders.
+
+If exact audio alignment cannot be produced → `BLOCKED`.
+
+## Caption safety
+
+At any time show exactly one short caption unit.
+
+For V17+:
+
+```text
+max 12 words
+max 68 characters
+max 2 lines
+min 42 px effective font
+bottom ≈ 320
+left ≈ 72
+right ≈ 180
+```
+
+A long spoken sentence may be split into sequential meaning/pause units without changing the audio.
+
+Never:
+
+- show two units simultaneously
+- let text overflow/clip
+- shrink below safe readable size
+- fabricate word timing
+- use opaque black caption cards
+
+Current spoken word follows exact real start/end timing.
 
 ## Non-destructive repository policy
 
-- Never work directly on `main`.
-- Never merge a pull request unless the user explicitly instructs it.
-- Never force-push, hard-reset shared branches, rewrite history, delete branches, delete existing Reels or overwrite previous user assets.
-- New topic = new branch + new Reel directory.
-- Existing Reels are read-only unless explicitly targeted.
-- Do not upgrade dependencies unless explicitly requested.
-- If validation fails, fix the Reel/system within the authorized scope; do not weaken validation.
+- never work directly on `main`
+- never merge unless explicitly instructed
+- never force-push or rewrite shared history
+- do not delete branches/reels/user assets without explicit authorization
+- new topic = new branch + new Reel directory
+- existing Reels read-only unless targeted
+- do not upgrade dependencies unless requested
+- validation failure must be fixed, never bypassed by weakening rules
 
-## Pre-flight
+## Final QA
 
-Before implementation record:
+For V17+ Reels, final completion requires actual full-MP4 QA documented in:
 
-```bash
-git status --short
-git branch --show-current
-git rev-parse HEAD
-git diff --stat
-git diff --name-only
+```text
+05-projektdateien/final-qa.json
 ```
 
-Never destroy unrelated work.
+It must truthfully confirm:
 
-## Final validation and completion
+- full MP4 inspected
+- every scene inspected
+- image/voice semantic match
+- generated text/labels correct
+- scene/audio sync correct
+- subtitle safe-area passed
+- subtitle active-word sync passed
+- actual animation duration 55–65 %
+- no long static tail
+- audio levels passed
 
-For final production run:
+Audio target:
+
+```text
+Integrated loudness: about -16 LUFS (validator -17 to -15)
+True Peak: <= -1 dBTP
+```
+
+Never mark QA `passed` without actually doing the checks.
+
+Final validator:
 
 ```bash
 npm run reel:validate -- <TARGET-REEL> --final
 ```
 
-Then TypeScript, preview, frame/contact-sheet/caption QA, full MP4 review, audio check when available and Antigravity safety audit.
+## Final response
 
-Visual QA must explicitly reject:
+Only:
 
-- a second/third apparent background region
-- image ending before the bottom of the frame
-- hard header/footer panels
-- inset image panel
-- opaque caption box
-- two subtitle sentences at once
-- captions outside safe areas or too small for smartphone viewing
-
-If a recoverable issue appears, fix and rerun automatically.
-
-Before claiming completion, compare against the starting HEAD and verify no unrelated destructive changes occurred.
-
-Antigravity may create commits and a draft PR. It must not publish or merge without explicit user instruction.
-
-Final response only:
-
-- `PRODUCTION COMPLETE` when final MP4 and required checks truly completed.
+- `PRODUCTION COMPLETE` when final MP4 and all required checks truly passed.
 - `BLOCKED` with exact cause/action when further progress is genuinely impossible.
