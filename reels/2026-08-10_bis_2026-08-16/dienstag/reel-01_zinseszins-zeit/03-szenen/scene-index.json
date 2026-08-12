@@ -3,8 +3,8 @@
   "title": "Zinseszins – warum Zeit deine Sparrate schlagen kann",
   "date": "2026-08-11",
   "sceneCount": 10,
-  "imageSceneCount": 6,
-  "animationSceneCount": 4,
+  "imageSceneCount": 4,
+  "animationSceneCount": 6,
   "fps": 30,
   "userCreatesImages": true,
   "antigravityGeneratesImages": false,
@@ -35,9 +35,9 @@
     "headlineTop": 72,
     "animationVisualTop": 220,
     "animationVisualBottom": 1490,
-    "subtitleBottom": 300,
-    "subtitleLeft": 64,
-    "subtitleRight": 156,
+    "subtitleBottom": 320,
+    "subtitleLeft": 72,
+    "subtitleRight": 180,
     "platformUiSafeBottom": 260,
     "imageScenesFullFrame": true
   },
@@ -47,7 +47,7 @@
     "style": "premium-fintech-editorial-3d-metaphor",
     "stylizedPersonAllowed": true,
     "visibleFaceRequiredWhenPersonPresent": true,
-    "sceneImagesObjectLabelsOnly": true,
+    "objectLabelsOnly": true,
     "seamlessSingleBackgroundRequired": true,
     "percentageZonesForbidden": true,
     "backgroundBandsForbidden": true,
@@ -73,7 +73,12 @@
     "directory": "04-caption",
     "universalCaption": "04-caption/caption.txt",
     "sameCaptionForAllReelPlatforms": true,
-    "platforms": ["instagram-reels", "tiktok", "facebook-reels", "snapchat"],
+    "platforms": [
+      "instagram-reels",
+      "tiktok",
+      "facebook-reels",
+      "snapchat"
+    ],
     "hashtagCount": 5,
     "separatePlatformCaptionsForbidden": true
   },
@@ -85,29 +90,186 @@
     "evenlyDistributedWordTimingsForbidden": true
   },
   "imagePresentationContract": {
-    "mode": "full-frame-no-crop",
-    "fullCanvas": true,
+    "mode": "fit-between-text",
+    "fullCanvas": false,
     "sourceMustBeVertical916": true,
-    "sceneHeadlineOverlay": true,
+    "headlineOverlay": false,
     "coverHeadlineOverlayForbidden": true,
-    "captionOverlay": true,
+    "captionOverlay": false,
     "continuousReadabilityScrimOnly": true,
     "hardHeaderFooterPanelsForbidden": true,
     "intentionalCropForbidden": true,
     "blurredImageBackgroundForbidden": true,
     "visibleInsetPanelForbidden": true
   },
-  "audio": {"targetIntegratedLufs": -16, "targetTruePeakDbtp": -1},
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
   "scenes": [
-    {"id":"scene-01","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start","directory":"EINZELNE-SZENEN/scene-01","planFile":"EINZELNE-SZENEN/scene-01/bildprompt.txt","googleFlowFileName":"Bild 01 - 100 gegen 200 Euro.png","headline":"100 ODER 200 EURO?","accent":"ZEIT ENTSCHEIDET","icon":"compare","expectedVisual":"Zwei Sparpfade vergleichen kleine Sparrate mit langer Laufzeit gegen höhere Sparrate mit kurzer Laufzeit, ohne das Ergebnis vorwegzunehmen.","allowedObjectLabels":["100 €/Monat","30 Jahre","200 €/Monat","15 Jahre"],"imagePresentation":{"mode":"full-frame-no-crop"}},
-    {"id":"scene-02","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start","directory":"EINZELNE-SZENEN/scene-02","planFile":"EINZELNE-SZENEN/scene-02/remotion.md","headline":"GLEICHE EINZAHLUNG","accent":"36.000 EURO","icon":"equals","remotionComponent":"EqualContributionAnimation"},
-    {"id":"scene-03","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start","directory":"EINZELNE-SZENEN/scene-03","planFile":"EINZELNE-SZENEN/scene-03/bildprompt.txt","googleFlowFileName":"Bild 03 - Zinseszins arbeitet weiter.png","headline":"DAS IST DER","accent":"ZINSESZINS","icon":"growth","expectedVisual":"Ertrag wird wieder angelegt und erzeugt sichtbar weiteren Ertrag.","allowedObjectLabels":["Ertrag","Ertrag auf Ertrag"],"imagePresentation":{"mode":"full-frame-no-crop"}},
-    {"id":"scene-04","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start","directory":"EINZELNE-SZENEN/scene-04","planFile":"EINZELNE-SZENEN/scene-04/remotion.md","headline":"NUR EIN","accent":"RECHENBEISPIEL","icon":"calculator","remotionComponent":"AssumptionAnimation"},
-    {"id":"scene-05","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start","directory":"EINZELNE-SZENEN/scene-05","planFile":"EINZELNE-SZENEN/scene-05/bildprompt.txt","googleFlowFileName":"Bild 05 - 100 Euro 30 Jahre.png","headline":"100 EURO","accent":"30 JAHRE","icon":"clock","expectedVisual":"Kleine monatliche Sparrate durchläuft eine lange 30-Jahres-Zeitstrecke und wächst im Beispiel auf rund 83.200 Euro.","allowedObjectLabels":["100 €/Monat","30 Jahre","≈ 83.200 €"],"imagePresentation":{"mode":"full-frame-no-crop"}},
-    {"id":"scene-06","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start","directory":"EINZELNE-SZENEN/scene-06","planFile":"EINZELNE-SZENEN/scene-06/bildprompt.txt","googleFlowFileName":"Bild 06 - 200 Euro 15 Jahre.png","headline":"200 EURO","accent":"15 JAHRE","icon":"calendar","expectedVisual":"Höhere monatliche Sparrate durchläuft nur 15 Jahre und endet im selben Modell bei rund 53.500 Euro.","allowedObjectLabels":["200 €/Monat","15 Jahre","≈ 53.500 €"],"imagePresentation":{"mode":"full-frame-no-crop"}},
-    {"id":"scene-07","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start","directory":"EINZELNE-SZENEN/scene-07","planFile":"EINZELNE-SZENEN/scene-07/remotion.md","headline":"FAST 30.000 EURO","accent":"UNTERSCHIED","icon":"bars","remotionComponent":"TimeAdvantageComparison"},
-    {"id":"scene-08","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start","directory":"EINZELNE-SZENEN/scene-08","planFile":"EINZELNE-SZENEN/scene-08/bildprompt.txt","googleFlowFileName":"Bild 08 - Zeit arbeitet fuer dich.png","headline":"ZEIT GIBT ERTRÄGEN","accent":"MEHR ZEIT","icon":"time","expectedVisual":"Ein früher kleiner Start bekommt durch eine lange Zeitstrecke sichtbar mehr Möglichkeiten für weiteres Wachstum.","allowedObjectLabels":["Früher Start","Mehr Zeit"],"imagePresentation":{"mode":"full-frame-no-crop"}},
-    {"id":"scene-09","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start","directory":"EINZELNE-SZENEN/scene-09","planFile":"EINZELNE-SZENEN/scene-09/remotion.md","headline":"ABER WICHTIG","accent":"NICHT GARANTIERT","icon":"warning","remotionComponent":"RealityCheckAnimation"},
-    {"id":"scene-10","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start","directory":"EINZELNE-SZENEN/scene-10","planFile":"EINZELNE-SZENEN/scene-10/bildprompt.txt","googleFlowFileName":"Bild 10 - Zeit ist ein Faktor.png","headline":"DEIN GRÖSSTER HEBEL","accent":"IST ZEIT","icon":"hourglass","expectedVisual":"Große Zeitmetapher zeigt, dass neben der Sparrate auch die Dauer ein eigenständiger Faktor ist.","allowedObjectLabels":["Zeit","Sparrate"],"imagePresentation":{"mode":"full-frame-no-crop"}}
+    {
+      "id": "scene-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-01",
+      "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
+      "googleFlowFileName": "Bild 01 - 100 gegen 200 Euro.png",
+      "headline": "100 ODER 200 EURO?",
+      "accent": "ZEIT ENTSCHEIDET",
+      "icon": "compare",
+      "expectedVisual": "Zwei Sparpfade vergleichen kleine Sparrate mit langer Laufzeit gegen höhere Sparrate mit kurzer Laufzeit, ohne das Ergebnis vorwegzunehmen.",
+      "allowedObjectLabels": [
+        "100 €/Monat",
+        "30 Jahre",
+        "200 €/Monat",
+        "15 Jahre"
+      ],
+      "imagePresentation": {
+        "mode": "fit-between-text"
+      }
+    },
+    {
+      "id": "scene-02",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-02",
+      "planFile": "EINZELNE-SZENEN/scene-02/remotion.md",
+      "headline": "GLEICHE EINZAHLUNG",
+      "accent": "36.000 EURO",
+      "icon": "equals",
+      "remotionComponent": "EqualContributionAnimation"
+    },
+    {
+      "id": "scene-03",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-03",
+      "planFile": "EINZELNE-SZENEN/scene-03/bildprompt.txt",
+      "googleFlowFileName": "Bild 03 - Zinseszins arbeitet weiter.png",
+      "headline": "DAS IST DER",
+      "accent": "ZINSESZINS",
+      "icon": "growth",
+      "expectedVisual": "Ertrag wird wieder angelegt und erzeugt sichtbar weiteren Ertrag.",
+      "allowedObjectLabels": [
+        "Ertrag",
+        "Ertrag auf Ertrag"
+      ],
+      "imagePresentation": {
+        "mode": "fit-between-text"
+      }
+    },
+    {
+      "id": "scene-04",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-04",
+      "planFile": "EINZELNE-SZENEN/scene-04/remotion.md",
+      "headline": "NUR EIN",
+      "accent": "RECHENBEISPIEL",
+      "icon": "calculator",
+      "remotionComponent": "AssumptionAnimation"
+    },
+    {
+      "id": "scene-05",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-05",
+      "planFile": "EINZELNE-SZENEN/scene-05/remotion.md",
+      "headline": "100 EURO",
+      "accent": "30 JAHRE",
+      "icon": "clock",
+      "remotionComponent": "SmallRateLongTimeAnimation"
+    },
+    {
+      "id": "scene-06",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-06",
+      "planFile": "EINZELNE-SZENEN/scene-06/remotion.md",
+      "headline": "200 EURO",
+      "accent": "15 JAHRE",
+      "icon": "calendar",
+      "remotionComponent": "HighRateShortTimeAnimation"
+    },
+    {
+      "id": "scene-07",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-07",
+      "planFile": "EINZELNE-SZENEN/scene-07/remotion.md",
+      "headline": "FAST 30.000 EURO",
+      "accent": "UNTERSCHIED",
+      "icon": "bars",
+      "remotionComponent": "TimeAdvantageComparison"
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-08",
+      "planFile": "EINZELNE-SZENEN/scene-08/bildprompt.txt",
+      "googleFlowFileName": "Bild 08 - Zeit arbeitet fuer dich.png",
+      "headline": "ZEIT GIBT ERTRÄGEN",
+      "accent": "MEHR ZEIT",
+      "icon": "time",
+      "expectedVisual": "Ein früher kleiner Start bekommt durch eine lange Zeitstrecke sichtbar mehr Möglichkeiten für weiteres Wachstum.",
+      "allowedObjectLabels": [
+        "Früher Start",
+        "Mehr Zeit"
+      ],
+      "imagePresentation": {
+        "mode": "fit-between-text"
+      }
+    },
+    {
+      "id": "scene-09",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-09",
+      "planFile": "EINZELNE-SZENEN/scene-09/remotion.md",
+      "headline": "ABER WICHTIG",
+      "accent": "NICHT GARANTIERT",
+      "icon": "warning",
+      "remotionComponent": "RealityCheckAnimation"
+    },
+    {
+      "id": "scene-10",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-10",
+      "planFile": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
+      "googleFlowFileName": "Bild 10 - Zeit ist ein Faktor.png",
+      "headline": "DEIN GRÖSSTER HEBEL",
+      "accent": "IST ZEIT",
+      "icon": "hourglass",
+      "expectedVisual": "Große Zeitmetapher zeigt, dass neben der Sparrate auch die Dauer ein eigenständiger Faktor ist.",
+      "allowedObjectLabels": [
+        "Zeit",
+        "Sparrate"
+      ],
+      "imagePresentation": {
+        "mode": "fit-between-text"
+      }
+    }
   ]
 }

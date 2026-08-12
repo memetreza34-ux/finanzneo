@@ -1,0 +1,401 @@
+export const ZINSESZINS_WORD_TIMINGS = [
+  {
+    "id": "sentence-01",
+    "text": "Was ist stärker?",
+    "frames": [
+      0,
+      16,
+      25,
+      40
+    ]
+  },
+  {
+    "id": "sentence-02",
+    "text": "100 Euro im Monat für 30 Jahre oder 200 Euro im Monat",
+    "frames": [
+      57,
+      65,
+      77,
+      84,
+      94,
+      99,
+      108,
+      121,
+      137,
+      154,
+      168,
+      174,
+      184
+    ]
+  },
+  {
+    "id": "sentence-03",
+    "text": "für 15 Jahre?",
+    "frames": [
+      184,
+      188,
+      198,
+      211
+    ]
+  },
+  {
+    "id": "sentence-04",
+    "text": "Überraschung,",
+    "frames": [
+      227,
+      246
+    ]
+  },
+  {
+    "id": "sentence-05",
+    "text": "beide zahlen insgesamt 36 .000",
+    "frames": [
+      260,
+      268,
+      281,
+      299,
+      324,
+      338
+    ]
+  },
+  {
+    "id": "sentence-06",
+    "text": "Euro ein.",
+    "frames": [
+      338,
+      347,
+      356
+    ]
+  },
+  {
+    "id": "sentence-07",
+    "text": "Trotzdem kann die längere Laufzeit deutlich mehr Endkapital",
+    "frames": [
+      371,
+      385,
+      391,
+      396,
+      407,
+      422,
+      435,
+      446,
+      467
+    ]
+  },
+  {
+    "id": "sentence-08",
+    "text": "erzeugen.",
+    "frames": [
+      467,
+      482
+    ]
+  },
+  {
+    "id": "sentence-09",
+    "text": "Der Grund ist der Zinseszins -Effekt.",
+    "frames": [
+      498,
+      502,
+      509,
+      522,
+      527,
+      547,
+      558
+    ]
+  },
+  {
+    "id": "sentence-10",
+    "text": "Erträge bleiben investiert und können selbst wieder Erträge",
+    "frames": [
+      577,
+      592,
+      598,
+      619,
+      630,
+      638,
+      647,
+      654,
+      668
+    ]
+  },
+  {
+    "id": "sentence-11",
+    "text": "erwirtschaften.",
+    "frames": [
+      668,
+      687
+    ]
+  },
+  {
+    "id": "sentence-12",
+    "text": "Nehmen wir nur als Rechenbeispiel 5 % Rendite pro Jahr an.",
+    "frames": [
+      707,
+      722,
+      726,
+      731,
+      738,
+      759,
+      770,
+      782,
+      797,
+      803,
+      809,
+      814
+    ]
+  },
+  {
+    "id": "sentence-13",
+    "text": "100 Euro monatlich über 30 Jahre wachsen dann rechnerisch auf rund",
+    "frames": [
+      814,
+      838,
+      847,
+      866,
+      872,
+      883,
+      896,
+      916,
+      920,
+      938,
+      943,
+      948
+    ]
+  },
+  {
+    "id": "sentence-14",
+    "text": "83 .200 Euro.",
+    "frames": [
+      948,
+      969,
+      995,
+      1012
+    ]
+  },
+  {
+    "id": "sentence-15",
+    "text": "200 Euro monatlich über 15 Jahre kommen trotz gleicher Einzahlung",
+    "frames": [
+      1026,
+      1040,
+      1053,
+      1069,
+      1076,
+      1087,
+      1105,
+      1115,
+      1127,
+      1141,
+      1157
+    ]
+  },
+  {
+    "id": "sentence-16",
+    "text": "nur auf rund 53 .500",
+    "frames": [
+      1157,
+      1162,
+      1168,
+      1172,
+      1195,
+      1219
+    ]
+  },
+  {
+    "id": "sentence-17",
+    "text": "Euro.",
+    "frames": [
+      1219,
+      1236
+    ]
+  },
+  {
+    "id": "sentence-18",
+    "text": "Das sind fast 30 .000",
+    "frames": [
+      1251,
+      1258,
+      1262,
+      1270,
+      1286,
+      1300
+    ]
+  },
+  {
+    "id": "sentence-19",
+    "text": "Euro Unterschied,",
+    "frames": [
+      1300,
+      1310,
+      1322
+    ]
+  },
+  {
+    "id": "sentence-20",
+    "text": "obwohl beide 36 .000",
+    "frames": [
+      1338,
+      1343,
+      1357,
+      1375,
+      1387
+    ]
+  },
+  {
+    "id": "sentence-21",
+    "text": "Euro eingezahlt haben.",
+    "frames": [
+      1387,
+      1397,
+      1412,
+      1420
+    ]
+  },
+  {
+    "id": "sentence-22",
+    "text": "Der Unterschied entsteht nicht durch Magie,",
+    "frames": [
+      1439,
+      1444,
+      1458,
+      1472,
+      1475,
+      1481,
+      1494
+    ]
+  },
+  {
+    "id": "sentence-23",
+    "text": "sondern durch zusätzliche Jahre,",
+    "frames": [
+      1505,
+      1512,
+      1520,
+      1541,
+      1552
+    ]
+  },
+  {
+    "id": "sentence-24",
+    "text": "in denen Erträge weiterarbeiten.",
+    "frames": [
+      1559,
+      1565,
+      1568,
+      1585,
+      1605
+    ]
+  },
+  {
+    "id": "sentence-25",
+    "text": "Je früher du anfängst,",
+    "frames": [
+      1605,
+      1630,
+      1639,
+      1643,
+      1661
+    ]
+  },
+  {
+    "id": "sentence-26",
+    "text": "desto weniger musst du später mit einer höheren Sparrrate aufholen.",
+    "frames": [
+      1671,
+      1677,
+      1685,
+      1694,
+      1697,
+      1706,
+      1712,
+      1718,
+      1730,
+      1745,
+      1762
+    ]
+  },
+  {
+    "id": "sentence-27",
+    "text": "Wichtig,",
+    "frames": [
+      1779,
+      1789
+    ]
+  },
+  {
+    "id": "sentence-28",
+    "text": "5 % sind nur eine Beispielannahme,",
+    "frames": [
+      1801,
+      1810,
+      1820,
+      1829,
+      1835,
+      1841,
+      1867
+    ]
+  },
+  {
+    "id": "sentence-29",
+    "text": "keine Garantie.",
+    "frames": [
+      1873,
+      1879,
+      1895
+    ]
+  },
+  {
+    "id": "sentence-30",
+    "text": "In der Realität schwanken Renditen und Kosten,",
+    "frames": [
+      1908,
+      1911,
+      1915,
+      1930,
+      1939,
+      1954,
+      1969,
+      1983
+    ]
+  },
+  {
+    "id": "sentence-31",
+    "text": "Steuern und Risiko verändern das Ergebnis.",
+    "frames": [
+      1991,
+      2000,
+      2005,
+      2019,
+      2030,
+      2036,
+      2047
+    ]
+  },
+  {
+    "id": "sentence-32",
+    "text": "Die Lektion ist deshalb simpel.",
+    "frames": [
+      2068,
+      2072,
+      2085,
+      2090,
+      2098,
+      2109
+    ]
+  },
+  {
+    "id": "sentence-33",
+    "text": "Zeit ist beim langfristigen Vermögensaufbau ein eigener Faktor.",
+    "frames": [
+      2123,
+      2129,
+      2136,
+      2142,
+      2162,
+      2186,
+      2194,
+      2208,
+      2219
+    ]
+  }
+];

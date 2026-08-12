@@ -96,12 +96,14 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
     }
 
     const presentation=index.imagePresentationContract;
-    assert(presentation?.mode==='full-frame-no-crop','Bilddarstellung muss full-frame-no-crop verwenden.');
-    assert(presentation?.fullCanvas===true,'Nutzerbilder müssen die vollständige 1080x1920-Szenenfläche verwenden.');
+    assert(presentation?.mode==='full-frame-no-crop'||presentation?.mode==='fit-between-text','Bilddarstellung muss full-frame-no-crop oder fit-between-text verwenden.');
+    if (presentation?.mode === 'full-frame-no-crop') {
+      assert(presentation?.fullCanvas===true,'Nutzerbilder müssen die vollständige 1080x1920-Szenenfläche verwenden.');
+      assert(presentation?.headlineOverlay===true&&presentation?.captionOverlay===true,'Headline und Untertitel müssen als Overlay über demselben Vollbild liegen.');
+      assert(presentation?.continuousReadabilityScrimOnly===true,'Nur ein weicher kontinuierlicher Lesbarkeits-Scrim ist erlaubt.');
+      assert(presentation?.hardHeaderFooterPanelsForbidden===true,'Harte Header-/Footer-Hintergründe müssen verboten sein.');
+    }
     assert(presentation?.sourceMustBeVertical916===true,'Bildquellen müssen als vertikale 9:16-Bilder vorgesehen sein.');
-    assert(presentation?.headlineOverlay===true&&presentation?.captionOverlay===true,'Headline und Untertitel müssen als Overlay über demselben Vollbild liegen.');
-    assert(presentation?.continuousReadabilityScrimOnly===true,'Nur ein weicher kontinuierlicher Lesbarkeits-Scrim ist erlaubt.');
-    assert(presentation?.hardHeaderFooterPanelsForbidden===true,'Harte Header-/Footer-Hintergründe müssen verboten sein.');
     assert(presentation?.intentionalCropForbidden===true,'Absichtliches Cropping der Nutzerbilder muss verboten sein.');
     assert(presentation?.blurredImageBackgroundForbidden===true,'Unscharfe Bildkopien als Hintergrund sind verboten.');
     assert(presentation?.visibleInsetPanelForbidden===true,'Sichtbare Bild-im-Bild-Panels sind verboten.');
@@ -170,6 +172,9 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
   }
 
   const expectedImageNames=new Set();
+  if (index.coverHeadline && index.coverHeadline.googleFlowFileName) {
+    expectedImageNames.add(index.coverHeadline.googleFlowFileName);
+  }
   directories.forEach((id,position)=>{
     const directory=resolve(sceneRoot,id);
     const hasImagePrompt=existsSync(resolve(directory,'bildprompt.txt'));
@@ -199,7 +204,7 @@ if(existsSync(sceneRoot)&&existsSync(indexPath)){
       if(indexed?.googleFlowFileName)expectedImageNames.add(indexed.googleFlowFileName);
 
       const p=indexed?.imagePresentation;
-      assert(p?.mode==='full-frame-no-crop',`${id}: imagePresentation.mode muss full-frame-no-crop sein.`);
+      assert(p?.mode==='full-frame-no-crop'||p?.mode==='fit-between-text',`${id}: imagePresentation.mode muss gültig sein.`);
       for(const obsolete of ['focalX','focalY','scale','sourceCropTop','sourceCropBottom','objectFit']){
         assert(!hasOwn(p,obsolete),`${id}: veraltetes Framing-Feld ist verboten: ${obsolete}.`);
       }

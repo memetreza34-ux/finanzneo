@@ -38,6 +38,7 @@ README.md
 - `03-szenen/` = Bildwelt, Prompts, Szenen und finaler Nutzerbilder-Sammelordner
 - `04-caption/` = genau **eine universelle Social-Caption** + echte Wort-Timings
 - `05-projektdateien/` = Recherche, Quellen, Animationen, Timeline, Technik
+- `ziel-reel.mp4` = Das finale gerenderte Video liegt im Hauptordner des jeweiligen Reels (nicht im globalen `out/` Ordner).
 
 Keine doppelten Hauptordner für dieselbe Funktion anlegen.
 
@@ -206,17 +207,18 @@ Prinzipien:
 - Rechts zusätzlicher Sicherheitsabstand für vertikale Plattform-Buttons.
 - Keine harte schwarze Fläche unter dem Bild und kein separater grüner Header-Balken.
 
-## 11. Untertitel — genau EIN Satz
+## 11. Untertitel — streng limitiert (V17 Standard)
 
 Verbindlich:
 
-- **genau ein vollständiger Satz gleichzeitig**
-- **niemals zwei Sätze gleichzeitig**
+- **genau eine kurze Einheit gleichzeitig**
+- **maximal 12 Wörter** pro Untertitel-Block
+- **maximal 68 Zeichen** pro Untertitel-Block
 - **hart maximal zwei sichtbare Textzeilen**
-- Schrift groß genug für Smartphone-Ansicht; nicht auf Mini-Schrift schrumpfen, um zu lange Sätze zu retten
-- wenn ein Satz bei sinnvoller Schriftgröße nicht in zwei Zeilen passt, Skript/Satz sinnvoll aufteilen
-- aktuelles gesprochenes Wort FinanzNeo-grün
-- restliche Wörter weiß
+- **mindestens 42 px Schriftgröße** für Smartphone-Ansicht (kein Schrumpfen!)
+- neue Safe-Area: **ungefähr Bottom 320 / Left 72 / Right 180**
+- Natürliche Sprachpausen werden zwingend zum Teilen langer Sätze verwendet, um die Wort- und Zeichenlimits einzuhalten.
+- aktuelles gesprochenes Wort FinanzNeo-grün, restliche Wörter weiß
 - Satz bleibt während kurzer Sprachpause stehen
 - Satzwechsel exakt beim ersten gesprochenen Wort des nächsten Satzes
 - keine Caption-Lücken
@@ -251,8 +253,11 @@ timingStatus = final-audio-aligned
 
 Wenn keine echte Wortausrichtung aus dem finalen Audio erzeugt werden kann: **BLOCKED**, nicht schätzen.
 
-## 13. Remotion und Animationen
+## 13. Remotion und Animationen (60/40 Regel)
 
+- **60 % Remotion / 40 % Bilder** ist der feste Zielstandard (55-65 % der Laufzeit). Bei 10 Szenen: standardmäßig 6 Animationen + 4 Bilder.
+- **Animation-first**: Zinseszins, Rechnungen, Vergleiche, Zeitachsen, Geldflüsse, Wachstum und Mechanismen werden standardmäßig mit Remotion gebaut (nicht als beliebiges statisches Bild).
+- **Maximal eine Bildszene hintereinander** und normalerweise höchstens 8 Sekunden pro statischem Bild.
 - 1080 × 1920, 30 fps
 - Animationen relativ zur tatsächlichen Audio-/Szenendauer
 - keine pauschal gleich langen Szenen

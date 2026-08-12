@@ -1,10 +1,9 @@
 {
-  "fallback": "reels/notgroschen/fallback.svg",
-  "scene-01": "reels/notgroschen/fallback.svg",
-  "scene-02": "reels/notgroschen/fallback.svg",
-  "scene-04": "reels/notgroschen/fallback.svg",
-  "scene-06": "reels/notgroschen/fallback.svg",
-  "scene-09": "reels/notgroschen/fallback.svg",
-  "scene-10": "reels/notgroschen/fallback.svg",
-  "audio": null
+  "audio": "reels/notgroschen/voiceover.m4a",
+  "scene-01": "reels/notgroschen/scene-01.png",
+  "scene-02": "reels/notgroschen/scene-02.png",
+  "scene-04": "reels/notgroschen/scene-04.png",
+  "scene-06": "reels/notgroschen/scene-06.png",
+  "scene-09": "reels/notgroschen/scene-09.png",
+  "scene-10": "reels/notgroschen/scene-10.png"
 }

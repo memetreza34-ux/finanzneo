@@ -53,9 +53,9 @@ export type SentenceKaraokeCaptionsProps = {
  */
 export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = ({
   words,
-  bottom = 300,
-  left = 64,
-  right = 156,
+  bottom = 320,
+  left = 72,
+  right = 180,
   highlight = C.accentLt,
 }) => {
   const frame = useCurrentFrame();
@@ -82,7 +82,8 @@ export const SentenceKaraokeCaptions: React.FC<SentenceKaraokeCaptionsProps> = (
   }
 
   const longest = Math.max(...lines.map((line) => line.map((w) => w.word).join(' ').length));
-  const fontSize = longest > 64 ? 35 : longest > 56 ? 39 : longest > 48 ? 42 : longest > 40 ? 46 : 50;
+  // V17 requirement: min 42px font size. (Max chars ~68 means 42px is applied for the longest ones)
+  const fontSize = longest > 60 ? 42 : longest > 48 ? 44 : longest > 40 ? 46 : 50;
 
   return (
     <div

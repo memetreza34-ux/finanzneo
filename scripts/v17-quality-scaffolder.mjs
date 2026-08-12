@@ -2,7 +2,8 @@
 import {existsSync, mkdirSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 
-const DEFAULT_TYPES=['image','image','animation','image','animation','image','animation','animation','image','image'];
+// V17 Quality Scaffolder: 60% Remotion / 40% Images
+const DEFAULT_TYPES=['image','animation','image','animation','animation','animation','animation','image','animation','image'];
 const args=process.argv.slice(2);
 const readArg=(name)=>{const i=args.indexOf(`--${name}`);return i===-1?null:args[i+1]??null;};
 const targetArg=readArg('target');
