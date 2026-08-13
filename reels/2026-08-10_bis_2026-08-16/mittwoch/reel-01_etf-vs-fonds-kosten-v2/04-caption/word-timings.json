@@ -1,0 +1,20 @@
+{
+  "version": "finanzneo-caption-v2.1",
+  "language": "de",
+  "timingStatus": "missing-final-audio-alignment",
+  "sourceAudio": null,
+  "rules": {
+    "maxWordsPerUnit": 12,
+    "maxCharactersPerUnit": 68,
+    "maxLines": 2,
+    "minFontSizePx": 42,
+    "captionTopPx": 1440,
+    "captionBottomPx": 1665,
+    "leftPx": 72,
+    "rightPx": 180,
+    "activeWordColor": "finance-green",
+    "restColor": "white",
+    "visualOverlapForbidden": true
+  },
+  "units": []
+}
