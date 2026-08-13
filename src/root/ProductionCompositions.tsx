@@ -7,6 +7,7 @@ import {DisclaimerPreview} from '../DisclaimerPreview';
 import {DreiKontenSystem, DREI_KONTEN_SYSTEM_FRAMES} from '../reels/drei-konten/DreiKontenSystem';
 import {NotgroschenStufenplan, NOTGROSCHEN_TOTAL_FRAMES} from '../reels/notgroschen/NotgroschenStufenplan';
 import {ZinseszinsZeit, ZINSESZINS_TOTAL_FRAMES} from '../reels/zinseszins/ZinseszinsZeit';
+import {EtfKostenV2Storyboard, ETF_COST_PREVIEW_TOTAL_FRAMES} from '../reels/etf-kosten-v2/EtfKostenV2Storyboard';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
 import {Scene03SparbuchVs, SCENE03_FRAMES} from '../zins/Scene03SparbuchVs';
@@ -30,12 +31,11 @@ const FPS = 30;
 const VERTICAL = {width: 1080, height: 1920} as const;
 const WIDE = {width: 1920, height: 1080} as const;
 
-/** Veröffentlichbare Inhalte und direkt exportierbare Kanal-Assets. */
 export const ProductionCompositions: React.FC = () => (
   <>
     <Composition id="NotgroschenStufenplan" component={NotgroschenStufenplan} durationInFrames={NOTGROSCHEN_TOTAL_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="ZinseszinsZeit" component={ZinseszinsZeit} durationInFrames={ZINSESZINS_TOTAL_FRAMES} fps={FPS} {...VERTICAL} />
-
+    <Composition id="EtfKostenV2Storyboard" component={EtfKostenV2Storyboard} durationInFrames={ETF_COST_PREVIEW_TOTAL_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="DreiKontenSystem" component={DreiKontenSystem} durationInFrames={DREI_KONTEN_SYSTEM_FRAMES} fps={FPS} {...VERTICAL} />
 
     <Composition id="ShortHook" component={ShortHook} durationInFrames={SHORT_HOOK_FRAMES} fps={FPS} {...VERTICAL} />
