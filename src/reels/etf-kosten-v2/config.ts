@@ -21,7 +21,6 @@ export const ETF_COST_MODEL = {
   modelDifference: 41509.52,
 } as const;
 
-// Nur Storyboard-/Code-Preview. Finale Szenenlängen kommen aus echtem Voiceover.
 export const ETF_COST_PREVIEW_DURATIONS = [195, 225, 225, 180, 225, 240, 195, 210, 225, 180] as const;
 export const ETF_COST_PREVIEW_TOTAL_FRAMES = ETF_COST_PREVIEW_DURATIONS.reduce((a, b) => a + b, 0);
 
@@ -36,4 +35,18 @@ export const ETF_COST_COPY: readonly SceneCopy[] = [
   {title: 'MEHR ALS LAUFENDE KOSTEN', subtitle: 'ORDERENTGELTE KÖNNEN DAZUKOMMEN', tone: 'red'},
   {title: 'MEHRERE KRITERIEN ZÄHLEN', subtitle: 'INDEX · STREUUNG · KOSTEN · FONDSGRÖSSE', tone: 'green'},
   {title: 'KOSTEN SIND VERGLEICHBAR', subtitle: 'MARKTRENDITE NICHT', tone: 'green'},
+] as const;
+
+// Nur für visuelle Storyboard-Prüfung. Finale Captions entstehen aus echten Wortzeiten.
+export const ETF_COST_STORYBOARD_CAPTIONS = [
+  'Kleine Prozentunterschiede können über Jahrzehnte groß werden.',
+  '200 Euro monatlich – aber zwei unterschiedliche Kostenwege.',
+  'Fehlendes Kapital kann später keinen weiteren Ertrag erzeugen.',
+  'In 30 Jahren werden insgesamt 72.000 Euro eingezahlt.',
+  'Sechs Prozent vor Kosten sind nur eine Modellannahme.',
+  'Die beiden Modell-Endwerte laufen sichtbar auseinander.',
+  'Der Abstand liegt im Modell bei rund 41.500 Euro.',
+  'Zusätzlich können beim Handel Orderentgelte anfallen.',
+  'Bei der Bewertung spielen mehrere Kriterien zusammen.',
+  'Marktrendite ist unsicher – Kosten sind vergleichbar.',
 ] as const;
