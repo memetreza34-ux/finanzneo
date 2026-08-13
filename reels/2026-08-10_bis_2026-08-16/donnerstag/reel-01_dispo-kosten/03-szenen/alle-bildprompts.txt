@@ -1,0 +1,62 @@
+GOOGLE FLOW – KOMPLETTER SERIELLER BILDLAUF
+
+AUFTRAG
+Erzeuge für dieses Reel genau 5 Bilder: Bild 00 als Cover und danach Bild 01, Bild 04, Bild 07 und Bild 10.
+
+DIESE EINE NACHRICHT IST DIE KOMPLETTE FREIGABE
+Arbeite nach dem Start selbstständig bis Bild 10 fertig ist. Frage nicht nach Go, Weiter, OK oder erneuter Bestätigung.
+
+STRENG SERIELL – NIE PARALLEL
+1. Genau EIN Bild erzeugen.
+2. Vollständig fertigstellen.
+3. Sofort exakt umbenennen.
+4. Dateiname und Motiv prüfen.
+5. Erst danach das nächste Bild starten.
+Keine Batches, keine parallelen Generierungen, keine Ansammlung unbenannter Bilder.
+
+DATEINAMEN
+Bild 00.png = Cover
+Bild 01.png = Szene 01
+Bild 04.png = Szene 04
+Bild 07.png = Szene 07
+Bild 10.png = Szene 10
+
+STYLE-MASTER
+Bild 00.png wird zuerst erzeugt und dient danach als verbindliche Stilreferenz für alle Szenenbilder.
+Premium fintech editorial 3D render style. Deep charcoal green-black world. Vivid emerald and mint accents. Gold only for money/value. Warm red-orange only for debt, loss, danger or blocked money. Smooth rounded geometry, soft bevelled edges, premium matte/glass materials, confident high-contrast lighting with emerald rim light. Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. NO horizontal divisions, floor-wall boundary, horizon line, panels, dashboard UI, Pixar, clay, photorealism, logos or watermark.
+
+TEXTREGEL
+Nur ausdrücklich verlangter deutscher Text darf sichtbar sein. Keine Fantasiewörter, kein zusätzlicher englischer Text.
+
+────────────────────────────────────────
+BILD 00 – COVER
+DATEINAME: Bild 00.png
+Create a premium vertical 9:16 FinanzNeo cover. In the center, show one enormous transparent bank account cylinder dropping below a glowing zero line. Inside the negative section, 1,500 golden euro value units are trapped while a warm red-orange interest meter steadily drains small gold coins upward and away. The cause-and-effect must be obvious within one second: negative balance causes recurring cost. Integrate a large bold premium German cover headline in the upper area reading exactly: "DISPO KOSTET DICH JEDEN TAG". Add only the short object labels `-1.500 €` and `Zinsen`. No other readable text.
+
+BILD 01 – SZENE 01
+DATEINAME: Bild 01.png
+Match Bild 00.png exactly. Show an anonymous stylized adult with clearly visible face looking at one huge vertical account balance gauge. The gauge has a clean zero mark and extends deep into a warm red-orange negative area where `-1.500 €` glows. Tiny gold coins visibly leak away from the negative zone. The image must instantly communicate that a negative account balance is not just a number but creates cost. Include only `-1.500 €`. No headline or sentence.
+
+BILD 04 – SZENE 04
+DATEINAME: Bild 04.png
+Match Bild 00.png exactly. Create one dominant cause-and-effect metaphor: a large red-orange debt weight marked `-1.500 €` hangs from a golden calendar ring representing a full year. Around the ring, small gold coins are gradually pulled away into a red-orange cost collector. The scene should communicate that leaving the same overdraft outstanding for a long time accumulates cost. Include only `-1.500 €` and `1 Jahr`. No sentence.
+
+BILD 07 – SZENE 07
+DATEINAME: Bild 07.png
+Match Bild 00.png exactly. Show one large financial escape path from a red-orange negative account pit toward a stable emerald zero-balance platform. An anonymous stylized adult with clearly visible face is moving upward along three large steps. The steps visually represent: see the real balance, reduce the minus, return to zero. Use only the short labels `Saldo`, `Minus senken`, `0 €`. No headline or explanatory sentence.
+
+BILD 10 – SZENE 10
+DATEINAME: Bild 10.png
+Match Bild 00.png exactly. Create a strong closing metaphor: on the left, a small temporary red-orange bridge labeled `kurzfristig` crosses a narrow cash gap; on the right, the same bridge stretched far too long bends under a heavy debt weight and leaks gold coins. One clear contrast, no dashboard. Use only `kurzfristig` and `dauerhaft`. No headline, no sentence.
+
+ABSCHLUSS-QA FÜR JEDES BILD
+- genau ein nahtloser Hintergrund
+- korrekter Dateiname
+- nur erlaubte deutsche Texte
+- Hauptmetapher sofort verständlich
+- Gesicht klar sichtbar, falls Person
+- keine abgeschnittenen Geldobjekte oder Labels
+- kein Dashboard-, Diorama-, Game-Level- oder Sci-Fi-Look
+- wenn eine Regel verletzt ist: Bild neu erzeugen, bevor das nächste startet
+
+Erst nach Bild 10 alle fünf korrekt benannten Bilder gemeinsam für den Download/ZIP gruppieren.
