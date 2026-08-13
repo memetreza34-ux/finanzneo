@@ -27,3 +27,5 @@ export const CostLayersJourneyAnimation:React.FC<{durationInFrames:number}>=({du
   <div style={{position:'absolute',left:120,top:780,opacity:phase(frame,durationInFrames,.56,.80)}}><LabelPill kind="gold">MEHRERE KOSTENSTATIONEN SIND MÖGLICH</LabelPill></div>
  </SceneShell>;
 };
+
+export const CostDifferenceRevealAnimation=CostLayersJourneyAnimation;
