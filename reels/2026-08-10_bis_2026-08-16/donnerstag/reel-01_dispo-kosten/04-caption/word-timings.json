@@ -1,0 +1,10 @@
+{
+  "version":"finanzneo-caption-v17",
+  "language":"de",
+  "timingStatus":"missing-final-audio-alignment",
+  "source":null,
+  "rules":{"maxWords":12,"maxCharacters":68,"maxLines":2,"minimumFontPx":42,"safeArea":{"bottom":320,"left":72,"right":180}},
+  "words":[],
+  "captionUnits":[],
+  "blockedReason":"Final user voiceover is not present. Do not invent word timings or scene durations."
+}
