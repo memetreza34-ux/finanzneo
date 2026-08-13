@@ -1,0 +1,20 @@
+{
+  "version": "finanzneo-v17",
+  "reel": "dispo-kosten",
+  "date": "2026-08-13",
+  "fps": 30,
+  "timingStatus": "missing-final-audio-alignment",
+  "visualTarget": {"animationRuntimeMin": 0.55, "animationRuntimeMax": 0.65},
+  "scenes": [
+    {"scene":1,"type":"image","asset":"Bild 01.png","beat":"Kontominus wirkt harmlos, kostet aber Geld"},
+    {"scene":2,"type":"remotion","component":"DispoMechanismAnimation","beat":"Dispo als Kreditlinie am Girokonto"},
+    {"scene":3,"type":"remotion","component":"DailyInterestAnimation","beat":"Zinsen entstehen über die Zeit"},
+    {"scene":4,"type":"image","asset":"Bild 04.png","beat":"1.500 Euro bleiben lange im Minus"},
+    {"scene":5,"type":"remotion","component":"InterestExampleAnimation","beat":"12-Prozent-Beispiel: 30/90/365 Tage"},
+    {"scene":6,"type":"remotion","component":"SalaryHoleAnimation","beat":"Gehalt füllt zuerst das alte Minus"},
+    {"scene":7,"type":"image","asset":"Bild 07.png","beat":"Planmäßig aus dem Minus heraus"},
+    {"scene":8,"type":"remotion","component":"RepaymentStepsAnimation","beat":"Saldo prüfen, Minus reduzieren, Null erreichen"},
+    {"scene":9,"type":"remotion","component":"TermsCheckAnimation","beat":"Dispozins und geduldete Überziehung prüfen"},
+    {"scene":10,"type":"image","asset":"Bild 10.png","beat":"Kurzfristige Hilfe, keine Dauerfinanzierung"}
+  ]
+}
