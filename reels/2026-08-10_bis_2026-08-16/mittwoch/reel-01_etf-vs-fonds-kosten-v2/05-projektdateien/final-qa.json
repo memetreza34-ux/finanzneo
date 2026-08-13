@@ -1,0 +1,24 @@
+{
+  "version": "finanzneo-final-qa-v2.1",
+  "status": "pending",
+  "approvedByHuman": false,
+  "checks": {
+    "allRequiredImagesPresent": false,
+    "finalVoiceoverPresent": false,
+    "realWordTimingsGenerated": false,
+    "finalTimelineResolved": false,
+    "headerVisualCaptionNeverOverlap": false,
+    "allVisualsInsideY300To1320": false,
+    "captionUnitsWithinLimits": false,
+    "allSixAnimationsHaveStartMechanismEnd": false,
+    "noIconOnlyOrStatOnlyAnimation": false,
+    "flowImagesMatchExactVoiceBeat": false,
+    "typecheckPassed": false,
+    "validatorPassed": false,
+    "previewReviewed": false,
+    "fullMp4Reviewed": false,
+    "audioIntegratedLufsBetweenMinus17AndMinus15": false,
+    "audioTruePeakAtMostMinus1Dbtp": false
+  },
+  "releaseRule": "PRODUCTION COMPLETE ist nur zulässig, wenn alle Checks true sind und approvedByHuman=true."
+}
