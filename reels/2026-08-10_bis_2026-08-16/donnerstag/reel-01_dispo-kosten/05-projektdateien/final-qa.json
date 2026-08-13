@@ -1,0 +1,18 @@
+{
+  "status":"pending",
+  "productionComplete":false,
+  "required":{
+    "finalVoiceoverPresent":false,
+    "allUserImagesPresent":false,
+    "realWordTimingsGenerated":false,
+    "audioDerivedTimelineResolved":false,
+    "animationRuntimeShare55to65":false,
+    "typecheckPassed":false,
+    "preRenderValidationPassed":false,
+    "fullMp4Reviewed":false,
+    "captionSafeAreaReviewed":false,
+    "audioLufsMeasured":false,
+    "truePeakMeasured":false,
+    "postRenderValidationPassed":false
+  }
+}
