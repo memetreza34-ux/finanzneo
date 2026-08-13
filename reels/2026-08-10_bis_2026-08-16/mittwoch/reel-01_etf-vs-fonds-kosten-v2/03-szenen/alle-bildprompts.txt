@@ -1,0 +1,59 @@
+GOOGLE FLOW – SERIELLER FINANZNEO-BILDLAUF V2.1
+
+AUFTRAG
+Erzeuge genau 5 vertikale 9:16-Bilder: Bild 00 als Cover, danach Bild 01, Bild 04, Bild 07 und Bild 10.
+
+STRENG SERIELL
+Immer nur EIN Bild gleichzeitig. Bild vollständig erzeugen → exakt umbenennen → visuell prüfen → erst danach nächstes Bild. Keine parallele Queue, keine Batches.
+
+DATEINAMEN
+Bild 00.png = Cover
+Bild 01.png = Szene 01
+Bild 04.png = Szene 04
+Bild 07.png = Szene 07
+Bild 10.png = Szene 10
+
+FINANZNEO-WELT
+Premium fintech editorial 3D. Deep charcoal green-black. Vivid emerald/mint accents. Gold ausschließlich für Geld/finanziellen Wert. Warm red-orange ausschließlich für Kosten, Verlust oder Risiko. Smooth rounded geometry, soft bevels, hochwertige matte und transparente Materialien, kräftiges Emerald Rim Light. Nicht fotorealistisch. Kein Pixar, Clay, Diorama, Game-Level, Sci-Fi-Korridor, Dashboard oder App-UI.
+
+EIN DURCHGEHENDER HINTERGRUND
+Ein einziger nahtloser deep-charcoal-green-black Hintergrund über die gesamte 1080×1920-Fläche. Keine horizontalen Bänder, keine Panels, kein sichtbarer Boden, keine Wandkante, kein Horizont.
+
+KRITISCHE KOMPOSITIONSREGEL – MUSS BEI JEDEM BILD EINGEHALTEN WERDEN
+Die fertige Datei ist 1080×1920. ALLE relevanten visuellen Inhalte – Personen, Gesichter, Geldobjekte, Pfeile, Labels, Metaphern – müssen vollständig im zentralen Quellbereich ungefähr Y=300 bis Y=1320 liegen. Oberhalb Y=300 und unterhalb Y=1320 darf nur ruhige Fortsetzung desselben nahtlosen Hintergrunds liegen. Keine wichtigen Inhalte dort. Dieser Bereich wird später in Remotion exakt als Visualfenster verwendet. Links und rechts mindestens 70 px Luft zu wichtigen Objekten.
+
+TEXTREGEL
+Bildszenen enthalten keine große Szenenüberschrift und keinen gesprochenen Untertitel. Nur ausdrücklich genannte kurze Objektlabels. Keine zusätzlichen Wörter, Fantasietexte, Logos oder Wasserzeichen.
+
+BILD 00 – COVER
+DATEINAME: Bild 00.png
+Erzeuge eine hochwertige FinanzNeo-Coverillustration. Im zentralen sicheren Bildbereich stehen zwei identische monatliche Gold-Münzströme nebeneinander. Links fließt der Strom durch ein kleines rotes Kostenventil und baut danach einen sehr hohen goldenen Vermögensturm. Rechts fließt derselbe Strom durch ein sichtbar größeres Kostenventil; danach entsteht ein deutlich niedrigerer Vermögensturm. Zwischen den Türmen ist der fehlende Höhenabschnitt als klare goldene Lücke sichtbar. Oben im Cover, sauber lesbar und ohne in den Visualbereich zu ragen, exakt diese zweizeilige Cover-Typografie: `ETF ODER FONDS?` und darunter kleiner `WAS KOSTEN 30 JAHRE?`. Im Visualbereich nur die kurzen Labels `0,2 %` links und `1,5 %` rechts. Keine weiteren Wörter.
+
+BILD 01 – HOOK
+DATEINAME: Bild 01.png
+Match Bild 00 exakt in Palette, Licht, Material und Hintergrund. Im sicheren zentralen Visualbereich: zwei winzige rote Kostenchips `0,2 %` und `1,5 %` liegen am Anfang zweier gleich großer goldener Geldströme. Hinter jedem Kostentag wächst ein langer Schatten in Richtung zweier Vermögenstürme; der Schatten des 1,5-%-Chips wird über die Distanz dramatisch größer. Die Metapher muss in unter einer Sekunde verständlich machen: kleiner Prozentunterschied, großer Langzeiteffekt. Nur Labels `0,2 %` und `1,5 %`.
+
+BILD 04 – 30 JAHRE / EINZAHLUNG
+DATEINAME: Bild 04.png
+Match Bild 00 exakt. Im sicheren zentralen Visualbereich steht eine stilisierte erwachsene Person mit klar sichtbarem Gesicht neben einer einzigen großen 30-Jahre-Zeitstrecke. Ein gleichmäßiger Gold-Münzstrom mit Label `200 € / Monat` läuft durch 30 große Jahresmarker und endet in einem Einzahlungstank mit Label `72.000 €`. Die Szene zeigt ausschließlich die Einzahlungen und die lange Laufzeit, noch keinen Kostenvergleich. Nur Labels `200 € / Monat`, `30 Jahre`, `72.000 €`.
+
+BILD 07 – DER SICHTBARE ABSTAND
+DATEINAME: Bild 07.png
+Match Bild 00 exakt. Im sicheren zentralen Visualbereich stehen zwei große goldene Vermögenstürme auf gleicher Grundlinie. Links der höhere Turm mit kleinem Label `ca. 193.000 €`, rechts der niedrigere mit `ca. 152.000 €`. Zwischen den Turmspitzen spannt sich eine große klare goldene Messklammer mit Label `ca. 41.500 €`. Eine stilisierte Person mit klar sichtbarem Gesicht steht klein zwischen den Türmen und blickt auf die Lücke. Keine weiteren Zahlen oder Wörter.
+
+BILD 10 – SCHLUSSBILD / CHECKLISTE ALS METAPHER
+DATEINAME: Bild 10.png
+Match Bild 00 exakt. Im sicheren zentralen Visualbereich untersucht eine große hochwertige Lupe ein einzelnes ETF-/Fonds-Objekt. Rund um dasselbe Objekt liegen fünf klar verbundene Prüfmarken – nicht als Dashboard-Karten, sondern als physische 3D-Prüfsiegel entlang eines sichtbaren Prüfpfads. Erlaubte Labels: `Index`, `Streuung`, `Kosten`, `Fondsgröße`, `Ziel`. Die Szene muss vermitteln: Kosten sind wichtig, aber nicht das einzige Kriterium. Keine Produktnamen, keine Logos, keine Empfehlung.
+
+QA NACH JEDEM BILD
+1. Alles Wichtige vollständig zwischen Y=300 und Y=1320.
+2. Oben und unten nur nahtloser ruhiger Hintergrund.
+3. Keine zweite Hintergrundzone / kein Horizont / keine Boden-Wand-Kante.
+4. Hauptaussage innerhalb einer Sekunde erkennbar.
+5. Nur erlaubte deutsche Labels, korrekt geschrieben.
+6. Keine abgeschnittenen Gesichter, Geldobjekte oder Labels.
+7. Keine Miniatur-Diorama-, Dashboard- oder Icon-Sammlung.
+8. Falls eine Regel verletzt ist: genau dieses Bild neu erzeugen, nicht zum nächsten weitergehen.
+
+ENDE
+Erst nach erfolgreicher QA aller fünf Bilder die Dateien gemeinsam für den Nutzer bereitstellen.
