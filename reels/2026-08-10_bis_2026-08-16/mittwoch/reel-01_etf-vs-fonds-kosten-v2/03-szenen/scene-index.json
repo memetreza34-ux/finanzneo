@@ -1,0 +1,19 @@
+{
+  "version": "finanzneo-v2.1",
+  "worldId": "finanzneo-connected-studio-v3",
+  "layoutContract": "strict-header-visual-caption-v1",
+  "visualSourceSafeY": [300, 1320],
+  "coverHeadline": {"googleFlowFileName":"Bild 00.png","headline":"ETF ODER FONDS?","subheadline":"WAS KOSTEN 30 JAHRE?"},
+  "scenes": [
+    {"id":"scene-01","type":"image","googleFlowFileName":"Bild 01.png","title":"0,2 % ODER 1,5 %?","subtitle":"30 JAHRE VERGRÖSSERN DEN ABSTAND"},
+    {"id":"scene-02","type":"remotion","component":"SameSavingsTwoCostPathsAnimation","title":"GLEICHER SPARPLAN","subtitle":"ZWEI KOSTENWEGE"},
+    {"id":"scene-03","type":"remotion","component":"FeeCompoundingDragAnimation","title":"KOSTEN WIRKEN WEITER","subtitle":"FEHLENDES KAPITAL WÄCHST NICHT WEITER"},
+    {"id":"scene-04","type":"image","googleFlowFileName":"Bild 04.png","title":"72.000 € EINGEZAHLT","subtitle":"200 € MONATLICH × 30 JAHRE"},
+    {"id":"scene-05","type":"remotion","component":"ModelReturnSplitAnimation","title":"SO RECHNET DAS MODELL","subtitle":"6 % VOR KOSTEN · KEINE PROGNOSE"},
+    {"id":"scene-06","type":"remotion","component":"ThirtyYearGrowthRaceAnimation","title":"ZWEI WEGE, ZWEI ENDWERTE","subtitle":"GLEICHER INPUT · ANDERE KOSTEN"},
+    {"id":"scene-07","type":"image","googleFlowFileName":"Bild 07.png","title":"RUND 41.500 € ABSTAND","subtitle":"GLEICHE SPARRATE · GLEICHE LAUFZEIT"},
+    {"id":"scene-08","type":"remotion","component":"CostDifferenceRevealAnimation","title":"MEHR ALS LAUFENDE KOSTEN","subtitle":"ORDERENTGELTE KÖNNEN DAZUKOMMEN"},
+    {"id":"scene-09","type":"remotion","component":"SelectionFilterAnimation","title":"MEHRERE KRITERIEN ZÄHLEN","subtitle":"INDEX · STREUUNG · KOSTEN · FONDSGRÖSSE"},
+    {"id":"scene-10","type":"image","googleFlowFileName":"Bild 10.png","title":"KOSTEN SIND VERGLEICHBAR","subtitle":"MARKTRENDITE NICHT"}
+  ]
+}
