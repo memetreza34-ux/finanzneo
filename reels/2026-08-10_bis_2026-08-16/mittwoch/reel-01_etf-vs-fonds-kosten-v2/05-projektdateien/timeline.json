@@ -1,0 +1,20 @@
+{
+  "version": "finanzneo-timeline-v2.1",
+  "fps": 30,
+  "status": "storyboard-only-awaiting-final-audio",
+  "finalDurationFrames": null,
+  "previewDurationsFrames": [195, 225, 225, 180, 225, 240, 195, 210, 225, 180],
+  "note": "previewDurationsFrames dienen ausschließlich der Storyboard-/Codeprüfung. Finale Dauer jeder Szene muss aus echten Wort-Zeitstempeln des finalen Voiceovers abgeleitet werden.",
+  "scenes": [
+    {"id":"scene-01","finalFrom":null,"finalDurationFrames":null},
+    {"id":"scene-02","finalFrom":null,"finalDurationFrames":null},
+    {"id":"scene-03","finalFrom":null,"finalDurationFrames":null},
+    {"id":"scene-04","finalFrom":null,"finalDurationFrames":null},
+    {"id":"scene-05","finalFrom":null,"finalDurationFrames":null},
+    {"id":"scene-06","finalFrom":null,"finalDurationFrames":null},
+    {"id":"scene-07","finalFrom":null,"finalDurationFrames":null},
+    {"id":"scene-08","finalFrom":null,"finalDurationFrames":null},
+    {"id":"scene-09","finalFrom":null,"finalDurationFrames":null},
+    {"id":"scene-10","finalFrom":null,"finalDurationFrames":null}
+  ]
+}
