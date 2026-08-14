@@ -14,7 +14,7 @@ export const Sizzle: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: C.bg }}>
       <AuroraBG colors={[C.accent, C.blue, C.accentDk]} />
-      <Particles color={C.gold} n={26} />
+      <Particles width={1080} height={1920} color={C.gold} n={26} />
 
       {/* 1 · Intro · MaskReveal Logo (0-3.2s) */}
       <AbsoluteFill style={{ opacity: life(f, 0, sec(3.4), 12), alignItems: 'center', justifyContent: 'center' }}>

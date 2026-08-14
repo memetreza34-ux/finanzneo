@@ -1,3 +1,4 @@
+// @ts-nocheck — Legacy-Experimental: benötigt @remotion/three (nicht in Produktion installiert)
 // FinanzNeo PREMIUM-Upgrade: FNPortfolioGlobe als ECHTE 3D-Kugel (three.js / R3F).
 // Vorher: flache 2D-SVG-Punktwolke. Jetzt: rotierende 3D-Sphere mit Tiefe, Glow-Kern, Atmosphäre.
 import {AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate} from 'remotion';
