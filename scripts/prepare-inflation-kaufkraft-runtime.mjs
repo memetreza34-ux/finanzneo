@@ -13,6 +13,20 @@ if(!Array.isArray(timeline.scenes)||timeline.scenes.length!==10||timeline.scenes
   throw new Error('BLOCKED: finale 10-Szenen-Timeline ist nicht aufgelöst.');
 }
 
+for(let i=0;i<timeline.scenes.length;i+=1){
+  const scene=timeline.scenes[i];
+  if(i===0&&scene.startFrame!==0){
+    throw new Error(`BLOCKED: ${scene.id} muss bei Frame 0 starten.`);
+  }
+  if(i>0){
+    const previous=timeline.scenes[i-1];
+    const expected=previous.startFrame+previous.durationFrames;
+    if(Math.abs(scene.startFrame-expected)>1){
+      throw new Error(`BLOCKED: sichtbare Timeline-Lücke/Überlappung zwischen ${previous.id} und ${scene.id}. Erwarteter Start ${expected}, erhalten ${scene.startFrame}.`);
+    }
+  }
+}
+
 const audioDir=resolve(root,'02-audio');
 const allowed=new Set(['.wav','.mp3','.m4a','.aac']);
 const audio=readdirSync(audioDir).filter(f=>allowed.has(extname(f).toLowerCase()));
@@ -40,4 +54,4 @@ const runtime={
 const serialized=JSON.stringify(runtime,null,2)+'\n';
 writeFileSync(resolve(root,'05-projektdateien/runtime-data.json'),serialized);
 writeFileSync(resolve('src/reels/inflation/runtime-data.json'),serialized);
-console.log('✓ Inflation/Kaufkraft Runtime-Daten für Projekt und finale Composition vorbereitet.');
+console.log('✓ Inflation/Kaufkraft Runtime-Daten vorbereitet; Timeline ist lückenlos.');
