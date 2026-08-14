@@ -1,8 +1,14 @@
 GOOGLE FLOW – FINALER DATEINAME: Bild 01 - 10000 Euro heute.png
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-ONE single seamless continuous deep charcoal green-black background. No bands, panels, horizon or floor-wall split. No headline. No subtitle. Only short object labels `10.000 €` and `HEUTE`.
+Create one FULL-FRAME vertical 1080×1920 premium fintech editorial 3D image on ONE seamless continuous deep charcoal green-black background. No bands, panels, horizon or floor-wall split. No headline. No subtitle. Only short object labels `10.000 €` and `HEUTE`.
 
-All meaningful content strictly inside Y=300–1320 safe composition area. Top and bottom stay calm background.
+SIZE / COMPOSITION:
+- Do NOT create a small centered poster or inset rectangle.
+- The gold 10,000-euro value object and grocery basket should together use roughly 820–980 px of the 1080-px frame width.
+- Keep roughly the top 250 px visually calm for the Remotion headline.
+- Keep roughly the bottom 500 px visually calm for spoken captions/platform UI.
+- Main objects may be large and deep between those areas.
 
-A large premium gold 10,000-euro value block beside a full grocery basket with recognizable everyday products. Clear metaphor for today's purchasing power. Strong central depth, no tiny UI, no person required.
+VISUAL:
+A very large premium gold 10,000-euro value object beside a full grocery basket packed with recognizable everyday products. Strong central depth, emerald rim light, clear metaphor for today's purchasing power. No tiny UI, no person required, no watermark or logo.
