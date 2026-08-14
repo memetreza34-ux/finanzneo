@@ -1,8 +1,13 @@
 GOOGLE FLOW – FINALER DATEINAME: Bild 04 - Kontostand bleibt gleich.png
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-ONE single seamless continuous deep charcoal green-black background. No headline. No subtitle. Object labels only: `10.000 €`, `20 JAHRE`.
+Create one FULL-FRAME vertical 1080×1920 premium fintech editorial 3D image on ONE seamless continuous deep charcoal green-black background. No headline. No subtitle. Object labels only: `10.000 €`, `20 JAHRE`.
 
-All meaningful content strictly inside Y=300–1320 safe composition area.
+SIZE / COMPOSITION:
+- No small centered poster or visible inset panel.
+- The bank-balance object plus surrounding groceries should span roughly 820–980 px of frame width.
+- Keep roughly the top 250 px calm for the Remotion headline.
+- Keep roughly the bottom 500 px calm for spoken captions/platform UI.
 
-A large bank-balance slab stays fixed at 10.000 €. Around it, the same everyday grocery objects carry visibly higher red-orange price markers. Clear contrast: account number unchanged, price environment more expensive. No dashboard UI.
+VISUAL:
+A large bank-balance slab stays fixed at 10.000 €. Around it, large recognizable grocery objects carry visibly higher red-orange price markers. The account number remains unchanged while the surrounding purchasing environment is clearly more expensive. Strong depth, large foreground objects, no dashboard UI, no watermark or logo.
