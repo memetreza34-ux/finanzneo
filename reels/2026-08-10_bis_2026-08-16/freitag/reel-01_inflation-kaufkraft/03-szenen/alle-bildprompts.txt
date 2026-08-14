@@ -8,38 +8,53 @@ HARTER ABLAUF:
 2. Vollständig warten, bis dieses eine Bild fertig ist.
 3. Sofort exakt in den angegebenen Dateinamen umbenennen.
 4. Umbenennung prüfen.
-5. Motiv, Textfreiheit, Hintergrund und Safe-Area prüfen.
+5. Motiv, Text, Hintergrund, Größe und Lesbarkeit prüfen.
 6. Erst dann zum nächsten Bild.
 7. Kein Batch, keine Queue, kein Parallelisieren, kein Vorladen.
-8. Am Ende alle fünf finalen Dateien gemeinsam für ZIP/Download gruppieren.
+8. Am Ende alle fünf finalen Dateien gemeinsam gruppieren.
 
 GLOBALE BILDREGEL:
 Premium fintech editorial 3D. ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. No horizontal divisions, no panels, no floor-wall boundary, no horizon. Emerald/mint for positive/info, gold only for money/value, red-orange only for loss/risk. Smooth rounded premium geometry.
 
-SAFE COMPOSITION:
-All meaningful objects, faces, labels, arrows, money and metaphors must stay inside the central safe area corresponding to Y=300–1320 of 1080×1920. Keep Y=0–300 and Y=1320–1920 visually calm with only the same continuous background. No important object may enter the header or caption zones.
+NEUE GRÖSSENREGEL:
+- Keine kleine Illustration in einem dunklen Poster-Rechteck.
+- Kein sichtbares Inset-Panel.
+- Bei Bild 01, 04, 07 und 10 soll das Hero-Motiv groß und dominant sein und ungefähr 820–980 px der 1080-px-Breite nutzen.
+- Das Bild selbst ist FULL-FRAME 1080×1920 und wird später auch full-frame in Remotion gezeigt.
+- Oben etwa 250 px ruhig halten, damit dort die Remotion-Headline lesbar bleibt.
+- Unten etwa 500 px ruhig halten, weil dort die gesprochenen Untertitel liegen.
+- Zwischen diesen Bereichen dürfen die Hauptobjekte groß, räumlich und fast bildfüllend wirken.
+- Hintergrund bleibt überall derselbe nahtlose Raum; keine sichtbaren Balken oder Zonen.
 
-TEXT:
-No headline. No subtitle. No explanatory sentence. Only explicitly requested short German object labels, max 1–3 words.
+TEXTREGEL:
+BILD 00 ist die EINZIGE Ausnahme: Dort erzeugt GOOGLE FLOW selbst die Cover-Headline und Cover-Subheadline.
+BILD 01, 04, 07 und 10: keine Headline, kein Untertitel, kein erklärender Satz. Nur die ausdrücklich gewünschten kurzen Objektlabels.
 
 FORBIDDEN:
-No photorealism, no Pixar, no clay, no dashboard, no app UI, no tiny diorama, no neon tunnel, no sci-fi corridor, no clutter.
+No photorealism, no Pixar, no clay, no dashboard, no app UI, no tiny diorama, no neon tunnel, no sci-fi corridor, no clutter, no watermark, no logo.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BILD 00 — COVER
 FINALER DATEINAME: Bild 00 - Inflation Kaufkraft Cover.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-No text.
-A large pristine gold 10,000-euro value block on the left and a premium grocery basket on the right. A subtle red-orange price-pressure wave grows behind the basket while the gold nominal value block stays visually unchanged. Instantly communicates same money amount, less purchasing power.
+GOOGLE FLOW MUSS DEN COVER-TEXT DIREKT INS BILD RENDERN. REMOTION DARF KEINEN COVER-TEXT HINZUFÜGEN.
 
-Generate → wait → rename exactly → verify → QA → only then continue.
+EXAKTER TEXT:
+HEADLINE: `10.000 € AUF DEM KONTO`
+SUBHEADLINE: `WIE VIEL KAUFKRAFT BLEIBT?`
+
+Premium editorial finance typography. Headline bold condensed white, large and instantly readable. Subheadline smaller, mint/white, directly beneath it. No extra words. No warped letters. If spelling, digits, punctuation or euro sign are not exact, regenerate BEFORE continuing.
+
+Below the text: a large gold 10,000-euro value object and a large premium grocery basket, together spanning most of the frame width. A subtle red-orange price-pressure wave rises behind the basket while the nominal amount stays visually unchanged. Strong 3D depth. No tiny centered composition.
+
+Generate → wait → rename exactly → verify exact typography → QA → only then continue.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BILD 01 — HOOK
 FINALER DATEINAME: Bild 01 - 10000 Euro heute.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-No headline. Short object labels only: `10.000 €`, `HEUTE`.
-A premium bank balance object showing 10.000 € beside a full grocery basket packed with large recognizable everyday products. Strong gold value cues, emerald neutral light. The scene must communicate today's purchasing power, not investing.
+No headline. No subtitle. Short object labels only: `10.000 €`, `HEUTE`.
+A very large premium gold 10,000-euro value object beside a full grocery basket packed with recognizable everyday products. Both hero objects must be large enough to dominate the middle of the 1080×1920 frame, not sit as a tiny poster. Strong gold value cues, emerald rim light. Communicate today's purchasing power, not investing.
 
 Generate → wait → rename exactly → verify → QA → only then continue.
 
@@ -47,8 +62,8 @@ Generate → wait → rename exactly → verify → QA → only then continue.
 BILD 04 — NOMINAL BLEIBT GLEICH
 FINALER DATEINAME: Bild 04 - Kontostand bleibt gleich.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-No headline. Short object labels only: `10.000 €`, `20 JAHRE`.
-A large bank-balance slab remains visibly fixed at 10.000 €. Around it, everyday price tags on groceries have risen and red-orange price markers sit higher. The money block is unchanged; the surrounding purchasing environment is more expensive. Clear cause/effect, not a dashboard.
+No headline. No subtitle. Short object labels only: `10.000 €`, `20 JAHRE`.
+A large bank-balance slab fixed at 10.000 € dominates the composition. Around it, large recognizable groceries and several red-orange price tags visibly indicate higher prices. The money block remains unchanged while the environment becomes more expensive. Main composition should use almost the full safe width, not a small framed illustration. No dashboard UI.
 
 Generate → wait → rename exactly → verify → QA → only then continue.
 
@@ -56,8 +71,8 @@ Generate → wait → rename exactly → verify → QA → only then continue.
 BILD 07 — ALLTAG
 FINALER DATEINAME: Bild 07 - Einkaufskorb wird kleiner.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-No headline. Short object labels only: `100 €`, `WENIGER`.
-Show the SAME gold 100-euro token beside two grocery baskets: the earlier basket is full, the later basket contains visibly fewer equivalent everyday products. One clear metaphor: same money, fewer goods. No split background and no infographic panel.
+No headline. No subtitle. Short object labels only: `100 €`, `WENIGER`.
+Make the SAME gold 100-euro token large and central. One large full grocery basket versus one large later basket with visibly fewer equivalent goods. The two baskets and token should span most of the available width. One clear everyday metaphor: same money, fewer goods. No split background, no infographic card.
 
 Generate → wait → rename exactly → verify → QA → only then continue.
 
@@ -65,9 +80,9 @@ Generate → wait → rename exactly → verify → QA → only then continue.
 BILD 10 — SCHLUSSMETAPHER
 FINALER DATEINAME: Bild 10 - Kaufkraft statt Kontostand.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-No headline. Short object labels only: `EURO`, `KAUFKRAFT`.
-A large magnifying glass moves conceptually from a gold euro stack to reveal a basket of real goods underneath. The visible metaphor is: do not only inspect the number of euros; inspect what those euros can buy. Premium, minimal, strong closing composition.
+No headline. No subtitle. Short object labels only: `EURO`, `KAUFKRAFT`.
+A very large premium magnifying glass over a gold euro stack reveals a substantial basket of real everyday goods underneath. Magnifying glass, euro stack and basket should fill most of the visual width. The message is immediate: inspect what money can buy, not only the number of euros. Minimal premium closing metaphor, not a small diorama.
 
 Generate → wait → rename exactly → verify → QA.
 
-ENDE: Prüfe alle fünf Dateinamen und gruppiere ausschließlich diese finalen Bilder gemeinsam.
+ENDE: Prüfe alle fünf Dateinamen. Prüfe Bild 00 zusätzlich Zeichen für Zeichen auf exakten Cover-Text. Gruppiere ausschließlich diese fünf finalen Bilder gemeinsam.
