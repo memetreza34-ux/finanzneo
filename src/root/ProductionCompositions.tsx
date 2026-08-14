@@ -8,6 +8,7 @@ import {DreiKontenSystem, DREI_KONTEN_SYSTEM_FRAMES} from '../reels/drei-konten/
 import {NotgroschenStufenplan, NOTGROSCHEN_TOTAL_FRAMES} from '../reels/notgroschen/NotgroschenStufenplan';
 import {ZinseszinsZeit, ZINSESZINS_TOTAL_FRAMES} from '../reels/zinseszins/ZinseszinsZeit';
 import {EtfKostenV2Storyboard, ETF_COST_PREVIEW_TOTAL_FRAMES} from '../reels/etf-kosten-v2/EtfKostenV2Storyboard';
+import {InflationKaufkraftRuntime, INFLATION_FINAL_TOTAL_FRAMES} from '../reels/inflation/InflationKaufkraftRuntime';
 import {InflationKaufkraftStoryboard, INFLATION_STORYBOARD_FRAMES} from '../reels/inflation/InflationKaufkraftStoryboard';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
@@ -37,6 +38,7 @@ export const ProductionCompositions: React.FC = () => (
     <Composition id="NotgroschenStufenplan" component={NotgroschenStufenplan} durationInFrames={NOTGROSCHEN_TOTAL_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="ZinseszinsZeit" component={ZinseszinsZeit} durationInFrames={ZINSESZINS_TOTAL_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="EtfKostenV2Storyboard" component={EtfKostenV2Storyboard} durationInFrames={ETF_COST_PREVIEW_TOTAL_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="InflationKaufkraft" component={InflationKaufkraftRuntime} durationInFrames={INFLATION_FINAL_TOTAL_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="InflationKaufkraftStoryboard" component={InflationKaufkraftStoryboard} durationInFrames={INFLATION_STORYBOARD_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="DreiKontenSystem" component={DreiKontenSystem} durationInFrames={DREI_KONTEN_SYSTEM_FRAMES} fps={FPS} {...VERTICAL} />
 
