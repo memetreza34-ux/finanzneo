@@ -11,7 +11,7 @@ export type KreditkarteTeilzahlungProps={timeline:CreditTimeline;audioSrc?:strin
 const scenes=[
 ['KLEINE RATE. LANGE SCHULD.','50 € wirken klein – Zinsen können die Rückzahlung verlängern.','image'],
 ['RESTSCHULD ROLLT WEITER','Du zahlst einen Teil – der offene Betrag bleibt im Kreislauf.','animation'],
-['ZINS KOMMT VOR DER TILGUNG','Im Modell: 1,5 % pro Monat auf die Restschuld.','animation'],
+['ZINS SCHMÄLERT DIE TILGUNG','Im Modell: 1,5 % pro Monat auf die Restschuld.','animation'],
 ['MONAT 1: 22,50 € ZINSEN','Von 50 € Rate tilgen nur 27,50 € die Schuld.','image'],
 ['RESTSCHULD SINKT LANGSAM','Jeden Monat: Zins drauf, Rate runter.','animation'],
 ['41 MONATE BIS NULL','50 € Rate · 1.500 € Startschuld · 18-%-Modell.','animation'],
