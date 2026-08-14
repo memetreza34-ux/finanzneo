@@ -18,6 +18,10 @@ Premium fintech editorial 3D. ONE single seamless continuous deep charcoal green
 GRÖSSE:
 Hero-Motiv groß. Gesamtbreite der Hauptobjekte normalerweise 840–1000 px. Kein kleines Poster in der Mitte. Oben nur genug ruhige Fläche für die Remotion-Szenenheadline; unten genug ruhige Fläche für die höher gesetzten Karaoke-Captions.
 
+TEXTREGEL:
+BILD 01 / 04 / 07 / 10: NO HEADLINE. No subtitle. No explanatory sentence. Only the explicitly requested short object labels.
+BILD 00 ist die einzige Ausnahme: Die Cover-Headline wird direkt von Google Flow in das Bild gesetzt.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BILD 00 — COVER
 FINALER DATEINAME: Bild 00 - Kreditkarte Teilzahlung Cover.png
@@ -38,7 +42,7 @@ Generate → wait → rename → verify → QA → continue.
 BILD 01 — HOOK
 FINALER DATEINAME: Bild 01 - Kleine Rate lange Schuld.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-No large headline in image. Short object labels only: `1.500 € SCHULD`, `50 € RATE`.
+NO HEADLINE. No subtitle. Short object labels only: `1.500 € SCHULD`, `50 € RATE`.
 
 A very large red-orange debt cylinder marked 1.500 € dominates the center. A much smaller gold 50-euro payment token approaches it. Behind the debt cylinder, a long sequence of monthly markers stretches into depth. Immediate visual contrast: small rate versus large remaining balance. Main composition almost fills the width.
 
@@ -48,7 +52,7 @@ Generate → wait → rename → verify → QA → continue.
 BILD 04 — ERSTER MONAT
 FINALER DATEINAME: Bild 04 - Erste Rate aufgeteilt.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-No large headline. Short labels only: `50 € RATE`, `22,50 € ZINS`, `27,50 € TILGUNG`.
+NO HEADLINE. No subtitle. Short labels only: `50 € RATE`, `22,50 € ZINS`, `27,50 € TILGUNG`.
 
 A large gold 50-euro token physically splits into two thick streams. A red-orange stream labelled 22,50 € flows into a glowing interest collector. A larger emerald/gold stream labelled 27,50 € hits the debt block and visibly chips a small piece away. Strong physical split, large objects, no infographic card layout.
 
@@ -58,7 +62,7 @@ Generate → wait → rename → verify → QA → continue.
 BILD 07 — GESAMTKOSTEN
 FINALER DATEINAME: Bild 07 - Zinskosten gesamt.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-No large headline. Short labels only: `1.500 €`, `+ 508 € ZINSEN`.
+NO HEADLINE. No subtitle. Short labels only: `1.500 €`, `+ 508 € ZINSEN`.
 
 Two large physical money stacks side by side: a large gold principal stack labelled 1.500 € and a visibly separate red-orange interest stack labelled + 508 € ZINSEN. A subtle brace joins them into a total payment path above 2.000 €. Premium 3D, extremely clear, big on screen.
 
@@ -68,7 +72,7 @@ Generate → wait → rename → verify → QA → continue.
 BILD 10 — CHECKLISTE ALS METAPHER
 FINALER DATEINAME: Bild 10 - Teilzahlung pruefen.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-No large headline. Short labels only: `EFFEKTIVZINS`, `RATE`, `VOLLZAHLUNG`.
+NO HEADLINE. No subtitle. Short labels only: `EFFEKTIVZINS`, `RATE`, `VOLLZAHLUNG`.
 
 A huge premium magnifying glass examines a physical credit-card agreement object. Under the lens, three large readable tokens appear: EFFEKTIVZINS, RATE, VOLLZAHLUNG. The rest of the agreement remains abstract and unreadable. Strong closing metaphor: inspect the repayment terms, not only the advertised small rate.
 
