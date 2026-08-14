@@ -3,11 +3,23 @@ Bild 00 - Inflation Kaufkraft Cover.png
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-Create exactly one vertical 9:16 premium fintech editorial 3D image. ONE seamless deep charcoal green-black background from top edge to bottom edge. No panels, no bands, no horizon, no floor-wall split.
+Create exactly one vertical 9:16 premium fintech editorial 3D cover image. ONE seamless deep charcoal green-black background from top edge to bottom edge. No panels, no bands, no horizon, no floor-wall split.
 
-NO headline, NO subtitle, NO sentence, NO CTA, NO random text.
+IMPORTANT: Google Flow itself must render the cover typography. Remotion must NOT add any cover headline or subtitle later.
 
-Keep all meaningful objects only in the central safe composition area corresponding to Y=300–1320. The top and bottom areas must remain calm continuations of the same background.
+EXACT COVER TEXT — spell exactly, including punctuation and euro sign:
+HEADLINE: `10.000 € AUF DEM KONTO`
+SUBHEADLINE: `WIE VIEL KAUFKRAFT BLEIBT?`
+
+Typography: premium editorial finance cover, bold condensed white headline, smaller mint/white subheadline, extremely legible on a phone, no warped letters, no additional words. Place the headline in the upper area with generous margins. If any letter, digit, punctuation mark or euro sign is wrong, regenerate this image before continuing.
 
 VISUAL:
-A large pristine gold 10,000-euro value block on the left and a premium grocery basket on the right. Behind the basket, a subtle red-orange price-pressure wave grows upward while the gold 10,000-euro block visually stays unchanged. The core metaphor must instantly communicate: same nominal money, less buying power. Large objects, strong depth, no tiny icons, no person required.
+Below the text, create one dominant large composition that fills most of the useful width: a pristine gold 10,000-euro value object and a large premium grocery basket. A subtle red-orange price-pressure wave rises behind the basket while the nominal 10,000-euro object remains unchanged. The metaphor must read instantly: same nominal money, less purchasing power.
+
+SCALE / COMPOSITION:
+- No tiny centered poster or inset rectangle.
+- Main money + basket composition should span roughly 820–960 px of the 1080 px width.
+- Strong depth and large foreground objects.
+- Keep the lower platform-UI area calm enough for cropping in social previews.
+
+No person required. No logos. No watermark. No CTA. No random extra text.
