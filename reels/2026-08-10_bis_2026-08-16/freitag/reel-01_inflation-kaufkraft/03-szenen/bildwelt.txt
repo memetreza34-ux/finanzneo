@@ -2,10 +2,18 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
 Premium fintech editorial 3D. Deep charcoal green-black world. Vivid emerald/mint accents. Gold only for money/value. Warm red-orange only for loss/risk. Smooth rounded geometry, soft bevelled edges, matte/glass materials, high-end studio lighting.
 
-Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. No horizontal divisions, no top/bottom panels, no floor-wall boundary, no horizon line, no studio split.
+Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 1080×1920 image. No horizontal divisions, no top/bottom panels, no floor-wall boundary, no horizon line, no studio split.
 
-All meaningful visual content must sit comfortably inside the central composition-safe area corresponding to Y=300–1320 of a 1080×1920 canvas. Keep the upper header area and lower caption area visually calm with only the same continuous background.
+V19 SCALE RULE:
+- Final scene images are full-frame 1080×1920 in Remotion.
+- Never create a tiny centered poster, inset card or diorama.
+- For scene images, the dominant hero composition should normally span about 820–980 px of the 1080-px width.
+- Keep roughly the upper 250 px calm enough for the Remotion headline.
+- Keep roughly the lower 500 px calm enough for Karaoke captions and platform UI.
+- The main objects between those areas should feel large, deep and premium.
 
-No headline. No subtitle. No explanatory sentence. Only explicitly requested short German object labels, maximum 1–3 words, directly next to the relevant object.
+TEXT RULE:
+- COVER `Bild 00 - Inflation Kaufkraft Cover.png` is the only exception: Google Flow itself renders the exact cover headline and subheadline defined in `00-cover/cover.txt`.
+- Scene images 01, 04, 07 and 10: no headline, no subtitle, no explanatory sentence. Only explicitly requested short German object labels, maximum 1–3 words, directly next to the relevant object.
 
-No photorealism, Pixar, clay, dashboard, app UI, neon tunnel, sci-fi corridor, diorama, game-level look or visual clutter.
+No photorealism, Pixar, clay, dashboard, app UI, neon tunnel, sci-fi corridor, diorama, game-level look, watermark, logo or visual clutter.
