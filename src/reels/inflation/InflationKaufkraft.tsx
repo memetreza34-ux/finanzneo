@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
 import type {CaptionWord} from '../../lib/captions';
 import {SentenceKaraokeCaptions} from '../../design-system/SentenceKaraokeCaptions';
-import {InflationFlowImage, InflationSceneShell, INFLATION_LAYOUT} from './shared';
+import {InflationBackground, InflationFlowImage, InflationSceneShell, INFLATION_LAYOUT} from './shared';
 import {BasketPriceOverTimeAnimation, BuyingPowerLossAnimation, NominalVsRealAnimation, PriceLevelMechanismAnimation, PurchasingPowerTimelineAnimation, SamePurchasingPowerTargetAnimation} from './animations';
 
 export type InflationTimeline={sceneStarts:number[];sceneDurations:number[]};
@@ -22,9 +22,10 @@ const scenes=[
 ] as const;
 
 const mockKind=(scene:number)=>scene===1?'hook':scene===4?'nominal':scene===7?'basket':'close';
+const isImageScene=(scene:number)=>scene===1||scene===4||scene===7||scene===10;
 
 const visual=(scene:number,duration:number,storyboard:boolean)=>{
-  if(scene===1||scene===4||scene===7||scene===10)return <InflationFlowImage scene={scene} storyboard={storyboard} mockKind={mockKind(scene)}/>;
+  if(isImageScene(scene))return <InflationFlowImage scene={scene} storyboard={storyboard} mockKind={mockKind(scene)}/>;
   if(scene===2)return <PriceLevelMechanismAnimation durationFrames={duration}/>;
   if(scene===3)return <BasketPriceOverTimeAnimation durationFrames={duration}/>;
   if(scene===5)return <PurchasingPowerTimelineAnimation durationFrames={duration}/>;
@@ -37,8 +38,9 @@ export const InflationKaufkraft:React.FC<InflationKaufkraftProps>=({timeline,aud
   if(timeline.sceneStarts.length!==10||timeline.sceneDurations.length!==10)throw new Error('InflationKaufkraft benötigt exakt 10 Szenenstarts und 10 Szenendauern.');
   if(timeline.sceneDurations.some((d)=>!Number.isFinite(d)||d<=0))throw new Error('Alle Szenendauern müssen > 0 sein.');
   return <AbsoluteFill>
+    <InflationBackground/>
     {audioSrc?<Audio src={staticFile(audioSrc)}/>:null}
-    {scenes.map(([headline,subheadline],i)=><Sequence key={i} from={timeline.sceneStarts[i]} durationInFrames={timeline.sceneDurations[i]}><InflationSceneShell headline={headline} subheadline={subheadline}>{visual(i+1,timeline.sceneDurations[i],storyboard)}</InflationSceneShell></Sequence>)}
+    {scenes.map(([headline,subheadline,type],i)=><Sequence key={i} from={timeline.sceneStarts[i]} durationInFrames={timeline.sceneDurations[i]}><InflationSceneShell headline={headline} subheadline={subheadline} fullFrameVisual={type==='image'}>{visual(i+1,timeline.sceneDurations[i],storyboard)}</InflationSceneShell></Sequence>)}
     {captionWords.length?<SentenceKaraokeCaptions words={captionWords} bottom={INFLATION_LAYOUT.captionBottom} left={INFLATION_LAYOUT.captionLeft} right={INFLATION_LAYOUT.captionRight}/>:null}
   </AbsoluteFill>;
 };
