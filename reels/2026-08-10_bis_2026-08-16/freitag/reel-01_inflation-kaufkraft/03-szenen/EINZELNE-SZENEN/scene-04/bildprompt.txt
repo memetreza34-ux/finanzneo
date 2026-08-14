@@ -1,0 +1,8 @@
+GOOGLE FLOW – FINALER DATEINAME: Bild 04 - Kontostand bleibt gleich.png
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+ONE single seamless continuous deep charcoal green-black background. No headline. No subtitle. Object labels only: `10.000 €`, `20 JAHRE`.
+
+All meaningful content strictly inside Y=300–1320 safe composition area.
+
+A large bank-balance slab stays fixed at 10.000 €. Around it, the same everyday grocery objects carry visibly higher red-orange price markers. Clear contrast: account number unchanged, price environment more expensive. No dashboard UI.

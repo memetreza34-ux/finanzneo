@@ -1,0 +1,11 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+Premium fintech editorial 3D. Deep charcoal green-black world. Vivid emerald/mint accents. Gold only for money/value. Warm red-orange only for loss/risk. Smooth rounded geometry, soft bevelled edges, matte/glass materials, high-end studio lighting.
+
+Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. No horizontal divisions, no top/bottom panels, no floor-wall boundary, no horizon line, no studio split.
+
+All meaningful visual content must sit comfortably inside the central composition-safe area corresponding to Y=300–1320 of a 1080×1920 canvas. Keep the upper header area and lower caption area visually calm with only the same continuous background.
+
+No headline. No subtitle. No explanatory sentence. Only explicitly requested short German object labels, maximum 1–3 words, directly next to the relevant object.
+
+No photorealism, Pixar, clay, dashboard, app UI, neon tunnel, sci-fi corridor, diorama, game-level look or visual clutter.

@@ -1,0 +1,18 @@
+{
+  "status": "pending",
+  "passed": false,
+  "inspectedFullMp4": false,
+  "inspectedEveryScene": false,
+  "imageSemanticMatchPassed": false,
+  "generatedTextQaPassed": false,
+  "sceneAudioSyncPassed": false,
+  "subtitleSafeAreaPassed": false,
+  "subtitleSyncPassed": false,
+  "visualMixPassed": false,
+  "noLongStaticTailPassed": false,
+  "audioLevelsPassed": false,
+  "measuredIntegratedLufs": null,
+  "measuredTruePeakDbtp": null,
+  "renderPath": null,
+  "notes": "Finale Bilder, finales Voiceover, echte Wortzeiten und finaler Render fehlen noch."
+}

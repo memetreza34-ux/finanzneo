@@ -1,0 +1,117 @@
+{
+  "version": 18,
+  "title": "Inflation: Warum 10.000 € nicht 10.000 € Kaufkraft bleiben",
+  "sceneCount": 10,
+  "imageSceneCount": 4,
+  "animationSceneCount": 6,
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "referencePromptFile": "03-szenen/bildwelt.txt",
+    "seamlessSingleBackgroundRequired": true,
+    "percentageZonesForbidden": true,
+    "backgroundBandsForbidden": true,
+    "floorWallBoundaryForbidden": true,
+    "horizonLineForbidden": true,
+    "visibleFaceRequiredWhenPersonPresent": true,
+    "objectLabelsOnly": true
+  },
+  "coverHeadline": {
+    "source": "remotion",
+    "exactText": "10.000 € BLEIBEN NICHT 10.000 € KAUFKRAFT",
+    "subheadline": "Der Kontostand kann gleich bleiben – die Kaufkraft nicht.",
+    "googleFlowFileName": "Bild 00 - Inflation Kaufkraft Cover.png"
+  },
+  "userMediaBoundary": {
+    "imagesDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
+    "audioDirectory": "02-audio/",
+    "outsideMediaForbidden": true,
+    "substitutesForbidden": true,
+    "missingRequiredMediaIsBlocker": true
+  },
+  "imagePresentationContract": {
+    "mode": "fit-between-text",
+    "sourceMustBeVertical916": true,
+    "intentionalCropForbidden": true,
+    "blurredImageBackgroundForbidden": true,
+    "visibleInsetPanelForbidden": true,
+    "visualTop": 300,
+    "visualBottom": 1320,
+    "visualClipRequired": true,
+    "headerOverlapForbidden": true,
+    "captionOverlapForbidden": true
+  },
+  "layout": {
+    "headerTop": 56,
+    "headerBottom": 250,
+    "visualTop": 300,
+    "visualBottom": 1320,
+    "visualClipRequired": true,
+    "subtitleBottom": 320,
+    "subtitleLeft": 72,
+    "subtitleRight": 180,
+    "platformUiSafeBottom": 255,
+    "imageScenesFullFrame": false,
+    "animationVisualTop": 300,
+    "animationVisualBottom": 1320
+  },
+  "subtitleDisplay": {
+    "preferredSentences": 1,
+    "maxSentences": 1,
+    "maxLines": 2,
+    "minFontSizePx": 42,
+    "maxWordsPerCaptionUnit": 12,
+    "maxCharactersPerCaptionUnit": 68,
+    "noDeadGaps": true,
+    "holdDuringPauses": true,
+    "timingSource": "real-audio-word-timestamps",
+    "activeWordTiming": "exact-word-start-end",
+    "sentenceSwitch": "next-sentence-first-word-start",
+    "equalWordSpacingForbidden": true,
+    "opaqueCaptionCardForbidden": true,
+    "horizontalOverflowForbidden": true,
+    "clippingForbidden": true
+  },
+  "audio": {"targetIntegratedLufs": -16, "targetTruePeakDbtp": -1},
+  "timelineRules": {
+    "timingSource": "04-caption/word-timings.json",
+    "cutsFollowSentenceStarts": true,
+    "equalLengthScenesForbiddenByDefault": true,
+    "finalAudioOnly": true
+  },
+  "platformPublishing": {
+    "directory": "04-caption",
+    "universalCaption": "04-caption/caption.txt",
+    "sameCaptionForAllReelPlatforms": true,
+    "separatePlatformCaptionsForbidden": true,
+    "hashtagCount": 5,
+    "platforms": ["instagram-reels", "tiktok", "facebook-reels", "snapchat"]
+  },
+  "productionQualityContract": {
+    "version": 2,
+    "targetAnimationShare": 0.60,
+    "minAnimationDurationShare": 0.55,
+    "maxAnimationDurationShare": 0.65,
+    "minImageDurationShare": 0.35,
+    "maxImageDurationShare": 0.45,
+    "maxConsecutiveImageScenes": 1,
+    "maxImageSceneSeconds": 8,
+    "animationFirstForDynamicInformation": true,
+    "finalTimelineMustBeResolved": true,
+    "fullMp4QaRequired": true,
+    "imageSemanticQaRequired": true,
+    "audioQaRequired": true,
+    "animationMechanismGate": "start-action-result"
+  },
+  "scenes": [
+    {"id":"scene-01","type":"image","headline":"10.000 € BLEIBEN NICHT 10.000 €","subheadline":"Der Kontostand kann gleich bleiben – die Kaufkraft nicht.","visualRole":"Hook / konkrete Kaufkraft-Situation","visualSelectionReason":"Ein starkes statisches Geld-vs-Warenkorb-Motiv macht das Problem sofort verständlich.","expectedVisual":"10.000-Euro-Wert neben vollem heutigen Warenkorb, zentrale Safe-Area.","googleFlowFileName":"Bild 01 - 10000 Euro heute.png","planFile":"EINZELNE-SZENEN/scene-01/bildprompt.txt"},
+    {"id":"scene-02","type":"animation","headline":"INFLATION VERÄNDERT PREISE","subheadline":"Steigen Preise, bekommst du für denselben Euro weniger.","visualRole":"Mechanismus","visualSelectionReason":"Das gemeinsame Ansteigen von Preisen und die sinkende Reichweite müssen als Veränderung sichtbar werden.","planFile":"EINZELNE-SZENEN/scene-02/remotion.md"},
+    {"id":"scene-03","type":"animation","headline":"3 % WIRKEN JEDES JAHR","subheadline":"Aus 100 € Warenkorb werden im Modell rund 181 €.","visualRole":"Zeit + Rechnung","visualSelectionReason":"Die 20-Jahres-Entwicklung ist als animierte Zeitachse verständlicher als ein Standbild.","planFile":"EINZELNE-SZENEN/scene-03/remotion.md"},
+    {"id":"scene-04","type":"image","headline":"DEIN KONTO SIEHT GLEICH AUS","subheadline":"Nominal unverändert. Die Umgebung wird teurer.","visualRole":"starke Einzelmetapher","visualSelectionReason":"Ein unveränderter Kontostand neben steigenden Alltagspreisen funktioniert als klare statische Metapher.","expectedVisual":"Fixer 10.000-Euro-Kontostand, sichtbar höhere Alltagspreise ringsum.","googleFlowFileName":"Bild 04 - Kontostand bleibt gleich.png","planFile":"EINZELNE-SZENEN/scene-04/bildprompt.txt"},
+    {"id":"scene-05","type":"animation","headline":"5 → 10 → 20 JAHRE","subheadline":"8.626 € → 7.441 € → 5.537 € heutige Kaufkraft.","visualRole":"Zeitreihe","visualSelectionReason":"Mehrere Zeitpunkte und sinkende reale Werte brauchen eine bewegte Entwicklungskurve.","planFile":"EINZELNE-SZENEN/scene-05/remotion.md"},
+    {"id":"scene-06","type":"animation","headline":"RUND 45 % KAUFKRAFT WEG","subheadline":"Der Nominalwert bleibt bei 10.000 €.","visualRole":"Verlustmechanismus","visualSelectionReason":"Der Unterschied zwischen unverändertem Geldblock und schwindenden Kaufkraft-Tiles muss sichtbar passieren.","planFile":"EINZELNE-SZENEN/scene-06/remotion.md"},
+    {"id":"scene-07","type":"image","headline":"DU MERKST ES AM WARENKORB","subheadline":"Gleiche Euro – weniger Waren.","visualRole":"Alltagssituation","visualSelectionReason":"Zwei klar unterschiedliche Warenkörbe mit demselben Geldbetrag funktionieren als sofort verständliche Metapher.","expectedVisual":"Gleicher 100-Euro-Token, später deutlich weniger Waren im Einkaufskorb.","googleFlowFileName":"Bild 07 - Einkaufskorb wird kleiner.png","planFile":"EINZELNE-SZENEN/scene-07/bildprompt.txt"},
+    {"id":"scene-08","type":"animation","headline":"NOMINAL ≠ REAL","subheadline":"Kontostand und Kaufkraft sind zwei verschiedene Größen.","visualRole":"Vergleich","visualSelectionReason":"Zwei Werte starten gleich und entwickeln sich auseinander; Bewegung erklärt den Unterschied besser.","planFile":"EINZELNE-SZENEN/scene-08/remotion.md"},
+    {"id":"scene-09","type":"animation","headline":"GLEICHE KAUFKRAFT BRAUCHT MEHR EURO","subheadline":"Im 3-%-Modell: 10.000 € heute ≈ 18.061 € in 20 Jahren.","visualRole":"Zielplanung / Rechnung","visualSelectionReason":"Der Zielbetrag wächst entlang einer 20-Jahres-Timeline und soll als Prozess nachvollziehbar sein.","planFile":"EINZELNE-SZENEN/scene-09/remotion.md"},
+    {"id":"scene-10","type":"image","headline":"DENK IN KAUFKRAFT","subheadline":"Nicht nur: Wie viele Euro? Sondern: Was können sie kaufen?","visualRole":"Schlussmetapher","visualSelectionReason":"Eine Lupe vom Eurostapel zum realen Warenkorb verdichtet die Kernaussage als starkes Abschlussbild.","expectedVisual":"Lupe über Eurostapel offenbart reale Waren/Kaufkraft darunter.","googleFlowFileName":"Bild 10 - Kaufkraft statt Kontostand.png","planFile":"EINZELNE-SZENEN/scene-10/bildprompt.txt"}
+  ]
+}
