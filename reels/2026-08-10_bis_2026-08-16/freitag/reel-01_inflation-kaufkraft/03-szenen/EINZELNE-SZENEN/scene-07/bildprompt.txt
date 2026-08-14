@@ -1,8 +1,13 @@
 GOOGLE FLOW – FINALER DATEINAME: Bild 07 - Einkaufskorb wird kleiner.png
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-ONE single seamless continuous deep charcoal green-black background. No headline. No subtitle. Object labels only: `100 €`, `WENIGER`.
+Create one FULL-FRAME vertical 1080×1920 premium fintech editorial 3D image on ONE seamless continuous deep charcoal green-black background. No headline. No subtitle. Object labels only: `100 €`, `WENIGER`.
 
-All meaningful content strictly inside Y=300–1320 safe composition area.
+SIZE / COMPOSITION:
+- No tiny centered diorama, no inset card.
+- The 100-euro token and both grocery baskets should together span roughly 850–1000 px of the 1080-px width.
+- Keep roughly the top 250 px visually calm for the Remotion headline.
+- Keep roughly the bottom 500 px calm for spoken captions/platform UI.
 
-The SAME large gold 100-euro token is central. On one side a full grocery basket; on the other a later basket with visibly fewer equivalent goods. The background must remain one continuous scene, not a split panel. Strong everyday purchasing-power metaphor.
+VISUAL:
+The SAME large gold 100-euro token is central. On one side a large full grocery basket; on the other a large later basket with visibly fewer equivalent goods. One clear everyday purchasing-power metaphor: same money, fewer goods. Strong foreground depth, no split background, no infographic panel, no watermark or logo.
