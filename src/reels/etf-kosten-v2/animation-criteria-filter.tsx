@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate,useCurrentFrame} from 'remotion';
-import {C,FONT,a} from '../../brand';
+import {C,FONT,a} from '../../design-system';
 import {ETF_COST_COPY} from './config';
 import {LabelPill,SceneShell} from './layout';
 

@@ -8,7 +8,7 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
-import {C, FONT} from '../../brand';
+import {C, FONT} from '../../design-system';
 import assetManifest from './asset-manifest.json';
 import type {HeadlineIconName, SceneCopy} from './config';
 

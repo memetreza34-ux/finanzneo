@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill,Sequence,staticFile} from 'remotion';
-import {C,FONT} from '../../brand';
+import {C,FONT} from '../../design-system';
 import manifest from './asset-manifest.json';
 import runtime from './runtime-data.json';
 import {ETF_COST_COPY,ETF_COST_PREVIEW_DURATIONS,ETF_COST_PREVIEW_TOTAL_FRAMES as STORYBOARD_FRAMES} from './config';

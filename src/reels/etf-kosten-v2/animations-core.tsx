@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate,spring,useCurrentFrame,useVideoConfig} from 'remotion';
-import {C,FONT,a} from '../../brand';
+import {C,FONT,a} from '../../design-system';
 import {ETF_COST_COPY} from './config';
 import {GoldCoin,LabelPill,SceneShell} from './layout';
 

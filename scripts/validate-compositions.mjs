@@ -17,13 +17,21 @@ const walk = (directory) =>
   });
 
 const sourceFiles = walk(sourceRoot).filter((path) => /\.(tsx?|jsx?)$/.test(path));
-const compositionPattern = /<Composition\b[^>]*\bid=["']([^"']+)["'][^>]*\/>/g;
+// Matches <Composition ... id="some-id" ... /> across multiple lines
+const compositionPattern = /<Composition[\s\S]*?id=["']([^"']+)["'][\s\S]*?\/>/g;
 const registrations = [];
 const errors = [];
 
 for (const absolutePath of sourceFiles) {
   const file = relative(resolve('.'), absolutePath).replaceAll('\\', '/');
-  const content = readFileSync(absolutePath, 'utf8');
+  let content = '';
+  try {
+    // Strip single-line comments to avoid matching commented-out <Composition> tags
+    content = readFileSync(absolutePath, 'utf8').replace(/\/\/.*$/gm, '');
+  } catch (error) {
+    errors.push(`Konnte Datei nicht lesen: ${file}`);
+    continue;
+  }
 
   for (const match of content.matchAll(compositionPattern)) {
     registrations.push({id: match[1], file});

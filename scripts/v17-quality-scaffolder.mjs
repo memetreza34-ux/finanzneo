@@ -3,7 +3,7 @@ import {existsSync, mkdirSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 
 // V17 Quality Scaffolder: 60% Remotion / 40% Images
-const DEFAULT_TYPES=['image','animation','image','animation','animation','animation','animation','image','animation','image'];
+const DEFAULT_TYPES=['image','animation','animation','image','animation','image','animation','animation','animation','image'];
 const args=process.argv.slice(2);
 const readArg=(name)=>{const i=args.indexOf(`--${name}`);return i===-1?null:args[i+1]??null;};
 const targetArg=readArg('target');
@@ -136,7 +136,10 @@ const imageSceneIds=types.flatMap((type,index)=>type==='image'?[`scene-${num(ind
 const animationSceneIds=types.flatMap((type,index)=>type==='animation'?[`scene-${num(index)}`]:[]);
 
 write('03-szenen/scene-index.json',`${JSON.stringify({
-  version:15,
+  version:17,
+  targetAnimationShare:0.60,
+  maxCharactersPerCaptionUnit:68,
+
   title,
   sceneCount:scenes.length,
   imageSceneCount:imageSceneIds.length,
@@ -226,6 +229,18 @@ write('03-szenen/scene-index.json',`${JSON.stringify({
   scenes,
 },null,2)}\n`);
 
+write('05-projektdateien/final-qa.json',`${JSON.stringify({
+  version:1,
+  status:'pending',
+  checks:{
+    animationShareInRange:null,
+    audioSyncVerified:null,
+    captionMaxCharsRespected:null,
+    imageScenesFullFrameNoGrop:null,
+    noHardcodedColors:null,
+  },
+},null,2)}\n`);
+
 console.log(`✓ Neues FinanzNeo-Reel angelegt: ${root}`);
 console.log(`  Szenen: ${scenes.length} · Bilder: ${imageSceneIds.length} · Animationen: ${animationSceneIds.length}`);
 console.log('  Bilddarstellung: full-frame-no-crop · vollständiges vertikales 9:16-Bild · Headline/Caption als Overlay');
@@ -233,3 +248,4 @@ console.log('  Untertitel: genau 1 Satz · max. 2 Zeilen · echte Audio-Wortgren
 console.log('  Medien: nur Ziel-Reel-Sammelordner + 02-audio; fehlende Pflichtmedien blockieren finalen Build');
 console.log('  Publishing: eine universelle caption.txt · Instagram/TikTok/Facebook/Snapchat · exakt 5 relevante Hashtags');
 console.log('  YouTube: ausschließlich eigenständige Longform-Videos unter youtube/');
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate,useCurrentFrame} from 'remotion';
-import {C,FONT,a,euro} from '../../brand';
+import {C,FONT,a,euro} from '../../design-system';
 import {ETF_COST_COPY,ETF_COST_MODEL} from './config';
 import {GoldCoin,LabelPill,SceneShell} from './layout';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {FullFrameImage, FullFrameReadabilityScrim} from '../../design-system';
-import {C, FONT, a, euro} from '../../brand';
+import {C, FONT, a, euro} from '../../design-system';
 import assetManifest from './asset-manifest.json';
 import {NOTGROSCHEN_COPY, NOTGROSCHEN_DURATIONS, NOTGROSCHEN_TOTAL_FRAMES} from './config';
 import {NotgroschenKaraokeCaptions} from './KaraokeCaptions';

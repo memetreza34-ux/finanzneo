@@ -1,8 +1,8 @@
 import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {SceneBackground, VisualStage, WorldStage, clamp01, clampInput} from '../notgroschen/shared';
+import {SceneBackground, VisualStage, WorldStage, clamp01, clampInput} from '../_shared';
 import {Headline} from './shared';
-import {C, FONT, a, euro} from '../../brand';
+import {C, FONT, a, euro} from '../../design-system';
 import {ZINSESZINS_COPY} from './config';
 
 // 1. EqualContributionAnimation

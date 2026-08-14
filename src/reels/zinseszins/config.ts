@@ -10,7 +10,7 @@ export type SceneCopy = {
 
 // Durations calculated from sentence starts: 227, 271, 209, 107, 212, 225, 354, 174, 289, 151 (total 2219)
 export const ZINSESZINS_DURATIONS = [227, 271, 209, 107, 212, 225, 354, 174, 289, 151] as const;
-export const ZINSESZINS_TOTAL_FRAMES = 2219;
+export const ZINSESZINS_TOTAL_FRAMES = ZINSESZINS_DURATIONS.reduce((a, b) => a + b, 0);
 
 export const ZINSESZINS_COPY: readonly SceneCopy[] = [
   {headline: '100 ODER 200 EURO?', accent: 'ZEIT ENTSCHEIDET', icon: 'compare'},

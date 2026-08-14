@@ -32,16 +32,30 @@ for (const forbiddenFile of [
 }
 
 if (errors.length === 0) {
-  const types = readFileSync(resolve(root, 'src/production/reel-template/types.ts'), 'utf8');
-  const template = readFileSync(resolve(root, 'src/production/reel-template/ReelTemplate.tsx'), 'utf8');
-  const captions = readFileSync(resolve(root, 'src/design-system/SentenceKaraokeCaptions.tsx'), 'utf8');
-  const fullFrame = readFileSync(resolve(root, 'src/design-system/FullFrameImage.tsx'), 'utf8');
-  const demo = readFileSync(resolve(root, 'src/production/reel-template/ReelTemplateDemo.tsx'), 'utf8');
-  const experiments = readFileSync(resolve(root, 'src/root/ExperimentCompositions.tsx'), 'utf8');
-  const production = readFileSync(resolve(root, 'src/root/ProductionCompositions.tsx'), 'utf8');
-  const qualityScaffolder = readFileSync(resolve(root, 'scripts/scaffold-finanzneo-reel-quality.mjs'), 'utf8');
-  const qualityValidator = readFileSync(resolve(root, 'scripts/validate-reel-quality-contract.mjs'), 'utf8');
-  const packageJson = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8'));
+  const read = (path) => {
+    try {
+      return readFileSync(resolve(root, path), 'utf8');
+    } catch (error) {
+      errors.push(`Konnte Datei nicht lesen: ${path}`);
+      return '';
+    }
+  };
+
+  const types = read('src/production/reel-template/types.ts');
+  const template = read('src/production/reel-template/ReelTemplate.tsx');
+  const captions = read('src/design-system/SentenceKaraokeCaptions.tsx');
+  const fullFrame = read('src/design-system/FullFrameImage.tsx');
+  const demo = read('src/production/reel-template/ReelTemplateDemo.tsx');
+  const experiments = read('src/root/ExperimentCompositions.tsx');
+  const production = read('src/root/ProductionCompositions.tsx');
+  const qualityScaffolder = read('scripts/scaffold-finanzneo-reel-quality.mjs');
+  const qualityValidator = read('scripts/validate-reel-quality-contract.mjs');
+  let packageJson = {};
+  try {
+    packageJson = JSON.parse(readFileSync(resolve(root, 'package.json'), 'utf8'));
+  } catch (error) {
+    errors.push('Konnte package.json nicht lesen oder parsen.');
+  }
 
   const durations = [...demo.matchAll(/durationInFrames:\s*(\d+)/g)].map((match) => Number(match[1]));
   const totalFrames = durations.reduce((sum, value) => sum + value, 0);
@@ -95,16 +109,18 @@ if (errors.length === 0) {
   if (packageJson.scripts?.['reel:create'] !== 'node scripts/scaffold-finanzneo-reel-quality.mjs') {
     errors.push('npm run reel:create muss zwingend den einzigen Quality-V2-Scaffolder verwenden.');
   }
-  const canonicalDefault="const DEFAULT_TYPES=['image','animation','animation','image','animation','image','animation','animation','animation','image'];";
-  if (!qualityScaffolder.includes(canonicalDefault)) errors.push('Quality-Scaffolder muss standardmäßig 6 Animationen + 4 Bildszenen erzeugen.');
-  if (!qualityScaffolder.includes('version:17')) errors.push('Quality-Scaffolder muss Reels direkt als scene-index Version 17 erzeugen.');
-  if (!qualityScaffolder.includes('targetAnimationShare:0.60')) errors.push('Quality-Scaffolder enthält kein 60%-Animationsziel.');
-  if (!qualityScaffolder.includes('maxCharactersPerCaptionUnit:68')) errors.push('Quality-Scaffolder enthält nicht die 68-Zeichen-Caption-Grenze.');
+  // Validates the default types array with regex to allow for whitespace
+  if (!/const\s+DEFAULT_TYPES\s*=\s*\['image'\s*,\s*'animation'\s*,\s*'animation'\s*,\s*'image'\s*,\s*'animation'\s*,\s*'image'\s*,\s*'animation'\s*,\s*'animation'\s*,\s*'animation'\s*,\s*'image'\]\s*;?/.test(qualityScaffolder)) errors.push('Quality-Scaffolder muss standardmäßig 6 Animationen + 4 Bildszenen erzeugen.');
+  if (!/version\s*:\s*17/.test(qualityScaffolder)) errors.push('Quality-Scaffolder muss Reels direkt als scene-index Version 17 erzeugen.');
+  if (!/targetAnimationShare\s*:\s*0\.60/.test(qualityScaffolder)) errors.push('Quality-Scaffolder enthält kein 60%-Animationsziel.');
+  if (!/maxCharactersPerCaptionUnit\s*:\s*68/.test(qualityScaffolder)) errors.push('Quality-Scaffolder enthält nicht die 68-Zeichen-Caption-Grenze.');
   if (!qualityScaffolder.includes('final-qa.json')) errors.push('Quality-Scaffolder muss final-qa.json direkt erzeugen.');
-  if (qualityScaffolder.includes("spawnSync(process.execPath,['scripts/scaffold-finanzneo-reel.mjs'")) errors.push('Quality-Scaffolder darf nicht mehr vom gelöschten Alt-Scaffolder abhängen.');
+  if (/spawnSync\(\s*process\.execPath\s*,\s*\['scripts\/scaffold-finanzneo-reel\.mjs'/.test(qualityScaffolder)) errors.push('Quality-Scaffolder darf nicht mehr vom gelöschten Alt-Scaffolder abhängen.');
 
-  if (!qualityValidator.includes("const postRender=args.includes('--post-render')")) errors.push('Quality-Validator besitzt keinen separaten Post-Render-QA-Modus.');
-  if (!qualityValidator.includes('animationShare>=0.55&&animationShare<=0.65')) errors.push('Quality-Validator prüft die reale 55–65%-Animationslaufzeit nicht.');
+  // Validates post-render check flag with regex
+  if (!/const\s+postRender\s*=\s*args\.includes\('--post-render'\)/.test(qualityValidator)) errors.push('Quality-Validator besitzt keinen separaten Post-Render-QA-Modus.');
+  // Validates animation share check logic with regex
+  if (!/animationShare\s*>=\s*0\.55\s*&&\s*animationShare\s*<=\s*0\.65/.test(qualityValidator)) errors.push('Quality-Validator prüft die reale 55–65%-Animationslaufzeit nicht.');
 
   if (!experiments.includes('id="ReelTemplateDemo"')) errors.push('ReelTemplateDemo ist nicht unter Experiments registriert.');
   if (production.includes('ReelTemplateDemo')) errors.push('ReelTemplateDemo darf nicht unter Production registriert sein.');

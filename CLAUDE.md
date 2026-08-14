@@ -2,6 +2,34 @@
 
 > Diese Datei ist die höchste interne Quelle für Strategie, Gestaltung und Produktion. Bei Widersprüchen gilt immer diese Datei. `legacy-main/` ist Archiv und niemals Regelquelle.
 
+## 0. Verbindlicher 3-Phasen-Produktionsablauf
+
+**Phase 1 – Vorbereitung (ChatGPT):**
+- ChatGPT recherchiert das Thema, findet aktuelle Fakten und Quellen
+- ChatGPT erstellt den finalen Voiceover-Fließtext (geht nach 01-script/)
+- ChatGPT erstellt alle Bildprompts für Google Flow (03-szenen/)
+- ChatGPT erstellt die Social-Caption-Vorlage (04-caption/)
+- ChatGPT erstellt die Szenen-Struktur und den Szenenplan
+- Antigravity erstellt den KOMPLETTEN Remotion-Animationscode (src/reels/<name>/) inkl. config.ts, alle Animationskomponenten, KaraokeCaptions.tsx — NOCH OHNE echte Bilder/Audio. Es werden Placeholder/leere asset-manifest.json verwendet.
+- Phase 1 endet wenn: Skript fertig, alle Prompts fertig, Remotion-Code komplett gebaut und typchecked
+
+**Phase 2 – Materialerstellung (Nutzer + Google Flow):**
+- Der Nutzer erstellt alle Bilder mit Google Flow anhand der fertigen Bildprompts aus Phase 1
+- Der Nutzer erstellt das Voiceover-Audio (z.B. mit ElevenLabs)
+- Der Nutzer liefert Bilder nach: 03-szenen/00-ALLE-BILDER-HIER-REIN/
+- Der Nutzer liefert Audio nach: 02-audio/
+- Phase 2 endet wenn: alle Pflichtbilder vorhanden + genau ein finales Audio vorhanden
+
+**Phase 3 – Produktion (Antigravity Autopilot):**
+- Antigravity übernimmt vollständig und führt den kompletten Produktionslauf durch (Sektion 16 gilt)
+- Echte Whisper-Wortzeiten aus dem finalen Audio erzeugen
+- Szenenstarts und -dauern aus Audio ableiten, config.ts aktualisieren
+- Bilder integrieren (asset-manifest.json befüllen)
+- Validator + TypeScript prüfen
+- Preview rendern → Nutzer zeigen
+- Vollständiges MP4 rendern
+- Phase 3 endet erst wenn PRODUCTION COMPLETE (Sektion 18)
+
 ## 1. Kanal und Plattformen
 
 - Kanal: **FinanzNeo**

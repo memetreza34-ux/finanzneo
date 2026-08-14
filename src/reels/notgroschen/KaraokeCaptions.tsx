@@ -1,6 +1,6 @@
 import React from 'react';
 import {useCurrentFrame} from 'remotion';
-import {C, FONT} from '../../brand';
+import {C, FONT} from '../../design-system';
 import {LAYOUT} from './shared';
 import {NOTGROSCHEN_WORD_TIMINGS} from './word-timings';
 

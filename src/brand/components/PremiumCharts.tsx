@@ -63,7 +63,7 @@ export const BarsPremium: React.FC<{
     <BarChart width={width} height={height} data={animated} margin={{ top: 30, right: 20, left: 10, bottom: 10 }}>
       <CartesianGrid stroke={a(C.gray, 0.1)} vertical={false} />
       <XAxis dataKey="name" tick={{ ...tickStyle, fontSize: 30 }} axisLine={{ stroke: a(C.gray, 0.3) }} tickLine={false} />
-      <YAxis tick={tickStyle} axisLine={false} tickLine={false} tickFormatter={(v) => v >= 1000 ? `${Math.round(v / 1000)}k` : Math.round(v)} width={70} />
+      <YAxis tick={tickStyle} axisLine={false} tickLine={false} tickFormatter={(v: any) => v >= 1000 ? `${Math.round(v / 1000)}k` : String(Math.round(v))} width={70} />
       <Bar dataKey="value" radius={[12, 12, 0, 0]} isAnimationActive={false}>
         {animated.map((d, i) => <Cell key={i} fill={d.color ?? C.accent} />)}
       </Bar>
