@@ -1,8 +1,8 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
-import {C, FONT} from '../../brand';
+import {C, FONT} from '../../design-system';
 import type {AccentTone, ZinseszinsIcon, SceneCopy} from './config';
-import {LAYOUT, clamp01, clampInput, SceneBackground, VisualStage, WorldStage} from '../notgroschen/shared';
+import {LAYOUT, clamp01, clampInput, SceneBackground, VisualStage, WorldStage} from '../_shared';
 
 const iconPaths: Record<ZinseszinsIcon, React.ReactNode> = {
   compare: <><path d="M12 24v20M52 24v20M22 34h20M12 24l-4 4M12 24l4 4M52 24l-4 4M52 24l4 4" /></>,

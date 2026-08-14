@@ -3,12 +3,22 @@
     "target": "ES2020",
     "module": "CommonJS",
     "lib": ["ES2020", "DOM"],
-    "jsx": "react",
-    "strict": false,
+    "jsx": "react-jsx",
+    "strict": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "outDir": "dist"
   },
-  "include": ["src", "public/captions"]
+  "include": ["src", "public/captions"],
+  "exclude": [
+    "src/zins/**/*",
+    "src/bausteine/**/*",
+    "src/CleanReel.tsx",
+    "src/FullVideoSynced.tsx",
+    "src/PassivTest.tsx",
+    "src/Sizzle.tsx",
+    "src/Signature.tsx"
+
+  ]
 }

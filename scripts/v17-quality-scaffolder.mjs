@@ -3,7 +3,7 @@ import {existsSync, mkdirSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 
 // V17 Quality Scaffolder: 60% Remotion / 40% Images
-const DEFAULT_TYPES=['image','animation','image','animation','animation','animation','animation','image','animation','image'];
+const DEFAULT_TYPES=['image','animation','animation','image','animation','image','animation','animation','animation','image'];
 const args=process.argv.slice(2);
 const readArg=(name)=>{const i=args.indexOf(`--${name}`);return i===-1?null:args[i+1]??null;};
 const targetArg=readArg('target');
@@ -45,7 +45,7 @@ const STYLE_BLOCK=`FINANZNEO_WORLD_ID: ${WORLD_ID}\n\nVERBINDLICHER BILDSTIL:\nP
 
 const flowInstruction=(fileName)=>`GOOGLE FLOW INSTRUCTION:\nDu (Google Flow) musst GENAU EIN vertikales 9:16-Bild erzeugen. Nachdem du das Bild erzeugt hast, MUSST du die Bilddatei intern exakt in \`${fileName}\` umbenennen! Der Dateiname selbst darf nicht im Bild stehen. Gruppiere dieses Bild außerdem intern in einen gemeinsamen Ordner, damit der Nutzer am Ende alle umbenannten Bilder zusammen als ZIP herunterladen kann.\n`;
 
-const imagePrompt=(id,index)=>`${flowInstruction(sceneFileName(index))}\n${STYLE_BLOCK}\nBESCHRIFTUNGEN – EXAKT SO:\n- [KURZES DEUTSCHES OBJEKT-LABEL]\n- [OPTIONALES ZWEITES KURZES LABEL]\n\nBILDPROMPT:\nA stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE DOMINANT VISUAL METAPHOR FOR ${id}]. [DESCRIBE ONE CLEAR CAUSE-AND-EFFECT ACTION USING ONLY A FEW LARGE OBJECTS]. Include German object labels: [PLACE EACH SHORT LABEL DIRECTLY BESIDE THE RELEVANT OBJECT]. ${STYLE_BLOCK}\n`;
+const imagePrompt=(id,index)=>`${flowInstruction(sceneFileName(index))}\n${STYLE_BLOCK}\nBESCHRIFTUNGEN – EXAKT SO:\n- [KURZES DEUTSCHES OBJEKT-LABEL]\n- [OPTIONALES ZWEITES KURZES LABEL]\n\nBILDPROMPT:\nFocus: ONE large dominant visual metaphor for ${id}. [DESCRIBE ONE CLEAR CAUSE-AND-EFFECT ACTION USING ONLY A FEW LARGE OBJECTS]. Only include a stylized 3D person with clearly visible face if they genuinely add to the story — for abstract topics (interest, costs, inflation, data) prefer a pure object metaphor without a person. Include German object labels: [PLACE EACH SHORT LABEL DIRECTLY BESIDE THE RELEVANT OBJECT]. ${STYLE_BLOCK}\n`;
 
 const coverPrompt=`${flowInstruction('Bild 00 - [KURZER COVER-NAME].png')}\n${STYLE_BLOCK.replace('No headline. No subtitle.', 'You MUST draw the specified headline in large 3D text.')}\nCOVER-REGEL:\nDie Überschrift MUSS direkt von Google Flow groß und lesbar in das 3D-Bild integriert werden.\n\nBILDPROMPT:\nA stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE DOMINANT COVER METAPHOR]. [SHOW THE CORE IDEA IN ONE CLEAR VISUAL]. Include a large, bold, premium German headline text integrated into the top area of the 3D scene reading exactly: "[GENAUE ÜBERSCHRIFT HIER EINFÜGEN]". Also include only explicitly specified short German object labels. ${STYLE_BLOCK.replace('No headline. No subtitle.', 'You MUST draw the specified headline in large 3D text.')}\n`;
 
@@ -116,12 +116,16 @@ const scenes=types.map((type,index)=>{
       googleFlowFileName:sceneFileName(index),
       objectLabels:['[EINFÜGEN]'],
       expectedVisual:'[EINFÜGEN]',
-      imagePresentation:{mode:'full-frame-no-crop'},
+      imagePresentation:{mode:'[ENTSCHEIDEN: full-frame-no-crop ODER fit-between-text]'},
     };
   }
 
-  write(`${dir}/remotion.md`,`# Remotion-Spezifikation ${id}\n\n- Komponente: [NAME]\n- Startzustand: [EINFÜGEN]\n- Handlung: [EINFÜGEN]\n- Endzustand: [EINFÜGEN]\n- Hintergrund: EIN durchgehender FinanzNeo-Hintergrund; kein Boden/Horizont/Studio-Split\n`);
-  return {...common,planFile:`EINZELNE-SZENEN/${id}/remotion.md`};
+  write(`${dir}/remotion.md`,`# Remotion-Spezifikation ${id}\n\n- Komponente: [NAME]\n- animationMechanism: [PFLICHT: Was genau passiert? Start → Handlung → Ergebnis]\n- Startzustand: [EINFÜGEN — was sieht man am Anfang?]\n- Sichtbare Handlung: [EINFÜGEN — wie verändert es sich? Kein statisches Icon, kein simpler Zoom]\n- Endzustand: [EINFÜGEN — was sieht man am Schluss?]\n- Verbotene Typen: icon-only, zoom, fade-in, static-bar, emoji, logo, text-only\n- Hintergrund: EIN durchgehender FinanzNeo-Hintergrund; kein Boden/Horizont/Studio-Split\n`);
+  return {
+    ...common,
+    planFile: `EINZELNE-SZENEN/${id}/remotion.md`,
+    animationMechanism: '[PFLICHT: Beschreibe Start → sichtbare Handlung → Ergebnis. Verboten: icon, zoom, fade, map, emoji, logo]',
+  };
 });
 
 const allSections=types.map((type,index)=>{
@@ -136,7 +140,12 @@ const imageSceneIds=types.flatMap((type,index)=>type==='image'?[`scene-${num(ind
 const animationSceneIds=types.flatMap((type,index)=>type==='animation'?[`scene-${num(index)}`]:[]);
 
 write('03-szenen/scene-index.json',`${JSON.stringify({
-  version:15,
+  version:17,
+  targetAnimationShare:0.60,
+  minAnimationShare: 0.50,
+  maxAnimationShare: 0.70,
+  maxCharactersPerCaptionUnit:68,
+
   title,
   sceneCount:scenes.length,
   imageSceneCount:imageSceneIds.length,
@@ -211,7 +220,7 @@ write('03-szenen/scene-index.json',`${JSON.stringify({
     evenlyDistributedWordTimingsForbidden:true,
   },
   imagePresentationContract:{
-    mode:'full-frame-no-crop',
+    mode:'[ENTSCHEIDEN: full-frame-no-crop ODER fit-between-text]',
     fullCanvas:true,
     sourceMustBeVertical916:true,
     headlineOverlay:true,
@@ -226,6 +235,18 @@ write('03-szenen/scene-index.json',`${JSON.stringify({
   scenes,
 },null,2)}\n`);
 
+write('05-projektdateien/final-qa.json',`${JSON.stringify({
+  version:1,
+  status:'pending',
+  checks:{
+    animationShareInRange:null,
+    audioSyncVerified:null,
+    captionMaxCharsRespected:null,
+    imageScenesFullFrameNoGrop:null,
+    noHardcodedColors:null,
+  },
+},null,2)}\n`);
+
 console.log(`✓ Neues FinanzNeo-Reel angelegt: ${root}`);
 console.log(`  Szenen: ${scenes.length} · Bilder: ${imageSceneIds.length} · Animationen: ${animationSceneIds.length}`);
 console.log('  Bilddarstellung: full-frame-no-crop · vollständiges vertikales 9:16-Bild · Headline/Caption als Overlay');
@@ -233,3 +254,4 @@ console.log('  Untertitel: genau 1 Satz · max. 2 Zeilen · echte Audio-Wortgren
 console.log('  Medien: nur Ziel-Reel-Sammelordner + 02-audio; fehlende Pflichtmedien blockieren finalen Build');
 console.log('  Publishing: eine universelle caption.txt · Instagram/TikTok/Facebook/Snapchat · exakt 5 relevante Hashtags');
 console.log('  YouTube: ausschließlich eigenständige Longform-Videos unter youtube/');
+

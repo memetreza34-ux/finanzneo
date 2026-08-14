@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
-import {C} from '../../brand';
+import {C} from '../../design-system';
 import {AnnualCostsAnimation} from './AnnualCostsAnimation';
 import {
   DREI_KONTEN_AUDIO_GAIN,

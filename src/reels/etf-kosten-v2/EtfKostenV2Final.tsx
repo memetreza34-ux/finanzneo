@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill,Audio,Sequence,staticFile,useCurrentFrame} from 'remotion';
-import {C,FONT} from '../../brand';
+import {C,FONT} from '../../design-system';
 import manifest from './asset-manifest.json';
 import {ETF_COST_COPY} from './config';
 import {CaptionViewport,Header,SafeFlowImage,SeamlessBackground} from './layout';

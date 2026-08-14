@@ -27,9 +27,9 @@ const SHook: React.FC = () => {
       <AbsoluteFill style={{ opacity: life(f, 0, sec(6.0), 10), alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ textAlign: 'center', paddingInline: 60 }}>
           {word(f, 'Dein', sec(0.2), 70)}{word(f, 'Geld', sec(0.45), 70)}{word(f, 'auf', sec(0.7), 70)}{word(f, 'dem', sec(0.9), 70)}<br />
-          {word(f, 'Sparbuch', sec(1.2), 96, C.gold, 900)}<br />
+          {word(f, 'Sparbuch', sec(1.2), 96, C.gold as any, 900)}<br />
           <div style={{ marginTop: 30 }}>
-            {word(f, 'verliert', sec(2.4), 84, C.negative, 900)}{word(f, 'jedes', sec(2.75), 84, C.negative, 900)}{word(f, 'Jahr', sec(3.05), 84, C.negative, 900)}
+            {word(f, 'verliert', sec(2.4), 84, C.negative as any, 900)}{word(f, 'jedes', sec(2.75), 84, C.negative as any, 900)}{word(f, 'Jahr', sec(3.05), 84, C.negative as any, 900)}
           </div>
           {/* roter Unterstrich, der reinwächst */}
           <div style={{ width: lerpF(f, 0, 360, sec(3.4), sec(4.1)), height: 7, background: C.negative,
@@ -50,7 +50,7 @@ const SBigNumber: React.FC = () => {
       {/* Setup-Text vor dem Block */}
       <AbsoluteFill style={{ opacity: life(f, 0, sec(1.4), 8), alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ textAlign: 'center' }}>
-          {word(f, 'Aber', sec(0.1), 60, C.gray)}{word(f, '100 €', sec(0.35), 80, C.gold, 900)}{word(f, 'im', sec(0.6), 60, C.gray)}{word(f, 'Monat', sec(0.8), 60, C.gray)}
+          {word(f, 'Aber', sec(0.1), 60, C.gray as any)}{word(f, '100 €', sec(0.35), 80, C.gold as any, 900)}{word(f, 'im', sec(0.6), 60, C.gray as any)}{word(f, 'Monat', sec(0.8), 60, C.gray as any)}
         </div>
       </AbsoluteFill>
       {/* diagonaler Grün-Block + Zahl */}

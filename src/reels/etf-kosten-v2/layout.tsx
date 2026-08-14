@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
-import {C,FONT,a} from '../../brand';
+import {C,FONT,a} from '../../design-system';
 import type {AccentTone,SceneCopy} from './config';
 
 export const ETF_LAYOUT={width:1080,height:1920,headerTop:56,headerBottom:250,visualTop:300,visualBottom:1320,captionTop:1440,captionBottom:1665,captionLeft:72,captionRight:180} as const;

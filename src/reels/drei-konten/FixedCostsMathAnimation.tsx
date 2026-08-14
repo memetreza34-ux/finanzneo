@@ -1,6 +1,6 @@
 import React from 'react';
 import {spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {C, FONT, a, euro} from '../../brand';
+import {C, FONT, a, euro} from '../../design-system';
 import {SCENE_COPY} from './config';
 import {Headline, SceneBackground, VisualStage, clamp01} from './shared';
 

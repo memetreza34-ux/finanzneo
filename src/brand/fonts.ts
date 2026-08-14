@@ -22,7 +22,7 @@ const faces: FontFace[] = [
 ];
 
 Promise.all(
-  faces.map((ff) => ff.load().then((loaded) => document.fonts.add(loaded)))
+  faces.map((ff) => ff.load().then((loaded) => (document.fonts as any).add(loaded)))
 )
   .then(() => continueRender(handle))
   .catch((err) => {

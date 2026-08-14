@@ -1,7 +1,7 @@
 import React from 'react';
 import {useCurrentFrame} from 'remotion';
-import {C, FONT} from '../../brand';
-import {LAYOUT} from '../notgroschen/shared'; // We can reuse shared for layout
+import {C, FONT} from '../../design-system';
+import {LAYOUT} from '../_shared'; // We can reuse shared for layout
 import {ZINSESZINS_WORD_TIMINGS} from './word-timings';
 
 type IndexedWord={word:string;index:number};

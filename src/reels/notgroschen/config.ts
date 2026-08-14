@@ -9,7 +9,7 @@ export type SceneCopy = {
 };
 
 export const NOTGROSCHEN_DURATIONS = [180, 150, 225, 195, 210, 150, 165, 225, 135, 165] as const;
-export const NOTGROSCHEN_TOTAL_FRAMES = 1800;
+export const NOTGROSCHEN_TOTAL_FRAMES = NOTGROSCHEN_DURATIONS.reduce((a, b) => a + b, 0);
 
 export const NOTGROSCHEN_COPY: readonly SceneCopy[] = [
   {headline: 'EIN DEFEKT WIRD', accent: 'ZUR SCHULDENFALLE', icon: 'warning', accentTone: 'red'},

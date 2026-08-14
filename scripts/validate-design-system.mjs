@@ -7,7 +7,14 @@ const root = resolve('.');
 const errors = [];
 const notes = [];
 
-const read = (path) => readFileSync(resolve(root, path), 'utf8');
+const read = (path) => {
+  try {
+    return readFileSync(resolve(root, path), 'utf8');
+  } catch (error) {
+    errors.push(`Konnte Datei nicht lesen: ${path}`);
+    return '';
+  }
+};
 
 const walk = (directory) => {
   const absolute = resolve(root, directory);
@@ -49,11 +56,13 @@ if (errors.length === 0) {
     errors.push('src/bausteine/fn_core.tsx lädt weiterhin externe Google Fonts.');
   }
 
-  if (!core.includes("C as BRAND_C") || !core.includes("from '../brand/tokens'")) {
+  // Validates the presence of C as BRAND_C import/export and tokens import
+  if (!/C\s+as\s+BRAND_C/.test(core) || !/from\s+['"]\.\.\/brand\/tokens['"]/.test(core)) {
     errors.push('fn_core.tsx bezieht Farben nicht eindeutig aus src/brand/tokens.ts.');
   }
 
-  if (!core.includes('FONT') || !core.includes("from '../brand/fonts'")) {
+  // Validates the presence of FONT import/export and fonts import
+  if (!/\bFONT\b/.test(core) || !/from\s+['"]\.\.\/brand\/fonts['"]/.test(core)) {
     errors.push('fn_core.tsx bezieht Fonts nicht eindeutig aus src/brand/fonts.ts.');
   }
 
@@ -74,19 +83,20 @@ if (errors.length === 0) {
   }
 
   const requiredIndexExports = [
-    "export * from '../brand'",
-    "export * from '../finance/calculations'",
-    'FinanceBackground',
-    'VerticalSafeAreaGuide',
-    'PremiumCharts',
-    'FinanceConcepts',
-    'FinanceBlocks',
-    'HookBlocks',
+    { pattern: /export\s+\*\s+from\s+['"]\.\.\/brand['"]/, message: "export * from '../brand'" },
+    { pattern: /export\s+\*\s+from\s+['"]\.\.\/finance\/calculations['"]/, message: "export * from '../finance/calculations'" },
+    { pattern: /\bFinanceBackground\b/, message: 'FinanceBackground' },
+    { pattern: /\bVerticalSafeAreaGuide\b/, message: 'VerticalSafeAreaGuide' },
+    { pattern: /\bPremiumCharts\b/, message: 'PremiumCharts' },
+    { pattern: /\bFinanceConcepts\b/, message: 'FinanceConcepts' },
+    { pattern: /\bFinanceBlocks\b/, message: 'FinanceBlocks' },
+    { pattern: /\bHookBlocks\b/, message: 'HookBlocks' },
   ];
 
-  for (const required of requiredIndexExports) {
-    if (!publicIndex.includes(required)) {
-      errors.push(`Design-System-Export fehlt: ${required}`);
+  for (const { pattern, message } of requiredIndexExports) {
+    // Validates the presence of required exports using regex
+    if (!pattern.test(publicIndex)) {
+      errors.push(`Design-System-Export fehlt: ${message}`);
     }
   }
 
@@ -142,7 +152,13 @@ if (errors.length === 0) {
 
 const bausteinFiles = walk('src/bausteine').filter((path) => /\.(ts|tsx)$/.test(path));
 for (const file of bausteinFiles) {
-  const content = readFileSync(file, 'utf8');
+  let content = '';
+  try {
+    content = readFileSync(file, 'utf8');
+  } catch (error) {
+    errors.push(`Konnte Datei nicht lesen: ${file}`);
+    continue;
+  }
   if (content.includes('@remotion/google-fonts')) {
     errors.push(`Externer Font-Import in ${relative(root, file)}.`);
   }
@@ -154,7 +170,13 @@ const productionFiles = [
 ].filter((path) => /\.(ts|tsx)$/.test(path));
 
 for (const file of productionFiles) {
-  const content = readFileSync(file, 'utf8');
+  let content = '';
+  try {
+    content = readFileSync(file, 'utf8');
+  } catch (error) {
+    errors.push(`Konnte Datei nicht lesen: ${file}`);
+    continue;
+  }
   if (/from\s+['"][^'"]*bausteine\//.test(content)) {
     errors.push(`Direkter Baustein-Import in Produktionsdatei: ${relative(root, file)}.`);
   }
@@ -162,8 +184,14 @@ for (const file of productionFiles) {
 
 const migratedShort = resolve(root, 'src/zins/ShortHook.tsx');
 if (existsSync(migratedShort)) {
-  const content = readFileSync(migratedShort, 'utf8');
-  if (!content.includes("from '../design-system'")) {
+  let content = '';
+  try {
+    content = readFileSync(migratedShort, 'utf8');
+  } catch (error) {
+    errors.push(`Konnte Datei nicht lesen: src/zins/ShortHook.tsx`);
+  }
+  // Validates that it imports from the design-system
+  if (!/from\s+['"]\.\.\/design-system['"]/.test(content)) {
     errors.push('ShortHook.tsx wurde nicht auf den zentralen Design-System-Import migriert.');
   } else {
     notes.push('ShortHook nutzt den zentralen Design-System-Import.');

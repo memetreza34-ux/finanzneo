@@ -12,20 +12,37 @@ export type FullFrameImageProps = {
  */
 export const FullFrameImage: React.FC<FullFrameImageProps> = ({src, mode = 'full-frame-no-crop'}) => {
   const isFit = mode === 'fit-between-text';
+  if (isFit) {
+    return (
+      <Img
+        src={src}
+        style={{
+          position: 'absolute',
+          top: 220,
+          bottom: 430, // 1920 - 1490 = 430
+          left: 0,
+          right: 0,
+          width: '100%',
+          height: 1270, // 1920 - 220 - 430 = 1270
+          objectFit: 'contain',
+          objectPosition: 'center center',
+          background: '#020805', // Match the WorldStage dark bg
+        }}
+      />
+    );
+  }
+  // full-frame-no-crop: covers the entire 1080×1920 canvas — inset: 0
   return (
     <Img
       src={src}
       style={{
         position: 'absolute',
-        top: isFit ? 220 : 0,
-        bottom: isFit ? 430 : 0, // 1920 - 1490 = 430
-        left: 0,
-        right: 0,
+        inset: 0,
         width: '100%',
-        height: isFit ? 1270 : '100%', // 1920 - 220 - 430 = 1270
+        height: '100%',
         objectFit: 'contain',
         objectPosition: 'center center',
-        background: isFit ? '#020805' : 'transparent', // Match the WorldStage dark bg
+        background: 'transparent',
       }}
     />
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
 import {FullFrameImage, FullFrameReadabilityScrim} from '../../design-system';
-import {C} from '../../brand';
+import {C} from '../../design-system';
 import assetManifest from './asset-manifest.json';
 import {ZINSESZINS_COPY, ZINSESZINS_DURATIONS, ZINSESZINS_TOTAL_FRAMES} from './config';
 import {ZinseszinsKaraokeCaptions} from './KaraokeCaptions';
