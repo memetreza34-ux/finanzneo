@@ -1,0 +1,7 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+Premium fintech editorial 3D. ONE seamless deep charcoal green-black 9:16 world. Emerald/mint for neutral-positive information, gold only for money/value, red-orange only for debt/interest/risk. Smooth rounded premium geometry, soft bevels, matte/glass materials, high-end studio light.
+
+For scene images: use the FULL 1080×1920 canvas. Hero objects must be large, normally about 840–1000 px wide in total composition. Keep only the top headline area and lower karaoke-caption area visually calm; do not shrink the whole scene into a small centered poster.
+
+No photorealism, no Pixar/clay, no dashboard/app UI, no neon tunnel, no sci-fi corridor, no tiny diorama, no logos or random text.

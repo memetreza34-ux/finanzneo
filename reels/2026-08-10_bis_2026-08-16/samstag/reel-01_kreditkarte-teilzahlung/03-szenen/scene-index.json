@@ -1,0 +1,119 @@
+{
+  "version": 20,
+  "title": "Kreditkarten-Teilzahlung: Warum kleine Raten teuer werden können",
+  "sceneCount": 10,
+  "imageSceneCount": 4,
+  "animationSceneCount": 6,
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "referencePromptFile": "03-szenen/bildwelt.txt",
+    "seamlessSingleBackgroundRequired": true,
+    "percentageZonesForbidden": true,
+    "backgroundBandsForbidden": true,
+    "floorWallBoundaryForbidden": true,
+    "horizonLineForbidden": true,
+    "visibleFaceRequiredWhenPersonPresent": true,
+    "objectLabelsOnly": true
+  },
+  "coverHeadline": {
+    "source": "google-flow",
+    "exactText": "50 € RATE? / WIE LANGE ZAHLST DU?",
+    "googleFlowFileName": "Bild 00 - Kreditkarte Teilzahlung Cover.png",
+    "textMustBeGeneratedInsideImage": true,
+    "remotionCoverTextForbidden": true,
+    "regenerateIfTypographyIsWrong": true
+  },
+  "userMediaBoundary": {
+    "imagesDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
+    "audioDirectory": "02-audio/",
+    "outsideMediaForbidden": true,
+    "substitutesForbidden": true,
+    "missingRequiredMediaIsBlocker": true
+  },
+  "imagePresentationContract": {
+    "mode": "full-frame-no-crop",
+    "fullCanvas": true,
+    "headlineOverlay": true,
+    "captionOverlay": true,
+    "continuousReadabilityScrimOnly": true,
+    "hardHeaderFooterPanelsForbidden": true,
+    "sourceMustBeVertical916": true,
+    "intentionalCropForbidden": true,
+    "blurredImageBackgroundForbidden": true,
+    "visibleInsetPanelForbidden": true,
+    "minimumHeroWidthPx": 840,
+    "tinyCenteredPosterForbidden": true
+  },
+  "layout": {
+    "headerTop": 48,
+    "headerBottom": 232,
+    "animationVisualTop": 242,
+    "animationVisualBottom": 1390,
+    "subtitleBottom": 430,
+    "subtitleLeft": 72,
+    "subtitleRight": 170,
+    "platformUiSafeBottom": 300,
+    "imageScenesFullFrame": true
+  },
+  "subtitleDisplay": {
+    "preferredSentences": 1,
+    "maxSentences": 1,
+    "maxLines": 2,
+    "minFontSizePx": 42,
+    "maxWordsPerCaptionUnit": 12,
+    "maxCharactersPerCaptionUnit": 68,
+    "noDeadGaps": true,
+    "holdDuringPauses": true,
+    "timingSource": "real-audio-word-timestamps",
+    "activeWordTiming": "exact-word-start-end",
+    "sentenceSwitch": "next-sentence-first-word-start",
+    "equalWordSpacingForbidden": true,
+    "opaqueCaptionCardForbidden": true,
+    "horizontalOverflowForbidden": true,
+    "clippingForbidden": true
+  },
+  "audio": {"targetIntegratedLufs": -16, "targetTruePeakDbtp": -1},
+  "timelineRules": {
+    "timingSource": "04-caption/word-timings.json",
+    "cutsFollowSentenceStarts": true,
+    "equalLengthScenesForbiddenByDefault": true,
+    "finalAudioOnly": true,
+    "timelineGapsForbidden": true
+  },
+  "platformPublishing": {
+    "directory": "04-caption",
+    "universalCaption": "04-caption/caption.txt",
+    "sameCaptionForAllReelPlatforms": true,
+    "separatePlatformCaptionsForbidden": true,
+    "hashtagCount": 5,
+    "platforms": ["instagram-reels", "tiktok", "facebook-reels", "snapchat"]
+  },
+  "productionQualityContract": {
+    "version": 2,
+    "targetAnimationShare": 0.60,
+    "minAnimationDurationShare": 0.55,
+    "maxAnimationDurationShare": 0.65,
+    "minImageDurationShare": 0.35,
+    "maxImageDurationShare": 0.45,
+    "maxConsecutiveImageScenes": 1,
+    "maxImageSceneSeconds": 8,
+    "animationFirstForDynamicInformation": true,
+    "finalTimelineMustBeResolved": true,
+    "fullMp4QaRequired": true,
+    "imageSemanticQaRequired": true,
+    "audioQaRequired": true,
+    "animationMechanismGate": "start-action-result"
+  },
+  "scenes": [
+    {"id":"scene-01","type":"image","headline":"KLEINE RATE. LANGE SCHULD.","subheadline":"50 € wirken klein – Zinsen können die Rückzahlung verlängern.","visualRole":"Hook","visualSelectionReason":"Der Größenkontrast zwischen kleiner Rate und großer Restschuld ist als großes statisches Hero-Motiv sofort verständlich.","expectedVisual":"Großer 1.500-Euro-Schuldkörper und kleiner 50-Euro-Ratentoken mit langer Monatsstrecke.","googleFlowFileName":"Bild 01 - Kleine Rate lange Schuld.png","planFile":"EINZELNE-SZENEN/scene-01/bildprompt.txt"},
+    {"id":"scene-02","type":"animation","headline":"RESTSCHULD ROLLT WEITER","subheadline":"Du zahlst einen Teil – der offene Betrag bleibt im Kreislauf.","visualRole":"Mechanismus","visualSelectionReason":"Teilzahlung ist ein wiederkehrender Kreislauf und muss als Bewegung sichtbar sein.","animationMechanism":"Start: Monatsabrechnung mit offener Restschuld. Aktion: kleine Rate fließt hinein, nur ein Teil reduziert den Schuldkörper, der Rest rollt sichtbar in den nächsten Monatsring. Ergebnis: Restschuld bleibt bestehen und der Kreislauf startet erneut.","planFile":"EINZELNE-SZENEN/scene-02/remotion.md"},
+    {"id":"scene-03","type":"animation","headline":"ZINS KOMMT VOR DER TILGUNG","subheadline":"Im Modell: 1,5 % pro Monat auf die Restschuld.","visualRole":"Rechenmechanismus","visualSelectionReason":"Der Zinsabzug aus einer festen Monatsrate lässt sich als physische Aufteilung klarer zeigen als mit Text.","animationMechanism":"Start: 1.500-Euro-Restschuld und 50-Euro-Rate. Aktion: 22,50 Euro Zins werden als roter Strom abgezweigt, der verbleibende Betrag trifft die Schuld. Ergebnis: nur 27,50 Euro reduzieren im ersten Modellmonat die Hauptschuld.","planFile":"EINZELNE-SZENEN/scene-03/remotion.md"},
+    {"id":"scene-04","type":"image","headline":"MONAT 1: 22,50 € ZINSEN","subheadline":"Von 50 € Rate tilgen nur 27,50 € die Schuld.","visualRole":"Beweisszene","visualSelectionReason":"Die konkrete Aufteilung einer einzigen Rate funktioniert als starkes statisches Beweisbild.","expectedVisual":"50-Euro-Token teilt sich physisch in 22,50 Euro Zins und 27,50 Euro Tilgung.","googleFlowFileName":"Bild 04 - Erste Rate aufgeteilt.png","planFile":"EINZELNE-SZENEN/scene-04/bildprompt.txt"},
+    {"id":"scene-05","type":"animation","headline":"RESTSCHULD SINKT LANGSAM","subheadline":"Jeden Monat: Zins drauf, Rate runter.","visualRole":"Langzeitmechanismus","visualSelectionReason":"Mehrere Monatszyklen müssen sichtbar zeigen, warum eine kleine Rate den Schuldenstand nur langsam leert.","animationMechanism":"Start: voller 1.500-Euro-Schuldentank. Aktion: jeder Monatsimpuls fügt zuerst roten Zins hinzu und zieht danach 50 Euro ab. Ergebnis: der Tank sinkt schrittweise und deutlich langsamer als eine reine 50-Euro-Tilgung.","planFile":"EINZELNE-SZENEN/scene-05/remotion.md"},
+    {"id":"scene-06","type":"animation","headline":"41 MONATE BIS NULL","subheadline":"50 € Rate · 1.500 € Startschuld · 18-%-Modell.","visualRole":"Zeit","visualSelectionReason":"Die überraschend lange Laufzeit braucht eine sichtbare Monatsreise statt einer einzelnen Zahl.","animationMechanism":"Start: Monat 0 mit 1.500 Euro Restschuld. Aktion: Kalenderblätter und Monatsmarker laufen vorwärts, während die Schuld sinkt. Ergebnis: erst ungefähr bei Monat 41 erreicht der Modell-Schuldenstand null.","planFile":"EINZELNE-SZENEN/scene-06/remotion.md"},
+    {"id":"scene-07","type":"image","headline":"RUND 508 € ZINSEN","subheadline":"Zusätzlich zur ursprünglichen 1.500-€-Schuld.","visualRole":"Kostenbeweis","visualSelectionReason":"Zwei große physische Geldstapel machen Hauptschuld und Zusatzkosten unmittelbar vergleichbar.","expectedVisual":"Goldener 1.500-Euro-Stapel plus separater roter Zinsstapel von rund 508 Euro.","googleFlowFileName":"Bild 07 - Zinskosten gesamt.png","planFile":"EINZELNE-SZENEN/scene-07/bildprompt.txt"},
+    {"id":"scene-08","type":"animation","headline":"100 € RATE BESCHLEUNIGT","subheadline":"Im selben Modell: rund 18 statt 41 Monate.","visualRole":"Vergleich","visualSelectionReason":"Zwei gleich gestartete Schuldenstände können als echtes Ratenrennen die Laufzeitdifferenz zeigen.","animationMechanism":"Start: zwei identische 1.500-Euro-Schuldentanks. Aktion: links fließen monatlich 50 Euro, rechts 100 Euro; beide sammeln Modellzinsen. Ergebnis: der 100-Euro-Weg erreicht null ungefähr bei Monat 18, der 50-Euro-Weg erst bei Monat 41.","planFile":"EINZELNE-SZENEN/scene-08/remotion.md"},
+    {"id":"scene-09","type":"animation","headline":"KNAPP 296 € ZINSEN UNTERSCHIED","subheadline":"Rund 508 € vs. 212 € im selben Modell.","visualRole":"Kostenvergleich","visualSelectionReason":"Wachsende rote Zinsstapel zeigen die kumulierten Zusatzkosten stärker als zwei nackte Zahlen.","animationMechanism":"Start: zwei leere Zinsbehälter bei gleicher Startschuld. Aktion: während der beiden Rückzahlungswege sammeln sich rote Zinsmünzen an. Ergebnis: etwa 508 Euro beim 50-Euro-Weg und etwa 212 Euro beim 100-Euro-Weg; Differenz knapp 296 Euro.","planFile":"EINZELNE-SZENEN/scene-09/remotion.md"},
+    {"id":"scene-10","type":"image","headline":"PRÜF MEHR ALS DIE RATE","subheadline":"Effektivzins · Rückzahlungsrate · Vollzahlung.","visualRole":"Schlussmetapher","visualSelectionReason":"Eine große Lupe über den Vertragsbedingungen verdichtet die praktische Prüffrage als starkes Abschlussbild.","expectedVisual":"Große Lupe zeigt die drei Begriffe Effektivzins, Rate und Vollzahlung auf einem abstrahierten Kartenvertrag.","googleFlowFileName":"Bild 10 - Teilzahlung pruefen.png","planFile":"EINZELNE-SZENEN/scene-10/bildprompt.txt"}
+  ]
+}

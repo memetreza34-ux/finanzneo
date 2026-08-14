@@ -1,0 +1,77 @@
+FINANZNEO — GOOGLE FLOW AGENT — KREDITKARTE / TEILZAHLUNG
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+DIESER GESAMTPROMPT IST DIE VOLLSTÄNDIGE FREIGABE. NICHT nach Go, Weiter oder OK fragen.
+
+ABLAUF:
+1. Immer nur GENAU EIN Bild erzeugen.
+2. Vollständig warten.
+3. Sofort exakt umbenennen.
+4. Dateinamen prüfen.
+5. Motiv, Text, Hintergrund und Lesbarkeit prüfen.
+6. Erst dann nächstes Bild.
+7. Kein Batch, keine Queue, kein Parallelisieren.
+
+GLOBALE BILDWELT:
+Premium fintech editorial 3D. ONE single seamless continuous deep charcoal green-black background across the full vertical 1080×1920 canvas. Smooth rounded premium 3D. Emerald/mint = neutral/solution, gold = money/value, red-orange = debt/interest/risk. No panels, no horizon, no floor-wall split, no dashboard, no app UI, no tiny diorama.
+
+GRÖSSE:
+Hero-Motiv groß. Gesamtbreite der Hauptobjekte normalerweise 840–1000 px. Kein kleines Poster in der Mitte. Oben nur genug ruhige Fläche für die Remotion-Szenenheadline; unten genug ruhige Fläche für die höher gesetzten Karaoke-Captions.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 00 — COVER
+FINALER DATEINAME: Bild 00 - Kreditkarte Teilzahlung Cover.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+The cover text MUST be generated directly inside the Google Flow image. Remotion must NOT add cover text.
+
+EXACT TEXT — reproduce exactly, no spelling changes:
+Headline line 1: `50 € RATE?`
+Headline line 2: `WIE LANGE ZAHLST DU?`
+
+Large bold premium editorial typography in the upper third, highly legible on mobile. White/mint headline, `50 €` may use gold. Below: a very large premium credit-card object feeding a tiny 50-euro payment token into a long red-orange debt spiral that continues far into the background. The visual must communicate: small monthly rate, long repayment path.
+
+If any letter, number or euro sign is wrong: REGENERATE BILD 00 before continuing.
+
+Generate → wait → rename → verify → QA → continue.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 01 — HOOK
+FINALER DATEINAME: Bild 01 - Kleine Rate lange Schuld.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+No large headline in image. Short object labels only: `1.500 € SCHULD`, `50 € RATE`.
+
+A very large red-orange debt cylinder marked 1.500 € dominates the center. A much smaller gold 50-euro payment token approaches it. Behind the debt cylinder, a long sequence of monthly markers stretches into depth. Immediate visual contrast: small rate versus large remaining balance. Main composition almost fills the width.
+
+Generate → wait → rename → verify → QA → continue.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 04 — ERSTER MONAT
+FINALER DATEINAME: Bild 04 - Erste Rate aufgeteilt.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+No large headline. Short labels only: `50 € RATE`, `22,50 € ZINS`, `27,50 € TILGUNG`.
+
+A large gold 50-euro token physically splits into two thick streams. A red-orange stream labelled 22,50 € flows into a glowing interest collector. A larger emerald/gold stream labelled 27,50 € hits the debt block and visibly chips a small piece away. Strong physical split, large objects, no infographic card layout.
+
+Generate → wait → rename → verify → QA → continue.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 07 — GESAMTKOSTEN
+FINALER DATEINAME: Bild 07 - Zinskosten gesamt.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+No large headline. Short labels only: `1.500 €`, `+ 508 € ZINSEN`.
+
+Two large physical money stacks side by side: a large gold principal stack labelled 1.500 € and a visibly separate red-orange interest stack labelled + 508 € ZINSEN. A subtle brace joins them into a total payment path above 2.000 €. Premium 3D, extremely clear, big on screen.
+
+Generate → wait → rename → verify → QA → continue.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 10 — CHECKLISTE ALS METAPHER
+FINALER DATEINAME: Bild 10 - Teilzahlung pruefen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+No large headline. Short labels only: `EFFEKTIVZINS`, `RATE`, `VOLLZAHLUNG`.
+
+A huge premium magnifying glass examines a physical credit-card agreement object. Under the lens, three large readable tokens appear: EFFEKTIVZINS, RATE, VOLLZAHLUNG. The rest of the agreement remains abstract and unreadable. Strong closing metaphor: inspect the repayment terms, not only the advertised small rate.
+
+Generate → wait → rename → verify → QA.
+
+ENDE: Nur diese fünf finalen Dateien gruppieren.

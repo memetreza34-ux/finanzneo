@@ -1,0 +1,15 @@
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Kreditkarte Teilzahlung Cover.png
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+Create one premium vertical 9:16 fintech editorial 3D cover.
+
+TEXT MUST BE GENERATED DIRECTLY INSIDE THE IMAGE.
+Exact text:
+`50 € RATE?`
+`WIE LANGE ZAHLST DU?`
+
+Large mobile-readable typography in the upper third. Under it, a huge premium credit-card object feeds a tiny 50-euro payment token into a long red-orange debt spiral. Deep charcoal green-black seamless background. Gold only for money, red-orange for debt/interest. No logo, no random text.
+
+If typography is wrong, regenerate before accepting.

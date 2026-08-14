@@ -1,0 +1,17 @@
+{
+  "version": 20,
+  "fps": 30,
+  "status": "missing-final-audio-alignment",
+  "scenes": [
+    {"id":"scene-01","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-02","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-03","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-04","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-05","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-06","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-07","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-08","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-09","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-10","type":"image","startFrame":0,"durationFrames":0}
+  ]
+}

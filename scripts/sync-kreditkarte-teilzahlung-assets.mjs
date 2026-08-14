@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+import {copyFileSync,existsSync,mkdirSync,readdirSync,rmSync,writeFileSync} from 'node:fs';
+import {extname,resolve} from 'node:path';
+const root=resolve('reels/2026-08-10_bis_2026-08-16/samstag/reel-01_kreditkarte-teilzahlung');
+const imageDir=resolve(root,'03-szenen/00-ALLE-BILDER-HIER-REIN');const audioDir=resolve(root,'02-audio');const pub=resolve('public/reels/kreditkarte-teilzahlung');mkdirSync(pub,{recursive:true});
+const expected={'cover':'Bild 00 - Kreditkarte Teilzahlung Cover.png','scene-01':'Bild 01 - Kleine Rate lange Schuld.png','scene-04':'Bild 04 - Erste Rate aufgeteilt.png','scene-07':'Bild 07 - Zinskosten gesamt.png','scene-10':'Bild 10 - Teilzahlung pruefen.png'};const imageExt=new Set(['.png','.jpg','.jpeg','.webp','.avif']);const audioExt=new Set(['.wav','.mp3','.m4a','.aac']);
+for(const [id,file] of Object.entries(expected)){const p=resolve(imageDir,file);if(!existsSync(p))throw new Error(`BLOCKED: Pflichtbild fehlt: ${file}`);const ext=extname(file).toLowerCase();if(!imageExt.has(ext))throw new Error(`BLOCKED: Bildformat nicht erlaubt: ${file}`);copyFileSync(p,resolve(pub,`${id}${ext}`));}
+const images=readdirSync(imageDir).filter(f=>imageExt.has(extname(f).toLowerCase()));const allowed=new Set(Object.values(expected));const extra=images.filter(f=>!allowed.has(f));if(extra.length)throw new Error(`BLOCKED: unerwartete Bilder: ${extra.join(', ')}`);
+const audios=readdirSync(audioDir).filter(f=>audioExt.has(extname(f).toLowerCase()));if(audios.length!==1)throw new Error(`BLOCKED: genau ein finales Audio erwartet, gefunden ${audios.length}`);for(const f of readdirSync(pub))if(f.startsWith('voiceover.'))rmSync(resolve(pub,f));const ae=extname(audios[0]).toLowerCase();copyFileSync(resolve(audioDir,audios[0]),resolve(pub,`voiceover${ae}`));writeFileSync(resolve(pub,'asset-manifest.json'),JSON.stringify({...expected,audio:`voiceover${ae}`},null,2)+'\n');console.log('✓ Kreditkarten-Assets synchronisiert.');

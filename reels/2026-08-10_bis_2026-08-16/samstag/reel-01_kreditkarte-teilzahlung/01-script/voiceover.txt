@@ -1,0 +1,19 @@
+50 Euro im Monat klingt nach einer kleinen, kontrollierbaren Kreditkartenrate. Bei einer Teilzahlungs-Kreditkarte kann genau diese kleine Rate die Rückzahlung aber überraschend lang machen.
+
+Bei Teilzahlung bleibt nach der Monatsabrechnung eine Restschuld offen. Auf diese Restschuld können Zinsen anfallen, während du nur einen Teil zurückzahlst.
+
+Für unser Rechenmodell starten wir mit 1.500 Euro Restschuld, 18 Prozent Jahreszins und einer festen Rate von 50 Euro im Monat. Das sind keine Produktkonditionen, sondern ein Beispiel.
+
+Im ersten Monat entstehen rechnerisch 22,50 Euro Zinsen. Von deinen 50 Euro reduzieren deshalb nur 27,50 Euro die eigentliche Schuld.
+
+Danach wiederholt sich derselbe Mechanismus. Die Restschuld wird kleiner, aber solange sie existiert, fallen im Modell weitere Zinsen an.
+
+Mit 50 Euro Monatsrate dauert es rechnerisch rund 41 Monate, bis die 1.500 Euro vollständig zurückgezahlt sind.
+
+Über diese Zeit kommen in unserem Modell rund 508 Euro Zinsen zusammen. Aus 1.500 Euro Startschuld werden damit insgesamt gut 2.000 Euro Zahlungen.
+
+Was passiert mit 100 Euro Monatsrate? Bei derselben Startschuld und demselben Modellzins sinkt die Laufzeit auf ungefähr 18 Monate.
+
+Auch die Zinskosten fallen deutlich: statt rund 508 Euro sind es ungefähr 212 Euro. Das sind knapp 296 Euro Unterschied.
+
+Merksatz: Bei Kreditkarten mit Teilzahlung nicht nur auf die kleine Monatsrate schauen. Prüfe effektiven Jahreszins, Rückzahlungsrate und ob eine vollständige Rückzahlung möglich und sinnvoll ist.

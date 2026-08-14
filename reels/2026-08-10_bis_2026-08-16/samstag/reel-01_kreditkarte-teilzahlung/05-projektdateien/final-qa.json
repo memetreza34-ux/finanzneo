@@ -1,0 +1,16 @@
+{
+  "status": "pending",
+  "inspectedFullMp4": false,
+  "inspectedEveryScene": false,
+  "imageSemanticMatchPassed": false,
+  "generatedTextQaPassed": false,
+  "sceneAudioSyncPassed": false,
+  "subtitleSafeAreaPassed": false,
+  "subtitleSyncPassed": false,
+  "visualMixPassed": false,
+  "noLongStaticTailPassed": false,
+  "audioLevelsPassed": false,
+  "measuredIntegratedLufs": null,
+  "measuredTruePeakDbtp": null,
+  "renderPath": null
+}
