@@ -1,8 +1,13 @@
 GOOGLE FLOW – FINALER DATEINAME: Bild 10 - Kaufkraft statt Kontostand.png
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-ONE single seamless continuous deep charcoal green-black background. No headline. No subtitle. Object labels only: `EURO`, `KAUFKRAFT`.
+Create one FULL-FRAME vertical 1080×1920 premium fintech editorial 3D image on ONE seamless continuous deep charcoal green-black background. No headline. No subtitle. Object labels only: `EURO`, `KAUFKRAFT`.
 
-All meaningful content strictly inside Y=300–1320 safe composition area.
+SIZE / COMPOSITION:
+- No small centered poster or inset card.
+- Magnifying glass, euro stack and grocery basket should together span roughly 820–980 px of the 1080-px width.
+- Keep roughly the top 250 px calm for the Remotion headline.
+- Keep roughly the bottom 500 px calm for spoken captions/platform UI.
 
-A large premium magnifying glass moves conceptually from a gold euro stack to reveal a basket of real everyday goods underneath. The message must be instantly readable: inspect what money can buy, not only the number of euros. Minimal premium closing metaphor.
+VISUAL:
+A very large premium magnifying glass moves conceptually from a gold euro stack to reveal a substantial basket of real everyday goods underneath. The message must be instant: inspect what money can buy, not only the euro number. Strong depth, dominant objects, minimal premium closing metaphor, no watermark or logo.
