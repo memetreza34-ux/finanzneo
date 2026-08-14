@@ -38,7 +38,8 @@ const scenes=Array.isArray(index.scenes)?index.scenes:[];
 
 assert(Number(index.version)>=17,'Neue Reels mit Quality Contract müssen scene-index Version 17+ verwenden.');
 assert(contract?.version===2,'productionQualityContract.version muss 2 sein.');
-assert(Number(contract?.targetAnimationShare)===0.60,'Zielwert Animation muss 60 % sein.');
+const share = Number(contract?.targetAnimationShare);
+assert(share >= 0.50 && share <= 0.70, 'Zielwert Animation muss zwischen 50% und 70% liegen (Standard: 60%).');
 assert(Number(contract?.minAnimationDurationShare)===0.55&&Number(contract?.maxAnimationDurationShare)===0.65,'Finale Animationslaufzeit muss 55–65 % erlauben.');
 assert(Number(contract?.minImageDurationShare)===0.35&&Number(contract?.maxImageDurationShare)===0.45,'Finale Bildlaufzeit muss 35–45 % erlauben.');
 assert(Number(contract?.maxConsecutiveImageScenes)===1,'Mehr als eine Bildszene hintereinander muss verboten sein.');
@@ -56,8 +57,28 @@ assert(Number(index.imageSceneCount)===imageScenes.length,'imageSceneCount stimm
 assert(Number(index.animationSceneCount)===animationScenes.length,'animationSceneCount stimmt nicht.');
 
 if(scenes.length){
-  const expectedAnimations=Math.round(scenes.length*0.60);
-  assert(animationScenes.length===expectedAnimations,`Planungsmix falsch: ${scenes.length} Szenen brauchen standardmäßig ${expectedAnimations} Animationen, gefunden ${animationScenes.length}.`);
+  const minAnimations = Math.floor(scenes.length * 0.50);
+  const maxAnimations = Math.ceil(scenes.length * 0.70);
+  const targetAnimations = Math.round(scenes.length * 0.60);
+  if (animationScenes.length < minAnimations || animationScenes.length > maxAnimations) {
+    errors.push(`Animationsmix außerhalb des erlaubten Bereichs: ${animationScenes.length}/${scenes.length} Animationen (erlaubt: ${minAnimations}–${maxAnimations}, Ziel: ${targetAnimations}).`);
+  } else if (animationScenes.length !== targetAnimations) {
+    console.warn(`⚠ Animationsmix: ${animationScenes.length}/${scenes.length} (Ziel: ${targetAnimations}). Inhaltliche Begründung sicherstellen.`);
+  }
+}
+
+for (const scene of animationScenes) {
+  if (!scene.animationMechanism) {
+    errors.push(`Szene ${scene.id}: Animationsszenen brauchen 'animationMechanism' — was zeigt die Animation? (Start → Aktion → Ergebnis)`);
+  } else {
+    const forbidden = ['icon', 'zoom', 'fade', 'map', 'bar-static', 'emoji', 'text-only', 'logo'];
+    const mechanism = scene.animationMechanism.toLowerCase();
+    for (const pattern of forbidden) {
+      if (mechanism === pattern) {
+        errors.push(`Szene ${scene.id}: Verbotener Animationstyp '${pattern}'. Animationen müssen eine sichtbare Handlung zeigen (Start → Prozess → Ergebnis).`);
+      }
+    }
+  }
 }
 
 let consecutiveImages=0;

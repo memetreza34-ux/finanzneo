@@ -134,7 +134,7 @@ Verbindlich:
 - Premium fintech editorial 3D render
 - eine dominante Finanzmetapher / großes Hero-Objekt
 - wenige unterstützende Elemente
-- optional stilisierte anonyme erwachsene 3D-Person
+- Person NUR wenn sie dem Inhalt hilft. Für abstrakte Themen (Zinsen, Kosten, Daten, Inflation) bevorzugt eine starke Finanzmetapher ohne Person.
 - wenn Person: Gesicht klar sichtbar, Augen/Nase/Mund erkennbar, frontal oder natürliche 3/4-Ansicht
 - deep charcoal green-black Grundwelt
 - vivid emerald/mint Akzente
@@ -186,30 +186,12 @@ Verboten:
 
 Headlines und Karaoke-Untertitel werden in Remotion gerendert.
 
-## 9. Verbindliche Bilddarstellung in Remotion — full-frame-no-crop
-
-Bildszenen verwenden das vollständige vertikale 9:16-Nutzerbild über die **gesamte 1080×1920-Szene**.
+## 9. Verbindliche Bilddarstellung in Remotion
 
 Verbindlich:
-
-- kein mittlerer `VisualStage` oder anderer kleiner Bildcontainer um Nutzerbilder
-- kein sichtbares 9:16-Poster innerhalb eines 9:16-Reels
-- kein absichtlicher Crop des Nutzerbildes
-- keine Zoom-/Focal-Point-Regeln als Standard
-- keine unscharfe Kopie desselben Bildes als Hintergrund
-- kein sichtbarer rechteckiger Bildrand
-- Headline liegt als Overlay über demselben Vollbild
-- Untertitel liegt als Overlay über demselben Vollbild
-- für Lesbarkeit nur ein **weicher kontinuierlicher transparenter Scrim/Gradient**; keine harten Header-/Footer-Flächen
-- da die Quelle vertikal 9:16 ist, darf `object-fit: contain` ausschließlich auf der **kompletten 1080×1920-Fläche** verwendet werden; `contain` in einem kleineren Mittel-Container ist verboten
-
-Verbindliche Komponente für neue produktive Bildszenen:
-
-```text
-src/design-system/FullFrameImage.tsx
-```
-
-`AdaptiveSafeFillImage`, `focalX/focalY`, alte Scale-/Crop-Verträge und sichtbare Inset-Panels sind nicht mehr Teil des aktiven Produktionsstandards.
+- Beide Modi sind zulässig: `full-frame-no-crop` (cinematic, headline+caption overlay) und `fit-between-text` (structured, image between header and caption zone)
+- Die Wahl muss für jede Szene explizit in `scene-index.json` getroffen werden
+- Keiner der beiden Modi ist der universelle Standard für neue Reels
 
 ## 10. Verbindliches vertikales Layout
 
@@ -283,7 +265,8 @@ Wenn keine echte Wortausrichtung aus dem finalen Audio erzeugt werden kann: **BL
 
 ## 13. Remotion und Animationen (60/40 Regel)
 
-- **60 % Remotion / 40 % Bilder** ist der feste Zielstandard (55-65 % der Laufzeit). Bei 10 Szenen: standardmäßig 6 Animationen + 4 Bilder.
+- **60% Remotion / 40% Bilder ist das Ziel, erlaubt 50-70%. Qualität über Quote: dynamische Information → Animation; starke statische Finanzmetapher → Bild**. Bei 10 Szenen: standardmäßig 6 Animationen + 4 Bilder.
+- **Verboten als Animation**: einzelnes Icon, Zahl mit Zoom, statischer Balken mit Fade, Karte, Emoji als Hauptvisual. Jede Animation braucht sichtbaren Mechanismus: Start → Handlung → Ergebnis
 - **Animation-first**: Zinseszins, Rechnungen, Vergleiche, Zeitachsen, Geldflüsse, Wachstum und Mechanismen werden standardmäßig mit Remotion gebaut (nicht als beliebiges statisches Bild).
 - **Maximal eine Bildszene hintereinander** und normalerweise höchstens 8 Sekunden pro statischem Bild.
 - 1080 × 1920, 30 fps
