@@ -35,6 +35,7 @@ const PointsSphere: React.FC<{n?: number; radius?: number}> = ({n = 2400, radius
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
         <bufferAttribute attach="attributes-color" args={[colors, 3]} />
       </bufferGeometry>
+      {/* @ts-ignore */}
       <pointsMaterial size={0.034} vertexColors sizeAttenuation transparent opacity={0.98} />
     </points>
   );
@@ -49,11 +50,13 @@ const Scene: React.FC = () => {
         {/* dunkler, undurchsichtiger Kern: verdeckt hintere Punkte/Gitter */}
         <mesh>
           <sphereGeometry args={[0.965, 64, 64]} />
+          {/* @ts-ignore */}
           <meshBasicMaterial color={'#04160C'} />
         </mesh>
         {/* feines Längen-/Breitengrad-Gitter → liest sofort als Globus */}
         <mesh>
           <sphereGeometry args={[0.985, 36, 24]} />
+          {/* @ts-ignore */}
           <meshBasicMaterial color={C.green} wireframe transparent opacity={0.10} />
         </mesh>
         <PointsSphere />
@@ -61,10 +64,12 @@ const Scene: React.FC = () => {
       {/* Innen-Glow + Atmosphäre (rotieren nicht mit) */}
       <mesh>
         <sphereGeometry args={[0.99, 48, 48]} />
+        {/* @ts-ignore */}
         <meshBasicMaterial color={C.green} transparent opacity={0.10} blending={THREE.AdditiveBlending} />
       </mesh>
       <mesh scale={1.22}>
         <sphereGeometry args={[1, 48, 48]} />
+        {/* @ts-ignore */}
         <meshBasicMaterial color={C.green} transparent opacity={0.16} side={THREE.BackSide} blending={THREE.AdditiveBlending} />
       </mesh>
     </group>

@@ -26,7 +26,7 @@ export const PassivTest: React.FC = () => {
         }} />
       </AbsoluteFill>
 
-      <Particles frame={f} color={C.gold} n={24} />
+      <Particles color={C.gold} n={24} />
 
       {/* Beat 1 · Hook (0-4.5s) */}
       <AbsoluteFill style={{ opacity: life(f, 0, sec(4.8), 12), paddingTop: 220, alignItems: 'center' }}>

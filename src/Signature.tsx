@@ -29,7 +29,7 @@ export const Signature: React.FC = () => {
       <AbsoluteFill style={{ opacity: life(f, 0, sec(3.6), 10), alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ textAlign: 'center', paddingInline: 60, lineHeight: 1.3 }}>
           {word('Aus', sec(0.3), 70)}{word('nur', sec(0.6), 70)}<br />
-          {word('100 €', sec(1.0), 110, C.gold, 900)}<br />
+          {word('100 €', sec(1.0), 110, C.gold as any, 900)}<br />
           {word('im', sec(1.6), 70)}{word('Monat', sec(1.8), 70)}{word('…', sec(2.1), 70)}
         </div>
       </AbsoluteFill>
