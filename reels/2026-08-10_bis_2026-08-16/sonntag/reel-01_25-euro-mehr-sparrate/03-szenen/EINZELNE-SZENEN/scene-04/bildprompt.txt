@@ -1,4 +1,10 @@
 FINALER DATEINAME: Bild 04 - 24000 vs 30000 Einzahlungen.png
+FINANZNEO_WORLD_ID: finanzneo-tangible-finance-editorial-v4
 STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-No headline, no subtitle. Labels only: `24.000 €`, `30.000 €`.
-Two huge physical contribution stacks dominate the frame with a separate 6.000 € difference bracket/object. Premium fintech editorial 3D. Fill 85–95% of the square width.
+No headline. No subtitle. Labels only: `24.000 €`, `30.000 €`.
+
+Create two large premium transparent savings chests / glass money containers on the same sophisticated dark-green finance workspace. Both contain believable accumulated euro coins and neatly bundled euro banknotes. The left container is visibly filled to represent 24.000 €, the right is visibly fuller at 30.000 €. Between them, place one separate physical gold money bundle representing the additional 6.000 € contribution difference — no bracket graphic.
+
+Add subtle calendar/time details in the environment, premium glass and paper textures, soft contact shadows and clear spatial depth. Make this feel like accumulated real savings, not two abstract towers. Hero objects fill 85–95% of the useful square width.
+
+FORBIDDEN: generic towers/columns, bars, pipes, glowing tracks, futuristic blocks, empty black studio, dashboard/UI, diorama.
