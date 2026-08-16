@@ -1,9 +1,19 @@
 {
-  "version": 21,
+  "version": 21.1,
   "title": "25 € mehr im Monat: Was können 20 Jahre daraus machen?",
   "sceneCount": 10,
   "imageSceneCount": 4,
   "animationSceneCount": 6,
+  "imageWorld": {
+    "id": "finanzneo-tangible-finance-editorial-v4",
+    "tangibleFinanceObjectsRequired": true,
+    "abstractTechRenderForbidden": true,
+    "glowingPipesRailsTracksForbidden": true,
+    "genericWealthTowersForbidden": true,
+    "emptyDarkProductShotForbidden": true,
+    "autonomousFlowBatchRequired": true,
+    "userConfirmationBetweenImagesForbidden": true
+  },
   "cover": {
     "aspectRatio": "9:16",
     "source": "google-flow",
