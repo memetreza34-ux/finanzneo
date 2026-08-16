@@ -1,52 +1,130 @@
-FINANZNEO — GOOGLE FLOW — 25 € MEHR SPARRATE
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO — GOOGLE FLOW AUTOPILOT — 25 € MEHR SPARRATE
+FINANZNEO_WORLD_ID: finanzneo-tangible-finance-editorial-v4
 
-REGEL: Immer genau EIN Bild erzeugen → vollständig warten → exakt umbenennen → visuell prüfen → erst dann nächstes Bild.
+============================================================
+AUTONOMOUS BATCH EXECUTION — ABSOLUTELY NO USER PAUSES
+============================================================
+Generate ALL FIVE images in this single run, in this exact order:
+Bild 00 → Bild 01 → Bild 04 → Bild 07 → Bild 10.
 
-GLOBAL STYLE:
-Premium fintech editorial 3D, deep charcoal green-black seamless background, emerald/mint accents, gold only for money/value, red-orange only for risk/loss, smooth rounded premium geometry, studio lighting. No photorealism, Pixar, clay, dashboard, app UI, diorama, neon tunnel, sci-fi corridor or clutter.
+CRITICAL EXECUTION RULES:
+- DO NOT ask the user for confirmation, approval, feedback, `Weiter`, `continue`, or any other response between images.
+- DO NOT stop after finishing one image.
+- DO NOT say that you are going to generate the next image and then wait.
+- The user will NOT respond between images.
+- After each image is fully generated, internally inspect it against the requirements below.
+- If an image fails spelling, aspect ratio, composition, visual style, or required labels, regenerate it automatically until it passes.
+- Once an image passes, assign the exact required filename and IMMEDIATELY continue to the next image without asking anything.
+- Only AFTER Bild 10 has passed may you send ONE final completion summary listing all five filenames.
 
-━━━━━━━━━━━━━━━━━━
-BILD 00 — COVER — 9:16
+This is one uninterrupted autonomous production sequence. Execute the complete sequence yourself.
+
+============================================================
+GLOBAL VISUAL WORLD — TANGIBLE FINANCE EDITORIAL 3D
+============================================================
+Premium semi-realistic 3D editorial finance illustration with a sophisticated documentary feel.
+Use tangible, believable real-world finance objects and a coherent environment: transparent glass savings jars, physical euro coins, believable euro-banknote bundles, calendar pages, tasteful desk/workspace details, subtle documents, envelopes, notebook or calculator only when helpful.
+
+The image must feel like a carefully art-directed real financial scene, NOT an abstract infographic and NOT a futuristic tech render.
+
+LOOK:
+- deep forest / charcoal green environment with visible depth and tonal variation
+- warm premium key lighting with subtle emerald rim light
+- gold only for money/value
+- emerald/mint for positive saving/growth
+- premium glass, brushed metal, paper and matte surfaces
+- soft realistic contact shadows
+- clear foreground, midground and background
+- rich enough to feel like a world, but never cluttered
+- large hero subjects for smartphone readability
+
+STRICTLY FORBIDDEN IN EVERY IMAGE:
+- glowing tubes, pipes, rails or tracks
+- futuristic wealth paths or glowing roads
+- generic wealth towers / anonymous vertical blocks
+- floating geometric bars as the main visual
+- empty almost-black studio backgrounds
+- sci-fi corridors, dashboards, app UI
+- diorama, Pixar, clay or toy look
+- random text
+
+============================================================
+BILD 00 — COVER — VERTICAL 9:16
 FINALER DATEINAME: Bild 00 - 25 Euro mehr Sparrate Cover.png
-━━━━━━━━━━━━━━━━━━
-Create exactly one vertical 9:16 image.
-Write this German cover text EXACTLY inside the image:
+============================================================
+Create exactly one vertical 9:16 premium editorial 3D cover.
+
+Write this German cover text EXACTLY, with perfect spelling:
 `25 € MEHR IM MONAT`
 `WAS MACHT DAS IN 20 JAHREN?`
-Large bold premium editorial typography, maximum two visual text blocks, perfectly spelled. If any character, number or € sign is wrong, regenerate.
-Visual: a small gold 25-euro coin entering a long glowing 20-year wealth path that becomes a much larger gold/emerald wealth stack in the distance. Strong depth, immediate before/after effect.
 
-━━━━━━━━━━━━━━━━━━
-BILD 01 — HOOK — STRICT 1:1
+VISUAL SCENE:
+A premium dark-green financial workspace seen in cinematic 3D. In the foreground, a hand or elegant physical deposit mechanism places a small believable combination of euro coins/banknotes representing 25 € into a transparent glass monthly savings jar. In the deeper background, show the same savings concept after many years: a much fuller, larger premium glass savings vessel containing a substantial accumulation of coins and banknote bundles. Include subtle calendar pages receding through time to communicate 20 years. The before/after relationship must be immediately understandable without any glowing road, tube or abstract path.
+
+The environment should feel warm, premium and lived-in: subtle desk texture, soft lamp reflection, restrained notebook/calendar details, realistic contact shadows. Keep the cover text highly readable and integrated into the composition.
+
+If ANY letter, number or € sign is incorrect, regenerate automatically. Then continue immediately to Bild 01.
+
+============================================================
+BILD 01 — HOOK — STRICT SQUARE 1:1
 FINALER DATEINAME: Bild 01 - 100 vs 125 Euro.png
-━━━━━━━━━━━━━━━━━━
-Create exactly one SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. No subtitle. Short object labels only: `100 €`, `125 €`.
-Make both hero objects very large, together filling roughly 90% of the square width. Two premium monthly money streams start side by side: 100 € and 125 €. The 125 € stream has one extra small 25 € gold token clearly attached. A subtle long-term path extends behind both. Strong, simple, instantly readable.
+============================================================
+Create exactly one SQUARE 1:1 image, preferably 1080×1080. DO NOT create 9:16.
+No headline. No subtitle. Only these short labels: `100 €`, `125 €`.
 
-━━━━━━━━━━━━━━━━━━
-BILD 04 — EINZAHLUNGEN — STRICT 1:1
+VISUAL SCENE:
+A premium household-finance desk scene with TWO large transparent glass monthly savings jars side by side, occupying most of the square frame. The left jar represents 100 € and contains a clearly smaller monthly deposit. The right jar represents 125 € and visibly includes the SAME 100 € base plus an extra small 25 € combination of coins/banknotes being added. Use physical money, not glowing streams. A subtle calendar page in the background reinforces that these are monthly deposits. Both jars must feel tangible, weighty and real, with glass reflections, coins/banknote bundles and strong depth.
+
+The visual idea must read instantly: only a small extra monthly amount separates the two plans.
+Reject any version that turns the jars into abstract tubes, pillars, tracks or generic bars. Continue immediately to Bild 04 after approval-by-self.
+
+============================================================
+BILD 04 — EINZAHLUNGEN — STRICT SQUARE 1:1
 FINALER DATEINAME: Bild 04 - 24000 vs 30000 Einzahlungen.png
-━━━━━━━━━━━━━━━━━━
-Create exactly one SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. Labels only: `24.000 €`, `30.000 €`.
-Two huge physical contribution stacks dominate the square canvas. Left stack 24.000 €, right stack 30.000 €, with a clear separate gold bracket/object showing the 6.000 € difference. No chart card, no tiny icons. Hero objects fill 85–95% of width.
+============================================================
+Create exactly one SQUARE 1:1 image, preferably 1080×1080. DO NOT create 9:16.
+No headline. No subtitle. Only these labels: `24.000 €`, `30.000 €`.
 
-━━━━━━━━━━━━━━━━━━
-BILD 07 — ENDWERTE — STRICT 1:1
+VISUAL SCENE:
+Two large premium transparent savings chests or glass money containers sit on the same dark-green financial workspace. Both contain believable accumulated euro coins and neatly bundled euro banknotes. The left container is visibly filled to the level representing 24.000 €, the right container is visibly fuller at 30.000 €. Between them, place a distinct but simple physical gold money bundle representing the additional 6.000 € contribution difference — no bracket graphic and no UI. Add a few subtle calendar pages or a 20-year time cue in the environment without adding extra text.
+
+Make this feel like accumulated real savings, not two abstract towers. Objects should fill roughly 85–95% of the useful square width. Continue automatically to Bild 07.
+
+============================================================
+BILD 07 — ENDWERTE — STRICT SQUARE 1:1
 FINALER DATEINAME: Bild 07 - 46200 vs 57800 Euro.png
-━━━━━━━━━━━━━━━━━━
-Create exactly one SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. Labels only: `46.200 €`, `57.800 €`, `+11.550 €`.
-Two large premium wealth towers with the same visual material and lighting. Left tower visibly shorter at 46.200 €, right tower taller at 57.800 €. A large but elegant +11.550 € gap marker between them. Fill almost the whole square; no tiny infographic.
+============================================================
+Create exactly one SQUARE 1:1 image, preferably 1080×1080. DO NOT create 9:16.
+No headline. No subtitle. Only these labels: `46.200 €`, `57.800 €`, `+11.550 €`.
 
-━━━━━━━━━━━━━━━━━━
-BILD 10 — SCHLUSS — STRICT 1:1
+VISUAL SCENE:
+Show two premium transparent long-term savings vaults/jars on the same coherent finance workspace after 20 years. The left final-value container holds visibly less accumulated money and is labeled 46.200 €. The right contains substantially more believable coins and bundled banknotes and is labeled 57.800 €. Between the two, show a separate physical cluster of gold money representing the +11.550 € difference, labeled accordingly.
+
+Use depth, realistic glass, paper money texture, contact shadows and a subtle long-term calendar context. No anonymous wealth tower, no vertical glowing block, no chart. The comparison must feel like two real accumulated savings outcomes. Continue automatically to Bild 10.
+
+============================================================
+BILD 10 — SCHLUSS — STRICT SQUARE 1:1
 FINALER DATEINAME: Bild 10 - Kleine Rate lange Zeit.png
-━━━━━━━━━━━━━━━━━━
-Create exactly one SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. Labels only: `25 €`, `20 JAHRE`.
-A large gold 25-euro coin works like a physical lever at the start of a long emerald timeline, lifting a much larger future wealth block. The metaphor must communicate: small sustainable increase + long time = meaningful effect. Large hero composition, approximately 90% of square width.
+============================================================
+Create exactly one SQUARE 1:1 image, preferably 1080×1080. DO NOT create 9:16.
+No headline. No subtitle. Only these labels: `25 €`, `20 JAHRE`.
 
-END: verify all five filenames and verify that Bild 01/04/07/10 are genuinely square 1:1 while only Bild 00 is vertical 9:16.
+VISUAL SCENE:
+A cinematic premium finance desk scene showing the core principle in one tangible moment. In the foreground, a small 25 € monthly deposit made from believable euro coins/banknotes is being placed into a transparent savings jar. Behind it, a sequence of subtle calendar pages leads visually to a much fuller future savings container in the background. The same physical object language connects present and future. The small contribution should look modest; the long-term accumulated result should look meaningfully larger.
+
+Do NOT use a lever, glowing timeline, road, tube, rail or futuristic mechanism. The scene should communicate: small sustainable monthly increase + long time = meaningful difference.
+
+After this image passes all checks, provide ONE final summary only.
+
+============================================================
+FINAL SELF-QA BEFORE REPORTING COMPLETION
+============================================================
+Verify without asking the user:
+1. Bild 00 is vertical 9:16 and has the exact cover text.
+2. Bild 01, 04, 07 and 10 are genuinely square 1:1.
+3. All five filenames exactly match the required filenames.
+4. No image contains abstract glowing pipes, rails, wealth towers or empty dark product-shot worlds.
+5. All normal scene images use only the explicitly allowed short labels.
+6. All five images share the same tangible premium finance editorial world.
+
+Only now report completion. Do not ask for `Weiter` at any stage.
