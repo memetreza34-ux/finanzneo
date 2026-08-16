@@ -1,4 +1,10 @@
 FINALER DATEINAME: Bild 07 - 46200 vs 57800 Euro.png
+FINANZNEO_WORLD_ID: finanzneo-tangible-finance-editorial-v4
 STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-No headline, no subtitle. Labels only: `46.200 €`, `57.800 €`, `+11.550 €`.
-Two large premium wealth towers, same material, clearly different final height, with strong gap marker. Fill almost the entire square width. No small infographic panel.
+No headline. No subtitle. Labels only: `46.200 €`, `57.800 €`, `+11.550 €`.
+
+Show two premium transparent long-term savings vaults / glass jars on the same coherent dark-green financial workspace after 20 years. The left final-value container holds visibly less accumulated money and is labeled 46.200 €. The right contains substantially more believable euro coins and neatly bundled euro banknotes and is labeled 57.800 €. Between them, show a separate physical cluster of gold money representing the +11.550 € difference and label it accordingly.
+
+Use premium glass, visible paper-money texture, realistic contact shadows, subtle calendar context and strong foreground/midground/background depth. The comparison must feel like two real accumulated savings outcomes.
+
+FORBIDDEN: wealth towers, anonymous vertical blocks, bars/charts, glowing pipes, rails, futuristic paths, empty black studio, dashboard/UI, diorama.
