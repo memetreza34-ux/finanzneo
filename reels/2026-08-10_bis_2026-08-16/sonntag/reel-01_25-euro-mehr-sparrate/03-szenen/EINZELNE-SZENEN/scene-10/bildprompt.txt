@@ -1,4 +1,10 @@
 FINALER DATEINAME: Bild 10 - Kleine Rate lange Zeit.png
+FINANZNEO_WORLD_ID: finanzneo-tangible-finance-editorial-v4
 STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-No headline, no subtitle. Labels only: `25 €`, `20 JAHRE`.
-A huge 25-euro gold coin acts as a lever at the beginning of a long emerald timeline and lifts a much larger future wealth block. Premium fintech editorial 3D, large hero composition.
+No headline. No subtitle. Labels only: `25 €`, `20 JAHRE`.
+
+Create a cinematic premium finance desk scene showing the core principle with tangible real-world saving objects. In the foreground, a small 25 € monthly deposit made from believable euro coins/banknotes is being placed into a transparent savings jar. Behind it, subtle calendar pages visually carry the eye through time toward a much fuller future savings container in the background. Present and future must clearly share the same physical object language.
+
+The 25 € contribution should look modest; the long-term accumulated result should look meaningfully larger. Use premium glass, paper textures, realistic shadows, warm key light and emerald accents in a rich dark-green environment.
+
+FORBIDDEN: lever, glowing timeline, road, tube, rail, wealth tower, futuristic mechanism, empty black studio, dashboard/UI, diorama.
