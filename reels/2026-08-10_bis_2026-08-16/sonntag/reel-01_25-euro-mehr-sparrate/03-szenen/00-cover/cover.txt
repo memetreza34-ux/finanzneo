@@ -1,10 +1,18 @@
 GOOGLE FLOW — COVER — 9:16
 FINALER DATEINAME: Bild 00 - 25 Euro mehr Sparrate Cover.png
+FINANZNEO_WORLD_ID: finanzneo-tangible-finance-editorial-v4
 
-Create exactly one vertical 9:16 premium fintech editorial 3D cover.
+Create exactly one vertical 9:16 premium semi-realistic 3D editorial finance cover.
 
 Write exactly:
 `25 € MEHR IM MONAT`
 `WAS MACHT DAS IN 20 JAHREN?`
 
-A small gold 25-euro coin enters a long glowing 20-year wealth path and becomes a much larger future wealth stack. Deep charcoal green-black seamless background, emerald/mint growth light, gold only for money. Strong depth. No random text. Regenerate if typography is wrong.
+VISUAL:
+A cinematic dark-green financial workspace with tangible real-world saving objects. In the foreground, a small believable 25 € combination of euro coins/banknotes is being placed into a transparent glass monthly savings jar. In the deeper background, show the same savings concept after many years as a much fuller premium glass savings container filled with coins and neatly bundled euro banknotes. Subtle calendar pages recede through time to communicate 20 years.
+
+Use premium glass, brushed metal, paper money textures, realistic contact shadows, warm key light and subtle emerald rim light. The environment must have visible depth and detail, not an empty black studio.
+
+FORBIDDEN: glowing path, tube, rail, wealth tower, anonymous block, futuristic corridor, abstract infographic, diorama, Pixar/clay, random text.
+
+If any cover character, number or € sign is wrong, regenerate automatically.
