@@ -1,4 +1,10 @@
 FINALER DATEINAME: Bild 01 - 100 vs 125 Euro.png
+FINANZNEO_WORLD_ID: finanzneo-tangible-finance-editorial-v4
 STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Premium fintech editorial 3D on one seamless deep charcoal green-black background. No headline, no subtitle. Labels only: `100 €`, `125 €`.
-Two very large monthly money streams side by side. The 125 € path visibly contains one extra 25 € gold token. Hero composition fills roughly 90% of the square width.
+No headline. No subtitle. Labels only: `100 €`, `125 €`.
+
+Create a premium semi-realistic 3D household-finance desk scene. Two very large transparent glass monthly savings jars stand side by side and fill most of the square frame. The left jar represents 100 € and contains the base monthly deposit. The right jar visibly contains the same base amount plus a small extra 25 € combination of believable euro coins/banknotes being added. Include a subtle monthly calendar page in the background.
+
+Use tangible physical money, premium glass, paper textures, realistic shadows and a rich dark-green environment with visible depth. The idea must read immediately: only a small extra monthly contribution separates the two plans.
+
+FORBIDDEN: glowing money streams, tubes, rails, tracks, abstract towers, generic bars, empty black studio, dashboard/UI, diorama.
