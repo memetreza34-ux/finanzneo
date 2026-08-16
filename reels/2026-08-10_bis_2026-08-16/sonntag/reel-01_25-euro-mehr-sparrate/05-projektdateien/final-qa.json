@@ -1,0 +1,5 @@
+{
+  "status":"BLOCKED",
+  "blockers":["finale Flow-Bilder fehlen","finales Voiceover fehlt","echte Wortzeiten fehlen","finale Timeline fehlt"],
+  "requiredChecks":["cover typography exact","scene images 01/04/07/10 are 1:1","square images render at 1000x1000 without stretching","captions bottom=430","no timeline gaps","animation start-action-result","full MP4 visual QA","audio QA"]
+}

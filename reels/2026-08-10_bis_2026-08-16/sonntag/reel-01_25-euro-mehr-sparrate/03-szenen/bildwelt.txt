@@ -1,0 +1,10 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+Premium fintech editorial 3D. Deep charcoal green-black seamless background, vivid emerald/mint accents, gold only for money/value, warm red-orange only for risk/loss. Smooth rounded premium geometry, soft bevels, matte/glass materials, high-end studio lighting.
+
+COVER: vertical 9:16.
+NORMAL SCENE IMAGES: strictly square 1:1, 1080×1080 preferred. The hero metaphor must fill most of the square canvas, approximately 85–95% of usable width. No tiny centered poster, no diorama, no excessive empty space.
+
+Normal scene images contain only explicitly requested short object labels. No big headline, no subtitle, no sentence. The scene headline and spoken karaoke caption are rendered in Remotion.
+
+No photorealism, Pixar, clay, dashboard, app UI, neon tunnel, sci-fi corridor, game level or clutter.

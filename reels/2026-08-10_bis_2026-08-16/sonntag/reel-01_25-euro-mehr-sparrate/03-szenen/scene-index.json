@@ -1,0 +1,42 @@
+{
+  "version": 21,
+  "title": "25 € mehr im Monat: Was können 20 Jahre daraus machen?",
+  "sceneCount": 10,
+  "imageSceneCount": 4,
+  "animationSceneCount": 6,
+  "cover": {
+    "aspectRatio": "9:16",
+    "source": "google-flow",
+    "exactHeadline": "25 € MEHR IM MONAT",
+    "exactSubheadline": "WAS MACHT DAS IN 20 JAHREN?",
+    "remotionTextForbidden": true,
+    "fileName": "Bild 00 - 25 Euro mehr Sparrate Cover.png"
+  },
+  "imagePresentationContract": {
+    "sourceAspectRatio": "1:1",
+    "preferredSourceSize": "1080x1080",
+    "renderWidthPx": 1000,
+    "renderHeightPx": 1000,
+    "renderLeftPx": 40,
+    "renderTopPx": 265,
+    "stretchToVerticalForbidden": true,
+    "tinyPosterForbidden": true,
+    "minimumHeroWidthShare": 0.85
+  },
+  "layout": {"headerTop":48,"headerBottom":230,"animationVisualTop":242,"animationVisualBottom":1390,"subtitleBottom":430,"subtitleLeft":72,"subtitleRight":170,"platformUiSafeBottom":300},
+  "subtitleDisplay": {"maxLines":2,"minFontSizePx":42,"maxWordsPerCaptionUnit":12,"maxCharactersPerCaptionUnit":68,"timingSource":"real-audio-word-timestamps"},
+  "timelineRules": {"finalAudioOnly":true,"timelineGapsForbidden":true,"equalLengthScenesForbiddenByDefault":true},
+  "productionQualityContract": {"targetAnimationShare":0.60,"allowedAnimationShare":[0.50,0.70],"maxConsecutiveImageScenes":1,"animationMechanismGate":"start-action-result"},
+  "scenes": [
+    {"id":"scene-01","type":"image","headline":"25 € MEHR IM MONAT","subheadline":"Klingt klein. Über 20 Jahre kann der Abstand groß werden.","googleFlowFileName":"Bild 01 - 100 vs 125 Euro.png","aspectRatio":"1:1"},
+    {"id":"scene-02","type":"animation","headline":"100 € ODER 125 €?","subheadline":"Nur 25 € Unterschied pro Monat.","animationMechanism":"Start: identischer 100-Euro-Monatsstrom. Aktion: ein separater 25-Euro-Token dockt jeden Monat an den zweiten Weg an. Ergebnis: 100-Euro- und 125-Euro-Pfad laufen parallel in dieselbe 20-Jahres-Zeitachse."},
+    {"id":"scene-03","type":"animation","headline":"20 JAHRE = 6.000 € EXTRA","subheadline":"25 € × 240 Monate – noch ganz ohne Rendite.","animationMechanism":"Start: leere Extra-Einzahlungsstrecke. Aktion: 240 Monatsimpulse legen wiederholt 25-Euro-Token ab. Ergebnis: der zusätzliche Einzahlungsstapel endet bei 6.000 Euro."},
+    {"id":"scene-04","type":"image","headline":"24.000 € VS. 30.000 €","subheadline":"Der direkte Einzahlungsunterschied beträgt 6.000 €.","googleFlowFileName":"Bild 04 - 24000 vs 30000 Einzahlungen.png","aspectRatio":"1:1"},
+    {"id":"scene-05","type":"animation","headline":"MODELL: 6 % PRO JAHR","subheadline":"Gleiche Renditeannahme, nur andere Sparrate.","animationMechanism":"Start: zwei gleich konfigurierte Wachstumsmaschinen. Aktion: monatlich fließen 100 beziehungsweise 125 Euro hinein und beide erhalten denselben Modell-Wachstumsimpuls. Ergebnis: beide wachsen, der 125-Euro-Weg baut sichtbar mehr Kapital auf."},
+    {"id":"scene-06","type":"animation","headline":"DER ABSTAND WÄCHST MIT","subheadline":"Nicht nur die Einzahlung – auch deren mögliches Wachstum zählt.","animationMechanism":"Start: 6.000-Euro-Einzahlungsdifferenz. Aktion: ein zweiter Wachstumskörper bildet sich aus Erträgen auf die Extra-Beiträge. Ergebnis: Gesamtgap zerlegt sich in 6.000 Euro Extra-Einzahlungen plus rund 5.550 Euro zusätzliches Modellwachstum."},
+    {"id":"scene-07","type":"image","headline":"46.200 € VS. 57.800 €","subheadline":"Im Modell: rund 11.550 € Abstand.","googleFlowFileName":"Bild 07 - 46200 vs 57800 Euro.png","aspectRatio":"1:1"},
+    {"id":"scene-08","type":"animation","headline":"FRÜHE 25 € HABEN MEHR ZEIT","subheadline":"Frühe Beiträge können länger mitwachsen.","animationMechanism":"Start: zwei identische 25-Euro-Token. Aktion: einer startet früh auf der 20-Jahres-Strecke, der andere erst spät. Ergebnis: der früh gestartete Wachstumskörper ist sichtbar größer, obwohl beide Beiträge gleich hoch sind."},
+    {"id":"scene-09","type":"animation","headline":"MODELL IST KEINE PROGNOSE","subheadline":"Renditen schwanken; Kosten und Steuern verändern das Ergebnis.","animationMechanism":"Start: glatte 6-Prozent-Modelllinie. Aktion: reale schwankende Renditekurve bewegt sich darüber und Kosten-/Steuer-Gates reduzieren den Endwert. Ergebnis: das Modell bleibt Referenz, nicht Versprechen."},
+    {"id":"scene-10","type":"image","headline":"KLEINER SCHRITT. LANGE ZEIT.","subheadline":"Die Sparrate muss zu Budget und Risiko passen.","googleFlowFileName":"Bild 10 - Kleine Rate lange Zeit.png","aspectRatio":"1:1"}
+  ]
+}

@@ -1,0 +1,3 @@
+import React from 'react';import runtime from './runtime-data.json';import {Sparrate25} from './Sparrate25';import type {CaptionWord} from '../../lib/captions';
+const starts=runtime.sceneStarts as number[],durations=runtime.sceneDurations as number[];export const SPARRATE25_FINAL_FRAMES=Math.max(1,starts.length&&durations.length?starts[starts.length-1]+durations[durations.length-1]:1);
+export const Sparrate25Runtime:React.FC=()=>{if(String(runtime.status)!=='ready')throw new Error('Finale Sparrate25-Runtime ist noch nicht bereit.');return <Sparrate25 timeline={{sceneStarts:starts,sceneDurations:durations}} audioSrc={runtime.audioSrc as string} captionWords={runtime.captionWords as CaptionWord[]}/>};

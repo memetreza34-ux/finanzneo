@@ -1,0 +1,4 @@
+FINALER DATEINAME: Bild 07 - 46200 vs 57800 Euro.png
+STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
+No headline, no subtitle. Labels only: `46.200 €`, `57.800 €`, `+11.550 €`.
+Two large premium wealth towers, same material, clearly different final height, with strong gap marker. Fill almost the entire square width. No small infographic panel.

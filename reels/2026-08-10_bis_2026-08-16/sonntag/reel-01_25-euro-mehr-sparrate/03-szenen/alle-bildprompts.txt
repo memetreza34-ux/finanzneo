@@ -1,0 +1,52 @@
+FINANZNEO — GOOGLE FLOW — 25 € MEHR SPARRATE
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+
+REGEL: Immer genau EIN Bild erzeugen → vollständig warten → exakt umbenennen → visuell prüfen → erst dann nächstes Bild.
+
+GLOBAL STYLE:
+Premium fintech editorial 3D, deep charcoal green-black seamless background, emerald/mint accents, gold only for money/value, red-orange only for risk/loss, smooth rounded premium geometry, studio lighting. No photorealism, Pixar, clay, dashboard, app UI, diorama, neon tunnel, sci-fi corridor or clutter.
+
+━━━━━━━━━━━━━━━━━━
+BILD 00 — COVER — 9:16
+FINALER DATEINAME: Bild 00 - 25 Euro mehr Sparrate Cover.png
+━━━━━━━━━━━━━━━━━━
+Create exactly one vertical 9:16 image.
+Write this German cover text EXACTLY inside the image:
+`25 € MEHR IM MONAT`
+`WAS MACHT DAS IN 20 JAHREN?`
+Large bold premium editorial typography, maximum two visual text blocks, perfectly spelled. If any character, number or € sign is wrong, regenerate.
+Visual: a small gold 25-euro coin entering a long glowing 20-year wealth path that becomes a much larger gold/emerald wealth stack in the distance. Strong depth, immediate before/after effect.
+
+━━━━━━━━━━━━━━━━━━
+BILD 01 — HOOK — STRICT 1:1
+FINALER DATEINAME: Bild 01 - 100 vs 125 Euro.png
+━━━━━━━━━━━━━━━━━━
+Create exactly one SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
+No headline. No subtitle. Short object labels only: `100 €`, `125 €`.
+Make both hero objects very large, together filling roughly 90% of the square width. Two premium monthly money streams start side by side: 100 € and 125 €. The 125 € stream has one extra small 25 € gold token clearly attached. A subtle long-term path extends behind both. Strong, simple, instantly readable.
+
+━━━━━━━━━━━━━━━━━━
+BILD 04 — EINZAHLUNGEN — STRICT 1:1
+FINALER DATEINAME: Bild 04 - 24000 vs 30000 Einzahlungen.png
+━━━━━━━━━━━━━━━━━━
+Create exactly one SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
+No headline. Labels only: `24.000 €`, `30.000 €`.
+Two huge physical contribution stacks dominate the square canvas. Left stack 24.000 €, right stack 30.000 €, with a clear separate gold bracket/object showing the 6.000 € difference. No chart card, no tiny icons. Hero objects fill 85–95% of width.
+
+━━━━━━━━━━━━━━━━━━
+BILD 07 — ENDWERTE — STRICT 1:1
+FINALER DATEINAME: Bild 07 - 46200 vs 57800 Euro.png
+━━━━━━━━━━━━━━━━━━
+Create exactly one SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
+No headline. Labels only: `46.200 €`, `57.800 €`, `+11.550 €`.
+Two large premium wealth towers with the same visual material and lighting. Left tower visibly shorter at 46.200 €, right tower taller at 57.800 €. A large but elegant +11.550 € gap marker between them. Fill almost the whole square; no tiny infographic.
+
+━━━━━━━━━━━━━━━━━━
+BILD 10 — SCHLUSS — STRICT 1:1
+FINALER DATEINAME: Bild 10 - Kleine Rate lange Zeit.png
+━━━━━━━━━━━━━━━━━━
+Create exactly one SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
+No headline. Labels only: `25 €`, `20 JAHRE`.
+A large gold 25-euro coin works like a physical lever at the start of a long emerald timeline, lifting a much larger future wealth block. The metaphor must communicate: small sustainable increase + long time = meaningful effect. Large hero composition, approximately 90% of square width.
+
+END: verify all five filenames and verify that Bild 01/04/07/10 are genuinely square 1:1 while only Bild 00 is vertical 9:16.
