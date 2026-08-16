@@ -1,10 +1,50 @@
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_WORLD_ID: finanzneo-tangible-finance-editorial-v4
 
-Premium fintech editorial 3D. Deep charcoal green-black seamless background, vivid emerald/mint accents, gold only for money/value, warm red-orange only for risk/loss. Smooth rounded premium geometry, soft bevels, matte/glass materials, high-end studio lighting.
+VISUAL DIRECTION — TANGIBLE FINANCE WORLD
+Create a premium semi-realistic 3D editorial finance illustration that feels like a real, carefully art-directed financial scene — not an abstract infographic and not a futuristic object demo.
 
-COVER: vertical 9:16.
-NORMAL SCENE IMAGES: strictly square 1:1, 1080×1080 preferred. The hero metaphor must fill most of the square canvas, approximately 85–95% of usable width. No tiny centered poster, no diorama, no excessive empty space.
+The world must use TANGIBLE, instantly understandable real-world finance objects:
+- transparent glass savings jars / premium money containers
+- physical euro coins and believable euro banknote bundles
+- monthly calendar pages / time markers
+- tasteful desk or financial workspace props when useful
+- subtle documents, envelopes, calculator, notebook or small household-finance details when they support the idea
+- believable shadows, contact with surfaces, depth and spatial relationships
 
-Normal scene images contain only explicitly requested short object labels. No big headline, no subtitle, no sentence. The scene headline and spoken karaoke caption are rendered in Remotion.
+STYLE:
+- sophisticated editorial 3D documentary look
+- semi-realistic materials, not photorealistic photography
+- rich but controlled environment, not an empty black studio
+- deep forest/charcoal green environment with visible tonal variation and depth
+- soft warm key light plus subtle emerald rim light
+- gold reserved for money/value
+- mint/emerald for positive saving/growth
+- warm red-orange only for loss/risk
+- premium glass, brushed metal, paper and matte surfaces
+- cinematic depth of field used subtly
+- strong foreground / midground / background separation
 
-No photorealism, Pixar, clay, dashboard, app UI, neon tunnel, sci-fi corridor, game level or clutter.
+COMPOSITION:
+- every image must tell one financial idea immediately without needing narration
+- one dominant real-world hero situation, plus only 2–4 supporting details
+- objects should feel placed inside one coherent environment, not floating in empty space
+- hero subjects large and close enough for smartphone viewing
+- normal scene images are strict square 1:1, preferably 1080×1080
+- cover remains vertical 9:16
+
+STRICTLY FORBIDDEN:
+- abstract glowing tubes, pipes, rails or tracks
+- generic wealth towers / anonymous vertical blocks
+- glowing roads, neon paths or futuristic corridors
+- floating geometric bars as the main idea
+- sci-fi dashboards, app UI, charts as the main visual
+- isolated object on almost-black empty background
+- toy-like diorama, Pixar, clay, game-level look
+- excessive empty space
+- random text
+
+TEXT:
+Normal scene images contain only the explicitly requested short German object labels. No headline, no subtitle, no explanatory sentence. Cover text is the only large text generated inside an image.
+
+QUALITY GATE:
+If the result looks like an abstract tech render, a dark empty product shot, a glowing pipe/path, or a generic stack/tower infographic, REJECT IT and regenerate with more tangible everyday financial objects and a richer coherent environment.
