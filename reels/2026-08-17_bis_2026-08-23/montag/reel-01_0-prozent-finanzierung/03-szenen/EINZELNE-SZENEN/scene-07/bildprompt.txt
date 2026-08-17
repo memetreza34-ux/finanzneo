@@ -1,4 +1,4 @@
 FINALER DATEINAME: Bild 07 - Vertrag komplett pruefen.png
 STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Use FINANZNEO tangible finance editorial v4. No headline, no subtitle. Labels only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
-Large financing contract on a realistic desk, magnifying glass, three optional attachments shown as things to check rather than guaranteed contract contents. Paper, glass and metal detail. No abstract tower/pipe/rail visual language.
+Use FINANZNEO central-object editorial v6. No headline, no subtitle. Labels only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
+Create ONE large central stylized 3D contract/check block as the hero object. Around it place three smaller check modules labeled `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`, plus one small magnifying-glass/check symbol. The image must communicate: check the complete financing structure, not only the 0 % promise. No real desk scene, no repeated contract pages, no glowing line network as main motif, no tower or monolith.
