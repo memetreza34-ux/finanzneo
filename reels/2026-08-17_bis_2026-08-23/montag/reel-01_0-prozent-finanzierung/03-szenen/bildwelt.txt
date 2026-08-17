@@ -1,27 +1,38 @@
-FINANZNEO_WORLD_ID: finanzneo-tangible-finance-editorial-v4
+FINANZNEO_WORLD_ID: finanzneo-central-object-editorial-v6
 
-TANGIBLE FINANCE EDITORIAL 3D.
+CENTRAL OBJECT EDITORIAL 3D.
 
-Create a believable premium financial everyday world, not abstract fintech sculpture art.
-Use recognizable physical objects: real-looking euro coins and banknote bundles, receipts, contracts, price tags, envelopes, wallets, calendars, product packaging, shopping objects, pens, paper, glass savings containers and subtle desk/environment details.
+Create a stylized premium FinanzNeo explainer world — NOT a realistic everyday scene and NOT a line-based finance-flow world.
 
-Visual language:
-- sophisticated 3D editorial illustration, adult and premium
-- rich spatial depth with foreground, midground and background
-- deep charcoal / dark green environment, but NEVER an almost empty black void
-- emerald/mint for positive guidance and structure
+CORE COMPOSITION:
+- one LARGE dominant central hero object
+- 3–5 smaller supporting finance objects arranged around it
+- clear foreground, midground and background depth
+- the central object must explain the financial idea immediately
+- supporting elements may include small price tags, euro symbols, contract/check icons, coins, product symbols or payment markers
+- small connectors are allowed only as secondary structure; they must never become the main visual
+- large, bold, built 3D explainer composition similar to a premium financial display sculpture
+
+VISUAL LANGUAGE:
+- stylized adult premium 3D editorial illustration
+- smooth rounded geometry, soft bevelled edges, matte/glass/metal materials
+- deep charcoal green-black continuous background
+- emerald/mint for structure and positive guidance
 - gold only for money/value
-- warm red-orange for risk, debt, warnings or pressure
-- realistic material cues: paper, brushed metal, glass, matte plastic, fabric, wood/stone desk details
-- cinematic soft key light + practical ambient lights
-- strong large hero motif occupying 85–95% of useful square width
+- warm red-orange only for risk, pressure or warning
+- strong large central subject occupying most of the useful frame
+- rich but controlled supporting details around the hero object
 
 STRICTLY FORBIDDEN:
-- abstract tubes, pipes, rails or glowing tracks as the main metaphor
-- generic wealth towers, empty monoliths, futuristic blocks or meaningless columns
-- sci-fi corridors, neon tunnels, game-level environments
-- dashboards, app UI, infographic cards as the main image
-- almost empty studio-black product shots
+- realistic room, desk or everyday photographic scene
+- long glowing finance streams or line networks as the main motif
+- abstract tubes, pipes, rails or tracks dominating the image
+- wealth towers, monoliths, meaningless columns
+- repeated contract-paper walls
+- sterile product-ad hero shots
+- almost empty black studio scenes
+- sci-fi corridors, dashboards, app UI or infographic cards
+- tiny subject floating in a large empty canvas
 - Pixar, clay, toy-like or childish look
 
 ASPECT RATIOS:
@@ -32,3 +43,6 @@ TEXT:
 - Cover: exact requested German cover text only
 - Normal images: no headline, no subtitle, no explanatory sentence
 - only explicitly requested short object labels
+
+TARGET LOOK:
+A strong FinanzNeo 3D explainer image: one big central financial object, several smaller meaningful symbols around it, clean hierarchy, instantly understandable.
