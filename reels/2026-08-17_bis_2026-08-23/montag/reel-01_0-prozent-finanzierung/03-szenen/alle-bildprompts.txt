@@ -1,5 +1,5 @@
 FINANZNEO — GOOGLE FLOW — 0%-FINANZIERUNG
-FINANZNEO_WORLD_ID: finanzneo-central-object-editorial-v6
+FINANZNEO_WORLD_ID: finanzneo-physical-explainer-editorial-v7
 
 AUTONOMOUS CONTINUOUS RUN — HARD RULE:
 Generate ALL five required images in one continuous task.
@@ -8,85 +8,107 @@ Do NOT ask the user `Weiter?`, `Continue?`, for confirmation, approval or feedba
 For each image internally: generate → wait until fully complete → inspect spelling, aspect ratio and motif → if wrong, regenerate automatically → apply the exact final filename → immediately continue to the next image.
 Only after ALL five images are valid, provide one final completion summary.
 
-GLOBAL WORLD — CENTRAL OBJECT EDITORIAL 3D:
-This is a stylized premium FinanzNeo explainer world, NOT a realistic everyday scene and NOT a line-based finance-flow world.
-Every image must have ONE large central hero object plus 3–5 smaller supporting symbolic finance objects around it. Build the image like a premium 3D explanatory sculpture/display: strong central focus, clear hierarchy, rich depth, smooth rounded premium geometry, matte/glass/metal materials, deep charcoal green-black background, emerald/mint structure accents, gold only for money/value and warm red-orange only for risk/warning.
+GLOBAL WORLD — PHYSICAL 3D EXPLAINER EDITORIAL:
+Create a premium stylized 3D explainer still made from PHYSICAL, RECOGNIZABLE objects. The visual grammar must match a strong finance explainer illustration: one large physical hero object or board in the center, surrounded by concrete topic objects, money, products, paper tags and finance props that directly explain the beat.
 
-Small connectors are allowed only as secondary structure. Do NOT let glowing lines, streams, rails or networks dominate the image.
+REQUIRED:
+- ONE large central PHYSICAL hero object, NOT a screen, tablet, app card, chip or game tile
+- 3–6 recognizable topic-specific objects around it
+- natural asymmetric arrangement with local contact shadows and slight overlap
+- short labels rendered as physical price tags / paper tags / attached plaques, never floating UI badges
+- large readable objects, rich depth, clear hierarchy
+- stylized premium 3D, not photorealistic
+- seamless deep charcoal green-black background
+- emerald/mint accents, gold for money/value, red-orange only for warning/risk
 
 STRICTLY FORBIDDEN:
-- realistic room/desk/everyday scene
-- glowing finance-stream image as the main motif
-- abstract line networks
-- tubes, rails or tracks dominating the image
-- wealth towers, monoliths or meaningless columns
-- repeated contract-paper walls
-- sterile product advertising
-- almost empty black product shots
-- dashboards, app UI, sci-fi corridors or infographic cards
-- tiny central subject in huge empty space
+- microchip or circuit-board styling
+- central digital device with mini satellite modules
+- floating cards, tiles, chips, buttons or app widgets
+- four-corner mini-tile composition
+- circular orbit of icon modules
+- game-board / board-game composition
+- dashboard / HUD / app interface
+- glowing connector loops or line networks as the main composition
+- abstract finance streams, tubes, rails, tracks or roads
+- repeated contract-paper wall
+- wealth towers, monoliths, generic blocks
+- sterile product-ad scene
+- realistic desk / room / office scene
+- tiny icons replacing concrete recognizable objects
 
 ━━━━━━━━━━━━━━━━━━
 BILD 00 — COVER — 9:16
 FINALER DATEINAME: Bild 00 - 0 Prozent Finanzierung Cover.png
 ━━━━━━━━━━━━━━━━━━
-Create one vertical 9:16 premium stylized FinanzNeo cover in the central-object editorial v6 world.
+Create one vertical 9:16 premium stylized physical 3D explainer cover.
 Write this German cover text EXACTLY and nothing else as large cover typography:
 `0 % FINANZIERUNG`
 `WO IST DER HAKEN?`
 
-Create ONE large central financing hero object: a premium stylized 3D purchase/financing display block with a prominent `0 %` badge integrated into the object. Around it place a few smaller supporting symbols: a compact contract icon, three small monthly-payment tags, a gold euro coin/value marker and one subtle warning marker. These elements should surround and explain the center object rather than form a realistic scene.
-Strong centered composition, rich 3D depth, clear FinanzNeo hierarchy. No realistic desk, no row of contracts, no glowing line network, no product-ad look. Regenerate automatically if typography is not exact.
+Composition: one large solid physical financing sign/board as the hero object, integrated into a rich but clean 3D explainer scene. Around the hero place recognizable concrete objects related to installment buying: a smartphone box, headphones, a small contract folder, euro coins and 2–3 physical monthly-payment tags. The objects should feel physically grouped around the main board, similar to a premium editorial finance illustration.
+
+Do NOT turn the central board into a digital screen or microchip. No satellite tiles, no orbit, no app buttons, no circuit-board look. Natural asymmetric composition. Strong depth. Regenerate automatically if typography is not exact.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 01 — HOOK — STRICT 1:1
 FINALER DATEINAME: Bild 01 - 0 Prozent klingt kostenlos.png
 ━━━━━━━━━━━━━━━━━━
 Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. No subtitle. Short object label only: `0 %`.
+No headline. No subtitle. Short physical label only: `0 %`.
 
-Create ONE large central stylized financing/purchase block with a clean `0 %` badge. Around the main block place 3–4 smaller symbolic elements: a compact contract tile, monthly-payment tags and a small obligation marker. The image must instantly communicate: 0 % looks simple, but a repayment structure still exists.
-The central object must dominate the square; supporting elements stay clearly secondary. No realistic desk, no human scene, no giant glowing lines, no contract wall, no sterile product ad.
+Create one large physical 0%-offer plaque or hangtag as the central hero object. Around it place recognizable concrete objects: a smartphone/product box, headphones, a compact contract folder, several euro coins and a few small physical payment slips. The image should communicate: the offer looks easy, but a real financing obligation exists behind it.
+
+The scene must look like a stylized premium 3D finance explainer illustration, not a realistic shop or desk.
+NO digital screen. NO microchip. NO floating mini-tiles. NO circular icon orbit. NO app UI. NO glowing line network.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 04 — MEHRERE RATEN — STRICT 1:1
 FINALER DATEINAME: Bild 04 - Drei Raten 95 Euro.png
 ━━━━━━━━━━━━━━━━━━
 Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. No subtitle. Object labels only: `35 €`, `30 €`, `30 €`, `95 € / MONAT`.
+No headline. No subtitle. Physical labels only: `35 €`, `30 €`, `30 €`, `95 € / MONAT`.
 
-Create ONE large central premium 3D amount board showing `95 € / MONAT`.
-Around it place three smaller stylized payment/purchase modules with the labels `35 €`, `30 €`, `30 €`. Arrange them around the central object so the viewer instantly understands that three smaller monthly obligations combine into the larger 95 € monthly burden. Use only subtle short connectors if useful; the central 95 € object must remain the hero.
-No realistic products on a desk, no finance-stream network, no chart, no dashboard, no tiny infographic panel.
+Create one large solid physical amount board in the center reading `95 € / MONAT`.
+Around the board place three recognizable financed products, for example a laptop, smartphone and headphones. Each product has one small PHYSICAL price/payment tag attached nearby: `35 €`, `30 €`, `30 €`.
+Add a few euro coins near the base for financial context.
+
+The main idea must be obvious in one glance: three separate small purchases together equal 95 € per month.
+Use a natural asymmetric arrangement, slight overlap and contact shadows.
+Do NOT create four floating electronic tiles around a central digital tile. No game-board, no chips, no buttons, no circuit-board styling.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 07 — VERTRAG PRÜFEN — STRICT 1:1
 FINALER DATEINAME: Bild 07 - Vertrag komplett pruefen.png
 ━━━━━━━━━━━━━━━━━━
 Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. No subtitle. Short labels only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
+No headline. No subtitle. Physical tags only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
 
-Create ONE large central stylized 3D contract/check block as the dominant hero object. It should look like a premium FinanzNeo financial explainer object, not like real paper on a desk. Around it place three smaller check modules clearly labeled `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`, plus one small magnifying-glass/check symbol. The composition must communicate: check the complete financing structure, not only the 0 % promise.
-No real desk scene, no repeated contract pages, no line-network main motif, no abstract tower.
+Use one large thick physical contract folder/booklet as the central hero object. Around it place a stylized magnifying glass, pen, euro coins and three small physical paper tabs/tags attached around the contract reading `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
+The image should look like a premium 3D explainer sculpture on a seamless dark-green background, not a realistic desk.
+
+NO stacked digital cards. NO floating UI chips. NO mini-screen modules. NO ring of icons. NO app dashboard. NO contract-paper wall.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 10 — SCHLUSS — STRICT 1:1
 FINALER DATEINAME: Bild 10 - Wuerdest du es ohne Rate kaufen.png
 ━━━━━━━━━━━━━━━━━━
 Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. No subtitle. Short label only: `OHNE RATE?`.
+No headline. No subtitle. Short physical label only: `OHNE RATE?`.
 
-Create ONE large central stylized 3D decision object in the middle — a premium FinanzNeo choice/display block marked `OHNE RATE?`. Around it place two clear smaller symbolic choices: one stylized purchase/payment module and one gold money/value module, plus a small question/decision marker. The image must communicate the decision: would the purchase still feel worth it without installment framing?
-No realistic table, no human hand, no giant line fork, no product-ad scene. Central decision object must dominate.
+Create one large physical balance/decision object as the hero motif. On one side place a recognizable desired product box; on the other side place a cash envelope and euro coins. Add one small physical tag reading `OHNE RATE?` near the decision object and one smaller monthly-rate tag near the product.
+The visual should ask: would this purchase still feel worth it without installment framing?
+
+Keep the composition stylized, premium, concrete and physical. Natural asymmetry, strong depth, contact shadows.
+NO digital central screen. NO floating UI cards. NO game-board. NO satellite chips. NO glowing line network.
 
 FINAL INTERNAL CHECK:
 - exactly five valid images
 - Bild 00 is 9:16 and has exact cover typography
 - Bild 01/04/07/10 are genuinely square 1:1
-- every image uses one large central hero object + smaller supporting symbols
-- no realistic everyday scenes
-- no glowing line network as main motif
-- no contract-paper wall or sterile product-ad look
-- no user confirmation requested between images
+- visual world is `finanzneo-physical-explainer-editorial-v7`
+- every scene uses physical recognizable topic objects
+- no microchip / UI-tile / game-board / satellite-module composition
+- no user confirmation was requested between images
 - all filenames exact
 Only now provide the final completion summary.
