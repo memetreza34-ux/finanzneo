@@ -1,4 +1,8 @@
 FINALER DATEINAME: Bild 07 - Vertrag komplett pruefen.png
 STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Use FINANZNEO central-object editorial v6. No headline, no subtitle. Labels only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
-Create ONE large central stylized 3D contract/check block as the hero object. Around it place three smaller check modules labeled `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`, plus one small magnifying-glass/check symbol. The image must communicate: check the complete financing structure, not only the 0 % promise. No real desk scene, no repeated contract pages, no glowing line network as main motif, no tower or monolith.
+Use FINANZNEO physical explainer editorial v7. No headline, no subtitle. Physical tags only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
+
+Use ONE large thick physical contract folder/booklet as the central hero object. Around it place a stylized magnifying glass, pen, euro coins and three small PHYSICAL paper tabs/tags attached around the contract reading `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
+The image should look like a premium 3D explainer sculpture on a seamless dark-green background, not a realistic desk.
+
+STRICTLY FORBIDDEN: stacked digital cards, floating UI chips/tiles, mini-screen modules, circular ring of icons, satellite modules, game-board composition, app dashboard, microchip/circuit-board styling or contract-paper wall.
