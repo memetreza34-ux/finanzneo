@@ -1,0 +1,81 @@
+FINANZNEO_WORLD_ID: finanzneo-physical-explainer-editorial-v7
+
+PHYSICAL 3D EXPLAINER EDITORIAL — GLOBAL LOCKED WORLD
+
+PURPOSE
+FinanzNeo images must look like premium stylized 3D explanatory illustrations built from physical, recognizable objects. The approved visual direction is: one strong main finance object/board plus concrete topic objects around it, such as products, euro coins, groceries, contracts, envelopes, receipts, calendars and physical price tags.
+
+THIS IS NOT
+- a realistic room, desk or lifestyle photo
+- a digital dashboard
+- a microchip / circuit-board world
+- a board game
+- a collection of floating UI tiles
+- a central screen with satellite buttons
+- an abstract finance-flow network
+
+CORE COMPOSITION — REQUIRED
+1. ONE large PHYSICAL hero object in the center or dominant middle area.
+   Good examples: solid amount board, physical price board, budget block, contract folder, shopping basket, safe, calendar block, product box, piggy bank, physical comparison sign, physical scale.
+   The hero object must NOT look like a tablet, app card, digital screen, microchip, phone UI or game tile.
+
+2. Place 3–6 RECOGNIZABLE, TOPIC-SPECIFIC physical objects around the hero.
+   Examples: smartphone box, headphones, laptop, groceries, milk carton, bread, fruit, euro coins, banknotes, envelope, contract folder, receipt, magnifying glass, calendar, shopping bag.
+   Prefer concrete recognizable objects over generic symbols/icons whenever possible.
+
+3. Arrange supporting objects naturally and asymmetrically.
+   - slight overlap is good
+   - real local contact shadows
+   - foreground / midground / background depth
+   - objects can sit around the base of the hero
+   - do NOT evenly distribute four mini-elements into four corners
+   - do NOT place objects in a circular orbit
+
+4. Labels must be PHYSICAL.
+   Short labels may appear as price tags, paper tags, attached plaques, stickers or small physical signs.
+   Never render labels as floating app badges, glowing UI chips or digital buttons.
+
+VISUAL STYLE
+- premium stylized adult 3D editorial illustration
+- not photorealistic, not childish
+- deep charcoal green-black seamless background
+- emerald / mint accents for structure and positive guidance
+- gold only for money / value
+- warm red-orange only for warning / debt / pressure
+- smooth rounded geometry and soft bevels
+- matte paper, brushed metal, glass and premium plastic material cues
+- cinematic soft key light and clear contact shadows
+- strong readable silhouette and substantial objects
+- camera usually front or gentle elevated 3/4 view, never tiny isometric game diorama
+
+STRICTLY FORBIDDEN — SCREENSHOT FAILURE MODE
+- microchip or circuit-board visual language
+- central digital screen/device surrounded by mini modules
+- floating cards, tiles, chips, buttons, app widgets or HUD elements
+- four-corner mini-tile layouts
+- circular satellite-module orbit around a center object
+- game-board / board-game layout
+- UI control panel aesthetics
+- generic icon buttons instead of concrete objects
+- glowing connector loops or neon line networks
+- abstract finance streams as the main composition
+- tubes, rails, tracks or roads
+- repeated contract-paper walls
+- wealth towers, monoliths, meaningless geometric blocks
+- sterile luxury product-ad shots
+- realistic office, room or desk environment
+- tiny subject in huge empty space
+- Pixar, clay or toy-like styling
+
+ASPECT RATIOS
+- Cover Bild 00: vertical 9:16
+- normal Google-Flow scene images: strict square 1:1, preferably 1080×1080
+- normal square should be composed to remain strong when displayed approximately 1000×1000 in the 1080×1920 reel
+
+TEXT
+- cover: exact requested German cover typography directly in Google Flow
+- normal images: no headline, no subtitle, no explanatory sentence
+- only explicitly requested short physical object labels
+
+GOOGLE FLOW EXECUTION
+Generate required images sequentially internally in one continuous run. Never ask `Weiter?`, `Continue?`, approval or feedback between images. Inspect each result; automatically regenerate if the physical-explainer composition or text/aspect ratio fails; continue immediately to the next image. Only after all images pass provide one final summary.
