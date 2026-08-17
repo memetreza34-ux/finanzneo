@@ -5,11 +5,16 @@
   "imageSceneCount": 4,
   "animationSceneCount": 6,
   "imageWorld": {
-    "id": "finanzneo-tangible-finance-editorial-v4",
+    "id": "finanzneo-central-object-editorial-v6",
     "abstractTubesForbidden": true,
     "wealthTowersForbidden": true,
     "emptyBlackStudioForbidden": true,
-    "tangibleEverydayFinanceObjectsRequired": true
+    "tangibleEverydayFinanceObjectsRequired": false,
+    "repeatedContractWallForbidden": true,
+    "sterileProductAdLookForbidden": true,
+    "stylizedFinanceFlowRequired": false,
+    "centralHeroObjectRequired": true,
+    "lineNetworkMainMotifForbidden": true
   },
   "googleFlowExecution": {
     "continuousAutonomousRun": true,
