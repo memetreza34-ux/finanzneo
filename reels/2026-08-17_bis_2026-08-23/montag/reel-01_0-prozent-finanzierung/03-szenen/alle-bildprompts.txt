@@ -1,5 +1,5 @@
 FINANZNEO — GOOGLE FLOW — 0%-FINANZIERUNG
-FINANZNEO_WORLD_ID: finanzneo-tangible-finance-editorial-v4
+FINANZNEO_WORLD_ID: finanzneo-central-object-editorial-v6
 
 AUTONOMOUS CONTINUOUS RUN — HARD RULE:
 Generate ALL five required images in one continuous task.
@@ -8,21 +8,35 @@ Do NOT ask the user `Weiter?`, `Continue?`, for confirmation, approval or feedba
 For each image internally: generate → wait until fully complete → inspect spelling, aspect ratio and motif → if wrong, regenerate automatically → apply the exact final filename → immediately continue to the next image.
 Only after ALL five images are valid, provide one final completion summary.
 
-GLOBAL WORLD:
-Premium tangible finance editorial 3D in a believable adult everyday financial environment. Use recognizable physical objects such as euro coins/banknotes, receipts, contracts, price tags, envelopes, wallets, calendars, product packaging and desk details. Strong spatial depth. Deep charcoal/dark-green environment with visible detail, not an empty black void. Emerald/mint guidance accents, gold only for money/value, red-orange only for risk/debt/warnings.
+GLOBAL WORLD — CENTRAL OBJECT EDITORIAL 3D:
+This is a stylized premium FinanzNeo explainer world, NOT a realistic everyday scene and NOT a line-based finance-flow world.
+Every image must have ONE large central hero object plus 3–5 smaller supporting symbolic finance objects around it. Build the image like a premium 3D explanatory sculpture/display: strong central focus, clear hierarchy, rich depth, smooth rounded premium geometry, matte/glass/metal materials, deep charcoal green-black background, emerald/mint structure accents, gold only for money/value and warm red-orange only for risk/warning.
 
-NEVER generate abstract tubes, pipes, rails, glowing tracks, wealth towers, monoliths, meaningless columns, sci-fi corridors, dashboards, infographic cards, empty black studio shots, Pixar or clay styling.
+Small connectors are allowed only as secondary structure. Do NOT let glowing lines, streams, rails or networks dominate the image.
+
+STRICTLY FORBIDDEN:
+- realistic room/desk/everyday scene
+- glowing finance-stream image as the main motif
+- abstract line networks
+- tubes, rails or tracks dominating the image
+- wealth towers, monoliths or meaningless columns
+- repeated contract-paper walls
+- sterile product advertising
+- almost empty black product shots
+- dashboards, app UI, sci-fi corridors or infographic cards
+- tiny central subject in huge empty space
 
 ━━━━━━━━━━━━━━━━━━
 BILD 00 — COVER — 9:16
 FINALER DATEINAME: Bild 00 - 0 Prozent Finanzierung Cover.png
 ━━━━━━━━━━━━━━━━━━
-Create one vertical 9:16 premium editorial 3D cover.
-Write this German text EXACTLY and nothing else as large cover typography:
+Create one vertical 9:16 premium stylized FinanzNeo cover in the central-object editorial v6 world.
+Write this German cover text EXACTLY and nothing else as large cover typography:
 `0 % FINANZIERUNG`
 `WO IST DER HAKEN?`
 
-Scene: an attractive modern electronics purchase on a premium retail/desk surface — a smartphone box and headphones with a clean 0%-offer tag in the foreground. Behind the attractive offer, reveal a realistic paper credit contract and a row of monthly payment slips extending into the background. The visual should communicate: appealing offer in front, financial obligation behind it. Strong depth, rich environment, large objects, no abstract shapes. Regenerate automatically if typography is not exact.
+Create ONE large central financing hero object: a premium stylized 3D purchase/financing display block with a prominent `0 %` badge integrated into the object. Around it place a few smaller supporting symbols: a compact contract icon, three small monthly-payment tags, a gold euro coin/value marker and one subtle warning marker. These elements should surround and explain the center object rather than form a realistic scene.
+Strong centered composition, rich 3D depth, clear FinanzNeo hierarchy. No realistic desk, no row of contracts, no glowing line network, no product-ad look. Regenerate automatically if typography is not exact.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 01 — HOOK — STRICT 1:1
@@ -30,7 +44,9 @@ FINALER DATEINAME: Bild 01 - 0 Prozent klingt kostenlos.png
 ━━━━━━━━━━━━━━━━━━
 Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
 No headline. No subtitle. Short object label only: `0 %`.
-Show a premium smartphone or laptop purchase on a realistic retail/finance desk. A large elegant `0 %` offer tag is attached to the product, while a real paper credit agreement and monthly payment slips are clearly visible behind it. The hero objects must fill roughly 90% of the square. The image must instantly communicate: zero percent looks easy, but a contract still exists.
+
+Create ONE large central stylized financing/purchase block with a clean `0 %` badge. Around the main block place 3–4 smaller symbolic elements: a compact contract tile, monthly-payment tags and a small obligation marker. The image must instantly communicate: 0 % looks simple, but a repayment structure still exists.
+The central object must dominate the square; supporting elements stay clearly secondary. No realistic desk, no human scene, no giant glowing lines, no contract wall, no sterile product ad.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 04 — MEHRERE RATEN — STRICT 1:1
@@ -38,7 +54,10 @@ FINALER DATEINAME: Bild 04 - Drei Raten 95 Euro.png
 ━━━━━━━━━━━━━━━━━━
 Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
 No headline. No subtitle. Object labels only: `35 €`, `30 €`, `30 €`, `95 € / MONAT`.
-Show three large recognizable financed purchases side by side: laptop, smartphone and headphones. Each has one physical monthly payment tag: 35 €, 30 €, 30 €. In the foreground, combine them into one large physical monthly envelope marked `95 € / MONAT`. Rich believable environment, large objects, no charts, no dashboard, no tiny icons.
+
+Create ONE large central premium 3D amount board showing `95 € / MONAT`.
+Around it place three smaller stylized payment/purchase modules with the labels `35 €`, `30 €`, `30 €`. Arrange them around the central object so the viewer instantly understands that three smaller monthly obligations combine into the larger 95 € monthly burden. Use only subtle short connectors if useful; the central 95 € object must remain the hero.
+No realistic products on a desk, no finance-stream network, no chart, no dashboard, no tiny infographic panel.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 07 — VERTRAG PRÜFEN — STRICT 1:1
@@ -46,7 +65,9 @@ FINALER DATEINAME: Bild 07 - Vertrag komplett pruefen.png
 ━━━━━━━━━━━━━━━━━━
 Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
 No headline. No subtitle. Short labels only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
-Show a large realistic financing contract opened on a premium desk. Three separate optional attachments/tabs branch from the contract, each clearly presented as something to CHECK, not as something that is always present: insurance, fees, framework credit. Use subtle question marks exactly as labels above. A magnifying glass examines the contract. Tangible paper-and-metal world, strong depth, no abstract blocks.
+
+Create ONE large central stylized 3D contract/check block as the dominant hero object. It should look like a premium FinanzNeo financial explainer object, not like real paper on a desk. Around it place three smaller check modules clearly labeled `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`, plus one small magnifying-glass/check symbol. The composition must communicate: check the complete financing structure, not only the 0 % promise.
+No real desk scene, no repeated contract pages, no line-network main motif, no abstract tower.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 10 — SCHLUSS — STRICT 1:1
@@ -54,13 +75,18 @@ FINALER DATEINAME: Bild 10 - Wuerdest du es ohne Rate kaufen.png
 ━━━━━━━━━━━━━━━━━━
 Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
 No headline. No subtitle. Short label only: `OHNE RATE?`.
-Show a thoughtful purchase decision on a realistic table: desired product on the left, a real budget envelope/cash stack on the right, and a human hand paused between them without showing a full person. A small monthly-rate tag lies closer to the viewer but is not the dominant object. The image must visually ask whether the buyer would still choose the product without installment framing. Premium adult editorial 3D, large hero composition, rich environment.
+
+Create ONE large central stylized 3D decision object in the middle — a premium FinanzNeo choice/display block marked `OHNE RATE?`. Around it place two clear smaller symbolic choices: one stylized purchase/payment module and one gold money/value module, plus a small question/decision marker. The image must communicate the decision: would the purchase still feel worth it without installment framing?
+No realistic table, no human hand, no giant line fork, no product-ad scene. Central decision object must dominate.
 
 FINAL INTERNAL CHECK:
 - exactly five valid images
 - Bild 00 is 9:16 and has exact cover typography
 - Bild 01/04/07/10 are genuinely square 1:1
-- no user confirmation was requested between images
-- no abstract tube/tower/rail visual language
+- every image uses one large central hero object + smaller supporting symbols
+- no realistic everyday scenes
+- no glowing line network as main motif
+- no contract-paper wall or sterile product-ad look
+- no user confirmation requested between images
 - all filenames exact
 Only now provide the final completion summary.
