@@ -28,9 +28,9 @@
     "render": "npm run render:short-hook",
     "render:short-hook": "node scripts/render-validated.mjs manifests/short-hook.json",
     "reel:prepare": "node scripts/sync-reel-assets.mjs",
-    "reel:preview": "node scripts/reel-render.mjs",
-    "reel:render": "node scripts/reel-render.mjs",
-    "reel:qa": "node scripts/reel-render.mjs --post-render",
+    "reel:preview": "node scripts/reel-render-locked.mjs",
+    "reel:render": "node scripts/reel-render-locked.mjs",
+    "reel:qa": "node scripts/reel-render-locked.mjs --post-render",
     "render:preview": "npx remotion render src/index.ts ShortHook out/short-hook-preview.mp4 --scale=0.5",
     "render:template-demo": "npx remotion render src/index.ts ReelTemplateDemo out/reel-template-demo.mp4 --scale=0.5",
     "upgrade": "npx remotion upgrade"
