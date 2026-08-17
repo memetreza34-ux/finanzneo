@@ -6,13 +6,89 @@ These rules apply only to Google Antigravity in this workspace.
 
 Read completely before work:
 
-1. `CLAUDE.md`
-2. `reels/PRODUKTIONSSTANDARD.md`
-3. `docs/REEL-QUALITY-CONTRACT-V2.md`
-4. `docs/BEAT-TO-IMAGE-RULES.md`
-5. target Reel files
+1. `.agents/rules/finanzneo-image-world-lock.md`
+2. `config/finanzneo-image-world-lock.json`
+3. `CLAUDE.md`
+4. `reels/PRODUKTIONSSTANDARD.md`
+5. `docs/REEL-QUALITY-CONTRACT-V2.md`
+6. `docs/BEAT-TO-IMAGE-RULES.md`
+7. target Reel files
 
-`CLAUDE.md` is the highest production/style authority. Never weaken validators, tests, design tokens, finance calculations or quality gates just to make a Reel pass.
+`CLAUDE.md` remains the highest general production/style authority.
+
+**Exception — image world only:** `config/finanzneo-image-world-lock.json` plus `.agents/rules/finanzneo-image-world-lock.md` is the hard technical authority for the Google-Flow image world and supersedes older image-world wording that may remain in historical docs or old Reels. Never weaken validators, tests, design tokens, finance calculations, lockfiles or quality gates just to make a Reel pass.
+
+## GLOBAL IMAGE-WORLD LOCK — NEVER DRIFT PER REEL
+
+Locked world:
+
+```text
+finanzneo-central-object-editorial-v6
+```
+
+For every NEW Reel:
+
+- normal Google-Flow scene images are strict 1:1, preferably 1080×1080
+- Cover Bild 00 remains 9:16
+- each normal scene image uses ONE large central hero object
+- 3–5 smaller supporting symbolic finance objects surround the hero
+- premium stylized 3D explainer composition
+- strong central focus, rich depth and clear hierarchy
+
+Forbidden as image-world drift:
+
+- realistic everyday / desk / room scene as the main composition
+- glowing finance-flow lines or line networks as the main motif
+- tubes, rails, tracks or roads as main visual
+- repeated contract-paper wall
+- wealth tower / monolith / meaningless columns
+- sterile product-ad hero shot
+- almost-empty black studio shot
+- dashboard/app UI
+- sci-fi corridor / neon tunnel
+- tiny subject in huge empty space
+
+Never invent or rename a new Reel-specific world. A different world is allowed only after an explicit GLOBAL user request and an intentional edit of `config/finanzneo-image-world-lock.json`.
+
+Mandatory technical gates:
+
+```bash
+npm run validate:image-world
+npm run reel:validate -- <TARGET-REEL>
+```
+
+New Reels must be created through:
+
+```bash
+npm run reel:create -- --target <TARGET-REEL> --title "..."
+```
+
+This command must remain wired to `scripts/scaffold-finanzneo-reel-locked.mjs`.
+
+## Google Flow image autopilot
+
+Every new `03-szenen/alle-bildprompts.txt` must instruct Google Flow to generate the complete required image set in one uninterrupted autonomous sequence.
+
+Required behavior:
+
+```text
+Bild 00
+→ wait internally until generation is complete
+→ inspect against exact requirements
+→ regenerate automatically if wrong
+→ assign exact filename
+→ immediately continue to next required image
+→ repeat until every required image is finished
+→ only then give one final summary
+```
+
+Hard rules:
+
+- NEVER ask the user `Weiter?`, `Continue?`, approval, feedback or confirmation between images.
+- NEVER stop after one completed image.
+- NEVER announce the next image and then wait for user input.
+- A failed image is regenerated automatically before continuing.
+- Sequential generation means one image at a time internally, NOT one user turn per image.
 
 ## Autopilot
 
@@ -40,6 +116,7 @@ Before production verify:
 - every required image exists with exact expected filename
 - exactly one readable final audio exists
 - `Bild 00` contains the exact required Google-Flow cover headline
+- every normal supplied Flow image matches the locked 1:1 Central-Object world
 
 Missing/wrong/unreadable/ambiguous required media →
 
@@ -51,24 +128,26 @@ Action: <exact user action required>
 
 Antigravity never generates replacement images.
 
-## V2 visual quality gate
+## Visual quality gate
 
-For V17+ Reels:
+For new Reels:
 
 ```text
-Target: 60 % native Remotion animation / 40 % Google-Flow images
-Final duration: 55–65 % animation / 35–45 % images
+Target: about 60 % native Remotion animation / 40 % Google-Flow images
+Allowed animation range: 50–70 % when semantic quality requires it
 ```
 
 Rules:
 
-- standard animation count = `round(sceneCount × 0.60)`
+- 6 animation + 4 images is the normal starting point for 10 scenes, not a reason to create meaningless motion
 - no two image scenes directly consecutive
 - static image normally <= 8 seconds
 - no long static tail
 - dynamic information is animation-first
 - every scene needs real `visualRole` + `visualSelectionReason`
 - every image scene needs `expectedVisual`
+- every animation needs Start → visible action/mechanism → result
+- icon-only, number-zoom, static-bar, emoji, generic-card or text-only animation is forbidden
 
 Use Remotion for comparisons, calculations, timelines, growth, money flow, mechanisms, steps and changing cause/effect.
 
@@ -86,22 +165,28 @@ Reject if:
 - contradictory information appears
 - image unnecessarily repeats headline + caption information
 - cover headline is wrong/missing/clipped/unreadable
-- background/person/image-world rules fail
+- normal scene image is not 1:1
+- image violates `finanzneo-central-object-editorial-v6`
+- central hero object is missing
+- line network / realistic scene / contract wall / wealth tower / product-ad drift appears
 
 If regeneration is needed → `BLOCKED`. Never hide a bad image with Remotion overlays.
 
-## Canonical Remotion presentation
+## Canonical image presentation
 
-Image scenes:
+For new Reels:
 
-- complete vertical 9:16 source spans full 1080×1920
-- no inset `VisualStage`
-- no intentional crop/focal zoom
-- scene 01+ headline + caption overlay the same image
+```text
+Cover Bild 00: vertical 9:16
+Normal Flow scene images: square 1:1, preferably 1080×1080
+Reel canvas: 1080×1920
+Square image display: approximately 1000×1000, centered horizontally
+```
+
+- never stretch a 1:1 source vertically to 9:16
+- no tiny centered poster
 - cover gets no Remotion replacement headline
-- only soft continuous readability scrim
-
-Use `src/design-system/FullFrameImage.tsx`.
+- target `scene-index.json` remains authoritative for per-scene filenames and content
 
 Native Remotion scenes use one continuous full-canvas background without floor/horizon/studio split.
 
@@ -128,29 +213,19 @@ If exact audio alignment cannot be produced → `BLOCKED`.
 
 At any time show exactly one short caption unit.
 
-For V17+:
+Current target:
 
 ```text
 max 12 words
 max 68 characters
 max 2 lines
 min 42 px effective font
-bottom ≈ 320
+bottom ≈ 430
 left ≈ 72
-right ≈ 180
+right ≈ 170–180
 ```
 
-A long spoken sentence may be split into sequential meaning/pause units without changing the audio.
-
-Never:
-
-- show two units simultaneously
-- let text overflow/clip
-- shrink below safe readable size
-- fabricate word timing
-- use opaque black caption cards
-
-Current spoken word follows exact real start/end timing.
+Never show two units simultaneously, let text overflow/clip, shrink below safe size, fabricate timing or use opaque black caption cards. Current spoken word follows exact real start/end timing.
 
 ## Non-destructive repository policy
 
@@ -162,27 +237,17 @@ Current spoken word follows exact real start/end timing.
 - existing Reels read-only unless targeted
 - do not upgrade dependencies unless requested
 - validation failure must be fixed, never bypassed by weakening rules
+- image-world lock must never be bypassed just to satisfy a Reel
 
 ## Final QA
 
-For V17+ Reels, final completion requires actual full-MP4 QA documented in:
+Final completion requires actual full-MP4 QA documented in:
 
 ```text
 05-projektdateien/final-qa.json
 ```
 
-It must truthfully confirm:
-
-- full MP4 inspected
-- every scene inspected
-- image/voice semantic match
-- generated text/labels correct
-- scene/audio sync correct
-- subtitle safe-area passed
-- subtitle active-word sync passed
-- actual animation duration 55–65 %
-- no long static tail
-- audio levels passed
+It must truthfully confirm full MP4 inspection, every scene inspection, image/voice semantic match, generated text correctness, scene/audio sync, subtitle safe-area, active-word sync, meaningful animations, no long static tail and passed audio levels.
 
 Audio target:
 
