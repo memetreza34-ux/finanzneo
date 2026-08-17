@@ -1,39 +1,46 @@
-FINANZNEO_WORLD_ID: finanzneo-central-object-editorial-v6
+FINANZNEO_WORLD_ID: finanzneo-physical-explainer-editorial-v7
 
-CENTRAL OBJECT EDITORIAL 3D.
+PHYSICAL 3D EXPLAINER EDITORIAL — LOCKED LOOK.
 
-Create a stylized premium FinanzNeo explainer world — NOT a realistic everyday scene and NOT a line-based finance-flow world.
+TARGET LOOK:
+Create a premium stylized 3D explainer still built from PHYSICAL, RECOGNIZABLE finance and topic objects on one seamless deep charcoal-green background. The result should feel like the approved FinanzNeo explainer reference: one strong main object plus concrete surrounding objects, price tags and money details.
 
 CORE COMPOSITION:
-- one LARGE dominant central hero object
-- 3–5 smaller supporting finance objects arranged around it
-- clear foreground, midground and background depth
-- the central object must explain the financial idea immediately
-- supporting elements may include small price tags, euro symbols, contract/check icons, coins, product symbols or payment markers
-- small connectors are allowed only as secondary structure; they must never become the main visual
-- large, bold, built 3D explainer composition similar to a premium financial display sculpture
+- ONE large central PHYSICAL hero object: for example a solid amount board, price board, contract folder, budget block, shopping basket, calendar block, safe, product box or other tangible explanatory object
+- the central hero must NOT look like a tablet, screen, microchip, app card or game tile
+- around it place 3–6 RECOGNIZABLE topic-specific objects: products, euro coins, cash, envelopes, groceries, price tags, receipts, contract folders, calendars, shopping objects or other concrete objects that directly explain the beat
+- supporting objects sit naturally around the hero with local contact shadows and slight overlap
+- use a natural asymmetric composition, not an evenly spaced orbit
+- short labels should look like PHYSICAL price tags, paper tags, plaques or labels attached to objects — never floating UI badges
+- strong foreground / midground / background depth
+- large readable objects, not tiny icons
 
-VISUAL LANGUAGE:
-- stylized adult premium 3D editorial illustration
-- smooth rounded geometry, soft bevelled edges, matte/glass/metal materials
-- deep charcoal green-black continuous background
-- emerald/mint for structure and positive guidance
-- gold only for money/value
-- warm red-orange only for risk, pressure or warning
-- strong large central subject occupying most of the useful frame
-- rich but controlled supporting details around the hero object
+STYLE:
+- stylized premium adult 3D editorial illustration, not photorealistic
+- deep charcoal green-black seamless background
+- emerald / mint accents for structure and guidance
+- gold for euro coins / value
+- warm red-orange only for warning / debt / pressure
+- smooth rounded forms, soft bevels, matte paper, brushed metal, glass and premium plastic materials
+- clean cinematic key light, soft contact shadows
 
 STRICTLY FORBIDDEN:
-- realistic room, desk or everyday photographic scene
-- long glowing finance streams or line networks as the main motif
-- abstract tubes, pipes, rails or tracks dominating the image
-- wealth towers, monoliths, meaningless columns
+- microchip / circuit-board visual language
+- central digital screen with satellite buttons
+- floating UI cards, tiles, chips, buttons or app modules
+- four-corner mini-tile layouts
+- circular orbit of icon modules around a center object
+- game-board or board-game composition
+- dashboard / HUD / app interface
+- glowing connector loops or line networks as the composition
+- abstract finance streams, tubes, rails, tracks or roads
+- generic symbols when a concrete recognizable object can explain the idea
 - repeated contract-paper walls
+- wealth towers, monoliths or meaningless blocks
 - sterile product-ad hero shots
-- almost empty black studio scenes
-- sci-fi corridors, dashboards, app UI or infographic cards
-- tiny subject floating in a large empty canvas
-- Pixar, clay, toy-like or childish look
+- realistic desk / office / room scene
+- Pixar, clay or toy look
+- tiny subject floating in a huge empty field
 
 ASPECT RATIOS:
 - Cover only: vertical 9:16
@@ -42,7 +49,4 @@ ASPECT RATIOS:
 TEXT:
 - Cover: exact requested German cover text only
 - Normal images: no headline, no subtitle, no explanatory sentence
-- only explicitly requested short object labels
-
-TARGET LOOK:
-A strong FinanzNeo 3D explainer image: one big central financial object, several smaller meaningful symbols around it, clean hierarchy, instantly understandable.
+- only explicitly requested short physical object labels
