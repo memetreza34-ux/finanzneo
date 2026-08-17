@@ -1,0 +1,70 @@
+FINANZNEO_WORLD_ID: finanzneo-central-object-editorial-v6
+
+GLOBAL LOCKED IMAGE WORLD — DO NOT INVENT A REPLACEMENT PER REEL.
+
+Use a stylized premium 3D FinanzNeo explainer world.
+This world is NOT realistic, NOT documentary, NOT a product-ad world and NOT a line-based finance-flow world.
+
+CORE COMPOSITION — REQUIRED:
+- ONE large central hero object in the middle
+- 3–5 smaller supporting symbolic finance objects around it
+- strong central focus and clear visual hierarchy
+- clear foreground, midground and background depth
+- premium editorial 3D lighting
+- smooth rounded premium geometry
+- matte / glass / metal materials
+- clean but rich composition
+- highly readable visual logic at Reel size
+
+ALLOWED VISUAL LANGUAGE:
+- central amount board
+- central finance block
+- central contract core
+- central decision object
+- central purchase/finance display
+- surrounding smaller finance symbols
+- small price tags and object labels
+- subtle supporting connectors only
+- explanatory 3D sculpture/display composition
+
+STRICTLY FORBIDDEN:
+- realistic room, desk or everyday-life scene as the main composition
+- realistic photo-like scene
+- long glowing finance lines as the main subject
+- line networks dominating the image
+- abstract finance streams as the core motif
+- tubes, rails, roads or tracks as the main visual
+- repeated contract-paper walls
+- wealth towers
+- monolith blocks
+- meaningless columns
+- sterile product-ad hero shots
+- almost-empty black studio product shots
+- dashboard/app UI
+- sci-fi corridors or neon tunnels
+- tiny subject floating in a huge empty scene
+- Pixar, clay or toy-like look
+
+COLOR LOGIC:
+- deep charcoal green-black base
+- emerald / mint accents
+- gold only for money / financial value
+- warm red-orange only for warning / debt / pressure / risk
+
+TEXT:
+- Cover Bild 00 may contain the exact requested large German cover text.
+- Normal scene images contain NO headline, NO subtitle and NO explanatory sentence.
+- Only explicitly requested short object labels are allowed.
+
+ASPECT RATIOS:
+- Cover Bild 00: vertical 9:16
+- Normal Google-Flow scene images: strict square 1:1, preferably 1080x1080
+- Never stretch a square scene image to 9:16.
+
+GOOGLE FLOW EXECUTION:
+- Generate the complete required image set in one continuous autonomous run.
+- Never ask Weiter?, Continue?, approval or confirmation between images.
+- Generate one image internally, wait until complete, inspect, auto-regenerate if invalid, assign the exact filename and continue immediately.
+- Only after every required image is valid may Flow give one completion summary.
+
+The final result must always look like a strong FinanzNeo 3D explainer image with one dominant center object and a few smaller supporting finance symbols around it.
