@@ -50,7 +50,13 @@ sceneIndex.imagePresentationContract={
   stretchToVerticalForbidden:true,
   tinyPosterForbidden:true
 };
-if(sceneIndex.cover){sceneIndex.cover.aspectRatio='9:16';sceneIndex.cover.source='google-flow';}
+sceneIndex.cover={
+  ...(sceneIndex.cover??{}),
+  aspectRatio:'9:16',
+  source:'google-flow',
+  fileName:sceneIndex.cover?.fileName??'Bild 00 - [KURZER COVER-NAME].png',
+  remotionTextForbidden:true
+};
 for(const scene of sceneIndex.scenes??[]){
   if(scene.type==='image'){
     scene.aspectRatio='1:1';
@@ -63,7 +69,7 @@ write('03-szenen/bildwelt.txt',`GLOBAL_IMAGE_WORLD_REF: ${WORLD_ID}\nSOURCE: ${l
 
 const common=`Use the globally locked FinanzNeo world: ${WORLD_ID}.\nCreate a premium stylized 3D explainer composition with ONE large central hero object and 3–5 smaller supporting symbolic finance objects around it. Strong central focus, rich depth, clear hierarchy, deep charcoal green-black base, emerald/mint accents, gold only for money/value, warm red-orange only for warning/risk.\nDo NOT create a realistic everyday/desk/room scene. Do NOT use glowing finance lines, line networks, tubes, rails, roads or tracks as the main motif. No repeated contract-paper wall, wealth tower, monolith, sterile product ad, empty black studio shot, dashboard, sci-fi corridor, Pixar or clay.\n`;
 const imagePrompt=(scene)=>`FINALER DATEINAME: ${scene.googleFlowFileName??'[DATEINAME EINFÜGEN]'}\nSTRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.\nNo headline. No subtitle. Only explicitly requested short object labels.\n${common}\nSCENE IDEA:\n[DESCRIBE THE EXACT SPOKEN BEAT AS ONE CENTRAL FINANCE HERO OBJECT WITH 3–5 SUPPORTING SYMBOLS. THE MAIN IDEA MUST BE UNDERSTANDABLE WITHIN ONE SECOND.]\n`;
-const coverPrompt=`GOOGLE FLOW COVER — VERTICAL 9:16\nFINALER DATEINAME: ${sceneIndex.cover?.fileName??'Bild 00 - [KURZER COVER-NAME].png'}\n${common}\nCreate one vertical 9:16 cover. Google Flow itself must render the exact German cover headline requested for this Reel. No Remotion replacement headline. Use one dominant central hero object plus 3–5 supporting finance symbols. Keep the composition stylized, symbolic and premium — not realistic and not line-network based.\nCOVER-ÜBERSCHRIFT – EXAKT SO:\n[GENAUE ÜBERSCHRIFT HIER EINFÜGEN]\n`;
+const coverPrompt=`GOOGLE FLOW COVER — VERTICAL 9:16\nFINALER DATEINAME: ${sceneIndex.cover.fileName}\n${common}\nCreate one vertical 9:16 cover. Google Flow itself must render the exact German cover headline requested for this Reel. No Remotion replacement headline. Use one dominant central hero object plus 3–5 supporting finance symbols. Keep the composition stylized, symbolic and premium — not realistic and not line-network based.\nCOVER-ÜBERSCHRIFT – EXAKT SO:\n[GENAUE ÜBERSCHRIFT HIER EINFÜGEN]\n`;
 write('03-szenen/00-cover/cover.txt',coverPrompt);
 
 const imageScenes=(sceneIndex.scenes??[]).filter((scene)=>scene.type==='image');
@@ -75,8 +81,7 @@ for(const scene of imageScenes){
 const sections=imageScenes.map((scene)=>`━━━━━━━━━━━━━━━━━━\n${scene.id.toUpperCase()} — STRICT 1:1\n━━━━━━━━━━━━━━━━━━\n${imagePrompt(scene)}`).join('\n');
 write('03-szenen/alle-bildprompts.txt',`FINANZNEO — GOOGLE FLOW — GLOBAL LOCKED IMAGE WORLD\nFINANZNEO_WORLD_ID: ${WORLD_ID}\n\nAUTONOMOUS CONTINUOUS RUN — HARD RULE:\nGenerate ALL required images in one continuous task.\nDo NOT stop after any image.\nDo NOT ask the user Weiter?, Continue?, for confirmation, approval or feedback between images.\nFor each image internally: generate → wait until fully complete → inspect spelling, aspect ratio and motif → if wrong, regenerate automatically → apply the exact final filename → immediately continue to the next image.\nOnly after ALL required images are valid, provide one final completion summary.\n\nGLOBAL LOCKED WORLD:\n${world}\n\n━━━━━━━━━━━━━━━━━━\nCOVER — 9:16\n━━━━━━━━━━━━━━━━━━\n${coverPrompt}\n\n${sections}\n\nFINAL INTERNAL CHECK:\n- cover is 9:16\n- every normal scene image is strict 1:1\n- every image uses ${WORLD_ID}\n- every image has one large central hero object plus 3–5 supporting finance symbols\n- no realistic everyday scene\n- no line-network/finance-stream main motif\n- no user confirmation requested between images\n- only after all images pass, give one final summary\n`);
 
-const readmePath='03-szenen/README.md';
-write(readmePath,`# SZENEN — GLOBAL IMAGE WORLD LOCK\n\nVerbindliche Welt: **${WORLD_ID}**.\n\n- Cover Bild 00: 9:16, Covertext direkt in Google Flow\n- normale Flow-Bilder: strikt 1:1, bevorzugt 1080×1080\n- jedes Bild: ein großes zentrales Hauptobjekt + 3–5 kleinere Finanzsymbole\n- keine realistischen Alltagsszenen\n- keine Linien-/Finanzfluss-Netze als Hauptmotiv\n- Google Flow erzeugt alle Pflichtbilder ohne Zwischenfrage in einem autonomen Lauf\n\nQuelle: ${lock.worldDefinitionPath}\n`);
+write('03-szenen/README.md',`# SZENEN — GLOBAL IMAGE WORLD LOCK\n\nVerbindliche Welt: **${WORLD_ID}**.\n\n- Cover Bild 00: 9:16, Covertext direkt in Google Flow\n- normale Flow-Bilder: strikt 1:1, bevorzugt 1080×1080\n- jedes Bild: ein großes zentrales Hauptobjekt + 3–5 kleinere Finanzsymbole\n- keine realistischen Alltagsszenen\n- keine Linien-/Finanzfluss-Netze als Hauptmotiv\n- Google Flow erzeugt alle Pflichtbilder ohne Zwischenfrage in einem autonomen Lauf\n\nQuelle: ${lock.worldDefinitionPath}\n`);
 
 const validation=spawnSync(process.execPath,['scripts/validate-global-image-world.mjs','--target',targetArg],{stdio:'inherit'});
 process.exit(validation.status??0);
