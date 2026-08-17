@@ -1,4 +1,9 @@
 FINALER DATEINAME: Bild 10 - Wuerdest du es ohne Rate kaufen.png
 STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Use FINANZNEO central-object editorial v6. No headline, no subtitle. Label only: `OHNE RATE?`.
-Create ONE large central stylized 3D decision object marked `OHNE RATE?`. Around it place two clear smaller symbolic choices: one purchase/payment module and one gold money/value module, plus a small question/decision marker. The composition must communicate: would the purchase still feel worth it without installment framing? No realistic table, no human hand, no giant line fork, no product-ad scene. The central decision object must dominate.
+Use FINANZNEO physical explainer editorial v7. No headline, no subtitle. Short physical label only: `OHNE RATE?`.
+
+Create ONE large physical balance/decision object as the hero motif. On one side place a recognizable desired product box; on the other side place a cash envelope and euro coins. Add one small PHYSICAL tag reading `OHNE RATE?` near the decision object and one smaller monthly-rate tag near the product.
+The visual should ask: would this purchase still feel worth it without installment framing?
+
+Keep the composition stylized, premium, concrete and physical. Natural asymmetry, strong depth and contact shadows.
+STRICTLY FORBIDDEN: digital central screen, floating UI cards/tiles/chips, satellite modules, circular icon orbit, four-corner mini-tile layout, game-board composition, microchip/circuit-board styling or glowing line network.
