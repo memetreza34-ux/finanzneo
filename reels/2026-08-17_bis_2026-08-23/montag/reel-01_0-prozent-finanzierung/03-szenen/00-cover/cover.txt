@@ -1,12 +1,15 @@
 GOOGLE FLOW COVER — 9:16
 FINALER DATEINAME: Bild 00 - 0 Prozent Finanzierung Cover.png
 
-Use FINANZNEO central-object editorial v6.
-Create a vertical 9:16 stylized premium 3D cover with ONE large central financing/purchase display object. Integrate a prominent `0 %` badge into the central hero object. Around it place a few smaller supporting symbols such as compact monthly-payment tags, a contract/check icon, a gold euro/value marker and one subtle warning element.
+Use FINANZNEO physical explainer editorial v7.
+Create one vertical 9:16 premium stylized 3D explainer cover.
+
+Create ONE large solid physical financing sign/board as the central hero object. Around it place recognizable concrete installment-purchase objects: smartphone/product box, headphones, small contract folder, euro coins and 2–3 physical monthly-payment tags. The objects must sit naturally around the main object with overlap and contact shadows, like a built editorial finance illustration.
 
 Write EXACTLY:
 `0 % FINANZIERUNG`
 `WO IST DER HAKEN?`
 
-The result must look like a built FinanzNeo 3D explainer composition: one dominant central object, smaller meaningful symbols around it, strong depth and clean hierarchy.
-No realistic room or desk. No contract-paper wall. No glowing finance-stream network as main motif. No sterile product advertisement. No other large text. Regenerate automatically if any letter, number or percent sign is wrong.
+No other large text.
+STRICTLY FORBIDDEN: digital central screen, microchip/circuit-board styling, floating UI cards/tiles/chips, satellite modules, circular icon orbit, four-corner mini-tile layout, game-board composition, dashboard/app UI, glowing line network, contract wall, wealth tower or sterile product-ad shot.
+Regenerate automatically if any letter, number, percent sign or composition rule is wrong.
