@@ -1,4 +1,4 @@
 FINALER DATEINAME: Bild 04 - Drei Raten 95 Euro.png
 STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Use FINANZNEO tangible finance editorial v4. No headline, no subtitle. Labels only: `35 €`, `30 €`, `30 €`, `95 € / MONAT`.
-Laptop, smartphone and headphones as three large purchases, each with one physical monthly tag. Their monthly amounts combine into one large real payment envelope marked `95 € / MONAT`. Rich tangible environment, no chart, no abstract geometry.
+Use FINANZNEO central-object editorial v6. No headline, no subtitle. Labels only: `35 €`, `30 €`, `30 €`, `95 € / MONAT`.
+Create ONE large central premium 3D amount board showing `95 € / MONAT`. Around it place three smaller stylized payment/purchase modules with the labels `35 €`, `30 €`, `30 €`. They should clearly support and explain the central 95 € object. Small short connectors are allowed, but glowing lines or streams must NOT become the main motif. No realistic products on a desk, no chart, no dashboard, no tiny infographic panel.
