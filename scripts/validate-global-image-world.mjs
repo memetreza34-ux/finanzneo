@@ -22,21 +22,38 @@ if(lock.globalImageWorldId!==EXPECTED_ID)fail(`globalImageWorldId must be ${EXPE
 if(lock.worldDefinitionPath!=='config/finanzneo-image-worlds/finanzneo-central-object-editorial-v6.txt')fail('unexpected worldDefinitionPath');
 if(lock.coverAspectRatio!=='9:16')fail('coverAspectRatio must be 9:16');
 if(lock.sceneImageAspectRatio!=='1:1')fail('sceneImageAspectRatio must be 1:1');
+if(lock.preferredSceneImageSize!=='1080x1080')fail('preferredSceneImageSize must be 1080x1080');
+if(lock.sceneRenderSizePx!==1000)fail('sceneRenderSizePx must be 1000');
 if(lock.rules?.centralHeroObjectRequired!==true)fail('centralHeroObjectRequired must be true');
+if(lock.rules?.supportingSymbolsMin!==3||lock.rules?.supportingSymbolsMax!==5)fail('supporting symbol range must remain 3–5');
+if(lock.rules?.realisticEverydaySceneForbidden!==true)fail('realisticEverydaySceneForbidden must be true');
 if(lock.rules?.lineNetworkMainMotifForbidden!==true)fail('lineNetworkMainMotifForbidden must be true');
+if(lock.rules?.abstractFlowMainMotifForbidden!==true)fail('abstractFlowMainMotifForbidden must be true');
+if(lock.rules?.repeatedContractWallForbidden!==true)fail('repeatedContractWallForbidden must be true');
+if(lock.rules?.wealthTowersForbidden!==true)fail('wealthTowersForbidden must be true');
+if(lock.rules?.monolithsForbidden!==true)fail('monolithsForbidden must be true');
+if(lock.rules?.sterileProductAdLookForbidden!==true)fail('sterileProductAdLookForbidden must be true');
 if(lock.googleFlow?.continuousAutonomousRunRequired!==true)fail('continuousAutonomousRunRequired must be true');
 if(lock.googleFlow?.userConfirmationBetweenImagesForbidden!==true)fail('userConfirmationBetweenImagesForbidden must be true');
+if(lock.googleFlow?.autoRegenerateInvalidImage!==true)fail('autoRegenerateInvalidImage must be true');
 
 const worldPath=lock.worldDefinitionPath;
 if(!existsSync(worldPath))fail(`missing world definition ${worldPath}`);
 else{
   const world=read(worldPath);
-  for(const required of [EXPECTED_ID,'ONE large central hero object','3–5 smaller supporting symbolic finance objects','STRICTLY FORBIDDEN','Normal Google-Flow scene images: strict square 1:1']){
+  for(const required of [EXPECTED_ID,'ONE large central hero object','3–5 smaller supporting symbolic finance objects','STRICTLY FORBIDDEN','Normal Google-Flow scene images: strict square 1:1','Never ask Weiter?']){
     if(!world.includes(required))fail(`world definition missing required marker: ${required}`);
   }
 }
 
-for(const requiredPath of ['scripts/scaffold-finanzneo-reel-locked.mjs','scripts/validate-reel-locked.mjs','.agents/rules/finanzneo-image-world-lock.md']){
+for(const requiredPath of [
+  'scripts/scaffold-finanzneo-reel-locked.mjs',
+  'scripts/validate-reel-locked.mjs',
+  'scripts/reel-render-locked.mjs',
+  '.agents/rules/finanzneo-image-world-lock.md',
+  '.github/workflows/validate-image-world.yml',
+  'docs/GLOBAL-IMAGE-WORLD-LOCK.md'
+]){
   if(!existsSync(requiredPath))fail(`missing enforcement file ${requiredPath}`);
 }
 
@@ -47,6 +64,10 @@ if(existsSync('package.json')){
     if(pkg.scripts?.['reel:create']!=='node scripts/scaffold-finanzneo-reel-locked.mjs')fail('package.json reel:create must use locked scaffolder');
     if(pkg.scripts?.['reel:validate']!=='node scripts/validate-reel-locked.mjs')fail('package.json reel:validate must use locked validator wrapper');
     if(pkg.scripts?.['validate:image-world']!=='node scripts/validate-global-image-world.mjs')fail('package.json missing canonical validate:image-world command');
+    if(pkg.scripts?.['reel:preview']!=='node scripts/reel-render-locked.mjs')fail('package.json reel:preview must use locked render wrapper');
+    if(pkg.scripts?.['reel:render']!=='node scripts/reel-render-locked.mjs')fail('package.json reel:render must use locked render wrapper');
+    if(pkg.scripts?.['reel:qa']!=='node scripts/reel-render-locked.mjs --post-render')fail('package.json reel:qa must use locked render wrapper');
+    if(!String(pkg.scripts?.validate??'').includes('validate:image-world'))fail('global npm validate must include validate:image-world');
   }
 }
 
@@ -66,6 +87,7 @@ if(targetArg){
         if(sceneIndex.imageWorld?.id!==EXPECTED_ID)fail(`target imageWorld.id must be ${EXPECTED_ID}`);
         if(sceneIndex.imageWorld?.centralHeroObjectRequired!==true)fail('target centralHeroObjectRequired must be true');
         if(sceneIndex.imageWorld?.lineNetworkMainMotifForbidden!==true)fail('target lineNetworkMainMotifForbidden must be true');
+        if(sceneIndex.imageWorld?.realisticEverydaySceneForbidden!==true && sceneIndex.imageWorld?.tangibleEverydayFinanceObjectsRequired===true)fail('target must not require realistic/tangible everyday scene world');
         if(sceneIndex.cover?.aspectRatio && sceneIndex.cover.aspectRatio!=='9:16')fail('target cover aspect ratio must be 9:16');
         if(sceneIndex.googleFlowExecution?.continuousAutonomousRun!==true)fail('target Google Flow must use continuousAutonomousRun=true');
         if(sceneIndex.googleFlowExecution?.userConfirmationBetweenImagesForbidden!==true)fail('target must forbid user confirmation between images');
@@ -75,7 +97,13 @@ if(targetArg){
       }catch(error){fail(`invalid target scene-index.json: ${error.message}`);}
     }
     if(!existsSync(worldRefPath))fail('target missing 03-szenen/bildwelt.txt');
-    else if(!read(worldRefPath).includes(EXPECTED_ID))fail(`target bildwelt.txt must reference ${EXPECTED_ID}`);
+    else{
+      const worldRef=read(worldRefPath);
+      if(!worldRef.includes(EXPECTED_ID))fail(`target bildwelt.txt must reference ${EXPECTED_ID}`);
+      for(const forbidden of ['finanzneo-tangible-finance-editorial-v4','finanzneo-finanzfluss-editorial-v5','finanzneo-connected-studio-v3']){
+        if(worldRef.includes(forbidden))fail(`target bildwelt.txt contains forbidden old world ID: ${forbidden}`);
+      }
+    }
     if(!existsSync(allPromptsPath))fail('target missing 03-szenen/alle-bildprompts.txt');
     else{
       const prompt=read(allPromptsPath);
