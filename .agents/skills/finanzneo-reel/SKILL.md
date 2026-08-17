@@ -1,6 +1,6 @@
 ---
 name: finanzneo-reel
-description: Build, repair and finish FinanzNeo vertical Remotion reels with a globally locked Google-Flow image world, strict user-media boundaries, animation-first visuals, exact final-audio captions and hard final MP4 QA.
+description: Build, repair and finish FinanzNeo vertical Remotion reels with a globally locked Google-Flow physical explainer image world, strict user-media boundaries, animation-first visuals, exact final-audio captions and hard final MP4 QA.
 ---
 
 # FinanzNeo Reel Skill
@@ -9,7 +9,7 @@ Read first:
 
 1. `.agents/rules/finanzneo-image-world-lock.md`
 2. `config/finanzneo-image-world-lock.json`
-3. `config/finanzneo-image-worlds/finanzneo-central-object-editorial-v6.txt`
+3. `config/finanzneo-image-worlds/finanzneo-physical-explainer-editorial-v7.txt`
 4. `CLAUDE.md`
 5. `reels/PRODUKTIONSSTANDARD.md`
 6. `docs/REEL-QUALITY-CONTRACT-V2.md`
@@ -38,29 +38,38 @@ Stop only for a genuine blocker. Production authorization does not include merge
 Exactly one image world is allowed for every NEW Reel:
 
 ```text
-finanzneo-central-object-editorial-v6
+finanzneo-physical-explainer-editorial-v7
 ```
 
 Hard composition:
 
-- ONE large central hero object
-- 3–5 smaller supporting symbolic finance objects around it
-- premium stylized 3D explainer composition
-- strong central focus, clear hierarchy and rich depth
+- ONE large PHYSICAL hero object; it must not read as a tablet, digital screen, app card, microchip or game tile
+- 3–6 recognizable, topic-specific physical objects around it
+- concrete objects preferred over generic icons: products, euro coins, cash, groceries, envelopes, receipts, contract folders, calendars, price tags, shopping objects etc.
+- natural asymmetric placement with overlap and contact shadows
+- labels only as physical price tags, paper tags, stickers or attached plaques
+- premium stylized adult 3D explainer composition
 - normal scene image source: strict 1:1, preferably 1080×1080
 - cover Bild 00: 9:16 with exact cover text rendered directly by Google Flow
 
-Forbidden as main image language:
+Forbidden screenshot-failure language:
 
+- central digital device with mini satellite modules
+- microchip / circuit-board world
+- floating UI cards, tiles, chips, buttons or widgets
+- four-corner mini-tile layout
+- circular orbit of icon modules
+- game-board / board-game composition
+- dashboard / HUD / app interface
+- generic icon buttons replacing concrete topic objects
+- glowing connector loops or line networks
+- abstract finance streams, tubes, rails, tracks or roads
 - realistic everyday / desk / room scene
 - photo-like realism
-- glowing finance streams or line networks
-- tubes, rails, tracks or roads
 - repeated contract-paper walls
-- wealth towers / monoliths / meaningless columns
+- wealth towers / monoliths / meaningless blocks
 - sterile product advertising
 - almost-empty black studio shot
-- dashboard/app UI
 - sci-fi corridor / neon tunnel
 - tiny subject in huge empty space
 
@@ -138,7 +147,7 @@ Hard planning rules:
 
 **Animation-first** for comparison, calculation, timeline, growth, Zinseszins, money flow, mechanisms, steps and changing cause/effect.
 
-Use Google-Flow images mainly for hook, strong single symbolic metaphor and closing image — always inside the locked Central-Object world.
+Use Google-Flow images mainly for hook, strong single physical explainer metaphor and closing image — always inside the locked physical-explainer world.
 
 A visual is not chosen merely because it is easier to produce.
 
@@ -156,8 +165,10 @@ Reject if:
 - text is unnecessarily repeated across image + headline + subtitle
 - cover headline is wrong/missing/clipped/unreadable
 - normal scene image is not 1:1
-- central hero object is missing
-- fewer than 3 or more than 5 supporting symbols dominate the intended structure without semantic reason
+- large physical hero object is missing
+- recognizable topic objects are replaced by generic icons or UI buttons
+- image uses digital central screen / microchip / floating UI tile language
+- image uses satellite-module orbit, four-corner tiles or game-board layout
 - image becomes realistic everyday/desk/room imagery
 - line network / glowing finance stream becomes the main motif
 - contract wall, wealth tower, monolith or sterile product-ad drift appears
