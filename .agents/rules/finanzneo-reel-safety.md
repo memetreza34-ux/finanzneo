@@ -16,36 +16,45 @@ Read completely before work:
 
 `CLAUDE.md` remains the highest general production/style authority.
 
-**Exception — image world only:** `config/finanzneo-image-world-lock.json` plus `.agents/rules/finanzneo-image-world-lock.md` is the hard technical authority for the Google-Flow image world and supersedes older image-world wording that may remain in historical docs or old Reels. Never weaken validators, tests, design tokens, finance calculations, lockfiles or quality gates just to make a Reel pass.
+**Exception — image world only:** `config/finanzneo-image-world-lock.json` plus `.agents/rules/finanzneo-image-world-lock.md` and its referenced global world file are the hard technical authority for the Google-Flow image world and supersede older image-world wording in historical docs or old Reels. Never weaken validators, tests, design tokens, finance calculations, lockfiles or quality gates just to make a Reel pass.
 
 ## GLOBAL IMAGE-WORLD LOCK — NEVER DRIFT PER REEL
 
 Locked world:
 
 ```text
-finanzneo-central-object-editorial-v6
+finanzneo-physical-explainer-editorial-v7
 ```
 
 For every NEW Reel:
 
 - normal Google-Flow scene images are strict 1:1, preferably 1080×1080
 - Cover Bild 00 remains 9:16
-- each normal scene image uses ONE large central hero object
-- 3–5 smaller supporting symbolic finance objects surround the hero
-- premium stylized 3D explainer composition
-- strong central focus, rich depth and clear hierarchy
+- each normal scene image uses ONE large PHYSICAL hero object
+- the hero must not read as a digital screen, tablet, app card, microchip or game tile
+- 3–6 recognizable, topic-specific physical objects surround/support the hero
+- concrete objects are preferred over generic icons
+- labels are physical price tags, paper tags, stickers or attached plaques
+- composition is natural and asymmetric with overlap/contact shadows
+- premium stylized adult 3D explainer composition
 
-Forbidden as image-world drift:
+Forbidden screenshot-failure drift:
 
+- central digital device with mini satellite modules
+- microchip / circuit-board visual language
+- floating UI cards, tiles, chips, buttons or widgets
+- four-corner mini-tile layout
+- circular satellite-module orbit
+- game-board / board-game composition
+- dashboard / HUD / app interface
+- generic icon buttons instead of concrete topic objects
+- glowing connector loops or line networks
+- abstract finance streams, tubes, rails, tracks or roads
 - realistic everyday / desk / room scene as the main composition
-- glowing finance-flow lines or line networks as the main motif
-- tubes, rails, tracks or roads as main visual
 - repeated contract-paper wall
-- wealth tower / monolith / meaningless columns
+- wealth tower / monolith / meaningless blocks
 - sterile product-ad hero shot
 - almost-empty black studio shot
-- dashboard/app UI
-- sci-fi corridor / neon tunnel
 - tiny subject in huge empty space
 
 Never invent or rename a new Reel-specific world. A different world is allowed only after an explicit GLOBAL user request and an intentional edit of `config/finanzneo-image-world-lock.json`.
@@ -116,7 +125,7 @@ Before production verify:
 - every required image exists with exact expected filename
 - exactly one readable final audio exists
 - `Bild 00` contains the exact required Google-Flow cover headline
-- every normal supplied Flow image matches the locked 1:1 Central-Object world
+- every normal supplied Flow image is 1:1 and matches the locked physical-explainer world
 
 Missing/wrong/unreadable/ambiguous required media →
 
@@ -166,8 +175,10 @@ Reject if:
 - image unnecessarily repeats headline + caption information
 - cover headline is wrong/missing/clipped/unreadable
 - normal scene image is not 1:1
-- image violates `finanzneo-central-object-editorial-v6`
-- central hero object is missing
+- image violates `finanzneo-physical-explainer-editorial-v7`
+- large physical hero object is missing
+- recognizable topic objects are replaced by generic UI buttons/icons
+- digital screen / microchip / floating tile / satellite orbit / game-board drift appears
 - line network / realistic scene / contract wall / wealth tower / product-ad drift appears
 
 If regeneration is needed → `BLOCKED`. Never hide a bad image with Remotion overlays.
@@ -247,7 +258,7 @@ Final completion requires actual full-MP4 QA documented in:
 05-projektdateien/final-qa.json
 ```
 
-It must truthfully confirm full MP4 inspection, every scene inspection, image/voice semantic match, generated text correctness, scene/audio sync, subtitle safe-area, active-word sync, meaningful animations, no long static tail and passed audio levels.
+It must truthfully confirm full MP4 inspection, every scene inspection, image/voice semantic match, generated text correctness, locked physical-explainer image-world match, scene/audio sync, subtitle safe-area, active-word sync, meaningful animations, no long static tail and passed audio levels.
 
 Audio target:
 
