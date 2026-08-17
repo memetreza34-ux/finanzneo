@@ -1,5 +1,5 @@
 ---
-description: Build a complete FinanzNeo Reel end-to-end with the globally locked Google-Flow image world, animation-first visuals, exact final-audio timing and hard final MP4 QA.
+description: Build a complete FinanzNeo Reel end-to-end with the globally locked Google-Flow physical explainer image world, animation-first visuals, exact final-audio timing and hard final MP4 QA.
 ---
 
 # Build a complete FinanzNeo Reel
@@ -22,58 +22,50 @@ Read first:
 ## AUTOPILOT
 
 If the user says images and final audio are ready and asks `Mach das Reel`, `Erstelle das Reel`, `Mach es fertig` or equivalent, run continuously until `PRODUCTION COMPLETE` or genuine `BLOCKED`.
-
-Never ask `Weiter?` between normal phases. Recoverable errors are work to fix:
-
-```text
-diagnose → fix → validate → render → inspect → repeat
-```
-
+Never ask `Weiter?` between normal phases. Recoverable errors are work to fix.
 No merge/publish/delete/force-push/history rewrite without separate user authorization.
 
 ## GLOBAL IMAGE-WORLD GATE — BEFORE EVERYTHING ELSE
 
-Run:
-
-```bash
-npm run validate:image-world
-```
+Run `npm run validate:image-world`.
 
 Locked world:
 
 ```text
-finanzneo-central-object-editorial-v6
+finanzneo-physical-explainer-editorial-v7
 ```
 
 For every NEW Reel:
-
 - Cover Bild 00 = 9:16 with exact Google-Flow cover text
 - normal Flow scene images = strict 1:1, preferably 1080×1080
-- ONE large central hero object
-- 3–5 smaller supporting symbolic finance objects
+- ONE large PHYSICAL hero object, not a digital screen/tablet/app card/microchip/game tile
+- 3–6 recognizable, topic-specific physical objects around it
+- concrete objects preferred over generic icons
+- physical price/paper tags instead of floating UI badges
+- natural asymmetric arrangement with overlap and contact shadows
 - premium stylized 3D explainer composition
-- no realistic everyday/desk/room main scene
-- no line-network / glowing-finance-stream main motif
-- no repeated contract wall
-- no wealth tower / monolith
-- no sterile product-ad or empty black studio shot
+
+Hard forbidden failure modes:
+- central digital device with mini satellite modules
+- microchip / circuit-board world
+- floating UI cards, tiles, chips, buttons or widgets
+- four-corner mini-tile layout
+- circular orbit of icon modules
+- game-board / board-game composition
+- dashboard / HUD / app interface
+- generic icon buttons replacing concrete topic objects
+- glowing connector loops or line networks
+- abstract finance streams, tubes, rails, tracks or roads
+- realistic everyday/desk/room main scene
+- repeated contract wall
+- wealth tower / monolith
+- sterile product-ad or empty black studio shot
 
 A per-Reel image-world override is forbidden. If target `scene-index.json`, `bildwelt.txt` or `alle-bildprompts.txt` uses another world, stop as `BLOCKED` and fix the target back to the global lock. Do not weaken the validator.
 
 ## GOOGLE FLOW AUTONOMOUS IMAGE SET
 
-Google Flow must generate the complete required image set in one continuous sequence:
-
-```text
-generate image
-→ wait internally
-→ inspect
-→ auto-regenerate if invalid
-→ exact filename
-→ immediately continue
-→ final summary only after all images pass
-```
-
+Google Flow generates the complete image set in one continuous sequence: generate → wait internally → inspect → auto-regenerate if invalid → exact filename → immediately continue → final summary only after all images pass.
 Never ask `Weiter?`, `Continue?`, approval or confirmation between images.
 
 ## HARD USER-MEDIA GATE
@@ -86,23 +78,13 @@ Audio:  <TARGET-REEL>/02-audio/
 ```
 
 Before production verify every expected image, exactly one readable final audio, the exact Google-Flow cover headline, all normal images are 1:1 and every image matches the locked world.
-
-Missing/wrong/unreadable/ambiguous user media →
-
-```text
-BLOCKED
-Problem: <exact path/file/cause>
-Action: <exact user action needed>
-```
-
-Antigravity never generates replacement images.
+Missing/wrong/unreadable/ambiguous user media → `BLOCKED`. Antigravity never generates replacement images.
 
 ## QUALITY GATE 1 — Visual plan
 
 Target about 60% native Remotion animation / 40% Google-Flow images, with 50–70% animation allowed when semantic quality requires it.
 
 Rules:
-
 - 6 animation + 4 image is normal for 10 scenes, not a hard reason for meaningless motion
 - no two image scenes directly consecutive
 - dynamic information is animation-first
@@ -111,64 +93,24 @@ Rules:
 - every animation needs Start → visible mechanism/action → result
 - icon-only, number-zoom, static-bar, emoji, text-only or generic-card animation is forbidden
 
-Use Remotion for comparison, calculations, timelines, growth, money flow, mechanisms, step sequences and changing cause/effect.
-
-Use Google-Flow images mainly for hook, strong single symbolic metaphor and closing image — always inside the global Central-Object world.
+Use Google-Flow images mainly for hook, strong single physical explainer metaphor and closing image — always inside the global physical-explainer world.
 
 ## QUALITY GATE 2 — Inspect every supplied image
 
-Reject if motif is wrong/unclear, generated text or labels are wrong, numbers conflict with script/research, contradictory information appears, unnecessary text repetition appears, cover headline is wrong, normal image is not 1:1, central hero object is missing or the locked image-world rules fail.
-
+Reject if motif is wrong/unclear, generated text or labels are wrong, numbers conflict with script/research, contradictory information appears, cover headline is wrong, normal image is not 1:1, the physical hero object is missing, concrete topic objects are replaced by generic UI icons, or any forbidden UI/chip/game-board/line-network drift appears.
 If user must regenerate → `BLOCKED`. Never hide a bad image with Remotion overlays.
 
 ## Canonical image presentation
 
-```text
-Cover: 9:16
-Normal Flow scene image: 1:1, preferably 1080×1080
-Reel canvas: 1080×1920
-Square display: about 1000×1000, centered horizontally
-```
-
-Never stretch square images to 9:16. Do not make them tiny inset posters. Cover gets no Remotion replacement headline.
-
-Native Remotion scenes use one seamless full-canvas background without floor/horizon/studio split.
+Cover 9:16. Normal Flow scene image 1:1, preferably 1080×1080. Reel canvas 1080×1920. Square display about 1000×1000, centered horizontally. Never stretch square images to 9:16. Cover gets no Remotion replacement headline.
 
 ## Audio is the only timing source
 
-Mandatory order:
-
-```text
-final audio
-→ real word start/end timestamps
-→ short caption units
-→ scene start/end frames
-→ animation timing
-→ render
-```
-
-Never estimate/evenly distribute timings.
-
-Final `word-timings.json` requires `timingStatus: final-audio-aligned`.
-Final `timeline.json` requires real positive durations, chronological/gapless scene starts and no unresolved zero-duration placeholders.
+Final audio → real word start/end timestamps → short caption units → scene start/end frames → animation timing → render. Never estimate/evenly distribute timings. Final `word-timings.json` requires `timingStatus: final-audio-aligned`.
 
 ## Captions
 
-Exactly one short caption unit is visible at a time.
-
-Current target:
-
-```text
-max 12 words
-max 68 characters
-max 2 lines
-min effective font 42 px
-bottom ≈ 430
-left ≈ 72
-right ≈ 170–180
-```
-
-Never show two units, overflow/clip text, shrink below safe size, fabricate timing or use opaque caption cards. Current word is green only during its real audio timing.
+Exactly one short caption unit is visible at a time. Max 12 words, 68 characters, 2 lines, minimum 42 px, bottom ≈ 430, left ≈ 72, right ≈ 170–180. No opaque caption cards.
 
 ## Universal social caption
 
@@ -191,9 +133,9 @@ Exactly one `04-caption/caption.txt`, unchanged for Instagram Reels, TikTok, Fac
 13. add safe karaoke captions
 14. `npm run reel:validate -- <TARGET-REEL> --final`
 15. TypeScript check
-16. render preview via `npm run reel:preview -- <TARGET-REEL> --scale=0.5`
+16. render preview via locked render command
 17. inspect every scene + contact sheet; fix issues
-18. render full MP4 via `npm run reel:render -- <TARGET-REEL>`
+18. render full MP4 via locked render command
 19. inspect complete final MP4
 20. measure audio loudness/true peak
 21. fill `05-projektdateien/final-qa.json` with actual results
@@ -205,29 +147,9 @@ Exactly one `04-caption/caption.txt`, unchanged for Instagram Reels, TikTok, Fac
 
 ## Mandatory final QA
 
-Final QA must truthfully confirm:
+Final QA must confirm: full MP4 inspected, every scene inspected, images match voice beats, generated text correct, normal Flow images are 1:1, locked physical-explainer world passed, no UI/chip/satellite/game-board failure mode, scene/audio sync correct, captions safe and synced, animations meaningful, no long static tail, audio levels passed.
 
-- full MP4 inspected
-- every scene inspected
-- images semantically match voice beats
-- generated text/labels correct
-- all normal Flow images are 1:1
-- locked Central-Object world passed
-- scene/audio sync correct
-- captions stay inside safe area
-- active-word timing synced
-- animations are meaningful mechanisms
-- no long static tail
-- audio levels passed
-
-Audio target:
-
-```text
-Integrated loudness: approximately -16 LUFS (validator -17 to -15)
-True Peak: <= -1 dBTP
-```
-
-Never mark QA passed without actually checking.
+Audio target: approximately -16 LUFS, True Peak <= -1 dBTP.
 
 ## Stop conditions
 
