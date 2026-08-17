@@ -1,0 +1,52 @@
+{
+  "version": 22,
+  "title": "0%-Finanzierung: Wo ist der Haken?",
+  "sceneCount": 10,
+  "imageSceneCount": 4,
+  "animationSceneCount": 6,
+  "imageWorld": {
+    "id": "finanzneo-tangible-finance-editorial-v4",
+    "abstractTubesForbidden": true,
+    "wealthTowersForbidden": true,
+    "emptyBlackStudioForbidden": true,
+    "tangibleEverydayFinanceObjectsRequired": true
+  },
+  "googleFlowExecution": {
+    "continuousAutonomousRun": true,
+    "userConfirmationBetweenImagesForbidden": true,
+    "autoRegenerateInvalidImage": true,
+    "completionSummaryOnlyAfterAllImages": true
+  },
+  "cover": {
+    "aspectRatio": "9:16",
+    "source": "google-flow",
+    "exactHeadline": "0 % FINANZIERUNG",
+    "exactSubheadline": "WO IST DER HAKEN?",
+    "fileName": "Bild 00 - 0 Prozent Finanzierung Cover.png",
+    "remotionTextForbidden": true
+  },
+  "imagePresentationContract": {
+    "sourceAspectRatio": "1:1",
+    "preferredSourceSize": "1080x1080",
+    "renderWidthPx": 1000,
+    "renderHeightPx": 1000,
+    "renderLeftPx": 40,
+    "renderTopPx": 265,
+    "stretchToVerticalForbidden": true,
+    "tinyPosterForbidden": true
+  },
+  "layout": {"headerTop":48,"headerBottom":230,"animationVisualTop":242,"animationVisualBottom":1390,"subtitleBottom":430,"subtitleLeft":72,"subtitleRight":170,"platformUiSafeBottom":300},
+  "productionQualityContract": {"targetAnimationShare":0.60,"allowedAnimationShare":[0.50,0.70],"maxConsecutiveImageScenes":1,"animationMechanismGate":"start-action-result"},
+  "scenes": [
+    {"id":"scene-01","type":"image","headline":"0 % KLINGT KOSTENLOS","subheadline":"Doch die Finanzierung bleibt ein Kredit.","googleFlowFileName":"Bild 01 - 0 Prozent klingt kostenlos.png","aspectRatio":"1:1"},
+    {"id":"scene-02","type":"animation","headline":"DU SCHLIESST EINEN KREDIT AB","subheadline":"Händler und Partnerbank teilen den Kauf in Rückzahlungen.","animationMechanism":"Start: Produkt und Händler. Aktion: Kauf wird mit einem sichtbaren Kreditvertrag an eine Partnerbank übergeben und in Monatsbelege zerlegt. Ergebnis: Produkt ist sofort da, Rückzahlungsverpflichtung bleibt bestehen."},
+    {"id":"scene-03","type":"animation","headline":"30 € VERDECKEN 900 €","subheadline":"Die kleine Rate kann vom Gesamtpreis ablenken.","animationMechanism":"Start: großer 900-Euro-Preisschildblock. Aktion: der Gesamtpreis wird in viele kleine 30-Euro-Monatsbelege aufgeteilt. Ergebnis: kleine Einzelrate wirkt visuell leichter, während 900 Euro Gesamtpreis als Referenz stehen bleiben."},
+    {"id":"scene-04","type":"image","headline":"DREI RATEN = 95 €","subheadline":"35 € + 30 € + 30 € jeden Monat.","googleFlowFileName":"Bild 04 - Drei Raten 95 Euro.png","aspectRatio":"1:1"},
+    {"id":"scene-05","type":"animation","headline":"DEIN SPIELRAUM SCHRUMPFT","subheadline":"Raten gehen vor Freizeit, Rücklage und spontane Ausgaben ab.","animationMechanism":"Start: Monatsbudget in vier realen Geldumschlägen. Aktion: drei wiederkehrende Ratenbelege ziehen jeden Monat zusammen 95 Euro aus dem frei verfügbaren Umschlag. Ergebnis: der Puffer-Umschlag wird sichtbar dünner."},
+    {"id":"scene-06","type":"animation","headline":"EINE RECHNUNG KANN KIPPEN","subheadline":"Wenig Puffer plus Überraschung kann in den Dispo führen.","animationMechanism":"Start: kleiner Restpuffer nach Raten. Aktion: eine große unerwartete Reparaturrechnung fällt auf den Tisch und übersteigt den freien Umschlag. Ergebnis: fehlender Betrag wandert sichtbar in einen roten DISPO-Umschlag."},
+    {"id":"scene-07","type":"image","headline":"PRÜF DEN GANZEN VERTRAG","subheadline":"Zusatzprodukte oder weitere Kreditlinien können eine Rolle spielen.","googleFlowFileName":"Bild 07 - Vertrag komplett pruefen.png","aspectRatio":"1:1"},
+    {"id":"scene-08","type":"animation","headline":"0 % KANN BEGRENZT SEIN","subheadline":"Zusätzliche Kreditnutzung kann andere Konditionen haben.","animationMechanism":"Start: klar markierter 0-Prozent-Kaufvertrag. Aktion: daneben öffnet sich separat ein optionaler weiterer Kreditrahmen mit eigenem Konditionsblatt. Ergebnis: 0 Prozent bleibt sichtbar nur am ursprünglichen Kauf, der zweite Weg trägt ein Zins-Warnsymbol."},
+    {"id":"scene-09","type":"animation","headline":"PRÜF VIER DINGE","subheadline":"Gesamtpreis · Effektivzins · Extras · Puffer.","animationMechanism":"Start: Kaufobjekt vor vier Prüfschritten. Aktion: Kauf wandert nacheinander durch Gesamtpreis, effektiven Jahreszins, Zusatzprodukte und Budgetpuffer. Ergebnis: nur wenn alle vier Prüfpunkte grün sind, landet der Kauf im freigegebenen Budget."},
+    {"id":"scene-10","type":"image","headline":"WÜRDEST DU ES OHNE RATE KAUFEN?","subheadline":"Die Frage trennt Bedarf von bequemer Finanzierung.","googleFlowFileName":"Bild 10 - Wuerdest du es ohne Rate kaufen.png","aspectRatio":"1:1"}
+  ]
+}

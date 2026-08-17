@@ -1,0 +1,13 @@
+{
+  "status": "blocked",
+  "imagesPresent": false,
+  "imageSemanticQaPassed": false,
+  "finalAudioPresent": false,
+  "wordTimingFinal": false,
+  "timelineResolved": false,
+  "typecheckPassed": false,
+  "previewReviewed": false,
+  "fullMp4QaPassed": false,
+  "audioQaPassed": false,
+  "notes": "Awaiting five final Google-Flow images and exactly one final voiceover."
+}

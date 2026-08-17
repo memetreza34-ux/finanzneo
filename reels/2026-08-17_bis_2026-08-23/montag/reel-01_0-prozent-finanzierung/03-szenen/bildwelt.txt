@@ -1,0 +1,34 @@
+FINANZNEO_WORLD_ID: finanzneo-tangible-finance-editorial-v4
+
+TANGIBLE FINANCE EDITORIAL 3D.
+
+Create a believable premium financial everyday world, not abstract fintech sculpture art.
+Use recognizable physical objects: real-looking euro coins and banknote bundles, receipts, contracts, price tags, envelopes, wallets, calendars, product packaging, shopping objects, pens, paper, glass savings containers and subtle desk/environment details.
+
+Visual language:
+- sophisticated 3D editorial illustration, adult and premium
+- rich spatial depth with foreground, midground and background
+- deep charcoal / dark green environment, but NEVER an almost empty black void
+- emerald/mint for positive guidance and structure
+- gold only for money/value
+- warm red-orange for risk, debt, warnings or pressure
+- realistic material cues: paper, brushed metal, glass, matte plastic, fabric, wood/stone desk details
+- cinematic soft key light + practical ambient lights
+- strong large hero motif occupying 85–95% of useful square width
+
+STRICTLY FORBIDDEN:
+- abstract tubes, pipes, rails or glowing tracks as the main metaphor
+- generic wealth towers, empty monoliths, futuristic blocks or meaningless columns
+- sci-fi corridors, neon tunnels, game-level environments
+- dashboards, app UI, infographic cards as the main image
+- almost empty studio-black product shots
+- Pixar, clay, toy-like or childish look
+
+ASPECT RATIOS:
+- Cover only: vertical 9:16
+- Normal scene images: strict square 1:1, preferably 1080×1080
+
+TEXT:
+- Cover: exact requested German cover text only
+- Normal images: no headline, no subtitle, no explanatory sentence
+- only explicitly requested short object labels

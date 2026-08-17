@@ -1,0 +1,66 @@
+FINANZNEO — GOOGLE FLOW — 0%-FINANZIERUNG
+FINANZNEO_WORLD_ID: finanzneo-tangible-finance-editorial-v4
+
+AUTONOMOUS CONTINUOUS RUN — HARD RULE:
+Generate ALL five required images in one continuous task.
+Do NOT stop after any image.
+Do NOT ask the user `Weiter?`, `Continue?`, for confirmation, approval or feedback between images.
+For each image internally: generate → wait until fully complete → inspect spelling, aspect ratio and motif → if wrong, regenerate automatically → apply the exact final filename → immediately continue to the next image.
+Only after ALL five images are valid, provide one final completion summary.
+
+GLOBAL WORLD:
+Premium tangible finance editorial 3D in a believable adult everyday financial environment. Use recognizable physical objects such as euro coins/banknotes, receipts, contracts, price tags, envelopes, wallets, calendars, product packaging and desk details. Strong spatial depth. Deep charcoal/dark-green environment with visible detail, not an empty black void. Emerald/mint guidance accents, gold only for money/value, red-orange only for risk/debt/warnings.
+
+NEVER generate abstract tubes, pipes, rails, glowing tracks, wealth towers, monoliths, meaningless columns, sci-fi corridors, dashboards, infographic cards, empty black studio shots, Pixar or clay styling.
+
+━━━━━━━━━━━━━━━━━━
+BILD 00 — COVER — 9:16
+FINALER DATEINAME: Bild 00 - 0 Prozent Finanzierung Cover.png
+━━━━━━━━━━━━━━━━━━
+Create one vertical 9:16 premium editorial 3D cover.
+Write this German text EXACTLY and nothing else as large cover typography:
+`0 % FINANZIERUNG`
+`WO IST DER HAKEN?`
+
+Scene: an attractive modern electronics purchase on a premium retail/desk surface — a smartphone box and headphones with a clean 0%-offer tag in the foreground. Behind the attractive offer, reveal a realistic paper credit contract and a row of monthly payment slips extending into the background. The visual should communicate: appealing offer in front, financial obligation behind it. Strong depth, rich environment, large objects, no abstract shapes. Regenerate automatically if typography is not exact.
+
+━━━━━━━━━━━━━━━━━━
+BILD 01 — HOOK — STRICT 1:1
+FINALER DATEINAME: Bild 01 - 0 Prozent klingt kostenlos.png
+━━━━━━━━━━━━━━━━━━
+Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
+No headline. No subtitle. Short object label only: `0 %`.
+Show a premium smartphone or laptop purchase on a realistic retail/finance desk. A large elegant `0 %` offer tag is attached to the product, while a real paper credit agreement and monthly payment slips are clearly visible behind it. The hero objects must fill roughly 90% of the square. The image must instantly communicate: zero percent looks easy, but a contract still exists.
+
+━━━━━━━━━━━━━━━━━━
+BILD 04 — MEHRERE RATEN — STRICT 1:1
+FINALER DATEINAME: Bild 04 - Drei Raten 95 Euro.png
+━━━━━━━━━━━━━━━━━━
+Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
+No headline. No subtitle. Object labels only: `35 €`, `30 €`, `30 €`, `95 € / MONAT`.
+Show three large recognizable financed purchases side by side: laptop, smartphone and headphones. Each has one physical monthly payment tag: 35 €, 30 €, 30 €. In the foreground, combine them into one large physical monthly envelope marked `95 € / MONAT`. Rich believable environment, large objects, no charts, no dashboard, no tiny icons.
+
+━━━━━━━━━━━━━━━━━━
+BILD 07 — VERTRAG PRÜFEN — STRICT 1:1
+FINALER DATEINAME: Bild 07 - Vertrag komplett pruefen.png
+━━━━━━━━━━━━━━━━━━
+Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
+No headline. No subtitle. Short labels only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
+Show a large realistic financing contract opened on a premium desk. Three separate optional attachments/tabs branch from the contract, each clearly presented as something to CHECK, not as something that is always present: insurance, fees, framework credit. Use subtle question marks exactly as labels above. A magnifying glass examines the contract. Tangible paper-and-metal world, strong depth, no abstract blocks.
+
+━━━━━━━━━━━━━━━━━━
+BILD 10 — SCHLUSS — STRICT 1:1
+FINALER DATEINAME: Bild 10 - Wuerdest du es ohne Rate kaufen.png
+━━━━━━━━━━━━━━━━━━
+Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
+No headline. No subtitle. Short label only: `OHNE RATE?`.
+Show a thoughtful purchase decision on a realistic table: desired product on the left, a real budget envelope/cash stack on the right, and a human hand paused between them without showing a full person. A small monthly-rate tag lies closer to the viewer but is not the dominant object. The image must visually ask whether the buyer would still choose the product without installment framing. Premium adult editorial 3D, large hero composition, rich environment.
+
+FINAL INTERNAL CHECK:
+- exactly five valid images
+- Bild 00 is 9:16 and has exact cover typography
+- Bild 01/04/07/10 are genuinely square 1:1
+- no user confirmation was requested between images
+- no abstract tube/tower/rail visual language
+- all filenames exact
+Only now provide the final completion summary.
