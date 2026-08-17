@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "locked": true,
+  "globalImageWorldId": "finanzneo-central-object-editorial-v6",
+  "worldDefinitionPath": "config/finanzneo-image-worlds/finanzneo-central-object-editorial-v6.txt",
+  "changePolicy": "Intentional lock-file change only. Per-reel overrides are forbidden.",
+  "coverAspectRatio": "9:16",
+  "sceneImageAspectRatio": "1:1",
+  "preferredSceneImageSize": "1080x1080",
+  "sceneRenderSizePx": 1000,
+  "rules": {
+    "centralHeroObjectRequired": true,
+    "supportingSymbolsMin": 3,
+    "supportingSymbolsMax": 5,
+    "realisticEverydaySceneForbidden": true,
+    "lineNetworkMainMotifForbidden": true,
+    "abstractFlowMainMotifForbidden": true,
+    "repeatedContractWallForbidden": true,
+    "wealthTowersForbidden": true,
+    "monolithsForbidden": true,
+    "sterileProductAdLookForbidden": true,
+    "emptyBlackStudioForbidden": true,
+    "tinyPosterCompositionForbidden": true
+  },
+  "googleFlow": {
+    "continuousAutonomousRunRequired": true,
+    "userConfirmationBetweenImagesForbidden": true,
+    "autoRegenerateInvalidImage": true,
+    "completionSummaryOnlyAfterAllImages": true
+  }
+}
