@@ -1,0 +1,104 @@
+FINANZNEO_WORLD_ID: finanzneo-stylized-finance-explainer-v8
+
+STYLIZED FINANCE EXPLAINER 3D — GLOBAL LOCKED WORLD
+
+PURPOSE
+FinanzNeo images must look like clean premium 3D financial-education illustrations, not photographs and not realistic product scenes. The approved direction is a simplified explanatory 3D sculpture: one large chunky central board/object plus a few recognizable simplified topic objects around it.
+
+REFERENCE CHARACTER
+Think of a polished modern finance infographic converted into 3D:
+- simplified geometry
+- chunky rounded shapes
+- clean matte surfaces
+- clear silhouettes
+- limited detail
+- strong hierarchy
+- friendly but adult
+- visually understandable in one second
+
+CORE COMPOSITION — REQUIRED
+1. ONE large central explanatory hero object.
+   Good examples: chunky rounded amount board, savings block, price board, contract block, calendar block, budget box, comparison board or simplified balance object.
+   The hero is a stylized 3D infographic object, NOT a realistic object photographed in a studio.
+
+2. Add 3–6 recognizable simplified supporting objects.
+   Examples: simplified smartphone, headphones, laptop, euro coins, banknotes, grocery items, envelope, contract sheet, magnifying glass, calendar, shopping basket or price tags.
+   Supporting objects must look intentionally simplified and designed, not like photographed real products.
+
+3. Natural but clean composition.
+   - central hero dominates
+   - supporting objects cluster around it
+   - slight overlap and soft contact shadows
+   - clear foreground / midground / background
+   - asymmetrical balance
+   - no orbit, no four-corner module layout
+
+4. Text/labels are physical infographic elements.
+   Use short paper tags, price tags, plaques or printed areas on the main board.
+   Do not use floating app badges or HUD labels.
+
+STYLE — HARD REQUIREMENT
+- premium stylized 3D infographic illustration
+- semi-isometric / gentle elevated 3/4 camera allowed, but never tiny game-board diorama
+- smooth rounded geometry and soft bevels
+- simplified forms with intentionally reduced detail
+- matte dark-green, mint, cream and muted gold surfaces
+- gold for money/value only
+- red-orange only for warning/risk
+- seamless deep charcoal-green background
+- soft studio lighting, soft contact shadows, clean edges
+- visually closer to a designed 3D explainer graphic than to a photograph
+
+STRICTLY FORBIDDEN — REALISM DRIFT
+- photorealism
+- realistic photography or product photography
+- real-world desk/office/shop environment
+- leather texture, leather grain or stitched leather
+- wood grain, wooden boards or rustic wood
+- scratched/aged/brushed realistic metal surfaces
+- realistic pen product photography
+- realistic laptop/phone/headphone product-ad rendering
+- realistic paper stacks or document photography
+- cinematic luxury product advertisement
+- hyper-detailed materials, pores, wear, dust or photographic imperfections
+
+STRICTLY FORBIDDEN — UI/GAME DRIFT
+- microchip or circuit-board visual language
+- digital central screen / tablet / app card as hero
+- floating UI cards, tiles, chips, buttons, widgets or HUD elements
+- four-corner mini-tile layout
+- circular satellite-module orbit
+- game-board / board-game composition
+- generic icon buttons instead of concrete simplified objects
+- glowing connector loops, neon networks or abstract finance streams
+- tubes, rails, roads, tracks
+- wealth towers, monoliths or meaningless blocks
+
+TARGET EXAMPLE LOGIC
+A good image should resemble a clean 3D finance infographic:
+large central rounded board with the key number/concept, surrounded by simplified recognizable objects such as coins, groceries, products or small paper price tags. Everything feels designed from the same stylized 3D kit.
+
+ASPECT RATIOS
+- Cover Bild 00: vertical 9:16
+- normal Google-Flow scene images: strict square 1:1, preferably 1080×1080
+
+TEXT
+- cover: exact requested German cover typography directly in Google Flow
+- normal images: no headline, no subtitle, no explanatory sentence
+- only explicitly requested short physical labels
+
+GOOGLE FLOW FILE WORKFLOW — HARD ORDER
+Create ONE final output folder first. Then process the required images strictly one at a time.
+For EACH image:
+1. Generate exactly ONE image only.
+2. Wait until that image is completely finished.
+3. Inspect style, spelling, aspect ratio and composition.
+4. If invalid, regenerate THIS SAME image until valid. Do not start the next image.
+5. Rename the valid image to its exact required final filename.
+6. Move/save that renamed file into the single final output folder.
+7. Verify that the exact filename is present in the final folder.
+8. ONLY THEN start generating the next image.
+
+Never batch-generate multiple required images before renaming the previous one.
+Never ask `Weiter?`, `Continue?`, approval or confirmation between images.
+At the end, all required images must be together in the one final folder and Flow may provide one final summary listing that folder and every filename.
