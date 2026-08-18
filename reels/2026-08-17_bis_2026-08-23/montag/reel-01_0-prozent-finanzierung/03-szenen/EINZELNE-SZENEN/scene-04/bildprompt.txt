@@ -1,8 +1,13 @@
 FINALER DATEINAME: Bild 04 - Drei Raten 95 Euro.png
+FINALER ORDNER: FINAL - 0 Prozent Finanzierung
 STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Use FINANZNEO physical explainer editorial v7. No headline, no subtitle. Physical labels only: `35 €`, `30 €`, `30 €`, `95 € / MONAT`.
+Use FINANZNEO stylized finance explainer v8. No headline. No subtitle. Labels only: `35 €`, `30 €`, `30 €`, `95 € / MONAT`.
 
-Create ONE large solid physical amount board in the center reading `95 € / MONAT`. Around it place three recognizable financed products — for example a laptop, smartphone and headphones. Each product has one small PHYSICAL payment tag nearby: `35 €`, `30 €`, `30 €`. Add a few euro coins near the base.
+Create one large chunky rounded amount board in the center showing `95 € / MONAT`.
+Around it place simplified stylized 3D laptop, smartphone and headphones, each with a small clean paper price tag: `35 €`, `30 €`, `30 €`.
+Add a few simplified gold euro coins near the base.
+All objects must look like clean designed 3D infographic pieces with rounded geometry, matte surfaces and reduced detail.
 
-The main idea must be obvious immediately: three small monthly obligations together equal 95 € per month. Use natural asymmetry, slight overlap and contact shadows.
-STRICTLY FORBIDDEN: four floating electronic tiles around a digital center tile, microchip/circuit-board styling, UI cards/chips/buttons, satellite modules, circular icon orbit, game-board layout, dashboard, glowing line network or abstract finance streams.
+STRICTLY FORBIDDEN: photorealism, wood sign, wood grain, leather, realistic metal, realistic electronics product renders, product-ad look, digital UI tiles/chips, microchip/circuit-board, four-corner layout, game-board, satellite orbit or glowing line network.
+
+After generation: wait until fully complete, inspect, regenerate THIS SAME image if needed, rename exactly to the required filename, place it inside `FINAL - 0 Prozent Finanzierung`, verify it is there, and ONLY THEN create the next image. Never ask `Weiter?`.
