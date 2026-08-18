@@ -1,5 +1,0 @@
-FINALER DATEINAME: Bild 04 - Drei Raten 95 Euro.png
-STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Use FINANZNEO physical explainer editorial v7. No headline, no subtitle. Physical labels only: `35 €`, `30 €`, `30 €`, `95 € / MONAT`.
-Create ONE large solid physical amount board in the center reading `95 € / MONAT`. Around it place three recognizable financed products — for example a laptop, smartphone and headphones. Each product has one small PHYSICAL payment tag nearby: `35 €`, `30 €`, `30 €`. Add a few euro coins near the base. Natural asymmetric composition, slight overlap and contact shadows.
-STRICTLY FORBIDDEN: digital center screen, four floating electronic tiles, microchip/circuit-board styling, UI cards/chips/buttons, satellite modules, circular icon orbit, game-board layout, dashboard, glowing line network or abstract finance streams.
