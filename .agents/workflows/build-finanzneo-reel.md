@@ -1,5 +1,5 @@
 ---
-description: Build a complete FinanzNeo Reel end-to-end with the globally locked Google-Flow physical explainer image world, animation-first visuals, exact final-audio timing and hard final MP4 QA.
+description: Build a complete FinanzNeo Reel end-to-end with the globally locked Google-Flow stylized finance-explainer image world, animation-first visuals, exact final-audio timing and hard final MP4 QA.
 ---
 
 # Build a complete FinanzNeo Reel
@@ -32,40 +32,63 @@ Run `npm run validate:image-world`.
 Locked world:
 
 ```text
-finanzneo-physical-explainer-editorial-v7
+finanzneo-stylized-finance-explainer-v8
 ```
 
 For every NEW Reel:
 - Cover Bild 00 = 9:16 with exact Google-Flow cover text
 - normal Flow scene images = strict 1:1, preferably 1080×1080
-- ONE large PHYSICAL hero object, not a digital screen/tablet/app card/microchip/game tile
-- 3–6 recognizable, topic-specific physical objects around it
-- concrete objects preferred over generic icons
-- physical price/paper tags instead of floating UI badges
-- natural asymmetric arrangement with overlap and contact shadows
-- premium stylized 3D explainer composition
+- ONE large chunky central explanatory hero object
+- 3–6 simplified recognizable topic objects around it
+- clean rounded geometry, matte surfaces and reduced realistic detail
+- deep charcoal-green background with mint/emerald, cream and muted-gold accents
+- labels only as small paper/price tags or printed plaques
+- composition is a designed 3D finance infographic, NOT a photograph
 
-Hard forbidden failure modes:
-- central digital device with mini satellite modules
+Hard forbidden realism drift:
+- photorealism / realistic photography
+- realistic product photography or product-ad rendering
+- leather / stitched leather
+- wood grain / wooden sign / rustic wood
+- realistic scratched/aged metal
+- realistic pen/document/electronics photography
+- realistic desk/office/shop/lifestyle scene
+- cinematic luxury product-shot look
+
+Hard forbidden UI/game/abstract drift:
+- central digital screen/tablet/app card
 - microchip / circuit-board world
 - floating UI cards, tiles, chips, buttons or widgets
 - four-corner mini-tile layout
 - circular orbit of icon modules
 - game-board / board-game composition
 - dashboard / HUD / app interface
-- generic icon buttons replacing concrete topic objects
+- generic icon buttons replacing simplified topic objects
 - glowing connector loops or line networks
 - abstract finance streams, tubes, rails, tracks or roads
-- realistic everyday/desk/room main scene
 - repeated contract wall
 - wealth tower / monolith
-- sterile product-ad or empty black studio shot
 
 A per-Reel image-world override is forbidden. If target `scene-index.json`, `bildwelt.txt` or `alle-bildprompts.txt` uses another world, stop as `BLOCKED` and fix the target back to the global lock. Do not weaken the validator.
 
-## GOOGLE FLOW AUTONOMOUS IMAGE SET
+## GOOGLE FLOW AUTONOMOUS IMAGE/FILE SET
 
-Google Flow generates the complete image set in one continuous sequence: generate → wait internally → inspect → auto-regenerate if invalid → exact filename → immediately continue → final summary only after all images pass.
+Google Flow must create ONE final output folder first and process required images strictly one at a time:
+
+```text
+generate exactly ONE image
+→ wait until fully finished
+→ inspect
+→ regenerate THIS SAME image if invalid
+→ rename immediately to exact final filename
+→ move/save renamed file into the one final folder
+→ verify exact renamed filename exists there
+→ ONLY THEN generate the next image
+→ repeat
+→ final summary only after all renamed files are together in the one final folder
+```
+
+Never batch-generate several required images before renaming the previous one.
 Never ask `Weiter?`, `Continue?`, approval or confirmation between images.
 
 ## HARD USER-MEDIA GATE
@@ -93,11 +116,11 @@ Rules:
 - every animation needs Start → visible mechanism/action → result
 - icon-only, number-zoom, static-bar, emoji, text-only or generic-card animation is forbidden
 
-Use Google-Flow images mainly for hook, strong single physical explainer metaphor and closing image — always inside the global physical-explainer world.
+Use Google-Flow images mainly for hook, strong single stylized explainer metaphor and closing image — always inside the global V8 world.
 
 ## QUALITY GATE 2 — Inspect every supplied image
 
-Reject if motif is wrong/unclear, generated text or labels are wrong, numbers conflict with script/research, contradictory information appears, cover headline is wrong, normal image is not 1:1, the physical hero object is missing, concrete topic objects are replaced by generic UI icons, or any forbidden UI/chip/game-board/line-network drift appears.
+Reject if motif is wrong/unclear, generated text or labels are wrong, numbers conflict with script/research, contradictory information appears, cover headline is wrong, normal image is not 1:1, stylized infographic language is missing, photorealism/product-ad drift appears, leather/wood/realistic materials appear, or any forbidden UI/chip/game-board/line-network drift appears.
 If user must regenerate → `BLOCKED`. Never hide a bad image with Remotion overlays.
 
 ## Canonical image presentation
@@ -147,7 +170,7 @@ Exactly one `04-caption/caption.txt`, unchanged for Instagram Reels, TikTok, Fac
 
 ## Mandatory final QA
 
-Final QA must confirm: full MP4 inspected, every scene inspected, images match voice beats, generated text correct, normal Flow images are 1:1, locked physical-explainer world passed, no UI/chip/satellite/game-board failure mode, scene/audio sync correct, captions safe and synced, animations meaningful, no long static tail, audio levels passed.
+Final QA must confirm: full MP4 inspected, every scene inspected, images match voice beats, generated text correct, normal Flow images are 1:1, locked V8 stylized world passed, no photorealism/leather/wood/product-ad drift, no UI/chip/satellite/game-board failure mode, scene/audio sync correct, captions safe and synced, animations meaningful, no long static tail, audio levels passed.
 
 Audio target: approximately -16 LUFS, True Peak <= -1 dBTP.
 
