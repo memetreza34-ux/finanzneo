@@ -1,22 +1,25 @@
 ---
 name: finanzneo-reel
-description: Build, repair and finish FinanzNeo vertical Remotion reels with strict user-media boundaries, animation-first visuals, autonomous Google-Flow image production, exact final-audio captions and hard final MP4 QA.
+description: Build, repair and finish FinanzNeo vertical Remotion reels with a globally locked Google-Flow physical explainer image world, strict user-media boundaries, animation-first visuals, exact final-audio captions and hard final MP4 QA.
 ---
 
 # FinanzNeo Reel Skill
 
 Read first:
 
-1. `CLAUDE.md`
-2. `reels/PRODUKTIONSSTANDARD.md`
-3. `docs/REEL-QUALITY-CONTRACT-V2.md`
-4. `docs/BEAT-TO-IMAGE-RULES.md`
-5. `.agents/rules/finanzneo-reel-safety.md`
-6. target Reel `03-szenen/scene-index.json`
-7. target Reel `05-projektdateien/szenenplan.md`
-8. target Reel `03-szenen/alle-bildprompts.txt`
+1. `.agents/rules/finanzneo-image-world-lock.md`
+2. `config/finanzneo-image-world-lock.json`
+3. `config/finanzneo-image-worlds/finanzneo-physical-explainer-editorial-v7.txt`
+4. `CLAUDE.md`
+5. `reels/PRODUKTIONSSTANDARD.md`
+6. `docs/REEL-QUALITY-CONTRACT-V2.md`
+7. `docs/BEAT-TO-IMAGE-RULES.md`
+8. `.agents/rules/finanzneo-reel-safety.md`
+9. target Reel `03-szenen/scene-index.json`
+10. target Reel `05-projektdateien/szenenplan.md`
+11. target Reel `03-szenen/alle-bildprompts.txt`
 
-`CLAUDE.md` remains production/style authority. New V17+ Reels must also satisfy the V2 quality contract.
+`CLAUDE.md` remains the general production/style authority. For **image-world decisions**, the global image-world lock is the hard technical authority and supersedes older historical image-world wording.
 
 ## Autopilot
 
@@ -30,6 +33,56 @@ diagnose → fix → rerun → continue
 
 Stop only for a genuine blocker. Production authorization does not include merge/publish/delete/force-push/history rewrite.
 
+## GLOBAL IMAGE WORLD LOCK — mandatory
+
+Exactly one image world is allowed for every NEW Reel:
+
+```text
+finanzneo-physical-explainer-editorial-v7
+```
+
+Hard composition:
+
+- ONE large PHYSICAL hero object; it must not read as a tablet, digital screen, app card, microchip or game tile
+- 3–6 recognizable, topic-specific physical objects around it
+- concrete objects preferred over generic icons: products, euro coins, cash, groceries, envelopes, receipts, contract folders, calendars, price tags, shopping objects etc.
+- natural asymmetric placement with overlap and contact shadows
+- labels only as physical price tags, paper tags, stickers or attached plaques
+- premium stylized adult 3D explainer composition
+- normal scene image source: strict 1:1, preferably 1080×1080
+- cover Bild 00: 9:16 with exact cover text rendered directly by Google Flow
+
+Forbidden screenshot-failure language:
+
+- central digital device with mini satellite modules
+- microchip / circuit-board world
+- floating UI cards, tiles, chips, buttons or widgets
+- four-corner mini-tile layout
+- circular orbit of icon modules
+- game-board / board-game composition
+- dashboard / HUD / app interface
+- generic icon buttons replacing concrete topic objects
+- glowing connector loops or line networks
+- abstract finance streams, tubes, rails, tracks or roads
+- realistic everyday / desk / room scene
+- photo-like realism
+- repeated contract-paper walls
+- wealth towers / monoliths / meaningless blocks
+- sterile product advertising
+- almost-empty black studio shot
+- sci-fi corridor / neon tunnel
+- tiny subject in huge empty space
+
+Never invent a Reel-specific replacement world. A world change requires an explicit GLOBAL user request and an intentional update of `config/finanzneo-image-world-lock.json`.
+
+New Reels must be scaffolded via:
+
+```bash
+npm run reel:create -- --target <TARGET> --title "..."
+```
+
+Never bypass `scripts/scaffold-finanzneo-reel-locked.mjs` for normal production.
+
 ## Google Flow image autopilot — mandatory
 
 Every `03-szenen/alle-bildprompts.txt` for a new Reel must instruct Google Flow to generate the COMPLETE required image set in one uninterrupted autonomous sequence.
@@ -39,7 +92,7 @@ Required behavior:
 ```text
 Bild 00
 → wait internally until generation is complete
-→ inspect against exact requirements
+→ inspect exact requirements
 → regenerate automatically if wrong
 → assign exact filename
 → immediately continue to next required image
@@ -49,12 +102,10 @@ Bild 00
 
 Hard rules:
 
-- NEVER ask the user `Weiter?`, `continue?`, approval, feedback or confirmation between images.
+- NEVER ask the user `Weiter?`, `Continue?`, approval, feedback or confirmation between images.
 - NEVER stop after one completed image.
 - NEVER announce that the next image will be generated and then wait for user input.
-- The prompt must explicitly state that the user will not respond between images.
 - A failed image is regenerated automatically before continuing.
-- Only after the last required image passes QA may Flow provide one completion summary.
 - Sequential generation means one image at a time internally, NOT one user turn per image.
 
 ## Hard target-Reel media boundary
@@ -96,39 +147,13 @@ Hard planning rules:
 
 **Animation-first** for comparison, calculation, timeline, growth, Zinseszins, money flow, mechanisms, steps and changing cause/effect.
 
-Use Google-Flow images mainly for hook, concrete situation, strong single metaphor and closing image.
+Use Google-Flow images mainly for hook, strong single physical explainer metaphor and closing image — always inside the locked physical-explainer world.
 
 A visual is not chosen merely because it is easier to produce.
 
-## FinanzNeo Flow image world — tangible, not abstract
-
-Normal Flow imagery should feel like a premium semi-realistic 3D editorial finance world with tangible, understandable financial objects.
-
-Prefer when semantically useful:
-
-- transparent savings jars / premium money containers
-- believable euro coins and banknote bundles
-- calendar pages and time markers
-- financial workspace / desk context
-- documents, envelopes, notebook, calculator or household-finance props
-- premium glass, paper, brushed metal and matte materials
-- real contact shadows and clear foreground/midground/background depth
-
-Avoid as main visual:
-
-- glowing tubes, rails, tracks or roads
-- generic wealth towers / anonymous vertical blocks
-- futuristic paths or sci-fi corridors
-- floating geometric bars
-- almost-empty black studio product shots
-- dashboard/app UI
-- toy-like dioramas, Pixar or clay look
-
-If the result looks like an abstract tech render instead of an understandable finance scene, reject/regenerate it.
-
 ## Supplied image QA before Remotion
 
-Inspect every supplied image before integration against the exact spoken beat.
+Inspect every supplied image before integration against the exact spoken beat and the global lock.
 
 Reject if:
 
@@ -139,15 +164,20 @@ Reject if:
 - image adds contradictory information
 - text is unnecessarily repeated across image + headline + subtitle
 - cover headline is wrong/missing/clipped/unreadable
-- image-world/background/person rules fail
-- normal scene image has wrong aspect ratio
-- normal scene image is an abstract pipe/tower/track world when a tangible finance metaphor is expected
+- normal scene image is not 1:1
+- large physical hero object is missing
+- recognizable topic objects are replaced by generic icons or UI buttons
+- image uses digital central screen / microchip / floating UI tile language
+- image uses satellite-module orbit, four-corner tiles or game-board layout
+- image becomes realistic everyday/desk/room imagery
+- line network / glowing finance stream becomes the main motif
+- contract wall, wealth tower, monolith or sterile product-ad drift appears
 
 If regeneration is needed → `BLOCKED`; do not cover the defect with Remotion.
 
-## Image presentation — current default
+## Image presentation — locked default
 
-For new Reels unless the target scene explicitly justifies another mode:
+For new Reels:
 
 ```text
 Cover Bild 00: vertical 9:16
@@ -161,10 +191,10 @@ Rules:
 - never stretch a 1:1 image vertically to 9:16
 - no tiny centered poster; square visual should use nearly the full Reel width
 - no blurred duplicate background required
-- scene headline remains a Remotion overlay above/around the visual as designed
+- headline remains a Remotion overlay above/around the visual as designed
 - karaoke caption remains separate and readable
 - cover keeps its Google-Flow headline; no Remotion replacement
-- target `scene-index.json` is authoritative for per-scene aspect ratio
+- target `scene-index.json` is authoritative for per-scene filename and content
 
 Native animation scenes use one seamless full-canvas background without floor/horizon/studio split.
 
@@ -237,38 +267,34 @@ No YouTube Shorts.
 
 When media gate passes:
 
-1. inspect every image semantically against the voice beat
-2. verify cover headline and exact typography
-3. verify normal scene image aspect ratios
-4. generate real final-audio word timestamps
-5. create short caption units
-6. resolve final scene timeline
-7. verify semantic animation/image mix
-8. implement Remotion mechanism scenes
-9. integrate user images without distortion
-10. add scene headlines
-11. add safe karaoke captions
-12. create universal five-hashtag caption
-13. run final validator + TypeScript
-14. render preview
-15. inspect every scene and contact sheet
-16. fix all issues
-17. render full MP4
-18. inspect the complete MP4 with audio
-19. measure loudness/true peak
-20. fill `05-projektdateien/final-qa.json` truthfully
-21. mark QA `passed` only after real checks pass
-22. rerun final validator
-23. safety audit
-24. commit + draft PR when appropriate
+1. run `npm run validate:image-world`
+2. inspect every image semantically and against the locked world
+3. verify cover headline and exact typography
+4. verify all normal scene images are 1:1
+5. generate real final-audio word timestamps
+6. create short caption units
+7. resolve final scene timeline
+8. verify semantic animation/image mix
+9. implement Remotion mechanism scenes
+10. integrate user images without distortion
+11. add scene headlines
+12. add safe karaoke captions
+13. create universal five-hashtag caption
+14. run `npm run reel:validate -- <TARGET-REEL> --final`
+15. run TypeScript check
+16. render preview via the locked render command
+17. inspect every scene and contact sheet
+18. fix all issues
+19. render full MP4 via the locked render command
+20. inspect complete MP4 with audio
+21. measure loudness/true peak
+22. fill `05-projektdateien/final-qa.json` truthfully
+23. mark QA `passed` only after real checks pass
+24. rerun final validator
+25. safety audit
+26. commit + draft PR when appropriate
 
-Final QA must confirm image/voice semantic match, generated text correctness, scene/audio sync, subtitle safe-area, subtitle word sync, visually meaningful animations, no long static tail and audio around -16 LUFS with True Peak <= -1 dBTP.
-
-Final validation:
-
-```bash
-npm run reel:validate -- <TARGET-REEL> --final
-```
+Final QA must confirm image/voice semantic match, locked image-world match, generated text correctness, scene/audio sync, subtitle safe-area, subtitle word sync, meaningful animations, no long static tail and audio around -16 LUFS with True Peak <= -1 dBTP.
 
 ## Final response
 
