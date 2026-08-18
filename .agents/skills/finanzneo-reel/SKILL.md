@@ -1,6 +1,6 @@
 ---
 name: finanzneo-reel
-description: Build, repair and finish FinanzNeo vertical Remotion reels with a globally locked Google-Flow physical explainer image world, strict user-media boundaries, animation-first visuals, exact final-audio captions and hard final MP4 QA.
+description: Build, repair and finish FinanzNeo vertical Remotion reels with a globally locked Google-Flow stylized finance-explainer image world, strict user-media boundaries, animation-first visuals, exact final-audio captions and hard final MP4 QA.
 ---
 
 # FinanzNeo Reel Skill
@@ -9,7 +9,7 @@ Read first:
 
 1. `.agents/rules/finanzneo-image-world-lock.md`
 2. `config/finanzneo-image-world-lock.json`
-3. `config/finanzneo-image-worlds/finanzneo-physical-explainer-editorial-v7.txt`
+3. `config/finanzneo-image-worlds/finanzneo-stylized-finance-explainer-v8.txt`
 4. `CLAUDE.md`
 5. `reels/PRODUKTIONSSTANDARD.md`
 6. `docs/REEL-QUALITY-CONTRACT-V2.md`
@@ -38,39 +38,46 @@ Stop only for a genuine blocker. Production authorization does not include merge
 Exactly one image world is allowed for every NEW Reel:
 
 ```text
-finanzneo-physical-explainer-editorial-v7
+finanzneo-stylized-finance-explainer-v8
 ```
 
 Hard composition:
 
-- ONE large PHYSICAL hero object; it must not read as a tablet, digital screen, app card, microchip or game tile
-- 3–6 recognizable, topic-specific physical objects around it
-- concrete objects preferred over generic icons: products, euro coins, cash, groceries, envelopes, receipts, contract folders, calendars, price tags, shopping objects etc.
-- natural asymmetric placement with overlap and contact shadows
-- labels only as physical price tags, paper tags, stickers or attached plaques
-- premium stylized adult 3D explainer composition
+- ONE large chunky central explanatory hero object
+- 3–6 simplified recognizable topic objects around it
+- stylized finance-infographic geometry: rounded forms, soft bevels, clean matte surfaces, reduced realistic detail
+- deep charcoal-green background with mint/emerald, cream and muted-gold accents
+- concrete simplified objects preferred over generic icons: products, euro coins, cash, groceries, envelopes, receipts, contract folders, calendars, price tags, shopping objects etc.
+- natural asymmetric placement with slight overlap and soft contact shadows
+- labels only as small physical price/paper tags or printed plaques
 - normal scene image source: strict 1:1, preferably 1080×1080
 - cover Bild 00: 9:16 with exact cover text rendered directly by Google Flow
 
-Forbidden screenshot-failure language:
+Forbidden realism drift:
 
-- central digital device with mini satellite modules
+- photorealism / realistic photography
+- realistic product photography or product-ad rendering
+- leather / stitched leather
+- wood grain / wooden signs / rustic wood
+- realistic scratched or aged metal
+- realistic pen/document/electronics photography
+- realistic desk / office / shop / lifestyle scene
+- cinematic luxury product-shot look
+
+Forbidden UI/game/abstract drift:
+
+- central digital device/tablet/app card
 - microchip / circuit-board world
 - floating UI cards, tiles, chips, buttons or widgets
 - four-corner mini-tile layout
 - circular orbit of icon modules
 - game-board / board-game composition
 - dashboard / HUD / app interface
-- generic icon buttons replacing concrete topic objects
+- generic icon buttons replacing simplified topic objects
 - glowing connector loops or line networks
 - abstract finance streams, tubes, rails, tracks or roads
-- realistic everyday / desk / room scene
-- photo-like realism
 - repeated contract-paper walls
 - wealth towers / monoliths / meaningless blocks
-- sterile product advertising
-- almost-empty black studio shot
-- sci-fi corridor / neon tunnel
 - tiny subject in huge empty space
 
 Never invent a Reel-specific replacement world. A world change requires an explicit GLOBAL user request and an intentional update of `config/finanzneo-image-world-lock.json`.
@@ -83,30 +90,35 @@ npm run reel:create -- --target <TARGET> --title "..."
 
 Never bypass `scripts/scaffold-finanzneo-reel-locked.mjs` for normal production.
 
-## Google Flow image autopilot — mandatory
+## Google Flow image/file autopilot — mandatory
 
-Every `03-szenen/alle-bildprompts.txt` for a new Reel must instruct Google Flow to generate the COMPLETE required image set in one uninterrupted autonomous sequence.
+Every `03-szenen/alle-bildprompts.txt` for a new Reel must instruct Google Flow to create one final output folder first and process the COMPLETE required image set strictly one image at a time.
 
 Required behavior:
 
 ```text
-Bild 00
-→ wait internally until generation is complete
+create ONE final output folder
+→ generate exactly ONE required image
+→ wait until generation is fully complete
 → inspect exact requirements
-→ regenerate automatically if wrong
-→ assign exact filename
-→ immediately continue to next required image
+→ regenerate THIS SAME image if wrong
+→ rename immediately to exact required filename
+→ move/save renamed file into the one final folder
+→ verify exact renamed filename exists in that folder
+→ ONLY THEN generate the next required image
 → repeat until every required image is finished
-→ only then give one final summary
+→ final summary only after all renamed files are together in the final folder
 ```
 
 Hard rules:
 
+- NEVER batch-generate several required images before renaming the previous one.
+- NEVER start the next image before the previous valid image has been renamed, moved/saved into the final folder and verified there.
 - NEVER ask the user `Weiter?`, `Continue?`, approval, feedback or confirmation between images.
-- NEVER stop after one completed image.
 - NEVER announce that the next image will be generated and then wait for user input.
 - A failed image is regenerated automatically before continuing.
 - Sequential generation means one image at a time internally, NOT one user turn per image.
+- At completion all required final files must be together in ONE final output folder.
 
 ## Hard target-Reel media boundary
 
@@ -147,7 +159,7 @@ Hard planning rules:
 
 **Animation-first** for comparison, calculation, timeline, growth, Zinseszins, money flow, mechanisms, steps and changing cause/effect.
 
-Use Google-Flow images mainly for hook, strong single physical explainer metaphor and closing image — always inside the locked physical-explainer world.
+Use Google-Flow images mainly for hook, strong single stylized explainer metaphor and closing image — always inside the locked V8 world.
 
 A visual is not chosen merely because it is easier to produce.
 
@@ -165,13 +177,15 @@ Reject if:
 - text is unnecessarily repeated across image + headline + subtitle
 - cover headline is wrong/missing/clipped/unreadable
 - normal scene image is not 1:1
-- large physical hero object is missing
+- large stylized hero object is missing
 - recognizable topic objects are replaced by generic icons or UI buttons
+- image becomes photorealistic or product-ad-like
+- leather, wood grain, realistic metal wear or realistic product photography appears
 - image uses digital central screen / microchip / floating UI tile language
 - image uses satellite-module orbit, four-corner tiles or game-board layout
 - image becomes realistic everyday/desk/room imagery
 - line network / glowing finance stream becomes the main motif
-- contract wall, wealth tower, monolith or sterile product-ad drift appears
+- contract wall, wealth tower or monolith drift appears
 
 If regeneration is needed → `BLOCKED`; do not cover the defect with Remotion.
 
