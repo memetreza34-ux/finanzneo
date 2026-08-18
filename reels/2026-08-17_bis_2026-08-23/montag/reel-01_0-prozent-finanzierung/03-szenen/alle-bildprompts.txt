@@ -1,114 +1,160 @@
 FINANZNEO — GOOGLE FLOW — 0%-FINANZIERUNG
-FINANZNEO_WORLD_ID: finanzneo-physical-explainer-editorial-v7
+FINANZNEO_WORLD_ID: finanzneo-stylized-finance-explainer-v8
 
-AUTONOMOUS CONTINUOUS RUN — HARD RULE:
-Generate ALL five required images in one continuous task.
-Do NOT stop after any image.
-Do NOT ask the user `Weiter?`, `Continue?`, for confirmation, approval or feedback between images.
-For each image internally: generate → wait until fully complete → inspect spelling, aspect ratio and motif → if wrong, regenerate automatically → apply the exact final filename → immediately continue to the next image.
-Only after ALL five images are valid, provide one final completion summary.
+FINAL OUTPUT FOLDER — CREATE THIS FIRST:
+`FINAL - 0 Prozent Finanzierung`
 
-GLOBAL WORLD — PHYSICAL 3D EXPLAINER EDITORIAL:
-Create a premium stylized 3D explainer still made from PHYSICAL, RECOGNIZABLE objects. The visual grammar must match a strong finance explainer illustration: one large physical hero object or board in the center, surrounded by concrete topic objects, money, products, paper tags and finance props that directly explain the beat.
+HARD FILE WORKFLOW — DO NOT DEVIATE:
+You must process the required images strictly ONE AT A TIME.
+Do NOT batch-generate multiple required images.
+Do NOT create the next image before the previous image has been completely finished, checked, renamed and placed into the final folder.
 
-REQUIRED:
-- ONE large central PHYSICAL hero object, NOT a screen, tablet, app card, chip or game tile
-- 3–6 recognizable topic-specific objects around it
-- natural asymmetric arrangement with local contact shadows and slight overlap
-- short labels rendered as physical price tags / paper tags / attached plaques, never floating UI badges
-- large readable objects, rich depth, clear hierarchy
-- stylized premium 3D, not photorealistic
-- seamless deep charcoal green-black background
-- emerald/mint accents, gold for money/value, red-orange only for warning/risk
+For EACH required image, follow this exact loop:
+1. Generate exactly ONE image only.
+2. Wait until that image is fully finished.
+3. Inspect the result for: correct visual world, correct aspect ratio, correct text/labels, correct composition.
+4. If anything is wrong, regenerate THIS SAME image. Do not start the next image.
+5. When valid, rename the image immediately to the exact required final filename.
+6. Move/save the renamed image into the folder `FINAL - 0 Prozent Finanzierung`.
+7. Verify that the exact renamed filename is visible inside that folder.
+8. ONLY AFTER verification, start generating the next required image.
 
-STRICTLY FORBIDDEN:
-- microchip or circuit-board styling
-- central digital device with mini satellite modules
-- floating cards, tiles, chips, buttons or app widgets
+Never ask the user `Weiter?`, `Continue?`, for confirmation, approval or feedback between images.
+Never say that you will create the next image and then wait for a user turn.
+Continue autonomously until all five files are finished.
+At the end, open/check the single final folder and confirm that all five exact filenames are together inside it.
+Only then provide one final completion summary.
+
+REQUIRED ORDER:
+1. Bild 00 - 0 Prozent Finanzierung Cover.png
+2. Bild 01 - 0 Prozent klingt kostenlos.png
+3. Bild 04 - Drei Raten 95 Euro.png
+4. Bild 07 - Vertrag komplett pruefen.png
+5. Bild 10 - Wuerdest du es ohne Rate kaufen.png
+
+GLOBAL VISUAL WORLD — STYLIZED FINANCE EXPLAINER 3D V8:
+Create clean premium stylized 3D financial-education illustrations. The image must look like a designed 3D infographic, NOT like a realistic photo or realistic product scene.
+
+TARGET LOOK:
+- one large chunky central explanatory board/object
+- 3–6 simplified recognizable topic objects around it
+- rounded simplified geometry
+- clean matte surfaces
+- reduced realistic detail
+- clear large shapes
+- soft contact shadows
+- deep charcoal-green seamless background
+- mint/emerald structural accents
+- muted gold only for money/value
+- red-orange only for warning/risk
+- short labels as small physical paper/price tags or printed plaques
+- adult, premium, clean, understandable in one second
+
+STRICTLY FORBIDDEN — REALISM:
+- photorealism or realistic photography
+- realistic product photography
+- leather or stitched-leather texture
+- wood grain or rustic wooden boards
+- scratched/aged realistic metal
+- realistic pen, laptop, smartphone or headphone advertising renders
+- realistic document photography
+- realistic desk, shop, office or lifestyle scene
+- luxury cinematic product-ad look
+
+STRICTLY FORBIDDEN — WRONG 3D LANGUAGE:
+- digital central screen / tablet / app card as hero
+- microchip / circuit-board styling
+- floating UI cards, tiles, chips, buttons or widgets
 - four-corner mini-tile composition
-- circular orbit of icon modules
+- circular satellite-module orbit
 - game-board / board-game composition
 - dashboard / HUD / app interface
-- glowing connector loops or line networks as the main composition
-- abstract finance streams, tubes, rails, tracks or roads
-- repeated contract-paper wall
-- wealth towers, monoliths, generic blocks
-- sterile product-ad scene
-- realistic desk / room / office scene
-- tiny icons replacing concrete recognizable objects
+- generic icon buttons instead of simplified recognizable objects
+- glowing connector loops, neon line networks or abstract finance streams
+- tubes, rails, roads, tracks, wealth towers or monoliths
 
 ━━━━━━━━━━━━━━━━━━
 BILD 00 — COVER — 9:16
 FINALER DATEINAME: Bild 00 - 0 Prozent Finanzierung Cover.png
 ━━━━━━━━━━━━━━━━━━
-Create one vertical 9:16 premium stylized physical 3D explainer cover.
-Write this German cover text EXACTLY and nothing else as large cover typography:
+Generate exactly ONE vertical 9:16 image.
+Write EXACTLY:
 `0 % FINANZIERUNG`
 `WO IST DER HAKEN?`
 
-Composition: one large solid physical financing sign/board as the hero object, integrated into a rich but clean 3D explainer scene. Around the hero place recognizable concrete objects related to installment buying: a smartphone box, headphones, a small contract folder, euro coins and 2–3 physical monthly-payment tags. The objects should feel physically grouped around the main board, similar to a premium editorial finance illustration.
-
-Do NOT turn the central board into a digital screen or microchip. No satellite tiles, no orbit, no app buttons, no circuit-board look. Natural asymmetric composition. Strong depth. Regenerate automatically if typography is not exact.
+Create one large chunky rounded financing board as the central hero, designed like a stylized 3D infographic object — NOT a realistic sign made from wood/leather/metal.
+Around it place simplified stylized 3D objects: smartphone box, headphones, compact contract sheet/folder, euro coins and 2–3 small paper payment tags.
+Use clean matte dark-green/mint/cream materials and soft rounded geometry.
+No photoreal materials. No realistic product-ad look. No digital UI.
+Regenerate until the typography is exact.
+Then rename immediately to the exact filename and place it inside `FINAL - 0 Prozent Finanzierung` before proceeding.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 01 — HOOK — STRICT 1:1
 FINALER DATEINAME: Bild 01 - 0 Prozent klingt kostenlos.png
 ━━━━━━━━━━━━━━━━━━
-Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. No subtitle. Short physical label only: `0 %`.
+Generate exactly ONE strict square 1:1 image, preferably 1080×1080.
+No headline. No subtitle. Short tag only: `0 %`.
 
-Create one large physical 0%-offer plaque or hangtag as the central hero object. Around it place recognizable concrete objects: a smartphone/product box, headphones, a compact contract folder, several euro coins and a few small physical payment slips. The image should communicate: the offer looks easy, but a real financing obligation exists behind it.
-
-The scene must look like a stylized premium 3D finance explainer illustration, not a realistic shop or desk.
-NO digital screen. NO microchip. NO floating mini-tiles. NO circular icon orbit. NO app UI. NO glowing line network.
+Use one large chunky stylized 0%-offer board/tag as the hero object. Around it place simplified 3D versions of a smartphone/product box, headphones, a simple contract sheet/folder, euro coins and a few small payment tags.
+Everything must look like one clean designed 3D infographic kit: rounded geometry, matte surfaces, reduced detail, dark green/mint/gold palette.
+Do NOT create realistic electronics, leather folders, wood, realistic paperwork or a product photo.
+Then rename immediately and place inside the final folder before proceeding.
 
 ━━━━━━━━━━━━━━━━━━
-BILD 04 — MEHRERE RATEN — STRICT 1:1
+BILD 04 — DREI RATEN — STRICT 1:1
 FINALER DATEINAME: Bild 04 - Drei Raten 95 Euro.png
 ━━━━━━━━━━━━━━━━━━
-Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. No subtitle. Physical labels only: `35 €`, `30 €`, `30 €`, `95 € / MONAT`.
+Generate exactly ONE strict square 1:1 image, preferably 1080×1080.
+No headline. No subtitle. Labels only: `35 €`, `30 €`, `30 €`, `95 € / MONAT`.
 
-Create one large solid physical amount board in the center reading `95 € / MONAT`.
-Around the board place three recognizable financed products, for example a laptop, smartphone and headphones. Each product has one small PHYSICAL price/payment tag attached nearby: `35 €`, `30 €`, `30 €`.
-Add a few euro coins near the base for financial context.
-
-The main idea must be obvious in one glance: three separate small purchases together equal 95 € per month.
-Use a natural asymmetric arrangement, slight overlap and contact shadows.
-Do NOT create four floating electronic tiles around a central digital tile. No game-board, no chips, no buttons, no circuit-board styling.
+Create one large chunky rounded amount board in the center showing `95 € / MONAT`.
+Around it place simplified stylized 3D laptop, smartphone and headphones, each with a small clean paper price tag: `35 €`, `30 €`, `30 €`.
+Add a few simplified gold euro coins near the base.
+The products must be simplified infographic objects, NOT realistic product renders.
+No wood sign. No leather. No photo-real metal. No advertising look.
+Then rename immediately and place inside the final folder before proceeding.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 07 — VERTRAG PRÜFEN — STRICT 1:1
 FINALER DATEINAME: Bild 07 - Vertrag komplett pruefen.png
 ━━━━━━━━━━━━━━━━━━
-Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. No subtitle. Physical tags only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
+Generate exactly ONE strict square 1:1 image, preferably 1080×1080.
+No headline. No subtitle. Tags only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
 
-Use one large thick physical contract folder/booklet as the central hero object. Around it place a stylized magnifying glass, pen, euro coins and three small physical paper tabs/tags attached around the contract reading `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
-The image should look like a premium 3D explainer sculpture on a seamless dark-green background, not a realistic desk.
-
-NO stacked digital cards. NO floating UI chips. NO mini-screen modules. NO ring of icons. NO app dashboard. NO contract-paper wall.
+Create one large simplified chunky contract block/folder as the central hero, with smooth rounded matte geometry — NOT a realistic leather folder or photographed document stack.
+Around it place a simplified magnifying glass, a clean stylized pen shape, simplified euro coins and three small paper tabs/tags reading exactly `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
+Keep everything clean, stylized, reduced-detail and infographic-like.
+Then rename immediately and place inside the final folder before proceeding.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 10 — SCHLUSS — STRICT 1:1
 FINALER DATEINAME: Bild 10 - Wuerdest du es ohne Rate kaufen.png
 ━━━━━━━━━━━━━━━━━━
-Create one strict SQUARE 1:1 image, preferably 1080×1080. Do NOT create 9:16.
-No headline. No subtitle. Short physical label only: `OHNE RATE?`.
+Generate exactly ONE strict square 1:1 image, preferably 1080×1080.
+No headline. No subtitle. Short tag only: `OHNE RATE?`.
 
-Create one large physical balance/decision object as the hero motif. On one side place a recognizable desired product box; on the other side place a cash envelope and euro coins. Add one small physical tag reading `OHNE RATE?` near the decision object and one smaller monthly-rate tag near the product.
-The visual should ask: would this purchase still feel worth it without installment framing?
+Create one large simplified chunky 3D balance/decision object as the hero motif.
+On one side place a simplified desired product box; on the other side a simplified cash envelope and gold euro coins.
+Add one small paper tag `OHNE RATE?`.
+Use the same rounded clean stylized 3D infographic language as all previous images.
+No realistic metal scale, no realistic cash photography, no wood, no leather, no product-ad realism.
+Then rename immediately and place inside the final folder.
 
-Keep the composition stylized, premium, concrete and physical. Natural asymmetry, strong depth, contact shadows.
-NO digital central screen. NO floating UI cards. NO game-board. NO satellite chips. NO glowing line network.
+FINAL FOLDER CHECK — REQUIRED:
+Open/check `FINAL - 0 Prozent Finanzierung` and verify that it contains exactly these five final files:
+- Bild 00 - 0 Prozent Finanzierung Cover.png
+- Bild 01 - 0 Prozent klingt kostenlos.png
+- Bild 04 - Drei Raten 95 Euro.png
+- Bild 07 - Vertrag komplett pruefen.png
+- Bild 10 - Wuerdest du es ohne Rate kaufen.png
 
-FINAL INTERNAL CHECK:
-- exactly five valid images
-- Bild 00 is 9:16 and has exact cover typography
-- Bild 01/04/07/10 are genuinely square 1:1
-- visual world is `finanzneo-physical-explainer-editorial-v7`
-- every scene uses physical recognizable topic objects
-- no microchip / UI-tile / game-board / satellite-module composition
-- no user confirmation was requested between images
-- all filenames exact
-Only now provide the final completion summary.
+Confirm:
+- 5/5 files are together in the ONE folder
+- every filename is exact
+- Bild 00 is 9:16
+- all other images are strict 1:1
+- all images use `finanzneo-stylized-finance-explainer-v8`
+- no photoreal/material realism drift
+- no UI/chip/game-board drift
+Only after this final folder check give one completion summary.
