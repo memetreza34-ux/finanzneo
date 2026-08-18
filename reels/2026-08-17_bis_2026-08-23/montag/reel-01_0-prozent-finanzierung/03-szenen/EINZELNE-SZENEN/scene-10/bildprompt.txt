@@ -1,9 +1,13 @@
 FINALER DATEINAME: Bild 10 - Wuerdest du es ohne Rate kaufen.png
+FINALER ORDNER: FINAL - 0 Prozent Finanzierung
 STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Use FINANZNEO physical explainer editorial v7. No headline, no subtitle. Short physical label only: `OHNE RATE?`.
+Use FINANZNEO stylized finance explainer v8. No headline. No subtitle. Short tag only: `OHNE RATE?`.
 
-Create ONE large physical balance/decision object as the hero motif. On one side place a recognizable desired product box; on the other side place a cash envelope and euro coins. Add one small PHYSICAL tag reading `OHNE RATE?` near the decision object and one smaller monthly-rate tag near the product.
-The visual should ask: would this purchase still feel worth it without installment framing?
+Create one large simplified chunky 3D balance/decision object as the hero motif.
+On one side place a simplified desired product box; on the other side a simplified cash envelope and muted-gold euro coins.
+Add one small paper tag `OHNE RATE?`.
+Use rounded clean stylized geometry, matte dark-green/mint/cream surfaces, reduced detail and soft contact shadows.
 
-Keep the composition stylized, premium, concrete and physical. Natural asymmetry, strong depth and contact shadows.
-STRICTLY FORBIDDEN: digital central screen, floating UI cards/tiles/chips, satellite modules, circular icon orbit, four-corner mini-tile layout, game-board composition, microchip/circuit-board styling or glowing line network.
+STRICTLY FORBIDDEN: photorealism, realistic metal scale, realistic cash photography, wood, leather, product-ad realism, floating UI cards/tiles/chips, game-board, satellite modules, circular icon orbit, microchip/circuit-board or glowing line network.
+
+After generation: wait until fully complete, inspect, regenerate THIS SAME image if needed, rename exactly to the required filename, place it inside `FINAL - 0 Prozent Finanzierung`, verify it is there, and only then perform the final folder check. Never ask `Weiter?`.
