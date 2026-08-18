@@ -1,15 +1,17 @@
 GOOGLE FLOW COVER — 9:16
 FINALER DATEINAME: Bild 00 - 0 Prozent Finanzierung Cover.png
+FINALER ORDNER: FINAL - 0 Prozent Finanzierung
 
-Use FINANZNEO physical explainer editorial v7.
-Create one vertical 9:16 premium stylized 3D explainer cover.
+Use FINANZNEO stylized finance explainer v8.
+Create one vertical 9:16 premium stylized 3D infographic cover — NOT photorealistic.
 
-Create ONE large solid physical financing sign/board as the central hero object. Around it place recognizable concrete installment-purchase objects: smartphone/product box, headphones, small contract folder, euro coins and 2–3 physical monthly-payment tags. The objects must sit naturally around the main object with overlap and contact shadows, like a built editorial finance illustration.
+Create ONE large chunky rounded financing board as the hero. Around it place simplified stylized 3D objects: smartphone box, headphones, compact contract sheet/folder, euro coins and 2–3 small paper payment tags.
+All objects must use simplified geometry, clean matte dark-green/mint/cream surfaces, soft bevels and reduced detail.
 
 Write EXACTLY:
 `0 % FINANZIERUNG`
 `WO IST DER HAKEN?`
 
-No other large text.
-STRICTLY FORBIDDEN: digital central screen, microchip/circuit-board styling, floating UI cards/tiles/chips, satellite modules, circular icon orbit, four-corner mini-tile layout, game-board composition, dashboard/app UI, glowing line network, contract wall, wealth tower or sterile product-ad shot.
-Regenerate automatically if any letter, number, percent sign or composition rule is wrong.
+STRICTLY FORBIDDEN: photorealism, leather texture, wood grain, realistic metal wear, realistic product-ad electronics, realistic document photography, realistic desk/shop scene, digital UI, microchip/circuit-board, floating tiles/chips, game-board, satellite orbit, glowing line network.
+
+After generation: wait until complete, inspect, regenerate THIS SAME cover if needed, rename it exactly to `Bild 00 - 0 Prozent Finanzierung Cover.png`, place it inside `FINAL - 0 Prozent Finanzierung`, verify the exact filename is there, and ONLY THEN continue to the next required image. Never ask `Weiter?`.
