@@ -1,46 +1,62 @@
-FINANZNEO_WORLD_ID: finanzneo-physical-explainer-editorial-v7
+FINANZNEO_WORLD_ID: finanzneo-stylized-finance-explainer-v8
 
-PHYSICAL 3D EXPLAINER EDITORIAL — LOCKED LOOK.
+STYLIZED FINANCE EXPLAINER 3D — LOCKED LOOK
 
 TARGET LOOK:
-Create a premium stylized 3D explainer still built from PHYSICAL, RECOGNIZABLE finance and topic objects on one seamless deep charcoal-green background. The result should feel like the approved FinanzNeo explainer reference: one strong main object plus concrete surrounding objects, price tags and money details.
+Create a clean premium stylized 3D finance-explainer illustration, visually closer to a designed 3D infographic than to a photograph.
+
+The approved look is the same visual logic as the strong 10.000-€ explainer reference:
+- one large chunky central explanatory board/object
+- simplified recognizable supporting objects around it
+- rounded geometry, clean matte surfaces, reduced detail
+- dark charcoal-green background
+- mint/emerald structure accents
+- muted gold only for money/value
+- short physical price/paper tags
+- clear hierarchy and soft shadows
 
 CORE COMPOSITION:
-- ONE large central PHYSICAL hero object: for example a solid amount board, price board, contract folder, budget block, shopping basket, calendar block, safe, product box or other tangible explanatory object
-- the central hero must NOT look like a tablet, screen, microchip, app card or game tile
-- around it place 3–6 RECOGNIZABLE topic-specific objects: products, euro coins, cash, envelopes, groceries, price tags, receipts, contract folders, calendars, shopping objects or other concrete objects that directly explain the beat
-- supporting objects sit naturally around the hero with local contact shadows and slight overlap
-- use a natural asymmetric composition, not an evenly spaced orbit
-- short labels should look like PHYSICAL price tags, paper tags, plaques or labels attached to objects — never floating UI badges
-- strong foreground / midground / background depth
-- large readable objects, not tiny icons
+- ONE large central stylized hero board/object
+- hero may be an amount board, contract block, budget box, calendar block, comparison board, simplified balance or similar explanatory object
+- around it place 3–6 simplified recognizable topic objects
+- objects must look intentionally designed and simplified, not photographed real products
+- natural asymmetry, slight overlap and soft contact shadows
+- clear foreground / midground / background depth
+- labels only as small physical tags, plaques or printed areas
 
 STYLE:
-- stylized premium adult 3D editorial illustration, not photorealistic
-- deep charcoal green-black seamless background
-- emerald / mint accents for structure and guidance
-- gold for euro coins / value
-- warm red-orange only for warning / debt / pressure
-- smooth rounded forms, soft bevels, matte paper, brushed metal, glass and premium plastic materials
-- clean cinematic key light, soft contact shadows
+- premium stylized adult 3D infographic
+- simplified geometry
+- smooth rounded shapes and soft bevels
+- matte surfaces
+- limited realistic detail
+- clean soft lighting
+- no photoreal textures
+- seamless deep charcoal-green background
+- not childish, not clay, not toy-like
 
-STRICTLY FORBIDDEN:
+STRICTLY FORBIDDEN — REALISM:
+- photorealism
+- realistic product photography
+- realistic leather or stitched leather
+- wood grain / wooden boards / rustic wood
+- realistic scratched or aged metal
+- realistic pen/product-ad rendering
+- realistic laptop/phone/headphone advertising look
+- realistic paper/document photography
+- office, desk, shop or lifestyle scene
+- luxury cinematic product-shot look
+
+STRICTLY FORBIDDEN — UI / GAME / ABSTRACT:
+- digital central screen, tablet or app card as hero
 - microchip / circuit-board visual language
-- central digital screen with satellite buttons
-- floating UI cards, tiles, chips, buttons or app modules
-- four-corner mini-tile layouts
-- circular orbit of icon modules around a center object
-- game-board or board-game composition
-- dashboard / HUD / app interface
-- glowing connector loops or line networks as the composition
-- abstract finance streams, tubes, rails, tracks or roads
-- generic symbols when a concrete recognizable object can explain the idea
-- repeated contract-paper walls
+- floating UI cards, tiles, chips, buttons, widgets or HUD
+- four-corner mini-tile layout
+- circular satellite orbit
+- game-board / board-game composition
+- glowing connector loops / line networks
+- abstract finance streams, tubes, rails, roads or tracks
 - wealth towers, monoliths or meaningless blocks
-- sterile product-ad hero shots
-- realistic desk / office / room scene
-- Pixar, clay or toy look
-- tiny subject floating in a huge empty field
 
 ASPECT RATIOS:
 - Cover only: vertical 9:16
@@ -49,4 +65,7 @@ ASPECT RATIOS:
 TEXT:
 - Cover: exact requested German cover text only
 - Normal images: no headline, no subtitle, no explanatory sentence
-- only explicitly requested short physical object labels
+- only explicitly requested short physical tags/labels
+
+GOOGLE FLOW FILE ORDER:
+Generate exactly ONE image at a time. Finish it completely, inspect it, regenerate if needed, rename it to the exact final filename, place it in the single final output folder and verify that renamed file is there. ONLY THEN generate the next image. Never batch-generate several required images before renaming the previous one. Never ask `Weiter?` between images.
