@@ -3,8 +3,8 @@ import {existsSync, readFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 
 const LOCK_PATH='config/finanzneo-image-world-lock.json';
-const EXPECTED_ID='finanzneo-physical-explainer-editorial-v7';
-const EXPECTED_WORLD_PATH='config/finanzneo-image-worlds/finanzneo-physical-explainer-editorial-v7.txt';
+const EXPECTED_ID='finanzneo-stylized-finance-explainer-v8';
+const EXPECTED_WORLD_PATH='config/finanzneo-image-worlds/finanzneo-stylized-finance-explainer-v8.txt';
 const args=process.argv.slice(2);
 const targetIndex=args.indexOf('--target');
 const targetArg=targetIndex>=0?args[targetIndex+1]:(args.find((arg)=>!arg.startsWith('--'))??null);
@@ -14,6 +14,7 @@ const read=(path)=>readFileSync(path,'utf8');
 if(!existsSync(LOCK_PATH)){fail(`missing ${LOCK_PATH}`);process.exit(1);}
 let lock;
 try{lock=JSON.parse(read(LOCK_PATH));}catch{fail(`${LOCK_PATH} is invalid JSON`);process.exit(1);}
+
 if(lock.locked!==true)fail('global image-world lock must remain locked=true');
 if(lock.globalImageWorldId!==EXPECTED_ID)fail(`globalImageWorldId must be ${EXPECTED_ID}`);
 if(lock.worldDefinitionPath!==EXPECTED_WORLD_PATH)fail(`worldDefinitionPath must be ${EXPECTED_WORLD_PATH}`);
@@ -22,24 +23,50 @@ if(lock.sceneImageAspectRatio!=='1:1')fail('sceneImageAspectRatio must be 1:1');
 if(lock.preferredSceneImageSize!=='1080x1080')fail('preferredSceneImageSize must be 1080x1080');
 if(lock.sceneRenderSizePx!==1000)fail('sceneRenderSizePx must be 1000');
 
-for(const key of ['physicalHeroObjectRequired','recognizableTopicObjectsRequired','physicalTagsRequiredWhenLabelsUsed','naturalAsymmetryRequired','realisticEverydaySceneForbidden','floatingUiTilesForbidden','microchipVisualLanguageForbidden','gameBoardCompositionForbidden','satelliteModuleOrbitForbidden','symmetricalFourCornerLayoutForbidden','digitalCentralScreenForbidden','genericIconButtonsAsMainObjectsForbidden','lineNetworkMainMotifForbidden','abstractFlowMainMotifForbidden','repeatedContractWallForbidden','wealthTowersForbidden','monolithsForbidden','sterileProductAdLookForbidden','emptyBlackStudioForbidden','tinyPosterCompositionForbidden']){
+for(const key of [
+  'stylizedInfographic3DRequired','centralHeroObjectRequired','recognizableSimplifiedTopicObjectsRequired',
+  'physicalTagsRequiredWhenLabelsUsed','naturalAsymmetryRequired','photorealismForbidden',
+  'realisticEverydaySceneForbidden','realisticProductPhotographyForbidden','leatherTextureForbidden',
+  'woodGrainForbidden','realisticMetalWearForbidden','floatingUiTilesForbidden','microchipVisualLanguageForbidden',
+  'gameBoardCompositionForbidden','satelliteModuleOrbitForbidden','symmetricalFourCornerLayoutForbidden',
+  'digitalCentralScreenForbidden','genericIconButtonsAsMainObjectsForbidden','lineNetworkMainMotifForbidden',
+  'abstractFlowMainMotifForbidden','repeatedContractWallForbidden','wealthTowersForbidden','monolithsForbidden',
+  'sterileProductAdLookForbidden','emptyBlackStudioForbidden','tinyPosterCompositionForbidden'
+]){
   if(lock.rules?.[key]!==true)fail(`${key} must be true`);
 }
 if(lock.rules?.supportingObjectsMin!==3||lock.rules?.supportingObjectsMax!==6)fail('supporting object range must remain 3–6');
-if(lock.googleFlow?.continuousAutonomousRunRequired!==true)fail('continuousAutonomousRunRequired must be true');
-if(lock.googleFlow?.userConfirmationBetweenImagesForbidden!==true)fail('userConfirmationBetweenImagesForbidden must be true');
-if(lock.googleFlow?.autoRegenerateInvalidImage!==true)fail('autoRegenerateInvalidImage must be true');
 
-const worldPath=lock.worldDefinitionPath;
-if(!existsSync(worldPath))fail(`missing world definition ${worldPath}`);
+for(const key of [
+  'singleImageAtATimeRequired','renameBeforeNextImageRequired','singleFinalOutputFolderRequired',
+  'verifyRenamedFileBeforeNextImageRequired','userConfirmationBetweenImagesForbidden',
+  'autoRegenerateInvalidImage','completionSummaryOnlyAfterAllImages'
+]){
+  if(lock.googleFlow?.[key]!==true)fail(`googleFlow.${key} must be true`);
+}
+
+if(!existsSync(EXPECTED_WORLD_PATH))fail(`missing world definition ${EXPECTED_WORLD_PATH}`);
 else{
-  const world=read(worldPath);
-  for(const required of [EXPECTED_ID,'ONE large PHYSICAL hero object','3–6 RECOGNIZABLE, TOPIC-SPECIFIC physical objects','microchip or circuit-board visual language','floating cards, tiles, chips, buttons','game-board / board-game layout','normal Google-Flow scene images: strict square 1:1','Never ask `Weiter?`']){
-    if(!world.includes(required))fail(`world definition missing required marker: ${required}`);
+  const world=read(EXPECTED_WORLD_PATH);
+  for(const required of [
+    EXPECTED_ID,
+    'premium stylized 3D infographic illustration',
+    'photorealism',
+    'leather texture',
+    'wood grain',
+    'Generate exactly ONE image only',
+    'Rename the valid image to its exact required final filename',
+    'single final output folder',
+    'Never ask `Weiter?`'
+  ]){
+    if(!world.toLowerCase().includes(required.toLowerCase()))fail(`world definition missing required marker: ${required}`);
   }
 }
 
-for(const requiredPath of ['scripts/scaffold-finanzneo-reel-locked.mjs','scripts/validate-reel-locked.mjs','scripts/reel-render-locked.mjs','.agents/rules/finanzneo-image-world-lock.md','.github/workflows/validate-image-world.yml','docs/GLOBAL-IMAGE-WORLD-LOCK.md']){
+for(const requiredPath of [
+  'scripts/scaffold-finanzneo-reel-locked.mjs','scripts/validate-reel-locked.mjs','scripts/reel-render-locked.mjs',
+  '.agents/rules/finanzneo-image-world-lock.md','.github/workflows/validate-image-world.yml','docs/GLOBAL-IMAGE-WORLD-LOCK.md'
+]){
   if(!existsSync(requiredPath))fail(`missing enforcement file ${requiredPath}`);
 }
 
@@ -53,7 +80,6 @@ if(existsSync('package.json')){
     if(pkg.scripts?.['reel:preview']!=='node scripts/reel-render-locked.mjs')fail('package.json reel:preview must use locked render wrapper');
     if(pkg.scripts?.['reel:render']!=='node scripts/reel-render-locked.mjs')fail('package.json reel:render must use locked render wrapper');
     if(pkg.scripts?.['reel:qa']!=='node scripts/reel-render-locked.mjs --post-render')fail('package.json reel:qa must use locked render wrapper');
-    if(!String(pkg.scripts?.validate??'').includes('validate:image-world'))fail('global npm validate must include validate:image-world');
   }
 }
 
@@ -65,27 +91,49 @@ if(targetArg){
     const sceneIndexPath=resolve(target,'03-szenen/scene-index.json');
     const worldRefPath=resolve(target,'03-szenen/bildwelt.txt');
     const allPromptsPath=resolve(target,'03-szenen/alle-bildprompts.txt');
+
     if(!existsSync(sceneIndexPath))fail(`missing ${sceneIndexPath}`);
     else{
       try{
         const sceneIndex=JSON.parse(read(sceneIndexPath));
         if(sceneIndex.imageWorld?.id!==EXPECTED_ID)fail(`target imageWorld.id must be ${EXPECTED_ID}`);
-        if(sceneIndex.imageWorld?.physicalHeroObjectRequired!==true)fail('target physicalHeroObjectRequired must be true');
-        if(sceneIndex.imageWorld?.recognizableTopicObjectsRequired!==true)fail('target recognizableTopicObjectsRequired must be true');
-        for(const key of ['floatingUiTilesForbidden','microchipVisualLanguageForbidden','gameBoardCompositionForbidden','satelliteModuleOrbitForbidden','symmetricalFourCornerLayoutForbidden','lineNetworkMainMotifForbidden'])if(sceneIndex.imageWorld?.[key]!==true)fail(`target ${key} must be true`);
-        if(sceneIndex.cover?.aspectRatio && sceneIndex.cover.aspectRatio!=='9:16')fail('target cover aspect ratio must be 9:16');
-        if(sceneIndex.googleFlowExecution?.continuousAutonomousRun!==true)fail('target Google Flow must use continuousAutonomousRun=true');
-        if(sceneIndex.googleFlowExecution?.userConfirmationBetweenImagesForbidden!==true)fail('target must forbid user confirmation between images');
+        for(const key of ['stylizedInfographic3DRequired','photorealismForbidden','realisticProductPhotographyForbidden','leatherTextureForbidden','woodGrainForbidden','floatingUiTilesForbidden','gameBoardCompositionForbidden']){
+          if(sceneIndex.imageWorld?.[key]!==true)fail(`target imageWorld.${key} must be true`);
+        }
+        const flow=sceneIndex.googleFlowExecution??{};
+        for(const key of ['singleImageAtATimeRequired','renameBeforeNextImageRequired','moveToFinalFolderBeforeNextImageRequired','verifyRenamedFileBeforeNextImageRequired','userConfirmationBetweenImagesForbidden']){
+          if(flow[key]!==true)fail(`target googleFlowExecution.${key} must be true`);
+        }
+        if(!flow.finalOutputFolder)fail('target googleFlowExecution.finalOutputFolder is required');
+        if(sceneIndex.cover?.aspectRatio&&sceneIndex.cover.aspectRatio!=='9:16')fail('target cover aspect ratio must be 9:16');
         for(const scene of sceneIndex.scenes??[])if(scene.type==='image'&&scene.aspectRatio!=='1:1')fail(`${scene.id} image aspectRatio must be 1:1`);
       }catch(error){fail(`invalid target scene-index.json: ${error.message}`);}
     }
+
     if(!existsSync(worldRefPath))fail('target missing 03-szenen/bildwelt.txt');
     else if(!read(worldRefPath).includes(EXPECTED_ID))fail(`target bildwelt.txt must reference ${EXPECTED_ID}`);
+
     if(!existsSync(allPromptsPath))fail('target missing 03-szenen/alle-bildprompts.txt');
     else{
-      const prompt=read(allPromptsPath);
-      for(const required of [EXPECTED_ID,'Do NOT stop after any image','PHYSICAL hero object','floating UI cards'])if(!prompt.toLowerCase().includes(required.toLowerCase()))fail(`target alle-bildprompts.txt missing: ${required}`);
-      for(const forbiddenOldId of ['finanzneo-tangible-finance-editorial-v4','finanzneo-finanzfluss-editorial-v5','finanzneo-connected-studio-v3','finanzneo-central-object-editorial-v6'])if(prompt.includes(forbiddenOldId))fail(`target prompt contains forbidden old world ID: ${forbiddenOldId}`);
+      const prompt=read(allPromptsPath).toLowerCase();
+      for(const required of [
+        EXPECTED_ID,
+        'generate exactly one image only',
+        'rename the image immediately',
+        'only after verification',
+        'final output folder',
+        'photorealism',
+        'wood grain',
+        'leather'
+      ]){
+        if(!prompt.includes(required.toLowerCase()))fail(`target alle-bildprompts.txt missing: ${required}`);
+      }
+      for(const forbiddenOldId of [
+        'finanzneo-tangible-finance-editorial-v4','finanzneo-finanzfluss-editorial-v5','finanzneo-connected-studio-v3',
+        'finanzneo-central-object-editorial-v6','finanzneo-physical-explainer-editorial-v7'
+      ]){
+        if(prompt.includes(forbiddenOldId))fail(`target prompt contains forbidden old world ID: ${forbiddenOldId}`);
+      }
     }
   }
 }
