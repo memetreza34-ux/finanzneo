@@ -119,7 +119,7 @@ if(targetArg){
       for(const required of [
         EXPECTED_ID,
         'generate exactly one image only',
-        'rename the image immediately',
+        'rename immediately',
         'only after verification',
         'final output folder',
         'photorealism',
