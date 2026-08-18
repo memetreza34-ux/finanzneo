@@ -1,8 +1,12 @@
 FINALER DATEINAME: Bild 07 - Vertrag komplett pruefen.png
+FINALER ORDNER: FINAL - 0 Prozent Finanzierung
 STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Use FINANZNEO physical explainer editorial v7. No headline, no subtitle. Physical tags only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
+Use FINANZNEO stylized finance explainer v8. No headline. No subtitle. Tags only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
 
-Use ONE large thick physical contract folder/booklet as the central hero object. Around it place a stylized magnifying glass, pen, euro coins and three small PHYSICAL paper tabs/tags attached around the contract reading `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
-The image should look like a premium 3D explainer sculpture on a seamless dark-green background, not a realistic desk.
+Create one large simplified chunky contract block/folder as the central hero. It must have smooth rounded matte geometry and look like a designed 3D infographic object — NOT a realistic leather folder or photographed document stack.
+Around it place a simplified magnifying glass, a clean stylized pen shape, simplified euro coins and three small paper tabs/tags reading exactly `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
+Use dark green/mint/cream surfaces, muted gold money accents and soft contact shadows.
 
-STRICTLY FORBIDDEN: stacked digital cards, floating UI chips/tiles, mini-screen modules, circular ring of icons, satellite modules, game-board composition, app dashboard, microchip/circuit-board styling or contract-paper wall.
+STRICTLY FORBIDDEN: photorealism, leather/stitching, wood grain, realistic pen photography, realistic documents, aged metal, realistic desk scene, stacked digital cards, floating UI chips/tiles, game-board, satellite orbit, microchip/circuit-board or contract-paper wall.
+
+After generation: wait until fully complete, inspect, regenerate THIS SAME image if needed, rename exactly to the required filename, place it inside `FINAL - 0 Prozent Finanzierung`, verify it is there, and ONLY THEN create the next image. Never ask `Weiter?`.
