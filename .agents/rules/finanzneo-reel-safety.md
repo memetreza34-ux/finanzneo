@@ -23,39 +23,45 @@ Read completely before work:
 Locked world:
 
 ```text
-finanzneo-physical-explainer-editorial-v7
+finanzneo-stylized-finance-explainer-v8
 ```
 
 For every NEW Reel:
 
 - normal Google-Flow scene images are strict 1:1, preferably 1080×1080
 - Cover Bild 00 remains 9:16
-- each normal scene image uses ONE large PHYSICAL hero object
-- the hero must not read as a digital screen, tablet, app card, microchip or game tile
-- 3–6 recognizable, topic-specific physical objects surround/support the hero
-- concrete objects are preferred over generic icons
-- labels are physical price tags, paper tags, stickers or attached plaques
-- composition is natural and asymmetric with overlap/contact shadows
-- premium stylized adult 3D explainer composition
+- each image uses ONE large chunky central explanatory hero object
+- 3–6 simplified recognizable topic objects surround/support the hero
+- clean rounded geometry, matte surfaces and reduced realistic detail
+- deep charcoal-green background with mint/emerald, cream and muted-gold accents
+- labels are small paper/price tags or printed plaques
+- composition reads as a designed premium 3D finance infographic, not a photograph
 
-Forbidden screenshot-failure drift:
+Forbidden realism drift:
 
-- central digital device with mini satellite modules
+- photorealism / realistic photography
+- realistic product photography or product advertising
+- leather / stitched leather
+- wood grain / wooden signs / rustic wood
+- realistic scratched/aged metal
+- realistic pen/document/electronics photography
+- realistic desk / office / shop / lifestyle scene
+- luxury cinematic product-shot look
+
+Forbidden UI/game/abstract drift:
+
+- central digital screen/tablet/app card
 - microchip / circuit-board visual language
 - floating UI cards, tiles, chips, buttons or widgets
 - four-corner mini-tile layout
 - circular satellite-module orbit
 - game-board / board-game composition
 - dashboard / HUD / app interface
-- generic icon buttons instead of concrete topic objects
+- generic icon buttons instead of simplified topic objects
 - glowing connector loops or line networks
 - abstract finance streams, tubes, rails, tracks or roads
-- realistic everyday / desk / room scene as the main composition
 - repeated contract-paper wall
 - wealth tower / monolith / meaningless blocks
-- sterile product-ad hero shot
-- almost-empty black studio shot
-- tiny subject in huge empty space
 
 Never invent or rename a new Reel-specific world. A different world is allowed only after an explicit GLOBAL user request and an intentional edit of `config/finanzneo-image-world-lock.json`.
 
@@ -74,27 +80,31 @@ npm run reel:create -- --target <TARGET-REEL> --title "..."
 
 This command must remain wired to `scripts/scaffold-finanzneo-reel-locked.mjs`.
 
-## Google Flow image autopilot
+## Google Flow image/file autopilot
 
-Every new `03-szenen/alle-bildprompts.txt` must instruct Google Flow to generate the complete required image set in one uninterrupted autonomous sequence.
+Every new `03-szenen/alle-bildprompts.txt` must instruct Google Flow to create one final output folder first and process the complete required image set strictly one image at a time.
 
 Required behavior:
 
 ```text
-Bild 00
-→ wait internally until generation is complete
-→ inspect against exact requirements
-→ regenerate automatically if wrong
-→ assign exact filename
-→ immediately continue to next required image
-→ repeat until every required image is finished
-→ only then give one final summary
+create ONE final output folder
+→ generate exactly ONE required image
+→ wait until generation is fully complete
+→ inspect exact requirements
+→ regenerate THIS SAME image if wrong
+→ rename immediately to exact required filename
+→ move/save renamed file into the one final folder
+→ verify exact renamed filename exists there
+→ ONLY THEN generate the next required image
+→ repeat
+→ final summary only after all renamed files are together in the final folder
 ```
 
 Hard rules:
 
+- NEVER batch-generate several required images before renaming the previous one.
+- NEVER start the next image before the previous image is finished, checked, renamed, moved/saved into the final folder and verified there.
 - NEVER ask the user `Weiter?`, `Continue?`, approval, feedback or confirmation between images.
-- NEVER stop after one completed image.
 - NEVER announce the next image and then wait for user input.
 - A failed image is regenerated automatically before continuing.
 - Sequential generation means one image at a time internally, NOT one user turn per image.
@@ -125,7 +135,7 @@ Before production verify:
 - every required image exists with exact expected filename
 - exactly one readable final audio exists
 - `Bild 00` contains the exact required Google-Flow cover headline
-- every normal supplied Flow image is 1:1 and matches the locked physical-explainer world
+- every normal supplied Flow image is 1:1 and matches the locked V8 stylized world
 
 Missing/wrong/unreadable/ambiguous required media →
 
@@ -175,11 +185,13 @@ Reject if:
 - image unnecessarily repeats headline + caption information
 - cover headline is wrong/missing/clipped/unreadable
 - normal scene image is not 1:1
-- image violates `finanzneo-physical-explainer-editorial-v7`
-- large physical hero object is missing
+- image violates `finanzneo-stylized-finance-explainer-v8`
+- stylized infographic hero object is missing
+- image becomes photorealistic or product-ad-like
+- leather, wood grain, realistic metal wear or realistic product photography appears
 - recognizable topic objects are replaced by generic UI buttons/icons
 - digital screen / microchip / floating tile / satellite orbit / game-board drift appears
-- line network / realistic scene / contract wall / wealth tower / product-ad drift appears
+- line network / realistic scene / contract wall / wealth tower drift appears
 
 If regeneration is needed → `BLOCKED`. Never hide a bad image with Remotion overlays.
 
@@ -258,7 +270,7 @@ Final completion requires actual full-MP4 QA documented in:
 05-projektdateien/final-qa.json
 ```
 
-It must truthfully confirm full MP4 inspection, every scene inspection, image/voice semantic match, generated text correctness, locked physical-explainer image-world match, scene/audio sync, subtitle safe-area, active-word sync, meaningful animations, no long static tail and passed audio levels.
+It must truthfully confirm full MP4 inspection, every scene inspection, image/voice semantic match, generated text correctness, locked V8 image-world match, scene/audio sync, subtitle safe-area, active-word sync, meaningful animations, no long static tail and passed audio levels.
 
 Audio target:
 
