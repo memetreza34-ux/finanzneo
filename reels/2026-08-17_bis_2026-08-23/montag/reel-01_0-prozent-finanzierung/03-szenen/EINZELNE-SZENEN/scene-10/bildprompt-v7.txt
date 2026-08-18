@@ -1,5 +1,0 @@
-FINALER DATEINAME: Bild 10 - Wuerdest du es ohne Rate kaufen.png
-STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Use FINANZNEO physical explainer editorial v7. No headline, no subtitle. Short physical label only: `OHNE RATE?`.
-Create one large physical balance/decision object as the hero motif. On one side place a recognizable desired product box; on the other side place a cash envelope and euro coins. Add one small physical tag reading `OHNE RATE?` near the decision object and one smaller monthly-rate tag near the product. Natural asymmetry, strong depth, contact shadows.
-STRICTLY FORBIDDEN: digital central screen, floating UI cards/tiles/chips, game-board, satellite modules, circular icon orbit, microchip/circuit-board styling or glowing line network.
