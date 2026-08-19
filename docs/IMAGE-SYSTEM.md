@@ -57,18 +57,21 @@ Wenn eine Person vorkommt:
 
 ## Text im KI-Bild
 
+Jedes Bild trägt genau eine Headline und eine Subline, direkt vom Bildmodell erzeugt — siehe `docs/FINANZNEO-IMAGE-WORLD-V3.md`, Abschnitt Textregel.
+
 Erlaubt:
 
-- nur explizit vorgegebene kurze deutsche Objektlabels
-- normalerweise 1–3 Wörter
-- direkt am passenden Objekt
+- genau eine Headline (kurz, fett, 3–7 Wörter)
+- genau eine Subline direkt darunter (leichter, ein kurzer Satz)
+- beide im oberen Sicherheitsdrittel, nie im unteren Bilddrittel
+- zusätzlich optionale kurze deutsche Objektlabels
 
 Verboten:
 
-- Headline
-- Untertitel
-- ganzer Satz
+- mehr als eine Headline oder Subline
+- Headline/Subline im unteren Bilddrittel
 - CTA
+- ganze Absätze
 - zufällige Zusatztexte
 - Fantasiewörter
 
@@ -105,13 +108,14 @@ Szenenwechsel folgen Satzanfängen aus dem finalen Audio. Gleich lange Szenen si
 Jeder Prompt enthält:
 
 1. finalen Google-Flow-Dateinamen
-2. konkrete erlaubte deutsche Labels
-3. eine dominante Metapher / ein Hauptobjekt
-4. sichtbare Ursache-Wirkung
-5. Premium-Fintech-Editorial-3D-Stil
-6. seamless-background-Regel
-7. Personenregel, falls eine Person vorkommt
-8. Negativregeln
+2. Headline- und Sublinetext (Wortlaut vorgegeben)
+3. konkrete erlaubte deutsche Labels
+4. eine dominante Metapher / ein Hauptobjekt
+5. sichtbare Ursache-Wirkung
+6. Premium-Fintech-Editorial-3D-Stil
+7. seamless-background-Regel
+8. Personenregel, falls eine Person vorkommt
+9. Negativregeln
 
 ## Sofort neu erzeugen
 
@@ -121,5 +125,5 @@ Jeder Prompt enthält:
 - gesichtslose/abgewandte Person
 - Diorama/Game-Level
 - falsche/zusätzliche Labels
-- große Headline oder Satz
+- Headline oder Subline fehlt, doppelt vorkommt oder im unteren Bilddrittel liegt
 - Aussage passt nicht zum Voiceover

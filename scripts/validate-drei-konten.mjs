@@ -92,6 +92,10 @@ index.scenes.forEach((scene, sceneIndex) => {
     const prompt = readFileSync(resolve(directory, 'bildprompt.txt'), 'utf8');
     for (const marker of requiredPromptMarkers) assert(prompt.includes(marker), `${expectedId}: Promptmarker fehlt: ${marker}`);
     assert(prompt.includes('No empty black background'), `${expectedId}: leerer Hintergrund ist nicht verboten.`);
+    // Bewusst die ALTE Textregel: Dieses Reel ist ein Legacy-Bildsatz
+    // (scene-index.json: imageWorld.legacyAssetSet === true) und wurde ohne
+    // eingebrannte Headline erzeugt. Neue Reels fordern stattdessen Headline +
+    // Subline im Bild — siehe CLAUDE.md 6.4 und validate-reel-source-contract.mjs.
     assert(prompt.includes('No headline, subtitle, sentence, number, label'), `${expectedId}: Text ist nicht vollständig verboten.`);
     const p = scene.imagePresentation;
     assert(p && p.scale >= 1 && p.scale <= 1.04, `${expectedId}: Scale ist ungültig.`);

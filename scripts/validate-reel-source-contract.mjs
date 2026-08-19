@@ -3,6 +3,7 @@ import {existsSync, readFileSync, readdirSync, statSync} from 'node:fs';
 import {extname, resolve} from 'node:path';
 import {
   ACTIVE_WORD_COLOR,
+  HEADLINE_MARKERS,
   ALL_PROMPTS,
   CAPTION_DIRECTORY,
   IMAGE_INBOX,
@@ -84,7 +85,10 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
     assert(index.imageWorld?.floorWallBoundaryForbidden === true, 'Boden-Wand-Grenzen müssen verboten sein.');
     assert(index.imageWorld?.horizonLineForbidden === true, 'Horizontlinien müssen verboten sein.');
     assert(index.imageWorld?.visibleFaceRequiredWhenPersonPresent === true, 'Bei Personen muss ein sichtbares Gesicht vorgeschrieben sein.');
-    assert(index.imageWorld?.objectLabelsOnly === true, 'KI-Bilder dürfen nur kurze Objektlabels als Text enthalten.');
+    assert(index.imageWorld?.bakedHeadlineRequired === true, 'KI-Bilder müssen eine eingebrannte Headline tragen (CLAUDE.md 6.4).');
+    assert(index.imageWorld?.bakedSublineRequired === true, 'KI-Bilder müssen eine eingebrannte Subline tragen (CLAUDE.md 6.4).');
+    assert(index.imageWorld?.bakedTextZone === 'upper-third', 'Headline und Subline müssen im oberen Bilddrittel liegen, sonst kollidieren sie mit den Untertiteln.');
+    assert(index.imageWorld?.headlinesInGeneratedImagesForbidden !== true, 'scene-index.json verbietet Headlines noch nach der alten Regel.');
     assert(existsSync(imageInbox), `${IMAGE_INBOX} fehlt.`);
 
     const publishing = index.platformPublishing;
@@ -130,7 +134,8 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   if (!legacyImageWorld) {
     assert(allPrompts.includes('ONE single seamless continuous deep charcoal green-black background'), 'alle-bildprompts.txt fordert keinen nahtlosen Einzelhintergrund.');
     assert(!containsObsoleteZoning(allPrompts), 'alle-bildprompts.txt enthält verbotene Prozent-Zonen.');
-    assert(allPrompts.includes('No headline') || allPrompts.includes('No headline.'), 'alle-bildprompts.txt verbietet generierte Headlines nicht.');
+    assert(HEADLINE_MARKERS.some((marker) => allPrompts.includes(marker)), 'alle-bildprompts.txt fordert keine eingebrannte Headline + Subline.');
+    assert(!allPrompts.includes('No headline'), 'alle-bildprompts.txt verbietet Headlines noch nach der alten Regel. Bilder tragen jetzt Headline + Subline (siehe CLAUDE.md 6.4).');
     assert(allPrompts.includes('short German object labels') || allPrompts.includes('kurzen deutschen') || allPrompts.includes('kurze deutsche'), 'alle-bildprompts.txt definiert kurze deutsche Objektlabels nicht.');
     assert(allPrompts.includes('00-ALLE-BILDER-HIER-REIN'), `Finaler gemeinsamer Bilderordner fehlt in ${ALL_PROMPTS}.`);
   }
@@ -162,7 +167,8 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
         assert(prompt.includes('GOOGLE FLOW – FINALER DATEINAME:'), `${id}: finaler Google-Flow-Dateiname fehlt direkt am Prompt.`);
         assert(prompt.includes('ONE single seamless continuous deep charcoal green-black background'), `${id}: nahtloser Einzelhintergrund fehlt.`);
         assert(!containsObsoleteZoning(prompt), `${id}: Prompt enthält verbotene Prozent-Zonen.`);
-        assert(prompt.toLowerCase().includes('no headline'), `${id}: große generierte Headline ist nicht verboten.`);
+        assert(HEADLINE_MARKERS.some((marker) => prompt.includes(marker)), `${id}: eingebrannte Headline + Subline fehlt im Prompt.`);
+        assert(!prompt.toLowerCase().includes('no headline'), `${id}: Prompt verbietet Headlines noch nach der alten Regel.`);
         assert(prompt.toLowerCase().includes('face') || prompt.toLowerCase().includes('gesicht'), `${id}: Gesichtsregel fehlt.`);
       }
 
@@ -198,5 +204,5 @@ if (errors.length) {
 }
 
 console.log('\n✓ Reel-Quellen-, Bildwelt-, Timing-, Publishing- und Präsentationsvertrag erfüllt.');
-console.log('  Neue Reels: nahtloser Hintergrund · sichtbares Gesicht bei Personen · kurze deutsche Objektlabels · 5 Plattformdateien');
+console.log('  Neue Reels: nahtloser Hintergrund · Headline + Subline im Bild · sichtbares Gesicht bei Personen · 5 Plattformdateien');
 if (missingFinalImages > 0) console.log(`  Hinweis: ${missingFinalImages} finale Bilddateien fehlen noch.`);

@@ -59,7 +59,10 @@ export type ChecklistBeat = ReelBeatBase & {
 
 export type ImageBeat = ReelBeatBase & {
   type: 'image';
+  // Wortlaut der ins Bild eingebrannten Headline. Dient der Bildprompt-Erzeugung
+  // und dem Abgleich mit dem Skript, wird von Remotion bewusst nicht gerendert.
   headline: string;
+  subline?: string;
   imageSrc: string;
   alt: string;
   objectFit?: 'contain' | 'cover';

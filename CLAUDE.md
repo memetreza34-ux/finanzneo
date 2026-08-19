@@ -167,41 +167,21 @@ Nicht erlaubt:
 
 ### 6.4 Textregel im generierten Bild
 
-**NIEMALS:**
+Jedes Bild trägt genau **eine Headline** und **eine Subline**, direkt vom Bildmodell mit erzeugt — nicht nachträglich in Remotion.
 
-- große Überschrift
-- Untertitel
-- ganzer erklärender Satz
-- CTA
-- Absatz
-- große Poster-Typografie
+- Headline: kurz, fett, 3–7 Wörter, maximal zwei Zeilen, helle/weiße Schrift
+- Subline: ein kurzer Satz direkt unter der Headline, dünner/leichter als die Headline, gedämpfte helle Farbe (z. B. helles Grau oder Mint)
+- Position: oberes Sicherheitsdrittel des Bildes, damit die Headline nicht mit dem Remotion-Untertitel am unteren Rand kollidiert (siehe Safe Area, `SAFE_AREA.topRatio` / `bottomRatio` in `src/brand/tokens.ts`)
+- kein CTA, kein Fließtext, kein dritter Textblock im Bild
+- optionale kurze deutsche Objektlabels bleiben erlaubt, sind aber nicht mehr das Haupttextmittel — Headline und Subline tragen die Aussage
 
-**ERLAUBT UND GEWÜNSCHT:**
+**Nicht erlaubt:**
 
-- nur kurze deutsche Objekt-Beschriftungen
-- normalerweise 1–3 Wörter
-- direkt am oder nahe beim zugehörigen Objekt
-- klein bis mittelgroß
-- klare Sans-Serif-Schrift
-- wenige Labels pro Bild
-
-Beispiele:
-
-```text
-Wartezeit
-Verlorene Zinsen
-Notgroschen
-Reparatur
-Dispo
-Ratenzahlung
-Tagesgeld
-Notfall
-Konsum
-500 €
-Auffüllen
-```
-
-Keine zufälligen Zusatztexte, Fantasiewörter oder englischen Erklärtexte.
+- mehr als eine Headline oder mehr als eine Subline
+- Headline/Subline im unteren Bilddrittel (kollidiert mit dem Remotion-Untertitel)
+- ganze Absätze oder mehrere Sätze
+- CTA-Text im Bild
+- englische Erklärtexte anstelle der deutschen Headline/Subline
 
 ### 6.5 Marken und bekannte Namen
 
@@ -242,15 +222,18 @@ Das Bild soll wie **eine einzelne hochwertige Editorial-Illustration** wirken, n
 ```text
 A stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE FINANCIAL METAPHOR].
 [Describe one visible cause-and-effect action using only a few large objects.]
-Include German object labels: '[Label 1]' near [object 1], and '[Label 2]' near [object 2].
+Bake the following typography directly into the image, inside the upper third of the frame, never in the lower third:
+HEADLINE (bold, 3-7 words, bright white): '[HEADLINE]'
+SUBLINE (lighter weight, directly below headline, muted light color): '[SUBLINE]'
+No third text block, no CTA text, no paragraph.
 Premium fintech editorial 3D render style.
 Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge.
-No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line, no panels.
+No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line and no panels.
 Accents in vivid emerald and mint green. Gold only for money/value. Warm red-orange only for danger/loss.
 Use smooth rounded 3D geometry, soft bevelled edges and confident high-contrast studio lighting with bold emerald rim light.
 Place the main subject around the visual center and leave generous natural empty space above and below without changing the background.
 Vertical 9:16.
-No photorealism, no real identifiable human, no faceless character, no UI dashboard, no headline, no subtitle, no explanatory sentence.
+No photorealism, no real identifiable human, no faceless character, no UI dashboard, no explanatory paragraph.
 ```
 
 ## 7. Bildproduktion — Nutzer + Google Flow

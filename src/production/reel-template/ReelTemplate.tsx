@@ -316,31 +316,22 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
   }
 
   if (beat.type === 'image') {
+    // Headline und Subline sind bereits ins KI-Bild eingebrannt (siehe CLAUDE.md 6.4).
+    // Remotion darf hier keine zweite Überschrift darüberlegen.
     return (
       <AbsoluteFill>
         <FinanceBackground variant={beat.background ?? 'standard'} />
-        <BeatHeader kicker={beat.kicker} headline={beat.headline} />
-        <CenterArea>
-          <div style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            overflow: 'hidden',
-            borderRadius: 30,
-          }}>
-            <Img
-              src={staticFile(beat.imageSrc)}
-              alt={beat.alt}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: beat.objectFit ?? 'contain',
-              }}
-            />
-          </div>
-        </CenterArea>
+        <AbsoluteFill>
+          <Img
+            src={staticFile(beat.imageSrc)}
+            alt={beat.alt}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: beat.objectFit ?? 'contain',
+            }}
+          />
+        </AbsoluteFill>
         <SourceNote>{beat.sourceNote}</SourceNote>
       </AbsoluteFill>
     );

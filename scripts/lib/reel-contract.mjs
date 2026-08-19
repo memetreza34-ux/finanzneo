@@ -31,3 +31,11 @@ export const PLATFORM_PUBLISHING_FILES = {
 // Schlüssel und Dateien, die in aktiven Reel-Projekten nicht vorkommen dürfen.
 export const FORBIDDEN_PUBLISHING_KEYS = ['youtubeShorts'];
 export const FORBIDDEN_PUBLISHING_FILES = [`${CAPTION_DIRECTORY}/youtube-shorts.txt`];
+
+// Bilder tragen Headline + Subline eingebrannt (CLAUDE.md 6.4).
+// Der Prompt muss das explizit fordern; einer dieser Marker muss vorkommen.
+export const HEADLINE_MARKERS = [
+  'HEADLINE + SUBLINE',
+  'Bake exactly ONE bold German headline',
+  'Bake the headline',
+];

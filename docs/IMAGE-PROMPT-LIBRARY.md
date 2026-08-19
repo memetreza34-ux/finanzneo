@@ -7,10 +7,11 @@ Diese Datei enthält die verbindliche Prompt-Sprache für neue FinanzNeo-Bilder.
 Jeder Prompt besteht aus:
 
 1. finalem Dateinamen
-2. erlaubten kurzen deutschen Objektlabels
-3. einer starken visuellen Metapher / einem großen Hauptobjekt
-4. einer sichtbaren Ursache-Wirkung
-5. dem unveränderten Qualitäts- und Hintergrundblock
+2. Headline- und Sublinetext (Wortlaut vorgegeben, wird ins Bild eingebrannt)
+3. erlaubten kurzen deutschen Objektlabels
+4. einer starken visuellen Metapher / einem großen Hauptobjekt
+5. einer sichtbaren Ursache-Wirkung
+6. dem unveränderten Qualitäts- und Hintergrundblock
 
 ## Verbindlicher Qualitätsblock
 
@@ -31,8 +32,8 @@ A stylized anonymous 3D adult person may be included when useful.
 If a person appears, the face must be clearly visible with stylized eyes, nose and mouth; use front-facing or natural three-quarter view.
 
 TEXT:
-No headline. No subtitle. No explanatory sentence. No CTA.
-Only the explicitly requested short German object labels, normally 1–3 words, directly near the related object.
+Bake exactly one bold headline (3-7 words) and one lighter subline directly below it into the upper third of the image, never in the lower third. No third text block, no CTA, no paragraph.
+Additionally only the explicitly requested short German object labels, normally 1–3 words, directly near the related object.
 
 BACKGROUND:
 Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
@@ -62,13 +63,18 @@ No photorealism, no real identifiable human, no faceless character, no back-view
 GOOGLE FLOW – FINALER DATEINAME:
 Bild XX - Kurzer Szenenname.png
 
-BESCHRIFTUNGEN – EXAKT SO:
+HEADLINE + SUBLINE – EXAKT SO INS BILD EINBRENNEN:
+Headline: [Kurze fette Headline, 3-7 Wörter]
+Subline: [Ein kurzer Satz darunter]
+
+BESCHRIFTUNGEN – OPTIONAL:
 - [Label 1]
 - [Label 2]
 
 BILDPROMPT:
 A stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE FINANCIAL METAPHOR].
 [Describe one clear cause-and-effect action using only a few large objects.]
+Bake the headline '[Headline]' and the subline '[Subline]' into the upper third of the image.
 Include German object labels: '[Label 1]' near [object 1], and '[Label 2]' near [object 2].
 [Append the complete quality block above.]
 ```
@@ -77,7 +83,7 @@ Eine Person ist nicht in jeder Szene Pflicht. Wenn keine Person die Erklärung v
 
 ## Cover
 
-Auch das Cover verwendet keine große generierte Headline. Thema über eine starke Metapher + wenige kurze Objektlabels verständlich machen.
+Das Cover verwendet dieselbe Headline+Subline-Regel wie jedes andere Bild: eine starke Metapher, dazu die eingebrannte Headline und Subline im oberen Sicherheitsdrittel.
 
 ## Reale Marken
 
@@ -121,7 +127,8 @@ Keine überladene Zusammenfassung aller vorherigen Szenen.
 - sichtbare Boden-Wand-Grenze oder Horizont
 - alte gebogene Studioarchitektur als Pflicht
 - Miniatur-Diorama/Game-Level
-- Textfreiheit als Regel (kurze deutsche Objektlabels sind ausdrücklich erlaubt)
-- große generierte Headline/ganzer Satz
+- fehlende Headline oder Subline
+- mehr als eine Headline oder Subline, oder beide im unteren Bilddrittel
+- ganzer Absatz statt Headline+Subline
 - gesichtslose Person
 - falsche/zusätzliche Labels
