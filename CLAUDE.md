@@ -176,6 +176,7 @@ Jedes Bild trägt genau **eine Headline** und **eine Subline**, direkt vom Bildm
 - Position: oberes Sicherheitsdrittel des Bildes, damit die Headline nicht mit dem Remotion-Untertitel am unteren Rand kollidiert (siehe Safe Area, `SAFE_AREA.topRatio` / `bottomRatio` in `src/brand/tokens.ts`)
 - kein CTA, kein Fließtext, kein dritter Textblock im Bild
 - optionale kurze deutsche Objektlabels bleiben erlaubt, sind aber nicht mehr das Haupttextmittel — Headline und Subline tragen die Aussage
+- beim **Cover** ist der Text Pflicht und die Headline benennt das Thema des Reels direkt, sodass es in einer Sekunde erfassbar ist
 
 **Nicht erlaubt:**
 

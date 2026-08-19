@@ -84,7 +84,19 @@ Der Normalfall ist die starke Metapher ohne Person. Eine einzelne stilisierte Ha
 
 ## Cover
 
-Das Cover verwendet dieselbe Headline+Subline-Regel wie jedes andere Bild: eine starke Metapher, dazu die eingebrannte Headline und Subline im oberen Sicherheitsdrittel.
+Beim Cover ist Text **Pflicht**, nie optional. Die Headline muss direkt sagen, worum es im Reel geht — das Thema soll in einer Sekunde erfassbar sein. Keine vagen Andeutungen und keine reine Neugier-Formel ohne Inhalt.
+
+Muster: Headline nennt die konkrete Sache oder Zahl, Subline stellt die Frage oder den Nutzen dahinter.
+
+```text
+Headline: 25 € MEHR IM MONAT
+Subline:  Was macht das in 20 Jahren?
+
+Headline: INFLATION FRISST DEIN GELD
+Subline:  Was 10.000 € in 20 Jahren noch wert sind.
+```
+
+Ansonsten gelten Metapher, Hintergrund und Textposition wie bei jedem anderen Bild.
 
 ## Reale Marken
 
