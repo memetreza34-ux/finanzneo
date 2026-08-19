@@ -122,7 +122,7 @@ Status: **in Arbeit**
 - [x] visuelles 18-/22-Prozent-Safe-Area-Prüfraster ergänzen
 - [x] Preview-Renderbefehl für die Reel-Vorlagen-Demo ergänzen
 - [ ] GitHub-Actions-Lauf erfolgreich bestätigen
-- [ ] Render-Smoke-Test tatsächlich ausführen
+- [x] Render-Smoke-Test tatsächlich ausführen (`npm run smoke`, rendert jede Composition als Einzelframe)
 - [ ] automatisierte Keyframe-Prüfung ergänzen
 
 ## Phase 7 — Produktionsvorlage
