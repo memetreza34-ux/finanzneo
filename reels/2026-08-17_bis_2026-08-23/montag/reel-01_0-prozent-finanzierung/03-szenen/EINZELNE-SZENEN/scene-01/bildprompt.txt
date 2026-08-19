@@ -1,38 +1,52 @@
 GOOGLE FLOW — BILD 01 — STRICT 1:1
-FINALER DATEINAME: Bild 01 - 0 Prozent klingt kostenlos.png
-FINALER ORDNER: FINAL - 0 Prozent Finanzierung
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 01 - 0 Prozent klingt kostenlos.png`
+FINALER ORDNER: `FINAL - 0 Prozent Finanzierung`
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-GESPROCHENER SATZ:
-„Null Prozent klingt kostenlos. Aber eine Finanzierung bleibt trotzdem ein Kredit, den du Monat für Monat zurückzahlen musst.“
+IMPORTANT:
+Use Claude's `finanzneo-connected-studio-v3` visual language exactly. Do not invent a separate local style.
 
-TEXT RULE — VERY IMPORTANT:
-No headline. No subtitle. No sentence. No paragraph. No CTA.
-The ONLY readable text allowed in the image is exactly:
-- `0 %`
-- `KREDIT`
-- `MONATLICH`
-No other readable text anywhere.
+GESPROCHENER SATZ DIESER SZENE:
+Null Prozent klingt kostenlos. Aber eine Finanzierung bleibt trotzdem ein Kredit, den du Monat für Monat zurückzahlen musst.
+
+TEXT RULE – SEHR WICHTIG:
+No headline. No subtitle. No sentence. No paragraph. No CTA. No title text of any kind anywhere in the image.
+The ONLY text allowed are the short German object labels listed below, placed small, clearly legible and directly next to the object they describe.
+
+BESCHRIFTUNGEN – EXAKT DIESE, SONST KEIN TEXT:
+- `0 %` on a mint-green physical financing tag attached to the purchase
+- `KREDIT` on a small tag attached to the agreement
+- `MONATLICH` beside the payment-slip sequence
 
 HERO — „Null Prozent klingt kostenlos“:
-Place a believable modern consumer-product package with a neutral smartphone and over-ear headphones as the large central object group. Attach a clean physical mint-green financing tag reading exactly `0 %`. The electronics should strongly resemble real products in shape, seams, materials and construction, but remain part of a premium 3D editorial illustration rather than a camera photograph or advertisement.
+A desirable consumer purchase sits large in the center: a neutral smartphone package with over-ear headphones beside it. A physical mint-green financing tag marked `0 %` hangs clearly from the purchase.
 
-THE CREDIT — „bleibt trotzdem ein Kredit“:
-Directly behind the product group, show a cream paper credit agreement partially opened. Attach a small clean label reading exactly `KREDIT` beside the signature area. The paper should have believable thickness, folds and shadows, but no additional readable contract text.
+DER KREDIT — „bleibt trotzdem ein Kredit“:
+A thick cream-paper credit agreement sits directly behind the purchase, partly opened. Show believable page thickness, folded corners, clip/staple details and printed-line texture without creating readable fake paragraphs. The small label `KREDIT` is attached near the signature/contract area.
 
-MONTHLY REPAYMENT — „Monat für Monat zurückzahlen“:
-From the credit agreement, arrange a short visible sequence of monthly payment slips/calendar cards receding into the background. Place one small label reading exactly `MONATLICH` beside this sequence. A few gold euro coins move visually from the product/contract area toward the monthly slips, making the repayment obligation instantly understandable.
+DIE RÜCKZAHLUNG — „Monat für Monat“:
+A short stack/sequence of calendar-like payment slips extends behind the contract. Place `MONATLICH` directly beside it. A few individually shaped gold euro coins visually connect the contract to the payment slips.
 
-COMPOSITION:
-Everything must form ONE connected still life. Product + 0%-tag in front, credit agreement immediately behind, monthly payment sequence extending backward. Natural asymmetry, realistic overlap, strong depth, large readable objects. No generic central board, no disconnected corner objects.
+Everything is grouped tightly around the purchase and agreement as one connected still life. Every object serves the same spoken sentence.
 
 STYLE:
-Premium fintech editorial 3D illustration. Reality-based everyday objects with believable material detail: matte plastic, fabric headphone cushions, paper edges/folds, metallic euro coins. Deep charcoal green-black world, emerald/mint accents, cream paper, gold only for money/value, warm red-orange only as a very subtle risk accent. Controlled studio lighting and soft contact shadows.
+Premium fintech editorial 3D render style with rich material detail.
+Deep charcoal green-black world.
+Vivid emerald and mint-green accents.
+Gold only for money and financial value.
+Warm red-orange only for danger, debt, loss or blocked money.
+Smooth rounded 3D geometry, soft bevelled edges, premium matte/glass materials and confident high-contrast studio lighting with bold emerald rim light.
+Objects are believable and detailed in construction, but the image stays a premium 3D illustration and never a photograph.
 
-BACKGROUND — HARD RULE:
-Use ONE single seamless continuous deep charcoal green-black background across the entire square image. No floor-wall boundary, no horizon line, no room, no desk, no shop, no panels, no visible stage split.
+BACKGROUND:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square image.
+Keep the same continuous material, tone and gradient from edge to edge.
+No horizontal divisions, no bands, no floor-wall boundary, no horizon line, no room, no table, no panels.
+Use only one subtle continuous gradient/vignette.
+Objects may cast soft contact shadows directly onto the uninterrupted background.
 
-FORBIDDEN:
-No camera-photo look, no lifestyle/product-ad photography, no toy-like chunky blocks, no generic icons, no UI dashboard/cards/chips/widgets, no microchip/circuit-board, no isometric mini-diorama, no game board, no satellite orbit, no abstract glowing line network, no tubes/rails/roads, no wealth towers/monoliths, no Pixar, no clay.
+NEGATIVES:
+No photorealism, no real identifiable human, no faceless character, no back-view-only person, no UI dashboard, no app screen, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no miniature game level, no random labels, no Pixar, no clay, no childish cartoon simplification.
 
-Generate exactly ONE strict square 1:1 image, preferably 1080×1080. Wait until fully complete. Inspect text, world, aspect ratio and composition. If invalid, regenerate THIS SAME image. Once valid, rename immediately to `Bild 01 - 0 Prozent klingt kostenlos.png`, place it inside `FINAL - 0 Prozent Finanzierung`, verify the exact filename is there, and ONLY THEN continue to Bild 04. Never ask `Weiter?`.
+Generate exactly ONE strict square 1:1 image, preferably 1080×1080. Wait until fully complete. If anything is wrong, regenerate THIS SAME image. Once valid, rename it exactly, place it inside `FINAL - 0 Prozent Finanzierung`, verify the filename there, and ONLY THEN continue. Never ask `Weiter?`.
