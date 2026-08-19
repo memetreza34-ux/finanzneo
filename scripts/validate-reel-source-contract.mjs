@@ -1,6 +1,17 @@
 #!/usr/bin/env node
 import {existsSync, readFileSync, readdirSync, statSync} from 'node:fs';
 import {extname, resolve} from 'node:path';
+import {
+  ACTIVE_WORD_COLOR,
+  ALL_PROMPTS,
+  CAPTION_DIRECTORY,
+  IMAGE_INBOX,
+  PLATFORM_PUBLISHING_FILES,
+  SCENE_INDEX,
+  SUBTITLE_MODE,
+  WORLD_ID,
+  WORLD_ID_MARKER,
+} from './lib/reel-contract.mjs';
 
 const target = process.argv[2];
 if (!target) {
@@ -10,9 +21,9 @@ if (!target) {
 
 const root = resolve(target);
 const sceneRoot = resolve(root, '03-szenen/EINZELNE-SZENEN');
-const indexPath = resolve(root, '03-szenen/scene-index.json');
-const allPromptsPath = resolve(root, '03-szenen/alle-bildprompts.txt');
-const imageInbox = resolve(root, '03-szenen/00-ALLE-BILDER-HIER-REIN');
+const indexPath = resolve(root, SCENE_INDEX);
+const allPromptsPath = resolve(root, ALL_PROMPTS);
+const imageInbox = resolve(root, IMAGE_INBOX);
 const errors = [];
 let missingFinalImages = 0;
 let finalImageCount = 0;
@@ -58,7 +69,7 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
 
   assert(Array.isArray(index.scenes), 'scene-index.json benötigt scenes[].');
   assert(index.sceneCount === directories.length, 'sceneCount stimmt nicht mit den Szenenordnern überein.');
-  assert(index.imageWorld?.id === 'finanzneo-connected-studio-v3', 'FinanzNeo Image World ID fehlt.');
+  assert(index.imageWorld?.id === WORLD_ID, 'FinanzNeo Image World ID fehlt.');
   assert(index.imageWorld?.referencePromptFile === '03-szenen/bildwelt.txt', 'referencePromptFile ist falsch.');
   assert(index.timelineRules?.cutsFollowSentenceStarts === true, 'Szenenschnitte müssen Satzanfängen folgen.');
   assert(index.timelineRules?.equalLengthScenesForbiddenByDefault === true, 'Starre gleich lange Szenen müssen standardmäßig verboten sein.');
@@ -74,19 +85,12 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
     assert(index.imageWorld?.horizonLineForbidden === true, 'Horizontlinien müssen verboten sein.');
     assert(index.imageWorld?.visibleFaceRequiredWhenPersonPresent === true, 'Bei Personen muss ein sichtbares Gesicht vorgeschrieben sein.');
     assert(index.imageWorld?.objectLabelsOnly === true, 'KI-Bilder dürfen nur kurze Objektlabels als Text enthalten.');
-    assert(existsSync(imageInbox), '03-szenen/00-ALLE-BILDER-HIER-REIN fehlt.');
+    assert(existsSync(imageInbox), `${IMAGE_INBOX} fehlt.`);
 
     const publishing = index.platformPublishing;
-    assert(publishing?.directory === '04-caption', 'Plattform-Publishing muss direkt in 04-caption liegen.');
+    assert(publishing?.directory === CAPTION_DIRECTORY, `Plattform-Publishing muss direkt in ${CAPTION_DIRECTORY} liegen.`);
 
-    const publishingFiles = {
-      masterCaption: '04-caption/caption.txt',
-      youtubeShorts: '04-caption/youtube-shorts.txt',
-      instagramReels: '04-caption/instagram-reels.txt',
-      tiktok: '04-caption/tiktok.txt',
-      facebookReels: '04-caption/facebook-reels.txt',
-      snapchat: '04-caption/snapchat.txt',
-    };
+    const publishingFiles = PLATFORM_PUBLISHING_FILES;
 
     for (const [key, expectedPath] of Object.entries(publishingFiles)) {
       assert(publishing?.[key] === expectedPath, `platformPublishing.${key} muss auf ${expectedPath} zeigen.`);
@@ -115,20 +119,20 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   assert(existsSync(timingPath), `Worttiming-Datei fehlt: ${timingPath}`);
   if (existsSync(timingPath)) {
     const timing = JSON.parse(readFileSync(timingPath, 'utf8'));
-    assert(timing.subtitleMode === 'sentence-with-audio-synced-active-word', 'Worttiming-Datei hat falschen subtitleMode.');
-    assert(timing.activeWordColor === 'finance-green', 'Aktive Wortfarbe muss finance-green sein.');
+    assert(timing.subtitleMode === SUBTITLE_MODE, 'Worttiming-Datei hat falschen subtitleMode.');
+    assert(timing.activeWordColor === ACTIVE_WORD_COLOR, `Aktive Wortfarbe muss ${ACTIVE_WORD_COLOR} sein.`);
     assert(Array.isArray(timing.sentences), 'Worttiming-Datei benötigt sentences[].');
   }
 
   const allPrompts = existsSync(allPromptsPath) ? readFileSync(allPromptsPath, 'utf8') : '';
-  assert(allPrompts.includes('FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3'), 'alle-bildprompts.txt verwendet nicht die FinanzNeo World ID.');
+  assert(allPrompts.includes(WORLD_ID_MARKER), 'alle-bildprompts.txt verwendet nicht die FinanzNeo World ID.');
 
   if (!legacyImageWorld) {
     assert(allPrompts.includes('ONE single seamless continuous deep charcoal green-black background'), 'alle-bildprompts.txt fordert keinen nahtlosen Einzelhintergrund.');
     assert(!containsObsoleteZoning(allPrompts), 'alle-bildprompts.txt enthält verbotene Prozent-Zonen.');
     assert(allPrompts.includes('No headline') || allPrompts.includes('No headline.'), 'alle-bildprompts.txt verbietet generierte Headlines nicht.');
     assert(allPrompts.includes('short German object labels') || allPrompts.includes('kurzen deutschen') || allPrompts.includes('kurze deutsche'), 'alle-bildprompts.txt definiert kurze deutsche Objektlabels nicht.');
-    assert(allPrompts.includes('00-ALLE-BILDER-HIER-REIN'), 'Finaler gemeinsamer Bilderordner fehlt in alle-bildprompts.txt.');
+    assert(allPrompts.includes('00-ALLE-BILDER-HIER-REIN'), `Finaler gemeinsamer Bilderordner fehlt in ${ALL_PROMPTS}.`);
   }
 
   directories.forEach((id, position) => {
@@ -153,7 +157,7 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
       const prompt = readFileSync(resolve(directory, 'bildprompt.txt'), 'utf8');
 
       if (legacyImageWorld) {
-        assert(prompt.includes('FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3'), `${id}: Legacy-World-ID fehlt.`);
+        assert(prompt.includes(WORLD_ID_MARKER), `${id}: Legacy-World-ID fehlt.`);
       } else {
         assert(prompt.includes('GOOGLE FLOW – FINALER DATEINAME:'), `${id}: finaler Google-Flow-Dateiname fehlt direkt am Prompt.`);
         assert(prompt.includes('ONE single seamless continuous deep charcoal green-black background'), `${id}: nahtloser Einzelhintergrund fehlt.`);

@@ -4,11 +4,11 @@ import { C, FONT, sec, prog, lerpF, life, a, E, RollingNumber, AreaPremium, Came
 // ⚠️ AKTIVIEREN: Diese Vorlage ist abgemeldet, bis echtes Material da ist.
 //   1) Arman legt Stimme ab:  public/audio/<name>.mp3   (Claude erstellt NIE Audio!)
 //   2) Wort-Timing erzeugen:  python scripts/captions.py public/audio/<name>.mp3 public/captions/<name>.json
-//   3) Import unten auf <name>.json zeigen lassen + Audio-src auf <name>.mp3
+//   3) Import unten auf die eigene <name>.json umstellen + Audio-src auf <name>.mp3
 //   4) In Root.tsx als <Composition id="FullVideoSynced" .../> wieder registrieren
 //      (Import + SYNCED_FRAMES-Zeile dort einkommentieren).
 //   5) Wort-Indizes/Texte unten an dein Skript anpassen.
-import words from '../public/captions/<name>.json';
+import captions from '../public/captions/szene-01-hook.json';
 
 // ════════════════════════════════════════════════════════════════════════════
 //  FINANZNEO · FULL VIDEO (AUDIO-SYNCHRON) — das Workflow-Muster
@@ -18,16 +18,17 @@ import words from '../public/captions/<name>.json';
 // ════════════════════════════════════════════════════════════════════════════
 
 type W = { word: string; start: number; end: number };
-const WS = words as W[];
+// Caption-Dateien sind Objekte im Format finanzneo-caption-v1, die Wortliste liegt unter `words`.
+const WS = captions.words as W[];
 
 // Wort-Index → Frame (Beginn / Ende des gesprochenen Worts)
 const wIn = (i: number) => sec(WS[i].start);
 const wOut = (i: number) => sec(WS[i].end);
-// Gesamtlänge = letztes Wort + Atempause
-export const SYNCED_FRAMES = wOut(WS.length - 1) + sec(0.8);
+// Gesamtlänge = letztes Wort + Atempause (0 solange noch keine echten Captions vorliegen)
+export const SYNCED_FRAMES = WS.length === 0 ? 0 : wOut(WS.length - 1) + sec(0.8);
 
 // Wort-Reveal, getriggert vom gesprochenen Wort (clean, von unten)
-const spoken = (f: number, txt: string, i: number, size: number, col = C.white, weight = 800) => {
+const spoken = (f: number, txt: string, i: number, size: number, col: string = C.white, weight = 800) => {
   const at = wIn(i);
   const o = prog(f, at, at + 5);
   const y = lerpF(f, 30, 0, at, at + 9, E.out);
@@ -59,7 +60,7 @@ export const FullVideoSynced: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       {/* ── Voiceover (einmal, oben) — Pfad auf Armans Datei setzen ── */}
-      <Audio src={staticFile('audio/<name>.mp3')} />
+      <Audio src={staticFile('audio/szene-01-hook.mp3')} />
 
       {/* ── S1 · HOOK (Problem) ── */}
       <AbsoluteFill style={{ opacity: life(f, s1in, s1out, 8),

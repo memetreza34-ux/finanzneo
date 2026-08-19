@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+// Führt beide Reel-Validatoren auf demselben Projektordner aus.
+// Nötig, weil npm zusätzliche Argumente nur an den letzten Befehl einer
+// `&&`-Kette anhängt und der erste Validator sonst ohne Pfad startet.
+
+import {spawnSync} from 'node:child_process';
+import {resolve} from 'node:path';
+
+const [projectDirectory] = process.argv.slice(2);
+
+if (!projectDirectory) {
+  console.error('\nNutzung: npm run reel:validate -- <Reel-Projektordner>\n');
+  process.exit(1);
+}
+
+const validators = [
+  'scripts/validate-reel-source-contract.mjs',
+  'scripts/validate-platform-publishing.mjs',
+];
+
+for (const validator of validators) {
+  const result = spawnSync(process.execPath, [resolve(validator), projectDirectory], {stdio: 'inherit'});
+
+  if (result.status !== 0) {
+    process.exit(result.status ?? 1);
+  }
+}

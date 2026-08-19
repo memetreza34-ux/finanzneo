@@ -18,12 +18,16 @@ const walk = (directory) =>
 
 const sourceFiles = walk(sourceRoot).filter((path) => /\.(tsx?|jsx?)$/.test(path));
 const compositionPattern = /<Composition\b[^>]*\bid=["']([^"']+)["'][^>]*\/>/g;
+
+// Dokumentation darf Beispiel-Registrierungen zeigen, ohne die Prüfung auszulösen.
+const stripComments = (source) =>
+  source.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^[ \t]*\/\/.*$/gm, '');
 const registrations = [];
 const errors = [];
 
 for (const absolutePath of sourceFiles) {
   const file = relative(resolve('.'), absolutePath).replaceAll('\\', '/');
-  const content = readFileSync(absolutePath, 'utf8');
+  const content = stripComments(readFileSync(absolutePath, 'utf8'));
 
   for (const match of content.matchAll(compositionPattern)) {
     registrations.push({id: match[1], file});

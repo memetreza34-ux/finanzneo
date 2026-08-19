@@ -17,9 +17,11 @@ import {
 } from '../production/reel-template';
 import {FORMAT} from '../brand/tokens';
 
-const FPS = 30;
-const VERTICAL = {width: 1080, height: 1920} as const;
-const WIDE = {width: 1920, height: 1080} as const;
+// Formatwerte kommen ausschließlich aus src/brand/tokens.ts, damit Registry
+// und Design-System nicht auseinanderlaufen können.
+const FPS = FORMAT.fps;
+const VERTICAL = FORMAT.vertical;
+const WIDE = FORMAT.landscape;
 
 /**
  * Stiltests, technische Prototypen und nicht freigegebene Reel-Entwürfe.

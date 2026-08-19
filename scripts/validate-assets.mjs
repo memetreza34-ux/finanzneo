@@ -76,7 +76,11 @@ export const validateManifest = (manifestPath) => {
   }
 
   if (failures.length > 0) {
-    throw new Error(`Asset-Prüfung fehlgeschlagen (${failures.length} Fehler).`);
+    throw new Error(
+      `Noch nicht renderbereit — ${failures.length} Pflicht-Asset(s) fehlen oder sind Platzhalter.\n` +
+        '  Voiceover legst du selbst unter public/audio/ ab (bleibt lokal, siehe .gitignore).\n' +
+        '  Captions danach mit: python scripts/captions.py <audio.mp3> <captions.json>',
+    );
   }
 
   console.log(`\n✓ ${manifest.name ?? manifest.composition ?? 'Produktion'} ist renderbereit.`);
@@ -94,7 +98,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   try {
     validateManifest(manifestPath);
   } catch (error) {
-    console.error(`\nFEHLER: ${error instanceof Error ? error.message : String(error)}`);
+    console.error(`\n${error instanceof Error ? error.message : String(error)}`);
     process.exit(1);
   }
 }

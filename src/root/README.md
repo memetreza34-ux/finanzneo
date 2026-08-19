@@ -8,7 +8,7 @@ Neue Remotion-Compositions werden nicht mehr direkt in `src/Root.tsx` registrier
 
 Nur Inhalte, die veröffentlicht oder direkt als Kanal-Asset exportiert werden können:
 
-- fertige Reels und Shorts
+- fertige Reels und vertikale Kurzvideos
 - freigegebene Longform-Szenen
 - Thumbnails
 - Profilbilder

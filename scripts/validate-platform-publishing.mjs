@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 import {existsSync, readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
+import {
+  CAPTION_DIRECTORY,
+  FORBIDDEN_PUBLISHING_FILES,
+  FORBIDDEN_PUBLISHING_KEYS,
+  PLATFORM_PUBLISHING_FILES,
+  SCENE_INDEX,
+} from './lib/reel-contract.mjs';
 
 const target = process.argv[2];
 if (!target) {
@@ -9,14 +16,14 @@ if (!target) {
 }
 
 const root = resolve(target);
-const indexPath = resolve(root, '03-szenen/scene-index.json');
+const indexPath = resolve(root, SCENE_INDEX);
 const errors = [];
 const warnings = [];
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 
-assert(existsSync(indexPath), '03-szenen/scene-index.json fehlt.');
+assert(existsSync(indexPath), `${SCENE_INDEX} fehlt.`);
 if (!existsSync(indexPath)) {
-  console.error('\nPlattform-Publishing-Vertrag verletzt:\n- 03-szenen/scene-index.json fehlt.');
+  console.error(`\nPlattform-Publishing-Vertrag verletzt:\n- ${SCENE_INDEX} fehlt.`);
   process.exit(1);
 }
 
@@ -26,18 +33,16 @@ if (index.imageWorld?.legacyAssetSet === true) {
   process.exit(0);
 }
 
-const expected = {
-  masterCaption: '04-caption/caption.txt',
-  instagramReels: '04-caption/instagram-reels.txt',
-  tiktok: '04-caption/tiktok.txt',
-  facebookReels: '04-caption/facebook-reels.txt',
-  snapchat: '04-caption/snapchat.txt',
-};
+const expected = PLATFORM_PUBLISHING_FILES;
 
 assert(index.platformPublishing && typeof index.platformPublishing === 'object', 'scene-index.json benötigt platformPublishing.');
-assert(index.platformPublishing?.directory === '04-caption', 'platformPublishing.directory muss 04-caption sein.');
-assert(!Object.prototype.hasOwnProperty.call(index.platformPublishing ?? {}, 'youtubeShorts'), 'platformPublishing.youtubeShorts ist verboten: FinanzNeo veröffentlicht keine YouTube Shorts.');
-assert(!existsSync(resolve(root, '04-caption/youtube-shorts.txt')), '04-caption/youtube-shorts.txt ist verboten: YouTube ist ausschließlich Longform unter youtube/.');
+assert(index.platformPublishing?.directory === CAPTION_DIRECTORY, `platformPublishing.directory muss ${CAPTION_DIRECTORY} sein.`);
+for (const key of FORBIDDEN_PUBLISHING_KEYS) {
+  assert(!Object.prototype.hasOwnProperty.call(index.platformPublishing ?? {}, key), `platformPublishing.${key} ist verboten: FinanzNeo veröffentlicht keine YouTube Shorts.`);
+}
+for (const relativePath of FORBIDDEN_PUBLISHING_FILES) {
+  assert(!existsSync(resolve(root, relativePath)), `${relativePath} ist verboten: YouTube ist ausschließlich Longform unter youtube/.`);
+}
 
 for (const [key, relativePath] of Object.entries(expected)) {
   assert(index.platformPublishing?.[key] === relativePath, `platformPublishing.${key} muss auf ${relativePath} zeigen.`);
@@ -52,10 +57,10 @@ for (const [key, relativePath] of Object.entries(expected)) {
 }
 
 const structuralChecks = [
-  ['04-caption/instagram-reels.txt', ['CAPTION:']],
-  ['04-caption/tiktok.txt', ['CAPTION:']],
-  ['04-caption/facebook-reels.txt', ['REEL-TEXT:']],
-  ['04-caption/snapchat.txt', ['CAPTION:']],
+  [PLATFORM_PUBLISHING_FILES.instagramReels, ['CAPTION:']],
+  [PLATFORM_PUBLISHING_FILES.tiktok, ['CAPTION:']],
+  [PLATFORM_PUBLISHING_FILES.facebookReels, ['REEL-TEXT:']],
+  [PLATFORM_PUBLISHING_FILES.snapchat, ['CAPTION:']],
 ];
 
 for (const [relativePath, markers] of structuralChecks) {

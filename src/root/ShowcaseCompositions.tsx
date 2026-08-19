@@ -11,11 +11,25 @@ import {TemplateDemo2} from '../TemplateDemo2';
 import {Sizzle} from '../Sizzle';
 import {UpgradeShowcase, UPGRADE_SHOWCASE_DURATION} from '../UpgradeShowcase';
 import {LottieFinanzGrid} from '../LottieFinanzGrid';
+import {FNShowcase, FN_FRAMES} from '../bausteine/FNShowcase';
+import {FNKitShowcase, FNKIT_FRAMES} from '../bausteine/FNKitShowcase';
+import {FNKit2Showcase, FNKIT2_FRAMES} from '../bausteine/FNKit2Showcase';
+import {FNKit3Showcase, FNKIT3_FRAMES} from '../bausteine/FNKit3Showcase';
+import {FNProShowcase, FNPRO_FRAMES} from '../bausteine/FNProShowcase';
+import {FNPremiumShowcase, FNPREM_FRAMES} from '../bausteine/FNPremiumShowcase';
+import {FNPremium2Showcase, FNPREM2_FRAMES} from '../bausteine/FNPremium2Showcase';
+import {FNConceptsShowcase, FNCONCEPTS_FRAMES} from '../bausteine/FNConceptsShowcase';
+import {FNChartProShowcase, FNCHARTPRO_FRAMES} from '../bausteine/FNChartProShowcase';
+import {FNExtraShowcase, FNEXTRA_FRAMES} from '../bausteine/FNExtraShowcase';
+import {FNScenesShowcase, FNSCENES_FRAMES} from '../bausteine/FNScenesShowcase';
+import {FNFinanceCoreShowcase, FNFC_FRAMES} from '../bausteine/FNFinanceCoreShowcase';
 import {FORMAT} from '../brand/tokens';
 
-const FPS = 30;
-const VERTICAL = {width: 1080, height: 1920} as const;
-const WIDE = {width: 1920, height: 1080} as const;
+// Formatwerte kommen ausschließlich aus src/brand/tokens.ts, damit Registry
+// und Design-System nicht auseinanderlaufen können.
+const FPS = FORMAT.fps;
+const VERTICAL = FORMAT.vertical;
+const WIDE = FORMAT.landscape;
 
 /**
  * Dokumentations- und Komponentenübersichten für den internen Baukasten.
@@ -34,5 +48,19 @@ export const ShowcaseCompositions: React.FC = () => (
     <Composition id="Sizzle" component={Sizzle} durationInFrames={510} fps={FPS} {...VERTICAL} />
     <Composition id="UpgradeShowcase" component={UpgradeShowcase} durationInFrames={UPGRADE_SHOWCASE_DURATION} fps={FPS} {...WIDE} />
     <Composition id="LottieFinanzGrid" component={LottieFinanzGrid} durationInFrames={90} fps={FPS} {...WIDE} />
+
+    {/* Baustein-Übersichten: zeigen je eine Gruppe aus src/bausteine im Zusammenhang. */}
+    <Composition id="FNShowcase" component={FNShowcase} durationInFrames={FN_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="FNKitShowcase" component={FNKitShowcase} durationInFrames={FNKIT_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="FNKit2Showcase" component={FNKit2Showcase} durationInFrames={FNKIT2_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="FNKit3Showcase" component={FNKit3Showcase} durationInFrames={FNKIT3_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="FNProShowcase" component={FNProShowcase} durationInFrames={FNPRO_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="FNPremiumShowcase" component={FNPremiumShowcase} durationInFrames={FNPREM_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="FNPremium2Showcase" component={FNPremium2Showcase} durationInFrames={FNPREM2_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="FNConceptsShowcase" component={FNConceptsShowcase} durationInFrames={FNCONCEPTS_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="FNChartProShowcase" component={FNChartProShowcase} durationInFrames={FNCHARTPRO_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="FNExtraShowcase" component={FNExtraShowcase} durationInFrames={FNEXTRA_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="FNScenesShowcase" component={FNScenesShowcase} durationInFrames={FNSCENES_FRAMES} fps={FPS} {...VERTICAL} />
+    <Composition id="FNFinanceCoreShowcase" component={FNFinanceCoreShowcase} durationInFrames={FNFC_FRAMES} fps={FPS} {...VERTICAL} />
   </>
 );

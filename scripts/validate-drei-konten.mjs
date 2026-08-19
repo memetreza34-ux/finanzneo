@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import {existsSync, readFileSync, readdirSync} from 'node:fs';
 import {extname, resolve} from 'node:path';
+import {ACTIVE_WORD_COLOR, SUBTITLE_MODE, WORLD_ID, WORLD_ID_MARKER} from './lib/reel-contract.mjs';
 
 const reelRoot = resolve('reels/2026-08-03_bis_2026-08-09/donnerstag/reel-01_drei-konten-system');
 const sceneRoot = resolve(reelRoot, '03-szenen/EINZELNE-SZENEN');
@@ -20,7 +21,7 @@ const errors = [];
 let missingFinalImages = 0;
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 const requiredPromptMarkers = [
-  'FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3',
+  WORLD_ID_MARKER,
   'SERIES CONTINUITY LOCK:',
   'ENVIRONMENT:',
   'COMPOSITION LOCK:',
@@ -33,7 +34,7 @@ const requiredPromptMarkers = [
 assert(index.version >= 12, 'scene-index muss mindestens Version 12 verwenden.');
 assert(index.sceneCount === 10, 'sceneCount muss 10 sein.');
 assert(index.imageSceneCount === 6 && index.animationSceneCount === 4, 'Verhältnis muss 6 Bilder / 4 Animationen sein.');
-assert(index.imageWorld?.id === 'finanzneo-connected-studio-v3', 'Image World V3 fehlt.');
+assert(index.imageWorld?.id === WORLD_ID, 'Image World V3 fehlt.');
 assert(index.imageWorld?.noEmptyBackground === true, 'Leere Hintergründe müssen verboten sein.');
 assert(index.imageWorld?.backgroundFill === 'finanzneo-world-stage-v3', 'Einheitliche Remotion-Studiobühne fehlt.');
 assert(index.timelineRules?.cutsFollowSentenceStarts === true, 'Szenenstarts müssen Satzanfängen folgen.');
@@ -48,8 +49,8 @@ assert(Array.isArray(index.scenes) && index.scenes.length === 10, 'scene-index m
 assert(Array.isArray(timeline.scenes) && timeline.scenes.length === 10 && timeline.totalFrames === 1800, 'Timeline muss 10 Szenen und 1800 Frames enthalten.');
 assert(existsSync(resolve(reelRoot, '03-szenen/bildwelt.txt')), 'bildwelt.txt fehlt.');
 
-assert(timing.subtitleMode === 'sentence-with-audio-synced-active-word', 'Caption-Modus ist falsch.');
-assert(timing.activeWordColor === 'finance-green', 'Aktives Wort muss finance-green sein.');
+assert(timing.subtitleMode === SUBTITLE_MODE, 'Caption-Modus ist falsch.');
+assert(timing.activeWordColor === ACTIVE_WORD_COLOR, `Aktives Wort muss ${ACTIVE_WORD_COLOR} sein.`);
 assert(Array.isArray(timing.sentences) && timing.sentences.length === 12, 'Es müssen 12 Sätze mit Wortzeiten vorhanden sein.');
 
 assert(sharedCode.includes('const ImageWorldBackdrop'), 'Einheitliche Image-World-Bühne fehlt im Remotion-Code.');

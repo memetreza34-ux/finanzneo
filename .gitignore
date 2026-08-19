@@ -10,6 +10,7 @@ thumbnails/*.mp4
 
 # Remotion / Build
 dist/
+build/
 .remotion/
 
 # Voiceover-Dateien bleiben lokal und werden pro Produktion bereitgestellt

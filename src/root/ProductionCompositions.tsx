@@ -5,7 +5,6 @@ import {ThumbnailFlux} from '../ThumbnailFlux';
 import {ProfilePic1, ProfilePic2, ProfilePic3} from '../ProfilePic';
 import {DisclaimerPreview} from '../DisclaimerPreview';
 import {DreiKontenSystem, DREI_KONTEN_SYSTEM_FRAMES} from '../reels/drei-konten/DreiKontenSystem';
-import {NotgroschenStufenplan, NOTGROSCHEN_TOTAL_FRAMES} from '../reels/notgroschen/NotgroschenStufenplan';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
 import {Scene03SparbuchVs, SCENE03_FRAMES} from '../zins/Scene03SparbuchVs';
@@ -24,15 +23,17 @@ import {ShortZeit, SHORT_ZEIT_FRAMES} from '../zins/ShortZeit';
 import {ShortKiller, SHORT_KILLER_FRAMES} from '../zins/ShortKiller';
 import {ShortStart, SHORT_START_FRAMES} from '../zins/ShortStart';
 import {ShortMSCI, SHORT_MSCI_FRAMES} from '../zins/ShortMSCI';
+import {FORMAT} from '../brand/tokens';
 
-const FPS = 30;
-const VERTICAL = {width: 1080, height: 1920} as const;
-const WIDE = {width: 1920, height: 1080} as const;
+// Formatwerte kommen ausschließlich aus src/brand/tokens.ts, damit Registry
+// und Design-System nicht auseinanderlaufen können.
+const FPS = FORMAT.fps;
+const VERTICAL = FORMAT.vertical;
+const WIDE = FORMAT.landscape;
 
 /** Veröffentlichbare Inhalte und direkt exportierbare Kanal-Assets. */
 export const ProductionCompositions: React.FC = () => (
   <>
-    <Composition id="NotgroschenStufenplan" component={NotgroschenStufenplan} durationInFrames={NOTGROSCHEN_TOTAL_FRAMES} fps={FPS} {...VERTICAL} />
 
     <Composition id="DreiKontenSystem" component={DreiKontenSystem} durationInFrames={DREI_KONTEN_SYSTEM_FRAMES} fps={FPS} {...VERTICAL} />
 

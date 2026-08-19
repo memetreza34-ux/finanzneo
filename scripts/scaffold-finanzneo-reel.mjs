@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 import {existsSync, mkdirSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
+import {
+  ACTIVE_WORD_COLOR,
+  CAPTION_DIRECTORY,
+  PLATFORM_PUBLISHING_FILES,
+  SUBTITLE_MODE,
+  WORLD_ID as CONTRACT_WORLD_ID,
+} from './lib/reel-contract.mjs';
 
 const DEFAULT_TYPES = ['image','image','animation','image','animation','image','animation','animation','image','image'];
 const args = process.argv.slice(2);
@@ -40,7 +47,7 @@ const write = (path, content) => {
   writeFileSync(abs, content, 'utf8');
 };
 
-const WORLD_ID = 'finanzneo-connected-studio-v3';
+const WORLD_ID = CONTRACT_WORLD_ID;
 const num = (index) => String(index + 1).padStart(2, '0');
 const sceneFileName = (index) => `Bild ${num(index)} - [KURZER SZENENNAME].png`;
 
@@ -69,7 +76,7 @@ write('04-caption/instagram-reels.txt', 'CAPTION:\n[EINFÜGEN]\n\nCTA:\n[EINFÜG
 write('04-caption/tiktok.txt', 'CAPTION:\n[EINFÜGEN]\n\nCTA:\n[EINFÜGEN ODER ENTFERNEN]\n\nQUELLEN / HINWEIS:\n[EINFÜGEN WENN NÖTIG]\n\nHASHTAGS:\n[EINFÜGEN]\n');
 write('04-caption/facebook-reels.txt', 'REEL-TEXT:\n[EINFÜGEN]\n\nCTA:\n[EINFÜGEN ODER ENTFERNEN]\n\nQUELLEN / HINWEIS:\n[EINFÜGEN WENN NÖTIG]\n\nHASHTAGS:\n[EINFÜGEN]\n');
 write('04-caption/snapchat.txt', 'CAPTION:\n[EINFÜGEN]\n\nCTA:\n[OPTIONAL]\n\nQUELLEN / HINWEIS:\n[NUR WENN NÖTIG]\n');
-write('04-caption/word-timings.json', `${JSON.stringify({version:1,fps:30,subtitleMode:'sentence-with-audio-synced-active-word',activeWordColor:'finance-green',sentences:[]}, null, 2)}\n`);
+write('04-caption/word-timings.json', `${JSON.stringify({version:1,fps:30,subtitleMode:SUBTITLE_MODE,activeWordColor:ACTIVE_WORD_COLOR,sentences:[]}, null, 2)}\n`);
 write('05-projektdateien/animationen.md', '# ANIMATIONEN\n\n[REMOTION-ANIMATIONEN EINFÜGEN]\n');
 write('05-projektdateien/recherche-quellen.md', '# RECHERCHE UND QUELLEN\n\n[QUELLEN EINFÜGEN]\n');
 write('05-projektdateien/szenenplan.md', '# SZENENPLAN\n\n[SZENENPLAN EINFÜGEN]\n');
@@ -109,7 +116,7 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
   antigravityGeneratesImages:false,
   googleFlow:{generationMode:'one-image-at-a-time',fileNameRule:'Bild XX - Kurzer Szenenname.png',numberSource:'real-scene-number',animationNumbersStayReserved:true,finalCollectionDirectory:'03-szenen/00-ALLE-BILDER-HIER-REIN/',distributeToSceneFolders:false},
   imageWorld:{id:WORLD_ID,referencePromptFile:'03-szenen/bildwelt.txt',style:'premium-fintech-editorial-3d-metaphor',stylizedPersonAllowed:true,visibleFaceRequiredWhenPersonPresent:true,objectLabelsOnly:true,seamlessSingleBackgroundRequired:true,percentageZonesForbidden:true,floorWallBoundaryForbidden:true,horizonLineForbidden:true,backgroundBandsForbidden:true,headlinesInGeneratedImagesForbidden:true,subtitlesInGeneratedImagesForbidden:true,sentencesInGeneratedImagesForbidden:true,tinyDioramaForbidden:true,neonTunnelForbidden:true},
-  platformPublishing:{directory:'04-caption',masterCaption:'04-caption/caption.txt',instagramReels:'04-caption/instagram-reels.txt',tiktok:'04-caption/tiktok.txt',facebookReels:'04-caption/facebook-reels.txt',snapchat:'04-caption/snapchat.txt'},
+  platformPublishing:{directory:CAPTION_DIRECTORY,...PLATFORM_PUBLISHING_FILES},
   timelineRules:{timingSource:'04-caption/word-timings.json',cutsFollowSentenceStarts:true,equalLengthScenesForbiddenByDefault:true},
   audio:{targetIntegratedLufs:-16,targetTruePeakDbtp:-1},
   imagePresentationContract:{imageFit:'contain',maxIntentionalImageScale:1.04,maxSourceCropPerSide:0.2,maxSourceCropTotal:0.34,blurredImageBackgroundForbidden:true},
