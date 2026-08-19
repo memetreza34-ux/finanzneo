@@ -1,11 +1,10 @@
 // Gemeinsame Vertragskonstanten für alle Reel-Skripte.
 //
 // Diese Werte lagen früher mehrfach kopiert in scaffold-finanzneo-reel.mjs,
-// validate-reel-source-contract.mjs, validate-platform-publishing.mjs und
-// validate-drei-konten.mjs. Dadurch entstanden Widersprüche, sobald eine
-// Regel nur an einzelnen Stellen nachgezogen wurde — zuletzt beim Entfernen
-// der YouTube Shorts. Jede Änderung an der Bildwelt oder an den Plattformen
-// gehört ausschließlich hierher.
+// validate-reel-source-contract.mjs und validate-platform-publishing.mjs.
+// Dadurch entstanden Widersprüche, sobald eine Regel nur an einzelnen Stellen
+// nachgezogen wurde — zuletzt beim Entfernen der YouTube Shorts. Jede Änderung
+// an der Bildwelt oder an den Plattformen gehört ausschließlich hierher.
 
 export const WORLD_ID = 'finanzneo-connected-studio-v3';
 export const WORLD_ID_MARKER = `FINANZNEO_WORLD_ID: ${WORLD_ID}`;
