@@ -1,83 +1,91 @@
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-FINANZNEO CONNECTED STUDIO V3 — MONDAY REEL IMAGE WORLD
+SOURCE OF TRUTH FOR THIS REEL:
+Follow Claude's `finanzneo-connected-studio-v3` image language from `docs/FINANZNEO-IMAGE-WORLD-V3.md` / `docs/IMAGE-PROMPT-LIBRARY.md` on the cleanup branch.
+Do NOT invent a separate local image world and do NOT reinterpret the style as photorealistic product photography or as chunky toy-like infographic objects.
 
-CORE IDEA:
-Create premium fintech editorial 3D illustrations in which the OBJECTS strongly resemble believable real-world objects in shape, construction and material behaviour, while the overall image still clearly looks like a designed 3D editorial explanation rather than a camera photograph or advertising product shot.
+VERBINDLICHER STIL:
+- Premium fintech editorial 3D render style
+- deep charcoal green-black Grundwelt
+- vivid emerald und mint-green Akzente
+- Gold nur für Geld, Euro-Münzen und finanziellen Wert
+- warmes Rot-Orange nur für Verlust, Risiko, Schulden oder blockiertes Geld
+- smooth rounded 3D geometry
+- soft bevelled edges
+- hochwertige matte und transparente Materialien
+- confident high-contrast studio lighting
+- kräftiges smaragdgrünes Rim Light
+- ein großes dominantes Hauptmotiv / eine starke Finanzmetapher
+- wenige unterstützende Elemente
+- nicht fotorealistisch
+- kein Pixar-, Clay- oder Kindercartoon-Look
 
-REALITY LEVEL — IMPORTANT:
-- smartphone, laptop, headphones, paper contracts, envelopes, price tags, coins, magnifying glass and other everyday objects should be immediately recognizable and strongly reality-based
-- use believable material detail: glass reflections, paper thickness and folds, plastic seams, brushed metal edges, fabric texture, printed paper tabs, realistic euro-coin relief, subtle wear where natural
-- do NOT simplify everything into chunky toy blocks, generic icons or app-like tiles
-- do NOT make the scene childish, clay-like or toy-like
-- the final image remains a premium 3D editorial illustration, not a real camera photo
-- real brands/logos may be used only when explicitly relevant; otherwise use neutral products
+EIN BILD = EINE STARKE METAPHER:
+1. eine dominante Finanzmetapher oder ein großes Hauptobjekt
+2. optional eine einzelne stilisierte Hand; eine Person nur wenn sie die Erklärung wirklich verbessert
+3. wenige unterstützende Objekte
+4. klarer Ursache-Wirkungs-Zusammenhang
+5. 1–3 kurze deutsche Objektlabels
 
-VISUAL LANGUAGE:
-- ONE dominant financial idea/metaphor per image
-- 3–6 supporting objects maximum
-- every object must explain a part of the spoken sentence; no random decoration
-- group the objects into ONE connected still life with clear foreground, midground and depth
-- natural asymmetry, realistic overlap and soft contact shadows
-- the image must be understandable in about one second on a phone
-- avoid empty minimal product-shot compositions
+Everything is grouped tightly around the hero as one connected still life. Every object serves the same spoken sentence.
+Objects may have believable material detail and construction, but the image must remain a premium 3D editorial illustration and never become a camera photograph.
 
-COLOR LANGUAGE:
-- deep charcoal green-black base world
-- vivid emerald and mint accents for structure/positive guidance
-- cream/off-white paper and neutral product materials where natural
-- gold only for euro coins, cash and financial value
-- warm red-orange only for risk, debt, hidden cost or warning
+PERSONENREGEL:
+Standard ist ohne Person. Eine einzelne stilisierte Hand am Objekt ist erlaubt.
+Wenn eine Person vorkommt:
+- stilisierte anonyme erwachsene 3D-Person
+- Gesicht klar sichtbar
+- Augen, Nase und Mund erkennbar
+- frontal oder natürliche 3/4-Ansicht bevorzugt
+- keine reale/identifizierbare Person
+- keine gesichtslose Mannequin-Figur
+- keine reine Rückenansicht
 
-BACKGROUND — HARD RULE:
+TEXTREGEL:
+Cover (`Bild 00`): genau eine Headline + genau eine Subline im oberen Sicherheitsdrittel.
+Szenenbilder (`Bild 01` und folgende): keine Headline, keine Subline, kein ganzer Satz, kein CTA, kein Absatz. Nur die ausdrücklich verlangten kurzen deutschen Objektlabels.
+Labels klein, klar lesbar und direkt neben ihrem Objekt.
+
+REALE MARKEN:
+Bekannte Marken/Dienste dürfen nur verwendet werden, wenn sie für die konkrete Aussage relevant sind. Keine zufällige Marken-Deko, keine erfundene Partnerschaft oder Empfehlung.
+
+HINTERGRUND — HÖCHSTE BILDREGEL:
 Use ONE single seamless continuous deep charcoal green-black background across the entire image.
-The same material, tone and gradient must run from edge to edge.
+The background must keep the same continuous material, tone and gradient from edge to edge.
 NO horizontal divisions.
-NO top section and bottom section.
+NO visible top section.
+NO visible bottom section.
+NO separate zones.
+NO dark band at the top.
+NO dark band at the bottom.
 NO floor-wall boundary.
 NO horizon line.
-NO room, desk, shelf, office, shop or visible studio set.
-NO panels or layered backdrop.
-Use only one subtle continuous gradient/vignette.
-Objects may cast soft contact shadows directly onto this uninterrupted background.
+NO studio wall split.
+NO panel background.
+NO layered backdrop.
+Use only one subtle continuous background gradient or vignette across the whole image.
+Do not create a visible floor, visible wall or visible studio horizon.
+Objects may cast soft contact shadows, but the background itself remains one uninterrupted surface.
 
-TEXT RULE:
-- Cover only: exact requested headline + exact requested subline
-- Normal scene images: no headline, no subtitle, no sentence, no paragraph, no CTA
-- normal scene images may contain ONLY the explicitly requested short German object labels
-- labels must be small, clean, correctly spelled and physically attached to or placed directly beside the relevant object
-- no invented extra words, dates, numbers or fake contract text
+AUSDRÜCKLICH NICHT GEWÜNSCHT:
+- winzige isometrische Dioramen
+- mehrere kleine Räume/Plattformen
+- Neon-Tunnel
+- Sci-Fi-Korridore
+- futuristische Game-Level
+- Dashboard-/App-UI
+- abstrakte Rohrsysteme
+- überladene Icon-Sammlungen
+- reale Kamera-Fotografie
+- gesichtslose Personen
+- zwei oder mehr sichtbare Hintergrundzonen
 
-STRICTLY FORBIDDEN:
-- camera-photo look or lifestyle photography
-- luxury commercial product-ad composition
-- generic chunky infographic boards as the default hero
-- toy-like simplified electronics
-- Pixar, clay, childish cartoon look
-- UI dashboards, app screens, cards, chips, widgets, HUD
-- microchip or circuit-board visual language
-- mini isometric dioramas, game boards, satellite orbits
-- abstract glowing line networks, finance streams, tubes, rails, roads, tracks
-- wealth towers, monoliths, meaningless geometric blocks
-- multiple disconnected mini-scenes
-- visible room/floor/wall architecture
+ASPECT-RATIO-OVERRIDE FÜR DIESES BESTEHENDE MONTAG-REEL:
+- Bild 00: 9:16
+- Bild 01 / 04 / 07 / 10: strict 1:1, bevorzugt 1080×1080
+Dieser Format-Override ändert NICHT die Bildwelt.
 
-ASPECT RATIOS FOR THIS REEL:
-- Bild 00 cover: vertical 9:16
-- Bild 01 / 04 / 07 / 10: strict square 1:1, preferably 1080×1080
-
-GOOGLE FLOW FILE WORKFLOW — HARD RULE:
-Create the folder `FINAL - 0 Prozent Finanzierung` first.
-Then work strictly ONE required image at a time:
-1. generate exactly one image
-2. wait until generation is fully finished
-3. inspect motif, world, text/labels and aspect ratio
-4. if anything is wrong, regenerate THIS SAME image
-5. once valid, rename it immediately to the exact required filename
-6. move/save it into `FINAL - 0 Prozent Finanzierung`
-7. verify the exact renamed file is visible inside that folder
-8. ONLY THEN generate the next required image
-
-Never batch-generate several required images before renaming the previous one.
-Never ask `Weiter?`, `Continue?`, for confirmation or feedback between images.
-Continue autonomously until all five images are finished and verified together in the final folder.
+GOOGLE-FLOW-ABLAUF FÜR DIESES REEL:
+`FINAL - 0 Prozent Finanzierung` zuerst anlegen.
+Dann strikt: genau EIN Bild erzeugen → vollständig warten → prüfen → bei Fehlern dasselbe Bild neu erzeugen → exakt umbenennen → in FINAL-Ordner legen → Dateinamen dort prüfen → ERST DANN nächstes Bild.
+Kein Batch-Generieren. Kein `Weiter?`. Keine Bestätigung zwischen Bildern.
