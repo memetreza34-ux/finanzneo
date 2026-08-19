@@ -1,12 +1,42 @@
+GOOGLE FLOW — BILD 07 — STRICT 1:1
 FINALER DATEINAME: Bild 07 - Vertrag komplett pruefen.png
 FINALER ORDNER: FINAL - 0 Prozent Finanzierung
-STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Use FINANZNEO stylized finance explainer v8. No headline. No subtitle. Tags only: `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-Create one large simplified chunky contract block/folder as the central hero. It must have smooth rounded matte geometry and look like a designed 3D infographic object — NOT a realistic leather folder or photographed document stack.
-Around it place a simplified magnifying glass, a clean stylized pen shape, simplified euro coins and three small paper tabs/tags reading exactly `VERSICHERUNG?`, `GEBÜHREN?`, `RAHMENKREDIT?`.
-Use dark green/mint/cream surfaces, muted gold money accents and soft contact shadows.
+GESPROCHENER SATZ:
+„Außerdem kann eine Null-Prozent-Finanzierung Zusatzprodukte, Gebühren oder einen weiteren Kreditrahmen enthalten. Deshalb zählt der ganze Vertrag.“
 
-STRICTLY FORBIDDEN: photorealism, leather/stitching, wood grain, realistic pen photography, realistic documents, aged metal, realistic desk scene, stacked digital cards, floating UI chips/tiles, game-board, satellite orbit, microchip/circuit-board or contract-paper wall.
+TEXT RULE — VERY IMPORTANT:
+No headline. No subtitle. No sentence. No paragraph. No CTA.
+The ONLY readable text allowed is exactly:
+- `VERSICHERUNG?`
+- `GEBÜHREN?`
+- `RAHMENKREDIT?`
+No other readable text anywhere.
 
-After generation: wait until fully complete, inspect, regenerate THIS SAME image if needed, rename exactly to the required filename, place it inside `FINAL - 0 Prozent Finanzierung`, verify it is there, and ONLY THEN create the next image. Never ask `Weiter?`.
+HERO — „der ganze Vertrag“:
+Show a believable multi-page credit agreement as the large central hero, partly opened and slightly fanned out so several sections are visible at once. Use realistic paper thickness, folds, page edges, staples/clips and subtle printed-line texture, but do not generate readable fake paragraphs. The object must look strongly reality-based while still being a premium 3D editorial illustration, not a photographed document.
+
+CHECKING THE DETAILS:
+Place a realistic-looking magnifying glass partly over the contract so it enlarges one central clause area. Beside the document, add a neutral pen and a few gold euro coins. Keep all items physically connected to the contract and its review process.
+
+THREE POSSIBLE EXTRA ITEMS:
+Attach three small cream/mint paper tabs directly to three different areas of the agreement:
+- `VERSICHERUNG?`
+- `GEBÜHREN?`
+- `RAHMENKREDIT?`
+Each tab must clearly point to a different section of the same contract. Use a subtle warm red-orange accent only around the tab edges or the questioned clause areas to signal caution.
+
+COMPOSITION:
+One connected editorial still life centered on the contract. The contract is large, the magnifying glass overlaps it, and the three tabs are clearly readable around different sections. Avoid a wall of repeated papers, floating cards or separate mini-panels.
+
+STYLE:
+Premium fintech editorial 3D illustration with reality-based materials: cream paper, subtle ink texture, brushed metal/glass magnifying glass, realistic coin relief. Deep charcoal green-black world, emerald/mint structure accents, gold only for money/value, warm red-orange only for caution. Soft contact shadows and controlled emerald rim light.
+
+BACKGROUND — HARD RULE:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square image. No floor-wall boundary, no horizon, no desk, no office, no room, no shelf, no panels, no layered backdrop.
+
+FORBIDDEN:
+No camera-photo document scene, no office/lifestyle photo, no leather folder, no rustic wood, no giant generic contract block, no UI cards/chips/widgets, no dashboard, no microchip/circuit-board, no game board, no satellite orbit, no abstract line network, no repeated contract wall, no Pixar, no clay.
+
+Generate exactly ONE strict square 1:1 image, preferably 1080×1080. Wait until fully complete. Inspect all three labels, the contract logic, world, aspect ratio and composition. If invalid, regenerate THIS SAME image. Once valid, rename immediately to `Bild 07 - Vertrag komplett pruefen.png`, place it inside `FINAL - 0 Prozent Finanzierung`, verify the exact filename is there, and ONLY THEN continue to Bild 10. Never ask `Weiter?`.
