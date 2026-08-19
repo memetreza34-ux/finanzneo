@@ -1,28 +1,26 @@
 FINANZNEO — GOOGLE FLOW — 0%-FINANZIERUNG
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
+IMPORTANT — IMAGE WORLD SOURCE:
+Use Claude's `finanzneo-connected-studio-v3` exactly as defined in the cleanup system. Do NOT invent a new local image style. The scene concepts below are reel-specific; the visual language is Claude's V3.
+
 FINAL OUTPUT FOLDER — CREATE THIS FIRST:
 `FINAL - 0 Prozent Finanzierung`
 
 HARD FILE WORKFLOW — DO NOT DEVIATE:
 Process the required images strictly ONE AT A TIME.
-Do NOT batch-generate multiple required images.
-Do NOT create the next image before the previous image has been fully generated, checked, renamed and verified inside the final folder.
-
-For EACH required image:
-1. Generate exactly ONE image.
-2. Wait until generation is fully finished.
-3. Inspect visual world, aspect ratio, text/labels and composition.
-4. If anything is wrong, regenerate THIS SAME image. Do not start the next image.
-5. Once valid, rename it immediately to the exact final filename.
+1. Generate exactly ONE required image.
+2. Wait until that image is fully finished.
+3. Inspect motif, labels/text, aspect ratio, background and V3 visual style.
+4. If anything is wrong, regenerate THIS SAME image. Do not start another image.
+5. When valid, rename it immediately to the exact required filename.
 6. Move/save it into `FINAL - 0 Prozent Finanzierung`.
 7. Verify the exact renamed filename is visible inside that folder.
-8. ONLY THEN create the next required image.
+8. ONLY THEN generate the next required image.
 
-Never ask `Weiter?`, `Continue?`, for confirmation, approval or feedback between images.
-Never stop after saying that the next image will be generated.
-Continue autonomously until all five files are complete.
-At the end, check the single final folder and confirm all five exact filenames are together inside it.
+Never batch-generate several required images before renaming the previous one.
+Never ask `Weiter?`, `Continue?`, for approval, confirmation or feedback between images.
+Continue autonomously until all five images are finished, renamed and verified in the one final folder.
 
 REQUIRED ORDER:
 1. Bild 00 - 0 Prozent Finanzierung Cover.png
@@ -32,227 +30,207 @@ REQUIRED ORDER:
 5. Bild 10 - Wuerdest du es ohne Rate kaufen.png
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-GLOBAL IMAGE WORLD — FINANZNEO CONNECTED STUDIO V3
+CLAUDE V3 — VERBINDLICHER QUALITÄTSBLOCK
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Create premium fintech editorial 3D illustrations.
-
-REALITY LEVEL — VERY IMPORTANT:
-The everyday OBJECTS must strongly resemble believable real-world objects in shape, proportions, construction and material behaviour. A smartphone should look like a believable smartphone, headphones like real headphones, a contract like real paper, an envelope like real paper, coins like euro coins, and so on.
-Use believable material detail such as glass reflections, paper thickness and folds, plastic seams, brushed-metal edges, fabric texture, printed paper tabs and realistic euro-coin relief.
-
-However, the final image must still clearly look like a deliberately designed premium 3D editorial explanation, NOT a camera photograph, lifestyle photo or commercial product advertisement.
+STYLE:
+Premium fintech editorial 3D render style.
+Deep charcoal green-black world.
+Vivid emerald and mint-green accents.
+Gold only for money and financial value.
+Warm red-orange only for danger, debt, loss or blocked money.
+Smooth rounded 3D geometry, soft bevelled edges, premium matte/glass materials and confident high-contrast studio lighting with bold emerald rim light.
 
 VISUAL LANGUAGE:
-- ONE dominant financial idea/metaphor per image
-- 3–6 supporting objects maximum
-- every object must explain part of the spoken sentence
-- group everything into ONE connected still life
-- natural asymmetry and realistic overlap
-- clear foreground / midground / depth
-- soft contact shadows
-- large smartphone-readable objects
-- avoid empty minimalist product shots
-- avoid generic chunky boards as the default hero
+Use ONE dominant financial metaphor or one large hero object with only a few supporting elements.
+Everything is grouped tightly around the hero as one connected still life. Every object serves the same spoken sentence.
+Objects should be believable and detailed in construction, but the image must clearly remain a premium 3D editorial illustration and never a camera photograph.
+Default is objects and metaphors only, no person. A single stylized hand is allowed.
+If a person genuinely improves the explanation, use one stylized anonymous 3D adult person with a clearly visible face, stylized eyes, nose and mouth, front-facing or natural three-quarter view.
 
-COLOR LANGUAGE:
-- deep charcoal green-black base world
-- vivid emerald and mint accents for structure/positive guidance
-- cream/off-white paper and neutral materials where natural
-- gold only for money/value
-- warm red-orange only for warning, debt, hidden cost or risk
-
-BACKGROUND — HARD RULE:
+BACKGROUND:
 Use ONE single seamless continuous deep charcoal green-black background across the entire image.
-The same material, tone and gradient must run from edge to edge.
-NO horizontal divisions.
-NO separate top/bottom zones.
-NO floor-wall boundary.
-NO horizon line.
-NO visible room, desk, shelf, office or shop.
-NO panels.
-NO layered backdrop.
+Keep the same continuous material, tone and gradient from edge to edge.
+No horizontal divisions.
+No visible top section.
+No visible bottom section.
+No separate zones.
+No dark band at the top or bottom.
+No floor-wall boundary.
+No horizon line.
+No studio wall split.
+No panel background.
+No layered backdrop.
 Use only one subtle continuous gradient/vignette.
-Objects may cast soft contact shadows directly onto this uninterrupted background.
+Do not create a visible floor, visible wall or visible studio horizon.
+Objects may cast soft contact shadows, but the background itself remains one uninterrupted surface.
 
-TEXT RULE:
-- Cover only: exact requested headline + exact requested subline
-- Normal scene images: NO headline, NO subtitle, NO sentence, NO paragraph, NO CTA
-- normal scene images may contain ONLY the explicitly listed short German labels
-- no invented extra words, dates, numbers or fake readable contract text
+NEGATIVES:
+No photorealism, no camera-photo look, no real identifiable human, no faceless character, no back-view-only person, no UI dashboard, no app screen, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no miniature game level, no cluttered icon collection, no random labels, no Pixar, no clay, no childish cartoon simplification.
 
-STRICTLY FORBIDDEN:
-- camera-photo or lifestyle-photography look
-- luxury product-ad composition
-- toy-like simplified electronics
-- generic chunky infographic boards as the default visual language
-- Pixar, clay, childish cartoon look
-- UI dashboards, app screens, cards, chips, widgets, HUD
-- microchip/circuit-board visual language
-- mini isometric dioramas or game boards
-- satellite orbits
-- abstract glowing line networks or finance streams
-- tubes, rails, roads or tracks
-- wealth towers, monoliths or meaningless geometric blocks
-- multiple disconnected mini-scenes
-- visible room/floor/wall architecture
+ASPECT-RATIO OVERRIDE FOR THIS EXISTING REEL:
+- Cover only: vertical 9:16
+- Normal scene images: strict square 1:1, preferably 1080×1080
+This format override does not change the V3 image world.
 
 ━━━━━━━━━━━━━━━━━━
 BILD 00 — COVER — 9:16
-FINALER DATEINAME: Bild 00 - 0 Prozent Finanzierung Cover.png
 ━━━━━━━━━━━━━━━━━━
-Generate exactly ONE vertical 9:16 image.
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 00 - 0 Prozent Finanzierung Cover.png`
 
-TEXT — WRITE EXACTLY:
-`0 % FINANZIERUNG`
-`WO IST DER HAKEN?`
+TEXT RULE – COVER:
+Bake exactly ONE bold German headline and ONE lighter subline directly below it into the UPPER THIRD of the image.
+Write EXACTLY:
+Headline: `0 % FINANZIERUNG`
+Subline: `WO IST DER HAKEN?`
+No third text block. No CTA. No paragraph.
 
-VISUAL STORY:
-Show a believable financed-product bundle as one connected editorial still life. A modern neutral smartphone box, over-ear headphones and a slim laptop/product package sit together in the lower-middle area. The objects should strongly resemble real consumer products in shape, construction and material behaviour, with believable plastic, anodized-metal and fabric details, but the image must still clearly be a premium designed 3D illustration rather than a camera photograph.
+HERO — DIE 0%-FINANZIERUNG:
+A large financing agreement and a desirable consumer purchase form one strong central financial metaphor. The agreement is slightly angled, made from thick cream paper with visible page edges, folds and a metal clip. A bold mint-green `0 %` financing seal/tag is physically attached to the agreement.
 
-Attach one clean physical mint-green `0 %` financing tag to the product bundle. Behind the products, reveal a cream paper credit agreement partially opened with a visible signature line and several small monthly payment slips extending behind it. Add a few realistic-looking gold euro coins and one subtle warm red-orange warning tab partly visible behind the agreement.
+DER KAUF — davor:
+A small group of believable premium 3D consumer objects sits tightly in front of the agreement: a neutral smartphone, over-ear headphones and a slim product package. Describe real seams, edges and material behaviour, but keep them clearly as editorial 3D illustration objects rather than a commercial product photograph.
 
-COMPOSITION:
-One connected still life, natural asymmetry, products in front, contract/payment slips behind, clean space in the upper third for the exact headline/subline. Do not use a generic chunky board as the hero.
+DIE VERPFLICHTUNG — dahinter:
+A short sequence of monthly payment slips/calendar pages extends from behind the agreement. A few individually shaped gold euro coins sit near the base. One subtle warm red-orange warning tab peeks from one contract edge.
 
-Apply the GLOBAL IMAGE WORLD above exactly.
+Everything is grouped tightly around the agreement as one connected still life. Every object serves the same idea: attractive 0% offer in front, continuing credit obligation behind it.
 
-After generation: inspect exact typography, composition and world. If anything is wrong, regenerate THIS SAME cover. Once valid, rename immediately to `Bild 00 - 0 Prozent Finanzierung Cover.png`, move/save it into the final folder, verify the filename there, and ONLY THEN continue to Bild 01.
-
-━━━━━━━━━━━━━━━━━━
-BILD 01 — HOOK — STRICT 1:1
-FINALER DATEINAME: Bild 01 - 0 Prozent klingt kostenlos.png
-━━━━━━━━━━━━━━━━━━
-Generate exactly ONE strict square 1:1 image, preferably 1080×1080.
-
-GESPROCHENER SATZ:
-„Null Prozent klingt kostenlos. Aber eine Finanzierung bleibt trotzdem ein Kredit, den du Monat für Monat zurückzahlen musst.“
-
-ONLY READABLE TEXT:
-`0 %`
-`KREDIT`
-`MONATLICH`
-
-HERO — NULL PROZENT:
-Place a believable modern consumer-product package with a neutral smartphone and over-ear headphones as the large central object group. Attach a clean physical mint-green financing tag reading exactly `0 %`. The electronics should strongly resemble real products in shape, seams, materials and construction, but remain premium editorial 3D objects.
-
-THE CREDIT:
-Directly behind the product group, show a cream paper credit agreement partially opened. Attach a small clean label reading exactly `KREDIT` beside the signature area. Use believable paper thickness, folds and shadows, but no additional readable contract text.
-
-MONTHLY REPAYMENT:
-From the agreement, arrange a short visible sequence of monthly payment slips/calendar cards receding into the background. Place one small label reading exactly `MONATLICH` beside this sequence. A few gold euro coins visually move from the product/contract area toward the monthly slips.
-
-COMPOSITION:
-Everything forms ONE connected still life: product + 0%-tag in front, credit agreement behind, monthly payment sequence extending backward. Natural asymmetry, realistic overlap, strong depth. No generic central board and no disconnected corner objects.
-
-Apply the GLOBAL IMAGE WORLD above exactly.
-
-After generation: inspect the three labels, world, aspect ratio and composition. If invalid, regenerate THIS SAME image. Once valid, rename immediately to `Bild 01 - 0 Prozent klingt kostenlos.png`, move/save it into the final folder, verify the filename there, and ONLY THEN continue to Bild 04.
+Apply the CLAUDE V3 QUALITY BLOCK exactly.
+Generate exactly ONE vertical 9:16 image. Regenerate this same cover until the typography and composition are correct. Then rename it exactly, move it into the FINAL folder, verify it there, and only then continue.
 
 ━━━━━━━━━━━━━━━━━━
-BILD 04 — DREI RATEN — STRICT 1:1
-FINALER DATEINAME: Bild 04 - Drei Raten 95 Euro.png
+BILD 01 — STRICT 1:1
 ━━━━━━━━━━━━━━━━━━
-Generate exactly ONE strict square 1:1 image, preferably 1080×1080.
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 01 - 0 Prozent klingt kostenlos.png`
 
-GESPROCHENER SATZ:
-„Und mehrere kleine Raten addieren sich schnell. Zum Beispiel drei Käufe mit zusammen fünfundneunzig Euro jeden Monat.“
+GESPROCHENER SATZ DIESER SZENE:
+Null Prozent klingt kostenlos. Aber eine Finanzierung bleibt trotzdem ein Kredit, den du Monat für Monat zurückzahlen musst.
 
-ONLY READABLE TEXT:
-`35 €`
-`30 €`
-`30 €`
-`95 € / MONAT`
+TEXT RULE – SEHR WICHTIG:
+No headline. No subtitle. No sentence. No paragraph. No CTA. No title text of any kind anywhere in the image.
+The ONLY text allowed are the short German object labels listed below, placed small, clearly legible and directly next to their object.
 
-THREE PURCHASES:
-Show three believable real-world consumer objects as one connected group: a slim laptop, a modern neutral smartphone and over-ear headphones. They should strongly resemble real products in proportions, seams, materials and construction, but remain premium editorial 3D objects rather than a camera product photo.
+BESCHRIFTUNGEN – EXAKT DIESE, SONST KEIN TEXT:
+- `0 %` on a mint-green physical financing tag attached to the purchase
+- `KREDIT` on a small tag attached to the agreement
+- `MONATLICH` beside the short payment-slip sequence
 
-Attach one small physical payment tag to each object:
+HERO — „Null Prozent klingt kostenlos“:
+A desirable consumer purchase sits large in the center: a neutral smartphone package with over-ear headphones beside it. A physical mint-green financing tag marked `0 %` hangs clearly from the purchase.
+
+DER KREDIT — „bleibt trotzdem ein Kredit“:
+A thick cream-paper credit agreement sits directly behind the purchase, partly opened. Show believable page thickness, folded corners, clip/staple details and printed-line texture without creating readable fake paragraphs. The small label `KREDIT` is attached near the signature/contract area.
+
+DIE RÜCKZAHLUNG — „Monat für Monat“:
+A short stack/sequence of calendar-like payment slips extends behind the contract. Place `MONATLICH` directly beside it. A few gold euro coins visually connect the contract to the payment slips.
+
+Everything is grouped tightly around the purchase and agreement as one connected still life. No separate corner panels.
+Apply the CLAUDE V3 QUALITY BLOCK exactly.
+Generate exactly ONE strict square 1:1 image. Regenerate THIS SAME image if anything is wrong. Rename, move to FINAL folder, verify, then continue.
+
+━━━━━━━━━━━━━━━━━━
+BILD 04 — STRICT 1:1
+━━━━━━━━━━━━━━━━━━
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 04 - Drei Raten 95 Euro.png`
+
+GESPROCHENER SATZ DIESER SZENE:
+Und mehrere kleine Raten addieren sich schnell. Zum Beispiel drei Käufe mit zusammen fünfundneunzig Euro jeden Monat.
+
+TEXT RULE – SEHR WICHTIG:
+No headline. No subtitle. No sentence. No paragraph. No CTA.
+The ONLY text allowed is:
+- `35 €`
+- `30 €`
+- `30 €`
+- `95 € / MONAT`
+
+HERO — „zusammen 95 Euro jeden Monat“:
+A substantial cream-paper monthly-payment envelope sits in the lower center as the main financial result. A clear physical label `95 € / MONAT` is attached to it. A few gold euro coins collect directly around the envelope.
+
+DIE DREI KÄUFE — „mehrere kleine Raten“:
+Arrange a slim laptop, a neutral smartphone and over-ear headphones tightly around the monthly envelope as one connected still life. Give the objects believable seams, edges, hinges, cushions and material behaviour while keeping the whole image a premium editorial 3D illustration.
+
+DIE EINZELRATEN:
+Attach one small paper price/payment tag to each purchase:
 - laptop: `35 €`
 - smartphone: `30 €`
 - headphones: `30 €`
+A short trail of small paper payment slips and a few euro coins from each object physically converges toward the central monthly envelope. Do not use dashboard arrows or UI graphics.
 
-THE ADDITION:
-From each tag, create a short physical visual path using small paper payment slips and a few gold euro coins that converge toward one shared monthly envelope/stack in the lower center. Do not use UI arrows or dashboard graphics.
-
-RESULT:
-The shared monthly envelope/stack carries one clean physical label reading exactly `95 € / MONAT`. Make it slightly larger than the individual tags, but do not turn it into a giant board.
-
-COMPOSITION:
-One connected still life with the three products naturally arranged around the shared result. The mechanism must read instantly as 35 + 30 + 30 converging into one 95-euro monthly obligation.
-
-Apply the GLOBAL IMAGE WORLD above exactly.
-
-After generation: inspect all four labels, world, aspect ratio and composition. If invalid, regenerate THIS SAME image. Once valid, rename immediately to `Bild 04 - Drei Raten 95 Euro.png`, move/save it into the final folder, verify the filename there, and ONLY THEN continue to Bild 07.
+Everything must read instantly as three separate small obligations becoming one 95-euro monthly burden.
+Apply the CLAUDE V3 QUALITY BLOCK exactly.
+Generate exactly ONE strict square 1:1 image. Regenerate THIS SAME image if invalid. Rename, move to FINAL folder, verify, then continue.
 
 ━━━━━━━━━━━━━━━━━━
-BILD 07 — VERTRAG PRÜFEN — STRICT 1:1
-FINALER DATEINAME: Bild 07 - Vertrag komplett pruefen.png
+BILD 07 — STRICT 1:1
 ━━━━━━━━━━━━━━━━━━
-Generate exactly ONE strict square 1:1 image, preferably 1080×1080.
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 07 - Vertrag komplett pruefen.png`
 
-GESPROCHENER SATZ:
-„Außerdem kann eine Null-Prozent-Finanzierung Zusatzprodukte, Gebühren oder einen weiteren Kreditrahmen enthalten. Deshalb zählt der ganze Vertrag.“
+GESPROCHENER SATZ DIESER SZENE:
+Außerdem kann eine Null-Prozent-Finanzierung Zusatzprodukte, Gebühren oder einen weiteren Kreditrahmen enthalten. Deshalb zählt der ganze Vertrag.
 
-ONLY READABLE TEXT:
-`VERSICHERUNG?`
-`GEBÜHREN?`
-`RAHMENKREDIT?`
-
-HERO — THE WHOLE CONTRACT:
-Show a believable multi-page credit agreement as the large central hero, partly opened and slightly fanned out so several sections are visible at once. Use realistic paper thickness, folds, page edges, staples/clips and subtle printed-line texture, but do not generate readable fake paragraphs. It should be strongly reality-based while remaining a premium 3D editorial illustration.
-
-CHECKING THE DETAILS:
-Place a realistic-looking magnifying glass partly over the contract so it enlarges one central clause area. Beside the document, add a neutral pen and a few gold euro coins. Keep all items physically connected to the contract-review process.
-
-THREE POSSIBLE EXTRAS:
-Attach three small cream/mint paper tabs directly to different areas of the agreement:
+TEXT RULE – SEHR WICHTIG:
+No headline. No subtitle. No sentence. No paragraph. No CTA.
+The ONLY text allowed is:
 - `VERSICHERUNG?`
 - `GEBÜHREN?`
 - `RAHMENKREDIT?`
-Each tab clearly points to a different section. Use subtle warm red-orange accents only around the questioned clause areas.
 
-COMPOSITION:
-One connected editorial still life centered on the large contract. The magnifying glass overlaps it and the three tabs are clearly readable. No wall of repeated papers, floating cards or separate mini-panels.
+HERO — „der ganze Vertrag“:
+A large multi-page credit agreement is the dominant central object, opened and slightly fanned so several sections are visible at once. Use thick cream paper, visible page edges, folds, a metal clip/staple and subtle printed-line texture without readable fake paragraphs.
 
-Apply the GLOBAL IMAGE WORLD above exactly.
+DIE PRÜFUNG:
+A large magnifying glass overlaps the agreement and enlarges one clause area. Use believable glass refraction and a solid dark handle. A pen and a few gold euro coins rest close to the contract so everything remains one connected still life.
 
-After generation: inspect all three labels, contract logic, world, aspect ratio and composition. If invalid, regenerate THIS SAME image. Once valid, rename immediately to `Bild 07 - Vertrag komplett pruefen.png`, move/save it into the final folder, verify the filename there, and ONLY THEN continue to Bild 10.
+DIE MÖGLICHEN EXTRAS:
+Attach three small paper tabs directly to different contract sections:
+- `VERSICHERUNG?`
+- `GEBÜHREN?`
+- `RAHMENKREDIT?`
+Use a subtle warm red-orange accent only around these questioned sections.
 
-━━━━━━━━━━━━━━━━━━
-BILD 10 — SCHLUSS — STRICT 1:1
-FINALER DATEINAME: Bild 10 - Wuerdest du es ohne Rate kaufen.png
-━━━━━━━━━━━━━━━━━━
-Generate exactly ONE strict square 1:1 image, preferably 1080×1080.
-
-GESPROCHENER SATZ:
-„Und stell dir vor dem Kauf eine einfache Frage: Würdest du das Produkt auch ohne die kleine Rate kaufen?“
-
-ONLY READABLE TEXT:
-`OHNE RATE?`
-
-HERO — THE DECISION:
-Create one clear purchase-decision still life. In the center, show a believable desired consumer product package — for example a modern neutral smartphone box with the phone partly visible — strongly reality-based in proportions, seams and materials, but rendered as a premium 3D editorial illustration.
-
-LEFT — EASY INSTALLMENT TEMPTATION:
-Beside the product, place a small stack of monthly payment slips with tiny unreadable line texture only. Keep them visually light and convenient-looking, with a mint accent.
-
-RIGHT — FULL PURCHASE REALITY:
-On the other side, place a believable cream cash envelope opened enough to reveal euro banknotes and several gold euro coins. The cash/value side should feel visibly more substantial than the small monthly slips.
-
-THE QUESTION:
-Place one small physical paper tag reading exactly `OHNE RATE?` between the product and the cash envelope. Add a single stylized but natural anonymous hand entering from the lower edge, paused between reaching for the product and the cash envelope. No full person is needed.
-
-COMPOSITION:
-One connected still life, not split-screen. Product center, monthly slips one side, cash envelope other side, hand between them. Natural asymmetry, clear depth, large smartphone-readable objects. No generic balance board or UI comparison cards.
-
-Apply the GLOBAL IMAGE WORLD above exactly.
-
-After generation: inspect the `OHNE RATE?` label, decision logic, world, aspect ratio and composition. If invalid, regenerate THIS SAME image. Once valid, rename immediately to `Bild 10 - Wuerdest du es ohne Rate kaufen.png`, move/save it into the final folder, verify the filename there, then perform the final folder check.
+Everything is grouped tightly around the contract. No repeated paper wall, no floating cards and no separate mini-panels.
+Apply the CLAUDE V3 QUALITY BLOCK exactly.
+Generate exactly ONE strict square 1:1 image. Regenerate THIS SAME image if invalid. Rename, move to FINAL folder, verify, then continue.
 
 ━━━━━━━━━━━━━━━━━━
-FINAL FOLDER CHECK — REQUIRED
+BILD 10 — STRICT 1:1
 ━━━━━━━━━━━━━━━━━━
-Open/check `FINAL - 0 Prozent Finanzierung` and verify that it contains exactly these five final files:
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 10 - Wuerdest du es ohne Rate kaufen.png`
+
+GESPROCHENER SATZ DIESER SZENE:
+Und stell dir vor dem Kauf eine einfache Frage: Würdest du das Produkt auch ohne die kleine Rate kaufen?
+
+TEXT RULE – SEHR WICHTIG:
+No headline. No subtitle. No sentence. No paragraph. No CTA.
+The ONLY text allowed is:
+- `OHNE RATE?`
+
+HERO — DIE KAUFENTSCHEIDUNG:
+A desirable neutral consumer product package sits large in the center as the main object. Use believable package edges, seams and material detail while keeping it a premium editorial 3D illustration.
+
+DIE KLEINE RATE — eine Seite:
+A short, light-looking stack of monthly payment slips sits immediately beside the product. No readable text on the slips.
+
+DER VOLLE KAUFPREIS — andere Seite:
+A thick cream cash envelope sits on the other side, opened enough to reveal euro banknotes and several individually shaped gold euro coins. The full-cash side should feel visually more substantial than the small monthly slips.
+
+DIE FRAGE — vorne:
+A small physical paper tag reading `OHNE RATE?` lies between the product and the cash envelope. A single stylized anonymous hand enters from the lower edge and pauses between reaching for the product and reaching toward the money. No full person is necessary.
+
+Everything forms ONE connected still life. Do not make a split-screen or UI comparison.
+Apply the CLAUDE V3 QUALITY BLOCK exactly.
+Generate exactly ONE strict square 1:1 image. Regenerate THIS SAME image if invalid. Rename it, move it into FINAL folder, verify it, then perform the final folder check.
+
+━━━━━━━━━━━━━━━━━━
+FINAL FOLDER CHECK
+━━━━━━━━━━━━━━━━━━
+Verify that `FINAL - 0 Prozent Finanzierung` contains exactly:
 - Bild 00 - 0 Prozent Finanzierung Cover.png
 - Bild 01 - 0 Prozent klingt kostenlos.png
 - Bild 04 - Drei Raten 95 Euro.png
@@ -260,14 +238,14 @@ Open/check `FINAL - 0 Prozent Finanzierung` and verify that it contains exactly 
 - Bild 10 - Wuerdest du es ohne Rate kaufen.png
 
 Confirm:
-- 5/5 files are together in ONE folder
-- every filename is exact
-- Bild 00 is 9:16
-- Bild 01 / 04 / 07 / 10 are strict 1:1
-- all images use `finanzneo-connected-studio-v3`
-- objects strongly resemble reality while remaining premium editorial 3D illustrations
-- one seamless deep charcoal green-black background per image
-- no toy/chunky infographic drift
-- no UI/game-board/abstract-finance drift
-- no extra readable text
-Only after this final folder check provide one completion summary.
+- 5/5 exact filenames
+- Bild 00 = 9:16
+- Bild 01 / 04 / 07 / 10 = strict 1:1
+- all five use `finanzneo-connected-studio-v3`
+- one dominant metaphor/hero per image
+- supporting objects are tightly grouped and serve the sentence
+- premium fintech editorial 3D, never a camera photograph
+- one seamless deep charcoal green-black background
+- correct Cover vs Scene text rules
+- no UI/diorama/Pixar/clay drift
+Only then provide one final completion summary.
