@@ -1,42 +1,54 @@
 GOOGLE FLOW — BILD 07 — STRICT 1:1
-FINALER DATEINAME: Bild 07 - Vertrag komplett pruefen.png
-FINALER ORDNER: FINAL - 0 Prozent Finanzierung
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 07 - Vertrag komplett pruefen.png`
+FINALER ORDNER: `FINAL - 0 Prozent Finanzierung`
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-GESPROCHENER SATZ:
-„Außerdem kann eine Null-Prozent-Finanzierung Zusatzprodukte, Gebühren oder einen weiteren Kreditrahmen enthalten. Deshalb zählt der ganze Vertrag.“
+IMPORTANT:
+Use Claude's `finanzneo-connected-studio-v3` visual language exactly. Do not invent a separate local style.
 
-TEXT RULE — VERY IMPORTANT:
+GESPROCHENER SATZ DIESER SZENE:
+Außerdem kann eine Null-Prozent-Finanzierung Zusatzprodukte, Gebühren oder einen weiteren Kreditrahmen enthalten. Deshalb zählt der ganze Vertrag.
+
+TEXT RULE – SEHR WICHTIG:
 No headline. No subtitle. No sentence. No paragraph. No CTA.
-The ONLY readable text allowed is exactly:
+The ONLY text allowed is:
 - `VERSICHERUNG?`
 - `GEBÜHREN?`
 - `RAHMENKREDIT?`
-No other readable text anywhere.
 
 HERO — „der ganze Vertrag“:
-Show a believable multi-page credit agreement as the large central hero, partly opened and slightly fanned out so several sections are visible at once. Use realistic paper thickness, folds, page edges, staples/clips and subtle printed-line texture, but do not generate readable fake paragraphs. The object must look strongly reality-based while still being a premium 3D editorial illustration, not a photographed document.
+A large multi-page credit agreement is the dominant central object, opened and slightly fanned so several sections are visible at once. Use thick cream paper, visible page edges, folds, a metal clip/staple and subtle printed-line texture without readable fake paragraphs.
 
-CHECKING THE DETAILS:
-Place a realistic-looking magnifying glass partly over the contract so it enlarges one central clause area. Beside the document, add a neutral pen and a few gold euro coins. Keep all items physically connected to the contract and its review process.
+DIE PRÜFUNG:
+A large magnifying glass overlaps the agreement and enlarges one clause area. Use believable glass refraction and a solid dark handle. A pen and a few individually shaped gold euro coins rest close to the contract so everything remains one connected still life.
 
-THREE POSSIBLE EXTRA ITEMS:
-Attach three small cream/mint paper tabs directly to three different areas of the agreement:
+DIE MÖGLICHEN EXTRAS:
+Attach three small paper tabs directly to different contract sections:
 - `VERSICHERUNG?`
 - `GEBÜHREN?`
 - `RAHMENKREDIT?`
-Each tab must clearly point to a different section of the same contract. Use a subtle warm red-orange accent only around the tab edges or the questioned clause areas to signal caution.
+Use a subtle warm red-orange accent only around these questioned sections.
 
-COMPOSITION:
-One connected editorial still life centered on the contract. The contract is large, the magnifying glass overlaps it, and the three tabs are clearly readable around different sections. Avoid a wall of repeated papers, floating cards or separate mini-panels.
+Everything is grouped tightly around the contract as one connected still life. No repeated paper wall, no floating cards and no separate mini-panels. Every object serves the same spoken sentence.
 
 STYLE:
-Premium fintech editorial 3D illustration with reality-based materials: cream paper, subtle ink texture, brushed metal/glass magnifying glass, realistic coin relief. Deep charcoal green-black world, emerald/mint structure accents, gold only for money/value, warm red-orange only for caution. Soft contact shadows and controlled emerald rim light.
+Premium fintech editorial 3D render style with rich material detail.
+Deep charcoal green-black world.
+Vivid emerald and mint-green accents.
+Gold only for money and financial value.
+Warm red-orange only for danger, debt, loss or blocked money.
+Smooth rounded 3D geometry, soft bevelled edges, premium matte/glass materials and confident high-contrast studio lighting with bold emerald rim light.
+Objects are believable and detailed in construction, but the image stays a premium 3D illustration and never a photograph.
 
-BACKGROUND — HARD RULE:
-Use ONE single seamless continuous deep charcoal green-black background across the entire square image. No floor-wall boundary, no horizon, no desk, no office, no room, no shelf, no panels, no layered backdrop.
+BACKGROUND:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square image.
+Keep the same continuous material, tone and gradient from edge to edge.
+No horizontal divisions, no bands, no floor-wall boundary, no horizon line, no room, no table, no panels.
+Use only one subtle continuous gradient/vignette.
+Objects may cast soft contact shadows directly onto the uninterrupted background.
 
-FORBIDDEN:
-No camera-photo document scene, no office/lifestyle photo, no leather folder, no rustic wood, no giant generic contract block, no UI cards/chips/widgets, no dashboard, no microchip/circuit-board, no game board, no satellite orbit, no abstract line network, no repeated contract wall, no Pixar, no clay.
+NEGATIVES:
+No photorealism, no camera-photo document scene, no real identifiable human, no UI dashboard, no app screen, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no miniature game level, no repeated contract wall, no random labels, no Pixar, no clay, no childish cartoon simplification.
 
-Generate exactly ONE strict square 1:1 image, preferably 1080×1080. Wait until fully complete. Inspect all three labels, the contract logic, world, aspect ratio and composition. If invalid, regenerate THIS SAME image. Once valid, rename immediately to `Bild 07 - Vertrag komplett pruefen.png`, place it inside `FINAL - 0 Prozent Finanzierung`, verify the exact filename is there, and ONLY THEN continue to Bild 10. Never ask `Weiter?`.
+Generate exactly ONE strict square 1:1 image, preferably 1080×1080. Wait until fully complete. If anything is wrong, regenerate THIS SAME image. Once valid, rename it exactly, place it inside `FINAL - 0 Prozent Finanzierung`, verify the filename there, and ONLY THEN continue. Never ask `Weiter?`.
