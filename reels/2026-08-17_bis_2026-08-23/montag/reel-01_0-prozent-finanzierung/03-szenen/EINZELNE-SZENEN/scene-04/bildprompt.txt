@@ -1,45 +1,55 @@
 GOOGLE FLOW — BILD 04 — STRICT 1:1
-FINALER DATEINAME: Bild 04 - Drei Raten 95 Euro.png
-FINALER ORDNER: FINAL - 0 Prozent Finanzierung
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 04 - Drei Raten 95 Euro.png`
+FINALER ORDNER: `FINAL - 0 Prozent Finanzierung`
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-GESPROCHENER SATZ:
-„Und mehrere kleine Raten addieren sich schnell. Zum Beispiel drei Käufe mit zusammen fünfundneunzig Euro jeden Monat.“
+IMPORTANT:
+Use Claude's `finanzneo-connected-studio-v3` visual language exactly. Do not invent a separate local style.
 
-TEXT RULE — VERY IMPORTANT:
+GESPROCHENER SATZ DIESER SZENE:
+Und mehrere kleine Raten addieren sich schnell. Zum Beispiel drei Käufe mit zusammen fünfundneunzig Euro jeden Monat.
+
+TEXT RULE – SEHR WICHTIG:
 No headline. No subtitle. No sentence. No paragraph. No CTA.
-The ONLY readable text allowed is exactly:
+The ONLY text allowed is:
 - `35 €`
 - `30 €`
 - `30 €`
 - `95 € / MONAT`
-No other readable text anywhere.
 
-THREE PURCHASES — „mehrere kleine Raten“:
-Show three believable real-world consumer objects as a connected group: a slim laptop, a modern neutral smartphone and over-ear headphones. They should strongly resemble real products in proportions, seams, materials and construction, but remain premium editorial 3D objects rather than a camera product photo.
+HERO — „zusammen 95 Euro jeden Monat“:
+A substantial cream-paper monthly-payment envelope sits in the lower center as the main financial result. A clear physical label `95 € / MONAT` is attached to it. A few individually shaped gold euro coins collect directly around the envelope.
 
-Attach one small physical price/payment tag to each object:
+DIE DREI KÄUFE — „mehrere kleine Raten“:
+Arrange a slim laptop, a neutral smartphone and over-ear headphones tightly around the monthly envelope as one connected still life. Give the objects believable seams, edges, hinges, cushions and material behaviour while keeping the whole image a premium editorial 3D illustration.
+
+DIE EINZELRATEN:
+Attach one small physical paper price/payment tag to each purchase:
 - laptop: `35 €`
 - smartphone: `30 €`
 - headphones: `30 €`
-The tags should look like real small paper/card tags, clean and clearly readable.
+A short trail of small payment slips and a few euro coins from each object physically converges toward the central monthly envelope. Do not use UI arrows or dashboard graphics.
 
-THE ADDITION — „addieren sich schnell“:
-From each of the three payment tags, create a short visual path using small paper payment slips and a few gold euro coins that physically converge toward one shared monthly envelope/stack in the lower center. The convergence must be immediately understandable without any UI arrows or dashboard graphics.
-
-RESULT — „zusammen 95 Euro jeden Monat“:
-The shared monthly envelope/stack carries one clean physical label reading exactly `95 € / MONAT`. Make this result slightly larger than the three individual tags, but do not turn it into a giant generic board.
-
-COMPOSITION:
-One connected still life with three products forming a natural triangle around the shared monthly result. Clear foreground/midground depth, natural overlap, no empty corners, no four-tile layout. The financial mechanism must read visually as 35 + 30 + 30 converging into one 95-euro monthly obligation.
+Everything must read instantly as three separate small obligations becoming one 95-euro monthly burden. Everything is grouped tightly as one connected still life. Every object serves the same spoken sentence.
 
 STYLE:
-Premium fintech editorial 3D illustration. Reality-based laptop, phone and headphones with believable matte metal/plastic/fabric materials. Deep charcoal green-black world, emerald/mint accents, cream tags, gold only for money/value. Soft contact shadows, controlled emerald rim light, clean adult visual language.
+Premium fintech editorial 3D render style with rich material detail.
+Deep charcoal green-black world.
+Vivid emerald and mint-green accents.
+Gold only for money and financial value.
+Warm red-orange only for danger, debt, loss or blocked money.
+Smooth rounded 3D geometry, soft bevelled edges, premium matte/glass materials and confident high-contrast studio lighting with bold emerald rim light.
+Objects are believable and detailed in construction, but the image stays a premium 3D illustration and never a photograph.
 
-BACKGROUND — HARD RULE:
-Use ONE single seamless continuous deep charcoal green-black background across the entire square image. No floor-wall boundary, no horizon, no desk, no office, no shop, no visible stage, no panels.
+BACKGROUND:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square image.
+Keep the same continuous material, tone and gradient from edge to edge.
+No horizontal divisions, no bands, no floor-wall boundary, no horizon line, no room, no table, no panels.
+Use only one subtle continuous gradient/vignette.
+Objects may cast soft contact shadows directly onto the uninterrupted background.
 
-FORBIDDEN:
-No camera-photo/product-ad look, no toy electronics, no chunky infographic board as hero, no UI cards/chips/widgets, no four-corner tile composition, no dashboard, no game board, no satellite orbit, no glowing line network, no abstract finance streams, no tubes/rails/roads, no wealth towers/monoliths, no Pixar, no clay.
+NEGATIVES:
+No photorealism, no real identifiable human, no UI dashboard, no app screen, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no miniature game level, no random labels, no Pixar, no clay, no childish cartoon simplification.
 
-Generate exactly ONE strict square 1:1 image, preferably 1080×1080. Wait until fully complete. Inspect all four labels, world, aspect ratio and composition. If invalid, regenerate THIS SAME image. Once valid, rename immediately to `Bild 04 - Drei Raten 95 Euro.png`, place it inside `FINAL - 0 Prozent Finanzierung`, verify the exact filename is there, and ONLY THEN continue to Bild 07. Never ask `Weiter?`.
+Generate exactly ONE strict square 1:1 image, preferably 1080×1080. Wait until fully complete. If anything is wrong, regenerate THIS SAME image. Once valid, rename it exactly, place it inside `FINAL - 0 Prozent Finanzierung`, verify the filename there, and ONLY THEN continue. Never ask `Weiter?`.
