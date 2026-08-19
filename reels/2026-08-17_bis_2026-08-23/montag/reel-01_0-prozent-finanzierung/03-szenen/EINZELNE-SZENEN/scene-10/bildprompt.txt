@@ -1,13 +1,39 @@
+GOOGLE FLOW — BILD 10 — STRICT 1:1
 FINALER DATEINAME: Bild 10 - Wuerdest du es ohne Rate kaufen.png
 FINALER ORDNER: FINAL - 0 Prozent Finanzierung
-STRICT SQUARE 1:1, preferably 1080×1080. Do NOT create 9:16.
-Use FINANZNEO stylized finance explainer v8. No headline. No subtitle. Short tag only: `OHNE RATE?`.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-Create one large simplified chunky 3D balance/decision object as the hero motif.
-On one side place a simplified desired product box; on the other side a simplified cash envelope and muted-gold euro coins.
-Add one small paper tag `OHNE RATE?`.
-Use rounded clean stylized geometry, matte dark-green/mint/cream surfaces, reduced detail and soft contact shadows.
+GESPROCHENER SATZ:
+„Und stell dir vor dem Kauf eine einfache Frage: Würdest du das Produkt auch ohne die kleine Rate kaufen?“
 
-STRICTLY FORBIDDEN: photorealism, realistic metal scale, realistic cash photography, wood, leather, product-ad realism, floating UI cards/tiles/chips, game-board, satellite modules, circular icon orbit, microchip/circuit-board or glowing line network.
+TEXT RULE — VERY IMPORTANT:
+No headline. No subtitle. No sentence. No paragraph. No CTA.
+The ONLY readable text allowed is exactly:
+- `OHNE RATE?`
+No other readable text anywhere.
 
-After generation: wait until fully complete, inspect, regenerate THIS SAME image if needed, rename exactly to the required filename, place it inside `FINAL - 0 Prozent Finanzierung`, verify it is there, and only then perform the final folder check. Never ask `Weiter?`.
+HERO — THE DECISION:
+Create one clear purchase-decision still life. In the center, show a believable desired consumer product package — for example a modern neutral smartphone box with the phone partly visible — strongly reality-based in proportions, seams and materials, but rendered as a premium 3D editorial illustration rather than a camera product photo.
+
+LEFT SIDE — EASY INSTALLMENT TEMPTATION:
+Beside the product, place a small stack of monthly payment slips with tiny unreadable line texture only. Keep them visually light and convenient-looking, with a mint accent.
+
+RIGHT SIDE — FULL PURCHASE REALITY:
+On the other side, place a believable cream cash envelope opened enough to reveal euro banknotes and several gold euro coins. The cash/value side should feel visibly more substantial than the small monthly slips.
+
+THE QUESTION:
+Place one small physical paper tag reading exactly `OHNE RATE?` between the product and the cash envelope. Add a single stylized hand entering from the lower edge, paused between reaching for the product and the cash envelope, so the hesitation/decision is instantly understandable. The hand must be natural and anonymous; no full person is needed.
+
+COMPOSITION:
+One connected still life, not a split-screen. Product in the center, monthly slips on one side, cash envelope on the other, hand between them. Natural asymmetry and overlap, clear depth, large smartphone-readable objects. No generic balance board or UI comparison cards.
+
+STYLE:
+Premium fintech editorial 3D illustration with reality-based objects and believable materials: matte product packaging, paper fibers/folds, euro banknote edges, detailed coin relief, natural hand proportions. Deep charcoal green-black world, emerald/mint accents, gold only for money/value. Soft contact shadows and controlled emerald rim light.
+
+BACKGROUND — HARD RULE:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square image. No floor-wall boundary, no horizon, no room, no desk, no shop, no panels, no visible stage.
+
+FORBIDDEN:
+No camera-photo/product-ad look, no toy-like products, no generic chunky balance object, no UI cards/chips/widgets, no dashboard, no game board, no satellite orbit, no glowing line network, no tubes/rails/roads, no wealth towers/monoliths, no Pixar, no clay.
+
+Generate exactly ONE strict square 1:1 image, preferably 1080×1080. Wait until fully complete. Inspect the `OHNE RATE?` tag, visual decision logic, world, aspect ratio and composition. If invalid, regenerate THIS SAME image. Once valid, rename immediately to `Bild 10 - Wuerdest du es ohne Rate kaufen.png`, place it inside `FINAL - 0 Prozent Finanzierung`, verify the exact filename is there, then perform the final folder check. Never ask `Weiter?`.
