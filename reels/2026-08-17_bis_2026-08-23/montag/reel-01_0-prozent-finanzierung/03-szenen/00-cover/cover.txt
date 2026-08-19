@@ -1,18 +1,35 @@
-GOOGLE FLOW COVER — 9:16
+GOOGLE FLOW — COVER — 9:16
 FINALER DATEINAME: Bild 00 - 0 Prozent Finanzierung Cover.png
 FINALER ORDNER: FINAL - 0 Prozent Finanzierung
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-Use FINANZNEO stylized finance explainer v8.
-Create one vertical 9:16 premium stylized 3D infographic cover — NOT photorealistic.
+Generate exactly ONE vertical 9:16 premium fintech editorial 3D cover.
 
-Create ONE large chunky rounded financing board as the hero. Around it place simplified stylized 3D objects: smartphone box, headphones, compact contract sheet/folder, euro coins and 2–3 small paper payment tags.
-All objects must use simplified geometry, clean matte dark-green/mint/cream surfaces, soft bevels and reduced detail.
-The visual must feel like a designed finance infographic rendered in 3D, similar in visual logic to a clean educational finance graphic — NOT like a photograph of real objects.
+TEXT — WRITE EXACTLY, NOTHING ELSE AS LARGE COVER TEXT:
+0 % FINANZIERUNG
+WO IST DER HAKEN?
 
-Write EXACTLY:
-`0 % FINANZIERUNG`
-`WO IST DER HAKEN?`
+VISUAL STORY:
+Show a believable financed-product bundle as one connected editorial still life. A modern neutral smartphone box, over-ear headphones and a slim laptop/product package sit together in the lower-middle area. The objects should strongly resemble real consumer products in shape, construction and material behaviour, with believable plastic, anodized-metal and fabric details, but the image must still clearly be a premium designed 3D illustration rather than a camera photograph.
 
-STRICTLY FORBIDDEN: photorealism, realistic product photography, leather texture, wood grain, realistic metal wear, realistic electronics advertising, realistic document photography, realistic desk/shop/office scene, luxury product-ad look, digital UI, microchip/circuit-board, floating tiles/chips, game-board, satellite orbit, glowing line network.
+Attach one clean physical mint-green `0 %` financing tag to the product bundle. Behind the products, reveal a cream paper credit agreement partially opened with a visible signature line and several small monthly payment slips extending behind it. Add a few realistic-looking gold euro coins and one subtle warm red-orange warning tab partly visible behind the agreement to suggest that the financing deserves a closer look.
 
-After generation: wait until complete, inspect, regenerate THIS SAME cover if needed, rename it exactly to `Bild 00 - 0 Prozent Finanzierung Cover.png`, place it inside `FINAL - 0 Prozent Finanzierung`, verify the exact filename is there, and ONLY THEN continue to the next required image. Never ask `Weiter?`.
+COMPOSITION:
+- one connected still life, not separate mini-scenes
+- main product/contract cluster large and smartphone-readable
+- natural asymmetry and realistic overlap
+- clear depth: products in front, contract/payment slips behind
+- leave clean space in the upper third for the exact headline and subline
+- do not use a generic chunky board as the hero
+
+STYLE:
+Premium fintech editorial 3D illustration. Objects strongly resemble reality in form and material detail. Deep charcoal green-black world, vivid emerald/mint accents, cream paper, gold only for money/value, warm red-orange only for warning/risk. Soft contact shadows, controlled emerald rim light, rich but clean material detail.
+
+BACKGROUND — HARD RULE:
+Use ONE single seamless continuous deep charcoal green-black background from the top edge to the bottom edge. No horizontal divisions, no separate top/bottom zones, no floor-wall boundary, no horizon line, no visible room, no table, no office, no shop, no panels, no layered backdrop.
+
+FORBIDDEN:
+No camera-photo look, no lifestyle photography, no luxury product-ad composition, no toy-like chunky infographic objects, no Pixar, no clay, no UI dashboard, no app cards, no chips/widgets, no microchip/circuit-board look, no game board, no satellite orbit, no glowing line network, no abstract finance stream, no tubes/rails/roads, no wealth towers or monoliths.
+
+FLOW WORKFLOW:
+Generate this cover only. Wait until it is fully finished. Inspect the exact typography, composition, background and visual world. If anything is wrong, regenerate THIS SAME cover. Once valid, rename it immediately to `Bild 00 - 0 Prozent Finanzierung Cover.png`, move/save it into `FINAL - 0 Prozent Finanzierung`, verify the exact filename is visible there, and ONLY THEN continue to Bild 01. Never ask `Weiter?`.
