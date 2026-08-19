@@ -72,14 +72,15 @@ BESCHRIFTUNGEN – OPTIONAL:
 - [Label 2]
 
 BILDPROMPT:
-A stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE FINANCIAL METAPHOR].
+[ONE LARGE FINANCIAL METAPHOR] as the clear hero of the image, large and centered.
 [Describe one clear cause-and-effect action using only a few large objects.]
+Default is objects only, no person. Add a stylized person with clearly visible face only if it genuinely helps.
 Bake the headline '[Headline]' and the subline '[Subline]' into the upper third of the image.
 Include German object labels: '[Label 1]' near [object 1], and '[Label 2]' near [object 2].
 [Append the complete quality block above.]
 ```
 
-Eine Person ist nicht in jeder Szene Pflicht. Wenn keine Person die Erklärung verbessert, bleibt nur die starke Metapher. Wenn eine Person vorkommt, gilt die Gesichtsregel immer.
+Der Normalfall ist die starke Metapher ohne Person. Eine einzelne stilisierte Hand am Objekt gilt nicht als Person. Nur wenn eine Person die Erklärung wirklich verbessert, kommt sie dazu — dann gilt die Gesichtsregel immer.
 
 ## Cover
 

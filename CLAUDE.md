@@ -79,7 +79,7 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
 Der verbindliche Stil entspricht diesem Prinzip:
 
-> Eine stilisierte 3D-Person mit klar sichtbarem Gesicht steht neben EINER großen Finanzmetapher. Beispiel: eine hohe Sanduhr mit leuchtenden Euro-Münzen; ein Teil der Münzen verschwindet in einem rot-orange leuchtenden Verlust-Riss. Kurze deutsche Labels wie `Wartezeit` und `Verlorene Zinsen` erklären nur die relevanten Objekte.
+> EINE große Finanzmetapher steht im Mittelpunkt und erklärt die Aussage. Beispiel: eine hohe Sanduhr mit leuchtenden Euro-Münzen; ein Teil der Münzen verschwindet in einem rot-orange leuchtenden Verlust-Riss. Darüber im oberen Drittel eine kurze eingebrannte Headline mit Subline. Kurze deutsche Labels wie `Wartezeit` und `Verlorene Zinsen` erklären nur die relevanten Objekte. Eine Person ist möglich, aber nicht der Normalfall.
 
 Nicht die konkrete Sanduhr ist verbindlich, sondern diese **Art der visuellen Erklärung**.
 
@@ -147,7 +147,9 @@ Verboten:
 
 ### 6.3 Personenregel
 
-Eine Person ist optional. Wenn eine Person vorkommt:
+**Standard ist ohne Person** — Objekte und Metaphern tragen die Erklärung. Eine einzelne stilisierte Hand, die mit einem Objekt interagiert, gilt nicht als Person und ist erlaubt.
+
+Nur wenn eine Person die Erklärung wirklich verbessert:
 
 - stilisierte anonyme erwachsene 3D-Person
 - Gesicht **immer klar sichtbar**
@@ -220,12 +222,13 @@ Das Bild soll wie **eine einzelne hochwertige Editorial-Illustration** wirken, n
 ### 6.7 Prompt-Grundmuster
 
 ```text
-A stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE FINANCIAL METAPHOR].
+[ONE LARGE FINANCIAL METAPHOR] as the clear hero of the image, large and centered.
 [Describe one visible cause-and-effect action using only a few large objects.]
 Bake the following typography directly into the image, inside the upper third of the frame, never in the lower third:
 HEADLINE (bold, 3-7 words, bright white): '[HEADLINE]'
 SUBLINE (lighter weight, directly below headline, muted light color): '[SUBLINE]'
 No third text block, no CTA text, no paragraph.
+Default is objects and metaphors only, no person. Only if a human presence genuinely helps the explanation, add a stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside the metaphor. A single stylized hand interacting with an object is also allowed and does not count as a person.
 Premium fintech editorial 3D render style.
 Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge.
 No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line and no panels.
