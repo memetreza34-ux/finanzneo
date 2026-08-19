@@ -18,6 +18,7 @@
     "validate:reel-template": "node scripts/validate-reel-template.mjs",
     "preflight:short-hook": "node scripts/validate-assets.mjs manifests/short-hook.json",
     "validate": "npm run setup:check && npm run validate:compositions && npm run validate:design-system && npm run validate:finance && npm run validate:reel-template && npm run typecheck",
+    "smoke": "node scripts/smoke-render.mjs",
     "render": "npm run render:short-hook",
     "render:short-hook": "node scripts/render-validated.mjs manifests/short-hook.json",
     "render:preview": "npx remotion render src/index.ts ShortHook out/short-hook-preview.mp4 --scale=0.5",
