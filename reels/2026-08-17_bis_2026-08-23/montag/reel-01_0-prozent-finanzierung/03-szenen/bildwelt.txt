@@ -1,71 +1,83 @@
-FINANZNEO_WORLD_ID: finanzneo-stylized-finance-explainer-v8
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 
-STYLIZED FINANCE EXPLAINER 3D — LOCKED LOOK
+FINANZNEO CONNECTED STUDIO V3 — MONDAY REEL IMAGE WORLD
 
-TARGET LOOK:
-Create a clean premium stylized 3D finance-explainer illustration, visually closer to a designed 3D infographic than to a photograph.
+CORE IDEA:
+Create premium fintech editorial 3D illustrations in which the OBJECTS strongly resemble believable real-world objects in shape, construction and material behaviour, while the overall image still clearly looks like a designed 3D editorial explanation rather than a camera photograph or advertising product shot.
 
-The approved look is the same visual logic as the strong 10.000-€ explainer reference:
-- one large chunky central explanatory board/object
-- simplified recognizable supporting objects around it
-- rounded geometry, clean matte surfaces, reduced detail
-- dark charcoal-green background
-- mint/emerald structure accents
-- muted gold only for money/value
-- short physical price/paper tags
-- clear hierarchy and soft shadows
+REALITY LEVEL — IMPORTANT:
+- smartphone, laptop, headphones, paper contracts, envelopes, price tags, coins, magnifying glass and other everyday objects should be immediately recognizable and strongly reality-based
+- use believable material detail: glass reflections, paper thickness and folds, plastic seams, brushed metal edges, fabric texture, printed paper tabs, realistic euro-coin relief, subtle wear where natural
+- do NOT simplify everything into chunky toy blocks, generic icons or app-like tiles
+- do NOT make the scene childish, clay-like or toy-like
+- the final image remains a premium 3D editorial illustration, not a real camera photo
+- real brands/logos may be used only when explicitly relevant; otherwise use neutral products
 
-CORE COMPOSITION:
-- ONE large central stylized hero board/object
-- hero may be an amount board, contract block, budget box, calendar block, comparison board, simplified balance or similar explanatory object
-- around it place 3–6 simplified recognizable topic objects
-- objects must look intentionally designed and simplified, not photographed real products
-- natural asymmetry, slight overlap and soft contact shadows
-- clear foreground / midground / background depth
-- labels only as small physical tags, plaques or printed areas
+VISUAL LANGUAGE:
+- ONE dominant financial idea/metaphor per image
+- 3–6 supporting objects maximum
+- every object must explain a part of the spoken sentence; no random decoration
+- group the objects into ONE connected still life with clear foreground, midground and depth
+- natural asymmetry, realistic overlap and soft contact shadows
+- the image must be understandable in about one second on a phone
+- avoid empty minimal product-shot compositions
 
-STYLE:
-- premium stylized adult 3D infographic
-- simplified geometry
-- smooth rounded shapes and soft bevels
-- matte surfaces
-- limited realistic detail
-- clean soft lighting
-- no photoreal textures
-- seamless deep charcoal-green background
-- not childish, not clay, not toy-like
+COLOR LANGUAGE:
+- deep charcoal green-black base world
+- vivid emerald and mint accents for structure/positive guidance
+- cream/off-white paper and neutral product materials where natural
+- gold only for euro coins, cash and financial value
+- warm red-orange only for risk, debt, hidden cost or warning
 
-STRICTLY FORBIDDEN — REALISM:
-- photorealism
-- realistic product photography
-- realistic leather or stitched leather
-- wood grain / wooden boards / rustic wood
-- realistic scratched or aged metal
-- realistic pen/product-ad rendering
-- realistic laptop/phone/headphone advertising look
-- realistic paper/document photography
-- office, desk, shop or lifestyle scene
-- luxury cinematic product-shot look
+BACKGROUND — HARD RULE:
+Use ONE single seamless continuous deep charcoal green-black background across the entire image.
+The same material, tone and gradient must run from edge to edge.
+NO horizontal divisions.
+NO top section and bottom section.
+NO floor-wall boundary.
+NO horizon line.
+NO room, desk, shelf, office, shop or visible studio set.
+NO panels or layered backdrop.
+Use only one subtle continuous gradient/vignette.
+Objects may cast soft contact shadows directly onto this uninterrupted background.
 
-STRICTLY FORBIDDEN — UI / GAME / ABSTRACT:
-- digital central screen, tablet or app card as hero
-- microchip / circuit-board visual language
-- floating UI cards, tiles, chips, buttons, widgets or HUD
-- four-corner mini-tile layout
-- circular satellite orbit
-- game-board / board-game composition
-- glowing connector loops / line networks
-- abstract finance streams, tubes, rails, roads or tracks
-- wealth towers, monoliths or meaningless blocks
+TEXT RULE:
+- Cover only: exact requested headline + exact requested subline
+- Normal scene images: no headline, no subtitle, no sentence, no paragraph, no CTA
+- normal scene images may contain ONLY the explicitly requested short German object labels
+- labels must be small, clean, correctly spelled and physically attached to or placed directly beside the relevant object
+- no invented extra words, dates, numbers or fake contract text
 
-ASPECT RATIOS:
-- Cover only: vertical 9:16
-- Normal scene images: strict square 1:1, preferably 1080×1080
+STRICTLY FORBIDDEN:
+- camera-photo look or lifestyle photography
+- luxury commercial product-ad composition
+- generic chunky infographic boards as the default hero
+- toy-like simplified electronics
+- Pixar, clay, childish cartoon look
+- UI dashboards, app screens, cards, chips, widgets, HUD
+- microchip or circuit-board visual language
+- mini isometric dioramas, game boards, satellite orbits
+- abstract glowing line networks, finance streams, tubes, rails, roads, tracks
+- wealth towers, monoliths, meaningless geometric blocks
+- multiple disconnected mini-scenes
+- visible room/floor/wall architecture
 
-TEXT:
-- Cover: exact requested German cover text only
-- Normal images: no headline, no subtitle, no explanatory sentence
-- only explicitly requested short physical tags/labels
+ASPECT RATIOS FOR THIS REEL:
+- Bild 00 cover: vertical 9:16
+- Bild 01 / 04 / 07 / 10: strict square 1:1, preferably 1080×1080
 
-GOOGLE FLOW FILE ORDER:
-Generate exactly ONE image at a time. Finish it completely, inspect it, regenerate if needed, rename it to the exact final filename, place it in the single final output folder and verify that renamed file is there. ONLY THEN generate the next image. Never batch-generate several required images before renaming the previous one. Never ask `Weiter?` between images.
+GOOGLE FLOW FILE WORKFLOW — HARD RULE:
+Create the folder `FINAL - 0 Prozent Finanzierung` first.
+Then work strictly ONE required image at a time:
+1. generate exactly one image
+2. wait until generation is fully finished
+3. inspect motif, world, text/labels and aspect ratio
+4. if anything is wrong, regenerate THIS SAME image
+5. once valid, rename it immediately to the exact required filename
+6. move/save it into `FINAL - 0 Prozent Finanzierung`
+7. verify the exact renamed file is visible inside that folder
+8. ONLY THEN generate the next required image
+
+Never batch-generate several required images before renaming the previous one.
+Never ask `Weiter?`, `Continue?`, for confirmation or feedback between images.
+Continue autonomously until all five images are finished and verified together in the final folder.
