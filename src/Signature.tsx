@@ -11,7 +11,7 @@ export const Signature: React.FC = () => {
   const { width: W, height: H } = useVideoConfig();
 
   // Wort-Reveal Helper (clean, von unten)
-  const word = (txt: string, at: number, size: number, col = C.white, weight = 800) => {
+  const word = (txt: string, at: number, size: number, col: string = C.white, weight = 800) => {
     const o = prog(f, at, at + 7);
     const y = lerpF(f, 40, 0, at, at + 12, E.out);
     return <span style={{ display: 'inline-block', opacity: o, transform: `translateY(${y}px)`,

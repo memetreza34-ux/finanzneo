@@ -3,7 +3,7 @@ import {execFileSync} from 'node:child_process';
 
 const base = process.argv[2];
 if (!base) {
-  console.error('Usage: node scripts/antigravity-repo-safety-check.mjs <starting-head>');
+  console.error('Nutzung: npm run antigravity:safety -- <starting-head>');
   process.exit(1);
 }
 const git = (...args) => execFileSync('git', args, {encoding: 'utf8'}).trim();

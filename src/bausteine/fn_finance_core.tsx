@@ -2,6 +2,7 @@
 import {useCurrentFrame, interpolate} from 'remotion';
 import {C, bebas, inter} from './fn_core';
 import {P} from './fn_pro';
+import {calculateSavingsPlanFutureValue} from '../finance/calculations';
 
 const CL = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 const de = (n: number) => Math.round(n).toLocaleString('de-DE');
@@ -133,8 +134,15 @@ export const FNTermCard: React.FC<{term?: string; full?: string; def?: string; i
 };
 
 // 7) Spar-Rechner (Eingabe → Ergebnis)
+// Endwert stammt aus der zentralen Finanzberechnung, nicht aus einer freien Zahl.
+const CALCULATOR_RESULT = calculateSavingsPlanFutureValue({
+  contributionPerPeriod: 100,
+  annualReturnRate: 0.07,
+  years: 30,
+});
+
 export const FNCalculator: React.FC = () => {
-  const f = useCurrentFrame(); const result = interpolate(f, [40, 100], [0, 248000], CL);
+  const f = useCurrentFrame(); const result = interpolate(f, [40, 100], [0, CALCULATOR_RESULT], CL);
   const field = (label: string, val: string, delay: number) => (
     <div style={{padding: '22px 30px', borderRadius: 16, background: 'rgba(255,255,255,0.05)', border: `1px solid ${P.line}`, marginBottom: 18, opacity: rev(f, delay), minWidth: 420}}>
       <div style={{fontFamily: inter, fontSize: 28, color: P.muted}}>{label}</div>

@@ -3,6 +3,7 @@
 import {useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
 import {C, bebas, inter, P} from './fn_core';
 import {PremiumChart} from './fn_chart_base';
+import {calculateSavingsPlanFutureValue} from '../finance/calculations';
 export {P};
 const CL = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 const de = (n: number) => Math.round(n).toLocaleString('de-DE');
@@ -16,9 +17,16 @@ const Kicker: React.FC<{children: React.ReactNode}> = ({children}) => {
   return <div style={{fontFamily: inter, fontSize: 30, fontWeight: 700, letterSpacing: 8, color: P.muted, opacity: rev(f, 2), textTransform: 'uppercase'}}>{children}</div>;
 };
 
+// Standard-Hero-Wert aus der zentralen Finanzberechnung (100 EUR/Monat, 30 Jahre, 7 % p.a.).
+const HERO_DEFAULT_VALUE = calculateSavingsPlanFutureValue({
+  contributionPerPeriod: 100,
+  annualReturnRate: 0.07,
+  years: 30,
+});
+
 // 1) Hero-Zahl — die eine große Aussage, edel
 export const FNHeroNumber: React.FC<{kicker?: string; to?: number; suffix?: string; label?: string}> =
-({kicker = 'Aus 100 € monatlich', to = 248000, suffix = ' €', label = 'nach 30 Jahren · 7 % p.a.'}) => {
+({kicker = 'Aus 100 € monatlich', to = HERO_DEFAULT_VALUE, suffix = ' €', label = 'nach 30 Jahren · 7 % p.a.'}) => {
   const f = useCurrentFrame(); const n = interpolate(f, [10, 80], [0, to], CL);
   return <div style={{textAlign: 'center'}}>
     <Kicker>{kicker}</Kicker>

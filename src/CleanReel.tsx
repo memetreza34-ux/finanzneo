@@ -8,7 +8,7 @@ import { C, FONT, sec, prog, lerpF, life, a, E, RollingNumber, AreaPremium, Came
 // ════════════════════════════════════════════════════════════════════════════
 
 // Wort-Reveal von unten (clean) — Standard-Helfer für alle Szenen
-const word = (f: number, txt: string, at: number, size: number, col = C.white, weight = 800, italic = false) => {
+const word = (f: number, txt: string, at: number, size: number, col: string = C.white, weight = 800, italic = false) => {
   const o = prog(f, at, at + 7);
   const y = lerpF(f, 40, 0, at, at + 12, E.out);
   return (
