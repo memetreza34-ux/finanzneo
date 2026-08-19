@@ -94,6 +94,66 @@ Subline:  Was 10.000 € in 20 Jahren noch wert sind.
 
 Ansonsten gelten Metapher, Hintergrund und Textposition wie bei jedem anderen Bild.
 
+## Vollständiges Beispiel — so sieht ein fertiger Szenenprompt aus
+
+Der Generator liefert nur das Gerüst mit Platzhaltern. So wird daraus ein
+fertiger Prompt: erst den gesprochenen Satz in seine Teile zerlegen, dann
+jedem Teil ein sichtbares Element geben.
+
+**Gesprochener Satz:**
+
+> Dein Geld auf dem Sparbuch fühlt sich sicher an. Aber jedes Jahr verliert es still an Kaufkraft — ohne dass du überhaupt etwas davon merkst.
+
+**Zerlegung:**
+
+| Satzteil | Element im Bild |
+|---|---|
+| „Dein Geld auf dem Sparbuch" | Glas voller Goldmünzen |
+| „fühlt sich sicher an" | schweres Vorhängeschloss, Glas unversehrt |
+| „jedes Jahr" | Stapel abgerissener Kalenderblätter |
+| „verliert an Kaufkraft" | Füllstand unter der Gravurlinie, schrumpfende Einkaufstüte |
+| „ohne dass du es merkst" | Staubschicht auf dem Deckel, erloschene Warnleuchte |
+
+**Ausgefüllter Prompt:**
+
+```text
+HERO — das Ersparte:
+A large sealed glass preserving jar stands slightly angled in the center. Thick moulded glass with real seams and refractions, a worn metal clamp, a rubber sealing ring, fine scratches. Inside sits a dense pile of individually shaped glowing gold euro coins. A heavy brass padlock hangs closed on the clamp and the glass is completely intact — this money looks genuinely safe.
+
+DER VERLUST — im Glas:
+An engraved horizontal line on the glass marks the original fill level. The coin pile now rests clearly below it, and the gap above the coins is filled with slowly drifting warm red-orange dust. A few coins near the top are already half dissolved into that dust.
+
+DIE JAHRE — links:
+A short stack of torn-off calendar pages leans against the jar, curling at the corners and fading from mint-green to warm red-orange from bottom to top.
+
+DIE KAUFKRAFT — rechts:
+A stylized paper shopping bag stands upright, clearly under-filled: only a loaf of bread, a milk carton and two vegetables inside, with visible empty space above them. A faint mint-green outline floats around the bag showing how full it used to be.
+
+DIE STILLE — vorne:
+A thin layer of dust lies on the jar lid and on the padlock. In front of the jar rests a small dark warning lamp, switched off and unlit.
+
+Everything is grouped tightly around the jar as one connected still life. Every object serves the same sentence.
+
+TEXT RULE – SEHR WICHTIG:
+No headline. No subtitle. No sentence. No paragraph. No CTA. No title text of any kind anywhere in the image.
+The ONLY text allowed are the short German object labels listed below, placed small, clearly legible, in a clean sans-serif, directly next to the object they describe and never overlapping it.
+
+BESCHRIFTUNGEN – EXAKT DIESE, SONST KEIN TEXT:
+- 'Sparbuch' on a small mint-green tag hanging from the jar clamp
+- 'Sicher' on a tiny mint-green tag attached to the brass padlock
+- 'Kaufkraft' printed small and clearly readable directly beside the engraved fill line
+- 'Jedes Jahr' on a small mint-green tag on the calendar stack
+```
+
+Dazu kommt der Qualitäts- und Hintergrundblock unverändert aus dem Generator.
+
+**Was dieses Beispiel richtig macht:**
+
+- Jeder Satzteil hat ein eigenes sichtbares Element — nichts von der Aussage fehlt im Bild.
+- Objekte sind mit Materialdetail beschrieben (Gummidichtung, Kratzer, Messing), nicht nur benannt. „A glass jar" allein führt zu generischen, leeren Bildern.
+- Vier Nebenobjekte machen die Szene voll, aber jedes trägt einen Teil des Satzes — keine Deko.
+- Die Labels stehen mit exakter Position im Bild, damit sie lesbar und richtig platziert landen.
+
 ## Reale Marken
 
 Reale Marken/Dienste dürfen gezielt als konkrete Alltagsbeispiele verwendet werden, wenn sie für die Aussage relevant sind. Keine zufällige Marken-Deko und keine erfundene Partnerschaft suggerieren.
