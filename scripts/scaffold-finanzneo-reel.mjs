@@ -51,13 +51,94 @@ const WORLD_ID = CONTRACT_WORLD_ID;
 const num = (index) => String(index + 1).padStart(2, '0');
 const sceneFileName = (index) => `Bild ${num(index)} - [KURZER SZENENNAME].png`;
 
-const STYLE_BLOCK = `FINANZNEO_WORLD_ID: ${WORLD_ID}\n\nVERBINDLICHER BILDSTIL:\nPremium fintech editorial 3D render style. Deep charcoal green-black world. Accents in vivid emerald and mint green. Gold only for euro coins, cash and financial value. Warm red-orange only for loss, debt, danger or blocked money. Use smooth rounded 3D geometry, soft bevelled edges, premium matte and glass materials, confident high-contrast studio lighting with bold emerald rim light.\n\nVISUAL LANGUAGE:\nUse ONE dominant visual metaphor and only a few supporting elements. A stylized anonymous 3D adult person may stand beside the metaphor when useful. If a person appears, the face must be clearly visible with stylized eyes, nose and mouth; prefer front-facing or a natural three-quarter view. No faceless mannequin, hidden face or back-view-only person.\n\nTEXT RULE:\nBake exactly ONE bold German headline (3-7 words) and ONE lighter subline directly below it into the UPPER THIRD of the image. Never place them in the lower third, because Remotion renders the subtitles there. No third text block, no CTA, no paragraph. Additionally only explicitly requested short German object labels, normally 1–3 words, directly near the objects they describe.\n\nBACKGROUND RULE:\nUse ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same continuous material, tone and gradient from the top edge to the bottom edge. NO horizontal divisions. NO visible top section. NO visible bottom section. NO separate zones. NO dark band at the top or bottom. NO floor-wall boundary. NO horizon line. NO studio wall split. NO panel background. NO layered backdrop. Use only one subtle continuous gradient or vignette. Do not create a visible floor, wall or studio horizon. Objects may cast soft contact shadows. Place the main subject around the visual center and leave generous natural empty space above and below WITHOUT changing the background.\n\nFORBIDDEN:\nNo percentage-based top/middle/bottom zones, no photorealism, no real identifiable human, no UI dashboard, no app screen, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no miniature game level, no clutter, no paragraph, no third text block, no CTA text, no random labels, no Pixar, no clay.\n`;
+// Gemeinsame Weltbeschreibung. Die Textregel ist NICHT enthalten, weil sie
+// sich zwischen Cover und Szenenbild unterscheidet.
+const STYLE_BLOCK = `FINANZNEO_WORLD_ID: ${WORLD_ID}
 
-const flowInstruction = (fileName) => `GOOGLE FLOW – FINALER DATEINAME:\n\`${fileName}\`\n\nWICHTIG:\nErzeuge GENAU EIN Bild. Danach SOFORT exakt wie oben umbenennen, Motiv + Beschriftungen + Gesicht (falls Person) + Hintergrund + Dateiname prüfen und erst dann das nächste Bild erzeugen. Der Dateiname selbst darf NICHT sichtbar im Bild erscheinen.\n`;
+VERBINDLICHER BILDSTIL:
+Premium fintech editorial 3D render style with rich material detail. Deep charcoal green-black world. Accents in vivid emerald and mint green. Gold only for euro coins, cash and financial value. Warm red-orange only for loss, debt, danger or blocked money. Use smooth rounded 3D geometry, soft bevelled edges, premium matte, metal, glass and paper materials, confident high-contrast studio lighting with bold emerald rim light. Objects are believable and detailed in construction — real seams, edges, wear and material behaviour — but the image clearly stays a premium 3D illustration and never a photograph.
 
-const imagePrompt = (id, index) => `${flowInstruction(sceneFileName(index))}\n${STYLE_BLOCK}\nHEADLINE + SUBLINE – EXAKT SO INS BILD EINBRENNEN:\nHeadline: [KURZE FETTE HEADLINE, 3-7 WÖRTER]\nSubline: [EIN KURZER SATZ DARUNTER]\n\nBESCHRIFTUNGEN – OPTIONAL:\n- [KURZES DEUTSCHES OBJEKT-LABEL]\n- [OPTIONALES ZWEITES KURZES LABEL]\n\nBILDPROMPT:\n[ONE LARGE DOMINANT VISUAL METAPHOR FOR ${id}] as the clear hero of the image, large and centered. [DESCRIBE ONE CLEAR CAUSE-AND-EFFECT ACTION USING ONLY A FEW LARGE OBJECTS]. Bake the headline and subline above into the upper third of the image. Include German object labels: [PLACE EACH SHORT LABEL DIRECTLY BESIDE THE RELEVANT OBJECT].\n\nPERSON – NUR WENN SIE DIE ERKLÄRUNG WIRKLICH VERBESSERT:\nDefault is objects and metaphors only, no person. Only if a human presence genuinely helps, add: a stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside the metaphor. A single stylized hand interacting with an object is also allowed and does not count as a person.\n`;
+VISUAL LANGUAGE:
+Use ONE dominant visual metaphor as the hero of the image. Group a few supporting objects tightly around it so the scene feels full and lived-in, never an empty product shot. Every supporting object must carry part of the spoken sentence; nothing is decoration. Default is objects and metaphors only, without any person. A single stylized hand interacting with an object is allowed and does not count as a person. Only if a human presence genuinely improves the explanation, a stylized anonymous 3D adult person may stand beside the metaphor — then the face must be clearly visible with stylized eyes, nose and mouth, front-facing or in a natural three-quarter view. No faceless mannequin, hidden face or back-view-only person.
 
-const coverPrompt = `${flowInstruction('Bild 00 - [KURZER COVER-NAME].png')}\n${STYLE_BLOCK}\nCOVER-REGEL – TEXT IST PFLICHT:\nDas Cover trägt IMMER Text. Die Headline muss direkt und ohne Umweg sagen, worum es in diesem Reel geht — jemand soll beim Draufschauen in einer Sekunde das Thema erfassen. Keine vagen Andeutungen, keine reine Neugier-Formel ohne Inhalt.\n\nMuster:\nHeadline nennt die konkrete Sache oder Zahl, Subline stellt die Frage oder den Nutzen dahinter.\nBeispiel: Headline \"25 € MEHR IM MONAT\" · Subline \"Was macht das in 20 Jahren?\"\nBeispiel: Headline \"INFLATION FRISST DEIN GELD\" · Subline \"Was 10.000 € in 20 Jahren noch wert sind.\"\n\nHEADLINE + SUBLINE – EXAKT SO INS BILD EINBRENNEN:\nHeadline: [BENENNT DAS THEMA DES REELS DIREKT, 3-7 WÖRTER]\nSubline: [EIN KURZER SATZ, DER DAS THEMA KONKRETISIERT ODER DIE FRAGE STELLT]\n\nBESCHRIFTUNGEN – OPTIONAL:\n- [OPTIONALE KURZE STRUKTUR-LABELS]\n\nBILDPROMPT:\n[ONE LARGE DOMINANT COVER METAPHOR] as the clear hero of the image, large and centered. [SHOW THE CORE IDEA OF THE REEL IN ONE CLEAR VISUAL]. Bake the headline and subline above into the upper third of the image. Include only the specified short German object labels directly beside their objects.\n\nPERSON – NUR WENN SIE DIE ERKLÄRUNG WIRKLICH VERBESSERT:\nDefault is objects and metaphors only, no person. A single stylized hand interacting with an object is allowed and does not count as a person.\n`;
+BACKGROUND RULE:
+Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image. Keep the same continuous material, tone and gradient from the top edge to the bottom edge. NO horizontal divisions. NO visible top section. NO visible bottom section. NO separate zones. NO dark band at the top or bottom. NO floor-wall boundary. NO horizon line. NO studio wall split. NO room, NO walls, NO table, NO shelf, NO furniture. NO panel background. NO layered backdrop. Use only one subtle continuous gradient or vignette. Objects group tightly together and cast soft contact shadows directly onto the background. Fill the usable frame generously with the grouped scene so it never looks empty, while keeping the upper and lower edges free of important detail.
+
+FORBIDDEN:
+No percentage-based top/middle/bottom zones, no photorealism, no real camera photo, no real identifiable human, no UI dashboard, no app screen, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no miniature game level, no random labels, no Pixar, no clay, no cartoon simplification.
+`;
+
+// Szenenbild: KEIN Satz im Bild. Voiceover und Remotion-Untertitel tragen die
+// Aussage — ein Satz im Bild würde mit beiden konkurrieren.
+const SCENE_TEXT_RULE = `TEXT RULE – SEHR WICHTIG:
+No headline. No subtitle. No sentence. No paragraph. No CTA. No title text of any kind anywhere in the image.
+The ONLY text allowed are the short German object labels listed below, placed small, clearly legible, in a clean sans-serif, directly next to the object they describe and never overlapping it.
+Nothing else: no invented words, no extra labels, no numbers, no dates, no readable text on papers or screens, no brand names unless explicitly requested.
+`;
+
+// Cover: trägt Headline + Subline und sagt damit direkt, worum es geht.
+const COVER_TEXT_RULE = `TEXT RULE – COVER:
+Bake exactly ONE bold German headline (3-7 words) and ONE lighter subline directly below it into the UPPER THIRD of the image. Never place them in the lower third, because Remotion renders the subtitles there. No third text block, no CTA, no paragraph. Additionally only the explicitly requested short German object labels, placed small and directly near the objects they describe.
+`;
+
+const flowInstruction = (fileName) => `GOOGLE FLOW – FINALER DATEINAME:
+\`${fileName}\`
+
+WICHTIG:
+Erzeuge GENAU EIN Bild. Danach SOFORT exakt wie oben umbenennen, Motiv + Beschriftungen + Gesicht (falls Person) + Hintergrund + Dateiname prüfen und erst dann das nächste Bild erzeugen. Der Dateiname selbst darf NICHT sichtbar im Bild erscheinen.
+`;
+
+// Szenenprompt. Der gesprochene Satz wird in Blöcke zerlegt, damit das
+// Bildmodell keinen Teil der Aussage weglässt.
+const imagePrompt = (id, index) => `${flowInstruction(sceneFileName(index))}
+${STYLE_BLOCK}
+GESPROCHENER SATZ DIESER SZENE:
+[HIER DEN VOICEOVER-SATZ EINTRAGEN — das Bild muss ihn vollständig erzählen]
+
+BILDPROMPT – NACH SATZTEILEN GEGLIEDERT:
+
+HERO — [WELCHER SATZTEIL]:
+[ONE LARGE DOMINANT VISUAL METAPHOR FOR ${id}], described with believable material detail, large and slightly angled in the center.
+
+[ZWEITER BLOCK] — [WELCHER SATZTEIL]:
+[SUPPORTING OBJECT THAT CARRIES THIS PART OF THE SENTENCE, WITH ITS VISIBLE CAUSE-AND-EFFECT]
+
+[DRITTER BLOCK] — [WELCHER SATZTEIL]:
+[SUPPORTING OBJECT THAT CARRIES THIS PART OF THE SENTENCE]
+
+Everything is grouped tightly around the hero as one connected still life. Every object serves the same sentence.
+
+${SCENE_TEXT_RULE}
+BESCHRIFTUNGEN – EXAKT DIESE, SONST KEIN TEXT:
+- '[KURZES DEUTSCHES LABEL]' [WO GENAU IM BILD]
+- '[OPTIONALES ZWEITES LABEL]' [WO GENAU IM BILD]
+
+Vertical 9:16.
+`;
+
+const coverPrompt = `${flowInstruction('Bild 00 - [KURZER COVER-NAME].png')}
+${STYLE_BLOCK}
+COVER-REGEL – TEXT IST PFLICHT:
+Das Cover trägt IMMER Text. Die Headline muss direkt und ohne Umweg sagen, worum es in diesem Reel geht — jemand soll beim Draufschauen in einer Sekunde das Thema erfassen. Keine vagen Andeutungen, keine reine Neugier-Formel ohne Inhalt.
+
+Muster:
+Headline nennt die konkrete Sache oder Zahl, Subline stellt die Frage oder den Nutzen dahinter.
+Beispiel: Headline "25 € MEHR IM MONAT" · Subline "Was macht das in 20 Jahren?"
+Beispiel: Headline "INFLATION FRISST DEIN GELD" · Subline "Was 10.000 € in 20 Jahren noch wert sind."
+
+${COVER_TEXT_RULE}
+HEADLINE + SUBLINE – EXAKT SO INS BILD EINBRENNEN:
+Headline: [BENENNT DAS THEMA DES REELS DIREKT, 3-7 WÖRTER]
+Subline: [EIN KURZER SATZ, DER DAS THEMA KONKRETISIERT ODER DIE FRAGE STELLT]
+
+BESCHRIFTUNGEN – OPTIONAL:
+- [OPTIONALE KURZE STRUKTUR-LABELS]
+
+BILDPROMPT:
+[ONE LARGE DOMINANT COVER METAPHOR] as the clear hero of the image, described with believable material detail, large and centered. [SHOW THE CORE IDEA OF THE REEL IN ONE CLEAR VISUAL]. Bake the headline and subline above into the upper third of the image.
+
+Vertical 9:16.
+`;
 
 const worldPrompt = `FINANZNEO WORLD REFERENCE\n\n${STYLE_BLOCK}`;
 
@@ -115,7 +196,7 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
   userCreatesImages:true,
   antigravityGeneratesImages:false,
   googleFlow:{generationMode:'one-image-at-a-time',fileNameRule:'Bild XX - Kurzer Szenenname.png',numberSource:'real-scene-number',animationNumbersStayReserved:true,finalCollectionDirectory:'03-szenen/00-ALLE-BILDER-HIER-REIN/',distributeToSceneFolders:false},
-  imageWorld:{id:WORLD_ID,referencePromptFile:'03-szenen/bildwelt.txt',style:'premium-fintech-editorial-3d-metaphor',stylizedPersonAllowed:true,visibleFaceRequiredWhenPersonPresent:true,bakedHeadlineRequired:true,bakedSublineRequired:true,bakedTextZone:'upper-third',objectLabelsOptional:true,seamlessSingleBackgroundRequired:true,percentageZonesForbidden:true,floorWallBoundaryForbidden:true,horizonLineForbidden:true,backgroundBandsForbidden:true,ctaTextInGeneratedImagesForbidden:true,paragraphsInGeneratedImagesForbidden:true,tinyDioramaForbidden:true,neonTunnelForbidden:true},
+  imageWorld:{id:WORLD_ID,referencePromptFile:'03-szenen/bildwelt.txt',style:'premium-fintech-editorial-3d-metaphor',stylizedPersonAllowed:true,visibleFaceRequiredWhenPersonPresent:true,coverHeadlineRequired:true,coverSublineRequired:true,coverTextZone:'upper-third',sentencesInSceneImagesForbidden:true,sceneObjectLabelsOnly:true,seamlessSingleBackgroundRequired:true,percentageZonesForbidden:true,floorWallBoundaryForbidden:true,horizonLineForbidden:true,backgroundBandsForbidden:true,ctaTextInGeneratedImagesForbidden:true,paragraphsInGeneratedImagesForbidden:true,tinyDioramaForbidden:true,neonTunnelForbidden:true},
   platformPublishing:{directory:CAPTION_DIRECTORY,...PLATFORM_PUBLISHING_FILES},
   timelineRules:{timingSource:'04-caption/word-timings.json',cutsFollowSentenceStarts:true,equalLengthScenesForbiddenByDefault:true},
   audio:{targetIntegratedLufs:-16,targetTruePeakDbtp:-1},

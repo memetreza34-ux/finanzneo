@@ -31,10 +31,26 @@ export const PLATFORM_PUBLISHING_FILES = {
 export const FORBIDDEN_PUBLISHING_KEYS = ['youtubeShorts'];
 export const FORBIDDEN_PUBLISHING_FILES = [`${CAPTION_DIRECTORY}/youtube-shorts.txt`];
 
-// Bilder tragen Headline + Subline eingebrannt (CLAUDE.md 6.4).
-// Der Prompt muss das explizit fordern; einer dieser Marker muss vorkommen.
-export const HEADLINE_MARKERS = [
+// Textregel, getrennt nach Bildtyp (CLAUDE.md 6.4).
+//
+// Cover: trägt Headline + Subline eingebrannt und sagt damit direkt, worum
+// es im Reel geht. Szenenbilder: tragen KEINEN Satz, nur kurze deutsche
+// Objektlabels — die Aussage kommt aus dem Voiceover und den Remotion-
+// Untertiteln. Ein Satz im Szenenbild würde mit beidem konkurrieren.
+export const COVER_HEADLINE_MARKERS = [
   'HEADLINE + SUBLINE',
   'Bake exactly ONE bold German headline',
   'Bake the headline',
+];
+
+// Szenenprompts müssen Fließtext im Bild ausdrücklich ausschließen.
+export const SCENE_NO_SENTENCE_MARKERS = [
+  'No headline. No subtitle. No sentence.',
+  'No headline, no subtitle, no sentence',
+];
+
+// Szenenprompts müssen die erlaubten Labels explizit benennen.
+export const SCENE_LABEL_MARKERS = [
+  'BESCHRIFTUNGEN',
+  'object labels',
 ];

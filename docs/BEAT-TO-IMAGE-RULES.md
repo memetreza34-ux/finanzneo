@@ -18,7 +18,7 @@ Für konkrete räumliche oder gegenständliche Szenen:
 - unerwartete Ausgabe
 - räumlicher Vergleich
 
-Jedes KI-Bild folgt `docs/FINANZNEO-IMAGE-WORLD-V3.md` und trägt bereits Headline + Subline eingebrannt. Remotion zeigt bei Bild-Beats deshalb keine eigene Kicker-/Headline-Ebene mehr darüber — nur bei nativen Remotion-Beats (Kategorie B) rendert Remotion die Überschrift selbst.
+Jedes KI-Bild folgt `docs/FINANZNEO-IMAGE-WORLD-V3.md`. Nur das Cover trägt eine eingebrannte Headline und Subline; Szenenbilder tragen ausschließlich kurze Objektlabels, weil Voiceover und Remotion-Untertitel die Aussage übernehmen.
 
 ### B. Remotion
 
@@ -67,11 +67,10 @@ Das ist ein Zielwert, keine starre Quote. Eine schwache Bildszene/Animation wird
 
 Ein KI-Bild nutzt:
 
-- eine eingebrannte Headline + Subline im oberen Sicherheitsdrittel
 - eine dominante Finanzmetapher / ein großes Hauptobjekt
 - wenige unterstützende Elemente
 - optional eine Person mit klar sichtbarem Gesicht
-- optionale kurze deutsche Objektlabels
+- kurze deutsche Objektlabels, kein Satz im Bild
 - einen einzigen nahtlosen deep-charcoal-green-black Hintergrund
 
 Keine Prozent-Zonen, keine Hintergrundbänder, keine Miniatur-Dioramen.

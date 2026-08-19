@@ -46,11 +46,21 @@ Wenn eine Person vorkommt:
 
 ## 5. Text und Labels
 
-- [ ] Genau eine Headline im Bild (kurz, fett, 3–7 Wörter).
+**Cover:**
+
+- [ ] Genau eine Headline (kurz, fett, 3–7 Wörter), sagt direkt das Thema.
 - [ ] Genau eine Subline direkt darunter (leichter, ein kurzer Satz).
-- [ ] Headline + Subline liegen im oberen Sicherheitsdrittel, nicht im unteren Bilddrittel.
-- [ ] Kein dritter Textblock, kein CTA im Bild.
-- [ ] Nur explizit erlaubte kurze deutsche Objektlabels zusätzlich.
+- [ ] Beide im oberen Sicherheitsdrittel, nicht im unteren Bilddrittel.
+
+**Szenenbilder:**
+
+- [ ] Keine Headline, keine Subline, kein ganzer Satz im Bild.
+- [ ] Nur explizit erlaubte kurze deutsche Objektlabels.
+- [ ] Labels klein, klar lesbar, direkt neben ihrem Objekt und nicht darüber.
+
+**Beide:**
+
+- [ ] Kein CTA, kein Absatz im Bild.
 - [ ] Labels korrekt geschrieben.
 - [ ] Labels direkt am passenden Objekt.
 - [ ] Keine zufälligen Zusatztexte/Fantasiewörter.
@@ -107,7 +117,8 @@ Wenn Marken verwendet werden:
 - Boden-Wand-Grenze/Horizont
 - gesichtslose oder abgewandte Person
 - falsche/zusätzliche Labels
-- Headline oder Subline fehlt, doppelt vorkommt oder im unteren Bilddrittel liegt
+- Cover ohne Headline/Subline, oder Text im unteren Bilddrittel
+- Szenenbild mit Satz oder Headline statt nur Labels
 - Diorama/Game-Level
 - falsche Farbwelt
 - Bildaussage passt nicht zum Satz
@@ -117,7 +128,8 @@ Wenn Marken verwendet werden:
 ```text
 Bildsatz-QA: [FREIGEGEBEN / ÜBERARBEITEN / NEU ERSTELLEN]
 Seamless Background: [BESTANDEN / NICHT BESTANDEN]
-Headline + Subline: [BESTANDEN / NICHT BESTANDEN]
+Cover-Headline: [BESTANDEN / NICHT BESTANDEN]
+Szenen ohne Satz: [BESTANDEN / NICHT BESTANDEN]
 Gesicht: [BESTANDEN / NICHT BESTANDEN / NICHT RELEVANT]
 Labels: [BESTANDEN / NICHT BESTANDEN]
 Satzgenauigkeit: [BESTANDEN / NICHT BESTANDEN]

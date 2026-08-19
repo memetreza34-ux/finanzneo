@@ -62,22 +62,30 @@ Nicht erlaubt:
 
 ## Textregel
 
-Jedes Bild trägt genau **eine Headline** und **eine Subline**, direkt vom Bildmodell mit erzeugt — nicht nachträglich in Remotion.
+Cover und Szenenbild folgen unterschiedlichen Textregeln.
 
-- Headline: kurz, fett, 3–7 Wörter, maximal zwei Zeilen, helle/weiße Schrift
-- Subline: ein kurzer Satz direkt unter der Headline, dünner/leichter als die Headline, gedämpfte helle Farbe (z. B. helles Grau oder Mint)
-- Position: oberes Sicherheitsdrittel des Bildes, damit die Headline nicht mit dem Remotion-Untertitel am unteren Rand kollidiert (siehe Safe Area, `SAFE_AREA.topRatio` / `bottomRatio` in `src/brand/tokens.ts`)
-- kein CTA, kein Fließtext, kein dritter Textblock im Bild
-- optionale kurze deutsche Objektlabels bleiben erlaubt, sind aber nicht mehr das Haupttextmittel — Headline und Subline tragen die Aussage
-- beim **Cover** ist der Text Pflicht und die Headline benennt das Thema des Reels direkt, sodass es in einer Sekunde erfassbar ist
+**Cover (`Bild 00`) — Text ist Pflicht:**
+
+- genau **eine Headline**: kurz, fett, 3–7 Wörter, helle/weiße Schrift
+- genau **eine Subline** direkt darunter: ein kurzer Satz, leichter, gedämpfte helle Farbe
+- die Headline sagt direkt, worum es im Reel geht — in einer Sekunde erfassbar, keine vage Andeutung
+- Position: oberes Sicherheitsdrittel, damit sie nicht mit dem Remotion-Untertitel kollidiert (`SAFE_AREA.topRatio` / `bottomRatio` in `src/brand/tokens.ts`)
+
+**Szenenbilder (`Bild 01` und folgende) — kein Satz im Bild:**
+
+- keine Headline, keine Subline, kein ganzer Satz, kein CTA, kein Absatz
+- erlaubt sind ausschließlich kurze deutsche Objektlabels, normalerweise 1–3 Wörter
+- Labels stehen klein, klar lesbar und direkt neben dem Objekt, das sie benennen — nie darüber
+- die Aussage der Szene kommt aus dem Voiceover und den Remotion-Untertiteln; ein Satz im Bild würde mit beidem konkurrieren
 
 **Nicht erlaubt:**
 
-- mehr als eine Headline oder mehr als eine Subline
-- Headline/Subline im unteren Bilddrittel (kollidiert mit dem Remotion-Untertitel)
-- ganze Absätze oder mehrere Sätze
+- Satz oder Headline in einem Szenenbild
+- mehr als eine Headline oder Subline im Cover
+- Text im unteren Bilddrittel (kollidiert mit dem Remotion-Untertitel)
 - CTA-Text im Bild
-- englische Erklärtexte anstelle der deutschen Headline/Subline
+- erfundene Wörter, Zahlen oder Datumsangaben, die nicht ausdrücklich verlangt wurden
+- englische Erklärtexte anstelle der deutschen Labels
 
 ## Reale Marken und bekannte Namen
 
@@ -143,23 +151,40 @@ Verboten:
 
 ## Prompt-Grundmuster
 
+Für **Szenenbilder** (kein Satz im Bild):
+
 ```text
-[ONE LARGE FINANCIAL METAPHOR] as the clear hero of the image, large and centered.
-[Describe one visible cause-and-effect action using only a few large objects.]
-Bake the following typography directly into the image, inside the upper third of the frame, never in the lower third:
-HEADLINE (bold, 3-7 words, bright white): '[HEADLINE]'
-SUBLINE (lighter weight, directly below headline, muted light color): '[SUBLINE]'
-No third text block, no CTA text, no paragraph.
-Default is objects and metaphors only, no person. Only if a human presence genuinely helps the explanation, add a stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside the metaphor. A single stylized hand interacting with an object is also allowed and does not count as a person.
-Premium fintech editorial 3D render style.
-Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge.
-No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line and no panels.
-Accents in vivid emerald and mint green. Gold only for money/value. Warm red-orange only for danger/loss.
-Use smooth rounded 3D geometry, soft bevelled edges and confident high-contrast studio lighting with bold emerald rim light.
-Place the main subject around the visual center and leave generous natural empty space above and below without changing the background.
+GESPROCHENER SATZ DIESER SZENE:
+[Der Voiceover-Satz — das Bild muss ihn vollständig erzählen.]
+
+HERO — [welcher Satzteil]:
+[ONE LARGE FINANCIAL METAPHOR], described with believable material detail, large and slightly angled in the center.
+
+[ZWEITER BLOCK] — [welcher Satzteil]:
+[Supporting object that carries this part of the sentence, with its visible cause-and-effect.]
+
+[DRITTER BLOCK] — [welcher Satzteil]:
+[Supporting object that carries this part of the sentence.]
+
+Everything is grouped tightly around the hero as one connected still life. Every object serves the same sentence.
+
+TEXT RULE – SEHR WICHTIG:
+No headline. No subtitle. No sentence. No paragraph. No CTA. No title text of any kind anywhere in the image.
+The ONLY text allowed are the short German object labels listed below, placed small, clearly legible, in a clean sans-serif, directly next to the object they describe and never overlapping it.
+
+BESCHRIFTUNGEN – EXAKT DIESE, SONST KEIN TEXT:
+- '[Label 1]' [wo genau im Bild]
+- '[Label 2]' [wo genau im Bild]
+
+Premium fintech editorial 3D render style with rich material detail. Deep charcoal green-black world. Accents in vivid emerald and mint green. Gold only for money/value. Warm red-orange only for danger/loss.
+Objects are believable and detailed in construction, but the image stays a premium 3D illustration and never a photograph.
+Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. No bands, no floor-wall boundary, no horizon line, no room, no table, no panels. Objects cast soft contact shadows directly onto the background. Fill the usable frame generously so it never looks empty.
+Default is objects and metaphors only, no person. A single stylized hand is allowed.
 Vertical 9:16.
-No photorealism, no real identifiable human, no faceless character, no UI dashboard, no explanatory paragraph.
+No photorealism, no UI dashboard, no isometric diorama, no neon tunnel, no Pixar, no clay, no cartoon simplification.
 ```
+
+Für das **Cover** gilt dasselbe Muster, zusätzlich mit eingebrannter Headline und Subline im oberen Drittel.
 
 ## Google-Flow-Ablauf
 

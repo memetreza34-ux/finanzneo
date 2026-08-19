@@ -57,23 +57,13 @@ Wenn eine Person vorkommt:
 
 ## Text im KI-Bild
 
-Jedes Bild trägt genau eine Headline und eine Subline, direkt vom Bildmodell erzeugt — siehe `docs/FINANZNEO-IMAGE-WORLD-V3.md`, Abschnitt Textregel.
+Cover und Szenenbild folgen unterschiedlichen Regeln — vollständig in `docs/FINANZNEO-IMAGE-WORLD-V3.md`, Abschnitt Textregel.
 
-Erlaubt:
+**Cover:** genau eine Headline (3–7 Wörter) plus eine Subline darunter, beide im oberen Sicherheitsdrittel. Die Headline sagt direkt, worum es im Reel geht.
 
-- genau eine Headline (kurz, fett, 3–7 Wörter)
-- genau eine Subline direkt darunter (leichter, ein kurzer Satz)
-- beide im oberen Sicherheitsdrittel, nie im unteren Bilddrittel
-- zusätzlich optionale kurze deutsche Objektlabels
+**Szenenbilder:** kein Satz, keine Headline, keine Subline. Erlaubt sind ausschließlich kurze deutsche Objektlabels, klein und klar lesbar direkt neben ihrem Objekt. Die Aussage kommt aus Voiceover und Remotion-Untertiteln.
 
-Verboten:
-
-- mehr als eine Headline oder Subline
-- Headline/Subline im unteren Bilddrittel
-- CTA
-- ganze Absätze
-- zufällige Zusatztexte
-- Fantasiewörter
+Verboten in beiden: CTA, ganze Absätze, erfundene Wörter, Text im unteren Bilddrittel.
 
 ## Marken
 
@@ -108,7 +98,7 @@ Szenenwechsel folgen Satzanfängen aus dem finalen Audio. Gleich lange Szenen si
 Jeder Prompt enthält:
 
 1. finalen Google-Flow-Dateinamen
-2. Headline- und Sublinetext (Wortlaut vorgegeben)
+2. beim Cover Headline- und Sublinetext, bei Szenen die erlaubten Labels
 3. konkrete erlaubte deutsche Labels
 4. eine dominante Metapher / ein Hauptobjekt
 5. sichtbare Ursache-Wirkung
@@ -125,5 +115,6 @@ Jeder Prompt enthält:
 - gesichtslose/abgewandte Person
 - Diorama/Game-Level
 - falsche/zusätzliche Labels
-- Headline oder Subline fehlt, doppelt vorkommt oder im unteren Bilddrittel liegt
+- Cover ohne Headline/Subline
+- Szenenbild mit Satz statt nur Labels
 - Aussage passt nicht zum Voiceover
