@@ -60,6 +60,8 @@ Einzige Übergabedatei an den Google-Flow-KI-Agenten:
 
 Protokoll-ID: `finanzneo-flow-sequential-v1`.
 
+Formatregel: Google Flow erzeugt Cover und Szenenbilder immer quadratisch `1:1`. Das fertige Reel bleibt `9:16`; Remotion platziert die 1:1-Bilder mit `contain`.
+
 ```text
 PROMPT LESEN
 → GENAU EIN BILD ERZEUGEN
@@ -162,7 +164,7 @@ Stil:
 Jedes Bild nutzt genau einen nahtlosen Hintergrund von oben bis unten:
 
 ```text
-Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 Keep the same continuous material, tone and gradient from top edge to bottom edge.
 No horizontal divisions.
 No visible top section or bottom section.

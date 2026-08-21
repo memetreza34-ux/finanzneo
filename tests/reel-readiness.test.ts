@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
 import {mkdtempSync} from 'node:fs';
-import {analyzeReelReadiness} from '../scripts/lib/reel-readiness.mjs';
+import {analyzeReelReadiness, isSquareImageDimensions} from '../scripts/lib/reel-readiness.mjs';
 
 const write = (root: string, relativePath: string, content: string | Buffer) => {
   const path = join(root, relativePath);
@@ -84,6 +84,12 @@ test('Einsatzprüfung gibt ein vollständiges Reel für Phase 3 frei', () => {
   } finally {
     rmSync(root, {recursive: true, force: true});
   }
+});
+
+test('Nur echte quadratische Bildmaße bestehen den 1:1-Formatcheck', () => {
+  assert.equal(isSquareImageDimensions(2048, 2048), true);
+  assert.equal(isSquareImageDimensions(1080, 1920), false);
+  assert.equal(isSquareImageDimensions(0, 0), false);
 });
 
 test('Einsatzprüfung meldet fehlende Bilder mit exaktem Dateinamen', () => {

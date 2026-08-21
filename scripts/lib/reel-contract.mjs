@@ -13,6 +13,9 @@ export const SERIES_LOCK_ID = 'finanzneo-same-world-v1';
 export const SERIES_LOCK_MARKER = `FINANZNEO_SERIES_LOCK: ${SERIES_LOCK_ID}`;
 export const FLOW_AGENT_PROTOCOL_ID = 'finanzneo-flow-sequential-v1';
 export const FLOW_AGENT_PROTOCOL_MARKER = `FLOW_AGENT_PROTOCOL: ${FLOW_AGENT_PROTOCOL_ID}`;
+export const GENERATED_IMAGE_ASPECT_RATIO = '1:1';
+export const GENERATED_IMAGE_ASPECT_MARKER = `GENERATED_IMAGE_ASPECT_RATIO: ${GENERATED_IMAGE_ASPECT_RATIO}`;
+export const REEL_VIDEO_ASPECT_RATIO = '9:16';
 
 export const CAPTION_DIRECTORY = '04-caption';
 export const IMAGE_INBOX = '03-szenen/00-ALLE-BILDER-HIER-REIN';

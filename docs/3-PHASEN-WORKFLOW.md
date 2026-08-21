@@ -22,6 +22,7 @@ In Phase 1 bleiben keine Platzhalter in diesen Inhalten. ChatGPT erzeugt keine f
 1. Jedes Cover-/Szenenbild einzeln mit Google Flow erzeugen.
 2. Dem Google-Flow-KI-Agenten ausschließlich `03-szenen/alle-bildprompts.txt` übergeben.
 3. Agent strikt arbeiten lassen: genau ein Bild → vollständig warten → sofort exakt umbenennen → Same-World- und Bild-QA → erst dann nächstes Bild.
+   Jedes erzeugte Bild muss quadratisch `1:1` sein; nicht `9:16`.
 4. Bei einem Fehler dieselbe Bildnummer neu erzeugen; niemals parallel oder als Batch fortfahren.
 5. Das bestandene Cover `Bild 00` als reine Stilreferenz für alle Folgebilder verwenden; keine Motive oder Labels daraus kopieren.
 6. Alle Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` ablegen.

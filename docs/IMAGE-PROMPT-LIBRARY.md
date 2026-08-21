@@ -17,6 +17,10 @@ Jeder Prompt besteht aus:
 ```text
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+FORMAT:
+Create a square 1:1 source image. Width and height must be equal. No portrait or vertical format.
 
 SAME-WORLD LOCK:
 Keep the exact same background material and gradient character, emerald rim-light signature, rounded geometry language, bevel softness, matte/glass material finish, color roles, contrast level and premium editorial 3D quality across the complete image series. Do not reinterpret the visual universe between images.
@@ -39,7 +43,7 @@ No headline. No subtitle. No explanatory sentence. No CTA.
 Only the explicitly requested short German object labels, normally 1–3 words, directly near the related object.
 
 BACKGROUND:
-Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 Keep the same continuous material, tone and gradient from the very top edge to the very bottom edge.
 No horizontal divisions.
 No visible top section.

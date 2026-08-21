@@ -58,6 +58,8 @@ Vollständige Übergabe: `docs/3-PHASEN-WORKFLOW.md`.
 ## 4. Reel-Standard
 
 - 1080 × 1920
+- Reel-Video: 9:16
+- Google-Flow-Quellbilder: **immer quadratisch 1:1**
 - 30 fps
 - 60–90 Sekunden als Standard
 - Hook innerhalb der ersten 2 Sekunden
@@ -135,7 +137,7 @@ Jedes Bild verwendet **einen einzigen durchgehenden Hintergrund von der oberen b
 Verbindliche Promptlogik:
 
 ```text
-Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 The background must keep the same continuous material, tone and gradient from the very top edge to the very bottom edge.
 NO horizontal divisions.
 NO visible top section.
@@ -267,7 +269,7 @@ No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon 
 Accents in vivid emerald and mint green. Gold only for money/value. Warm red-orange only for danger/loss.
 Use smooth rounded 3D geometry, soft bevelled edges and confident high-contrast studio lighting with bold emerald rim light.
 Place the main subject around the visual center and leave generous natural empty space above and below without changing the background.
-Vertical 9:16.
+Square 1:1 source image. Width and height must be equal. No portrait or vertical format.
 No photorealism, no real identifiable human, no faceless character, no UI dashboard, no headline, no subtitle, no explanatory sentence.
 ```
 
@@ -276,6 +278,7 @@ No photorealism, no real identifiable human, no faceless character, no UI dashbo
 - **Antigravity erzeugt keine Bilder.**
 - Der Nutzer erzeugt Cover und Szenenbilder selbst mit Google Flow.
 - Antigravity/der Agent erstellt nur Bildprompts, Dateinamen, Szenenplanung und spätere technische Verarbeitung.
+- Jedes erzeugte Cover- und Szenenbild ist immer quadratisch `1:1`; erst Remotion setzt es mit `contain` in das vertikale `9:16`-Reel.
 
 Google Flow arbeitet pro Bild strikt:
 

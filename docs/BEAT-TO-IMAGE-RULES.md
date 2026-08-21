@@ -67,6 +67,7 @@ Das ist ein Zielwert, keine starre Quote. Eine schwache Bildszene/Animation wird
 
 Ein KI-Bild nutzt:
 
+- ein quadratisches 1:1-Quellformat; das 9:16-Format entsteht erst im Reel
 - eine dominante Finanzmetapher / ein großes Hauptobjekt
 - wenige unterstützende Elemente
 - optional eine Person mit klar sichtbarem Gesicht

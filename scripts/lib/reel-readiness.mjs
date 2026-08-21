@@ -12,6 +12,12 @@ import {
 export const AUDIO_EXTENSIONS = new Set(['.mp3', '.wav', '.aiff', '.aif', '.m4a']);
 export const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
 
+export const isSquareImageDimensions = (widthValue, heightValue) => {
+  const width = Number(widthValue);
+  const height = Number(heightValue);
+  return Number.isFinite(width) && Number.isFinite(height) && width > 0 && width === height;
+};
+
 const PLACEHOLDER_PATTERN = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|ONE LARGE)[^\]]*)\]/i;
 
 const readText = (path) => readFileSync(path, 'utf8');

@@ -55,6 +55,8 @@ Erstelle einen FinanzNeo-Bildprompt für diesen gesprochenen Satz:
 [SATZ]
 
 Verbindlich:
+- Google-Flow-Quellbild immer quadratisch 1:1; Breite und Höhe identisch
+- kein Portrait-/Hochformat; 9:16 entsteht erst in Remotion
 - Premium Fintech Editorial 3D
 - EINE dominante Finanzmetapher / großes Hauptobjekt
 - optional stilisierte erwachsene 3D-Person

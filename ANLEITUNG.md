@@ -57,6 +57,8 @@ KI-Bilder für konkrete Gegenstände, Alltagssituationen und visuelle Metaphern.
 
 Jeder Bildprompt folgt dem aktuellen FinanzNeo-Stil:
 
+- Google-Flow-Quellbild immer quadratisch 1:1
+- das vertikale 9:16-Format entsteht erst später in Remotion
 - Premium Fintech Editorial 3D
 - eine dominante Finanzmetapher / großes Hauptobjekt
 - optional stilisierte erwachsene 3D-Person

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import {spawnSync} from 'node:child_process';
 import {relative, resolve, sep} from 'node:path';
-import {analyzeReelReadiness} from './lib/reel-readiness.mjs';
+import {analyzeReelReadiness, isSquareImageDimensions} from './lib/reel-readiness.mjs';
 import {IMAGE_INBOX} from './lib/reel-contract.mjs';
 
 const [target] = process.argv.slice(2);
@@ -36,12 +36,7 @@ if (!result.ready) {
   process.exit(1);
 }
 
-const mediaFiles = [
-  resolve(root, '02-audio', result.audioFiles[0]),
-  ...result.expectedImages.map((fileName) => resolve(root, IMAGE_INBOX, fileName)),
-];
-for (const mediaFile of mediaFiles) {
-  const probe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', mediaFile], {encoding: 'utf8'});
+const ensureProbeSucceeded = (probe, mediaFile) => {
   if (probe.error?.code === 'ENOENT') {
     console.error('\n✗ Phase 3 darf noch nicht starten: ffprobe fehlt für die Medienprüfung.');
     process.exit(1);
@@ -50,8 +45,36 @@ for (const mediaFile of mediaFiles) {
     console.error(`\n✗ Phase 3 darf noch nicht starten: Medium ist unlesbar oder beschädigt: ${mediaFile}`);
     process.exit(1);
   }
+};
+
+const audioFile = resolve(root, '02-audio', result.audioFiles[0]);
+const audioProbe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', audioFile], {encoding: 'utf8'});
+ensureProbeSucceeded(audioProbe, audioFile);
+
+for (const fileName of result.expectedImages) {
+  const imageFile = resolve(root, IMAGE_INBOX, fileName);
+  const imageProbe = spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'json', imageFile], {encoding: 'utf8'});
+  ensureProbeSucceeded(imageProbe, imageFile);
+
+  let dimensions;
+  try {
+    dimensions = JSON.parse(imageProbe.stdout)?.streams?.[0];
+  } catch {
+    dimensions = null;
+  }
+
+  const width = Number(dimensions?.width);
+  const height = Number(dimensions?.height);
+  if (!Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) {
+    console.error(`\n✗ Phase 3 darf noch nicht starten: Bildmaße sind nicht lesbar: ${imageFile}`);
+    process.exit(1);
+  }
+  if (!isSquareImageDimensions(width, height)) {
+    console.error(`\n✗ Phase 3 darf noch nicht starten: Nutzerbild muss 1:1 sein, ist aber ${width} × ${height}: ${imageFile}`);
+    process.exit(1);
+  }
 }
 
 console.log('\n✓ PHASE 3 STARTKLAR');
-console.log(`  ${result.expectedImages.length} Bilder · 1 finales Voiceover · echte Wort-Zeitstempel`);
+console.log(`  ${result.expectedImages.length} quadratische 1:1-Bilder · 1 finales Voiceover · echte Wort-Zeitstempel`);
 console.log('  Antigravity beginnt jetzt ohne Zwischenfragen mit Asset-Sync, Remotion, QA und Render.');

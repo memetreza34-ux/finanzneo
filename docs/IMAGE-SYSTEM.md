@@ -7,6 +7,7 @@ Verbindlicher Stilanker:
 - `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 - World ID: `finanzneo-connected-studio-v3`
 - Series Lock ID: `finanzneo-same-world-v1`
+- Google-Flow-Quellbildformat: immer `1:1`
 
 ## Ziel
 
@@ -37,10 +38,10 @@ Das freigegebene Cover `Bild 00` ist die visuelle Stilreferenz für die Serie. E
 
 **Keine Prozent-Zonen verwenden.**
 
-Das gesamte 9:16-Bild verwendet genau **einen nahtlosen Hintergrund** von oben bis unten.
+Das gesamte quadratische 1:1-Bild verwendet genau **einen nahtlosen Hintergrund** von Kante zu Kante.
 
 ```text
-Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 Keep the same continuous material, tone and gradient from top edge to bottom edge.
 No horizontal divisions, no top/bottom sections, no bands, no floor-wall boundary, no horizon line, no panels.
 Use only one subtle continuous gradient/vignette.
@@ -83,7 +84,9 @@ Reale Marken/Dienste dürfen verwendet werden, wenn sie für die konkrete Erklä
 
 ## Komposition
 
-- vertical 9:16
+- square 1:1 source image
+- Breite und Höhe identisch
+- kein Hochformat/Portrait
 - Hauptmotiv groß und smartphone-lesbar
 - wenige große Hauptelemente
 - ein klarer Ursache-Wirkungs-Zusammenhang
@@ -93,6 +96,7 @@ Reale Marken/Dienste dürfen verwendet werden, wenn sie für die konkrete Erklä
 
 ## Darstellung in Remotion
 
+- 1:1-Quellbild im 9:16-Reel
 - `object-fit: contain`
 - keine sichtbare unscharfe Kopie desselben Bildes als Hintergrund
 - Source-Crop oben höchstens `0.20`

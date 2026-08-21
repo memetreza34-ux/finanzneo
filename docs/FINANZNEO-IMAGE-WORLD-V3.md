@@ -4,6 +4,8 @@
 
 **Series Lock ID:** `finanzneo-same-world-v1`
 
+**Generated Image Aspect Ratio:** `1:1`
+
 Dieses Dokument beschreibt den verbindlichen Referenzstil für FinanzNeo-KI-Bilder. Bei Widerspruch gilt `CLAUDE.md`.
 
 ## Referenzprinzip
@@ -124,12 +126,12 @@ Bekannte Marken/Dienste dürfen verwendet werden, wenn sie für die Szene wirkli
 
 **Keine Prozent-Zonen mehr verwenden.**
 
-Das gesamte 9:16-Bild besitzt **einen einzigen nahtlosen Hintergrund** von oben bis unten.
+Das gesamte quadratische 1:1-Bild besitzt **einen einzigen nahtlosen Hintergrund** von Kante zu Kante.
 
 Verbindlicher Promptblock:
 
 ```text
-Use ONE single seamless continuous deep charcoal green-black background across the entire vertical 9:16 image.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 The background must keep the same continuous material, tone and gradient from the very top edge to the very bottom edge.
 NO horizontal divisions.
 NO visible top section.
@@ -185,7 +187,7 @@ No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon 
 Accents in vivid emerald and mint green. Gold only for money/value. Warm red-orange only for danger/loss.
 Use smooth rounded 3D geometry, soft bevelled edges and confident high-contrast studio lighting with bold emerald rim light.
 Place the main subject around the visual center and leave generous natural empty space above and below without changing the background.
-Vertical 9:16.
+Square 1:1 source image. Width and height must be equal. No portrait or vertical format.
 No photorealism, no real identifiable human, no faceless character, no UI dashboard, no headline, no subtitle, no explanatory sentence.
 ```
 

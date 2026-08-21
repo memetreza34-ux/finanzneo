@@ -7,12 +7,15 @@ import {
   CAPTION_DIRECTORY,
   FLOW_AGENT_PROTOCOL_ID,
   FLOW_AGENT_PROTOCOL_MARKER,
+  GENERATED_IMAGE_ASPECT_MARKER,
+  GENERATED_IMAGE_ASPECT_RATIO,
   IMAGE_INBOX,
   PLATFORM_PUBLISHING_FILES,
   SCENE_INDEX,
   SERIES_LOCK_ID,
   SERIES_LOCK_MARKER,
   SUBTITLE_MODE,
+  REEL_VIDEO_ASPECT_RATIO,
   WORLD_ID,
   WORLD_ID_MARKER,
 } from './lib/reel-contract.mjs';
@@ -64,6 +67,11 @@ const containsObsoleteZoning = (text) => {
   ].some((needle) => lower.includes(needle));
 };
 
+const containsWrongGeneratedImageRatio = (text) => {
+  const lower = text.toLowerCase();
+  return lower.includes('vertical 9:16 image') || lower.includes('portrait 9:16') || lower.includes('9:16 source image');
+};
+
 if (existsSync(sceneRoot) && existsSync(indexPath)) {
   const index = JSON.parse(readFileSync(indexPath, 'utf8'));
   const legacyImageWorld = index.imageWorld?.legacyAssetSet === true;
@@ -75,7 +83,11 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   assert(typeof index.cover?.googleFlowFileName === 'string' && index.cover.googleFlowFileName.trim(), 'scene-index.json benötigt cover.googleFlowFileName.');
   assert(index.cover?.planFile === '03-szenen/00-cover/cover.txt', 'cover.planFile muss auf 03-szenen/00-cover/cover.txt zeigen.');
   assert(index.sceneCount === directories.length, 'sceneCount stimmt nicht mit den Szenenordnern überein.');
+  assert(index.video?.aspectRatio === REEL_VIDEO_ASPECT_RATIO, 'Reel-Videoformat muss 9:16 sein.');
+  assert(Number(index.video?.width) === 1080 && Number(index.video?.height) === 1920, 'Reel-Video muss 1080 × 1920 verwenden.');
   assert(index.imageWorld?.id === WORLD_ID, 'FinanzNeo Image World ID fehlt.');
+  assert(index.imageWorld?.generatedImageAspectRatio === GENERATED_IMAGE_ASPECT_RATIO, 'Google-Flow-Quellbilder müssen 1:1 sein.');
+  assert(index.imageWorld?.squareGeneratedImagesRequired === true, 'Quadratische Google-Flow-Bilder müssen verpflichtend sein.');
   assert(index.imageWorld?.seriesLockId === SERIES_LOCK_ID, 'FinanzNeo Same-World-Serien-Lock fehlt.');
   assert(index.imageWorld?.sameWorldAcrossSeriesRequired === true, 'Dieselbe Bildwelt muss für die gesamte Serie vorgeschrieben sein.');
   assert(index.imageWorld?.styleReferenceStrategy === 'approved-cover-style-only', 'Das freigegebene Cover muss als reine Stilreferenz für Folgebilder dienen.');
@@ -144,13 +156,26 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   }
 
   const allPrompts = existsSync(allPromptsPath) ? readFileSync(allPromptsPath, 'utf8') : '';
+  const coverPromptPath = resolve(root, '03-szenen/00-cover/cover.txt');
+  const coverPrompt = existsSync(coverPromptPath) ? readFileSync(coverPromptPath, 'utf8') : '';
+  const worldPromptPath = resolve(root, '03-szenen/bildwelt.txt');
+  const worldPrompt = existsSync(worldPromptPath) ? readFileSync(worldPromptPath, 'utf8') : '';
   assert(allPrompts.includes(WORLD_ID_MARKER), 'alle-bildprompts.txt verwendet nicht die FinanzNeo World ID.');
+  assert(allPrompts.includes(GENERATED_IMAGE_ASPECT_MARKER), 'alle-bildprompts.txt schreibt das quadratische 1:1-Bildformat nicht vor.');
   assert(allPrompts.includes(SERIES_LOCK_MARKER), 'alle-bildprompts.txt enthält keinen verbindlichen Same-World-Lock.');
   assert(allPrompts.includes(FLOW_AGENT_PROTOCOL_MARKER), 'alle-bildprompts.txt enthält kein striktes Google-Flow-Agent-Protokoll.');
 
   if (!legacyImageWorld) {
+    assert(coverPrompt.includes(index.cover?.googleFlowFileName ?? ''), 'Cover-Prompt und scene-index verwenden nicht denselben Google-Flow-Dateinamen.');
+    assert(coverPrompt.includes(GENERATED_IMAGE_ASPECT_MARKER), 'Cover-Prompt schreibt 1:1 nicht vor.');
+    assert(coverPrompt.includes('square 1:1 source image'), 'Cover muss ein quadratisches 1:1-Quellbild sein.');
+    assert(!containsWrongGeneratedImageRatio(coverPrompt), 'Cover-Prompt verlangt fälschlich 9:16 statt 1:1.');
+    assert(worldPrompt.includes(GENERATED_IMAGE_ASPECT_MARKER), 'bildwelt.txt schreibt 1:1 nicht vor.');
+    assert(worldPrompt.includes('square 1:1 source image'), 'bildwelt.txt definiert kein quadratisches 1:1-Quellbild.');
     assert(allPrompts.includes('ONE single seamless continuous deep charcoal green-black background'), 'alle-bildprompts.txt fordert keinen nahtlosen Einzelhintergrund.');
     assert(!containsObsoleteZoning(allPrompts), 'alle-bildprompts.txt enthält verbotene Prozent-Zonen.');
+    assert(!containsWrongGeneratedImageRatio(allPrompts), 'alle-bildprompts.txt verlangt fälschlich ein 9:16-Quellbild statt 1:1.');
+    assert(allPrompts.includes('square 1:1 source image'), 'alle-bildprompts.txt verlangt kein quadratisches 1:1-Quellbild.');
     assert(allPrompts.includes('No headline') || allPrompts.includes('No headline.'), 'alle-bildprompts.txt verbietet generierte Headlines nicht.');
     assert(allPrompts.includes('short German object labels') || allPrompts.includes('kurzen deutschen') || allPrompts.includes('kurze deutsche'), 'alle-bildprompts.txt definiert kurze deutsche Objektlabels nicht.');
     assert(allPrompts.includes('00-ALLE-BILDER-HIER-REIN'), `Finaler gemeinsamer Bilderordner fehlt in ${ALL_PROMPTS}.`);
@@ -188,6 +213,9 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
         assert(typeof indexed?.googleFlowFileName === 'string' && indexed.googleFlowFileName.trim(), `${id}: googleFlowFileName fehlt.`);
         assert(prompt.includes(FLOW_AGENT_PROTOCOL_MARKER), `${id}: striktes Google-Flow-Agent-Protokoll fehlt.`);
         assert(prompt.includes(SERIES_LOCK_MARKER), `${id}: Same-World-Lock fehlt.`);
+        assert(prompt.includes(GENERATED_IMAGE_ASPECT_MARKER), `${id}: 1:1-Format-Lock fehlt.`);
+        assert(prompt.includes('square 1:1 source image'), `${id}: Google-Flow-Quellbild muss quadratisch sein.`);
+        assert(!containsWrongGeneratedImageRatio(prompt), `${id}: Prompt verlangt fälschlich 9:16 statt 1:1.`);
         assert(prompt.split(WORLD_ID_MARKER).length - 1 === 1, `${id}: Bildstilblock muss exakt einmal vorkommen.`);
         assert(prompt.includes('GOOGLE FLOW – FINALER DATEINAME:'), `${id}: finaler Google-Flow-Dateiname fehlt direkt am Prompt.`);
         assert(prompt.includes(indexed?.googleFlowFileName ?? ''), `${id}: Prompt und scene-index verwenden nicht denselben Google-Flow-Dateinamen.`);

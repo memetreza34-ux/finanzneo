@@ -66,7 +66,8 @@ Wenn Marken verwendet werden:
 
 ## 7. Komposition
 
-- [ ] vertical 9:16.
+- [ ] Quellbild ist quadratisch 1:1; Breite und Höhe sind identisch.
+- [ ] Kein Hochformat/Portrait als Google-Flow-Quellbild.
 - [ ] Hauptmotiv groß und smartphone-lesbar.
 - [ ] wenige große unterstützende Elemente.
 - [ ] natürlicher freier Raum oberhalb und unterhalb.
@@ -75,6 +76,7 @@ Wenn Marken verwendet werden:
 
 ## 8. Remotion-Darstellung
 
+- [ ] 1:1-Quellbild wird im 9:16-Reel dargestellt.
 - [ ] Bild mit `contain`.
 - [ ] keine unscharfe Bildkopie als sichtbarer Hintergrund.
 - [ ] Source-Crop oben höchstens 0.20.
