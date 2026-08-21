@@ -34,6 +34,7 @@ Antigravity erzeugt keine Bilder. Der Nutzer erzeugt alle Bilder selbst mit Goog
 Keine YouTube Shorts erzeugen. YouTube ist ausschließlich ein separater Longform-Bereich unter `youtube/`.
 
 Schreibe alle Ergebnisse direkt in die verbindliche Reel-Struktur. Entferne alle Platzhalter aus Skript, Recherche, Szenenplan, Bildprompts, scene-index und Plattformtexten. Erzeuge selbst keine finalen Bilder und kein Ersatz-Voiceover.
+Erstelle `03-szenen/alle-bildprompts.txt` als einzige Agent-Übergabedatei mit `FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1` und `FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1`. Der Agent muss genau ein Bild erzeugen, vollständig warten, sofort exakt umbenennen, prüfen und erst danach fortfahren. Fehlerhafte Bilder werden unter derselben Nummer neu erzeugt.
 ```
 
 ## 2. Phase 3 — Antigravity baut autonom

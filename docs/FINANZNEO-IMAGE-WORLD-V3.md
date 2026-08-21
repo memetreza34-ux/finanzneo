@@ -2,6 +2,8 @@
 
 **World ID:** `finanzneo-connected-studio-v3`
 
+**Series Lock ID:** `finanzneo-same-world-v1`
+
 Dieses Dokument beschreibt den verbindlichen Referenzstil für FinanzNeo-KI-Bilder. Bei Widerspruch gilt `CLAUDE.md`.
 
 ## Referenzprinzip
@@ -38,6 +40,20 @@ Jede Bildszene verwendet möglichst:
 5. 1–3 kurze deutsche Objektlabels
 
 Das Ergebnis wirkt wie eine einzelne hochwertige Editorial-Illustration, nicht wie eine Miniaturwelt oder ein Game-Level.
+
+## Same-World-Lock über den gesamten Bildsatz
+
+Alle Bilder eines Reels behalten exakt dieselbe Art Direction:
+
+- gleiches deep-charcoal-green-black Hintergrundmaterial und gleicher Gradient-Charakter
+- gleiche smaragdgrüne Rim-Light-Signatur und gleiches Kontrastniveau
+- gleiche abgerundete Geometriesprache und Bevel-Weichheit
+- gleiche matten/gläsernen Materialqualitäten
+- unveränderte Farbrollen für Grün, Gold und Rot-Orange
+
+Motive dürfen wechseln. Der Agent darf die Serie zwischen Bildern nicht in einen neuen Stil umdeuten. Wenn dieselbe Person in mehreren Bildern vorkommt, bleibt ihr stilisiertes Erscheinungsbild gleich.
+
+Nach bestandener Cover-QA dient `Bild 00` als reine visuelle Stilreferenz für alle Folgebilder. Nur Bildwelt, Materialien, Geometriesprache, Farbrollen, Kontrast und Lichtsignatur übernehmen; niemals Cover-Motiv, Komposition oder Labels kopieren.
 
 ## Personenregel
 
@@ -175,13 +191,19 @@ No photorealism, no real identifiable human, no faceless character, no UI dashbo
 
 ## Google-Flow-Ablauf
 
+Einzige Agent-Übergabedatei: `03-szenen/alle-bildprompts.txt`.
+Protokoll: `finanzneo-flow-sequential-v1`.
+
 ```text
 PROMPT LESEN
 → GENAU EIN BILD ERZEUGEN
+→ VOLLSTÄNDIG WARTEN
 → SOFORT KORREKT UMBENENNEN
 → MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
 → ERST DANN NÄCHSTES BILD
 ```
+
+Keine parallele Erzeugung. Bei fehlerhafter QA dieselbe Bildnummer neu erzeugen, unter demselben finalen Namen ersetzen und erst danach fortfahren.
 
 Bildnummer = echte Szenennummer. Animationsszenen erhalten kein Bild und behalten ihre Nummer.
 

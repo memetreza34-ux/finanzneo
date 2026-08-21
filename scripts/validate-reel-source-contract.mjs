@@ -5,9 +5,13 @@ import {
   ACTIVE_WORD_COLOR,
   ALL_PROMPTS,
   CAPTION_DIRECTORY,
+  FLOW_AGENT_PROTOCOL_ID,
+  FLOW_AGENT_PROTOCOL_MARKER,
   IMAGE_INBOX,
   PLATFORM_PUBLISHING_FILES,
   SCENE_INDEX,
+  SERIES_LOCK_ID,
+  SERIES_LOCK_MARKER,
   SUBTITLE_MODE,
   WORLD_ID,
   WORLD_ID_MARKER,
@@ -72,7 +76,19 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   assert(index.cover?.planFile === '03-szenen/00-cover/cover.txt', 'cover.planFile muss auf 03-szenen/00-cover/cover.txt zeigen.');
   assert(index.sceneCount === directories.length, 'sceneCount stimmt nicht mit den Szenenordnern überein.');
   assert(index.imageWorld?.id === WORLD_ID, 'FinanzNeo Image World ID fehlt.');
+  assert(index.imageWorld?.seriesLockId === SERIES_LOCK_ID, 'FinanzNeo Same-World-Serien-Lock fehlt.');
+  assert(index.imageWorld?.sameWorldAcrossSeriesRequired === true, 'Dieselbe Bildwelt muss für die gesamte Serie vorgeschrieben sein.');
+  assert(index.imageWorld?.styleReferenceStrategy === 'approved-cover-style-only', 'Das freigegebene Cover muss als reine Stilreferenz für Folgebilder dienen.');
   assert(index.imageWorld?.referencePromptFile === '03-szenen/bildwelt.txt', 'referencePromptFile ist falsch.');
+  assert(index.googleFlow?.protocolId === FLOW_AGENT_PROTOCOL_ID, 'Google-Flow-Agent-Protokoll fehlt.');
+  assert(index.googleFlow?.generationMode === 'one-image-at-a-time', 'Google Flow muss Bild für Bild arbeiten.');
+  assert(index.googleFlow?.strictSequential === true, 'Google Flow muss strikt sequenziell arbeiten.');
+  assert(index.googleFlow?.waitForCurrentImage === true, 'Google Flow muss die aktuelle Bilderzeugung vollständig abwarten.');
+  assert(index.googleFlow?.renameBeforeNext === true, 'Google Flow muss jedes Bild vor dem nächsten Bild umbenennen.');
+  assert(index.googleFlow?.qaBeforeNext === true, 'Google Flow muss jedes Bild vor dem nächsten Bild prüfen.');
+  assert(index.googleFlow?.retrySameImageOnFailure === true, 'Google Flow muss fehlerhafte Bilder unter derselben Nummer neu erzeugen.');
+  assert(index.googleFlow?.finalCollectionDirectory === `${IMAGE_INBOX}/`, 'Google Flow muss alle fertigen Bilder im gemeinsamen Bilderordner sammeln.');
+  assert(index.googleFlow?.distributeToSceneFolders === false, 'Google Flow darf Bilder nicht auf Szenenordner verteilen.');
   assert(index.timelineRules?.cutsFollowSentenceStarts === true, 'Szenenschnitte müssen Satzanfängen folgen.');
   assert(index.timelineRules?.equalLengthScenesForbiddenByDefault === true, 'Starre gleich lange Szenen müssen standardmäßig verboten sein.');
 
@@ -129,6 +145,8 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
 
   const allPrompts = existsSync(allPromptsPath) ? readFileSync(allPromptsPath, 'utf8') : '';
   assert(allPrompts.includes(WORLD_ID_MARKER), 'alle-bildprompts.txt verwendet nicht die FinanzNeo World ID.');
+  assert(allPrompts.includes(SERIES_LOCK_MARKER), 'alle-bildprompts.txt enthält keinen verbindlichen Same-World-Lock.');
+  assert(allPrompts.includes(FLOW_AGENT_PROTOCOL_MARKER), 'alle-bildprompts.txt enthält kein striktes Google-Flow-Agent-Protokoll.');
 
   if (!legacyImageWorld) {
     assert(allPrompts.includes('ONE single seamless continuous deep charcoal green-black background'), 'alle-bildprompts.txt fordert keinen nahtlosen Einzelhintergrund.');
@@ -136,6 +154,11 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
     assert(allPrompts.includes('No headline') || allPrompts.includes('No headline.'), 'alle-bildprompts.txt verbietet generierte Headlines nicht.');
     assert(allPrompts.includes('short German object labels') || allPrompts.includes('kurzen deutschen') || allPrompts.includes('kurze deutsche'), 'alle-bildprompts.txt definiert kurze deutsche Objektlabels nicht.');
     assert(allPrompts.includes('00-ALLE-BILDER-HIER-REIN'), `Finaler gemeinsamer Bilderordner fehlt in ${ALL_PROMPTS}.`);
+    assert(allPrompts.includes('Erzeuge GENAU EIN Bild'), 'Google-Flow-Agent muss exakt ein Bild pro Schritt erzeugen.');
+    assert(allPrompts.includes('Benenne es SOFORT exakt'), 'Sofortige Umbenennung vor dem nächsten Bild fehlt.');
+    assert(allPrompts.includes('Erzeuge DIESELBE Bildnummer neu'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
+    assert(allPrompts.includes('verbindliche visuelle Stilreferenz'), 'Das Cover wird nicht als verbindliche Stilreferenz festgelegt.');
+    assert(allPrompts.includes('Übernimm NICHT Motiv, Komposition oder Labels des Covers'), 'Folgebilder grenzen Stilreferenz und Cover-Inhalt nicht sauber ab.');
   }
 
   directories.forEach((id, position) => {
@@ -163,6 +186,9 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
         assert(prompt.includes(WORLD_ID_MARKER), `${id}: Legacy-World-ID fehlt.`);
       } else {
         assert(typeof indexed?.googleFlowFileName === 'string' && indexed.googleFlowFileName.trim(), `${id}: googleFlowFileName fehlt.`);
+        assert(prompt.includes(FLOW_AGENT_PROTOCOL_MARKER), `${id}: striktes Google-Flow-Agent-Protokoll fehlt.`);
+        assert(prompt.includes(SERIES_LOCK_MARKER), `${id}: Same-World-Lock fehlt.`);
+        assert(prompt.split(WORLD_ID_MARKER).length - 1 === 1, `${id}: Bildstilblock muss exakt einmal vorkommen.`);
         assert(prompt.includes('GOOGLE FLOW – FINALER DATEINAME:'), `${id}: finaler Google-Flow-Dateiname fehlt direkt am Prompt.`);
         assert(prompt.includes(indexed?.googleFlowFileName ?? ''), `${id}: Prompt und scene-index verwenden nicht denselben Google-Flow-Dateinamen.`);
         assert(prompt.includes('ONE single seamless continuous deep charcoal green-black background'), `${id}: nahtloser Einzelhintergrund fehlt.`);

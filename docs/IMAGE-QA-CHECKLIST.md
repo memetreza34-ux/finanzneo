@@ -19,6 +19,7 @@ Diese Checkliste gilt für einzelne Bilder und den gesamten Bildsatz. Bei Widers
 - [ ] Smooth rounded geometry, soft bevelled edges.
 - [ ] Eine starke Metapher / ein großes Hauptobjekt.
 - [ ] Keine Miniatur-Dioramen, Game-Level, Neon-Tunnel oder Sci-Fi-Korridore.
+- [ ] Same-World-Lock bestanden: Hintergrundmaterial, Lichtsignatur, Geometriesprache, Materialfinish und Farbrollen stimmen mit dem restlichen Bildsatz überein.
 
 ## 3. Hintergrund — kritischer Pflichtpunkt
 
@@ -97,8 +98,9 @@ Wenn Marken verwendet werden:
 3. Person/Gesicht prüfen.
 4. Labels prüfen.
 5. alle Bilder als Kontaktbogen prüfen.
-6. Anfang/Mitte/Ende jeder Bildszene im Render prüfen.
-7. komplette MP4 mit Ton ansehen.
+6. Same-World-Konsistenz des gesamten Kontaktbogens prüfen.
+7. Anfang/Mitte/Ende jeder Bildszene im Render prüfen.
+8. komplette MP4 mit Ton ansehen.
 
 ## Sofort neu erzeugen
 
@@ -115,6 +117,7 @@ Wenn Marken verwendet werden:
 
 ```text
 Bildsatz-QA: [FREIGEGEBEN / ÜBERARBEITEN / NEU ERSTELLEN]
+Same-World-Lock: [BESTANDEN / NICHT BESTANDEN]
 Seamless Background: [BESTANDEN / NICHT BESTANDEN]
 Gesicht: [BESTANDEN / NICHT BESTANDEN / NICHT RELEVANT]
 Labels: [BESTANDEN / NICHT BESTANDEN]

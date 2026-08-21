@@ -6,6 +6,7 @@ Verbindlicher Stilanker:
 
 - `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 - World ID: `finanzneo-connected-studio-v3`
+- Series Lock ID: `finanzneo-same-world-v1`
 
 ## Ziel
 
@@ -27,6 +28,10 @@ Ausgangspunkt → sichtbare Veränderung → verständliches Ergebnis
 - smooth rounded geometry, soft bevelled edges
 - starkes kontrolliertes Rim Light
 - nicht fotorealistisch, kein Pixar/Clay
+
+Diese Merkmale bleiben über den gesamten Bildsatz unverändert. Der Google-Flow-Agent darf Hintergrundmaterial, Lichtsignatur, Geometriesprache, Materialfinish oder Farbrollen zwischen Bildern nicht neu interpretieren.
+
+Das freigegebene Cover `Bild 00` ist die visuelle Stilreferenz für die Serie. Es ist keine Inhaltsvorlage: Motiv, Komposition und Labels werden nicht in Folgebilder übernommen.
 
 ## Hintergrund — verbindlich nahtlos
 

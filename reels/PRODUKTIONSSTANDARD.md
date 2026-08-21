@@ -52,15 +52,26 @@ Eine Remotion-Szene enthält keinen Bildprompt und erzeugt kein Bild.
 
 ## 3. Google Flow — Einzelbild-Ablauf
 
+Einzige Übergabedatei an den Google-Flow-KI-Agenten:
+
+```text
+03-szenen/alle-bildprompts.txt
+```
+
+Protokoll-ID: `finanzneo-flow-sequential-v1`.
+
 ```text
 PROMPT LESEN
 → GENAU EIN BILD ERZEUGEN
+→ VOLLSTÄNDIG WARTEN
 → SOFORT ENDGÜLTIG UMBENENNEN
 → MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
 → ERST DANN NÄCHSTES BILD
 ```
 
-Keine 3er-Batches und kein späteres Sammel-Umbenennen.
+Keine 3er-Batches, keine parallele Vorbereitung und kein späteres Sammel-Umbenennen. Bei einem Fehler dieselbe Bildnummer neu erzeugen und erst nach bestandener QA fortfahren.
+
+Das zuerst bestandene `Bild 00` ist danach die verbindliche reine Stilreferenz. Folgebilder übernehmen Bildwelt, Material-, Geometrie-, Farb- und Lichtsignatur, aber niemals Cover-Motiv, Komposition oder Labels.
 
 ## 4. Nummerierung
 
@@ -119,6 +130,8 @@ World ID:
 ```text
 finanzneo-connected-studio-v3
 ```
+
+Serien-Lock: `finanzneo-same-world-v1`. Er hält die komplette Serie in derselben Hintergrund-, Material-, Geometrie-, Farb- und Lichtwelt.
 
 Verbindlich:
 

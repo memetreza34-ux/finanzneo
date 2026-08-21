@@ -87,6 +87,14 @@ Technische World-ID:
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 ```
 
+Technischer Serien-Lock:
+
+```text
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+```
+
+Der Serien-Lock hält Hintergrundmaterial, Farbrollen, Geometriesprache, Materialfinish, Kontrast und smaragdgrüne Lichtsignatur über den gesamten Bildsatz konstant. Motive dürfen wechseln, die visuelle Welt nicht.
+
 Der verbindliche Stil entspricht diesem Prinzip:
 
 > Eine stilisierte 3D-Person mit klar sichtbarem Gesicht steht neben EINER großen Finanzmetapher. Beispiel: eine hohe Sanduhr mit leuchtenden Euro-Münzen; ein Teil der Münzen verschwindet in einem rot-orange leuchtenden Verlust-Riss. Kurze deutsche Labels wie `Wartezeit` und `Verlorene Zinsen` erklären nur die relevanten Objekte.
@@ -274,10 +282,25 @@ Google Flow arbeitet pro Bild strikt:
 ```text
 PROMPT LESEN
 → GENAU EIN BILD ERZEUGEN
+→ VOLLSTÄNDIG AUF DIE ERZEUGUNG WARTEN
 → SOFORT KORREKT UMBENENNEN
 → MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
 → ERST DANN NÄCHSTES BILD
 ```
+
+Verbindliches Agent-Protokoll:
+
+```text
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+```
+
+- einzige Übergabedatei an den Google-Flow-KI-Agenten: `03-szenen/alle-bildprompts.txt`
+- niemals mehrere Bilder parallel oder als Batch erzeugen
+- niemals das nächste Bild vorbereiten, bevor das aktuelle exakt umbenannt und geprüft ist
+- fehlerhaftes Bild unter derselben Bildnummer neu erzeugen und ersetzen
+- Animationsnummern ohne Bilderzeugung überspringen
+- Same-World-Lock bei jedem einzelnen Bild anwenden
+- das zuerst bestandene `Bild 00` als reine visuelle Stilreferenz für alle Folgebilder verwenden; Stil/Licht/Materialien übernehmen, niemals Cover-Motiv, Komposition oder Labels kopieren
 
 ### Nummerierung
 

@@ -16,6 +16,10 @@ Jeder Prompt besteht aus:
 
 ```text
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+
+SAME-WORLD LOCK:
+Keep the exact same background material and gradient character, emerald rim-light signature, rounded geometry language, bevel softness, matte/glass material finish, color roles, contrast level and premium editorial 3D quality across the complete image series. Do not reinterpret the visual universe between images.
 
 STYLE:
 Premium fintech editorial 3D render style.
@@ -61,6 +65,9 @@ No photorealism, no real identifiable human, no faceless character, no back-view
 ```text
 GOOGLE FLOW – FINALER DATEINAME:
 Bild XX - Kurzer Szenenname.png
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+Generate exactly this one image, wait until it is complete, rename it immediately, verify filename and QA, and only then continue. If QA fails, regenerate the same image number before proceeding.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - [Label 1]
