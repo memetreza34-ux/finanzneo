@@ -1,0 +1,15 @@
+# Arman wird bei jeder Änderung automatisch als verantwortlicher Reviewer angefordert.
+* @memetreza34-ux
+
+# Kritische Verträge und Produktionsregeln.
+/AGENTS.md @memetreza34-ux
+/CLAUDE.md @memetreza34-ux
+/MASTER-PROMPTS.md @memetreza34-ux
+/START-HIER.md @memetreza34-ux
+/docs/ @memetreza34-ux
+/reels/PRODUKTIONSSTANDARD.md @memetreza34-ux
+/youtube/PRODUKTIONSSTANDARD.md @memetreza34-ux
+/scripts/ @memetreza34-ux
+/src/brand/ @memetreza34-ux
+/src/finance/ @memetreza34-ux
+/.github/ @memetreza34-ux

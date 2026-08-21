@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import {execFileSync} from 'node:child_process';
+import {isProtectedPath} from './lib/protected-files.mjs';
 
 const base = process.argv[2];
 if (!base) {
@@ -9,9 +10,7 @@ if (!base) {
 const git = (...args) => execFileSync('git', args, {encoding: 'utf8'}).trim();
 const changed = git('diff', '--name-only', `${base}...HEAD`).split('\n').filter(Boolean);
 const deleted = git('diff', '--name-status', `${base}...HEAD`).split('\n').filter((line) => /^D\s/.test(line));
-const protectedExact = new Set(['CLAUDE.md','package-lock.json','npm-shrinkwrap.json','yarn.lock','pnpm-lock.yaml']);
-const protectedPrefixes = ['docs/FINANZNEO-IMAGE-WORLD-V3.md','src/brand/','src/finance/','.github/workflows/'];
-const protectedChanges = changed.filter((path) => protectedExact.has(path) || protectedPrefixes.some((prefix) => path.startsWith(prefix)));
+const protectedChanges = changed.filter(isProtectedPath);
 console.log(`Starting HEAD: ${base}`);
 console.log(`Current HEAD:  ${git('rev-parse', 'HEAD')}`);
 console.log(`Changed files: ${changed.length}`);

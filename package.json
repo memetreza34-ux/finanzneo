@@ -7,6 +7,7 @@
     "node": ">=20.19.0"
   },
   "scripts": {
+    "prepare": "node scripts/install-git-guards.mjs",
     "setup:check": "node scripts/check-setup.mjs",
     "studio": "npx remotion studio",
     "lint": "eslint . --max-warnings=0",
@@ -20,6 +21,8 @@
     "youtube:create": "node scripts/scaffold-finanzneo-youtube.mjs",
     "youtube:validate": "node scripts/validate-youtube.mjs",
     "youtube:ready": "node scripts/check-youtube-production-ready.mjs",
+    "protect:install": "node scripts/install-git-guards.mjs",
+    "protect:check-staged": "node scripts/check-staged-protected-files.mjs",
     "antigravity:safety": "node scripts/antigravity-repo-safety-check.mjs",
     "validate:compositions": "node scripts/validate-compositions.mjs",
     "validate:design-system": "node scripts/validate-design-system.mjs",

@@ -20,6 +20,7 @@ npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
 npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
 npm run youtube:validate -- youtube/<Projekt>
 npm run youtube:ready -- youtube/<Projekt>
+npm run protect:install
 npm run build
 npm run smoke
 npm run render
@@ -36,5 +37,7 @@ npm run render
 - `docs/` — Bildwelt, Publishing und Qualitätsregeln
 
 Verbindliche Abläufe: [Reel in drei Phasen](docs/3-PHASEN-WORKFLOW.md) und [YouTube-Longform in drei Phasen](docs/YOUTUBE-LONGFORM-WORKFLOW.md).
+
+Schreibschutz und Git-Hooks: [Repository-Schutz](docs/REPOSITORY-SCHUTZ.md).
 
 Die Produktionsregistry ist nach der Bereinigung bewusst leer. Verbindliche Projektregeln stehen in [`CLAUDE.md`](CLAUDE.md).
