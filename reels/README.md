@@ -1,20 +1,27 @@
 # Reels
 
-Hier liegen ausschließlich die fertigen FinanzNeo-Reel-Projekte.
+Hier liegen ausschließlich fertige FinanzNeo-Reel-Projekte. Aktuell ist keines angelegt.
 
 Pfad:
 
 `reels/<Wochenordner>/<Wochentag>/<Reel-Ordner>/`
 
-Jedes Reel enthält `00-cover`, `01-voice-script`, `02-audio`, `03-szenen`, `04-caption`, `05-review`, `06-video`, `render` und `timeline`.
+Jedes neue Reel hat diese Struktur:
 
-## Verbindlicher Szenenvertrag
-
-- Bildszene: `bildprompt.txt`, `szene.md` und genau ein Bild beziehungsweise `placeholder.svg`.
-- Remotion-Szene: `remotion.md` und `szene.md`.
-- `motionprompt.txt` und `alle-motionprompts.txt` sind verboten.
-- Eine Szene darf niemals gleichzeitig `bildprompt.txt` und `remotion.md` enthalten.
-- Zoom, Pan und andere einfache Bewegungen von Standbildern werden zentral im Remotion-Code definiert.
+```text
+01-script/
+02-audio/
+03-szenen/
+├── 00-cover/
+├── 00-ALLE-BILDER-HIER-REIN/
+├── EINZELNE-SZENEN/scene-XX/
+├── alle-bildprompts.txt
+├── bildwelt.txt
+└── scene-index.json
+04-caption/
+05-projektdateien/
+README.md
+```
 
 Vollständige Regeln: `reels/PRODUKTIONSSTANDARD.md`
 
