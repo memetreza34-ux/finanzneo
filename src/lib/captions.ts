@@ -11,7 +11,16 @@ export type FinanzNeoCaptionFile = {
   generatedAt: string;
   duration?: number;
   wordCount?: number;
+  fps?: number;
+  subtitleMode?: 'sentence-with-audio-synced-active-word';
+  activeWordColor?: 'finance-green';
   words: CaptionWord[];
+  sentences?: Array<{
+    text: string;
+    start: number;
+    end: number;
+    words: CaptionWord[];
+  }>;
 };
 
 type LegacyCaptionSegment = {

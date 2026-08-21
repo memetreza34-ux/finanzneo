@@ -11,19 +11,22 @@ Erzeugt aus Audio oder Video das verbindliche Caption-Format:
   "generatedAt": "...",
   "duration": 12.34,
   "wordCount": 42,
-  "words": [{"word": "...", "start": 0.0, "end": 0.4}]
+  "subtitleMode": "sentence-with-audio-synced-active-word",
+  "activeWordColor": "finance-green",
+  "words": [{"word": "...", "start": 0.0, "end": 0.4}],
+  "sentences": [{"text": "...", "start": 0.0, "end": 1.2, "words": [...]}]
 }
 
 Nutzung:
-  source ~/manim-env/bin/activate
-  python scripts/captions.py <audio_or_video> [output.json]
-  python scripts/captions.py <audio_or_video> [output.json] --model small
+  python3 scripts/captions.py <audio_or_video> [output.json]
+  python3 scripts/captions.py <audio_or_video> [output.json] --model small
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 import subprocess
@@ -87,6 +90,32 @@ def normalize_word(entry: dict[str, Any]) -> dict[str, Any] | None:
     return {"word": word, "start": start, "end": end}
 
 
+def group_sentences(words: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    sentences: list[dict[str, Any]] = []
+    current: list[dict[str, Any]] = []
+
+    def flush() -> None:
+        if not current:
+            return
+        sentences.append(
+            {
+                "text": " ".join(word["word"] for word in current),
+                "start": current[0]["start"],
+                "end": current[-1]["end"],
+                "words": list(current),
+            }
+        )
+        current.clear()
+
+    for word in words:
+        current.append(word)
+        if re.search(r"[.!?][\"'»”)]*$", word["word"]):
+            flush()
+
+    flush()
+    return sentences
+
+
 def main() -> None:
     args = parse_args()
     source = Path(args.source).expanduser().resolve()
@@ -126,6 +155,7 @@ def main() -> None:
 
         words.sort(key=lambda item: (item["start"], item["end"]))
         duration = round(max((word["end"] for word in words), default=0.0), 2)
+        sentences = group_sentences(words)
 
         try:
             source_label = source.relative_to(Path.cwd().resolve()).as_posix()
@@ -139,7 +169,11 @@ def main() -> None:
             "generatedAt": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
             "duration": duration,
             "wordCount": len(words),
+            "fps": 30,
+            "subtitleMode": "sentence-with-audio-synced-active-word",
+            "activeWordColor": "finance-green",
             "words": words,
+            "sentences": sentences,
         }
 
         with output.open("w", encoding="utf-8") as file:

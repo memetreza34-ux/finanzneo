@@ -15,6 +15,8 @@ npm run studio
 ```bash
 npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
+npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
+npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
 npm run build
 npm run smoke
 npm run render
@@ -28,5 +30,7 @@ npm run render
 - `reels/` — künftige konkrete Reel-Projekte
 - `scripts/` — Scaffold, Validatoren und Render-Gates
 - `docs/` — Bildwelt, Publishing und Qualitätsregeln
+
+Verbindlicher Ablauf: [3-Phasen-Workflow](docs/3-PHASEN-WORKFLOW.md).
 
 Die Produktionsregistry ist nach der Bereinigung bewusst leer. Verbindliche Projektregeln stehen in [`CLAUDE.md`](CLAUDE.md).

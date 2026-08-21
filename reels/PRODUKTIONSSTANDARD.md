@@ -331,6 +331,8 @@ Longform-YouTube ist ein separates Format unter `youtube/` und wird nicht in Ree
 
 ## 18. Automatische Erstellung
 
+Der verbindliche Ablauf ist `docs/3-PHASEN-WORKFLOW.md`: Phase 1 durch normales ChatGPT, Phase 2 durch den Nutzer mit Google Flow und finalem Audio, Phase 3 autonom durch Antigravity.
+
 ```bash
 npm run reel:create -- \
   --target reels/<Woche>/<Tag>/<Reel> \
@@ -346,5 +348,13 @@ npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
 ```
 
 Der Validator verlangt die vier Reel-Plattformdateien und blockiert aktive YouTube-Shorts-Artefakte.
+
+Vor Phase 3 ist zusätzlich die strengere Einsatzprüfung Pflicht:
+
+```bash
+npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
+```
+
+Sie verlangt platzhalterfreie Phase-1-Inhalte, exakt benannte Bilder im gemeinsamen Bilderordner, genau ein finales Voiceover und echte dazugehörige Wort-Zeitstempel. Bei Erfolg arbeitet Antigravity ohne Rückfragen bis zur fertigen QA weiter. Bei Fehlern meldet es alle echten Blocker gesammelt.
 
 Validator/Typecheck/Preview müssen tatsächlich ausgeführt werden, bevor ein Reel als technisch fertig bezeichnet wird. Technischer Erfolg ersetzt nicht die visuelle Freigabe.

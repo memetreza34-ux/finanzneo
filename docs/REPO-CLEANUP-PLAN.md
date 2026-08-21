@@ -21,6 +21,10 @@ Stand: 21. August 2026
 - Render-Smoke-Test für jede registrierte Composition ergänzt
 - Standard-Render auf die funktionierende `ReelTemplateDemo` umgestellt
 - CI um Lint, Tests, Dependency-Audit, Bundle und Render-Smoke-Test ergänzt
+- verbindlichen 3-Phasen-Workflow für ChatGPT, Nutzer und Antigravity dokumentiert
+- strenge `reel:ready`-Einsatzprüfung für Platzhalter, Bilder, Audio, Wortzeiten und Medienlesbarkeit ergänzt
+- gemeinsamen Google-Flow-Bilderordner und technische Szenenkopien widerspruchsfrei vereinheitlicht
+- Caption-Generator, Runtime-Typen und Validator auf dasselbe Wort-/Satzschema gebracht
 
 ## Verbindliche Qualitätsbefehle
 

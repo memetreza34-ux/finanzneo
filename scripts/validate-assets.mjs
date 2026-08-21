@@ -79,7 +79,7 @@ export const validateManifest = (manifestPath) => {
     throw new Error(
       `Noch nicht renderbereit — ${failures.length} Pflicht-Asset(s) fehlen oder sind Platzhalter.\n` +
         '  Voiceover legst du selbst unter public/audio/ ab (bleibt lokal, siehe .gitignore).\n' +
-        '  Captions danach mit: python scripts/captions.py <audio.mp3> <captions.json>',
+        '  Captions danach mit: python3 scripts/captions.py <audio.mp3> <captions.json>',
     );
   }
 

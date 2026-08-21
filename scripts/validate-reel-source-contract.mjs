@@ -68,6 +68,8 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
     .sort();
 
   assert(Array.isArray(index.scenes), 'scene-index.json benötigt scenes[].');
+  assert(typeof index.cover?.googleFlowFileName === 'string' && index.cover.googleFlowFileName.trim(), 'scene-index.json benötigt cover.googleFlowFileName.');
+  assert(index.cover?.planFile === '03-szenen/00-cover/cover.txt', 'cover.planFile muss auf 03-szenen/00-cover/cover.txt zeigen.');
   assert(index.sceneCount === directories.length, 'sceneCount stimmt nicht mit den Szenenordnern überein.');
   assert(index.imageWorld?.id === WORLD_ID, 'FinanzNeo Image World ID fehlt.');
   assert(index.imageWorld?.referencePromptFile === '03-szenen/bildwelt.txt', 'referencePromptFile ist falsch.');
@@ -121,6 +123,7 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
     const timing = JSON.parse(readFileSync(timingPath, 'utf8'));
     assert(timing.subtitleMode === SUBTITLE_MODE, 'Worttiming-Datei hat falschen subtitleMode.');
     assert(timing.activeWordColor === ACTIVE_WORD_COLOR, `Aktive Wortfarbe muss ${ACTIVE_WORD_COLOR} sein.`);
+    assert(Array.isArray(timing.words), 'Worttiming-Datei benötigt words[].');
     assert(Array.isArray(timing.sentences), 'Worttiming-Datei benötigt sentences[].');
   }
 
@@ -159,7 +162,9 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
       if (legacyImageWorld) {
         assert(prompt.includes(WORLD_ID_MARKER), `${id}: Legacy-World-ID fehlt.`);
       } else {
+        assert(typeof indexed?.googleFlowFileName === 'string' && indexed.googleFlowFileName.trim(), `${id}: googleFlowFileName fehlt.`);
         assert(prompt.includes('GOOGLE FLOW – FINALER DATEINAME:'), `${id}: finaler Google-Flow-Dateiname fehlt direkt am Prompt.`);
+        assert(prompt.includes(indexed?.googleFlowFileName ?? ''), `${id}: Prompt und scene-index verwenden nicht denselben Google-Flow-Dateinamen.`);
         assert(prompt.includes('ONE single seamless continuous deep charcoal green-black background'), `${id}: nahtloser Einzelhintergrund fehlt.`);
         assert(!containsObsoleteZoning(prompt), `${id}: Prompt enthält verbotene Prozent-Zonen.`);
         assert(prompt.toLowerCase().includes('no headline'), `${id}: große generierte Headline ist nicht verboten.`);

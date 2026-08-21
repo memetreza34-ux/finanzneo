@@ -45,6 +45,16 @@ README.md
 
 Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Video anlegen, wenn sie nicht technisch zwingend erforderlich sind.
 
+### 3.1 Verbindlicher 3-Phasen-Workflow
+
+1. **Phase 1 — normales ChatGPT:** erstellt Recherche, Quellen, geprüftes Skript, Dramaturgie, Szenenplan, Bild-/Remotion-Zuordnung, vollständige Google-Flow-Prompts mit exakten Dateinamen, Remotion-Spezifikationen sowie Master- und Plattform-Captions. In diesen Inhalten bleiben keine Platzhalter.
+2. **Phase 2 — Nutzer:** erzeugt Cover und Szenenbilder einzeln mit Google Flow, benennt sie exakt, legt alle gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`, legt genau ein finales Voiceover in `02-audio/` und erzeugt daraus echte Wort-Zeitstempel.
+3. **Phase 3 — Antigravity:** beginnt auf den Auftrag `Mach das Reel: <Reel-Pfad>` mit `npm run reel:ready -- <Reel-Pfad>`. Ist die Prüfung erfolgreich, baut, prüft und rendert Antigravity das Reel ohne Rückfragen und ohne Zwischenstopps.
+
+Antigravity stoppt nur bei echten Blockern: fehlende/falsch benannte Nutzerbilder, fehlendes/mehrfaches/unlesbares finales Audio, fehlende oder nicht zum Audio passende Wortzeiten, widersprüchliche Pflichtdaten, Sicherheits-/Faktenkonflikte oder ein nicht selbst lösbarer Validator-/Build-/Renderfehler. Alle Blocker werden gesammelt mit exakten Pfaden gemeldet. Normale Detailentscheidungen trifft Antigravity selbst nach den Repo-Regeln.
+
+Vollständige Übergabe: `docs/3-PHASEN-WORKFLOW.md`.
+
 ## 4. Reel-Standard
 
 - 1080 × 1920

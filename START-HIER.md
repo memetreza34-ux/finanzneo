@@ -3,7 +3,7 @@
 ## Verbindliche Reihenfolge
 
 1. Lies `CLAUDE.md` vollständig.
-2. Lies `reels/PRODUKTIONSSTANDARD.md`.
+2. Lies `docs/3-PHASEN-WORKFLOW.md` und `reels/PRODUKTIONSSTANDARD.md`.
 3. Bei Bildaufgaben lies `docs/FINANZNEO-IMAGE-WORLD-V3.md`, `docs/IMAGE-SYSTEM.md`, `docs/IMAGE-PROMPT-LIBRARY.md` und `docs/IMAGE-QA-CHECKLIST.md`.
 4. Entscheide den Visualtyp mit `docs/BEAT-TO-IMAGE-RULES.md`.
 5. Für Veröffentlichung lies `docs/PLATFORM-PUBLISHING.md`.
@@ -79,6 +79,16 @@ Erstelle selbstständig:
 Bilder erzeugt ausschließlich der Nutzer. Antigravity erzeugt keine Bilder.
 Keine YouTube Shorts erzeugen. YouTube ist ausschließlich Longform unter `youtube/`.
 ```
+
+## Übergabe an Antigravity
+
+Nach Phase 2 reicht dieser Auftrag:
+
+```text
+Mach das Reel: reels/<Woche>/<Tag>/<Reel>
+```
+
+Antigravity prüft mit `npm run reel:ready -- <Reel-Pfad>`. Bei Erfolg baut und prüft es ohne Zwischenfragen bis zum Render. Es stoppt nur bei einem konkret benannten fehlenden oder widersprüchlichen Pflichtasset beziehungsweise einem nicht selbst lösbaren technischen Fehler.
 
 ## Bildfreigabe
 

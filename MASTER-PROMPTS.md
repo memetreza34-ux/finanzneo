@@ -4,6 +4,7 @@
 
 Vor neuen Reels zusätzlich lesen:
 
+- `docs/3-PHASEN-WORKFLOW.md`
 - `reels/PRODUKTIONSSTANDARD.md`
 - `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 - `docs/IMAGE-SYSTEM.md`
@@ -12,7 +13,7 @@ Vor neuen Reels zusätzlich lesen:
 - `docs/IMAGE-QA-CHECKLIST.md`
 - `docs/PLATFORM-PUBLISHING.md`
 
-## 1. Neues Reel komplett vorbereiten
+## 1. Phase 1 — ChatGPT bereitet komplett vor
 
 ```text
 Neues FinanzNeo-Reel.
@@ -31,9 +32,22 @@ Arbeite nach allen aktuellen Repo-Regeln und erstelle selbstständig:
 
 Antigravity erzeugt keine Bilder. Der Nutzer erzeugt alle Bilder selbst mit Google Flow.
 Keine YouTube Shorts erzeugen. YouTube ist ausschließlich ein separater Longform-Bereich unter `youtube/`.
+
+Schreibe alle Ergebnisse direkt in die verbindliche Reel-Struktur. Entferne alle Platzhalter aus Skript, Recherche, Szenenplan, Bildprompts, scene-index und Plattformtexten. Erzeuge selbst keine finalen Bilder und kein Ersatz-Voiceover.
 ```
 
-## 2. Bildprompt erstellen
+## 2. Phase 3 — Antigravity baut autonom
+
+```text
+Mach das Reel: reels/<Woche>/<Tag>/<Reel>
+
+Prüfe zuerst vollständig mit `npm run reel:ready -- <Reel-Pfad>`.
+Wenn die Prüfung erfolgreich ist, beginne sofort und arbeite ohne Rückfragen oder Zwischenstopps bis zur technischen und visuellen QA des fertigen Renders.
+Triff normale Detailentscheidungen selbst nach CLAUDE.md.
+Stoppe nur bei echten Pflichtasset-, Fakten-, Sicherheits-, Validator-, Build- oder Renderblockern. Melde dann alle Blocker gesammelt mit exakten Pfaden.
+```
+
+## 3. Bildprompt erstellen
 
 ```text
 Erstelle einen FinanzNeo-Bildprompt für diesen gesprochenen Satz:
@@ -76,7 +90,7 @@ Direkt am Prompt den endgültigen Dateinamen angeben.
 Bildnummer = echte Szenennummer; Animationsnummern bleiben reserviert.
 ```
 
-## 3. Google-Flow-Sammelprompt erstellen
+## 4. Google-Flow-Sammelprompt erstellen
 
 ```text
 Erstelle `03-szenen/alle-bildprompts.txt` in chronologischer Szenenreihenfolge.
@@ -94,7 +108,7 @@ Animationsszenen bekommen kein Bild; ihre Nummer bleibt reserviert.
 Erst nach Abschluss alle Bilder gemeinsam nach `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
 ```
 
-## 4. Bild-QA
+## 5. Bild-QA
 
 ```text
 Prüfe jedes Nutzerbild nach den aktuellen FinanzNeo-Regeln.
@@ -112,7 +126,7 @@ Sofort NEU ERSTELLEN melden bei:
 Antigravity darf das Bild nicht selbst neu generieren.
 ```
 
-## 5. Voiceover, Timing und Remotion
+## 6. Voiceover, Timing und Remotion
 
 ```text
 Nutze ausschließlich das finale Voiceover.
@@ -129,7 +143,7 @@ Maximal zwei Zeilen.
 Animationen relativ zur tatsächlichen Szenendauer.
 ```
 
-## 6. Finale technische QA
+## 7. Finale technische QA
 
 ```text
 Wenn Nutzerbilder und finales Audio vorhanden sind:
@@ -144,7 +158,7 @@ Wenn Nutzerbilder und finales Audio vorhanden sind:
 Keine Prüfung als bestanden behaupten, wenn sie nicht tatsächlich ausgeführt wurde.
 ```
 
-## 7. Reel-Plattform-Publishing
+## 8. Reel-Plattform-Publishing
 
 ```text
 Erstelle aus der geprüften Master-Caption alle Reel-Veröffentlichungsdateien in `04-caption/`.

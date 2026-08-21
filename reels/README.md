@@ -1,6 +1,6 @@
 # Reels
 
-Hier liegen ausschließlich fertige FinanzNeo-Reel-Projekte. Aktuell ist keines angelegt.
+Hier liegen ausschließlich FinanzNeo-Reel-Projekte. Aktuell ist keines angelegt.
 
 Pfad:
 
@@ -35,4 +35,7 @@ Reel prüfen:
 
 ```bash
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
+npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
 ```
+
+`reel:validate` prüft die Struktur. `reel:ready` entscheidet streng, ob Phase 3 ohne Rückfragen starten darf.

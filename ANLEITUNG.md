@@ -2,9 +2,18 @@
 
 > `CLAUDE.md` ist die höchste Regelquelle. Dieses Dokument beschreibt den praktischen Ablauf.
 
+Der Ablauf ist in drei Übergaben gebündelt:
+
+1. normales ChatGPT vervollständigt Inhalt, Skript, Struktur und Prompts
+2. der Nutzer erstellt Google-Flow-Bilder, finales Audio und echte Wort-Zeitstempel
+3. Antigravity prüft mit `npm run reel:ready -- <Reel-Pfad>` und baut bei Erfolg ohne Zwischenfragen bis zum geprüften Render
+
+Details und zulässige Stopps: `docs/3-PHASEN-WORKFLOW.md`.
+
 ## Vor jedem neuen Reel lesen
 
 - `CLAUDE.md`
+- `docs/3-PHASEN-WORKFLOW.md`
 - `reels/PRODUKTIONSSTANDARD.md`
 - `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 - `docs/IMAGE-SYSTEM.md`

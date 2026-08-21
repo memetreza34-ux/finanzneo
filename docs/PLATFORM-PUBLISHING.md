@@ -150,6 +150,6 @@ Ein Reel ist publishing-seitig erst vorbereitet, wenn die vier Reel-Plattformdat
 - Facebook Reels
 - Snapchat
 
-Fehlende Plattformtexte verhindern nicht den technischen Remotion-Render, müssen aber vor dem geplanten Cross-Platform-Publishing ergänzt werden.
+Fehlende Plattformtexte verhindern einen rein manuellen technischen Remotion-Test nicht. Sie blockieren aber `npm run reel:ready` und damit den autonomen Start von Phase 3, weil ChatGPT sie bereits in Phase 1 vollständig vorbereitet.
 
 YouTube gehört nicht zu diesem Reel-Publishing-Schritt. Längere YouTube-Videos werden separat unter `youtube/` produziert.

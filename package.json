@@ -16,6 +16,7 @@
     "reel:create": "node scripts/scaffold-finanzneo-reel.mjs",
     "reel:sort-images": "node scripts/sort-reel-images.mjs",
     "reel:validate": "node scripts/validate-reel.mjs",
+    "reel:ready": "node scripts/check-reel-production-ready.mjs",
     "antigravity:safety": "node scripts/antigravity-repo-safety-check.mjs",
     "validate:compositions": "node scripts/validate-compositions.mjs",
     "validate:design-system": "node scripts/validate-design-system.mjs",
