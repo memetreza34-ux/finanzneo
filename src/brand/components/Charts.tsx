@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCurrentFrame } from 'remotion';
-import { C, E, prog, lerpF, a } from '../tokens';
+import { C, E, prog, a } from '../tokens';
 import { FONT } from '../fonts';
 
 // ════════════════════════════════════════════════════════════════════════════

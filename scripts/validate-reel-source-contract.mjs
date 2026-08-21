@@ -198,5 +198,5 @@ if (errors.length) {
 }
 
 console.log('\n✓ Reel-Quellen-, Bildwelt-, Timing-, Publishing- und Präsentationsvertrag erfüllt.');
-console.log('  Neue Reels: nahtloser Hintergrund · sichtbares Gesicht bei Personen · kurze deutsche Objektlabels · 5 Plattformdateien');
+console.log('  Neue Reels: nahtloser Hintergrund · sichtbares Gesicht bei Personen · kurze deutsche Objektlabels · Master-Caption + 4 Plattformdateien');
 if (missingFinalImages > 0) console.log(`  Hinweis: ${missingFinalImages} finale Bilddateien fehlen noch.`);

@@ -1,14 +1,14 @@
 // ════════════════════════════════════════════════════════════════════════════
 //  ZINSESZINS · SZENE 1 — HOOK  (49,1s · 16:9)
-//  Audio: public/audio/szene-01-hook.mp3  ·  Beat-Zeiten aus Whisper verifiziert.
+//  Experimentelle Longform-Szene ohne fest eingebundenes Produktionsaudio.
 //  Build-Look: Clean-Bold, dunkelgrün. Jeder Beat exakt aufs Wort.
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile, useCurrentFrame, useVideoConfig, spring } from 'remotion';
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, spring } from 'remotion';
 import {
   C, FONT, sec, prog, lerpF, life, a, euro,
   Background, Vignette,
-  DramaticNumber, KineticPunch, Scramble, LottieBox, Shine, Emphasis,
+  DramaticNumber, Scramble, LottieBox, Shine, Emphasis,
 } from '../brand';
 
 // ─── Beat-Zeiten (Sekunden, aus Whisper) ─────────────────────────────────────
@@ -46,7 +46,6 @@ export const Scene01Hook: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Background />
-      <Audio src={staticFile('audio/szene-01-hook.mp3')} />
 
       {/* A1 — 100 € im Monat */}
       <Stage inS={0} outS={T.pizza}>

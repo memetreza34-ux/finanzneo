@@ -1,13 +1,11 @@
 // FinanzNeo Chart-Bausteine — aus KI-Kit portiert, FinanzNeo-Marke + Glassmorphism.
-import {useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
+import {useCurrentFrame, spring} from 'remotion';
 import {C, bebas, inter, Glass} from './fn_core';
 import {PremiumChart} from './fn_chart_base';
 
 const eo = (t: number) => 1 - Math.pow(1 - t, 3);
 const c01 = (t: number) => Math.max(0, Math.min(1, t));
 const rev = (f: number, s: number, d = 14) => c01((f - s) / d);
-const de = (n: number) => Math.round(n).toLocaleString('de-DE');
-
 export const FNHBars: React.FC<{data?: [string, number, string][]}> =
 ({data = [['Aktien', 0.95, C.green], ['Immobilien', 0.7, C.gold], ['Anleihen', 0.45, C.blue], ['Sparbuch', 0.2, C.red]]}) => {
   const f = useCurrentFrame();

@@ -1,5 +1,5 @@
 // FinanzNeo Zeit + Maps + Personen — Pro-Palette (Grün/Gold/Neutral).
-import {useCurrentFrame, interpolate} from 'remotion';
+import {useCurrentFrame} from 'remotion';
 import {C, bebas, inter} from './fn_core';
 import {P} from './fn_pro';
 

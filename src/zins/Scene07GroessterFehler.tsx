@@ -4,9 +4,9 @@
 //  Zahlen verifiziert (7% p.a.): Anna 12.000€→≈185.000€, Tom 42.000€→≈180.000€.
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile, useCurrentFrame, useVideoConfig, spring } from 'remotion';
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, spring } from 'remotion';
 import {
-  C, FONT, sec, prog, lerpF, life, a,
+  C, FONT, sec, prog, life, a,
   Background, Vignette, Counter,
 } from '../brand';
 
@@ -74,7 +74,6 @@ export const Scene07GroessterFehler: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Background />
-      <Audio src={staticFile('audio/szene-07-groesster-fehler.mp3')} />
 
       {/* A — Der größte Fehler: WARTEN */}
       <Stage inS={0} outS={T.anna}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Sequence, useVideoConfig } from 'remotion';
+import { AbsoluteFill, Sequence } from 'remotion';
 import {
   C, sec, Background, Vignette,
   LogoIntro, SubscribeBar, EndCard,
@@ -16,7 +16,6 @@ const SAMPLE: CaptionWord[] = [
 
 // Komplette Mini-Video-Struktur: Intro → Hook → Stat → Vergleich → CTA → Outro.
 export const TemplateDemo: React.FC = () => {
-  const { width } = useVideoConfig();
   return (
     <AbsoluteFill style={{ backgroundColor: C.bg }}>
       <Background grid glow />

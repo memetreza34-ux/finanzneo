@@ -1,5 +1,5 @@
 import {AbsoluteFill, Series, useCurrentFrame} from 'remotion';
-import {C, bebas, inter, StaticBG} from './fn_core';
+import {C, inter, StaticBG} from './fn_core';
 import * as P from './fn_pro';
 
 const items: {name: string; node: React.ReactNode}[] = [

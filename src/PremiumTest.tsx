@@ -1,6 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, useVideoConfig } from 'remotion';
-import { C, sec, Background, Vignette, Title, Kicker,
+import { C, sec, Background, Vignette, Kicker,
   AreaPremium, BarsPremium, PiePremium, RadarPremium } from './brand';
 
 // Vergleich: Premium-Charts (Recharts) statt handgemalt.

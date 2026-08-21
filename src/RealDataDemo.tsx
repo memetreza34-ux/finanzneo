@@ -1,6 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from 'remotion';
-import { C, FONT, sec, prog, lerpF, life, a, E, RollingNumber, AreaPremium } from './brand';
+import { C, FONT, sec, prog, lerpF, life, a, RollingNumber, AreaPremium } from './brand';
 import sp500 from '../public/data/sp500-10y.json';
 
 // ════════════════════════════════════════════════════════════════════════════

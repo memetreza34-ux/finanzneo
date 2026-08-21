@@ -2,8 +2,6 @@ import React from 'react';
 import { AbsoluteFill } from 'remotion';
 import { C, FONT, a } from './brand';
 
-const W = 1080, H = 1920;
-
 // ─── 1 · CLEAN / MINIMAL (Apple-Keynote-Stil) ─────────────────────────────────
 export const V1Clean: React.FC = () => (
   <AbsoluteFill style={{ background: '#0A0E12', alignItems: 'center', justifyContent: 'center' }}>

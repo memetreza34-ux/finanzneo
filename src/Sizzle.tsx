@@ -3,7 +3,7 @@ import { AbsoluteFill, useCurrentFrame, useVideoConfig } from 'remotion';
 import {
   C, FONT, sec, prog, lerpF, life, a, E,
   AuroraBG, Particles, RollingNumber, AreaPremium, MaskReveal, WordStagger,
-  Emphasis, Confetti, Vignette, PercentRing,
+  Emphasis, Confetti, Vignette,
 } from './brand';
 
 // "Sizzle" — polierte Best-of-Animation. ~17s, vertikal.

@@ -3,10 +3,10 @@
 //  Audio: szene-02-zinseszins.mp3 · Beats aus Whisper.
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile, useCurrentFrame, useVideoConfig, spring, interpolate } from 'remotion';
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, spring, interpolate } from 'remotion';
 import {
-  C, FONT, sec, prog, lerpF, life, a, euro,
-  Background, Vignette, GrowthChart, Counter, FlipIn3D, LottieBox, Emphasis,
+  C, FONT, sec, prog, lerpF, life, a,
+  Background, Vignette, GrowthChart, Counter, FlipIn3D,
 } from '../brand';
 
 const T = {
@@ -54,12 +54,10 @@ const StackRow: React.FC<{ at: number; indent: number; text: string; strong?: bo
 
 export const Scene02Zinseszins: React.FC = () => {
   const f = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Background />
-      <Audio src={staticFile('audio/szene-02-zinseszins.mp3')} />
 
       {/* A — Begriff ZINSESZINS */}
       <Stage inS={0} outS={T.anlegen}>

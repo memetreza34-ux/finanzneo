@@ -39,7 +39,7 @@ export const FNGrowthGlass: React.FC<{
   const pct = Math.round(((end - start) / start) * 100);
 
   // Panel-Geometrie
-  const PW = 1240, PH = 700, PX = (1920 - PW) / 2, PY = (1080 - PH) / 2;
+  const PW = 1240, PH = 700;
   // Mini-Kurve unten im Panel
   const cx0 = 80, cx1 = PW - 80, cyB = PH - 70, cyT = 430;
   const pts = Array.from({length: 60}, (_, i) => {

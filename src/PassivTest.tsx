@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig, interpolate } from 'remotion';
+import { AbsoluteFill, Img, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import { C, FONT, sec, prog, lerpF, life, a, E, RollingNumber, WordReveal, Vignette, Particles } from './brand';
 
 // Test: FLUX-Bild als Hintergrund (Option B — die Stimme redet über das Bild "Geldbaum").

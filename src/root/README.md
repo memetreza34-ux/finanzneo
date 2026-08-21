@@ -16,6 +16,8 @@ Nur Inhalte, die veröffentlicht oder direkt als Kanal-Asset exportiert werden k
 
 Produktive Compositions benötigen vor dem finalen Render ein Asset-Manifest und eine Faktenprüfung.
 
+Nach der Bereinigung ist diese Registry bewusst leer. Neue Inhalte werden erst nach vollständiger Freigabe aus `ExperimentCompositions.tsx` hierher verschoben.
+
 ### `ExperimentCompositions.tsx`
 
 Nicht freigegebene Arbeit:

@@ -1,6 +1,6 @@
 // FinanzNeo Deko + Betonung — Pro-Palette (Grün/Gold/Neutral).
 import {useCurrentFrame} from 'remotion';
-import {C, bebas, inter} from './fn_core';
+import {C, bebas} from './fn_core';
 import {P} from './fn_pro';
 
 const c01 = (t: number) => Math.max(0, Math.min(1, t));

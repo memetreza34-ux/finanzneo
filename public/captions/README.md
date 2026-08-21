@@ -21,8 +21,7 @@ Alle produktiv verwendeten Caption-Dateien liegen in diesem Ordner und werden mi
 ## Erzeugen
 
 ```bash
-source ~/manim-env/bin/activate
-python scripts/captions.py public/audio/<name>.mp3 public/captions/<name>.json
+python3 scripts/captions.py public/audio/<name>.mp3 public/captions/<name>.json
 ```
 
 ## Alte Formate
@@ -34,6 +33,4 @@ python scripts/captions.py public/audio/<name>.mp3 public/captions/<name>.json
 
 Neue Dateien dürfen ausschließlich im Format `finanzneo-caption-v1` erzeugt werden.
 
-## Platzhalter
-
-Eine Datei mit `generatedAt: "placeholder"` verhindert nur einen Build-Absturz. Sie enthält noch keine echten Untertitel und muss vor einem Produktionsrender durch das Ergebnis von `scripts/captions.py` ersetzt werden.
+Platzhalter-Captions werden nicht versioniert. Fehlen echte Wortzeiten, bleibt die Composition im Experiment-Bereich und darf nicht in Produktion verschoben werden.

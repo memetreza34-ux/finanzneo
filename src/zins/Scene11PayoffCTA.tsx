@@ -3,10 +3,10 @@
 //  Audio: szene-11-payoff-cta.mp3 · Finale: Formel, zukünftiges Ich, Abo-CTA.
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile, useCurrentFrame, useVideoConfig, spring } from 'remotion';
+import { AbsoluteFill, useCurrentFrame } from 'remotion';
 import {
   C, FONT, sec, prog, lerpF, life, a, euro,
-  Background, Vignette, DramaticNumber, Counter, SubscribeBar, Confetti,
+  Background, Vignette, DramaticNumber, SubscribeBar, Confetti,
 } from '../brand';
 
 const T = {
@@ -43,12 +43,10 @@ const Badge: React.FC<{ children: React.ReactNode; at: number; color?: string } 
 
 export const Scene11PayoffCTA: React.FC = () => {
   const f = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Background />
-      <Audio src={staticFile('audio/szene-11-payoff-cta.mp3')} />
 
       {/* A — Zusammenfassung: Formel → 121.000 € */}
       <Stage inS={0} outS={T.moment}>

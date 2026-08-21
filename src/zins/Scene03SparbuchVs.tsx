@@ -3,9 +3,9 @@
 //  Audio: szene-03-sparbuch-vs.mp3 · Höhepunkt: Dual-Chart (flach vs explosiv).
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile, useCurrentFrame, useVideoConfig, spring, interpolate } from 'remotion';
+import { AbsoluteFill, useCurrentFrame } from 'remotion';
 import {
-  C, FONT, E, sec, prog, lerpF, life, a, euro,
+  C, FONT, E, sec, prog, life, a,
   Background, Vignette, Counter, LottieBox,
 } from '../brand';
 
@@ -76,12 +76,10 @@ const DualChart: React.FC<{ drawStart: number; drawEnd: number }> = ({ drawStart
 };
 export const Scene03SparbuchVs: React.FC = () => {
   const f = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Background />
-      <Audio src={staticFile('audio/szene-03-sparbuch-vs.mp3')} />
 
       {/* A — Vergleich der weh tut */}
       <Stage inS={0} outS={T.lisamax}>

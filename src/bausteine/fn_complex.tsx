@@ -1,12 +1,10 @@
 // FinanzNeo komplexe Szenen — aus KI-Kit portiert, FinanzNeo-Marke.
 import {useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
-import {C, bebas, inter} from './fn_core';
+import {C, bebas} from './fn_core';
 
 const c01 = (t: number) => Math.max(0, Math.min(1, t));
 const eo = (t: number) => 1 - Math.pow(1 - t, 3);
 const rev = (f: number, s: number, d = 14) => c01((f - s) / d);
-const rand = (i: number) => {const x = Math.sin(i * 127.1 + 311.7) * 43758.5; return x - Math.floor(x);};
-
 // Begriff verwandelt sich (Sparen → Vermögen)
 export const FNConceptMorph: React.FC<{a?: string; b?: string}> = ({a = 'SPAREN', b = 'VERMÖGEN'}) => {
   const f = useCurrentFrame(); const sw = 50;
@@ -72,7 +70,7 @@ export const FNExponential: React.FC = () => {
 
 // Partikel morphen (Chaos → geordneter Vermögensaufbau)
 export const FNParticleMorph: React.FC = () => {
-  const f = useCurrentFrame(); const N = 130; const cx = 0, cy = 0; const t = eo((Math.sin(f / 40) + 1) / 2);
+  const f = useCurrentFrame(); const N = 130; const t = eo((Math.sin(f / 40) + 1) / 2);
   return <svg width={700} height={700} viewBox="-350 -350 700 700" style={{fontFamily: bebas}}>
     {new Array(N).fill(0).map((_, i) => {const a = (i / N) * Math.PI * 2; const ax = Math.cos(a) * 270, ay = Math.sin(a) * 270;
       const cols = 13; const bx = ((i % cols) - 6) * 40, by = (Math.floor(i / cols) - 4.5) * 40;

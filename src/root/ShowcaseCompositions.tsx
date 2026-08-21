@@ -11,6 +11,10 @@ import {TemplateDemo2} from '../TemplateDemo2';
 import {Sizzle} from '../Sizzle';
 import {UpgradeShowcase, UPGRADE_SHOWCASE_DURATION} from '../UpgradeShowcase';
 import {LottieFinanzGrid} from '../LottieFinanzGrid';
+import {Thumbnail} from '../Thumbnail';
+import {ThumbnailFlux} from '../ThumbnailFlux';
+import {ProfilePic1, ProfilePic2, ProfilePic3} from '../ProfilePic';
+import {DisclaimerPreview} from '../DisclaimerPreview';
 import {FNShowcase, FN_FRAMES} from '../bausteine/FNShowcase';
 import {FNKitShowcase, FNKIT_FRAMES} from '../bausteine/FNKitShowcase';
 import {FNKit2Showcase, FNKIT2_FRAMES} from '../bausteine/FNKit2Showcase';
@@ -48,6 +52,13 @@ export const ShowcaseCompositions: React.FC = () => (
     <Composition id="Sizzle" component={Sizzle} durationInFrames={510} fps={FPS} {...VERTICAL} />
     <Composition id="UpgradeShowcase" component={UpgradeShowcase} durationInFrames={UPGRADE_SHOWCASE_DURATION} fps={FPS} {...WIDE} />
     <Composition id="LottieFinanzGrid" component={LottieFinanzGrid} durationInFrames={90} fps={FPS} {...WIDE} />
+    <Composition id="Thumbnail" component={Thumbnail} durationInFrames={1} fps={FPS} width={1280} height={720} />
+    <Composition id="ThumbnailFlux" component={ThumbnailFlux} durationInFrames={1} fps={FPS} width={1280} height={720} />
+    <Composition id="ProfilePic1" component={ProfilePic1} durationInFrames={1} fps={FPS} width={1080} height={1080} />
+    <Composition id="ProfilePic2" component={ProfilePic2} durationInFrames={1} fps={FPS} width={1080} height={1080} />
+    <Composition id="ProfilePic3" component={ProfilePic3} durationInFrames={1} fps={FPS} width={1080} height={1080} />
+    <Composition id="DisclaimerVertical" component={DisclaimerPreview} durationInFrames={300} fps={FPS} {...VERTICAL} />
+    <Composition id="DisclaimerWide" component={DisclaimerPreview} durationInFrames={300} fps={FPS} {...WIDE} />
 
     {/* Baustein-Übersichten: zeigen je eine Gruppe aus src/bausteine im Zusammenhang. */}
     <Composition id="FNShowcase" component={FNShowcase} durationInFrames={FN_FRAMES} fps={FPS} {...VERTICAL} />

@@ -3,7 +3,7 @@ import { useCurrentFrame } from 'remotion';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid,
   BarChart, Bar, Cell, PieChart, Pie, RadarChart, Radar,
-  PolarGrid, PolarAngleAxis, ResponsiveContainer,
+  PolarGrid, PolarAngleAxis,
 } from 'recharts';
 import { C, E, prog, a } from '../tokens';
 import { FONT } from '../fonts';

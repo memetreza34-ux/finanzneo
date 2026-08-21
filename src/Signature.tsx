@@ -1,15 +1,11 @@
 import React from 'react';
-import { AbsoluteFill, useCurrentFrame, useVideoConfig, interpolate } from 'remotion';
-import { C, FONT, sec, prog, lerpF, life, a, E, RollingNumber } from './brand';
-
-const CL = { extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const };
+import { AbsoluteFill, useCurrentFrame } from 'remotion';
+import { C, FONT, sec, prog, lerpF, life, E, RollingNumber } from './brand';
 
 // FinanzNeo SIGNATURE-STIL: "Clean Bold" — klare Flächen, große Typo, mutiger
 // diagonaler Grün-Akzent, smooth. ~10s vertikal.
 export const Signature: React.FC = () => {
   const f = useCurrentFrame();
-  const { width: W, height: H } = useVideoConfig();
-
   // Wort-Reveal Helper (clean, von unten)
   const word = (txt: string, at: number, size: number, col: string = C.white, weight = 800) => {
     const o = prog(f, at, at + 7);

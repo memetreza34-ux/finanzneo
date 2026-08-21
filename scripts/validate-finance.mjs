@@ -159,11 +159,6 @@ for (const disclosure of requiredDisclosures) {
   }
 }
 
-const shortHook = readFileSync(resolve('src/zins/ShortHook.tsx'), 'utf8');
-if (!shortHook.includes('FINANCE_EXAMPLES.savingsPlan')) {
-  violations.push('ShortHook.tsx verwendet nicht die zentralen Sparplan-Annahmen.');
-}
-
 const reelDemo = readFileSync(resolve('src/production/reel-template/ReelTemplateDemo.tsx'), 'utf8');
 if (!reelDemo.includes('FINANCE_EXAMPLES.emergencyFund') || !reelDemo.includes('getEmergencyFundTarget')) {
   violations.push('ReelTemplateDemo.tsx verwendet nicht die zentralen Notgroschen-Annahmen.');
@@ -178,4 +173,4 @@ if (violations.length > 0) {
 console.log('\n✓ Sparplan-, Inflations- und Kreditformeln stimmen mit Referenzwerten überein.');
 console.log('✓ Zentrale Beispielannahmen und Einschränkungen sind vorhanden.');
 console.log('✓ Bekannte falsche Demo-Zahlen und synthetische Finanzkurven wurden nicht gefunden.');
-console.log('✓ ShortHook und ReelTemplateDemo verwenden zentrale Beispielannahmen.');
+console.log('✓ ReelTemplateDemo verwendet zentrale Beispielannahmen.');

@@ -1,10 +1,16 @@
 {
   "name": "finanzneo-brandkit",
   "version": "1.0.0",
+  "private": true,
   "description": "FinanzNeo Remotion-Studio für vertikale Finanz-Erklärvideos",
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "scripts": {
     "setup:check": "node scripts/check-setup.mjs",
     "studio": "npx remotion studio",
+    "lint": "eslint . --max-warnings=0",
+    "test": "node --import tsx --test tests/*.test.ts",
     "typecheck": "tsc --noEmit",
     "build": "npx remotion bundle src/index.ts",
     "reel:create": "node scripts/scaffold-finanzneo-reel.mjs",
@@ -15,35 +21,39 @@
     "validate:design-system": "node scripts/validate-design-system.mjs",
     "validate:finance": "node scripts/validate-finance.mjs",
     "validate:reel-template": "node scripts/validate-reel-template.mjs",
-    "preflight:short-hook": "node scripts/validate-assets.mjs manifests/short-hook.json",
-    "validate": "npm run setup:check && npm run validate:compositions && npm run validate:design-system && npm run validate:finance && npm run validate:reel-template && npm run typecheck",
+    "validate": "npm run setup:check && npm run lint && npm run test && npm run validate:compositions && npm run validate:design-system && npm run validate:finance && npm run validate:reel-template && npm run typecheck",
     "smoke": "node scripts/smoke-render.mjs",
-    "render": "npm run render:short-hook",
-    "render:short-hook": "node scripts/render-validated.mjs manifests/short-hook.json",
-    "render:preview": "npx remotion render src/index.ts ShortHook out/short-hook-preview.mp4 --scale=0.5",
+    "render": "npm run render:template-demo",
+    "render:preview": "npm run render:template-demo",
     "render:template-demo": "npx remotion render src/index.ts ReelTemplateDemo out/reel-template-demo.mp4 --scale=0.5",
     "upgrade": "npx remotion upgrade"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",
-    "@remotion/cli": "^4.0.473",
-    "@remotion/lottie": "^4.0.473",
-    "@remotion/media-utils": "^4.0.473",
-    "@remotion/motion-blur": "^4.0.473",
-    "@remotion/paths": "^4.0.473",
-    "@remotion/shapes": "^4.0.473",
-    "@remotion/three": "^4.0.473",
-    "@remotion/transitions": "^4.0.473",
-    "@types/three": "^0.185.4",
+    "@remotion/cli": "4.0.514",
+    "@remotion/lottie": "4.0.514",
+    "@remotion/media-utils": "4.0.514",
+    "@remotion/motion-blur": "4.0.514",
+    "@remotion/paths": "4.0.514",
+    "@remotion/shapes": "4.0.514",
+    "@remotion/three": "4.0.514",
+    "@remotion/transitions": "4.0.514",
     "lottie-web": "^5.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "recharts": "^3.8.1",
-    "remotion": "^4.0.473",
-    "three": "^0.170.0"
+    "recharts": "3.10.1",
+    "remotion": "4.0.514",
+    "three": "0.185.1"
   },
   "devDependencies": {
-    "@types/react": "^18.2.0",
-    "typescript": "^5.0.0"
+    "@eslint/js": "10.0.1",
+    "@types/react": "18.3.31",
+    "@types/three": "0.185.4",
+    "eslint": "10.8.1",
+    "eslint-plugin-unused-imports": "4.4.1",
+    "globals": "17.11.0",
+    "tsx": "4.23.12",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "8.67.0"
   }
 }

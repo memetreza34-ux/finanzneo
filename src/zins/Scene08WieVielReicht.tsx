@@ -3,10 +3,10 @@
 //  Audio: szene-08-wie-viel-reicht.mp3 · schon 25 €/Monat reichen.
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile, useCurrentFrame, useVideoConfig, spring } from 'remotion';
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, spring } from 'remotion';
 import {
   C, FONT, sec, prog, lerpF, life, a,
-  Background, Vignette, Counter,
+  Background, Vignette,
 } from '../brand';
 
 const T = {
@@ -54,12 +54,10 @@ const Step: React.FC<{ amount: number; height: number; appear: number; highlight
 
 export const Scene08WieVielReicht: React.FC = () => {
   const f = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Background />
-      <Audio src={staticFile('audio/szene-08-wie-viel-reicht.mp3')} />
 
       {/* A — Denkfehler: du brauchst kein Vermögen */}
       <Stage inS={0} outS={T.reichen}>

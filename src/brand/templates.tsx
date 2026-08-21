@@ -1,6 +1,6 @@
 import React from 'react';
-import { AbsoluteFill, useCurrentFrame, useVideoConfig } from 'remotion';
-import { C, life, sec } from './tokens';
+import { AbsoluteFill, useCurrentFrame } from 'remotion';
+import { C, life } from './tokens';
 import { Background, Vignette } from './components/Background';
 import { Kicker, Title, WordReveal } from './components/Text';
 import { CompareSplit as _CompareSplit, Checklist, Quote } from './components/Layouts';
@@ -59,7 +59,6 @@ export const CompareScene: React.FC<{
   right: { title: string; value: string; sub?: string; icon?: any; color?: string };
 }> = ({ inF, outF, title, left, right }) => {
   const f = useCurrentFrame();
-  const { width } = useVideoConfig();
   return (
     <AbsoluteFill style={{ opacity: life(f, inF, outF, 12) }}>
       <Background grid glow />

@@ -2,7 +2,7 @@ import React from 'react';
 import { AbsoluteFill, useVideoConfig } from 'remotion';
 import {
   C, FONT, Background, Vignette,
-  Counter, GrowthChart, Bars, NumberedSteps, CheckCards, Timeline, Icon,
+  Counter, Bars, NumberedSteps, CheckCards, Timeline, Icon,
 } from './brand';
 
 // Statisches Übersichts-POSTER — zeigt alle Bausteine fertig (settled) mit Labels.

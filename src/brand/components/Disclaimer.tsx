@@ -1,6 +1,6 @@
 import React from 'react';
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from 'remotion';
-import { C, sec, prog, lerpF, life, a, E } from '../tokens';
+import { C, sec, prog, lerpF, life, a } from '../tokens';
 import { FONT } from '../fonts';
 
 // ════════════════════════════════════════════════════════════════════════════

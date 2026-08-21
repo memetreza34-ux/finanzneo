@@ -1,5 +1,5 @@
 import {AbsoluteFill, Series, useCurrentFrame} from 'remotion';
-import {C, bebas, inter, StaticBG} from './fn_core';
+import {C, inter, StaticBG} from './fn_core';
 import * as TR from './fn_transitions';
 import * as DC from './fn_decor';
 import * as EX from './fn_extra';

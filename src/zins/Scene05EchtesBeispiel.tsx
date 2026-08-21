@@ -3,7 +3,7 @@
 //  Audio: szene-05-echtes-beispiel.mp3 · ECHTE Yahoo-Finance-Daten (Pflicht: Quelle+Datum).
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile, useCurrentFrame, spring, useVideoConfig } from 'remotion';
+import { AbsoluteFill, useCurrentFrame } from 'remotion';
 import {
   C, FONT, sec, prog, lerpF, life, a,
   Background, Vignette, AreaPremium, LottieBox,
@@ -38,12 +38,10 @@ const Line: React.FC<{ children: React.ReactNode; size?: number; color?: string;
 
 export const Scene05EchtesBeispiel: React.FC = () => {
   const f = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Background />
-      <Audio src={staticFile('audio/szene-05-echtes-beispiel.mp3')} />
 
       {/* A — 7%? Wo gibt's das? */}
       <Stage inS={0} outS={T.msci}>

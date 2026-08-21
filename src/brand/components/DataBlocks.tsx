@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCurrentFrame, useVideoConfig, spring } from 'remotion';
-import { C, E, prog, lerpF, a, num } from '../tokens';
+import { C, E, prog, lerpF, a } from '../tokens';
 import { FONT } from '../fonts';
 
 // ─── TABELLE — Zeilen bauen sich nacheinander auf ─────────────────────────────

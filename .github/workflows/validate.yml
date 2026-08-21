@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - 'agent/**'
+      - 'codex/**'
   pull_request:
     branches:
       - main
@@ -33,8 +34,14 @@ jobs:
       - name: Abhängigkeiten reproduzierbar installieren
         run: npm ci
 
+      - name: Abhängigkeiten auf Sicherheitslücken prüfen
+        run: npm audit --audit-level=high
+
       - name: Validatoren und TypeScript ausführen
         run: npm run validate
 
       - name: Remotion-Bundle erstellen
         run: npm run build
+
+      - name: Render-Smoke-Test ausführen
+        run: npm run smoke

@@ -1,6 +1,6 @@
 // FinanzNeo PRO — volle Premium-Qualität, STRENGE Farbführung (Grün + Gold + Neutral),
 // dezenter Glow, feine Typo, viel Luft. Keine bunten Kombis.
-import {useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
+import {useCurrentFrame, interpolate} from 'remotion';
 import {C, bebas, inter, P} from './fn_core';
 import {PremiumChart} from './fn_chart_base';
 import {calculateSavingsPlanFutureValue} from '../finance/calculations';

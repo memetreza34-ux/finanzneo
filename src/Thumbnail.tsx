@@ -1,5 +1,5 @@
 import React from 'react';
-import { AbsoluteFill, useCurrentFrame } from 'remotion';
+import { AbsoluteFill } from 'remotion';
 import { C, FONT, a } from './brand';
 
 // FinanzNeo YouTube-Thumbnail (1280×720). Statisch — als Still rendern (Frame 0).

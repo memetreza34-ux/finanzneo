@@ -3,10 +3,10 @@
 //  Audio: szene-04-macht-der-zeit.mp3 · Kern: 4 Balken explodieren über Jahrzehnte.
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile, useCurrentFrame, useVideoConfig, spring } from 'remotion';
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, spring } from 'remotion';
 import {
-  C, FONT, sec, prog, lerpF, life, a, num,
-  Background, Vignette, Counter,
+  C, FONT, sec, prog, life, a, num,
+  Background, Vignette,
 } from '../brand';
 
 const T = {
@@ -79,7 +79,6 @@ export const Scene04MachtDerZeit: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Background />
-      <Audio src={staticFile('audio/szene-04-macht-der-zeit.mp3')} />
 
       {/* A — Das Wichtigste: Zeit > Geld */}
       <Stage inS={0} outS={T.setup}>

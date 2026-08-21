@@ -5,8 +5,6 @@ import {C, bebas, inter, StaticBG} from './fn_core';
 const c01 = (t: number) => Math.max(0, Math.min(1, t));
 const eo = (t: number) => 1 - Math.pow(1 - t, 3);
 const rev = (f: number, s: number, d = 14) => c01((f - s) / d);
-const de = (n: number) => Math.round(n).toLocaleString('de-DE');
-
 // Text-Seite: Kicker + Headline + Punkte + Stat (gestaffelt)
 const TextPanel: React.FC<{kicker: string; title: string; points: string[]; stat?: string; statLabel?: string; accent?: string}> =
 ({kicker, title, points, stat, statLabel, accent = C.green}) => {

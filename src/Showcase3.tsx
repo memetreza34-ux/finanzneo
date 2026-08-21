@@ -1,7 +1,7 @@
 import React from 'react';
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from 'remotion';
 import {
-  C, sec, life, Background, Vignette, Progress, Title, Kicker, prog,
+  C, sec, life, Background, Vignette, Progress, Title, Kicker,
   Table, BigStat, Gauge, StatBar,
   CompareSplit, Checklist, Quote, Badge, FeatureGrid,
 } from './brand';

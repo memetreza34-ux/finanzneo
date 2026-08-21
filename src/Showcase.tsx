@@ -2,7 +2,7 @@ import React from 'react';
 import { AbsoluteFill, useCurrentFrame, useVideoConfig } from 'remotion';
 import {
   C, sec, life, Background, Vignette, Progress,
-  Title, Kicker, Card, Counter,
+  Title, Kicker, Counter,
   GrowthChart, Bars, NumberedSteps, CheckCards, Timeline,
   Icon, Particles,
 } from './brand';

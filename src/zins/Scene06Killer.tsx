@@ -3,9 +3,9 @@
 //  Audio: szene-06-zinseszins-killer.mp3 · jeder Killer = eigene Animation.
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile, useCurrentFrame, useVideoConfig, spring } from 'remotion';
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, spring } from 'remotion';
 import {
-  C, FONT, E, sec, prog, lerpF, life, a, euro,
+  C, FONT, E, sec, prog, life, a,
   Background, Vignette, Counter, LottieBox,
 } from '../brand';
 
@@ -64,8 +64,6 @@ const CrashChart: React.FC<{ at: number }> = ({ at }) => {
   const tx = (x: number) => b.left + x * cw;
   const ty = (v: number) => b.bottom - v * ch;
   const crashX = 0.6;
-  const solidEnd = Math.min(draw, crashX);
-  const dashStart = crashX;
   const mk = (from: number, to: number) => {
     const pts: string[] = [];
     const steps = 80;
@@ -113,7 +111,6 @@ export const Scene06Killer: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Background />
-      <Audio src={staticFile('audio/szene-06-zinseszins-killer.mp3')} />
 
       {/* A — Intro: 3 heimliche Feinde */}
       <Stage inS={0} outS={T.k1}>

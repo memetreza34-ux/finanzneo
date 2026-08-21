@@ -3,9 +3,9 @@
 //  Audio: szene-10-erster-schritt.mp3 · 3 Schritte, Automatik-Loop, unterhaltsam.
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile, useCurrentFrame, useVideoConfig, spring } from 'remotion';
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, spring } from 'remotion';
 import {
-  C, FONT, sec, prog, lerpF, life, a,
+  C, FONT, sec, prog, life, a,
   Background, Vignette, KineticPunch,
 } from '../brand';
 
@@ -61,7 +61,6 @@ export const Scene10ErsterSchritt: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Background />
-      <Audio src={staticFile('audio/szene-10-erster-schritt.mp3')} />
 
       {/* A — Genug Theorie → ANFANGEN */}
       <Stage inS={0} outS={T.soMachen}>

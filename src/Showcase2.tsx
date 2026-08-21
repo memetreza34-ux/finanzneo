@@ -4,13 +4,13 @@ import {
   C, sec, life, Background, Vignette, Progress, Title, Kicker,
   Donut, PercentRing, PhoneMockup, AppScreenDemo,
   Typewriter, MaskReveal, WordStagger, Underline,
-  slideIn, zoomIn, wipeIn, blurIn, popIn, prog,
+  slideIn, zoomIn, wipeIn, blurIn, prog,
 } from './brand';
 
 // Demo der NEUEN Bausteine: Übergänge, Handy-Mockup, Donut, Prozent-Ring, Text-FX.
 export const Showcase2: React.FC = () => {
   const f = useCurrentFrame();
-  const { width, height } = useVideoConfig();
+  const { width } = useVideoConfig();
 
   return (
     <AbsoluteFill>

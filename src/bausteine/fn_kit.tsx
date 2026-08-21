@@ -87,7 +87,7 @@ export const FNGrowthCurve: React.FC = () => (
 
 // ── FNDonut ── Conic-Gradient-Donut + Legende
 export const FNDonut: React.FC<{title?: string; segments?: {v: number; color: string; label: string}[]}> =
-({title = 'Dein Budget', segments = [{v: 0.4, color: C.blue, label: 'Wohnen'}, {v: 0.25, color: C.green, label: 'Sparen'}, {v: 0.2, color: C.gold, label: 'Leben'}, {v: 0.15, color: C.purple, label: 'Rest'}]}) => {
+({title: _title = 'Dein Budget', segments = [{v: 0.4, color: C.blue, label: 'Wohnen'}, {v: 0.25, color: C.green, label: 'Sparen'}, {v: 0.2, color: C.gold, label: 'Leben'}, {v: 0.15, color: C.purple, label: 'Rest'}]}) => {
   const f = useCurrentFrame(); const g = interpolate(f, [10, 70], [0, 1], CL);
   let acc = 0; const stops: string[] = [];
   segments.forEach((s) => {

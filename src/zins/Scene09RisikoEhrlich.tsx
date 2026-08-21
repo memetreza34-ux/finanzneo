@@ -3,9 +3,9 @@
 //  Audio: szene-09-risiko-ehrlich.mp3 · Crash-Kurven, Panik vs ruhig (Split).
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
-import { AbsoluteFill, Audio, staticFile, useCurrentFrame, useVideoConfig, spring } from 'remotion';
+import { AbsoluteFill, useCurrentFrame } from 'remotion';
 import {
-  C, FONT, E, sec, prog, lerpF, life, a,
+  C, FONT, sec, prog, lerpF, life, a,
   Background, Vignette,
 } from '../brand';
 
@@ -75,12 +75,10 @@ const UPDIPS: [number, number][] = [
 
 export const Scene09RisikoEhrlich: React.FC = () => {
   const f = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Background />
-      <Audio src={staticFile('audio/szene-09-risiko-ehrlich.mp3')} />
 
       {/* A — Der ehrliche Teil */}
       <Stage inS={0} outS={T.markt}>

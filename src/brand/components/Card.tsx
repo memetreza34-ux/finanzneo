@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCurrentFrame } from 'remotion';
-import { C, E, prog, lerpF, a } from '../tokens';
+import { C, E, prog, a } from '../tokens';
 
 // Einheitliche FinanzNeo-Karte — konsistente Rundung, Rahmen, Glow, Inner-Highlight.
 export const Card: React.FC<{

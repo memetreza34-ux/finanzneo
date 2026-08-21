@@ -160,18 +160,13 @@ for (const file of productionFiles) {
   }
 }
 
-const migratedShort = resolve(root, 'src/zins/ShortHook.tsx');
-if (existsSync(migratedShort)) {
-  const content = readFileSync(migratedShort, 'utf8');
-  if (!content.includes("from '../design-system'")) {
-    errors.push('ShortHook.tsx wurde nicht auf den zentralen Design-System-Import migriert.');
-  } else {
-    notes.push('ShortHook nutzt den zentralen Design-System-Import.');
-  }
-
-  if (!content.includes('calculateSavingsPlanFutureValue')) {
-    errors.push('ShortHook.tsx verwendet weiterhin einen frei eingetragenen Sparplan-Endwert.');
-  }
+const reelTemplate = resolve(root, 'src/production/reel-template/ReelTemplate.tsx');
+if (!existsSync(reelTemplate)) {
+  errors.push('Die zentrale ReelTemplate-Komponente fehlt.');
+} else if (!readFileSync(reelTemplate, 'utf8').includes("from '../../design-system'")) {
+  errors.push('ReelTemplate.tsx verwendet nicht den zentralen Design-System-Import.');
+} else {
+  notes.push('ReelTemplate nutzt den zentralen Design-System-Import.');
 }
 
 if (errors.length > 0) {

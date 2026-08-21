@@ -6,7 +6,7 @@
 //
 // Nutzung:
 //   npm run smoke              alle Compositions
-//   npm run smoke -- ShortHook nur eine (Teilstring-Filter)
+//   npm run smoke -- ReelTemplateDemo nur eine (Teilstring-Filter)
 
 import {execFileSync, spawnSync} from 'node:child_process';
 import {mkdtempSync, rmSync} from 'node:fs';
@@ -19,6 +19,15 @@ const filter = process.argv[2];
 const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
 
 console.log('Compositions werden geladen …\n');
+
+// Browser-Installation separat ausführen. So kann deren Fortschrittsausgabe
+// nicht versehentlich als Composition-ID interpretiert werden.
+const browser = spawnSync(npx, ['remotion', 'browser', 'ensure'], {encoding: 'utf8'});
+if (browser.status !== 0) {
+  console.error('Remotion-Browser konnte nicht vorbereitet werden.');
+  console.error(`${browser.stdout ?? ''}${browser.stderr ?? ''}`.trim());
+  process.exit(1);
+}
 
 let listing;
 try {

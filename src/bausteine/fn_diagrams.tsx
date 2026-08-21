@@ -1,6 +1,6 @@
 // FinanzNeo Diagramm-/UI-Bausteine — aus KI-Kit portiert, FinanzNeo-Marke.
 import {useCurrentFrame, useVideoConfig, spring} from 'remotion';
-import {C, bebas, inter, Glass} from './fn_core';
+import {C, bebas, inter} from './fn_core';
 
 const eo = (t: number) => 1 - Math.pow(1 - t, 3);
 const c01 = (t: number) => Math.max(0, Math.min(1, t));
