@@ -13,6 +13,11 @@ Vor neuen Reels zusätzlich lesen:
 - `docs/IMAGE-QA-CHECKLIST.md`
 - `docs/PLATFORM-PUBLISHING.md`
 
+Vor YouTube-Longform zusätzlich lesen:
+
+- `docs/YOUTUBE-LONGFORM-WORKFLOW.md`
+- `youtube/PRODUKTIONSSTANDARD.md`
+
 ## 1. Phase 1 — ChatGPT bereitet komplett vor
 
 ```text
@@ -188,4 +193,44 @@ Keine `youtube-shorts.txt` erstellen. Keine YouTube Shorts vorbereiten oder ver�
 YouTube ist ausschließlich für eigenständige längere Videos unter `youtube/` und besitzt einen separaten Workflow.
 
 Alle Plattformtexte müssen dieselben geprüften Fakten verwenden. Keine neuen Behauptungen erfinden. Exakte aktuelle Plattform-Limits nur nach Prüfung offizieller Plattformquellen verwenden.
+```
+
+## 9. Phase 1 — YouTube-Longform vollständig vorbereiten
+
+```text
+Neues eigenständiges FinanzNeo-YouTube-Longform-Video.
+
+Thema: [THEMA]
+
+Arbeite nach CLAUDE.md, docs/YOUTUBE-LONGFORM-WORKFLOW.md und youtube/PRODUKTIONSSTANDARD.md.
+
+Erstelle ohne offene Platzhalter:
+1. Briefing, Zielgruppe, Lernziel, Kernversprechen und Begründung für Longform
+2. geprüfte Recherche mit Quellen, Datenstand, Annahmen und Rechenwegen
+3. Hook, Kapitel-Dramaturgie und Retention-Plan
+4. vollständiges deutsches Voiceover-Skript ohne Füllpassagen
+5. Visual-Plan mit begründeter Bild-/Remotion-Zuordnung
+6. vollständige englische Google-Flow-Prompts mit exakten Dateinamen
+7. englischen Thumbnail-Prompt und vollständigen Thumbnail-Brief
+8. fünf Titelvarianten und einen finalen Titel
+9. Beschreibung, Kapitel, Keywords/Tags, Hashtags, Quellen/Disclaimer
+10. angehefteten Kommentar, Community-Post und Upload-Checkliste
+11. Promo-Texte für Instagram, TikTok, Facebook und Snapchat
+
+YouTube-Quellbilder und Thumbnail sind horizontal 16:9. Reel-Bilder bleiben separat 1:1.
+Der Nutzer erzeugt alle Bilder. Antigravity erzeugt weder Bilder noch Ersatz-Voiceover.
+Google Flow arbeitet strikt: genau ein Bild → vollständig warten → sofort exakt umbenennen → prüfen → erst dann das nächste Bild. Thumbnail zuerst und danach nur als Stilreferenz verwenden.
+Keine YouTube Shorts und keine gestreckte Reel-Kopie erzeugen.
+```
+
+## 10. Phase 3 — YouTube-Longform autonom bauen
+
+```text
+Mach das YouTube-Video: youtube/<Projekt>
+
+Prüfe zuerst vollständig mit `npm run youtube:ready -- youtube/<Projekt>`.
+Wenn die Prüfung erfolgreich ist, beginne sofort und arbeite ohne Rückfragen oder Zwischenstopps bis zur technischen und visuellen QA des fertigen 1920×1080-Renders.
+Leite Timeline, Kapitel, Visualwechsel und Untertitel aus dem finalen Voiceover und dem fertigen Plan ab.
+Triff normale Detailentscheidungen selbst nach CLAUDE.md.
+Stoppe nur bei echten Pflichtasset-, Fakten-, Sicherheits-, Validator-, Build- oder Renderblockern und melde alle gesammelt mit exakten Pfaden.
 ```

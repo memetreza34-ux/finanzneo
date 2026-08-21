@@ -3,11 +3,12 @@
 ## Verbindliche Reihenfolge
 
 1. Lies `CLAUDE.md` vollständig.
-2. Lies `docs/3-PHASEN-WORKFLOW.md` und `reels/PRODUKTIONSSTANDARD.md`.
-3. Bei Bildaufgaben lies `docs/FINANZNEO-IMAGE-WORLD-V3.md`, `docs/IMAGE-SYSTEM.md`, `docs/IMAGE-PROMPT-LIBRARY.md` und `docs/IMAGE-QA-CHECKLIST.md`.
-4. Entscheide den Visualtyp mit `docs/BEAT-TO-IMAGE-RULES.md`.
-5. Für Veröffentlichung lies `docs/PLATFORM-PUBLISHING.md`.
-6. Beim Ziel-Reel lies `03-szenen/alle-bildprompts.txt`, `03-szenen/scene-index.json` und `05-projektdateien/szenenplan.md`.
+2. Für Reels lies `docs/3-PHASEN-WORKFLOW.md` und `reels/PRODUKTIONSSTANDARD.md`.
+3. Für YouTube-Longform lies `docs/YOUTUBE-LONGFORM-WORKFLOW.md` und `youtube/PRODUKTIONSSTANDARD.md`.
+4. Bei Bildaufgaben lies `docs/FINANZNEO-IMAGE-WORLD-V3.md`, `docs/IMAGE-SYSTEM.md`, `docs/IMAGE-PROMPT-LIBRARY.md` und `docs/IMAGE-QA-CHECKLIST.md`.
+5. Entscheide den Visualtyp mit `docs/BEAT-TO-IMAGE-RULES.md`.
+6. Für Reel-Veröffentlichung lies `docs/PLATFORM-PUBLISHING.md`.
+7. Beim Zielprojekt lies den jeweiligen Index, Sammelprompt und Szenen-/Visual-Plan.
 
 `CLAUDE.md` ist die höchste Regelquelle. Bei Widersprüchen gelten ältere Regeln nicht.
 
@@ -18,6 +19,7 @@
 - 60–90 Sekunden als Reel-Standard
 - Reel-Plattformen: Instagram Reels, TikTok, Facebook Reels und Snapchat
 - YouTube: ausschließlich eigenständige längere Videos unter `youtube/`; keine YouTube Shorts
+- YouTube-Video und -Quellbilder: horizontal 16:9; Reel-Quellbilder bleiben 1:1
 - Untertitel Pflicht
 - Premium Fintech Editorial 3D + Remotion
 - eine starke visuelle Metapher pro Bild
@@ -49,6 +51,24 @@ snapchat.txt
 ```
 
 `youtube-shorts.txt` wird nicht erstellt. Longform-YouTube wird unabhängig davon unter `youtube/` produziert.
+
+## Eigenständiges YouTube-Longform-Projekt
+
+```bash
+npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
+```
+
+Phase 1 erstellt Recherche, vollständiges Skript, Kapitel-/Retention-Plan, englische Google-Flow-Prompts, Thumbnail-Brief sowie Titel, Beschreibung, Kapitel, Keywords, Quellen, Kommentar, Community-Post, Upload-Checkliste und Promo-Texte für Instagram, TikTok, Facebook und Snapchat.
+
+In Phase 2 erzeugt der Nutzer jedes 16:9-Bild einzeln, benennt es sofort exakt um und legt alles gemeinsam in `04-visuals/00-ALLE-BILDER-HIER-REIN/`. Dazu kommen genau ein finales Voiceover und echte Wort-Timings.
+
+Phase 3 startet mit:
+
+```text
+Mach das YouTube-Video: youtube/<Projekt>
+```
+
+Antigravity prüft zuerst `npm run youtube:ready -- youtube/<Projekt>` und arbeitet bei Erfolg ohne Zwischenfragen bis zu Render und QA.
 
 ## Neuer Reel-Start
 

@@ -6,6 +6,8 @@ Dieses Dokument definiert die einfache Ausgabe-Struktur für Instagram Reels, Ti
 
 **YouTube-Regel:** FinanzNeo veröffentlicht keine YouTube Shorts. YouTube ist ausschließlich für eigenständige längere Videos vorgesehen. Longform-Projekte liegen separat unter `youtube/`; Reel-Projekte werden nicht automatisch nach YouTube gespiegelt.
 
+Das vollständige Longform-Upload-Paket einschließlich Titel, Beschreibung, Kapitel, Thumbnail-Brief, Quellen, Kommentar, Community-Post und vier Social-Promos ist in `youtube/PRODUKTIONSSTANDARD.md` definiert.
+
 ## 1. Keine neue Hauptordner-Struktur
 
 Die bestehende einfache Reel-Struktur bleibt unverändert:

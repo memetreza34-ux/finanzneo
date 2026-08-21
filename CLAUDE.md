@@ -26,6 +26,8 @@
 
 ## 3. Einfache Reel-Struktur
 
+Die Abschnitte 3 bis 17 definieren den Reel-Prozess. Der davon getrennte YouTube-Longform-Prozess steht in Abschnitt 18.
+
 Neue Reels verwenden diese einfache Hauptstruktur:
 
 ```text
@@ -489,3 +491,46 @@ Technischer Erfolg allein ist keine kreative Freigabe.
 5. Finanzberechnungen zentral und reproduzierbar halten
 6. Typecheck, Tests und Render-Smoke-Tests ausbauen
 7. erst danach größere Serienproduktion skalieren
+
+## 18. Eigenständiger YouTube-Longform-Workflow
+
+YouTube-Projekte liegen ausschließlich unter `youtube/`. Sie sind keine verlängerten Reels und erzeugen keine YouTube Shorts.
+
+Verbindliche Quellen:
+
+- `youtube/PRODUKTIONSSTANDARD.md`
+- `docs/YOUTUBE-LONGFORM-WORKFLOW.md`
+
+Projektstruktur:
+
+```text
+01-recherche/
+02-script/
+03-audio/
+04-visuals/
+05-publishing/
+06-projektdateien/
+README.md
+```
+
+Format und Bilder:
+
+- fertiges Video: 1920 × 1080, horizontal 16:9, 30 fps
+- YouTube-Quellbilder und Thumbnail: horizontal 16:9
+- Reel-Quellbilder bleiben davon unabhängig immer 1:1
+- dieselbe FinanzNeo World ID und derselbe Serien-Lock wie bei Reels
+- Bildprompts immer auf Englisch; nur kurze ausdrücklich gewünschte Objektlabels im Bild auf Deutsch
+- Nutzer erzeugt alle Bilder selbst mit Google Flow
+- Thumbnail zuerst; danach reine Stilreferenz für alle Folgebilder
+- genau ein Bild erzeugen, vollständig warten, sofort exakt umbenennen, prüfen, erst dann fortfahren
+- alle fertigen Bilder gemeinsam in `04-visuals/00-ALLE-BILDER-HIER-REIN/`
+
+Drei Phasen:
+
+1. ChatGPT erstellt Recherche, Quellen, vollständiges Skript, Kapitel-/Retention-Plan, Visual-Zuordnung, englische Flow-Prompts, Remotion-Spezifikationen, Thumbnail-Brief und das gesamte Publishing-Paket ohne Platzhalter.
+2. Nutzer erstellt und benennt die Bilder sequenziell, legt genau ein finales Voiceover ab und erzeugt echte Wort-Zeitstempel daraus.
+3. Antigravity beginnt mit `npm run youtube:ready -- youtube/<Projekt>` und baut bei Erfolg ohne Rückfragen bis zu Render und QA.
+
+`05-publishing/` enthält Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords/Tags, Hashtags, Thumbnail-Brief, Quellen/Disclaimer, angehefteten Kommentar, Community-Post, Upload-Checkliste sowie Promo-Texte für Instagram, TikTok, Facebook und Snapchat.
+
+Die Videolänge folgt der nötigen inhaltlichen Tiefe. Keine künstliche Mindestlänge und keine Füllpassagen. Antigravity stoppt nur bei denselben Arten echter Pflichtasset-, Fakten-, Sicherheits- oder Technikblocker wie im Reel-Prozess und meldet sie gesammelt mit exakten Pfaden.

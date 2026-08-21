@@ -4,15 +4,17 @@
 // validate-reel-source-contract.mjs, validate-platform-publishing.mjs und
 // validate-drei-konten.mjs. Dadurch entstanden Widersprüche, sobald eine
 // Regel nur an einzelnen Stellen nachgezogen wurde — zuletzt beim Entfernen
-// der YouTube Shorts. Jede Änderung an der Bildwelt oder an den Plattformen
-// gehört ausschließlich hierher.
+// der YouTube Shorts. Formatübergreifende Bildweltwerte liegen heute in
+// finanzneo-media-contract.mjs; Reel-spezifische Werte bleiben hier.
 
-export const WORLD_ID = 'finanzneo-connected-studio-v3';
-export const WORLD_ID_MARKER = `FINANZNEO_WORLD_ID: ${WORLD_ID}`;
-export const SERIES_LOCK_ID = 'finanzneo-same-world-v1';
-export const SERIES_LOCK_MARKER = `FINANZNEO_SERIES_LOCK: ${SERIES_LOCK_ID}`;
-export const FLOW_AGENT_PROTOCOL_ID = 'finanzneo-flow-sequential-v1';
-export const FLOW_AGENT_PROTOCOL_MARKER = `FLOW_AGENT_PROTOCOL: ${FLOW_AGENT_PROTOCOL_ID}`;
+export {
+  FLOW_AGENT_PROTOCOL_ID,
+  FLOW_AGENT_PROTOCOL_MARKER,
+  SERIES_LOCK_ID,
+  SERIES_LOCK_MARKER,
+  WORLD_ID,
+  WORLD_ID_MARKER,
+} from './finanzneo-media-contract.mjs';
 export const GENERATED_IMAGE_ASPECT_RATIO = '1:1';
 export const GENERATED_IMAGE_ASPECT_MARKER = `GENERATED_IMAGE_ASPECT_RATIO: ${GENERATED_IMAGE_ASPECT_RATIO}`;
 export const REEL_VIDEO_ASPECT_RATIO = '9:16';
