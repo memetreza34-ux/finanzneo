@@ -9,14 +9,14 @@
 - Phase 3: bis erfolgreichem `reel:ready` blockiert
 
 ## Aufbau
-- 15 visuelle Beats
-- 9 Google-Flow-Bildszenen + Cover
+- 16 visuelle Beats
+- 10 Google-Flow-Bildszenen + Cover
 - 6 native Remotion-Mechanismusanimationen
-- exakt 60 % Bild / 40 % Animation bei den Reel-Beats
+- Ziel ca. 60 % Bild / 40 % Animation; aktuell 62,5 % / 37,5 %, damit kein Bild künstlich über 6 Sekunden verlängert wird
 - Bildbeat ideal 3,5–5,0 s; absolut maximal 6,0 s
 - 9:16, 1080 × 1920, 30 fps
 - Flow-Bilder strikt 1:1
-- Bildwelt: premium stylized 3D CGI financial editorial explainer, nicht fotorealistische Büro-/Papieroptik
+- Bildwelt: premium stylized 3D CGI financial editorial explainer, klar nicht fotorealistische Büro-/Papieroptik
 
 ## Kernbotschaft
 Wiederkehrende Kosten nicht nur als kleinen Monatsbetrag betrachten, sondern auf die tatsächlichen Zahlungen pro Jahr hochrechnen. Zusätzlich den Unterschied zwischen monatlicher und vierwöchiger Abrechnung beachten.
