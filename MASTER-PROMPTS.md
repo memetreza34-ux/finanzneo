@@ -50,6 +50,8 @@ Mach das Reel: reels/<Woche>/<Tag>/<Reel>
 
 Prüfe zuerst vollständig mit `npm run reel:ready -- <Reel-Pfad>`.
 Wenn die Prüfung erfolgreich ist, beginne sofort und arbeite ohne Rückfragen oder Zwischenstopps bis zur technischen und visuellen QA des fertigen Renders.
+Rendere das finale Video direkt nach `<Reel-Pfad>/06-export/reel.mp4` und das finale Cover mit sichtbarer Remotion-Headline, Akzentzeile und Payoff direkt nach `<Reel-Pfad>/06-export/cover.png`.
+Beende den Auftrag erst nach erfolgreichem `npm run reel:final -- <Reel-Pfad>`.
 Triff normale Detailentscheidungen selbst nach CLAUDE.md.
 Stoppe nur bei echten Pflichtasset-, Fakten-, Sicherheits-, Validator-, Build- oder Renderblockern. Melde dann alle Blocker gesammelt mit exakten Pfaden.
 ```
@@ -167,6 +169,9 @@ Wenn Nutzerbilder und finales Audio vorhanden sind:
 - Kontaktbogen / erste-mittlere-letzte Frames
 - komplette MP4 mit Ton
 - Audio-Lautheit am finalen Export
+- finales Video direkt unter `06-export/reel.mp4`
+- finales Remotion-Cover direkt unter `06-export/cover.png`
+- `npm run reel:final -- <Reel-Pfad>` erfolgreich
 
 Keine Prüfung als bestanden behaupten, wenn sie nicht tatsächlich ausgeführt wurde.
 ```

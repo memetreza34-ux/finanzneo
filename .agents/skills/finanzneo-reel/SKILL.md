@@ -144,6 +144,10 @@ After all user images and final audio are present:
 - validate/safety-check/typecheck/preview before claiming completion
 - inspect image set/contact sheet and full MP4
 - target audio around -16 LUFS and <= -1 dBTP true peak
+- render the final video directly to `06-export/reel.mp4`
+- render the final cover with visible Remotion headline, accent line and payoff directly to `06-export/cover.png`
+- keep previews and drafts outside `06-export/`
+- run `npm run reel:final -- <Reel-Pfad>` before calling the reel complete
 
 ## Cover and animation quality
 
@@ -156,7 +160,7 @@ After all user images and final audio are present:
 
 ## Platform publishing
 
-Keep the simple five-folder reel structure. Publishing files live directly in `04-caption/`:
+Keep the simple reel structure with the single final output folder `06-export/`. Publishing files live directly in `04-caption/`:
 
 ```text
 caption.txt
@@ -177,4 +181,4 @@ word-timings.json
 - Platform files must not invent facts beyond the master caption/script.
 - If exact current platform limits or upload features matter, verify official platform documentation before publishing rather than hard-coding old limits.
 
-A reel is not complete without required user assets or an explicit missing-asset report, real audio timings, successful validation/typecheck/preview, visual review and safety audit. Cross-platform Reel publishing additionally requires the four Reel platform files to be prepared for the same final reel.
+A reel is not complete without required user assets or an explicit missing-asset report, real audio timings, successful validation/typecheck/preview, visual review, safety audit, `06-export/reel.mp4`, `06-export/cover.png` and a successful `npm run reel:final -- <Reel-Pfad>`. Cross-platform Reel publishing additionally requires the four Reel platform files to be prepared for the same final reel.

@@ -36,6 +36,7 @@ Neue Reels verwenden diese einfache Hauptstruktur:
 03-szenen/
 04-caption/
 05-projektdateien/
+06-export/
 README.md
 ```
 
@@ -44,6 +45,7 @@ README.md
 - `03-szenen/` = Cover, alle Bildprompts, Szenen, gemeinsame Nutzerbilder
 - `04-caption/` = Social Caption + echte Wort-Timings
 - `05-projektdateien/` = Recherche, Quellen, Animationen, Szenenplan, technische Dateien
+- `06-export/` = ausschließlich `reel.mp4` und `cover.png` als final geprüfte Ausgaben
 
 Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Video anlegen, wenn sie nicht technisch zwingend erforderlich sind.
 
@@ -51,7 +53,7 @@ Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Vi
 
 1. **Phase 1 — normales ChatGPT:** erstellt Recherche, Quellen, geprüftes Skript, Dramaturgie, Szenenplan, Bild-/Remotion-Zuordnung, vollständige Google-Flow-Prompts mit exakten Dateinamen, Remotion-Spezifikationen sowie Master- und Plattform-Captions. In diesen Inhalten bleiben keine Platzhalter.
 2. **Phase 2 — Nutzer:** erzeugt Cover und Szenenbilder einzeln mit Google Flow, benennt sie exakt, legt alle gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`, legt genau ein finales Voiceover in `02-audio/` und erzeugt daraus echte Wort-Zeitstempel.
-3. **Phase 3 — Antigravity:** beginnt auf den Auftrag `Mach das Reel: <Reel-Pfad>` mit `npm run reel:ready -- <Reel-Pfad>`. Ist die Prüfung erfolgreich, baut, prüft und rendert Antigravity das Reel ohne Rückfragen und ohne Zwischenstopps.
+3. **Phase 3 — Antigravity:** beginnt auf den Auftrag `Mach das Reel: <Reel-Pfad>` mit `npm run reel:ready -- <Reel-Pfad>`. Ist die Prüfung erfolgreich, baut, prüft und rendert Antigravity das Reel ohne Rückfragen und ohne Zwischenstopps. Es rendert das finale Video direkt nach `06-export/reel.mp4`, das finale Remotion-Cover nach `06-export/cover.png` und beendet erst nach erfolgreichem `npm run reel:final -- <Reel-Pfad>`.
 
 Antigravity stoppt nur bei echten Blockern: fehlende/falsch benannte Nutzerbilder, fehlendes/mehrfaches/unlesbares finales Audio, fehlende oder nicht zum Audio passende Wortzeiten, widersprüchliche Pflichtdaten, Sicherheits-/Faktenkonflikte oder ein nicht selbst lösbarer Validator-/Build-/Renderfehler. Alle Blocker werden gesammelt mit exakten Pfaden gemeldet. Normale Detailentscheidungen trifft Antigravity selbst nach den Repo-Regeln.
 
@@ -473,7 +475,10 @@ True Peak: höchstens -1 dBTP
 23. komplette MP4 mit Ton ansehen
 24. Audio-Lautheit messen
 25. Caption/Quellen/CTA finalisieren
-26. erst nach menschlicher Sichtprüfung freigeben
+26. finales Video direkt als `06-export/reel.mp4` ablegen
+27. finales Cover mit sichtbarem Remotion-Text als `06-export/cover.png` ablegen
+28. `npm run reel:final -- <Reel-Pfad>` ausführen
+29. erst nach menschlicher Sichtprüfung freigeben
 
 ## 15. Bild-QA — sofort neu erzeugen, wenn
 
@@ -502,6 +507,9 @@ Ein Reel ist erst fertig, wenn:
 - Bildsatz visuell geprüft wurde
 - komplette MP4 geprüft wurde
 - Audioziel geprüft wurde
+- `06-export/reel.mp4` als lesbares 1080 × 1920 Video mit Audio vorliegt
+- `06-export/cover.png` als lesbares 1080 × 1920 Cover mit Remotion-Text vorliegt
+- `npm run reel:final -- <Reel-Pfad>` erfolgreich war
 
 Technischer Erfolg allein ist keine kreative Freigabe.
 

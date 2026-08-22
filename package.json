@@ -18,6 +18,7 @@
     "reel:sort-images": "node scripts/sort-reel-images.mjs",
     "reel:validate": "node scripts/validate-reel.mjs",
     "reel:ready": "node scripts/check-reel-production-ready.mjs",
+    "reel:final": "node scripts/check-reel-final-export.mjs",
     "youtube:create": "node scripts/scaffold-finanzneo-youtube.mjs",
     "youtube:validate": "node scripts/validate-youtube.mjs",
     "youtube:ready": "node scripts/check-youtube-production-ready.mjs",

@@ -62,6 +62,11 @@ Wenn die Prüfung erfolgreich ist, startet Antigravity ohne Rückfragen und ohne
 4. Validator, Tests und Typecheck ausführen
 5. Preview und finale MP4 rendern
 6. Frames, Bildsatz, Ton und Lautheit prüfen
+7. finale MP4 direkt als `06-export/reel.mp4` ablegen
+8. finales Cover mit sichtbarem Remotion-Text als `06-export/cover.png` rendern
+9. Abschluss mit `npm run reel:final -- reels/<Woche>/<Tag>/<Reel>` prüfen
+
+Phase 3 ist erst beendet, wenn die Abschlussprüfung erfolgreich ist und beide Dateien gemeinsam in `06-export/` liegen. Vorschauen oder Entwürfe werden dort nicht gesammelt.
 
 Antigravity trifft normale gestalterische und technische Detailentscheidungen selbstständig nach den Repo-Regeln.
 

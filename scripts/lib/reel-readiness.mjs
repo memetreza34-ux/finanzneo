@@ -6,6 +6,7 @@ import {
   IMAGE_INBOX,
   PLATFORM_PUBLISHING_FILES,
   REEL_CAPTION,
+  REEL_FINAL_EXPORT,
   REEL_LAYOUT,
   REEL_VISUAL_MIX,
   SCENE_INDEX,
@@ -125,6 +126,9 @@ export const analyzeReelReadiness = (rootDirectory) => {
 
   if (JSON.stringify(index?.layout) !== JSON.stringify(REEL_LAYOUT)) {
     phase1Blockers.push(`${SCENE_INDEX}: layout muss exakt dem zentralen Reel-Vertrag entsprechen.`);
+  }
+  if (JSON.stringify(index?.finalExport) !== JSON.stringify(REEL_FINAL_EXPORT)) {
+    phase1Blockers.push(`${SCENE_INDEX}: finalExport muss exakt dem zentralen Reel-Vertrag entsprechen.`);
   }
 
   const subtitle = index?.subtitleDisplay;

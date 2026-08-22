@@ -10,10 +10,18 @@
 03-szenen/
 04-caption/
 05-projektdateien/
+06-export/
 README.md
 ```
 
 Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Video anlegen, wenn sie nicht technisch zwingend nötig sind.
+
+`06-export/` ist der einzige finale Ausgabeordner. Er enthält nach Phase 3 genau:
+
+```text
+reel.mp4
+cover.png
+```
 
 `04-caption/` enthält Master-Caption, Reel-Plattformtexte und Wort-Timings:
 
@@ -394,4 +402,12 @@ npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
 
 Sie verlangt platzhalterfreie Phase-1-Inhalte, exakt benannte Bilder im gemeinsamen Bilderordner, genau ein finales Voiceover und echte dazugehörige Wort-Zeitstempel. Bei Erfolg arbeitet Antigravity ohne Rückfragen bis zur fertigen QA weiter. Bei Fehlern meldet es alle echten Blocker gesammelt.
 
-Validator/Typecheck/Preview müssen tatsächlich ausgeführt werden, bevor ein Reel als technisch fertig bezeichnet wird. Technischer Erfolg ersetzt nicht die visuelle Freigabe.
+Nach Render und QA müssen das finale 1080 × 1920 Video mit Audio direkt als `06-export/reel.mp4` und das finale 1080 × 1920 Remotion-Cover direkt als `06-export/cover.png` vorliegen. Vorschauen und Entwürfe gehören nicht in diesen Ordner.
+
+Abschließend ist Pflicht:
+
+```bash
+npm run reel:final -- reels/<Woche>/<Tag>/<Reel>
+```
+
+Erst wenn diese Prüfung erfolgreich ist, darf das Reel als technisch fertig bezeichnet werden. Technischer Erfolg ersetzt nicht die visuelle Freigabe.

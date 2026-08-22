@@ -20,6 +20,7 @@ Jedes neue Reel hat diese Struktur:
 └── scene-index.json
 04-caption/
 05-projektdateien/
+06-export/
 README.md
 ```
 
@@ -38,6 +39,7 @@ Reel prüfen:
 ```bash
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
 npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
+npm run reel:final -- reels/<Woche>/<Tag>/<Reel>
 ```
 
-`reel:validate` prüft die Struktur. `reel:ready` entscheidet streng, ob Phase 3 ohne Rückfragen starten darf.
+`reel:validate` prüft die Struktur. `reel:ready` entscheidet streng, ob Phase 3 ohne Rückfragen starten darf. `reel:final` bestätigt erst nach Render und QA, dass `06-export/reel.mp4` und `06-export/cover.png` vollständig und technisch lesbar vorliegen.

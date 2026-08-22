@@ -18,10 +18,12 @@ Die bestehende einfache Reel-Struktur bleibt unverändert:
 03-szenen/
 04-caption/
 05-projektdateien/
+06-export/
 README.md
 ```
 
 Alle plattformspezifischen Veröffentlichungs-Texte für Reels liegen direkt in `04-caption/`.
+Das plattformübergreifende finale Reel und sein Cover liegen ausschließlich als `06-export/reel.mp4` und `06-export/cover.png` vor.
 
 ## 2. Verbindlicher Inhalt von 04-caption
 

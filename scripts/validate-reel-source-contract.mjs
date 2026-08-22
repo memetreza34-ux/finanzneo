@@ -12,6 +12,7 @@ import {
   IMAGE_INBOX,
   PLATFORM_PUBLISHING_FILES,
   REEL_CAPTION,
+  REEL_FINAL_EXPORT,
   REEL_LAYOUT,
   REEL_VISUAL_MIX,
   SCENE_INDEX,
@@ -111,6 +112,8 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   assert(index.timelineRules?.cutsFollowSentenceStarts === true, 'Szenenschnitte müssen Satzanfängen folgen.');
   assert(index.timelineRules?.equalLengthScenesForbiddenByDefault === true, 'Starre gleich lange Szenen müssen standardmäßig verboten sein.');
   assert(JSON.stringify(index.layout) === JSON.stringify(REEL_LAYOUT), 'Layout muss exakt src/brand/reel-contract.json entsprechen.');
+  assert(JSON.stringify(index.finalExport) === JSON.stringify(REEL_FINAL_EXPORT), 'Finaler Export muss exakt dem zentralen Reel-Vertrag entsprechen.');
+  assert(existsSync(resolve(root, REEL_FINAL_EXPORT.directory)), `${REEL_FINAL_EXPORT.directory} fehlt.`);
 
   const animationCount = Array.isArray(index.scenes)
     ? index.scenes.filter((scene) => scene?.type === 'animation').length
@@ -283,6 +286,6 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('\n✓ Reel-Quellen-, Bildwelt-, Timing-, Publishing- und Präsentationsvertrag erfüllt.');
-console.log('  Neue Reels: nahtloser Hintergrund · sichtbares Gesicht bei Personen · kurze deutsche Objektlabels · Master-Caption + 4 Plattformdateien');
+console.log('\n✓ Reel-Quellen-, Bildwelt-, Timing-, Publishing-, Präsentations- und Exportvertrag erfüllt.');
+console.log('  Neue Reels: nahtloser Hintergrund · sichtbares Gesicht bei Personen · kurze deutsche Objektlabels · Master-Caption + 4 Plattformdateien · finaler Video-/Cover-Export');
 if (missingFinalImages > 0) console.log(`  Hinweis: ${missingFinalImages} finale Bilddateien fehlen noch.`);

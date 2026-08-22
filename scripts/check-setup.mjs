@@ -26,6 +26,8 @@ const requiredFiles = [
   'src/brand/reel-contract.json',
   'src/finance/calculations.ts',
   'src/finance/examples.ts',
+  'scripts/check-reel-final-export.mjs',
+  'scripts/lib/reel-final-export.mjs',
   'public/fonts/BebasNeue-400.woff2',
   'public/fonts/Inter-400.woff2',
   'public/fonts/Inter-600.woff2',

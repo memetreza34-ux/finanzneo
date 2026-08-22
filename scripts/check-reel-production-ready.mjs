@@ -78,3 +78,4 @@ for (const fileName of result.expectedImages) {
 console.log('\n✓ PHASE 3 STARTKLAR');
 console.log(`  ${result.expectedImages.length} quadratische 1:1-Bilder · 1 finales Voiceover · echte Wort-Zeitstempel`);
 console.log('  Antigravity beginnt jetzt ohne Zwischenfragen mit Asset-Sync, Remotion, QA und Render.');
+console.log('  Abschluss: 06-export/reel.mp4 + 06-export/cover.png, danach reel:final.');

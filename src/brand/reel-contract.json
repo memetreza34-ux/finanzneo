@@ -23,5 +23,14 @@
     "minimumAnimationShare": 0.55,
     "maximumAnimationShare": 0.65,
     "exceptionRequiresRationale": true
+  },
+  "finalExport": {
+    "directory": "06-export",
+    "videoFile": "06-export/reel.mp4",
+    "coverFile": "06-export/cover.png",
+    "video": {"width": 1080, "height": 1920, "fps": 30, "audioRequired": true},
+    "cover": {"width": 1080, "height": 1920, "remotionTextRequired": true},
+    "exactlyOneVideo": true,
+    "exactlyOneCover": true
   }
 }

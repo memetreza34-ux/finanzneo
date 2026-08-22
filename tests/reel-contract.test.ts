@@ -8,6 +8,7 @@ import {
   SERIES_LOCK_ID,
   REEL_VIDEO_ASPECT_RATIO,
   REEL_CAPTION,
+  REEL_FINAL_EXPORT,
   REEL_LAYOUT,
   REEL_VISUAL_MIX,
   WORLD_ID,
@@ -24,6 +25,9 @@ test('Reel-Vertrag verwendet die verbindliche Bildwelt', () => {
   assert.equal(REEL_CAPTION.maxLines, 2);
   assert.equal(REEL_CAPTION.activeWordColor, 'finance-green');
   assert.equal(REEL_VISUAL_MIX.preferredAnimationShare, 0.6);
+  assert.equal(REEL_FINAL_EXPORT.videoFile, '06-export/reel.mp4');
+  assert.equal(REEL_FINAL_EXPORT.coverFile, '06-export/cover.png');
+  assert.equal(REEL_FINAL_EXPORT.video.audioRequired, true);
 });
 
 test('Reel-Vertrag enthält genau die vier erlaubten Plattformdateien', () => {

@@ -1,10 +1,10 @@
 import assert from 'node:assert/strict';
-import {mkdirSync, mkdtempSync, readFileSync, rmSync} from 'node:fs';
+import {existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
-import {REEL_LAYOUT, REEL_VISUAL_MIX} from '../scripts/lib/reel-contract.mjs';
+import {REEL_FINAL_EXPORT, REEL_LAYOUT, REEL_VISUAL_MIX} from '../scripts/lib/reel-contract.mjs';
 
 test('Reel-Scaffolder erzeugt den zentralen Premium-Produktionsvertrag', () => {
   const root = mkdtempSync(join(tmpdir(), 'finanzneo-reel-scaffold-'));
@@ -29,6 +29,8 @@ test('Reel-Scaffolder erzeugt den zentralen Premium-Produktionsvertrag', () => {
     assert.deepEqual(index.layout, REEL_LAYOUT);
     assert.equal(index.cover.type, 'image-with-remotion-text');
     assert.ok(index.cover.overlay.headline);
+    assert.deepEqual(index.finalExport, REEL_FINAL_EXPORT);
+    assert.equal(existsSync(join(root, 'reels/contract-test/06-export/README.md')), true);
 
     for (const scene of index.scenes.filter((entry: {type: string}) => entry.type === 'animation')) {
       assert.ok(scene.visualMetaphor);

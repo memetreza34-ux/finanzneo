@@ -15,6 +15,7 @@ const runtimeContract = JSON.parse(
 export const REEL_LAYOUT = runtimeContract.layout;
 export const REEL_CAPTION = runtimeContract.captions;
 export const REEL_VISUAL_MIX = runtimeContract.visualMix;
+export const REEL_FINAL_EXPORT = runtimeContract.finalExport;
 
 export {
   FLOW_AGENT_PROTOCOL_ID,

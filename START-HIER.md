@@ -41,6 +41,7 @@
 03-szenen/
 04-caption/
 05-projektdateien/
+06-export/
 README.md
 ```
 
@@ -113,6 +114,15 @@ Mach das Reel: reels/<Woche>/<Tag>/<Reel>
 
 Antigravity prüft mit `npm run reel:ready -- <Reel-Pfad>`. Bei Erfolg baut und prüft es ohne Zwischenfragen bis zum Render. Es stoppt nur bei einem konkret benannten fehlenden oder widersprüchlichen Pflichtasset beziehungsweise einem nicht selbst lösbaren technischen Fehler.
 
+Der Abschluss liegt immer direkt im Reel-Projekt:
+
+```text
+06-export/reel.mp4
+06-export/cover.png
+```
+
+Antigravity beendet Phase 3 erst nach erfolgreichem `npm run reel:final -- <Reel-Pfad>`.
+
 ## Bildfreigabe
 
 Bild neu erzeugen, wenn unter anderem:
@@ -126,6 +136,6 @@ Bild neu erzeugen, wenn unter anderem:
 
 ## Produktionsfreigabe
 
-Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover vorhanden sind, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview tatsächlich ausgeführt wurden und Bildsatz + komplette MP4 geprüft wurden.
+Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover vorhanden sind, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview tatsächlich ausgeführt wurden, Bildsatz + komplette MP4 geprüft wurden und `06-export/reel.mp4` sowie `06-export/cover.png` die Abschlussprüfung bestehen.
 
 Vor Cross-Platform-Reel-Publishing zusätzlich alle vier Reel-Plattformdateien in `04-caption/` fertigstellen und auf dasselbe finale Reel abstimmen.

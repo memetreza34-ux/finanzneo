@@ -6,7 +6,7 @@ import {join} from 'node:path';
 import test from 'node:test';
 import {mkdtempSync} from 'node:fs';
 import {analyzeReelReadiness, isSquareImageDimensions} from '../scripts/lib/reel-readiness.mjs';
-import {REEL_CAPTION, REEL_LAYOUT, REEL_VISUAL_MIX} from '../scripts/lib/reel-contract.mjs';
+import {REEL_CAPTION, REEL_FINAL_EXPORT, REEL_LAYOUT, REEL_VISUAL_MIX} from '../scripts/lib/reel-contract.mjs';
 
 const write = (root: string, relativePath: string, content: string | Buffer) => {
   const path = join(root, relativePath);
@@ -29,6 +29,7 @@ const createReadyFixture = () => {
       },
     },
     layout: REEL_LAYOUT,
+    finalExport: REEL_FINAL_EXPORT,
     subtitleDisplay: {
       mode: REEL_CAPTION.mode,
       activeWordColor: REEL_CAPTION.activeWordColor,
