@@ -1,10 +1,10 @@
 # Szenenproduktion
 
-- 15 visuelle Beats insgesamt.
-- 9 Google-Flow-Bildszenen + Cover.
+- 16 visuelle Beats insgesamt.
+- 10 Google-Flow-Bildszenen + Cover.
 - 6 native Remotion-Mechanismusanimationen.
-- Verteilung der Reel-Beats: exakt 60 % Bild / 40 % Animation.
-- Google-Flow-Bilder: Szenen 01, 03, 05, 06, 07, 09, 10, 14, 15.
+- Zielstandard ca. 60 % Bild / 40 % Animation; dieses Reel nutzt 62,5 % / 37,5 %, weil die 6-Sekunden-Maximaldauer für Bilder Vorrang hat.
+- Google-Flow-Bilder: Szenen 01, 03, 05, 06, 07, 09, 10, 14, 15, 16.
 - Remotion: Szenen 02, 04, 08, 11, 12, 13.
 - Einzige Flow-Übergabedatei: `alle-bildprompts.txt`.
 - Jede Bildszene hat zusätzlich ihren vollständigen Einzelprompt im Szenenordner.
