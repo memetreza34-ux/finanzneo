@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "title": "2,8 % Inflation: Deine Rate kann anders sein",
+  "fps": 30,
+  "timingSource": "04-caption/word-timings.json",
+  "cutRule": "voice-sentence-start",
+  "scenes": [
+    {"id":"scene-01","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-02","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-03","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-04","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-05","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-06","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-07","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-08","type":"animation","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-09","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"},
+    {"id":"scene-10","type":"image","startFrame":0,"durationFrames":0,"cutReason":"voice-sentence-start"}
+  ],
+  "status": "phase-2-audio-timings-required",
+  "note": "startFrame und durationFrames werden erst aus dem finalen Voiceover und echten Wort-Zeitstempeln gesetzt. Keine geschätzten gleich langen Szenen verwenden."
+}
