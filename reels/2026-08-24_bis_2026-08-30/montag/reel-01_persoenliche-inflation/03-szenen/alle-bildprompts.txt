@@ -1,0 +1,335 @@
+FINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STRIKTER ARBEITSMODUS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Lies diese gesamte Datei einmal vollständig. Arbeite danach strikt von oben nach unten und immer nur am aktuell freigegebenen Bildblock.
+2. Erzeuge GENAU EIN Bild. Starte niemals mehrere Bilder gleichzeitig und bereite das nächste Bild nicht parallel vor.
+3. Warte, bis dieses eine Bild vollständig erzeugt ist.
+4. Benenne es SOFORT exakt mit dem im aktuellen Block angegebenen finalen Dateinamen um.
+5. Prüfe, ob die Datei unter exakt diesem Namen vorhanden ist.
+6. Prüfe Motiv, erlaubte Labels, sichtbares Gesicht falls eine Person verlangt wird, nahtlosen Einzelhintergrund, 1:1-Format und Same-World-Lock.
+7. Wenn eine Prüfung scheitert: Erzeuge DIESELBE Bildnummer neu, ersetze die fehlerhafte Datei und wiederhole die Prüfung. Gehe nicht weiter.
+8. Erst nach bestandener Prüfung und korrekter Umbenennung darf der nächste Block beginnen.
+9. Bei `KEIN BILD XX ERZEUGEN` wird die Nummer ohne Generierung übersprungen. Diese Nummer bleibt für eine Remotion-Animation reserviert.
+10. Nach Abschluss müssen alle erzeugten Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` liegen. Keine Szenen-Unterordner anlegen.
+
+BILDNUMMERIERUNG:
+Bildnummer = echte Szenennummer. Animationsnummern bleiben reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GLOBALER SAME-WORLD-LOCK — GILT FÜR JEDES BILD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FORMAT LOCK:
+Create a square 1:1 source image only. Width and height must be equal. No portrait or vertical format.
+
+SAME-WORLD LOCK:
+Keep the exact same FinanzNeo art direction across the complete image series. Preserve the same deep charcoal green-black background material and gradient character, emerald rim-light signature, rounded geometry language, bevel softness, premium matte/glass material finish, color roles, contrast level and editorial 3D rendering quality in every image. Do not reinterpret the series as a new style between images. Subjects and compositions may change, but they must always look as if they exist in the same visual universe.
+
+VERBINDLICHER BILDSTIL:
+Premium fintech editorial 3D render style. Deep charcoal green-black world. Accents in vivid emerald and mint green. Gold only for euro coins, cash and financial value. Warm red-orange only for loss, risk, debt or price pressure. Use smooth rounded 3D geometry, soft bevelled edges, sophisticated matte and transparent materials, confident high-contrast studio lighting and a bold emerald rim-light signature. One dominant financial metaphor per image. Few large supporting objects. Strong phone readability.
+
+PERSON RULE:
+A stylized anonymous adult may appear only when the scene explicitly benefits from a human situation. If a person appears, the face must be clearly visible with stylized eyes, nose and mouth, preferably front-facing or in a natural three-quarter view. No faceless mannequin, blank face, hidden face, back-view-only person, real identifiable person or photorealistic portrait.
+
+TEXT RULE:
+No headline. No subtitle. No explanatory sentence. No CTA. Only the exact short German object labels listed in the current image block. No random extra text, fantasy words or English labels.
+
+BACKGROUND RULE:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Keep the same continuous material, tone and subtle gradient from edge to edge. NO horizontal divisions. NO separate zones. NO dark band at any edge. NO floor-wall boundary. NO horizon line. NO studio wall split. NO panel background. NO layered backdrop. Use only one subtle continuous gradient or vignette. Objects may cast soft contact shadows, but the background itself remains one uninterrupted surface.
+
+FORBIDDEN:
+No percentage-based layout zones. No portrait or vertical source image. No photorealism. No real identifiable human. No UI dashboard. No app screen. No floating interface cards. No generic stock-photo finance scene. No tiny isometric diorama. No miniature game level. No neon tunnel. No sci-fi corridor. No abstract line-network as the main metaphor. No clutter. No giant typography. No full sentence. No Pixar look. No clay look.
+
+SERIES-SPECIFIC MOTIF:
+This Reel explains the difference between official average inflation and personal inflation. Recurring physical language may use weighted baskets, budget blocks, receipts, category objects, calibrated markers and comparison mechanisms. Never repeat the exact same composition twice. Preserve the world, not the layout.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COVER — BILD 00
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 00 - Deine Inflation.png`
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN.
+Erzeuge jetzt ausschließlich dieses eine Bild. Warte auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Motiv + Labels + Hintergrund + Same-World-Lock + Dateiname. Nach bestandener QA ist dieses Cover die verbindliche visuelle Stilreferenz für alle folgenden Bilder. Nutze nur seine Bildwelt, Materialien, Geometriesprache, Farbrollen und Lichtsignatur als Referenz. Der Dateiname darf nicht sichtbar im Bild erscheinen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- `2,8 %`
+- `DEIN WARENKORB`
+
+BILDPROMPT:
+Create one powerful premium fintech editorial 3D metaphor for the idea that Germany's official inflation rate is an average and may differ from an individual's personal inflation.
+
+At the visual center, build a large elegant physical comparison balance made from dark premium metal and transparent glass. One side holds a broad official shopping basket filled with a balanced mix of large recognizable physical category objects: a small housing block, grocery bag, household-energy meter and fuel nozzle. The other side holds a clearly different personal shopping basket with visibly different proportions, especially one oversized fuel-related object and smaller objects from other categories. The two baskets should feel materially different in composition while remaining part of the same visual system.
+
+Place a small solid physical reference marker beside the central balance carrying the exact German object label `2,8 %`. Attach the exact German object label `DEIN WARENKORB` directly to the personal basket as a small integrated plaque rather than poster typography.
+
+The image must communicate in under one second: the official number is one reference, but the viewer's own spending basket can be different. Keep the central metaphor large, clean and immediately readable on a phone. Do not show any result for the personal inflation rate; create curiosity without inventing a number.
+
+Apply the GLOBAL SAME-WORLD-LOCK above exactly. Create a square 1:1 source image only. Use ONE single seamless continuous deep charcoal green-black background. No headline. No subtitle. No explanatory sentence. No person is needed for the cover.
+
+QA VOR DEM NÄCHSTEN BILD:
+- exact filename correct
+- square 1:1
+- only `2,8 %` and `DEIN WARENKORB` visible as text
+- one seamless background
+- no UI/dashboard
+- no invented personal percentage
+- central metaphor large and phone-readable
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 01 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 01 - Inflation Hook.png`
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN.
+Erzeuge jetzt ausschließlich dieses eine Bild. Warte auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Motiv + Labels + Hintergrund + Same-World-Lock + Dateiname. Vergleiche die Bildwelt mit dem freigegebenen Bild 00. Das Cover ist die verbindliche visuelle Stilreferenz. Übernimm NICHT Motiv, Komposition oder Labels des Covers. Der Dateiname darf nicht sichtbar im Bild erscheinen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- `2,8 %`
+- `DEIN ALLTAG`
+
+BILDPROMPT:
+Create a premium fintech editorial 3D hook image showing the difference between an official inflation reference and a person's own everyday spending.
+
+Build ONE large dominant physical metaphor: a massive precision reference ring or calibrated metal marker carrying the exact object label `2,8 %`, suspended beside a separate personal shopping basket. The basket is not attached directly to the official marker; instead, several large physical expense weights pull on it from different directions: a fuel nozzle, grocery bag, small housing block and household-energy meter. Their different sizes make the personal basket visibly unique without displaying a made-up personal inflation percentage.
+
+Attach a small integrated plaque with the exact object label `DEIN ALLTAG` directly to the personal basket. The visual relationship must be obvious: `2,8 %` is a reference value, while the personal basket is shaped by different real-life expense weights.
+
+Make the metaphor immediate, bold and phone-readable. The large 2,8-% marker should attract first attention, then the eye should naturally move to the differently weighted basket. Do not repeat the cover's balance-scale composition.
+
+Apply the GLOBAL SAME-WORLD-LOCK above exactly. Create a square 1:1 source image only. Use ONE single seamless continuous deep charcoal green-black background. No headline. No subtitle. No explanatory sentence.
+
+QA VOR DEM NÄCHSTEN BILD:
+- exact filename correct
+- same world as approved Bild 00, different composition
+- only `2,8 %` and `DEIN ALLTAG` as text
+- no fake personal rate
+- no balance-scale repeat from cover
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 02 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 02 - Durchschnitt Warenkorb.png`
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN.
+Erzeuge jetzt ausschließlich dieses eine Bild. Warte auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Motiv + Labels + Hintergrund + Same-World-Lock + Dateiname. Vergleiche die Bildwelt mit dem freigegebenen Bild 00. Das Cover ist die verbindliche visuelle Stilreferenz. Übernimm NICHT Motiv, Komposition oder Labels des Covers. Der Dateiname darf nicht sichtbar im Bild erscheinen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- `DURCHSCHNITT`
+- `DEINE AUSGABEN`
+
+BILDPROMPT:
+Create a premium fintech editorial 3D explanation of how an official inflation average comes from a weighted mix of spending categories, while a person's own monthly spending mix can look different.
+
+Use ONE dominant physical metaphor: a large broad premium metal weighing platform in the center-left holding four oversized category objects in visibly different proportions — a housing block, fuel nozzle, grocery bag and household-energy meter. Attach the exact small German object label `DURCHSCHNITT` to this platform.
+
+Beside it, create one separate compact personal expense stack made from the same four physical category objects but with clearly different relative sizes. Attach the exact small German object label `DEINE AUSGABEN` directly to this second structure.
+
+The key visual idea is proportion, not decoration: the same categories exist in both structures, but their weights visibly differ. Do not display a personal percentage, equation or chart. Keep both structures large and readable. Do not reuse the cover's balance scale and do not reuse scene 01's reference-ring composition.
+
+Apply the GLOBAL SAME-WORLD-LOCK above exactly. Create a square 1:1 source image only. Use ONE single seamless continuous deep charcoal green-black background. No headline. No subtitle. No explanatory sentence.
+
+QA VOR DEM NÄCHSTEN BILD:
+- exact filename correct
+- same world as Bild 00
+- only `DURCHSCHNITT` and `DEINE AUSGABEN` visible as text
+- relative category sizes clearly different
+- no chart, UI or personal percentage
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 03 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 03 ERZEUGEN. Nummer 03 bleibt reserviert.
+Fahre direkt mit Szene 04 fort.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 04 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 04 - Tanken Belastung.png`
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN.
+Erzeuge jetzt ausschließlich dieses eine Bild. Warte auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Motiv + Labels + sichtbares Gesicht + Hintergrund + Same-World-Lock + Dateiname. Vergleiche die Bildwelt mit dem freigegebenen Bild 00. Das Cover ist die verbindliche visuelle Stilreferenz. Übernimm NICHT Motiv, Komposition oder Labels des Covers. Der Dateiname darf nicht sichtbar im Bild erscheinen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- `MOBILITÄT`
+- `+23 %`
+
+BILDPROMPT:
+Create a premium fintech editorial 3D scene explaining why a person who spends a large share of their budget on fuel is hit harder by a strong fuel price increase.
+
+Use ONE dominant physical cause-and-effect metaphor. A stylized anonymous adult with a clearly visible stylized face stands in a natural three-quarter view beside a very large premium fuel nozzle connected to a transparent physical monthly-budget reservoir. Inside the reservoir are gold euro coins representing available money. A thick channel labeled `MOBILITÄT` pulls a visibly large stream of those coins toward the fuel nozzle.
+
+Integrate a small solid object tag carrying the exact label `+23 %` directly beside the fuel nozzle. The person should look toward the money flow with a calm, concerned expression — informative, not dramatic or distressed. The metaphor must clearly show that a large personal mobility share magnifies the practical effect of the fuel-price increase.
+
+Do not show a second person, fake household percentage, bank app, receipt screen or dashboard. Keep the person and the large fuel-budget mechanism as one cohesive editorial composition. The face must be clearly visible with recognizable stylized eyes, nose and mouth.
+
+Apply the GLOBAL SAME-WORLD-LOCK above exactly. Create a square 1:1 source image only. Use ONE single seamless continuous deep charcoal green-black background. No headline. No subtitle. No explanatory sentence.
+
+QA VOR DEM NÄCHSTEN BILD:
+- exact filename correct
+- same world as Bild 00
+- face clearly visible
+- only `MOBILITÄT` and `+23 %` visible as text
+- large money flow into fuel mechanism clearly understandable
+- no dashboard/UI
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 05 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 05 ERZEUGEN. Nummer 05 bleibt reserviert.
+Fahre direkt mit Szene 06 fort.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 06 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 06 - Eigener Warenkorb.png`
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN.
+Erzeuge jetzt ausschließlich dieses eine Bild. Warte auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Motiv + Labels + Hintergrund + Same-World-Lock + Dateiname. Vergleiche die Bildwelt mit dem freigegebenen Bild 00. Das Cover ist die verbindliche visuelle Stilreferenz. Übernimm NICHT Motiv, Komposition oder Labels des Covers. Der Dateiname darf nicht sichtbar im Bild erscheinen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- `DEIN WARENKORB`
+- `WENIG KRAFTSTOFF`
+
+BILDPROMPT:
+Create a premium fintech editorial 3D explanation showing that a strongly rising price category matters less to a person who spends only a small share of their budget on that category.
+
+Use ONE dominant physical metaphor: a large transparent premium shopping basket or allocation vessel labeled `DEIN WARENKORB`. Inside it, build the budget from a few large physical category blocks. A housing block and grocery block occupy most of the visible space. A fuel-nozzle block exists but is deliberately much smaller and carries the exact small object label `WENIG KRAFTSTOFF`.
+
+A restrained warm red-orange price-pressure glow may touch the small fuel block, but because that block is physically small, the glow should affect only a limited part of the full basket. The rest of the basket remains visually stable in the FinanzNeo emerald/charcoal world. Communicate proportion at a glance without showing any personal inflation percentage.
+
+Do not create a split-screen, chart, pie chart or app interface. Keep the basket and its differently sized physical expense blocks as one large cohesive metaphor. Avoid repeating scene 02's two-platform comparison; this scene focuses tightly on one personal basket.
+
+Apply the GLOBAL SAME-WORLD-LOCK above exactly. Create a square 1:1 source image only. Use ONE single seamless continuous deep charcoal green-black background. No headline. No subtitle. No explanatory sentence.
+
+QA VOR DEM NÄCHSTEN BILD:
+- exact filename correct
+- same world as Bild 00
+- only `DEIN WARENKORB` and `WENIG KRAFTSTOFF` visible as text
+- fuel block clearly smaller than major expense blocks
+- no personal percentage, no chart/UI
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 07 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 07 ERZEUGEN. Nummer 07 bleibt reserviert.
+Fahre direkt mit Szene 08 fort.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 08 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 08 ERZEUGEN. Nummer 08 bleibt reserviert.
+Fahre direkt mit Szene 09 fort.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 09 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 09 - Ausgaben Check.png`
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN.
+Erzeuge jetzt ausschließlich dieses eine Bild. Warte auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Motiv + Labels + Hintergrund + Same-World-Lock + Dateiname. Vergleiche die Bildwelt mit dem freigegebenen Bild 00. Das Cover ist die verbindliche visuelle Stilreferenz. Übernimm NICHT Motiv, Komposition oder Labels des Covers. Der Dateiname darf nicht sichtbar im Bild erscheinen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- `WOHNEN`
+- `MOBILITÄT`
+- `LEBENSMITTEL`
+- `ENERGIE`
+
+BILDPROMPT:
+Create a premium fintech editorial 3D scene that turns the inflation explanation into one practical action: identify the largest categories in your own monthly spending.
+
+Use ONE dominant physical metaphor: a large elegant monthly expense ledger made from premium dark material lies at the visual center beneath an oversized transparent magnifying lens. On the ledger sit exactly four large, clearly separated physical expense objects: a compact housing block, a mobility/fuel object, a grocery bag or food basket, and a household-energy meter. Attach the exact German object labels `WOHNEN`, `MOBILITÄT`, `LEBENSMITTEL`, and `ENERGIE` directly beside their corresponding objects as small integrated plaques.
+
+The magnifying lens should visibly focus attention on these four expense categories, communicating "look at your own biggest monthly costs" without using a digital interface. Keep the objects large enough to read on a phone. Do not add money amounts, percentages, charts, checklists, apps or extra categories.
+
+The scene should feel calm, useful and action-oriented rather than alarming. Avoid reusing earlier basket, balance-scale or fuel-reservoir compositions.
+
+Apply the GLOBAL SAME-WORLD-LOCK above exactly. Create a square 1:1 source image only. Use ONE single seamless continuous deep charcoal green-black background. No headline. No subtitle. No explanatory sentence.
+
+QA VOR DEM NÄCHSTEN BILD:
+- exact filename correct
+- same world as Bild 00
+- exactly four requested labels and no other text
+- all four objects large and readable
+- magnifying-lens/ledger metaphor clear
+- no app/dashboard/checklist UI
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 10 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 10 - Inflation Persoenlich.png`
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN.
+Erzeuge jetzt ausschließlich dieses eine Bild. Warte auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Motiv + Labels + Hintergrund + Same-World-Lock + Dateiname. Vergleiche die Bildwelt mit dem freigegebenen Bild 00. Das Cover ist die verbindliche visuelle Stilreferenz. Übernimm NICHT Motiv, Komposition oder Labels des Covers. Der Dateiname darf nicht sichtbar im Bild erscheinen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- `2,8 %`
+- `DEIN WARENKORB`
+
+BILDPROMPT:
+Create a premium fintech editorial 3D closing scene that communicates one final idea: the official inflation rate is a useful reference, but the viewer's own spending basket determines where purchasing power is actually affected.
+
+Use ONE dominant physical metaphor that is clearly different from the cover and previous scenes. Build an elegant calibrated path made from premium dark metal running gently through the visual center. A fixed official reference post beside the path carries the exact small object label `2,8 %`. On the path sits one large personal shopping basket carrying the exact integrated label `DEIN WARENKORB`. Inside the basket are a few large, differently sized physical category objects representing housing, mobility, food and household energy, but do not add additional text labels.
+
+The personal basket should sit slightly beyond the official reference post only for spatial readability; do not visually imply that the person's rate is above or below 2.8%. Add a subtle physical purchasing-power metaphor: a small stack of gold euro coins stays attached to the basket while the category objects have visibly different weights around it. The conclusion should feel controlled and informative, not fearful.
+
+Do not use a balance scale, split screen, dashboard, chart, app interface or numeric personal result. The image should work as a clean final frame and remain easy to read on a phone.
+
+Apply the GLOBAL SAME-WORLD-LOCK above exactly. Create a square 1:1 source image only. Use ONE single seamless continuous deep charcoal green-black background. No headline. No subtitle. No explanatory sentence.
+
+QA ABSCHLUSS:
+- exact filename correct
+- same world as approved Bild 00
+- only `2,8 %` and `DEIN WARENKORB` visible as text
+- no visual claim that personal inflation is above or below 2.8%
+- distinct composition from cover
+- clean final frame, phone-readable
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSCHLUSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Beende den Auftrag erst, wenn jedes erwartete Bild einzeln erzeugt, exakt umbenannt und geprüft wurde.
+
+ERWARTETE DATEIEN:
+- Bild 00 - Deine Inflation.png
+- Bild 01 - Inflation Hook.png
+- Bild 02 - Durchschnitt Warenkorb.png
+- Bild 04 - Tanken Belastung.png
+- Bild 06 - Eigener Warenkorb.png
+- Bild 09 - Ausgaben Check.png
+- Bild 10 - Inflation Persoenlich.png
+
+NICHT ERZEUGEN:
+- Bild 03
+- Bild 05
+- Bild 07
+- Bild 08
+
+Danach müssen alle sieben Bilder gemeinsam hier liegen:
+`03-szenen/00-ALLE-BILDER-HIER-REIN/`
