@@ -1,7 +1,13 @@
-BILD 10 – SZENE 10
-FINAL FILE NAME: Bild 10 - Jahreskosten Labels.png
-FORMAT: strict square 1:1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
 STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+BILD 10 – SZENE 10
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Jahreskosten Labels.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -9,23 +15,27 @@ MAIN IDEA
 Neben jede regelmäßige Ausgabe gehört der Jahresbetrag.
 
 SCENE
-Create a CLEARLY STYLIZED premium 3D CGI editorial explainer. A chunky vertical dark-emerald receipt stand holds four thick cream hanging tags at different heights. Beside each tag is one recognizable stylized 3D everyday object: headphones, smartphone/SIM, membership key tag and app envelope. Each tag has a gold-edged annual-value plate area and the short heading `PRO JAHR`. Gold coins gather beneath the tags. The objects and tags should form a clear cause-and-effect pairing without looking like UI cards.
+Create a CLEARLY STYLIZED premium 3D CGI editorial explainer. A chunky vertical dark-emerald receipt stand holds four thick cream hanging tags at different heights. Beside each tag is one recognizable stylized 3D everyday object: headphones, smartphone/SIM, membership key tag and app envelope. Each tag has a gold-edged annual-value plate area and the short heading `PRO JAHR`. Chunky gold coins gather beneath the tags. The objects and tags should form a clear cause-and-effect pairing without looking like UI cards.
 
 FULL STYLE LOCK
-Clearly stylized premium 3D CGI, chunky modeled objects, smooth rounded geometry, soft bevels, slightly exaggerated proportions, premium emerald material, thick cream tags, chunky gold coins, cinematic key light, emerald rim light, soft contact shadows, strong depth, mild DOF. NOT photorealistic, NOT office receipt photography, NOT UI, NOT Pixar/clay/toy.
+Clearly stylized premium 3D CGI, chunky modeled objects, smooth rounded geometry, soft bevels, slightly exaggerated proportions, premium emerald material, thick cream tags, chunky gold coins, cinematic key light, emerald rim light, soft contact shadows, strong foreground/midground/background depth, mild depth-of-field. NOT photorealistic. NOT office receipt photography. NOT product photo. NOT UI. NOT Pixar, clay or toy style.
 
 BACKGROUND
-ONE seamless charcoal green-black background.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon line, panels or bands.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `PRO JAHR`
 `STREAMING`
 `MOBILFUNK`
 `MITGLIEDSCHAFT`
 `APPS`
+No headline. No subtitle. No explanatory sentence. No CTA.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
-No table/spreadsheet UI, no dashboard, no flat paper labels, no floating cards.
+No table/spreadsheet UI, no dashboard, no flat paper labels, no floating cards, no realistic stationery photography.
 
 QA
-Must read in under 2 seconds and clearly look like premium stylized 3D CGI.
+Reject and regenerate if the pairings look like UI rows or if the scene is not unmistakably premium stylized 3D CGI.
