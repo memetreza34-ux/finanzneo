@@ -93,9 +93,40 @@ export const normalizeCaptionSentences = (input: unknown): CaptionSentence[] => 
   });
 };
 
+const lineText = (words: CaptionWord[]): string => words.map((word) => word.word).join(' ');
+
+export const splitCaptionLines = (
+  words: CaptionWord[],
+  limits: {singleLineMaxCharacters: number; maxCharactersPerLine: number},
+): CaptionWord[][] => {
+  if (words.length <= 1 || lineText(words).length <= limits.singleLineMaxCharacters) return [words];
+
+  let bestSplit = 1;
+  let bestScore = Number.POSITIVE_INFINITY;
+
+  for (let split = 1; split < words.length; split += 1) {
+    const firstLength = lineText(words.slice(0, split)).length;
+    const secondLength = lineText(words.slice(split)).length;
+    const overflow = Math.max(0, firstLength - limits.maxCharactersPerLine)
+      + Math.max(0, secondLength - limits.maxCharactersPerLine);
+    const score = overflow * 1000 + Math.abs(firstLength - secondLength);
+    if (score < bestScore) {
+      bestScore = score;
+      bestSplit = split;
+    }
+  }
+
+  return [words.slice(0, bestSplit), words.slice(bestSplit)];
+};
+
 export const validateCaptionSentences = (
   sentences: CaptionSentence[],
-  limits: {maxWords: number; maxCharacters: number},
+  limits: {
+    maxWords: number;
+    maxCharacters: number;
+    singleLineMaxCharacters?: number;
+    maxCharactersPerLine?: number;
+  },
 ): string[] => {
   const errors: string[] = [];
 
@@ -108,6 +139,16 @@ export const validateCaptionSentences = (
     }
     if (sentence.text.length > limits.maxCharacters) {
       errors.push(`${label} hat ${sentence.text.length} Zeichen; erlaubt sind höchstens ${limits.maxCharacters}.`);
+    }
+    if (limits.singleLineMaxCharacters !== undefined && limits.maxCharactersPerLine !== undefined) {
+      const lines = splitCaptionLines(sentence.words, {
+        singleLineMaxCharacters: limits.singleLineMaxCharacters,
+        maxCharactersPerLine: limits.maxCharactersPerLine,
+      });
+      const longestLine = Math.max(...lines.map((line) => lineText(line).length));
+      if (longestLine > limits.maxCharactersPerLine) {
+        errors.push(`${label} erzeugt eine Zeile mit ${longestLine} Zeichen; erlaubt sind höchstens ${limits.maxCharactersPerLine}.`);
+      }
     }
     if (!Number.isFinite(sentence.start) || !Number.isFinite(sentence.end) || sentence.start < 0 || sentence.end < sentence.start) {
       errors.push(`${label} besitzt ungültige Satzzeiten.`);

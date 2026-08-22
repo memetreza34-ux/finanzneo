@@ -84,8 +84,11 @@ Alle Werte kommen ausschließlich aus `src/brand/reel-contract.json`. Untertitel
 
 ## Satz-Karaoke
 
-- genau ein vollständiger Satz sichtbar
-- höchstens 12 Wörter und 68 Zeichen pro Satz
+- genau eine kurze vollständige Sinneinheit sichtbar
+- höchstens 10 Wörter und 68 Zeichen pro Caption-Einheit
+- längere gesprochene Sätze automatisch anhand echter Wortzeiten teilen
+- ab 33 Zeichen zwei ausgewogene Zeilen mit höchstens 40 Zeichen je Zeile
+- feste Schriftgröße 46 px, kein Auto-Fit und kein Kleinerrechnen
 - aktives Wort grün, übrige Wörter weiß
 - keine Sprung-, Größen- oder Scale-Animation
 - maximal zwei Zeilen

@@ -133,8 +133,10 @@ After all user images and final audio are present:
 
 - use real audio-derived word timings
 - scene cuts follow sentence starts
-- one full subtitle sentence visible
-- maximum 12 words and 68 characters per subtitle sentence; shorten the Phase-1 script instead of shrinking below safe readability
+- one short complete caption unit visible
+- maximum 10 words and 68 characters per caption unit; split longer spoken sentences automatically using the real word timings
+- above 32 characters, force two balanced lines with at most 40 characters per line
+- keep the central 46 px font size; never shrink or auto-fit long captions
 - active spoken word green, remaining words white
 - max two subtitle lines
 - position subtitles from `src/brand/reel-contract.json`: directly below the visual, with the right-side platform control area protected

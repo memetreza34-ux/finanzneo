@@ -253,15 +253,19 @@ Einzige technische Quelle dieser Werte ist `src/brand/reel-contract.json`.
 
 Untertitel:
 
-- genau ein vollständiger Satz sichtbar
-- höchstens 12 Wörter und 68 Zeichen pro Satz
+- genau eine kurze vollständige Sinneinheit sichtbar
+- höchstens 10 Wörter und 68 Zeichen pro Caption-Einheit
+- längere gesprochene Sätze automatisch anhand der echten Wortzeiten aufteilen
+- bis 32 Zeichen eine Zeile; darüber zwei ausgewogene Zeilen
+- höchstens 40 Zeichen pro Zeile
+- feste Schriftgröße 46 px; niemals dynamisch verkleinern oder Auto-Fit verwenden
 - aktuelles Wort FinanzNeo-grün
 - restliche Wörter weiß
 - maximal zwei Zeilen
 - keine springenden Wörter
 - keine Größenanimation
 - keine Caption-Lücken
-- zu lange Sätze vor Phase 3 kürzen; nicht unter die sichere Lesbarkeit schrumpfen
+- inhaltlich überlange Sätze möglichst vor Phase 3 kürzen; verbleibende lange Audio-Sätze automatisch in kurze Caption-Einheiten teilen
 
 ## 13.1 Covertext
 

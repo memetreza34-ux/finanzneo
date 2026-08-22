@@ -365,8 +365,11 @@ Google Flow verteilt sie nicht auf einzelne Szenenordner.
 
 ### Karaoke-Untertitel
 
-- genau ein vollständiger Satz gleichzeitig
-- höchstens 12 Wörter und 68 Zeichen pro Untertitelsatz
+- genau eine kurze vollständige Sinneinheit gleichzeitig
+- höchstens 10 Wörter und 68 Zeichen pro Caption-Einheit
+- längere gesprochene Sätze anhand echter Wortzeiten automatisch auf mehrere Caption-Einheiten verteilen
+- bis 32 Zeichen eine Zeile; darüber genau zwei ausgewogene Zeilen mit höchstens 40 Zeichen je Zeile
+- feste Untertitelschrift von 46 px; niemals wegen Textlänge kleiner rechnen oder Auto-Fit verwenden
 - aktuelles gesprochenes Wort FinanzNeo-grün
 - restliche Wörter weiß
 - maximal zwei ausgewogene Zeilen

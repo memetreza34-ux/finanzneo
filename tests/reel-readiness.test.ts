@@ -36,6 +36,9 @@ const createReadyFixture = () => {
       maxWords: REEL_CAPTION.maxWords,
       maxCharacters: REEL_CAPTION.maxCharacters,
       maxLines: REEL_CAPTION.maxLines,
+      singleLineMaxCharacters: REEL_CAPTION.singleLineMaxCharacters,
+      maxCharactersPerLine: REEL_CAPTION.maxCharactersPerLine,
+      fontSize: REEL_CAPTION.fontSize,
       noDeadGaps: true,
       holdDuringPauses: true,
       noWordJump: true,
@@ -185,6 +188,26 @@ test('Einsatzprüfung blockiert zu lange Untertitelsätze', () => {
     const result = analyzeReelReadiness(root);
     assert.equal(result.ready, false);
     assert.ok(result.phase2Blockers.some((blocker) => blocker.includes(`erlaubt sind höchstens ${REEL_CAPTION.maxWords}`)));
+  } finally {
+    rmSync(root, {recursive: true, force: true});
+  }
+});
+
+test('Einsatzprüfung blockiert unlesbar lange einzelne Untertitelzeilen', () => {
+  const root = createReadyFixture();
+  try {
+    const word = 'Einkommenssteuerjahresausgleichsberechnung';
+    write(root, '04-caption/word-timings.json', `${JSON.stringify({
+      version: 'finanzneo-caption-v1',
+      source: '02-audio/voice.mp3',
+      subtitleMode: REEL_CAPTION.mode,
+      activeWordColor: REEL_CAPTION.activeWordColor,
+      words: [{word, start: 0, end: 0.8}],
+      sentences: [{text: word, start: 0, end: 0.8, words: [{word, start: 0, end: 0.8}]}],
+    })}\n`);
+    const result = analyzeReelReadiness(root);
+    assert.equal(result.ready, false);
+    assert.ok(result.phase2Blockers.some((blocker) => blocker.includes('zu lange Zeile')));
   } finally {
     rmSync(root, {recursive: true, force: true});
   }

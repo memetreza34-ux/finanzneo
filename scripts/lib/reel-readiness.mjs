@@ -76,6 +76,25 @@ const isValidTimingWord = (word) => {
   return Boolean(text) && Number.isFinite(start) && Number.isFinite(end) && start >= 0 && end >= start;
 };
 
+const captionLineLengths = (words) => {
+  const lengthOf = (entries) => entries.map((word) => String(word?.word ?? '').trim()).join(' ').length;
+  const totalLength = lengthOf(words);
+  if (words.length <= 1 || totalLength <= REEL_CAPTION.singleLineMaxCharacters) return [totalLength];
+
+  let best = [totalLength, 0];
+  let bestScore = Number.POSITIVE_INFINITY;
+  for (let split = 1; split < words.length; split += 1) {
+    const lengths = [lengthOf(words.slice(0, split)), lengthOf(words.slice(split))];
+    const overflow = lengths.reduce((sum, length) => sum + Math.max(0, length - REEL_CAPTION.maxCharactersPerLine), 0);
+    const score = overflow * 1000 + Math.abs(lengths[0] - lengths[1]);
+    if (score < bestScore) {
+      best = lengths;
+      bestScore = score;
+    }
+  }
+  return best;
+};
+
 export const analyzeReelReadiness = (rootDirectory) => {
   const root = resolve(rootDirectory);
   const phase1Blockers = [];
@@ -137,6 +156,9 @@ export const analyzeReelReadiness = (rootDirectory) => {
     || Number(subtitle?.maxWords) !== REEL_CAPTION.maxWords
     || Number(subtitle?.maxCharacters) !== REEL_CAPTION.maxCharacters
     || Number(subtitle?.maxLines) !== REEL_CAPTION.maxLines
+    || Number(subtitle?.singleLineMaxCharacters) !== REEL_CAPTION.singleLineMaxCharacters
+    || Number(subtitle?.maxCharactersPerLine) !== REEL_CAPTION.maxCharactersPerLine
+    || Number(subtitle?.fontSize) !== REEL_CAPTION.fontSize
     || subtitle?.noWordJump !== true
     || subtitle?.noWordScale !== true) {
     phase1Blockers.push(`${SCENE_INDEX}: subtitleDisplay widerspricht dem zentralen Satz-Karaoke-Vertrag.`);
@@ -245,6 +267,10 @@ export const analyzeReelReadiness = (rootDirectory) => {
         }
         if (text.length > REEL_CAPTION.maxCharacters) {
           phase2Blockers.push(`word-timings.json: Untertitelsatz ${index + 1} hat ${text.length} Zeichen; erlaubt sind höchstens ${REEL_CAPTION.maxCharacters}.`);
+        }
+        const longestLine = Math.max(...captionLineLengths(sentenceWords));
+        if (longestLine > REEL_CAPTION.maxCharactersPerLine) {
+          phase2Blockers.push(`word-timings.json: Untertitelsatz ${index + 1} erzeugt eine zu lange Zeile mit ${longestLine} Zeichen; erlaubt sind höchstens ${REEL_CAPTION.maxCharactersPerLine}.`);
         }
       });
     }

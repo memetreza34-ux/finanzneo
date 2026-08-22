@@ -83,6 +83,12 @@ if (errors.length === 0) {
   if (!captions.includes('C.accent') || !captions.includes('C.white')) {
     errors.push('Satz-Karaoke verwendet nicht Grün für aktiv und Weiß für übrige Wörter.');
   }
+  if (!captions.includes('splitCaptionLines') || !captions.includes('REEL_CAPTION.fontSize') || !captions.includes("whiteSpace: 'nowrap'")) {
+    errors.push('Satz-Karaoke erzwingt keine großen, kontrolliert ausbalancierten Untertitelzeilen.');
+  }
+  if (captions.includes('fontSizeFor(')) {
+    errors.push('Untertitel dürfen nicht durch eine lokale Auto-Fit-Funktion klein gerechnet werden.');
+  }
   if (!cover.includes('ReelCover') || !cover.includes("objectFit: 'contain'")) {
     errors.push('Zentrale Cover-Komponente mit Remotion-Text und contain-Bild fehlt.');
   }

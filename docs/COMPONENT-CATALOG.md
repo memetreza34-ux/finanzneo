@@ -98,8 +98,10 @@ Regeln:
 Verbindlich:
 
 - Datenformat `finanzneo-caption-v1`
-- genau ein vollständiger Satz gleichzeitig
-- höchstens 12 Wörter und 68 Zeichen
+- genau eine kurze vollständige Sinneinheit gleichzeitig
+- höchstens 10 Wörter und 68 Zeichen
+- ab 33 Zeichen zwei ausgewogene Zeilen, höchstens 40 Zeichen pro Zeile
+- feste Schriftgröße 46 px ohne Auto-Fit
 - maximal zwei Zeilen
 - aktives Wort immer FinanzNeo-grün, übrige Wörter weiß
 - keine Sprung-, Größen- oder Scale-Animation

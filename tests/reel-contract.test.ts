@@ -23,6 +23,10 @@ test('Reel-Vertrag verwendet die verbindliche Bildwelt', () => {
   assert.equal(REEL_LAYOUT.caption.top, 1360);
   assert.equal(REEL_LAYOUT.caption.right, 150);
   assert.equal(REEL_CAPTION.maxLines, 2);
+  assert.equal(REEL_CAPTION.maxWords, 10);
+  assert.equal(REEL_CAPTION.singleLineMaxCharacters, 32);
+  assert.equal(REEL_CAPTION.maxCharactersPerLine, 40);
+  assert.equal(REEL_CAPTION.fontSize, 46);
   assert.equal(REEL_CAPTION.activeWordColor, 'finance-green');
   assert.equal(REEL_VISUAL_MIX.preferredAnimationShare, 0.6);
   assert.equal(REEL_FINAL_EXPORT.videoFile, '06-export/reel.mp4');

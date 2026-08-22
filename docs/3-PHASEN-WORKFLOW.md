@@ -58,7 +58,8 @@ Wenn die Prüfung erfolgreich ist, startet Antigravity ohne Rückfragen und ohne
 3. Remotion-Szenen, Überschriften und Karaoke-Untertitel bauen
    - Covertext immer in Remotion
    - Untertitel direkt unter dem Visual nach `src/brand/reel-contract.json`
-   - vollständige Sätze, höchstens 12 Wörter/68 Zeichen, aktives Wort grün, keine Wortbewegung
+   - kurze Sinneinheiten, höchstens 10 Wörter/68 Zeichen, aktives Wort grün, keine Wortbewegung
+   - ab 33 Zeichen zwei ausgewogene Zeilen, höchstens 40 Zeichen je Zeile, feste 46-px-Schrift ohne Auto-Fit
 4. Validator, Tests und Typecheck ausführen
 5. Preview und finale MP4 rendern
 6. Frames, Bildsatz, Ton und Lautheit prüfen

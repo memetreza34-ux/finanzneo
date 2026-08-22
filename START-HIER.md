@@ -21,7 +21,7 @@
 - YouTube: ausschließlich eigenständige längere Videos unter `youtube/`; keine YouTube Shorts
 - YouTube-Video und -Quellbilder: horizontal 16:9; Reel-Quellbilder bleiben 1:1
 - Untertitel Pflicht
-- Satz-Karaoke direkt unter dem Visual: aktives Wort grün, maximal zwei Zeilen, keine Bewegung
+- kurze Satz-Karaoke-Einheiten direkt unter dem Visual: maximal 10 Wörter/68 Zeichen, ab 33 Zeichen zwei ausgewogene Zeilen, feste 46-px-Schrift, aktives Wort grün, keine Bewegung
 - animation-first: ungefähr 60 % echte Remotion-Mechanismen
 - Covertext immer in Remotion; das 1:1-Coverbild bleibt ohne große KI-Headline
 - Premium Fintech Editorial 3D + Remotion

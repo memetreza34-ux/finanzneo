@@ -148,10 +148,12 @@ Baue 1080×1920 bei 30 fps.
 Bilder mit contain.
 Keine unscharfe Bildkopie als Hintergrund.
 Überschriften/Icons in Remotion.
-Genau ein vollständiger Untertitelsatz sichtbar.
+Genau eine kurze vollständige Caption-Sinneinheit sichtbar.
 Aktuelles Wort grün, Rest weiß.
 Maximal zwei Zeilen.
-Maximal 12 Wörter und 68 Zeichen pro Satz; längere Sätze im Skript kürzen.
+Maximal 10 Wörter und 68 Zeichen pro Caption-Einheit; längere Audio-Sätze anhand der echten Wortzeiten automatisch aufteilen.
+Bis 32 Zeichen eine Zeile, darüber zwei ausgewogene Zeilen mit höchstens 40 Zeichen je Zeile.
+Feste Schriftgröße 46 px; niemals Auto-Fit oder Verkleinerung wegen Textlänge.
 Untertitel direkt unter dem Visual und ausschließlich nach `src/brand/reel-contract.json` positionieren.
 Keine Sprung-, Größen- oder Scale-Animation der Untertitel.
 Jede erklärende Animation zeigt Startzustand → sichtbare Handlung/Mechanismus → Endzustand.

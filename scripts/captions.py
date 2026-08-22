@@ -33,6 +33,12 @@ import subprocess
 import tempfile
 from typing import Any
 
+CAPTION_CONTRACT = json.loads(
+    (Path(__file__).resolve().parents[1] / "src/brand/reel-contract.json").read_text(encoding="utf-8")
+)["captions"]
+MAX_CAPTION_WORDS = int(CAPTION_CONTRACT["maxWords"])
+MAX_CAPTION_CHARACTERS = int(CAPTION_CONTRACT["maxCharacters"])
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Erzeuge FinanzNeo-Captions mit Wort-Timestamps.")
@@ -108,6 +114,13 @@ def group_sentences(words: list[dict[str, Any]]) -> list[dict[str, Any]]:
         current.clear()
 
     for word in words:
+        candidate = [*current, word]
+        candidate_text = " ".join(item["word"] for item in candidate)
+        if current and (
+            len(candidate) > MAX_CAPTION_WORDS
+            or len(candidate_text) > MAX_CAPTION_CHARACTERS
+        ):
+            flush()
         current.append(word)
         if re.search(r"[.!?][\"'»”)]*$", word["word"]):
             flush()

@@ -164,6 +164,9 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   assert(Number(index.subtitleDisplay?.maxWords) === REEL_CAPTION.maxWords, 'Maximale Wörter pro Untertitelsatz sind falsch.');
   assert(Number(index.subtitleDisplay?.maxCharacters) === REEL_CAPTION.maxCharacters, 'Maximale Zeichen pro Untertitelsatz sind falsch.');
   assert(Number(index.subtitleDisplay?.maxLines) === REEL_CAPTION.maxLines, 'Untertitel müssen auf zwei Zeilen begrenzt sein.');
+  assert(Number(index.subtitleDisplay?.singleLineMaxCharacters) === REEL_CAPTION.singleLineMaxCharacters, 'Lange Untertitel müssen automatisch zweizeilig werden.');
+  assert(Number(index.subtitleDisplay?.maxCharactersPerLine) === REEL_CAPTION.maxCharactersPerLine, 'Untertitelzeilen sind nicht streng genug begrenzt.');
+  assert(Number(index.subtitleDisplay?.fontSize) === REEL_CAPTION.fontSize, 'Untertitelschrift darf nicht dynamisch klein gerechnet werden.');
   assert(index.subtitleDisplay?.noDeadGaps === true && index.subtitleDisplay?.holdDuringPauses === true, 'Leere Caption-Lücken sind verboten.');
   assert(index.subtitleDisplay?.noWordJump === true && index.subtitleDisplay?.noWordScale === true, 'Springende oder skalierende Untertitelwörter sind verboten.');
 

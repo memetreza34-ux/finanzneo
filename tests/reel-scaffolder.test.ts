@@ -29,6 +29,9 @@ test('Reel-Scaffolder erzeugt den zentralen Premium-Produktionsvertrag', () => {
     assert.deepEqual(index.layout, REEL_LAYOUT);
     assert.equal(index.cover.type, 'image-with-remotion-text');
     assert.ok(index.cover.overlay.headline);
+    assert.equal(index.subtitleDisplay.maxWords, 10);
+    assert.equal(index.subtitleDisplay.maxCharactersPerLine, 40);
+    assert.equal(index.subtitleDisplay.fontSize, 46);
     assert.deepEqual(index.finalExport, REEL_FINAL_EXPORT);
     assert.equal(existsSync(join(root, 'reels/contract-test/06-export/README.md')), true);
 

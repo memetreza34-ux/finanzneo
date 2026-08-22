@@ -10,9 +10,12 @@
   "captions": {
     "mode": "sentence-with-audio-synced-active-word",
     "activeWordColor": "finance-green",
-    "maxWords": 12,
+    "maxWords": 10,
     "maxCharacters": 68,
     "maxLines": 2,
+    "singleLineMaxCharacters": 32,
+    "maxCharactersPerLine": 40,
+    "fontSize": 46,
     "holdDuringPauses": true,
     "noWordMotion": true,
     "noScaleAnimation": true
