@@ -1,116 +1,121 @@
 # FINANZNEO VISUAL TIMING & CLARITY STANDARD
 
 ## Ziel
-FinanzNeo-Reels sollen schnell verständlich, alltagsnah und dynamisch sein.
-Die Zuschauer sollen nicht interpretieren müssen, was gemeint ist.
-Jede Szene muss ihre Hauptaussage sofort vermitteln.
+FinanzNeo-Reels sollen schnell verständlich, alltagsnah, hochwertig und dynamisch sein. Zuschauer dürfen nicht erst interpretieren müssen, was ein Bild bedeutet.
 
-## Bild / Animation Verhältnis
-- Zielstandard pro 10-Szenen-Reel: ca. **6 Bildszenen / 4 Animationsszenen**.
-- Das Verhältnis allein reicht nicht: entscheidend ist die **gefühlte Dynamik**.
+## Verhältnis Bild / Animation
+- Ziel: ungefähr **60 % Google-Flow-Bildbeats / 40 % native Remotion-Animationsbeats**.
+- Das Verhältnis bezieht sich auf die tatsächlichen visuellen Beats, nicht auf eine starre Anzahl von 10 Szenen.
+- Die Szenenanzahl wird aus Voiceover-Länge und Verständlichkeit abgeleitet.
+- Ein längeres Reel braucht mehr visuelle Beats; niemals ein Bild künstlich verlängern, nur um eine feste Szenenzahl einzuhalten.
 
 ## Harte Timing-Regeln
-### Bildszenen
-- Ideal: **3.5 bis 5.5 Sekunden**
-- Maximal: **6.0 Sekunden**
-- Wenn eine Bildszene mehr als 6 Sekunden stehen müsste:
-  - in zwei Bildszenen aufteilen **oder**
-  - als Animation lösen.
+### Bildbeats
+- Ideal: **3,5 bis 5,0 Sekunden**
+- Normaler Höchstwert: **5,5 Sekunden**
+- Absolutes Maximum: **6,0 Sekunden**
+- Kein statisches Quellbild darf länger als 6 Sekunden dieselbe Aussage tragen.
 
-### Animationsszenen
-- Ideal: **4.5 bis 7.0 Sekunden**
-- Animationen dürfen länger als Bildszenen laufen, wenn sie einen klaren sichtbaren Mechanismus zeigen.
+### Animationsbeats
+- Ideal: **4,5 bis 6,0 Sekunden**
+- Nur ein echter Mechanismus darf länger laufen: Start -> sichtbare Veränderung -> Ergebnis.
 
 ## Split-or-Animate-Regel
-Wenn eine Idee nicht in einem Bild in unter 6 Sekunden klar verständlich ist:
-1. **Split**: zwei aufeinanderfolgende Bildszenen mit je einer klaren Unteraussage
-oder
-2. **Animate**: Start -> Mechanismus -> Ergebnis.
+Wenn gesprochener Inhalt für ein Bild mehr als 6 Sekunden benötigt:
+1. in zwei verständliche visuelle Beats aufteilen, oder
+2. den erklärenden Teil als native Remotion-Animation umsetzen.
 
-## Verständlichkeits-Regel
-Jede Bildszene braucht:
-- **1 Hauptaussage**
-- **1 klares Hero-Objekt**
-- **2–5 unterstützende Alltagsobjekte**
-- sofort lesbare Alltagsmetapher
-- direkte Alltagsverbindung ohne Rätselcharakter
+## 2-Sekunden-Klarheitsregel
+Jeder Bildbeat muss in unter 2 Sekunden verständlich sein.
 
-Nicht erlaubt:
-- zu abstrakt
-- zu symbolisch
+Pflicht:
+- genau 1 Hauptaussage
+- 1 deutliches Hero-Objekt
+- 2–5 unterstützende Alltagsobjekte
+- direkte Alltagsmetapher
+- kurze Labels/Zahlen nur wenn sie die Aussage sofort klären
+
+Nicht zulässig:
 - Interpretationsbilder
-- sterile Design- oder Produktbilder ohne Alltagssignal
+- abstrakte Symbolwelten ohne Alltagssignal
+- tote Produktstillleben
+- Motive, die erst durch Voiceover erklärt werden müssen
 
-## Alltagsmetaphern-Regel
-Bevorzuge Motive wie:
-- Papierkalender
-- Kontoauszug / Beleg / Quittung
-- Vertrag / Ordner
+## VERBINDLICHER 3D-LOOK
+`physical` bedeutet bei FinanzNeo **nicht fotorealistische Papierfotografie**.
+
+Jedes Google-Flow-Bild muss wie eine bewusst gestaltete hochwertige **stylized 3D CGI editorial illustration** aussehen:
+- klar erkennbare 3D-Tiefe und Volumen
+- vereinfachte, leicht überzeichnete Proportionen
+- dicke, substanzielle Objekte statt dünner realistischer Papierblätter
+- smooth rounded geometry und weiche Bevels
+- premium PBR-like materials
+- matte cream paper/card material, dark emerald premium plastic/metal, restrained glass
+- chunky stylized gold euro-value coins
+- cinematic soft key light
+- controlled emerald rim light
+- starke, weiche Kontakt-Schatten
+- klare Vordergrund-/Mittelgrund-/Hintergrundtiefe
+- leichtes Depth-of-Field möglich
+- hochwertiger 3D-Render, nicht Produktfoto
+
+Hart verboten:
+- photorealistic office photography
+- real-world stationery photo look
+- flache echte Papierdokumente als dominanter Stil
+- Stockfoto-Look
+- Dashboard/App-UI/Gameboard/Control-Panel
+- Pixar/Clay/Toy-Look
+
+## Alltagsmetaphern
+Bevorzugt werden stilisierte 3D-Versionen direkter Alltagsgegenstände:
+- Kalender
+- Quittung / Kontoauszug / Vertrag
+- Preisschild
+- Geldbörse
 - Lupe
-- Euro-Münzen
-- Kopfhörer / Streaming
-- Smartphone mit dunklem Display
+- Münzen
+- Kopfhörer / Streaming-Symbol als physischer Gegenstand
+- Smartphone als Objekt
 - SIM-Karte
-- Mitgliedskarte / Key-Fob
-- Umschläge / Papierzettel / Preisetiketten
-- Einkaufs- / Haushaltsobjekte
+- Mitgliedskarte
+- Einkaufs-/Haushaltsgegenstände
 
-## Bildwirkung-Regel
-Bilder sollen **lebendig**, aber nicht chaotisch sein.
-Erlaubt und erwünscht:
-- sichtbare Überschneidungen
-- leichte diagonale Spannung
-- umgeblätterte Papierseiten
-- aufgefaltete Belege
-- sichtbare Vorher/Nachher-Hinweise
-- Objekte im direkten Zusammenhang statt isoliert nebeneinander
+Die Gegenstände müssen **stilisiert 3D** sein, nicht fotorealistisch nachgebaut.
+
+## Lebendigkeit
+Erwünscht:
+- sichtbare Ursache-Wirkung
+- leichte diagonale Komposition
+- Objekte überlappen sinnvoll
+- aufgeklappte/aufgefächerte 3D-Kalenderkarten
+- gerollte oder geschwungene stilisierte Belege
+- Münzen bewegen den Blick durch die Szene
+- klare Größenkontraste
+- Vorher/Nachher oder klein/groß unmittelbar erkennbar
 
 Vermeiden:
-- tote Stillleben ohne Aussage
-- bloße Produktpräsentation
-- symmetrische Museumsanordnung
-- sterile Podeste
+- Museumsanordnung
+- alles frontal nebeneinander
+- sterile Produktpodeste
+- zufällige Deko ohne Funktion
 
-## Text-im-Bild-Regel
-Im Bild sind nur kurze Labels erlaubt.
-Keine ganzen Sätze.
-
+## Text im Bild
 Erlaubt:
-- 1 bis 4 kurze Wörter
-- Preisangaben
-- kurze Fragen
-- kurze Kategorien
+- 1–4 kurze Wörter
+- Zahlen/Preise
+- kurze Fragen/Kategorien
 
-Beispiele:
-- PRO MONAT
-- PRO JAHR
-- PRÜFEN
-- ALTES ABO
-- STREAMING
-- MOBILFUNK
-- 119,88 € / JAHR
+Keine ganzen Sätze, keine Untertitel, keine CTA-Sätze.
 
-Nicht erlaubt:
-- volle Erklärsätze
-- CTA-Sätze
-- lange UI-Texte
+## QA vor Freigabe
+1. Sieht es eindeutig nach stylized premium 3D CGI aus?
+2. Ist es klar NICHT fotorealistisch?
+3. Ist die Hauptaussage in unter 2 Sekunden erkennbar?
+4. Ist die Metapher alltagsnah?
+5. Hat jedes Objekt eine Funktion für die Aussage?
+6. Nur kurze Labels statt Sätze?
+7. Kein Bildbeat über 6 Sekunden?
+8. Kein Dashboard/UI/Board/Game-Level?
 
-## Bildwelt-Regel
-FinanzNeo-Bilder müssen wie **PHYSICAL EDITORIAL EXPLAINERS** aussehen.
-Nicht wie:
-- Dashboard
-- App UI
-- Board / Spielbrett
-- Modul-System
-- Kontrollpanel
-- Game-Level
-- isometrische Miniwelt
-
-## QA-Regeln für jedes Bild
-Vor Freigabe prüfen:
-1. Ist die Hauptaussage in unter 2 Sekunden erkennbar?
-2. Muss der Zuschauer rätseln? Wenn ja: neu.
-3. Ist die Metapher alltagsnah?
-4. Gibt es nur kurze Labels statt Sätze?
-5. Würde die Szene länger als 6 Sekunden brauchen? Wenn ja: splitten oder animieren.
-6. Sieht das Motiv zu statisch oder wie Produktwerbung aus? Wenn ja: lebendiger komponieren.
+Wenn eine Antwort `nein` ist: Bild neu planen oder neu erzeugen.
