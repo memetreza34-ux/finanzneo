@@ -1,103 +1,120 @@
 FINANZNEO FLOW AGENT – DIENSTAG 25.08.2026
 REEL: 9,99 € im Monat? Rechne aufs Jahr
 
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-WORLD: finanzneo-connected-studio-v3
-SERIES_LOCK: finanzneo-same-world-v1
 
-WICHTIGER ABLAUF
+WICHTIGER ARBEITSMODUS
 1. Erzeuge GENAU EIN Bild.
 2. Warte vollständig auf das Ergebnis.
-3. Prüfe Format, Motiv, Labels, Gesicht falls Person vorhanden, Hintergrund und Dateiname.
-4. Benenne das gültige Bild SOFORT exakt um.
+3. Prüfe Format, Motiv, Labels, Hintergrund und den Physical-Explainer-Lock.
+4. Benenne es SOFORT exakt mit dem angegebenen finalen Dateinamen um.
 5. Erst danach das nächste Bild erzeugen.
-6. Bei Fehlern dieselbe Bildnummer neu erzeugen und ersetzen.
+6. Bei einem Fehler: Erzeuge DIESELBE Bildnummer neu und ersetze die fehlerhafte Version.
 7. Keine Bilder parallel oder als Batch erzeugen.
-8. Szenen 03, 05, 07 und 08 sind Remotion-Animationen: dafür KEIN Bild erzeugen.
-9. Alle Bilder strikt quadratisch 1:1.
-10. Das bestandene Bild 00 dient für alle Folgebilder nur als Stilreferenz: Licht, Materialien, Farbrollen und Welt übernehmen; Motiv, Komposition und Labels NICHT kopieren.
+8. Szenen 03, 05, 07 und 08 sind Remotion-Animationen: KEIN Bild erzeugen.
+9. Alle Bilder sind strict square 1:1 source image.
+10. Nach Abschluss liegen alle Bilder gemeinsam in 03-szenen/00-ALLE-BILDER-HIER-REIN/.
 
-GLOBALE BILDREGELN
-Premium fintech editorial 3D render. ONE dominant financial metaphor or large hero object. Optional stylized anonymous adult; if present, clearly visible stylized face with eyes, nose and mouth, front-facing or natural three-quarter view. Deep charcoal green-black world, vivid emerald/mint accents, gold only for money/value, warm red-orange only for risk/loss/unwanted cost. Smooth rounded geometry, soft bevels, high-contrast studio lighting, strong emerald rim light. Never photorealistic, Pixar, clay, tiny diorama, sci-fi corridor, gameboard, dashboard or app UI.
+WICHTIG – KEINE COVER-KOMPOSITION KOPIEREN
+Bild 00 ist nur eine verbindliche visuelle Stilreferenz im Sinne von Farbe, Material, Licht und Rendering-Sprache.
+Do NOT upload, attach or use Bild 00 as an image-to-image/reference image for later scenes.
+Use the repeated WRITTEN style lock below instead.
+Übernimm NICHT Motiv, Komposition oder Labels des Covers.
+Do not inherit its camera angle, board shape, silhouette, object arrangement or geometry.
 
-Every image must use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. NO horizontal divisions, visible top/bottom sections, floor-wall boundary, horizon line, studio wall split, panels or background bands. Use only one subtle continuous gradient/vignette. Objects may cast soft contact shadows. Leave generous natural empty space above and below without changing the background.
+GLOBALER PHYSICAL-EXPLAINER-LOCK
+Create premium stylized 3D financial editorial explainers from REAL, RECOGNIZABLE PHYSICAL OBJECTS.
+Do NOT interpret finance as fintech UI, software, a dashboard, control panel or digital product.
 
-Generated-image text rule: no headline, no subtitle, no explanatory sentence, no CTA. Only the short German object labels explicitly listed for that image.
+REQUIRED COMPOSITION
+- ONE large recognizable physical hero object.
+- Add only a few recognizable topic-specific physical supporting objects.
+- Natural asymmetry, slight overlap, foreground/midground depth and soft contact shadows.
+- Camera front-facing or gentle natural three-quarter view.
+- One coherent editorial still life, never a designed interface.
+
+STRICTLY FORBIDDEN
+NO dashboard. NO app UI. NO digital screen. NO control panel. NO central rectangular board. NO tablet-like object. NO floating panel. NO repeated rectangular tiles/cards/blocks as the visual language. NO floating UI cards, chips, buttons or widgets. NO microchip/circuit board. NO circular orbit. NO ring of modules. NO twelve-slot mechanism. NO gameboard. NO mechanical inspection gate. NO conveyor-board composition. NO neon connector lines, glowing rails, tubes or abstract finance streams. NO four-corner module layout. NO tiny isometric diorama. NO sterile product plinth.
+
+LABEL RULE
+Use only the explicitly listed short German object labels. Make labels physical: printed paper tag, sticker, receipt text or small attached plaque. Never floating glowing labels, digital badges or UI chips.
+No headline. No subtitle. No explanatory sentence. No CTA. Only short German object labels listed for the current image.
+
+STYLE LOCK
+Deep charcoal green-black world. Emerald/mint used sparingly as rim light and structural accent, NOT as glowing UI outlines. Gold only for money/value. Warm red-orange only for warning/unwanted cost. Premium matte paper, brushed metal, glass and restrained premium plastic. Cinematic soft key light, realistic local contact shadows, restrained emerald rim light. Not photorealistic, not Pixar, not clay, not toy-like.
+
+BACKGROUND LOCK
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image from top edge to bottom edge.
+NO horizontal divisions, visible top/bottom sections, floor-wall boundary, horizon line, studio wall split, panels or background bands.
+Use only one subtle continuous gradient/vignette. Objects may cast contact shadows without creating a visible floor plane.
 
 ============================================================
 BILD 00 – COVER
-FINAL FILE NAME: Bild 00 - Jahreskosten Cover.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Jahreskosten Cover.png
+FORMAT: strict square 1:1 source image
 
-Create a premium FinanzNeo fintech editorial 3D cover in the exact world defined above.
+Create a premium stylized 3D financial editorial cover made only from physical objects.
 
-Dominant metaphor: one small physical price token labelled `9,99 €` in the foreground, connected to a much larger annual stack of twelve gold-edged payment blocks behind it. The contrast must instantly communicate that a small recurring monthly amount becomes a much larger yearly total.
+MAIN PHYSICAL STORY
+A small paper price tag printed `9,99 €` lies beside a substantial open paper yearly calendar. The calendar visibly represents twelve months with real paper pages/tabs, and a gold euro coin is physically attached to or resting against each month. Beside the calendar is one longer paper receipt strip carrying the yearly total.
 
-Optional short physical labels only:
+Short German object labels only:
 - `9,99 €`
 - `PRO MONAT`
 - `119,88 € / JAHR`
 
-Keep the composition bold and readable at social-media thumbnail size. One dominant idea, few objects, strong depth.
+The small monthly tag must feel visually tiny compared with the complete physical calendar + yearly receipt.
+Do NOT use payment blocks, stacked UI cards, boards, screens, digital counters, circular mechanisms or module grids.
+Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
 
-Use ONE seamless continuous deep charcoal green-black background. Emerald/mint accents, gold only for money/value. Warm red-orange may lightly mark recurring cost pressure.
-
-No headline, no subtitle, no sentence, no CTA, no dashboard, no floating UI, no photorealism, no real person.
-
-Square 1:1. Keep every important object and label fully inside safe margins.
-
-AFTER GENERATION: verify 1:1, seamless background, exact labels, no extra text, then rename exactly `Bild 00 - Jahreskosten Cover.png`.
+AFTER GENERATION: verify strict 1:1, physical objects only, no board/UI geometry, exact labels, then rename exactly Bild 00 - Jahreskosten Cover.png.
 
 ============================================================
 BILD 01 – SZENE 01
-FINAL FILE NAME: Bild 01 - 9,99 Euro Hook.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - 9,99 Euro Hook.png
+FORMAT: strict square 1:1 source image
 
-Use approved Bild 00 ONLY as visual style reference.
+Create a NEW composition using the written style lock only. Do not use Bild 00 as an image reference.
 
-Create a premium FinanzNeo editorial 3D scene in the same approved visual world.
-
-Dominant metaphor: a tiny physical recurring-payment token labelled `9,99 €` enters a large circular annual payment mechanism made of twelve clearly separated physical slots. Only the first few slots are filled, implying repetition without turning the scene into a chart or UI.
+MAIN PHYSICAL STORY
+A very small paper price tag marked `9,99 €` is clipped to the first page of a thick physical paper calendar book. Behind it, many month pages are visibly stacked/turned, each with a small real gold euro coin resting against the paper. The visual message is repetition over time, not a mechanism.
 
 Short German object labels only:
 - `9,99 €`
 - `MONATLICH`
 
-The token should feel deceptively small compared with the larger yearly mechanism.
+No ring, no twelve slots, no circular device, no board, no UI, no repeated glowing tiles.
+Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
 
-ONE seamless continuous deep charcoal green-black background. Emerald/mint accents; gold for money/value; restrained warm red-orange only where recurring cost pressure is shown.
-
-No dashboard, no digital screen, no floating interface cards, no headline, no explanatory sentence, no CTA, no photorealism, no tiny diorama.
-
-Square 1:1 with generous natural empty space and all labels fully visible.
-
-AFTER GENERATION: verify and rename exactly `Bild 01 - 9,99 Euro Hook.png`.
+AFTER GENERATION: verify and rename exactly Bild 01 - 9,99 Euro Hook.png.
 
 ============================================================
 BILD 02 – SZENE 02
-FINAL FILE NAME: Bild 02 - Fuenf Dauerposten.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Fuenf Dauerposten.png
+FORMAT: strict square 1:1 source image
 
-Use approved Bild 00 ONLY as visual style reference.
+Create a NEW physical-object composition using the written style lock only.
 
-Create a premium FinanzNeo fintech editorial 3D illustration in the same world.
-
-Dominant metaphor: five separate physical recurring-cost tokens, each labelled `9,99 €`, feed into one large yearly money container. The five tokens are concrete physical objects, not interface cards. The yearly container visibly holds a much larger gold value stack.
+MAIN PHYSICAL STORY
+Five clearly different recognizable everyday subscription/service objects sit naturally around one long paper yearly receipt: a pair of headphones, a physical smartphone with the screen dark/off, a gym membership key fob, a small streaming ticket/card made of paper, and a SIM-card/package object. Each object has a small attached PAPER price tag marked `9,99 €`. The long receipt physically collects the combined monthly and yearly totals.
 
 Short German object labels only:
 - `5 × 9,99 €`
 - `49,95 € / MONAT`
 - `599,40 € / JAHR`
 
-Make the cause-and-effect unmistakable: five small recurring charges combine into one meaningful annual cost.
+The labels should be printed on the receipt or attached paper tags, never floating badges.
+No money container, no panel, no app card grid, no stacked orange/green blocks.
+Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
 
-ONE seamless continuous deep charcoal green-black background. Emerald/mint accents; gold only for money/value. High-end rounded 3D geometry and emerald rim light.
-
-No digital central screen, no UI dashboard, no floating cards, no cartoon style, no headline or sentence text beyond the listed short labels.
-
-Square 1:1, all important objects and labels safely framed.
-
-AFTER GENERATION: verify and rename exactly `Bild 02 - Fuenf Dauerposten.png`.
+AFTER GENERATION: verify and rename exactly Bild 02 - Fuenf Dauerposten.png.
 
 ============================================================
 SZENE 03 – REMOTION
@@ -106,29 +123,25 @@ Weiter direkt mit Bild 04.
 
 ============================================================
 BILD 04 – SZENE 04
-FINAL FILE NAME: Bild 04 - Vergessene Abbuchungen.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Vergessene Abbuchungen.png
+FORMAT: strict square 1:1 source image
 
-Use approved Bild 00 ONLY as visual style reference.
+Create a NEW physical editorial still life using the written style lock only.
 
-Create a premium FinanzNeo fintech editorial 3D illustration in the same approved world.
-
-Dominant metaphor: one large physical bank-statement paper strip passes under a magnifying glass. Several ordinary payment lines are present as abstract marks, while two small recurring-cost tags are physically caught under the magnifying glass and glow warm red-orange.
+MAIN PHYSICAL STORY
+One loose, slightly curled PAPER bank-statement strip crosses the composition naturally. A large real magnifying glass rests over two small printed recurring-charge lines on the paper. Beside the paper are a few real euro coins and a small old subscription paper tag. Nothing is mounted on a board or platform.
 
 Short German object labels only:
 - `ALTES ABO`
 - `9,99 €`
 - `PRÜFEN`
 
-The statement must look like a physical paper object, NOT a banking app, phone screen or dashboard.
+The statement is real paper with printed marks, NOT an app, screen, fabric panel or digital card.
+No glowing rings around the magnifier, no UI frame, no platform beneath the paper.
+Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
 
-ONE seamless continuous deep charcoal green-black background. Emerald rim light, gold only for money/value, warm red-orange only for the suspicious recurring costs.
-
-No real bank brand, no account number, no personal data, no digital UI, no headline, no sentence, no photorealism.
-
-Square 1:1 with the magnifying-glass action as the dominant central metaphor.
-
-AFTER GENERATION: verify and rename exactly `Bild 04 - Vergessene Abbuchungen.png`.
+AFTER GENERATION: verify and rename exactly Bild 04 - Vergessene Abbuchungen.png.
 
 ============================================================
 SZENE 05 – REMOTION
@@ -137,16 +150,14 @@ Weiter direkt mit Bild 06.
 
 ============================================================
 BILD 06 – SZENE 06
-FINAL FILE NAME: Bild 06 - Fixkosten Jahresblick.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 06 - Fixkosten Jahresblick.png
+FORMAT: strict square 1:1 source image
 
-Use approved Bild 00 ONLY as visual style reference.
+Create a NEW physical editorial still life using the written style lock only.
 
-Create a premium FinanzNeo editorial 3D scene in the exact same-world style.
-
-Dominant metaphor: one large physical annual ledger board made from matte material, holding a few tangible category objects beside gold yearly-cost stacks. The board is physical and editorial, not a software interface.
-
-Use recognizable generic objects for categories such as a play button token for streaming, a phone object for mobile service, a membership card object and a generic app cube.
+MAIN PHYSICAL STORY
+A large unfolded PAPER yearly budget sheet/receipt is the central physical object. Around it sit four recognizable concrete objects: headphones for streaming, a physical smartphone/SIM package for mobile service, a gym membership key fob, and a small paper app-store receipt/envelope for apps. Beside each object is a small stack of real gold euro coins. The annual sheet ties them together through printed rows, not through a digital interface.
 
 Short German object labels only:
 - `STREAMING`
@@ -155,13 +166,11 @@ Short German object labels only:
 - `MOBILFUNK`
 - `PRO JAHR`
 
-ONE seamless continuous deep charcoal green-black background. Emerald/mint accents; gold only for money/value; premium rounded 3D geometry.
+Do NOT create a ledger board, dashboard, four-row interface, control panel, floating cards or equal rectangular modules.
+The objects must overlap slightly and sit asymmetrically around the paper sheet.
+Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
 
-No real brands, no dashboard, no floating UI cards, no headline, no explanatory sentence, no photorealism.
-
-Square 1:1, central object safely framed.
-
-AFTER GENERATION: verify and rename exactly `Bild 06 - Fixkosten Jahresblick.png`.
+AFTER GENERATION: verify and rename exactly Bild 06 - Fixkosten Jahresblick.png.
 
 ============================================================
 SZENE 07 – REMOTION
@@ -173,59 +182,51 @@ Weiter direkt mit Bild 09.
 
 ============================================================
 BILD 09 – SZENE 09
-FINAL FILE NAME: Bild 09 - Vertrag Check.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Vertrag Check.png
+FORMAT: strict square 1:1 source image
 
-Use approved Bild 00 ONLY as visual style reference.
+Create a NEW physical editorial still life using the written style lock only.
 
-Create a premium FinanzNeo editorial 3D illustration in the approved same-world style.
-
-Dominant metaphor: one large physical contract sheet passes through a three-stage mechanical inspection gate. The three stages are tangible objects, not UI cards: a usage check mark, a yearly-cost scale, and a calendar wheel.
+MAIN PHYSICAL STORY
+One thick PAPER contract folder lies open as the hero object. Three real inspection objects are placed naturally around it, not as stages: a magnifying glass over the usage section, a small physical balance scale holding euro coins beside the annual-cost section, and a compact paper calendar beside the billing-frequency section. Small paper question tags are attached directly to the relevant physical object.
 
 Short German object labels only:
 - `NUTZE ICH ES?`
 - `PRO JAHR?`
 - `WIE OFT?`
 
-A stylized anonymous adult may stand beside the contract in natural three-quarter view, but only if the face is clearly visible with stylized eyes, nose and mouth.
+No mechanical inspection gate, no conveyor, no three-stage board, no UI checklist, no connected modules.
+Natural asymmetric composition with overlap and contact shadows.
+Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
 
-ONE seamless continuous charcoal green-black background. Emerald/mint accents, gold for financial value. Premium high-contrast 3D lighting.
-
-No dashboard, no app UI, no real company logo, no headline, no long explanatory sentence, no photorealism.
-
-Square 1:1 and keep all three inspection stages fully visible.
-
-AFTER GENERATION: verify and rename exactly `Bild 09 - Vertrag Check.png`.
+AFTER GENERATION: verify and rename exactly Bild 09 - Vertrag Check.png.
 
 ============================================================
 BILD 10 – SZENE 10
-FINAL FILE NAME: Bild 10 - Monat gegen Jahr.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Monat gegen Jahr.png
+FORMAT: strict square 1:1 source image
 
-Use approved Bild 00 ONLY as visual style reference.
+Create a NEW physical editorial closing still life using the written style lock only.
 
-Create a premium FinanzNeo closing illustration in the exact same approved world.
-
-Dominant metaphor: a small physical monthly price token on one side of a large magnifying lens transforms through the lens into a clearly larger yearly stack on the other side. The visual should communicate perspective: monthly price is only one slice; annual cost is the full picture.
+MAIN PHYSICAL STORY
+A small PAPER monthly price tag marked `PRO MONAT` sits beside a large real magnifying glass. Through/behind the glass, the viewer sees a long physical yearly receipt and a twelve-page paper calendar with a visibly larger total pile of real euro coins. The lens reveals the full-year consequence using physical objects only.
 
 Short German object labels only:
 - `PRO MONAT`
 - `PRO JAHR`
 - `PRÜFEN`
 
-Keep the ending calm, organized and useful rather than alarming.
+No transformation tunnel, no digital comparison card, no board, no screen, no floating UI.
+Keep the ending calm and clear.
+Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
 
-ONE seamless continuous deep charcoal green-black background. Emerald/mint accents, gold for money/value, premium rounded 3D editorial finish.
-
-No dashboard, no digital screen, no floating UI, no headline, no explanatory sentence, no photorealistic person.
-
-Square 1:1 with a strong final-frame composition and generous safe margins.
-
-AFTER GENERATION: verify and rename exactly `Bild 10 - Monat gegen Jahr.png`.
+AFTER GENERATION: verify and rename exactly Bild 10 - Monat gegen Jahr.png.
 
 ============================================================
 ABSCHLUSSPRÜFUNG
-Es müssen exakt diese 7 Dateien existieren:
+Exakt diese 7 Dateien müssen existieren:
 - Bild 00 - Jahreskosten Cover.png
 - Bild 01 - 9,99 Euro Hook.png
 - Bild 02 - Fuenf Dauerposten.png
@@ -235,4 +236,5 @@ Es müssen exakt diese 7 Dateien existieren:
 - Bild 10 - Monat gegen Jahr.png
 
 Keine Bilddateien für 03, 05, 07 oder 08.
-Alle Bilder 1:1, gleiche FinanzNeo-Welt, nahtloser Hintergrund, keine unzulässigen Texte oder UI-Kompositionen.
+Alle Bilder 1:1.
+REJECT AND REGENERATE any image that looks like a dashboard, board, app UI, isometric gameboard, control panel, module grid, circular mechanism, floating-card system or repeated rectangular tile composition.
