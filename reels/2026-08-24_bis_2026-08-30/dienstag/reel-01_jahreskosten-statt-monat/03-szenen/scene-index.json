@@ -1,5 +1,5 @@
 {
-  "version": 17,
+  "version": 18,
   "title": "9,99 € im Monat? Rechne aufs Jahr",
   "sceneCount": 16,
   "imageSceneCount": 10,
@@ -52,9 +52,8 @@
     "generatedImageAspectRatio":"1:1",
     "squareGeneratedImagesRequired":true,
     "referencePromptFile":"03-szenen/bildwelt.txt",
-    "styleReferenceStrategy":"approved-cover-style-only",
+    "styleReferenceStrategy":"written-style-lock-only",
     "referenceImageUse":"forbidden",
-    "styleReferenceMeaning":"written-art-direction-only-no-image-upload",
     "style":"premium-stylized-3d-cgi-physical-financial-editorial-explainer",
     "photorealisticOfficeLookForbidden":true,
     "realisticStationeryPhotoLookForbidden":true,
