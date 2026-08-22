@@ -1,7 +1,13 @@
-BILD 03 – SZENE 03
-FINAL FILE NAME: Bild 03 - Fuenf Alltagskosten.png
-FORMAT: strict square 1:1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
 STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+BILD 03 – SZENE 03
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - Fuenf Alltagskosten.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -9,20 +15,24 @@ MAIN IDEA
 Fünf kleine laufende Alltagskosten summieren sich.
 
 SCENE
-Create a CLEARLY STYLIZED premium 3D CGI editorial composition with five instantly recognizable 3D everyday cost objects arranged in a lively semicircle: oversized over-ear headphones for streaming, a dark-screen smartphone with a chunky SIM card, a stylized gym membership key fob, a small cream streaming ticket with a physical play-symbol emboss, and a compact app-purchase envelope/tag. Each object carries a small thick rounded cream 3D price tag marked `9,99 €`. In the foreground, one larger gold-edged cream total tag reads `49,95 € / MONAT`. Objects overlap slightly and sit at different depths; do not line them up like UI cards.
+Create a CLEARLY STYLIZED premium 3D CGI editorial composition with five instantly recognizable 3D everyday cost objects arranged in a lively semicircle: oversized over-ear headphones for streaming, a dark-screen smartphone with a chunky SIM card, a stylized gym membership key fob, a small cream streaming ticket with a physical play-symbol emboss, and a compact app-purchase envelope/tag. Each object carries a small thick rounded cream 3D price tag marked `9,99 €`. In the foreground, one larger gold-edged cream total tag reads `49,95 € / MONAT`. Objects overlap slightly and sit at different depths; do not line them up like UI cards. The meaning must be understood in under two seconds.
 
 FULL STYLE LOCK
-Clearly stylized premium 3D CGI render, chunky substantial geometry, rounded edges and soft bevels, simplified slightly exaggerated proportions, premium emerald polymer/brushed metal, warm-cream card material, chunky gold value details, cinematic key light, controlled emerald rim light, strong soft shadows, foreground/midground/background depth, mild DOF, polished editorial CGI. NOT photorealistic. NOT a product photo. NOT Pixar/clay/toy.
+Clearly stylized premium 3D CGI render, chunky substantial geometry, rounded edges and soft bevels, simplified slightly exaggerated proportions, premium emerald polymer/brushed metal, warm-cream card material, chunky gold value details, cinematic key light, controlled emerald rim light, strong soft shadows, foreground/midground/background depth, mild depth-of-field, polished editorial CGI. NOT photorealistic. NOT a product photo. NOT realistic office photography. NOT Pixar, clay or toy style.
 
 BACKGROUND
-ONE seamless charcoal green-black background.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, no horizon line, no panels, no bands.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `9,99 €`
 `49,95 € / MONAT`
+No headline. No subtitle. No explanatory sentence. No CTA.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
-No dashboard, no app-card grid, no floating panels, no board, no five identical rectangular modules, no isometric game layout.
+No dashboard, no app-card grid, no floating panels, no board, no five identical rectangular modules, no isometric game layout, no realistic stationery photo.
 
 QA
-Must read in under 2 seconds and unmistakably look like stylized 3D CGI.
+Reject and regenerate if the scene is not unmistakably premium stylized 3D CGI or if the main idea is not readable in under two seconds.
