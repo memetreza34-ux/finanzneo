@@ -1,3 +1,4 @@
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
 FINAL FILE NAME: Bild 00 - Jahreskosten Cover.png
 FORMAT: strict square 1:1 source image
 
