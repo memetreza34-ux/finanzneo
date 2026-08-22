@@ -1,0 +1,48 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 00 - Deine Inflation.png`
+
+Erzeuge jetzt ausschließlich dieses eine Bild. Warte auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe erst danach Motiv + Beschriftungen + Hintergrund + Same-World-Lock + Dateiname. Nach bestandener QA ist dieses Cover die verbindliche visuelle Stilreferenz für alle folgenden Bilder. Nutze nur seine Bildwelt, Materialien, Geometriesprache, Farbrollen und Lichtsignatur als Referenz. Der Dateiname selbst darf NICHT sichtbar im Bild erscheinen.
+
+COVER-REGEL:
+Keine klassische Überschrift im generierten Bild. Das Thema wird ausschließlich über eine starke physische Metapher und zwei kurze Objektlabels vermittelt.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- `2,8 %`
+- `DEIN WARENKORB`
+
+BILDPROMPT:
+Create one powerful premium fintech editorial 3D metaphor for the idea that Germany's official inflation rate is an average and may differ from an individual's personal inflation.
+
+At the visual center, build a large elegant physical comparison balance made from dark premium metal and transparent glass. One side holds a broad "official" shopping basket filled with a balanced mix of large recognizable physical category objects: a small house block, grocery bag, energy meter and fuel nozzle. The other side holds a clearly different personal shopping basket with visibly different proportions, especially one oversized fuel-related object and smaller objects from other categories. The two baskets should feel materially different in composition while remaining part of the same visual system.
+
+Place a small solid physical reference marker beside the central balance carrying the exact German object label `2,8 %`. Attach the exact German object label `DEIN WARENKORB` directly to the personal basket, as a small integrated plaque rather than poster typography.
+
+The image must communicate in under one second: the official number is one reference, but the viewer's own spending basket can be different. Keep the central metaphor large, clean and immediately readable on a phone. Avoid showing any result for the personal inflation rate; the image must create curiosity rather than invent a number.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+FORMAT LOCK:
+Create a square 1:1 source image only. Width and height must be equal. No portrait or vertical format.
+
+SAME-WORLD LOCK:
+Keep the exact same FinanzNeo art direction across the complete image series. Preserve the same deep charcoal green-black background material and gradient character, emerald rim-light signature, rounded geometry language, bevel softness, premium matte/glass material finish, color roles, contrast level and editorial 3D rendering quality. This cover becomes the visual style reference for the remaining images.
+
+VERBINDLICHER BILDSTIL:
+Premium fintech editorial 3D render style. Deep charcoal green-black world. Accents in vivid emerald and mint green. Gold only for euro coins, cash and financial value. Warm red-orange only for loss, risk or price pressure. Use smooth rounded 3D geometry, soft bevelled edges, sophisticated matte and glass materials, confident high-contrast studio lighting and a bold emerald rim light.
+
+PERSON RULE:
+No person is needed for this cover. If any background human silhouette is accidentally introduced, reject and regenerate; the cover should be object-led.
+
+TEXT RULE:
+No headline. No subtitle. No explanatory sentence. Only the two explicitly requested short German object labels `2,8 %` and `DEIN WARENKORB`. No random extra text.
+
+BACKGROUND RULE:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Keep the same uninterrupted material and subtle gradient from edge to edge. NO horizontal divisions. NO separate zones. NO dark bands. NO floor-wall boundary. NO horizon line. NO studio wall split. NO panel background. NO layered backdrop. Objects may cast soft contact shadows, but the background itself remains one uninterrupted surface.
+
+FORBIDDEN:
+No portrait source format, no photorealism, no real identifiable human, no UI dashboard, no app screen, no floating interface cards, no stock-photo scene, no tiny isometric diorama, no miniature game level, no neon tunnel, no sci-fi corridor, no abstract network, no clutter, no giant typography, no full sentence, no random labels, no Pixar look, no clay look.
