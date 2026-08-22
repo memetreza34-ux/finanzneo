@@ -1,0 +1,29 @@
+BILD 07 – SZENE 07
+FINAL FILE NAME: Bild 07 - Altes Abo Finden.png
+FORMAT: strict square 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Kleine alte Abos und Verträge werden leicht übersehen.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI everyday metaphor. A chunky dark-emerald 3D wallet/organizer is half open. Most visible contents are neutral cream cards, but one small warm red-orange rounded subscription tag marked `ALTES ABO` and `9,99 €` is partly hidden behind larger cards. An oversized stylized magnifying glass enters from one side and reveals that hidden tag. Add a small old membership key fob and two gold coins near the hidden item. Make the hidden-vs-found story instantly readable, lively and dimensional.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI, thick rounded cards and wallet forms, simplified slightly exaggerated proportions, smooth bevels, dark emerald premium material, warm cream surfaces, restrained red-orange warning accent, chunky gold coins, cinematic key light, emerald rim light, soft shadows, strong depth separation, mild DOF. NOT photorealistic leather/card photography, NOT stock photo, NOT clay/Pixar/toy.
+
+BACKGROUND
+ONE seamless charcoal green-black background.
+
+ALLOWED TEXT ONLY
+`ALTES ABO`
+`9,99 €`
+`PRÜFEN`
+
+NEGATIVE
+No filing-cabinet photo, no flat real documents, no dashboard, no checklist UI, no module board.
+
+QA
+Must read in under 2 seconds and clearly look like stylized 3D CGI.
