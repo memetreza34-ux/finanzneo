@@ -9,11 +9,11 @@ Read in this order before editing:
 1. `.agents/rules/finanzneo-reel-safety.md`
 2. `CLAUDE.md`
 3. `reels/PRODUKTIONSSTANDARD.md`
-4. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-5. `docs/IMAGE-SYSTEM.md`
+4. `docs/IMAGE-SYSTEM.md`
+5. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 6. `docs/PLATFORM-PUBLISHING.md`
 
-`CLAUDE.md` wins on conflicts.
+`CLAUDE.md` wins on conflicts. For image composition, use the current Physical Explainer rules from `docs/IMAGE-SYSTEM.md` and never fall back to the dashboard/board failure mode.
 
 ## Pre-flight
 
@@ -35,7 +35,7 @@ Search existing reels so the topic is genuinely new. Create a dedicated `reel/YY
 
 ## Structure
 
-Use the simple reel structure:
+Use:
 
 ```text
 01-script/
@@ -46,40 +46,63 @@ Use the simple reel structure:
 README.md
 ```
 
-`04-caption/` contains the master caption, Reel-platform publishing files and word timings.
-
 ## Visual plan
 
 Default target: 10 scenes with approximately 6 image scenes and 4 native Remotion animations, unless another split is clearly stronger.
 
-## Bildprompts — images come exclusively from the user
+## Bildprompts — user images only
 
 Antigravity generates NO images.
 
-1. Create `03-szenen/bildwelt.txt` using the current canonical FinanzNeo image rules.
-2. Create cover prompt and every required scene `bildprompt.txt`.
-3. Create/update `03-szenen/alle-bildprompts.txt` in chronological order.
-4. Put the exact final filename directly at every individual image prompt.
-5. Put exact allowed short German object labels directly in every image prompt.
-6. Never create headline, subtitle, full explanatory sentence or CTA inside generated images.
-7. Use one dominant financial metaphor / large hero object and only a few supporting elements.
-8. A stylized adult 3D person is optional. If present, the face must be clearly visible with stylized eyes, nose and mouth; prefer front-facing or natural three-quarter view. No faceless/back-view-only character.
-9. Use Premium Fintech Editorial 3D: deep charcoal green-black, emerald/mint accents, gold for money/value, warm red-orange for risk/loss, rounded geometry and bold rim light.
-10. Never use percentage-based top/middle/bottom zones.
-11. Every prompt requires ONE seamless continuous background from top edge to bottom edge: no horizontal bands, top/bottom sections, floor-wall boundary, horizon line or panels. Leave natural empty space above/below without changing the background.
-12. No tiny diorama, game-level, neon tunnel, sci-fi corridor or UI dashboard.
-13. Relevant real brands/services may be used as concrete examples when useful; spell them correctly and do not imply an invented partnership.
-14. `Bild 00` is the cover. Every scene image uses its REAL chronological scene number.
-15. A Remotion animation keeps its scene number but gets no image. Never close the numbering gap.
-16. `scene-index.json` is the authority for numbering and scene type.
-17. The user creates ALL final images externally. Antigravity must not call image generators, web image search, stock images or placeholders.
+For every image prompt:
 
-Google Flow user workflow:
+1. Put the exact final filename directly at the prompt.
+2. Put exact allowed short German object labels directly in the prompt.
+3. Create a premium stylized 3D **financial editorial explainer from recognizable physical objects**.
+4. Use ONE large recognizable physical hero object plus a few concrete topic-specific physical objects.
+5. Use natural asymmetry, slight overlap, foreground/midground depth and soft local contact shadows.
+6. Prefer front-facing or gentle natural three-quarter camera. Never tiny isometric/gameboard view.
+7. Use paper, brushed metal, glass, premium plastic and real money objects; avoid abstract generic icons when a concrete object is available.
+8. Deep charcoal green-black background; emerald/mint only as restrained rim light/structure accent; gold only for money/value; warm red-orange only for warning/loss/unwanted cost.
+9. Labels must be physical: printed on tags, stickers, receipts or small attached plaques. Never floating/glowing UI labels.
+10. Never create headline, subtitle, explanatory sentence or CTA inside generated images.
+11. Every prompt requires ONE seamless continuous background from top edge to bottom edge; no floor-wall boundary, horizon, bands or panels.
+12. `Bild 00` is the cover; scene images use their REAL chronological scene number. Remotion numbers remain reserved.
+13. `scene-index.json` is the authority for numbering and scene type.
+14. The user creates all final images externally.
+
+## Hard reject: dashboard/board failure mode
+
+Reject and regenerate any image containing:
+
+- dashboard, app UI, software screen, HUD or control panel
+- central rectangular board/tablet/panel
+- repeated rectangular cards/tiles/blocks as the main visual language
+- floating cards, chips, badges, buttons or widgets
+- microchip/circuit-board styling
+- circular orbit or ring of modules
+- twelve-slot mechanism
+- gameboard/board-game layout
+- mechanical inspection gate / conveyor-board composition
+- neon connector lines, rails, tracks, tubes or abstract finance streams
+- four-corner mini-module layout
+- tiny isometric diorama
+- sterile product-ad plinth
+
+## Cover-reference rule
+
+Do NOT upload, attach or use `Bild 00` as an image-to-image/reference image for later scenes.
+
+Consistency comes from repeating the same written material/light/color/background lock in every image prompt. Later scenes must not inherit the cover camera angle, silhouette, board shape, object arrangement or geometry.
+
+## Google Flow user workflow
 
 ```text
 one image generate
+→ wait completely
 → immediately rename
-→ check metaphor + labels + face + seamless background + filename
+→ check physical objects + labels + background + filename
+→ reject board/UI/gameboard/module results
 → only then next image
 ```
 
@@ -89,9 +112,7 @@ After ALL images are complete and correctly named, the user places them together
 03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-Do not distribute images to individual scene folders during generation.
-
-If required user images are missing, stop at the asset boundary and report exact missing filenames. Never fabricate replacements or overwrite user images.
+If required user images are missing, stop at the asset boundary and report exact missing filenames. Never fabricate replacements.
 
 ## Audio and timing
 
@@ -99,11 +120,11 @@ Use one final voiceover and derive real word timings from that exact audio. Scen
 
 ## Remotion
 
-1080×1920 at 30fps. Actual scene headlines/icons are rendered in Remotion, not as large generated image typography. Images use `contain`. No blurred duplicate image background. Exactly one full subtitle sentence, current word green, max two lines, platform-safe. Animation timing is relative to actual scene duration.
+1080×1920 at 30fps. Headlines/icons are rendered in Remotion. Images use `contain`. No blurred duplicate image background. Exactly one full subtitle sentence, current word green, max two lines, platform-safe. Animation timing is relative to actual scene duration.
 
 ## Platform publishing
 
-Prepare these files in `04-caption/` for the same final reel:
+Prepare in `04-caption/`:
 
 ```text
 caption.txt
@@ -114,19 +135,9 @@ snapchat.txt
 word-timings.json
 ```
 
-- `caption.txt` is the verified master caption/facts basis.
-- Instagram Reels: caption, CTA, source/note, hashtags, optional pinned comment.
-- TikTok: short caption, CTA, source/note, hashtags.
-- Facebook Reels: reel text, CTA, source/note, hashtags.
-- Snapchat: very short caption, optional CTA, note only when needed.
-- Never create `youtube-shorts.txt` and never prepare a YouTube Shorts upload.
-- YouTube is exclusively a separate long-form workflow under `youtube/`; Reel projects are not mirrored there.
-- Never invent new facts for a platform file.
-- If exact current limits/features matter, verify official platform documentation before publishing.
+Never create `youtube-shorts.txt`; YouTube remains a separate long-form workflow.
 
 ## Validation
-
-If required user images or final audio are missing, report waiting for assets and do not claim final render.
 
 When assets exist:
 
@@ -138,7 +149,7 @@ When assets exist:
 - inspect captions/transitions
 - contact-sheet review
 - full MP4 review
-- explicitly reject any image with two background bands/zones or a faceless person
+- explicitly reject background bands, faceless people, dashboard/board/UI/module compositions
 - target audio around -16 LUFS and <= -1 dBTP true peak
 
 ## Safety audit
