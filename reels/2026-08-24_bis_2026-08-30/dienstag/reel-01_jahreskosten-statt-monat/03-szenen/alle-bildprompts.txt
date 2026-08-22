@@ -3,31 +3,90 @@ REEL: 9,99 € im Monat? Rechne aufs Jahr
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
 PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
 STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
 ZIEL
-Erzeuge eine zusammenhängende Serie aus klar stilisierten PREMIUM 3D CGI FINANZ-EXPLAINER-BILDERN. Jedes Bild muss wie ein bewusst gestalteter hochwertiger 3D-Render wirken – NICHT wie Fotografie, NICHT wie echtes Büromaterial und NICHT wie ein Fintech-Dashboard.
+Erzeuge eine zusammenhängende Serie aus CLEARLY STYLIZED PREMIUM 3D CGI FINANZ-EXPLAINER-BILDERN. Jedes Bild muss wie ein bewusst gestalteter hochwertiger 3D-Render wirken – NICHT wie Fotografie, NICHT wie realistisches Büromaterial und NICHT wie Fintech-Software.
 
-ARBEITSMODUS
-1. GENAU EIN Bild gleichzeitig erzeugen.
-2. Ergebnis vollständig abwarten.
-3. Prüfen: 1:1, stylized 3D CGI, klare Alltagsaussage, korrekte Labels, kein Foto-/UI-Look.
-4. Sofort exakt umbenennen.
-5. Erst dann nächstes Bild.
-6. Animationsszenen 02, 04, 08, 11, 12, 13 bekommen KEIN Google-Flow-Bild.
-7. Kein vorheriges Bild als Image-to-Image-Referenz verwenden. Jeder Prompt unten ist vollständig und selbstständig.
-8. Nach Abschluss liegen alle Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
+STRIKTER ARBEITSMODUS
+1. Lies diese Datei einmal komplett.
+2. Arbeite danach strikt von oben nach unten.
+3. Erzeuge GENAU EIN Bild.
+4. Warte vollständig auf das Ergebnis.
+5. Prüfe: strict square 1:1 source image, klarer stylized-3D-CGI-Look, direkte Alltagsaussage, erlaubte kurze deutsche Objektlabels, nahtloser Hintergrund, kein Foto-/UI-Look.
+6. Benenne es SOFORT exakt mit dem angegebenen finalen Dateinamen um.
+7. Erst danach das nächste Bild erzeugen.
+8. Bei einem Fehler: Erzeuge DIESELBE Bildnummer neu und ersetze die fehlerhafte Version.
+9. Keine Bilder parallel und kein Batch.
+10. Szenen 02, 04, 08, 11, 12 und 13 sind Remotion-Animationen. Dafür KEIN Bild erzeugen.
+11. Alle Google-Flow-Bilder sind strict square 1:1 source image.
+12. Nach Abschluss alle Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` ablegen.
 
-GLOBAL FAIL
-Sofort neu erzeugen bei: photorealistic office photo, realistic stationery photography, stock-photo look, flaches realistisches Papier, Dashboard, App UI, Screen/Tablet/Board, Floating Cards/Tiles/Chips, Control Panel, Gameboard, Microchip-Look, Ring/Orbit aus Modulen, tiny isometric diorama, sterile Produktwerbung, Pixar/Clay/Toy-Look.
+VERBINDLICHE VISUELLE STILREFERENZ
+Die **ausgeschriebene Art Direction in dieser Datei** ist die verbindliche visuelle Stilreferenz. Kein vorheriges Bild und auch Bild 00 darf als Image-to-Image-/Bildreferenz hochgeladen werden. Die Einheitlichkeit entsteht ausschließlich dadurch, dass jeder einzelne Prompt denselben vollständigen 3D-Stil, dieselben Materialien, Farbrollen, Lichtregeln und Hintergrundregeln ausschreibt.
+Übernimm NICHT Motiv, Komposition oder Labels des Covers.
+Jede Szene bekommt eine eigene frische Komposition.
+
+GLOBALER STYLIZED-3D-LOCK
+- clearly stylized premium 3D CGI editorial render
+- chunky substantial volumetric objects with obvious depth
+- simplified, slightly exaggerated proportions
+- smooth rounded geometry and soft bevels
+- thick warm-cream card-like 3D surfaces instead of thin realistic paper
+- deep charcoal / emerald premium polymer and brushed-metal details
+- restrained transparent glass only where useful
+- chunky modeled gold value coins
+- cinematic soft key light
+- controlled emerald rim light
+- soft but visible contact shadows
+- foreground / midground / background separation
+- mild depth-of-field allowed
+- polished high-end editorial CGI quality
+- NOT photorealistic
+- NOT realistic office/stationery photography
+- NOT stock photo
+- NOT Pixar, clay or toy style
+
+ALLTAGSKLARHEIT
+Jedes Bild braucht genau EINE Hauptaussage und muss in unter 2 Sekunden verständlich sein. Nutze direkte Alltagsmetaphern und klar erkennbare 3D-Props. Kein Interpretationsbild.
+
+LEBENDIGKEIT
+Keine toten Produktstillleben. Nutze sinnvolle Überschneidungen, gestaffelte Tiefe, angehobene oder aufgefächerte Karten, geschwungene 3D-Belegbänder, herausgezogene Tags, Lupe als aktive Handlung und starke klein-vs-groß-Kontraste.
+
+TEXT LOCK
+Only short German object labels, prices or short questions. No headline. No subtitle. No explanatory sentence. No CTA sentence. Text muss auf dem 3D-Objekt integriert sein, niemals als schwebende UI-Karte.
+
+BACKGROUND LOCK
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
+No floor-wall boundary, no horizon line, no panels, no horizontal bands, no separate sections. Use only one subtle continuous gradient/vignette. Objects may cast soft contact shadows.
+
+GLOBAL FAIL – SOFORT NEU ERZEUGEN
+- photorealistic office photo
+- realistic stationery photography
+- real desk-calendar / paper-document photo look
+- stock-photo look
+- thin flat realistic paper dominating the scene
+- dashboard or app UI
+- screen / tablet / central board
+- floating cards, tiles, chips, widgets or HUD
+- control panel
+- gameboard / board-game layout
+- microchip / circuit-board look
+- orbit/ring of modules
+- repeated rectangular modules as main structure
+- mechanical gate / conveyor
+- tiny isometric diorama
+- sterile product pedestal
+- scene needs interpretation instead of being immediately clear
 
 ============================================================
 BILD 00 – COVER
-FINAL FILE NAME: Bild 00 - Jahreskosten Cover.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Jahreskosten Cover.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -41,21 +100,28 @@ FULL STYLE LOCK
 Clearly stylized premium 3D CGI render, substantial volumetric objects, simplified slightly exaggerated proportions, smooth rounded geometry, soft bevels, thick cream card-like surfaces, deep charcoal and emerald premium polymer/brushed-metal details, chunky modeled gold coins, cinematic soft key light, controlled emerald rim light, soft contact shadows, strong foreground/midground/background separation, mild depth-of-field, polished high-end editorial CGI. NOT photorealistic. NOT realistic office stationery photography. NOT stock photo. NOT Pixar, clay or toy style.
 
 BACKGROUND
-ONE seamless deep charcoal green-black background with a subtle vignette. No floor-wall boundary, horizon, panels or bands.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `9,99 €`
 `PRO MONAT`
 `119,88 € / JAHR`
-No sentence, headline or subtitle.
+No headline. No subtitle. No explanatory sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
 No dashboard, no UI, no screen, no board, no flat real paper photo, no product pedestal, no gameboard, no module system.
 
+QA
+Reject and regenerate if it looks like a photograph, realistic desk calendar, office stationery, UI, gameboard or flat paper scene.
+
 ============================================================
 BILD 01 – SZENE 01
-FINAL FILE NAME: Bild 01 - 9,99 Euro Hook.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - 9,99 Euro Hook.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -63,17 +129,21 @@ MAIN IDEA
 Ein kleiner Monatsbetrag wirkt harmlos.
 
 SCENE
-Create a CLEARLY STYLIZED premium 3D CGI editorial scene. A single chunky cream 3D price tag with thick rounded edges and gold trim is the hero object, hanging from a dark-emerald stylized wallet/card holder. The tag reads `9,99 €` and `MONATLICH`. Behind it sit three slightly oversized everyday 3D subscription props in soft focus: over-ear headphones, a dark-screen smartphone and a membership key tag. A few chunky gold coins sit near the small price tag. Make the 9,99 € tag look visually small compared with the larger surrounding subscription objects, so the message `wirkt klein` is immediate.
+Create a CLEARLY STYLIZED premium 3D CGI editorial scene. A single chunky cream 3D price tag with thick rounded edges and gold trim is the hero object, hanging from a dark-emerald stylized wallet/card holder. The tag reads `9,99 €` and `MONATLICH`. Behind it sit three slightly oversized everyday 3D subscription props in soft focus: over-ear headphones, a dark-screen smartphone and a membership key tag. A few chunky gold coins sit near the small price tag. Make the 9,99 € tag visually small compared with the larger surrounding subscription objects, so the message is immediate.
 
 FULL STYLE LOCK
 Clearly stylized premium 3D CGI render, strong visible depth, chunky simplified volumes, slightly exaggerated proportions, smooth rounded bevels, premium dark charcoal/emerald polymer and brushed-metal materials, warm-cream card surfaces, chunky gold value coins, cinematic soft key light, emerald rim light, soft contact shadows, mild depth-of-field, polished editorial 3D render. NOT photorealistic, NOT office/stationery photography, NOT clay/Pixar/toy.
 
 BACKGROUND
-ONE seamless deep charcoal green-black background. No floor-wall split or horizon.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `9,99 €`
 `MONATLICH`
+No headline. No subtitle. No explanatory sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
 No calendar photo, no flat document, no dashboard, no UI, no floating cards, no central screen, no gameboard.
@@ -84,8 +154,9 @@ KEIN BILD 02 ERZEUGEN.
 
 ============================================================
 BILD 03 – SZENE 03
-FINAL FILE NAME: Bild 03 - Fuenf Alltagskosten.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - Fuenf Alltagskosten.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -99,11 +170,15 @@ FULL STYLE LOCK
 Clearly stylized premium 3D CGI render, chunky substantial geometry, rounded edges and soft bevels, simplified slightly exaggerated proportions, premium emerald polymer/brushed metal, warm-cream card material, chunky gold value details, cinematic key light, controlled emerald rim light, strong soft shadows, foreground/midground/background depth, mild DOF, polished editorial CGI. NOT photorealistic. NOT a product photo. NOT Pixar/clay/toy.
 
 BACKGROUND
-ONE seamless charcoal green-black background.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `9,99 €`
 `49,95 € / MONAT`
+No headline. No subtitle. No explanatory sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
 No dashboard, no app-card grid, no floating panels, no board, no five identical rectangular modules, no isometric game layout.
@@ -114,8 +189,9 @@ KEIN BILD 04 ERZEUGEN.
 
 ============================================================
 BILD 05 – SZENE 05
-FINAL FILE NAME: Bild 05 - Jahresbetrag Blick.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Jahresbetrag Blick.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -129,19 +205,24 @@ FULL STYLE LOCK
 Clearly stylized premium 3D CGI, substantial volumetric forms, smooth rounded geometry, soft bevels, simplified proportions, premium dark emerald polymer and brushed metal, thick cream card surfaces, chunky gold coins, cinematic soft lighting, emerald rim light, strong contact shadows, obvious depth, mild depth-of-field, polished editorial render. NOT photorealistic, NOT realistic calculator/paper photography, NOT clay/Pixar/toy.
 
 BACKGROUND
-ONE seamless charcoal green-black background.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `49,95 € / MONAT`
 `599,40 € / JAHR`
+No headline. No subtitle. No explanatory sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
 No dashboard, no chart UI, no spreadsheet screen, no flat office photo, no board.
 
 ============================================================
 BILD 06 – SZENE 06
-FINAL FILE NAME: Bild 06 - Kontoauszug Lupe.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 06 - Kontoauszug Lupe.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -149,26 +230,31 @@ MAIN IDEA
 Regelmäßige Abbuchungen im Kontoauszug sichtbar machen.
 
 SCENE
-Create a CLEARLY STYLIZED premium 3D CGI editorial render. The hero is a thick cream 3D statement ribbon with rounded edges, curled in a broad S-shape through the scene like a sculpted card strip, not thin paper. An oversized premium magnifying glass with a dark-emerald rounded handle rests over one section. Under the lens, one warm red-orange embossed cost tag `9,99 €` and a short label `ABO` become larger and clearer. Add two chunky gold coins and one emerald binder clip as supporting props. The viewer must immediately understand `check the statement`.
+Create a CLEARLY STYLIZED premium 3D CGI editorial render. The hero is a thick cream 3D statement ribbon with rounded edges, curled in a broad S-shape through the scene like a sculpted card strip, not thin paper. An oversized premium magnifying glass with a dark-emerald rounded handle rests over one section. Under the lens, one warm red-orange embossed cost tag `9,99 €` and a short label `ABO` become larger and clearer. Add two chunky gold coins and one emerald binder clip as supporting props.
 
 FULL STYLE LOCK
 Clearly stylized premium 3D CGI, sculpted thick card surfaces, chunky simplified proportions, smooth bevels, premium emerald polymer, brushed metal and restrained glass, modeled gold coins, cinematic soft key light, emerald rim light, soft contact shadows, clear depth and mild DOF. NOT photorealistic, NOT real bank-statement photography, NOT office photo, NOT Pixar/clay/toy.
 
 BACKGROUND
-ONE seamless deep charcoal green-black background.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `ABO`
 `9,99 €`
 `PRÜFEN`
+No headline. No subtitle. No explanatory sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
 No banking app, no phone UI, no flat realistic statement, no dashboard, no digital screen, no interface frame.
 
 ============================================================
 BILD 07 – SZENE 07
-FINAL FILE NAME: Bild 07 - Altes Abo Finden.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Altes Abo Finden.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -182,12 +268,16 @@ FULL STYLE LOCK
 Clearly stylized premium 3D CGI, thick rounded cards and wallet forms, simplified slightly exaggerated proportions, smooth bevels, dark emerald premium material, warm cream surfaces, restrained red-orange warning accent, chunky gold coins, cinematic key light, emerald rim light, soft shadows, strong depth separation, mild DOF. NOT photorealistic leather/card photography, NOT stock photo, NOT clay/Pixar/toy.
 
 BACKGROUND
-ONE seamless charcoal green-black background.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `ALTES ABO`
 `9,99 €`
 `PRÜFEN`
+No headline. No subtitle. No explanatory sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
 No filing-cabinet photo, no flat real documents, no dashboard, no checklist UI, no module board.
@@ -198,8 +288,9 @@ KEIN BILD 08 ERZEUGEN.
 
 ============================================================
 BILD 09 – SZENE 09
-FINAL FILE NAME: Bild 09 - Fixkosten Alltag.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Fixkosten Alltag.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -213,21 +304,26 @@ FULL STYLE LOCK
 Clearly stylized premium 3D CGI, substantial rounded forms, simplified exaggerated proportions, premium emerald polymer/brushed metal, cream cards, chunky gold coins, cinematic soft light, emerald rim light, soft shadows, clear layered depth, mild DOF, polished editorial render. NOT photorealistic, NOT product photography, NOT clay/Pixar/toy.
 
 BACKGROUND
-ONE seamless charcoal green-black background.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `STREAMING`
 `APPS`
 `MITGLIEDSCHAFT`
 `MOBILFUNK`
+No headline. No subtitle. No explanatory sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
 No dashboard, no four-row UI, no equal card grid, no app screen, no gameboard.
 
 ============================================================
 BILD 10 – SZENE 10
-FINAL FILE NAME: Bild 10 - Jahreskosten Labels.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Jahreskosten Labels.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -241,14 +337,18 @@ FULL STYLE LOCK
 Clearly stylized premium 3D CGI, chunky modeled objects, smooth rounded geometry, soft bevels, slightly exaggerated proportions, premium emerald material, thick cream tags, chunky gold coins, cinematic key light, emerald rim light, soft contact shadows, strong depth, mild DOF. NOT photorealistic, NOT office receipt photography, NOT UI, NOT Pixar/clay/toy.
 
 BACKGROUND
-ONE seamless charcoal green-black background.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `PRO JAHR`
 `STREAMING`
 `MOBILFUNK`
 `MITGLIEDSCHAFT`
 `APPS`
+No headline. No subtitle. No explanatory sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
 No table/spreadsheet UI, no dashboard, no flat paper labels, no floating cards.
@@ -265,8 +365,9 @@ KEIN BILD 13 ERZEUGEN.
 
 ============================================================
 BILD 14 – SZENE 14
-FINAL FILE NAME: Bild 14 - Drei Vertragsfragen.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 14 - Drei Vertragsfragen.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -280,20 +381,25 @@ FULL STYLE LOCK
 Clearly stylized premium 3D CGI, chunky substantial props, thick card surfaces, smooth rounded edges, soft bevels, simplified slightly exaggerated proportions, premium emerald polymer/brushed metal, restrained glass, chunky gold coins, cinematic soft key light, emerald rim light, contact shadows, clear depth and mild DOF. NOT photorealistic contract/stationery photo, NOT UI, NOT Pixar/clay/toy.
 
 BACKGROUND
-ONE seamless charcoal green-black background.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `NUTZE ICH ES?`
 `PRO JAHR?`
 `WIE OFT?`
+No headline. No subtitle. No explanatory sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
 No inspection gate, no conveyor, no checklist UI, no dashboard, no three-card layout, no flat real paperwork.
 
 ============================================================
 BILD 15 – SZENE 15
-FINAL FILE NAME: Bild 15 - Monatsblick Jahresblick.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 15 - Monatsblick Jahresblick.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -307,19 +413,24 @@ FULL STYLE LOCK
 Clearly stylized premium 3D CGI, substantial rounded volumes, simplified slightly exaggerated proportions, smooth bevels, thick cream card surfaces, premium emerald polymer/brushed metal, restrained glass, chunky gold coins, cinematic soft key light, emerald rim light, soft contact shadows, clear foreground/midground/background depth, mild DOF, polished editorial render. NOT photorealistic, NOT real stationery photography, NOT UI, NOT Pixar/clay/toy.
 
 BACKGROUND
-ONE seamless charcoal green-black background.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `PRO MONAT`
 `PRO JAHR`
+No headline. No subtitle. No explanatory sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
 No split-screen UI, no comparison cards, no dashboard, no flat real paper, no product pedestal.
 
 ============================================================
 BILD 16 – SZENE 16
-FINAL FILE NAME: Bild 16 - Dauerposten Heute.png
-FORMAT: strict square 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 16 - Dauerposten Heute.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -333,15 +444,19 @@ FULL STYLE LOCK
 Clearly stylized premium 3D CGI render, substantial rounded volumes, simplified slightly exaggerated proportions, smooth bevels, premium emerald polymer/brushed metal, warm cream cards, one restrained red-orange warning tag, chunky gold coins, cinematic soft key light, emerald rim light, strong soft contact shadows, clear depth separation, mild DOF, polished editorial finish. NOT photorealistic, NOT real wallet/card photography, NOT UI, NOT Pixar/clay/toy.
 
 BACKGROUND
-ONE seamless charcoal green-black background.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
 
-ALLOWED TEXT ONLY
+SHORT GERMAN OBJECT LABELS ONLY
 `DAUERPOSTEN`
 `PRÜFEN`
 `PRO JAHR`
+No headline. No subtitle. No explanatory sentence. No CTA sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
-No dashboard, no CTA sentence, no app screen, no flat cards/photo, no product pedestal.
+No dashboard, no app screen, no flat cards/photo, no product pedestal.
 
 ============================================================
 ABSCHLUSSPRÜFUNG
