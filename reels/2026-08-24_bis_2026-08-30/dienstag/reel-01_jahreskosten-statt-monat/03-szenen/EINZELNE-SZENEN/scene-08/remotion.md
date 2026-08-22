@@ -1,23 +1,20 @@
 # Remotion-Spezifikation – Szene 08
 
 ## Mechanismus
-`FixedCostLoadMechanism`
+`RemoveTwoCosts`
 
 ## Start
-Ein neutraler Monatsbudget-Behälter steht voll im Zentrum. Noch keine Zahlen oder individuelle Einkommenswerte.
+Fünf laufende Kostenposten à `9,99 €` sind sichtbar aktiv.
 
 ## Handlung
-Nacheinander docken physische Fixkosten-Gewichte an:
-`WOHNEN`, `ENERGIE`, `MOBILFUNK`, `ABOS`, `MITGLIEDSCHAFTEN`.
-Mit jedem Gewicht wird ein Teil des Budgetbehälters sichtbar als gebunden markiert.
+Zwei Posten werden deutlich als `NICHT GENUTZT` markiert und mechanisch aus der laufenden Kostenreihe entfernt. Die verbleibenden drei laufen weiter. Parallel zählt die frei werdende Jahreswirkung hoch.
 
 ## Ergebnis
-Der gebundene Teil trägt `FIXKOSTEN`; der verbleibende freie Teil `VARIABLE AUSGABEN`.
-
-Keine erfundene Prozentzahl und kein angenommenes Einkommen.
+`239,76 € / JAHR FREI` im Beispiel.
 
 ## Regeln
-- tatsächlicher Prozess statt Diagrammdeko
-- Ursache: wiederkehrende Kosten
-- Ergebnis: verbleibender freier Budgetteil
-- FinanceNeo-Farben und echte Audiodauer
+- fünf → drei sichtbar nachvollziehbar
+- echte Ursache-Wirkung, kein Zahl-Popup
+- keine Behauptung über echte Verträge des Zuschauers
+- Timing später aus echtem Voiceover ableiten
+- Gold = Geld, Grün = frei/positiv, Rot-Orange = unnötige Kosten
