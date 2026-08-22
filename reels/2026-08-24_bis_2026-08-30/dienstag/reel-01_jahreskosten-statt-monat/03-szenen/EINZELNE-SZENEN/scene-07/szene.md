@@ -1,9 +1,12 @@
 # Szene 07
 
-**Typ:** Remotion-Animation
-**Headline:** `4 WOCHEN = 13 ZAHLUNGEN`
-**Sprechtext:**
+**Typ:** Google-Flow-Bild  
+**Headline:** `ALTE ABOS VERSTECKEN SICH`  
+**Zielzeit:** ca. 5,0 s
 
-Und Achtung bei vier Wochen statt einem Monat: Dann zahlst du 13-mal im Jahr. Zehn Euro alle vier Wochen sind 130 statt 120 Euro.
+**Sprechtext-Ausschnitt:**  
+Die Verbraucherzentrale warnt, dass gerade kleine alte Abos und unnötige Verträge leicht übersehen werden.
 
-**Zweck:** Den Unterschied zwischen 4 Wochen und 1 Monat mechanisch beweisen.
+**Zweck:** Ein verstecktes altes Abo als sofort verständliche Alltagsmetapher zeigen.
+
+**Datei:** `Bild 07 - Altes Abo Finden.png`
