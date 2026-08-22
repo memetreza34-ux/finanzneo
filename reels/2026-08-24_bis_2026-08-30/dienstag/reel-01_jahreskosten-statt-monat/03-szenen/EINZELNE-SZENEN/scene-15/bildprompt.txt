@@ -1,0 +1,29 @@
+BILD 15 – SZENE 15
+FINAL FILE NAME: Bild 15 - Dauerposten Heute.png
+FORMAT: strict square 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Heute einen konkreten Dauerposten prüfen.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI closing image. A dark-emerald chunky wallet/card organizer is open in the center. One warm red-orange rounded recurring-cost tag is being visibly pulled forward from a stack of neutral cream tags, creating a clear action. The selected tag reads `DAUERPOSTEN` and `PRÜFEN`. Beside it sits a chunky gold-edged annual-cost tag `PRO JAHR` and a large emerald check-stamp angled toward the selected cost. Add a few stylized gold coins moving visually from the selected tag toward the annual-cost tag. The frame should feel active, decisive and immediately actionable.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI render, substantial rounded volumes, simplified exaggerated proportions, smooth bevels, premium emerald polymer/brushed metal, warm cream cards, one restrained red-orange warning tag, chunky gold coins, cinematic soft key light, emerald rim light, strong soft contact shadows, clear depth separation, mild DOF, polished editorial finish. NOT photorealistic, NOT real wallet/card photography, NOT UI, NOT Pixar/clay/toy.
+
+BACKGROUND
+ONE seamless charcoal green-black background.
+
+ALLOWED TEXT ONLY
+`DAUERPOSTEN`
+`PRÜFEN`
+`PRO JAHR`
+
+NEGATIVE
+No dashboard, no CTA sentence, no app screen, no flat cards/photo, no product pedestal.
+
+QA
+Must feel like an active premium 3D CGI closing frame and be understood in under 2 seconds.
