@@ -9,13 +9,13 @@ Read these first and treat them as authoritative:
 
 1. `CLAUDE.md`
 2. `reels/PRODUKTIONSSTANDARD.md`
-3. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-4. `docs/IMAGE-SYSTEM.md`
+3. `docs/IMAGE-SYSTEM.md`
+4. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 5. `docs/PLATFORM-PUBLISHING.md`
 6. target reel `03-szenen/alle-bildprompts.txt`
 7. target reel `03-szenen/scene-index.json`
 
-`CLAUDE.md` wins on conflicts.
+`CLAUDE.md` wins on conflicts. For image composition, the current Physical Explainer rules in `docs/IMAGE-SYSTEM.md` override older softer examples.
 
 ## Repository safety
 
@@ -32,54 +32,54 @@ Read these first and treat them as authoritative:
 - Never call Antigravity image generation, Imagen, Nano Banana, web image search, stock images or placeholders as substitutes.
 - If a required user image is missing, report the exact filename and wait.
 
-## Final image-prompt style
+## Physical Explainer V4 — mandatory for new prompts
 
-Every image prompt follows the canonical FinanzNeo style:
+Every new FinanzNeo image must be a premium stylized 3D **financial editorial explainer built from recognizable physical objects**.
 
-- Premium fintech editorial 3D render
-- ONE dominant financial metaphor / large hero object
-- optional stylized anonymous adult 3D person
-- if a person appears: clearly visible face, stylized eyes/nose/mouth, front-facing or natural three-quarter view
-- no faceless mannequin, hidden face or back-view-only person
+Do NOT interpret finance as fintech software, dashboards, app UI or control panels.
+
+Required:
+
+- ONE large recognizable physical hero object
+- a few concrete topic-specific physical supporting objects
+- natural asymmetry, slight overlap, foreground/midground depth
+- soft local contact shadows
+- front-facing or gentle natural three-quarter camera
+- substantial physical materials: paper, brushed metal, glass, premium plastic
 - deep charcoal green-black world
-- vivid emerald/mint accents
+- emerald/mint used sparingly as rim-light/accent, not as UI outlines
 - gold only for money/value
-- warm red-orange only for risk/loss/debt
-- smooth rounded 3D geometry, soft bevelled edges
-- confident high-contrast lighting with emerald rim light
-- no photorealism, real identifiable human, Pixar or clay
-- no tiny diorama, neon tunnel, sci-fi corridor, dashboard or game-level layout
+- warm red-orange only for warning/loss/unwanted cost
 
-## Seamless-background rule — critical
+Hard forbidden screenshot failure mode:
 
-**Do not use top/middle/bottom percentage zones in prompts.**
+- digital dashboard, app UI, screen, HUD or control panel
+- central rectangular board/tablet/panel
+- repeated rectangular cards, tiles or blocks as the composition language
+- floating cards, chips, badges, buttons or widgets
+- microchip/circuit-board look
+- circular orbit or ring of modules
+- twelve-slot mechanism
+- gameboard/board-game composition
+- mechanical inspection gate or conveyor-board layout
+- neon connector lines, rails, tracks, tubes or abstract finance streams
+- four-corner module layout
+- tiny isometric diorama
+- sterile product plinth
 
-Every prompt must demand:
+## Cover-reference rule — critical
 
-```text
-ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge.
-No horizontal divisions.
-No visible top section or bottom section.
-No separate zones or panels.
-No dark/light band at the top or bottom.
-No floor-wall boundary.
-No horizon line.
-No studio wall split.
-Use only one subtle continuous gradient/vignette.
-Do not create a visible floor, wall or studio horizon.
-Objects may cast soft contact shadows.
-Leave generous natural empty space above and below the central subject without changing the background.
-```
+Do NOT upload, attach or use `Bild 00` as an image-to-image/reference image for later scenes.
 
-Any image with two visible backgrounds/bands is wrong and must be reported for user regeneration.
+Same-world consistency must come from repeating the same WRITTEN material/light/color/background lock in every prompt. This prevents Flow from copying the cover camera angle, board shape, silhouette or object arrangement into the entire series.
 
-## Text inside generated images
+## Labels inside generated images
 
 Allowed:
 
 - only explicitly requested short German object labels
 - normally 1–3 words
-- directly near the relevant object
+- physical presentation: printed on paper tags, stickers, receipts or small attached plaques
 
 Forbidden:
 
@@ -88,43 +88,47 @@ Forbidden:
 - explanatory sentence
 - CTA
 - random extra labels
-- English explanatory text
+- floating/glowing labels
+- digital badges or UI chips
 
-Relevant real brands/services may be used as concrete examples when the scene needs them; spell names correctly and never imply an invented partnership.
+If a person appears: stylized adult, face clearly visible with eyes/nose/mouth, front-facing or natural three-quarter view. No faceless mannequin or back-view-only person.
+
+## Seamless-background rule
+
+Every prompt must demand:
+
+```text
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
+No horizontal divisions, top/bottom sections, floor-wall boundary, horizon line, panels or background bands.
+Use only one subtle continuous gradient/vignette.
+Objects may cast soft local contact shadows without creating a visible floor plane.
+```
 
 ## Google Flow filenames and numbering
 
-Every `03-szenen/alle-bildprompts.txt` must put the exact final filename directly at each individual image prompt.
+Every `03-szenen/alle-bildprompts.txt` must put the exact final filename directly at each image prompt.
 
 - `Bild 00` = cover
 - scene image uses its real chronological scene number
 - Remotion animation reserves its number and has no image
 - never close numbering gaps
 
-Example:
-
-```text
-scene 01 image → Bild 01
-scene 02 animation → no Bild 02
-scene 03 image → Bild 03
-```
-
-Google Flow user workflow:
+Workflow:
 
 ```text
 1 image generate
+→ wait completely
 → immediately rename
-→ check metaphor + labels + face + seamless background + filename
+→ check physical-object composition + labels + background + filename
+→ reject any board/UI/gameboard/module result
 → only then next image
 ```
 
-After ALL user images are complete and renamed, collect them together in:
+After ALL images are complete and renamed, collect them in:
 
 ```text
 03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
-
-Do not distribute them to individual scene folders at generation time.
 
 ## Audio, captions and finalization
 
@@ -154,14 +158,6 @@ snapchat.txt
 word-timings.json
 ```
 
-- `caption.txt` is the verified master facts/caption basis.
-- Instagram Reels: caption, CTA, source/note, hashtags, optional pinned comment.
-- TikTok: short caption, CTA, source/note, hashtags.
-- Facebook Reels: reel text, CTA, source/note, hashtags.
-- Snapchat: very short caption, optional CTA, note only when needed.
-- Never create `youtube-shorts.txt` or any YouTube Shorts publishing artifact.
-- YouTube is exclusively a separate long-form workflow under `youtube/`; Reel projects are not mirrored to YouTube.
-- Platform files must not invent facts beyond the master caption/script.
-- If exact current platform limits or upload features matter, verify official platform documentation before publishing rather than hard-coding old limits.
+Never create `youtube-shorts.txt`. YouTube remains a separate long-form workflow under `youtube/`.
 
-A reel is not complete without required user assets or an explicit missing-asset report, real audio timings, successful validation/typecheck/preview, visual review and safety audit. Cross-platform Reel publishing additionally requires the four Reel platform files to be prepared for the same final reel.
+A reel is not complete without required user assets, real audio timings, successful validation/typecheck/preview, visual review and safety audit.
