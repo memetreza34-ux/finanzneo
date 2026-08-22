@@ -1,11 +1,16 @@
-FINAL FILE NAME: Bild 06 - Fixkosten Jahresblick.png
-FORMAT: strict square 1:1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
-Create a premium FinanzNeo editorial 3D scene in the exact approved same-world style.
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 06 - Fixkosten Jahresblick.png
 
-Dominant metaphor: one large physical annual ledger board made from matte material, holding a few tangible category objects beside gold yearly-cost stacks. The board is physical and editorial, not a software interface.
+Create a square 1:1 source image. Use the written style lock only; do NOT use Bild 00 as image reference.
 
-Use recognizable generic objects for categories such as a play button token for streaming, a phone object for mobile service, a membership card object and a generic app cube.
+MAIN PHYSICAL STORY
+A large unfolded PAPER yearly budget sheet/receipt is the central physical object. Around it sit four recognizable concrete objects: headphones for streaming, a physical smartphone/SIM package for mobile service, a gym membership key fob, and a small paper app-store receipt/envelope for apps. Beside each object is a small stack of real gold euro coins. The annual paper sheet ties them together through printed rows, not through a digital interface.
 
 Short German object labels only:
 - `STREAMING`
@@ -14,10 +19,9 @@ Short German object labels only:
 - `MOBILFUNK`
 - `PRO JAHR`
 
-ONE seamless continuous deep charcoal green-black background, no floor-wall split, no horizon, no panels or background bands.
+No headline. No subtitle. No explanatory sentence. If any person appears, the face must be clearly visible; preferably omit people.
 
-Emerald/mint accents; gold only for money/value; premium rounded 3D geometry.
+STRICTLY FORBIDDEN
+No ledger board, no dashboard, no four-row interface, no control panel, no floating UI cards, no equal rectangular modules, no glowing connector lines, no app cube.
 
-No real brands, no dashboard, no floating UI cards, no headline, no explanatory sentence, no photorealism.
-
-Square 1:1, central object safely framed.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. The objects must overlap slightly and sit asymmetrically around the paper sheet with realistic contact shadows. Labels must be printed on paper/tag surfaces.
