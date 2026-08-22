@@ -1,27 +1,44 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-FINAL FILE NAME: Bild 00 - Jahreskosten Cover.png
-FORMAT: strict square 1:1 source image
 
-Use the corrected physical-explainer world from 03-szenen/bildwelt.txt.
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Jahreskosten Cover.png
 
-Create a premium stylized 3D financial editorial cover built ONLY from recognizable physical objects.
+FORMAT
+Create a square 1:1 source image only. Width and height must be equal.
 
-MAIN PHYSICAL STORY
-A small PAPER price tag printed `9,99 €` lies beside a substantial open PAPER yearly calendar. The calendar visibly represents twelve months with real paper pages/tabs, and a real gold euro coin rests against each month. Beside the calendar is one longer PAPER receipt strip carrying the yearly total.
+CREATE EXACTLY ONE IMAGE.
+Build the cover from recognizable PHYSICAL objects only.
 
-Short German object labels only:
+MAIN VISUAL IDEA
+A large open physical PAPER YEAR CALENDAR is the hero object, showing the progression of a year through real paper month pages. In the foreground, attach one small paper price tag reading `9,99 €` to the calendar. Beside the calendar lies one long physical annual receipt ending at a noticeably larger pile of real euro coins. The visual must instantly communicate: a tiny monthly price accumulates into a much larger annual cost.
+
+SUPPORTING PHYSICAL OBJECTS
+- one paper receipt
+- several real euro coins
+- one small paper clip
+- one torn calendar page
+Arrange them naturally and asymmetrically around the calendar with real contact shadows.
+
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `9,99 €`
 - `PRO MONAT`
 - `119,88 € / JAHR`
+Labels must be printed on physical paper tags or the physical receipt, never floating UI text.
 
-The small monthly tag must feel visually tiny compared with the complete physical calendar and yearly receipt.
+ART DIRECTION
+Premium stylized 3D financial editorial explainer. Deep charcoal green-black world, emerald/mint accents, gold only for money/value, restrained warm red-orange only for cost pressure. Matte paper, brushed metal and premium plastic materials. Cinematic soft key light and controlled emerald rim light. Strong readable silhouette at smartphone thumbnail size.
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. No floor-wall boundary, no horizon, no panels, no bands.
 
 STRICTLY FORBIDDEN
-No payment blocks. No board. No dashboard. No screen. No rectangular UI panel. No stacked cards. No module grid. No circular mechanism. No digital counter. No gameboard. No isometric control-panel look. No floating glowing labels.
+No dashboard. No app UI. No digital screen. No control panel. No rectangular panel system. No floating cards, tiles, chips or widgets. No gameboard. No circular module arrangement. No repeated payment blocks. No microchip language. No tiny isometric diorama. No abstract connector lines. No product-ad pedestal.
 
-Labels must be printed on paper tags/receipt surfaces, not floating in space.
-Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. No floor-wall boundary, horizon, bands or panels.
-Use restrained emerald/mint rim light, gold only for money/value, realistic soft contact shadows.
-Not photorealistic, not Pixar, not clay, not toy-like.
+No headline. No subtitle. No explanatory sentence. No CTA. No photorealism. No real person.
 
-Square 1:1. Keep every important object and label fully inside safe margins.
+QA
+If the image looks like a fintech dashboard, board, game, interface or isometric module system, reject it and regenerate Bild 00 before continuing.
