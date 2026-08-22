@@ -1,20 +1,24 @@
-FINAL FILE NAME: Bild 01 - 9,99 Euro Hook.png
-FORMAT: strict square 1:1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
-Create a premium FinanzNeo editorial 3D scene in the same approved visual world as Bild 00.
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - 9,99 Euro Hook.png
 
-Dominant metaphor: a tiny physical recurring-payment token labelled `9,99 €` enters a large circular annual payment mechanism made of twelve clearly separated physical slots. Only the first few slots are filled, implying repetition without turning the scene into a chart or UI.
+Create a square 1:1 source image. Use the written style lock from 03-szenen/bildwelt.txt. Do NOT upload or use Bild 00 as an image reference.
+
+MAIN PHYSICAL STORY
+A very small PAPER price tag marked `9,99 €` is clipped to the first page of a thick physical PAPER calendar book. Behind it, many month pages are visibly stacked/turned, each with a small real gold euro coin resting against the paper. The message is repetition over time, not a mechanism.
 
 Short German object labels only:
 - `9,99 €`
 - `MONATLICH`
 
-The token should feel deceptively small compared with the larger yearly mechanism.
+No headline. No subtitle. No explanatory sentence. If any person is added unexpectedly, the face must be clearly visible; preferably omit people here.
 
-Use ONE seamless continuous deep charcoal green-black background across the entire square. No floor-wall boundary, no horizon, no panels, no horizontal bands.
+STRICTLY FORBIDDEN
+No ring, no twelve slots, no circular device, no board, no dashboard, no app UI, no digital screen, no repeated glowing tiles/cards/blocks, no control panel, no isometric gameboard.
 
-Emerald/mint accents; gold for money/value; restrained warm red-orange only where recurring cost pressure is shown.
-
-No dashboard, no digital screen, no floating interface cards, no headline, no explanatory sentence, no CTA, no photorealism, no tiny diorama.
-
-Square 1:1 with generous natural empty space above and below and all labels fully visible.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands. Labels must be physical paper/sticker text, never floating UI badges.
