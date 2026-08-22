@@ -1,49 +1,28 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
-VISUAL_TIMING_AND_CLARITY_STANDARD: finanzneo-visual-timing-and-clarity-v1
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 01 - 9,99 Euro Hook.png
-
-FORMAT
-Create a square 1:1 source image only. Width and height must be equal.
+BILD 01 – SZENE 01
+FINAL FILE NAME: Bild 01 - 9,99 Euro Hook.png
+FORMAT: strict square 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
 
 CREATE EXACTLY ONE IMAGE.
-Use the written physical-explainer style lock. Fresh composition. Do not copy Bild 00.
 
-TIMING + CLARITY
-- Target screen time: about 4–5 seconds.
-- The main idea must be understandable in under 2 seconds.
-- One clear everyday message only: a small monthly amount repeats again and again.
-- The image must feel lively enough for this duration, not like a dead product still-life.
+MAIN IDEA
+Ein kleiner Monatsbetrag wirkt harmlos.
 
-MAIN VISUAL
-A large real PAPER DESK CALENDAR is the hero object. One small physical paper price tag reading `9,99 €` is clipped directly to the current month page. Several real paper month pages are visibly turned behind it and several upcoming pages remain in front, so the repetition across months is obvious without any chart or mechanism.
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI editorial scene. A single chunky cream 3D price tag with thick rounded edges and gold trim is the hero object, hanging from a dark-emerald stylized wallet/card holder. The tag reads `9,99 €` and `MONATLICH`. Behind it sit three slightly oversized everyday 3D subscription props in soft focus: over-ear headphones, a dark-screen smartphone and a membership key tag. A few chunky gold coins sit near the small price tag. Make the 9,99 € tag look visually small compared with the larger surrounding subscription objects, so the message `wirkt klein` is immediate.
 
-SUPPORTING PHYSICAL OBJECTS
-- a few real euro coins near the calendar base
-- one small folded receipt slip
-- one metal binder clip
-Arrange them naturally and asymmetrically with slight overlap and real contact shadows. The turned pages, clipped price tag and coins must visually connect the monthly price to repeated real-life payments.
-
-ALLOWED GERMAN OBJECT LABELS ONLY
-- `9,99 €`
-- `MONATLICH`
-The labels must be printed on physical paper tags.
-
-STYLE
-Premium stylized 3D physical financial editorial explainer. Deep charcoal green-black world, emerald/mint accents, gold only for money/value, restrained warm red-orange only for cost pressure. Matte paper and brushed-metal details, soft cinematic key light, controlled emerald rim light. Camera frontal or gentle elevated three-quarter view, not tiny isometric.
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI render, strong visible depth, chunky simplified volumes, slightly exaggerated proportions, smooth rounded bevels, premium dark charcoal/emerald polymer and brushed-metal materials, warm-cream card surfaces, chunky gold value coins, cinematic soft key light, emerald rim light, soft contact shadows, mild depth-of-field, polished editorial 3D render. NOT photorealistic, NOT office/stationery photography, NOT clay/Pixar/toy.
 
 BACKGROUND
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary. No horizon. No panels. No bands.
+ONE seamless deep charcoal green-black background. No floor-wall split or horizon.
 
-STRICT FAILURE MODES
-No dashboard. No app UI. No digital screen. No control panel. No floating cards, tiles, chips or widgets. No circular payment mechanism. No twelve-slot ring. No board-game layout. No microchip visual language. No glowing connector network. No repeated rectangular blocks as the main structure. No tiny isometric diorama. No abstract symbolism that needs interpretation.
+ALLOWED TEXT ONLY
+`9,99 €`
+`MONATLICH`
 
-No headline. No subtitle. No explanatory sentence. No CTA. If a person appears unexpectedly, the face must be clearly visible; preferably use no person.
+NEGATIVE
+No calendar photo, no flat document, no dashboard, no UI, no floating cards, no central screen, no gameboard.
 
 QA
-Reject and regenerate Bild 01 if the main idea is not obvious in under 2 seconds, if it would need more than 6 seconds to understand, or if the result resembles a fintech dashboard, module board, game level, circular mechanism or digital product.
+The image must read in under 2 seconds and unmistakably look like premium stylized 3D CGI, not a photograph.
