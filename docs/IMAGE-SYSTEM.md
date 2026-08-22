@@ -2,200 +2,162 @@
 
 Dieses Dokument definiert das Bildsystem für neue FinanzNeo-Reels. Bei Widerspruch gilt `CLAUDE.md`.
 
-Verbindlicher Stilanker:
-
+Verbindliche IDs:
 - World ID: `finanzneo-connected-studio-v3`
 - Series Lock ID: `finanzneo-same-world-v1`
 - Physical Explainer Lock: `finanzneo-physical-explainer-v4`
+- Stylized 3D Lock: `finanzneo-stylized-3d-editorial-v5`
 - Google-Flow-Quellbildformat: immer `1:1`
 - Visual Timing & Clarity Standard: `docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md`
 
 ## Ziel
+Jedes Bild erklärt genau eine Aussage sofort und alltagsnah.
 
-Jedes Bild erklärt genau eine Aussage durch eine klare physische Szene:
+## Höchste Stilregel
+FinanzNeo-Bilder sind **premium stylized 3D CGI financial editorial explainers**.
 
-```text
-Ausgangspunkt → sichtbare Veränderung → verständliches Ergebnis
-```
+`physical` bedeutet: erkennbare Alltagsgegenstände als bewusst gestaltete 3D-Props.
+`physical` bedeutet ausdrücklich NICHT: fotorealistische Papier-, Büro- oder Produktfotografie.
 
-## Höchste neue Regel: Physical Explainer statt Fintech-UI
-
-FinanzNeo-Bilder sind **premium stylized 3D financial editorial explainers aus erkennbaren physischen Gegenständen**.
-
-Der Begriff `finance` darf von Google Flow NICHT als Software, Dashboard, App, Kontrollpanel oder digitale Produktoberfläche interpretiert werden.
-
-### Verbindliche Komposition
-
-- EIN großes erkennbares physisches Hauptobjekt
-- wenige konkrete themenspezifische physische Nebenobjekte
-- natürliche asymmetrische Anordnung
-- leichte Überlappung
-- Vorder-/Mittelgrund-Tiefe
-- lokale weiche Kontakt-Schatten
-- Kamera frontal oder natürliche sanfte 3/4-Ansicht
-- Ergebnis wirkt wie ein hochwertiges Editorial-Stillleben, NICHT wie ein Interface
-
-Gute Objektarten:
-
-- Papierkalender
-- Quittung / Kontoauszug / Vertrag
-- Ordner / Umschlag
-- Lupe
-- physische Waage
-- Euro-Münzen / Geldscheine
-- Einkaufskorb
-- Kopfhörer
-- Smartphone als physischer Gegenstand mit dunklem/abgewandtem Screen
-- SIM-Verpackung
-- Mitgliedschafts-Key-Fob
-- physische Preisschilder
-
-## Hart verbotener Screenshot-Fehlermodus
-
-Sofort neu erzeugen bei:
-
-- digitalem Dashboard oder App-UI
-- zentralem rechteckigem Board / Tablet / Screen / Panel
-- mehreren gleichartigen rechteckigen Karten, Kacheln oder Blöcken als Bildsprache
-- Floating Cards, Chips, Buttons, Badges oder Widgets
-- Microchip-/Circuitboard-Look
-- kreisförmigem Orbit oder Ring aus Modulen
-- zwölf Slots in einem Mechanismus
-- Gameboard-/Boardgame-Komposition
-- mechanischem Prüf-Gate / Conveyor-Board
-- Neon-Verbindungslinien, Rails, Röhren, Tracks oder abstrakten Finanzströmen
-- Vier-Ecken-Modulaufbau
-- winziger isometrischer Diorama-Perspektive
-- sterilem Produkt-Sockel / leerer Produktwerbung
-
-## Visueller Stil
-
-- Premium stylized 3D financial editorial illustration
-- deep charcoal green-black Grundwelt
-- Emerald/Mint sparsam als Rim-Light und Strukturakzent, NICHT als leuchtende UI-Kontur
-- Gold nur für Geld/Wert
-- warmes Rot-Orange nur für Risiko/Verlust/unerwünschte Kosten
-- matte Papier-, gebürstete Metall-, Glas- und hochwertige Kunststoffmaterialien
-- substantial objects statt abstrakter Icons
+### Verbindliche 3D-Merkmale
+Jeder einzelne Bildprompt muss diese Merkmale selbst ausschreiben:
+- clearly stylized premium 3D CGI render
+- substantial volumetric objects with obvious depth
+- simplified, slightly exaggerated proportions
+- smooth rounded geometry and soft bevels
+- thick cream-colored card/paper-like 3D surfaces instead of thin realistic paper
+- dark charcoal/emerald premium plastic and brushed-metal details
+- restrained transparent glass where useful
+- chunky stylized gold value coins
 - cinematic soft key light
-- reale lokale Kontakt-Schatten
-- zurückhaltendes smaragdgrünes Rim Light
-- nicht fotorealistisch, kein Pixar/Clay/Toy-Look
+- controlled emerald rim light
+- soft but visible contact shadows
+- foreground / midground / background separation
+- mild depth-of-field allowed
+- polished editorial render quality
 
-## Same-World ohne Kompositionskopie
+### Hart verboten
+Sofort neu erzeugen bei:
+- photorealistic office photo
+- realistic stationery photography
+- stock-photo look
+- thin flat realistic paper dominating the composition
+- dashboard or app UI
+- central screen / tablet / board
+- floating cards, tiles, chips, badges, widgets
+- control panel
+- gameboard / board-game layout
+- microchip/circuit-board look
+- orbit/ring of modules
+- repeated rectangular modules as the main structure
+- mechanical gate / conveyor
+- tiny isometric diorama
+- sterile product-ad pedestal
+- Pixar / clay / toy look
 
-Das Cover `Bild 00` darf **nicht als Image-to-Image-/Bildreferenz hochgeladen oder angehängt werden**.
+## Komposition
+- EIN klares 3D-Hauptobjekt
+- 2–5 unterstützende 3D-Alltagsobjekte
+- natürliche Asymmetrie
+- leichte Überlappung
+- klare Tiefenstaffelung
+- sichtbare Größenkontraste
+- jedes Objekt muss die Aussage unterstützen
+- Hauptaussage in unter 2 Sekunden erkennbar
 
-Stattdessen wird in jedem einzelnen Prompt derselbe ausgeschriebene Text-Lock für:
+## Gute direkte Alltagsmetaphern
+- chunky stylized 3D desk calendar
+- thick 3D receipt ribbon
+- stylized contract folder
+- 3D price tag
+- 3D wallet
+- oversized magnifying glass
+- stylized gold-value coins
+- headphones
+- smartphone with dark/off screen
+- SIM card
+- membership tag
+- shopping / household object
 
-- Hintergrund
-- Material
-- Farbrollen
+## Keine Bildreferenz-Abhängigkeit
+Kein vorheriges Bild muss hochgeladen oder als Image-to-Image-Referenz verwendet werden.
+Die Einheitlichkeit entsteht dadurch, dass **jeder einzelne Szenenprompt denselben vollständigen Style-Lock wiederholt**.
+
+Vermeide Formulierungen wie:
+- `same as Bild 00`
+- `use previous image as reference`
+- `copy the approved cover style`
+
+Stattdessen enthält jeder Prompt selbst:
+- 3D-Renderstil
 - Geometrie
+- Materialien
+- Farbrollen
 - Licht
-- Kontrast
+- Hintergrund
+- Perspektive
+- Negativregeln
 
-wiederholt.
-
-So bleibt die Welt konsistent, ohne dass Flow die Cover-Perspektive, Board-Form, Objektanordnung oder Silhouette in alle Szenen kopiert.
-
-## Hintergrund — verbindlich nahtlos
-
-Keine Prozent-Zonen verwenden.
-
+## Hintergrund
 ```text
 Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
-Keep the same continuous material, tone and gradient from top edge to bottom edge.
-No horizontal divisions, no top/bottom sections, no bands, no floor-wall boundary, no horizon line, no panels.
-Use only one subtle continuous gradient/vignette.
-Do not create a visible floor, wall or studio horizon.
-Objects may cast soft local contact shadows.
+No floor-wall boundary, no horizon line, no panels, no bands, no sections.
+Use a subtle continuous gradient/vignette only.
+Objects cast soft contact shadows while the background remains uninterrupted.
 ```
 
-## Personen
-
-Wenn eine Person vorkommt:
-
-- stilisierte erwachsene 3D-Person
-- Gesicht klar sichtbar
-- Augen, Nase und Mund erkennbar
-- frontal oder natürliche 3/4-Ansicht
-- keine gesichtslose Figur
-- keine reine Rückenansicht
-- keine reale/identifizierbare Person
-
-Eine Person ist optional; physische Gegenstände dürfen die Erklärung allein tragen.
+## Farbrollen
+- Deep charcoal green-black = Grundwelt
+- Emerald/Mint = Akzent, Rim Light, positive Struktur
+- Gold = nur Geld/Wert
+- Warm red-orange = nur Warnung, unerwünschte Kosten, Schulden/Druck
+- Warm cream/off-white = Papier-/Kartenflächen für Lesbarkeit
 
 ## Text im KI-Bild
-
 Erlaubt:
-
-- nur explizit vorgegebene kurze deutsche Objektlabels
-- normalerweise 1–3 Wörter
-- physisch auf Papier-Tags, Stickern, Quittungen oder kleinen befestigten Plaketten
+- kurze deutsche Labels
+- kurze Preiswerte
+- kurze Fragen
+- normalerweise 1–4 Wörter
 
 Verboten:
-
 - Headline
 - Untertitel
 - ganzer Satz
 - CTA
-- zufällige Zusatztexte
-- floating/glowing labels
-- digitale Badges / UI-Chips
+- lange Erklärtexte
+- schwebende UI-Badges
 
-## Timing, Dynamik und Verständlichkeit
+## Timing-Vertrag
+- Bildbeat ideal 3,5–5,0 s
+- normal max. 5,5 s
+- absolut max. 6,0 s
+- wenn länger nötig: splitten oder animieren
+- Zielverteilung über tatsächliche Visual-Beats: ca. 60 % Bilder / 40 % Remotion
+- Szenenanzahl wird aus Voiceover-Länge abgeleitet, nicht auf 10 fixiert
 
-Für alle neuen Bildszenen gilt zusätzlich der verbindliche Standard `docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md`.
-
-- Bildszenen ideal: **3,5–5,5 Sekunden**
-- Bildszenen maximal: **6,0 Sekunden**
-- Animationsszenen ideal: **4,5–7,0 Sekunden**
-- wenn ein Bild länger als 6 Sekunden bräuchte: **splitten oder animieren**
-- jede Bildszene hat genau **eine Hauptaussage**
-- Hauptaussage muss in **unter 2 Sekunden** erkennbar sein
-- Alltagssituation statt abstrakter Interpretation
-- 2–5 unterstützende Alltagsobjekte statt sterilem Stillleben
-- kurze Labels/Fragen/Preise erlaubt, **keine Sätze**
-- Bilder sollen lebendig wirken: umgeblätterte Seiten, aufgefaltete Belege, Überschneidungen, direkte Objektbeziehungen, sichtbare Ursache-Wirkung
-
-## Darstellung in Remotion
-
-- 1:1-Quellbild im 9:16-Reel
-- `object-fit: contain`
-- keine sichtbare unscharfe Kopie desselben Bildes als Hintergrund
-- Source-Crop oben höchstens `0.20`
-- Source-Crop unten höchstens `0.20`
-- Source-Crop insgesamt höchstens `0.34`
-- zusätzliche Skalierung höchstens `1.04`
-- Motive und Labels nie abschneiden
-
-## Pflichtinhalt eines neuen Bildprompts
-
-1. finaler Google-Flow-Dateiname
-2. konkrete erlaubte deutsche Labels
-3. konkrete physische Haupt-/Nebenobjekte statt abstrakter Metapher allein
-4. sichtbarer Ursache-Wirkungs-Zusammenhang
-5. Physical-Explainer-Lock
-6. nahtloser Hintergrund
-7. Personenregel
-8. harter UI-/Board-/Diorama-Negativblock
-9. Anweisung: `Bild 00` NICHT als Bildreferenz verwenden
-10. Ziel: in unter 2 Sekunden verständlich und nicht länger als 6 Sekunden nötig
+## Pflichtinhalt jedes einzelnen Bildprompts
+1. finaler Dateiname
+2. konkrete Bildaussage
+3. konkrete Alltagsmetapher
+4. Hauptobjekt + Nebenobjekte
+5. vollständiger Stylized-3D-Lock
+6. Farb-/Material-Lock
+7. Kamera/Licht/Tiefenwirkung
+8. erlaubte kurze Labels
+9. nahtloser Hintergrund
+10. harter Negativblock inkl. `NO photorealistic office/photo look`
+11. QA: Aussage in unter 2 Sekunden lesbar
 
 ## Google-Flow-QA
-
 Nach jedem Bild prüfen:
-
-- erkennt man echte physische Gegenstände sofort?
-- wirkt die Szene wie Editorial-Illustration statt UI?
-- keine zentrale Platte / kein Board / kein Screen?
-- keine Kachel-/Block-/Modulstruktur?
-- keine isometrische Gameboard-Perspektive?
-- Labels physisch statt schwebend?
+- sofort erkennbarer stylized 3D CGI render?
+- starke 3D-Tiefe und Volumen?
+- klar nicht fotorealistisch?
+- alltagsnah und unmittelbar verständlich?
+- keine UI-/Board-Struktur?
+- kurze Labels korrekt?
 - 1:1 und nahtloser Hintergrund?
-- Hauptaussage in unter 2 Sekunden verständlich?
-- braucht das Bild höchstens 6 Sekunden Bildschirmzeit?
-- ist die Szene lebendig genug und nicht wie sterile Produktwerbung?
+- maximal 6 Sekunden nötig?
 
-Wenn eine Antwort falsch ist: dieselbe Bildnummer neu erzeugen, erst danach fortfahren.
+Wenn nicht: dieselbe Bildnummer neu erzeugen.
