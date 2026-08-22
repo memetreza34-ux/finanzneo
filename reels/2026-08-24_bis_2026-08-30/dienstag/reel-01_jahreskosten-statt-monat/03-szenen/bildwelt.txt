@@ -1,85 +1,74 @@
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 VISUAL_TIMING_AND_CLARITY_STANDARD: finanzneo-visual-timing-and-clarity-v1
 
-FORMAT LOCK
-Create a square 1:1 source image only. Width and height must be equal. No portrait or vertical format.
+FORMAT
+Strict square 1:1 source image. Width and height equal.
 
-VERBINDLICHE KORRIGIERTE BILDWELT
-Premium stylized 3D financial editorial explainer built from REAL, RECOGNIZABLE PHYSICAL OBJECTS.
-Do NOT interpret the word finance as fintech UI, software, a dashboard, a control panel or a digital product.
+VERBINDLICHE BILDWELT
+Create CLEARLY STYLIZED premium 3D CGI financial editorial explainer images. The final image must look like a designed high-end 3D render, NOT a photograph and NOT realistic office stationery photography.
 
-KLARHEITSREGEL
-Every image must communicate ONE main idea immediately.
-The viewer should understand the everyday meaning in under two seconds.
-Do not create interpretation-heavy symbolic art.
-Use direct everyday metaphors.
+3D FORM LANGUAGE
+- chunky, substantial volumetric 3D objects
+- simplified and slightly exaggerated proportions
+- smooth rounded geometry and soft bevels
+- thick cream/off-white card-like surfaces instead of thin realistic paper
+- dark charcoal and deep emerald premium polymer/brushed-metal frames and details
+- restrained glass only where useful
+- chunky stylized gold value coins, visibly modeled in 3D
+- obvious foreground / midground / background depth
+- natural overlap between objects
+- strong but soft contact shadows
+- mild depth-of-field allowed
+- polished premium CGI finish
 
-LEBENDIGKEITSREGEL
-Avoid dead product still-lifes.
-Prefer scenes with visible relationships between objects: turned calendar pages, unfolded receipts, overlapping objects, clipped tags, stacked coins, opened folders, magnified details.
-Objects should feel active and connected, not randomly placed.
-
-TEXTREGEL
-Only short labels.
-No full sentences.
-Use 1 to 4 short words, short questions or price values only.
-
-GLOBAL PHYSICAL-EXPLAINER-LOCK
-- one large recognizable PHYSICAL hero object
-- 2–5 recognizable physical supporting objects
-- natural asymmetry, slight overlap and real contact shadows
+LIGHT + CAMERA
+- cinematic soft key light from upper front/side
+- controlled emerald rim light
+- subtle warm highlights on gold
 - frontal or gentle elevated three-quarter camera
-- deep charcoal green-black world
-- emerald/mint accents
-- gold only for money/value
-- warm red-orange only for warning/unwanted cost
-- matte paper, brushed metal, premium plastic and restrained glass materials
-- cinematic soft key light and controlled emerald rim light
-- not photorealistic, not Pixar, not clay, not childish
+- medium close editorial framing
+- never tiny isometric diorama view
 
-GUTE GEGENSTÄNDE
-paper calendar, receipt, contract folder, paper price tag, envelope, magnifying glass, balance scale, euro coins, headphones, physical smartphone with dark/off screen, SIM card, membership key fob, paper statement, pen, paper clip, stamp.
+COLOR ROLES
+- deep charcoal green-black = background/base world
+- emerald/mint = structure, positive guidance, rim light
+- gold = money/value only
+- warm red-orange = warning/unwanted recurring cost only
+- warm cream/off-white = readable document/card surfaces
 
-STRICT FAILURE MODES – SOFORT NEU ERZEUGEN
-- dashboard or app UI
-- digital central board or screen
-- control panel
-- floating cards, tiles, chips, widgets, HUD or badges
-- rectangular module system
-- board-game or gameboard layout
-- circular orbit / ring of modules
-- repeated slots or repeated rectangular blocks as the main structure
-- microchip / circuit-board world
-- mechanical inspection gate
-- conveyor, rails, tracks, tubes or neon paths
-- abstract finance connector network
-- symmetrical four-corner modules
+ALLTAGSKLARHEIT
+Every image must communicate ONE everyday financial idea in under 2 seconds. Use familiar 3D props: calendar, wallet, contract folder, magnifying glass, headphones, smartphone, SIM card, membership tag, calculator, price tag, receipt ribbon, coins.
+
+LEBENDIGKEIT
+Do not create a dead still-life. Show relationships: clipped tags, fanned calendar cards, curled 3D receipt ribbons, objects leaning/overlapping, visible small-vs-large contrast, a magnifier actively revealing something, a tag being pulled from a stack.
+
+TEXT
+Only short German labels, prices or short questions. No full sentences, subtitles or CTA sentences. Text must be integrated on the physical 3D prop surface, not floating UI.
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square image. No floor-wall boundary, horizon line, panels, bands or sections. Use only a subtle continuous gradient/vignette. Objects may cast soft contact shadows.
+
+HARD FAIL — REGENERATE
+- photorealistic office photo
+- realistic paper calendar / stationery photo look
+- stock photography
+- thin flat realistic paper dominating the scene
+- dashboard / app UI / digital control panel
+- central tablet/screen/board
+- floating cards/tiles/chips/widgets
+- gameboard / board-game layout
+- microchip/circuit-board style
+- ring/orbit of modules
+- mechanical gate/conveyor
 - tiny isometric diorama
-- sterile product-ad pedestal
-- meaningless towers or monoliths
-- image is too abstract to decode quickly
-- image needs more than one sentence to explain
+- sterile luxury product pedestal
+- Pixar, clay or toy style
+- scene needs interpretation instead of being instantly clear
 
-BACKGROUND LOCK
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
-Keep one continuous material, tone and gradient from top edge to bottom edge.
-No horizontal divisions.
-No separate top/bottom sections.
-No floor-wall boundary.
-No horizon line.
-No panels.
-No background bands.
-Use only one subtle continuous gradient or vignette.
-Objects may cast soft contact shadows.
-
-TEXT LOCK
-No headline.
-No subtitle.
-No explanatory sentence.
-No CTA.
-Only the explicitly requested short German object labels.
-Labels must appear physically on paper tags, stickers, receipts, printed sheets or attached plaques. Never floating UI text.
+NO IMAGE-REFERENCE DEPENDENCY
+Do not upload or reuse Bild 00 or any previous image as an image reference. Every individual prompt must independently repeat this complete 3D style language so the world stays consistent without copying composition.
