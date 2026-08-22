@@ -1,21 +1,25 @@
-FINAL FILE NAME: Bild 09 - Vertrag Check.png
-FORMAT: strict square 1:1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
-Create a premium FinanzNeo editorial 3D illustration in the approved same-world style.
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Vertrag Check.png
 
-Dominant metaphor: one large physical contract sheet passes through a three-stage mechanical inspection gate. The three stages are tangible objects, not UI cards: a usage check mark, a yearly-cost scale, and a calendar wheel.
+Create a square 1:1 source image. Use the written style lock only; do NOT use Bild 00 as image reference.
+
+MAIN PHYSICAL STORY
+One thick PAPER contract folder lies open as the hero object. Three real inspection objects are placed naturally around it, NOT as stages: a magnifying glass over the usage section, a small physical balance scale holding euro coins beside the annual-cost section, and a compact paper calendar beside the billing-frequency section. Small PAPER question tags are attached directly to the relevant physical object.
 
 Short German object labels only:
 - `NUTZE ICH ES?`
 - `PRO JAHR?`
 - `WIE OFT?`
 
-A stylized anonymous adult may stand beside the contract in natural three-quarter view, but only if the face is clearly visible with stylized eyes, nose and mouth.
+No headline. No subtitle. No explanatory sentence. If a stylized adult person is included, the face must be clearly visible with eyes, nose and mouth; a person is not required.
 
-ONE seamless continuous charcoal green-black background. No floor-wall boundary, no horizon, no panels or bands.
+STRICTLY FORBIDDEN
+No mechanical inspection gate, no conveyor, no three-stage board, no checklist UI, no connected modules, no control panel, no floating cards, no isometric gameboard.
 
-Emerald/mint accents, gold for financial value. Premium high-contrast 3D lighting.
-
-No dashboard, no app UI, no real company logo, no headline, no long explanatory sentence, no photorealism.
-
-Square 1:1 and keep all three inspection stages fully visible.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Natural asymmetric composition with overlap and realistic contact shadows. Labels must be physical paper tags, never floating UI badges.
