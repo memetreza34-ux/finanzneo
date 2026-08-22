@@ -1,21 +1,25 @@
-FINAL FILE NAME: Bild 02 - Fuenf Dauerposten.png
-FORMAT: strict square 1:1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
-Create a premium FinanzNeo fintech editorial 3D illustration in the exact same world as the approved cover.
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Fuenf Dauerposten.png
 
-Dominant metaphor: five separate physical recurring-cost tokens, each labelled `9,99 €`, feed into one large yearly money container. The five tokens are concrete physical objects, not interface cards. The yearly container visibly holds a much larger gold value stack.
+Create a square 1:1 source image. Use the written style lock only; do NOT use Bild 00 as image reference.
+
+MAIN PHYSICAL STORY
+Five clearly different recognizable physical everyday service/subscription objects sit naturally around one long PAPER yearly receipt: headphones, a physical smartphone with the screen dark/off, a gym membership key fob, a small paper streaming ticket, and a SIM-card/package object. Each object has a small attached PAPER price tag marked `9,99 €`. The long receipt physically shows the combined monthly and yearly totals.
 
 Short German object labels only:
 - `5 × 9,99 €`
 - `49,95 € / MONAT`
 - `599,40 € / JAHR`
 
-Make the cause-and-effect unmistakable: five small recurring charges combine into one meaningful annual cost.
+No headline. No subtitle. No explanatory sentence. If any person appears, the face must be clearly visible; preferably omit people.
 
-ONE seamless continuous deep charcoal green-black background. No horizon line, floor-wall boundary, bands or panels.
+STRICTLY FORBIDDEN
+No money container, no central board, no dashboard, no app-card grid, no stacked rectangular blocks, no floating cards/chips/buttons, no control panel, no isometric gameboard.
 
-Emerald/mint accents; gold only for money/value. High-end rounded 3D geometry and emerald rim light.
-
-No digital central screen, no UI dashboard, no floating cards, no cartoon style, no headline or sentence text beyond the listed short labels.
-
-Square 1:1, all important objects and labels safely framed.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Natural asymmetry, slight overlap, contact shadows. Labels must be physical receipt/tag text, never floating UI badges.
