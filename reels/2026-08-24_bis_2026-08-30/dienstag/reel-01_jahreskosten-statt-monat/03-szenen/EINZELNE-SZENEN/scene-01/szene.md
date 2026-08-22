@@ -1,11 +1,12 @@
 # Szene 01
 
-**Typ:** Google-Flow-Bild
-**Headline:** `9,99 € WIRKT KLEIN`
-**Sprechtext:**
+**Typ:** Google-Flow-Bild  
+**Headline:** `9,99 € WIRKT KLEIN`  
+**Zielzeit:** ca. 3,5 s
 
-9,99 Euro im Monat klingt klein. Aber Dauerbeträge werden teuer, wenn du sie nie aufs ganze Jahr hochrechnest.
+**Sprechtext-Ausschnitt:**  
+9,99 Euro im Monat klingt klein.
 
-**Zweck:** Hook. Der Monatsbetrag soll klein wirken, während die wiederkehrende Struktur bereits sichtbar macht, dass er sich aufbaut.
+**Zweck:** Hook. Ein kleiner Monatsbetrag soll sofort harmlos wirken.
 
 **Datei:** `Bild 01 - 9,99 Euro Hook.png`
