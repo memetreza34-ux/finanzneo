@@ -1,0 +1,47 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+`Bild 02 - Durchschnitt Warenkorb.png`
+
+Erzeuge jetzt ausschließlich dieses eine Bild. Warte auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe erst danach Motiv + Beschriftungen + Hintergrund + Same-World-Lock + Dateiname. Vergleiche die Bildwelt mit dem freigegebenen Bild 00 und halte dessen Stil, Materialien, Geometriesprache, Farbrollen und Lichtsignatur konstant. Übernimm NICHT Motiv, Komposition oder Labels des Covers. Bei einem Fehler dieselbe Bildnummer neu erzeugen. Erst nach bestandener Prüfung das nächste Bild beginnen. Der Dateiname selbst darf NICHT sichtbar im Bild erscheinen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- `DURCHSCHNITT`
+- `DEINE AUSGABEN`
+
+BILDPROMPT:
+Create a premium fintech editorial 3D explanation of how an official inflation average comes from a weighted mix of spending categories, while a person's own monthly spending mix can look different.
+
+Use ONE dominant physical metaphor: a large broad premium metal weighing platform in the center-left holding four oversized category objects in visibly different proportions — a housing block, fuel nozzle, grocery bag and household-energy meter. Attach the exact small German object label `DURCHSCHNITT` to this platform.
+
+Beside it, create one separate compact personal expense stack made from the same four physical category objects but with clearly different relative sizes. Attach the exact small German object label `DEINE AUSGABEN` directly to this second structure.
+
+The key visual idea is proportion, not decoration: the same categories exist in both structures, but their weights visibly differ. Do not display a personal percentage, equation or chart. The viewer should understand that an average basket and an individual's spending pattern are not identical.
+
+Keep both structures large and readable, with strong depth and clean negative space. Do not reuse the cover's balance scale and do not reuse scene 01's reference-ring composition.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+FORMAT LOCK:
+Create a square 1:1 source image only. Width and height must be equal. No portrait or vertical format.
+
+SAME-WORLD LOCK:
+Keep the exact same FinanzNeo art direction as approved Bild 00. Preserve the same deep charcoal green-black background material and gradient character, emerald rim-light signature, rounded geometry language, bevel softness, premium matte/glass material finish, color roles, contrast level and editorial 3D rendering quality. Do not reinterpret the series as a new style.
+
+VERBINDLICHER BILDSTIL:
+Premium fintech editorial 3D render style. Deep charcoal green-black world. Accents in vivid emerald and mint green. Gold only for euro coins, cash and financial value. Warm red-orange only for loss, risk or price pressure. Use smooth rounded 3D geometry, soft bevelled edges, sophisticated matte and transparent materials, confident high-contrast studio lighting and bold emerald rim light.
+
+PERSON RULE:
+No person is required. If a person is introduced accidentally, the face must be clearly visible with stylized eyes, nose and mouth; no faceless mannequin, hidden face, real identifiable human or photorealistic portrait.
+
+TEXT RULE:
+No headline. No subtitle. No explanatory sentence. Only the requested short German object labels `DURCHSCHNITT` and `DEINE AUSGABEN`. No random extra text.
+
+BACKGROUND RULE:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Keep the same continuous material, tone and subtle gradient from edge to edge. NO horizontal divisions. NO separate zones. NO dark band at any edge. NO floor-wall boundary. NO horizon line. NO studio wall split. NO panel background. NO layered backdrop. Objects may cast soft contact shadows, but the background itself remains one uninterrupted surface.
+
+FORBIDDEN:
+No portrait source format, no photorealism, no real identifiable human, no UI dashboard, no app screen, no floating interface cards, no generic stock-photo scene, no tiny isometric diorama, no miniature game level, no neon tunnel, no sci-fi corridor, no abstract line-network as the main idea, no clutter, no giant typography, no full sentence, no random labels, no Pixar look, no clay look.
