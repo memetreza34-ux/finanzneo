@@ -9,6 +9,7 @@ const errors = [];
 const requiredFiles = [
   'src/production/reel-template/types.ts',
   'src/production/reel-template/ReelTemplate.tsx',
+  'src/production/reel-template/ReelCover.tsx',
   'src/production/reel-template/ReelTemplateDemo.tsx',
   'src/production/reel-template/index.ts',
   'src/production/reel-template/README.md',
@@ -23,6 +24,8 @@ for (const file of requiredFiles) {
 if (errors.length === 0) {
   const types = readFileSync(resolve(root, 'src/production/reel-template/types.ts'), 'utf8');
   const template = readFileSync(resolve(root, 'src/production/reel-template/ReelTemplate.tsx'), 'utf8');
+  const captions = readFileSync(resolve(root, 'src/brand/components/Captions.tsx'), 'utf8');
+  const cover = readFileSync(resolve(root, 'src/production/reel-template/ReelCover.tsx'), 'utf8');
   const demo = readFileSync(resolve(root, 'src/production/reel-template/ReelTemplateDemo.tsx'), 'utf8');
   const experiments = readFileSync(resolve(root, 'src/root/ExperimentCompositions.tsx'), 'utf8');
   const production = readFileSync(resolve(root, 'src/root/ProductionCompositions.tsx'), 'utf8');
@@ -53,17 +56,35 @@ if (errors.length === 0) {
   if (!types.includes('validateReelConfig')) {
     errors.push('Konfigurationsvalidator fehlt in types.ts.');
   }
+  if (!types.includes('AnimationMechanism') || !types.includes('visualMetaphor') || !types.includes('startState') || !types.includes('endState')) {
+    errors.push('Animationsvertrag Start → Handlung → Ergebnis fehlt in types.ts.');
+  }
   if (!types.includes('60') || !types.includes('90')) {
     errors.push('60–90-Sekunden-Grenzen fehlen im Konfigurationsvalidator.');
   }
   if (!template.includes('FinanceBackground')) {
     errors.push('ReelTemplate verwendet nicht den verbindlichen FinanzNeo-Hintergrund.');
   }
-  if (!template.includes('SAFE_AREA')) {
-    errors.push('ReelTemplate verwendet nicht die zentralen Safe-Area-Tokens.');
+  if (!template.includes('REEL_LAYOUT')) {
+    errors.push('ReelTemplate verwendet nicht den zentralen Reel-Layout-Vertrag.');
   }
-  if (!template.includes('Captions')) {
-    errors.push('ReelTemplate unterstützt keine zentralen Untertitel.');
+  if (!template.includes('SentenceKaraokeCaptions')) {
+    errors.push('ReelTemplate verwendet nicht die zentrale Satz-Karaoke-Komponente.');
+  }
+  if (template.includes('perGroup=') || template.includes('highlight={C.gold}') || template.includes('bottom={292}')) {
+    errors.push('ReelTemplate enthält eine verbotene alte Wortgruppen-/Gold-/Bottom-Caption-Konfiguration.');
+  }
+  if (!captions.includes('REEL_LAYOUT.caption.top') || !captions.includes('REEL_LAYOUT.caption.right')) {
+    errors.push('Satz-Karaoke liest seine Position nicht aus dem zentralen Layoutvertrag.');
+  }
+  if (captions.includes("translateY(-6px)") || captions.includes('transform: `scale(')) {
+    errors.push('Satz-Karaoke enthält verbotene Wort- oder Scale-Bewegung.');
+  }
+  if (!captions.includes('C.accent') || !captions.includes('C.white')) {
+    errors.push('Satz-Karaoke verwendet nicht Grün für aktiv und Weiß für übrige Wörter.');
+  }
+  if (!cover.includes('ReelCover') || !cover.includes("objectFit: 'contain'")) {
+    errors.push('Zentrale Cover-Komponente mit Remotion-Text und contain-Bild fehlt.');
   }
   if (!template.includes('VerticalSafeAreaGuide')) {
     errors.push('ReelTemplate besitzt kein visuelles Safe-Area-Prüfraster.');
@@ -94,4 +115,4 @@ if (errors.length > 0) {
 
 console.log('✓ ReelTemplateDemo liegt korrekt unter Experiments.');
 console.log('✓ Hook, Erklär-, Zahlen-, Vergleichs-, Checklisten- und CTA-Beats sind vorhanden.');
-console.log('✓ Safe Areas, Untertitel und Designsystem sind eingebunden.');
+console.log('✓ Zentraler Layoutvertrag, Satz-Karaoke, Cover und Animationsmechanismen sind eingebunden.');

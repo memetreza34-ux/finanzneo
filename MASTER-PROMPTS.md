@@ -30,9 +30,9 @@ Arbeite nach allen aktuellen Repo-Regeln und erstelle selbstständig:
 2. Lernziel und Kernaussage
 3. geprüftes 60–90-Sekunden-Skript
 4. Szenen-/Beat-Liste
-5. begründete Zuordnung KI-Bild / Remotion / Kombination
+5. animation-first Zuordnung: ungefähr 60 % echte Remotion-Mechanismen und 40 % Bilder; geringeren Animationsanteil fachlich begründen
 6. vollständige Google-Flow-Bildprompts mit echtem Szenen-Dateinamen
-7. Remotion-Spezifikationen
+7. Remotion-Spezifikationen mit visueller Metapher, Startzustand, sichtbarer Handlung/Mechanismus und Endzustand
 8. Master-Caption + Reel-Plattformdateien für Instagram Reels, TikTok, Facebook Reels und Snapchat
 
 Antigravity erzeugt keine Bilder. Der Nutzer erzeugt alle Bilder selbst mit Google Flow.
@@ -40,6 +40,7 @@ Keine YouTube Shorts erzeugen. YouTube ist ausschließlich ein separater Longfor
 
 Schreibe alle Ergebnisse direkt in die verbindliche Reel-Struktur. Entferne alle Platzhalter aus Skript, Recherche, Szenenplan, Bildprompts, scene-index und Plattformtexten. Erzeuge selbst keine finalen Bilder und kein Ersatz-Voiceover.
 Erstelle `03-szenen/alle-bildprompts.txt` als einzige Agent-Übergabedatei mit `FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1` und `FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1`. Der Agent muss genau ein Bild erzeugen, vollständig warten, sofort exakt umbenennen, prüfen und erst danach fortfahren. Fehlerhafte Bilder werden unter derselben Nummer neu erzeugt.
+Definiere im `scene-index.json` außerdem den sichtbaren Remotion-Covertext: Headline, Akzentzeile und Payoff. Das Google-Flow-Coverbild selbst enthält keine große Headline.
 ```
 
 ## 2. Phase 3 — Antigravity baut autonom
@@ -148,6 +149,10 @@ Keine unscharfe Bildkopie als Hintergrund.
 Genau ein vollständiger Untertitelsatz sichtbar.
 Aktuelles Wort grün, Rest weiß.
 Maximal zwei Zeilen.
+Maximal 12 Wörter und 68 Zeichen pro Satz; längere Sätze im Skript kürzen.
+Untertitel direkt unter dem Visual und ausschließlich nach `src/brand/reel-contract.json` positionieren.
+Keine Sprung-, Größen- oder Scale-Animation der Untertitel.
+Jede erklärende Animation zeigt Startzustand → sichtbare Handlung/Mechanismus → Endzustand.
 Animationen relativ zur tatsächlichen Szenendauer.
 ```
 

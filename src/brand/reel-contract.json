@@ -1,0 +1,27 @@
+{
+  "layout": {
+    "width": 1080,
+    "height": 1920,
+    "headline": {"top": 68, "left": 62, "right": 150, "dividerY": 222},
+    "visual": {"top": 270, "bottom": 1280},
+    "caption": {"top": 1360, "left": 62, "right": 150, "maxBottom": 1600},
+    "platformSafeArea": {"top": 62, "bottom": 320, "left": 62, "right": 150}
+  },
+  "captions": {
+    "mode": "sentence-with-audio-synced-active-word",
+    "activeWordColor": "finance-green",
+    "maxWords": 12,
+    "maxCharacters": 68,
+    "maxLines": 2,
+    "holdDuringPauses": true,
+    "noWordMotion": true,
+    "noScaleAnimation": true
+  },
+  "visualMix": {
+    "strategy": "animation-first",
+    "preferredAnimationShare": 0.6,
+    "minimumAnimationShare": 0.55,
+    "maximumAnimationShare": 0.65,
+    "exceptionRequiresRationale": true
+  }
+}

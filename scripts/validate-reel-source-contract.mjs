@@ -11,6 +11,9 @@ import {
   GENERATED_IMAGE_ASPECT_RATIO,
   IMAGE_INBOX,
   PLATFORM_PUBLISHING_FILES,
+  REEL_CAPTION,
+  REEL_LAYOUT,
+  REEL_VISUAL_MIX,
   SCENE_INDEX,
   SERIES_LOCK_ID,
   SERIES_LOCK_MARKER,
@@ -82,6 +85,10 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   assert(Array.isArray(index.scenes), 'scene-index.json benötigt scenes[].');
   assert(typeof index.cover?.googleFlowFileName === 'string' && index.cover.googleFlowFileName.trim(), 'scene-index.json benötigt cover.googleFlowFileName.');
   assert(index.cover?.planFile === '03-szenen/00-cover/cover.txt', 'cover.planFile muss auf 03-szenen/00-cover/cover.txt zeigen.');
+  assert(index.cover?.type === 'image-with-remotion-text', 'Cover muss Bild und verlässlichen Remotion-Text kombinieren.');
+  for (const field of ['headline', 'accentLine', 'payoff']) {
+    assert(typeof index.cover?.overlay?.[field] === 'string' && index.cover.overlay[field].trim(), `cover.overlay.${field} fehlt.`);
+  }
   assert(index.sceneCount === directories.length, 'sceneCount stimmt nicht mit den Szenenordnern überein.');
   assert(index.video?.aspectRatio === REEL_VIDEO_ASPECT_RATIO, 'Reel-Videoformat muss 9:16 sein.');
   assert(Number(index.video?.width) === 1080 && Number(index.video?.height) === 1920, 'Reel-Video muss 1080 × 1920 verwenden.');
@@ -103,6 +110,18 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   assert(index.googleFlow?.distributeToSceneFolders === false, 'Google Flow darf Bilder nicht auf Szenenordner verteilen.');
   assert(index.timelineRules?.cutsFollowSentenceStarts === true, 'Szenenschnitte müssen Satzanfängen folgen.');
   assert(index.timelineRules?.equalLengthScenesForbiddenByDefault === true, 'Starre gleich lange Szenen müssen standardmäßig verboten sein.');
+  assert(JSON.stringify(index.layout) === JSON.stringify(REEL_LAYOUT), 'Layout muss exakt src/brand/reel-contract.json entsprechen.');
+
+  const animationCount = Array.isArray(index.scenes)
+    ? index.scenes.filter((scene) => scene?.type === 'animation').length
+    : 0;
+  const animationShare = index.scenes?.length ? animationCount / index.scenes.length : 0;
+  assert(index.visualMix?.strategy === REEL_VISUAL_MIX.strategy, `Visualmix muss ${REEL_VISUAL_MIX.strategy} sein.`);
+  assert(Number(index.visualMix?.preferredAnimationShare) === REEL_VISUAL_MIX.preferredAnimationShare, 'Bevorzugter Animationsanteil muss dem zentralen Vertrag entsprechen.');
+  assert(Math.abs(Number(index.visualMix?.actualAnimationShare) - Number(animationShare.toFixed(2))) <= 0.001, 'actualAnimationShare stimmt nicht mit den Szenentypen überein.');
+  if (animationShare < REEL_VISUAL_MIX.minimumAnimationShare) {
+    assert(typeof index.visualMix?.exceptionRationale === 'string' && index.visualMix.exceptionRationale.trim(), 'Ein Animationsanteil unter dem Minimum benötigt eine Begründung.');
+  }
 
   if (legacyImageWorld) {
     assert(index.imageWorld?.noEmptyBackground === true, 'Legacy-Reel: leere Hintergründe müssen verboten sein.');
@@ -137,13 +156,13 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   assert(Number(index.audio?.targetIntegratedLufs) === -16, 'Audioziel muss ungefähr -16 LUFS sein.');
   assert(Number(index.audio?.targetTruePeakDbtp) === -1, 'True-Peak-Ziel muss -1 dBTP sein.');
 
-  if (index.subtitleDisplay) {
-    assert(index.subtitleDisplay.maxLines === 2, 'Untertitel müssen auf zwei Zeilen begrenzt sein.');
-    assert(index.subtitleDisplay.noDeadGaps === true && index.subtitleDisplay.holdDuringPauses === true, 'Leere Caption-Lücken sind verboten.');
-  }
-  if (index.layout) {
-    assert(Number(index.layout.subtitleBottom) >= 250, 'Untertitel liegen zu tief in der Plattform-Totzone.');
-  }
+  assert(index.subtitleDisplay?.mode === REEL_CAPTION.mode, 'Untertitelmodus widerspricht dem zentralen Vertrag.');
+  assert(index.subtitleDisplay?.activeWordColor === REEL_CAPTION.activeWordColor, 'Aktives Untertitelwort muss FinanzNeo-grün sein.');
+  assert(Number(index.subtitleDisplay?.maxWords) === REEL_CAPTION.maxWords, 'Maximale Wörter pro Untertitelsatz sind falsch.');
+  assert(Number(index.subtitleDisplay?.maxCharacters) === REEL_CAPTION.maxCharacters, 'Maximale Zeichen pro Untertitelsatz sind falsch.');
+  assert(Number(index.subtitleDisplay?.maxLines) === REEL_CAPTION.maxLines, 'Untertitel müssen auf zwei Zeilen begrenzt sein.');
+  assert(index.subtitleDisplay?.noDeadGaps === true && index.subtitleDisplay?.holdDuringPauses === true, 'Leere Caption-Lücken sind verboten.');
+  assert(index.subtitleDisplay?.noWordJump === true && index.subtitleDisplay?.noWordScale === true, 'Springende oder skalierende Untertitelwörter sind verboten.');
 
   const timingPath = resolve(root, index.timelineRules?.timingSource ?? '04-caption/word-timings.json');
   assert(existsSync(timingPath), `Worttiming-Datei fehlt: ${timingPath}`);
@@ -242,6 +261,14 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
       assert(indexed?.type === 'animation', `${id}: scene-index-Typ muss animation sein.`);
       assert(indexed?.planFile?.endsWith('/remotion.md'), `${id}: planFile muss auf remotion.md zeigen.`);
       assert(images.length === 0, `${id}: Remotion-Szene darf keine Bilddatei enthalten.`);
+      for (const field of ['visualMetaphor', 'startState', 'action', 'endState']) {
+        assert(typeof indexed?.[field] === 'string' && indexed[field].trim(), `${id}: ${field} fehlt.`);
+      }
+      const specification = readFileSync(resolve(directory, 'remotion.md'), 'utf8');
+      assert(specification.includes('Visuelle Metapher'), `${id}: Remotion-Spezifikation benötigt eine visuelle Metapher.`);
+      assert(specification.includes('Startzustand'), `${id}: Remotion-Spezifikation benötigt einen Startzustand.`);
+      assert(specification.includes('Handlung/Mechanismus'), `${id}: Remotion-Spezifikation benötigt eine sichtbare Handlung.`);
+      assert(specification.includes('Endzustand'), `${id}: Remotion-Spezifikation benötigt einen Endzustand.`);
     }
   });
 

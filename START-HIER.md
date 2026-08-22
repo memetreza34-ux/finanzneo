@@ -21,6 +21,9 @@
 - YouTube: ausschließlich eigenständige längere Videos unter `youtube/`; keine YouTube Shorts
 - YouTube-Video und -Quellbilder: horizontal 16:9; Reel-Quellbilder bleiben 1:1
 - Untertitel Pflicht
+- Satz-Karaoke direkt unter dem Visual: aktives Wort grün, maximal zwei Zeilen, keine Bewegung
+- animation-first: ungefähr 60 % echte Remotion-Mechanismen
+- Covertext immer in Remotion; das 1:1-Coverbild bleibt ohne große KI-Headline
 - Premium Fintech Editorial 3D + Remotion
 - eine starke visuelle Metapher pro Bild
 - optional stilisierte 3D-Person; wenn Person, Gesicht klar sichtbar
@@ -91,9 +94,9 @@ Erstelle selbstständig:
 1. Recherche + Quellen
 2. geprüftes Skript
 3. Szenen-/Beat-Plan
-4. Bild-/Remotion-Zuordnung
+4. animation-first Bild-/Remotion-Zuordnung mit ungefähr sechs Mechanismen bei zehn Szenen
 5. vollständige Google-Flow-Bildprompts mit echten Szenennummern
-6. Remotion-Spezifikationen
+6. Remotion-Spezifikationen mit Startzustand, Handlung/Mechanismus und Endzustand sowie sichtbaren Covertext
 7. Caption- und Reel-Plattformstruktur für Instagram, TikTok, Facebook und Snapchat
 
 Bilder erzeugt ausschließlich der Nutzer. Antigravity erzeugt keine Bilder.

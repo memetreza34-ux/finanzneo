@@ -27,6 +27,8 @@ Die Konfiguration wird vor dem Render geprüft:
 - jede Dauer ist eine positive ganze Framezahl
 - Image-Beats besitzen eine Datei
 - Checklisten besitzen mindestens einen Punkt
+- erklärende Remotion-Beats besitzen Startzustand, Handlung, Endzustand und visuelle Metapher
+- Untertitel bestehen aus echten Satzgruppen statt Wortblöcken
 
 ## Beispiel
 
@@ -38,7 +40,7 @@ export const config: ReelConfig = {
   title: 'Was macht Inflation mit deinem Geld?',
   fps: 30,
   audioSrc: 'audio/inflation.mp3',
-  captions: words,
+  captions: sentences,
   beats: [
     {
       id: 'hook',
@@ -77,6 +79,32 @@ Die Vorlage trennt:
 - oberen Bereich für Remotion-Überschriften
 - mittleren Bereich für Bild, Zahl oder Erklärung
 - unteren Bereich für Untertitel
+
+Alle Werte kommen ausschließlich aus `src/brand/reel-contract.json`. Untertitel beginnen bei Y = 1360 direkt unter dem Visual, lassen rechts 150 px für Plattform-Bedienelemente frei und dürfen höchstens bis Y = 1600 reichen.
+
+## Satz-Karaoke
+
+- genau ein vollständiger Satz sichtbar
+- höchstens 12 Wörter und 68 Zeichen pro Satz
+- aktives Wort grün, übrige Wörter weiß
+- keine Sprung-, Größen- oder Scale-Animation
+- maximal zwei Zeilen
+- zu lange Sätze verursachen einen Validierungsfehler und müssen im Skript gekürzt werden
+
+## Cover
+
+`ReelCover` setzt das quadratische Nutzerbild mit `contain` ein und rendert die eigentliche Cover-Headline zuverlässig in Remotion. Text wird nicht in das Google-Flow-Bild eingebrannt.
+
+## Animationsqualität
+
+Jeder Erklär-, Zahlen-, Vergleichs- und Checklisten-Beat benötigt `motion` mit:
+
+- `visualMetaphor`
+- `startState`
+- `action`
+- `endState`
+
+Ein bloßer Fade, Zoom, wackelndes Icon oder erscheinender Balken genügt nicht als erklärende Animation.
 
 Für die Studio-Prüfung:
 

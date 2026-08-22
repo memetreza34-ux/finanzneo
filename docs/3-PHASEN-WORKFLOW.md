@@ -10,9 +10,11 @@ Normales ChatGPT erstellt im Reel-Ordner vollständig:
 - geprüftes 60–90-Sekunden-Skript
 - Hook, Dramaturgie und Szenenplan
 - Bild-/Remotion-Zuordnung
+- animation-first: ungefähr 60 % echte Remotion-Mechanismen, bei Abweichung fachliche Begründung
 - Cover- und Bildprompts für Google Flow
+- Remotion-Covertext mit Headline, Akzentzeile und Payoff
 - exakte endgültige Dateinamen nach echten Szenennummern
-- Remotion-Spezifikationen
+- Remotion-Spezifikationen mit visueller Metapher, Startzustand, Handlung/Mechanismus und Endzustand
 - Master-Caption und Texte für Instagram Reels, TikTok, Facebook Reels und Snapchat
 
 In Phase 1 bleiben keine Platzhalter in diesen Inhalten. ChatGPT erzeugt keine finalen Bilder und kein Ersatz-Voiceover.
@@ -54,6 +56,9 @@ Wenn die Prüfung erfolgreich ist, startet Antigravity ohne Rückfragen und ohne
 1. Bilder technisch synchronisieren
 2. Timeline aus dem finalen Audio ableiten
 3. Remotion-Szenen, Überschriften und Karaoke-Untertitel bauen
+   - Covertext immer in Remotion
+   - Untertitel direkt unter dem Visual nach `src/brand/reel-contract.json`
+   - vollständige Sätze, höchstens 12 Wörter/68 Zeichen, aktives Wort grün, keine Wortbewegung
 4. Validator, Tests und Typecheck ausführen
 5. Preview und finale MP4 rendern
 6. Frames, Bildsatz, Ton und Lautheit prüfen

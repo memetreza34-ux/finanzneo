@@ -5,6 +5,9 @@ import {
   ALL_PROMPTS,
   IMAGE_INBOX,
   PLATFORM_PUBLISHING_FILES,
+  REEL_CAPTION,
+  REEL_LAYOUT,
+  REEL_VISUAL_MIX,
   SCENE_INDEX,
   SUBTITLE_MODE,
 } from './reel-contract.mjs';
@@ -31,6 +34,7 @@ const listFiles = (directory, extensions) => {
 };
 
 const hasPlaceholder = (content) => PLACEHOLDER_PATTERN.test(content);
+const isCompletedString = (value) => typeof value === 'string' && value.trim() && !hasPlaceholder(value);
 
 const readJson = (path, blockers, label) => {
   if (!isFile(path)) {
@@ -113,6 +117,27 @@ export const analyzeReelReadiness = (rootDirectory) => {
     phase1Blockers.push(`${SCENE_INDEX}: title fehlt oder enthält einen Platzhalter.`);
   }
 
+  for (const field of ['headline', 'accentLine', 'payoff']) {
+    if (!isCompletedString(index?.cover?.overlay?.[field])) {
+      phase1Blockers.push(`${SCENE_INDEX}: cover.overlay.${field} fehlt oder enthält einen Platzhalter.`);
+    }
+  }
+
+  if (JSON.stringify(index?.layout) !== JSON.stringify(REEL_LAYOUT)) {
+    phase1Blockers.push(`${SCENE_INDEX}: layout muss exakt dem zentralen Reel-Vertrag entsprechen.`);
+  }
+
+  const subtitle = index?.subtitleDisplay;
+  if (subtitle?.mode !== REEL_CAPTION.mode
+    || subtitle?.activeWordColor !== REEL_CAPTION.activeWordColor
+    || Number(subtitle?.maxWords) !== REEL_CAPTION.maxWords
+    || Number(subtitle?.maxCharacters) !== REEL_CAPTION.maxCharacters
+    || Number(subtitle?.maxLines) !== REEL_CAPTION.maxLines
+    || subtitle?.noWordJump !== true
+    || subtitle?.noWordScale !== true) {
+    phase1Blockers.push(`${SCENE_INDEX}: subtitleDisplay widerspricht dem zentralen Satz-Karaoke-Vertrag.`);
+  }
+
   const expectedImages = [];
   const coverFileName = index?.cover?.googleFlowFileName;
   if (typeof coverFileName !== 'string' || !coverFileName.trim() || hasPlaceholder(coverFileName)) {
@@ -150,6 +175,26 @@ export const analyzeReelReadiness = (rootDirectory) => {
     } else if (scene?.type === 'animation') {
       if (typeof scene.planFile === 'string') checkCompletedText(root, `03-szenen/${scene.planFile.replace(/^03-szenen\//, '')}`, phase1Blockers);
       else phase1Blockers.push(`${SCENE_INDEX}: ${id}.planFile fehlt.`);
+      for (const field of ['visualMetaphor', 'startState', 'action', 'endState']) {
+        if (!isCompletedString(scene?.[field])) {
+          phase1Blockers.push(`${SCENE_INDEX}: ${id}.${field} fehlt oder enthält einen Platzhalter.`);
+        }
+      }
+    }
+  }
+
+  if (scenes.length > 0) {
+    const animationCount = scenes.filter((scene) => scene?.type === 'animation').length;
+    const animationShare = animationCount / scenes.length;
+    if (index?.visualMix?.strategy !== REEL_VISUAL_MIX.strategy) {
+      phase1Blockers.push(`${SCENE_INDEX}: visualMix.strategy muss ${REEL_VISUAL_MIX.strategy} sein.`);
+    }
+    if (Math.abs(Number(index?.visualMix?.actualAnimationShare) - Number(animationShare.toFixed(2))) > 0.001) {
+      phase1Blockers.push(`${SCENE_INDEX}: visualMix.actualAnimationShare stimmt nicht mit den Szenentypen überein.`);
+    }
+    if (animationShare < REEL_VISUAL_MIX.minimumAnimationShare
+      && !isCompletedString(index?.visualMix?.exceptionRationale)) {
+      phase1Blockers.push(`${SCENE_INDEX}: Animationsanteil unter ${Math.round(REEL_VISUAL_MIX.minimumAnimationShare * 100)} % benötigt eine konkrete fachliche Begründung.`);
     }
   }
 
@@ -182,7 +227,23 @@ export const analyzeReelReadiness = (rootDirectory) => {
     if (timing.activeWordColor !== ACTIVE_WORD_COLOR) phase2Blockers.push(`word-timings.json: activeWordColor muss ${ACTIVE_WORD_COLOR} sein.`);
     if (words.length === 0) phase2Blockers.push('word-timings.json enthält keine echten Wort-Zeitstempel.');
     else if (words.some((word) => !isValidTimingWord(word))) phase2Blockers.push('word-timings.json enthält ungültige Wort-Zeitstempel.');
-    if (!Array.isArray(timing.sentences) || timing.sentences.length === 0) phase2Blockers.push('word-timings.json enthält keine satzbasierten Caption-Gruppen.');
+    if (!Array.isArray(timing.sentences) || timing.sentences.length === 0) {
+      phase2Blockers.push('word-timings.json enthält keine satzbasierten Caption-Gruppen.');
+    } else {
+      timing.sentences.forEach((sentence, index) => {
+        const text = typeof sentence?.text === 'string' ? sentence.text.trim() : '';
+        const sentenceWords = Array.isArray(sentence?.words) ? sentence.words : [];
+        if (!text || sentenceWords.length === 0) {
+          phase2Blockers.push(`word-timings.json: Untertitelsatz ${index + 1} ist unvollständig.`);
+        }
+        if (sentenceWords.length > REEL_CAPTION.maxWords) {
+          phase2Blockers.push(`word-timings.json: Untertitelsatz ${index + 1} hat ${sentenceWords.length} Wörter; erlaubt sind höchstens ${REEL_CAPTION.maxWords}.`);
+        }
+        if (text.length > REEL_CAPTION.maxCharacters) {
+          phase2Blockers.push(`word-timings.json: Untertitelsatz ${index + 1} hat ${text.length} Zeichen; erlaubt sind höchstens ${REEL_CAPTION.maxCharacters}.`);
+        }
+      });
+    }
 
     if (audioFiles.length === 1) {
       const sourceName = typeof timing.source === 'string' ? basename(timing.source) : '';

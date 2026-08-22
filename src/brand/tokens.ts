@@ -3,6 +3,7 @@
 //  Eine zentrale Quelle für Farben, Easing, Helpers — überall importiert.
 // ════════════════════════════════════════════════════════════════════════════
 import { Easing, interpolate } from 'remotion';
+import reelContract from './reel-contract.json';
 
 // ─── Marken-Farben — SEMANTISCH (Farbe = Bedeutung) ──────────────────────────
 // Grün = Signatur. Weiß dominiert Text. Akzente nach Sinn (nie zufällig).
@@ -79,12 +80,16 @@ export const FORMAT = {
   fps: 30,
 } as const;
 
-// ─── Safe Areas für vertikale Reels ─────────────────────────────────────────
+// ─── Einziger Layout-Vertrag für vertikale Reels ────────────────────────────
+export const REEL_LAYOUT = reelContract.layout;
+export const REEL_CAPTION = reelContract.captions;
+export const REEL_VISUAL_MIX = reelContract.visualMix;
+
 export const SAFE_AREA = {
-  topRatio: 0.18,
-  bottomRatio: 0.22,
-  topPx: Math.round(FORMAT.vertical.height * 0.18),
-  bottomPx: Math.round(FORMAT.vertical.height * 0.22),
+  topPx: REEL_LAYOUT.platformSafeArea.top,
+  bottomPx: REEL_LAYOUT.platformSafeArea.bottom,
+  leftPx: REEL_LAYOUT.platformSafeArea.left,
+  rightPx: REEL_LAYOUT.platformSafeArea.right,
 } as const;
 
 // ─── Easing (Spring Physics als Standard) ────────────────────────────────────

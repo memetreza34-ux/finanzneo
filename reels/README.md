@@ -31,6 +31,8 @@ Neues Reel erzeugen:
 npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
 ```
 
+Der Standard erzeugt bei zehn Szenen vier Bildszenen und sechs echte Remotion-Mechanismen. Covertext, Untertitelposition und Plattform-Safe-Areas kommen zentral aus `src/brand/reel-contract.json`.
+
 Reel prüfen:
 
 ```bash

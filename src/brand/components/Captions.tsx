@@ -1,100 +1,90 @@
 import React from 'react';
 import {useCurrentFrame, useVideoConfig} from 'remotion';
-import {C, E, prog, a} from '../tokens';
+import {C, REEL_CAPTION, REEL_LAYOUT} from '../tokens';
 import {FONT} from '../fonts';
-import type {CaptionWord} from '../../lib/captions';
+import type {CaptionSentence, CaptionWord} from '../../lib/captions';
+import {validateCaptionSentences} from '../../lib/captions';
 
-export type {CaptionWord} from '../../lib/captions';
+export type {CaptionSentence, CaptionWord} from '../../lib/captions';
 
-// ════════════════════════════════════════════════════════════════════════════
-//  UNTERTITEL — TikTok/Shorts-Style, wortgenau.
-//  Daten: normalisiertes Array von {word,start,end} aus src/lib/captions.ts.
-//  Zeigt 3–4 Wörter gleichzeitig und hebt das aktuell gesprochene Wort hervor.
-// ════════════════════════════════════════════════════════════════════════════
-
-const chunk = (words: CaptionWord[], size: number): CaptionWord[][] => {
-  const safeSize = Math.max(1, Math.floor(size));
-  const out: CaptionWord[][] = [];
-  for (let i = 0; i < words.length; i += safeSize) out.push(words.slice(i, i + safeSize));
-  return out;
+const separatorFor = (word: string, index: number): string => {
+  if (index === 0 || /^[,.;:!?%)\]}»”]/.test(word)) return '';
+  return ' ';
 };
 
-export const Captions: React.FC<{
-  words: CaptionWord[];
-  perGroup?: number;
-  fps?: number;
-  bottom?: number;
-  size?: number;
-  highlight?: string;
-  color?: string;
-}> = ({
-  words,
-  perGroup = 3,
-  fps = 30,
-  bottom = 360,
-  size = 72,
-  highlight = C.accent,
-  color = C.white,
-}) => {
-  const f = useCurrentFrame();
-  const cfg = useVideoConfig();
-  const effectiveFps = cfg?.fps ?? fps;
-  const t = f / effectiveFps;
-  const groups = chunk(words, perGroup);
+const fontSizeFor = (text: string): number => {
+  if (text.length <= 42) return 52;
+  if (text.length <= 58) return 46;
+  return 42;
+};
 
-  const group = groups.find(
-    (entry) => entry.length > 0 && t >= entry[0].start && t <= entry[entry.length - 1].end + 0.15,
-  );
+export const SentenceKaraokeCaptions: React.FC<{
+  sentences: CaptionSentence[];
+}> = ({sentences}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const time = frame / fps;
+  const validationErrors = validateCaptionSentences(sentences, REEL_CAPTION);
 
-  if (!group) return null;
+  if (validationErrors.length > 0) {
+    throw new Error(`Unsicheres FinanzNeo-Untertitel-Layout:\n${validationErrors.join('\n')}`);
+  }
 
-  const popIn = prog(f, group[0].start * effectiveFps, group[0].start * effectiveFps + 4, E.spring);
+  const index = sentences.findIndex((sentence, sentenceIndex) => {
+    const nextStart = sentences[sentenceIndex + 1]?.start ?? sentence.end + 0.35;
+    return time >= sentence.start && time < nextStart;
+  });
+
+  if (index < 0) return null;
+  const sentence = sentences[index];
+  const fontSize = fontSizeFor(sentence.text);
 
   return (
-    <div
-      style={{
-        position: 'absolute',
-        bottom,
-        left: 60,
-        right: 60,
-        textAlign: 'center',
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        gap: '0 16px',
+    <div style={{
+      position: 'absolute',
+      top: REEL_LAYOUT.caption.top,
+      left: REEL_LAYOUT.caption.left,
+      right: REEL_LAYOUT.caption.right,
+      zIndex: 50,
+      textAlign: 'center',
+    }}>
+      <div style={{
+        display: 'inline-block',
+        maxWidth: '100%',
+        padding: '18px 24px',
+        borderRadius: 24,
+        background: 'rgba(4,12,8,0.92)',
+        border: '1px solid rgba(255,255,255,0.12)',
+        boxShadow: '0 22px 64px rgba(0,0,0,0.48)',
+        color: C.white,
         fontFamily: FONT.body,
+        fontSize,
         fontWeight: 900,
-        fontSize: size,
-        lineHeight: 1.2,
-        transform: `scale(${0.9 + popIn * 0.1})`,
-      }}
-    >
-      {group.map((word, index) => {
-        const active = t >= word.start && t <= word.end + 0.05;
-        return (
-          <span
-            key={`${word.start}-${index}`}
-            style={{
-              color: active ? highlight : color,
-              transform: active ? 'translateY(-6px)' : 'none',
-              textShadow: active
-                ? `0 0 24px ${a(highlight, 0.6)}, 0 4px 12px rgba(0,0,0,0.9)`
-                : '0 4px 12px rgba(0,0,0,0.9)',
-              transition: 'none',
-              display: 'inline-block',
-              WebkitTextStroke: `2px ${a('#000000', 0.5)}`,
-            }}
-          >
-            {word.word}
-          </span>
-        );
-      })}
+        lineHeight: 1.12,
+        letterSpacing: -0.3,
+        textWrap: 'balance',
+      }}>
+        {sentence.words.map((word: CaptionWord, wordIndex) => {
+          const active = time >= word.start && time < word.end;
+          return (
+            <React.Fragment key={`${word.start}-${wordIndex}`}>
+              <span>{separatorFor(word.word, wordIndex)}</span>
+              <span style={{
+                color: active ? C.accent : C.white,
+                textShadow: active
+                  ? `0 0 20px ${C.accent}66`
+                  : '0 3px 12px rgba(0,0,0,0.72)',
+              }}>
+                {word.word}
+              </span>
+            </React.Fragment>
+          );
+        })}
+      </div>
     </div>
   );
 };
 
-export const CaptionsBoxed: React.FC<React.ComponentProps<typeof Captions>> = (props) => (
-  <div>
-    <Captions {...props} />
-  </div>
-);
+// Alte Importnamen bleiben kompatibel, verwenden aber dieselbe Satz-Runtime.
+export const Captions = SentenceKaraokeCaptions;
+export const CaptionsBoxed = SentenceKaraokeCaptions;

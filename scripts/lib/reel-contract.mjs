@@ -6,6 +6,15 @@
 // Regel nur an einzelnen Stellen nachgezogen wurde — zuletzt beim Entfernen
 // der YouTube Shorts. Formatübergreifende Bildweltwerte liegen heute in
 // finanzneo-media-contract.mjs; Reel-spezifische Werte bleiben hier.
+import {readFileSync} from 'node:fs';
+
+const runtimeContract = JSON.parse(
+  readFileSync(new URL('../../src/brand/reel-contract.json', import.meta.url), 'utf8'),
+);
+
+export const REEL_LAYOUT = runtimeContract.layout;
+export const REEL_CAPTION = runtimeContract.captions;
+export const REEL_VISUAL_MIX = runtimeContract.visualMix;
 
 export {
   FLOW_AGENT_PROTOCOL_ID,
@@ -24,8 +33,8 @@ export const IMAGE_INBOX = '03-szenen/00-ALLE-BILDER-HIER-REIN';
 export const SCENE_INDEX = '03-szenen/scene-index.json';
 export const ALL_PROMPTS = '03-szenen/alle-bildprompts.txt';
 
-export const SUBTITLE_MODE = 'sentence-with-audio-synced-active-word';
-export const ACTIVE_WORD_COLOR = 'finance-green';
+export const SUBTITLE_MODE = REEL_CAPTION.mode;
+export const ACTIVE_WORD_COLOR = REEL_CAPTION.activeWordColor;
 
 // FinanzNeo veröffentlicht keine YouTube Shorts.
 // YouTube ist ausschließlich Longform unter youtube/ — siehe docs/PLATFORM-PUBLISHING.md.

@@ -4,15 +4,21 @@ import {
   C, sec, Background, Vignette,
   LogoIntro, SubscribeBar, EndCard,
   HookScene, StatScene, CompareScene, CTAScene,
-  Captions, CaptionWord,
+  SentenceKaraokeCaptions, CaptionSentence,
 } from './brand';
 
 // Beispiel-Captions (sonst aus scripts/captions.py → JSON).
-const SAMPLE: CaptionWord[] = [
-  { word: '73%', start: 2.2, end: 2.6 }, { word: 'der', start: 2.6, end: 2.8 },
-  { word: 'Deutschen', start: 2.8, end: 3.3 }, { word: 'sparen', start: 3.3, end: 3.7 },
-  { word: 'komplett', start: 3.7, end: 4.2 }, { word: 'falsch.', start: 4.2, end: 4.7 },
+const SAMPLE_WORDS = [
+  {word: '73%', start: 2.2, end: 2.6}, {word: 'der', start: 2.6, end: 2.8},
+  {word: 'Deutschen', start: 2.8, end: 3.3}, {word: 'sparen', start: 3.3, end: 3.7},
+  {word: 'komplett', start: 3.7, end: 4.2}, {word: 'falsch.', start: 4.2, end: 4.7},
 ];
+const SAMPLE: CaptionSentence[] = [{
+  text: '73% der Deutschen sparen komplett falsch.',
+  start: 2.2,
+  end: 4.7,
+  words: SAMPLE_WORDS,
+}];
 
 // Komplette Mini-Video-Struktur: Intro → Hook → Stat → Vergleich → CTA → Outro.
 export const TemplateDemo: React.FC = () => {
@@ -27,7 +33,7 @@ export const TemplateDemo: React.FC = () => {
       <HookScene inF={sec(2)} outF={sec(6)} kicker="Achtung" color={C.negative}
         statement="73% der Deutschen sparen komplett falsch."
         highlight={['73%', 'falsch.']} />
-      <Captions words={SAMPLE} perGroup={3} highlight={C.negative} />
+      <SentenceKaraokeCaptions sentences={SAMPLE} />
 
       {/* Stat 6–11s */}
       <StatScene inF={sec(6)} outF={sec(11)} value={120000} label="möglich nach 30 Jahren" color={C.accent} />

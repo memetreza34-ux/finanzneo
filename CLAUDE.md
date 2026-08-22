@@ -66,7 +66,8 @@ Vollständige Übergabe: `docs/3-PHASEN-WORKFLOW.md`.
 - 60–90 Sekunden als Standard
 - Hook innerhalb der ersten 2 Sekunden
 - ungefähr 6–10 visuelle Beats
-- bei 10 Szenen bevorzugt ungefähr 6 Bildszenen + 4 Remotion-Animationen
+- bei 10 Szenen bevorzugt ungefähr 4 Bildszenen + 6 echte Remotion-Mechanismen
+- Finanzmechanismen sind animation-first; ein geringerer Animationsanteil braucht eine konkrete fachliche Begründung im `scene-index.json`
 - Qualität wichtiger als starre Quote
 - keine langen Intros
 - Untertitel sind Pflicht
@@ -354,9 +355,16 @@ Google Flow verteilt sie nicht auf einzelne Szenenordner.
 - Schwerpunktzeile grün oder bei Geldwerten gold
 - passendes Linien-Icon
 
+### Cover-Text
+
+- `Bild 00` bleibt ein quadratisches 1:1-Nutzerbild ohne große KI-Headline
+- Cover-Headline, Akzentzeile und Payoff werden immer zuverlässig in Remotion gerendert
+- ein Cover ohne sichtbaren Remotion-Text ist nicht produktionsfertig
+
 ### Karaoke-Untertitel
 
 - genau ein vollständiger Satz gleichzeitig
+- höchstens 12 Wörter und 68 Zeichen pro Untertitelsatz
 - aktuelles gesprochenes Wort FinanzNeo-grün
 - restliche Wörter weiß
 - maximal zwei ausgewogene Zeilen
@@ -365,16 +373,31 @@ Google Flow verteilt sie nicht auf einzelne Szenenordner.
 - keine Wort-für-Wort-Einblendung
 - vorheriger Satz bleibt während kurzer Pausen sichtbar
 - keine Caption-Lücken
+- ein zu langer Satz wird nicht beliebig kleingerechnet, sondern vor Phase 3 im Skript gekürzt
 
 Safe Area bei 1080 × 1920:
 
 ```text
-Headline ungefähr ab Y = 78
-Visual ungefähr Y = 270–1350
-Untertitel 320 px über dem unteren Rand
+Headline ab Y = 68
+Visual Y = 270–1280
+Untertitel ab Y = 1360 direkt unter dem Visual
+Untertitel höchstens bis Y = 1600
 links 62 px
-rechts 150 px
+rechts 150 px für Plattform-Bedienelemente
+unterer Plattformabstand 320 px
 ```
+
+Technische Einzelquelle für diese Werte ist `src/brand/reel-contract.json`. Komponenten, Scaffolder und Validatoren dürfen keine eigenen Positionswerte definieren.
+
+### Erklärende Remotion-Animationen
+
+Jede Animationsszene dokumentiert und zeigt:
+
+```text
+visuelle Metapher → Startzustand → sichtbare Handlung/Mechanismus → Endzustand
+```
+
+Ein bloßer Fade, Zoom, Zahl-Pop, wackelndes Icon oder erscheinender Balken ist keine vollständige erklärende Animation.
 
 ## 10. Timing
 
@@ -442,8 +465,8 @@ True Peak: höchstens -1 dBTP
 15. Animationsszenen überspringen; Nummern bleiben reserviert
 16. alle fertigen Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 17. Bild-QA: Metapher, Labels, Gesicht, **ein Hintergrund ohne Bänder**
-18. Remotion-Animationen bauen
-19. Überschriften/Karaoke-Captions einbinden
+18. Remotion-Animationen mit Startzustand, Handlung und Endzustand bauen
+19. Remotion-Covertext, Überschriften und Satz-Karaoke-Captions einbinden
 20. Asset-Sync, Validatoren, Typecheck
 21. Preview rendern
 22. Kontaktbogen/Frames prüfen

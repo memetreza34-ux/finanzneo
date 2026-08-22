@@ -1,7 +1,7 @@
 // FinanzNeo Design System — einziger öffentlicher Importpfad für neue Produktion.
 //
 // Beispiel:
-// import {C, FONT, SAFE_AREA, Captions, FinanceBackground, PremiumCharts} from '../design-system';
+// import {C, FONT, REEL_LAYOUT, SentenceKaraokeCaptions, FinanceBackground, PremiumCharts} from '../design-system';
 
 // Bewährtes Kernsystem: Tokens, Layout, Captions, Charts, Templates und Branding.
 export * from '../brand';

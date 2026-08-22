@@ -7,6 +7,9 @@ import {
   PLATFORM_PUBLISHING_FILES,
   SERIES_LOCK_ID,
   REEL_VIDEO_ASPECT_RATIO,
+  REEL_CAPTION,
+  REEL_LAYOUT,
+  REEL_VISUAL_MIX,
   WORLD_ID,
 } from '../scripts/lib/reel-contract.mjs';
 
@@ -16,6 +19,11 @@ test('Reel-Vertrag verwendet die verbindliche Bildwelt', () => {
   assert.equal(FLOW_AGENT_PROTOCOL_ID, 'finanzneo-flow-sequential-v1');
   assert.equal(GENERATED_IMAGE_ASPECT_RATIO, '1:1');
   assert.equal(REEL_VIDEO_ASPECT_RATIO, '9:16');
+  assert.equal(REEL_LAYOUT.caption.top, 1360);
+  assert.equal(REEL_LAYOUT.caption.right, 150);
+  assert.equal(REEL_CAPTION.maxLines, 2);
+  assert.equal(REEL_CAPTION.activeWordColor, 'finance-green');
+  assert.equal(REEL_VISUAL_MIX.preferredAnimationShare, 0.6);
 });
 
 test('Reel-Vertrag enthält genau die vier erlaubten Plattformdateien', () => {

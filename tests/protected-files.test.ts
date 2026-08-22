@@ -9,6 +9,7 @@ test('Kritische Verträge und Produktionsskripte sind geschützt', () => {
   assert.equal(isProtectedPath('scripts/validate-youtube.mjs'), true);
   assert.equal(isProtectedPath('tests/youtube-readiness.test.ts'), true);
   assert.equal(isProtectedPath('src/finance/calculations.ts'), true);
+  assert.equal(isProtectedPath('src/brand/reel-contract.json'), true);
   assert.equal(isProtectedPath('youtube/neues-projekt/README.md'), false);
 });
 

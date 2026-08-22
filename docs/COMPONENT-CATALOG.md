@@ -84,13 +84,13 @@ Regeln:
 ### Standard
 
 ```tsx
-<Captions words={words} />
+<SentenceKaraokeCaptions sentences={sentences} />
 ```
 
 ### Spezialfall
 
 ```tsx
-<CaptionsBoxed words={words} />
+<CaptionsBoxed sentences={sentences} />
 ```
 
 `CaptionsBoxed` nur bei unruhigem Bildmaterial oder zu geringem Kontrast.
@@ -98,9 +98,12 @@ Regeln:
 Verbindlich:
 
 - Datenformat `finanzneo-caption-v1`
-- maximal drei bis vier Wörter gleichzeitig
-- untere 22-Prozent-Safe-Area respektieren
-- nur relevante Wörter farblich hervorheben
+- genau ein vollständiger Satz gleichzeitig
+- höchstens 12 Wörter und 68 Zeichen
+- maximal zwei Zeilen
+- aktives Wort immer FinanzNeo-grün, übrige Wörter weiß
+- keine Sprung-, Größen- oder Scale-Animation
+- Position ausschließlich aus `src/brand/reel-contract.json`
 
 ---
 

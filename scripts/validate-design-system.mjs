@@ -28,6 +28,7 @@ const requiredFiles = [
   'src/design-system/README.md',
   'src/design-system/FinanceBackground.tsx',
   'src/brand/tokens.ts',
+  'src/brand/reel-contract.json',
   'src/brand/fonts.ts',
   'src/bausteine/fn_core.tsx',
 ];
@@ -90,7 +91,7 @@ if (errors.length === 0) {
     }
   }
 
-  const requiredTokens = ['PREMIUM', 'SAFE_AREA', 'surfaceStrong', 'accentSoft'];
+  const requiredTokens = ['PREMIUM', 'SAFE_AREA', 'REEL_LAYOUT', 'REEL_CAPTION', 'REEL_VISUAL_MIX', 'surfaceStrong', 'accentSoft'];
   for (const token of requiredTokens) {
     if (!tokens.includes(token)) {
       errors.push(`Zentraler Design-Token fehlt: ${token}`);
@@ -103,8 +104,8 @@ if (errors.length === 0) {
     }
   }
 
-  if (!backgrounds.includes('SAFE_AREA.topPx') || !backgrounds.includes('SAFE_AREA.bottomPx')) {
-    errors.push('VerticalSafeAreaGuide verwendet nicht die zentralen Safe-Area-Tokens.');
+  if (!backgrounds.includes('REEL_LAYOUT.visual.top') || !backgrounds.includes('REEL_LAYOUT.caption.top')) {
+    errors.push('VerticalSafeAreaGuide verwendet nicht den zentralen Reel-Layout-Vertrag.');
   }
 
   if (!backgrounds.includes('FONT.body')) {
@@ -114,7 +115,7 @@ if (errors.length === 0) {
   const requiredCatalogEntries = [
     'FinanceBackground',
     'VerticalSafeAreaGuide',
-    'Captions',
+    'SentenceKaraokeCaptions',
     'DramaticNumber',
     'PremiumCharts.PremiumChart',
     'CompareSplit',
@@ -178,6 +179,6 @@ if (errors.length > 0) {
 console.log('\n✓ Design-System-Grundlagen sind konsistent.');
 console.log('✓ Komponenten-Katalog enthält verbindliche Standards und Warnungen.');
 console.log('✓ Hintergrundvarianten standard, data und premium sind definiert.');
-console.log('✓ Safe-Area-Prüfraster nutzt zentrale 18-/22-Prozent-Tokens und Fonts.');
+console.log('✓ Safe-Area-Prüfraster nutzt den zentralen Pixelvertrag für Visual, Captions und Plattformabstände.');
 console.log(`✓ ${bausteinFiles.length} Baustein-Dateien ohne externe Font-Imports geprüft.`);
 for (const note of notes) console.log(`✓ ${note}`);

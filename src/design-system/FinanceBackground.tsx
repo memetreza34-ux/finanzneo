@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill} from 'remotion';
 import {Background, Vignette} from '../brand/components/Background';
 import {FONT} from '../brand/fonts';
-import {C, SAFE_AREA} from '../brand/tokens';
+import {C, REEL_LAYOUT, SAFE_AREA} from '../brand/tokens';
 import {FNBgAurora, FNBgGrid} from '../bausteine/fn_backgrounds';
 
 export type FinanceBackgroundVariant = 'standard' | 'data' | 'premium';
@@ -57,7 +57,7 @@ export const VerticalSafeAreaGuide: React.FC<{
           fontSize: 24,
           fontWeight: 800,
           letterSpacing: 1,
-        }}>OBERE SAFE AREA · 18 %</div>}
+        }}>OBERE PLATTFORM-SAFE-AREA · {SAFE_AREA.topPx} PX</div>}
       </div>
 
       <div style={{
@@ -78,16 +78,26 @@ export const VerticalSafeAreaGuide: React.FC<{
           fontSize: 24,
           fontWeight: 800,
           letterSpacing: 1,
-        }}>UNTERE SAFE AREA · 22 %</div>}
+        }}>UNTERE PLATTFORM-SAFE-AREA · {SAFE_AREA.bottomPx} PX</div>}
       </div>
 
       <div style={{
         position: 'absolute',
-        top: SAFE_AREA.topPx,
-        bottom: SAFE_AREA.bottomPx,
-        left: 22,
-        right: 22,
+        top: REEL_LAYOUT.visual.top,
+        left: REEL_LAYOUT.platformSafeArea.left,
+        right: REEL_LAYOUT.platformSafeArea.right,
+        height: REEL_LAYOUT.visual.bottom - REEL_LAYOUT.visual.top,
         border: `2px dashed ${C.accentSoft}`,
+        borderRadius: 18,
+      }} />
+
+      <div style={{
+        position: 'absolute',
+        top: REEL_LAYOUT.caption.top,
+        left: REEL_LAYOUT.caption.left,
+        right: REEL_LAYOUT.caption.right,
+        height: REEL_LAYOUT.caption.maxBottom - REEL_LAYOUT.caption.top,
+        border: `2px dashed ${C.gold}`,
         borderRadius: 18,
       }} />
     </AbsoluteFill>

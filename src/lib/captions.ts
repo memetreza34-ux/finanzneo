@@ -4,6 +4,13 @@ export type CaptionWord = {
   end: number;
 };
 
+export type CaptionSentence = {
+  text: string;
+  start: number;
+  end: number;
+  words: CaptionWord[];
+};
+
 export type FinanzNeoCaptionFile = {
   version: 'finanzneo-caption-v1';
   language: string;
@@ -15,12 +22,7 @@ export type FinanzNeoCaptionFile = {
   subtitleMode?: 'sentence-with-audio-synced-active-word';
   activeWordColor?: 'finance-green';
   words: CaptionWord[];
-  sentences?: Array<{
-    text: string;
-    start: number;
-    end: number;
-    words: CaptionWord[];
-  }>;
+  sentences?: CaptionSentence[];
 };
 
 type LegacyCaptionSegment = {
@@ -75,6 +77,44 @@ export const normalizeCaptionData = (input: unknown): CaptionWord[] => {
   }
 
   return [];
+};
+
+export const normalizeCaptionSentences = (input: unknown): CaptionSentence[] => {
+  if (!isRecord(input) || !Array.isArray(input.sentences)) return [];
+
+  return input.sentences.flatMap((entry) => {
+    if (!isRecord(entry) || typeof entry.text !== 'string' || !Array.isArray(entry.words)) return [];
+    const words = sanitizeWords(entry.words);
+    const text = entry.text.trim();
+    const start = toFiniteNumber(entry.start);
+    const end = toFiniteNumber(entry.end);
+    if (!text || words.length === 0 || start === null || end === null || start < 0 || end < start) return [];
+    return [{text, start, end, words}];
+  });
+};
+
+export const validateCaptionSentences = (
+  sentences: CaptionSentence[],
+  limits: {maxWords: number; maxCharacters: number},
+): string[] => {
+  const errors: string[] = [];
+
+  sentences.forEach((sentence, index) => {
+    const label = `Untertitelsatz ${index + 1}`;
+    if (!sentence.text.trim()) errors.push(`${label} ist leer.`);
+    if (sentence.words.length === 0) errors.push(`${label} besitzt keine Wortzeiten.`);
+    if (sentence.words.length > limits.maxWords) {
+      errors.push(`${label} hat ${sentence.words.length} Wörter; erlaubt sind höchstens ${limits.maxWords}.`);
+    }
+    if (sentence.text.length > limits.maxCharacters) {
+      errors.push(`${label} hat ${sentence.text.length} Zeichen; erlaubt sind höchstens ${limits.maxCharacters}.`);
+    }
+    if (!Number.isFinite(sentence.start) || !Number.isFinite(sentence.end) || sentence.start < 0 || sentence.end < sentence.start) {
+      errors.push(`${label} besitzt ungültige Satzzeiten.`);
+    }
+  });
+
+  return errors;
 };
 
 export const clipCaptionWords = (

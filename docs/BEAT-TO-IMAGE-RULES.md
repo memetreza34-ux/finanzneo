@@ -50,18 +50,28 @@ Bild erklärt die Situation, Remotion ergänzt präzise Werte, Pfeile, Hervorheb
 Für ein typisches 60–90-Sekunden-Reel:
 
 ```text
-55–65 % Bildszenen
-35–45 % native Remotion-Animationen
+55–65 % echte native Remotion-Mechanismen
+35–45 % Bildszenen
 ```
 
 Bei 10 Szenen bevorzugt ungefähr:
 
 ```text
-6 Bildszenen
-4 Remotion-Szenen
+6 Remotion-Szenen
+4 Bildszenen
 ```
 
 Das ist ein Zielwert, keine starre Quote. Eine schwache Bildszene/Animation wird nicht nur für die Quote verwendet.
+
+Ein Animationsanteil unter 55 % benötigt im `scene-index.json` eine konkrete fachliche Begründung.
+
+Jede Remotion-Szene braucht eine erklärende Bewegung:
+
+```text
+visuelle Metapher → Startzustand → sichtbare Handlung/Mechanismus → Endzustand
+```
+
+Fade, Zoom, Zahl-Pop, wackelndes Icon oder ein nur erscheinender Balken sind allein keine erklärende Animation.
 
 ## 4. Bild-Regel pro Beat
 

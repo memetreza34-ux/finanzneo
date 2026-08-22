@@ -19,8 +19,9 @@ Neue Produktionsdateien importieren ausschließlich aus:
 import {
   C,
   FONT,
+  REEL_LAYOUT,
   SAFE_AREA,
-  Captions,
+  SentenceKaraokeCaptions,
   FinanceBackground,
   VerticalSafeAreaGuide,
   PremiumCharts,
@@ -69,7 +70,7 @@ Für Studio- und Keyframe-Prüfungen:
 <VerticalSafeAreaGuide enabled />
 ```
 
-Der Guide zeigt die obere 18-Prozent- und untere 22-Prozent-Safe-Area. Vor dem finalen Render muss er deaktiviert werden.
+Der Guide zeigt den zentralen Pixelvertrag aus `src/brand/reel-contract.json`: Visualbereich, Untertitelbereich und Plattform-Safe-Areas. Vor dem finalen Render muss er deaktiviert werden.
 
 ## Struktur
 
@@ -79,9 +80,9 @@ Aus `src/brand` kommen unter anderem:
 
 - `C`, `PREMIUM`, `MEANING`
 - `FONT`
-- `FORMAT`, `SAFE_AREA`
+- `FORMAT`, `REEL_LAYOUT`, `REEL_CAPTION`, `SAFE_AREA`
 - `Background`, `Vignette`
-- `Captions`
+- `SentenceKaraokeCaptions`
 - Kern-Charts und Layouts
 - Templates und Branding
 

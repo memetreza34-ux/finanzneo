@@ -12,8 +12,9 @@ Read these first and treat them as authoritative:
 3. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 4. `docs/IMAGE-SYSTEM.md`
 5. `docs/PLATFORM-PUBLISHING.md`
-6. target reel `03-szenen/alle-bildprompts.txt`
-7. target reel `03-szenen/scene-index.json`
+6. `src/brand/reel-contract.json`
+7. target reel `03-szenen/alle-bildprompts.txt`
+8. target reel `03-szenen/scene-index.json`
 
 `CLAUDE.md` wins on conflicts.
 
@@ -133,13 +134,25 @@ After all user images and final audio are present:
 - use real audio-derived word timings
 - scene cuts follow sentence starts
 - one full subtitle sentence visible
+- maximum 12 words and 68 characters per subtitle sentence; shorten the Phase-1 script instead of shrinking below safe readability
 - active spoken word green, remaining words white
 - max two subtitle lines
+- position subtitles from `src/brand/reel-contract.json`: directly below the visual, with the right-side platform control area protected
+- no word jump, translate, size or scale animation
 - images use `contain`
 - no visible blurred duplicate image background
 - validate/safety-check/typecheck/preview before claiming completion
 - inspect image set/contact sheet and full MP4
 - target audio around -16 LUFS and <= -1 dBTP true peak
+
+## Cover and animation quality
+
+- `Bild 00` remains a square user image without a large AI-generated headline.
+- Always render the visible cover headline, accent line and payoff in Remotion using the shared cover system.
+- Prefer animation-first planning: about 60% real Remotion mechanisms and 40% image scenes.
+- A lower animation share needs a concrete subject-matter rationale in `scene-index.json`.
+- Every animation must define and visibly show `visualMetaphor`, `startState`, `action` and `endState`.
+- A fade, zoom, number pop, wobbling icon or merely appearing bar is not a complete explanatory animation.
 
 ## Platform publishing
 

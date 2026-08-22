@@ -10,10 +10,10 @@ import {
 import {
   C,
   FONT,
-  SAFE_AREA,
+  REEL_LAYOUT,
   a,
   Body,
-  Captions,
+  SentenceKaraokeCaptions,
   DramaticNumber,
   FinanceBackground,
   Kicker,
@@ -28,8 +28,6 @@ import type {
   ReelConfig,
 } from './types';
 import {validateReelConfig} from './types';
-
-const CONTENT_HORIZONTAL_PADDING = 72;
 
 const formatTemplateNumber = (
   value: number,
@@ -58,10 +56,10 @@ const BeatHeader: React.FC<{
 }> = ({kicker, headline}) => (
   <div style={{
     position: 'absolute',
-    top: 66,
-    left: CONTENT_HORIZONTAL_PADDING,
-    right: CONTENT_HORIZONTAL_PADDING,
-    minHeight: SAFE_AREA.topPx - 90,
+    top: REEL_LAYOUT.headline.top,
+    left: REEL_LAYOUT.headline.left,
+    right: REEL_LAYOUT.headline.right,
+    minHeight: REEL_LAYOUT.headline.dividerY - REEL_LAYOUT.headline.top,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -81,7 +79,7 @@ const SourceNote: React.FC<{children?: string}> = ({children}) => {
       position: 'absolute',
       left: 64,
       right: 64,
-      bottom: SAFE_AREA.bottomPx + 18,
+      bottom: REEL_LAYOUT.platformSafeArea.bottom + 18,
       color: a(C.gray, 0.72),
       fontFamily: FONT.body,
       fontSize: 22,
@@ -97,10 +95,10 @@ const SourceNote: React.FC<{children?: string}> = ({children}) => {
 const CenterArea: React.FC<{children: React.ReactNode}> = ({children}) => (
   <div style={{
     position: 'absolute',
-    top: SAFE_AREA.topPx,
-    bottom: SAFE_AREA.bottomPx,
-    left: CONTENT_HORIZONTAL_PADDING,
-    right: CONTENT_HORIZONTAL_PADDING,
+    top: REEL_LAYOUT.visual.top,
+    height: REEL_LAYOUT.visual.bottom - REEL_LAYOUT.visual.top,
+    left: REEL_LAYOUT.platformSafeArea.left,
+    right: REEL_LAYOUT.platformSafeArea.right,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -336,7 +334,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
               style={{
                 width: '100%',
                 height: '100%',
-                objectFit: beat.objectFit ?? 'contain',
+                objectFit: 'contain',
               }}
             />
           </div>
@@ -407,7 +405,7 @@ export const ReelTemplate: React.FC<{config: ReelConfig}> = ({config}) => {
       </div>
 
       {config.captions && config.captions.length > 0 && (
-        <Captions words={config.captions} perGroup={3} size={64} bottom={292} highlight={C.gold} />
+        <SentenceKaraokeCaptions sentences={config.captions} />
       )}
 
       <VerticalSafeAreaGuide enabled={config.showSafeAreaGuide ?? false} />

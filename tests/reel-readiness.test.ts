@@ -6,6 +6,7 @@ import {join} from 'node:path';
 import test from 'node:test';
 import {mkdtempSync} from 'node:fs';
 import {analyzeReelReadiness, isSquareImageDimensions} from '../scripts/lib/reel-readiness.mjs';
+import {REEL_CAPTION, REEL_LAYOUT, REEL_VISUAL_MIX} from '../scripts/lib/reel-contract.mjs';
 
 const write = (root: string, relativePath: string, content: string | Buffer) => {
   const path = join(root, relativePath);
@@ -17,7 +18,36 @@ const createReadyFixture = () => {
   const root = mkdtempSync(join(tmpdir(), 'finanzneo-reel-ready-'));
   const index = {
     title: 'Notgroschen einfach erklärt',
-    cover: {googleFlowFileName: 'Bild 00 - Notgroschen.png'},
+    cover: {
+      type: 'image-with-remotion-text',
+      googleFlowFileName: 'Bild 00 - Notgroschen.png',
+      overlay: {
+        eyebrow: 'FINANZNEO',
+        headline: 'DEIN NOTGROSCHEN',
+        accentLine: 'SCHÜTZT DICH',
+        payoff: 'PUFFER STATT DISPO',
+      },
+    },
+    layout: REEL_LAYOUT,
+    subtitleDisplay: {
+      mode: REEL_CAPTION.mode,
+      activeWordColor: REEL_CAPTION.activeWordColor,
+      maxWords: REEL_CAPTION.maxWords,
+      maxCharacters: REEL_CAPTION.maxCharacters,
+      maxLines: REEL_CAPTION.maxLines,
+      noDeadGaps: true,
+      holdDuringPauses: true,
+      noWordJump: true,
+      noWordScale: true,
+    },
+    visualMix: {
+      strategy: REEL_VISUAL_MIX.strategy,
+      preferredAnimationShare: REEL_VISUAL_MIX.preferredAnimationShare,
+      minimumAnimationShare: REEL_VISUAL_MIX.minimumAnimationShare,
+      maximumAnimationShare: REEL_VISUAL_MIX.maximumAnimationShare,
+      actualAnimationShare: 0.5,
+      exceptionRationale: 'Der kompakte Test-Fixture besitzt bewusst nur zwei Szenen.',
+    },
     scenes: [
       {
         id: 'scene-01',
@@ -39,6 +69,10 @@ const createReadyFixture = () => {
         headline: 'Drei Monatsausgaben',
         accent: 'Ziel',
         icon: 'ziel',
+        visualMetaphor: 'Drei Monatsblöcke bauen einen Sicherheitspuffer auf.',
+        startState: 'Ein einzelner Monatsblock ist sichtbar.',
+        action: 'Zwei weitere Blöcke werden sichtbar aufgestapelt.',
+        endState: 'Der vollständige Puffer steht bereit.',
       },
     ],
   };
@@ -50,7 +84,7 @@ const createReadyFixture = () => {
   write(root, '03-szenen/EINZELNE-SZENEN/scene-01/szene.md', 'Sprechtext und Visual sind final.');
   write(root, '03-szenen/EINZELNE-SZENEN/scene-01/bildprompt.txt', 'Finaler Bildprompt.');
   write(root, '03-szenen/EINZELNE-SZENEN/scene-02/szene.md', 'Sprechtext und Visual sind final.');
-  write(root, '03-szenen/EINZELNE-SZENEN/scene-02/remotion.md', 'Finale Animation: Balken wachsen nacheinander.');
+  write(root, '03-szenen/EINZELNE-SZENEN/scene-02/remotion.md', 'Visuelle Metapher: Monatsblöcke.\nStartzustand: ein Block.\nHandlung/Mechanismus: Blöcke stapeln sich.\nEndzustand: Puffer vollständig.');
   write(root, '05-projektdateien/recherche-quellen.md', 'Beispielannahmen sind im Skript klar markiert.');
   write(root, '05-projektdateien/szenenplan.md', 'Hook, Erklärung, Beispiel, Merksatz und CTA.');
   write(root, '05-projektdateien/animationen.md', 'Szene 02 zeigt drei Monatsausgaben als Balken.');
@@ -111,6 +145,45 @@ test('Einsatzprüfung blockiert offene Phase-1-Platzhalter', () => {
     const result = analyzeReelReadiness(root);
     assert.equal(result.ready, false);
     assert.ok(result.phase1Blockers.includes('01-script/script-fliess-text.txt enthält noch Platzhalter.'));
+  } finally {
+    rmSync(root, {recursive: true, force: true});
+  }
+});
+
+test('Einsatzprüfung blockiert unvollständige Animationsmechanismen', () => {
+  const root = createReadyFixture();
+  try {
+    const path = join(root, '03-szenen/scene-index.json');
+    const index = JSON.parse(readFileSync(path, 'utf8'));
+    index.scenes[1].action = '[EINFÜGEN]';
+    write(root, '03-szenen/scene-index.json', `${JSON.stringify(index)}\n`);
+    const result = analyzeReelReadiness(root);
+    assert.equal(result.ready, false);
+    assert.ok(result.phase1Blockers.includes('03-szenen/scene-index.json: scene-02.action fehlt oder enthält einen Platzhalter.'));
+  } finally {
+    rmSync(root, {recursive: true, force: true});
+  }
+});
+
+test('Einsatzprüfung blockiert zu lange Untertitelsätze', () => {
+  const root = createReadyFixture();
+  try {
+    const words = Array.from({length: REEL_CAPTION.maxWords + 1}, (_, index) => ({
+      word: `Wort${index + 1}`,
+      start: index * 0.2,
+      end: index * 0.2 + 0.15,
+    }));
+    write(root, '04-caption/word-timings.json', `${JSON.stringify({
+      version: 'finanzneo-caption-v1',
+      source: '02-audio/voice.mp3',
+      subtitleMode: REEL_CAPTION.mode,
+      activeWordColor: REEL_CAPTION.activeWordColor,
+      words,
+      sentences: [{text: words.map((word) => word.word).join(' '), start: 0, end: 2.5, words}],
+    })}\n`);
+    const result = analyzeReelReadiness(root);
+    assert.equal(result.ready, false);
+    assert.ok(result.phase2Blockers.some((blocker) => blocker.includes(`erlaubt sind höchstens ${REEL_CAPTION.maxWords}`)));
   } finally {
     rmSync(root, {recursive: true, force: true});
   }

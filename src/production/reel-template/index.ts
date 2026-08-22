@@ -1,4 +1,6 @@
 export {ReelTemplate} from './ReelTemplate';
+export {ReelCover} from './ReelCover';
+export type {ReelCoverProps} from './ReelCover';
 export {
   ReelTemplateDemo,
   REEL_TEMPLATE_DEMO_CONFIG,
@@ -11,6 +13,7 @@ export {
 export type {
   ReelBeat,
   ReelConfig,
+  AnimationMechanism,
   HookBeat,
   ExplainBeat,
   NumberBeat,

@@ -9,6 +9,9 @@ import {
   GENERATED_IMAGE_ASPECT_MARKER,
   GENERATED_IMAGE_ASPECT_RATIO,
   PLATFORM_PUBLISHING_FILES,
+  REEL_CAPTION,
+  REEL_LAYOUT,
+  REEL_VISUAL_MIX,
   SERIES_LOCK_ID,
   SERIES_LOCK_MARKER,
   REEL_VIDEO_ASPECT_RATIO,
@@ -16,7 +19,7 @@ import {
   WORLD_ID as CONTRACT_WORLD_ID,
 } from './lib/reel-contract.mjs';
 
-const DEFAULT_TYPES = ['image','image','animation','image','animation','image','animation','animation','image','image'];
+const DEFAULT_TYPES = ['image','animation','animation','image','animation','image','animation','animation','image','animation'];
 const args = process.argv.slice(2);
 const readArg = (name) => {
   const i = args.indexOf(`--${name}`);
@@ -73,7 +76,7 @@ const flowInstruction = (fileName) => {
 
 const imagePrompt = (id, index) => `${flowInstruction(sceneFileName(index))}\nBESCHRIFTUNGEN – EXAKT SO:\n- [KURZES DEUTSCHES OBJEKT-LABEL]\n- [OPTIONALES ZWEITES KURZES LABEL]\n\nBILDPROMPT:\nShow [ONE LARGE DOMINANT VISUAL METAPHOR FOR ${id}]. [DESCRIBE ONE CLEAR CAUSE-AND-EFFECT ACTION USING ONLY A FEW LARGE OBJECTS]. Optionally include a stylized adult person only when the person improves the explanation; if included, keep the face clearly visible in front-facing or natural three-quarter view. Include German object labels: [PLACE EACH SHORT LABEL DIRECTLY BESIDE THE RELEVANT OBJECT].\n\n${STYLE_BLOCK}\n`;
 
-const coverPrompt = `${flowInstruction(coverFileName)}\nCOVER-REGEL:\nKeine klassische Überschrift. Thema über EIN starkes Hauptmotiv + wenige kurze Objekt-Beschriftungen erklären.\n\nBESCHRIFTUNGEN – EXAKT SO:\n- [THEMA ALS KURZES OBJEKT-LABEL]\n- [OPTIONALE KURZE STRUKTUR-LABELS]\n\nBILDPROMPT:\nShow [ONE LARGE DOMINANT COVER METAPHOR] that communicates the core idea of the reel in one clear visual. Optionally include a stylized adult person only when useful; if included, keep the face clearly visible. Include only the specified short German object labels directly beside their objects.\n\n${STYLE_BLOCK}\n`;
+const coverPrompt = `${flowInstruction(coverFileName)}\nCOVER-BILD-REGEL:\nDas Google-Flow-Bild enthält keine klassische Überschrift. Es liefert EIN starkes Hauptmotiv + wenige kurze Objekt-Beschriftungen. Die eigentliche Cover-Headline, Akzentzeile und der Payoff werden später zuverlässig in Remotion gerendert.\n\nBESCHRIFTUNGEN – EXAKT SO:\n- [THEMA ALS KURZES OBJEKT-LABEL]\n- [OPTIONALE KURZE STRUKTUR-LABELS]\n\nBILDPROMPT:\nShow [ONE LARGE DOMINANT COVER METAPHOR] that communicates the core idea of the reel in one clear visual. Optionally include a stylized adult person only when useful; if included, keep the face clearly visible. Include only the specified short German object labels directly beside their objects.\n\n${STYLE_BLOCK}\n`;
 
 const worldPrompt = `FINANZNEO WORLD REFERENCE\n\n${STYLE_BLOCK}`;
 
@@ -93,11 +96,11 @@ write('04-caption/tiktok.txt', 'CAPTION:\n[EINFÜGEN]\n\nCTA:\n[EINFÜGEN ODER E
 write('04-caption/facebook-reels.txt', 'REEL-TEXT:\n[EINFÜGEN]\n\nCTA:\n[EINFÜGEN ODER ENTFERNEN]\n\nQUELLEN / HINWEIS:\n[EINFÜGEN WENN NÖTIG]\n\nHASHTAGS:\n[EINFÜGEN]\n');
 write('04-caption/snapchat.txt', 'CAPTION:\n[EINFÜGEN]\n\nCTA:\n[OPTIONAL]\n\nQUELLEN / HINWEIS:\n[NUR WENN NÖTIG]\n');
 write('04-caption/word-timings.json', `${JSON.stringify({version:'finanzneo-caption-v1',language:'de',source:'',generatedAt:'',duration:0,wordCount:0,fps:30,subtitleMode:SUBTITLE_MODE,activeWordColor:ACTIVE_WORD_COLOR,words:[],sentences:[]}, null, 2)}\n`);
-write('05-projektdateien/animationen.md', '# ANIMATIONEN\n\n[REMOTION-ANIMATIONEN EINFÜGEN]\n');
+write('05-projektdateien/animationen.md', '# ANIMATIONEN\n\nFür jede Remotion-Szene vollständig festlegen: visuelle Metapher → Startzustand → sichtbare Handlung/Mechanismus → Endzustand. Ein bloßer Fade, Zoom, wackelndes Icon oder erscheinender Balken genügt nicht.\n\n[ALLE ANIMATIONSMECHANISMEN EINFÜGEN]\n');
 write('05-projektdateien/recherche-quellen.md', '# RECHERCHE UND QUELLEN\n\n[QUELLEN EINFÜGEN]\n');
 write('05-projektdateien/szenenplan.md', '# SZENENPLAN\n\n[SZENENPLAN EINFÜGEN]\n');
 write('05-projektdateien/PHASENSTATUS.md', `# Phasenstatus\n\n- [ ] Phase 1: Inhalt, Fakten, Skript, Szenen, Prompts und Plattformtexte vollständig\n- [ ] Phase 2: alle exakt benannten Bilder, genau ein finales Voiceover und echte Wort-Zeitstempel vorhanden\n- [ ] Phase 3: \`npm run reel:ready -- ${targetArg}\` erfolgreich; technische Produktion und QA abgeschlossen\n\nDie Checkboxen sind Dokumentation. Technische Autorität für den Start von Phase 3 ist ausschließlich \`reel:ready\`.\n`);
-write('05-projektdateien/technische-hinweise.md', '# TECHNISCHE HINWEISE\n\n- Reel-Video: 1080 × 1920, 9:16\n- Google-Flow-Quellbilder: immer quadratisch 1:1\n- 30 fps\n- Premium Fintech Editorial 3D\n- eine starke Metapher pro Bild\n- Person optional; wenn vorhanden Gesicht sichtbar\n- nur kurze deutsche Objekt-Beschriftungen\n- ein einziger nahtloser Hintergrund; keine Prozent-Zonen/Bänder\n- keine Headline/Untertitel/Sätze im KI-Bild\n- 1:1-Bilddarstellung im 9:16-Reel: contain\n- Publishing-Dateien nur für Instagram Reels, TikTok, Facebook Reels und Snapchat in 04-caption\n- keine YouTube Shorts; YouTube ausschließlich Longform unter youtube/\n- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP\n');
+write('05-projektdateien/technische-hinweise.md', '# TECHNISCHE HINWEISE\n\n- Reel-Video: 1080 × 1920, 9:16\n- Google-Flow-Quellbilder: immer quadratisch 1:1\n- 30 fps\n- Premium Fintech Editorial 3D\n- eine starke Metapher pro Bild\n- Person optional; wenn vorhanden Gesicht sichtbar\n- nur kurze deutsche Objekt-Beschriftungen\n- ein einziger nahtloser Hintergrund; keine Prozent-Zonen/Bänder\n- keine Headline/Untertitel/Sätze im KI-Bild\n- Cover-Headline, Akzentzeile und Payoff immer in Remotion rendern\n- 1:1-Bilddarstellung im 9:16-Reel: contain\n- Untertitel: vollständiger Satz, aktives Wort grün, keine Bewegung, höchstens 12 Wörter/68 Zeichen\n- Untertitel direkt unter dem Visual nach src/brand/reel-contract.json; rechts 150 px Plattformabstand\n- Visualmix animation-first: ungefähr 60 % echte Remotion-Mechanismen und 40 % Bilder\n- Jede Animation: Startzustand → sichtbare Handlung/Mechanismus → Endzustand\n- Publishing-Dateien nur für Instagram Reels, TikTok, Facebook Reels und Snapchat in 04-caption\n- keine YouTube Shorts; YouTube ausschließlich Longform unter youtube/\n- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP\n');
 write('05-projektdateien/timeline.json', `${JSON.stringify({version:1,title,fps:30,timingSource:'04-caption/word-timings.json',cutRule:'voice-sentence-start',scenes:types.map((type,index)=>({id:`scene-${num(index)}`,type,startFrame:0,durationFrames:0,cutReason:'voice-sentence-start'}))}, null, 2)}\n`);
 
 const scenes = types.map((type, index) => {
@@ -111,8 +114,8 @@ const scenes = types.map((type, index) => {
     write(`${dir}/bildprompt.txt`, imagePrompt(id, index));
     return {...common,planFile:`EINZELNE-SZENEN/${id}/bildprompt.txt`,googleFlowFileName:sceneFileName(index),objectLabels:['[EINFÜGEN]'],expectedVisual:'[EINFÜGEN]',imagePresentation:{scale:1.01,sourceCropTop:0,sourceCropBottom:0,cropSafe:true}};
   }
-  write(`${dir}/remotion.md`, `# Remotion-Spezifikation ${id}\n\n- Komponente: [NAME]\n- Startzustand: [EINFÜGEN]\n- Handlung: [EINFÜGEN]\n- Endzustand: [EINFÜGEN]\n`);
-  return {...common,planFile:`EINZELNE-SZENEN/${id}/remotion.md`};
+  write(`${dir}/remotion.md`, `# Remotion-Spezifikation ${id}\n\n- Komponente: [NAME]\n- Visuelle Metapher: [EINFÜGEN]\n- Startzustand: [EINFÜGEN]\n- Handlung/Mechanismus: [EINFÜGEN]\n- Endzustand: [EINFÜGEN]\n\nNicht ausreichend: bloßer Fade, Zoom, wackelndes Icon, Zahl-Pop oder ein Balken, der nur erscheint.\n`);
+  return {...common,planFile:`EINZELNE-SZENEN/${id}/remotion.md`,visualMetaphor:'[EINFÜGEN]',startState:'[EINFÜGEN]',action:'[EINFÜGEN]',endState:'[EINFÜGEN]'};
 });
 
 const allSections = types.map((type,index) => {
@@ -130,7 +133,7 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
   imageSceneCount:imageSceneIds.length,
   animationSceneCount:animationSceneIds.length,
   video:{aspectRatio:REEL_VIDEO_ASPECT_RATIO,width:1080,height:1920,fps:30},
-  cover:{type:'image',googleFlowFileName:coverFileName,planFile:'03-szenen/00-cover/cover.txt'},
+  cover:{type:'image-with-remotion-text',googleFlowFileName:coverFileName,planFile:'03-szenen/00-cover/cover.txt',overlay:{eyebrow:'FINANZNEO',headline:'[EINFÜGEN]',accentLine:'[EINFÜGEN]',payoff:'[EINFÜGEN]'}},
   userCreatesImages:true,
   antigravityGeneratesImages:false,
   googleFlow:{protocolId:FLOW_AGENT_PROTOCOL_ID,generationMode:'one-image-at-a-time',strictSequential:true,waitForCurrentImage:true,renameBeforeNext:true,qaBeforeNext:true,retrySameImageOnFailure:true,fileNameRule:'Bild XX - Kurzer Szenenname.png',numberSource:'real-scene-number',animationNumbersStayReserved:true,finalCollectionDirectory:'03-szenen/00-ALLE-BILDER-HIER-REIN/',distributeToSceneFolders:false},
@@ -138,12 +141,15 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
   platformPublishing:{directory:CAPTION_DIRECTORY,...PLATFORM_PUBLISHING_FILES},
   timelineRules:{timingSource:'04-caption/word-timings.json',cutsFollowSentenceStarts:true,equalLengthScenesForbiddenByDefault:true},
   audio:{targetIntegratedLufs:-16,targetTruePeakDbtp:-1},
+  subtitleDisplay:{mode:REEL_CAPTION.mode,activeWordColor:REEL_CAPTION.activeWordColor,maxWords:REEL_CAPTION.maxWords,maxCharacters:REEL_CAPTION.maxCharacters,maxLines:REEL_CAPTION.maxLines,noDeadGaps:true,holdDuringPauses:REEL_CAPTION.holdDuringPauses,noWordJump:REEL_CAPTION.noWordMotion,noWordScale:REEL_CAPTION.noScaleAnimation},
+  layout:REEL_LAYOUT,
+  visualMix:{strategy:REEL_VISUAL_MIX.strategy,preferredAnimationShare:REEL_VISUAL_MIX.preferredAnimationShare,minimumAnimationShare:REEL_VISUAL_MIX.minimumAnimationShare,maximumAnimationShare:REEL_VISUAL_MIX.maximumAnimationShare,actualAnimationShare:Number((animationSceneIds.length/scenes.length).toFixed(2)),exceptionRationale:animationSceneIds.length/scenes.length<REEL_VISUAL_MIX.minimumAnimationShare?'[BEGRÜNDUNG FÜR GERINGEREN ANIMATIONSANTEIL EINFÜGEN]':''},
   imagePresentationContract:{imageFit:'contain',maxIntentionalImageScale:1.04,maxSourceCropPerSide:0.2,maxSourceCropTotal:0.34,blurredImageBackgroundForbidden:true},
   scenes
 }, null, 2)}\n`);
 
 console.log(`✓ Reel-Gerüst erstellt: ${root}`);
-console.log(`  ${imageSceneIds.length} Bildszenen · ${animationSceneIds.length} Remotion-Szenen`);
+console.log(`  ${imageSceneIds.length} Bildszenen · ${animationSceneIds.length} echte Remotion-Mechanismen`);
 console.log('  Bilder: Premium Fintech Editorial 3D · sichtbares Gesicht bei Personen · EIN nahtloser Hintergrund');
 console.log('  Publishing: Instagram Reels · TikTok · Facebook Reels · Snapchat');
 console.log('  YouTube: ausschließlich eigenständige Longform-Videos unter youtube/');

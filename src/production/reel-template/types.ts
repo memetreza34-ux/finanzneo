@@ -1,5 +1,7 @@
 import type {FinanceBackgroundVariant} from '../../design-system';
-import type {CaptionWord} from '../../lib/captions';
+import {REEL_CAPTION} from '../../design-system';
+import type {CaptionSentence} from '../../lib/captions';
+import {validateCaptionSentences} from '../../lib/captions';
 
 export type ReelBeatBase = {
   id: string;
@@ -10,6 +12,17 @@ export type ReelBeatBase = {
   sourceNote?: string;
 };
 
+export type AnimationMechanism = {
+  visualMetaphor: string;
+  startState: string;
+  action: string;
+  endState: string;
+};
+
+type MotionBeatBase = ReelBeatBase & {
+  motion: AnimationMechanism;
+};
+
 export type HookBeat = ReelBeatBase & {
   type: 'hook';
   headline: string;
@@ -17,14 +30,14 @@ export type HookBeat = ReelBeatBase & {
   accent?: string;
 };
 
-export type ExplainBeat = ReelBeatBase & {
+export type ExplainBeat = MotionBeatBase & {
   type: 'explain';
   headline: string;
   body: string;
   bullets?: string[];
 };
 
-export type NumberBeat = ReelBeatBase & {
+export type NumberBeat = MotionBeatBase & {
   type: 'number';
   headline: string;
   label: string;
@@ -34,7 +47,7 @@ export type NumberBeat = ReelBeatBase & {
   assumptions?: string;
 };
 
-export type CompareBeat = ReelBeatBase & {
+export type CompareBeat = MotionBeatBase & {
   type: 'compare';
   headline: string;
   left: {
@@ -51,7 +64,7 @@ export type CompareBeat = ReelBeatBase & {
   };
 };
 
-export type ChecklistBeat = ReelBeatBase & {
+export type ChecklistBeat = MotionBeatBase & {
   type: 'checklist';
   headline: string;
   items: string[];
@@ -62,7 +75,6 @@ export type ImageBeat = ReelBeatBase & {
   headline: string;
   imageSrc: string;
   alt: string;
-  objectFit?: 'contain' | 'cover';
 };
 
 export type CtaBeat = ReelBeatBase & {
@@ -87,7 +99,7 @@ export type ReelConfig = {
   title: string;
   fps?: number;
   audioSrc?: string;
-  captions?: CaptionWord[];
+  captions?: CaptionSentence[];
   disclaimer?: string;
   showSafeAreaGuide?: boolean;
   beats: ReelBeat[];
@@ -104,6 +116,10 @@ export const validateReelConfig = (config: ReelConfig): string[] => {
   if (!config.id.trim()) errors.push('Reel-ID fehlt.');
   if (!config.title.trim()) errors.push('Reel-Titel fehlt.');
   if (config.beats.length === 0) errors.push('Mindestens ein Beat ist erforderlich.');
+
+  if (config.captions) {
+    errors.push(...validateCaptionSentences(config.captions, REEL_CAPTION));
+  }
 
   if (durationSeconds < 60 || durationSeconds > 90) {
     errors.push(`Reel-Dauer muss zwischen 60 und 90 Sekunden liegen, aktuell ${durationSeconds.toFixed(1)} Sekunden.`);
@@ -125,6 +141,13 @@ export const validateReelConfig = (config: ReelConfig): string[] => {
 
     if (beat.type === 'checklist' && beat.items.length === 0) {
       errors.push(`Checklist-Beat ${beat.id} besitzt keine Punkte.`);
+    }
+
+    if (beat.type === 'explain' || beat.type === 'number' || beat.type === 'compare' || beat.type === 'checklist') {
+      const motion = beat.motion;
+      for (const field of ['visualMetaphor', 'startState', 'action', 'endState'] as const) {
+        if (!motion[field].trim()) errors.push(`Beat ${beat.id}: motion.${field} fehlt.`);
+      }
     }
   }
 

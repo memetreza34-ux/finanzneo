@@ -232,22 +232,44 @@ Reale Marken/Dienste dürfen als relevante Alltagsbeispiele verwendet werden, we
 1080 × 1920:
 
 ```text
-Headline ungefähr ab Y = 78
-Visual ungefähr Y = 270–1350
-Untertitel 320 px über dem unteren Rand
+Headline ab Y = 68
+Visual Y = 270–1280
+Untertitel ab Y = 1360 direkt unter dem Visual
+Untertitel höchstens bis Y = 1600
 links 62 px
-rechts 150 px
+rechts 150 px für Plattform-Bedienelemente
+unterer Plattformabstand 320 px
 ```
+
+Einzige technische Quelle dieser Werte ist `src/brand/reel-contract.json`.
 
 Untertitel:
 
 - genau ein vollständiger Satz sichtbar
+- höchstens 12 Wörter und 68 Zeichen pro Satz
 - aktuelles Wort FinanzNeo-grün
 - restliche Wörter weiß
 - maximal zwei Zeilen
 - keine springenden Wörter
 - keine Größenanimation
 - keine Caption-Lücken
+- zu lange Sätze vor Phase 3 kürzen; nicht unter die sichere Lesbarkeit schrumpfen
+
+## 13.1 Covertext
+
+Das quadratische Google-Flow-Coverbild enthält keine große Headline. Die sichtbare Cover-Headline, Akzentzeile und der Payoff werden immer in Remotion über `ReelCover` gerendert. Ein Cover ohne diese Texte ist nicht fertig.
+
+## 13.2 Animation-first und Mechanismus-Gate
+
+Ziel bei zehn Szenen: ungefähr sechs echte Remotion-Mechanismen und vier Bildszenen. Abweichungen sind erlaubt, benötigen bei weniger als 55 % Animation aber eine konkrete fachliche Begründung im `scene-index.json`.
+
+Jede Animation besitzt:
+
+```text
+visuelle Metapher → Startzustand → sichtbare Handlung/Mechanismus → Endzustand
+```
+
+Fade, Zoom, Zahl-Pop, wackelndes Icon oder ein lediglich erscheinender Balken reichen allein nicht aus.
 
 ## 14. Satzbasierte Szenenschnitte
 
@@ -354,7 +376,7 @@ npm run reel:create -- \
   --title "Reel-Titel"
 ```
 
-Der Scaffolder erzeugt die einfache Struktur, Bildprompts, `scene-index.json`, Master-Caption, die vier Reel-Plattformdateien, Wort-Timings und technische Hinweise nach den aktuellen Regeln. Er erzeugt keine YouTube-Shorts-Datei.
+Der Scaffolder erzeugt die einfache Struktur, standardmäßig vier Bild- und sechs Animationsszenen, Remotion-Covertext, Mechanismusfelder, Bildprompts, `scene-index.json`, Master-Caption, die vier Reel-Plattformdateien, Wort-Timings und technische Hinweise nach den aktuellen Regeln. Er erzeugt keine YouTube-Shorts-Datei.
 
 ## 19. Automatische Prüfung
 

@@ -23,6 +23,7 @@ const requiredFiles = [
   'src/index.ts',
   'src/Root.tsx',
   'src/design-system/index.ts',
+  'src/brand/reel-contract.json',
   'src/finance/calculations.ts',
   'src/finance/examples.ts',
   'public/fonts/BebasNeue-400.woff2',

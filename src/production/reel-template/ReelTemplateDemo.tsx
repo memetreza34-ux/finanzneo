@@ -37,6 +37,12 @@ export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
       kicker: 'DAS PROBLEM',
       headline: 'UNERWARTETE KOSTEN KOMMEN PLÖTZLICH',
       body: 'Eine kaputte Waschmaschine oder eine hohe Nachzahlung wartet nicht darauf, dass dein Gehalt kommt.',
+      motion: {
+        visualMetaphor: 'Eine unerwartete Rechnung trifft auf ein ungeschütztes Monatsbudget.',
+        startState: 'Das Monatsbudget ist vollständig, aber ohne Reserve.',
+        action: 'Eine Reparaturrechnung zieht sichtbar Geld aus dem Budget.',
+        endState: 'Das Budget rutscht ohne Sicherheitspuffer ins Minus.',
+      },
       bullets: [
         'Reparatur oder Ersatz',
         'Nachzahlung oder Selbstbeteiligung',
@@ -56,6 +62,12 @@ export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
       detail: 'Das ist kein Pflichtwert, sondern ein verständlicher Startpunkt.',
       assumptions: `${EMERGENCY_EXAMPLE.monthlyNecessaryExpenses.toLocaleString('de-DE')} € notwendige Ausgaben × ${EMERGENCY_EXAMPLE.targetMonths} Monate`,
       sourceNote: EMERGENCY_EXAMPLE.disclosure,
+      motion: {
+        visualMetaphor: 'Monatsausgaben werden zu einem sichtbaren Sicherheitspuffer gestapelt.',
+        startState: 'Ein Monatsblock steht als Ausgangswert bereit.',
+        action: 'Drei gleich große Monatsblöcke bauen sich nacheinander auf.',
+        endState: 'Der vollständige Beispiel-Puffer und seine Rechnung sind sichtbar.',
+      },
     },
     {
       id: 'comparison',
@@ -64,6 +76,12 @@ export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
       background: 'data',
       kicker: 'DER UNTERSCHIED',
       headline: 'OHNE ODER MIT NOTGROSCHEN?',
+      motion: {
+        visualMetaphor: 'Dieselbe Rechnung trifft zwei unterschiedlich vorbereitete Haushalte.',
+        startState: 'Beide Haushalte starten mit derselben unerwarteten Rechnung.',
+        action: 'Links entsteht Kredit, rechts deckt der Puffer die Rechnung.',
+        endState: 'Schulden und bezahlte Rechnung stehen klar gegenüber.',
+      },
       left: {
         label: 'Ohne Puffer',
         value: 'KREDIT',
@@ -84,6 +102,12 @@ export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
       background: 'standard',
       kicker: 'DIE LÖSUNG',
       headline: 'SO BAUST DU DEN NOTGROSCHEN AUF',
+      motion: {
+        visualMetaphor: 'Ein leerer Sicherheitsspeicher wird Schritt für Schritt gefüllt.',
+        startState: 'Der persönliche Puffer ist noch leer.',
+        action: 'Die vier konkreten Schritte füllen den Speicher nacheinander.',
+        endState: 'Der Puffer ist getrennt, verfügbar und einsatzbereit.',
+      },
       items: [
         'Notwendige Monatsausgaben berechnen',
         'Persönlichen Zielbetrag festlegen',
