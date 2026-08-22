@@ -1,0 +1,15 @@
+REEL-TEXT:
+2,8 % Inflation heißt nicht automatisch, dass dein persönlicher Alltag genau 2,8 % teurer geworden ist. Die amtliche Rate bildet einen durchschnittlich gewichteten Warenkorb ab. Entscheidend ist, wie dein eigenes Budget verteilt ist.
+
+Im Juli 2026 lagen Kraftstoffe 23,0 % über dem Vorjahresmonat, Nahrungsmittel 0,4 % höher und Haushaltsenergie 1,4 % niedriger.
+
+CTA:
+Schau auf deine größten monatlichen Kosten und prüf, welche Preisänderungen dein Budget wirklich treffen.
+
+QUELLEN / HINWEIS:
+Statistisches Bundesamt (Destatis), Verbraucherpreisindex Juli 2026 und Persönlicher Inflationsrechner. Allgemeine Finanzbildung, keine individuelle Anlageberatung.
+https://www.destatis.de/DE/Presse/Pressemitteilungen/2026/08/PD26_283_611.html
+https://service.destatis.de/inflationsrechner/
+
+HASHTAGS:
+#Finanzen #Inflation #Geld #Sparen #Finanzwissen
