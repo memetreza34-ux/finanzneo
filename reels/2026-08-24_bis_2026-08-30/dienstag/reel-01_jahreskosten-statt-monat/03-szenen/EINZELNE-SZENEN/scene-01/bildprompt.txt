@@ -1,0 +1,20 @@
+FINAL FILE NAME: Bild 01 - 9,99 Euro Hook.png
+FORMAT: strict square 1:1
+
+Create a premium FinanzNeo editorial 3D scene in the same approved visual world as Bild 00.
+
+Dominant metaphor: a tiny physical recurring-payment token labelled `9,99 €` enters a large circular annual payment mechanism made of twelve clearly separated physical slots. Only the first few slots are filled, implying repetition without turning the scene into a chart or UI.
+
+Short German object labels only:
+- `9,99 €`
+- `MONATLICH`
+
+The token should feel deceptively small compared with the larger yearly mechanism.
+
+Use ONE seamless continuous deep charcoal green-black background across the entire square. No floor-wall boundary, no horizon, no panels, no horizontal bands.
+
+Emerald/mint accents; gold for money/value; restrained warm red-orange only where recurring cost pressure is shown.
+
+No dashboard, no digital screen, no floating interface cards, no headline, no explanatory sentence, no CTA, no photorealism, no tiny diorama.
+
+Square 1:1 with generous natural empty space above and below and all labels fully visible.

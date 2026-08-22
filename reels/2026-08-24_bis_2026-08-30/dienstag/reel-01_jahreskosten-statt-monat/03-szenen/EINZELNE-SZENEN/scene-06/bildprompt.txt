@@ -1,0 +1,23 @@
+FINAL FILE NAME: Bild 06 - Fixkosten Jahresblick.png
+FORMAT: strict square 1:1
+
+Create a premium FinanzNeo editorial 3D scene in the exact approved same-world style.
+
+Dominant metaphor: one large physical annual ledger board made from matte material, holding a few tangible category objects beside gold yearly-cost stacks. The board is physical and editorial, not a software interface.
+
+Use recognizable generic objects for categories such as a play button token for streaming, a phone object for mobile service, a membership card object and a generic app cube.
+
+Short German object labels only:
+- `STREAMING`
+- `APPS`
+- `MITGLIEDSCHAFT`
+- `MOBILFUNK`
+- `PRO JAHR`
+
+ONE seamless continuous deep charcoal green-black background, no floor-wall split, no horizon, no panels or background bands.
+
+Emerald/mint accents; gold only for money/value; premium rounded 3D geometry.
+
+No real brands, no dashboard, no floating UI cards, no headline, no explanatory sentence, no photorealism.
+
+Square 1:1, central object safely framed.

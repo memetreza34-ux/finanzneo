@@ -1,0 +1,10 @@
+{
+  "version": "finanzneo-timeline-v1",
+  "status": "PHASE_2_REQUIRED",
+  "timingSource": "04-caption/word-timings.json",
+  "fps": 30,
+  "sceneCount": 10,
+  "cutsFollowSentenceStarts": true,
+  "equalLengthScenesForbiddenByDefault": true,
+  "scenes": []
+}

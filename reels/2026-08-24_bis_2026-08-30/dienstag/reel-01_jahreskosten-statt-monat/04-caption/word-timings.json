@@ -1,0 +1,15 @@
+{
+  "version": "finanzneo-caption-v1",
+  "language": "de",
+  "source": "PENDING_FINAL_VOICEOVER",
+  "generatedAt": "",
+  "duration": 0,
+  "wordCount": 0,
+  "fps": 30,
+  "subtitleMode": "sentence-with-audio-synced-active-word",
+  "activeWordColor": "finance-green",
+  "words": [],
+  "sentences": [],
+  "status": "PHASE_2_REQUIRED",
+  "note": "Erst aus der finalen Voiceover-Datei erzeugen. Keine geschätzten Wortzeiten eintragen."
+}

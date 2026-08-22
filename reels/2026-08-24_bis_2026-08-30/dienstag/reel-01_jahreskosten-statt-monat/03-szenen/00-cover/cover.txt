@@ -1,0 +1,21 @@
+FINAL FILE NAME: Bild 00 - Jahreskosten Cover.png
+FORMAT: strict square 1:1
+
+Create a premium FinanzNeo fintech editorial 3D cover in the exact world defined by `03-szenen/bildwelt.txt`.
+
+Dominant metaphor: one small physical price token labelled `9,99 €` in the foreground, connected to a much larger annual stack of twelve gold-edged payment blocks behind it. The contrast must instantly communicate that a small recurring monthly amount becomes a much larger yearly total.
+
+Optional short physical labels only:
+- `9,99 €`
+- `PRO MONAT`
+- `119,88 € / JAHR`
+
+Keep the composition bold and readable at social-media thumbnail size. One dominant idea, few objects, strong depth.
+
+Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. No horizon, no floor-wall split, no bands, no panels.
+
+Emerald/mint accents, gold only for money/value. Warm red-orange may lightly mark recurring cost pressure.
+
+No headline, no subtitle, no sentence, no CTA, no dashboard, no floating UI, no photorealism, no real person.
+
+Square 1:1. Keep every important object and label fully inside safe margins.

@@ -1,0 +1,21 @@
+FINAL FILE NAME: Bild 04 - Vergessene Abbuchungen.png
+FORMAT: strict square 1:1
+
+Create a premium FinanzNeo fintech editorial 3D illustration in the same approved world.
+
+Dominant metaphor: one large physical bank-statement paper strip passes under a magnifying glass. Several ordinary payment lines are present as abstract marks, while two small recurring-cost tags are physically caught under the magnifying glass and glow warm red-orange.
+
+Short German object labels only:
+- `ALTES ABO`
+- `9,99 €`
+- `PRÜFEN`
+
+The statement must look like a physical paper object, NOT a banking app, phone screen or dashboard.
+
+ONE seamless continuous deep charcoal green-black background, no wall/floor split, no horizon, no panels or bands.
+
+Emerald rim light, gold only for money/value, warm red-orange only for the suspicious recurring costs.
+
+No real bank brand, no account number, no personal data, no digital UI, no headline, no sentence, no photorealism.
+
+Square 1:1 with the magnifying-glass action as the dominant central metaphor.

@@ -1,0 +1,21 @@
+FINAL FILE NAME: Bild 09 - Vertrag Check.png
+FORMAT: strict square 1:1
+
+Create a premium FinanzNeo editorial 3D illustration in the approved same-world style.
+
+Dominant metaphor: one large physical contract sheet passes through a three-stage mechanical inspection gate. The three stages are tangible objects, not UI cards: a usage check mark, a yearly-cost scale, and a calendar wheel.
+
+Short German object labels only:
+- `NUTZE ICH ES?`
+- `PRO JAHR?`
+- `WIE OFT?`
+
+A stylized anonymous adult may stand beside the contract in natural three-quarter view, but only if the face is clearly visible with stylized eyes, nose and mouth.
+
+ONE seamless continuous charcoal green-black background. No floor-wall boundary, no horizon, no panels or bands.
+
+Emerald/mint accents, gold for financial value. Premium high-contrast 3D lighting.
+
+No dashboard, no app UI, no real company logo, no headline, no long explanatory sentence, no photorealism.
+
+Square 1:1 and keep all three inspection stages fully visible.

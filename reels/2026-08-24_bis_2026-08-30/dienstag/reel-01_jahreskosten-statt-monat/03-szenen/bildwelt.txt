@@ -1,0 +1,26 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+Verbindliche Bildwelt für dieses Reel:
+- premium fintech editorial 3D illustration
+- ONE dominant financial metaphor / large hero object
+- optional stylized anonymous adult; if present, face clearly visible
+- deep charcoal green-black world
+- vivid emerald and mint accents
+- gold only for money/value
+- warm red-orange only for risk/loss/unwanted cost
+- smooth rounded geometry and soft bevelled edges
+- strong emerald rim light
+- not photorealistic, not Pixar, not clay
+- no dashboard, app UI, gameboard, tiny diorama or sci-fi corridor
+- only short German object labels explicitly requested by the prompt
+
+Critical background lock:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image from top edge to bottom edge.
+NO horizontal divisions, top/bottom sections, floor-wall boundary, horizon line, studio wall split, panels or background bands.
+Use only one subtle continuous gradient or vignette.
+Objects may cast soft contact shadows.
+Leave generous natural empty space above and below the central subject without changing the background.
+
+All Google-Flow source images, including the cover, are strict square 1:1.
