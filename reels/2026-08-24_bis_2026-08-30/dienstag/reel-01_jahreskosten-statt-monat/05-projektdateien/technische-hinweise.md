@@ -5,9 +5,20 @@
 - 30 fps
 - 9:16
 - finale Laufzeit aus dem echten Voiceover; Zielbereich 60–90 Sekunden
+- 15 visuelle Beats statt starrem 10-Szenen-Raster
+- 9 Bildbeats / 6 Animationsbeats = 60/40
+
+## Bild-Timing
+- Bildbeat ideal 3,5–5,0 Sekunden
+- normal höchstens 5,5 Sekunden
+- absolut maximal 6,0 Sekunden
+- wenn echte Wort-Timings einen Bildbeat über 6 Sekunden drücken würden: Beat splitten oder animieren
 
 ## Bilder
 - alle Flow-Quellen strikt 1:1
+- premium stylized 3D CGI, klar nicht fotorealistisch
+- chunky volumetric objects, rounded bevels, starke Tiefenwirkung
+- Alltagsmetapher in unter 2 Sekunden verständlich
 - `object-fit: contain`
 - kein blurred duplicate background
 - maximal intentional scale 1.04
@@ -39,4 +50,4 @@
 Vor Beginn zwingend:
 `npm run reel:ready -- reels/2026-08-24_bis_2026-08-30/dienstag/reel-01_jahreskosten-statt-monat`
 
-Danach Bilder synchronisieren, echte Timeline ableiten, Remotion bauen, validieren, TypeScript prüfen, Preview rendern, Frames/MP4/Ton prüfen.
+Danach Bilder synchronisieren, echte Timeline aus Wort-/Phrasenstarts ableiten, Remotion bauen, validieren, TypeScript prüfen, Preview rendern, Frames/MP4/Ton prüfen. Kein Bildbeat darf im finalen Schnitt länger als 6 Sekunden stehen.
