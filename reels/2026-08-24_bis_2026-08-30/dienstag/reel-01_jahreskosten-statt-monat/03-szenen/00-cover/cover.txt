@@ -1,7 +1,13 @@
-BILD 00 – COVER
-FINAL FILE NAME: Bild 00 - Jahreskosten Cover.png
-FORMAT: strict square 1:1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
 STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+BILD 00 – COVER
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Jahreskosten Cover.png
+FORMAT: square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 
@@ -15,13 +21,16 @@ FULL STYLE LOCK
 Clearly stylized premium 3D CGI render, substantial volumetric objects, simplified slightly exaggerated proportions, smooth rounded geometry, soft bevels, thick cream card-like surfaces, deep charcoal and emerald premium polymer/brushed-metal details, chunky modeled gold coins, cinematic soft key light, controlled emerald rim light, soft contact shadows, strong foreground/midground/background separation, mild depth-of-field, polished high-end editorial CGI. NOT photorealistic. NOT realistic office stationery photography. NOT stock photo. NOT Pixar, clay or toy style.
 
 BACKGROUND
-ONE seamless deep charcoal green-black background with a subtle vignette. No floor-wall boundary, horizon, panels or bands.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
 
 ALLOWED TEXT ONLY
 `9,99 €`
 `PRO MONAT`
 `119,88 € / JAHR`
-No sentence, headline or subtitle.
+No headline. No subtitle. No sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
 
 NEGATIVE
 No dashboard, no UI, no screen, no board, no flat real paper photo, no product pedestal, no gameboard, no module system.
