@@ -1,11 +1,12 @@
 # Szene 06
 
-**Typ:** Google-Flow-Bild
-**Headline:** `FIXKOSTEN AUFS JAHR`
-**Sprechtext:**
+**Typ:** Google-Flow-Bild  
+**Headline:** `KONTOAUSZUG PRÜFEN`  
+**Zielzeit:** ca. 3,5 s
 
-Schreib deine festen Ausgaben auf: Streaming, Apps, Mitgliedschaften, Mobilfunk und andere Verträge. Daneben steht immer der Jahresbetrag.
+**Sprechtext-Ausschnitt:**  
+Prüf außerdem regelmäßig deine Kontoauszüge.
 
-**Zweck:** Eine einfache, physische Jahresübersicht statt App-Dashboard.
+**Zweck:** Den Prüfimpuls als klare stylized-3D-Lupenszene zeigen.
 
-**Datei:** `Bild 06 - Fixkosten Jahresblick.png`
+**Datei:** `Bild 06 - Kontoauszug Lupe.png`
