@@ -1,27 +1,41 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 06 - Fixkosten Jahresblick.png
 
-Create a square 1:1 source image. Use the written style lock only; do NOT use Bild 00 as image reference.
+FORMAT
+Create a square 1:1 source image only. Width and height must be equal.
 
-MAIN PHYSICAL STORY
-A large unfolded PAPER yearly budget sheet/receipt is the central physical object. Around it sit four recognizable concrete objects: headphones for streaming, a physical smartphone/SIM package for mobile service, a gym membership key fob, and a small paper app-store receipt/envelope for apps. Beside each object is a small stack of real gold euro coins. The annual paper sheet ties them together through printed rows, not through a digital interface.
+CREATE EXACTLY ONE IMAGE.
+Use the written physical-explainer style lock. Fresh composition. Do not copy previous layouts.
 
-Short German object labels only:
+MAIN VISUAL
+A large unfolded PAPER ANNUAL BUDGET SHEET is the hero object, opened like a real paper document rather than a board. Around it sit four recognizable concrete physical category objects: over-ear headphones for streaming, a physical smartphone with dark/off screen plus SIM card for mobile service, a gym membership key fob, and a small paper app-store receipt/envelope for apps. Small real euro coin groups sit beside the corresponding objects.
+
+The paper sheet visually ties the categories together through printed rows on real paper, not through digital cards or modules.
+
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `STREAMING`
 - `APPS`
 - `MITGLIEDSCHAFT`
 - `MOBILFUNK`
 - `PRO JAHR`
+The labels must be printed on physical paper tabs, receipt sections or attached paper tags.
 
-No headline. No subtitle. No explanatory sentence. If any person appears, the face must be clearly visible; preferably omit people.
+STYLE
+Premium stylized 3D physical financial editorial explainer. Deep charcoal green-black seamless world, emerald/mint accents, gold only for money/value, restrained warm red-orange only for cost pressure. Matte paper, premium plastic and brushed metal materials, cinematic soft key light, emerald rim light, real contact shadows. Natural asymmetry with slight overlap and clear depth.
 
-STRICTLY FORBIDDEN
-No ledger board, no dashboard, no four-row interface, no control panel, no floating UI cards, no equal rectangular modules, no glowing connector lines, no app cube.
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary. No horizon. No panels. No bands.
 
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. The objects must overlap slightly and sit asymmetrically around the paper sheet with realistic contact shadows. Labels must be printed on paper/tag surfaces.
+STRICT FAILURE MODES
+No ledger board. No dashboard. No four-row interface. No control panel. No app UI. No floating cards, tiles, chips or widgets. No equal rectangular module system. No glowing connector lines. No generic app cube as a main element. No board-game layout. No tiny isometric diorama.
+
+No headline. No subtitle. No explanatory sentence. No CTA. If a person appears unexpectedly, the face must be clearly visible; preferably use no person.
+
+QA
+If the annual budget looks like software, a fintech board, UI list or modular control panel, reject it and regenerate Bild 06.
