@@ -1,25 +1,39 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 10 - Monat gegen Jahr.png
 
-Create a square 1:1 source image. Use the written style lock only; do NOT use Bild 00 as image reference.
+FORMAT
+Create a square 1:1 source image only. Width and height must be equal.
 
-MAIN PHYSICAL STORY
-A small PAPER monthly price tag marked `PRO MONAT` sits beside a large real magnifying glass. Through and behind the glass, the viewer sees a long physical yearly receipt and a twelve-page paper calendar with a visibly larger total pile of real euro coins. The lens reveals the full-year consequence using physical objects only.
+CREATE EXACTLY ONE IMAGE.
+Use the written physical-explainer style lock. Fresh composition. Do not copy previous layouts.
 
-Short German object labels only:
+MAIN VISUAL
+A large real MAGNIFYING GLASS is the hero object. On the near side lies one small physical paper price tag marked `PRO MONAT`. Through and beyond the magnifying glass, show a long unfolded PAPER YEARLY RECEIPT, a compact paper calendar and a visibly larger pile of real euro coins. The lens reveals the full-year consequence using only physical objects.
+
+The visual message must be calm and instantly clear: a monthly price is only a small slice; the yearly cost is the full picture.
+
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `PRO MONAT`
 - `PRO JAHR`
 - `PRÜFEN`
+Print labels on physical paper tags or the receipt only.
 
-No headline. No subtitle. No explanatory sentence. If any person appears, the face must be clearly visible; preferably omit people.
+STYLE
+Premium stylized 3D physical financial editorial explainer. Deep charcoal green-black seamless world, emerald/mint accents, gold only for money/value, restrained warm red-orange only for warning. Glass magnifier, matte paper, brushed metal and real coin materials, cinematic soft light, controlled emerald rim light, clear contact shadows, natural asymmetry.
 
-STRICTLY FORBIDDEN
-No transformation tunnel, no digital comparison card, no board, no screen, no floating UI, no control panel, no rectangular module system, no isometric gameboard.
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary. No horizon. No panels. No bands.
 
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Natural asymmetry and realistic contact shadows. Labels must be physical paper/receipt text, never floating badges.
+STRICT FAILURE MODES
+No transformation tunnel. No digital comparison card. No dashboard. No board. No screen. No floating UI. No control panel. No rectangular module system. No gameboard. No circular orbit. No abstract connector network. No tiny isometric diorama.
+
+No headline. No subtitle. No explanatory sentence. No CTA. If a person appears unexpectedly, the face must be clearly visible; preferably use no person.
+
+QA
+If the result resembles a digital comparison interface, board, transformation machine or UI scene, reject it and regenerate Bild 10.
