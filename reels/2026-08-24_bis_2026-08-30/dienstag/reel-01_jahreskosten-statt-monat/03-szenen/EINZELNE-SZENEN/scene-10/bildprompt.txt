@@ -1,46 +1,31 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
-VISUAL_TIMING_AND_CLARITY_STANDARD: finanzneo-visual-timing-and-clarity-v1
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 10 - Monat gegen Jahr.png
-
-FORMAT
-Create a square 1:1 source image only. Width and height must be equal.
+BILD 10 – SZENE 10
+FINAL FILE NAME: Bild 10 - Jahreskosten Labels.png
+FORMAT: strict square 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
 
 CREATE EXACTLY ONE IMAGE.
-Use the written physical-explainer style lock. Fresh composition. Do not copy previous layouts.
 
-TIMING + CLARITY
-- Target screen time: about 4–5 seconds.
-- The contrast between monthly view and yearly consequence must be understood in under 2 seconds.
-- One main idea only.
-- Keep the composition active through the magnifying glass, long receipt, calendar and larger coin pile.
+MAIN IDEA
+Neben jede regelmäßige Ausgabe gehört der Jahresbetrag.
 
-MAIN VISUAL
-A large real MAGNIFYING GLASS is the hero object. On the near side lies one small physical paper price tag marked `PRO MONAT`. Through and beyond the magnifying glass, show a long unfolded PAPER YEARLY RECEIPT, a compact paper calendar and a visibly larger pile of real euro coins. The lens reveals the full-year consequence using only physical objects.
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI editorial explainer. A chunky vertical dark-emerald receipt stand holds four thick cream hanging tags at different heights. Beside each tag is one recognizable stylized 3D everyday object: headphones, smartphone/SIM, membership key tag and app envelope. Each tag has a gold-edged annual-value plate area and the short heading `PRO JAHR`. Gold coins gather beneath the tags. The objects and tags should form a clear cause-and-effect pairing without looking like UI cards.
 
-The visual message must be calm and instantly clear: a monthly price is only a small slice; the yearly cost is the full picture.
-
-ALLOWED GERMAN OBJECT LABELS ONLY
-- `PRO MONAT`
-- `PRO JAHR`
-- `PRÜFEN`
-Print labels on physical paper tags or the receipt only.
-
-STYLE
-Premium stylized 3D physical financial editorial explainer. Deep charcoal green-black seamless world, emerald/mint accents, gold only for money/value, restrained warm red-orange only for warning. Glass magnifier, matte paper, brushed metal and real coin materials, cinematic soft light, controlled emerald rim light, clear contact shadows, natural asymmetry.
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI, chunky modeled objects, smooth rounded geometry, soft bevels, slightly exaggerated proportions, premium emerald material, thick cream tags, chunky gold coins, cinematic key light, emerald rim light, soft contact shadows, strong depth, mild DOF. NOT photorealistic, NOT office receipt photography, NOT UI, NOT Pixar/clay/toy.
 
 BACKGROUND
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary. No horizon. No panels. No bands.
+ONE seamless charcoal green-black background.
 
-STRICT FAILURE MODES
-No transformation tunnel. No digital comparison card. No dashboard. No board. No screen. No floating UI. No control panel. No rectangular module system. No gameboard. No circular orbit. No abstract connector network. No tiny isometric diorama. No abstract symbolism that needs interpretation.
+ALLOWED TEXT ONLY
+`PRO JAHR`
+`STREAMING`
+`MOBILFUNK`
+`MITGLIEDSCHAFT`
+`APPS`
 
-No headline. No subtitle. No explanatory sentence. No CTA. If a person appears unexpectedly, the face must be clearly visible; preferably use no person.
+NEGATIVE
+No table/spreadsheet UI, no dashboard, no flat paper labels, no floating cards.
 
 QA
-Reject and regenerate Bild 10 if the monthly-vs-yearly contrast is not obvious in under 2 seconds, if the scene would need more than 6 seconds to explain, or if the result resembles a digital comparison interface, board, transformation machine or UI scene.
+Must read in under 2 seconds and clearly look like premium stylized 3D CGI.
