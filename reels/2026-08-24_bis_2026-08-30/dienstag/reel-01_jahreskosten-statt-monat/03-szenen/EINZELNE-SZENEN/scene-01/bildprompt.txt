@@ -1,24 +1,42 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 01 - 9,99 Euro Hook.png
 
-Create a square 1:1 source image. Use the written style lock from 03-szenen/bildwelt.txt. Do NOT upload or use Bild 00 as an image reference.
+FORMAT
+Create a square 1:1 source image only. Width and height must be equal.
 
-MAIN PHYSICAL STORY
-A very small PAPER price tag marked `9,99 €` is clipped to the first page of a thick physical PAPER calendar book. Behind it, many month pages are visibly stacked/turned, each with a small real gold euro coin resting against the paper. The message is repetition over time, not a mechanism.
+CREATE EXACTLY ONE IMAGE.
+Use the written physical-explainer style lock. Fresh composition. Do not copy Bild 00.
 
-Short German object labels only:
+MAIN VISUAL
+A large real PAPER DESK CALENDAR is the hero object. One small physical paper price tag reading `9,99 €` is clipped directly to the current month page. Several real paper month pages are visibly turned behind it and several upcoming pages remain in front, so the repetition across months is obvious without any chart or mechanism.
+
+SUPPORTING PHYSICAL OBJECTS
+- a few real euro coins near the calendar base
+- one small folded receipt slip
+- one metal binder clip
+Arrange them naturally and asymmetrically with slight overlap and real contact shadows.
+
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `9,99 €`
 - `MONATLICH`
+The labels must be printed on physical paper tags.
 
-No headline. No subtitle. No explanatory sentence. If any person is added unexpectedly, the face must be clearly visible; preferably omit people here.
+STYLE
+Premium stylized 3D physical financial editorial explainer. Deep charcoal green-black world, emerald/mint accents, gold only for money/value, restrained warm red-orange only for cost pressure. Matte paper and brushed-metal details, soft cinematic key light, controlled emerald rim light. Camera frontal or gentle elevated three-quarter view, not tiny isometric.
 
-STRICTLY FORBIDDEN
-No ring, no twelve slots, no circular device, no board, no dashboard, no app UI, no digital screen, no repeated glowing tiles/cards/blocks, no control panel, no isometric gameboard.
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary. No horizon. No panels. No bands.
 
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands. Labels must be physical paper/sticker text, never floating UI badges.
+STRICT FAILURE MODES
+No dashboard. No app UI. No digital screen. No control panel. No floating cards, tiles, chips or widgets. No circular payment mechanism. No twelve-slot ring. No board-game layout. No microchip visual language. No glowing connector network. No repeated rectangular blocks as the main structure. No tiny isometric diorama.
+
+No headline. No subtitle. No explanatory sentence. No CTA. If a person appears unexpectedly, the face must be clearly visible; preferably use no person.
+
+QA
+If the result resembles a fintech dashboard, module board, game level, circular mechanism or digital product, reject it and regenerate Bild 01.
