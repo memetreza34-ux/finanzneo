@@ -1,11 +1,12 @@
 # Szene 09
 
-**Typ:** Google-Flow-Bild
-**Headline:** `3 FRAGEN PRO VERTRAG`
-**Sprechtext:**
+**Typ:** Google-Flow-Bild  
+**Headline:** `DEINE FIXKOSTEN`  
+**Zielzeit:** ca. 5,0 s
 
-Prüf jeden Vertrag mit drei Fragen: Nutze ich ihn? Was kostet er pro Jahr? Und wie oft wird wirklich abgerechnet?
+**Sprechtext-Ausschnitt:**  
+Schreib deine festen Ausgaben auf: Streaming, Apps, Mitgliedschaften, Mobilfunk und andere Verträge.
 
-**Zweck:** Eine merkbare Vertragsprüfung als physische Check-Metapher.
+**Zweck:** Konkrete Alltags-Fixkosten als klar erkennbare stylized-3D-Objekte zeigen.
 
-**Datei:** `Bild 09 - Vertrag Check.png`
+**Datei:** `Bild 09 - Fixkosten Alltag.png`
