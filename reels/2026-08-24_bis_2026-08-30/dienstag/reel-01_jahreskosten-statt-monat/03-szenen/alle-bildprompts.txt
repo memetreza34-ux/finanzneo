@@ -7,50 +7,82 @@ PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
-WICHTIGER ARBEITSMODUS
-1. Erzeuge GENAU EIN Bild.
-2. Warte vollständig auf das Ergebnis.
-3. Prüfe Format, Motiv, Labels, Hintergrund und den Physical-Explainer-Lock.
-4. Benenne es SOFORT exakt mit dem angegebenen finalen Dateinamen um.
-5. Erst danach das nächste Bild erzeugen.
-6. Bei einem Fehler: Erzeuge DIESELBE Bildnummer neu und ersetze die fehlerhafte Version.
-7. Keine Bilder parallel oder als Batch erzeugen.
-8. Szenen 03, 05, 07 und 08 sind Remotion-Animationen: KEIN Bild erzeugen.
-9. Alle Bilder sind strict square 1:1 source image.
-10. Nach Abschluss liegen alle Bilder gemeinsam in 03-szenen/00-ALLE-BILDER-HIER-REIN/.
+ZIEL
+Erzeuge eine zusammenhängende FinanzNeo-Bildserie als PREMIUM PHYSICAL 3D EXPLAINER. Die Bilder müssen aus real erkennbaren physischen Gegenständen bestehen und dürfen NICHT wie Fintech-Software, Dashboards, Spielbretter, Control Panels oder UI-Karten aussehen.
 
-WICHTIG – KEINE COVER-KOMPOSITION KOPIEREN
-Bild 00 ist nur eine verbindliche visuelle Stilreferenz im Sinne von Farbe, Material, Licht und Rendering-Sprache.
-Do NOT upload, attach or use Bild 00 as an image-to-image/reference image for later scenes.
-Use the repeated WRITTEN style lock below instead.
+STRIKTER ARBEITSMODUS
+1. Lies diese Datei einmal komplett.
+2. Arbeite danach strikt von oben nach unten.
+3. Erzeuge GENAU EIN Bild.
+4. Warte vollständig auf das Ergebnis.
+5. Prüfe Format, Motiv, erlaubte Labels, Hintergrund und Physical-Explainer-Stil.
+6. Benenne es SOFORT exakt mit dem angegebenen finalen Dateinamen um.
+7. Erst danach das nächste Bild erzeugen.
+8. Wenn eine Prüfung scheitert: Erzeuge DIESELBE Bildnummer neu, ersetze die fehlerhafte Version und prüfe erneut.
+9. Keine Bilder parallel und kein Batch.
+10. Szenen 03, 05, 07 und 08 sind Remotion-Animationen. Dafür KEIN Bild erzeugen.
+11. Alle Bilder sind strict square 1:1 source image.
+12. Nach Abschluss müssen alle Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` liegen.
+
+VERBINDLICHE VISUELLE STILREFERENZ
+Bild 00 ist die verbindliche visuelle Stilreferenz nur im Sinne der ausgeschriebenen Art Direction: gleiche Farbrollen, Lichtsignatur, Materialien, Kontrast und Renderqualität.
+Bild 00 NICHT als starre Kompositionsvorlage verwenden und nicht hochladen, wenn Google Flow dadurch Perspektive oder Layout kopiert.
 Übernimm NICHT Motiv, Komposition oder Labels des Covers.
-Do not inherit its camera angle, board shape, silhouette, object arrangement or geometry.
+Jede Szene muss neu aus ihren eigenen physischen Gegenständen komponiert werden.
 
 GLOBALER PHYSICAL-EXPLAINER-LOCK
-Create premium stylized 3D financial editorial explainers from REAL, RECOGNIZABLE PHYSICAL OBJECTS.
-Do NOT interpret finance as fintech UI, software, a dashboard, control panel or digital product.
+- one large recognizable PHYSICAL hero object
+- 3–6 recognizable physical supporting objects when useful
+- natural asymmetry, slight overlap and real contact shadows
+- frontal or gentle elevated three-quarter camera
+- deep charcoal green-black world
+- emerald/mint accents
+- gold only for money/value
+- warm red-orange only for warning/unwanted cost
+- matte paper, brushed metal, premium plastic and restrained glass materials
+- cinematic soft key light and controlled emerald rim light
+- not photorealistic, not Pixar, not clay, not childish
 
-REQUIRED COMPOSITION
-- ONE large recognizable physical hero object.
-- Add only a few recognizable topic-specific physical supporting objects.
-- Natural asymmetry, slight overlap, foreground/midground depth and soft contact shadows.
-- Camera front-facing or gentle natural three-quarter view.
-- One coherent editorial still life, never a designed interface.
+GUTE GEGENSTÄNDE
+paper calendar, receipt, contract folder, paper price tag, envelope, magnifying glass, balance scale, euro coins, headphones, physical smartphone with dark/off screen, SIM card, membership key fob, paper statement, pen, paper clip, stamp.
 
-STRICTLY FORBIDDEN
-NO dashboard. NO app UI. NO digital screen. NO control panel. NO central rectangular board. NO tablet-like object. NO floating panel. NO repeated rectangular tiles/cards/blocks as the visual language. NO floating UI cards, chips, buttons or widgets. NO microchip/circuit board. NO circular orbit. NO ring of modules. NO twelve-slot mechanism. NO gameboard. NO mechanical inspection gate. NO conveyor-board composition. NO neon connector lines, glowing rails, tubes or abstract finance streams. NO four-corner module layout. NO tiny isometric diorama. NO sterile product plinth.
-
-LABEL RULE
-Use only the explicitly listed short German object labels. Make labels physical: printed paper tag, sticker, receipt text or small attached plaque. Never floating glowing labels, digital badges or UI chips.
-No headline. No subtitle. No explanatory sentence. No CTA. Only short German object labels listed for the current image.
-
-STYLE LOCK
-Deep charcoal green-black world. Emerald/mint used sparingly as rim light and structural accent, NOT as glowing UI outlines. Gold only for money/value. Warm red-orange only for warning/unwanted cost. Premium matte paper, brushed metal, glass and restrained premium plastic. Cinematic soft key light, realistic local contact shadows, restrained emerald rim light. Not photorealistic, not Pixar, not clay, not toy-like.
+STRICT FAILURE MODES – SOFORT NEU ERZEUGEN
+- dashboard or app UI
+- digital central board or screen
+- control panel
+- floating cards, tiles, chips, widgets, HUD or badges
+- rectangular module system
+- board-game or gameboard layout
+- circular orbit / ring of modules
+- repeated slots or repeated rectangular blocks as the main structure
+- microchip / circuit-board world
+- mechanical inspection gate
+- conveyor, rails, tracks, tubes or neon paths
+- abstract finance connector network
+- symmetrical four-corner modules
+- tiny isometric diorama
+- sterile product-ad pedestal
+- meaningless towers or monoliths
 
 BACKGROUND LOCK
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image from top edge to bottom edge.
-NO horizontal divisions, visible top/bottom sections, floor-wall boundary, horizon line, studio wall split, panels or background bands.
-Use only one subtle continuous gradient/vignette. Objects may cast contact shadows without creating a visible floor plane.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
+Keep one continuous material, tone and gradient from top edge to bottom edge.
+No horizontal divisions.
+No separate top/bottom sections.
+No floor-wall boundary.
+No horizon line.
+No panels.
+No background bands.
+Use only one subtle continuous gradient or vignette.
+Objects may cast soft contact shadows.
+
+TEXT LOCK
+No headline.
+No subtitle.
+No explanatory sentence.
+No CTA.
+Only the explicitly requested short German object labels.
+Labels must appear physically on paper tags, stickers, receipts, printed sheets or attached plaques. Never floating UI text.
 
 ============================================================
 BILD 00 – COVER
@@ -58,21 +90,25 @@ GOOGLE FLOW – FINALER DATEINAME:
 Bild 00 - Jahreskosten Cover.png
 FORMAT: strict square 1:1 source image
 
-Create a premium stylized 3D financial editorial cover made only from physical objects.
+CREATE EXACTLY ONE IMAGE.
 
-MAIN PHYSICAL STORY
-A small paper price tag printed `9,99 €` lies beside a substantial open paper yearly calendar. The calendar visibly represents twelve months with real paper pages/tabs, and a gold euro coin is physically attached to or resting against each month. Beside the calendar is one longer paper receipt strip carrying the yearly total.
+MAIN VISUAL
+A large open physical PAPER YEAR CALENDAR is the hero object. One small paper price tag reading `9,99 €` is clipped to the calendar. Beside it lies one long physical annual receipt ending near a noticeably larger pile of real euro coins. Add one small paper clip and one torn calendar page. Arrange everything naturally and asymmetrically.
 
-Short German object labels only:
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `9,99 €`
 - `PRO MONAT`
 - `119,88 € / JAHR`
+Print labels on the real paper tag or receipt only.
 
-The small monthly tag must feel visually tiny compared with the complete physical calendar + yearly receipt.
-Do NOT use payment blocks, stacked UI cards, boards, screens, digital counters, circular mechanisms or module grids.
-Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
+The visual message must be immediate: a tiny monthly amount becomes a much larger yearly cost.
 
-AFTER GENERATION: verify strict 1:1, physical objects only, no board/UI geometry, exact labels, then rename exactly Bild 00 - Jahreskosten Cover.png.
+Use the global physical-explainer style and ONE single seamless continuous deep charcoal green-black background.
+
+STRICTLY FORBIDDEN FOR BILD 00
+No dashboard, no app UI, no digital screen, no control panel, no cards/tiles/chips/widgets, no gameboard, no circular module layout, no repeated payment blocks, no microchip language, no connector network, no product pedestal.
+
+QA: if Bild 00 looks like fintech UI, a board, a game or an isometric module system, regenerate Bild 00.
 
 ============================================================
 BILD 01 – SZENE 01
@@ -80,19 +116,25 @@ GOOGLE FLOW – FINALER DATEINAME:
 Bild 01 - 9,99 Euro Hook.png
 FORMAT: strict square 1:1 source image
 
-Create a NEW composition using the written style lock only. Do not use Bild 00 as an image reference.
+CREATE EXACTLY ONE IMAGE.
+Fresh composition. Do not copy Bild 00.
 
-MAIN PHYSICAL STORY
-A very small paper price tag marked `9,99 €` is clipped to the first page of a thick physical paper calendar book. Behind it, many month pages are visibly stacked/turned, each with a small real gold euro coin resting against the paper. The visual message is repetition over time, not a mechanism.
+MAIN VISUAL
+A large real PAPER DESK CALENDAR is the hero object. One small physical paper price tag reading `9,99 €` is clipped to the current month page. Several real month pages are visibly turned behind it and upcoming pages remain in front. Add a few real euro coins, one folded receipt slip and one metal binder clip.
 
-Short German object labels only:
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `9,99 €`
 - `MONATLICH`
+Print labels on physical paper tags only.
 
-No ring, no twelve slots, no circular device, no board, no UI, no repeated glowing tiles.
-Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
+The scene must show repetition over months without charts or mechanisms.
 
-AFTER GENERATION: verify and rename exactly Bild 01 - 9,99 Euro Hook.png.
+Use the global physical-explainer style and ONE single seamless continuous deep charcoal green-black background.
+
+STRICTLY FORBIDDEN FOR BILD 01
+No ring, no twelve slots, no circular payment mechanism, no dashboard, no screen, no UI, no control panel, no tiles/chips/widgets, no gameboard, no microchip aesthetic, no tiny isometric diorama.
+
+QA: if it resembles a circular module system, dashboard or digital product, regenerate Bild 01.
 
 ============================================================
 BILD 02 – SZENE 02
@@ -100,21 +142,26 @@ GOOGLE FLOW – FINALER DATEINAME:
 Bild 02 - Fuenf Dauerposten.png
 FORMAT: strict square 1:1 source image
 
-Create a NEW physical-object composition using the written style lock only.
+CREATE EXACTLY ONE IMAGE.
+Fresh composition. Do not copy previous layouts.
 
-MAIN PHYSICAL STORY
-Five clearly different recognizable everyday subscription/service objects sit naturally around one long paper yearly receipt: a pair of headphones, a physical smartphone with the screen dark/off, a gym membership key fob, a small streaming ticket/card made of paper, and a SIM-card/package object. Each object has a small attached PAPER price tag marked `9,99 €`. The long receipt physically collects the combined monthly and yearly totals.
+MAIN VISUAL
+A long unfolded PAPER YEARLY RECEIPT is the hero object. Around it sit five clearly different recognizable physical recurring-cost objects: over-ear headphones, a physical smartphone with the screen dark/off, a gym membership key fob, a small paper streaming ticket and a SIM-card package. Each object has a small attached paper price tag marked `9,99 €`. The receipt ends near a larger pile of real euro coins.
 
-Short German object labels only:
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `5 × 9,99 €`
 - `49,95 € / MONAT`
 - `599,40 € / JAHR`
+Print labels on the physical receipt or attached paper tags only.
 
-The labels should be printed on the receipt or attached paper tags, never floating badges.
-No money container, no panel, no app card grid, no stacked orange/green blocks.
-Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
+The scene must show that several small recurring charges combine into a meaningful annual cost.
 
-AFTER GENERATION: verify and rename exactly Bild 02 - Fuenf Dauerposten.png.
+Use the global physical-explainer style and ONE single seamless continuous deep charcoal green-black background.
+
+STRICTLY FORBIDDEN FOR BILD 02
+No money container, no central board, no dashboard, no app-card grid, no stacked rectangular blocks, no floating cards/chips/buttons, no control panel, no gameboard, no orbit, no tiny isometric diorama.
+
+QA: if it looks like a UI grid or modular board, regenerate Bild 02.
 
 ============================================================
 SZENE 03 – REMOTION
@@ -127,21 +174,24 @@ GOOGLE FLOW – FINALER DATEINAME:
 Bild 04 - Vergessene Abbuchungen.png
 FORMAT: strict square 1:1 source image
 
-Create a NEW physical editorial still life using the written style lock only.
+CREATE EXACTLY ONE IMAGE.
+Fresh composition.
 
-MAIN PHYSICAL STORY
-One loose, slightly curled PAPER bank-statement strip crosses the composition naturally. A large real magnifying glass rests over two small printed recurring-charge lines on the paper. Beside the paper are a few real euro coins and a small old subscription paper tag. Nothing is mounted on a board or platform.
+MAIN VISUAL
+A large loose PAPER BANK STATEMENT is the hero object, slightly curled across the scene. A real magnifying glass rests directly on the paper and enlarges two small recurring-charge lines. Beside the statement lie a few real euro coins, a small old subscription paper tag and a metal paper clip. Nothing is mounted on a board or platform.
 
-Short German object labels only:
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `ALTES ABO`
 - `9,99 €`
 - `PRÜFEN`
+Print labels directly on paper or attached paper tags only.
 
-The statement is real paper with printed marks, NOT an app, screen, fabric panel or digital card.
-No glowing rings around the magnifier, no UI frame, no platform beneath the paper.
-Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
+Use the global physical-explainer style and ONE single seamless continuous deep charcoal green-black background.
 
-AFTER GENERATION: verify and rename exactly Bild 04 - Vergessene Abbuchungen.png.
+STRICTLY FORBIDDEN FOR BILD 04
+No banking app, no phone screen, no dashboard, no UI frame, no control panel, no glowing interface ring, no floating cards/tiles/chips, no platform under the paper, no gameboard.
+
+QA: if the paper turns into a digital screen or dashboard, regenerate Bild 04.
 
 ============================================================
 SZENE 05 – REMOTION
@@ -154,23 +204,26 @@ GOOGLE FLOW – FINALER DATEINAME:
 Bild 06 - Fixkosten Jahresblick.png
 FORMAT: strict square 1:1 source image
 
-Create a NEW physical editorial still life using the written style lock only.
+CREATE EXACTLY ONE IMAGE.
+Fresh composition.
 
-MAIN PHYSICAL STORY
-A large unfolded PAPER yearly budget sheet/receipt is the central physical object. Around it sit four recognizable concrete objects: headphones for streaming, a physical smartphone/SIM package for mobile service, a gym membership key fob, and a small paper app-store receipt/envelope for apps. Beside each object is a small stack of real gold euro coins. The annual sheet ties them together through printed rows, not through a digital interface.
+MAIN VISUAL
+A large unfolded PAPER ANNUAL BUDGET SHEET is the hero object, clearly a real paper document rather than a board. Around it sit four recognizable physical category objects: over-ear headphones for streaming, a physical smartphone with dark/off screen plus SIM card for mobile service, a gym membership key fob, and a small paper app-store receipt/envelope for apps. Small real euro coin groups sit beside the corresponding objects.
 
-Short German object labels only:
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `STREAMING`
 - `APPS`
 - `MITGLIEDSCHAFT`
 - `MOBILFUNK`
 - `PRO JAHR`
+Print labels on physical paper tabs, receipt sections or attached paper tags.
 
-Do NOT create a ledger board, dashboard, four-row interface, control panel, floating cards or equal rectangular modules.
-The objects must overlap slightly and sit asymmetrically around the paper sheet.
-Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
+Use the global physical-explainer style and ONE single seamless continuous deep charcoal green-black background.
 
-AFTER GENERATION: verify and rename exactly Bild 06 - Fixkosten Jahresblick.png.
+STRICTLY FORBIDDEN FOR BILD 06
+No ledger board, no dashboard, no four-row interface, no control panel, no floating UI cards, no equal rectangular modules, no glowing connector lines, no generic app cube as main object, no gameboard.
+
+QA: if the annual budget looks like software or a fintech board, regenerate Bild 06.
 
 ============================================================
 SZENE 07 – REMOTION
@@ -186,21 +239,26 @@ GOOGLE FLOW – FINALER DATEINAME:
 Bild 09 - Vertrag Check.png
 FORMAT: strict square 1:1 source image
 
-Create a NEW physical editorial still life using the written style lock only.
+CREATE EXACTLY ONE IMAGE.
+Fresh composition.
 
-MAIN PHYSICAL STORY
-One thick PAPER contract folder lies open as the hero object. Three real inspection objects are placed naturally around it, not as stages: a magnifying glass over the usage section, a small physical balance scale holding euro coins beside the annual-cost section, and a compact paper calendar beside the billing-frequency section. Small paper question tags are attached directly to the relevant physical object.
+MAIN VISUAL
+A thick open PAPER CONTRACT FOLDER is the hero object. Three real inspection objects are arranged naturally around it, not as stages: a large magnifying glass over one contract section, a small physical balance scale holding real euro coins beside another section, and a compact paper desk calendar beside the billing-frequency section. Add one physical rubber checkmark stamp and a pen.
 
-Short German object labels only:
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `NUTZE ICH ES?`
 - `PRO JAHR?`
 - `WIE OFT?`
+Attach labels as real paper question tags directly to the relevant objects.
 
-No mechanical inspection gate, no conveyor, no three-stage board, no UI checklist, no connected modules.
-Natural asymmetric composition with overlap and contact shadows.
-Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
+Use the global physical-explainer style and ONE single seamless continuous deep charcoal green-black background.
 
-AFTER GENERATION: verify and rename exactly Bild 09 - Vertrag Check.png.
+STRICTLY FORBIDDEN FOR BILD 09
+No mechanical inspection gate, no conveyor, no three-stage board, no checklist UI, no connected modules, no dashboard, no control panel, no floating cards/tiles/chips, no gameboard.
+
+If a stylized adult appears, the face must be clearly visible with eyes, nose and mouth; a person is not required.
+
+QA: if the scene looks like a machine, inspection station or modular UI, regenerate Bild 09.
 
 ============================================================
 BILD 10 – SZENE 10
@@ -208,25 +266,28 @@ GOOGLE FLOW – FINALER DATEINAME:
 Bild 10 - Monat gegen Jahr.png
 FORMAT: strict square 1:1 source image
 
-Create a NEW physical editorial closing still life using the written style lock only.
+CREATE EXACTLY ONE IMAGE.
+Fresh composition.
 
-MAIN PHYSICAL STORY
-A small PAPER monthly price tag marked `PRO MONAT` sits beside a large real magnifying glass. Through/behind the glass, the viewer sees a long physical yearly receipt and a twelve-page paper calendar with a visibly larger total pile of real euro coins. The lens reveals the full-year consequence using physical objects only.
+MAIN VISUAL
+A large real MAGNIFYING GLASS is the hero object. On the near side lies one small physical paper price tag marked `PRO MONAT`. Through and beyond the glass, show a long unfolded PAPER YEARLY RECEIPT, a compact paper calendar and a visibly larger pile of real euro coins. The lens reveals the full-year consequence using only physical objects.
 
-Short German object labels only:
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `PRO MONAT`
 - `PRO JAHR`
 - `PRÜFEN`
+Print labels on physical paper tags or the receipt only.
 
-No transformation tunnel, no digital comparison card, no board, no screen, no floating UI.
-Keep the ending calm and clear.
-Apply the GLOBAL PHYSICAL-EXPLAINER, STYLE and BACKGROUND locks above.
+Use the global physical-explainer style and ONE single seamless continuous deep charcoal green-black background.
 
-AFTER GENERATION: verify and rename exactly Bild 10 - Monat gegen Jahr.png.
+STRICTLY FORBIDDEN FOR BILD 10
+No transformation tunnel, no digital comparison card, no dashboard, no board, no screen, no floating UI, no control panel, no rectangular module system, no gameboard, no orbit, no connector network.
+
+QA: if the result resembles a digital comparison interface or transformation machine, regenerate Bild 10.
 
 ============================================================
 ABSCHLUSSPRÜFUNG
-Exakt diese 7 Dateien müssen existieren:
+Es müssen exakt diese 7 Dateien existieren:
 - Bild 00 - Jahreskosten Cover.png
 - Bild 01 - 9,99 Euro Hook.png
 - Bild 02 - Fuenf Dauerposten.png
@@ -236,5 +297,5 @@ Exakt diese 7 Dateien müssen existieren:
 - Bild 10 - Monat gegen Jahr.png
 
 Keine Bilddateien für 03, 05, 07 oder 08.
-Alle Bilder 1:1.
-REJECT AND REGENERATE any image that looks like a dashboard, board, app UI, isometric gameboard, control panel, module grid, circular mechanism, floating-card system or repeated rectangular tile composition.
+Alle Bilder strict 1:1, gleiche FinanzNeo-Farb-/Materialwelt, aber eigenständige Kompositionen.
+Jedes Bild muss nach PHYSICAL EDITORIAL EXPLAINER aussehen — niemals nach Dashboard, UI, Board, Game-Level oder Modul-System.
