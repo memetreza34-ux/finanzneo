@@ -1,0 +1,32 @@
+FINANZNEO WORLD REFERENCE
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+FORMAT LOCK:
+Create a square 1:1 source image only. Width and height must be equal. No portrait or vertical format.
+
+SAME-WORLD LOCK:
+Keep the exact same FinanzNeo art direction across the complete image series. Preserve the same deep charcoal green-black background material and gradient character, emerald rim-light signature, rounded geometry language, bevel softness, premium matte/glass material finish, color roles, contrast level and editorial 3D rendering quality in every image. Do not reinterpret the series as a new style between images. Subjects may change, but they must always look as if they exist in the same visual universe. If a recurring person appears, preserve the same stylized appearance across all of that person's scenes.
+
+VERBINDLICHER BILDSTIL:
+Premium fintech editorial 3D render style. Deep charcoal green-black world. Accents in vivid emerald and mint green. Gold only for euro coins, cash and financial value. Warm red-orange only for loss, risk, debt or price pressure. Smooth rounded 3D geometry, soft bevelled edges, sophisticated premium matte and transparent materials, confident high-contrast studio lighting and a bold emerald rim-light signature.
+
+EDITORIAL QUALITY:
+Every image must explain one financial idea immediately. Use one dominant metaphor and only a few supporting objects. Prefer large, readable physical forms over icon collections. The composition must still read on a phone when the square source is contained inside a vertical reel. Keep the main metaphor close to the visual center with generous natural breathing room above and below.
+
+PERSON RULE:
+A stylized anonymous adult may appear only when the human situation materially improves the explanation. If a person appears, the face must be clearly visible with stylized eyes, nose and mouth, preferably front-facing or natural three-quarter view. No faceless mannequin, blank face, hidden face or back-view-only person. No real identifiable person and no photorealistic portrait.
+
+TEXT RULE:
+No headline. No subtitle. No explanatory sentence. No CTA. Only explicitly requested short German object labels, normally 1–3 words, positioned directly beside the relevant physical object. Labels must be spelled exactly as requested. No random extra text.
+
+BACKGROUND RULE:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. The background must keep the same continuous material, tone and subtle gradient from the top edge to the bottom edge and from left edge to right edge. NO horizontal divisions. NO separate zones. NO dark band at any edge. NO floor-wall boundary. NO horizon line. NO studio wall split. NO panel background. NO layered backdrop. Use only one subtle continuous gradient or vignette. Objects may cast soft contact shadows, but the background itself remains one uninterrupted surface.
+
+FORBIDDEN:
+No portrait source format. No percentage-based composition zones. No photorealism. No real identifiable human. No UI dashboard. No app screen. No floating interface cards. No generic stock-photo finance scene. No tiny isometric diorama. No miniature game level. No neon tunnel. No sci-fi corridor. No abstract line-network as the main idea. No clutter. No giant typography. No full sentence. No random labels. No Pixar look. No clay look.
+
+SERIES-SPECIFIC VISUAL MOTIF:
+This reel is about the difference between official average inflation and personal inflation. Recurring physical language should use weighted baskets, budget blocks, receipts, category objects and comparison scales. Never reuse the exact same composition twice; preserve the world, not the layout.
