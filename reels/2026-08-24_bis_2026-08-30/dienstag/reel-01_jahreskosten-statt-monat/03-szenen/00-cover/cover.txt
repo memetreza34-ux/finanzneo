@@ -1,26 +1,30 @@
 BILD 00 – COVER
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 00 - Jahreskosten Cover.png
-FORMAT: strict square 1:1 source image
+FINAL FILE NAME: Bild 00 - Jahreskosten Cover.png
+FORMAT: strict square 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
 
 CREATE EXACTLY ONE IMAGE.
-The finished scene should comfortably play around 4.5 to 5.5 seconds without becoming static.
 
-MAIN VISUAL
-A large open physical PAPER YEAR CALENDAR is the hero object. One small paper price tag reading `9,99 €` is clipped to the calendar. Beside it lies one long physical annual receipt ending near a noticeably larger pile of real euro coins. Add one small paper clip and one torn calendar page. Make the relationship between objects very clear and lively: the receipt should visually lead toward the bigger yearly amount.
+MAIN IDEA
+`9,99 € pro Monat` wirkt klein, aber der Jahresbetrag ist deutlich größer.
 
-ALLOWED GERMAN OBJECT LABELS ONLY
-- `9,99 €`
-- `PRO MONAT`
-- `119,88 € / JAHR`
-Print labels on the real paper tag or receipt only.
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI editorial render. In the center stands a chunky stylized 3D desk calendar with a thick dark-emerald rounded frame and thick warm-cream month cards, visibly modeled as substantial 3D objects rather than real paper. A small rounded cream 3D price tag clipped to the calendar reads `9,99 €` and `PRO MONAT`. From the calendar flows a curved thick cream receipt-ribbon made as a stylized 3D object, ending beside a visibly larger pile of chunky stylized gold value coins and one gold-edged 3D total tag reading `119,88 € / JAHR`. Add one oversized emerald binder clip and one slightly lifted calendar card for motion and depth. The small-vs-large contrast must be obvious in under two seconds.
 
-The visual message must be immediate: a tiny monthly amount becomes a much larger yearly cost.
-The viewer should understand this in under two seconds.
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI render, substantial volumetric objects, simplified slightly exaggerated proportions, smooth rounded geometry, soft bevels, thick cream card-like surfaces, deep charcoal and emerald premium polymer/brushed-metal details, chunky modeled gold coins, cinematic soft key light, controlled emerald rim light, soft contact shadows, strong foreground/midground/background separation, mild depth-of-field, polished high-end editorial CGI. NOT photorealistic. NOT realistic office stationery photography. NOT stock photo. NOT Pixar, clay or toy style.
 
-Use the global physical-explainer style and ONE single seamless continuous deep charcoal green-black background.
+BACKGROUND
+ONE seamless deep charcoal green-black background with a subtle vignette. No floor-wall boundary, horizon, panels or bands.
 
-STRICTLY FORBIDDEN FOR BILD 00
-No dashboard, no app UI, no digital screen, no control panel, no cards/tiles/chips/widgets, no gameboard, no circular module layout, no repeated payment blocks, no microchip language, no connector network, no product pedestal.
+ALLOWED TEXT ONLY
+`9,99 €`
+`PRO MONAT`
+`119,88 € / JAHR`
+No sentence, headline or subtitle.
 
-QA: if Bild 00 looks like fintech UI, a board, a game or an isometric module system, regenerate Bild 00.
+NEGATIVE
+No dashboard, no UI, no screen, no board, no flat real paper photo, no product pedestal, no gameboard, no module system.
+
+QA
+Reject and regenerate if it looks like a photograph, realistic desk calendar, office stationery, UI, gameboard or flat paper scene. It must unmistakably look like premium stylized 3D CGI.
