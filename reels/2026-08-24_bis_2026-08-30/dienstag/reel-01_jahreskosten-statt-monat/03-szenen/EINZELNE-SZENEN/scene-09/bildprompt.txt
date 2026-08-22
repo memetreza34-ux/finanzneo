@@ -1,44 +1,30 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
-VISUAL_TIMING_AND_CLARITY_STANDARD: finanzneo-visual-timing-and-clarity-v1
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 09 - Vertrag Check.png
-
-FORMAT
-Create a square 1:1 source image only. Width and height must be equal.
+BILD 09 – SZENE 09
+FINAL FILE NAME: Bild 09 - Fixkosten Alltag.png
+FORMAT: strict square 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
 
 CREATE EXACTLY ONE IMAGE.
-Use the written physical-explainer style lock. Fresh composition. Do not copy previous layouts.
 
-TIMING + CLARITY
-- Target screen time: about 5 seconds.
-- The three practical contract checks must read immediately in under 2 seconds.
-- The viewer should recognize a normal everyday contract review, not decode an abstract machine.
-- One main idea only: check usage, annual cost and billing frequency.
+MAIN IDEA
+Fixkosten bestehen aus konkreten Alltagsdiensten.
 
-MAIN VISUAL
-A thick open PAPER CONTRACT FOLDER is the hero object. Three real inspection objects are arranged naturally around it, not as stages and not in a row of modules: a large magnifying glass resting over one section of the contract, a small physical balance scale holding real euro coins beside another section, and a compact paper desk calendar beside the billing-frequency section. Add one physical rubber checkmark stamp and a pen for realism.
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI financial editorial scene. A chunky open dark-emerald wallet/budget tray is the hero object. Around and partly inside it are four large recognizable stylized 3D props: over-ear headphones, a smartphone with screen dark/off plus SIM card, a gym membership key fob, and a cream app-purchase envelope with an embossed app symbol. Each prop has a small thick cream label tag. Use gold coins in small groups beside each item to communicate recurring cost. The arrangement must feel like an active everyday budget scene, not a grid.
 
-ALLOWED GERMAN OBJECT LABELS ONLY
-- `NUTZE ICH ES?`
-- `PRO JAHR?`
-- `WIE OFT?`
-Attach the labels as real paper question tags directly to the relevant physical objects.
-
-STYLE
-Premium stylized 3D physical financial editorial explainer. Deep charcoal green-black seamless world, emerald/mint accents, gold only for money/value, subtle red-orange only for warning. Matte paper, glass, brushed metal and premium plastic materials, cinematic soft light, controlled emerald rim light and clear contact shadows. Natural asymmetry and slight overlap.
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI, substantial rounded forms, simplified exaggerated proportions, premium emerald polymer/brushed metal, cream cards, chunky gold coins, cinematic soft light, emerald rim light, soft shadows, clear layered depth, mild DOF, polished editorial render. NOT photorealistic, NOT product photography, NOT clay/Pixar/toy.
 
 BACKGROUND
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary. No horizon. No panels. No bands.
+ONE seamless charcoal green-black background.
 
-STRICT FAILURE MODES
-No mechanical inspection gate. No conveyor. No three-stage board. No checklist UI. No connected modules. No dashboard. No control panel. No floating cards, tiles, chips or widgets. No board-game layout. No symmetrical module arrangement. No tiny isometric diorama. No abstract symbolism that needs interpretation.
+ALLOWED TEXT ONLY
+`STREAMING`
+`APPS`
+`MITGLIEDSCHAFT`
+`MOBILFUNK`
 
-No headline. No subtitle. No explanatory sentence. No CTA. If a stylized adult person is included, the face must be clearly visible with eyes, nose and mouth; a person is not required.
+NEGATIVE
+No dashboard, no four-row UI, no equal card grid, no app screen, no gameboard.
 
 QA
-Reject and regenerate Bild 09 if the three checks are not obvious in under 2 seconds, if the scene would need more than 6 seconds to explain, or if the result looks like a machine, inspection station, dashboard or modular UI.
+Must read in under 2 seconds and unmistakably look like premium stylized 3D CGI.
