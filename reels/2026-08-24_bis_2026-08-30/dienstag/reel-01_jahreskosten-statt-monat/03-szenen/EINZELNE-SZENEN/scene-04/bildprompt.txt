@@ -1,21 +1,25 @@
-FINAL FILE NAME: Bild 04 - Vergessene Abbuchungen.png
-FORMAT: strict square 1:1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
-Create a premium FinanzNeo fintech editorial 3D illustration in the same approved world.
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Vergessene Abbuchungen.png
 
-Dominant metaphor: one large physical bank-statement paper strip passes under a magnifying glass. Several ordinary payment lines are present as abstract marks, while two small recurring-cost tags are physically caught under the magnifying glass and glow warm red-orange.
+Create a square 1:1 source image. Use the written style lock only; do NOT use Bild 00 as image reference.
+
+MAIN PHYSICAL STORY
+One loose, slightly curled PAPER bank-statement strip crosses the composition naturally. A large real magnifying glass rests over two small printed recurring-charge lines on the paper. Beside the paper are a few real euro coins and a small old subscription PAPER tag. Nothing is mounted on a board or platform.
 
 Short German object labels only:
 - `ALTES ABO`
 - `9,99 €`
 - `PRÜFEN`
 
-The statement must look like a physical paper object, NOT a banking app, phone screen or dashboard.
+No headline. No subtitle. No explanatory sentence. If any person appears, the face must be clearly visible; preferably omit people.
 
-ONE seamless continuous deep charcoal green-black background, no wall/floor split, no horizon, no panels or bands.
+STRICTLY FORBIDDEN
+No banking app, no phone screen, no fabric panel, no dashboard, no glowing magnifier ring, no UI frame, no platform beneath the paper, no control-panel geometry.
 
-Emerald rim light, gold only for money/value, warm red-orange only for the suspicious recurring costs.
-
-No real bank brand, no account number, no personal data, no digital UI, no headline, no sentence, no photorealism.
-
-Square 1:1 with the magnifying-glass action as the dominant central metaphor.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Natural asymmetry, paper curl, slight overlap, realistic contact shadows. Labels must be printed on paper/tag surfaces.
