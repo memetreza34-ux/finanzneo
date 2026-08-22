@@ -75,6 +75,7 @@ const containsWrongGeneratedImageRatio = (text) => {
 if (existsSync(sceneRoot) && existsSync(indexPath)) {
   const index = JSON.parse(readFileSync(indexPath, 'utf8'));
   const legacyImageWorld = index.imageWorld?.legacyAssetSet === true;
+  const stylized3D = typeof index.imageWorld?.stylized3DLockId === 'string' && index.imageWorld.stylized3DLockId.trim();
   const directories = readdirSync(sceneRoot)
     .filter((entry) => /^scene-\d{2}$/.test(entry) && statSync(resolve(sceneRoot, entry)).isDirectory())
     .sort();
@@ -90,7 +91,8 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   assert(index.imageWorld?.squareGeneratedImagesRequired === true, 'Quadratische Google-Flow-Bilder müssen verpflichtend sein.');
   assert(index.imageWorld?.seriesLockId === SERIES_LOCK_ID, 'FinanzNeo Same-World-Serien-Lock fehlt.');
   assert(index.imageWorld?.sameWorldAcrossSeriesRequired === true, 'Dieselbe Bildwelt muss für die gesamte Serie vorgeschrieben sein.');
-  assert(index.imageWorld?.styleReferenceStrategy === 'approved-cover-style-only', 'Das freigegebene Cover muss als reine Stilreferenz für Folgebilder dienen.');
+  assert(index.imageWorld?.styleReferenceStrategy === 'written-style-lock-only', 'Bildkonsistenz muss über den ausgeschriebenen Stil-Lock statt über Bildreferenzen entstehen.');
+  assert(index.imageWorld?.referenceImageUse === 'forbidden', 'Bild-zu-Bild-/Cover-Referenzen müssen ausdrücklich verboten sein.');
   assert(index.imageWorld?.referencePromptFile === '03-szenen/bildwelt.txt', 'referencePromptFile ist falsch.');
   assert(index.googleFlow?.protocolId === FLOW_AGENT_PROTOCOL_ID, 'Google-Flow-Agent-Protokoll fehlt.');
   assert(index.googleFlow?.generationMode === 'one-image-at-a-time', 'Google Flow muss Bild für Bild arbeiten.');
@@ -101,8 +103,13 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
   assert(index.googleFlow?.retrySameImageOnFailure === true, 'Google Flow muss fehlerhafte Bilder unter derselben Nummer neu erzeugen.');
   assert(index.googleFlow?.finalCollectionDirectory === `${IMAGE_INBOX}/`, 'Google Flow muss alle fertigen Bilder im gemeinsamen Bilderordner sammeln.');
   assert(index.googleFlow?.distributeToSceneFolders === false, 'Google Flow darf Bilder nicht auf Szenenordner verteilen.');
-  assert(index.timelineRules?.cutsFollowSentenceStarts === true, 'Szenenschnitte müssen Satzanfängen folgen.');
+  assert(index.timelineRules?.cutsFollowSentenceStarts === true || index.timelineRules?.cutsFollowSentenceStartsAndMeaningfulPhraseStarts === true, 'Szenenschnitte müssen Satz- oder sinnvollen Phrasenanfängen folgen.');
   assert(index.timelineRules?.equalLengthScenesForbiddenByDefault === true, 'Starre gleich lange Szenen müssen standardmäßig verboten sein.');
+
+  if (index.timingStandard) {
+    assert(Number(index.timingStandard.imageSceneAbsoluteMaxSeconds) <= 6, 'Statische Bildbeats dürfen höchstens 6 Sekunden dauern.');
+    assert(index.timingStandard.splitOrAnimateIfImageExceedsMax === true, 'Zu lange Bildbeats müssen gesplittet oder animiert werden.');
+  }
 
   if (legacyImageWorld) {
     assert(index.imageWorld?.noEmptyBackground === true, 'Legacy-Reel: leere Hintergründe müssen verboten sein.');
@@ -182,8 +189,12 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
     assert(allPrompts.includes('Erzeuge GENAU EIN Bild'), 'Google-Flow-Agent muss exakt ein Bild pro Schritt erzeugen.');
     assert(allPrompts.includes('Benenne es SOFORT exakt'), 'Sofortige Umbenennung vor dem nächsten Bild fehlt.');
     assert(allPrompts.includes('Erzeuge DIESELBE Bildnummer neu'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
-    assert(allPrompts.includes('verbindliche visuelle Stilreferenz'), 'Das Cover wird nicht als verbindliche Stilreferenz festgelegt.');
-    assert(allPrompts.includes('Übernimm NICHT Motiv, Komposition oder Labels des Covers'), 'Folgebilder grenzen Stilreferenz und Cover-Inhalt nicht sauber ab.');
+    assert(allPrompts.includes('Kein vorheriges Bild') || allPrompts.includes('keine Bildreferenz'), 'Master-Prompt muss Bild-zu-Bild-Referenzen ausdrücklich ausschließen.');
+    assert(allPrompts.includes('Jede Szene bekommt eine eigene frische Komposition'), 'Jede Szene muss eine eigenständige Komposition verlangen.');
+    if (stylized3D) {
+      assert(allPrompts.includes(`STYLIZED_3D_LOCK: ${index.imageWorld.stylized3DLockId}`), 'Master-Prompt enthält den verbindlichen Stylized-3D-Lock nicht.');
+      assert(allPrompts.toLowerCase().includes('not photorealistic'), 'Master-Prompt verbietet Fotorealismus nicht ausdrücklich.');
+    }
   }
 
   directories.forEach((id, position) => {
@@ -223,6 +234,10 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
         assert(!containsObsoleteZoning(prompt), `${id}: Prompt enthält verbotene Prozent-Zonen.`);
         assert(prompt.toLowerCase().includes('no headline'), `${id}: große generierte Headline ist nicht verboten.`);
         assert(prompt.toLowerCase().includes('face') || prompt.toLowerCase().includes('gesicht'), `${id}: Gesichtsregel fehlt.`);
+        if (stylized3D) {
+          assert(prompt.includes(`STYLIZED_3D_LOCK: ${index.imageWorld.stylized3DLockId}`), `${id}: Stylized-3D-Lock fehlt.`);
+          assert(prompt.toLowerCase().includes('not photorealistic'), `${id}: Fotorealismus ist nicht ausdrücklich verboten.`);
+        }
       }
 
       const presentation = indexed?.imagePresentation;
@@ -257,5 +272,5 @@ if (errors.length) {
 }
 
 console.log('\n✓ Reel-Quellen-, Bildwelt-, Timing-, Publishing- und Präsentationsvertrag erfüllt.');
-console.log('  Neue Reels: nahtloser Hintergrund · sichtbares Gesicht bei Personen · kurze deutsche Objektlabels · Master-Caption + 4 Plattformdateien');
+console.log('  Neue Reels: 1:1 · schriftlicher Same-World-Lock ohne Bildreferenz · stylized 3D · max. 6 s pro Bildbeat · kurze deutsche Objektlabels');
 if (missingFinalImages > 0) console.log(`  Hinweis: ${missingFinalImages} finale Bilddateien fehlen noch.`);
