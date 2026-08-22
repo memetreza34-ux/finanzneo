@@ -1,21 +1,26 @@
 FINAL FILE NAME: Bild 00 - Jahreskosten Cover.png
-FORMAT: strict square 1:1
+FORMAT: strict square 1:1 source image
 
-Create a premium FinanzNeo fintech editorial 3D cover in the exact world defined by `03-szenen/bildwelt.txt`.
+Use the corrected physical-explainer world from 03-szenen/bildwelt.txt.
 
-Dominant metaphor: one small physical price token labelled `9,99 €` in the foreground, connected to a much larger annual stack of twelve gold-edged payment blocks behind it. The contrast must instantly communicate that a small recurring monthly amount becomes a much larger yearly total.
+Create a premium stylized 3D financial editorial cover built ONLY from recognizable physical objects.
 
-Optional short physical labels only:
+MAIN PHYSICAL STORY
+A small PAPER price tag printed `9,99 €` lies beside a substantial open PAPER yearly calendar. The calendar visibly represents twelve months with real paper pages/tabs, and a real gold euro coin rests against each month. Beside the calendar is one longer PAPER receipt strip carrying the yearly total.
+
+Short German object labels only:
 - `9,99 €`
 - `PRO MONAT`
 - `119,88 € / JAHR`
 
-Keep the composition bold and readable at social-media thumbnail size. One dominant idea, few objects, strong depth.
+The small monthly tag must feel visually tiny compared with the complete physical calendar and yearly receipt.
 
-Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. No horizon, no floor-wall split, no bands, no panels.
+STRICTLY FORBIDDEN
+No payment blocks. No board. No dashboard. No screen. No rectangular UI panel. No stacked cards. No module grid. No circular mechanism. No digital counter. No gameboard. No isometric control-panel look. No floating glowing labels.
 
-Emerald/mint accents, gold only for money/value. Warm red-orange may lightly mark recurring cost pressure.
-
-No headline, no subtitle, no sentence, no CTA, no dashboard, no floating UI, no photorealism, no real person.
+Labels must be printed on paper tags/receipt surfaces, not floating in space.
+Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. No floor-wall boundary, horizon, bands or panels.
+Use restrained emerald/mint rim light, gold only for money/value, realistic soft contact shadows.
+Not photorealistic, not Pixar, not clay, not toy-like.
 
 Square 1:1. Keep every important object and label fully inside safe margins.
