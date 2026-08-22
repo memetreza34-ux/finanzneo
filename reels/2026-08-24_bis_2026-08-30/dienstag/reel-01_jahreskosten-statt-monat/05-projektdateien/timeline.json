@@ -1,10 +1,13 @@
 {
-  "version": "finanzneo-timeline-v1",
+  "version": "finanzneo-timeline-v2",
   "status": "PHASE_2_REQUIRED",
   "timingSource": "04-caption/word-timings.json",
   "fps": 30,
-  "sceneCount": 10,
-  "cutsFollowSentenceStarts": true,
+  "sceneCount": 15,
+  "cutsFollowSentenceStartsAndMeaningfulPhraseStarts": true,
   "equalLengthScenesForbiddenByDefault": true,
+  "imageSceneAbsoluteMaxSeconds": 6.0,
+  "imageSceneCount": 9,
+  "animationSceneCount": 6,
   "scenes": []
 }
