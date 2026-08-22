@@ -1,0 +1,28 @@
+BILD 03 – SZENE 03
+FINAL FILE NAME: Bild 03 - Fuenf Alltagskosten.png
+FORMAT: strict square 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Fünf kleine laufende Alltagskosten summieren sich.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI editorial composition with five instantly recognizable 3D everyday cost objects arranged in a lively semicircle: oversized over-ear headphones for streaming, a dark-screen smartphone with a chunky SIM card, a stylized gym membership key fob, a small cream streaming ticket with a physical play-symbol emboss, and a compact app-purchase envelope/tag. Each object carries a small thick rounded cream 3D price tag marked `9,99 €`. In the foreground, one larger gold-edged cream total tag reads `49,95 € / MONAT`. Objects overlap slightly and sit at different depths; do not line them up like UI cards.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI render, chunky substantial geometry, rounded edges and soft bevels, simplified slightly exaggerated proportions, premium emerald polymer/brushed metal, warm-cream card material, chunky gold value details, cinematic key light, controlled emerald rim light, strong soft shadows, foreground/midground/background depth, mild DOF, polished editorial CGI. NOT photorealistic. NOT a product photo. NOT Pixar/clay/toy.
+
+BACKGROUND
+ONE seamless charcoal green-black background.
+
+ALLOWED TEXT ONLY
+`9,99 €`
+`49,95 € / MONAT`
+
+NEGATIVE
+No dashboard, no app-card grid, no floating panels, no board, no five identical rectangular modules, no isometric game layout.
+
+QA
+Must read in under 2 seconds and unmistakably look like stylized 3D CGI.
