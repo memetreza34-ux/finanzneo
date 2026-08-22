@@ -1,9 +1,10 @@
 # Szene 08
 
-**Typ:** Remotion-Animation
-**Headline:** `DEINE ECHTE FIXKOSTENLAST`
-**Sprechtext:**
+**Typ:** Remotion-Animation  
+**Headline:** `2 POSTEN WEG = 239,76 €`  
+**Zielzeit:** ca. 5,0 s
 
-Wenn du alle regelmäßigen Kosten zusammenzählst, siehst du deine echte Fixkostenlast – und wie viel für variable Ausgaben übrig bleibt.
+**Sprechtext-Ausschnitt:**  
+Wenn du von fünf solchen Kosten zwei wirklich nicht mehr nutzt, würdest du in diesem Beispiel 239,76 Euro pro Jahr freimachen.
 
-**Zweck:** Regelmäßige Kosten als gemeinsames Budgetgewicht sichtbar machen.
+**Zweck:** Zwei ungenutzte Beispielkosten werden sichtbar entfernt; die Jahreswirkung wird gezeigt.
