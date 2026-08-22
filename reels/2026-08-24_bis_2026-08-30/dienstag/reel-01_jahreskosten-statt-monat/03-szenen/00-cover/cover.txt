@@ -1,44 +1,26 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
+BILD 00 – COVER
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 00 - Jahreskosten Cover.png
-
-FORMAT
-Create a square 1:1 source image only. Width and height must be equal.
+FORMAT: strict square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
-Build the cover from recognizable PHYSICAL objects only.
+The finished scene should comfortably play around 4.5 to 5.5 seconds without becoming static.
 
-MAIN VISUAL IDEA
-A large open physical PAPER YEAR CALENDAR is the hero object, showing the progression of a year through real paper month pages. In the foreground, attach one small paper price tag reading `9,99 €` to the calendar. Beside the calendar lies one long physical annual receipt ending at a noticeably larger pile of real euro coins. The visual must instantly communicate: a tiny monthly price accumulates into a much larger annual cost.
-
-SUPPORTING PHYSICAL OBJECTS
-- one paper receipt
-- several real euro coins
-- one small paper clip
-- one torn calendar page
-Arrange them naturally and asymmetrically around the calendar with real contact shadows.
+MAIN VISUAL
+A large open physical PAPER YEAR CALENDAR is the hero object. One small paper price tag reading `9,99 €` is clipped to the calendar. Beside it lies one long physical annual receipt ending near a noticeably larger pile of real euro coins. Add one small paper clip and one torn calendar page. Make the relationship between objects very clear and lively: the receipt should visually lead toward the bigger yearly amount.
 
 ALLOWED GERMAN OBJECT LABELS ONLY
 - `9,99 €`
 - `PRO MONAT`
 - `119,88 € / JAHR`
-Labels must be printed on physical paper tags or the physical receipt, never floating UI text.
+Print labels on the real paper tag or receipt only.
 
-ART DIRECTION
-Premium stylized 3D financial editorial explainer. Deep charcoal green-black world, emerald/mint accents, gold only for money/value, restrained warm red-orange only for cost pressure. Matte paper, brushed metal and premium plastic materials. Cinematic soft key light and controlled emerald rim light. Strong readable silhouette at smartphone thumbnail size.
+The visual message must be immediate: a tiny monthly amount becomes a much larger yearly cost.
+The viewer should understand this in under two seconds.
 
-BACKGROUND
-Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge. No floor-wall boundary, no horizon, no panels, no bands.
+Use the global physical-explainer style and ONE single seamless continuous deep charcoal green-black background.
 
-STRICTLY FORBIDDEN
-No dashboard. No app UI. No digital screen. No control panel. No rectangular panel system. No floating cards, tiles, chips or widgets. No gameboard. No circular module arrangement. No repeated payment blocks. No microchip language. No tiny isometric diorama. No abstract connector lines. No product-ad pedestal.
+STRICTLY FORBIDDEN FOR BILD 00
+No dashboard, no app UI, no digital screen, no control panel, no cards/tiles/chips/widgets, no gameboard, no circular module layout, no repeated payment blocks, no microchip language, no connector network, no product pedestal.
 
-No headline. No subtitle. No explanatory sentence. No CTA. No photorealism. No real person.
-
-QA
-If the image looks like a fintech dashboard, board, game, interface or isometric module system, reject it and regenerate Bild 00 before continuing.
+QA: if Bild 00 looks like fintech UI, a board, a game or an isometric module system, regenerate Bild 00.
