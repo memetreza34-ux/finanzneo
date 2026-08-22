@@ -1,21 +1,25 @@
-FINAL FILE NAME: Bild 10 - Monat gegen Jahr.png
-FORMAT: strict square 1:1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
-Create a premium FinanzNeo closing illustration in the exact same approved world.
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Monat gegen Jahr.png
 
-Dominant metaphor: a small physical monthly price token on one side of a large magnifying lens transforms through the lens into a clearly larger yearly stack on the other side. The visual should communicate perspective: monthly price is only one slice; annual cost is the full picture.
+Create a square 1:1 source image. Use the written style lock only; do NOT use Bild 00 as image reference.
+
+MAIN PHYSICAL STORY
+A small PAPER monthly price tag marked `PRO MONAT` sits beside a large real magnifying glass. Through and behind the glass, the viewer sees a long physical yearly receipt and a twelve-page paper calendar with a visibly larger total pile of real euro coins. The lens reveals the full-year consequence using physical objects only.
 
 Short German object labels only:
 - `PRO MONAT`
 - `PRO JAHR`
 - `PRÜFEN`
 
-Keep the ending calm, organized and useful rather than alarming.
+No headline. No subtitle. No explanatory sentence. If any person appears, the face must be clearly visible; preferably omit people.
 
-ONE seamless continuous deep charcoal green-black background from edge to edge. No horizon, no floor-wall boundary, no bands or panels.
+STRICTLY FORBIDDEN
+No transformation tunnel, no digital comparison card, no board, no screen, no floating UI, no control panel, no rectangular module system, no isometric gameboard.
 
-Emerald/mint accents, gold for money/value, premium rounded 3D editorial finish.
-
-No dashboard, no digital screen, no floating UI, no headline, no explanatory sentence, no photorealistic person.
-
-Square 1:1 with a strong final-frame composition and generous safe margins.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Natural asymmetry and realistic contact shadows. Labels must be physical paper/receipt text, never floating badges.
