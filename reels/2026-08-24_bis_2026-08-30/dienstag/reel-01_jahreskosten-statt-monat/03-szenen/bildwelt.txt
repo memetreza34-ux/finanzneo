@@ -4,6 +4,9 @@ PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
+FORMAT LOCK
+Create a square 1:1 source image only. Width and height must be equal. No portrait or vertical format.
+
 VERBINDLICHE KORRIGIERTE BILDWELT
 Premium stylized 3D financial editorial explainer built from REAL, RECOGNIZABLE PHYSICAL OBJECTS.
 Do NOT interpret the word finance as fintech UI, software, a dashboard, a control panel or a digital product.
