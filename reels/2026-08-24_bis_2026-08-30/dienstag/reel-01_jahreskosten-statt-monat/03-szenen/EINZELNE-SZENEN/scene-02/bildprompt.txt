@@ -2,6 +2,7 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
+VISUAL_TIMING_AND_CLARITY_STANDARD: finanzneo-visual-timing-and-clarity-v1
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
 GOOGLE FLOW – FINALER DATEINAME:
@@ -12,6 +13,12 @@ Create a square 1:1 source image only. Width and height must be equal.
 
 CREATE EXACTLY ONE IMAGE.
 Use the written physical-explainer style lock. Fresh composition. Do not copy Bild 00 or Bild 01.
+
+TIMING + CLARITY
+- Target screen time: about 5 seconds.
+- The viewer must understand in under 2 seconds that several small subscriptions add up to a large yearly amount.
+- One main idea only.
+- Keep the scene active through overlap, diagonal receipt flow and obvious everyday objects.
 
 MAIN VISUAL
 A long unfolded PAPER YEARLY RECEIPT is the hero object, running diagonally through the scene. Around it sit five clearly different recognizable physical recurring-cost objects: over-ear headphones, a physical smartphone with the screen dark/off, a gym membership key fob, a small paper streaming ticket, and a SIM-card package. Each object has a small attached paper price tag marked `9,99 €`.
@@ -31,9 +38,9 @@ BACKGROUND
 Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary. No horizon. No panels. No bands.
 
 STRICT FAILURE MODES
-No central money container. No dashboard. No app-card grid. No digital screen. No rectangular module layout. No floating cards, tiles, chips or buttons. No control panel. No board-game layout. No orbit. No repeated identical blocks. No microchip language. No tiny isometric diorama.
+No central money container. No dashboard. No app-card grid. No digital screen. No rectangular module layout. No floating cards, tiles, chips or buttons. No control panel. No board-game layout. No orbit. No repeated identical blocks. No microchip language. No tiny isometric diorama. No abstract metaphor that requires explanation.
 
 No headline. No subtitle. No explanatory sentence. No CTA. If a person appears unexpectedly, the face must be clearly visible; preferably use no person.
 
 QA
-If the image resembles a dashboard, UI grid, modular board or game layout, reject it and regenerate Bild 02.
+Reject and regenerate Bild 02 if the main idea is not obvious in under 2 seconds, if it would need more than 6 seconds to decode, or if the image resembles a dashboard, UI grid, modular board or game layout.
