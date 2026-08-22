@@ -1,25 +1,39 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 02 - Fuenf Dauerposten.png
 
-Create a square 1:1 source image. Use the written style lock only; do NOT use Bild 00 as image reference.
+FORMAT
+Create a square 1:1 source image only. Width and height must be equal.
 
-MAIN PHYSICAL STORY
-Five clearly different recognizable physical everyday service/subscription objects sit naturally around one long PAPER yearly receipt: headphones, a physical smartphone with the screen dark/off, a gym membership key fob, a small paper streaming ticket, and a SIM-card/package object. Each object has a small attached PAPER price tag marked `9,99 €`. The long receipt physically shows the combined monthly and yearly totals.
+CREATE EXACTLY ONE IMAGE.
+Use the written physical-explainer style lock. Fresh composition. Do not copy Bild 00 or Bild 01.
 
-Short German object labels only:
+MAIN VISUAL
+A long unfolded PAPER YEARLY RECEIPT is the hero object, running diagonally through the scene. Around it sit five clearly different recognizable physical recurring-cost objects: over-ear headphones, a physical smartphone with the screen dark/off, a gym membership key fob, a small paper streaming ticket, and a SIM-card package. Each object has a small attached paper price tag marked `9,99 €`.
+
+The yearly receipt physically gathers the costs and ends beside a visibly larger pile of real euro coins. The scene must communicate that several small recurring costs combine into a substantial annual total.
+
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `5 × 9,99 €`
 - `49,95 € / MONAT`
 - `599,40 € / JAHR`
+Print these on the physical receipt or attached paper tags only.
 
-No headline. No subtitle. No explanatory sentence. If any person appears, the face must be clearly visible; preferably omit people.
+STYLE
+Premium stylized 3D physical financial editorial explainer. Deep charcoal green-black world, emerald/mint accents, gold only for money/value, restrained warm red-orange only for unwanted cost pressure. Matte paper, brushed metal and premium plastic materials, soft cinematic light, emerald rim light, clear contact shadows. Natural asymmetrical arrangement with slight overlap.
 
-STRICTLY FORBIDDEN
-No money container, no central board, no dashboard, no app-card grid, no stacked rectangular blocks, no floating cards/chips/buttons, no control panel, no isometric gameboard.
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary. No horizon. No panels. No bands.
 
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Natural asymmetry, slight overlap, contact shadows. Labels must be physical receipt/tag text, never floating UI badges.
+STRICT FAILURE MODES
+No central money container. No dashboard. No app-card grid. No digital screen. No rectangular module layout. No floating cards, tiles, chips or buttons. No control panel. No board-game layout. No orbit. No repeated identical blocks. No microchip language. No tiny isometric diorama.
+
+No headline. No subtitle. No explanatory sentence. No CTA. If a person appears unexpectedly, the face must be clearly visible; preferably use no person.
+
+QA
+If the image resembles a dashboard, UI grid, modular board or game layout, reject it and regenerate Bild 02.
