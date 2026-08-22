@@ -7,56 +7,76 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FORMAT LOCK
 Create a square 1:1 source image only. Width and height must be equal. No portrait or vertical format.
 
-VERBINDLICHE KORRIGIERTE BILDWELT
-Premium stylized 3D financial editorial explainer built from REAL, RECOGNIZABLE PHYSICAL OBJECTS.
-Do NOT interpret the word finance as fintech UI, software, a dashboard, a control panel or a digital product.
+FINANZNEO PHYSICAL EXPLAINER — VERBINDLICHE BILDWELT
+Create premium stylized 3D editorial finance illustrations built from REAL, RECOGNIZABLE PHYSICAL OBJECTS.
+Do NOT interpret finance as software, fintech UI, a dashboard, a control panel, a game board or a digital product.
 
-CORE COMPOSITION — REQUIRED
-- ONE large recognizable physical hero object.
-- Add 3–6 recognizable topic-specific physical supporting objects only when useful.
-- Arrange them naturally and asymmetrically with slight overlap, foreground/midground depth and soft local contact shadows.
-- Camera: front-facing or gentle natural three-quarter view. NEVER tiny isometric, top-down gameboard or miniature control-panel perspective.
-- The composition must read like one premium editorial still life, not a designed interface.
+CORE COMPOSITION
+- ONE large recognizable physical hero object must dominate the scene.
+- Add 3–6 recognizable physical supporting objects when useful.
+- Arrange objects naturally and asymmetrically, with slight overlap, foreground/midground depth and soft contact shadows.
+- Camera: frontal or gentle elevated three-quarter editorial view. Never tiny isometric game-diorama view.
+- The scene must communicate one clear cause-and-effect idea immediately at smartphone size.
 
-PHYSICAL OBJECTS ONLY
-Good object language: paper calendar, receipt, contract folder, magnifying glass, euro coins, banknotes, headphones, smartphone as a physical object with screen turned away/off, SIM card, membership key fob, envelope, shopping basket, price tag, scale, folder, paper label.
+GOOD PHYSICAL OBJECT LANGUAGE
+paper calendar, receipt, contract folder, paper price tag, envelope, shopping basket, magnifying glass, balance scale, euro coins, banknotes, headphones, smartphone as a physical object, SIM card, membership card, key fob, paper statement, pen, paper clip, stamp.
 
-STRICTLY FORBIDDEN FAILURE MODE
-- digital dashboard, app UI, software screen, HUD, control panel
-- central rectangular board, tablet, display card or floating panel
-- repeated rectangular slabs, tiles, cards or blocks as the main composition
-- floating UI cards, badges, chips, buttons or widgets
-- microchip/circuit-board aesthetics
-- circular orbit, ring of modules, twelve slots around a mechanism
-- mechanical inspection gate, conveyor-board layout, gameboard or board-game composition
-- neon connector lines, glowing rails, tracks, tubes, abstract finance streams
-- four-corner mini-module layout
+STRICT FAILURE MODES — REGENERATE IMMEDIATELY
+- dashboard or app UI
+- digital central board or screen
+- rectangular panel system
+- floating cards, tiles, chips, badges, widgets or HUD elements
+- control panel aesthetic
+- board-game or gameboard layout
+- circular orbit or ring of modules
+- repeated slots or repeated rectangular blocks as the main structure
+- microchip / circuit-board visual language
+- mechanical inspection gate
+- abstract finance network, glowing connector loops, rails, tracks, tubes or neon paths
+- symmetrical four-corner module layout
 - tiny isometric diorama
-- sterile product-ad plinth or empty black product stage
+- sterile luxury product-ad composition
+- meaningless towers, monoliths or geometric stacks
 
-LABEL RULE
-Only explicitly requested short German labels. Labels must look PHYSICAL: printed on paper tags, stickers, receipts or small attached plaques. Never floating glowing text, digital badges or UI chips.
-
-STYLE
-- deep charcoal green-black seamless background
-- emerald/mint used sparingly as rim light and structural accent, NOT as glowing UI outlines
-- gold only for money/value
-- warm red-orange only for warning/unwanted cost
-- matte paper, brushed metal, glass and premium plastic material cues
-- smooth but substantial forms, realistic contact shadows
-- cinematic soft key light + restrained emerald rim light
-- not photorealistic, not Pixar, not clay, not toy-like
+MATERIAL + COLOR LOCK
+- premium stylized adult 3D editorial illustration
+- deep charcoal green-black base world
+- emerald and mint accents for structure and positive guidance
+- gold only for money and value
+- warm red-orange only for warning, unwanted cost, debt or pressure
+- matte paper, brushed metal, premium plastic and restrained glass material cues
+- smooth rounded geometry and soft bevels
+- cinematic soft key light, controlled emerald rim light, clear contact shadows
+- not photorealistic, not Pixar, not clay, not childish
 
 BACKGROUND LOCK
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image from top edge to bottom edge.
-NO horizontal divisions, top/bottom sections, floor-wall boundary, horizon line, studio wall split, panels or background bands.
-Use only one subtle continuous gradient or vignette.
-Objects may cast soft contact shadows, but do not create a visible floor plane.
-Leave natural breathing room around the physical still life.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
+The background must keep the same continuous material, tone and gradient from the top edge to the bottom edge.
+NO horizontal divisions.
+NO separate top or bottom sections.
+NO dark bands.
+NO panels.
+NO floor-wall boundary.
+NO horizon line.
+NO visible studio wall split.
+Use one subtle continuous gradient or vignette only.
+Objects may cast soft contact shadows, but the background itself remains uninterrupted.
 
-STYLE CONSISTENCY WITHOUT COMPOSITION COPYING
-Do NOT upload, attach or use Bild 00 as an image-to-image/reference image for later scenes.
-Keep consistency ONLY by repeating this written style/material/light/color lock in every prompt.
-Every scene must be newly composed from its own physical objects and must NOT inherit the cover's camera angle, silhouette, object arrangement, board shape or geometry.
+TEXT LOCK
+No headline.
+No subtitle.
+No explanatory sentence.
+No CTA.
+Only the explicitly requested short German object labels.
+Labels must look physical: paper tags, stickers, attached plaques, printed paper labels or stamped labels.
+Never render labels as glowing UI chips or floating interface text.
 
-All Google-Flow source images, including the cover, are strict square 1:1.
+PERSON RULE
+A person is optional. If present, use a stylized anonymous adult with a clearly visible face, eyes, nose and mouth, front-facing or natural three-quarter view. No faceless mannequin, hidden face, pure back view or real identifiable person.
+
+SAME-WORLD RULE WITHOUT IMAGE COPYING
+All images must share the same written art direction, lighting signature, materials and color roles.
+Bild 00 is the verbindliche visuelle Stilreferenz only in the sense of this written style lock.
+Do NOT upload Bild 00 as a literal composition reference if that causes layout copying.
+Übernimm NICHT Motiv, Komposition oder Labels des Covers.
+Every scene must be freshly composed from its own physical objects.
