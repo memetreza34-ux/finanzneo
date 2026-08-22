@@ -4,41 +4,103 @@ Dieses Dokument definiert das Bildsystem für neue FinanzNeo-Reels. Bei Widerspr
 
 Verbindlicher Stilanker:
 
-- `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 - World ID: `finanzneo-connected-studio-v3`
 - Series Lock ID: `finanzneo-same-world-v1`
+- Physical Explainer Lock: `finanzneo-physical-explainer-v4`
 - Google-Flow-Quellbildformat: immer `1:1`
 
 ## Ziel
 
-Jedes Bild erklärt genau eine Aussage durch eine klare visuelle Handlung:
+Jedes Bild erklärt genau eine Aussage durch eine klare physische Szene:
 
 ```text
 Ausgangspunkt → sichtbare Veränderung → verständliches Ergebnis
 ```
 
+## Höchste neue Regel: Physical Explainer statt Fintech-UI
+
+FinanzNeo-Bilder sind **premium stylized 3D financial editorial explainers aus erkennbaren physischen Gegenständen**.
+
+Der Begriff `finance` darf von Google Flow NICHT als Software, Dashboard, App, Kontrollpanel oder digitale Produktoberfläche interpretiert werden.
+
+### Verbindliche Komposition
+
+- EIN großes erkennbares physisches Hauptobjekt
+- wenige konkrete themenspezifische physische Nebenobjekte
+- natürliche asymmetrische Anordnung
+- leichte Überlappung
+- Vorder-/Mittelgrund-Tiefe
+- lokale weiche Kontakt-Schatten
+- Kamera frontal oder natürliche sanfte 3/4-Ansicht
+- Ergebnis wirkt wie ein hochwertiges Editorial-Stillleben, NICHT wie ein Interface
+
+Gute Objektarten:
+
+- Papierkalender
+- Quittung / Kontoauszug / Vertrag
+- Ordner / Umschlag
+- Lupe
+- physische Waage
+- Euro-Münzen / Geldscheine
+- Einkaufskorb
+- Kopfhörer
+- Smartphone als physischer Gegenstand mit dunklem/abgewandtem Screen
+- SIM-Verpackung
+- Mitgliedschafts-Key-Fob
+- physische Preisschilder
+
+## Hart verbotener Screenshot-Fehlermodus
+
+Sofort neu erzeugen bei:
+
+- digitalem Dashboard oder App-UI
+- zentralem rechteckigem Board / Tablet / Screen / Panel
+- mehreren gleichartigen rechteckigen Karten, Kacheln oder Blöcken als Bildsprache
+- Floating Cards, Chips, Buttons, Badges oder Widgets
+- Microchip-/Circuitboard-Look
+- kreisförmigem Orbit oder Ring aus Modulen
+- zwölf Slots in einem Mechanismus
+- Gameboard-/Boardgame-Komposition
+- mechanischem Prüf-Gate / Conveyor-Board
+- Neon-Verbindungslinien, Rails, Röhren, Tracks oder abstrakten Finanzströmen
+- Vier-Ecken-Modulaufbau
+- winziger isometrischer Diorama-Perspektive
+- sterilem Produkt-Sockel / leerer Produktwerbung
+
 ## Visueller Stil
 
-- Premium fintech editorial 3D render style
-- eine dominante Finanzmetapher / ein großes Hauptobjekt
-- optional eine stilisierte erwachsene 3D-Person mit klar sichtbarem Gesicht
+- Premium stylized 3D financial editorial illustration
 - deep charcoal green-black Grundwelt
-- vivid emerald/mint Akzente
+- Emerald/Mint sparsam als Rim-Light und Strukturakzent, NICHT als leuchtende UI-Kontur
 - Gold nur für Geld/Wert
-- warmes Rot-Orange nur für Risiko/Verlust/Schulden
-- smooth rounded geometry, soft bevelled edges
-- starkes kontrolliertes Rim Light
-- nicht fotorealistisch, kein Pixar/Clay
+- warmes Rot-Orange nur für Risiko/Verlust/unerwünschte Kosten
+- matte Papier-, gebürstete Metall-, Glas- und hochwertige Kunststoffmaterialien
+- substantial objects statt abstrakter Icons
+- cinematic soft key light
+- reale lokale Kontakt-Schatten
+- zurückhaltendes smaragdgrünes Rim Light
+- nicht fotorealistisch, kein Pixar/Clay/Toy-Look
 
-Diese Merkmale bleiben über den gesamten Bildsatz unverändert. Der Google-Flow-Agent darf Hintergrundmaterial, Lichtsignatur, Geometriesprache, Materialfinish oder Farbrollen zwischen Bildern nicht neu interpretieren.
+## Same-World ohne Kompositionskopie
 
-Das freigegebene Cover `Bild 00` ist die visuelle Stilreferenz für die Serie. Es ist keine Inhaltsvorlage: Motiv, Komposition und Labels werden nicht in Folgebilder übernommen.
+Das Cover `Bild 00` darf **nicht als Image-to-Image-/Bildreferenz hochgeladen oder angehängt werden**.
+
+Stattdessen wird in jedem einzelnen Prompt derselbe ausgeschriebene Text-Lock für:
+
+- Hintergrund
+- Material
+- Farbrollen
+- Geometrie
+- Licht
+- Kontrast
+
+wiederholt.
+
+So bleibt die Welt konsistent, ohne dass Flow die Cover-Perspektive, Board-Form, Objektanordnung oder Silhouette in alle Szenen kopiert.
 
 ## Hintergrund — verbindlich nahtlos
 
-**Keine Prozent-Zonen verwenden.**
-
-Das gesamte quadratische 1:1-Bild verwendet genau **einen nahtlosen Hintergrund** von Kante zu Kante.
+Keine Prozent-Zonen verwenden.
 
 ```text
 Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
@@ -46,20 +108,22 @@ Keep the same continuous material, tone and gradient from top edge to bottom edg
 No horizontal divisions, no top/bottom sections, no bands, no floor-wall boundary, no horizon line, no panels.
 Use only one subtle continuous gradient/vignette.
 Do not create a visible floor, wall or studio horizon.
-Objects may cast soft contact shadows.
-Place the subject near the visual center and leave generous natural empty space above and below without changing the background.
+Objects may cast soft local contact shadows.
 ```
 
-## Person
+## Personen
 
 Wenn eine Person vorkommt:
 
+- stilisierte erwachsene 3D-Person
 - Gesicht klar sichtbar
 - Augen, Nase und Mund erkennbar
-- frontal oder natürliche 3/4-Ansicht bevorzugt
+- frontal oder natürliche 3/4-Ansicht
 - keine gesichtslose Figur
 - keine reine Rückenansicht
 - keine reale/identifizierbare Person
+
+Eine Person ist optional; physische Gegenstände dürfen die Erklärung allein tragen.
 
 ## Text im KI-Bild
 
@@ -67,7 +131,7 @@ Erlaubt:
 
 - nur explizit vorgegebene kurze deutsche Objektlabels
 - normalerweise 1–3 Wörter
-- direkt am passenden Objekt
+- physisch auf Papier-Tags, Stickern, Quittungen oder kleinen befestigten Plaketten
 
 Verboten:
 
@@ -76,23 +140,8 @@ Verboten:
 - ganzer Satz
 - CTA
 - zufällige Zusatztexte
-- Fantasiewörter
-
-## Marken
-
-Reale Marken/Dienste dürfen verwendet werden, wenn sie für die konkrete Erklärung relevant sind. Namen korrekt schreiben; keine erfundene Partnerschaft/Empfehlung suggerieren.
-
-## Komposition
-
-- square 1:1 source image
-- Breite und Höhe identisch
-- kein Hochformat/Portrait
-- Hauptmotiv groß und smartphone-lesbar
-- wenige große Hauptelemente
-- ein klarer Ursache-Wirkungs-Zusammenhang
-- großzügige natürliche freie Fläche oberhalb/unterhalb des Motivs
-- keine harte Zonenaufteilung
-- keine Miniatur-Dioramen, Dashboards oder Game-Level
+- floating/glowing labels
+- digitale Badges / UI-Chips
 
 ## Darstellung in Remotion
 
@@ -105,30 +154,28 @@ Reale Marken/Dienste dürfen verwendet werden, wenn sie für die konkrete Erklä
 - zusätzliche Skalierung höchstens `1.04`
 - Motive und Labels nie abschneiden
 
-## Timing
+## Pflichtinhalt eines neuen Bildprompts
 
-Szenenwechsel folgen Satzanfängen aus dem finalen Audio. Gleich lange Szenen sind kein Standard.
-
-## Pflichtinhalt eines Bildprompts
-
-Jeder Prompt enthält:
-
-1. finalen Google-Flow-Dateinamen
+1. finaler Google-Flow-Dateiname
 2. konkrete erlaubte deutsche Labels
-3. eine dominante Metapher / ein Hauptobjekt
-4. sichtbare Ursache-Wirkung
-5. Premium-Fintech-Editorial-3D-Stil
-6. seamless-background-Regel
-7. Personenregel, falls eine Person vorkommt
-8. Negativregeln
+3. konkrete physische Haupt-/Nebenobjekte statt abstrakter Metapher allein
+4. sichtbarer Ursache-Wirkungs-Zusammenhang
+5. Physical-Explainer-Lock
+6. nahtloser Hintergrund
+7. Personenregel
+8. harter UI-/Board-/Diorama-Negativblock
+9. Anweisung: `Bild 00` NICHT als Bildreferenz verwenden
 
-## Sofort neu erzeugen
+## Google-Flow-QA
 
-- zwei sichtbare Hintergründe/Bänder
-- horizontale Trennlinie
-- Boden-/Wand-Grenze oder Horizont
-- gesichtslose/abgewandte Person
-- Diorama/Game-Level
-- falsche/zusätzliche Labels
-- große Headline oder Satz
-- Aussage passt nicht zum Voiceover
+Nach jedem Bild prüfen:
+
+- erkennt man echte physische Gegenstände sofort?
+- wirkt die Szene wie Editorial-Illustration statt UI?
+- keine zentrale Platte / kein Board / kein Screen?
+- keine Kachel-/Block-/Modulstruktur?
+- keine isometrische Gameboard-Perspektive?
+- Labels physisch statt schwebend?
+- 1:1 und nahtloser Hintergrund?
+
+Wenn eine Antwort falsch ist: dieselbe Bildnummer neu erzeugen, erst danach fortfahren.
