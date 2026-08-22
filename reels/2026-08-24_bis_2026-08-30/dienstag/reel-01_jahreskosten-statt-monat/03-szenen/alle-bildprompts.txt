@@ -6,16 +6,18 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+VISUAL_TIMING_AND_CLARITY_STANDARD: finanzneo-visual-timing-and-clarity-v1
 
 ZIEL
-Erzeuge eine zusammenhängende FinanzNeo-Bildserie als PREMIUM PHYSICAL 3D EXPLAINER. Die Bilder müssen aus real erkennbaren physischen Gegenständen bestehen und dürfen NICHT wie Fintech-Software, Dashboards, Spielbretter, Control Panels oder UI-Karten aussehen.
+Erzeuge eine zusammenhängende FinanzNeo-Bildserie als PREMIUM PHYSICAL 3D EXPLAINER.
+Die Bilder müssen aus real erkennbaren physischen Gegenständen bestehen, sofort verständlich sein und dürfen NICHT wie Fintech-Software, Dashboards, Spielbretter, Control Panels oder UI-Karten aussehen.
 
 STRIKTER ARBEITSMODUS
 1. Lies diese Datei einmal komplett.
 2. Arbeite danach strikt von oben nach unten.
 3. Erzeuge GENAU EIN Bild.
 4. Warte vollständig auf das Ergebnis.
-5. Prüfe Format, Motiv, erlaubte Labels, Hintergrund und Physical-Explainer-Stil.
+5. Prüfe Format, Motiv, erlaubte Labels, Hintergrund, Alltagsklarheit und Physical-Explainer-Stil.
 6. Benenne es SOFORT exakt mit dem angegebenen finalen Dateinamen um.
 7. Erst danach das nächste Bild erzeugen.
 8. Wenn eine Prüfung scheitert: Erzeuge DIESELBE Bildnummer neu, ersetze die fehlerhafte Version und prüfe erneut.
@@ -24,15 +26,24 @@ STRIKTER ARBEITSMODUS
 11. Alle Bilder sind strict square 1:1 source image.
 12. Nach Abschluss müssen alle Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` liegen.
 
+TIMING- UND KLARHEITSREGELN
+- Ein Bild sollte ideal 3.5 bis 5.5 Sekunden funktionieren.
+- Ein Bild darf niemals so komplex sein, dass es länger als 6 Sekunden stehen müsste.
+- Wenn eine Szene mehr als 6 Sekunden Erklärzeit braucht: splitten oder animieren.
+- Jede Szene braucht genau EINE Hauptaussage.
+- Der Zuschauer soll das Motiv in unter 2 Sekunden verstehen.
+- Nutze direkte Alltagsmetaphern statt abstrakter Interpretation.
+- Erlaubt sind kurze Labels, aber keine Sätze.
+
 VERBINDLICHE VISUELLE STILREFERENZ
-Bild 00 ist die verbindliche visuelle Stilreferenz nur im Sinne der ausgeschriebenen Art Direction: gleiche Farbrollen, Lichtsignatur, Materialien, Kontrast und Renderqualität.
-Bild 00 NICHT als starre Kompositionsvorlage verwenden und nicht hochladen, wenn Google Flow dadurch Perspektive oder Layout kopiert.
-Übernimm NICHT Motiv, Komposition oder Labels des Covers.
+Keine Bild-Referenz-Nutzung.
+Kein Bild hochladen, um Komposition, Perspektive oder Layout zu kopieren.
+Die Einheitlichkeit entsteht ausschließlich durch die ausgeschriebene gemeinsame Bildwelt, Farbrollen, Materialien, Lichtsignatur und Qualitätsregeln.
 Jede Szene muss neu aus ihren eigenen physischen Gegenständen komponiert werden.
 
 GLOBALER PHYSICAL-EXPLAINER-LOCK
 - one large recognizable PHYSICAL hero object
-- 3–6 recognizable physical supporting objects when useful
+- 2–5 recognizable physical supporting objects
 - natural asymmetry, slight overlap and real contact shadows
 - frontal or gentle elevated three-quarter camera
 - deep charcoal green-black world
@@ -42,6 +53,7 @@ GLOBALER PHYSICAL-EXPLAINER-LOCK
 - matte paper, brushed metal, premium plastic and restrained glass materials
 - cinematic soft key light and controlled emerald rim light
 - not photorealistic, not Pixar, not clay, not childish
+- do not create dead still-lifes; create lively everyday scenes
 
 GUTE GEGENSTÄNDE
 paper calendar, receipt, contract folder, paper price tag, envelope, magnifying glass, balance scale, euro coins, headphones, physical smartphone with dark/off screen, SIM card, membership key fob, paper statement, pen, paper clip, stamp.
@@ -63,6 +75,8 @@ STRICT FAILURE MODES – SOFORT NEU ERZEUGEN
 - tiny isometric diorama
 - sterile product-ad pedestal
 - meaningless towers or monoliths
+- too abstract, hard to decode, or requires interpretation
+- text is too long or sentence-like
 
 BACKGROUND LOCK
 Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
@@ -91,9 +105,10 @@ Bild 00 - Jahreskosten Cover.png
 FORMAT: strict square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
+The finished scene should comfortably play around 4.5 to 5.5 seconds without becoming static.
 
 MAIN VISUAL
-A large open physical PAPER YEAR CALENDAR is the hero object. One small paper price tag reading `9,99 €` is clipped to the calendar. Beside it lies one long physical annual receipt ending near a noticeably larger pile of real euro coins. Add one small paper clip and one torn calendar page. Arrange everything naturally and asymmetrically.
+A large open physical PAPER YEAR CALENDAR is the hero object. One small paper price tag reading `9,99 €` is clipped to the calendar. Beside it lies one long physical annual receipt ending near a noticeably larger pile of real euro coins. Add one small paper clip and one torn calendar page. Make the relationship between objects very clear and lively: the receipt should visually lead toward the bigger yearly amount.
 
 ALLOWED GERMAN OBJECT LABELS ONLY
 - `9,99 €`
@@ -102,6 +117,7 @@ ALLOWED GERMAN OBJECT LABELS ONLY
 Print labels on the real paper tag or receipt only.
 
 The visual message must be immediate: a tiny monthly amount becomes a much larger yearly cost.
+The viewer should understand this in under two seconds.
 
 Use the global physical-explainer style and ONE single seamless continuous deep charcoal green-black background.
 
@@ -118,9 +134,10 @@ FORMAT: strict square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 Fresh composition. Do not copy Bild 00.
+This image should be readable and interesting for roughly 4 to 5 seconds.
 
 MAIN VISUAL
-A large real PAPER DESK CALENDAR is the hero object. One small physical paper price tag reading `9,99 €` is clipped to the current month page. Several real month pages are visibly turned behind it and upcoming pages remain in front. Add a few real euro coins, one folded receipt slip and one metal binder clip.
+A large real PAPER DESK CALENDAR is the hero object. One small physical paper price tag reading `9,99 €` is clipped to the current month page. Several real month pages are visibly turned behind it and upcoming pages remain in front. Add a few real euro coins, one folded receipt slip and one metal binder clip. Compose it so the repeated months are obvious at a glance.
 
 ALLOWED GERMAN OBJECT LABELS ONLY
 - `9,99 €`
@@ -128,6 +145,7 @@ ALLOWED GERMAN OBJECT LABELS ONLY
 Print labels on physical paper tags only.
 
 The scene must show repetition over months without charts or mechanisms.
+The viewer should understand the main idea immediately without interpretation.
 
 Use the global physical-explainer style and ONE single seamless continuous deep charcoal green-black background.
 
@@ -144,9 +162,10 @@ FORMAT: strict square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 Fresh composition. Do not copy previous layouts.
+This image should hold interest for about 5 seconds, so the scene must feel lively and instantly readable.
 
 MAIN VISUAL
-A long unfolded PAPER YEARLY RECEIPT is the hero object. Around it sit five clearly different recognizable physical recurring-cost objects: over-ear headphones, a physical smartphone with the screen dark/off, a gym membership key fob, a small paper streaming ticket and a SIM-card package. Each object has a small attached paper price tag marked `9,99 €`. The receipt ends near a larger pile of real euro coins.
+A long unfolded PAPER YEARLY RECEIPT is the hero object. Around it sit five clearly different recognizable physical recurring-cost objects: over-ear headphones, a physical smartphone with the screen dark/off, a gym membership key fob, a small paper streaming ticket and a SIM-card package. Each object has a small attached paper price tag marked `9,99 €`. The receipt ends near a larger pile of real euro coins. Make the objects feel like everyday services the viewer instantly connects to real life.
 
 ALLOWED GERMAN OBJECT LABELS ONLY
 - `5 × 9,99 €`
@@ -176,9 +195,10 @@ FORMAT: strict square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 Fresh composition.
+This image should work for roughly 4 to 5 seconds and must be instantly clear.
 
 MAIN VISUAL
-A large loose PAPER BANK STATEMENT is the hero object, slightly curled across the scene. A real magnifying glass rests directly on the paper and enlarges two small recurring-charge lines. Beside the statement lie a few real euro coins, a small old subscription paper tag and a metal paper clip. Nothing is mounted on a board or platform.
+A large loose PAPER BANK STATEMENT is the hero object, slightly curled across the scene. A real magnifying glass rests directly on the paper and enlarges two small recurring-charge lines. Beside the statement lie a few real euro coins, a small old subscription paper tag and a metal paper clip. Nothing is mounted on a board or platform. The enlarged charges should be clearly visible without the viewer needing to search for them.
 
 ALLOWED GERMAN OBJECT LABELS ONLY
 - `ALTES ABO`
@@ -206,9 +226,10 @@ FORMAT: strict square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 Fresh composition.
+This image should be clear and engaging for around 5 seconds.
 
 MAIN VISUAL
-A large unfolded PAPER ANNUAL BUDGET SHEET is the hero object, clearly a real paper document rather than a board. Around it sit four recognizable physical category objects: over-ear headphones for streaming, a physical smartphone with dark/off screen plus SIM card for mobile service, a gym membership key fob, and a small paper app-store receipt/envelope for apps. Small real euro coin groups sit beside the corresponding objects.
+A large unfolded PAPER ANNUAL BUDGET SHEET is the hero object, clearly a real paper document rather than a board. Around it sit four recognizable physical category objects: over-ear headphones for streaming, a physical smartphone with dark/off screen plus SIM card for mobile service, a gym membership key fob, and a small paper app-store receipt/envelope for apps. Small real euro coin groups sit beside the corresponding objects. Arrange the objects so the viewer directly connects them to yearly recurring costs in daily life.
 
 ALLOWED GERMAN OBJECT LABELS ONLY
 - `STREAMING`
@@ -241,9 +262,10 @@ FORMAT: strict square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 Fresh composition.
+This image should support around 5 seconds on screen and still read immediately.
 
 MAIN VISUAL
-A thick open PAPER CONTRACT FOLDER is the hero object. Three real inspection objects are arranged naturally around it, not as stages: a large magnifying glass over one contract section, a small physical balance scale holding real euro coins beside another section, and a compact paper desk calendar beside the billing-frequency section. Add one physical rubber checkmark stamp and a pen.
+A thick open PAPER CONTRACT FOLDER is the hero object. Three real inspection objects are arranged naturally around it, not as stages: a large magnifying glass over one contract section, a small physical balance scale holding real euro coins beside another section, and a compact paper desk calendar beside the billing-frequency section. Add one physical rubber checkmark stamp and a pen. The three checks should feel like practical everyday review steps, not abstract symbolism.
 
 ALLOWED GERMAN OBJECT LABELS ONLY
 - `NUTZE ICH ES?`
@@ -268,9 +290,10 @@ FORMAT: strict square 1:1 source image
 
 CREATE EXACTLY ONE IMAGE.
 Fresh composition.
+This image should feel crisp and readable for around 4 to 5 seconds.
 
 MAIN VISUAL
-A large real MAGNIFYING GLASS is the hero object. On the near side lies one small physical paper price tag marked `PRO MONAT`. Through and beyond the glass, show a long unfolded PAPER YEARLY RECEIPT, a compact paper calendar and a visibly larger pile of real euro coins. The lens reveals the full-year consequence using only physical objects.
+A large real MAGNIFYING GLASS is the hero object. On the near side lies one small physical paper price tag marked `PRO MONAT`. Through and beyond the glass, show a long unfolded PAPER YEARLY RECEIPT, a compact paper calendar and a visibly larger pile of real euro coins. The lens reveals the full-year consequence using only physical objects. The contrast between small monthly view and bigger yearly consequence must be visually immediate.
 
 ALLOWED GERMAN OBJECT LABELS ONLY
 - `PRO MONAT`
@@ -299,3 +322,4 @@ Es müssen exakt diese 7 Dateien existieren:
 Keine Bilddateien für 03, 05, 07 oder 08.
 Alle Bilder strict 1:1, gleiche FinanzNeo-Farb-/Materialwelt, aber eigenständige Kompositionen.
 Jedes Bild muss nach PHYSICAL EDITORIAL EXPLAINER aussehen — niemals nach Dashboard, UI, Board, Game-Level oder Modul-System.
+Wenn ein Bild zu komplex wäre, um unter 6 Sekunden klar zu bleiben, muss es vereinfacht, gesplittet oder als Animation umgesetzt werden.
