@@ -1,11 +1,10 @@
 # Szene 04
 
-**Typ:** Google-Flow-Bild
-**Headline:** `KLEINE ABBUCHUNGEN ÜBERSIEHT MAN`
-**Sprechtext:**
+**Typ:** Remotion-Animation  
+**Headline:** `49,95 € → 599,40 €`  
+**Zielzeit:** ca. 5,0 s
 
-Prüf außerdem regelmäßig deine Kontoauszüge. Die Verbraucherzentrale warnt, dass gerade kleine alte Abos und unnötige Verträge leicht übersehen werden.
+**Sprechtext-Ausschnitt:**  
+– und 599,40 Euro im Jahr. Nimm deshalb jede regelmäßige Monatszahlung mal zwölf.
 
-**Zweck:** Reale Alltagssituation ohne Markenwerbung oder App-UI.
-
-**Datei:** `Bild 04 - Vergessene Abbuchungen.png`
+**Zweck:** Monatswert sichtbar zum Jahreswert hochrechnen.
