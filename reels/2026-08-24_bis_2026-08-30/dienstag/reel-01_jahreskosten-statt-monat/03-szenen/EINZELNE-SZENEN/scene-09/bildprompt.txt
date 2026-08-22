@@ -1,25 +1,37 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 09 - Vertrag Check.png
 
-Create a square 1:1 source image. Use the written style lock only; do NOT use Bild 00 as image reference.
+FORMAT
+Create a square 1:1 source image only. Width and height must be equal.
 
-MAIN PHYSICAL STORY
-One thick PAPER contract folder lies open as the hero object. Three real inspection objects are placed naturally around it, NOT as stages: a magnifying glass over the usage section, a small physical balance scale holding euro coins beside the annual-cost section, and a compact paper calendar beside the billing-frequency section. Small PAPER question tags are attached directly to the relevant physical object.
+CREATE EXACTLY ONE IMAGE.
+Use the written physical-explainer style lock. Fresh composition. Do not copy previous layouts.
 
-Short German object labels only:
+MAIN VISUAL
+A thick open PAPER CONTRACT FOLDER is the hero object. Three real inspection objects are arranged naturally around it, not as stages and not in a row of modules: a large magnifying glass resting over one section of the contract, a small physical balance scale holding real euro coins beside another section, and a compact paper desk calendar beside the billing-frequency section. Add one physical rubber checkmark stamp and a pen for realism.
+
+ALLOWED GERMAN OBJECT LABELS ONLY
 - `NUTZE ICH ES?`
 - `PRO JAHR?`
 - `WIE OFT?`
+Attach the labels as real paper question tags directly to the relevant physical objects.
 
-No headline. No subtitle. No explanatory sentence. If a stylized adult person is included, the face must be clearly visible with eyes, nose and mouth; a person is not required.
+STYLE
+Premium stylized 3D physical financial editorial explainer. Deep charcoal green-black seamless world, emerald/mint accents, gold only for money/value, subtle red-orange only for warning. Matte paper, glass, brushed metal and premium plastic materials, cinematic soft light, controlled emerald rim light and clear contact shadows. Natural asymmetry and slight overlap.
 
-STRICTLY FORBIDDEN
-No mechanical inspection gate, no conveyor, no three-stage board, no checklist UI, no connected modules, no control panel, no floating cards, no isometric gameboard.
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary. No horizon. No panels. No bands.
 
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Natural asymmetric composition with overlap and realistic contact shadows. Labels must be physical paper tags, never floating UI badges.
+STRICT FAILURE MODES
+No mechanical inspection gate. No conveyor. No three-stage board. No checklist UI. No connected modules. No dashboard. No control panel. No floating cards, tiles, chips or widgets. No board-game layout. No symmetrical module arrangement. No tiny isometric diorama.
+
+No headline. No subtitle. No explanatory sentence. No CTA. If a stylized adult person is included, the face must be clearly visible with eyes, nose and mouth; a person is not required.
+
+QA
+If the result looks like a machine, inspection station, dashboard or modular UI, reject it and regenerate Bild 09.
