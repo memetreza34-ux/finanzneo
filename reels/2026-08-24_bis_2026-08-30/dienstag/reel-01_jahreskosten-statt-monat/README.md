@@ -4,16 +4,19 @@
 **Arbeitstitel:** 9,99 € im Monat? Rechne aufs Jahr
 
 ## Produktionsstatus
-- Phase 1: vorbereitet
+- Phase 1: vorbereitet und auf neuen Visual-Standard aktualisiert
 - Phase 2: Nutzerbilder + finales Voiceover + echte Wort-Timings fehlen
 - Phase 3: bis erfolgreichem `reel:ready` blockiert
 
 ## Aufbau
-- 10 Szenen
-- 6 Google-Flow-Bilder + Cover
-- 4 native Remotion-Mechanismusanimationen
+- 15 visuelle Beats
+- 9 Google-Flow-Bildszenen + Cover
+- 6 native Remotion-Mechanismusanimationen
+- exakt 60 % Bild / 40 % Animation bei den Reel-Beats
+- Bildbeat ideal 3,5–5,0 s; absolut maximal 6,0 s
 - 9:16, 1080 × 1920, 30 fps
 - Flow-Bilder strikt 1:1
+- Bildwelt: premium stylized 3D CGI financial editorial explainer, nicht fotorealistische Büro-/Papieroptik
 
 ## Kernbotschaft
 Wiederkehrende Kosten nicht nur als kleinen Monatsbetrag betrachten, sondern auf die tatsächlichen Zahlungen pro Jahr hochrechnen. Zusätzlich den Unterschied zwischen monatlicher und vierwöchiger Abrechnung beachten.
