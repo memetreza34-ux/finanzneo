@@ -8,6 +8,7 @@ Verbindlicher Stilanker:
 - Series Lock ID: `finanzneo-same-world-v1`
 - Physical Explainer Lock: `finanzneo-physical-explainer-v4`
 - Google-Flow-Quellbildformat: immer `1:1`
+- Visual Timing & Clarity Standard: `docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md`
 
 ## Ziel
 
@@ -143,6 +144,21 @@ Verboten:
 - floating/glowing labels
 - digitale Badges / UI-Chips
 
+## Timing, Dynamik und Verständlichkeit
+
+Für alle neuen Bildszenen gilt zusätzlich der verbindliche Standard `docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md`.
+
+- Bildszenen ideal: **3,5–5,5 Sekunden**
+- Bildszenen maximal: **6,0 Sekunden**
+- Animationsszenen ideal: **4,5–7,0 Sekunden**
+- wenn ein Bild länger als 6 Sekunden bräuchte: **splitten oder animieren**
+- jede Bildszene hat genau **eine Hauptaussage**
+- Hauptaussage muss in **unter 2 Sekunden** erkennbar sein
+- Alltagssituation statt abstrakter Interpretation
+- 2–5 unterstützende Alltagsobjekte statt sterilem Stillleben
+- kurze Labels/Fragen/Preise erlaubt, **keine Sätze**
+- Bilder sollen lebendig wirken: umgeblätterte Seiten, aufgefaltete Belege, Überschneidungen, direkte Objektbeziehungen, sichtbare Ursache-Wirkung
+
 ## Darstellung in Remotion
 
 - 1:1-Quellbild im 9:16-Reel
@@ -165,6 +181,7 @@ Verboten:
 7. Personenregel
 8. harter UI-/Board-/Diorama-Negativblock
 9. Anweisung: `Bild 00` NICHT als Bildreferenz verwenden
+10. Ziel: in unter 2 Sekunden verständlich und nicht länger als 6 Sekunden nötig
 
 ## Google-Flow-QA
 
@@ -177,5 +194,8 @@ Nach jedem Bild prüfen:
 - keine isometrische Gameboard-Perspektive?
 - Labels physisch statt schwebend?
 - 1:1 und nahtloser Hintergrund?
+- Hauptaussage in unter 2 Sekunden verständlich?
+- braucht das Bild höchstens 6 Sekunden Bildschirmzeit?
+- ist die Szene lebendig genug und nicht wie sterile Produktwerbung?
 
 Wenn eine Antwort falsch ist: dieselbe Bildnummer neu erzeugen, erst danach fortfahren.
