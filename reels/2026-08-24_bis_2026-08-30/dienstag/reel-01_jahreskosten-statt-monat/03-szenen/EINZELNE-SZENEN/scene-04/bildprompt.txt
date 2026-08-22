@@ -2,6 +2,7 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
+VISUAL_TIMING_AND_CLARITY_STANDARD: finanzneo-visual-timing-and-clarity-v1
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
 GOOGLE FLOW – FINALER DATEINAME:
@@ -12,6 +13,12 @@ Create a square 1:1 source image only. Width and height must be equal.
 
 CREATE EXACTLY ONE IMAGE.
 Use the written physical-explainer style lock. Fresh composition. Do not copy previous layouts.
+
+TIMING + CLARITY
+- Target screen time: about 4–5 seconds.
+- The overlooked recurring charge must be obvious in under 2 seconds.
+- The viewer should not have to search the image for the point.
+- One main idea only: old small charges hide in normal account activity.
 
 MAIN VISUAL
 A large loose PAPER BANK STATEMENT is the hero object, slightly curled and lying naturally across the scene. A real magnifying glass rests directly on the paper and enlarges two small recurring-charge lines. Beside the statement lie a few real euro coins, a small old subscription paper tag and a metal paper clip. Nothing is mounted on a board, platform or device.
@@ -29,9 +36,9 @@ BACKGROUND
 Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary. No horizon. No panels. No bands.
 
 STRICT FAILURE MODES
-No banking app. No phone screen. No dashboard. No UI frame. No control panel. No glowing interface ring. No floating cards, tiles, chips or badges. No platform beneath the paper. No gameboard. No microchip visual language. No tiny isometric diorama.
+No banking app. No phone screen. No dashboard. No UI frame. No control panel. No glowing interface ring. No floating cards, tiles, chips or badges. No platform beneath the paper. No gameboard. No microchip visual language. No tiny isometric diorama. No abstract symbolism that requires interpretation.
 
 No headline. No subtitle. No explanatory sentence. No CTA. If a person appears unexpectedly, the face must be clearly visible; preferably use no person.
 
 QA
-If the paper becomes a digital screen, dashboard, interface panel or staged product platform, reject it and regenerate Bild 04.
+Reject and regenerate Bild 04 if the charge is not immediately visible, if the idea would need more than 6 seconds to explain, or if the paper becomes a digital screen, dashboard, interface panel or staged product platform.
