@@ -5,8 +5,8 @@
 - 30 fps
 - 9:16
 - finale Laufzeit aus dem echten Voiceover; Zielbereich 60–90 Sekunden
-- 15 visuelle Beats statt starrem 10-Szenen-Raster
-- 9 Bildbeats / 6 Animationsbeats = 60/40
+- 16 visuelle Beats statt starrem 10-Szenen-Raster
+- 10 Bildbeats / 6 Animationsbeats; Ziel ca. 60/40, tatsächlich 62,5/37,5 wegen 6-Sekunden-Maximalregel
 
 ## Bild-Timing
 - Bildbeat ideal 3,5–5,0 Sekunden
@@ -18,6 +18,7 @@
 - alle Flow-Quellen strikt 1:1
 - premium stylized 3D CGI, klar nicht fotorealistisch
 - chunky volumetric objects, rounded bevels, starke Tiefenwirkung
+- thick cream card-like 3D surfaces statt dünnem realistischem Papier
 - Alltagsmetapher in unter 2 Sekunden verständlich
 - `object-fit: contain`
 - kein blurred duplicate background
