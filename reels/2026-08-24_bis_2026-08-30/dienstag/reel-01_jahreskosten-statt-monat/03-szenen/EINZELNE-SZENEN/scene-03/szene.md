@@ -1,9 +1,12 @@
 # Szene 03
 
-**Typ:** Remotion-Animation
-**Headline:** `MONAT × 12`
-**Sprechtext:**
+**Typ:** Google-Flow-Bild  
+**Headline:** `5 KLEINE DAUERPOSTEN`  
+**Zielzeit:** ca. 4,5 s
 
-Nimm deshalb jede regelmäßige Monatszahlung mal zwölf. Erst der Jahresbetrag zeigt dir, was diese Entscheidung wirklich kostet.
+**Sprechtext-Ausschnitt:**  
+Fünf laufende Kosten à 9,99 Euro sind zusammen 49,95 Euro im Monat
 
-**Zweck:** Die Hochrechnung als echten visuellen Mechanismus zeigen.
+**Zweck:** Fünf typische Alltagskosten als sofort erkennbare stylized-3D-Objekte zeigen.
+
+**Datei:** `Bild 03 - Fuenf Alltagskosten.png`
