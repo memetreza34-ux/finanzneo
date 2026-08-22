@@ -1,9 +1,12 @@
 # Szene 05
 
-**Typ:** Remotion-Animation
-**Headline:** `2 POSTEN WEG = 239,76 €`
-**Sprechtext:**
+**Typ:** Google-Flow-Bild  
+**Headline:** `DER JAHRESBETRAG ZÄHLT`  
+**Zielzeit:** ca. 4,0 s
 
-Wenn du von fünf solchen Kosten zwei wirklich nicht mehr nutzt, würdest du in diesem Beispiel 239,76 Euro pro Jahr freimachen.
+**Sprechtext-Ausschnitt:**  
+Erst der Jahresbetrag zeigt dir, was diese Entscheidung wirklich kostet.
 
-**Zweck:** Beispielrechnung als sichtbare Veränderung im Budget.
+**Zweck:** Den Jahreswert als deutlich größeren stylized-3D-Gesamtblick zeigen.
+
+**Datei:** `Bild 05 - Jahresbetrag Blick.png`
