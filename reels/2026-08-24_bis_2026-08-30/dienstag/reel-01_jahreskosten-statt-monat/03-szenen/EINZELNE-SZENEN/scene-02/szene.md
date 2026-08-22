@@ -1,11 +1,10 @@
 # Szene 02
 
-**Typ:** Google-Flow-Bild
-**Headline:** `5 × 9,99 € = 599,40 €`
-**Sprechtext:**
+**Typ:** Remotion-Animation  
+**Headline:** `JEDEN MONAT WIEDER`  
+**Zielzeit:** ca. 4,5 s
 
-Fünf laufende Kosten à 9,99 Euro sind zusammen 49,95 Euro im Monat – und 599,40 Euro im Jahr.
+**Sprechtext-Ausschnitt:**  
+Aber Dauerbeträge werden teuer, wenn du sie nie aufs ganze Jahr hochrechnest.
 
-**Zweck:** Das Beispiel als starke physische Kostenmetapher sichtbar machen.
-
-**Datei:** `Bild 02 - Fuenf Dauerposten.png`
+**Zweck:** Die Wiederholung Monat für Monat sichtbar machen.
