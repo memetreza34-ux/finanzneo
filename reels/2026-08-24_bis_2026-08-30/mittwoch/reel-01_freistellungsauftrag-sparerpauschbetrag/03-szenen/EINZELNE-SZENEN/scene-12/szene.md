@@ -1,5 +1,5 @@
 # Szene 12
 **Typ:** animation
-**Headline:** AUFTRAG VERGESSEN?
-**Icon:** check
-**Sprechbeat:** Wurde dadurch zu viel Steuer einbehalten, kann das über die Steuererklärung korrigiert werden.
+**Headline:** OHNE AUFTRAG → STEUER
+**Icon:** cross
+**Sprechbeat:** Liegt kein passender Freistellungsauftrag vor, kann die Bank auf steuerpflichtige Kapitalerträge Kapitalertragsteuer einbehalten.
