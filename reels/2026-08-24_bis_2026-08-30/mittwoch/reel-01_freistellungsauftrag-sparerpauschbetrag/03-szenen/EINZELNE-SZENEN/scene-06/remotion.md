@@ -1,9 +1,15 @@
-# Remotion Szene 06 — AllowanceThenTax
+# Remotion Szene 06 — FreistellungsauftragActivatesAllowance
 
-**SceneHeader:** `ERST FREI — DANN STEUER` + Icon `shield`.
+**Audio-Trigger:** `brauchst du einen Freistellungsauftrag`
+**SceneHeader:** `AUFTRAG AKTIVIERT FREIBETRAG` + Icon `shield`.
 
-**Start:** Goldene Erträge fließen ab 0 in eine grüne Schutzleiste.
-**Mechanismus:** Die Leiste füllt sich sichtbar bis zur Marke `1.000 €`. Zusätzlicher Strom danach wird klar in eine rote Steuer-Abzweigung geleitet.
-**Ergebnis:** `BIS 1.000 €` grün; `DARÜBER` rot als allgemeine Steuerabzug-Zone, ohne konkrete Steuerhöhe.
+## Premium-Motion-V3-Bühne
+- zentrale Aktionszone ca. Y=520–1260
+- gleiche dunkle Bühne, gleiche Kantenradien und Materiallogik wie Szene 02/04
+- Weiß neutral, Grün aktiv/geschützt, Gold Ertrag, Rot nur Problem, kein Schwarz
 
-Kein schwarzer Text. Keine erfundene Steuerquote. Tonlos verständlich.
+**Start:** Gold-Ertragsstrom läuft Richtung Bank. Daneben steht ein klarer Freistellungsauftrag-Objektstatus `NICHT AKTIV`.
+**Mechanismus:** Dokument bekommt einen sichtbaren grünen Check; gleichzeitig fährt ein grüner Schutzrahmen über den Ertragsstrom.
+**Ergebnis:** `FREISTELLUNG AKTIV` bleibt deutlich stehen; Ertragsstrom sichtbar geschützt. Keine erfundene Steuerquote.
+
+Übergang: kurze 4–6 Frame Continuity-Bewegung. Kein abstrakter Balken ohne Bank-/Auftrag-Kontext.
