@@ -65,11 +65,12 @@ Vollständige Übergabe: `docs/3-PHASEN-WORKFLOW.md`.
 - 30 fps
 - 60–90 Sekunden als Standard
 - Hook innerhalb der ersten 2 Sekunden
-- ungefähr 6–10 visuelle Beats
-- bei 10 Szenen bevorzugt ungefähr 6 Bildszenen + 4 Remotion-Animationen
-- Qualität wichtiger als starre Quote
+- Ziel ungefähr 60 % Bildbeats / 40 % native Remotion-Animationen; Qualität und Verständlichkeit haben Vorrang vor starrer Quote
+- Bildbeat ideal 3,5–5,5 Sekunden, absolut maximal 6 Sekunden
+- braucht eine Bildidee mehr als 6 Sekunden: **splitten oder animieren**
 - keine langen Intros
 - Untertitel sind Pflicht
+- **jede einzelne Szene braucht oben eine Zwischenüberschrift + passendes Icon**
 - ausführliche Quellen/Disclaimer gehören in Caption/Beschreibung, nicht vor die Hook
 
 ## 5. Skriptregeln
@@ -83,7 +84,7 @@ Vollständige Übergabe: `docs/3-PHASEN-WORKFLOW.md`.
 - keine individuelle Anlageempfehlung
 - Problem-Szenen dürfen die spätere Lösung nicht vorwegnehmen
 
-## 6. Verbindliche Bildwelt — Premium Fintech Editorial 3D
+## 6. Verbindliche Bildwelt — Stylized 3D Editorial Explainer
 
 Technische World-ID:
 
@@ -97,13 +98,17 @@ Technischer Serien-Lock:
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 ```
 
+Verbindlicher Stylized-3D-Lock:
+
+```text
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+```
+
 Der Serien-Lock hält Hintergrundmaterial, Farbrollen, Geometriesprache, Materialfinish, Kontrast und smaragdgrüne Lichtsignatur über den gesamten Bildsatz konstant. Motive dürfen wechseln, die visuelle Welt nicht.
 
-Der verbindliche Stil entspricht diesem Prinzip:
+Die Bildwelt muss **klar als hochwertige stylized 3D-CGI-Illustration** erkennbar sein. Erkennbare Alltagsgegenstände bleiben direkt verständlich, werden aber als chunky, volumetrische 3D-Objekte mit abgerundeten Formen, weichen Bevels, klarer Tiefenstaffelung und Premium-Materialien modelliert. Dünne fotorealistische Büro-/Papier-Stillleben sind ausdrücklich unerwünscht.
 
-> Eine stilisierte 3D-Person mit klar sichtbarem Gesicht steht neben EINER großen Finanzmetapher. Beispiel: eine hohe Sanduhr mit leuchtenden Euro-Münzen; ein Teil der Münzen verschwindet in einem rot-orange leuchtenden Verlust-Riss. Kurze deutsche Labels wie `Wartezeit` und `Verlorene Zinsen` erklären nur die relevanten Objekte.
-
-Nicht die konkrete Sanduhr ist verbindlich, sondern diese **Art der visuellen Erklärung**.
+Eine stilisierte Person ist optional. Wenn sie vorkommt, bleibt ihr Gesicht klar sichtbar. Hauptziel ist immer eine sofort verständliche visuelle Erklärung durch große erkennbare 3D-Alltagsobjekte und eine eindeutige Ursache-Wirkungs-Beziehung.
 
 Verbindliche Bilddokumente:
 
@@ -112,23 +117,25 @@ Verbindliche Bilddokumente:
 - `docs/BEAT-TO-IMAGE-RULES.md`
 - `docs/IMAGE-PROMPT-LIBRARY.md`
 - `docs/IMAGE-QA-CHECKLIST.md`
+- `docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md`
 
 ### 6.1 Serienmerkmale
 
-- Premium fintech editorial 3D render style
+- premium stylized 3D CGI financial editorial explainer
 - deep charcoal green-black Grundwelt
 - vivid emerald und mint-green Akzente
 - Gold nur für Geld, Euro-Münzen und finanziellen Wert
-- warmes Rot-Orange nur für Verlust, Risiko, Schulden oder blockiertes Geld
-- smooth rounded 3D geometry
-- soft bevelled edges
-- hochwertige matte und transparente Materialien
-- confident high-contrast studio lighting
-- kräftiges smaragdgrünes Rim Light
-- ein großes dominantes Hauptmotiv / eine starke Finanzmetapher
+- warmes Rot-Orange nur für Verlust, Risiko, Schulden, Warnung oder unnötige Kosten
+- chunky substantial 3D geometry
+- smooth rounded forms und soft bevelled edges
+- vereinfachte, leicht überzeichnete Proportionen statt Fotorealismus
+- hochwertige Emerald-Polymer-, Metall-, Cream-Card- und Glasmaterialien
+- klare Vordergrund-/Mittelgrund-/Hintergrundtiefe
+- cinematic soft key light + kräftiges smaragdgrünes Rim Light
+- ein großes dominantes Hauptmotiv / eine klare Alltagsmetapher
 - wenige unterstützende Elemente
-- nicht fotorealistisch
-- kein Pixar-, Clay- oder Kindercartoon-Look
+- **kein fotorealistisches Papier-/Büro-/Stockfoto-Stillleben**
+- kein Pixar-, Clay-, Toy- oder Kindercartoon-Look
 
 ### 6.2 Ein einziger nahtloser Hintergrund — höchste Bildregel
 
@@ -243,13 +250,14 @@ Regeln:
 
 Jede Bildszene verwendet möglichst:
 
-1. eine dominante Finanzmetapher oder ein großes Hauptobjekt
+1. eine dominante, sofort verständliche Alltagsmetapher oder ein großes Hauptobjekt
 2. optional eine stilisierte Person mit sichtbarem Gesicht
-3. wenige unterstützende Objekte
+3. 2–5 unterstützende erkennbare Alltagsobjekte
 4. klaren Ursache-Wirkungs-Zusammenhang
 5. 1–3 kurze deutsche Labels
+6. sichtbare 3D-Tiefe, Überlappung und aktive Objektbeziehung statt sterilem Stillleben
 
-Das Bild soll wie **eine einzelne hochwertige Editorial-Illustration** wirken, nicht wie:
+Das Bild soll wie **eine einzelne hochwertige stylized 3D Editorial-Illustration** wirken, nicht wie:
 
 - Miniatur-Diorama
 - Game-Level
@@ -258,21 +266,21 @@ Das Bild soll wie **eine einzelne hochwertige Editorial-Illustration** wirken, n
 - Dashboard/App-UI
 - mehrere kleine Räume/Plattformen
 - überladene Icon-Sammlung
+- realistisches Büro-/Papierfoto
+- sterile Produktwerbung
 
 ### 6.7 Prompt-Grundmuster
 
 ```text
-A stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE FINANCIAL METAPHOR].
+Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer using recognizable everyday objects.
+Show [ONE LARGE EVERYDAY FINANCIAL METAPHOR] with chunky substantial geometry, smooth rounded forms, soft bevels and simplified slightly exaggerated proportions.
 [Describe one visible cause-and-effect action using only a few large objects.]
 Include German object labels: '[Label 1]' near [object 1], and '[Label 2]' near [object 2].
-Premium fintech editorial 3D render style.
+Use premium dark-emerald polymer/brushed metal, warm cream card surfaces, chunky gold value details and restrained glass.
+Use cinematic soft key light, controlled emerald rim light, strong contact shadows, clear foreground/midground/background depth and mild depth-of-field.
 Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge.
-No horizontal bands, no top/bottom sections, no floor-wall boundary, no horizon line, no panels.
-Accents in vivid emerald and mint green. Gold only for money/value. Warm red-orange only for danger/loss.
-Use smooth rounded 3D geometry, soft bevelled edges and confident high-contrast studio lighting with bold emerald rim light.
-Place the main subject around the visual center and leave generous natural empty space above and below without changing the background.
-Square 1:1 source image. Width and height must be equal. No portrait or vertical format.
-No photorealism, no real identifiable human, no faceless character, no UI dashboard, no headline, no subtitle, no explanatory sentence.
+Square 1:1 source image. Width and height must be equal.
+NO photorealistic office/stationery/product photography. NO dashboard/UI/gameboard. NO headline, subtitle or explanatory sentence.
 ```
 
 ## 7. Bildproduktion — Nutzer + Google Flow
@@ -304,8 +312,9 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 - niemals das nächste Bild vorbereiten, bevor das aktuelle exakt umbenannt und geprüft ist
 - fehlerhaftes Bild unter derselben Bildnummer neu erzeugen und ersetzen
 - Animationsnummern ohne Bilderzeugung überspringen
-- Same-World-Lock bei jedem einzelnen Bild anwenden
-- das zuerst bestandene `Bild 00` als reine visuelle Stilreferenz für alle Folgebilder verwenden; Stil/Licht/Materialien übernehmen, niemals Cover-Motiv, Komposition oder Labels kopieren
+- Same-World-Lock und Stylized-3D-Lock bei jedem einzelnen Bild vollständig ausschreiben
+- **keine Bild-zu-Bild-Referenz verwenden**: `Bild 00` oder andere Szenenbilder niemals als Referenzbild hochladen/anhängen
+- Einheitlichkeit entsteht ausschließlich durch denselben ausgeschriebenen Stil-/Material-/Farb-/Licht-Lock in jedem Prompt
 
 ### Nummerierung
 
@@ -344,27 +353,74 @@ Google Flow verteilt sie nicht auf einzelne Szenenordner.
 - zusätzliche Skalierung höchstens `1.04`
 - Motive, Geld und Labels nie abschneiden
 
-## 9. Überschriften und Karaoke-Untertitel
+## 9. Zwischenüberschriften, Animationsfarben und Karaoke-Untertitel
 
-### Remotion-Überschriften
+Verbindliche Detailquelle: `docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md`.
 
-- werden in Remotion gerendert, nicht als große KI-Bildheadline
-- oben
-- erste Zeile weiß
-- Schwerpunktzeile grün oder bei Geldwerten gold
-- passendes Linien-Icon
+### Remotion-Zwischenüberschrift — Pflicht in JEDER Szene
+
+Jede Bild- **und** Animationsszene zeigt oben eine klare Zwischenüberschrift mit passendem Linien-Icon.
+
+Standardkomponente:
+
+```tsx
+<SceneHeader title="KONTOAUSZUG PRÜFEN" icon="search" />
+```
+
+Regeln:
+
+- Position ungefähr ab Y = 78
+- Icon links, Headline rechts
+- Standard-Iconfarbe FinanzNeo-grün
+- Headline immer weiß
+- gleiche Position und Grundgestaltung im ganzen Reel
+- kurze direkte Zwischenüberschrift, kein langer Satz
+- Rot nur bei echter Warnung/Problem
+- Gold nur bei Geld/Wert, nicht als allgemeine Textfarbe
+
+### Animationsfarben auf dunklem Hintergrund
+
+Verbindlich `ANIMATION_COLORS` aus `src/brand/tokens.ts`:
+
+- Weiß = neutrale Information
+- Grün = Fokus, Lösung, zentrale Erklärung
+- Rot = Warnung, Problem, unnötige Kosten, Verlust
+- Gold = Geldbetrag, Summe, Wert
+- **Schwarz = auf dunklen Reel-Flächen verboten**
+
+`C.ink` ist ausschließlich für dunklen Text auf tatsächlich hellen Flächen erlaubt.
+
+### Verständliche Animationen
+
+Jede native Remotion-Erkläranimation braucht zwingend:
+
+```text
+STARTZUSTAND
+→ SICHTBARE VERÄNDERUNG / MECHANISMUS
+→ EINDEUTIGES ERGEBNIS
+```
+
+- Bewegung muss die Aussage erklären, nicht nur dekorieren
+- reine Zooms/Fades/Zahlen-Popups gelten nicht als ausreichende Erkläranimation
+- Start und Ergebnis müssen visuell beschriftet/erkennbar sein
+- bei komplexeren Mechanismen `MechanismCue` verwenden
+- Animation muss grundsätzlich auch ohne Ton verständlich sein
 
 ### Karaoke-Untertitel
 
-- genau ein vollständiger Satz gleichzeitig
-- aktuelles gesprochenes Wort FinanzNeo-grün
-- restliche Wörter weiß
+Standardkomponente: `src/brand/components/Captions.tsx`.
+
+- genau eine satzbasierte Caption-Einheit gleichzeitig
+- aktuelles gesprochenes Wort **immer FinanzNeo-grün**
+- restliche Wörter **immer weiß**
+- **kein gelbes/goldenes Active-Word**
+- **kein schwarzer Untertiteltext**
 - maximal zwei ausgewogene Zeilen
 - keine springenden Wörter
-- keine Größenanimation
-- keine Wort-für-Wort-Einblendung
-- vorheriger Satz bleibt während kurzer Pausen sichtbar
+- keine Größenanimation / kein Scale-Pop
+- vorherige Caption bleibt während kurzer Pausen sichtbar
 - keine Caption-Lücken
+- mobiler Shadow/Stroke bzw. subtiler dunkler Caption-Hintergrund erlaubt
 
 Safe Area bei 1080 × 1920:
 
@@ -383,12 +439,16 @@ Szenenschnitte folgen dem finalen Audio:
 ```text
 finales Voiceover
 → echte Wort-Zeitstempel
-→ Satzanfänge
+→ Satz- und sinnvolle Phrasenanfänge
 → Szenenstarts
 → relative Animationsdauern
 ```
 
-Keine pauschal gleich langen Szenen als Standard.
+- keine pauschal gleich langen Szenen als Standard
+- Bildbeat ideal 3,5–5,5 Sekunden
+- Bildbeat absolut maximal 6,0 Sekunden
+- Animationsbeat ideal 4,5–7 Sekunden
+- wenn ein Bild länger als 6 Sekunden stehen müsste: splitten oder als Animation lösen
 
 ## 11. Audio
 
@@ -411,6 +471,10 @@ True Peak: höchstens -1 dBTP
 - Fonts aus `src/brand/fonts.ts`
 - Finanzrechner aus `src/finance/calculations.ts`
 - keine frei erfundenen Finanzwerte direkt im JSX
+- jede Szene nutzt `SceneHeader` oder eine ausdrücklich gleichwertige Design-System-Komponente
+- Captions nutzen die zentrale `Captions`-Komponente; Active-Word-Farbe nicht lokal überschreiben
+- Animationen nutzen `ANIMATION_COLORS`; schwarzer Text auf dunklem Hintergrund ist verboten
+- `MechanismCue` steht für klare Start-/Ergebnis-Markierungen in komplexen Animationen bereit
 
 ## 13. Finanzdaten und Faktenprüfung
 
@@ -430,29 +494,33 @@ True Peak: höchstens -1 dBTP
 3. Fakten und Quellen recherchieren
 4. Skript schreiben
 5. Zahlen/Aussagen prüfen
-6. visuelle Beats planen
+6. visuelle Beats planen; 60/40 als Ziel, aber nie ein Bild künstlich länger als 6 Sekunden halten
 7. Bild / Remotion / Kombination festlegen
-8. finales Voiceover ablegen
-9. echte Wort-Zeitstempel erzeugen
-10. Szenenstarts aus Satzanfängen ableiten
-11. `03-szenen/bildwelt.txt` nach der **seamless-background-Regel** erstellen
-12. für jede Bildszene konkreten Premium-Fintech-Editorial-3D-Prompt erstellen
-13. Dateiname + erlaubte Labels direkt am Prompt festlegen
-14. Nutzer erzeugt jedes Bild einzeln und benennt es sofort um
-15. Animationsszenen überspringen; Nummern bleiben reserviert
-16. alle fertigen Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
-17. Bild-QA: Metapher, Labels, Gesicht, **ein Hintergrund ohne Bänder**
-18. Remotion-Animationen bauen
-19. Überschriften/Karaoke-Captions einbinden
-20. Asset-Sync, Validatoren, Typecheck
-21. Preview rendern
-22. Kontaktbogen/Frames prüfen
-23. komplette MP4 mit Ton ansehen
-24. Audio-Lautheit messen
-25. Caption/Quellen/CTA finalisieren
-26. erst nach menschlicher Sichtprüfung freigeben
+8. für **jede** Szene eine kurze Zwischenüberschrift + passendes Icon festlegen
+9. finales Voiceover ablegen
+10. echte Wort-Zeitstempel erzeugen
+11. Szenenstarts aus Satz-/sinnvollen Phrasenanfängen ableiten
+12. `03-szenen/bildwelt.txt` nach Seamless-Background- und Stylized-3D-Regel erstellen
+13. für jede Bildszene vollständigen Stylized-3D-Prompt erstellen
+14. Dateiname + erlaubte Labels direkt am Prompt festlegen
+15. Nutzer erzeugt jedes Bild einzeln und benennt es sofort um
+16. Animationsszenen überspringen; Nummern bleiben reserviert
+17. alle fertigen Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
+18. Bild-QA: Alltagsklarheit, Stylized-3D-Look, Labels, Gesicht, ein Hintergrund ohne Bänder
+19. Remotion-Animationen als Start → Mechanismus → Ergebnis bauen
+20. `SceneHeader` + Icon in jede Szene einbinden
+21. Karaoke-Captions einbinden: Active grün, Rest weiß
+22. Animationsfarben prüfen: kein Schwarz auf dunkler Fläche
+23. Asset-Sync, Validatoren, Typecheck
+24. Preview rendern
+25. Kontaktbogen/Frames prüfen
+26. komplette MP4 mit Ton ansehen
+27. Animationen zusätzlich ohne Ton auf Verständlichkeit prüfen
+28. Audio-Lautheit messen
+29. Caption/Quellen/CTA finalisieren
+30. erst nach menschlicher Sichtprüfung freigeben
 
-## 15. Bild-QA — sofort neu erzeugen, wenn
+## 15. Bild-/Reel-QA — sofort korrigieren, wenn
 
 - sichtbarer zweiter Hintergrund / oberes oder unteres Band
 - horizontale Trennlinie oder Tonwertkante
@@ -461,12 +529,18 @@ True Peak: höchstens -1 dBTP
 - Bild wie Diorama/Game-Level wirkt
 - Metapher nicht sofort verständlich ist
 - zu viele kleine Objekte vorkommen
-- große Headline/Untertitel/ganzer Satz im Bild steht
+- große Headline/Untertitel/ganzer Satz im KI-Bild steht
 - Labels falsch oder zusätzlich sind
 - Person ohne klar sichtbares Gesicht vorkommt
 - reine Rückenansicht verwendet wird
-- Stil fotorealistisch/Pixar/Clay ist
+- Stil fotorealistisch/Pixar/Clay/Toy ist
 - Bildaussage nicht zum gesprochenen Satz passt
+- irgendein Bildbeat länger als 6 Sekunden stehen müsste
+- eine Szene keine Zwischenüberschrift oder kein passendes Icon hat
+- Untertitel-Active-Word gelb/gold statt grün ist
+- schwarzer Text auf dunklem Reel-Hintergrund vorkommt
+- eine Animation keinen klaren Start, Mechanismus und Ergebnis besitzt
+- eine Animation ohne Ton nicht grundlegend nachvollziehbar ist
 
 ## 16. Abschlussdefinition
 
@@ -478,19 +552,24 @@ Ein Reel ist erst fertig, wenn:
 - Validator/Typecheck/Preview tatsächlich ausgeführt und erfolgreich sind
 - Bildsatz visuell geprüft wurde
 - komplette MP4 geprüft wurde
+- Untertitel-Farben und mobile Lesbarkeit geprüft wurden
+- jede Szene Headline + Icon besitzt
+- Animationsfarben und Animationsverständlichkeit geprüft wurden
 - Audioziel geprüft wurde
 
 Technischer Erfolg allein ist keine kreative Freigabe.
 
 ## 17. Aktive Prioritäten
 
-1. Premium-Fintech-Editorial-3D-Bildwelt mit **einem nahtlosen Hintergrund** konsequent halten
-2. einfache Reel-Ordnerstruktur beibehalten
-3. Caption-, Safe-Area- und Satzschnittsystem stabil halten
-4. produktive Reels, Experimente und Showcases trennen
-5. Finanzberechnungen zentral und reproduzierbar halten
-6. Typecheck, Tests und Render-Smoke-Tests ausbauen
-7. erst danach größere Serienproduktion skalieren
+1. Stylized-3D-Editorial-Bildwelt mit **einem nahtlosen Hintergrund** konsequent halten
+2. Caption-System: aktives Wort grün, Rest weiß, stabil und mobil lesbar
+3. jede Szene mit klarer Zwischenüberschrift + Icon strukturieren
+4. Animationen als verständliche Ursache-Wirkungs-Mechanismen bauen; kein Schwarz auf dunklem Hintergrund
+5. einfache Reel-Ordnerstruktur beibehalten
+6. produktive Reels, Experimente und Showcases trennen
+7. Finanzberechnungen zentral und reproduzierbar halten
+8. Typecheck, Tests und Render-Smoke-Tests ausbauen
+9. erst danach größere Serienproduktion skalieren
 
 ## 18. Eigenständiger YouTube-Longform-Workflow
 
