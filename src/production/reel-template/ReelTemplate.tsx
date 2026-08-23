@@ -17,7 +17,6 @@ import {
   Captions,
   DramaticNumber,
   FinanceBackground,
-  Kicker,
   SceneHeader,
   Title,
   VerticalSafeAreaGuide,
