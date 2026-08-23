@@ -26,8 +26,8 @@ SZENE 02 — REMOTION — KEIN BILD 02 ERZEUGEN.
 
 BILD 03 — SZENE 03
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 03 - Sparer Pauschbetrag Schutz.png
-Create exactly one image. A thick sculpted emerald 3D shield is the dominant hero object. Under it sits a compact stack of gold return-coins, while three small chunky 3D source objects feed into the protected area: a savings coin jar for interest, a dividend envelope token and a small stock-sale certificate object. Keep everything volumetric and cinematic, not flat paper. Labels only: `1.000 €`, `ZINSEN`, `DIVIDENDEN`, `GEWINNE`.
+Bild 03 - Kapitalertraege Quellen.png
+Create exactly one image. In the center is one large sculpted gold collection bowl labelled `KAPITALERTRÄGE`. Three clearly different chunky volumetric 3D everyday-finance source objects feed toward it with short visible gold value trails: a savings jar for interest, a dividend envelope/coin token and a modeled stock-sale certificate with a small upward coin marker. The three sources must be understood immediately as separate origins that become one category. Labels only: `ZINSEN`, `DIVIDENDEN`, `GEWINNE`, `KAPITALERTRÄGE`.
 
 SZENE 04 — REMOTION — KEIN BILD 04 ERZEUGEN.
 
@@ -61,18 +61,18 @@ SZENE 12 — REMOTION — KEIN BILD 12 ERZEUGEN.
 
 BILD 13 — SZENE 13
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 13 - Jahrescheck Banken.png
-Create exactly one image. A chunky stylized 3D annual-check folder is open in the center. Around it are three small modeled bank-building objects at different depths, a thick emerald calendar token and a large 3D magnifying glass. Several allowance tags are attached directly to the bank objects. The scene should feel active and organized, not like office stationery. Labels only: `JAHRESCHECK`, `BANKEN`, `FREISTELLUNG`.
+Bild 13 - Steuererklaerung Korrektur.png
+Create exactly one image. Continue the red tax state from the previous animation. A bold red-orange tax token starts beside a chunky modeled bank. In the center, a substantial stylized 3D tax-declaration folder with a clear checkmark seal becomes the hero object. On the right, a green correction arrow leads toward a clean gold/emerald money area. Cause-effect: tax withheld → declaration checked → correction can be possible. Labels only: `STEUER`, `STEUERERKLÄRUNG`, `KORREKTUR`.
 
 BILD 14 — SZENE 14
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 14 - Drei Fragen Freistellung.png
-Create exactly one image. A chunky stylized 3D bank folder is the hero object. Three concrete inspection objects surround it asymmetrically: a 3D magnifying glass, a compact balance scale with gold coins and an emerald calendar token. Each object carries one short physical plaque. No cards or dashboard. Labels only: `WO?`, `WIE VIEL?`, `PASST ES?`.
+Bild 14 - Jahrescheck Banken.png
+Create exactly one image. A chunky stylized 3D annual-check folder is the hero object. Around it are three small modeled bank buildings at different depths, a large emerald calendar token and a substantial 3D magnifying glass inspecting the group. Several small allowance tags are physically attached to the banks. Labels only: `JAHRESCHECK`, `BANKEN`, `FREISTELLUNG`.
 
 BILD 15 — SZENE 15
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 15 - Heute Freistellung Pruefen.png
-Create exactly one image. A chunky stylized 3D banking folder is open with a large emerald checkmark stamp freshly pressed into it. Beside it sit a dark-screen modeled smartphone, one calendar token and two small bank-building objects. A short allowance tag is being moved from one bank toward the other to suggest reviewing the distribution. Labels only: `HEUTE`, `PRÜFEN`, `1.000 €`.
+Bild 15 - Freistellung Verteilung Pruefen.png
+Create exactly one image. Three chunky stylized 3D bank buildings form a clear triangular composition. In front lies one thick emerald total allowance token marked `1.000 €`, split into smaller physical pieces that are visibly repositioned between the banks. A large emerald checkmark and one sculpted gold return-coin cluster indicate that the distribution should match where actual returns occur. Labels only: `1.000 €`, `VERTEILUNG`, `PRÜFEN`.
 
 ABSCHLUSSPRÜFUNG
 Exakt 10 Dateien: Bild 00, 01, 03, 05, 07, 09, 11, 13, 14, 15. Keine Bilder 02, 04, 06, 08, 10, 12. Jedes Bild muss deutlich stylized 3D CGI sein und in unter zwei Sekunden verständlich wirken.
