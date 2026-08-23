@@ -22,6 +22,7 @@ export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
     {
       id: 'hook',
       type: 'hook',
+      icon: 'wallet',
       durationInFrames: 240,
       background: 'premium',
       kicker: 'FINANZGRUNDLAGE',
@@ -32,6 +33,8 @@ export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
     {
       id: 'problem',
       type: 'explain',
+      icon: 'warning',
+      headerTone: 'warning',
       durationInFrames: 300,
       background: 'standard',
       kicker: 'DAS PROBLEM',
@@ -46,6 +49,8 @@ export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
     {
       id: 'example-number',
       type: 'number',
+      icon: 'euro',
+      headerTone: 'money',
       durationInFrames: 360,
       background: 'data',
       kicker: 'BEISPIEL',
@@ -60,6 +65,7 @@ export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
     {
       id: 'comparison',
       type: 'compare',
+      icon: 'trending',
       durationInFrames: 390,
       background: 'data',
       kicker: 'DER UNTERSCHIED',
@@ -80,6 +86,7 @@ export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
     {
       id: 'solution',
       type: 'checklist',
+      icon: 'check',
       durationInFrames: 390,
       background: 'standard',
       kicker: 'DIE LÖSUNG',
@@ -94,6 +101,7 @@ export const REEL_TEMPLATE_DEMO_CONFIG: ReelConfig = {
     {
       id: 'cta',
       type: 'cta',
+      icon: 'target',
       durationInFrames: 270,
       background: 'premium',
       kicker: 'DEIN NÄCHSTER SCHRITT',
