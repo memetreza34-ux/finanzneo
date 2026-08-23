@@ -73,7 +73,21 @@ PROMPT LESEN
 
 Keine 3er-Batches, keine parallele Vorbereitung und kein späteres Sammel-Umbenennen. Bei einem Fehler dieselbe Bildnummer neu erzeugen und erst nach bestandener QA fortfahren.
 
-Das zuerst bestandene `Bild 00` ist danach die verbindliche reine Stilreferenz. Folgebilder übernehmen Bildwelt, Material-, Geometrie-, Farb- und Lichtsignatur, aber niemals Cover-Motiv, Komposition oder Labels.
+### Keine Bild-zu-Bild-Referenz
+
+Für Reel-Bilder wird **kein** Cover oder vorheriges Szenenbild als Image-to-Image-/Referenzbild hochgeladen.
+
+Die Same-World-Konsistenz entsteht ausschließlich durch denselben ausgeschriebenen Lock für:
+
+- World ID
+- Stylized-3D-Look
+- Materialien
+- Geometriesprache
+- Farbrollen
+- Hintergrund
+- Lichtsignatur
+
+So bleibt der Stil einheitlich, ohne dass Flow Kamera, Silhouette oder Komposition des Covers in alle Folgebilder kopiert.
 
 ## 4. Nummerierung
 
@@ -133,28 +147,41 @@ World ID:
 finanzneo-connected-studio-v3
 ```
 
-Serien-Lock: `finanzneo-same-world-v1`. Er hält die komplette Serie in derselben Hintergrund-, Material-, Geometrie-, Farb- und Lichtwelt.
+Series Lock:
+
+```text
+finanzneo-same-world-v1
+```
+
+Stylized-3D-Lock:
+
+```text
+finanzneo-stylized-3d-editorial-v5
+```
 
 Verbindlich:
 
 - `CLAUDE.md`
-- `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 - `docs/IMAGE-SYSTEM.md`
+- `docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md`
+- `docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md`
 - `docs/IMAGE-PROMPT-LIBRARY.md`
 - `docs/IMAGE-QA-CHECKLIST.md`
 
 Stil:
 
-- Premium fintech editorial 3D render
-- eine dominante Finanzmetapher / großes Hauptobjekt
-- optional stilisierte erwachsene 3D-Person
-- wenn Person: Gesicht klar sichtbar, frontal oder 3/4
-- deep charcoal green-black Grundwelt
+- clearly stylized premium 3D CGI financial editorial explainer
+- erkennbare Alltagsobjekte, aber chunky/volumetrisch modelliert
+- abgerundete Formen und soft bevelled edges
+- leicht überzeichnete statt fotorealistische Proportionen
+- tiefe charcoal green-black Grundwelt
 - emerald/mint Akzente
 - Gold nur für Geld/Wert
-- warmes Rot-Orange nur für Risiko/Verlust/Schulden
-- smooth rounded geometry, soft bevelled edges
-- kein Fotorealismus, Pixar oder Clay
+- warmes Rot-Orange nur für Risiko/Verlust/unnötige Kosten
+- cinematic soft key light + emerald rim light
+- klare Vorder-/Mittel-/Hintergrundtiefe
+- keine fotorealistischen Papier-/Büro-/Stockfoto-Stillleben
+- kein Pixar, Clay oder Toy-Look
 - keine Dioramen, Neon-Tunnel, Sci-Fi-Korridore, Dashboards oder Game-Level
 
 ## 9. Kritische Hintergrundregel — genau EIN Hintergrund
@@ -227,9 +254,38 @@ Reale Marken/Dienste dürfen als relevante Alltagsbeispiele verwendet werden, we
 - zusätzliche Skalierung höchstens `1.04`
 - wichtige Motive und Labels nie abschneiden
 
-## 13. Layout und Untertitel
+## 13. Timing, Szenenüberschrift und Untertitel
 
-1080 × 1920:
+### Timing
+
+Ziel grob 60 % Bildbeats / 40 % Remotion-Animationen. Die Quote ist kein Grund, ein Bild künstlich lange stehen zu lassen.
+
+- Bildbeat ideal: 3,5–5,5 Sekunden
+- Bildbeat absolut maximal: 6,0 Sekunden
+- Animation ideal: 4,5–7,0 Sekunden
+- wenn ein Bild mehr als 6 Sekunden Erklärzeit braucht: splitten oder animieren
+
+### Zwischenüberschrift — Pflicht in jeder Szene
+
+Jede Bild- und Animationsszene besitzt oben eine klare Zwischenüberschrift mit passendem Icon.
+
+Standard:
+
+```tsx
+<SceneHeader title="KONTOAUSZUG PRÜFEN" icon="search" />
+```
+
+Regeln:
+
+- Icon standardmäßig FinanzNeo-grün
+- Headline weiß
+- gleiche Position/Grundgestaltung im ganzen Reel
+- kurze direkte Formulierung
+- Rot nur für Warnung/Problem
+- Gold nur für Geld/Wert
+- kein schwarzer Text auf dunklem Reel-Hintergrund
+
+### Layout 1080 × 1920
 
 ```text
 Headline ungefähr ab Y = 78
@@ -239,29 +295,58 @@ links 62 px
 rechts 150 px
 ```
 
-Untertitel:
+### Untertitel
 
-- genau ein vollständiger Satz sichtbar
-- aktuelles Wort FinanzNeo-grün
-- restliche Wörter weiß
+- satzbasierte Caption-Einheit sichtbar
+- aktuelles Wort **immer FinanzNeo-grün**
+- restliche Wörter **immer weiß**
+- kein gelbes/goldenes Active-Word
+- kein schwarzer Untertiteltext
 - maximal zwei Zeilen
 - keine springenden Wörter
-- keine Größenanimation
+- keine Größenanimation / kein Scale-Pop
+- kurze Pausen halten die vorherige Caption sichtbar
 - keine Caption-Lücken
 
-## 14. Satzbasierte Szenenschnitte
+Technische Standardkomponente: `src/brand/components/Captions.tsx`.
+
+## 14. Animationsklarheit
+
+Jede native Remotion-Erkläranimation folgt zwingend:
+
+```text
+STARTZUSTAND
+→ SICHTBARE VERÄNDERUNG / MECHANISMUS
+→ EINDEUTIGES ERGEBNIS
+```
+
+Reine Zooms, Fades, Zahlen-Popups oder dekorative Bewegung sind keine ausreichende Erkläranimation.
+
+Verbindliche Farblogik aus `ANIMATION_COLORS`:
+
+- Weiß = neutrale Information
+- Grün = Fokus/Lösung/zentrale Erklärung
+- Rot = Warnung/Problem/Verlust/unnötige Kosten
+- Gold = Geld/Summe/Wert
+- Schwarz = auf dunklen Reel-Flächen verboten
+
+Für komplexe Mechanismen kann `MechanismCue` für Start-/Ergebnis-Markierungen verwendet werden.
+
+Vor Freigabe Animation zusätzlich **ohne Ton** prüfen: Grundmechanismus muss trotzdem nachvollziehbar sein.
+
+## 15. Satzbasierte Szenenschnitte
 
 ```text
 finales Voiceover
 → echte Wort-Zeitstempel
-→ Satzanfänge
+→ Satz- und bei Bedarf sinnvolle Phrasenanfänge
 → Szenenstarts
 → relative Animationsdauer
 ```
 
 Kein starres Raster gleich langer Szenen.
 
-## 15. Audio
+## 16. Audio
 
 ```text
 Integrated Loudness: ungefähr -16 LUFS
@@ -270,31 +355,43 @@ True Peak: höchstens -1 dBTP
 
 Am finalen Export messen.
 
-## 16. Bildsatz-QA
+## 17. Bild-/Reel-QA
 
 Vor Freigabe:
 
-1. Bild gegen gesprochenen Satz prüfen
+1. Bild gegen gesprochenen Beat prüfen
 2. nahtlosen Hintergrund prüfen
-3. horizontale Bänder/Floor-Wall-Split ausschließen
-4. Gesicht prüfen, falls Person vorkommt
-5. Labels prüfen
-6. alle Bilder als Kontaktbogen prüfen
-7. Anfang/Mitte/Ende jeder Bildszene im Render prüfen
-8. vollständige MP4 mit Ton ansehen
+3. stylized 3D statt Fotorealismus prüfen
+4. horizontale Bänder/Floor-Wall-Split ausschließen
+5. Gesicht prüfen, falls Person vorkommt
+6. Labels prüfen
+7. alle Bilder als Kontaktbogen prüfen
+8. Anfang/Mitte/Ende jeder Bildszene im Render prüfen
+9. jede Szene auf Zwischenüberschrift + Icon prüfen
+10. Caption-Active-Word auf Grün prüfen
+11. schwarzen Text auf dunklen Szenen ausschließen
+12. jede Animation auf Start → Mechanismus → Ergebnis prüfen
+13. Animationen einmal ohne Ton ansehen
+14. vollständige MP4 mit Ton ansehen
 
-Sofort neu erzeugen bei:
+Sofort korrigieren bei:
 
 - zwei sichtbaren Hintergründen/Bändern
 - horizontaler Trennkante
 - sichtbarer Boden-Wand-Grenze/Horizont
 - gesichtsloser/abgewandter Person
 - falschen Labels
-- großer Headline/Satz
+- großer Headline/Satz im KI-Bild
 - Diorama/Game-Level
+- fotorealistischem Büro-/Papierlook
 - falscher Satzzuordnung
+- Bildbeat > 6 Sekunden
+- fehlender Szenenüberschrift oder fehlendem Icon
+- gelbem/goldenem Karaoke-Active-Word
+- schwarzem Text auf dunklem Hintergrund
+- unverständlicher/dekorativer Animation ohne klare Ursache-Wirkung
 
-## 17. Plattform-Publishing
+## 18. Plattform-Publishing
 
 Verbindlich ist `docs/PLATFORM-PUBLISHING.md`.
 
@@ -344,7 +441,7 @@ Wenn exakte aktuelle Plattform-Limits oder Upload-Funktionen relevant sind, vor 
 
 Longform-YouTube ist ein separates Format unter `youtube/` und wird nicht in Reel-Projekte gemischt oder automatisch aus ihnen gespiegelt.
 
-## 18. Automatische Erstellung
+## 19. Automatische Erstellung
 
 Der verbindliche Ablauf ist `docs/3-PHASEN-WORKFLOW.md`: Phase 1 durch normales ChatGPT, Phase 2 durch den Nutzer mit Google Flow und finalem Audio, Phase 3 autonom durch Antigravity.
 
@@ -354,9 +451,9 @@ npm run reel:create -- \
   --title "Reel-Titel"
 ```
 
-Der Scaffolder erzeugt die einfache Struktur, Bildprompts, `scene-index.json`, Master-Caption, die vier Reel-Plattformdateien, Wort-Timings und technische Hinweise nach den aktuellen Regeln. Er erzeugt keine YouTube-Shorts-Datei.
+Der Scaffolder erzeugt die einfache Struktur. Phase 1 muss die konkreten Bild-/Animationsbeats, kurzen Szenenüberschriften, Icons und vollständigen Prompts nach den aktuellen Regeln ausarbeiten. Der Nutzer erstellt die Bilder. Antigravity setzt in Phase 3 `SceneHeader`, `Captions`, `ANIMATION_COLORS` und bei Bedarf `MechanismCue` ein.
 
-## 19. Automatische Prüfung
+## 20. Automatische Prüfung
 
 ```bash
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
