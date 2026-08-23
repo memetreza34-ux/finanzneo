@@ -8,6 +8,7 @@ import {
   useCurrentFrame,
 } from 'remotion';
 import {
+  ANIMATION_COLORS,
   C,
   FONT,
   SAFE_AREA,
@@ -17,6 +18,7 @@ import {
   DramaticNumber,
   FinanceBackground,
   Kicker,
+  SceneHeader,
   Title,
   VerticalSafeAreaGuide,
   prog,
@@ -47,31 +49,10 @@ const formatTemplateNumber = (
 };
 
 const toneColor = (tone: CompareBeat['left']['tone']): string => {
-  if (tone === 'positive') return C.accent;
-  if (tone === 'negative') return C.negativeLt;
-  return C.white;
+  if (tone === 'positive') return ANIMATION_COLORS.positive;
+  if (tone === 'negative') return ANIMATION_COLORS.warning;
+  return ANIMATION_COLORS.neutralText;
 };
-
-const BeatHeader: React.FC<{
-  kicker?: string;
-  headline?: string;
-}> = ({kicker, headline}) => (
-  <div style={{
-    position: 'absolute',
-    top: 66,
-    left: CONTENT_HORIZONTAL_PADDING,
-    right: CONTENT_HORIZONTAL_PADDING,
-    minHeight: SAFE_AREA.topPx - 90,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
-  }}>
-    {kicker && <Kicker at={0}>{kicker}</Kicker>}
-    {headline && <Title at={4} size={82} style={{marginTop: kicker ? 18 : 0}}>{headline}</Title>}
-  </div>
-);
 
 const SourceNote: React.FC<{children?: string}> = ({children}) => {
   if (!children) return null;
@@ -82,7 +63,7 @@ const SourceNote: React.FC<{children?: string}> = ({children}) => {
       left: 64,
       right: 64,
       bottom: SAFE_AREA.bottomPx + 18,
-      color: a(C.gray, 0.72),
+      color: a(C.whiteSoft, 0.72),
       fontFamily: FONT.body,
       fontSize: 22,
       fontWeight: 600,
@@ -137,7 +118,7 @@ const CompareCard: React.FC<{
       opacity: appear,
       transform: `translateY(${(1 - appear) * 30}px)`,
     }}>
-      <div style={{fontFamily: FONT.body, fontSize: 30, fontWeight: 800, color: C.gray, letterSpacing: 2}}>
+      <div style={{fontFamily: FONT.body, fontSize: 30, fontWeight: 800, color: C.whiteSoft, letterSpacing: 2}}>
         {label.toUpperCase()}
       </div>
       <div style={{fontFamily: FONT.title, fontSize: 100, lineHeight: 1, color, marginTop: 30}}>
@@ -157,18 +138,19 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
     return (
       <AbsoluteFill>
         <FinanceBackground variant={beat.background ?? 'premium'} />
+        <SceneHeader title={beat.kicker ?? beat.headline} icon={beat.icon} tone={beat.headerTone} at={2} />
         <CenterArea>
-          <div style={{textAlign: 'center', width: '100%'}}>
-            {beat.kicker && <Kicker at={0}>{beat.kicker}</Kicker>}
-            <Title at={4} size={132} style={{marginTop: beat.kicker ? 24 : 0}}>{beat.headline}</Title>
+          <div style={{textAlign: 'center', width: '100%', marginTop: 88}}>
+            <Title at={4} size={126}>{beat.headline}</Title>
             {beat.accent && <div style={{
               marginTop: 26,
               fontFamily: FONT.title,
-              fontSize: 118,
-              color: C.gold,
+              fontSize: 114,
+              color: ANIMATION_COLORS.focus,
               opacity: prog(frame, 14, 26),
+              textShadow: '0 0 28px rgba(0,210,106,0.22)',
             }}>{beat.accent}</div>}
-            {beat.subline && <Body at={22} size={43} color={C.gray} style={{marginTop: 34}}>{beat.subline}</Body>}
+            {beat.subline && <Body at={22} size={43} color={C.whiteSoft} style={{marginTop: 34}}>{beat.subline}</Body>}
           </div>
         </CenterArea>
         <SourceNote>{beat.sourceNote}</SourceNote>
@@ -180,7 +162,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
     return (
       <AbsoluteFill>
         <FinanceBackground variant={beat.background ?? 'standard'} />
-        <BeatHeader kicker={beat.kicker} headline={beat.headline} />
+        <SceneHeader title={beat.headline} icon={beat.icon} tone={beat.headerTone} at={2} />
         <CenterArea>
           <div style={{width: '100%', textAlign: 'center'}}>
             <Body at={4} size={46} style={{maxWidth: 880, margin: '0 auto'}}>{beat.body}</Body>
@@ -203,7 +185,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
                   opacity: appear,
                   transform: `translateX(${(1 - appear) * 28}px)`,
                 }}>
-                  <span style={{color: C.accent, fontSize: 32}}>✓</span>
+                  <span style={{color: ANIMATION_COLORS.focus, fontSize: 32}}>✓</span>
                   <span>{item}</span>
                 </div>;
               })}
@@ -219,10 +201,10 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
     return (
       <AbsoluteFill>
         <FinanceBackground variant={beat.background ?? 'data'} />
-        <BeatHeader kicker={beat.kicker} headline={beat.headline} />
+        <SceneHeader title={beat.headline} icon={beat.icon} tone={beat.headerTone} at={2} />
         <CenterArea>
           <div style={{textAlign: 'center', width: '100%'}}>
-            <div style={{fontFamily: FONT.body, fontSize: 32, fontWeight: 800, letterSpacing: 4, color: C.gray}}>
+            <div style={{fontFamily: FONT.body, fontSize: 32, fontWeight: 800, letterSpacing: 4, color: C.whiteSoft}}>
               {beat.label.toUpperCase()}
             </div>
             <div style={{marginTop: 26}}>
@@ -230,7 +212,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
                 to={beat.value}
                 format={(value) => formatTemplateNumber(value, beat.format)}
                 fontSize={174}
-                color={C.gold}
+                color={ANIMATION_COLORS.money}
                 startAt={10}
                 durationFrames={72}
               />
@@ -238,7 +220,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
             {beat.detail && <Body at={62} size={39} color={C.white} style={{marginTop: 40}}>{beat.detail}</Body>}
             {beat.assumptions && <div style={{
               marginTop: 28,
-              color: a(C.gray, 0.78),
+              color: C.whiteSoft,
               fontFamily: FONT.body,
               fontSize: 25,
               fontWeight: 600,
@@ -255,11 +237,11 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
     return (
       <AbsoluteFill>
         <FinanceBackground variant={beat.background ?? 'data'} />
-        <BeatHeader kicker={beat.kicker} headline={beat.headline} />
+        <SceneHeader title={beat.headline} icon={beat.icon} tone={beat.headerTone} at={2} />
         <CenterArea>
           <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 34, width: '100%'}}>
             <CompareCard {...beat.left} delay={6} />
-            <div style={{fontFamily: FONT.title, fontSize: 70, color: C.gray}}>VS</div>
+            <div style={{fontFamily: FONT.title, fontSize: 70, color: C.whiteSoft}}>VS</div>
             <CompareCard {...beat.right} delay={16} />
           </div>
         </CenterArea>
@@ -272,7 +254,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
     return (
       <AbsoluteFill>
         <FinanceBackground variant={beat.background ?? 'standard'} />
-        <BeatHeader kicker={beat.kicker} headline={beat.headline} />
+        <SceneHeader title={beat.headline} icon={beat.icon} tone={beat.headerTone} at={2} />
         <CenterArea>
           <div style={{display: 'grid', gap: 22, width: '100%'}}>
             {beat.items.map((item, index) => {
@@ -302,7 +284,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
                   justifyContent: 'center',
                   flexShrink: 0,
                   background: a(C.accent, 0.16),
-                  color: C.accent,
+                  color: ANIMATION_COLORS.focus,
                   fontSize: 30,
                 }}>✓</span>
                 <span>{item}</span>
@@ -319,7 +301,7 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
     return (
       <AbsoluteFill>
         <FinanceBackground variant={beat.background ?? 'standard'} />
-        <BeatHeader kicker={beat.kicker} headline={beat.headline} />
+        <SceneHeader title={beat.headline} icon={beat.icon} tone={beat.headerTone} at={2} />
         <CenterArea>
           <div style={{
             width: '100%',
@@ -349,11 +331,11 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
   return (
     <AbsoluteFill>
       <FinanceBackground variant={beat.background ?? 'premium'} />
+      <SceneHeader title={beat.kicker ?? 'DEIN NÄCHSTER SCHRITT'} icon={beat.icon} tone={beat.headerTone} at={2} />
       <CenterArea>
-        <div style={{textAlign: 'center', width: '100%'}}>
-          {beat.kicker && <Kicker at={0}>{beat.kicker}</Kicker>}
-          <Title at={4} size={112} style={{marginTop: beat.kicker ? 24 : 0}}>{beat.headline}</Title>
-          <Body at={18} size={42} color={C.gray} style={{marginTop: 34}}>{beat.body}</Body>
+        <div style={{textAlign: 'center', width: '100%', marginTop: 80}}>
+          <Title at={4} size={112}>{beat.headline}</Title>
+          <Body at={18} size={42} color={C.whiteSoft} style={{marginTop: 34}}>{beat.body}</Body>
           {beat.keyword && beat.offer && <div style={{
             marginTop: 54,
             borderRadius: 28,
@@ -365,8 +347,8 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
             fontWeight: 800,
             color: C.white,
           }}>
-            Kommentiere <span style={{color: C.gold}}>„{beat.keyword}“</span><br />
-            <span style={{fontSize: 29, color: C.gray}}>{beat.offer}</span>
+            Kommentiere <span style={{color: ANIMATION_COLORS.focus}}>„{beat.keyword}“</span><br />
+            <span style={{fontSize: 29, color: C.whiteSoft}}>{beat.offer}</span>
           </div>}
         </div>
       </CenterArea>
@@ -397,7 +379,7 @@ export const ReelTemplate: React.FC<{config: ReelConfig}> = ({config}) => {
         position: 'absolute',
         top: 22,
         right: 30,
-        color: a(C.gray, 0.52),
+        color: a(C.whiteSoft, 0.52),
         fontFamily: FONT.body,
         fontSize: 18,
         fontWeight: 700,
@@ -407,7 +389,7 @@ export const ReelTemplate: React.FC<{config: ReelConfig}> = ({config}) => {
       </div>
 
       {config.captions && config.captions.length > 0 && (
-        <Captions words={config.captions} perGroup={3} size={64} bottom={292} highlight={C.gold} />
+        <Captions words={config.captions} size={58} bottom={320} left={62} right={150} />
       )}
 
       <VerticalSafeAreaGuide enabled={config.showSafeAreaGuide ?? false} />
