@@ -1,5 +1,5 @@
 ---
-description: Build a complete new FinanzNeo Reel safely using user-provided images, Remotion animation, captions, platform publishing, validation and preview render.
+description: Build a complete new FinanzNeo Reel safely using user-provided stylized 3D images, clear Remotion animation, scene headers, captions, platform publishing, validation and preview render.
 ---
 
 # Build a complete FinanzNeo Reel
@@ -10,10 +10,11 @@ Read in this order before editing:
 2. `CLAUDE.md`
 3. `reels/PRODUKTIONSSTANDARD.md`
 4. `docs/IMAGE-SYSTEM.md`
-5. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-6. `docs/PLATFORM-PUBLISHING.md`
+5. `docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md`
+6. `docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md`
+7. `docs/PLATFORM-PUBLISHING.md`
 
-`CLAUDE.md` wins on conflicts. For image composition, use the current Physical Explainer rules from `docs/IMAGE-SYSTEM.md` and never fall back to the dashboard/board failure mode.
+`CLAUDE.md` wins on conflicts.
 
 ## Pre-flight
 
@@ -46,9 +47,35 @@ Use:
 README.md
 ```
 
-## Visual plan
+## Visual plan and pacing
 
-Default target: 10 scenes with approximately 6 image scenes and 4 native Remotion animations, unless another split is clearly stronger.
+Target roughly **60% image beats / 40% native Remotion animations**, but never force the quota at the expense of pacing.
+
+- image beat ideal: 3.5–5.5 s
+- image beat absolute maximum: 6.0 s
+- animation beat ideal: 4.5–7.0 s
+- if one image would need >6 s: split the idea or animate it
+- one clear idea per beat
+- image must be readable in under 2 s
+- use sentence starts and meaningful phrase starts for cuts when necessary
+
+## Scene header — required for EVERY beat
+
+Every image and animation scene gets:
+
+- short intermediate headline
+- matching icon
+- same top placement
+- white headline
+- icon normally FinanzNeo-green
+- red only for warning/problem
+- gold only for money/value
+
+Preferred implementation:
+
+```tsx
+<SceneHeader title="KONTOAUSZUG PRÜFEN" icon="search" />
+```
 
 ## Bildprompts — user images only
 
@@ -58,42 +85,39 @@ For every image prompt:
 
 1. Put the exact final filename directly at the prompt.
 2. Put exact allowed short German object labels directly in the prompt.
-3. Create a premium stylized 3D **financial editorial explainer from recognizable physical objects**.
-4. Use ONE large recognizable physical hero object plus a few concrete topic-specific physical objects.
-5. Use natural asymmetry, slight overlap, foreground/midground depth and soft local contact shadows.
-6. Prefer front-facing or gentle natural three-quarter camera. Never tiny isometric/gameboard view.
-7. Use paper, brushed metal, glass, premium plastic and real money objects; avoid abstract generic icons when a concrete object is available.
-8. Deep charcoal green-black background; emerald/mint only as restrained rim light/structure accent; gold only for money/value; warm red-orange only for warning/loss/unwanted cost.
-9. Labels must be physical: printed on tags, stickers, receipts or small attached plaques. Never floating/glowing UI labels.
-10. Never create headline, subtitle, explanatory sentence or CTA inside generated images.
-11. Every prompt requires ONE seamless continuous background from top edge to bottom edge; no floor-wall boundary, horizon, bands or panels.
-12. `Bild 00` is the cover; scene images use their REAL chronological scene number. Remotion numbers remain reserved.
-13. `scene-index.json` is the authority for numbering and scene type.
-14. The user creates all final images externally.
+3. Use `STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5`.
+4. Create a **clearly stylized premium 3D CGI financial editorial explainer** from recognizable everyday objects.
+5. Use chunky substantial volumes, rounded forms, soft bevels and simplified slightly exaggerated proportions.
+6. Use one dominant everyday metaphor plus 2–5 concrete supporting objects.
+7. Use natural asymmetry, overlap, foreground/midground/background depth and soft contact shadows.
+8. Deep charcoal green-black background; emerald/mint signature; gold only for money/value; red-orange only for warning/loss/unwanted cost.
+9. No realistic office/stationery/product photography.
+10. Labels are short and physically attached to modeled objects/tags; no sentence text.
+11. Use ONE seamless continuous background from top to bottom; no floor-wall boundary, horizon, bands or panels.
+12. `Bild 00` is cover; image scenes use real chronological scene number; animation numbers remain reserved.
+13. The user creates all final images externally.
 
-## Hard reject: dashboard/board failure mode
+## Hard reject image modes
 
 Reject and regenerate any image containing:
 
+- photorealistic calendar/receipt/contract/product still-life
 - dashboard, app UI, software screen, HUD or control panel
 - central rectangular board/tablet/panel
-- repeated rectangular cards/tiles/blocks as the main visual language
-- floating cards, chips, badges, buttons or widgets
+- repeated UI cards/tiles/modules
 - microchip/circuit-board styling
-- circular orbit or ring of modules
-- twelve-slot mechanism
+- circular orbit/module ring
 - gameboard/board-game layout
-- mechanical inspection gate / conveyor-board composition
-- neon connector lines, rails, tracks, tubes or abstract finance streams
-- four-corner mini-module layout
+- inspection gate/conveyor-board
+- neon connector networks
 - tiny isometric diorama
 - sterile product-ad plinth
 
-## Cover-reference rule
+## No image-reference rule
 
-Do NOT upload, attach or use `Bild 00` as an image-to-image/reference image for later scenes.
+Do NOT upload, attach or use `Bild 00` or any previous scene as an image-to-image/reference image.
 
-Consistency comes from repeating the same written material/light/color/background lock in every image prompt. Later scenes must not inherit the cover camera angle, silhouette, board shape, object arrangement or geometry.
+Consistency comes only from repeating the same written world/material/geometry/color/light lock in every prompt. Every scene gets a fresh composition.
 
 ## Google Flow user workflow
 
@@ -101,8 +125,8 @@ Consistency comes from repeating the same written material/light/color/backgroun
 one image generate
 → wait completely
 → immediately rename
-→ check physical objects + labels + background + filename
-→ reject board/UI/gameboard/module results
+→ check stylized 3D + everyday clarity + labels + background + filename
+→ reject photo/UI/gameboard/module results
 → only then next image
 ```
 
@@ -116,11 +140,47 @@ If required user images are missing, stop at the asset boundary and report exact
 
 ## Audio and timing
 
-Use one final voiceover and derive real word timings from that exact audio. Scene cuts follow sentence starts, not equal-duration blocks.
+Use one final voiceover and derive real word timings from that exact audio. Cuts follow sentence starts and meaningful phrase starts when needed to honor the 6-second image limit.
 
-## Remotion
+## Remotion animation clarity
 
-1080×1920 at 30fps. Headlines/icons are rendered in Remotion. Images use `contain`. No blurred duplicate image background. Exactly one full subtitle sentence, current word green, max two lines, platform-safe. Animation timing is relative to actual scene duration.
+Every explanatory animation must be:
+
+```text
+START
+→ VISIBLE MECHANISM / CHANGE
+→ RESULT
+```
+
+- motion must explain, not decorate
+- no zoom/fade/number-popup-only animation
+- use `MechanismCue` when start/result need stronger labeling
+- animation must be basically understandable with sound muted
+
+### Colors on dark scenes
+
+Use `ANIMATION_COLORS`:
+
+- white = neutral information
+- green = focus/solution
+- red = warning/problem/loss/unnecessary cost
+- gold = money/value
+- black = forbidden on dark Reel surfaces
+
+## Captions
+
+Use the central `Captions` component:
+
+- sentence-based caption unit
+- active spoken word ALWAYS green
+- remaining words ALWAYS white
+- no yellow/gold active word
+- no black subtitle text
+- max two lines
+- no word jump
+- no scale-pop
+- hold through short pauses
+- standard position bottom 320, left 62, right 150
 
 ## Platform publishing
 
@@ -137,7 +197,7 @@ word-timings.json
 
 Never create `youtube-shorts.txt`; YouTube remains a separate long-form workflow.
 
-## Validation
+## Validation and review
 
 When assets exist:
 
@@ -146,10 +206,13 @@ When assets exist:
 - TypeScript check
 - preview render
 - inspect first/middle/last frame of each scene
-- inspect captions/transitions
+- verify every scene has SceneHeader + icon
+- verify captions: active green/rest white
+- verify no black text on dark backgrounds
+- verify each animation has Start → Mechanism → Result
+- inspect animations once with sound muted
 - contact-sheet review
 - full MP4 review
-- explicitly reject background bands, faceless people, dashboard/board/UI/module compositions
 - target audio around -16 LUFS and <= -1 dBTP true peak
 
 ## Safety audit
