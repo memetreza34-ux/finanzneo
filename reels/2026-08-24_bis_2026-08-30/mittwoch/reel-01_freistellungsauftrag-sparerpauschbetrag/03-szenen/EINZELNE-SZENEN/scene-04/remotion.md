@@ -1,9 +1,16 @@
-# Remotion Szene 04 — AllowanceSingleVsJoint
+# Remotion Szene 04 — CapitalIncomeSources
 
-**SceneHeader:** `1.000 € ODER 2.000 €` + Icon `euro`.
+**Audio-Trigger:** `wie Zinsen, Dividenden und Gewinne ...`
+**SceneHeader:** `ZINSEN + DIVIDENDEN + GEWINNE` + Icon `coins`.
 
-**Start:** Links ein einzelner stilisierter Person-Token; rechts zwei verbundene Person-Tokens mit Label `ZUSAMMEN VERANLAGT`.
-**Mechanismus:** Unter beiden wächst eine grüne Schutzleiste sichtbar von 0 nach rechts.
-**Ergebnis:** links `1.000 €`, rechts `2.000 €` groß in Gold; grüne Schutzkante.
+## Premium-Motion-V3-Bühne
+- zentrale Aktionszone ca. Y=520–1260
+- dieselbe Material-/Farblogik wie Szene 02
+- Weiß neutral, Grün Fokus, Gold Ertrag, kein Schwarz
+- Ergebnis mindestens 0,5 s stabil halten
 
-Nur Weiß/Grün/Gold. Kein schwarzer Text. Start → Mechanismus → Ergebnis klar sichtbar.
+**Start:** drei klar getrennte Quellen `ZINSEN`, `DIVIDENDEN`, `GEWINNE` stehen in einer gemeinsamen horizontalen Bühne.
+**Mechanismus:** aus jeder Quelle fließen goldene Wertpunkte sichtbar in einen gemeinsamen zentralen Sammelbereich. Die drei Bewegungen müssen nacheinander verständlich und nicht gleichzeitig chaotisch passieren.
+**Ergebnis:** zentraler Bereich `KAPITALERTRÄGE` bleibt deutlich sichtbar.
+
+Übergang: gleiche 4–6 Frame Continuity-Bewegung wie Szene 02. Keine reine Textfolie, kein Fade-to-black.
