@@ -1,0 +1,15 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+Create a square 1:1 source image only.
+
+Premium stylized 3D CGI financial editorial explainer. Chunky volumetric objects, smooth rounded bevels, premium matte dark-emerald polymer, brushed metal, restrained glass, warm cream modeled surfaces and sculpted gold euro/value elements. Deep charcoal green-black world, cinematic soft key light, vivid emerald rim light, strong foreground/midground/background separation and mild depth-of-field. Gold only for money/value, red-orange only for warning/problem, white for neutral information.
+
+Every image needs one immediately understandable everyday financial metaphor and only 2–5 supporting modeled objects. Scenes must feel active through overlap, movement cues and visible cause/effect, never like a dead product still-life. Not photorealistic. No office/stationery photography, no Pixar/clay/toy look, no dashboard, app UI, control panel, floating cards, gameboard, module ring, microchip world or tiny isometric diorama.
+
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, no horizon, no bands, no panels. No headline, no subtitle, no explanatory sentence. Only short German object labels physically attached to relevant 3D objects. If a person appears, the stylized face must be clearly visible.
+
+No image-to-image reference. Same-world consistency comes only from this written style/material/light lock.

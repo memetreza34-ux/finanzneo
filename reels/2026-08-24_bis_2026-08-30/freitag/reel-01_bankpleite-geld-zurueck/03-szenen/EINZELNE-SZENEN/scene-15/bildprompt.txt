@@ -1,0 +1,12 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 15 - Bankpleite Merksatz.png
+
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Final hero composition: a damaged chunky bank building sits in the back, one calm stylized adult with clearly visible face stands in front, and between the person and bank a thick emerald shield protects a sculpted gold deposit pile. A large green checkmark physically locks onto the shield. The composition must feel calm, clear and conclusive rather than dramatic.
+
+Short German object labels only: `BANK PLEITE`, `GELD GESCHÜTZT`, `SCHUTZGRENZE KENNEN`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium emerald polymer, restrained glass, brushed metal, sculpted gold, rounded bevels, cinematic soft key light and vivid emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. Person face clearly visible.

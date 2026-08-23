@@ -1,0 +1,12 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Bank Pleite Hook.png
+
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. A large chunky bank building is visibly in trouble: one controlled red-orange crack, closed entrance and slight tilt. In the foreground, a large gold wallet/deposit container remains safely behind a thick translucent emerald protection shield. Include one stylized adult with a clearly visible face looking from the damaged bank toward the protected wallet. Add 2–3 sculpted euro coins frozen safely behind the shield. The cause/effect must read instantly: bank failure does not automatically erase protected deposits.
+
+Short German object labels only: `BANKPLEITE?`, `GELD WEG?`, `NEIN`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium dark-emerald polymer, brushed metal, restrained glass, sculpted gold value details, rounded bevels, strong depth, cinematic soft key light and vivid emerald rim light. Not photorealistic. No office/stationery photo, no dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. Face must be clearly visible if a person appears.

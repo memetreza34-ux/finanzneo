@@ -1,0 +1,25 @@
+{
+  "version":2,
+  "title":"Bank pleite: So bekommst du dein Geld zurück",
+  "fps":30,
+  "timingSource":"04-caption/word-timings.json",
+  "cutRule":"voice-sentence-or-meaningful-phrase-start",
+  "status":"PHASE_2_REQUIRED",
+  "scenes":[
+    {"id":"scene-01","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-02","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-03","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-04","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-05","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-06","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-07","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-08","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-09","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-10","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-11","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-12","type":"animation","startFrame":0,"durationFrames":0},
+    {"id":"scene-13","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-14","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-15","type":"image","startFrame":0,"durationFrames":0}
+  ]
+}
