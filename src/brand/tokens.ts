@@ -121,7 +121,7 @@ export const prog = (f: number, a: number, b: number, e = E.out) =>
 
 // Wert va→vb zwischen zwei Frames
 export const lerpF = (f: number, va: number, vb: number, a: number, b: number, e = E.out) =>
-  interpolate(f, [a, b], [va, vb], [0, 1], { ...CLAMP, easing: e });
+  interpolate(f, [a, b], [va, vb], { ...CLAMP, easing: e });
 
 // Lebenszyklus: rein → halten → raus (für sauberes Erscheinen + Verschwinden)
 export const life = (f: number, inF: number, outF: number, ramp = 9) =>
