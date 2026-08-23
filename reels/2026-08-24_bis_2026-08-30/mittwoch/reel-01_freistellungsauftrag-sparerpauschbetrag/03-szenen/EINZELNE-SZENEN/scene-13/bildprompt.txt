@@ -4,11 +4,11 @@ STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 13 - Jahrescheck Banken.png
+Bild 13 - Steuererklaerung Korrektur.png
 Create a square 1:1 source image only.
 
-Create a premium stylized 3D CGI editorial explainer. A chunky stylized 3D annual-check folder is open in the center. Around it are three small modeled bank buildings at different depths, a thick emerald calendar token and a large 3D magnifying glass. Several allowance tags are physically attached to the bank objects. Keep the scene active and dimensional, not like office stationery.
+Create a premium stylized 3D CGI financial editorial explainer that visually continues the red tax state from the previous animation. A bold red-orange tax token starts on the left beside a chunky modeled bank object. In the center, a substantial stylized 3D tax-declaration folder with a clear checkmark seal becomes the hero object. On the right, a green correction arrow leads back toward a clean gold/emerald money area. The cause-and-effect must be obvious: tax withheld → declaration checked → correction can be possible. Do NOT show a guaranteed refund amount.
 
-Labels only: `JAHRESCHECK`, `BANKEN`, `FREISTELLUNG`.
+Labels only: `STEUER`, `STEUERERKLÄRUNG`, `KORREKTUR`.
 Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
-No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No dashboard, UI, gameboard, module ring, tiny isometric diorama, Pixar or clay.
+No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No realistic office document photo, dashboard, UI, gameboard, module ring, tiny isometric diorama, Pixar or clay.
