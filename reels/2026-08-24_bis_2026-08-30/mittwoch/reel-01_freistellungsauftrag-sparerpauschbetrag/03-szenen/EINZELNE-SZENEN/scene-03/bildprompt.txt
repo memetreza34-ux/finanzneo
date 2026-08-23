@@ -4,11 +4,11 @@ STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 03 - Sparer Pauschbetrag Schutz.png
+Bild 03 - Kapitalertraege Quellen.png
 Create a square 1:1 source image only.
 
-Create a premium stylized 3D CGI editorial explainer. A thick sculpted emerald 3D shield is the dominant hero object. Under it sits a compact stack of sculpted gold return-coins. Three small chunky 3D source objects feed into the protected area: a stylized savings jar, a dividend-envelope token and a modeled stock-sale certificate object. Rounded bevels, chunky volumes, premium matte/glass materials, cinematic depth and emerald rim light.
+Create a premium stylized 3D CGI financial editorial explainer. In the center is one large sculpted gold collection bowl labelled `KAPITALERTRÄGE`. Three clearly different chunky volumetric 3D everyday-finance source objects feed toward it with short visible gold value trails: a savings jar for interest, a dividend envelope/coin token and a modeled stock-sale certificate with a small upward coin marker. The three sources must be understood immediately as separate origins that become one category. Strong foreground/midground depth, rounded bevels, premium emerald polymer and brushed metal, cinematic soft key light and emerald rim light.
 
-Labels only: `1.000 €`, `ZINSEN`, `DIVIDENDEN`, `GEWINNE`.
+Labels only: `ZINSEN`, `DIVIDENDEN`, `GEWINNE`, `KAPITALERTRÄGE`.
 Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
 No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No realistic paper/office photo, dashboard, UI, gameboard, module ring, microchip world, tiny isometric diorama, Pixar or clay.
