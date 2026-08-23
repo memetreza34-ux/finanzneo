@@ -30,13 +30,25 @@ if (!composition || !output) {
 }
 
 const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
-const args = ['remotion', 'render', entryPoint, composition, output];
+
+// Premium-Reel-Defaults: scharfe Typografie und deutlich weniger Kompressionsartefakte.
+// CRF 14 statt niedriger Zielbitrate; PNG-Zwischenframes vermeiden zusätzliche JPEG-Weichzeichnung.
+const premiumDefaults = [
+  '--codec=h264',
+  '--crf=14',
+  '--audio-bitrate=320k',
+  '--pixel-format=yuv420p',
+  '--image-format=png',
+];
+
+const args = ['remotion', 'render', entryPoint, composition, output, ...premiumDefaults];
 
 if (Array.isArray(manifest.renderArgs)) {
   args.push(...manifest.renderArgs.map(String));
 }
 
-console.log(`\nStarte Render: ${composition} → ${output}\n`);
+console.log(`\nStarte Premium-Render: ${composition} → ${output}`);
+console.log('Qualität: H.264 · CRF 14 · PNG-Zwischenframes · AAC 320k\n');
 
 const result = spawnSync(npx, args, {
   cwd: resolve('.'),
