@@ -1,21 +1,27 @@
-# Szenenplan
+# Szenenplan — Voiceover-synchron V3
 
-| Szene | Typ | Ziel | Header/Icon |
+| Szene | Typ | Audio-Trigger / Ziel | Header/Icon |
 |---|---|---|---|
-|01|Bild|Hook: Steuerabzug trotz Freibetrag|ZAHLST DU UNNÖTIG STEUERN? / euro|
-|02|Animation|Zinsen, Dividenden, Gewinne als Kapitalerträge|WAS ZÄHLT ALS KAPITALERTRAG? / coins|
-|03|Bild|1.000-€-Schutzbild|1.000 € SPARER-PAUSCHBETRAG / shield|
-|04|Animation|1.000 € Einzel / 2.000 € gemeinsam|1.000 € ODER 2.000 € / euro|
-|05|Bild|Freistellungsauftrag aktiviert Bank-Schutz|FREISTELLUNG BEI DER BANK / bank|
-|06|Animation|Erträge füllen Freibetrag; darüber Steuerabzug|ERST FREI — DANN STEUER / shield|
-|07|Bild|Eine Bank: bis 1.000 € dort|NUR EINE BANK? / bank|
-|08|Animation|Mehrere Banken: Summe aufteilen|MEHRERE BANKEN = AUFTEILEN / bank|
-|09|Bild|700 + 300 Beispiel|700 € + 300 € = 1.000 € / euro|
-|10|Animation|Guthaben ≠ Kapitalertrag|NICHT DEIN GUTHABEN / wallet|
-|11|Bild|Freibetrag schützt Ertrag, nicht Guthaben|FREIBETRAG GILT FÜR ERTRÄGE / coins|
-|12|Animation|Kein Auftrag → Einbehalt → Steuererklärung → mögliche Korrektur|AUFTRAG VERGESSEN? / check|
-|13|Bild|jährlicher Bank-Check|EINMAL PRO JAHR CHECKEN / calendar|
-|14|Bild|Wo? Wie viel? Passt es?|3 FRAGEN REICHEN / check|
-|15|Bild|CTA: heute prüfen|HEUTE KURZ PRÜFEN / check|
+|01|Bild|`Du kannst unnötig Steuern vorauszahlen` — Hook|ZAHLST DU UNNÖTIG STEUERN? / euro|
+|02|Animation|`In Deutschland sind das 2026` — 1.000 € / 2.000 €|1.000 € ODER 2.000 € / euro|
+|03|Bild|`Dazu zählen Kapitalerträge` — Quellen sichtbar machen|WAS ZÄHLT ALS KAPITALERTRAG? / coins|
+|04|Animation|`wie Zinsen, Dividenden und Gewinne` — drei Quellen → Kapitalerträge|ZINSEN + DIVIDENDEN + GEWINNE / coins|
+|05|Bild|`Damit deine Bank den Freibetrag` — Freistellungsauftrag bei Bank|FREISTELLUNG BEI DER BANK / bank|
+|06|Animation|`brauchst du einen Freistellungsauftrag` — Auftrag aktiviert Schutz|AUFTRAG AKTIVIERT FREIBETRAG / shield|
+|07|Bild|`Hast du nur eine Bank` — bis 1.000 € dort|NUR EINE BANK? / bank|
+|08|Animation|`Hast du mehrere Banken oder Depots` — aufteilen|MEHRERE BANKEN = AUFTEILEN / bank|
+|09|Bild|`Beispiel: 700 Euro bei Bank A` — 700 + 300 = 1.000|700 € + 300 € = 1.000 € / euro|
+|10|Animation|`Wichtig: Der Freibetrag bezieht sich auf Kapitalerträge` — Guthaben ≠ Ertrag|NICHT DEIN GUTHABEN / wallet|
+|11|Bild|`nicht auf dein Kontoguthaben oder deinen Depotwert` — Schutz nur über Ertrag|NUR ERTRÄGE ZÄHLEN / coins|
+|12|Animation|`Liegt kein passender Freistellungsauftrag vor` — Steuer kann einbehalten werden|OHNE AUFTRAG → STEUER / cross|
+|13|Bild|`Wurde dadurch zu viel Steuer einbehalten` — Korrektur über Steuererklärung möglich|ZU VIEL STEUER? KORREKTUR / check|
+|14|Bild|`Prüfe deshalb einmal im Jahr` — jährlicher Bankcheck|EINMAL PRO JAHR CHECKEN / calendar|
+|15|Bild|`ob die Verteilung noch zu deinen tatsächlichen Erträgen passt` — Verteilung prüfen|PASST DIE VERTEILUNG NOCH? / check|
 
-Alle Bildbeats unter 6 Sekunden. Exakt 60 % Bild / 40 % Animation.
+## Timing-Regel
+- Start jedes Beats am ersten relevanten Wort / sinnvollen Phrasenanfang.
+- Zielabweichung maximal ca. 0,15 s.
+- Kein altes Visual nach Beginn des neuen Audio-Gedankens stehen lassen.
+- Kein neues Visual deutlich vor seinem Audio-Trigger zeigen.
+- Alle Bildbeats unter 6 Sekunden.
+- Exakt 60 % Bild / 40 % Animation.
