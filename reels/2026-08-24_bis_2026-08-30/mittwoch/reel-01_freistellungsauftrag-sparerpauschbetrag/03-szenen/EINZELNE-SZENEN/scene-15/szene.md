@@ -1,6 +1,6 @@
 # Szene 15
 **Typ:** image
-**Headline:** HEUTE KURZ PRÜFEN
+**Headline:** PASST DIE VERTEILUNG NOCH?
 **Icon:** check
-**Sprechbeat:** Prüfe auch, ob die Verteilung noch zu deinen tatsächlichen Erträgen passt.
-**Google-Flow-Dateiname:** Bild 15 - Heute Freistellung Pruefen.png
+**Sprechbeat:** Prüfe, ob die Verteilung noch zu deinen tatsächlichen Erträgen passt.
+**Google-Flow-Dateiname:** Bild 15 - Freistellung Verteilung Pruefen.png
