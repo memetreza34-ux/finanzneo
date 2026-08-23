@@ -1,9 +1,16 @@
-# Remotion Szene 02 — CapitalIncomeSources
+# Remotion Szene 02 — AllowanceSingleVsJoint
 
-**SceneHeader:** `WAS ZÄHLT ALS KAPITALERTRAG?` + Icon `coins`, Icon grün, Text weiß.
+**Audio-Trigger:** `In Deutschland sind das 2026 ...`
+**SceneHeader:** `1.000 € ODER 2.000 €` + Icon `euro`.
 
-**Start:** Drei große weiße/goldene Quellen erscheinen getrennt: `ZINSEN`, `DIVIDENDEN`, `GEWINNE`.
-**Mechanismus:** Aus jeder Quelle bewegen sich goldene Wertpunkte sichtbar in denselben mittleren Sammelbereich.
-**Ergebnis:** Sammelbereich trägt `KAPITALERTRÄGE` und leuchtet gold/grün.
+## Premium-Motion-V3-Bühne
+- zentrale Aktionszone ca. Y=520–1260
+- gleiche dunkle FinanzNeo-Fläche wie alle anderen Animationen
+- Weiß neutral, Grün Schutz/Fokus, Gold Betrag, kein Schwarz
+- Ergebnis mindestens 0,5 s stabil halten
 
-Kein schwarzer Text. Keine Deko-Animation ohne Aussage. Mit ausgeschaltetem Ton verständlich.
+**Start:** links ein klarer Einzelperson-Token mit Label `EINE PERSON`, rechts zwei verbundene Tokens mit Label `ZUSAMMEN VERANLAGT`.
+**Mechanismus:** unter beiden wächst ein grüner Schutzrahmen sichtbar von 0 auf seine Zielgröße; die Goldbeträge bauen sich synchron auf.
+**Ergebnis:** links `1.000 €`, rechts `2.000 €`, beide klar und groß. Keine Zusatzwerte.
+
+Übergang: kurze 4–6 Frame Continuity-Bewegung; kein Fade-to-black. Tonlos verständlich.
