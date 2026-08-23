@@ -76,3 +76,5 @@ Create exactly one image. A chunky stylized 3D banking folder is open with a lar
 
 ABSCHLUSSPRÜFUNG
 Exakt 10 Dateien: Bild 00, 01, 03, 05, 07, 09, 11, 13, 14, 15. Keine Bilder 02, 04, 06, 08, 10, 12. Jedes Bild muss deutlich stylized 3D CGI sein und in unter zwei Sekunden verständlich wirken.
+Nach Abschluss müssen alle erzeugten und exakt benannten Bilder gemeinsam hier liegen:
+03-szenen/00-ALLE-BILDER-HIER-REIN/
