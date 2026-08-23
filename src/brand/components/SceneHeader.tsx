@@ -7,16 +7,12 @@ import {Icon, type IconName} from './Icon';
 export type SceneHeaderTone = 'default' | 'positive' | 'warning' | 'money' | 'neutral';
 
 const toneColor = (tone: SceneHeaderTone) => {
-  if (tone === 'warning') return C.negative;
+  if (tone === 'warning') return C.negativeLt;
   if (tone === 'money') return C.gold;
   if (tone === 'neutral') return C.white;
-  return C.accent;
+  return C.accentLt;
 };
 
-/**
- * Einheitliche Zwischenüberschrift für JEDE Reel-Szene.
- * Icon standardmäßig grün, Text immer weiß. Schwarz auf dunklem Hintergrund ist verboten.
- */
 export const SceneHeader: React.FC<{
   title: string;
   icon: IconName;
@@ -31,61 +27,55 @@ export const SceneHeader: React.FC<{
   icon,
   tone = 'default',
   at = 0,
-  top = 78,
-  left = 62,
-  right = 150,
-  size = 62,
+  top = 118,
+  left = 72,
+  right = 140,
+  size = 54,
 }) => {
   const frame = useCurrentFrame();
-  const enter = prog(frame, at, at + 8, E.out);
+  const enter = prog(frame, at, at + 7, E.out);
   const accent = toneColor(tone);
 
   return (
-    <div
-      style={{
-        position: 'absolute',
-        top,
-        left,
-        right,
-        zIndex: 40,
-        display: 'flex',
+    <div style={{position: 'absolute', top, left, right, zIndex: 45, opacity: enter, transform: `translateY(${(1 - enter) * 8}px)`, pointerEvents: 'none'}}>
+      <div style={{
+        display: 'inline-flex',
         alignItems: 'center',
-        gap: 18,
-        opacity: enter,
-        transform: `translateY(${(1 - enter) * 12}px)`,
-        pointerEvents: 'none',
-      }}
-    >
-      <div
-        style={{
-          width: 62,
-          height: 62,
-          borderRadius: 18,
+        gap: 14,
+        maxWidth: '100%',
+        padding: '9px 18px 9px 9px',
+        borderRadius: 22,
+        background: 'rgba(3, 16, 9, 0.80)',
+        border: `1px solid ${a(accent, tone === 'neutral' ? 0.20 : 0.34)}`,
+        boxShadow: '0 8px 24px rgba(0,0,0,0.25)',
+      }}>
+        <div style={{
+          width: 54,
+          height: 54,
+          borderRadius: 16,
           flex: '0 0 auto',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: tone === 'neutral' ? 'rgba(255,255,255,0.10)' : a(accent, 0.14),
-          border: `1.5px solid ${tone === 'neutral' ? 'rgba(255,255,255,0.22)' : a(accent, 0.48)}`,
-          boxShadow: tone === 'neutral' ? 'none' : `0 0 24px ${a(accent, 0.16)}`,
-        }}
-      >
-        <Icon name={icon} size={34} color={accent} stroke={2.2} glow={tone !== 'neutral'} />
-      </div>
-
-      <div
-        style={{
+          background: tone === 'neutral' ? 'rgba(255,255,255,0.09)' : a(accent, 0.13),
+          border: `1.5px solid ${tone === 'neutral' ? 'rgba(255,255,255,0.18)' : a(accent, 0.40)}`,
+        }}>
+          <Icon name={icon} size={31} color={accent} stroke={2.15} glow={false} />
+        </div>
+        <div style={{
           minWidth: 0,
           fontFamily: FONT.title,
           fontSize: size,
-          lineHeight: 0.98,
-          letterSpacing: 0.6,
+          lineHeight: 1,
+          letterSpacing: 0.2,
           color: C.white,
           textTransform: 'uppercase',
-          textShadow: '0 5px 16px rgba(0,0,0,0.72)',
-        }}
-      >
-        {title}
+          textShadow: '0 2px 1px rgba(0,0,0,0.92)',
+          textRendering: 'geometricPrecision',
+          WebkitFontSmoothing: 'antialiased',
+        }}>
+          {title}
+        </div>
       </div>
     </div>
   );
