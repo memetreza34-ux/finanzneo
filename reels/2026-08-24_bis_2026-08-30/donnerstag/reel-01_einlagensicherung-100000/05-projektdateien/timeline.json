@@ -1,0 +1,25 @@
+{
+  "version":3,
+  "status":"PHASE_2_REQUIRED",
+  "fps":30,
+  "timingSource":"04-caption/word-timings.json",
+  "cutRule":"audioTrigger-word-timing",
+  "maxTriggerOffsetSeconds":0.15,
+  "scenes":[
+    {"id":"scene-01","trigger":"100.000 Euro Einlagensicherung klingt","startFrame":0,"durationFrames":0},
+    {"id":"scene-02","trigger":"Die gesetzliche Grenze gilt grundsätzlich","startFrame":0,"durationFrames":0},
+    {"id":"scene-03","trigger":"Geschützt sind typischerweise Einlagen","startFrame":0,"durationFrames":0},
+    {"id":"scene-04","trigger":"Hast du bei derselben Bank mehrere Konten","startFrame":0,"durationFrames":0},
+    {"id":"scene-05","trigger":"Beispiel: 60.000 Euro Tagesgeld","startFrame":0,"durationFrames":0},
+    {"id":"scene-06","trigger":"Gesetzlich geschützt sind regelmäßig","startFrame":0,"durationFrames":0},
+    {"id":"scene-07","trigger":"Bei zwei unterschiedlichen Banken","startFrame":0,"durationFrames":0},
+    {"id":"scene-08","trigger":"Zum Beispiel können 80.000 Euro","startFrame":0,"durationFrames":0},
+    {"id":"scene-09","trigger":"Bei Gemeinschaftskonten","startFrame":0,"durationFrames":0},
+    {"id":"scene-10","trigger":"Bei zwei Personen können dadurch","startFrame":0,"durationFrames":0},
+    {"id":"scene-11","trigger":"In bestimmten besonderen Lebenssituationen","startFrame":0,"durationFrames":0},
+    {"id":"scene-12","trigger":"Dieser erhöhte Schutz kann","startFrame":0,"durationFrames":0},
+    {"id":"scene-13","trigger":"Aktien und ETFs sind keine Einlagen","startFrame":0,"durationFrames":0},
+    {"id":"scene-14","trigger":"Prüfe deshalb, bei welcher rechtlichen Bank","startFrame":0,"durationFrames":0},
+    {"id":"scene-15","trigger":"Denk immer pro Person und pro Bank","startFrame":0,"durationFrames":0}
+  ]
+}
