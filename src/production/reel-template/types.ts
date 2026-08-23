@@ -1,4 +1,8 @@
-import type {FinanceBackgroundVariant} from '../../design-system';
+import type {
+  FinanceBackgroundVariant,
+  IconName,
+  SceneHeaderTone,
+} from '../../design-system';
 import type {CaptionWord} from '../../lib/captions';
 
 export type ReelBeatBase = {
@@ -8,6 +12,10 @@ export type ReelBeatBase = {
   kicker?: string;
   headline?: string;
   sourceNote?: string;
+  /** Jede Szene braucht ein passendes Linien-Icon für SceneHeader. */
+  icon: IconName;
+  /** Standard bleibt grün; nur semantisch abweichen. */
+  headerTone?: SceneHeaderTone;
 };
 
 export type HookBeat = ReelBeatBase & {
@@ -119,8 +127,19 @@ export const validateReelConfig = (config: ReelConfig): string[] => {
       errors.push(`Beat ${beat.id} hat keine positive ganzzahlige durationInFrames.`);
     }
 
-    if (beat.type === 'image' && !beat.imageSrc.trim()) {
-      errors.push(`Image-Beat ${beat.id} besitzt keine Bilddatei.`);
+    if (!beat.icon) {
+      errors.push(`Beat ${beat.id} besitzt kein SceneHeader-Icon.`);
+    }
+
+    if (beat.type === 'image') {
+      if (!beat.imageSrc.trim()) {
+        errors.push(`Image-Beat ${beat.id} besitzt keine Bilddatei.`);
+      }
+
+      const imageSeconds = beat.durationInFrames / fps;
+      if (imageSeconds > 6) {
+        errors.push(`Image-Beat ${beat.id} dauert ${imageSeconds.toFixed(1)} s. Maximal 6,0 s; splitten oder animieren.`);
+      }
     }
 
     if (beat.type === 'checklist' && beat.items.length === 0) {
