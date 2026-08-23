@@ -1,0 +1,14 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Zwei Banken 700 300.png
+Create a square 1:1 source image only.
+
+Create a premium stylized 3D CGI financial editorial explainer. Two distinct chunky stylized 3D bank buildings stand at different depths. A single central emerald `1.000 €` allowance bar is visibly split into two thick physical pieces: a `700 €` piece inserted at Bank A and a `300 €` piece inserted at Bank B. Sculpted gold return-coins sit near each bank. The split must read immediately without a chart.
+
+Labels only: `BANK A`, `700 €`, `BANK B`, `300 €`, `1.000 €`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
+No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No dashboard, UI, board, gameboard, module ring, tiny isometric diorama, Pixar or clay.

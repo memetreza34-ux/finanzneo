@@ -1,0 +1,78 @@
+FINANZNEO — GOOGLE FLOW MASTERDATEI — MITTWOCH 26.08.2026
+REEL: Freistellungsauftrag & Sparer-Pauschbetrag
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+Erzeuge GENAU EIN Bild pro Schritt. Benenne es SOFORT exakt. Prüfe Motiv, Labels, 3D-Stil und Hintergrund. Bei Fehlern Erzeuge DIESELBE Bildnummer neu. Kein vorheriges Bild hochladen oder als Bildreferenz verwenden. Jede Szene bekommt eine eigene frische Komposition. Einheitlichkeit entsteht ausschließlich durch den ausgeschriebenen Stil-Lock.
+
+GLOBAL STYLE FOR EVERY IMAGE
+Premium stylized 3D CGI financial editorial explainer. Chunky volumetric modeled objects, rounded bevelled edges, premium matte materials, restrained glass, brushed metal, sculpted gold euro coins, strong depth separation, cinematic soft key light and vivid emerald rim light. Deep charcoal green-black world. Gold only for money/value. Warm red-orange only for tax/warning/problem. Not photorealistic. Never a real-office stationery photograph. One large instantly readable hero metaphor plus 2–5 supporting everyday 3D objects. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, floor-wall boundary, horizon, panels or bands. No headline. No subtitle. No explanatory sentence. Only short German object labels directly attached to physical 3D objects. If a person appears, face clearly visible. No dashboard, app UI, control panel, floating UI cards, gameboard, module ring, microchip world, tiny isometric diorama, sterile product pedestal, Pixar or clay. Every output is a square 1:1 source image.
+
+BILD 00 — COVER
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Freistellungsauftrag Cover.png
+Create exactly one image. Chunky emerald bank folder hero object; sculpted gold return-coins flow toward it; thick translucent emerald shield marked `1.000 €` protects the first part; a small red-orange tax stamp waits behind. Supporting modeled bank seal and compact document tab. Labels only: `1.000 €`, `FREISTELLEN`, `STEUER`.
+
+BILD 01 — SZENE 01
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Steuer auf Ertraege Hook.png
+Create exactly one image. A chunky stylized 3D wallet and depot folder sit open while fresh sculpted gold coins labelled as returns move toward a bold red-orange tax stamp. An empty emerald shield holder is visible beside the stream to signal that protection is missing. Strong visual tension and immediate everyday-finance readability. Labels only: `ERTRÄGE`, `STEUER`, `FEHLT`.
+
+SZENE 02 — REMOTION — KEIN BILD 02 ERZEUGEN.
+
+BILD 03 — SZENE 03
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - Sparer Pauschbetrag Schutz.png
+Create exactly one image. A thick sculpted emerald 3D shield is the dominant hero object. Under it sits a compact stack of gold return-coins, while three small chunky 3D source objects feed into the protected area: a savings coin jar for interest, a dividend envelope token and a small stock-sale certificate object. Keep everything volumetric and cinematic, not flat paper. Labels only: `1.000 €`, `ZINSEN`, `DIVIDENDEN`, `GEWINNE`.
+
+SZENE 04 — REMOTION — KEIN BILD 04 ERZEUGEN.
+
+BILD 05 — SZENE 05
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Freistellungsauftrag Bank.png
+Create exactly one image. A chunky emerald 3D bank building and a thick modeled document plaque are the hero pair. A sculpted checkmark stamp locks the document into place and activates a translucent green shield over a gold return-coin stream entering the bank. Strong cause-effect: order activated → allowance protection active. Labels only: `FREISTELLUNG`, `AKTIV`, `BANK`.
+
+SZENE 06 — REMOTION — KEIN BILD 06 ERZEUGEN.
+
+BILD 07 — SZENE 07
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Eine Bank 1000 Euro.png
+Create exactly one image. One large chunky stylized 3D bank building fills the composition. A single thick emerald allowance token marked `1.000 €` is physically inserted into a modeled slot beside the bank, while gold return-coins collect safely under the same green shield. No UI, no screen. Labels only: `EINE BANK`, `1.000 €`, `FREI`.
+
+SZENE 08 — REMOTION — KEIN BILD 08 ERZEUGEN.
+
+BILD 09 — SZENE 09
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Zwei Banken 700 300.png
+Create exactly one image. Two distinct chunky stylized 3D bank buildings stand at different depths. A single central emerald `1.000 €` allowance bar is visibly split into two physical pieces: a `700 €` piece inserted at Bank A and a `300 €` piece inserted at Bank B. Gold return-coins sit near each bank. The split must be instantly understandable without a chart. Labels only: `BANK A`, `700 €`, `BANK B`, `300 €`, `1.000 €`.
+
+SZENE 10 — REMOTION — KEIN BILD 10 ERZEUGEN.
+
+BILD 11 — SZENE 11
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 11 - Guthaben gegen Ertrag.png
+Create exactly one image. A large chunky neutral vault/wallet represents account or depot balance. Beside it, a smaller sculpted gold bowl receives fresh return-coins. The emerald allowance shield covers ONLY the smaller return bowl, not the large balance object. The distinction must be obvious at a glance. Labels only: `GUTHABEN`, `ERTRAG`, `FREIBETRAG`.
+
+SZENE 12 — REMOTION — KEIN BILD 12 ERZEUGEN.
+
+BILD 13 — SZENE 13
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 13 - Jahrescheck Banken.png
+Create exactly one image. A chunky stylized 3D annual-check folder is open in the center. Around it are three small modeled bank-building objects at different depths, a thick emerald calendar token and a large 3D magnifying glass. Several allowance tags are attached directly to the bank objects. The scene should feel active and organized, not like office stationery. Labels only: `JAHRESCHECK`, `BANKEN`, `FREISTELLUNG`.
+
+BILD 14 — SZENE 14
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 14 - Drei Fragen Freistellung.png
+Create exactly one image. A chunky stylized 3D bank folder is the hero object. Three concrete inspection objects surround it asymmetrically: a 3D magnifying glass, a compact balance scale with gold coins and an emerald calendar token. Each object carries one short physical plaque. No cards or dashboard. Labels only: `WO?`, `WIE VIEL?`, `PASST ES?`.
+
+BILD 15 — SZENE 15
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 15 - Heute Freistellung Pruefen.png
+Create exactly one image. A chunky stylized 3D banking folder is open with a large emerald checkmark stamp freshly pressed into it. Beside it sit a dark-screen modeled smartphone, one calendar token and two small bank-building objects. A short allowance tag is being moved from one bank toward the other to suggest reviewing the distribution. Labels only: `HEUTE`, `PRÜFEN`, `1.000 €`.
+
+ABSCHLUSSPRÜFUNG
+Exakt 10 Dateien: Bild 00, 01, 03, 05, 07, 09, 11, 13, 14, 15. Keine Bilder 02, 04, 06, 08, 10, 12. Jedes Bild muss deutlich stylized 3D CGI sein und in unter zwei Sekunden verständlich wirken.

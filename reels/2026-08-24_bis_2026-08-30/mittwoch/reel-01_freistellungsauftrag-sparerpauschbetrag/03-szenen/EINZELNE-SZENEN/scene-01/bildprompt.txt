@@ -1,0 +1,14 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Steuer auf Ertraege Hook.png
+Create a square 1:1 source image only.
+
+Create a premium stylized 3D CGI financial editorial explainer. A chunky stylized 3D wallet and depot folder are open while fresh sculpted gold return-coins move toward a bold warm red-orange tax stamp. An empty emerald shield holder is visible beside the flow to signal missing protection. Use rounded bevelled geometry, premium matte surfaces, strong depth separation, cinematic soft key light and vivid emerald rim light. Make the everyday meaning instantly readable in under two seconds.
+
+Labels only: `ERTRÄGE`, `STEUER`, `FEHLT`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
+No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No realistic office photo, dashboard, UI, gameboard, module ring, microchip world, tiny isometric diorama, Pixar or clay.

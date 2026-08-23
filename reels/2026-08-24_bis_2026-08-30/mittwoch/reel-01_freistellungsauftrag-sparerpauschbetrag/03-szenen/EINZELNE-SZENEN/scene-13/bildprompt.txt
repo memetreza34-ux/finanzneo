@@ -1,0 +1,14 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 13 - Jahrescheck Banken.png
+Create a square 1:1 source image only.
+
+Create a premium stylized 3D CGI editorial explainer. A chunky stylized 3D annual-check folder is open in the center. Around it are three small modeled bank buildings at different depths, a thick emerald calendar token and a large 3D magnifying glass. Several allowance tags are physically attached to the bank objects. Keep the scene active and dimensional, not like office stationery.
+
+Labels only: `JAHRESCHECK`, `BANKEN`, `FREISTELLUNG`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
+No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No dashboard, UI, gameboard, module ring, tiny isometric diorama, Pixar or clay.

@@ -1,0 +1,23 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Freistellungsauftrag Cover.png
+
+Create a square 1:1 source image only. Create exactly one image.
+
+MAIN VISUAL
+Create a premium stylized 3D CGI editorial explainer. A chunky sculpted emerald bank folder is the hero object, opened in a dynamic three-quarter view. A stream of sculpted gold euro coins representing investment returns moves toward the folder. A thick translucent emerald 3D shield marked `1.000 €` protects the first part of the gold stream, while a small warm red-orange tax stamp waits behind the shield. Add one modeled bank seal and one compact 3D document tab to make the situation instantly recognizable. Strong depth, rounded bevels, premium matte materials, emerald rim light, cinematic soft key light.
+
+ALLOWED GERMAN OBJECT LABELS ONLY
+- `1.000 €`
+- `FREISTELLEN`
+- `STEUER`
+
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, floor-wall boundary, horizon, panels or bands.
+No headline. No subtitle. No explanatory sentence.
+Not photorealistic. No realistic office paper photo. No dashboard, UI, board, gameboard, microchip layout, module ring, sterile product pedestal, Pixar or clay.
+If a person appears, the face must be clearly visible; a person is not required.

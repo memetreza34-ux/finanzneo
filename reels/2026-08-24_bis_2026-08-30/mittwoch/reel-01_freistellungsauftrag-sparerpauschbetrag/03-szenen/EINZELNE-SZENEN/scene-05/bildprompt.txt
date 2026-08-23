@@ -1,0 +1,14 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Freistellungsauftrag Bank.png
+Create a square 1:1 source image only.
+
+Create a premium stylized 3D CGI financial editorial explainer. A chunky emerald 3D bank building and a thick modeled document plaque are the hero pair. A sculpted checkmark stamp locks the document into place and visibly activates a translucent green shield over a gold return-coin stream entering the bank. Strong cause-effect: document activated → protection active. Use thick rounded bevelled geometry, premium matte/glass materials, strong depth, cinematic lighting and emerald rim light.
+
+Labels only: `FREISTELLUNG`, `AKTIV`, `BANK`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
+No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No realistic office document photo, dashboard, UI, gameboard, module ring, tiny isometric diorama, Pixar or clay.

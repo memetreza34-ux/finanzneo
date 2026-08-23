@@ -1,0 +1,14 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 14 - Drei Fragen Freistellung.png
+Create a square 1:1 source image only.
+
+Create a premium stylized 3D CGI financial editorial explainer. A chunky stylized 3D bank folder is the hero object. Three concrete inspection objects surround it asymmetrically: a large 3D magnifying glass, a compact balance scale holding sculpted gold coins and an emerald calendar token. Each object carries one short attached 3D plaque. Avoid any checklist UI or card layout.
+
+Labels only: `WO?`, `WIE VIEL?`, `PASST ES?`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
+No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No dashboard, UI, cards, gameboard, module ring, tiny isometric diorama, Pixar or clay.
