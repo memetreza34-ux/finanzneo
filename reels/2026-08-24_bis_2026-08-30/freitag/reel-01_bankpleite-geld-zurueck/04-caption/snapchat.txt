@@ -1,8 +1,11 @@
 CAPTION:
-Bank pleite heißt nicht automatisch Geld weg. Entscheidend sind Sicherungsgrenze, rechtliche Bank und dein Gesamtguthaben dort.
+Wenn eine Bank zahlungsunfähig wird, ist gesetzlich geschütztes Kontogeld nicht automatisch verloren. Wichtig sind die Sicherungsgrenze, die rechtliche Bank, dein Gesamtguthaben dort und mögliche Sonderfälle.
 
 CTA:
-Merksatz: pro Person und Bank denken.
+Speicher dir den Merksatz: Schutz wird pro Person und Bank betrachtet.
 
 QUELLEN / HINWEIS:
-Stand 23.08.2026. Deutsche Bundesbank / EdB.
+Stand 23.08.2026. Deutsche Bundesbank und EdB. Allgemeine Information, keine individuelle Finanzberatung.
+
+HASHTAGS:
+#Finanzen #Einlagensicherung #Bank #Geld #Finanzwissen
