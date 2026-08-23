@@ -1,7 +1,7 @@
 # Technische Hinweise — Premium V3
 
 - 1080 × 1920, 30 fps
-- 15 Beats, 9 Bild / 6 Remotion = exakt 60/40
+- 16 Beats, 10 Bild / 6 Remotion = 62,5/37,5; 6-Sekunden-Bildmaximum hat Vorrang vor starrer Quote
 - Bildbeat ideal 3,5–5,5 s; absolut max. 6 s
 - Google Flow: square 1:1, `contain`, keine Bildreferenz
 - Stylized-3D-Lock: `finanzneo-stylized-3d-editorial-v5`

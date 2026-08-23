@@ -4,9 +4,9 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 07 - Geld Kommt Zurueck.png
+Bild 07 - Sieben Arbeitstage.png
 
-Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a thick gold protected-deposit stream exits an emerald protection shield and lands inside a clean chunky wallet/account container on the opposite side. The troubled bank remains smaller in the background and is no longer connected to the protected funds. Add one compact calendar token beside the transfer path. Use strong directional composition so the return of money is obvious instantly.
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a large chunky 3D calendar path with exactly seven prominent workday blocks leading from an emerald `ENTSCHÄDIGUNGSFALL` seal on the left to a gold payout container under a green shield on the right. Use a physical path of seven substantial calendar pieces rather than a dashboard. The endpoint should feel like money arriving back safely.
 
-Short German object labels only: `AUSZAHLUNG`, `GESCHÜTZT`, `GELD ZURÜCK`.
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium stylized 3D materials, rounded bevels, gold value elements, cinematic key light and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.
+Short German object labels only: `7 ARBEITSTAGE`, `ENTSCHÄDIGUNG`, `AUSZAHLUNG`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium stylized 3D materials, rounded bevels, sculpted gold, cinematic key light and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.

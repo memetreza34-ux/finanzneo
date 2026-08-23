@@ -1,18 +1,12 @@
 FINANZNEO FLOW MASTER — FREITAG 28.08.2026
 REEL: Bank pleite — So bekommst du dein Geld zurück
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-
 ARBEITSMODUS
 1. Lies die Datei komplett und arbeite danach von oben nach unten.
 2. Erzeuge GENAU EIN Bild pro Schritt.
 3. Vollständig warten.
 4. Benenne es SOFORT exakt mit dem angegebenen Dateinamen.
-5. Prüfe 1:1, Motiv, short German object labels, klaren Stylized-3D-Look, Hintergrund und Dateiname.
+5. Prüfe 1:1, Motiv, kurze deutsche Objektlabels, klaren Stylized-3D-Look, Hintergrund und Dateiname.
 6. Bei Fehlern: Erzeuge DIESELBE Bildnummer neu.
 7. Erst nach bestandener QA das nächste Bild.
 8. Szenen 02, 04, 06, 08, 10 und 12 sind Remotion — KEIN Bild.
@@ -20,60 +14,127 @@ ARBEITSMODUS
 10. Jede Szene bekommt eine eigene frische Komposition.
 11. Nach Abschluss alle fertigen Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` ablegen.
 
-GLOBAL STYLE — FÜR JEDES BILD VERBINDLICH
-Premium stylized 3D CGI financial editorial explainer. Chunky volumetric modeled objects, smooth rounded bevels, premium matte dark-emerald polymer, brushed metal, restrained glass, warm cream modeled surfaces and sculpted gold euro/value elements. Deep charcoal green-black world, cinematic soft key light, vivid emerald rim light, strong depth separation and mild depth-of-field. Gold only for money/value, red-orange only for warning/problem, white for neutral labels. Not photorealistic. No realistic office/stationery/product photography, no Pixar/clay/toy. No dashboard, app UI, control panel, floating UI cards, gameboard, module ring, microchip world or tiny isometric diorama. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, bands or panels. No headline. No subtitle. No explanatory sentence. Only short German object labels directly attached to physical 3D objects. If a person appears, face clearly visible. Every output is a square 1:1 source image.
-
 BILD 00 — COVER
-FINAL: Bild 00 - Bankpleite Cover.png
-Hero: large chunky emerald bank building with one red-orange structural crack, protected gold deposit pile behind a thick emerald shield. One small adult person token with clearly visible stylized face stands safely behind the shield. Add one cream document tab. Labels only: `BANK`, `100.000 €`, `GESCHÜTZT`. Message in under two seconds: bank trouble does not automatically erase protected deposits.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Bankpleite Cover.png
+Create exactly one square 1:1 source image. Create a clearly stylized premium 3D CGI financial editorial explainer. Hero: a large chunky emerald bank building with one heavy red-orange crack running through its facade, but a thick translucent emerald protection shield stands in front of a large gold deposit pile. A compact stylized adult with a clearly modeled visible face stands safely behind the shield. Add one small cream document tag and a few sculpted euro coins moving toward the protected zone. The immediate message is: bank failure does not automatically mean protected deposit money disappears. Short German object labels only: `BANK`, `100.000 €`, `GESCHÜTZT`. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Chunky volumetric geometry, rounded bevels, premium matte emerald polymer, brushed metal, restrained glass, sculpted gold value objects, cinematic soft key light and vivid emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no office photo, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.
 
 BILD 01 — SZENE 01
-FINAL: Bild 01 - Bank Pleite Hook.png
-Hero: a large stylized 3D bank building tilts slightly with a red-orange warning crack and a closed front door. In the foreground, a chunky gold wallet/deposit container is physically separated from the damaged bank by a strong translucent emerald shield. A worried stylized adult with clearly visible face looks from the bank toward the protected wallet. Add a few gold coins frozen safely behind the shield. Labels only: `BANKPLEITE?`, `GELD WEG?`, `NEIN`.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Bank Pleite Hook.png
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. A large chunky bank building is visibly in trouble: one controlled red-orange crack, closed entrance and slight tilt. In the foreground, a large gold wallet/deposit container remains safely behind a thick translucent emerald protection shield. Include one stylized adult with a clearly visible face looking from the damaged bank toward the protected wallet. Add 2–3 sculpted euro coins frozen safely behind the shield. The cause/effect must read instantly: bank failure does not automatically erase protected deposits. Short German object labels only: `BANKPLEITE?`, `GELD WEG?`, `NEIN`. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium dark-emerald polymer, brushed metal, restrained glass, sculpted gold value details, rounded bevels, strong depth, cinematic soft key light and vivid emerald rim light. Not photorealistic. No office/stationery photo, no dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. Face must be clearly visible if a person appears.
 
 SZENE 02 — REMOTION — KEIN BILD.
 
 BILD 03 — SZENE 03
-FINAL: Bild 03 - Geschuetzte Konten.png
-Hero: one large emerald protection vault. Three unmistakable stylized 3D everyday deposit objects feed into it: a chunky debit-card/wallet object `GIRO`, a gold savings jar `TAGESGELD`, and a locked calendar box `FESTGELD`. Show clear motion direction toward the same protected vault. Labels only: `GIRO`, `TAGESGELD`, `FESTGELD`, `EINLAGEN`.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - Geschuetzte Konten.png
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: one large emerald protection vault/shield chamber. Three recognizable chunky everyday deposit objects feed visibly into it: a wallet/card object for `GIRO`, a gold savings jar for `TAGESGELD`, and a locked calendar box for `FESTGELD`. Their gold value streams converge into the same protected area. Keep objects large, simple and instantly readable, with active overlap and depth rather than a row of icons. Short German object labels only: `GIRO`, `TAGESGELD`, `FESTGELD`, `EINLAGEN`. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Chunky volumetric geometry, premium emerald polymer, brushed metal, restrained glass, sculpted gold value details, cinematic soft key light and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.
 
 SZENE 04 — REMOTION — KEIN BILD.
 
 BILD 05 — SZENE 05
-FINAL: Bild 05 - Sicherungssystem Meldet Sich.png
-Hero: a chunky emerald protection institution/shield emblem physically sends a cream notification envelope toward a stylized adult with clearly visible face. The damaged bank sits smaller in the background. The envelope is clearly coming from the protection system, not from the failed bank. Add one green check seal. Labels only: `EINLAGENSICHERUNG`, `MELDET SICH`, `INFO`.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Sicherungssystem Meldet Sich.png
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a chunky emerald protection-system emblem/shield is physically taking control of the process from a troubled bank shown smaller in the background. A strong green check-seal locks onto a protected gold deposit container while a cream processing folder moves from the bank toward the shield system. Keep the message concrete: the responsible deposit-guarantee system takes over the handling. Short German object labels only: `EINLAGENSICHERUNG`, `ÜBERNIMMT`, `ABWICKLUNG`. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium emerald polymer, brushed metal, cream modeled surfaces, restrained glass, rounded bevels, cinematic depth and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.
 
 SZENE 06 — REMOTION — KEIN BILD.
 
 BILD 07 — SZENE 07
-FINAL: Bild 07 - Geld Kommt Zurueck.png
-Hero: a large gold protected deposit stream exits an emerald protection shield and lands in a clean new wallet/account container on the opposite side. The damaged bank remains behind and no longer controls the money. Add one small seven-day calendar token near the transfer path. Labels only: `AUSZAHLUNG`, `GESCHÜTZT`, `GELD ZURÜCK`.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Sieben Arbeitstage.png
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a large chunky 3D calendar path with exactly seven prominent workday blocks leading from an emerald `ENTSCHÄDIGUNGSFALL` seal on the left to a gold payout container under a green shield on the right. Use a physical path of seven substantial calendar pieces rather than a dashboard. The endpoint should feel like money arriving back safely. Short German object labels only: `7 ARBEITSTAGE`, `ENTSCHÄDIGUNG`, `AUSZAHLUNG`. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium stylized 3D materials, rounded bevels, sculpted gold, cinematic key light and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.
 
 SZENE 08 — REMOTION — KEIN BILD.
 
 BILD 09 — SZENE 09
-FINAL: Bild 09 - Gemeinschaftskonto Schutz.png
-Hero: one large chunky joint-account vault in the center. Two different stylized adult person tokens with clearly visible faces stand left and right. Gold account value visibly splits into two ownership streams, each leading to its own emerald shield. Labels only: `GEMEINSCHAFT`, `PERSON A`, `PERSON B`, `EIGENER ANSPRUCH`.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Gemeinschaftskonto Schutz.png
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: one large chunky joint-account vault in the center. Two different stylized adult people with clearly visible faces stand at opposite sides. Gold account value visibly splits into two ownership streams, each moving toward an individual emerald shield. Keep the relation physical and spatial, not a chart or UI. Short German object labels only: `GEMEINSCHAFT`, `PERSON A`, `PERSON B`, `EIGENER ANSPRUCH`. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium stylized 3D, rounded bevels, strong depth, gold value objects and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. Both faces clearly visible.
 
 SZENE 10 — REMOTION — KEIN BILD.
 
 BILD 11 — SZENE 11
-FINAL: Bild 11 - Sonderfall 500000.png
-Hero: a chunky stylized home key and small house object feed a temporarily large gold cash block into a bank. A much larger emerald shield surrounds it and a calendar token is attached to the shield. Make it visually obvious this is a special temporary life-event case, not the normal rule. Labels only: `SONDERFALL`, `BIS 500.000 €`, `TEMPORÄR`.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 11 - Sonderfall 500000.png
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a chunky stylized house key and compact home object feed a temporarily large gold cash block into a bank. A much larger translucent emerald protection shield surrounds the amount and a chunky emerald calendar token is attached to the shield. Make the scene clearly read as a special temporary life-event case, not the normal deposit-protection rule. Short German object labels only: `SONDERFALL`, `BIS 500.000 €`, `TEMPORÄR`. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium volumetric 3D materials, rounded bevels, sculpted gold, cinematic depth and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.
 
 SZENE 12 — REMOTION — KEIN BILD.
 
 BILD 13 — SZENE 13
-FINAL: Bild 13 - Ueber 100000 Risiko.png
-Hero: one large gold deposit stack crosses a clear emerald protection boundary marked `100.000 €`. The protected lower portion remains green-shielded; the amount extending beyond the boundary is exposed under a restrained red-orange warning light. No chart or UI. Labels only: `100.000 €`, `GESCHÜTZT`, `DARÜBER?`.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 13 - Ueber 100000 Risiko.png
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: one large gold deposit stack crosses a thick emerald protection boundary marked `100.000 €`. The lower portion is visibly enclosed by a green shield; the amount extending above the boundary sits outside the shield under restrained red-orange warning light. Make the split physical and obvious, not a chart or UI. Short German object labels only: `100.000 €`, `GESCHÜTZT`, `DARÜBER?`. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Chunky volumetric 3D, rounded bevels, sculpted gold, premium emerald materials, cinematic soft light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.
 
 BILD 14 — SZENE 14
-FINAL: Bild 14 - Bank Und Sicherung Pruefen.png
-Hero: a large 3D magnifying glass examines the legal name plaque of a chunky bank building. Beside it sits a compact cream depositor-information sheet and an emerald protection-system seal. Add a gold total-balance counter object. Arrange the three checks as one active real-world inspection scene, not panels. Labels only: `WELCHE BANK?`, `WIE VIEL?`, `WELCHES SYSTEM?`.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 14 - Rechtliche Bank Pruefen.png
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a large chunky 3D magnifying glass examines the legal-name plaque on an emerald bank building. Two smaller account/front-end tokens visibly route into that same legal bank object, making the legal institution—not the app or brand front-end—the focus. Add one green check seal. Short German object labels only: `WELCHE BANK?`, `RECHTLICHES INSTITUT`, `PRÜFEN`. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium stylized 3D, rounded bevels, emerald polymer, brushed metal, cinematic depth and rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.
 
 BILD 15 — SZENE 15
-FINAL: Bild 15 - Bankpleite Merksatz.png
-Final hero composition: a cracked bank building in the back, one adult person token with clearly visible face in front, and between them a thick emerald shield protecting a gold deposit pile. A large green checkmark physically locks onto the shield. Keep the message calm and confident. Labels only: `BANK PLEITE`, `GELD NICHT AUTOMATISCH WEG`, `SCHUTZGRENZE KENNEN`.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 15 - Guthaben Und System Pruefen.png
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a chunky gold total-balance counter object sits between a bank and an emerald protection-system seal. A large magnifying glass connects the balance to both the bank and the seal so the viewer immediately reads: check total balance and which protection system applies. Add a small cream depositor-information sheet beneath the seal. Short German object labels only: `GESAMTGUTHABEN`, `WELCHES SYSTEM?`, `PRÜFEN`. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium stylized 3D, rounded bevels, cream modeled surfaces, sculpted gold, cinematic depth and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.
+
+BILD 16 — SZENE 16
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 16 - Bankpleite Merksatz.png
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Final hero composition: a damaged chunky bank building sits in the back, one calm stylized adult with clearly visible face stands in front, and between the person and bank a thick emerald shield protects a sculpted gold deposit pile. A large green checkmark physically locks onto the shield. Keep the composition calm, clear and conclusive. Short German object labels only: `BANK PLEITE`, `GELD GESCHÜTZT`, `SCHUTZGRENZE KENNEN`. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium emerald polymer, restrained glass, brushed metal, sculpted gold, rounded bevels, cinematic soft key light and vivid emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. Person face clearly visible.
 
 ABSCHLUSS-QA
-Exakt 10 Dateien: 00, 01, 03, 05, 07, 09, 11, 13, 14, 15. Alle square 1:1 source image. Deutlich stylized 3D CGI. Keine Bildreferenzen, kein Dashboard/UI, kein Fotorealismus, keine Sätze außer den ausdrücklich erlaubten sehr kurzen Objektlabels. Jede Szene muss in unter zwei Sekunden verständlich sein.
+Exakt 11 Dateien: 00, 01, 03, 05, 07, 09, 11, 13, 14, 15, 16. Alle square 1:1 source image. Deutlich stylized 3D CGI. Keine Bildreferenzen, kein Dashboard/UI, kein Fotorealismus, keine erklärenden Sätze im Bild. Jede Szene muss in unter zwei Sekunden verständlich sein.

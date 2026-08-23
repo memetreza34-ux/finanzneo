@@ -4,9 +4,9 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 15 - Bankpleite Merksatz.png
+Bild 15 - Guthaben Und System Pruefen.png
 
-Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Final hero composition: a damaged chunky bank building sits in the back, one calm stylized adult with clearly visible face stands in front, and between the person and bank a thick emerald shield protects a sculpted gold deposit pile. A large green checkmark physically locks onto the shield. The composition must feel calm, clear and conclusive rather than dramatic.
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a chunky gold total-balance counter object sits between a bank and an emerald protection-system seal. A large magnifying glass connects the balance to both the bank and the seal so the viewer immediately reads: check total balance and which protection system applies. Add a small cream depositor-information sheet beneath the seal.
 
-Short German object labels only: `BANK PLEITE`, `GELD GESCHÜTZT`, `SCHUTZGRENZE KENNEN`.
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium emerald polymer, restrained glass, brushed metal, sculpted gold, rounded bevels, cinematic soft key light and vivid emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. Person face clearly visible.
+Short German object labels only: `GESAMTGUTHABEN`, `WELCHES SYSTEM?`, `PRÜFEN`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium stylized 3D, rounded bevels, cream modeled surfaces, sculpted gold, cinematic depth and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.

@@ -1,9 +1,9 @@
-# Remotion Szene 06 — SevenWorkingDaysTimeline
+# Remotion Szene 06 — EdBContactFlow
 
-**SceneHeader:** `GRUNDSÄTZLICH 7 ARBEITSTAGE` + Icon `calendar`.
+**SceneHeader:** `BEI DER EDB: KEIN ANTRAG NÖTIG` + Icon `document`.
 
-**Start:** `TAG 0` mit markiertem Entschädigungsfall.
-**Mechanismus:** sieben klare grüne/weiße Arbeitstagsmarker laufen nacheinander durch; optionale Wochenendmarker werden visuell übersprungen, ohne konkrete Kalenderdaten zu behaupten.
-**Ergebnis:** am Endpunkt landet ein goldener Betrag in einem grünen Auszahlungskonto; `AUSZAHLUNG` bleibt stabil.
+**Start:** betroffener Einleger links, EdB-/Sicherungssystem als generisches grünes Schutzsymbol rechts; dazwischen ein leerer Antrag mit rotem X.
+**Mechanismus:** der Antrag wird sichtbar zur Seite geschoben; stattdessen bewegt sich eine offizielle Benachrichtigung vom Sicherungssystem zum Einleger.
+**Ergebnis:** `EDB MELDET SICH` in Grün/Weiß stabil; `NORMALERWEISE KEIN ENTSCHÄDIGUNGSANTRAG` als kurzer Zweizeiler nur in der Animation, nicht im KI-Bild.
 
-Keine schwarze Schrift. Gold nur für Geld, Grün für Prozess/Fokus. Bewegung muss die Zeitspanne erklären.
+Die Aussage ausdrücklich auf die EdB beziehen. Kein schwarzer Text. Kein falsches Behördenlogo.

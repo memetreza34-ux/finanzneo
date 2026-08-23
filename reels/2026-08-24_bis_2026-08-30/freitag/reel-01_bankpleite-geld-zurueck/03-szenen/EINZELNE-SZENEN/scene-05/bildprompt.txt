@@ -6,7 +6,7 @@ GENERATED_IMAGE_ASPECT_RATIO: 1:1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 05 - Sicherungssystem Meldet Sich.png
 
-Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a chunky emerald protection-system emblem/shield physically sends a warm cream notification envelope toward a stylized adult with a clearly visible face. The troubled bank is smaller and deeper in the background. Add a strong green check-seal to the envelope and a few protected gold coins near the shield. The message must instantly read: the protection system takes over communication/processing.
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a chunky emerald protection-system emblem/shield is physically taking control of the process from a troubled bank shown smaller in the background. A strong green check-seal locks onto a protected gold deposit container while a cream processing folder moves from the bank toward the shield system. Keep the message concrete: the responsible deposit-guarantee system takes over the handling.
 
-Short German object labels only: `EINLAGENSICHERUNG`, `MELDET SICH`, `INFO`.
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium emerald polymer, brushed metal, cream modeled surfaces, restrained glass, rounded bevels, cinematic depth and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. Person face clearly visible.
+Short German object labels only: `EINLAGENSICHERUNG`, `ÜBERNIMMT`, `ABWICKLUNG`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium emerald polymer, brushed metal, cream modeled surfaces, restrained glass, rounded bevels, cinematic depth and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.

@@ -1,5 +1,5 @@
 # Szene 06
 **Typ:** animation
-**Headline:** GRUNDSÄTZLICH 7 ARBEITSTAGE
-**Icon:** calendar
-**Sprechbeat:** Grundsätzlich soll die Entschädigung innerhalb von sieben Arbeitstagen nach Feststellung des Entschädigungsfalls erfolgen.
+**Headline:** BEI DER EDB: KEIN ANTRAG NÖTIG
+**Icon:** document
+**Sprechbeat:** Bei der EdB ist normalerweise kein Entschädigungsantrag nötig; sie meldet sich bei Betroffenen.

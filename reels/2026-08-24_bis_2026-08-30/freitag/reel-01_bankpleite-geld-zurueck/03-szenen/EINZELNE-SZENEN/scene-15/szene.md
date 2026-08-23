@@ -1,6 +1,6 @@
 # Szene 15
 **Typ:** image
-**Headline:** BANKPLEITE ≠ GELD AUTOMATISCH WEG
-**Icon:** shield
-**Sprechbeat:** Merksatz: Bank pleite heißt nicht automatisch Geld weg – aber die Schutzgrenzen solltest du vorher kennen.
-**Google-Flow-Dateiname:** Bild 15 - Bankpleite Merksatz.png
+**Headline:** GUTHABEN + SYSTEM PRÜFEN
+**Icon:** check
+**Sprechbeat:** Wie hoch ist dein Gesamtguthaben dort, und welches Sicherungssystem gilt?
+**Google-Flow-Dateiname:** Bild 15 - Guthaben Und System Pruefen.png

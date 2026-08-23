@@ -20,6 +20,7 @@
     {"id":"scene-12","type":"animation","startFrame":0,"durationFrames":0},
     {"id":"scene-13","type":"image","startFrame":0,"durationFrames":0},
     {"id":"scene-14","type":"image","startFrame":0,"durationFrames":0},
-    {"id":"scene-15","type":"image","startFrame":0,"durationFrames":0}
+    {"id":"scene-15","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"scene-16","type":"image","startFrame":0,"durationFrames":0}
   ]
 }

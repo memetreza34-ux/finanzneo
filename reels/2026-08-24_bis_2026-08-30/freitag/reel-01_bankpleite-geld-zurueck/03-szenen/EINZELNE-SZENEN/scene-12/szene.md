@@ -1,5 +1,5 @@
 # Szene 12
 **Typ:** animation
-**Headline:** MAXIMAL 6 MONATE
+**Headline:** NUR ZEITLICH BEGRENZT
 **Icon:** calendar
-**Sprechbeat:** Dieser erhöhte Schutz kann bis zu sechs Monate nach Gutschrift gelten.
+**Sprechbeat:** Etwa nach dem Verkauf einer privat genutzten Immobilie; dieser erhöhte Schutz kann bis zu sechs Monate nach Gutschrift gelten.

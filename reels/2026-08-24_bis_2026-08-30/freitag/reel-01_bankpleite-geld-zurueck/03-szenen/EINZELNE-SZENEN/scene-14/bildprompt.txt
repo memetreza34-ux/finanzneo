@@ -4,9 +4,9 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 14 - Bank Und Sicherung Pruefen.png
+Bild 14 - Rechtliche Bank Pruefen.png
 
-Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a large chunky 3D magnifying glass examines the legal-name plaque of an emerald bank building. Beside it sits a compact warm-cream depositor-information sheet with an emerald protection-system seal and a gold total-balance counter object. Arrange all three checks as one connected active inspection scene with overlap and depth, not three panels.
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a large chunky 3D magnifying glass examines the legal-name plaque on an emerald bank building. Two smaller account/front-end tokens visibly route into that same legal bank object, making the legal institution—not the app or brand front-end—the focus. Add one green check seal.
 
-Short German object labels only: `WELCHE BANK?`, `WIE VIEL?`, `WELCHES SYSTEM?`.
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium stylized 3D, rounded bevels, dark emerald polymer, cream modeled surfaces, sculpted gold, cinematic depth and rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.
+Short German object labels only: `WELCHE BANK?`, `RECHTLICHES INSTITUT`, `PRÜFEN`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium stylized 3D, rounded bevels, emerald polymer, brushed metal, cinematic depth and rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.
