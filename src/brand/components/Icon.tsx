@@ -29,6 +29,12 @@ const PATHS: Record<string, React.ReactNode> = {
   calendar: <><rect x="4" y="5" width="16" height="16" rx="2" /><path d="M4 9h16M8 3v4M16 3v4" /></>,
   phone: <><rect x="7" y="2" width="10" height="20" rx="2" /><path d="M11 18h2" /></>,
   arrowRight: <><path d="M4 12h16M14 6l6 6-6 6" /></>,
+  search: <><circle cx="10.5" cy="10.5" r="6.5" /><path d="M15.5 15.5L21 21" /></>,
+  receipt: <><path d="M6 3h12v18l-2-1.5L14 21l-2-1.5L10 21l-2-1.5L6 21z" /><path d="M9 8h6M9 12h6M9 16h4" /></>,
+  repeat: <><path d="M4 8h12l-3-3M20 16H8l3 3" /><path d="M16 8l-3-3M8 16l3 3" /></>,
+  document: <><path d="M6 2h8l4 4v16H6z" /><path d="M14 2v5h5M9 12h6M9 16h6" /></>,
+  list: <><path d="M9 6h11M9 12h11M9 18h11" /><circle cx="4" cy="6" r="1" /><circle cx="4" cy="12" r="1" /><circle cx="4" cy="18" r="1" /></>,
+  warning: <><path d="M12 3L2.5 20h19z" /><path d="M12 9v5M12 17.5h.01" /></>,
 };
 
 export type IconName = keyof typeof PATHS;
