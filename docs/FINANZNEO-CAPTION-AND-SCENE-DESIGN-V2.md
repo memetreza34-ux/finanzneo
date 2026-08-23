@@ -1,30 +1,35 @@
-# FinanzNeo — Caption, Scene Header & Animation Clarity V2
+# FinanzNeo — Caption, Scene Header, Timing & Motion V3
 
-Dieses Dokument ist verbindlich für neue Reel-Produktionen. Bei Widerspruch gilt `CLAUDE.md`.
+Verbindlicher Qualitätsstandard für neue Reel-Produktionen.
 
-## 1. Untertitel
+## 1. Premium-Untertitel V3
 
-Auf dunklen FinanzNeo-Reel-Hintergründen gilt fest:
+Auf dunklen FinanzNeo-Reel-Hintergründen:
 
-- aktuelles gesprochenes Wort: **FinanzNeo-Grün** `#00D26A`
-- restliche Wörter: **Weiß** `#FFFFFF`
-- **kein Gelb/Gold als Karaoke-Active-Word**
-- **kein schwarzer Untertiteltext**
+- aktives gesprochenes Wort: helles FinanzNeo-Grün
+- restliche Wörter: Weiß
+- kein Gelb/Gold als Karaoke-Active-Word
+- kein schwarzer Untertiteltext
 - maximal zwei Zeilen
-- satzbasierte Caption-Einheiten
+- kurze satz-/phrasenbasierte Einheiten
 - kein Word-Jump
 - keine Größenanimation / kein Scale-Pop
+- keine Glow-Schrift: Kanten müssen crisp bleiben
+- scharfer dunkler Stroke + sehr kurzer Shadow statt weicher Leuchteffekte
+- dunkle halbdeckende Caption-Backplate für klare Trennung vom Bild
+- Standardgröße ca. 64 px; bei langen Einheiten automatisch kleiner, nie unter ca. 50 px
+- Standardposition ca. 285 px über dem unteren Rand
+- links ca. 72 px, rechts ca. 140 px
 - kurze Pausen halten die vorherige Caption sichtbar
 - keine Caption-Lücken
-- mobil lesbarer Shadow/Stroke oder subtiler dunkler Caption-Hintergrund erlaubt
 
 Technische Standardkomponente: `src/brand/components/Captions.tsx`.
 
-## 2. Zwischenüberschrift in jeder Szene
+## 2. Zwischenüberschrift V3 — jede Szene
 
-**Jede einzelne Reel-Szene benötigt oben eine Zwischenüberschrift mit Icon.**
+Jede Bild- und Animationsszene benötigt eine Zwischenüberschrift mit Icon.
 
-Technische Standardkomponente:
+Standard:
 
 ```tsx
 <SceneHeader title="KONTOAUSZUG PRÜFEN" icon="search" />
@@ -32,75 +37,136 @@ Technische Standardkomponente:
 
 Regeln:
 
+- Header deutlich tiefer als früher: Standard `top ≈ 118`
 - Icon links, Headline rechts
-- Standard-Iconfarbe: FinanzNeo-Grün
-- Headline: Weiß
-- gleiche Position und gleiche Grundgestaltung über den gesamten Reel
-- Headline bleibt während der Szene sichtbar
-- kurze, direkte Formulierung
-- Icon muss zur Aussage passen
-- Rot nur bei Problem/Warnung
-- Gold nur bei Geld/Wert, nicht als allgemeine Textfarbe
+- Icon standardmäßig FinanzNeo-Grün
+- Headline Weiß
+- kompakte dunkle Premium-Kapsel als Hintergrund
+- keine starken Glow-Effekte
+- gleiche Position und gleiche Grundgestaltung im gesamten Reel
+- kurze direkte Headline, kein Satz
+- Rot nur bei Warnung/Problem
+- Gold nur bei Geld/Wert
 
-## 3. Animationsfarben auf dunklem Hintergrund
+## 3. Hauptvisual-Zone tiefer und größer
 
-Verbindliche Palette aus `ANIMATION_COLORS`:
+Für 1080 × 1920:
 
-- **Weiß** = neutrale Information
-- **Grün** = Fokus, Lösung, positive Entwicklung, zentrale Erklärung
-- **Rot** = Problem, Warnung, unnötige Kosten, Verlust
-- **Gold** = Geldbetrag, Summe, finanzieller Wert
-- **Schwarz** = auf dunklen Reel-Flächen verboten
+- Header ungefähr ab Y = 118
+- Hauptvisual ungefähr Y = 390–1560
+- Untertitel ungefähr 285 px über dem unteren Rand
+- zentrale Mechanismen und Einzelobjekte bevorzugt in der mittleren Bildschirmzone
+- keine kleinen Animationen direkt unter dem Header
+- zentrale Erklärung größer darstellen statt viel leeren Hintergrund zu lassen
 
-`C.ink` darf nur für dunklen Text auf einer tatsächlich hellen Fläche benutzt werden.
+## 4. Animationsfarben
 
-## 4. Verständliche Remotion-Animationen
+- Weiß = neutrale Information
+- Grün = Fokus, Lösung, korrekt, geschützt
+- Rot = Problem, Steuer, Warnung, Verlust
+- Gold = Geldbetrag, Summe, finanzieller Wert
+- Schwarz = auf dunklen Reel-Flächen verboten
 
-Jede Erkläranimation muss inhaltlich nach diesem Muster funktionieren:
+## 5. Eine gemeinsame Animationssprache
+
+Alle nativen Remotion-Animationen desselben Reels müssen sich wie Teile EINER Serie anfühlen:
+
+- gleicher dunkler FinanzNeo-Hintergrund
+- gleiche Kantenradien und Oberflächen
+- gleiche Icon-Sprache
+- gleiche Textgrößen-Hierarchie
+- gleiche Farben nach Bedeutung
+- zentrale Aktionszone statt zufälliger Positionen
+- keine Animation darf wie eine komplett andere Infografik-Vorlage aussehen
+
+### Mechanismus-Pflicht
+
+Jede Animation:
 
 ```text
 STARTZUSTAND
-→ SICHTBARE VERÄNDERUNG / MECHANISMUS
+→ SICHTBARE VERÄNDERUNG
 → EINDEUTIGES ERGEBNIS
 ```
 
-Die Bewegung selbst muss die Aussage erklären. Reine Zooms, Fades, Zahlen-Popups oder dekorative Bewegung reichen nicht.
+Das Ergebnis muss am Ende mindestens kurz stabil stehen. Reine Zooms, Fades, Zahlen-Popups und dekorative Bewegung reichen nicht.
 
-Für komplexere Mechanismen kann `MechanismCue` verwendet werden, z. B.:
+## 6. Übergänge
 
-```tsx
-<MechanismCue label="START" value="49,95 € / MONAT" tone="neutral" />
-<MechanismCue label="ERGEBNIS" value="599,40 € / JAHR" tone="money" />
+Übergänge sollen den Gedankengang verbinden, nicht Aufmerksamkeit stehlen.
+
+Standard:
+
+- kurze 4–6 Frame Continuity-Bewegung
+- leichte vertikale Settle-Bewegung / sehr kleine Opacity-Änderung
+- kein langer Fade-to-black
+- keine zufällig wechselnden Transition-Stile
+- zusammengehörige Szenen benutzen denselben Bewegungsfluss
+- harte Schnitte sind erlaubt, wenn sie exakt auf einem starken gesprochenen Schlüsselwort liegen
+
+## 7. Audio-Synchronität und Bildwechsel
+
+Das finale Voiceover ist die einzige Timing-Autorität.
+
+Für jeden Szenenwechsel:
+
+- neuer Visual-Beat beginnt am ersten relevanten Wort oder sinnvollen Phrasenanfang
+- Zielabweichung höchstens ca. 0,15 Sekunden
+- neues Bild nicht deutlich vor der Aussage zeigen
+- altes Bild nicht nach Beginn der neuen Aussage stehen lassen
+- keine Szenen nach gleichmäßiger Zeit verteilen
+- bei langen Sätzen dürfen sinnvolle Phrasenanfänge zusätzliche Visual-Beats auslösen
+
+Reihenfolge:
+
+```text
+finales Voiceover
+→ echte Wort-Timings
+→ Triggerwort / Phrasenstart je Beat
+→ exakter Szenenstart
+→ Animation relativ zur echten Beatdauer
 ```
 
-## 5. Animation ohne Ton verständlich
+## 8. Bilddauer
 
-Vor Freigabe jeder Animation prüfen:
+- Bildbeat ideal 3,5–5,5 Sekunden
+- absolut maximal 6 Sekunden
+- wenn länger nötig: splitten oder animieren
+- nicht künstlich zu kurz schneiden: Bild muss mindestens seine eine Aussage verständlich transportieren
 
-1. Ist innerhalb von 2 Sekunden klar, worum es geht?
-2. Ist der Startzustand sichtbar?
-3. Ist die Veränderung sichtbar und logisch?
-4. Ist das Ergebnis deutlich hervorgehoben?
-5. Ist jede Text-/Zahlenfarbe auf dem Hintergrund gut lesbar?
-6. Gibt es irgendeinen schwarzen Text auf dunklem Hintergrund? Falls ja: korrigieren.
-7. Bleibt die Zwischenüberschrift mit Icon sichtbar?
+## 9. Renderqualität — Pflicht für Final Export
 
-## 6. Timing
+Finale Reels niemals mit Preview-/Low-Bitrate-Einstellungen ausgeben.
 
-- Bildbeats ideal: 3,5–5,5 Sekunden
-- Bildbeat absolut maximal: 6 Sekunden
-- Animationsbeats ideal: 4,5–7 Sekunden
-- wenn ein Bild mehr als 6 Sekunden Erklärzeit braucht: splitten oder animieren
+Standard über `scripts/render-validated.mjs`:
 
-## 7. Mobil-QA
+- 1080 × 1920
+- H.264
+- CRF 14
+- PNG-Zwischenframes
+- AAC 320k
+- `yuv420p`
 
-Kontaktbogen allein reicht nicht. Zusätzlich bei 100 % Reel-Größe prüfen:
+Nach Render prüfen:
 
-- Untertitel lesbar
-- Active-Word wirklich grün
-- Headlines deutlich genug
-- Icons erkennbar
-- keine schwarzen Texte auf dunklen Flächen
-- Geldwerte klar gold oder weiß/grün nach Bedeutung
-- rote Elemente ausschließlich für Warnung/Problem
-- Animation ohne Voiceover grundlegend nachvollziehbar
+- Untertitelkanten bei 100 % Ansicht scharf
+- feine weiße Schrift nicht matschig
+- keine sichtbaren Block-/Banding-Artefakte
+- keine Preview-Skalierung im Final Export
+
+## 10. Mobil-QA
+
+Vor Freigabe komplette MP4 ansehen, nicht nur Kontaktbogen.
+
+Prüfen:
+
+1. Header sitzt nicht zu hoch.
+2. Visuals dominieren die Mitte.
+3. Caption ist crisp und sofort lesbar.
+4. Bildwechsel trifft die gesprochene Aussage.
+5. Animationen wirken wie dieselbe Serie.
+6. Jede Animation ist ohne Ton grundlegend verständlich.
+7. Übergänge wirken einheitlich.
+8. Keine schwarzen Texte auf dunklem Hintergrund.
+9. Geldwerte Gold, Warnungen Rot, Fokus Grün, neutrale Info Weiß.
+10. Finales Video hat Premium-Renderqualität.
