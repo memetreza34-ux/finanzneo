@@ -22,7 +22,7 @@ export const C = {
   gray:     '#9DB0A6',   // gedämpfter Text
   graySoft: '#8FA89A',
   grayDk:   '#5A6B61',
-  ink:      '#0A1410',   // dunkler Text auf hellem BG
+  ink:      '#0A1410',   // NUR dunkler Text auf hellem BG; NIE auf dunklen Reel-Flächen
   line:     'rgba(255,255,255,0.10)',
 
   // 🟢 Grün — Wachstum, positiv, Lösung (Signatur)
@@ -57,6 +57,20 @@ export const MEANING = {
   trust:    C.blue,     // sicher/Info
   premium:  C.purple,   // besonders
   neutral:  C.white,    // Aussage
+} as const;
+
+// Verbindliche Animationspalette für dunkle Reel-Szenen.
+// Schwarz ist absichtlich NICHT enthalten: auf dem dunklen FinanzNeo-Hintergrund
+// müssen alle Informationen mobil sofort lesbar bleiben.
+export const ANIMATION_COLORS = {
+  neutralText: C.white,
+  secondaryText: C.whiteSoft,
+  focus: C.accent,
+  positive: C.accent,
+  warning: C.negative,
+  loss: C.negative,
+  money: C.gold,
+  blackOnDarkForbidden: true,
 } as const;
 
 // Disziplinierte Premium-Palette für ruhige Finanzgrafiken.
@@ -107,7 +121,7 @@ export const prog = (f: number, a: number, b: number, e = E.out) =>
 
 // Wert va→vb zwischen zwei Frames
 export const lerpF = (f: number, va: number, vb: number, a: number, b: number, e = E.out) =>
-  interpolate(f, [a, b], [va, vb], { ...CLAMP, easing: e });
+  interpolate(f, [a, b], [va, vb], [0, 1], { ...CLAMP, easing: e });
 
 // Lebenszyklus: rein → halten → raus (für sauberes Erscheinen + Verschwinden)
 export const life = (f: number, inF: number, outF: number, ramp = 9) =>
