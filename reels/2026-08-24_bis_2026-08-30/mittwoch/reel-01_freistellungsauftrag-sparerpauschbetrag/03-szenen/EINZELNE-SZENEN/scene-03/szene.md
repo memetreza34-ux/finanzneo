@@ -1,6 +1,6 @@
 # Szene 03
 **Typ:** image
-**Headline:** 1.000 € SPARER-PAUSCHBETRAG
-**Icon:** shield
-**Sprechbeat:** In Deutschland sind das 2026 1.000 Euro pro Person.
-**Google-Flow-Dateiname:** Bild 03 - Sparer Pauschbetrag Schutz.png
+**Headline:** WAS ZÄHLT ALS KAPITALERTRAG?
+**Icon:** coins
+**Sprechbeat:** Dazu zählen Kapitalerträge wie Zinsen, Dividenden und Gewinne aus Wertpapierverkäufen.
+**Google-Flow-Dateiname:** Bild 03 - Kapitalertraege Quellen.png
