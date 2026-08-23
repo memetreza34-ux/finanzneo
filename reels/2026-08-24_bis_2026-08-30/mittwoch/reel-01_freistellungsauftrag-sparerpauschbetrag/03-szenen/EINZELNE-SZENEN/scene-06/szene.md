@@ -1,5 +1,5 @@
 # Szene 06
 **Typ:** animation
-**Headline:** ERST FREI — DANN STEUER
+**Headline:** AUFTRAG AKTIVIERT FREIBETRAG
 **Icon:** shield
-**Sprechbeat:** Liegt ein passender Freistellungsauftrag vor, berücksichtigt die Bank den verfügbaren Freibetrag beim Steuerabzug.
+**Sprechbeat:** Damit deine Bank den Freibetrag direkt beim Steuerabzug berücksichtigt, brauchst du einen Freistellungsauftrag.
