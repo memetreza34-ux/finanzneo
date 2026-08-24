@@ -6,9 +6,12 @@ on:
       - main
       - 'agent/**'
       - 'codex/**'
+      - 'fix/**'
+      - 'repo/**'
   pull_request:
     branches:
       - main
+      - 'repo/**'
 
 permissions:
   contents: read
