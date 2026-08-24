@@ -21,16 +21,13 @@ if (!target) {
 }
 
 const absolutesZiel = resolve(target);
-// Nur zurückrollen, was dieser Lauf selbst angelegt hat.
 const bestandVorher = existsSync(absolutesZiel);
-
 const reelsWurzel = resolve('reels');
 
 const zuruecknehmen = () => {
   if (bestandVorher || !existsSync(absolutesZiel)) return;
   rmSync(absolutesZiel, {recursive: true, force: true});
 
-  // Leere Wochen-/Tagesordner ebenfalls entfernen, damit kein Rest zurückbleibt.
   let ordner = dirname(absolutesZiel);
   while (ordner.startsWith(reelsWurzel) && ordner !== reelsWurzel) {
     if (!existsSync(ordner) || readdirSync(ordner).length > 0) break;
@@ -58,4 +55,5 @@ if (lock.status !== 0) {
   process.exit(lock.status ?? 1);
 }
 
-console.log('\n✓ Neues Reel angelegt und automatisch mit dem Google-Flow-Gesamtdurchlauf-Lock versehen.');
+console.log('\n✓ Neues Reel angelegt und mit Google-Flow Strict-Single-Job V3 gesperrt.');
+console.log('  Immer genau 1 Bildjob: Ergebnis → Rename → QA → erst dann nächster Bildblock. Kein Batch und kein Nutzer-„weiter“.');

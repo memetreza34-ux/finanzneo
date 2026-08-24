@@ -3,10 +3,9 @@ import {existsSync, readFileSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {
   ALL_PROMPTS,
-  FLOW_EXECUTION_MODE_MARKER,
   SCENE_INDEX,
 } from './lib/reel-contract.mjs';
-import {AUTONOMY_BLOCK, flowAutonomyFields, modernizeLegacyWaitWording} from './lib/flow-autonomy.mjs';
+import {AUTONOMY_BLOCK, FLOW_AGENT_BLOCK, flowAutonomyFields, modernizeLegacyWaitWording} from './lib/flow-autonomy.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -24,30 +23,47 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 const allPromptsPath = resolve(root, ALL_PROMPTS);
 const indexPath = resolve(root, SCENE_INDEX);
 if (!existsSync(allPromptsPath) || !existsSync(indexPath)) {
-  console.error('Reel muss vor dem Flow-Autonomie-Lock bereits angelegt sein.');
+  console.error('Reel muss vor dem Flow-Lock bereits angelegt sein.');
   process.exit(1);
 }
 
-// AUTONOMY_BLOCK kommt aus scripts/lib/flow-autonomy.mjs.
-
 let master = readFileSync(allPromptsPath, 'utf8');
-if (!master.includes(FLOW_EXECUTION_MODE_MARKER)) {
-  master = `${AUTONOMY_BLOCK}\n${master}`;
+
+// V2/V1-Kopf immer vollständig ersetzen. So kann kein alter Batch-fördernder
+// Satz wie "Lies die gesamte Datei einmal" unter dem neuen V3-Kopf überleben.
+const handoffMarker = 'FINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN';
+const handoffIndex = master.indexOf(handoffMarker);
+if (handoffIndex !== -1) {
+  master = `${AUTONOMY_BLOCK}\n${master.slice(handoffIndex)}`;
 } else {
-  const blockStart = master.indexOf(FLOW_EXECUTION_MODE_MARKER);
-  const firstContentMarker = master.indexOf('\n\n', blockStart);
-  if (blockStart === 0 && firstContentMarker !== -1 && !master.includes('AUTONOMER GESAMTDURCHLAUF — VERBINDLICH')) {
-    master = `${AUTONOMY_BLOCK}\n${master.slice(firstContentMarker + 2)}`;
-  }
+  master = `${AUTONOMY_BLOCK}\n${master}`;
 }
 
-// Bestandsreels aus der Zeit vor dem Vertrag auf den aktuellen Wortlaut heben.
+// Den Agentenblock ebenfalls kanonisch ersetzen statt nur einzelne Wörter zu
+// patchen. Ende des Blocks ist in allen Masterprompts die Bildnummerierung.
+const protocolIndex = master.indexOf('FLOW_AGENT_PROTOCOL:');
+const numberingIndex = master.indexOf('BILDNUMMERIERUNG:', protocolIndex);
+if (protocolIndex !== -1 && numberingIndex !== -1) {
+  master = `${master.slice(0, protocolIndex)}${FLOW_AGENT_BLOCK}\n${master.slice(numberingIndex)}`;
+}
+
 master = modernizeLegacyWaitWording(master);
+
+// Jeder konkrete Bildblock bekommt zusätzlich ein lokales Gate. Dadurch ist
+// selbst beim Lesen der gesamten Datei eindeutig: dieser Prompt darf nur als
+// EINZELJOB ausgeführt werden; der nächste Block ist bis Rename+QA gesperrt.
+master = master
+  .replaceAll('FLOW_STEP_GATE: STRICT_CURRENT_ONLY\nCURRENT_STEP_ONLY: true\nNEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true\n', '')
+  .replaceAll(
+    'GOOGLE FLOW – FINALER DATEINAME:',
+    'FLOW_STEP_GATE: STRICT_CURRENT_ONLY\nCURRENT_STEP_ONLY: true\nNEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true\nBATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN\nGOOGLE FLOW – FINALER DATEINAME:',
+  );
+
 writeFileSync(allPromptsPath, master, 'utf8');
 
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 index.googleFlow = {...(index.googleFlow ?? {}), ...flowAutonomyFields()};
 writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`, 'utf8');
 
-console.log('✓ Google-Flow-Autonomie-Lock gesetzt.');
-console.log('  Gesamtes Bildset ohne Nutzer-Zwischenstopps · internes Warten nur auf Generierung · Struktur/Stil bis zum letzten Bild gesperrt.');
+console.log('✓ Google-Flow Strict-Single-Job V3 gesetzt.');
+console.log('  Concurrency=1 · kein Batch/Queueing · Ergebnis → Rename → QA → erst dann nächster Bildblock · kein Nutzer-„weiter“ nötig.');
