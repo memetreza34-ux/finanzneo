@@ -4,6 +4,13 @@ node_modules/
 # Gerenderte Videos & Frames (groß, regenerierbar)
 out/
 frames/
+
+# Upload-Pakete: große Artefakte bleiben lokal, Texte bleiben versioniert
+reels/**/06-export/bilder.zip
+reels/**/06-export/cover.png
+
+# Sammel-Downloads aus Google Flow sind Zwischenartefakte, keine Quelldateien
+reels/**/download.zip
 thumbnails/*.mp4
 *.mp4
 *.mov
