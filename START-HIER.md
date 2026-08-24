@@ -29,6 +29,10 @@ Per-Reel-Felder wie alte `headlineColor`- oder `continuityFramesMax`-Werte sind
 nur historische Metadaten und dürfen `REEL_STYLE` nicht überschreiben.
 `npm run validate:consistency` prüft die zentralen Regeln automatisch.
 
+Für neue Reel-Bilder gilt zusätzlich der globale Physical-Explainer-Lock:
+`config/finanzneo-image-world-lock.json`. Er erweitert die bestehende V4-Welt,
+ersetzt sie nicht. Details: `docs/GLOBAL-IMAGE-WORLD-LOCK.md`.
+
 ## Phase-3-Executor
 
 `03-szenen/scene-index.json` entscheidet mit `phase3Executor`, wer Phase 3 baut:
@@ -45,7 +49,8 @@ Reel-spezifische Auftrag vorhanden und vollständig sein.
 ## Was automatisch geprüft wird
 
 ```bash
-npm run validate                      # Repo gesamt: Lint, Tests, Konsistenz, Typecheck
+npm run validate                      # Repo gesamt: Lint, Tests, Konsistenz, Image-World, Typecheck
+npm run validate:image-world          # globaler Physical-Explainer-/1:1-Lock
 npm run reel:validate -- <Reel-Pfad>  # Reel: Schema, Bildwelt, Szenenqualität, Publishing
 npm run reel:ready -- <Reel-Pfad>     # Phase-3-Freigabe: zusätzlich Assets prüfen
 ```
@@ -66,6 +71,7 @@ werden. Der eigentliche Bildprompt bleibt die Wahrheit für Objektlabels.
 | Thema | Datei |
 |---|---|
 | Projekt-Gehirn (höchste Regelquelle) | `CLAUDE.md` |
+| Globaler Physical-Explainer-/1:1-Bildwelt-Lock | `docs/GLOBAL-IMAGE-WORLD-LOCK.md` |
 | Untertitel, Überschriften, Timing | `docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md` |
 | Bildwelt | `docs/FINANZNEO-IMAGE-WORLD-V3.md`, `docs/IMAGE-SYSTEM.md` |
 | Bildprompts | `docs/IMAGE-PROMPT-LIBRARY.md`, `docs/IMAGE-QA-CHECKLIST.md` |
@@ -83,12 +89,13 @@ werden. Der eigentliche Bildprompt bleibt die Wahrheit für Objektlabels.
 - 60–90 Sekunden als Reel-Standard
 - Reel-Plattformen: Instagram Reels, TikTok, Facebook Reels und Snapchat
 - YouTube: ausschließlich eigenständige längere Videos unter `youtube/`; keine YouTube Shorts
-- YouTube-Video und -Quellbilder: horizontal 16:9; Reel-Quellbilder bleiben 1:1
+- YouTube-Video und -Quellbilder: horizontal 16:9; Reel-Quellbilder inklusive Cover bleiben 1:1
 - Untertitel Pflicht
-- Premium Fintech Editorial 3D + Remotion
-- eine starke visuelle Metapher pro Bild
+- Premium Stylized 3D V5 + Physical Explainer Editorial V7 + Remotion
+- pro neuem Flow-Bild ein großes physisches Hero-Objekt + 3–6 konkrete themenspezifische Alltagsobjekte
+- keine Dashboard/UI-, Microchip/Circuit-Board-, Gameboard-, Orbit- oder Vier-Ecken-Tile-Komposition
 - optional stilisierte 3D-Person; wenn Person, Gesicht klar sichtbar
-- kurze deutsche Objektlabels statt großer KI-Überschriften
+- kurze deutsche physische Objektlabels statt großer KI-Überschriften
 - genau EIN nahtloser deep-charcoal-green-black Hintergrund von oben bis unten
 - keine Prozent-Zonen, Hintergrundbänder, Floor-Wall-Grenze oder sichtbarer Horizont
 - Gold nur für Geld/Wert, Rot-Orange nur für Risiko/Verlust/Schulden
@@ -166,12 +173,13 @@ kann kein fremdes Reel versehentlich in ein anderes `06-export/` gelangen.
 
 Bild neu erzeugen, wenn unter anderem:
 
-- zwei sichtbaren Hintergründe/Bänder entstehen
+- zwei sichtbare Hintergründe/Bänder entstehen
 - eine horizontale Trennkante, Floor-Wall-Grenze oder ein Horizont sichtbar ist
 - eine dargestellte Person kein klar sichtbares Gesicht hat
 - eine große Headline, ein Untertitel oder ein erklärender Satz im KI-Bild erscheint
 - Labels falsch oder zufällig sind
-- das Bild wie Diorama, Game-Level, Neon-Tunnel, Sci-Fi-Korridor oder Dashboard wirkt
+- das Bild wie Dashboard/UI, Microchip/Circuit-Board, Gameboard, Orbit-Modul,
+  Vier-Ecken-Kachelsystem, Diorama, Neon-Tunnel oder sterile Produktwerbung wirkt
 
 ## Produktionsfreigabe
 
