@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "locked": true,
   "integrationMode": "reel-system-v4-compatible-overlay",
   "baseWorldId": "finanzneo-connected-studio-v3",
@@ -37,7 +37,14 @@
     "tinyPosterCompositionForbidden": true
   },
   "googleFlow": {
+    "executionModeId": "finanzneo-flow-strict-single-job-v3",
+    "stateMachineId": "finanzneo-flow-state-machine-v1",
     "continuousAutonomousRunRequired": true,
+    "maxConcurrentGenerations": 1,
+    "batchGenerationForbidden": true,
+    "multiImageRequestForbidden": true,
+    "queueLaterImagesForbidden": true,
+    "nextStepLockedUntilRenameAndQa": true,
     "userConfirmationBetweenImagesForbidden": true,
     "autoRegenerateInvalidImage": true,
     "completionSummaryOnlyAfterAllImages": true
