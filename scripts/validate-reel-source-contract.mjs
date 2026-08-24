@@ -183,7 +183,9 @@ if (existsSync(sceneRoot) && existsSync(indexPath)) {
     assert(!containsObsoleteZoning(allPrompts), 'alle-bildprompts.txt enthält verbotene Prozent-Zonen.');
     assert(!containsWrongGeneratedImageRatio(allPrompts), 'alle-bildprompts.txt verlangt fälschlich ein 9:16-Quellbild statt 1:1.');
     assert(allPrompts.includes('square 1:1 source image'), 'alle-bildprompts.txt verlangt kein quadratisches 1:1-Quellbild.');
-    assert(allPrompts.includes('No headline') || allPrompts.includes('No headline.'), 'alle-bildprompts.txt verbietet generierte Headlines nicht.');
+    // Case-insensitiv wie die Einzelprompt-Prüfung weiter unten. Vorher lehnte
+    // dieselbe Regel Master-Prompts mit "no headline" ab und Einzelprompts nicht.
+    assert(allPrompts.toLowerCase().includes('no headline'), 'alle-bildprompts.txt verbietet generierte Headlines nicht.');
     assert(allPrompts.includes('short German object labels') || allPrompts.includes('kurzen deutschen') || allPrompts.includes('kurze deutsche'), 'alle-bildprompts.txt definiert kurze deutsche Objektlabels nicht.');
     assert(allPrompts.includes('00-ALLE-BILDER-HIER-REIN'), `Finaler gemeinsamer Bilderordner fehlt in ${ALL_PROMPTS}.`);
     assert(allPrompts.includes('Erzeuge GENAU EIN Bild'), 'Google-Flow-Agent muss exakt ein Bild pro Schritt erzeugen.');

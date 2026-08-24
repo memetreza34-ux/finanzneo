@@ -1,3 +1,16 @@
+FLOW_EXECUTION_MODE: finanzneo-flow-autonomous-full-run-v2
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+
+AUTONOMER GESAMTDURCHLAUF — VERBINDLICH
+- ARBEITE DAS GESAMTE BILDSET OHNE NUTZER-ZWISCHENSTOPP BIS ZUM LETZTEN BENÖTIGTEN BILD AB.
+- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", EINE BESTÄTIGUNG ODER EINE FREIGABE DES NUTZERS.
+- "WARTEN" BEDEUTET AUSSCHLIESSLICH: INTERN WARTEN, BIS DIE AKTUELLE BILDERZEUGUNG TECHNISCH VOLLSTÄNDIG ABGESCHLOSSEN IST. ES BEDEUTET NIEMALS, AUF DEN NUTZER ZU WARTEN.
+- NACH JEDEM BILD AUTOMATISCH: vollständig erzeugen → sofort exakt umbenennen → QA prüfen → bei Fehler dieselbe Bildnummer neu erzeugen → bei bestandener QA DIREKT mit dem nächsten benötigten Bild fortfahren.
+- Remotion-/Animationsnummern automatisch überspringen; dafür kein Bild erzeugen.
+- Nur bei einem echten technischen Hard-Blocker stoppen. Geschmacksfragen, Zwischenfreigaben oder fehlendes "weiter" sind KEINE Stop-Gründe.
+- DIESE STRUKTUR, REIHENFOLGE, DATEINAMENLOGIK, BILDWELT, MATERIALLOGIK, FARBROLLEN, LICHTLOGIK UND QUALITÄTSREGELN BIS ZUM LETZTEN BILD KONSEQUENT BEIBEHALTEN.
+- Keine Stiländerung, keine neue Bildwelt und keine abweichende Prompt-Struktur mitten im Durchlauf. Jede Szene bekommt eine frische Komposition INNERHALB derselben festgeschriebenen Welt.
+
 FINANZNEO FLOW AGENT – DIENSTAG 25.08.2026
 REEL: 9,99 € im Monat? Rechne aufs Jahr
 

@@ -1,0 +1,12 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 15 - Guthaben Und System Pruefen.png
+
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a chunky gold total-balance counter object sits between a bank and an emerald protection-system seal. A large magnifying glass connects the balance to both the bank and the seal so the viewer immediately reads: check total balance and which protection system applies. Add a small cream depositor-information sheet beneath the seal.
+
+Short German object labels only: `GESAMTGUTHABEN`, `WELCHES SYSTEM?`, `PRÜFEN`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium stylized 3D, rounded bevels, cream modeled surfaces, sculpted gold, cinematic depth and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.

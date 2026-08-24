@@ -14,7 +14,7 @@
     "test": "node --import tsx --test tests/*.test.ts",
     "typecheck": "tsc --noEmit",
     "build": "npx remotion bundle src/index.ts",
-    "reel:create": "node scripts/scaffold-finanzneo-reel.mjs",
+    "reel:create": "node scripts/create-finanzneo-reel.mjs",
     "reel:sort-images": "node scripts/sort-reel-images.mjs",
     "reel:validate": "node scripts/validate-reel.mjs",
     "reel:ready": "node scripts/check-reel-production-ready.mjs",

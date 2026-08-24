@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-// Führt beide Reel-Validatoren auf demselben Projektordner aus.
+// Führt alle Reel-Validatoren auf demselben Projektordner aus.
 // Nötig, weil npm zusätzliche Argumente nur an den letzten Befehl einer
-// `&&`-Kette anhängt und der erste Validator sonst ohne Pfad startet.
+// `&&`-Kette anhängt und frühere Validatoren sonst ohne Pfad starten würden.
 
 import {spawnSync} from 'node:child_process';
 import {resolve} from 'node:path';
@@ -17,6 +17,7 @@ if (!projectDirectory) {
 const validators = [
   'scripts/validate-reel-source-contract.mjs',
   'scripts/validate-scene-quality.mjs',
+  'scripts/validate-flow-autonomous-contract.mjs',
   'scripts/validate-platform-publishing.mjs',
 ];
 

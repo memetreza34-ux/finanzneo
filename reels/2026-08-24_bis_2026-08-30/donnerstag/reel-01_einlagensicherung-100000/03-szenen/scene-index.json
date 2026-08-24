@@ -32,7 +32,17 @@
     "numberSource": "real-scene-number",
     "animationNumbersStayReserved": true,
     "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
-    "distributeToSceneFolders": false
+    "distributeToSceneFolders": false,
+    "executionModeId": "finanzneo-flow-autonomous-full-run-v2",
+    "autonomousFullRun": true,
+    "userContinueSignalForbidden": true,
+    "userApprovalBetweenImagesForbidden": true,
+    "internalWaitForGenerationOnly": true,
+    "autoContinueAfterQa": true,
+    "hardBlockerOnlyStop": true,
+    "structureLockId": "finanzneo-flow-structure-lock-v1",
+    "preserveStructureThroughLastImage": true,
+    "preserveStyleThroughLastImage": true
   },
   "imageWorld": {
     "id": "finanzneo-connected-studio-v3",

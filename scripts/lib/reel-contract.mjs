@@ -24,6 +24,14 @@ export const IMAGE_INBOX = '03-szenen/00-ALLE-BILDER-HIER-REIN';
 export const SCENE_INDEX = '03-szenen/scene-index.json';
 export const ALL_PROMPTS = '03-szenen/alle-bildprompts.txt';
 
+// Google-Flow-Ausführung: ein autonomer Gesamtdurchlauf ohne Nutzer-Zwischenfreigaben.
+// Die Bilder werden weiterhin strikt nacheinander erzeugt; "warten" bedeutet nur,
+// intern auf die aktuelle Bilderzeugung zu warten, niemals auf "weiter" vom Nutzer.
+export const FLOW_EXECUTION_MODE_ID = 'finanzneo-flow-autonomous-full-run-v2';
+export const FLOW_EXECUTION_MODE_MARKER = `FLOW_EXECUTION_MODE: ${FLOW_EXECUTION_MODE_ID}`;
+export const FLOW_STRUCTURE_LOCK_ID = 'finanzneo-flow-structure-lock-v1';
+export const FLOW_STRUCTURE_LOCK_MARKER = `FLOW_STRUCTURE_LOCK: ${FLOW_STRUCTURE_LOCK_ID}`;
+
 export const SUBTITLE_MODE = 'sentence-with-audio-synced-active-word';
 export const ACTIVE_WORD_COLOR = 'finance-green';
 

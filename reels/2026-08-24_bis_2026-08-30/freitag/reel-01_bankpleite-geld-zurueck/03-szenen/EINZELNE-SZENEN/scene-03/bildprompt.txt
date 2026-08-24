@@ -1,0 +1,12 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - Geschuetzte Konten.png
+
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: one large emerald protection vault/shield chamber. Three recognizable chunky everyday deposit objects feed visibly into it: a wallet/card object for `GIRO`, a gold savings jar for `TAGESGELD`, and a locked calendar box for `FESTGELD`. Their gold value streams converge into the same protected area. Keep objects large, simple and instantly readable, with active overlap and depth rather than a row of icons.
+
+Short German object labels only: `GIRO`, `TAGESGELD`, `FESTGELD`, `EINLAGEN`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Chunky volumetric geometry, premium emerald polymer, brushed metal, restrained glass, sculpted gold value details, cinematic soft key light and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.

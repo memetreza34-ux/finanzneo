@@ -34,18 +34,28 @@
     "numberSource": "real-scene-number",
     "animationNumbersStayReserved": true,
     "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
-    "distributeToSceneFolders": false
+    "distributeToSceneFolders": false,
+    "executionModeId": "finanzneo-flow-autonomous-full-run-v2",
+    "autonomousFullRun": true,
+    "userContinueSignalForbidden": true,
+    "userApprovalBetweenImagesForbidden": true,
+    "internalWaitForGenerationOnly": true,
+    "autoContinueAfterQa": true,
+    "hardBlockerOnlyStop": true,
+    "structureLockId": "finanzneo-flow-structure-lock-v1",
+    "preserveStructureThroughLastImage": true,
+    "preserveStyleThroughLastImage": true
   },
   "timingStandard": {
     "imageSceneIdealSeconds": [
       3.5,
-      5.0
+      5
     ],
     "imageSceneNormalMaxSeconds": 5.5,
-    "imageSceneAbsoluteMaxSeconds": 6.0,
+    "imageSceneAbsoluteMaxSeconds": 6,
     "animationSceneIdealSeconds": [
       4.5,
-      6.0
+      6
     ],
     "splitOrAnimateIfImageExceedsMax": true,
     "cutsFollowRealAudio": true
@@ -203,7 +213,7 @@
       "headline": "MONAT WIRD JAHR",
       "icon": "euro",
       "headerTone": "money",
-      "targetSeconds": 5.0,
+      "targetSeconds": 5,
       "mainIdea": "Monatssumme wird sichtbar zum Jahresbetrag; ×12-Regel wird erklärt.",
       "planFile": "EINZELNE-SZENEN/scene-04/remotion.md"
     },
@@ -214,7 +224,7 @@
       "icon": "euro",
       "headerTone": "money",
       "googleFlowFileName": "Bild 05 - Jahresbetrag Blick.png",
-      "targetSeconds": 4.0,
+      "targetSeconds": 4,
       "mainIdea": "Jahresblick zeigt die echte Größenordnung.",
       "expectedVisual": "Chunky stylized 3D Rechner, kleine Monatssumme und dominant großer 599,40-Euro-Jahresbetrag mit Kalenderkarten und Goldmünzen.",
       "planFile": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
@@ -249,7 +259,7 @@
       "icon": "search",
       "headerTone": "warning",
       "googleFlowFileName": "Bild 07 - Altes Abo Finden.png",
-      "targetSeconds": 5.0,
+      "targetSeconds": 5,
       "mainIdea": "Kleine alte Abos und unnötige Verträge werden leicht übersehen.",
       "expectedVisual": "Chunky stylized 3D Organizer mit halb verstecktem warmrotem ALTES-ABO-Tag, das durch Lupe sichtbar wird.",
       "planFile": "EINZELNE-SZENEN/scene-07/bildprompt.txt",
@@ -266,7 +276,7 @@
       "headline": "2 POSTEN WEG",
       "icon": "cross",
       "headerTone": "warning",
-      "targetSeconds": 5.0,
+      "targetSeconds": 5,
       "mainIdea": "Zwei ungenutzte Kosten werden entfernt und Jahresersparnis entsteht.",
       "planFile": "EINZELNE-SZENEN/scene-08/remotion.md"
     },
@@ -276,7 +286,7 @@
       "headline": "DEINE FIXKOSTEN",
       "icon": "wallet",
       "googleFlowFileName": "Bild 09 - Fixkosten Alltag.png",
-      "targetSeconds": 5.0,
+      "targetSeconds": 5,
       "mainIdea": "Streaming, Apps, Mitgliedschaften und Mobilfunk als konkrete Alltagskosten.",
       "expectedVisual": "Offene stylized 3D Budget-Wallet mit Kopfhörern, Smartphone/SIM, Mitgliedschafts-Tag, App-Umschlag und Goldmünzen.",
       "planFile": "EINZELNE-SZENEN/scene-09/bildprompt.txt",
@@ -311,7 +321,7 @@
       "headline": "4 WOCHEN ≠ 1 MONAT",
       "icon": "calendar",
       "headerTone": "warning",
-      "targetSeconds": 5.0,
+      "targetSeconds": 5,
       "mainIdea": "Vier-Wochen-Abrechnung erzeugt 13 Zahlungen.",
       "planFile": "EINZELNE-SZENEN/scene-11/remotion.md"
     },
@@ -330,7 +340,7 @@
       "type": "animation",
       "headline": "ECHTE FIXKOSTENLAST",
       "icon": "wallet",
-      "targetSeconds": 5.0,
+      "targetSeconds": 5,
       "mainIdea": "Regelmäßige Kosten binden Budget und reduzieren den variablen Rest.",
       "planFile": "EINZELNE-SZENEN/scene-13/remotion.md"
     },
@@ -375,7 +385,7 @@
       "headline": "EINEN POSTEN HEUTE PRÜFEN",
       "icon": "check",
       "googleFlowFileName": "Bild 16 - Dauerposten Heute.png",
-      "targetSeconds": 5.0,
+      "targetSeconds": 5,
       "mainIdea": "Abschluss: wiederkehrende Kosten hochrechnen und einen Dauerposten konkret prüfen.",
       "expectedVisual": "Aktiver stylized 3D Wallet-Organizer, aus dem ein DAUERPOSTEN-Tag herausgezogen und mit PRO-JAHR-Tag plus Checkstempel geprüft wird.",
       "planFile": "EINZELNE-SZENEN/scene-16/bildprompt.txt",

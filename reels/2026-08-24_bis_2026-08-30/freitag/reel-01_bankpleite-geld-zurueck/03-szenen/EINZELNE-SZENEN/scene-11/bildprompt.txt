@@ -1,0 +1,12 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 11 - Sonderfall 500000.png
+
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: a chunky stylized house key and compact home object feed a temporarily large gold cash block into a bank. A much larger translucent emerald protection shield surrounds the amount and a chunky emerald calendar token is attached to the shield. Make the scene clearly read as a special temporary life-event case, not the normal deposit-protection rule.
+
+Short German object labels only: `SONDERFALL`, `BIS 500.000 €`, `TEMPORÄR`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium volumetric 3D materials, rounded bevels, sculpted gold, cinematic depth and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. If a person appears, face clearly visible.

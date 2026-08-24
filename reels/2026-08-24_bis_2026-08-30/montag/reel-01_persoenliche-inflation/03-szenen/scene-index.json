@@ -29,7 +29,17 @@
     "numberSource": "real-scene-number",
     "animationNumbersStayReserved": true,
     "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
-    "distributeToSceneFolders": false
+    "distributeToSceneFolders": false,
+    "executionModeId": "finanzneo-flow-autonomous-full-run-v2",
+    "autonomousFullRun": true,
+    "userContinueSignalForbidden": true,
+    "userApprovalBetweenImagesForbidden": true,
+    "internalWaitForGenerationOnly": true,
+    "autoContinueAfterQa": true,
+    "hardBlockerOnlyStop": true,
+    "structureLockId": "finanzneo-flow-structure-lock-v1",
+    "preserveStructureThroughLastImage": true,
+    "preserveStyleThroughLastImage": true
   },
   "imageWorld": {
     "id": "finanzneo-connected-studio-v3",
@@ -37,7 +47,7 @@
     "generatedImageAspectRatio": "1:1",
     "squareGeneratedImagesRequired": true,
     "referencePromptFile": "03-szenen/bildwelt.txt",
-    "styleReferenceStrategy": "approved-cover-style-only",
+    "styleReferenceStrategy": "written-style-lock-only",
     "style": "premium-fintech-editorial-3d-metaphor",
     "sameWorldAcrossSeriesRequired": true,
     "stylizedPersonAllowed": true,
@@ -52,7 +62,8 @@
     "subtitlesInGeneratedImagesForbidden": true,
     "sentencesInGeneratedImagesForbidden": true,
     "tinyDioramaForbidden": true,
-    "neonTunnelForbidden": true
+    "neonTunnelForbidden": true,
+    "referenceImageUse": "forbidden"
   },
   "platformPublishing": {
     "directory": "04-caption",
