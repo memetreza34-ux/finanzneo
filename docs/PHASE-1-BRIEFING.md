@@ -47,6 +47,7 @@ KEINE YouTube Shorts.
 - Länge 60–90 Sekunden
 - Hook in den ersten 2 Sekunden
 - Ziel etwa 60 % Bildszenen / 40 % Remotion-Animationen
+- Standardumfang 15 Visual-Beats (9 Bild / 6 Animation); 14–16 sind der Zielkorridor
 - Bildbeat 3,5–5,5 s ideal, ABSOLUT MAXIMAL 6,0 s
 - Animationsbeat 4,5–6,5 s
 - Google-Flow-Quellbilder IMMER quadratisch 1:1 (nie 9:16)

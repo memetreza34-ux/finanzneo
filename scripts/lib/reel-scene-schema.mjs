@@ -81,3 +81,32 @@ export const validateSceneShape = (scene, {index = 0} = {}) => {
 
   return fehler;
 };
+
+/**
+ * Wer Phase 3 ausführt.
+ *
+ * Beide Wege bauen dasselbe Reel nach denselben Regeln; sie unterscheiden sich
+ * nur in der Übergabe. Ohne feste Werte stand hier Beliebiges ("claude-code-test"),
+ * das niemand auswertete — die Angabe war wirkungslos.
+ */
+export const PHASE3_EXECUTORS = {
+  antigravity: {
+    label: 'Antigravity',
+    handoff: 'MASTER-PROMPTS.md, Abschnitt „Phase 3 — Antigravity baut autonom"',
+  },
+  'claude-code': {
+    label: 'Claude Code',
+    handoff: '05-projektdateien/CLAUDE-CODE-AUFTRAG.md im jeweiligen Reel',
+  },
+};
+
+export const DEFAULT_PHASE3_EXECUTOR = 'antigravity';
+
+/** Prüft die Executor-Angabe eines Reels. Leere Liste = gültig. */
+export const validatePhase3Executor = (wert) => {
+  if (wert === undefined || wert === null) return [];
+  if (typeof wert !== 'string' || !PHASE3_EXECUTORS[wert]) {
+    return [`phase3Executor "${wert}" ist unbekannt. Erlaubt: ${Object.keys(PHASE3_EXECUTORS).join(', ')}`];
+  }
+  return [];
+};

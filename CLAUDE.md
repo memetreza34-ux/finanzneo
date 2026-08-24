@@ -53,7 +53,17 @@ Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Vi
 
 1. **Phase 1 — normales ChatGPT:** erstellt Recherche, Quellen, geprüftes Skript, Dramaturgie, Szenenplan, Bild-/Remotion-Zuordnung, vollständige Google-Flow-Prompts mit exakten Dateinamen, Remotion-Spezifikationen sowie Master- und Plattform-Captions. In diesen Inhalten bleiben keine Platzhalter.
 2. **Phase 2 — Nutzer:** erzeugt Cover und Szenenbilder einzeln mit Google Flow, benennt sie exakt, legt alle gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`, legt genau ein finales Voiceover in `02-audio/` und erzeugt daraus echte Wort-Zeitstempel.
-3. **Phase 3 — Antigravity:** beginnt auf den Auftrag `Mach das Reel: <Reel-Pfad>` mit `npm run reel:ready -- <Reel-Pfad>`. Ist die Prüfung erfolgreich, baut, prüft und rendert Antigravity das Reel ohne Rückfragen und ohne Zwischenstopps.
+3. **Phase 3 — Antigravity oder Claude Code:** beginnt auf den Auftrag `Mach das Reel: <Reel-Pfad>` mit `npm run reel:ready -- <Reel-Pfad>`. Ist die Prüfung erfolgreich, wird das Reel ohne Rückfragen und ohne Zwischenstopps gebaut, geprüft, gerendert und exportiert.
+
+**Wer Phase 3 ausführt, steht im `scene-index.json` unter `phase3Executor`:**
+
+| Wert | Übergabe |
+|---|---|
+| `antigravity` (Standard) | `MASTER-PROMPTS.md`, Abschnitt „Phase 3 — Antigravity baut autonom" |
+| `claude-code` | `05-projektdateien/CLAUDE-CODE-AUFTRAG.md` im jeweiligen Reel |
+
+Beide bauen dasselbe Reel nach denselben Regeln; nur die Übergabe unterscheidet
+sich. Andere Werte lehnt der Validator ab — sonst liefe die Übergabe ins Leere.
 
 Antigravity stoppt nur bei echten Blockern: fehlende/falsch benannte Nutzerbilder, fehlendes/mehrfaches/unlesbares finales Audio, fehlende oder nicht zum Audio passende Wortzeiten, widersprüchliche Pflichtdaten, Sicherheits-/Faktenkonflikte oder ein nicht selbst lösbarer Validator-/Build-/Renderfehler. Alle Blocker werden gesammelt mit exakten Pfaden gemeldet. Normale Detailentscheidungen trifft Antigravity selbst nach den Repo-Regeln.
 
@@ -73,6 +83,8 @@ in dieser Datei nachgezogen.
 - 60–90 Sekunden als Standard
 - Hook innerhalb der ersten 2 Sekunden
 - Ziel ungefähr 60 % Bildbeats / 40 % native Remotion-Animationen; Qualität und Verständlichkeit haben Vorrang vor starrer Quote
+- **Standardumfang 15 Visual-Beats** (9 Bild / 6 Animation). Bei 60–90 Sekunden liegt der Schnitt damit bei etwa 4–6 Sekunden. Zehn Beats waren zu wenig: Szenen blieben 7–9 Sekunden stehen, über der 6-Sekunden-Grenze und mit zu viel Inhalt pro Szene
+- nie mehr als zwei Bildszenen direkt hintereinander
 - Bildbeat ideal 3,5–5,5 Sekunden, absolut maximal 6 Sekunden
 - braucht eine Bildidee mehr als 6 Sekunden: **splitten oder animieren**
 - keine langen Intros

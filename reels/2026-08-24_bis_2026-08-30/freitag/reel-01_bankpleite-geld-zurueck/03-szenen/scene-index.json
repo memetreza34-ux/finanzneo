@@ -1,7 +1,7 @@
 {
   "version": 23,
   "title": "Bank pleite: So bekommst du dein Geld zurück",
-  "phase3Executor": "claude-code-test",
+  "phase3Executor": "claude-code",
   "sceneCount": 16,
   "imageSceneCount": 10,
   "animationSceneCount": 6,

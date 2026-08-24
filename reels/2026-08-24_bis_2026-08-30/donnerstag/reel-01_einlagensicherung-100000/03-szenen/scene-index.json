@@ -1,7 +1,7 @@
 {
   "version": 21,
   "title": "100.000 € Einlagensicherung: pro Konto oder pro Bank?",
-  "phase3Executor": "claude-code-test",
+  "phase3Executor": "claude-code",
   "sceneCount": 15,
   "imageSceneCount": 9,
   "animationSceneCount": 6,

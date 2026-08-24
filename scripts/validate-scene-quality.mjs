@@ -13,6 +13,8 @@
 import {existsSync, readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 
+import {validatePhase3Executor} from './lib/reel-scene-schema.mjs';
+
 const target = process.argv[2];
 if (!target) {
   console.error('Nutzung: node scripts/validate-scene-quality.mjs <Reel-Projektordner>');
@@ -31,6 +33,10 @@ if (!existsSync(indexPath)) {
 
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const scenes = Array.isArray(index.scenes) ? index.scenes : [];
+
+// Phase-3-Ausführender muss ein bekannter Wert sein, sonst greift die
+// Übergabe ins Leere.
+errors.push(...validatePhase3Executor(index.phase3Executor));
 
 // Erlaubte Icon-Namen direkt aus der Komponente lesen, damit der Validator
 // nicht veraltet, wenn neue Icons dazukommen.

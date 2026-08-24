@@ -3,12 +3,10 @@ import {existsSync, readFileSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {
   ALL_PROMPTS,
-  FLOW_EXECUTION_MODE_ID,
   FLOW_EXECUTION_MODE_MARKER,
-  FLOW_STRUCTURE_LOCK_ID,
-  FLOW_STRUCTURE_LOCK_MARKER,
   SCENE_INDEX,
 } from './lib/reel-contract.mjs';
+import {AUTONOMY_BLOCK, flowAutonomyFields, modernizeLegacyWaitWording} from './lib/flow-autonomy.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -30,7 +28,7 @@ if (!existsSync(allPromptsPath) || !existsSync(indexPath)) {
   process.exit(1);
 }
 
-const AUTONOMY_BLOCK = `${FLOW_EXECUTION_MODE_MARKER}\n${FLOW_STRUCTURE_LOCK_MARKER}\n\nAUTONOMER GESAMTDURCHLAUF — VERBINDLICH\n- ARBEITE DAS GESAMTE BILDSET OHNE NUTZER-ZWISCHENSTOPP BIS ZUM LETZTEN BENÖTIGTEN BILD AB.\n- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", EINE BESTÄTIGUNG ODER EINE FREIGABE DES NUTZERS.\n- "WARTEN" BEDEUTET AUSSCHLIESSLICH: INTERN WARTEN, BIS DIE AKTUELLE BILDERZEUGUNG TECHNISCH VOLLSTÄNDIG ABGESCHLOSSEN IST. ES BEDEUTET NIEMALS, AUF DEN NUTZER ZU WARTEN.\n- NACH JEDEM BILD AUTOMATISCH: vollständig erzeugen → sofort exakt umbenennen → QA prüfen → bei Fehler dieselbe Bildnummer neu erzeugen → bei bestandener QA DIREKT mit dem nächsten benötigten Bild fortfahren.\n- Remotion-/Animationsnummern automatisch überspringen; dafür kein Bild erzeugen.\n- Nur bei einem echten technischen Hard-Blocker stoppen. Geschmacksfragen, Zwischenfreigaben oder fehlendes "weiter" sind KEINE Stop-Gründe.\n- DIESE STRUKTUR, REIHENFOLGE, DATEINAMENLOGIK, BILDWELT, MATERIALLOGIK, FARBROLLEN, LICHTLOGIK UND QUALITÄTSREGELN BIS ZUM LETZTEN BILD KONSEQUENT BEIBEHALTEN.\n- Keine Stiländerung, keine neue Bildwelt und keine abweichende Prompt-Struktur mitten im Durchlauf. Jede Szene bekommt eine frische Komposition INNERHALB derselben festgeschriebenen Welt.\n`;
+// AUTONOMY_BLOCK kommt aus scripts/lib/flow-autonomy.mjs.
 
 let master = readFileSync(allPromptsPath, 'utf8');
 if (!master.includes(FLOW_EXECUTION_MODE_MARKER)) {
@@ -43,28 +41,12 @@ if (!master.includes(FLOW_EXECUTION_MODE_MARKER)) {
   }
 }
 
-// Alte Formulierungen dürfen nur das interne Warten auf die aktuelle Generierung meinen.
-master = master
-  .replaceAll('3. Vollständig warten.', '3. INTERN warten, bis dieses eine Bild vollständig erzeugt ist — niemals auf Nutzerfreigabe warten.')
-  .replaceAll('3. Warte, bis dieses eine Bild vollständig erzeugt ist.', '3. Warte INTERN, bis dieses eine Bild vollständig erzeugt ist — niemals auf Nutzerfreigabe warten.')
-  .replaceAll('7. Erst nach bestandener QA das nächste Bild.', '7. Nach bestandener QA AUTOMATISCH und ohne Nutzer-Zwischenfreigabe mit dem nächsten benötigten Bild fortfahren.')
-  .replaceAll('7. Erst nach bestandener QA darf der nächste Bildblock beginnen.', '7. Nach bestandener QA beginnt der nächste benötigte Bildblock AUTOMATISCH und ohne Nutzer-Zwischenfreigabe.');
+// Bestandsreels aus der Zeit vor dem Vertrag auf den aktuellen Wortlaut heben.
+master = modernizeLegacyWaitWording(master);
 writeFileSync(allPromptsPath, master, 'utf8');
 
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
-index.googleFlow = {
-  ...(index.googleFlow ?? {}),
-  executionModeId: FLOW_EXECUTION_MODE_ID,
-  autonomousFullRun: true,
-  userContinueSignalForbidden: true,
-  userApprovalBetweenImagesForbidden: true,
-  internalWaitForGenerationOnly: true,
-  autoContinueAfterQa: true,
-  hardBlockerOnlyStop: true,
-  structureLockId: FLOW_STRUCTURE_LOCK_ID,
-  preserveStructureThroughLastImage: true,
-  preserveStyleThroughLastImage: true,
-};
+index.googleFlow = {...(index.googleFlow ?? {}), ...flowAutonomyFields()};
 writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`, 'utf8');
 
 console.log('✓ Google-Flow-Autonomie-Lock gesetzt.');

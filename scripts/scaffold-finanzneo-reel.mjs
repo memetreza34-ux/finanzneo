@@ -15,9 +15,24 @@ import {
   SUBTITLE_MODE,
   WORLD_ID as CONTRACT_WORLD_ID,
 } from './lib/reel-contract.mjs';
+import {AUTONOMY_BLOCK, FLOW_AGENT_BLOCK, flowAutonomyFields} from './lib/flow-autonomy.mjs';
+import {DEFAULT_PHASE3_EXECUTOR} from './lib/reel-scene-schema.mjs';
 
 const STYLIZED_3D_LOCK_ID = 'finanzneo-stylized-3d-editorial-v5';
-const DEFAULT_TYPES = ['image','image','animation','image','animation','image','animation','animation','image','image'];
+// Standard sind 15 Beats: 9 Bild, 6 Animation (60/40).
+//
+// Zehn Beats waren zu wenig. Bei 60–90 Sekunden bleibt dann jede Szene rund
+// 7–9 Sekunden stehen — über der 6-Sekunden-Grenze für Bildbeats, mit zu viel
+// Inhalt pro Szene und trägem Audio-Sync. Mit 15 Beats liegt der Schnitt bei
+// etwa 4–6 Sekunden und trifft das Wortbudget aus docs/PHASE-1-BRIEFING.md
+// (Bildszene 9–14 Wörter, Animationsszene 11–16 Wörter).
+//
+// Bild und Animation wechseln sich ab; nie mehr als zwei Bildszenen am Stück.
+const DEFAULT_TYPES = [
+  'image', 'animation', 'image', 'animation', 'image',
+  'animation', 'image', 'image', 'animation', 'image',
+  'animation', 'image', 'image', 'animation', 'image',
+];
 const args = process.argv.slice(2);
 const readArg = (name) => {
   const i = args.indexOf(`--${name}`);
@@ -62,7 +77,7 @@ const coverFileName = 'Bild 00 - [KURZER COVER-NAME].png';
 
 const STYLE_BLOCK = `FINANZNEO_WORLD_ID: ${WORLD_ID}\n${SERIES_LOCK_MARKER}\nSTYLIZED_3D_LOCK: ${STYLIZED_3D_LOCK_ID}\n${GENERATED_IMAGE_ASPECT_MARKER}\n\nFORMAT LOCK:\nCreate a square 1:1 source image only. Width and height must be equal. No portrait or vertical format.\n\nWRITTEN SAME-WORLD LOCK:\nKeep the same written FinanzNeo art direction in every image: deep charcoal green-black seamless world, premium dark-emerald polymer/brushed metal, warm cream modeled card surfaces, chunky gold value details, restrained glass, smooth rounded geometry, soft bevels, cinematic soft key light and controlled emerald rim light. Every scene gets its own fresh composition. Kein vorheriges Bild als Bildreferenz verwenden; keine Bildreferenz hochladen oder anhängen.\n\nVERBINDLICHER BILDSTIL:\nCreate a CLEARLY STYLIZED premium 3D CGI financial editorial explainer using recognizable everyday objects. Use chunky substantial volume, rounded forms, simplified slightly exaggerated proportions, clear foreground/midground/background depth, strong soft contact shadows and mild depth-of-field. The scene must instantly read as designed 3D CGI, not as a photographed office still-life.\n\nVISUAL LANGUAGE:\nUse ONE dominant everyday financial metaphor and only 2–5 supporting recognizable objects when useful. Arrange objects naturally with overlap and visible cause-and-effect. A stylized adult person is optional; if included, the face must be clearly visible with stylized eyes, nose and mouth, preferably front-facing or in a natural three-quarter view.\n\nTEXT RULE:\nNo headline. No subtitle. No explanatory sentence. No CTA. Only explicitly requested short German object labels, normally 1–3 words, physically attached to the relevant modeled object/tag.\n\nBACKGROUND RULE:\nUse ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Keep the same continuous material, tone and gradient from edge to edge. NO horizontal divisions. NO separate zones. NO floor-wall boundary. NO horizon line. NO studio wall split. NO panel background. Use only one subtle continuous gradient or vignette. Objects may cast soft contact shadows without creating a visible floor plane.\n\nFORBIDDEN:\nNOT photorealistic. No realistic office/stationery/product photography. No real identifiable human. No UI dashboard, app screen, control panel, floating cards, tile/module system, gameboard, tiny isometric diorama, neon tunnel, sci-fi corridor, product pedestal, giant typography, full sentence, random labels, Pixar, clay or toy look.\n`;
 
-const FLOW_AGENT_BLOCK = `${FLOW_AGENT_PROTOCOL_MARKER}\n\nSTRIKTER ARBEITSMODUS FÜR DEN GOOGLE-FLOW-KI-AGENTEN:\n1. Lies die gesamte Datei einmal, arbeite danach strikt von oben nach unten immer nur am aktuellen Bildblock.\n2. Erzeuge GENAU EIN Bild. Starte niemals mehrere Bilder gleichzeitig.\n3. Warte, bis dieses eine Bild vollständig erzeugt ist.\n4. Benenne es SOFORT exakt mit dem beim Bildblock angegebenen finalen Dateinamen um.\n5. Prüfe Motiv, kurze Labels, 3D-Stil, sichtbares Gesicht falls Person, nahtlosen Hintergrund und Dateiname.\n6. Wenn eine Prüfung scheitert: Erzeuge DIESELBE Bildnummer neu und ersetze die fehlerhafte Version.\n7. Erst nach bestandener QA darf der nächste Bildblock beginnen.\n8. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Generierung überspringen.\n9. Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen oder anhängen.\n10. Jede Szene bekommt eine eigene frische Komposition; Einheitlichkeit entsteht nur durch den ausgeschriebenen Stil-Lock.\n11. Nach Abschluss müssen alle erzeugten und exakt benannten Bilder gemeinsam in 03-szenen/00-ALLE-BILDER-HIER-REIN/ liegen.\n`;
+// FLOW_AGENT_BLOCK und AUTONOMY_BLOCK kommen aus scripts/lib/flow-autonomy.mjs.
 
 const flowInstruction = (fileName) => `${FLOW_AGENT_PROTOCOL_MARKER}\nAKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN\n\nGOOGLE FLOW – FINALER DATEINAME:\n${fileName}\n\nErzeuge jetzt ausschließlich dieses eine Bild. Warte vollständig, benenne es SOFORT exakt wie oben um und prüfe danach Motiv + Labels + klaren Stylized-3D-Look + Hintergrund + Dateiname. Keine Bildreferenz verwenden. Jede Szene bekommt eine eigene frische Komposition. Bei einem Fehler Erzeuge DIESELBE Bildnummer neu. Der Dateiname selbst darf NICHT sichtbar im Bild erscheinen.\n`;
 
@@ -138,7 +153,7 @@ const allSections = types.map((type,index) => {
   return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSZENE ${number} – BILDSZENE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${imagePrompt(`scene-${number}`, index)}`;
 }).join('\n');
 
-write('03-szenen/alle-bildprompts.txt', `FINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN\n\n${FLOW_AGENT_BLOCK}\n\nBILDNUMMERIERUNG:\nBildnummer = echte Szenennummer. Animationsnummern bleiben reserviert.\nJede Szene bekommt eine eigene frische Komposition. Keine Bildreferenz verwenden.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${coverPrompt}\n${allSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBeende den Auftrag erst, wenn jedes erwartete Bild einzeln erzeugt, exakt umbenannt und geprüft wurde. Danach müssen alle Bilder gemeinsam hier liegen:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n`);
+write('03-szenen/alle-bildprompts.txt', `${AUTONOMY_BLOCK}\nFINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN\n\n${FLOW_AGENT_BLOCK}\n\nBILDNUMMERIERUNG:\nBildnummer = echte Szenennummer. Animationsnummern bleiben reserviert.\nJede Szene bekommt eine eigene frische Komposition. Keine Bildreferenz verwenden.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${coverPrompt}\n${allSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBeende den Auftrag erst, wenn jedes erwartete Bild einzeln erzeugt, exakt umbenannt und geprüft wurde. Danach müssen alle Bilder gemeinsam hier liegen:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n`);
 
 write('03-szenen/scene-index.json', `${JSON.stringify({
   version:18,
@@ -152,7 +167,8 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
   cover:{type:'image',googleFlowFileName:coverFileName,planFile:'03-szenen/00-cover/cover.txt'},
   userCreatesImages:true,
   antigravityGeneratesImages:false,
-  googleFlow:{protocolId:FLOW_AGENT_PROTOCOL_ID,generationMode:'one-image-at-a-time',strictSequential:true,waitForCurrentImage:true,renameBeforeNext:true,qaBeforeNext:true,retrySameImageOnFailure:true,fileNameRule:'Bild XX - Kurzer Szenenname.png',numberSource:'real-scene-number',animationNumbersStayReserved:true,finalCollectionDirectory:'03-szenen/00-ALLE-BILDER-HIER-REIN/',distributeToSceneFolders:false},
+  phase3Executor:DEFAULT_PHASE3_EXECUTOR,
+  googleFlow:{protocolId:FLOW_AGENT_PROTOCOL_ID,generationMode:'one-image-at-a-time',strictSequential:true,waitForCurrentImage:true,renameBeforeNext:true,qaBeforeNext:true,retrySameImageOnFailure:true,fileNameRule:'Bild XX - Kurzer Szenenname.png',numberSource:'real-scene-number',animationNumbersStayReserved:true,finalCollectionDirectory:'03-szenen/00-ALLE-BILDER-HIER-REIN/',distributeToSceneFolders:false,...flowAutonomyFields()},
   timingStandard:{imageSceneIdealSeconds:[3.5,5.5],imageSceneAbsoluteMaxSeconds:6,animationSceneIdealSeconds:[4.5,7],splitOrAnimateIfImageExceedsMax:true},
   clarityStandard:{mustReadInUnderSeconds:2,oneMainIdeaPerBeat:true,everydayMetaphorRequired:true,sceneHeaderRequired:true,sceneIconRequired:true,animationStartMechanismResultRequired:true,blackTextOnDarkForbidden:true},
   imageWorld:{id:WORLD_ID,seriesLockId:SERIES_LOCK_ID,stylized3DLockId:STYLIZED_3D_LOCK_ID,generatedImageAspectRatio:GENERATED_IMAGE_ASPECT_RATIO,squareGeneratedImagesRequired:true,referencePromptFile:'03-szenen/bildwelt.txt',styleReferenceStrategy:'written-style-lock-only',referenceImageUse:'forbidden',style:'premium-stylized-3d-cgi-financial-editorial-explainer',sameWorldAcrossSeriesRequired:true,stylizedPersonAllowed:true,visibleFaceRequiredWhenPersonPresent:true,objectLabelsOnly:true,seamlessSingleBackgroundRequired:true,percentageZonesForbidden:true,floorWallBoundaryForbidden:true,horizonLineForbidden:true,backgroundBandsForbidden:true,headlinesInGeneratedImagesForbidden:true,subtitlesInGeneratedImagesForbidden:true,sentencesInGeneratedImagesForbidden:true,tinyDioramaForbidden:true,neonTunnelForbidden:true,photorealisticOfficeLookForbidden:true},
