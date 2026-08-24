@@ -1,0 +1,214 @@
+FLOW_EXECUTION_MODE: finanzneo-flow-autonomous-full-run-v2
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+
+AUTONOMER GESAMTDURCHLAUF — VERBINDLICH
+- ARBEITE DAS GESAMTE BILDSET OHNE NUTZER-ZWISCHENSTOPP BIS ZUM LETZTEN BENÖTIGTEN BILD AB.
+- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", EINE BESTÄTIGUNG ODER EINE FREIGABE DES NUTZERS.
+- "WARTEN" BEDEUTET AUSSCHLIESSLICH: INTERN WARTEN, BIS DIE AKTUELLE BILDERZEUGUNG TECHNISCH VOLLSTÄNDIG ABGESCHLOSSEN IST. ES BEDEUTET NIEMALS, AUF DEN NUTZER ZU WARTEN.
+- NACH JEDEM BILD AUTOMATISCH: vollständig erzeugen → sofort exakt umbenennen → QA prüfen → bei Fehler dieselbe Bildnummer neu erzeugen → bei bestandener QA DIREKT mit dem nächsten benötigten Bild fortfahren.
+- Remotion-/Animationsnummern automatisch überspringen; dafür kein Bild erzeugen.
+- Nur bei einem echten technischen Hard-Blocker stoppen. Geschmacksfragen, Zwischenfreigaben oder fehlendes "weiter" sind KEINE Stop-Gründe.
+- DIESE STRUKTUR, REIHENFOLGE, DATEINAMENLOGIK, BILDWELT, MATERIALLOGIK, FARBROLLEN, LICHTLOGIK UND QUALITÄTSREGELN BIS ZUM LETZTEN BILD KONSEQUENT BEIBEHALTEN.
+- Keine Stiländerung, keine neue Bildwelt und keine abweichende Prompt-Struktur mitten im Durchlauf. Jede Szene bekommt eine frische Komposition INNERHALB derselben festgeschriebenen Welt.
+- Do NOT stop after any image. Continue automatically after internal QA until every required image is complete.
+
+FINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+STRIKTER ARBEITSMODUS FÜR DEN GOOGLE-FLOW-KI-AGENTEN:
+1. Lies die gesamte Datei einmal, arbeite danach strikt von oben nach unten immer nur am aktuellen Bildblock.
+2. Erzeuge GENAU EIN Bild. Starte niemals mehrere Bilder gleichzeitig.
+3. Warte INTERN, bis dieses eine Bild vollständig erzeugt ist — niemals auf Nutzerfreigabe warten.
+4. Benenne es SOFORT exakt mit dem beim Bildblock angegebenen finalen Dateinamen um.
+5. Prüfe Motiv, kurze Labels, Physical-Explainer-Komposition, 3D-Stil, sichtbares face/Gesicht falls Person, nahtlosen Hintergrund und Dateiname.
+6. Wenn eine Prüfung scheitert: Erzeuge DIESELBE Bildnummer neu und ersetze die fehlerhafte Version.
+7. Nach bestandener QA beginnt der nächste benötigte Bildblock AUTOMATISCH und ohne Nutzer-Zwischenfreigabe.
+8. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Generierung überspringen.
+9. Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen oder anhängen.
+10. Jede Szene bekommt eine eigene frische Komposition; Einheitlichkeit entsteht nur durch den ausgeschriebenen Stil-Lock.
+11. Nach Abschluss müssen alle erzeugten und exakt benannten Bilder gemeinsam in 03-szenen/00-ALLE-BILDER-HIER-REIN/ liegen.
+
+GLOBALER LOCK FÜR JEDEN BILDBLOCK:
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal. Bild 00 is also 1:1.
+Use ONE large PHYSICAL hero object plus 3–6 recognizable topic-specific physical supporting objects. Physical tags only.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
+No headline. No subtitle. No explanatory sentence. Use only the explicitly listed short German object labels.
+NOT photorealistic. No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, satellite orbit, four-corner tile layout, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look.
+If a person appears, the face must be clearly visible.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COVER — BILD 00
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Euro oder Landeswaehrung Cover.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- EURO
+- LANDESWÄHRUNG
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI financial editorial cover. Use one oversized PHYSICAL card-payment terminal as the dominant hero object with a bank card visibly inserted. Place 4 recognizable travel/payment objects around it: a passport, suitcase tag, local coins and a printed receipt. Attach two short physical choice plaques: `EURO` and `LANDESWÄHRUNG`. Natural asymmetric composition, strong depth and contact shadows. No digital dashboard. If any stylized adult person appears, the face must be clearly visible.
+
+Apply the GLOBALER LOCK above exactly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 01 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Euro oder Landeswaehrung.png
+BESCHRIFTUNGEN – EXAKT SO:
+- EURO
+- LANDESWÄHRUNG
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Show one large PHYSICAL card terminal as the hero object with a bank card inserted. Two real modeled plaques `EURO` and `LANDESWÄHRUNG` form the choice. Add passport, suitcase tag, local coins and a printed receipt. The visual must instantly communicate a traveler choosing the payment currency. No guaranteed cost claim. If a stylized adult appears, the face must be clearly visible.
+Apply the GLOBALER LOCK above exactly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 02 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 02 ERZEUGEN. Nummer 02 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 03 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - DCC Sofortumrechnung.png
+BESCHRIFTUNGEN – EXAKT SO:
+- DCC
+- EUROBETRAG
+BILDPROMPT:
+Use one oversized PHYSICAL printed payment receipt as hero. Attach physical tags `DCC` and `EUROBETRAG`. Add card terminal, bank card, local coins and euro coins. Show that DCC converts a local purchase into a visible euro amount now. No invented exchange rate. If a stylized adult appears, the face must be clearly visible.
+Apply the GLOBALER LOCK above exactly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 04 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 04 ERZEUGEN. Nummer 04 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 05 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Bequem nicht immer guenstig.png
+BESCHRIFTUNGEN – EXAKT SO:
+- BEQUEM
+- NICHT GÜNSTIG
+BILDPROMPT:
+Use one large PHYSICAL euro receipt as hero with attached `BEQUEM` plaque. A substantial magnifying glass reveals a warm red-orange `NICHT GÜNSTIG` physical tag at the conversion section. Add bank card, local coins and travel wallet. Communicate convenience versus potentially worse conversion conditions without numbers. If a stylized adult appears, the face must be clearly visible.
+Apply the GLOBALER LOCK above exactly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 06 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 06 ERZEUGEN. Nummer 06 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 07 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - DCC am Terminal ablehnen.png
+BESCHRIFTUNGEN – EXAKT SO:
+- DCC ABLEHNEN
+- LOKAL ZAHLEN
+BILDPROMPT:
+Use one large PHYSICAL card terminal as hero. Attach warm red-orange `DCC ABLEHNEN` plaque with physical cross on the euro-conversion side and green `LOKAL ZAHLEN` plaque beside local currency notes. Add bank card, receipt, passport and local coins. Do not imply zero fees. If a stylized adult appears, the face must be clearly visible.
+Apply the GLOBALER LOCK above exactly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 08 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Geldautomat lokale Waehrung.png
+BESCHRIFTUNGEN – EXAKT SO:
+- LOKALE WÄHRUNG
+- AUTOMAT
+BILDPROMPT:
+Use one large PHYSICAL ATM body as hero without digital-screen/UI dominance. Local banknotes emerge from the cash slot next to physical `LOKALE WÄHRUNG` tag; `AUTOMAT` plaque is attached to the machine. Add bank card, passport, travel wallet and local coins. If a stylized adult appears, the face must be clearly visible.
+Apply the GLOBALER LOCK above exactly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 09 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 09 ERZEUGEN. Nummer 09 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 10 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Kartengebuehren pruefen.png
+BESCHRIFTUNGEN – EXAKT SO:
+- KARTENGEBÜHR
+- FREMDWÄHRUNG
+BILDPROMPT:
+Use one large PHYSICAL travel wallet with bank card inserted as hero. Attach fee tags `KARTENGEBÜHR` and `FREMDWÄHRUNG`. Add receipt, local coins, euro coins and passport. Communicate that local-currency payment can still have card-provider fees. No specific percentage. If a stylized adult appears, the face must be clearly visible.
+Apply the GLOBALER LOCK above exactly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 11 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 11 ERZEUGEN. Nummer 11 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 12 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 12 - DCC Aufschlag sichtbar.png
+BESCHRIFTUNGEN – EXAKT SO:
+- AUFSCHLAG
+- EZB-REFERENZKURS
+BILDPROMPT:
+Use one oversized PHYSICAL currency-conversion receipt as hero. Attach warm red-orange `AUFSCHLAG` tag and a neutral/emerald `EZB-REFERENZKURS` physical plaque. Add bank card, percent token, euro coins and local coins. Show a visible comparison without inventing any rate. If a stylized adult appears, the face must be clearly visible.
+Apply the GLOBALER LOCK above exactly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 13 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 13 - Hohen Aufschlag ablehnen.png
+BESCHRIFTUNGEN – EXAKT SO:
+- HOHER AUFSCHLAG
+- LOKAL ZAHLEN
+BILDPROMPT:
+Use one large PHYSICAL card terminal as hero. A warm red-orange `HOHER AUFSCHLAG` tag is visibly pushed aside while a green `LOKAL ZAHLEN` plaque and local banknotes move forward. Add bank card, receipt and local coins. Do not imply local payment is fee-free. If a stylized adult appears, the face must be clearly visible.
+Apply the GLOBALER LOCK above exactly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 14 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 14 ERZEUGEN. Nummer 14 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 15 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 15 - Kartengebuehren vor Reise pruefen.png
+BESCHRIFTUNGEN – EXAKT SO:
+- KARTENGEBÜHREN
+- VOR REISE
+BILDPROMPT:
+Use one large PHYSICAL bank card resting on an open paper travel checklist as hero. Attach `KARTENGEBÜHREN` and `VOR REISE` physical tags. Add magnifying glass, passport, suitcase tag and mixed local/euro coins. The magnifying glass inspects the fee section. No bank/product recommendation. If a stylized adult appears, the face must be clearly visible.
+Apply the GLOBALER LOCK above exactly.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSCHLUSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Beende den Auftrag erst, wenn jedes erwartete Bild einzeln erzeugt, exakt umbenannt und geprüft wurde. Danach müssen alle zehn Bilder gemeinsam hier liegen:
+03-szenen/00-ALLE-BILDER-HIER-REIN/
+
+Erwartete Dateien:
+Bild 00 - Euro oder Landeswaehrung Cover.png
+Bild 01 - Euro oder Landeswaehrung.png
+Bild 03 - DCC Sofortumrechnung.png
+Bild 05 - Bequem nicht immer guenstig.png
+Bild 07 - DCC am Terminal ablehnen.png
+Bild 08 - Geldautomat lokale Waehrung.png
+Bild 10 - Kartengebuehren pruefen.png
+Bild 12 - DCC Aufschlag sichtbar.png
+Bild 13 - Hohen Aufschlag ablehnen.png
+Bild 15 - Kartengebuehren vor Reise pruefen.png

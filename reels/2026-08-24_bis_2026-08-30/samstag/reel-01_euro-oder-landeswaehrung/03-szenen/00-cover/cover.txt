@@ -1,0 +1,34 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Euro oder Landeswaehrung Cover.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- EURO
+- LANDESWÄHRUNG
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI financial editorial cover. Use one oversized PHYSICAL card-payment terminal as the dominant hero object with a bank card visibly inserted. Place 4 recognizable travel/payment objects around it: a passport, suitcase tag, local coins and a printed receipt. Attach two short physical choice plaques to the terminal area: `EURO` and `LANDESWÄHRUNG`. The two choices should be immediately readable as a decision point without a digital dashboard. Make the composition natural and asymmetric with strong depth and contact shadows. No person is required; if any stylized adult person appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+FORMAT LOCK:
+Create a square 1:1 source image only. Width and height must be equal. Bild 00 is also a square 1:1 Flow source image; 9:16 is created only in Remotion.
+
+PHYSICAL EXPLAINER COMPOSITION:
+Use ONE large PHYSICAL hero object and 3–6 concrete recognizable topic-specific physical objects. Natural asymmetry, overlap, visible depth, substantial shapes and soft contact shadows. Physical tags only; never floating UI chips.
+
+TEXT RULE:
+No headline. No subtitle. No explanatory sentence. No CTA. Include only the exact short German physical object labels listed above.
+
+BACKGROUND RULE:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. NO horizontal divisions. NO separate zones. NO floor-wall boundary. NO horizon line. NO panel background.
+
+STYLE:
+Premium stylized adult 3D editorial illustration, chunky substantial volume, rounded forms, dark emerald polymer/brushed metal, warm cream physical paper surfaces, gold only for money/value, warm red-orange only for warning, cinematic soft key light and emerald rim light. NOT photorealistic.
+
+FORBIDDEN:
+No floating UI cards, dashboard, app screen, control panel, digital central screen, microchip/circuit-board language, gameboard, circular module orbit, four-corner tile layout, glowing line network, tiny isometric diorama, neon tunnel, monolith, sterile product-ad composition, Pixar, clay or toy look. No image reference.

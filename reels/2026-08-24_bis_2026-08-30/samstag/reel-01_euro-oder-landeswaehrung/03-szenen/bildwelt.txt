@@ -1,0 +1,24 @@
+FINANZNEO WORLD REFERENCE — WRITTEN STYLE LOCK ONLY
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+Create a square 1:1 source image only. Width and height must be equal. Bild 00 is also 1:1; the final 9:16 composition is created only in Remotion.
+
+Keep the same written FinanzNeo art direction in every image: deep charcoal green-black seamless world, dark emerald premium polymer and brushed metal, warm cream physical paper/card surfaces, chunky gold details only for money/value, warm red-orange only for warning/cost pressure, restrained glass, smooth rounded geometry, soft bevels, cinematic soft key light and controlled emerald rim light.
+
+PHYSICAL EXPLAINER EDITORIAL V7:
+Use ONE large PHYSICAL hero object and 3–6 recognizable topic-specific physical supporting objects. Arrange them naturally and asymmetrically with overlap, foreground/midground/background depth and clear contact shadows. Labels must be physical tags, plaques, stickers or small attached signs.
+
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, no separate zones, no floor-wall boundary, no horizon line, no panel background.
+
+No headline. No subtitle. No explanatory sentence. Only explicitly requested short German object labels.
+
+NOT photorealistic. No floating UI cards, dashboard, app screen, control panel, microchip or circuit-board language, gameboard, circular orbit modules, four-corner tiles, glowing line networks, abstract finance-flow network, tiny isometric diorama, neon tunnel, monoliths, sterile product-ad shot, Pixar, clay or toy look.
+
+If a stylized adult person appears, the face must be clearly visible with eyes, nose and mouth. No real identifiable person.
+
+Never use a previous generated image as reference. Same-world consistency comes only from this written lock.

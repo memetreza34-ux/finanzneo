@@ -1,0 +1,22 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Kartengebuehren pruefen.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- KARTENGEBÜHR
+- FREMDWÄHRUNG
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Use one large PHYSICAL travel wallet with a bank card inserted as the hero object. Attach two small physical fee tags to the wallet/card area: `KARTENGEBÜHR` and `FREMDWÄHRUNG`. Add 4 supporting objects: printed receipt, local coins, euro coins and passport. Use a subtle warm red-orange accent only on the fee tags. The image must communicate that paying in local currency can still involve card-provider fees. Do not show a specific fee percentage. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 recognizable topic-specific supporting objects, natural asymmetry and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only exact short German physical labels above.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No zones, floor-wall boundary, horizon or panel background.
+Premium stylized adult 3D editorial CGI, emerald/cream materials, gold only money/value, red-orange only warning. NOT photorealistic.
+No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.
