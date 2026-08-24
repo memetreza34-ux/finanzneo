@@ -13,6 +13,8 @@ const EXPECTED_PHYSICAL_LOCK = 'finanzneo-physical-explainer-editorial-v7';
 const EXPECTED_BASE_WORLD = 'finanzneo-connected-studio-v3';
 const EXPECTED_SERIES = 'finanzneo-same-world-v1';
 const EXPECTED_STYLIZED = 'finanzneo-stylized-3d-editorial-v5';
+const EXPECTED_FLOW_MODE = 'finanzneo-flow-strict-single-job-v3';
+const EXPECTED_FLOW_STATE_MACHINE = 'finanzneo-flow-state-machine-v1';
 
 const errors = [];
 const fail = (message) => errors.push(message);
@@ -74,8 +76,15 @@ if (lock) {
     fail('Supporting-Object-Korridor muss 3–6 bleiben.');
   }
 
+  if (lock.googleFlow?.executionModeId !== EXPECTED_FLOW_MODE) fail(`Google Flow executionModeId muss ${EXPECTED_FLOW_MODE} sein.`);
+  if (lock.googleFlow?.stateMachineId !== EXPECTED_FLOW_STATE_MACHINE) fail(`Google Flow stateMachineId muss ${EXPECTED_FLOW_STATE_MACHINE} sein.`);
+  if (lock.googleFlow?.maxConcurrentGenerations !== 1) fail('Google Flow maxConcurrentGenerations muss 1 sein.');
   for (const key of [
     'continuousAutonomousRunRequired',
+    'batchGenerationForbidden',
+    'multiImageRequestForbidden',
+    'queueLaterImagesForbidden',
+    'nextStepLockedUntilRenameAndQa',
     'userConfirmationBetweenImagesForbidden',
     'autoRegenerateInvalidImage',
     'completionSummaryOnlyAfterAllImages',
@@ -136,4 +145,5 @@ if (errors.length) {
 }
 
 console.log(`\n✓ Globaler Image-World-Overlay-Lock erfüllt: ${EXPECTED_PHYSICAL_LOCK}`);
+console.log(`✓ Google Flow: ${EXPECTED_FLOW_MODE} · concurrency=1 · Batch/Queueing verboten.`);
 console.log('✓ Cover + Szenenbilder bleiben als Flow-Quellen 1:1; 9:16 entsteht erst in Remotion.');
