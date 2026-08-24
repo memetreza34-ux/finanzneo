@@ -1,5 +1,5 @@
 {
-  "version": 20,
+  "version": 21,
   "title": "100.000 € Einlagensicherung: pro Konto oder pro Bank?",
   "phase3Executor": "claude-code-test",
   "sceneCount": 15,
@@ -7,28 +7,476 @@
   "animationSceneCount": 6,
   "actualImageShare": 0.6,
   "actualAnimationShare": 0.4,
-  "video": {"aspectRatio":"9:16","width":1080,"height":1920,"fps":30},
-  "layout": {"sceneHeaderY":118,"visualTop":390,"visualBottom":1560,"subtitleBottom":285,"subtitleLeft":72,"subtitleRight":140},
-  "subtitleDisplay": {"mode":"sentence-with-audio-synced-active-word","activeWordColor":"finance-green-light","normalWordColor":"white","maxLines":2,"crispPremiumBackplate":true,"noGlowBlur":true,"noWordJump":true,"noWordScale":true},
-  "transitionContract": {"continuityFramesMin":4,"continuityFramesMax":6,"fadeToBlackForbidden":true,"hardCutsOnlyOnStrongAudioBeats":true},
-  "renderQuality": {"codec":"h264","crf":14,"imageFormat":"png","audioBitrate":"320k","pixelFormat":"yuv420p"},
-  "timingStandard": {"imageIdealSeconds":[3.5,5.5],"imageAbsoluteMaxSeconds":6,"animationIdealSeconds":[4.5,6.5],"cutsFollowRealWordTimings":true,"maxVisualTriggerOffsetSeconds":0.15},
-  "imageWorld": {"worldId":"finanzneo-connected-studio-v3","seriesLockId":"finanzneo-same-world-v1","stylized3DLockId":"finanzneo-stylized-3d-editorial-v5","generatedImageAspectRatio":"1:1","referenceImageUse":"forbidden"},
+  "video": {
+    "aspectRatio": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "cover": {
+    "type": "image",
+    "googleFlowFileName": "Bild 00 - Einlagensicherung Cover.png",
+    "planFile": "03-szenen/00-cover/cover.txt"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-sequential-v1",
+    "generationMode": "one-image-at-a-time",
+    "strictSequential": true,
+    "waitForCurrentImage": true,
+    "renameBeforeNext": true,
+    "qaBeforeNext": true,
+    "retrySameImageOnFailure": true,
+    "fileNameRule": "Bild XX - Kurzer Szenenname.png",
+    "numberSource": "real-scene-number",
+    "animationNumbersStayReserved": true,
+    "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
+    "distributeToSceneFolders": false
+  },
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "seriesLockId": "finanzneo-same-world-v1",
+    "stylized3DLockId": "finanzneo-stylized-3d-editorial-v5",
+    "generatedImageAspectRatio": "1:1",
+    "squareGeneratedImagesRequired": true,
+    "referencePromptFile": "03-szenen/bildwelt.txt",
+    "styleReferenceStrategy": "written-style-lock-only",
+    "referenceImageUse": "forbidden",
+    "style": "stylized-3d-editorial-explainer",
+    "sameWorldAcrossSeriesRequired": true,
+    "stylizedPersonAllowed": true,
+    "visibleFaceRequiredWhenPersonPresent": true,
+    "objectLabelsOnly": true,
+    "seamlessSingleBackgroundRequired": true,
+    "percentageZonesForbidden": true,
+    "floorWallBoundaryForbidden": true,
+    "horizonLineForbidden": true,
+    "backgroundBandsForbidden": true,
+    "headlinesInGeneratedImagesForbidden": true,
+    "subtitlesInGeneratedImagesForbidden": true,
+    "sentencesInGeneratedImagesForbidden": true,
+    "tinyDioramaForbidden": true,
+    "neonTunnelForbidden": true
+  },
+  "platformPublishing": {
+    "directory": "04-caption",
+    "masterCaption": "04-caption/caption.txt",
+    "instagramReels": "04-caption/instagram-reels.txt",
+    "tiktok": "04-caption/tiktok.txt",
+    "facebookReels": "04-caption/facebook-reels.txt",
+    "snapchat": "04-caption/snapchat.txt"
+  },
+  "timelineRules": {
+    "timingSource": "04-caption/word-timings.json",
+    "cutsFollowSentenceStarts": true,
+    "equalLengthScenesForbiddenByDefault": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "imagePresentationContract": {
+    "imageFit": "contain",
+    "maxIntentionalImageScale": 1.04,
+    "maxSourceCropPerSide": 0.2,
+    "maxSourceCropTotal": 0.34,
+    "blurredImageBackgroundForbidden": true
+  },
+  "subtitleDisplay": {
+    "mode": "sentence-with-audio-synced-active-word",
+    "activeWordColor": "finance-green-light",
+    "normalWordColor": "white",
+    "maxLines": 2,
+    "noDeadGaps": true,
+    "holdDuringPauses": true,
+    "crispPremiumBackplate": true,
+    "noGlowBlur": true,
+    "noWordJump": true,
+    "noWordScale": true
+  },
+  "layout": {
+    "sceneHeaderY": 118,
+    "visualTop": 390,
+    "visualBottom": 1560,
+    "subtitleBottom": 285,
+    "subtitleLeft": 72,
+    "subtitleRight": 140
+  },
+  "transitionContract": {
+    "continuityFramesMin": 4,
+    "continuityFramesMax": 6,
+    "fadeToBlackForbidden": true,
+    "hardCutsOnlyOnStrongAudioBeats": true
+  },
+  "renderQuality": {
+    "codec": "h264",
+    "crf": 14,
+    "imageFormat": "png",
+    "audioBitrate": "320k",
+    "pixelFormat": "yuv420p"
+  },
+  "timingStandard": {
+    "imageIdealSeconds": [
+      3.5,
+      5.5
+    ],
+    "imageSceneAbsoluteMaxSeconds": 6,
+    "animationIdealSeconds": [
+      4.5,
+      6.5
+    ],
+    "cutsFollowRealWordTimings": true,
+    "maxVisualTriggerOffsetSeconds": 0.15,
+    "splitOrAnimateIfImageExceedsMax": true
+  },
   "scenes": [
-    {"id":"scene-01","type":"image","headline":"100.000 € PRO KONTO?","icon":"bank","headerTone":"warning","audioTrigger":"100.000 Euro Einlagensicherung klingt","googleFlowFileName":"Bild 01 - Nicht pro Konto Hook.png"},
-    {"id":"scene-02","type":"animation","headline":"PRO PERSON + PRO BANK","icon":"shield","headerTone":"positive","audioTrigger":"Die gesetzliche Grenze gilt grundsätzlich"},
-    {"id":"scene-03","type":"image","headline":"WELCHE EINLAGEN ZÄHLEN?","icon":"wallet","headerTone":"default","audioTrigger":"Geschützt sind typischerweise Einlagen" ,"googleFlowFileName":"Bild 03 - Geschuetzte Einlagen.png"},
-    {"id":"scene-04","type":"animation","headline":"GLEICHE BANK = ZUSAMMENRECHNEN","icon":"bank","headerTone":"warning","audioTrigger":"Hast du bei derselben Bank mehrere Konten"},
-    {"id":"scene-05","type":"image","headline":"60.000 € + 50.000 €","icon":"euro","headerTone":"money","audioTrigger":"Beispiel: 60.000 Euro Tagesgeld","googleFlowFileName":"Bild 05 - 60000 plus 50000.png"},
-    {"id":"scene-06","type":"animation","headline":"100.000 € GESETZLICHE DECKUNG","icon":"shield","headerTone":"warning","audioTrigger":"Gesetzlich geschützt sind regelmäßig"},
-    {"id":"scene-07","type":"image","headline":"ZWEI BANKEN = ZWEI GRENZEN","icon":"bank","headerTone":"positive","audioTrigger":"Bei zwei unterschiedlichen Banken","googleFlowFileName":"Bild 07 - Zwei Banken getrennt.png"},
-    {"id":"scene-08","type":"animation","headline":"80.000 € + 80.000 €","icon":"euro","headerTone":"positive","audioTrigger":"Zum Beispiel können 80.000 Euro"},
-    {"id":"scene-09","type":"image","headline":"GEMEINSCHAFTSKONTO","icon":"wallet","headerTone":"default","audioTrigger":"Bei Gemeinschaftskonten","googleFlowFileName":"Bild 09 - Gemeinschaftskonto zwei Personen.png"},
-    {"id":"scene-10","type":"animation","headline":"ZWEI PERSONEN = BIS 200.000 €","icon":"shield","headerTone":"positive","audioTrigger":"Bei zwei Personen können dadurch"},
-    {"id":"scene-11","type":"image","headline":"BESONDERER FALL: BIS 500.000 €","icon":"euro","headerTone":"money","audioTrigger":"In bestimmten besonderen Lebenssituationen","googleFlowFileName":"Bild 11 - Besonderer Fall 500000.png"},
-    {"id":"scene-12","type":"animation","headline":"NUR ZEITLICH BEGRENZT","icon":"calendar","headerTone":"warning","audioTrigger":"Dieser erhöhte Schutz kann"},
-    {"id":"scene-13","type":"image","headline":"AKTIEN & ETFs SIND KEINE EINLAGEN","icon":"coins","headerTone":"default","audioTrigger":"Aktien und ETFs sind keine Einlagen","googleFlowFileName":"Bild 13 - Aktien ETF keine Einlage.png"},
-    {"id":"scene-14","type":"image","headline":"WELCHE RECHTLICHE BANK?","icon":"check","headerTone":"positive","audioTrigger":"Prüfe deshalb, bei welcher rechtlichen Bank","googleFlowFileName":"Bild 14 - Rechtliche Bank pruefen.png"},
-    {"id":"scene-15","type":"image","headline":"MERKSATZ: PERSON + BANK","icon":"shield","headerTone":"positive","audioTrigger":"Denk immer pro Person und pro Bank","googleFlowFileName":"Bild 15 - Pro Person pro Bank.png"}
-  ]
+    {
+      "id": "scene-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 213,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-01",
+      "headline": "JEDES KONTO EINZELN? FALSCH",
+      "icon": "cross",
+      "headerTone": "warning",
+      "audioTrigger": "100.000 Euro Einlagensicherung klingt",
+      "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
+      "googleFlowFileName": "Bild 01 - Nicht pro Konto Hook.png",
+      "objectLabels": [
+        "NICHT PRO KONTO",
+        "100.000 €",
+        "EINE BANK"
+      ],
+      "expectedVisual": "Drei getrennte Kontobehälter neben einer einzigen großen Bank; über jedem einzelnen Konto ein rot-orange durchgestrichener Mini-Schild, während ein großer smaragdgrüner Schutzschild nur an der Bankgrenze steht — sofort lesbar: nicht 100.000 € pro Konto.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "accent": "finance-red"
+    },
+    {
+      "id": "scene-02",
+      "type": "animation",
+      "startFrame": 213,
+      "durationFrames": 156,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-02",
+      "headline": "DIE GRENZE GILT PRO PERSON UND BANK",
+      "icon": "shield",
+      "headerTone": "positive",
+      "audioTrigger": "Die gesetzliche Grenze gilt grundsätzlich",
+      "planFile": "EINZELNE-SZENEN/scene-02/remotion.md",
+      "accent": "finance-green"
+    },
+    {
+      "id": "scene-03",
+      "type": "image",
+      "startFrame": 369,
+      "durationFrames": 215,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-03",
+      "headline": "DAS ZÄHLT ALS EINLAGE",
+      "icon": "list",
+      "headerTone": "default",
+      "audioTrigger": "Geschützt sind typischerweise Einlagen",
+      "planFile": "EINZELNE-SZENEN/scene-03/bildprompt.txt",
+      "googleFlowFileName": "Bild 03 - Geschuetzte Einlagen.png",
+      "objectLabels": [
+        "GIRO",
+        "TAGESGELD",
+        "FESTGELD",
+        "SPAREN",
+        "SPARBRIEF"
+      ],
+      "expectedVisual": "Ein großer smaragdgrüner Schutztresor, in den fünf erkennbare chunky 3D-Einlagenobjekte hineinfließen: Girokonto-Token, Tagesgeld-Sparglas, verschlossene Festgeld-Kalenderbox, Sparbuch-Objekt und ein Sparbrief-Zertifikat.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "accent": "neutral"
+    },
+    {
+      "id": "scene-04",
+      "type": "animation",
+      "startFrame": 584,
+      "durationFrames": 125,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-04",
+      "headline": "MEHRERE KONTEN WERDEN ADDIERT",
+      "icon": "bank",
+      "headerTone": "warning",
+      "audioTrigger": "Hast du bei derselben Bank mehrere Konten",
+      "planFile": "EINZELNE-SZENEN/scene-04/remotion.md",
+      "accent": "finance-red"
+    },
+    {
+      "id": "scene-05",
+      "type": "image",
+      "startFrame": 709,
+      "durationFrames": 253,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-05",
+      "headline": "ZUSAMMEN SIND ES 110.000 €",
+      "icon": "coins",
+      "headerTone": "money",
+      "audioTrigger": "Beispiel: 60.000 Euro Tagesgeld",
+      "planFile": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
+      "googleFlowFileName": "Bild 05 - 60000 plus 50000.png",
+      "objectLabels": [
+        "60.000 €",
+        "50.000 €",
+        "110.000 €",
+        "GLEICHE BANK"
+      ],
+      "expectedVisual": "Eine Bank mit zwei klar an ihr befestigten Kontobehältern (60.000 € Tagesgeld links, 50.000 € Girokonto rechts); beide goldene Münzströme laufen sichtbar in einem zentralen Gesamtblock 110.000 € zusammen.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "accent": "gold"
+    },
+    {
+      "id": "scene-06",
+      "type": "animation",
+      "startFrame": 962,
+      "durationFrames": 237,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-06",
+      "headline": "10.000 € LIEGEN ÜBER DER GRENZE",
+      "icon": "warning",
+      "headerTone": "warning",
+      "audioTrigger": "Gesetzlich geschützt sind regelmäßig",
+      "planFile": "EINZELNE-SZENEN/scene-06/remotion.md",
+      "accent": "finance-red"
+    },
+    {
+      "id": "scene-07",
+      "type": "image",
+      "startFrame": 1199,
+      "durationFrames": 150,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-07",
+      "headline": "JEDE BANK SCHÜTZT SEPARAT",
+      "icon": "lock",
+      "headerTone": "positive",
+      "audioTrigger": "Bei zwei unterschiedlichen Banken",
+      "planFile": "EINZELNE-SZENEN/scene-07/bildprompt.txt",
+      "googleFlowFileName": "Bild 07 - Zwei Banken getrennt.png",
+      "objectLabels": [
+        "BANK A",
+        "BANK B",
+        "100.000 € JE BANK"
+      ],
+      "expectedVisual": "Zwei klar getrennte Bankgebäude, jedes mit eigenem smaragdgrünen Schutzschild 100.000 € und eigener goldener Einlagengruppe, sichtbarer Abstand zwischen den zwei rechtlich getrennten Banken.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "accent": "finance-green"
+    },
+    {
+      "id": "scene-08",
+      "type": "animation",
+      "startFrame": 1349,
+      "durationFrames": 244,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-08",
+      "headline": "BEIDE BETRÄGE BLEIBEN GESCHÜTZT",
+      "icon": "check",
+      "headerTone": "positive",
+      "audioTrigger": "Zum Beispiel können 80.000 Euro",
+      "planFile": "EINZELNE-SZENEN/scene-08/remotion.md",
+      "accent": "finance-green"
+    },
+    {
+      "id": "scene-09",
+      "type": "image",
+      "startFrame": 1593,
+      "durationFrames": 128,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-09",
+      "headline": "GEMEINSCHAFTSKONTO WIRD GETEILT",
+      "icon": "wallet",
+      "headerTone": "default",
+      "audioTrigger": "Bei Gemeinschaftskonten",
+      "planFile": "EINZELNE-SZENEN/scene-09/bildprompt.txt",
+      "googleFlowFileName": "Bild 09 - Gemeinschaftskonto zwei Personen.png",
+      "objectLabels": [
+        "GEMEINSCHAFT",
+        "PERSON A",
+        "PERSON B",
+        "JE 100.000 €"
+      ],
+      "expectedVisual": "Ein großer Gemeinschaftskonto-Tresor in der Mitte, zwei deutlich unterschiedliche Personen-Tokens an den Seiten; der goldene Kontowert teilt sich sichtbar in zwei gleiche Eigentumsströme, jede Person mit eigenem Schutzschild.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "accent": "neutral"
+    },
+    {
+      "id": "scene-10",
+      "type": "animation",
+      "startFrame": 1721,
+      "durationFrames": 212,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-10",
+      "headline": "ZU ZWEIT BIS 200.000 € GESCHÜTZT",
+      "icon": "shield",
+      "headerTone": "positive",
+      "audioTrigger": "Bei zwei Personen können dadurch",
+      "planFile": "EINZELNE-SZENEN/scene-10/remotion.md",
+      "accent": "finance-green"
+    },
+    {
+      "id": "scene-11",
+      "type": "image",
+      "startFrame": 1933,
+      "durationFrames": 282,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-11",
+      "headline": "SONDERFALL: BIS 500.000 € MÖGLICH",
+      "icon": "euro",
+      "headerTone": "money",
+      "audioTrigger": "In bestimmten besonderen Lebenssituationen",
+      "planFile": "EINZELNE-SZENEN/scene-11/bildprompt.txt",
+      "googleFlowFileName": "Bild 11 - Besonderer Fall 500000.png",
+      "objectLabels": [
+        "BESONDERER FALL",
+        "BIS 500.000 €",
+        "ZEITLICH BEGRENZT"
+      ],
+      "expectedVisual": "Ein Hausverkauf-Schlüsselobjekt speist einen temporär vergrößerten goldenen Geldblock in eine Bank; ein größerer transluzenter smaragdgrüner Schutzschild 'BIS 500.000 €' umgibt ihn mit einem Kalender-Token daneben — erkennbar als Sonderfall, nicht Regelfall.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "accent": "gold"
+    },
+    {
+      "id": "scene-12",
+      "type": "animation",
+      "startFrame": 2215,
+      "durationFrames": 171,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-12",
+      "headline": "NUR SECHS MONATE LANG",
+      "icon": "calendar",
+      "headerTone": "warning",
+      "audioTrigger": "Dieser erhöhte Schutz kann",
+      "planFile": "EINZELNE-SZENEN/scene-12/remotion.md",
+      "accent": "finance-red"
+    },
+    {
+      "id": "scene-13",
+      "type": "image",
+      "startFrame": 2386,
+      "durationFrames": 181,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-13",
+      "headline": "AKTIEN UND ETFs ZÄHLEN NICHT DAZU",
+      "icon": "trending",
+      "headerTone": "default",
+      "audioTrigger": "Aktien und ETFs sind keine Einlagen",
+      "planFile": "EINZELNE-SZENEN/scene-13/bildprompt.txt",
+      "googleFlowFileName": "Bild 13 - Aktien ETF keine Einlage.png",
+      "objectLabels": [
+        "EINLAGEN",
+        "AKTIE",
+        "ETF",
+        "NICHT DIESE 100.000 €"
+      ],
+      "expectedVisual": "Ein smaragdgrüner Einlagenschild über einem Bank-Münzbehälter; daneben, klar außerhalb des Schilds, ein Aktienzertifikat-Block und ein ETF-Korbobjekt — saubere räumliche Trennung statt UI-Linie.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "accent": "neutral"
+    },
+    {
+      "id": "scene-14",
+      "type": "image",
+      "startFrame": 2567,
+      "durationFrames": 187,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-14",
+      "headline": "PRÜFE, WO DEIN GELD WIRKLICH LIEGT",
+      "icon": "search",
+      "headerTone": "positive",
+      "audioTrigger": "Prüfe deshalb, bei welcher rechtlichen Bank",
+      "planFile": "EINZELNE-SZENEN/scene-14/bildprompt.txt",
+      "googleFlowFileName": "Bild 14 - Rechtliche Bank pruefen.png",
+      "objectLabels": [
+        "WELCHE BANK?",
+        "GESAMTGUTHABEN",
+        "PRÜFEN"
+      ],
+      "expectedVisual": "Eine große 3D-Lupe untersucht das rechtliche Namensschild an einem Bankgebäude; zwei kleinere Marken-/Frontend-Tokens routen sichtbar in dieselbe rechtliche Bank, daneben ein kompakter Gesamtguthaben-Zähler.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "accent": "finance-green"
+    },
+    {
+      "id": "scene-15",
+      "type": "image",
+      "startFrame": 2754,
+      "durationFrames": 101,
+      "cutReason": "voice-sentence-start",
+      "directory": "EINZELNE-SZENEN/scene-15",
+      "headline": "MERKE: PRO PERSON, PRO BANK",
+      "icon": "target",
+      "headerTone": "positive",
+      "audioTrigger": "Denk immer pro Person und pro Bank",
+      "planFile": "EINZELNE-SZENEN/scene-15/bildprompt.txt",
+      "googleFlowFileName": "Bild 15 - Pro Person pro Bank.png",
+      "objectLabels": [
+        "PRO PERSON",
+        "PRO BANK",
+        "NICHT PRO KONTO",
+        "100.000 €"
+      ],
+      "expectedVisual": "Ein Personen-Token und eine große Bank dominieren die Schlussszene; mehrere kleine Kontoobjekte hinter derselben Bank fließen alle in EINEN 100.000-€-Schild zwischen Person und Bank; ein rot-orange durchgestrichenes Label nahe den Konten.",
+      "imagePresentation": {
+        "scale": 1.02,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "accent": "finance-green"
+    }
+  ],
+  "timingExceptions": {
+    "longImageBeats": {
+      "allowed": true,
+      "reason": "Voiceover war bei Einfuehrung der Wortbudget-Regel bereits final aufgenommen. Sechs Bildbeats liegen dadurch ueber 6 s (max. 9,4 s). Eine Korrektur wuerde eine Neuaufnahme plus zusaetzliche Google-Flow-Bilder erfordern. Neue Reels planen die Saetze nach dem Wortbudget in docs/PHASE-1-BRIEFING.md und brauchen diese Ausnahme nicht.",
+      "affectedScenes": [
+        "scene-01",
+        "scene-03",
+        "scene-05",
+        "scene-11",
+        "scene-13",
+        "scene-14"
+      ]
+    }
+  }
 }

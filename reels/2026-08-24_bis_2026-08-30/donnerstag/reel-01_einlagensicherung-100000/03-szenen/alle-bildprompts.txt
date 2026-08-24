@@ -8,14 +8,15 @@ GENERATED_IMAGE_ASPECT_RATIO: 1:1
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
 ARBEITSMODUS
-- GENAU EIN Bild pro Schritt.
-- Vollständig warten, sofort exakt umbenennen, QA, dann erst nächstes Bild.
+- Erzeuge GENAU EIN Bild pro Schritt.
+- Vollständig warten, Benenne es SOFORT exakt um, QA, dann erst nächstes Bild.
+- Bei Fehlern Erzeuge DIESELBE Bildnummer neu.
 - Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen.
-- Jede Szene bekommt eine frische Komposition, aber denselben ausgeschriebenen Stil-Lock.
+- Jede Szene bekommt eine eigene frische Komposition, aber denselben ausgeschriebenen Stil-Lock.
 - Szenen 02, 04, 06, 08, 10, 12 sind Remotion — KEIN Bild.
 
 GLOBAL STYLE — IN JEDEM BILD VERBINDLICH
-Premium stylized 3D CGI financial editorial explainer. Chunky volumetric modeled objects, smooth rounded bevels, premium matte emerald polymer, brushed metal, restrained glass, warm cream surfaces and sculpted gold euro/value elements. Deep charcoal green-black world, vivid emerald rim light, cinematic soft key light, strong foreground/midground/background depth. Gold only for money/value, red-orange only for warning/problem, white for neutral labels. Not photorealistic, not office/stationery photography, not Pixar/clay/toy. No dashboard, app UI, control panel, floating cards, gameboard, module ring, microchip world or tiny isometric diorama. ONE main idea, immediately readable. Square 1:1. One seamless continuous charcoal green-black background. No headline/subtitle/sentence; only short German object labels.
+Premium stylized 3D CGI financial editorial explainer. Chunky volumetric modeled objects, smooth rounded bevels, premium matte emerald polymer, brushed metal, restrained glass, warm cream surfaces and sculpted gold euro/value elements. Deep charcoal green-black world, vivid emerald rim light, cinematic soft key light, strong foreground/midground/background depth. Gold only for money/value, red-orange only for warning/problem, white for neutral labels. Not photorealistic, not office/stationery photography, not Pixar/clay/toy. No dashboard, app UI, control panel, floating cards, gameboard, module ring, microchip world or tiny isometric diorama. ONE main idea, immediately readable. Every output is a square 1:1 source image. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No headline/subtitle/sentence; only short German object labels.
 
 BILD 00 — COVER
 FINAL: Bild 00 - Einlagensicherung Cover.png
@@ -71,3 +72,5 @@ Final clear rule image. One white person token and one large emerald bank buildi
 
 ABSCHLUSS-QA
 Exakt 10 Dateien: 00, 01, 03, 05, 07, 09, 11, 13, 14, 15. Alle square 1:1. Deutlich stylized 3D CGI. Keine Referenzbilder, kein Dashboard/UI, kein Fotorealismus, keine Sätze im Bild.
+Nach Abschluss müssen alle erzeugten und exakt benannten Bilder gemeinsam hier liegen:
+03-szenen/00-ALLE-BILDER-HIER-REIN/

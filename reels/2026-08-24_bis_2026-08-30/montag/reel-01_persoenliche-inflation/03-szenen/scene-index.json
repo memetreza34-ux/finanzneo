@@ -105,12 +105,20 @@
       "directory": "EINZELNE-SZENEN/scene-01",
       "headline": "2,8 % ≠ DEINE RATE",
       "accent": "finance-green",
-      "icon": "badge-percent",
+      "icon": "percent",
       "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
       "googleFlowFileName": "Bild 01 - Inflation Hook.png",
-      "objectLabels": ["2,8 %", "DEIN ALLTAG"],
+      "objectLabels": [
+        "2,8 %",
+        "DEIN ALLTAG"
+      ],
       "expectedVisual": "Große amtliche 2,8-%-Referenz neben einem separat gewichteten persönlichen Alltags-Warenkorb; keine erfundene persönliche Prozentzahl.",
-      "imagePresentation": {"scale": 1.01, "sourceCropTop": 0, "sourceCropBottom": 0, "cropSafe": true}
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      }
     },
     {
       "id": "scene-02",
@@ -121,12 +129,20 @@
       "directory": "EINZELNE-SZENEN/scene-02",
       "headline": "DURCHSCHNITT ≠ ALLTAG",
       "accent": "finance-green",
-      "icon": "shopping-basket",
+      "icon": "receipt",
       "planFile": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
       "googleFlowFileName": "Bild 02 - Durchschnitt Warenkorb.png",
-      "objectLabels": ["DURCHSCHNITT", "DEINE AUSGABEN"],
+      "objectLabels": [
+        "DURCHSCHNITT",
+        "DEINE AUSGABEN"
+      ],
       "expectedVisual": "Amtliche Ausgabenplattform mit unterschiedlich großen Kategorien neben einem klar anders proportionierten persönlichen Ausgabenstapel.",
-      "imagePresentation": {"scale": 1.01, "sourceCropTop": 0, "sourceCropBottom": 0, "cropSafe": true}
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      }
     },
     {
       "id": "scene-03",
@@ -137,7 +153,7 @@
       "directory": "EINZELNE-SZENEN/scene-03",
       "headline": "PREISE LAUFEN AUSEINANDER",
       "accent": "price-pressure",
-      "icon": "fuel",
+      "icon": "flame",
       "planFile": "EINZELNE-SZENEN/scene-03/remotion.md"
     },
     {
@@ -149,12 +165,20 @@
       "directory": "EINZELNE-SZENEN/scene-04",
       "headline": "VIEL TANKEN = MEHR DRUCK",
       "accent": "price-pressure",
-      "icon": "car",
+      "icon": "trending",
       "planFile": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
       "googleFlowFileName": "Bild 04 - Tanken Belastung.png",
-      "objectLabels": ["MOBILITÄT", "+23 %"],
+      "objectLabels": [
+        "MOBILITÄT",
+        "+23 %"
+      ],
       "expectedVisual": "Stilisierte erwachsene Person mit sichtbarem Gesicht neben einer großen Tank-Budget-Metapher; großer Mobilitätsanteil zieht viele goldene Münzen aus dem Monatsbudget.",
-      "imagePresentation": {"scale": 1.01, "sourceCropTop": 0, "sourceCropBottom": 0, "cropSafe": true}
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      }
     },
     {
       "id": "scene-05",
@@ -165,7 +189,7 @@
       "directory": "EINZELNE-SZENEN/scene-05",
       "headline": "GLEICHES EINKOMMEN. ANDERE RATE.",
       "accent": "gold",
-      "icon": "split",
+      "icon": "chart-bar",
       "planFile": "EINZELNE-SZENEN/scene-05/remotion.md"
     },
     {
@@ -177,12 +201,20 @@
       "directory": "EINZELNE-SZENEN/scene-06",
       "headline": "DEIN WARENKORB ZÄHLT",
       "accent": "finance-green",
-      "icon": "shopping-basket",
+      "icon": "wallet",
       "planFile": "EINZELNE-SZENEN/scene-06/bildprompt.txt",
       "googleFlowFileName": "Bild 06 - Eigener Warenkorb.png",
-      "objectLabels": ["DEIN WARENKORB", "WENIG KRAFTSTOFF"],
+      "objectLabels": [
+        "DEIN WARENKORB",
+        "WENIG KRAFTSTOFF"
+      ],
       "expectedVisual": "Großer persönlicher Warenkorb mit sichtbar kleinem Kraftstoffgewicht; der starke Kraftstoff-Preisdruck betrifft nur einen kleinen Teil des Gesamtbudgets.",
-      "imagePresentation": {"scale": 1.01, "sourceCropTop": 0, "sourceCropBottom": 0, "cropSafe": true}
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      }
     },
     {
       "id": "scene-07",
@@ -193,7 +225,7 @@
       "directory": "EINZELNE-SZENEN/scene-07",
       "headline": "GEWICHT × PREISÄNDERUNG",
       "accent": "finance-green",
-      "icon": "scale",
+      "icon": "chart-bar",
       "planFile": "EINZELNE-SZENEN/scene-07/remotion.md"
     },
     {
@@ -205,7 +237,7 @@
       "directory": "EINZELNE-SZENEN/scene-08",
       "headline": "2,8 % = VERGLEICHSWERT",
       "accent": "finance-green",
-      "icon": "gauge",
+      "icon": "percent",
       "planFile": "EINZELNE-SZENEN/scene-08/remotion.md"
     },
     {
@@ -220,9 +252,19 @@
       "icon": "receipt",
       "planFile": "EINZELNE-SZENEN/scene-09/bildprompt.txt",
       "googleFlowFileName": "Bild 09 - Ausgaben Check.png",
-      "objectLabels": ["WOHNEN", "MOBILITÄT", "LEBENSMITTEL", "ENERGIE"],
+      "objectLabels": [
+        "WOHNEN",
+        "MOBILITÄT",
+        "LEBENSMITTEL",
+        "ENERGIE"
+      ],
       "expectedVisual": "Große physische Monatsabrechnung unter einer Lupe mit vier klar markierten großen Kostenobjekten für Wohnen, Mobilität, Lebensmittel und Energie.",
-      "imagePresentation": {"scale": 1.01, "sourceCropTop": 0, "sourceCropBottom": 0, "cropSafe": true}
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      }
     },
     {
       "id": "scene-10",
@@ -233,12 +275,20 @@
       "directory": "EINZELNE-SZENEN/scene-10",
       "headline": "INFLATION IST PERSÖNLICH",
       "accent": "finance-green",
-      "icon": "wallet",
+      "icon": "target",
       "planFile": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
       "googleFlowFileName": "Bild 10 - Inflation Persoenlich.png",
-      "objectLabels": ["2,8 %", "DEIN WARENKORB"],
+      "objectLabels": [
+        "2,8 %",
+        "DEIN WARENKORB"
+      ],
       "expectedVisual": "Persönlicher Warenkorb auf einem physischen Messpfad neben einer festen amtlichen 2,8-%-Referenz; ruhiger Schluss ohne persönliche Fantasie-Prozentzahl.",
-      "imagePresentation": {"scale": 1.01, "sourceCropTop": 0, "sourceCropBottom": 0, "cropSafe": true}
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      }
     }
   ]
 }

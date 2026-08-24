@@ -1,0 +1,14 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Gemeinschaftskonto zwei Personen.png
+Create a square 1:1 source image only.
+
+Create exactly one image. Hero: one large chunky joint-account vault in the center. Two clearly different white/emerald person tokens stand on opposite sides. Gold account value visually splits into two equal ownership streams toward the two people. Each person has an emerald protection shield.
+
+Labels only: `GEMEINSCHAFT`, `PERSON A`, `PERSON B`, `JE 100.000 €`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
+No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No realistic office photo, dashboard, UI, gameboard, module ring, microchip world, tiny isometric diorama, Pixar or clay.
