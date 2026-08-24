@@ -12,6 +12,7 @@ export type { IconName } from './components/Icon';
 export { SceneHeader } from './components/SceneHeader';
 export type { SceneHeaderTone } from './components/SceneHeader';
 export { MechanismCue } from './components/MechanismCue';
+export { SceneTransition, AnimationStage, VISUAL_TOP, VISUAL_BOTTOM, VISUAL_CENTER_Y } from './components/ReelStage';
 export type { MechanismCueTone } from './components/MechanismCue';
 export { Title, Body, Kicker, WordReveal } from './components/Text';
 export { Card } from './components/Card';

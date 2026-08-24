@@ -101,6 +101,69 @@ export const SAFE_AREA = {
   bottomPx: Math.round(FORMAT.vertical.height * 0.22),
 } as const;
 
+// ─── Verbindlicher Reel-Look (V4) ────────────────────────────────────────────
+// Einzige Quelle für Untertitel-, Header- und Übergangswerte. Komponenten
+// lesen ausschließlich hier — keine lokalen Zahlen mehr.
+//
+// Hintergrund: Untertitel wurden früher mit fontWeight 900, 64 px und einem
+// 1,6-px-WebkitTextStroke gerendert. WebKit zeichnet die Kontur mittig auf der
+// Glyphenkante, wächst also zur Hälfte IN den Buchstaben. Zusammen mit Weight
+// 900 liefen die Innenräume von a/e/o/g zu — der Text wirkte dick und matschig.
+// Kontrast liefert allein die dunkle Backplate.
+export const REEL_STYLE = {
+  caption: {
+    fontSize: 50,
+    minFontSize: 40,
+    fontWeight: 800,
+    letterSpacing: 0,
+    lineHeight: 1.14,
+    bottom: 285,
+    left: 72,
+    right: 140,
+    maxWidth: 780,
+    maxLines: 2,
+    maxWords: 9,
+    maxChars: 52,
+    holdSeconds: 0.38,
+    textShadow: '0 2px 7px rgba(0,0,0,0.55)',
+    /** WebkitTextStroke ist auf Untertiteln verboten — siehe Kommentar oben. */
+    textStrokeForbidden: true,
+  },
+  header: {
+    /** Mittig zentriert — nicht linksbündig. */
+    align: 'center',
+    /** Headline in FinanzNeo-Grün, nicht weiß. */
+    headlineColor: C.accentLt,
+    top: 118,
+    /** Bei zentriertem Header symmetrisch — sonst sitzt er optisch links. */
+    left: 72,
+    right: 72,
+    fontSize: 46,
+    iconBox: 46,
+    iconSize: 26,
+    gap: 12,
+    /** Der Header steht beim Szenenwechsel sofort, er zieht nicht nach. */
+    enterFrames: 4,
+    textShadow: '0 2px 6px rgba(0,0,0,0.5)',
+  },
+  transition: {
+    /** Kurzer Continuity-Schnitt statt träger Blende. Kein Fade-to-black. */
+    continuityFrames: 3,
+    imageEnterFrames: 4,
+    fadeToBlackForbidden: true,
+  },
+  visual: {
+    top: 390,
+    bottom: 1560,
+    /**
+     * Animationen werden auf die Visualzone skaliert, statt klein zu wirken.
+     * Bewusst moderat: höhere Werte schieben breite Beschriftungen seitlich
+     * aus dem Bild. Breite Inhalte zusätzlich in AnimationStage begrenzen.
+     */
+    animationScale: 1.12,
+  },
+} as const;
+
 // ─── Easing (Spring Physics als Standard) ────────────────────────────────────
 export const E = {
   out:    Easing.bezier(0.16, 1, 0.3, 1),     // smooth ease-out

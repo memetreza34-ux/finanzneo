@@ -1,17 +1,16 @@
 import React, {useMemo} from 'react';
 import {useCurrentFrame, useVideoConfig} from 'remotion';
-import {C} from '../tokens';
+import {C, REEL_STYLE} from '../tokens';
 import {FONT} from '../fonts';
 import type {CaptionWord} from '../../lib/captions';
 
 export type {CaptionWord} from '../../lib/captions';
 
-// FINANZNEO CAPTIONS V3
-// Crisp mobile-first subtitles: full phrase, active word green, rest white.
-// No glow blur, no word jump, no scale pop, no yellow karaoke.
-const MAX_WORDS = 10;
-const MAX_CHARS = 58;
-const HOLD_SECONDS = 0.38;
+// FINANZNEO CAPTIONS V4
+// Scharfe, mobil lesbare Untertitel: ganze Phrase, aktives Wort grün, Rest weiß.
+// Alle Maße kommen aus REEL_STYLE.caption — hier stehen bewusst keine eigenen
+// Zahlen mehr, damit jedes Reel im Repo denselben Untertitel-Look erbt.
+const S = REEL_STYLE.caption;
 const SENTENCE_END = /[.!?…][\]})"'»”]*$/;
 
 type CaptionUnit = {words: CaptionWord[]; start: number; end: number};
@@ -31,12 +30,12 @@ const buildCaptionUnits = (words: CaptionWord[]): CaptionUnit[] => {
 
   words.forEach((word, index) => {
     const projected = current.length ? [...current, word] : [word];
-    if (current.length && (current.length >= MAX_WORDS || charsFor(projected) > MAX_CHARS)) push();
+    if (current.length && (current.length >= S.maxWords || charsFor(projected) > S.maxChars)) push();
     current.push(word);
 
     const next = words[index + 1];
     const pauseAfter = next ? Math.max(0, next.start - word.end) : Number.POSITIVE_INFINITY;
-    if (SENTENCE_END.test(word.word) || pauseAfter >= HOLD_SECONDS || current.length >= MAX_WORDS || charsFor(current) >= MAX_CHARS) push();
+    if (SENTENCE_END.test(word.word) || pauseAfter >= S.holdSeconds || current.length >= S.maxWords || charsFor(current) >= S.maxChars) push();
   });
 
   push();
@@ -57,10 +56,10 @@ export const Captions: React.FC<{
 }> = ({
   words,
   fps = 30,
-  bottom = 285,
-  left = 72,
-  right = 140,
-  size = 64,
+  bottom = S.bottom,
+  left = S.left,
+  right = S.right,
+  size = S.fontSize,
   background = true,
 }) => {
   const frame = useCurrentFrame();
@@ -70,36 +69,39 @@ export const Captions: React.FC<{
 
   const unit = units.find((entry, index) => {
     const next = units[index + 1];
-    const visibleEnd = next ? Math.min(entry.end + HOLD_SECONDS, next.start) : entry.end + HOLD_SECONDS;
+    const visibleEnd = next ? Math.min(entry.end + S.holdSeconds, next.start) : entry.end + S.holdSeconds;
     return t >= entry.start && t <= visibleEnd;
   });
 
   if (!unit) return null;
 
   const charCount = charsFor(unit.words);
-  const fittedSize = Math.max(50, Math.min(size, charCount > 52 ? size - 8 : charCount > 44 ? size - 4 : size));
+  const fittedSize = Math.max(
+    S.minFontSize,
+    Math.min(size, charCount > 46 ? size - 6 : charCount > 38 ? size - 3 : size),
+  );
 
   return (
     <div style={{position: 'absolute', bottom, left, right, zIndex: 60, display: 'flex', justifyContent: 'center', pointerEvents: 'none'}}>
       <div style={{
-        maxWidth: 820,
+        maxWidth: S.maxWidth,
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'baseline',
-        columnGap: 11,
+        columnGap: 10,
         rowGap: 2,
-        padding: background ? '13px 22px 15px' : 0,
-        borderRadius: 20,
-        background: background ? 'rgba(3, 14, 8, 0.86)' : 'transparent',
-        border: background ? '1px solid rgba(255,255,255,0.12)' : 'none',
-        boxShadow: background ? '0 8px 22px rgba(0,0,0,0.34)' : 'none',
+        padding: background ? '12px 20px 14px' : 0,
+        borderRadius: 16,
+        background: background ? 'rgba(4, 15, 9, 0.82)' : 'transparent',
+        border: background ? '1px solid rgba(255,255,255,0.08)' : 'none',
+        boxShadow: background ? '0 6px 18px rgba(0,0,0,0.30)' : 'none',
         textAlign: 'center',
         fontFamily: FONT.body,
-        fontWeight: 900,
+        fontWeight: S.fontWeight,
         fontSize: fittedSize,
-        lineHeight: 1.08,
-        letterSpacing: '-0.4px',
+        lineHeight: S.lineHeight,
+        letterSpacing: S.letterSpacing,
         textRendering: 'geometricPrecision',
         WebkitFontSmoothing: 'antialiased',
       }}>
@@ -109,8 +111,7 @@ export const Captions: React.FC<{
             <span key={`${word.start}-${index}`} style={{
               color: active ? C.accentLt : C.white,
               display: 'inline-block',
-              textShadow: '0 2px 1px rgba(0,0,0,0.96)',
-              WebkitTextStroke: '1.6px rgba(0,0,0,0.78)',
+              textShadow: S.textShadow,
             }}>
               {word.word}
             </span>
