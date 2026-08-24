@@ -2,6 +2,9 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   FLOW_AGENT_PROTOCOL_ID,
+  FLOW_EXECUTION_MODE_ID,
+  FLOW_STATE_MACHINE_ID,
+  FLOW_STRUCTURE_LOCK_ID,
   FORBIDDEN_PUBLISHING_FILES,
   GENERATED_IMAGE_ASPECT_RATIO,
   PLATFORM_PUBLISHING_FILES,
@@ -18,7 +21,13 @@ test('Reel-Vertrag verwendet die verbindliche Bildwelt', () => {
   assert.equal(REEL_VIDEO_ASPECT_RATIO, '9:16');
 });
 
-test('Reel-Vertrag enthält genau die vier erlaubten Plattformdateien', () => {
+test('Google Flow verwendet Strict-Single-Job-State-Machine V3', () => {
+  assert.equal(FLOW_EXECUTION_MODE_ID, 'finanzneo-flow-strict-single-job-v3');
+  assert.equal(FLOW_STATE_MACHINE_ID, 'finanzneo-flow-state-machine-v1');
+  assert.equal(FLOW_STRUCTURE_LOCK_ID, 'finanzneo-flow-structure-lock-v2');
+});
+
+test('Reel-Vertrag enthält genau die erlaubten Plattformdateien', () => {
   assert.deepEqual(Object.keys(PLATFORM_PUBLISHING_FILES).sort(), [
     'facebookReels',
     'instagramReels',
