@@ -1,0 +1,443 @@
+FLOW_EXECUTION_MODE: finanzneo-flow-autonomous-full-run-v2
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+
+AUTONOMER GESAMTDURCHLAUF — VERBINDLICH, ABER NUR ALS STRICT SINGLE-JOB STATE MACHINE
+- DIES IST KEIN BATCH-AUFTRAG. DIE GESAMTE DATEI DARF NIEMALS ALS EIN MEHRBILD-PROMPT AUSGEFÜHRT WERDEN.
+- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.
+- STARTE NIEMALS MEHRERE BILDER, MEHRERE GENERIERUNGSJOBS ODER MEHRERE SZENEN IN EINEM SCHRITT, TOOL-CALL ODER BATCH.
+- ERZEUGE KEINE GALERIE, KEINEN KONTAKTBOGEN, KEIN MULTI-PANEL, KEINE COLLAGE UND KEIN BILD MIT MEHREREN SZENEN.
+- INITIAL IST NUR COVER BILD 00 FREIGESCHALTET. ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT.
+- EIN SPÄTERER BILDBLOCK DARF ERST FREIGESCHALTET WERDEN, WENN DAS AKTUELLE BILD VOLLSTÄNDIG ZURÜCKGEGEBEN, EXAKT UMBENANNT UND PER QA GEPRÜFT WURDE.
+- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE BILDBLOCK GESPERRT. ERZEUGE AUSSCHLIESSLICH DIESELBE BILDNUMMER NEU.
+- NACH BESTANDENER QA WIRD GENAU DER NÄCHSTE BENÖTIGTE BILDBLOCK IN DOKUMENTREIHENFOLGE FREIGESCHALTET. NICHT VORHER.
+- ARBEITE OHNE NUTZER-ZWISCHENSTOPP BIS ZUM LETZTEN BENÖTIGTEN BILD, ABER IMMER NUR EINEN BILDJOB NACH DEM ANDEREN.
+- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTÄTIGUNG ODER FREIGABE DES NUTZERS.
+- "WARTEN" BEDEUTET AUSSCHLIESSLICH INTERN WARTEN, BIS DER AKTUELLE EINZELNE BILDJOB TECHNISCH ZURÜCKGEGEBEN WURDE.
+- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.
+- NACH JEDEM BILD AUTOMATISCH: Ergebnis abwarten → exakt umbenennen → QA → bei Fehler gleiche Nummer neu → bei Erfolg nächsten benötigten Bildblock freischalten.
+- Remotion-/Animationsnummern automatisch überspringen; dafür kein Bild erzeugen.
+- DIESE STRUKTUR, REIHENFOLGE, DATEINAMENLOGIK, BILDWELT, MATERIALLOGIK, FARBROLLEN, LICHTLOGIK UND QUALITÄTSREGELN BIS ZUM LETZTEN BILD KONSEQUENT BEIBEHALTEN.
+- Nur bei einem echten technischen Hard-Blocker stoppen. Geschmacksfragen oder fehlendes "weiter" sind KEINE Stop-Gründe.
+
+FINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+AUSFÜHRUNGSPROTOKOLL — STATE MACHINE, NICHT BATCH:
+0. Spätere Bildblöcke sind zunächst GESPERRTE DATEN. Sie sind noch keine ausführbaren Bildaufträge.
+1. ACTIVE_STEP = COVER BILD 00.
+2. Nimm ausschließlich den BILDPROMPT von ACTIVE_STEP. Sende niemals Text aus mehreren Bildblöcken gemeinsam an die Bildgenerierung.
+3. Starte genau EINEN Bildgenerierungsjob. MAX_CONCURRENT_GENERATIONS = 1.
+4. Solange dieser eine Job läuft oder noch kein Ergebnis zurückgegeben wurde: KEINEN weiteren Bildjob starten.
+5. Nach Rückgabe des einzelnen Bildes: DIESE Datei SOFORT exakt auf den angegebenen finalen Dateinamen umbenennen.
+6. Danach ausschließlich dieses eine Bild prüfen: Motiv, Labels, Physical-Explainer-Komposition, Stylized-3D-Look, sichtbares face/Gesicht falls Person, Hintergrund und Dateiname.
+7. QA FEHLER: ACTIVE_STEP bleibt unverändert. Nur dieselbe Bildnummer neu erzeugen. Alle späteren Bildblöcke bleiben gesperrt.
+8. QA BESTANDEN: ACTIVE_STEP = DONE. Erst jetzt den nächsten benötigten Bildblock in Dokumentreihenfolge freischalten.
+9. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Generierung überspringen.
+10. Wiederhole 2–9 bis alle erwarteten Bilder einzeln DONE sind. Kein Nutzer-"weiter" dazwischen.
+11. Erst nach allen Einzeljobs eine Abschlusszusammenfassung geben.
+12. Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen oder anhängen.
+
+HART VERBOTEN:
+- mehrere Bilder in einem Generierungsaufruf
+- mehrere Bildprompts zusammenfassen
+- alle Bilder auf einmal erzeugen
+- spätere Bilder vorab in eine Queue stellen
+- alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen
+- Kontaktbogen, Galerie, Collage oder Multi-Panel als Ersatz für Einzelbilder
+
+BILDNUMMERIERUNG:
+Bildnummer = echte Szenennummer. Animationsnummern bleiben reserviert.
+Jede Szene bekommt eine eigene frische Komposition. Keine Bildreferenz verwenden.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COVER — BILD 00
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+FLOW_STEP_ID: 00
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Euro oder Landeswaehrung Cover.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- EURO
+- LANDESWÄHRUNG
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI financial editorial cover. Use one oversized PHYSICAL card-payment terminal as the dominant hero object with a bank card visibly inserted. Place 4 recognizable travel/payment objects around it: a passport, suitcase tag, local coins and a printed receipt. Attach two short physical choice plaques to the terminal area: `EURO` and `LANDESWÄHRUNG`. The two choices should be immediately readable as a decision point without a digital dashboard. Make the composition natural and asymmetric with strong depth and contact shadows. No person is required; if any stylized adult person appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal. Bild 00 is also a square 1:1 Flow source image; 9:16 is created only in Remotion.
+Use ONE large PHYSICAL hero object and 3–6 concrete recognizable topic-specific physical objects. Natural asymmetry, overlap, visible depth, substantial shapes and soft contact shadows. Physical tags only; never floating UI chips.
+No headline. No subtitle. No explanatory sentence. No CTA. Include only the exact short German physical object labels listed above.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. NO horizontal divisions. NO separate zones. NO floor-wall boundary. NO horizon line. NO panel background.
+Premium stylized adult 3D editorial illustration, chunky substantial volume, rounded forms, dark emerald polymer/brushed metal, warm cream physical paper surfaces, gold only for money/value, warm red-orange only for warning, cinematic soft key light and emerald rim light. NOT photorealistic.
+No floating UI cards, dashboard, app screen, control panel, digital central screen, microchip/circuit-board language, gameboard, circular module orbit, four-corner tile layout, glowing line network, tiny isometric diorama, neon tunnel, monolith, sterile product-ad composition, Pixar, clay or toy look. No image reference.
+
+HARD BARRIER AFTER STEP 00:
+Do not start Bild 01 or any later image until Bild 00 has returned, has been renamed exactly, and has passed QA.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 01 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+FLOW_STEP_ID: 01
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Euro oder Landeswaehrung.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- EURO
+- LANDESWÄHRUNG
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Show one large PHYSICAL card terminal as the hero object, with a bank card inserted. Build the visual choice using two real modeled plaques attached beside the terminal: `EURO` and `LANDESWÄHRUNG`. Make the EURO plaque slightly warm red-orange and the LANDESWÄHRUNG plaque emerald, without implying a guaranteed result. Add 4 supporting physical travel/payment objects: passport, small suitcase tag, local coins and a printed receipt. The visual must communicate in under two seconds that a traveler faces a currency choice at payment. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 concrete topic-specific physical supporting objects, arranged naturally and asymmetrically with overlap and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only the exact short German physical object labels above. Labels must be attached tags/plaques, never floating UI badges.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. NO horizontal divisions, floor-wall boundary, horizon line or panel background.
+Premium stylized 3D CGI, dark emerald materials, warm cream surfaces, gold only for money/value, red-orange only for warning, cinematic soft key and emerald rim light. NOT photorealistic.
+No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.
+
+HARD BARRIER AFTER STEP 01:
+Do not start any later image until Bild 01 has returned, has been renamed exactly, and has passed QA.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 02 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 02 ERZEUGEN. Nummer 02 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 03 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+FLOW_STEP_ID: 03
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - DCC Sofortumrechnung.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- DCC
+- EUROBETRAG
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Use one oversized PHYSICAL printed payment receipt as the hero object. Attach a physical `DCC` tag near the conversion line and a separate `EUROBETRAG` plaque beside the final amount area. Surround it with 4 recognizable payment/travel objects: card terminal, bank card, local coins and euro coins. The cause/effect should read instantly: DCC converts a local purchase into a visible euro amount now. Do not display a real exchange rate or invented savings. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 concrete topic-specific physical supporting objects, naturally asymmetric with overlap and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only the exact short German physical object labels above, attached physically.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. NO horizontal divisions, floor-wall boundary, horizon line or panel background.
+Premium stylized 3D CGI, dark emerald materials, warm cream paper, chunky gold only for money/value, red-orange only for warning, soft cinematic lighting. NOT photorealistic.
+No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.
+
+HARD BARRIER AFTER STEP 03:
+Do not start any later image until Bild 03 has returned, has been renamed exactly, and has passed QA.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 04 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 04 ERZEUGEN. Nummer 04 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 05 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+FLOW_STEP_ID: 05
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Bequem nicht immer guenstig.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- BEQUEM
+- NICHT GÜNSTIG
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Use one large PHYSICAL euro payment receipt as the hero object with a clean attached `BEQUEM` plaque. A substantial magnifying glass reveals a smaller warm red-orange physical tag `NICHT GÜNSTIG` attached to the exchange section. Add 3 supporting objects: bank card, local coins and travel wallet. The metaphor must say: an immediate euro total feels convenient but may hide worse conversion conditions. Do not invent a percentage or exact price difference. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 concrete topic-specific physical supporting objects with natural asymmetry and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only exact short German physical labels above.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No zones, floor-wall boundary, horizon or panel background.
+Premium stylized adult 3D editorial CGI, chunky volume, emerald materials, cream paper, gold only for value, red-orange only for warning, cinematic lighting. NOT photorealistic.
+No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.
+
+HARD BARRIER AFTER STEP 05:
+Do not start any later image until Bild 05 has returned, has been renamed exactly, and has passed QA.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 06 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 06 ERZEUGEN. Nummer 06 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 07 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+FLOW_STEP_ID: 07
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - DCC am Terminal ablehnen.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- DCC ABLEHNEN
+- LOKAL ZAHLEN
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Use one large PHYSICAL card terminal as the hero object. Attach a warm red-orange `DCC ABLEHNEN` plaque to the euro-conversion side with a clear physical cross mark. Attach a green `LOKAL ZAHLEN` plaque beside local currency notes positioned as the preferred route. Add 4 supporting objects: bank card, printed receipt, passport and local coins. The scene should read immediately as declining DCC and choosing local currency, without claiming zero fees. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 recognizable physical supporting objects, arranged asymmetrically with overlap and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only exact short German physical labels above.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, floor-wall boundary, horizon or panel background.
+Premium stylized 3D CGI; dark emerald, cream, gold only for money, red-orange only warning. NOT photorealistic.
+No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.
+
+HARD BARRIER AFTER STEP 07:
+Do not start any later image until Bild 07 has returned, has been renamed exactly, and has passed QA.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 08 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+FLOW_STEP_ID: 08
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Geldautomat lokale Waehrung.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- LOKALE WÄHRUNG
+- AUTOMAT
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Use one large PHYSICAL ATM body as the hero object, but avoid a digital-screen/UI composition: the machine is a chunky physical object with a card slot and cash slot. Local banknotes visibly emerge from the cash slot next to a physical `LOKALE WÄHRUNG` tag; attach a small `AUTOMAT` plaque to the machine body. Add 4 supporting travel/payment objects: bank card, passport, travel wallet and local coins. The scene should instantly communicate choosing local currency at an ATM. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 topic-specific physical supporting objects, naturally asymmetric with overlap and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only exact short German physical labels above.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, zones or panel background.
+Premium stylized 3D CGI, substantial rounded forms, emerald materials, gold only money/value, cinematic soft lighting. NOT photorealistic.
+No floating UI cards, dashboard, app screen, digital central screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.
+
+HARD BARRIER AFTER STEP 08:
+Do not start any later image until Bild 08 has returned, has been renamed exactly, and has passed QA.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 09 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 09 ERZEUGEN. Nummer 09 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 10 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+FLOW_STEP_ID: 10
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Kartengebuehren pruefen.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- KARTENGEBÜHR
+- FREMDWÄHRUNG
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Use one large PHYSICAL travel wallet with a bank card inserted as the hero object. Attach two small physical fee tags to the wallet/card area: `KARTENGEBÜHR` and `FREMDWÄHRUNG`. Add 4 supporting objects: printed receipt, local coins, euro coins and passport. Use a subtle warm red-orange accent only on the fee tags. The image must communicate that paying in local currency can still involve card-provider fees. Do not show a specific fee percentage. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 recognizable topic-specific supporting objects, natural asymmetry and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only exact short German physical labels above.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No zones, floor-wall boundary, horizon or panel background.
+Premium stylized adult 3D editorial CGI, emerald/cream materials, gold only money/value, red-orange only warning. NOT photorealistic.
+No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.
+
+HARD BARRIER AFTER STEP 10:
+Do not start any later image until Bild 10 has returned, has been renamed exactly, and has passed QA.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 11 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 11 ERZEUGEN. Nummer 11 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 12 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+FLOW_STEP_ID: 12
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 12 - DCC Aufschlag sichtbar.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- AUFSCHLAG
+- EZB-REFERENZKURS
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Use one oversized PHYSICAL currency-conversion receipt as the hero object. Attach a warm red-orange `AUFSCHLAG` tag to the conversion line and a separate neutral/emerald physical plaque `EZB-REFERENZKURS` beside it. Add 4 supporting objects: bank card, physical percent token, euro coins and local coins. Make the comparison visible without showing an invented rate or percentage. The image should communicate EU transparency around the DCC mark-up. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 concrete physical supporting objects, naturally asymmetric with depth and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only exact short German physical labels above.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, floor-wall boundary, horizon or panel background.
+Premium stylized 3D CGI, dark emerald, cream paper, gold money details, red-orange warning only. NOT photorealistic.
+No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.
+
+HARD BARRIER AFTER STEP 12:
+Do not start any later image until Bild 12 has returned, has been renamed exactly, and has passed QA.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 13 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+FLOW_STEP_ID: 13
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 13 - Hohen Aufschlag ablehnen.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- HOHER AUFSCHLAG
+- LOKAL ZAHLEN
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Use one large PHYSICAL card terminal as the hero object. A warm red-orange physical tag `HOHER AUFSCHLAG` is visibly pushed aside by a substantial green local-currency plaque `LOKAL ZAHLEN`. Add 4 supporting objects: local banknotes moving forward, bank card, printed receipt and local coins. The cause/effect should read instantly: reject the costly DCC offer and choose local currency. Do not imply that local payment is always fee-free. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 concrete topic-specific supporting objects, naturally asymmetric with overlap and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only exact short German physical labels above.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No zones, floor-wall boundary, horizon or panel background.
+Premium stylized 3D CGI, emerald materials, cream, gold only money, red-orange only warning, cinematic soft light. NOT photorealistic.
+No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.
+
+HARD BARRIER AFTER STEP 13:
+Do not start any later image until Bild 13 has returned, has been renamed exactly, and has passed QA.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 14 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 14 ERZEUGEN. Nummer 14 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 15 — BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+FLOW_STEP_ID: 15
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 15 - Kartengebuehren vor Reise pruefen.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- KARTENGEBÜHREN
+- VOR REISE
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Use one large PHYSICAL bank card resting on an open paper travel checklist as the hero object. Attach physical labels `KARTENGEBÜHREN` and `VOR REISE` to the checklist. Add 4 supporting objects: magnifying glass, passport, suitcase tag and mixed local/euro coins. The magnifying glass should clearly inspect the fee section, communicating preparation before travel. No specific bank, fee percentage or product recommendation. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 concrete topic-specific physical objects, naturally asymmetric with overlap and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only exact short German physical labels above.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, floor-wall boundary, horizon or panel background.
+Premium stylized adult 3D editorial CGI, emerald/cream materials, gold only money/value, red-orange only warning. NOT photorealistic.
+No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.
+
+HARD BARRIER AFTER STEP 15:
+Bild 15 is the final generation job. Do not create any additional image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSCHLUSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Beende den Auftrag erst, wenn jedes erwartete Bild EINZELN in dieser Reihenfolge erzeugt, nach Rückgabe sofort exakt umbenannt und geprüft wurde:
+00 → 01 → 03 → 05 → 07 → 08 → 10 → 12 → 13 → 15
+
+Erst danach dürfen alle finalen Dateien gemeinsam im Zielordner vorliegen:
+03-szenen/00-ALLE-BILDER-HIER-REIN/
+
+Erwartete Dateien:
+Bild 00 - Euro oder Landeswaehrung Cover.png
+Bild 01 - Euro oder Landeswaehrung.png
+Bild 03 - DCC Sofortumrechnung.png
+Bild 05 - Bequem nicht immer guenstig.png
+Bild 07 - DCC am Terminal ablehnen.png
+Bild 08 - Geldautomat lokale Waehrung.png
+Bild 10 - Kartengebuehren pruefen.png
+Bild 12 - DCC Aufschlag sichtbar.png
+Bild 13 - Hohen Aufschlag ablehnen.png
+Bild 15 - Kartengebuehren vor Reise pruefen.png

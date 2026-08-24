@@ -1,0 +1,22 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Euro oder Landeswaehrung.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- EURO
+- LANDESWÄHRUNG
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Show one large PHYSICAL card terminal as the hero object, with a bank card inserted. Build the visual choice using two real modeled plaques attached beside the terminal: `EURO` and `LANDESWÄHRUNG`. Make the EURO plaque slightly warm red-orange and the LANDESWÄHRUNG plaque emerald, without implying a guaranteed result. Add 4 supporting physical travel/payment objects: passport, small suitcase tag, local coins and a printed receipt. The visual must communicate in under two seconds that a traveler faces a currency choice at payment. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 concrete topic-specific physical supporting objects, arranged naturally and asymmetrically with overlap and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only the exact short German physical object labels above. Labels must be attached tags/plaques, never floating UI badges.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. NO horizontal divisions, floor-wall boundary, horizon line or panel background.
+Premium stylized 3D CGI, dark emerald materials, warm cream surfaces, gold only for money/value, red-orange only for warning, cinematic soft key and emerald rim light. NOT photorealistic.
+No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.

@@ -1,0 +1,22 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - DCC Sofortumrechnung.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- DCC
+- EUROBETRAG
+
+BILDPROMPT:
+Create a CLEARLY STYLIZED premium 3D CGI physical financial explainer. Use one oversized PHYSICAL printed payment receipt as the hero object. Attach a physical `DCC` tag near the conversion line and a separate `EUROBETRAG` plaque beside the final amount area. Surround it with 4 recognizable payment/travel objects: card terminal, bank card, local coins and euro coins. The cause/effect should read instantly: DCC converts a local purchase into a visible euro amount now. Do not display a real exchange rate or invented savings. If a stylized adult appears, the face must be clearly visible.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a square 1:1 source image only. Width and height must be equal.
+Use ONE large PHYSICAL hero object and 3–6 concrete topic-specific physical supporting objects, naturally asymmetric with overlap and contact shadows.
+No headline. No subtitle. No explanatory sentence. Only the exact short German physical object labels above, attached physically.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. NO horizontal divisions, floor-wall boundary, horizon line or panel background.
+Premium stylized 3D CGI, dark emerald materials, warm cream paper, chunky gold only for money/value, red-orange only for warning, soft cinematic lighting. NOT photorealistic.
+No floating UI cards, dashboard, app screen, microchip/circuit-board, gameboard, orbit modules, four-corner tiles, line network, diorama, neon tunnel, monolith, sterile product-ad shot, Pixar, clay or toy look. No image reference.
