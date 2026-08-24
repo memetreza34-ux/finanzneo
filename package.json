@@ -28,12 +28,14 @@
     "validate:design-system": "node scripts/validate-design-system.mjs",
     "validate:finance": "node scripts/validate-finance.mjs",
     "validate:reel-template": "node scripts/validate-reel-template.mjs",
-    "validate": "npm run setup:check && npm run lint && npm run test && npm run validate:compositions && npm run validate:design-system && npm run validate:finance && npm run validate:reel-template && npm run typecheck",
+    "validate": "npm run setup:check && npm run lint && npm run test && npm run validate:compositions && npm run validate:design-system && npm run validate:consistency && npm run validate:finance && npm run validate:reel-template && npm run typecheck",
     "smoke": "node scripts/smoke-render.mjs",
     "render": "npm run render:template-demo",
     "render:preview": "npm run render:template-demo",
     "render:template-demo": "npx remotion render src/index.ts ReelTemplateDemo out/reel-template-demo.mp4 --scale=0.5",
-    "upgrade": "npx remotion upgrade"
+    "upgrade": "npx remotion upgrade",
+    "validate:consistency": "node scripts/validate-repo-consistency.mjs",
+    "reel:export": "node scripts/export-reel.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",

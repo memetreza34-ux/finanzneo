@@ -160,6 +160,72 @@ for (const file of productionFiles) {
   }
 }
 
+// ─── Verbindlicher Reel-Look V4 ─────────────────────────────────────────────
+// Diese Regeln halten Untertitel, Zwischenüberschriften und Übergänge über ALLE
+// Reels konstant. Sie sind aus einem konkreten Qualitätsproblem entstanden:
+// Untertitel wurden mit Weight 900, 64 px und WebkitTextStroke gerendert und
+// wirkten dadurch dick und matschig.
+const tokensSource = read('src/brand/tokens.ts');
+
+if (!tokensSource.includes('export const REEL_STYLE')) {
+  errors.push('src/brand/tokens.ts definiert keinen zentralen REEL_STYLE-Block.');
+} else {
+  const captionSize = tokensSource.match(/fontSize:\s*(\d+)[\s\S]*?fontWeight:\s*(\d+)/);
+
+  if (captionSize) {
+    const size = Number(captionSize[1]);
+    const weight = Number(captionSize[2]);
+
+    if (size > 54) {
+      errors.push(`Untertitel-Grundgröße ist mit ${size} px zu groß (max. 54 px).`);
+    }
+    if (weight > 800) {
+      errors.push(`Untertitel-Schriftstärke ${weight} ist zu fett (max. 800).`);
+    }
+  }
+
+  if (!tokensSource.includes('textStrokeForbidden: true')) {
+    errors.push('REEL_STYLE muss WebkitTextStroke auf Untertiteln ausdrücklich verbieten.');
+  }
+  if (!tokensSource.includes('fadeToBlackForbidden: true')) {
+    errors.push('REEL_STYLE muss Fade-to-black bei Szenenwechseln verbieten.');
+  }
+
+  const continuity = tokensSource.match(/continuityFrames:\s*(\d+)/);
+  if (continuity && Number(continuity[1]) > 4) {
+    errors.push(`Szenenübergang ist mit ${continuity[1]} Frames zu träge (max. 4).`);
+  }
+
+  notes.push('REEL_STYLE definiert Untertitel-, Header- und Übergangswerte zentral.');
+}
+
+// WebkitTextStroke lässt Glyphen zulaufen — auf Reel-Text repo-weit verboten.
+const reelSurfaces = [...walk('src/brand'), ...walk('src/reels'), ...walk('src/production')]
+  .filter((path) => /\.tsx?$/.test(path));
+
+for (const path of reelSurfaces) {
+  const source = readFileSync(path, 'utf8');
+  if (/WebkitTextStroke\s*:/.test(source)) {
+    errors.push(`WebkitTextStroke ist auf Reel-Flächen verboten: ${relative(root, path)}`);
+  }
+}
+
+// Zentrale Komponenten dürfen ihre Maße nicht lokal überschreiben.
+const captionsSource = read('src/brand/components/Captions.tsx');
+const headerSource = read('src/brand/components/SceneHeader.tsx');
+
+if (!captionsSource.includes('REEL_STYLE')) {
+  errors.push('Captions.tsx liest die Maße nicht aus REEL_STYLE.');
+}
+if (!headerSource.includes('REEL_STYLE')) {
+  errors.push('SceneHeader.tsx liest die Maße nicht aus REEL_STYLE.');
+}
+if (!existsSync(resolve(root, 'src/brand/components/ReelStage.tsx'))) {
+  errors.push('Die zentrale ReelStage-Komponente (SceneTransition/AnimationStage) fehlt.');
+} else {
+  notes.push('SceneTransition und AnimationStage stehen allen Reels zentral bereit.');
+}
+
 const reelTemplate = resolve(root, 'src/production/reel-template/ReelTemplate.tsx');
 if (!existsSync(reelTemplate)) {
   errors.push('Die zentrale ReelTemplate-Komponente fehlt.');

@@ -26,6 +26,7 @@ if (errors.length === 0) {
   const types = readFileSync(resolve(root, 'src/production/reel-template/types.ts'), 'utf8');
   const template = readFileSync(resolve(root, 'src/production/reel-template/ReelTemplate.tsx'), 'utf8');
   const demo = readFileSync(resolve(root, 'src/production/reel-template/ReelTemplateDemo.tsx'), 'utf8');
+  const tokens = readFileSync(resolve(root, 'src/brand/tokens.ts'), 'utf8');
   const captions = readFileSync(resolve(root, 'src/brand/components/Captions.tsx'), 'utf8');
   const sceneHeader = readFileSync(resolve(root, 'src/brand/components/SceneHeader.tsx'), 'utf8');
   const mechanismCue = readFileSync(resolve(root, 'src/brand/components/MechanismCue.tsx'), 'utf8');
@@ -58,7 +59,8 @@ if (errors.length === 0) {
   if (!template.includes('ANIMATION_COLORS')) errors.push('ReelTemplate verwendet nicht die semantische Animationspalette.');
   if (!template.includes('SceneContinuityFrame')) errors.push('Premium-Continuity zwischen Szenen fehlt.');
   if (!template.includes('CONTENT_TOP = 390') || !template.includes('CONTENT_BOTTOM = 360')) errors.push('Premium-V3-Hauptvisualzone ist nicht korrekt nach unten gesetzt.');
-  if (!template.includes('bottom={285}') || !template.includes('left={72}') || !template.includes('right={140}')) errors.push('Premium-V3-Captionposition fehlt im ReelTemplate.');
+  if (/<Captions[^/>]*(?:bottom|left|right|size)=\{/.test(template)) errors.push('ReelTemplate überschreibt Caption-Maße lokal; sie kommen zentral aus REEL_STYLE.');
+  if (!tokens.includes('bottom: 285') || !tokens.includes('left: 72') || !tokens.includes('right: 140')) errors.push('Premium-Captionposition fehlt in REEL_STYLE.caption.');
   if (!template.includes('VerticalSafeAreaGuide')) errors.push('ReelTemplate besitzt kein visuelles Safe-Area-Prüfraster.');
   if (!template.includes("from '../../design-system'")) errors.push('ReelTemplate importiert nicht aus dem zentralen Designsystem.');
 
@@ -67,15 +69,33 @@ if (errors.length === 0) {
   if (template.includes('bottom={292}') || template.includes('bottom={320}')) errors.push('Alte Captionposition ist verboten; Premium V3 nutzt bottom=285.');
 
   if (!captions.includes('active ? C.accentLt : C.white')) errors.push('Captions erzwingen nicht hellgrün für das aktive Wort und weiß für den Rest.');
-  if (!captions.includes('bottom = 285') || !captions.includes('size = 64')) errors.push('Captions V3 nutzt nicht die Premium-Standardposition/-größe.');
-  if (!captions.includes("background: background ? 'rgba(3, 14, 8, 0.86)'")) errors.push('Premium-Caption-Backplate fehlt.');
+  if (!captions.includes('REEL_STYLE')) errors.push('Captions liest die Maße nicht aus dem zentralen REEL_STYLE.');
+  if (!captions.includes('bottom = S.bottom') || !captions.includes('size = S.fontSize')) errors.push('Captions nutzt nicht die zentralen Standardwerte für Position und Größe.');
+  if (!captions.includes('background: background ?')) errors.push('Premium-Caption-Backplate fehlt.');
+  if (/WebkitTextStroke/.test(captions)) errors.push('WebkitTextStroke ist auf Untertiteln verboten: Glyphen laufen zu.');
+
+  const captionWeight = tokens.match(/fontWeight:\s*(\d+)/);
+  if (captionWeight && Number(captionWeight[1]) > 800) errors.push(`Untertitel-Schriftstärke ${captionWeight[1]} ist zu fett (max. 800).`);
+  const captionSize = tokens.match(/caption:\s*\{[\s\S]*?fontSize:\s*(\d+)/);
+  if (captionSize && Number(captionSize[1]) > 54) errors.push(`Untertitel-Grundgröße ${captionSize[1]} px ist zu groß (max. 54).`);
   if (captions.includes('0 0 18px') || captions.includes('0 0 24px')) errors.push('Weicher Caption-Glow ist verboten; Untertitel müssen crisp sein.');
   if (captions.includes('translateY(-6px)')) errors.push('Caption-Word-Jump ist verboten.');
-  if (!captions.includes('HOLD_SECONDS')) errors.push('Caption-Hold über kurze Pausen fehlt.');
+  if (!captions.includes('holdSeconds')) errors.push('Caption-Hold über kurze Pausen fehlt.');
+  if (!tokens.includes('holdSeconds:')) errors.push('REEL_STYLE.caption.holdSeconds fehlt.');
 
-  if (!sceneHeader.includes('top = 118')) errors.push('SceneHeader sitzt nicht auf Premium-V3-Position Y≈118.');
-  if (!sceneHeader.includes('Icon') || !sceneHeader.includes('color: C.white')) errors.push('SceneHeader muss Icon + weiße Headline rendern.');
-  if (!sceneHeader.includes("background: 'rgba(3, 16, 9, 0.80)'")) errors.push('Premium-Header-Kapsel fehlt.');
+  if (!sceneHeader.includes('REEL_STYLE')) errors.push('SceneHeader liest die Maße nicht aus dem zentralen REEL_STYLE.');
+  if (!tokens.includes('top: 118')) errors.push('SceneHeader-Position Y≈118 fehlt in REEL_STYLE.header.');
+  if (!sceneHeader.includes('Icon') || !sceneHeader.includes('color: accent')) errors.push('SceneHeader muss Icon + Headline in Akzentfarbe rendern.');
+  if (!sceneHeader.includes("justifyContent: 'center'")) errors.push('SceneHeader muss mittig zentriert sein.');
+  if (!tokens.includes("align: 'center'")) errors.push('REEL_STYLE.header.align muss center sein.');
+  if (!/background: 'rgba\(4, 17, 10, 0\.78\)'|background: 'rgba\(3, 16, 9, 0\.80\)'/.test(sceneHeader)) errors.push('Premium-Header-Kapsel fehlt.');
+
+  // Übergänge dürfen nicht wieder träge werden.
+  const continuity = tokens.match(/continuityFrames:\s*(\d+)/);
+  if (!continuity) errors.push('REEL_STYLE.transition.continuityFrames fehlt.');
+  else if (Number(continuity[1]) > 4) errors.push(`Szenenübergang ist mit ${continuity[1]} Frames zu träge (max. 4).`);
+  if (!tokens.includes('fadeToBlackForbidden: true')) errors.push('Fade-to-black muss zentral verboten sein.');
+  if (!existsSync(resolve(root, 'src/brand/components/ReelStage.tsx'))) errors.push('Zentrale ReelStage-Komponente (SceneTransition/AnimationStage) fehlt.');
 
   if (!mechanismCue.includes('warning') || !mechanismCue.includes('money')) errors.push('MechanismCue besitzt keine semantischen Warn-/Geldfarben.');
 

@@ -16,6 +16,7 @@ if (!projectDirectory) {
 
 const validators = [
   'scripts/validate-reel-source-contract.mjs',
+  'scripts/validate-scene-quality.mjs',
   'scripts/validate-platform-publishing.mjs',
 ];
 
