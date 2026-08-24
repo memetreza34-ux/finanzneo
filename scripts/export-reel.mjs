@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 
 // Baut das fertige Upload-Paket eines Reels in 06-export/.
-//
-// Ohne diesen Schritt lagen die Ergebnisse verstreut: Video in out/, Bilder in
-// 03-szenen/, Captions in 04-caption/. Zum Hochladen musste alles von Hand
-// zusammengesucht werden. 06-export/ enthält alles, was für die
-// Veröffentlichung gebraucht wird — und sonst nichts.
+// Ohne expliziten Videopfad wird niemals mehr einfach die neueste beliebige
+// MP4 aus out/ genommen: bei mehreren nicht eindeutig zuordenbaren Dateien
+// bricht der Export sicher ab.
 
 import {existsSync, readFileSync, writeFileSync, mkdirSync, copyFileSync, readdirSync, statSync, rmSync} from 'node:fs';
 import {resolve, basename, join} from 'node:path';
@@ -31,7 +29,7 @@ if (!existsSync(root)) {
 const fehlt = [];
 const gebaut = [];
 
-// ── Video finden ────────────────────────────────────────────────────────────
+// ── Video sicher finden ─────────────────────────────────────────────────────
 let videoPfad = videoArg ? resolve(videoArg) : null;
 if (!videoPfad) {
   const kandidaten = existsSync(resolve('out'))
@@ -40,7 +38,19 @@ if (!videoPfad) {
         .map((f) => resolve('out', f))
         .sort((a, b) => statSync(b).mtimeMs - statSync(a).mtimeMs)
     : [];
-  videoPfad = kandidaten[0] ?? null;
+
+  const passend = kandidaten.filter((pfad) => basename(pfad, '.mp4').toLowerCase().includes(reelName.toLowerCase()));
+
+  if (passend.length > 0) {
+    videoPfad = passend[0];
+  } else if (kandidaten.length === 1) {
+    videoPfad = kandidaten[0];
+  } else if (kandidaten.length > 1) {
+    console.error('\n✗ Export nicht möglich: mehrere MP4-Dateien in out/ und keine ist eindeutig diesem Reel zugeordnet.');
+    console.error('  Übergib den exakten Videopfad als zweites Argument:');
+    console.error(`  npm run reel:export -- ${target} out/<dieses-reel>.mp4`);
+    process.exit(1);
+  }
 }
 
 if (!videoPfad || !existsSync(videoPfad)) {
@@ -48,6 +58,8 @@ if (!videoPfad || !existsSync(videoPfad)) {
   console.error('  Erst rendern, dann exportieren — oder Videopfad als zweites Argument angeben.');
   process.exit(1);
 }
+
+console.log(`\nVideo für Export: ${videoPfad}`);
 
 // ── Zielordner frisch aufbauen ──────────────────────────────────────────────
 if (existsSync(exportDir)) rmSync(exportDir, {recursive: true, force: true});
@@ -60,11 +72,14 @@ gebaut.push(`${reelName}.mp4`);
 
 // ── 2. Cover ────────────────────────────────────────────────────────────────
 const bilderOrdner = resolve(root, '03-szenen/00-ALLE-BILDER-HIER-REIN');
+let coverExportName = 'cover.png';
 if (existsSync(bilderOrdner)) {
   const coverDatei = readdirSync(bilderOrdner).find((f) => /^Bild 00/i.test(f) && /\.(png|jpe?g|webp)$/i.test(f));
   if (coverDatei) {
-    copyFileSync(join(bilderOrdner, coverDatei), join(exportDir, `cover${coverDatei.slice(coverDatei.lastIndexOf('.'))}`));
-    gebaut.push('cover.png');
+    const extension = coverDatei.slice(coverDatei.lastIndexOf('.'));
+    coverExportName = `cover${extension}`;
+    copyFileSync(join(bilderOrdner, coverDatei), join(exportDir, coverExportName));
+    gebaut.push(coverExportName);
   } else {
     fehlt.push('Cover (Bild 00) im Bilderordner');
   }
@@ -117,8 +132,6 @@ if (existsSync(timingPfad)) {
         const rest = String(ms % 1000).padStart(3, '0');
         return `${h}:${m}:${sek},${rest}`;
       };
-      // Dieselbe Bereinigung wie im Video: Transkriptionen zerlegen Beträge am
-      // Tausenderpunkt ("100" + ".000"), im Untertitel stand sichtbar "100 .000".
       const zahlenZusammen = (text) => String(text ?? '').replace(/(\d)\s+([.,]\d)/g, '$1$2').trim();
       const srt = saetze
         .map((s, i) => `${i + 1}\n${zeit(s.start)} --> ${zeit(s.end)}\n${zahlenZusammen(s.text)}\n`)
@@ -192,7 +205,7 @@ bei, falls eine Plattform eigene Untertitel möchte.
 
 ## Weitere Dateien
 
-- \`cover.png\` — Titelbild für Vorschau und Thumbnail
+- \`${coverExportName}\` — Titelbild für Vorschau und Thumbnail
 - \`bilder.zip\` — alle Szenenbilder, falls du einzelne nachnutzen willst
 - \`untertitel.srt\` — separate Untertiteldatei
 
@@ -211,7 +224,6 @@ als eigenständige Longform unter \`youtube/\`.
 writeFileSync(join(exportDir, 'UPLOAD.md'), upload, 'utf8');
 gebaut.push('UPLOAD.md');
 
-// ── Ergebnis ────────────────────────────────────────────────────────────────
 console.log(`\n✓ Upload-Paket erstellt: ${target}/06-export/\n`);
 gebaut.forEach((g) => console.log(`  ✓ ${g}`));
 

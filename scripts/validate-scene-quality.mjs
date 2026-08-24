@@ -1,19 +1,13 @@
 #!/usr/bin/env node
 
 // Prüft die inhaltliche Qualität der Szenenmetadaten eines Reels.
-//
-// Der Quellen-Vertrag (validate-reel-source-contract.mjs) prüft Bildwelt,
-// Dateinamen und Struktur. Er prüft aber nicht, ob eine Szene überhaupt eine
-// brauchbare Zwischenüberschrift hat. Genau dort entstanden bisher die
-// Qualitätsprobleme: reine Zahlen als Überschrift ("80.000 € + 80.000 €"),
-// dasselbe Icon für völlig verschiedene Aussagen, Bildbeats über 6 Sekunden.
-//
-// Dieser Validator schließt die Lücke und läuft als Teil von `reel:validate`.
+// Das gemeinsame Scene-Schema läuft hier als Teil von reel:validate mit, damit
+// Readiness und Reel-Validator nicht mehr unterschiedliche Formen akzeptieren.
 
 import {existsSync, readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 
-import {validatePhase3Executor} from './lib/reel-scene-schema.mjs';
+import {validatePhase3Executor, validateSceneShape} from './lib/reel-scene-schema.mjs';
 
 const target = process.argv[2];
 if (!target) {
@@ -34,20 +28,15 @@ if (!existsSync(indexPath)) {
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const scenes = Array.isArray(index.scenes) ? index.scenes : [];
 
-// Phase-3-Ausführender muss ein bekannter Wert sein, sonst greift die
-// Übergabe ins Leere.
 errors.push(...validatePhase3Executor(index.phase3Executor));
 
-// Erlaubte Icon-Namen direkt aus der Komponente lesen, damit der Validator
-// nicht veraltet, wenn neue Icons dazukommen.
+// Erlaubte Icon-Namen direkt aus der Komponente lesen.
 const iconSource = readFileSync(resolve('src/brand/components/Icon.tsx'), 'utf8');
 const iconStart = iconSource.indexOf('const PATHS');
 const iconBlock = iconStart === -1 ? '' : iconSource.slice(iconStart, iconSource.indexOf('\n};', iconStart));
 const ICONS = new Set([...iconBlock.matchAll(/^\s+'?([a-z][a-zA-Z-]*)'?\s*:/gm)].map((m) => m[1]));
 
 const PLACEHOLDER = /\[|EINFÜGEN|TODO|TBD|XXX|\.\.\./i;
-
-// Überschriften, die nichts aussagen. Bewusst als ganze Zeile geprüft.
 const LEER_PHRASEN = new Set([
   'WICHTIG', 'ACHTUNG', 'HINWEIS', 'ÜBERSICHT', 'EINLEITUNG', 'FAZIT',
   'BEISPIEL', 'ZUSAMMENFASSUNG', 'INTRO', 'OUTRO', 'ERKLÄRUNG', 'INFO',
@@ -55,23 +44,24 @@ const LEER_PHRASEN = new Set([
 
 const fps = Number(index.video?.fps) || 30;
 
-// Dokumentierte Ausnahme für überlange Bildbeats. Nur zulässig, wenn das
-// Voiceover bereits final aufgenommen ist — neue Reels planen die Sätze nach
-// dem Wortbudget aus docs/PHASE-1-BRIEFING.md und brauchen sie nie.
 const ausnahme = index.timingExceptions?.longImageBeats;
 const ausnahmeLangeBildbeats = ausnahme?.allowed === true && typeof ausnahme.reason === 'string' && ausnahme.reason.trim().length > 20;
 if (ausnahme?.allowed === true && !ausnahmeLangeBildbeats) {
   errors.push('timingExceptions.longImageBeats braucht eine aussagekräftige Begründung (reason).');
 }
+
 const seenIcons = new Map();
 const seenHeadlines = new Map();
 
 scenes.forEach((scene, position) => {
   const id = scene.id ?? `Position ${position + 1}`;
+
+  // Das zentrale Schema ist jetzt ein harter Bestandteil von reel:validate.
+  errors.push(...validateSceneShape(scene, {index: position}));
+
   const headline = typeof scene.headline === 'string' ? scene.headline.trim() : '';
   const icon = typeof scene.icon === 'string' ? scene.icon.trim() : '';
 
-  // ── Zwischenüberschrift ──────────────────────────────────────────────────
   if (!headline) {
     errors.push(`${id}: Zwischenüberschrift fehlt. Jede Szene braucht eine.`);
   } else {
@@ -79,7 +69,6 @@ scenes.forEach((scene, position) => {
       errors.push(`${id}: Zwischenüberschrift ist noch ein Platzhalter: "${headline}"`);
     }
 
-    // Eine Überschrift muss eine Aussage sein — keine reine Zahlenzeile.
     const buchstaben = headline.replace(/[^A-Za-zÄÖÜäöüß]/g, '');
     if (buchstaben.length < 6) {
       errors.push(`${id}: Zwischenüberschrift ist keine Aussage, sondern nur eine Zahl/ein Zeichen: "${headline}". Formuliere, was die Szene erklärt.`);
@@ -107,7 +96,6 @@ scenes.forEach((scene, position) => {
     }
   }
 
-  // ── Icon ─────────────────────────────────────────────────────────────────
   if (!icon) {
     errors.push(`${id}: Icon fehlt. Jede Szene braucht ein passendes Linien-Icon.`);
   } else if (ICONS.size > 0 && !ICONS.has(icon)) {
@@ -116,33 +104,25 @@ scenes.forEach((scene, position) => {
     seenIcons.set(icon, (seenIcons.get(icon) ?? 0) + 1);
   }
 
-  // ── Ton ──────────────────────────────────────────────────────────────────
   const tone = scene.headerTone ?? scene.tone;
   if (tone && !['default', 'positive', 'warning', 'money', 'neutral'].includes(tone)) {
     errors.push(`${id}: headerTone "${tone}" ist ungültig.`);
   }
 
-  // ── Dauer ────────────────────────────────────────────────────────────────
   const dauerFrames = Number(scene.durationFrames);
   if (Number.isFinite(dauerFrames) && dauerFrames > 0) {
     const sekunden = dauerFrames / fps;
     if (scene.type === 'image' && sekunden > 6.0001) {
-      // Ausnahme nur für Reels, deren Voiceover bereits aufgenommen ist und
-      // deren Szenenlänge sich ohne Neuaufnahme nicht mehr korrigieren lässt.
-      // Sie muss im scene-index begründet stehen und wird immer gemeldet.
       if (ausnahmeLangeBildbeats) {
         warnings.push(`${id}: Bildbeat dauert ${sekunden.toFixed(1)} s (über 6,0 s) — durch dokumentierte Ausnahme erlaubt.`);
       } else {
         errors.push(`${id}: Bildbeat dauert ${sekunden.toFixed(1)} s. Maximal 6,0 s — splitten oder animieren.`);
       }
     }
-    if (sekunden < 1.2) {
-      warnings.push(`${id}: Szene ist mit ${sekunden.toFixed(1)} s sehr kurz.`);
-    }
+    if (sekunden < 1.2) warnings.push(`${id}: Szene ist mit ${sekunden.toFixed(1)} s sehr kurz.`);
   }
 });
 
-// Icons dürfen sich wiederholen, aber nicht als Verlegenheitslösung.
 const maxGleich = Math.max(2, Math.ceil(scenes.length / 5));
 for (const [icon, anzahl] of seenIcons) {
   if (anzahl > maxGleich) {
@@ -150,7 +130,6 @@ for (const [icon, anzahl] of seenIcons) {
   }
 }
 
-// Lückenlose, überlappungsfreie Timeline.
 const mitFrames = scenes.filter((s) => Number.isFinite(Number(s.startFrame)) && Number(s.durationFrames) > 0);
 if (mitFrames.length === scenes.length && scenes.length > 0) {
   for (let i = 1; i < mitFrames.length; i += 1) {
@@ -163,6 +142,14 @@ if (mitFrames.length === scenes.length && scenes.length > 0) {
   }
 }
 
+// Per-Reel-Style-Metadaten sind nur beschreibend. REEL_STYLE im Code gewinnt.
+if (index.sceneHeader?.headlineColor && index.sceneHeader.headlineColor !== 'finance-green') {
+  warnings.push(`scene-index.sceneHeader.headlineColor="${index.sceneHeader.headlineColor}" ist veraltet; gerendert wird zentral nach REEL_STYLE (finance-green).`);
+}
+if (Number(index.transitionContract?.continuityFramesMax) > 4) {
+  warnings.push(`scene-index.transitionContract.continuityFramesMax=${index.transitionContract.continuityFramesMax} ist veraltet; REEL_STYLE begrenzt auf max. 4 Frames.`);
+}
+
 if (warnings.length) {
   console.warn('\nHinweise zur Szenenqualität:\n');
   warnings.forEach((w) => console.warn(`- ${w}`));
@@ -171,8 +158,8 @@ if (warnings.length) {
 if (errors.length) {
   console.error('\nSzenenqualität nicht erfüllt:\n');
   errors.forEach((e) => console.error(`- ${e}`));
-  console.error('\nJede Szene braucht eine Zwischenüberschrift, die als Aussage sagt, worum es geht, plus ein passendes Icon.');
+  console.error('\nJede Szene braucht eine klare Aussage, ein gültiges Icon und muss das zentrale Scene-Schema erfüllen.');
   process.exit(1);
 }
 
-console.log(`\n✓ Szenenqualität erfüllt: ${scenes.length} Szenen mit aussagekräftiger Überschrift, gültigem Icon und zulässiger Dauer.`);
+console.log(`\n✓ Szenenqualität erfüllt: ${scenes.length} Szenen mit gültigem Schema, aussagekräftiger Überschrift, gültigem Icon und zulässiger Dauer.`);

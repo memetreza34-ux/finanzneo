@@ -5,19 +5,21 @@ import {mkdtempSync, mkdirSync, writeFileSync, rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {resolve, join} from 'node:path';
 
-// Der Szenenqualitäts-Validator ist die Absicherung gegen genau die Fehler,
-// die visuell erst im fertigen Render auffallen: fehlende oder nichtssagende
-// Zwischenüberschriften, wiederholte Icons und überlange Bildbeats.
-// Diese Tests halten ihn scharf.
-
 const basisSzene = (over: Record<string, unknown> = {}) => ({
   id: 'scene-01',
   type: 'image',
   startFrame: 0,
   durationFrames: 120,
+  directory: 'EINZELNE-SZENEN/scene-01',
   headline: 'MEHRERE KONTEN WERDEN ADDIERT',
   icon: 'bank',
   headerTone: 'warning',
+  accent: 'warning',
+  planFile: 'EINZELNE-SZENEN/scene-01/bildprompt.txt',
+  googleFlowFileName: 'Bild 01 - Probe.png',
+  expectedVisual: 'Eine klar lesbare stilisierte Finanzmetapher.',
+  objectLabels: ['100.000 €'],
+  imagePresentation: {scale: 1.01, sourceCropTop: 0, sourceCropBottom: 0, cropSafe: true},
   ...over,
 });
 
@@ -64,7 +66,7 @@ test('Nichtssagende Floskeln werden blockiert', () => {
 test('Fehlende Zwischenüberschrift wird blockiert', () => {
   const {status, output} = laufe([basisSzene({headline: ''})]);
   assert.equal(status, 1);
-  assert.match(output, /Zwischenüberschrift fehlt/);
+  assert.match(output, /Zwischenüberschrift fehlt|headline fehlt/);
 });
 
 test('Platzhalter werden blockiert', () => {
@@ -82,7 +84,7 @@ test('Unbekannte Icons werden blockiert', () => {
 test('Fehlendes Icon wird blockiert', () => {
   const {status, output} = laufe([basisSzene({icon: ''})]);
   assert.equal(status, 1);
-  assert.match(output, /Icon fehlt/);
+  assert.match(output, /Icon fehlt|icon fehlt/);
 });
 
 test('Bildbeats über 6 Sekunden werden blockiert', () => {
@@ -94,7 +96,13 @@ test('Bildbeats über 6 Sekunden werden blockiert', () => {
 test('Doppelte Zwischenüberschriften werden blockiert', () => {
   const {status, output} = laufe([
     basisSzene(),
-    basisSzene({id: 'scene-02', startFrame: 120}),
+    basisSzene({
+      id: 'scene-02',
+      startFrame: 120,
+      directory: 'EINZELNE-SZENEN/scene-02',
+      planFile: 'EINZELNE-SZENEN/scene-02/bildprompt.txt',
+      googleFlowFileName: 'Bild 02 - Probe.png',
+    }),
   ]);
   assert.equal(status, 1);
   assert.match(output, /identisch/);
@@ -103,7 +111,14 @@ test('Doppelte Zwischenüberschriften werden blockiert', () => {
 test('Lücken in der Timeline werden blockiert', () => {
   const {status, output} = laufe([
     basisSzene(),
-    basisSzene({id: 'scene-02', headline: 'JEDE BANK SCHÜTZT SEPARAT', startFrame: 300}),
+    basisSzene({
+      id: 'scene-02',
+      headline: 'JEDE BANK SCHÜTZT SEPARAT',
+      startFrame: 300,
+      directory: 'EINZELNE-SZENEN/scene-02',
+      planFile: 'EINZELNE-SZENEN/scene-02/bildprompt.txt',
+      googleFlowFileName: 'Bild 02 - Probe.png',
+    }),
   ]);
   assert.equal(status, 1);
   assert.match(output, /lückenlos/);
@@ -128,4 +143,26 @@ test('Ohne Begründung greift die Timing-Ausnahme nicht', () => {
   rmSync(dir, {recursive: true, force: true});
   assert.equal(result.status, 1);
   assert.match(`${result.stdout}${result.stderr}`, /aussagekräftige Begründung/);
+});
+
+test('Veraltete per-Reel-Stylewerte werden nur gewarnt, zentrale Tokens gewinnen', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'fn-scene-'));
+  mkdirSync(join(dir, '03-szenen'), {recursive: true});
+  writeFileSync(
+    join(dir, '03-szenen/scene-index.json'),
+    JSON.stringify({
+      video: {fps: 30},
+      sceneHeader: {headlineColor: 'white'},
+      transitionContract: {continuityFramesMax: 6},
+      scenes: [basisSzene()],
+    }),
+  );
+  const result = spawnSync(
+    process.execPath,
+    [resolve('scripts/validate-scene-quality.mjs'), dir],
+    {encoding: 'utf8'},
+  );
+  rmSync(dir, {recursive: true, force: true});
+  assert.equal(result.status, 0);
+  assert.match(`${result.stdout}${result.stderr}`, /veraltet/);
 });

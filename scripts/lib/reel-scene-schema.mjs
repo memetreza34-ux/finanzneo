@@ -1,38 +1,25 @@
 // Die eine Definition, was eine gültige Reel-Szene ist.
 //
-// Vorher führten Scaffold, Quellenvertrag und Readiness je eine eigene
-// Vorstellung davon. Der Scaffold erzeugte kein `accent`, die Readiness
-// verlangte es — jedes frisch erzeugte Reel scheiterte dadurch in Phase 3,
-// obwohl Phase 1 korrekt gearbeitet hatte. Genau dieser Schema-Drift ist das
-// größte Risiko in einem mehrstufigen Agentensystem.
-//
-// Alle Skripte lesen ab jetzt von hier. Wer ein Feld ergänzt, ergänzt es
-// genau einmal; der Drift-Test in tests/scene-schema.test.ts stellt sicher,
-// dass Scaffold-Ausgabe und Readiness-Prüfung zusammenpassen.
+// Doppelte Metadaten sind absichtlich NICHT mehr überall Pflicht. `directory`
+// lässt sich aus planFile ableiten, `accent` aus headerTone und objectLabels
+// stehen bereits im Bildprompt. Genau diese Doppelpflege hatte Bestandsreels
+// und Readiness auseinanderlaufen lassen.
 
-/** Felder, die JEDE Szene braucht — unabhängig vom Typ. */
-export const SCENE_REQUIRED_FIELDS = ['id', 'type', 'directory', 'headline', 'icon', 'accent', 'planFile'];
+/** Felder, die JEDE Szene tatsächlich als Primärdaten braucht. */
+export const SCENE_REQUIRED_FIELDS = ['id', 'type', 'headline', 'icon', 'planFile'];
 
-/** Zusätzliche Pflichtfelder für Bildszenen. */
-export const IMAGE_SCENE_REQUIRED_FIELDS = ['googleFlowFileName', 'expectedVisual', 'objectLabels', 'imagePresentation'];
+/** Zusätzliche Primärdaten für Bildszenen. */
+export const IMAGE_SCENE_REQUIRED_FIELDS = ['googleFlowFileName', 'expectedVisual', 'imagePresentation'];
 
 /** Zusätzliche Pflichtfelder für Animationsszenen. */
 export const ANIMATION_SCENE_REQUIRED_FIELDS = [];
 
-/** Erlaubte Werte für die semantische Akzentfarbe einer Szene. */
+/** Erlaubte Werte für eine explizit gespeicherte semantische Akzentfarbe. */
 export const SCENE_ACCENTS = ['finance-green', 'price-pressure', 'gold', 'warning', 'neutral'];
 
 /** Erlaubte Werte für den Header-Ton. */
 export const SCENE_HEADER_TONES = ['default', 'positive', 'warning', 'money', 'neutral'];
 
-/**
- * Ordnet einen Header-Ton der passenden Akzentfarbe zu.
- *
- * `accent` (Bühnenfarbe der Szene) und `headerTone` (Farbe der
- * Zwischenüberschrift) beschreiben dieselbe semantische Absicht. Diese
- * Zuordnung hält beide automatisch konsistent, statt sie doppelt pflegen zu
- * lassen.
- */
 export const accentForTone = (tone) => {
   if (tone === 'warning') return 'warning';
   if (tone === 'money') return 'gold';
@@ -41,7 +28,30 @@ export const accentForTone = (tone) => {
 };
 
 /**
- * Prüft eine einzelne Szene gegen das Schema.
+ * Kanonischer Szenenordner. Alte Reels ohne `directory` bleiben damit lesbar,
+ * solange ihr planFile korrekt auf den Szenenordner zeigt.
+ */
+export const canonicalSceneDirectory = (scene) => {
+  const explicit = typeof scene?.directory === 'string' ? scene.directory.trim() : '';
+  if (explicit) return explicit.replace(/^03-szenen\//, '').replace(/\/$/, '');
+
+  const planFile = typeof scene?.planFile === 'string' ? scene.planFile.trim().replace(/^03-szenen\//, '') : '';
+  const slash = planFile.lastIndexOf('/');
+  return slash > 0 ? planFile.slice(0, slash) : '';
+};
+
+/**
+ * Kanonischer Akzent. Neue Reels dürfen ihn speichern, Phase 3 muss ihn aber
+ * nicht doppelt pflegen: headerTone bleibt die semantische Primärquelle.
+ */
+export const canonicalSceneAccent = (scene) => {
+  const explicit = typeof scene?.accent === 'string' ? scene.accent.trim() : '';
+  if (SCENE_ACCENTS.includes(explicit)) return explicit;
+  return accentForTone(scene?.headerTone ?? scene?.tone ?? 'default');
+};
+
+/**
+ * Prüft eine einzelne Szene gegen das gemeinsame Schema.
  * Gibt eine Liste von Klartextfehlern zurück (leer = gültig).
  */
 export const validateSceneShape = (scene, {index = 0} = {}) => {
@@ -62,8 +72,14 @@ export const validateSceneShape = (scene, {index = 0} = {}) => {
     fehler.push(`${id}.type muss image oder animation sein.`);
   }
 
-  if (scene?.accent && !SCENE_ACCENTS.includes(scene.accent)) {
-    fehler.push(`${id}.accent "${scene.accent}" ist unbekannt. Erlaubt: ${SCENE_ACCENTS.join(', ')}`);
+  if (!canonicalSceneDirectory(scene)) {
+    fehler.push(`${id}: Szenenordner kann weder aus directory noch aus planFile abgeleitet werden.`);
+  }
+
+  if (scene?.accent !== undefined && scene?.accent !== null && scene?.accent !== '') {
+    if (typeof scene.accent !== 'string' || !SCENE_ACCENTS.includes(scene.accent.trim())) {
+      fehler.push(`${id}.accent "${scene?.accent}" ist unbekannt. Erlaubt: ${SCENE_ACCENTS.join(', ')}`);
+    }
   }
 
   if (scene?.headerTone && !SCENE_HEADER_TONES.includes(scene.headerTone)) {
@@ -73,22 +89,26 @@ export const validateSceneShape = (scene, {index = 0} = {}) => {
   if (scene?.type === 'image') {
     for (const feld of IMAGE_SCENE_REQUIRED_FIELDS) {
       if (scene[feld] === undefined || scene[feld] === null) fehler.push(`${id}.${feld} fehlt.`);
+      else if (typeof scene[feld] === 'string' && (!scene[feld].trim() || hatPlatzhalter(scene[feld]))) {
+        fehler.push(`${id}.${feld} fehlt oder enthält einen Platzhalter.`);
+      }
     }
-    if (scene.objectLabels !== undefined && !Array.isArray(scene.objectLabels)) {
-      fehler.push(`${id}.objectLabels muss eine Liste sein.`);
+
+    // objectLabels sind hilfreiche Metadaten, aber keine zweite Wahrheit neben
+    // dem eigentlichen Bildprompt. Wenn vorhanden, müssen sie sauber sein.
+    if (scene.objectLabels !== undefined) {
+      if (!Array.isArray(scene.objectLabels)) {
+        fehler.push(`${id}.objectLabels muss eine Liste sein.`);
+      } else if (scene.objectLabels.some((label) => typeof label !== 'string' || !label.trim() || hatPlatzhalter(label))) {
+        fehler.push(`${id}.objectLabels enthalten ungültige Werte oder Platzhalter.`);
+      }
     }
   }
 
   return fehler;
 };
 
-/**
- * Wer Phase 3 ausführt.
- *
- * Beide Wege bauen dasselbe Reel nach denselben Regeln; sie unterscheiden sich
- * nur in der Übergabe. Ohne feste Werte stand hier Beliebiges ("claude-code-test"),
- * das niemand auswertete — die Angabe war wirkungslos.
- */
+/** Wer Phase 3 ausführt. */
 export const PHASE3_EXECUTORS = {
   antigravity: {
     label: 'Antigravity',
