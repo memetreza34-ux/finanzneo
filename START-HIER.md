@@ -1,14 +1,62 @@
 # FinanzNeo — Start hier
 
-## Verbindliche Reihenfolge
+## So funktioniert dieses Repo
 
-1. Lies `CLAUDE.md` vollständig.
-2. Für Reels lies `docs/3-PHASEN-WORKFLOW.md` und `reels/PRODUKTIONSSTANDARD.md`.
-3. Für YouTube-Longform lies `docs/YOUTUBE-LONGFORM-WORKFLOW.md` und `youtube/PRODUKTIONSSTANDARD.md`.
-4. Bei Bildaufgaben lies `docs/FINANZNEO-IMAGE-WORLD-V3.md`, `docs/IMAGE-SYSTEM.md`, `docs/IMAGE-PROMPT-LIBRARY.md` und `docs/IMAGE-QA-CHECKLIST.md`.
-5. Entscheide den Visualtyp mit `docs/BEAT-TO-IMAGE-RULES.md`.
-6. Für Reel-Veröffentlichung lies `docs/PLATFORM-PUBLISHING.md`.
-7. Beim Zielprojekt lies den jeweiligen Index, Sammelprompt und Szenen-/Visual-Plan.
+Ein Reel entsteht in drei Phasen. Jede Phase hat **genau ein** Einstiegsdokument.
+
+```text
+PHASE 1 — ChatGPT               PHASE 2 — Du              PHASE 3 — Antigravity
+Recherche, Skript,              Bilder in Google Flow,    Remotion bauen,
+Szenenplan, Bildprompts,   →    Voiceover aufnehmen,  →   prüfen, rendern,
+Captions                        Wortzeiten erzeugen       QA
+
+docs/PHASE-1-BRIEFING.md        docs/3-PHASEN-           MASTER-PROMPTS.md
+(komplett in ChatGPT              WORKFLOW.md            npm run reel:ready
+ kopieren)                                                   -- <Reel-Pfad>
+```
+
+**Wichtig zu Phase 1:** ChatGPT hat keinen Zugriff auf dieses Repository. Ein
+Prompt wie „halte dich an die Repo-Regeln" läuft ins Leere. Deshalb enthält
+`docs/PHASE-1-BRIEFING.md` alle Regeln ausgeschrieben und wird vollständig
+kopiert.
+
+## Die eine Wahrheit
+
+Layout-, Untertitel- und Übergangswerte stehen **im Code**:
+`REEL_STYLE` in `src/brand/tokens.ts`.
+
+Alle Dokumente sind Kopien davon. Bei Abweichung gilt der Code.
+`npm run validate:consistency` prüft das automatisch.
+
+## Was automatisch geprüft wird
+
+```bash
+npm run validate                      # Repo gesamt: Lint, Tests, Konsistenz, Typecheck
+npm run reel:validate -- <Reel-Pfad>  # Reel: Bildwelt, Szenenqualität, Publishing
+npm run reel:ready -- <Reel-Pfad>     # Phase-3-Freigabe: zusätzlich Assets prüfen
+```
+
+Blockiert unter anderem: fehlende oder nichtssagende Zwischenüberschriften,
+Überschriften aus reinen Zahlen, doppelte Überschriften, nicht existierende
+Icons, Bildbeats über 6 Sekunden, Lücken in der Timeline, Text-Stroke auf
+Untertiteln, träge Übergänge, fehlende Bildwelt-Locks, falsches
+Seitenverhältnis, fehlende Plattformtexte, fehlendes Audio oder Wortzeiten.
+
+Was ein Validator meldet, ist ein Phase-1-Fehler und wird dort korrigiert —
+nicht in Phase 3 überschrieben.
+
+## Vertiefende Dokumente
+
+| Thema | Datei |
+|---|---|
+| Projekt-Gehirn (höchste Regelquelle) | `CLAUDE.md` |
+| Untertitel, Überschriften, Timing | `docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md` |
+| Bildwelt | `docs/FINANZNEO-IMAGE-WORLD-V3.md`, `docs/IMAGE-SYSTEM.md` |
+| Bildprompts | `docs/IMAGE-PROMPT-LIBRARY.md`, `docs/IMAGE-QA-CHECKLIST.md` |
+| Bild oder Animation? | `docs/BEAT-TO-IMAGE-RULES.md` |
+| Veröffentlichung | `docs/PLATFORM-PUBLISHING.md` |
+| Produktionsstandard Reels | `reels/PRODUKTIONSSTANDARD.md` |
+| YouTube-Longform (eigener Prozess) | `docs/YOUTUBE-LONGFORM-WORKFLOW.md` |
 
 `CLAUDE.md` ist die höchste Regelquelle. Bei Widersprüchen gelten ältere Regeln nicht.
 

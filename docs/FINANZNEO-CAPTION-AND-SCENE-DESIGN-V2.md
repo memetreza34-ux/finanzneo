@@ -1,8 +1,8 @@
-# FinanzNeo — Caption, Scene Header, Timing & Motion V3
+# FinanzNeo — Caption, Scene Header, Timing & Motion V4
 
 Verbindlicher Qualitätsstandard für neue Reel-Produktionen.
 
-## 1. Premium-Untertitel V3
+## 1. Premium-Untertitel V4
 
 Auf dunklen FinanzNeo-Reel-Hintergründen:
 
@@ -15,15 +15,37 @@ Auf dunklen FinanzNeo-Reel-Hintergründen:
 - kein Word-Jump
 - keine Größenanimation / kein Scale-Pop
 - keine Glow-Schrift: Kanten müssen crisp bleiben
-- scharfer dunkler Stroke + sehr kurzer Shadow statt weicher Leuchteffekte
-- dunkle halbdeckende Caption-Backplate für klare Trennung vom Bild
-- Standardgröße ca. 64 px; bei langen Einheiten automatisch kleiner, nie unter ca. 50 px
-- Standardposition ca. 285 px über dem unteren Rand
-- links ca. 72 px, rechts ca. 140 px
+- **kein `WebkitTextStroke`** — siehe Begründung unten
+- dunkle halbdeckende Caption-Backplate für klare Trennung vom Bild; sie liefert den Kontrast allein
+- ein weicher Tiefenschatten (`0 2px 7px rgba(0,0,0,0.55)`) statt harter Kontur
+- Schriftstärke 800 — **nicht 900**
+- Standardgröße 50 px; bei langen Einheiten automatisch kleiner, nie unter 40 px
+- `letterSpacing: 0` — kein negativer Wert
+- Standardposition 285 px über dem unteren Rand
+- links 72 px, rechts 140 px
 - kurze Pausen halten die vorherige Caption sichtbar
 - keine Caption-Lücken
 
+### Warum kein Stroke und kein Weight 900
+
+`WebkitTextStroke` zeichnet die Kontur **mittig auf der Glyphenkante**, wächst
+also zur Hälfte in den Buchstaben hinein. Zusammen mit Schriftstärke 900 liefen
+die Innenräume von `a`, `e`, `o` und `g` zu — der Untertitel wirkte dick,
+klobig und unscharf. Bei 64 px kam eine erdrückende Grundgröße dazu.
+
+Der Standard ist deshalb: **Backplate für Kontrast, weicher Schatten für Tiefe,
+keine Kontur.** Der Validator erzwingt das (`npm run validate:design-system`).
+
+### Zahlen im Untertitel
+
+Transkriptionen zerlegen Beträge häufig am Tausenderpunkt in zwei Tokens
+(`100` + `.000`), im Untertitel erschien sichtbar `100 .000 Euro`. Die
+Zusammenführung passiert zentral in `src/lib/captions.ts` und gilt für alle
+Reels — in einzelnen Reels nichts nachbauen.
+
 Technische Standardkomponente: `src/brand/components/Captions.tsx`.
+Alle Maße stammen aus `REEL_STYLE.caption` in `src/brand/tokens.ts`. Reels
+setzen keine eigenen Caption-Größen; `<Captions words={...} />` genügt.
 
 ## 2. Zwischenüberschrift V3 — jede Szene
 
@@ -47,6 +69,68 @@ Regeln:
 - kurze direkte Headline, kein Satz
 - Rot nur bei Warnung/Problem
 - Gold nur bei Geld/Wert
+- **mittig zentriert**, nicht linksbündig
+- **Headline in FinanzNeo-Grün**, Icon in derselben Farbe
+- **jede Szene bekommt ein eigenes, inhaltlich passendes Icon**
+- Schriftgröße 46, Icon-Box 46 px, Icon 26 px — kompakt, nicht raumgreifend
+- Header steht beim Szenenwechsel **sofort** (4 Frames Einstieg, `at={0}`); er zieht nicht nach
+
+Alle Maße stammen aus `REEL_STYLE.header`. Reels setzen keine eigenen
+Header-Größen.
+
+### Die Überschrift trägt die Szenenaussage
+
+Die Zwischenüberschrift benennt, worum es in **dieser** Szene geht — nicht das
+Reel-Thema, keine Strukturmarke. Bei stummem Abspielen muss allein aus
+Überschrift + Icon + Visual hervorgehen, was die Szene erklärt.
+
+**Die Überschrift ist ein Aussagesatz oder eine Frage — nie nur ein Stichwort
+und nie nur eine Zahl.**
+
+Prüffrage: *Wenn jemand nur diese Zeile liest — weiß er dann, was die Szene
+erklärt?*
+
+| gut (Aussage) | schlecht | warum schlecht |
+|---|---|---|
+| `MEHRERE KONTEN WERDEN ADDIERT` | `60.000 € + 50.000 €` | reine Zahlen |
+| `JEDE BANK SCHÜTZT SEPARAT` | `80.000 € + 80.000 €` | reine Zahlen |
+| `GEMEINSCHAFTSKONTO WIRD GETEILT` | `GEMEINSCHAFTSKONTO` | Stichwort |
+| `AKTIEN UND ETFs ZÄHLEN NICHT DAZU` | `AKTIEN & ETFs` | Stichwort |
+| `JEDES KONTO EINZELN? FALSCH` | `EINLAGENSICHERUNG` | Reel-Thema |
+
+Zahlen dürfen **in** der Überschrift stehen, nie allein. Länge 3–6 Wörter,
+eine Zeile.
+
+## 1a. Untertitel enden an der Szenengrenze
+
+**In einer Szene erscheinen nur die Wörter, die in ihr gesprochen werden.**
+
+Läuft eine Caption über den Szenenwechsel, steht die Aussage der nächsten Szene
+schon im Bild, während noch die alte Grafik läuft — der Zuschauer liest die
+Pointe, bevor die Szene sie zeigt.
+
+Umsetzung:
+
+- Untertitel **pro Szene** rendern, nicht durchgehend über die Komposition
+- Wörter außerhalb des Szenenfensters mit `clipCaptionWords`
+  (`src/lib/captions.ts`) wegschneiden
+- Caption-Einheiten **innerhalb** des Fensters neu bilden
+- Zeitstempel auf den Szenenstart normalisieren
+
+```tsx
+<Series.Sequence durationInFrames={scene.durationFrames}>
+  {/* Visual */}
+  <SceneCaptions
+    words={alleWörter}
+    startFrame={scene.startFrame}
+    durationFrames={scene.durationFrames}
+  />
+</Series.Sequence>
+```
+
+Der Szenenschnitt selbst folgt weiterhin dem echten Wort-Timing. Eine Szene
+wird nie gedehnt, damit ein Satz hineinpasst — stattdessen liegt der Schnitt
+auf dem passenden Satz-/Phrasenanfang.
 
 ## 3. Hauptvisual-Zone tiefer und größer
 
@@ -58,6 +142,22 @@ Für 1080 × 1920:
 - zentrale Mechanismen und Einzelobjekte bevorzugt in der mittleren Bildschirmzone
 - keine kleinen Animationen direkt unter dem Header
 - zentrale Erklärung größer darstellen statt viel leeren Hintergrund zu lassen
+
+Dafür steht `AnimationStage` aus `src/brand/components/ReelStage.tsx` bereit:
+Der Wrapper zentriert eine Animation auf der Visualzone und skaliert sie
+einheitlich hoch (`REEL_STYLE.visual.animationScale`), damit Grafiken den Raum
+füllen statt klein und verloren zu wirken.
+
+## 3a. Szenenübergänge — kurz halten
+
+- Continuity-Schnitt von **3 Frames** (0,1 s), nicht länger
+- Bildszenen steigen in **4 Frames** ein
+- **kein Fade-to-black**
+- Übergänge dürfen die audio-synchronisierten Startframes der Folgeszenen nie verschieben
+
+Träge Blenden lassen ein Reel sofort langsam wirken. Zentrale Komponente:
+`SceneTransition` aus `src/brand/components/ReelStage.tsx`; Werte aus
+`REEL_STYLE.transition`. Der Validator blockiert Werte über 4 Frames.
 
 ## 4. Animationsfarben
 

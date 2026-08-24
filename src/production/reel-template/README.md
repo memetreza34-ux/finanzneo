@@ -46,8 +46,10 @@ Jede Szene erhält automatisch über den zentralen Renderpfad einen `SceneHeader
 
 Standard:
 
-- Icon grün
-- Headline weiß
+- mittig zentriert
+- Headline und Icon in FinanzNeo-Grün
+- jede Szene ein eigenes, inhaltlich passendes Icon
+- die Überschrift ist eine Aussage, nie nur ein Stichwort oder eine Zahl
 - gleiche Top-Position in jeder Szene
 - `headerTone: 'warning'` nur für echte Warnung/Problem
 - `headerTone: 'money'` nur für Geld-/Wertfokus
@@ -64,7 +66,7 @@ Die zentrale `Captions`-Komponente erzwingt:
 - kein schwarzer Untertiteltext
 - kein Word-Jump
 - kein Scale-Pop
-- Caption-Safe-Area: bottom 320, left 62, right 150
+- Caption-Safe-Area: bottom 285, left 72, right 140 (aus `REEL_STYLE`)
 
 Lokale `highlight`-/`color`-Overrides dürfen die Caption-Farblogik nicht verändern.
 

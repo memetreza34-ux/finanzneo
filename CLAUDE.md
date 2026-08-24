@@ -36,6 +36,7 @@ Neue Reels verwenden diese einfache Hauptstruktur:
 03-szenen/
 04-caption/
 05-projektdateien/
+06-export/
 README.md
 ```
 
@@ -44,6 +45,7 @@ README.md
 - `03-szenen/` = Cover, alle Bildprompts, Szenen, gemeinsame Nutzerbilder
 - `04-caption/` = Social Caption + echte Wort-Timings
 - `05-projektdateien/` = Recherche, Quellen, Animationen, Szenenplan, technische Dateien
+- `06-export/` = fertiges Upload-Paket; wird von `npm run reel:export` erzeugt, nicht von Hand gepflegt
 
 Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Video anlegen, wenn sie nicht technisch zwingend erforderlich sind.
 
@@ -56,6 +58,11 @@ Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Vi
 Antigravity stoppt nur bei echten Blockern: fehlende/falsch benannte Nutzerbilder, fehlendes/mehrfaches/unlesbares finales Audio, fehlende oder nicht zum Audio passende Wortzeiten, widersprüchliche Pflichtdaten, Sicherheits-/Faktenkonflikte oder ein nicht selbst lösbarer Validator-/Build-/Renderfehler. Alle Blocker werden gesammelt mit exakten Pfaden gemeldet. Normale Detailentscheidungen trifft Antigravity selbst nach den Repo-Regeln.
 
 Vollständige Übergabe: `docs/3-PHASEN-WORKFLOW.md`.
+
+**Phase-1-Briefing: `docs/PHASE-1-BRIEFING.md`.** ChatGPT hat keinen Zugriff
+auf dieses Repository — ein Verweis auf „die Repo-Regeln" bleibt daher wirkungslos.
+Das Briefing enthält alle Regeln ausgeschrieben und wird nach jeder Regeländerung
+in dieser Datei nachgezogen.
 
 ## 4. Reel-Standard
 
@@ -369,14 +376,44 @@ Standardkomponente:
 
 Regeln:
 
-- Position ungefähr ab Y = 78
-- Icon links, Headline rechts
-- Standard-Iconfarbe FinanzNeo-grün
-- Headline immer weiß
+- **mittig zentriert** — nicht linksbündig
+- **Headline in FinanzNeo-Grün**, nicht weiß
+- Icon links neben der Headline, in derselben Farbe wie die Headline
+- **jede Szene bekommt ein eigenes, inhaltlich passendes Icon**; kein Wiederverwenden desselben Icons für andere Aussagen
+- Position ungefähr ab Y = 118
 - gleiche Position und Grundgestaltung im ganzen Reel
 - kurze direkte Zwischenüberschrift, kein langer Satz
 - Rot nur bei echter Warnung/Problem
 - Gold nur bei Geld/Wert, nicht als allgemeine Textfarbe
+
+**Die Zwischenüberschrift muss sagen, worum es in dieser Szene geht.**
+
+Sie ist kein Dekotext und keine Wiederholung des Reel-Titels, sondern die
+Kernaussage genau dieser Szene in wenigen Wörtern. Wer den Ton ausschaltet,
+muss allein an Überschrift + Icon + Visual erkennen, was die Szene erklärt.
+
+**Pflichtregel: Die Überschrift ist ein Aussagesatz oder eine Frage — nie nur
+ein Stichwort und nie nur eine Zahl.**
+
+Prüffrage vor jeder Szene: *Wenn jemand nur diese Zeile liest — weiß er dann,
+was die Szene erklärt?* Wenn nein, ist die Überschrift falsch.
+
+| gut (Aussage) | schlecht | warum schlecht |
+|---|---|---|
+| `MEHRERE KONTEN WERDEN ADDIERT` | `60.000 € + 50.000 €` | reine Zahlen, sagen nichts aus |
+| `ZUSAMMEN SIND ES 110.000 €` | `110.000 €` | Zahl ohne Aussage |
+| `JEDE BANK SCHÜTZT SEPARAT` | `80.000 € + 80.000 €` | reine Zahlen |
+| `GEMEINSCHAFTSKONTO WIRD GETEILT` | `GEMEINSCHAFTSKONTO` | Stichwort, keine Aussage |
+| `AKTIEN UND ETFs ZÄHLEN NICHT DAZU` | `AKTIEN & ETFs` | Stichwort |
+| `PRÜFE, WO DEIN GELD WIRKLICH LIEGT` | `BANK PRÜFEN` | zu vage |
+| `JEDES KONTO EINZELN? FALSCH` | `EINLAGENSICHERUNG` | Reel-Thema statt Szenenaussage |
+| `NUR SECHS MONATE LANG` | `WICHTIG` / `TEIL 3` | sagt nichts / Struktur statt Inhalt |
+
+Zahlen dürfen **in** der Überschrift stehen, aber nie allein: `ZU ZWEIT BIS
+200.000 € GESCHÜTZT` ist gut, `200.000 €` ist es nicht.
+
+Länge: ungefähr 3–6 Wörter, maximal eine Zeile. Wird es länger, ist die
+Szenenaussage noch nicht scharf genug.
 
 ### Animationsfarben auf dunklem Hintergrund
 
@@ -411,6 +448,7 @@ STARTZUSTAND
 Standardkomponente: `src/brand/components/Captions.tsx`.
 
 - genau eine satzbasierte Caption-Einheit gleichzeitig
+- **kein Wort darf der Szene vorgreifen** — siehe Regel unten
 - aktuelles gesprochenes Wort **immer FinanzNeo-grün**
 - restliche Wörter **immer weiß**
 - **kein gelbes/goldenes Active-Word**
@@ -420,17 +458,87 @@ Standardkomponente: `src/brand/components/Captions.tsx`.
 - keine Größenanimation / kein Scale-Pop
 - vorherige Caption bleibt während kurzer Pausen sichtbar
 - keine Caption-Lücken
-- mobiler Shadow/Stroke bzw. subtiler dunkler Caption-Hintergrund erlaubt
+- dunkle Caption-Backplate + weicher Tiefenschatten für mobile Lesbarkeit
 
-Safe Area bei 1080 × 1920:
+**Verbindliche Schriftwerte (V4):**
+
+- Schriftgröße **50 px** (automatisch kleiner bei langen Einheiten, nie unter 40)
+- Schriftstärke **800** — nicht 900
+- `letterSpacing: 0` — kein negativer Wert
+- **`WebkitTextStroke` ist verboten**
+
+Grund: WebKit zeichnet die Kontur mittig auf der Glyphenkante, sie wächst also
+zur Hälfte in den Buchstaben hinein. Mit Weight 900 liefen die Innenräume von
+`a`, `e`, `o`, `g` zu — der Untertitel wirkte dick und matschig. Den Kontrast
+liefert allein die Backplate.
+
+Zahlenfragmente aus der Transkription (`100` + `.000` → `100.000`) werden
+zentral in `src/lib/captions.ts` zusammengeführt.
+
+### Untertitel enden an der Szenengrenze — kein Vorgreifen
+
+**In einer Szene erscheinen ausschließlich die Wörter, die in dieser Szene
+gesprochen werden.** Kein Wort der nächsten Szene darf vorher sichtbar sein.
+
+Läuft eine durchgehende Caption über den Szenenwechsel, steht die Aussage der
+nächsten Szene schon im Bild, während noch die alte Grafik zu sehen ist. Der
+Zuschauer liest die Pointe, bevor die Szene sie zeigt — Hook und Erklärung
+verpuffen.
+
+Verbindliche Umsetzung:
+
+- Untertitel werden **pro Szene** gerendert, nicht durchgehend über die
+  gesamte Komposition
+- Wörter außerhalb des Szenenfensters werden weggeschnitten
+  (`clipCaptionWords` aus `src/lib/captions.ts`)
+- die Caption-Einheiten werden **innerhalb** des Szenenfensters neu gebildet,
+  damit keine Einheit über die Grenze reicht
+- Zeitstempel werden auf den Szenenstart normalisiert (Frame-Reset in
+  `Series.Sequence`)
+
+Falsch:
+
+```tsx
+<Series>{scenes}</Series>
+<Captions words={alleWörter} />   // läuft über alle Szenen hinweg
+```
+
+Richtig:
+
+```tsx
+<Series.Sequence durationInFrames={scene.durationFrames}>
+  {/* Visual */}
+  <SceneCaptions
+    words={alleWörter}
+    startFrame={scene.startFrame}
+    durationFrames={scene.durationFrames}
+  />
+</Series.Sequence>
+```
+
+Dieselbe Regel gilt umgekehrt: Der **Szenenschnitt** folgt weiterhin dem echten
+Wort-Timing (Abschnitt 10). Eine Szene wird nie verlängert oder gekürzt, nur
+damit ein Satz hineinpasst — stattdessen wird der Schnitt auf den passenden
+Satz-/Phrasenanfang gelegt.
+
+### Verbindliche Layout- und Übergangswerte
+
+Einzige Quelle: **`REEL_STYLE` in `src/brand/tokens.ts`**. Reels setzen keine
+eigenen Größen — `<Captions words={...} />` und `<SceneHeader ... />` genügen.
 
 ```text
-Headline ungefähr ab Y = 78
-Visual ungefähr Y = 270–1350
-Untertitel 320 px über dem unteren Rand
-links 62 px
-rechts 150 px
+Header               Y = 118 · Schrift 46 · Icon-Box 46 · Einstieg 4 Frames
+Visual               Y = 390–1560
+Untertitel           285 px über dem unteren Rand · links 72 · rechts 140
+Szenenübergang       3 Frames Continuity · kein Fade-to-black
+Bildszenen-Einstieg  4 Frames
 ```
+
+Zentrale Komponenten für Szenenaufbau: `SceneTransition` und `AnimationStage`
+aus `src/brand/components/ReelStage.tsx`.
+
+`npm run validate:design-system` erzwingt diese Werte und blockiert Rückfälle
+(Stroke, Weight > 800, Schrift > 54 px, Übergänge > 4 Frames).
 
 ## 10. Timing
 
@@ -496,7 +604,7 @@ True Peak: höchstens -1 dBTP
 5. Zahlen/Aussagen prüfen
 6. visuelle Beats planen; 60/40 als Ziel, aber nie ein Bild künstlich länger als 6 Sekunden halten
 7. Bild / Remotion / Kombination festlegen
-8. für **jede** Szene eine kurze Zwischenüberschrift + passendes Icon festlegen
+8. für **jede** Szene eine kurze Zwischenüberschrift festlegen, die die Szenenaussage trifft, plus ein eigenes passendes Icon
 9. finales Voiceover ablegen
 10. echte Wort-Zeitstempel erzeugen
 11. Szenenstarts aus Satz-/sinnvollen Phrasenanfängen ableiten
@@ -509,7 +617,7 @@ True Peak: höchstens -1 dBTP
 18. Bild-QA: Alltagsklarheit, Stylized-3D-Look, Labels, Gesicht, ein Hintergrund ohne Bänder
 19. Remotion-Animationen als Start → Mechanismus → Ergebnis bauen
 20. `SceneHeader` + Icon in jede Szene einbinden
-21. Karaoke-Captions einbinden: Active grün, Rest weiß
+21. Karaoke-Captions **pro Szene** einbinden (kein Vorgreifen): Active grün, Rest weiß
 22. Animationsfarben prüfen: kein Schwarz auf dunkler Fläche
 23. Asset-Sync, Validatoren, Typecheck
 24. Preview rendern
@@ -518,7 +626,8 @@ True Peak: höchstens -1 dBTP
 27. Animationen zusätzlich ohne Ton auf Verständlichkeit prüfen
 28. Audio-Lautheit messen
 29. Caption/Quellen/CTA finalisieren
-30. erst nach menschlicher Sichtprüfung freigeben
+30. `npm run reel:export -- <Reel-Pfad>` ausführen; `06-export/` muss vollständig sein
+31. erst nach menschlicher Sichtprüfung freigeben
 
 ## 15. Bild-/Reel-QA — sofort korrigieren, wenn
 
@@ -541,6 +650,15 @@ True Peak: höchstens -1 dBTP
 - schwarzer Text auf dunklem Reel-Hintergrund vorkommt
 - eine Animation keinen klaren Start, Mechanismus und Ergebnis besitzt
 - eine Animation ohne Ton nicht grundlegend nachvollziehbar ist
+- ein Untertitel Wörter zeigt, die erst in der nächsten Szene gesprochen werden
+- eine Zwischenüberschrift nicht mittig oder nicht grün ist
+- eine Zwischenüberschrift nicht sagt, worum es in der Szene geht
+- zwei Szenen dasselbe Icon für unterschiedliche Aussagen verwenden
+- Untertitel dick, klobig oder unscharf wirken (Stroke? Weight 900? Größe > 54?)
+- ein Untertitel eine zerlegte Zahl zeigt (`100 .000` statt `100.000`)
+- ein Szenenübergang träge wirkt oder länger als 4 Frames blendet
+- eine Animation klein und verloren in der Visualzone steht statt sie zu füllen
+- sich Elemente einer Animation sichtbar überlagern
 
 ## 16. Abschlussdefinition
 
@@ -553,11 +671,34 @@ Ein Reel ist erst fertig, wenn:
 - Bildsatz visuell geprüft wurde
 - komplette MP4 geprüft wurde
 - Untertitel-Farben und mobile Lesbarkeit geprüft wurden
-- jede Szene Headline + Icon besitzt
+- jede Szene eine mittige grüne Headline + passendes eigenes Icon besitzt
+- kein Untertitel der nächsten Szene vorgreift
 - Animationsfarben und Animationsverständlichkeit geprüft wurden
 - Audioziel geprüft wurde
+- `npm run reel:export -- <Reel-Pfad>` gelaufen ist und `06-export/` vollständig ist
 
 Technischer Erfolg allein ist keine kreative Freigabe.
+
+### Das Export-Paket — Abschluss jeder Phase 3
+
+Phase 3 endet nie mit einer MP4 irgendwo in `out/`, sondern immer mit einem
+vollständigen Upload-Paket in `06-export/`:
+
+```text
+<reel-name>.mp4          fertiges Video, Untertitel eingebrannt
+cover.png                Titelbild (Bild 00)
+bilder.zip               alle Szenenbilder
+caption-universal.txt    überall verwendbarer Text
+caption-instagram.txt    Instagram Reels
+caption-tiktok.txt       TikTok
+caption-facebook.txt     Facebook Reels
+caption-snapchat.txt     Snapchat
+untertitel.srt           separate Untertiteldatei
+UPLOAD.md                Upload-Anleitung mit Format, Länge, Lautheit
+```
+
+Der Export bricht ab, wenn etwas fehlt — ein unvollständiges Paket gilt nicht
+als fertiges Reel.
 
 ## 17. Aktive Prioritäten
 

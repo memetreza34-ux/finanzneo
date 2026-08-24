@@ -75,13 +75,13 @@ const worldPrompt = `FINANZNEO WORLD REFERENCE — WRITTEN STYLE LOCK ONLY\n\n${
 const imageSceneIds = types.flatMap((t, i) => t === 'image' ? [`scene-${num(i)}`] : []);
 const animationSceneIds = types.flatMap((t, i) => t === 'animation' ? [`scene-${num(i)}`] : []);
 
-write('README.md', `# ${title}\n\nEinfache Struktur:\n- 01-script = Fließtext fürs Voiceover\n- 02-audio = fertiges Audio\n- 03-szenen = Cover, Bildprompts, Szenen, fertige Nutzerbilder\n- 04-caption = Master-Caption, Reel-Plattformtexte und Wort-Timings\n- 05-projektdateien = Animationen, Recherche, Technik\n\n3 Phasen:\n1. ChatGPT vervollständigt Recherche, Skript, Szenenplan, Prompts, Zwischenüberschriften/Icons und Captions.\n2. Der Nutzer erstellt Google-Flow-Bilder und finales Audio; danach echte Wort-Zeitstempel.\n3. Mit \`npm run reel:ready -- ${targetArg}\` prüfen. Bei Erfolg baut Antigravity das Reel ohne Zwischenfragen.\n\nZiel: ungefähr 60 % Bildbeats / 40 % native Remotion-Animationen, aber kein statisches Bild länger als 6 Sekunden.\n`);
+write('README.md', `# ${title}\n\nEinfache Struktur:\n- 01-script = Fließtext fürs Voiceover\n- 02-audio = fertiges Audio\n- 03-szenen = Cover, Bildprompts, Szenen, fertige Nutzerbilder\n- 04-caption = Master-Caption, Reel-Plattformtexte und Wort-Timings\n- 05-projektdateien = Animationen, Recherche, Technik\n- 06-export = fertiges Upload-Paket (erzeugt \`npm run reel:export\`, nicht von Hand pflegen)\n\n3 Phasen:\n1. ChatGPT vervollständigt Recherche, Skript, Szenenplan, Prompts, Zwischenüberschriften/Icons und Captions.\n2. Der Nutzer erstellt Google-Flow-Bilder und finales Audio; danach echte Wort-Zeitstempel.\n3. Mit \`npm run reel:ready -- ${targetArg}\` prüfen. Bei Erfolg baut Antigravity das Reel ohne Zwischenfragen und schließt mit \`npm run reel:export -- ${targetArg}\` ab.\n\nZiel: ungefähr 60 % Bildbeats / 40 % native Remotion-Animationen, aber kein statisches Bild länger als 6 Sekunden.\n`);
 write('01-script/script-fliess-text.txt', '[VOLLSTÄNDIGEN FLIESSTEXT EINFÜGEN]\n');
 write('02-audio/README.md', '# AUDIO HIER REIN\n\nHier genau eine finale Voiceover-Datei ablegen. Danach echte Wort-Zeitstempel erzeugen.\n');
 write('03-szenen/00-ALLE-BILDER-HIER-REIN/README.md', '# ALLE FERTIGEN BILDER HIER REIN\n\nGoogle Flow: genau ein Bild erzeugen → vollständig warten → sofort exakt umbenennen → Stylized-3D-Look + Aussage + Labels + Hintergrund prüfen → erst dann das nächste Bild. Keine Bildreferenzen. Animationsszenen erhalten kein Bild.\n');
 write('03-szenen/00-cover/cover.txt', coverPrompt);
 write('03-szenen/bildwelt.txt', worldPrompt);
-write('03-szenen/README.md', '# SZENEN\n\nEinzige Bild-Übergabedatei: `alle-bildprompts.txt`. Keine Bildreferenzen. Jede Bildszene eigenständig, aber mit identischem ausgeschriebenem Stylized-3D-Lock. Jede Reel-Szene braucht eine kurze Zwischenüberschrift + passendes Icon.\n');
+write('03-szenen/README.md', '# SZENEN\n\nEinzige Bild-Übergabedatei: `alle-bildprompts.txt`. Keine Bildreferenzen. Jede Bildszene eigenständig, aber mit identischem ausgeschriebenem Stylized-3D-Lock. Jede Reel-Szene braucht eine kurze, mittige, grüne Zwischenüberschrift, die die Szenenaussage trifft, plus ein eigenes passendes Icon.\n');
 write('04-caption/caption.txt', '[GEPRÜFTE MASTER-CAPTION / GEMEINSAME FAKTENBASIS EINFÜGEN]\n');
 write('04-caption/instagram-reels.txt', 'CAPTION:\n[EINFÜGEN]\n\nCTA:\n[EINFÜGEN ODER ENTFERNEN]\n\nQUELLEN / HINWEIS:\n[EINFÜGEN WENN NÖTIG]\n\nHASHTAGS:\n[EINFÜGEN]\n\nANGEHEFTETER KOMMENTAR:\n[OPTIONAL]\n');
 write('04-caption/tiktok.txt', 'CAPTION:\n[EINFÜGEN]\n\nCTA:\n[EINFÜGEN ODER ENTFERNEN]\n\nQUELLEN / HINWEIS:\n[EINFÜGEN WENN NÖTIG]\n\nHASHTAGS:\n[EINFÜGEN]\n');
@@ -90,7 +90,7 @@ write('04-caption/snapchat.txt', 'CAPTION:\n[EINFÜGEN]\n\nCTA:\n[OPTIONAL]\n\nQ
 write('04-caption/word-timings.json', `${JSON.stringify({version:'finanzneo-caption-v1',language:'de',source:'',generatedAt:'',duration:0,wordCount:0,fps:30,subtitleMode:SUBTITLE_MODE,activeWordColor:ACTIVE_WORD_COLOR,words:[],sentences:[]}, null, 2)}\n`);
 write('05-projektdateien/animationen.md', '# ANIMATIONEN\n\nJede Animation: STARTZUSTAND → SICHTBARER MECHANISMUS → EINDEUTIGES ERGEBNIS. Farben: weiß neutral, grün Fokus/Lösung, rot Problem/Warnung, gold Geld/Wert; kein schwarzer Text auf dunklem Hintergrund.\n\n[REMOTION-ANIMATIONEN EINFÜGEN]\n');
 write('05-projektdateien/recherche-quellen.md', '# RECHERCHE UND QUELLEN\n\n[QUELLEN EINFÜGEN]\n');
-write('05-projektdateien/szenenplan.md', '# SZENENPLAN\n\nFür jede Szene festlegen: Typ, Sprechbeat, Zwischenüberschrift, Icon, Hauptaussage. Bildbeats max. 6 Sekunden.\n\n[SZENENPLAN EINFÜGEN]\n');
+write('05-projektdateien/szenenplan.md', '# SZENENPLAN\n\nFür jede Szene festlegen: Typ, Sprechbeat, Zwischenüberschrift, Icon, Hauptaussage. Bildbeats max. 6 Sekunden.\n\nVerbindlich:\n- Zwischenüberschrift mittig und in FinanzNeo-Grün; sie sagt, worum es in DIESER Szene geht (nicht das Reel-Thema)\n- jede Szene bekommt ein eigenes, inhaltlich passendes Icon\n- Untertitel enden an der Szenengrenze: kein Wort der nächsten Szene darf vorher sichtbar sein\n\n[SZENENPLAN EINFÜGEN]\n');
 write('05-projektdateien/PHASENSTATUS.md', `# Phasenstatus\n\n- [ ] Phase 1: Inhalt, Fakten, Skript, Szenen, Prompts, Zwischenüberschriften/Icons und Plattformtexte vollständig\n- [ ] Phase 2: alle exakt benannten Bilder, genau ein finales Voiceover und echte Wort-Zeitstempel vorhanden\n- [ ] Phase 3: \`npm run reel:ready -- ${targetArg}\` erfolgreich; technische Produktion und QA abgeschlossen\n`);
 write('05-projektdateien/technische-hinweise.md', '# TECHNISCHE HINWEISE\n\n- Reel: 1080 × 1920, 9:16, 30 fps\n- Flow-Bilder: 1:1, contain, keine Bildreferenz\n- Stylized 3D V5, kein Fotorealismus\n- Bildbeat ideal 3,5–5,5 s, absolut max. 6 s\n- jede Szene: SceneHeader + passendes Icon\n- Captions: aktives Wort grün, Rest weiß, satzbasiert, kein Jump/Scale\n- Animation: START → MECHANISMUS → ERGEBNIS\n- Animationsfarben: weiß/grün/rot/gold; kein Schwarz auf dunkel\n- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP\n');
 write('05-projektdateien/timeline.json', `${JSON.stringify({version:2,title,fps:30,timingSource:'04-caption/word-timings.json',cutRule:'voice-sentence-or-meaningful-phrase-start',sceneCount:types.length,scenes:[]}, null, 2)}\n`);
@@ -99,7 +99,7 @@ const scenes = types.map((type, index) => {
   const number = num(index);
   const id = `scene-${number}`;
   const dir = `03-szenen/EINZELNE-SZENEN/${id}`;
-  write(`${dir}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n**Zwischenüberschrift:** [EINFÜGEN]\n**Icon:** [EINFÜGEN]\n**Sprechtext:** [EINFÜGEN]\n\n${type === 'image' ? `**Google-Flow-Dateiname:** ${sceneFileName(index)}\n**Erlaubte kurze Objektlabels:** [EINFÜGEN]\n` : `**Google Flow:** KEIN Bild ${number}; Nummer bleibt reserviert.\n**Animation:** START → MECHANISMUS → ERGEBNIS; kein schwarzer Text auf dunklem Hintergrund.\n`}`);
+  write(`${dir}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n**Zwischenüberschrift:** [EINFÜGEN — mittig, grün, sagt die Kernaussage DIESER Szene]\n**Icon:** [EINFÜGEN — eigenes, inhaltlich passendes Icon]\n**Sprechtext:** [EINFÜGEN — nur die Wörter dieser Szene; kein Vorgreifen]\n\n${type === 'image' ? `**Google-Flow-Dateiname:** ${sceneFileName(index)}\n**Erlaubte kurze Objektlabels:** [EINFÜGEN]\n` : `**Google Flow:** KEIN Bild ${number}; Nummer bleibt reserviert.\n**Animation:** START → MECHANISMUS → ERGEBNIS; kein schwarzer Text auf dunklem Hintergrund.\n`}`);
 
   const common = {
     id,
@@ -124,7 +124,7 @@ const scenes = types.map((type, index) => {
     };
   }
 
-  write(`${dir}/remotion.md`, `# Remotion-Spezifikation ${id}\n\n**Zwischenüberschrift:** [EINFÜGEN]\n**Icon:** [EINFÜGEN]\n\n## STARTZUSTAND\n[EINFÜGEN]\n\n## SICHTBARER MECHANISMUS\n[EINFÜGEN]\n\n## ERGEBNIS\n[EINFÜGEN]\n\n## FARBEN\n- neutral: weiß\n- Fokus/Lösung: grün\n- Problem/Warnung: rot\n- Geld/Wert: gold\n- schwarzer Text auf dunklem Hintergrund: VERBOTEN\n\nAnimation muss ohne Ton grundlegend verständlich sein.\n`);
+  write(`${dir}/remotion.md`, `# Remotion-Spezifikation ${id}\n\n**Zwischenüberschrift:** [EINFÜGEN — mittig, grün, sagt die Kernaussage DIESER Szene]\n**Icon:** [EINFÜGEN — eigenes, inhaltlich passendes Icon]\n\n## STARTZUSTAND\n[EINFÜGEN]\n\n## SICHTBARER MECHANISMUS\n[EINFÜGEN]\n\n## ERGEBNIS\n[EINFÜGEN]\n\n## FARBEN\n- neutral: weiß\n- Fokus/Lösung: grün\n- Problem/Warnung: rot\n- Geld/Wert: gold\n- schwarzer Text auf dunklem Hintergrund: VERBOTEN\n\nAnimation muss ohne Ton grundlegend verständlich sein.\n`);
   return {...common,planFile:`EINZELNE-SZENEN/${id}/remotion.md`};
 });
 
@@ -156,16 +156,18 @@ write('03-szenen/scene-index.json', `${JSON.stringify({
   timelineRules:{timingSource:'04-caption/word-timings.json',cutsFollowSentenceStarts:true,cutsFollowSentenceStartsAndMeaningfulPhraseStarts:true,equalLengthScenesForbiddenByDefault:true},
   audio:{targetIntegratedLufs:-16,targetTruePeakDbtp:-1},
   imagePresentationContract:{imageFit:'contain',maxIntentionalImageScale:1.04,maxSourceCropPerSide:0.2,maxSourceCropTotal:0.34,blurredImageBackgroundForbidden:true},
-  subtitleDisplay:{mode:SUBTITLE_MODE,activeWordColor:ACTIVE_WORD_COLOR,normalWordColor:'white',maxLines:2,noDeadGaps:true,holdDuringPauses:true,noWordJump:true,noWordScale:true,goldActiveWordForbidden:true,blackTextForbidden:true},
-  sceneHeader:{required:true,defaultIconColor:'finance-green',headlineColor:'white',samePositionAcrossReel:true},
+  subtitleDisplay:{mode:SUBTITLE_MODE,activeWordColor:ACTIVE_WORD_COLOR,normalWordColor:'white',maxLines:2,noDeadGaps:true,holdDuringPauses:true,noWordJump:true,noWordScale:true,goldActiveWordForbidden:true,blackTextForbidden:true,clipToSceneBoundary:true,crossSceneSpillForbidden:true,textStrokeForbidden:true,fontWeight:800,fontSize:50},
+  sceneHeader:{required:true,align:'center',defaultIconColor:'finance-green',headlineColor:'finance-green',uniqueIconPerScene:true,mustStateSceneMessage:true,samePositionAcrossReel:true},
   animationColors:{neutral:'white',focus:'finance-green',warning:'red',money:'gold',blackOnDarkForbidden:true},
-  layout:{headlineY:78,visualTop:270,visualBottom:1350,subtitleBottom:320,subtitleLeft:62,subtitleRight:150},
+  layout:{headlineY:118,visualTop:390,visualBottom:1560,subtitleBottom:285,subtitleLeft:72,subtitleRight:140},
+  transitionContract:{continuityFramesMax:4,imageEnterFrames:4,fadeToBlackForbidden:true},
   scenes
 }, null, 2)}\n`);
 
 console.log(`✓ Reel-Gerüst erstellt: ${root}`);
 console.log(`  ${imageSceneIds.length} Bildszenen · ${animationSceneIds.length} Remotion-Szenen`);
 console.log('  Bildwelt: Stylized 3D V5 · keine Bildreferenzen · 1:1 · nahtloser Hintergrund');
-console.log('  Reel-UI: jede Szene mit Zwischenüberschrift + Icon · Captions grün/weiß');
+console.log('  Reel-UI: mittige grüne Zwischenüberschrift + eigenes Icon je Szene · Captions grün/weiß');
+console.log('  Untertitel: enden an der Szenengrenze · kein Vorgreifen · Weight 800 · 50 px · kein Stroke');
 console.log('  Animationen: Start → Mechanismus → Ergebnis · weiß/grün/rot/gold · kein Schwarz auf dunkel');
 console.log(`  Phase-3-Prüfung: npm run reel:ready -- ${targetArg}`);

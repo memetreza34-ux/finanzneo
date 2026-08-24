@@ -277,22 +277,28 @@ Standard:
 
 Regeln:
 
-- Icon standardmäßig FinanzNeo-grün
-- Headline weiß
+- **mittig zentriert**, Icon links neben der Headline
+- **Headline in FinanzNeo-Grün** (Icon in derselben Farbe)
+- **jede Szene ein eigenes, inhaltlich passendes Icon**
+- **die Überschrift ist eine Aussage** — nie nur ein Stichwort, nie nur eine Zahl
 - gleiche Position/Grundgestaltung im ganzen Reel
-- kurze direkte Formulierung
+- kurze direkte Formulierung, 3–6 Wörter
 - Rot nur für Warnung/Problem
 - Gold nur für Geld/Wert
 - kein schwarzer Text auf dunklem Reel-Hintergrund
 
 ### Layout 1080 × 1920
 
+Verbindliche Quelle: `REEL_STYLE` in `src/brand/tokens.ts`.
+Diese Werte hier sind eine Kopie — bei Abweichung gilt der Code.
+
 ```text
-Headline ungefähr ab Y = 78
-Visual ungefähr Y = 270–1350
-Untertitel 320 px über dem unteren Rand
-links 62 px
-rechts 150 px
+Headline             Y = 118
+Visual               Y = 390–1560
+Untertitel           285 px über dem unteren Rand
+links 72 px
+rechts 72 px (Header) / 140 px (Untertitel)
+Szenenübergang       3 Frames · kein Fade-to-black
 ```
 
 ### Untertitel

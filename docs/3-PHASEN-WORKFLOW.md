@@ -9,6 +9,7 @@ Normales ChatGPT erstellt im Reel-Ordner vollständig:
 - Recherche, Quellen und Datenstand
 - geprüftes 60–90-Sekunden-Skript
 - Hook, Dramaturgie und Szenenplan
+- pro Szene eine Zwischenüberschrift, die die Kernaussage genau dieser Szene trifft, plus ein eigenes passendes Icon
 - Bild-/Remotion-Zuordnung
 - Cover- und Bildprompts für Google Flow
 - exakte endgültige Dateinamen nach echten Szenennummern
@@ -16,6 +17,10 @@ Normales ChatGPT erstellt im Reel-Ordner vollständig:
 - Master-Caption und Texte für Instagram Reels, TikTok, Facebook Reels und Snapchat
 
 In Phase 1 bleiben keine Platzhalter in diesen Inhalten. ChatGPT erzeugt keine finalen Bilder und kein Ersatz-Voiceover.
+
+**Übergabe an Phase 1: `docs/PHASE-1-BRIEFING.md`** — vollständig kopieren.
+ChatGPT hat keinen Repo-Zugriff; das Briefing enthält deshalb alle Regeln
+ausgeschrieben statt auf Dateien zu verweisen.
 
 ## Phase 2 — Nutzer erstellt Bilder und Audio
 
@@ -54,6 +59,8 @@ Wenn die Prüfung erfolgreich ist, startet Antigravity ohne Rückfragen und ohne
 1. Bilder technisch synchronisieren
 2. Timeline aus dem finalen Audio ableiten
 3. Remotion-Szenen, Überschriften und Karaoke-Untertitel bauen
+   - Zwischenüberschrift mittig und in FinanzNeo-Grün, mit eigenem Icon je Szene
+   - Untertitel **pro Szene** clippen: kein Wort der nächsten Szene darf vorher sichtbar sein
 4. Validator, Tests und Typecheck ausführen
 5. Preview und finale MP4 rendern
 6. Frames, Bildsatz, Ton und Lautheit prüfen

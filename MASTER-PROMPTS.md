@@ -20,27 +20,18 @@ Vor YouTube-Longform zusätzlich lesen:
 
 ## 1. Phase 1 — ChatGPT bereitet komplett vor
 
-```text
-Neues FinanzNeo-Reel.
+**Nicht diesen Abschnitt kopieren, sondern `docs/PHASE-1-BRIEFING.md`.**
 
-Thema: [THEMA]
+ChatGPT hat keinen Zugriff auf dieses Repository. Ein Prompt wie „halte dich an
+die Repo-Regeln" läuft deshalb ins Leere — Phase 1 kann Regeln nicht befolgen,
+die sie nicht kennt. Genau daraus entstanden uneinheitliche Reels.
 
-Arbeite nach allen aktuellen Repo-Regeln und erstelle selbstständig:
-1. Recherche mit Quellen und Datenstand
-2. Lernziel und Kernaussage
-3. geprüftes 60–90-Sekunden-Skript
-4. Szenen-/Beat-Liste
-5. begründete Zuordnung KI-Bild / Remotion / Kombination
-6. vollständige Google-Flow-Bildprompts mit echtem Szenen-Dateinamen
-7. Remotion-Spezifikationen
-8. Master-Caption + Reel-Plattformdateien für Instagram Reels, TikTok, Facebook Reels und Snapchat
+`docs/PHASE-1-BRIEFING.md` enthält alle Regeln ausgeschrieben: Format, Skript,
+Zwischenüberschriften, Untertitel, Bildwelt, Nummerierung, Animationen,
+Lieferumfang und eine Selbstprüfung. Den Block „Briefing zum Kopieren"
+vollständig in ChatGPT einfügen und `[THEMA]` ersetzen.
 
-Antigravity erzeugt keine Bilder. Der Nutzer erzeugt alle Bilder selbst mit Google Flow.
-Keine YouTube Shorts erzeugen. YouTube ist ausschließlich ein separater Longform-Bereich unter `youtube/`.
-
-Schreibe alle Ergebnisse direkt in die verbindliche Reel-Struktur. Entferne alle Platzhalter aus Skript, Recherche, Szenenplan, Bildprompts, scene-index und Plattformtexten. Erzeuge selbst keine finalen Bilder und kein Ersatz-Voiceover.
-Erstelle `03-szenen/alle-bildprompts.txt` als einzige Agent-Übergabedatei mit `FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1` und `FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1`. Der Agent muss genau ein Bild erzeugen, vollständig warten, sofort exakt umbenennen, prüfen und erst danach fortfahren. Fehlerhafte Bilder werden unter derselben Nummer neu erzeugt.
-```
+Nach jeder Regeländerung in `CLAUDE.md` wird das Briefing nachgezogen.
 
 ## 2. Phase 3 — Antigravity baut autonom
 
@@ -50,6 +41,8 @@ Mach das Reel: reels/<Woche>/<Tag>/<Reel>
 Prüfe zuerst vollständig mit `npm run reel:ready -- <Reel-Pfad>`.
 Wenn die Prüfung erfolgreich ist, beginne sofort und arbeite ohne Rückfragen oder Zwischenstopps bis zur technischen und visuellen QA des fertigen Renders.
 Triff normale Detailentscheidungen selbst nach CLAUDE.md.
+Schließe mit `npm run reel:export -- <Reel-Pfad>` ab. Das Reel gilt erst als fertig, wenn `06-export/` vollständig ist: Video, Cover, bilder.zip, alle fünf Caption-Dateien, untertitel.srt und UPLOAD.md.
+
 Stoppe nur bei echten Pflichtasset-, Fakten-, Sicherheits-, Validator-, Build- oder Renderblockern. Melde dann alle Blocker gesammelt mit exakten Pfaden.
 ```
 
