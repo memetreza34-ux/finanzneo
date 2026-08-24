@@ -1,0 +1,50 @@
+{
+  "version": 3,
+  "locked": true,
+  "integrationMode": "reel-system-v4-compatible-overlay",
+  "baseWorldId": "finanzneo-connected-studio-v3",
+  "seriesLockId": "finanzneo-same-world-v1",
+  "stylized3DLockId": "finanzneo-stylized-3d-editorial-v5",
+  "physicalExplainerLockId": "finanzneo-physical-explainer-editorial-v7",
+  "worldDefinitionPath": "config/finanzneo-image-worlds/finanzneo-physical-explainer-editorial-v7.txt",
+  "changePolicy": "Intentional global lock-file change only. New reels inherit this overlay; per-reel style overrides must not weaken it.",
+  "coverAspectRatio": "1:1",
+  "sceneImageAspectRatio": "1:1",
+  "preferredSceneImageSize": "1080x1080",
+  "rules": {
+    "physicalHeroObjectRequired": true,
+    "recognizableTopicObjectsRequired": true,
+    "supportingObjectsMin": 3,
+    "supportingObjectsMax": 6,
+    "physicalTagsRequiredWhenLabelsUsed": true,
+    "naturalAsymmetryRequired": true,
+    "seamlessSingleBackgroundRequired": true,
+    "realisticEverydaySceneForbidden": true,
+    "floatingUiTilesForbidden": true,
+    "microchipVisualLanguageForbidden": true,
+    "gameBoardCompositionForbidden": true,
+    "satelliteModuleOrbitForbidden": true,
+    "symmetricalFourCornerLayoutForbidden": true,
+    "digitalCentralScreenForbidden": true,
+    "genericIconButtonsAsMainObjectsForbidden": true,
+    "lineNetworkMainMotifForbidden": true,
+    "abstractFlowMainMotifForbidden": true,
+    "repeatedContractWallForbidden": true,
+    "wealthTowersForbidden": true,
+    "monolithsForbidden": true,
+    "sterileProductAdLookForbidden": true,
+    "emptyBlackStudioForbidden": true,
+    "tinyPosterCompositionForbidden": true
+  },
+  "googleFlow": {
+    "continuousAutonomousRunRequired": true,
+    "userConfirmationBetweenImagesForbidden": true,
+    "autoRegenerateInvalidImage": true,
+    "completionSummaryOnlyAfterAllImages": true
+  },
+  "compatibilityDecision": {
+    "v24OriginalCoverWas916": true,
+    "canonicalReelSourceCoverIs11": true,
+    "reason": "FinanzNeo Reel source images, including Bild 00, remain square 1:1. 9:16 is created in Remotion; this avoids a second source-image contract."
+  }
+}

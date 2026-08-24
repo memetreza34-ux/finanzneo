@@ -5,10 +5,11 @@ ChatGPT eingefügt — inklusive aller Regeln.
 
 **Warum vollständig:** ChatGPT hat keinen Zugriff auf dieses Repository. Ein
 Prompt wie „halte dich an die Repo-Regeln" läuft deshalb ins Leere: Phase 1
-kann Regeln nicht befolgen, die sie nicht kennt. Genau daraus entstanden
-uneinheitliche Reels. Alle Regeln stehen deshalb hier ausgeschrieben.
+kann Regeln nicht befolgen, die sie nicht kennt. Alle Regeln stehen deshalb
+hier ausgeschrieben.
 
-Nach jeder Regeländerung in `CLAUDE.md` wird dieses Briefing nachgezogen.
+Nach jeder Regeländerung in `CLAUDE.md` oder am globalen Image-World-Lock wird
+dieses Briefing nachgezogen.
 
 ---
 
@@ -50,7 +51,8 @@ KEINE YouTube Shorts.
 - Standardumfang 15 Visual-Beats (9 Bild / 6 Animation); 14–16 sind der Zielkorridor
 - Bildbeat 3,5–5,5 s ideal, ABSOLUT MAXIMAL 6,0 s
 - Animationsbeat 4,5–6,5 s
-- Google-Flow-Quellbilder IMMER quadratisch 1:1 (nie 9:16)
+- Google-Flow-Quellbilder IMMER quadratisch 1:1
+- AUCH Cover Bild 00 bleibt als Flow-Quellbild 1:1; 9:16 entsteht erst in Remotion
 
 WICHTIG ZUR 6-SEKUNDEN-GRENZE:
 Szenenschnitte folgen später den echten Wortzeiten des Voiceovers. Plane die
@@ -95,7 +97,7 @@ Beschreibt sie einen Zustand, ist es ein Bild.
 Ziel etwa 60 % Bild / 40 % Animation. Bild und Animation wechseln sich ab —
 nie mehr als zwei Bildszenen direkt hintereinander.
 
-SO SIEHT DAS AUS (Beispiel, 3 Szenen):
+SO SIEHT DAS AUS:
 
   Szene 01 · BILD · 12 Wörter
   „100.000 Euro Einlagensicherung klingt, als wäre jedes Konto einzeln
@@ -151,9 +153,9 @@ NUR SECHS MONATE LANG                WICHTIG / TEIL 3      sagt nichts
 - Darstellung: mittig zentriert, in FinanzNeo-Grün
 
 ICON — jede Szene bekommt ein eigenes, inhaltlich passendes Icon.
-Nicht dasselbe Icon für verschiedene Aussagen wiederverwenden.
+Nicht dasselbe Icon als Verlegenheitslösung für unterschiedliche Aussagen.
 
-Verfügbare Icons (nur diese Namen verwenden):
+Verfügbare Icons:
 euro, clock, hourglass, shield, check, cross, coins, bank, rocket, wallet,
 percent, flame, target, bulb, lock, trending, calendar, phone, search,
 receipt, repeat, document, list, warning
@@ -177,13 +179,14 @@ Achte beim Szenenplan darauf, dass die Schnitte auf Satz- bzw. sinnvollen
 Phrasenanfängen liegen.
 
 ════════════════════════════════════════════════════════════════════
-6. BILDWELT — STYLIZED 3D EDITORIAL
+6. BILDWELT — STYLIZED 3D + PHYSICAL EXPLAINER V7
 ════════════════════════════════════════════════════════════════════
 Jeder Bildprompt enthält diese Kopfzeilen wörtlich:
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -196,9 +199,27 @@ STIL (in jedem Prompt ausschreiben):
 - Gold NUR für Geld/Wert, Rot-Orange NUR für Verlust/Risiko/Warnung
 - cinematic soft key light + smaragdgrünes Rim Light
 - NICHT fotorealistisch, kein Büro-/Stockfoto, kein Pixar/Clay/Toy
-- kein Dashboard, UI, Gameboard, Diorama, Neon-Tunnel
 
-EIN NAHTLOSER HINTERGRUND (höchste Bildregel) — wörtlich einbauen:
+PHYSICAL-EXPLAINER-KOMPOSITION — VERBINDLICH:
+- EIN großes physisches Hero-Objekt als dominantes Hauptmotiv
+- 3–6 erkennbare, themenspezifische physische Alltagsobjekte darum
+- natürliche asymmetrische Anordnung mit Überlappung und Kontakt-Schatten
+- konkrete Objekte vor generischen Icons bevorzugen
+- Labels als physische Tags/Schilder/Sticker, nie als schwebende UI-Chips
+
+STRENG VERBOTEN:
+- Dashboard/App-UI/Control Panel
+- schwebende Cards/Tiles/Buttons/HUD
+- Microchip-/Circuit-Board-Sprache
+- vier symmetrische Mini-Kacheln in den Ecken
+- Satelliten-/Orbit-Anordnung um ein Zentrum
+- Gameboard/Boardgame
+- Neon-Liniennetz oder abstrakter Finance-Flow als Hauptmotiv
+- kleine isometrische Dioramen
+- wiederholte Vertragswände, Wealth Towers, Monolithen
+- sterile Luxus-Produktwerbung
+
+EIN NAHTLOSER HINTERGRUND — wörtlich einbauen:
 Use ONE single seamless continuous deep charcoal green-black background across
 the entire square 1:1 image. NO horizontal divisions. NO visible top or bottom
 section. NO dark bands. NO floor-wall boundary. NO horizon line. NO panel
@@ -209,16 +230,13 @@ VERBOTEN: Prozent-Zonen wie „top 15% / middle 60% / bottom 25%".
 
 TEXT IM BILD:
 - NIEMALS Überschrift, Untertitel, ganzer Satz, CTA, Absatz
-- ERLAUBT: kurze deutsche Objektlabels, 1–3 Wörter, direkt am Objekt
+- ERLAUBT: kurze deutsche physische Objektlabels, 1–3 Wörter
 - wenige Labels pro Bild
 Jeder Prompt enthält: „No headline. No subtitle. No explanatory sentence."
 
 PERSON (optional): stilisiert, Gesicht IMMER klar sichtbar, frontal oder
 3/4-Ansicht. Keine gesichtslose Figur, keine reine Rückenansicht.
 Jeder Prompt enthält eine Gesichtsregel (Wort „face" oder „Gesicht").
-
-BILDLOGIK: ein dominantes Hauptmotiv, 2–5 unterstützende Alltagsobjekte,
-klarer Ursache-Wirkungs-Zusammenhang.
 
 MARKEN (Netflix, Spotify, …) nur wenn konkret relevant, korrekt geschrieben,
 keine erfundene Partnerschaft.
@@ -276,8 +294,11 @@ Halte Beschriftungen kurz — lange Chips laufen seitlich aus dem Bild.
 05-projektdateien/animationen.md        Animationsspezifikationen
 
 Pro Szene im scene-index.json:
-  id, type (image|animation), headline, icon, headerTone,
-  planFile, expectedVisual (bei Bildszenen), googleFlowFileName (bei Bildszenen)
+  id, type (image|animation), headline, icon, headerTone, planFile,
+  expectedVisual + googleFlowFileName + imagePresentation bei Bildszenen.
+  `directory`, `accent` und `objectLabels` dürfen zusätzlich enthalten sein,
+  sind aber keine zweite Wahrheit: directory kann aus planFile, accent aus
+  headerTone abgeleitet werden; die Bildlabels stehen verbindlich im Prompt.
 
 KEINE PLATZHALTER. Kein „[EINFÜGEN]", kein „TODO", kein „…".
 Erzeuge KEINE Bilder und KEIN Ersatz-Voiceover — das macht der Nutzer.
@@ -289,6 +310,7 @@ alle-bildprompts.txt enthält zusätzlich das Arbeitsprotokoll wörtlich:
 - Kein vorheriges Bild als Referenz hochladen / keine Bildreferenz
 - Jede Szene bekommt eine eigene frische Komposition
 - Zielordner: 03-szenen/00-ALLE-BILDER-HIER-REIN/
+- ohne Nutzer-Zwischenfreigabe automatisch bis zum letzten benötigten Bild weiterarbeiten
 
 ════════════════════════════════════════════════════════════════════
 10. SELBSTPRÜFUNG VOR ABGABE
@@ -303,10 +325,14 @@ alle-bildprompts.txt enthält zusätzlich das Arbeitsprotokoll wörtlich:
 [ ] jede Szene hat eine Überschrift, die als AUSSAGE sagt, worum es geht
 [ ] keine Überschrift ist nur eine Zahl oder nur ein Stichwort
 [ ] keine zwei Szenen mit identischer Überschrift
-[ ] jede Szene hat ein eigenes passendes Icon aus der erlaubten Liste
+[ ] jede Szene hat ein passendes Icon aus der erlaubten Liste
 [ ] kein Bildbeat müsste länger als 6 Sekunden stehen
 [ ] Bildnummern = echte Szenennummern, Animationsnummern übersprungen
-[ ] jeder Bildprompt: 1:1, nahtloser Hintergrund, Locks, Dateiname, Gesichtsregel
+[ ] Cover + alle Bildszenen als Flow-Quelle 1:1
+[ ] jeder Bildprompt enthält Same-World-, Stylized-3D- UND Physical-Explainer-V7-Lock
+[ ] jedes Bild: ein physisches Hero-Objekt + 3–6 konkrete themenspezifische Objekte
+[ ] keine UI-/Microchip-/Gameboard-/Orbit-Komposition
+[ ] jeder Bildprompt: nahtloser Hintergrund, Dateiname, Gesichtsregel
 [ ] jeder Bildprompt verbietet Headline/Untertitel/Satz im Bild
 [ ] jede Animation hat Start → Mechanismus → Ergebnis
 [ ] keine schwarzen Texte auf dunklem Hintergrund
@@ -328,6 +354,7 @@ Nach Phase 2 blockiert `npm run reel:ready -- <Reel-Pfad>` unter anderem:
 - Lücken oder Überlappungen in der Timeline
 - fehlende Bildwelt-Locks, falsches Seitenverhältnis, Prozent-Zonen
 - fehlende Plattformtexte, fehlende Wortzeiten, fehlendes Audio
+- bei `phase3Executor=claude-code`: fehlender/unvollständiger Claude-Code-Auftrag
 
-Was der Validator meldet, ist ein Phase-1-Fehler und wird dort korrigiert —
-nicht in Phase 3 überschrieben.
+Was der Validator meldet, wird an der Quelle korrigiert — nicht in Phase 3
+still überschrieben.
