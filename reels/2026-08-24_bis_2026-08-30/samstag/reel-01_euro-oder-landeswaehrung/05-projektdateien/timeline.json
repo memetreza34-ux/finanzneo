@@ -1,0 +1,10 @@
+{
+  "status": "PHASE_2_REQUIRED",
+  "version": 2,
+  "title": "Euro oder Landeswährung? Die Kartenfalle im Ausland",
+  "fps": 30,
+  "timingSource": "04-caption/word-timings.json",
+  "cutRule": "voice-sentence-or-meaningful-phrase-start",
+  "sceneCount": 15,
+  "scenes": []
+}
