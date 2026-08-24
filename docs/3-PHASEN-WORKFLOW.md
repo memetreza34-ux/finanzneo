@@ -29,7 +29,9 @@ ausgeschrieben statt auf Dateien zu verweisen.
 3. Agent strikt arbeiten lassen: genau ein Bild → vollständig warten → sofort exakt umbenennen → Same-World- und Bild-QA → erst dann nächstes Bild.
    Jedes erzeugte Bild muss quadratisch `1:1` sein; nicht `9:16`.
 4. Bei einem Fehler dieselbe Bildnummer neu erzeugen; niemals parallel oder als Batch fortfahren.
-5. Das bestandene Cover `Bild 00` als reine Stilreferenz für alle Folgebilder verwenden; keine Motive oder Labels daraus kopieren.
+5. **Keine Bildreferenz verwenden.** `Bild 00` oder andere Szenenbilder niemals als Referenz
+   hochladen oder anhängen. Einheitlichkeit entsteht ausschließlich über den in jedem Prompt
+   ausgeschriebenen Stil-, Material-, Farb- und Licht-Lock.
 6. Alle Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` ablegen.
 7. Genau ein finales Voiceover in `02-audio/` ablegen.
 8. Aus genau diesem Audio echte Wort-Zeitstempel erzeugen:

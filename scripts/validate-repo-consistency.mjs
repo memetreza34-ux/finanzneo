@@ -60,6 +60,7 @@ if (!tokens) {
     {muster: /320\s*px über dem unteren Rand/, hinweis: `Untertitel 320 statt ${werte.captionBottom}`},
     {muster: /Headline immer weiß|Headline weiß/, hinweis: 'weiße Headline statt FinanzNeo-Grün'},
     {muster: /scharfer.{0,12}Stroke/i, hinweis: 'Text-Stroke, der repo-weit verboten ist'},
+    {muster: /Bild 00.{0,40}(Stilreferenz|als Referenz)/i, hinweis: 'Bild 00 als Stilreferenz, obwohl Bildreferenzen verboten sind'},
   ];
 
   // Reel-Projektordner sind Archiv und werden nicht rückwirkend geprüft.
@@ -79,7 +80,7 @@ if (!tokens) {
     for (const {muster, hinweis} of VERALTET) {
       // Erklärende Nennungen ("statt", "nicht", "verboten") sind erlaubt.
       const zeilen = inhalt.split('\n').filter((z) => muster.test(z));
-      const echte = zeilen.filter((z) => !/statt|nicht |verboten|früher|alt\b|✗|Weight 900|max\.|>/i.test(z));
+      const echte = zeilen.filter((z) => !/\bkeine?\b|\bnie(mals)?\b|statt|nicht|verboten|untersagt|früher|✗|Weight 900|max\.|>/i.test(z));
       if (echte.length > 0) {
         errors.push(`${datei} nennt ${hinweis}: "${echte[0].trim().slice(0, 70)}"`);
       }

@@ -110,6 +110,10 @@ const scenes = types.map((type, index) => {
     directory:`EINZELNE-SZENEN/${id}`,
     headline:'[EINFÜGEN]',
     icon:'[EINFÜGEN]',
+    // accent und headerTone beschreiben dieselbe semantische Absicht.
+    // Pflichtfeld laut scripts/lib/reel-scene-schema.mjs.
+    accent:'finance-green',
+    headerTone:'default',
   };
 
   if (type === 'image') {
