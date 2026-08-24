@@ -1,17 +1,30 @@
+FLOW_EXECUTION_MODE: finanzneo-flow-autonomous-full-run-v2
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+
+AUTONOMER GESAMTDURCHLAUF — VERBINDLICH
+- ARBEITE DAS GESAMTE BILDSET OHNE NUTZER-ZWISCHENSTOPP BIS ZUM LETZTEN BENÖTIGTEN BILD AB.
+- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", EINE BESTÄTIGUNG ODER EINE FREIGABE DES NUTZERS.
+- "WARTEN" BEDEUTET AUSSCHLIESSLICH: INTERN WARTEN, BIS DIE AKTUELLE BILDERZEUGUNG TECHNISCH VOLLSTÄNDIG ABGESCHLOSSEN IST. ES BEDEUTET NIEMALS, AUF DEN NUTZER ZU WARTEN.
+- NACH JEDEM BILD AUTOMATISCH: vollständig erzeugen → sofort exakt umbenennen → QA prüfen → bei Fehler dieselbe Bildnummer neu erzeugen → bei bestandener QA DIREKT mit dem nächsten benötigten Bild fortfahren.
+- Remotion-/Animationsnummern automatisch überspringen; dafür kein Bild erzeugen.
+- Nur bei einem echten technischen Hard-Blocker stoppen. Geschmacksfragen, Zwischenfreigaben oder fehlendes "weiter" sind KEINE Stop-Gründe.
+- DIESE STRUKTUR, REIHENFOLGE, DATEINAMENLOGIK, BILDWELT, MATERIALLOGIK, FARBROLLEN, LICHTLOGIK UND QUALITÄTSREGELN BIS ZUM LETZTEN BILD KONSEQUENT BEIBEHALTEN.
+- Keine Stiländerung, keine neue Bildwelt und keine abweichende Prompt-Struktur mitten im Durchlauf. Jede Szene bekommt eine frische Komposition INNERHALB derselben festgeschriebenen Welt.
+
 FINANZNEO FLOW MASTER — FREITAG 28.08.2026
 REEL: Bank pleite — So bekommst du dein Geld zurück
 
 ARBEITSMODUS
 1. Lies die Datei komplett und arbeite danach von oben nach unten.
-2. Erzeuge GENAU EIN Bild pro Schritt.
-3. Vollständig warten.
+2. Erzeuge GENAU EIN Bild pro Schritt; niemals mehrere Bilder gleichzeitig.
+3. INTERN warten, bis dieses eine Bild vollständig erzeugt ist — niemals auf Nutzerfreigabe warten.
 4. Benenne es SOFORT exakt mit dem angegebenen Dateinamen.
 5. Prüfe 1:1, Motiv, kurze deutsche Objektlabels, klaren Stylized-3D-Look, Hintergrund und Dateiname.
 6. Bei Fehlern: Erzeuge DIESELBE Bildnummer neu.
-7. Erst nach bestandener QA das nächste Bild.
-8. Szenen 02, 04, 06, 08, 10 und 12 sind Remotion — KEIN Bild.
+7. Nach bestandener QA AUTOMATISCH und ohne Nutzer-Zwischenfreigabe mit dem nächsten benötigten Bild fortfahren.
+8. Szenen 02, 04, 06, 08, 10 und 12 sind Remotion — KEIN Bild; diese Nummern automatisch überspringen.
 9. Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen oder anhängen.
-10. Jede Szene bekommt eine eigene frische Komposition.
+10. Jede Szene bekommt eine eigene frische Komposition, aber die festgelegte Bildwelt und Struktur bleiben bis zum letzten Bild unverändert.
 11. Nach Abschluss alle fertigen Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` ablegen.
 
 BILD 00 — COVER
