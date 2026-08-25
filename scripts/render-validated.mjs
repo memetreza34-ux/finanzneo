@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import {resolve} from 'node:path';
+import {existsSync, mkdirSync, renameSync, rmSync} from 'node:fs';
+import {dirname, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {validateManifest} from './validate-assets.mjs';
 
@@ -12,7 +13,6 @@ if (!manifestPath) {
 }
 
 let manifest;
-
 try {
   manifest = validateManifest(manifestPath);
 } catch (error) {
@@ -23,16 +23,26 @@ try {
 const composition = manifest.composition;
 const entryPoint = manifest.entryPoint ?? 'src/index.ts';
 const output = manifest.output;
+const reelProject = typeof manifest.reelProject === 'string' && manifest.reelProject.trim() ? manifest.reelProject : null;
 
 if (!composition || !output) {
   console.error('Render abgebrochen: Manifest benötigt "composition" und "output".');
   process.exit(1);
 }
 
-const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+if (reelProject) {
+  const preflight = spawnSync(process.execPath, [
+    resolve('scripts/validate-phase3-preflight.mjs'),
+    reelProject,
+    manifestPath,
+  ], {stdio: 'inherit'});
+  if (preflight.status !== 0) {
+    console.error('\n✗ Render nicht gestartet. Phase-3-Preflight ist nicht grün.');
+    process.exit(preflight.status ?? 1);
+  }
+}
 
-// Premium-Reel-Defaults: scharfe Typografie und deutlich weniger Kompressionsartefakte.
-// CRF 14 statt niedriger Zielbitrate; PNG-Zwischenframes vermeiden zusätzliche JPEG-Weichzeichnung.
+const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
 const premiumDefaults = [
   '--codec=h264',
   '--crf=14',
@@ -41,14 +51,26 @@ const premiumDefaults = [
   '--image-format=png',
 ];
 
-const args = ['remotion', 'render', entryPoint, composition, output, ...premiumDefaults];
+const finalOutput = resolve(output);
+const candidateOutput = reelProject
+  ? finalOutput.replace(/\.mp4$/i, '.phase3-candidate.mp4')
+  : finalOutput;
 
-if (Array.isArray(manifest.renderArgs)) {
-  args.push(...manifest.renderArgs.map(String));
+mkdirSync(dirname(candidateOutput), {recursive: true});
+if (reelProject) {
+  // Kein altes finales MP4 darf nach einem fehlgeschlagenen neuen Build weiter
+  // wie ein aktueller Erfolg aussehen.
+  if (existsSync(finalOutput)) rmSync(finalOutput, {force: true});
+  if (existsSync(candidateOutput)) rmSync(candidateOutput, {force: true});
 }
 
-console.log(`\nStarte Premium-Render: ${composition} → ${output}`);
-console.log('Qualität: H.264 · CRF 14 · PNG-Zwischenframes · AAC 320k\n');
+const args = ['remotion', 'render', entryPoint, composition, candidateOutput, ...premiumDefaults];
+if (Array.isArray(manifest.renderArgs)) args.push(...manifest.renderArgs.map(String));
+
+console.log(`\nStarte Premium-Render: ${composition} → ${candidateOutput}`);
+console.log('Qualität: H.264 · CRF 14 · PNG-Zwischenframes · AAC 320k');
+if (reelProject) console.log('Status: PHASE3_CANDIDATE — noch NICHT final freigegeben.\n');
+else console.log('');
 
 const result = spawnSync(npx, args, {
   cwd: resolve('.'),
@@ -56,8 +78,35 @@ const result = spawnSync(npx, args, {
 });
 
 if (result.error) {
+  if (reelProject && existsSync(candidateOutput)) rmSync(candidateOutput, {force: true});
   console.error(`Render konnte nicht gestartet werden: ${result.error.message}`);
   process.exit(1);
 }
+if (result.status !== 0) {
+  if (reelProject && existsSync(candidateOutput)) rmSync(candidateOutput, {force: true});
+  console.error('\n✗ Render fehlgeschlagen. Kein finales MP4 wurde freigegeben.');
+  process.exit(result.status ?? 1);
+}
 
-process.exit(result.status ?? 1);
+if (!reelProject) process.exit(0);
+
+const qa = spawnSync(process.execPath, [
+  resolve('scripts/validate-render-completeness.mjs'),
+  reelProject,
+  candidateOutput,
+  manifestPath,
+], {stdio: 'inherit'});
+
+if (qa.status !== 0) {
+  if (existsSync(candidateOutput)) rmSync(candidateOutput, {force: true});
+  console.error('\n✗ Candidate hat die Phase-3-Render-QA nicht bestanden.');
+  console.error('  Candidate wurde entfernt; es existiert KEIN neu freigegebenes finales MP4.');
+  process.exit(qa.status ?? 1);
+}
+
+if (existsSync(finalOutput)) rmSync(finalOutput, {force: true});
+renameSync(candidateOutput, finalOutput);
+
+console.log('\n✓ FINAL_RENDER_QA_PASSED');
+console.log(`  Erst jetzt freigegebenes Final-MP4: ${finalOutput}`);
+console.log('  Nächster Schritt: reel:export. Export prüft den QA-Hash erneut.');
