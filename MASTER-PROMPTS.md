@@ -5,6 +5,7 @@
 Vor neuen Reels zusätzlich lesen:
 
 - `docs/3-PHASEN-WORKFLOW.md`
+- `docs/PHASE-3-COMPLETION-GATE.md`
 - `reels/PRODUKTIONSSTANDARD.md`
 - `docs/FINANZNEO-IMAGE-WORLD-V3.md`
 - `docs/IMAGE-SYSTEM.md`
@@ -33,17 +34,52 @@ vollständig in ChatGPT einfügen und `[THEMA]` ersetzen.
 
 Nach jeder Regeländerung in `CLAUDE.md` wird das Briefing nachgezogen.
 
-## 2. Phase 3 — Antigravity baut autonom
+## 2. Phase 3 — Antigravity / Claude Code baut autonom
 
 ```text
 Mach das Reel: reels/<Woche>/<Tag>/<Reel>
 
-Prüfe zuerst vollständig mit `npm run reel:ready -- <Reel-Pfad>`.
-Wenn die Prüfung erfolgreich ist, beginne sofort und arbeite ohne Rückfragen oder Zwischenstopps bis zur technischen und visuellen QA des fertigen Renders.
-Triff normale Detailentscheidungen selbst nach CLAUDE.md.
-Schließe mit `npm run reel:export -- <Reel-Pfad>` ab. Das Reel gilt erst als fertig, wenn `06-export/` vollständig ist: Video, Cover, bilder.zip, alle fünf Caption-Dateien, untertitel.srt und UPLOAD.md.
+1. Prüfe zuerst vollständig mit:
+   npm run reel:ready -- <Reel-Pfad>
 
-Stoppe nur bei echten Pflichtasset-, Fakten-, Sicherheits-, Validator-, Build- oder Renderblockern. Melde dann alle Blocker gesammelt mit exakten Pfaden.
+2. Wenn grün, lege VOR der Implementierung das Phase-3-Produktionsmanifest an:
+   npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
+
+3. Implementiere JEDE Szene aus scene-index.json. Bildszene = echtes Bildlayer. Animationsszene = echte sichtbare Animationskomponente. Untertitel/SceneHeader allein zählen NIEMALS als Szenenvisual.
+
+4. Vervollständige 05-projektdateien/phase3-production-manifest.json vollständig:
+   - jede Szene implemented=true
+   - startFrame + durationFrames lückenlos
+   - Bildszene: sourceImageFileName + echter assetPath
+   - Animationsszene: componentPath + componentExport
+   - audioImplemented=true
+   - captionsImplemented=true
+   - sceneHeadersImplemented=true
+   - status=READY_TO_RENDER
+
+5. Vor dem Render MUSS grün sein:
+   npm run reel:phase3:preflight -- <Reel-Pfad>
+
+6. Produktiven Finalrender ausschließlich über das validierte Manifest starten:
+   npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
+
+   Dieser Befehl rendert zuerst nur eine *.phase3-candidate.mp4. Eine Candidate-Datei ist NICHT final. Erst die automatische Post-Render-QA prüft jede Bildszene auf sichtbaren Visualinhalt und jede Animationsszene zusätzlich auf messbare Bewegung. Nur bei PASSED wird das finale MP4 freigegeben.
+
+7. Danach exportieren:
+   npm run reel:export -- <Reel-Pfad> <Final-MP4>
+
+   Export prüft erneut den exakten SHA-256-Hash des Videos sowie die unveränderten Hashes von scene-index.json und phase3-production-manifest.json.
+
+Das Reel gilt erst als FINAL_COMPLETE, wenn `06-export/` vollständig erzeugt wurde.
+
+VERBOTEN:
+- eine vorhandene MP4 als Fertigkeitsnachweis behandeln
+- npx remotion render direkt als finalen Abschluss benutzen
+- bei fehlendem Bild oder fehlender Animation trotzdem „fertig“ melden
+- Caption-only-/Header-only-Szenen akzeptieren, wenn Bild oder Animation geplant ist
+- Candidate-MP4 an den Nutzer als final ausgeben
+
+Stoppe nur bei echten Pflichtasset-, Fakten-, Sicherheits-, Validator-, Build-, Render- oder Render-QA-Blockern. Melde dann alle Blocker gesammelt mit exakten Pfaden. Niemals eine nicht bestandene Phase 3 als fertig darstellen.
 ```
 
 ## 3. Bildprompt erstellen
@@ -144,18 +180,26 @@ Maximal zwei Zeilen.
 Animationen relativ zur tatsächlichen Szenendauer.
 ```
 
-## 7. Finale technische QA
+## 7. Finale technische und visuelle QA
 
 ```text
 Wenn Nutzerbilder und finales Audio vorhanden sind:
+- reel:ready
 - Asset-Sync/Ingest
-- Reel-Validator
+- jede scene-index-Szene im Phase-3-Produktionsmanifest einzeln belegen
+- reel:phase3:preflight
 - Typecheck
 - Preview-Render
 - Kontaktbogen / erste-mittlere-letzte Frames
-- komplette MP4 mit Ton
+- produktiven Render NUR über reel:render
+- automatische Post-Render-Visual-QA: Bildszenen sichtbar, Animationsszenen sichtbar + bewegt
+- komplette freigegebene MP4 mit Ton ansehen
 - Audio-Lautheit am finalen Export
+- reel:export
 
+Eine technisch erzeugte MP4 ist noch kein fertiges Reel.
+`phase3-render-qa.json` muss `status: PASSED` enthalten.
+Untertitel/Headline allein sind kein gültiger Szeneninhalt.
 Keine Prüfung als bestanden behaupten, wenn sie nicht tatsächlich ausgeführt wurde.
 ```
 
