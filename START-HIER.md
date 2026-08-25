@@ -7,12 +7,12 @@ Ein Reel entsteht in drei Phasen. Jede Phase hat **genau ein** Einstiegsdokument
 ```text
 PHASE 1 — ChatGPT               PHASE 2 — Du              PHASE 3 — Executor laut scene-index
 Recherche, Skript,              Bilder in Google Flow,    Remotion bauen,
-Szenenplan, Bildprompts,   →    Voiceover aufnehmen,  →   prüfen, rendern,
-Captions                        Wortzeiten erzeugen       QA + Export
+Szenenplan, Bildprompts,   →    Voiceover aufnehmen,  →   prüfen, Candidate rendern,
+Captions                        Wortzeiten erzeugen       Render-QA + Export
 
 docs/PHASE-1-BRIEFING.md        docs/3-PHASEN-           Antigravity: MASTER-PROMPTS.md
 (komplett in ChatGPT              WORKFLOW.md            Claude Code: Reel-Auftrag
- kopieren)                                               npm run reel:ready -- <Reel-Pfad>
+ kopieren)                                               docs/PHASE-3-COMPLETION-GATE.md
 ```
 
 **Wichtig zu Phase 1:** ChatGPT hat keinen Zugriff auf dieses Repository. Ein
@@ -46,20 +46,51 @@ ersetzt sie nicht. Details: `docs/GLOBAL-IMAGE-WORLD-LOCK.md`.
 Prüfung den tatsächlich vorgesehenen Executor. Bei `claude-code` muss der
 Reel-spezifische Auftrag vorhanden und vollständig sein.
 
+## Phase-3-Fertigkeitsgate
+
+Eine erzeugte MP4 ist **kein** Fertigkeitsnachweis. Das verbindliche Verfahren
+steht in `docs/PHASE-3-COMPLETION-GATE.md`.
+
+Nach grünem `reel:ready`:
+
+```bash
+npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
+# jede Bild-/Animationsszene wirklich implementieren und Manifest vervollständigen
+npm run reel:phase3:preflight -- <Reel-Pfad>
+npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
+npm run reel:export -- <Reel-Pfad> <Final-MP4>
+```
+
+`reel:render` erzeugt bei produktiven Reels zuerst nur eine
+`*.phase3-candidate.mp4`. Die Candidate-Datei wird **erst nach bestandener
+Post-Render-QA** zum finalen MP4 umbenannt.
+
+Die QA prüft für jede Szene die mittlere Visualzone. Bildszenen müssen echten
+sichtbaren Bildinhalt besitzen. Animationsszenen müssen sichtbaren Inhalt **und
+messbare Veränderung** zwischen mehreren Frames zeigen. Eine Szene mit nur
+Untertitel/Headline auf dunklem Hintergrund gilt als unvollständig.
+
+Der Export prüft danach zusätzlich den exakten SHA-256-Hash des geprüften
+Videos und blockiert, wenn `scene-index.json` oder das Produktionsmanifest nach
+der QA verändert wurden.
+
 ## Was automatisch geprüft wird
 
 ```bash
-npm run validate                      # Repo gesamt: Lint, Tests, Konsistenz, Image-World, Typecheck
-npm run validate:image-world          # globaler Physical-Explainer-/1:1-Lock
-npm run reel:validate -- <Reel-Pfad>  # Reel: Schema, Bildwelt, Szenenqualität, Publishing
-npm run reel:ready -- <Reel-Pfad>     # Phase-3-Freigabe: zusätzlich Assets prüfen
+npm run validate                           # Repo gesamt
+npm run validate:image-world               # globaler Physical-Explainer-/1:1-Lock
+npm run reel:validate -- <Reel-Pfad>       # Reel-Verträge inkl. Phase-3-Completion-Contract
+npm run reel:ready -- <Reel-Pfad>          # Phase 1 + 2 + Medien lesbar
+npm run reel:phase3:preflight -- <Reel>    # jede geplante Szene wirklich implementiert
+npm run reel:phase3:qa -- <Reel> <Video>   # Post-Render-Sichtbarkeit + Animationsbewegung
 ```
 
 Blockiert unter anderem: fehlende oder nichtssagende Zwischenüberschriften,
 Überschriften aus reinen Zahlen, doppelte Überschriften, nicht existierende
 Icons, Bildbeats über 6 Sekunden, Lücken in der Timeline, Text-Stroke auf
-Untertiteln, träge zentrale Übergänge, fehlende Bildwelt-Locks, falsches
-Seitenverhältnis, fehlende Plattformtexte, fehlendes Audio oder Wortzeiten.
+Untertiteln, fehlende Bildwelt-Locks, falsches Seitenverhältnis, fehlende
+Plattformtexte, fehlendes Audio/Wortzeiten sowie in Phase 3 fehlende
+Bild-/Animationsimplementierungen und visuell leere Caption-only-Szenen.
 
 Das zentrale Scene-Schema liegt in `scripts/lib/reel-scene-schema.mjs`.
 Redundante Angaben werden nicht künstlich doppelt erzwungen: der Szenenordner
@@ -71,6 +102,7 @@ werden. Der eigentliche Bildprompt bleibt die Wahrheit für Objektlabels.
 | Thema | Datei |
 |---|---|
 | Projekt-Gehirn (höchste Regelquelle) | `CLAUDE.md` |
+| Phase-3-Fertigkeits-/Render-QA-Gate | `docs/PHASE-3-COMPLETION-GATE.md` |
 | Globaler Physical-Explainer-/1:1-Bildwelt-Lock | `docs/GLOBAL-IMAGE-WORLD-LOCK.md` |
 | Untertitel, Überschriften, Timing | `docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md` |
 | Bildwelt | `docs/FINANZNEO-IMAGE-WORLD-V3.md`, `docs/IMAGE-SYSTEM.md` |
@@ -111,6 +143,13 @@ werden. Der eigentliche Bildprompt bleibt die Wahrheit für Objektlabels.
 05-projektdateien/
 06-export/
 README.md
+```
+
+In Phase 3 entstehen zusätzlich:
+
+```text
+05-projektdateien/phase3-production-manifest.json
+05-projektdateien/phase3-render-qa.json
 ```
 
 `04-caption/` enthält zusätzlich zur Master-Caption und den Wort-Timings die vier Reel-Plattformdateien:
@@ -154,7 +193,9 @@ npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
 ```
 
 Bei Erfolg baut der in `phase3Executor` festgelegte Executor ohne
-Geschmacksrückfragen bis Render, QA und Export.
+Geschmacksrückfragen weiter. Er darf aber erst `FINAL_COMPLETE` melden, wenn
+Produktionsmanifest, Preflight, Candidate-Render, Post-Render-QA und Export
+alle erfolgreich waren.
 
 ## Export-Sicherheit
 
@@ -165,9 +206,12 @@ npm run reel:export -- <Reel-Pfad> <exakter-gerenderter-MP4-Pfad>
 ```
 
 Ohne zweiten Parameter darf der Export nur dann automatisch auswählen, wenn
-die MP4 eindeutig dem Reel zugeordnet werden kann oder `out/` genau eine MP4
-enthält. Bei mehreren nicht eindeutig zuordenbaren MP4s bricht er ab. Dadurch
-kann kein fremdes Reel versehentlich in ein anderes `06-export/` gelangen.
+die MP4 eindeutig dem Reel zugeordnet werden kann oder `out/` genau eine
+finale MP4 enthält. Candidate-Dateien werden ignoriert.
+
+Zusätzlich muss die ausgewählte MP4 exakt den SHA-256-Hash aus dem bestandenen
+`phase3-render-qa.json` besitzen. Damit kann weder ein fremdes noch ein alter
+oder nachträglich veränderter Render in `06-export/` gelangen.
 
 ## Bildfreigabe
 
@@ -183,7 +227,10 @@ Bild neu erzeugen, wenn unter anderem:
 
 ## Produktionsfreigabe
 
-Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover
-vorhanden sind, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview
-tatsächlich ausgeführt wurden, Bildsatz + komplette MP4 geprüft wurden und
-`06-export/` vollständig ist.
+Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale
+Voiceover vorhanden sind, echte Wort-Timings erzeugt wurden, **jede**
+`scene-index`-Szene wirklich als Bild oder Animation umgesetzt wurde,
+`reel:phase3:preflight` erfolgreich war, der Candidate-Render die automatische
+Post-Render-Visual-QA bestanden hat und `06-export/` vollständig ist.
+
+**Eine vorhandene MP4 allein bedeutet niemals „fertig“.**
