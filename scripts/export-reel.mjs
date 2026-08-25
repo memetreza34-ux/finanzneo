@@ -1,13 +1,19 @@
 #!/usr/bin/env node
 
 // Baut das fertige Upload-Paket eines Reels in 06-export/.
-// Ohne expliziten Videopfad wird niemals mehr einfach die neueste beliebige
-// MP4 aus out/ genommen: bei mehreren nicht eindeutig zuordenbaren Dateien
-// bricht der Export sicher ab.
+// Ein MP4 allein gilt NICHT als fertig. Vor jedem Export wird geprüft, dass
+// genau dieses Video die Phase-3-Render-QA bestanden hat und dass weder
+// scene-index noch Produktionsmanifest seit der QA verändert wurden.
 
 import {existsSync, readFileSync, writeFileSync, mkdirSync, copyFileSync, readdirSync, statSync, rmSync} from 'node:fs';
 import {resolve, basename, join} from 'node:path';
 import {spawnSync} from 'node:child_process';
+import {
+  PHASE3_CONTRACT_ID,
+  PHASE3_MANIFEST_RELATIVE,
+  PHASE3_QA_RELATIVE,
+  sha256File,
+} from './lib/phase3-completion.mjs';
 
 const target = process.argv[2];
 const videoArg = process.argv[3];
@@ -34,7 +40,7 @@ let videoPfad = videoArg ? resolve(videoArg) : null;
 if (!videoPfad) {
   const kandidaten = existsSync(resolve('out'))
     ? readdirSync(resolve('out'))
-        .filter((f) => f.endsWith('.mp4'))
+        .filter((f) => f.endsWith('.mp4') && !f.includes('.phase3-candidate.'))
         .map((f) => resolve('out', f))
         .sort((a, b) => statSync(b).mtimeMs - statSync(a).mtimeMs)
     : [];
@@ -55,11 +61,67 @@ if (!videoPfad) {
 
 if (!videoPfad || !existsSync(videoPfad)) {
   console.error('\n✗ Export nicht möglich: keine gerenderte MP4 gefunden.');
-  console.error('  Erst rendern, dann exportieren — oder Videopfad als zweites Argument angeben.');
+  console.error('  Erst über scripts/render-validated.mjs rendern; Candidate-Dateien zählen nicht als final.');
   process.exit(1);
 }
 
-console.log(`\nVideo für Export: ${videoPfad}`);
+// ── Phase-3-Fertigkeitsgate ─────────────────────────────────────────────────
+const indexPfad = resolve(root, '03-szenen/scene-index.json');
+if (!existsSync(indexPfad)) {
+  console.error('\n✗ Export blockiert: 03-szenen/scene-index.json fehlt.');
+  process.exit(1);
+}
+
+let index;
+try {
+  index = JSON.parse(readFileSync(indexPfad, 'utf8'));
+} catch {
+  console.error('\n✗ Export blockiert: scene-index.json ist nicht lesbar.');
+  process.exit(1);
+}
+
+const contract = index.phase3CompletionContract;
+if (contract?.id !== PHASE3_CONTRACT_ID || contract?.required !== true || contract?.exportRequiresPassedRenderQa !== true) {
+  console.error(`\n✗ Export blockiert: verbindlicher Phase-3-Fertigkeitsvertrag ${PHASE3_CONTRACT_ID} fehlt.`);
+  console.error('  Reel zuerst mit dem aktuellen Systemvertrag aktualisieren und Phase 3 neu prüfen.');
+  process.exit(1);
+}
+
+const qaPfad = resolve(root, contract.renderQa ?? PHASE3_QA_RELATIVE);
+const productionManifestPfad = resolve(root, contract.productionManifest ?? PHASE3_MANIFEST_RELATIVE);
+if (!existsSync(qaPfad) || !existsSync(productionManifestPfad)) {
+  console.error('\n✗ Export blockiert: Phase-3-QA oder Produktionsmanifest fehlt.');
+  console.error(`  Erwartet: ${contract.productionManifest ?? PHASE3_MANIFEST_RELATIVE}`);
+  console.error(`  Erwartet: ${contract.renderQa ?? PHASE3_QA_RELATIVE}`);
+  process.exit(1);
+}
+
+let qa;
+try {
+  qa = JSON.parse(readFileSync(qaPfad, 'utf8'));
+} catch {
+  console.error('\n✗ Export blockiert: Phase-3-QA-Bericht ist nicht lesbar.');
+  process.exit(1);
+}
+
+const gateErrors = [];
+if (qa.status !== 'PASSED') gateErrors.push(`Render-QA-Status ist ${qa.status ?? 'unbekannt'}, nicht PASSED.`);
+if (qa.contractId !== PHASE3_CONTRACT_ID) gateErrors.push('QA-Bericht gehört nicht zum aktuellen Phase-3-Vertrag.');
+if (!Array.isArray(qa.scenes) || qa.scenes.length !== (index.scenes?.length ?? 0)) gateErrors.push('QA-Bericht deckt nicht alle Szenen ab.');
+if (Array.isArray(qa.scenes) && qa.scenes.some((scene) => scene.passed !== true)) gateErrors.push('Mindestens eine Szene hat die visuelle Render-QA nicht bestanden.');
+if (qa.videoSha256 !== sha256File(videoPfad)) gateErrors.push('Die ausgewählte MP4 ist NICHT exakt die visuell geprüfte MP4 (SHA-256 abweichend).');
+if (qa.sceneIndexSha256 !== sha256File(indexPfad)) gateErrors.push('scene-index.json wurde nach der Render-QA verändert. Neu rendern und erneut prüfen.');
+if (qa.productionManifestSha256 !== sha256File(productionManifestPfad)) gateErrors.push('phase3-production-manifest.json wurde nach der Render-QA verändert. Neu rendern und erneut prüfen.');
+
+if (gateErrors.length) {
+  console.error('\n✗ EXPORT GESPERRT — REEL IST NICHT FINAL_COMPLETE\n');
+  gateErrors.forEach((error) => console.error(`- ${error}`));
+  console.error('\nKein Upload-Paket wird erzeugt. Phase-3-Render-QA erneut vollständig ausführen.');
+  process.exit(1);
+}
+
+console.log(`\n✓ Phase-3-Fertigkeitsgate bestanden: ${videoPfad}`);
+console.log('  Exakter Video-Hash + alle Szenen + unveränderte Produktionsdaten bestätigt.');
 
 // ── Zielordner frisch aufbauen ──────────────────────────────────────────────
 if (existsSync(exportDir)) rmSync(exportDir, {recursive: true, force: true});
@@ -171,15 +233,13 @@ const peak = laut.stderr?.match(/Peak:\s*(-?[\d.]+)\s*dBFS/g)?.pop()?.match(/(-?
 
 // ── 7. Titel und Upload-Anleitung ───────────────────────────────────────────
 let titel = reelName;
-const indexPfad = resolve(root, '03-szenen/scene-index.json');
-if (existsSync(indexPfad)) {
-  try { titel = JSON.parse(readFileSync(indexPfad, 'utf8')).title ?? reelName; } catch { /* Standardtitel */ }
-}
+try { titel = index.title ?? reelName; } catch { /* Standardtitel */ }
 
 const mb = (b) => (b ? `${(b / 1024 / 1024).toFixed(1)} MB` : 'unbekannt');
 const upload = `# Upload-Paket — ${titel}
 
-Alles in diesem Ordner ist fertig zum Hochladen. Nichts weiter vorbereiten.
+Dieses Paket wurde erst nach bestandenem Phase-3-Fertigkeitsgate erzeugt.
+Die enthaltene MP4 ist exakt die per SHA-256 geprüfte Finaldatei.
 
 ## Video
 
@@ -189,6 +249,7 @@ Alles in diesem Ordner ist fertig zum Hochladen. Nichts weiter vorbereiten.
 - Größe: ${mb(technik.groesse)}
 - Lautheit: ${lufs ? `${lufs} LUFS` : 'nicht gemessen'} (Ziel ca. -16)
 - True Peak: ${peak ? `${peak} dBFS` : 'nicht gemessen'} (Ziel höchstens -1)
+- Phase-3-Render-QA: PASSED
 
 Untertitel sind fest im Video eingebrannt. \`untertitel.srt\` liegt zusätzlich
 bei, falls eine Plattform eigene Untertitel möchte.
@@ -234,4 +295,4 @@ if (fehlt.length) {
   process.exit(1);
 }
 
-console.log('\nAlles vollständig. Öffne 06-export/UPLOAD.md für die Upload-Anleitung.');
+console.log('\n✓ FINAL_COMPLETE — 06-export ist vollständig und basiert auf bestandenem Render-QA.');
