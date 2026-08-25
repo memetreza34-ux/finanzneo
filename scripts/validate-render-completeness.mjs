@@ -81,13 +81,18 @@ if (Number.isFinite(duration) && Math.abs(duration - expectedDuration) > 0.6) {
 }
 if (!Number.isFinite(videoSize) || videoSize < 100000) fail('Finalvideo ist auffällig klein/leer.');
 
-const cropX = 72;
-const cropY = Math.max(0, Number(layout.visualTop) || 390);
-const cropWidth = 936;
-const cropBottom = Math.min(1920, Number(layout.visualBottom) || 1560);
-const cropHeight = Math.max(100, cropBottom - cropY);
+// Nur den visuellen Kern prüfen. Header oben und Caption-Backplate unten sind
+// absichtlich NICHT im Sample. Sonst könnte eine reine Caption-Szene die QA
+// fälschlich als "visuell belegt" bestehen.
+const declaredVisualTop = Math.max(0, Number(layout.visualTop) || 390);
+const declaredVisualBottom = Math.min(1920, Number(layout.visualBottom) || 1560);
+const cropX = 92;
+const cropY = Math.min(declaredVisualBottom - 160, declaredVisualTop + 70);
+const cropWidth = 896;
+const cropBottom = Math.max(cropY + 160, Math.min(declaredVisualBottom - 170, 1340));
+const cropHeight = Math.max(160, cropBottom - cropY);
 const sampleWidth = 96;
-const sampleHeight = 120;
+const sampleHeight = 104;
 
 const extractGray = (timeSeconds) => {
   const args = [
@@ -184,19 +189,19 @@ for (const scene of scenes) {
   if (scene.type === 'image') {
     if (structured < 1) {
       passed = false;
-      fail(`${scene.id}: zentrale Visualzone wirkt leer/caption-only; erwartetes Bild ist im Render nicht sicher sichtbar.`);
+      fail(`${scene.id}: visueller Kern wirkt leer/caption-only; erwartetes Bild ist im Render nicht sicher sichtbar.`);
     }
   } else {
     if (structured < 2) {
       passed = false;
-      fail(`${scene.id}: Animationsszene hat zu wenig sichtbaren visuellen Inhalt.`);
+      fail(`${scene.id}: Animationsszene hat zu wenig sichtbaren Inhalt im visuellen Kern.`);
     }
     const diffs = [];
     for (let i = 1; i < buffers.length; i += 1) diffs.push(meanAbsDiff(buffers[i - 1], buffers[i]));
     animationMeanAbsDiff = diffs.length ? Math.max(...diffs) : 0;
     if (animationMeanAbsDiff < Number(qaRules.minAnimationMeanAbsDiff ?? 1)) {
       passed = false;
-      fail(`${scene.id}: Animation zeigt praktisch keine Bewegung in der Visualzone (Diff ${animationMeanAbsDiff.toFixed(3)}).`);
+      fail(`${scene.id}: Animation zeigt praktisch keine Bewegung im visuellen Kern (Diff ${animationMeanAbsDiff.toFixed(3)}).`);
     }
   }
 
@@ -229,6 +234,7 @@ const qa = {
   expectedDuration,
   fps,
   audioStreamPresent: Boolean(audioStream),
+  visualCrop: {x: cropX, y: cropY, width: cropWidth, height: cropHeight, excludesHeaderAndCaptions: true},
   sceneCount: scenes.length,
   imageSceneCount: scenes.filter((scene) => scene.type === 'image').length,
   animationSceneCount: scenes.filter((scene) => scene.type === 'animation').length,
@@ -236,7 +242,7 @@ const qa = {
     allScenesImplemented: true,
     audioStreamPresent: Boolean(audioStream),
     captionOnlySceneForbidden: true,
-    visualZoneSampledPerScene: true,
+    visualCoreSampledPerScene: true,
     animationMotionChecked: true,
     exactVideoHashRecorded: true,
   },
@@ -256,5 +262,5 @@ if (failures.length) {
 }
 
 console.log('\n✓ PHASE-3-RENDER-QA BESTANDEN');
-console.log(`  ${scenes.length}/${scenes.length} Szenen visuell belegt · Bildszenen sichtbar · Animationsbewegung geprüft · Audio vorhanden`);
+console.log(`  ${scenes.length}/${scenes.length} Szenen im visuellen Kern belegt · Bildszenen sichtbar · Animationsbewegung geprüft · Audio vorhanden`);
 console.log(`  QA-Bericht: ${normalizeRepoPath(relative(resolve('.'), qaPath))}`);
