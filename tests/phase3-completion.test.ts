@@ -25,7 +25,13 @@ const buildFixture = () => {
   const compositionSource = join(srcRoot, 'Reel.tsx');
   const imageAsset = join(assetRoot, 'scene-01.png');
   writeFileSync(entryPoint, 'export const entry = true;\n');
-  writeFileSync(compositionSource, 'export const SceneTwoAnimation = () => null;\nexport const Reel = () => null;\n');
+  writeFileSync(compositionSource, [
+    "import React from 'react';",
+    'export const SceneTwoAnimation = () => <div>sichtbare Animation mit echtem Inhalt</div>;',
+    'export const Reel = () => <main><SceneTwoAnimation /></main>;',
+    'export const description = "Testquelle mit ausreichend Inhalt für den Produktions-Preflight";',
+    '',
+  ].join('\n'));
   writeFileSync(imageAsset, Buffer.alloc(256, 7));
 
   const index = {
