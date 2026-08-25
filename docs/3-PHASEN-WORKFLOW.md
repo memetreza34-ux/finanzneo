@@ -61,20 +61,43 @@ npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
 
 Bei `claude-code` blockiert Readiness, wenn der Auftrag fehlt oder noch Platzhalter enthält.
 
-Wenn die Prüfung erfolgreich ist, startet der festgelegte Executor ohne
-Geschmacksrückfragen und ohne Zwischenstopps:
+### Hard Completion Gate
+
+Eine erfolgreich erzeugte MP4 ist **noch kein fertiges Reel**. Verbindliche
+Details: `docs/PHASE-3-COMPLETION-GATE.md`.
+
+Nach grünem `reel:ready` läuft Phase 3 in dieser Reihenfolge:
+
+```bash
+npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
+# jede scene-index-Szene wirklich implementieren und Manifest vervollständigen
+npm run reel:phase3:preflight -- <Reel-Pfad>
+npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
+npm run reel:export -- <Reel-Pfad> <Final-MP4>
+```
+
+Der Executor arbeitet ohne Geschmacksrückfragen:
 
 1. Bilder technisch synchronisieren
 2. Timeline aus dem finalen Audio ableiten
-3. Remotion-Szenen, Überschriften und Karaoke-Untertitel bauen
+3. `phase3-production-manifest.json` anlegen und **jede** Szene einzeln belegen
+4. Remotion-Szenen, Überschriften und Karaoke-Untertitel bauen
+   - Bildszene = echtes sichtbares Bildlayer
+   - Animationsszene = echte sichtbare Animationskomponente
+   - Untertitel/SceneHeader allein zählen niemals als Szenenvisual
    - Zwischenüberschrift mittig und in FinanzNeo-Grün, mit passendem Icon
    - Untertitel pro Szene clippen: kein Wort der nächsten Szene darf vorher sichtbar sein
-4. zentrale `REEL_STYLE`-Werte verwenden; alte abweichende per-Reel-Stylemetadaten nicht als Override benutzen
-5. Validator, Tests und Typecheck ausführen
-6. Preview und finale MP4 rendern
-7. Frames, Bildsatz, Ton und Lautheit prüfen
-8. Animationen zusätzlich ohne Ton auf Verständlichkeit prüfen
-9. Export-Paket erzeugen
+5. Produktionsmanifest auf `READY_TO_RENDER` setzen; Audio/Captions/Headers müssen als implementiert bestätigt sein
+6. `reel:phase3:preflight` ausführen — ohne PASS kein produktiver Render
+7. zentrale `REEL_STYLE`-Werte verwenden; alte abweichende per-Reel-Stylemetadaten nicht als Override benutzen
+8. Validator, Tests und Typecheck ausführen
+9. Preview prüfen
+10. produktiven Render ausschließlich über `reel:render` starten
+11. `reel:render` erzeugt zuerst nur `*.phase3-candidate.mp4`
+12. automatische Post-Render-QA prüft jede Bildszene auf sichtbaren Inhalt und jede Animationsszene zusätzlich auf messbare Bewegung; Audio-Stream muss vorhanden sein
+13. nur bei QA `PASSED` wird Candidate zur finalen MP4 umbenannt
+14. komplette freigegebene MP4 mit Ton ansehen; Animationen zusätzlich ohne Ton prüfen
+15. Export-Paket erzeugen; Export verifiziert Video-/scene-index-/Manifest-Hashes erneut
 
 ## Einzige zulässige Stopps
 
@@ -86,6 +109,10 @@ Phase 3 stoppt nur bei einem echten Blocker und meldet alle Blocker gesammelt un
 - unvollständige Phase-1-Datei oder widersprüchlicher Szenenindex
 - bei `claude-code`: fehlender/unvollständiger `CLAUDE-CODE-AUFTRAG.md`
 - verletzter Finanz-, Sicherheits- oder Quellenvertrag
+- fehlende Bild-/Animationsimplementierung im Phase-3-Manifest
+- Phase-3-Preflight schlägt fehl
+- Post-Render-QA erkennt leere/Caption-only-Bildszene oder fehlende Animationsbewegung
+- Finalvideo enthält keinen Audio-Stream
 - nicht selbst lösbarer Validator-, Build- oder Renderfehler
 
 Keine Rückfragen zu Geschmack, Übergängen, Layoutvarianten oder bereits durch das Repo entschiedenen Standards.
@@ -98,18 +125,22 @@ Phase 3 endet mit:
 npm run reel:export -- <Reel-Pfad> <exakter-gerenderter-MP4-Pfad>
 ```
 
-Der exakte Videopfad ist der sichere Standard. Ohne zweiten Parameter darf das
-Exportskript nur automatisch auswählen, wenn die Datei eindeutig dem Reel
-zugeordnet werden kann oder `out/` genau eine MP4 enthält. Bei mehreren
-mehrdeutigen MP4-Dateien bricht es ab statt eine möglicherweise fremde Datei zu
-übernehmen.
+Der Export akzeptiert nur eine MP4, deren SHA-256 exakt mit dem bestandenen
+`05-projektdateien/phase3-render-qa.json` übereinstimmt. Zusätzlich müssen die
+Hashes von `scene-index.json` und `phase3-production-manifest.json` seit der QA
+unverändert sein.
+
+Candidate-Dateien werden nicht als finale Videos betrachtet. Bei fehlender oder
+fehlgeschlagener Render-QA wird kein Upload-Paket erzeugt.
 
 `06-export/` muss vollständig enthalten:
 
-- fertige MP4
+- fertige, visuell geprüfte MP4
 - Cover
 - `bilder.zip`
 - universelle Caption
 - Instagram-/TikTok-/Facebook-/Snapchat-Caption
 - `untertitel.srt`
 - `UPLOAD.md`
+
+Erst dann ist der Status `FINAL_COMPLETE` zulässig.

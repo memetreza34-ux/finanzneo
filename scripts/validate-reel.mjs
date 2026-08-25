@@ -18,13 +18,11 @@ const validators = [
   'scripts/validate-reel-source-contract.mjs',
   'scripts/validate-scene-quality.mjs',
   'scripts/validate-flow-autonomous-contract.mjs',
+  'scripts/validate-phase3-contract.mjs',
   'scripts/validate-platform-publishing.mjs',
 ];
 
 for (const validator of validators) {
   const result = spawnSync(process.execPath, [resolve(validator), projectDirectory], {stdio: 'inherit'});
-
-  if (result.status !== 0) {
-    process.exit(result.status ?? 1);
-  }
+  if (result.status !== 0) process.exit(result.status ?? 1);
 }

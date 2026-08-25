@@ -1,11 +1,8 @@
 #!/usr/bin/env node
 
-// Legt ein neues Reel an: Grundgerüst plus verbindlicher Google-Flow-Lock.
-//
-// Beide Schritte gehören zusammen. Scheitert der zweite, bliebe sonst ein
-// halbfertiges Reel liegen, das den nächsten Versuch mit "Ziel existiert
-// bereits" blockiert. Deshalb wird ein neu angelegter Ordner bei einem Fehler
-// wieder entfernt — entweder entsteht ein vollständiges Reel oder gar keines.
+// Legt ein neues Reel atomar an: Grundgerüst + Google-Flow-Lock +
+// Phase-3-Fertigkeitsvertrag. Scheitert einer der Schritte, wird ein in diesem
+// Lauf neu erzeugter Reel-Ordner vollständig zurückgerollt.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -39,21 +36,26 @@ const zuruecknehmen = () => {
   console.error('Ursache oben beheben und reel:create erneut ausführen.');
 };
 
-const scaffold = spawnSync(process.execPath, [resolve('scripts/scaffold-finanzneo-reel.mjs'), ...args], {
-  stdio: 'inherit',
-});
+const run = (script, scriptArgs = []) => spawnSync(process.execPath, [resolve(script), ...scriptArgs], {stdio: 'inherit'});
+
+const scaffold = run('scripts/scaffold-finanzneo-reel.mjs', args);
 if (scaffold.status !== 0) {
   zuruecknehmen();
   process.exit(scaffold.status ?? 1);
 }
 
-const lock = spawnSync(process.execPath, [resolve('scripts/apply-flow-autonomous-contract.mjs'), target], {
-  stdio: 'inherit',
-});
-if (lock.status !== 0) {
+const flowLock = run('scripts/apply-flow-autonomous-contract.mjs', [target]);
+if (flowLock.status !== 0) {
   zuruecknehmen();
-  process.exit(lock.status ?? 1);
+  process.exit(flowLock.status ?? 1);
 }
 
-console.log('\n✓ Neues Reel angelegt und mit Google-Flow Strict-Single-Job V3 gesperrt.');
-console.log('  Immer genau 1 Bildjob: Ergebnis → Rename → QA → erst dann nächster Bildblock. Kein Batch und kein Nutzer-„weiter“.');
+const phase3Lock = run('scripts/apply-phase3-completion-contract.mjs', [target]);
+if (phase3Lock.status !== 0) {
+  zuruecknehmen();
+  process.exit(phase3Lock.status ?? 1);
+}
+
+console.log('\n✓ Neues Reel vollständig angelegt.');
+console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob · kein Batch · kein Nutzer-„weiter“.');
+console.log('  Phase 3: MP4 allein gilt nicht als fertig · jede Szene braucht Visual · Post-Render-QA + Hash-Gate vor Export.');
