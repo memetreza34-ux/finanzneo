@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync} from 'node:fs';
+import {existsSync, mkdirSync, statSync, writeFileSync} from 'node:fs';
 import {dirname, relative, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {
@@ -66,6 +66,7 @@ try {
 }
 
 const videoStream = media?.streams?.find((stream) => stream.codec_type === 'video' || (stream.width && stream.height));
+const audioStream = media?.streams?.find((stream) => stream.codec_type === 'audio');
 const width = Number(videoStream?.width);
 const height = Number(videoStream?.height);
 const duration = Number(media?.format?.duration);
@@ -73,6 +74,7 @@ const videoSize = Number(media?.format?.size ?? statSync(videoPath).size);
 const expectedDuration = totalFrames / fps;
 
 if (width !== 1080 || height !== 1920) fail(`Finalvideo muss 1080×1920 sein, ist ${width || '?'}×${height || '?'}.`);
+if (!audioStream) fail('Finalvideo enthält keinen Audio-Stream. Voiceover wurde nicht in den Render eingebunden.');
 if (!Number.isFinite(duration) || duration <= 0) fail('Videodauer ist nicht lesbar.');
 if (Number.isFinite(duration) && Math.abs(duration - expectedDuration) > 0.6) {
   fail(`Videodauer ${duration.toFixed(2)} s passt nicht zur Produktions-Timeline ${expectedDuration.toFixed(2)} s.`);
@@ -117,6 +119,7 @@ const frameMetrics = (buffer) => {
   const p90 = sorted[Math.floor((count - 1) * 0.90)];
   let edgeSum = 0;
   let edgeCount = 0;
+
   for (let y = 0; y < sampleHeight; y += 1) {
     for (let x = 0; x < sampleWidth; x += 1) {
       const i = y * sampleWidth + x;
@@ -130,6 +133,7 @@ const frameMetrics = (buffer) => {
       }
     }
   }
+
   return {
     mean: Number(mean.toFixed(3)),
     stdDev: Number(stdDev.toFixed(3)),
@@ -224,11 +228,13 @@ const qa = {
   duration,
   expectedDuration,
   fps,
+  audioStreamPresent: Boolean(audioStream),
   sceneCount: scenes.length,
   imageSceneCount: scenes.filter((scene) => scene.type === 'image').length,
   animationSceneCount: scenes.filter((scene) => scene.type === 'animation').length,
   checks: {
     allScenesImplemented: true,
+    audioStreamPresent: Boolean(audioStream),
     captionOnlySceneForbidden: true,
     visualZoneSampledPerScene: true,
     animationMotionChecked: true,
@@ -250,5 +256,5 @@ if (failures.length) {
 }
 
 console.log('\n✓ PHASE-3-RENDER-QA BESTANDEN');
-console.log(`  ${scenes.length}/${scenes.length} Szenen visuell belegt · Bildszenen sichtbar · Animationsbewegung geprüft`);
+console.log(`  ${scenes.length}/${scenes.length} Szenen visuell belegt · Bildszenen sichtbar · Animationsbewegung geprüft · Audio vorhanden`);
 console.log(`  QA-Bericht: ${normalizeRepoPath(relative(resolve('.'), qaPath))}`);
