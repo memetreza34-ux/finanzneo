@@ -139,6 +139,24 @@ if (master && !master.includes('PHASE-1-BRIEFING')) {
   errors.push('MASTER-PROMPTS.md verweist nicht auf das Phase-1-Briefing.');
 }
 
+// AGENTS.md ist die Datei, die externe Agenten (z. B. Codex) beim Öffnen des
+// Repositories zuerst lesen. Ohne Einstieg finden sie nur Schutzregeln und
+// wissen nicht, wie ein Reel entsteht.
+const agents = read('AGENTS.md');
+if (agents) {
+  for (const [was, muster] of [
+    ['Verweis auf START-HIER.md', /START-HIER\.md/],
+    ['Verweis auf CLAUDE.md', /CLAUDE\.md/],
+    ['Verweis auf das Phase-1-Briefing', /PHASE-1-BRIEFING/],
+    ['die drei Phasen', /PHASE 1[\s\S]{0,400}PHASE 3/],
+    ['das Wortbudget', /9[–-]14 Wörter|Wortbudget/],
+    ['die Befehle', /npm run reel:validate/],
+  ]) {
+    if (!muster.test(agents)) errors.push(`AGENTS.md enthält keinen ${was}.`);
+  }
+  notes.push('AGENTS.md führt externe Agenten in den Reel-Prozess ein.');
+}
+
 if (errors.length) {
   console.error('\nRepo-Konsistenz verletzt:\n');
   errors.forEach((e) => console.error(`- ${e}`));
