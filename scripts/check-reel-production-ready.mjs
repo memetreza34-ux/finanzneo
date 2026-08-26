@@ -76,15 +76,25 @@ for (const fileName of result.expectedImages) {
   }
 }
 
+// Ab hier ist Phase 1 abgeschlossen. Der kanonische Animationscode wird jetzt
+// gehasht und versiegelt. Phase 3 darf ihn danach nicht mehr verändern oder
+// durch eigene Platzhalter-/Wackelkomponenten ersetzen.
+const seal = spawnSync(process.execPath, [resolve('scripts/seal-phase1-animation-code.mjs'), root], {stdio: 'inherit'});
+if (seal.status !== 0) {
+  console.error('\n✗ Phase 3 darf noch nicht starten: Phase-1-Animationscode konnte nicht versiegelt werden.');
+  process.exit(seal.status ?? 1);
+}
+
 const executor = PHASE3_EXECUTORS[result.phase3Executor];
 console.log('\n✓ PHASE 3 STARTKLAR');
 console.log(`  ${result.expectedImages.length} quadratische 1:1-Bilder · 1 finales Voiceover · echte Wort-Zeitstempel`);
 console.log(`  Executor: ${executor.label}`);
 console.log(`  Übergabe: ${executor.handoff}`);
+console.log('  Phase-1-Animationscode ist versiegelt und darf in Phase 3 nicht ersetzt werden.');
 console.log('\n  WICHTIG: STARTKLAR bedeutet NICHT fertig. Eine MP4 allein ist kein Abschluss.');
 console.log('  Nächste Pflichtschritte:');
 console.log(`  1. npm run reel:phase3:init -- ${target} <Composition-ID>`);
-console.log('  2. Jede scene-index-Szene wirklich als Bild oder Animation implementieren.');
+console.log('  2. Bildszenen integrieren; Animationsszenen direkt aus den versiegelten Phase-1-TSX-Dateien verwenden.');
 console.log(`  3. npm run reel:phase3:preflight -- ${target}`);
 console.log('  4. npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json');
 console.log('  5. Post-Render-QA muss PASSED sein; erst dann entsteht die finale MP4.');
