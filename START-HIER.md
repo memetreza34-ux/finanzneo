@@ -14,6 +14,7 @@ Einstiege:
 
 - Phase 1: `docs/PHASE-1-BRIEFING.md`
 - Phase 1 Animation: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
+- Scene-Index-Schema: `docs/SCENE-INDEX-SCHEMA.md`
 - Gesamtworkflow: `docs/3-PHASEN-WORKFLOW.md`
 - Phase 3 Completion: `docs/PHASE-3-COMPLETION-GATE.md`
 
@@ -185,13 +186,15 @@ Keine YouTube Shorts.
 npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
 ```
 
-Der Ersteller setzt automatisch:
+Der Ersteller setzt **bereits im Scaffolder selbst** automatisch:
 
 - Flow Strict-Single-Job
 - Physical-Explainer-/1:1-Lock
 - Reel-Layout V5
-- Phase-1-Animationscode-Vertrag
+- Phase-1-Animationscode-Vertrag + kanonische `animation.tsx` pro Animationsszene
 - Phase-3-Completion-Gate
+
+Die nachgelagerten Apply-Skripte sind zusätzliche Idempotenz-/Migrationssicherung, nicht die primäre Quelle für einen absichtlich veralteten Scaffold.
 
 ## Final
 
