@@ -8,8 +8,8 @@ Prompt wie „halte dich an die Repo-Regeln" läuft deshalb ins Leere: Phase 1
 kann Regeln nicht befolgen, die sie nicht kennt. Alle Regeln stehen deshalb
 hier ausgeschrieben.
 
-Nach jeder Regeländerung in `CLAUDE.md` oder am globalen Image-World-Lock wird
-dieses Briefing nachgezogen.
+Nach jeder Regeländerung in `CLAUDE.md`, am globalen Image-World-Lock oder am
+Reel-Layout wird dieses Briefing nachgezogen.
 
 ---
 
@@ -53,6 +53,16 @@ KEINE YouTube Shorts.
 - Animationsbeat 4,5–6,5 s
 - Google-Flow-Quellbilder IMMER quadratisch 1:1
 - AUCH Cover Bild 00 bleibt als Flow-Quellbild 1:1; 9:16 entsteht erst in Remotion
+
+REEL-LAYOUT V5 — verbindlich:
+- normaler Plain-Header bei ungefähr Y = 154
+- keine Header-Capsule, kein Chip, kein Panel
+- Headline neutral weiß, Icon als semantischer Farbakzent
+- Visualzone Y = 320–1480
+- Bilder UND Animationen sitzen damit höher als im alten V4-Layout
+- Untertitel 340 px über dem unteren Rand
+- oben und unten bleibt mehr ruhige Luft
+- Header und Visual liegen optisch näher zusammen
 
 WICHTIG ZUR 6-SEKUNDEN-GRENZE:
 Szenenschnitte folgen später den echten Wortzeiten des Voiceovers. Plane die
@@ -128,7 +138,7 @@ im scene-index.json. Beides muss denselben Wortlaut verwenden.
 ════════════════════════════════════════════════════════════════════
 4. ZWISCHENÜBERSCHRIFT — PFLICHT IN JEDER SZENE
 ════════════════════════════════════════════════════════════════════
-Jede Bild- UND Animationsszene bekommt eine Zwischenüberschrift mit Icon.
+Jede Bild- UND Animationsszene bekommt eine normale Zwischenüberschrift mit Icon.
 
 PFLICHTREGEL: Die Überschrift ist ein AUSSAGESATZ oder eine FRAGE.
 Niemals nur ein Stichwort. Niemals nur eine Zahl.
@@ -137,20 +147,23 @@ Prüffrage vor jeder Szene:
 „Wenn jemand nur diese Zeile liest — weiß er dann, was die Szene erklärt?"
 Wenn nein, ist die Überschrift falsch.
 
-GUT (Aussage)                        SCHLECHT              WARUM
-MEHRERE KONTEN WERDEN ADDIERT        60.000 € + 50.000 €   reine Zahlen
-JEDE BANK SCHÜTZT SEPARAT            80.000 € + 80.000 €   reine Zahlen
-ZUSAMMEN SIND ES 110.000 €           110.000 €             Zahl ohne Aussage
-GEMEINSCHAFTSKONTO WIRD GETEILT      GEMEINSCHAFTSKONTO    Stichwort
-AKTIEN UND ETFs ZÄHLEN NICHT DAZU    AKTIEN & ETFs         Stichwort
-PRÜFE, WO DEIN GELD WIRKLICH LIEGT   BANK PRÜFEN           zu vage
-JEDES KONTO EINZELN? FALSCH          EINLAGENSICHERUNG     Reel-Thema
-NUR SECHS MONATE LANG                WICHTIG / TEIL 3      sagt nichts
+GUT (natürlich)                         SCHLECHT              WARUM
+Mehrere Konten werden addiert           60.000 € + 50.000 €   reine Zahlen
+Jede Bank schützt separat               80.000 € + 80.000 €   reine Zahlen
+Zusammen sind es 110.000 €              110.000 €             Zahl ohne Aussage
+Das Gemeinschaftskonto wird geteilt     GEMEINSCHAFTSKONTO    Stichwort
+Aktien und ETFs zählen nicht dazu       AKTIEN & ETFs         Stichwort
+Prüfe, wo dein Geld wirklich liegt      BANK PRÜFEN           zu vage
+Jedes Konto einzeln? Falsch             EINLAGENSICHERUNG     Reel-Thema
+Nur sechs Monate lang                   WICHTIG / TEIL 3      sagt nichts
 
 - Zahlen dürfen IN der Überschrift stehen, nie allein
 - Länge 3–6 Wörter, maximal eine Zeile (Richtwert bis 40 Zeichen)
 - keine zwei Szenen mit identischer Überschrift
-- Darstellung: mittig zentriert, in FinanzNeo-Grün
+- normale Schreibweise / Sentence Case; NICHT künstlich alles in Großbuchstaben
+- Darstellung: mittig zentriert, ruhiger weißer Text + einfaches Linien-Icon
+- KEINE Capsule, KEIN Chip, KEIN Panel, KEINE pillenförmige Box um die Überschrift
+- Icon und Text stehen als eine einfache Typografie-Zeile zusammen
 
 ICON — jede Szene bekommt ein eigenes, inhaltlich passendes Icon.
 Nicht dasselbe Icon als Verlegenheitslösung für unterschiedliche Aussagen.
@@ -160,11 +173,12 @@ euro, clock, hourglass, shield, check, cross, coins, bank, rocket, wallet,
 percent, flame, target, bulb, lock, trending, calendar, phone, search,
 receipt, repeat, document, list, warning
 
-TON (headerTone) — nach Bedeutung:
-- default   = normale Erklärung (grün)
-- positive  = Lösung, Schutz, richtig
-- warning   = Warnung, Problem, Irrtum, Verlust (rot) — nur bei echter Warnung
-- money     = Geldbetrag, Summe, Wert (gold)
+TON (headerTone) — betrifft primär die Icon-Farbe:
+- default   = normale Erklärung (grünes Icon, weißer Text)
+- positive  = Lösung, Schutz, richtig (grünes Icon, weißer Text)
+- warning   = Warnung, Problem, Irrtum, Verlust (rotes Icon, weißer Text)
+- money     = Geldbetrag, Summe, Wert (goldenes Icon, weißer Text)
+- neutral   = neutraler Hinweis (weißes Icon, weißer Text)
 
 ════════════════════════════════════════════════════════════════════
 5. UNTERTITEL
@@ -172,6 +186,7 @@ TON (headerTone) — nach Bedeutung:
 - satzbasiert, aktives Wort grün, restliche Wörter weiß
 - kein gelbes/goldenes aktives Wort, kein schwarzer Text
 - maximal zwei Zeilen
+- V5: Untertitel sitzen höher, ungefähr 340 px über dem unteren Rand
 
 KEIN VORGREIFEN: In einer Szene erscheinen NUR die Wörter, die in dieser Szene
 gesprochen werden. Kein Wort der nächsten Szene darf vorher sichtbar sein.
@@ -254,16 +269,62 @@ Szene 02 = Animation → kein Bild 02
 Szene 03 = Bild      → Bild 03
 
 ════════════════════════════════════════════════════════════════════
-8. REMOTION-ANIMATIONEN
+8. REMOTION-ANIMATIONEN — PHASE 1 LIEFERT DEN FERTIGEN CODE
 ════════════════════════════════════════════════════════════════════
+DIESE REGEL IST KRITISCH:
+Phase 1 ist vollständig für die kreative UND technische Qualität jeder
+Animationsszene verantwortlich. Phase 3 darf keine fehlende kreative Arbeit
+nachholen und darf keine eigenen Platzhalter-Animationen erfinden.
+
+Für JEDE Animationsszene lieferst du ZWEI Dateien:
+
+1. remotion.md
+   - exakte visuelle Idee
+   - Startzustand
+   - sichtbarer Mechanismus
+   - Endzustand
+   - Objektliste
+   - Texte/Labels
+   - Farben
+   - Bewegungsrichtung
+   - Timing relativ zum gesprochenen Satz
+   - stabiler Endzustand
+
+2. animation.tsx
+   - vollständiger produktionsreifer React-/Remotion-Code
+   - kein Pseudocode
+   - keine Platzhalter
+   - keine später zu ersetzenden Debug-Elemente
+   - Phase 3 verwendet GENAU diese kanonische Datei
+
 Jede Animation braucht zwingend:
 STARTZUSTAND → SICHTBARER MECHANISMUS → EINDEUTIGES ERGEBNIS
 
-- die Bewegung muss die Aussage erklären, nicht dekorieren
-- Start und Ergebnis sichtbar beschriftet
-- ohne Ton grundsätzlich verständlich
-- reine Zooms/Fades/Zahlen-Popups reichen NICHT
-- Ergebnis mindestens ~0,5 s stabil halten
+Der Code muss folgende Produktionsmerkmale enthalten:
+- Exportname passend zur Szene, z. B. Scene02Animation
+- `useCurrentFrame` für echte zeitbasierte Bewegung
+- zentrale `AnimationStage`
+- zentrale `ANIMATION_COLORS`
+- `prog`, `interpolate` oder `spring` für nachvollziehbare Bewegungsphasen
+- Kommentarblock `ANIMATION_NARRATIVE` mit:
+  START: konkrete sichtbare Ausgangslage
+  MECHANISM: konkrete sichtbare Veränderung
+  RESULT: konkretes sichtbares Ergebnis
+- Konstante `RESULT_HOLD_FRAMES` mit mindestens 15 Frames
+- Ergebnis mindestens 0,5 Sekunden stabil sichtbar
+- Visuals nutzen die V5-Visualzone Y = 320–1480 sinnvoll aus
+- keine kleine verlorene Grafik in der Mitte
+- Animation sitzt genauso hoch wie die Bildszenen
+
+STRIKT VERBOTEN:
+- Math.sin/Math.cos-Dauerwackeln nur damit Frame-Diff > 0 wird
+- wackelnde Rechtecke, Debug-Boxen oder bunte Testflächen
+- generische Cards + Text ohne inhaltlichen Mechanismus
+- Bewegung nur zur Dekoration
+- reine Zooms/Fades/Zahlen-Popups als vollständige Erkläranimation
+- Placeholder, TODO, Dummy, Debug, Temporary, Test-Hacks
+- schwarzer Text auf dunklem Hintergrund
+- Phase 3 ersetzt die Animation durch eigenen Code
 
 FARBEN auf dunklem Hintergrund:
 - Weiß = neutrale Information
@@ -272,7 +333,20 @@ FARBEN auf dunklem Hintergrund:
 - Gold = Geldbetrag, Summe, Wert
 - SCHWARZ IST VERBOTEN
 
-Halte Beschriftungen kurz — lange Chips laufen seitlich aus dem Bild.
+QUALITÄTSPRÜFUNG VOR ABGABE:
+- Ist die Animation auch ohne Ton grundsätzlich verständlich?
+- Erklärt die Bewegung exakt den gesprochenen Satz?
+- Sieht sie wie ein Teil derselben FinanzNeo-Welt aus wie die Bilder?
+- Sind Start, Mechanismus und Ergebnis sofort erkennbar?
+- Bleibt das Ergebnis stabil stehen?
+- Würdest du diesen Code unverändert in den finalen Reel rendern?
+Wenn eine Antwort nein ist, ist Phase 1 noch NICHT fertig.
+
+scene-index.json bei jeder Animationsszene zusätzlich:
+- animationSourceFile: EINZELNE-SZENEN/scene-XX/animation.tsx
+- animationExport: SceneXXAnimation
+- animationIntent: konkrete sichtbare Kette Start → Mechanismus → Ergebnis
+- animationQualityLock: finanzneo-phase1-animation-code-v1
 
 ════════════════════════════════════════════════════════════════════
 9. WAS DU LIEFERST
@@ -281,8 +355,9 @@ Halte Beschriftungen kurz — lange Chips laufen seitlich aus dem Bild.
 03-szenen/bildwelt.txt                Bildwelt-Definition mit 1:1-Lock
 03-szenen/00-cover/cover.txt          Cover-Prompt inkl. Dateinamen
 03-szenen/alle-bildprompts.txt        EINZIGE Übergabedatei an Google Flow
-03-szenen/EINZELNE-SZENEN/scene-XX/   je bildprompt.txt ODER remotion.md
-                                      (genau eine Produktionsquelle) + szene.md
+03-szenen/EINZELNE-SZENEN/scene-XX/
+  Bildszene:      bildprompt.txt + szene.md
+  Animationsszene: remotion.md + animation.tsx + szene.md
 03-szenen/scene-index.json            vollständige Szenenmetadaten
 04-caption/caption.txt                Master-Caption
 04-caption/instagram-reels.txt        Plattformtext
@@ -291,14 +366,17 @@ Halte Beschriftungen kurz — lange Chips laufen seitlich aus dem Bild.
 04-caption/snapchat.txt               Plattformtext
 05-projektdateien/recherche-quellen.md  Quellen mit Datenstand
 05-projektdateien/szenenplan.md         Szenenplan
-05-projektdateien/animationen.md        Animationsspezifikationen
+05-projektdateien/animationen.md        Übersicht aller Animationsmechaniken
 
 Pro Szene im scene-index.json:
-  id, type (image|animation), headline, icon, headerTone, planFile,
-  expectedVisual + googleFlowFileName + imagePresentation bei Bildszenen.
-  `directory`, `accent` und `objectLabels` dürfen zusätzlich enthalten sein,
-  sind aber keine zweite Wahrheit: directory kann aus planFile, accent aus
-  headerTone abgeleitet werden; die Bildlabels stehen verbindlich im Prompt.
+  id, type (image|animation), headline, icon, headerTone, planFile.
+  Bild: expectedVisual + googleFlowFileName + imagePresentation.
+  Animation: animationSourceFile + animationExport + animationIntent +
+             animationQualityLock.
+
+`directory`, `accent` und `objectLabels` dürfen zusätzlich enthalten sein,
+sind aber keine zweite Wahrheit: directory kann aus planFile, accent aus
+headerTone abgeleitet werden; die Bildlabels stehen verbindlich im Prompt.
 
 KEINE PLATZHALTER. Kein „[EINFÜGEN]", kein „TODO", kein „…".
 Erzeuge KEINE Bilder und KEIN Ersatz-Voiceover — das macht der Nutzer.
@@ -322,8 +400,10 @@ alle-bildprompts.txt enthält zusätzlich das Arbeitsprotokoll wörtlich:
 [ ] nie mehr als zwei Bildszenen direkt hintereinander
 [ ] Skript 60–90 s, Hook in den ersten 2 Sekunden
 [ ] alle Zahlen geprüft, Annahmen als Beispiel gekennzeichnet
-[ ] jede Szene hat eine Überschrift, die als AUSSAGE sagt, worum es geht
+[ ] jede Szene hat eine natürliche Überschrift als Aussage/Frage
 [ ] keine Überschrift ist nur eine Zahl oder nur ein Stichwort
+[ ] keine künstliche ALL-CAPS-Formatierung als Stilmittel
+[ ] Header ist plain: weißer Text + einfaches Icon, keine Capsule/kein Chip
 [ ] keine zwei Szenen mit identischer Überschrift
 [ ] jede Szene hat ein passendes Icon aus der erlaubten Liste
 [ ] kein Bildbeat müsste länger als 6 Sekunden stehen
@@ -334,8 +414,14 @@ alle-bildprompts.txt enthält zusätzlich das Arbeitsprotokoll wörtlich:
 [ ] keine UI-/Microchip-/Gameboard-/Orbit-Komposition
 [ ] jeder Bildprompt: nahtloser Hintergrund, Dateiname, Gesichtsregel
 [ ] jeder Bildprompt verbietet Headline/Untertitel/Satz im Bild
-[ ] jede Animation hat Start → Mechanismus → Ergebnis
+[ ] JEDE Animationsszene hat fertige remotion.md UND fertige animation.tsx
+[ ] jeder Animationscode enthält ANIMATION_NARRATIVE START/MECHANISM/RESULT
+[ ] RESULT_HOLD_FRAMES ist mindestens 15
+[ ] keine Math.sin/Math.cos-Wackelbewegung, keine Debug-/Placeholder-Elemente
+[ ] Phase-1-Animationscode ist final genug, um unverändert gerendert zu werden
 [ ] keine schwarzen Texte auf dunklem Hintergrund
+[ ] Visuals/Animationen nutzen Y = 320–1480 und sitzen nicht zu tief
+[ ] Untertitel sind für bottom 340 geplant
 [ ] alle vier Plattformtexte vorhanden
 [ ] keine Platzhalter in irgendeiner Datei
 ```
@@ -350,11 +436,18 @@ Nach Phase 2 blockiert `npm run reel:ready -- <Reel-Pfad>` unter anderem:
 - Überschriften, die nur aus Zahlen oder einem Stichwort bestehen
 - doppelte Überschriften
 - fehlende oder unbekannte Icons
+- falsches Reel-V5-Layout
 - Bildbeats über 6 Sekunden
 - Lücken oder Überlappungen in der Timeline
 - fehlende Bildwelt-Locks, falsches Seitenverhältnis, Prozent-Zonen
 - fehlende Plattformtexte, fehlende Wortzeiten, fehlendes Audio
+- fehlende oder unvollständige `animation.tsx`
+- Animationscode mit Platzhaltern, Debug-/Wackel-Hacks oder fehlender Mechanik
 - bei `phase3Executor=claude-code`: fehlender/unvollständiger Claude-Code-Auftrag
+
+Bei erfolgreichem `reel:ready` wird der Phase-1-Animationscode gehasht und
+versiegelt. Phase 3 darf diese Dateien danach nicht verändern oder durch eigene
+Komponenten ersetzen. Ein veränderter Hash blockiert den Phase-3-Preflight.
 
 Was der Validator meldet, wird an der Quelle korrigiert — nicht in Phase 3
 still überschrieben.
