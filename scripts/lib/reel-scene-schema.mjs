@@ -11,8 +11,21 @@ export const SCENE_REQUIRED_FIELDS = ['id', 'type', 'headline', 'icon', 'planFil
 /** Zusätzliche Primärdaten für Bildszenen. */
 export const IMAGE_SCENE_REQUIRED_FIELDS = ['googleFlowFileName', 'expectedVisual', 'imagePresentation'];
 
-/** Zusätzliche Pflichtfelder für Animationsszenen. */
-export const ANIMATION_SCENE_REQUIRED_FIELDS = [];
+/**
+ * Zusätzliche Primärdaten für Animationsszenen.
+ *
+ * V5: Phase 1 ist für die kreative und technische Animation verantwortlich.
+ * Deshalb reicht eine remotion.md-Spezifikation nicht mehr: jede Animation
+ * besitzt bereits in Phase 1 eine kanonische produktionsreife TSX-Quelle.
+ */
+export const ANIMATION_SCENE_REQUIRED_FIELDS = [
+  'animationSourceFile',
+  'animationExport',
+  'animationIntent',
+  'animationQualityLock',
+];
+
+export const ANIMATION_QUALITY_LOCK = 'finanzneo-phase1-animation-code-v1';
 
 /** Erlaubte Werte für eine explizit gespeicherte semantische Akzentfarbe. */
 export const SCENE_ACCENTS = ['finance-green', 'price-pressure', 'gold', 'warning', 'neutral'];
@@ -57,7 +70,7 @@ export const canonicalSceneAccent = (scene) => {
 export const validateSceneShape = (scene, {index = 0} = {}) => {
   const fehler = [];
   const id = typeof scene?.id === 'string' && scene.id.trim() ? scene.id : `Szene ${index + 1}`;
-  const hatPlatzhalter = (wert) => typeof wert === 'string' && /\[|EINFÜGEN|TODO|TBD/i.test(wert);
+  const hatPlatzhalter = (wert) => typeof wert === 'string' && /\[|EINFÜGEN|TODO|TBD|PLACEHOLDER/i.test(wert);
 
   for (const feld of SCENE_REQUIRED_FIELDS) {
     const wert = scene?.[feld];
@@ -102,6 +115,30 @@ export const validateSceneShape = (scene, {index = 0} = {}) => {
       } else if (scene.objectLabels.some((label) => typeof label !== 'string' || !label.trim() || hatPlatzhalter(label))) {
         fehler.push(`${id}.objectLabels enthalten ungültige Werte oder Platzhalter.`);
       }
+    }
+  }
+
+  if (scene?.type === 'animation') {
+    for (const feld of ANIMATION_SCENE_REQUIRED_FIELDS) {
+      const wert = scene?.[feld];
+      if (typeof wert !== 'string' || !wert.trim()) {
+        fehler.push(`${id}.${feld} fehlt.`);
+      } else if (hatPlatzhalter(wert)) {
+        fehler.push(`${id}.${feld} enthält noch einen Platzhalter.`);
+      }
+    }
+
+    if (scene.animationQualityLock && scene.animationQualityLock !== ANIMATION_QUALITY_LOCK) {
+      fehler.push(`${id}.animationQualityLock muss ${ANIMATION_QUALITY_LOCK} sein.`);
+    }
+    if (typeof scene.animationSourceFile === 'string' && !/\.tsx$/i.test(scene.animationSourceFile.trim())) {
+      fehler.push(`${id}.animationSourceFile muss auf eine .tsx-Datei zeigen.`);
+    }
+    if (typeof scene.animationExport === 'string' && !/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(scene.animationExport.trim())) {
+      fehler.push(`${id}.animationExport ist kein gültiger TypeScript-Exportname.`);
+    }
+    if (typeof scene.animationIntent === 'string' && scene.animationIntent.trim().length < 18) {
+      fehler.push(`${id}.animationIntent ist zu vage; Start/Mechanismus/Ergebnis müssen konkret beschrieben sein.`);
     }
   }
 
