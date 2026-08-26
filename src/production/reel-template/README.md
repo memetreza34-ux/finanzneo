@@ -4,7 +4,7 @@ Datengetriebene Vorlage für vertikale FinanzNeo-Reels von 60 bis 90 Sekunden.
 
 ## Ziel
 
-Ein neues Reel soll hauptsächlich über eine Konfiguration entstehen, nicht durch vollständiges Neuprogrammieren jeder Szene.
+Ein neues Reel soll zentrale Layout-, Caption- und Header-Regeln aus dem Designsystem erben. Reel-spezifische Dateien dürfen diese Werte nicht lokal überschreiben.
 
 ## Unterstützte Beat-Typen
 
@@ -20,166 +20,141 @@ Ein neues Reel soll hauptsächlich über eine Konfiguration entstehen, nicht dur
 
 Die Konfiguration wird vor dem Render geprüft:
 
-- Gesamtdauer zwischen 60 und 90 Sekunden
+- Gesamtdauer 60–90 Sekunden
 - erster Beat ist `hook`
 - letzter Beat ist `cta`
-- jede Beat-ID ist eindeutig
-- jede Dauer ist eine positive ganze Framezahl
-- **jeder Beat besitzt ein passendes `icon` für `SceneHeader`**
+- eindeutige Beat-IDs
+- positive ganze Frame-Dauern
+- jeder Beat besitzt ein passendes `icon`
 - Image-Beats besitzen eine Datei
-- **Image-Beats dauern maximal 6,0 Sekunden**; sonst splitten oder animieren
+- Image-Beats dauern maximal 6,0 Sekunden
 - Checklisten besitzen mindestens einen Punkt
 
-## Zwischenüberschrift + Icon
+## SceneHeader V5
 
-Jede Szene erhält automatisch über den zentralen Renderpfad einen `SceneHeader`.
+Jede Szene erhält einen zentralen `SceneHeader`.
 
 ```tsx
 {
   id: 'kontoauszug',
   type: 'image',
   icon: 'search',
-  headline: 'KONTOAUSZUG PRÜFEN',
-  // ...
+  headline: 'Kontoauszug prüfen',
 }
 ```
 
-Standard:
+V5-Standard:
 
 - mittig zentriert
-- Headline und Icon in FinanzNeo-Grün
-- jede Szene ein eigenes, inhaltlich passendes Icon
-- die Überschrift ist eine Aussage, nie nur ein Stichwort oder eine Zahl
-- gleiche Top-Position in jeder Szene
-- `headerTone: 'warning'` nur für echte Warnung/Problem
-- `headerTone: 'money'` nur für Geld-/Wertfokus
+- `top = 154`
+- normale Schreibweise / Sentence Case
+- Text neutral weiß
+- einfaches Linien-Icon links neben dem Text
+- semantische Farbe primär über das Icon
+- keine Capsule, kein Chip, keine Pill, kein Panel
+- keine automatische ALL-CAPS-Transformation
+- Aussage oder Frage, nie nur Stichwort oder Zahl
+- `warning` nur für echte Warnung/Problem
+- `money` nur für Geld-/Wertfokus
+
+## V5-Layout
+
+Einzige technische Quelle: `REEL_STYLE` in `src/brand/tokens.ts`.
+
+```text
+Header      Y = 154
+Visual      Y = 320–1480
+Caption     bottom = 340
+Transition  3 Frames
+```
+
+Bilder und native Animationen nutzen dieselbe Visualzone. `AnimationStage` verschiebt/zentriert native Animationen passend zur V5-Bühne.
 
 ## Untertitel
 
 Die zentrale `Captions`-Komponente erzwingt:
 
-- aktive Wortfarbe: FinanzNeo-Grün
-- restliche Wörter: Weiß
-- satzbasierte Einheiten
+- aktives Wort FinanzNeo-Grün
+- restliche Wörter Weiß
+- satz-/phrasenbasierte Einheiten
 - maximal zwei Zeilen
-- kein gelbes/goldenes Karaoke-Active-Word
-- kein schwarzer Untertiteltext
+- kein gelbes/goldenes Active-Word
+- kein schwarzer Text
 - kein Word-Jump
 - kein Scale-Pop
-- Caption-Safe-Area: bottom 285, left 72, right 140 (aus `REEL_STYLE`)
+- kein `WebkitTextStroke`
+- `bottom = 340`, `left = 72`, `right = 140`
 
-Lokale `highlight`-/`color`-Overrides dürfen die Caption-Farblogik nicht verändern.
+Lokale Caption-Positionen und Farb-Overrides sind nicht vorgesehen.
+
+## Animationen
+
+Produktive Reel-Animationen werden nicht in Phase 3 kreativ erfunden.
+
+Für neue Reels liefert Phase 1 pro Animationsszene bereits eine fertige:
+
+```text
+03-szenen/EINZELNE-SZENEN/scene-XX/animation.tsx
+```
+
+Verbindlicher Standard: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
+
+Jede Animation zeigt:
+
+```text
+STARTZUSTAND
+→ SICHTBARER MECHANISMUS
+→ EINDEUTIGES ERGEBNIS
+→ RESULT mindestens 15 Frames stabil
+```
+
+Verboten sind unter anderem Dummy-/Placeholder-Komponenten, Debug-Boxen, wackelnde Rechtecke und `Math.sin`/`Math.cos` als künstlicher Frame-Diff-Hack.
+
+Bei `reel:ready` werden die Phase-1-Animationsquellen per SHA-256 versiegelt. Phase 3 muss exakt diese Quellen verwenden.
 
 ## Animationsfarben
 
 Auf dunklen Reel-Flächen gilt `ANIMATION_COLORS`:
 
-- weiß = neutral
-- grün = Fokus/Lösung
-- rot = Problem/Warnung/Verlust
-- gold = Geld/Wert
-- schwarz = verboten
-
-Komplexe Erkläranimationen können `MechanismCue` für klar erkennbare Start-/Ergebniszustände verwenden.
-
-Jede Erkläranimation folgt:
-
-```text
-START → SICHTBARER MECHANISMUS → ERGEBNIS
-```
-
-## Beispiel
-
-```tsx
-import type {ReelConfig} from './types';
-
-export const config: ReelConfig = {
-  id: 'inflation-grundlage',
-  title: 'Was macht Inflation mit deinem Geld?',
-  fps: 30,
-  audioSrc: 'audio/inflation.mp3',
-  captions: words,
-  beats: [
-    {
-      id: 'hook',
-      type: 'hook',
-      icon: 'wallet',
-      durationInFrames: 150,
-      headline: 'DEIN GELD WIRD WENIGER WERT',
-      subline: 'Auch wenn die Zahl auf dem Konto gleich bleibt.',
-    },
-    {
-      id: 'image',
-      type: 'image',
-      icon: 'coins',
-      durationInFrames: 150,
-      headline: 'DIESELBE SUMME KAUFT WENIGER',
-      imageSrc: 'images/inflation-01.webp',
-      alt: 'Stylized 3D Kaufkraftmetapher',
-    },
-    {
-      id: 'cta',
-      type: 'cta',
-      icon: 'check',
-      durationInFrames: 150,
-      headline: 'PRÜFE DEINE KAUFKRAFT',
-      body: 'Nutze den kostenlosen Inflationsrechner.',
-      keyword: 'INFLATION',
-      offer: 'Kostenlose Checkliste und Rechner-Anleitung',
-    },
-  ],
-};
-```
-
-Das Beispiel oben ist absichtlich unvollständig und muss vor Nutzung auf mindestens 60 Sekunden erweitert werden. Die automatische Validierung verhindert einen zu kurzen Render.
-
-## Safe Areas
-
-Die Vorlage trennt:
-
-- oberen Bereich für `SceneHeader`
-- mittleren Bereich für Bild, Zahl oder Erklärung
-- unteren Bereich für Untertitel
-
-Für die Studio-Prüfung:
-
-```ts
-showSafeAreaGuide: true
-```
-
-Vor dem Produktionsrender:
-
-```ts
-showSafeAreaGuide: false
-```
+- Weiß = neutral
+- Grün = Fokus/Lösung
+- Rot = Problem/Warnung/Verlust
+- Gold = Geld/Wert
+- Schwarz = verboten
 
 ## Bilder
 
-Image-Beats erwarten Bilder, die bereits nach diesen Dokumenten freigegeben wurden:
+Image-Beats erwarten freigegebene 1:1-Nutzerbilder. Darstellung in Remotion erfolgt mit `contain`; wichtige Motive und Labels dürfen nicht abgeschnitten werden.
+
+Verbindliche Quellen:
 
 - `docs/IMAGE-SYSTEM.md`
 - `docs/IMAGE-QA-CHECKLIST.md`
 - `docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md`
 
-Die Vorlage repariert kein falsch komponiertes KI-Bild.
+## Safe Areas
 
-## Zahlen
+Für Studio-Prüfungen:
 
-Zahlenbeats dürfen keine erfundenen Ergebnisse enthalten. Werte kommen aus:
+```ts
+showSafeAreaGuide: true
+```
 
-- `src/finance/calculations.ts`
-- validierten Datendateien
-- klar markierten Beispielannahmen
+Vor Produktionsrendern:
+
+```ts
+showSafeAreaGuide: false
+```
+
+## Phase 3
+
+Eine erzeugte MP4 ist kein Fertigkeitsnachweis. Produktive Reels laufen über den Phase-3-Completion-Contract mit Preflight, Candidate-Render, Post-Render-QA und Export.
+
+Details:
+
+- `docs/PHASE-3-COMPLETION-GATE.md`
+- `scripts/lib/phase3-completion.mjs`
 
 ## Demo
 
-`ReelTemplateDemo.tsx` enthält eine Demo zum Thema Notgroschen.
-
-Die Demo:
-
-- liegt unter Experiments
-- zeigt das Safe-Area-Raster
-- besitzt pro Beat ein Icon
-- nutzt die neue Caption-/SceneHeader-Logik
-- besitzt noch kein Voiceover und keine echten Untertitel
-- ist nicht zur Veröffentlichung freigegeben
+`ReelTemplateDemo.tsx` liegt unter Experiments. Sie ist eine technische Vorschau, keine veröffentlichungsfertige Produktion.
