@@ -14,8 +14,7 @@ export const RESULT_HOLD_FRAMES = 18;
 export const Scene08Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 195}) => {
   const frame = useCurrentFrame();
   const end = Math.max(120, durationFrames - RESULT_HOLD_FRAMES);
-  const labels = ['WECHSELKURS','DCC-AUFSCHLAG','AUTOMATENGEBÜHR','KARTENGEBÜHR'];
-  const steps = labels.map((_,i)=>prog(frame, 12+i*28, Math.min(34+i*28,end-24)));
+  const labels = Array.of('WECHSELKURS','DCC-AUFSCHLAG','AUTOMATENGEBÜHR','KARTENGEBÜHR');
   const result = prog(frame, 112, end);
 
   return (
@@ -28,7 +27,7 @@ export const Scene08Animation: React.FC<{durationFrames?: number}> = ({durationF
 
         <div style={{position:'absolute',left:360,right:90,top:520,display:'grid',gap:22}}>
           {labels.map((label,i)=>{
-            const p=steps[i];
+            const p=prog(frame,12+i*28,Math.min(34+i*28,end-24));
             return <div key={label} style={{height:112,borderRadius:26,background:a(C.whiteSoft,0.065),border:`2px solid ${a(p>0.95?C.accent:C.whiteSoft,p>0.95?0.48:0.16)}`,display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 30px',opacity:0.45+p*0.55,transform:`translateX(${(1-p)*22}px)`}}><span style={{fontFamily:FONT.body,fontSize:29,fontWeight:820,color:ANIMATION_COLORS.neutralText}}>{label}</span><span style={{width:46,height:46,borderRadius:'50%',background:a(C.accent,0.14),display:'flex',alignItems:'center',justifyContent:'center',fontFamily:FONT.title,fontSize:28,color:ANIMATION_COLORS.focus,opacity:p}}>✓</span></div>;
           })}
         </div>
