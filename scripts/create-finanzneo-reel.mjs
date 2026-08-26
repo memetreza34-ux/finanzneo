@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 // Legt ein neues Reel atomar an: Grundgerüst + Google-Flow-Lock +
-// Phase-3-Fertigkeitsvertrag. Scheitert einer der Schritte, wird ein in diesem
-// Lauf neu erzeugter Reel-Ordner vollständig zurückgerollt.
+// Phase-3-Fertigkeitsvertrag + Reel-V5-Layout + kanonischer Phase-1-Animationscode.
+// Scheitert einer der Schritte, wird ein in diesem Lauf neu erzeugter Reel-Ordner
+// vollständig zurückgerollt.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -38,24 +39,24 @@ const zuruecknehmen = () => {
 
 const run = (script, scriptArgs = []) => spawnSync(process.execPath, [resolve(script), ...scriptArgs], {stdio: 'inherit'});
 
-const scaffold = run('scripts/scaffold-finanzneo-reel.mjs', args);
-if (scaffold.status !== 0) {
-  zuruecknehmen();
-  process.exit(scaffold.status ?? 1);
-}
+const steps = [
+  ['scripts/scaffold-finanzneo-reel.mjs', args],
+  ['scripts/apply-flow-autonomous-contract.mjs', [target]],
+  ['scripts/apply-phase3-completion-contract.mjs', [target]],
+  ['scripts/apply-reel-layout-v5.mjs', [target]],
+  ['scripts/apply-phase1-animation-code-contract.mjs', [target]],
+];
 
-const flowLock = run('scripts/apply-flow-autonomous-contract.mjs', [target]);
-if (flowLock.status !== 0) {
-  zuruecknehmen();
-  process.exit(flowLock.status ?? 1);
-}
-
-const phase3Lock = run('scripts/apply-phase3-completion-contract.mjs', [target]);
-if (phase3Lock.status !== 0) {
-  zuruecknehmen();
-  process.exit(phase3Lock.status ?? 1);
+for (const [script, scriptArgs] of steps) {
+  const result = run(script, scriptArgs);
+  if (result.status !== 0) {
+    zuruecknehmen();
+    process.exit(result.status ?? 1);
+  }
 }
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
 console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob · kein Batch · kein Nutzer-„weiter“.');
+console.log('  Layout V5: plain Header Y154 · Visual 320–1480 · Captions bottom 340.');
+console.log('  Animation V1: jede Animationsszene braucht bereits in Phase 1 produktionsreifen kanonischen TSX-Code.');
 console.log('  Phase 3: MP4 allein gilt nicht als fertig · jede Szene braucht Visual · Post-Render-QA + Hash-Gate vor Export.');
