@@ -82,6 +82,57 @@ test('Reel-Ersteller erzeugt alle Primär-Pflichtfelder des Szenen-Schemas', () 
   assert.deepEqual(fehlend, [], `Reel-Ersteller erzeugt Pflichtfelder nicht: ${fehlend.join(', ')}`);
 });
 
+test('Reel-Ersteller schreibt V5-Layout und Plain-Header direkt in neue Reels', () => {
+  const {ziel, result} = reelAnlegen();
+  assert.equal(result.status, 0, `${result.stderr}${result.stdout}`);
+
+  try {
+    const index = JSON.parse(readFileSync(join(resolve(ziel), '03-szenen/scene-index.json'), 'utf8'));
+    assert.deepEqual(index.layout, {
+      headlineY: 154,
+      visualTop: 320,
+      visualBottom: 1480,
+      subtitleBottom: 340,
+      subtitleLeft: 72,
+      subtitleRight: 140,
+    });
+    assert.equal(index.sceneHeader?.presentation, 'plain');
+    assert.equal(index.sceneHeader?.headlineColor, 'white');
+    assert.equal(index.sceneHeader?.semanticColorLivesOnIcon, true);
+    assert.equal(index.sceneHeader?.capsuleForbidden, true);
+    assert.equal(index.sceneHeader?.uppercaseTransformForbidden, true);
+    assert.equal(index.subtitleDisplay?.bottom, 340);
+    assert.equal(index.transitionContract?.continuityFrames, 3);
+  } finally {
+    aufraeumen();
+  }
+});
+
+test('Jede neu erzeugte Animationsszene besitzt sofort ihre kanonische Phase-1-Codequelle', () => {
+  const {ziel, result} = reelAnlegen();
+  assert.equal(result.status, 0, `${result.stderr}${result.stdout}`);
+
+  try {
+    const reelRoot = resolve(ziel);
+    const index = JSON.parse(readFileSync(join(reelRoot, '03-szenen/scene-index.json'), 'utf8'));
+    const animations = index.scenes.filter((scene: {type: string}) => scene.type === 'animation');
+    assert.ok(animations.length > 0);
+
+    for (const scene of animations) {
+      assert.equal(scene.animationQualityLock, ANIMATION_QUALITY_LOCK);
+      assert.match(scene.animationSourceFile, /animation\.tsx$/);
+      assert.match(scene.animationExport, /^Scene\d{2}Animation$/);
+      const sourcePath = join(reelRoot, '03-szenen', scene.animationSourceFile);
+      assert.equal(existsSync(sourcePath), true, `${scene.id}: animation.tsx fehlt.`);
+      const source = readFileSync(sourcePath, 'utf8');
+      assert.match(source, /ANIMATION_NARRATIVE/);
+      assert.match(source, /RESULT_HOLD_FRAMES = 15/);
+    }
+  } finally {
+    aufraeumen();
+  }
+});
+
 test('Reel-Ersteller erzeugt keine strukturellen Readiness-Blocker', () => {
   const {ziel, result} = reelAnlegen();
   assert.equal(result.status, 0);
