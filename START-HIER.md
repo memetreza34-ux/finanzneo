@@ -1,139 +1,160 @@
 # FinanzNeo — Start hier
 
-## So funktioniert dieses Repo
-
-Ein Reel entsteht in drei Phasen. Jede Phase hat **genau ein** Einstiegsdokument.
+## Drei Phasen
 
 ```text
-PHASE 1 — ChatGPT               PHASE 2 — Du              PHASE 3 — Executor laut scene-index
-Recherche, Skript,              Bilder in Google Flow,    Remotion bauen,
-Szenenplan, Bildprompts,   →    Voiceover aufnehmen,  →   prüfen, Candidate rendern,
-Captions                        Wortzeiten erzeugen       Render-QA + Export
-
-docs/PHASE-1-BRIEFING.md        docs/3-PHASEN-           Antigravity: MASTER-PROMPTS.md
-(komplett in ChatGPT              WORKFLOW.md            Claude Code: Reel-Auftrag
- kopieren)                                               docs/PHASE-3-COMPLETION-GATE.md
+PHASE 1 — ChatGPT                  PHASE 2 — Nutzer            PHASE 3 — Executor
+Recherche, Skript,                 Flow-Bilder,                Assets integrieren,
+Bildprompts, Header,               finales Voiceover,          versiegelte Phase-1-
+Remotion-Specs UND            →    echte Wortzeiten       →    Animationen verwenden,
+fertige animation.tsx                                         Render-QA + Export
 ```
 
-**Wichtig zu Phase 1:** ChatGPT hat keinen Zugriff auf dieses Repository. Ein
-Prompt wie „halte dich an die Repo-Regeln" läuft ins Leere. Deshalb enthält
-`docs/PHASE-1-BRIEFING.md` alle Regeln ausgeschrieben und wird vollständig
-kopiert.
+Einstiege:
 
-## Die eine Wahrheit
+- Phase 1: `docs/PHASE-1-BRIEFING.md`
+- Phase 1 Animation: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
+- Gesamtworkflow: `docs/3-PHASEN-WORKFLOW.md`
+- Phase 3 Completion: `docs/PHASE-3-COMPLETION-GATE.md`
 
-Layout-, Untertitel- und Übergangswerte stehen **im Code**:
-`REEL_STYLE` in `src/brand/tokens.ts`.
+## Die eine Layout-Wahrheit
 
-Per-Reel-Felder wie alte `headlineColor`- oder `continuityFramesMax`-Werte sind
-nur historische Metadaten und dürfen `REEL_STYLE` nicht überschreiben.
-`npm run validate:consistency` prüft die zentralen Regeln automatisch.
+`src/brand/tokens.ts -> REEL_STYLE`:
 
-Für neue Reel-Bilder gilt zusätzlich der globale Physical-Explainer-Lock:
-`config/finanzneo-image-world-lock.json`. Er erweitert die bestehende V4-Welt,
-ersetzt sie nicht. Details: `docs/GLOBAL-IMAGE-WORLD-LOCK.md`.
+```text
+Header               Y = 154
+Header-Stil          plain, weißer Text + semantisches Linien-Icon
+Visual               Y = 320–1480
+Caption              bottom = 340
+Transition           3 Frames
+```
+
+Damit sitzen Bilder und Animationen höher, der Header etwas tiefer und näher am Visual, die Untertitel höher; oben und unten bleibt mehr ruhige Luft.
+
+### Header V5
+
+- natürliche Schreibweise / Sentence Case
+- kein automatisches ALL CAPS
+- keine Capsule
+- kein Chip/Pill/Panel
+- Text neutral weiß
+- Icon trägt semantische Farbe
+
+## Phase 1 besitzt die Animation
+
+Eine Animationsszene besteht aus:
+
+```text
+scene-XX/
+├── szene.md
+├── remotion.md
+└── animation.tsx
+```
+
+`animation.tsx` ist bereits in Phase 1 produktionsreif. Phase 3 darf sie nicht durch eigenen Code ersetzen.
+
+Pflicht:
+
+```text
+START → MECHANISMUS → ERGEBNIS → mindestens 15 Frames stabil
+```
+
+Verboten:
+
+- wackelnde Rechtecke
+- Debug-/Testflächen
+- Dummy-/Placeholder-Komponenten
+- `Math.sin`/`Math.cos` als künstliches Dauerwackeln für Frame-Diff
+- generische Bewegung nur, um QA zu bestehen
+
+## Phase-1-Animationsseal
+
+Nach erfolgreichem:
+
+```bash
+npm run reel:ready -- <Reel-Pfad>
+```
+
+schreibt das Repo:
+
+```text
+05-projektdateien/phase1-animation-seal.json
+```
+
+Darin stehen SHA-256-Hashes aller kanonischen `animation.tsx`-Dateien. Phase 3 muss direkt diese Dateien verwenden. Änderung oder Ersatz blockiert den Preflight.
 
 ## Phase-3-Executor
 
-`03-szenen/scene-index.json` entscheidet mit `phase3Executor`, wer Phase 3 baut:
+`scene-index.json -> phase3Executor`:
 
 | Wert | Übergabe |
 |---|---|
-| `antigravity` | `MASTER-PROMPTS.md`, Abschnitt Phase 3 |
-| `claude-code` | `05-projektdateien/CLAUDE-CODE-AUFTRAG.md` im Reel |
-
-`npm run reel:ready -- <Reel-Pfad>` prüft den Wert und nennt nach erfolgreicher
-Prüfung den tatsächlich vorgesehenen Executor. Bei `claude-code` muss der
-Reel-spezifische Auftrag vorhanden und vollständig sein.
+| `antigravity` | `MASTER-PROMPTS.md` |
+| `claude-code` | `05-projektdateien/CLAUDE-CODE-AUFTRAG.md` |
 
 ## Phase-3-Fertigkeitsgate
 
-Eine erzeugte MP4 ist **kein** Fertigkeitsnachweis. Das verbindliche Verfahren
-steht in `docs/PHASE-3-COMPLETION-GATE.md`.
-
-Nach grünem `reel:ready`:
+Eine MP4 allein ist **kein** Fertigkeitsnachweis.
 
 ```bash
-npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
-# jede Bild-/Animationsszene wirklich implementieren und Manifest vervollständigen
-npm run reel:phase3:preflight -- <Reel-Pfad>
-npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
-npm run reel:export -- <Reel-Pfad> <Final-MP4>
+npm run reel:ready -- <Reel>
+npm run reel:phase3:init -- <Reel> <Composition-ID>
+# Manifest vervollständigen
+npm run reel:phase3:preflight -- <Reel>
+npm run reel:render -- <Manifest>
+npm run reel:export -- <Reel> <Final-MP4>
 ```
 
-`reel:render` erzeugt bei produktiven Reels zuerst nur eine
-`*.phase3-candidate.mp4`. Die Candidate-Datei wird **erst nach bestandener
-Post-Render-QA** zum finalen MP4 umbenannt.
+Produktiver Render:
 
-Die QA prüft für jede Szene die mittlere Visualzone. Bildszenen müssen echten
-sichtbaren Bildinhalt besitzen. Animationsszenen müssen sichtbaren Inhalt **und
-messbare Veränderung** zwischen mehreren Frames zeigen. Eine Szene mit nur
-Untertitel/Headline auf dunklem Hintergrund gilt als unvollständig.
+```text
+Candidate-MP4
+→ Post-Render-QA pro Szene
+→ nur PASSED wird Final-MP4
+→ Export mit Hash-Gates
+→ FINAL_COMPLETE
+```
 
-Der Export prüft danach zusätzlich den exakten SHA-256-Hash des geprüften
-Videos und blockiert, wenn `scene-index.json` oder das Produktionsmanifest nach
-der QA verändert wurden.
+Caption-only-/Header-only-Szenen zählen nicht als fertige Visuals.
 
-## Was automatisch geprüft wird
+## Automatische Checks
 
 ```bash
-npm run validate                           # Repo gesamt
-npm run validate:image-world               # globaler Physical-Explainer-/1:1-Lock
-npm run reel:validate -- <Reel-Pfad>       # Reel-Verträge inkl. Phase-3-Completion-Contract
-npm run reel:ready -- <Reel-Pfad>          # Phase 1 + 2 + Medien lesbar
-npm run reel:phase3:preflight -- <Reel>    # jede geplante Szene wirklich implementiert
-npm run reel:phase3:qa -- <Reel> <Video>   # Post-Render-Sichtbarkeit + Animationsbewegung
+npm run validate
+npm run reel:validate -- <Reel>
+npm run reel:ready -- <Reel>
+npm run reel:animation:validate -- <Reel>
+npm run reel:phase3:preflight -- <Reel>
+npm run reel:phase3:qa -- <Reel> <Video>
 ```
 
-Blockiert unter anderem: fehlende oder nichtssagende Zwischenüberschriften,
-Überschriften aus reinen Zahlen, doppelte Überschriften, nicht existierende
-Icons, Bildbeats über 6 Sekunden, Lücken in der Timeline, Text-Stroke auf
-Untertiteln, fehlende Bildwelt-Locks, falsches Seitenverhältnis, fehlende
-Plattformtexte, fehlendes Audio/Wortzeiten sowie in Phase 3 fehlende
-Bild-/Animationsimplementierungen und visuell leere Caption-only-Szenen.
+`reel:validate` blockiert unter anderem:
 
-Das zentrale Scene-Schema liegt in `scripts/lib/reel-scene-schema.mjs`.
-Redundante Angaben werden nicht künstlich doppelt erzwungen: der Szenenordner
-kann aus `planFile` und die semantische Akzentrolle aus `headerTone` abgeleitet
-werden. Der eigentliche Bildprompt bleibt die Wahrheit für Objektlabels.
+- falsches V5-Layout
+- Capsule-/falsche Header-Metadaten
+- fehlende Animationsquellen
+- Platzhalter im Animationscode
+- Wackel-/Debug-Hacks
+- fehlende Bildwelt-Locks
+- Bildbeats über 6 Sekunden
+- unvollständige Publishing-Dateien
 
-## Vertiefende Dokumente
+## Bildwelt
 
-| Thema | Datei |
-|---|---|
-| Projekt-Gehirn (höchste Regelquelle) | `CLAUDE.md` |
-| Phase-3-Fertigkeits-/Render-QA-Gate | `docs/PHASE-3-COMPLETION-GATE.md` |
-| Globaler Physical-Explainer-/1:1-Bildwelt-Lock | `docs/GLOBAL-IMAGE-WORLD-LOCK.md` |
-| Untertitel, Überschriften, Timing | `docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md` |
-| Bildwelt | `docs/FINANZNEO-IMAGE-WORLD-V3.md`, `docs/IMAGE-SYSTEM.md` |
-| Bildprompts | `docs/IMAGE-PROMPT-LIBRARY.md`, `docs/IMAGE-QA-CHECKLIST.md` |
-| Bild oder Animation? | `docs/BEAT-TO-IMAGE-RULES.md` |
-| Veröffentlichung | `docs/PLATFORM-PUBLISHING.md` |
-| Produktionsstandard Reels | `reels/PRODUKTIONSSTANDARD.md` |
-| YouTube-Longform (eigener Prozess) | `docs/YOUTUBE-LONGFORM-WORKFLOW.md` |
+Reel-Quellbilder inklusive Cover bleiben `1:1`.
 
-`CLAUDE.md` ist die höchste Regelquelle. Bei Widersprüchen gelten ältere Regeln nicht.
+Verbindlich:
 
-## Aktueller Kanalstandard
+- Stylized 3D V5
+- Physical Explainer Editorial V7
+- ein physisches Hero-Objekt + 3–6 konkrete themenspezifische Objekte
+- nahtloser deep-charcoal-green-black Hintergrund
+- keine UI/Dashboard-, Microchip-, Gameboard-, Orbit-, Diorama-Komposition
+- keine Bild-zu-Bild-Referenz
 
-- deutsche Finanzgrundlagen für Anfänger
-- 1080 × 1920, 30 fps
-- 60–90 Sekunden als Reel-Standard
-- Reel-Plattformen: Instagram Reels, TikTok, Facebook Reels und Snapchat
-- YouTube: ausschließlich eigenständige längere Videos unter `youtube/`; keine YouTube Shorts
-- YouTube-Video und -Quellbilder: horizontal 16:9; Reel-Quellbilder inklusive Cover bleiben 1:1
-- Untertitel Pflicht
-- Premium Stylized 3D V5 + Physical Explainer Editorial V7 + Remotion
-- pro neuem Flow-Bild ein großes physisches Hero-Objekt + 3–6 konkrete themenspezifische Alltagsobjekte
-- keine Dashboard/UI-, Microchip/Circuit-Board-, Gameboard-, Orbit- oder Vier-Ecken-Tile-Komposition
-- optional stilisierte 3D-Person; wenn Person, Gesicht klar sichtbar
-- kurze deutsche physische Objektlabels statt großer KI-Überschriften
-- genau EIN nahtloser deep-charcoal-green-black Hintergrund von oben bis unten
-- keine Prozent-Zonen, Hintergrundbänder, Floor-Wall-Grenze oder sichtbarer Horizont
-- Gold nur für Geld/Wert, Rot-Orange nur für Risiko/Verlust/Schulden
-- Antigravity/Claude Code erzeugen keine Bilder; der Nutzer erstellt sie selbst mit Google Flow
+Google Flow arbeitet Strict Single Job: genau ein Bild → warten → umbenennen → QA → nächstes Bild. Nie Batch.
 
-## Einfache Reel-Struktur
+## Reel-Struktur
 
 ```text
 01-script/
@@ -145,92 +166,44 @@ werden. Der eigentliche Bildprompt bleibt die Wahrheit für Objektlabels.
 README.md
 ```
 
-In Phase 3 entstehen zusätzlich:
+`04-caption/`:
 
 ```text
-05-projektdateien/phase3-production-manifest.json
-05-projektdateien/phase3-render-qa.json
-```
-
-`04-caption/` enthält zusätzlich zur Master-Caption und den Wort-Timings die vier Reel-Plattformdateien:
-
-```text
+caption.txt
 instagram-reels.txt
 tiktok.txt
 facebook-reels.txt
 snapchat.txt
+word-timings.json
 ```
 
-`youtube-shorts.txt` wird nicht erstellt. Longform-YouTube wird unabhängig davon unter `youtube/` produziert.
+Keine YouTube Shorts.
 
-## Neuer Reel-Start
-
-```text
-Neues FinanzNeo-Reel.
-
-Thema: [THEMA]
-
-Nutze vollständig `docs/PHASE-1-BRIEFING.md`.
-Erstelle Recherche, geprüftes szenenweises Skript, Szenen-/Beat-Plan,
-Bild-/Remotion-Zuordnung, vollständige Google-Flow-Prompts mit echten
-Szenennummern, Remotion-Spezifikationen und Plattformtexte.
-
-Bilder erzeugt ausschließlich der Nutzer. Keine YouTube Shorts.
-```
-
-## Übergabe an Phase 3
-
-Nach Phase 2 reicht:
-
-```text
-Mach das Reel: reels/<Woche>/<Tag>/<Reel>
-```
-
-Zuerst läuft:
+## Neuer Reel
 
 ```bash
-npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
+npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
 ```
 
-Bei Erfolg baut der in `phase3Executor` festgelegte Executor ohne
-Geschmacksrückfragen weiter. Er darf aber erst `FINAL_COMPLETE` melden, wenn
-Produktionsmanifest, Preflight, Candidate-Render, Post-Render-QA und Export
-alle erfolgreich waren.
+Der Ersteller setzt automatisch:
 
-## Export-Sicherheit
+- Flow Strict-Single-Job
+- Physical-Explainer-/1:1-Lock
+- Reel-Layout V5
+- Phase-1-Animationscode-Vertrag
+- Phase-3-Completion-Gate
 
-Abschluss ist immer:
+## Final
 
-```bash
-npm run reel:export -- <Reel-Pfad> <exakter-gerenderter-MP4-Pfad>
-```
+Ein Reel ist erst final, wenn:
 
-Ohne zweiten Parameter darf der Export nur dann automatisch auswählen, wenn
-die MP4 eindeutig dem Reel zugeordnet werden kann oder `out/` genau eine
-finale MP4 enthält. Candidate-Dateien werden ignoriert.
+- alle Nutzerbilder vorhanden sind
+- finales Voiceover + echte Wortzeiten vorhanden sind
+- jeder Animationsbeat bereits als finaler Phase-1-Code vorliegt
+- Phase-1-Animationsseal unverändert ist
+- jede Szene im finalen Render sichtbar umgesetzt ist
+- Post-Render-QA PASSED ist
+- komplette MP4 mit Ton geprüft wurde
+- `06-export/` vollständig erzeugt wurde
 
-Zusätzlich muss die ausgewählte MP4 exakt den SHA-256-Hash aus dem bestandenen
-`phase3-render-qa.json` besitzen. Damit kann weder ein fremdes noch ein alter
-oder nachträglich veränderter Render in `06-export/` gelangen.
-
-## Bildfreigabe
-
-Bild neu erzeugen, wenn unter anderem:
-
-- zwei sichtbare Hintergründe/Bänder entstehen
-- eine horizontale Trennkante, Floor-Wall-Grenze oder ein Horizont sichtbar ist
-- eine dargestellte Person kein klar sichtbares Gesicht hat
-- eine große Headline, ein Untertitel oder ein erklärender Satz im KI-Bild erscheint
-- Labels falsch oder zufällig sind
-- das Bild wie Dashboard/UI, Microchip/Circuit-Board, Gameboard, Orbit-Modul,
-  Vier-Ecken-Kachelsystem, Diorama, Neon-Tunnel oder sterile Produktwerbung wirkt
-
-## Produktionsfreigabe
-
-Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale
-Voiceover vorhanden sind, echte Wort-Timings erzeugt wurden, **jede**
-`scene-index`-Szene wirklich als Bild oder Animation umgesetzt wurde,
-`reel:phase3:preflight` erfolgreich war, der Candidate-Render die automatische
-Post-Render-Visual-QA bestanden hat und `06-export/` vollständig ist.
-
-**Eine vorhandene MP4 allein bedeutet niemals „fertig“.**
+`CLAUDE.md` ist die höchste Regelquelle.
