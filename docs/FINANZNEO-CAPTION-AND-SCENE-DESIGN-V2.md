@@ -1,184 +1,184 @@
 # FinanzNeo — Caption, Scene Header, Timing & Motion V5
 
-Verbindlicher Qualitätsstandard für neue Reel-Produktionen. Technische Quelle für Positionen und Größen ist `REEL_STYLE` in `src/brand/tokens.ts`.
+Verbindlicher Qualitätsstandard für neue Reel-Produktionen.
 
-## 1. Premium-Untertitel
-
-Auf dunklen FinanzNeo-Reel-Hintergründen:
+## 1. Untertitel V5
 
 - aktives gesprochenes Wort: helles FinanzNeo-Grün
 - restliche Wörter: Weiß
 - kein Gelb/Gold als Karaoke-Active-Word
 - kein schwarzer Untertiteltext
 - maximal zwei Zeilen
-- kurze satz-/phrasenbasierte Einheiten
-- kein Word-Jump
 - keine Größenanimation / kein Scale-Pop
+- kein Word-Jump
 - kein `WebkitTextStroke`
-- dunkle halbdeckende Caption-Backplate
-- weicher Tiefenschatten statt harter Kontur
+- dunkle halbdeckende Backplate für Kontrast
 - Schriftstärke 800
-- Standardgröße 50 px; nie unter 40 px
+- Standardgröße 50 px, automatisch kleiner bei langen Einheiten, nie unter 40 px
 - `letterSpacing: 0`
-- **V5-Standardposition: 340 px über dem unteren Rand**
-- links 72 px, rechts 140 px
+- Position aus `REEL_STYLE.caption`: `bottom = 340`, `left = 72`, `right = 140`
 - kurze Pausen halten die vorherige Caption sichtbar
-- keine Caption-Lücken
+- Untertitel werden pro Szene geclippt; kein Wort der nächsten Szene darf vorgreifen
 
 Technische Standardkomponente: `src/brand/components/Captions.tsx`.
 
-### Untertitel enden an der Szenengrenze
+## 2. Zwischenüberschrift V5
 
-In einer Szene erscheinen ausschließlich Wörter, die in dieser Szene gesprochen werden. Kein Wort der nächsten Szene darf vorher sichtbar sein.
-
-- Captions pro Szene rendern
-- Wörter mit `clipCaptionWords` auf das Szenenfenster begrenzen
-- Caption-Einheiten innerhalb des Szenenfensters bilden
-- Zeitstempel auf Szenenstart normalisieren
-
-## 2. Scene Header V5 — normale Typografie
-
-Jede Bild- und Animationsszene benötigt eine kurze Überschrift mit einem passenden Linien-Icon.
+Jede Bild- und Animationsszene benötigt eine Zwischenüberschrift mit passendem Linien-Icon.
 
 Standard:
 
 ```tsx
-<SceneHeader title="Lokale Währung ist oft günstiger" icon="repeat" />
+<SceneHeader title="Kontoauszug prüfen" icon="search" />
 ```
 
-Regeln:
+Verbindlich:
 
+- `top = 154`
 - mittig zentriert
-- **top = 154**
 - normale Schreibweise / Sentence Case
-- Text neutral weiß
-- einfaches Icon links neben dem Text
+- neutral weißer Text
+- einfaches Linien-Icon links neben dem Text
 - semantische Farbe primär über das Icon
-- Default/positiv: Grün
-- Warning: Rot
-- Money: Gold
-- Neutral: Weiß
-- 3–6 Wörter als Richtwert
-- Aussage oder Frage, nie nur Stichwort/Zahl
-- jede Szene bekommt ein inhaltlich passendes Icon
+- keine Capsule
+- kein Chip
+- keine Pill
+- kein Panel
+- keine automatische ALL-CAPS-Transformation
+- 3–6 Wörter, möglichst eine Zeile
+- Aussage oder Frage; nie nur ein Stichwort oder eine Zahl
+- `warning` nur für echte Warnung/Problem
+- `money` nur für Geld/Wert
 
-Streng verboten:
+Technische Standardkomponente: `src/brand/components/SceneHeader.tsx`.
 
-- automatische ALL-CAPS-Transformation
-- Capsule
-- Chip
-- Pill
-- Panel/Box um den Header
-- UI-/Dashboard-Optik
+## 3. V5-Layout
 
-Die Überschrift trägt die Szenenaussage, nicht das Reel-Thema und keine Strukturmarke.
-
-Beispiele:
-
-| gut | schlecht |
-|---|---|
-| `Mehrere Konten werden addiert` | `60.000 € + 50.000 €` |
-| `Jede Bank schützt separat` | `80.000 € + 80.000 €` |
-| `Das Gemeinschaftskonto wird geteilt` | `GEMEINSCHAFTSKONTO` |
-| `Aktien und ETFs zählen nicht dazu` | `AKTIEN & ETFs` |
-
-## 3. V5-Vertikallayout
-
-Für 1080 × 1920:
+Einzige technische Quelle ist `REEL_STYLE` in `src/brand/tokens.ts`.
 
 ```text
-Header               Y = 154
-Visual                Y = 320–1480
-Caption               bottom = 340
-Transition            3 Frames
+Header       Y = 154
+Visual       Y = 320–1480
+Untertitel   340 px über dem unteren Rand
+Transition   3 Frames
 ```
 
-Ziel:
+Ziel des Layouts:
 
-- oben mehr ruhige Luft
-- Header etwas tiefer
-- Header und Visual näher zusammen
-- Bilder und Animationen höher
-- Untertitel höher
-- unten wieder mehr ruhige Luft
+- Überschrift näher am Visual
+- Bilder und Animationen etwas höher
+- Untertitel ebenfalls höher
+- oben und unten mehr ruhige Luft
+- keine große tote Lücke zwischen Header und Szeneninhalt
 
-`AnimationStage` nutzt dieselbe Visualzone wie Bildszenen. Animationen dürfen nicht klein und verloren in der Mitte stehen.
+`AnimationStage` aus `src/brand/components/ReelStage.tsx` verwendet dieselbe Visualzone und verschiebt native Vollbild-Animationen zentral nach oben.
 
-## 4. Szenenübergänge
+## 4. Szenenschnitt und Captions
 
-- Continuity-Schnitt: **3 Frames**
-- Bildszenen-Einstieg: 4 Frames
-- kein Fade-to-black
-- keine zufällig wechselnden Transition-Stile
-- Übergang darf den audio-synchronisierten Szenenstart nicht verschieben
-
-Zentrale Komponente: `SceneTransition` aus `src/brand/components/ReelStage.tsx`.
-
-## 5. Animationsfarben
-
-- Weiß = neutrale Information
-- Grün = Fokus, Lösung, korrekt, geschützt
-- Rot = Problem, Warnung, Verlust
-- Gold = Geldbetrag, Summe, finanzieller Wert
-- Schwarz = auf dunklen Reel-Flächen verboten
-
-Quelle: `ANIMATION_COLORS` in `src/brand/tokens.ts`.
-
-## 6. Animationssprache und Verantwortungsgrenze
-
-Phase 1 liefert für jede Animationsszene bereits den **finalen produktionsreifen `animation.tsx`-Code**. Phase 3 darf keine Ersatzanimation erfinden.
-
-Detailstandard: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
-
-Jede Animation:
-
-```text
-STARTZUSTAND
-→ SICHTBARE VERÄNDERUNG / MECHANISMUS
-→ EINDEUTIGES ERGEBNIS
-→ Ergebnis mindestens 15 Frames stabil
-```
-
-Pflicht im Code:
-
-- `useCurrentFrame`
-- `AnimationStage`
-- `ANIMATION_COLORS`
-- `prog`, `interpolate` oder `spring`
-- `ANIMATION_NARRATIVE` mit START / MECHANISM / RESULT
-- `RESULT_HOLD_FRAMES >= 15`
-
-Nicht ausreichend:
-
-- reine Zooms/Fades/Zahlen-Popups
-- generische Cards + Text
-- dekorative Bewegung ohne Erklärung
-- Debug-Boxen/Testflächen
-- künstliches Dauerwackeln
-- `Math.sin`/`Math.cos` nur um Frame-Diff zu erzeugen
-
-Bei `reel:ready` werden die Phase-1-Animationsquellen per SHA-256 versiegelt. Phase 3 muss direkt diese Dateien verwenden.
-
-## 7. Audio-Synchronität
-
-Das finale Voiceover ist Timing-Autorität.
+Das finale Voiceover ist die Timing-Autorität.
 
 ```text
 finales Voiceover
 → echte Wort-Timings
-→ Satz-/Phrasenanfang je Beat
-→ exakter Szenenstart
-→ Animation relativ zur echten Beatdauer
+→ Satz-/Phrasenanfänge
+→ Szenenstarts
+→ relative Animationsdauern
 ```
 
-- keine gleichmäßig verteilten Szenen
+Untertitel werden pro `Series.Sequence` gerendert. Wörter außerhalb des Szenenfensters werden abgeschnitten. Eine Caption-Einheit darf nie über die Szenengrenze laufen.
+
+## 5. Animationsfarben
+
+Auf dunklem Reel-Hintergrund gilt `ANIMATION_COLORS`:
+
+- Weiß = neutrale Information
+- Grün = Fokus/Lösung
+- Rot = Warnung/Problem/Verlust
+- Gold = Geldbetrag/Summe/Wert
+- Schwarz = verboten
+
+## 6. Eine gemeinsame Animationssprache
+
+Alle nativen Remotion-Animationen eines Reels müssen wie Teile derselben Serie wirken:
+
+- gleicher dunkler FinanzNeo-Hintergrund
+- gleiche Text- und Icon-Hierarchie
+- gleiche semantische Farblogik
+- gleiche Visualzone
+- klare, ruhige Flächen statt zufälliger Infografik-Stile
+- keine überlappenden Texte/Objekte
+- kein UI-/Dashboard-Look, wenn die Szene keinen UI-Inhalt erklärt
+
+## 7. Phase-1-Verantwortung für Animationen
+
+Für neue Reels liefert Phase 1 pro Animationsszene bereits produktionsreifen Code:
+
+```text
+03-szenen/EINZELNE-SZENEN/scene-XX/animation.tsx
+```
+
+Verbindlicher Lock:
+
+```text
+finanzneo-phase1-animation-code-v1
+```
+
+Jede Animation muss im Code eindeutig enthalten:
+
+```text
+STARTZUSTAND
+→ SICHTBARER MECHANISMUS
+→ EINDEUTIGES ERGEBNIS
+→ RESULT mindestens 15 Frames stabil
+```
+
+Zusätzlich enthält die Quelldatei einen `ANIMATION_NARRATIVE`-Block mit `START`, `MECHANISM` und `RESULT`.
+
+Phase 3 darf diese kreative Definition nicht ersetzen, vereinfachen oder durch einen eigenen Ersatzmechanismus austauschen.
+
+Verbindliche Detailquelle: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
+
+## 8. Verbotene Fake-Animationen
+
+Nicht zulässig:
+
+- Dummy-/Placeholder-Komponenten
+- Debug-Flächen
+- bunte Rechtecke nur für Sichtbarkeit
+- kontinuierliches Wackeln ohne inhaltliche Bedeutung
+- `Math.sin()`/`Math.cos()` nur zum Erzeugen eines Frame-Diffs
+- reine Zooms/Fades/Zahlen-Popups als alleinige Erkläranimation
+- Bewegung, die nur das QA austrickst
+
+Die Bewegung muss die gesprochene Aussage erklären.
+
+## 9. Phase-3-Schutz
+
+Bei `reel:ready` werden die Phase-1-Animationsquellen per SHA-256 versiegelt. Phase 3 muss exakt dieselben `animation.tsx`-Dateien verwenden.
+
+Der Preflight blockiert unter anderem:
+
+- fehlende Animationsquelle
+- anderer `componentPath` als die Phase-1-Quelle
+- veränderter Hash nach Phase 1
+- fehlender Export
+- Placeholder-/Fake-Motion-Code
+- unvollständige Timeline
+
+Post-Render-QA prüft zusätzlich sichtbaren Inhalt und reale Bewegung. Diese technische QA ersetzt jedoch nicht den narrativen Phase-1-Vertrag.
+
+## 10. Bilddauer und Übergänge
+
 - Bildbeat ideal 3,5–5,5 Sekunden
-- Bildbeat absolut maximal 6 Sekunden
+- absolut maximal 6 Sekunden
 - länger = splitten oder animieren
+- Continuity-Schnitt 3 Frames
+- kein Fade-to-black
+- Übergänge dürfen audio-synchronisierte Szenenstarts nicht verschieben
 
-## 8. Renderqualität
+## 11. Renderqualität
 
-Finale Reels:
+Finale Reels über `scripts/render-validated.mjs`:
 
 - 1080 × 1920
 - H.264
@@ -187,17 +187,18 @@ Finale Reels:
 - AAC 320k
 - `yuv420p`
 
-## 9. Mobil-QA
+## 12. Mobil-QA
 
-Vor Freigabe komplette MP4 ansehen:
+Vor Freigabe komplette MP4 ansehen und prüfen:
 
-1. Header ist normal, ruhig und nicht als Capsule/Chip gestaltet.
-2. Header sitzt bei Y154 und ist optisch nah am Visual.
-3. Visuals/Animationen nutzen Y320–1480 und sitzen sichtbar höher.
-4. Captions sitzen bei bottom340 und sind crisp lesbar.
-5. Bildwechsel trifft die gesprochene Aussage.
-6. Animationen wirken wie dieselbe Serie und erklären die Aussage ohne Ton.
-7. Keine Debug-/Wackel-/Placeholder-Animationen.
-8. Übergänge bleiben 3 Frames kurz.
-9. Keine schwarzen Texte auf dunklem Hintergrund.
-10. Phase-3-Code ersetzt keine versiegelte Phase-1-Animation.
+1. Header sitzt bei Y≈154 und wirkt wie normale Typografie.
+2. Kein Header-Chip/Capsule/Panel ist sichtbar.
+3. Visuals dominieren die Zone 320–1480.
+4. Bilder und Animationen wirken nicht zu tief.
+5. Untertitel sitzen höher und bleiben crisp.
+6. Bildwechsel treffen die gesprochene Aussage.
+7. Animationen entsprechen ihrem `ANIMATION_NARRATIVE`.
+8. Keine Fake-/Placeholder-Bewegung ist sichtbar.
+9. Animationen sind ohne Ton grundsätzlich verständlich.
+10. Geldwerte Gold, Warnungen Rot, Fokus Grün, neutrale Info Weiß.
+11. Finale Renderqualität ist sauber.
