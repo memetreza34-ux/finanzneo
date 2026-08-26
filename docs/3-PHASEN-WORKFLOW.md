@@ -2,145 +2,165 @@
 
 > Bei Widersprüchen gilt `CLAUDE.md`. Für Layout, Captions und Übergänge gilt technisch `REEL_STYLE` in `src/brand/tokens.ts`.
 
-## Phase 1 — ChatGPT bereitet alles vor
+## Phase 1 — ChatGPT liefert Inhalt UND finalen Animationscode
 
-Normales ChatGPT erstellt im Reel-Ordner vollständig:
+Phase 1 erstellt vollständig:
 
 - Recherche, Quellen und Datenstand
 - geprüftes 60–90-Sekunden-Skript
 - Hook, Dramaturgie und Szenenplan
-- pro Szene eine Zwischenüberschrift, die die Kernaussage genau dieser Szene trifft, plus ein eigenes passendes Icon
-- Bild-/Remotion-Zuordnung
+- pro Szene natürliche Überschrift + passendes Icon
+- Bild-/Animations-Zuordnung
 - Cover- und Bildprompts für Google Flow
-- exakte endgültige Dateinamen nach echten Szenennummern
-- Remotion-Spezifikationen
+- exakte endgültige Dateinamen
+- pro Animationsszene `remotion.md`
+- pro Animationsszene **produktionsreife `animation.tsx`**
 - Master-Caption und Texte für Instagram Reels, TikTok, Facebook Reels und Snapchat
 
-In Phase 1 bleiben keine Platzhalter in diesen Inhalten. ChatGPT erzeugt keine finalen Bilder und kein Ersatz-Voiceover.
+Phase 1 ist vollständig für die kreative und technische Qualität der Animationen verantwortlich. Phase 3 darf keine fehlende Animation erfinden oder ersetzen.
 
-**Übergabe an Phase 1: `docs/PHASE-1-BRIEFING.md`** — vollständig kopieren.
+Verbindliche Quellen:
+
+- `docs/PHASE-1-BRIEFING.md`
+- `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
+
+In Phase 1 bleiben keine Platzhalter. ChatGPT erzeugt keine finalen Bilder und kein Ersatz-Voiceover.
 
 ## Phase 2 — Nutzer erstellt Bilder und Audio
 
 1. Jedes Cover-/Szenenbild einzeln mit Google Flow erzeugen.
-2. Dem Google-Flow-KI-Agenten ausschließlich `03-szenen/alle-bildprompts.txt` übergeben.
-3. Agent strikt arbeiten lassen: genau ein Bild → vollständig intern warten → sofort exakt umbenennen → Same-World- und Bild-QA → automatisch nächstes Bild.
-4. Jedes erzeugte Bild muss quadratisch `1:1` sein; nicht `9:16`.
-5. Bei einem Fehler dieselbe Bildnummer neu erzeugen; niemals mehrere Bilder parallel starten.
-6. **Keine Bildreferenz verwenden.** `Bild 00` oder andere Szenenbilder niemals als Referenz hochladen oder anhängen.
+2. Ausschließlich `03-szenen/alle-bildprompts.txt` an den Flow-Agenten übergeben.
+3. Strict Single Job: ein Bild → intern warten → sofort umbenennen → QA → erst dann nächstes Bild.
+4. Alle Quellbilder inklusive Cover bleiben quadratisch `1:1`.
+5. Bei Fehler dieselbe Bildnummer neu erzeugen; nie parallel/batchen.
+6. Keine Bildreferenz verwenden.
 7. Alle Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` ablegen.
 8. Genau ein finales Voiceover in `02-audio/` ablegen.
-9. Aus genau diesem Audio echte Wort-Zeitstempel erzeugen:
+9. Aus genau diesem Audio echte Wort-Zeitstempel erzeugen.
 
-```bash
-python3 scripts/captions.py \
-  reels/<Woche>/<Tag>/<Reel>/02-audio/<audio>.mp3 \
-  reels/<Woche>/<Tag>/<Reel>/04-caption/word-timings.json
-```
+## Phase 3 — integrieren, nicht neu erfinden
 
-## Phase 3 — Executor aus `scene-index.json`
-
-Der Auftrag lautet:
+Auftrag:
 
 ```text
 Mach das Reel: reels/<Woche>/<Tag>/<Reel>
 ```
 
-Zuerst läuft immer:
+Zuerst immer:
 
 ```bash
 npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
 ```
 
-`phase3Executor` entscheidet danach verbindlich:
+`reel:ready` prüft Phase 1 + Phase 2 und **versiegelt danach jede kanonische Phase-1-`animation.tsx` per SHA-256** in:
+
+```text
+05-projektdateien/phase1-animation-seal.json
+```
+
+`phase3Executor` entscheidet:
 
 | Wert | Ausführung | Übergabe |
 |---|---|---|
 | `antigravity` | Antigravity | `MASTER-PROMPTS.md`, Phase-3-Abschnitt |
-| `claude-code` | Claude Code | `05-projektdateien/CLAUDE-CODE-AUFTRAG.md` im Reel |
+| `claude-code` | Claude Code | `05-projektdateien/CLAUDE-CODE-AUFTRAG.md` |
 
-Bei `claude-code` blockiert Readiness, wenn der Auftrag fehlt oder noch Platzhalter enthält.
+### V5-Layout in Phase 3
+
+Phase 3 verwendet nur zentrale `REEL_STYLE`-Werte:
+
+```text
+Header:     Y = 154 · Plain · weißer Text · semantisches Linien-Icon
+Visual:     Y = 320–1480
+Caption:    bottom = 340
+Transition: 3 Frames
+```
+
+Keine Header-Capsule, kein Chip, keine ALL-CAPS-Transformation.
+
+### Kanonische Animationen
+
+Für jede Animationsszene gilt:
+
+- `scene-index.animationSourceFile` ist die einzige zulässige Animationsquelle.
+- `componentPath` im Phase-3-Manifest muss exakt auf diese Datei zeigen.
+- `componentExport` muss dem Phase-1-Export entsprechen.
+- SHA-256 muss dem Seal entsprechen.
+- Phase 3 darf die Datei nicht verändern.
+- Phase 3 darf keine Ersatzkomponente erstellen.
+
+Insbesondere verboten:
+
+- wackelnde Rechtecke
+- Debug-/Testflächen
+- Placeholder-/Dummy-Komponenten
+- `Math.sin`/`Math.cos` als künstliches Dauerwackeln für Frame-Diff
+- generische Bewegung nur zum Bestehen der QA
 
 ### Hard Completion Gate
 
-Eine erfolgreich erzeugte MP4 ist **noch kein fertiges Reel**. Verbindliche
-Details: `docs/PHASE-3-COMPLETION-GATE.md`.
+Eine erzeugte MP4 ist noch kein fertiges Reel. Details: `docs/PHASE-3-COMPLETION-GATE.md`.
 
-Nach grünem `reel:ready` läuft Phase 3 in dieser Reihenfolge:
+Reihenfolge:
 
 ```bash
 npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
-# jede scene-index-Szene wirklich implementieren und Manifest vervollständigen
+# Bildszenen integrieren; versiegelte Phase-1-Animationen direkt verwenden
+# Timeline + Manifest vervollständigen
 npm run reel:phase3:preflight -- <Reel-Pfad>
 npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 npm run reel:export -- <Reel-Pfad> <Final-MP4>
 ```
 
-Der Executor arbeitet ohne Geschmacksrückfragen:
+Der Executor:
 
-1. Bilder technisch synchronisieren
-2. Timeline aus dem finalen Audio ableiten
-3. `phase3-production-manifest.json` anlegen und **jede** Szene einzeln belegen
-4. Remotion-Szenen, Überschriften und Karaoke-Untertitel bauen
-   - Bildszene = echtes sichtbares Bildlayer
-   - Animationsszene = echte sichtbare Animationskomponente
-   - Untertitel/SceneHeader allein zählen niemals als Szenenvisual
-   - Zwischenüberschrift mittig und in FinanzNeo-Grün, mit passendem Icon
-   - Untertitel pro Szene clippen: kein Wort der nächsten Szene darf vorher sichtbar sein
-5. Produktionsmanifest auf `READY_TO_RENDER` setzen; Audio/Captions/Headers müssen als implementiert bestätigt sein
-6. `reel:phase3:preflight` ausführen — ohne PASS kein produktiver Render
-7. zentrale `REEL_STYLE`-Werte verwenden; alte abweichende per-Reel-Stylemetadaten nicht als Override benutzen
-8. Validator, Tests und Typecheck ausführen
-9. Preview prüfen
-10. produktiven Render ausschließlich über `reel:render` starten
-11. `reel:render` erzeugt zuerst nur `*.phase3-candidate.mp4`
-12. automatische Post-Render-QA prüft jede Bildszene auf sichtbaren Inhalt und jede Animationsszene zusätzlich auf messbare Bewegung; Audio-Stream muss vorhanden sein
-13. nur bei QA `PASSED` wird Candidate zur finalen MP4 umbenannt
-14. komplette freigegebene MP4 mit Ton ansehen; Animationen zusätzlich ohne Ton prüfen
-15. Export-Paket erzeugen; Export verifiziert Video-/scene-index-/Manifest-Hashes erneut
+1. synchronisiert Bilder
+2. leitet Timeline aus finalem Audio ab
+3. bindet die versiegelten Phase-1-Animationsquellen direkt ein
+4. nutzt Plain `SceneHeader` + passendes Icon
+5. clippt Captions pro Szene
+6. vervollständigt `phase3-production-manifest.json`
+7. führt Preflight aus
+8. führt Validatoren, Tests und Typecheck aus
+9. prüft Preview
+10. rendert zunächst nur `*.phase3-candidate.mp4`
+11. Post-Render-QA prüft jede Szene auf echten visuellen Inhalt und Animationen auf sichtbare Veränderung
+12. nur QA `PASSED` erzeugt Final-MP4
+13. komplette MP4 mit Ton prüfen; Animationen zusätzlich ohne Ton
+14. Export mit Hash-Gates durchführen
 
 ## Einzige zulässige Stopps
 
-Phase 3 stoppt nur bei einem echten Blocker und meldet alle Blocker gesammelt und mit exaktem Pfad:
-
-- fehlendes oder falsch benanntes Nutzerbild
-- fehlendes, mehrfaches oder unlesbares finales Audio
-- fehlende oder nicht zum Audio passende Wort-Zeitstempel
-- unvollständige Phase-1-Datei oder widersprüchlicher Szenenindex
-- bei `claude-code`: fehlender/unvollständiger `CLAUDE-CODE-AUFTRAG.md`
-- verletzter Finanz-, Sicherheits- oder Quellenvertrag
-- fehlende Bild-/Animationsimplementierung im Phase-3-Manifest
+- fehlendes/falsch benanntes Nutzerbild
+- fehlendes/mehrfaches/unlesbares Audio
+- ungültige Wort-Timings
+- unvollständige Phase-1-Datei
+- fehlende oder nicht produktionsreife `animation.tsx`
+- Animationshash wurde nach `reel:ready` verändert
+- Phase 3 versucht eine Ersatzanimation zu verwenden
+- Fakten-/Sicherheits-/Quellenkonflikt
 - Phase-3-Preflight schlägt fehl
-- Post-Render-QA erkennt leere/Caption-only-Bildszene oder fehlende Animationsbewegung
+- Post-Render-QA erkennt leere/Caption-only-Szene oder fehlende Animation
 - Finalvideo enthält keinen Audio-Stream
-- nicht selbst lösbarer Validator-, Build- oder Renderfehler
+- nicht selbst lösbarer Validator-/Build-/Renderfehler
 
-Keine Rückfragen zu Geschmack, Übergängen, Layoutvarianten oder bereits durch das Repo entschiedenen Standards.
+Keine Rückfragen zu Geschmack oder bereits entschiedenen Standards.
 
-## Abschluss — sicherer Export
-
-Phase 3 endet mit:
+## Abschluss
 
 ```bash
 npm run reel:export -- <Reel-Pfad> <exakter-gerenderter-MP4-Pfad>
 ```
 
-Der Export akzeptiert nur eine MP4, deren SHA-256 exakt mit dem bestandenen
-`05-projektdateien/phase3-render-qa.json` übereinstimmt. Zusätzlich müssen die
-Hashes von `scene-index.json` und `phase3-production-manifest.json` seit der QA
-unverändert sein.
-
-Candidate-Dateien werden nicht als finale Videos betrachtet. Bei fehlender oder
-fehlgeschlagener Render-QA wird kein Upload-Paket erzeugt.
+Export verlangt bestandene Render-QA und passende Hashes von Video, `scene-index.json` und Produktionsmanifest.
 
 `06-export/` muss vollständig enthalten:
 
-- fertige, visuell geprüfte MP4
+- finale visuell geprüfte MP4
 - Cover
 - `bilder.zip`
-- universelle Caption
-- Instagram-/TikTok-/Facebook-/Snapchat-Caption
+- Universal-/Instagram-/TikTok-/Facebook-/Snapchat-Caption
 - `untertitel.srt`
 - `UPLOAD.md`
 
-Erst dann ist der Status `FINAL_COMPLETE` zulässig.
+Erst dann ist `FINAL_COMPLETE` zulässig.
