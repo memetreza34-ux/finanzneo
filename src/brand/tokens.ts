@@ -101,15 +101,17 @@ export const SAFE_AREA = {
   bottomPx: Math.round(FORMAT.vertical.height * 0.22),
 } as const;
 
-// ─── Verbindlicher Reel-Look (V4) ────────────────────────────────────────────
-// Einzige Quelle für Untertitel-, Header- und Übergangswerte. Komponenten
-// lesen ausschließlich hier — keine lokalen Zahlen mehr.
+// ─── Verbindlicher Reel-Look (V5) ────────────────────────────────────────────
+// Einzige Quelle für Untertitel-, Header-, Visualzonen- und Übergangswerte.
 //
-// Hintergrund: Untertitel wurden früher mit fontWeight 900, 64 px und einem
-// 1,6-px-WebkitTextStroke gerendert. WebKit zeichnet die Kontur mittig auf der
-// Glyphenkante, wächst also zur Hälfte IN den Buchstaben. Zusammen mit Weight
-// 900 liefen die Innenräume von a/e/o/g zu — der Text wirkte dick und matschig.
-// Kontrast liefert allein die dunkle Backplate.
+// V5 reagiert auf den realen Euro/Landeswährung-Test:
+// - Header war zu hoch, zu technisch und durch die Capsule optisch abgekoppelt.
+// - Visuals/Animationen saßen zu tief; zwischen Header und Visual war zu viel Leerraum.
+// - Captions saßen zu nah am unteren Rand.
+//
+// Deshalb liegt der Header jetzt tiefer, die Visualzone deutlich höher und die
+// Captions höher. Oben und unten entsteht mehr ruhige Safe-Area, während Header
+// und Visual als zusammengehörige Einheit wahrgenommen werden.
 export const REEL_STYLE = {
   caption: {
     fontSize: 50,
@@ -117,7 +119,8 @@ export const REEL_STYLE = {
     fontWeight: 800,
     letterSpacing: 0,
     lineHeight: 1.14,
-    bottom: 285,
+    /** V5: 55 px höher als V4. */
+    bottom: 340,
     left: 72,
     right: 140,
     maxWidth: 780,
@@ -126,25 +129,28 @@ export const REEL_STYLE = {
     maxChars: 52,
     holdSeconds: 0.38,
     textShadow: '0 2px 7px rgba(0,0,0,0.55)',
-    /** WebkitTextStroke ist auf Untertiteln verboten — siehe Kommentar oben. */
+    /** WebkitTextStroke ist auf Untertiteln verboten. */
     textStrokeForbidden: true,
   },
   header: {
-    /** Mittig zentriert — nicht linksbündig. */
+    /** Ruhiger Standard-Header: keine Capsule, kein UI-Chip. */
+    presentation: 'plain',
     align: 'center',
-    /** Headline in FinanzNeo-Grün, nicht weiß. */
-    headlineColor: C.accentLt,
-    top: 118,
-    /** Bei zentriertem Header symmetrisch — sonst sitzt er optisch links. */
-    left: 72,
-    right: 72,
-    fontSize: 46,
-    iconBox: 46,
-    iconSize: 26,
-    gap: 12,
+    /** Text bleibt neutral weiß; die semantische Farbe sitzt primär im Icon. */
+    headlineColor: C.whiteSoft,
+    defaultIconColor: C.accentLt,
+    /** V5: tiefer als V4, damit oben mehr Luft und weniger Abstand zum Visual entsteht. */
+    top: 154,
+    left: 80,
+    right: 80,
+    fontSize: 44,
+    fontWeight: 800,
+    iconBox: 34,
+    iconSize: 28,
+    gap: 11,
     /** Der Header steht beim Szenenwechsel sofort, er zieht nicht nach. */
     enterFrames: 4,
-    textShadow: '0 2px 6px rgba(0,0,0,0.5)',
+    textShadow: '0 2px 6px rgba(0,0,0,0.48)',
   },
   transition: {
     /** Kurzer Continuity-Schnitt statt träger Blende. Kein Fade-to-black. */
@@ -153,14 +159,10 @@ export const REEL_STYLE = {
     fadeToBlackForbidden: true,
   },
   visual: {
-    top: 390,
-    bottom: 1560,
-    /**
-     * Animationen werden auf die Visualzone skaliert, statt klein zu wirken.
-     * Bewusst moderat: höhere Werte schieben breite Beschriftungen seitlich
-     * aus dem Bild. Breite Inhalte zusätzlich in AnimationStage begrenzen.
-     */
-    animationScale: 1.12,
+    /** V5: gesamte Bild-/Animationsbühne höher und kompakter. */
+    top: 320,
+    bottom: 1480,
+    animationScale: 1.10,
   },
 } as const;
 
