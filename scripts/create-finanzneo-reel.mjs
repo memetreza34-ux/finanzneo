@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 // Legt ein neues Reel atomar an: Grundgerüst + Google-Flow-Lock +
-// Phase-3-Fertigkeitsvertrag + Reel-V5-Layout + kanonischer Phase-1-Animationscode.
-// Scheitert einer der Schritte, wird ein in diesem Lauf neu erzeugter Reel-Ordner
-// vollständig zurückgerollt.
+// Premium-Visual-World V8 + Phase-3-Fertigkeitsvertrag + Reel-V5-Layout +
+// kanonischer Phase-1-Animationscode. Scheitert einer der Schritte, wird ein
+// in diesem Lauf neu erzeugter Reel-Ordner vollständig zurückgerollt.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -42,6 +42,7 @@ const run = (script, scriptArgs = []) => spawnSync(process.execPath, [resolve(sc
 const steps = [
   ['scripts/scaffold-finanzneo-reel.mjs', args],
   ['scripts/apply-flow-autonomous-contract.mjs', [target]],
+  ['scripts/apply-premium-visual-world-v6.mjs', [target]],
   ['scripts/apply-phase3-completion-contract.mjs', [target]],
   ['scripts/apply-reel-layout-v5.mjs', [target]],
   ['scripts/apply-phase1-animation-code-contract.mjs', [target]],
@@ -57,6 +58,7 @@ for (const [script, scriptArgs] of steps) {
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
 console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob · kein Batch · kein Nutzer-„weiter“.');
+console.log('  Premium Visual V8: großer physischer Hero · 2–4 Supporting Objects · Tiefe/Material/Licht · kein UI-/Flowchart-Look.');
 console.log('  Layout V5: plain Header Y154 · Visual 320–1480 · Captions bottom 340.');
 console.log('  Animation V1: jede Animationsszene braucht bereits in Phase 1 produktionsreifen kanonischen TSX-Code.');
 console.log('  Phase 3: MP4 allein gilt nicht als fertig · jede Szene braucht Visual · Post-Render-QA + Hash-Gate vor Export.');
