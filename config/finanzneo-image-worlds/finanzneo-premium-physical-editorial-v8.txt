@@ -1,0 +1,106 @@
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-premium-physical-editorial-v8
+
+FINANZNEO PREMIUM PHYSICAL EDITORIAL — V8
+
+PURPOSE
+Replace the weak dark-UI / flowchart look with a premium stylized 3D financial editorial world. Every image must feel substantial, cinematic and object-driven before it feels "technical".
+
+BASE LOCKS THAT REMAIN ACTIVE
+- FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+- FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+- STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+- GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+NON-NEGOTIABLE HERO RULE
+1. ONE dominant physical hero object must occupy roughly 45–65% of the useful composition.
+2. The hero must be recognizable without reading text.
+3. Use 2–4 supporting physical objects only when they strengthen the story. Fewer, larger objects are better than many small props.
+4. The main idea must read in under two seconds at phone size.
+
+PREMIUM CAMERA + DEPTH
+- medium-close 3/4 camera, not distant isometric
+- hero near the camera, strong silhouette, slight perspective exaggeration
+- clear foreground / hero plane / background depth
+- purposeful overlap between objects
+- strong soft contact shadows and ambient occlusion
+- mild depth-of-field only on secondary objects
+- no tiny subject floating in a huge empty frame
+
+MATERIAL LANGUAGE
+- satin dark-emerald anodized metal or premium polymer for structure
+- warm ivory / cream ceramic or stone-like surfaces for neutral information objects
+- brushed brass / sculpted gold only for money, value or premium emphasis
+- warm red-orange enamel only for fees, loss, warning or pressure
+- restrained smoked glass only as a secondary material, never as floating UI
+- rounded industrial bevels, substantial thickness, visible edges and weight
+- never flat vector cards pretending to be 3D
+
+LIGHTING
+- cinematic soft key light from upper front-left
+- controlled emerald rim light from rear-right
+- warm practical highlight on money/value objects
+- readable shadow-side fill so objects never disappear into black
+- localized highlights, believable reflections, soft contact shadows
+- background may be dark, but the subject must be clearly separated and luminous
+
+COLOR BALANCE
+Each finished image should normally contain at least three readable material/color roles:
+- dark emerald / charcoal structure
+- warm ivory / white neutral information
+- one semantic accent: gold OR red-orange OR brighter emerald
+Do not make the whole frame monochrome green.
+
+PHYSICAL STORYTELLING
+Use physical cause-and-effect metaphors: a card entering a terminal, a stamped fee tag attaching to a receipt, a currency token changing path, a bank object taking over conversion, a lock closing, a scale tipping, a receipt extending, a physical gate opening.
+
+TEXT
+- no headline, subtitle, CTA or explanatory sentence inside generated images
+- only explicitly requested short German labels, normally 1–2 words
+- labels must be attached to physical objects as engraved plaques, paper tags, stickers or embossed signs
+- labels are secondary; the object composition must work without them
+
+ALLOWED DEVICE RULE
+A real-world device such as ATM, card terminal, phone or calculator is allowed only when it is the topic-specific physical hero object. Its screen may show a minimal topic-specific state, but the composition must never become a dashboard/UI mockup.
+
+STRICTLY FORBIDDEN
+- dashboard or control-panel composition
+- flowchart as the main composition
+- small boxes connected by thin lines
+- floating UI cards, tiles, chips, pills, widgets or HUD elements
+- generic rectangular info cards as the main objects
+- thin neon connector lines as the main storytelling device
+- four-corner module layout
+- orbit / satellite layout
+- gameboard / board-game layout
+- microchip / circuit-board metaphor
+- tiny isometric diorama
+- sterile product-ad shot with no explanatory action
+- empty black studio with a small centered object
+- flat poster composition
+- monochrome green-only frame
+- photorealistic office/stationery still life
+- childish clay, toy or Pixar look
+
+BACKGROUND
+Use ONE seamless deep charcoal green-black environment with subtle tonal depth. No visible floor-wall boundary, no horizon line, no horizontal bands, no separate zones. The background supports the objects; it is never the subject.
+
+ASPECT RATIO
+- Cover Bild 00: strict square 1:1 source
+- Scene images: strict square 1:1 source
+- Prefer 1080x1080
+- Vertical 9:16 is composed only in Remotion
+
+QUALITY SELF-CHECK BEFORE ACCEPTING AN IMAGE
+Reject and regenerate if ANY of these are true:
+- hero object is too small
+- image reads like UI, dashboard or flowchart
+- more than four secondary objects compete for attention
+- frame is mostly dark empty space
+- objects look flat or weightless
+- no strong material contrast
+- no obvious depth hierarchy
+- composition is monochrome green
+- the idea only makes sense after reading labels
+
+GOOGLE FLOW EXECUTION
+Strict single-job state machine. Exactly one image job at a time. Wait for the result, rename immediately, perform the premium-quality self-check above, regenerate the same image number on failure, then unlock only the next required image. Never batch, queue or ask the user for "Weiter" between images.
