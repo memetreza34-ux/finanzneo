@@ -27,11 +27,20 @@ const PREMIUM_STYLE_BLOCK = `FINANZNEO_WORLD_ID: ${BASE_WORLD}\nFINANZNEO_SERIES
 const read = (path) => readFileSync(path, 'utf8');
 const write = (path, content) => writeFileSync(path, content.endsWith('\n') ? content : `${content}\n`, 'utf8');
 
+const normalizePrefix = (content) => content
+  .replaceAll('PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7', `PREMIUM_VISUAL_WORLD_LOCK: ${PREMIUM_LOCK}`)
+  .replaceAll('3–6 supporting recognizable physical objects', '2–4 supporting recognizable physical objects')
+  .replaceAll('3-6 supporting recognizable physical objects', '2–4 supporting recognizable physical objects')
+  .replaceAll('3–6 concrete supporting objects', '2–4 concrete supporting objects')
+  .replaceAll('3-6 concrete supporting objects', '2–4 concrete supporting objects')
+  .replaceAll('3–6', '2–4');
+
 const replaceStyleBlock = (content) => {
   const marker = 'FINANZNEO_WORLD_ID:';
-  const index = content.indexOf(marker);
-  if (index === -1) return `${content.trim()}\n\n${PREMIUM_STYLE_BLOCK}`;
-  return `${content.slice(0, index).trimEnd()}\n\n${PREMIUM_STYLE_BLOCK}`;
+  const clean = normalizePrefix(content);
+  const markerIndex = clean.indexOf(marker);
+  if (markerIndex === -1) return `${clean.trim()}\n\n${PREMIUM_STYLE_BLOCK}`;
+  return `${clean.slice(0, markerIndex).trimEnd()}\n\n${PREMIUM_STYLE_BLOCK}`;
 };
 
 const index = JSON.parse(read(indexPath));
