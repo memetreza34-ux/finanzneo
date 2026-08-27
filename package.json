@@ -21,6 +21,7 @@
     "reel:ready": "node scripts/check-reel-production-ready.mjs",
     "reel:layout:v5": "node scripts/apply-reel-layout-v5.mjs",
     "reel:animation:contract": "node scripts/apply-phase1-animation-code-contract.mjs",
+    "reel:animation:premium": "node scripts/apply-premium-animation-v2.mjs",
     "reel:animation:validate": "node scripts/validate-animation-source-quality.mjs",
     "reel:phase1:seal-animations": "node scripts/seal-phase1-animation-code.mjs",
     "reel:phase3:contract": "node scripts/apply-phase3-completion-contract.mjs",
