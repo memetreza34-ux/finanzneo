@@ -18,6 +18,7 @@ const validators = [
   'scripts/validate-reel-source-contract.mjs',
   'scripts/validate-scene-quality.mjs',
   'scripts/validate-reel-layout-v5.mjs',
+  'scripts/validate-premium-visual-contract.mjs',
   'scripts/validate-animation-source-quality.mjs',
   'scripts/validate-flow-autonomous-contract.mjs',
   'scripts/validate-phase3-contract.mjs',
