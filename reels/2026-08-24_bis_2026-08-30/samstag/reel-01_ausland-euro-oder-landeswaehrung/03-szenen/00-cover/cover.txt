@@ -2,35 +2,53 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 00 - Euro Oder Landeswaehrung.png
 
-Erzeuge jetzt ausschließlich dieses eine Bild. Warte intern nur auf die technische Rückgabe dieses Bildjobs. Benenne es SOFORT exakt wie oben um und prüfe danach Motiv, Labels, Stil, Hintergrund und Dateiname. Bei einem Fehler Erzeuge DIESELBE Bildnummer neu.
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+Erzeuge GENAU EIN Bild: ausschließlich Bild 00. Warte intern auf die vollständige Rückgabe dieses einen Jobs. Benenne es SOFORT exakt wie oben um. Prüfe danach Premium-V8-Komposition, Motiv, Labels, Materialität, Tiefe, Licht, Hintergrund und Dateiname. Bei einem Fehler Erzeuge DIESELBE Bildnummer neu. Erst nach bestandener QA darf der nächste Bildblock beginnen. Keine Bildreferenz verwenden. Jede Szene bekommt eine eigene frische Komposition.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
-PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-premium-physical-editorial-v8
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
 FORMAT LOCK:
-Create a square 1:1 source image only. Width and height must be equal.
+Create a square 1:1 source image only. Width and height must be equal. This is a square 1:1 source image; 9:16 is created only in Remotion.
 
 EXACT SHORT GERMAN OBJECT LABELS:
 - EURO
 - LANDESWÄHRUNG
 
 IMAGE PROMPT:
-Create a premium stylized 3D CGI financial editorial cover about choosing the currency when paying abroad. The dominant hero object is a chunky modern card terminal angled three-quarter toward camera. From the terminal, two physical payment paths split: a warm red-orange path leading to a substantial EURO plaque with a small surcharge tag, and an emerald path leading to a substantial LANDESWÄHRUNG plaque with a clean check marker. Add 3–5 supporting travel-payment objects: a bank card, a small foreign banknote stack, a receipt strip, and two sculpted coins. Make the decision instantly understandable in under two seconds. Do not create a classic headline; the two short physical labels carry the topic.
+Create a premium stylized 3D CGI financial editorial cover about choosing the currency when paying abroad. Use ONE dominant modern physical card terminal as the hero object, occupying roughly 50–60% of the useful composition. Camera is medium-close three-quarter, slightly below eye level, so the terminal feels substantial and expensive rather than like a small product in empty space. A thick premium bank card is visibly inserted into the terminal.
 
-WRITTEN SAME-WORLD LOCK:
-Keep premium stylized 3D CGI, chunky volumetric recognizable objects, rounded bevels, dark emerald polymer and brushed metal, warm cream secondary surfaces, sculpted gold only for money/value, warm red-orange only for warning/cost, cinematic soft key light, controlled emerald rim light, clear foreground/midground/background depth and soft contact shadows. Every scene gets its own fresh composition inside the same written world. No previous image as a reference and no image-to-image reference upload.
+Make the currency choice physical, not UI: two substantial mechanical selector paddles project from the terminal body. The EURO paddle is warm ivory with a red-orange metal surcharge seal physically clamped onto its edge; the LANDESWÄHRUNG paddle is warm ivory with a clean emerald metal rim. Add only 2–4 supporting recognizable objects: one foreign-currency coin close to camera, one short ivory receipt curl, and one sculpted gold euro coin behind the terminal. Use purposeful overlap so the objects feel like one coherent scene.
 
-BACKGROUND RULE:
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, no separate zones, no dark bands, no floor-wall boundary, no horizon line, no panel background.
+PREMIUM HERO LOCK:
+Use ONE dominant recognizable physical hero object occupying roughly 45–65% of the useful composition. Use only 2–4 supporting topic-specific physical objects. Fewer, larger objects are better than many small props. The idea must read in under two seconds at phone size.
+
+CAMERA + DEPTH:
+Use a medium-close 3/4 camera, not distant isometric. Put the hero close to camera with a strong silhouette and slight perspective exaggeration. Build clear foreground / hero plane / background depth with purposeful overlap, strong soft contact shadows, ambient occlusion and mild depth-of-field on secondary objects only. No tiny subject in a huge empty frame.
+
+PREMIUM MATERIALS:
+Use satin dark-emerald anodized metal or premium polymer for the terminal structure, warm ivory/cream ceramic or stone-like surfaces for neutral selectors and receipt, brushed brass/sculpted gold only for money/value, warm red-orange enamel only for fee/loss/warning, and restrained smoked glass only as a secondary material. Give objects substantial thickness, rounded industrial bevels and believable weight. Never use flat vector cards pretending to be 3D.
+
+CINEMATIC LIGHTING:
+Soft key light from upper front-left, controlled emerald rim from rear-right, warm practical highlight on money/value objects, readable shadow-side fill, localized reflections and strong contact shadows. Dark background is allowed; dark unreadable subjects are not.
+
+COLOR BALANCE:
+The frame must clearly contain dark emerald/charcoal structure, warm ivory/white neutral surfaces and semantic accent color. Monochrome green-only frames are forbidden.
 
 TEXT RULE:
-Only the specified short German object labels may appear. No headline. No subtitle. No explanatory sentence. No CTA. Do not render the filename.
+Only the specified short German object labels may appear, attached physically as engraved plaques or embossed selector text. No headline. No subtitle. No explanatory sentence. No CTA. The idea must work without reading the labels. Do not render the filename.
 
 FACE RULE:
-If a person appears, use only a stylized anonymous adult with a clearly visible face. A person is not needed for this composition.
+If a person appears, use only a stylized anonymous adult with a clearly visible face. A person is not needed here.
 
-FORBIDDEN:
-Not photorealistic. No office-product photo, no app UI, no dashboard, no control panel, no floating cards or widgets, no four-corner module layout, no orbit layout, no microchip/circuit-board language, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no gameboard, no Pixar, clay or toy look.
+BACKGROUND RULE:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, no separate zones, no floor-wall boundary, no horizon line, no panel background.
+
+STRICTLY FORBIDDEN:
+Dashboard or control-panel composition. Flowchart as the main composition. Small boxes connected by thin lines. Floating UI cards, tiles, chips, pills, widgets or HUD elements. Generic rectangular info cards as main objects. Thin neon connector lines as the main storytelling device. Four-corner modules. Orbit/satellite layouts. Gameboard. Microchip/circuit-board metaphor. Tiny isometric diorama. Sterile product-ad shot with no explanatory action. Empty black studio with a small centered object. Flat poster composition. Monochrome green-only frame. Photorealistic office/stationery still life. Childish clay, toy or Pixar look. Not photorealistic.
+
+PREMIUM QA — REJECT AND REGENERATE IF ANY APPLY:
+Hero too small. Reads like UI/dashboard/flowchart. More than four secondary objects compete. Mostly dark empty space. Flat/weightless objects. Weak material contrast. No depth hierarchy. Monochrome green. Idea only works after reading labels.
