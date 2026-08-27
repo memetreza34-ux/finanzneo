@@ -1,0 +1,36 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Euro Oder Landeswaehrung.png
+
+Erzeuge jetzt ausschließlich dieses eine Bild. Warte intern nur auf die technische Rückgabe dieses Bildjobs. Benenne es SOFORT exakt wie oben um und prüfe danach Motiv, Labels, Stil, Hintergrund und Dateiname. Bei einem Fehler Erzeuge DIESELBE Bildnummer neu.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+FORMAT LOCK:
+Create a square 1:1 source image only. Width and height must be equal.
+
+EXACT SHORT GERMAN OBJECT LABELS:
+- EURO
+- LANDESWÄHRUNG
+
+IMAGE PROMPT:
+Create a premium stylized 3D CGI financial editorial cover about choosing the currency when paying abroad. The dominant hero object is a chunky modern card terminal angled three-quarter toward camera. From the terminal, two physical payment paths split: a warm red-orange path leading to a substantial EURO plaque with a small surcharge tag, and an emerald path leading to a substantial LANDESWÄHRUNG plaque with a clean check marker. Add 3–5 supporting travel-payment objects: a bank card, a small foreign banknote stack, a receipt strip, and two sculpted coins. Make the decision instantly understandable in under two seconds. Do not create a classic headline; the two short physical labels carry the topic.
+
+WRITTEN SAME-WORLD LOCK:
+Keep premium stylized 3D CGI, chunky volumetric recognizable objects, rounded bevels, dark emerald polymer and brushed metal, warm cream secondary surfaces, sculpted gold only for money/value, warm red-orange only for warning/cost, cinematic soft key light, controlled emerald rim light, clear foreground/midground/background depth and soft contact shadows. Every scene gets its own fresh composition inside the same written world. No previous image as a reference and no image-to-image reference upload.
+
+BACKGROUND RULE:
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, no separate zones, no dark bands, no floor-wall boundary, no horizon line, no panel background.
+
+TEXT RULE:
+Only the specified short German object labels may appear. No headline. No subtitle. No explanatory sentence. No CTA. Do not render the filename.
+
+FACE RULE:
+If a person appears, use only a stylized anonymous adult with a clearly visible face. A person is not needed for this composition.
+
+FORBIDDEN:
+Not photorealistic. No office-product photo, no app UI, no dashboard, no control panel, no floating cards or widgets, no four-corner module layout, no orbit layout, no microchip/circuit-board language, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no gameboard, no Pixar, clay or toy look.
