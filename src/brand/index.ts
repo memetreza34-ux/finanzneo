@@ -14,6 +14,15 @@ export type { SceneHeaderTone } from './components/SceneHeader';
 export { MechanismCue } from './components/MechanismCue';
 export { SceneTransition, AnimationStage, VISUAL_TOP, VISUAL_BOTTOM, VISUAL_CENTER_Y } from './components/ReelStage';
 export type { MechanismCueTone } from './components/MechanismCue';
+export {
+  PremiumPhysicalStage,
+  PhysicalObject,
+  PhysicalTag,
+  PhysicalRail,
+  PremiumDepthGuide,
+  PREMIUM_VISUAL_LOCK,
+} from './components/PremiumPhysical';
+export type { PremiumMaterial } from './components/PremiumPhysical';
 export { Title, Body, Kicker, WordReveal } from './components/Text';
 export { Card } from './components/Card';
 export { Counter } from './components/Counter';
