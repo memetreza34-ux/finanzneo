@@ -2,24 +2,52 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 05 - Fremdwaehrungsgebuehr Karte.png
 
-Erzeuge jetzt ausschließlich dieses eine Bild. Warte intern nur auf die technische Rückgabe dieses Bildjobs. Benenne es SOFORT exakt wie oben um und prüfe danach Motiv, Labels, Stil, Hintergrund und Dateiname. Bei einem Fehler Erzeuge DIESELBE Bildnummer neu.
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+Erzeuge GENAU EIN Bild: ausschließlich Bild 05. Warte intern auf die vollständige Rückgabe dieses einen Jobs. Benenne es SOFORT exakt wie oben um. Prüfe danach Premium-V8-Komposition, Motiv, Labels, Materialität, Tiefe, Licht, Hintergrund und Dateiname. Bei einem Fehler Erzeuge DIESELBE Bildnummer neu. Erst nach bestandener QA darf der nächste Bildblock beginnen. Keine Bildreferenz verwenden. Jede Szene bekommt eine eigene frische Komposition.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
-PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-premium-physical-editorial-v8
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
-Create a square 1:1 source image only. Width and height must be equal.
+FORMAT LOCK:
+Create a square 1:1 source image only. Width and height must be equal. This is a square 1:1 source image; 9:16 is created only in Remotion.
 
 EXACT SHORT GERMAN OBJECT LABELS:
 - KARTENGEBÜHR
 
 IMAGE PROMPT:
-Create a premium stylized 3D CGI financial editorial explainer. Make one large dark-emerald bank card the hero object, standing slightly tilted with substantial thickness and rounded bevels. A small metallic fee clasp is physically attached to the card edge, carrying the short German tag KARTENGEBÜHR. A few gold coins are being pulled from the card toward the clasp, showing that even without DCC the card issuer can charge its own fee. Add a small foreign banknote, a compact passport corner, and a receipt strip as supporting travel-payment objects. Keep the fee element secondary but unmistakable.
+Create a premium stylized 3D CGI financial editorial explainer showing that the user's own card can still charge a foreign-currency fee. Use ONE oversized premium bank card as the hero object, occupying roughly 55–60% of the composition. It stands close to camera at a strong three-quarter angle, with substantial thickness, dark-emerald anodized-metal edges and a warm ivory inset surface.
 
-Keep the same written FinanzNeo art direction: chunky volumetric recognizable objects, dark emerald polymer/brushed metal, warm cream details, sculpted gold for money/value, warm red-orange only for cost warning, cinematic soft key light, emerald rim light, layered depth and soft contact shadows. Jede Szene bekommt eine eigene frische Komposition. Kein vorheriges Bild als Bildreferenz verwenden; keine Bildreferenz hochladen.
+A heavy warm red-orange metal fee clamp labeled KARTENGEBÜHR physically grips one corner of the card. Three sculpted brushed-gold coins are visibly being pulled through the clamp from the card edge toward a short ivory receipt underneath, so the cost mechanism is obvious without text. Add only two other supporting objects: one local-currency banknote partly under the card and one small brass travel coin in the foreground. The fee clamp must feel like a real mechanical object exerting pressure, not a floating badge.
 
+PREMIUM HERO LOCK:
+Use ONE dominant recognizable physical hero object occupying roughly 45–65% of the useful composition. Use only 2–4 supporting topic-specific physical objects. Fewer, larger objects are better than many small props. The idea must read in under two seconds at phone size.
+
+CAMERA + DEPTH:
+Use a medium-close 3/4 camera, not distant isometric. Put the hero close to camera with a strong silhouette and slight perspective exaggeration. Build clear foreground / hero plane / background depth with purposeful overlap, strong soft contact shadows, ambient occlusion and mild depth-of-field on secondary objects only. No tiny subject in a huge empty frame.
+
+PREMIUM MATERIALS:
+Use satin dark-emerald anodized metal or premium polymer for the card edge/structure, warm ivory/cream ceramic-like surface for the card face and receipt, brushed brass/sculpted gold only for coins/value, warm red-orange enamel only for the fee clamp. Give every object substantial thickness, rounded industrial bevels and believable weight. Never use flat vector cards pretending to be 3D.
+
+CINEMATIC LIGHTING:
+Soft key light from upper front-left, controlled emerald rim from rear-right, warm practical highlight on the gold coins, readable shadow-side fill, localized reflections and strong contact shadows. Dark background is allowed; dark unreadable subjects are not.
+
+COLOR BALANCE:
+The hero must clearly show emerald structure + ivory neutral surface + gold money + red-orange fee accent. Monochrome green-only frames are forbidden.
+
+TEXT RULE:
+Only the specified short German object label may appear, engraved on the physical fee clamp. No headline. No subtitle. No explanatory sentence. No CTA. The scene must work without reading the label. Do not render the filename.
+
+FACE RULE:
+If a person appears, use only a stylized anonymous adult with a clearly visible face. No person is needed here.
+
+BACKGROUND RULE:
 Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, no separate zones, no floor-wall boundary, no horizon line, no panel background.
 
-Only the specified short German object label may appear. No headline. No subtitle. No explanatory sentence. No CTA. If a person appears, use a stylized anonymous adult with a clearly visible face; otherwise no person is needed. Not photorealistic. No dashboard, app UI, floating cards, microchip language, gameboard, orbit layout, tiny diorama, neon tunnel, sci-fi corridor, Pixar, clay or toy look.
+STRICTLY FORBIDDEN:
+Dashboard or control-panel composition. Flowchart as the main composition. Small boxes connected by thin lines. Floating UI cards, tiles, chips, pills, widgets or HUD elements. Generic rectangular info cards as main objects. Thin neon connector lines as the main storytelling device. Four-corner modules. Orbit/satellite layouts. Gameboard. Microchip/circuit-board metaphor. Tiny isometric diorama. Sterile product-ad shot with no explanatory action. Empty black studio with a small centered object. Flat poster composition. Monochrome green-only frame. Photorealistic office/stationery still life. Childish clay, toy or Pixar look. Not photorealistic.
+
+PREMIUM QA — REJECT AND REGENERATE IF ANY APPLY:
+Hero too small. Reads like UI/dashboard/flowchart. More than four secondary objects compete. Mostly dark empty space. Flat/weightless objects. Weak material contrast. No depth hierarchy. Monochrome green. Idea only works after reading labels.
