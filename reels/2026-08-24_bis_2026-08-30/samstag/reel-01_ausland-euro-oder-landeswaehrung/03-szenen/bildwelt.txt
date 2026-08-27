@@ -1,0 +1,21 @@
+FINANZNEO WORLD REFERENCE — WRITTEN STYLE LOCK ONLY
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+Create a square 1:1 source image only. Width and height must be equal.
+
+Keep the same written FinanzNeo art direction in every image: premium stylized 3D CGI financial editorial explainer, chunky volumetric recognizable physical objects, rounded bevels, deep charcoal green-black polymer and brushed-metal materials, warm cream secondary surfaces, sculpted gold only for money/value, warm red-orange only for warning/cost, cinematic soft key light, controlled emerald rim light, clear foreground/midground/background depth and soft contact shadows.
+
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, no zones, no floor-wall boundary, no horizon line, no panel background.
+
+Every scene gets its own fresh composition inside the same written world. No previous image as a reference and no image-to-image reference upload.
+
+Only explicitly requested short German object labels may appear. No headline. No subtitle. No explanatory sentence. No CTA.
+
+If a person appears, use only a stylized anonymous adult with a clearly visible face. A person is optional and should be avoided when physical objects explain the point better.
+
+Not photorealistic. No office-product photo, dashboard, app UI, control panel, floating cards, gameboard, microchip/circuit-board language, satellite/orbit layout, four-corner modules, tiny isometric diorama, neon tunnel, sci-fi corridor, Pixar, clay or toy look.

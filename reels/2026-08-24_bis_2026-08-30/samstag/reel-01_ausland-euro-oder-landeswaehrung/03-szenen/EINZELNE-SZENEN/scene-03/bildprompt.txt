@@ -1,0 +1,26 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - DCC Aufschlag.png
+
+Erzeuge jetzt ausschließlich dieses eine Bild. Warte intern nur auf die technische Rückgabe dieses Bildjobs. Benenne es SOFORT exakt wie oben um und prüfe danach Motiv, Labels, Stil, Hintergrund und Dateiname. Bei einem Fehler Erzeuge DIESELBE Bildnummer neu.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+Create a square 1:1 source image only. Width and height must be equal.
+
+EXACT SHORT GERMAN OBJECT LABELS:
+- WECHSELKURS
+- AUFSCHLAG
+
+IMAGE PROMPT:
+Create a premium stylized 3D CGI financial editorial explainer about a DCC provider setting the conversion terms. Use one oversized physical exchange-rate dial as the hero object, built from dark emerald brushed metal with a thick gold pointer. Attach a small cream physical plaque reading WECHSELKURS directly to the dial. A warm red-orange surcharge wedge is visibly inserted into the outer ring and carries the physical tag AUFSCHLAG. Add a merchant terminal, a foreign banknote, a euro coin stack, and a receipt edge as supporting objects. The cause-and-effect must read clearly: provider-controlled rate plus added surcharge changes the final conversion.
+
+Keep the same written FinanzNeo art direction: chunky volumetric recognizable objects, rounded bevels, deep emerald polymer/brushed metal, warm cream surfaces, gold only for money/value, red-orange only for warning/cost, cinematic soft key light, emerald rim light, clear depth and contact shadows. Jede Szene bekommt eine eigene frische Komposition. Kein vorheriges Bild als Bildreferenz verwenden; keine Bildreferenz hochladen.
+
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, no separate zones, no floor-wall boundary, no horizon line, no panel background.
+
+Only the specified short German object labels may appear. No headline. No subtitle. No explanatory sentence. No CTA. If a person appears, use a stylized anonymous adult with a clearly visible face; otherwise no person is needed. Not photorealistic. No dashboard, app UI, floating cards, microchip language, gameboard, orbit layout, tiny diorama, neon tunnel, sci-fi corridor, Pixar, clay or toy look.
