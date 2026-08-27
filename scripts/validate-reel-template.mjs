@@ -43,7 +43,7 @@ if (errors.length === 0) {
   const beatTypes = [...demo.matchAll(/type:\s*'([^']+)'/g)].map((match) => match[1]);
   if (beatTypes[0] !== 'hook') errors.push('Der erste Demo-Beat ist kein Hook.');
   if (beatTypes[beatTypes.length - 1] !== 'cta') errors.push('Der letzte Demo-Beat ist kein CTA.');
-  for (const beatType of ['hook', 'explain', 'number', 'compare', 'checklist', 'cta']) {
+  for (const beatType of ['hook', 'explain', 'animation', 'number', 'compare', 'checklist', 'cta']) {
     if (!beatTypes.includes(beatType)) errors.push(`Demo enthält keinen ${beatType}-Beat.`);
   }
 
@@ -54,6 +54,9 @@ if (errors.length === 0) {
   if (!types.includes('60') || !types.includes('90')) errors.push('60–90-Sekunden-Grenzen fehlen im Konfigurationsvalidator.');
   if (!types.includes('Maximal 6,0 s')) errors.push('6-Sekunden-Maximum für Bildbeats fehlt im Konfigurationsvalidator.');
   if (!types.includes('icon: IconName')) errors.push('ReelBeatBase erzwingt kein Icon für jede Szene.');
+  if (!types.includes("type: 'animation'")) errors.push('ReelBeat-Union besitzt keinen first-class animation-Typ.');
+  if (!types.includes('animationId: string')) errors.push('AnimationBeat besitzt keinen verbindlichen animationId-Mapping-Key.');
+  if (!types.includes('Doppelte animationId')) errors.push('Konfigurationsvalidator prüft doppelte animationId-Werte nicht.');
 
   if (!template.includes('FinanceBackground')) errors.push('ReelTemplate verwendet nicht den verbindlichen FinanzNeo-Hintergrund.');
   if (!template.includes('SceneHeader')) errors.push('ReelTemplate verwendet keine einheitliche Zwischenüberschrift mit Icon.');
@@ -65,7 +68,13 @@ if (errors.length === 0) {
   if (!template.includes('VerticalSafeAreaGuide')) errors.push('ReelTemplate besitzt kein Safe-Area-Prüfraster.');
   if (!template.includes("from '../../design-system'")) errors.push('ReelTemplate importiert nicht aus dem zentralen Designsystem.');
 
-  // V5-Layout exakt.
+  if (!template.includes("beat.type === 'animation'")) errors.push('ReelTemplate besitzt keinen expliziten animation-Renderpfad.');
+  if (!template.includes('customAnimations')) errors.push('ReelTemplate besitzt kein customAnimations-Mapping für Phase-1-Animationen.');
+  if (!template.includes('MISSING ANIMATION BINDING')) errors.push('Fehlende Animationsbindung führt nicht zu einem klaren harten Renderfehler.');
+  if (!template.includes('Animation-Binding fehlt')) errors.push('ReelTemplate prüft vor dem Render nicht alle Animation-Bindings.');
+  if (!demo.includes("animationId: 'emergency-mechanism'")) errors.push('ReelTemplateDemo testet keinen echten animationId-Beat.');
+  if (!demo.includes("customAnimations={{'emergency-mechanism':")) errors.push('ReelTemplateDemo bindet die Demo-Animation nicht über customAnimations ein.');
+
   if (!/caption:\s*\{[\s\S]*?bottom:\s*340\b/.test(tokens)) errors.push('V5 Caption bottom=340 fehlt in REEL_STYLE.');
   if (!/header:\s*\{[\s\S]*?top:\s*154\b/.test(tokens)) errors.push('V5 Header top=154 fehlt in REEL_STYLE.');
   if (!/visual:\s*\{[\s\S]*?top:\s*320\b[\s\S]*?bottom:\s*1480\b/.test(tokens)) errors.push('V5 Visualzone 320–1480 fehlt in REEL_STYLE.');
@@ -88,7 +97,6 @@ if (errors.length === 0) {
   if (captions.includes('translateY(-6px)')) errors.push('Caption-Word-Jump ist verboten.');
   if (!captions.includes('holdSeconds')) errors.push('Caption-Hold über kurze Pausen fehlt.');
 
-  // Plain Header V5: normale Typografie, keine Kapsel/UI-Box.
   if (!sceneHeader.includes('REEL_STYLE')) errors.push('SceneHeader liest Maße nicht aus REEL_STYLE.');
   if (!sceneHeader.includes('Icon')) errors.push('SceneHeader verwendet kein Icon.');
   if (!sceneHeader.includes('iconColorForTone')) errors.push('SceneHeader besitzt keine semantische Icon-Farblogik.');
@@ -124,6 +132,7 @@ if (errors.length > 0) {
 }
 
 console.log('✓ ReelTemplateDemo liegt korrekt unter Experiments.');
+console.log('✓ Animation-Dispatch ist first-class und fehlende Bindings brechen den Render hart ab.');
 console.log('✓ Reel V5: Plain Header Y154 · Visual 320–1480 · Caption bottom340.');
 console.log('✓ Captions sind crisp, grün/weiß und zentral gesteuert.');
 console.log('✓ Continuity bleibt bei 3 Frames; semantische Animationsfarben sind eingebunden.');
