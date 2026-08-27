@@ -2,25 +2,53 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 09 - EZB Aufschlag Anzeige.png
 
-Erzeuge jetzt ausschließlich dieses eine Bild. Warte intern nur auf die technische Rückgabe dieses Bildjobs. Benenne es SOFORT exakt wie oben um und prüfe danach Motiv, Labels, Stil, Hintergrund und Dateiname. Bei einem Fehler Erzeuge DIESELBE Bildnummer neu.
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+Erzeuge GENAU EIN Bild: ausschließlich Bild 09. Warte intern auf die vollständige Rückgabe dieses einen Jobs. Benenne es SOFORT exakt wie oben um. Prüfe danach Premium-V8-Komposition, Motiv, Labels, Materialität, Tiefe, Licht, Hintergrund und Dateiname. Bei einem Fehler Erzeuge DIESELBE Bildnummer neu. Erst nach bestandener QA darf der nächste Bildblock beginnen. Keine Bildreferenz verwenden. Jede Szene bekommt eine eigene frische Komposition.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
-PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-premium-physical-editorial-v8
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
-Create a square 1:1 source image only. Width and height must be equal.
+FORMAT LOCK:
+Create a square 1:1 source image only. Width and height must be equal. This is a square 1:1 source image; 9:16 is created only in Remotion.
 
 EXACT SHORT GERMAN OBJECT LABELS:
 - EZB-REFERENZ
 - AUFSCHLAG %
 
 IMAGE PROMPT:
-Create a premium stylized 3D CGI financial editorial explainer about transparent currency-conversion markup. Use a large physical benchmark ruler/gauge as the hero object. The lower fixed baseline is a warm cream metal strip labeled EZB-REFERENZ. Above it, a separate raised red-orange segment labeled AUFSCHLAG % visibly sits on top, making the markup relationship obvious. Add a compact card terminal, two currency coins, a receipt strip, and a small document seal as supporting physical objects. This is a physical comparison instrument, not an app interface or dashboard.
+Create a premium stylized 3D CGI financial editorial explainer about the EU transparency rule for currency-conversion markup. Use ONE large physical reference-measuring instrument as the hero, occupying roughly 55% of the useful composition. It resembles a substantial precision balance/ruler built from warm ivory ceramic and dark-emerald metal, viewed medium-close in three-quarter perspective.
 
-Keep the same written FinanzNeo art direction: chunky volumetric recognizable objects, rounded bevels, dark emerald polymer/brushed metal, warm cream surfaces, sculpted gold only for money/value, red-orange only for warning/cost, cinematic soft key light, emerald rim light, clear depth and soft contact shadows. Jede Szene bekommt eine eigene frische Komposition. Kein vorheriges Bild als Bildreferenz verwenden; keine Bildreferenz hochladen.
+A thick brushed-brass baseline marker labeled EZB-REFERENZ is physically fixed to the instrument. Above it, a raised warm red-orange metal surcharge block labeled AUFSCHLAG % is visibly measured against the baseline, with a mechanical pointer showing the distance. Add only three support objects: one physical payment card leaning against the base, one sculpted euro coin in front, and a short receipt strip partly tucked under the instrument. The comparison must read as a real measuring mechanism, not an interface.
 
+PREMIUM HERO LOCK:
+Use ONE dominant recognizable physical hero object occupying roughly 45–65% of the useful composition. Use only 2–4 supporting topic-specific physical objects. Fewer, larger objects are better than many small props. The idea must read in under two seconds at phone size.
+
+CAMERA + DEPTH:
+Use a medium-close 3/4 camera, not distant isometric. Put the hero close to camera with a strong silhouette and slight perspective exaggeration. Build clear foreground / hero plane / background depth with purposeful overlap, strong soft contact shadows, ambient occlusion and mild depth-of-field on secondary objects only. No tiny subject in a huge empty frame.
+
+PREMIUM MATERIALS:
+Use satin dark-emerald anodized metal or premium polymer for the frame, large warm ivory/cream ceramic surfaces for the benchmark body, brushed brass/sculpted gold only for value/reference details, warm red-orange enamel only for the surcharge block. Give every object substantial thickness, rounded industrial bevels and believable weight. Never use flat vector cards pretending to be 3D.
+
+CINEMATIC LIGHTING:
+Soft key light from upper front-left, controlled emerald rim from rear-right, warm practical highlight on the brass reference marker, readable shadow-side fill, localized reflections and strong contact shadows. Dark background is allowed; dark unreadable subjects are not.
+
+COLOR BALANCE:
+Use large ivory neutral surfaces + dark emerald structure + brass reference + red-orange markup. Monochrome green-only frames are forbidden.
+
+TEXT RULE:
+Only the specified short German labels may appear, physically engraved on the benchmark marker and surcharge block. No headline. No subtitle. No explanatory sentence. No CTA. The scene must work without reading labels. Do not render the filename.
+
+FACE RULE:
+If a person appears, use only a stylized anonymous adult with a clearly visible face. No person is needed here.
+
+BACKGROUND RULE:
 Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, no separate zones, no floor-wall boundary, no horizon line, no panel background.
 
-Only the specified short German object labels may appear. No headline. No subtitle. No explanatory sentence. No CTA. If a person appears, use a stylized anonymous adult with a clearly visible face; otherwise no person is needed. Not photorealistic. No dashboard, app UI, floating cards, microchip language, gameboard, orbit layout, tiny diorama, neon tunnel, sci-fi corridor, Pixar, clay or toy look.
+STRICTLY FORBIDDEN:
+Dashboard or control-panel composition. Flowchart as the main composition. Small boxes connected by thin lines. Floating UI cards, tiles, chips, pills, widgets or HUD elements. Generic rectangular info cards as main objects. Thin neon connector lines as the main storytelling device. Four-corner modules. Orbit/satellite layouts. Gameboard. Microchip/circuit-board metaphor. Tiny isometric diorama. Sterile product-ad shot with no explanatory action. Empty black studio with a small centered object. Flat poster composition. Monochrome green-only frame. Photorealistic office/stationery still life. Childish clay, toy or Pixar look. Not photorealistic.
+
+PREMIUM QA — REJECT AND REGENERATE IF ANY APPLY:
+Hero too small. Reads like UI/dashboard/flowchart. More than four secondary objects compete. Mostly dark empty space. Flat/weightless objects. Weak material contrast. No depth hierarchy. Monochrome green. Idea only works after reading labels.
