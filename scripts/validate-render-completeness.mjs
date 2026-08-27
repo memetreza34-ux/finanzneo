@@ -83,13 +83,14 @@ if (!Number.isFinite(videoSize) || videoSize < 100000) fail('Finalvideo ist auff
 
 // Nur den visuellen Kern prüfen. Header oben und Caption-Backplate unten sind
 // absichtlich NICHT im Sample. Sonst könnte eine reine Caption-Szene die QA
-// fälschlich als "visuell belegt" bestehen.
-const declaredVisualTop = Math.max(0, Number(layout.visualTop) || 390);
-const declaredVisualBottom = Math.min(1920, Number(layout.visualBottom) || 1560);
+// fälschlich als "visuell belegt" bestehen. V5 nutzt als zentrale Visualzone
+// Y=320–1480; alte per-Reel-Werte dürfen sie nur enger, nie größer machen.
+const declaredVisualTop = Math.max(320, Number(layout.visualTop) || 320);
+const declaredVisualBottom = Math.min(1480, Number(layout.visualBottom) || 1480);
 const cropX = 92;
 const cropY = Math.min(declaredVisualBottom - 160, declaredVisualTop + 70);
 const cropWidth = 896;
-const cropBottom = Math.max(cropY + 160, Math.min(declaredVisualBottom - 170, 1340));
+const cropBottom = Math.max(cropY + 160, Math.min(declaredVisualBottom - 170, 1260));
 const cropHeight = Math.max(160, cropBottom - cropY);
 const sampleWidth = 96;
 const sampleHeight = 104;

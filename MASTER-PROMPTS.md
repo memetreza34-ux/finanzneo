@@ -2,84 +2,92 @@
 
 > `CLAUDE.md` ist die höchste Regelquelle.
 
-Vor neuen Reels zusätzlich lesen:
+Vor Reels lesen:
 
+- `docs/PHASE-1-BRIEFING.md`
+- `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
 - `docs/3-PHASEN-WORKFLOW.md`
 - `docs/PHASE-3-COMPLETION-GATE.md`
 - `reels/PRODUKTIONSSTANDARD.md`
-- `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-- `docs/IMAGE-SYSTEM.md`
-- `docs/BEAT-TO-IMAGE-RULES.md`
-- `docs/IMAGE-PROMPT-LIBRARY.md`
-- `docs/IMAGE-QA-CHECKLIST.md`
-- `docs/PLATFORM-PUBLISHING.md`
-
-Vor YouTube-Longform zusätzlich lesen:
-
-- `docs/YOUTUBE-LONGFORM-WORKFLOW.md`
-- `youtube/PRODUKTIONSSTANDARD.md`
 
 ## 1. Phase 1 — ChatGPT bereitet komplett vor
 
 **Nicht diesen Abschnitt kopieren, sondern `docs/PHASE-1-BRIEFING.md`.**
 
-ChatGPT hat keinen Zugriff auf dieses Repository. Ein Prompt wie „halte dich an
-die Repo-Regeln" läuft deshalb ins Leere — Phase 1 kann Regeln nicht befolgen,
-die sie nicht kennt. Genau daraus entstanden uneinheitliche Reels.
+Phase 1 liefert Recherche, szenenweises Skript, Bildprompts, natürliche Header,
+Remotion-Spezifikationen und für jede Animationsszene bereits die finale
+`animation.tsx`. Phase 3 darf keine fehlende Animation erfinden.
 
-`docs/PHASE-1-BRIEFING.md` enthält alle Regeln ausgeschrieben: Format, Skript,
-Zwischenüberschriften, Untertitel, Bildwelt, Nummerierung, Animationen,
-Lieferumfang und eine Selbstprüfung. Den Block „Briefing zum Kopieren"
-vollständig in ChatGPT einfügen und `[THEMA]` ersetzen.
-
-Nach jeder Regeländerung in `CLAUDE.md` wird das Briefing nachgezogen.
-
-## 2. Phase 3 — Antigravity / Claude Code baut autonom
+## 2. Phase 3 — Antigravity / Claude Code integriert autonom
 
 ```text
 Mach das Reel: reels/<Woche>/<Tag>/<Reel>
 
-1. Prüfe zuerst vollständig mit:
+1. Zuerst:
    npm run reel:ready -- <Reel-Pfad>
 
-2. Wenn grün, lege VOR der Implementierung das Phase-3-Produktionsmanifest an:
+   Bei Erfolg sind die Phase-1-Animationsquellen per SHA-256 versiegelt.
+
+2. Produktionsmanifest anlegen:
    npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
 
-3. Implementiere JEDE Szene aus scene-index.json. Bildszene = echtes Bildlayer. Animationsszene = echte sichtbare Animationskomponente. Untertitel/SceneHeader allein zählen NIEMALS als Szenenvisual.
+3. JEDE scene-index-Szene implementieren.
 
-4. Vervollständige 05-projektdateien/phase3-production-manifest.json vollständig:
+   Bildszene:
+   - echtes Nutzerbild als sichtbares Visual
+
+   Animationsszene:
+   - DIREKT scene.animationSourceFile aus Phase 1 verwenden
+   - componentPath muss exakt diese kanonische Datei sein
+   - componentExport muss scene.animationExport entsprechen
+   - KEINE Ersatzanimation erstellen
+   - KEINE versiegelte animation.tsx ändern
+
+4. V5-Layout ausschließlich aus REEL_STYLE verwenden:
+   - Header Y154
+   - Plain Header: normaler weißer Text + einfaches semantisches Linien-Icon
+   - keine Capsule / kein Chip / kein Panel
+   - keine automatische ALL-CAPS-Transformation
+   - Visual Y320–1480
+   - Captions bottom340
+   - Transition 3 Frames
+
+5. phase3-production-manifest.json vollständig machen:
    - jede Szene implemented=true
    - startFrame + durationFrames lückenlos
-   - Bildszene: sourceImageFileName + echter assetPath
-   - Animationsszene: componentPath + componentExport
+   - Bild: sourceImageFileName + assetPath
+   - Animation: canonicalSourcePath + canonicalSourceSha256 + componentPath + componentExport
    - audioImplemented=true
    - captionsImplemented=true
    - sceneHeadersImplemented=true
    - status=READY_TO_RENDER
 
-5. Vor dem Render MUSS grün sein:
+6. Pflicht vor Render:
    npm run reel:phase3:preflight -- <Reel-Pfad>
 
-6. Produktiven Finalrender ausschließlich über das validierte Manifest starten:
+7. Produktiven Render nur so starten:
    npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 
-   Dieser Befehl rendert zuerst nur eine *.phase3-candidate.mp4. Eine Candidate-Datei ist NICHT final. Erst die automatische Post-Render-QA prüft jede Bildszene auf sichtbaren Visualinhalt und jede Animationsszene zusätzlich auf messbare Bewegung. Nur bei PASSED wird das finale MP4 freigegeben.
+   Zuerst entsteht nur *.phase3-candidate.mp4.
+   Erst Post-Render-QA PASSED gibt die finale MP4 frei.
 
-7. Danach exportieren:
+8. Danach:
    npm run reel:export -- <Reel-Pfad> <Final-MP4>
 
-   Export prüft erneut den exakten SHA-256-Hash des Videos sowie die unveränderten Hashes von scene-index.json und phase3-production-manifest.json.
+FINAL_COMPLETE erst bei vollständig erzeugtem 06-export/.
 
-Das Reel gilt erst als FINAL_COMPLETE, wenn `06-export/` vollständig erzeugt wurde.
-
-VERBOTEN:
+STRIKT VERBOTEN:
+- eigene Phase-3-Ersatzanimationen
+- wackelnde Rechtecke / Debug-Boxen / Testflächen
+- Math.sin/Math.cos als künstliches Dauerwackeln für Frame-Diff
+- Dummy-/Placeholder-Komponenten
+- generische Bewegung nur zum Bestehen der QA
 - eine vorhandene MP4 als Fertigkeitsnachweis behandeln
-- npx remotion render direkt als finalen Abschluss benutzen
-- bei fehlendem Bild oder fehlender Animation trotzdem „fertig“ melden
-- Caption-only-/Header-only-Szenen akzeptieren, wenn Bild oder Animation geplant ist
-- Candidate-MP4 an den Nutzer als final ausgeben
+- Caption-only-/Header-only-Szenen akzeptieren
+- Candidate-MP4 als final ausgeben
+- versiegelten Phase-1-Animationscode verändern
 
-Stoppe nur bei echten Pflichtasset-, Fakten-, Sicherheits-, Validator-, Build-, Render- oder Render-QA-Blockern. Melde dann alle Blocker gesammelt mit exakten Pfaden. Niemals eine nicht bestandene Phase 3 als fertig darstellen.
+Stoppe nur bei echten Asset-, Fakten-, Sicherheits-, Validator-, Hash-, Build-, Render- oder Render-QA-Blockern. Alle Blocker gesammelt mit exakten Pfaden melden.
 ```
 
 ## 3. Bildprompt erstellen
@@ -89,185 +97,122 @@ Erstelle einen FinanzNeo-Bildprompt für diesen gesprochenen Satz:
 [SATZ]
 
 Verbindlich:
-- Google-Flow-Quellbild immer quadratisch 1:1; Breite und Höhe identisch
-- kein Portrait-/Hochformat; 9:16 entsteht erst in Remotion
-- Premium Fintech Editorial 3D
-- EINE dominante Finanzmetapher / großes Hauptobjekt
-- optional stilisierte erwachsene 3D-Person
-- wenn Person: Gesicht mit Augen, Nase und Mund klar sichtbar; frontal oder natürliche 3/4-Ansicht
+- Quellbild immer 1:1
+- Premium Stylized 3D + Physical Explainer V7
+- ein großes physisches Hero-Objekt
+- 3–6 konkrete themenspezifische physische Objekte
 - deep charcoal green-black
-- vivid emerald/mint
-- Gold nur für Geld/Wert
-- warmes Rot-Orange nur für Risiko/Verlust/Schulden
-- smooth rounded 3D geometry, soft bevelled edges
-- nur explizit notwendige kurze deutsche Objektlabels, normalerweise 1–3 Wörter
-- keine große Headline, kein Untertitel, kein erklärender Satz
-- relevante bekannte Marken erlaubt, wenn sie wirklich zur Aussage gehören und keine Partnerschaft suggeriert wird
-
-KRITISCHER HINTERGRUND:
-Use ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge.
-No horizontal bands.
-No top/bottom sections.
-No percentage zones.
-No floor-wall boundary.
-No horizon line.
-No panels.
-Leave natural empty space above/below only by reducing objects, never by changing the background.
-
-Nicht verwenden:
-- Diorama
-- Game-Level
-- Neon-Tunnel
-- Sci-Fi-Korridor
-- Dashboard/App-UI
-- Fotorealismus
-- gesichtslose Figur
-
-Direkt am Prompt den endgültigen Dateinamen angeben.
-Bildnummer = echte Szenennummer; Animationsnummern bleiben reserviert.
+- Emerald/Mint
+- Gold nur Geld/Wert
+- Rot-Orange nur Risiko/Verlust/Warnung
+- keine Headline, kein Untertitel, kein erklärender Satz
+- nur wenige kurze deutsche Objektlabels
+- ein nahtloser Hintergrund von oben bis unten
+- kein Dashboard/UI, Microchip, Gameboard, Orbit, Diorama, Fotorealismus
+- wenn Person: Gesicht klar sichtbar
+- endgültigen Dateinamen direkt angeben
+- Bildnummer = echte Szenennummer
 ```
 
-## 4. Google-Flow-Sammelprompt erstellen
+## 4. Google-Flow-Sammelprompt
 
 ```text
-Erstelle `03-szenen/alle-bildprompts.txt` in chronologischer Szenenreihenfolge.
+Erstelle 03-szenen/alle-bildprompts.txt chronologisch.
 
-Für jedes benötigte Bild:
-1. Prompt lesen
-2. GENAU EIN Bild erzeugen
-3. sofort endgültig umbenennen
-4. Motiv + Labels + Gesicht + nahtlosen Hintergrund + Dateiname prüfen
-5. erst dann nächstes Bild
+Strict Single Job:
+1. aktuellen Bildblock lesen
+2. GENAU EIN Bild starten
+3. intern auf Ergebnis warten
+4. sofort exakt umbenennen
+5. QA
+6. bei Fehler dieselbe Bildnummer wiederholen
+7. erst nach PASS nächsten Bildblock freischalten
 
-Cover = Bild 00.
-Jede Bildszene nutzt ihre echte Szenennummer.
-Animationsszenen bekommen kein Bild; ihre Nummer bleibt reserviert.
-Erst nach Abschluss alle Bilder gemeinsam nach `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
+Nie Batch, parallel, Queue oder späteres Sammel-Umbenennen.
+Nie Nutzer-„weiter“ verlangen.
+Cover = Bild 00. Animationsnummern erzeugen kein Bild.
 ```
 
 ## 5. Bild-QA
 
 ```text
-Prüfe jedes Nutzerbild nach den aktuellen FinanzNeo-Regeln.
-
-Sofort NEU ERSTELLEN melden bei:
-- zwei sichtbaren Hintergründen/Bändern
-- horizontaler Trennkante
+NEU ERSTELLEN bei:
+- zwei Hintergründen/Bändern
 - Floor-Wall-Grenze/Horizont
 - gesichtsloser/abgewandter Person
-- falschen oder zusätzlichen Labels
-- großer Headline/Untertitel/erklärendem Satz
-- Diorama/Game-Level/Tunnel-Look
-- falscher Zuordnung zum gesprochenen Satz
-
-Antigravity darf das Bild nicht selbst neu generieren.
+- falschen Labels
+- großer Headline/Untertitel/Satz
+- Dashboard/UI/Microchip/Gameboard/Diorama-Look
+- falscher Zuordnung zum gesprochenen Beat
 ```
 
 ## 6. Voiceover, Timing und Remotion
 
 ```text
-Nutze ausschließlich das finale Voiceover.
-Erzeuge echte Wort-Timings daraus.
-Szenenschnitte beginnen an den echten Satzanfängen.
+Nur finales Voiceover verwenden.
+Echte Wort-Timings daraus erzeugen.
+Szenenschnitte an echten Satz-/Phrasenanfängen.
 
-Baue 1080×1920 bei 30 fps.
+1080×1920, 30 fps.
 Bilder mit contain.
-Keine unscharfe Bildkopie als Hintergrund.
-Überschriften/Icons in Remotion.
-Genau ein vollständiger Untertitelsatz sichtbar.
-Aktuelles Wort grün, Rest weiß.
-Maximal zwei Zeilen.
-Animationen relativ zur tatsächlichen Szenendauer.
+V5: Header Y154, Visual 320–1480, Caption bottom340.
+Header: normaler weißer Text + Icon, keine Capsule, keine ALL-CAPS-Erzwingung.
+Aktives Caption-Wort grün, Rest weiß, max. zwei Zeilen.
+Animationsszenen direkt aus den versiegelten Phase-1-animation.tsx-Dateien.
 ```
 
 ## 7. Finale technische und visuelle QA
 
 ```text
-Wenn Nutzerbilder und finales Audio vorhanden sind:
 - reel:ready
-- Asset-Sync/Ingest
-- jede scene-index-Szene im Phase-3-Produktionsmanifest einzeln belegen
+- Asset-Sync
+- Produktionsmanifest vollständig
 - reel:phase3:preflight
-- Typecheck
-- Preview-Render
-- Kontaktbogen / erste-mittlere-letzte Frames
-- produktiven Render NUR über reel:render
-- automatische Post-Render-Visual-QA: Bildszenen sichtbar, Animationsszenen sichtbar + bewegt
-- komplette freigegebene MP4 mit Ton ansehen
-- Audio-Lautheit am finalen Export
+- Tests + Typecheck
+- Preview
+- Candidate-Render nur über reel:render
+- Post-Render-QA pro Szene
+- komplette freigegebene MP4 mit Ton
+- Animationen zusätzlich ohne Ton
+- Audio-Lautheit
 - reel:export
 
-Eine technisch erzeugte MP4 ist noch kein fertiges Reel.
-`phase3-render-qa.json` muss `status: PASSED` enthalten.
-Untertitel/Headline allein sind kein gültiger Szeneninhalt.
+Eine MP4 allein ist kein fertiges Reel.
+Untertitel/Header allein sind kein gültiges Szenenvisual.
 Keine Prüfung als bestanden behaupten, wenn sie nicht tatsächlich ausgeführt wurde.
 ```
 
 ## 8. Reel-Plattform-Publishing
 
-```text
-Erstelle aus der geprüften Master-Caption alle Reel-Veröffentlichungsdateien in `04-caption/`.
+Pflichtdateien in `04-caption/`:
 
-Pflichtdateien:
-- instagram-reels.txt
-- tiktok.txt
-- facebook-reels.txt
-- snapchat.txt
+- `caption.txt`
+- `instagram-reels.txt`
+- `tiktok.txt`
+- `facebook-reels.txt`
+- `snapchat.txt`
 
-Instagram Reels:
-CAPTION / CTA / QUELLEN-HINWEIS / HASHTAGS / optional ANGEHEFTETER KOMMENTAR
+Keine YouTube Shorts.
 
-TikTok:
-CAPTION / CTA / QUELLEN-HINWEIS / HASHTAGS
-
-Facebook Reels:
-REEL-TEXT / CTA / QUELLEN-HINWEIS / HASHTAGS
-
-Snapchat:
-CAPTION / optional CTA / Hinweis nur wenn nötig
-
-Keine `youtube-shorts.txt` erstellen. Keine YouTube Shorts vorbereiten oder veröffentlichen.
-YouTube ist ausschließlich für eigenständige längere Videos unter `youtube/` und besitzt einen separaten Workflow.
-
-Alle Plattformtexte müssen dieselben geprüften Fakten verwenden. Keine neuen Behauptungen erfinden. Exakte aktuelle Plattform-Limits nur nach Prüfung offizieller Plattformquellen verwenden.
-```
-
-## 9. Phase 1 — YouTube-Longform vollständig vorbereiten
+## 9. Phase 1 — YouTube-Longform
 
 ```text
 Neues eigenständiges FinanzNeo-YouTube-Longform-Video.
-
 Thema: [THEMA]
 
 Arbeite nach CLAUDE.md, docs/YOUTUBE-LONGFORM-WORKFLOW.md und youtube/PRODUKTIONSSTANDARD.md.
+Erstelle Recherche, vollständiges Skript, Kapitel-/Retention-Plan, Visual-Plan,
+englische Flow-Prompts, Thumbnail-Brief, Titel, Beschreibung, Kapitel, Quellen,
+Publishing und Promo ohne Platzhalter.
 
-Erstelle ohne offene Platzhalter:
-1. Briefing, Zielgruppe, Lernziel, Kernversprechen und Begründung für Longform
-2. geprüfte Recherche mit Quellen, Datenstand, Annahmen und Rechenwegen
-3. Hook, Kapitel-Dramaturgie und Retention-Plan
-4. vollständiges deutsches Voiceover-Skript ohne Füllpassagen
-5. Visual-Plan mit begründeter Bild-/Remotion-Zuordnung
-6. vollständige englische Google-Flow-Prompts mit exakten Dateinamen
-7. englischen Thumbnail-Prompt und vollständigen Thumbnail-Brief
-8. fünf Titelvarianten und einen finalen Titel
-9. Beschreibung, Kapitel, Keywords/Tags, Hashtags, Quellen/Disclaimer
-10. angehefteten Kommentar, Community-Post und Upload-Checkliste
-11. Promo-Texte für Instagram, TikTok, Facebook und Snapchat
-
-YouTube-Quellbilder und Thumbnail sind horizontal 16:9. Reel-Bilder bleiben separat 1:1.
-Der Nutzer erzeugt alle Bilder. Antigravity erzeugt weder Bilder noch Ersatz-Voiceover.
-Google Flow arbeitet strikt: genau ein Bild → vollständig warten → sofort exakt umbenennen → prüfen → erst dann das nächste Bild. Thumbnail zuerst und danach nur als Stilreferenz verwenden.
-Keine YouTube Shorts und keine gestreckte Reel-Kopie erzeugen.
+YouTube-Quellbilder/Thumbnail: 16:9.
+Keine YouTube Shorts und keine gestreckte Reel-Kopie.
 ```
 
-## 10. Phase 3 — YouTube-Longform autonom bauen
+## 10. Phase 3 — YouTube-Longform
 
 ```text
 Mach das YouTube-Video: youtube/<Projekt>
-
-Prüfe zuerst vollständig mit `npm run youtube:ready -- youtube/<Projekt>`.
-Wenn die Prüfung erfolgreich ist, beginne sofort und arbeite ohne Rückfragen oder Zwischenstopps bis zur technischen und visuellen QA des fertigen 1920×1080-Renders.
-Leite Timeline, Kapitel, Visualwechsel und Untertitel aus dem finalen Voiceover und dem fertigen Plan ab.
-Triff normale Detailentscheidungen selbst nach CLAUDE.md.
-Stoppe nur bei echten Pflichtasset-, Fakten-, Sicherheits-, Validator-, Build- oder Renderblockern und melde alle gesammelt mit exakten Pfaden.
+Prüfe zuerst npm run youtube:ready -- youtube/<Projekt>.
+Bei Erfolg autonom bis technische und visuelle QA des 1920×1080-Renders.
 ```

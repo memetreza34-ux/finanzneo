@@ -15,6 +15,7 @@ const requiredFiles = [
   'src/brand/components/Captions.tsx',
   'src/brand/components/SceneHeader.tsx',
   'src/brand/components/MechanismCue.tsx',
+  'src/brand/components/ReelStage.tsx',
   'scripts/render-validated.mjs',
 ];
 
@@ -42,7 +43,7 @@ if (errors.length === 0) {
   const beatTypes = [...demo.matchAll(/type:\s*'([^']+)'/g)].map((match) => match[1]);
   if (beatTypes[0] !== 'hook') errors.push('Der erste Demo-Beat ist kein Hook.');
   if (beatTypes[beatTypes.length - 1] !== 'cta') errors.push('Der letzte Demo-Beat ist kein CTA.');
-  for (const beatType of ['hook', 'explain', 'number', 'compare', 'checklist', 'cta']) {
+  for (const beatType of ['hook', 'explain', 'animation', 'number', 'compare', 'checklist', 'cta']) {
     if (!beatTypes.includes(beatType)) errors.push(`Demo enthält keinen ${beatType}-Beat.`);
   }
 
@@ -53,49 +54,68 @@ if (errors.length === 0) {
   if (!types.includes('60') || !types.includes('90')) errors.push('60–90-Sekunden-Grenzen fehlen im Konfigurationsvalidator.');
   if (!types.includes('Maximal 6,0 s')) errors.push('6-Sekunden-Maximum für Bildbeats fehlt im Konfigurationsvalidator.');
   if (!types.includes('icon: IconName')) errors.push('ReelBeatBase erzwingt kein Icon für jede Szene.');
+  if (!types.includes("type: 'animation'")) errors.push('ReelBeat-Union besitzt keinen first-class animation-Typ.');
+  if (!types.includes('animationId: string')) errors.push('AnimationBeat besitzt keinen verbindlichen animationId-Mapping-Key.');
+  if (!types.includes('Doppelte animationId')) errors.push('Konfigurationsvalidator prüft doppelte animationId-Werte nicht.');
 
   if (!template.includes('FinanceBackground')) errors.push('ReelTemplate verwendet nicht den verbindlichen FinanzNeo-Hintergrund.');
   if (!template.includes('SceneHeader')) errors.push('ReelTemplate verwendet keine einheitliche Zwischenüberschrift mit Icon.');
   if (!template.includes('ANIMATION_COLORS')) errors.push('ReelTemplate verwendet nicht die semantische Animationspalette.');
-  if (!template.includes('SceneContinuityFrame')) errors.push('Premium-Continuity zwischen Szenen fehlt.');
-  if (!template.includes('CONTENT_TOP = 390') || !template.includes('CONTENT_BOTTOM = 360')) errors.push('Premium-V3-Hauptvisualzone ist nicht korrekt nach unten gesetzt.');
-  if (/<Captions[^/>]*(?:bottom|left|right|size)=\{/.test(template)) errors.push('ReelTemplate überschreibt Caption-Maße lokal; sie kommen zentral aus REEL_STYLE.');
-  if (!tokens.includes('bottom: 285') || !tokens.includes('left: 72') || !tokens.includes('right: 140')) errors.push('Premium-Captionposition fehlt in REEL_STYLE.caption.');
-  if (!template.includes('VerticalSafeAreaGuide')) errors.push('ReelTemplate besitzt kein visuelles Safe-Area-Prüfraster.');
+  if (!template.includes('SceneContinuityFrame')) errors.push('Continuity zwischen Szenen fehlt.');
+  if (!template.includes('CONTENT_TOP = REEL_STYLE.visual.top')) errors.push('ReelTemplate liest Visual-Top nicht aus REEL_STYLE.');
+  if (!template.includes('FORMAT.vertical.height - REEL_STYLE.visual.bottom')) errors.push('ReelTemplate liest Visual-Bottom nicht aus REEL_STYLE.');
+  if (/<Captions[^/>]*(?:bottom|left|right|size)=\{/.test(template)) errors.push('ReelTemplate überschreibt Caption-Maße lokal.');
+  if (!template.includes('VerticalSafeAreaGuide')) errors.push('ReelTemplate besitzt kein Safe-Area-Prüfraster.');
   if (!template.includes("from '../../design-system'")) errors.push('ReelTemplate importiert nicht aus dem zentralen Designsystem.');
+
+  // Kritischer Regression-Guard: Phase-1-Animationen müssen im Template einen
+  // eigenen Renderpfad besitzen. Fehlt das Mapping, muss der Render hart
+  // abbrechen statt auf CTA/Caption-only/Fallback zu fallen.
+  if (!template.includes("beat.type === 'animation'")) errors.push('ReelTemplate besitzt keinen expliziten animation-Renderpfad.');
+  if (!template.includes('customAnimations')) errors.push('ReelTemplate besitzt kein customAnimations-Mapping für Phase-1-Animationen.');
+  if (!template.includes('MISSING ANIMATION BINDING')) errors.push('Fehlende Animationsbindung führt nicht zu einem klaren harten Renderfehler.');
+  if (!template.includes('Animation-Binding fehlt')) errors.push('ReelTemplate prüft vor dem Render nicht alle Animation-Bindings.');
+  if (!demo.includes("animationId: 'emergency-mechanism'")) errors.push('ReelTemplateDemo testet keinen echten animationId-Beat.');
+  if (!demo.includes("customAnimations={{'emergency-mechanism':")) errors.push('ReelTemplateDemo bindet die Demo-Animation nicht über customAnimations ein.');
+
+  // V5-Layout exakt.
+  if (!/caption:\s*\{[\s\S]*?bottom:\s*340\b/.test(tokens)) errors.push('V5 Caption bottom=340 fehlt in REEL_STYLE.');
+  if (!/header:\s*\{[\s\S]*?top:\s*154\b/.test(tokens)) errors.push('V5 Header top=154 fehlt in REEL_STYLE.');
+  if (!/visual:\s*\{[\s\S]*?top:\s*320\b[\s\S]*?bottom:\s*1480\b/.test(tokens)) errors.push('V5 Visualzone 320–1480 fehlt in REEL_STYLE.');
+  if (!tokens.includes("presentation: 'plain'")) errors.push('V5 Header muss presentation=plain sein.');
+  if (!tokens.includes('headlineColor: C.whiteSoft')) errors.push('V5 Headertext muss neutral weiß sein.');
 
   if (template.includes('highlight={C.gold}')) errors.push('Goldenes Karaoke-Active-Word ist verboten.');
   if (template.includes('perGroup={3}')) errors.push('Alte 3-Wort-Caption-Gruppen sind verboten.');
-  if (template.includes('bottom={292}') || template.includes('bottom={320}')) errors.push('Alte Captionposition ist verboten; Premium V3 nutzt bottom=285.');
 
-  if (!captions.includes('active ? C.accentLt : C.white')) errors.push('Captions erzwingen nicht hellgrün für das aktive Wort und weiß für den Rest.');
-  if (!captions.includes('REEL_STYLE')) errors.push('Captions liest die Maße nicht aus dem zentralen REEL_STYLE.');
-  if (!captions.includes('bottom = S.bottom') || !captions.includes('size = S.fontSize')) errors.push('Captions nutzt nicht die zentralen Standardwerte für Position und Größe.');
-  if (!captions.includes('background: background ?')) errors.push('Premium-Caption-Backplate fehlt.');
-  if (/WebkitTextStroke/.test(captions)) errors.push('WebkitTextStroke ist auf Untertiteln verboten: Glyphen laufen zu.');
+  if (!captions.includes('active ? C.accentLt : C.white')) errors.push('Captions erzwingen nicht hellgrün für aktiv und weiß für Rest.');
+  if (!captions.includes('REEL_STYLE')) errors.push('Captions liest Maße nicht aus REEL_STYLE.');
+  if (!captions.includes('bottom = S.bottom') || !captions.includes('size = S.fontSize')) errors.push('Captions nutzt nicht zentrale Position/Größe.');
+  if (!captions.includes('background: background ?')) errors.push('Caption-Backplate fehlt.');
+  if (/WebkitTextStroke/.test(captions)) errors.push('WebkitTextStroke ist auf Untertiteln verboten.');
 
-  const captionWeight = tokens.match(/fontWeight:\s*(\d+)/);
-  if (captionWeight && Number(captionWeight[1]) > 800) errors.push(`Untertitel-Schriftstärke ${captionWeight[1]} ist zu fett (max. 800).`);
+  const captionWeight = tokens.match(/caption:\s*\{[\s\S]*?fontWeight:\s*(\d+)/);
+  if (captionWeight && Number(captionWeight[1]) > 800) errors.push(`Untertitel-Schriftstärke ${captionWeight[1]} ist zu fett.`);
   const captionSize = tokens.match(/caption:\s*\{[\s\S]*?fontSize:\s*(\d+)/);
-  if (captionSize && Number(captionSize[1]) > 54) errors.push(`Untertitel-Grundgröße ${captionSize[1]} px ist zu groß (max. 54).`);
-  if (captions.includes('0 0 18px') || captions.includes('0 0 24px')) errors.push('Weicher Caption-Glow ist verboten; Untertitel müssen crisp sein.');
+  if (captionSize && Number(captionSize[1]) > 54) errors.push(`Untertitel-Grundgröße ${captionSize[1]} px ist zu groß.`);
   if (captions.includes('translateY(-6px)')) errors.push('Caption-Word-Jump ist verboten.');
   if (!captions.includes('holdSeconds')) errors.push('Caption-Hold über kurze Pausen fehlt.');
-  if (!tokens.includes('holdSeconds:')) errors.push('REEL_STYLE.caption.holdSeconds fehlt.');
 
-  if (!sceneHeader.includes('REEL_STYLE')) errors.push('SceneHeader liest die Maße nicht aus dem zentralen REEL_STYLE.');
-  if (!tokens.includes('top: 118')) errors.push('SceneHeader-Position Y≈118 fehlt in REEL_STYLE.header.');
-  if (!sceneHeader.includes('Icon') || !sceneHeader.includes('color: accent')) errors.push('SceneHeader muss Icon + Headline in Akzentfarbe rendern.');
+  // Plain Header V5: normale Typografie, keine Kapsel/UI-Box.
+  if (!sceneHeader.includes('REEL_STYLE')) errors.push('SceneHeader liest Maße nicht aus REEL_STYLE.');
+  if (!sceneHeader.includes('Icon')) errors.push('SceneHeader verwendet kein Icon.');
+  if (!sceneHeader.includes('iconColorForTone')) errors.push('SceneHeader besitzt keine semantische Icon-Farblogik.');
   if (!sceneHeader.includes("justifyContent: 'center'")) errors.push('SceneHeader muss mittig zentriert sein.');
-  if (!tokens.includes("align: 'center'")) errors.push('REEL_STYLE.header.align muss center sein.');
-  if (!/background: 'rgba\(4, 17, 10, 0\.78\)'|background: 'rgba\(3, 16, 9, 0\.80\)'/.test(sceneHeader)) errors.push('Premium-Header-Kapsel fehlt.');
+  if (!sceneHeader.includes("textTransform: 'none'")) errors.push('SceneHeader muss automatische ALL-CAPS-Transformation verhindern.');
+  if (/background:\s*['"]rgba\(/.test(sceneHeader) || /borderRadius\s*:/.test(sceneHeader) || /border\s*:/.test(sceneHeader)) {
+    errors.push('V5 SceneHeader darf keine Capsule/Box mit Background/Border/Radius rendern.');
+  }
+  if (!sceneHeader.includes('color: H.headlineColor')) errors.push('SceneHeader muss neutralen Headertext aus REEL_STYLE rendern.');
 
-  // Übergänge dürfen nicht wieder träge werden.
   const continuity = tokens.match(/continuityFrames:\s*(\d+)/);
   if (!continuity) errors.push('REEL_STYLE.transition.continuityFrames fehlt.');
-  else if (Number(continuity[1]) > 4) errors.push(`Szenenübergang ist mit ${continuity[1]} Frames zu träge (max. 4).`);
+  else if (Number(continuity[1]) !== 3) errors.push(`V5 Szenenübergang muss 3 Frames sein, aktuell ${continuity[1]}.`);
   if (!tokens.includes('fadeToBlackForbidden: true')) errors.push('Fade-to-black muss zentral verboten sein.');
-  if (!existsSync(resolve(root, 'src/brand/components/ReelStage.tsx'))) errors.push('Zentrale ReelStage-Komponente (SceneTransition/AnimationStage) fehlt.');
 
   if (!mechanismCue.includes('warning') || !mechanismCue.includes('money')) errors.push('MechanismCue besitzt keine semantischen Warn-/Geldfarben.');
 
@@ -117,7 +137,8 @@ if (errors.length > 0) {
 }
 
 console.log('✓ ReelTemplateDemo liegt korrekt unter Experiments.');
-console.log('✓ Premium-V3-Layout sitzt tiefer und nutzt einheitliche SceneHeader.');
-console.log('✓ Captions V3 sind crisp, grün/weiß, ohne Glow-/Jump-/Scale-Regression.');
-console.log('✓ Premium-Continuity und semantische Animationsfarben sind eingebunden.');
+console.log('✓ Animation-Dispatch ist first-class und fehlende Bindings brechen den Render hart ab.');
+console.log('✓ Reel V5: Plain Header Y154 · Visual 320–1480 · Caption bottom340.');
+console.log('✓ Captions sind crisp, grün/weiß und zentral gesteuert.');
+console.log('✓ Continuity bleibt bei 3 Frames; semantische Animationsfarben sind eingebunden.');
 console.log('✓ Finalrender ist auf H.264 CRF14 + PNG-Zwischenframes + AAC320k abgesichert.');

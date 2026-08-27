@@ -8,15 +8,15 @@ Dieses Dokument verhindert genau diese Fehlerklasse:
 - nur Untertitel/SceneHeader sind sichtbar
 - einzelne Nutzerbilder wurden nicht eingebunden
 - Animationsszenen wurden geplant, aber nicht wirklich gebaut
-- eine statische/leere Ersatzfläche wird als Animation ausgegeben
+- eine Ersatz-/Debugbewegung wird als fertige Animation ausgegeben
+- Phase 3 ersetzt die kreative Phase-1-Animation durch einen eigenen Hack
 - ein alter oder anderer Render wird exportiert
 
 ## Statusmodell
 
-Phase 3 läuft verbindlich durch diese Zustände:
-
 ```text
 READY_FOR_PHASE3
+→ PHASE1_ANIMATIONS_SEALED
 → IMPLEMENTING
 → READY_TO_RENDER
 → PHASE3_CANDIDATE
@@ -34,6 +34,14 @@ Phase 2 muss vollständig sein:
 ```bash
 npm run reel:ready -- <Reel-Pfad>
 ```
+
+`reel:ready` prüft Phase 1 + 2 und versiegelt jede produktionsreife Phase-1-Animationsquelle in:
+
+```text
+05-projektdateien/phase1-animation-seal.json
+```
+
+Der Seal enthält den SHA-256-Hash jeder kanonischen `animation.tsx`.
 
 Danach einmalig das Produktionsmanifest erzeugen:
 
@@ -64,15 +72,21 @@ Pflicht:
 
 ### Animationsszene
 
+Phase 1 ist Eigentümer der kreativen Animation. Phase 3 integriert sie nur.
+
 Pflicht:
 
 - `implemented: true`
-- echter `componentPath`
-- echter `componentExport`
-- Komponentendatei existiert und enthält keinen TODO/Platzhalter
+- `componentPath` zeigt **exakt** auf `scene.animationSourceFile`
+- `componentExport` entspricht **exakt** `scene.animationExport`
+- Datei existiert und enthält den produktionsreifen Phase-1-Code
+- SHA-256 stimmt mit `phase1-animation-seal.json` überein
+- `animationQualityLock = finanzneo-phase1-animation-code-v1`
 - `startFrame` + `durationFrames`
 - `visualLayerRequired: true`
 - `captionOnlyForbidden: true`
+
+Phase 3 darf **keine Ersatzkomponente** anlegen und keinen Phase-1-Code ändern, nur um QA/Frame-Diff zu bestehen.
 
 Zusätzlich müssen Audio-, Caption- und SceneHeader-Layer im Manifest als implementiert bestätigt sein.
 
@@ -82,7 +96,7 @@ Erst danach:
 "status": "READY_TO_RENDER"
 ```
 
-## 3. Preflight vor jedem Finalrender
+## 3. Preflight vor jedem produktiven Render
 
 ```bash
 npm run reel:phase3:preflight -- <Reel-Pfad>
@@ -95,7 +109,11 @@ Der Preflight blockiert unter anderem:
 - `implemented: false`
 - fehlendes Bildasset
 - fehlende Animationskomponente
-- leere/TODO-Animationsdatei
+- Animationskomponente weicht von `animationSourceFile` ab
+- falscher `componentExport`
+- Phase-1-Animationshash wurde nach `reel:ready` verändert
+- fehlender Animations-Seal
+- leere/TODO-/Placeholder-Animationsdatei
 - fehlende Start-/Dauerframes
 - Timeline-Lücken
 - fehlende Audio-/Caption-/Header-Layer
@@ -128,25 +146,34 @@ Eine Candidate-Datei ist **niemals** ein finales Reel.
 
 Nach erfolgreichem Candidate-Render prüft das System automatisch jede Szene.
 
-### Für jede Bildszene
+V5-Visualzone:
 
-Ein Frame aus der mittleren Visualzone wird geprüft. Die Visualzone muss echte Bildstruktur besitzen. Ein fast leerer dunkler Hintergrund mit nur Untertiteln/Headline reicht nicht.
+```text
+Y = 320–1480
+```
 
-### Für jede Animationsszene
+Header und Caption werden aus dem QA-Sample bewusst ausgeschlossen, damit eine Caption-/Header-only-Szene nicht als belegt durchgeht.
 
-Mehrere Frames innerhalb der Szene werden geprüft:
+### Bildszene
 
-- sichtbare Struktur in der Visualzone
+Ein Frame aus dem visuellen Kern wird geprüft. Ein fast leerer dunkler Hintergrund mit nur Untertitel/Headline reicht nicht.
+
+### Animationsszene
+
+Mehrere Frames werden geprüft:
+
+- sichtbare Struktur im visuellen Kern
 - messbare Veränderung zwischen den Frames
 
-Eine praktisch statische/leere Animationsszene besteht die QA nicht.
+Wichtig: Diese Bewegungskontrolle ist **nur ein technisches Zusatzgate**. Sie ersetzt nicht den Phase-1-Animationscode-Vertrag. Sinnlose Dauerbewegung, Debug-Boxen oder Wackel-Hacks bleiben verboten, auch wenn sie Pixel verändern.
 
 Zusätzlich werden geprüft:
 
 - 1080×1920
+- Audio-Stream vorhanden
 - Videodauer passt zur Produktions-Timeline
-- alle geplanten Szenen sind im QA-Bericht enthalten
-- exakter SHA-256-Hash des geprüften Videos
+- alle geplanten Szenen im QA-Bericht
+- exakter SHA-256-Hash des Videos
 - Hash von `scene-index.json`
 - Hash des Produktionsmanifests
 
@@ -190,17 +217,18 @@ Damit kann weder ein alter Render noch eine unvollständige MP4 versehentlich al
 
 ## 7. Fertig-Meldung
 
-Ein Phase-3-Agent darf **nicht** schreiben „fertig“, „final“, „done“ oder einen MP4-Pfad als Endergebnis ausgeben, solange nicht alle folgenden Punkte erfüllt sind:
+Ein Phase-3-Agent darf **nicht** „fertig“, „final“ oder „done“ melden, solange nicht alle Punkte erfüllt sind:
 
 ```text
-reel:ready              PASS
-phase3 manifest         READY_TO_RENDER
-phase3 preflight        PASS
-candidate render        SUCCESS
-post-render visual QA   PASSED
-final MP4               freigegeben
-reel:export             PASS
-06-export/              vollständig
+reel:ready                 PASS
+Phase-1-Animations-Seal    vorhanden
+phase3 manifest            READY_TO_RENDER
+phase3 preflight           PASS
+candidate render           SUCCESS
+post-render visual QA      PASSED
+final MP4                  freigegeben
+reel:export                PASS
+06-export/                 vollständig
 ```
 
 Insbesondere gilt:
@@ -208,3 +236,5 @@ Insbesondere gilt:
 > Untertitel allein sind niemals eine vollständige Szene, wenn `scene-index.json` ein Bild oder eine Animation verlangt.
 
 > Eine vorhandene MP4-Datei ist kein Fertigkeitsnachweis.
+
+> Eine bewegte Ersatzkomponente ist keine gültige Animation. Für Animationsszenen zählt ausschließlich der versiegelte Phase-1-Animationscode.

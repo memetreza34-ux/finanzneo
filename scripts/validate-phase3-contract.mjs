@@ -3,6 +3,7 @@
 import {existsSync, readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {
+  PHASE1_ANIMATION_SEAL_RELATIVE,
   PHASE3_CONTRACT_ID,
   PHASE3_MANIFEST_RELATIVE,
   PHASE3_QA_RELATIVE,
@@ -29,6 +30,7 @@ assert(contract?.id === PHASE3_CONTRACT_ID, `phase3CompletionContract.id muss ${
 assert(contract?.required === true, 'Phase-3-Fertigkeitsvertrag muss required=true sein.');
 assert(contract?.productionManifest === PHASE3_MANIFEST_RELATIVE, `productionManifest muss ${PHASE3_MANIFEST_RELATIVE} sein.`);
 assert(contract?.renderQa === PHASE3_QA_RELATIVE, `renderQa muss ${PHASE3_QA_RELATIVE} sein.`);
+assert(contract?.phase1AnimationSeal === PHASE1_ANIMATION_SEAL_RELATIVE, `phase1AnimationSeal muss ${PHASE1_ANIMATION_SEAL_RELATIVE} sein.`);
 for (const key of [
   'allScenesMustBeImplemented',
   'imageVisualRequired',
@@ -38,6 +40,9 @@ for (const key of [
   'exportRequiresPassedRenderQa',
   'exactVideoHashRequiredForExport',
   'finalVideoExistsOnlyAfterQaPass',
+  'canonicalPhase1AnimationRequired',
+  'phase3MayNotReplaceCanonicalAnimation',
+  'phase1AnimationHashMustMatchSeal',
 ]) {
   assert(contract?.[key] === true, `${key} muss true sein.`);
 }
@@ -58,3 +63,4 @@ if (errors.length) {
 
 console.log(`\n✓ Phase-3-Fertigkeitsvertrag erfüllt: ${PHASE3_CONTRACT_ID}`);
 console.log('  Jede Szene braucht echten visuellen Inhalt; Caption-only und Export ohne Render-QA sind gesperrt.');
+console.log('  Animationsszenen müssen direkt den in Phase 1 erstellten und versiegelten TSX-Code verwenden.');

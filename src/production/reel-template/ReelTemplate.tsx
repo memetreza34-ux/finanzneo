@@ -11,6 +11,8 @@ import {
   ANIMATION_COLORS,
   C,
   FONT,
+  FORMAT,
+  REEL_STYLE,
   SAFE_AREA,
   a,
   Body,
@@ -31,8 +33,16 @@ import type {
 import {validateReelConfig} from './types';
 
 const CONTENT_HORIZONTAL_PADDING = 72;
-const CONTENT_TOP = 390;
-const CONTENT_BOTTOM = 360;
+const CONTENT_TOP = REEL_STYLE.visual.top;
+const CONTENT_BOTTOM = FORMAT.vertical.height - REEL_STYLE.visual.bottom;
+const CONTINUITY_FRAMES = REEL_STYLE.transition.continuityFrames;
+
+/**
+ * Phase-1-Animationskomponenten werden ausschließlich über diesen Mapping-Key
+ * eingebunden. Fehlende Bindings sind ein harter Renderfehler und dürfen nie
+ * still auf CTA, Text oder einen anderen Fallback fallen.
+ */
+export type ReelAnimationMap = Record<string, React.ReactNode>;
 
 const formatTemplateNumber = (
   value: number,
@@ -51,10 +61,14 @@ const toneColor = (tone: CompareBeat['left']['tone']): string => {
 
 const SceneContinuityFrame: React.FC<{durationInFrames: number; children: React.ReactNode}> = ({durationInFrames, children}) => {
   const frame = useCurrentFrame();
-  const enter = prog(frame, 0, 6);
-  const leave = prog(frame, Math.max(0, durationInFrames - 6), Math.max(1, durationInFrames - 1));
-  const opacity = Math.min(1, 0.88 + enter * 0.12 - leave * 0.06);
-  const translateY = (1 - enter) * 10 - leave * 6;
+  const enter = prog(frame, 0, CONTINUITY_FRAMES);
+  const leave = prog(
+    frame,
+    Math.max(0, durationInFrames - CONTINUITY_FRAMES),
+    Math.max(1, durationInFrames - 1),
+  );
+  const opacity = Math.min(1, 0.92 + enter * 0.08 - leave * 0.04);
+  const translateY = (1 - enter) * 4 - leave * 2;
 
   return (
     <AbsoluteFill style={{opacity, transform: `translateY(${translateY}px)`}}>
@@ -106,7 +120,10 @@ const CompareCard: React.FC<{
   );
 };
 
-const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
+const ReelBeatView: React.FC<{
+  beat: ReelBeat;
+  customAnimations?: ReelAnimationMap;
+}> = ({beat, customAnimations}) => {
   const frame = useCurrentFrame();
 
   if (beat.type === 'hook') {
@@ -133,11 +150,41 @@ const ReelBeatView: React.FC<{beat: ReelBeat}> = ({beat}) => {
     return <AbsoluteFill><FinanceBackground variant={beat.background ?? 'standard'} /><SceneHeader title={beat.headline} icon={beat.icon} tone={beat.headerTone} at={0} /><CenterArea><div style={{width:'100%',height:'100%',display:'flex',alignItems:'center',justifyContent:'center',overflow:'hidden',borderRadius:30}}><Img src={staticFile(beat.imageSrc)} alt={beat.alt} style={{width:'100%',height:'100%',objectFit:beat.objectFit ?? 'contain',transform:'scale(1.03)'}} /></div></CenterArea><SourceNote>{beat.sourceNote}</SourceNote></AbsoluteFill>;
   }
 
-  return <AbsoluteFill><FinanceBackground variant={beat.background ?? 'premium'} /><SceneHeader title={beat.kicker ?? 'DEIN NÄCHSTER SCHRITT'} icon={beat.icon} tone={beat.headerTone} at={0} /><CenterArea><div style={{textAlign:'center',width:'100%',marginTop:66}}><Title at={4} size={108}>{beat.headline}</Title><Body at={18} size={42} color={C.whiteSoft} style={{marginTop:30}}>{beat.body}</Body>{beat.keyword && beat.offer && <div style={{marginTop:48,borderRadius:28,padding:'28px 34px',background:a(C.accent,0.12),border:`2px solid ${a(C.accent,0.48)}`,fontFamily:FONT.body,fontSize:34,fontWeight:800,color:C.white}}>Kommentiere <span style={{color:ANIMATION_COLORS.focus}}>„{beat.keyword}“</span><br/><span style={{fontSize:29,color:C.whiteSoft}}>{beat.offer}</span></div>}</div></CenterArea><SourceNote>{beat.sourceNote}</SourceNote></AbsoluteFill>;
+  if (beat.type === 'animation') {
+    const animation = customAnimations?.[beat.animationId];
+    if (animation === undefined || animation === null) {
+      throw new Error(`MISSING ANIMATION BINDING: ${beat.id} erwartet customAnimations["${beat.animationId}"]. Render wird abgebrochen.`);
+    }
+    return (
+      <AbsoluteFill>
+        <FinanceBackground variant={beat.background ?? 'standard'} />
+        {animation}
+        <SceneHeader title={beat.headline} icon={beat.icon} tone={beat.headerTone} at={0} />
+        <SourceNote>{beat.sourceNote}</SourceNote>
+      </AbsoluteFill>
+    );
+  }
+
+  return <AbsoluteFill><FinanceBackground variant={beat.background ?? 'premium'} /><SceneHeader title={beat.kicker ?? 'Dein nächster Schritt'} icon={beat.icon} tone={beat.headerTone} at={0} /><CenterArea><div style={{textAlign:'center',width:'100%',marginTop:66}}><Title at={4} size={108}>{beat.headline}</Title><Body at={18} size={42} color={C.whiteSoft} style={{marginTop:30}}>{beat.body}</Body>{beat.keyword && beat.offer && <div style={{marginTop:48,borderRadius:28,padding:'28px 34px',background:a(C.accent,0.12),border:`2px solid ${a(C.accent,0.48)}`,fontFamily:FONT.body,fontSize:34,fontWeight:800,color:C.white}}>Kommentiere <span style={{color:ANIMATION_COLORS.focus}}>„{beat.keyword}“</span><br/><span style={{fontSize:29,color:C.whiteSoft}}>{beat.offer}</span></div>}</div></CenterArea><SourceNote>{beat.sourceNote}</SourceNote></AbsoluteFill>;
 };
 
-export const ReelTemplate: React.FC<{config: ReelConfig}> = ({config}) => {
+export const ReelTemplate: React.FC<{
+  config: ReelConfig;
+  customAnimations?: ReelAnimationMap;
+}> = ({config, customAnimations}) => {
   const errors = validateReelConfig(config);
+
+  // Harte Vollständigkeitsprüfung: Jede Animation im Config muss vor dem Render
+  // tatsächlich gebunden sein. Ein fehlendes Mapping darf NIE still in CTA,
+  // Caption-only oder einen technischen Platzhalter fallen.
+  for (const beat of config.beats) {
+    if (beat.type !== 'animation') continue;
+    const animation = customAnimations?.[beat.animationId];
+    if (animation === undefined || animation === null) {
+      errors.push(`Animation-Binding fehlt: ${beat.id} -> customAnimations["${beat.animationId}"].`);
+    }
+  }
+
   if (errors.length > 0) throw new Error(`Ungültige FinanzNeo-Reel-Konfiguration:\n${errors.map((error)=>`- ${error}`).join('\n')}`);
 
   return (
@@ -146,7 +193,9 @@ export const ReelTemplate: React.FC<{config: ReelConfig}> = ({config}) => {
       <Series>
         {config.beats.map((beat)=>(
           <Series.Sequence key={beat.id} durationInFrames={beat.durationInFrames}>
-            <SceneContinuityFrame durationInFrames={beat.durationInFrames}><ReelBeatView beat={beat}/></SceneContinuityFrame>
+            <SceneContinuityFrame durationInFrames={beat.durationInFrames}>
+              <ReelBeatView beat={beat} customAnimations={customAnimations}/>
+            </SceneContinuityFrame>
           </Series.Sequence>
         ))}
       </Series>

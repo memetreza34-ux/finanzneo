@@ -1,19 +1,22 @@
 import {createHash} from 'node:crypto';
 import {existsSync, readFileSync, statSync} from 'node:fs';
 import {basename, isAbsolute, relative, resolve} from 'node:path';
+import {ANIMATION_QUALITY_LOCK} from './reel-scene-schema.mjs';
 
 export const PHASE3_CONTRACT_ID = 'finanzneo-phase3-completion-v1';
 export const PHASE3_MANIFEST_RELATIVE = '05-projektdateien/phase3-production-manifest.json';
 export const PHASE3_QA_RELATIVE = '05-projektdateien/phase3-render-qa.json';
+export const PHASE1_ANIMATION_SEAL_RELATIVE = '05-projektdateien/phase1-animation-seal.json';
 
 const PROJECT_ROOT = resolve('.');
-const PLACEHOLDER = /\[|EINFÜGEN|TODO|TBD|PLACEHOLDER/i;
+const PLACEHOLDER = /\[|EINFÜGEN|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
 
 export const phase3CompletionContractFields = () => ({
   id: PHASE3_CONTRACT_ID,
   required: true,
   productionManifest: PHASE3_MANIFEST_RELATIVE,
   renderQa: PHASE3_QA_RELATIVE,
+  phase1AnimationSeal: PHASE1_ANIMATION_SEAL_RELATIVE,
   allScenesMustBeImplemented: true,
   imageVisualRequired: true,
   animationVisualRequired: true,
@@ -22,6 +25,9 @@ export const phase3CompletionContractFields = () => ({
   exportRequiresPassedRenderQa: true,
   exactVideoHashRequiredForExport: true,
   finalVideoExistsOnlyAfterQaPass: true,
+  canonicalPhase1AnimationRequired: true,
+  phase3MayNotReplaceCanonicalAnimation: true,
+  phase1AnimationHashMustMatchSeal: true,
   visualQa: {
     sampleImageRatios: [0.5],
     sampleAnimationRatios: [0.2, 0.5, 0.8],
@@ -64,6 +70,12 @@ export const sha256File = (path) => {
   return hash.digest('hex');
 };
 
+const canonicalAnimationAbsolute = (root, scene) => resolve(
+  root,
+  '03-szenen',
+  String(scene.animationSourceFile ?? '').replace(/^03-szenen\//, ''),
+);
+
 export const createPhase3ManifestSkeleton = (reelRoot, {composition, entryPoint = 'src/index.ts', output} = {}) => {
   const root = resolve(reelRoot);
   const indexPath = resolve(root, '03-szenen/scene-index.json');
@@ -76,7 +88,7 @@ export const createPhase3ManifestSkeleton = (reelRoot, {composition, entryPoint 
   const reelName = basename(root);
 
   return {
-    version: 1,
+    version: 2,
     contractId: PHASE3_CONTRACT_ID,
     name: index.title ?? reelName,
     reelProject,
@@ -91,19 +103,39 @@ export const createPhase3ManifestSkeleton = (reelRoot, {composition, entryPoint 
       sceneHeadersImplemented: false,
     },
     assets: [],
-    scenes: scenes.map((scene) => ({
-      id: scene.id,
-      type: scene.type,
-      implemented: false,
-      visualKind: scene.type,
-      visualLayerRequired: true,
-      captionOnlyForbidden: true,
-      startFrame: null,
-      durationFrames: null,
-      ...(scene.type === 'image'
-        ? {sourceImageFileName: scene.googleFlowFileName ?? '', assetPath: ''}
-        : {componentPath: '', componentExport: ''}),
-    })),
+    scenes: scenes.map((scene) => {
+      if (scene.type === 'image') {
+        return {
+          id: scene.id,
+          type: scene.type,
+          implemented: false,
+          visualKind: scene.type,
+          visualLayerRequired: true,
+          captionOnlyForbidden: true,
+          startFrame: null,
+          durationFrames: null,
+          sourceImageFileName: scene.googleFlowFileName ?? '',
+          assetPath: '',
+        };
+      }
+
+      const canonicalAbsolute = canonicalAnimationAbsolute(root, scene);
+      const canonicalSourcePath = normalizeRepoPath(relative(PROJECT_ROOT, canonicalAbsolute));
+      return {
+        id: scene.id,
+        type: scene.type,
+        implemented: false,
+        visualKind: scene.type,
+        visualLayerRequired: true,
+        captionOnlyForbidden: true,
+        startFrame: null,
+        durationFrames: null,
+        canonicalSourcePath,
+        canonicalSourceSha256: existsSync(canonicalAbsolute) ? sha256File(canonicalAbsolute) : '',
+        componentPath: canonicalSourcePath,
+        componentExport: scene.animationExport ?? '',
+      };
+    }),
   };
 };
 
@@ -152,6 +184,20 @@ export const validatePhase3Manifest = (reelRoot, manifestOverride = null) => {
     fail(error instanceof Error ? error.message : String(error));
   }
 
+  let animationSeal = null;
+  const expectedAnimations = expectedScenes.filter((scene) => scene?.type === 'animation');
+  if (expectedAnimations.length > 0) {
+    const sealPath = resolve(root, contract.phase1AnimationSeal ?? PHASE1_ANIMATION_SEAL_RELATIVE);
+    try {
+      ensureFile(sealPath, 'Phase-1-Animationsseal', 100);
+      animationSeal = readJson(sealPath, 'Phase-1-Animationsseal');
+      if (animationSeal.lockId !== ANIMATION_QUALITY_LOCK) fail(`Animationsseal.lockId muss ${ANIMATION_QUALITY_LOCK} sein.`);
+      if (animationSeal.sceneIndexSha256 !== sha256File(indexPath)) fail('scene-index.json wurde nach dem Phase-1-Animationsseal verändert.');
+    } catch (error) {
+      fail(error instanceof Error ? error.message : String(error));
+    }
+  }
+
   if (actualScenes.length !== expectedScenes.length) {
     fail(`Produktionsmanifest hat ${actualScenes.length} Szenen, erwartet ${expectedScenes.length}.`);
   }
@@ -186,17 +232,32 @@ export const validatePhase3Manifest = (reelRoot, manifestOverride = null) => {
         try { ensureFile(resolveProjectPath(actual.assetPath), `${label} Bild-Asset`, 100); } catch (error) { fail(error instanceof Error ? error.message : String(error)); }
       }
     } else if (expected.type === 'animation') {
-      if (typeof actual.componentPath !== 'string' || !actual.componentPath.trim() || PLACEHOLDER.test(actual.componentPath)) {
-        fail(`${label}: componentPath fehlt.`);
-      } else if (typeof actual.componentExport !== 'string' || !actual.componentExport.trim() || PLACEHOLDER.test(actual.componentExport)) {
-        fail(`${label}: componentExport fehlt.`);
+      if (expected.animationQualityLock !== ANIMATION_QUALITY_LOCK) fail(`${label}: scene-index hat keinen gültigen Phase-1-Animationslock.`);
+      if (typeof expected.animationSourceFile !== 'string' || !expected.animationSourceFile.trim()) {
+        fail(`${label}: animationSourceFile fehlt im scene-index.`);
       } else {
         try {
-          const componentPath = resolveProjectPath(actual.componentPath);
-          ensureFile(componentPath, `${label} Animationskomponente`, 150);
-          const source = readFileSync(componentPath, 'utf8');
-          if (!source.includes(actual.componentExport)) fail(`${label}: componentExport ${actual.componentExport} ist in ${actual.componentPath} nicht auffindbar.`);
-          if (PLACEHOLDER.test(source)) fail(`${label}: Animationskomponente enthält TODO/Platzhalter.`);
+          const canonicalAbsolute = canonicalAnimationAbsolute(root, expected);
+          ensureFile(canonicalAbsolute, `${label} kanonische Phase-1-Animation`, 900);
+          const canonicalRepoPath = normalizeRepoPath(relative(PROJECT_ROOT, canonicalAbsolute));
+          const canonicalHash = sha256File(canonicalAbsolute);
+          const sealed = animationSeal?.sources?.find((entry) => entry?.id === expected.id);
+
+          if (!sealed) fail(`${label}: fehlt im Phase-1-Animationsseal.`);
+          else {
+            if (sealed.animationSourceFile !== expected.animationSourceFile) fail(`${label}: Seal-Quellpfad stimmt nicht mit scene-index überein.`);
+            if (sealed.animationExport !== expected.animationExport) fail(`${label}: Seal-Export stimmt nicht mit scene-index überein.`);
+            if (sealed.sha256 !== canonicalHash) fail(`${label}: kanonischer Phase-1-Animationscode wurde nach reel:ready verändert.`);
+          }
+
+          if (actual.canonicalSourcePath !== canonicalRepoPath) fail(`${label}: canonicalSourcePath muss direkt auf die Phase-1-Quelle zeigen.`);
+          if (actual.componentPath !== canonicalRepoPath) fail(`${label}: Phase 3 darf die Animation nicht ersetzen; componentPath muss die kanonische Phase-1-Quelle sein.`);
+          if (actual.componentExport !== expected.animationExport) fail(`${label}: componentExport muss ${expected.animationExport} sein.`);
+          if (actual.canonicalSourceSha256 !== canonicalHash) fail(`${label}: canonicalSourceSha256 stimmt nicht mit der versiegelten Phase-1-Quelle überein.`);
+
+          const source = readFileSync(canonicalAbsolute, 'utf8');
+          if (!source.includes(expected.animationExport)) fail(`${label}: Export ${expected.animationExport} fehlt in der kanonischen Phase-1-Quelle.`);
+          if (PLACEHOLDER.test(source)) fail(`${label}: kanonische Phase-1-Animationsquelle enthält TODO/Platzhalter.`);
         } catch (error) {
           fail(error instanceof Error ? error.message : String(error));
         }
