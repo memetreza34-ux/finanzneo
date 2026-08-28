@@ -13,28 +13,16 @@ export const REEL_BACKGROUND_COLOR = '#000000';
 
 /**
  * Verbindlicher FinanzNeo-Reel-Hintergrund.
- *
- * IMPORTANT:
- * - immer #000000
- * - keine Partikel
- * - keine Aurora/Glow-Flächen
- * - kein Grid
- * - kein Gradient/Vignette
- * - keine animierte Hintergrundbewegung
- *
- * `variant` bleibt nur erhalten, damit ältere Composition-Configs nicht
- * brechen. Der Wert darf die Darstellung nicht verändern.
+ * `variant` bleibt nur als API-Kompatibilität erhalten und wird ignoriert.
  */
-export const FinanceBackground: React.FC<{variant?: FinanceBackgroundVariant}> = ({variant: _variant}) => (
+export const FinanceBackground: React.FC<{variant?: FinanceBackgroundVariant}> = () => (
   <AbsoluteFill
     data-finanzneo-reel-background="pure-black-v1"
     style={{backgroundColor: REEL_BACKGROUND_COLOR}}
   />
 );
 
-/**
- * Nur für Studio-/Keyframe-Prüfung. Nicht im finalen Render sichtbar lassen.
- */
+/** Nur für Studio-/Keyframe-Prüfung. Im finalen Render deaktivieren. */
 export const VerticalSafeAreaGuide: React.FC<{
   enabled?: boolean;
   showLabels?: boolean;
@@ -44,44 +32,28 @@ export const VerticalSafeAreaGuide: React.FC<{
   return (
     <AbsoluteFill style={{pointerEvents: 'none', zIndex: 9999}}>
       <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
+        position: 'absolute', top: 0, left: 0, right: 0,
         height: SAFE_AREA.topPx,
         background: 'rgba(255,51,51,0.10)',
         borderBottom: `3px dashed ${C.negativeLt}`,
       }}>
         {showLabels && <div style={{
-          position: 'absolute',
-          bottom: 12,
-          left: 24,
-          color: C.negativeLt,
-          fontFamily: FONT.body,
-          fontSize: 24,
-          fontWeight: 800,
-          letterSpacing: 1,
+          position: 'absolute', bottom: 12, left: 24,
+          color: C.negativeLt, fontFamily: FONT.body, fontSize: 24,
+          fontWeight: 800, letterSpacing: 1,
         }}>OBERE SAFE AREA · 18 %</div>}
       </div>
 
       <div style={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
+        position: 'absolute', bottom: 0, left: 0, right: 0,
         height: SAFE_AREA.bottomPx,
         background: 'rgba(255,51,51,0.10)',
         borderTop: `3px dashed ${C.negativeLt}`,
       }}>
         {showLabels && <div style={{
-          position: 'absolute',
-          top: 12,
-          left: 24,
-          color: C.negativeLt,
-          fontFamily: FONT.body,
-          fontSize: 24,
-          fontWeight: 800,
-          letterSpacing: 1,
+          position: 'absolute', top: 12, left: 24,
+          color: C.negativeLt, fontFamily: FONT.body, fontSize: 24,
+          fontWeight: 800, letterSpacing: 1,
         }}>UNTERE SAFE AREA · 22 %</div>}
       </div>
 
