@@ -3,6 +3,7 @@ import {spawnSync} from 'node:child_process';
 import {relative, resolve, sep} from 'node:path';
 import {analyzeReelReadiness, isSquareImageDimensions} from './lib/reel-readiness.mjs';
 import {IMAGE_INBOX} from './lib/reel-contract.mjs';
+import {PHASE3_EXECUTORS} from './lib/reel-scene-schema.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -75,6 +76,9 @@ for (const fileName of result.expectedImages) {
   }
 }
 
+const executor = PHASE3_EXECUTORS[result.phase3Executor];
 console.log('\n✓ PHASE 3 STARTKLAR');
 console.log(`  ${result.expectedImages.length} quadratische 1:1-Bilder · 1 finales Voiceover · echte Wort-Zeitstempel`);
-console.log('  Antigravity beginnt jetzt ohne Zwischenfragen mit Asset-Sync, Remotion, QA und Render.');
+console.log(`  Executor: ${executor.label}`);
+console.log(`  Übergabe: ${executor.handoff}`);
+console.log(`  ${executor.label} beginnt jetzt ohne Zwischenfragen mit Asset-Sync, Remotion, QA, Render und Export.`);

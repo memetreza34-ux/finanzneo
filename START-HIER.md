@@ -5,14 +5,14 @@
 Ein Reel entsteht in drei Phasen. Jede Phase hat **genau ein** Einstiegsdokument.
 
 ```text
-PHASE 1 — ChatGPT               PHASE 2 — Du              PHASE 3 — Antigravity
+PHASE 1 — ChatGPT               PHASE 2 — Du              PHASE 3 — Executor laut scene-index
 Recherche, Skript,              Bilder in Google Flow,    Remotion bauen,
 Szenenplan, Bildprompts,   →    Voiceover aufnehmen,  →   prüfen, rendern,
-Captions                        Wortzeiten erzeugen       QA
+Captions                        Wortzeiten erzeugen       QA + Export
 
-docs/PHASE-1-BRIEFING.md        docs/3-PHASEN-           MASTER-PROMPTS.md
-(komplett in ChatGPT              WORKFLOW.md            npm run reel:ready
- kopieren)                                                   -- <Reel-Pfad>
+docs/PHASE-1-BRIEFING.md        docs/3-PHASEN-           Antigravity: MASTER-PROMPTS.md
+(komplett in ChatGPT              WORKFLOW.md            Claude Code: Reel-Auftrag
+ kopieren)                                               npm run reel:ready -- <Reel-Pfad>
 ```
 
 **Wichtig zu Phase 1:** ChatGPT hat keinen Zugriff auf dieses Repository. Ein
@@ -25,25 +25,41 @@ kopiert.
 Layout-, Untertitel- und Übergangswerte stehen **im Code**:
 `REEL_STYLE` in `src/brand/tokens.ts`.
 
-Alle Dokumente sind Kopien davon. Bei Abweichung gilt der Code.
-`npm run validate:consistency` prüft das automatisch.
+Per-Reel-Felder wie alte `headlineColor`- oder `continuityFramesMax`-Werte sind
+nur historische Metadaten und dürfen `REEL_STYLE` nicht überschreiben.
+`npm run validate:consistency` prüft die zentralen Regeln automatisch.
+
+## Phase-3-Executor
+
+`03-szenen/scene-index.json` entscheidet mit `phase3Executor`, wer Phase 3 baut:
+
+| Wert | Übergabe |
+|---|---|
+| `antigravity` | `MASTER-PROMPTS.md`, Abschnitt Phase 3 |
+| `claude-code` | `05-projektdateien/CLAUDE-CODE-AUFTRAG.md` im Reel |
+
+`npm run reel:ready -- <Reel-Pfad>` prüft den Wert und nennt nach erfolgreicher
+Prüfung den tatsächlich vorgesehenen Executor. Bei `claude-code` muss der
+Reel-spezifische Auftrag vorhanden und vollständig sein.
 
 ## Was automatisch geprüft wird
 
 ```bash
 npm run validate                      # Repo gesamt: Lint, Tests, Konsistenz, Typecheck
-npm run reel:validate -- <Reel-Pfad>  # Reel: Bildwelt, Szenenqualität, Publishing
+npm run reel:validate -- <Reel-Pfad>  # Reel: Schema, Bildwelt, Szenenqualität, Publishing
 npm run reel:ready -- <Reel-Pfad>     # Phase-3-Freigabe: zusätzlich Assets prüfen
 ```
 
 Blockiert unter anderem: fehlende oder nichtssagende Zwischenüberschriften,
 Überschriften aus reinen Zahlen, doppelte Überschriften, nicht existierende
 Icons, Bildbeats über 6 Sekunden, Lücken in der Timeline, Text-Stroke auf
-Untertiteln, träge Übergänge, fehlende Bildwelt-Locks, falsches
+Untertiteln, träge zentrale Übergänge, fehlende Bildwelt-Locks, falsches
 Seitenverhältnis, fehlende Plattformtexte, fehlendes Audio oder Wortzeiten.
 
-Was ein Validator meldet, ist ein Phase-1-Fehler und wird dort korrigiert —
-nicht in Phase 3 überschrieben.
+Das zentrale Scene-Schema liegt in `scripts/lib/reel-scene-schema.mjs`.
+Redundante Angaben werden nicht künstlich doppelt erzwungen: der Szenenordner
+kann aus `planFile` und die semantische Akzentrolle aus `headerTone` abgeleitet
+werden. Der eigentliche Bildprompt bleibt die Wahrheit für Objektlabels.
 
 ## Vertiefende Dokumente
 
@@ -76,7 +92,7 @@ nicht in Phase 3 überschrieben.
 - genau EIN nahtloser deep-charcoal-green-black Hintergrund von oben bis unten
 - keine Prozent-Zonen, Hintergrundbänder, Floor-Wall-Grenze oder sichtbarer Horizont
 - Gold nur für Geld/Wert, Rot-Orange nur für Risiko/Verlust/Schulden
-- Antigravity erzeugt keine Bilder; der Nutzer erstellt sie selbst mit Google Flow
+- Antigravity/Claude Code erzeugen keine Bilder; der Nutzer erstellt sie selbst mit Google Flow
 
 ## Einfache Reel-Struktur
 
@@ -86,6 +102,7 @@ nicht in Phase 3 überschrieben.
 03-szenen/
 04-caption/
 05-projektdateien/
+06-export/
 README.md
 ```
 
@@ -100,24 +117,6 @@ snapchat.txt
 
 `youtube-shorts.txt` wird nicht erstellt. Longform-YouTube wird unabhängig davon unter `youtube/` produziert.
 
-## Eigenständiges YouTube-Longform-Projekt
-
-```bash
-npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
-```
-
-Phase 1 erstellt Recherche, vollständiges Skript, Kapitel-/Retention-Plan, englische Google-Flow-Prompts, Thumbnail-Brief sowie Titel, Beschreibung, Kapitel, Keywords, Quellen, Kommentar, Community-Post, Upload-Checkliste und Promo-Texte für Instagram, TikTok, Facebook und Snapchat.
-
-In Phase 2 erzeugt der Nutzer jedes 16:9-Bild einzeln, benennt es sofort exakt um und legt alles gemeinsam in `04-visuals/00-ALLE-BILDER-HIER-REIN/`. Dazu kommen genau ein finales Voiceover und echte Wort-Timings.
-
-Phase 3 startet mit:
-
-```text
-Mach das YouTube-Video: youtube/<Projekt>
-```
-
-Antigravity prüft zuerst `npm run youtube:ready -- youtube/<Projekt>` und arbeitet bei Erfolg ohne Zwischenfragen bis zu Render und QA.
-
 ## Neuer Reel-Start
 
 ```text
@@ -125,44 +124,49 @@ Neues FinanzNeo-Reel.
 
 Thema: [THEMA]
 
-Lies zuerst vollständig:
-- CLAUDE.md
-- reels/PRODUKTIONSSTANDARD.md
-- docs/FINANZNEO-IMAGE-WORLD-V3.md
-- docs/IMAGE-SYSTEM.md
-- docs/BEAT-TO-IMAGE-RULES.md
-- docs/IMAGE-PROMPT-LIBRARY.md
-- docs/IMAGE-QA-CHECKLIST.md
-- docs/PLATFORM-PUBLISHING.md
+Nutze vollständig `docs/PHASE-1-BRIEFING.md`.
+Erstelle Recherche, geprüftes szenenweises Skript, Szenen-/Beat-Plan,
+Bild-/Remotion-Zuordnung, vollständige Google-Flow-Prompts mit echten
+Szenennummern, Remotion-Spezifikationen und Plattformtexte.
 
-Erstelle selbstständig:
-1. Recherche + Quellen
-2. geprüftes Skript
-3. Szenen-/Beat-Plan
-4. Bild-/Remotion-Zuordnung
-5. vollständige Google-Flow-Bildprompts mit echten Szenennummern
-6. Remotion-Spezifikationen
-7. Caption- und Reel-Plattformstruktur für Instagram, TikTok, Facebook und Snapchat
-
-Bilder erzeugt ausschließlich der Nutzer. Antigravity erzeugt keine Bilder.
-Keine YouTube Shorts erzeugen. YouTube ist ausschließlich Longform unter `youtube/`.
+Bilder erzeugt ausschließlich der Nutzer. Keine YouTube Shorts.
 ```
 
-## Übergabe an Antigravity
+## Übergabe an Phase 3
 
-Nach Phase 2 reicht dieser Auftrag:
+Nach Phase 2 reicht:
 
 ```text
 Mach das Reel: reels/<Woche>/<Tag>/<Reel>
 ```
 
-Antigravity prüft mit `npm run reel:ready -- <Reel-Pfad>`. Bei Erfolg baut und prüft es ohne Zwischenfragen bis zum Render. Es stoppt nur bei einem konkret benannten fehlenden oder widersprüchlichen Pflichtasset beziehungsweise einem nicht selbst lösbaren technischen Fehler.
+Zuerst läuft:
+
+```bash
+npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
+```
+
+Bei Erfolg baut der in `phase3Executor` festgelegte Executor ohne
+Geschmacksrückfragen bis Render, QA und Export.
+
+## Export-Sicherheit
+
+Abschluss ist immer:
+
+```bash
+npm run reel:export -- <Reel-Pfad> <exakter-gerenderter-MP4-Pfad>
+```
+
+Ohne zweiten Parameter darf der Export nur dann automatisch auswählen, wenn
+die MP4 eindeutig dem Reel zugeordnet werden kann oder `out/` genau eine MP4
+enthält. Bei mehreren nicht eindeutig zuordenbaren MP4s bricht er ab. Dadurch
+kann kein fremdes Reel versehentlich in ein anderes `06-export/` gelangen.
 
 ## Bildfreigabe
 
 Bild neu erzeugen, wenn unter anderem:
 
-- zwei sichtbare Hintergründe/Bänder entstehen
+- zwei sichtbaren Hintergründe/Bänder entstehen
 - eine horizontale Trennkante, Floor-Wall-Grenze oder ein Horizont sichtbar ist
 - eine dargestellte Person kein klar sichtbares Gesicht hat
 - eine große Headline, ein Untertitel oder ein erklärender Satz im KI-Bild erscheint
@@ -171,6 +175,7 @@ Bild neu erzeugen, wenn unter anderem:
 
 ## Produktionsfreigabe
 
-Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover vorhanden sind, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview tatsächlich ausgeführt wurden und Bildsatz + komplette MP4 geprüft wurden.
-
-Vor Cross-Platform-Reel-Publishing zusätzlich alle vier Reel-Plattformdateien in `04-caption/` fertigstellen und auf dasselbe finale Reel abstimmen.
+Ein Reel ist erst final, wenn die benötigten Nutzerbilder und das finale Voiceover
+vorhanden sind, echte Wort-Timings erzeugt wurden, Validator/Typecheck/Preview
+tatsächlich ausgeführt wurden, Bildsatz + komplette MP4 geprüft wurden und
+`06-export/` vollständig ist.

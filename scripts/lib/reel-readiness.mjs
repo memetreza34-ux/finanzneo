@@ -8,6 +8,12 @@ import {
   SCENE_INDEX,
   SUBTITLE_MODE,
 } from './reel-contract.mjs';
+import {
+  DEFAULT_PHASE3_EXECUTOR,
+  canonicalSceneDirectory,
+  validatePhase3Executor,
+  validateSceneShape,
+} from './reel-scene-schema.mjs';
 
 export const AUDIO_EXTENSIONS = new Set(['.mp3', '.wav', '.aiff', '.aif', '.m4a']);
 export const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
@@ -85,10 +91,13 @@ export const analyzeReelReadiness = (rootDirectory) => {
       warnings,
       expectedImages: [],
       audioFiles: [],
+      phase3Executor: DEFAULT_PHASE3_EXECUTOR,
     };
   }
 
   const index = readJson(resolve(root, SCENE_INDEX), phase1Blockers, SCENE_INDEX);
+  const phase3Executor = index?.phase3Executor ?? DEFAULT_PHASE3_EXECUTOR;
+  phase1Blockers.push(...validatePhase3Executor(phase3Executor));
 
   const phase1Files = [
     '01-script/script-fliess-text.txt',
@@ -103,8 +112,10 @@ export const analyzeReelReadiness = (rootDirectory) => {
     PLATFORM_PUBLISHING_FILES.snapchat,
   ];
 
-  for (const relativePath of phase1Files) {
-    checkCompletedText(root, relativePath, phase1Blockers);
+  for (const relativePath of phase1Files) checkCompletedText(root, relativePath, phase1Blockers);
+
+  if (phase3Executor === 'claude-code') {
+    checkCompletedText(root, '05-projektdateien/CLAUDE-CODE-AUFTRAG.md', phase1Blockers);
   }
 
   const scenes = Array.isArray(index?.scenes) ? index.scenes : [];
@@ -121,37 +132,44 @@ export const analyzeReelReadiness = (rootDirectory) => {
     expectedImages.push(coverFileName);
   }
 
-  for (const scene of scenes) {
-    const id = typeof scene?.id === 'string' ? scene.id : 'Unbekannte Szene';
-    const sceneDirectory = typeof scene?.directory === 'string' ? `03-szenen/${scene.directory}` : '';
-    if (!sceneDirectory) phase1Blockers.push(`${SCENE_INDEX}: ${id}.directory fehlt.`);
-    else checkCompletedText(root, `${sceneDirectory}/szene.md`, phase1Blockers);
-    for (const field of ['headline', 'accent', 'icon']) {
+  scenes.forEach((scene, sceneIndex) => {
+    const id = typeof scene?.id === 'string' ? scene.id : `Szene ${sceneIndex + 1}`;
+    phase1Blockers.push(...validateSceneShape(scene, {index: sceneIndex}));
+
+    const sceneDirectory = canonicalSceneDirectory(scene);
+    if (!sceneDirectory) {
+      phase1Blockers.push(`${SCENE_INDEX}: ${id}: Szenenordner kann nicht abgeleitet werden.`);
+    } else {
+      checkCompletedText(root, `03-szenen/${sceneDirectory}/szene.md`, phase1Blockers);
+    }
+
+    for (const field of ['headline', 'icon']) {
       if (typeof scene?.[field] !== 'string' || !scene[field].trim() || hasPlaceholder(scene[field])) {
         phase1Blockers.push(`${SCENE_INDEX}: ${id}.${field} fehlt oder enthält einen Platzhalter.`);
       }
     }
 
+    if (typeof scene.planFile === 'string') {
+      checkCompletedText(root, `03-szenen/${scene.planFile.replace(/^03-szenen\//, '')}`, phase1Blockers);
+    }
+
     if (scene?.type === 'image') {
-      if (typeof scene.planFile === 'string') checkCompletedText(root, `03-szenen/${scene.planFile.replace(/^03-szenen\//, '')}`, phase1Blockers);
-      else phase1Blockers.push(`${SCENE_INDEX}: ${id}.planFile fehlt.`);
       const fileName = scene.googleFlowFileName;
       if (typeof fileName !== 'string' || !fileName.trim() || hasPlaceholder(fileName)) {
         phase1Blockers.push(`${SCENE_INDEX}: ${id}.googleFlowFileName fehlt oder enthält einen Platzhalter.`);
       } else {
         expectedImages.push(fileName);
       }
+
       if (typeof scene.expectedVisual !== 'string' || !scene.expectedVisual.trim() || hasPlaceholder(scene.expectedVisual)) {
         phase1Blockers.push(`${SCENE_INDEX}: ${id}.expectedVisual fehlt oder enthält einen Platzhalter.`);
       }
-      if (!Array.isArray(scene.objectLabels) || scene.objectLabels.length === 0 || scene.objectLabels.some((label) => typeof label !== 'string' || !label.trim() || hasPlaceholder(label))) {
-        phase1Blockers.push(`${SCENE_INDEX}: ${id}.objectLabels fehlen oder enthalten Platzhalter.`);
+
+      if (scene.objectLabels !== undefined && (!Array.isArray(scene.objectLabels) || scene.objectLabels.some((label) => typeof label !== 'string' || !label.trim() || hasPlaceholder(label)))) {
+        phase1Blockers.push(`${SCENE_INDEX}: ${id}.objectLabels sind ungültig oder enthalten Platzhalter.`);
       }
-    } else if (scene?.type === 'animation') {
-      if (typeof scene.planFile === 'string') checkCompletedText(root, `03-szenen/${scene.planFile.replace(/^03-szenen\//, '')}`, phase1Blockers);
-      else phase1Blockers.push(`${SCENE_INDEX}: ${id}.planFile fehlt.`);
     }
-  }
+  });
 
   if (scenes.some((scene) => scene?.type === 'animation')) {
     checkCompletedText(root, '05-projektdateien/animationen.md', phase1Blockers);
@@ -203,5 +221,6 @@ export const analyzeReelReadiness = (rootDirectory) => {
     warnings,
     expectedImages,
     audioFiles,
+    phase3Executor,
   };
 };

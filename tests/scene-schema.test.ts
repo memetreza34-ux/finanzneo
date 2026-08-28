@@ -8,6 +8,8 @@ import {
   IMAGE_SCENE_REQUIRED_FIELDS,
   SCENE_ACCENTS,
   accentForTone,
+  canonicalSceneAccent,
+  canonicalSceneDirectory,
   validateSceneShape,
   validatePhase3Executor,
   PHASE3_EXECUTORS,
@@ -15,13 +17,10 @@ import {
 } from '../scripts/lib/reel-scene-schema.mjs';
 import {analyzeReelReadiness} from '../scripts/lib/reel-readiness.mjs';
 
-// Der wichtigste Test des Repos: Was der Scaffold erzeugt, muss die
-// Readiness-Prüfung strukturell bestehen. Vorher erzeugte der Scaffold kein
-// `accent`, die Readiness verlangte es — jedes neue Reel scheiterte dadurch in
-// Phase 3, obwohl Phase 1 sauber gearbeitet hatte.
+// Was der Scaffold erzeugt, muss strukturell mit Readiness und dem zentralen
+// Schema zusammenpassen. Redundante Metadaten dürfen fehlen, wenn sie sicher
+// aus Primärdaten abgeleitet werden können.
 
-// Der Scaffold besteht bewusst darauf, unterhalb von reels/ zu arbeiten.
-// Der Test legt deshalb ein klar erkennbares Wegwerf-Reel an und räumt es auf.
 const TEST_WURZEL = 'reels/2099-01-01_schema-test';
 
 const scaffoldAnlegen = () => {
@@ -37,7 +36,6 @@ const scaffoldAnlegen = () => {
   return {ziel, result};
 };
 
-// Ohne --types greift der Standardumfang aus dem Scaffold — genau der wird geprüft.
 const scaffoldMitStandard = () => {
   const ziel = `${TEST_WURZEL}/montag/reel-01_standard`;
   if (existsSync(resolve(TEST_WURZEL))) rmSync(resolve(TEST_WURZEL), {recursive: true, force: true});
@@ -54,7 +52,7 @@ const aufraeumen = () => {
   if (existsSync(resolve(TEST_WURZEL))) rmSync(resolve(TEST_WURZEL), {recursive: true, force: true});
 };
 
-test('Scaffold erzeugt alle Pflichtfelder des Szenen-Schemas', () => {
+test('Scaffold erzeugt alle Primär-Pflichtfelder des Szenen-Schemas', () => {
   const {ziel, result} = scaffoldAnlegen();
   assert.equal(result.status, 0, `Scaffold fehlgeschlagen: ${result.stderr}${result.stdout}`);
 
@@ -81,27 +79,41 @@ test('Scaffold-Ausgabe erzeugt keine strukturellen Readiness-Blocker', () => {
   assert.equal(result.status, 0);
 
   const readiness = analyzeReelReadiness(resolve(ziel));
-  // Platzhalter-Blocker sind erwartet — Phase 1 füllt sie.
-  // Strukturelle Blocker über fehlende Felder dürfen es nicht geben.
   const strukturell = readiness.phase1Blockers.filter((b: string) => / fehlt\.$/.test(b));
 
   aufraeumen();
   assert.deepEqual(
-    strukturell, [],
+    strukturell,
+    [],
     `Scaffold und Readiness sind auseinandergelaufen:\n${strukturell.join('\n')}`,
   );
 });
 
-test('Schema erkennt fehlende Pflichtfelder', () => {
+test('Schema erkennt fehlende Primär-Pflichtfelder', () => {
   const fehler = validateSceneShape({id: 'scene-01', type: 'image'});
-  assert.ok(fehler.some((f) => f.includes('accent')));
   assert.ok(fehler.some((f) => f.includes('headline')));
+  assert.ok(fehler.some((f) => f.includes('planFile')));
+  assert.ok(fehler.some((f) => f.includes('googleFlowFileName')));
 });
 
-test('Schema erkennt unbekannte Akzentfarben', () => {
+test('Directory und Accent werden kanonisch abgeleitet', () => {
+  const scene = {
+    id: 'scene-02',
+    type: 'animation',
+    headline: 'DIE GRENZE GILT PRO BANK',
+    icon: 'bank',
+    headerTone: 'warning',
+    planFile: '03-szenen/EINZELNE-SZENEN/scene-02/remotion.md',
+  };
+  assert.equal(canonicalSceneDirectory(scene), 'EINZELNE-SZENEN/scene-02');
+  assert.equal(canonicalSceneAccent(scene), 'warning');
+  assert.deepEqual(validateSceneShape(scene), []);
+});
+
+test('Schema erkennt unbekannte explizite Akzentfarben', () => {
   const fehler = validateSceneShape({
-    id: 'scene-01', type: 'animation', directory: 'x',
-    headline: 'EINE AUSSAGE', icon: 'bank', accent: 'lila', planFile: 'x/remotion.md',
+    id: 'scene-01', type: 'animation',
+    headline: 'EINE AUSSAGE', icon: 'bank', accent: 'lila', planFile: 'EINZELNE-SZENEN/scene-01/remotion.md',
   });
   assert.ok(fehler.some((f) => f.includes('lila')));
 });
@@ -136,9 +148,7 @@ test('Scaffold-Standard trifft das Wortbudget und die 60/40-Mischung', () => {
   const bild = index.scenes.filter((s: {type: string}) => s.type === 'image').length;
   const gesamt = index.scenes.length;
 
-  // Bei 75 s Reel muss der Schnitt im Zielkorridor liegen (Bildbeat max. 6 s).
   const sekundenProBeat = 75 / gesamt;
-  // Nie mehr als zwei Bildszenen am Stück.
   let serie = 0;
   let maxSerie = 0;
   for (const s of index.scenes) {
@@ -165,7 +175,8 @@ test('Scaffold erzeugt den Flow-Autonomievertrag ohne Nachbearbeitung', () => {
 
   aufraeumen();
   assert.equal(
-    pruefung.status, 0,
+    pruefung.status,
+    0,
     `Scaffold-Ausgabe erfüllt den Autonomievertrag nicht:\n${pruefung.stdout}${pruefung.stderr}`,
   );
 });
