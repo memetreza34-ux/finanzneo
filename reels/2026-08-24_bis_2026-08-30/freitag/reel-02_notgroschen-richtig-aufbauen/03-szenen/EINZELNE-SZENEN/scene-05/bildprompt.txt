@@ -11,8 +11,16 @@ Bild 05 - Zwei bis drei Monate.png
 
 Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
 
+BESCHRIFTUNGEN – EXAKT SO:
+- Monatsnetto 1
+- Monatsnetto 2
+- Monatsnetto 3
+- Notgroschen
+
 IMAGE PROMPT:
-Three large rounded monthly money blocks stand side by side, two fully established and a third suggesting optional extension; premium gold and emerald financial language, no infographic UI.
+Create a clear stylized 3D explanatory scene showing what “two to three monthly net incomes” means in practice. Build a believable household finance desk scene with one normal payslip or salary document as context and a separate emergency-fund area labeled “Notgroschen”. Inside that reserve, show three clearly separated but physically believable money portions representing successive monthly net incomes. Label them “Monatsnetto 1”, “Monatsnetto 2” and “Monatsnetto 3”.
+
+The first two portions should look fully established, while the third remains equally understandable as the upper end of the simple rule. Do not use abstract floating blocks with no context. The viewer must instantly understand that the target reserve corresponds to roughly two to three complete monthly net incomes kept aside as emergency savings.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -20,22 +28,22 @@ PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
 STYLE:
-Create a clearly non-realistic stylized 3D animated finance scene. Use soft rounded geometry, simplified recognizable details, clean materials and a premium but slightly playful animated-movie feel. Keep the main idea understandable within 1–2 seconds.
+Use premium real-world-grounded stylized 3D. The salary document, money portions and reserve container must retain believable proportions and recognizable everyday detail, while the rendering stays clearly stylized, clean and non-photorealistic. Avoid the appearance of a generic infographic or toy blocks.
 
 BACKGROUND:
-A seamless deep black background is mandatory. Keep it clean, minimal and uninterrupted. No floor-wall boundary, horizon, bright studio environment or colored background zones.
+Use one seamless deep black background. A small believable desk surface and household-finance context may exist around the documents and reserve, but it must dissolve naturally into the black world.
 
 COMPOSITION:
-Content and clarity come first. Use a clear main subject or action. Supporting objects have no fixed count; add only what genuinely helps the explanation.
+Make the Notgroschen and the three monthly-income portions the central explanatory structure. Use spatial grouping and real documents to make the meaning obvious without narration. Keep all labels readable and avoid tiny details.
 
 BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep its identity recognizable but reinterpret it in the same stylized 3D animated world. Never use a flat pasted real logo, website screenshot, app screenshot or photorealistic branded UI.
+No real employer, bank or payroll branding. Keep the payslip and account/reserve elements generic but recognizable.
 
 COLORS + LIGHT:
-Emerald green = positive. Gold = money/value. Warm red-orange = warning/cost. Ivory and soft gray = neutral. Use clean soft studio lighting, readable shadows and soft contact shadows.
+Use subtle gold for the saved money, emerald green around the completed reserve, warm ivory/gray for paperwork and neutral surfaces, and no warning red unless absolutely necessary. Use clean soft lighting and clear contact shadows.
 
 TEXT:
-No headline, subtitle, CTA or explanatory sentence. Only explicitly requested short German labels may appear.
+Only the labels “Monatsnetto 1”, “Monatsnetto 2”, “Monatsnetto 3” and “Notgroschen” may appear. Attach them directly to the correct saved portion or reserve. No headline, subtitle, CTA or long explanatory text.
 
 FORBIDDEN:
-No realism or photorealism. No product-photo look. No dashboard, no app UI, no flowchart, no tiny boxes, no floating info cards, no microchip/circuit look, no miniature diorama and no clutter.
+No photorealism, no floating abstract blocks without household context, no dashboard, no app UI, no flowchart, no dense infographic, no generic shield/vault metaphor and no decorative clutter.
