@@ -6,22 +6,25 @@ PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
 STYLE:
-Create a clearly non-realistic stylized 3D animated finance scene. Use soft rounded geometry, simplified recognizable details, clean materials and a premium but slightly playful animated-movie feel. Keep the main idea understandable within 1–2 seconds.
+Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
 
 BACKGROUND:
-A seamless deep black background is mandatory. Keep it clean, minimal and uninterrupted. No floor-wall boundary, horizon, bright studio environment or colored background zones.
+A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
 
 COMPOSITION:
-Content and clarity come first. Use a clear main subject or action. Supporting objects have no fixed count; add only what genuinely helps the explanation.
+The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
 
 BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep its identity recognizable but reinterpret it in the same stylized 3D animated world. Never use a flat pasted real logo, website screenshot, app screenshot or photorealistic branded UI.
+If a brand, bank, app or logo is relevant, keep its identity recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.
 
 COLORS + LIGHT:
-Emerald green = positive. Gold = money/value. Warm red-orange = warning/cost. Ivory and soft gray = neutral. Use clean soft studio lighting, readable shadows and soft contact shadows.
+Emerald green = positive. Gold = money/value. Warm red-orange = warning/cost. Ivory and soft gray = neutral. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
 
 TEXT:
-No headline, subtitle, CTA or explanatory sentence. Only explicitly requested short German labels may appear.
+Only explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.
 
 FORBIDDEN:
-No realism or photorealism. No product-photo look. No dashboard, no app UI, no flowchart, no tiny boxes, no floating info cards, no microchip/circuit look, no miniature diorama and no clutter.
+No photorealism or stock-photo look. No generic finance-icon composition as the main explanation. No isolated vault + shield + coins + arrow scene without real-life context. No abstract visual riddle. No dashboard or app UI as the main composition. No flowchart as the main composition. No tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
+
+PROMPT POLICY:
+Every image prompt must be individually and completely written for the exact spoken point. Never use shorthand, a few keywords or a generic scene template. Use this order: concrete real-life situation and visible cause/effect first; exact short German labels when helpful; then style, background, composition and forbidden rules. Give Google Flow enough specific detail that it does not need to invent the meaning of the scene.
