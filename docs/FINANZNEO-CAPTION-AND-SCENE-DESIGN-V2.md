@@ -30,12 +30,18 @@ Verbindlich:
 - `top = 154`
 - mittig
 - Sentence Case
-- neutral weißer Text
-- semantische Farbe primär über das Linien-Icon
+- **reines Weiß `#FFFFFF`**
+- Standardgröße **56 px**
+- bei langen Titeln automatische Anpassung, aber nie unter **46 px**
+- Schriftstärke 800
+- Linien-Icon **34 px** direkt neben der Überschrift
+- semantische Farbe primär über das Icon
 - keine Capsule / Chip / Pill / Panel
 - kein automatisches ALL CAPS
 - meist 3–6 Wörter
 - Aussage oder Frage, nicht nur Stichwort/Zahl
+
+Die Zwischenüberschrift ist eine normale, gut sichtbare Titelzeile — kein kleines UI-Label.
 
 ## 3. V5-Layout
 
@@ -175,7 +181,7 @@ Finale Produktion ausschließlich über den validierten Phase-3-Pfad.
 
 Prüfen:
 
-1. Header Y154, plain, keine Capsule.
+1. Header Y154, 56 px, weiß, Icon sichtbar, keine Capsule.
 2. Visual nutzt Y320–1480 sinnvoll.
 3. Caption bottom340, aktives Wort grün.
 4. freier Hintergrund bleibt schwarz und statisch.
