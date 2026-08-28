@@ -13,6 +13,7 @@ fertige animation.tsx                                         Render-QA + Export
 Einstiege:
 
 - Phase 1: `docs/PHASE-1-BRIEFING.md`
+- Bildwelt: `docs/GLOBAL-IMAGE-WORLD-LOCK.md`
 - Phase 1 Animation: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
 - Scene-Index-Schema: `docs/SCENE-INDEX-SCHEMA.md`
 - Gesamtworkflow: `docs/3-PHASEN-WORKFLOW.md`
@@ -144,13 +145,21 @@ npm run reel:phase3:qa -- <Reel> <Video>
 
 Reel-Quellbilder inklusive Cover bleiben `1:1`.
 
-Verbindlich:
+Verbindlich ist:
 
-- Stylized 3D V5
-- Physical Explainer Editorial V7
-- ein physisches Hero-Objekt + 3–6 konkrete themenspezifische Objekte
-- nahtloser deep-charcoal-green-black Hintergrund
-- keine UI/Dashboard-, Microchip-, Gameboard-, Orbit-, Diorama-Komposition
+`finanzneo-stylized-3d-animated-black-v9`
+
+Regeln:
+
+- klar stylized 3D animated, nicht realistisch
+- soft rounded shapes + vereinfachte Details
+- premium, freundlich und leicht verspielt
+- **deep-black Hintergrund Pflicht**
+- keine feste Objektanzahl
+- Inhalt und Klarheit vor Deko
+- Emerald positiv, Ivory/Soft Gray neutral, Gold Geld, Red-Orange Warnung/Kosten
+- keine Realistik, Produktfoto-Optik, UI/Dashboard, Flowchart, Microchip, Miniatur-Diorama oder Clutter
+- Einzelprompts bleiben mittel-lang
 - keine Bild-zu-Bild-Referenz
 
 Google Flow arbeitet Strict Single Job: genau ein Bild → warten → umbenennen → QA → nächstes Bild. Nie Batch.
@@ -186,15 +195,15 @@ Keine YouTube Shorts.
 npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
 ```
 
-Der Ersteller setzt **bereits im Scaffolder selbst** automatisch:
+Der öffentliche Ersteller setzt automatisch:
 
-- Flow Strict-Single-Job
-- Physical-Explainer-/1:1-Lock
+- Flow Strict-Single-Job V3
+- Stylized 3D Animated Black V9
 - Reel-Layout V5
 - Phase-1-Animationscode-Vertrag + kanonische `animation.tsx` pro Animationsszene
 - Phase-3-Completion-Gate
 
-Die nachgelagerten Apply-Skripte sind zusätzliche Idempotenz-/Migrationssicherung, nicht die primäre Quelle für einen absichtlich veralteten Scaffold.
+Die Apply-Skripte sind Teil des atomaren `reel:create`-Ablaufs und sorgen dafür, dass der fertige neue Reel den aktuellen Lock enthält, auch wenn der Basisscaffolder ältere Übergangsfelder besitzt.
 
 ## Final
 
