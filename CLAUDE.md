@@ -55,7 +55,7 @@ Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen und jede Animatio
 
 ### Phase 3 — Antigravity oder Claude Code
 
-`scene-index.json -> phase3Executor` entscheidet den Executor.
+`scene-index.json -> phase3Executor` entscheidet den Executor. Ein anderer Executor darf den Auftrag nicht übernehmen.
 
 Phase 3:
 
@@ -127,8 +127,7 @@ GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
 ### Zielbild
 
-Die Bildwelt ist bewusst **nicht realistisch**.
-Jedes Bild soll wie ein hochwertiger, klarer 3D-Animationsfilm-Frame wirken:
+Die Bildwelt ist bewusst **nicht realistisch**. Jedes Bild wirkt wie ein hochwertiger, klarer 3D-Animationsfilm-Frame:
 
 - stylized 3D animated
 - soft rounded shapes
@@ -160,6 +159,16 @@ Es gibt **keine feste Objektanzahl** und keinen festen Hero-Prozentkorridor.
 - Szene muss in ungefähr 1–2 Sekunden verständlich sein
 - lieber einfach und stark als kompliziert und überladen
 
+### Marken und Logos
+
+Wenn eine Marke, Bank, App oder ein Logo inhaltlich nötig ist:
+
+- Kernidentität **erkennbar ähnlich**, aber in derselben stylized-3D-Animationswelt neu interpretiert
+- vereinfachte, abgerundete 3D-Formen und passendes Licht/Material
+- kein flach aufgeklebtes echtes Logo
+- kein Website-/App-Screenshot
+- kein photorealistisches Markenprodukt oder realistische Marken-UI
+
 ### Farbe
 
 - Emerald Green = positiv / bevorzugt
@@ -188,6 +197,8 @@ Es gibt **keine feste Objektanzahl** und keinen festen Hero-Prozentkorridor.
 
 - Realismus / Photorealismus
 - echter Produktfoto-Look
+- flach aufgeklebte echte Logos
+- Screenshot-artige Marken-/App-UI
 - Dashboard / App UI
 - Flowchart als Hauptkomposition
 - kleine Kästen, floating Info-Cards oder dichte technische Layouts
@@ -197,13 +208,11 @@ Es gibt **keine feste Objektanzahl** und keinen festen Hero-Prozentkorridor.
 
 ### Prompt-Länge
 
-Einzelprompts bleiben **mittel-lang**.
-Die konkrete Bildidee kommt zuerst, danach ein kurzer Style-/Background-/Forbidden-Block.
-Die Hauptidee darf nicht unter riesigen Regelblöcken verschwinden.
+Einzelprompts bleiben **mittel-lang**. Die konkrete Bildidee kommt zuerst, danach ein kurzer Style-/Background-/Forbidden-Block. Die Hauptidee darf nicht unter riesigen Regelblöcken verschwinden.
 
 ### Bild-QA
 
-Bild neu erzeugen, wenn es realistisch oder produktfotoartig aussieht, der Hintergrund nicht tiefschwarz ist, die Aussage schwer verständlich ist, unnötiger Clutter entsteht oder die Szene wie UI/Flowchart wirkt.
+Bild neu erzeugen, wenn es realistisch oder produktfotoartig aussieht, der Hintergrund nicht tiefschwarz ist, die Aussage schwer verständlich ist, unnötiger Clutter entsteht, die Szene wie UI/Flowchart wirkt oder eine Marke wie aufgeklebt/Screenshot aussieht.
 
 ## 7. Google Flow — Strict Single Job
 
@@ -252,7 +261,34 @@ Szenenübergang       3 Frames
 
 Reels dürfen diese Werte nicht lokal überschreiben.
 
-## 9. Szenenüberschrift V5
+## 9. Remotion-Reel-Hintergrund — Pure Black V1
+
+Technische Quelle: `src/design-system/FinanceBackground.tsx`.
+
+Jeder Reel-Frame besitzt denselben Hintergrund:
+
+```text
+#000000
+statisch
+```
+
+Alte `FinanceBackground`-Werte `standard`, `data` und `premium` bleiben nur API-kompatibel und dürfen die Optik **nicht** verändern.
+
+Streng verboten als Reel-Hintergrund:
+
+- `FNBgAurora`
+- `FNBgParticles`
+- `FNBgGrid`
+- `FNBgRadial`
+- Partikelfelder
+- bewegte Grids
+- Aurora-/Glow-Felder
+- Hintergrund-Gradienten oder Vignetten
+- dekorative Hintergrundbewegung
+
+Hintergrundbewegung zählt niemals als Szenenanimation und darf niemals benutzt werden, um Render-QA zu bestehen.
+
+## 10. Szenenüberschrift V5
 
 Jede Szene zeigt eine kurze normale Überschrift mit passendem Linien-Icon.
 
@@ -265,7 +301,7 @@ Jede Szene zeigt eine kurze normale Überschrift mit passendem Linien-Icon.
 
 Verboten: automatische ALL-CAPS-Transformation, Header-Capsule, Chip, Pill, Panel/Box oder künstlich technische UI-Optik.
 
-## 10. Untertitel
+## 11. Untertitel
 
 Standard: `src/brand/components/Captions.tsx`.
 
@@ -278,7 +314,7 @@ Standard: `src/brand/components/Captions.tsx`.
 - bottom = 340
 - pro Szene clippen; kein Wort der nächsten Szene darf vorher sichtbar sein
 
-## 11. Phase-1-Animationscode — Premium Physical Animation V2
+## 12. Phase-1-Animationscode — Premium Physical Animation V2
 
 Technischer Basis-Lock:
 
@@ -286,11 +322,13 @@ Technischer Basis-Lock:
 finanzneo-phase1-animation-code-v1
 ```
 
-Premium-Visual-Lock:
+Kompatibilitäts-Lock:
 
 ```text
 finanzneo-premium-physical-animation-v2
 ```
+
+Der technische Lock bleibt stabil für bereits versiegelte Animationsdateien; **die visuelle Zielwelt ist V9**.
 
 Detailquelle: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
 
@@ -309,7 +347,7 @@ STARTZUSTAND
 - `ANIMATION_COLORS`
 - `prog`, `interpolate` oder `spring`
 - `PremiumPhysicalStage`
-- mindestens zwei `PhysicalObject`-Instanzen
+- mindestens zwei `PhysicalObject`-Instanzen, solange der aktuelle technische Validator dies verlangt
 - mindestens eine semantische Materialrolle neben Struktur
 - Exportname wie `Scene02Animation`
 - `RESULT_HOLD_FRAMES >= 15`
@@ -322,9 +360,10 @@ Animationen müssen **zur Stylized 3D Animated Black V9 Bildwelt passen**:
 
 - klar nicht realistisch
 - soft rounded / vereinfachte 3D-Formen
-- deep-black Hintergrund
+- transparenter Animations-Stage auf zentralem pure-black Reel-Canvas
+- keine Glow-/Gradient-/Partikel-Hintergründe im Stage
 - klare Hauptaktion
-- keine feste Support-Objekt-Anzahl
+- keine feste Support-Objekt-Anzahl als Designregel
 - Emerald / Ivory / Soft Gray / Gold / Red-Orange semantisch einsetzen
 - Szene nutzt die Visualzone sichtbar aus
 - Mechanik muss sofort verständlich sein
@@ -340,11 +379,12 @@ Animationen müssen **zur Stylized 3D Animated Black V9 Bildwelt passen**:
 - Debug-Boxen, Testflächen, Dummy-/Placeholder-Komponenten
 - reine Zoom/Fade/Popup-Bewegung als komplette Erklärung
 - Bewegung nur für Frame-Diff
+- Hintergrundbewegung als Frame-Diff-Hack
 - TODO/TBD/TEMP/„später hübsch machen“
 
 Phase 3 darf diese Animationen weder kreativ ersetzen noch vereinfachen.
 
-## 12. Phase-3-Animationsseal
+## 13. Phase-3-Animationsseal
 
 Bei erfolgreichem `reel:ready` entsteht `05-projektdateien/phase1-animation-seal.json`.
 
@@ -355,13 +395,11 @@ Phase-3-Preflight verlangt:
 - Hash entspricht dem Seal
 - Phase 3 hat die Datei nicht verändert
 
-## 13. Animation-Dispatch
+## 14. Animation-Dispatch
 
-`ReelTemplate` behandelt `type: "animation"` als first-class Beat.
-Jede Animationsszene braucht ein echtes `customAnimations[animationId]`-Binding.
-Fehlt ein Binding, muss der Render **hart abbrechen**. CTA-, Caption-only- oder Dummy-Fallback ist verboten.
+`ReelTemplate` behandelt `type: "animation"` als first-class Beat. Jede Animationsszene braucht ein echtes `customAnimations[animationId]`-Binding. Fehlt ein Binding, muss der Render **hart abbrechen**. CTA-, Caption-only- oder Dummy-Fallback ist verboten.
 
-## 14. Timing
+## 15. Timing
 
 ```text
 finales Voiceover
@@ -373,7 +411,7 @@ finales Voiceover
 
 Keine pauschal gleich langen Szenen. Bildbeat >6 s = splitten oder animieren.
 
-## 15. Phase-3-Fertigkeitsvertrag
+## 16. Phase-3-Fertigkeitsvertrag
 
 Eine MP4 allein bedeutet **nicht fertig**.
 
@@ -382,19 +420,21 @@ Pflicht:
 1. `npm run reel:ready -- <Reel>`
 2. Phase-3-Manifest
 3. lückenlose Implementierung aller Szenen
-4. Candidate-Render
-5. Post-Render-QA pro Szene
-6. Bildszenen müssen visuell belegt sein
-7. Animationsszenen müssen sichtbaren Inhalt + echte Veränderung zeigen
-8. Audio-Stream, 1080×1920 und Timeline-Dauer prüfen
-9. QA = `PASSED`
-10. erst dann Final-MP4
-11. Export mit Hash-Gate
-12. erst erfolgreicher Export = `FINAL_COMPLETE`
+4. `reel:phase3:preflight` inklusive Pure-Black-Background-Vertrag
+5. Candidate-Render
+6. Post-Render-QA pro Szene
+7. Bildszenen müssen visuell belegt sein
+8. Animationsszenen müssen sichtbaren Inhalt + echte Veränderung zeigen
+9. freier Rand muss statisch schwarz bleiben
+10. Audio-Stream, 1080×1920 und Timeline-Dauer prüfen
+11. QA = `PASSED`
+12. erst dann Final-MP4
+13. Export mit Hash-Gate
+14. erst erfolgreicher Export = `FINAL_COMPLETE`
 
-Caption-only-Szenen, fehlende Visuals oder fehlende Animation-Bindings blockieren.
+Caption-only-, Header-only-, Hintergrund-only-Szenen, fehlende Visuals oder fehlende Animation-Bindings blockieren.
 
-## 16. Audio
+## 17. Audio
 
 ```text
 Integrated Loudness ≈ -16 LUFS
@@ -403,17 +443,20 @@ True Peak ≤ -1 dBTP
 
 Keine Ersatz-Audiodatei erzeugen. Nach Audioänderungen Wortzeiten/Timeline neu prüfen.
 
-## 17. QA und Abschlussdefinition
+## 18. QA und Abschlussdefinition
 
 Sofort korrigieren bei:
 
 - falschem/fehlendem Bild
 - realistischer / produktfotoartiger Bildwelt
 - nicht tiefschwarzem Flow-Hintergrund
+- nicht rein schwarzem Remotion-Reel-Hintergrund
+- Partikeln/Aurora/Grid/Glow/Vignette als Hintergrund
 - unklarer oder überladener Bildkomposition
 - UI-/Flowchart-Look
 - Bildbeat >6 s
-- Caption-only-Szene
+- schwarzem/leeren visuellen Kern
+- Caption-only-/Header-only-/Background-only-Szene
 - Header-Capsule/Chip/ALL-CAPS-Stil
 - falscher Header-/Visual-/Captionposition
 - Debug-/Placeholder-/Wackelanimation
@@ -425,7 +468,7 @@ Sofort korrigieren bei:
 
 Ein Reel ist erst fertig, wenn Validatoren, Typecheck, Render, visuelle QA, komplette MP4 mit Ton und Export tatsächlich erfolgreich ausgeführt wurden.
 
-## 18. Publishing
+## 19. Publishing
 
 `04-caption/` enthält:
 
@@ -440,7 +483,7 @@ word-timings.json
 
 Keine `youtube-shorts.txt`.
 
-## 19. Automatische Erstellung und Prüfung
+## 20. Automatische Erstellung und Prüfung
 
 Neues Reel:
 
@@ -452,30 +495,33 @@ Der öffentliche Ersteller setzt automatisch:
 
 - Flow Strict-Single-Job V3
 - Stylized 3D Animated Black V9
+- Pure-Black Reel Background V1
 - Phase-3-Completion-Gate
 - Reel-Layout V5
 - Phase-1-Animationscode-Vertrag
-- Premium Physical Animation V2
+- Premium Physical Animation V2 als technischer Kompatibilitäts-Lock
 
 Prüfung:
 
 ```bash
 npm run validate:image-world
+npm run validate:reel-background
 npm run reel:validate -- <Reel-Pfad>
 npm run reel:ready -- <Reel-Pfad>
 ```
 
-## 20. Aktive Prioritäten
+## 21. Aktive Prioritäten
 
 1. Stylized 3D Animated Black V9 Bildwelt konsequent halten
-2. Animationen visuell auf dieselbe V9-Welt bringen
-3. Phase-1-Animationscode final und hochwertig liefern
-4. Plain Header + V5-Vertikallayout konsequent halten
-5. Caption-System sauber und mobil lesbar halten
-6. Phase-3-Completion-Gate nicht umgehbar halten
-7. erst danach Serienproduktion skalieren
+2. Pure-Black Remotion-Canvas ohne dekorative Hintergrundeffekte erzwingen
+3. Animationen visuell auf dieselbe V9-Welt bringen
+4. Phase-1-Animationscode final und hochwertig liefern
+5. Plain Header + V5-Vertikallayout konsequent halten
+6. Caption-System sauber und mobil lesbar halten
+7. Phase-3-Completion-Gate nicht umgehbar halten
+8. erst danach Serienproduktion skalieren
 
-## 21. YouTube-Longform
+## 22. YouTube-Longform
 
 YouTube-Projekte liegen ausschließlich unter `youtube/` und folgen `docs/YOUTUBE-LONGFORM-WORKFLOW.md` sowie `youtube/PRODUKTIONSSTANDARD.md`.
 
