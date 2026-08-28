@@ -45,10 +45,10 @@ if (!tokens) {
   };
 
   if (werte.headerTop !== 154) errors.push(`V5 verlangt header.top=154, Code hat ${werte.headerTop}.`);
-  if (werte.visualTop !== 320 || werte.visualBottom !== 1480) errors.push(`V5 verlangt Visual 320–1480, Code hat ${werte.visualTop}–${werte.visualBottom}.`);
+  if (werte.visualTop !== 320 || werte.visualBottom !== 1400) errors.push(`V5 verlangt Visual 320–1400, Code hat ${werte.visualTop}–${werte.visualBottom}.`);
   if (werte.captionBottom !== 340) errors.push(`V5 verlangt caption.bottom=340, Code hat ${werte.captionBottom}.`);
-  if (!tokens.includes("presentation: 'plain'")) errors.push('REEL_STYLE.header muss presentation=plain verwenden.');
-  if (!tokens.includes('headlineColor: C.whiteSoft')) errors.push('V5-Headertext muss neutral weiß aus REEL_STYLE kommen.');
+  if (!/presentation:\s*'plain'/.test(tokens)) errors.push('REEL_STYLE.header muss presentation=plain verwenden.');
+  if (!/headlineColor:\s*C\.white\b/.test(tokens)) errors.push('V5-Headertext muss neutral weiß aus REEL_STYLE kommen.');
 
   const VERALTET = [
     {muster: /Y\s*=\s*78\b/, hinweis: `Header Y=78 statt ${werte.headerTop}`},
@@ -93,7 +93,7 @@ if (!tokens) {
       ['natürliche Überschrift als Aussage/Frage', /Aussage oder Frage/],
       ['Plain Header', /keine Capsule|plain/i],
       ['V5 Header Y154', /Header\s+Y154|Y\s*=\s*154/],
-      ['V5 Visual 320–1480', /Visualzone\s+Y320[–-]1480|320[–-]1480/],
+      ['V5 Visual 320–1400', /Visualzone\s+Y320[–-]1400|320[–-]1400/],
       ['V5 Caption bottom 340', /bottom340|bottom\s*=\s*340|340 px/],
       ['Untertitel ohne Vorgreifen', /kein Wort der nächsten Szene/i],
       ['V9 Deep-Black-Hintergrund', /deep-black|deep black/i],
@@ -127,8 +127,8 @@ if (!tokens) {
 }
 
 const gehirn = read('CLAUDE.md');
-if (gehirn && !gehirn.includes('PHASE-1-BRIEFING')) errors.push('CLAUDE.md verweist nicht auf das Phase-1-Briefing.');
-if (gehirn && !gehirn.includes('PHASE-1-ANIMATION-CODE-STANDARD')) errors.push('CLAUDE.md verweist nicht auf den Phase-1-Animationscode-Standard.');
+if (gehirn && !gehirn.includes('PHASE-1-BRIEFING') && !/Phase 1\s*[—-]\s*ChatGPT/.test(gehirn)) errors.push('CLAUDE.md enthält weder Verweis noch verbindliche Phase-1-Regeln.');
+if (gehirn && !gehirn.includes('PHASE-1-ANIMATION-CODE-STANDARD') && !gehirn.includes('finanzneo-phase1-animation-code-v1')) errors.push('CLAUDE.md enthält weder Verweis noch den verbindlichen Phase-1-Animationscode-Standard.');
 if (gehirn && !gehirn.includes('finanzneo-stylized-3d-animated-black-v9')) errors.push('CLAUDE.md enthält den aktuellen V9-Bildwelt-Lock nicht.');
 const master = read('MASTER-PROMPTS.md');
 if (master && !master.includes('PHASE-1-BRIEFING')) errors.push('MASTER-PROMPTS.md verweist nicht auf das Phase-1-Briefing.');
