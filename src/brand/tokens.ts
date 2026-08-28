@@ -35,9 +35,9 @@ export const SAFE_AREA = {
 } as const;
 
 // ─── Verbindlicher Reel-Look V5 ─────────────────────────────────────────────
-// Realer Euro/Landeswährung-Test: Header war zu hoch/technisch, Visuals und
-// Captions zu tief. V5 bildet Header + Visual als kompaktere Einheit und lässt
-// oben/unten mehr ruhige Luft.
+// Der SceneHeader ist bewusst eine normale, gut lesbare Überschrift und kein
+// kleines UI-Label. Reines Weiß + etwas größere Typografie schaffen eine klare
+// Hierarchie über dem Visual; die semantische Farbe bleibt primär im Icon.
 export const REEL_STYLE = {
   caption:{
     fontSize:50,minFontSize:40,fontWeight:800,letterSpacing:0,lineHeight:1.14,
@@ -45,9 +45,9 @@ export const REEL_STYLE = {
     holdSeconds:0.38,textShadow:'0 2px 7px rgba(0,0,0,0.55)',textStrokeForbidden:true,
   },
   header:{
-    presentation:'plain',align:'center',headlineColor:C.whiteSoft,defaultIconColor:C.accentLt,
-    top:154,left:80,right:80,fontSize:44,fontWeight:800,iconBox:34,iconSize:28,gap:11,
-    enterFrames:4,textShadow:'0 2px 6px rgba(0,0,0,0.48)',
+    presentation:'plain',align:'center',headlineColor:C.white,defaultIconColor:C.accentLt,
+    top:154,left:72,right:72,fontSize:56,minFontSize:46,fontWeight:800,iconBox:40,iconSize:34,gap:14,
+    maxWidth:880,enterFrames:4,textShadow:'0 2px 6px rgba(0,0,0,0.48)',
   },
   transition:{continuityFrames:3,imageEnterFrames:4,fadeToBlackForbidden:true},
   visual:{
