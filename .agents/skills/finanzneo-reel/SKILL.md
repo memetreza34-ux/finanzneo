@@ -77,11 +77,15 @@ No placeholders, debug rectangles, `Math.sin`/`Math.cos` QA-wiggle or motion who
 Central `REEL_STYLE` only:
 
 - Header Y154
-- Visual Y320–1480
-- captions bottom340
+- Header 56 px, minimum 50 px, max 2 lines
+- Icon 34 px
+- Visual Y320–1400
+- captions bottom340, max 2 lines
 - transition 3 frames
-- header plain white text + simple semantic line icon
+- header plain #FFFFFF text + simple semantic line icon
 - no capsule/chip/pill/panel/forced uppercase
+- `AnimationStage` hard-clips visible animation content to Y320–1400
+- SourceNote must not overlap a two-line caption
 
 ## Completion sequence
 
@@ -103,6 +107,7 @@ QA must reject:
 - missing image
 - missing animation binding
 - animation with no real motion
+- animation that does not explain its beat
 - non-black/decorative background
 - missing audio
 - wrong dimensions/timeline

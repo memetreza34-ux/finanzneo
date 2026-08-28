@@ -48,14 +48,18 @@ Zahlen nur nach Prüfung. Keine individuelle Anlageempfehlung.
 
 LAYOUT V5
 - Header Y154
-- Visualzone Y320–1480
-- Untertitel bottom340
-- Header mittig, normaler weißer Text + einfaches Linien-Icon
+- Header 56 px, Minimum 50 px, maximal 2 Zeilen
+- Icon 34 px
+- Visualzone Y320–1400
+- Untertitel bottom340, 50 px Basis, maximal 2 Zeilen
+- Header mittig, reines Weiß + einfaches semantisches Linien-Icon
 - keine Capsule, kein Chip, kein Panel, kein erzwungenes ALL CAPS
+- lange Header auf max. zwei Zeilen umbrechen, nicht zu kleinen Labels schrumpfen
+- AnimationStage clippt sichtbar hart auf Y320–1400
 - Bilder und Animationen nutzen die Visualzone groß und sichtbar
 
 ZWISCHENÜBERSCHRIFT
-Jede Szene braucht eine natürliche Aussage oder Frage, meist 3–6 Wörter, ungefähr max. 40 Zeichen. Kein reines Stichwort und keine reine Zahl. Icon muss zur Aussage passen.
+Jede Szene braucht eine natürliche Aussage oder Frage, meist 3–6 Wörter. Kein reines Stichwort und keine reine Zahl. Icon muss zur Aussage passen.
 
 Erlaubte Icons:
 euro, clock, hourglass, shield, check, cross, coins, bank, rocket, wallet, percent, flame, target, bulb, lock, trending, calendar, phone, search, receipt, repeat, document, list, warning
@@ -65,7 +69,7 @@ headerTone:
 - warning = rotes Icon
 - money = goldenes Icon
 - neutral = weißes Icon
-Headertext bleibt weiß.
+Headertext bleibt #FFFFFF.
 
 UNTERTITEL
 - aktuelles Wort grün, Rest weiß
@@ -157,6 +161,7 @@ BILD-QA
 Bild verwerfen und neu erzeugen, wenn es realistisch aussieht, der Hintergrund nicht tiefschwarz ist, die Aussage schwer verständlich ist, zu viel Clutter entsteht, die Szene wie UI/Flowchart wirkt, eine Marke wie aufgeklebt/Screenshot aussieht oder die V9-Animationswelt nicht mehr erkennbar ist.
 
 GOOGLE FLOW — STRICT SINGLE JOB
+- FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
 - maximal 1 laufender Bildjob
 - nur aktuellen Bildblock ausführen
 - auf Ergebnis warten
@@ -211,7 +216,8 @@ ANIMATIONS-ZIELWELT
 - stylized 3D animated
 - weiche, abgerundete Formen
 - einfache verständliche Objektaktion
-- Visualzone groß nutzen
+- Visualzone Y320–1400 sinnvoll nutzen
+- sichtbare Ausgabe bleibt hart innerhalb Y320–1400
 - PremiumPhysicalStage bleibt TRANSPARENT
 - der einzige Remotion-Reel-Hintergrund ist zentral und statisch #000000
 

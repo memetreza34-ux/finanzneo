@@ -19,91 +19,65 @@ Ein neues Reel erbt Layout, Captions, Header, Animation-Dispatch und Pure-Black-
 
 `animation` ist ein **first-class Beat**. Es gibt keinen CTA-/Text-/Caption-Fallback für eine fehlende Animation.
 
-## Verbindliche Regeln
-
-Die Konfiguration wird vor dem Render geprüft:
-
-- Gesamtdauer 60–90 Sekunden
-- erster Beat ist `hook`
-- letzter Beat ist `cta`
-- eindeutige Beat-IDs
-- positive ganze Frame-Dauern
-- jeder Beat besitzt ein passendes `icon`
-- Image-Beats besitzen eine Datei
-- Image-Beats dauern maximal 6,0 Sekunden
-- Animation-Beats besitzen `animationId`
-- jedes `animationId` besitzt ein echtes `customAnimations[animationId]`-Binding
-- fehlendes Animation-Binding = harter Renderfehler
-
 ## Pure-Black Background
 
-Der einzige produktive Reel-Hintergrund ist zentral:
+Der einzige produktive Reel-Hintergrund ist:
 
 ```text
 #000000
 statisch
 ```
 
-`FinanceBackground` darf für Reels keine visuelle Variante erzeugen. Alte `standard/data/premium`-Props sind nur Kompatibilität.
-
-Verboten:
-
-- Partikel
-- Aurora
-- Grid
-- Glow-Felder
-- Vignette
-- dekorative Background-Gradienten
-- Hintergrundbewegung als Frame-Diff-/Animationsnachweis
-
-`PremiumPhysicalStage` bleibt transparent.
+Keine Partikel, Aurora, Grid, Glow-Felder, Vignette, dekorativen Background-Gradienten oder Background-Motion. `PremiumPhysicalStage` bleibt transparent.
 
 ## SceneHeader V5
 
-Jede Szene erhält einen zentralen `SceneHeader`.
-
 ```tsx
-{
-  id: 'kontoauszug',
-  type: 'image',
-  icon: 'search',
-  headline: 'Kontoauszug prüfen',
-}
+<SceneHeader title="Kontoauszug prüfen" icon="search" />
 ```
 
-- mittig
-- `top = 154`
+Verbindlich:
+
+- Y154
+- 56 px Standard, Minimum 50 px
+- maximal 2 Zeilen
+- 34-px-Linien-Icon
+- Text #FFFFFF
+- semantische Farbe primär über das Icon
 - Sentence Case
-- Text weiß
-- semantische Farbe primär über das Linien-Icon
 - keine Capsule / Chip / Pill / Panel
 - kein automatisches ALL CAPS
 
-## V5-Layout
+## Finales V5-Layout
 
 Einzige technische Quelle: `REEL_STYLE` in `src/brand/tokens.ts`.
 
 ```text
 Header      Y = 154
-Visual      Y = 320–1480
+Visual      Y = 320–1400
 Caption     bottom = 340
 Transition  3 Frames
 ```
 
+`AnimationStage` behält für Phase-1-Code das volle 1080×1920-Koordinatensystem, clippt die **sichtbare Ausgabe hart auf Y320–1400**. Animationen können damit nicht sichtbar in Header oder Caption-Zone laufen.
+
 ## Untertitel
 
-Die zentrale `Captions`-Komponente erzwingt:
+`Captions` erzwingt:
 
 - aktives Wort Grün
 - Rest Weiß
+- 50 px Basis, Minimum 40 px
 - max. zwei Zeilen
 - kein Word-Jump / Scale-Pop / Stroke
 - `bottom = 340`, `left = 72`, `right = 140`
 - pro Szene geclippt
 
+`SourceNote` liegt oberhalb der Caption und darf zweizeilige Captions nicht überdecken.
+
 ## Animationen
 
-Phase 1 liefert pro Animationsszene bereits die fertige kanonische Quelle:
+Phase 1 liefert pro Animationsszene bereits:
 
 ```text
 03-szenen/EINZELNE-SZENEN/scene-XX/animation.tsx
@@ -127,8 +101,6 @@ Bei `reel:ready` wird jede Phase-1-Animationsquelle per SHA-256 versiegelt. Phas
 
 ## Animation-Dispatch
 
-Produktive Composition:
-
 ```text
 scene.type = animation
 → scene.animationId
@@ -136,21 +108,11 @@ scene.type = animation
 → versiegelte Phase-1-Komponente
 ```
 
-Fehlt das Binding, wirft `ReelTemplate` `MISSING ANIMATION BINDING` und der Render muss stoppen.
+Fehlt das Binding, wirft `ReelTemplate` `MISSING ANIMATION BINDING` und der Render stoppt.
 
 ## Bilder
 
 Image-Beats verwenden die exakten freigegebenen 1:1-Nutzerbilder. Darstellung mit `contain`; kein generiertes/Stock-/Placeholder-Ersatzbild.
-
-Verbindliche Quellen:
-
-- `docs/IMAGE-SYSTEM.md`
-- `docs/IMAGE-QA-CHECKLIST.md`
-- `docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md`
-
-## Safe Areas
-
-`showSafeAreaGuide: true` nur im Studio/QA. Vor Produktionsrendern `false`.
 
 ## Phase 3
 
@@ -167,7 +129,3 @@ reel:ready
 ```
 
 Render-QA muss schwarze/leere Visualkerne, Caption-/Header-only-Szenen, fehlende Bilder, fehlende Animationen und nicht-schwarze/dekorative Backgrounds blockieren.
-
-## Demo
-
-`ReelTemplateDemo.tsx` liegt unter Experiments. Sie ist nur technische Vorschau, keine Produktion.

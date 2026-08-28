@@ -15,7 +15,7 @@ Phase 1 liefert vollständig:
 - pro Animationsszene `remotion.md` + **produktionsreife `animation.tsx`**
 - Master- und Plattform-Captions
 
-Phase 1 besitzt die kreative Animation. Phase 3 darf nichts fehlendes erfinden oder durch einen technisch leichteren Hack ersetzen.
+Phase 1 besitzt die kreative Animation. Phase 3 darf nichts Fehlendes erfinden oder durch einen technisch leichteren Hack ersetzen.
 
 Bildwelt V9:
 
@@ -102,16 +102,17 @@ Verboten:
 - dekorative Hintergrund-Gradienten/Vignetten
 - Hintergrundbewegung als Ersatz für Szenenanimation
 
-Die alten `FinanceBackground`-Varianten bleiben nur API-kompatibel und ändern die Optik nicht mehr.
-
-### V5-Layout
+### Finales V5-Layout
 
 ```text
-Header:     Y154 · plain · weißer Text + semantisches Linien-Icon
-Visual:     Y320–1480
-Caption:    bottom340
+Header:     Y154 · 56 px · min. 50 px · max. 2 Zeilen
+Icon:       34 px · semantische Farbe
+Visual:     Y320–1400
+Caption:    bottom340 · 50 px · max. 2 Zeilen
 Transition: 3 Frames
 ```
+
+`AnimationStage` clippt sichtbare Animationen hart auf **Y320–1400**. Kein Animationsinhalt darf sichtbar in Header oder Caption-Zone laufen.
 
 Keine Header-Capsule/Chip/Pill und kein erzwungenes ALL CAPS.
 
@@ -126,6 +127,7 @@ Preflight prüft unter anderem Assets, Timeline, Animation-Seal/Bindings und den
 - visueller Kern tatsächlich belegt
 - Bildszene nicht leer/caption-only
 - Animationsszene sichtbar + echte Veränderung
+- Animation erklärt den gesprochenen Inhalt
 - ausreichend aktive Visualfläche
 - freier Rand bleibt schwarz
 - keine Partikel/Aurora/Grid-Hintergrundeffekte
@@ -148,8 +150,6 @@ Schwarzes/leeres Reel = **FAIL**, nicht „fertig“.
 
 ## Final
 
-Erst:
-
 ```text
 reel:ready PASS
 → Manifest READY_TO_RENDER
@@ -160,4 +160,4 @@ reel:ready PASS
 → 06-export vollständig
 ```
 
-Dann darf `FINAL_COMPLETE` gemeldet werden.
+Erst dann darf `FINAL_COMPLETE` gemeldet werden.

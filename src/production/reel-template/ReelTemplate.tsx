@@ -13,7 +13,6 @@ import {
   FONT,
   FORMAT,
   REEL_STYLE,
-  SAFE_AREA,
   a,
   Body,
   Captions,
@@ -82,9 +81,10 @@ const SourceNote: React.FC<{children?: string}> = ({children}) => {
   if (!children) return null;
   return (
     <div style={{
-      position: 'absolute', left: 72, right: 140, bottom: SAFE_AREA.bottomPx + 8,
-      color: a(C.whiteSoft, 0.74), fontFamily: FONT.body, fontSize: 21, fontWeight: 650,
+      position: 'absolute', left: 72, right: 140, bottom: REEL_STYLE.sourceNote.bottom,
+      color: a(C.whiteSoft, 0.74), fontFamily: FONT.body, fontSize: REEL_STYLE.sourceNote.fontSize, fontWeight: 650,
       lineHeight: 1.22, textAlign: 'center', textShadow: '0 2px 7px rgba(0,0,0,0.55)',
+      maxWidth: REEL_STYLE.sourceNote.maxWidth, margin: '0 auto',
     }}>
       {children}
     </div>
@@ -112,7 +112,7 @@ const CompareCard: React.FC<{
       width: 420, minHeight: 470, borderRadius: 34, border: `2px solid ${a(color, 0.45)}`,
       background: 'rgba(255,255,255,0.055)', boxShadow: '0 20px 48px rgba(0,0,0,0.28)',
       padding: '52px 38px', display: 'flex', flexDirection: 'column', alignItems: 'center',
-      justifyContent: 'center', textAlign: 'center', opacity: appear, transform: `translateY(${(1 - appear) * 20}px)`,
+      justifyContent: 'center', textAlign: 'center', opacity: appear, transform: `translateY(${(1-appear)*20}px)`,
     }}>
       <div style={{fontFamily: FONT.body, fontSize: 30, fontWeight: 800, color: C.whiteSoft, letterSpacing: 2}}>{label.toUpperCase()}</div>
       <div style={{fontFamily: FONT.title, fontSize: 100, lineHeight: 1, color, marginTop: 30}}>{value}</div>

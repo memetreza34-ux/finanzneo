@@ -61,6 +61,7 @@ for (const [script, scriptArgs] of steps) {
 console.log('\n✓ Neues Reel vollständig angelegt.');
 console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob · kein Batch · kein Nutzer-„weiter“.');
 console.log('  Bildwelt V9: stylized 3D animated · nicht realistisch · deep black Pflicht · Klarheit vor Objektzahl · mittel-lange Prompts.');
-console.log('  Layout V5: plain Header Y154 · Visual 320–1480 · Captions bottom 340.');
+console.log('  Layout V5: Header Y154 · 56 px · max. 2 Zeilen · Visual Y320–1400 · Captions bottom340.');
+console.log('  Animation Safe Zone: hart Y320–1400 · kein Eindringen in Header/Caption.');
 console.log('  Animation V2: Phase-1-Code bleibt kanonisch und muss visuell zur V9-Bildwelt passen.');
 console.log('  Phase 3: MP4 allein gilt nicht als fertig · jede Szene braucht Visual · Post-Render-QA + Hash-Gate vor Export.');

@@ -82,7 +82,7 @@ test('Reel-Ersteller erzeugt alle Primär-Pflichtfelder des Szenen-Schemas', () 
   assert.deepEqual(fehlend, [], `Reel-Ersteller erzeugt Pflichtfelder nicht: ${fehlend.join(', ')}`);
 });
 
-test('Reel-Ersteller schreibt V5-Layout und Plain-Header direkt in neue Reels', () => {
+test('Reel-Ersteller schreibt V5-Layout, großen Plain-Header und harte Visual-Safe-Zone', () => {
   const {ziel, result} = reelAnlegen();
   assert.equal(result.status, 0, `${result.stderr}${result.stdout}`);
 
@@ -91,16 +91,27 @@ test('Reel-Ersteller schreibt V5-Layout und Plain-Header direkt in neue Reels', 
     assert.deepEqual(index.layout, {
       headlineY: 154,
       visualTop: 320,
-      visualBottom: 1480,
+      visualBottom: 1400,
       subtitleBottom: 340,
       subtitleLeft: 72,
       subtitleRight: 140,
     });
     assert.equal(index.sceneHeader?.presentation, 'plain');
     assert.equal(index.sceneHeader?.headlineColor, 'white');
+    assert.equal(index.sceneHeader?.fontSize, 56);
+    assert.equal(index.sceneHeader?.minFontSize, 50);
+    assert.equal(index.sceneHeader?.maxLines, 2);
+    assert.equal(index.sceneHeader?.iconSize, 34);
     assert.equal(index.sceneHeader?.semanticColorLivesOnIcon, true);
     assert.equal(index.sceneHeader?.capsuleForbidden, true);
     assert.equal(index.sceneHeader?.uppercaseTransformForbidden, true);
+    assert.deepEqual(index.visualSafeZone, {
+      top: 320,
+      bottom: 1400,
+      hardClipAnimations: true,
+      headerIntrusionForbidden: true,
+      captionIntrusionForbidden: true,
+    });
     assert.equal(index.subtitleDisplay?.bottom, 340);
     assert.equal(index.transitionContract?.continuityFrames, 3);
   } finally {

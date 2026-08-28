@@ -111,13 +111,29 @@ Eine Ersatzkomponente oder nachträglicher QA-Hack blockiert Phase 3.
 Neue aktive Reels erben zentral:
 
 ```text
-Header:    Y = 154
-Visual:    Y = 320–1480
-Caption:   bottom = 340
-Transition: 3 Frames
+Header:      Y = 154
+Header Text: 56 px, Minimum 50 px, max. 2 Zeilen
+Header Icon: 34 px
+Visual:      Y = 320–1400
+Caption:     bottom = 340
+Transition:  3 Frames
 ```
 
-Die technische Wahrheit dafür ist `REEL_STYLE` in `src/brand/tokens.ts`; alte per-Reel-Layoutmetadaten dürfen diese Werte nicht überschreiben.
+Zusätzlich enthält `scene-index.json`:
+
+```json
+{
+  "visualSafeZone": {
+    "top": 320,
+    "bottom": 1400,
+    "hardClipAnimations": true,
+    "headerIntrusionForbidden": true,
+    "captionIntrusionForbidden": true
+  }
+}
+```
+
+Die technische Wahrheit dafür ist `REEL_STYLE` in `src/brand/tokens.ts`. `AnimationStage` clippt Animationen sichtbar auf Y320–1400.
 
 ## Validierung
 
@@ -129,7 +145,7 @@ npm run reel:ready -- <Reel-Pfad>
 Dabei prüfen unter anderem:
 
 - `validateSceneShape()` das zentrale Szenenschema
-- `validate-reel-layout-v5.mjs` den V5-Layoutvertrag
+- `validate-reel-layout-v5.mjs` den V5-Layoutvertrag inklusive Safe-Zone
 - `validate-animation-source-quality.mjs` den Phase-1-Animationscode
 - `validate-phase3-contract.mjs` das Completion-Gate
 
