@@ -29,16 +29,20 @@ const read = (path) => readFileSync(path, 'utf8');
 const write = (path, content) => writeFileSync(path, content.endsWith('\n') ? content : `${content}\n`, 'utf8');
 
 const extractLabels = (content) => {
-  const match = content.match(/EXACT SHORT GERMAN OBJECT LABELS:\s*\n([\s\S]*?)(?=\n\s*\n(?:IMAGE PROMPT:|STYLE:|WRITTEN SAME-WORLD LOCK:|BACKGROUND))/i);
+  const match = content.match(/(?:EXACT SHORT GERMAN OBJECT LABELS|BESCHRIFTUNGEN – EXAKT SO):\s*\n([\s\S]*?)(?=\n\s*\n(?:IMAGE PROMPT:|BILDPROMPT:|STYLE:|FINANZNEO_WORLD_ID:|WRITTEN SAME-WORLD LOCK:|BACKGROUND))/i);
   return match ? `EXACT SHORT GERMAN OBJECT LABELS:\n${match[1].trim()}` : '';
 };
 
 const extractScenePrompt = (content) => {
-  const marker = 'IMAGE PROMPT:';
-  const index = content.indexOf(marker);
-  if (index === -1) return '';
-  const after = content.slice(index + marker.length).trim();
+  const marker = content.includes('IMAGE PROMPT:') ? 'IMAGE PROMPT:' : 'BILDPROMPT:';
+  const markerIndex = content.indexOf(marker);
+  if (markerIndex === -1) return '';
+  const after = content.slice(markerIndex + marker.length).trim();
   const stopMarkers = [
+    '\n\nFINANZNEO_WORLD_ID:',
+    '\n\nPREMIUM_VISUAL_WORLD_LOCK:',
+    '\n\nPHYSICAL_EXPLAINER_LOCK:',
+    '\n\nSTYLIZED_3D_LOCK:',
     '\n\nWRITTEN SAME-WORLD LOCK:',
     '\n\nSTYLE:',
     '\n\nKeep the same written',
@@ -54,12 +58,19 @@ const extractScenePrompt = (content) => {
 };
 
 const rewritePrompt = (content) => {
-  const firstWorldMarker = [
+  const worldPositions = [
     content.indexOf('FINANZNEO_WORLD_ID:'),
     content.indexOf('PREMIUM_VISUAL_WORLD_LOCK:'),
     content.indexOf('PHYSICAL_EXPLAINER_LOCK:'),
-  ].filter((p) => p >= 0).sort((a, b) => a - b)[0];
-  const prefix = (firstWorldMarker === undefined ? content.split('IMAGE PROMPT:')[0] : content.slice(0, firstWorldMarker)).trim();
+    content.indexOf('STYLIZED_3D_LOCK:'),
+  ].filter((p) => p >= 0).sort((a, b) => a - b);
+  const firstWorldMarker = worldPositions[0];
+  const promptMarker = content.includes('IMAGE PROMPT:') ? 'IMAGE PROMPT:' : 'BILDPROMPT:';
+  const promptPosition = content.indexOf(promptMarker);
+  const prefixEnd = firstWorldMarker === undefined
+    ? (promptPosition >= 0 ? promptPosition : content.length)
+    : firstWorldMarker;
+  const prefix = content.slice(0, prefixEnd).replace(/(?:IMAGE PROMPT:|BILDPROMPT:)\s*$/i, '').trim();
   const labels = extractLabels(content);
   const scenePrompt = extractScenePrompt(content) || 'Describe the scene-specific financial idea clearly with a simple stylized 3D animated composition.';
   return [prefix, WORLD_HEADER, labels, `IMAGE PROMPT:\n${scenePrompt}`, STYLE_SUFFIX].filter(Boolean).join('\n\n');
@@ -74,6 +85,18 @@ index.imageWorld = {
   premiumVisualWorldLockId: WORLD_LOCK,
   animatedWorldLockId: WORLD_LOCK,
   generatedImageAspectRatio: '1:1',
+  squareGeneratedImagesRequired: true,
+  referencePromptFile: '03-szenen/bildwelt.txt',
+  styleReferenceStrategy: 'written-style-lock-only',
+  referenceImageUse: 'forbidden',
+  sameWorldAcrossSeriesRequired: true,
+  seamlessSingleBackgroundRequired: true,
+  percentageZonesForbidden: true,
+  floorWallBoundaryForbidden: true,
+  horizonLineForbidden: true,
+  backgroundBandsForbidden: true,
+  objectLabelsOnly: true,
+  visibleFaceRequiredWhenPersonPresent: true,
   style: 'stylized-3d-animated-black-v9',
   nonPhotorealisticRequired: true,
   stylized3DAnimatedRequired: true,
@@ -103,18 +126,20 @@ index.imageWorld = {
   productPhotoLookForbidden: true,
   clutterForbidden: true,
 };
-delete index.imageWorld.heroUsefulFrameMinRatio;
-delete index.imageWorld.heroUsefulFrameMaxRatio;
-delete index.imageWorld.supportingObjectsMin;
-delete index.imageWorld.supportingObjectsMax;
-delete index.imageWorld.mediumCloseThreeQuarterCameraRequired;
-delete index.imageWorld.foregroundHeroBackgroundDepthRequired;
-delete index.imageWorld.purposefulOverlapRequired;
-delete index.imageWorld.ambientOcclusionRequired;
-delete index.imageWorld.threeMaterialRolesRequired;
-delete index.imageWorld.nonMonochromeSemanticAccentRequired;
-delete index.imageWorld.flatPosterCompositionForbidden;
-delete index.imageWorld.monochromeGreenFrameForbidden;
+for (const obsolete of [
+  'heroUsefulFrameMinRatio',
+  'heroUsefulFrameMaxRatio',
+  'supportingObjectsMin',
+  'supportingObjectsMax',
+  'mediumCloseThreeQuarterCameraRequired',
+  'foregroundHeroBackgroundDepthRequired',
+  'purposefulOverlapRequired',
+  'ambientOcclusionRequired',
+  'threeMaterialRolesRequired',
+  'nonMonochromeSemanticAccentRequired',
+  'flatPosterCompositionForbidden',
+  'monochromeGreenFrameForbidden',
+]) delete index.imageWorld[obsolete];
 write(indexPath, JSON.stringify(index, null, 2));
 
 const worldPath = resolve(root, '03-szenen/bildwelt.txt');
@@ -152,5 +177,6 @@ write(resolve(root, '03-szenen/alle-bildprompts.txt'), allPrompts);
 
 console.log(`✓ Stylized Animated Black World angewendet: ${WORLD_LOCK}`);
 console.log('  Nicht realistisch · soft rounded 3D · deep black Pflicht · Klarheit vor Objektzahl · mittel-lange Prompts.');
+console.log('  Alte V4/V7/V8-Prompt-Regelblöcke werden beim Umschreiben entfernt.');
 console.log('  Marken/Logos: erkennbar aber stilisiert · kein Flat-Paste/Screenshot-Look.');
 console.log('  Dashboard/UI/Flowchart/Produktfoto-Look/Clutter verboten.');
