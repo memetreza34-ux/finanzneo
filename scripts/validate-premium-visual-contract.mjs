@@ -48,6 +48,9 @@ for (const key of [
   'cleanMinimalBackgroundRequired',
   'subjectSeparationLightingRequired',
   'softContactShadowsRequired',
+  'brandMarksRecognizableButStylizedRequired',
+  'flatPastedRealLogoForbidden',
+  'screenshotLikeBrandUiForbidden',
   'dashboardCompositionForbidden',
   'appUiCompositionForbidden',
   'flowchartMainCompositionForbidden',
@@ -69,6 +72,8 @@ const requiredPromptMarkers = [
   'stylized 3D animated',
   'deep black background is mandatory',
   'Supporting objects have no fixed count',
+  'BRANDS + LOGOS',
+  'recognizable but reinterpret it in the same stylized 3D animated world',
   'No realism or photorealism',
   'No dashboard',
   'no app UI',
@@ -128,5 +133,6 @@ if (errors.length) {
 
 console.log(`\n✓ Stylized 3D Animated Black World ${WORLD_LOCK} ist im Reel vollständig verankert.`);
 console.log('✓ Deep-black Pflicht · nicht realistisch · soft rounded · premium/leicht verspielt · Klarheit vor Objektzahl.');
+console.log('✓ Marken/Logos bleiben erkennbar aber stilisiert; Flat-Paste/Screenshot-Look ist verboten.');
 console.log(`✓ Einzelprompts bleiben mittel-lang (max. ${MAX_INDIVIDUAL_PROMPT_CHARS} Zeichen).`);
 console.log(`✓ Phase-1-Animation-Lock bleibt ${PREMIUM_ANIMATION_LOCK}.`);
