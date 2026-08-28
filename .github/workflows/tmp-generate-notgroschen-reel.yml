@@ -31,7 +31,9 @@ jobs:
         run: npm ci
 
       - name: Reel erzeugen
-        run: node scripts/tmp-generate-notgroschen-reel.mjs
+        run: |
+          node scripts/tmp-generate-notgroschen-reel.mjs
+          node scripts/tmp-fix-notgroschen-structure.mjs
 
       - name: Reel vollständig validieren
         run: npm run reel:validate -- reels/2026-08-24_bis_2026-08-30/freitag/reel-02_notgroschen-richtig-aufbauen
@@ -39,6 +41,7 @@ jobs:
       - name: Fertiges Reel committen und Bootstrap entfernen
         run: |
           rm -f scripts/tmp-generate-notgroschen-reel.mjs
+          rm -f scripts/tmp-fix-notgroschen-structure.mjs
           rm -f .github/workflows/tmp-generate-notgroschen-reel.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
