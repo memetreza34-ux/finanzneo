@@ -18,10 +18,9 @@ const iconColorForTone = (tone: SceneHeaderTone) => {
 /**
  * Große, gut lesbare V5-Zwischenüberschrift mit einfachem Linien-Icon.
  *
- * Kein Chip, keine Capsule, kein Panel: Die Überschrift wirkt wie normale
- * Titeltypografie. Der Text bleibt reines Weiß; semantische Farbe sitzt primär
- * im Icon. Lange Titel dürfen moderat kleiner werden, aber niemals auf eine
- * kleine Label-Größe schrumpfen.
+ * Der Text bleibt reines Weiß; die semantische Farbe sitzt primär im Icon.
+ * Lange Titel dürfen auf maximal zwei Zeilen umbrechen und bleiben dabei in
+ * normaler Titelgröße, statt zu einem kleinen UI-Label zu schrumpfen.
  */
 export const SceneHeader: React.FC<{
   title: string;
@@ -47,7 +46,7 @@ export const SceneHeader: React.FC<{
   const iconColor = iconColorForTone(tone);
   const fittedSize = Math.max(
     H.minFontSize,
-    title.length > 40 ? size - 8 : title.length > 32 ? size - 4 : size,
+    title.length > 64 ? size - 6 : title.length > 48 ? size - 3 : size,
   );
 
   return (
@@ -93,7 +92,11 @@ export const SceneHeader: React.FC<{
             color: H.headlineColor,
             textTransform: 'none',
             textAlign: 'center',
-            whiteSpace: 'nowrap',
+            whiteSpace: 'normal',
+            overflow: 'hidden',
+            display: '-webkit-box',
+            WebkitBoxOrient: 'vertical',
+            WebkitLineClamp: H.maxLines,
             textShadow: H.textShadow,
             textRendering: 'geometricPrecision',
             WebkitFontSmoothing: 'antialiased',

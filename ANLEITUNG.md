@@ -1,6 +1,6 @@
 # FinanzNeo — aktueller Produktionsablauf V9
 
-> `CLAUDE.md` ist die höchste Regelquelle. Dieses Dokument beschreibt nur den praktischen Ablauf.
+> `CLAUDE.md` ist die höchste Regelquelle. Dieses Dokument beschreibt den praktischen Ablauf.
 
 ## Die drei Phasen
 
@@ -21,19 +21,7 @@ Assets integrieren + versiegelte Phase-1-Animationen binden
 + Preflight + Candidate-Render + Post-Render-QA + Export
 ```
 
-`scene-index.json -> phase3Executor` entscheidet, ob Antigravity oder Claude Code Phase 3 ausführt. Der andere Executor übernimmt nicht einfach.
-
-## Vor einem neuen Reel lesen
-
-- `CLAUDE.md`
-- `docs/PHASE-1-BRIEFING.md`
-- `docs/IMAGE-SYSTEM.md`
-- `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
-- `docs/3-PHASEN-WORKFLOW.md`
-- `docs/PHASE-3-COMPLETION-GATE.md`
-- `reels/PRODUKTIONSSTANDARD.md`
-
-Alte Image-World-V3/V4/V7/V8-Dateien sind keine aktive Produktionsautorität.
+`scene-index.json -> phase3Executor` entscheidet, ob Antigravity oder Claude Code Phase 3 ausführt.
 
 ## Phase 1
 
@@ -43,27 +31,22 @@ Alte Image-World-V3/V4/V7/V8-Dateien sind keine aktive Produktionsautorität.
 - Hook in den ersten 2 Sekunden
 - von Anfang an Szene für Szene schreiben
 - ungefähr 14–16 Visual-Beats als Zielkorridor
-- ungefähr 60 % Bild / 40 % Animation, Qualität vor Quote
+- ungefähr 60 % Bild / 40 % Animation als Richtwert, Qualität vor Quote
 - Bildbeat ideal 3,5–5,5 s, absolut max. 6 s
 - Animation ideal 4,5–7 s
-- kurze deutsche Sätze, direkte Du-Ansprache
+- kurze deutsche Sätze
 - Zahlen und Fakten prüfen
 
 ### V9-Bildwelt
-
-Kanonischer Lock:
 
 ```text
 finanzneo-stylized-3d-animated-black-v9
 ```
 
-Quellbilder inklusive Cover bleiben `1:1`.
-
-Verbindlich:
-
+- Quellbilder inklusive Cover: 1:1
 - klar stylized 3D animated, nicht photorealistisch
 - soft rounded, vereinfachte erkennbare Formen
-- **nahtloser tiefschwarzer Hintergrund Pflicht**
+- nahtloser tiefschwarzer Hintergrund Pflicht
 - Inhalt und Klarheit vor Deko
 - keine feste Objektanzahl
 - Support-Objekte nur, wenn sie helfen
@@ -77,7 +60,7 @@ Verbindlich:
 
 ### Phase-1-Animationen
 
-Jede Animationsszene braucht bereits:
+Jede Animationsszene braucht:
 
 ```text
 scene-XX/
@@ -105,8 +88,6 @@ START → SICHTBARER MECHANISMUS → ERGEBNIS
 
 ### Google Flow
 
-Einzige Regel:
-
 ```text
 GENAU EIN Bild erzeugen
 → vollständig warten
@@ -118,7 +99,7 @@ GENAU EIN Bild erzeugen
 
 Kein Batch, kein paralleles Queueing, kein späteres Sammel-Umbenennen und kein Nutzer-„weiter“.
 
-Alle finalen Bilder kommen gemeinsam nach:
+Alle finalen Bilder kommen nach:
 
 ```text
 03-szenen/00-ALLE-BILDER-HIER-REIN/
@@ -131,6 +112,25 @@ Alle finalen Bilder kommen gemeinsam nach:
 - keine Ersatz-Audiodatei
 - keine erfundenen Timings
 
+## Finales Layout
+
+Einzige technische Quelle: `REEL_STYLE`.
+
+```text
+Header Y154
+Header 56 px, Minimum 50 px, maximal 2 Zeilen
+Icon 34 px
+Visual Y320–1400
+Caption bottom340, 50 px, maximal 2 Zeilen
+Transition 3 Frames
+```
+
+Header: reines Weiß + semantisches Linien-Icon, keine Capsule/Chip/Pill/ALL CAPS.
+
+`AnimationStage` clippt sichtbare Animationen hart auf **Y320–1400**. Sie können dadurch nicht in Header oder Caption-Zone laufen.
+
+Quellenhinweise liegen oberhalb der Caption-Zone und dürfen zweizeilige Captions nicht überdecken.
+
 ## Phase 3
 
 Start immer mit:
@@ -139,17 +139,16 @@ Start immer mit:
 npm run reel:ready -- <Reel-Pfad>
 ```
 
-Wenn das fehlschlägt: nicht mit Ersatzassets weiterbauen.
-
-Bei Erfolg werden die kanonischen `animation.tsx`-Dateien SHA-256-versiegelt.
+Bei FAIL nicht mit Ersatzassets weiterbauen.
 
 Danach:
 
 ```bash
 npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
+npm run reel:phase3:preflight -- <Reel-Pfad>
+npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
+npm run reel:export -- <Reel-Pfad> <Final-MP4>
 ```
-
-Jede Szene aus `scene-index.json` muss im Produktionsmanifest exakt belegt werden.
 
 ### Bildszene
 
@@ -167,9 +166,9 @@ Jede Szene aus `scene-index.json` muss im Produktionsmanifest exakt belegt werde
 - fehlendes Binding = harter Renderfehler
 - keine Ersatzanimation
 
-## Remotion-Hintergrund — immer schwarz
+## Remotion-Hintergrund
 
-Für produktive Reels gilt technisch:
+Produktive Reels:
 
 ```text
 #000000
@@ -189,35 +188,16 @@ Verboten als Background:
 - dekorative Background-Gradienten
 - Hintergrundbewegung als Animationsnachweis
 
-Objektmaterialien dürfen lokale Highlights, Schatten und Oberflächenverläufe haben. Der Canvas selbst bleibt schwarz.
+## Post-Render-QA
 
-## Layout
+Candidate-MP4 ist nicht automatisch final.
 
-Einzige technische Quelle: `REEL_STYLE`.
+Prüfen:
 
-```text
-Header Y154
-Visual Y320–1480
-Caption bottom340
-Transition 3 Frames
-```
-
-Header: normaler weißer Text + semantisches Linien-Icon, keine Capsule/Chip/Pill/ALL CAPS.
-
-## Preflight und Render
-
-```bash
-npm run reel:phase3:preflight -- <Reel-Pfad>
-npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
-```
-
-`reel:render` erzeugt zuerst nur eine Candidate-MP4.
-
-Post-Render-QA muss pro Szene prüfen:
-
-- visueller Kern wirklich belegt
+- visueller Kern jeder Szene wirklich belegt
 - Bildszene nicht leer
 - Animationsszene mit echtem Inhalt und echter Bewegung
+- Animation erklärt den gesprochenen Inhalt
 - Header/Caption allein zählen nicht
 - schwarzer/leerer Kern = FAIL
 - freier Rand bleibt statisch schwarz
@@ -226,18 +206,6 @@ Post-Render-QA muss pro Szene prüfen:
 - 1080×1920
 - Timeline korrekt
 
-Candidate wird bei QA-Fehler nicht als Final ausgegeben.
-
-## Export
-
-Nur nach bestandener Render-QA:
-
-```bash
-npm run reel:export -- <Reel-Pfad> <Final-MP4>
-```
-
-Erst erfolgreicher Export und vollständiges `06-export/` erlauben `FINAL_COMPLETE`.
-
 ## Technische Prüfung
 
 ```bash
@@ -245,8 +213,6 @@ npm run validate
 npm run reel:validate -- <Reel-Pfad>
 npm run reel:ready -- <Reel-Pfad>
 ```
-
-Bei Phase 3 zusätzlich Preflight, Candidate-Render und Post-Render-QA.
 
 Ohne tatsächlichen Lauf niemals behaupten, Validator, Typecheck, Render oder QA seien bestanden.
 
@@ -263,4 +229,4 @@ snapchat.txt
 word-timings.json
 ```
 
-Keine YouTube Shorts. YouTube-Longform bleibt ein separater Workflow unter `youtube/`.
+Keine YouTube Shorts. YouTube-Longform bleibt separat unter `youtube/`.

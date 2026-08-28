@@ -93,9 +93,11 @@ V5-Bühne:
 
 ```text
 Header: Y 154
-Visual: Y 320–1480
+Visual: Y 320–1400
 Caption: bottom 340
 ```
+
+`AnimationStage` clippt produktive Animationen technisch auf **Y320–1400**. Phase-1-Code darf weiterhin im vollen 1080×1920-Koordinatensystem arbeiten, kann aber nicht sichtbar in Header- oder Caption-Zone hineinzeichnen.
 
 ## Hintergrund — strikt getrennt vom Inhalt
 
@@ -165,5 +167,5 @@ Phase 1 darf eine Animationsszene erst als fertig markieren, wenn:
 - Animation auch ohne Ton grundsätzlich verständlich ist
 - sie optisch zur V9-Bildwelt passt
 - der Stage keinen eigenen dekorativen Hintergrund erzeugt
-- die Visualzone sinnvoll gefüllt ist
+- die Visualzone Y320–1400 sinnvoll gefüllt ist
 - Phase 3 keinen kreativen Umbau mehr vornehmen muss

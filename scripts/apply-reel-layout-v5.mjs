@@ -21,7 +21,7 @@ index.layoutVersion = 'finanzneo-reel-layout-v5';
 index.layout = {
   headlineY: 154,
   visualTop: 320,
-  visualBottom: 1480,
+  visualBottom: 1400,
   subtitleBottom: 340,
   subtitleLeft: 72,
   subtitleRight: 140,
@@ -32,6 +32,10 @@ index.sceneHeader = {
   align: 'center',
   presentation: 'plain',
   headlineColor: 'white',
+  fontSize: 56,
+  minFontSize: 50,
+  maxLines: 2,
+  iconSize: 34,
   defaultIconColor: 'finance-green',
   semanticColorLivesOnIcon: true,
   capsuleForbidden: true,
@@ -44,6 +48,14 @@ index.subtitleDisplay = {
   ...(index.subtitleDisplay ?? {}),
   bottom: 340,
 };
+index.visualSafeZone = {
+  top: 320,
+  bottom: 1400,
+  hardClipAnimations: true,
+  headerIntrusionForbidden: true,
+  captionIntrusionForbidden: true,
+};
 
 writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`, 'utf8');
-console.log(`✓ Reel-V5-Layout gesetzt: Header Y154 · Visual 320–1480 · Caption bottom 340 · plain Header.`);
+console.log('✓ Reel-V5-Layout gesetzt: Header Y154 · 56 px · max 2 Zeilen · Visual 320–1400 · Caption bottom 340.');
+console.log('✓ Animationen müssen hart innerhalb der Visualzone bleiben.');

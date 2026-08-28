@@ -35,24 +35,27 @@ export const SAFE_AREA = {
 } as const;
 
 // ─── Verbindlicher Reel-Look V5 ─────────────────────────────────────────────
-// Der SceneHeader ist bewusst eine normale, gut lesbare Überschrift und kein
-// kleines UI-Label. Reines Weiß + etwas größere Typografie schaffen eine klare
-// Hierarchie über dem Visual; die semantische Farbe bleibt primär im Icon.
+// Klare Hierarchie für Mobile: große weiße Zwischenüberschrift, großzügiger
+// Visualbereich und eine feste untere Sicherheitszone für Captions. Animationen
+// werden technisch auf dieselbe Visualzone begrenzt wie Bilder.
 export const REEL_STYLE = {
   caption:{
     fontSize:50,minFontSize:40,fontWeight:800,letterSpacing:0,lineHeight:1.14,
     bottom:340,left:72,right:140,maxWidth:780,maxLines:2,maxWords:9,maxChars:52,
-    holdSeconds:0.38,textShadow:'0 2px 7px rgba(0,0,0,0.55)',textStrokeForbidden:true,
+    maxRenderedHeight:150,holdSeconds:0.38,textShadow:'0 2px 7px rgba(0,0,0,0.55)',textStrokeForbidden:true,
   },
   header:{
     presentation:'plain',align:'center',headlineColor:C.white,defaultIconColor:C.accentLt,
-    top:154,left:72,right:72,fontSize:56,minFontSize:46,fontWeight:800,iconBox:40,iconSize:34,gap:14,
-    maxWidth:880,enterFrames:4,textShadow:'0 2px 6px rgba(0,0,0,0.48)',
+    top:154,left:72,right:72,fontSize:56,minFontSize:50,fontWeight:800,iconBox:40,iconSize:34,gap:14,
+    maxWidth:880,maxLines:2,enterFrames:4,textShadow:'0 2px 6px rgba(0,0,0,0.48)',
+  },
+  sourceNote:{
+    bottom:514,fontSize:21,maxWidth:760,
   },
   transition:{continuityFrames:3,imageEnterFrames:4,fadeToBlackForbidden:true},
   visual:{
-    top:320,bottom:1480,
-    /** Native Vollbild-Animationen aus älteren Komponenten werden zusätzlich höher gezogen. */
+    top:320,bottom:1400,
+    /** Native Vollbild-Animationen werden innerhalb der festen Visualzone skaliert. */
     animationTranslateY:-70,
     animationScale:1.10,
   },
