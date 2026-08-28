@@ -95,7 +95,10 @@ Nicht mehr UI/Dashboard/Flowchart. Stattdessen hochwertige stylized-3D Financial
 PFLICHT PRO BILD
 - EIN dominantes, sofort erkennbares physisches Hero-Objekt
 - Hero ungefähr 45–65 % der nutzbaren Komposition
-- nur 2–4 unterstützende konkrete Objekte
+- KEINE feste Anzahl an unterstützenden Objekten
+- zusätzliche Objekte nur, wenn sie Inhalt, Verständlichkeit oder visuelle Wirkung verbessern
+- eine Szene darf fast keine Support-Objekte brauchen, eine andere mehrere
+- Klarheit und Inhalt entscheiden, niemals eine Zahlenquote
 - medium-close 3/4-Kamera, keine weit entfernte Isometrie
 - starke Silhouette
 - klare Vordergrund-/Hero-/Hintergrundstaffelung
@@ -143,7 +146,7 @@ STRENG VERBOTEN
 - Pixar/Clay/Toy
 
 BILD-QA
-Bild verwerfen und neu erzeugen, wenn Hero zu klein ist, zu viele kleine Objekte konkurrieren, UI/Flowchart-Look entsteht, Material/Tiefe/Licht zu schwach sind, zu viel Leerraum bleibt, alles fast nur grün ist oder die Aussage nur durch Text verständlich wird.
+Bild verwerfen und neu erzeugen, wenn Hero zu klein ist, Support-Objekte nur Deko oder Clutter erzeugen, UI/Flowchart-Look entsteht, Material/Tiefe/Licht zu schwach sind, zu viel Leerraum bleibt, alles fast nur grün ist oder die Aussage nur durch Text verständlich wird.
 
 GOOGLE FLOW — STRICT SINGLE JOB
 - maximal 1 laufender Bildjob
@@ -188,14 +191,14 @@ RESULT: konkretes sichtbares Ergebnis
 
 PREMIUM_VISUAL_NARRATIVE
 HERO: großes dominantes physisches Hauptobjekt
-SUPPORT: 2–4 konkrete Support-Objekte
+SUPPORT: nur die konkreten Support-Objekte, die die Aussage wirklich brauchen; keine feste Anzahl
 MATERIAL: Material-/Farblogik
 DEPTH: Vordergrund/Hero/Hintergrund + Lichttrennung
 
 ANIMATIONS-ZIELWELT
 Die Animation muss wie die Bildwelt wirken, nicht wie ein anderes Produkt:
 - großes physisches Hero-Objekt
-- 2–4 konkrete Support-Objekte
+- keine feste Support-Objekt-Anzahl; Inhalt und Verständlichkeit entscheiden
 - sichtbare Dicke, Materialkanten, Schatten und Tiefe
 - Creme/Weiß + Gold/Rot/Grün semantisch einsetzen
 - Visualzone groß nutzen
@@ -239,6 +242,7 @@ ABSCHLUSSPRÜFUNG PHASE 1
 - Fakten geprüft
 - Bildbeats max. 6 s planbar
 - Premium-V8-Bildwelt in jedem Bildprompt
+- keine feste Supporting-Object-Anzahl in Bild- oder Animationsplanung
 - keine UI-/Flowchart-/monochrom-grüne Bildkomposition
 - jede Animation erfüllt Premium Physical Animation V2
 - Animationen sehen ohne Ton verständlich und hochwertig aus
