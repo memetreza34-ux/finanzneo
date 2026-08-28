@@ -11,8 +11,15 @@ Bild 00 - Notgroschen Cover.png
 
 Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
 
+BESCHRIFTUNGEN – EXAKT SO:
+- Notgroschen
+- Reparatur 280 €
+- Dispo
+
 IMAGE PROMPT:
-Create one strong stylized 3D animated finance cover: a compact gold emergency-fund reserve protected by a large rounded emerald shield while a warm red-orange surprise bill approaches. No headline text.
+Create a clear premium stylized 3D finance cover based on one believable everyday emergency. Show a modern washing machine in a normal apartment laundry area with an obvious but not exaggerated defect, such as a small water leak and a warning light. Place a realistic-looking repair invoice next to it labeled “Reparatur 280 €”. Beside the invoice, show a clearly separate money reserve or simple account container labeled “Notgroschen”, with enough visible money to cover the repair. Add a small crossed-out “Dispo” element near the normal bank-account area so the viewer immediately understands that the emergency fund prevents the need to overdraw the account.
+
+The full image must communicate one exact idea without narration: an unexpected household problem appears, the Notgroschen pays for it, and debt is avoided. Do not make the viewer decode symbolic finance objects. The washing machine, invoice, money reserve and banking context must look like recognizable real-life objects with believable proportions and useful detail.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -20,22 +27,22 @@ PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
 STYLE:
-Create a clearly non-realistic stylized 3D animated finance scene. Use soft rounded geometry, simplified recognizable details, clean materials and a premium but slightly playful animated-movie feel. Keep the main idea understandable within 1–2 seconds.
+Create a premium real-world-grounded stylized 3D explanatory scene. Keep the washing machine, invoice, bank elements and money physically believable and recognizable, but render everything clearly stylized rather than photorealistic. Use polished materials, slightly simplified surfaces and a high-quality animated-film look. Do not make the objects look like generic icons or toys.
 
 BACKGROUND:
-A seamless deep black background is mandatory. Keep it clean, minimal and uninterrupted. No floor-wall boundary, horizon, bright studio environment or colored background zones.
+Use one seamless deep black background. A small believable apartment/laundry context may exist immediately around the washing machine, but it must visually dissolve into the black background. Keep the scene clean and easy to read.
 
 COMPOSITION:
-Content and clarity come first. Use a clear main subject or action. Supporting objects have no fixed count; add only what genuinely helps the explanation.
+Build one coherent real-life situation, not a collection of floating symbols. Make the broken washing machine, repair invoice and Notgroschen the clearest elements. The cause-and-effect chain must be visible immediately: defect → repair cost → emergency fund pays → no overdraft. Use only supporting objects that improve this explanation.
 
 BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep its identity recognizable but reinterpret it in the same stylized 3D animated world. Never use a flat pasted real logo, website screenshot, app screenshot or photorealistic branded UI.
+Do not use any real bank logo or copied banking interface. Any banking element must remain generic, recognizable and stylized in the same 3D world.
 
 COLORS + LIGHT:
-Emerald green = positive. Gold = money/value. Warm red-orange = warning/cost. Ivory and soft gray = neutral. Use clean soft studio lighting, readable shadows and soft contact shadows.
+Use warm ivory and soft gray for the washing machine and neutral apartment surfaces, subtle gold for the money reserve, emerald green for the protected solution and warm red-orange only for the defect/cost warning. Use clean soft studio lighting, readable shadows and soft contact shadows.
 
 TEXT:
-No headline, subtitle, CTA or explanatory sentence. Only explicitly requested short German labels may appear.
+Only the requested short German labels may appear: “Notgroschen”, “Reparatur 280 €” and “Dispo”. Keep them large enough to read and attach them clearly to the correct object. No headline, subtitle, CTA or long explanatory sentence.
 
 FORBIDDEN:
-No realism or photorealism. No product-photo look. No dashboard, no app UI, no flowchart, no tiny boxes, no floating info cards, no microchip/circuit look, no miniature diorama and no clutter.
+No photorealism, no stock-photo look, no isolated vault + shield + coins composition, no abstract finance riddle, no generic icon set, no dashboard, no dense app UI, no flowchart, no floating information cards and no decorative clutter.
