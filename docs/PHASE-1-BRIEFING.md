@@ -110,6 +110,14 @@ OBJEKTE + KOMPOSITION
 - Szene muss in ungefähr 1–2 Sekunden verständlich sein
 - lieber einfach und stark als kompliziert und überladen
 
+MARKEN + LOGOS
+Wenn Marke, Bank, App oder Logo relevant ist:
+- Kernidentität erkennbar ähnlich halten
+- aber als vereinfachtes, abgerundetes 3D-Element in derselben Animationswelt darstellen
+- kein flach aufgeklebtes echtes Logo
+- kein Website-/App-Screenshot
+- kein photorealistisches Markenprodukt oder realistische Marken-UI
+
 FARBEN
 - Emerald Green = positiv / bevorzugter Weg
 - Warm Ivory + Soft Gray = neutrale Flächen
@@ -131,6 +139,7 @@ TEXT IM BILD
 STRENG VERBOTEN
 - Realismus / Photorealismus
 - echter Produktfoto-Look
+- flach aufgeklebtes echtes Logo / Screenshot-Marken-UI
 - Dashboard / App UI
 - Flowchart als Hauptkomposition
 - kleine Kästen, floating Info-Cards, technische UI-Flächen
@@ -145,7 +154,7 @@ PROMPT-LÄNGE
 - keine riesigen Regelblöcke, die die eigentliche Szene überdecken
 
 BILD-QA
-Bild verwerfen und neu erzeugen, wenn es realistisch aussieht, der Hintergrund nicht tiefschwarz ist, die Aussage schwer verständlich ist, zu viel Clutter entsteht, die Szene wie UI/Flowchart wirkt oder die V9-Animationswelt nicht mehr erkennbar ist.
+Bild verwerfen und neu erzeugen, wenn es realistisch aussieht, der Hintergrund nicht tiefschwarz ist, die Aussage schwer verständlich ist, zu viel Clutter entsteht, die Szene wie UI/Flowchart wirkt, eine Marke wie aufgeklebt/Screenshot aussieht oder die V9-Animationswelt nicht mehr erkennbar ist.
 
 GOOGLE FLOW — STRICT SINGLE JOB
 - maximal 1 laufender Bildjob
@@ -159,14 +168,16 @@ GOOGLE FLOW — STRICT SINGLE JOB
 - keine Bildreferenz
 
 ════════════════════════════════════════
-ANIMATION — PREMIUM PHYSICAL ANIMATION V2
+ANIMATION — V9-KOMPATIBLER PHASE-1-CODE
 ════════════════════════════════════════
 
 Phase 1 ist vollständig verantwortlich. Für jede Animationsszene müssen `remotion.md` UND eine fertige `animation.tsx` existieren.
 
-Locks:
+Technische Locks:
 - animationQualityLock: finanzneo-phase1-animation-code-v1
 - animationPremiumVisualLock: finanzneo-premium-physical-animation-v2
+
+Visuelles Ziel: finanzneo-stylized-3d-animated-black-v9
 
 PFLICHTLOGIK
 STARTZUSTAND → SICHTBARER PHYSISCHER MECHANISMUS → EINDEUTIGES ERGEBNIS → Ergebnis mindestens 15 Frames stabil.
@@ -176,7 +187,8 @@ PFLICHT IM CODE
 - ANIMATION_COLORS
 - prog/interpolate/spring
 - PremiumPhysicalStage
-- mindestens zwei PhysicalObject-Instanzen
+- mindestens ein echtes PhysicalObject als sichtbares Hauptmotiv
+- KEINE feste Support-Objekt-Anzahl
 - mindestens eine semantische Materialrolle neutral/money/warning/positive
 - RESULT_HOLD_FRAMES >= 15
 - korrekter Exportname SceneXXAnimation
@@ -190,21 +202,31 @@ RESULT: konkretes sichtbares Ergebnis
 
 PREMIUM_VISUAL_NARRATIVE
 HERO: klares Hauptobjekt oder Hauptaktion
-SUPPORT: nur die konkreten Support-Objekte, die die Aussage wirklich braucht; keine feste Anzahl
+SUPPORT: nur sinnvolle Support-Objekte; keine feste Anzahl
 MATERIAL: Material-/Farblogik
-DEPTH: Vordergrund/Hero/Hintergrund + Lichttrennung
+DEPTH: Vordergrund/Hauptmotiv/Hintergrund + Lichttrennung
 
 ANIMATIONS-ZIELWELT
-Die Animation muss visuell zur neuen Bildwelt passen:
 - klar nicht realistisch
 - stylized 3D animated
-- schwarzer Hintergrund
 - weiche, abgerundete Formen
 - einfache verständliche Objektaktion
-- keine feste Support-Objekt-Anzahl
 - Visualzone groß nutzen
+- PremiumPhysicalStage bleibt TRANSPARENT
+- der einzige Remotion-Reel-Hintergrund ist zentral und statisch #000000
 
-STRENG VERBOTEN
+ANIMATIONS-HINTERGRUND STRENG VERBOTEN
+- FNBgAurora
+- FNBgParticles
+- FNBgGrid
+- FNBgRadial
+- Partikelfelder
+- Aurora-/Glow-Flächen
+- bewegte Grids
+- dekorative Hintergrund-Gradienten/Vignetten
+- Hintergrundbewegung als Frame-Diff-Hack
+
+WEITER STRENG VERBOTEN
 - Dashboard-/Control-Panel-Look
 - Flowchart als Hauptkomposition
 - kleine Kästen mit dünnen Linien
@@ -244,8 +266,10 @@ ABSCHLUSSPRÜFUNG PHASE 1
 - deep-black Hintergrund in jedem Bildprompt
 - keine feste Objektanzahl
 - keine Realistik / Produktfoto-Optik / UI / Flowchart / Clutter
+- Marken/Logos erkennbar aber stilisiert
 - Einzelprompts bleiben mittel-lang
 - jede Animation erfüllt den Phase-1-Animationsvertrag und passt visuell zur V9-Welt
+- Animations-Stage erzeugt keinen eigenen Hintergrund
 - Animationen sehen ohne Ton verständlich und hochwertig aus
 - keine kreative Arbeit für Phase 3 übrig
 ```
@@ -254,6 +278,7 @@ ABSCHLUSSPRÜFUNG PHASE 1
 
 ```bash
 npm run validate:image-world
+npm run validate:reel-background
 npm run reel:validate -- <Reel-Pfad>
 npm run reel:ready -- <Reel-Pfad>
 ```
