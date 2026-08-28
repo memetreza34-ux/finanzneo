@@ -33,9 +33,14 @@ if (index.phase1AnimationCode?.required !== true) fail('phase1AnimationCode.requ
 if (index.phase1AnimationCode?.qualityLock !== ANIMATION_QUALITY_LOCK) fail(`phase1AnimationCode.qualityLock muss ${ANIMATION_QUALITY_LOCK} sein.`);
 if (index.phase1AnimationCode?.premiumVisualLock !== PREMIUM_ANIMATION_LOCK) fail(`phase1AnimationCode.premiumVisualLock muss ${PREMIUM_ANIMATION_LOCK} sein.`);
 if (index.phase1AnimationCode?.phase3MayNotReplaceCanonicalAnimation !== true) fail('Phase 3 darf kanonischen Phase-1-Animationscode nicht ersetzen.');
-if (index.phase1AnimationCode?.requirePremiumPhysicalStage !== true) fail('PremiumPhysicalStage muss für Premium-V2 verpflichtend sein.');
-if (index.phase1AnimationCode?.requirePhysicalObjects !== true) fail('Physische Objekte müssen für Premium-V2 verpflichtend sein.');
+if (index.phase1AnimationCode?.requirePremiumPhysicalStage !== true) fail('PremiumPhysicalStage muss für den Animationsvertrag verpflichtend sein.');
+if (index.phase1AnimationCode?.requirePhysicalObjects !== true) fail('Mindestens ein echtes physisches Hauptobjekt muss verpflichtend sein.');
+if (index.phase1AnimationCode?.supportingObjectCountFlexible !== true) fail('Animationskomposition braucht supportingObjectCountFlexible=true.');
+if (index.phase1AnimationCode?.clarityBeforeObjectCount !== true) fail('Animationskomposition braucht clarityBeforeObjectCount=true.');
 if (index.phase1AnimationCode?.sameVisualLanguageAsFlowImages !== true) fail('Animationen müssen dieselbe visuelle Sprache wie Flow-Bilder verwenden.');
+if (index.phase1AnimationCode?.pureBlackCanvasRequired !== true) fail('Animationen müssen den zentralen pure-black Reel-Canvas verwenden.');
+if (index.phase1AnimationCode?.transparentAnimationStageRequired !== true) fail('Animations-Stage muss transparent bleiben.');
+if (index.phase1AnimationCode?.decorativeBackgroundEffectsForbidden !== true) fail('Dekorative Animations-Hintergrundeffekte müssen verboten sein.');
 
 for (const scene of animations) {
   const id = scene.id ?? 'unbekannte Animation';
@@ -56,7 +61,7 @@ for (const scene of animations) {
     continue;
   }
   if (!statSync(sourcePath).isFile() || statSync(sourcePath).size < 1400) {
-    fail(`${id}: animation.tsx ist zu klein/leer; Premium-V2 erwartet produktionsreifen, visuell ausgearbeiteten Code.`);
+    fail(`${id}: animation.tsx ist zu klein/leer; der Vertrag erwartet produktionsreifen, visuell ausgearbeiteten Code.`);
     continue;
   }
 
@@ -64,21 +69,26 @@ for (const scene of animations) {
   if (placeholder.test(source)) fail(`${id}: animation.tsx enthält Platzhalter/TODO.`);
   if (hackWords.test(source)) fail(`${id}: animation.tsx enthält Platzhalter-/Hack-Sprache.`);
   if (/Math\.(?:sin|cos)\s*\(/.test(source)) fail(`${id}: Math.sin/Math.cos als Dauer-Wackelbewegung ist im Produktionscode gesperrt.`);
-  if (/\b(?:color|background(?:Color)?)\s*:\s*['"](?:black|#000(?:000)?)['"]/i.test(source)) fail(`${id}: schwarzer Inhalt auf dunklem Reel-Hintergrund ist gesperrt.`);
+  if (/\b(?:color|background(?:Color)?)\s*:\s*['"](?:black|#000(?:000)?)['"]/i.test(source)) fail(`${id}: Szene darf keinen eigenen schwarzen Hintergrund/Schwarz-Inhalt definieren; der zentrale Canvas ist bereits #000000.`);
   if (!source.includes(scene.animationExport)) fail(`${id}: Export ${scene.animationExport} ist im kanonischen Code nicht auffindbar.`);
   if (!/useCurrentFrame/.test(source)) fail(`${id}: Animation muss useCurrentFrame nutzen und sichtbar zeitgesteuert sein.`);
   if (!/ANIMATION_COLORS/.test(source)) fail(`${id}: Animation muss die zentrale ANIMATION_COLORS-Palette verwenden.`);
   if (!/(?:prog\s*\(|interpolate\s*\(|spring\s*\()/.test(source)) fail(`${id}: kein nachvollziehbarer zeitlicher Animationsfortschritt gefunden.`);
 
-  // Premium V2: gleiche massive, physische Sprache wie die Flow-Bilder.
-  if (!/PremiumPhysicalStage/.test(source)) fail(`${id}: Premium-V2 muss PremiumPhysicalStage verwenden.`);
+  if (!/PremiumPhysicalStage/.test(source)) fail(`${id}: Animation muss PremiumPhysicalStage verwenden.`);
   const physicalObjects = [...source.matchAll(/<PhysicalObject\b/g)].length;
-  if (physicalObjects < 2) fail(`${id}: Premium-V2 braucht mindestens zwei sichtbare PhysicalObject-Instanzen (Hero + Support).`);
+  if (physicalObjects < 1) fail(`${id}: Animation braucht mindestens ein echtes PhysicalObject als sichtbares Hauptmotiv.`);
   if (!/(?:material=['"](?:neutral|money|warning|positive)['"])/.test(source)) {
-    fail(`${id}: Premium-V2 braucht neben der Struktur mindestens eine semantische Materialrolle (neutral/money/warning/positive).`);
+    fail(`${id}: Animation braucht mindestens eine semantische Materialrolle (neutral/money/warning/positive).`);
   }
   if (/\b(?:Flowchart|Dashboard|ControlPanel|WindowMock|IconTile)\b/.test(source)) {
-    fail(`${id}: Dashboard-/Flowchart-/UI-Komponenten sind als Premium-Hauptsprache gesperrt.`);
+    fail(`${id}: Dashboard-/Flowchart-/UI-Komponenten sind als Hauptsprache gesperrt.`);
+  }
+  if (/\b(?:FNBgAurora|FNBgParticles|FNBgGrid|FNBgRadial|ParticleField|Particles)\b/.test(source)) {
+    fail(`${id}: Partikel/Aurora/Grid/Radial-Hintergrundkomponenten sind in Reel-Animationen verboten.`);
+  }
+  if (/background\s*:\s*['"`]radial-gradient|backgroundImage\s*:/i.test(source)) {
+    fail(`${id}: eigener dekorativer Gradient/Grid-Hintergrund ist verboten; PremiumPhysicalStage bleibt transparent.`);
   }
 
   const narrative = source.match(/ANIMATION_NARRATIVE[\s\S]{0,1800}?START:\s*([^\n]+)[\s\S]*?MECHANISM:\s*([^\n]+)[\s\S]*?RESULT:\s*([^\n]+)/i);
@@ -92,7 +102,7 @@ for (const scene of animations) {
 
   const premiumNarrative = source.match(/PREMIUM_VISUAL_NARRATIVE[\s\S]{0,1800}?HERO:\s*([^\n]+)[\s\S]*?SUPPORT:\s*([^\n]+)[\s\S]*?MATERIAL:\s*([^\n]+)[\s\S]*?DEPTH:\s*([^\n]+)/i);
   if (!premiumNarrative) {
-    fail(`${id}: Premium-V2 braucht PREMIUM_VISUAL_NARRATIVE mit HERO, SUPPORT, MATERIAL und DEPTH.`);
+    fail(`${id}: Code braucht PREMIUM_VISUAL_NARRATIVE mit HERO, SUPPORT, MATERIAL und DEPTH.`);
   } else {
     for (const [label, text] of [['HERO', premiumNarrative[1]], ['SUPPORT', premiumNarrative[2]], ['MATERIAL', premiumNarrative[3]], ['DEPTH', premiumNarrative[4]]]) {
       if (!text || text.trim().length < 8 || placeholder.test(text)) fail(`${id}: Premium-${label} ist zu vage/Platzhalter.`);
@@ -109,6 +119,7 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`\n✓ ${animations.length} kanonische Phase-1-Animation(en) erfüllen Premium Physical Animation V2.`);
-console.log('✓ PremiumPhysicalStage + physische Hero-/Support-Objekte + Materialkontrast + Tiefe sind erzwungen.');
+console.log(`\n✓ ${animations.length} kanonische Phase-1-Animation(en) erfüllen den V9-kompatiblen Animationsvertrag.`);
+console.log('✓ Keine feste Support-Objekt-Anzahl; Klarheit und Inhalt entscheiden.');
+console.log('✓ PremiumPhysicalStage bleibt auf zentralem pure-black Canvas; Partikel/Aurora/Grid/Gradient-Hintergründe sind gesperrt.');
 console.log('✓ Dashboard/Flowchart/UI-Hauptsprache sowie Platzhalter-/Wackel-Hacks sind gesperrt.');

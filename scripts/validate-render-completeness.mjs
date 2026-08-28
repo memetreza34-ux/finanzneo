@@ -83,8 +83,7 @@ if (!Number.isFinite(videoSize) || videoSize < 100000) fail('Finalvideo ist auff
 
 // Nur den visuellen Kern prüfen. Header oben und Caption-Backplate unten sind
 // absichtlich NICHT im Sample. Sonst könnte eine reine Caption-Szene die QA
-// fälschlich als "visuell belegt" bestehen. V5 nutzt als zentrale Visualzone
-// Y=320–1480; alte per-Reel-Werte dürfen sie nur enger, nie größer machen.
+// fälschlich als "visuell belegt" bestehen.
 const declaredVisualTop = Math.max(320, Number(layout.visualTop) || 320);
 const declaredVisualBottom = Math.min(1480, Number(layout.visualBottom) || 1480);
 const cropX = 92;
@@ -95,12 +94,19 @@ const cropHeight = Math.max(160, cropBottom - cropY);
 const sampleWidth = 96;
 const sampleHeight = 104;
 
-const extractGray = (timeSeconds) => {
+// Dieser Rand liegt außerhalb von Visual, Header, Captions und Disclaimer. Er
+// muss im finalen Reel statisch schwarz bleiben. Dadurch können Aurora, Grid,
+// Partikel oder andere Remotion-Hintergrundeffekte nicht unbemerkt durch QA.
+const backgroundCrop = {x: 0, y: 360, width: 48, height: 920};
+const backgroundSampleWidth = 8;
+const backgroundSampleHeight = 64;
+
+const extractGrayRegion = (timeSeconds, crop, outWidth, outHeight) => {
   const args = [
     '-v', 'error',
     '-ss', Math.max(0, timeSeconds).toFixed(3),
     '-i', videoPath,
-    '-vf', `crop=${cropWidth}:${cropHeight}:${cropX}:${cropY},scale=${sampleWidth}:${sampleHeight}:flags=area,format=gray`,
+    '-vf', `crop=${crop.width}:${crop.height}:${crop.x}:${crop.y},scale=${outWidth}:${outHeight}:flags=area,format=gray`,
     '-frames:v', '1',
     '-f', 'rawvideo',
     '-pix_fmt', 'gray',
@@ -108,13 +114,27 @@ const extractGray = (timeSeconds) => {
   ];
   const result = spawnSync('ffmpeg', args, {encoding: null, maxBuffer: 5 * 1024 * 1024});
   if (result.error?.code === 'ENOENT') throw new Error('ffmpeg fehlt.');
-  if (result.status !== 0 || !result.stdout || result.stdout.length < sampleWidth * sampleHeight) {
+  if (result.status !== 0 || !result.stdout || result.stdout.length < outWidth * outHeight) {
     throw new Error(`Frame bei ${timeSeconds.toFixed(2)} s konnte nicht gelesen werden.`);
   }
-  return Buffer.from(result.stdout.subarray(0, sampleWidth * sampleHeight));
+  return Buffer.from(result.stdout.subarray(0, outWidth * outHeight));
 };
 
-const frameMetrics = (buffer) => {
+const extractGray = (timeSeconds) => extractGrayRegion(
+  timeSeconds,
+  {x: cropX, y: cropY, width: cropWidth, height: cropHeight},
+  sampleWidth,
+  sampleHeight,
+);
+
+const extractBackgroundGray = (timeSeconds) => extractGrayRegion(
+  timeSeconds,
+  backgroundCrop,
+  backgroundSampleWidth,
+  backgroundSampleHeight,
+);
+
+const metricsFor = (buffer, widthPx, heightPx, activeThreshold = 18) => {
   const values = [...buffer];
   const count = values.length;
   const mean = values.reduce((sum, value) => sum + value, 0) / count;
@@ -123,18 +143,19 @@ const frameMetrics = (buffer) => {
   const sorted = values.slice().sort((a, b) => a - b);
   const p10 = sorted[Math.floor((count - 1) * 0.10)];
   const p90 = sorted[Math.floor((count - 1) * 0.90)];
+  const activePixelRatio = values.filter((value) => value > activeThreshold).length / count;
   let edgeSum = 0;
   let edgeCount = 0;
 
-  for (let y = 0; y < sampleHeight; y += 1) {
-    for (let x = 0; x < sampleWidth; x += 1) {
-      const i = y * sampleWidth + x;
-      if (x + 1 < sampleWidth) {
+  for (let y = 0; y < heightPx; y += 1) {
+    for (let x = 0; x < widthPx; x += 1) {
+      const i = y * widthPx + x;
+      if (x + 1 < widthPx) {
         edgeSum += Math.abs(values[i] - values[i + 1]);
         edgeCount += 1;
       }
-      if (y + 1 < sampleHeight) {
-        edgeSum += Math.abs(values[i] - values[i + sampleWidth]);
+      if (y + 1 < heightPx) {
+        edgeSum += Math.abs(values[i] - values[i + widthPx]);
         edgeCount += 1;
       }
     }
@@ -145,8 +166,12 @@ const frameMetrics = (buffer) => {
     stdDev: Number(stdDev.toFixed(3)),
     contrastP90P10: p90 - p10,
     edgeMean: Number((edgeSum / Math.max(1, edgeCount)).toFixed(3)),
+    activePixelRatio: Number(activePixelRatio.toFixed(4)),
   };
 };
+
+const frameMetrics = (buffer) => metricsFor(buffer, sampleWidth, sampleHeight);
+const backgroundMetrics = (buffer) => metricsFor(buffer, backgroundSampleWidth, backgroundSampleHeight, 8);
 
 const meanAbsDiff = (a, b) => {
   const count = Math.min(a.length, b.length);
@@ -158,7 +183,13 @@ const meanAbsDiff = (a, b) => {
 const hasVisualStructure = (metrics) => (
   metrics.stdDev >= Number(qaRules.minStdDev ?? 4) &&
   metrics.contrastP90P10 >= Number(qaRules.minContrastP90P10 ?? 12) &&
-  metrics.edgeMean >= Number(qaRules.minEdgeMean ?? 0.5)
+  metrics.edgeMean >= Number(qaRules.minEdgeMean ?? 0.5) &&
+  metrics.activePixelRatio >= Number(qaRules.minActivePixelRatio ?? 0.04)
+);
+
+const hasPureBlackBackground = (metrics) => (
+  metrics.mean <= Number(qaRules.maxBackgroundMean ?? 12) &&
+  metrics.stdDev <= Number(qaRules.maxBackgroundStdDev ?? 4)
 );
 
 const sceneQa = [];
@@ -168,24 +199,33 @@ for (const scene of scenes) {
     : (Array.isArray(qaRules.sampleImageRatios) ? qaRules.sampleImageRatios : [0.5]);
   const buffers = [];
   const samples = [];
+  const backgroundSamples = [];
 
   try {
     for (const ratio of ratios) {
       const frame = scene.startFrame + Math.max(1, Math.min(scene.durationFrames - 1, Math.round(scene.durationFrames * Number(ratio))));
       const time = frame / fps;
       const buffer = extractGray(time);
+      const bgBuffer = extractBackgroundGray(time);
       buffers.push(buffer);
       samples.push({ratio, frame, time: Number(time.toFixed(3)), metrics: frameMetrics(buffer)});
+      backgroundSamples.push({ratio, frame, time: Number(time.toFixed(3)), metrics: backgroundMetrics(bgBuffer)});
     }
   } catch (error) {
     fail(`${scene.id}: ${error instanceof Error ? error.message : String(error)}`);
-    sceneQa.push({id: scene.id, type: scene.type, passed: false, samples, error: String(error)});
+    sceneQa.push({id: scene.id, type: scene.type, passed: false, samples, backgroundSamples, error: String(error)});
     continue;
   }
 
   const structured = samples.filter((sample) => hasVisualStructure(sample.metrics)).length;
+  const blackBackground = backgroundSamples.every((sample) => hasPureBlackBackground(sample.metrics));
   let passed = true;
   let animationMeanAbsDiff = null;
+
+  if (!blackBackground) {
+    passed = false;
+    fail(`${scene.id}: Reel-Hintergrund ist im freien Rand nicht statisch schwarz. Aurora/Grid/Partikel/Glow/Gradient sind verboten.`);
+  }
 
   if (scene.type === 'image') {
     if (structured < 1) {
@@ -211,13 +251,15 @@ for (const scene of scenes) {
     type: scene.type,
     passed,
     structuredSamples: structured,
+    blackBackground,
     animationMeanAbsDiff: animationMeanAbsDiff === null ? null : Number(animationMeanAbsDiff.toFixed(3)),
     samples,
+    backgroundSamples,
   });
 }
 
 const qa = {
-  version: 1,
+  version: 2,
   contractId: index.phase3CompletionContract?.id,
   status: failures.length === 0 ? 'PASSED' : 'FAILED',
   generatedAt: new Date().toISOString(),
@@ -236,6 +278,7 @@ const qa = {
   fps,
   audioStreamPresent: Boolean(audioStream),
   visualCrop: {x: cropX, y: cropY, width: cropWidth, height: cropHeight, excludesHeaderAndCaptions: true},
+  backgroundCrop: {...backgroundCrop, expected: '#000000', excludesContent: true},
   sceneCount: scenes.length,
   imageSceneCount: scenes.filter((scene) => scene.type === 'image').length,
   animationSceneCount: scenes.filter((scene) => scene.type === 'animation').length,
@@ -244,7 +287,9 @@ const qa = {
     audioStreamPresent: Boolean(audioStream),
     captionOnlySceneForbidden: true,
     visualCoreSampledPerScene: true,
+    activeVisualOccupancyChecked: true,
     animationMotionChecked: true,
+    pureBlackBackgroundChecked: true,
     exactVideoHashRecorded: true,
   },
   failures,
@@ -263,5 +308,5 @@ if (failures.length) {
 }
 
 console.log('\n✓ PHASE-3-RENDER-QA BESTANDEN');
-console.log(`  ${scenes.length}/${scenes.length} Szenen im visuellen Kern belegt · Bildszenen sichtbar · Animationsbewegung geprüft · Audio vorhanden`);
+console.log(`  ${scenes.length}/${scenes.length} Szenen im visuellen Kern belegt · aktive Visualfläche geprüft · Animationen bewegt · Hintergrund schwarz · Audio vorhanden`);
 console.log(`  QA-Bericht: ${normalizeRepoPath(relative(resolve('.'), qaPath))}`);

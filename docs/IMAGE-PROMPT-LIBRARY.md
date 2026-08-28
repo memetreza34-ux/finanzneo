@@ -1,138 +1,120 @@
-# FinanzNeo — Bildprompt-Bibliothek
+# FinanzNeo — Bildprompt-Bibliothek V9
 
-Diese Datei enthält die verbindliche Prompt-Sprache für neue FinanzNeo-Bilder. Bei Widerspruch gilt `CLAUDE.md`.
+Bei Widerspruch gilt `CLAUDE.md`. Verbindliche Detailquelle: `docs/IMAGE-SYSTEM.md`.
 
-## Grundregel
+## Grundaufbau
 
-Jeder Prompt besteht aus:
+Jeder Prompt enthält in dieser Reihenfolge:
 
-1. finalem Dateinamen
-2. erlaubten kurzen deutschen Objektlabels
-3. einer starken visuellen Metapher / einem großen Hauptobjekt
-4. einer sichtbaren Ursache-Wirkung
-5. dem unveränderten Qualitäts- und Hintergrundblock
+1. finalen Dateinamen
+2. konkrete Bildidee/Hauptaktion
+3. ausdrücklich erlaubte kurze deutsche Labels
+4. V9-Style-Lock
+5. deep-black Background-Lock
+6. kurze Forbidden-Liste
 
-## Verbindlicher Qualitätsblock
+Prompts bleiben mittel-lang. Die Bildidee darf nicht unter Regeln verschwinden.
+
+## Kanonischer V9-Block
 
 ```text
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
-FORMAT:
-Create a square 1:1 source image. Width and height must be equal. No portrait or vertical format.
-
-SAME-WORLD LOCK:
-Keep the exact same background material and gradient character, emerald rim-light signature, rounded geometry language, bevel softness, matte/glass material finish, color roles, contrast level and premium editorial 3D quality across the complete image series. Do not reinterpret the visual universe between images.
-
 STYLE:
-Premium fintech editorial 3D render style.
-Deep charcoal green-black world.
-Vivid emerald and mint-green accents.
-Gold only for money and financial value.
-Warm red-orange only for danger, debt, loss or blocked money.
-Smooth rounded 3D geometry, soft bevelled edges, premium matte/glass materials and confident high-contrast studio lighting with bold emerald rim light.
+Create a clearly non-realistic stylized 3D animated finance scene with soft rounded geometry, simplified recognizable details, clean materials and a premium but slightly playful animated-movie feel. Make the main idea understandable within 1–2 seconds.
 
-VISUAL LANGUAGE:
-Use ONE dominant financial metaphor or one large hero object with only a few supporting elements.
-A stylized anonymous 3D adult person may be included when useful.
-If a person appears, the face must be clearly visible with stylized eyes, nose and mouth; use front-facing or natural three-quarter view.
-
-TEXT:
-No headline. No subtitle. No explanatory sentence. No CTA.
-Only the explicitly requested short German object labels, normally 1–3 words, directly near the related object.
+COMPOSITION:
+Use one clear main subject or main action. Supporting objects have no fixed count; add only what genuinely improves the explanation. Avoid clutter.
 
 BACKGROUND:
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
-Keep the same continuous material, tone and gradient from the very top edge to the very bottom edge.
-No horizontal divisions.
-No visible top section.
-No visible bottom section.
-No separate zones.
-No dark band at the top or bottom.
-No floor-wall boundary.
-No horizon line.
-No studio wall split.
-No panel background.
-No layered backdrop.
-Use only one subtle continuous gradient/vignette.
-Do not create a visible floor, visible wall or visible studio horizon.
-Objects may cast soft contact shadows, but the background itself remains one uninterrupted surface.
-Place the main subject around the visual center and leave generous natural empty space above and below without changing the background.
+Use one seamless deep black background. Keep it clean, minimal and uninterrupted. No bright studio background, floor-wall boundary, horizon, colored background zones, aurora, grid or particles.
 
-NEGATIVES:
-No photorealism, no real identifiable human, no faceless character, no back-view-only person, no UI dashboard, no app screen, no tiny isometric diorama, no neon tunnel, no sci-fi corridor, no miniature game level, no clutter, no giant typography, no random labels, no Pixar, no clay.
+COLORS + LIGHT:
+Emerald green = positive/focus. Warm ivory and soft gray = neutral. Subtle gold = money/value. Warm red-orange = warning/cost/loss. Use clean soft studio lighting, clear highlights, readable shadows and soft contact shadows.
+
+BRANDS + LOGOS:
+If relevant, keep the brand recognizable but reinterpret it in the same stylized 3D animated world. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI.
+
+TEXT:
+Only the explicitly requested short German labels may appear. No headline, subtitle, CTA or explanatory sentence.
+
+FORBIDDEN:
+No realism or photorealism, no product-photo look, no dashboard, no app UI, no flowchart, no tiny boxes, no floating info cards, no microchip/circuit look, no miniature diorama and no clutter.
 ```
 
 ## Szenenblock
 
 ```text
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild XX - Kurzer Szenenname.png
 
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-Generate exactly this one image, wait until it is complete, rename it immediately, verify filename and QA, and only then continue. If QA fails, regenerate the same image number before proceeding.
+AKTUELLER EINZELSCHRITT:
+Generate exactly this one image. Wait until it is complete. Rename it immediately to the exact filename above. Run V9 QA. If QA fails, regenerate the same image number. Only after PASS unlock the next image.
 
-BESCHRIFTUNGEN – EXAKT SO:
+EXACT SHORT GERMAN OBJECT LABELS:
 - [Label 1]
-- [Label 2]
+- [optional Label 2]
 
-BILDPROMPT:
-A stylized 3D adult person with a clearly visible stylized face, front-facing or in a natural three-quarter view, standing beside [ONE LARGE FINANCIAL METAPHOR].
-[Describe one clear cause-and-effect action using only a few large objects.]
-Include German object labels: '[Label 1]' near [object 1], and '[Label 2]' near [object 2].
-[Append the complete quality block above.]
+IMAGE PROMPT:
+[Describe the one clear scene-specific financial idea or cause/effect action here.]
+
+[Append the canonical V9 block above.]
 ```
-
-Eine Person ist nicht in jeder Szene Pflicht. Wenn keine Person die Erklärung verbessert, bleibt nur die starke Metapher. Wenn eine Person vorkommt, gilt die Gesichtsregel immer.
 
 ## Cover
 
-Auch das Cover verwendet keine große generierte Headline. Thema über eine starke Metapher + wenige kurze Objektlabels verständlich machen.
-
-## Reale Marken
-
-Reale Marken/Dienste dürfen gezielt als konkrete Alltagsbeispiele verwendet werden, wenn sie für die Aussage relevant sind. Keine zufällige Marken-Deko und keine erfundene Partnerschaft suggerieren.
+`Bild 00` bleibt ebenfalls `1:1` und folgt V9. Keine generierte klassische Headline nötig; das Thema soll über ein starkes, sofort lesbares Motiv verständlich werden.
 
 ## Muster: Problem
 
 ```text
-Zeige das konkrete Problem groß und verständlich.
-Noch keine spätere Lösung zeigen.
-Risiko/Verlust nur mit warmem Rot-Orange markieren.
+Show the problem as one clear stylized 3D action or object state. Use red-orange only where actual cost/risk/loss is shown. Do not show the later solution yet.
 ```
 
-## Muster: Schutz
+## Muster: bevorzugter Weg
 
 ```text
-Zeige eine große Schutz-/Reserve-Metapher.
-Goldenes Geld wird sichtbar geschützt oder umgeleitet.
-Risiko wird klar blockiert.
+Show the preferred option as a simple direct action. Use emerald green only for the positive/preferred path. Keep support objects to the minimum needed for clarity.
 ```
 
-## Muster: Entscheidung
+## Muster: Vergleich
 
 ```text
-Zeige eine klare Gegenüberstellung mit wenigen großen Elementen.
-Grün = sinnvoll/geschützt, Rot-Orange = Risiko/falsche Ausgabe.
-Kurze Labels direkt an den beiden Optionen.
+Show two clearly distinguishable outcomes with large readable objects, not UI cards. Use semantic colors only where they explain the difference.
 ```
 
 ## Muster: Ergebnis
 
 ```text
-Zeige ein ruhiges klares Endergebnis mit einer dominanten Metapher.
-Keine überladene Zusammenfassung aller vorherigen Szenen.
+Show one calm, obvious final state. Do not recap every previous object or overload the scene.
 ```
 
 ## Sofort ablehnen
 
-- Prozent-Zonen wie `top 15 / middle 60 / bottom 25`
-- zwei sichtbare Hintergründe/Bänder
-- sichtbare Boden-Wand-Grenze oder Horizont
-- alte gebogene Studioarchitektur als Pflicht
-- Miniatur-Diorama/Game-Level
-- Textfreiheit als Regel (kurze deutsche Objektlabels sind ausdrücklich erlaubt)
-- große generierte Headline/ganzer Satz
-- gesichtslose Person
-- falsche/zusätzliche Labels
+- Hintergrund nicht tiefschwarz
+- Realismus/Produktfoto-Look
+- feste Objektquote statt inhaltlicher Auswahl
+- Dashboard/App-UI/Flowchart
+- Miniatur-Diorama
+- große Headline/ganzer Satz
+- falsche oder zusätzliche Labels
+- aufgeklebt wirkendes echtes Logo/Screenshot
+- Clutter
+
+## Google Flow
+
+Immer Strict Single Job:
+
+```text
+1 Bild
+→ warten
+→ exakt umbenennen
+→ QA
+→ nächstes Bild
+```
+
+Nie Batch, Parallel-Queue, Galerie, Collage oder Nutzer-„weiter“.

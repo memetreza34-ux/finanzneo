@@ -16,7 +16,7 @@ README.md
 
 Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Video anlegen, wenn sie nicht technisch zwingend nötig sind.
 
-`04-caption/` enthält Master-Caption, Reel-Plattformtexte und Wort-Timings:
+`04-caption/` enthält:
 
 ```text
 caption.txt
@@ -27,11 +27,11 @@ snapchat.txt
 word-timings.json
 ```
 
-**YouTube-Regel:** Keine YouTube Shorts. Reel-Projekte erzeugen keine `youtube-shorts.txt`. YouTube ist ausschließlich für eigenständige längere Videos unter `youtube/` vorgesehen.
+Keine YouTube Shorts. YouTube-Longform liegt getrennt unter `youtube/`.
 
 ## 2. Produktionsquelle pro Szene
 
-### Bildszene
+Bildszene:
 
 ```text
 scene-XX/
@@ -39,7 +39,7 @@ scene-XX/
 └── szene.md
 ```
 
-### Remotion-Szene
+Animationsszene:
 
 ```text
 scene-XX/
@@ -48,36 +48,30 @@ scene-XX/
 └── szene.md
 ```
 
-Für Animationsszenen ist `animation.tsx` seit V5 die **kanonische produktionsreife Phase-1-Quelle**. `remotion.md` beschreibt die Mechanik; der TSX-Code setzt sie bereits vollständig um. Phase 3 darf keine eigene Ersatzanimation bauen.
+`animation.tsx` ist die kanonische produktionsreife Phase-1-Quelle. Phase 3 darf keine Ersatzanimation bauen.
 
 ## 3. Google Flow — Einzelbild-Ablauf
 
-Einzige Übergabedatei an den Google-Flow-KI-Agenten:
+Einzige Übergabedatei:
 
 ```text
 03-szenen/alle-bildprompts.txt
 ```
 
-Formatregel: Google Flow erzeugt Cover und Szenenbilder immer quadratisch `1:1`. Das fertige Reel bleibt `9:16`; Remotion platziert die 1:1-Bilder mit `contain`.
+Cover und Szenenbilder bleiben `1:1`.
 
 ```text
 PROMPT LESEN
 → GENAU EIN BILD ERZEUGEN
 → VOLLSTÄNDIG WARTEN
-→ SOFORT ENDGÜLTIG UMBENENNEN
-→ MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
+→ SOFORT EXAKT UMBENENNEN
+→ V9-QA
 → ERST DANN NÄCHSTES BILD
 ```
 
-Keine Batches, keine parallele Vorbereitung und kein späteres Sammel-Umbenennen. Bei einem Fehler dieselbe Bildnummer neu erzeugen und erst nach bestandener QA fortfahren.
-
-### Keine Bild-zu-Bild-Referenz
-
-Für Reel-Bilder wird **kein** Cover oder vorheriges Szenenbild als Image-to-Image-/Referenzbild hochgeladen. Die Same-World-Konsistenz entsteht ausschließlich durch denselben ausgeschriebenen Lock für World ID, Stylized-3D-Look, Materialien, Geometriesprache, Farbrollen, Hintergrund und Lichtsignatur.
+Keine Batches, keine Parallelgenerierung, kein späteres Sammel-Umbenennen, keine Bildreferenz.
 
 ## 4. Nummerierung
-
-Bildnummer = echte chronologische Szenennummer.
 
 ```text
 Bild 00 = Cover
@@ -86,297 +80,313 @@ Bild 02 = Szene 02
 ...
 ```
 
-Animationsszenen behalten ihre Nummer, bekommen aber kein Bild.
+Animationsszenen behalten ihre Szenennummer, erzeugen aber kein Bild.
 
-## 5. Finaler Sammelordner
-
-Erst wenn alle Bilder einzeln erzeugt, umbenannt und geprüft wurden, kommen sie gemeinsam nach:
+## 5. Finaler Bild-Sammelordner
 
 ```text
 03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-## 6. Phase 1 erzeugt keine Bilder, aber fertigen Animationscode
+Alle finalen Bilder müssen dort exakt benannt vorliegen, bevor Phase 3 startet.
 
-- Der Nutzer erstellt Cover und finale Szenenbilder selbst.
-- Phase 1 erstellt Recherche, Skript, Szenenplan, Bildprompts, Dateinamen, Remotion-Spezifikationen, **fertigen Animations-TSX-Code**, Captions und Publishing-Texte.
-- Phase 3 erzeugt keine Bilder und erfindet keine fehlende Animation.
-- Fehlt ein Nutzerbild, genaue fehlende Datei melden und warten.
-- Keine Ersatzbilder oder Stockbilder verwenden.
+## 6. Drei Phasen
 
-## 7. Verbindliche Bildwelt
+### Phase 1 — ChatGPT
 
-World ID:
+- Recherche + Quellen
+- szenenweises Skript
+- Szenenplan
+- V9-Bildprompts
+- Header + Icons
+- `remotion.md`
+- fertige `animation.tsx`
+- Captions/Plattformtexte
+
+### Phase 2 — Nutzer
+
+- finale Flow-Bilder
+- genau ein finales Voiceover
+- echte Wort-Timings aus diesem Voiceover
+
+### Phase 3 — konfigurierter Executor
+
+`scene-index.json.phase3Executor` entscheidet Antigravity oder Claude Code.
+
+Phase 3 integriert. Sie erzeugt keine fehlenden Nutzerbilder und erfindet keine fehlende Animation.
+
+## 7. Bildwelt — Stylized 3D Animated Black V9
 
 ```text
-finanzneo-connected-studio-v3
+finanzneo-stylized-3d-animated-black-v9
 ```
 
-Series Lock:
+Pflicht:
+
+- klar stylized 3D animated
+- niemals realistisch / photorealistisch
+- soft rounded shapes
+- vereinfachte erkennbare Details
+- clean materials
+- premium, freundlich, leicht verspielt
+- klare Hauptaussage oder Hauptaktion
+- keine feste Objektanzahl
+- Inhalt und Verständlichkeit vor Deko
+- Deep Black als Bildhintergrund
+- Emerald positiv/bevorzugt
+- Warm Ivory + Soft Gray neutral
+- Gold Geld/Wert
+- Warm Red-Orange Warnung/Kosten/Verlust
+
+### Marken / Logos
+
+Wenn Marke, Bank, App oder Logo relevant ist:
+
+- erkennbar ähnlich, aber stilisiert in derselben 3D-Animationswelt
+- vereinfachte rounded 3D-Form
+- passendes Material und Licht
+- kein flach aufgeklebtes echtes Logo
+- kein Website-/App-Screenshot
+- kein photorealistischer Markenprodukt-/UI-Look
+
+## 8. Flow-Hintergrund — Deep Black Pflicht
 
 ```text
-finanzneo-same-world-v1
-```
-
-Stylized-3D-Lock:
-
-```text
-finanzneo-stylized-3d-editorial-v5
-```
-
-Physical-Explainer-Lock:
-
-```text
-finanzneo-physical-explainer-editorial-v7
-```
-
-Stil:
-
-- clearly stylized premium 3D CGI financial editorial explainer
-- erkennbare Alltagsobjekte, aber chunky/volumetrisch modelliert
-- abgerundete Formen und soft bevelled edges
-- tiefe charcoal green-black Grundwelt
-- emerald/mint Akzente
-- Gold nur für Geld/Wert
-- warmes Rot-Orange nur für Risiko/Verlust/unnötige Kosten
-- cinematic soft key light + emerald rim light
-- klare Vorder-/Mittel-/Hintergrundtiefe
-- keine fotorealistischen Papier-/Büro-/Stockfoto-Stillleben
-- kein Pixar, Clay oder Toy-Look
-- keine Dioramen, Neon-Tunnel, Sci-Fi-Korridore, Dashboards oder Game-Level
-
-## 8. Kritische Hintergrundregel — genau EIN Hintergrund
-
-Keine Prozent-Zonen verwenden. Jedes Bild nutzt genau einen nahtlosen Hintergrund von oben bis unten.
-
-```text
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
-Keep the same continuous material, tone and gradient from top edge to bottom edge.
-No horizontal divisions.
-No visible top section or bottom section.
-No separate zones or panels.
-No dark/light band at the top or bottom.
+Use one seamless deep black background.
+Keep it clean, minimal and uninterrupted.
+No bright studio background.
 No floor-wall boundary.
 No horizon line.
-No studio wall split.
-Use only one subtle continuous gradient/vignette.
+No colored background zones.
 ```
 
-## 9. Personenregel
+Das Motiv muss sich durch Licht und Schatten klar vom Schwarz lösen.
 
-Wenn eine Person vorkommt:
-
-- klare stilisierte Augen, Nase und Mund
-- Gesicht gut sichtbar
-- frontal oder natürliche 3/4-Ansicht bevorzugt
-- keine gesichtslose Figur
-- keine reine Rückenansicht
-- keine reale/identifizierbare Person
-
-## 10. Text im KI-Bild
+## 9. Text im KI-Bild
 
 Erlaubt:
 
 - nur explizit vorgegebene kurze deutsche Objektlabels
-- meist 1–3 Wörter
-- direkt am passenden Objekt
 
 Verboten:
 
-- große Überschrift
+- Headline
 - Untertitel
 - ganzer erklärender Satz
 - CTA
 - zufällige Zusatztexte
 
-## 11. Darstellung in Remotion
+## 10. Darstellung der Bilder in Remotion
 
-- Bild mit `object-fit: contain`
-- keine sichtbare unscharfe Kopie desselben Bildes im Hintergrund
-- Source-Crop oben höchstens `0.20`
-- Source-Crop unten höchstens `0.20`
-- Source-Crop insgesamt höchstens `0.34`
-- zusätzliche Skalierung höchstens `1.04`
-- wichtige Motive und Labels nie abschneiden
+- `object-fit: contain`
+- keine unscharfe Bildkopie als Hintergrund
+- Source-Crop oben max. `0.20`
+- Source-Crop unten max. `0.20`
+- Source-Crop insgesamt max. `0.34`
+- zusätzliche Skalierung max. `1.04`
+- wichtige Motive/Labels nie abschneiden
+
+## 11. Remotion-Reel-Hintergrund — Pure Black V1
+
+Der finale Reel-Canvas ist technisch immer:
+
+```text
+#000000
+statisch
+```
+
+Zentrale Quelle: `src/design-system/FinanceBackground.tsx`.
+
+Alte `standard/data/premium`-Props dürfen die Optik nicht verändern.
+
+Als Reel-Hintergrund strikt verboten:
+
+- `FNBgAurora`
+- `FNBgParticles`
+- `FNBgGrid`
+- `FNBgRadial`
+- Partikelfelder
+- Aurora-/Glow-Flächen
+- bewegte Grids
+- Hintergrund-Gradienten/Vignetten
+- dekorative Background-Motion
+
+Hintergrundbewegung zählt niemals als gültige Szenenanimation.
 
 ## 12. Timing
 
-Ziel grob 60 % Bildbeats / 40 % Remotion-Animationen. Die Quote ist kein Grund, ein Bild künstlich lange stehen zu lassen.
+- Bildbeat ideal: 3,5–5,5 s
+- Bildbeat absolut max.: 6,0 s
+- Animation ideal: 4,5–7,0 s
+- bei >6 s Bild-Erklärzeit: splitten oder animieren
 
-- Bildbeat ideal: 3,5–5,5 Sekunden
-- Bildbeat absolut maximal: 6,0 Sekunden
-- Animation ideal: 4,5–7,0 Sekunden
-- wenn ein Bild mehr als 6 Sekunden Erklärzeit braucht: splitten oder animieren
+Die 60/40-Verteilung ist Ziel, kein Zwang.
 
-## 13. Zwischenüberschrift — V5 Plain Header
+## 13. V5 Plain Header
 
-Jede Bild- und Animationsszene besitzt oben eine klare Zwischenüberschrift mit passendem Icon.
+- mittig
+- natürliche Schreibweise / Sentence Case
+- weißer Text
+- einfaches semantisch gefärbtes Linien-Icon
+- keine Capsule, kein Chip, kein Panel, keine Pill
+- keine erzwungene ALL-CAPS-Transformation
+- Aussage oder Frage statt Zahl/Stichwort
 
-Standard:
+## 14. Layout V5
 
-```tsx
-<SceneHeader title="Kontoauszug prüfen" icon="search" />
-```
-
-Regeln:
-
-- mittig zentriert
-- normale Schreibweise / Sentence Case
-- neutral weißer Text
-- einfaches Linien-Icon als semantischer Farbakzent
-- keine Capsule, kein Chip, kein Panel, keine pillenförmige Box
-- jede Szene ein eigenes, inhaltlich passendes Icon
-- Überschrift ist eine Aussage oder Frage — nie nur Stichwort/Zahl
-- kurze direkte Formulierung, etwa 3–6 Wörter
-- semantische Farbe primär über das Icon: grün normal/positiv, rot Warnung, gold Geld/Wert
-
-## 14. Layout V5 — 1080 × 1920
-
-Verbindliche Quelle: `REEL_STYLE` in `src/brand/tokens.ts`.
+Quelle: `REEL_STYLE`.
 
 ```text
 Header               Y = 154
 Visual               Y = 320–1480
-Untertitel           340 px über dem unteren Rand
-Header links/rechts  80 px
-Caption links        72 px
-Caption rechts       140 px
-Szenenübergang       3 Frames · kein Fade-to-black
+Untertitel           bottom = 340
+Caption links        72
+Caption rechts       140
+Szenenübergang       3 Frames
 ```
 
-Ziel der V5-Verschiebung:
-
-- oben mehr ruhige Luft
-- Header näher am Visual
-- Bilder und Animationen sichtbar höher
-- Untertitel höher und weiter weg vom unteren Rand
-- Bild- und Animationsszenen auf derselben vertikalen Bühne
+Lokale Reel-Werte dürfen das nicht überschreiben.
 
 ## 15. Untertitel
 
-- satzbasierte Caption-Einheit sichtbar
-- aktuelles Wort immer FinanzNeo-grün
-- restliche Wörter immer weiß
-- kein gelbes/goldenes Active-Word
-- kein schwarzer Untertiteltext
-- maximal zwei Zeilen
-- keine springenden Wörter
-- keine Größenanimation / kein Scale-Pop
-- kurze Pausen halten die vorherige Caption sichtbar
-- keine Caption-Lücken
-- Standardposition V5: `bottom = 340`
+- satz-/phrasenbasiert
+- aktives Wort grün
+- Rest weiß
+- max. 2 Zeilen
+- 50 px Basis, Weight 800
+- kein Stroke
+- kein Jump/Scale-Pop
+- keine Caption-Lücke
+- kein Wort der nächsten Szene vor Szenengrenze
 
-Technische Standardkomponente: `src/brand/components/Captions.tsx`.
+## 16. Animationsklarheit — Phase 1 verantwortlich
 
-## 16. Animationsklarheit — Phase 1 ist verantwortlich
+Detailquelle: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
 
-Verbindliche Detailquelle: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
-
-Jede native Remotion-Erkläranimation folgt zwingend:
+Pflicht:
 
 ```text
 STARTZUSTAND
 → SICHTBARE VERÄNDERUNG / MECHANISMUS
 → EINDEUTIGES ERGEBNIS
-→ mindestens 15 Frames stabiler Endzustand
+→ mindestens 15 Frames stabil
 ```
 
-Phase 1 liefert pro Animationsszene:
-
-```text
-remotion.md
-animation.tsx
-```
-
-Pflicht im Code:
+`animation.tsx` muss u. a. verwenden:
 
 - `useCurrentFrame`
-- `AnimationStage`
 - `ANIMATION_COLORS`
+- `PremiumPhysicalStage`
+- mindestens ein echtes `PhysicalObject`
 - `prog`, `interpolate` oder `spring`
-- `ANIMATION_NARRATIVE` mit START / MECHANISM / RESULT
+- `ANIMATION_NARRATIVE`
+- `PREMIUM_VISUAL_NARRATIVE`
 - `RESULT_HOLD_FRAMES >= 15`
-- produktionsreifer Export `SceneXXAnimation`
+
+Visuell:
+
+- dieselbe V9-Animationswelt wie die Flow-Bilder
+- keine feste Support-Objekt-Anzahl
+- transparente Animations-Stage
+- schwarzer Canvas kommt ausschließlich aus zentralem `FinanceBackground`
 
 Verboten:
 
-- `Math.sin`/`Math.cos` als künstliches Dauerwackeln nur für Frame-Diff
-- wackelnde Rechtecke, Debug-Boxen, bunte Testflächen
-- Dummy-/Placeholder-Komponenten
-- generische Cards + Text ohne sichtbaren Mechanismus
-- reine Zooms/Fades/Zahlen-Popups als komplette Animation
-- „technisch bestehen, später hübsch machen"
-- schwarzer Text auf dunklen Reel-Flächen
+- `Math.sin`/`Math.cos` als QA-Wackel-Hack
+- Debug-/Test-/Dummy-/Placeholder-Komponenten
+- generische Cards + Text ohne Mechanismus
+- reine Zoom/Fade/Popup-Erklärung
+- Partikel/Aurora/Grid/Glow/Gradient als Animationshintergrund
+- Background-Motion als Frame-Diff-Hack
 
-Bei erfolgreichem `reel:ready` wird jede Phase-1-Animationsdatei per SHA-256 versiegelt. Phase 3 muss direkt diese Quelle verwenden; ein veränderter Hash blockiert den Preflight.
+Bei erfolgreichem `reel:ready` wird jede Phase-1-Animationsdatei per SHA-256 versiegelt.
 
-## 17. Satzbasierte Szenenschnitte
+## 17. Phase 3 — Hard Completion
 
-```text
-finales Voiceover
-→ echte Wort-Zeitstempel
-→ Satz- und bei Bedarf sinnvolle Phrasenanfänge
-→ Szenenstarts
-→ relative Animationsdauer
+Start zwingend:
+
+```bash
+npm run reel:ready -- <Reel-Pfad>
 ```
 
-Kein starres Raster gleich langer Szenen.
+Bei FAIL stoppen und echte Blocker melden.
 
-## 18. Audio
+Danach:
+
+```bash
+npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
+# Manifest vollständig machen
+npm run reel:phase3:preflight -- <Reel-Pfad>
+npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
+npm run reel:export -- <Reel-Pfad> <Final-MP4>
+```
+
+### Bildszene
+
+- exaktes Nutzerbild sichtbar
+- kein Ersatzbild
+- kein Caption-/Header-only-Fallback
+
+### Animationsszene
+
+- exaktes `animationSourceFile`
+- exakter `animationExport`
+- SHA-256 muss Seal entsprechen
+- echtes Animation-Binding
+- kein Ersatzcode
+
+## 18. Post-Render-QA
+
+Eine MP4 allein ist kein Fertigkeitsnachweis.
+
+Render-QA prüft pro Szene:
+
+- visueller Kern ist tatsächlich belegt
+- Bildszene ist nicht schwarz/leer/caption-only
+- Animationsszene besitzt sichtbaren Inhalt und echte Veränderung
+- aktive Visualfläche ist ausreichend
+- freier Rand bleibt statisch schwarz
+- keine Partikel/Aurora/Grid/Glow-Hintergründe
+- Audio-Stream vorhanden
+- 1080×1920
+- Timeline-Dauer korrekt
+
+Schwarzes/leeres Reel oder schwarze/leere Szene = **FAIL**.
+
+## 19. Audio
 
 ```text
 Integrated Loudness: ungefähr -16 LUFS
 True Peak: höchstens -1 dBTP
 ```
 
-Am finalen Export messen.
-
-## 19. Bild-/Reel-QA
-
-Vor Freigabe:
-
-1. Bild gegen gesprochenen Beat prüfen
-2. nahtlosen Hintergrund prüfen
-3. stylized 3D statt Fotorealismus prüfen
-4. horizontale Bänder/Floor-Wall-Split ausschließen
-5. Gesicht prüfen, falls Person vorkommt
-6. Labels prüfen
-7. alle Bilder als Kontaktbogen prüfen
-8. Anfang/Mitte/Ende jeder Bildszene im Render prüfen
-9. jede Szene auf Plain-Header + Icon prüfen
-10. Caption-Active-Word auf Grün prüfen
-11. schwarzen Text auf dunklen Szenen ausschließen
-12. jede Animation auf Start → Mechanismus → Ergebnis prüfen
-13. Phase-1-Animationshash gegen Seal prüfen
-14. Animationen einmal ohne Ton ansehen
-15. vollständige MP4 mit Ton ansehen
+## 20. Reel-QA
 
 Sofort korrigieren bei:
 
-- zwei sichtbaren Hintergründen/Bändern
-- horizontaler Trennkante
-- sichtbarer Boden-Wand-Grenze/Horizont
-- gesichtsloser/abgewandter Person
+- fehlendem/falschem Nutzerbild
+- Realismus / Produktfoto-Look
+- nicht tiefschwarzem Flow-Hintergrund
+- nicht rein schwarzem Remotion-Hintergrund
+- Partikel/Aurora/Grid/Glow/Vignette im Reel-Hintergrund
+- aufgeklebt wirkender Marke / Screenshot-UI
+- UI-/Dashboard-/Flowchart-Look
+- unnötigem Clutter
 - falschen Labels
-- großer Headline/Satz im KI-Bild
-- Diorama/Game-Level
-- fotorealistischem Büro-/Papierlook
-- falscher Satzzuordnung
-- Bildbeat > 6 Sekunden
-- fehlender Szenenüberschrift oder fehlendem Icon
-- Header-Capsule/Chip statt normaler Typografie
-- künstlicher ALL-CAPS-Formatierung
-- gelbem/goldenem Karaoke-Active-Word
-- schwarzem Text auf dunklem Hintergrund
-- unverständlicher/dekorativer Animation ohne klare Ursache-Wirkung
+- Bildbeat >6 s
+- fehlendem Header/Icon
+- Header-Capsule/ALL-CAPS
+- falscher Caption-Position/Farbe
+- schwarzem/leeren visuellen Kern
+- unverständlicher/dekorativer Animation
 - Debug-/Wackel-/Placeholder-Animation
+- fehlendem Animation-Binding
 - durch Phase 3 ersetztem Animationscode
+- fehlendem Audio
 
-## 20. Plattform-Publishing
+## 21. Publishing
 
-Verbindlich ist `docs/PLATFORM-PUBLISHING.md`.
-
-Pflichtdateien in `04-caption/`:
+Pflichtdateien:
 
 ```text
 caption.txt
@@ -386,9 +396,9 @@ facebook-reels.txt
 snapchat.txt
 ```
 
-Keine YouTube Shorts erzeugen, validieren oder veröffentlichen.
+Keine YouTube Shorts.
 
-## 21. Automatische Erstellung
+## 22. Automatische Erstellung
 
 ```bash
 npm run reel:create -- \
@@ -396,33 +406,22 @@ npm run reel:create -- \
   --title "Reel-Titel"
 ```
 
-Der öffentliche Ersteller setzt automatisch:
+`reel:create` setzt nativ:
 
-- Flow Strict-Single-Job
-- Phase-3-Completion-Gate
-- Reel-Layout V5
+- Flow Strict-Single-Job V3
+- V9 Bildwelt
+- Pure-Black Reel Background V1
+- V5 Layout
 - Phase-1-Animationscode-Vertrag
+- Phase-3-Completion-Gate
 
-## 22. Automatische Prüfung
+## 23. Automatische Prüfung
 
 ```bash
+npm run validate:image-world
+npm run validate:reel-background
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
-```
-
-Der Validator prüft zusätzlich:
-
-- V5-Layout
-- Plain Header
-- vollständigen kanonischen Animationscode
-- keine Placeholder-/Wackel-Hacks
-- Phase-3-Completion-Vertrag
-
-Vor Phase 3:
-
-```bash
 npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
 ```
 
-Bei Erfolg wird der Phase-1-Animationscode versiegelt. Erst danach darf Phase 3 starten.
-
-Validator/Typecheck/Preview müssen tatsächlich ausgeführt werden, bevor ein Reel als technisch fertig bezeichnet wird. Technischer Erfolg ersetzt nicht die visuelle Freigabe.
+Ein Reel ist erst final, wenn Preflight, Candidate-Render, Post-Render-QA und `reel:export` tatsächlich erfolgreich waren.

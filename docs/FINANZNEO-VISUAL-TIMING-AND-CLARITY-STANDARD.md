@@ -1,121 +1,140 @@
-# FINANZNEO VISUAL TIMING & CLARITY STANDARD
+# FinanzNeo — Visual Timing & Clarity Standard V9
 
 ## Ziel
-FinanzNeo-Reels sollen schnell verständlich, alltagsnah, hochwertig und dynamisch sein. Zuschauer dürfen nicht erst interpretieren müssen, was ein Bild bedeutet.
+
+FinanzNeo-Reels sollen schnell verständlich, hochwertig und dynamisch sein. Zuschauer dürfen nicht erst interpretieren müssen, was ein Visual bedeutet.
 
 ## Verhältnis Bild / Animation
-- Ziel: ungefähr **60 % Google-Flow-Bildbeats / 40 % native Remotion-Animationsbeats**.
-- Das Verhältnis bezieht sich auf die tatsächlichen visuellen Beats, nicht auf eine starre Anzahl von 10 Szenen.
-- Die Szenenanzahl wird aus Voiceover-Länge und Verständlichkeit abgeleitet.
-- Ein längeres Reel braucht mehr visuelle Beats; niemals ein Bild künstlich verlängern, nur um eine feste Szenenzahl einzuhalten.
+
+- Ziel ungefähr **60 % Google-Flow-Bildbeats / 40 % native Remotion-Animationsbeats**.
+- Qualität und Verständlichkeit stehen über der Quote.
+- Szenenanzahl wird aus Voiceover-Länge und Aussage abgeleitet.
+- Ein Visual wird nie künstlich verlängert, nur um eine Quote oder feste Szenenzahl zu erfüllen.
 
 ## Harte Timing-Regeln
+
 ### Bildbeats
-- Ideal: **3,5 bis 5,0 Sekunden**
-- Normaler Höchstwert: **5,5 Sekunden**
-- Absolutes Maximum: **6,0 Sekunden**
-- Kein statisches Quellbild darf länger als 6 Sekunden dieselbe Aussage tragen.
+
+- ideal: **3,5–5,5 Sekunden**
+- absolutes Maximum: **6,0 Sekunden**
+- braucht dieselbe Aussage länger: splitten oder animieren
 
 ### Animationsbeats
-- Ideal: **4,5 bis 6,0 Sekunden**
-- Nur ein echter Mechanismus darf länger laufen: Start -> sichtbare Veränderung -> Ergebnis.
 
-## Split-or-Animate-Regel
-Wenn gesprochener Inhalt für ein Bild mehr als 6 Sekunden benötigt:
-1. in zwei verständliche visuelle Beats aufteilen, oder
-2. den erklärenden Teil als native Remotion-Animation umsetzen.
+- ideal: **4,5–7,0 Sekunden**
+- Animation braucht einen echten Mechanismus:
+
+```text
+START → SICHTBARE VERÄNDERUNG → ERGEBNIS
+```
 
 ## 2-Sekunden-Klarheitsregel
-Jeder Bildbeat muss in unter 2 Sekunden verständlich sein.
+
+Jeder Bildbeat muss innerhalb ungefähr 1–2 Sekunden verständlich sein.
 
 Pflicht:
-- genau 1 Hauptaussage
-- 1 deutliches Hero-Objekt
-- 2–5 unterstützende Alltagsobjekte
-- direkte Alltagsmetapher
-- kurze Labels/Zahlen nur wenn sie die Aussage sofort klären
+
+- genau eine Hauptaussage oder Hauptaktion
+- klar lesbares Hauptmotiv
+- Support-Objekte nur, wenn sie die Aussage verbessern
+- kurze Labels/Zahlen nur, wenn sie wirklich helfen
+
+Es gibt **keine feste Objektanzahl**. Ein einzelnes starkes Objekt kann besser sein als fünf erklärende Props.
 
 Nicht zulässig:
-- Interpretationsbilder
-- abstrakte Symbolwelten ohne Alltagssignal
+
+- Interpretationsbilder ohne klare Aussage
 - tote Produktstillleben
-- Motive, die erst durch Voiceover erklärt werden müssen
+- unnötiger Clutter
+- Motive, die erst durch lange Voiceover-Erklärung verständlich werden
 
-## VERBINDLICHER 3D-LOOK
-`physical` bedeutet bei FinanzNeo **nicht fotorealistische Papierfotografie**.
+## Verbindliche Bildwelt
 
-Jedes Google-Flow-Bild muss wie eine bewusst gestaltete hochwertige **stylized 3D CGI editorial illustration** aussehen:
-- klar erkennbare 3D-Tiefe und Volumen
-- vereinfachte, leicht überzeichnete Proportionen
-- dicke, substanzielle Objekte statt dünner realistischer Papierblätter
-- smooth rounded geometry und weiche Bevels
-- premium PBR-like materials
-- matte cream paper/card material, dark emerald premium plastic/metal, restrained glass
-- chunky stylized gold euro-value coins
-- cinematic soft key light
-- controlled emerald rim light
-- starke, weiche Kontakt-Schatten
-- klare Vordergrund-/Mittelgrund-/Hintergrundtiefe
-- leichtes Depth-of-Field möglich
-- hochwertiger 3D-Render, nicht Produktfoto
+```text
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+```
 
-Hart verboten:
-- photorealistic office photography
-- real-world stationery photo look
-- flache echte Papierdokumente als dominanter Stil
-- Stockfoto-Look
-- Dashboard/App-UI/Gameboard/Control-Panel
-- Pixar/Clay/Toy-Look
+Jedes Flow-Bild:
 
-## Alltagsmetaphern
-Bevorzugt werden stilisierte 3D-Versionen direkter Alltagsgegenstände:
-- Kalender
-- Quittung / Kontoauszug / Vertrag
-- Preisschild
-- Geldbörse
-- Lupe
-- Münzen
-- Kopfhörer / Streaming-Symbol als physischer Gegenstand
-- Smartphone als Objekt
-- SIM-Karte
-- Mitgliedskarte
-- Einkaufs-/Haushaltsgegenstände
+- klar nicht realistisch / nicht photorealistisch
+- stylized 3D animated
+- soft rounded geometry
+- vereinfachte erkennbare Details
+- clean materials
+- premium und leicht verspielt, nicht kindlich
+- Inhalt und Klarheit vor Dekoration
 
-Die Gegenstände müssen **stilisiert 3D** sein, nicht fotorealistisch nachgebaut.
+## Deep Black — Pflicht
 
-## Lebendigkeit
-Erwünscht:
-- sichtbare Ursache-Wirkung
-- leichte diagonale Komposition
-- Objekte überlappen sinnvoll
-- aufgeklappte/aufgefächerte 3D-Kalenderkarten
-- gerollte oder geschwungene stilisierte Belege
-- Münzen bewegen den Blick durch die Szene
-- klare Größenkontraste
-- Vorher/Nachher oder klein/groß unmittelbar erkennbar
+Der Hintergrund jedes Flow-Bildes ist ein nahtloser, sauberer, tiefschwarzer Hintergrund.
 
-Vermeiden:
-- Museumsanordnung
-- alles frontal nebeneinander
-- sterile Produktpodeste
-- zufällige Deko ohne Funktion
+Verboten:
+
+- heller Studiohintergrund
+- Boden-Wand-Grenze
+- Horizont
+- farbige Background-Zonen
+- Aurora-/Glow-Feld als Background
+- Grid-/Partikel-Hintergrund
+
+Das Motiv trennt sich durch sauberes Studio-Licht, Highlights, Schatten und Material vom Schwarz.
+
+## Farbrollen
+
+- Emerald Green = Fokus / positiv / bevorzugt
+- Warm Ivory + Soft Gray = neutral
+- Gold = Geld / Wert
+- Warm Red-Orange = Warnung / Kosten / Verlust
+- Deep Black = Hintergrund
+
+## Alltagsobjekte
+
+Alltagsgegenstände sind sinnvoll, wenn sie die Aussage direkt verständlich machen, z. B. Karte, Terminal, Quittung, Geldbörse, Lupe, Münzen, Smartphone oder Bank-Symbol.
+
+Sie sind **Optionen, keine Pflichtliste**. Keine Props nur zum Auffüllen.
+
+## Marken / Logos
+
+Wenn inhaltlich relevant: erkennbar, aber stilisiert in derselben 3D-Welt. Kein Real-Logo als flacher Sticker, kein Website-/App-Screenshot und keine photorealistische Marken-UI.
 
 ## Text im Bild
-Erlaubt:
-- 1–4 kurze Wörter
-- Zahlen/Preise
-- kurze Fragen/Kategorien
 
-Keine ganzen Sätze, keine Untertitel, keine CTA-Sätze.
+Erlaubt:
+
+- wenige kurze deutsche Labels
+- notwendige Zahlen/Preise
+
+Verboten:
+
+- ganze Sätze
+- Untertitel
+- CTA
+- große Headline
+- zufällige Zusatztexte
+
+## Animationen
+
+Native Remotion-Animationen folgen derselben V9-Sprache:
+
+- zentraler Reel-Canvas statisch `#000000`
+- `PremiumPhysicalStage` transparent
+- keine Partikel, Aurora, Grid, Vignette oder dekorative Background-Bewegung
+- mindestens ein echtes sichtbares Hauptobjekt
+- keine feste Support-Objekt-Anzahl
+- Bewegung erklärt die Aussage
+- Background-Motion zählt niemals als Erkläranimation
 
 ## QA vor Freigabe
-1. Sieht es eindeutig nach stylized premium 3D CGI aus?
-2. Ist es klar NICHT fotorealistisch?
-3. Ist die Hauptaussage in unter 2 Sekunden erkennbar?
-4. Ist die Metapher alltagsnah?
-5. Hat jedes Objekt eine Funktion für die Aussage?
-6. Nur kurze Labels statt Sätze?
-7. Kein Bildbeat über 6 Sekunden?
-8. Kein Dashboard/UI/Board/Game-Level?
 
-Wenn eine Antwort `nein` ist: Bild neu planen oder neu erzeugen.
+1. Ist die Aussage in 1–2 Sekunden verständlich?
+2. Ist das Visual klar stylized 3D statt realistisch?
+3. Ist der Hintergrund tiefschwarz und clean?
+4. Sind nur notwendige Objekte vorhanden?
+5. Sind Labels kurz und korrekt?
+6. Ist kein Dashboard/UI/Flowchart/Diorama/Clutter entstanden?
+7. Bleibt ein Bildbeat unter 6 Sekunden?
+8. Zeigt jede Animation Start → Mechanismus → Ergebnis?
+9. Bleibt der Remotion-Hintergrund statisch schwarz?
+10. Ist die Animation ohne Ton grundsätzlich verständlich?
+
+Wenn eine Antwort `nein` ist: Visual neu planen oder korrigieren.

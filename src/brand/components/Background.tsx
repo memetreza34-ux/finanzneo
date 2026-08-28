@@ -1,45 +1,26 @@
 import React from 'react';
-import { AbsoluteFill, useCurrentFrame } from 'remotion';
-import { C, a } from '../tokens';
+import {AbsoluteFill, useCurrentFrame} from 'remotion';
+import {C, a} from '../tokens';
 
-// Statischer dunkler FinanzNeo-Hintergrund (+ optional dezentes, langsames Grid).
-// Regel aus Schritt 0: Hintergrund statisch dunkel, Animation ist der Fokus.
-export const Background: React.FC<{ grid?: boolean; glow?: boolean }> = ({
-  grid = true, glow = true,
-}) => {
-  const f = useCurrentFrame();
-  return (
-    <>
-      <AbsoluteFill style={{
-        background: glow
-          ? `radial-gradient(120% 70% at 50% -5%, ${a(C.accent, 0.10)} 0%, transparent 55%),
-             radial-gradient(90% 60% at 50% 110%, ${a(C.accentDk, 0.12)} 0%, transparent 50%),
-             ${C.bg}`
-          : C.bg,
-      }} />
-      {grid && (
-        <AbsoluteFill style={{
-          backgroundImage:
-            `linear-gradient(${a(C.gray, 0.04)} 1px, transparent 1px),
-             linear-gradient(90deg, ${a(C.gray, 0.04)} 1px, transparent 1px)`,
-          backgroundSize: '90px 90px',
-          transform: `translateY(${(f * 0.2) % 90}px)`,
-        }} />
-      )}
-    </>
-  );
-};
-
-// Vignette — immer ganz oben drauf, damit Ränder dunkler werden.
-export const Vignette: React.FC = () => (
-  <AbsoluteFill style={{
-    background: 'radial-gradient(130% 90% at 50% 45%, transparent 42%, rgba(0,0,0,0.62) 100%)',
-    pointerEvents: 'none',
-  }} />
+/**
+ * Legacy-compatible background primitive.
+ *
+ * Reel rule: the canvas is always static pure black. `grid` and `glow` stay in
+ * the signature only so older components compile; they are intentionally
+ * ignored. No gradient, grid, particles, aurora, vignette or background motion.
+ */
+export const Background: React.FC<{grid?: boolean; glow?: boolean}> = () => (
+  <AbsoluteFill style={{backgroundColor: '#000000'}} />
 );
 
-// Dünner Fortschrittsbalken oben (Gold→Grün).
-export const Progress: React.FC<{ totalFrames: number; width: number }> = ({ totalFrames, width }) => {
+/**
+ * Vignette is intentionally disabled for reels. Kept as a no-op export for
+ * backwards compatibility with older components.
+ */
+export const Vignette: React.FC = () => null;
+
+// Dünner Fortschrittsbalken oben. Dies ist Inhalt/UI, kein Hintergrundeffekt.
+export const Progress: React.FC<{totalFrames: number; width: number}> = ({totalFrames, width}) => {
   const f = useCurrentFrame();
   return (
     <div style={{

@@ -1,104 +1,145 @@
 # Globaler FinanzNeo Image-World-Lock
 
-Für neue Reel-Quellbilder gilt ein globaler, maschinenlesbarer Premium-Bildwelt-Lock.
-Die bisherige dunkle UI-/Flowchart-Anmutung ist ausdrücklich **nicht mehr die Zielwelt**.
+Für neue Reel-Quellbilder gilt ein globaler, maschinenlesbarer Bildwelt-Lock. Die Zielwelt ist bewusst **nicht realistisch** und **nicht produktfotoartig**.
 
 ## Kanonische Bildwelt
 
 - Basiswelt: `finanzneo-connected-studio-v3`
 - Same-World-Lock: `finanzneo-same-world-v1`
-- Stylized-3D-Lock: `finanzneo-stylized-3d-editorial-v5`
-- Premium-Physical-Lock: `finanzneo-premium-physical-editorial-v8`
+- Aktueller Bildwelt-Lock: `finanzneo-stylized-3d-animated-black-v9`
 - Lock-Datei: `config/finanzneo-image-world-lock.json`
-- Weltdefinition: `config/finanzneo-image-worlds/finanzneo-premium-physical-editorial-v8.txt`
+- Weltdefinition: `config/finanzneo-image-worlds/finanzneo-stylized-3d-animated-black-v9.txt`
 
 ## Format
 
-Alle Google-Flow-Quellbilder für Reels sind strikt `1:1`, einschließlich `Bild 00`.
-Das finale Reel bleibt `9:16`; die vertikale Komposition entsteht erst in Remotion.
+Alle Google-Flow-Quellbilder sind strikt `1:1`, einschließlich `Bild 00`. Das finale Reel bleibt `9:16`; die vertikale Komposition entsteht erst in Remotion.
 
-## Premium Physical Editorial V8
+## Stylized 3D Animated Black V9
 
-Jedes neue Flow-Bild braucht:
+- klar nicht realistisch / nicht photorealistisch
+- soft rounded shapes
+- vereinfachte, erkennbare Details
+- clean materials
+- premium, freundlich und leicht verspielt
+- Inhalt und Verständlichkeit vor Deko
+- gleiche Welt über die Serie, freie Komposition je Szene
 
-- **ein dominantes physisches Hero-Objekt**, ungefähr 45–65 % der nutzbaren Komposition
-- nur **2–4** unterstützende konkrete Objekte
-- medium-close 3/4-Kamera statt kleiner isometrischer Gesamtansicht
-- starke Silhouette und klare Vordergrund-/Hero-/Hintergrundstaffelung
-- sichtbare Dicke, Bevels, Materialkanten und Gewicht
-- Kontakt-Schatten und Ambient-Occlusion-Eindruck
-- cinematic key/rim lighting mit lesbarer Schattenseite
-- mindestens drei Material-/Farbrollen: dunkle Struktur + Creme/Weiß + semantischer Akzent
+## Schwarzer Flow-Hintergrund ist Pflicht
 
-Materialrollen:
+Jedes Flow-Bild braucht einen **nahtlosen tiefschwarzen Hintergrund**:
 
-- Struktur: satin dark-emerald anodized metal / Premium-Polymer
-- Neutral: warmes Ivory/Creme, Keramik-/Steinwirkung
-- Geld/Wert: gebürstetes Messing / Gold
-- Warnung/Kosten: warmes Rot-Orange
-- Glas: nur zurückhaltend als Sekundärmaterial
+- clean und minimal
+- keine helle Studiowelt
+- keine Boden-Wand-Grenze
+- kein Horizont
+- keine farbigen Hintergrundzonen
 
-## Was ausdrücklich nicht mehr erlaubt ist
+## Keine feste Objektanzahl
 
-Als Hauptsprache verboten:
+Es gibt **keine Mindest- oder Höchstzahl** für Support-Objekte.
 
-- Dashboard / Control Panel
-- Flowchart
-- kleine Kästen mit dünnen Verbindungslinien
-- schwebende UI-Cards, Pills, Chips oder Widgets
-- generische rechteckige Info-Karten als Hauptobjekte
-- monochrom-grüne Gesamtkomposition
-- Vier-Ecken-/Orbit-/Gameboard-Layouts
-- Microchip-/Circuit-Board-Metaphern
-- tiny isometric dioramas
-- leerer schwarzer Raum mit kleinem Objekt
-- flache Poster-Komposition
-- sterile Produktwerbung ohne erklärende Handlung
+- ein Hauptobjekt kann reichen
+- mehrere Objekte sind erlaubt, wenn sie die Aussage verbessern
+- keine Props nur zum Auffüllen
+- Klarheit und Inhalt entscheiden
 
-Ein echtes Gerät wie ATM oder Kartenterminal ist erlaubt, wenn es das **physische Hero-Objekt** des Themas ist. Das Bild darf dadurch aber nicht zu einem UI-Mockup werden.
+## Marken und Logos
+
+Wenn Marke, Bank, App oder Logo relevant ist:
+
+- Kernidentität erkennbar halten
+- aber als vereinfachtes stylized-3D-Element derselben Welt darstellen
+- rounded Formen, passendes Material und Licht
+- kein flach aufgeklebtes echtes Logo
+- kein Website-/App-Screenshot
+- keine photorealistische Marken-UI oder Produktdarstellung
+
+## Farb- und Lichtlogik
+
+- Emerald Green = positiv / bevorzugt
+- Warm Ivory + Soft Gray = neutral
+- Gold = Geld / Wert
+- Warm Red-Orange = Warnung / Kosten / Verlust
+- Deep Black = Hintergrund
+
+Licht: clean soft studio lighting, klare Highlights, lesbare Schatten, gute Trennung vom Schwarz und weiche Kontaktschatten.
+
+## Text im KI-Bild
+
+- keine Headline
+- kein Untertitel
+- kein erklärender Satz
+- kein CTA
+- nur ausdrücklich verlangte kurze deutsche Labels
+
+## Streng verboten
+
+- Realismus / Photorealismus
+- echter Produktfoto-Look
+- flach aufgeklebte echte Logos / Screenshot-Marken-UI
+- Dashboard / App UI
+- Flowchart als Hauptkomposition
+- kleine Kästen, floating Info-Cards oder dichte technische Layouts
+- Microchip-/Circuit-Board-Look
+- Miniatur-Diorama
+- unnötiger Clutter
+
+## Prompt-Länge
+
+Einzelprompts bleiben **mittel-lang**:
+
+1. konkrete Bildidee
+2. kurzer V9-Style-Block
+3. schwarzer Hintergrund
+4. erlaubte Labels
+5. kurze Forbidden-Liste
+
+Die Bildidee darf nicht unter einem riesigen Regelblock verschwinden.
 
 ## Qualitätsregel
 
-Ein Bild wird verworfen und neu erzeugt, wenn:
+Neu erzeugen, wenn:
 
-- das Hero-Objekt zu klein ist
-- die Szene wie UI/Dashboard/Flowchart liest
-- zu viele kleine Nebenobjekte konkurrieren
-- zu viel dunkler Leerraum bleibt
-- Objekte flach oder gewichtslos wirken
-- Materialkontrast oder Tiefenstaffelung fehlen
-- das Bild fast nur grün ist
-- die Aussage nur über Textlabels verständlich wird
+- Bild realistisch/produktfotoartig aussieht
+- Hintergrund nicht tiefschwarz ist
+- Aussage nicht in ca. 1–2 Sekunden verständlich ist
+- unnötiger Clutter entsteht
+- Szene wie Dashboard/UI/Flowchart wirkt
+- Marke wie aufgeklebt oder screenshotartig aussieht
+- Bild sichtbar aus der V9-Welt fällt
 
-## Google Flow: Strict Single-Job State Machine
+## Google Flow: Strict Single Job
 
 Autonom bedeutet **nicht Batch**.
 
-Für jedes Bildset gilt zwingend:
-1. Maximal ein laufender Bildgenerierungsjob (`concurrency = 1`).
-2. Nur der aktuelle Bildblock ist ausführbar; alle späteren Bildblöcke bleiben gesperrt.
-3. Der aktuelle Bildjob muss vollständig zurückgegeben werden.
-4. Danach wird genau diese Datei sofort exakt umbenannt.
-5. Danach folgt QA ausschließlich für dieses Bild.
-6. Erst nach bestandener QA wird der nächste benötigte Bildblock freigeschaltet.
-7. Bei QA-Fehler bleibt derselbe Schritt aktiv und nur dieselbe Bildnummer wird neu erzeugt.
-8. Keine Nutzer-Zwischenfreigabe und kein `Weiter?`.
+1. maximal ein laufender Bildjob
+2. nur aktueller Bildblock
+3. auf vollständige Rückgabe warten
+4. sofort exakt umbenennen
+5. QA für dieses Bild
+6. erst danach nächsten Bildblock freischalten
+7. Fehler: nur dieselbe Bildnummer neu
+8. keine Nutzer-Zwischenfreigabe / kein `Weiter?`
 
-Hart verboten:
-- mehrere Bilder in einem Generierungsaufruf
-- mehrere Bildprompts in einem Bildjob
-- parallele Generierung
-- Queueing späterer Bilder
-- alle Bilder zuerst erzeugen und anschließend gesammelt umbenennen
-- Kontaktbogen, Galerie, Collage oder Multi-Panel als Ersatz für Einzelbilder
+Verboten: parallele Generierung, Queueing späterer Bilder, späteres Sammel-Umbenennen, Kontaktbogen/Galerie/Collage als Ersatz für Einzelbilder.
 
-Der Ablaufvertrag heißt `finanzneo-flow-strict-single-job-v3`.
+Ablaufvertrag: `finanzneo-flow-strict-single-job-v3`.
+
+## Wichtig: Flow-Schwarz vs. Remotion-Schwarz
+
+Beides ist schwarz, aber technisch getrennt:
+
+- **Flow-Bild:** V9-Prompt verlangt deep black im 1:1-Quellbild.
+- **Remotion-Reel:** der zentrale Canvas ist unabhängig davon statisch `#000000` und darf keine Partikel/Aurora/Grid/Glow-Hintergründe hinzufügen.
+
+Die Remotion-Regel wird durch `npm run validate:reel-background` geprüft.
 
 ## Prüfung
 
 ```bash
 npm run validate:image-world
+npm run validate:reel-background
 npm run reel:validate -- <Reel-Pfad>
 ```
 
-Neue Reels werden ausschließlich über `npm run reel:create` erstellt. Dieser Wrapper wendet automatisch Premium Visual V8 und Premium Physical Animation V2 an.
+Neue Reels werden über `npm run reel:create` erstellt und erben V9 automatisch.

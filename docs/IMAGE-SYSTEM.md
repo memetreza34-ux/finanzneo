@@ -1,163 +1,174 @@
-# FinanzNeo — verbindliches Bildsystem
+# FinanzNeo — verbindliches Bildsystem V9
 
-Dieses Dokument definiert das Bildsystem für neue FinanzNeo-Reels. Bei Widerspruch gilt `CLAUDE.md`.
+Dieses Dokument gilt für neue FinanzNeo-Reels. Bei Widerspruch gilt `CLAUDE.md`; der maschinenlesbare Lock liegt in `config/finanzneo-image-world-lock.json`.
 
-Verbindliche IDs:
-- World ID: `finanzneo-connected-studio-v3`
-- Series Lock ID: `finanzneo-same-world-v1`
-- Physical Explainer Lock: `finanzneo-physical-explainer-v4`
-- Stylized 3D Lock: `finanzneo-stylized-3d-editorial-v5`
-- Google-Flow-Quellbildformat: immer `1:1`
-- Visual Timing & Clarity Standard: `docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md`
+## Kanonische IDs
 
-## Ziel
-Jedes Bild erklärt genau eine Aussage sofort und alltagsnah.
-
-## Höchste Stilregel
-FinanzNeo-Bilder sind **premium stylized 3D CGI financial editorial explainers**.
-
-`physical` bedeutet: erkennbare Alltagsgegenstände als bewusst gestaltete 3D-Props.
-`physical` bedeutet ausdrücklich NICHT: fotorealistische Papier-, Büro- oder Produktfotografie.
-
-### Verbindliche 3D-Merkmale
-Jeder einzelne Bildprompt muss diese Merkmale selbst ausschreiben:
-- clearly stylized premium 3D CGI render
-- substantial volumetric objects with obvious depth
-- simplified, slightly exaggerated proportions
-- smooth rounded geometry and soft bevels
-- thick cream-colored card/paper-like 3D surfaces instead of thin realistic paper
-- dark charcoal/emerald premium plastic and brushed-metal details
-- restrained transparent glass where useful
-- chunky stylized gold value coins
-- cinematic soft key light
-- controlled emerald rim light
-- soft but visible contact shadows
-- foreground / midground / background separation
-- mild depth-of-field allowed
-- polished editorial render quality
-
-### Hart verboten
-Sofort neu erzeugen bei:
-- photorealistic office photo
-- realistic stationery photography
-- stock-photo look
-- thin flat realistic paper dominating the composition
-- dashboard or app UI
-- central screen / tablet / board
-- floating cards, tiles, chips, badges, widgets
-- control panel
-- gameboard / board-game layout
-- microchip/circuit-board look
-- orbit/ring of modules
-- repeated rectangular modules as the main structure
-- mechanical gate / conveyor
-- tiny isometric diorama
-- sterile product-ad pedestal
-- Pixar / clay / toy look
-
-## Komposition
-- EIN klares 3D-Hauptobjekt
-- 2–5 unterstützende 3D-Alltagsobjekte
-- natürliche Asymmetrie
-- leichte Überlappung
-- klare Tiefenstaffelung
-- sichtbare Größenkontraste
-- jedes Objekt muss die Aussage unterstützen
-- Hauptaussage in unter 2 Sekunden erkennbar
-
-## Gute direkte Alltagsmetaphern
-- chunky stylized 3D desk calendar
-- thick 3D receipt ribbon
-- stylized contract folder
-- 3D price tag
-- 3D wallet
-- oversized magnifying glass
-- stylized gold-value coins
-- headphones
-- smartphone with dark/off screen
-- SIM card
-- membership tag
-- shopping / household object
-
-## Keine Bildreferenz-Abhängigkeit
-Kein vorheriges Bild muss hochgeladen oder als Image-to-Image-Referenz verwendet werden.
-Die Einheitlichkeit entsteht dadurch, dass **jeder einzelne Szenenprompt denselben vollständigen Style-Lock wiederholt**.
-
-Vermeide Formulierungen wie:
-- `same as Bild 00`
-- `use previous image as reference`
-- `copy the approved cover style`
-
-Stattdessen enthält jeder Prompt selbst:
-- 3D-Renderstil
-- Geometrie
-- Materialien
-- Farbrollen
-- Licht
-- Hintergrund
-- Perspektive
-- Negativregeln
-
-## Hintergrund
 ```text
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
-No floor-wall boundary, no horizon line, no panels, no bands, no sections.
-Use a subtle continuous gradient/vignette only.
-Objects cast soft contact shadows while the background remains uninterrupted.
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
 ```
 
-## Farbrollen
-- Deep charcoal green-black = Grundwelt
-- Emerald/Mint = Akzent, Rim Light, positive Struktur
-- Gold = nur Geld/Wert
-- Warm red-orange = nur Warnung, unerwünschte Kosten, Schulden/Druck
-- Warm cream/off-white = Papier-/Kartenflächen für Lesbarkeit
+Es gibt keinen aktiven V4/V7/V8-Physical-Explainer-Lock mehr. Neue Prompts verwenden ausschließlich V9.
 
-## Text im KI-Bild
-Erlaubt:
-- kurze deutsche Labels
-- kurze Preiswerte
-- kurze Fragen
-- normalerweise 1–4 Wörter
+## Ziel
+
+Jedes Bild erklärt genau eine Aussage innerhalb ungefähr 1–2 Sekunden.
+
+Die Bildwelt ist:
+
+- klar **stylized 3D animated**, nicht realistisch
+- soft rounded, vereinfacht und gut erkennbar
+- hochwertig, sauber und leicht verspielt, aber nicht kindlich
+- inhaltlich klarer als dekorativ
+- über die Serie konsistent, ohne identische Kompositionen zu erzwingen
+
+## Schwarzer Hintergrund — harte Pflicht
+
+Jedes Google-Flow-Quellbild verwendet genau einen nahtlosen tiefschwarzen Hintergrund.
+
+```text
+Use one seamless deep black background.
+Keep it clean, minimal and uninterrupted.
+No bright studio background.
+No floor-wall boundary.
+No horizon line.
+No colored background zones.
+```
+
+Das Motiv wird ausschließlich durch Licht, Material, Highlights und Schatten vom Schwarz getrennt. Keine grünen Hintergrundfelder, keine Aurora, kein Grid und keine dekorativen Hintergrundzonen.
+
+## Komposition — keine Objektquote
+
+Es gibt **keine feste Mindest- oder Höchstzahl** für Objekte.
+
+- ein einziges starkes Hauptobjekt kann reichen
+- Support-Objekte nur, wenn sie die Aussage verbessern
+- keine Props zum Auffüllen
+- klare Hauptaktion oder klare visuelle Gegenüberstellung
+- lieber einfach und sofort verständlich als komplex und überladen
+
+Damit sind alte Regeln wie `2–5`, `3–6`, `supportingObjectsMin` oder `supportingObjectsMax` für neue Reels ungültig.
+
+## Farbrollen
+
+- Deep Black = Hintergrund
+- Emerald Green = positiv / bevorzugter Weg / Fokus
+- Warm Ivory + Soft Gray = neutral
+- Gold = Geld / Wert
+- Warm Red-Orange = Warnung / Kosten / Verlust
+
+## Licht und Material
+
+- clean soft studio lighting
+- klare Highlights
+- lesbare Schatten
+- gute Trennung vom schwarzen Hintergrund
+- weiche Kontaktschatten
+- sichtbare, aber einfache 3D-Materialität
+
+Objekte dürfen lokale Materialverläufe und Schatten besitzen. Der **Hintergrund selbst** bleibt clean und schwarz.
+
+## Marken und Logos
+
+Wenn eine Marke, Bank, App oder ein Logo inhaltlich notwendig ist:
+
+- erkennbar, aber in derselben stylized-3D-Welt interpretiert
+- vereinfachte, abgerundete 3D-Formen
+- gleiche Licht- und Materiallogik wie die restliche Szene
 
 Verboten:
+
+- flach aufgeklebtes Real-Logo
+- Website-/App-Screenshot
+- photorealistische Marken-UI
+- fremder Screenshot als Bildbestandteil
+
+## Text im KI-Bild
+
+Erlaubt:
+
+- nur ausdrücklich verlangte kurze deutsche Objektlabels
+- kurze Zahlen/Preise, wenn sie für die Aussage nötig sind
+
+Verboten:
+
 - Headline
 - Untertitel
-- ganzer Satz
+- erklärender Satz
 - CTA
-- lange Erklärtexte
+- zufällige Zusatztexte
 - schwebende UI-Badges
 
-## Timing-Vertrag
-- Bildbeat ideal 3,5–5,0 s
-- normal max. 5,5 s
+## Streng verboten
+
+- Realismus / Photorealismus
+- Produktfoto-/Stockfoto-Look
+- Dashboard / App UI als Komposition
+- Flowchart als Hauptkomposition
+- kleine technische Kästen und dünne Connector-Linien
+- floating Info-Cards / HUD
+- Microchip-/Circuit-Board-Look
+- Miniatur-Diorama
+- unnötiger Clutter
+- helle oder farbige Background-Welt
+
+## Keine Bildreferenz-Abhängigkeit
+
+Kein vorheriges Reel-Bild wird als Image-to-Image-Referenz benötigt. Konsistenz entsteht über denselben ausgeschriebenen V9-Lock, nicht durch Kopieren des Covers oder einer vorherigen Szene.
+
+## Timing
+
+- Bildbeat ideal 3,5–5,5 s
 - absolut max. 6,0 s
-- wenn länger nötig: splitten oder animieren
-- Zielverteilung über tatsächliche Visual-Beats: ca. 60 % Bilder / 40 % Remotion
-- Szenenanzahl wird aus Voiceover-Länge abgeleitet, nicht auf 10 fixiert
+- länger nötig: splitten oder animieren
+- ungefähr 60 % Bild / 40 % Animation als Ziel, Qualität vor Quote
 
-## Pflichtinhalt jedes einzelnen Bildprompts
-1. finaler Dateiname
+## Pflichtinhalt jedes Bildprompts
+
+1. exakter finaler Dateiname
 2. konkrete Bildaussage
-3. konkrete Alltagsmetapher
-4. Hauptobjekt + Nebenobjekte
-5. vollständiger Stylized-3D-Lock
-6. Farb-/Material-Lock
-7. Kamera/Licht/Tiefenwirkung
+3. Hauptmotiv/Hauptaktion
+4. nur notwendige Support-Objekte
+5. V9-Lock
+6. deep-black Hintergrund
+7. Farb-/Lichtlogik
 8. erlaubte kurze Labels
-9. nahtloser Hintergrund
-10. harter Negativblock inkl. `NO photorealistic office/photo look`
-11. QA: Aussage in unter 2 Sekunden lesbar
+9. kurze Forbidden-Liste
+10. QA: Aussage in 1–2 Sekunden verständlich
 
-## Google-Flow-QA
-Nach jedem Bild prüfen:
-- sofort erkennbarer stylized 3D CGI render?
-- starke 3D-Tiefe und Volumen?
-- klar nicht fotorealistisch?
-- alltagsnah und unmittelbar verständlich?
-- keine UI-/Board-Struktur?
-- kurze Labels korrekt?
-- 1:1 und nahtloser Hintergrund?
-- maximal 6 Sekunden nötig?
+Einzelprompts bleiben mittel-lang; die eigentliche Bildidee steht vor dem Regelblock.
 
-Wenn nicht: dieselbe Bildnummer neu erzeugen.
+## Google Flow — Strict Single Job
+
+```text
+GENAU EIN Bild erzeugen
+→ vollständig warten
+→ sofort exakt umbenennen
+→ V9-QA
+→ bei Fehler dieselbe Bildnummer neu
+→ erst nach PASS nächstes Bild
+```
+
+Kein Batch, kein paralleles Queueing, kein späteres Sammel-Umbenennen und kein Nutzer-„weiter“.
+
+## QA
+
+Neu erzeugen, wenn:
+
+- Hintergrund nicht tiefschwarz ist
+- Bild realistisch/produktfotoartig wirkt
+- Aussage nicht sofort verständlich ist
+- unnötige Objekte oder Clutter auftauchen
+- Dashboard/UI/Flowchart/Diorama entsteht
+- Labels falsch sind
+- Marken wie echte Screenshots/aufgeklebte Logos wirken
+
+Technische Prüfung:
+
+```bash
+npm run validate:image-world
+npm run reel:validate -- <Reel-Pfad>
+```

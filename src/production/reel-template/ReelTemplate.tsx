@@ -36,6 +36,7 @@ const CONTENT_HORIZONTAL_PADDING = 72;
 const CONTENT_TOP = REEL_STYLE.visual.top;
 const CONTENT_BOTTOM = FORMAT.vertical.height - REEL_STYLE.visual.bottom;
 const CONTINUITY_FRAMES = REEL_STYLE.transition.continuityFrames;
+const REEL_CANVAS_BLACK = '#000000';
 
 /**
  * Phase-1-Animationskomponenten werden ausschließlich über diesen Mapping-Key
@@ -188,7 +189,7 @@ export const ReelTemplate: React.FC<{
   if (errors.length > 0) throw new Error(`Ungültige FinanzNeo-Reel-Konfiguration:\n${errors.map((error)=>`- ${error}`).join('\n')}`);
 
   return (
-    <AbsoluteFill style={{background:C.bg}}>
+    <AbsoluteFill data-finanzneo-canvas="pure-black-v1" style={{backgroundColor: REEL_CANVAS_BLACK}}>
       {config.audioSrc && <Audio src={staticFile(config.audioSrc)} />}
       <Series>
         {config.beats.map((beat)=>(

@@ -1,279 +1,194 @@
-# FinanzNeo — verbindlicher Komponenten-Katalog
+# FinanzNeo — verbindlicher Komponenten-Katalog V9
 
-Dieser Katalog legt fest, welche Remotion-Komponenten für neue produktive Reels bevorzugt werden.
-
-Grundregel:
-
-> Erst eine empfohlene Standardkomponente verwenden. Eine Spezialkomponente nur wählen, wenn der konkrete Beat sie wirklich benötigt.
+Dieser Katalog gilt für **neue produktive Reels**. Bei Widerspruch gelten `CLAUDE.md`, `REEL_STYLE` und der Phase-3-Hintergrundvertrag.
 
 Alle neuen Produktionsdateien importieren aus `src/design-system`.
 
----
-
-## 1. Hintergrund
-
-### Standard
+## 1. Hintergrund — genau eine Produktionsregel
 
 ```tsx
-<FinanceBackground variant="standard" />
+<FinanceBackground />
 ```
 
-Verwendung:
+Für Reels rendert `FinanceBackground` immer denselben Hintergrund:
 
-- normale Erklärung
-- KI-Bild im Mittelpunkt
-- Text- und Zahlenbeats
-- ruhige Hooks
+```text
+#000000
+statisch
+```
 
-### Daten
+Die alten Props `standard`, `data` und `premium` sind nur noch API-Kompatibilität und dürfen **keine** visuelle Variante erzeugen.
+
+Produktiv verboten:
+
+- Aurora
+- Grid
+- Partikel
+- Glow-Feld
+- Vignette
+- dekorative Background-Gradienten
+- bewegter Hintergrund
+- Background-Motion als Animationsnachweis
+
+`VerticalSafeAreaGuide` ist ausschließlich Studio-/QA-Hilfe und bleibt im finalen Render deaktiviert.
+
+## 2. Scene Header
+
+Standard:
 
 ```tsx
-<FinanceBackground variant="data" />
+<SceneHeader title="Kontoauszug prüfen" icon="search" />
 ```
 
-Verwendung:
-
-- Diagramme
-- Tabellen
-- Markt- und Statistikbeats
-
-### Premium
-
-```tsx
-<FinanceBackground variant="premium" />
-```
-
-Nur für:
-
-- starken Hook
-- Payoff
-- Kapitelhöhepunkt
-- seltene emotionale Betonung
-
-Nicht als Standard für jedes Bild verwenden.
-
-### Safe-Area-Prüfung
-
-```tsx
-<VerticalSafeAreaGuide enabled />
-```
-
-Nur im Studio oder in QA-Keyframes verwenden. Vor dem finalen Render deaktivieren.
-
----
-
-## 2. Überschrift und Fließtext
-
-| Aufgabe | Standard | Spezialfall |
-|---|---|---|
-| Hauptüberschrift | `Title` | `KineticPunch` für ein einzelnes Hook-Wort |
-| Erklärungstext | `Body` | `WordReveal` bei bewusstem Wort-für-Wort-Aufbau |
-| kleines Themenlabel | `Kicker` | `Badge` für Status oder Kategorie |
-| einzelnes markiertes Wort | `Emphasis` | `Shine` für seltenen Payoff |
-
-Regeln:
-
-- keine komplette Überschrift mit mehreren konkurrierenden Text-FX animieren
-- maximal ein dominanter Texteffekt pro Beat
-- `KineticPunch`, `Scramble`, `WaveText` und `FlipIn3D` nicht gleichzeitig kombinieren
-
----
+- Position aus `REEL_STYLE`
+- Text weiß
+- semantische Farbe über das Linien-Icon
+- Sentence Case
+- keine Capsule / Chip / Pill / Panel
+- kein automatisches ALL CAPS
 
 ## 3. Untertitel
 
-### Standard
+Standard:
 
 ```tsx
 <Captions words={words} />
 ```
 
-### Spezialfall
+- aktuelles Wort grün
+- Rest weiß
+- max. zwei Zeilen
+- Position aus `REEL_STYLE`
+- kein Stroke, Jump oder Scale-Pop
+- pro Szene clippen
+
+## 4. V9-Animationsbühne
+
+Standard für kanonische Phase-1-Erkläranimationen:
 
 ```tsx
-<CaptionsBoxed words={words} />
+<PremiumPhysicalStage>
+  <PhysicalObject ... />
+</PremiumPhysicalStage>
 ```
 
-`CaptionsBoxed` nur bei unruhigem Bildmaterial oder zu geringem Kontrast.
+`PremiumPhysicalStage` bleibt transparent. Der Hintergrund kommt ausschließlich vom zentralen `FinanceBackground`.
 
-Verbindlich:
+Pflichtlogik:
 
-- Datenformat `finanzneo-caption-v1`
-- maximal drei bis vier Wörter gleichzeitig
-- untere 22-Prozent-Safe-Area respektieren
-- nur relevante Wörter farblich hervorheben
+```text
+START → SICHTBARER MECHANISMUS → ERGEBNIS
+```
 
----
+Es gibt keine feste Support-Objekt-Anzahl. Mindestens ein echtes sichtbares Hauptmotiv ist nötig; zusätzliche Objekte nur, wenn sie die Erklärung verbessern.
 
-## 4. Geldbeträge und Zahlen
+## 5. Geldbeträge und Zahlen
 
-| Aufgabe | Empfohlene Komponente | Einsatz |
-|---|---|---|
-| statische Hauptzahl | `BigStat` | schnelle, klare Kernaussage |
-| normal hochzählender Wert | `Counter` | kontinuierliche Entwicklung |
-| wichtiger Endwert | `DramaticNumber` | ein starker Payoff pro Reel |
-| Ziffern rollen einzeln ein | `DigitSlots` | seltener dramatischer Reveal |
-| Begriffe wechseln | `SlotRoller` | Auswahl oder Gegenüberstellung |
-| Countdown | `CountdownRoller` | echte zeitliche Dramaturgie |
+Geeignete Komponenten:
 
-Nicht empfohlen:
+- `DramaticNumber` für einen wichtigen Endwert
+- `Counter` für nachvollziehbare Entwicklung
+- `BigStat` für eine statische Kernaussage
 
-- mehrere Roller gleichzeitig
-- dramatische Zahleneffekte für nebensächliche Werte
-- direkt eingetragene Endwerte ohne zentralen Rechner
+Finanzielle Endwerte müssen aus einer validierten Berechnung oder Datendatei kommen. Zahlen-Popup allein ist keine vollständige Erkläranimation.
 
-Jeder finanzielle Endwert muss aus `src/finance/calculations.ts` oder einer validierten Datendatei kommen.
+## 6. Charts
 
----
-
-## 5. Charts
-
-### Zeitreihe oder Sparplan
-
-Standard:
+Für echte Daten bevorzugt:
 
 ```tsx
 <PremiumCharts.PremiumChart ... />
 ```
 
-oder eine validierte fertige Variante aus `PremiumCharts`.
-
 Pflicht:
 
-- beschriftete X- und Y-Achse
-- sichtbare Einheit
-- Annahmen oder Quelle
-- passende Skalierung
-- keine Fantasiekurve
+- beschriftete Achsen, wenn Achsen nötig sind
+- Einheit
+- Annahmen/Quelle
+- korrekte Skalierung
+- keine Fantasiedaten
 
-### Einfacher Balkenvergleich
+Charts dürfen auf dem schwarzen Canvas liegen, aber keine eigene dekorative Background-Welt erzeugen.
 
-Standard:
+## 7. Vergleiche
 
-```tsx
-<Bars ... />
+Geeignete Komponenten, wenn sie exakt zum gesprochenen Beat passen:
+
+- `CompareSplit`
+- `Table`
+- `Checklist`
+- `Ranking`
+
+Keine Dashboard-artige Ansammlung kleiner Karten als Hauptsprache.
+
+## 8. Abläufe und Ursache-Wirkung
+
+Bei Erklärmechanismen bevorzugt eine einfache physische/stylized-3D-Animation mit wenigen klaren Elementen.
+
+Ein klassischer `Flowchart` ist **nicht** die Standard-Hauptkomposition für FinanzNeo-Reels. Kleine Kästen plus dünne Verbindungslinien, UI-Boards und technische Kontrollflächen sind nach V9 verboten.
+
+## 9. Text-Komponenten
+
+- `Title` / `Body` nur wenn der Beat Text wirklich benötigt
+- Text darf das eigentliche Visual nicht ersetzen
+- reine Texttafel zählt nicht als fertige Bild-/Animationsszene
+- keine konkurrierenden Texteffekte
+
+## 10. CTA und Endcard
+
+- `EndCard` nur für den echten Abschluss
+- CTA nie als Fallback für eine fehlende Animationsszene
+- fehlendes Animation-Binding muss den Render hart abbrechen
+
+## 11. Übergänge
+
+Reel-Standard ist ausschließlich der kurze V5-Continuity-Schnitt aus `REEL_STYLE`:
+
+```text
+3 Frames
+kein Fade-to-black
 ```
 
-Für komplexere horizontale Vergleiche darf `ChartBlocks.FNHBars` verwendet werden.
+Auffällige Kapitelübergänge, Pixel-Dissolve, Zoom-Blur oder Bars-Wipe gehören nicht in den normalen Reel-Produktionspfad.
 
-### Anteil oder Verteilung
+## 12. Dekoration
 
-- `Donut` für einen klaren Anteil
-- `PiePremium` nur bei wenigen klar unterscheidbaren Kategorien
-- `PercentRing` für genau einen Prozentwert
+Für produktive Reel-Hintergründe gilt:
 
-### Nicht für reale Finanzbehauptungen verwenden
+```text
+keine Partikel
+keine Aurora
+kein Grid
+kein Glow-Hintergrund
+keine Vignette
+```
 
-- `LegacyKit.FNGrowthCurve`
-- `ComplexBlocks.FNExponential`
-- achsenlose dekorative Wachstumskurven
-- `GrowthChart` ohne explizite, validierte `fn`-Berechnung
+Lokale Objekt-Highlights, Schatten, Materialverläufe und ein erklärender Pfeil sind erlaubt, wenn sie direkt der Aussage dienen.
 
-Diese Komponenten dürfen höchstens als klar gekennzeichnete schematische Illustration eingesetzt werden.
+## 13. Entscheidungsreihenfolge
 
----
+1. Was ist die eine gesprochene Aussage?
+2. Braucht sie ein Bild oder eine echte Animation?
+3. Reicht ein einziges starkes Hauptmotiv?
+4. Welche vorhandene Komponente erklärt sie am klarsten?
+5. Bleibt der Hintergrund statisch `#000000`?
+6. Ist die Szene ohne Caption/Header als echtes Visual verständlich?
+7. Erst dann zusätzliche Objekte oder Spezialkomponenten ergänzen.
 
-## 6. Vergleiche
+## 14. Produktionsfreigabe
 
-| Situation | Standard |
-|---|---|
-| zwei Optionen | `CompareSplit` |
-| mehrere Kriterien | `Table` |
-| Vor- und Nachteile | `Checklist` oder `CheckCards` |
-| Rangfolge | `Ranking` |
-| zwei Entwicklungen über Zeit | `PremiumCharts.FNDualLinePro` oder eigener `PremiumChart` |
+Eine Komponente oder Composition ist nicht deshalb produktionsreif, weil Remotion sie rendern kann.
 
-Keine zwei verschiedenen Vergleichskomponenten im selben Beat stapeln.
+Produktive Reels müssen den vollständigen Weg bestehen:
 
----
+```text
+reel:ready
+→ Phase-3-Manifest
+→ phase3:preflight
+→ Candidate-Render
+→ Post-Render-QA
+→ Final-MP4
+→ reel:export
+```
 
-## 7. Abläufe und Erklärungen
-
-| Aufgabe | Standard |
-|---|---|
-| nummerierte Handlung | `NumberedSteps` |
-| zeitlicher Verlauf | `Timeline` oder `MilestoneTimeline` |
-| Ursache und Wirkung | `Flowchart` |
-| wiederholender Kreislauf | `Cycle` |
-| Prioritätsebenen | `Pyramid` |
-| kurzer Hinweis | `Callout` |
-
-Für eine konkrete räumliche Geschichte kann stattdessen ein freigegebenes KI-Bild verwendet werden.
-
----
-
-## 8. Finanzkonzepte
-
-Empfohlene Spezialkomponenten:
-
-- `FinanceConcepts.FNEmergencyFund`
-- `FinanceConcepts.FNDiversification`
-- `FinanceConcepts.FNCostAverage`
-- `FinanceConcepts.FNRiskReturn`
-- `FinanceConcepts.FNDrawdown`
-
-Vor Verwendung prüfen:
-
-1. passt die Komponente exakt zum gesprochenen Satz?
-2. sind alle enthaltenen Zahlen korrekt oder nur schematisch?
-3. ist sie auf 9:16 und Smartphone-Größe verständlich?
-4. konkurriert sie nicht mit einem notwendigen KI-Bild?
-
----
-
-## 9. CTA und Branding
-
-| Aufgabe | Standard | Spezialfall |
-|---|---|---|
-| kurzer Follow-Hinweis | `SubscribeBar` | `UIBlocks.FNFollowBar` |
-| finale Endcard | `EndCard` | `UIBlocks.FNNextVideo` |
-| Logo-Intro | grundsätzlich vermeiden | `LogoIntro` nur nach der Hook oder als sehr kurzer Übergang |
-| Rechtshinweis | `Disclaimer` | keine langen Intro-Disclaimer |
-
-Der CTA darf nicht stärker animiert sein als der eigentliche Lerninhalt.
-
----
-
-## 10. Übergänge
-
-Standard:
-
-- einfacher Cut
-- kurzer Fade
-- ruhiger Slide
-- bestehende Exports aus `src/brand/transitions`
-
-Premium-Übergänge wie `CircleReveal`, `ZoomBlur`, `PixelDissolve` oder `BarsWipe` nur bei einem echten Kapitelwechsel verwenden.
-
-Maximal ein auffälliger Übergangstyp pro Reel.
-
----
-
-## 11. Dekoration
-
-Erlaubt:
-
-- eine dezente Linie
-- ein Pfeil zur Erklärung
-- eine kleine Hervorhebung
-- wenige Partikel bei einem Payoff
-
-Nicht erlaubt:
-
-- Deko ohne inhaltliche Funktion
-- mehrere Glows, Partikel, Marquees und Pfeile gleichzeitig
-- Bewegung in jeder Ecke
-- Animation, die Untertitel oder KI-Bild überdeckt
-
----
-
-## 12. Entscheidungsreihenfolge
-
-Vor jeder neuen Komponente:
-
-1. Reicht eine Kernkomponente aus `src/design-system`?
-2. Gibt es eine empfohlene Premium-Komponente in diesem Katalog?
-3. Ist die Spezialkomponente für diesen Satz wirklich verständlicher?
-4. Sind Daten, Safe Areas und Smartphone-Lesbarkeit geprüft?
-5. Erst wenn alle Antworten passen, wird die Komponente verwendet.
-
-Eine neue Komponente wird nur gebaut, wenn keine vorhandene Variante denselben Zweck bereits gut erfüllt.
+`ProductionCompositions` bleibt eine Freigabeliste. Legacy-/Demo-/Test-Compositions gehören in den Experiment-Bereich.

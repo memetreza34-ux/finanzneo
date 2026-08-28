@@ -1,16 +1,16 @@
 # FinanzNeo Phase 3 — Hard Completion Gate
 
-Ein technisch erfolgreiches Remotion-Render ist **kein** fertiges Reel.
+Ein technisch erfolgreicher Remotion-Render ist **kein** fertiges Reel.
 
-Dieses Dokument verhindert genau diese Fehlerklasse:
+Dieses Gate verhindert insbesondere:
 
-- MP4 existiert, aber Bildszenen sind leer
-- nur Untertitel/SceneHeader sind sichtbar
-- einzelne Nutzerbilder wurden nicht eingebunden
-- Animationsszenen wurden geplant, aber nicht wirklich gebaut
-- eine Ersatz-/Debugbewegung wird als fertige Animation ausgegeben
-- Phase 3 ersetzt die kreative Phase-1-Animation durch einen eigenen Hack
-- ein alter oder anderer Render wird exportiert
+- MP4 existiert, aber Bild-/Animationsszenen sind leer
+- nur Untertitel oder Header sind sichtbar
+- Nutzerbild wurde nicht eingebunden
+- Phase-1-Animation wurde vergessen/ersetzt
+- künstliche Hintergrundbewegung lässt eine leere Szene technisch „bewegt“ wirken
+- Partikel/Aurora/Grid werden als Reel-Hintergrund benutzt
+- ein alter Candidate-Render wird als final exportiert
 
 ## Statusmodell
 
@@ -25,157 +25,135 @@ READY_FOR_PHASE3
 → FINAL_COMPLETE
 ```
 
-`FINAL_COMPLETE` darf ausschließlich nach erfolgreichem `reel:export` gemeldet werden.
+`FINAL_COMPLETE` ausschließlich nach erfolgreichem `reel:export`.
 
-## 1. Vor der Implementierung
-
-Phase 2 muss vollständig sein:
+## 1. Readiness
 
 ```bash
 npm run reel:ready -- <Reel-Pfad>
 ```
 
-`reel:ready` prüft Phase 1 + 2 und versiegelt jede produktionsreife Phase-1-Animationsquelle in:
+Phase 1 + Phase 2 müssen vollständig sein. `reel:ready` versiegelt jede kanonische Phase-1-`animation.tsx` per SHA-256.
 
-```text
-05-projektdateien/phase1-animation-seal.json
-```
+Fehlende Bilder, finales Audio, Timings oder Animationen werden **nicht** in Phase 3 ersetzt.
 
-Der Seal enthält den SHA-256-Hash jeder kanonischen `animation.tsx`.
-
-Danach einmalig das Produktionsmanifest erzeugen:
+Danach:
 
 ```bash
 npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
 ```
 
-Datei:
-
-```text
-05-projektdateien/phase3-production-manifest.json
-```
-
-## 2. Jede Szene muss einzeln belegt werden
-
-Im Produktionsmanifest existiert für jede `scene-index.json`-Szene exakt ein Eintrag.
+## 2. Jede Szene einzeln belegen
 
 ### Bildszene
 
 Pflicht:
 
 - `implemented: true`
-- korrekter `sourceImageFileName`
+- exakter `sourceImageFileName`
 - echter existierender `assetPath`
 - `startFrame` + `durationFrames`
-- `visualLayerRequired: true`
-- `captionOnlyForbidden: true`
+- sichtbares Bildvisual
+- kein Caption-/Header-only-Ersatz
 
 ### Animationsszene
-
-Phase 1 ist Eigentümer der kreativen Animation. Phase 3 integriert sie nur.
 
 Pflicht:
 
 - `implemented: true`
-- `componentPath` zeigt **exakt** auf `scene.animationSourceFile`
-- `componentExport` entspricht **exakt** `scene.animationExport`
-- Datei existiert und enthält den produktionsreifen Phase-1-Code
-- SHA-256 stimmt mit `phase1-animation-seal.json` überein
-- `animationQualityLock = finanzneo-phase1-animation-code-v1`
+- `componentPath` = exaktes `scene.animationSourceFile`
+- `componentExport` = exaktes `scene.animationExport`
+- SHA-256 stimmt mit Phase-1-Seal überein
+- echtes Binding in der Composition
 - `startFrame` + `durationFrames`
-- `visualLayerRequired: true`
-- `captionOnlyForbidden: true`
 
-Phase 3 darf **keine Ersatzkomponente** anlegen und keinen Phase-1-Code ändern, nur um QA/Frame-Diff zu bestehen.
+Phase 3 darf keine Ersatzanimation anlegen und den versiegelten Phase-1-Code nicht verändern.
 
-Zusätzlich müssen Audio-, Caption- und SceneHeader-Layer im Manifest als implementiert bestätigt sein.
+## 3. Pure-Black-Background-Vertrag
 
-Erst danach:
+Für Reels gilt technisch immer:
 
-```json
-"status": "READY_TO_RENDER"
+```text
+Canvas = #000000
+statisch
 ```
 
-## 3. Preflight vor jedem produktiven Render
+Erlaubt sind nur die eigentlichen Szenenobjekte/Bilder/Header/Captions auf diesem Canvas.
+
+Als Hintergrund verboten:
+
+- `FNBgAurora`
+- `FNBgParticles`
+- `FNBgGrid`
+- `FNBgRadial`
+- Partikelfelder
+- bewegte Grids
+- Aurora-/Glow-Felder
+- Hintergrund-Gradienten/Vignetten
+- dekorative Hintergrundanimation
+
+Der zentrale `FinanceBackground` ignoriert alte `standard/data/premium`-Varianten und rendert immer Schwarz. Die Props bleiben nur aus Kompatibilitätsgründen bestehen.
+
+## 4. Preflight
 
 ```bash
 npm run reel:phase3:preflight -- <Reel-Pfad>
 ```
 
-Der Preflight blockiert unter anderem:
+Blockiert unter anderem:
 
-- fehlende Szene
-- falsche Reihenfolge
-- `implemented: false`
-- fehlendes Bildasset
-- fehlende Animationskomponente
-- Animationskomponente weicht von `animationSourceFile` ab
-- falscher `componentExport`
-- Phase-1-Animationshash wurde nach `reel:ready` verändert
-- fehlender Animations-Seal
-- leere/TODO-/Placeholder-Animationsdatei
-- fehlende Start-/Dauerframes
+- fehlende/unvollständige Szene
+- falsches/fehlendes Bildasset
+- fehlende Animationsbindung
+- falscher Export/Pfad
+- veränderter Phase-1-Hash
 - Timeline-Lücken
 - fehlende Audio-/Caption-/Header-Layer
+- verbotene Reel-Hintergrundkomponenten in der Produktions-Composition
 
-## 4. Finalrender nur über `reel:render`
+Bei FAIL darf kein produktiver Render gestartet werden.
 
-Verboten für produktive Reels:
-
-```bash
-npx remotion render ...
-```
-
-als finalen Abschluss direkt zu verwenden.
-
-Stattdessen:
+## 5. Render nur über Gate
 
 ```bash
 npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 ```
 
-Der Render läuft zunächst nur als:
+Direktes `npx remotion render ...` ist kein finaler Produktionsabschluss.
+
+Zuerst entsteht nur:
 
 ```text
 *.phase3-candidate.mp4
 ```
 
-Eine Candidate-Datei ist **niemals** ein finales Reel.
+## 6. Post-Render-QA
 
-## 5. Automatische Post-Render-Visual-QA
+Der QA-Sampler schließt Header und Captions aus und prüft den eigentlichen visuellen Kern.
 
-Nach erfolgreichem Candidate-Render prüft das System automatisch jede Szene.
+Für jede Bildszene:
 
-V5-Visualzone:
+- messbare visuelle Struktur
+- ausreichend aktive/helle Pixel im Visualbereich
+- kein fast komplett schwarzer/leer wirkender Kern
 
-```text
-Y = 320–1480
-```
+Für jede Animationsszene:
 
-Header und Caption werden aus dem QA-Sample bewusst ausgeschlossen, damit eine Caption-/Header-only-Szene nicht als belegt durchgeht.
+- mehrere strukturierte Samples
+- echte Veränderung zwischen Samples
+- ausreichend aktive Visualfläche
 
-### Bildszene
+Zusätzlich prüft ein freier Randbereich jeder Szene:
 
-Ein Frame aus dem visuellen Kern wird geprüft. Ein fast leerer dunkler Hintergrund mit nur Untertitel/Headline reicht nicht.
+- Hintergrund bleibt nahe reinem Schwarz
+- keine Partikel/Aurora/Grid/Glow-Hintergrundbewegung
 
-### Animationsszene
-
-Mehrere Frames werden geprüft:
-
-- sichtbare Struktur im visuellen Kern
-- messbare Veränderung zwischen den Frames
-
-Wichtig: Diese Bewegungskontrolle ist **nur ein technisches Zusatzgate**. Sie ersetzt nicht den Phase-1-Animationscode-Vertrag. Sinnlose Dauerbewegung, Debug-Boxen oder Wackel-Hacks bleiben verboten, auch wenn sie Pixel verändern.
-
-Zusätzlich werden geprüft:
+Außerdem:
 
 - 1080×1920
 - Audio-Stream vorhanden
-- Videodauer passt zur Produktions-Timeline
-- alle geplanten Szenen im QA-Bericht
-- exakter SHA-256-Hash des Videos
-- Hash von `scene-index.json`
-- Hash des Produktionsmanifests
+- Timeline-Dauer korrekt
+- exakte Video-/Index-/Manifest-Hashes
 
 QA-Bericht:
 
@@ -183,58 +161,32 @@ QA-Bericht:
 05-projektdateien/phase3-render-qa.json
 ```
 
-Bei Fehler:
+Bei Fehler bleibt das Reel `NOT_COMPLETE`; Candidate wird nicht freigegeben.
 
-```text
-status = FAILED
-Reel = NOT_COMPLETE
-Candidate wird nicht als Finaldatei freigegeben
-```
-
-Bei Erfolg:
-
-```text
-status = PASSED
-Candidate wird erst danach zum finalen MP4 umbenannt
-```
-
-## 6. Export ist ein zweites Hard Gate
+## 7. Export
 
 ```bash
 npm run reel:export -- <Reel-Pfad> <Final-MP4>
 ```
 
-Export wird blockiert, wenn:
+Export blockiert bei fehlender/fehlgeschlagener QA oder Hash-Abweichung.
 
-- Render-QA fehlt
-- QA nicht `PASSED` ist
-- eine Szene im QA-Bericht fehlt/failed ist
-- Video-Hash nicht exakt zum geprüften Render passt
-- `scene-index.json` nach QA verändert wurde
-- Produktionsmanifest nach QA verändert wurde
-
-Damit kann weder ein alter Render noch eine unvollständige MP4 versehentlich als Upload-Paket ausgegeben werden.
-
-## 7. Fertig-Meldung
-
-Ein Phase-3-Agent darf **nicht** „fertig“, „final“ oder „done“ melden, solange nicht alle Punkte erfüllt sind:
+## 8. Fertig bedeutet wirklich fertig
 
 ```text
 reel:ready                 PASS
 Phase-1-Animations-Seal    vorhanden
-phase3 manifest            READY_TO_RENDER
+Manifest                   READY_TO_RENDER
 phase3 preflight           PASS
-candidate render           SUCCESS
-post-render visual QA      PASSED
-final MP4                  freigegeben
+Candidate render           SUCCESS
+Post-render QA             PASSED
+Final MP4                  freigegeben
 reel:export                PASS
 06-export/                 vollständig
 ```
 
-Insbesondere gilt:
+> Untertitel, Header oder schwarzer Hintergrund allein sind niemals ein gültiges Szenenvisual.
 
-> Untertitel allein sind niemals eine vollständige Szene, wenn `scene-index.json` ein Bild oder eine Animation verlangt.
+> Hintergrundbewegung ist niemals ein Ersatz für eine Animation.
 
 > Eine vorhandene MP4-Datei ist kein Fertigkeitsnachweis.
-
-> Eine bewegte Ersatzkomponente ist keine gültige Animation. Für Animationsszenen zählt ausschließlich der versiegelte Phase-1-Animationscode.

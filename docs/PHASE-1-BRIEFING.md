@@ -75,99 +75,109 @@ UNTERTITEL
 - kein Wort der nächsten Szene vor der Szenengrenze
 
 ════════════════════════════════════════
-BILDWELT — PREMIUM PHYSICAL EDITORIAL V8
+BILDWELT — STYLIZED 3D ANIMATED BLACK V9
 ════════════════════════════════════════
 
 Jeder Bildprompt enthält:
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-premium-physical-editorial-v8
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild XX - Kurzer Szenenname.png
 
 ZIELWELT
-Nicht mehr UI/Dashboard/Flowchart. Stattdessen hochwertige stylized-3D Financial Editorial Object World.
+- klar stylized 3D animated, niemals realistisch oder photorealistisch
+- polished 3D animated movie frame
+- soft rounded shapes, simplified recognizable details
+- premium, freundlich und leicht verspielt, aber nicht kindlich
+- Inhalt und Verständlichkeit vor Deko
+- jede Szene darf anders komponiert sein, muss aber nach derselben Welt aussehen
 
-PFLICHT PRO BILD
-- EIN dominantes, sofort erkennbares physisches Hero-Objekt
-- Hero ungefähr 45–65 % der nutzbaren Komposition
-- KEINE feste Anzahl an unterstützenden Objekten
-- zusätzliche Objekte nur, wenn sie Inhalt, Verständlichkeit oder visuelle Wirkung verbessern
-- eine Szene darf fast keine Support-Objekte brauchen, eine andere mehrere
-- Klarheit und Inhalt entscheiden, niemals eine Zahlenquote
-- medium-close 3/4-Kamera, keine weit entfernte Isometrie
-- starke Silhouette
-- klare Vordergrund-/Hero-/Hintergrundstaffelung
-- sichtbare Dicke, rounded industrial bevels, glaubwürdiges Gewicht
-- purposeful overlap, Kontakt-Schatten, Ambient-Occlusion-Eindruck
-- cinematic soft key light von vorn/oben links
-- kontrolliertes Emerald-Rim-Light von hinten rechts
-- lesbare Schattenseite
-- dunkle Struktur + Creme/Weiß + mindestens ein semantischer Akzent
+HINTERGRUND — PFLICHT
+- ein nahtloser deep-black Hintergrund
+- sauber, minimal, ruhig
+- kein heller Studiohintergrund
+- keine sichtbare Boden-Wand-Grenze, kein Horizont, keine farbigen Hintergrundzonen
 
-MATERIALROLLEN
-- Struktur: satin dark-emerald anodized metal / Premium-Polymer
-- Neutral: warmes Ivory/Creme, Keramik-/Steinwirkung
-- Geld/Wert: gebürstetes Messing / sculpted gold
-- Warnung/Kosten: warmes Rot-Orange
-- Glas: nur sparsam als Sekundärmaterial
+OBJEKTE + KOMPOSITION
+- klare Hauptaussage oder Hauptaktion
+- KEINE feste Objektanzahl
+- zusätzliche Objekte nur, wenn sie die Aussage besser, verständlicher oder interessanter machen
+- keine Props nur zum Auffüllen
+- Szene muss in ungefähr 1–2 Sekunden verständlich sein
+- lieber einfach und stark als kompliziert und überladen
 
-PHYSISCHES STORYTELLING
-Zeige konkrete Ursache-Wirkung mit Objekten, z. B. Karte → Terminal, Gebühren-Tag → Beleg, Währungsobjekt → anderer Weg, Bankobjekt → übernimmt Umrechnung, Gate → öffnet/schließt, Waage → kippt, Beleg → verlängert sich.
+MARKEN + LOGOS
+Wenn Marke, Bank, App oder Logo relevant ist:
+- Kernidentität erkennbar ähnlich halten
+- aber als vereinfachtes, abgerundetes 3D-Element in derselben Animationswelt darstellen
+- kein flach aufgeklebtes echtes Logo
+- kein Website-/App-Screenshot
+- kein photorealistisches Markenprodukt oder realistische Marken-UI
+
+FARBEN
+- Emerald Green = positiv / bevorzugter Weg
+- Warm Ivory + Soft Gray = neutrale Flächen
+- Gold = nur Geld / Wert
+- Warm Red-Orange = Warnung / Kosten / Verlust
+- schwarzer Hintergrund bleibt dominant
+
+LICHT
+- clean soft studio lighting
+- klare Highlights
+- lesbare Schatten
+- gute Trennung vom schwarzen Hintergrund
+- weiche Kontaktschatten
 
 TEXT IM BILD
+- nur ausdrücklich verlangte kurze deutsche Labels
 - keine Headline, kein Untertitel, kein CTA, kein erklärender Satz
-- nur kurze deutsche Objektlabels, meist 1–2 Wörter
-- Labels als physische Plakette/Sticker/Tag/Prägung
-- Aussage muss auch ohne Labels verständlich sein
-
-GERÄTE
-ATM, Kartenterminal, Telefon oder Rechner sind erlaubt, wenn sie das konkrete physische Hero-Objekt sind. Kein UI-Mockup daraus machen.
 
 STRENG VERBOTEN
-- Dashboard / Control Panel
+- Realismus / Photorealismus
+- echter Produktfoto-Look
+- flach aufgeklebtes echtes Logo / Screenshot-Marken-UI
+- Dashboard / App UI
 - Flowchart als Hauptkomposition
-- kleine Kästen mit dünnen Linien
-- floating UI cards/tiles/chips/pills/widgets/HUD
-- generische rechteckige Info-Cards als Hauptobjekte
-- Neon-Liniennetz als Hauptmotiv
-- Microchip/Circuit-Board
-- Gameboard, Orbit, Vier-Ecken-Kacheln
-- tiny isometric diorama
-- sterile Produktwerbung ohne erklärende Handlung
-- kleines Objekt in riesigem dunklem Leerraum
-- flache Poster-Komposition
-- monochrom-grüner Gesamtlook
-- Fotorealistik/Office-Still-Life
-- Pixar/Clay/Toy
+- kleine Kästen, floating Info-Cards, technische UI-Flächen
+- Microchip/Circuit-Look
+- Miniatur-Diorama
+- unnötiger Clutter
+
+PROMPT-LÄNGE
+- mittel-lang
+- zuerst die konkrete Bildidee
+- danach kurzer Style-/Background-/Forbidden-Block
+- keine riesigen Regelblöcke, die die eigentliche Szene überdecken
 
 BILD-QA
-Bild verwerfen und neu erzeugen, wenn Hero zu klein ist, Support-Objekte nur Deko oder Clutter erzeugen, UI/Flowchart-Look entsteht, Material/Tiefe/Licht zu schwach sind, zu viel Leerraum bleibt, alles fast nur grün ist oder die Aussage nur durch Text verständlich wird.
+Bild verwerfen und neu erzeugen, wenn es realistisch aussieht, der Hintergrund nicht tiefschwarz ist, die Aussage schwer verständlich ist, zu viel Clutter entsteht, die Szene wie UI/Flowchart wirkt, eine Marke wie aufgeklebt/Screenshot aussieht oder die V9-Animationswelt nicht mehr erkennbar ist.
 
 GOOGLE FLOW — STRICT SINGLE JOB
 - maximal 1 laufender Bildjob
 - nur aktuellen Bildblock ausführen
 - auf Ergebnis warten
 - sofort exakt umbenennen
-- Premium-QA
+- V9-QA
 - Fehler: dieselbe Bildnummer neu
 - erst danach nächsten Bildblock freischalten
 - kein Batch, kein Queueing, keine Galerie/Collage, kein Nutzer-„weiter“
 - keine Bildreferenz
 
 ════════════════════════════════════════
-ANIMATION — PREMIUM PHYSICAL ANIMATION V2
+ANIMATION — V9-KOMPATIBLER PHASE-1-CODE
 ════════════════════════════════════════
 
 Phase 1 ist vollständig verantwortlich. Für jede Animationsszene müssen `remotion.md` UND eine fertige `animation.tsx` existieren.
 
-Locks:
+Technische Locks:
 - animationQualityLock: finanzneo-phase1-animation-code-v1
 - animationPremiumVisualLock: finanzneo-premium-physical-animation-v2
+
+Visuelles Ziel: finanzneo-stylized-3d-animated-black-v9
 
 PFLICHTLOGIK
 STARTZUSTAND → SICHTBARER PHYSISCHER MECHANISMUS → EINDEUTIGES ERGEBNIS → Ergebnis mindestens 15 Frames stabil.
@@ -177,7 +187,8 @@ PFLICHT IM CODE
 - ANIMATION_COLORS
 - prog/interpolate/spring
 - PremiumPhysicalStage
-- mindestens zwei PhysicalObject-Instanzen
+- mindestens ein echtes PhysicalObject als sichtbares Hauptmotiv
+- KEINE feste Support-Objekt-Anzahl
 - mindestens eine semantische Materialrolle neutral/money/warning/positive
 - RESULT_HOLD_FRAMES >= 15
 - korrekter Exportname SceneXXAnimation
@@ -190,26 +201,36 @@ MECHANISM: konkrete sichtbare Veränderung
 RESULT: konkretes sichtbares Ergebnis
 
 PREMIUM_VISUAL_NARRATIVE
-HERO: großes dominantes physisches Hauptobjekt
-SUPPORT: nur die konkreten Support-Objekte, die die Aussage wirklich brauchen; keine feste Anzahl
+HERO: klares Hauptobjekt oder Hauptaktion
+SUPPORT: nur sinnvolle Support-Objekte; keine feste Anzahl
 MATERIAL: Material-/Farblogik
-DEPTH: Vordergrund/Hero/Hintergrund + Lichttrennung
+DEPTH: Vordergrund/Hauptmotiv/Hintergrund + Lichttrennung
 
 ANIMATIONS-ZIELWELT
-Die Animation muss wie die Bildwelt wirken, nicht wie ein anderes Produkt:
-- großes physisches Hero-Objekt
-- keine feste Support-Objekt-Anzahl; Inhalt und Verständlichkeit entscheiden
-- sichtbare Dicke, Materialkanten, Schatten und Tiefe
-- Creme/Weiß + Gold/Rot/Grün semantisch einsetzen
+- klar nicht realistisch
+- stylized 3D animated
+- weiche, abgerundete Formen
+- einfache verständliche Objektaktion
 - Visualzone groß nutzen
-- Mechanik durch echte Objektaktion erklären
+- PremiumPhysicalStage bleibt TRANSPARENT
+- der einzige Remotion-Reel-Hintergrund ist zentral und statisch #000000
 
-STRENG VERBOTEN
+ANIMATIONS-HINTERGRUND STRENG VERBOTEN
+- FNBgAurora
+- FNBgParticles
+- FNBgGrid
+- FNBgRadial
+- Partikelfelder
+- Aurora-/Glow-Flächen
+- bewegte Grids
+- dekorative Hintergrund-Gradienten/Vignetten
+- Hintergrundbewegung als Frame-Diff-Hack
+
+WEITER STRENG VERBOTEN
 - Dashboard-/Control-Panel-Look
 - Flowchart als Hauptkomposition
 - kleine Kästen mit dünnen Linien
 - generische Info-Cards als Hauptsprache
-- monochrom-grüne Szene
 - reine Texttafel
 - Dummy/Placeholder/Debug/Testflächen
 - Math.sin/Math.cos-Wackel-Hack
@@ -241,10 +262,14 @@ ABSCHLUSSPRÜFUNG PHASE 1
 - keine Platzhalter außer expliziten Phase-2-Timingfeldern
 - Fakten geprüft
 - Bildbeats max. 6 s planbar
-- Premium-V8-Bildwelt in jedem Bildprompt
-- keine feste Supporting-Object-Anzahl in Bild- oder Animationsplanung
-- keine UI-/Flowchart-/monochrom-grüne Bildkomposition
-- jede Animation erfüllt Premium Physical Animation V2
+- V9-Bildwelt in jedem Bildprompt
+- deep-black Hintergrund in jedem Bildprompt
+- keine feste Objektanzahl
+- keine Realistik / Produktfoto-Optik / UI / Flowchart / Clutter
+- Marken/Logos erkennbar aber stilisiert
+- Einzelprompts bleiben mittel-lang
+- jede Animation erfüllt den Phase-1-Animationsvertrag und passt visuell zur V9-Welt
+- Animations-Stage erzeugt keinen eigenen Hintergrund
 - Animationen sehen ohne Ton verständlich und hochwertig aus
 - keine kreative Arbeit für Phase 3 übrig
 ```
@@ -253,6 +278,7 @@ ABSCHLUSSPRÜFUNG PHASE 1
 
 ```bash
 npm run validate:image-world
+npm run validate:reel-background
 npm run reel:validate -- <Reel-Pfad>
 npm run reel:ready -- <Reel-Pfad>
 ```

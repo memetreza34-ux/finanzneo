@@ -34,24 +34,24 @@ const MATERIALS: Record<PremiumMaterial, {
   },
 };
 
+// Technical compatibility lock. The visual target is the V9 stylized animated
+// black world; this id remains stable so existing sealed Phase-1 animations do
+// not become invalid merely because the background/world direction evolved.
 export const PREMIUM_VISUAL_LOCK = 'finanzneo-premium-physical-animation-v2';
 
+/**
+ * Shared animation stage for V9.
+ *
+ * IMPORTANT: this component is transparent. The only Reel background comes
+ * from the central FinanceBackground and is pure #000000. Never add a glow,
+ * radial gradient, vignette, particles, grid or other decorative backdrop here.
+ */
 export const PremiumPhysicalStage: React.FC<{
   children: React.ReactNode;
   scale?: number;
 }> = ({children, scale}) => (
   <AnimationStage scale={scale}>
-    <AbsoluteFill style={{perspective: 1400, overflow: 'hidden'}}>
-      <div style={{
-        position: 'absolute', inset: 0,
-        background: 'radial-gradient(circle at 42% 42%, rgba(20,104,66,0.20) 0%, rgba(9,35,22,0.10) 38%, rgba(2,10,6,0) 72%)',
-        pointerEvents: 'none',
-      }} />
-      <div style={{
-        position: 'absolute', width: 620, height: 620, left: 200, top: 420,
-        borderRadius: '50%', filter: 'blur(95px)',
-        background: 'rgba(0,210,106,0.06)', pointerEvents: 'none',
-      }} />
+    <AbsoluteFill style={{perspective: 1400, overflow: 'hidden', background: 'transparent'}}>
       {children}
     </AbsoluteFill>
   </AnimationStage>
@@ -168,8 +168,8 @@ export const PhysicalRail: React.FC<{
 export const PremiumDepthGuide = {
   visualTop: REEL_STYLE.visual.top,
   visualBottom: REEL_STYLE.visual.bottom,
-  heroMinCoverage: 0.45,
-  heroMaxCoverage: 0.65,
-  supportingObjectsMin: 2,
-  supportingObjectsMax: 4,
+  supportingObjectCountFlexible: true,
+  supportingObjectsOnlyWhenHelpful: true,
+  clarityBeforeObjectCount: true,
+  contentFirstComposition: true,
 } as const;

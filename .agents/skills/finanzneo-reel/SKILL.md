@@ -1,244 +1,117 @@
 ---
 name: finanzneo-reel
-description: Safely creates, repairs or reviews FinanzNeo vertical Remotion reels while preserving repository rules, stylized 3D image consistency, scene headers, readable karaoke captions, animation clarity, platform publishing and validation requirements.
+description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, V9 image world, sealed animations, pure-black canvas and completion gates.
 ---
 
 # FinanzNeo Reel Skill
 
-Read these first and treat them as authoritative:
+## Authority
+
+Read in this order:
 
 1. `CLAUDE.md`
-2. `reels/PRODUKTIONSSTANDARD.md`
-3. `docs/IMAGE-SYSTEM.md`
-4. `docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md`
-5. `docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md`
-6. `docs/PLATFORM-PUBLISHING.md`
-7. target reel `03-szenen/alle-bildprompts.txt`
-8. target reel `03-szenen/scene-index.json`
+2. target `03-szenen/scene-index.json`
+3. `docs/3-PHASEN-WORKFLOW.md`
+4. `docs/PHASE-3-COMPLETION-GATE.md`
+5. `reels/PRODUKTIONSSTANDARD.md`
+6. `.agents/rules/finanzneo-reel-safety.md`
 
 `CLAUDE.md` wins on conflicts.
 
+## Three phases
+
+### Phase 1 — ChatGPT
+
+Owns research, scene-by-scene script, Flow prompts, headers/icons, captions and the final production-ready `animation.tsx` for every animation scene.
+
+### Phase 2 — user
+
+Owns final Flow images, final voiceover and real word timings.
+
+### Phase 3 — configured executor
+
+Integrates only. It must not invent missing Phase-1 animation or substitute missing Phase-2 assets.
+
+If `phase3Executor` names another executor, do not take over Phase 3.
+
+## V9 image world
+
+New Flow prompts use `finanzneo-stylized-3d-animated-black-v9`:
+
+- clearly non-realistic stylized 3D animated look
+- soft rounded shapes and simplified recognizable details
+- premium but slightly playful
+- deep black background mandatory
+- content/clarity before object count; no fixed supporting-object quota
+- emerald positive, ivory/soft gray neutral, subtle gold money/value, red-orange warning/cost
+- medium-length prompts
+- no realism/product-photo look/dashboard/app UI/flowchart/tiny boxes/microchip/minidiorama/clutter
+
+If a brand/logo/app appears, keep it recognizable but stylized in the same animated world. Never paste a flat real-world logo, screenshot or photorealistic branded UI into the scene.
+
+Antigravity does not generate the user's final images. Missing exact image = stop and report filename.
+
+## Pure-black Reel background
+
+The Remotion canvas is always static `#000000` through central `FinanceBackground`.
+
+Never use or import `FNBgAurora`, `FNBgParticles`, `FNBgGrid`, `FNBgRadial`, particle fields, moving grids, aurora, glow fields, decorative background gradients or animated background elements.
+
+Do not use background motion to make an otherwise empty scene pass visual QA.
+
+## Animation ownership
+
+For every animation scene:
+
+- use exact `animationSourceFile`
+- use exact `animationExport`
+- preserve SHA-256 seal from `reel:ready`
+- bind through the production composition/customAnimations mapping
+- missing binding = hard failure
+- Phase 3 may not replace or simplify the source
+
+No placeholders, debug rectangles, `Math.sin`/`Math.cos` QA-wiggle or motion whose only purpose is frame difference.
+
+## Layout V5
+
+Central `REEL_STYLE` only:
+
+- Header Y154
+- Visual Y320–1480
+- captions bottom340
+- transition 3 frames
+- header plain white text + simple semantic line icon
+- no capsule/chip/pill/panel/forced uppercase
+
+## Completion sequence
+
+```bash
+npm run reel:ready -- <Reel>
+npm run reel:phase3:init -- <Reel> <Composition-ID>
+# implement every scene and complete manifest
+npm run reel:phase3:preflight -- <Reel>
+npm run reel:render -- <Reel>/05-projektdateien/phase3-production-manifest.json
+npm run reel:export -- <Reel> <Final-MP4>
+```
+
+`reel:render` must create a candidate, run post-render QA and release a final MP4 only if QA passes.
+
+QA must reject:
+
+- black/empty visual core
+- caption-only/header-only scene
+- missing image
+- missing animation binding
+- animation with no real motion
+- non-black/decorative background
+- missing audio
+- wrong dimensions/timeline
+
+An MP4 file by itself is never proof of completion.
+
 ## Repository safety
 
-- New topic = new branch + new reel folder.
-- Never work directly on main.
-- Never merge, force-push, rewrite shared history or delete branches/reels/assets unless explicitly requested.
-- Existing reels are read-only unless explicitly targeted.
-- Do not weaken validators, tests, finance calculations or lockfiles.
-
-## Images belong to the user
-
-- Antigravity prepares image prompts, filenames and QA rules.
-- Antigravity MUST NOT generate cover images, scene images or world-reference images.
-- Never call Antigravity image generation, Imagen, Nano Banana, web image search, stock images or placeholders as substitutes.
-- If a required user image is missing, report the exact filename and wait.
-
-## Stylized 3D Editorial V5 — mandatory for new prompts
-
-Every new FinanzNeo image must be a **clearly stylized premium 3D CGI financial editorial explainer** built from recognizable everyday objects.
-
-Do NOT interpret finance as:
-
-- photorealistic office/stationery photography
-- flat paper still-life
-- fintech software/dashboard/app UI
-- gameboard/control panel/module system
-
-Required:
-
-- ONE large recognizable stylized 3D hero object
-- 2–5 concrete topic-specific stylized 3D supporting objects when useful
-- chunky substantial volume
-- smooth rounded forms and soft bevels
-- simplified slightly exaggerated proportions
-- natural asymmetry, slight overlap, foreground/midground/background depth
-- cinematic soft key light + controlled emerald rim light
-- premium emerald polymer/brushed metal, warm cream card material, restrained glass
-- chunky gold only for money/value
-- warm red-orange only for warning/loss/unwanted cost
-- deep charcoal green-black seamless world
-- clearly NOT photorealistic, NOT Pixar, NOT clay, NOT toy-like
-
-Hard forbidden screenshot failure mode:
-
-- realistic calendar/receipt/contract/product photo
-- digital dashboard, app UI, screen, HUD or control panel
-- central rectangular board/tablet/panel
-- repeated rectangular cards, tiles or blocks as composition language
-- floating cards, chips, badges, buttons or widgets
-- microchip/circuit-board look
-- circular orbit or ring of modules
-- gameboard/board-game composition
-- mechanical inspection gate or conveyor-board layout
-- neon connector lines, rails, tracks, tubes or abstract finance streams
-- tiny isometric diorama
-- sterile product plinth
-
-## NO image-reference rule — critical
-
-Do NOT upload, attach or use `Bild 00` or any prior scene as an image-to-image/reference image for later Reel scenes.
-
-Same-world consistency comes from repeating the same WRITTEN:
-
-- world ID
-- stylized-3D lock
-- materials
-- color roles
-- background
-- lighting signature
-- geometry language
-
-in every image prompt.
-
-This prevents Flow from copying camera angle, silhouette or composition through the entire series.
-
-## Labels inside generated images
-
-Allowed:
-
-- only explicitly requested short German object labels
-- normally 1–3 words
-- physical presentation on modeled tags/cards/objects
-
-Forbidden:
-
-- headline
-- subtitle
-- explanatory sentence
-- CTA
-- random extra labels
-- floating/glowing UI labels
-
-If a person appears: stylized adult, face clearly visible with eyes/nose/mouth, front-facing or natural three-quarter view. No faceless mannequin or back-view-only person.
-
-## Seamless-background rule
-
-Every prompt must demand:
-
-```text
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
-No horizontal divisions, top/bottom sections, floor-wall boundary, horizon line, panels or background bands.
-Use only one subtle continuous gradient/vignette.
-Objects may cast soft local contact shadows without creating a visible floor plane.
-```
-
-## Google Flow filenames and numbering
-
-Every `03-szenen/alle-bildprompts.txt` must put the exact final filename directly at each image prompt.
-
-- `Bild 00` = cover
-- scene image uses its real chronological scene number
-- Remotion animation reserves its number and has no image
-- never close numbering gaps
-
-Workflow:
-
-```text
-1 image generate
-→ wait completely
-→ immediately rename
-→ check stylized-3D quality + everyday clarity + labels + background + filename
-→ reject photo/UI/gameboard/module result
-→ only then next image
-```
-
-After ALL images are complete and renamed, collect them in:
-
-```text
-03-szenen/00-ALLE-BILDER-HIER-REIN/
-```
-
-## Visual timing — mandatory
-
-Target roughly 60% image beats / 40% native Remotion animations, but clarity wins over a rigid quota.
-
-- image beat ideal: 3.5–5.5 s
-- image beat absolute max: 6.0 s
-- animation beat ideal: 4.5–7.0 s
-- if an image would need >6 s: split it or animate it
-- one main idea per beat
-- viewer should understand an image in under 2 s
-
-## Scene header — mandatory on EVERY scene
-
-Every image and animation scene must render a clear top header with a matching icon.
-
-Preferred implementation:
-
-```tsx
-<SceneHeader title="KONTOAUSZUG PRÜFEN" icon="search" />
-```
-
-Rules:
-
-- icon normally FinanzNeo green
-- headline white
-- consistent top position
-- short direct wording
-- red only for warning/problem
-- gold only for money/value
-- never black text on dark scene background
-
-## Animation clarity — mandatory
-
-Every native Remotion explainer animation must have:
-
-```text
-START
-→ VISIBLE MECHANISM / CHANGE
-→ RESULT
-```
-
-- motion itself explains the point
-- no zoom/fade/number-popup-only animation
-- start and result must be visibly distinguishable
-- for complex animations use `MechanismCue`
-- animation should be basically understandable with sound muted
-
-Animation color system from `ANIMATION_COLORS`:
-
-- white = neutral information
-- green = focus/solution/core explanation
-- red = warning/problem/loss/unnecessary cost
-- gold = money/value/result amount
-- black = forbidden on dark Reel surfaces
-
-## Audio, captions and finalization
-
-After all user images and final audio are present:
-
-- use real audio-derived word timings
-- scene cuts follow sentence starts and meaningful phrase starts when needed for the 6-second rule
-- one sentence-based subtitle unit visible
-- active spoken word ALWAYS green
-- remaining words ALWAYS white
-- no yellow/gold karaoke active word
-- no black subtitle text
-- max two subtitle lines
-- no word jump
-- no scale-pop
-- hold previous caption over short pauses
-- no caption gaps
-- images use `contain`
-- no visible blurred duplicate image background
-- validate/safety-check/typecheck/preview before claiming completion
-- inspect image set/contact sheet and full MP4
-- review animation clarity once with sound muted
-- target audio around -16 LUFS and <= -1 dBTP true peak
-
-## Platform publishing
-
-Keep the simple five-folder reel structure. Publishing files live directly in `04-caption/`:
-
-```text
-caption.txt
-instagram-reels.txt
-tiktok.txt
-facebook-reels.txt
-snapchat.txt
-word-timings.json
-```
-
-Never create `youtube-shorts.txt`. YouTube remains a separate long-form workflow under `youtube/`.
-
-A reel is not complete without required user assets, real audio timings, successful validation/typecheck/preview, visual review, scene-header review, caption-color review, animation-without-sound review and safety audit.
+- never work on `main`
+- never merge/force-push/delete previous work without explicit instruction
+- never weaken tests/validators/locks to make a reel pass
+- fix actual content/integration errors instead
