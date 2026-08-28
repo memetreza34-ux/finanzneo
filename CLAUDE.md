@@ -114,60 +114,67 @@ Bildszene:
 - Zahlen nur nach Prüfung; Beispielannahmen klar kennzeichnen
 - keine individuelle Anlageempfehlung
 
-## 6. Google-Flow-Bildwelt — Premium Physical Editorial V8
+## 6. Google-Flow-Bildwelt — Stylized 3D Animated Black V9
 
 Verbindliche Locks:
 
 ```text
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-premium-physical-editorial-v8
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 ```
 
 ### Zielbild
 
-Die Bildwelt ist **keine dunkle UI-/Dashboard-/Flowchart-Welt mehr**.
-Sie ist eine hochwertige stylized-3D Financial Editorial Object World.
+Die Bildwelt ist bewusst **nicht realistisch**.
+Jedes Bild soll wie ein hochwertiger, klarer 3D-Animationsfilm-Frame wirken:
 
-Pflicht:
+- stylized 3D animated
+- soft rounded shapes
+- vereinfachte, erkennbare Details
+- clean materials
+- premium, freundlich und leicht verspielt
+- Inhalt und Verständlichkeit vor Deko
+- jede Szene darf anders komponiert sein, muss aber klar aus derselben Welt kommen
 
-- **ein dominantes physisches Hero-Objekt**, ungefähr 45–65 % der nutzbaren Komposition
-- nur **2–4** unterstützende konkrete, themenspezifische Objekte
-- medium-close 3/4-Kamera; keine weit entfernte isometrische Gesamtansicht
-- starke Silhouette und klare Vordergrund-/Hero-/Hintergrundstaffelung
-- sichtbare Dicke, industrielle rounded bevels und glaubwürdiges Gewicht
-- purposeful overlap, Kontakt-Schatten und Ambient-Occlusion-Eindruck
-- cinematic soft key light + kontrolliertes Emerald-Rim-Light
-- lesbare Schattenseite; Motiv darf nicht im dunklen Hintergrund verschwinden
-- mindestens drei Material-/Farbrollen pro Bild
+### Schwarzer Hintergrund — Pflicht
 
-### Materialien
+Jedes Flow-Bild nutzt **einen nahtlosen deep-black Hintergrund**.
 
-- Struktur: satin dark-emerald anodized metal oder Premium-Polymer
-- Neutral: warmes Ivory/Creme, Keramik-/Steinwirkung
-- Geld/Wert: gebürstetes Messing / sculpted gold
-- Warnung/Kosten/Verlust: warmes Rot-Orange
-- Glas: nur zurückhaltend als Sekundärmaterial
+- clean und minimal
+- keine helle Studiowelt
+- keine Boden-Wand-Grenze
+- kein Horizont
+- keine farbigen Hintergrundzonen
+- Motiv muss sich durch sauberes Licht klar vom Schwarz lösen
+
+### Objekte und Komposition
+
+Es gibt **keine feste Objektanzahl** und keinen festen Hero-Prozentkorridor.
+
+- klare Hauptaussage oder Hauptaktion
+- Support-Objekte nur, wenn sie die Erklärung verbessern
+- keine Props zum Auffüllen
+- 1 Objekt kann reichen; mehrere sind erlaubt, wenn sie sinnvoll sind
+- Szene muss in ungefähr 1–2 Sekunden verständlich sein
+- lieber einfach und stark als kompliziert und überladen
 
 ### Farbe
 
-Grün ist Marken- und Fokusfarbe, aber **kein monochromer Gesamtlook**.
-Creme/Weiß bringt Klarheit, Gold steht für Geld/Wert, Rot-Orange für Kosten/Warnung.
+- Emerald Green = positiv / bevorzugt
+- Warm Ivory + Soft Gray = neutral
+- Gold = Geld / Wert
+- Warm Red-Orange = Warnung / Kosten / Verlust
+- Deep Black = Hintergrund
 
-### Physische Storytelling-Regel
+### Licht
 
-Mechanismen sollen als konkrete Objektaktion lesbar sein, zum Beispiel:
-
-- Karte geht in Terminal
-- Gebühren-Tag heftet sich an einen Beleg
-- Währungsobjekt wechselt einen physischen Weg
-- Bankobjekt übernimmt die Umrechnung
-- Gate öffnet/schließt
-- Waage kippt
-- Beleg verlängert sich
-- Schloss greift ein
+- clean soft studio lighting
+- klare Highlights
+- lesbare Schatten
+- gute Trennung vom schwarzen Hintergrund
+- weiche Kontaktschatten
 
 ### Text im KI-Bild
 
@@ -175,41 +182,28 @@ Mechanismen sollen als konkrete Objektaktion lesbar sein, zum Beispiel:
 - kein Untertitel
 - kein erklärender Satz
 - kein CTA
-- nur wenige kurze deutsche Objektlabels, normalerweise 1–2 Wörter
-- Labels als physische Tags/Plaketten/Sticker/Prägungen
-- Bild muss auch ohne Labels verständlich bleiben
-
-### Geräte
-
-ATM, Kartenterminal, Telefon oder Rechner sind erlaubt, wenn sie das konkrete physische Hero-Objekt des Themas sind. Das Bild darf dadurch niemals zu einem Dashboard-/UI-Mockup werden.
+- nur ausdrücklich verlangte kurze deutsche Labels
 
 ### Streng verboten
 
-- Dashboard / Control Panel als Komposition
+- Realismus / Photorealismus
+- echter Produktfoto-Look
+- Dashboard / App UI
 - Flowchart als Hauptkomposition
-- kleine Kästen mit dünnen Verbindungslinien
-- floating UI cards/tiles/chips/pills/widgets/HUD
-- generische rechteckige Info-Cards als Hauptobjekte
-- Neon-Liniennetz als Hauptmotiv
-- Microchip/Circuit-Board
-- Gameboard
-- Orbit-/Satellitenmodule
-- symmetrische Vier-Ecken-Kacheln
-- tiny isometric diorama
-- sterile Produktwerbung ohne erklärende Handlung
-- kleines Objekt in riesigem dunklem Leerraum
-- flache Poster-Komposition
-- monochrom-grüne Gesamtkomposition
-- Fotorealistik/Office-Still-Life
-- Pixar/Clay/Toy
+- kleine Kästen, floating Info-Cards oder dichte technische Layouts
+- Microchip-/Circuit-Board-Look
+- Miniatur-Diorama
+- unnötiger Clutter
 
-### Hintergrund
+### Prompt-Länge
 
-Ein einziger nahtloser deep-charcoal-green-black Raum mit subtiler Tiefe. Keine Floor-Wall-Grenze, kein Horizont, keine horizontalen Zonen oder Panels.
+Einzelprompts bleiben **mittel-lang**.
+Die konkrete Bildidee kommt zuerst, danach ein kurzer Style-/Background-/Forbidden-Block.
+Die Hauptidee darf nicht unter riesigen Regelblöcken verschwinden.
 
 ### Bild-QA
 
-Bild neu erzeugen, wenn das Hero-Objekt zu klein ist, zu viele kleine Nebenobjekte konkurrieren, UI/Flowchart-Look entsteht, Material/Tiefe/Licht schwach sind, zu viel Leerraum bleibt oder die Aussage nur durch Text verstanden wird.
+Bild neu erzeugen, wenn es realistisch oder produktfotoartig aussieht, der Hintergrund nicht tiefschwarz ist, die Aussage schwer verständlich ist, unnötiger Clutter entsteht oder die Szene wie UI/Flowchart wirkt.
 
 ## 7. Google Flow — Strict Single Job
 
@@ -227,7 +221,7 @@ aktuellen Prompt lesen
 → GENAU EIN Bild starten
 → intern vollständig warten
 → sofort exakt umbenennen
-→ Premium-QA
+→ V9-QA
 → bei Fehler dieselbe Bildnummer neu erzeugen
 → erst nach bestandener QA nächsten Bildblock freischalten
 ```
@@ -324,15 +318,16 @@ STARTZUSTAND
 
 ### Visuelle Pflicht
 
-Animationen müssen **dieselbe massive Premium-Objektwelt wie die Flow-Bilder** verwenden:
+Animationen müssen **zur Stylized 3D Animated Black V9 Bildwelt passen**:
 
-- großes dominantes Hero-Objekt
-- 2–4 konkrete Support-Objekte
-- sichtbare Materialität und Dicke
-- klare Tiefenstaffelung
-- Kontakt-Schatten / Lichttrennung
-- Creme/Weiß + semantische Akzente neben Grün
+- klar nicht realistisch
+- soft rounded / vereinfachte 3D-Formen
+- deep-black Hintergrund
+- klare Hauptaktion
+- keine feste Support-Objekt-Anzahl
+- Emerald / Ivory / Soft Gray / Gold / Red-Orange semantisch einsetzen
 - Szene nutzt die Visualzone sichtbar aus
+- Mechanik muss sofort verständlich sein
 
 ### Streng verboten
 
@@ -340,7 +335,6 @@ Animationen müssen **dieselbe massive Premium-Objektwelt wie die Flow-Bilder** 
 - Flowchart als Hauptkomposition
 - kleine Boxen mit dünnen Linien
 - generische Info-Cards als Hauptsprache
-- monochrom-grüne Gesamtkomposition
 - reine Texttafeln
 - `Math.sin` / `Math.cos` als künstliches Dauerwackeln
 - Debug-Boxen, Testflächen, Dummy-/Placeholder-Komponenten
@@ -414,16 +408,17 @@ Keine Ersatz-Audiodatei erzeugen. Nach Audioänderungen Wortzeiten/Timeline neu 
 Sofort korrigieren bei:
 
 - falschem/fehlendem Bild
-- schwacher/kleiner Bildkomposition
+- realistischer / produktfotoartiger Bildwelt
+- nicht tiefschwarzem Flow-Hintergrund
+- unklarer oder überladener Bildkomposition
 - UI-/Flowchart-Look
-- fehlendem Material-/Tiefen-/Lichtkontrast
 - Bildbeat >6 s
 - Caption-only-Szene
 - Header-Capsule/Chip/ALL-CAPS-Stil
 - falscher Header-/Visual-/Captionposition
 - Debug-/Placeholder-/Wackelanimation
 - Animation ohne Start → Mechanismus → Ergebnis
-- Animation ohne PremiumPhysicalStage / PhysicalObject
+- Animation, die sichtbar nicht zur V9-Bildwelt passt
 - Phase-3-Ersatz des Phase-1-Animationscodes
 - fehlendem Animation-Binding
 - fehlendem Audio
@@ -456,7 +451,7 @@ npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
 Der öffentliche Ersteller setzt automatisch:
 
 - Flow Strict-Single-Job V3
-- Premium Visual World V8
+- Stylized 3D Animated Black V9
 - Phase-3-Completion-Gate
 - Reel-Layout V5
 - Phase-1-Animationscode-Vertrag
@@ -472,8 +467,8 @@ npm run reel:ready -- <Reel-Pfad>
 
 ## 20. Aktive Prioritäten
 
-1. Premium Physical V8 Bildwelt konsequent halten
-2. Premium Physical Animation V2 auf dasselbe Qualitätsniveau bringen
+1. Stylized 3D Animated Black V9 Bildwelt konsequent halten
+2. Animationen visuell auf dieselbe V9-Welt bringen
 3. Phase-1-Animationscode final und hochwertig liefern
 4. Plain Header + V5-Vertikallayout konsequent halten
 5. Caption-System sauber und mobil lesbar halten
