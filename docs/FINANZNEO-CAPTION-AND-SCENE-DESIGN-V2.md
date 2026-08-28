@@ -1,32 +1,25 @@
-# FinanzNeo — Caption, Scene Header, Timing & Motion V5
+# FinanzNeo — Caption, Scene Header, Timing & Motion V5/V9
 
-Verbindlicher Qualitätsstandard für neue Reel-Produktionen.
+Verbindlicher Qualitätsstandard für neue Reel-Produktionen. Layout = V5, visuelle Welt/Hintergrund = V9.
 
-## 1. Untertitel V5
+## 1. Untertitel
 
-- aktives gesprochenes Wort: helles FinanzNeo-Grün
+- aktives gesprochenes Wort: FinanzNeo-Grün
 - restliche Wörter: Weiß
-- kein Gelb/Gold als Karaoke-Active-Word
-- kein schwarzer Untertiteltext
-- maximal zwei Zeilen
+- max. zwei Zeilen
 - keine Größenanimation / kein Scale-Pop
 - kein Word-Jump
 - kein `WebkitTextStroke`
-- dunkle halbdeckende Backplate für Kontrast
+- dunkle halbdeckende Backplate nur hinter den Captions
 - Schriftstärke 800
-- Standardgröße 50 px, automatisch kleiner bei langen Einheiten, nie unter 40 px
-- `letterSpacing: 0`
+- Standardgröße 50 px, Minimum 40 px
 - Position aus `REEL_STYLE.caption`: `bottom = 340`, `left = 72`, `right = 140`
 - kurze Pausen halten die vorherige Caption sichtbar
-- Untertitel werden pro Szene geclippt; kein Wort der nächsten Szene darf vorgreifen
+- pro Szene clippen; kein Wort der nächsten Szene darf vorgreifen
 
 Technische Standardkomponente: `src/brand/components/Captions.tsx`.
 
-## 2. Zwischenüberschrift V5
-
-Jede Bild- und Animationsszene benötigt eine Zwischenüberschrift mit passendem Linien-Icon.
-
-Standard:
+## 2. Zwischenüberschrift
 
 ```tsx
 <SceneHeader title="Kontoauszug prüfen" icon="search" />
@@ -35,95 +28,103 @@ Standard:
 Verbindlich:
 
 - `top = 154`
-- mittig zentriert
-- normale Schreibweise / Sentence Case
+- mittig
+- Sentence Case
 - neutral weißer Text
-- einfaches Linien-Icon links neben dem Text
-- semantische Farbe primär über das Icon
-- keine Capsule
-- kein Chip
-- keine Pill
-- kein Panel
-- keine automatische ALL-CAPS-Transformation
-- 3–6 Wörter, möglichst eine Zeile
-- Aussage oder Frage; nie nur ein Stichwort oder eine Zahl
-- `warning` nur für echte Warnung/Problem
-- `money` nur für Geld/Wert
-
-Technische Standardkomponente: `src/brand/components/SceneHeader.tsx`.
+- semantische Farbe primär über das Linien-Icon
+- keine Capsule / Chip / Pill / Panel
+- kein automatisches ALL CAPS
+- meist 3–6 Wörter
+- Aussage oder Frage, nicht nur Stichwort/Zahl
 
 ## 3. V5-Layout
 
-Einzige technische Quelle ist `REEL_STYLE` in `src/brand/tokens.ts`.
+Einzige technische Quelle: `REEL_STYLE` in `src/brand/tokens.ts`.
 
 ```text
 Header       Y = 154
 Visual       Y = 320–1480
-Untertitel   340 px über dem unteren Rand
+Untertitel   bottom = 340
 Transition   3 Frames
 ```
 
-Ziel des Layouts:
+## 4. V9-Reel-Hintergrund
 
-- Überschrift näher am Visual
-- Bilder und Animationen etwas höher
-- Untertitel ebenfalls höher
-- oben und unten mehr ruhige Luft
-- keine große tote Lücke zwischen Header und Szeneninhalt
+Der einzige produktive Remotion-Reel-Hintergrund ist:
 
-`AnimationStage` aus `src/brand/components/ReelStage.tsx` verwendet dieselbe Visualzone und verschiebt native Vollbild-Animationen zentral nach oben.
+```text
+#000000
+statisch
+```
 
-## 4. Szenenschnitt und Captions
+Er kommt zentral aus `FinanceBackground`.
 
-Das finale Voiceover ist die Timing-Autorität.
+Verboten als Hintergrund:
+
+- Partikel
+- Aurora
+- Grid
+- Glow-Feld
+- Vignette
+- dekorative Gradient-Fläche
+- Hintergrundbewegung
+
+`PremiumPhysicalStage` bleibt transparent. Objektmaterialien dürfen lokale Highlights, Schatten und Oberflächenverläufe besitzen.
+
+## 5. Szenenschnitt und Captions
+
+Das finale Voiceover ist die Timing-Autorität:
 
 ```text
 finales Voiceover
 → echte Wort-Timings
-→ Satz-/Phrasenanfänge
+→ Satz-/sinnvolle Phrasenanfänge
 → Szenenstarts
 → relative Animationsdauern
 ```
 
-Untertitel werden pro `Series.Sequence` gerendert. Wörter außerhalb des Szenenfensters werden abgeschnitten. Eine Caption-Einheit darf nie über die Szenengrenze laufen.
+Kein starres Raster gleich langer Szenen.
 
-## 5. Animationsfarben
+## 6. Animationsfarben
 
-Auf dunklem Reel-Hintergrund gilt `ANIMATION_COLORS`:
+Auf dem schwarzen Canvas gilt `ANIMATION_COLORS`:
 
-- Weiß = neutrale Information
+- Weiß/Ivory/Soft Gray = neutral
 - Grün = Fokus/Lösung
-- Rot = Warnung/Problem/Verlust
-- Gold = Geldbetrag/Summe/Wert
-- Schwarz = verboten
+- Rot-Orange = Warnung/Problem/Verlust
+- Gold = Geld/Wert
 
-## 6. Eine gemeinsame Animationssprache
+Schwarzer Inhalt darf nicht auf dem schwarzen Canvas verschwinden.
 
-Alle nativen Remotion-Animationen eines Reels müssen wie Teile derselben Serie wirken:
+## 7. Gemeinsame Animationssprache
 
-- gleicher dunkler FinanzNeo-Hintergrund
-- gleiche Text- und Icon-Hierarchie
-- gleiche semantische Farblogik
-- gleiche Visualzone
-- klare, ruhige Flächen statt zufälliger Infografik-Stile
-- keine überlappenden Texte/Objekte
-- kein UI-/Dashboard-Look, wenn die Szene keinen UI-Inhalt erklärt
+Alle nativen Animationen eines Reels:
 
-## 7. Phase-1-Verantwortung für Animationen
+- gleiche statische `#000000`-Bühne
+- gleiche V5-Visualzone
+- stylized 3D animated V9
+- klare Hauptaktion
+- keine feste Support-Objekt-Anzahl
+- keine UI-/Dashboard-/Flowchart-Hauptsprache
+- keine Hintergrundeffekte zum Erzeugen von Bewegung
 
-Für neue Reels liefert Phase 1 pro Animationsszene bereits produktionsreifen Code:
+## 8. Phase-1-Verantwortung
+
+Für jede Animationsszene liefert Phase 1 bereits:
 
 ```text
-03-szenen/EINZELNE-SZENEN/scene-XX/animation.tsx
+scene-XX/
+├── remotion.md
+└── animation.tsx
 ```
 
-Verbindlicher Lock:
+Technischer Lock:
 
 ```text
 finanzneo-phase1-animation-code-v1
 ```
 
-Jede Animation muss im Code eindeutig enthalten:
+Pflicht:
 
 ```text
 STARTZUSTAND
@@ -132,73 +133,55 @@ STARTZUSTAND
 → RESULT mindestens 15 Frames stabil
 ```
 
-Zusätzlich enthält die Quelldatei einen `ANIMATION_NARRATIVE`-Block mit `START`, `MECHANISM` und `RESULT`.
+Phase 3 darf den Code nicht ersetzen, vereinfachen oder nach dem Seal verändern.
 
-Phase 3 darf diese kreative Definition nicht ersetzen, vereinfachen oder durch einen eigenen Ersatzmechanismus austauschen.
-
-Verbindliche Detailquelle: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
-
-## 8. Verbotene Fake-Animationen
-
-Nicht zulässig:
+## 9. Fake-Animationen verboten
 
 - Dummy-/Placeholder-Komponenten
 - Debug-Flächen
-- bunte Rechtecke nur für Sichtbarkeit
-- kontinuierliches Wackeln ohne inhaltliche Bedeutung
-- `Math.sin()`/`Math.cos()` nur zum Erzeugen eines Frame-Diffs
-- reine Zooms/Fades/Zahlen-Popups als alleinige Erkläranimation
-- Bewegung, die nur das QA austrickst
+- Wackelbewegung ohne Aussage
+- `Math.sin()`/`Math.cos()` als Frame-Diff-Hack
+- reine Zoom/Fade/Zahlen-Popups als gesamte Erklärung
+- Partikel/Aurora/Grid/Background-Motion als Animationsnachweis
 
-Die Bewegung muss die gesprochene Aussage erklären.
+Bewegung muss den gesprochenen Inhalt erklären.
 
-## 9. Phase-3-Schutz
+## 10. Phase-3-Schutz
 
-Bei `reel:ready` werden die Phase-1-Animationsquellen per SHA-256 versiegelt. Phase 3 muss exakt dieselben `animation.tsx`-Dateien verwenden.
+`reel:ready` versiegelt jede kanonische Phase-1-Animation per SHA-256.
 
-Der Preflight blockiert unter anderem:
+Preflight blockiert u. a.:
 
 - fehlende Animationsquelle
-- anderer `componentPath` als die Phase-1-Quelle
-- veränderter Hash nach Phase 1
-- fehlender Export
-- Placeholder-/Fake-Motion-Code
+- falschen `componentPath` / Export
+- veränderten Hash
+- fehlendes Binding
 - unvollständige Timeline
+- verletzten Pure-Black-Background-Vertrag
 
-Post-Render-QA prüft zusätzlich sichtbaren Inhalt und reale Bewegung. Diese technische QA ersetzt jedoch nicht den narrativen Phase-1-Vertrag.
+Post-Render-QA prüft danach den echten visuellen Kern. Header, Caption oder schwarzer Hintergrund allein zählen nicht als Szenenvisual.
 
-## 10. Bilddauer und Übergänge
+## 11. Bilddauer und Übergänge
 
-- Bildbeat ideal 3,5–5,5 Sekunden
-- absolut maximal 6 Sekunden
+- Bildbeat ideal 3,5–5,5 s
+- absolut max. 6 s
 - länger = splitten oder animieren
-- Continuity-Schnitt 3 Frames
+- Continuity-Schnitt exakt 3 Frames
 - kein Fade-to-black
-- Übergänge dürfen audio-synchronisierte Szenenstarts nicht verschieben
 
-## 11. Renderqualität
+## 12. Renderqualität und Mobil-QA
 
-Finale Reels über `scripts/render-validated.mjs`:
+Finale Produktion ausschließlich über den validierten Phase-3-Pfad.
 
-- 1080 × 1920
-- H.264
-- CRF 14
-- PNG-Zwischenframes
-- AAC 320k
-- `yuv420p`
+Prüfen:
 
-## 12. Mobil-QA
-
-Vor Freigabe komplette MP4 ansehen und prüfen:
-
-1. Header sitzt bei Y≈154 und wirkt wie normale Typografie.
-2. Kein Header-Chip/Capsule/Panel ist sichtbar.
-3. Visuals dominieren die Zone 320–1480.
-4. Bilder und Animationen wirken nicht zu tief.
-5. Untertitel sitzen höher und bleiben crisp.
-6. Bildwechsel treffen die gesprochene Aussage.
-7. Animationen entsprechen ihrem `ANIMATION_NARRATIVE`.
-8. Keine Fake-/Placeholder-Bewegung ist sichtbar.
-9. Animationen sind ohne Ton grundsätzlich verständlich.
-10. Geldwerte Gold, Warnungen Rot, Fokus Grün, neutrale Info Weiß.
-11. Finale Renderqualität ist sauber.
+1. Header Y154, plain, keine Capsule.
+2. Visual nutzt Y320–1480 sinnvoll.
+3. Caption bottom340, aktives Wort grün.
+4. freier Hintergrund bleibt schwarz und statisch.
+5. jede Bildszene zeigt das echte Nutzerbild.
+6. jede Animation zeigt Start → Mechanismus → Ergebnis.
+7. Animation bleibt auch ohne Ton grundsätzlich verständlich.
+8. keine Background-Partikel/Aurora/Grid/Glow-Flächen.
+9. komplette MP4 enthält Audio und korrekte Timeline.
+10. `FINAL_COMPLETE` erst nach bestandener Render-QA und Export.
