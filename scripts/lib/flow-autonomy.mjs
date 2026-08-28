@@ -34,7 +34,7 @@ export const AUTONOMY_BLOCK = [
   '- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTÄTIGUNG ODER FREIGABE DES NUTZERS.',
   '- "WARTEN" BEDEUTET NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.',
   '- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.',
-  '- STRUKTUR, DATEINAMENLOGIK, BILDWELT, MATERIALIEN, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.',
+  '- STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.',
   '- STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.',
   '',
 ].join('\n');
@@ -50,7 +50,7 @@ export const FLOW_AGENT_BLOCK = [
   '3. Starte GENAU EINEN Bildgenerierungsjob für ACTIVE_STEP. MAX_CONCURRENT_GENERATIONS = 1.',
   '4. Starte KEINEN weiteren Job, solange dieser Job läuft oder noch kein Ergebnis zurückgegeben wurde.',
   '5. Sobald das einzelne Bild zurückgegeben wurde: benenne DIESE Datei SOFORT exakt auf den vorgegebenen finalen Dateinamen um.',
-  '6. Prüfe danach ausschließlich dieses eine Bild: Motiv, Labels, Physical-Explainer-Komposition, Stylized-3D-Look, sichtbares Gesicht falls Person, Hintergrund und Dateiname.',
+  '6. Prüfe danach ausschließlich dieses eine Bild: Aussage/Beat-Zuordnung, erlaubte Labels, klarer stylized-3D-animated V9-Look, tiefschwarzer sauberer Hintergrund, sinnvolle statt quotierte Objektanzahl, sichtbares Gesicht falls Person, Marken nur erkennbar-stilisiert und exakter Dateiname.',
   '7. QA FEHLER: ACTIVE_STEP bleibt unverändert. Erzeuge ausschließlich dieselbe Bildnummer neu. Alle späteren Schritte bleiben gesperrt.',
   '8. QA BESTANDEN: markiere ACTIVE_STEP als DONE. Erst JETZT darfst du den nächsten benötigten Bildblock in Dokumentreihenfolge freischalten.',
   '9. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Bildjob überspringen und zum nächsten benötigten Bildblock gehen.',
