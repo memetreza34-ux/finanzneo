@@ -33,7 +33,10 @@ if (world.premiumVisualWorldLockId !== PREMIUM_WORLD_LOCK) fail(`imageWorld.prem
 if (world.physicalExplainerLockId !== PREMIUM_WORLD_LOCK) fail(`imageWorld.physicalExplainerLockId muss ${PREMIUM_WORLD_LOCK} sein.`);
 if (world.dominantHeroObjectRequired !== true) fail('dominantHeroObjectRequired muss true sein.');
 if (Number(world.heroUsefulFrameMinRatio) < 0.45 || Number(world.heroUsefulFrameMaxRatio) > 0.65) fail('Hero-Korridor muss ungefähr 45–65% bleiben.');
-if (world.supportingObjectsMin !== 2 || world.supportingObjectsMax !== 4) fail('Supporting Objects müssen 2–4 sein.');
+if (world.supportingObjectCountFlexible !== true) fail('supportingObjectCountFlexible muss true sein.');
+if (world.supportingObjectsOnlyWhenHelpful !== true) fail('supportingObjectsOnlyWhenHelpful muss true sein.');
+if (world.clarityBeforeObjectCount !== true) fail('clarityBeforeObjectCount muss true sein.');
+if ('supportingObjectsMin' in world || 'supportingObjectsMax' in world) fail('Feste Supporting-Object-Min/Max-Werte sind nicht mehr erlaubt.');
 for (const key of [
   'mediumCloseThreeQuarterCameraRequired',
   'foregroundHeroBackgroundDepthRequired',
@@ -56,7 +59,8 @@ for (const key of [
 const requiredPromptMarkers = [
   `PREMIUM_VISUAL_WORLD_LOCK: ${PREMIUM_WORLD_LOCK}`,
   '45–65%',
-  '2–4 supporting',
+  'NO fixed count',
+  'Clarity decides',
   'medium-close 3/4 camera',
   'ambient occlusion',
   'Dashboard or control-panel composition',
@@ -88,7 +92,7 @@ for (const path of promptPaths) {
   for (const marker of requiredPromptMarkers) {
     if (!content.includes(marker)) fail(`${path}: Premium-V8-Marker fehlt: ${marker}`);
   }
-  if (/3[–-]6 supporting/i.test(content)) fail(`${path}: alter 3–6-Supporting-Object-Korridor widerspricht Premium V8.`);
+  if (/\b(?:2|3)[–-](?:4|6)\s+(?:supporting|concrete supporting)/i.test(content)) fail(`${path}: feste Supporting-Object-Anzahl ist nicht mehr erlaubt.`);
   if (/PHYSICAL_EXPLAINER_LOCK:\s*finanzneo-physical-explainer-editorial-v7/.test(content)) fail(`${path}: alter V7-Lock darf im Premium-V8-Prompt nicht mehr vorkommen.`);
 }
 
@@ -118,4 +122,5 @@ if (errors.length) {
 
 console.log(`\n✓ Premium Visual World ${PREMIUM_WORLD_LOCK} ist im Reel vollständig verankert.`);
 console.log(`✓ Premium Animation ${PREMIUM_ANIMATION_LOCK} ist für jede Remotion-Szene verankert.`);
+console.log('✓ Supporting-Objekte haben keine feste Anzahl; Klarheit und Inhalt entscheiden.');
 console.log('✓ Alte UI-/Flowchart-/kleine-Boxen-/monochrom-grüne Bildsprache wird nicht akzeptiert.');
