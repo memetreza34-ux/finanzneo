@@ -23,7 +23,7 @@ const SERIES_LOCK = 'finanzneo-same-world-v1';
 
 const WORLD_HEADER = `FINANZNEO_WORLD_ID: ${BASE_WORLD}\nFINANZNEO_SERIES_LOCK: ${SERIES_LOCK}\nPREMIUM_VISUAL_WORLD_LOCK: ${WORLD_LOCK}\nGENERATED_IMAGE_ASPECT_RATIO: 1:1`;
 
-const STYLE_SUFFIX = `STYLE:\nCreate a clearly non-realistic stylized 3D animated finance scene. Use soft rounded geometry, simplified recognizable details, clean materials and a premium but slightly playful animated-movie feel. Keep the main idea easy to understand within 1–2 seconds.\n\nBACKGROUND:\nA seamless deep black background is mandatory. Keep it clean, minimal and uninterrupted.\n\nCOMPOSITION:\nContent and clarity come first. Use a clear main subject or main action. Supporting objects have no fixed count; add only what genuinely helps the explanation. Avoid clutter.\n\nBRANDS + LOGOS:\nIf a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D animated world. Use simplified rounded 3D forms and matching lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.\n\nCOLORS + LIGHT:\nUse emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use soft studio lighting, clear highlights, readable shadows and soft contact shadows.\n\nTEXT:\nOnly the explicitly requested short German labels may appear. No headline, subtitle, CTA or long explanatory text.\n\nFORBIDDEN:\nNo realism or photorealism, no product-photo look, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard, no app UI, no flowchart, no tiny boxes, no floating info cards, no microchip/circuit look, no miniature diorama and no clutter.`;
+const STYLE_SUFFIX = `STYLE:\nCreate a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.\n\nBACKGROUND:\nA seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.\n\nCOMPOSITION:\nThe image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.\n\nBRANDS + LOGOS:\nIf a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.\n\nCOLORS + LIGHT:\nUse emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.\n\nTEXT:\nOnly explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.\n\nFORBIDDEN:\nNo photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no isolated vault + shield + coins + arrow scene without real-life context, no abstract visual riddle, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.`;
 
 const read = (path) => readFileSync(path, 'utf8');
 const write = (path, content) => writeFileSync(path, content.endsWith('\n') ? content : `${content}\n`, 'utf8');
@@ -72,7 +72,7 @@ const rewritePrompt = (content) => {
     : firstWorldMarker;
   const prefix = content.slice(0, prefixEnd).replace(/(?:IMAGE PROMPT:|BILDPROMPT:)\s*$/i, '').trim();
   const labels = extractLabels(content);
-  const scenePrompt = extractScenePrompt(content) || 'Describe the scene-specific financial idea clearly with a simple stylized 3D animated composition.';
+  const scenePrompt = extractScenePrompt(content) || 'Describe one complete real-life financial situation with visible cause and effect so the spoken point is understandable without interpretation.';
   return [prefix, WORLD_HEADER, labels, `IMAGE PROMPT:\n${scenePrompt}`, STYLE_SUFFIX].filter(Boolean).join('\n\n');
 };
 
@@ -103,6 +103,15 @@ index.imageWorld = {
   softRoundedGeometryRequired: true,
   simplifiedDetailsRequired: true,
   premiumPlayfulBalanceRequired: true,
+  realWorldGroundedSituationRequired: true,
+  believableObjectProportionsRequired: true,
+  recognizableEverydayDetailsRequired: true,
+  completeExplanatorySceneRequired: true,
+  causeEffectReadableRequired: true,
+  understandableWithoutAudioRequired: true,
+  germanObjectLabelsWhenHelpfulRequired: true,
+  individuallyWrittenPromptRequired: true,
+  genericPromptShorthandForbidden: true,
   clearMainSubjectOrActionRequired: true,
   contentFirstCompositionRequired: true,
   supportingObjectCountFlexible: true,
@@ -113,6 +122,9 @@ index.imageWorld = {
   subjectSeparationLightingRequired: true,
   softContactShadowsRequired: true,
   brandMarksRecognizableButStylizedRequired: true,
+  abstractSymbolOnlyCompositionForbidden: true,
+  genericFinanceIconCompositionForbidden: true,
+  visualMetaphorInterpretationRequiredForbidden: true,
   flatPastedRealLogoForbidden: true,
   screenshotLikeBrandUiForbidden: true,
   dashboardCompositionForbidden: true,
@@ -143,7 +155,7 @@ for (const obsolete of [
 write(indexPath, JSON.stringify(index, null, 2));
 
 const worldPath = resolve(root, '03-szenen/bildwelt.txt');
-write(worldPath, `FINANZNEO STYLIZED 3D ANIMATED BLACK WORLD — V9\n\n${WORLD_HEADER}\n\n${STYLE_SUFFIX}\n\nPROMPT POLICY:\nKeep individual image prompts medium length. Scene idea first, style second. Do not add a fixed supporting-object quota.`);
+write(worldPath, `FINANZNEO STYLIZED 3D ANIMATED BLACK WORLD — V9\n\n${WORLD_HEADER}\n\n${STYLE_SUFFIX}\n\nPROMPT POLICY:\nEvery image prompt must be individually and completely written for the exact spoken point. Start with the concrete real-life situation and visible cause/effect, add exact short German labels when they improve understanding, then give style/background/composition/forbidden rules. Do not use shorthand, generic keyword lists or a fixed supporting-object quota.`);
 
 const coverPath = resolve(root, '03-szenen/00-cover/cover.txt');
 if (existsSync(coverPath)) write(coverPath, rewritePrompt(read(coverPath)));
@@ -172,11 +184,12 @@ for (const scene of scenes) {
 }
 
 const cover = existsSync(coverPath) ? read(coverPath).trim() : '';
-const allPrompts = `${AUTONOMY_BLOCK}\nFINANZNEO — GOOGLE FLOW MASTERDATEI\n\n${FLOW_AGENT_BLOCK}\n\nPREMIUM_VISUAL_WORLD_LOCK: ${WORLD_LOCK}\nBILDWELT: nicht realistische stylized 3D animation · deep black background · clarity first · keine feste Objektanzahl · mittel-lange Prompts · Marken erkennbar aber stilisiert.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${cover}\n\n${sections.join('\n')}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBeende erst, wenn jedes erwartete Bild EINZELN erzeugt, exakt umbenannt und nach V9-QA geprüft wurde.\n`;
+const allPrompts = `${AUTONOMY_BLOCK}\nFINANZNEO — GOOGLE FLOW MASTERDATEI\n\n${FLOW_AGENT_BLOCK}\n\nPREMIUM_VISUAL_WORLD_LOCK: ${WORLD_LOCK}\nBILDWELT: realitätsnahe Alltagssituation als vollständige Erklärszene · klar stylized 3D statt fotorealistisch · deep black · Ursache/Wirkung direkt sichtbar · kurze deutsche Labels wenn hilfreich · keine Symbolrätsel · jeder Prompt individuell vollständig geschrieben.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${cover}\n\n${sections.join('\n')}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBeende erst, wenn jedes erwartete Bild EINZELN erzeugt, exakt umbenannt und nach V9-QA geprüft wurde. Verwerfe Bilder, die nur hübsche Finanzsymbole zeigen, aber den gesprochenen Inhalt nicht direkt erklären.\n`;
 write(resolve(root, '03-szenen/alle-bildprompts.txt'), allPrompts);
 
 console.log(`✓ Stylized Animated Black World angewendet: ${WORLD_LOCK}`);
-console.log('  Nicht realistisch · soft rounded 3D · deep black Pflicht · Klarheit vor Objektzahl · mittel-lange Prompts.');
-console.log('  Alte V4/V7/V8-Prompt-Regelblöcke werden beim Umschreiben entfernt.');
-console.log('  Marken/Logos: erkennbar aber stilisiert · kein Flat-Paste/Screenshot-Look.');
-console.log('  Dashboard/UI/Flowchart/Produktfoto-Look/Clutter verboten.');
+console.log('  Realitätsnaher Inhalt · klar stylized 3D · niemals fotorealistisch · deep black Pflicht.');
+console.log('  Vollständige Erklärszene + sichtbare Ursache/Wirkung · deutsche Objektlabels wenn sie Klarheit schaffen.');
+console.log('  Symbolrätsel/isolierte Finance-Icons als Haupterklärung sind verboten.');
+console.log('  Jeder konkrete Phase-1-Bildprompt muss individuell und vollständig geschrieben sein.');
+console.log('  Google Flow Reihenfolge/Single-Job/Dateinamenlogik bleibt unverändert.');
