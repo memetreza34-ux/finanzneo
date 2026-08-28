@@ -1,160 +1,258 @@
-# FinanzNeo — aktueller Produktionsablauf
+# FinanzNeo — aktueller Produktionsablauf V9
 
-> `CLAUDE.md` ist die höchste Regelquelle. Dieses Dokument beschreibt den praktischen Ablauf.
+> `CLAUDE.md` ist die höchste Regelquelle. Dieses Dokument beschreibt nur den praktischen Ablauf.
 
-Der Ablauf ist in drei Übergaben gebündelt:
-
-1. normales ChatGPT vervollständigt Inhalt, Skript, Struktur und Prompts
-2. der Nutzer erstellt Google-Flow-Bilder, finales Audio und echte Wort-Zeitstempel
-3. Antigravity prüft mit `npm run reel:ready -- <Reel-Pfad>` und baut bei Erfolg ohne Zwischenfragen bis zum geprüften Render
-
-Details und zulässige Stopps: `docs/3-PHASEN-WORKFLOW.md`.
-
-## Vor jedem neuen Reel lesen
-
-- `CLAUDE.md`
-- `docs/3-PHASEN-WORKFLOW.md`
-- `reels/PRODUKTIONSSTANDARD.md`
-- `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-- `docs/IMAGE-SYSTEM.md`
-- `docs/BEAT-TO-IMAGE-RULES.md`
-- `docs/IMAGE-PROMPT-LIBRARY.md`
-- `docs/IMAGE-QA-CHECKLIST.md`
-- `docs/PLATFORM-PUBLISHING.md`
-
-## Schritt 1 — Thema und Recherche
-
-- neues Thema gegen bestehende Reels prüfen
-- notwendige Fakten recherchieren
-- Quellen und Datenstand festhalten
-- Fakten von Beispielannahmen trennen
-- keine Zahlen erfinden
-
-## Schritt 2 — Skript
-
-60–90 Sekunden als Standard:
-
-1. Hook innerhalb der ersten 2 Sekunden
-2. Problem
-3. einfache Erklärung
-4. konkretes Beispiel
-5. Lösung oder Merksatz
-6. kurzer CTA, wenn sinnvoll
-
-Kurze deutsche Sätze, direkte Du-Ansprache, kein unnötiger Fachjargon und keine individuelle Anlageempfehlung.
-
-## Schritt 3 — Szenen- und Visualplan
-
-Je Beat entscheiden:
-
-- KI-Bild
-- Remotion
-- Kombination
-
-KI-Bilder für konkrete Gegenstände, Alltagssituationen und visuelle Metaphern. Remotion für Überschriften, Karaoke-Untertitel, Zahlen, Quellen, Diagramme, Tabellen und CTA.
-
-## Schritt 4 — Bildprompts
-
-Jeder Bildprompt folgt dem aktuellen FinanzNeo-Stil:
-
-- Google-Flow-Quellbild immer quadratisch 1:1
-- das vertikale 9:16-Format entsteht erst später in Remotion
-- Premium Fintech Editorial 3D
-- eine dominante Finanzmetapher / großes Hauptobjekt
-- optional stilisierte erwachsene 3D-Person
-- wenn Person: Gesicht mit Augen, Nase und Mund klar sichtbar; frontal oder 3/4 bevorzugt
-- deep charcoal green-black Grundwelt
-- Emerald/Mint-Akzente
-- Gold nur für Geld/Wert
-- warmes Rot-Orange nur für Risiko/Verlust/Schulden
-- smooth rounded geometry + soft bevelled edges
-- nur kurze deutsche Objektlabels, normalerweise 1–3 Wörter
-- keine große Headline, kein Untertitel, kein ganzer erklärender Satz im KI-Bild
-- keine Dioramen, Neon-Tunnel, Sci-Fi-Korridore, Dashboards oder Game-Level
-
-### Kritische Hintergrundregel
-
-Keine Prozent-Zonen mehr verwenden.
-
-Jeder Prompt verlangt **einen einzigen nahtlosen Hintergrund von oben bis unten**:
-
-- keine horizontalen Bänder
-- keine obere/untere Hintergrundzone
-- keine Floor-Wall-Grenze
-- kein Horizont
-- keine Panels
-- natürliche freie Fläche oberhalb/unterhalb des Motivs nur durch weniger Inhalt, nicht durch einen anderen Hintergrund
-
-## Schritt 5 — Google Flow
-
-Der Nutzer erzeugt die Bilder selbst. Antigravity erzeugt keine Bilder.
-
-Für jedes benötigte Bild:
+## Die drei Phasen
 
 ```text
-PROMPT LESEN
-→ GENAU EIN BILD ERZEUGEN
-→ SOFORT ENDGÜLTIG UMBENENNEN
-→ MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
-→ ERST DANN NÄCHSTES BILD
+PHASE 1 — ChatGPT
+Recherche + Szenenskript + V9-Bildprompts + Header/Icons + Captions
++ produktionsreife animation.tsx für jede Animationsszene
+
+        ↓
+
+PHASE 2 — Nutzer
+Google-Flow-Bilder + genau ein finales Voiceover + echte Wort-Timings
+
+        ↓
+
+PHASE 3 — konfigurierte Executor-Rolle
+Assets integrieren + versiegelte Phase-1-Animationen binden
++ Preflight + Candidate-Render + Post-Render-QA + Export
 ```
 
-Nummerierung folgt immer der echten Szene. Animationsnummern bleiben reserviert.
+`scene-index.json -> phase3Executor` entscheidet, ob Antigravity oder Claude Code Phase 3 ausführt. Der andere Executor übernimmt nicht einfach.
 
-Erst nach Abschluss kommen alle Nutzerbilder gemeinsam nach:
+## Vor einem neuen Reel lesen
+
+- `CLAUDE.md`
+- `docs/PHASE-1-BRIEFING.md`
+- `docs/IMAGE-SYSTEM.md`
+- `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
+- `docs/3-PHASEN-WORKFLOW.md`
+- `docs/PHASE-3-COMPLETION-GATE.md`
+- `reels/PRODUKTIONSSTANDARD.md`
+
+Alte Image-World-V3/V4/V7/V8-Dateien sind keine aktive Produktionsautorität.
+
+## Phase 1
+
+### Inhalt und Skript
+
+- 60–90 Sekunden als Standard
+- Hook in den ersten 2 Sekunden
+- von Anfang an Szene für Szene schreiben
+- ungefähr 14–16 Visual-Beats als Zielkorridor
+- ungefähr 60 % Bild / 40 % Animation, Qualität vor Quote
+- Bildbeat ideal 3,5–5,5 s, absolut max. 6 s
+- Animation ideal 4,5–7 s
+- kurze deutsche Sätze, direkte Du-Ansprache
+- Zahlen und Fakten prüfen
+
+### V9-Bildwelt
+
+Kanonischer Lock:
+
+```text
+finanzneo-stylized-3d-animated-black-v9
+```
+
+Quellbilder inklusive Cover bleiben `1:1`.
+
+Verbindlich:
+
+- klar stylized 3D animated, nicht photorealistisch
+- soft rounded, vereinfachte erkennbare Formen
+- **nahtloser tiefschwarzer Hintergrund Pflicht**
+- Inhalt und Klarheit vor Deko
+- keine feste Objektanzahl
+- Support-Objekte nur, wenn sie helfen
+- Emerald positiv/Fokus
+- Ivory/Soft Gray neutral
+- Gold Geld/Wert
+- Red-Orange Warnung/Kosten
+- keine UI-/Dashboard-/Flowchart-/Microchip-/Diorama-Sprache
+- kein Clutter
+- Marken/Logos erkennbar, aber stilisiert; keine Screenshots/Flat-Paste-Logos
+
+### Phase-1-Animationen
+
+Jede Animationsszene braucht bereits:
+
+```text
+scene-XX/
+├── szene.md
+├── remotion.md
+└── animation.tsx
+```
+
+Pflicht:
+
+```text
+START → SICHTBARER MECHANISMUS → ERGEBNIS
+```
+
+- Ergebnis mindestens 15 Frames stabil
+- `PremiumPhysicalStage` transparent
+- mindestens ein echtes sichtbares Hauptobjekt
+- keine feste Support-Objekt-Anzahl
+- keine Dummy-/Debug-/Wackelanimation
+- kein `Math.sin/Math.cos` als QA-Hack
+- keine Partikel/Aurora/Grid/Glow-Flächen als Hintergrund
+- Phase 3 darf diesen Code später nicht kreativ ersetzen
+
+## Phase 2
+
+### Google Flow
+
+Einzige Regel:
+
+```text
+GENAU EIN Bild erzeugen
+→ vollständig warten
+→ sofort exakt umbenennen
+→ V9-QA
+→ bei Fehler dieselbe Bildnummer neu
+→ erst dann nächstes Bild
+```
+
+Kein Batch, kein paralleles Queueing, kein späteres Sammel-Umbenennen und kein Nutzer-„weiter“.
+
+Alle finalen Bilder kommen gemeinsam nach:
 
 ```text
 03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-## Schritt 6 — Bild-QA
+### Audio und Timings
 
-Neu erzeugen bei:
-
-- zwei sichtbaren Hintergründen/Bändern
-- horizontaler Trennkante
-- Floor-Wall-Grenze/Horizont
-- gesichtsloser oder abgewandter Person
-- falschen/zusätzlichen Labels
-- großer KI-Headline oder erklärendem Satz
-- falscher Bild-Skript-Zuordnung
-- Diorama/Game-Level/Tunnel-Look
-
-## Schritt 7 — Voiceover und Timing
-
-- finales Voiceover in `02-audio/`
+- genau ein finales Voiceover in `02-audio/`
 - echte Wortzeiten aus genau diesem Audio
-- Szenenschnitte an Satzanfängen
-- keine pauschal gleich langen Szenen
+- keine Ersatz-Audiodatei
+- keine erfundenen Timings
 
-## Schritt 8 — Remotion
+## Phase 3
 
-- 1080 × 1920, 30 fps
-- Bilder mit `contain`
-- keine unscharfe Bildkopie als Hintergrund
-- Überschriften/Icons in Remotion
-- genau ein vollständiger Untertitelsatz sichtbar
-- aktuelles Wort grün, Rest weiß
-- maximal zwei Untertitelzeilen
-- Animationen relativ zur echten Szenendauer
+Start immer mit:
 
-## Schritt 9 — Technische QA
+```bash
+npm run reel:ready -- <Reel-Pfad>
+```
 
-Erst wenn Nutzerbilder und Audio vorhanden sind:
+Wenn das fehlschlägt: nicht mit Ersatzassets weiterbauen.
 
-- Asset-Sync/Ingest
-- Reel-Validator
-- Typecheck
-- Preview-Render
-- Kontaktbogen/Frames prüfen
-- komplette MP4 mit Ton ansehen
-- Audio am finalen Export prüfen: ungefähr -16 LUFS, True Peak höchstens -1 dBTP
+Bei Erfolg werden die kanonischen `animation.tsx`-Dateien SHA-256-versiegelt.
 
-Ohne tatsächlichen Lauf nicht behaupten, dass Validator, Typecheck oder Render bestanden haben.
+Danach:
 
-## Schritt 10 — Plattform-Ausgabe
+```bash
+npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
+```
 
-Die Hauptstruktur bleibt einfach. Alle Reel-Publishing-Texte liegen in `04-caption/`:
+Jede Szene aus `scene-index.json` muss im Produktionsmanifest exakt belegt werden.
+
+### Bildszene
+
+- exaktes Nutzerbild
+- sichtbares Visual
+- kein Stock-/Placeholder-Ersatz
+- kein Header-/Caption-only-Fallback
+
+### Animationsszene
+
+- exakte `animationSourceFile`
+- exakter `animationExport`
+- exakter SHA-256-Seal
+- echtes `customAnimations[animationId]`-Binding
+- fehlendes Binding = harter Renderfehler
+- keine Ersatzanimation
+
+## Remotion-Hintergrund — immer schwarz
+
+Für produktive Reels gilt technisch:
+
+```text
+#000000
+statisch
+```
+
+Verboten als Background:
+
+- `FNBgAurora`
+- `FNBgParticles`
+- `FNBgGrid`
+- `FNBgRadial`
+- Partikelfelder
+- Aurora/Glow
+- bewegte Grids
+- Vignetten
+- dekorative Background-Gradienten
+- Hintergrundbewegung als Animationsnachweis
+
+Objektmaterialien dürfen lokale Highlights, Schatten und Oberflächenverläufe haben. Der Canvas selbst bleibt schwarz.
+
+## Layout
+
+Einzige technische Quelle: `REEL_STYLE`.
+
+```text
+Header Y154
+Visual Y320–1480
+Caption bottom340
+Transition 3 Frames
+```
+
+Header: normaler weißer Text + semantisches Linien-Icon, keine Capsule/Chip/Pill/ALL CAPS.
+
+## Preflight und Render
+
+```bash
+npm run reel:phase3:preflight -- <Reel-Pfad>
+npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
+```
+
+`reel:render` erzeugt zuerst nur eine Candidate-MP4.
+
+Post-Render-QA muss pro Szene prüfen:
+
+- visueller Kern wirklich belegt
+- Bildszene nicht leer
+- Animationsszene mit echtem Inhalt und echter Bewegung
+- Header/Caption allein zählen nicht
+- schwarzer/leerer Kern = FAIL
+- freier Rand bleibt statisch schwarz
+- keine Partikel/Aurora/Grid/Glow-Hintergründe
+- Audio vorhanden
+- 1080×1920
+- Timeline korrekt
+
+Candidate wird bei QA-Fehler nicht als Final ausgegeben.
+
+## Export
+
+Nur nach bestandener Render-QA:
+
+```bash
+npm run reel:export -- <Reel-Pfad> <Final-MP4>
+```
+
+Erst erfolgreicher Export und vollständiges `06-export/` erlauben `FINAL_COMPLETE`.
+
+## Technische Prüfung
+
+```bash
+npm run validate
+npm run reel:validate -- <Reel-Pfad>
+npm run reel:ready -- <Reel-Pfad>
+```
+
+Bei Phase 3 zusätzlich Preflight, Candidate-Render und Post-Render-QA.
+
+Ohne tatsächlichen Lauf niemals behaupten, Validator, Typecheck, Render oder QA seien bestanden.
+
+## Publishing
+
+`04-caption/` enthält:
 
 ```text
 caption.txt
@@ -165,47 +263,4 @@ snapchat.txt
 word-timings.json
 ```
 
-`caption.txt` ist die gemeinsame geprüfte Faktenbasis. Danach werden die vier Reel-Plattformdateien passend zum selben finalen Reel erstellt.
-
-### Instagram Reels
-
-- Caption
-- CTA
-- Quellen/Hinweis
-- Hashtags
-- optional angehefteter Kommentar
-
-### TikTok
-
-- kurze Caption
-- CTA
-- Quellen/Hinweis
-- passende Hashtags
-
-### Facebook Reels
-
-- Reel-Text
-- CTA
-- Quellen/Hinweis
-- passende Hashtags
-
-### Snapchat
-
-- sehr kurze Caption
-- optional CTA
-- Hinweis nur wenn nötig
-
-Keine YouTube Shorts erzeugen. `youtube-shorts.txt` ist in aktiven Reel-Projekten verboten. YouTube ist ausschließlich für eigenständige längere Videos unter `youtube/` vorgesehen; Reels werden nicht automatisch dorthin gespiegelt.
-
-Keine plattformspezifischen Fakten erfinden. Wenn aktuelle Plattform-Limits/Funktionen entscheidend sind, vor Veröffentlichung die aktuelle offizielle Plattform-Dokumentation prüfen.
-
-## Nicht mehr gültig
-
-- Prozent-Zonen wie 18/22 oder 15/60/25 in Bildprompts
-- alte isometrische Studioarchitektur als Pflicht
-- vollständig textfreie Bilder als allgemeine Pflicht
-- gesichtslose Figuren
-- sichtbare obere/untere Hintergrundbänder
-- Antigravity als Bildgenerator
-- Longform-YouTube als primäres Reel-Format
-- Animation beginnen, bevor Pflichtassets vorhanden sind
+Keine YouTube Shorts. YouTube-Longform bleibt ein separater Workflow unter `youtube/`.
