@@ -81,9 +81,9 @@ if (errors.length === 0) {
   // V5-Layout exakt.
   if (!/caption:\s*\{[\s\S]*?bottom:\s*340\b/.test(tokens)) errors.push('V5 Caption bottom=340 fehlt in REEL_STYLE.');
   if (!/header:\s*\{[\s\S]*?top:\s*154\b/.test(tokens)) errors.push('V5 Header top=154 fehlt in REEL_STYLE.');
-  if (!/visual:\s*\{[\s\S]*?top:\s*320\b[\s\S]*?bottom:\s*1480\b/.test(tokens)) errors.push('V5 Visualzone 320–1480 fehlt in REEL_STYLE.');
-  if (!tokens.includes("presentation: 'plain'")) errors.push('V5 Header muss presentation=plain sein.');
-  if (!tokens.includes('headlineColor: C.whiteSoft')) errors.push('V5 Headertext muss neutral weiß sein.');
+  if (!/visual:\s*\{[\s\S]*?top:\s*320\b[\s\S]*?bottom:\s*1400\b/.test(tokens)) errors.push('V5 Visualzone 320–1400 fehlt in REEL_STYLE.');
+  if (!/presentation:\s*'plain'/.test(tokens)) errors.push('V5 Header muss presentation=plain sein.');
+  if (!/headlineColor:\s*C\.white\b/.test(tokens)) errors.push('V5 Headertext muss neutral weiß sein.');
 
   if (template.includes('highlight={C.gold}')) errors.push('Goldenes Karaoke-Active-Word ist verboten.');
   if (template.includes('perGroup={3}')) errors.push('Alte 3-Wort-Caption-Gruppen sind verboten.');
@@ -115,7 +115,7 @@ if (errors.length === 0) {
   const continuity = tokens.match(/continuityFrames:\s*(\d+)/);
   if (!continuity) errors.push('REEL_STYLE.transition.continuityFrames fehlt.');
   else if (Number(continuity[1]) !== 3) errors.push(`V5 Szenenübergang muss 3 Frames sein, aktuell ${continuity[1]}.`);
-  if (!tokens.includes('fadeToBlackForbidden: true')) errors.push('Fade-to-black muss zentral verboten sein.');
+  if (!/fadeToBlackForbidden:\s*true\b/.test(tokens)) errors.push('Fade-to-black muss zentral verboten sein.');
 
   if (!mechanismCue.includes('warning') || !mechanismCue.includes('money')) errors.push('MechanismCue besitzt keine semantischen Warn-/Geldfarben.');
 
@@ -138,7 +138,7 @@ if (errors.length > 0) {
 
 console.log('✓ ReelTemplateDemo liegt korrekt unter Experiments.');
 console.log('✓ Animation-Dispatch ist first-class und fehlende Bindings brechen den Render hart ab.');
-console.log('✓ Reel V5: Plain Header Y154 · Visual 320–1480 · Caption bottom340.');
+console.log('✓ Reel V5: Plain Header Y154 · Visual 320–1400 · Caption bottom340.');
 console.log('✓ Captions sind crisp, grün/weiß und zentral gesteuert.');
 console.log('✓ Continuity bleibt bei 3 Frames; semantische Animationsfarben sind eingebunden.');
 console.log('✓ Finalrender ist auf H.264 CRF14 + PNG-Zwischenframes + AAC320k abgesichert.');
