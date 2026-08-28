@@ -3,7 +3,7 @@ PREMIUM_VISUAL_WORLD_LOCK: finanzneo-premium-physical-editorial-v8
 FINANZNEO PREMIUM PHYSICAL EDITORIAL — V8
 
 PURPOSE
-Replace the weak dark-UI / flowchart look with a premium stylized 3D financial editorial world. Every image must feel substantial, cinematic and object-driven before it feels "technical".
+Replace the weak dark-UI / flowchart look with a premium stylized 3D financial editorial world. Every image must feel substantial, cinematic and object-driven before it feels technical.
 
 BASE LOCKS THAT REMAIN ACTIVE
 - FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
@@ -14,7 +14,7 @@ BASE LOCKS THAT REMAIN ACTIVE
 NON-NEGOTIABLE HERO RULE
 1. ONE dominant physical hero object must occupy roughly 45–65% of the useful composition.
 2. The hero must be recognizable without reading text.
-3. Use 2–4 supporting physical objects only when they strengthen the story. Fewer, larger objects are better than many small props.
+3. Supporting objects have NO fixed count. Use only the objects that make the idea clearer, more useful or more visually engaging. One scene may need almost none; another may need several. Clarity decides, not a numeric quota.
 4. The main idea must read in under two seconds at phone size.
 
 PREMIUM CAMERA + DEPTH
@@ -79,7 +79,7 @@ STRICTLY FORBIDDEN
 - flat poster composition
 - monochrome green-only frame
 - photorealistic office/stationery still life
-- childish clay, toy or Pixar look
+- childish clay or toy look
 
 BACKGROUND
 Use ONE seamless deep charcoal green-black environment with subtle tonal depth. No visible floor-wall boundary, no horizon line, no horizontal bands, no separate zones. The background supports the objects; it is never the subject.
@@ -94,7 +94,7 @@ QUALITY SELF-CHECK BEFORE ACCEPTING AN IMAGE
 Reject and regenerate if ANY of these are true:
 - hero object is too small
 - image reads like UI, dashboard or flowchart
-- more than four secondary objects compete for attention
+- supporting objects add clutter instead of helping the message
 - frame is mostly dark empty space
 - objects look flat or weightless
 - no strong material contrast
@@ -103,4 +103,4 @@ Reject and regenerate if ANY of these are true:
 - the idea only makes sense after reading labels
 
 GOOGLE FLOW EXECUTION
-Strict single-job state machine. Exactly one image job at a time. Wait for the result, rename immediately, perform the premium-quality self-check above, regenerate the same image number on failure, then unlock only the next required image. Never batch, queue or ask the user for "Weiter" between images.
+Strict single-job state machine. Exactly one image job at a time. Wait for the result, rename immediately, perform the premium-quality self-check above, regenerate the same image number on failure, then unlock only the next required image. Never batch, queue or ask the user for Weiter between images.
