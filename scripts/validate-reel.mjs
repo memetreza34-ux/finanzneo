@@ -12,6 +12,7 @@ if (!projectDirectory) {
 }
 
 const validators = [
+  'scripts/validate-active-reel-rules.mjs',
   'scripts/validate-reel-background.mjs',
   'scripts/validate-reel-source-contract.mjs',
   'scripts/validate-scene-quality.mjs',
