@@ -1,69 +1,84 @@
-# FinanzNeo — Google Flow Autonomous Full Run
+# FinanzNeo — Google Flow Strict Single Job V3
 
-Dieser Vertrag gilt für **alle neuen Reels** und für jede `03-szenen/alle-bildprompts.txt`.
+Dieser Vertrag gilt für alle neuen Reels und jede `03-szenen/alle-bildprompts.txt`.
 
-## Grundregel
-
-Der Google-Flow-KI-Agent arbeitet das **gesamte benötigte Bildset in einem einzigen autonomen Gesamtdurchlauf** ab. Es gibt keine Nutzer-Zwischenfreigabe zwischen Cover und Szenenbildern.
-
-Verbindliche Marker:
+## Verbindliche Marker
 
 ```text
-FLOW_EXECUTION_MODE: finanzneo-flow-autonomous-full-run-v2
-FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
 ```
 
-## Ausführung
+Autonom bedeutet: bis zum letzten Bild ohne Nutzer-„weiter“ fortsetzen.
+Autonom bedeutet ausdrücklich **nicht Batch**.
 
-1. Gesamte Masterdatei zuerst lesen.
-2. Beim ersten benötigten Bild beginnen.
-3. Immer nur **ein Bild gleichzeitig** erzeugen.
-4. Intern warten, bis die aktuelle Bilderzeugung technisch vollständig abgeschlossen ist.
-5. Bild sofort exakt umbenennen.
-6. Motiv, Labels, Format, Bildwelt, Stil und Dateiname intern prüfen.
-7. Bei Fehlern dieselbe Bildnummer neu erzeugen.
-8. Nach bestandener QA **automatisch** mit dem nächsten benötigten Bild fortfahren.
-9. Animations-/Remotion-Nummern automatisch überspringen.
-10. Bis zum letzten benötigten Bild durchlaufen und erst dann den Gesamtdurchlauf beenden.
+## Harte State Machine
 
-## Niemals auf den Nutzer warten
+```text
+ACTIVE_STEP = erstes benötigtes Bild
+→ GENAU EIN Bildjob
+→ vollständig auf Ergebnis warten
+→ sofort exakt umbenennen
+→ nur dieses Bild per V9-QA prüfen
+→ FAIL: dieselbe Bildnummer neu
+→ PASS: genau nächsten Bildblock freischalten
+→ bis zum letzten Bild wiederholen
+```
 
-Zwischen Bildern ist ausdrücklich verboten:
+Zu jedem Zeitpunkt:
 
-- auf `weiter` zu warten
-- auf `mach weiter` zu warten
-- auf `okay` oder eine Bestätigung zu warten
-- eine Nutzerfreigabe pro Bild einzufordern
-- nach bestandener interner QA anzuhalten
+```text
+MAX_CONCURRENT_GENERATIONS = 1
+```
 
-Das Wort **warten** bedeutet im Flow-Kontext ausschließlich: auf die **technische Fertigstellung der aktuellen Bilderzeugung** warten. Es bedeutet niemals, auf eine Nutzernachricht zu warten.
+## Gesperrt
 
-## Struktur- und Stil-Lock bis zum Ende
+- mehrere Bilder in einem Generierungsaufruf
+- mehrere Bildprompts gemeinsam an die Generierung senden
+- parallele Generierung
+- spätere Bilder vorab queueen
+- Galerie / Kontaktbogen / Collage / Multi-Panel als Ersatz für Einzelbilder
+- erst alle Bilder generieren und später gesammelt umbenennen
+- Nutzer nach jedem Bild um `weiter`, `okay` oder Freigabe bitten
 
-Vom Cover bis zum letzten Bild bleiben unverändert:
+## Warten
 
-- Reihenfolge und echte Szenennummern
-- Dateinamenlogik
-- 1:1-Quellformat
-- FinanzNeo World-ID und Same-World-Lock
-- Stylized-3D-Lock
-- Materiallogik
-- Farbrollen
-- Lichtlogik
-- nahtloser Hintergrund
-- Text-/Label-Regeln
-- QA-Reihenfolge
+`warten` bedeutet ausschließlich: intern auf die technische Rückgabe des **aktuell einzigen Bildjobs** warten.
 
-Jede Szene erhält eine **frische Komposition**, aber keine neue Bildwelt. Kein Stilwechsel, kein neues Layout-System und keine andere Prompt-Interpretation mitten im Durchlauf.
+Es bedeutet niemals auf eine Nutzernachricht warten.
 
-## Stop-Regel
+## V9-QA nach jedem Einzelbild
 
-Stoppen ist nur bei einem echten technischen Hard-Blocker zulässig, zum Beispiel wenn die Bilderzeugung technisch nicht fortgesetzt werden kann. Geschmacksfragen, normale QA, fehlendes `weiter` oder fehlende Nutzerbestätigung sind keine Stop-Gründe.
+Prüfen:
+
+- korrekte Beat-Zuordnung
+- exakter finaler Dateiname
+- `1:1`
+- stylized 3D animated V9
+- tiefschwarzer cleaner Hintergrund
+- keine feste Objektquote; nur sinnvolle Objekte
+- erlaubte Labels korrekt
+- Person mit erkennbarem Gesicht, falls Person nötig
+- Marken erkennbar aber stilisiert; kein Screenshot/Flat-Paste
+- keine UI/Dashboard/Flowchart/Diorama/Clutter
+
+Bei Fehler bleibt der nächste Bildblock gesperrt.
+
+## Nummerierung
+
+- Cover = `Bild 00`
+- Bildnummer = echte Szenennummer
+- Animationsnummern bleiben reserviert und erzeugen kein Bild
+
+## Keine Bildreferenz
+
+Kein Cover und kein vorheriges Szenenbild als Image-to-Image-/Referenzbild verwenden. Die Same-World-Konsistenz entsteht über den geschriebenen V9-Lock.
 
 ## Technische Absicherung
 
-- `npm run reel:create` setzt diesen Vertrag automatisch über `scripts/create-finanzneo-reel.mjs` und `scripts/apply-flow-autonomous-contract.mjs`.
-- `npm run reel:validate -- <Reel-Pfad>` prüft ihn über `scripts/validate-flow-autonomous-contract.mjs`.
-- `npm run reel:ready -- <Reel-Pfad>` führt `reel:validate` mit aus und blockiert Phase 3, wenn der Vertrag fehlt.
+- `npm run reel:create` setzt den Vertrag über den zentralen Flow-Contract.
+- `npm run reel:validate -- <Reel-Pfad>` prüft ihn.
+- `npm run reel:ready -- <Reel-Pfad>` blockiert Phase 3, wenn der Vertrag verletzt ist.
 
-Damit darf künftig kein neuer Reel mit einer `alle-bildprompts.txt` als produktionsbereit gelten, die zwischen Bildern auf eine Nutzernachricht wartet oder den Stil/Workflow unterwegs verändert.
+Der alte Modus `finanzneo-flow-autonomous-full-run-v2` ist nicht mehr aktiv, weil er von Agenten als Batch-Auftrag missverstanden werden konnte.
