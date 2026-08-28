@@ -43,7 +43,7 @@ for (const scene of animations) {
   }
   const current = read(remotionPath);
   if (!current.includes(`Premium Visual Lock: ${PREMIUM_ANIMATION_LOCK}`)) {
-    write(remotionPath, `${current.trim()}\n\n## PREMIUM PHYSICAL ANIMATION V2\nPremium Visual Lock: ${PREMIUM_ANIMATION_LOCK}\n\nPflicht:\n- dieselbe physische Premium-Objektwelt wie die Flow-Bilder\n- ein großes dominantes Hero-Objekt, nicht viele kleine Kästen\n- 2–4 unterstützende konkrete Objekte\n- sichtbare Materialität, Dicke, Tiefe, Kontakt-Schatten und Lichttrennung\n- klare physische Ursache → Wirkung → Ergebnis\n- Grün nur als Fokus/Lösung; Creme/Weiß plus Gold oder Rot als semantischer Kontrast\n- PremiumPhysicalStage + PhysicalObject aus dem zentralen Designsystem verwenden\n\nVerboten:\n- Dashboard-/Control-Panel-Look\n- Flowchart als Hauptkomposition\n- kleine Boxen mit dünnen Verbindungslinien\n- generische Info-Cards als Hauptsprache\n- monochrom-grüne Komposition\n- reine Texttafeln\n- dekorative Bewegung ohne erklärenden Mechanismus\n`);
+    write(remotionPath, `${current.trim()}\n\n## V9-KOMPATIBLER ANIMATIONSVERTRAG\nPremium Visual Lock: ${PREMIUM_ANIMATION_LOCK}\nVisual Target World: finanzneo-stylized-3d-animated-black-v9\n\nPflicht:\n- klar nicht-realistische stylized-3D-Animationssprache wie die Flow-Bilder\n- eine klare Hauptaktion / ein klares Hauptmotiv\n- keine feste Anzahl an Support-Objekten; nur verwenden, wenn sie die Aussage verbessern\n- sichtbare Materialität, Dicke, Tiefe und Kontakt-Schatten\n- klare Ursache → Wirkung → Ergebnis\n- Emerald / Ivory / Soft Gray / Gold / Rot-Orange semantisch einsetzen\n- PremiumPhysicalStage + mindestens ein echtes PhysicalObject verwenden\n- PremiumPhysicalStage bleibt transparent; der zentrale Reel-Canvas darunter ist statisch #000000\n\nVerboten:\n- Partikel/Aurora/Grid/Glow/Gradient als Animationshintergrund\n- Dashboard-/Control-Panel-Look\n- Flowchart als Hauptkomposition\n- kleine Boxen mit dünnen Verbindungslinien\n- generische Info-Cards als Hauptsprache\n- reine Texttafeln\n- dekorative Bewegung ohne erklärenden Mechanismus\n`);
   }
 }
 
@@ -53,10 +53,10 @@ const overviewPath = resolve(root, '05-projektdateien/animationen.md');
 if (existsSync(overviewPath)) {
   const overview = read(overviewPath);
   if (!overview.includes(PREMIUM_ANIMATION_LOCK)) {
-    write(overviewPath, `${overview.trim()}\n\n## Premium Physical Animation V2\nLock: ${PREMIUM_ANIMATION_LOCK}\n\nAlle Remotion-Szenen müssen dieselbe massive, physische Premium-Welt wie die Flow-Bilder verwenden. Große konkrete Hero-Objekte, Materialkontrast, 3D-Tiefe, Kontakt-Schatten und cinematic lighting sind Pflicht. UI-/Dashboard-/Flowchart-/kleine-Boxen-Sprache ist als Hauptkomposition verboten.\n`);
+    write(overviewPath, `${overview.trim()}\n\n## V9-kompatibler Animationsvertrag\nLock: ${PREMIUM_ANIMATION_LOCK}\nVisual Target: finanzneo-stylized-3d-animated-black-v9\n\nAlle Remotion-Szenen verwenden dieselbe nicht-realistische stylized-3D-Animationssprache wie die Flow-Bilder. Keine feste Support-Objekt-Anzahl. Der Animations-Stage bleibt transparent über dem statischen #000000 Reel-Canvas. UI-/Dashboard-/Flowchart-/Partikel-/Aurora-/Grid-Hintergründe sind verboten.\n`);
   }
 }
 
-console.log(`✓ Premium Animation Contract angewendet: ${PREMIUM_ANIMATION_LOCK}`);
-console.log('  Große physische Hero-Objekte · Material/Tiefe/Licht · gleiche Sprache wie die Bildwelt.');
-console.log('  Dashboard/Flowchart/kleine Boxen + dünne Linien/monochrom-grün sind verboten.');
+console.log(`✓ Animation Contract angewendet: ${PREMIUM_ANIMATION_LOCK}`);
+console.log('  Visual Target: Stylized 3D Animated Black V9 · keine feste Objektanzahl.');
+console.log('  Transparenter Animation-Stage über statischem #000000 Canvas · keine Partikel/Aurora/Grid/Glow-Hintergründe.');
