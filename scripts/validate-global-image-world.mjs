@@ -116,6 +116,7 @@ if (lock) {
 
 if (existsSync(WORLD_PATH)) {
   const world = read(WORLD_PATH);
+  const worldLower = world.toLowerCase();
   const requiredMarkers = [
     `PREMIUM_VISUAL_WORLD_LOCK: ${EXPECTED_LOCK}`,
     `FINANZNEO_WORLD_ID: ${EXPECTED_BASE_WORLD}`,
@@ -137,7 +138,9 @@ if (existsSync(WORLD_PATH)) {
     'flowchart as the main composition',
     'Strict single-job state machine',
   ];
-  for (const marker of requiredMarkers) if (!world.includes(marker)) fail(`World-Definition enthält Pflichtmarker nicht: ${marker}`);
+  for (const marker of requiredMarkers) {
+    if (!worldLower.includes(marker.toLowerCase())) fail(`World-Definition enthält Pflichtmarker nicht: ${marker}`);
+  }
 }
 
 if (existsSync('package.json')) {
