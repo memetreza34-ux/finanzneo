@@ -68,14 +68,14 @@ if (errors.length === 0) {
   if (!/caption:\s*\{[\s\S]*?fontSize:\s*50\b[\s\S]*?fontWeight:\s*800\b[\s\S]*?bottom:\s*340\b/.test(tokens)) {
     errors.push('REEL_STYLE.caption muss V5 mit 50 px / Weight 800 / bottom 340 definieren.');
   }
-  if (!/header:\s*\{[\s\S]*?presentation:\s*'plain'[\s\S]*?headlineColor:\s*C\.whiteSoft[\s\S]*?top:\s*154\b/.test(tokens)) {
+  if (!/header:\s*\{[\s\S]*?presentation:\s*'plain'[\s\S]*?headlineColor:\s*C\.white\b[\s\S]*?top:\s*154\b/.test(tokens)) {
     errors.push('REEL_STYLE.header muss V5 plain / weiß / top 154 definieren.');
   }
-  if (!/visual:\s*\{[\s\S]*?top:\s*320\b[\s\S]*?bottom:\s*1480\b/.test(tokens)) {
-    errors.push('REEL_STYLE.visual muss V5 320–1480 definieren.');
+  if (!/visual:\s*\{[\s\S]*?top:\s*320\b[\s\S]*?bottom:\s*1400\b/.test(tokens)) {
+    errors.push('REEL_STYLE.visual muss V5 320–1400 definieren.');
   }
-  if (!tokens.includes('textStrokeForbidden: true')) errors.push('REEL_STYLE muss TextStroke verbieten.');
-  if (!tokens.includes('fadeToBlackForbidden: true')) errors.push('REEL_STYLE muss Fade-to-black verbieten.');
+  if (!/textStrokeForbidden:\s*true\b/.test(tokens)) errors.push('REEL_STYLE muss TextStroke verbieten.');
+  if (!/fadeToBlackForbidden:\s*true\b/.test(tokens)) errors.push('REEL_STYLE muss Fade-to-black verbieten.');
   const continuity = tokens.match(/continuityFrames:\s*(\d+)/);
   if (!continuity || Number(continuity[1]) !== 3) errors.push('V5 Szenenübergang muss exakt 3 Frames sein.');
 
@@ -92,7 +92,7 @@ if (errors.length === 0) {
     errors.push('V5 SceneHeader darf keine Capsule/Chip/Panel-Box rendern.');
   }
 
-  notes.push('REEL_STYLE V5: Header Y154 · Visual 320–1480 · Caption bottom340 · Transition 3 Frames.');
+  notes.push('REEL_STYLE V5: Header Y154 · Visual 320–1400 · Caption bottom340 · Transition 3 Frames.');
   notes.push('SceneHeader V5 ist plain: weißer Text + semantisches Linien-Icon, keine Capsule.');
 }
 
