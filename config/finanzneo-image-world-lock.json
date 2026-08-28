@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "locked": true,
   "integrationMode": "reel-system-v6-premium-overlay",
   "baseWorldId": "finanzneo-connected-studio-v3",
@@ -16,8 +16,9 @@
     "heroUsefulFrameMinRatio": 0.45,
     "heroUsefulFrameMaxRatio": 0.65,
     "recognizableTopicObjectsRequired": true,
-    "supportingObjectsMin": 2,
-    "supportingObjectsMax": 4,
+    "supportingObjectCountFlexible": true,
+    "supportingObjectsOnlyWhenHelpful": true,
+    "clarityBeforeObjectCount": true,
     "physicalTagsRequiredWhenLabelsUsed": true,
     "naturalAsymmetryRequired": true,
     "mediumCloseThreeQuarterCameraRequired": true,
