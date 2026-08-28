@@ -4,6 +4,7 @@ import {existsSync, readFileSync} from 'node:fs';
 
 const LOCK_PATH = 'config/finanzneo-image-world-lock.json';
 const WORLD_PATH = 'config/finanzneo-image-worlds/finanzneo-stylized-3d-animated-black-v9.txt';
+const APPLY_V9_PATH = 'scripts/apply-stylized-animated-black-world-v9.mjs';
 const EXPECTED_LOCK = 'finanzneo-stylized-3d-animated-black-v9';
 const EXPECTED_BASE_WORLD = 'finanzneo-connected-studio-v3';
 const EXPECTED_SERIES = 'finanzneo-same-world-v1';
@@ -14,7 +15,7 @@ const errors = [];
 const fail = (message) => errors.push(message);
 const read = (path) => readFileSync(path, 'utf8');
 
-for (const path of [LOCK_PATH, WORLD_PATH]) {
+for (const path of [LOCK_PATH, WORLD_PATH, APPLY_V9_PATH]) {
   if (!existsSync(path)) fail(`Pflichtdatei fehlt: ${path}`);
 }
 
@@ -124,11 +125,18 @@ if (existsSync('package.json')) {
   try {
     const pkg = JSON.parse(read('package.json'));
     if (pkg.scripts?.['validate:image-world'] !== 'node scripts/validate-global-image-world.mjs') fail('package.json braucht validate:image-world.');
-    if (pkg.scripts?.['reel:visual-world:v7'] !== 'node scripts/apply-stylized-animated-black-world-v7.mjs') fail('package.json braucht reel:visual-world:v7.');
+    if (pkg.scripts?.['reel:visual-world:v9'] !== `node ${APPLY_V9_PATH}`) fail('package.json braucht reel:visual-world:v9 als kanonischen V9-Befehl.');
+    if ('reel:visual-world:v7' in (pkg.scripts ?? {})) fail('package.json darf keinen aktiven reel:visual-world:v7-Befehl mehr enthalten.');
     if (!String(pkg.scripts?.validate ?? '').includes('validate:image-world')) fail('npm run validate muss validate:image-world enthalten.');
   } catch (error) {
     fail(`package.json ist ungültig: ${error.message}`);
   }
+}
+
+if (existsSync('scripts/create-finanzneo-reel.mjs')) {
+  const creator = read('scripts/create-finanzneo-reel.mjs');
+  if (!creator.includes(APPLY_V9_PATH)) fail(`reel:create muss direkt ${APPLY_V9_PATH} verwenden.`);
+  if (creator.includes('apply-stylized-animated-black-world-v7.mjs')) fail('reel:create darf den alten V7-Alias nicht mehr verwenden.');
 }
 
 if (errors.length) {
@@ -142,4 +150,5 @@ console.log('✓ Nicht realistisch · stylized 3D animated · deep black Pflicht
 console.log('✓ Keine feste Objektanzahl/kein Hero-Prozentkorridor; Inhalt und Klarheit entscheiden.');
 console.log('✓ Marken/Logos erkennbar aber stilisiert; Flat-Paste/Screenshot-Look verboten.');
 console.log('✓ Mittel-lange Prompts · Dashboard/App-UI/Flowchart/Produktfoto-Look/Clutter verboten.');
+console.log(`✓ Kanonischer Migration-Befehl: reel:visual-world:v9 -> ${APPLY_V9_PATH}.`);
 console.log(`✓ Google Flow: ${EXPECTED_FLOW_MODE} · concurrency=1 · Batch/Queueing verboten.`);
