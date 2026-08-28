@@ -1,32 +1,36 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
-import {Background, Vignette} from '../brand/components/Background';
 import {FONT} from '../brand/fonts';
 import {C, SAFE_AREA} from '../brand/tokens';
-import {FNBgAurora, FNBgGrid} from '../bausteine/fn_backgrounds';
-
-export type FinanceBackgroundVariant = 'standard' | 'data' | 'premium';
 
 /**
- * Verbindliche Hintergrundauswahl für neue FinanzNeo-Produktionen.
- *
- * standard: ruhige Erklärung, KI-Bild, Text oder Zahlen
- * data: Charts, Tabellen und Marktdaten
- * premium: seltener Hook, Payoff oder Kapitelhöhepunkt
+ * Backward-compatible prop only. Reel backgrounds no longer have visual
+ * variants: every production reel uses one static pure-black canvas.
  */
-export const FinanceBackground: React.FC<{variant?: FinanceBackgroundVariant}> = ({
-  variant = 'standard',
-}) => {
-  if (variant === 'data') return <FNBgGrid />;
-  if (variant === 'premium') return <FNBgAurora />;
+export type FinanceBackgroundVariant = 'standard' | 'data' | 'premium';
 
-  return (
-    <>
-      <Background grid={false} glow />
-      <Vignette />
-    </>
-  );
-};
+export const REEL_BACKGROUND_COLOR = '#000000';
+
+/**
+ * Verbindlicher FinanzNeo-Reel-Hintergrund.
+ *
+ * IMPORTANT:
+ * - immer #000000
+ * - keine Partikel
+ * - keine Aurora/Glow-Flächen
+ * - kein Grid
+ * - kein Gradient/Vignette
+ * - keine animierte Hintergrundbewegung
+ *
+ * `variant` bleibt nur erhalten, damit ältere Composition-Configs nicht
+ * brechen. Der Wert darf die Darstellung nicht verändern.
+ */
+export const FinanceBackground: React.FC<{variant?: FinanceBackgroundVariant}> = ({variant: _variant}) => (
+  <AbsoluteFill
+    data-finanzneo-reel-background="pure-black-v1"
+    style={{backgroundColor: REEL_BACKGROUND_COLOR}}
+  />
+);
 
 /**
  * Nur für Studio-/Keyframe-Prüfung. Nicht im finalen Render sichtbar lassen.
