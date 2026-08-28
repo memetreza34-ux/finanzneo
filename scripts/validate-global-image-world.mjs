@@ -29,7 +29,7 @@ if (existsSync(LOCK_PATH)) {
 
 if (lock) {
   if (lock.locked !== true) fail('globaler Image-World-Lock muss locked=true bleiben.');
-  if (lock.integrationMode !== 'reel-system-v7-animated-black-world') fail('integrationMode muss reel-system-v7-animated-black-world sein.');
+  if (lock.integrationMode !== 'reel-system-v9-animated-black-world') fail('integrationMode muss reel-system-v9-animated-black-world sein.');
   if (lock.baseWorldId !== EXPECTED_BASE_WORLD) fail(`baseWorldId muss ${EXPECTED_BASE_WORLD} sein.`);
   if (lock.seriesLockId !== EXPECTED_SERIES) fail(`seriesLockId muss ${EXPECTED_SERIES} sein.`);
   if (lock.physicalExplainerLockId !== EXPECTED_LOCK) fail(`physicalExplainerLockId muss ${EXPECTED_LOCK} sein.`);
@@ -56,6 +56,9 @@ if (lock) {
     'subjectSeparationLightingRequired',
     'softContactShadowsRequired',
     'sameWorldAcrossSeriesRequired',
+    'brandMarksRecognizableButStylizedRequired',
+    'flatPastedRealLogoForbidden',
+    'screenshotLikeBrandUiForbidden',
     'dashboardCompositionForbidden',
     'appUiCompositionForbidden',
     'flowchartMainCompositionForbidden',
@@ -106,6 +109,8 @@ if (existsSync(WORLD_PATH)) {
     'clearly stylized 3D animation, never photorealistic',
     'deep black background as a strict requirement',
     'no fixed number of supporting objects',
+    'BRANDS + LOGOS',
+    'recognizable but reinterpret it inside the same stylized 3D animated world',
     'PROMPT LENGTH POLICY',
     'medium-length image prompts',
     'dashboard or app UI',
@@ -134,6 +139,7 @@ if (errors.length) {
 
 console.log(`\n✓ Image World erfüllt: ${EXPECTED_LOCK}`);
 console.log('✓ Nicht realistisch · stylized 3D animated · deep black Pflicht · soft rounded · premium/leicht verspielt.');
-console.log('✓ Keine feste Objektanzahl und kein Hero-Prozentkorridor; Inhalt und Klarheit entscheiden.');
+console.log('✓ Keine feste Objektanzahl/kein Hero-Prozentkorridor; Inhalt und Klarheit entscheiden.');
+console.log('✓ Marken/Logos erkennbar aber stilisiert; Flat-Paste/Screenshot-Look verboten.');
 console.log('✓ Mittel-lange Prompts · Dashboard/App-UI/Flowchart/Produktfoto-Look/Clutter verboten.');
 console.log(`✓ Google Flow: ${EXPECTED_FLOW_MODE} · concurrency=1 · Batch/Queueing verboten.`);
