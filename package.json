@@ -16,6 +16,7 @@
     "build": "npx remotion bundle src/index.ts",
     "reel:create": "node scripts/create-finanzneo-reel.mjs",
     "reel:visual-world:v6": "node scripts/apply-premium-visual-world-v6.mjs",
+    "reel:visual-world:v7": "node scripts/apply-stylized-animated-black-world-v7.mjs",
     "reel:sort-images": "node scripts/sort-reel-images.mjs",
     "reel:validate": "node scripts/validate-reel.mjs",
     "reel:ready": "node scripts/check-reel-production-ready.mjs",
