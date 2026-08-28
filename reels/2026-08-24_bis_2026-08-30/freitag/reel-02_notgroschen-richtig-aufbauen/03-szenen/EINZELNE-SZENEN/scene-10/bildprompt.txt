@@ -11,8 +11,16 @@ Bild 10 - Dauerauftrag.png
 
 Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
 
+BESCHRIFTUNGEN – EXAKT SO:
+- Gehalt
+- Girokonto
+- Dauerauftrag
+- Notgroschen
+
 IMAGE PROMPT:
-A salary money block arrives and one clearly separated small part moves automatically into an emergency-reserve safe; a simple calendar object supports the idea, no UI.
+Create a clear stylized 3D explanatory scene showing how a Dauerauftrag automatically builds an emergency fund after salary arrives. Show a believable household finance desk with a salary document or incoming salary envelope labeled “Gehalt” beside an everyday bank-account element labeled “Girokonto”. Place a simple monthly calendar nearby to establish that the action repeats on a fixed schedule.
+
+From the Girokonto, show one clearly defined portion of money being automatically moved into a separate reserve account or container labeled “Notgroschen”. Attach the short label “Dauerauftrag” directly to this recurring transfer action. The scene should instantly explain the sequence without narration: salary arrives → money reaches the Girokonto → a fixed portion moves automatically each month → the Notgroschen grows. Keep this as one believable personal-finance situation rather than an abstract diagram.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -20,22 +28,22 @@ PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
 STYLE:
-Create a clearly non-realistic stylized 3D animated finance scene. Use soft rounded geometry, simplified recognizable details, clean materials and a premium but slightly playful animated-movie feel. Keep the main idea understandable within 1–2 seconds.
+Use premium real-world-grounded stylized 3D. The salary paperwork, bank-account objects, calendar and money must have believable proportions and recognizable real-life detail, while the rendering remains clearly stylized, polished and non-photorealistic.
 
 BACKGROUND:
-A seamless deep black background is mandatory. Keep it clean, minimal and uninterrupted. No floor-wall boundary, horizon, bright studio environment or colored background zones.
+Use one seamless deep black background with a restrained desk context that dissolves naturally into black. Keep the transfer path and labels large enough to read immediately.
 
 COMPOSITION:
-Content and clarity come first. Use a clear main subject or action. Supporting objects have no fixed count; add only what genuinely helps the explanation.
+Build one coherent monthly-saving situation. Arrange the objects so the viewer naturally reads the sequence from salary to Girokonto to Notgroschen. A simple directional movement cue may support the transfer, but do not turn the image into a flowchart. Real documents, account objects and calendar context must carry the explanation.
 
 BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep its identity recognizable but reinterpret it in the same stylized 3D animated world. Never use a flat pasted real logo, website screenshot, app screenshot or photorealistic branded UI.
+No real employer or bank branding and no copied banking interface. Keep all documents and account elements generic but recognizable.
 
 COLORS + LIGHT:
-Emerald green = positive. Gold = money/value. Warm red-orange = warning/cost. Ivory and soft gray = neutral. Use clean soft studio lighting, readable shadows and soft contact shadows.
+Use warm ivory/gray for paperwork and neutral surfaces, subtle gold for money, emerald green for the successful automatic saving path and no unnecessary warning red. Use clean soft studio lighting, readable shadows and soft contact shadows.
 
 TEXT:
-No headline, subtitle, CTA or explanatory sentence. Only explicitly requested short German labels may appear.
+Only the labels “Gehalt”, “Girokonto”, “Dauerauftrag” and “Notgroschen” may appear. Attach them directly to the correct document, account or transfer. No headline, subtitle, CTA or long explanatory sentence.
 
 FORBIDDEN:
-No realism or photorealism. No product-photo look. No dashboard, no app UI, no flowchart, no tiny boxes, no floating info cards, no microchip/circuit look, no miniature diorama and no clutter.
+No photorealism, no abstract money-block conveyor with no real context, no app dashboard, no screenshot UI, no flowchart, no floating info cards, no generic vault/shield composition and no decorative clutter.
