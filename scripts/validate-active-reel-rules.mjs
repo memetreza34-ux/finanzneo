@@ -3,6 +3,9 @@
 import {existsSync, readFileSync} from 'node:fs';
 
 const ACTIVE_RULE_FILES = [
+  'README.md',
+  'ANLEITUNG.md',
+  'AGENTS.md',
   'CLAUDE.md',
   'MASTER-PROMPTS.md',
   'START-HIER.md',
@@ -60,6 +63,8 @@ for (const path of ACTIVE_RULE_FILES) {
 }
 
 const requiredMarkers = new Map([
+  ['README.md', ['3-PHASEN-WORKFLOW.md', 'Produktionsregistry']],
+  ['ANLEITUNG.md', ['finanzneo-stylized-3d-animated-black-v9', '#000000', 'phase3Executor']],
   ['CLAUDE.md', ['finanzneo-stylized-3d-animated-black-v9', '#000000', 'Phase 3']],
   ['docs/IMAGE-SYSTEM.md', ['finanzneo-stylized-3d-animated-black-v9', 'keine feste', 'tiefschwarzen Hintergrund']],
   ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['PremiumPhysicalStage', '#000000', 'transparent']],
