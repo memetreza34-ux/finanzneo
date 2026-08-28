@@ -7,6 +7,7 @@ export const PHASE3_CONTRACT_ID = 'finanzneo-phase3-completion-v1';
 export const PHASE3_MANIFEST_RELATIVE = '05-projektdateien/phase3-production-manifest.json';
 export const PHASE3_QA_RELATIVE = '05-projektdateien/phase3-render-qa.json';
 export const PHASE1_ANIMATION_SEAL_RELATIVE = '05-projektdateien/phase1-animation-seal.json';
+export const REEL_BACKGROUND_CONTRACT_ID = 'finanzneo-pure-black-background-v1';
 
 const PROJECT_ROOT = resolve('.');
 const PLACEHOLDER = /\[|EINFÜGEN|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
@@ -17,6 +18,7 @@ export const phase3CompletionContractFields = () => ({
   productionManifest: PHASE3_MANIFEST_RELATIVE,
   renderQa: PHASE3_QA_RELATIVE,
   phase1AnimationSeal: PHASE1_ANIMATION_SEAL_RELATIVE,
+  reelBackgroundContractId: REEL_BACKGROUND_CONTRACT_ID,
   allScenesMustBeImplemented: true,
   imageVisualRequired: true,
   animationVisualRequired: true,
@@ -28,13 +30,21 @@ export const phase3CompletionContractFields = () => ({
   canonicalPhase1AnimationRequired: true,
   phase3MayNotReplaceCanonicalAnimation: true,
   phase1AnimationHashMustMatchSeal: true,
+  pureBlackBackgroundRequired: true,
+  decorativeBackgroundEffectsForbidden: true,
+  backgroundMotionDoesNotCountAsAnimation: true,
+  blackOrEmptyVisualMustFail: true,
   visualQa: {
     sampleImageRatios: [0.5],
     sampleAnimationRatios: [0.2, 0.5, 0.8],
+    sampleBackgroundPerScene: true,
     minStdDev: 4,
     minContrastP90P10: 12,
     minEdgeMean: 0.5,
+    minActivePixelRatio: 0.04,
     minAnimationMeanAbsDiff: 1,
+    maxBackgroundMean: 12,
+    maxBackgroundStdDev: 4,
   },
 });
 
@@ -148,6 +158,15 @@ export const validatePhase3Manifest = (reelRoot, manifestOverride = null) => {
 
   if (contract?.id !== PHASE3_CONTRACT_ID || contract?.required !== true) {
     throw new Error(`scene-index.json benötigt den Phase-3-Vertrag ${PHASE3_CONTRACT_ID}.`);
+  }
+  if (contract?.reelBackgroundContractId !== REEL_BACKGROUND_CONTRACT_ID) {
+    throw new Error(`scene-index.json benötigt den Reel-Background-Vertrag ${REEL_BACKGROUND_CONTRACT_ID}.`);
+  }
+  if (contract?.pureBlackBackgroundRequired !== true || contract?.decorativeBackgroundEffectsForbidden !== true) {
+    throw new Error('Phase-3-Vertrag muss statischen Pure-Black-Hintergrund ohne dekorative Hintergrundeffekte erzwingen.');
+  }
+  if (contract?.backgroundMotionDoesNotCountAsAnimation !== true || contract?.blackOrEmptyVisualMustFail !== true) {
+    throw new Error('Phase-3-Vertrag muss Background-Motion als Animationsnachweis ablehnen und schwarze/leere Visuals blockieren.');
   }
 
   const manifestPath = manifestOverride
