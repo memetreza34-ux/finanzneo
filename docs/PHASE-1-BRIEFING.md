@@ -93,34 +93,55 @@ GOOGLE FLOW – FINALER DATEINAME:
 Bild XX - Kurzer Szenenname.png
 
 ZIELWELT
-- klar stylized 3D animated, niemals realistisch oder photorealistisch
-- polished 3D animated movie frame
-- soft rounded shapes, simplified recognizable details
-- premium, freundlich und leicht verspielt, aber nicht kindlich
-- Inhalt und Verständlichkeit vor Deko
+- Inhalt realitätsnah und aus echten Alltagssituationen gedacht
+- Darstellung klar stylized 3D, niemals fotorealistisch
+- Gegenstände behalten glaubwürdige Proportionen, Aufbau und erkennbare Details
+- semi-realistische Objektstruktur und Materialien, aber sichtbar stilisiertes Rendering
+- hochwertig, sauber und professionell; nicht wie Spielzeug oder Icon-Pack
+- Bild erklärt den gesprochenen Punkt und ist nicht nur Dekoration
 - jede Szene darf anders komponiert sein, muss aber nach derselben Welt aussehen
+
+ERKLÄRLOGIK — PFLICHT
+- zuerst die konkrete reale Situation zeigen
+- danach sichtbar machen: Was passiert? Was ist betroffen? Was löst oder verändert es?
+- Ursache und Wirkung möglichst im selben Bild verständlich machen
+- komplette Erklärszene statt einzelner schwebender Finanzsymbole
+- vertraute reale Gegenstände nutzen, wenn sie zum Sprechtext passen: z. B. Waschmaschine, Rechnung, Konto-Unterlagen, Kalender, Einkaufsbeutel, Smartphone, Haushaltskosten
+- Zuschauer muss die Aussage in ungefähr 1–2 Sekunden auch ohne Ton verstehen
+- der Zuschauer darf keine Metapher entschlüsseln müssen
+- Schild, Pfeil, Münze, Tresor usw. dürfen unterstützen, aber niemals die reale Situation ersetzen
 
 HINTERGRUND — PFLICHT
 - ein nahtloser deep-black Hintergrund
 - sauber, minimal, ruhig
+- ein kleiner glaubwürdiger Szenenkontext wie Küche, Waschecke, Schreibtisch oder Bankumgebung ist erlaubt, wenn er beim Erklären hilft und optisch in die schwarze Welt übergeht
 - kein heller Studiohintergrund
-- keine sichtbare Boden-Wand-Grenze, kein Horizont, keine farbigen Hintergrundzonen
+- keine störenden farbigen Hintergrundzonen
 
 OBJEKTE + KOMPOSITION
-- klare Hauptaussage oder Hauptaktion
+- vollständige verständliche Szene statt Symbolsammlung
+- klare Hauptsituation oder Hauptaktion
 - KEINE feste Objektanzahl
-- zusätzliche Objekte nur, wenn sie die Aussage besser, verständlicher oder interessanter machen
+- so viele reale Kontextobjekte wie nötig, so wenige wie möglich
+- zusätzliche Objekte nur, wenn sie die Aussage besser oder eindeutiger machen
 - keine Props nur zum Auffüllen
-- Szene muss in ungefähr 1–2 Sekunden verständlich sein
-- lieber einfach und stark als kompliziert und überladen
+- wichtige Gegenstände groß und direkt erkennbar
+- keine winzigen Szenen, in denen man Rechnungen, Labels oder Handlungen nicht lesen kann
+
+DEUTSCHE BESCHRIFTUNGEN
+- kurze deutsche Objektlabels sind ausdrücklich erlaubt und erwünscht, wenn sie Unklarheit verhindern
+- Label direkt am passenden Objekt/Zustand platzieren
+- Beispiele: „Notgroschen“, „Girokonto“, „Tagesgeld“, „Reparatur 280 €“, „Dispo“, „Dauerauftrag“, „Urlaub“, „Shopping“
+- Labels kurz, gut lesbar und funktional
+- keine Headline, kein Untertitel, kein CTA und kein langer Erklärungssatz im generierten Bild
 
 MARKEN + LOGOS
 Wenn Marke, Bank, App oder Logo relevant ist:
 - Kernidentität erkennbar ähnlich halten
-- aber als vereinfachtes, abgerundetes 3D-Element in derselben Animationswelt darstellen
+- aber als vereinfachtes 3D-Element in derselben Welt darstellen
 - kein flach aufgeklebtes echtes Logo
 - kein Website-/App-Screenshot
-- kein photorealistisches Markenprodukt oder realistische Marken-UI
+- kein fotorealistisches Markenprodukt oder realistische Marken-UI
 
 FARBEN
 - Emerald Green = positiv / bevorzugter Weg
@@ -133,32 +154,45 @@ LICHT
 - clean soft studio lighting
 - klare Highlights
 - lesbare Schatten
+- glaubwürdige Materialhinweise
 - gute Trennung vom schwarzen Hintergrund
 - weiche Kontaktschatten
 
-TEXT IM BILD
-- nur ausdrücklich verlangte kurze deutsche Labels
-- keine Headline, kein Untertitel, kein CTA, kein erklärender Satz
-
 STRENG VERBOTEN
-- Realismus / Photorealismus
-- echter Produktfoto-Look
+- Fotorealismus / Stockfoto-Look
+- generische Finance-Icon-Komposition als Haupterklärung
+- nur Tresor + Schild + Münzen + Pfeil ohne reale Situation
+- abstraktes Symbolrätsel, das Interpretation verlangt
+- echtes Produktfoto
 - flach aufgeklebtes echtes Logo / Screenshot-Marken-UI
-- Dashboard / App UI
+- Dashboard / App UI als Hauptkomposition
 - Flowchart als Hauptkomposition
 - kleine Kästen, floating Info-Cards, technische UI-Flächen
 - Microchip/Circuit-Look
-- Miniatur-Diorama
+- winzige Miniaturdarstellung, in der der Inhalt schlecht lesbar ist
 - unnötiger Clutter
 
-PROMPT-LÄNGE
-- mittel-lang
-- zuerst die konkrete Bildidee
-- danach kurzer Style-/Background-/Forbidden-Block
-- keine riesigen Regelblöcke, die die eigentliche Szene überdecken
+PROMPT-QUALITÄT — PFLICHT
+- jeder einzelne Bildprompt wird individuell für exakt diesen Sprechpunkt vollständig ausgeschrieben
+- niemals nur ein paar Stichwörter, eine Kurzbeschreibung oder eine generische Vorlage verwenden
+- Google Flow darf die Bedeutung der Szene nicht selbst erfinden müssen
+- Reihenfolge im Prompt: konkrete reale Situation und sichtbare Ursache/Wirkung → exakte kurze deutsche Labels, wenn hilfreich → Style → Background → Composition → Forbidden
+- mittel-lang, aber konkret genug, dass Gegenstände, Situation, Beziehung und Aussage eindeutig sind
+- keine riesigen Regelblöcke, die die konkrete Szene überdecken
 
 BILD-QA
-Bild verwerfen und neu erzeugen, wenn es realistisch aussieht, der Hintergrund nicht tiefschwarz ist, die Aussage schwer verständlich ist, zu viel Clutter entsteht, die Szene wie UI/Flowchart wirkt, eine Marke wie aufgeklebt/Screenshot aussieht oder die V9-Animationswelt nicht mehr erkennbar ist.
+Bild verwerfen und dieselbe Bildnummer neu erzeugen, wenn:
+- es nur hübsche Finanzsymbole zeigt, aber den gesprochenen Inhalt nicht erklärt
+- man erst überlegen muss, was Tresor/Schild/Pfeile bedeuten sollen
+- die Alltagssituation nicht klar erkennbar ist
+- Ursache und Wirkung nicht verständlich sind
+- wichtige deutsche Labels fehlen, obwohl die Szene sonst mehrdeutig ist
+- Gegenstände wie generische Icons oder Spielzeug wirken statt wie erkennbare reale Objekte
+- es fotorealistisch/stockfotoartig wird
+- der Hintergrund nicht tiefschwarz ist
+- zu viel Clutter entsteht
+- die Szene wie UI/Flowchart wirkt
+- eine Marke wie aufgeklebt/Screenshot aussieht
 
 GOOGLE FLOW — STRICT SINGLE JOB
 - FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
@@ -255,7 +289,7 @@ LIEFERUNG PHASE 1
 - scene-index.json
 - cover.txt
 - bildwelt.txt
-- jeder bildprompt.txt vollständig
+- jeder bildprompt.txt vollständig und individuell ausgeschrieben
 - alle-bildprompts.txt vollständig, Strict-Single-Job
 - für jede Animation: szene.md + remotion.md + fertige animation.tsx
 - recherche-quellen.md
@@ -269,11 +303,15 @@ ABSCHLUSSPRÜFUNG PHASE 1
 - Fakten geprüft
 - Bildbeats max. 6 s planbar
 - V9-Bildwelt in jedem Bildprompt
+- jeder Bildprompt zeigt eine konkrete realitätsnahe Erklärszene statt abstrakter Symbolsammlung
+- Ursache/Wirkung ohne Ton verständlich
+- deutsche Objektlabels verwendet, wenn sie Mehrdeutigkeit verhindern
 - deep-black Hintergrund in jedem Bildprompt
 - keine feste Objektanzahl
-- keine Realistik / Produktfoto-Optik / UI / Flowchart / Clutter
+- keine Fotorealistik / Produktfoto-Optik / UI / Flowchart / Clutter
+- keine generischen Tresor-Schild-Münzen-Symbolbilder als Ersatz für den Inhalt
 - Marken/Logos erkennbar aber stilisiert
-- Einzelprompts bleiben mittel-lang
+- Einzelprompts bleiben mittel-lang, vollständig und individuell geschrieben
 - jede Animation erfüllt den Phase-1-Animationsvertrag und passt visuell zur V9-Welt
 - Animations-Stage erzeugt keinen eigenen Hintergrund
 - Animationen sehen ohne Ton verständlich und hochwertig aus
