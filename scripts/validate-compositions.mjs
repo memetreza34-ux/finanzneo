@@ -85,7 +85,7 @@ for (const registration of productionRegistrations) {
 
 if (errors.length > 0) {
   console.error('\nComposition-Validierung fehlgeschlagen:\n');
-  for (const error of errors) console.error(`- ${error}`));
+  for (const error of errors) console.error(`- ${error}`);
   process.exit(1);
 }
 
