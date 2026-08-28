@@ -11,8 +11,15 @@ Bild 07 - Sicher und erreichbar.png
 
 Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
 
+BESCHRIFTUNGEN – EXAKT SO:
+- Notgroschen
+- Sicher
+- Verfügbar
+
 IMAGE PROMPT:
-A protected gold reserve sits inside an open, easy-to-reach rounded 3D safe with an emerald shield and a clear access gesture.
+Create a clear stylized 3D explanatory scene showing that an emergency fund should be kept safe but still quickly accessible. Show a believable household banking setup on a clean desk: a separate emergency-fund account or reserve container labeled “Notgroschen”, a simple bank card or account document nearby, and a phone used only as a recognizable access object without showing a detailed app interface.
+
+Make two qualities visible in the same coherent scene. The money reserve should look protected and securely separated from everyday spending, with the short label “Sicher”. At the same time, the account/card/phone relationship should make it obvious that the owner can reach the money quickly when needed, labeled “Verfügbar”. Do not use a giant vault or shield as the whole explanation; security and accessibility must come from the believable banking situation itself.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -20,22 +27,22 @@ PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
 STYLE:
-Create a clearly non-realistic stylized 3D animated finance scene. Use soft rounded geometry, simplified recognizable details, clean materials and a premium but slightly playful animated-movie feel. Keep the main idea understandable within 1–2 seconds.
+Use premium real-world-grounded stylized 3D. The account document, card, phone and money reserve must look like recognizable real objects with believable proportions and materials, while the rendering remains clearly stylized, clean and non-photorealistic.
 
 BACKGROUND:
-A seamless deep black background is mandatory. Keep it clean, minimal and uninterrupted. No floor-wall boundary, horizon, bright studio environment or colored background zones.
+Use one seamless deep black background with a restrained desk context that fades into the black world. Keep the important objects large and easy to read.
 
 COMPOSITION:
-Content and clarity come first. Use a clear main subject or action. Supporting objects have no fixed count; add only what genuinely helps the explanation.
+Build one coherent banking situation. The Notgroschen must be visibly separate from daily money, yet the access route through ordinary banking objects must remain immediate and obvious. The viewer should understand “safe and available” in 1–2 seconds without interpreting a metaphor.
 
 BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep its identity recognizable but reinterpret it in the same stylized 3D animated world. Never use a flat pasted real logo, website screenshot, app screenshot or photorealistic branded UI.
+No real bank logos and no copied banking screens. Banking objects must remain generic, stylized and recognizable.
 
 COLORS + LIGHT:
-Emerald green = positive. Gold = money/value. Warm red-orange = warning/cost. Ivory and soft gray = neutral. Use clean soft studio lighting, readable shadows and soft contact shadows.
+Use subtle gold for the reserve, emerald green around the safe/available solution, warm ivory and soft gray for desk and banking objects. Use clean soft studio lighting, clear highlights and soft contact shadows.
 
 TEXT:
-No headline, subtitle, CTA or explanatory sentence. Only explicitly requested short German labels may appear.
+Only the requested labels “Notgroschen”, “Sicher” and “Verfügbar” may appear. Attach them directly to the relevant reserve/access area. No headline, subtitle, CTA or long explanatory sentence.
 
 FORBIDDEN:
-No realism or photorealism. No product-photo look. No dashboard, no app UI, no flowchart, no tiny boxes, no floating info cards, no microchip/circuit look, no miniature diorama and no clutter.
+No photorealism, no giant abstract vault as the entire scene, no generic shield-and-coins icon composition, no detailed app UI, no dashboard, no flowchart, no floating info cards and no decorative clutter.
