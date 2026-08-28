@@ -40,6 +40,9 @@ if (lock) {
   if (lock.preferredSceneImageSize !== '1080x1080') fail('preferredSceneImageSize muss 1080x1080 sein.');
   if (lock.promptPolicy?.length !== 'medium') fail('promptPolicy.length muss medium sein.');
   if (lock.promptPolicy?.clarityFirst !== true || lock.promptPolicy?.avoidOverlongRuleBlocks !== true) fail('Prompt-Policy muss Klarheit priorisieren und überlange Regelblöcke vermeiden.');
+  for (const key of ['individuallyWrittenRequired','genericShorthandForbidden','realLifeSceneFirstRequired','germanLabelsWhenHelpfulRequired']) {
+    if (lock.promptPolicy?.[key] !== true) fail(`Prompt-Policy ${key} muss true sein.`);
+  }
 
   const requiredTrueRules = [
     'nonPhotorealisticRequired',
@@ -47,6 +50,13 @@ if (lock) {
     'softRoundedGeometryRequired',
     'simplifiedDetailsRequired',
     'premiumPlayfulBalanceRequired',
+    'realWorldGroundedSituationRequired',
+    'believableObjectProportionsRequired',
+    'recognizableEverydayDetailsRequired',
+    'completeExplanatorySceneRequired',
+    'causeEffectReadableRequired',
+    'understandableWithoutAudioRequired',
+    'germanObjectLabelsWhenHelpfulRequired',
     'clearMainSubjectOrActionRequired',
     'contentFirstCompositionRequired',
     'supportingObjectCountFlexible',
@@ -58,6 +68,9 @@ if (lock) {
     'softContactShadowsRequired',
     'sameWorldAcrossSeriesRequired',
     'brandMarksRecognizableButStylizedRequired',
+    'abstractSymbolOnlyCompositionForbidden',
+    'genericFinanceIconCompositionForbidden',
+    'visualMetaphorInterpretationRequiredForbidden',
     'flatPastedRealLogoForbidden',
     'screenshotLikeBrandUiForbidden',
     'dashboardCompositionForbidden',
@@ -108,13 +121,19 @@ if (existsSync(WORLD_PATH)) {
     `FINANZNEO_WORLD_ID: ${EXPECTED_BASE_WORLD}`,
     `FINANZNEO_SERIES_LOCK: ${EXPECTED_SERIES}`,
     'clearly stylized 3D animation, never photorealistic',
+    'real-world-grounded situations',
+    'build one coherent explanatory scene, not a collection of isolated symbolic objects',
+    'make cause and effect visible in the same frame whenever possible',
+    'Short German labels are allowed and encouraged when they remove ambiguity',
+    'every prompt must be written individually for its exact spoken point',
+    'generic finance-icon compositions as the main explanation',
     'deep black background as a strict requirement',
     'no fixed number of supporting objects',
     'BRANDS + LOGOS',
     'recognizable but reinterpret it inside the same stylized 3D animated world',
     'PROMPT LENGTH POLICY',
-    'medium-length image prompts',
-    'dashboard or app UI',
+    'medium-length but complete image prompts',
+    'dashboard or app UI as the main composition',
     'flowchart as the main composition',
     'Strict single-job state machine',
   ];
@@ -146,9 +165,11 @@ if (errors.length) {
 }
 
 console.log(`\n✓ Image World erfüllt: ${EXPECTED_LOCK}`);
-console.log('✓ Nicht realistisch · stylized 3D animated · deep black Pflicht · soft rounded · premium/leicht verspielt.');
+console.log('✓ Realitätsnaher Inhalt · klar stylized 3D · niemals photorealistisch · deep black Pflicht.');
+console.log('✓ Vollständige Erklärszene + Ursache/Wirkung · kurze deutsche Labels wenn sie Verständnis verbessern.');
+console.log('✓ Keine Symbolrätsel oder generischen Finance-Icon-Kompositionen als Haupterklärung.');
+console.log('✓ Jeder Bildprompt wird individuell und vollständig für den konkreten Sprechpunkt geschrieben.');
 console.log('✓ Keine feste Objektanzahl/kein Hero-Prozentkorridor; Inhalt und Klarheit entscheiden.');
 console.log('✓ Marken/Logos erkennbar aber stilisiert; Flat-Paste/Screenshot-Look verboten.');
-console.log('✓ Mittel-lange Prompts · Dashboard/App-UI/Flowchart/Produktfoto-Look/Clutter verboten.');
 console.log(`✓ Kanonischer Migration-Befehl: reel:visual-world:v9 -> ${APPLY_V9_PATH}.`);
 console.log(`✓ Google Flow: ${EXPECTED_FLOW_MODE} · concurrency=1 · Batch/Queueing verboten.`);
