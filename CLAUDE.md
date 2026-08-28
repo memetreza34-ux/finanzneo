@@ -110,38 +110,84 @@ PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 ```
 
-Ziel:
+### Kernziel
 
-- klar **nicht realistisch**
-- stylized 3D animated
-- soft rounded shapes
-- vereinfachte, erkennbare Details
-- hochwertige, saubere Materialien
-- premium, freundlich, leicht verspielt
-- Inhalt und Verständlichkeit vor Dekoration
+Die Bilder sind **visuelle Erklärszenen**, keine Dekoration und keine Sammlung hübscher Finanzsymbole.
+
+- Inhalt und Situation **realitätsnah aus dem Alltag gedacht**
+- Rendering klar **stylized 3D**, niemals fotorealistisch
+- reale Gegenstände behalten glaubwürdige Proportionen, Konstruktion und erkennbare Details
+- semi-realistische Objektstruktur und Materialwirkung, aber sichtbar stilisierte Darstellung
+- hochwertig, sauber und professionell; nicht wie Spielzeug oder Icon-Pack
+- der gesprochene Punkt muss im Bild direkt verständlich werden
 - gleiche Welt über das gesamte Reel
+
+### Erklärlogik — Pflicht
+
+Jedes Bild beantwortet visuell:
+
+```text
+Was passiert?
+→ Was ist betroffen?
+→ Was löst oder verändert es?
+```
+
+- konkrete reale Situation zuerst
+- Ursache und Wirkung möglichst im selben Frame sichtbar
+- vollständige, zusammenhängende Szene statt isolierter Einzelobjekte
+- vertraute reale Gegenstände verwenden, wenn sie passen: z. B. Waschmaschine, Rechnung, Konto-Unterlagen, Kalender, Smartphone, Einkaufsbeutel, Haushaltskosten
+- Zuschauer soll die Aussage in ca. 1–2 Sekunden auch ohne Ton verstehen
+- Zuschauer darf keine Metapher entschlüsseln müssen
+- Schild, Pfeil, Münzen, Tresor usw. dürfen nur unterstützen; sie dürfen die reale Situation nie ersetzen
 
 ### Hintergrund
 
 Jedes Flow-Bild nutzt einen **nahtlosen deep-black Hintergrund**.
 
+Ein kleiner realitätsnaher Szenenkontext ist erlaubt, wenn er die Erklärung besser macht, z. B. ein Ausschnitt aus Waschecke, Küche, Schreibtisch oder Bankumgebung. Dieser Kontext muss optisch in die schwarze Welt übergehen und darf nicht vom Inhalt ablenken.
+
 Verboten:
 
 - helle Studiowelt
-- Boden-Wand-Grenze
-- Horizont
-- farbige Hintergrundzonen
+- störende farbige Hintergrundzonen
 - dekorative Partikel-/Glow-Welt
+- Hintergrund, der wichtiger wirkt als die Erklärung
 
 ### Komposition
 
 Es gibt **keine feste Objektanzahl**.
 
-- klare Hauptaussage oder Hauptaktion
-- Support-Objekte nur, wenn sie helfen
-- 1 Objekt kann reichen; mehrere sind erlaubt
+- eine vollständige Hauptsituation oder Hauptaktion
+- so viele reale Kontextobjekte wie nötig, so wenige wie möglich
+- Support-Objekte nur, wenn sie erklären
 - keine Props zum Auffüllen
-- Szene soll in 1–2 Sekunden verständlich sein
+- wichtige Gegenstände groß und sofort erkennbar
+- keine winzige Miniaturdarstellung, in der Rechnung, Label oder Handlung nicht lesbar sind
+- kein generisches Finance-Icon-Arrangement als Haupterklärung
+
+### Deutsche Labels
+
+Kurze deutsche Objektlabels sind **ausdrücklich erlaubt und erwünscht**, wenn sie Mehrdeutigkeit verhindern.
+
+Beispiele:
+
+- `Notgroschen`
+- `Girokonto`
+- `Tagesgeld`
+- `Reparatur 280 €`
+- `Dispo`
+- `Dauerauftrag`
+- `Urlaub`
+- `Shopping`
+
+Regeln:
+
+- Label direkt am passenden Objekt oder Zustand
+- kurz und gut lesbar
+- keine Headline
+- kein Untertitel
+- kein CTA
+- kein langer erklärender Satz
 
 ### Marken und Logos
 
@@ -150,7 +196,7 @@ Wenn inhaltlich nötig:
 - Kernidentität erkennbar, aber in derselben stylized-3D-Welt neu interpretiert
 - keine flach aufgeklebten echten Logos
 - keine Website-/App-Screenshots
-- keine photorealistischen Markenprodukte
+- keine fotorealistischen Markenprodukte
 
 ### Farbrollen
 
@@ -160,26 +206,61 @@ Wenn inhaltlich nötig:
 - Warm Red-Orange = Warnung / Kosten / Verlust
 - Deep Black = Hintergrund
 
-### Text im KI-Bild
+### Prompt-Qualität — Pflicht
 
-- keine Headline
-- kein Untertitel
-- kein erklärender Satz
-- kein CTA
-- nur ausdrücklich verlangte kurze deutsche Labels
+Jeder konkrete Bildprompt wird **individuell und vollständig für exakt den Sprechpunkt geschrieben**.
+
+Verboten:
+
+- nur Stichwörter
+- ein kurzer Ein-Satz-Prompt
+- generische Prompt-Vorlage als fertige Lieferung
+- „Tresor + Schild + Münzen“ als Ersatz für die eigentliche Situation
+- Google Flow die Bedeutung selbst interpretieren lassen
+
+Reihenfolge jedes fertigen Prompts:
+
+```text
+konkrete reale Situation + sichtbare Ursache/Wirkung
+→ exakte kurze deutsche Labels, wenn hilfreich
+→ Style
+→ Background
+→ Composition
+→ Brands/Logos falls relevant
+→ Colors/Light
+→ Text
+→ Forbidden
+```
+
+Einzelprompts bleiben **mittel-lang**, aber vollständig genug, dass Situation, Gegenstände, Beziehung und Aussage eindeutig festgelegt sind.
 
 ### Streng verboten
 
-- Realismus / Photorealismus
-- Produktfoto-Look
-- Dashboard / App UI
+- Fotorealismus / Stockfoto-Look
+- generische Finance-Icon-Komposition als Haupterklärung
+- nur Tresor + Schild + Münzen + Pfeil ohne reale Situation
+- abstraktes Symbolrätsel, das Interpretation verlangt
+- Produktfoto-Look ohne Erklärsituation
+- Dashboard / App UI als Hauptkomposition
 - Flowchart als Hauptkomposition
 - kleine Kästen / Floating-Info-Cards
 - Microchip-/Circuit-Look
-- Miniatur-Diorama
+- winzige Miniatur-Diorama-Darstellung mit schlechter Lesbarkeit
 - unnötiger Clutter
 
-Einzelprompts bleiben **mittel-lang**: konkrete Bildidee zuerst, danach kompakter Stil-/Background-/Forbidden-Block.
+### Bild-QA
+
+Bild verwerfen und **dieselbe Bildnummer neu erzeugen**, wenn:
+
+- es hübsch aussieht, aber den Sprechpunkt nicht direkt erklärt
+- man erst interpretieren muss, was Symbole bedeuten
+- die reale Alltagssituation nicht erkennbar ist
+- Ursache und Wirkung unklar bleiben
+- notwendige deutsche Labels fehlen oder falsch zugeordnet sind
+- reale Gegenstände wie generische Icons/Spielzeug wirken
+- es fotorealistisch wird
+- der Hintergrund nicht deep black bleibt
+- UI/Flowchart/Clutter die Erklärung verdrängen
 
 ## 7. Google Flow — Strict Single Job V3
 
