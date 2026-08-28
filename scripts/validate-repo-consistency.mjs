@@ -88,21 +88,25 @@ if (!tokens) {
   const briefing = read('docs/PHASE-1-BRIEFING.md');
   if (briefing) {
     const PFLICHT = [
-      ['Wortbudget pro Szene', /WORTBUDGET PRO SZENE/],
+      ['Wortbudget pro Szene', /Wortbudget:/i],
       ['szenenweises Skript', /SZENE FÜR SZENE/],
-      ['natürliche Überschrift als Aussage/Frage', /AUSSAGESATZ|Aussage oder Frage/],
-      ['Plain Header', /KEINE Capsule|Plain-Header|plain/i],
-      ['V5 Header Y154', /Y\s*=\s*154/],
-      ['V5 Visual 320–1480', /320[–-]1480/],
-      ['V5 Caption bottom 340', /340 px/],
-      ['Untertitel ohne Vorgreifen', /KEIN VORGREIFEN/],
-      ['nahtloser Hintergrund', /ONE single seamless continuous/],
+      ['natürliche Überschrift als Aussage/Frage', /Aussage oder Frage/],
+      ['Plain Header', /keine Capsule|plain/i],
+      ['V5 Header Y154', /Header\s+Y154|Y\s*=\s*154/],
+      ['V5 Visual 320–1480', /Visualzone\s+Y320[–-]1480|320[–-]1480/],
+      ['V5 Caption bottom 340', /bottom340|bottom\s*=\s*340|340 px/],
+      ['Untertitel ohne Vorgreifen', /kein Wort der nächsten Szene/i],
+      ['V9 Deep-Black-Hintergrund', /deep-black|deep black/i],
+      ['V9 Bildwelt-Lock', /finanzneo-stylized-3d-animated-black-v9/],
+      ['V9 nicht realistisch', /nicht realistisch|never photorealistic/i],
+      ['V9 flexible Objektanzahl', /KEINE feste Objektanzahl|keine feste Objektanzahl/i],
+      ['V9 mittel-lange Prompts', /mittel-lang/i],
       ['1:1-Quellbilder', /GENERATED_IMAGE_ASPECT_RATIO: 1:1/],
       ['Icon-Liste', /euro, clock, hourglass/],
       ['fertiger Phase-1-Animationscode', /animation\.tsx/],
       ['Animationscode-Lock', /finanzneo-phase1-animation-code-v1/],
       ['Math.sin-Hack verboten', /Math\.sin\/Math\.cos|Math\.sin/],
-      ['Selbstprüfung', /SELBSTPRÜFUNG VOR ABGABE/],
+      ['Abschlussprüfung', /ABSCHLUSSPRÜFUNG PHASE 1/],
     ];
     for (const [name, muster] of PFLICHT) {
       if (!muster.test(briefing)) errors.push(`Phase-1-Briefing enthält keine Regel zu: ${name}`);
@@ -116,7 +120,7 @@ if (!tokens) {
       const fehlend = echteIcons.filter((i) => !briefing.includes(i));
       if (fehlend.length > 3) errors.push(`Phase-1-Briefing listet ${fehlend.length} vorhandene Icons nicht: ${fehlend.slice(0, 6).join(', ')}…`);
     }
-    notes.push('Phase-1-Briefing enthält V5-Layout, Plain-Header und kanonischen Animationscode-Vertrag.');
+    notes.push('Phase-1-Briefing enthält V5-Layout, Stylized 3D Animated Black V9 und kanonischen Animationscode-Vertrag.');
   }
 
   notes.push(`Layoutwerte konsistent: Header Y=${werte.headerTop} · Visual ${werte.visualTop}–${werte.visualBottom} · Untertitel ${werte.captionBottom} · ${werte.captionSize} px.`);
@@ -125,6 +129,7 @@ if (!tokens) {
 const gehirn = read('CLAUDE.md');
 if (gehirn && !gehirn.includes('PHASE-1-BRIEFING')) errors.push('CLAUDE.md verweist nicht auf das Phase-1-Briefing.');
 if (gehirn && !gehirn.includes('PHASE-1-ANIMATION-CODE-STANDARD')) errors.push('CLAUDE.md verweist nicht auf den Phase-1-Animationscode-Standard.');
+if (gehirn && !gehirn.includes('finanzneo-stylized-3d-animated-black-v9')) errors.push('CLAUDE.md enthält den aktuellen V9-Bildwelt-Lock nicht.');
 const master = read('MASTER-PROMPTS.md');
 if (master && !master.includes('PHASE-1-BRIEFING')) errors.push('MASTER-PROMPTS.md verweist nicht auf das Phase-1-Briefing.');
 
