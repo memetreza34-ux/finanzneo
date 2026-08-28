@@ -41,7 +41,10 @@ if (lock) {
 
   if (Number(lock.rules?.heroUsefulFrameMinRatio) < 0.45) fail('Hero-Objekt muss mindestens ca. 45% der nutzbaren Komposition einnehmen.');
   if (Number(lock.rules?.heroUsefulFrameMaxRatio) > 0.65) fail('Hero-Korridor darf 65% nicht überschreiten.');
-  if (lock.rules?.supportingObjectsMin !== 2 || lock.rules?.supportingObjectsMax !== 4) fail('Premium-V8 Supporting-Object-Korridor muss 2–4 sein.');
+  if (lock.rules?.supportingObjectCountFlexible !== true) fail('supportingObjectCountFlexible muss true sein.');
+  if (lock.rules?.supportingObjectsOnlyWhenHelpful !== true) fail('supportingObjectsOnlyWhenHelpful muss true sein.');
+  if (lock.rules?.clarityBeforeObjectCount !== true) fail('clarityBeforeObjectCount muss true sein.');
+  if ('supportingObjectsMin' in (lock.rules ?? {}) || 'supportingObjectsMax' in (lock.rules ?? {})) fail('Feste Supporting-Object-Min/Max-Werte sind verboten.');
 
   const requiredTrueRules = [
     'dominantHeroObjectRequired',
@@ -73,7 +76,7 @@ if (lock) {
     'flatPosterCompositionForbidden',
     'monochromeGreenFrameForbidden',
     'photorealisticOfficeStillLifeForbidden',
-    'childishClayToyPixarLookForbidden',
+    'childishClayToyPixarLookForbidden'
   ];
   for (const key of requiredTrueRules) if (lock.rules?.[key] !== true) fail(`Premium-V8-Regel ${key} muss true sein.`);
 
@@ -110,6 +113,8 @@ if (existsSync(WORLD_PATH)) {
     `FINANZNEO_SERIES_LOCK: ${EXPECTED_SERIES}`,
     `STYLIZED_3D_LOCK: ${EXPECTED_STYLIZED}`,
     '45–65%',
+    'NO fixed count',
+    'Clarity decides',
     'medium-close 3/4 camera',
     'ambient occlusion',
     'dashboard or control-panel composition',
@@ -119,6 +124,7 @@ if (existsSync(WORLD_PATH)) {
     'Strict single-job state machine',
   ];
   for (const marker of requiredMarkers) if (!world.includes(marker)) fail(`World-Definition enthält Pflichtmarker nicht: ${marker}`);
+  if (/\b(?:2|3)[–-](?:4|6)\s+(?:supporting|concrete supporting)/i.test(world)) fail('World-Definition darf keine feste Supporting-Object-Anzahl mehr enthalten.');
 }
 
 if (existsSync('package.json')) {
@@ -138,6 +144,6 @@ if (errors.length) {
 }
 
 console.log(`\n✓ Premium Image World erfüllt: ${EXPECTED_LOCK}`);
-console.log('✓ Große physische Hero-Objekte · 2–4 Supporting Objects · Materialkontrast · Tiefe · Cinematic Lighting.');
+console.log('✓ Supporting-Objekte haben keine feste Anzahl; Klarheit und Inhalt entscheiden.');
 console.log('✓ Dashboard/Flowchart/kleine Boxen + dünne Linien/monochrom-grün sind als Hauptsprache verboten.');
 console.log(`✓ Google Flow: ${EXPECTED_FLOW_MODE} · concurrency=1 · Batch/Queueing verboten.`);
