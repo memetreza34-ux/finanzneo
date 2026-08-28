@@ -63,7 +63,7 @@ const readJson = (path, label) => {
   try {
     return JSON.parse(readFileSync(path, 'utf8'));
   } catch (error) {
-    throw new Error(`${label} ist kein gültiges JSON: ${error instanceof Error ? error.message : String(error)}`);
+    throw new Error(`${label} ist kein gültiges JSON: ${error instanceof Error ? error.message : String(error)}`, {cause: error});
   }
 };
 
