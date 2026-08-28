@@ -63,7 +63,7 @@ for (const [id, files] of byId) {
 // ExperimentCompositions sichtbar, bis ein aktuelles Reel den vollständigen
 // Phase-3-Fertigkeitsweg bestanden hat.
 const productionPath = resolve(productionRegistry);
-const productionSource = readFileSync(productionPath, 'utf8');
+const productionSource = stripComments(readFileSync(productionPath, 'utf8'));
 for (const [pattern, label] of [
   [/\bLegacy[A-Za-z0-9_]*/, 'Legacy-Komponente/-ID'],
   [/einlagensicherung-100000/i, 'pre-V9 Einlagensicherung-Reel'],
@@ -85,7 +85,7 @@ for (const registration of productionRegistrations) {
 
 if (errors.length > 0) {
   console.error('\nComposition-Validierung fehlgeschlagen:\n');
-  for (const error of errors) console.error(`- ${error}`);
+  for (const error of errors) console.error(`- ${error}`));
   process.exit(1);
 }
 
