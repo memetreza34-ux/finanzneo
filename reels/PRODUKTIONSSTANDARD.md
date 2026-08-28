@@ -65,7 +65,7 @@ PROMPT LESEN
 → GENAU EIN BILD ERZEUGEN
 → VOLLSTÄNDIG WARTEN
 → SOFORT ENDGÜLTIG UMBENENNEN
-→ MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
+→ MOTIV + LABELS + HINTERGRUND + STIL + DATEINAME PRÜFEN
 → ERST DANN NÄCHSTES BILD
 ```
 
@@ -73,7 +73,7 @@ Keine Batches, keine parallele Vorbereitung und kein späteres Sammel-Umbenennen
 
 ### Keine Bild-zu-Bild-Referenz
 
-Für Reel-Bilder wird **kein** Cover oder vorheriges Szenenbild als Image-to-Image-/Referenzbild hochgeladen. Die Same-World-Konsistenz entsteht ausschließlich durch denselben ausgeschriebenen Lock für World ID, Stylized-3D-Look, Materialien, Geometriesprache, Farbrollen, Hintergrund und Lichtsignatur.
+Für Reel-Bilder wird **kein** Cover oder vorheriges Szenenbild als Image-to-Image-/Referenzbild hochgeladen. Die Same-World-Konsistenz entsteht ausschließlich durch denselben ausgeschriebenen World-Lock.
 
 ## 4. Nummerierung
 
@@ -104,7 +104,7 @@ Erst wenn alle Bilder einzeln erzeugt, umbenannt und geprüft wurden, kommen sie
 - Fehlt ein Nutzerbild, genaue fehlende Datei melden und warten.
 - Keine Ersatzbilder oder Stockbilder verwenden.
 
-## 7. Verbindliche Bildwelt
+## 7. Verbindliche Bildwelt — Stylized 3D Animated Black V9
 
 World ID:
 
@@ -118,55 +118,48 @@ Series Lock:
 finanzneo-same-world-v1
 ```
 
-Stylized-3D-Lock:
+Aktueller Visual Lock:
 
 ```text
-finanzneo-stylized-3d-editorial-v5
-```
-
-Physical-Explainer-Lock:
-
-```text
-finanzneo-physical-explainer-editorial-v7
+finanzneo-stylized-3d-animated-black-v9
 ```
 
 Stil:
 
-- clearly stylized premium 3D CGI financial editorial explainer
-- erkennbare Alltagsobjekte, aber chunky/volumetrisch modelliert
-- abgerundete Formen und soft bevelled edges
-- tiefe charcoal green-black Grundwelt
-- emerald/mint Akzente
+- klar stylized 3D animated
+- niemals realistisch / photorealistisch
+- soft rounded shapes
+- vereinfachte erkennbare Details
+- clean materials
+- premium, freundlich und leicht verspielt
+- klare Hauptaussage oder Hauptaktion
+- keine feste Objektanzahl
+- Inhalt und Verständlichkeit vor Deko
+- Emerald Green für positiv/bevorzugt
+- Warm Ivory + Soft Gray für neutrale Flächen
 - Gold nur für Geld/Wert
-- warmes Rot-Orange nur für Risiko/Verlust/unnötige Kosten
-- cinematic soft key light + emerald rim light
-- klare Vorder-/Mittel-/Hintergrundtiefe
-- keine fotorealistischen Papier-/Büro-/Stockfoto-Stillleben
-- kein Pixar, Clay oder Toy-Look
-- keine Dioramen, Neon-Tunnel, Sci-Fi-Korridore, Dashboards oder Game-Level
+- Warm Red-Orange nur für Warnung/Kosten/Verlust
 
-## 8. Kritische Hintergrundregel — genau EIN Hintergrund
+## 8. Kritische Hintergrundregel — Deep Black Pflicht
 
-Keine Prozent-Zonen verwenden. Jedes Bild nutzt genau einen nahtlosen Hintergrund von oben bis unten.
+Jedes Flow-Bild nutzt genau einen nahtlosen tiefschwarzen Hintergrund.
 
 ```text
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
-Keep the same continuous material, tone and gradient from top edge to bottom edge.
-No horizontal divisions.
-No visible top section or bottom section.
-No separate zones or panels.
-No dark/light band at the top or bottom.
+Use one seamless deep black background.
+Keep it clean, minimal and uninterrupted.
+No bright studio background.
 No floor-wall boundary.
 No horizon line.
-No studio wall split.
-Use only one subtle continuous gradient/vignette.
+No colored background zones.
 ```
+
+Das Motiv muss sich durch clean soft studio lighting, klare Highlights, lesbare Schatten und weiche Kontaktschatten deutlich vom Schwarz lösen.
 
 ## 9. Personenregel
 
 Wenn eine Person vorkommt:
 
-- klare stilisierte Augen, Nase und Mund
+- klar stilisiert und nicht realistisch
 - Gesicht gut sichtbar
 - frontal oder natürliche 3/4-Ansicht bevorzugt
 - keine gesichtslose Figur
@@ -298,6 +291,8 @@ Pflicht im Code:
 - `RESULT_HOLD_FRAMES >= 15`
 - produktionsreifer Export `SceneXXAnimation`
 
+Visuell muss die Animation zur V9-Bildwelt passen: nicht realistisch, soft rounded, deep-black Hintergrund, klare Hauptaktion, keine feste Objektanzahl.
+
 Verboten:
 
 - `Math.sin`/`Math.cos` als künstliches Dauerwackeln nur für Frame-Diff
@@ -336,9 +331,9 @@ Am finalen Export messen.
 Vor Freigabe:
 
 1. Bild gegen gesprochenen Beat prüfen
-2. nahtlosen Hintergrund prüfen
-3. stylized 3D statt Fotorealismus prüfen
-4. horizontale Bänder/Floor-Wall-Split ausschließen
+2. tiefschwarzen nahtlosen Hintergrund prüfen
+3. stylized 3D animated statt Realismus/Produktfoto prüfen
+4. Clutter und unnötige Props ausschließen
 5. Gesicht prüfen, falls Person vorkommt
 6. Labels prüfen
 7. alle Bilder als Kontaktbogen prüfen
@@ -353,14 +348,13 @@ Vor Freigabe:
 
 Sofort korrigieren bei:
 
-- zwei sichtbaren Hintergründen/Bändern
-- horizontaler Trennkante
-- sichtbarer Boden-Wand-Grenze/Horizont
-- gesichtsloser/abgewandter Person
+- nicht tiefschwarzem Flow-Hintergrund
+- Realismus / Produktfoto-Look
+- UI-/Dashboard-/Flowchart-Look
+- unnötigem Clutter
 - falschen Labels
 - großer Headline/Satz im KI-Bild
-- Diorama/Game-Level
-- fotorealistischem Büro-/Papierlook
+- Miniatur-Diorama
 - falscher Satzzuordnung
 - Bildbeat > 6 Sekunden
 - fehlender Szenenüberschrift oder fehlendem Icon
@@ -398,7 +392,8 @@ npm run reel:create -- \
 
 Der öffentliche Ersteller setzt automatisch:
 
-- Flow Strict-Single-Job
+- Flow Strict-Single-Job V3
+- Stylized 3D Animated Black V9
 - Phase-3-Completion-Gate
 - Reel-Layout V5
 - Phase-1-Animationscode-Vertrag
@@ -406,11 +401,15 @@ Der öffentliche Ersteller setzt automatisch:
 ## 22. Automatische Prüfung
 
 ```bash
+npm run validate:image-world
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
 ```
 
 Der Validator prüft zusätzlich:
 
+- V9-Bildwelt + deep-black Hintergrund
+- mittel-lange Einzelprompts
+- flexible Objektanzahl
 - V5-Layout
 - Plain Header
 - vollständigen kanonischen Animationscode
