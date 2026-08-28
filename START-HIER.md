@@ -5,9 +5,9 @@
 ```text
 PHASE 1 — ChatGPT                  PHASE 2 — Nutzer            PHASE 3 — Executor
 Recherche, Skript,                 Flow-Bilder,                Assets integrieren,
-Bildprompts, Header,               finales Voiceover,          versiegelte Phase-1-
+V9-Bildprompts, Header,            finales Voiceover,          versiegelte Phase-1-
 Remotion-Specs UND            →    echte Wortzeiten       →    Animationen verwenden,
-fertige animation.tsx                                         Render-QA + Export
+fertige animation.tsx                                         Preflight + Render-QA + Export
 ```
 
 Einstiege:
@@ -19,7 +19,7 @@ Einstiege:
 - Gesamtworkflow: `docs/3-PHASEN-WORKFLOW.md`
 - Phase 3 Completion: `docs/PHASE-3-COMPLETION-GATE.md`
 
-## Die eine Layout-Wahrheit
+## Layout V5 — eine Wahrheit
 
 `src/brand/tokens.ts -> REEL_STYLE`:
 
@@ -31,20 +31,55 @@ Caption              bottom = 340
 Transition           3 Frames
 ```
 
-Damit sitzen Bilder und Animationen höher, der Header etwas tiefer und näher am Visual, die Untertitel höher; oben und unten bleibt mehr ruhige Luft.
+Keine lokalen Reel-Abweichungen.
 
-### Header V5
+## Bildwelt V9
 
-- natürliche Schreibweise / Sentence Case
-- kein automatisches ALL CAPS
-- keine Capsule
-- kein Chip/Pill/Panel
-- Text neutral weiß
-- Icon trägt semantische Farbe
+Reel-Quellbilder inklusive Cover bleiben `1:1`.
+
+```text
+finanzneo-stylized-3d-animated-black-v9
+```
+
+- nicht realistisch
+- stylized 3D animated
+- soft rounded, vereinfachte erkennbare Details
+- premium, freundlich, leicht verspielt
+- deep-black Flow-Hintergrund Pflicht
+- keine feste Objektanzahl
+- Klarheit/Inhalt vor Deko
+- mittel-lange Prompts
+- kein Produktfoto, Dashboard, App-UI, Flowchart, Microchip, Mini-Diorama oder Clutter
+
+Marken/Logos: **erkennbar, aber stilisiert** in derselben Welt. Kein flach aufgeklebtes Real-Logo und kein Screenshot-Look.
+
+Google Flow: exakt ein Bild → warten → sofort umbenennen → QA → nächstes Bild. Nie Batch/Queue.
+
+## Remotion-Hintergrund — immer schwarz
+
+Der Reel-Canvas ist technisch immer:
+
+```text
+#000000
+statisch
+```
+
+Zentrale Quelle: `src/design-system/FinanceBackground.tsx`.
+
+Verboten:
+
+- `FNBgAurora`
+- `FNBgParticles`
+- `FNBgGrid`
+- `FNBgRadial`
+- Partikelfelder
+- Aurora/Glow-Hintergründe
+- bewegte Grids
+- dekorative Hintergrund-Gradienten/Vignetten
+
+Animation-Stage bleibt transparent. Bewegung gehört zum Szeneninhalt, nie zum Hintergrund.
 
 ## Phase 1 besitzt die Animation
-
-Eine Animationsszene besteht aus:
 
 ```text
 scene-XX/
@@ -53,7 +88,7 @@ scene-XX/
 └── animation.tsx
 ```
 
-`animation.tsx` ist bereits in Phase 1 produktionsreif. Phase 3 darf sie nicht durch eigenen Code ersetzen.
+`animation.tsx` ist in Phase 1 produktionsreif. Phase 3 darf sie nicht ersetzen.
 
 Pflicht:
 
@@ -61,38 +96,32 @@ Pflicht:
 START → MECHANISMUS → ERGEBNIS → mindestens 15 Frames stabil
 ```
 
-Verboten:
-
-- wackelnde Rechtecke
-- Debug-/Testflächen
-- Dummy-/Placeholder-Komponenten
-- `Math.sin`/`Math.cos` als künstliches Dauerwackeln für Frame-Diff
-- generische Bewegung nur, um QA zu bestehen
+Keine feste Support-Objekt-Anzahl. Kein Dummy, Debug, `Math.sin`/`Math.cos`-QA-Wackeln oder Hintergrundbewegung als Fake-Motion.
 
 ## Phase-1-Animationsseal
-
-Nach erfolgreichem:
 
 ```bash
 npm run reel:ready -- <Reel-Pfad>
 ```
 
-schreibt das Repo:
+schreibt:
 
 ```text
 05-projektdateien/phase1-animation-seal.json
 ```
 
-Darin stehen SHA-256-Hashes aller kanonischen `animation.tsx`-Dateien. Phase 3 muss direkt diese Dateien verwenden. Änderung oder Ersatz blockiert den Preflight.
+Phase 3 muss exakt diese Quellen/Exports verwenden. Änderung oder Ersatz blockiert den Preflight.
 
 ## Phase-3-Executor
 
 `scene-index.json -> phase3Executor`:
 
-| Wert | Übergabe |
+| Wert | Executor |
 |---|---|
-| `antigravity` | `MASTER-PROMPTS.md` |
-| `claude-code` | `05-projektdateien/CLAUDE-CODE-AUFTRAG.md` |
+| `antigravity` | Antigravity |
+| `claude-code` | Claude Code |
+
+Nur der konfigurierte Executor führt Phase 3 aus.
 
 ## Phase-3-Fertigkeitsgate
 
@@ -101,13 +130,13 @@ Eine MP4 allein ist **kein** Fertigkeitsnachweis.
 ```bash
 npm run reel:ready -- <Reel>
 npm run reel:phase3:init -- <Reel> <Composition-ID>
-# Manifest vervollständigen
+# Manifest vollständig machen
 npm run reel:phase3:preflight -- <Reel>
-npm run reel:render -- <Manifest>
+npm run reel:render -- <Reel>/05-projektdateien/phase3-production-manifest.json
 npm run reel:export -- <Reel> <Final-MP4>
 ```
 
-Produktiver Render:
+Ablauf:
 
 ```text
 Candidate-MP4
@@ -117,52 +146,29 @@ Candidate-MP4
 → FINAL_COMPLETE
 ```
 
-Caption-only-/Header-only-Szenen zählen nicht als fertige Visuals.
+Render-QA prüft insbesondere:
+
+- visueller Kern jeder Szene tatsächlich belegt
+- Bildszene nicht schwarz/leer/caption-only
+- Animation sichtbar + echte Veränderung
+- freier Rand bleibt statisch schwarz
+- keine Partikel/Aurora/Grid/Glow-Hintergründe
+- Audio vorhanden
+- 1080×1920 + korrekte Dauer
+
+**Schwarzes/leeres Reel = FAIL.** Header, Caption oder Hintergrund allein zählen nicht als Szenenvisual.
 
 ## Automatische Checks
 
 ```bash
 npm run validate
+npm run validate:image-world
+npm run validate:reel-background
 npm run reel:validate -- <Reel>
 npm run reel:ready -- <Reel>
 npm run reel:animation:validate -- <Reel>
 npm run reel:phase3:preflight -- <Reel>
-npm run reel:phase3:qa -- <Reel> <Video>
 ```
-
-`reel:validate` blockiert unter anderem:
-
-- falsches V5-Layout
-- Capsule-/falsche Header-Metadaten
-- fehlende Animationsquellen
-- Platzhalter im Animationscode
-- Wackel-/Debug-Hacks
-- fehlende Bildwelt-Locks
-- Bildbeats über 6 Sekunden
-- unvollständige Publishing-Dateien
-
-## Bildwelt
-
-Reel-Quellbilder inklusive Cover bleiben `1:1`.
-
-Verbindlich ist:
-
-`finanzneo-stylized-3d-animated-black-v9`
-
-Regeln:
-
-- klar stylized 3D animated, nicht realistisch
-- soft rounded shapes + vereinfachte Details
-- premium, freundlich und leicht verspielt
-- **deep-black Hintergrund Pflicht**
-- keine feste Objektanzahl
-- Inhalt und Klarheit vor Deko
-- Emerald positiv, Ivory/Soft Gray neutral, Gold Geld, Red-Orange Warnung/Kosten
-- keine Realistik, Produktfoto-Optik, UI/Dashboard, Flowchart, Microchip, Miniatur-Diorama oder Clutter
-- Einzelprompts bleiben mittel-lang
-- keine Bild-zu-Bild-Referenz
-
-Google Flow arbeitet Strict Single Job: genau ein Bild → warten → umbenennen → QA → nächstes Bild. Nie Batch.
 
 ## Reel-Struktur
 
@@ -195,15 +201,14 @@ Keine YouTube Shorts.
 npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
 ```
 
-Der öffentliche Ersteller setzt automatisch:
+Der Scaffolder ist jetzt **selbst nativ V9** und erzeugt keinen alten V7/V8-Zwischenstand mehr. Der atomare Wrapper setzt zusätzlich die idempotenten Contracts:
 
 - Flow Strict-Single-Job V3
 - Stylized 3D Animated Black V9
+- Pure-Black Reel Background V1
 - Reel-Layout V5
-- Phase-1-Animationscode-Vertrag + kanonische `animation.tsx` pro Animationsszene
+- Phase-1-Animationscode-Vertrag
 - Phase-3-Completion-Gate
-
-Die Apply-Skripte sind Teil des atomaren `reel:create`-Ablaufs und sorgen dafür, dass der fertige neue Reel den aktuellen Lock enthält, auch wenn der Basisscaffolder ältere Übergangsfelder besitzt.
 
 ## Final
 
@@ -211,11 +216,13 @@ Ein Reel ist erst final, wenn:
 
 - alle Nutzerbilder vorhanden sind
 - finales Voiceover + echte Wortzeiten vorhanden sind
-- jeder Animationsbeat bereits als finaler Phase-1-Code vorliegt
-- Phase-1-Animationsseal unverändert ist
-- jede Szene im finalen Render sichtbar umgesetzt ist
-- Post-Render-QA PASSED ist
-- komplette MP4 mit Ton geprüft wurde
-- `06-export/` vollständig erzeugt wurde
+- jeder Animationsbeat finaler Phase-1-Code ist
+- Animation-Seal unverändert ist
+- jede Szene sichtbar umgesetzt ist
+- Phase-3-Preflight bestanden ist
+- Post-Render-QA `PASSED` ist
+- komplette MP4 mit Ton geprüft ist
+- `reel:export` erfolgreich ist
+- `06-export/` vollständig ist
 
 `CLAUDE.md` ist die höchste Regelquelle.
