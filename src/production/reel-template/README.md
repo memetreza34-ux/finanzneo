@@ -4,7 +4,7 @@ Datengetriebene Vorlage für vertikale FinanzNeo-Reels von 60 bis 90 Sekunden.
 
 ## Ziel
 
-Ein neues Reel soll zentrale Layout-, Caption- und Header-Regeln aus dem Designsystem erben. Reel-spezifische Dateien dürfen diese Werte nicht lokal überschreiben.
+Ein neues Reel erbt Layout, Captions, Header, Animation-Dispatch und Pure-Black-Hintergrund zentral aus dem Designsystem. Reel-spezifische Dateien dürfen diese Regeln nicht lokal umgehen.
 
 ## Unterstützte Beat-Typen
 
@@ -14,7 +14,10 @@ Ein neues Reel soll zentrale Layout-, Caption- und Header-Regeln aus dem Designs
 - `compare`
 - `checklist`
 - `image`
+- `animation`
 - `cta`
+
+`animation` ist ein **first-class Beat**. Es gibt keinen CTA-/Text-/Caption-Fallback für eine fehlende Animation.
 
 ## Verbindliche Regeln
 
@@ -28,7 +31,32 @@ Die Konfiguration wird vor dem Render geprüft:
 - jeder Beat besitzt ein passendes `icon`
 - Image-Beats besitzen eine Datei
 - Image-Beats dauern maximal 6,0 Sekunden
-- Checklisten besitzen mindestens einen Punkt
+- Animation-Beats besitzen `animationId`
+- jedes `animationId` besitzt ein echtes `customAnimations[animationId]`-Binding
+- fehlendes Animation-Binding = harter Renderfehler
+
+## Pure-Black Background
+
+Der einzige produktive Reel-Hintergrund ist zentral:
+
+```text
+#000000
+statisch
+```
+
+`FinanceBackground` darf für Reels keine visuelle Variante erzeugen. Alte `standard/data/premium`-Props sind nur Kompatibilität.
+
+Verboten:
+
+- Partikel
+- Aurora
+- Grid
+- Glow-Felder
+- Vignette
+- dekorative Background-Gradienten
+- Hintergrundbewegung als Frame-Diff-/Animationsnachweis
+
+`PremiumPhysicalStage` bleibt transparent.
 
 ## SceneHeader V5
 
@@ -43,19 +71,13 @@ Jede Szene erhält einen zentralen `SceneHeader`.
 }
 ```
 
-V5-Standard:
-
-- mittig zentriert
+- mittig
 - `top = 154`
-- normale Schreibweise / Sentence Case
-- Text neutral weiß
-- einfaches Linien-Icon links neben dem Text
-- semantische Farbe primär über das Icon
-- keine Capsule, kein Chip, keine Pill, kein Panel
-- keine automatische ALL-CAPS-Transformation
-- Aussage oder Frage, nie nur Stichwort oder Zahl
-- `warning` nur für echte Warnung/Problem
-- `money` nur für Geld-/Wertfokus
+- Sentence Case
+- Text weiß
+- semantische Farbe primär über das Linien-Icon
+- keine Capsule / Chip / Pill / Panel
+- kein automatisches ALL CAPS
 
 ## V5-Layout
 
@@ -68,63 +90,57 @@ Caption     bottom = 340
 Transition  3 Frames
 ```
 
-Bilder und native Animationen nutzen dieselbe Visualzone. `AnimationStage` verschiebt/zentriert native Animationen passend zur V5-Bühne.
-
 ## Untertitel
 
 Die zentrale `Captions`-Komponente erzwingt:
 
-- aktives Wort FinanzNeo-Grün
-- restliche Wörter Weiß
-- satz-/phrasenbasierte Einheiten
-- maximal zwei Zeilen
-- kein gelbes/goldenes Active-Word
-- kein schwarzer Text
-- kein Word-Jump
-- kein Scale-Pop
-- kein `WebkitTextStroke`
+- aktives Wort Grün
+- Rest Weiß
+- max. zwei Zeilen
+- kein Word-Jump / Scale-Pop / Stroke
 - `bottom = 340`, `left = 72`, `right = 140`
-
-Lokale Caption-Positionen und Farb-Overrides sind nicht vorgesehen.
+- pro Szene geclippt
 
 ## Animationen
 
-Produktive Reel-Animationen werden nicht in Phase 3 kreativ erfunden.
-
-Für neue Reels liefert Phase 1 pro Animationsszene bereits eine fertige:
+Phase 1 liefert pro Animationsszene bereits die fertige kanonische Quelle:
 
 ```text
 03-szenen/EINZELNE-SZENEN/scene-XX/animation.tsx
 ```
 
-Verbindlicher Standard: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
-
-Jede Animation zeigt:
+Pflicht:
 
 ```text
-STARTZUSTAND
-→ SICHTBARER MECHANISMUS
-→ EINDEUTIGES ERGEBNIS
-→ RESULT mindestens 15 Frames stabil
+START → SICHTBARER MECHANISMUS → ERGEBNIS
 ```
 
-Verboten sind unter anderem Dummy-/Placeholder-Komponenten, Debug-Boxen, wackelnde Rechtecke und `Math.sin`/`Math.cos` als künstlicher Frame-Diff-Hack.
+- Ergebnis mindestens 15 Frames stabil
+- V9-kompatible stylized-3D-Sprache
+- mindestens ein echtes sichtbares Hauptmotiv
+- keine feste Support-Objekt-Anzahl
+- keine Dummy-/Placeholder-/Debugbewegung
+- kein `Math.sin`/`Math.cos`-QA-Hack
+- keine Background-Partikel/Aurora/Grid/Glow-Bewegung
 
-Bei `reel:ready` werden die Phase-1-Animationsquellen per SHA-256 versiegelt. Phase 3 muss exakt diese Quellen verwenden.
+Bei `reel:ready` wird jede Phase-1-Animationsquelle per SHA-256 versiegelt. Phase 3 muss exakt dieselbe Datei und denselben Export binden.
 
-## Animationsfarben
+## Animation-Dispatch
 
-Auf dunklen Reel-Flächen gilt `ANIMATION_COLORS`:
+Produktive Composition:
 
-- Weiß = neutral
-- Grün = Fokus/Lösung
-- Rot = Problem/Warnung/Verlust
-- Gold = Geld/Wert
-- Schwarz = verboten
+```text
+scene.type = animation
+→ scene.animationId
+→ customAnimations[animationId]
+→ versiegelte Phase-1-Komponente
+```
+
+Fehlt das Binding, wirft `ReelTemplate` `MISSING ANIMATION BINDING` und der Render muss stoppen.
 
 ## Bilder
 
-Image-Beats erwarten freigegebene 1:1-Nutzerbilder. Darstellung in Remotion erfolgt mit `contain`; wichtige Motive und Labels dürfen nicht abgeschnitten werden.
+Image-Beats verwenden die exakten freigegebenen 1:1-Nutzerbilder. Darstellung mit `contain`; kein generiertes/Stock-/Placeholder-Ersatzbild.
 
 Verbindliche Quellen:
 
@@ -134,27 +150,24 @@ Verbindliche Quellen:
 
 ## Safe Areas
 
-Für Studio-Prüfungen:
-
-```ts
-showSafeAreaGuide: true
-```
-
-Vor Produktionsrendern:
-
-```ts
-showSafeAreaGuide: false
-```
+`showSafeAreaGuide: true` nur im Studio/QA. Vor Produktionsrendern `false`.
 
 ## Phase 3
 
-Eine erzeugte MP4 ist kein Fertigkeitsnachweis. Produktive Reels laufen über den Phase-3-Completion-Contract mit Preflight, Candidate-Render, Post-Render-QA und Export.
+Eine erzeugte MP4 ist kein Fertigkeitsnachweis.
 
-Details:
+```text
+reel:ready
+→ Manifest
+→ phase3:preflight
+→ Candidate-Render
+→ Post-Render-QA
+→ Final-MP4
+→ reel:export
+```
 
-- `docs/PHASE-3-COMPLETION-GATE.md`
-- `scripts/lib/phase3-completion.mjs`
+Render-QA muss schwarze/leere Visualkerne, Caption-/Header-only-Szenen, fehlende Bilder, fehlende Animationen und nicht-schwarze/dekorative Backgrounds blockieren.
 
 ## Demo
 
-`ReelTemplateDemo.tsx` liegt unter Experiments. Sie ist eine technische Vorschau, keine veröffentlichungsfertige Produktion.
+`ReelTemplateDemo.tsx` liegt unter Experiments. Sie ist nur technische Vorschau, keine Produktion.
