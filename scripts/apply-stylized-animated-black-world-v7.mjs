@@ -23,7 +23,7 @@ const SERIES_LOCK = 'finanzneo-same-world-v1';
 
 const WORLD_HEADER = `FINANZNEO_WORLD_ID: ${BASE_WORLD}\nFINANZNEO_SERIES_LOCK: ${SERIES_LOCK}\nPREMIUM_VISUAL_WORLD_LOCK: ${WORLD_LOCK}\nGENERATED_IMAGE_ASPECT_RATIO: 1:1`;
 
-const STYLE_SUFFIX = `STYLE:\nCreate a clearly non-realistic stylized 3D animated finance scene. Use soft rounded geometry, simplified recognizable details, clean materials and a premium but slightly playful animated-movie feel. Keep the main idea easy to understand within 1–2 seconds.\n\nBACKGROUND:\nA seamless deep black background is mandatory. Keep it clean, minimal and uninterrupted.\n\nCOMPOSITION:\nContent and clarity come first. Use a clear main subject or main action. Supporting objects have no fixed count; add only what genuinely helps the explanation. Avoid clutter.\n\nCOLORS + LIGHT:\nUse emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use soft studio lighting, clear highlights, readable shadows and soft contact shadows.\n\nTEXT:\nOnly the explicitly requested short German labels may appear. No headline, subtitle, CTA or long explanatory text.\n\nFORBIDDEN:\nNo realism or photorealism, no product-photo look, no dashboard, no app UI, no flowchart, no tiny boxes, no floating info cards, no microchip/circuit look, no miniature diorama and no clutter.`;
+const STYLE_SUFFIX = `STYLE:\nCreate a clearly non-realistic stylized 3D animated finance scene. Use soft rounded geometry, simplified recognizable details, clean materials and a premium but slightly playful animated-movie feel. Keep the main idea easy to understand within 1–2 seconds.\n\nBACKGROUND:\nA seamless deep black background is mandatory. Keep it clean, minimal and uninterrupted.\n\nCOMPOSITION:\nContent and clarity come first. Use a clear main subject or main action. Supporting objects have no fixed count; add only what genuinely helps the explanation. Avoid clutter.\n\nBRANDS + LOGOS:\nIf a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D animated world. Use simplified rounded 3D forms and matching lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.\n\nCOLORS + LIGHT:\nUse emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use soft studio lighting, clear highlights, readable shadows and soft contact shadows.\n\nTEXT:\nOnly the explicitly requested short German labels may appear. No headline, subtitle, CTA or long explanatory text.\n\nFORBIDDEN:\nNo realism or photorealism, no product-photo look, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard, no app UI, no flowchart, no tiny boxes, no floating info cards, no microchip/circuit look, no miniature diorama and no clutter.`;
 
 const read = (path) => readFileSync(path, 'utf8');
 const write = (path, content) => writeFileSync(path, content.endsWith('\n') ? content : `${content}\n`, 'utf8');
@@ -89,6 +89,9 @@ index.imageWorld = {
   cleanMinimalBackgroundRequired: true,
   subjectSeparationLightingRequired: true,
   softContactShadowsRequired: true,
+  brandMarksRecognizableButStylizedRequired: true,
+  flatPastedRealLogoForbidden: true,
+  screenshotLikeBrandUiForbidden: true,
   dashboardCompositionForbidden: true,
   appUiCompositionForbidden: true,
   flowchartMainCompositionForbidden: true,
@@ -144,9 +147,10 @@ for (const scene of scenes) {
 }
 
 const cover = existsSync(coverPath) ? read(coverPath).trim() : '';
-const allPrompts = `${AUTONOMY_BLOCK}\nFINANZNEO — GOOGLE FLOW MASTERDATEI\n\n${FLOW_AGENT_BLOCK}\n\nPREMIUM_VISUAL_WORLD_LOCK: ${WORLD_LOCK}\nBILDWELT: nicht realistische stylized 3D animation · deep black background · clarity first · keine feste Objektanzahl · mittel-lange Prompts.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${cover}\n\n${sections.join('\n')}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBeende erst, wenn jedes erwartete Bild EINZELN erzeugt, exakt umbenannt und nach V9-QA geprüft wurde.\n`;
+const allPrompts = `${AUTONOMY_BLOCK}\nFINANZNEO — GOOGLE FLOW MASTERDATEI\n\n${FLOW_AGENT_BLOCK}\n\nPREMIUM_VISUAL_WORLD_LOCK: ${WORLD_LOCK}\nBILDWELT: nicht realistische stylized 3D animation · deep black background · clarity first · keine feste Objektanzahl · mittel-lange Prompts · Marken erkennbar aber stilisiert.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${cover}\n\n${sections.join('\n')}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nBeende erst, wenn jedes erwartete Bild EINZELN erzeugt, exakt umbenannt und nach V9-QA geprüft wurde.\n`;
 write(resolve(root, '03-szenen/alle-bildprompts.txt'), allPrompts);
 
 console.log(`✓ Stylized Animated Black World angewendet: ${WORLD_LOCK}`);
 console.log('  Nicht realistisch · soft rounded 3D · deep black Pflicht · Klarheit vor Objektzahl · mittel-lange Prompts.');
+console.log('  Marken/Logos: erkennbar aber stilisiert · kein Flat-Paste/Screenshot-Look.');
 console.log('  Dashboard/UI/Flowchart/Produktfoto-Look/Clutter verboten.');
