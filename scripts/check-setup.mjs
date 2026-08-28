@@ -7,13 +7,34 @@ const root = resolve('.');
 const errors = [];
 const notes = [];
 
-const requiredNodeMajor = 20;
-const currentNodeMajor = Number(process.versions.node.split('.')[0]);
+const requiredNodeVersion = [20, 19, 0];
+const currentNodeVersion = process.versions.node
+  .split('.')
+  .slice(0, 3)
+  .map((part) => Number(part));
 
-if (!Number.isFinite(currentNodeMajor) || currentNodeMajor < requiredNodeMajor) {
-  errors.push(`Node.js ${requiredNodeMajor} oder neuer erforderlich. Gefunden: ${process.versions.node}.`);
+const hasValidNodeVersion = currentNodeVersion.length === 3
+  && currentNodeVersion.every(Number.isFinite)
+  && currentNodeVersion.some((part, index) => {
+    const requiredPart = requiredNodeVersion[index];
+    if (part > requiredPart) return true;
+    if (part < requiredPart) return false;
+    return false;
+  });
+
+const isExactMinimum = currentNodeVersion.every((part, index) => part === requiredNodeVersion[index]);
+const isAboveMinimum = (() => {
+  for (let index = 0; index < requiredNodeVersion.length; index += 1) {
+    if (currentNodeVersion[index] > requiredNodeVersion[index]) return true;
+    if (currentNodeVersion[index] < requiredNodeVersion[index]) return false;
+  }
+  return false;
+})();
+
+if (!currentNodeVersion.every(Number.isFinite) || (!isExactMinimum && !isAboveMinimum)) {
+  errors.push(`Node.js 20.19.0 oder neuer erforderlich. Gefunden: ${process.versions.node}.`);
 } else {
-  notes.push(`Node.js ${process.versions.node} erfüllt die Mindestversion.`);
+  notes.push(`Node.js ${process.versions.node} erfüllt die Mindestversion 20.19.0.`);
 }
 
 const requiredFiles = [
@@ -47,7 +68,7 @@ if (existsSync(resolve(root, 'package.json')) && existsSync(resolve(root, 'packa
   const lockRoot = packageLock?.packages?.[''];
 
   if (!lockRoot) {
-    errors.push('package-lock.json enthält keinen Root-Eintrag unter packages[""].');
+    errors.push('package-lock.json enthält keinen Root-Eintrag unter packages[""] .'.replace(' ]', ']'));
   } else {
     const compareDependencies = (label, expected = {}, actual = {}) => {
       const expectedNames = Object.keys(expected).sort();
