@@ -13,25 +13,20 @@ const currentNodeVersion = process.versions.node
   .slice(0, 3)
   .map((part) => Number(part));
 
-const hasValidNodeVersion = currentNodeVersion.length === 3
-  && currentNodeVersion.every(Number.isFinite)
-  && currentNodeVersion.some((part, index) => {
-    const requiredPart = requiredNodeVersion[index];
-    if (part > requiredPart) return true;
-    if (part < requiredPart) return false;
+const isAtLeastVersion = (current, required) => {
+  if (current.length !== required.length || current.some((part) => !Number.isFinite(part))) {
     return false;
-  });
-
-const isExactMinimum = currentNodeVersion.every((part, index) => part === requiredNodeVersion[index]);
-const isAboveMinimum = (() => {
-  for (let index = 0; index < requiredNodeVersion.length; index += 1) {
-    if (currentNodeVersion[index] > requiredNodeVersion[index]) return true;
-    if (currentNodeVersion[index] < requiredNodeVersion[index]) return false;
   }
-  return false;
-})();
 
-if (!currentNodeVersion.every(Number.isFinite) || (!isExactMinimum && !isAboveMinimum)) {
+  for (let index = 0; index < required.length; index += 1) {
+    if (current[index] > required[index]) return true;
+    if (current[index] < required[index]) return false;
+  }
+
+  return true;
+};
+
+if (!isAtLeastVersion(currentNodeVersion, requiredNodeVersion)) {
   errors.push(`Node.js 20.19.0 oder neuer erforderlich. Gefunden: ${process.versions.node}.`);
 } else {
   notes.push(`Node.js ${process.versions.node} erfüllt die Mindestversion 20.19.0.`);
@@ -68,7 +63,7 @@ if (existsSync(resolve(root, 'package.json')) && existsSync(resolve(root, 'packa
   const lockRoot = packageLock?.packages?.[''];
 
   if (!lockRoot) {
-    errors.push('package-lock.json enthält keinen Root-Eintrag unter packages[""] .'.replace(' ]', ']'));
+    errors.push('package-lock.json enthält keinen Root-Eintrag unter packages[""].');
   } else {
     const compareDependencies = (label, expected = {}, actual = {}) => {
       const expectedNames = Object.keys(expected).sort();
