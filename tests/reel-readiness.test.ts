@@ -6,6 +6,7 @@ import {join} from 'node:path';
 import test from 'node:test';
 import {mkdtempSync} from 'node:fs';
 import {analyzeReelReadiness, isSquareImageDimensions} from '../scripts/lib/reel-readiness.mjs';
+import {ANIMATION_QUALITY_LOCK} from '../scripts/lib/reel-scene-schema.mjs';
 
 const write = (root: string, relativePath: string, content: string | Buffer) => {
   const path = join(root, relativePath);
@@ -26,10 +27,11 @@ const createReadyFixture = () => {
         planFile: 'EINZELNE-SZENEN/scene-01/bildprompt.txt',
         googleFlowFileName: 'Bild 01 - Sicherheitspuffer.png',
         headline: 'Dein Puffer',
-        accent: 'Notgroschen',
+        accent: 'finance-green',
         icon: 'sicherheit',
         expectedVisual: 'Ein Schutzschild bewahrt einen Geldstapel vor einer Reparaturrechnung.',
         objectLabels: ['Notgroschen', 'Reparatur'],
+        imagePresentation: {scale: 1.01, sourceCropTop: 0, sourceCropBottom: 0, cropSafe: true},
       },
       {
         id: 'scene-02',
@@ -37,8 +39,12 @@ const createReadyFixture = () => {
         directory: 'EINZELNE-SZENEN/scene-02',
         planFile: 'EINZELNE-SZENEN/scene-02/remotion.md',
         headline: 'Drei Monatsausgaben',
-        accent: 'Ziel',
+        accent: 'gold',
         icon: 'ziel',
+        animationSourceFile: 'EINZELNE-SZENEN/scene-02/animation.tsx',
+        animationExport: 'Scene02Animation',
+        animationIntent: 'Drei Monatsausgaben wachsen nacheinander zu einem klaren Zielwert.',
+        animationQualityLock: ANIMATION_QUALITY_LOCK,
       },
     ],
   };

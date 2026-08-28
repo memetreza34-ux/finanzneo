@@ -10,7 +10,7 @@ export const PHASE1_ANIMATION_SEAL_RELATIVE = '05-projektdateien/phase1-animatio
 export const REEL_BACKGROUND_CONTRACT_ID = 'finanzneo-pure-black-background-v1';
 
 const PROJECT_ROOT = resolve('.');
-const PLACEHOLDER = /\[|EINFÜGEN|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
+const PLACEHOLDER = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|ONE LARGE)[^\]]*)\]|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
 
 export const phase3CompletionContractFields = () => ({
   id: PHASE3_CONTRACT_ID,
@@ -63,7 +63,7 @@ const readJson = (path, label) => {
   try {
     return JSON.parse(readFileSync(path, 'utf8'));
   } catch (error) {
-    throw new Error(`${label} ist kein gültiges JSON: ${error instanceof Error ? error.message : String(error)}`);
+    throw new Error(`${label} ist kein gültiges JSON: ${error instanceof Error ? error.message : String(error)}`, {cause: error});
   }
 };
 

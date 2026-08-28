@@ -26,7 +26,7 @@ const scenes = Array.isArray(index.scenes) ? index.scenes : [];
 const animations = scenes.filter((scene) => scene?.type === 'animation');
 const errors = [];
 const fail = (message) => errors.push(message);
-const placeholder = /\[|EINFÜGEN|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
+const placeholder = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|ONE LARGE)[^\]]*)\]|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
 const hackWords = /\b(dummy|debug|placeholder|temporary|technik-hack|wackel|wiggle|test rectangle|fake motion)\b/i;
 
 if (index.phase1AnimationCode?.required !== true) fail('phase1AnimationCode.required muss true sein.');

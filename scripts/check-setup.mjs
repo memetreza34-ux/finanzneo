@@ -7,13 +7,29 @@ const root = resolve('.');
 const errors = [];
 const notes = [];
 
-const requiredNodeMajor = 20;
-const currentNodeMajor = Number(process.versions.node.split('.')[0]);
+const requiredNodeVersion = [20, 19, 0];
+const currentNodeVersion = process.versions.node
+  .split('.')
+  .slice(0, 3)
+  .map((part) => Number(part));
 
-if (!Number.isFinite(currentNodeMajor) || currentNodeMajor < requiredNodeMajor) {
-  errors.push(`Node.js ${requiredNodeMajor} oder neuer erforderlich. Gefunden: ${process.versions.node}.`);
+const isAtLeastVersion = (current, required) => {
+  if (current.length !== required.length || current.some((part) => !Number.isFinite(part))) {
+    return false;
+  }
+
+  for (let index = 0; index < required.length; index += 1) {
+    if (current[index] > required[index]) return true;
+    if (current[index] < required[index]) return false;
+  }
+
+  return true;
+};
+
+if (!isAtLeastVersion(currentNodeVersion, requiredNodeVersion)) {
+  errors.push(`Node.js 20.19.0 oder neuer erforderlich. Gefunden: ${process.versions.node}.`);
 } else {
-  notes.push(`Node.js ${process.versions.node} erfüllt die Mindestversion.`);
+  notes.push(`Node.js ${process.versions.node} erfüllt die Mindestversion 20.19.0.`);
 }
 
 const requiredFiles = [
