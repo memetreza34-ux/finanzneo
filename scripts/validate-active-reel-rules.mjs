@@ -78,7 +78,7 @@ const requiredMarkers = new Map([
   ['docs/IMAGE-SYSTEM.md', ['finanzneo-stylized-3d-animated-black-v9', 'keine feste', 'tiefschwarzen Hintergrund']],
   ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['PremiumPhysicalStage', '#000000', 'Y 320–1400', 'keine feste Support-Objekt-Anzahl']],
   ['docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md', ['56 px', 'Y = 320–1400', 'SourceNote']],
-  ['docs/PHASE-3-COMPLETION-GATE.md', ['Post-Render', 'Caption-only', 'FINAL_COMPLETE']],
+  ['docs/PHASE-3-COMPLETION-GATE.md', ['Post-Render', 'Caption-/Header-only', 'FINAL_COMPLETE']],
   ['MASTER-PROMPTS.md', ['#000000', 'FNBgParticles', 'customAnimations']],
   ['src/brand/tokens.ts', ['fontSize:56', 'minFontSize:50', 'maxLines:2', 'top:320,bottom:1400', 'sourceNote']],
   ['src/brand/components/ReelStage.tsx', ['clipPath', 'Y320–1400', 'visual-only']],
