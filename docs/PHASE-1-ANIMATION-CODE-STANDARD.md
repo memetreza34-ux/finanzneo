@@ -2,20 +2,25 @@
 
 ## Grundsatz
 
-Eine Animationsszene ist **in Phase 1 kreativ und technisch fertig**.
-`remotion.md` allein reicht nicht. Phase 1 liefert zusätzlich eine produktionsreife `animation.tsx`, die Phase 3 direkt verwendet.
+Eine Animationsszene ist **in Phase 1 kreativ und technisch fertig**. `remotion.md` allein reicht nicht. Phase 1 liefert zusätzlich eine produktionsreife `animation.tsx`, die Phase 3 direkt verwendet.
 
 Phase 3 darf keine Animation neu erfinden, vereinfachen oder durch einen technischen Platzhalter ersetzen.
 
-## Premium Visual Lock
+## Technischer Lock + visuelles Ziel
 
-Zusätzlich zum technischen Lock gilt:
+Technischer Kompatibilitäts-Lock:
 
 ```text
 finanzneo-premium-physical-animation-v2
 ```
 
-Die Animation muss dieselbe visuelle Sprache wie die Flow-Bilder verwenden: große physische Objekte, sichtbare Materialität, Tiefe, cinematic lighting und klare Ursache-Wirkung. Eine Animation darf nicht wie ein Dashboard oder Flowchart aussehen, wenn die Bildszene daneben wie eine hochwertige 3D-Objektwelt aussieht.
+Visuelles Ziel:
+
+```text
+finanzneo-stylized-3d-animated-black-v9
+```
+
+Der Lock bleibt für bestehende Seals stabil. Die Optik folgt trotzdem V9: klar nicht realistisch, soft rounded, vereinfacht, hochwertig und leicht verspielt.
 
 ## Pflichtdateien pro Animationsszene
 
@@ -26,17 +31,7 @@ Die Animation muss dieselbe visuelle Sprache wie die Flow-Bilder verwenden: gro�
 └── animation.tsx
 ```
 
-`scene-index.json` enthält:
-
-```json
-{
-  "animationSourceFile": "EINZELNE-SZENEN/scene-XX/animation.tsx",
-  "animationExport": "SceneXXAnimation",
-  "animationIntent": "Konkrete sichtbare Kette von Start über Mechanismus zum Ergebnis.",
-  "animationQualityLock": "finanzneo-phase1-animation-code-v1",
-  "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2"
-}
-```
+`scene-index.json` enthält `animationSourceFile`, `animationExport`, `animationIntent`, `animationQualityLock` und `animationPremiumVisualLock`.
 
 ## Technischer Code-Vertrag
 
@@ -46,12 +41,14 @@ Jede `animation.tsx` enthält:
 - `ANIMATION_COLORS`
 - `prog`, `interpolate` oder `spring`
 - `PremiumPhysicalStage`
-- mindestens zwei echte `PhysicalObject`-Instanzen
+- mindestens ein echtes `PhysicalObject` als sichtbares Hauptmotiv
 - mindestens eine semantische Materialrolle `neutral`, `money`, `warning` oder `positive`
 - den in `scene-index.json` genannten Export
-- `RESULT_HOLD_FRAMES` mit mindestens `15`
+- `RESULT_HOLD_FRAMES >= 15`
 - `ANIMATION_NARRATIVE`
 - `PREMIUM_VISUAL_NARRATIVE`
+
+Es gibt **keine feste Support-Objekt-Anzahl**. Ein starkes Objekt kann reichen; mehrere sind erlaubt, wenn sie die Aussage klarer machen.
 
 Pflichtmarker:
 
@@ -62,38 +59,35 @@ MECHANISM: konkrete sichtbare Veränderung
 RESULT: konkretes sichtbares Ergebnis
 
 PREMIUM_VISUAL_NARRATIVE
-HERO: großes dominantes physisches Hauptobjekt
-SUPPORT: 2–4 konkrete unterstützende Objekte
+HERO: klares sichtbares Hauptmotiv
+SUPPORT: nur sinnvolle unterstützende Objekte; keine feste Anzahl
 MATERIAL: Material- und Farblogik
-DEPTH: Vordergrund / Hero-Ebene / Hintergrund und Lichttrennung
+DEPTH: Vordergrund / Hauptmotiv / Hintergrund und Lichttrennung
 ```
 
 ## Visuelle Pflichtlogik
 
 ```text
 STARTZUSTAND
-→ SICHTBARE PHYSISCHE URSACHE / VERÄNDERUNG
+→ SICHTBARE URSACHE / VERÄNDERUNG
 → EINDEUTIGES ERGEBNIS
 → ERGEBNIS MINDESTENS 15 FRAMES STABIL
 ```
 
 Die Bewegung erklärt die Aussage. Sie existiert nicht nur, damit Pixel sich ändern.
 
-## Premium-Komposition
+## V9-Komposition
 
-- ein großes Hero-Objekt dominiert die Szene
-- nur 2–4 unterstützende konkrete Objekte
-- Hero und Support müssen größer und kräftiger wirken als Text
-- mittlere bis nahe 3/4-Perspektive statt kleiner isometrischer Gesamtansicht
-- sichtbare Dicke, Bevels, Materialkanten und Gewicht
-- Kontakt-Schatten + Ambient-Occlusion-Eindruck
-- klare Vordergrund-/Hero-/Hintergrundstaffelung
-- Motiv nutzt die V5-Visualzone sichtbar aus
-- Weiß/Creme für neutrale Information
-- Gold für Geld/Wert
-- Rot-Orange für Kosten/Warnung
-- Grün für Fokus/Lösung
-- kein monochrom-grüner Gesamtlook
+- klar nicht realistische stylized-3D-Animationswelt
+- soft rounded / vereinfachte erkennbare Formen
+- eine klare Hauptaktion
+- Support-Objekte nur wenn inhaltlich hilfreich
+- sichtbare Materialität, Dicke und Tiefenstaffelung
+- Weiß/Ivory/Soft Gray neutral
+- Gold Geld/Wert
+- Rot-Orange Kosten/Warnung
+- Emerald Fokus/Lösung
+- Visualzone groß und verständlich nutzen
 
 V5-Bühne:
 
@@ -103,7 +97,32 @@ Visual: Y 320–1480
 Caption: bottom 340
 ```
 
-## Verboten
+## Hintergrund — strikt getrennt vom Inhalt
+
+`PremiumPhysicalStage` bleibt **transparent**.
+
+Der einzige Reel-Hintergrund ist der zentrale Remotion-Canvas:
+
+```text
+#000000
+statisch
+```
+
+In einer Animation verboten:
+
+- `FNBgAurora`
+- `FNBgParticles`
+- `FNBgGrid`
+- `FNBgRadial`
+- Partikelfelder
+- Aurora/Glow-Flächen
+- bewegte Grids
+- dekorative Hintergrund-Gradienten/Vignetten
+- Hintergrundbewegung als Frame-Diff-Hack
+
+Objekte dürfen selbstverständlich Material-Highlights, Schatten und lokale Oberflächenverläufe besitzen. Verboten ist die **dekorative Hintergrundebene**, nicht die 3D-Materialgestaltung der Objekte.
+
+## Weitere Verbote
 
 - `Math.sin` / `Math.cos` als künstliches Dauerwackeln
 - wackelnde Rechtecke
@@ -113,12 +132,10 @@ Caption: bottom 340
 - Flowchart als Hauptkomposition
 - kleine Boxen mit dünnen Verbindungslinien
 - generische Info-Cards als Hauptsprache
-- UI-Kacheln, Pills oder HUD-Look
-- rein monochrom-grüne Szene
 - reine Texttafel
 - reine Zoom-/Fade-/Popup-Bewegung als komplette Erkläranimation
 - Bewegung nur für Frame-Diff
-- schwarzer Text auf dunklem Hintergrund
+- schwarzer Inhalt auf schwarzem Canvas
 - TODO / TBD / PLACEHOLDER / TEMP
 - „erst Tests bestehen, später hübsch machen“
 
@@ -130,14 +147,13 @@ Bei erfolgreichem `reel:ready` entsteht:
 05-projektdateien/phase1-animation-seal.json
 ```
 
-Darin steht der SHA-256-Hash jeder kanonischen `animation.tsx`.
-
 Danach gilt:
 
 - Phase 3 verwendet direkt diese Datei.
 - `componentPath` darf nicht auf eine Ersatzkomponente zeigen.
-- Der Hash muss unverändert bleiben.
-- Wird die Datei nach `reel:ready` verändert, blockiert der Preflight.
+- `componentExport` muss stimmen.
+- Der SHA-256-Hash muss unverändert bleiben.
+- Fehlendes Binding blockiert den Render.
 
 ## Fertig bedeutet
 
@@ -147,6 +163,7 @@ Phase 1 darf eine Animationsszene erst als fertig markieren, wenn:
 - Start, Veränderung und Ergebnis konkret sichtbar sind
 - Code ohne Platzhalter vorliegt
 - Animation auch ohne Ton grundsätzlich verständlich ist
-- sie optisch **dieselbe Premium-Objektwelt wie die Flow-Bilder** besitzt
-- Hero-Objekt, Materialkontrast, Tiefe und Licht sichtbar stark genug sind
+- sie optisch zur V9-Bildwelt passt
+- der Stage keinen eigenen dekorativen Hintergrund erzeugt
+- die Visualzone sinnvoll gefüllt ist
 - Phase 3 keinen kreativen Umbau mehr vornehmen muss
