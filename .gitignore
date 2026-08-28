@@ -1,6 +1,15 @@
 # Dependencies
 node_modules/
 
+# Secrets / lokale Konfiguration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
 # Gerenderte Videos & Frames (groß, regenerierbar)
 out/
 frames/
