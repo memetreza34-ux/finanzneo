@@ -1,0 +1,54 @@
+FINANZNEO FLOW MASTERPROMPT — NOTGROSCHEN
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH
+DIES IST KEIN BATCH-AUFTRAG.
+MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG.
+ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT, bis das aktuelle Bild zurückgegeben, exakt umbenannt und per QA geprüft wurde.
+Verboten: mehrere Bilder in einem Generierungsaufruf; mehrere Bildprompts zusammenfassen; Bilder vorab in eine Queue stellen; alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen.
+WARTE NIEMALS AUF "WEITER". Nach bestandenem Rename+QA-Gate automatisch fortfahren.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Create a clearly non-realistic stylized 3D animated finance scene. Use soft rounded geometry, simplified recognizable details, clean materials and a premium but slightly playful animated-movie feel. Keep the main idea understandable within 1–2 seconds.
+
+BACKGROUND:
+A seamless deep black background is mandatory. Keep it clean, minimal and uninterrupted. No floor-wall boundary, horizon, bright studio environment or colored background zones.
+
+COMPOSITION:
+Content and clarity come first. Use a clear main subject or action. Supporting objects have no fixed count; add only what genuinely helps the explanation.
+
+BRANDS + LOGOS:
+If a brand, bank, app or logo is relevant, keep its identity recognizable but reinterpret it in the same stylized 3D animated world. Never use a flat pasted real logo, website screenshot, app screenshot or photorealistic branded UI.
+
+COLORS + LIGHT:
+Emerald green = positive. Gold = money/value. Warm red-orange = warning/cost. Ivory and soft gray = neutral. Use clean soft studio lighting, readable shadows and soft contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only explicitly requested short German labels may appear.
+
+FORBIDDEN:
+No realism or photorealism. No product-photo look. No dashboard, no app UI, no flowchart, no tiny boxes, no floating info cards, no microchip/circuit look, no miniature diorama and no clutter.
+
+
+scene-01 | Bild 01 - Unerwartete Kosten.png | A stylized 3D washing machine and a large surprise bill press toward a small gold money reserve; warm red-orange cost objects create clear pressure without any UI.
+scene-03 | Bild 03 - Kein Notfall.png | A protected gold emergency-reserve safe stays in the center while a suitcase, shopping bag and new smartphone remain outside beside one clear red stop symbol.
+scene-05 | Bild 05 - Zwei bis drei Monate.png | Three large rounded monthly money blocks stand side by side, two fully established and a third suggesting optional extension; premium gold and emerald financial language, no infographic UI.
+scene-07 | Bild 07 - Sicher und erreichbar.png | A protected gold reserve sits inside an open, easy-to-reach rounded 3D safe with an emerald shield and a clear access gesture.
+scene-08 | Bild 08 - Tagesgeld.png | A rounded stylized 3D bank object contains a separate gold reserve compartment with a simple emerald access arrow toward a neutral checking-account object; no screen or app UI.
+scene-10 | Bild 10 - Dauerauftrag.png | A salary money block arrives and one clearly separated small part moves automatically into an emergency-reserve safe; a simple calendar object supports the idea, no UI.
+scene-12 | Bild 12 - Wieder auffuellen.png | A partly emptied gold reserve container is visibly refilled by new coins with one simple emerald rebuild arrow; calm, clear composition.
+scene-13 | Bild 13 - Rechnung ohne Schuldenfalle.png | A large bill stands beside a stable gold reserve block; a red debt pit remains clearly behind and at distance, blocked by one emerald protective element.
+scene-15 | Bild 15 - Drei Notgroschen Regeln.png | A central gold reserve safe with three clear physical symbols: shield for safe, fast-access hand for available, and warning bill for real emergency; no text board.
+
+FINALER BILDERORDNER NACH RENAME + QA:
+03-szenen/00-ALLE-BILDER-HIER-REIN/
