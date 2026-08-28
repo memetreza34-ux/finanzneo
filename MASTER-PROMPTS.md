@@ -14,7 +14,7 @@ Vor Reels lesen:
 
 **Nicht diesen Abschnitt kopieren, sondern `docs/PHASE-1-BRIEFING.md`.**
 
-Phase 1 liefert Recherche, szenenweises Skript, Bildprompts, natürliche Header,
+Phase 1 liefert Recherche, szenenweises Skript, V9-Bildprompts, natürliche Header,
 Remotion-Spezifikationen und für jede Animationsszene bereits die finale
 `animation.tsx`. Phase 3 darf keine fehlende Animation erfinden.
 
@@ -26,33 +26,53 @@ Mach das Reel: reels/<Woche>/<Tag>/<Reel>
 1. Zuerst:
    npm run reel:ready -- <Reel-Pfad>
 
-   Bei Erfolg sind die Phase-1-Animationsquellen per SHA-256 versiegelt.
+   Wenn das fehlschlägt: STOP. Keine Ersatzbilder, kein Ersatz-Audio,
+   keine Ersatz-Timings und keine Ersatzanimation bauen.
 
-2. Produktionsmanifest anlegen:
+2. Prüfe scene-index.json -> phase3Executor.
+   Nur der konfigurierte Executor führt Phase 3 aus.
+
+3. Produktionsmanifest anlegen:
    npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
 
-3. JEDE scene-index-Szene implementieren.
+4. JEDE scene-index-Szene implementieren.
 
    Bildszene:
-   - echtes Nutzerbild als sichtbares Visual
+   - exaktes Nutzerbild sichtbar rendern
+   - kein Stock-/Placeholder-/Caption-only-Ersatz
 
    Animationsszene:
    - DIREKT scene.animationSourceFile aus Phase 1 verwenden
-   - componentPath muss exakt diese kanonische Datei sein
-   - componentExport muss scene.animationExport entsprechen
-   - KEINE Ersatzanimation erstellen
+   - componentPath exakt auf diese versiegelte Datei
+   - componentExport = scene.animationExport
+   - customAnimations/Dispatch vollständig binden
+   - KEINE Ersatzanimation
    - KEINE versiegelte animation.tsx ändern
+   - fehlendes Binding muss hart fehlschlagen
 
-4. V5-Layout ausschließlich aus REEL_STYLE verwenden:
+5. REEL-BACKGROUND IST IMMER:
+   #000000, statisch, ohne Dekoration.
+
+   VERBOTEN:
+   - FNBgAurora
+   - FNBgParticles
+   - FNBgGrid
+   - FNBgRadial
+   - Partikelfelder
+   - bewegte Grids
+   - Aurora-/Glow-Hintergründe
+   - dekorative Hintergrund-Gradienten/Vignetten
+   - Background-Motion als Ersatz für echte Szenenbewegung
+
+6. V5-Layout ausschließlich aus REEL_STYLE:
    - Header Y154
-   - Plain Header: normaler weißer Text + einfaches semantisches Linien-Icon
-   - keine Capsule / kein Chip / kein Panel
-   - keine automatische ALL-CAPS-Transformation
+   - normaler weißer Text + einfaches semantisches Linien-Icon
+   - keine Capsule / kein Chip / kein Panel / kein erzwungenes ALL CAPS
    - Visual Y320–1480
    - Captions bottom340
    - Transition 3 Frames
 
-5. phase3-production-manifest.json vollständig machen:
+7. phase3-production-manifest.json vollständig machen:
    - jede Szene implemented=true
    - startFrame + durationFrames lückenlos
    - Bild: sourceImageFileName + assetPath
@@ -62,16 +82,20 @@ Mach das Reel: reels/<Woche>/<Tag>/<Reel>
    - sceneHeadersImplemented=true
    - status=READY_TO_RENDER
 
-6. Pflicht vor Render:
+8. Pflicht vor Render:
    npm run reel:phase3:preflight -- <Reel-Pfad>
 
-7. Produktiven Render nur so starten:
+   Preflight prüft zusätzlich den Pure-Black-Background-Vertrag.
+
+9. Produktiven Render nur so starten:
    npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 
    Zuerst entsteht nur *.phase3-candidate.mp4.
-   Erst Post-Render-QA PASSED gibt die finale MP4 frei.
+   Post-Render-QA prüft pro Szene echten visuellen Inhalt, Animation-Motion,
+   schwarzen freien Rand, Audio, Dimensionen und Timeline.
+   Schwarzes/leeres Visual = FAIL.
 
-8. Danach:
+10. Danach:
    npm run reel:export -- <Reel-Pfad> <Final-MP4>
 
 FINAL_COMPLETE erst bei vollständig erzeugtem 06-export/.
@@ -82,6 +106,7 @@ STRIKT VERBOTEN:
 - Math.sin/Math.cos als künstliches Dauerwackeln für Frame-Diff
 - Dummy-/Placeholder-Komponenten
 - generische Bewegung nur zum Bestehen der QA
+- Hintergrundeffekte zum Bestehen der QA
 - eine vorhandene MP4 als Fertigkeitsnachweis behandeln
 - Caption-only-/Header-only-Szenen akzeptieren
 - Candidate-MP4 als final ausgeben
@@ -90,7 +115,7 @@ STRIKT VERBOTEN:
 Stoppe nur bei echten Asset-, Fakten-, Sicherheits-, Validator-, Hash-, Build-, Render- oder Render-QA-Blockern. Alle Blocker gesammelt mit exakten Pfaden melden.
 ```
 
-## 3. Bildprompt erstellen
+## 3. Bildprompt erstellen — V9
 
 ```text
 Erstelle einen FinanzNeo-Bildprompt für diesen gesprochenen Satz:
@@ -98,20 +123,24 @@ Erstelle einen FinanzNeo-Bildprompt für diesen gesprochenen Satz:
 
 Verbindlich:
 - Quellbild immer 1:1
-- Premium Stylized 3D + Physical Explainer V7
-- ein großes physisches Hero-Objekt
-- 3–6 konkrete themenspezifische physische Objekte
-- deep charcoal green-black
-- Emerald/Mint
-- Gold nur Geld/Wert
-- Rot-Orange nur Risiko/Verlust/Warnung
+- WORLD LOCK: finanzneo-stylized-3d-animated-black-v9
+- klar nicht-realistische stylized 3D animated Bildwelt
+- soft rounded shapes, vereinfachte erkennbare Details
+- premium, leicht verspielt, nicht technisch
+- tiefschwarzer sauberer Hintergrund Pflicht
+- Inhalt/Klarheit vor Objektzahl; keine feste Anzahl
+- Emerald positiv, Ivory/Soft Gray neutral, Gold Geld/Wert, Rot-Orange Warnung/Kosten
 - keine Headline, kein Untertitel, kein erklärender Satz
-- nur wenige kurze deutsche Objektlabels
-- ein nahtloser Hintergrund von oben bis unten
-- kein Dashboard/UI, Microchip, Gameboard, Orbit, Diorama, Fotorealismus
-- wenn Person: Gesicht klar sichtbar
+- nur kurze deutsche Objektlabels
+- kein Realismus, Produktfoto, Dashboard, App-UI, Flowchart, Mini-Boxen, Microchip, Diorama, Clutter
+- Prompt mittellang halten
 - endgültigen Dateinamen direkt angeben
 - Bildnummer = echte Szenennummer
+
+Falls Marke/Logo/App vorkommt:
+- erkennbar ähnlich, aber stilisiert in derselben 3D-Animationswelt
+- kein flach aufgeklebtes echtes Logo
+- kein Screenshot-/photorealistischer Marken-UI-Look
 ```
 
 ## 4. Google-Flow-Sammelprompt
@@ -124,7 +153,7 @@ Strict Single Job:
 2. GENAU EIN Bild starten
 3. intern auf Ergebnis warten
 4. sofort exakt umbenennen
-5. QA
+5. V9-QA
 6. bei Fehler dieselbe Bildnummer wiederholen
 7. erst nach PASS nächsten Bildblock freischalten
 
@@ -137,12 +166,12 @@ Cover = Bild 00. Animationsnummern erzeugen kein Bild.
 
 ```text
 NEU ERSTELLEN bei:
-- zwei Hintergründen/Bändern
-- Floor-Wall-Grenze/Horizont
-- gesichtsloser/abgewandter Person
+- Hintergrund nicht tiefschwarz/clean
+- fotorealistischem oder Produktfoto-Look
 - falschen Labels
 - großer Headline/Untertitel/Satz
-- Dashboard/UI/Microchip/Gameboard/Diorama-Look
+- Dashboard/App-UI/Flowchart/Microchip/Diorama-Look
+- Clutter oder unnötiger Komplexität
 - falscher Zuordnung zum gesprochenen Beat
 ```
 
@@ -154,6 +183,8 @@ Echte Wort-Timings daraus erzeugen.
 Szenenschnitte an echten Satz-/Phrasenanfängen.
 
 1080×1920, 30 fps.
+Reel-Hintergrund immer statisch #000000.
+Keine Partikel/Aurora/Grid/Glow-Hintergründe.
 Bilder mit contain.
 V5: Header Y154, Visual 320–1480, Caption bottom340.
 Header: normaler weißer Text + Icon, keine Capsule, keine ALL-CAPS-Erzwingung.
@@ -169,16 +200,17 @@ Animationsszenen direkt aus den versiegelten Phase-1-animation.tsx-Dateien.
 - Produktionsmanifest vollständig
 - reel:phase3:preflight
 - Tests + Typecheck
-- Preview
 - Candidate-Render nur über reel:render
 - Post-Render-QA pro Szene
+- visueller Kern nicht leer
+- freier Rand bleibt statisch schwarz
 - komplette freigegebene MP4 mit Ton
 - Animationen zusätzlich ohne Ton
 - Audio-Lautheit
 - reel:export
 
 Eine MP4 allein ist kein fertiges Reel.
-Untertitel/Header allein sind kein gültiges Szenenvisual.
+Untertitel/Header/Hintergrund allein sind kein gültiges Szenenvisual.
 Keine Prüfung als bestanden behaupten, wenn sie nicht tatsächlich ausgeführt wurde.
 ```
 
@@ -194,25 +226,6 @@ Pflichtdateien in `04-caption/`:
 
 Keine YouTube Shorts.
 
-## 9. Phase 1 — YouTube-Longform
+## 9. YouTube
 
-```text
-Neues eigenständiges FinanzNeo-YouTube-Longform-Video.
-Thema: [THEMA]
-
-Arbeite nach CLAUDE.md, docs/YOUTUBE-LONGFORM-WORKFLOW.md und youtube/PRODUKTIONSSTANDARD.md.
-Erstelle Recherche, vollständiges Skript, Kapitel-/Retention-Plan, Visual-Plan,
-englische Flow-Prompts, Thumbnail-Brief, Titel, Beschreibung, Kapitel, Quellen,
-Publishing und Promo ohne Platzhalter.
-
-YouTube-Quellbilder/Thumbnail: 16:9.
-Keine YouTube Shorts und keine gestreckte Reel-Kopie.
-```
-
-## 10. Phase 3 — YouTube-Longform
-
-```text
-Mach das YouTube-Video: youtube/<Projekt>
-Prüfe zuerst npm run youtube:ready -- youtube/<Projekt>.
-Bei Erfolg autonom bis technische und visuelle QA des 1920×1080-Renders.
-```
+YouTube-Longform bleibt ein getrennter Workflow unter `youtube/`. Die hier definierte Reel-Pure-Black-Regel verändert YouTube nicht automatisch.
