@@ -1,35 +1,104 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS, PhysicalObject, PhysicalRail, PremiumPhysicalStage} from '../../../../../../../src/design-system';
+import {
+  ANIMATION_COLORS,
+  PhysicalAccount,
+  PhysicalBill,
+  PhysicalCoinStack,
+  PhysicalTag,
+  PremiumPhysicalStage,
+} from '../../../../../../../src/design-system';
 
 /**
+ * MECHANIC_ID: salary-splits-into-separate-reserve
+ * PRIMARY_ACTION: Ein sichtbarer Teil des Gehalts verlässt das Girokonto und wandert physisch auf ein separates Tagesgeldkonto, während spätere Alltagsausgaben nur das Girokonto belasten und die Reserve unangetastet bleibt.
+ *
  * ANIMATION_NARRATIVE
- * START: Ein gemeinsamer Geldblock liegt zwischen einem Alltags-Wallet und einem geschützten Reservebehälter.
- * MECHANISM: Der Geldblock teilt sich sichtbar: Alltagsgeld bleibt links, der Notgroschen wandert separat in den geschützten Behälter.
- * RESULT: Zwei klar getrennte Bereiche bleiben stabil: tägliches Budget und unangetastete Reserve.
+ * START: Girokonto und Tagesgeldkonto stehen klar getrennt; das Gehalt liegt zunächst beim Girokonto und die Reserve ist noch kleiner.
+ * MECHANISM: Ein goldener Geldstapel trennt sich sichtbar vom Girokonto und wandert zum Tagesgeld; anschließend erscheinen Miete und Einkauf als echte Ausgaben am Girokonto.
+ * RESULT: Die Alltagsrechnungen bleiben links beim Girokonto, während das separate Tagesgeld rechts stabil und als Notgroschen geschützt stehen bleibt.
  *
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Ein großes physisches Hauptobjekt trägt die Kernaussage und bleibt sofort erkennbar.
- * SUPPORT: Nur direkt erklärende Nebenobjekte ergänzen den Mechanismus; ihre Anzahl bleibt flexibel.
- * MATERIAL: Ivory und Gold zeigen neutrale Reserve und Geld, Emerald zeigt Schutz, Rot-Orange zeigt Kostenrisiko.
- * DEPTH: Gestaffelte Objektpositionen, sichtbare Dicke und klare Lichttrennung erzeugen räumliche Tiefe auf transparentem Stage.
- *
- * Der Stage bleibt transparent und nutzt ausschließlich den zentralen statischen Reel-Canvas.
- * Die Bewegung erklärt den gesprochenen Inhalt und endet in einem stabilen Ergebnis.
+ * HERO: Zwei erkennbare Konten und der physisch wechselnde Geldstapel machen die Trennung von Alltag und Reserve ohne Diagramm oder App-UI sichtbar.
+ * SUPPORT: Zwei kleine echte Ausgabenbelege zeigen anschließend, warum die Trennung funktioniert; „SEPARAT“ bestätigt nur den fertigen Zustand.
+ * MATERIAL: Neutrales Elfenbein für das Girokonto, Emerald für das getrennte Tagesgeld, Gold für das transferierte Geld und Rot nur für laufende Ausgaben.
+ * DEPTH: Girokonto links und Tagesgeld rechts bilden zwei räumlich getrennte Zonen; der Geldstapel durchquert die Mitte und erzeugt eine klare physische Zustandsänderung.
  */
-export const RESULT_HOLD_FRAMES = 18;
+export const RESULT_HOLD_FRAMES = 20;
+
+const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 
 export const Scene11Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 150}) => {
   const frame = useCurrentFrame();
-  const endFrame = Math.max(48, durationFrames - RESULT_HOLD_FRAMES - 8);
-  const progress = interpolate(frame, [8, endFrame], [0, 1], {extrapolateLeft:'clamp', extrapolateRight:'clamp'});
-  const settle = interpolate(progress, [0.72, 1], [0, 1], {extrapolateLeft:'clamp', extrapolateRight:'clamp'});
+  const resultStart = Math.max(106, durationFrames - RESULT_HOLD_FRAMES - 5);
+
+  const salaryArrive = interpolate(frame, [4, 28], [0, 1], clamp);
+  const reserveTransfer = interpolate(frame, [26, 70], [0, 1], clamp);
+  const rentArrive = interpolate(frame, [66, 88], [0, 1], clamp);
+  const shoppingArrive = interpolate(frame, [78, 100], [0, 1], clamp);
+  const separationSettle = interpolate(frame, [86, resultStart], [0, 1], clamp);
+
+  const moneyX = 300 + reserveTransfer * 385;
+  const moneyY = 720 - reserveTransfer * 42;
+
   return (
     <PremiumPhysicalStage>
-      <PhysicalObject material="neutral" width={300} height={220} x={110} y={650}><div style={{fontSize:42,fontWeight:900,padding:58,textAlign:'center'}}>ALLTAG</div></PhysicalObject>
-      <PhysicalObject material="money" width={250} height={180} x={420 + progress * 180} y={675} scale={0.82 + settle * 0.18}><div style={{fontSize:40,fontWeight:900,padding:48,textAlign:'center',color:ANIMATION_COLORS.money}}>RESERVE</div></PhysicalObject>
-      <PhysicalObject material="positive" width={310} height={240} x={730} y={640} opacity={0.55 + progress * 0.45}><div style={{fontSize:40,fontWeight:900,padding:68,textAlign:'center',color:ANIMATION_COLORS.positive}}>SEPARAT</div></PhysicalObject>
-      <PhysicalRail x={180} y={930} width={700} progress={progress} material="positive" />
+      <PhysicalAccount
+        x={80}
+        y={650}
+        label="Girokonto"
+        balance={reserveTransfer > 0.65 ? '1.800 €' : '2.000 €'}
+        state="normal"
+        scale={0.96 + salaryArrive * 0.04}
+      />
+
+      <PhysicalAccount
+        x={700}
+        y={630}
+        label="Tagesgeld"
+        balance={reserveTransfer > 0.65 ? '1.200 €' : '1.000 €'}
+        state="protected"
+        scale={0.94 + separationSettle * 0.06}
+      />
+
+      <PhysicalCoinStack
+        x={moneyX}
+        y={moneyY}
+        count={5}
+        scale={0.78 + salaryArrive * 0.14 - reserveTransfer * 0.08}
+        opacity={salaryArrive}
+      />
+
+      <PhysicalBill
+        x={65}
+        y={930 + (1 - rentArrive) * 100}
+        label="Miete"
+        amount="900 €"
+        rotate={-5}
+        scale={0.49 + rentArrive * 0.05}
+        opacity={rentArrive}
+      />
+
+      <PhysicalBill
+        x={275}
+        y={960 + (1 - shoppingArrive) * 90}
+        label="Einkauf"
+        amount="85 €"
+        rotate={5}
+        scale={0.47 + shoppingArrive * 0.05}
+        opacity={shoppingArrive}
+      />
+
+      <div style={{
+        position: 'absolute',
+        left: 765,
+        top: 905,
+        opacity: separationSettle,
+        transform: `translateY(${(1 - separationSettle) * 18}px)`,
+        color: ANIMATION_COLORS.positive,
+      }}>
+        <PhysicalTag material="positive" style={{fontSize: 27}}>SEPARAT</PhysicalTag>
+      </div>
     </PremiumPhysicalStage>
   );
 };
