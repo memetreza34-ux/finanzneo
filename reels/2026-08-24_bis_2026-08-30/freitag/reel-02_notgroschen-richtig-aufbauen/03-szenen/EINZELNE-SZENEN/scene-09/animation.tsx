@@ -11,18 +11,18 @@ import {
 
 /**
  * MECHANIC_ID: monthly-deposits-fill-reserve
- * PRIMARY_ACTION: Drei Monatswechsel bringen nacheinander kleine reale Sparbeträge in den Notgroschen-Behälter, dessen Füllstand sichtbar von fast leer bis zum ersten stabilen Puffer wächst.
+ * PRIMARY_ACTION: Drei aufeinanderfolgende Monate liefern jeweils einen eigenen sichtbaren Geldstapel in den Notgroschen; der Behälter füllt sich nach jeder Einzahlung in einer klaren Stufe weiter.
  *
  * ANIMATION_NARRATIVE
- * START: Ein fast leerer Notgroschen-Behälter steht neben einer Kalenderseite für den ersten Monat und einem kleinen Geldstapel.
- * MECHANISM: Der Kalender wechselt sichtbar durch drei Monate; bei jedem Wechsel wandert ein kleiner Münzstapel zum Behälter und der Füllstand steigt in klaren Etappen.
- * RESULT: Die Reserve erreicht eine deutlich markierte erste Pufferhöhe, während ein kurzer Hinweis zeigt, dass danach Schritt für Schritt weiter aufgebaut werden kann.
+ * START: Januar liegt links als erste Kalenderseite, daneben steht ein fast leerer Notgroschen und die erste 50-Euro-Einzahlung bereit.
+ * MECHANISM: Januar, Februar und März wechseln nacheinander. Zu jedem Monat fliegt ein eigener Geldstapel in die Reserve und erhöht den Füllstand sichtbar.
+ * RESULT: Drei Einzahlungen sind abgeschlossen, der Notgroschen erreicht den ersten stabilen Puffer und „ERSTER PUFFER“ bleibt als klarer Zwischenstand stehen.
  *
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Der reale Füllstand des Notgroschen-Behälters ist die zentrale Veränderung; Kalender und Geldstapel machen den zeitlichen Aufbau sofort nachvollziehbar.
- * SUPPORT: Monatsnamen, jeweils „50 €“ und die kurze Zielmarke „Erster Puffer“ erklären nur die notwendigen Schritte und bleiben groß lesbar.
- * MATERIAL: Warmes Papier für den Kalender, Gold für Einzahlungen/Reserve und Emerald für den erreichten Zwischenstand.
- * DEPTH: Kalender links, bewegte Münzen in der Mitte und der größere Reservebehälter rechts bilden eine klare räumliche Leserichtung ohne Fortschrittsbalken.
+ * HERO: Die drei echten Einzahlungsbewegungen und der dabei schrittweise steigende Füllstand zeigen Aufbau über Zeit ohne Fortschrittsbalken.
+ * SUPPORT: Kalenderseiten geben den zeitlichen Rhythmus vor; Monatsnamen, 50 € und der Ergebnis-Tag sind kurz und funktional.
+ * MATERIAL: Warmes Papier für Kalender, Gold für Einzahlungen und Reserve, Emerald für den erreichten Zwischenstand.
+ * DEPTH: Kalender links, drei zeitversetzte Geldpfade durch die Mitte und der größere Reservebehälter rechts erzeugen eine eindeutige räumliche Leserichtung.
  */
 export const RESULT_HOLD_FRAMES = 20;
 
@@ -32,61 +32,76 @@ export const Scene09Animation: React.FC<{durationFrames?: number}> = ({durationF
   const frame = useCurrentFrame();
   const resultStart = Math.max(108, durationFrames - RESULT_HOLD_FRAMES - 5);
 
-  const monthOne = interpolate(frame, [4, 24], [0, 1], clamp);
-  const depositOne = interpolate(frame, [20, 48], [0, 1], clamp);
-  const monthTwo = interpolate(frame, [42, 60], [0, 1], clamp);
-  const depositTwo = interpolate(frame, [55, 78], [0, 1], clamp);
-  const monthThree = interpolate(frame, [72, 90], [0, 1], clamp);
-  const depositThree = interpolate(frame, [86, resultStart], [0, 1], clamp);
-  const finalSettle = interpolate(frame, [96, resultStart], [0, 1], clamp);
+  const janIn = interpolate(frame, [3, 18], [0, 1], clamp);
+  const janDeposit = interpolate(frame, [16, 42], [0, 1], clamp);
+  const febIn = interpolate(frame, [38, 54], [0, 1], clamp);
+  const febDeposit = interpolate(frame, [50, 72], [0, 1], clamp);
+  const marIn = interpolate(frame, [68, 84], [0, 1], clamp);
+  const marDeposit = interpolate(frame, [80, 104], [0, 1], clamp);
+  const finalSettle = interpolate(frame, [94, resultStart], [0, 1], clamp);
 
-  const fill = 0.10 + depositOne * 0.17 + depositTwo * 0.18 + depositThree * 0.20;
-  const activeMonth = frame < 48 ? 1 : frame < 82 ? 2 : 3;
-  const coinProgress = activeMonth === 1 ? depositOne : activeMonth === 2 ? depositTwo : depositThree;
+  const fill = 0.08 + janDeposit * 0.17 + febDeposit * 0.18 + marDeposit * 0.20;
+  const janCoinOpacity = janIn * Math.max(0, 1 - janDeposit * 0.82);
+  const febCoinOpacity = febIn * Math.max(0, 1 - febDeposit * 0.82);
+  const marCoinOpacity = marIn * Math.max(0, 1 - marDeposit * 0.82);
 
   return (
     <PremiumPhysicalStage>
       <PhysicalCalendarPage
-        x={90}
+        x={85}
         y={650}
         month="JANUAR"
         amount="50 €"
-        opacity={activeMonth === 1 ? monthOne : Math.max(0, 1 - monthTwo)}
-        scale={0.94 + monthOne * 0.06}
+        opacity={Math.max(0, 1 - febIn)}
+        scale={0.94 + janIn * 0.06}
         rotate={-4}
       />
       <PhysicalCalendarPage
-        x={90}
+        x={85}
         y={650}
         month="FEBRUAR"
         amount="50 €"
-        opacity={activeMonth === 2 ? monthTwo : 0}
-        scale={0.94 + monthTwo * 0.06}
+        opacity={febIn * Math.max(0, 1 - marIn)}
+        scale={0.94 + febIn * 0.06}
         rotate={1}
       />
       <PhysicalCalendarPage
-        x={90}
+        x={85}
         y={650}
         month="MÄRZ"
         amount="50 €"
-        opacity={activeMonth === 3 ? monthThree : 0}
-        scale={0.94 + monthThree * 0.06}
+        opacity={marIn}
+        scale={0.94 + marIn * 0.06}
         rotate={4}
       />
 
       <PhysicalCoinStack
-        x={355 + coinProgress * 250}
-        y={735 - coinProgress * 70}
+        x={360 + janDeposit * 270}
+        y={750 - janDeposit * 72}
         count={4}
-        scale={0.78 - coinProgress * 0.18}
-        opacity={Math.min(1, (1 - coinProgress) * 1.45)}
+        scale={0.72 - janDeposit * 0.12}
+        opacity={janCoinOpacity}
+      />
+      <PhysicalCoinStack
+        x={350 + febDeposit * 280}
+        y={815 - febDeposit * 125}
+        count={4}
+        scale={0.74 - febDeposit * 0.12}
+        opacity={febCoinOpacity}
+      />
+      <PhysicalCoinStack
+        x={365 + marDeposit * 265}
+        y={875 - marDeposit * 178}
+        count={4}
+        scale={0.76 - marDeposit * 0.12}
+        opacity={marCoinOpacity}
       />
 
       <PhysicalReserveTank
         x={700}
-        y={570}
-        width={260}
-        height={410}
+        y={565}
+        width={265}
+        height={420}
         fill={fill}
         label="Notgroschen"
         scale={0.96 + finalSettle * 0.04}
@@ -94,25 +109,13 @@ export const Scene09Animation: React.FC<{durationFrames?: number}> = ({durationF
 
       <div style={{
         position: 'absolute',
-        left: 690,
-        top: 1020,
+        left: 685,
+        top: 1030,
         opacity: finalSettle,
         transform: `translateY(${(1 - finalSettle) * 18}px)`,
         color: ANIMATION_COLORS.positive,
       }}>
         <PhysicalTag material="positive" style={{fontSize: 27}}>ERSTER PUFFER</PhysicalTag>
-      </div>
-
-      <div style={{
-        position: 'absolute',
-        left: 692,
-        top: 1090,
-        opacity: finalSettle,
-        color: ANIMATION_COLORS.secondaryText,
-        fontSize: 25,
-        fontWeight: 800,
-      }}>
-        weiter aufbauen
       </div>
     </PremiumPhysicalStage>
   );
