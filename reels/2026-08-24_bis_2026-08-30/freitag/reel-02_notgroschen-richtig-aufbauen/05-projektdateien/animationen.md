@@ -83,4 +83,6 @@ Streng verboten als Hauptsprache:
 
 ## IN-PLACE REBUILD 2026-08-29
 
-Das bestehende Reel wurde am selben Pfad neu aufgebaut. Alle sechs kanonischen animation.tsx wurden überschrieben; es existiert kein zweites Reel. Scene-index, Remotion-Spezifikationen und Phase-3-Auftrag verweisen auf diese neuen Dateien.
+Das bestehende Reel wurde am selben Pfad neu aufgebaut. Alle sechs kanonischen `animation.tsx` wurden überschrieben; es existiert kein zweites Reel. `scene-index.json`, die sechs Remotion-Spezifikationen, der Szenenplan und der Phase-3-Auftrag verweisen auf diese neuen Dateien.
+
+Der In-Place-Neuaufbau wurde mit `reel:validate` erfolgreich geprüft. Für die weitere Produktion wird ausschließlich dieses bestehende Reel fortgeführt; ein neuer Reel-Ordner ist ausdrücklich nicht Teil dieses Workflows.
