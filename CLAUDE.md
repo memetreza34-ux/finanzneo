@@ -40,7 +40,7 @@ Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen und Phase 3 keine
 
 ### Phase 2 — Nutzer
 
-- erzeugt Cover + Szenenbilder mit Google Flow
+- erzeugt die Szenenbilder mit Google Flow; **scene-01 ist automatisch das Cover**, kein separater Cover-Bildjob und kein Bild 00
 - legt alle finalen Bilder exakt benannt in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 - legt genau ein finales Voiceover in `02-audio/`
 - erzeugt echte Wort-Zeitstempel
@@ -59,6 +59,8 @@ Phase 3 darf ausschließlich:
 Phase 3 darf Animationen **nicht kreativ ersetzen, vereinfachen oder neu erfinden**.
 
 ## 4. Reel-Struktur
+
+**Cover-Regel:** `scene-01` ist immer eine Bildszene und automatisch das Cover. Es wird kein separates Cover und kein `Bild 00` erzeugt. `03-szenen/00-cover/cover.txt` ist nur ein technischer Alias/Vertrag auf das Bild von `scene-01`.
 
 ```text
 01-script/
@@ -442,7 +444,7 @@ reel:ready
 → Candidate Render
 → Post-Render-QA
 → Final MP4
-→ reel:export
+→ automatischer reel:export nach 06-export/
 → FINAL_COMPLETE
 ```
 
@@ -460,6 +462,8 @@ Ein schwarzes/leeres oder Caption-only Reel darf niemals als fertig gelten.
 
 ## 14. Publishing
 
+Standard für alle Reel-Plattformen ist die **universelle Caption**: `04-caption/caption.txt` wird beim finalen Export automatisch als `06-export/caption-universal.txt` ausgegeben. Instagram Reels, TikTok, Facebook Reels und Snapchat verwenden standardmäßig diese Datei; Plattformvarianten bleiben optionale Zusatzdateien.
+
 Reel-Plattformdateien:
 
 ```text
@@ -473,6 +477,8 @@ Reel-Plattformdateien:
 Keine `youtube-shorts.txt`.
 
 ## 15. Produktionsbefehle
+
+Im normalen Phase-3-Lauf wird `reel:export` nach bestandener Render-QA automatisch von `render-validated.mjs` gestartet. Der direkte Befehl bleibt nur für einen kontrollierten erneuten Export vorhanden.
 
 ```bash
 npm run reel:create -- --target <Reel-Pfad> --title "Titel"

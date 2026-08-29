@@ -31,7 +31,7 @@ FORMAT
 - nie mehr als zwei Bildszenen direkt hintereinander
 - Bildbeat ideal 3,5–5,5 s, absolut max. 6 s
 - Animationsbeat ideal 4,5–7 s
-- Flow-Quellbilder inklusive Cover strikt 1:1
+- alle Flow-Bildszenen strikt 1:1; scene-01 ist automatisch das Cover, kein separates Cover und kein Bild 00
 
 SKRIPT
 Schreibe von Anfang an SZENE FÜR SZENE. Nicht erst Fließtext schreiben und nachträglich schneiden.
@@ -287,7 +287,7 @@ LIEFERUNG PHASE 1
 - 01-script/script-fliess-text.txt
 - vollständiger Szenenplan
 - scene-index.json
-- cover.txt
+- 00-cover/cover.txt nur als technischer Alias auf scene-01; kein separater Cover-Prompt und kein zusätzlicher Bildjob
 - bildwelt.txt
 - jeder bildprompt.txt vollständig und individuell ausgeschrieben
 - alle-bildprompts.txt vollständig, Strict-Single-Job
