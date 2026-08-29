@@ -1,35 +1,95 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS, PhysicalObject, PhysicalRail, PremiumPhysicalStage} from '../../../../../../../src/design-system';
+import {
+  ANIMATION_COLORS,
+  PhysicalBill,
+  PhysicalReserveTank,
+  PhysicalTag,
+  PremiumPhysicalStage,
+} from '../../../../../../../src/design-system';
 
 /**
+ * MECHANIC_ID: obligations-raise-reserve-target
+ * PRIMARY_ACTION: Drei konkrete monatliche Verpflichtungen kommen nacheinander sichtbar in die Szene und erhöhen den Füllstand sowie die Zielmarke des Notgroschen-Behälters Schritt für Schritt.
+ *
  * ANIMATION_NARRATIVE
- * START: Ein neutraler Zielbehälter startet klein neben unterschiedlich großen monatlichen Verpflichtungsblöcken.
- * MECHANISM: Die Verpflichtungsblöcke verändern sichtbar den Zielumfang, während der Reservebehälter proportional größer wird.
- * RESULT: Der Zielbehälter endet als individuell angepasste Reserve statt als starre Einheitsgröße.
+ * START: Ein kleiner Notgroschen-Zielbehälter steht neben einer zunächst leeren Fläche für die reale monatliche Lebenssituation.
+ * MECHANISM: Miete, Fixkosten und Mobilität erscheinen nacheinander als echte Rechnungen; mit jeder zusätzlichen Verpflichtung steigt die sichtbare Zielreserve im Behälter.
+ * RESULT: Der Behälter endet deutlich höher gefüllt und mit „Dein Ziel“ markiert, sodass klar wird: Mehr Verpflichtungen können einen größeren individuellen Puffer sinnvoll machen.
  *
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Ein großes physisches Hauptobjekt trägt die Kernaussage und bleibt sofort erkennbar.
- * SUPPORT: Nur direkt erklärende Nebenobjekte ergänzen den Mechanismus; ihre Anzahl bleibt flexibel.
- * MATERIAL: Ivory und Gold zeigen neutrale Reserve und Geld, Emerald zeigt Schutz, Rot-Orange zeigt Kostenrisiko.
- * DEPTH: Gestaffelte Objektpositionen, sichtbare Dicke und klare Lichttrennung erzeugen räumliche Tiefe auf transparentem Stage.
- *
- * Der Stage bleibt transparent und nutzt ausschließlich den zentralen statischen Reel-Canvas.
- * Die Bewegung erklärt den gesprochenen Inhalt und endet in einem stabilen Ergebnis.
+ * HERO: Der transparente Reservebehälter verändert seinen Füllstand sichtbar aufgrund konkreter Rechnungen und macht die individuelle Zielhöhe physisch nachvollziehbar.
+ * SUPPORT: Drei verkleinerte echte Rechnungen tragen ausschließlich die kurzen Labels Miete, Fixkosten und Mobilität; eine kurze Zielmarke fasst das Ergebnis zusammen.
+ * MATERIAL: Papier-Elfenbein für reale Verpflichtungen, Gold für die Reserve, Emerald nur für die finale Zielbestätigung und Rot sparsam für Kostenbeträge.
+ * DEPTH: Die Rechnungen staffeln sich von links nach Mitte, der Reservebehälter steht klar im Vordergrund rechts; Größenänderung und Füllstand erzeugen echte Zustandsveränderung.
  */
-export const RESULT_HOLD_FRAMES = 18;
+export const RESULT_HOLD_FRAMES = 20;
+
+const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 
 export const Scene06Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 150}) => {
   const frame = useCurrentFrame();
-  const endFrame = Math.max(48, durationFrames - RESULT_HOLD_FRAMES - 8);
-  const progress = interpolate(frame, [8, endFrame], [0, 1], {extrapolateLeft:'clamp', extrapolateRight:'clamp'});
-  const settle = interpolate(progress, [0.72, 1], [0, 1], {extrapolateLeft:'clamp', extrapolateRight:'clamp'});
+  const resultStart = Math.max(106, durationFrames - RESULT_HOLD_FRAMES - 5);
+
+  const rentIn = interpolate(frame, [4, 30], [0, 1], clamp);
+  const fixedIn = interpolate(frame, [26, 54], [0, 1], clamp);
+  const mobilityIn = interpolate(frame, [50, 80], [0, 1], clamp);
+  const targetRise = interpolate(frame, [18, resultStart], [0, 1], clamp);
+  const finalSettle = interpolate(frame, [82, resultStart], [0, 1], clamp);
+
+  const fill = 0.22 + rentIn * 0.15 + fixedIn * 0.18 + mobilityIn * 0.15;
+  const tankScale = 0.88 + targetRise * 0.12;
+
   return (
     <PremiumPhysicalStage>
-      <PhysicalObject material="neutral" width={230} height={150} x={80} y={700}><div style={{fontSize:34,fontWeight:900,padding:42,textAlign:'center'}}>MIETE</div></PhysicalObject>
-      <PhysicalObject material="neutral" width={210} height={140} x={330} y={710}><div style={{fontSize:32,fontWeight:900,padding:39,textAlign:'center'}}>FIXKOSTEN</div></PhysicalObject>
-      <PhysicalObject material="warning" width={190} height={130} x={560} y={720} opacity={0.75 + settle * 0.25}><div style={{fontSize:31,fontWeight:900,padding:36,textAlign:'center',color:ANIMATION_COLORS.neutralText}}>RISIKO</div></PhysicalObject>
-      <PhysicalObject material="money" width={250 + progress * 120} height={180 + progress * 90} x={770 - progress * 70} y={650 - progress * 45} scale={0.82 + settle * 0.18}><div style={{fontSize:40,fontWeight:900,paddingTop:62,textAlign:'center',color:ANIMATION_COLORS.money}}>DEIN ZIEL</div></PhysicalObject>
+      <PhysicalBill
+        x={65}
+        y={610 + (1 - rentIn) * 120}
+        label="Miete"
+        amount="900 €"
+        rotate={-8}
+        scale={0.58 + rentIn * 0.06}
+        opacity={rentIn}
+      />
+      <PhysicalBill
+        x={280}
+        y={640 + (1 - fixedIn) * 110}
+        label="Fixkosten"
+        amount="650 €"
+        rotate={2}
+        scale={0.56 + fixedIn * 0.06}
+        opacity={fixedIn}
+      />
+      <PhysicalBill
+        x={490}
+        y={675 + (1 - mobilityIn) * 100}
+        label="Mobilität"
+        amount="300 €"
+        rotate={8}
+        scale={0.54 + mobilityIn * 0.06}
+        opacity={mobilityIn}
+      />
+
+      <PhysicalReserveTank
+        x={770 - targetRise * 22}
+        y={570 - targetRise * 28}
+        width={245 + targetRise * 26}
+        height={345 + targetRise * 60}
+        fill={fill}
+        label="Notgroschen"
+        scale={tankScale}
+      />
+
+      <div style={{
+        position: 'absolute',
+        left: 745,
+        top: 1035,
+        opacity: finalSettle,
+        transform: `translateY(${(1 - finalSettle) * 18}px) scale(${0.94 + finalSettle * 0.06})`,
+        color: ANIMATION_COLORS.positive,
+      }}>
+        <PhysicalTag material="positive" style={{fontSize: 27}}>DEIN ZIEL</PhysicalTag>
+      </div>
     </PremiumPhysicalStage>
   );
 };
