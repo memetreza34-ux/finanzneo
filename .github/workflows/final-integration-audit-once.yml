@@ -100,5 +100,5 @@ jobs:
             echo "No integration changes to commit."
             exit 0
           fi
-          git commit -m "Integrate motion stack and publishing contracts safely"
+          FINANZNEO_ALLOW_PROTECTED_CHANGES=1 git commit -m "Integrate motion stack and publishing contracts safely"
           git push origin HEAD:reel/notgroschen-test-v1
