@@ -15,7 +15,7 @@ EXACT SHORT GERMAN OBJECT LABELS:
 - exakt dieselben Labels wie im kanonischen Bildprompt von scene-01
 
 IMAGE PROMPT:
-This file does not define a second image and must never start a separate Google Flow generation job. The canonical cover is the exact final image already generated for scene-01. Use the scene-01 image unchanged as the Reel cover so the first visual beat and the thumbnail are identical. The underlying scene must remain a real-world-grounded explanatory situation with visible cause and effect, believable everyday objects and short German object labels only when they improve immediate understanding. It must visually explain the spoken point without requiring interpretation, while remaining clearly stylized 3D and not photorealistic.
+This file is a technical alias only and must never start a second image-generation job. The canonical cover is exactly the final image generated for scene-01. Use the scene-01 image unchanged as the Reel cover so the first visual beat and thumbnail use the same asset. The underlying scene remains a real-world-grounded explanatory situation with visible cause and effect, believable everyday objects and short German labels only when they improve immediate understanding. It must visually explain the spoken point without requiring interpretation, while remaining clearly stylized 3D and not photorealistic.
 
 STYLE:
 Keep the exact scene-01 stylized 3D visual language. Real-life context first, believable proportions, polished materials, never photorealistic.
