@@ -2,48 +2,22 @@
 
 Voiceover: Ein Notgroschen ist Geld, das nur für echte, unerwartete Ausgaben griffbereit bleibt.
 
-## Verbindliche visuelle Geschichte
+MECHANIC_ID: emergency-reserve-pays-real-bill
 
-Eine defekte Waschmaschine erzeugt eine echte Reparaturrechnung. Die Rechnung fällt sichtbar in die Szene und bewegt sich anschließend zum griffbereiten Notgroschen. Der Reservestand sinkt kontrolliert, die Rechnung wird als bezahlt markiert und das Girokonto bleibt geschützt.
+START: Kaputte Waschmaschine + normale Alltagssituation + offene Reparaturrechnung.
+MECHANISMUS: Geld verlässt den Notgroschen und bewegt sich sichtbar zur Reparaturrechnung; Reservestand sinkt kontrolliert.
+ERGEBNIS: Rechnung = BEZAHLT, Girokonto = unangetastet/geschützt.
 
-**Mechanik:** `emergency-reserve-pays-real-bill`
+Kanonische Quelle: animation.tsx
 
-Keine Schutzschild-/Karten-Metapher als Haupterklärung. Die reale Alltagssituation und der tatsächliche Zahlungsvorgang tragen die Animation.
-
-Lock: finanzneo-phase1-animation-code-v1; Premium: finanzneo-premium-physical-animation-v2; START → physische Aktion → eindeutiges Ergebnis; Result-Hold >=20 Frames.
-
-## CINEMATIC REAL-WORLD ANIMATIONSVERTRAG
+## Verbindlicher Rebuild-Vertrag
 Premium Visual Lock: finanzneo-premium-physical-animation-v2
 Visual Target World: finanzneo-stylized-3d-animated-black-v9
 
-Pflicht:
-- dieselbe realitätsnahe stylized-3D-Welt wie die Flow-Bilder; klar nicht fotorealistisch
-- echte Alltagssituation bzw. konkrete Finanzhandlung zuerst, abstrakte Symbole nur unterstützend
-- STARTZUSTAND → konkrete physische Hauptaktion → sichtbare Ursache/Wirkung → eindeutiges Ergebnis
-- mindestens zwei konkrete Realwelt-Objekte/-Instanzen in der visuellen Handlung
-- eindeutige MECHANIC_ID je Animationsszene; keine Mechanik im selben Reel doppelt verwenden
-- PRIMARY_ACTION benennt die tatsächliche physische Zustandsänderung
-- mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable
-- kurze deutsche Labels dürfen helfen, tragen aber niemals allein die Erklärung
-- sichtbare Materialität, Dicke, Tiefe und Kontakt-Schatten
-- PremiumPhysicalStage bleibt transparent; der zentrale Reel-Canvas darunter ist statisch #000000
-- Ergebnis mindestens 15 Frames stabil halten
-
-Bevorzugte konkrete Primitives, wenn passend:
-- PhysicalBill
-- PhysicalAccount
-- PhysicalWasher
-- PhysicalReserveTank
-- PhysicalCalendarPage
-- PhysicalCoinStack
-
-Streng verboten als Hauptsprache:
-- drei oder mehr generische beschriftete Kästen/Karten, die nur A → B → C darstellen
-- Lade-/Fortschrittsbalken als Ersatz für die eigentliche Handlung
-- Dashboard-/Control-Panel-/App-UI-Look
-- Flowchart als Hauptkomposition
-- kleine Boxen mit dünnen Verbindungslinien
-- reine Texttafel mit Fade/Scale
-- abstrakte Schild-/Pfeil-/Münz-Metapher, wenn eine reale Situation darstellbar ist
-- Partikel/Aurora/Grid/Glow/Gradient als Animationshintergrund
-- dekorative Bewegung ohne erklärenden Mechanismus
+- Dieses ist das BESTEHENDE Reel; keinen neuen Reel-Ordner anlegen.
+- Die vorhandene animation.tsx ist die kanonische Phase-1-Codequelle.
+- Reale Gegenstände + physische Ursache/Wirkung tragen die Szene.
+- Keine Kartenreihe, kein Fortschrittsbalken und keine reine Texttafel als Ersatz.
+- Mehrere koordinierte Motion-Channels.
+- Ergebnis mindestens 15 Frames stabil.
+- Phase 3 darf die Animation weder ersetzen noch vereinfachen.

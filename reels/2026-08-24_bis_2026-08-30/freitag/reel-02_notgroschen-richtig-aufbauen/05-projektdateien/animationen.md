@@ -80,3 +80,7 @@ Streng verboten als Hauptsprache:
 - abstrakte Schild-/Pfeil-/Münz-Metapher, wenn eine reale Situation darstellbar ist
 - Partikel/Aurora/Grid/Glow/Gradient als Animationshintergrund
 - dekorative Bewegung ohne erklärenden Mechanismus
+
+## IN-PLACE REBUILD 2026-08-29
+
+Das bestehende Reel wurde am selben Pfad neu aufgebaut. Alle sechs kanonischen animation.tsx wurden überschrieben; es existiert kein zweites Reel. Scene-index, Remotion-Spezifikationen und Phase-3-Auftrag verweisen auf diese neuen Dateien.
