@@ -1,5 +1,6 @@
 name: Apply Cinematic Animation Standard Once
 
+# one-time migration; self-removes after successful validation
 on:
   push:
     branches:
