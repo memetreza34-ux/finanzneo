@@ -64,24 +64,34 @@ index.phase3CompletionContract = {
 };
 write(indexPath, JSON.stringify(index, null, 2));
 
+// 00-cover bleibt nur als maschinenlesbarer Alias/Vertrag bestehen.
+// Es ist ausdrücklich KEIN zweiter Bildprompt und darf nie einen Flow-Job starten.
 const coverPath = resolve(root, '03-szenen/00-cover/cover.txt');
-const coverContract = `COVER = SZENE 01 — KEIN SEPARATER BILDJOB\n\nDie erste Reel-Szene ist automatisch das Cover. Google Flow darf KEIN zusätzliches Cover und KEIN Bild 00 erzeugen. Für Reel und Cover wird exakt dieselbe fertige Datei aus scene-01 verwendet.\n\nSOURCE_SCENE_ID: scene-01\nGOOGLE FLOW – FINALER DATEINAME:\n${firstScene.googleFlowFileName}\n\nFINANZNEO_WORLD_ID: finanzneo-connected-studio-v3\nFINANZNEO_SERIES_LOCK: finanzneo-same-world-v1\nPREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9\nGENERATED_IMAGE_ASPECT_RATIO: 1:1\n\nEXACT SHORT GERMAN OBJECT LABELS:\n- exakt dieselben Labels wie im kanonischen Bildprompt von scene-01\n\nIMAGE PROMPT:\nThis file does not define a second image and must never start a separate Google Flow generation job. The canonical cover is the exact final image already generated for scene-01. Use the scene-01 image unchanged as the Reel cover so the first visual beat and the thumbnail are identical. The underlying scene must remain a real-world-grounded explanatory situation with visible cause and effect, believable everyday objects and short German object labels only when they improve immediate understanding. It must visually explain the spoken point without requiring interpretation, while remaining clearly stylized 3D and not photorealistic.\n\nSTYLE:\nKeep the exact scene-01 stylized 3D visual language. Real-life context first, believable proportions, polished materials, never photorealistic.\n\nBACKGROUND:\nThe deep black background is mandatory and must match scene-01 exactly.\n\nCOMPOSITION:\nDo not redesign, crop into a different concept or replace scene-01 with symbolic finance icons. The cover is the same asset as the first scene.\n\nBRANDS + LOGOS:\nIf relevant, recognizable but stylized only; never use pasted real logos or screenshot-like branded UI.\n\nFORBIDDEN:\nNo separate cover generation, no Bild 00, no photorealism, no dashboard, no app UI, no flowchart, no abstract symbol-only replacement and no decorative clutter.\n`;
+const coverContract = `COVER = SZENE 01 — KEIN SEPARATER BILDJOB\n\nDie erste Reel-Szene ist automatisch das Cover. Google Flow darf KEIN zusätzliches Cover und KEIN Bild 00 erzeugen. Für Reel und Cover wird exakt dieselbe fertige Datei aus scene-01 verwendet.\n\nSOURCE_SCENE_ID: scene-01\nGOOGLE FLOW – FINALER DATEINAME:\n${firstScene.googleFlowFileName}\n\nFINANZNEO_WORLD_ID: finanzneo-connected-studio-v3\nFINANZNEO_SERIES_LOCK: finanzneo-same-world-v1\nPREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9\nGENERATED_IMAGE_ASPECT_RATIO: 1:1\n\nEXACT SHORT GERMAN OBJECT LABELS:\n- exakt dieselben Labels wie im kanonischen Bildprompt von scene-01\n\nIMAGE PROMPT:\nThis file is a technical alias only and must never start a second image-generation job. The canonical cover is exactly the final image generated for scene-01. Use the scene-01 image unchanged as the Reel cover so the first visual beat and thumbnail use the same asset. The underlying scene remains a real-world-grounded explanatory situation with visible cause and effect, believable everyday objects and short German labels only when they improve immediate understanding. It must visually explain the spoken point without requiring interpretation, while remaining clearly stylized 3D and not photorealistic.\n\nSTYLE:\nKeep the exact scene-01 stylized 3D visual language. Real-life context first, believable proportions, polished materials, never photorealistic.\n\nBACKGROUND:\nThe deep black background is mandatory and must match scene-01 exactly.\n\nCOMPOSITION:\nDo not redesign, crop into a different concept or replace scene-01 with symbolic finance icons. The cover is the same asset as the first scene.\n\nBRANDS + LOGOS:\nIf relevant, recognizable but stylized only; never use pasted real logos or screenshot-like branded UI.\n\nFORBIDDEN:\nNo separate cover generation, no Bild 00, no photorealism, no dashboard, no app UI, no flowchart, no abstract symbol-only replacement and no decorative clutter.\n`;
 write(coverPath, coverContract);
 
+// Entfernt jeden alten Cover-Generierungsblock aus der Flow-Masterdatei.
+// Danach folgt direkt der echte scene-01-Bildprompt.
 const allPromptsPath = resolve(root, '03-szenen/alle-bildprompts.txt');
 if (existsSync(allPromptsPath)) {
   let master = read(allPromptsPath);
-  const scene01Marker = master.indexOf('SZENE 01');
-  const coverMarker = master.indexOf('\nCOVER\n');
-  if (scene01Marker >= 0 && coverMarker >= 0 && coverMarker < scene01Marker) {
-    const coverBlockStart = master.lastIndexOf('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', coverMarker);
-    const sceneBlockStart = master.lastIndexOf('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', scene01Marker);
-    if (coverBlockStart >= 0 && sceneBlockStart > coverBlockStart) {
-      const replacement = `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nCOVER = SZENE 01\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nKEIN separates Cover erzeugen. KEIN Bild 00 erzeugen. Das final erzeugte Bild von scene-01 (${firstScene.googleFlowFileName}) ist automatisch gleichzeitig das Reel-Cover.\n\n`;
-      master = `${master.slice(0, coverBlockStart)}${replacement}${master.slice(sceneBlockStart)}`;
+  const separator = '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━';
+  const coverHeading = new RegExp(`${separator}\\n(?:BILD 00[^\\n]*|COVER[^\\n]*|KEIN Bild 00[^\\n]*)\\n${separator}`, 'i');
+  const scene01Heading = new RegExp(`${separator}\\n(?:BILD 01[^\\n]*|SZENE 01[^\\n]*)\\n${separator}`, 'i');
+  const coverMatch = coverHeading.exec(master);
+  const sceneMatch = scene01Heading.exec(master);
+
+  if (coverMatch && sceneMatch && coverMatch.index < sceneMatch.index) {
+    const replacement = `${separator}\nCOVER = SZENE 01 — KEIN SEPARATER BILDJOB\n${separator}\n\nKEIN separates Cover erzeugen. KEIN Bild 00 erzeugen. Das final erzeugte Bild von scene-01 (${firstScene.googleFlowFileName}) ist automatisch gleichzeitig das Reel-Cover. Direkt mit dem folgenden scene-01-Bildprompt starten.\n\n`;
+    master = `${master.slice(0, coverMatch.index)}${replacement}${master.slice(sceneMatch.index)}`;
+  } else if (!/COVER = SZENE 01/i.test(master)) {
+    const firstSceneMatch = scene01Heading.exec(master);
+    if (firstSceneMatch) {
+      const replacement = `${separator}\nCOVER = SZENE 01 — KEIN SEPARATER BILDJOB\n${separator}\n\nKEIN separates Cover erzeugen. KEIN Bild 00 erzeugen. Das final erzeugte Bild von scene-01 (${firstScene.googleFlowFileName}) ist automatisch gleichzeitig das Reel-Cover. Direkt mit dem folgenden scene-01-Bildprompt starten.\n\n`;
+      master = `${master.slice(0, firstSceneMatch.index)}${replacement}${master.slice(firstSceneMatch.index)}`;
     }
   }
-  master = master.replace(/Bild 00[^\n]*/gi, 'KEIN Bild 00 — Cover ist scene-01');
+
   write(allPromptsPath, master);
 }
 
