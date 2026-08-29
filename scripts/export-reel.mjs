@@ -4,6 +4,7 @@
 // Ein MP4 allein gilt NICHT als fertig. Vor jedem Export wird geprüft, dass
 // genau dieses Video die Phase-3-Render-QA bestanden hat und dass weder
 // scene-index noch Produktionsmanifest seit der QA verändert wurden.
+// Szene 01 ist das Cover; es gibt keinen separaten Cover-Bildjob.
 
 import {existsSync, readFileSync, writeFileSync, mkdirSync, copyFileSync, readdirSync, statSync, rmSync} from 'node:fs';
 import {resolve, basename, join} from 'node:path';
@@ -132,18 +133,25 @@ const videoZiel = join(exportDir, `${reelName}.mp4`);
 copyFileSync(videoPfad, videoZiel);
 gebaut.push(`${reelName}.mp4`);
 
-// ── 2. Cover ────────────────────────────────────────────────────────────────
+// ── 2. Cover = exakt scene-01 ───────────────────────────────────────────────
 const bilderOrdner = resolve(root, '03-szenen/00-ALLE-BILDER-HIER-REIN');
+const firstScene = Array.isArray(index.scenes) ? index.scenes[0] : null;
 let coverExportName = 'cover.png';
-if (existsSync(bilderOrdner)) {
-  const coverDatei = readdirSync(bilderOrdner).find((f) => /^Bild 00/i.test(f) && /\.(png|jpe?g|webp)$/i.test(f));
-  if (coverDatei) {
+if (!firstScene || firstScene.id !== 'scene-01' || firstScene.type !== 'image') {
+  fehlt.push('scene-01 muss als Bildszene das Cover liefern');
+} else if (existsSync(bilderOrdner)) {
+  const erwarteterCoverName = String(firstScene.googleFlowFileName ?? '').trim();
+  const dateien = readdirSync(bilderOrdner);
+  const coverDatei = dateien.find((f) => f.toLowerCase() === erwarteterCoverName.toLowerCase())
+    ?? dateien.find((f) => /^Bild 01\b/i.test(f) && /\.(png|jpe?g|webp)$/i.test(f));
+
+  if (coverDatei && /\.(png|jpe?g|webp)$/i.test(coverDatei)) {
     const extension = coverDatei.slice(coverDatei.lastIndexOf('.'));
     coverExportName = `cover${extension}`;
     copyFileSync(join(bilderOrdner, coverDatei), join(exportDir, coverExportName));
-    gebaut.push(coverExportName);
+    gebaut.push(`${coverExportName} (identisch mit scene-01)`);
   } else {
-    fehlt.push('Cover (Bild 00) im Bilderordner');
+    fehlt.push(`Cover = scene-01 (${erwarteterCoverName || 'Bild 01'}) im Bilderordner`);
   }
 } else {
   fehlt.push('Bilderordner 03-szenen/00-ALLE-BILDER-HIER-REIN');
@@ -162,6 +170,9 @@ if (existsSync(bilderOrdner)) {
 }
 
 // ── 4. Captions ─────────────────────────────────────────────────────────────
+// caption-universal.txt ist die primäre Caption für ALLE Reel-Plattformen.
+// Plattformvarianten bleiben als zusätzliche Dateien erhalten, falls später
+// doch eine plattformspezifische Anpassung gebraucht wird.
 const captionQuellen = {
   'caption-universal.txt': '04-caption/caption.txt',
   'caption-instagram.txt': '04-caption/instagram-reels.txt',
@@ -238,7 +249,7 @@ try { titel = index.title ?? reelName; } catch { /* Standardtitel */ }
 const mb = (b) => (b ? `${(b / 1024 / 1024).toFixed(1)} MB` : 'unbekannt');
 const upload = `# Upload-Paket — ${titel}
 
-Dieses Paket wurde erst nach bestandenem Phase-3-Fertigkeitsgate erzeugt.
+Dieses Paket wurde automatisch nach bestandenem Phase-3-Fertigkeitsgate erzeugt.
 Die enthaltene MP4 ist exakt die per SHA-256 geprüfte Finaldatei.
 
 ## Video
@@ -254,27 +265,30 @@ Die enthaltene MP4 ist exakt die per SHA-256 geprüfte Finaldatei.
 Untertitel sind fest im Video eingebrannt. \`untertitel.srt\` liegt zusätzlich
 bei, falls eine Plattform eigene Untertitel möchte.
 
-## Texte
+## Universelle Reel-Caption
 
-| Plattform | Datei |
-|---|---|
-| überall verwendbar | \`caption-universal.txt\` |
-| Instagram Reels | \`caption-instagram.txt\` |
-| TikTok | \`caption-tiktok.txt\` |
-| Facebook Reels | \`caption-facebook.txt\` |
-| Snapchat | \`caption-snapchat.txt\` |
+Für Instagram Reels, TikTok, Facebook Reels und Snapchat standardmäßig dieselbe Datei verwenden:
+
+- \`caption-universal.txt\`
+
+Die zusätzlichen Plattformdateien bleiben nur als optionale Varianten im Paket.
+
+## Cover
+
+- \`${coverExportName}\` ist exakt dasselbe Bild wie scene-01.
+- Es wurde KEIN separates Cover und KEIN Bild 00 erzeugt.
 
 ## Weitere Dateien
 
-- \`${coverExportName}\` — Titelbild für Vorschau und Thumbnail
 - \`bilder.zip\` — alle Szenenbilder, falls du einzelne nachnutzen willst
 - \`untertitel.srt\` — separate Untertiteldatei
+- optionale Plattform-Captions für spätere Sonderanpassungen
 
 ## Vor dem Hochladen
 
 - [ ] Video einmal komplett mit Ton angesehen
-- [ ] Caption der jeweiligen Plattform kopiert
-- [ ] Cover als Vorschaubild gesetzt
+- [ ] \`caption-universal.txt\` für die Reel-Plattform kopiert
+- [ ] scene-01-Cover als Vorschaubild gesetzt
 - [ ] Hochformat 9:16 in der Vorschau geprüft
 
 ## Nicht für YouTube
@@ -295,4 +309,4 @@ if (fehlt.length) {
   process.exit(1);
 }
 
-console.log('\n✓ FINAL_COMPLETE — 06-export ist vollständig und basiert auf bestandenem Render-QA.');
+console.log('\n✓ FINAL_COMPLETE — 06-export enthält das geprüfte Reel, scene-01 als Cover und die universelle Reel-Caption.');
