@@ -92,7 +92,10 @@ if (existsSync(renderScript)) {
 }
 if (existsSync(exportScript)) {
   const source = read(exportScript);
-  assert(source.includes("'caption-universal.txt': '04-caption/caption.txt'"), 'export-reel.mjs muss caption-universal.txt aus 04-caption/caption.txt bauen.');
+  assert(source.includes("const captionQuelle = resolve(root, '04-caption/caption.txt')"), 'export-reel.mjs muss caption-universal.txt ausschließlich aus 04-caption/caption.txt bauen.');
+  for (const oldExport of ['caption-instagram.txt', 'caption-tiktok.txt', 'caption-facebook.txt', 'caption-snapchat.txt']) {
+    assert(!source.includes(oldExport), `export-reel.mjs darf keine alte Plattform-Caption erzeugen: ${oldExport}`);
+  }
   assert(source.includes("firstScene.id !== 'scene-01'"), 'export-reel.mjs muss scene-01 als Coverquelle erzwingen.');
   assert(!source.includes("/^Bild 00"), 'export-reel.mjs darf nicht mehr nach Bild 00 als Cover suchen.');
 }

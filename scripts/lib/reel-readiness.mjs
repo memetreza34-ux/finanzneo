@@ -105,11 +105,7 @@ export const analyzeReelReadiness = (rootDirectory) => {
     ALL_PROMPTS,
     '05-projektdateien/recherche-quellen.md',
     '05-projektdateien/szenenplan.md',
-    PLATFORM_PUBLISHING_FILES.masterCaption,
-    PLATFORM_PUBLISHING_FILES.instagramReels,
-    PLATFORM_PUBLISHING_FILES.tiktok,
-    PLATFORM_PUBLISHING_FILES.facebookReels,
-    PLATFORM_PUBLISHING_FILES.snapchat,
+    PLATFORM_PUBLISHING_FILES.universalCaption,
   ];
 
   for (const relativePath of phase1Files) checkCompletedText(root, relativePath, phase1Blockers);

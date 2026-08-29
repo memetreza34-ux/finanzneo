@@ -23,64 +23,47 @@ const assert = (condition, message) => { if (!condition) errors.push(message); }
 
 assert(existsSync(indexPath), `${SCENE_INDEX} fehlt.`);
 if (!existsSync(indexPath)) {
-  console.error(`\nPlattform-Publishing-Vertrag verletzt:\n- ${SCENE_INDEX} fehlt.`);
+  console.error(`\nPublishing-Vertrag verletzt:\n- ${SCENE_INDEX} fehlt.`);
   process.exit(1);
 }
 
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 if (index.imageWorld?.legacyAssetSet === true) {
-  console.log('✓ Legacy-Reel: Plattform-Publishing-Struktur wird nicht nachträglich erzwungen.');
+  console.log('✓ Legacy-Reel: Universal-Caption-Vertrag wird nicht rückwirkend erzwungen.');
   process.exit(0);
 }
 
-const expected = PLATFORM_PUBLISHING_FILES;
+const publishing = index.platformPublishing ?? {};
+const sourcePath = PLATFORM_PUBLISHING_FILES.universalCaption;
 
-assert(index.platformPublishing && typeof index.platformPublishing === 'object', 'scene-index.json benötigt platformPublishing.');
-assert(index.platformPublishing?.directory === CAPTION_DIRECTORY, `platformPublishing.directory muss ${CAPTION_DIRECTORY} sein.`);
+assert(publishing.directory === CAPTION_DIRECTORY, `platformPublishing.directory muss ${CAPTION_DIRECTORY} sein.`);
+assert(publishing.universalCaptionSource === sourcePath, `platformPublishing.universalCaptionSource muss ${sourcePath} sein.`);
+assert(publishing.universalCaptionExport === '06-export/caption-universal.txt', 'platformPublishing.universalCaptionExport muss 06-export/caption-universal.txt sein.');
+assert(publishing.universalCaptionForAllReelPlatforms === true, 'Eine universelle Caption muss für alle Reel-Plattformen gelten.');
+
 for (const key of FORBIDDEN_PUBLISHING_KEYS) {
-  assert(!Object.prototype.hasOwnProperty.call(index.platformPublishing ?? {}, key), `platformPublishing.${key} ist verboten: FinanzNeo veröffentlicht keine YouTube Shorts.`);
+  assert(!Object.prototype.hasOwnProperty.call(publishing, key), `platformPublishing.${key} ist im Universal-Caption-Vertrag verboten.`);
 }
 for (const relativePath of FORBIDDEN_PUBLISHING_FILES) {
-  assert(!existsSync(resolve(root, relativePath)), `${relativePath} ist verboten: YouTube ist ausschließlich Longform unter youtube/.`);
+  assert(!existsSync(resolve(root, relativePath)), `${relativePath} ist im Universal-Caption-Vertrag verboten.`);
 }
 
-for (const [key, relativePath] of Object.entries(expected)) {
-  assert(index.platformPublishing?.[key] === relativePath, `platformPublishing.${key} muss auf ${relativePath} zeigen.`);
-  const filePath = resolve(root, relativePath);
-  assert(existsSync(filePath), `${relativePath} fehlt.`);
-  if (existsSync(filePath)) {
-    const content = readFileSync(filePath, 'utf8');
-    if (content.includes('[EINFÜGEN]') || content.includes('[OPTIONAL]')) {
-      warnings.push(`${relativePath} enthält noch Platzhalter.`);
-    }
-  }
-}
-
-const structuralChecks = [
-  [PLATFORM_PUBLISHING_FILES.instagramReels, ['CAPTION:']],
-  [PLATFORM_PUBLISHING_FILES.tiktok, ['CAPTION:']],
-  [PLATFORM_PUBLISHING_FILES.facebookReels, ['REEL-TEXT:']],
-  [PLATFORM_PUBLISHING_FILES.snapchat, ['CAPTION:']],
-];
-
-for (const [relativePath, markers] of structuralChecks) {
-  const filePath = resolve(root, relativePath);
-  if (!existsSync(filePath)) continue;
-  const content = readFileSync(filePath, 'utf8');
-  for (const marker of markers) {
-    assert(content.includes(marker), `${relativePath} benötigt den Abschnitt ${marker}`);
-  }
+const captionPath = resolve(root, sourcePath);
+assert(existsSync(captionPath), `${sourcePath} fehlt.`);
+if (existsSync(captionPath)) {
+  const content = readFileSync(captionPath, 'utf8');
+  if (/\[(?:EINFÜGEN|OPTIONAL|VOLLSTÄNDIG)/i.test(content)) warnings.push(`${sourcePath} enthält noch Platzhalter.`);
 }
 
 if (errors.length) {
-  console.error('\nPlattform-Publishing-Vertrag verletzt:\n');
+  console.error('\nUniversal-Caption-Vertrag verletzt:\n');
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
 
-console.log('\n✓ Plattform-Publishing-Struktur vollständig.');
-console.log('  Instagram Reels · TikTok · Facebook Reels · Snapchat');
-console.log('  YouTube: ausschließlich eigenständige Longform-Videos unter youtube/.');
-if (warnings.length) {
-  warnings.forEach((warning) => console.log(`  Hinweis: ${warning}`));
-}
+console.log('\n✓ Universal-Caption-Struktur vollständig.');
+console.log('  Eine Quelle: 04-caption/caption.txt');
+console.log('  Ein Export: 06-export/caption-universal.txt');
+console.log('  Gilt identisch für Instagram Reels · TikTok · Facebook Reels · Snapchat.');
+console.log('  Keine separaten Plattform-Captiondateien.');
+if (warnings.length) warnings.forEach((warning) => console.log(`  Hinweis: ${warning}`));

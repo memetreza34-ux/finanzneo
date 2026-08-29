@@ -34,7 +34,7 @@ Phase 1 liefert vollständig:
 - natürliche Szenenüberschriften + passende Icons
 - Remotion-Spezifikationen
 - **produktionsreife `animation.tsx` für jede Animationsszene**
-- Master-/Plattform-Captions
+- genau eine universelle Social-Caption: `04-caption/caption.txt`
 
 Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen und Phase 3 keine kreative Animation mehr erfinden muss.
 
@@ -44,6 +44,7 @@ Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen und Phase 3 keine
 - legt alle finalen Bilder exakt benannt in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 - legt genau ein finales Voiceover in `02-audio/`
 - erzeugt echte Wort-Zeitstempel
+- finale Flow-Bilder und das Haupt-Voiceover bleiben Nutzerverantwortung; kein Agent ersetzt oder generiert sie eigenmächtig
 
 ### Phase 3 — Antigravity oder Claude Code
 
@@ -54,9 +55,11 @@ Phase 3 darf ausschließlich:
 - finale Nutzerbilder integrieren
 - den **versiegelten Phase-1-Animationscode** verwenden
 - Timeline, Header und Captions integrieren
+- bereits freigegebene SFX aus dem kanonischen Cue-Plan lokal und framegenau integrieren; optionale SFX dürfen vor dem finalen Render über den konfigurierten Sound-Skill erzeugt werden, niemals das Voiceover
+- Playwright Visual QA gegen die lokale Remotion-Preview ausführen und sichtbare Fehler an der kanonischen Quelle beheben
 - Preflight, Candidate-Render, Render-QA und Export ausführen
 
-Phase 3 darf Animationen **nicht kreativ ersetzen, vereinfachen oder neu erfinden**.
+Phase 3 darf versiegelte Animationen **nicht kreativ ersetzen, vereinfachen oder neu erfinden**. Eine neue Animations-/Lottie-Idee nach dem Seal bedeutet zurück zu Phase 1, Änderung der kanonischen Quelle, erneute Validation und erneutes Seal.
 
 ## 4. Reel-Struktur
 
@@ -497,19 +500,21 @@ Ein schwarzes/leeres oder Caption-only Reel darf niemals als fertig gelten.
 
 ## 14. Publishing
 
-Standard für alle Reel-Plattformen ist die **universelle Caption**: `04-caption/caption.txt` wird beim finalen Export automatisch als `06-export/caption-universal.txt` ausgegeben. Instagram Reels, TikTok, Facebook Reels und Snapchat verwenden standardmäßig diese Datei; Plattformvarianten bleiben optionale Zusatzdateien.
+Für alle Reel-Plattformen gibt es genau **eine** Social-Caption.
 
-Reel-Plattformdateien:
+Kanonische Quelle:
 
 ```text
 04-caption/caption.txt
-04-caption/instagram-reels.txt
-04-caption/tiktok.txt
-04-caption/facebook-reels.txt
-04-caption/snapchat.txt
 ```
 
-Keine `youtube-shorts.txt`.
+Finaler Export:
+
+```text
+06-export/caption-universal.txt
+```
+
+Dieselbe Caption wird für Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet. Separate Dateien wie `instagram-reels.txt`, `tiktok.txt`, `facebook-reels.txt` oder `snapchat.txt` sind in aktiven Reel-Projekten verboten. YouTube Shorts existieren nicht; YouTube bleibt Longform unter `youtube/`.
 
 ## 15. Produktionsbefehle
 

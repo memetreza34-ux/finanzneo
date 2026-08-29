@@ -50,10 +50,11 @@ index.cover = {
   separateGenerationForbidden: true,
 };
 index.platformPublishing = {
-  ...(index.platformPublishing ?? {}),
+  directory: '04-caption',
   universalCaptionSource: '04-caption/caption.txt',
   universalCaptionExport: '06-export/caption-universal.txt',
   universalCaptionForAllReelPlatforms: true,
+  platforms: ['instagram-reels', 'tiktok', 'facebook-reels', 'snapchat'],
 };
 index.phase3CompletionContract = {
   ...(index.phase3CompletionContract ?? {}),

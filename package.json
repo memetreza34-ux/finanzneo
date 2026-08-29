@@ -51,7 +51,7 @@
     "render:template-demo": "npx remotion render src/index.ts ReelTemplateDemo out/reel-template-demo.mp4 --scale=0.5",
     "upgrade": "npx remotion upgrade",
     "validate:consistency": "node scripts/validate-repo-consistency.mjs",
-    "reel:export": "node scripts/export-reel-universal-caption.mjs"
+    "reel:export": "node scripts/export-reel.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "^8.18.0",

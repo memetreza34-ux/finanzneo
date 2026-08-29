@@ -27,13 +27,16 @@ test('Google Flow verwendet Strict-Single-Job-State-Machine V3', () => {
   assert.equal(FLOW_STRUCTURE_LOCK_ID, 'finanzneo-flow-structure-lock-v2');
 });
 
-test('Reel-Vertrag enthält genau die erlaubten Plattformdateien', () => {
-  assert.deepEqual(Object.keys(PLATFORM_PUBLISHING_FILES).sort(), [
-    'facebookReels',
-    'instagramReels',
-    'masterCaption',
-    'snapchat',
-    'tiktok',
-  ]);
-  assert.ok(FORBIDDEN_PUBLISHING_FILES.includes('04-caption/youtube-shorts.txt'));
+test('Reel-Vertrag erzwingt genau eine universelle Caption', () => {
+  assert.deepEqual(Object.keys(PLATFORM_PUBLISHING_FILES), ['universalCaption']);
+  assert.equal(PLATFORM_PUBLISHING_FILES.universalCaption, '04-caption/caption.txt');
+  for (const oldFile of [
+    '04-caption/youtube-shorts.txt',
+    '04-caption/instagram-reels.txt',
+    '04-caption/tiktok.txt',
+    '04-caption/facebook-reels.txt',
+    '04-caption/snapchat.txt',
+  ]) {
+    assert.ok(FORBIDDEN_PUBLISHING_FILES.includes(oldFile));
+  }
 });

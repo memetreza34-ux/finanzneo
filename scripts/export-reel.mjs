@@ -169,25 +169,15 @@ if (existsSync(bilderOrdner)) {
   }
 }
 
-// ── 4. Captions ─────────────────────────────────────────────────────────────
-// caption-universal.txt ist die primäre Caption für ALLE Reel-Plattformen.
-// Plattformvarianten bleiben als zusätzliche Dateien erhalten, falls später
-// doch eine plattformspezifische Anpassung gebraucht wird.
-const captionQuellen = {
-  'caption-universal.txt': '04-caption/caption.txt',
-  'caption-instagram.txt': '04-caption/instagram-reels.txt',
-  'caption-tiktok.txt': '04-caption/tiktok.txt',
-  'caption-facebook.txt': '04-caption/facebook-reels.txt',
-  'caption-snapchat.txt': '04-caption/snapchat.txt',
-};
-for (const [ziel, quelle] of Object.entries(captionQuellen)) {
-  const q = resolve(root, quelle);
-  if (existsSync(q)) {
-    copyFileSync(q, join(exportDir, ziel));
-    gebaut.push(ziel);
-  } else {
-    fehlt.push(quelle);
-  }
+// ── 4. Universelle Caption ───────────────────────────────────────────────────
+// Genau dieselbe Caption wird auf Instagram Reels, TikTok, Facebook Reels und
+// Snapchat verwendet. Es gibt keine plattformspezifischen Caption-Dateien.
+const captionQuelle = resolve(root, '04-caption/caption.txt');
+if (existsSync(captionQuelle)) {
+  copyFileSync(captionQuelle, join(exportDir, 'caption-universal.txt'));
+  gebaut.push('caption-universal.txt');
+} else {
+  fehlt.push('04-caption/caption.txt');
 }
 
 // ── 5. Untertitel als SRT ───────────────────────────────────────────────────
@@ -271,7 +261,7 @@ Für Instagram Reels, TikTok, Facebook Reels und Snapchat standardmäßig diesel
 
 - \`caption-universal.txt\`
 
-Die zusätzlichen Plattformdateien bleiben nur als optionale Varianten im Paket.
+Es werden bewusst keine separaten Plattform-Captiondateien erzeugt.
 
 ## Cover
 
@@ -282,7 +272,7 @@ Die zusätzlichen Plattformdateien bleiben nur als optionale Varianten im Paket.
 
 - \`bilder.zip\` — alle Szenenbilder, falls du einzelne nachnutzen willst
 - \`untertitel.srt\` — separate Untertiteldatei
-- optionale Plattform-Captions für spätere Sonderanpassungen
+- caption-universal.txt — die einzige Caption für alle Reel-Plattformen
 
 ## Vor dem Hochladen
 
