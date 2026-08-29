@@ -35,6 +35,7 @@ Verbindliche Projekt-Skills/-Regeln:
 - `remotion-director` — cinematische Realwelt-Mechanik, mehrere Motion-Channels, kontrollierte Tiefe/Kamera
 - `lottie-motion` — Lottie Creator MCP nur als gezielte Support-Ebene
 - `sound-design` — subtile framegenaue SFX, Voiceover bleibt dominant
+- `playwright-visual-qa` — visuelle Remotion-Studio-Prüfung von Headern, Icons, Safe-Zones, Spacing und repräsentativen Animationszuständen
 
 Generische Agent-Skills sind beratend. `CLAUDE.md`, `scene-index.json`, die kanonische `animation.tsx` und FinanzNeo-Regeln haben Vorrang.
 
@@ -78,6 +79,42 @@ Vor finalem Render:
 
 Fehlt ein als erforderlich markierter SFX-Asset: melden und stoppen statt durch minderwertigen Ersatz zu kaschieren.
 
+## Playwright Visual QA — Pflichtprüfung
+
+Verbindlicher Plan:
+
+```text
+05-projektdateien/visual-qa.md
+```
+
+Standardweg ist die offizielle Playwright CLI, nicht Playwright MCP:
+
+```bash
+npm run studio -- --port=3000
+npx -y @playwright/cli@latest open http://127.0.0.1:3000 --browser=chrome
+```
+
+Danach die exakte Produktions-Composition auswählen und den QA-Plan abarbeiten.
+
+Pflicht:
+
+1. Jede der 9 Bildszenen mindestens auf einem stabilen Frame visuell prüfen.
+2. Jede der 6 Animationsszenen auf START, TRIGGER, MID-MECHANISM, NEAR RESULT und FINAL RESULT HOLD prüfen.
+3. Zweizeilige Header von scene-07 und scene-13 direkt vergleichen.
+4. Icon-Größe, Icon-zu-Text-Abstand, Zentrierung und vertikale Position über mehrere Szenen vergleichen.
+5. Sichtbar kontrollieren, dass kein wichtiges Objekt Y320–1400 verlässt oder Caption/Header kollidiert.
+6. Zu kleine Hauptanimationen, übermäßigen Leerraum, Clipping und unbalancierte Objektabstände als echten QA-Fehler behandeln.
+7. Bei Fehlern die kanonische Source korrigieren und genau die betroffenen Frames erneut prüfen.
+8. Temporäre `.playwright-cli/`-Daten, Screenshots und Traces nicht als Produktionsassets committen.
+
+Vor finaler Freigabe muss der Plan mit folgendem Ergebnis abgeschlossen sein:
+
+```text
+PLAYWRIGHT_VISUAL_QA=PASS
+```
+
+Ein grüner TypeScript-/Smoke-Test ersetzt diesen visuellen PASS nicht.
+
 ## Motion-QA
 
 Bei allen sechs Animationsszenen zusätzlich prüfen:
@@ -96,10 +133,11 @@ Bei allen sechs Animationsszenen zusätzlich prüfen:
 1. Bestehende Composition dieses Reels vollständig implementieren/aktualisieren.
 2. Alle finalen Bilder, Voiceover, Worttimings und freigegebenen erforderlichen SFX lokal vorhanden.
 3. `reel:phase3:preflight` muss PASS liefern.
-4. Candidate ausschließlich über `reel:render` erzeugen.
-5. Render-QA vollständig mit **Bild und Audio** ausführen und PASS verlangen.
-6. Nach PASS übernimmt der validierte Render-Workflow den finalen Export nach `06-export/`.
-7. Phase 3 ist erst abgeschlossen, wenn `06-export/` vollständig aufgebaut wurde.
+4. Playwright Visual QA vollständig nach `05-projektdateien/visual-qa.md` ausführen und `PLAYWRIGHT_VISUAL_QA=PASS` verlangen.
+5. Candidate ausschließlich über `reel:render` erzeugen.
+6. Render-QA vollständig mit **Bild und Audio** ausführen und PASS verlangen.
+7. Nach PASS übernimmt der validierte Render-Workflow den finalen Export nach `06-export/`.
+8. Phase 3 ist erst abgeschlossen, wenn `06-export/` vollständig aufgebaut wurde.
 
 Ein direkter `reel:export`-Aufruf ist nur für einen kontrollierten Re-Export einer bereits geprüften finalen MP4 gedacht.
 
