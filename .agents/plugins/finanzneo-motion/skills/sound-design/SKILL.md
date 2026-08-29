@@ -62,6 +62,28 @@ Requirements:
 
 If ElevenLabs is unavailable, keep the cue plan but do not create fake/placeholder audio.
 
+## Remotion media integration
+
+Use the current official Remotion media component path for production audio.
+
+Before integrating the first real SFX, inspect `package.json`. If `@remotion/media` is missing, add the versions-matched package through Remotion itself:
+
+```bash
+npx remotion add @remotion/media
+```
+
+Do not hand-pick a mismatched Remotion package version.
+
+Then use local assets with Remotion's frame timeline, e.g. `<Audio>` from `@remotion/media` plus `staticFile()`.
+
+Rules:
+
+- audio start frame must match the visible cue event;
+- duration/trim should be explicit when needed;
+- volume must remain below the voiceover;
+- do not load SFX from remote URLs;
+- do not install `@remotion/media` merely for planning when no actual SFX assets will be integrated yet.
+
 ## Prompt style for generated SFX
 
 Prompts should describe one clean event and explicitly avoid excessive cinematic bass or music.
