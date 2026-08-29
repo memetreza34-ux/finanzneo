@@ -27,6 +27,16 @@ jobs:
           node-version: 20
           cache: npm
 
+      - name: Fix one-time template escaping
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/tmp-final-integration-audit.mjs')
+          s = p.read_text()
+          s = s.replace("    '- `caption-universal.txt` — die einzige Caption für alle Reel-Plattformen',", "    '- caption-universal.txt — die einzige Caption für alle Reel-Plattformen',")
+          p.write_text(s)
+          PY
+
       - name: Apply conflict-safe migration
         run: node scripts/tmp-final-integration-audit.mjs
 
