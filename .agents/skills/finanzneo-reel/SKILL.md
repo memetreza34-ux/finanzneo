@@ -1,6 +1,6 @@
 ---
 name: finanzneo-reel
-description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, V9 explanatory image world, cinematic Remotion motion, controlled Lottie/SFX enhancement, sealed animations, pure-black canvas and completion gates.
+description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, V9 explanatory image world, cinematic Remotion motion, controlled Lottie/SFX enhancement, Playwright visual QA, sealed animations, pure-black canvas and completion gates.
 ---
 
 # FinanzNeo Reel Skill
@@ -18,6 +18,7 @@ Read in this order:
 7. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
 8. `.agents/plugins/finanzneo-motion/rules/lottie-motion.md`
 9. `.agents/plugins/finanzneo-motion/rules/sound-design.md`
+10. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
 
 `CLAUDE.md` wins on conflicts.
 
@@ -84,6 +85,7 @@ The workspace plugin `.agents/plugins/finanzneo-motion/` extends Antigravity wit
 - Lottie Creator MCP + `lottie-motion` for controlled vector support animation;
 - ElevenLabs `sound-effects` Agent Skill bootstrap for optional SFX generation;
 - `sound-design` for frame-synchronized sound planning;
+- `playwright-visual-qa` for visual Remotion Studio inspection of representative frames, layout, icons and safe zones;
 - repo validation through `npm run validate:antigravity-motion`.
 
 Remotion remains the timeline/render authority.
@@ -126,6 +128,29 @@ Voiceover remains dominant. Final sound files are local under `public/sounds/`; 
 
 If ElevenLabs generation is unavailable, preserve the cue plan and report missing final sound assets. Never use placeholder beeps.
 
+### Playwright visual QA
+
+Use the FinanzNeo `playwright-visual-qa` skill with the official Playwright CLI for the local Remotion Studio.
+
+Default tool path:
+
+```bash
+npx -y @playwright/cli@latest
+```
+
+For each production Reel:
+
+- inspect at least one stable frame from every image scene;
+- inspect start, trigger, mid-mechanism, near-result and final hold for every animation scene;
+- compare one-line and two-line headers across scenes;
+- compare optical icon size, icon-to-text gap and vertical alignment;
+- inspect safe-zone boundaries, clipping, centering, hero scale and dead space;
+- treat visible inconsistency as QA failure even if TypeScript/bundle/smoke are green.
+
+Playwright screenshots and traces are temporary QA artifacts, not production assets.
+
+A target reel should keep a concrete checklist in `05-projektdateien/visual-qa.md` when it reaches production/Phase 3.
+
 ## Animation ownership
 
 For every animation scene:
@@ -162,6 +187,7 @@ npm run reel:ready -- <Reel>
 npm run reel:phase3:init -- <Reel> <Composition-ID>
 # integrate every sealed scene + final Phase-2 assets
 npm run reel:phase3:preflight -- <Reel>
+# run Playwright visual QA from the reel's 05-projektdateien/visual-qa.md and require PASS
 npm run reel:render -- <Reel>/05-projektdateien/phase3-production-manifest.json
 ```
 
@@ -177,6 +203,8 @@ QA must reject:
 - missing animation binding
 - animation with no real motion
 - animation that does not explain its beat
+- visible header/icon inconsistency found by Playwright QA
+- safe-zone/clipping/centering defects found by Playwright QA
 - non-black/decorative background
 - missing required voiceover/audio
 - missing referenced SFX asset when the approved plan marks it required
