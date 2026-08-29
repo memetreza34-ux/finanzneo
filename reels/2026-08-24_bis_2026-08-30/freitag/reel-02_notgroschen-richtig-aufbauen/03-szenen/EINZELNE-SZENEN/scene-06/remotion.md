@@ -2,6 +2,12 @@
 
 Voiceover: Die passende Höhe hängt trotzdem von deinen Ausgaben, Verpflichtungen und deiner Lebenssituation ab.
 
-Ziel: Der Zielpuffer passt sich sichtbar an unterschiedliche monatliche Verpflichtungen an.
+## Verbindliche visuelle Geschichte
 
-Lock: finanzneo-phase1-animation-code-v1; Premium: finanzneo-premium-physical-animation-v2; START → Mechanismus → Ergebnis; Result-Hold >=18 Frames.
+Ein zunächst kleiner Notgroschen-Zielbehälter steht neben der Alltagssituation. Nacheinander erscheinen echte Rechnungen für `Miete`, `Fixkosten` und `Mobilität`. Mit jeder weiteren Verpflichtung steigt der sichtbare Füllstand und die Zielgröße des Notgroschens. Erst am Ende erscheint `DEIN ZIEL`.
+
+**Mechanik:** `obligations-raise-reserve-target`
+
+Keine vier beschrifteten Kästen nebeneinander. Die konkreten Verpflichtungen müssen sichtbar die Zielreserve verändern.
+
+Lock: finanzneo-phase1-animation-code-v1; Premium: finanzneo-premium-physical-animation-v2; START → physische Aktion → eindeutiges Ergebnis; Result-Hold >=20 Frames.
