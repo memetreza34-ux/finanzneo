@@ -15,6 +15,7 @@ const validators = [
   'scripts/validate-active-reel-rules.mjs',
   'scripts/validate-reel-background.mjs',
   'scripts/validate-reel-source-contract.mjs',
+  'scripts/validate-scene01-cover-export-contract.mjs',
   'scripts/validate-scene-quality.mjs',
   'scripts/validate-reel-layout-v5.mjs',
   'scripts/validate-premium-visual-contract.mjs',
