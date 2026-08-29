@@ -93,10 +93,13 @@ for (const scene of animations) {
   if (!/(?:material=['"](?:neutral|money|warning|positive)['"]|Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack))/.test(source)) {
     fail(`${id}: Animation braucht semantische Materialrollen oder konkrete Realwelt-Primitives.`);
   }
-  if (/\b(?:Flowchart|Dashboard|ControlPanel|WindowMock|IconTile)\b/.test(source)) {
+  // Nur tatsächliche JSX-Komponentennutzung blockieren. Qualitätskommentare wie
+  // "kein Dashboard" oder "kein Flowchart" sind ausdrücklich erlaubt und sollen
+  // nicht als verbotene UI-Komponente fehlinterpretiert werden.
+  if (/<(?:Flowchart|Dashboard|ControlPanel|WindowMock|IconTile)\b/.test(source)) {
     fail(`${id}: Dashboard-/Flowchart-/UI-Komponenten sind als Hauptsprache gesperrt.`);
   }
-  if (/\b(?:FNBgAurora|FNBgParticles|FNBgGrid|FNBgRadial|ParticleField|Particles)\b/.test(source)) {
+  if (/<(?:FNBgAurora|FNBgParticles|FNBgGrid|FNBgRadial|ParticleField|Particles)\b/.test(source)) {
     fail(`${id}: Partikel/Aurora/Grid/Radial-Hintergrundkomponenten sind in Reel-Animationen verboten.`);
   }
   if (/background\s*:\s*['"`]radial-gradient|backgroundImage\s*:/i.test(source)) {
