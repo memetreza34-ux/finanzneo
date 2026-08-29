@@ -39,19 +39,22 @@ const buildFixture = () => {
 
   const validSource = `import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS, PhysicalObject, PremiumPhysicalStage} from '../../../../../../src/design-system';
+import {ANIMATION_COLORS, PhysicalAccount, PhysicalBill, PhysicalCoinStack, PremiumPhysicalStage} from '../../../../../../src/design-system';
 
 /**
+ * MECHANIC_ID: cash-exchange-becomes-euro-balance
+ * PRIMARY_ACTION: Ein konkreter Geldstapel bewegt sich von einer Wechselquittung zu einem realen Euro-Konto, während Betrag, Quittungsstatus und Kontozustand sichtbar gemeinsam wechseln.
+ *
  * ANIMATION_NARRATIVE
- * START: Ein großer lokaler Währungschip steht als klarer Ausgangswert im linken Teil der Visualzone.
- * MECHANISM: Der Chip bewegt sich sichtbar durch die Umrechnung, während ein zweites physisches Ergebnisobjekt erscheint.
- * RESULT: Der umgerechnete Eurobetrag bleibt als klarer physischer Endzustand stabil stehen.
+ * START: Eine reale Wechselquittung, ein lokaler Geldstapel und ein neutrales Zielkonto stehen als verständliche Ausgangssituation auf der Bühne.
+ * MECHANISM: Der Geldstapel wandert sichtbar von der Quittung zum Euro-Konto, während die Quittung kleiner wird und das Zielkonto in den bestätigten Zustand wechselt.
+ * RESULT: Der Eurobetrag steht stabil auf dem Konto und die abgeschlossene Quittung bleibt als nachvollziehbarer Ursprung daneben sichtbar.
  *
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Der große lokale Währungschip ist das sofort erkennbare Hauptmotiv der Szene.
- * SUPPORT: Nur der Ergebnis-Chip unterstützt die Erklärung; keine feste Support-Objekt-Anzahl wird erzwungen.
- * MATERIAL: Neutraler Ivory-Chip wird durch Emerald-Fokus und Gold für den Geld-Endwert ergänzt.
- * DEPTH: Beide Objekte besitzen sichtbare Dicke und klare räumliche Trennung auf transparentem Stage.
+ * HERO: Geldstapel, Quittung und Konto bilden eine konkrete reale Umrechnungssituation statt einer abstrakten Kartenreihe.
+ * SUPPORT: Kurze Beträge erklären nur Start und Ergebnis; die physische Bewegung des Geldes trägt die eigentliche Aussage.
+ * MATERIAL: Ivory-Papier, Gold für Geld und Emerald für den bestätigten Euro-Endzustand verbinden die Szene mit der FinanzNeo-Welt.
+ * DEPTH: Quittung links, bewegter Geldstapel mittig und Konto rechts liegen auf gestaffelten Z-Ebenen mit klarer Leserichtung.
  *
  * Der Stage erzeugt keinen eigenen Hintergrund. Die Szene liegt auf dem zentralen
  * statischen schwarzen Reel-Canvas. Die Bewegung folgt ausschließlich der
@@ -65,34 +68,45 @@ export const Scene02Animation: React.FC<{durationFrames?: number}> = ({durationF
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
+  const receiptSettle = interpolate(frame, [34, 82], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
   const resultScale = interpolate(travel, [0.55, 1], [0.72, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+  const confirm = interpolate(frame, [70, 105], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
 
   return (
     <PremiumPhysicalStage>
-      <PhysicalObject
-        material="neutral"
-        width={390}
-        height={240}
-        x={120 + travel * 210}
-        y={650}
-        scale={1 - travel * 0.08}
-      >
-        <div style={{fontSize: 52, fontWeight: 900, padding: 50, textAlign: 'center'}}>100 LOKAL</div>
-      </PhysicalObject>
-      <PhysicalObject
-        material="money"
-        width={360}
-        height={220}
-        x={590}
-        y={665}
+      <PhysicalBill
+        x={90}
+        y={650 + receiptSettle * 18}
+        label="Wechsel"
+        amount="100 Lokal"
+        scale={0.72 - receiptSettle * 0.08}
+        opacity={1 - receiptSettle * 0.18}
+        paid={confirm > 0.7}
+      />
+      <PhysicalCoinStack
+        x={345 + travel * 260}
+        y={735 - travel * 55}
+        count={5}
+        scale={0.82 - travel * 0.08}
+      />
+      <PhysicalAccount
+        x={650}
+        y={650 - confirm * 12}
+        label="Euro-Konto"
+        balance="108 €"
+        state={confirm > 0.55 ? 'protected' : 'normal'}
         scale={resultScale}
-        opacity={travel}
-      >
-        <div style={{fontSize: 58, fontWeight: 900, padding: 46, textAlign: 'center', color: ANIMATION_COLORS.money}}>108 €</div>
-      </PhysicalObject>
+      />
+      <div style={{position:'absolute',left:700,top:900,opacity:confirm,color:ANIMATION_COLORS.positive,fontSize:28,fontWeight:900}}>UMGERECHNET</div>
     </PremiumPhysicalStage>
   );
 };
