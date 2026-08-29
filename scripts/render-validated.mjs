@@ -108,5 +108,24 @@ if (existsSync(finalOutput)) rmSync(finalOutput, {force: true});
 renameSync(candidateOutput, finalOutput);
 
 console.log('\n✓ FINAL_RENDER_QA_PASSED');
-console.log(`  Erst jetzt freigegebenes Final-MP4: ${finalOutput}`);
-console.log('  Nächster Schritt: reel:export. Export prüft den QA-Hash erneut.');
+console.log(`  Freigegebenes Final-MP4: ${finalOutput}`);
+console.log('  Starte jetzt automatisch den finalen Export nach 06-export/.');
+
+const exportResult = spawnSync(process.execPath, [
+  resolve('scripts/export-reel.mjs'),
+  reelProject,
+  finalOutput,
+], {stdio: 'inherit'});
+
+if (exportResult.error) {
+  console.error(`\n✗ Automatischer Export konnte nicht gestartet werden: ${exportResult.error.message}`);
+  process.exit(1);
+}
+if (exportResult.status !== 0) {
+  console.error('\n✗ Render-QA war erfolgreich, aber der automatische 06-export ist fehlgeschlagen.');
+  console.error('  Das Reel gilt erst als FINAL_COMPLETE, wenn 06-export vollständig erstellt wurde.');
+  process.exit(exportResult.status ?? 1);
+}
+
+console.log('\n✓ FINAL_COMPLETE');
+console.log('  Finales Reel + universelle Reel-Caption liegen automatisch in 06-export/.');
