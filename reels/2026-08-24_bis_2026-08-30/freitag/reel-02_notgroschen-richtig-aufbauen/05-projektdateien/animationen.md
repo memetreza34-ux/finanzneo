@@ -1,14 +1,42 @@
 # Animationen — Phase 1
 
-Lock: finanzneo-phase1-animation-code-v1
-Premium-Lock: finanzneo-premium-physical-animation-v2
+Lock: finanzneo-phase1-animation-code-v1  
+Premium-Lock: finanzneo-premium-physical-animation-v2  
 Visuelles Ziel: finanzneo-stylized-3d-animated-black-v9
 
-Jede Animationsszene besitzt bereits ihre kanonische produktionsreife animation.tsx. Phase 3 darf sie nicht ersetzen oder vereinfachen. PremiumPhysicalStage bleibt transparent; der zentrale Reel-Canvas ist statisch #000000. Sichtbare Animation bleibt hart in Y320–1400.
+Jede Animationsszene besitzt ihre kanonische `animation.tsx`. Phase 3 darf sie nicht ersetzen oder vereinfachen. `PremiumPhysicalStage` bleibt transparent; der zentrale Reel-Canvas ist statisch `#000000`. Sichtbare Animation bleibt hart in Y320–1400.
 
-- scene-02: Dafür ist der Notgroschen da — 03-szenen/EINZELNE-SZENEN/scene-02/animation.tsx — Export Scene02Animation
-- scene-04: Der Puffer stoppt Schulden — 03-szenen/EINZELNE-SZENEN/scene-04/animation.tsx — Export Scene04Animation
-- scene-06: Die richtige Höhe ist individuell — 03-szenen/EINZELNE-SZENEN/scene-06/animation.tsx — Export Scene06Animation
-- scene-09: Starte mit einem ersten Puffer — 03-szenen/EINZELNE-SZENEN/scene-09/animation.tsx — Export Scene09Animation
-- scene-11: Trenne Puffer und Alltag — 03-szenen/EINZELNE-SZENEN/scene-11/animation.tsx — Export Scene11Animation
-- scene-14: Der Puffer kauft dir Zeit — 03-szenen/EINZELNE-SZENEN/scene-14/animation.tsx — Export Scene14Animation
+## Neuer Qualitätsstandard
+
+Animationen sind kleine visuelle Geschichten in derselben realitätsnahen stylized-3D-Welt wie die Flow-Bilder:
+
+- reale Gegenstände und Situationen zuerst;
+- START → sichtbare physische Aktion → eindeutiges Ergebnis;
+- jede Animationsszene braucht eine eigene Mechanik (`MECHANIC_ID`);
+- mehrere koordinierte Motion-Channels statt einer einzigen Progress-Variable;
+- deutsche Labels nur unterstützend;
+- generische Kartenreihen dürfen niemals die Hauptsprache sein;
+- Fortschritts-/Ladebalken dürfen niemals die eigentliche Animation ersetzen;
+- Ergebnis bleibt mindestens 15 Frames stabil.
+
+## Dieses Reel
+
+- **scene-02 — Dafür ist der Notgroschen da**  
+  `emergency-reserve-pays-real-bill` — kaputte Waschmaschine → Reparaturrechnung → Notgroschen bezahlt → Girokonto geschützt.
+
+- **scene-04 — Der Puffer stoppt Schulden**  
+  `buffer-intercepts-before-overdraft` — Rechnung nähert sich Girokonto/Dispo → Notgroschen fängt sie physisch ab → Dispo verschwindet.
+
+- **scene-06 — Die richtige Höhe ist individuell**  
+  `obligations-raise-reserve-target` — Miete/Fixkosten/Mobilität erscheinen nacheinander → sichtbares Reserve-Ziel wächst mit den Verpflichtungen.
+
+- **scene-09 — Starte mit einem ersten Puffer**  
+  `monthly-deposits-fill-reserve` — Kalender wechselt Monat für Monat → 50-€-Einzahlungen wandern in die Reserve → erster Puffer wird erreicht.
+
+- **scene-11 — Trenne Puffer und Alltag**  
+  `salary-splits-into-separate-reserve` — Geld trennt sich vom Girokonto zum Tagesgeld → Alltagsausgaben belasten nur Giro → Reserve bleibt separat.
+
+- **scene-14 — Der Puffer kauft dir Zeit**  
+  `reserve-stops-countdown-and-opens-options` — kaputte Waschmaschine + Rechnung + Countdown → Notgroschen bezahlt → Countdown stoppt → Entscheidungsoptionen öffnen sich.
+
+Kanonische Dateien liegen jeweils unter `03-szenen/EINZELNE-SZENEN/scene-XX/animation.tsx`.
