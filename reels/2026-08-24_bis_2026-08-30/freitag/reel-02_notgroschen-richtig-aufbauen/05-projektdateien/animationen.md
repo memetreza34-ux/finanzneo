@@ -41,6 +41,10 @@ Animationen sind kleine visuelle Geschichten in derselben realitätsnahen styliz
 
 Kanonische Dateien liegen jeweils unter `03-szenen/EINZELNE-SZENEN/scene-XX/animation.tsx`.
 
+## Phase-3-Priorität
+
+Für die tatsächliche Animation ist **immer die aktuelle kanonische `animation.tsx` die technische Wahrheit**. Ältere Kurzbeschreibungen, `mainIdea`-Texte oder historische `animationIntent`-Formulierungen dürfen den versiegelten Code weder überschreiben noch zurück in eine abstrakte Karten-/Symbolanimation interpretieren. Phase 3 bindet exakt den Export aus der versiegelten Datei ein.
+
 ## CINEMATIC REAL-WORLD ANIMATIONSVERTRAG
 Premium Visual Lock: finanzneo-premium-physical-animation-v2
 Visual Target World: finanzneo-stylized-3d-animated-black-v9
