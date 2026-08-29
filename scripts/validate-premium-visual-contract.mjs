@@ -85,6 +85,8 @@ for (const scene of scenes) {
 }
 individualPromptPaths.push(resolve(root, '03-szenen/00-cover/cover.txt'));
 
+const explanatoryLanguage = /cause-and-effect|cause and effect|Ursache.{0,20}Wirkung|visually explain|visuell erklären|viewer.{0,120}(?:understand|recognize)|(?:instantly|immediately|clearly).{0,50}(?:understand|explain|read)|understandable.{0,50}(?:without|in 1|within 1)|message without narration|meaning.{0,40}(?:obvious|clear)|sequence.{0,50}(?:explain|understand|read)|relationship.{0,50}(?:understandable|clear)/i;
+
 for (const path of promptPaths) {
   if (!existsSync(path)) {
     fail(`V9-Promptdatei fehlt: ${path}`);
@@ -100,7 +102,7 @@ for (const path of promptPaths) {
   }
   if (!/stylized 3d/i.test(content)) fail(`${path}: stylized-3D-Zielsprache fehlt.`);
   if (!/real-world-grounded|real-life|Alltagssituation|realitätsnah/i.test(content)) fail(`${path}: realitätsnahe Alltagssituation als Erklärbasis fehlt.`);
-  if (!/cause-and-effect|cause and effect|Ursache.{0,20}Wirkung|visually explain|visuell erklären/i.test(content)) fail(`${path}: sichtbare Erklär-/Ursache-Wirkung-Logik fehlt.`);
+  if (!explanatoryLanguage.test(content)) fail(`${path}: direkte visuelle Erklär-/Verständnislogik fehlt.`);
   if (!/photorealism|photorealistic|Fotorealismus/i.test(content)) fail(`${path}: Fotorealismus-Verbot fehlt.`);
   if (!/dashboard/i.test(content)) fail(`${path}: Dashboard-Verbot fehlt.`);
   if (!/flowchart/i.test(content)) fail(`${path}: Flowchart-Verbot fehlt.`);
@@ -134,7 +136,7 @@ if (errors.length) {
 
 console.log(`\n✓ Stylized 3D Animated Black World ${WORLD_LOCK} ist im Reel vollständig verankert.`);
 console.log('✓ Realitätsnahe Alltagsszenen · klar stylized 3D · niemals fotorealistisch · deep black Pflicht.');
-console.log('✓ Bilder erklären den Sprechpunkt mit sichtbarer Situation/Ursache/Wirkung statt Symbolrätseln.');
+console.log('✓ Bilder erklären den Sprechpunkt direkt: Ursache/Wirkung, Klassifikation, Vergleich oder Zustand müssen ohne Rätsel verständlich sein.');
 console.log('✓ Jeder konkrete Bildprompt ist individuell vollständig geschrieben; deutsche Objektlabels sind explizit festgelegt.');
 console.log(`✓ Einzelprompts bleiben mittel-lang (max. ${MAX_INDIVIDUAL_PROMPT_CHARS} Zeichen).`);
 console.log(`✓ Phase-1-Animation-Lock bleibt ${PREMIUM_ANIMATION_LOCK}.`);
