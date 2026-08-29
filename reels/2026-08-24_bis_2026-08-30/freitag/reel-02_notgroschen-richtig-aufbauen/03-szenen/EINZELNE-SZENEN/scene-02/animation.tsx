@@ -1,34 +1,93 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS, PhysicalObject, PhysicalRail, PremiumPhysicalStage} from '../../../../../../../src/design-system';
+import {
+  ANIMATION_COLORS,
+  PhysicalAccount,
+  PhysicalBill,
+  PhysicalReserveTank,
+  PhysicalTag,
+  PhysicalWasher,
+  PremiumPhysicalStage,
+} from '../../../../../../../src/design-system';
 
 /**
+ * MECHANIC_ID: emergency-reserve-pays-real-bill
+ * PRIMARY_ACTION: Eine echte Reparaturrechnung fällt sichtbar in die Alltagssituation, wird vom griffbereiten Notgroschen übernommen und als bezahlt markiert, während das Girokonto stabil bleibt.
+ *
  * ANIMATION_NARRATIVE
- * START: Ein goldener Reserveblock liegt ungeschützt neben einer unerwarteten roten Kostenkarte.
- * MECHANISM: Ein Emerald-Schutzschild fährt zwischen Kostenkarte und Reserve und ordnet das Geld sichtbar als Notfallpuffer.
- * RESULT: Die Kostenkarte bleibt abgefangen, während der geschützte Notgroschen stabil und griffbereit stehen bleibt.
+ * START: Eine defekte Waschmaschine steht neben einem normalen Girokonto; die unerwartete Reparaturrechnung fällt von oben in die Szene.
+ * MECHANISM: Der Notgroschen wird sichtbar verfügbar, die Rechnung bewegt sich vom Haushaltsproblem zur Reserve und der Reservestand sinkt kontrolliert um den bezahlten Betrag.
+ * RESULT: Die Rechnung trägt klar den Status BEZAHLT, das Girokonto bleibt geschützt und der Zuschauer versteht ohne Ton, wofür der Notgroschen gedacht ist.
  *
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Ein großes physisches Hauptobjekt trägt die Kernaussage und bleibt sofort erkennbar.
- * SUPPORT: Nur direkt erklärende Nebenobjekte ergänzen den Mechanismus; ihre Anzahl bleibt flexibel.
- * MATERIAL: Ivory und Gold zeigen neutrale Reserve und Geld, Emerald zeigt Schutz, Rot-Orange zeigt Kostenrisiko.
- * DEPTH: Gestaffelte Objektpositionen, sichtbare Dicke und klare Lichttrennung erzeugen räumliche Tiefe auf transparentem Stage.
- *
- * Der Stage bleibt transparent und nutzt ausschließlich den zentralen statischen Reel-Canvas.
- * Die Bewegung erklärt den gesprochenen Inhalt und endet in einem stabilen Ergebnis.
+ * HERO: Die defekte Waschmaschine und die konkrete Reparaturrechnung bilden eine glaubwürdige Alltagssituation statt eines abstrakten Finanzsymbols.
+ * SUPPORT: Girokonto, gefüllter Notgroschen-Behälter und ein kurzes deutsches Label erklären nur die notwendige finanzielle Folge.
+ * MATERIAL: Reale Weiß-/Grautöne für die Waschmaschine und Rechnung, Gold für die Reserve, Emerald für den geschützten Zustand und Rot nur für den Defekt.
+ * DEPTH: Waschmaschine, Rechnung, Konto und Reserve stehen auf gestaffelten Z-Ebenen; Schatten, Materialkanten und leichte Perspektive halten die Szene räumlich.
  */
-export const RESULT_HOLD_FRAMES = 18;
+export const RESULT_HOLD_FRAMES = 20;
+
+const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 
 export const Scene02Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 150}) => {
   const frame = useCurrentFrame();
-  const endFrame = Math.max(48, durationFrames - RESULT_HOLD_FRAMES - 8);
-  const progress = interpolate(frame, [8, endFrame], [0, 1], {extrapolateLeft:'clamp', extrapolateRight:'clamp'});
-  const settle = interpolate(progress, [0.72, 1], [0, 1], {extrapolateLeft:'clamp', extrapolateRight:'clamp'});
+  const resultStart = Math.max(105, durationFrames - RESULT_HOLD_FRAMES - 5);
+
+  const billFall = interpolate(frame, [4, 38], [0, 1], clamp);
+  const reserveReady = interpolate(frame, [24, 58], [0, 1], clamp);
+  const payMove = interpolate(frame, [52, resultStart], [0, 1], clamp);
+  const protectedSettle = interpolate(frame, [82, resultStart], [0, 1], clamp);
+  const problemEmphasis = interpolate(frame, [0, 26, 58], [0.94, 1.04, 1], clamp);
+
+  const billX = 335 + payMove * 285;
+  const billY = 405 + billFall * 270 - payMove * 18;
+  const billScale = 0.82 - payMove * 0.13;
+  const reserveFill = 0.82 - payMove * 0.20;
+
   return (
     <PremiumPhysicalStage>
-      <PhysicalObject material="money" width={360} height={230} x={560} y={650} scale={0.9 + settle * 0.1}><div style={{fontSize:54,fontWeight:900,padding:52,textAlign:'center',color:ANIMATION_COLORS.money}}>RESERVE</div></PhysicalObject>
-      <PhysicalObject material="warning" width={290} height={190} x={80 + progress * 250} y={680} opacity={1 - settle * 0.35}><div style={{fontSize:42,fontWeight:900,padding:42,textAlign:'center',color:ANIMATION_COLORS.neutralText}}>KOSTEN</div></PhysicalObject>
-      <PhysicalObject material="positive" width={120} height={360} x={470} y={590} scale={0.72 + progress * 0.28}><div style={{fontSize:68,fontWeight:900,paddingTop:120,textAlign:'center',color:ANIMATION_COLORS.positive}}>✓</div></PhysicalObject>
+      <PhysicalWasher x={72} y={610} broken scale={problemEmphasis} />
+
+      <PhysicalBill
+        x={billX}
+        y={billY}
+        label="Reparatur"
+        amount="280 €"
+        rotate={-7 + payMove * 9}
+        scale={billScale}
+        paid={payMove > 0.78}
+      />
+
+      <PhysicalReserveTank
+        x={710}
+        y={590}
+        width={250}
+        height={365}
+        fill={reserveFill}
+        label="Notgroschen"
+        scale={0.88 + reserveReady * 0.12}
+        opacity={0.55 + reserveReady * 0.45}
+      />
+
+      <PhysicalAccount
+        x={365}
+        y={1010 - protectedSettle * 18}
+        label="Girokonto"
+        balance="geschützt"
+        state={protectedSettle > 0.55 ? 'protected' : 'normal'}
+        scale={0.94 + protectedSettle * 0.06}
+      />
+
+      <div style={{
+        position: 'absolute',
+        left: 710,
+        top: 1010,
+        opacity: protectedSettle,
+        transform: `translateY(${(1 - protectedSettle) * 20}px)`,
+        color: ANIMATION_COLORS.positive,
+      }}>
+        <PhysicalTag material="positive" style={{fontSize: 25}}>GRIFFBEREIT</PhysicalTag>
+      </div>
     </PremiumPhysicalStage>
   );
 };
