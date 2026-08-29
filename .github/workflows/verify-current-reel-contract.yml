@@ -1,0 +1,25 @@
+name: Verify Current Reel Contract
+
+on:
+  push:
+    branches:
+      - reel/notgroschen-test-v1
+    paths:
+      - '.github/workflows/verify-current-reel-contract.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: reel/notgroschen-test-v1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run reel:validate -- reels/2026-08-24_bis_2026-08-30/freitag/reel-02_notgroschen-richtig-aufbauen
