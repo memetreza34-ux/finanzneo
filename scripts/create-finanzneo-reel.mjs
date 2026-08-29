@@ -2,7 +2,7 @@
 
 // Legt ein neues Reel atomar an: Grundgerüst + Google-Flow-Lock +
 // Stylized 3D Animated Black World V9 + Phase-3-Fertigkeitsvertrag + Reel-V5-Layout +
-// kanonischer Phase-1-Animationscode + Premium-Physical-Animation V2 +
+// kanonischer Phase-1-Animationscode + Cinematic Real-World Animation Contract +
 // scene-01-als-Cover + automatischer Finalexport.
 // Scheitert einer der Schritte, wird ein in diesem Lauf neu erzeugter Reel-Ordner
 // vollständig zurückgerollt.
@@ -65,7 +65,9 @@ console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob · kei
 console.log('  Bildwelt V9: realitätsnahe Erklärszene · stylized 3D · nicht fotorealistisch · deep black Pflicht.');
 console.log('  Cover: scene-01 ist automatisch das Cover · kein separater Cover-Job · kein Bild 00.');
 console.log('  Layout V5: Header Y154 · 56 px · max. 2 Zeilen · Visual Y320–1400 · Captions bottom340.');
+console.log('  Header: optisch normalisierte Icons · fester Slot · bei Zweizeilern immer an erster Textzeile ausgerichtet.');
 console.log('  Animation Safe Zone: hart Y320–1400 · kein Eindringen in Header/Caption.');
-console.log('  Animation V2: Phase-1-Code bleibt kanonisch und muss visuell zur V9-Bildwelt passen.');
+console.log('  Animation: reale stylized-3D-Situation · eigene MECHANIC_ID · physische Ursache/Wirkung · keine Karten-/Balken-Ersatzanimation.');
+console.log('  Phase 1 muss jede placeholder animation.tsx individuell zum Sprechpunkt produktionsreif ausarbeiten; der Validator blockiert generische Ersatzmechaniken.');
 console.log('  Phase 3: MP4 allein gilt nicht als fertig · jede Szene braucht Visual · Post-Render-QA + Hash-Gate vor Export.');
 console.log('  Export: nach bestandenem Render-QA automatisch nach 06-export/ + caption-universal.txt.');
