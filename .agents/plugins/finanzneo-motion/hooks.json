@@ -4,7 +4,7 @@
       {
         "type": "command",
         "command": "node scripts/antigravity-motion-bootstrap.mjs",
-        "timeout": 120
+        "timeout": 240
       }
     ]
   }
