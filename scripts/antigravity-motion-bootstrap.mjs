@@ -67,7 +67,7 @@ if (manual) {
     process.exitCode = 1;
   }
 } else {
-  let input = {};
+  let input;
   try {
     const raw = readFileSync(0, 'utf8').trim();
     input = raw ? JSON.parse(raw) : {};
