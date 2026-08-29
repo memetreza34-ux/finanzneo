@@ -143,8 +143,9 @@ if (mitFrames.length === scenes.length && scenes.length > 0) {
 }
 
 // Per-Reel-Style-Metadaten sind nur beschreibend. REEL_STYLE im Code gewinnt.
-if (index.sceneHeader?.headlineColor && index.sceneHeader.headlineColor !== 'finance-green') {
-  warnings.push(`scene-index.sceneHeader.headlineColor="${index.sceneHeader.headlineColor}" ist veraltet; gerendert wird zentral nach REEL_STYLE (finance-green).`);
+// V5 rendert die Headline zentral weiß (#FFFFFF); semantische Farbe lebt im Icon.
+if (index.sceneHeader?.headlineColor && index.sceneHeader.headlineColor !== 'white') {
+  warnings.push(`scene-index.sceneHeader.headlineColor="${index.sceneHeader.headlineColor}" ist veraltet; gerendert wird zentral nach REEL_STYLE weiß (#FFFFFF).`);
 }
 if (Number(index.transitionContract?.continuityFramesMax) > 4) {
   warnings.push(`scene-index.transitionContract.continuityFramesMax=${index.transitionContract.continuityFramesMax} ist veraltet; REEL_STYLE begrenzt auf max. 4 Frames.`);
