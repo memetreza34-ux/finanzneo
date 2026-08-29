@@ -40,6 +40,23 @@ jobs:
       - name: Apply conflict-safe migration
         run: node scripts/tmp-final-integration-audit.mjs
 
+      - name: Align readiness with universal caption
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/lib/reel-readiness.mjs')
+          s = p.read_text()
+          old = """    PLATFORM_PUBLISHING_FILES.masterCaption,
+              PLATFORM_PUBLISHING_FILES.instagramReels,
+              PLATFORM_PUBLISHING_FILES.tiktok,
+              PLATFORM_PUBLISHING_FILES.facebookReels,
+              PLATFORM_PUBLISHING_FILES.snapchat,""".replace('              ', '    ')
+          new = "    PLATFORM_PUBLISHING_FILES.universalCaption,"
+          if old not in s:
+              raise SystemExit('Expected old readiness publishing block not found')
+          p.write_text(s.replace(old, new))
+          PY
+
       - name: Install dependencies
         run: npm ci
 
@@ -67,6 +84,7 @@ jobs:
           grep -q '"reel:export": "node scripts/export-reel.mjs"' package.json
           grep -q 'Playwright Visual QA' reels/PRODUKTIONSSTANDARD.md
           grep -q 'keine separaten Plattform-Captiondateien' docs/PLATFORM-PUBLISHING.md
+          grep -q 'PLATFORM_PUBLISHING_FILES.universalCaption' scripts/lib/reel-readiness.mjs
 
       - name: Remove one-time helpers
         run: |
