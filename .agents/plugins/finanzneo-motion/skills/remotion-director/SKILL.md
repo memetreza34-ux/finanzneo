@@ -1,6 +1,6 @@
 ---
 name: remotion-director
-description: Directs FinanzNeo animation scenes as cinematic, deterministic Remotion stories using real-world objects, multiple motion channels, 3D depth, Lottie only as support, and synchronized sound cues.
+description: Directs FinanzNeo animation scenes as cinematic, deterministic Remotion stories using real-world objects, multiple motion channels, 3D depth, paths/shapes, controlled motion blur, Lottie only as support, and synchronized sound cues.
 ---
 
 # FinanzNeo Remotion Director
@@ -30,11 +30,15 @@ Do not create a second reel when an existing reel is the target.
 Use the clearest medium for each part of a scene:
 
 - **Remotion HTML/CSS primitives**: paper, accounts, labels, simple physical objects and layout.
-- **React Three Fiber / Three.js**: perspective, depth, camera moves or genuinely spatial interactions.
+- **React Three Fiber / Three.js + `@remotion/three`**: perspective, depth, camera moves or genuinely spatial interactions.
+- **`@remotion/paths`**: animated paths only when a visible route/connection itself explains the mechanism.
+- **`@remotion/shapes`**: clean deterministic vector primitives where custom DOM/SVG would be noisier.
+- **`@remotion/motion-blur`**: selective blur for genuinely fast hero/support movement; never blur captions/header or use it to hide weak motion.
+- **`@remotion/transitions`**: respect the central Reel transition contract; do not invent scene-local transition styles that break consistency.
 - **Lottie**: small vector motion, icon acting, calendar flip, check/warning accents, chart strokes and micro-motion.
 - **Flow image**: detailed static explanatory scene when animation adds little value.
 
-Lottie and Three are tools inside the Remotion composition. Remotion remains the timeline and rendering authority.
+Lottie, Three, paths, shapes and motion blur are tools inside the Remotion composition. Remotion remains the timeline and rendering authority.
 
 ## Required narrative
 
@@ -84,15 +88,40 @@ Do not drive all objects with one identical progress value.
 
 Objects must feel different:
 
-- heavy appliance / large bill: slower and weighted
+- heavy appliance / large container: slower and weighted
+- invoice/paper: light slide/fall with a small settle
 - money: quick controlled spring
-- paper: light slide/fall with small settle
 - account: restrained recoil/stabilization
 - warning: short sharp emphasis, never flashing constantly
 - calendar: crisp page turn
 - confirmation: fast clean pop then hold
 
 Use `useCurrentFrame()` with `interpolate()`, `spring()` and intentional easing. Do not use CSS keyframe animation or CSS transitions for rendered motion.
+
+## Motion blur
+
+Use motion blur sparingly and semantically:
+
+Good:
+
+- fast money transfer
+- short paper whip/slide
+- quick foreground object movement
+
+Bad:
+
+- permanent blur
+- blurred text/labels
+- blur on slow objects
+- blur used to make a weak animation look more active
+
+The unblurred result state must always hold clearly.
+
+## Paths and shapes
+
+Animated lines/paths are allowed only when they communicate a real path, e.g. money moving from Girokonto to Tagesgeld.
+
+Do not regress into abstract flowcharts. A path supports concrete objects; it does not replace them.
 
 ## Camera and depth
 
@@ -151,6 +180,18 @@ Typical event mapping:
 
 SFX timing follows visible motion frames. Voiceover remains dominant.
 
+## Representative-frame review
+
+Inspect at least:
+
+- start
+- trigger
+- mid-mechanism
+- near-result
+- final result hold
+
+For spatial scenes, also verify that no hero/support object crosses header/caption safe zones during its path.
+
 ## Quality checklist
 
 Reject and redesign the animation if any is true:
@@ -158,11 +199,13 @@ Reject and redesign the animation if any is true:
 - it looks like PowerPoint, a dashboard or an app UI;
 - the meaning depends mainly on labels;
 - the action is too small to notice;
-- only one object meaningfully moves;
+- only one object meaningfully moves when the idea naturally supports richer cause/effect;
 - all objects move with the same timing;
 - a progress bar carries the explanation;
 - the viewer must interpret abstract finance symbols;
 - Lottie becomes the entire scene without a concrete reason;
+- path/shape graphics turn the scene into a flowchart;
+- motion blur hides readability;
 - sound cues cannot be attached to clear visible events;
 - result state is not held long enough to understand.
 
@@ -172,9 +215,10 @@ Reject and redesign the animation if any is true:
 2. write one-sentence physical mechanism;
 3. choose hero/support objects;
 4. define motion channels and approximate frame windows;
-5. choose Remotion / Three / Lottie layers;
-6. define sound cues;
-7. implement deterministic code;
-8. preview representative frames in Remotion Studio;
-9. run animation validator;
-10. only then seal Phase 1 animation code.
+5. choose Remotion / Three / Paths / Shapes / Lottie layers;
+6. decide whether selective motion blur adds real value;
+7. define sound cues;
+8. implement deterministic code;
+9. preview representative frames in Remotion Studio;
+10. run animation validator;
+11. only then seal Phase 1 animation code.
