@@ -4,8 +4,23 @@ import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {dirname, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 
-const root = process.cwd();
 const manual = process.argv.includes('--manual');
+let input;
+
+if (manual) {
+  input = {};
+} else {
+  try {
+    const raw = readFileSync(0, 'utf8').trim();
+    input = raw ? JSON.parse(raw) : {};
+  } catch {
+    input = {};
+  }
+}
+
+const root = !manual && Array.isArray(input.workspacePaths) && input.workspacePaths[0]
+  ? input.workspacePaths[0]
+  : process.cwd();
 const marker = resolve(root, '.cache/finanzneo-motion-bootstrap.json');
 const remotionSkill = resolve(root, '.agents/skills/remotion-best-practices/SKILL.md');
 const soundSkill = resolve(root, '.agents/skills/sound-effects/SKILL.md');
@@ -16,7 +31,7 @@ const install = (source, skill = '*') => {
     cwd: root,
     encoding: 'utf8',
     stdio: ['ignore', 'pipe', 'pipe'],
-    timeout: 110_000,
+    timeout: 100_000,
   });
 };
 
@@ -52,6 +67,7 @@ const ensureSkills = () => {
   writeFileSync(marker, JSON.stringify({
     checkedAt: new Date().toISOString(),
     ok,
+    workspace: root,
     remotion: existsSync(remotionSkill),
     soundEffects: existsSync(soundSkill),
   }, null, 2));
@@ -67,14 +83,6 @@ if (manual) {
     process.exitCode = 1;
   }
 } else {
-  let input;
-  try {
-    const raw = readFileSync(0, 'utf8').trim();
-    input = raw ? JSON.parse(raw) : {};
-  } catch {
-    input = {};
-  }
-
   // Bootstrap only once at the beginning of an Antigravity task. Never delay every tool call.
   if (typeof input.invocationNum === 'number' && input.invocationNum > 0) {
     process.stdout.write(JSON.stringify({}));
@@ -89,7 +97,7 @@ if (manual) {
   const result = ensureSkills();
   const message = result.ok
     ? 'FinanzNeo Motion Stack bereit: offizielle Remotion Agent Skills + ElevenLabs sound-effects Skill sind installiert. CLAUDE.md und FinanzNeo-Regeln bleiben die höhere Autorität.'
-    : `FinanzNeo Motion Bootstrap unvollständig. ${result.messages.join(' ')} Bei Bedarf manuell ausführen: npm run antigravity:motion:bootstrap`;
+    : `FinanzNeo Motion Bootstrap unvollständig. ${result.messages.join(' ')} Bei Bedarf im Workspace manuell ausführen: npm run antigravity:motion:bootstrap`;
 
   process.stdout.write(JSON.stringify({
     injectSteps: [{ephemeralMessage: message}],
