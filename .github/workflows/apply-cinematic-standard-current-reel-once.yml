@@ -34,77 +34,20 @@ jobs:
           TARGET='reels/2026-08-24_bis_2026-08-30/freitag/reel-02_notgroschen-richtig-aufbauen'
           node scripts/apply-phase1-animation-code-contract.mjs "$TARGET"
           node scripts/apply-premium-animation-v2.mjs "$TARGET"
-
-      - name: Align canonical agent instructions
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p = Path('CLAUDE.md')
-          s = p.read_text()
-
-          header_anchor = '- lange Titel umbrechen auf maximal zwei Zeilen statt auf kleine Label-Größe zu schrumpfen\n'
-          header_extra = '''- Icon immer in festem Slot und optisch normalisiert; unterschiedliche SVG-ViewBox-Füllungen dürfen nicht wie verschiedene Größen wirken
-- bei zweizeiligen Titeln bleibt das Icon an der **ersten Textzeile** verankert und springt nicht vertikal
-- die gesamte Header-Gruppe bleibt zentriert, der Text innerhalb der Gruppe ist linksbündig, damit der Abstand Icon → erste Textzeile konstant bleibt
-'''
-          if 'Icon immer in festem Slot und optisch normalisiert' not in s:
-              if header_anchor not in s:
-                  raise SystemExit('Header anchor not found in CLAUDE.md')
-              s = s.replace(header_anchor, header_anchor + header_extra, 1)
-
-          animation_anchor = 'Animationen müssen Inhalt **erklären und unterhaltsam visualisieren**, nicht nur Pixel bewegen.\n'
-          animation_extra = '''
-
-### Cinematic Real-World Animation — Pflicht
-
-Eine Animationsszene ist eine **kleine visuelle Geschichte**, keine bewegte Infografik.
-
-Für jede Animationsszene verbindlich:
-
-```text
-REALE AUSGANGSSITUATION
-→ KONKRETE PHYSISCHE HAUPTAKTION
-→ SICHTBARE URSACHE / WIRKUNG
-→ EINDEUTIGES ERGEBNIS
-```
-
-- reale bzw. unmittelbar erkennbare Gegenstände verwenden, wenn der Inhalt sie hergibt: Rechnung, Konto, Waschmaschine, Kalender, Geldstapel, Reservebehälter usw.
-- mindestens zwei konkrete Realwelt-Objekte/-Instanzen tragen die Handlung
-- jede Szene erhält eine eindeutige `MECHANIC_ID`; dieselbe Mechanik nicht mehrfach im Reel wiederholen
-- `PRIMARY_ACTION` beschreibt die wirkliche physische Zustandsänderung
-- mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable
-- deutsche Labels nur unterstützend; die Handlung muss auch ohne Text verständlich sein
-- Animationen müssen visuell dieselbe Qualität und Welt wie die Flow-Bilder erreichen
-
-Als Hauptsprache **verboten**:
-
-- drei beschriftete Kästen/Karten nach dem Muster `A → B → C`
-- Lade- oder Fortschrittsbalken als Ersatz für die eigentliche Animation
-- reine Texttafeln mit Fade/Scale
-- generische Shield-/Arrow-/Coin-Symbolik, wenn eine konkrete Alltagssituation darstellbar ist
-- wiederholte identische Mechanik über mehrere Animationsszenen
-
-Zentrale konkrete Primitives stehen über `src/design-system` bereit: `PhysicalBill`, `PhysicalAccount`, `PhysicalWasher`, `PhysicalReserveTank`, `PhysicalCalendarPage`, `PhysicalCoinStack`. Generische `PhysicalObject`, `PhysicalTag` und `PhysicalRail` sind nur Support; insbesondere `PhysicalRail` darf niemals die Geschichte allein tragen.
-'''
-          if '### Cinematic Real-World Animation — Pflicht' not in s:
-              if animation_anchor not in s:
-                  raise SystemExit('Animation anchor not found in CLAUDE.md')
-              s = s.replace(animation_anchor, animation_anchor + animation_extra, 1)
-
-          p.write_text(s)
-          PY
+          node scripts/tmp-align-cinematic-standard.mjs
 
       - name: Validate current Reel
         run: npm run reel:validate -- reels/2026-08-24_bis_2026-08-30/freitag/reel-02_notgroschen-richtig-aufbauen
 
-      - name: Commit migration and remove one-time workflow
+      - name: Commit migration and cleanup bootstrap
         env:
           FINANZNEO_ALLOW_PROTECTED_CHANGES: '1'
         run: |
           rm .github/workflows/apply-cinematic-standard-current-reel-once.yml
+          rm scripts/tmp-align-cinematic-standard.mjs
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add CLAUDE.md reels/2026-08-24_bis_2026-08-30/freitag/reel-02_notgroschen-richtig-aufbauen .github/workflows/apply-cinematic-standard-current-reel-once.yml
+          git add -A
           if git diff --cached --quiet; then
             echo 'No migration changes to commit.'
           else
