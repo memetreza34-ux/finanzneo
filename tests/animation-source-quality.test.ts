@@ -167,10 +167,15 @@ test('Debug-/Placeholder-Sprache wird nicht als fertige Animation akzeptiert', (
 test('Partikel-/Aurora-Hintergrundkomponenten werden in Animationen blockiert', () => {
   const fixture = buildFixture();
   try {
-    const cheated = fixture.validSource.replace(
-      "import React from 'react';",
-      "import React from 'react';\nconst FNBgParticles = () => null;",
-    );
+    const cheated = fixture.validSource
+      .replace(
+        "import React from 'react';",
+        "import React from 'react';\nconst FNBgParticles = () => null;",
+      )
+      .replace(
+        '<PremiumPhysicalStage>',
+        '<PremiumPhysicalStage>\n      <FNBgParticles />',
+      );
     writeFileSync(fixture.sourcePath, cheated);
     const result = validate(fixture.root);
     assert.notEqual(result.status, 0);
