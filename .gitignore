@@ -29,6 +29,11 @@ dist/
 build/
 .remotion/
 
+# Playwright Visual-QA: lokale Browserzustände, Screenshots und Traces sind temporär
+.playwright-cli/
+playwright-report/
+test-results/
+
 # Voiceover-Dateien bleiben lokal und werden pro Produktion bereitgestellt
 public/audio/*.mp3
 public/audio/*.wav
