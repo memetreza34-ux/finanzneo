@@ -17,11 +17,11 @@ BILDWELT — VERBINDLICH
 Realitätsnahe Alltagssituation als vollständige Erklärszene. Klar stylized 3D statt fotorealistisch. Gegenstände behalten glaubwürdige Proportionen und erkennbare reale Details. Ursache und Wirkung müssen direkt sichtbar sein. Kurze deutsche Objektlabels verwenden, wenn sie Mehrdeutigkeit verhindern. Keine Symbolrätsel, keine generischen Finance-Icon-Kompositionen. Jeder folgende Prompt ist individuell vollständig ausgeschrieben und darf nicht gekürzt oder durch Stichwörter ersetzt werden.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BILD 00 — COVER
+KEIN Bild 00 — Cover ist scene-01
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 00 - Notgroschen Cover.png
+KEIN Bild 00 — Cover ist scene-01
 
 Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
 

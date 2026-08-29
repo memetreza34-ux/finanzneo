@@ -1,5 +1,5 @@
 {
-  "version": 24,
+  "version": 28,
   "title": "Notgroschen richtig aufbauen",
   "phase3Executor": "antigravity",
   "sceneCount": 15,
@@ -16,10 +16,13 @@
     "fps": 30
   },
   "cover": {
-    "type": "image",
-    "googleFlowFileName": "Bild 00 - Notgroschen Cover.png",
+    "type": "scene-image",
+    "sourceSceneId": "scene-01",
+    "googleFlowFileName": "Bild 01 - Unerwartete Kosten.png",
     "planFile": "03-szenen/00-cover/cover.txt",
-    "aspectRatio": "1:1"
+    "aspectRatio": "1:1",
+    "sameAssetAsFirstScene": true,
+    "separateGenerationForbidden": true
   },
   "userCreatesImages": true,
   "antigravityGeneratesImages": false,
@@ -142,7 +145,10 @@
     "instagramReels": "04-caption/instagram-reels.txt",
     "tiktok": "04-caption/tiktok.txt",
     "facebookReels": "04-caption/facebook-reels.txt",
-    "snapchat": "04-caption/snapchat.txt"
+    "snapchat": "04-caption/snapchat.txt",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt",
+    "universalCaptionForAllReelPlatforms": true
   },
   "timelineRules": {
     "timingSource": "04-caption/word-timings.json",
@@ -252,7 +258,11 @@
       "minAnimationMeanAbsDiff": 1,
       "maxBackgroundMean": 12,
       "maxBackgroundStdDev": 4
-    }
+    },
+    "autoExportAfterPassedRenderQa": true,
+    "finalVideoDirectory": "06-export",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt"
   },
   "timingStandard": {
     "imageSceneIdealSeconds": [

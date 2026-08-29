@@ -1,48 +1,33 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
-FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
-FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
-MAX_CONCURRENT_GENERATIONS = 1
+COVER = SZENE 01 — KEIN SEPARATER BILDJOB
 
-AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+Die erste Reel-Szene ist automatisch das Cover. Google Flow darf KEIN zusätzliches Cover und KEIN Bild 00 erzeugen. Für Reel und Cover wird exakt dieselbe fertige Datei aus scene-01 verwendet.
 
+SOURCE_SCENE_ID: scene-01
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 00 - Notgroschen Cover.png
-
-Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
-
-BESCHRIFTUNGEN – EXAKT SO:
-- Notgroschen
-- Reparatur 280 €
-- Dispo
-
-IMAGE PROMPT:
-Create a clear premium stylized 3D finance cover based on one believable everyday emergency. Show a modern washing machine in a normal apartment laundry area with an obvious but not exaggerated defect, such as a small water leak and a warning light. Place a realistic-looking repair invoice next to it labeled “Reparatur 280 €”. Beside the invoice, show a clearly separate money reserve or simple account container labeled “Notgroschen”, with enough visible money to cover the repair. Add a small crossed-out “Dispo” element near the normal bank-account area so the viewer immediately understands that the emergency fund prevents the need to overdraw the account.
-
-The full image must communicate one exact idea without narration: an unexpected household problem appears, the Notgroschen pays for it, and debt is avoided. Do not make the viewer decode symbolic finance objects. The washing machine, invoice, money reserve and banking context must look like recognizable real-life objects with believable proportions and useful detail.
+Bild 01 - Unerwartete Kosten.png
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
+EXACT SHORT GERMAN OBJECT LABELS:
+- exakt dieselben Labels wie im kanonischen Bildprompt von scene-01
+
+IMAGE PROMPT:
+This file does not define a second image and must never start a separate Google Flow generation job. The canonical cover is the exact final image already generated for scene-01. Use the scene-01 image unchanged as the Reel cover so the first visual beat and the thumbnail are identical. The underlying scene must remain a real-world-grounded explanatory situation with visible cause and effect, believable everyday objects and short German object labels only when they improve immediate understanding. It must visually explain the spoken point without requiring interpretation, while remaining clearly stylized 3D and not photorealistic.
+
 STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Keep the washing machine, invoice, bank elements and money physically believable and recognizable, but render everything clearly stylized rather than photorealistic. Use polished materials, slightly simplified surfaces and a high-quality animated-film look. Do not make the objects look like generic icons or toys.
+Keep the exact scene-01 stylized 3D visual language. Real-life context first, believable proportions, polished materials, never photorealistic.
 
 BACKGROUND:
-Use one seamless deep black background. A small believable apartment/laundry context may exist immediately around the washing machine, but it must visually dissolve into the black background. Keep the scene clean and easy to read.
+The deep black background is mandatory and must match scene-01 exactly.
 
 COMPOSITION:
-Build one coherent real-life situation, not a collection of floating symbols. Make the broken washing machine, repair invoice and Notgroschen the clearest elements. The cause-and-effect chain must be visible immediately: defect → repair cost → emergency fund pays → no overdraft. Use only supporting objects that improve this explanation.
+Do not redesign, crop into a different concept or replace scene-01 with symbolic finance icons. The cover is the same asset as the first scene.
 
 BRANDS + LOGOS:
-Do not use any real bank logo or copied banking interface. Any banking element must remain generic, recognizable and stylized in the same 3D world.
-
-COLORS + LIGHT:
-Use warm ivory and soft gray for the washing machine and neutral apartment surfaces, subtle gold for the money reserve, emerald green for the protected solution and warm red-orange only for the defect/cost warning. Use clean soft studio lighting, readable shadows and soft contact shadows.
-
-TEXT:
-Only the requested short German labels may appear: “Notgroschen”, “Reparatur 280 €” and “Dispo”. Keep them large enough to read and attach them clearly to the correct object. No headline, subtitle, CTA or long explanatory sentence.
+If relevant, recognizable but stylized only; never use pasted real logos or screenshot-like branded UI.
 
 FORBIDDEN:
-No photorealism, no stock-photo look, no isolated vault + shield + coins composition, no abstract finance riddle, no generic icon set, no dashboard, no dense app UI, no flowchart, no floating information cards and no decorative clutter.
+No separate cover generation, no Bild 00, no photorealism, no dashboard, no app UI, no flowchart, no abstract symbol-only replacement and no decorative clutter.
