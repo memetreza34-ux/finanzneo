@@ -4,7 +4,7 @@ import { C } from '../tokens';
 // ════════════════════════════════════════════════════════════════════════════
 //  FLAT VECTOR ICONS (FinanzNeo-Stil) — kuratiertes Set, kein externes Paket.
 //  Erweiterbar: neues Icon = neuer Eintrag in PATHS.
-//  Stroke-basiert, übernimmt die Akzentfarbe, optional Glow.
+//  Stroke-basiert und semantisch einfärbbar.
 // ════════════════════════════════════════════════════════════════════════════
 
 const PATHS: Record<string, React.ReactNode> = {
@@ -39,17 +39,67 @@ const PATHS: Record<string, React.ReactNode> = {
 
 export type IconName = keyof typeof PATHS;
 
+// Unterschiedliche SVG-Pfade füllen die gemeinsame 24x24-ViewBox optisch
+// unterschiedlich stark. Für Header werden sie deshalb nicht nur technisch,
+// sondern optisch normalisiert. So wirken Lock/Document/Phone nicht kleiner
+// als Target/Warning/Bank, obwohl alle dieselbe CSS-Größe haben.
+const HEADER_OPTICAL_SCALE: Partial<Record<IconName, number>> = {
+  bank: 0.96,
+  bulb: 1.04,
+  calendar: 1.00,
+  coins: 1.00,
+  document: 1.06,
+  flame: 1.04,
+  hourglass: 1.02,
+  lock: 1.08,
+  phone: 1.08,
+  receipt: 1.05,
+  rocket: 1.02,
+  shield: 1.01,
+  warning: 0.98,
+  wallet: 1.01,
+};
+
 export const Icon: React.FC<{
   name: IconName;
   size?: number;
   color?: string;
   stroke?: number;
   glow?: boolean;
+  opticalNormalize?: boolean;
   style?: React.CSSProperties;
-}> = ({ name, size = 64, color = C.accent, stroke = 2, glow = true, style }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none"
-    stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round"
-    style={{ filter: glow ? `drop-shadow(0 0 ${size * 0.12}px ${color}99)` : undefined, ...style }}>
-    {PATHS[name]}
-  </svg>
-);
+}> = ({
+  name,
+  size = 64,
+  color = C.accent,
+  stroke = 2,
+  glow = true,
+  opticalNormalize = false,
+  style,
+}) => {
+  const opticalScale = opticalNormalize ? (HEADER_OPTICAL_SCALE[name] ?? 1) : 1;
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      strokeWidth={stroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      style={{
+        display: 'block',
+        overflow: 'visible',
+        flex: '0 0 auto',
+        filter: glow ? `drop-shadow(0 0 ${size * 0.12}px ${color}99)` : undefined,
+        transform: `scale(${opticalScale})`,
+        transformOrigin: '50% 50%',
+        ...style,
+      }}
+    >
+      {PATHS[name]}
+    </svg>
+  );
+};

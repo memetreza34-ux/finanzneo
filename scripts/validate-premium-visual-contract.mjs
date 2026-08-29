@@ -67,19 +67,6 @@ for (const key of [
 if ('supportingObjectsMin' in world || 'supportingObjectsMax' in world) fail('Feste Supporting-Object-Min/Max-Werte sind nicht erlaubt.');
 if ('heroUsefulFrameMinRatio' in world || 'heroUsefulFrameMaxRatio' in world) fail('Ein fester Hero-Prozentkorridor ist in V9 nicht erlaubt.');
 
-const requiredPromptMarkers = [
-  `PREMIUM_VISUAL_WORLD_LOCK: ${WORLD_LOCK}`,
-  'stylized 3D animated',
-  'deep black background is mandatory',
-  'Supporting objects have no fixed count',
-  'BRANDS + LOGOS',
-  'recognizable but reinterpret it in the same stylized 3D animated world',
-  'No realism or photorealism',
-  'No dashboard',
-  'no app UI',
-  'no flowchart',
-];
-
 const promptPaths = [
   resolve(root, '03-szenen/bildwelt.txt'),
   resolve(root, '03-szenen/00-cover/cover.txt'),
@@ -98,15 +85,27 @@ for (const scene of scenes) {
 }
 individualPromptPaths.push(resolve(root, '03-szenen/00-cover/cover.txt'));
 
+const explanatoryLanguage = /cause-and-effect|cause and effect|Ursache.{0,20}Wirkung|visually explain|visuell erklären|viewer.{0,120}(?:understand|recognize)|(?:instantly|immediately|clearly).{0,50}(?:understand|explain|read)|understandable.{0,50}(?:without|in 1|within 1)|message without narration|meaning.{0,40}(?:obvious|clear)|sequence.{0,50}(?:explain|understand|read)|relationship.{0,50}(?:understandable|clear)/i;
+
 for (const path of promptPaths) {
   if (!existsSync(path)) {
     fail(`V9-Promptdatei fehlt: ${path}`);
     continue;
   }
   const content = read(path);
-  for (const marker of requiredPromptMarkers) {
-    if (!content.includes(marker)) fail(`${path}: V9-Marker fehlt: ${marker}`);
+  const requiredMarkers = [
+    `PREMIUM_VISUAL_WORLD_LOCK: ${WORLD_LOCK}`,
+    'deep black',
+  ];
+  for (const marker of requiredMarkers) {
+    if (!content.toLowerCase().includes(marker.toLowerCase())) fail(`${path}: V9-Marker fehlt: ${marker}`);
   }
+  if (!/stylized 3d/i.test(content)) fail(`${path}: stylized-3D-Zielsprache fehlt.`);
+  if (!/real-world-grounded|real-life|Alltagssituation|realitätsnah/i.test(content)) fail(`${path}: realitätsnahe Alltagssituation als Erklärbasis fehlt.`);
+  if (!explanatoryLanguage.test(content)) fail(`${path}: direkte visuelle Erklär-/Verständnislogik fehlt.`);
+  if (!/photorealism|photorealistic|Fotorealismus/i.test(content)) fail(`${path}: Fotorealismus-Verbot fehlt.`);
+  if (!/dashboard/i.test(content)) fail(`${path}: Dashboard-Verbot fehlt.`);
+  if (!/flowchart/i.test(content)) fail(`${path}: Flowchart-Verbot fehlt.`);
   if (/\b(?:2|3)[–-](?:4|6)\s+(?:supporting|concrete supporting)/i.test(content)) fail(`${path}: feste Supporting-Object-Anzahl ist nicht erlaubt.`);
   if (/hero.{0,30}45[–-]65\s*%/i.test(content)) fail(`${path}: alter Hero-Prozentkorridor ist in V9 nicht erlaubt.`);
   if (/finanzneo-premium-physical-editorial-v8/.test(content)) fail(`${path}: alter Premium-Physical-V8-Lock darf nicht mehr vorkommen.`);
@@ -116,6 +115,10 @@ for (const path of individualPromptPaths) {
   if (!existsSync(path)) continue;
   const content = read(path);
   if (content.length > MAX_INDIVIDUAL_PROMPT_CHARS) fail(`${path}: Prompt ist mit ${content.length} Zeichen zu lang; V9 verlangt mittel-lange Prompts (max. ${MAX_INDIVIDUAL_PROMPT_CHARS}).`);
+  if (!content.includes('IMAGE PROMPT:')) fail(`${path}: vollständiger IMAGE PROMPT fehlt.`);
+  if (!/BESCHRIFTUNGEN – EXAKT SO:|EXACT SHORT GERMAN OBJECT LABELS:/i.test(content)) fail(`${path}: expliziter deutscher Label-Block fehlt.`);
+  const imagePrompt = content.split('IMAGE PROMPT:')[1]?.split(/\n\nFINANZNEO_WORLD_ID:/)[0]?.trim() ?? '';
+  if (imagePrompt.length < 450) fail(`${path}: individueller Szenenprompt ist zu kurz (${imagePrompt.length} Zeichen); keine Kurzbeschreibung/Stichwortvorlage erlaubt.`);
 }
 
 if (index.phase1AnimationCode?.premiumVisualLock !== PREMIUM_ANIMATION_LOCK) {
@@ -132,7 +135,8 @@ if (errors.length) {
 }
 
 console.log(`\n✓ Stylized 3D Animated Black World ${WORLD_LOCK} ist im Reel vollständig verankert.`);
-console.log('✓ Deep-black Pflicht · nicht realistisch · soft rounded · premium/leicht verspielt · Klarheit vor Objektzahl.');
-console.log('✓ Marken/Logos bleiben erkennbar aber stilisiert; Flat-Paste/Screenshot-Look ist verboten.');
+console.log('✓ Realitätsnahe Alltagsszenen · klar stylized 3D · niemals fotorealistisch · deep black Pflicht.');
+console.log('✓ Bilder erklären den Sprechpunkt direkt: Ursache/Wirkung, Klassifikation, Vergleich oder Zustand müssen ohne Rätsel verständlich sein.');
+console.log('✓ Jeder konkrete Bildprompt ist individuell vollständig geschrieben; deutsche Objektlabels sind explizit festgelegt.');
 console.log(`✓ Einzelprompts bleiben mittel-lang (max. ${MAX_INDIVIDUAL_PROMPT_CHARS} Zeichen).`);
 console.log(`✓ Phase-1-Animation-Lock bleibt ${PREMIUM_ANIMATION_LOCK}.`);

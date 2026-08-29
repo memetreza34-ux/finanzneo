@@ -1,0 +1,48 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Tagesgeld.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Girokonto
+- Tagesgeld
+- Notgroschen
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing why a separate Tagesgeld account is a practical place for an emergency fund. Show a believable personal-finance desk or simple bank-counter context with two clearly different account elements. One everyday account document or card is labeled “Girokonto”. Next to it, show a clearly separate savings-account document or reserve area labeled “Tagesgeld”, containing the money reserve labeled “Notgroschen”.
+
+The viewer must immediately understand that daily spending money stays in the Girokonto while the emergency reserve is kept separately in the Tagesgeld account. Make the separation physical and obvious through placement and containers/documents, not through a flowchart. A simple connection between the two accounts may be visible as a normal transfer relationship, but the scene must remain a believable banking situation rather than an abstract diagram.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. Account documents, cards, money and the desk/bank context must have believable proportions and recognizable details while remaining clearly stylized and non-photorealistic. Avoid generic bank icons and toy-like boxes.
+
+BACKGROUND:
+Use one seamless deep black background. Allow only a small believable desk or bank-counter context that visually dissolves into black. Keep both account areas large and legible.
+
+COMPOSITION:
+Build one coherent scene with a clear left/right or near/far separation between everyday money and the emergency reserve. The meaning must read in 1–2 seconds: Girokonto = daily money, Tagesgeld = separate Notgroschen. Use real banking objects, not abstract financial symbols.
+
+BRANDS + LOGOS:
+Do not use a real bank logo, copied website or app screen. All account materials must be generic but instantly recognizable as banking documents/cards.
+
+COLORS + LIGHT:
+Use warm ivory and soft gray for neutral banking materials, subtle gold for the emergency-fund money, and emerald green to emphasize the separate Tagesgeld solution. Use clean soft studio lighting, readable shadows and soft contact shadows.
+
+TEXT:
+Only the labels “Girokonto”, “Tagesgeld” and “Notgroschen” may appear. Attach each label clearly to the correct account or reserve. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no app dashboard, no screenshot-like account UI, no flowchart, no floating cards, no generic bank-building icon as the whole explanation, no shield/vault symbolism as the main scene and no decorative clutter.

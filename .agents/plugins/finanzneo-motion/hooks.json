@@ -1,0 +1,11 @@
+{
+  "finanzneo-motion-bootstrap": {
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "node scripts/antigravity-motion-bootstrap.mjs",
+        "timeout": 240
+      }
+    ]
+  }
+}

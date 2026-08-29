@@ -39,16 +39,26 @@ export const FLOW_STATE_MACHINE_MARKER = `FLOW_STATE_MACHINE: ${FLOW_STATE_MACHI
 export const SUBTITLE_MODE = 'sentence-with-audio-synced-active-word';
 export const ACTIVE_WORD_COLOR = 'finance-green';
 
-// FinanzNeo veröffentlicht keine YouTube Shorts.
+// Reel-Publishing nutzt genau EINE Caption-Quelle für alle Reel-Plattformen.
 // YouTube ist ausschließlich Longform unter youtube/ — siehe docs/PLATFORM-PUBLISHING.md.
 export const PLATFORM_PUBLISHING_FILES = {
-  masterCaption: `${CAPTION_DIRECTORY}/caption.txt`,
-  instagramReels: `${CAPTION_DIRECTORY}/instagram-reels.txt`,
-  tiktok: `${CAPTION_DIRECTORY}/tiktok.txt`,
-  facebookReels: `${CAPTION_DIRECTORY}/facebook-reels.txt`,
-  snapchat: `${CAPTION_DIRECTORY}/snapchat.txt`,
+  universalCaption: `${CAPTION_DIRECTORY}/caption.txt`,
 };
 
-// Schlüssel und Dateien, die in aktiven Reel-Projekten nicht vorkommen dürfen.
-export const FORBIDDEN_PUBLISHING_KEYS = ['youtubeShorts'];
-export const FORBIDDEN_PUBLISHING_FILES = [`${CAPTION_DIRECTORY}/youtube-shorts.txt`];
+// Alte Plattformvarianten sind verboten, damit Generator, Validator und Export
+// nicht wieder mehrere widersprüchliche Caption-Wahrheiten erzeugen.
+export const FORBIDDEN_PUBLISHING_KEYS = [
+  'youtubeShorts',
+  'masterCaption',
+  'instagramReels',
+  'tiktok',
+  'facebookReels',
+  'snapchat',
+];
+export const FORBIDDEN_PUBLISHING_FILES = [
+  `${CAPTION_DIRECTORY}/youtube-shorts.txt`,
+  `${CAPTION_DIRECTORY}/instagram-reels.txt`,
+  `${CAPTION_DIRECTORY}/tiktok.txt`,
+  `${CAPTION_DIRECTORY}/facebook-reels.txt`,
+  `${CAPTION_DIRECTORY}/snapchat.txt`,
+];

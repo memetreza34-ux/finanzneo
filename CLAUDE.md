@@ -34,16 +34,17 @@ Phase 1 liefert vollständig:
 - natürliche Szenenüberschriften + passende Icons
 - Remotion-Spezifikationen
 - **produktionsreife `animation.tsx` für jede Animationsszene**
-- Master-/Plattform-Captions
+- genau eine universelle Social-Caption: `04-caption/caption.txt`
 
 Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen und Phase 3 keine kreative Animation mehr erfinden muss.
 
 ### Phase 2 — Nutzer
 
-- erzeugt Cover + Szenenbilder mit Google Flow
+- erzeugt die Szenenbilder mit Google Flow; **scene-01 ist automatisch das Cover**, kein separater Cover-Bildjob und kein Bild 00
 - legt alle finalen Bilder exakt benannt in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 - legt genau ein finales Voiceover in `02-audio/`
 - erzeugt echte Wort-Zeitstempel
+- finale Flow-Bilder und das Haupt-Voiceover bleiben Nutzerverantwortung; kein Agent ersetzt oder generiert sie eigenmächtig
 
 ### Phase 3 — Antigravity oder Claude Code
 
@@ -54,11 +55,15 @@ Phase 3 darf ausschließlich:
 - finale Nutzerbilder integrieren
 - den **versiegelten Phase-1-Animationscode** verwenden
 - Timeline, Header und Captions integrieren
+- bereits freigegebene SFX aus dem kanonischen Cue-Plan lokal und framegenau integrieren; optionale SFX dürfen vor dem finalen Render über den konfigurierten Sound-Skill erzeugt werden, niemals das Voiceover
+- Playwright Visual QA gegen die lokale Remotion-Preview ausführen und sichtbare Fehler an der kanonischen Quelle beheben
 - Preflight, Candidate-Render, Render-QA und Export ausführen
 
-Phase 3 darf Animationen **nicht kreativ ersetzen, vereinfachen oder neu erfinden**.
+Phase 3 darf versiegelte Animationen **nicht kreativ ersetzen, vereinfachen oder neu erfinden**. Eine neue Animations-/Lottie-Idee nach dem Seal bedeutet zurück zu Phase 1, Änderung der kanonischen Quelle, erneute Validation und erneutes Seal.
 
 ## 4. Reel-Struktur
+
+**Cover-Regel:** `scene-01` ist immer eine Bildszene und automatisch das Cover. Es wird kein separates Cover und kein `Bild 00` erzeugt. `03-szenen/00-cover/cover.txt` ist nur ein technischer Alias/Vertrag auf das Bild von `scene-01`.
 
 ```text
 01-script/
@@ -110,38 +115,84 @@ PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 ```
 
-Ziel:
+### Kernziel
 
-- klar **nicht realistisch**
-- stylized 3D animated
-- soft rounded shapes
-- vereinfachte, erkennbare Details
-- hochwertige, saubere Materialien
-- premium, freundlich, leicht verspielt
-- Inhalt und Verständlichkeit vor Dekoration
+Die Bilder sind **visuelle Erklärszenen**, keine Dekoration und keine Sammlung hübscher Finanzsymbole.
+
+- Inhalt und Situation **realitätsnah aus dem Alltag gedacht**
+- Rendering klar **stylized 3D**, niemals fotorealistisch
+- reale Gegenstände behalten glaubwürdige Proportionen, Konstruktion und erkennbare Details
+- semi-realistische Objektstruktur und Materialwirkung, aber sichtbar stilisierte Darstellung
+- hochwertig, sauber und professionell; nicht wie Spielzeug oder Icon-Pack
+- der gesprochene Punkt muss im Bild direkt verständlich werden
 - gleiche Welt über das gesamte Reel
+
+### Erklärlogik — Pflicht
+
+Jedes Bild beantwortet visuell:
+
+```text
+Was passiert?
+→ Was ist betroffen?
+→ Was löst oder verändert es?
+```
+
+- konkrete reale Situation zuerst
+- Ursache und Wirkung möglichst im selben Frame sichtbar
+- vollständige, zusammenhängende Szene statt isolierter Einzelobjekte
+- vertraute reale Gegenstände verwenden, wenn sie passen: z. B. Waschmaschine, Rechnung, Konto-Unterlagen, Kalender, Smartphone, Einkaufsbeutel, Haushaltskosten
+- Zuschauer soll die Aussage in ca. 1–2 Sekunden auch ohne Ton verstehen
+- Zuschauer darf keine Metapher entschlüsseln müssen
+- Schild, Pfeil, Münzen, Tresor usw. dürfen nur unterstützen; sie dürfen die reale Situation nie ersetzen
 
 ### Hintergrund
 
 Jedes Flow-Bild nutzt einen **nahtlosen deep-black Hintergrund**.
 
+Ein kleiner realitätsnaher Szenenkontext ist erlaubt, wenn er die Erklärung besser macht, z. B. ein Ausschnitt aus Waschecke, Küche, Schreibtisch oder Bankumgebung. Dieser Kontext muss optisch in die schwarze Welt übergehen und darf nicht vom Inhalt ablenken.
+
 Verboten:
 
 - helle Studiowelt
-- Boden-Wand-Grenze
-- Horizont
-- farbige Hintergrundzonen
+- störende farbige Hintergrundzonen
 - dekorative Partikel-/Glow-Welt
+- Hintergrund, der wichtiger wirkt als die Erklärung
 
 ### Komposition
 
 Es gibt **keine feste Objektanzahl**.
 
-- klare Hauptaussage oder Hauptaktion
-- Support-Objekte nur, wenn sie helfen
-- 1 Objekt kann reichen; mehrere sind erlaubt
+- eine vollständige Hauptsituation oder Hauptaktion
+- so viele reale Kontextobjekte wie nötig, so wenige wie möglich
+- Support-Objekte nur, wenn sie erklären
 - keine Props zum Auffüllen
-- Szene soll in 1–2 Sekunden verständlich sein
+- wichtige Gegenstände groß und sofort erkennbar
+- keine winzige Miniaturdarstellung, in der Rechnung, Label oder Handlung nicht lesbar sind
+- kein generisches Finance-Icon-Arrangement als Haupterklärung
+
+### Deutsche Labels
+
+Kurze deutsche Objektlabels sind **ausdrücklich erlaubt und erwünscht**, wenn sie Mehrdeutigkeit verhindern.
+
+Beispiele:
+
+- `Notgroschen`
+- `Girokonto`
+- `Tagesgeld`
+- `Reparatur 280 €`
+- `Dispo`
+- `Dauerauftrag`
+- `Urlaub`
+- `Shopping`
+
+Regeln:
+
+- Label direkt am passenden Objekt oder Zustand
+- kurz und gut lesbar
+- keine Headline
+- kein Untertitel
+- kein CTA
+- kein langer erklärender Satz
 
 ### Marken und Logos
 
@@ -150,7 +201,7 @@ Wenn inhaltlich nötig:
 - Kernidentität erkennbar, aber in derselben stylized-3D-Welt neu interpretiert
 - keine flach aufgeklebten echten Logos
 - keine Website-/App-Screenshots
-- keine photorealistischen Markenprodukte
+- keine fotorealistischen Markenprodukte
 
 ### Farbrollen
 
@@ -160,26 +211,61 @@ Wenn inhaltlich nötig:
 - Warm Red-Orange = Warnung / Kosten / Verlust
 - Deep Black = Hintergrund
 
-### Text im KI-Bild
+### Prompt-Qualität — Pflicht
 
-- keine Headline
-- kein Untertitel
-- kein erklärender Satz
-- kein CTA
-- nur ausdrücklich verlangte kurze deutsche Labels
+Jeder konkrete Bildprompt wird **individuell und vollständig für exakt den Sprechpunkt geschrieben**.
+
+Verboten:
+
+- nur Stichwörter
+- ein kurzer Ein-Satz-Prompt
+- generische Prompt-Vorlage als fertige Lieferung
+- „Tresor + Schild + Münzen“ als Ersatz für die eigentliche Situation
+- Google Flow die Bedeutung selbst interpretieren lassen
+
+Reihenfolge jedes fertigen Prompts:
+
+```text
+konkrete reale Situation + sichtbare Ursache/Wirkung
+→ exakte kurze deutsche Labels, wenn hilfreich
+→ Style
+→ Background
+→ Composition
+→ Brands/Logos falls relevant
+→ Colors/Light
+→ Text
+→ Forbidden
+```
+
+Einzelprompts bleiben **mittel-lang**, aber vollständig genug, dass Situation, Gegenstände, Beziehung und Aussage eindeutig festgelegt sind.
 
 ### Streng verboten
 
-- Realismus / Photorealismus
-- Produktfoto-Look
-- Dashboard / App UI
+- Fotorealismus / Stockfoto-Look
+- generische Finance-Icon-Komposition als Haupterklärung
+- nur Tresor + Schild + Münzen + Pfeil ohne reale Situation
+- abstraktes Symbolrätsel, das Interpretation verlangt
+- Produktfoto-Look ohne Erklärsituation
+- Dashboard / App UI als Hauptkomposition
 - Flowchart als Hauptkomposition
 - kleine Kästen / Floating-Info-Cards
 - Microchip-/Circuit-Look
-- Miniatur-Diorama
+- winzige Miniatur-Diorama-Darstellung mit schlechter Lesbarkeit
 - unnötiger Clutter
 
-Einzelprompts bleiben **mittel-lang**: konkrete Bildidee zuerst, danach kompakter Stil-/Background-/Forbidden-Block.
+### Bild-QA
+
+Bild verwerfen und **dieselbe Bildnummer neu erzeugen**, wenn:
+
+- es hübsch aussieht, aber den Sprechpunkt nicht direkt erklärt
+- man erst interpretieren muss, was Symbole bedeuten
+- die reale Alltagssituation nicht erkennbar ist
+- Ursache und Wirkung unklar bleiben
+- notwendige deutsche Labels fehlen oder falsch zugeordnet sind
+- reale Gegenstände wie generische Icons/Spielzeug wirken
+- es fotorealistisch wird
+- der Hintergrund nicht deep black bleibt
+- UI/Flowchart/Clutter die Erklärung verdrängen
 
 ## 7. Google Flow — Strict Single Job V3
 
@@ -229,6 +315,9 @@ Reels dürfen diese Werte nicht lokal überschreiben.
 - keine Capsule / Chip / Pill / Box
 - kein automatisches ALL CAPS
 - lange Titel umbrechen auf maximal zwei Zeilen statt auf kleine Label-Größe zu schrumpfen
+- Icon immer in festem Slot und optisch normalisiert; unterschiedliche SVG-ViewBox-Füllungen dürfen nicht wie verschiedene Größen wirken
+- bei zweizeiligen Titeln bleibt das Icon an der **ersten Textzeile** verankert und springt nicht vertikal
+- die gesamte Header-Gruppe bleibt zentriert, der Text innerhalb der Gruppe ist linksbündig, damit der Abstand Icon → erste Textzeile konstant bleibt
 
 ### Visual-Safe-Zone
 
@@ -321,6 +410,38 @@ Pflicht:
 
 Animationen müssen Inhalt **erklären und unterhaltsam visualisieren**, nicht nur Pixel bewegen.
 
+
+### Cinematic Real-World Animation — Pflicht
+
+Eine Animationsszene ist eine **kleine visuelle Geschichte**, keine bewegte Infografik.
+
+Für jede Animationsszene verbindlich:
+
+```text
+REALE AUSGANGSSITUATION
+→ KONKRETE PHYSISCHE HAUPTAKTION
+→ SICHTBARE URSACHE / WIRKUNG
+→ EINDEUTIGES ERGEBNIS
+```
+
+- reale bzw. unmittelbar erkennbare Gegenstände verwenden, wenn der Inhalt sie hergibt: Rechnung, Konto, Waschmaschine, Kalender, Geldstapel, Reservebehälter usw.
+- mindestens zwei konkrete Realwelt-Objekte/-Instanzen tragen die Handlung
+- jede Szene erhält eine eindeutige `MECHANIC_ID`; dieselbe Mechanik nicht mehrfach im Reel wiederholen
+- `PRIMARY_ACTION` beschreibt die wirkliche physische Zustandsänderung
+- mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable
+- deutsche Labels nur unterstützend; die Handlung muss auch ohne Text verständlich sein
+- Animationen müssen visuell dieselbe Qualität und Welt wie die Flow-Bilder erreichen
+
+Als Hauptsprache **verboten**:
+
+- drei beschriftete Kästen/Karten nach dem Muster `A → B → C`
+- Lade- oder Fortschrittsbalken als Ersatz für die eigentliche Animation
+- reine Texttafeln mit Fade/Scale
+- generische Shield-/Arrow-/Coin-Symbolik, wenn eine konkrete Alltagssituation darstellbar ist
+- wiederholte identische Mechanik über mehrere Animationsszenen
+
+Zentrale konkrete Primitives stehen über `src/design-system` bereit: `PhysicalBill`, `PhysicalAccount`, `PhysicalWasher`, `PhysicalReserveTank`, `PhysicalCalendarPage`, `PhysicalCoinStack`. Generische `PhysicalObject`, `PhysicalTag` und `PhysicalRail` sind nur Support; insbesondere `PhysicalRail` darf niemals die Geschichte allein tragen.
+
 Streng verboten:
 
 - Dummy-/Placeholder-Komponenten
@@ -361,7 +482,7 @@ reel:ready
 → Candidate Render
 → Post-Render-QA
 → Final MP4
-→ reel:export
+→ automatischer reel:export nach 06-export/
 → FINAL_COMPLETE
 ```
 
@@ -379,19 +500,25 @@ Ein schwarzes/leeres oder Caption-only Reel darf niemals als fertig gelten.
 
 ## 14. Publishing
 
-Reel-Plattformdateien:
+Für alle Reel-Plattformen gibt es genau **eine** Social-Caption.
+
+Kanonische Quelle:
 
 ```text
 04-caption/caption.txt
-04-caption/instagram-reels.txt
-04-caption/tiktok.txt
-04-caption/facebook-reels.txt
-04-caption/snapchat.txt
 ```
 
-Keine `youtube-shorts.txt`.
+Finaler Export:
+
+```text
+06-export/caption-universal.txt
+```
+
+Dieselbe Caption wird für Instagram Reels, TikTok, Facebook Reels und Snapchat verwendet. Separate Dateien wie `instagram-reels.txt`, `tiktok.txt`, `facebook-reels.txt` oder `snapchat.txt` sind in aktiven Reel-Projekten verboten. YouTube Shorts existieren nicht; YouTube bleibt Longform unter `youtube/`.
 
 ## 15. Produktionsbefehle
+
+Im normalen Phase-3-Lauf wird `reel:export` nach bestandener Render-QA automatisch von `render-validated.mjs` gestartet. Der direkte Befehl bleibt nur für einen kontrollierten erneuten Export vorhanden.
 
 ```bash
 npm run reel:create -- --target <Reel-Pfad> --title "Titel"

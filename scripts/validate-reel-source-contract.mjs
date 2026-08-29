@@ -13,6 +13,8 @@ import {
   GENERATED_IMAGE_ASPECT_MARKER,
   GENERATED_IMAGE_ASPECT_RATIO,
   IMAGE_INBOX,
+  FORBIDDEN_PUBLISHING_FILES,
+  FORBIDDEN_PUBLISHING_KEYS,
   PLATFORM_PUBLISHING_FILES,
   REEL_VIDEO_ASPECT_RATIO,
   SCENE_INDEX,
@@ -175,11 +177,19 @@ assert(Number(index.audio?.targetTruePeakDbtp) === -1, 'True-Peak-Ziel muss -1 d
 assert(index.timelineRules?.cutsFollowSentenceStarts === true || index.timelineRules?.cutsFollowSentenceStartsAndMeaningfulPhraseStarts === true, 'Szenenschnitte müssen echten Satz-/Phrasenanfängen folgen.');
 assert(index.timelineRules?.equalLengthScenesForbiddenByDefault === true, 'Starre gleich lange Szenen müssen standardmäßig verboten sein.');
 
-for (const [key, expectedPath] of Object.entries(PLATFORM_PUBLISHING_FILES)) {
-  assert(index.platformPublishing?.[key] === expectedPath, `platformPublishing.${key} muss ${expectedPath} sein.`);
-  assert(existsSync(resolve(root, expectedPath)), `Plattformdatei fehlt: ${expectedPath}`);
+const publishing = index.platformPublishing ?? {};
+const universalCaptionSource = PLATFORM_PUBLISHING_FILES.universalCaption;
+assert(publishing.directory === CAPTION_DIRECTORY, `platformPublishing.directory muss ${CAPTION_DIRECTORY} sein.`);
+assert(publishing.universalCaptionSource === universalCaptionSource, `platformPublishing.universalCaptionSource muss ${universalCaptionSource} sein.`);
+assert(publishing.universalCaptionExport === '06-export/caption-universal.txt', 'platformPublishing.universalCaptionExport muss 06-export/caption-universal.txt sein.');
+assert(publishing.universalCaptionForAllReelPlatforms === true, 'Eine universelle Caption muss für alle Reel-Plattformen gelten.');
+assert(existsSync(resolve(root, universalCaptionSource)), `Universelle Caption fehlt: ${universalCaptionSource}`);
+for (const key of FORBIDDEN_PUBLISHING_KEYS) {
+  assert(!Object.prototype.hasOwnProperty.call(publishing, key), `Veralteter Publishing-Key verboten: platformPublishing.${key}`);
 }
-assert(index.platformPublishing?.directory === CAPTION_DIRECTORY, `platformPublishing.directory muss ${CAPTION_DIRECTORY} sein.`);
+for (const relativePath of FORBIDDEN_PUBLISHING_FILES) {
+  assert(!existsSync(resolve(root, relativePath)), `Veraltete Publishing-Datei verboten: ${relativePath}`);
+}
 
 const timingPath = resolve(root, index.timelineRules?.timingSource ?? '04-caption/word-timings.json');
 assert(existsSync(timingPath), `Worttiming-Datei fehlt: ${timingPath}`);

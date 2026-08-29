@@ -16,11 +16,16 @@ const iconColorForTone = (tone: SceneHeaderTone) => {
 };
 
 /**
- * Große, gut lesbare V5-Zwischenüberschrift mit einfachem Linien-Icon.
+ * Große V5-Zwischenüberschrift mit fest normalisiertem Icon-Slot.
  *
- * Der Text bleibt reines Weiß; die semantische Farbe sitzt primär im Icon.
- * Lange Titel dürfen auf maximal zwei Zeilen umbrechen und bleiben dabei in
- * normaler Titelgröße, statt zu einem kleinen UI-Label zu schrumpfen.
+ * WICHTIG FÜR KONSISTENZ:
+ * - die gesamte Header-Gruppe wird horizontal zentriert;
+ * - Text innerhalb der Gruppe ist linksbündig, damit bei zwei Zeilen die erste
+ *   Zeile direkt am Icon beginnt und kein optisch riesiger Abstand entsteht;
+ * - das Icon sitzt immer in einem festen H.iconBox und wird vertikal an der
+ *   ERSTEN Textzeile ausgerichtet, niemals an der Mitte eines Zweizeilers;
+ * - die SVG-Glyphen werden optisch normalisiert, damit unterschiedliche
+ *   ViewBox-Füllungen nicht wie unterschiedliche Icon-Größen aussehen.
  */
 export const SceneHeader: React.FC<{
   title: string;
@@ -48,6 +53,8 @@ export const SceneHeader: React.FC<{
     H.minFontSize,
     title.length > 64 ? size - 6 : title.length > 48 ? size - 3 : size,
   );
+  const lineHeight = 1.08;
+  const firstLineHeight = fittedSize * lineHeight;
 
   return (
     <div
@@ -65,21 +72,34 @@ export const SceneHeader: React.FC<{
       }}
     >
       <div
+        data-finanzneo-header-layout="icon-first-line-lock-v1"
         style={{
           display: 'inline-flex',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           justifyContent: 'center',
           gap: H.gap,
           maxWidth: '100%',
         }}
       >
-        <Icon
-          name={icon}
-          size={H.iconSize}
-          color={iconColor}
-          stroke={2.15}
-          glow={false}
-        />
+        <div
+          style={{
+            width: H.iconBox,
+            height: firstLineHeight,
+            flex: `0 0 ${H.iconBox}px`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Icon
+            name={icon}
+            size={H.iconSize}
+            color={iconColor}
+            stroke={2.15}
+            glow={false}
+            opticalNormalize
+          />
+        </div>
         <div
           style={{
             minWidth: 0,
@@ -87,11 +107,11 @@ export const SceneHeader: React.FC<{
             fontFamily: FONT.body,
             fontSize: fittedSize,
             fontWeight: H.fontWeight,
-            lineHeight: 1.08,
+            lineHeight,
             letterSpacing: 0,
             color: H.headlineColor,
             textTransform: 'none',
-            textAlign: 'center',
+            textAlign: 'left',
             whiteSpace: 'normal',
             overflow: 'hidden',
             display: '-webkit-box',

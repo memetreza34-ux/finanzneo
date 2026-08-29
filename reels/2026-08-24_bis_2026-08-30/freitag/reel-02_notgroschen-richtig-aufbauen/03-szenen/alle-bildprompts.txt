@@ -1,0 +1,470 @@
+FINANZNEO FLOW MASTERPROMPT — NOTGROSCHEN
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH
+DIES IST KEIN BATCH-AUFTRAG.
+MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG.
+ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT, bis das aktuelle Bild zurückgegeben, exakt umbenannt und per QA geprüft wurde.
+Verboten: mehrere Bilder in einem Generierungsaufruf; mehrere Bildprompts zusammenfassen; Bilder vorab in eine Queue stellen; alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen.
+WARTE NIEMALS AUF "WEITER". Nach bestandenem Rename+QA-Gate automatisch fortfahren.
+
+BILDWELT — VERBINDLICH
+Realitätsnahe Alltagssituation als vollständige Erklärszene. Klar stylized 3D statt fotorealistisch. Gegenstände behalten glaubwürdige Proportionen und erkennbare reale Details. Ursache und Wirkung müssen direkt sichtbar sein. Kurze deutsche Objektlabels verwenden, wenn sie Mehrdeutigkeit verhindern. Keine Symbolrätsel, keine generischen Finance-Icon-Kompositionen. Jeder folgende Prompt ist individuell vollständig ausgeschrieben und darf nicht gekürzt oder durch Stichwörter ersetzt werden.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COVER = SZENE 01 — KEIN SEPARATER BILDJOB
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN separates Cover erzeugen. KEIN Bild 00 erzeugen. Das final erzeugte Bild von scene-01 (Bild 01 - Unerwartete Kosten.png) ist automatisch gleichzeitig das Reel-Cover. Direkt mit dem folgenden scene-01-Bildprompt starten.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 01 — UNERWARTETE KOSTEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Unerwartete Kosten.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Reparatur
+- Nachzahlung
+- Girokonto
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing how unexpected everyday costs can suddenly put pressure on a normal household budget. Show a modern washing machine in an apartment laundry area with a visible defect, such as a small leak and warning light. Next to it, place a realistic repair invoice labeled “Reparatur”. Also show a second believable household bill labeled “Nachzahlung”, for example an energy or utility statement with a clearly visible amount area but no dense small print.
+
+On the same scene, show a normal bank-account element labeled “Girokonto” with visibly limited available money compared with the two sudden expenses. The viewer must instantly understand the situation: two unexpected real-life costs appear at once and the normal account is under financial pressure. Do not solve the problem yet in this scene; this image is about the sudden burden itself.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The washing machine, invoices and bank-account object should keep believable proportions, recognizable construction and useful everyday detail. The rendering must remain clearly stylized and polished, not photorealistic, not cartoon-toy-like and not an icon pack.
+
+BACKGROUND:
+Use one seamless deep black background. A small believable laundry/apartment context may surround the washing machine and paperwork, but it must fade naturally into the black world and never become a bright room background.
+
+COMPOSITION:
+Build one coherent household situation. Keep the broken washing machine and two unexpected bills visually dominant, with the Girokonto clearly affected by them. Make the relationship understandable in 1–2 seconds without narration. Use spatial proximity and clear visual pressure, not abstract arrows or random symbols.
+
+BRANDS + LOGOS:
+Use no real bank or utility-company branding. Documents and banking elements must be generic but recognizable.
+
+COLORS + LIGHT:
+Use warm ivory and soft gray for neutral objects, warm red-orange only around the unexpected costs or warning areas, subtle gold only for money and emerald green sparingly. Use clean soft lighting, readable shadows and soft contact shadows.
+
+TEXT:
+Only the requested labels “Reparatur”, “Nachzahlung” and “Girokonto” may appear. Attach each label to the exact object it describes and keep it easily readable. No headline, subtitle, CTA or long sentence.
+
+FORBIDDEN:
+No photorealism, no generic vault/shield/coins composition, no abstract finance metaphor, no floating icon set, no dashboard, no app UI, no flowchart, no unreadable tiny paperwork and no decorative clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 02 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 02 ERZEUGEN. Nummer 02 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 03 — KEIN NOTFALL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - Kein Notfall.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Notgroschen
+- Urlaub
+- Shopping
+- Neues Handy
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene that separates real emergencies from optional wants. Show one believable household money reserve labeled “Notgroschen” kept clearly separate on a desk or small household finance area. Nearby, show three recognizable real-life purchase situations: a packed travel suitcase labeled “Urlaub”, a shopping bag with clothing labeled “Shopping”, and a new smartphone in its box labeled “Neues Handy”.
+
+Make it immediately obvious that these three items are wishes and should not be paid from the emergency reserve. Keep the Notgroschen physically separated from them, and use one restrained red stop/cross cue near the optional purchases only as supporting clarification. The viewer should understand the message without narration: the emergency fund is reserved, while holiday, shopping and a new phone are voluntary spending.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The suitcase, shopping bag, smartphone and money reserve must look like believable everyday objects with realistic proportions and recognizable details, while the final rendering remains clearly stylized and polished rather than photorealistic.
+
+BACKGROUND:
+Use one seamless deep black background with a small believable desk or household context that dissolves into the black world. Keep the background quiet so the separation between reserve and optional purchases is instantly readable.
+
+COMPOSITION:
+Build one coherent scene instead of four floating icons. Place the Notgroschen as a clearly protected separate household reserve and group the three optional purchases together on the opposite side. The scene should explain the distinction spatially and visually in 1–2 seconds.
+
+BRANDS + LOGOS:
+Do not use real smartphone, airline, store or bank branding. Keep all products generic but recognizable.
+
+COLORS + LIGHT:
+Use subtle gold for the reserve, warm ivory/gray for neutral objects, emerald green only around the protected Notgroschen and warm red-orange only for the stop cue around optional purchases. Use clean soft studio lighting and readable contact shadows.
+
+TEXT:
+Only the labels “Notgroschen”, “Urlaub”, “Shopping” and “Neues Handy” may appear. Each label must sit clearly with its exact object. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no abstract vault-and-shield-only scene, no generic finance icon set, no floating information cards, no dashboard, no app UI, no flowchart and no decorative clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 04 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 04 ERZEUGEN. Nummer 04 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 05 — ZWEI BIS DREI MONATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Zwei bis drei Monate.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Monatsnetto 1
+- Monatsnetto 2
+- Monatsnetto 3
+- Notgroschen
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing what “two to three monthly net incomes” means in practice. Build a believable household finance desk scene with one normal payslip or salary document as context and a separate emergency-fund area labeled “Notgroschen”. Inside that reserve, show three clearly separated but physically believable money portions representing successive monthly net incomes. Label them “Monatsnetto 1”, “Monatsnetto 2” and “Monatsnetto 3”.
+
+The first two portions should look fully established, while the third remains equally understandable as the upper end of the simple rule. Do not use abstract floating blocks with no context. The viewer must instantly understand that the target reserve corresponds to roughly two to three complete monthly net incomes kept aside as emergency savings.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The salary document, money portions and reserve container must retain believable proportions and recognizable everyday detail, while the rendering stays clearly stylized, clean and non-photorealistic. Avoid the appearance of a generic infographic or toy blocks.
+
+BACKGROUND:
+Use one seamless deep black background. A small believable desk surface and household-finance context may exist around the documents and reserve, but it must dissolve naturally into the black world.
+
+COMPOSITION:
+Make the Notgroschen and the three monthly-income portions the central explanatory structure. Use spatial grouping and real documents to make the meaning obvious without narration. Keep all labels readable and avoid tiny details.
+
+BRANDS + LOGOS:
+No real employer, bank or payroll branding. Keep the payslip and account/reserve elements generic but recognizable.
+
+COLORS + LIGHT:
+Use subtle gold for the saved money, emerald green around the completed reserve, warm ivory/gray for paperwork and neutral surfaces, and no warning red unless absolutely necessary. Use clean soft lighting and clear contact shadows.
+
+TEXT:
+Only the labels “Monatsnetto 1”, “Monatsnetto 2”, “Monatsnetto 3” and “Notgroschen” may appear. Attach them directly to the correct saved portion or reserve. No headline, subtitle, CTA or long explanatory text.
+
+FORBIDDEN:
+No photorealism, no floating abstract blocks without household context, no dashboard, no app UI, no flowchart, no dense infographic, no generic shield/vault metaphor and no decorative clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 06 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 06 ERZEUGEN. Nummer 06 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 07 — SICHER UND ERREICHBAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Sicher und erreichbar.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Notgroschen
+- Sicher
+- Verfügbar
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing that an emergency fund should be kept safe but still quickly accessible. Show a believable household banking setup on a clean desk: a separate emergency-fund account or reserve container labeled “Notgroschen”, a simple bank card or account document nearby, and a phone used only as a recognizable access object without showing a detailed app interface.
+
+Make two qualities visible in the same coherent scene. The money reserve should look protected and securely separated from everyday spending, with the short label “Sicher”. At the same time, the account/card/phone relationship should make it obvious that the owner can reach the money quickly when needed, labeled “Verfügbar”. Do not use a giant vault or shield as the whole explanation; security and accessibility must come from the believable banking situation itself.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The account document, card, phone and money reserve must look like recognizable real objects with believable proportions and materials, while the rendering remains clearly stylized, clean and non-photorealistic.
+
+BACKGROUND:
+Use one seamless deep black background with a restrained desk context that fades into the black world. Keep the important objects large and easy to read.
+
+COMPOSITION:
+Build one coherent banking situation. The Notgroschen must be visibly separate from daily money, yet the access route through ordinary banking objects must remain immediate and obvious. The viewer should understand “safe and available” in 1–2 seconds without interpreting a metaphor.
+
+BRANDS + LOGOS:
+No real bank logos and no copied banking screens. Banking objects must remain generic, stylized and recognizable.
+
+COLORS + LIGHT:
+Use subtle gold for the reserve, emerald green around the safe/available solution, warm ivory and soft gray for desk and banking objects. Use clean soft studio lighting, clear highlights and soft contact shadows.
+
+TEXT:
+Only the requested labels “Notgroschen”, “Sicher” and “Verfügbar” may appear. Attach them directly to the relevant reserve/access area. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no giant abstract vault as the entire scene, no generic shield-and-coins icon composition, no detailed app UI, no dashboard, no flowchart, no floating info cards and no decorative clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 08 — TAGESGELD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Tagesgeld.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Girokonto
+- Tagesgeld
+- Notgroschen
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing why a separate Tagesgeld account is a practical place for an emergency fund. Show a believable personal-finance desk or simple bank-counter context with two clearly different account elements. One everyday account document or card is labeled “Girokonto”. Next to it, show a clearly separate savings-account document or reserve area labeled “Tagesgeld”, containing the money reserve labeled “Notgroschen”.
+
+The viewer must immediately understand that daily spending money stays in the Girokonto while the emergency reserve is kept separately in the Tagesgeld account. Make the separation physical and obvious through placement and containers/documents, not through a flowchart. A simple connection between the two accounts may be visible as a normal transfer relationship, but the scene must remain a believable banking situation rather than an abstract diagram.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. Account documents, cards, money and the desk/bank context must have believable proportions and recognizable details while remaining clearly stylized and non-photorealistic. Avoid generic bank icons and toy-like boxes.
+
+BACKGROUND:
+Use one seamless deep black background. Allow only a small believable desk or bank-counter context that visually dissolves into black. Keep both account areas large and legible.
+
+COMPOSITION:
+Build one coherent scene with a clear left/right or near/far separation between everyday money and the emergency reserve. The meaning must read in 1–2 seconds: Girokonto = daily money, Tagesgeld = separate Notgroschen. Use real banking objects, not abstract financial symbols.
+
+BRANDS + LOGOS:
+Do not use a real bank logo, copied website or app screen. All account materials must be generic but instantly recognizable as banking documents/cards.
+
+COLORS + LIGHT:
+Use warm ivory and soft gray for neutral banking materials, subtle gold for the emergency-fund money, and emerald green to emphasize the separate Tagesgeld solution. Use clean soft studio lighting, readable shadows and soft contact shadows.
+
+TEXT:
+Only the labels “Girokonto”, “Tagesgeld” and “Notgroschen” may appear. Attach each label clearly to the correct account or reserve. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no app dashboard, no screenshot-like account UI, no flowchart, no floating cards, no generic bank-building icon as the whole explanation, no shield/vault symbolism as the main scene and no decorative clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 09 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 09 ERZEUGEN. Nummer 09 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 10 — DAUERAUFTRAG
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Dauerauftrag.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Gehalt
+- Girokonto
+- Dauerauftrag
+- Notgroschen
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing how a Dauerauftrag automatically builds an emergency fund after salary arrives. Show a believable household finance desk with a salary document or incoming salary envelope labeled “Gehalt” beside an everyday bank-account element labeled “Girokonto”. Place a simple monthly calendar nearby to establish that the action repeats on a fixed schedule.
+
+From the Girokonto, show one clearly defined portion of money being automatically moved into a separate reserve account or container labeled “Notgroschen”. Attach the short label “Dauerauftrag” directly to this recurring transfer action. The scene should instantly explain the sequence without narration: salary arrives → money reaches the Girokonto → a fixed portion moves automatically each month → the Notgroschen grows. Keep this as one believable personal-finance situation rather than an abstract diagram.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The salary paperwork, bank-account objects, calendar and money must have believable proportions and recognizable real-life detail, while the rendering remains clearly stylized, polished and non-photorealistic.
+
+BACKGROUND:
+Use one seamless deep black background with a restrained desk context that dissolves naturally into black. Keep the transfer path and labels large enough to read immediately.
+
+COMPOSITION:
+Build one coherent monthly-saving situation. Arrange the objects so the viewer naturally reads the sequence from salary to Girokonto to Notgroschen. A simple directional movement cue may support the transfer, but do not turn the image into a flowchart. Real documents, account objects and calendar context must carry the explanation.
+
+BRANDS + LOGOS:
+No real employer or bank branding and no copied banking interface. Keep all documents and account elements generic but recognizable.
+
+COLORS + LIGHT:
+Use warm ivory/gray for paperwork and neutral surfaces, subtle gold for money, emerald green for the successful automatic saving path and no unnecessary warning red. Use clean soft studio lighting, readable shadows and soft contact shadows.
+
+TEXT:
+Only the labels “Gehalt”, “Girokonto”, “Dauerauftrag” and “Notgroschen” may appear. Attach them directly to the correct document, account or transfer. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no abstract money-block conveyor with no real context, no app dashboard, no screenshot UI, no flowchart, no floating info cards, no generic vault/shield composition and no decorative clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 11 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 11 ERZEUGEN. Nummer 11 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 12 — WIEDER AUFFÜLLEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 12 - Wieder auffuellen.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Reparatur bezahlt
+- Notgroschen
+- Wieder auffüllen
+- Dauerauftrag
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing what happens after the emergency fund has been used. Show a believable household finance desk with a paid repair invoice labeled “Reparatur bezahlt”. Beside it, show a separate emergency-fund account or reserve labeled “Notgroschen” that is visibly lower than before but not empty, making it obvious that money was taken out for the emergency.
+
+Next to the reduced reserve, show a normal monthly calendar and a recurring transfer from a household account back into the Notgroschen. Label this transfer “Dauerauftrag” and place the short instruction “Wieder auffüllen” directly at the rebuilding reserve. The viewer must understand the full situation immediately: an emergency was paid, the reserve dropped, and regular saving starts again until the Notgroschen is restored.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The invoice, account documents, calendar, money and reserve should look like recognizable everyday financial objects with believable proportions, while the overall rendering stays clearly stylized and non-photorealistic.
+
+BACKGROUND:
+Use one seamless deep black background with a restrained desk context that fades into black. Keep the paid invoice, reduced reserve and rebuilding transfer large and easy to understand.
+
+COMPOSITION:
+Build one coherent after-emergency scene. Show the consequence and the next action in the same frame: paid bill → lower Notgroschen → regular refill. Use the calendar and transfer only to explain the rebuilding process; do not turn the scene into a diagram.
+
+BRANDS + LOGOS:
+No real bank, repair-company or employer branding. Banking and invoice elements must remain generic but recognizable.
+
+COLORS + LIGHT:
+Use subtle gold for saved money, emerald green for the rebuilding transfer and restored direction, warm ivory/gray for documents and surfaces, and only small warm red-orange remnants around the paid expense if needed. Use clean soft studio lighting, clear highlights and soft contact shadows.
+
+TEXT:
+Only the labels “Reparatur bezahlt”, “Notgroschen”, “Wieder auffüllen” and “Dauerauftrag” may appear. Attach each label clearly to the correct invoice, reserve or transfer. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no generic pot-with-coins refill metaphor as the whole explanation, no abstract arrow-only scene, no app dashboard, no screenshot UI, no flowchart, no floating info cards and no decorative clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 13 — RECHNUNG OHNE SCHULDENFALLE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 13 - Rechnung ohne Schuldenfalle.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Reparatur 280 €
+- Notgroschen
+- Girokonto
+- Dispo
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing how an emergency fund prevents a sudden repair bill from becoming debt. Show a modern washing machine in a believable apartment laundry area with a visible defect such as a small leak or warning light. Place a realistic-looking invoice beside it labeled “Reparatur 280 €”.
+
+Next to the invoice, show a clearly separate emergency-fund reserve labeled “Notgroschen” being used to cover the repair cost. Nearby, show the normal bank-account area labeled “Girokonto” remaining stable and untouched. Add one small red crossed-out overdraft option labeled “Dispo” to make it obvious that no overdraft is needed.
+
+The full scene must communicate this exact cause-and-effect chain without narration: washing machine breaks → repair bill arrives → Notgroschen pays → Girokonto stays protected → Dispo is avoided. Use real-life objects and a believable household context. Do not make the viewer interpret a shield, vault or generic debt symbol.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The washing machine, invoice, account elements and money reserve must keep believable proportions, recognizable construction and useful everyday detail, while the rendering remains clearly stylized and polished rather than photorealistic.
+
+BACKGROUND:
+Use one seamless deep black background. A small believable laundry/apartment context may exist around the washing machine and paperwork, but it must visually dissolve into the black world. Keep all important objects large and readable.
+
+COMPOSITION:
+Build one coherent household situation. The broken appliance and invoice establish the problem, the Notgroschen visibly solves it, the Girokonto remains stable and the crossed-out Dispo confirms the avoided debt. Make the reading order obvious through placement and proximity rather than a flowchart.
+
+BRANDS + LOGOS:
+No real bank, appliance or repair-company branding. All banking and product details must remain generic but recognizable.
+
+COLORS + LIGHT:
+Use warm ivory/gray for the washing machine and neutral surfaces, subtle gold for the emergency money, emerald green for the successful payment/protection and warm red-orange only for the defect, invoice pressure and crossed-out Dispo. Use clean soft studio lighting, readable shadows and soft contact shadows.
+
+TEXT:
+Only the requested labels “Reparatur 280 €”, “Notgroschen”, “Girokonto” and “Dispo” may appear. Keep them readable and attached to the correct object. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no stock-photo look, no abstract debt pit, no generic vault/shield/coins composition as the main explanation, no dashboard, no dense app UI, no flowchart, no floating info cards and no decorative clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 14 — REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 14 ERZEUGEN. Nummer 14 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BILD 15 — DREI NOTGROSCHEN-REGELN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 15 - Drei Notgroschen Regeln.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Nur Notfälle
+- Tagesgeld
+- Wieder auffüllen
+
+IMAGE PROMPT:
+Create a clear stylized 3D summary scene that visually combines the three most important emergency-fund rules in one believable household-finance situation. Use one coherent desk or apartment-finance setup rather than three floating icons.
+
+First, show a real emergency example such as a repair invoice beside a broken household appliance, with the short label “Nur Notfälle”, making clear that the reserve is for genuine unexpected costs rather than optional purchases. Second, show the emergency money kept in a clearly separate savings-account document or reserve area labeled “Tagesgeld”. Third, show a monthly calendar and recurring transfer rebuilding the reserve after use, labeled “Wieder auffüllen”.
+
+The viewer must understand all three rules at a glance without narration: use it only for real emergencies, keep it separately on accessible savings, and refill it after using it. The three ideas should belong to one connected real-life financial setup and must not look like a checklist made from generic finance symbols.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The household appliance, invoice, account documents, calendar and money reserve must retain believable proportions and recognizable everyday detail, while the rendering remains clearly stylized, polished and non-photorealistic.
+
+BACKGROUND:
+Use one seamless deep black background with a restrained household/desk context that visually dissolves into black. Keep all three rule areas large, clean and immediately readable.
+
+COMPOSITION:
+Build one coherent scene with three visually connected real-life elements, not three isolated icon badges. Make each rule distinct through placement and its attached German label while preserving a natural overall scene. Avoid tiny elements or dense infographic structure.
+
+BRANDS + LOGOS:
+No real bank, appliance, repair-company or employer branding. All objects must stay generic, recognizable and consistent with the stylized 3D world.
+
+COLORS + LIGHT:
+Use subtle gold for saved money, emerald green for the correct reserve/saving actions, warm ivory/gray for neutral household and banking objects, and warm red-orange only for the emergency cost. Use clean soft studio lighting and readable contact shadows.
+
+TEXT:
+Only the labels “Nur Notfälle”, “Tagesgeld” and “Wieder auffüllen” may appear. Attach each label to the exact rule element it describes. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no three generic icons on a board, no central vault with shield/hand/bill symbols as the whole explanation, no dashboard, no app UI, no flowchart, no floating info cards and no decorative clutter.
+
+FINALER BILDERORDNER NACH RENAME + QA:
+03-szenen/00-ALLE-BILDER-HIER-REIN/

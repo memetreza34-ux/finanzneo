@@ -8,7 +8,7 @@ test('zentraler Reel-Layoutvertrag nutzt die finale Mobile-Hierarchie', () => {
   const tokens = read('src/brand/tokens.ts');
   assert.match(tokens, /fontSize:56,minFontSize:50/);
   assert.match(tokens, /maxWidth:880,maxLines:2/);
-  assert.match(tokens, /iconSize:34/);
+  assert.match(tokens, /iconBox:40,iconSize:34,gap:14/);
   assert.match(tokens, /top:320,bottom:1400/);
   assert.match(tokens, /sourceNote:\{\s*bottom:514/);
   assert.match(tokens, /caption:\{[\s\S]*bottom:340/);
@@ -19,6 +19,19 @@ test('SceneHeader darf lange Titel zweizeilig statt winzig darstellen', () => {
   assert.match(source, /whiteSpace: 'normal'/);
   assert.match(source, /WebkitLineClamp: H\.maxLines/);
   assert.match(source, /Math\.max\(\s*H\.minFontSize/);
+});
+
+test('SceneHeader hält Icon-Größe, Abstand und erste Textzeile optisch konstant', () => {
+  const header = read('src/brand/components/SceneHeader.tsx');
+  const icon = read('src/brand/components/Icon.tsx');
+  assert.match(header, /data-finanzneo-header-layout="icon-first-line-lock-v1"/);
+  assert.match(header, /alignItems: 'flex-start'/);
+  assert.match(header, /height: firstLineHeight/);
+  assert.match(header, /width: H\.iconBox/);
+  assert.match(header, /textAlign: 'left'/);
+  assert.match(header, /opticalNormalize/);
+  assert.match(icon, /HEADER_OPTICAL_SCALE/);
+  assert.match(icon, /opticalNormalize \? \(HEADER_OPTICAL_SCALE\[name\] \?\? 1\) : 1/);
 });
 
 test('AnimationStage begrenzt sichtbaren Inhalt hart auf die Visualzone', () => {

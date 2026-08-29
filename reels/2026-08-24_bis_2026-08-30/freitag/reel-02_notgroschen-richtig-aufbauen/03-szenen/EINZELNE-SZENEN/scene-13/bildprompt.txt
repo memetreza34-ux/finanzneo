@@ -1,0 +1,51 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 13 - Rechnung ohne Schuldenfalle.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Reparatur 280 €
+- Notgroschen
+- Girokonto
+- Dispo
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing how an emergency fund prevents a sudden repair bill from becoming debt. Show a modern washing machine in a believable apartment laundry area with a visible defect such as a small leak or warning light. Place a realistic-looking invoice beside it labeled “Reparatur 280 €”.
+
+Next to the invoice, show a clearly separate emergency-fund reserve labeled “Notgroschen” being used to cover the repair cost. Nearby, show the normal bank-account area labeled “Girokonto” remaining stable and untouched. Add one small red crossed-out overdraft option labeled “Dispo” to make it obvious that no overdraft is needed.
+
+The full scene must communicate this exact cause-and-effect chain without narration: washing machine breaks → repair bill arrives → Notgroschen pays → Girokonto stays protected → Dispo is avoided. Use real-life objects and a believable household context. Do not make the viewer interpret a shield, vault or generic debt symbol.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The washing machine, invoice, account elements and money reserve must keep believable proportions, recognizable construction and useful everyday detail, while the rendering remains clearly stylized and polished rather than photorealistic.
+
+BACKGROUND:
+Use one seamless deep black background. A small believable laundry/apartment context may exist around the washing machine and paperwork, but it must visually dissolve into the black world. Keep all important objects large and readable.
+
+COMPOSITION:
+Build one coherent household situation. The broken appliance and invoice establish the problem, the Notgroschen visibly solves it, the Girokonto remains stable and the crossed-out Dispo confirms the avoided debt. Make the reading order obvious through placement and proximity rather than a flowchart.
+
+BRANDS + LOGOS:
+No real bank, appliance or repair-company branding. All banking and product details must remain generic but recognizable.
+
+COLORS + LIGHT:
+Use warm ivory/gray for the washing machine and neutral surfaces, subtle gold for the emergency money, emerald green for the successful payment/protection and warm red-orange only for the defect, invoice pressure and crossed-out Dispo. Use clean soft studio lighting, readable shadows and soft contact shadows.
+
+TEXT:
+Only the requested labels “Reparatur 280 €”, “Notgroschen”, “Girokonto” and “Dispo” may appear. Keep them readable and attached to the correct object. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no stock-photo look, no abstract debt pit, no generic vault/shield/coins composition as the main explanation, no dashboard, no dense app UI, no flowchart, no floating info cards and no decorative clutter.

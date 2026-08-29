@@ -1,0 +1,49 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Zwei bis drei Monate.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Monatsnetto 1
+- Monatsnetto 2
+- Monatsnetto 3
+- Notgroschen
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing what “two to three monthly net incomes” means in practice. Build a believable household finance desk scene with one normal payslip or salary document as context and a separate emergency-fund area labeled “Notgroschen”. Inside that reserve, show three clearly separated but physically believable money portions representing successive monthly net incomes. Label them “Monatsnetto 1”, “Monatsnetto 2” and “Monatsnetto 3”.
+
+The first two portions should look fully established, while the third remains equally understandable as the upper end of the simple rule. Do not use abstract floating blocks with no context. The viewer must instantly understand that the target reserve corresponds to roughly two to three complete monthly net incomes kept aside as emergency savings.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The salary document, money portions and reserve container must retain believable proportions and recognizable everyday detail, while the rendering stays clearly stylized, clean and non-photorealistic. Avoid the appearance of a generic infographic or toy blocks.
+
+BACKGROUND:
+Use one seamless deep black background. A small believable desk surface and household-finance context may exist around the documents and reserve, but it must dissolve naturally into the black world.
+
+COMPOSITION:
+Make the Notgroschen and the three monthly-income portions the central explanatory structure. Use spatial grouping and real documents to make the meaning obvious without narration. Keep all labels readable and avoid tiny details.
+
+BRANDS + LOGOS:
+No real employer, bank or payroll branding. Keep the payslip and account/reserve elements generic but recognizable.
+
+COLORS + LIGHT:
+Use subtle gold for the saved money, emerald green around the completed reserve, warm ivory/gray for paperwork and neutral surfaces, and no warning red unless absolutely necessary. Use clean soft lighting and clear contact shadows.
+
+TEXT:
+Only the labels “Monatsnetto 1”, “Monatsnetto 2”, “Monatsnetto 3” and “Notgroschen” may appear. Attach them directly to the correct saved portion or reserve. No headline, subtitle, CTA or long explanatory text.
+
+FORBIDDEN:
+No photorealism, no floating abstract blocks without household context, no dashboard, no app UI, no flowchart, no dense infographic, no generic shield/vault metaphor and no decorative clutter.

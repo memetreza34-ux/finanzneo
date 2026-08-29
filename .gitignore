@@ -29,6 +29,11 @@ dist/
 build/
 .remotion/
 
+# Playwright Visual-QA: lokale Browserzustände, Screenshots und Traces sind temporär
+.playwright-cli/
+playwright-report/
+test-results/
+
 # Voiceover-Dateien bleiben lokal und werden pro Produktion bereitgestellt
 public/audio/*.mp3
 public/audio/*.wav
@@ -36,6 +41,24 @@ public/audio/*.aiff
 
 # Caption-JSONs werden absichtlich versioniert.
 # Produktive Kompositionen müssen in einem frischen Clone reproduzierbar bleiben.
+
+# Antigravity vendor Agent Skills werden beim Workspace-Start lokal gebootstrapped.
+# FinanzNeo-eigene Skills wie .agents/skills/finanzneo-reel bleiben versioniert.
+/.agents/skills/remotion/
+/.agents/skills/remotion-best-practices/
+/.agents/skills/remotion-create/
+/.agents/skills/remotion-markup/
+/.agents/skills/remotion-studio/
+/.agents/skills/remotion-render/
+/.agents/skills/remotion-maps/
+/.agents/skills/remotion-captions/
+/.agents/skills/remotion-saas/
+/.agents/skills/remotion-interactivity/
+/.agents/skills/remotion-docs/
+/.agents/skills/remotion-upgrade/
+/.agents/skills/remotion-multimedia/
+/.agents/skills/mediabunny/
+/.agents/skills/sound-effects/
 
 # System
 .DS_Store

@@ -1,0 +1,49 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - Kein Notfall.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Notgroschen
+- Urlaub
+- Shopping
+- Neues Handy
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene that separates real emergencies from optional wants. Show one believable household money reserve labeled “Notgroschen” kept clearly separate on a desk or small household finance area. Nearby, show three recognizable real-life purchase situations: a packed travel suitcase labeled “Urlaub”, a shopping bag with clothing labeled “Shopping”, and a new smartphone in its box labeled “Neues Handy”.
+
+Make it immediately obvious that these three items are wishes and should not be paid from the emergency reserve. Keep the Notgroschen physically separated from them, and use one restrained red stop/cross cue near the optional purchases only as supporting clarification. The viewer should understand the message without narration: the emergency fund is reserved, while holiday, shopping and a new phone are voluntary spending.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The suitcase, shopping bag, smartphone and money reserve must look like believable everyday objects with realistic proportions and recognizable details, while the final rendering remains clearly stylized and polished rather than photorealistic.
+
+BACKGROUND:
+Use one seamless deep black background with a small believable desk or household context that dissolves into the black world. Keep the background quiet so the separation between reserve and optional purchases is instantly readable.
+
+COMPOSITION:
+Build one coherent scene instead of four floating icons. Place the Notgroschen as a clearly protected separate household reserve and group the three optional purchases together on the opposite side. The scene should explain the distinction spatially and visually in 1–2 seconds.
+
+BRANDS + LOGOS:
+Do not use real smartphone, airline, store or bank branding. Keep all products generic but recognizable.
+
+COLORS + LIGHT:
+Use subtle gold for the reserve, warm ivory/gray for neutral objects, emerald green only around the protected Notgroschen and warm red-orange only for the stop cue around optional purchases. Use clean soft studio lighting and readable contact shadows.
+
+TEXT:
+Only the labels “Notgroschen”, “Urlaub”, “Shopping” and “Neues Handy” may appear. Each label must sit clearly with its exact object. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no abstract vault-and-shield-only scene, no generic finance icon set, no floating information cards, no dashboard, no app UI, no flowchart and no decorative clutter.

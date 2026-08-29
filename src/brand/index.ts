@@ -19,6 +19,12 @@ export {
   PhysicalObject,
   PhysicalTag,
   PhysicalRail,
+  PhysicalBill,
+  PhysicalAccount,
+  PhysicalWasher,
+  PhysicalReserveTank,
+  PhysicalCalendarPage,
+  PhysicalCoinStack,
   PremiumDepthGuide,
   PREMIUM_VISUAL_LOCK,
 } from './components/PremiumPhysical';

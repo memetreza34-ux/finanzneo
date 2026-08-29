@@ -33,6 +33,45 @@ const animations = Array.isArray(index.scenes)
   ? index.scenes.filter((scene) => scene?.type === 'animation')
   : [];
 
+const contractHeading = '## CINEMATIC REAL-WORLD ANIMATIONSVERTRAG';
+const contractBlock = `
+${contractHeading}
+Premium Visual Lock: ${PREMIUM_ANIMATION_LOCK}
+Visual Target World: finanzneo-stylized-3d-animated-black-v9
+
+Pflicht:
+- dieselbe realitätsnahe stylized-3D-Welt wie die Flow-Bilder; klar nicht fotorealistisch
+- echte Alltagssituation bzw. konkrete Finanzhandlung zuerst, abstrakte Symbole nur unterstützend
+- STARTZUSTAND → konkrete physische Hauptaktion → sichtbare Ursache/Wirkung → eindeutiges Ergebnis
+- mindestens zwei konkrete Realwelt-Objekte/-Instanzen in der visuellen Handlung
+- eindeutige MECHANIC_ID je Animationsszene; keine Mechanik im selben Reel doppelt verwenden
+- PRIMARY_ACTION benennt die tatsächliche physische Zustandsänderung
+- mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable
+- kurze deutsche Labels dürfen helfen, tragen aber niemals allein die Erklärung
+- sichtbare Materialität, Dicke, Tiefe und Kontakt-Schatten
+- PremiumPhysicalStage bleibt transparent; der zentrale Reel-Canvas darunter ist statisch #000000
+- Ergebnis mindestens 15 Frames stabil halten
+
+Bevorzugte konkrete Primitives, wenn passend:
+- PhysicalBill
+- PhysicalAccount
+- PhysicalWasher
+- PhysicalReserveTank
+- PhysicalCalendarPage
+- PhysicalCoinStack
+
+Streng verboten als Hauptsprache:
+- drei oder mehr generische beschriftete Kästen/Karten, die nur A → B → C darstellen
+- Lade-/Fortschrittsbalken als Ersatz für die eigentliche Handlung
+- Dashboard-/Control-Panel-/App-UI-Look
+- Flowchart als Hauptkomposition
+- kleine Boxen mit dünnen Verbindungslinien
+- reine Texttafel mit Fade/Scale
+- abstrakte Schild-/Pfeil-/Münz-Metapher, wenn eine reale Situation darstellbar ist
+- Partikel/Aurora/Grid/Glow/Gradient als Animationshintergrund
+- dekorative Bewegung ohne erklärenden Mechanismus
+`;
+
 for (const scene of animations) {
   scene.animationPremiumVisualLock = PREMIUM_ANIMATION_LOCK;
   const plan = String(scene.planFile ?? '').replace(/^03-szenen\//, '');
@@ -42,8 +81,8 @@ for (const scene of animations) {
     process.exit(1);
   }
   const current = read(remotionPath);
-  if (!current.includes(`Premium Visual Lock: ${PREMIUM_ANIMATION_LOCK}`)) {
-    write(remotionPath, `${current.trim()}\n\n## V9-KOMPATIBLER ANIMATIONSVERTRAG\nPremium Visual Lock: ${PREMIUM_ANIMATION_LOCK}\nVisual Target World: finanzneo-stylized-3d-animated-black-v9\n\nPflicht:\n- klar nicht-realistische stylized-3D-Animationssprache wie die Flow-Bilder\n- eine klare Hauptaktion / ein klares Hauptmotiv\n- keine feste Anzahl an Support-Objekten; nur verwenden, wenn sie die Aussage verbessern\n- sichtbare Materialität, Dicke, Tiefe und Kontakt-Schatten\n- klare Ursache → Wirkung → Ergebnis\n- Emerald / Ivory / Soft Gray / Gold / Rot-Orange semantisch einsetzen\n- PremiumPhysicalStage + mindestens ein echtes PhysicalObject verwenden\n- PremiumPhysicalStage bleibt transparent; der zentrale Reel-Canvas darunter ist statisch #000000\n\nVerboten:\n- Partikel/Aurora/Grid/Glow/Gradient als Animationshintergrund\n- Dashboard-/Control-Panel-Look\n- Flowchart als Hauptkomposition\n- kleine Boxen mit dünnen Verbindungslinien\n- generische Info-Cards als Hauptsprache\n- reine Texttafeln\n- dekorative Bewegung ohne erklärenden Mechanismus\n`);
+  if (!current.includes(contractHeading)) {
+    write(remotionPath, `${current.trim()}\n\n${contractBlock.trim()}\n`);
   }
 }
 
@@ -52,11 +91,12 @@ write(indexPath, JSON.stringify(index, null, 2));
 const overviewPath = resolve(root, '05-projektdateien/animationen.md');
 if (existsSync(overviewPath)) {
   const overview = read(overviewPath);
-  if (!overview.includes(PREMIUM_ANIMATION_LOCK)) {
-    write(overviewPath, `${overview.trim()}\n\n## V9-kompatibler Animationsvertrag\nLock: ${PREMIUM_ANIMATION_LOCK}\nVisual Target: finanzneo-stylized-3d-animated-black-v9\n\nAlle Remotion-Szenen verwenden dieselbe nicht-realistische stylized-3D-Animationssprache wie die Flow-Bilder. Keine feste Support-Objekt-Anzahl. Der Animations-Stage bleibt transparent über dem statischen #000000 Reel-Canvas. UI-/Dashboard-/Flowchart-/Partikel-/Aurora-/Grid-Hintergründe sind verboten.\n`);
+  if (!overview.includes(contractHeading)) {
+    write(overviewPath, `${overview.trim()}\n\n${contractBlock.trim()}\n`);
   }
 }
 
-console.log(`✓ Animation Contract angewendet: ${PREMIUM_ANIMATION_LOCK}`);
-console.log('  Visual Target: Stylized 3D Animated Black V9 · keine feste Objektanzahl.');
-console.log('  Transparenter Animation-Stage über statischem #000000 Canvas · keine Partikel/Aurora/Grid/Glow-Hintergründe.');
+console.log(`✓ Cinematic Animation Contract angewendet: ${PREMIUM_ANIMATION_LOCK}`);
+console.log('  Realwelt-Mechanik zuerst · jede Szene eigene MECHANIC_ID · mehrere Motion-Channels.');
+console.log('  Generische Kartenreihen und Fortschrittsbalken dürfen die visuelle Geschichte nicht ersetzen.');
+console.log('  Transparenter Stage über statischem #000000 Canvas · keine Partikel/Aurora/Grid/Glow-Hintergründe.');

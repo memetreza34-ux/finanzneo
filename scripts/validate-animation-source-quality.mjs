@@ -28,6 +28,8 @@ const errors = [];
 const fail = (message) => errors.push(message);
 const placeholder = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|ONE LARGE)[^\]]*)\]|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
 const hackWords = /\b(dummy|debug|placeholder|temporary|technik-hack|wackel|wiggle|test rectangle|fake motion)\b/i;
+const realWorldPrimitive = /<Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)\b/g;
+const mechanicIds = new Map();
 
 if (index.phase1AnimationCode?.required !== true) fail('phase1AnimationCode.required muss true sein.');
 if (index.phase1AnimationCode?.qualityLock !== ANIMATION_QUALITY_LOCK) fail(`phase1AnimationCode.qualityLock muss ${ANIMATION_QUALITY_LOCK} sein.`);
@@ -60,8 +62,8 @@ for (const scene of animations) {
     fail(`${id}: kanonische Phase-1-Animationsdatei fehlt: ${scene.animationSourceFile}`);
     continue;
   }
-  if (!statSync(sourcePath).isFile() || statSync(sourcePath).size < 1400) {
-    fail(`${id}: animation.tsx ist zu klein/leer; der Vertrag erwartet produktionsreifen, visuell ausgearbeiteten Code.`);
+  if (!statSync(sourcePath).isFile() || statSync(sourcePath).size < 2200) {
+    fail(`${id}: animation.tsx ist zu klein/leer; der Vertrag erwartet eine ausgearbeitete visuelle Geschichte, keinen Karten-/Balken-Prototyp.`);
     continue;
   }
 
@@ -76,22 +78,52 @@ for (const scene of animations) {
   if (!/(?:prog\s*\(|interpolate\s*\(|spring\s*\()/.test(source)) fail(`${id}: kein nachvollziehbarer zeitlicher Animationsfortschritt gefunden.`);
 
   if (!/PremiumPhysicalStage/.test(source)) fail(`${id}: Animation muss PremiumPhysicalStage verwenden.`);
-  const physicalObjects = [...source.matchAll(/<PhysicalObject\b/g)].length;
-  if (physicalObjects < 1) fail(`${id}: Animation braucht mindestens ein echtes PhysicalObject als sichtbares Hauptmotiv.`);
-  if (!/(?:material=['"](?:neutral|money|warning|positive)['"])/.test(source)) {
-    fail(`${id}: Animation braucht mindestens eine semantische Materialrolle (neutral/money/warning/positive).`);
+  const genericObjects = [...source.matchAll(/<PhysicalObject\b/g)].length;
+  const concreteObjects = [...source.matchAll(realWorldPrimitive)].length;
+  if (genericObjects + concreteObjects < 1) fail(`${id}: Animation braucht mindestens ein physisches Hauptmotiv.`);
+  if (concreteObjects < 2) {
+    fail(`${id}: mindestens zwei konkrete Realwelt-Objekte/-Instanzen sind nötig (z. B. Rechnung, Konto, Waschmaschine, Reserve, Kalender, Münzen); generische Karten reichen nicht.`);
   }
-  if (/\b(?:Flowchart|Dashboard|ControlPanel|WindowMock|IconTile)\b/.test(source)) {
+  if (genericObjects >= 3 && concreteObjects < 3) {
+    fail(`${id}: drei oder mehr generische PhysicalObject-Karten dominieren die Szene; Realwelt-Mechanik muss die Hauptsprache sein.`);
+  }
+  if (/<PhysicalRail\b/.test(source) && concreteObjects < 3) {
+    fail(`${id}: PhysicalRail/Fortschrittsbalken darf niemals die primäre Animation ersetzen; bei Nutzung müssen mindestens drei konkrete Realwelt-Objekte die Geschichte tragen.`);
+  }
+  if (!/(?:material=['"](?:neutral|money|warning|positive)['"]|Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack))/.test(source)) {
+    fail(`${id}: Animation braucht semantische Materialrollen oder konkrete Realwelt-Primitives.`);
+  }
+  // Nur tatsächliche JSX-Komponentennutzung blockieren. Qualitätskommentare wie
+  // "kein Dashboard" oder "kein Flowchart" sind ausdrücklich erlaubt und sollen
+  // nicht als verbotene UI-Komponente fehlinterpretiert werden.
+  if (/<(?:Flowchart|Dashboard|ControlPanel|WindowMock|IconTile)\b/.test(source)) {
     fail(`${id}: Dashboard-/Flowchart-/UI-Komponenten sind als Hauptsprache gesperrt.`);
   }
-  if (/\b(?:FNBgAurora|FNBgParticles|FNBgGrid|FNBgRadial|ParticleField|Particles)\b/.test(source)) {
+  if (/<(?:FNBgAurora|FNBgParticles|FNBgGrid|FNBgRadial|ParticleField|Particles)\b/.test(source)) {
     fail(`${id}: Partikel/Aurora/Grid/Radial-Hintergrundkomponenten sind in Reel-Animationen verboten.`);
   }
   if (/background\s*:\s*['"`]radial-gradient|backgroundImage\s*:/i.test(source)) {
     fail(`${id}: eigener dekorativer Gradient/Grid-Hintergrund ist verboten; PremiumPhysicalStage bleibt transparent.`);
   }
 
-  const narrative = source.match(/ANIMATION_NARRATIVE[\s\S]{0,1800}?START:\s*([^\n]+)[\s\S]*?MECHANISM:\s*([^\n]+)[\s\S]*?RESULT:\s*([^\n]+)/i);
+  const mechanicId = source.match(/MECHANIC_ID:\s*([a-z0-9-]+)/i)?.[1];
+  if (!mechanicId) {
+    fail(`${id}: MECHANIC_ID fehlt; jede Animation braucht eine eindeutig benannte eigene Mechanik.`);
+  } else if (mechanicIds.has(mechanicId)) {
+    fail(`${id}: MECHANIC_ID "${mechanicId}" dupliziert ${mechanicIds.get(mechanicId)}; jede Animationsszene braucht eine andere Mechanik.`);
+  } else {
+    mechanicIds.set(mechanicId, id);
+  }
+  if (!/PRIMARY_ACTION:\s*[^\n]{18,}/i.test(source)) {
+    fail(`${id}: PRIMARY_ACTION fehlt/ist zu kurz; die physische Hauptaktion muss explizit beschrieben sein.`);
+  }
+
+  const motionChannels = [...source.matchAll(/const\s+[A-Za-z0-9_]+\s*=\s*(?:interpolate|spring)\s*\(/g)].length;
+  if (motionChannels < 3) {
+    fail(`${id}: nur ${motionChannels} echte Motion-Channels gefunden; hochwertige Animation braucht mehrere koordinierte Zustandsänderungen statt einer einzigen Progress-Variable.`);
+  }
+
+  const narrative = source.match(/ANIMATION_NARRATIVE[\s\S]{0,2200}?START:\s*([^\n]+)[\s\S]*?MECHANISM:\s*([^\n]+)[\s\S]*?RESULT:\s*([^\n]+)/i);
   if (!narrative) {
     fail(`${id}: Code braucht ANIMATION_NARRATIVE mit START, MECHANISM und RESULT.`);
   } else {
@@ -100,7 +132,7 @@ for (const scene of animations) {
     }
   }
 
-  const premiumNarrative = source.match(/PREMIUM_VISUAL_NARRATIVE[\s\S]{0,1800}?HERO:\s*([^\n]+)[\s\S]*?SUPPORT:\s*([^\n]+)[\s\S]*?MATERIAL:\s*([^\n]+)[\s\S]*?DEPTH:\s*([^\n]+)/i);
+  const premiumNarrative = source.match(/PREMIUM_VISUAL_NARRATIVE[\s\S]{0,2200}?HERO:\s*([^\n]+)[\s\S]*?SUPPORT:\s*([^\n]+)[\s\S]*?MATERIAL:\s*([^\n]+)[\s\S]*?DEPTH:\s*([^\n]+)/i);
   if (!premiumNarrative) {
     fail(`${id}: Code braucht PREMIUM_VISUAL_NARRATIVE mit HERO, SUPPORT, MATERIAL und DEPTH.`);
   } else {
@@ -119,7 +151,8 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`\n✓ ${animations.length} kanonische Phase-1-Animation(en) erfüllen den V9-kompatiblen Animationsvertrag.`);
-console.log('✓ Keine feste Support-Objekt-Anzahl; Klarheit und Inhalt entscheiden.');
+console.log(`\n✓ ${animations.length} kanonische Phase-1-Animation(en) erfüllen den cinematischen V9-Animationsvertrag.`);
+console.log('✓ Jede Animation nutzt eine eigene Realwelt-Mechanik mit konkreten Gegenständen und Start → Aktion → Ergebnis.');
+console.log('✓ Generische Kartenreihen und Fortschrittsbalken können die visuelle Erklärung nicht mehr ersetzen.');
+console.log('✓ Mehrere koordinierte Motion-Channels sind Pflicht; reine Deko-Bewegung zählt nicht als Mechanik.');
 console.log('✓ PremiumPhysicalStage bleibt auf zentralem pure-black Canvas; Partikel/Aurora/Grid/Gradient-Hintergründe sind gesperrt.');
-console.log('✓ Dashboard/Flowchart/UI-Hauptsprache sowie Platzhalter-/Wackel-Hacks sind gesperrt.');
