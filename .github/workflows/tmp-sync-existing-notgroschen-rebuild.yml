@@ -1,0 +1,49 @@
+name: Sync Existing Notgroschen Reel Rebuild Once
+
+on:
+  push:
+    branches:
+      - reel/notgroschen-test-v1
+    paths:
+      - '.github/workflows/tmp-sync-existing-notgroschen-rebuild.yml'
+      - 'scripts/tmp-sync-existing-notgroschen-rebuild.mjs'
+
+permissions:
+  contents: write
+
+jobs:
+  sync-validate-cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout existing Reel branch
+        uses: actions/checkout@v4
+        with:
+          ref: reel/notgroschen-test-v1
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Sync rebuilt existing Reel metadata
+        run: node scripts/tmp-sync-existing-notgroschen-rebuild.mjs
+
+      - name: Validate rebuilt existing Reel
+        run: npm run reel:validate -- reels/2026-08-24_bis_2026-08-30/freitag/reel-02_notgroschen-richtig-aufbauen
+
+      - name: Commit rebuilt Reel and remove bootstrap files
+        env:
+          FINANZNEO_ALLOW_PROTECTED_CHANGES: '1'
+        run: |
+          git rm .github/workflows/tmp-sync-existing-notgroschen-rebuild.yml
+          git rm scripts/tmp-sync-existing-notgroschen-rebuild.mjs
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reels/2026-08-24_bis_2026-08-30/freitag/reel-02_notgroschen-richtig-aufbauen
+          git commit -m 'Rebuild existing Notgroschen reel in place'
+          git push origin HEAD:reel/notgroschen-test-v1
