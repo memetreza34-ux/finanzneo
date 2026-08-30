@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-useless-escape -- This one-time builder embeds complete TSX sources inside template strings; the helper is deleted after the guarded build. */
 
 import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
