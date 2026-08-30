@@ -65,6 +65,8 @@ jobs:
           rm -f .github/workflows/tmp-build-girokonto-reel.yml
 
       - name: Commit verified reel
+        env:
+          FINANZNEO_ALLOW_PROTECTED_CHANGES: '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
