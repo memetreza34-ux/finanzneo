@@ -1,0 +1,350 @@
+COVER = SZENE 01
+KEIN separates Cover erzeugen.
+KEIN Bild 00 erzeugen.
+Die finale scene-01-Datei ist gleichzeitig das Cover.
+
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+
+STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH
+- DIES IST KEIN BATCH-AUFTRAG. DIE GESAMTE DATEI DARF NIEMALS ALS EIN MEHRBILD-PROMPT AUSGEFÜHRT WERDEN.
+- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.
+- STARTE NIEMALS MEHRERE BILDER, MEHRERE GENERIERUNGSJOBS ODER MEHRERE SZENEN IN EINEM SCHRITT / TOOL-CALL / BATCH.
+- ERZEUGE KEINE GALERIE, KEINEN KONTAKTBOGEN, KEIN MULTI-PANEL, KEINE COLLAGE UND KEIN BILD MIT MEHREREN SZENEN.
+- INITIAL IST NUR DER ERSTE BENÖTIGTE BILDBLOCK FREIGESCHALTET. ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT.
+- EIN SPÄTERER BILDBLOCK DARF ERST FREIGESCHALTET WERDEN, WENN DAS AKTUELLE BILD: (1) vollständig zurückgegeben, (2) exakt umbenannt und (3) per QA geprüft wurde.
+- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE BILDBLOCK GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.
+- NACH BESTANDENER QA WIRD GENAU DER NÄCHSTE BENÖTIGTE BILDBLOCK IN DOKUMENTREIHENFOLGE FREIGESCHALTET. NICHT VORHER.
+- REMOTION-/ANIMATIONSNUMMERN WERDEN OHNE GENERIERUNG ÜBERSPRUNGEN.
+- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTÄTIGUNG ODER FREIGABE DES NUTZERS.
+- "WARTEN" BEDEUTET NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.
+- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.
+- STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.
+- STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+AUSFÜHRUNGSPROTOKOLL — STATE MACHINE, NICHT BATCH:
+0. Betrachte spätere Bildblöcke zunächst nur als GESPERRTE DATEN. Sie sind noch KEINE ausführbaren Bildaufträge.
+1. Setze ACTIVE_STEP auf den ersten benötigten Bildblock in Dokumentreihenfolge.
+2. Nimm AUSSCHLIESSLICH den BILDPROMPT von ACTIVE_STEP. Sende niemals Text aus mehreren Bildblöcken gemeinsam an die Bildgenerierung.
+3. Starte GENAU EINEN Bildgenerierungsjob für ACTIVE_STEP. MAX_CONCURRENT_GENERATIONS = 1.
+4. Starte KEINEN weiteren Job, solange dieser Job läuft oder noch kein Ergebnis zurückgegeben wurde.
+5. Sobald das einzelne Bild zurückgegeben wurde: benenne DIESE Datei SOFORT exakt auf den vorgegebenen finalen Dateinamen um.
+6. Prüfe danach ausschließlich dieses eine Bild: Aussage/Beat-Zuordnung, erlaubte Labels, klarer stylized-3D-animated V9-Look, tiefschwarzer sauberer Hintergrund, sinnvolle statt quotierte Objektanzahl, sichtbares Gesicht falls Person, Marken nur erkennbar-stilisiert und exakter Dateiname.
+7. QA FEHLER: ACTIVE_STEP bleibt unverändert. Erzeuge ausschließlich dieselbe Bildnummer neu. Alle späteren Schritte bleiben gesperrt.
+8. QA BESTANDEN: markiere ACTIVE_STEP als DONE. Erst JETZT darfst du den nächsten benötigten Bildblock in Dokumentreihenfolge freischalten.
+9. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Bildjob überspringen und zum nächsten benötigten Bildblock gehen.
+10. Wiederhole 2–9, bis jedes erwartete Bild einzeln DONE ist. Keine Nutzerfreigabe dazwischen.
+11. Erst NACH Abschluss aller Einzeljobs darfst du eine Abschlusszusammenfassung über alle finalen Dateien geben.
+12. Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen oder anhängen.
+
+HART VERBOTEN:
+- mehrere Bilder in einem Generierungsaufruf
+- mehrere Bildprompts zusammenfassen
+- Bilder vorab in eine Queue stellen
+- alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen
+- Kontaktbogen / Galerie / Collage / Multi-Panel als Ersatz für Einzelbilder
+
+
+===== BILDBLOCK 1/6 · scene-01 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Zwei Konten zwei Aufgaben.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, erlaubte Labels, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Girokonto
+- Tagesgeld
+
+IMAGE PROMPT:
+Create one coherent everyday finance scene with a simple home desk or entryway setting. Show a recognizable everyday Girokonto object on the left connected to ordinary daily items such as a debit card, rent envelope and grocery receipt. On the right show a clearly separate Tagesgeld reserve container with money intentionally set aside. The visual point must be understood immediately: these are two different places for two different jobs, not two versions of the same account.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. Keep recognizable everyday proportions, polished materials and soft rounded construction. The result must be clearly stylized and cinematic, never photorealistic, never a toy-like icon pack.
+
+BACKGROUND:
+Use one seamless deep black background. Any real-life context must fade naturally into the black world. No bright room, floor-wall boundary, horizon, colored background zone, particles, aurora or grid.
+
+COMPOSITION:
+One clear main situation per image. Supporting objects are flexible and appear only when they improve understanding. Real-world cause/effect and object relationships must be readable in 1–2 seconds.
+
+BRANDS + LOGOS:
+No real bank branding. Generic but recognizable financial objects only. Never paste screenshots, apps, websites or flat logos.
+
+COLORS + LIGHT:
+Emerald green for positive/separated reserve states, warm ivory and soft gray for neutral objects, subtle gold for money/value, warm red-orange only for warnings or costs. Clean soft lighting and contact shadows.
+
+TEXT:
+Only the explicitly requested short German object labels may appear. No headline, subtitle, CTA, long sentence or tiny body copy.
+
+FORBIDDEN:
+No photorealism, no dashboard, no app UI, no flowchart, no small boxes connected by thin lines, no generic card rows, no abstract icon-only replacement, no miniature diorama and no decorative clutter.
+
+
+===== BILDBLOCK 2/6 · scene-02 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Girokonto Alltag.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, erlaubte Labels, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Girokonto
+- Gehalt
+- Miete
+
+IMAGE PROMPT:
+Create a grounded everyday scene centered on one physical Girokonto object. Show salary arriving as a simple money envelope labeled “Gehalt”, while a rent envelope labeled “Miete” and a normal grocery receipt sit nearby as outgoing everyday obligations. The account must feel like the active hub of normal life, not like a savings vault.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. Keep recognizable everyday proportions, polished materials and soft rounded construction. The result must be clearly stylized and cinematic, never photorealistic, never a toy-like icon pack.
+
+BACKGROUND:
+Use one seamless deep black background. Any real-life context must fade naturally into the black world. No bright room, floor-wall boundary, horizon, colored background zone, particles, aurora or grid.
+
+COMPOSITION:
+One clear main situation per image. Supporting objects are flexible and appear only when they improve understanding. Real-world cause/effect and object relationships must be readable in 1–2 seconds.
+
+BRANDS + LOGOS:
+No real bank branding. Generic but recognizable financial objects only. Never paste screenshots, apps, websites or flat logos.
+
+COLORS + LIGHT:
+Emerald green for positive/separated reserve states, warm ivory and soft gray for neutral objects, subtle gold for money/value, warm red-orange only for warnings or costs. Clean soft lighting and contact shadows.
+
+TEXT:
+Only the explicitly requested short German object labels may appear. No headline, subtitle, CTA, long sentence or tiny body copy.
+
+FORBIDDEN:
+No photorealism, no dashboard, no app UI, no flowchart, no small boxes connected by thin lines, no generic card rows, no abstract icon-only replacement, no miniature diorama and no decorative clutter.
+
+
+===== BILDBLOCK 3/6 · scene-04 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Tagesgeld Ruecklage.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, erlaubte Labels, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Tagesgeld
+- Rücklage
+
+IMAGE PROMPT:
+Create a calm stylized 3D reserve scene. Show a transparent or semi-open physical money container labeled “Tagesgeld” holding a clearly visible reserve. Add one simple access cue such as an open path or reachable handle, but do not turn the scene into a diagram. The money should look intentionally parked and available, not locked away for years.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. Keep recognizable everyday proportions, polished materials and soft rounded construction. The result must be clearly stylized and cinematic, never photorealistic, never a toy-like icon pack.
+
+BACKGROUND:
+Use one seamless deep black background. Any real-life context must fade naturally into the black world. No bright room, floor-wall boundary, horizon, colored background zone, particles, aurora or grid.
+
+COMPOSITION:
+One clear main situation per image. Supporting objects are flexible and appear only when they improve understanding. Real-world cause/effect and object relationships must be readable in 1–2 seconds.
+
+BRANDS + LOGOS:
+No real bank branding. Generic but recognizable financial objects only. Never paste screenshots, apps, websites or flat logos.
+
+COLORS + LIGHT:
+Emerald green for positive/separated reserve states, warm ivory and soft gray for neutral objects, subtle gold for money/value, warm red-orange only for warnings or costs. Clean soft lighting and contact shadows.
+
+TEXT:
+Only the explicitly requested short German object labels may appear. No headline, subtitle, CTA, long sentence or tiny body copy.
+
+FORBIDDEN:
+No photorealism, no dashboard, no app UI, no flowchart, no small boxes connected by thin lines, no generic card rows, no abstract icon-only replacement, no miniature diorama and no decorative clutter.
+
+
+===== BILDBLOCK 4/6 · scene-05 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Ruecklagen Beispiele.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, erlaubte Labels, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Notgroschen
+- Später
+
+IMAGE PROMPT:
+Create one believable reserve-planning scene. Show a Tagesgeld reserve in the center. Beside it, show a small emergency-fund jar or envelope labeled “Notgroschen” and one concrete planned-future object such as a laptop replacement or travel suitcase tagged only “Später”. Keep both examples physically grounded and easy to understand; this is about money needed as reserve or within the next months.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. Keep recognizable everyday proportions, polished materials and soft rounded construction. The result must be clearly stylized and cinematic, never photorealistic, never a toy-like icon pack.
+
+BACKGROUND:
+Use one seamless deep black background. Any real-life context must fade naturally into the black world. No bright room, floor-wall boundary, horizon, colored background zone, particles, aurora or grid.
+
+COMPOSITION:
+One clear main situation per image. Supporting objects are flexible and appear only when they improve understanding. Real-world cause/effect and object relationships must be readable in 1–2 seconds.
+
+BRANDS + LOGOS:
+No real bank branding. Generic but recognizable financial objects only. Never paste screenshots, apps, websites or flat logos.
+
+COLORS + LIGHT:
+Emerald green for positive/separated reserve states, warm ivory and soft gray for neutral objects, subtle gold for money/value, warm red-orange only for warnings or costs. Clean soft lighting and contact shadows.
+
+TEXT:
+Only the explicitly requested short German object labels may appear. No headline, subtitle, CTA, long sentence or tiny body copy.
+
+FORBIDDEN:
+No photorealism, no dashboard, no app UI, no flowchart, no small boxes connected by thin lines, no generic card rows, no abstract icon-only replacement, no miniature diorama and no decorative clutter.
+
+
+===== BILDBLOCK 5/6 · scene-07 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Tagesgeld Zinsen.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, erlaubte Labels, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Tagesgeld
+- Zinsen
+
+IMAGE PROMPT:
+Create a clear stylized 3D scene with a physical Tagesgeld reserve container holding money. Add a small but visible additional coin amount arriving above or beside it, labeled only “Zinsen”. Do not show a percentage, guaranteed rate or bank brand. The viewer should understand that Tagesgeld can earn interest, while the exact amount can vary.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. Keep recognizable everyday proportions, polished materials and soft rounded construction. The result must be clearly stylized and cinematic, never photorealistic, never a toy-like icon pack.
+
+BACKGROUND:
+Use one seamless deep black background. Any real-life context must fade naturally into the black world. No bright room, floor-wall boundary, horizon, colored background zone, particles, aurora or grid.
+
+COMPOSITION:
+One clear main situation per image. Supporting objects are flexible and appear only when they improve understanding. Real-world cause/effect and object relationships must be readable in 1–2 seconds.
+
+BRANDS + LOGOS:
+No real bank branding. Generic but recognizable financial objects only. Never paste screenshots, apps, websites or flat logos.
+
+COLORS + LIGHT:
+Emerald green for positive/separated reserve states, warm ivory and soft gray for neutral objects, subtle gold for money/value, warm red-orange only for warnings or costs. Clean soft lighting and contact shadows.
+
+TEXT:
+Only the explicitly requested short German object labels may appear. No headline, subtitle, CTA, long sentence or tiny body copy.
+
+FORBIDDEN:
+No photorealism, no dashboard, no app UI, no flowchart, no small boxes connected by thin lines, no generic card rows, no abstract icon-only replacement, no miniature diorama and no decorative clutter.
+
+
+===== BILDBLOCK 6/6 · scene-08 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Nicht fuer Kartenzahlung.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, erlaubte Labels, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Girokonto
+- Tagesgeld
+
+IMAGE PROMPT:
+Create a simple checkout scene in the same stylized 3D world. A normal debit-card payment connected to “Girokonto” is being used for groceries. Keep a separate “Tagesgeld” reserve physically off to the side and clearly not connected to the payment terminal. The message must be obvious without a red prohibition sign dominating the scene: daily card payments belong to the Girokonto, not the Tagesgeld reserve.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. Keep recognizable everyday proportions, polished materials and soft rounded construction. The result must be clearly stylized and cinematic, never photorealistic, never a toy-like icon pack.
+
+BACKGROUND:
+Use one seamless deep black background. Any real-life context must fade naturally into the black world. No bright room, floor-wall boundary, horizon, colored background zone, particles, aurora or grid.
+
+COMPOSITION:
+One clear main situation per image. Supporting objects are flexible and appear only when they improve understanding. Real-world cause/effect and object relationships must be readable in 1–2 seconds.
+
+BRANDS + LOGOS:
+No real bank branding. Generic but recognizable financial objects only. Never paste screenshots, apps, websites or flat logos.
+
+COLORS + LIGHT:
+Emerald green for positive/separated reserve states, warm ivory and soft gray for neutral objects, subtle gold for money/value, warm red-orange only for warnings or costs. Clean soft lighting and contact shadows.
+
+TEXT:
+Only the explicitly requested short German object labels may appear. No headline, subtitle, CTA, long sentence or tiny body copy.
+
+FORBIDDEN:
+No photorealism, no dashboard, no app UI, no flowchart, no small boxes connected by thin lines, no generic card rows, no abstract icon-only replacement, no miniature diorama and no decorative clutter.
+
+
+ABSCHLUSS:
+Erst nachdem alle 6 Einzelbilder nacheinander erzeugt, exakt umbenannt und geprüft wurden, ist die Bildphase abgeschlossen. Szene 01 ist gleichzeitig das Cover. Kein Bild 00 erzeugen.
+
+FINALER BILDERORDNER:
+03-szenen/00-ALLE-BILDER-HIER-REIN/
+Alle sechs fertig geprüften Einzelbilder werden ausschließlich dort gesammelt.

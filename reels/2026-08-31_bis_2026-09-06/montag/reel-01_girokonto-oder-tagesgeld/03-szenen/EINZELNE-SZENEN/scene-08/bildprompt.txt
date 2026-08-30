@@ -1,0 +1,47 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Nicht fuer Kartenzahlung.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, erlaubte Labels, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Girokonto
+- Tagesgeld
+
+IMAGE PROMPT:
+Create a simple checkout scene in the same stylized 3D world. A normal debit-card payment connected to “Girokonto” is being used for groceries. Keep a separate “Tagesgeld” reserve physically off to the side and clearly not connected to the payment terminal. The message must be obvious without a red prohibition sign dominating the scene: daily card payments belong to the Girokonto, not the Tagesgeld reserve.
+
+Make the relationship immediately understandable without narration: the grocery purchase is physically completed through the Girokonto-linked payment, while the Tagesgeld reserve stays outside the payment action. The viewer should clearly recognize that normal shopping uses the everyday account and does not directly spend from the reserve. Keep this as one believable real-life checkout situation rather than a prohibition icon or comparison dashboard.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. Keep recognizable everyday proportions, polished materials and soft rounded construction. The result must be clearly stylized and cinematic, never photorealistic, never a toy-like icon pack.
+
+BACKGROUND:
+Use one seamless deep black background. Any real-life context must fade naturally into the black world. No bright room, floor-wall boundary, horizon, colored background zone, particles, aurora or grid.
+
+COMPOSITION:
+One clear main situation per image. Supporting objects are flexible and appear only when they improve understanding. Real-world cause/effect and object relationships must be readable in 1–2 seconds.
+
+BRANDS + LOGOS:
+No real bank branding. Generic but recognizable financial objects only. Never paste screenshots, apps, websites or flat logos.
+
+COLORS + LIGHT:
+Emerald green for positive/separated reserve states, warm ivory and soft gray for neutral objects, subtle gold for money/value, warm red-orange only for warnings or costs. Clean soft lighting and contact shadows.
+
+TEXT:
+Only the explicitly requested short German object labels may appear. No headline, subtitle, CTA, long sentence or tiny body copy.
+
+FORBIDDEN:
+No photorealism, no dashboard, no app UI, no flowchart, no small boxes connected by thin lines, no generic card rows, no abstract icon-only replacement, no miniature diorama and no decorative clutter.
