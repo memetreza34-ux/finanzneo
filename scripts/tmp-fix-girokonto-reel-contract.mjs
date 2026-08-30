@@ -31,9 +31,11 @@ writeFileSync(coverPath, cover, 'utf8');
 
 const masterPath = resolve(root, '03-szenen/alle-bildprompts.txt');
 let master = readFileSync(masterPath, 'utf8');
+const coverGuard = 'COVER = SZENE 01\nKEIN separates Cover erzeugen.\nKEIN Bild 00 erzeugen.\nDie finale scene-01-Datei ist gleichzeitig das Cover.\n\n';
+if (!/COVER = SZENE 01/i.test(master)) master = coverGuard + master;
 if (!master.includes('03-szenen/00-ALLE-BILDER-HIER-REIN/')) {
   master += '\nFINALER BILDERORDNER:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\nAlle sechs fertig geprüften Einzelbilder werden ausschließlich dort gesammelt.\n';
 }
 writeFileSync(masterPath, master, 'utf8');
 
-console.log('✓ Reel-Vertragsdetails korrigiert: objectLabels, Cover-Background und finaler Bilderordner.');
+console.log('✓ Reel-Vertragsdetails korrigiert: objectLabels, Cover-Background, Cover-Guard und finaler Bilderordner.');
