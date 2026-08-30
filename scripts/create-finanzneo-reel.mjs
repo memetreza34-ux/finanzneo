@@ -3,7 +3,7 @@
 // Legt ein neues Reel atomar an: Grundgerüst + Google-Flow-Lock +
 // Stylized 3D Animated Black World V9 + Phase-3-Fertigkeitsvertrag + Reel-V5-Layout +
 // kanonischer Phase-1-Animationscode + Cinematic Real-World Animation Contract +
-// scene-01-als-Cover + automatischer Finalexport.
+// scene-01-als-Cover + Visual-Beat-v1 + automatischer Finalexport.
 // Scheitert einer der Schritte, wird ein in diesem Lauf neu erzeugter Reel-Ordner
 // vollständig zurückgerollt.
 
@@ -50,6 +50,7 @@ const steps = [
   ['scripts/apply-phase1-animation-code-contract.mjs', [target]],
   ['scripts/apply-premium-animation-v2.mjs', [target]],
   ['scripts/apply-scene01-cover-export-contract.mjs', [target]],
+  ['scripts/apply-visual-beat-contract.mjs', [target]],
 ];
 
 for (const [script, scriptArgs] of steps) {
@@ -64,6 +65,8 @@ console.log('\n✓ Neues Reel vollständig angelegt.');
 console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob · kein Batch · kein Nutzer-„weiter“.');
 console.log('  Bildwelt V9: realitätsnahe Erklärszene · stylized 3D · nicht fotorealistisch · deep black Pflicht.');
 console.log('  Cover: scene-01 ist automatisch das Cover · kein separater Cover-Job · kein Bild 00.');
+console.log('  Visual Beats V1: Szenenzahl flexibel · 1 gesprochener Gedanke = 1 sichtbarer Beat · mehr Bildwechsel ausdrücklich erlaubt.');
+console.log('  Timing: statische Bilder ideal 1,8–3,4 s und ohne neue sichtbare Information max. 4,5 s; echte Wortzeiten entscheiden final.');
 console.log('  Layout V5: Header Y154 · 56 px · max. 2 Zeilen · Visual Y320–1400 · Captions bottom340.');
 console.log('  Header: optisch normalisierte Icons · fester Slot · bei Zweizeilern immer an erster Textzeile ausgerichtet.');
 console.log('  Animation Safe Zone: hart Y320–1400 · kein Eindringen in Header/Caption.');
