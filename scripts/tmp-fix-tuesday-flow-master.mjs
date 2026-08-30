@@ -2,6 +2,7 @@
 
 import {existsSync, readFileSync, writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
+import {AUTONOMY_BLOCK, FLOW_AGENT_BLOCK} from './lib/flow-autonomy.mjs';
 
 const root = resolve('reels/2026-08-31_bis_2026-09-06/dienstag/reel-02_konto-im-minus');
 const promptPaths = [
@@ -19,14 +20,14 @@ for (const path of promptPaths) {
 
 const masterPath = resolve(root, '03-szenen/alle-bildprompts.txt');
 let master = readFileSync(masterPath, 'utf8');
-const required = [
-  'FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1',
-  'FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3',
-  'FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1',
-  'MAX_CONCURRENT_GENERATIONS = 1',
-];
-const prefix = required.filter((marker) => !master.includes(marker)).join('\n');
-if (prefix) master = prefix + '\n\n' + master;
+
+// Der individuelle Masterprompt darf den bewährten globalen Flow-Sicherheitsblock
+// nicht ersetzen. Wir verwenden exakt die kanonischen Repo-Konstanten, damit
+// Single-Job, Queue-Sperre, Rename+QA und kein Nutzer-„weiter“ identisch bleiben.
+if (!master.includes('STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH')) {
+  master = `${AUTONOMY_BLOCK}${FLOW_AGENT_BLOCK}\n${master}`;
+}
+
 writeFileSync(masterPath, master, 'utf8');
 
-console.log('✓ Tuesday Flow-Master auf kanonisches Single-Job-Protokoll korrigiert.');
+console.log('✓ Tuesday Flow-Master nutzt wieder den kanonischen Repo-Single-Job-State-Machine-Block.');
