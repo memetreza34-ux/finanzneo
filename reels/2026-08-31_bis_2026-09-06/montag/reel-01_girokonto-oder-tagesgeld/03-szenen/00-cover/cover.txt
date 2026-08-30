@@ -1,0 +1,31 @@
+COVER = SZENE 01 — KEIN SEPARATER BILDJOB
+
+Die erste Reel-Szene ist automatisch das Cover. Google Flow darf KEIN separates Cover erzeugen und KEIN Bild 00 erzeugen. Für Reel und Cover wird exakt dieselbe fertige Datei aus scene-01 verwendet.
+
+SOURCE_SCENE_ID: scene-01
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Zwei Konten zwei Aufgaben.png
+
+EXACT SHORT GERMAN OBJECT LABELS:
+- Girokonto
+- Tagesgeld
+
+IMAGE PROMPT:
+This file is a technical alias only and must never start a second image-generation job. The canonical cover is exactly the final scene-01 image unchanged. It shows a real-life, real-world-grounded stylized 3D everyday finance situation with two visibly different jobs for money: the Girokonto is connected to ordinary daily-payment objects, while the Tagesgeld reserve stays physically separate and calm for later. The viewer must immediately understand without narration that one account handles everyday money movement and the other holds a reserve. Preserve the exact scene-01 composition, proportions, materials, object labels and cause-and-purpose relationship. Do not redesign, recrop into a different concept or replace the real situation with symbols.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Keep the exact scene-01 premium real-world-grounded stylized 3D visual language. Recognizable everyday proportions, polished materials and soft rounded construction; never photorealistic and never an icon pack.
+
+BACKGROUND:
+Use the exact same seamless deep black background as scene-01. Keep it clean, minimal and uninterrupted.
+
+COMPOSITION:
+The visual explanation must remain readable in 1–2 seconds: Girokonto for today's everyday payments, Tagesgeld as separated reserve money for later.
+
+FORBIDDEN:
+No separate cover generation, no Bild 00, no photorealism, no dashboard, no app UI, no flowchart, no abstract symbol-only replacement and no decorative clutter.
