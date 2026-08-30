@@ -1,0 +1,303 @@
+{
+  "version": 3,
+  "title": "Was passiert, wenn dein Konto ins Minus geht?",
+  "fps": 30,
+  "timingSource": "04-caption/word-timings.json",
+  "visualBeatContract": "finanzneo-visual-beats-v1",
+  "plannedDurationSeconds": 53.3,
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 108,
+      "plannedDurationSeconds": 3.6,
+      "visualBeats": [
+        {
+          "id": "scene-01-beat-01",
+          "kind": "image",
+          "voiceText": "Dein Konto ist im Minus? Dann gibst du Geld aus, das dir gerade nicht gehört.",
+          "visualChange": "Ein normales Girokonto zeigt sichtbar einen negativen Stand; daneben liegt eine gerade bezahlte Alltagsausgabe, sodass sofort klar ist: Es wurde mehr ausgegeben als vorhanden.",
+          "startSecond": 0,
+          "endSecond": 3.6
+        }
+      ]
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "startFrame": 108,
+      "durationFrames": 96,
+      "plannedDurationSeconds": 3.2,
+      "visualBeats": [
+        {
+          "id": "scene-02-beat-01",
+          "kind": "image",
+          "voiceText": "Das Minus ist geliehenes Geld von deiner Bank – kein kostenloses Extra.",
+          "visualChange": "Bank und Girokonto stehen in einer klaren Beziehung: Das fehlende Geld kommt sichtbar von der Bank zum überzogenen Konto.",
+          "startSecond": 0,
+          "endSecond": 3.2
+        }
+      ]
+    },
+    {
+      "id": "scene-03",
+      "type": "animation",
+      "startFrame": 204,
+      "durationFrames": 174,
+      "plannedDurationSeconds": 5.8,
+      "visualBeats": [
+        {
+          "id": "scene-03-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Kontostand: 100 Euro.",
+          "visualChange": "Das Girokonto startet sichtbar bei 100 €.",
+          "startSecond": 0,
+          "endSecond": 1.1
+        },
+        {
+          "id": "scene-03-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Du zahlst 130 Euro.",
+          "visualChange": "Eine reale 130-€-Einkaufsrechnung tritt in den Vordergrund.",
+          "startSecond": 1.1,
+          "endSecond": 2.4
+        },
+        {
+          "id": "scene-03-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Das Geld geht ab.",
+          "visualChange": "Der verfügbare Geldstapel bewegt sich vom Konto zur Rechnung.",
+          "startSecond": 2.4,
+          "endSecond": 4.1
+        },
+        {
+          "id": "scene-03-beat-04",
+          "kind": "animation-phase",
+          "voiceText": "Du landest bei minus 30 Euro.",
+          "visualChange": "Das Konto kippt sichtbar auf -30 € und wechselt in den Warnzustand.",
+          "startSecond": 4.1,
+          "endSecond": 5.8
+        }
+      ]
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "startFrame": 378,
+      "durationFrames": 90,
+      "plannedDurationSeconds": 3,
+      "visualBeats": [
+        {
+          "id": "scene-04-beat-01",
+          "kind": "image",
+          "voiceText": "Für dieses geliehene Geld verlangt die Bank normalerweise Zinsen.",
+          "visualChange": "Ein überzogenes Girokonto liegt neben einer kleinen, klar als Zinsen markierten Zusatzforderung der Bank.",
+          "startSecond": 0,
+          "endSecond": 3
+        }
+      ]
+    },
+    {
+      "id": "scene-05",
+      "type": "animation",
+      "startFrame": 468,
+      "durationFrames": 135,
+      "plannedDurationSeconds": 4.5,
+      "visualBeats": [
+        {
+          "id": "scene-05-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Du bleibst im Minus.",
+          "visualChange": "Das rote Minuskonto bleibt als Ausgangszustand bestehen.",
+          "startSecond": 0,
+          "endSecond": 1.3
+        },
+        {
+          "id": "scene-05-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Zeit vergeht.",
+          "visualChange": "Mehrere Monatskalender wechseln nacheinander sichtbar.",
+          "startSecond": 1.3,
+          "endSecond": 2.8
+        },
+        {
+          "id": "scene-05-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Du zahlst länger Zinsen.",
+          "visualChange": "Ein wachsender Zinskosten-Stapel erscheint neben dem weiterhin negativen Konto.",
+          "startSecond": 2.8,
+          "endSecond": 4.5
+        }
+      ]
+    },
+    {
+      "id": "scene-06",
+      "type": "image",
+      "startFrame": 603,
+      "durationFrames": 126,
+      "plannedDurationSeconds": 4.2,
+      "visualBeats": [
+        {
+          "id": "scene-06-beat-01",
+          "kind": "image",
+          "voiceText": "Gehst du über deinen vereinbarten Rahmen hinaus, kann die Bank eine Zahlung ablehnen.",
+          "visualChange": "Eine reale Kartenzahlung an einer Kasse wird sichtbar abgelehnt, weil das daneben gezeigte Girokonto seinen vereinbarten Rahmen erreicht hat.",
+          "startSecond": 0,
+          "endSecond": 4.2
+        }
+      ]
+    },
+    {
+      "id": "scene-07",
+      "type": "image",
+      "startFrame": 729,
+      "durationFrames": 120,
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-07-beat-01",
+          "kind": "image",
+          "voiceText": "Lässt sie die Überziehung trotzdem zu, fallen in der Regel weitere Zinsen an.",
+          "visualChange": "Eine Zahlung geht trotz bereits stark negativem Konto durch; daneben erscheint sichtbar eine zusätzliche Zinsbelastung.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ]
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "startFrame": 849,
+      "durationFrames": 90,
+      "plannedDurationSeconds": 3,
+      "visualBeats": [
+        {
+          "id": "scene-08-beat-01",
+          "kind": "image",
+          "voiceText": "Für einen kurzen Engpass kann ein Dispo helfen.",
+          "visualChange": "Ein kleiner kurzfristiger Engpass wird überbrückt: eine fällige Rechnung wird bezahlt und ein nahes Gehaltsdatum ist sichtbar.",
+          "startSecond": 0,
+          "endSecond": 3
+        }
+      ]
+    },
+    {
+      "id": "scene-09",
+      "type": "image",
+      "startFrame": 939,
+      "durationFrames": 120,
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-09-beat-01",
+          "kind": "image",
+          "voiceText": "Landest du jeden Monat im Minus, wird daraus schnell ein teures Problem.",
+          "visualChange": "Mehrere Monatskalender zeigen denselben wiederkehrenden negativen Kontostand, sodass die Wiederholung sofort erkennbar ist.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ]
+    },
+    {
+      "id": "scene-10",
+      "type": "animation",
+      "startFrame": 1059,
+      "durationFrames": 165,
+      "plannedDurationSeconds": 5.5,
+      "visualBeats": [
+        {
+          "id": "scene-10-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Dein Konto ist noch im Minus.",
+          "visualChange": "Das Girokonto startet sichtbar mit negativem Stand.",
+          "startSecond": 0,
+          "endSecond": 1.4
+        },
+        {
+          "id": "scene-10-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Dann kommt dein Gehalt.",
+          "visualChange": "Ein Gehalts-Geldstapel landet am Konto und füllt zuerst die rote Lücke.",
+          "startSecond": 1.4,
+          "endSecond": 3.5
+        },
+        {
+          "id": "scene-10-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Erst der Rest ist frei.",
+          "visualChange": "Nach Erreichen von null trennt sich nur der verbleibende Geldstapel als frei verfügbar ab.",
+          "startSecond": 3.5,
+          "endSecond": 5.5
+        }
+      ]
+    },
+    {
+      "id": "scene-11",
+      "type": "image",
+      "startFrame": 1224,
+      "durationFrames": 114,
+      "plannedDurationSeconds": 3.8,
+      "visualBeats": [
+        {
+          "id": "scene-11-beat-01",
+          "kind": "image",
+          "voiceText": "Ein kleiner Puffer auf dem Girokonto kann dich vor kleinen Überraschungen schützen.",
+          "visualChange": "Ein normaler kleiner Geldpuffer liegt sichtbar zwischen Girokonto und einer unerwarteten kleinen Rechnung und verhindert den negativen Kontostand.",
+          "startSecond": 0,
+          "endSecond": 3.8
+        }
+      ]
+    },
+    {
+      "id": "scene-12",
+      "type": "animation",
+      "startFrame": 1338,
+      "durationFrames": 156,
+      "plannedDurationSeconds": 5.2,
+      "visualBeats": [
+        {
+          "id": "scene-12-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Eine größere Überraschung kommt.",
+          "visualChange": "Eine kaputte Waschmaschine und Reparaturrechnung erscheinen als echter Notfall.",
+          "startSecond": 0,
+          "endSecond": 1.4
+        },
+        {
+          "id": "scene-12-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Der Notgroschen bezahlt.",
+          "visualChange": "Geld verlässt den Reservebehälter und bewegt sich zur Reparaturrechnung.",
+          "startSecond": 1.4,
+          "endSecond": 3.6
+        },
+        {
+          "id": "scene-12-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Das Girokonto bleibt geschützt.",
+          "visualChange": "Die Rechnung wechselt auf bezahlt und das Girokonto bleibt sichtbar außerhalb des Minus.",
+          "startSecond": 3.6,
+          "endSecond": 5.2
+        }
+      ]
+    },
+    {
+      "id": "scene-13",
+      "type": "image",
+      "startFrame": 1494,
+      "durationFrames": 105,
+      "plannedDurationSeconds": 3.5,
+      "visualBeats": [
+        {
+          "id": "scene-13-beat-01",
+          "kind": "image",
+          "voiceText": "Merke: Minus heißt geliehenes Geld. Kurz okay, dauerhaft oft teuer.",
+          "visualChange": "Ein klarer realer Vergleich zeigt links einen kleinen kurzen Engpass und rechts ein wiederkehrend negatives Konto mit Zinskosten.",
+          "startSecond": 0,
+          "endSecond": 3.5
+        }
+      ]
+    }
+  ]
+}

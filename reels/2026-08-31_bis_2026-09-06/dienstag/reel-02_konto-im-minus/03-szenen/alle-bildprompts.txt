@@ -1,0 +1,424 @@
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+
+STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH
+- DIES IST KEIN BATCH-AUFTRAG. DIE GESAMTE DATEI DARF NIEMALS ALS EIN MEHRBILD-PROMPT AUSGEFÜHRT WERDEN.
+- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.
+- STARTE NIEMALS MEHRERE BILDER, MEHRERE GENERIERUNGSJOBS ODER MEHRERE SZENEN IN EINEM SCHRITT / TOOL-CALL / BATCH.
+- ERZEUGE KEINE GALERIE, KEINEN KONTAKTBOGEN, KEIN MULTI-PANEL, KEINE COLLAGE UND KEIN BILD MIT MEHREREN SZENEN.
+- INITIAL IST NUR DER ERSTE BENÖTIGTE BILDBLOCK FREIGESCHALTET. ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT.
+- EIN SPÄTERER BILDBLOCK DARF ERST FREIGESCHALTET WERDEN, WENN DAS AKTUELLE BILD: (1) vollständig zurückgegeben, (2) exakt umbenannt und (3) per QA geprüft wurde.
+- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE BILDBLOCK GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.
+- NACH BESTANDENER QA WIRD GENAU DER NÄCHSTE BENÖTIGTE BILDBLOCK IN DOKUMENTREIHENFOLGE FREIGESCHALTET. NICHT VORHER.
+- REMOTION-/ANIMATIONSNUMMERN WERDEN OHNE GENERIERUNG ÜBERSPRUNGEN.
+- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTÄTIGUNG ODER FREIGABE DES NUTZERS.
+- "WARTEN" BEDEUTET NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.
+- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.
+- STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.
+- STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+AUSFÜHRUNGSPROTOKOLL — STATE MACHINE, NICHT BATCH:
+0. Betrachte spätere Bildblöcke zunächst nur als GESPERRTE DATEN. Sie sind noch KEINE ausführbaren Bildaufträge.
+1. Setze ACTIVE_STEP auf den ersten benötigten Bildblock in Dokumentreihenfolge.
+2. Nimm AUSSCHLIESSLICH den BILDPROMPT von ACTIVE_STEP. Sende niemals Text aus mehreren Bildblöcken gemeinsam an die Bildgenerierung.
+3. Starte GENAU EINEN Bildgenerierungsjob für ACTIVE_STEP. MAX_CONCURRENT_GENERATIONS = 1.
+4. Starte KEINEN weiteren Job, solange dieser Job läuft oder noch kein Ergebnis zurückgegeben wurde.
+5. Sobald das einzelne Bild zurückgegeben wurde: benenne DIESE Datei SOFORT exakt auf den vorgegebenen finalen Dateinamen um.
+6. Prüfe danach ausschließlich dieses eine Bild: Aussage/Beat-Zuordnung, erlaubte Labels, klarer stylized-3D-animated V9-Look, tiefschwarzer sauberer Hintergrund, sinnvolle statt quotierte Objektanzahl, sichtbares Gesicht falls Person, Marken nur erkennbar-stilisiert und exakter Dateiname.
+7. QA FEHLER: ACTIVE_STEP bleibt unverändert. Erzeuge ausschließlich dieselbe Bildnummer neu. Alle späteren Schritte bleiben gesperrt.
+8. QA BESTANDEN: markiere ACTIVE_STEP als DONE. Erst JETZT darfst du den nächsten benötigten Bildblock in Dokumentreihenfolge freischalten.
+9. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Bildjob überspringen und zum nächsten benötigten Bildblock gehen.
+10. Wiederhole 2–9, bis jedes erwartete Bild einzeln DONE ist. Keine Nutzerfreigabe dazwischen.
+11. Erst NACH Abschluss aller Einzeljobs darfst du eine Abschlusszusammenfassung über alle finalen Dateien geben.
+12. Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen oder anhängen.
+
+HART VERBOTEN:
+- mehrere Bilder in einem Generierungsaufruf
+- mehrere Bildprompts zusammenfassen
+- Bilder vorab in eine Queue stellen
+- alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen
+- Kontaktbogen / Galerie / Collage / Multi-Panel als Ersatz für Einzelbilder
+
+# GOOGLE FLOW — ALLE BILDPROMPTS
+
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+COVER = SZENE 01
+KEIN separates Cover erzeugen.
+KEIN Bild 00 erzeugen.
+
+Arbeitsweise: immer exakt ein Bildjob. Jeder Prompt beschreibt eine real-world-grounded Alltagssituation in stylized 3D auf deep black und muss die Aussage visually explain / clearly understand within 1–2 seconds. Never photorealistic. No dashboard. No flowchart.
+
+FINALER BILDERORDNER:
+03-szenen/00-ALLE-BILDER-HIER-REIN/
+
+
+===== scene-01 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Konto im Minus.png
+
+Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Girokonto
+- -30 €
+
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D everyday payment scene immediately after someone has spent slightly more than was available. Show a substantial physical Girokonto account slab as the main object with a clearly readable negative state “-30 €”. Beside it, include one believable recently paid everyday receipt or shopping item so the cause is obvious: spending exceeded the available money. The relationship must visually explain cause-and-effect, not merely show finance symbols. Keep the negative account prominent and easy to read at a glance, with restrained warning color only where needed. The viewer should immediately understand that the account has fallen below zero.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+
+===== scene-02 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Minus ist geliehenes Geld.png
+
+Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Bank
+- Geliehen
+
+IMAGE PROMPT:
+Create a believable stylized 3D bank-and-account situation that visually explains where the missing money comes from. Place a recognizable physical bank building or bank counter on one side and a Girokonto account object on the other. Show a small controlled stream or stack of money moving from the bank toward the already overdrawn account, making the relationship unmistakable: the negative balance is borrowed money from the bank. Keep the scene grounded in normal banking reality, not an abstract arrow diagram. The viewer should immediately understand the lending relationship without reading a paragraph.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+
+===== scene-04 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Dispozinsen.png
+
+Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Dispo
+- Zinsen
+
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D scene with an overdrawn Girokonto as the main object and a separate small bank charge beside it marked “Zinsen”. The negative account should remain clearly visible while the extra interest charge appears as an additional consequence, not as part of the original purchase. Use a modest gold money cue for value and warm red-orange only for cost. The visual relationship must clearly explain: because money was borrowed through the overdraft, the bank charges interest. Avoid rate percentages, guarantees or promotional banking imagery.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+
+===== scene-06 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 06 - Zahlung kann abgelehnt werden.png
+
+Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Zahlung
+- ABGELEHNT
+
+IMAGE PROMPT:
+Create a believable stylized 3D checkout scene in a normal shop. Show a payment terminal, a shopping basket or groceries, and a payment card attempting a purchase. Nearby, show a physical Girokonto account object already at its agreed limit. The payment terminal or receipt should clearly show the short label “ABGELEHNT”, making the cause-and-effect immediately understandable: the account cannot go further and the bank may reject the payment. Keep the composition physical and real-life, not an app screen or abstract warning symbol.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+
+===== scene-07 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Geduldete Ueberziehung.png
+
+Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Überziehung
+- Zinsen
+
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D payment scene where a purchase is visibly accepted even though the Girokonto is already more deeply negative. The payment itself should look completed, while a separate additional bank cost marked “Zinsen” appears beside the overdrawn account. The viewer should clearly understand the sequence without narration: the bank allowed the deeper overdraft, but this creates another interest cost. Do not show a specific interest rate. Keep the objects large, simple and physically related rather than arranged like an infographic dashboard.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+
+===== scene-08 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Kurzer Engpass.png
+
+Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Kurz
+- Dispo
+
+IMAGE PROMPT:
+Create a believable stylized 3D short-term cash-gap scene. Show one urgent everyday bill that is due now, a Girokonto using a small Dispo amount to cover it, and a nearby calendar showing that salary is arriving soon. The key visual message is temporary bridging: the gap is short and has a clear end point. Keep the number of objects low and the relationship obvious. The viewer should immediately understand why a short overdraft can help for a brief gap, without implying that permanent overdraft use is good or free.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+
+===== scene-09 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Dauerhaft im Minus.png
+
+Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Jeden Monat
+- Minus
+
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D recurring-money-problem scene. Show the same Girokonto falling into a negative state across several clearly separated monthly calendar moments, for example three consecutive months. Each month should visibly repeat the same negative outcome, with small accumulated cost cues becoming more noticeable. The visual should immediately explain repetition: this is not one short emergency but a pattern that returns every month. Keep the account and calendars large and readable, with no dashboard, chart or abstract flowchart layout.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+
+===== scene-11 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 11 - Puffer auf Girokonto.png
+
+Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Puffer
+- Girokonto
+
+IMAGE PROMPT:
+Create a believable stylized 3D everyday scene where a small unexpected expense approaches a Girokonto, but a modest visible cash buffer inside or directly beside the account absorbs the cost before the balance can fall below zero. The main relationship should read instantly: a small reserve on the current account protects against a small surprise. Use a normal household receipt or minor repair cost as the cause, the buffer as the protection, and a stable non-negative Girokonto as the result. Avoid a giant emergency fund or investment imagery.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+
+===== scene-13 =====
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 13 - Minus Merksatz.png
+
+Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Geliehen
+- Kurz
+- Teuer
+
+IMAGE PROMPT:
+Create a clean real-world-grounded stylized 3D comparison using two simple everyday situations, not cards or panels. On the left, show one small short-lived overdraft with a nearby soon-arriving salary cue and the label “Kurz”. On the right, show the same type of Girokonto repeatedly negative across multiple months with visible interest costs and the label “Teuer”. The viewer should immediately understand the memory rule: a brief gap can be temporary, while repeated long overdraft use becomes costly. Keep the physical objects large and the contrast simple.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.

@@ -40,7 +40,20 @@ Kein Agent ersetzt oder generiert diese Flow-Bilder oder das Haupt-Voiceover eig
 
 `scene-index.json.phase3Executor` entscheidet den Executor. Phase 3 integriert die finalen Nutzerassets, den versiegelten Animationscode und freigegebene lokale SFX. Sie darf zusätzlich Playwright Visual QA gegen die lokale Remotion-Preview durchführen. Eine kreative Änderung an Animation/Lottie nach dem Seal muss zurück in Phase 1 und neu versiegelt werden.
 
-## 3. Bilder / Google Flow
+## 3. Visual Beats und Timing
+
+VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
+
+- Szenenzahl ist frei und themenabhängig.
+- Erst gesprochene Gedanken definieren, dann pro Gedanken einen sichtbaren Beat planen, danach Szenen gruppieren.
+- Ein Satz darf ein eigenes Bild erhalten; zwei Aussagen/Aktionen/Beispiele in einem Satz dürfen in zwei Beats geteilt werden.
+- Statische Bildbeats ideal 1,8–3,4 s und ohne neue sichtbare Information maximal 4,5 s.
+- Mehrere Bildszenen nacheinander sind erlaubt, wenn jede die Erklärung sichtbar fortsetzt.
+- Animationen müssen während ihrer Laufzeit mehrere sichtbare Zustände durchlaufen; reine Kamera-Bewegung zählt nicht als neuer Beat.
+- Finale Schnitte folgen den echten Wort-Zeitstempeln des Nutzer-Voiceovers.
+- 60/40 Bild/Animation bleibt Richtwert, keine Quote.
+
+## 4. Bilder / Google Flow
 
 - exakt ein Bildjob gleichzeitig
 - vollständig warten → exakt umbenennen → V9-QA → erst dann nächster Job
@@ -50,7 +63,7 @@ Kein Agent ersetzt oder generiert diese Flow-Bilder oder das Haupt-Voiceover eig
 
 Bildwelt: `finanzneo-stylized-3d-animated-black-v9`. Reale Alltagssituation und klare Ursache/Wirkung zuerst; glaubwürdige Objektkonstruktion und Proportionen; semi-realistische Materialdetails in klar stilisiertem 3D; niemals fotorealistisch. Deep Black bleibt Pflicht.
 
-## 4. Layout V5
+## 5. Layout V5
 
 Quelle ist ausschließlich `REEL_STYLE`:
 
@@ -65,7 +78,7 @@ Transition 3 Frames
 
 Zweizeilige Header halten das Icon an der ersten Textzeile. `AnimationStage` clippt hart auf Y320–1400. Der produktive Hintergrund ist statisch `#000000`.
 
-## 5. Animationen
+## 6. Animationen
 
 Animationsszenen sind kleine visuelle Geschichten:
 
@@ -77,15 +90,15 @@ Pflicht sind konkrete Realwelt-Objekte, sichtbare Ursache/Wirkung, mehrere koord
 
 Nach `reel:ready` ist die kanonische Animation per SHA-256 versiegelt.
 
-## 6. SFX
+## 7. SFX
 
 SFX bestätigen sichtbare Ereignisse framegenau. Voiceover bleibt immer dominant. Keine Placeholder-Beeps, keine Remote-Sound-URLs, keine Casino-/Jackpot-Geldsounds. Fehlende freigegebene SFX dürfen mit dem konfigurierten Sound-Skill lokal erzeugt werden; das Haupt-Voiceover bleibt unverändert Nutzerasset.
 
-## 7. Playwright Visual QA
+## 8. Playwright Visual QA
 
 Playwright CLI prüft die lokale Remotion-Preview. Jede Bildszene erhält mindestens einen stabilen Check; jede Animationsszene mindestens START, TRIGGER, MID, NEAR RESULT und FINAL HOLD. Geprüft werden insbesondere Header/Icon-Konsistenz, Y320–1400, Caption-Abstand, Clipping, Hero-Größe, Leerraum und sichtbare Start→Ergebnis-Veränderung. Sichtbare Fehler müssen an der kanonischen Quelle behoben werden, auch wenn TypeScript/Bundle bereits grün sind.
 
-## 8. Phase 3 / Abschluss
+## 9. Phase 3 / Abschluss
 
 Normale Kette:
 
@@ -100,7 +113,7 @@ npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.
 
 FINAL_COMPLETE verlangt: alle Szenen belegt, exakter Animations-Seal, Audio vorhanden, 1080×1920, korrekte Timeline, Visual-QA bestanden und vollständiges `06-export/`.
 
-## 9. Publishing
+## 10. Publishing
 
 Finaler Standard:
 

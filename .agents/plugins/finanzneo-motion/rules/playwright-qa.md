@@ -17,6 +17,12 @@ At minimum inspect:
 - every two-line headline at least once;
 - at least one scene using each distinct header icon family present in the reel.
 
+## Visual-beat pacing checks
+
+VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
+
+When a reel has this contract, inspect the planned beat boundaries from `05-projektdateien/visual-beats.md`. Reject pacing when narration advances to a new thought but the visual remains materially unchanged, when a static image is held after its message is already obvious, or when a supposed new beat is only camera motion. Consecutive static images are valid when each one contributes a new explanatory state.
+
 ## Hard checks
 
 Reject visual QA when any of the following is clearly visible:

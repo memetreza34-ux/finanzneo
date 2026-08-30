@@ -66,6 +66,14 @@ open repair bill appears
 
 A progress bar, three cards or text labels are never a substitute for this mechanism.
 
+## Visual-beat synchronization
+
+VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
+
+Treat an animation scene as several visible sub-beats, not one long motion. Every time the spoken thought advances, the visual should reveal a new object, state, action, consequence or result. Camera movement alone is not a new beat.
+
+Do not let a fully understood still state sit under new narration. Hold is reserved for a short readable result, not for filling time. Plan approximate beat windows first; Phase 3 retimes scene boundaries from the real voiceover without changing the sealed mechanism.
+
 ## Motion channels
 
 Use several coordinated motion channels with different jobs. Aim for 4–8 meaningful channels where the scene supports it.

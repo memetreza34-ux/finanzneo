@@ -1,0 +1,30 @@
+FINANZNEO STYLIZED 3D ANIMATED BLACK WORLD — V9
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
+
+BACKGROUND:
+A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
+
+COMPOSITION:
+The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
+
+BRANDS + LOGOS:
+If a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.
+
+COLORS + LIGHT:
+Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
+
+TEXT:
+Only explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no isolated vault + shield + coins + arrow scene without real-life context, no abstract visual riddle, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
+
+PROMPT POLICY:
+Every image prompt must be individually and completely written for the exact spoken point. Start with the concrete real-life situation and visible cause/effect, add exact short German labels when they improve understanding, then give style/background/composition/forbidden rules. Do not use shorthand, generic keyword lists or a fixed supporting-object quota.

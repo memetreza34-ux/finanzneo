@@ -49,6 +49,16 @@ If `phase3Executor` names another executor, do not take over Phase 3.
 
 After the animation SHA is sealed, Phase 3 may not invent a new Lottie concept, alter the physical mechanism or generate replacement animation code. Creative redesign returns to Phase 1.
 
+## Visual Beat timing
+
+VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
+
+For new reels, do not choose a scene count first. Parse the voiceover into spoken thoughts, assign one visible beat per thought, then group beats into scenes. A sentence may receive its own Flow image. If one sentence contains two actions, examples, a comparison or a before/after change, split it into multiple visible beats when that improves comprehension.
+
+Static image beats should normally last about 1.8–3.4 seconds and must not remain unchanged beyond 4.5 seconds once the message is already understood. Multiple consecutive image scenes are allowed when each one advances meaning. Camera push, zoom or parallax alone does not reset the beat.
+
+Animation scenes may be longer only when the visible state keeps advancing with the voiceover. Final cuts follow real word timings from Phase 2, never equal-length scene padding. The 60/40 image-animation mix is guidance, not a quota.
+
 ## V9 image world
 
 New Flow prompts use `finanzneo-stylized-3d-animated-black-v9`:

@@ -44,6 +44,12 @@ START
 
 The spoken beat and visible action must describe the same mechanism.
 
+## Voice-to-visual pacing
+
+VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
+
+The visible story must advance with the spoken story. Each meaningful spoken thought gets a visible change. An animation may contain multiple sub-beats inside one scene. Do not use camera drift, zoom or idle floating as a substitute for new information. Result holds are short readability windows, not filler.
+
 ## Motion density
 
 Use enough coordinated motion to make the mechanism feel alive, but not busy.

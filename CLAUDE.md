@@ -9,7 +9,7 @@
 - Ziel: Finanzgrundlagen einfach, professionell und verständlich erklären
 - Reel-Plattformen: TikTok, Instagram Reels, Facebook Reels, Snapchat
 - YouTube: ausschließlich Longform unter `youtube/`; **keine YouTube Shorts**
-- Reel: 1080 × 1920, 9:16, 30 fps, typischerweise 60–90 Sekunden
+- Reel: 1080 × 1920, 9:16, 30 fps; Anfänger-Reels typischerweise ca. 45–70 Sekunden, aber Inhalt und echtes Voiceover entscheiden
 
 ## 2. Repository-Sicherheit
 
@@ -92,16 +92,23 @@ Bildszene:
 └── bildprompt.txt
 ```
 
-## 5. Dramaturgie und Beat-Regeln
+## 5. Dramaturgie, Timing und Visual Beats
+
+VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
 
 - Hook in den ersten 2 Sekunden
-- ca. 14–16 Visual-Beats als Ziel, Qualität vor Quote
-- ungefähr 60 % Bild / 40 % Animation als Richtwert, keine starre Quote
-- nie mehr als zwei Bildszenen direkt hintereinander
-- Bildbeat ideal 3,5–5,5 s, absolut max. 6 s
-- Animation ideal 4,5–7 s
+- **keine feste Szenenzahl**: so wenige Szenen wie möglich, so viele wie nötig
+- Visual Beats werden unabhängig von der Szenenzahl geplant; erst gesprochene Gedanken, dann sichtbare Beats, dann Szenengruppierung
+- **1 gesprochener Gedanke = 1 sichtbarer Visual Beat**
+- ein Satz darf ein eigenes Bild bekommen; enthält er zwei Aktionen, Beispiele, einen Vergleich oder Vorher/Nachher, wird er bei Bedarf in mehrere Beats geteilt
+- mehrere Bildszenen direkt hintereinander sind erlaubt, wenn jedes neue Bild die Aussage sichtbar weiterführt
+- statischer Bildbeat ideal ca. 1,8–3,4 s; ohne neue sichtbare Information **max. 4,5 s**
+- Animationen dürfen länger sein, müssen aber währenddessen mehrere klar unterschiedliche Zustände zeigen; Kamera-Push/Zoom allein zählt nicht als neuer Beat
+- Voiceover und Visual müssen gemeinsam fortschreiten: ist die Bildaussage bereits verstanden, darf das Bild nicht unnötig stehen bleiben
+- ungefähr 60 % Bild / 40 % Animation ist nur ein Richtwert; bei einfachen Anfänger-Erklärungen sind bewusst mehr Bilder erlaubt
+- echte Wort-Zeitstempel bestimmen finale Schnitte und Szenendauern; keine künstlich gleich langen Szenen
 - kurze klare Sätze, kein unnötiger Fachjargon
-- Logik: Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz → CTA
+- Logik: Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz; CTA nur wenn er wirklich passt
 - Zahlen nur nach Prüfung; Beispielannahmen klar kennzeichnen
 
 ## 6. Bildwelt — Stylized 3D Animated Black V9
