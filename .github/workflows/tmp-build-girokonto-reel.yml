@@ -1,5 +1,6 @@
 name: Build Girokonto Tagesgeld Reel Once
 
+# Final guarded pass after V9 prompt-quality corrections.
 on:
   push:
     branches:
