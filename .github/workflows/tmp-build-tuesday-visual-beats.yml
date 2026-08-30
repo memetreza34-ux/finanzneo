@@ -33,6 +33,9 @@ jobs:
       - name: Build global visual-beat rules and Tuesday reel
         run: node scripts/tmp-build-tuesday-visual-beats.mjs
 
+      - name: Normalize Tuesday Flow contract markers
+        run: node scripts/tmp-fix-tuesday-flow-master.mjs
+
       - name: Prove backward compatibility on Monday reel
         run: npm run reel:validate -- reels/2026-08-31_bis_2026-09-06/montag/reel-01_girokonto-oder-tagesgeld
 
@@ -71,6 +74,7 @@ jobs:
       - name: Remove one-time helpers
         run: |
           rm -f scripts/tmp-build-tuesday-visual-beats.mjs
+          rm -f scripts/tmp-fix-tuesday-flow-master.mjs
           rm -f .github/workflows/tmp-build-tuesday-visual-beats.yml
 
       - name: Commit only after every guard passed
