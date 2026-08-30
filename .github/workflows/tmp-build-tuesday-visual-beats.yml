@@ -33,7 +33,7 @@ jobs:
       - name: Build global visual-beat rules and Tuesday reel
         run: node scripts/tmp-build-tuesday-visual-beats.mjs
 
-      - name: Normalize Tuesday Flow contract markers
+      - name: Restore canonical Flow state-machine block
         run: node scripts/tmp-fix-tuesday-flow-master.mjs
 
       - name: Prove backward compatibility on Monday reel
