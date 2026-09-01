@@ -111,3 +111,5 @@ jobs:
           git add -A
           git commit -m "Build Wednesday beginner reel with Future V2"
           git push origin HEAD:reel/mittwoch-geld-am-monatsende
+
+# guard-retry: 8
