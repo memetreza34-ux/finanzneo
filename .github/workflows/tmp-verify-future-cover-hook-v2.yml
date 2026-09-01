@@ -100,4 +100,4 @@ jobs:
           git commit -m "Add future-only reel cover hook and visual storytelling v2"
           git push origin HEAD:reel/future-cover-hook-v2
 
-# retry: 2
+# retry: 3
