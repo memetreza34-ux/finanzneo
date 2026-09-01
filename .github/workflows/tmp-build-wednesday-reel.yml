@@ -33,7 +33,7 @@ jobs:
       - name: Build Wednesday reel and finish Future V2 integration
         run: node scripts/tmp-build-wednesday-reel.mjs
 
-      - name: Fill final animation, Flow and cover markers
+      - name: Fill final V2 validation markers
         run: |
           node - <<'NODE'
           const fs = require('fs');
@@ -80,6 +80,12 @@ jobs:
           ].join('\n');
           if (!/KEIN SEPARATER BILDJOB/i.test(cover)) cover += alias;
           fs.writeFileSync(coverPath, cover, 'utf8');
+
+          const beatsPath = `${root}/05-projektdateien/visual-beats.md`;
+          let beats = fs.readFileSync(beatsPath,'utf8');
+          const beatRule = 'Lieber ein zusätzliches gutes Bild planen als einen neuen konkreten Gedanken in ein überladenes Stillbild zu pressen.';
+          if (!beats.includes('Lieber ein zusätzliches gutes Bild')) beats = beats.replace('VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v2\n', `VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v2\n\n${beatRule}\n`);
+          fs.writeFileSync(beatsPath, beats, 'utf8');
           NODE
 
       - name: Normalize unique scene icons
