@@ -51,8 +51,10 @@ const steps = [
   ['scripts/apply-premium-animation-v2.mjs', [target]],
   ['scripts/apply-scene01-cover-export-contract.mjs', [target]],
   ['scripts/apply-visual-beat-contract.mjs', [target]],
-  ['scripts/apply-future-image-storytelling-v2.mjs', [target]],
+  // Cover Hook erstellt/garantiert zuerst den Phase-3-Handoff. Danach kann
+  // Image Storytelling seinen Block sicher in dieselbe Datei einhängen.
   ['scripts/apply-future-cover-hook-v2.mjs', [target]],
+  ['scripts/apply-future-image-storytelling-v2.mjs', [target]],
 ];
 
 for (const [script, scriptArgs] of steps) {
