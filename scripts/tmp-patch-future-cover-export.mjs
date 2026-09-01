@@ -74,22 +74,23 @@ if (!firstScene || firstScene.id !== 'scene-01' || firstScene.type !== 'image') 
 if (!source.includes(oldCover)) throw new Error('Kanonischer Cover-Exportblock nicht gefunden; Patch abgebrochen.');
 source = source.replace(oldCover, newCover);
 
-const oldUploadCover = [
-  '## Cover',
-  '',
-  '- `${coverExportName}` ist exakt dasselbe Bild wie scene-01.',
-  '- Es wurde KEIN separates Cover und KEIN Bild 00 erzeugt.',
-].join('\n');
-const newUploadCover = [
-  '## Cover',
-  '',
-  '${futureCoverHook',
+const mbLine = "const mb = (b) => (b ? `${(b / 1024 / 1024).toFixed(1)} MB` : 'unbekannt');";
+const mbWithCoverDescription = [
+  mbLine,
+  'const coverUploadBeschreibung = futureCoverHook',
   "  ? '- `cover.png` ist Frame 0 der final geprüften MP4 inklusive Remotion-Reel-Titel.\\n- Szene 01 enthält im Video keine Untertitel; der Titel ist ab Frame 0 sichtbar.'",
-  '  : `- \\`${coverExportName}\\` ist exakt dasselbe Bild wie scene-01.`}',
-  '- Es wurde KEIN separater Flow-Cover-Job und KEIN Bild 00 erzeugt.',
+  "  : `- \\`${coverExportName}\\` ist exakt dasselbe Bild wie scene-01.`;",
 ].join('\n');
-if (!source.includes(oldUploadCover)) throw new Error('UPLOAD-Coverblock nicht gefunden; Patch abgebrochen.');
-source = source.replace(oldUploadCover, newUploadCover);
+if (!source.includes(mbLine)) throw new Error('UPLOAD-Hilfsblock nicht gefunden; Patch abgebrochen.');
+source = source.replace(mbLine, mbWithCoverDescription);
+
+const oldUploadLine = '- \\`${coverExportName}\\` ist exakt dasselbe Bild wie scene-01.';
+if (!source.includes(oldUploadLine)) throw new Error('UPLOAD-Coverzeile nicht gefunden; Patch abgebrochen.');
+source = source.replace(oldUploadLine, '${coverUploadBeschreibung}');
+source = source.replace(
+  '- Es wurde KEIN separates Cover und KEIN Bild 00 erzeugt.',
+  '- Es wurde KEIN separater Flow-Cover-Job und KEIN Bild 00 erzeugt.',
+);
 
 source = source.replace(
   "console.log('\\n✓ FINAL_COMPLETE — 06-export enthält das geprüfte Reel, scene-01 als Cover und die universelle Reel-Caption.');",
