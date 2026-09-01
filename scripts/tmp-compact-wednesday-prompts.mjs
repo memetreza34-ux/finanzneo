@@ -45,14 +45,23 @@ const compactPrompt = (scene, isCover = false) => {
 const masterHeader = [
   'FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1',
   'FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3',
+  'FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2',
   'FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1',
+  '',
+  'STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH',
+  'DIES IST KEIN BATCH-AUFTRAG',
+  'MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG',
+  'ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT, bis das aktuelle Bild vollständig zurückgegeben, exakt umbenannt und per QA geprüft wurde.',
+  'VERBOTEN: mehrere Bilder in einem Generierungsaufruf.',
+  'VERBOTEN: mehrere Bildprompts zusammenfassen.',
+  'VERBOTEN: Bilder vorab in eine Queue stellen.',
+  'VERBOTEN: alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen.',
+  'WARTE NIEMALS AUF "WEITER". Nach erfolgreicher QA automatisch mit dem nächsten freigeschalteten Bildblock fortfahren.',
   'MAX_CONCURRENT_GENERATIONS = 1',
   'FINAL_IMAGE_DIRECTORY: 03-szenen/00-ALLE-BILDER-HIER-REIN/',
   'COVER = SZENE 01',
   'KEIN separates Cover erzeugen',
   'KEIN Bild 00 erzeugen',
-  '',
-  'Arbeite strikt Bild für Bild. Erst Ergebnis zurückbekommen, exakt umbenennen und QA prüfen; danach den nächsten Bildjob starten.',
   '',
 ].join('\n');
 
@@ -84,3 +93,4 @@ if (cover.length > 4200) throw new Error(`cover compact prompt too long: ${cover
 writeFileSync(`${root}/03-szenen/00-cover/cover.txt`, cover, 'utf8');
 
 console.log('✓ Mittwoch-Bildprompts kompakt: vollständig, individuell und unter 4200 Zeichen.');
+console.log('✓ Master-Prompt: Strict-Single-Job-State-Machine vollständig und Batch/Queueing ausdrücklich gesperrt.');
