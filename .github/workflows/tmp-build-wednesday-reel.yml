@@ -33,7 +33,7 @@ jobs:
       - name: Build Wednesday reel and finish Future V2 integration
         run: node scripts/tmp-build-wednesday-reel.mjs
 
-      - name: Fill final animation intents and Flow master markers
+      - name: Fill final animation, Flow and cover markers
         run: |
           node - <<'NODE'
           const fs = require('fs');
@@ -56,12 +56,30 @@ jobs:
             'FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1',
             'MAX_CONCURRENT_GENERATIONS = 1',
             'FINAL_IMAGE_DIRECTORY: 03-szenen/00-ALLE-BILDER-HIER-REIN/',
+            'COVER = SZENE 01',
+            'KEIN separates Cover erzeugen',
+            'KEIN Bild 00 erzeugen',
             '',
             'Arbeite strikt Bild für Bild. Erst Ergebnis zurückbekommen, exakt umbenennen und QA prüfen; danach den nächsten Bildjob starten.',
             '',
           ].join('\n');
           if (!master.includes('FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3')) master = header + master;
+          else if (!master.includes('COVER = SZENE 01')) master = header + master;
           fs.writeFileSync(masterPath, master, 'utf8');
+
+          const coverPath = `${root}/03-szenen/00-cover/cover.txt`;
+          let cover = fs.readFileSync(coverPath,'utf8');
+          const alias = [
+            '',
+            'COVER = SZENE 01',
+            'KEIN SEPARATER BILDJOB',
+            'No separate cover generation',
+            'no Bild 00',
+            'Technischer Alias: Dieses Dokument beschreibt exakt scene-01 und startet keinen zusätzlichen Google-Flow-Job.',
+            '',
+          ].join('\n');
+          if (!/KEIN SEPARATER BILDJOB/i.test(cover)) cover += alias;
+          fs.writeFileSync(coverPath, cover, 'utf8');
           NODE
 
       - name: Normalize unique scene icons
