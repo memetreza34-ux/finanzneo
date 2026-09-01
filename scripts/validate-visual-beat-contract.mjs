@@ -9,7 +9,8 @@ if (!target) {
   process.exit(1);
 }
 
-const CONTRACT_ID = 'finanzneo-visual-beats-v1';
+const V1 = 'finanzneo-visual-beats-v1';
+const V2 = 'finanzneo-visual-beats-v2';
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 if (!existsSync(indexPath)) {
@@ -20,14 +21,18 @@ if (!existsSync(indexPath)) {
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const contract = index.visualBeatContract;
 
-// Rückwärtskompatibilität: ältere Reels werden nicht nachträglich auf den neuen Vertrag gezwungen.
-if (!contract || contract.id !== CONTRACT_ID) {
-  console.log('✓ Bestehendes Reel ohne Visual-Beat-v1 bleibt rückwärtskompatibel; keine neue Pflicht wird rückwirkend erzwungen.');
+// Echte Legacy-Reels bleiben unverändert. Existiert aber ein Vertrag, muss er
+// bewusst V1 oder V2 sein — Tippfehler dürfen nicht still als Legacy durchgehen.
+if (!contract) {
+  console.log('✓ Bestehendes Reel ohne Visual-Beat-Vertrag bleibt rückwärtskompatibel; keine neue Pflicht wird rückwirkend erzwungen.');
   process.exit(0);
 }
 
 const errors = [];
 const fail = (message) => errors.push(message);
+if (![V1, V2].includes(contract.id)) fail('Unbekannter visualBeatContract.id: ' + String(contract.id));
+const isV2 = contract.id === V2;
+const CONTRACT_ID = contract.id;
 const PLACEHOLDER = /\[|EINFÜGEN|TODO|TBD|XXX|\.\.\./i;
 const almostEqual = (a, b, tolerance = 0.16) => Math.abs(a - b) <= tolerance;
 
@@ -48,16 +53,32 @@ for (const key of [
   if (contract[key] !== true) fail('visualBeatContract.' + key + ' muss true sein.');
 }
 
-const hardMax = Number(contract.staticImageBeatHardMaxSeconds);
-if (!Number.isFinite(hardMax) || hardMax <= 0 || hardMax > 4.5) {
-  fail('visualBeatContract.staticImageBeatHardMaxSeconds muss <= 4.5 sein.');
+if (isV2) {
+  for (const key of [
+    'visualBeatPlanBeforeSceneCount',
+    'oneImagePerSentencePreferredWhenItImprovesClarity',
+    'visualChangeWhenVoiceoverIntroducesNewConcreteIdea',
+    'extraImagePreferredOverOverloadedStill',
+    'longerAnimationRequiresVisibleProgression',
+  ]) {
+    if (contract[key] !== true) fail('Visual-Beat-v2 verlangt visualBeatContract.' + key + '=true.');
+  }
 }
 
-if (Number(index.timingStandard?.imageSceneAbsoluteMaxSeconds) > 4.5) {
-  fail('timingStandard.imageSceneAbsoluteMaxSeconds darf bei Visual-Beat-v1 nicht über 4,5 s liegen.');
+const allowedHardMax = isV2 ? 4.2 : 4.5;
+const hardMax = Number(contract.staticImageBeatHardMaxSeconds);
+if (!Number.isFinite(hardMax) || hardMax <= 0 || hardMax > allowedHardMax) {
+  fail('visualBeatContract.staticImageBeatHardMaxSeconds muss bei ' + CONTRACT_ID + ' <= ' + allowedHardMax.toFixed(1) + ' sein.');
+}
+
+if (Number(index.timingStandard?.imageSceneAbsoluteMaxSeconds) > allowedHardMax) {
+  fail('timingStandard.imageSceneAbsoluteMaxSeconds darf bei ' + CONTRACT_ID + ' nicht über ' + allowedHardMax.toFixed(1) + ' s liegen.');
 }
 if (index.timingStandard?.visualBeatContractId !== CONTRACT_ID) {
   fail('timingStandard.visualBeatContractId muss ' + CONTRACT_ID + ' sein.');
+}
+if (isV2 && index.timingStandard?.newConcreteVoiceIdeaShouldTriggerVisualChange !== true) {
+  fail('Visual-Beat-v2 verlangt timingStandard.newConcreteVoiceIdeaShouldTriggerVisualChange=true.');
 }
 if (index.timelineRules?.equalLengthScenesForbiddenByDefault !== true) {
   fail('timelineRules.equalLengthScenesForbiddenByDefault muss true bleiben; echte Voiceover-Timings entscheiden.');
@@ -70,6 +91,7 @@ if (!existsSync(beatPlanPath)) {
   const beatPlan = readFileSync(beatPlanPath, 'utf8');
   if (!beatPlan.includes('VISUAL_BEAT_CONTRACT: ' + CONTRACT_ID)) fail('visual-beats.md enthält den Vertragsmarker nicht.');
   if (PLACEHOLDER.test(beatPlan)) fail('visual-beats.md enthält noch Platzhalter.');
+  if (isV2 && !beatPlan.includes('Lieber ein zusätzliches gutes Bild')) fail('Visual-Beat-v2-Regel für zusätzliche Bilder fehlt in visual-beats.md.');
 }
 
 const scenes = Array.isArray(index.scenes) ? index.scenes : [];
@@ -125,7 +147,7 @@ for (const scene of scenes) {
 }
 
 if (totalBeats <= scenes.length && scenes.some((scene) => scene.type === 'animation')) {
-  fail('Visual-Beat-v1 erwartet zusätzliche Zustandswechsel innerhalb von Animationsszenen; Gesamtzahl der Beats muss bei Animationen über der Szenenzahl liegen.');
+  fail(CONTRACT_ID + ' erwartet zusätzliche Zustandswechsel innerhalb von Animationsszenen; Gesamtzahl der Beats muss bei Animationen über der Szenenzahl liegen.');
 }
 
 if (errors.length) {
@@ -135,6 +157,6 @@ if (errors.length) {
 }
 
 console.log('\n✓ Visual-Beat-Vertrag erfüllt: ' + CONTRACT_ID);
-console.log('✓ Szenenzahl frei · statische Bilder kurz · mehrere Bilder hintereinander erlaubt, wenn die Aussage fortschreitet.');
+console.log('✓ Szenenzahl frei · statische Bilder kurz · zusätzliche Bilder erlaubt, wenn die Aussage fortschreitet.');
 console.log('✓ ' + scenes.length + ' Szenen enthalten zusammen ' + totalBeats + ' geplante Visual Beats.');
 console.log('✓ Echte Wort-Timings bleiben die finale Quelle für Schnitte und Dauer.');
