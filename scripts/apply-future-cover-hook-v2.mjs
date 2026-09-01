@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {existsSync, readFileSync, writeFileSync} from 'node:fs';
+import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 
 const target = process.argv[2];
@@ -99,6 +99,14 @@ if (typeof first.planFile === 'string') {
   appendOnce(first.planFile, `FUTURE_COVER_HOOK: ${CONTRACT_ID}`, promptBlock);
 }
 
+const projectDir = resolve(root, '05-projektdateien');
+mkdirSync(projectDir, {recursive: true});
+const handoffPath = resolve(projectDir, 'ANTIGRAVITY-AUFTRAG.md');
+if (!existsSync(handoffPath)) {
+  const beatContractId = String(index.visualBeatContract?.id ?? 'scene-index.visualBeatContract');
+  writeFileSync(handoffPath, `# ANTIGRAVITY — PHASE 3\n\n1. Nutzer liefert alle finalen Google-Flow-Bilder aus 03-szenen/00-ALLE-BILDER-HIER-REIN/.\n2. Nutzer liefert genau ein finales Voiceover in 02-audio/.\n3. Erzeuge oder übernehme echte Wort-Zeitstempel aus diesem Voiceover.\n4. Retiming folgt ${beatContractId}; keine künstlich gleich langen Szenen und keine tote visuelle Wartezeit.\n5. Nutze exakt die versiegelten Phase-1-animation.tsx-Dateien; nach dem Seal keine Mechanik kreativ ersetzen.\n6. SFX nur framegenau und unterhalb der Voiceover-Priorität.\n7. Playwright-/Render-QA ist Pflicht; sichtbarer Timing-, Layout- oder Erklärfehler = FAIL.\n8. Danach Preflight → Candidate → Render-QA → automatischer Export nach 06-export/.\n\nAntigravity erzeugt weder die finalen Google-Flow-Bilder noch das Haupt-Voiceover.\n`, 'utf8');
+}
+
 const antigravityBlock = `COVER_HOOK_CONTRACT: ${CONTRACT_ID}
 
 ## Szene 01 — harter Render-Vertrag
@@ -116,10 +124,11 @@ const antigravityBlock = `COVER_HOOK_CONTRACT: ${CONTRACT_ID}
 appendOnce('05-projektdateien/ANTIGRAVITY-AUFTRAG.md', `COVER_HOOK_CONTRACT: ${CONTRACT_ID}`, antigravityBlock);
 appendOnce('05-projektdateien/technische-hinweise.md', `COVER_HOOK_CONTRACT: ${CONTRACT_ID}`, antigravityBlock);
 
-const qaPath = resolve(root, '05-projektdateien/cover-hook-qa.md');
+const qaPath = resolve(projectDir, 'cover-hook-qa.md');
 if (!existsSync(qaPath)) {
   writeFileSync(qaPath, `# Cover Hook QA\n\nCOVER_HOOK_CONTRACT: ${CONTRACT_ID}\n\nFrame-0-Pflichtprüfung:\n- [ ] exakter Reel-Titel sichtbar\n- [ ] Hero-Bild sichtbar und verständlich\n- [ ] keine Untertitel / Captions\n- [ ] kein normales Header-Icon\n- [ ] keine Erklärung / CTA / Zusatzkarte\n- [ ] Titel nicht per Fade-in verzögert\n- [ ] Komposition funktioniert als eigenständiges Reel-Cover\n\nErst bei vollständigem PASS darf Phase 3 finalisieren.\n`, 'utf8');
 }
 
 console.log('✓ Future Cover Hook gesetzt: ' + CONTRACT_ID);
 console.log('  Szene 01 = Hero-Bild + exakter Reel-Titel ab Frame 0 · keine Untertitel · Cover-Export aus finalem Frame 0.');
+console.log('  Antigravity-Handoff ist für neue Reels garantiert vorhanden.');
