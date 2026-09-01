@@ -48,9 +48,46 @@ jobs:
           x.scenes = x.scenes.map((s)=>intents[s.id] ? {...s,animationIntent:intents[s.id]} : s);
           fs.writeFileSync(indexPath, JSON.stringify(x,null,2)+'\n');
 
-          const masterPath = `${root}/03-szenen/alle-bildprompts.txt`;
-          let master = fs.readFileSync(masterPath,'utf8');
-          const header = [
+          const beatsPath = `${root}/05-projektdateien/visual-beats.md`;
+          let beats = fs.readFileSync(beatsPath,'utf8');
+          const beatRule = 'Lieber ein zusätzliches gutes Bild planen als einen neuen konkreten Gedanken in ein überladenes Stillbild zu pressen.';
+          if (!beats.includes('Lieber ein zusätzliches gutes Bild')) beats = beats.replace('VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v2\n', `VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v2\n\n${beatRule}\n`);
+          fs.writeFileSync(beatsPath, beats, 'utf8');
+          NODE
+
+      - name: Build compact individual V9 image prompts
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const root = 'reels/2026-08-31_bis_2026-09-06/mittwoch/reel-03_geld-am-monatsende';
+          const index = JSON.parse(fs.readFileSync(`${root}/03-szenen/scene-index.json`,'utf8'));
+          const compactPrompt = (scene, isCover=false) => {
+            const labels = Array.isArray(scene.objectLabels) ? scene.objectLabels : [];
+            const labelLines = labels.length ? labels.map((x)=>`- ${x}`).join('\n') : '- none';
+            const coverRules = isCover ? `\nFUTURE_COVER_HOOK: finanzneo-cover-hook-v2\nThe Flow image itself contains KEINEN Reel-Titel, no headline, no subtitle and no CTA. Reserve calm deep-black negative space in the upper area for the exact Remotion reel title. The title is rendered later from frame 0.\n` : '';
+            return `FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+${scene.googleFlowFileName}
+
+BESCHRIFTUNGEN – EXAKT SO:
+${labelLines}
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. ${scene.expectedVisual} The visible story must specifically communicate this action or consequence: ${scene.mainIdea} Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and a strong focal point. Make the cause-and-effect readable immediately without narration: the viewer should clearly understand what is happening and why within one second. Use depth, scale, contact shadows and restrained cinematic lighting to make the scene feel tangible and premium. Supporting objects are allowed only when they improve the explanation. Keep all requested German object labels short, legible and naturally attached to their objects; do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels like a real situation.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+${coverRules}
+STYLE + SAFETY:
+Use stylized 3D animated geometry, simplified premium materials and a seamless deep black background. Keep the scene real-world-grounded and non-photorealistic. Soft contact shadows and clean subject-separation lighting are required. No photorealism, product-photo look, dashboard, app UI, flowchart, floating UI tiles, microchip/circuit language, miniature diorama or decorative clutter. Keine stumpfen Symbolbilder als Haupterklärung. Bevorzuge Ursache → Wirkung, Handlung → Konsequenz oder klaren Vorher/Nachher-Kontrast. Wenn ein neuer konkreter Gedanke mehr Platz braucht, lieber ein zusätzliches Bild planen statt dieses Motiv zu überladen.
+`;
+          };
+
+          const masterHeader = [
             'FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1',
             'FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3',
             'FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1',
@@ -63,29 +100,23 @@ jobs:
             'Arbeite strikt Bild für Bild. Erst Ergebnis zurückbekommen, exakt umbenennen und QA prüfen; danach den nächsten Bildjob starten.',
             '',
           ].join('\n');
-          if (!master.includes('FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3')) master = header + master;
-          else if (!master.includes('COVER = SZENE 01')) master = header + master;
-          fs.writeFileSync(masterPath, master, 'utf8');
 
-          const coverPath = `${root}/03-szenen/00-cover/cover.txt`;
-          let cover = fs.readFileSync(coverPath,'utf8');
-          const alias = [
-            '',
-            'COVER = SZENE 01',
-            'KEIN SEPARATER BILDJOB',
-            'No separate cover generation',
-            'no Bild 00',
-            'Technischer Alias: Dieses Dokument beschreibt exakt scene-01 und startet keinen zusätzlichen Google-Flow-Job.',
-            '',
-          ].join('\n');
-          if (!/KEIN SEPARATER BILDJOB/i.test(cover)) cover += alias;
-          fs.writeFileSync(coverPath, cover, 'utf8');
+          const blocks = [];
+          for (const scene of index.scenes.filter((s)=>s.type==='image')) {
+            const relative = String(scene.planFile).replace(/^03-szenen\//,'');
+            const path = `${root}/03-szenen/${relative}`;
+            const prompt = compactPrompt(scene, scene.id === 'scene-01');
+            if (prompt.length > 4200) throw new Error(`${scene.id} compact prompt too long: ${prompt.length}`);
+            fs.writeFileSync(path, prompt, 'utf8');
+            blocks.push(`## ${scene.id}\n\n${prompt}`);
+          }
+          fs.writeFileSync(`${root}/03-szenen/alle-bildprompts.txt`, masterHeader + blocks.join('\n\n---\n\n') + '\n', 'utf8');
 
-          const beatsPath = `${root}/05-projektdateien/visual-beats.md`;
-          let beats = fs.readFileSync(beatsPath,'utf8');
-          const beatRule = 'Lieber ein zusätzliches gutes Bild planen als einen neuen konkreten Gedanken in ein überladenes Stillbild zu pressen.';
-          if (!beats.includes('Lieber ein zusätzliches gutes Bild')) beats = beats.replace('VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v2\n', `VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v2\n\n${beatRule}\n`);
-          fs.writeFileSync(beatsPath, beats, 'utf8');
+          const first = index.scenes[0];
+          let cover = compactPrompt(first, true);
+          cover += '\nCOVER = SZENE 01\nKEIN SEPARATER BILDJOB\nNo separate cover generation\nno Bild 00\nTechnischer Alias: Dieses Dokument beschreibt exakt scene-01 und startet keinen zusätzlichen Google-Flow-Job.\n';
+          if (cover.length > 4200) throw new Error(`cover compact prompt too long: ${cover.length}`);
+          fs.writeFileSync(`${root}/03-szenen/00-cover/cover.txt`, cover, 'utf8');
           NODE
 
       - name: Normalize unique scene icons
