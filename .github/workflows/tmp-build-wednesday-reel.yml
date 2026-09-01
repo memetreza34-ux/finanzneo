@@ -33,6 +33,37 @@ jobs:
       - name: Build Wednesday reel and finish Future V2 integration
         run: node scripts/tmp-build-wednesday-reel.mjs
 
+      - name: Fill final animation intents and Flow master markers
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const root = 'reels/2026-08-31_bis_2026-09-06/mittwoch/reel-03_geld-am-monatsende';
+          const indexPath = `${root}/03-szenen/scene-index.json`;
+          const x = JSON.parse(fs.readFileSync(indexPath,'utf8'));
+          const intents = {
+            'scene-03':'Ein sichtbarer Gehaltsstapel bewegt sich zum Girokonto und setzt den echten Monatsbetrag auf 2.400 €.',
+            'scene-06':'Ein Monatsbudget von 800 € teilt sich physisch in vier gleich große Wochenstapel zu je 200 €.',
+            'scene-09':'Vier kleine Käufe ziehen nacheinander Geld aus dem Konto und addieren sich sichtbar zu 44 € Monatskosten.',
+          };
+          x.scenes = x.scenes.map((s)=>intents[s.id] ? {...s,animationIntent:intents[s.id]} : s);
+          fs.writeFileSync(indexPath, JSON.stringify(x,null,2)+'\n');
+
+          const masterPath = `${root}/03-szenen/alle-bildprompts.txt`;
+          let master = fs.readFileSync(masterPath,'utf8');
+          const header = [
+            'FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1',
+            'FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3',
+            'FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1',
+            'MAX_CONCURRENT_GENERATIONS = 1',
+            'FINAL_IMAGE_DIRECTORY: 03-szenen/00-ALLE-BILDER-HIER-REIN/',
+            '',
+            'Arbeite strikt Bild für Bild. Erst Ergebnis zurückbekommen, exakt umbenennen und QA prüfen; danach den nächsten Bildjob starten.',
+            '',
+          ].join('\n');
+          if (!master.includes('FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3')) master = header + master;
+          fs.writeFileSync(masterPath, master, 'utf8');
+          NODE
+
       - name: Normalize unique scene icons
         run: |
           node - <<'NODE'
