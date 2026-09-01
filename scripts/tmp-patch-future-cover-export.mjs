@@ -74,16 +74,20 @@ if (!firstScene || firstScene.id !== 'scene-01' || firstScene.type !== 'image') 
 if (!source.includes(oldCover)) throw new Error('Kanonischer Cover-Exportblock nicht gefunden; Patch abgebrochen.');
 source = source.replace(oldCover, newCover);
 
-const oldUploadCover = `## Cover
-
-- \\`\${coverExportName}\\` ist exakt dasselbe Bild wie scene-01.
-- Es wurde KEIN separates Cover und KEIN Bild 00 erzeugt.`;
-const newUploadCover = `## Cover
-
-\${futureCoverHook
-  ? '- `cover.png` ist Frame 0 der final geprüften MP4 inklusive Remotion-Reel-Titel.\\n- Szene 01 enthält im Video keine Untertitel; der Titel ist ab Frame 0 sichtbar.'
-  : \`- \\`\${coverExportName}\\` ist exakt dasselbe Bild wie scene-01.\`}
-- Es wurde KEIN separater Flow-Cover-Job und KEIN Bild 00 erzeugt.`;
+const oldUploadCover = [
+  '## Cover',
+  '',
+  '- `${coverExportName}` ist exakt dasselbe Bild wie scene-01.',
+  '- Es wurde KEIN separates Cover und KEIN Bild 00 erzeugt.',
+].join('\n');
+const newUploadCover = [
+  '## Cover',
+  '',
+  '${futureCoverHook',
+  "  ? '- `cover.png` ist Frame 0 der final geprüften MP4 inklusive Remotion-Reel-Titel.\\n- Szene 01 enthält im Video keine Untertitel; der Titel ist ab Frame 0 sichtbar.'",
+  '  : `- \\`${coverExportName}\\` ist exakt dasselbe Bild wie scene-01.`}',
+  '- Es wurde KEIN separater Flow-Cover-Job und KEIN Bild 00 erzeugt.',
+].join('\n');
 if (!source.includes(oldUploadCover)) throw new Error('UPLOAD-Coverblock nicht gefunden; Patch abgebrochen.');
 source = source.replace(oldUploadCover, newUploadCover);
 
