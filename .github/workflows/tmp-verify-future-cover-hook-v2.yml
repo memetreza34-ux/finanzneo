@@ -64,6 +64,7 @@ jobs:
           const handoff = fs.readFileSync(root + '/05-projektdateien/ANTIGRAVITY-AUFTRAG.md', 'utf8');
           req(handoff.includes('KEINE Caption-/Subtitle-Komponente'), 'Render-side caption lock missing');
           req(handoff.includes('Frame 0'), 'Frame0 render instruction missing');
+          req(handoff.includes('IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2'), 'Storytelling handoff missing');
           const coverPrompt = fs.readFileSync(root + '/03-szenen/00-cover/cover.txt', 'utf8');
           req(coverPrompt.includes('FUTURE_COVER_HOOK: finanzneo-cover-hook-v2'), 'Cover prompt marker missing');
           req(coverPrompt.includes('KEINEN Reel-Titel'), 'Generated title must be forbidden');
@@ -100,4 +101,4 @@ jobs:
           git commit -m "Add future-only reel cover hook and visual storytelling v2"
           git push origin HEAD:reel/future-cover-hook-v2
 
-# retry: 3
+# retry: 4
