@@ -1,0 +1,88 @@
+name: Build Wednesday Beginner Reel Once
+
+on:
+  push:
+    branches:
+      - reel/mittwoch-geld-am-monatsende
+    paths:
+      - '.github/workflows/tmp-build-wednesday-reel.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build-validate-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: reel/mittwoch-geld-am-monatsende
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Wednesday reel and finish Future V2 integration
+        run: node scripts/tmp-build-wednesday-reel.mjs
+
+      - name: Normalize unique scene icons
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const p = 'reels/2026-08-31_bis_2026-09-06/mittwoch/reel-03_geld-am-monatsende/03-szenen/scene-index.json';
+          const x = JSON.parse(fs.readFileSync(p,'utf8'));
+          const icons = ['wallet','search','euro','receipt','coins','calendar','list','phone','trending','target','check'];
+          x.scenes = x.scenes.map((s,i)=>({...s,icon:icons[i]}));
+          fs.writeFileSync(p, JSON.stringify(x,null,2)+'\n');
+          for (let i=0;i<x.scenes.length;i++) {
+            const id = `scene-${String(i+1).padStart(2,'0')}`;
+            const f = `reels/2026-08-31_bis_2026-09-06/mittwoch/reel-03_geld-am-monatsende/03-szenen/EINZELNE-SZENEN/${id}/szene.md`;
+            let t = fs.readFileSync(f,'utf8');
+            t = t.replace(/^\*\*Icon:\*\* .*$/m, `**Icon:** ${icons[i]}`);
+            fs.writeFileSync(f,t);
+          }
+          NODE
+
+      - name: Validate Monday unchanged behavior
+        run: npm run reel:validate -- reels/2026-08-31_bis_2026-09-06/montag/reel-01_girokonto-oder-tagesgeld
+
+      - name: Validate Tuesday unchanged behavior
+        run: npm run reel:validate -- reels/2026-08-31_bis_2026-09-06/dienstag/reel-02_konto-im-minus
+
+      - name: Validate Wednesday V2 reel
+        run: npm run reel:validate -- reels/2026-08-31_bis_2026-09-06/mittwoch/reel-03_geld-am-monatsende
+
+      - name: Full repository validation
+        run: npm run validate
+
+      - name: Remotion bundle
+        run: npm run build
+
+      - name: Render smoke test
+        run: npm run smoke
+
+      - name: Prove Monday and Tuesday were not edited
+        run: git diff --exit-code ea9828fc6a4159d30ca6addff02e8010fb832c5f -- reels/2026-08-31_bis_2026-09-06/montag reels/2026-08-31_bis_2026-09-06/dienstag
+
+      - name: Remove one-time build files
+        run: |
+          rm -f .github/workflows/tmp-build-wednesday-reel.yml
+          rm -f scripts/tmp-build-wednesday-reel.mjs
+
+      - name: Commit validated Wednesday reel
+        env:
+          FINANZNEO_ALLOW_PROTECTED_CHANGES: '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Build Wednesday beginner reel with Future V2"
+          git push origin HEAD:reel/mittwoch-geld-am-monatsende
