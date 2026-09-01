@@ -74,6 +74,13 @@ if (!firstScene || firstScene.id !== 'scene-01' || firstScene.type !== 'image') 
 if (!source.includes(oldCover)) throw new Error('Kanonischer Cover-Exportblock nicht gefunden; Patch abgebrochen.');
 source = source.replace(oldCover, newCover);
 
+// Zuerst ausschließlich die bestehende UPLOAD-Templatezeile ersetzen. Würden wir
+// erst die Hilfsvariable einfügen, würde derselbe Text auch in deren Legacy-Fallback
+// vorkommen und String.replace könnte versehentlich dort statt im Template treffen.
+const oldUploadLine = '- \\`${coverExportName}\\` ist exakt dasselbe Bild wie scene-01.';
+if (!source.includes(oldUploadLine)) throw new Error('UPLOAD-Coverzeile nicht gefunden; Patch abgebrochen.');
+source = source.replace(oldUploadLine, '${coverUploadBeschreibung}');
+
 const mbLine = "const mb = (b) => (b ? `${(b / 1024 / 1024).toFixed(1)} MB` : 'unbekannt');";
 const mbWithCoverDescription = [
   mbLine,
@@ -84,9 +91,6 @@ const mbWithCoverDescription = [
 if (!source.includes(mbLine)) throw new Error('UPLOAD-Hilfsblock nicht gefunden; Patch abgebrochen.');
 source = source.replace(mbLine, mbWithCoverDescription);
 
-const oldUploadLine = '- \\`${coverExportName}\\` ist exakt dasselbe Bild wie scene-01.';
-if (!source.includes(oldUploadLine)) throw new Error('UPLOAD-Coverzeile nicht gefunden; Patch abgebrochen.');
-source = source.replace(oldUploadLine, '${coverUploadBeschreibung}');
 source = source.replace(
   '- Es wurde KEIN separates Cover und KEIN Bild 00 erzeugt.',
   '- Es wurde KEIN separater Flow-Cover-Job und KEIN Bild 00 erzeugt.',
