@@ -51,7 +51,7 @@ FUTURE IMAGE STORYTELLING V2 — VERBINDLICH:
 - Unterhaltung entsteht durch Handlung, Spannung, Kontrast und sichtbare Veränderung — nicht durch zufällige Deko.`;
 
 const appendOnce = (relativePath) => {
-  const path = resolve(root, relativePath);
+  const path = relativePath.startsWith('EINZELNE-SZENEN/') ? resolve(root, '03-szenen', relativePath) : resolve(root, relativePath);
   if (!existsSync(path)) return;
   let source = readFileSync(path, 'utf8');
   if (!source.includes(`IMAGE_STORYTELLING_CONTRACT: ${CONTRACT_ID}`)) {

@@ -75,7 +75,7 @@ index.scenes = scenes.map((scene, i) => i === 0 ? {
 writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');
 
 const appendOnce = (relativePath, marker, block) => {
-  const path = resolve(root, relativePath);
+  const path = relativePath.startsWith('EINZELNE-SZENEN/') ? resolve(root, '03-szenen', relativePath) : resolve(root, relativePath);
   if (!existsSync(path)) return;
   let source = readFileSync(path, 'utf8');
   if (!source.includes(marker)) {

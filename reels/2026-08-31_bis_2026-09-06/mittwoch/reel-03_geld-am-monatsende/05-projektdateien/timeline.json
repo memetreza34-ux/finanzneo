@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "title": "Warum ist dein Geld am Monatsende weg?",
+  "fps": 30,
+  "timingSource": "04-caption/word-timings.json",
+  "cutRule": "voice-sentence-or-meaningful-phrase-start",
+  "sceneCount": 11,
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "plannedDurationSeconds": 3.8,
+      "startFrame": 0,
+      "durationFrames": 114
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "plannedDurationSeconds": 3.5,
+      "startFrame": 114,
+      "durationFrames": 105
+    },
+    {
+      "id": "scene-03",
+      "type": "animation",
+      "plannedDurationSeconds": 5.4,
+      "startFrame": 219,
+      "durationFrames": 162
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "plannedDurationSeconds": 4.1,
+      "startFrame": 381,
+      "durationFrames": 123
+    },
+    {
+      "id": "scene-05",
+      "type": "image",
+      "plannedDurationSeconds": 4.1,
+      "startFrame": 504,
+      "durationFrames": 123
+    },
+    {
+      "id": "scene-06",
+      "type": "animation",
+      "plannedDurationSeconds": 5.6,
+      "startFrame": 627,
+      "durationFrames": 168
+    },
+    {
+      "id": "scene-07",
+      "type": "image",
+      "plannedDurationSeconds": 3.7,
+      "startFrame": 795,
+      "durationFrames": 111
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "plannedDurationSeconds": 4.2,
+      "startFrame": 906,
+      "durationFrames": 126
+    },
+    {
+      "id": "scene-09",
+      "type": "animation",
+      "plannedDurationSeconds": 5.8,
+      "startFrame": 1032,
+      "durationFrames": 174
+    },
+    {
+      "id": "scene-10",
+      "type": "image",
+      "plannedDurationSeconds": 4,
+      "startFrame": 1206,
+      "durationFrames": 120
+    },
+    {
+      "id": "scene-11",
+      "type": "image",
+      "plannedDurationSeconds": 4.2,
+      "startFrame": 1326,
+      "durationFrames": 126
+    }
+  ]
+}

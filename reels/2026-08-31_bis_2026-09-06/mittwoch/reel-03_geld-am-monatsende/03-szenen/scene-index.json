@@ -1,0 +1,876 @@
+{
+  "version": 29,
+  "title": "Warum ist dein Geld am Monatsende weg?",
+  "sceneCount": 11,
+  "imageSceneCount": 8,
+  "animationSceneCount": 3,
+  "targetImageShare": 0.6,
+  "targetAnimationShare": 0.4,
+  "video": {
+    "aspectRatio": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "cover": {
+    "type": "scene-image",
+    "sourceSceneId": "scene-01",
+    "googleFlowFileName": "Bild 01 - Monatsende fast leer.png",
+    "planFile": "03-szenen/00-cover/cover.txt",
+    "aspectRatio": "1:1",
+    "sameAssetAsFirstScene": true,
+    "separateGenerationForbidden": true,
+    "renderedTitleOverlayRequired": true,
+    "finalExportSource": "final-video-frame-0"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "phase3Executor": "antigravity",
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-sequential-v1",
+    "generationMode": "one-image-at-a-time",
+    "strictSequential": true,
+    "waitForCurrentImage": true,
+    "renameBeforeNext": true,
+    "qaBeforeNext": true,
+    "retrySameImageOnFailure": true,
+    "fileNameRule": "Bild XX - Kurzer Szenenname.png",
+    "numberSource": "real-scene-number",
+    "animationNumbersStayReserved": true,
+    "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
+    "distributeToSceneFolders": false,
+    "executionModeId": "finanzneo-flow-strict-single-job-v3",
+    "stateMachineId": "finanzneo-flow-state-machine-v1",
+    "autonomousFullRun": true,
+    "maxConcurrentGenerations": 1,
+    "batchGenerationForbidden": true,
+    "multiImageRequestForbidden": true,
+    "queueLaterImagesForbidden": true,
+    "galleryOrContactSheetForbidden": true,
+    "currentStepGateRequired": true,
+    "nextStepLockedUntilCurrentResultReturned": true,
+    "renameBeforeUnlockNext": true,
+    "qaBeforeUnlockNext": true,
+    "userContinueSignalForbidden": true,
+    "userApprovalBetweenImagesForbidden": true,
+    "internalWaitForGenerationOnly": true,
+    "autoContinueAfterQa": true,
+    "hardBlockerOnlyStop": true,
+    "structureLockId": "finanzneo-flow-structure-lock-v2",
+    "preserveStructureThroughLastImage": true,
+    "preserveStyleThroughLastImage": true
+  },
+  "phase1AnimationCode": {
+    "required": true,
+    "qualityLock": "finanzneo-phase1-animation-code-v1",
+    "canonicalSourceRequiredForEveryAnimation": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "placeholderMotionForbidden": true,
+    "decorativeMotionDoesNotCountAsExplanation": true,
+    "mathSinCosCompletionHackForbidden": true,
+    "realWorldMechanismRequired": true,
+    "uniqueMechanismPerAnimationRequired": true,
+    "physicalCauseEffectRequired": true,
+    "labelsSupplementalOnly": true,
+    "genericCardRowsForbidden": true,
+    "progressBarAsPrimaryStoryForbidden": true,
+    "narrativeMarkersRequired": [
+      "MECHANIC_ID",
+      "PRIMARY_ACTION",
+      "START",
+      "MECHANISM",
+      "RESULT",
+      "HERO",
+      "SUPPORT",
+      "MATERIAL",
+      "DEPTH"
+    ],
+    "resultHoldFramesMin": 15,
+    "premiumVisualLock": "finanzneo-premium-physical-animation-v2",
+    "visualTargetWorld": "finanzneo-stylized-3d-animated-black-v9",
+    "requirePremiumPhysicalStage": true,
+    "requirePhysicalObjects": true,
+    "supportingObjectCountFlexible": true,
+    "clarityBeforeObjectCount": true,
+    "requireMaterialDepthLighting": true,
+    "sameVisualLanguageAsFlowImages": true,
+    "startMechanismResultRequired": true,
+    "pureBlackCanvasRequired": true,
+    "transparentAnimationStageRequired": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridBackgroundForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "genericInfoCardsAsMainLanguageForbidden": true
+  },
+  "reelBackground": {
+    "contractId": "finanzneo-pure-black-background-v1",
+    "color": "#000000",
+    "staticRequired": true,
+    "decorativeEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridForbidden": true,
+    "glowBackgroundForbidden": true
+  },
+  "layoutVersion": "finanzneo-reel-layout-v5",
+  "layout": {
+    "headlineY": 154,
+    "visualTop": 320,
+    "visualBottom": 1400,
+    "subtitleBottom": 340,
+    "subtitleLeft": 72,
+    "subtitleRight": 140
+  },
+  "visualSafeZone": {
+    "top": 320,
+    "bottom": 1400,
+    "hardClipAnimations": true,
+    "headerIntrusionForbidden": true,
+    "captionIntrusionForbidden": true
+  },
+  "timingStandard": {
+    "imageSceneIdealSeconds": [
+      1.8,
+      3.2
+    ],
+    "imageSceneAbsoluteMaxSeconds": 4.2,
+    "animationSceneIdealSeconds": [
+      3,
+      5.5
+    ],
+    "splitOrAnimateIfImageExceedsMax": true,
+    "visualBeatContractId": "finanzneo-visual-beats-v2",
+    "actualTimingSource": "04-caption/word-timings.json",
+    "cameraMotionDoesNotResetVisualBeat": true,
+    "newConcreteVoiceIdeaShouldTriggerVisualChange": true
+  },
+  "clarityStandard": {
+    "mustReadInUnderSeconds": 2,
+    "oneMainIdeaPerBeat": true,
+    "sceneHeaderRequired": true,
+    "sceneIconRequired": true,
+    "animationStartMechanismResultRequired": true,
+    "blackTextOnDarkForbidden": true
+  },
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "seriesLockId": "finanzneo-same-world-v1",
+    "stylized3DLockId": "finanzneo-stylized-3d-editorial-v5",
+    "physicalExplainerLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "premiumVisualWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "animatedWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "generatedImageAspectRatio": "1:1",
+    "squareGeneratedImagesRequired": true,
+    "referencePromptFile": "03-szenen/bildwelt.txt",
+    "styleReferenceStrategy": "written-style-lock-only",
+    "referenceImageUse": "forbidden",
+    "style": "stylized-3d-animated-black-v9",
+    "sameWorldAcrossSeriesRequired": true,
+    "supportingObjectCountFlexible": true,
+    "supportingObjectsOnlyWhenHelpful": true,
+    "clarityBeforeObjectCount": true,
+    "contentFirstCompositionRequired": true,
+    "nonPhotorealisticRequired": true,
+    "stylized3DAnimatedRequired": true,
+    "softRoundedGeometryRequired": true,
+    "simplifiedDetailsRequired": true,
+    "premiumPlayfulBalanceRequired": true,
+    "clearMainSubjectOrActionRequired": true,
+    "deepBlackBackgroundRequired": true,
+    "cleanMinimalBackgroundRequired": true,
+    "subjectSeparationLightingRequired": true,
+    "softContactShadowsRequired": true,
+    "brandMarksRecognizableButStylizedRequired": true,
+    "flatPastedRealLogoForbidden": true,
+    "screenshotLikeBrandUiForbidden": true,
+    "objectLabelsOnly": true,
+    "headlinesInGeneratedImagesForbidden": true,
+    "subtitlesInGeneratedImagesForbidden": true,
+    "sentencesInGeneratedImagesForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "appUiCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "floatingUiTilesForbidden": true,
+    "microchipVisualLanguageForbidden": true,
+    "miniatureDioramaForbidden": true,
+    "photorealismForbidden": true,
+    "productPhotoLookForbidden": true,
+    "clutterForbidden": true,
+    "seamlessSingleBackgroundRequired": true,
+    "percentageZonesForbidden": true,
+    "floorWallBoundaryForbidden": true,
+    "horizonLineForbidden": true,
+    "backgroundBandsForbidden": true,
+    "visibleFaceRequiredWhenPersonPresent": true,
+    "realWorldGroundedSituationRequired": true,
+    "believableObjectProportionsRequired": true,
+    "recognizableEverydayDetailsRequired": true,
+    "completeExplanatorySceneRequired": true,
+    "causeEffectReadableRequired": true,
+    "understandableWithoutAudioRequired": true,
+    "germanObjectLabelsWhenHelpfulRequired": true,
+    "individuallyWrittenPromptRequired": true,
+    "genericPromptShorthandForbidden": true,
+    "abstractSymbolOnlyCompositionForbidden": true,
+    "genericFinanceIconCompositionForbidden": true,
+    "visualMetaphorInterpretationRequiredForbidden": true
+  },
+  "platformPublishing": {
+    "directory": "04-caption",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt",
+    "universalCaptionForAllReelPlatforms": true,
+    "platforms": [
+      "instagram-reels",
+      "tiktok",
+      "facebook-reels",
+      "snapchat"
+    ]
+  },
+  "timelineRules": {
+    "timingSource": "04-caption/word-timings.json",
+    "cutsFollowSentenceStarts": true,
+    "cutsFollowSentenceStartsAndMeaningfulPhraseStarts": true,
+    "equalLengthScenesForbiddenByDefault": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "imagePresentationContract": {
+    "imageFit": "contain",
+    "maxIntentionalImageScale": 1.04,
+    "maxSourceCropPerSide": 0.2,
+    "maxSourceCropTotal": 0.34,
+    "blurredImageBackgroundForbidden": true
+  },
+  "subtitleDisplay": {
+    "mode": "sentence-with-audio-synced-active-word",
+    "activeWordColor": "finance-green",
+    "normalWordColor": "white",
+    "maxLines": 2,
+    "noDeadGaps": true,
+    "holdDuringPauses": true,
+    "noWordJump": true,
+    "noWordScale": true,
+    "goldActiveWordForbidden": true,
+    "blackTextForbidden": true,
+    "clipToSceneBoundary": true,
+    "crossSceneSpillForbidden": true,
+    "textStrokeForbidden": true,
+    "fontWeight": 800,
+    "fontSize": 50,
+    "bottom": 340
+  },
+  "sceneHeader": {
+    "required": true,
+    "align": "center",
+    "presentation": "plain",
+    "headlineColor": "white",
+    "fontSize": 56,
+    "minFontSize": 50,
+    "maxLines": 2,
+    "iconSize": 34,
+    "defaultIconColor": "finance-green",
+    "semanticColorLivesOnIcon": true,
+    "capsuleForbidden": true,
+    "uppercaseTransformForbidden": true,
+    "uniqueIconPerScene": true,
+    "mustStateSceneMessage": true,
+    "samePositionAcrossReel": true
+  },
+  "animationColors": {
+    "neutral": "white",
+    "focus": "finance-green",
+    "warning": "red",
+    "money": "gold",
+    "blackOnDarkForbidden": true
+  },
+  "transitionContract": {
+    "continuityFrames": 3,
+    "continuityFramesMax": 3,
+    "imageEnterFrames": 4,
+    "fadeToBlackForbidden": true
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 114,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-01",
+      "headline": "Warum ist dein Geld am Monatsende weg?",
+      "icon": "wallet",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
+      "googleFlowFileName": "Bild 01 - Monatsende fast leer.png",
+      "objectLabels": [
+        "Monatsende",
+        "Fast leer"
+      ],
+      "expectedVisual": "A relatable end-of-month everyday situation: salary was paid earlier, but now the wallet/account reserve is visibly almost empty while a calendar shows month end.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.8,
+      "visualBeats": [
+        {
+          "id": "scene-01-beat-01",
+          "kind": "image",
+          "voiceText": "Dein Gehalt kommt rein – und kurz vor Monatsende ist fast nichts mehr übrig?",
+          "visualChange": "Eine Person sieht kurz vor Monatsende auf fast leeres Geld; Kalender und wenige verbleibende Münzen machen den Moment sofort klar.",
+          "startSecond": 0,
+          "endSecond": 3.8
+        }
+      ],
+      "coverHook": true,
+      "captionEnabled": false,
+      "subtitleMode": "off",
+      "titleMode": "reel-title-overlay",
+      "titleVisibleFromFrame": 0,
+      "coverTitle": "Warum ist dein Geld am Monatsende weg?",
+      "targetSeconds": 3.8,
+      "audioTrigger": "Dein Gehalt kommt rein – und kurz vor Monatsende ist fast nichts mehr übrig?",
+      "mainIdea": "Eine Person sieht kurz vor Monatsende auf fast leeres Geld; Kalender und wenige verbleibende Münzen machen den Moment sofort klar."
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "startFrame": 114,
+      "durationFrames": 105,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-02",
+      "headline": "Erstmal Überblick schaffen",
+      "icon": "search",
+      "accent": "finance-green",
+      "headerTone": "neutral",
+      "planFile": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
+      "googleFlowFileName": "Bild 02 - Überblick über Ausgaben.png",
+      "objectLabels": [
+        "Ausgaben",
+        "Überblick"
+      ],
+      "expectedVisual": "A person at a table sorting real receipts, bills and notes into a simple understandable overview, without app UI or dashboard graphics.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.5,
+      "visualBeats": [
+        {
+          "id": "scene-02-beat-01",
+          "kind": "image",
+          "voiceText": "Dann fehlt dir vielleicht vor allem der Überblick über deine Ausgaben.",
+          "visualChange": "Eine Person sortiert echte Rechnungen und Kassenzettel auf einem Tisch; aus Chaos wird sichtbar Ordnung.",
+          "startSecond": 0,
+          "endSecond": 3.5
+        }
+      ],
+      "targetSeconds": 3.5,
+      "audioTrigger": "Dann fehlt dir vielleicht vor allem der Überblick über deine Ausgaben.",
+      "mainIdea": "Eine Person sortiert echte Rechnungen und Kassenzettel auf einem Tisch; aus Chaos wird sichtbar Ordnung."
+    },
+    {
+      "id": "scene-03",
+      "type": "animation",
+      "startFrame": 219,
+      "durationFrames": 162,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-03",
+      "headline": "Was kommt wirklich rein?",
+      "icon": "euro",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-03/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-03/animation.tsx",
+      "animationExport": "Scene03Animation",
+      "animationIntent": "Ein sichtbarer Gehaltsstapel bewegt sich zum Girokonto und setzt den echten Monatsbetrag auf 2.400 €.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 5.4,
+      "visualBeats": [
+        {
+          "id": "scene-03-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Gehalt kommt auf dem Konto an.",
+          "visualChange": "Ein goldener Geldstapel erscheint links und bewegt sich Richtung Girokonto.",
+          "startSecond": 0,
+          "endSecond": 1.9
+        },
+        {
+          "id": "scene-03-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Der Betrag landet im Girokonto.",
+          "visualChange": "Das Konto nimmt den Geldstapel sichtbar auf und der Kontostand wechselt auf 2.400 €.",
+          "startSecond": 1.9,
+          "endSecond": 3.7
+        },
+        {
+          "id": "scene-03-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Das ist deine echte Einnahme für den Monat.",
+          "visualChange": "Ein klarer Ergebnis-Tag NETTO 2.400 € bleibt stabil sichtbar.",
+          "startSecond": 3.7,
+          "endSecond": 5.4
+        }
+      ],
+      "targetSeconds": 5.4,
+      "audioTrigger": "Schreib zuerst auf, wie viel Geld jeden Monat wirklich auf deinem Konto ankommt.",
+      "mainIdea": "Ein Gehalts-Geldstapel bewegt sich sichtbar zum Girokonto; danach steht der echte Monatsbetrag stabil fest."
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "startFrame": 381,
+      "durationFrames": 123,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-04",
+      "headline": "Feste Kosten zuerst abziehen",
+      "icon": "receipt",
+      "accent": "finance-green",
+      "headerTone": "neutral",
+      "planFile": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
+      "googleFlowFileName": "Bild 04 - Feste Kosten.png",
+      "objectLabels": [
+        "Miete",
+        "Feste Kosten"
+      ],
+      "expectedVisual": "A real household table with apartment keys, electricity bill, phone, insurance folder and subscription remote grouped as unavoidable recurring costs.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4.1,
+      "visualBeats": [
+        {
+          "id": "scene-04-beat-01",
+          "kind": "image",
+          "voiceText": "Danach ziehst du die festen Kosten ab: Miete, Strom, Handy, Versicherungen und Abos.",
+          "visualChange": "Wohnungsschlüssel, Stromrechnung, Handy, Versicherungsordner und Abo-Fernbedienung liegen als klare feste Monatskosten zusammen.",
+          "startSecond": 0,
+          "endSecond": 4.1
+        }
+      ],
+      "targetSeconds": 4.1,
+      "audioTrigger": "Danach ziehst du die festen Kosten ab: Miete, Strom, Handy, Versicherungen und Abos.",
+      "mainIdea": "Wohnungsschlüssel, Stromrechnung, Handy, Versicherungsordner und Abo-Fernbedienung liegen als klare feste Monatskosten zusammen."
+    },
+    {
+      "id": "scene-05",
+      "type": "image",
+      "startFrame": 504,
+      "durationFrames": 123,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-05",
+      "headline": "Der Rest ist dein Alltagsbudget",
+      "icon": "coins",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
+      "googleFlowFileName": "Bild 05 - Alltagsbudget.png",
+      "objectLabels": [
+        "Alltag",
+        "Budget"
+      ],
+      "expectedVisual": "A remaining money stack physically sits between groceries, fuel and leisure objects, making the available everyday budget obvious.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4.1,
+      "visualBeats": [
+        {
+          "id": "scene-05-beat-01",
+          "kind": "image",
+          "voiceText": "Was übrig bleibt, ist dein Geld für Essen, Freizeit, Tanken und andere tägliche Ausgaben.",
+          "visualChange": "Ein begrenzter Geldstapel liegt zwischen Einkaufstasche, Tankbeleg und Freizeitobjekt und zeigt: Das ist der Rest für den Alltag.",
+          "startSecond": 0,
+          "endSecond": 4.1
+        }
+      ],
+      "targetSeconds": 4.1,
+      "audioTrigger": "Was übrig bleibt, ist dein Geld für Essen, Freizeit, Tanken und andere tägliche Ausgaben.",
+      "mainIdea": "Ein begrenzter Geldstapel liegt zwischen Einkaufstasche, Tankbeleg und Freizeitobjekt und zeigt: Das ist der Rest für den Alltag."
+    },
+    {
+      "id": "scene-06",
+      "type": "animation",
+      "startFrame": 627,
+      "durationFrames": 168,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-06",
+      "headline": "Mach daraus ein Wochenbudget",
+      "icon": "calendar",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-06/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-06/animation.tsx",
+      "animationExport": "Scene06Animation",
+      "animationIntent": "Ein Monatsbudget von 800 € teilt sich physisch in vier gleich große Wochenstapel zu je 200 €.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 5.6,
+      "visualBeats": [
+        {
+          "id": "scene-06-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Ein Monatsbudget liegt als ein Stapel bereit.",
+          "visualChange": "Ein Konto mit 800 € steht zentral, daneben ein gemeinsamer Geldstapel.",
+          "startSecond": 0,
+          "endSecond": 1.8
+        },
+        {
+          "id": "scene-06-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Der Betrag wird auf vier Wochen verteilt.",
+          "visualChange": "Vier Wochenkarten erscheinen nacheinander und je ein Geldstapel wandert zu ihnen.",
+          "startSecond": 1.8,
+          "endSecond": 4
+        },
+        {
+          "id": "scene-06-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Am Ende hat jede Woche 200 €.",
+          "visualChange": "Vier gleich große Stapel bleiben stabil und der Ergebnis-Tag 200 € / WOCHE erscheint.",
+          "startSecond": 4,
+          "endSecond": 5.6
+        }
+      ],
+      "targetSeconds": 5.6,
+      "audioTrigger": "Teile diesen Betrag grob durch vier. So weißt du, wie viel du pro Woche ausgeben kannst.",
+      "mainIdea": "Ein Monatsbudget wird physisch in vier gleich große Wochenstapel aufgeteilt und vier Kalenderwochen zugeordnet."
+    },
+    {
+      "id": "scene-07",
+      "type": "image",
+      "startFrame": 795,
+      "durationFrames": 111,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-07",
+      "headline": "Kleine Ausgaben mitschreiben",
+      "icon": "list",
+      "accent": "finance-green",
+      "headerTone": "neutral",
+      "planFile": "EINZELNE-SZENEN/scene-07/bildprompt.txt",
+      "googleFlowFileName": "Bild 07 - Kleine Ausgaben notieren.png",
+      "objectLabels": [
+        "Kaffee 4 €",
+        "Snack 3 €"
+      ],
+      "expectedVisual": "A small notebook beside a coffee receipt and snack receipt, with a hand actively recording the tiny purchases.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.7,
+      "visualBeats": [
+        {
+          "id": "scene-07-beat-01",
+          "kind": "image",
+          "voiceText": "Jetzt kommt der Teil, den viele vergessen: Schreib auch kleine Ausgaben auf.",
+          "visualChange": "Eine Hand trägt Kaffee und Snack direkt in eine einfache Notizliste ein; kleine Belege liegen daneben.",
+          "startSecond": 0,
+          "endSecond": 3.7
+        }
+      ],
+      "targetSeconds": 3.7,
+      "audioTrigger": "Jetzt kommt der Teil, den viele vergessen: Schreib auch kleine Ausgaben auf.",
+      "mainIdea": "Eine Hand trägt Kaffee und Snack direkt in eine einfache Notizliste ein; kleine Belege liegen daneben."
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "startFrame": 906,
+      "durationFrames": 126,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-08",
+      "headline": "Einzeln wirkt es harmlos",
+      "icon": "phone",
+      "accent": "finance-green",
+      "headerTone": "neutral",
+      "planFile": "EINZELNE-SZENEN/scene-08/bildprompt.txt",
+      "googleFlowFileName": "Bild 08 - Kleine spontane Käufe.png",
+      "objectLabels": [
+        "4 €",
+        "3 €"
+      ],
+      "expectedVisual": "Three ordinary small purchases are shown as separate real-world moments: coffee, snack and a small spontaneous parcel, each visually inexpensive by itself.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4.2,
+      "visualBeats": [
+        {
+          "id": "scene-08-beat-01",
+          "kind": "image",
+          "voiceText": "Ein Kaffee hier, ein Snack dort und ein spontaner Kauf wirken einzeln harmlos.",
+          "visualChange": "Kaffee, Snack und kleines spontanes Paket stehen getrennt mit kleinen Preisen; jeder einzelne Kauf wirkt unauffällig.",
+          "startSecond": 0,
+          "endSecond": 4.2
+        }
+      ],
+      "targetSeconds": 4.2,
+      "audioTrigger": "Ein Kaffee hier, ein Snack dort und ein spontaner Kauf wirken einzeln harmlos.",
+      "mainIdea": "Kaffee, Snack und kleines spontanes Paket stehen getrennt mit kleinen Preisen; jeder einzelne Kauf wirkt unauffällig."
+    },
+    {
+      "id": "scene-09",
+      "type": "animation",
+      "startFrame": 1032,
+      "durationFrames": 174,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-09",
+      "headline": "Zusammen wird daraus viel",
+      "icon": "trending",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-09/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-09/animation.tsx",
+      "animationExport": "Scene09Animation",
+      "animationIntent": "Vier kleine Käufe ziehen nacheinander Geld aus dem Konto und addieren sich sichtbar zu 44 € Monatskosten.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 5.8,
+      "visualBeats": [
+        {
+          "id": "scene-09-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Die ersten kleinen Käufe erscheinen.",
+          "visualChange": "Kaffee- und Snack-Rechnung kommen nacheinander ins Bild und ziehen erste Münzen ab.",
+          "startSecond": 0,
+          "endSecond": 2
+        },
+        {
+          "id": "scene-09-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Weitere spontane Käufe kommen dazu.",
+          "visualChange": "Lieferung und kleiner Einkauf erscheinen; der Geldstapel schrumpft weiter und der Kostenstapel wächst.",
+          "startSecond": 2,
+          "endSecond": 4.2
+        },
+        {
+          "id": "scene-09-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Viele kleine Beträge ergeben zusammen 44 €.",
+          "visualChange": "Das Ergebnis 44 € WEG bleibt deutlich und stabil sichtbar.",
+          "startSecond": 4.2,
+          "endSecond": 5.8
+        }
+      ],
+      "targetSeconds": 5.8,
+      "audioTrigger": "Zusammen können genau diese kleinen Käufe am Monatsende überraschend viel Geld kosten.",
+      "mainIdea": "Mehrere kleine Rechnungen erscheinen nacheinander; jede zieht Geld aus dem Konto, bis der gemeinsame Monatsbetrag deutlich sichtbar ist."
+    },
+    {
+      "id": "scene-10",
+      "type": "image",
+      "startFrame": 1206,
+      "durationFrames": 120,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-10",
+      "headline": "Einmal pro Woche prüfen",
+      "icon": "target",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
+      "googleFlowFileName": "Bild 10 - Wöchentlicher Check.png",
+      "objectLabels": [
+        "Wochencheck",
+        "Lieferdienst"
+      ],
+      "expectedVisual": "A weekly review at a kitchen table where several receipts are calmly checked and one clearly expensive repeat category is singled out.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-10-beat-01",
+          "kind": "image",
+          "voiceText": "Prüfe einmal pro Woche deine Ausgaben und ändere zuerst nur einen echten Geldfresser.",
+          "visualChange": "Mehrere Wochenbelege werden geprüft; ein wiederkehrender Lieferdienst-Beleg ist klar als erster Geldfresser markiert.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "targetSeconds": 4,
+      "audioTrigger": "Prüfe einmal pro Woche deine Ausgaben und ändere zuerst nur einen echten Geldfresser.",
+      "mainIdea": "Mehrere Wochenbelege werden geprüft; ein wiederkehrender Lieferdienst-Beleg ist klar als erster Geldfresser markiert."
+    },
+    {
+      "id": "scene-11",
+      "type": "image",
+      "startFrame": 1326,
+      "durationFrames": 126,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-11",
+      "headline": "Dann planst du den nächsten Monat",
+      "icon": "check",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-11/bildprompt.txt",
+      "googleFlowFileName": "Bild 11 - Nächsten Monat planen.png",
+      "objectLabels": [
+        "Nächster Monat",
+        "Plan"
+      ],
+      "expectedVisual": "A relaxed person prepares the next month with a simple calendar, a small weekly budget envelope and neatly sorted receipts.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4.2,
+      "visualBeats": [
+        {
+          "id": "scene-11-beat-01",
+          "kind": "image",
+          "voiceText": "Dann weißt du, wo dein Geld bleibt – und kannst den nächsten Monat besser planen.",
+          "visualChange": "Die Belege sind geordnet, ein Kalender für den nächsten Monat liegt bereit und ein Wochenbudget ist sichtbar vorbereitet.",
+          "startSecond": 0,
+          "endSecond": 4.2
+        }
+      ],
+      "targetSeconds": 4.2,
+      "audioTrigger": "Dann weißt du, wo dein Geld bleibt – und kannst den nächsten Monat besser planen.",
+      "mainIdea": "Die Belege sind geordnet, ein Kalender für den nächsten Monat liegt bereit und ein Wochenbudget ist sichtbar vorbereitet."
+    }
+  ],
+  "phase3CompletionContract": {
+    "id": "finanzneo-phase3-completion-v1",
+    "required": true,
+    "productionManifest": "05-projektdateien/phase3-production-manifest.json",
+    "renderQa": "05-projektdateien/phase3-render-qa.json",
+    "phase1AnimationSeal": "05-projektdateien/phase1-animation-seal.json",
+    "reelBackgroundContractId": "finanzneo-pure-black-background-v1",
+    "allScenesMustBeImplemented": true,
+    "imageVisualRequired": true,
+    "animationVisualRequired": true,
+    "captionOnlySceneForbidden": true,
+    "postRenderVisualQaRequired": true,
+    "exportRequiresPassedRenderQa": true,
+    "exactVideoHashRequiredForExport": true,
+    "finalVideoExistsOnlyAfterQaPass": true,
+    "canonicalPhase1AnimationRequired": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "phase1AnimationHashMustMatchSeal": true,
+    "pureBlackBackgroundRequired": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "backgroundMotionDoesNotCountAsAnimation": true,
+    "blackOrEmptyVisualMustFail": true,
+    "visualQa": {
+      "sampleImageRatios": [
+        0.5
+      ],
+      "sampleAnimationRatios": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "sampleBackgroundPerScene": true,
+      "minStdDev": 4,
+      "minContrastP90P10": 12,
+      "minEdgeMean": 0.5,
+      "minActivePixelRatio": 0.04,
+      "minAnimationMeanAbsDiff": 1,
+      "maxBackgroundMean": 12,
+      "maxBackgroundStdDev": 4
+    },
+    "autoExportAfterPassedRenderQa": true,
+    "finalVideoDirectory": "06-export",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt"
+  },
+  "visualBeatContract": {
+    "id": "finanzneo-visual-beats-v2",
+    "sceneCountFlexible": true,
+    "visualBeatCountFlexible": true,
+    "visualBeatPlanBeforeSceneCount": true,
+    "oneSpokenThoughtPerBeatRequired": true,
+    "splitMultiThoughtSentenceWhenHelpful": true,
+    "oneImagePerSentenceAllowed": true,
+    "oneImagePerSentencePreferredWhenItImprovesClarity": true,
+    "consecutiveImageScenesAllowedWhenMeaningAdvances": true,
+    "visualChangeWhenVoiceoverIntroducesNewConcreteIdea": true,
+    "extraImagePreferredOverOverloadedStill": true,
+    "staticImageBeatIdealSeconds": [
+      1.8,
+      3.2
+    ],
+    "staticImageBeatHardMaxSeconds": 4.2,
+    "animationSceneTypicalSeconds": [
+      3,
+      5.5
+    ],
+    "longerAnimationRequiresVisibleProgression": true,
+    "animationMustContainMultipleVisibleStates": true,
+    "visualMustAdvanceWithVoiceover": true,
+    "cameraMotionAloneDoesNotCountAsNewBeat": true,
+    "unchangedVisualAfterMessageUnderstoodForbidden": true,
+    "actualCutsFollowRealWordTimings": true,
+    "ratioIsGuidelineNotQuota": true
+  },
+  "coverHookContract": {
+    "id": "finanzneo-cover-hook-v2",
+    "sourceSceneId": "scene-01",
+    "titleSource": "scene-index.title",
+    "titleRenderedByRemotion": true,
+    "titleInGeneratedFlowImageForbidden": true,
+    "titleVisibleFromFrame": 0,
+    "titleVisibleWithinFirstSecond": true,
+    "titleHoldMinFrames": 30,
+    "subtitlesForbiddenDuringScene01": true,
+    "captionStartsFromSceneId": "scene-02",
+    "imagePlusTitleOnly": true,
+    "standardSceneHeaderForbiddenDuringScene01": true,
+    "coverIconForbidden": true,
+    "secondaryTextForbidden": true,
+    "noIntroBeforeTitle": true,
+    "noFadeInDelay": true,
+    "flowImageMustReserveTitleSafeSpace": true,
+    "standaloneCoverRequired": true,
+    "exportedCoverSource": "final-video-frame-0"
+  },
+  "imageStorytellingContract": {
+    "id": "finanzneo-image-storytelling-v2",
+    "practicalEverydaySituationRequired": true,
+    "directMeaningWithoutCaptionRequired": true,
+    "visibleActionConflictOrConsequenceRequired": true,
+    "genericSymbolOnlyForbidden": true,
+    "isolatedFinanceIconAsMainStoryForbidden": true,
+    "decorativeObjectPileForbidden": true,
+    "staticCatalogCompositionForbidden": true,
+    "entertainmentThroughActionContrastOrConflictRequired": true,
+    "beforeAfterOrCauseEffectWhenHelpful": true,
+    "humanContextWhenHelpful": true,
+    "visualHookUnderOneSecondRequired": true,
+    "oneImagePerSentenceWhenItImprovesClarity": true,
+    "extraImagePreferredOverOverloadedStill": true,
+    "labelsSupplementalOnly": true
+  }
+}

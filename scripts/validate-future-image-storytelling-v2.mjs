@@ -48,7 +48,7 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   if (scene.type === 'image' && typeof scene.planFile === 'string') paths.push(scene.planFile);
 }
 for (const relative of paths) {
-  const path = resolve(root, relative);
+  const path = relative.startsWith('EINZELNE-SZENEN/') ? resolve(root, '03-szenen', relative) : resolve(root, relative);
   assert(existsSync(path), relative + ' fehlt.');
   if (!existsSync(path)) continue;
   const source = readFileSync(path, 'utf8');

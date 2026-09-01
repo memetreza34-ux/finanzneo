@@ -1,0 +1,20 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Feste Kosten.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Miete
+- Feste Kosten
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A real household table with apartment keys, electricity bill, phone, insurance folder and subscription remote grouped as unavoidable recurring costs. The visible story must specifically communicate this action or consequence: Wohnungsschlüssel, Stromrechnung, Handy, Versicherungsordner und Abo-Fernbedienung liegen als klare feste Monatskosten zusammen. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and a strong focal point. Make the cause-and-effect readable immediately without narration: the viewer should clearly understand what is happening and why within one second. Use depth, scale, contact shadows and restrained cinematic lighting to make the scene feel tangible and premium. Supporting objects are allowed only when they improve the explanation. Keep all requested German object labels short, legible and naturally attached to their objects; do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels like a real situation.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+
+STYLE + SAFETY:
+Use stylized 3D animated geometry, simplified premium materials and a seamless deep black background. Keep the scene real-world-grounded and non-photorealistic. Soft contact shadows and clean subject-separation lighting are required. No photorealism, product-photo look, dashboard, app UI, flowchart, floating UI tiles, microchip/circuit language, miniature diorama or decorative clutter. Keine stumpfen Symbolbilder als Haupterklärung. Bevorzuge Ursache → Wirkung, Handlung → Konsequenz oder klaren Vorher/Nachher-Kontrast. Wenn ein neuer konkreter Gedanke mehr Platz braucht, lieber ein zusätzliches Bild planen statt dieses Motiv zu überladen.

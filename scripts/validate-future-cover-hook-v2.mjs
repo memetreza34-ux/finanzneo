@@ -57,7 +57,7 @@ assert(first?.coverTitle === index.title, 'scene-01.coverTitle muss exakt scene-
 
 for (const relative of ['03-szenen/00-cover/cover.txt', first?.planFile, '05-projektdateien/ANTIGRAVITY-AUFTRAG.md', '05-projektdateien/technische-hinweise.md', '05-projektdateien/cover-hook-qa.md']) {
   if (!relative) continue;
-  const path = resolve(root, relative);
+  const path = relative.startsWith('EINZELNE-SZENEN/') ? resolve(root, '03-szenen', relative) : resolve(root, relative);
   assert(existsSync(path), relative + ' fehlt.');
   if (existsSync(path)) {
     const source = readFileSync(path, 'utf8');
