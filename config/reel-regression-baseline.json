@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "sourceCommit": "353d20c06513fd6024171a7eb842a3e9ebc3ff3e",
+  "createdAt": "2026-09-02",
+  "purpose": "Protect already-working reel production directories from accidental changes while allowing new reel directories and future production work.",
+  "protectedObjects": [
+    {
+      "path": "reels/2026-08-24_bis_2026-08-30",
+      "type": "tree",
+      "sha": "a510d59c2ab4b52c40797663209337a0b0e7711c",
+      "reason": "Completed historical production week"
+    },
+    {
+      "path": "reels/2026-08-31_bis_2026-09-06/montag",
+      "type": "tree",
+      "sha": "ec8fc0da82590c933d477ef3c36615bef7fae91f",
+      "reason": "Known-working Monday reel state"
+    },
+    {
+      "path": "reels/2026-08-31_bis_2026-09-06/dienstag",
+      "type": "tree",
+      "sha": "39db69d0640c4e71bf1599cbce889f2b87f71b5e",
+      "reason": "Known-working Tuesday reel state"
+    },
+    {
+      "path": "reels/2026-08-31_bis_2026-09-06/mittwoch",
+      "type": "tree",
+      "sha": "18afa5d1f1269c77092fecf890b9f5efd7b0f308",
+      "reason": "Known-working Wednesday reel state"
+    }
+  ]
+}
