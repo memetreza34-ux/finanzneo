@@ -1,4 +1,8 @@
-import type {FinanceBackgroundVariant} from '../../design-system';
+import type {
+  FinanceBackgroundVariant,
+  IconName,
+  SceneHeaderTone,
+} from '../../design-system';
 import type {CaptionWord} from '../../lib/captions';
 
 export type ReelBeatBase = {
@@ -8,6 +12,10 @@ export type ReelBeatBase = {
   kicker?: string;
   headline?: string;
   sourceNote?: string;
+  /** Jede Szene braucht ein passendes Linien-Icon für SceneHeader. */
+  icon: IconName;
+  /** Standard bleibt grün; nur semantisch abweichen. */
+  headerTone?: SceneHeaderTone;
 };
 
 export type HookBeat = ReelBeatBase & {
@@ -65,6 +73,17 @@ export type ImageBeat = ReelBeatBase & {
   objectFit?: 'contain' | 'cover';
 };
 
+/**
+ * Produktionsanimation aus Phase 1.
+ * `animationId` ist der verbindliche Schlüssel für das customAnimations-Mapping.
+ * Fehlt dieses Mapping im Render, MUSS ReelTemplate hart abbrechen.
+ */
+export type AnimationBeat = ReelBeatBase & {
+  type: 'animation';
+  headline: string;
+  animationId: string;
+};
+
 export type CtaBeat = ReelBeatBase & {
   type: 'cta';
   headline: string;
@@ -80,6 +99,7 @@ export type ReelBeat =
   | CompareBeat
   | ChecklistBeat
   | ImageBeat
+  | AnimationBeat
   | CtaBeat;
 
 export type ReelConfig = {
@@ -110,6 +130,7 @@ export const validateReelConfig = (config: ReelConfig): string[] => {
   }
 
   const ids = new Set<string>();
+  const animationIds = new Set<string>();
   for (const beat of config.beats) {
     if (!beat.id.trim()) errors.push('Ein Beat besitzt keine ID.');
     if (ids.has(beat.id)) errors.push(`Doppelte Beat-ID: ${beat.id}.`);
@@ -119,8 +140,29 @@ export const validateReelConfig = (config: ReelConfig): string[] => {
       errors.push(`Beat ${beat.id} hat keine positive ganzzahlige durationInFrames.`);
     }
 
-    if (beat.type === 'image' && !beat.imageSrc.trim()) {
-      errors.push(`Image-Beat ${beat.id} besitzt keine Bilddatei.`);
+    if (!beat.icon) {
+      errors.push(`Beat ${beat.id} besitzt kein SceneHeader-Icon.`);
+    }
+
+    if (beat.type === 'image') {
+      if (!beat.imageSrc.trim()) {
+        errors.push(`Image-Beat ${beat.id} besitzt keine Bilddatei.`);
+      }
+
+      const imageSeconds = beat.durationInFrames / fps;
+      if (imageSeconds > 6) {
+        errors.push(`Image-Beat ${beat.id} dauert ${imageSeconds.toFixed(1)} s. Maximal 6,0 s; splitten oder animieren.`);
+      }
+    }
+
+    if (beat.type === 'animation') {
+      if (!beat.animationId.trim()) {
+        errors.push(`Animation-Beat ${beat.id} besitzt keine animationId.`);
+      } else if (animationIds.has(beat.animationId)) {
+        errors.push(`Doppelte animationId: ${beat.animationId}. Jede Produktionsanimation braucht einen eindeutigen Mapping-Key.`);
+      } else {
+        animationIds.add(beat.animationId);
+      }
     }
 
     if (beat.type === 'checklist' && beat.items.length === 0) {

@@ -1,0 +1,74 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-v4
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+VISUAL_TIMING_AND_CLARITY_STANDARD: finanzneo-visual-timing-and-clarity-v1
+
+FORMAT
+Strict square 1:1 source image. Width and height equal.
+
+VERBINDLICHE BILDWELT
+Create CLEARLY STYLIZED premium 3D CGI financial editorial explainer images. The final image must look like a designed high-end 3D render, NOT a photograph and NOT realistic office stationery photography.
+
+3D FORM LANGUAGE
+- chunky, substantial volumetric 3D objects
+- simplified and slightly exaggerated proportions
+- smooth rounded geometry and soft bevels
+- thick cream/off-white card-like surfaces instead of thin realistic paper
+- dark charcoal and deep emerald premium polymer/brushed-metal frames and details
+- restrained glass only where useful
+- chunky stylized gold value coins, visibly modeled in 3D
+- obvious foreground / midground / background depth
+- natural overlap between objects
+- strong but soft contact shadows
+- mild depth-of-field allowed
+- polished premium CGI finish
+
+LIGHT + CAMERA
+- cinematic soft key light from upper front/side
+- controlled emerald rim light
+- subtle warm highlights on gold
+- frontal or gentle elevated three-quarter camera
+- medium close editorial framing
+- never tiny isometric diorama view
+
+COLOR ROLES
+- deep charcoal green-black = background/base world
+- emerald/mint = structure, positive guidance, rim light
+- gold = money/value only
+- warm red-orange = warning/unwanted recurring cost only
+- warm cream/off-white = readable document/card surfaces
+
+ALLTAGSKLARHEIT
+Every image must communicate ONE everyday financial idea in under 2 seconds. Use familiar 3D props: calendar, wallet, contract folder, magnifying glass, headphones, smartphone, SIM card, membership tag, calculator, price tag, receipt ribbon, coins.
+
+LEBENDIGKEIT
+Do not create a dead still-life. Show relationships: clipped tags, fanned calendar cards, curled 3D receipt ribbons, objects leaning/overlapping, visible small-vs-large contrast, a magnifier actively revealing something, a tag being pulled from a stack.
+
+TEXT
+Only short German labels, prices or short questions. No full sentences, subtitles or CTA sentences. Text must be integrated on the physical 3D prop surface, not floating UI.
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square image. No floor-wall boundary, horizon line, panels, bands or sections. Use only a subtle continuous gradient/vignette. Objects may cast soft contact shadows.
+
+HARD FAIL — REGENERATE
+- photorealistic office photo
+- realistic paper calendar / stationery photo look
+- stock photography
+- thin flat realistic paper dominating the scene
+- dashboard / app UI / digital control panel
+- central tablet/screen/board
+- floating cards/tiles/chips/widgets
+- gameboard / board-game layout
+- microchip/circuit-board style
+- ring/orbit of modules
+- mechanical gate/conveyor
+- tiny isometric diorama
+- sterile luxury product pedestal
+- Pixar, clay or toy style
+- scene needs interpretation instead of being instantly clear
+
+NO IMAGE-REFERENCE DEPENDENCY
+Do not upload or reuse Bild 00 or any previous image as an image reference. Every individual prompt must independently repeat this complete 3D style language so the world stays consistent without copying composition.

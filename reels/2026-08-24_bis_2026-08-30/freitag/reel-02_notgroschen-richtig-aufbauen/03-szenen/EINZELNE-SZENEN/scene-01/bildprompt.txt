@@ -1,0 +1,48 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Unerwartete Kosten.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Reparatur
+- Nachzahlung
+- Girokonto
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing how unexpected everyday costs can suddenly put pressure on a normal household budget. Show a modern washing machine in an apartment laundry area with a visible defect, such as a small leak and warning light. Next to it, place a realistic repair invoice labeled “Reparatur”. Also show a second believable household bill labeled “Nachzahlung”, for example an energy or utility statement with a clearly visible amount area but no dense small print.
+
+On the same scene, show a normal bank-account element labeled “Girokonto” with visibly limited available money compared with the two sudden expenses. The viewer must instantly understand the situation: two unexpected real-life costs appear at once and the normal account is under financial pressure. Do not solve the problem yet in this scene; this image is about the sudden burden itself.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The washing machine, invoices and bank-account object should keep believable proportions, recognizable construction and useful everyday detail. The rendering must remain clearly stylized and polished, not photorealistic, not cartoon-toy-like and not an icon pack.
+
+BACKGROUND:
+Use one seamless deep black background. A small believable laundry/apartment context may surround the washing machine and paperwork, but it must fade naturally into the black world and never become a bright room background.
+
+COMPOSITION:
+Build one coherent household situation. Keep the broken washing machine and two unexpected bills visually dominant, with the Girokonto clearly affected by them. Make the relationship understandable in 1–2 seconds without narration. Use spatial proximity and clear visual pressure, not abstract arrows or random symbols.
+
+BRANDS + LOGOS:
+Use no real bank or utility-company branding. Documents and banking elements must be generic but recognizable.
+
+COLORS + LIGHT:
+Use warm ivory and soft gray for neutral objects, warm red-orange only around the unexpected costs or warning areas, subtle gold only for money and emerald green sparingly. Use clean soft lighting, readable shadows and soft contact shadows.
+
+TEXT:
+Only the requested labels “Reparatur”, “Nachzahlung” and “Girokonto” may appear. Attach each label to the exact object it describes and keep it easily readable. No headline, subtitle, CTA or long sentence.
+
+FORBIDDEN:
+No photorealism, no generic vault/shield/coins composition, no abstract finance metaphor, no floating icon set, no dashboard, no app UI, no flowchart, no unreadable tiny paperwork and no decorative clutter.

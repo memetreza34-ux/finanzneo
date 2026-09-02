@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 
-// Führt beide Reel-Validatoren auf demselben Projektordner aus.
-// Nötig, weil npm zusätzliche Argumente nur an den letzten Befehl einer
-// `&&`-Kette anhängt und der erste Validator sonst ohne Pfad startet.
-
+// Führt alle Reel-Validatoren auf demselben Projektordner aus.
 import {spawnSync} from 'node:child_process';
 import {resolve} from 'node:path';
 
@@ -15,14 +12,24 @@ if (!projectDirectory) {
 }
 
 const validators = [
+  'scripts/validate-active-reel-rules.mjs',
+  'scripts/validate-reel-background.mjs',
   'scripts/validate-reel-source-contract.mjs',
+  'scripts/validate-scene01-cover-export-contract.mjs',
+  'scripts/validate-future-cover-hook-v2.mjs',
+  'scripts/validate-scene-quality.mjs',
+  'scripts/validate-visual-beat-contract.mjs',
+  'scripts/validate-future-image-storytelling-v2.mjs',
+  'scripts/validate-future-production-standard-v3.mjs',
+  'scripts/validate-reel-layout-v5.mjs',
+  'scripts/validate-premium-visual-contract.mjs',
+  'scripts/validate-animation-source-quality.mjs',
+  'scripts/validate-flow-autonomous-contract.mjs',
+  'scripts/validate-phase3-contract.mjs',
   'scripts/validate-platform-publishing.mjs',
 ];
 
 for (const validator of validators) {
   const result = spawnSync(process.execPath, [resolve(validator), projectDirectory], {stdio: 'inherit'});
-
-  if (result.status !== 0) {
-    process.exit(result.status ?? 1);
-  }
+  if (result.status !== 0) process.exit(result.status ?? 1);
 }

@@ -24,19 +24,41 @@ export const IMAGE_INBOX = '03-szenen/00-ALLE-BILDER-HIER-REIN';
 export const SCENE_INDEX = '03-szenen/scene-index.json';
 export const ALL_PROMPTS = '03-szenen/alle-bildprompts.txt';
 
+// Google-Flow-Ausführung: autonom, aber als harte Single-Job-State-Machine.
+// Der Agent darf das Bildset NICHT als Batch interpretieren. Zu jedem Zeitpunkt
+// darf genau EIN Bildauftrag aktiv/laufend sein. Erst nachdem dessen Ergebnis
+// zurück ist, exakt umbenannt und geprüft wurde, wird der nächste Bildblock
+// freigeschaltet. Nutzer-Zwischenfreigaben bleiben weiterhin verboten.
+export const FLOW_EXECUTION_MODE_ID = 'finanzneo-flow-strict-single-job-v3';
+export const FLOW_EXECUTION_MODE_MARKER = `FLOW_EXECUTION_MODE: ${FLOW_EXECUTION_MODE_ID}`;
+export const FLOW_STRUCTURE_LOCK_ID = 'finanzneo-flow-structure-lock-v2';
+export const FLOW_STRUCTURE_LOCK_MARKER = `FLOW_STRUCTURE_LOCK: ${FLOW_STRUCTURE_LOCK_ID}`;
+export const FLOW_STATE_MACHINE_ID = 'finanzneo-flow-state-machine-v1';
+export const FLOW_STATE_MACHINE_MARKER = `FLOW_STATE_MACHINE: ${FLOW_STATE_MACHINE_ID}`;
+
 export const SUBTITLE_MODE = 'sentence-with-audio-synced-active-word';
 export const ACTIVE_WORD_COLOR = 'finance-green';
 
-// FinanzNeo veröffentlicht keine YouTube Shorts.
+// Reel-Publishing nutzt genau EINE Caption-Quelle für alle Reel-Plattformen.
 // YouTube ist ausschließlich Longform unter youtube/ — siehe docs/PLATFORM-PUBLISHING.md.
 export const PLATFORM_PUBLISHING_FILES = {
-  masterCaption: `${CAPTION_DIRECTORY}/caption.txt`,
-  instagramReels: `${CAPTION_DIRECTORY}/instagram-reels.txt`,
-  tiktok: `${CAPTION_DIRECTORY}/tiktok.txt`,
-  facebookReels: `${CAPTION_DIRECTORY}/facebook-reels.txt`,
-  snapchat: `${CAPTION_DIRECTORY}/snapchat.txt`,
+  universalCaption: `${CAPTION_DIRECTORY}/caption.txt`,
 };
 
-// Schlüssel und Dateien, die in aktiven Reel-Projekten nicht vorkommen dürfen.
-export const FORBIDDEN_PUBLISHING_KEYS = ['youtubeShorts'];
-export const FORBIDDEN_PUBLISHING_FILES = [`${CAPTION_DIRECTORY}/youtube-shorts.txt`];
+// Alte Plattformvarianten sind verboten, damit Generator, Validator und Export
+// nicht wieder mehrere widersprüchliche Caption-Wahrheiten erzeugen.
+export const FORBIDDEN_PUBLISHING_KEYS = [
+  'youtubeShorts',
+  'masterCaption',
+  'instagramReels',
+  'tiktok',
+  'facebookReels',
+  'snapchat',
+];
+export const FORBIDDEN_PUBLISHING_FILES = [
+  `${CAPTION_DIRECTORY}/youtube-shorts.txt`,
+  `${CAPTION_DIRECTORY}/instagram-reels.txt`,
+  `${CAPTION_DIRECTORY}/tiktok.txt`,
+  `${CAPTION_DIRECTORY}/facebook-reels.txt`,
+  `${CAPTION_DIRECTORY}/snapchat.txt`,
+];

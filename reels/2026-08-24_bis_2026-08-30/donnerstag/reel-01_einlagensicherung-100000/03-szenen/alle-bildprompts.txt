@@ -1,0 +1,89 @@
+FLOW_EXECUTION_MODE: finanzneo-flow-autonomous-full-run-v2
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+
+AUTONOMER GESAMTDURCHLAUF — VERBINDLICH
+- ARBEITE DAS GESAMTE BILDSET OHNE NUTZER-ZWISCHENSTOPP BIS ZUM LETZTEN BENÖTIGTEN BILD AB.
+- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", EINE BESTÄTIGUNG ODER EINE FREIGABE DES NUTZERS.
+- "WARTEN" BEDEUTET AUSSCHLIESSLICH: INTERN WARTEN, BIS DIE AKTUELLE BILDERZEUGUNG TECHNISCH VOLLSTÄNDIG ABGESCHLOSSEN IST. ES BEDEUTET NIEMALS, AUF DEN NUTZER ZU WARTEN.
+- NACH JEDEM BILD AUTOMATISCH: vollständig erzeugen → sofort exakt umbenennen → QA prüfen → bei Fehler dieselbe Bildnummer neu erzeugen → bei bestandener QA DIREKT mit dem nächsten benötigten Bild fortfahren.
+- Remotion-/Animationsnummern automatisch überspringen; dafür kein Bild erzeugen.
+- Nur bei einem echten technischen Hard-Blocker stoppen. Geschmacksfragen, Zwischenfreigaben oder fehlendes "weiter" sind KEINE Stop-Gründe.
+- DIESE STRUKTUR, REIHENFOLGE, DATEINAMENLOGIK, BILDWELT, MATERIALLOGIK, FARBROLLEN, LICHTLOGIK UND QUALITÄTSREGELN BIS ZUM LETZTEN BILD KONSEQUENT BEIBEHALTEN.
+- Keine Stiländerung, keine neue Bildwelt und keine abweichende Prompt-Struktur mitten im Durchlauf. Jede Szene bekommt eine frische Komposition INNERHALB derselben festgeschriebenen Welt.
+
+FINANZNEO FLOW MASTER — DONNERSTAG 27.08.2026
+REEL: 100.000 € Einlagensicherung — pro Konto oder pro Bank?
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+ARBEITSMODUS
+- Erzeuge GENAU EIN Bild pro Schritt.
+- Vollständig warten, Benenne es SOFORT exakt um, QA, dann erst nächstes Bild.
+- Bei Fehlern Erzeuge DIESELBE Bildnummer neu.
+- Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen.
+- Jede Szene bekommt eine eigene frische Komposition, aber denselben ausgeschriebenen Stil-Lock.
+- Szenen 02, 04, 06, 08, 10, 12 sind Remotion — KEIN Bild.
+
+GLOBAL STYLE — IN JEDEM BILD VERBINDLICH
+Premium stylized 3D CGI financial editorial explainer. Chunky volumetric modeled objects, smooth rounded bevels, premium matte emerald polymer, brushed metal, restrained glass, warm cream surfaces and sculpted gold euro/value elements. Deep charcoal green-black world, vivid emerald rim light, cinematic soft key light, strong foreground/midground/background depth. Gold only for money/value, red-orange only for warning/problem, white for neutral labels. Not photorealistic, not office/stationery photography, not Pixar/clay/toy. No dashboard, app UI, control panel, floating cards, gameboard, module ring, microchip world or tiny isometric diorama. ONE main idea, immediately readable. Every output is a square 1:1 source image. Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No headline/subtitle/sentence; only short German object labels.
+
+BILD 00 — COVER
+FINAL: Bild 00 - Einlagensicherung Cover.png
+Large chunky emerald bank building as hero. Thick translucent emerald shield `100.000 €` in front. Three smaller account objects `GIRO`, `TAGESGELD`, `FESTGELD` all physically connect to the SAME bank and one shared shield. Sculpted gold coins and one simple white person token. Labels only: `100.000 €`, `PRO PERSON`, `PRO BANK`.
+
+BILD 01 — SZENE 01
+FINAL: Bild 01 - Nicht pro Konto Hook.png
+Hero: three separate chunky account containers placed next to one single large bank building. A red-orange crossed-out mini shield appears over each separate account idea, while one large emerald shield sits only at the bank boundary. One person token stands in front. The message must instantly read: not 100k for every account. Labels only: `NICHT PRO KONTO`, `100.000 €`, `EINE BANK`.
+
+SZENE 02 — REMOTION — KEIN BILD.
+
+BILD 03 — SZENE 03
+FINAL: Bild 03 - Geschuetzte Einlagen.png
+Hero: one large emerald protection vault. Five recognizable chunky 3D deposit objects feed into it: a current-account card/token `GIRO`, a savings jar `TAGESGELD`, a locked calendar box `FESTGELD`, a savings-book object `SPAREN`, and a bond-like savings certificate `SPARBRIEF`. Use chunky stylized objects, not real paper. Labels only: `GIRO`, `TAGESGELD`, `FESTGELD`, `SPAREN`, `SPARBRIEF`.
+
+SZENE 04 — REMOTION — KEIN BILD.
+
+BILD 05 — SZENE 05
+FINAL: Bild 05 - 60000 plus 50000.png
+Hero: one large bank building with TWO chunky account containers clearly attached to the same bank. Left container `60.000 €` with `TAGESGELD`; right container `50.000 €` with `GIRO`. Their gold coin streams physically converge into one large central total block `110.000 €`. Labels only: `60.000 €`, `50.000 €`, `110.000 €`, `GLEICHE BANK`.
+
+SZENE 06 — REMOTION — KEIN BILD.
+
+BILD 07 — SZENE 07
+FINAL: Bild 07 - Zwei Banken getrennt.png
+Two large distinct stylized 3D bank buildings at different sides, clearly separate. Each has its own emerald shield `100.000 €` and its own gold coin deposit group. Keep a clear gap between the legal bank entities. Labels only: `BANK A`, `BANK B`, `100.000 € JE BANK`.
+
+SZENE 08 — REMOTION — KEIN BILD.
+
+BILD 09 — SZENE 09
+FINAL: Bild 09 - Gemeinschaftskonto zwei Personen.png
+Hero: one large chunky joint-account vault in the center. Two clearly different white/emerald person tokens stand on opposite sides. Gold account value visually splits into two equal ownership streams toward the two people. Each person has an emerald protection shield. Labels only: `GEMEINSCHAFT`, `PERSON A`, `PERSON B`, `JE 100.000 €`.
+
+SZENE 10 — REMOTION — KEIN BILD.
+
+BILD 11 — SZENE 11
+FINAL: Bild 11 - Besonderer Fall 500000.png
+Hero: a chunky stylized 3D house-sale key and home object feed a temporarily enlarged gold cash block into a bank. A larger translucent emerald shield surrounds it, marked `BIS 500.000 €`, with a chunky emerald calendar token beside it. Make obvious this is a SPECIAL temporary case, not the normal rule. Labels only: `BESONDERER FALL`, `BIS 500.000 €`, `ZEITLICH BEGRENZT`.
+
+SZENE 12 — REMOTION — KEIN BILD.
+
+BILD 13 — SZENE 13
+FINAL: Bild 13 - Aktien ETF keine Einlage.png
+Hero: a large emerald deposit shield stands over a chunky bank-deposit coin container. Beside it, clearly OUTSIDE the shield, sit two stylized investment objects: one stock certificate block `AKTIE` and one basket/fund object `ETF`. Use a clean separation line in space, not UI. Labels only: `EINLAGEN`, `AKTIE`, `ETF`, `NICHT DIESE 100.000 €`.
+
+BILD 14 — SZENE 14
+FINAL: Bild 14 - Rechtliche Bank pruefen.png
+Hero: a large 3D magnifying glass examines the legal name plate on a chunky bank building. Around it sit two smaller account-brand/front-end tokens that visibly route into the same legal bank building, communicating that the legal institution matters. Add a compact total-balance counter block. Labels only: `WELCHE BANK?`, `GESAMTGUTHABEN`, `PRÜFEN`.
+
+BILD 15 — SZENE 15
+FINAL: Bild 15 - Pro Person pro Bank.png
+Final clear rule image. One white person token and one large emerald bank building dominate the scene. Several small account objects sit behind the SAME bank but all feed into ONE `100.000 €` shield between the person and bank. Add a red-orange crossed-out label near the accounts. Labels only: `PRO PERSON`, `PRO BANK`, `NICHT PRO KONTO`, `100.000 €`.
+
+ABSCHLUSS-QA
+Exakt 10 Dateien: 00, 01, 03, 05, 07, 09, 11, 13, 14, 15. Alle square 1:1. Deutlich stylized 3D CGI. Keine Referenzbilder, kein Dashboard/UI, kein Fotorealismus, keine Sätze im Bild.
+Nach Abschluss müssen alle erzeugten und exakt benannten Bilder gemeinsam hier liegen:
+03-szenen/00-ALLE-BILDER-HIER-REIN/

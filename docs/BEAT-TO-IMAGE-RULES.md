@@ -1,127 +1,115 @@
-# FinanzNeo — Beat-zu-Bild-Regeln
+# FinanzNeo — Beat-zu-Visual-Regeln V9
 
-Dieses Dokument entscheidet für jeden gesprochenen Beat, ob ein KI-Bild, Remotion oder eine Kombination verwendet wird. Bei Widerspruch gilt `CLAUDE.md`.
+Bei Widerspruch gilt `CLAUDE.md`.
 
 ## 1. Grundentscheidung
 
-Für jeden Beat eine Kategorie wählen:
+Für jeden gesprochenen Beat genau den Visualtyp wählen, der die Aussage am schnellsten verständlich macht.
 
-### A. KI-Bild
+### A. Google-Flow-Bild
 
-Für konkrete räumliche oder gegenständliche Szenen:
+Für Zustände, konkrete Gegenstände, Situationen und sofort lesbare Beispiele.
 
-- Alltagssituation
-- Ursache-Wirkung
-- visuelle Metapher
-- Risiko/Schutz
-- Konsumsituation
-- unerwartete Ausgabe
-- räumlicher Vergleich
+Beispiele:
 
-Jedes KI-Bild folgt `docs/FINANZNEO-IMAGE-WORLD-V3.md`.
+- Karte / Terminal / Rechnung
+- Risiko oder Schutz als klares Objektmotiv
+- Konsum-/Alltagssituation
+- räumlicher Vorher-/Nachher-Zustand
 
-### B. Remotion
+Bildwelt immer nach `docs/IMAGE-SYSTEM.md` und V9.
 
-Für Information, Struktur und validierte Werte:
+### B. Native Remotion-Animation
 
-- Überschriften
-- Geldbeträge/Prozentwerte
-- Diagramme/Tabellen
-- Zeitachsen
-- Checklisten
-- Formeln
-- Quellen
-- CTA
+Für echte Veränderung oder Mechanik:
 
-### C. Kombination
+- Umrechnung
+- Kosten entstehen
+- Geld bewegt sich
+- Vorher → Nachher
+- Rechnung entwickelt sich
+- zwei Wege führen zu unterschiedlichen Ergebnissen
 
-Bild erklärt die Situation, Remotion ergänzt präzise Werte, Pfeile, Hervorhebungen oder Quellen.
+Phase 1 liefert dafür bereits die produktionsreife `animation.tsx`. Phase 3 integriert sie nur.
+
+### C. Präzisions-Overlay
+
+Ein Bild darf in Remotion um **wenige** präzise Elemente ergänzt werden, z. B. eine notwendige Zahl, kurze Markierung oder Quelle. Das Overlay darf das eigentliche Bild nicht durch ein Dashboard ersetzen.
 
 ## 2. Entscheidungsfragen
 
-1. Braucht der Satz eine konkrete räumliche Szene? → Bild/Kombination.
-2. Ist die Hauptinformation Zahl/Tabelle/Kurve? → Remotion.
-3. Erklärt eine starke Metapher die Aussage schneller? → Bild.
-4. Muss ein geprüfter Wert/Quelle sichtbar sein? → Remotion/Kombination.
-5. Wäre das Bild nur dekorativ? → Remotion.
+1. Ist die Aussage ein Zustand oder konkretes Beispiel? → Bild.
+2. Muss sich etwas sichtbar verändern? → Animation.
+3. Ist nur eine geprüfte Zahl zusätzlich nötig? → Bild + kleines Overlay.
+4. Wäre ein weiteres Objekt nur Dekoration? → weglassen.
+5. Würde die Szene wie UI/Flowchart wirken? → neu vereinfachen.
 
-## 3. Standardverteilung
-
-Für ein typisches 60–90-Sekunden-Reel:
+## 3. Zielverteilung
 
 ```text
-55–65 % Bildszenen
-35–45 % native Remotion-Animationen
+ungefähr 60 % Bildbeats
+ungefähr 40 % native Animationen
 ```
 
-Bei 10 Szenen bevorzugt ungefähr:
+Keine starre Quote. Qualität und Timing gewinnen.
+
+## 4. V9-Bildregel
+
+Jedes Flow-Bild:
+
+- quadratisch `1:1`
+- `finanzneo-stylized-3d-animated-black-v9`
+- nahtloser tiefschwarzer Hintergrund
+- klar stylized 3D animated
+- eine klare Hauptaussage/Hauptaktion
+- **keine feste Objektanzahl**
+- zusätzliche Objekte nur, wenn sie helfen
+- kurze deutsche Labels nur wenn nötig
+- keine UI-/Dashboard-/Flowchart-/Diorama-Komposition
+
+## 5. Animationsregel
+
+Jede Animation:
 
 ```text
-6 Bildszenen
-4 Remotion-Szenen
+START → SICHTBARER MECHANISMUS → ERGEBNIS
 ```
 
-Das ist ein Zielwert, keine starre Quote. Eine schwache Bildszene/Animation wird nicht nur für die Quote verwendet.
+- `PremiumPhysicalStage` transparent
+- zentraler Reel-Hintergrund statisch `#000000`
+- mindestens ein echtes sichtbares Hauptmotiv
+- keine feste Support-Objekt-Anzahl
+- keine Partikel/Aurora/Grid/Glow-Flächen als Hintergrund
+- kein Background-Motion-Hack
+- ohne Ton grundsätzlich verständlich
 
-## 4. Bild-Regel pro Beat
+## 6. Timing
 
-Ein KI-Bild nutzt:
+- Bildbeat ideal 3,5–5,5 s
+- Bildbeat absolut max. 6 s
+- Animationsbeat ideal 4,5–7 s
+- Schnitte folgen finalem Audio und sinnvollen Satz-/Phrasenanfängen
 
-- ein quadratisches 1:1-Quellformat; das 9:16-Format entsteht erst im Reel
-- eine dominante Finanzmetapher / ein großes Hauptobjekt
-- wenige unterstützende Elemente
-- optional eine Person mit klar sichtbarem Gesicht
-- kurze deutsche Objektlabels
-- einen einzigen nahtlosen deep-charcoal-green-black Hintergrund
-
-Keine Prozent-Zonen, keine Hintergrundbänder, keine Miniatur-Dioramen.
-
-## 5. Mehrteilige Bilder
-
-Einzelbild mit einer starken Metapher ist Standard.
-
-Mehrteilige Komposition nur, wenn sie klarer ist als eine einzelne Metapher oder Remotion:
-
-- 2-in-1: klare Gegenüberstellung
-- 3-in-1: drei echte, gleichzeitig nötige Schritte
-- 4-in-1: nur in Ausnahmefällen
-
-Keine winzigen Panels.
-
-## 6. Bildwechsel
-
-Szenenwechsel folgen Satzanfängen aus dem finalen Audio, nicht einem starren Zeitraster.
-
-Erlaubte dezente Bildbewegung in Remotion:
-
-- langsamer Push-in
-- Fokusfahrt
-- Mask-Reveal
-- dezenter Zoom
-- Hervorhebung
-- Pfeil/Outline
-
-Keine zufällige Bewegung ohne Erklärfunktion.
-
-## 7. Beat-Ausgabeformat
+## 7. Ausgabeformat pro Beat
 
 ```text
 Beat [Nummer]
 Sprechtext: „...“
 Hauptaussage: ...
-Visualtyp: [KI-Bild / Remotion / Kombination]
+Visualtyp: [Bild / Animation / Bild + kleines Overlay]
 Begründung: ...
-Bildmetapher: ...
+Hauptmotiv/Hauptmechanismus: ...
 Erlaubte Labels: ...
-Remotion-Inhalt: ...
 Benötigte Daten: ...
 ```
 
-## 8. Ablehnung
+## 8. Ablehnen und neu planen bei
 
-- Bild wäre nur Dekoration
-- Zahl wird besser durch Remotion erklärt
-- Bild enthält mehrere konkurrierende Hauptaussagen
-- Miniatur-/Dashboard-Logik statt einer starken Metapher
-- Hintergrund enthält Bänder/Zonen
-- Person ist gesichtslos oder nur von hinten
+- Visual nur dekorativ
+- mehrere konkurrierende Hauptaussagen
+- unnötiger Objektfülle
+- UI-/Dashboard-/Flowchart-Sprache
+- nicht tiefschwarzem Flow-Hintergrund
+- Animation ohne echte Ursache-Wirkung
+- Bildbeat über 6 Sekunden
+- Background-Motion statt Szenenanimation

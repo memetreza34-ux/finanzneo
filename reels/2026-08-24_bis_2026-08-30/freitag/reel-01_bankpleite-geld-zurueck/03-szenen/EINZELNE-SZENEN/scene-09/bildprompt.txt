@@ -1,0 +1,12 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Gemeinschaftskonto Schutz.png
+
+Create exactly one square 1:1 source image. Create a CLEARLY STYLIZED premium 3D CGI financial editorial explainer. Hero: one large chunky joint-account vault in the center. Two different stylized adult people with clearly visible faces stand at opposite sides. Gold account value visibly splits into two ownership streams, each moving toward an individual emerald shield. Keep the relation physical and spatial, not a chart or UI.
+
+Short German object labels only: `GEMEINSCHAFT`, `PERSON A`, `PERSON B`, `EIGENER ANSPRUCH`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. Premium stylized 3D, rounded bevels, strong depth, gold value objects and emerald rim light. Not photorealistic. No dashboard/UI/gameboard, no headline, no subtitle, no explanatory sentence. Both faces clearly visible.

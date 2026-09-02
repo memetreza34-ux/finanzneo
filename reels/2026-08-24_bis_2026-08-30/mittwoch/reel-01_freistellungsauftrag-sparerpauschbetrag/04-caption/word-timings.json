@@ -1,0 +1,14 @@
+{
+  "version":"finanzneo-caption-v1",
+  "language":"de",
+  "source":"",
+  "generatedAt":"",
+  "duration":0,
+  "wordCount":0,
+  "fps":30,
+  "subtitleMode":"sentence-with-audio-synced-active-word",
+  "activeWordColor":"finance-green",
+  "words":[],
+  "sentences":[],
+  "status":"PHASE_2_REQUIRED"
+}

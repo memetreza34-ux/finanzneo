@@ -1,0 +1,37 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Konto im Minus.png
+
+Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Girokonto
+- -30 €
+
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D everyday payment scene immediately after someone has spent slightly more than was available. Show a substantial physical Girokonto account slab as the main object with a clearly readable negative state “-30 €”. Beside it, include one believable recently paid everyday receipt or shopping item so the cause is obvious: spending exceeded the available money. The relationship must visually explain cause-and-effect, not merely show finance symbols. Keep the negative account prominent and easy to read at a glance, with restrained warning color only where needed. The viewer should immediately understand that the account has fallen below zero.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.

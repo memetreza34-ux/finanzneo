@@ -1,0 +1,14 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 15 - Pro Person pro Bank.png
+Create a square 1:1 source image only.
+
+Create exactly one image. Final clear rule image. One white person token and one large emerald bank building dominate the scene. Several small account objects sit behind the SAME bank but all feed into ONE `100.000 €` shield between the person and bank. Add a red-orange crossed-out label near the accounts.
+
+Labels only: `PRO PERSON`, `PRO BANK`, `NICHT PRO KONTO`, `100.000 €`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
+No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No realistic office photo, dashboard, UI, gameboard, module ring, microchip world, tiny isometric diorama, Pixar or clay.

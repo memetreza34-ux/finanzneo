@@ -40,6 +40,39 @@ const toFiniteNumber = (value: unknown): number | null => {
   return Number.isFinite(parsed) ? parsed : null;
 };
 
+/**
+ * Führt Zahlenfragmente wieder zusammen, die der Transkriptionsschritt an
+ * Tausendertrennzeichen zerlegt hat.
+ *
+ * Whisper & Co. liefern für "100.000" häufig zwei Tokens ("100" + ".000"). Im
+ * Untertitel erschien dadurch sichtbar "100 .000 Euro". Zusammengeführt wird
+ * nur, wenn das Folgetoken mit einem Punkt/Komma direkt vor einer Ziffer
+ * beginnt — normale Satzzeichen und Wortgrenzen bleiben unangetastet.
+ */
+const NUMBER_FRAGMENT = /^[.,]\d/;
+const ENDS_WITH_DIGIT = /\d$/;
+
+const mergeNumberFragments = (words: CaptionWord[]): CaptionWord[] => {
+  const merged: CaptionWord[] = [];
+
+  for (const word of words) {
+    const previous = merged[merged.length - 1];
+
+    if (previous && ENDS_WITH_DIGIT.test(previous.word) && NUMBER_FRAGMENT.test(word.word)) {
+      merged[merged.length - 1] = {
+        word: previous.word + word.word,
+        start: previous.start,
+        end: word.end,
+      };
+      continue;
+    }
+
+    merged.push(word);
+  }
+
+  return merged;
+};
+
 const sanitizeWords = (input: unknown[]): CaptionWord[] => {
   const words: CaptionWord[] = [];
 
@@ -54,7 +87,7 @@ const sanitizeWords = (input: unknown[]): CaptionWord[] => {
     words.push({word, start, end});
   }
 
-  return words.sort((a, b) => a.start - b.start || a.end - b.end);
+  return mergeNumberFragments(words.sort((a, b) => a.start - b.start || a.end - b.end));
 };
 
 /** Unterstützt alte Arrays, Whisper-Segmente und FinanzNeo v1. */

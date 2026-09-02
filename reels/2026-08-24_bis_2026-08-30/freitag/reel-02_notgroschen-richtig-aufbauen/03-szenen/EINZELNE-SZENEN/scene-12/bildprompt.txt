@@ -1,0 +1,49 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 12 - Wieder auffuellen.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Reparatur bezahlt
+- Notgroschen
+- Wieder auffüllen
+- Dauerauftrag
+
+IMAGE PROMPT:
+Create a clear stylized 3D explanatory scene showing what happens after the emergency fund has been used. Show a believable household finance desk with a paid repair invoice labeled “Reparatur bezahlt”. Beside it, show a separate emergency-fund account or reserve labeled “Notgroschen” that is visibly lower than before but not empty, making it obvious that money was taken out for the emergency.
+
+Next to the reduced reserve, show a normal monthly calendar and a recurring transfer from a household account back into the Notgroschen. Label this transfer “Dauerauftrag” and place the short instruction “Wieder auffüllen” directly at the rebuilding reserve. The viewer must understand the full situation immediately: an emergency was paid, the reserve dropped, and regular saving starts again until the Notgroschen is restored.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The invoice, account documents, calendar, money and reserve should look like recognizable everyday financial objects with believable proportions, while the overall rendering stays clearly stylized and non-photorealistic.
+
+BACKGROUND:
+Use one seamless deep black background with a restrained desk context that fades into black. Keep the paid invoice, reduced reserve and rebuilding transfer large and easy to understand.
+
+COMPOSITION:
+Build one coherent after-emergency scene. Show the consequence and the next action in the same frame: paid bill → lower Notgroschen → regular refill. Use the calendar and transfer only to explain the rebuilding process; do not turn the scene into a diagram.
+
+BRANDS + LOGOS:
+No real bank, repair-company or employer branding. Banking and invoice elements must remain generic but recognizable.
+
+COLORS + LIGHT:
+Use subtle gold for saved money, emerald green for the rebuilding transfer and restored direction, warm ivory/gray for documents and surfaces, and only small warm red-orange remnants around the paid expense if needed. Use clean soft studio lighting, clear highlights and soft contact shadows.
+
+TEXT:
+Only the labels “Reparatur bezahlt”, “Notgroschen”, “Wieder auffüllen” and “Dauerauftrag” may appear. Attach each label clearly to the correct invoice, reserve or transfer. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no generic pot-with-coins refill metaphor as the whole explanation, no abstract arrow-only scene, no app dashboard, no screenshot UI, no flowchart, no floating info cards and no decorative clutter.

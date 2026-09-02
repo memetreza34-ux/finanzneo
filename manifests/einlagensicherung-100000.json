@@ -1,0 +1,20 @@
+{
+  "name": "Einlagensicherung100000",
+  "composition": "Einlagensicherung100000",
+  "entryPoint": "src/index.ts",
+  "output": "out/einlagensicherung-100000.mp4",
+  "assets": [
+    {"type": "audio", "path": "public/reels/einlagensicherung-100000/audio/voiceover.wav", "minBytes": 100000},
+    {"type": "caption", "path": "src/reels/einlagensicherung-100000/wordTimings.json", "minWords": 50},
+    {"type": "image", "path": "public/reels/einlagensicherung-100000/images/scene-cover.png", "minBytes": 10000},
+    {"type": "image", "path": "public/reels/einlagensicherung-100000/images/scene-01.png", "minBytes": 10000},
+    {"type": "image", "path": "public/reels/einlagensicherung-100000/images/scene-03.png", "minBytes": 10000},
+    {"type": "image", "path": "public/reels/einlagensicherung-100000/images/scene-05.png", "minBytes": 10000},
+    {"type": "image", "path": "public/reels/einlagensicherung-100000/images/scene-07.png", "minBytes": 10000},
+    {"type": "image", "path": "public/reels/einlagensicherung-100000/images/scene-09.png", "minBytes": 10000},
+    {"type": "image", "path": "public/reels/einlagensicherung-100000/images/scene-11.png", "minBytes": 10000},
+    {"type": "image", "path": "public/reels/einlagensicherung-100000/images/scene-13.png", "minBytes": 10000},
+    {"type": "image", "path": "public/reels/einlagensicherung-100000/images/scene-14.png", "minBytes": 10000},
+    {"type": "image", "path": "public/reels/einlagensicherung-100000/images/scene-15.png", "minBytes": 10000}
+  ]
+}

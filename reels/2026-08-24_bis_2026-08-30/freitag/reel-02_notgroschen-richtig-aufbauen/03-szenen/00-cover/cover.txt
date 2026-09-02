@@ -1,0 +1,33 @@
+COVER = SZENE 01 — KEIN SEPARATER BILDJOB
+
+Die erste Reel-Szene ist automatisch das Cover. Google Flow darf KEIN zusätzliches Cover und KEIN Bild 00 erzeugen. Für Reel und Cover wird exakt dieselbe fertige Datei aus scene-01 verwendet.
+
+SOURCE_SCENE_ID: scene-01
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Unerwartete Kosten.png
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+EXACT SHORT GERMAN OBJECT LABELS:
+- exakt dieselben Labels wie im kanonischen Bildprompt von scene-01
+
+IMAGE PROMPT:
+This file is a technical alias only and must never start a second image-generation job. The canonical cover is exactly the final image generated for scene-01. Use the scene-01 image unchanged as the Reel cover so the first visual beat and thumbnail use the same asset. The underlying scene remains a real-world-grounded explanatory situation with visible cause and effect, believable everyday objects and short German labels only when they improve immediate understanding. It must visually explain the spoken point without requiring interpretation, while remaining clearly stylized 3D and not photorealistic.
+
+STYLE:
+Keep the exact scene-01 stylized 3D visual language. Real-life context first, believable proportions, polished materials, never photorealistic.
+
+BACKGROUND:
+The deep black background is mandatory and must match scene-01 exactly.
+
+COMPOSITION:
+Do not redesign, crop into a different concept or replace scene-01 with symbolic finance icons. The cover is the same asset as the first scene.
+
+BRANDS + LOGOS:
+If relevant, recognizable but stylized only; never use pasted real logos or screenshot-like branded UI.
+
+FORBIDDEN:
+No separate cover generation, no Bild 00, no photorealism, no dashboard, no app UI, no flowchart, no abstract symbol-only replacement and no decorative clutter.

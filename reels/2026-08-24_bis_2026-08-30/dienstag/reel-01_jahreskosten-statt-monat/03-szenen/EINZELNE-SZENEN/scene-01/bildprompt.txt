@@ -1,0 +1,38 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+BILD 01 – SZENE 01
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - 9,99 Euro Hook.png
+FORMAT: square 1:1 source image
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Ein kleiner Monatsbetrag wirkt harmlos.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI editorial scene. A single chunky cream 3D price tag with thick rounded edges and gold trim is the hero object, hanging from a dark-emerald stylized wallet/card holder. The tag reads `9,99 €` and `MONATLICH`. Behind it sit three slightly oversized everyday 3D subscription props in soft focus: over-ear headphones, a dark-screen smartphone and a membership key tag. A few chunky gold coins sit near the small price tag. Make the 9,99 € tag visually small compared with the larger surrounding subscription objects, so the message `wirkt klein` is immediate.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI render, strong visible depth, chunky simplified volumes, slightly exaggerated proportions, smooth rounded bevels, premium dark charcoal/emerald polymer and brushed-metal materials, warm-cream card surfaces, chunky gold value coins, cinematic soft key light, emerald rim light, soft contact shadows, mild depth-of-field, polished editorial 3D render. NOT photorealistic. NOT office/stationery photography. NOT stock photo. NOT clay, Pixar or toy style.
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon line, panels or bands.
+
+SHORT GERMAN OBJECT LABELS ONLY
+`9,99 €`
+`MONATLICH`
+No headline. No subtitle. No explanatory sentence. No CTA.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
+
+NEGATIVE
+No calendar photo, no flat document, no dashboard, no UI, no floating cards, no central screen, no gameboard, no realistic stationery photography.
+
+QA
+Reject and regenerate if the image is not immediately understandable or does not unmistakably look like premium stylized 3D CGI.

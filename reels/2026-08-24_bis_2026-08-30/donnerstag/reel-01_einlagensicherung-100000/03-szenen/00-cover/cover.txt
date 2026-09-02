@@ -1,0 +1,9 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 00 - Einlagensicherung Cover.png
+
+Create exactly one square 1:1 source image: a premium stylized 3D CGI financial editorial explainer. A large chunky emerald bank building is the hero object. In front of it stands a thick translucent emerald protection shield marked `100.000 €`. Three smaller chunky account objects labeled `GIRO`, `TAGESGELD`, `FESTGELD` sit behind the SAME bank and visibly feed into one shared protection area, making clear that the bank is the relevant boundary. Add sculpted gold euro coins and a small white person token. Strong cinematic depth, rounded bevels, premium materials, emerald rim light. Labels only: `100.000 €`, `PRO PERSON`, `PRO BANK`. No headline, no sentence, no dashboard/UI/gameboard, no photorealism.

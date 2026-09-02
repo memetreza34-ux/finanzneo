@@ -4,7 +4,7 @@ Datengetriebene Vorlage für vertikale FinanzNeo-Reels von 60 bis 90 Sekunden.
 
 ## Ziel
 
-Ein neues Reel soll hauptsächlich über eine Konfiguration entstehen, nicht durch vollständiges Neuprogrammieren jeder Szene.
+Ein neues Reel erbt Layout, Captions, Header, Animation-Dispatch und Pure-Black-Hintergrund zentral aus dem Designsystem. Reel-spezifische Dateien dürfen diese Regeln nicht lokal umgehen.
 
 ## Unterstützte Beat-Typen
 
@@ -14,106 +14,118 @@ Ein neues Reel soll hauptsächlich über eine Konfiguration entstehen, nicht dur
 - `compare`
 - `checklist`
 - `image`
+- `animation`
 - `cta`
 
-## Verbindliche Regeln
+`animation` ist ein **first-class Beat**. Es gibt keinen CTA-/Text-/Caption-Fallback für eine fehlende Animation.
 
-Die Konfiguration wird vor dem Render geprüft:
+## Pure-Black Background
 
-- Gesamtdauer zwischen 60 und 90 Sekunden
-- erster Beat ist `hook`
-- letzter Beat ist `cta`
-- jede Beat-ID ist eindeutig
-- jede Dauer ist eine positive ganze Framezahl
-- Image-Beats besitzen eine Datei
-- Checklisten besitzen mindestens einen Punkt
+Der einzige produktive Reel-Hintergrund ist:
 
-## Beispiel
+```text
+#000000
+statisch
+```
+
+Keine Partikel, Aurora, Grid, Glow-Felder, Vignette, dekorativen Background-Gradienten oder Background-Motion. `PremiumPhysicalStage` bleibt transparent.
+
+## SceneHeader V5
 
 ```tsx
-import type {ReelConfig} from './types';
-
-export const config: ReelConfig = {
-  id: 'inflation-grundlage',
-  title: 'Was macht Inflation mit deinem Geld?',
-  fps: 30,
-  audioSrc: 'audio/inflation.mp3',
-  captions: words,
-  beats: [
-    {
-      id: 'hook',
-      type: 'hook',
-      durationInFrames: 240,
-      headline: 'DEIN GELD WIRD WENIGER WERT',
-      subline: 'Auch wenn die Zahl auf dem Konto gleich bleibt.',
-    },
-    {
-      id: 'image',
-      type: 'image',
-      durationInFrames: 330,
-      headline: 'DIESELBE SUMME KAUFT WENIGER',
-      imageSrc: 'images/inflation-01.webp',
-      alt: 'Geld verliert auf dem Weg zu einem Warenkorb sichtbar an Kaufkraft',
-    },
-    {
-      id: 'cta',
-      type: 'cta',
-      durationInFrames: 270,
-      headline: 'PRÜFE DEINE KAUFKRAFT',
-      body: 'Nutze den kostenlosen Inflationsrechner.',
-      keyword: 'INFLATION',
-      offer: 'Kostenlose Checkliste und Rechner-Anleitung',
-    },
-  ],
-};
+<SceneHeader title="Kontoauszug prüfen" icon="search" />
 ```
 
-Das Beispiel oben ist absichtlich unvollständig und muss vor Nutzung auf mindestens 60 Sekunden erweitert werden. Die automatische Validierung verhindert einen zu kurzen Render.
+Verbindlich:
 
-## Safe Areas
+- Y154
+- 56 px Standard, Minimum 50 px
+- maximal 2 Zeilen
+- 34-px-Linien-Icon
+- Text #FFFFFF
+- semantische Farbe primär über das Icon
+- Sentence Case
+- keine Capsule / Chip / Pill / Panel
+- kein automatisches ALL CAPS
 
-Die Vorlage trennt:
+## Finales V5-Layout
 
-- oberen Bereich für Remotion-Überschriften
-- mittleren Bereich für Bild, Zahl oder Erklärung
-- unteren Bereich für Untertitel
+Einzige technische Quelle: `REEL_STYLE` in `src/brand/tokens.ts`.
 
-Für die Studio-Prüfung:
-
-```ts
-showSafeAreaGuide: true
+```text
+Header      Y = 154
+Visual      Y = 320–1400
+Caption     bottom = 340
+Transition  3 Frames
 ```
 
-Vor dem Produktionsrender:
+`AnimationStage` behält für Phase-1-Code das volle 1080×1920-Koordinatensystem, clippt die **sichtbare Ausgabe hart auf Y320–1400**. Animationen können damit nicht sichtbar in Header oder Caption-Zone laufen.
 
-```ts
-showSafeAreaGuide: false
+## Untertitel
+
+`Captions` erzwingt:
+
+- aktives Wort Grün
+- Rest Weiß
+- 50 px Basis, Minimum 40 px
+- max. zwei Zeilen
+- kein Word-Jump / Scale-Pop / Stroke
+- `bottom = 340`, `left = 72`, `right = 140`
+- pro Szene geclippt
+
+`SourceNote` liegt oberhalb der Caption und darf zweizeilige Captions nicht überdecken.
+
+## Animationen
+
+Phase 1 liefert pro Animationsszene bereits:
+
+```text
+03-szenen/EINZELNE-SZENEN/scene-XX/animation.tsx
 ```
+
+Pflicht:
+
+```text
+START → SICHTBARER MECHANISMUS → ERGEBNIS
+```
+
+- Ergebnis mindestens 15 Frames stabil
+- V9-kompatible stylized-3D-Sprache
+- mindestens ein echtes sichtbares Hauptmotiv
+- keine feste Support-Objekt-Anzahl
+- keine Dummy-/Placeholder-/Debugbewegung
+- kein `Math.sin`/`Math.cos`-QA-Hack
+- keine Background-Partikel/Aurora/Grid/Glow-Bewegung
+
+Bei `reel:ready` wird jede Phase-1-Animationsquelle per SHA-256 versiegelt. Phase 3 muss exakt dieselbe Datei und denselben Export binden.
+
+## Animation-Dispatch
+
+```text
+scene.type = animation
+→ scene.animationId
+→ customAnimations[animationId]
+→ versiegelte Phase-1-Komponente
+```
+
+Fehlt das Binding, wirft `ReelTemplate` `MISSING ANIMATION BINDING` und der Render stoppt.
 
 ## Bilder
 
-Image-Beats erwarten Bilder, die bereits nach diesen Dokumenten freigegeben wurden:
+Image-Beats verwenden die exakten freigegebenen 1:1-Nutzerbilder. Darstellung mit `contain`; kein generiertes/Stock-/Placeholder-Ersatzbild.
 
-- `docs/IMAGE-SYSTEM.md`
-- `docs/IMAGE-QA-CHECKLIST.md`
+## Phase 3
 
-Die Vorlage repariert kein falsch komponiertes KI-Bild.
+Eine erzeugte MP4 ist kein Fertigkeitsnachweis.
 
-## Zahlen
+```text
+reel:ready
+→ Manifest
+→ phase3:preflight
+→ Candidate-Render
+→ Post-Render-QA
+→ Final-MP4
+→ reel:export
+```
 
-Zahlenbeats dürfen keine erfundenen Ergebnisse enthalten. Werte kommen aus:
-
-- `src/finance/calculations.ts`
-- validierten Datendateien
-- klar markierten Beispielannahmen
-
-## Demo
-
-`ReelTemplateDemo.tsx` enthält eine 65-Sekunden-Demo zum Thema Notgroschen.
-
-Die Demo:
-
-- liegt unter Experiments
-- zeigt das Safe-Area-Raster
-- besitzt noch kein Voiceover und keine echten Untertitel
-- ist nicht zur Veröffentlichung freigegeben
+Render-QA muss schwarze/leere Visualkerne, Caption-/Header-only-Szenen, fehlende Bilder, fehlende Animationen und nicht-schwarze/dekorative Backgrounds blockieren.

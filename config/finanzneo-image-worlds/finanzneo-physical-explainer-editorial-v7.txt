@@ -1,0 +1,76 @@
+PHYSICAL_EXPLAINER_LOCK: finanzneo-physical-explainer-editorial-v7
+
+FINANZNEO PHYSICAL 3D EXPLAINER EDITORIAL — V4-COMPATIBLE GLOBAL OVERLAY
+
+PURPOSE
+Keep the existing FinanzNeo world/series identity, but make every new Flow image read as a premium stylized 3D explanatory illustration built from concrete, recognizable physical objects.
+
+BASE LOCKS THAT REMAIN ACTIVE
+- FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+- FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+- STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+- GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+CORE COMPOSITION — REQUIRED
+1. Use ONE large PHYSICAL hero object in the center or dominant middle area.
+   Good examples: amount board, price block, budget block, contract folder, shopping basket, safe, calendar block, product box, piggy bank, physical comparison sign or physical scale.
+   It must not read as a tablet, app card, digital screen, microchip, phone UI or game tile.
+
+2. Place 3–6 RECOGNIZABLE, TOPIC-SPECIFIC physical objects around the hero.
+   Prefer groceries, euro coins, banknotes, envelopes, receipts, contracts, calendars, magnifying glasses, shopping bags, product boxes and other concrete everyday objects over generic icons.
+
+3. Arrange supporting objects naturally and asymmetrically.
+   Slight overlap, contact shadows and foreground/midground/background depth are desirable.
+   Do not distribute four mini-elements evenly into four corners and do not place modules in an orbit.
+
+4. Labels must read as PHYSICAL object labels.
+   Use attached tags, plaques, stickers or small physical signs.
+   Never render labels as floating UI badges, glowing chips or digital buttons.
+
+VISUAL STYLE
+- premium stylized adult 3D editorial illustration
+- clearly designed CGI, not photorealistic and not childish
+- deep charcoal green-black seamless background
+- emerald/mint for structure, focus and positive guidance
+- gold only for money/value
+- warm red-orange only for warning, debt, loss or pressure
+- chunky substantial geometry, rounded forms and soft bevels
+- brushed metal, premium polymer, warm cream modeled cards and restrained glass
+- cinematic soft key light, emerald rim light and clear contact shadows
+- strong readable silhouette and substantial objects
+- camera front or gentle elevated 3/4 view; never tiny isometric game-diorama
+
+STRICTLY FORBIDDEN
+- microchip or circuit-board visual language
+- central digital screen/device surrounded by mini modules
+- floating cards, tiles, chips, buttons, app widgets or HUD elements
+- symmetrical four-corner mini-tile layouts
+- circular satellite-module orbit around a center object
+- game-board / board-game layout
+- UI control-panel aesthetics
+- generic icon buttons instead of concrete objects
+- glowing connector loops or neon line networks
+- abstract finance streams as the main composition
+- tubes, rails, tracks or roads as the dominant metaphor
+- repeated contract-paper walls
+- wealth towers, monoliths or meaningless geometric blocks
+- sterile luxury product-ad shots
+- realistic office, room or desk environments
+- tiny subject in huge empty space
+- Pixar, clay or toy-like styling
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square image. No horizontal bands, no top/bottom zones, no floor-wall boundary, no horizon line and no layered backdrop.
+
+ASPECT RATIO — CANONICAL V4 DECISION
+- Cover Bild 00: strict square 1:1
+- Normal Google-Flow scene images: strict square 1:1
+- Prefer 1080×1080
+- The vertical 9:16 composition is created only in Remotion
+
+TEXT
+- no large headline, subtitle, CTA or explanatory sentence inside generated images
+- only explicitly requested short German physical object labels, normally 1–3 words
+
+GOOGLE FLOW EXECUTION
+Generate required images sequentially internally in one continuous run. Never ask `Weiter?`, `Continue?`, approval or feedback between images. Inspect each result; automatically regenerate if the physical-explainer composition, labels, seamless background or 1:1 ratio fails; continue immediately to the next required image. Only after all images pass provide one final summary.

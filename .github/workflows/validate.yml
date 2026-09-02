@@ -4,11 +4,16 @@ on:
   push:
     branches:
       - main
-      - 'agent/**'
-      - 'codex/**'
   pull_request:
     branches:
       - main
+      - 'fix/**'
+      - 'repo/**'
+  workflow_dispatch:
+
+concurrency:
+  group: finanzneo-validate-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -27,6 +32,9 @@ jobs:
         with:
           node-version: 20
           cache: npm
+
+      - name: Bestehende Reel-Produktionen gegen Regression schützen
+        run: node scripts/check-reel-regression-baseline.mjs
 
       - name: Setup und Lockfile vorab prüfen
         run: node scripts/check-setup.mjs

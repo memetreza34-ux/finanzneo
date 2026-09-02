@@ -1,0 +1,15 @@
+{
+  "version": "finanzneo-timeline-v2",
+  "status": "PHASE_2_REQUIRED",
+  "timingSource": "04-caption/word-timings.json",
+  "fps": 30,
+  "sceneCount": 16,
+  "cutsFollowSentenceStartsAndMeaningfulPhraseStarts": true,
+  "equalLengthScenesForbiddenByDefault": true,
+  "imageSceneAbsoluteMaxSeconds": 6.0,
+  "imageSceneCount": 10,
+  "animationSceneCount": 6,
+  "targetImageShare": 0.6,
+  "targetAnimationShare": 0.4,
+  "scenes": []
+}

@@ -9,6 +9,26 @@ export { FONT } from './fonts';
 export { Background, Vignette, Progress } from './components/Background';
 export { Icon } from './components/Icon';
 export type { IconName } from './components/Icon';
+export { SceneHeader } from './components/SceneHeader';
+export type { SceneHeaderTone } from './components/SceneHeader';
+export { MechanismCue } from './components/MechanismCue';
+export { SceneTransition, AnimationStage, VISUAL_TOP, VISUAL_BOTTOM, VISUAL_CENTER_Y } from './components/ReelStage';
+export type { MechanismCueTone } from './components/MechanismCue';
+export {
+  PremiumPhysicalStage,
+  PhysicalObject,
+  PhysicalTag,
+  PhysicalRail,
+  PhysicalBill,
+  PhysicalAccount,
+  PhysicalWasher,
+  PhysicalReserveTank,
+  PhysicalCalendarPage,
+  PhysicalCoinStack,
+  PremiumDepthGuide,
+  PREMIUM_VISUAL_LOCK,
+} from './components/PremiumPhysical';
+export type { PremiumMaterial } from './components/PremiumPhysical';
 export { Title, Body, Kicker, WordReveal } from './components/Text';
 export { Card } from './components/Card';
 export { Counter } from './components/Counter';

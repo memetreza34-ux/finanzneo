@@ -1,0 +1,39 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+BILD 07 – SZENE 07
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Altes Abo Finden.png
+FORMAT: square 1:1 source image
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Kleine alte Abos und Verträge werden leicht übersehen.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI everyday metaphor. A chunky dark-emerald 3D wallet/organizer is half open. Most visible contents are neutral thick cream cards, but one small warm red-orange rounded subscription tag marked `ALTES ABO` and `9,99 €` is partly hidden behind larger cards. An oversized stylized magnifying glass enters from one side and reveals that hidden tag. Add a small old membership key fob and two chunky gold coins near the hidden item. Make the hidden-vs-found story instantly readable, lively and dimensional.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI, thick rounded cards and wallet forms, simplified slightly exaggerated proportions, smooth bevels, dark emerald premium polymer, warm cream surfaces, restrained red-orange warning accent, chunky gold coins, cinematic key light, emerald rim light, soft contact shadows, strong depth separation, mild depth-of-field. NOT photorealistic leather/card photography. NOT stock photo. NOT office photography. NOT clay, Pixar or toy style.
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon line, panels or bands.
+
+SHORT GERMAN OBJECT LABELS ONLY
+`ALTES ABO`
+`9,99 €`
+`PRÜFEN`
+No headline. No subtitle. No explanatory sentence. No CTA.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
+
+NEGATIVE
+No filing-cabinet photo, no flat real documents, no dashboard, no checklist UI, no module board, no realistic stationery photography.
+
+QA
+Reject and regenerate if the hidden-vs-found story is not immediate or the image does not clearly look like stylized 3D CGI.

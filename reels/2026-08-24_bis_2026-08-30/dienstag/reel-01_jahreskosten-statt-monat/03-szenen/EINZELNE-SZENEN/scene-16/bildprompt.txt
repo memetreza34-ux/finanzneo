@@ -1,0 +1,39 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+BILD 16 – SZENE 16
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 16 - Dauerposten Heute.png
+FORMAT: square 1:1 source image
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Wiederkehrende Kosten hochrechnen und heute einen konkreten Dauerposten prüfen.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI closing image. A chunky dark-emerald wallet/card organizer is open in the center. One warm red-orange rounded recurring-cost tag is being visibly pulled forward from a stack of neutral thick cream tags. The selected tag reads `DAUERPOSTEN` and `PRÜFEN`. Beside it sits a chunky gold-edged annual-cost tag `PRO JAHR` and a large emerald check-stamp angled toward the selected cost. Add a few stylized chunky gold coins visually moving from the selected monthly tag toward the annual-cost tag. The frame must feel active, decisive and immediately actionable.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI render, substantial rounded volumes, simplified slightly exaggerated proportions, smooth bevels, premium emerald polymer/brushed metal, warm cream cards, one restrained red-orange warning tag, chunky gold coins, cinematic soft key light, emerald rim light, strong soft contact shadows, clear depth separation, mild depth-of-field, polished editorial finish. NOT photorealistic. NOT real wallet/card photography. NOT office photo. NOT UI. NOT Pixar, clay or toy style.
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon line, panels or bands.
+
+SHORT GERMAN OBJECT LABELS ONLY
+`DAUERPOSTEN`
+`PRÜFEN`
+`PRO JAHR`
+No headline. No subtitle. No explanatory sentence. No CTA sentence.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
+
+NEGATIVE
+No dashboard, no app screen, no flat cards/photo, no product pedestal, no realistic stationery photography.
+
+QA
+Reject and regenerate if the action is not understood in under two seconds or the image does not unmistakably look like premium stylized 3D CGI.

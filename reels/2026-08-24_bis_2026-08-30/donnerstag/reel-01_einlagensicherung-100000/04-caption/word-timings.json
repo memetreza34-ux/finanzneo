@@ -1,0 +1,2364 @@
+{
+  "version": "finanzneo-caption-v1",
+  "language": "de",
+  "source": "reels/2026-08-24_bis_2026-08-30/donnerstag/reel-01_einlagensicherung-100000/02-audio/voiceover.wav",
+  "generatedAt": "2026-08-23T15:55:00.626153Z",
+  "duration": 94.98,
+  "wordCount": 223,
+  "fps": 30,
+  "subtitleMode": "sentence-with-audio-synced-active-word",
+  "activeWordColor": "finance-green",
+  "words": [
+    {
+      "word": "100",
+      "start": 0.0,
+      "end": 0.64
+    },
+    {
+      "word": ".000",
+      "start": 0.64,
+      "end": 1.24
+    },
+    {
+      "word": "Euro",
+      "start": 1.24,
+      "end": 1.5
+    },
+    {
+      "word": "Einlagensicherung",
+      "start": 1.5,
+      "end": 2.48
+    },
+    {
+      "word": "klingt",
+      "start": 2.48,
+      "end": 2.98
+    },
+    {
+      "word": "als",
+      "start": 2.98,
+      "end": 3.26
+    },
+    {
+      "word": "wäre",
+      "start": 3.26,
+      "end": 3.54
+    },
+    {
+      "word": "jedes",
+      "start": 3.54,
+      "end": 3.96
+    },
+    {
+      "word": "Konto",
+      "start": 3.96,
+      "end": 4.4
+    },
+    {
+      "word": "einzeln",
+      "start": 4.4,
+      "end": 4.96
+    },
+    {
+      "word": "geschützt.",
+      "start": 4.96,
+      "end": 5.4
+    },
+    {
+      "word": "Das",
+      "start": 5.88,
+      "end": 6.02
+    },
+    {
+      "word": "ist",
+      "start": 6.02,
+      "end": 6.18
+    },
+    {
+      "word": "falsch.",
+      "start": 6.18,
+      "end": 6.44
+    },
+    {
+      "word": "Die",
+      "start": 7.1,
+      "end": 7.2
+    },
+    {
+      "word": "gesetzliche",
+      "start": 7.2,
+      "end": 7.7
+    },
+    {
+      "word": "Grenze",
+      "start": 7.7,
+      "end": 8.1
+    },
+    {
+      "word": "gilt",
+      "start": 8.1,
+      "end": 8.34
+    },
+    {
+      "word": "grundsätzlich",
+      "start": 8.34,
+      "end": 9.02
+    },
+    {
+      "word": "pro",
+      "start": 9.02,
+      "end": 9.38
+    },
+    {
+      "word": "Person",
+      "start": 9.38,
+      "end": 9.82
+    },
+    {
+      "word": "und",
+      "start": 9.82,
+      "end": 10.1
+    },
+    {
+      "word": "Bank,",
+      "start": 10.1,
+      "end": 10.4
+    },
+    {
+      "word": "nicht",
+      "start": 10.62,
+      "end": 10.9
+    },
+    {
+      "word": "pro",
+      "start": 10.9,
+      "end": 11.18
+    },
+    {
+      "word": "Konto.",
+      "start": 11.18,
+      "end": 11.5
+    },
+    {
+      "word": "Geschützt",
+      "start": 12.3,
+      "end": 12.7
+    },
+    {
+      "word": "sind",
+      "start": 12.7,
+      "end": 12.9
+    },
+    {
+      "word": "typischerweise",
+      "start": 12.9,
+      "end": 13.56
+    },
+    {
+      "word": "Einlagen",
+      "start": 13.56,
+      "end": 14.08
+    },
+    {
+      "word": "wie",
+      "start": 14.08,
+      "end": 14.34
+    },
+    {
+      "word": "Girokonto,",
+      "start": 14.34,
+      "end": 15.12
+    },
+    {
+      "word": "Tagesgeld,",
+      "start": 15.38,
+      "end": 15.98
+    },
+    {
+      "word": "Festgeld,",
+      "start": 16.3,
+      "end": 16.74
+    },
+    {
+      "word": "Sparguthaben",
+      "start": 17.06,
+      "end": 17.8
+    },
+    {
+      "word": "und",
+      "start": 17.8,
+      "end": 18.02
+    },
+    {
+      "word": "Sparbriefe.",
+      "start": 18.02,
+      "end": 18.68
+    },
+    {
+      "word": "Hast",
+      "start": 19.48,
+      "end": 19.64
+    },
+    {
+      "word": "du",
+      "start": 19.64,
+      "end": 19.78
+    },
+    {
+      "word": "bei",
+      "start": 19.78,
+      "end": 19.92
+    },
+    {
+      "word": "derselben",
+      "start": 19.92,
+      "end": 20.34
+    },
+    {
+      "word": "Bank",
+      "start": 20.34,
+      "end": 20.6
+    },
+    {
+      "word": "mehrere",
+      "start": 20.6,
+      "end": 21.0
+    },
+    {
+      "word": "Konten,",
+      "start": 21.0,
+      "end": 21.58
+    },
+    {
+      "word": "werden",
+      "start": 21.88,
+      "end": 22.1
+    },
+    {
+      "word": "sie",
+      "start": 22.1,
+      "end": 22.26
+    },
+    {
+      "word": "zusammengerechnet.",
+      "start": 22.26,
+      "end": 23.1
+    },
+    {
+      "word": "Beispiel",
+      "start": 23.64,
+      "end": 24.0
+    },
+    {
+      "word": "60",
+      "start": 24.0,
+      "end": 24.98
+    },
+    {
+      "word": ".000",
+      "start": 24.98,
+      "end": 25.48
+    },
+    {
+      "word": "Euro",
+      "start": 25.48,
+      "end": 25.7
+    },
+    {
+      "word": "Tagesgeld",
+      "start": 25.7,
+      "end": 26.36
+    },
+    {
+      "word": "plus",
+      "start": 26.36,
+      "end": 26.74
+    },
+    {
+      "word": "50",
+      "start": 26.74,
+      "end": 27.18
+    },
+    {
+      "word": ".000",
+      "start": 27.18,
+      "end": 27.58
+    },
+    {
+      "word": "Euro",
+      "start": 27.58,
+      "end": 27.9
+    },
+    {
+      "word": "Girokonto",
+      "start": 27.9,
+      "end": 28.58
+    },
+    {
+      "word": "sind",
+      "start": 28.58,
+      "end": 29.12
+    },
+    {
+      "word": "110",
+      "start": 29.12,
+      "end": 29.64
+    },
+    {
+      "word": ".000",
+      "start": 29.64,
+      "end": 30.28
+    },
+    {
+      "word": "Euro",
+      "start": 30.28,
+      "end": 30.64
+    },
+    {
+      "word": "bei",
+      "start": 30.64,
+      "end": 30.84
+    },
+    {
+      "word": "derselben",
+      "start": 30.84,
+      "end": 31.24
+    },
+    {
+      "word": "Bank.",
+      "start": 31.24,
+      "end": 31.46
+    },
+    {
+      "word": "Gesetzlich",
+      "start": 32.06,
+      "end": 32.68
+    },
+    {
+      "word": "geschützt",
+      "start": 32.68,
+      "end": 33.1
+    },
+    {
+      "word": "sind",
+      "start": 33.1,
+      "end": 33.28
+    },
+    {
+      "word": "regelmäßig",
+      "start": 33.28,
+      "end": 33.9
+    },
+    {
+      "word": "bis",
+      "start": 33.9,
+      "end": 34.1
+    },
+    {
+      "word": "zu",
+      "start": 34.1,
+      "end": 34.36
+    },
+    {
+      "word": "100",
+      "start": 34.36,
+      "end": 34.7
+    },
+    {
+      "word": ".000",
+      "start": 34.7,
+      "end": 35.2
+    },
+    {
+      "word": "Euro.",
+      "start": 35.2,
+      "end": 35.52
+    },
+    {
+      "word": "Die",
+      "start": 36.08,
+      "end": 36.22
+    },
+    {
+      "word": "übrigen",
+      "start": 36.22,
+      "end": 36.64
+    },
+    {
+      "word": "10",
+      "start": 36.64,
+      "end": 36.86
+    },
+    {
+      "word": ".000",
+      "start": 36.86,
+      "end": 37.16
+    },
+    {
+      "word": "Euro",
+      "start": 37.16,
+      "end": 37.5
+    },
+    {
+      "word": "liegen",
+      "start": 37.5,
+      "end": 37.72
+    },
+    {
+      "word": "über",
+      "start": 37.72,
+      "end": 38.08
+    },
+    {
+      "word": "der",
+      "start": 38.08,
+      "end": 38.26
+    },
+    {
+      "word": "gesetzlichen",
+      "start": 38.26,
+      "end": 38.76
+    },
+    {
+      "word": "Deckung.",
+      "start": 38.76,
+      "end": 39.12
+    },
+    {
+      "word": "Bei",
+      "start": 39.98,
+      "end": 40.4
+    },
+    {
+      "word": "zwei",
+      "start": 40.4,
+      "end": 40.64
+    },
+    {
+      "word": "unterschiedlichen",
+      "start": 40.64,
+      "end": 41.4
+    },
+    {
+      "word": "Banken",
+      "start": 41.4,
+      "end": 41.8
+    },
+    {
+      "word": "gilt",
+      "start": 41.8,
+      "end": 41.98
+    },
+    {
+      "word": "der",
+      "start": 41.98,
+      "end": 42.14
+    },
+    {
+      "word": "Schutz",
+      "start": 42.14,
+      "end": 42.34
+    },
+    {
+      "word": "grundsätzlich",
+      "start": 42.34,
+      "end": 42.98
+    },
+    {
+      "word": "für",
+      "start": 42.98,
+      "end": 43.24
+    },
+    {
+      "word": "jede",
+      "start": 43.24,
+      "end": 43.5
+    },
+    {
+      "word": "Bank",
+      "start": 43.5,
+      "end": 43.82
+    },
+    {
+      "word": "separat.",
+      "start": 43.82,
+      "end": 44.4
+    },
+    {
+      "word": "Zum",
+      "start": 44.98,
+      "end": 45.12
+    },
+    {
+      "word": "Beispiel",
+      "start": 45.12,
+      "end": 45.42
+    },
+    {
+      "word": "können",
+      "start": 45.42,
+      "end": 45.72
+    },
+    {
+      "word": "80",
+      "start": 45.72,
+      "end": 46.1
+    },
+    {
+      "word": ".000",
+      "start": 46.1,
+      "end": 46.52
+    },
+    {
+      "word": "Euro",
+      "start": 46.52,
+      "end": 46.82
+    },
+    {
+      "word": "bei",
+      "start": 46.82,
+      "end": 47.02
+    },
+    {
+      "word": "Bank",
+      "start": 47.02,
+      "end": 47.22
+    },
+    {
+      "word": "A",
+      "start": 47.22,
+      "end": 47.5
+    },
+    {
+      "word": "und",
+      "start": 47.5,
+      "end": 47.88
+    },
+    {
+      "word": "80",
+      "start": 47.88,
+      "end": 48.24
+    },
+    {
+      "word": ".000",
+      "start": 48.24,
+      "end": 48.58
+    },
+    {
+      "word": "Euro",
+      "start": 48.58,
+      "end": 48.9
+    },
+    {
+      "word": "bei",
+      "start": 48.9,
+      "end": 49.1
+    },
+    {
+      "word": "Bank",
+      "start": 49.1,
+      "end": 49.3
+    },
+    {
+      "word": "B",
+      "start": 49.3,
+      "end": 49.52
+    },
+    {
+      "word": "jeweils",
+      "start": 49.52,
+      "end": 50.34
+    },
+    {
+      "word": "innerhalb",
+      "start": 50.34,
+      "end": 50.68
+    },
+    {
+      "word": "der",
+      "start": 50.68,
+      "end": 50.96
+    },
+    {
+      "word": "gesetzlichen",
+      "start": 50.96,
+      "end": 51.48
+    },
+    {
+      "word": "Grenze",
+      "start": 51.48,
+      "end": 51.84
+    },
+    {
+      "word": "liegen.",
+      "start": 51.84,
+      "end": 52.06
+    },
+    {
+      "word": "Bei",
+      "start": 53.1,
+      "end": 53.28
+    },
+    {
+      "word": "Gemeinschaftskonten",
+      "start": 53.28,
+      "end": 54.28
+    },
+    {
+      "word": "wird",
+      "start": 54.28,
+      "end": 54.42
+    },
+    {
+      "word": "das",
+      "start": 54.42,
+      "end": 54.6
+    },
+    {
+      "word": "Guthaben",
+      "start": 54.6,
+      "end": 55.06
+    },
+    {
+      "word": "den",
+      "start": 55.06,
+      "end": 55.24
+    },
+    {
+      "word": "Kontoinhabern",
+      "start": 55.24,
+      "end": 56.12
+    },
+    {
+      "word": "zugerechnet.",
+      "start": 56.12,
+      "end": 56.66
+    },
+    {
+      "word": "Bei",
+      "start": 57.36,
+      "end": 57.52
+    },
+    {
+      "word": "zwei",
+      "start": 57.52,
+      "end": 57.76
+    },
+    {
+      "word": "Personen",
+      "start": 57.76,
+      "end": 58.22
+    },
+    {
+      "word": "können",
+      "start": 58.22,
+      "end": 58.5
+    },
+    {
+      "word": "dadurch",
+      "start": 58.5,
+      "end": 58.92
+    },
+    {
+      "word": "bis",
+      "start": 58.92,
+      "end": 59.06
+    },
+    {
+      "word": "zu",
+      "start": 59.06,
+      "end": 59.3
+    },
+    {
+      "word": "200",
+      "start": 59.3,
+      "end": 59.68
+    },
+    {
+      "word": ".000",
+      "start": 59.68,
+      "end": 60.22
+    },
+    {
+      "word": "Euro",
+      "start": 60.22,
+      "end": 60.46
+    },
+    {
+      "word": "geschützt",
+      "start": 60.46,
+      "end": 60.9
+    },
+    {
+      "word": "sein,",
+      "start": 60.9,
+      "end": 61.12
+    },
+    {
+      "word": "wenn",
+      "start": 61.48,
+      "end": 61.6
+    },
+    {
+      "word": "keine",
+      "start": 61.6,
+      "end": 61.94
+    },
+    {
+      "word": "andere",
+      "start": 61.94,
+      "end": 62.2
+    },
+    {
+      "word": "Aufteilung",
+      "start": 62.2,
+      "end": 62.76
+    },
+    {
+      "word": "vereinbart",
+      "start": 62.76,
+      "end": 63.14
+    },
+    {
+      "word": "ist.",
+      "start": 63.14,
+      "end": 63.4
+    },
+    {
+      "word": "In",
+      "start": 64.44,
+      "end": 64.62
+    },
+    {
+      "word": "bestimmten",
+      "start": 64.62,
+      "end": 65.1
+    },
+    {
+      "word": "besonderen",
+      "start": 65.1,
+      "end": 65.62
+    },
+    {
+      "word": "Lebenssituationen",
+      "start": 65.62,
+      "end": 66.6
+    },
+    {
+      "word": "können",
+      "start": 66.6,
+      "end": 66.86
+    },
+    {
+      "word": "vorübergehend",
+      "start": 66.86,
+      "end": 67.56
+    },
+    {
+      "word": "sogar",
+      "start": 67.56,
+      "end": 67.8
+    },
+    {
+      "word": "bis",
+      "start": 67.8,
+      "end": 67.98
+    },
+    {
+      "word": "zu",
+      "start": 67.98,
+      "end": 68.22
+    },
+    {
+      "word": "500",
+      "start": 68.22,
+      "end": 68.56
+    },
+    {
+      "word": ".000",
+      "start": 68.56,
+      "end": 69.1
+    },
+    {
+      "word": "Euro",
+      "start": 69.1,
+      "end": 69.34
+    },
+    {
+      "word": "geschützt",
+      "start": 69.34,
+      "end": 69.78
+    },
+    {
+      "word": "sein,",
+      "start": 69.78,
+      "end": 70.0
+    },
+    {
+      "word": "zum",
+      "start": 70.44,
+      "end": 70.52
+    },
+    {
+      "word": "Beispiel",
+      "start": 70.52,
+      "end": 70.82
+    },
+    {
+      "word": "nach",
+      "start": 70.82,
+      "end": 71.02
+    },
+    {
+      "word": "dem",
+      "start": 71.02,
+      "end": 71.18
+    },
+    {
+      "word": "Verkauf",
+      "start": 71.18,
+      "end": 71.58
+    },
+    {
+      "word": "einer",
+      "start": 71.58,
+      "end": 71.86
+    },
+    {
+      "word": "selbstgenutzten",
+      "start": 71.86,
+      "end": 72.66
+    },
+    {
+      "word": "Immobilie.",
+      "start": 72.66,
+      "end": 73.16
+    },
+    {
+      "word": "Dieser",
+      "start": 73.84,
+      "end": 74.16
+    },
+    {
+      "word": "erhöhte",
+      "start": 74.16,
+      "end": 74.6
+    },
+    {
+      "word": "Schutz",
+      "start": 74.6,
+      "end": 74.92
+    },
+    {
+      "word": "kann",
+      "start": 74.92,
+      "end": 75.1
+    },
+    {
+      "word": "für",
+      "start": 75.1,
+      "end": 75.28
+    },
+    {
+      "word": "sechs",
+      "start": 75.28,
+      "end": 75.54
+    },
+    {
+      "word": "Monate",
+      "start": 75.54,
+      "end": 75.9
+    },
+    {
+      "word": "nach",
+      "start": 75.9,
+      "end": 76.2
+    },
+    {
+      "word": "der",
+      "start": 76.2,
+      "end": 76.36
+    },
+    {
+      "word": "Gutschrift",
+      "start": 76.36,
+      "end": 76.76
+    },
+    {
+      "word": "gelten,",
+      "start": 76.76,
+      "end": 77.1
+    },
+    {
+      "word": "wenn",
+      "start": 77.42,
+      "end": 77.54
+    },
+    {
+      "word": "die",
+      "start": 77.54,
+      "end": 77.66
+    },
+    {
+      "word": "Voraussetzungen",
+      "start": 77.66,
+      "end": 78.28
+    },
+    {
+      "word": "erfüllt",
+      "start": 78.28,
+      "end": 78.6
+    },
+    {
+      "word": "sind.",
+      "start": 78.6,
+      "end": 78.82
+    },
+    {
+      "word": "Aktien",
+      "start": 79.52,
+      "end": 80.08
+    },
+    {
+      "word": "und",
+      "start": 80.08,
+      "end": 80.26
+    },
+    {
+      "word": "ETFs",
+      "start": 80.26,
+      "end": 80.86
+    },
+    {
+      "word": "sind",
+      "start": 80.86,
+      "end": 80.96
+    },
+    {
+      "word": "keine",
+      "start": 80.96,
+      "end": 81.32
+    },
+    {
+      "word": "Einlagen",
+      "start": 81.32,
+      "end": 81.78
+    },
+    {
+      "word": "und",
+      "start": 81.78,
+      "end": 82.28
+    },
+    {
+      "word": "fallen",
+      "start": 82.28,
+      "end": 82.5
+    },
+    {
+      "word": "nicht",
+      "start": 82.5,
+      "end": 82.76
+    },
+    {
+      "word": "unter",
+      "start": 82.76,
+      "end": 83.08
+    },
+    {
+      "word": "diese",
+      "start": 83.08,
+      "end": 83.28
+    },
+    {
+      "word": "100",
+      "start": 83.28,
+      "end": 83.54
+    },
+    {
+      "word": ".000",
+      "start": 83.54,
+      "end": 83.9
+    },
+    {
+      "word": "Euro",
+      "start": 83.9,
+      "end": 84.12
+    },
+    {
+      "word": "Einlagensicherung.",
+      "start": 84.12,
+      "end": 84.88
+    },
+    {
+      "word": "Prüfe",
+      "start": 85.58,
+      "end": 86.0
+    },
+    {
+      "word": "deshalb,",
+      "start": 86.0,
+      "end": 86.28
+    },
+    {
+      "word": "bei",
+      "start": 86.5,
+      "end": 86.54
+    },
+    {
+      "word": "welcher",
+      "start": 86.54,
+      "end": 86.92
+    },
+    {
+      "word": "rechtlichen",
+      "start": 86.92,
+      "end": 87.4
+    },
+    {
+      "word": "Bank",
+      "start": 87.4,
+      "end": 87.64
+    },
+    {
+      "word": "dein",
+      "start": 87.64,
+      "end": 87.86
+    },
+    {
+      "word": "Geld",
+      "start": 87.86,
+      "end": 88.12
+    },
+    {
+      "word": "tatsächlich",
+      "start": 88.12,
+      "end": 88.48
+    },
+    {
+      "word": "liegt",
+      "start": 88.48,
+      "end": 88.9
+    },
+    {
+      "word": "und",
+      "start": 88.9,
+      "end": 89.36
+    },
+    {
+      "word": "wie",
+      "start": 89.36,
+      "end": 89.52
+    },
+    {
+      "word": "hoch",
+      "start": 89.52,
+      "end": 89.74
+    },
+    {
+      "word": "dein",
+      "start": 89.74,
+      "end": 89.92
+    },
+    {
+      "word": "Gesamtguthaben",
+      "start": 89.92,
+      "end": 90.7
+    },
+    {
+      "word": "dort",
+      "start": 90.7,
+      "end": 90.84
+    },
+    {
+      "word": "ist.",
+      "start": 90.84,
+      "end": 91.1
+    },
+    {
+      "word": "Denk",
+      "start": 91.8,
+      "end": 92.02
+    },
+    {
+      "word": "immer",
+      "start": 92.02,
+      "end": 92.24
+    },
+    {
+      "word": "pro",
+      "start": 92.24,
+      "end": 92.52
+    },
+    {
+      "word": "Person",
+      "start": 92.52,
+      "end": 92.98
+    },
+    {
+      "word": "und",
+      "start": 92.98,
+      "end": 93.28
+    },
+    {
+      "word": "pro",
+      "start": 93.28,
+      "end": 93.52
+    },
+    {
+      "word": "Bank,",
+      "start": 93.52,
+      "end": 93.76
+    },
+    {
+      "word": "nicht",
+      "start": 94.18,
+      "end": 94.4
+    },
+    {
+      "word": "pro",
+      "start": 94.4,
+      "end": 94.66
+    },
+    {
+      "word": "Konto.",
+      "start": 94.66,
+      "end": 94.98
+    }
+  ],
+  "sentences": [
+    {
+      "text": "100 .000 Euro Einlagensicherung klingt als wäre jedes Konto einzeln geschützt.",
+      "start": 0.0,
+      "end": 5.4,
+      "words": [
+        {
+          "word": "100",
+          "start": 0.0,
+          "end": 0.64
+        },
+        {
+          "word": ".000",
+          "start": 0.64,
+          "end": 1.24
+        },
+        {
+          "word": "Euro",
+          "start": 1.24,
+          "end": 1.5
+        },
+        {
+          "word": "Einlagensicherung",
+          "start": 1.5,
+          "end": 2.48
+        },
+        {
+          "word": "klingt",
+          "start": 2.48,
+          "end": 2.98
+        },
+        {
+          "word": "als",
+          "start": 2.98,
+          "end": 3.26
+        },
+        {
+          "word": "wäre",
+          "start": 3.26,
+          "end": 3.54
+        },
+        {
+          "word": "jedes",
+          "start": 3.54,
+          "end": 3.96
+        },
+        {
+          "word": "Konto",
+          "start": 3.96,
+          "end": 4.4
+        },
+        {
+          "word": "einzeln",
+          "start": 4.4,
+          "end": 4.96
+        },
+        {
+          "word": "geschützt.",
+          "start": 4.96,
+          "end": 5.4
+        }
+      ]
+    },
+    {
+      "text": "Das ist falsch.",
+      "start": 5.88,
+      "end": 6.44,
+      "words": [
+        {
+          "word": "Das",
+          "start": 5.88,
+          "end": 6.02
+        },
+        {
+          "word": "ist",
+          "start": 6.02,
+          "end": 6.18
+        },
+        {
+          "word": "falsch.",
+          "start": 6.18,
+          "end": 6.44
+        }
+      ]
+    },
+    {
+      "text": "Die gesetzliche Grenze gilt grundsätzlich pro Person und Bank, nicht pro Konto.",
+      "start": 7.1,
+      "end": 11.5,
+      "words": [
+        {
+          "word": "Die",
+          "start": 7.1,
+          "end": 7.2
+        },
+        {
+          "word": "gesetzliche",
+          "start": 7.2,
+          "end": 7.7
+        },
+        {
+          "word": "Grenze",
+          "start": 7.7,
+          "end": 8.1
+        },
+        {
+          "word": "gilt",
+          "start": 8.1,
+          "end": 8.34
+        },
+        {
+          "word": "grundsätzlich",
+          "start": 8.34,
+          "end": 9.02
+        },
+        {
+          "word": "pro",
+          "start": 9.02,
+          "end": 9.38
+        },
+        {
+          "word": "Person",
+          "start": 9.38,
+          "end": 9.82
+        },
+        {
+          "word": "und",
+          "start": 9.82,
+          "end": 10.1
+        },
+        {
+          "word": "Bank,",
+          "start": 10.1,
+          "end": 10.4
+        },
+        {
+          "word": "nicht",
+          "start": 10.62,
+          "end": 10.9
+        },
+        {
+          "word": "pro",
+          "start": 10.9,
+          "end": 11.18
+        },
+        {
+          "word": "Konto.",
+          "start": 11.18,
+          "end": 11.5
+        }
+      ]
+    },
+    {
+      "text": "Geschützt sind typischerweise Einlagen wie Girokonto, Tagesgeld, Festgeld, Sparguthaben und Sparbriefe.",
+      "start": 12.3,
+      "end": 18.68,
+      "words": [
+        {
+          "word": "Geschützt",
+          "start": 12.3,
+          "end": 12.7
+        },
+        {
+          "word": "sind",
+          "start": 12.7,
+          "end": 12.9
+        },
+        {
+          "word": "typischerweise",
+          "start": 12.9,
+          "end": 13.56
+        },
+        {
+          "word": "Einlagen",
+          "start": 13.56,
+          "end": 14.08
+        },
+        {
+          "word": "wie",
+          "start": 14.08,
+          "end": 14.34
+        },
+        {
+          "word": "Girokonto,",
+          "start": 14.34,
+          "end": 15.12
+        },
+        {
+          "word": "Tagesgeld,",
+          "start": 15.38,
+          "end": 15.98
+        },
+        {
+          "word": "Festgeld,",
+          "start": 16.3,
+          "end": 16.74
+        },
+        {
+          "word": "Sparguthaben",
+          "start": 17.06,
+          "end": 17.8
+        },
+        {
+          "word": "und",
+          "start": 17.8,
+          "end": 18.02
+        },
+        {
+          "word": "Sparbriefe.",
+          "start": 18.02,
+          "end": 18.68
+        }
+      ]
+    },
+    {
+      "text": "Hast du bei derselben Bank mehrere Konten, werden sie zusammengerechnet.",
+      "start": 19.48,
+      "end": 23.1,
+      "words": [
+        {
+          "word": "Hast",
+          "start": 19.48,
+          "end": 19.64
+        },
+        {
+          "word": "du",
+          "start": 19.64,
+          "end": 19.78
+        },
+        {
+          "word": "bei",
+          "start": 19.78,
+          "end": 19.92
+        },
+        {
+          "word": "derselben",
+          "start": 19.92,
+          "end": 20.34
+        },
+        {
+          "word": "Bank",
+          "start": 20.34,
+          "end": 20.6
+        },
+        {
+          "word": "mehrere",
+          "start": 20.6,
+          "end": 21.0
+        },
+        {
+          "word": "Konten,",
+          "start": 21.0,
+          "end": 21.58
+        },
+        {
+          "word": "werden",
+          "start": 21.88,
+          "end": 22.1
+        },
+        {
+          "word": "sie",
+          "start": 22.1,
+          "end": 22.26
+        },
+        {
+          "word": "zusammengerechnet.",
+          "start": 22.26,
+          "end": 23.1
+        }
+      ]
+    },
+    {
+      "text": "Beispiel 60 .000 Euro Tagesgeld plus 50 .000 Euro Girokonto sind 110 .000 Euro bei derselben Bank.",
+      "start": 23.64,
+      "end": 31.46,
+      "words": [
+        {
+          "word": "Beispiel",
+          "start": 23.64,
+          "end": 24.0
+        },
+        {
+          "word": "60",
+          "start": 24.0,
+          "end": 24.98
+        },
+        {
+          "word": ".000",
+          "start": 24.98,
+          "end": 25.48
+        },
+        {
+          "word": "Euro",
+          "start": 25.48,
+          "end": 25.7
+        },
+        {
+          "word": "Tagesgeld",
+          "start": 25.7,
+          "end": 26.36
+        },
+        {
+          "word": "plus",
+          "start": 26.36,
+          "end": 26.74
+        },
+        {
+          "word": "50",
+          "start": 26.74,
+          "end": 27.18
+        },
+        {
+          "word": ".000",
+          "start": 27.18,
+          "end": 27.58
+        },
+        {
+          "word": "Euro",
+          "start": 27.58,
+          "end": 27.9
+        },
+        {
+          "word": "Girokonto",
+          "start": 27.9,
+          "end": 28.58
+        },
+        {
+          "word": "sind",
+          "start": 28.58,
+          "end": 29.12
+        },
+        {
+          "word": "110",
+          "start": 29.12,
+          "end": 29.64
+        },
+        {
+          "word": ".000",
+          "start": 29.64,
+          "end": 30.28
+        },
+        {
+          "word": "Euro",
+          "start": 30.28,
+          "end": 30.64
+        },
+        {
+          "word": "bei",
+          "start": 30.64,
+          "end": 30.84
+        },
+        {
+          "word": "derselben",
+          "start": 30.84,
+          "end": 31.24
+        },
+        {
+          "word": "Bank.",
+          "start": 31.24,
+          "end": 31.46
+        }
+      ]
+    },
+    {
+      "text": "Gesetzlich geschützt sind regelmäßig bis zu 100 .000 Euro.",
+      "start": 32.06,
+      "end": 35.52,
+      "words": [
+        {
+          "word": "Gesetzlich",
+          "start": 32.06,
+          "end": 32.68
+        },
+        {
+          "word": "geschützt",
+          "start": 32.68,
+          "end": 33.1
+        },
+        {
+          "word": "sind",
+          "start": 33.1,
+          "end": 33.28
+        },
+        {
+          "word": "regelmäßig",
+          "start": 33.28,
+          "end": 33.9
+        },
+        {
+          "word": "bis",
+          "start": 33.9,
+          "end": 34.1
+        },
+        {
+          "word": "zu",
+          "start": 34.1,
+          "end": 34.36
+        },
+        {
+          "word": "100",
+          "start": 34.36,
+          "end": 34.7
+        },
+        {
+          "word": ".000",
+          "start": 34.7,
+          "end": 35.2
+        },
+        {
+          "word": "Euro.",
+          "start": 35.2,
+          "end": 35.52
+        }
+      ]
+    },
+    {
+      "text": "Die übrigen 10 .000 Euro liegen über der gesetzlichen Deckung.",
+      "start": 36.08,
+      "end": 39.12,
+      "words": [
+        {
+          "word": "Die",
+          "start": 36.08,
+          "end": 36.22
+        },
+        {
+          "word": "übrigen",
+          "start": 36.22,
+          "end": 36.64
+        },
+        {
+          "word": "10",
+          "start": 36.64,
+          "end": 36.86
+        },
+        {
+          "word": ".000",
+          "start": 36.86,
+          "end": 37.16
+        },
+        {
+          "word": "Euro",
+          "start": 37.16,
+          "end": 37.5
+        },
+        {
+          "word": "liegen",
+          "start": 37.5,
+          "end": 37.72
+        },
+        {
+          "word": "über",
+          "start": 37.72,
+          "end": 38.08
+        },
+        {
+          "word": "der",
+          "start": 38.08,
+          "end": 38.26
+        },
+        {
+          "word": "gesetzlichen",
+          "start": 38.26,
+          "end": 38.76
+        },
+        {
+          "word": "Deckung.",
+          "start": 38.76,
+          "end": 39.12
+        }
+      ]
+    },
+    {
+      "text": "Bei zwei unterschiedlichen Banken gilt der Schutz grundsätzlich für jede Bank separat.",
+      "start": 39.98,
+      "end": 44.4,
+      "words": [
+        {
+          "word": "Bei",
+          "start": 39.98,
+          "end": 40.4
+        },
+        {
+          "word": "zwei",
+          "start": 40.4,
+          "end": 40.64
+        },
+        {
+          "word": "unterschiedlichen",
+          "start": 40.64,
+          "end": 41.4
+        },
+        {
+          "word": "Banken",
+          "start": 41.4,
+          "end": 41.8
+        },
+        {
+          "word": "gilt",
+          "start": 41.8,
+          "end": 41.98
+        },
+        {
+          "word": "der",
+          "start": 41.98,
+          "end": 42.14
+        },
+        {
+          "word": "Schutz",
+          "start": 42.14,
+          "end": 42.34
+        },
+        {
+          "word": "grundsätzlich",
+          "start": 42.34,
+          "end": 42.98
+        },
+        {
+          "word": "für",
+          "start": 42.98,
+          "end": 43.24
+        },
+        {
+          "word": "jede",
+          "start": 43.24,
+          "end": 43.5
+        },
+        {
+          "word": "Bank",
+          "start": 43.5,
+          "end": 43.82
+        },
+        {
+          "word": "separat.",
+          "start": 43.82,
+          "end": 44.4
+        }
+      ]
+    },
+    {
+      "text": "Zum Beispiel können 80 .000 Euro bei Bank A und 80 .000 Euro bei Bank B jeweils innerhalb der gesetzlichen Grenze liegen.",
+      "start": 44.98,
+      "end": 52.06,
+      "words": [
+        {
+          "word": "Zum",
+          "start": 44.98,
+          "end": 45.12
+        },
+        {
+          "word": "Beispiel",
+          "start": 45.12,
+          "end": 45.42
+        },
+        {
+          "word": "können",
+          "start": 45.42,
+          "end": 45.72
+        },
+        {
+          "word": "80",
+          "start": 45.72,
+          "end": 46.1
+        },
+        {
+          "word": ".000",
+          "start": 46.1,
+          "end": 46.52
+        },
+        {
+          "word": "Euro",
+          "start": 46.52,
+          "end": 46.82
+        },
+        {
+          "word": "bei",
+          "start": 46.82,
+          "end": 47.02
+        },
+        {
+          "word": "Bank",
+          "start": 47.02,
+          "end": 47.22
+        },
+        {
+          "word": "A",
+          "start": 47.22,
+          "end": 47.5
+        },
+        {
+          "word": "und",
+          "start": 47.5,
+          "end": 47.88
+        },
+        {
+          "word": "80",
+          "start": 47.88,
+          "end": 48.24
+        },
+        {
+          "word": ".000",
+          "start": 48.24,
+          "end": 48.58
+        },
+        {
+          "word": "Euro",
+          "start": 48.58,
+          "end": 48.9
+        },
+        {
+          "word": "bei",
+          "start": 48.9,
+          "end": 49.1
+        },
+        {
+          "word": "Bank",
+          "start": 49.1,
+          "end": 49.3
+        },
+        {
+          "word": "B",
+          "start": 49.3,
+          "end": 49.52
+        },
+        {
+          "word": "jeweils",
+          "start": 49.52,
+          "end": 50.34
+        },
+        {
+          "word": "innerhalb",
+          "start": 50.34,
+          "end": 50.68
+        },
+        {
+          "word": "der",
+          "start": 50.68,
+          "end": 50.96
+        },
+        {
+          "word": "gesetzlichen",
+          "start": 50.96,
+          "end": 51.48
+        },
+        {
+          "word": "Grenze",
+          "start": 51.48,
+          "end": 51.84
+        },
+        {
+          "word": "liegen.",
+          "start": 51.84,
+          "end": 52.06
+        }
+      ]
+    },
+    {
+      "text": "Bei Gemeinschaftskonten wird das Guthaben den Kontoinhabern zugerechnet.",
+      "start": 53.1,
+      "end": 56.66,
+      "words": [
+        {
+          "word": "Bei",
+          "start": 53.1,
+          "end": 53.28
+        },
+        {
+          "word": "Gemeinschaftskonten",
+          "start": 53.28,
+          "end": 54.28
+        },
+        {
+          "word": "wird",
+          "start": 54.28,
+          "end": 54.42
+        },
+        {
+          "word": "das",
+          "start": 54.42,
+          "end": 54.6
+        },
+        {
+          "word": "Guthaben",
+          "start": 54.6,
+          "end": 55.06
+        },
+        {
+          "word": "den",
+          "start": 55.06,
+          "end": 55.24
+        },
+        {
+          "word": "Kontoinhabern",
+          "start": 55.24,
+          "end": 56.12
+        },
+        {
+          "word": "zugerechnet.",
+          "start": 56.12,
+          "end": 56.66
+        }
+      ]
+    },
+    {
+      "text": "Bei zwei Personen können dadurch bis zu 200 .000 Euro geschützt sein, wenn keine andere Aufteilung vereinbart ist.",
+      "start": 57.36,
+      "end": 63.4,
+      "words": [
+        {
+          "word": "Bei",
+          "start": 57.36,
+          "end": 57.52
+        },
+        {
+          "word": "zwei",
+          "start": 57.52,
+          "end": 57.76
+        },
+        {
+          "word": "Personen",
+          "start": 57.76,
+          "end": 58.22
+        },
+        {
+          "word": "können",
+          "start": 58.22,
+          "end": 58.5
+        },
+        {
+          "word": "dadurch",
+          "start": 58.5,
+          "end": 58.92
+        },
+        {
+          "word": "bis",
+          "start": 58.92,
+          "end": 59.06
+        },
+        {
+          "word": "zu",
+          "start": 59.06,
+          "end": 59.3
+        },
+        {
+          "word": "200",
+          "start": 59.3,
+          "end": 59.68
+        },
+        {
+          "word": ".000",
+          "start": 59.68,
+          "end": 60.22
+        },
+        {
+          "word": "Euro",
+          "start": 60.22,
+          "end": 60.46
+        },
+        {
+          "word": "geschützt",
+          "start": 60.46,
+          "end": 60.9
+        },
+        {
+          "word": "sein,",
+          "start": 60.9,
+          "end": 61.12
+        },
+        {
+          "word": "wenn",
+          "start": 61.48,
+          "end": 61.6
+        },
+        {
+          "word": "keine",
+          "start": 61.6,
+          "end": 61.94
+        },
+        {
+          "word": "andere",
+          "start": 61.94,
+          "end": 62.2
+        },
+        {
+          "word": "Aufteilung",
+          "start": 62.2,
+          "end": 62.76
+        },
+        {
+          "word": "vereinbart",
+          "start": 62.76,
+          "end": 63.14
+        },
+        {
+          "word": "ist.",
+          "start": 63.14,
+          "end": 63.4
+        }
+      ]
+    },
+    {
+      "text": "In bestimmten besonderen Lebenssituationen können vorübergehend sogar bis zu 500 .000 Euro geschützt sein, zum Beispiel nach dem Verkauf einer selbstgenutzten Immobilie.",
+      "start": 64.44,
+      "end": 73.16,
+      "words": [
+        {
+          "word": "In",
+          "start": 64.44,
+          "end": 64.62
+        },
+        {
+          "word": "bestimmten",
+          "start": 64.62,
+          "end": 65.1
+        },
+        {
+          "word": "besonderen",
+          "start": 65.1,
+          "end": 65.62
+        },
+        {
+          "word": "Lebenssituationen",
+          "start": 65.62,
+          "end": 66.6
+        },
+        {
+          "word": "können",
+          "start": 66.6,
+          "end": 66.86
+        },
+        {
+          "word": "vorübergehend",
+          "start": 66.86,
+          "end": 67.56
+        },
+        {
+          "word": "sogar",
+          "start": 67.56,
+          "end": 67.8
+        },
+        {
+          "word": "bis",
+          "start": 67.8,
+          "end": 67.98
+        },
+        {
+          "word": "zu",
+          "start": 67.98,
+          "end": 68.22
+        },
+        {
+          "word": "500",
+          "start": 68.22,
+          "end": 68.56
+        },
+        {
+          "word": ".000",
+          "start": 68.56,
+          "end": 69.1
+        },
+        {
+          "word": "Euro",
+          "start": 69.1,
+          "end": 69.34
+        },
+        {
+          "word": "geschützt",
+          "start": 69.34,
+          "end": 69.78
+        },
+        {
+          "word": "sein,",
+          "start": 69.78,
+          "end": 70.0
+        },
+        {
+          "word": "zum",
+          "start": 70.44,
+          "end": 70.52
+        },
+        {
+          "word": "Beispiel",
+          "start": 70.52,
+          "end": 70.82
+        },
+        {
+          "word": "nach",
+          "start": 70.82,
+          "end": 71.02
+        },
+        {
+          "word": "dem",
+          "start": 71.02,
+          "end": 71.18
+        },
+        {
+          "word": "Verkauf",
+          "start": 71.18,
+          "end": 71.58
+        },
+        {
+          "word": "einer",
+          "start": 71.58,
+          "end": 71.86
+        },
+        {
+          "word": "selbstgenutzten",
+          "start": 71.86,
+          "end": 72.66
+        },
+        {
+          "word": "Immobilie.",
+          "start": 72.66,
+          "end": 73.16
+        }
+      ]
+    },
+    {
+      "text": "Dieser erhöhte Schutz kann für sechs Monate nach der Gutschrift gelten, wenn die Voraussetzungen erfüllt sind.",
+      "start": 73.84,
+      "end": 78.82,
+      "words": [
+        {
+          "word": "Dieser",
+          "start": 73.84,
+          "end": 74.16
+        },
+        {
+          "word": "erhöhte",
+          "start": 74.16,
+          "end": 74.6
+        },
+        {
+          "word": "Schutz",
+          "start": 74.6,
+          "end": 74.92
+        },
+        {
+          "word": "kann",
+          "start": 74.92,
+          "end": 75.1
+        },
+        {
+          "word": "für",
+          "start": 75.1,
+          "end": 75.28
+        },
+        {
+          "word": "sechs",
+          "start": 75.28,
+          "end": 75.54
+        },
+        {
+          "word": "Monate",
+          "start": 75.54,
+          "end": 75.9
+        },
+        {
+          "word": "nach",
+          "start": 75.9,
+          "end": 76.2
+        },
+        {
+          "word": "der",
+          "start": 76.2,
+          "end": 76.36
+        },
+        {
+          "word": "Gutschrift",
+          "start": 76.36,
+          "end": 76.76
+        },
+        {
+          "word": "gelten,",
+          "start": 76.76,
+          "end": 77.1
+        },
+        {
+          "word": "wenn",
+          "start": 77.42,
+          "end": 77.54
+        },
+        {
+          "word": "die",
+          "start": 77.54,
+          "end": 77.66
+        },
+        {
+          "word": "Voraussetzungen",
+          "start": 77.66,
+          "end": 78.28
+        },
+        {
+          "word": "erfüllt",
+          "start": 78.28,
+          "end": 78.6
+        },
+        {
+          "word": "sind.",
+          "start": 78.6,
+          "end": 78.82
+        }
+      ]
+    },
+    {
+      "text": "Aktien und ETFs sind keine Einlagen und fallen nicht unter diese 100 .000 Euro Einlagensicherung.",
+      "start": 79.52,
+      "end": 84.88,
+      "words": [
+        {
+          "word": "Aktien",
+          "start": 79.52,
+          "end": 80.08
+        },
+        {
+          "word": "und",
+          "start": 80.08,
+          "end": 80.26
+        },
+        {
+          "word": "ETFs",
+          "start": 80.26,
+          "end": 80.86
+        },
+        {
+          "word": "sind",
+          "start": 80.86,
+          "end": 80.96
+        },
+        {
+          "word": "keine",
+          "start": 80.96,
+          "end": 81.32
+        },
+        {
+          "word": "Einlagen",
+          "start": 81.32,
+          "end": 81.78
+        },
+        {
+          "word": "und",
+          "start": 81.78,
+          "end": 82.28
+        },
+        {
+          "word": "fallen",
+          "start": 82.28,
+          "end": 82.5
+        },
+        {
+          "word": "nicht",
+          "start": 82.5,
+          "end": 82.76
+        },
+        {
+          "word": "unter",
+          "start": 82.76,
+          "end": 83.08
+        },
+        {
+          "word": "diese",
+          "start": 83.08,
+          "end": 83.28
+        },
+        {
+          "word": "100",
+          "start": 83.28,
+          "end": 83.54
+        },
+        {
+          "word": ".000",
+          "start": 83.54,
+          "end": 83.9
+        },
+        {
+          "word": "Euro",
+          "start": 83.9,
+          "end": 84.12
+        },
+        {
+          "word": "Einlagensicherung.",
+          "start": 84.12,
+          "end": 84.88
+        }
+      ]
+    },
+    {
+      "text": "Prüfe deshalb, bei welcher rechtlichen Bank dein Geld tatsächlich liegt und wie hoch dein Gesamtguthaben dort ist.",
+      "start": 85.58,
+      "end": 91.1,
+      "words": [
+        {
+          "word": "Prüfe",
+          "start": 85.58,
+          "end": 86.0
+        },
+        {
+          "word": "deshalb,",
+          "start": 86.0,
+          "end": 86.28
+        },
+        {
+          "word": "bei",
+          "start": 86.5,
+          "end": 86.54
+        },
+        {
+          "word": "welcher",
+          "start": 86.54,
+          "end": 86.92
+        },
+        {
+          "word": "rechtlichen",
+          "start": 86.92,
+          "end": 87.4
+        },
+        {
+          "word": "Bank",
+          "start": 87.4,
+          "end": 87.64
+        },
+        {
+          "word": "dein",
+          "start": 87.64,
+          "end": 87.86
+        },
+        {
+          "word": "Geld",
+          "start": 87.86,
+          "end": 88.12
+        },
+        {
+          "word": "tatsächlich",
+          "start": 88.12,
+          "end": 88.48
+        },
+        {
+          "word": "liegt",
+          "start": 88.48,
+          "end": 88.9
+        },
+        {
+          "word": "und",
+          "start": 88.9,
+          "end": 89.36
+        },
+        {
+          "word": "wie",
+          "start": 89.36,
+          "end": 89.52
+        },
+        {
+          "word": "hoch",
+          "start": 89.52,
+          "end": 89.74
+        },
+        {
+          "word": "dein",
+          "start": 89.74,
+          "end": 89.92
+        },
+        {
+          "word": "Gesamtguthaben",
+          "start": 89.92,
+          "end": 90.7
+        },
+        {
+          "word": "dort",
+          "start": 90.7,
+          "end": 90.84
+        },
+        {
+          "word": "ist.",
+          "start": 90.84,
+          "end": 91.1
+        }
+      ]
+    },
+    {
+      "text": "Denk immer pro Person und pro Bank, nicht pro Konto.",
+      "start": 91.8,
+      "end": 94.98,
+      "words": [
+        {
+          "word": "Denk",
+          "start": 91.8,
+          "end": 92.02
+        },
+        {
+          "word": "immer",
+          "start": 92.02,
+          "end": 92.24
+        },
+        {
+          "word": "pro",
+          "start": 92.24,
+          "end": 92.52
+        },
+        {
+          "word": "Person",
+          "start": 92.52,
+          "end": 92.98
+        },
+        {
+          "word": "und",
+          "start": 92.98,
+          "end": 93.28
+        },
+        {
+          "word": "pro",
+          "start": 93.28,
+          "end": 93.52
+        },
+        {
+          "word": "Bank,",
+          "start": 93.52,
+          "end": 93.76
+        },
+        {
+          "word": "nicht",
+          "start": 94.18,
+          "end": 94.4
+        },
+        {
+          "word": "pro",
+          "start": 94.4,
+          "end": 94.66
+        },
+        {
+          "word": "Konto.",
+          "start": 94.66,
+          "end": 94.98
+        }
+      ]
+    }
+  ]
+}

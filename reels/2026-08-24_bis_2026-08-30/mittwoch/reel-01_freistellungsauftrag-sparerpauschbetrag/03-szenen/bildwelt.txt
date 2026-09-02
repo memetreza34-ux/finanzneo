@@ -1,0 +1,21 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+Create a square 1:1 source image only.
+
+Premium stylized 3D CGI financial editorial explainer. Clearly modeled chunky volumetric objects, rounded bevelled edges, premium matte surfaces, restrained glass, brushed-metal details, sculpted gold euro coins, strong depth separation and cinematic studio lighting. Deep charcoal green-black world with vivid emerald rim light. Gold only for money/value. Warm red-orange only for tax/warning/problem. Not photorealistic and never a real-office or stationery photograph.
+
+Every image uses one large readable hero metaphor plus 2–5 supporting everyday 3D objects. The viewer must understand the idea in under two seconds. Use active relationships between objects rather than dead product still-lifes.
+
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No horizontal divisions, floor-wall boundary, horizon, panels or background bands.
+
+No headline. No subtitle. No explanatory sentence. Only explicitly requested short German object labels, modeled or printed directly on physical 3D tags/plaques/documents.
+
+If a stylized adult appears, face must be clearly visible with stylized eyes, nose and mouth in front or natural three-quarter view.
+
+STRICTLY FORBIDDEN: dashboard, app UI, central screen, control panel, floating UI cards, gameboard, microchip world, circular module ring, tiny isometric diorama, sterile product pedestal, flat realistic office paper photo, photorealistic calendar/bank statement, Pixar, clay.
+
+No image-reference workflow. Same-world consistency comes only from repeating this written material/light/color/geometry lock in every prompt.

@@ -1,152 +1,154 @@
 ---
-description: Build a complete new FinanzNeo Reel safely using user-provided images, Remotion animation, captions, platform publishing, validation and preview render.
+description: Execute FinanzNeo Phase 3 safely from prepared Phase-1/Phase-2 assets, with hard animation bindings, pure-black background and render QA.
 ---
 
-# Build a complete FinanzNeo Reel
+# FinanzNeo Reel — Phase 3 workflow
 
-Read in this order before editing:
+`CLAUDE.md` is the highest authority. Antigravity integrates a prepared reel; it does not invent missing Phase-1 creative work.
 
-1. `.agents/rules/finanzneo-reel-safety.md`
-2. `CLAUDE.md`
-3. `reels/PRODUKTIONSSTANDARD.md`
-4. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-5. `docs/IMAGE-SYSTEM.md`
-6. `docs/PLATFORM-PUBLISHING.md`
+## Read first
 
-`CLAUDE.md` wins on conflicts.
+1. `CLAUDE.md`
+2. `.agents/rules/finanzneo-reel-safety.md`
+3. target `03-szenen/scene-index.json`
+4. target `05-projektdateien/PHASENSTATUS.md`
+5. `docs/PHASE-3-COMPLETION-GATE.md`
+6. `reels/PRODUKTIONSSTANDARD.md`
 
-## Pre-flight
+If `scene-index.json.phase3Executor` is not `antigravity`, stop and use the configured executor.
 
-Run:
+## 0. Repository safety
 
-```bash
-git status --short
-git branch --show-current
-git rev-parse HEAD
-git diff --stat
-git diff --name-only
-```
+Record branch/status/HEAD before changes. Never work on `main`. Never merge, force-push, delete previous work or weaken validators.
 
-Record starting HEAD. Never destroy unrelated work.
-
-## Topic and branch
-
-Search existing reels so the topic is genuinely new. Create a dedicated `reel/YYYY-MM-DD-topic-slug` branch and a new reel folder. Never work directly on main.
-
-## Structure
-
-Use the simple reel structure:
-
-```text
-01-script/
-02-audio/
-03-szenen/
-04-caption/
-05-projektdateien/
-README.md
-```
-
-`04-caption/` contains the master caption, Reel-platform publishing files and word timings.
-
-## Visual plan
-
-Default target: 10 scenes with approximately 6 image scenes and 4 native Remotion animations, unless another split is clearly stronger.
-
-## Bildprompts — images come exclusively from the user
-
-Antigravity generates NO images.
-
-1. Create `03-szenen/bildwelt.txt` using the current canonical FinanzNeo image rules.
-2. Create cover prompt and every required scene `bildprompt.txt`.
-3. Create/update `03-szenen/alle-bildprompts.txt` in chronological order.
-4. Put the exact final filename directly at every individual image prompt.
-5. Put exact allowed short German object labels directly in every image prompt.
-6. Never create headline, subtitle, full explanatory sentence or CTA inside generated images.
-7. Use one dominant financial metaphor / large hero object and only a few supporting elements.
-8. A stylized adult 3D person is optional. If present, the face must be clearly visible with stylized eyes, nose and mouth; prefer front-facing or natural three-quarter view. No faceless/back-view-only character.
-9. Use Premium Fintech Editorial 3D: deep charcoal green-black, emerald/mint accents, gold for money/value, warm red-orange for risk/loss, rounded geometry and bold rim light.
-10. Never use percentage-based top/middle/bottom zones.
-11. Every prompt requires ONE seamless continuous background from top edge to bottom edge: no horizontal bands, top/bottom sections, floor-wall boundary, horizon line or panels. Leave natural empty space above/below without changing the background.
-12. No tiny diorama, game-level, neon tunnel, sci-fi corridor or UI dashboard.
-13. Relevant real brands/services may be used as concrete examples when useful; spell them correctly and do not imply an invented partnership.
-14. `Bild 00` is the cover. Every scene image uses its REAL chronological scene number.
-15. A Remotion animation keeps its scene number but gets no image. Never close the numbering gap.
-16. `scene-index.json` is the authority for numbering and scene type.
-17. The user creates ALL final images externally. Antigravity must not call image generators, web image search, stock images or placeholders.
-
-Google Flow user workflow:
-
-```text
-one image generate
-→ immediately rename
-→ check metaphor + labels + face + seamless background + filename
-→ only then next image
-```
-
-After ALL images are complete and correctly named, the user places them together in:
-
-```text
-03-szenen/00-ALLE-BILDER-HIER-REIN/
-```
-
-Do not distribute images to individual scene folders during generation.
-
-If required user images are missing, stop at the asset boundary and report exact missing filenames. Never fabricate replacements or overwrite user images.
-
-## Audio and timing
-
-Use one final voiceover and derive real word timings from that exact audio. Scene cuts follow sentence starts, not equal-duration blocks.
-
-## Remotion
-
-1080×1920 at 30fps. Actual scene headlines/icons are rendered in Remotion, not as large generated image typography. Images use `contain`. No blurred duplicate image background. Exactly one full subtitle sentence, current word green, max two lines, platform-safe. Animation timing is relative to actual scene duration.
-
-## Platform publishing
-
-Prepare these files in `04-caption/` for the same final reel:
-
-```text
-caption.txt
-instagram-reels.txt
-tiktok.txt
-facebook-reels.txt
-snapchat.txt
-word-timings.json
-```
-
-- `caption.txt` is the verified master caption/facts basis.
-- Instagram Reels: caption, CTA, source/note, hashtags, optional pinned comment.
-- TikTok: short caption, CTA, source/note, hashtags.
-- Facebook Reels: reel text, CTA, source/note, hashtags.
-- Snapchat: very short caption, optional CTA, note only when needed.
-- Never create `youtube-shorts.txt` and never prepare a YouTube Shorts upload.
-- YouTube is exclusively a separate long-form workflow under `youtube/`; Reel projects are not mirrored there.
-- Never invent new facts for a platform file.
-- If exact current limits/features matter, verify official platform documentation before publishing.
-
-## Validation
-
-If required user images or final audio are missing, report waiting for assets and do not claim final render.
-
-When assets exist:
-
-- supported asset ingest/sync
-- source-contract validation
-- TypeScript check
-- preview render
-- inspect first/middle/last frame of each scene
-- inspect captions/transitions
-- contact-sheet review
-- full MP4 review
-- explicitly reject any image with two background bands/zones or a faceless person
-- target audio around -16 LUFS and <= -1 dBTP true peak
-
-## Safety audit
-
-Run:
+## 1. Hard readiness gate
 
 ```bash
-npm run antigravity:safety -- <starting-head>
+npm run reel:ready -- <Reel-Pfad>
 ```
 
-Create a draft PR only. Never merge.
+If this fails, STOP. Report exact missing/invalid files. Do not create substitute images, audio, timings or animations.
+
+A successful run SHA-256-seals canonical Phase-1 `animation.tsx` files. Antigravity may not edit, replace or simplify them.
+
+## 2. Production manifest
+
+```bash
+npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
+```
+
+Implement every scene from `scene-index.json` and complete `phase3-production-manifest.json`.
+
+### Image scene
+
+- exact user image named by `googleFlowFileName`
+- image visibly rendered
+- no stock/generated/placeholder replacement
+- no caption-only or header-only substitute
+
+### Animation scene
+
+- exact `scene.animationSourceFile`
+- exact `scene.animationExport`
+- exact sealed path/hash
+- bind to the scene's `animationId`
+- no replacement/fallback animation
+- missing binding = hard failure
+
+## 3. Background contract
+
+Every Reel frame uses static pure black `#000000` from central `FinanceBackground`.
+
+Never add/import:
+
+- `FNBgAurora`
+- `FNBgParticles`
+- `FNBgGrid`
+- `FNBgRadial`
+- particle fields
+- aurora/glow backgrounds
+- animated grids
+- background gradients/vignettes
+- decorative moving background elements
+
+Motion belongs to scene content, never the background.
+
+## 4. Final layout
+
+Use only central `REEL_STYLE`:
+
+```text
+Header Y154
+Header 56 px, minimum 50 px, max 2 lines
+Icon 34 px
+Visual Y320–1400
+Caption bottom340, max 2 lines
+Transition 3 frames
+```
+
+Header = pure white text + simple semantic line icon. No capsule/chip/pill/panel and no forced ALL CAPS.
+
+`AnimationStage` hard-clips visible animation content to **Y320–1400**. It must not enter header or caption zones.
+
+Source notes must stay above the caption and never overlap a two-line caption.
+
+## 5. Captions
+
+- real Phase-2 word timings only
+- active word green, remaining words white
+- max 2 lines
+- no stroke, jump or scale-pop
+- clip at scene boundary
+
+## 6. Preflight
+
+Set manifest status to `READY_TO_RENDER`, then run:
+
+```bash
+npm run reel:phase3:preflight -- <Reel-Pfad>
+```
+
+This must verify all scenes, animation hashes/bindings, layout and the pure-black background contract. Do not render around a failed preflight.
+
+## 7. Production render
+
+```bash
+npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
+```
+
+This creates a candidate first. Post-render QA must pass before a final MP4 is released.
+
+Render QA checks per scene:
+
+- visual core actually occupied
+- image scene not blank/caption-only
+- animation scene has visible content and real motion
+- animation explains its beat
+- free edge remains static black
+- no background particles/aurora/grid/glow
+- audio stream exists
+- dimensions and timeline correct
+
+A black/empty reel is a FAILURE, not a deliverable.
+
+## 8. Export
+
+Only after render QA passes:
+
+```bash
+npm run reel:export -- <Reel-Pfad> <Final-MP4>
+```
+
+Only successful export = `FINAL_COMPLETE`.
+
+## Never do this
+
+- claim an MP4 is finished because Remotion produced a file
+- bypass `reel:ready`, preflight or render QA
+- hide missing visuals behind captions/header/background motion
+- use particles/aurora/grid to make frame-diff QA pass
+- alter sealed Phase-1 animation code
+- create fake movement for QA
+- output a candidate MP4 as final
+
+If a gate fails, fix the actual scene/asset/integration error or stop with the exact blocker.

@@ -2,7 +2,7 @@
 
 > Bei Widersprüchen gilt immer `CLAUDE.md`.
 
-## 1. Einfache Reel-Struktur
+## 1. Struktur
 
 ```text
 01-script/
@@ -10,366 +10,121 @@
 03-szenen/
 04-caption/
 05-projektdateien/
-README.md
+06-export/
 ```
 
-Keine doppelten Hauptordner für Script, Bilder, Caption, Review, Export oder Video anlegen, wenn sie nicht technisch zwingend nötig sind.
+`04-caption/` enthält in aktiven Reels nur die universelle Publishing-Caption `caption.txt` und `word-timings.json`. Es gibt keine separaten Plattform-Captiondateien.
 
-`04-caption/` enthält Master-Caption, Reel-Plattformtexte und Wort-Timings:
+## 2. Drei Phasen
+
+### Phase 1 — ChatGPT / Motion Authoring
+
+- Recherche + Quellen
+- einfaches, anfängerfreundliches Skript
+- Szenenplan und V9-Flow-Prompts
+- Header + Icons
+- fertige kanonische `animation.tsx` je Animationsszene
+- Lottie nur als gezielte Support-Ebene vor dem Animation-Seal
+- Sound-Cue-Plan
+- genau eine universelle Caption: `04-caption/caption.txt`
+
+### Phase 2 — Nutzer
+
+- finale Google-Flow-Bilder
+- genau ein finales Haupt-Voiceover
+- echte Wort-Timings aus diesem Voiceover
+
+Kein Agent ersetzt oder generiert diese Flow-Bilder oder das Haupt-Voiceover eigenmächtig.
+
+### Phase 3 — konfigurierter Executor
+
+`scene-index.json.phase3Executor` entscheidet den Executor. Phase 3 integriert die finalen Nutzerassets, den versiegelten Animationscode und freigegebene lokale SFX. Sie darf zusätzlich Playwright Visual QA gegen die lokale Remotion-Preview durchführen. Eine kreative Änderung an Animation/Lottie nach dem Seal muss zurück in Phase 1 und neu versiegelt werden.
+
+## 3. Visual Beats und Timing
+
+VISUAL_BEAT_COMPATIBILITY_BASE: finanzneo-visual-beats-v1
+FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
+
+- Szenenzahl ist frei und themenabhängig.
+- Erst gesprochene Gedanken definieren, dann pro Gedanken einen sichtbaren Beat planen, danach Szenen gruppieren.
+- Ein Satz darf ein eigenes Bild erhalten; zwei Aussagen/Aktionen/Beispiele in einem Satz dürfen in zwei Beats geteilt werden.
+- Kompatibilitätsbasis älterer Reels: Bildbeats ideal 1,8–3,4 s und max. 4,5 s. **Neue Future-V3-Reels:** ideal 1,8–3,0 s; ab 3,6 s aktiv Split/zusätzliches Bild prüfen; ohne neue sichtbare Information hart maximal 4,0 s.
+- Mehrere Bildszenen nacheinander sind erlaubt, wenn jede die Erklärung sichtbar fortsetzt.
+- Animationen müssen während ihrer Laufzeit mehrere sichtbare Zustände durchlaufen; reine Kamera-Bewegung zählt nicht als neuer Beat.
+- Finale Schnitte folgen den echten Wort-Zeitstempeln des Nutzer-Voiceovers.
+- 60/40 Bild/Animation bleibt Richtwert, keine Quote.
+
+## 4. Bilder / Google Flow
+
+- exakt ein Bildjob gleichzeitig
+- vollständig warten → exakt umbenennen → V9-QA → erst dann nächster Job
+- keine Batch-/Parallelgenerierung
+- scene-01 ist automatisch das Cover; kein Bild 00
+- finale Bilder liegen in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
+
+Bildwelt: `finanzneo-stylized-3d-animated-black-v9`. Reale Alltagssituation und klare Ursache/Wirkung zuerst; glaubwürdige Objektkonstruktion und Proportionen; semi-realistische Materialdetails in klar stilisiertem 3D; niemals fotorealistisch. Deep Black bleibt Pflicht.
+
+## 5. Layout V5
+
+Quelle ist ausschließlich `REEL_STYLE`:
 
 ```text
-caption.txt
-instagram-reels.txt
-tiktok.txt
-facebook-reels.txt
-snapchat.txt
-word-timings.json
+Header Y154
+Header 56 px, Minimum 50 px, max. 2 Zeilen
+Icon 34 px, optisch normalisiert
+Visual Y320–1400
+Caption bottom340, max. 2 Zeilen
+Transition 3 Frames
 ```
 
-**YouTube-Regel:** Keine YouTube Shorts. Reel-Projekte erzeugen keine `youtube-shorts.txt`. YouTube ist ausschließlich für eigenständige längere Videos unter `youtube/` vorgesehen.
+Zweizeilige Header halten das Icon an der ersten Textzeile. `AnimationStage` clippt hart auf Y320–1400. Der produktive Hintergrund ist statisch `#000000`.
 
-## 2. Genau eine Produktionsquelle pro Szene
+## 6. Animationen
 
-### Bildszene
+Animationsszenen sind kleine visuelle Geschichten:
 
 ```text
-scene-XX/
-├── bildprompt.txt
-└── szene.md
+START → TRIGGER → PHYSISCHE AKTION → REAKTION → ERGEBNIS → RESULT HOLD
 ```
 
-Das finale Nutzerbild wird zunächst nicht manuell in den Szenenordner gelegt, sondern nach vollständiger Google-Flow-Produktion gemeinsam gesammelt.
+Pflicht sind konkrete Realwelt-Objekte, sichtbare Ursache/Wirkung, mehrere koordinierte Motion-Channels und mindestens 15 Frames Ergebnis-Hold. Bei Future-V3-Reels muss die Hauptmechanik zusätzlich im echten Render ausreichend groß/füllend sein (Peak active-pixel ratio >= 0,15, Median >= 0,12). Remotion bleibt Timeline-/Render-Autorität. Three/R3F, Paths, Shapes, Motion Blur und Lottie sind Support-Werkzeuge, keine Ersatzmechanik. Kartenreihen, Flowcharts, Dashboard-UI, Fortschrittsbalken als Hauptgeschichte, Partikel/Aurora/Grid-Hintergründe und Debug-/Wackel-Hacks sind verboten.
 
-### Remotion-Szene
+Nach `reel:ready` ist die kanonische Animation per SHA-256 versiegelt.
 
-```text
-scene-XX/
-├── remotion.md
-└── szene.md
-```
+## 7. SFX
 
-Eine Remotion-Szene enthält keinen Bildprompt und erzeugt kein Bild.
+SFX bestätigen sichtbare Ereignisse framegenau. Voiceover bleibt immer dominant. Keine Placeholder-Beeps, keine Remote-Sound-URLs, keine Casino-/Jackpot-Geldsounds. Fehlende freigegebene SFX dürfen mit dem konfigurierten Sound-Skill lokal erzeugt werden; das Haupt-Voiceover bleibt unverändert Nutzerasset.
 
-## 3. Google Flow — Einzelbild-Ablauf
+## 8. Playwright Visual QA
 
-Einzige Übergabedatei an den Google-Flow-KI-Agenten:
+Playwright CLI prüft die lokale Remotion-Preview. Jede Bildszene erhält mindestens einen stabilen Check; jede Animationsszene mindestens START, TRIGGER, MID, NEAR RESULT und FINAL HOLD. Geprüft werden insbesondere Header/Icon-Konsistenz, Y320–1400, Caption-Abstand, Clipping, Hero-Größe, Leerraum und sichtbare Start→Ergebnis-Veränderung. Sichtbare Fehler müssen an der kanonischen Quelle behoben werden, auch wenn TypeScript/Bundle bereits grün sind.
 
-```text
-03-szenen/alle-bildprompts.txt
-```
+## 9. Phase 3 / Abschluss
 
-Protokoll-ID: `finanzneo-flow-sequential-v1`.
-
-Formatregel: Google Flow erzeugt Cover und Szenenbilder immer quadratisch `1:1`. Das fertige Reel bleibt `9:16`; Remotion platziert die 1:1-Bilder mit `contain`.
-
-```text
-PROMPT LESEN
-→ GENAU EIN BILD ERZEUGEN
-→ VOLLSTÄNDIG WARTEN
-→ SOFORT ENDGÜLTIG UMBENENNEN
-→ MOTIV + LABELS + GESICHT + HINTERGRUND + DATEINAME PRÜFEN
-→ ERST DANN NÄCHSTES BILD
-```
-
-Keine 3er-Batches, keine parallele Vorbereitung und kein späteres Sammel-Umbenennen. Bei einem Fehler dieselbe Bildnummer neu erzeugen und erst nach bestandener QA fortfahren.
-
-Das zuerst bestandene `Bild 00` ist danach die verbindliche reine Stilreferenz. Folgebilder übernehmen Bildwelt, Material-, Geometrie-, Farb- und Lichtsignatur, aber niemals Cover-Motiv, Komposition oder Labels.
-
-## 4. Nummerierung
-
-Bildnummer = echte chronologische Szenennummer.
-
-```text
-Bild 00 = Cover
-Bild 01 = Szene 01
-Bild 02 = Szene 02
-...
-```
-
-Animationsszenen behalten ihre Nummer, bekommen aber kein Bild.
-
-Beispiel:
-
-```text
-Szene 01 = Bild      → Bild 01
-Szene 02 = Animation → kein Bild 02
-Szene 03 = Bild      → Bild 03
-```
-
-Nie nach der Anzahl tatsächlich erzeugter Bilder neu nummerieren. `03-szenen/scene-index.json` ist die technische Autorität.
-
-## 5. Dateiname direkt an jedem Prompt
-
-In `03-szenen/alle-bildprompts.txt` und jedem einzelnen `bildprompt.txt` steht direkt der endgültige Dateiname:
-
-```text
-Bild XX - Kurzer Szenenname.png
-```
-
-Animationsszenen stehen chronologisch an ihrer Stelle mit `KEIN BILD XX ERZEUGEN`.
-
-## 6. Finaler Sammelordner
-
-Erst wenn alle Bilder einzeln erzeugt, umbenannt und geprüft wurden, kommen sie gemeinsam nach:
-
-```text
-03-szenen/00-ALLE-BILDER-HIER-REIN/
-```
-
-Google Flow verteilt die Bilder nicht auf einzelne Szenenordner.
-
-## 7. Antigravity erzeugt keine Bilder
-
-- Der Nutzer erstellt Cover und finale Szenenbilder selbst.
-- Antigravity erstellt Recherche, Skript, Szenenplan, Bildprompts, Dateinamen, Remotion, Captions und technische Verarbeitung.
-- Fehlt ein Nutzerbild, genaue fehlende Datei melden und warten.
-- Keine Ersatzbilder, Stockbilder oder integrierte Bildgeneratoren verwenden.
-
-## 8. Verbindliche Bildwelt
-
-World ID:
-
-```text
-finanzneo-connected-studio-v3
-```
-
-Serien-Lock: `finanzneo-same-world-v1`. Er hält die komplette Serie in derselben Hintergrund-, Material-, Geometrie-, Farb- und Lichtwelt.
-
-Verbindlich:
-
-- `CLAUDE.md`
-- `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-- `docs/IMAGE-SYSTEM.md`
-- `docs/IMAGE-PROMPT-LIBRARY.md`
-- `docs/IMAGE-QA-CHECKLIST.md`
-
-Stil:
-
-- Premium fintech editorial 3D render
-- eine dominante Finanzmetapher / großes Hauptobjekt
-- optional stilisierte erwachsene 3D-Person
-- wenn Person: Gesicht klar sichtbar, frontal oder 3/4
-- deep charcoal green-black Grundwelt
-- emerald/mint Akzente
-- Gold nur für Geld/Wert
-- warmes Rot-Orange nur für Risiko/Verlust/Schulden
-- smooth rounded geometry, soft bevelled edges
-- kein Fotorealismus, Pixar oder Clay
-- keine Dioramen, Neon-Tunnel, Sci-Fi-Korridore, Dashboards oder Game-Level
-
-## 9. Kritische Hintergrundregel — genau EIN Hintergrund
-
-**Keine Prozent-Zonen verwenden.**
-
-Jedes Bild nutzt genau einen nahtlosen Hintergrund von oben bis unten:
-
-```text
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
-Keep the same continuous material, tone and gradient from top edge to bottom edge.
-No horizontal divisions.
-No visible top section or bottom section.
-No separate zones or panels.
-No dark/light band at the top or bottom.
-No floor-wall boundary.
-No horizon line.
-No studio wall split.
-Use only one subtle continuous gradient/vignette.
-Do not create a visible floor, wall or studio horizon.
-Objects may cast soft contact shadows.
-Place the main subject around the visual center and leave generous natural empty space above and below without changing the background.
-```
-
-Verboten:
-
-- `top 15 / middle 60 / bottom 25`
-- andere harte Prozentbereiche
-- sichtbare horizontale Tonwertkante
-- Boden-/Wand-Trennung
-- oberes/unteres Band
-- mehrere Hintergrund-Panels
-
-## 10. Personenregel
-
-Wenn eine Person vorkommt:
-
-- klare stilisierte Augen, Nase und Mund
-- Gesicht gut sichtbar
-- frontal oder natürliche 3/4-Ansicht bevorzugt
-- keine gesichtslose Figur
-- keine reine Rückenansicht
-- keine reale/identifizierbare Person
-
-## 11. Text im KI-Bild
-
-Erlaubt:
-
-- nur explizit vorgegebene kurze deutsche Objektlabels
-- meist 1–3 Wörter
-- direkt am passenden Objekt
-
-Verboten:
-
-- große Überschrift
-- Untertitel
-- ganzer erklärender Satz
-- CTA
-- zufällige Zusatztexte
-
-Reale Marken/Dienste dürfen als relevante Alltagsbeispiele verwendet werden, wenn ihre Namen korrekt geschrieben werden und keine erfundene Partnerschaft suggeriert wird.
-
-## 12. Darstellung in Remotion
-
-- Bild mit `object-fit: contain`
-- keine sichtbare unscharfe Kopie desselben Bildes im Hintergrund
-- Source-Crop oben höchstens `0.20`
-- Source-Crop unten höchstens `0.20`
-- Source-Crop insgesamt höchstens `0.34`
-- zusätzliche Skalierung höchstens `1.04`
-- wichtige Motive und Labels nie abschneiden
-
-## 13. Layout und Untertitel
-
-1080 × 1920:
-
-```text
-Headline ungefähr ab Y = 78
-Visual ungefähr Y = 270–1350
-Untertitel 320 px über dem unteren Rand
-links 62 px
-rechts 150 px
-```
-
-Untertitel:
-
-- genau ein vollständiger Satz sichtbar
-- aktuelles Wort FinanzNeo-grün
-- restliche Wörter weiß
-- maximal zwei Zeilen
-- keine springenden Wörter
-- keine Größenanimation
-- keine Caption-Lücken
-
-## 14. Satzbasierte Szenenschnitte
-
-```text
-finales Voiceover
-→ echte Wort-Zeitstempel
-→ Satzanfänge
-→ Szenenstarts
-→ relative Animationsdauer
-```
-
-Kein starres Raster gleich langer Szenen.
-
-## 15. Audio
-
-```text
-Integrated Loudness: ungefähr -16 LUFS
-True Peak: höchstens -1 dBTP
-```
-
-Am finalen Export messen.
-
-## 16. Bildsatz-QA
-
-Vor Freigabe:
-
-1. Bild gegen gesprochenen Satz prüfen
-2. nahtlosen Hintergrund prüfen
-3. horizontale Bänder/Floor-Wall-Split ausschließen
-4. Gesicht prüfen, falls Person vorkommt
-5. Labels prüfen
-6. alle Bilder als Kontaktbogen prüfen
-7. Anfang/Mitte/Ende jeder Bildszene im Render prüfen
-8. vollständige MP4 mit Ton ansehen
-
-Sofort neu erzeugen bei:
-
-- zwei sichtbaren Hintergründen/Bändern
-- horizontaler Trennkante
-- sichtbarer Boden-Wand-Grenze/Horizont
-- gesichtsloser/abgewandter Person
-- falschen Labels
-- großer Headline/Satz
-- Diorama/Game-Level
-- falscher Satzzuordnung
-
-## 17. Plattform-Publishing
-
-Verbindlich ist `docs/PLATFORM-PUBLISHING.md`.
-
-Die vier Reel-Plattformdateien liegen direkt in `04-caption/`, damit keine neue komplizierte Hauptstruktur entsteht.
-
-### Instagram Reels
-
-`instagram-reels.txt`:
-
-- Caption
-- CTA
-- Quellen/Hinweis
-- Hashtags
-- optional angehefteter Kommentar
-
-### TikTok
-
-`tiktok.txt`:
-
-- kurze Caption
-- CTA
-- Quellen/Hinweis
-- Hashtags
-
-### Facebook Reels
-
-`facebook-reels.txt`:
-
-- Reel-Text
-- CTA
-- Quellen/Hinweis
-- Hashtags
-
-### Snapchat
-
-`snapchat.txt`:
-
-- sehr kurze Caption
-- optional CTA
-- Hinweis nur wenn nötig
-
-`caption.txt` bleibt die gemeinsame geprüfte Faktenbasis. Plattformdateien dürfen keine neue unbelegte Aussage erfinden.
-
-Keine YouTube Shorts erzeugen, validieren oder veröffentlichen. `youtube-shorts.txt` ist in aktiven Reel-Projekten verboten.
-
-Wenn exakte aktuelle Plattform-Limits oder Upload-Funktionen relevant sind, vor Veröffentlichung offizielle Plattformquellen prüfen statt Limits im Repo fest zu verdrahten.
-
-Longform-YouTube ist ein separates Format unter `youtube/` und wird nicht in Reel-Projekte gemischt oder automatisch aus ihnen gespiegelt.
-
-## 18. Automatische Erstellung
-
-Der verbindliche Ablauf ist `docs/3-PHASEN-WORKFLOW.md`: Phase 1 durch normales ChatGPT, Phase 2 durch den Nutzer mit Google Flow und finalem Audio, Phase 3 autonom durch Antigravity.
+Normale Kette:
 
 ```bash
-npm run reel:create -- \
-  --target reels/<Woche>/<Tag>/<Reel> \
-  --title "Reel-Titel"
+npm run reel:ready -- <Reel-Pfad>
+npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
+npm run reel:phase3:preflight -- <Reel-Pfad>
+npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 ```
 
-Der Scaffolder erzeugt die einfache Struktur, Bildprompts, `scene-index.json`, Master-Caption, die vier Reel-Plattformdateien, Wort-Timings und technische Hinweise nach den aktuellen Regeln. Er erzeugt keine YouTube-Shorts-Datei.
+`reel:render` erzeugt den Candidate, führt Post-Render-QA aus und startet nach PASS automatisch den kanonischen Export. Ein direkter `reel:export`-Aufruf ist nur ein kontrollierter Re-Export einer bereits geprüften finalen MP4.
 
-## 19. Automatische Prüfung
+FINAL_COMPLETE verlangt: alle Szenen belegt, exakter Animations-Seal, Audio vorhanden, 1080×1920, korrekte Timeline, Visual-QA bestanden und vollständiges `06-export/`. Bei Future-V3-Reels kommt vor der Freigabe verpflichtend Audio-Mastering auf -16 LUFS / -1 dBTP plus gemessene Audio-/Animationsbelegungs-QA hinzu.
 
-```bash
-npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
+## 10. Publishing
+
+Finaler Standard:
+
+```text
+06-export/<reel-name>.mp4
+06-export/cover.<ext>
+06-export/caption-universal.txt
+06-export/untertitel.srt
+06-export/bilder.zip
+06-export/UPLOAD.md
 ```
 
-Der Validator verlangt die vier Reel-Plattformdateien und blockiert aktive YouTube-Shorts-Artefakte.
-
-Vor Phase 3 ist zusätzlich die strengere Einsatzprüfung Pflicht:
-
-```bash
-npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
-```
-
-Sie verlangt platzhalterfreie Phase-1-Inhalte, exakt benannte Bilder im gemeinsamen Bilderordner, genau ein finales Voiceover und echte dazugehörige Wort-Zeitstempel. Bei Erfolg arbeitet Antigravity ohne Rückfragen bis zur fertigen QA weiter. Bei Fehlern meldet es alle echten Blocker gesammelt.
-
-Validator/Typecheck/Preview müssen tatsächlich ausgeführt werden, bevor ein Reel als technisch fertig bezeichnet wird. Technischer Erfolg ersetzt nicht die visuelle Freigabe.
+`caption-universal.txt` ist die einzige Caption für Instagram Reels, TikTok, Facebook Reels und Snapchat. Keine separaten Plattform-Captiondateien. YouTube bleibt eigenständiges Longform unter `youtube/`.

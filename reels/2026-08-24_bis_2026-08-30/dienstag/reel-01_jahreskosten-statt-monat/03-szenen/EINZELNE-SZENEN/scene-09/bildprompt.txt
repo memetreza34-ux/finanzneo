@@ -1,0 +1,40 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+BILD 09 – SZENE 09
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Fixkosten Alltag.png
+FORMAT: square 1:1 source image
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Fixkosten bestehen aus konkreten Alltagsdiensten.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI financial editorial scene. A chunky open dark-emerald wallet/budget tray is the hero object. Around and partly inside it are four large recognizable stylized 3D props: over-ear headphones, a smartphone with screen dark/off plus SIM card, a gym membership key fob, and a cream app-purchase envelope with an embossed app symbol. Each prop has a small thick cream label tag. Use chunky gold coins in small groups beside each item to communicate recurring cost. The arrangement must feel like an active everyday budget scene, not a grid.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI, substantial rounded forms, simplified slightly exaggerated proportions, premium emerald polymer/brushed metal, thick cream card surfaces, chunky gold coins, cinematic soft light, emerald rim light, soft contact shadows, clear layered foreground/midground/background depth, mild depth-of-field, polished editorial render. NOT photorealistic. NOT product photography. NOT office photo. NOT clay, Pixar or toy style.
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon line, panels or bands.
+
+SHORT GERMAN OBJECT LABELS ONLY
+`STREAMING`
+`APPS`
+`MITGLIEDSCHAFT`
+`MOBILFUNK`
+No headline. No subtitle. No explanatory sentence. No CTA.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
+
+NEGATIVE
+No dashboard, no four-row UI, no equal card grid, no app screen, no gameboard, no realistic product or stationery photography.
+
+QA
+Reject and regenerate if the everyday cost categories are not immediately readable or the scene does not clearly look like premium stylized 3D CGI.

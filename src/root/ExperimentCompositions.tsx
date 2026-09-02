@@ -23,6 +23,8 @@ import {
   ReelTemplateDemo,
   REEL_TEMPLATE_DEMO_FRAMES,
 } from '../production/reel-template';
+import {EinlagensicherungReel} from '../reels/einlagensicherung-100000/EinlagensicherungReel';
+import {TOTAL_FRAMES as EINLAGENSICHERUNG_LEGACY_FRAMES} from '../reels/einlagensicherung-100000/timeline';
 import {FORMAT} from '../brand/tokens';
 
 // Formatwerte kommen ausschließlich aus src/brand/tokens.ts, damit Registry
@@ -38,6 +40,16 @@ const WIDE = FORMAT.landscape;
 export const ExperimentCompositions: React.FC = () => (
   <>
     <Composition id="ReelTemplateDemo" component={ReelTemplateDemo} durationInFrames={REEL_TEMPLATE_DEMO_FRAMES} fps={FPS} {...VERTICAL} />
+
+    {/* Legacy: historischer Reel-Render vor V9/Pure-Black/Phase-3-Hardening.
+        Nur zur visuellen Referenz. Nicht als Produktionsvorlage verwenden. */}
+    <Composition
+      id="LegacyEinlagensicherung100000"
+      component={EinlagensicherungReel}
+      durationInFrames={EINLAGENSICHERUNG_LEGACY_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
 
     <Composition id="S1Hook" component={Scene01Hook} durationInFrames={SCENE01_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="S2Zinseszins" component={Scene02Zinseszins} durationInFrames={SCENE02_FRAMES} fps={FPS} {...WIDE} />

@@ -47,6 +47,78 @@ Dort ist festgelegt:
 - welche dekorativen oder synthetischen Komponenten nicht für reale Finanzbehauptungen verwendet werden dürfen
 - welche Zahleneffekte, Charts, Vergleiche und CTA-Komponenten bevorzugt werden
 
+## Reel-Header — optische Konsistenz
+
+`SceneHeader` ist die einzige produktive Header-Komponente für Reels.
+
+Verbindlich:
+
+- alle Header-Icons sitzen in demselben festen Icon-Slot;
+- SVG-Glyphen werden optisch normalisiert, nicht nur technisch auf dieselbe `width/height` gesetzt;
+- das Icon ist vertikal an der **ersten Textzeile** ausgerichtet;
+- ein zweizeiliger Titel darf das Icon niemals nach unten ziehen;
+- die Header-Gruppe bleibt als Ganzes zentriert, der Text innerhalb der Gruppe ist linksbündig;
+- dadurch beginnt auch bei einem Zweizeiler die erste Textzeile mit konstantem Abstand direkt neben dem Icon;
+- Header-Icons verwenden keinen Glow.
+
+Die Implementierung liegt in:
+
+```text
+src/brand/components/SceneHeader.tsx
+src/brand/components/Icon.tsx
+src/brand/tokens.ts -> REEL_STYLE.header
+```
+
+## Reel-Animationen — Cinematic Explainer Standard
+
+Eine Animation ist **keine bewegte Infografik**. Sie muss wie eine kleine visuelle Geschichte dieselbe realitätsnahe stylized-3D-Welt wie die Flow-Bilder verwenden.
+
+Jede produktive Animationsszene braucht:
+
+```text
+STARTZUSTAND
+→ konkrete physische Hauptaktion
+→ sichtbare Ursache/Wirkung
+→ eindeutiges Ergebnis
+→ stabiler Result-Hold
+```
+
+Pflicht:
+
+- konkrete Realwelt-Gegenstände, wenn der Inhalt sie hergibt;
+- mindestens zwei konkrete Realwelt-Objekte/-Instanzen in der visuellen Handlung;
+- eindeutige `MECHANIC_ID`, die nicht in einer zweiten Szene wiederverwendet wird;
+- `PRIMARY_ACTION`, die beschreibt, was sich physisch verändert;
+- mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable;
+- Labels nur unterstützend; die Handlung muss auch ohne die Labels verständlich bleiben;
+- jede Animationsszene soll eine **andere** Mechanik einsetzen, wenn der Inhalt eine andere Handlung verlangt.
+
+Explizit ungeeignet als Hauptsprache:
+
+- drei beschriftete Rechtecke nebeneinander;
+- `A → B → C` nur als Kartenfolge;
+- Lade-/Fortschrittsbalken als Ersatz für die Handlung;
+- reine Texttafel mit Fade/Scale;
+- abstrakte Schutzschild-/Pfeil-Metapher, wenn eine konkrete Alltagssituation darstellbar ist;
+- Dashboard, App-UI oder Flowchart als primäre Erklärung.
+
+### Reale Animations-Primitives
+
+Für konkrete Erklärszenen stehen zentral bereit:
+
+```tsx
+PhysicalBill
+PhysicalAccount
+PhysicalWasher
+PhysicalReserveTank
+PhysicalCalendarPage
+PhysicalCoinStack
+```
+
+Sie sind absichtlich keine generischen UI-Karten, sondern erkennbare reale Gegenstände für Ursache-Wirkung-Szenen. `PhysicalObject`, `PhysicalTag` und `PhysicalRail` bleiben unterstützende primitives; insbesondere `PhysicalRail` darf nie allein die visuelle Geschichte tragen.
+
+Qualität wird zusätzlich durch `scripts/validate-animation-source-quality.mjs` geprüft.
+
 ## Hintergründe
 
 Neue Produktionen verwenden nur:
@@ -82,6 +154,8 @@ Aus `src/brand` kommen unter anderem:
 - `FORMAT`, `SAFE_AREA`
 - `Background`, `Vignette`
 - `Captions`
+- `SceneHeader` + optisch normalisierte `Icon`-Darstellung
+- `PremiumPhysicalStage` + konkrete Realwelt-Animations-Primitives
 - Kern-Charts und Layouts
 - Templates und Branding
 
@@ -104,6 +178,10 @@ Das verhindert Namenskollisionen und macht sofort sichtbar, ob eine Komponente z
 
 - Farben: `src/brand/tokens.ts`
 - Fonts: `src/brand/fonts.ts`
+- Reel-Header: `src/brand/components/SceneHeader.tsx`
+- optische Icon-Normalisierung: `src/brand/components/Icon.tsx`
+- Realwelt-Animations-Primitives: `src/brand/components/PremiumPhysical.tsx`
+- Animations-QA: `scripts/validate-animation-source-quality.mjs`
 - Finanzrechner: `src/finance/calculations.ts`
 - Hintergründe und Safe-Area-Guide: `src/design-system/FinanceBackground.tsx`
 - öffentlicher Importpfad: `src/design-system/index.ts`

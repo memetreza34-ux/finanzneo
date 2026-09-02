@@ -1,36 +1,28 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
-import {Background, Vignette} from '../brand/components/Background';
 import {FONT} from '../brand/fonts';
 import {C, SAFE_AREA} from '../brand/tokens';
-import {FNBgAurora, FNBgGrid} from '../bausteine/fn_backgrounds';
 
+/**
+ * Backward-compatible prop only. Reel backgrounds no longer have visual
+ * variants: every production reel uses one static pure-black canvas.
+ */
 export type FinanceBackgroundVariant = 'standard' | 'data' | 'premium';
 
-/**
- * Verbindliche Hintergrundauswahl für neue FinanzNeo-Produktionen.
- *
- * standard: ruhige Erklärung, KI-Bild, Text oder Zahlen
- * data: Charts, Tabellen und Marktdaten
- * premium: seltener Hook, Payoff oder Kapitelhöhepunkt
- */
-export const FinanceBackground: React.FC<{variant?: FinanceBackgroundVariant}> = ({
-  variant = 'standard',
-}) => {
-  if (variant === 'data') return <FNBgGrid />;
-  if (variant === 'premium') return <FNBgAurora />;
-
-  return (
-    <>
-      <Background grid={false} glow />
-      <Vignette />
-    </>
-  );
-};
+export const REEL_BACKGROUND_COLOR = '#000000';
 
 /**
- * Nur für Studio-/Keyframe-Prüfung. Nicht im finalen Render sichtbar lassen.
+ * Verbindlicher FinanzNeo-Reel-Hintergrund.
+ * `variant` bleibt nur als API-Kompatibilität erhalten und wird ignoriert.
  */
+export const FinanceBackground: React.FC<{variant?: FinanceBackgroundVariant}> = () => (
+  <AbsoluteFill
+    data-finanzneo-reel-background="pure-black-v1"
+    style={{backgroundColor: REEL_BACKGROUND_COLOR}}
+  />
+);
+
+/** Nur für Studio-/Keyframe-Prüfung. Im finalen Render deaktivieren. */
 export const VerticalSafeAreaGuide: React.FC<{
   enabled?: boolean;
   showLabels?: boolean;
@@ -40,44 +32,28 @@ export const VerticalSafeAreaGuide: React.FC<{
   return (
     <AbsoluteFill style={{pointerEvents: 'none', zIndex: 9999}}>
       <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
+        position: 'absolute', top: 0, left: 0, right: 0,
         height: SAFE_AREA.topPx,
         background: 'rgba(255,51,51,0.10)',
         borderBottom: `3px dashed ${C.negativeLt}`,
       }}>
         {showLabels && <div style={{
-          position: 'absolute',
-          bottom: 12,
-          left: 24,
-          color: C.negativeLt,
-          fontFamily: FONT.body,
-          fontSize: 24,
-          fontWeight: 800,
-          letterSpacing: 1,
+          position: 'absolute', bottom: 12, left: 24,
+          color: C.negativeLt, fontFamily: FONT.body, fontSize: 24,
+          fontWeight: 800, letterSpacing: 1,
         }}>OBERE SAFE AREA · 18 %</div>}
       </div>
 
       <div style={{
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
+        position: 'absolute', bottom: 0, left: 0, right: 0,
         height: SAFE_AREA.bottomPx,
         background: 'rgba(255,51,51,0.10)',
         borderTop: `3px dashed ${C.negativeLt}`,
       }}>
         {showLabels && <div style={{
-          position: 'absolute',
-          top: 12,
-          left: 24,
-          color: C.negativeLt,
-          fontFamily: FONT.body,
-          fontSize: 24,
-          fontWeight: 800,
-          letterSpacing: 1,
+          position: 'absolute', top: 12, left: 24,
+          color: C.negativeLt, fontFamily: FONT.body, fontSize: 24,
+          fontWeight: 800, letterSpacing: 1,
         }}>UNTERE SAFE AREA · 22 %</div>}
       </div>
 

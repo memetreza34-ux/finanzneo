@@ -1,0 +1,14 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Eine Bank 1000 Euro.png
+Create a square 1:1 source image only.
+
+Create a premium stylized 3D CGI editorial explainer. One large chunky stylized emerald 3D bank building fills the composition. A single thick emerald allowance token marked `1.000 €` is physically inserted into a modeled slot beside the bank, while sculpted gold return-coins collect safely under the same green shield. Make the action obvious and dimensional, not like a UI.
+
+Labels only: `EINE BANK`, `1.000 €`, `FREI`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
+No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No dashboard, UI, gameboard, module ring, microchip world, tiny isometric diorama, Pixar or clay.

@@ -1,0 +1,28 @@
+{
+  "version":3,
+  "title":"Freistellungsauftrag: 1.000 € richtig nutzen",
+  "fps":30,
+  "timingSource":"04-caption/word-timings.json",
+  "cutRule":"first-relevant-word-or-meaningful-phrase-start",
+  "maxTriggerOffsetSeconds":0.15,
+  "stalePreviousVisualAfterTriggerForbidden":true,
+  "newVisualTooEarlyForbidden":true,
+  "status":"PHASE_2_REQUIRED",
+  "scenes":[
+    {"id":"scene-01","type":"image","audioTrigger":"Du kannst unnötig Steuern vorauszahlen","startFrame":0,"durationFrames":0},
+    {"id":"scene-02","type":"animation","audioTrigger":"In Deutschland sind das 2026","startFrame":0,"durationFrames":0},
+    {"id":"scene-03","type":"image","audioTrigger":"Dazu zählen Kapitalerträge","startFrame":0,"durationFrames":0},
+    {"id":"scene-04","type":"animation","audioTrigger":"wie Zinsen, Dividenden und Gewinne","startFrame":0,"durationFrames":0},
+    {"id":"scene-05","type":"image","audioTrigger":"Damit deine Bank den Freibetrag","startFrame":0,"durationFrames":0},
+    {"id":"scene-06","type":"animation","audioTrigger":"brauchst du einen Freistellungsauftrag","startFrame":0,"durationFrames":0},
+    {"id":"scene-07","type":"image","audioTrigger":"Hast du nur eine Bank","startFrame":0,"durationFrames":0},
+    {"id":"scene-08","type":"animation","audioTrigger":"Hast du mehrere Banken oder Depots","startFrame":0,"durationFrames":0},
+    {"id":"scene-09","type":"image","audioTrigger":"Beispiel: 700 Euro bei Bank A","startFrame":0,"durationFrames":0},
+    {"id":"scene-10","type":"animation","audioTrigger":"Wichtig: Der Freibetrag bezieht sich auf Kapitalerträge","startFrame":0,"durationFrames":0},
+    {"id":"scene-11","type":"image","audioTrigger":"nicht auf dein Kontoguthaben oder deinen Depotwert","startFrame":0,"durationFrames":0},
+    {"id":"scene-12","type":"animation","audioTrigger":"Liegt kein passender Freistellungsauftrag vor","startFrame":0,"durationFrames":0},
+    {"id":"scene-13","type":"image","audioTrigger":"Wurde dadurch zu viel Steuer einbehalten","startFrame":0,"durationFrames":0},
+    {"id":"scene-14","type":"image","audioTrigger":"Prüfe deshalb einmal im Jahr","startFrame":0,"durationFrames":0},
+    {"id":"scene-15","type":"image","audioTrigger":"ob die Verteilung noch zu deinen tatsächlichen Erträgen passt","startFrame":0,"durationFrames":0}
+  ]
+}

@@ -1,0 +1,50 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v1
+MAX_CONCURRENT_GENERATIONS = 1
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 15 - Drei Notgroschen Regeln.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Nur Notfälle
+- Tagesgeld
+- Wieder auffüllen
+
+IMAGE PROMPT:
+Create a clear stylized 3D summary scene that visually combines the three most important emergency-fund rules in one believable household-finance situation. Use one coherent desk or apartment-finance setup rather than three floating icons.
+
+First, show a real emergency example such as a repair invoice beside a broken household appliance, with the short label “Nur Notfälle”, making clear that the reserve is for genuine unexpected costs rather than optional purchases. Second, show the emergency money kept in a clearly separate savings-account document or reserve area labeled “Tagesgeld”. Third, show a monthly calendar and recurring transfer rebuilding the reserve after use, labeled “Wieder auffüllen”.
+
+The viewer must understand all three rules at a glance without narration: use it only for real emergencies, keep it separately on accessible savings, and refill it after using it. The three ideas should belong to one connected real-life financial setup and must not look like a checklist made from generic finance symbols.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Use premium real-world-grounded stylized 3D. The household appliance, invoice, account documents, calendar and money reserve must retain believable proportions and recognizable everyday detail, while the rendering remains clearly stylized, polished and non-photorealistic.
+
+BACKGROUND:
+Use one seamless deep black background with a restrained household/desk context that visually dissolves into black. Keep all three rule areas large, clean and immediately readable.
+
+COMPOSITION:
+Build one coherent scene with three visually connected real-life elements, not three isolated icon badges. Make each rule distinct through placement and its attached German label while preserving a natural overall scene. Avoid tiny elements or dense infographic structure.
+
+BRANDS + LOGOS:
+No real bank, appliance, repair-company or employer branding. All objects must stay generic, recognizable and consistent with the stylized 3D world.
+
+COLORS + LIGHT:
+Use subtle gold for saved money, emerald green for the correct reserve/saving actions, warm ivory/gray for neutral household and banking objects, and warm red-orange only for the emergency cost. Use clean soft studio lighting and readable contact shadows.
+
+TEXT:
+Only the labels “Nur Notfälle”, “Tagesgeld” and “Wieder auffüllen” may appear. Attach each label to the exact rule element it describes. No headline, subtitle, CTA or long explanatory sentence.
+
+FORBIDDEN:
+No photorealism, no three generic icons on a board, no central vault with shield/hand/bill symbols as the whole explanation, no dashboard, no app UI, no flowchart, no floating info cards and no decorative clutter.

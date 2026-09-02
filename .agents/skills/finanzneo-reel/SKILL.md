@@ -1,167 +1,230 @@
 ---
 name: finanzneo-reel
-description: Safely creates, repairs or reviews FinanzNeo vertical Remotion reels while preserving repository rules, image-prompt consistency, karaoke captions, platform publishing and validation requirements.
+description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, V9 explanatory image world, cinematic Remotion motion, controlled Lottie/SFX enhancement, Playwright visual QA, sealed animations, pure-black canvas and completion gates.
 ---
 
 # FinanzNeo Reel Skill
 
-Read these first and treat them as authoritative:
+## Authority
+
+Read in this order:
 
 1. `CLAUDE.md`
-2. `reels/PRODUKTIONSSTANDARD.md`
-3. `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-4. `docs/IMAGE-SYSTEM.md`
-5. `docs/PLATFORM-PUBLISHING.md`
-6. target reel `03-szenen/alle-bildprompts.txt`
-7. target reel `03-szenen/scene-index.json`
+2. target `03-szenen/scene-index.json`
+3. `docs/3-PHASEN-WORKFLOW.md`
+4. `docs/PHASE-3-COMPLETION-GATE.md`
+5. `reels/PRODUKTIONSSTANDARD.md`
+6. `.agents/rules/finanzneo-reel-safety.md`
+7. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
+8. `.agents/plugins/finanzneo-motion/rules/lottie-motion.md`
+9. `.agents/plugins/finanzneo-motion/rules/sound-design.md`
+10. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
 
 `CLAUDE.md` wins on conflicts.
 
+## Three phases
+
+### Phase 1 — ChatGPT / motion authoring
+
+Owns research, beginner-friendly scene-by-scene script, Flow prompts, headers/icons, captions and the final production-ready `animation.tsx` for every animation scene.
+
+Phase 1 may use the FinanzNeo Motion Stack while authoring:
+
+- Remotion / HTML / CSS primitives
+- React Three Fiber / Three.js where spatial depth genuinely helps
+- Lottie Creator MCP for focused support motion
+- frame-accurate SFX planning
+
+All final animation choices and local support assets must be committed before the animation seal.
+
+### Phase 2 — user
+
+Owns final Flow images, final voiceover and real word timings.
+
+### Phase 3 — configured executor
+
+Integrates only. It must not invent missing Phase-1 animation or substitute missing Phase-2 assets.
+
+If `phase3Executor` names another executor, do not take over Phase 3.
+
+After the animation SHA is sealed, Phase 3 may not invent a new Lottie concept, alter the physical mechanism or generate replacement animation code. Creative redesign returns to Phase 1.
+
+## Visual Beat timing
+
+VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
+
+For new reels, do not choose a scene count first. Parse the voiceover into spoken thoughts, assign one visible beat per thought, then group beats into scenes. A sentence may receive its own Flow image. If one sentence contains two actions, examples, a comparison or a before/after change, split it into multiple visible beats when that improves comprehension.
+
+Static image beats should normally last about 1.8–3.4 seconds and must not remain unchanged beyond 4.5 seconds once the message is already understood. Multiple consecutive image scenes are allowed when each one advances meaning. Camera push, zoom or parallax alone does not reset the beat.
+
+Animation scenes may be longer only when the visible state keeps advancing with the voiceover. Final cuts follow real word timings from Phase 2, never equal-length scene padding. The 60/40 image-animation mix is guidance, not a quota.
+
+## V9 image world
+
+New Flow prompts use `finanzneo-stylized-3d-animated-black-v9`:
+
+- real-life explanatory situations instead of abstract finance icon arrangements
+- recognizable, believable object construction and proportions
+- semi-realistic material/detail structure, but clearly stylized 3D and never photorealistic
+- premium clean presentation
+- deep black background mandatory
+- content/clarity before object count; no fixed supporting-object quota
+- short German labels when they materially improve instant understanding
+- emerald positive, ivory/soft gray neutral, subtle gold money/value, red-orange warning/cost
+- individually written complete prompts
+- no stock-photo/product-photo look, dashboard/app UI, flowchart, tiny boxes, microchip language, unreadable minidiorama or clutter
+
+If a brand/logo/app appears, keep it recognizable but stylized in the same animated world. Never paste a flat real-world logo, screenshot or photorealistic branded UI into the scene.
+
+Antigravity does not generate the user's final Flow images. Missing exact image = stop and report filename.
+
+## Pure-black Reel background
+
+The Remotion canvas is always static `#000000` through central `FinanceBackground`.
+
+Never use or import `FNBgAurora`, `FNBgParticles`, `FNBgGrid`, `FNBgRadial`, particle fields, moving grids, aurora, glow fields, decorative background gradients or animated background elements.
+
+Do not use background motion to make an otherwise empty scene pass visual QA.
+
+## Professional Motion Stack
+
+The workspace plugin `.agents/plugins/finanzneo-motion/` extends Antigravity with:
+
+- official Remotion Agent Skills bootstrapped locally at workspace start;
+- `remotion-director` for cinematic real-world motion choreography;
+- Lottie Creator MCP + `lottie-motion` for controlled vector support animation;
+- ElevenLabs `sound-effects` Agent Skill bootstrap for optional SFX generation;
+- `sound-design` for frame-synchronized sound planning;
+- `playwright-visual-qa` for visual Remotion Studio inspection of representative frames, layout, icons and safe zones;
+- repo validation through `npm run validate:antigravity-motion`.
+
+Remotion remains the timeline/render authority.
+
+### Animation language
+
+Every animation should read as:
+
+```text
+START
+→ TRIGGER
+→ PHYSICAL ACTION
+→ REACTION
+→ RESULT
+→ RESULT HOLD
+```
+
+Prefer real-world objects and concrete cause/effect. Aim for several meaningful motion channels with different physical character rather than one global progress value controlling everything identically.
+
+Camera movement, Three.js and Lottie are support tools. None of them may replace the explanatory mechanism.
+
+### Lottie
+
+Use Lottie only when it materially improves compact vector motion such as:
+
+- calendar/page flip
+- confirmation/check
+- restrained warning accent
+- money-transfer accent
+- chart stroke / target reveal
+- semantic icon acting
+
+Never use generic Lottie cards/templates as the full scene when a real-world Remotion mechanism is clearer.
+
+### Sound
+
+Every animation is evaluated for a small number of purposeful SFX cues tied to visible frame events.
+
+Voiceover remains dominant. Final sound files are local under `public/sounds/`; remote/runtime sound dependencies are forbidden.
+
+If ElevenLabs generation is unavailable, preserve the cue plan and report missing final sound assets. Never use placeholder beeps.
+
+### Playwright visual QA
+
+Use the FinanzNeo `playwright-visual-qa` skill with the official Playwright CLI for the local Remotion Studio.
+
+Default tool path:
+
+```bash
+npx -y @playwright/cli@latest
+```
+
+For each production Reel:
+
+- inspect at least one stable frame from every image scene;
+- inspect start, trigger, mid-mechanism, near-result and final hold for every animation scene;
+- compare one-line and two-line headers across scenes;
+- compare optical icon size, icon-to-text gap and vertical alignment;
+- inspect safe-zone boundaries, clipping, centering, hero scale and dead space;
+- treat visible inconsistency as QA failure even if TypeScript/bundle/smoke are green.
+
+Playwright screenshots and traces are temporary QA artifacts, not production assets.
+
+A target reel should keep a concrete checklist in `05-projektdateien/visual-qa.md` when it reaches production/Phase 3.
+
+## Animation ownership
+
+For every animation scene:
+
+- use exact `animationSourceFile`
+- use exact `animationExport`
+- preserve SHA-256 seal from `reel:ready`
+- bind through the production composition/customAnimations mapping
+- missing binding = hard failure
+- Phase 3 may not replace or simplify the source
+
+No placeholders, debug rectangles, `Math.sin`/`Math.cos` QA-wiggle or motion whose only purpose is frame difference.
+
+## Layout V5
+
+Central `REEL_STYLE` only:
+
+- Header Y154
+- Header 56 px, minimum 50 px, max 2 lines
+- Icon 34 px with optical normalization
+- two-line title keeps icon anchored to the first line
+- Visual Y320–1400
+- captions bottom340, max 2 lines
+- transition 3 frames
+- header plain #FFFFFF text + simple semantic line icon
+- no capsule/chip/pill/panel/forced uppercase
+- `AnimationStage` hard-clips visible animation content to Y320–1400
+- SourceNote must not overlap a two-line caption
+
+## Completion sequence
+
+```bash
+npm run reel:ready -- <Reel>
+npm run reel:phase3:init -- <Reel> <Composition-ID>
+# integrate every sealed scene + final Phase-2 assets
+npm run reel:phase3:preflight -- <Reel>
+# run Playwright visual QA from the reel's 05-projektdateien/visual-qa.md and require PASS
+npm run reel:render -- <Reel>/05-projektdateien/phase3-production-manifest.json
+```
+
+`reel:render` creates the candidate, runs post-render QA and only after PASS releases the final MP4 and triggers the final export workflow. A direct `reel:export` call is reserved for a controlled re-export of an already validated final MP4.
+
+Final `06-export/` uses exactly one social caption: `caption-universal.txt`.
+
+QA must reject:
+
+- black/empty visual core
+- caption-only/header-only scene
+- missing image
+- missing animation binding
+- animation with no real motion
+- animation that does not explain its beat
+- visible header/icon inconsistency found by Playwright QA
+- safe-zone/clipping/centering defects found by Playwright QA
+- non-black/decorative background
+- missing required voiceover/audio
+- missing referenced SFX asset when the approved plan marks it required
+- wrong dimensions/timeline
+
+An MP4 file by itself is never proof of completion.
+
 ## Repository safety
 
-- New topic = new branch + new reel folder.
-- Never work directly on main.
-- Never merge, force-push, rewrite shared history or delete branches/reels/assets unless explicitly requested.
-- Existing reels are read-only unless explicitly targeted.
-- Do not weaken validators, tests, finance calculations or lockfiles.
-
-## Images belong to the user
-
-- Antigravity prepares image prompts, filenames and QA rules.
-- Antigravity MUST NOT generate cover images, scene images or world-reference images.
-- Never call Antigravity image generation, Imagen, Nano Banana, web image search, stock images or placeholders as substitutes.
-- If a required user image is missing, report the exact filename and wait.
-
-## Final image-prompt style
-
-Every image prompt follows the canonical FinanzNeo style:
-
-- Premium fintech editorial 3D render
-- ONE dominant financial metaphor / large hero object
-- optional stylized anonymous adult 3D person
-- if a person appears: clearly visible face, stylized eyes/nose/mouth, front-facing or natural three-quarter view
-- no faceless mannequin, hidden face or back-view-only person
-- deep charcoal green-black world
-- vivid emerald/mint accents
-- gold only for money/value
-- warm red-orange only for risk/loss/debt
-- smooth rounded 3D geometry, soft bevelled edges
-- confident high-contrast lighting with emerald rim light
-- no photorealism, real identifiable human, Pixar or clay
-- no tiny diorama, neon tunnel, sci-fi corridor, dashboard or game-level layout
-
-## Seamless-background rule — critical
-
-**Do not use top/middle/bottom percentage zones in prompts.**
-
-Every prompt must demand:
-
-```text
-ONE single seamless continuous deep charcoal green-black background from top edge to bottom edge.
-No horizontal divisions.
-No visible top section or bottom section.
-No separate zones or panels.
-No dark/light band at the top or bottom.
-No floor-wall boundary.
-No horizon line.
-No studio wall split.
-Use only one subtle continuous gradient/vignette.
-Do not create a visible floor, wall or studio horizon.
-Objects may cast soft contact shadows.
-Leave generous natural empty space above and below the central subject without changing the background.
-```
-
-Any image with two visible backgrounds/bands is wrong and must be reported for user regeneration.
-
-## Text inside generated images
-
-Allowed:
-
-- only explicitly requested short German object labels
-- normally 1–3 words
-- directly near the relevant object
-
-Forbidden:
-
-- headline
-- subtitle
-- explanatory sentence
-- CTA
-- random extra labels
-- English explanatory text
-
-Relevant real brands/services may be used as concrete examples when the scene needs them; spell names correctly and never imply an invented partnership.
-
-## Google Flow filenames and numbering
-
-Every `03-szenen/alle-bildprompts.txt` must put the exact final filename directly at each individual image prompt.
-
-- `Bild 00` = cover
-- scene image uses its real chronological scene number
-- Remotion animation reserves its number and has no image
-- never close numbering gaps
-
-Example:
-
-```text
-scene 01 image → Bild 01
-scene 02 animation → no Bild 02
-scene 03 image → Bild 03
-```
-
-Google Flow user workflow:
-
-```text
-1 image generate
-→ immediately rename
-→ check metaphor + labels + face + seamless background + filename
-→ only then next image
-```
-
-After ALL user images are complete and renamed, collect them together in:
-
-```text
-03-szenen/00-ALLE-BILDER-HIER-REIN/
-```
-
-Do not distribute them to individual scene folders at generation time.
-
-## Audio, captions and finalization
-
-After all user images and final audio are present:
-
-- use real audio-derived word timings
-- scene cuts follow sentence starts
-- one full subtitle sentence visible
-- active spoken word green, remaining words white
-- max two subtitle lines
-- images use `contain`
-- no visible blurred duplicate image background
-- validate/safety-check/typecheck/preview before claiming completion
-- inspect image set/contact sheet and full MP4
-- target audio around -16 LUFS and <= -1 dBTP true peak
-
-## Platform publishing
-
-Keep the simple five-folder reel structure. Publishing files live directly in `04-caption/`:
-
-```text
-caption.txt
-instagram-reels.txt
-tiktok.txt
-facebook-reels.txt
-snapchat.txt
-word-timings.json
-```
-
-- `caption.txt` is the verified master facts/caption basis.
-- Instagram Reels: caption, CTA, source/note, hashtags, optional pinned comment.
-- TikTok: short caption, CTA, source/note, hashtags.
-- Facebook Reels: reel text, CTA, source/note, hashtags.
-- Snapchat: very short caption, optional CTA, note only when needed.
-- Never create `youtube-shorts.txt` or any YouTube Shorts publishing artifact.
-- YouTube is exclusively a separate long-form workflow under `youtube/`; Reel projects are not mirrored to YouTube.
-- Platform files must not invent facts beyond the master caption/script.
-- If exact current platform limits or upload features matter, verify official platform documentation before publishing rather than hard-coding old limits.
-
-A reel is not complete without required user assets or an explicit missing-asset report, real audio timings, successful validation/typecheck/preview, visual review and safety audit. Cross-platform Reel publishing additionally requires the four Reel platform files to be prepared for the same final reel.
+- never work on `main`
+- never merge/force-push/delete previous work without explicit instruction
+- never weaken tests/validators/locks to make a reel pass
+- fix actual content/integration errors instead

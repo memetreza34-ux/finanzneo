@@ -1,0 +1,38 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+BILD 05 – SZENE 05
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Jahresbetrag Blick.png
+FORMAT: square 1:1 source image
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Erst der Jahresbetrag zeigt die echte Größenordnung.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI financial explainer. A chunky dark-emerald 3D desk calculator with large rounded physical buttons sits in the foreground beside a small cream tag reading `49,95 € / MONAT`. Behind it rises a much larger thick cream annual card with rounded corners and gold trim reading `599,40 € / JAHR`, supported by a compact stack of twelve thick calendar cards fanned behind it. Chunky gold coins increase in size from foreground to background, guiding the eye from monthly to yearly. The annual amount must dominate visually and the meaning must be understood in under two seconds.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI, substantial volumetric forms, smooth rounded geometry, soft bevels, simplified proportions, premium dark emerald polymer and brushed metal, thick cream card surfaces, chunky gold coins, cinematic soft lighting, emerald rim light, strong contact shadows, obvious foreground/midground/background depth, mild depth-of-field, polished editorial render. NOT photorealistic. NOT realistic calculator/paper photography. NOT office photo. NOT clay, Pixar or toy style.
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon line, panels or bands.
+
+SHORT GERMAN OBJECT LABELS ONLY
+`49,95 € / MONAT`
+`599,40 € / JAHR`
+No headline. No subtitle. No explanatory sentence. No CTA.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
+
+NEGATIVE
+No dashboard, no chart UI, no spreadsheet screen, no flat office photo, no board, no realistic stationery photography.
+
+QA
+Reject and regenerate if it does not unmistakably look like premium stylized 3D CGI or if the yearly amount is not immediately dominant.

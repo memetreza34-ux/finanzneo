@@ -1,0 +1,38 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+BILD 15 – SZENE 15
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 15 - Monatsblick Jahresblick.png
+FORMAT: square 1:1 source image
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Monatspreise wirken klein, Jahreskosten zeigen die Wahrheit.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI comparison scene using one continuous physical composition, not UI cards. In the foreground, a tiny rounded cream 3D price tag reads `PRO MONAT` beside a very small stack of chunky gold coins. Behind it, a large oversized premium magnifying glass reveals a much larger thick gold-edged annual tag reading `PRO JAHR` and a substantially larger stylized gold coin pile. Add a compact chunky desk calendar partly behind the annual tag. Use strong size contrast and perspective so the message is understood instantly without explanation.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI, substantial rounded volumes, simplified slightly exaggerated proportions, smooth bevels, thick cream card surfaces, premium emerald polymer/brushed metal, restrained glass, chunky gold coins, cinematic soft key light, emerald rim light, soft contact shadows, clear foreground/midground/background depth, mild depth-of-field, polished editorial render. NOT photorealistic. NOT real stationery photography. NOT office photo. NOT UI. NOT Pixar, clay or toy style.
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon line, panels or bands.
+
+SHORT GERMAN OBJECT LABELS ONLY
+`PRO MONAT`
+`PRO JAHR`
+No headline. No subtitle. No explanatory sentence. No CTA.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
+
+NEGATIVE
+No split-screen UI, no comparison cards, no dashboard, no flat real paper, no product pedestal, no realistic stationery photography.
+
+QA
+Reject and regenerate if the monthly-vs-yearly message is not obvious in under two seconds or the image is not unmistakably premium stylized 3D CGI.

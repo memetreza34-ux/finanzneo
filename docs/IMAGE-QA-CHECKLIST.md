@@ -1,128 +1,132 @@
-# FinanzNeo — Bild-QA-Checkliste
+# FinanzNeo — Bild-QA-Checkliste V9
 
-Diese Checkliste gilt für einzelne Bilder und den gesamten Bildsatz. Bei Widerspruch gilt `CLAUDE.md`.
+Diese Checkliste gilt für einzelne Google-Flow-Bilder und den gesamten Bildsatz. Bei Widerspruch gilt `CLAUDE.md`.
 
 ## 1. Satzgenauigkeit
 
-- [ ] Bild erklärt exakt den zugehörigen gesprochenen Satz.
-- [ ] Problem/Lösung werden nicht vertauscht.
-- [ ] Aussage innerhalb einer Sekunde erkennbar.
-- [ ] Nur eine Hauptaussage pro Bild.
+- [ ] Bild erklärt exakt den zugehörigen gesprochenen Beat.
+- [ ] Nur eine Hauptaussage/Hauptaktion.
+- [ ] Aussage innerhalb ungefähr 1–2 Sekunden verständlich.
+- [ ] Problem/Lösung nicht vertauscht.
 
-## 2. Verbindlicher Bildstil
+## 2. V9-Bildwelt
 
-- [ ] Premium fintech editorial 3D render style.
-- [ ] Deep charcoal green-black Grundwelt.
-- [ ] Emerald/Mint-Akzente konsistent.
+- [ ] `finanzneo-stylized-3d-animated-black-v9` erkennbar.
+- [ ] klar stylized 3D animated, nicht photorealistisch.
+- [ ] soft rounded, vereinfachte erkennbare Details.
+- [ ] hochwertige, saubere Materialien.
+- [ ] keine Produktfoto-/Stockfoto-Optik.
+- [ ] keine Dashboard-/App-UI-/Flowchart-/Diorama-Sprache.
+
+## 3. Hintergrund — harter Pflichtpunkt
+
+- [ ] genau ein nahtloser **deep-black** Hintergrund.
+- [ ] Hintergrund clean und minimal.
+- [ ] keine helle Studiowelt.
+- [ ] keine Boden-Wand-Grenze.
+- [ ] kein Horizont.
+- [ ] keine farbigen Background-Zonen.
+- [ ] keine Aurora/Grid/Partikel-/Glow-Hintergrundoptik.
+
+**Sofort neu erzeugen**, wenn der Hintergrund nicht tiefschwarz und ruhig ist.
+
+## 4. Komposition
+
+- [ ] klares Hauptmotiv oder klare Hauptaktion.
+- [ ] **keine feste Objektanzahl** erzwungen.
+- [ ] jedes Support-Objekt verbessert die Erklärung.
+- [ ] keine Props zum Auffüllen.
+- [ ] Hauptmotiv groß genug für Smartphone.
+- [ ] kein Clutter.
+- [ ] kein kleines technisches Boxen-/Connector-Layout.
+
+## 5. Farben und Licht
+
+- [ ] Emerald nur für Fokus/positiv/bevorzugt.
+- [ ] Ivory/Soft Gray für neutrale Information.
 - [ ] Gold nur für Geld/Wert.
-- [ ] Warmes Rot-Orange nur für Risiko/Verlust/Schulden.
-- [ ] Smooth rounded geometry, soft bevelled edges.
-- [ ] Eine starke Metapher / ein großes Hauptobjekt.
-- [ ] Keine Miniatur-Dioramen, Game-Level, Neon-Tunnel oder Sci-Fi-Korridore.
-- [ ] Same-World-Lock bestanden: Hintergrundmaterial, Lichtsignatur, Geometriesprache, Materialfinish und Farbrollen stimmen mit dem restlichen Bildsatz überein.
+- [ ] Red-Orange nur für Warnung/Kosten/Verlust.
+- [ ] klare Highlights und lesbare Schatten.
+- [ ] Motiv trennt sich deutlich vom schwarzen Hintergrund.
 
-## 3. Hintergrund — kritischer Pflichtpunkt
+## 6. Text und Labels
 
-- [ ] Genau EIN nahtloser Hintergrund von oben bis unten.
-- [ ] Gleicher Material-/Ton-/Gradient-Verlauf über das ganze Bild.
-- [ ] Keine horizontale Trennlinie.
-- [ ] Kein anderes oberes oder unteres Band.
-- [ ] Keine separaten Zonen/Panels.
-- [ ] Keine sichtbare Boden-Wand-Grenze.
-- [ ] Kein sichtbarer Horizont/Studio-Split.
-- [ ] Freie Fläche oberhalb/unterhalb des Motivs entsteht natürlich, ohne Hintergrundwechsel.
+- [ ] keine große Headline.
+- [ ] kein Untertitel.
+- [ ] kein ganzer erklärender Satz.
+- [ ] kein CTA.
+- [ ] nur ausdrücklich erlaubte kurze deutsche Labels.
+- [ ] Labels korrekt geschrieben und am passenden Objekt.
+- [ ] keine zufälligen Zusatztexte.
 
-**Sofort neu erzeugen:** zwei Hintergründe, Tonwertband, Boden-Wand-Kante oder sichtbare horizontale Zone.
+## 7. Marken / Logos
 
-## 4. Person
+Wenn relevant:
 
-Wenn eine Person vorkommt:
+- [ ] Marke inhaltlich nötig.
+- [ ] erkennbar, aber stilisiert in derselben 3D-Welt.
+- [ ] kein flach aufgeklebtes Real-Logo.
+- [ ] kein Website-/App-Screenshot.
+- [ ] keine photorealistische Marken-UI.
+- [ ] keine erfundene Partnerschaft/Empfehlung.
 
-- [ ] Gesicht klar sichtbar.
-- [ ] Augen, Nase und Mund stilisiert erkennbar.
-- [ ] frontal oder natürliche 3/4-Ansicht.
-- [ ] keine reale identifizierbare Person.
-- [ ] keine gesichtslose/blanke Figur.
-- [ ] keine reine Rückenansicht.
+## 8. Format
 
-## 5. Text und Labels
+- [ ] Quellbild `1:1`.
+- [ ] Breite und Höhe identisch.
+- [ ] kein Portrait/Hochformat als Flow-Quelle.
+- [ ] wichtige Motive/Labels nicht am Rand abgeschnitten.
 
-- [ ] Keine große Überschrift im KI-Bild.
-- [ ] Kein Untertitel.
-- [ ] Kein ganzer erklärender Satz.
-- [ ] Nur explizit erlaubte kurze deutsche Objektlabels.
-- [ ] Labels korrekt geschrieben.
-- [ ] Labels direkt am passenden Objekt.
-- [ ] Keine zufälligen Zusatztexte/Fantasiewörter.
+## 9. Remotion-Darstellung
 
-## 6. Marken
+- [ ] 1:1-Quellbild wird im 9:16-Reel mit `contain` dargestellt.
+- [ ] keine unscharfe Kopie des Bildes als Hintergrund.
+- [ ] zentraler Reel-Canvas bleibt statisch `#000000`.
+- [ ] keine Partikel/Aurora/Grid/Glow/Vignette als Remotion-Hintergrund.
+- [ ] Bild selbst ist im visuellen Kern sichtbar.
+- [ ] Header/Caption allein zählen nicht als Bildvisual.
 
-Wenn Marken verwendet werden:
+## 10. Timing und Caption
 
-- [ ] Marke ist inhaltlich relevant.
-- [ ] Name korrekt geschrieben.
-- [ ] keine erfundene Partnerschaft/Empfehlung suggeriert.
-- [ ] keine unnötige Marken-Deko.
+- [ ] Bildbeat ideal 3,5–5,5 s.
+- [ ] absolut max. 6 s.
+- [ ] Schnitt folgt finalem Audio.
+- [ ] aktives Caption-Wort grün, Rest weiß.
+- [ ] max. zwei Caption-Zeilen.
+- [ ] kein Vorgreifen in die nächste Szene.
 
-## 7. Komposition
+## 11. Bildsatz-QA
 
-- [ ] Quellbild ist quadratisch 1:1; Breite und Höhe sind identisch.
-- [ ] Kein Hochformat/Portrait als Google-Flow-Quellbild.
-- [ ] Hauptmotiv groß und smartphone-lesbar.
-- [ ] wenige große unterstützende Elemente.
-- [ ] natürlicher freier Raum oberhalb und unterhalb.
-- [ ] keine Prozent-Zonen im Prompt oder sichtbare Zonen im Ergebnis.
-- [ ] keine Dashboard-/Mini-Panel-Komposition.
-
-## 8. Remotion-Darstellung
-
-- [ ] 1:1-Quellbild wird im 9:16-Reel dargestellt.
-- [ ] Bild mit `contain`.
-- [ ] keine unscharfe Bildkopie als sichtbarer Hintergrund.
-- [ ] Source-Crop oben höchstens 0.20.
-- [ ] Source-Crop unten höchstens 0.20.
-- [ ] Gesamt-Crop höchstens 0.34.
-- [ ] zusätzliche Skalierung höchstens 1.04.
-- [ ] kein Motiv/Label abgeschnitten.
-
-## 9. Timing und Untertitel
-
-- [ ] Bildwechsel am Beginn des zugehörigen Satzes.
-- [ ] genau ein vollständiger Untertitelsatz sichtbar.
-- [ ] aktuelles Wort grün, Rest weiß.
-- [ ] maximal zwei Zeilen.
-- [ ] keine Caption-Lücken.
-
-## 10. Freigabeablauf
-
-1. Einzelbild gegen Satz prüfen.
-2. Hintergrund explizit auf horizontale Bänder/Zonen prüfen.
-3. Person/Gesicht prüfen.
-4. Labels prüfen.
-5. alle Bilder als Kontaktbogen prüfen.
-6. Same-World-Konsistenz des gesamten Kontaktbogens prüfen.
+1. jedes Bild gegen seinen gesprochenen Beat prüfen.
+2. deep-black Hintergrund bei jedem Bild prüfen.
+3. V9-Stil und Clarity prüfen.
+4. Labels/Marken prüfen.
+5. gesamten Bildsatz als Kontaktbogen prüfen.
+6. keine Szene darf sichtbar aus der V9-Welt fallen.
 7. Anfang/Mitte/Ende jeder Bildszene im Render prüfen.
-8. komplette MP4 mit Ton ansehen.
+8. komplette MP4 mit Ton prüfen.
 
-## Sofort neu erzeugen
+## Sofort neu erzeugen / korrigieren
 
-- zwei sichtbare Hintergründe/Bänder
-- Boden-Wand-Grenze/Horizont
-- gesichtslose oder abgewandte Person
-- falsche/zusätzliche Labels
-- große Headline oder Satz
-- Diorama/Game-Level
-- falsche Farbwelt
+- Hintergrund nicht tiefschwarz
+- Realismus/Produktfoto
+- UI/Dashboard/Flowchart
+- Miniatur-Diorama
+- unnötiger Clutter
+- falsche Labels
+- große Headline/Satz
+- Screenshot-/Flat-Logo-Look
 - Bildaussage passt nicht zum Satz
+- Bildbeat >6 s
 
 ## Protokoll
 
 ```text
 Bildsatz-QA: [FREIGEGEBEN / ÜBERARBEITEN / NEU ERSTELLEN]
-Same-World-Lock: [BESTANDEN / NICHT BESTANDEN]
-Seamless Background: [BESTANDEN / NICHT BESTANDEN]
-Gesicht: [BESTANDEN / NICHT BESTANDEN / NICHT RELEVANT]
-Labels: [BESTANDEN / NICHT BESTANDEN]
+V9-World-Lock: [BESTANDEN / NICHT BESTANDEN]
+Deep-Black Background: [BESTANDEN / NICHT BESTANDEN]
+Clarity 1–2 s: [BESTANDEN / NICHT BESTANDEN]
+Labels/Marken: [BESTANDEN / NICHT BESTANDEN]
 Satzgenauigkeit: [BESTANDEN / NICHT BESTANDEN]
-Render-Crops: [BESTANDEN / NICHT BESTANDEN]
+Render-Sichtbarkeit: [BESTANDEN / NICHT BESTANDEN]
 ```

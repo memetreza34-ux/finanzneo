@@ -1,134 +1,174 @@
-# FinanzNeo — verbindliches Bildsystem
+# FinanzNeo — verbindliches Bildsystem V9
 
-Dieses Dokument definiert das Bildsystem für neue FinanzNeo-Reels. Bei Widerspruch gilt `CLAUDE.md`.
+Dieses Dokument gilt für neue FinanzNeo-Reels. Bei Widerspruch gilt `CLAUDE.md`; der maschinenlesbare Lock liegt in `config/finanzneo-image-world-lock.json`.
 
-Verbindlicher Stilanker:
+## Kanonische IDs
 
-- `docs/FINANZNEO-IMAGE-WORLD-V3.md`
-- World ID: `finanzneo-connected-studio-v3`
-- Series Lock ID: `finanzneo-same-world-v1`
-- Google-Flow-Quellbildformat: immer `1:1`
+```text
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+```
+
+Es gibt keinen aktiven V4/V7/V8-Physical-Explainer-Lock mehr. Neue Prompts verwenden ausschließlich V9.
 
 ## Ziel
 
-Jedes Bild erklärt genau eine Aussage durch eine klare visuelle Handlung:
+Jedes Bild erklärt genau eine Aussage innerhalb ungefähr 1–2 Sekunden.
+
+Die Bildwelt ist:
+
+- klar **stylized 3D animated**, nicht realistisch
+- soft rounded, vereinfacht und gut erkennbar
+- hochwertig, sauber und leicht verspielt, aber nicht kindlich
+- inhaltlich klarer als dekorativ
+- über die Serie konsistent, ohne identische Kompositionen zu erzwingen
+
+## Schwarzer Hintergrund — harte Pflicht
+
+Jedes Google-Flow-Quellbild verwendet genau einen nahtlosen tiefschwarzen Hintergrund.
 
 ```text
-Ausgangspunkt → sichtbare Veränderung → verständliches Ergebnis
+Use one seamless deep black background.
+Keep it clean, minimal and uninterrupted.
+No bright studio background.
+No floor-wall boundary.
+No horizon line.
+No colored background zones.
 ```
 
-## Visueller Stil
+Das Motiv wird ausschließlich durch Licht, Material, Highlights und Schatten vom Schwarz getrennt. Keine grünen Hintergrundfelder, keine Aurora, kein Grid und keine dekorativen Hintergrundzonen.
 
-- Premium fintech editorial 3D render style
-- eine dominante Finanzmetapher / ein großes Hauptobjekt
-- optional eine stilisierte erwachsene 3D-Person mit klar sichtbarem Gesicht
-- deep charcoal green-black Grundwelt
-- vivid emerald/mint Akzente
-- Gold nur für Geld/Wert
-- warmes Rot-Orange nur für Risiko/Verlust/Schulden
-- smooth rounded geometry, soft bevelled edges
-- starkes kontrolliertes Rim Light
-- nicht fotorealistisch, kein Pixar/Clay
+## Komposition — keine Objektquote
 
-Diese Merkmale bleiben über den gesamten Bildsatz unverändert. Der Google-Flow-Agent darf Hintergrundmaterial, Lichtsignatur, Geometriesprache, Materialfinish oder Farbrollen zwischen Bildern nicht neu interpretieren.
+Es gibt **keine feste Mindest- oder Höchstzahl** für Objekte.
 
-Das freigegebene Cover `Bild 00` ist die visuelle Stilreferenz für die Serie. Es ist keine Inhaltsvorlage: Motiv, Komposition und Labels werden nicht in Folgebilder übernommen.
+- ein einziges starkes Hauptobjekt kann reichen
+- Support-Objekte nur, wenn sie die Aussage verbessern
+- keine Props zum Auffüllen
+- klare Hauptaktion oder klare visuelle Gegenüberstellung
+- lieber einfach und sofort verständlich als komplex und überladen
 
-## Hintergrund — verbindlich nahtlos
+Damit sind alte Regeln wie `2–5`, `3–6`, `supportingObjectsMin` oder `supportingObjectsMax` für neue Reels ungültig.
 
-**Keine Prozent-Zonen verwenden.**
+## Farbrollen
 
-Das gesamte quadratische 1:1-Bild verwendet genau **einen nahtlosen Hintergrund** von Kante zu Kante.
+- Deep Black = Hintergrund
+- Emerald Green = positiv / bevorzugter Weg / Fokus
+- Warm Ivory + Soft Gray = neutral
+- Gold = Geld / Wert
+- Warm Red-Orange = Warnung / Kosten / Verlust
 
-```text
-Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image.
-Keep the same continuous material, tone and gradient from top edge to bottom edge.
-No horizontal divisions, no top/bottom sections, no bands, no floor-wall boundary, no horizon line, no panels.
-Use only one subtle continuous gradient/vignette.
-Do not create a visible floor, wall or studio horizon.
-Objects may cast soft contact shadows.
-Place the subject near the visual center and leave generous natural empty space above and below without changing the background.
-```
+## Licht und Material
 
-## Person
+- clean soft studio lighting
+- klare Highlights
+- lesbare Schatten
+- gute Trennung vom schwarzen Hintergrund
+- weiche Kontaktschatten
+- sichtbare, aber einfache 3D-Materialität
 
-Wenn eine Person vorkommt:
+Objekte dürfen lokale Materialverläufe und Schatten besitzen. Der **Hintergrund selbst** bleibt clean und schwarz.
 
-- Gesicht klar sichtbar
-- Augen, Nase und Mund erkennbar
-- frontal oder natürliche 3/4-Ansicht bevorzugt
-- keine gesichtslose Figur
-- keine reine Rückenansicht
-- keine reale/identifizierbare Person
+## Marken und Logos
+
+Wenn eine Marke, Bank, App oder ein Logo inhaltlich notwendig ist:
+
+- erkennbar, aber in derselben stylized-3D-Welt interpretiert
+- vereinfachte, abgerundete 3D-Formen
+- gleiche Licht- und Materiallogik wie die restliche Szene
+
+Verboten:
+
+- flach aufgeklebtes Real-Logo
+- Website-/App-Screenshot
+- photorealistische Marken-UI
+- fremder Screenshot als Bildbestandteil
 
 ## Text im KI-Bild
 
 Erlaubt:
 
-- nur explizit vorgegebene kurze deutsche Objektlabels
-- normalerweise 1–3 Wörter
-- direkt am passenden Objekt
+- nur ausdrücklich verlangte kurze deutsche Objektlabels
+- kurze Zahlen/Preise, wenn sie für die Aussage nötig sind
 
 Verboten:
 
 - Headline
 - Untertitel
-- ganzer Satz
+- erklärender Satz
 - CTA
 - zufällige Zusatztexte
-- Fantasiewörter
+- schwebende UI-Badges
 
-## Marken
+## Streng verboten
 
-Reale Marken/Dienste dürfen verwendet werden, wenn sie für die konkrete Erklärung relevant sind. Namen korrekt schreiben; keine erfundene Partnerschaft/Empfehlung suggerieren.
+- Realismus / Photorealismus
+- Produktfoto-/Stockfoto-Look
+- Dashboard / App UI als Komposition
+- Flowchart als Hauptkomposition
+- kleine technische Kästen und dünne Connector-Linien
+- floating Info-Cards / HUD
+- Microchip-/Circuit-Board-Look
+- Miniatur-Diorama
+- unnötiger Clutter
+- helle oder farbige Background-Welt
 
-## Komposition
+## Keine Bildreferenz-Abhängigkeit
 
-- square 1:1 source image
-- Breite und Höhe identisch
-- kein Hochformat/Portrait
-- Hauptmotiv groß und smartphone-lesbar
-- wenige große Hauptelemente
-- ein klarer Ursache-Wirkungs-Zusammenhang
-- großzügige natürliche freie Fläche oberhalb/unterhalb des Motivs
-- keine harte Zonenaufteilung
-- keine Miniatur-Dioramen, Dashboards oder Game-Level
-
-## Darstellung in Remotion
-
-- 1:1-Quellbild im 9:16-Reel
-- `object-fit: contain`
-- keine sichtbare unscharfe Kopie desselben Bildes als Hintergrund
-- Source-Crop oben höchstens `0.20`
-- Source-Crop unten höchstens `0.20`
-- Source-Crop insgesamt höchstens `0.34`
-- zusätzliche Skalierung höchstens `1.04`
-- Motive und Labels nie abschneiden
+Kein vorheriges Reel-Bild wird als Image-to-Image-Referenz benötigt. Konsistenz entsteht über denselben ausgeschriebenen V9-Lock, nicht durch Kopieren des Covers oder einer vorherigen Szene.
 
 ## Timing
 
-Szenenwechsel folgen Satzanfängen aus dem finalen Audio. Gleich lange Szenen sind kein Standard.
+- Bildbeat ideal 3,5–5,5 s
+- absolut max. 6,0 s
+- länger nötig: splitten oder animieren
+- ungefähr 60 % Bild / 40 % Animation als Ziel, Qualität vor Quote
 
-## Pflichtinhalt eines Bildprompts
+## Pflichtinhalt jedes Bildprompts
 
-Jeder Prompt enthält:
+1. exakter finaler Dateiname
+2. konkrete Bildaussage
+3. Hauptmotiv/Hauptaktion
+4. nur notwendige Support-Objekte
+5. V9-Lock
+6. deep-black Hintergrund
+7. Farb-/Lichtlogik
+8. erlaubte kurze Labels
+9. kurze Forbidden-Liste
+10. QA: Aussage in 1–2 Sekunden verständlich
 
-1. finalen Google-Flow-Dateinamen
-2. konkrete erlaubte deutsche Labels
-3. eine dominante Metapher / ein Hauptobjekt
-4. sichtbare Ursache-Wirkung
-5. Premium-Fintech-Editorial-3D-Stil
-6. seamless-background-Regel
-7. Personenregel, falls eine Person vorkommt
-8. Negativregeln
+Einzelprompts bleiben mittel-lang; die eigentliche Bildidee steht vor dem Regelblock.
 
-## Sofort neu erzeugen
+## Google Flow — Strict Single Job
 
-- zwei sichtbare Hintergründe/Bänder
-- horizontale Trennlinie
-- Boden-/Wand-Grenze oder Horizont
-- gesichtslose/abgewandte Person
-- Diorama/Game-Level
-- falsche/zusätzliche Labels
-- große Headline oder Satz
-- Aussage passt nicht zum Voiceover
+```text
+GENAU EIN Bild erzeugen
+→ vollständig warten
+→ sofort exakt umbenennen
+→ V9-QA
+→ bei Fehler dieselbe Bildnummer neu
+→ erst nach PASS nächstes Bild
+```
+
+Kein Batch, kein paralleles Queueing, kein späteres Sammel-Umbenennen und kein Nutzer-„weiter“.
+
+## QA
+
+Neu erzeugen, wenn:
+
+- Hintergrund nicht tiefschwarz ist
+- Bild realistisch/produktfotoartig wirkt
+- Aussage nicht sofort verständlich ist
+- unnötige Objekte oder Clutter auftauchen
+- Dashboard/UI/Flowchart/Diorama entsteht
+- Labels falsch sind
+- Marken wie echte Screenshots/aufgeklebte Logos wirken
+
+Technische Prüfung:
+
+```bash
+npm run validate:image-world
+npm run reel:validate -- <Reel-Pfad>
+```

@@ -9,6 +9,7 @@ const allowedRegistryFiles = new Set([
   'src/root/ExperimentCompositions.tsx',
   'src/root/ShowcaseCompositions.tsx',
 ]);
+const productionRegistry = 'src/root/ProductionCompositions.tsx';
 
 const walk = (directory) =>
   readdirSync(directory).flatMap((entry) => {
@@ -57,6 +58,31 @@ for (const [id, files] of byId) {
   }
 }
 
+// Produktions-Registry ist eine Freigabeliste, keine Demo-Sammlung.
+// Pre-V9-/Legacy-Reels dürfen dort nicht wieder auftauchen. Sie bleiben in
+// ExperimentCompositions sichtbar, bis ein aktuelles Reel den vollständigen
+// Phase-3-Fertigkeitsweg bestanden hat.
+const productionPath = resolve(productionRegistry);
+const productionSource = stripComments(readFileSync(productionPath, 'utf8'));
+for (const [pattern, label] of [
+  [/\bLegacy[A-Za-z0-9_]*/, 'Legacy-Komponente/-ID'],
+  [/einlagensicherung-100000/i, 'pre-V9 Einlagensicherung-Reel'],
+  [/<Background\b[^>]*(?:grid|glow)/, 'Legacy Background mit Grid/Glow'],
+  [/<Vignette\b/, 'Legacy Vignette'],
+  [/FNBg(?:Aurora|Particles|Grid|Radial)/, 'dekorativer FNBg-Hintergrund'],
+]) {
+  if (pattern.test(productionSource)) {
+    errors.push(`${productionRegistry} enthält verbotene Produktionsreferenz: ${label}.`);
+  }
+}
+
+const productionRegistrations = registrations.filter((entry) => entry.file === productionRegistry);
+for (const registration of productionRegistrations) {
+  if (/legacy|demo|test|mock|experiment/i.test(registration.id)) {
+    errors.push(`Production-Composition-ID "${registration.id}" sieht nach Legacy/Demo/Test aus.`);
+  }
+}
+
 if (errors.length > 0) {
   console.error('\nComposition-Validierung fehlgeschlagen:\n');
   for (const error of errors) console.error(`- ${error}`);
@@ -72,3 +98,4 @@ console.log(`\n✓ ${registrations.length} eindeutige Composition-IDs gefunden.`
 for (const [file, count] of Object.entries(counts)) {
   console.log(`  ${count.toString().padStart(2, ' ')} · ${file}`);
 }
+console.log(`✓ ${productionRegistry} enthält keine Legacy-/Demo-/dekorativen Background-Referenzen.`);

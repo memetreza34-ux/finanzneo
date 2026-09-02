@@ -1,0 +1,39 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+BILD 06 – SZENE 06
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 06 - Kontoauszug Lupe.png
+FORMAT: square 1:1 source image
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Regelmäßige Abbuchungen im Kontoauszug sichtbar machen.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI editorial render. The hero is a thick cream 3D statement ribbon with rounded edges, curled in a broad S-shape through the scene like a sculpted card strip, not thin paper. An oversized premium magnifying glass with a dark-emerald rounded handle rests over one section. Under the lens, one warm red-orange embossed cost tag `9,99 €` and a short label `ABO` become larger and clearer. Add two chunky gold coins and one emerald binder clip as supporting props. The viewer must immediately understand `check the statement`.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI, sculpted thick card surfaces, chunky simplified proportions, smooth bevels, premium emerald polymer, brushed metal and restrained glass, modeled gold coins, cinematic soft key light, emerald rim light, soft contact shadows, clear foreground/midground/background depth and mild depth-of-field. NOT photorealistic. NOT real bank-statement photography. NOT office photo. NOT Pixar, clay or toy style.
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon line, panels or bands.
+
+SHORT GERMAN OBJECT LABELS ONLY
+`ABO`
+`9,99 €`
+`PRÜFEN`
+No headline. No subtitle. No explanatory sentence. No CTA.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
+
+NEGATIVE
+No banking app, no phone UI, no flat realistic statement, no dashboard, no digital screen, no interface frame, no realistic stationery photography.
+
+QA
+Reject and regenerate if the statement looks like real paper photography or the image does not unmistakably look like premium stylized 3D CGI.

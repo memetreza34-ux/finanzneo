@@ -1,74 +1,163 @@
 # FinanzNeo — verbindlicher 3-Phasen-Workflow
 
-> Bei Widersprüchen gilt `CLAUDE.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Layout/Captions/Transition kommen technisch aus `REEL_STYLE`.
 
-## Phase 1 — ChatGPT bereitet alles vor
+## Phase 1 — ChatGPT
 
-Normales ChatGPT erstellt im Reel-Ordner vollständig:
+Phase 1 liefert vollständig:
 
-- Recherche, Quellen und Datenstand
-- geprüftes 60–90-Sekunden-Skript
-- Hook, Dramaturgie und Szenenplan
-- Bild-/Remotion-Zuordnung
-- Cover- und Bildprompts für Google Flow
-- exakte endgültige Dateinamen nach echten Szenennummern
-- Remotion-Spezifikationen
-- Master-Caption und Texte für Instagram Reels, TikTok, Facebook Reels und Snapchat
+- Recherche + Quellen
+- geprüftes szenenweises 60–90-Sekunden-Skript
+- Dramaturgie und Szenenplan
+- natürliche Header + Icons
+- Bild-/Animations-Zuordnung
+- V9-Flow-Prompts + exakte Dateinamen
+- pro Animationsszene `remotion.md` + **produktionsreife `animation.tsx`**
+- Master- und Plattform-Captions
 
-In Phase 1 bleiben keine Platzhalter in diesen Inhalten. ChatGPT erzeugt keine finalen Bilder und kein Ersatz-Voiceover.
+Phase 1 besitzt die kreative Animation. Phase 3 darf nichts Fehlendes erfinden oder durch einen technisch leichteren Hack ersetzen.
 
-## Phase 2 — Nutzer erstellt Bilder und Audio
-
-1. Jedes Cover-/Szenenbild einzeln mit Google Flow erzeugen.
-2. Dem Google-Flow-KI-Agenten ausschließlich `03-szenen/alle-bildprompts.txt` übergeben.
-3. Agent strikt arbeiten lassen: genau ein Bild → vollständig warten → sofort exakt umbenennen → Same-World- und Bild-QA → erst dann nächstes Bild.
-   Jedes erzeugte Bild muss quadratisch `1:1` sein; nicht `9:16`.
-4. Bei einem Fehler dieselbe Bildnummer neu erzeugen; niemals parallel oder als Batch fortfahren.
-5. Das bestandene Cover `Bild 00` als reine Stilreferenz für alle Folgebilder verwenden; keine Motive oder Labels daraus kopieren.
-6. Alle Bilder gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/` ablegen.
-7. Genau ein finales Voiceover in `02-audio/` ablegen.
-8. Aus genau diesem Audio echte Wort-Zeitstempel erzeugen:
-
-```bash
-python3 scripts/captions.py \
-  reels/<Woche>/<Tag>/<Reel>/02-audio/<audio>.mp3 \
-  reels/<Woche>/<Tag>/<Reel>/04-caption/word-timings.json
-```
-
-## Phase 3 — Antigravity baut autonom
-
-Der Auftrag lautet:
+Bildwelt V9:
 
 ```text
-Mach das Reel: reels/<Woche>/<Tag>/<Reel>
+finanzneo-stylized-3d-animated-black-v9
 ```
 
-Antigravity führt zuerst aus:
+- nicht realistische stylized 3D animated Welt
+- soft rounded shapes, vereinfachte erkennbare Details
+- premium + leicht verspielt
+- tiefschwarzer Hintergrund Pflicht
+- Klarheit/Inhalt vor Objektzahl; keine feste Quote
+- mittel-lange Prompts
+- Marken/Logos erkennbar, aber stilisiert; kein flach aufgeklebtes Real-Logo/Screenshot
+
+## Phase 2 — Nutzer
+
+1. `03-szenen/alle-bildprompts.txt` verwenden.
+2. Strict Single Job: **ein Bild → warten → exakt umbenennen → QA → nächstes Bild**.
+3. Cover und Szenenbilder bleiben `1:1`.
+4. Keine Bildreferenz verwenden.
+5. Alle finalen Bilder gemeinsam nach `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
+6. Genau ein finales Voiceover nach `02-audio/`.
+7. Aus exakt diesem Audio echte Wort-Timings erzeugen.
+
+## Phase 3 — integrieren, nicht neu erfinden
+
+Erster Befehl immer:
 
 ```bash
-npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
+npm run reel:ready -- <Reel-Pfad>
 ```
 
-Wenn die Prüfung erfolgreich ist, startet Antigravity ohne Rückfragen und ohne Zwischenstopps:
+Bei FAIL: STOP und exakte Blocker melden. Keine Ersatzassets erzeugen.
 
-1. Bilder technisch synchronisieren
-2. Timeline aus dem finalen Audio ableiten
-3. Remotion-Szenen, Überschriften und Karaoke-Untertitel bauen
-4. Validator, Tests und Typecheck ausführen
-5. Preview und finale MP4 rendern
-6. Frames, Bildsatz, Ton und Lautheit prüfen
+Bei PASS werden die Phase-1-Animationen per SHA-256 versiegelt.
 
-Antigravity trifft normale gestalterische und technische Detailentscheidungen selbstständig nach den Repo-Regeln.
+`phase3Executor` entscheidet den Executor:
+
+| Wert | Executor |
+|---|---|
+| `antigravity` | Antigravity |
+| `claude-code` | Claude Code |
+
+Der falsche Executor darf nicht übernehmen.
+
+### Phase-3-Reihenfolge
+
+```bash
+npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
+# jede Szene implementieren + Manifest vervollständigen
+npm run reel:phase3:preflight -- <Reel-Pfad>
+npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
+npm run reel:export -- <Reel-Pfad> <Final-MP4>
+```
+
+### Bildszene
+
+- exaktes Nutzerbild sichtbar rendern
+- kein Ersatzbild/Stock/Placeholder
+- Header/Captions allein zählen nicht
+
+### Animationsszene
+
+- exakte `animationSourceFile` verwenden
+- exakten `animationExport` binden
+- Hash muss Phase-1-Seal entsprechen
+- fehlendes Binding = harter Fehler
+- keine Ersatzanimation, kein Dummy, kein QA-Wackeln
+
+### Pure-Black-Canvas
+
+Der Remotion-Reel-Hintergrund ist **immer statisch `#000000`**.
+
+Verboten:
+
+- `FNBgAurora`
+- `FNBgParticles`
+- `FNBgGrid`
+- `FNBgRadial`
+- Partikel
+- Aurora/Glow-Hintergründe
+- bewegte Grids
+- dekorative Hintergrund-Gradienten/Vignetten
+- Hintergrundbewegung als Ersatz für Szenenanimation
+
+### Finales V5-Layout
+
+```text
+Header:     Y154 · 56 px · min. 50 px · max. 2 Zeilen
+Icon:       34 px · semantische Farbe
+Visual:     Y320–1400
+Caption:    bottom340 · 50 px · max. 2 Zeilen
+Transition: 3 Frames
+```
+
+`AnimationStage` clippt sichtbare Animationen hart auf **Y320–1400**. Kein Animationsinhalt darf sichtbar in Header oder Caption-Zone laufen.
+
+Keine Header-Capsule/Chip/Pill und kein erzwungenes ALL CAPS.
+
+## Hard Completion Gate
+
+Eine MP4 allein ist kein fertiges Reel.
+
+Preflight prüft unter anderem Assets, Timeline, Animation-Seal/Bindings und den Background-Vertrag.
+
+`reel:render` erzeugt zuerst einen Candidate. Post-Render-QA prüft pro Szene:
+
+- visueller Kern tatsächlich belegt
+- Bildszene nicht leer/caption-only
+- Animationsszene sichtbar + echte Veränderung
+- Animation erklärt den gesprochenen Inhalt
+- ausreichend aktive Visualfläche
+- freier Rand bleibt schwarz
+- keine Partikel/Aurora/Grid-Hintergrundeffekte
+- Audio vorhanden
+- 1080×1920 + korrekte Timeline
+
+Schwarzes/leeres Reel = **FAIL**, nicht „fertig“.
 
 ## Einzige zulässige Stopps
 
-Phase 3 stoppt nur bei einem echten Blocker und meldet alle Blocker gesammelt und mit exaktem Pfad:
+- fehlendes/falsch benanntes Nutzerbild
+- fehlendes/mehrfaches/unlesbares Audio
+- ungültige Wort-Timings
+- unvollständige Phase-1-Datei
+- fehlende/nicht produktionsreife Animation
+- veränderter Animation-Hash
+- fehlendes/falsches Animation-Binding
+- Fakten-/Sicherheitskonflikt
+- Preflight/Build/Render/Render-QA schlägt fehl
 
-- fehlendes oder falsch benanntes Nutzerbild
-- fehlendes, mehrfaches oder unlesbares finales Audio
-- fehlende oder nicht zum Audio passende Wort-Zeitstempel
-- unvollständige Phase-1-Datei oder widersprüchlicher Szenenindex
-- verletzter Finanz-, Sicherheits- oder Quellenvertrag
-- nicht selbst lösbarer Validator-, Build- oder Renderfehler
+## Final
 
-Keine Rückfragen zu Geschmack, Übergängen, Layoutvarianten oder bereits durch das Repo entschiedenen Standards.
+```text
+reel:ready PASS
+→ Manifest READY_TO_RENDER
+→ preflight PASS
+→ Candidate render SUCCESS
+→ post-render QA PASSED
+→ reel:export PASS
+→ 06-export vollständig
+```
+
+Erst dann darf `FINAL_COMPLETE` gemeldet werden.

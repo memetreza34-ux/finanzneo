@@ -1,0 +1,39 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+
+BILD 14 – SZENE 14
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 14 - Drei Vertragsfragen.png
+FORMAT: square 1:1 source image
+
+CREATE EXACTLY ONE IMAGE.
+
+MAIN IDEA
+Jeden Vertrag mit drei direkten Fragen prüfen.
+
+SCENE
+Create a CLEARLY STYLIZED premium 3D CGI editorial scene. A chunky open contract folder with thick warm-cream card-like pages and a dark-emerald rounded cover is the hero object. Around it, three large stylized 3D tools form a natural triangle without looking like modules: an oversized magnifying glass for usage, a compact balance scale holding chunky gold coins for annual cost, and a chunky desk calendar for billing frequency. Attach three thick cream question tags directly to these tools: `NUTZE ICH ES?`, `PRO JAHR?`, `WIE OFT?`. Add one emerald stamp and a premium pen for depth. The three-question logic must be immediately readable.
+
+FULL STYLE LOCK
+Clearly stylized premium 3D CGI, chunky substantial props, thick card surfaces, smooth rounded edges, soft bevels, simplified slightly exaggerated proportions, premium emerald polymer/brushed metal, restrained glass, chunky gold coins, cinematic soft key light, emerald rim light, strong contact shadows, clear foreground/midground/background depth and mild depth-of-field. NOT photorealistic contract/stationery photo. NOT office photography. NOT UI. NOT Pixar, clay or toy style.
+
+BACKGROUND
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon line, panels or bands.
+
+SHORT GERMAN OBJECT LABELS ONLY
+`NUTZE ICH ES?`
+`PRO JAHR?`
+`WIE OFT?`
+No headline. No subtitle. No explanatory sentence. No CTA.
+
+PERSON RULE
+Prefer no person. If any stylized adult appears unexpectedly, the face must be clearly visible with eyes, nose and mouth.
+
+NEGATIVE
+No inspection gate, no conveyor, no checklist UI, no dashboard, no three-card layout, no flat real paperwork, no realistic stationery photography.
+
+QA
+Reject and regenerate if it resembles a real contract photo, modular UI or machine instead of a clear premium stylized 3D CGI scene.

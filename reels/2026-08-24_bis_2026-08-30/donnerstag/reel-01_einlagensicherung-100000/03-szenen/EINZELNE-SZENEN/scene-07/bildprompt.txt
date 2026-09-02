@@ -1,0 +1,14 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+STYLIZED_3D_LOCK: finanzneo-stylized-3d-editorial-v5
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Zwei Banken getrennt.png
+Create a square 1:1 source image only.
+
+Create exactly one image. Two large distinct stylized 3D bank buildings at different sides, clearly separate. Each has its own emerald shield `100.000 €` and its own gold coin deposit group. Keep a clear gap between the legal bank entities.
+
+Labels only: `BANK A`, `BANK B`, `100.000 € JE BANK`.
+Use ONE single seamless continuous deep charcoal green-black background across the entire square 1:1 image. No floor-wall boundary, horizon, panels or bands.
+No headline. No subtitle. No explanatory sentence. If a person appears, face clearly visible. Not photorealistic. No realistic office photo, dashboard, UI, gameboard, module ring, microchip world, tiny isometric diorama, Pixar or clay.
