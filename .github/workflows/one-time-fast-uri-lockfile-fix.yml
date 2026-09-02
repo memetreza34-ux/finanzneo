@@ -30,10 +30,42 @@ jobs:
       - name: Regression-Baseline vor Änderung prüfen
         run: node scripts/check-reel-regression-baseline.mjs
 
-      - name: Nur fast-uri im Lockfile aktualisieren
-        run: npm update fast-uri --package-lock-only --ignore-scripts --no-audit
+      - name: Nur fast-uri 3.1.6 im Lockfile patchen
+        shell: bash
+        run: |
+          node <<'NODE'
+          const {execFileSync} = require('node:child_process');
+          const fs = require('node:fs');
 
-      - name: Beweisen, dass nur fast-uri im Lockfile geändert wurde
+          const lockPath = 'package-lock.json';
+          const lock = JSON.parse(fs.readFileSync(lockPath, 'utf8'));
+          const key = 'node_modules/fast-uri';
+          const current = lock.packages?.[key];
+          if (!current) {
+            throw new Error(`${key} fehlt im Lockfile.`);
+          }
+          if (current.version !== '3.1.5') {
+            throw new Error(`Unerwartete Ausgangsversion von fast-uri: ${current.version}`);
+          }
+
+          const dist = JSON.parse(
+            execFileSync('npm', ['view', 'fast-uri@3.1.6', 'dist', '--json'], {encoding: 'utf8'}),
+          );
+          if (!dist?.tarball || !dist?.integrity) {
+            throw new Error('npm lieferte keine vollständigen Dist-Metadaten für fast-uri@3.1.6.');
+          }
+
+          lock.packages[key] = {
+            ...current,
+            version: '3.1.6',
+            resolved: dist.tarball,
+            integrity: dist.integrity,
+          };
+          fs.writeFileSync(lockPath, `${JSON.stringify(lock, null, 2)}\n`);
+          console.log(`fast-uri: ${current.version} -> ${lock.packages[key].version}`);
+          NODE
+
+      - name: Beweisen, dass semantisch nur fast-uri geändert wurde
         shell: bash
         run: |
           node <<'NODE'
@@ -69,7 +101,7 @@ jobs:
             process.exit(1);
           }
 
-          console.log('OK: Ausschließlich node_modules/fast-uri wurde auf 3.1.6 aktualisiert.');
+          console.log('OK: Semantisch wurde ausschließlich node_modules/fast-uri auf 3.1.6 geändert.');
           NODE
 
       - name: Setup und Lockfile prüfen
@@ -104,7 +136,7 @@ jobs:
           git add package-lock.json .github/workflows/one-time-fast-uri-lockfile-fix.yml
           CHANGED="$(git diff --cached --name-only)"
           printf '%s\n' "$CHANGED"
-          if [ "$CHANGED" != "package-lock.json" ] && [ "$CHANGED" != $'.github/workflows/one-time-fast-uri-lockfile-fix.yml\npackage-lock.json' ]; then
+          if [ "$CHANGED" != $'.github/workflows/one-time-fast-uri-lockfile-fix.yml\npackage-lock.json' ]; then
             echo "Unerwartete Dateien im Commit. Abbruch."
             exit 1
           fi
