@@ -62,7 +62,7 @@
     "@remotion/lottie": "4.0.514",
     "@remotion/media-utils": "4.0.514",
     "@remotion/motion-blur": "4.0.514",
-    "@remotion/paths": "4.0.514",
+    "@remotion/paths": "4.0.518",
     "@remotion/shapes": "4.0.514",
     "@remotion/three": "4.0.514",
     "@remotion/transitions": "4.0.514",
