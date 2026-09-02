@@ -1,0 +1,88 @@
+name: Future Reel V3 Guard Once
+
+on:
+  push:
+    branches:
+      - repo/future-reels-v3-timing-audio-motion
+    paths:
+      - '.github/workflows/tmp-future-v3-guard.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-future-v3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: repo/future-reels-v3-timing-audio-motion
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prove existing week reels were not edited
+        run: |
+          git diff --exit-code origin/reel/mittwoch-geld-am-monatsende -- \
+            reels/2026-08-31_bis_2026-09-06/montag \
+            reels/2026-08-31_bis_2026-09-06/dienstag \
+            reels/2026-08-31_bis_2026-09-06/mittwoch
+
+      - name: Validate Monday backward compatibility
+        run: npm run reel:validate -- reels/2026-08-31_bis_2026-09-06/montag/reel-01_girokonto-oder-tagesgeld
+
+      - name: Validate Tuesday backward compatibility
+        run: npm run reel:validate -- reels/2026-08-31_bis_2026-09-06/dienstag/reel-02_konto-im-minus
+
+      - name: Validate Wednesday backward compatibility
+        run: npm run reel:validate -- reels/2026-08-31_bis_2026-09-06/mittwoch/reel-03_geld-am-monatsende
+
+      - name: Test Future V3 source contract on isolated fixture
+        run: |
+          FIXTURE="$RUNNER_TEMP/finanzneo-v3-fixture"
+          mkdir -p "$FIXTURE/03-szenen" "$FIXTURE/05-projektdateien"
+          cat > "$FIXTURE/03-szenen/scene-index.json" <<'JSON'
+          {
+            "video": {"fps": 30},
+            "layout": {"visualTop": 320, "visualBottom": 1400},
+            "visualBeatContract": {"id": "finanzneo-visual-beats-v2", "staticImageBeatIdealSeconds": [1.8, 3.2], "staticImageBeatHardMaxSeconds": 4.2},
+            "timingStandard": {"imageSceneIdealSeconds": [1.8, 3.2], "imageSceneAbsoluteMaxSeconds": 4.2},
+            "audio": {"targetIntegratedLufs": -16, "targetTruePeakDbtp": -1},
+            "scenes": [
+              {"id": "scene-01", "type": "image", "plannedDurationSeconds": 3.0, "targetSeconds": 3.0},
+              {"id": "scene-02", "type": "animation", "startFrame": 0, "durationFrames": 60, "plannedDurationSeconds": 2.0, "targetSeconds": 2.0}
+            ]
+          }
+          JSON
+          node scripts/apply-future-production-standard-v3.mjs "$FIXTURE"
+          node scripts/validate-future-production-standard-v3.mjs "$FIXTURE"
+
+      - name: Test Future V3 audio mastering and real render occupancy
+        run: |
+          FIXTURE="$RUNNER_TEMP/finanzneo-v3-fixture"
+          VIDEO="$FIXTURE/candidate.mp4"
+          ffmpeg -y -hide_banner -loglevel error \
+            -f lavfi -i "color=c=black:s=1080x1920:r=30:d=2" \
+            -f lavfi -i "sine=frequency=440:sample_rate=48000:duration=2" \
+            -filter_complex "[0:v]drawbox=x=200:y=450:w=680:h=650:color=white:t=fill[v];[1:a]volume=0.03[a]" \
+            -map "[v]" -map "[a]" -c:v libx264 -pix_fmt yuv420p -c:a aac -b:a 192k "$VIDEO"
+          node scripts/normalize-future-reel-audio-v3.mjs "$FIXTURE" "$VIDEO"
+          node scripts/validate-future-production-render-v3.mjs "$FIXTURE" "$VIDEO"
+
+      - name: Full repository validation
+        run: npm run validate
+
+      - name: Remotion bundle
+        run: npm run build
+
+      - name: Render smoke test
+        run: npm run smoke
