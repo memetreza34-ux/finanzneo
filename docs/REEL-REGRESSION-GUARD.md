@@ -27,6 +27,24 @@ Aktuell geschützt:
 
 Neue Produktionsordner und neue Reels außerhalb der geschützten Ordner bleiben erlaubt. Der Guard verändert weder `reel:create` noch Bildwelt, Animationen, Audio, Timing, Phase 3, Render-QA oder Export.
 
+## Validierter Security-Fix vom 2. September 2026
+
+Während der Einführung des Guards meldete `npm audit --audit-level=high` eine bestehende High-Severity-Schwachstelle in der transitiven Abhängigkeit `fast-uri` 3.1.5.
+
+Der Lockfile-Fix wurde absichtlich minimal gehalten:
+
+- `fast-uri` wurde von 3.1.5 auf 3.1.6 aktualisiert.
+- Ein semantischer Lockfile-Vergleich bestätigte, dass ausschließlich `node_modules/fast-uri` geändert wurde.
+- `npm ci` lief danach reproduzierbar durch.
+- `npm audit --audit-level=high` meldete 0 Schwachstellen.
+- `npm run validate` bestand vollständig, einschließlich 68/68 Tests.
+- das Remotion-Bundle wurde erfolgreich erstellt.
+- der Smoke-Test renderte 56/56 registrierte Compositions fehlerfrei.
+- die Regression-Baseline war sowohl vor als auch nach allen Prüfungen unverändert.
+- der komplette `reels/`-Tree blieb auf `f9e23de75a6157cfcb8811d5ddcee6df4cc16223`.
+
+Der dafür verwendete einmalige Schreib-Workflow wurde nach erfolgreicher Prüfung wieder aus dem Branch entfernt.
+
 ## Absichtliche Änderung eines geschützten Reels
 
 Eine Baseline darf nicht nebenbei angepasst werden, nur damit CI wieder grün wird. Wenn ein geschütztes Reel wirklich geändert werden soll:
