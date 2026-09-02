@@ -43,7 +43,7 @@ Der Lockfile-Fix wurde absichtlich minimal gehalten:
 - die Regression-Baseline war sowohl vor als auch nach allen Prüfungen unverändert.
 - der komplette `reels/`-Tree blieb auf `f9e23de75a6157cfcb8811d5ddcee6df4cc16223`.
 
-Der dafür verwendete einmalige Schreib-Workflow wurde nach erfolgreicher Prüfung wieder aus dem Branch entfernt.
+Der dafür verwendete einmalige Schreib-Workflow wurde nach erfolgreicher Prüfung wieder aus dem Branch entfernt. Anschließend bestand auch der normale PR-Workflow `FinanzNeo Validate` auf dem endgültigen Branchzustand vollständig.
 
 ## Absichtliche Änderung eines geschützten Reels
 
