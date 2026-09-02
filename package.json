@@ -59,7 +59,7 @@
   "dependencies": {
     "@react-three/fiber": "^8.18.0",
     "@remotion/cli": "4.0.514",
-    "@remotion/lottie": "4.0.514",
+    "@remotion/lottie": "4.0.518",
     "@remotion/media-utils": "4.0.514",
     "@remotion/motion-blur": "4.0.514",
     "@remotion/paths": "4.0.514",
