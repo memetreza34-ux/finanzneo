@@ -140,5 +140,5 @@ jobs:
             echo "Unerwartete Dateien im Commit. Abbruch."
             exit 1
           fi
-          git commit -m "Fix fast-uri audit finding"
+          FINANZNEO_ALLOW_PROTECTED_CHANGES=1 git commit -m "Fix fast-uri audit finding"
           git push origin HEAD:repo/regression-guard-working-reels
