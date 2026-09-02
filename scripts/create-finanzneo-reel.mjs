@@ -3,7 +3,8 @@
 // Legt ein neues Reel atomar an: Grundgerüst + Google-Flow-Lock +
 // Stylized 3D Animated Black World V9 + Phase-3-Fertigkeitsvertrag + Reel-V5-Layout +
 // kanonischer Phase-1-Animationscode + Cinematic Real-World Animation Contract +
-// scene-01-als-Cover + Future Cover Hook V2 + Image Storytelling V2 + Visual Beats V2 + automatischer Finalexport.
+// scene-01-als-Cover + Future Cover Hook V2 + Image Storytelling V2 + Visual Beats V2 +
+// Future Production V3 (Timing, Animationsframing, Audio-Mastering) + automatischer Finalexport.
 // Scheitert einer der Schritte, wird ein in diesem Lauf neu erzeugter Reel-Ordner
 // vollständig zurückgerollt. Bestehende Reels werden durch diesen Creator nie nachträglich verändert.
 
@@ -55,6 +56,9 @@ const steps = [
   // Image Storytelling seinen Block sicher in dieselbe Datei einhängen.
   ['scripts/apply-future-cover-hook-v2.mjs', [target]],
   ['scripts/apply-future-image-storytelling-v2.mjs', [target]],
+  // Letzter Future-Layer: verschärft nur neue Reels. Alte Reels besitzen den
+  // Marker nicht und bleiben bei Validator/Render vollständig unverändert.
+  ['scripts/apply-future-production-standard-v3.mjs', [target]],
 ];
 
 for (const [script, scriptArgs] of steps) {
@@ -70,11 +74,12 @@ console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob · kei
 console.log('  Bildwelt V9 + Storytelling V2: Alltag/Handlung/Konsequenz zuerst · keine stumpfen Symbolbilder.');
 console.log('  Cover Hook V2: scene-01 = Hero-Bild + exakter Reel-Titel ab Frame 0 · keine Untertitel · kein Standard-Header-Icon.');
 console.log('  Cover-Export V2: finaler Frame 0 der geprüften MP4, damit die Remotion-Titeltypografie im Cover enthalten ist.');
-console.log('  Visual Beats V2: Szenenzahl flexibel · 1 gesprochener Gedanke = 1 sichtbarer Beat · zusätzliche Bilder ausdrücklich erlaubt.');
-console.log('  Timing: statische Bilder ideal 1,8–3,2 s und ohne neue sichtbare Information max. 4,2 s; echte Wortzeiten entscheiden final.');
+console.log('  Visual Beats V2 + Future V3: Szenenzahl flexibel · 1 Gedanke = 1 sichtbarer Beat · zusätzliche Bilder ausdrücklich erlaubt.');
+console.log('  Timing V3: statische Bilder ideal 1,8–3,0 s · ab 3,6 s Split prüfen · ohne neue sichtbare Information max. 4,0 s.');
 console.log('  Layout V5: Header Y154 · 56 px · max. 2 Zeilen · Visual Y320–1400 · Captions bottom340 ab scene-02.');
 console.log('  Animation Safe Zone: hart Y320–1400 · kein Eindringen in Header/Caption.');
-console.log('  Animation: reale stylized-3D-Situation · eigene MECHANIC_ID · physische Ursache/Wirkung · keine Karten-/Balken-Ersatzanimation.');
+console.log('  Animation V3: reale stylized-3D-Situation · physische Ursache/Wirkung · Hauptmechanik größer/füllender · Occupancy-QA im echten Render.');
+console.log('  Audio V3: Candidate wird vor Render-QA automatisch auf -16 LUFS / -1 dBTP gemastert.');
 console.log('  Phase 1 muss jede placeholder animation.tsx individuell zum Sprechpunkt produktionsreif ausarbeiten; der Validator blockiert generische Ersatzmechaniken.');
-console.log('  Phase 3: MP4 allein gilt nicht als fertig · Frame-0-Cover-QA + jede Szene braucht Visual · Post-Render-QA + Hash-Gate vor Export.');
-console.log('  Rückwärtskompatibilität: Diese V2-Verträge gelten nur für neu mit reel:create angelegte Reels.');
+console.log('  Phase 3: MP4 allein gilt nicht als fertig · Frame-0-Cover-QA + jede Szene braucht Visual · Post-Render-QA + Future-V3-QA + Hash-Gate vor Export.');
+console.log('  Rückwärtskompatibilität: Future Production V3 gilt nur für neu mit reel:create angelegte Reels.');
