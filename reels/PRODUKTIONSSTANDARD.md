@@ -42,12 +42,13 @@ Kein Agent ersetzt oder generiert diese Flow-Bilder oder das Haupt-Voiceover eig
 
 ## 3. Visual Beats und Timing
 
-VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
+VISUAL_BEAT_COMPATIBILITY_BASE: finanzneo-visual-beats-v1
+FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 
 - Szenenzahl ist frei und themenabhängig.
 - Erst gesprochene Gedanken definieren, dann pro Gedanken einen sichtbaren Beat planen, danach Szenen gruppieren.
 - Ein Satz darf ein eigenes Bild erhalten; zwei Aussagen/Aktionen/Beispiele in einem Satz dürfen in zwei Beats geteilt werden.
-- Statische Bildbeats ideal 1,8–3,4 s und ohne neue sichtbare Information maximal 4,5 s.
+- Kompatibilitätsbasis älterer Reels: Bildbeats ideal 1,8–3,4 s und max. 4,5 s. **Neue Future-V3-Reels:** ideal 1,8–3,0 s; ab 3,6 s aktiv Split/zusätzliches Bild prüfen; ohne neue sichtbare Information hart maximal 4,0 s.
 - Mehrere Bildszenen nacheinander sind erlaubt, wenn jede die Erklärung sichtbar fortsetzt.
 - Animationen müssen während ihrer Laufzeit mehrere sichtbare Zustände durchlaufen; reine Kamera-Bewegung zählt nicht als neuer Beat.
 - Finale Schnitte folgen den echten Wort-Zeitstempeln des Nutzer-Voiceovers.
@@ -86,7 +87,7 @@ Animationsszenen sind kleine visuelle Geschichten:
 START → TRIGGER → PHYSISCHE AKTION → REAKTION → ERGEBNIS → RESULT HOLD
 ```
 
-Pflicht sind konkrete Realwelt-Objekte, sichtbare Ursache/Wirkung, mehrere koordinierte Motion-Channels und mindestens 15 Frames Ergebnis-Hold. Remotion bleibt Timeline-/Render-Autorität. Three/R3F, Paths, Shapes, Motion Blur und Lottie sind Support-Werkzeuge, keine Ersatzmechanik. Kartenreihen, Flowcharts, Dashboard-UI, Fortschrittsbalken als Hauptgeschichte, Partikel/Aurora/Grid-Hintergründe und Debug-/Wackel-Hacks sind verboten.
+Pflicht sind konkrete Realwelt-Objekte, sichtbare Ursache/Wirkung, mehrere koordinierte Motion-Channels und mindestens 15 Frames Ergebnis-Hold. Bei Future-V3-Reels muss die Hauptmechanik zusätzlich im echten Render ausreichend groß/füllend sein (Peak active-pixel ratio >= 0,15, Median >= 0,12). Remotion bleibt Timeline-/Render-Autorität. Three/R3F, Paths, Shapes, Motion Blur und Lottie sind Support-Werkzeuge, keine Ersatzmechanik. Kartenreihen, Flowcharts, Dashboard-UI, Fortschrittsbalken als Hauptgeschichte, Partikel/Aurora/Grid-Hintergründe und Debug-/Wackel-Hacks sind verboten.
 
 Nach `reel:ready` ist die kanonische Animation per SHA-256 versiegelt.
 
@@ -111,7 +112,7 @@ npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.
 
 `reel:render` erzeugt den Candidate, führt Post-Render-QA aus und startet nach PASS automatisch den kanonischen Export. Ein direkter `reel:export`-Aufruf ist nur ein kontrollierter Re-Export einer bereits geprüften finalen MP4.
 
-FINAL_COMPLETE verlangt: alle Szenen belegt, exakter Animations-Seal, Audio vorhanden, 1080×1920, korrekte Timeline, Visual-QA bestanden und vollständiges `06-export/`.
+FINAL_COMPLETE verlangt: alle Szenen belegt, exakter Animations-Seal, Audio vorhanden, 1080×1920, korrekte Timeline, Visual-QA bestanden und vollständiges `06-export/`. Bei Future-V3-Reels kommt vor der Freigabe verpflichtend Audio-Mastering auf -16 LUFS / -1 dBTP plus gemessene Audio-/Animationsbelegungs-QA hinzu.
 
 ## 10. Publishing
 

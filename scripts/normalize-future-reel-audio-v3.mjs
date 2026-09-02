@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import {existsSync, readFileSync, renameSync, rmSync} from 'node:fs';
-import {dirname, resolve} from 'node:path';
+import {basename, dirname, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 
 const [target, videoArg] = process.argv.slice(2);
@@ -46,7 +46,7 @@ const targetTp = Number(audio.targetTruePeakDbtp);
 const targetLra = Number(audio.targetLra ?? 11);
 const bitrate = String(audio.audioBitrate ?? '320k');
 const sampleRate = Number(audio.sampleRate ?? 48000);
-const tempPath = resolve(dirname(videoPath), `${videoPath.split('/').pop().replace(/\.mp4$/i, '')}.audio-mastered.mp4`);
+const tempPath = resolve(dirname(videoPath), `${basename(videoPath).replace(/\.mp4$/i, '')}.audio-mastered.mp4`);
 
 if (existsSync(tempPath)) rmSync(tempPath, {force: true});
 

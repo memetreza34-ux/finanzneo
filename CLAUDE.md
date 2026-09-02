@@ -1,6 +1,6 @@
 # FinanzNeo — verbindliches Projekt-Gehirn
 
-> Höchste interne Quelle für Reel-Produktion. Bei Widersprüchen mit älteren Dateien gilt immer diese Datei.
+> Höchste interne Quelle für Reel-Produktion. Bei Widersprüchen mit älteren Dateien gilt immer diese Datei. Für **neu erzeugte Reels mit `futureProductionStandard.id = finanzneo-future-production-v3`** gelten zusätzlich die strengeren Future-V3-Regeln aus `docs/FUTURE-REEL-PRODUCTION-V3.md`; ältere Reels werden nicht rückwirkend migriert.
 
 ## 1. Kanal und Format
 
@@ -94,7 +94,8 @@ Bildszene:
 
 ## 5. Dramaturgie, Timing und Visual Beats
 
-VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
+VISUAL_BEAT_COMPATIBILITY_BASE: finanzneo-visual-beats-v1
+FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 
 - Hook in den ersten 2 Sekunden
 - **keine feste Szenenzahl**: so wenige Szenen wie möglich, so viele wie nötig
@@ -102,7 +103,7 @@ VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
 - **1 gesprochener Gedanke = 1 sichtbarer Visual Beat**
 - ein Satz darf ein eigenes Bild bekommen; enthält er zwei Aktionen, Beispiele, einen Vergleich oder Vorher/Nachher, wird er bei Bedarf in mehrere Beats geteilt
 - mehrere Bildszenen direkt hintereinander sind erlaubt, wenn jedes neue Bild die Aussage sichtbar weiterführt
-- statischer Bildbeat ideal ca. 1,8–3,4 s; ohne neue sichtbare Information **max. 4,5 s**
+- Kompatibilitätsbasis älterer Reels: statischer Bildbeat ca. 1,8–3,4 s, max. 4,5 s. **Neue Future-V3-Reels:** ideal 1,8–3,0 s; ab ca. 3,6 s aktiv einen zusätzlichen Visual Beat prüfen; ohne neue sichtbare Information **hart max. 4,0 s**
 - Animationen dürfen länger sein, müssen aber währenddessen mehrere klar unterschiedliche Zustände zeigen; Kamera-Push/Zoom allein zählt nicht als neuer Beat
 - Voiceover und Visual müssen gemeinsam fortschreiten: ist die Bildaussage bereits verstanden, darf das Bild nicht unnötig stehen bleiben
 - ungefähr 60 % Bild / 40 % Animation ist nur ein Richtwert; bei einfachen Anfänger-Erklärungen sind bewusst mehr Bilder erlaubt
@@ -438,6 +439,7 @@ REALE AUSGANGSSITUATION
 - mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable
 - deutsche Labels nur unterstützend; die Handlung muss auch ohne Text verständlich sein
 - Animationen müssen visuell dieselbe Qualität und Welt wie die Flow-Bilder erreichen
+- bei Future-V3-Reels muss die physische Hauptmechanik im echten Render ausreichend groß/füllend sein; Post-Render-QA verlangt Peak-Visualbelegung >= 0,15 und Median >= 0,12 im visuellen Kern
 
 Als Hauptsprache **verboten**:
 
@@ -502,6 +504,7 @@ Post-Render-QA muss mindestens prüfen:
 - Hintergrundbewegung zählt nicht
 - freier Reel-Hintergrund bleibt schwarz
 - Audio, Auflösung und Timeline stimmen
+- bei Future-V3-Reels wird der Candidate **vor** der Render-QA automatisch auf -16 LUFS / -1 dBTP gemastert und danach real gemessen; bloß vorhandener Audio-Stream reicht nicht
 
 Ein schwarzes/leeres oder Caption-only Reel darf niemals als fertig gelten.
 
