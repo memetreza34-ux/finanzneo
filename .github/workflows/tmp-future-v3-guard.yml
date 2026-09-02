@@ -30,6 +30,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install ffmpeg for render-quality fixture
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          ffmpeg -version | head -1
+          ffprobe -version | head -1
+
       - name: Prove existing week reels were not edited
         run: |
           git diff --exit-code origin/reel/mittwoch-geld-am-monatsende -- \
