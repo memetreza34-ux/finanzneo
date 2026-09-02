@@ -61,7 +61,7 @@
     "@remotion/cli": "4.0.514",
     "@remotion/lottie": "4.0.514",
     "@remotion/media-utils": "4.0.514",
-    "@remotion/motion-blur": "4.0.514",
+    "@remotion/motion-blur": "4.0.518",
     "@remotion/paths": "4.0.514",
     "@remotion/shapes": "4.0.514",
     "@remotion/three": "4.0.514",
