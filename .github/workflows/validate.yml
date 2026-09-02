@@ -33,6 +33,9 @@ jobs:
           node-version: 20
           cache: npm
 
+      - name: Bestehende Reel-Produktionen gegen Regression schützen
+        run: node scripts/check-reel-regression-baseline.mjs
+
       - name: Setup und Lockfile vorab prüfen
         run: node scripts/check-setup.mjs
 
