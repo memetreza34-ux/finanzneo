@@ -30,8 +30,8 @@ jobs:
       - name: Regression-Baseline vor Änderung prüfen
         run: node scripts/check-reel-regression-baseline.mjs
 
-      - name: Nur fast-uri im Lockfile auf 3.1.6 aktualisieren
-        run: npm install --package-lock-only --ignore-scripts --no-save --no-audit fast-uri@3.1.6
+      - name: Nur fast-uri im Lockfile aktualisieren
+        run: npm update fast-uri --package-lock-only --ignore-scripts --no-audit
 
       - name: Beweisen, dass nur fast-uri im Lockfile geändert wurde
         shell: bash
