@@ -90,6 +90,21 @@ if (result.status !== 0) {
 
 if (!reelProject) process.exit(0);
 
+// Future Production V3 normalisiert ausschließlich neue Reels mit explizitem
+// Marker. Für alle Legacy/V1/V2-Reels ist dieses Skript ein harmloser No-op.
+const audioMaster = spawnSync(process.execPath, [
+  resolve('scripts/normalize-future-reel-audio-v3.mjs'),
+  reelProject,
+  candidateOutput,
+], {stdio: 'inherit'});
+
+if (audioMaster.status !== 0) {
+  if (existsSync(candidateOutput)) rmSync(candidateOutput, {force: true});
+  console.error('\n✗ Candidate-Audio konnte nicht vertragskonform finalisiert werden.');
+  console.error('  Candidate wurde entfernt; es existiert KEIN neu freigegebenes finales MP4.');
+  process.exit(audioMaster.status ?? 1);
+}
+
 const qa = spawnSync(process.execPath, [
   resolve('scripts/validate-render-completeness.mjs'),
   reelProject,
@@ -102,6 +117,22 @@ if (qa.status !== 0) {
   console.error('\n✗ Candidate hat die Phase-3-Render-QA nicht bestanden.');
   console.error('  Candidate wurde entfernt; es existiert KEIN neu freigegebenes finales MP4.');
   process.exit(qa.status ?? 1);
+}
+
+// Zusätzliche V3-QA prüft am echten Candidate die zwei Qualitätshebel, die
+// normale Render-QA bewusst nicht für ältere Reels erzwingt: Audio-Lautheit
+// und ausreichend große/füllende Animations-Hauptmechanik.
+const futureQa = spawnSync(process.execPath, [
+  resolve('scripts/validate-future-production-render-v3.mjs'),
+  reelProject,
+  candidateOutput,
+], {stdio: 'inherit'});
+
+if (futureQa.status !== 0) {
+  if (existsSync(candidateOutput)) rmSync(candidateOutput, {force: true});
+  console.error('\n✗ Candidate hat die Future-Production-V3-Render-QA nicht bestanden.');
+  console.error('  Candidate wurde entfernt; es existiert KEIN neu freigegebenes finales MP4.');
+  process.exit(futureQa.status ?? 1);
 }
 
 if (existsSync(finalOutput)) rmSync(finalOutput, {force: true});
