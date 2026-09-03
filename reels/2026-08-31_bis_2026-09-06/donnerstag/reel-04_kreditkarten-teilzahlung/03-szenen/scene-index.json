@@ -2,8 +2,8 @@
   "version": 28,
   "title": "Warum die kleine Kreditkartenrate teuer werden kann",
   "sceneCount": 14,
-  "imageSceneCount": 9,
-  "animationSceneCount": 5,
+  "imageSceneCount": 8,
+  "animationSceneCount": 6,
   "targetImageShare": 0.6,
   "targetAnimationShare": 0.4,
   "video": {
@@ -88,8 +88,8 @@
     "resultHoldFramesMin": 15,
     "premiumVisualLock": "finanzneo-premium-physical-animation-v2",
     "visualTargetWorld": "finanzneo-stylized-3d-animated-black-v9",
-    "requirePremiumPhysicalStage": true,
-    "requirePhysicalObjects": true,
+    "requirePremiumPhysicalStage": false,
+    "requirePhysicalObjects": false,
     "supportingObjectCountFlexible": true,
     "clarityBeforeObjectCount": true,
     "requireMaterialDepthLighting": true,
@@ -104,7 +104,13 @@
     "dashboardCompositionForbidden": true,
     "flowchartMainCompositionForbidden": true,
     "smallBoxesThinLinesForbidden": true,
-    "genericInfoCardsAsMainLanguageForbidden": true
+    "genericInfoCardsAsMainLanguageForbidden": true,
+    "creativeRemotionFreedom": true,
+    "customCompositionAllowed": true,
+    "physicalPrimitivesOptional": true,
+    "safeStageRequired": true,
+    "visualTechniqueIdRequired": true,
+    "uniqueVisualTechniquePerAnimationRequired": true
   },
   "reelBackground": {
     "contractId": "finanzneo-pure-black-background-v1",
@@ -305,7 +311,7 @@
       "id": "scene-01",
       "type": "image",
       "startFrame": 0,
-      "durationFrames": 102,
+      "durationFrames": 3,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-01",
       "headline": "Warum kann die kleine Rate teuer werden?",
@@ -325,15 +331,15 @@
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 3.4,
+      "plannedDurationSeconds": 0.1,
       "visualBeats": [
         {
-          "id": "scene-01-beat-01",
+          "id": "scene-01-cover-flash",
           "kind": "image",
-          "voiceText": "Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden.",
-          "visualChange": "Eine kleine Zahlung liegt vorne, während dahinter eine deutlich größere offene Kreditkartenabrechnung bestehen bleibt.",
+          "voiceText": "",
+          "visualChange": "Für exakt drei Frames sind nur das Hero-Bild und der exakte Reel-Titel sichtbar.",
           "startSecond": 0,
-          "endSecond": 3.4
+          "endSecond": 0.1
         }
       ],
       "coverHook": true,
@@ -342,52 +348,57 @@
       "titleMode": "reel-title-overlay",
       "titleVisibleFromFrame": 0,
       "coverTitle": "Warum die kleine Kreditkartenrate teuer werden kann",
-      "targetSeconds": 3.4,
-      "audioTrigger": "Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden.",
-      "mainIdea": "Eine kleine Zahlung liegt vorne, während dahinter eine deutlich größere offene Kreditkartenabrechnung bestehen bleibt."
+      "targetSeconds": 0.1,
+      "audioTrigger": "",
+      "mainIdea": "Eine kleine Zahlung liegt vorne, während dahinter eine deutlich größere offene Kreditkartenabrechnung bestehen bleibt.",
+      "coverOnly": true,
+      "voiceoverEnabled": false
     },
     {
       "id": "scene-02",
-      "type": "image",
-      "startFrame": 102,
-      "durationFrames": 66,
+      "type": "animation",
+      "startFrame": 3,
+      "durationFrames": 168,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-02",
-      "headline": "Der Knackpunkt heißt Teilzahlung",
+      "headline": "Kleine Rate – großer Rest",
       "icon": "repeat",
       "accent": "finance-green",
       "headerTone": "warning",
-      "planFile": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
-      "googleFlowFileName": "Bild 02 - Teilzahlung markiert.png",
-      "objectLabels": [
-        "Teilzahlung"
-      ],
-      "expectedVisual": "A real paper credit-card statement on a desk where the repayment method “Teilzahlung” is clearly selected or stamped, next to the physical card.",
-      "imagePresentation": {
-        "scale": 1.01,
-        "sourceCropTop": 0,
-        "sourceCropBottom": 0,
-        "cropSafe": true
-      },
-      "plannedDurationSeconds": 2.2,
+      "planFile": "EINZELNE-SZENEN/scene-02/remotion.md",
+      "plannedDurationSeconds": 5.6,
       "visualBeats": [
         {
           "id": "scene-02-beat-01",
-          "kind": "image",
-          "voiceText": "Der entscheidende Punkt ist die Teilzahlung.",
-          "visualChange": "Auf einer echten Papierabrechnung ist „Teilzahlung“ klar markiert; die Kreditkarte liegt daneben.",
+          "kind": "animation",
+          "voiceText": "Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden.",
+          "visualChange": "Eine Kreditkarte steht vor einem großen offenen Restkörper; eine kleine Monatsrate wirkt im Vordergrund bequem und harmlos.",
           "startSecond": 0,
-          "endSecond": 2.2
+          "endSecond": 2.8
+        },
+        {
+          "id": "scene-02-beat-02",
+          "kind": "animation",
+          "voiceText": "Der entscheidende Punkt ist die Teilzahlung.",
+          "visualChange": "Ein mechanischer Hebel kippt deutlich auf TEILZAHLUNG; die kleine Rate löst sich ab, während der große Rest sichtbar verriegelt bleibt.",
+          "startSecond": 2.8,
+          "endSecond": 5.6
         }
       ],
-      "targetSeconds": 2.2,
-      "audioTrigger": "Der entscheidende Punkt ist die Teilzahlung.",
-      "mainIdea": "Auf einer echten Papierabrechnung ist „Teilzahlung“ klar markiert; die Kreditkarte liegt daneben."
+      "targetSeconds": 5.6,
+      "audioTrigger": "Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden. Der entscheidende Punkt ist die Teilzahlung.",
+      "mainIdea": "Ein physischer Rückzahlungshebel macht sichtbar: Bei Teilzahlung verschwindet nur eine kleine Rate, der große Rest bleibt.",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-02/animation.tsx",
+      "animationExport": "Scene02Animation",
+      "animationIntent": "Ein mechanischer Rückzahlungshebel kippt von Vollzahlung auf Teilzahlung; nur eine kleine Rate löst sich, während ein großer Restkörper sichtbar bestehen bleibt.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "animationTechniqueId": "mechanical-lever-reveal"
     },
     {
       "id": "scene-03",
       "type": "animation",
-      "startFrame": 168,
+      "startFrame": 171,
       "durationFrames": 120,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-03",
@@ -406,20 +417,37 @@
         {
           "id": "scene-03-beat-01",
           "kind": "animation",
-          "voiceText": "Bei Vollzahlung wird der offene Kartenbetrag zum Abrechnungstermin vollständig ausgeglichen.",
-          "visualChange": "Eine offene Kartenabrechnung wird am Abrechnungstermin durch eine vollständige Zahlung aus dem Girokonto sichtbar auf „BEZAHLT“ gesetzt.",
+          "voiceText": "Bei Vollzahlung wird der offene Kartenbetrag",
+          "visualChange": "Eine große 600-Euro-Abrechnung steht vollständig offen; der Abrechnungstermin rastet sichtbar ein.",
           "startSecond": 0,
+          "endSecond": 1.25
+        },
+        {
+          "id": "scene-03-beat-02",
+          "kind": "animation",
+          "voiceText": "zum Abrechnungstermin vollständig ausgeglichen.",
+          "visualChange": "Ein grüner Transfer-Wipe fährt vollständig über die Abrechnung und löscht den offenen Betrag sichtbar bis 0 Euro.",
+          "startSecond": 1.25,
+          "endSecond": 3.1
+        },
+        {
+          "id": "scene-03-beat-03",
+          "kind": "animation",
+          "voiceText": "Vollständig ausgeglichen.",
+          "visualChange": "Die Abrechnung bleibt stabil auf 0 Euro / BEZAHLT.",
+          "startSecond": 3.1,
           "endSecond": 4
         }
       ],
       "targetSeconds": 4,
       "audioTrigger": "Bei Vollzahlung wird der offene Kartenbetrag zum Abrechnungstermin vollständig ausgeglichen.",
-      "mainIdea": "Eine offene Kartenabrechnung wird am Abrechnungstermin durch eine vollständige Zahlung aus dem Girokonto sichtbar auf „BEZAHLT“ gesetzt."
+      "mainIdea": "Eine offene Kartenabrechnung wird am Abrechnungstermin durch eine vollständige Zahlung aus dem Girokonto sichtbar auf „BEZAHLT“ gesetzt.",
+      "animationTechniqueId": "svg-payment-wipe"
     },
     {
       "id": "scene-04",
       "type": "image",
-      "startFrame": 288,
+      "startFrame": 291,
       "durationFrames": 84,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-04",
@@ -458,7 +486,7 @@
     {
       "id": "scene-05",
       "type": "animation",
-      "startFrame": 372,
+      "startFrame": 375,
       "durationFrames": 120,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-05",
@@ -477,21 +505,38 @@
         {
           "id": "scene-05-beat-01",
           "kind": "animation",
-          "voiceText": "Auf den restlichen offenen Betrag können je nach Vertrag Zinsen anfallen.",
-          "visualChange": "Eine offene Restabrechnung bleibt liegen, ein Kalender rückt weiter und daneben wächst sichtbar ein kleiner zusätzlicher Kostenstapel.",
+          "voiceText": "Auf den restlichen offenen Betrag",
+          "visualChange": "Ein massiver 500-Euro-Restblock bleibt sichtbar bestehen.",
           "startSecond": 0,
+          "endSecond": 1.25
+        },
+        {
+          "id": "scene-05-beat-02",
+          "kind": "animation",
+          "voiceText": "können je nach Vertrag",
+          "visualChange": "Der Kalender klappt in den nächsten Monat und der Restblock bleibt unverändert stehen.",
+          "startSecond": 1.25,
+          "endSecond": 2.45
+        },
+        {
+          "id": "scene-05-beat-03",
+          "kind": "animation",
+          "voiceText": "Zinsen anfallen.",
+          "visualChange": "Eine neue rot-orange Kostenschicht wächst physisch auf den offenen Restblock.",
+          "startSecond": 2.45,
           "endSecond": 4
         }
       ],
       "targetSeconds": 4,
       "audioTrigger": "Auf den restlichen offenen Betrag können je nach Vertrag Zinsen anfallen.",
-      "mainIdea": "Eine offene Restabrechnung bleibt liegen, ein Kalender rückt weiter und daneben wächst sichtbar ein kleiner zusätzlicher Kostenstapel."
+      "mainIdea": "Eine offene Restabrechnung bleibt liegen, ein Kalender rückt weiter und daneben wächst sichtbar ein kleiner zusätzlicher Kostenstapel.",
+      "animationTechniqueId": "debt-layer-extrusion"
     },
     {
       "id": "scene-06",
       "type": "image",
-      "startFrame": 492,
-      "durationFrames": 123,
+      "startFrame": 495,
+      "durationFrames": 120,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-06",
       "headline": "600 Euro gekauft, 100 zurückgezahlt",
@@ -511,7 +556,7 @@
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 4.1,
+      "plannedDurationSeconds": 4,
       "visualBeats": [
         {
           "id": "scene-06-beat-01",
@@ -519,10 +564,10 @@
           "voiceText": "Beispiel: Du kaufst für 600 Euro ein und zahlst nur 100 Euro zurück.",
           "visualChange": "Ein realer Einkauf über 600 Euro steht einer klar kleineren Rückzahlung von 100 Euro gegenüber.",
           "startSecond": 0,
-          "endSecond": 4.1
+          "endSecond": 4
         }
       ],
-      "targetSeconds": 4.1,
+      "targetSeconds": 4,
       "audioTrigger": "Beispiel: Du kaufst für 600 Euro ein und zahlst nur 100 Euro zurück.",
       "mainIdea": "Ein realer Einkauf über 600 Euro steht einer klar kleineren Rückzahlung von 100 Euro gegenüber."
     },
@@ -548,15 +593,32 @@
         {
           "id": "scene-07-beat-01",
           "kind": "animation",
-          "voiceText": "500 Euro bleiben offen. Auf diesen Rest können weitere Zinsen kommen.",
-          "visualChange": "Von einer 600-Euro-Abrechnung werden sichtbar 100 Euro abgetragen; die Abrechnung bleibt mit 500 Euro offen und wird als Restschuld stabil gehalten.",
+          "voiceText": "500 Euro bleiben offen.",
+          "visualChange": "Ein 600-Euro-Schuldenkörper wird an der 100-Euro-Stelle sichtbar durchschnitten.",
           "startSecond": 0,
+          "endSecond": 1.45
+        },
+        {
+          "id": "scene-07-beat-02",
+          "kind": "animation",
+          "voiceText": "Die 100 Euro sind weg.",
+          "visualChange": "Das kleine 100-Euro-Stück löst sich räumlich und fällt aus der Komposition; der große 500-Euro-Rest bleibt.",
+          "startSecond": 1.45,
+          "endSecond": 2.55
+        },
+        {
+          "id": "scene-07-beat-03",
+          "kind": "animation",
+          "voiceText": "Auf diesen Rest können weitere Zinsen kommen.",
+          "visualChange": "Auf dem verbleibenden 500-Euro-Körper setzt sich eine zusätzliche Warnschicht sichtbar oben drauf.",
+          "startSecond": 2.55,
           "endSecond": 4
         }
       ],
       "targetSeconds": 4,
       "audioTrigger": "500 Euro bleiben offen. Auf diesen Rest können weitere Zinsen kommen.",
-      "mainIdea": "Von einer 600-Euro-Abrechnung werden sichtbar 100 Euro abgetragen; die Abrechnung bleibt mit 500 Euro offen und wird als Restschuld stabil gehalten."
+      "mainIdea": "Von einer 600-Euro-Abrechnung werden sichtbar 100 Euro abgetragen; die Abrechnung bleibt mit 500 Euro offen und wird als Restschuld stabil gehalten.",
+      "animationTechniqueId": "clip-slice-principal"
     },
     {
       "id": "scene-08",
@@ -619,21 +681,38 @@
         {
           "id": "scene-09-beat-01",
           "kind": "animation",
-          "voiceText": "kann der offene Saldo zusätzlich wachsen.",
-          "visualChange": "Eine alte Restabrechnung und eine neue Kaufabrechnung bewegen sich physisch in denselben Kartensaldo, der danach sichtbar höher steht.",
+          "voiceText": "Der offene Saldo",
+          "visualChange": "Ein transparenter Schuldenbehälter steht bereits bei 500 Euro.",
           "startSecond": 0,
+          "endSecond": 0.85
+        },
+        {
+          "id": "scene-09-beat-02",
+          "kind": "animation",
+          "voiceText": "kann zusätzlich",
+          "visualChange": "Ein neuer Einkauf fällt als konkretes Objekt von oben in den Behälter.",
+          "startSecond": 0.85,
+          "endSecond": 1.75
+        },
+        {
+          "id": "scene-09-beat-03",
+          "kind": "animation",
+          "voiceText": "wachsen.",
+          "visualChange": "Der Füllstand schießt sichtbar auf 620 Euro und hält.",
+          "startSecond": 1.75,
           "endSecond": 2.8
         }
       ],
       "targetSeconds": 2.8,
       "audioTrigger": "kann der offene Saldo zusätzlich wachsen.",
-      "mainIdea": "Eine alte Restabrechnung und eine neue Kaufabrechnung bewegen sich physisch in denselben Kartensaldo, der danach sichtbar höher steht."
+      "mainIdea": "Eine alte Restabrechnung und eine neue Kaufabrechnung bewegen sich physisch in denselben Kartensaldo, der danach sichtbar höher steht.",
+      "animationTechniqueId": "purchase-drop-vessel"
     },
     {
       "id": "scene-10",
       "type": "image",
       "startFrame": 918,
-      "durationFrames": 126,
+      "durationFrames": 120,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-10",
       "headline": "Prüf deine Rückzahlungsart",
@@ -653,7 +732,7 @@
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 4.2,
+      "plannedDurationSeconds": 4,
       "visualBeats": [
         {
           "id": "scene-10-beat-01",
@@ -661,17 +740,17 @@
           "voiceText": "Prüfe deshalb in deiner Abrechnung oder in den Karteneinstellungen, ob Vollzahlung oder Teilzahlung eingestellt ist.",
           "visualChange": "Eine Person prüft die Rückzahlungsart; Vollzahlung und Teilzahlung sind als zwei klar erkennbare Optionen gegenübergestellt.",
           "startSecond": 0,
-          "endSecond": 4.2
+          "endSecond": 4
         }
       ],
-      "targetSeconds": 4.2,
+      "targetSeconds": 4,
       "audioTrigger": "Prüfe deshalb in deiner Abrechnung oder in den Karteneinstellungen, ob Vollzahlung oder Teilzahlung eingestellt ist.",
       "mainIdea": "Eine Person prüft die Rückzahlungsart; Vollzahlung und Teilzahlung sind als zwei klar erkennbare Optionen gegenübergestellt."
     },
     {
       "id": "scene-11",
       "type": "image",
-      "startFrame": 1044,
+      "startFrame": 1038,
       "durationFrames": 99,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-11",
@@ -709,7 +788,7 @@
     {
       "id": "scene-12",
       "type": "image",
-      "startFrame": 1143,
+      "startFrame": 1137,
       "durationFrames": 81,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-12",
@@ -747,7 +826,7 @@
     {
       "id": "scene-13",
       "type": "image",
-      "startFrame": 1224,
+      "startFrame": 1218,
       "durationFrames": 54,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-13",
@@ -785,7 +864,7 @@
     {
       "id": "scene-14",
       "type": "animation",
-      "startFrame": 1278,
+      "startFrame": 1272,
       "durationFrames": 126,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-14",
@@ -804,15 +883,32 @@
         {
           "id": "scene-14-beat-01",
           "kind": "animation",
-          "voiceText": "teuer kann sie werden, wenn aus einem Einkauf mehrere Monate offene Schulden werden.",
-          "visualChange": "Eine einzelne offene Kaufabrechnung bleibt bestehen, während mehrere Monatskalender nacheinander erscheinen und die offene Belastung sichtbar in die Länge gezogen wird.",
+          "voiceText": "teuer kann sie werden, wenn aus einem Einkauf",
+          "visualChange": "Ein einzelner Einkauf bewegt sich in einen räumlichen Zeittunnel hinein.",
           "startSecond": 0,
+          "endSecond": 1.45
+        },
+        {
+          "id": "scene-14-beat-02",
+          "kind": "animation",
+          "voiceText": "mehrere Monate",
+          "visualChange": "MONAT 1 und MONAT 2 ziehen als große perspektivische Tore am offenen Einkauf vorbei; die Belastung bleibt angekettet.",
+          "startSecond": 1.45,
+          "endSecond": 2.9
+        },
+        {
+          "id": "scene-14-beat-03",
+          "kind": "animation",
+          "voiceText": "offene Schulden werden.",
+          "visualChange": "MONAT 3 rastet ein; die Kamera stoppt auf dem weiterhin offenen Einkauf und dem Endhinweis MEHRERE MONATE OFFEN.",
+          "startSecond": 2.9,
           "endSecond": 4.2
         }
       ],
       "targetSeconds": 4.2,
       "audioTrigger": "teuer kann sie werden, wenn aus einem Einkauf mehrere Monate offene Schulden werden.",
-      "mainIdea": "Eine einzelne offene Kaufabrechnung bleibt bestehen, während mehrere Monatskalender nacheinander erscheinen und die offene Belastung sichtbar in die Länge gezogen wird."
+      "mainIdea": "Eine einzelne offene Kaufabrechnung bleibt bestehen, während mehrere Monatskalender nacheinander erscheinen und die offene Belastung sichtbar in die Länge gezogen wird.",
+      "animationTechniqueId": "perspective-month-tunnel"
     }
   ],
   "phase3CompletionContract": {
@@ -899,7 +995,7 @@
     "titleInGeneratedFlowImageForbidden": true,
     "titleVisibleFromFrame": 0,
     "titleVisibleWithinFirstSecond": true,
-    "titleHoldMinFrames": 30,
+    "titleHoldMinFrames": 3,
     "subtitlesForbiddenDuringScene01": true,
     "captionStartsFromSceneId": "scene-02",
     "imagePlusTitleOnly": true,
@@ -910,7 +1006,12 @@
     "noFadeInDelay": true,
     "flowImageMustReserveTitleSafeSpace": true,
     "standaloneCoverRequired": true,
-    "exportedCoverSource": "final-video-frame-0"
+    "exportedCoverSource": "final-video-frame-0",
+    "coverFlashFrames": 3,
+    "coverFlashSeconds": 0.1,
+    "voiceoverForbiddenDuringScene01": true,
+    "audioStartsAtFrame": 3,
+    "audioStartsFromSceneId": "scene-02"
   },
   "imageStorytellingContract": {
     "id": "finanzneo-image-storytelling-v2",

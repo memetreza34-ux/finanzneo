@@ -1,10 +1,8 @@
 # scene-02
 
-**Typ:** image
-**Zwischenüberschrift:** Der Knackpunkt heißt Teilzahlung
+**Typ:** animation
+**Zwischenüberschrift:** Kleine Rate – großer Rest
 **Icon:** repeat
-**Sprechtext:** Der entscheidende Punkt ist die Teilzahlung.
-
-**Google-Flow-Dateiname:** Bild 02 - Teilzahlung markiert.png
-**Erlaubte kurze Objektlabels:** Teilzahlung
-**Hauptaussage:** Auf einer echten Papierabrechnung ist „Teilzahlung“ klar markiert; die Kreditkarte liegt daneben.
+**Sprechtext:** Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden. Der entscheidende Punkt ist die Teilzahlung.
+**Google Flow:** KEIN Bild 02; Nummer 02 bleibt reserviert.
+**Animation:** remotion.md + animation.tsx, VISUAL_TECHNIQUE_ID mechanical-lever-reveal.

@@ -2,13 +2,12 @@
 
 COVER_HOOK_CONTRACT: finanzneo-cover-hook-v2
 
-Frame-0-Pflichtprüfung:
-- [ ] exakter Reel-Titel sichtbar
-- [ ] Hero-Bild sichtbar und verständlich
+- [ ] scene-01 dauert exakt 3 Frames = 0,1 s bei 30 fps
+- [ ] Frame 0–2: Hero-Bild sichtbar
+- [ ] Frame 0–2: exakter Reel-Titel sichtbar
 - [ ] keine Untertitel / Captions
 - [ ] kein normales Header-Icon
 - [ ] keine Erklärung / CTA / Zusatzkarte
-- [ ] Titel nicht per Fade-in verzögert
-- [ ] Komposition funktioniert als eigenständiges Reel-Cover
-
-Erst bei vollständigem PASS darf Phase 3 finalisieren.
+- [ ] kein Voiceover in Frame 0–2
+- [ ] Voiceover startet ab Frame 3 mit scene-02
+- [ ] cover.png kommt weiterhin aus finalem Frame 0

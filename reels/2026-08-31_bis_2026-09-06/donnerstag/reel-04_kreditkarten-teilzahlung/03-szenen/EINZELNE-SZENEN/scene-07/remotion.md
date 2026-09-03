@@ -4,21 +4,22 @@
 **Icon:** coins
 **Kanonische Codequelle:** animation.tsx
 **Quality Lock:** finanzneo-phase1-animation-code-v1
-**Premium Visual Lock:** finanzneo-premium-physical-animation-v2
 **Visuelle Zielwelt:** finanzneo-stylized-3d-animated-black-v9
-**Stage:** transparent über zentralem #000000 Reel-Canvas; sichtbare Ausgabe hart Y320–1400.
+**VISUAL_TECHNIQUE_ID:** clip-slice-principal
+**Remotion Freedom:** freie React/SVG/CSS-3D-Komposition; Physical*-Primitives sind optional.
+**Stage:** AnimationStage oder PremiumPhysicalStage transparent über zentralem #000000 Reel-Canvas; sichtbar hart Y320–1400.
 
 ## STARTZUSTAND
-Eine Kartenabrechnung zeigt 600 Euro offen; daneben liegt eine kleinere Rückzahlung von 100 Euro bereit.
+Ein 600-Euro-Schuldenkörper wird an der 100-Euro-Stelle sichtbar durchschnitten.
 
 ## SICHTBARER MECHANISMUS
-Die 100-Euro-Rückzahlung bewegt sich zur 600-Euro-Abrechnung. Danach wird der sichtbare Restbetrag auf 500 Euro reduziert und stabil gehalten.
+Ein 600-Euro-Körper wird bei 100 Euro durchschnitten; 100 lösen sich ab, 500 bleiben körperlich stehen.
 
 ## ERGEBNIS
-500 Euro Rest bleiben offen; die 100-Euro-Zahlung hat nur einen Teil der ursprünglichen 600 Euro entfernt.
+Auf dem verbleibenden 500-Euro-Körper setzt sich eine zusätzliche Warnschicht sichtbar oben drauf.
 
 ## RESULT HOLD
-Mindestens 24 Frames stabil.
+Mindestens 15 Frames stabil.
 
 ## VERBOTEN
-Keine Dashboard-/App-UI als Hauptsprache, keine Partikel/Aurora/Grid-Effekte, keine generische Kartenreihe als Ersatz für die reale Handlung, kein Fortschrittsbalken als Geschichte.
+Keine Wiederholung der Haupttechnik einer anderen Animationsszene, kein Dashboard/App-UI als Ersatz für die Geschichte, kein generischer Progressbar-Mechanismus, keine dekorativen Hintergrundeffekte.

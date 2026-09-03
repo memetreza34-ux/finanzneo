@@ -4,21 +4,22 @@
 **Icon:** check
 **Kanonische Codequelle:** animation.tsx
 **Quality Lock:** finanzneo-phase1-animation-code-v1
-**Premium Visual Lock:** finanzneo-premium-physical-animation-v2
 **Visuelle Zielwelt:** finanzneo-stylized-3d-animated-black-v9
-**Stage:** transparent über zentralem #000000 Reel-Canvas; sichtbare Ausgabe hart Y320–1400.
+**VISUAL_TECHNIQUE_ID:** svg-payment-wipe
+**Remotion Freedom:** freie React/SVG/CSS-3D-Komposition; Physical*-Primitives sind optional.
+**Stage:** AnimationStage oder PremiumPhysicalStage transparent über zentralem #000000 Reel-Canvas; sichtbar hart Y320–1400.
 
 ## STARTZUSTAND
-Offene Kreditkartenabrechnung, Girokonto und Abrechnungstermin sind sichtbar; die Abrechnung ist noch nicht bezahlt.
+Eine große 600-Euro-Abrechnung steht vollständig offen; der Abrechnungstermin rastet sichtbar ein.
 
 ## SICHTBARER MECHANISMUS
-Der vollständige Geldbetrag bewegt sich vom Girokonto zur Kreditkartenabrechnung. Der offene Betrag verschwindet und die Rechnung wechselt sichtbar auf bezahlt.
+Eine vollflächige SVG-Transferwelle wischt die offene Abrechnung komplett auf 0 Euro.
 
 ## ERGEBNIS
-Die Abrechnung ist vollständig bezahlt; kein offener Rest bleibt sichtbar.
+Die Abrechnung bleibt stabil auf 0 Euro / BEZAHLT.
 
 ## RESULT HOLD
-Mindestens 24 Frames stabil.
+Mindestens 15 Frames stabil.
 
 ## VERBOTEN
-Keine Dashboard-/App-UI als Hauptsprache, keine Partikel/Aurora/Grid-Effekte, keine generische Kartenreihe als Ersatz für die reale Handlung, kein Fortschrittsbalken als Geschichte.
+Keine Wiederholung der Haupttechnik einer anderen Animationsszene, kein Dashboard/App-UI als Ersatz für die Geschichte, kein generischer Progressbar-Mechanismus, keine dekorativen Hintergrundeffekte.

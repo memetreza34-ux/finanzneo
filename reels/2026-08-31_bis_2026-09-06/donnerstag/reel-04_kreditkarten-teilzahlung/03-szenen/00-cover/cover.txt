@@ -1,30 +1,20 @@
-COVER = SZENE 01
+COVER_HOOK_CONTRACT: finanzneo-cover-hook-v2
+
+TECHNISCHER COVER-ALIAS ZU SCENE-01
+KEIN SEPARATER BILDJOB
+No separate cover generation
+no Bild 00
 KEIN separates Cover erzeugen
 KEIN Bild 00 erzeugen
 
-Quelle für Cover-Bild: Bild 01 - Kleine Rate grosse Kosten.png
-Reel-Titel in Remotion ab Frame 0: Warum die kleine Kreditkartenrate teuer werden kann
+Cover-Quelle: scene-01
+Google-Flow-Datei: Bild 01 - Kleine Rate grosse Kosten.png
+Reel-Titel: Warum die kleine Kreditkartenrate teuer werden kann
 
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 01 - Kleine Rate grosse Kosten.png
-
-BESCHRIFTUNGEN – EXAKT SO:
-- Kleine Rate
-- Offener Rest
-
-IMAGE PROMPT:
-Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A relatable credit-card situation where a very small monthly payment leaves a visibly large unpaid statement behind; the contrast must be obvious without UI. The visible story must specifically communicate this action or consequence: Eine kleine Zahlung liegt vorne, während dahinter eine deutlich größere offene Kreditkartenabrechnung bestehen bleibt. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
-FUTURE_COVER_HOOK: finanzneo-cover-hook-v2
-The Flow image itself contains KEINEN Reel-Titel, no headline, no subtitle and no CTA.
-Reserve calm deep-black negative space in the upper area for the exact Remotion reel title. The title is rendered later from frame 0.
-
-STYLE + SAFETY:
-Use premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for cost or warning. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.
+RENDER-REGEL:
+- Das Quellbild ist exakt dasselbe Asset wie scene-01.
+- Scene-01 dauert exakt 3 Frames = 0,1 s bei 30 fps.
+- In Frame 0–2 erscheinen ausschließlich Hero-Bild + exakter Reel-Titel.
+- Kein Icon, keine Caption, kein Subtitle, kein CTA, kein Voiceover.
+- Voiceover und Untertitel beginnen ab Frame 3 mit scene-02.
+- cover.png wird aus Frame 0 des final geprüften Videos exportiert.

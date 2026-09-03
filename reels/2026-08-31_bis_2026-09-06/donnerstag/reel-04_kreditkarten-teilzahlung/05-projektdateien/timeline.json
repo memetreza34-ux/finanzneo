@@ -9,17 +9,17 @@
     {
       "id": "scene-01",
       "type": "image",
-      "plannedDurationSeconds": 3.4,
+      "plannedDurationSeconds": 0.1,
       "headline": "Warum kann die kleine Rate teuer werden?",
-      "voiceText": "Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden.",
+      "voiceText": "",
       "timingStatus": "planned-until-real-word-timestamps"
     },
     {
       "id": "scene-02",
-      "type": "image",
-      "plannedDurationSeconds": 2.2,
-      "headline": "Der Knackpunkt heißt Teilzahlung",
-      "voiceText": "Der entscheidende Punkt ist die Teilzahlung.",
+      "type": "animation",
+      "plannedDurationSeconds": 5.6,
+      "headline": "Kleine Rate – großer Rest",
+      "voiceText": "Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden. Der entscheidende Punkt ist die Teilzahlung.",
       "timingStatus": "planned-until-real-word-timestamps"
     },
     {
@@ -49,7 +49,7 @@
     {
       "id": "scene-06",
       "type": "image",
-      "plannedDurationSeconds": 4.1,
+      "plannedDurationSeconds": 4,
       "headline": "600 Euro gekauft, 100 zurückgezahlt",
       "voiceText": "Beispiel: Du kaufst für 600 Euro ein und zahlst nur 100 Euro zurück.",
       "timingStatus": "planned-until-real-word-timestamps"
@@ -81,7 +81,7 @@
     {
       "id": "scene-10",
       "type": "image",
-      "plannedDurationSeconds": 4.2,
+      "plannedDurationSeconds": 4,
       "headline": "Prüf deine Rückzahlungsart",
       "voiceText": "Prüfe deshalb in deiner Abrechnung oder in den Karteneinstellungen, ob Vollzahlung oder Teilzahlung eingestellt ist.",
       "timingStatus": "planned-until-real-word-timestamps"

@@ -1,34 +1,35 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS, PhysicalAccount, PhysicalBill, PhysicalCoinStack, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
+import {ANIMATION_COLORS, AnimationStage} from '../../../../../../../src/design-system';
 /**
  * MECHANIC_ID: partial-payment-leaves-principal
- * PRIMARY_ACTION: Eine kleine 100-Euro-Rückzahlung wird physisch auf eine 600-Euro-Kartenabrechnung angewendet und lässt sichtbar 500 Euro Rest zurück.
+ * VISUAL_TECHNIQUE_ID: clip-slice-principal
+ * PRIMARY_ACTION: Ein einziger 600-Euro-Schuldenkörper wird sichtbar bei 100 Euro durchschnitten; das kleine bezahlte Stück löst sich ab, der große 500-Euro-Rest bleibt und erhält anschließend eine Zusatzkostenschicht.
  * ANIMATION_NARRATIVE
- * START: Die Kartenabrechnung zeigt 600 Euro offen; ein kleiner Rückzahlungsstapel liegt getrennt daneben.
- * MECHANISM: Der 100-Euro-Stapel bewegt sich zur Abrechnung, während der sichtbare Kartenrest von 600 auf 500 Euro wechselt.
- * RESULT: 500 Euro bleiben offen und ein stabiler Rest-offen-Tag hält das Ergebnis fest.
+ * START: Ein zusammenhängender 600-Euro-Körper füllt die Bühne und zeigt den gesamten offenen Betrag.
+ * MECHANISM: Eine helle Schnittkante fährt durch den Körper; der 100-Euro-Teil trennt sich nach vorne links, während der 500-Euro-Rest an Ort und Stelle bleibt.
+ * RESULT: Der 500-Euro-Rest dominiert stabil das Bild und eine dünne Warnschicht zeigt mögliche weitere Zinsen auf genau diesem Rest.
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Die Kartenabrechnung mit ihrem sinkenden, aber nicht verschwindenden Restbetrag trägt die Aussage.
- * SUPPORT: Kleiner Rückzahlungsstapel und Kartensaldo verdeutlichen Teilzahlung und verbleibende Belastung.
- * MATERIAL: Rechnung neutral/warnend, Rückzahlung gold, offener Kartensaldo rot-orange, Ergebnislabel warnend.
- * DEPTH: Rechnung vorne zentral, Rückzahlung links vorne, Kartensaldo rechts hinten; Zahlung bewegt sich sichtbar in die Rechnung.
+ * HERO: Die echte Slice-Transformation eines einzigen Schuldenkörpers erklärt Teilzahlung und Rest ohne Karten-, Balken- oder Konten-Wiederholung.
+ * SUPPORT: Betragslabels sitzen direkt auf den beiden Körperteilen; eine dünne Zusatzschicht ergänzt nur die Zinsfolge.
+ * MATERIAL: Gold markiert den entfernten 100-Euro-Teil, warmes Rot den Rest und Ivory die sichtbare Schnittkante.
+ * DEPTH: Das kleine Stück fährt deutlich nach vorne links aus der Ebene; der Rest stabilisiert leicht nach hinten rechts und bleibt größer.
  */
 export const RESULT_HOLD_FRAMES = 24;
 const clamp = {extrapolateLeft:'clamp' as const, extrapolateRight:'clamp' as const};
 export const Scene07Animation: React.FC<{durationFrames?:number}> = ({durationFrames=120}) => {
   const frame = useCurrentFrame();
-  const setupIn = interpolate(frame,[2,18],[0,1],clamp);
-  const paymentMove = interpolate(frame,[22,72],[0,1],clamp);
-  const restSettle = interpolate(frame,[66,94],[0,1],clamp);
-  const resultIn = interpolate(frame,[92,Math.max(100,durationFrames-RESULT_HOLD_FRAMES)],[0,1],clamp);
-  const paymentX = 90+paymentMove*245;
-  const paymentY = 800-paymentMove*80;
-  const remaining = restSettle>0.52?'500 €':'600 €';
-  return <PremiumPhysicalStage>
-    <PhysicalBill x={340} y={500} amount={remaining} label="Kartenabrechnung" rotate={-2} scale={0.97+restSettle*0.02} opacity={setupIn}/>
-    <PhysicalCoinStack x={paymentX} y={paymentY} count={3} scale={0.64-paymentMove*0.08} opacity={setupIn*(1-paymentMove*0.45)}/>
-    <PhysicalAccount x={650} y={550} label="Kartensaldo" balance={remaining} state="danger" scale={0.88} opacity={setupIn} tilt={3}/>
-    <div style={{position:'absolute',left:315,top:1012,opacity:resultIn,transform:`translateY(${(1-resultIn)*18}px)`,color:ANIMATION_COLORS.warning}}><PhysicalTag material="warning" style={{fontSize:27}}>500 € REST OFFEN</PhysicalTag></div>
-  </PremiumPhysicalStage>;
+  const bodyIn = interpolate(frame,[2,18],[0,1],clamp);
+  const cut = interpolate(frame,[22,54],[0,1],clamp);
+  const detach = interpolate(frame,[48,82],[0,1],clamp);
+  const interestLayer = interpolate(frame,[78,102],[0,1],clamp);
+  const result = interpolate(frame,[96,Math.max(102,durationFrames-RESULT_HOLD_FRAMES)],[0,1],clamp);
+  return <AnimationStage scale={1}>
+    <div style={{position:'absolute',left:120,top:570,width:840,height:520,perspective:1200,opacity:bodyIn}}>
+      <div style={{position:'absolute',left:45-detach*105,top:120+detach*45,width:150,height:270,borderRadius:30,background:ANIMATION_COLORS.money,boxShadow:'0 34px 65px rgba(0,0,0,.52)',transform:'rotateY(' + (-detach*22) + 'deg) rotateZ(' + (-detach*7) + 'deg)'}}><div style={{padding:'82px 26px',fontSize:38,fontWeight:950}}>100 €</div></div>
+      <div style={{position:'absolute',left:195+detach*35,top:120,width:600,height:270,borderRadius:30,background:ANIMATION_COLORS.warning,boxShadow:'0 38px 72px rgba(0,0,0,.55)',transform:'scale(' + (0.96+detach*0.04) + ')'}}><div style={{padding:'78px 50px',fontSize:64,fontWeight:950,color:'white'}}>500 € REST</div><div style={{position:'absolute',left:0,right:0,top:-54*interestLayer,height:54*interestLayer,borderRadius:'20px 20px 6px 6px',background:'#d48a25'}} /></div>
+      <div style={{position:'absolute',left:188,top:95,width:10,height:320,background:'#fff5d8',boxShadow:'0 0 24px rgba(255,245,216,.7)',opacity:cut,transform:'scaleY(' + cut + ')'}} />
+      <div style={{position:'absolute',left:475,top:420,fontSize:29,fontWeight:950,color:ANIMATION_COLORS.warning,opacity:result}}>REST BLEIBT OFFEN</div>
+    </div>
+  </AnimationStage>;
 };

@@ -30,13 +30,23 @@ const placeholder = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|
 const hackWords = /\b(dummy|debug|placeholder|temporary|technik-hack|wackel|wiggle|test rectangle|fake motion)\b/i;
 const realWorldPrimitive = /<Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)\b/g;
 const mechanicIds = new Map();
+const techniqueIds = new Map();
+const freeRemotion = index.phase1AnimationCode?.creativeRemotionFreedom === true;
 
 if (index.phase1AnimationCode?.required !== true) fail('phase1AnimationCode.required muss true sein.');
 if (index.phase1AnimationCode?.qualityLock !== ANIMATION_QUALITY_LOCK) fail(`phase1AnimationCode.qualityLock muss ${ANIMATION_QUALITY_LOCK} sein.`);
 if (index.phase1AnimationCode?.premiumVisualLock !== PREMIUM_ANIMATION_LOCK) fail(`phase1AnimationCode.premiumVisualLock muss ${PREMIUM_ANIMATION_LOCK} sein.`);
 if (index.phase1AnimationCode?.phase3MayNotReplaceCanonicalAnimation !== true) fail('Phase 3 darf kanonischen Phase-1-Animationscode nicht ersetzen.');
-if (index.phase1AnimationCode?.requirePremiumPhysicalStage !== true) fail('PremiumPhysicalStage muss für den Animationsvertrag verpflichtend sein.');
-if (index.phase1AnimationCode?.requirePhysicalObjects !== true) fail('Mindestens ein echtes physisches Hauptobjekt muss verpflichtend sein.');
+if (freeRemotion) {
+  if (index.phase1AnimationCode?.customCompositionAllowed !== true) fail('Remotion-Freedom verlangt customCompositionAllowed=true.');
+  if (index.phase1AnimationCode?.physicalPrimitivesOptional !== true) fail('Remotion-Freedom verlangt physicalPrimitivesOptional=true.');
+  if (index.phase1AnimationCode?.safeStageRequired !== true) fail('Remotion-Freedom verlangt safeStageRequired=true.');
+  if (index.phase1AnimationCode?.visualTechniqueIdRequired !== true) fail('Remotion-Freedom verlangt visualTechniqueIdRequired=true.');
+  if (index.phase1AnimationCode?.uniqueVisualTechniquePerAnimationRequired !== true) fail('Remotion-Freedom verlangt uniqueVisualTechniquePerAnimationRequired=true.');
+} else {
+  if (index.phase1AnimationCode?.requirePremiumPhysicalStage !== true) fail('PremiumPhysicalStage muss für den alten Animationsvertrag verpflichtend sein.');
+  if (index.phase1AnimationCode?.requirePhysicalObjects !== true) fail('Mindestens ein echtes physisches Hauptobjekt muss im alten Animationsvertrag verpflichtend sein.');
+}
 if (index.phase1AnimationCode?.supportingObjectCountFlexible !== true) fail('Animationskomposition braucht supportingObjectCountFlexible=true.');
 if (index.phase1AnimationCode?.clarityBeforeObjectCount !== true) fail('Animationskomposition braucht clarityBeforeObjectCount=true.');
 if (index.phase1AnimationCode?.sameVisualLanguageAsFlowImages !== true) fail('Animationen müssen dieselbe visuelle Sprache wie Flow-Bilder verwenden.');
@@ -77,21 +87,24 @@ for (const scene of animations) {
   if (!/ANIMATION_COLORS/.test(source)) fail(`${id}: Animation muss die zentrale ANIMATION_COLORS-Palette verwenden.`);
   if (!/(?:prog\s*\(|interpolate\s*\(|spring\s*\()/.test(source)) fail(`${id}: kein nachvollziehbarer zeitlicher Animationsfortschritt gefunden.`);
 
-  if (!/PremiumPhysicalStage/.test(source)) fail(`${id}: Animation muss PremiumPhysicalStage verwenden.`);
+  if (freeRemotion) {
+    if (!/(?:PremiumPhysicalStage|AnimationStage)/.test(source)) fail(`${id}: freie Remotion-Animation muss AnimationStage oder PremiumPhysicalStage für die Safe-Zone verwenden.`);
+  } else if (!/PremiumPhysicalStage/.test(source)) {
+    fail(`${id}: alter Animationsvertrag verlangt PremiumPhysicalStage.`);
+  }
   const genericObjects = [...source.matchAll(/<PhysicalObject\b/g)].length;
   const concreteObjects = [...source.matchAll(realWorldPrimitive)].length;
-  if (genericObjects + concreteObjects < 1) fail(`${id}: Animation braucht mindestens ein physisches Hauptmotiv.`);
-  if (concreteObjects < 2) {
-    fail(`${id}: mindestens zwei konkrete Realwelt-Objekte/-Instanzen sind nötig (z. B. Rechnung, Konto, Waschmaschine, Reserve, Kalender, Münzen); generische Karten reichen nicht.`);
+  if (!freeRemotion) {
+    if (genericObjects + concreteObjects < 1) fail(`${id}: Animation braucht mindestens ein physisches Hauptmotiv.`);
+    if (concreteObjects < 2) fail(`${id}: mindestens zwei konkrete Realwelt-Objekte/-Instanzen sind im alten Vertrag nötig.`);
+    if (genericObjects >= 3 && concreteObjects < 3) fail(`${id}: drei oder mehr generische PhysicalObject-Karten dominieren die Szene.`);
+    if (/<PhysicalRail\b/.test(source) && concreteObjects < 3) fail(`${id}: PhysicalRail darf im alten Vertrag nicht die primäre Animation ersetzen.`);
   }
-  if (genericObjects >= 3 && concreteObjects < 3) {
-    fail(`${id}: drei oder mehr generische PhysicalObject-Karten dominieren die Szene; Realwelt-Mechanik muss die Hauptsprache sein.`);
+  if (!freeRemotion && !/(?:material=['"](?:neutral|money|warning|positive)['"]|Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack))/.test(source)) {
+    fail(`${id}: Legacy-Animation braucht semantische Materialrollen oder konkrete Realwelt-Primitives.`);
   }
-  if (/<PhysicalRail\b/.test(source) && concreteObjects < 3) {
-    fail(`${id}: PhysicalRail/Fortschrittsbalken darf niemals die primäre Animation ersetzen; bei Nutzung müssen mindestens drei konkrete Realwelt-Objekte die Geschichte tragen.`);
-  }
-  if (!/(?:material=['"](?:neutral|money|warning|positive)['"]|Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack))/.test(source)) {
-    fail(`${id}: Animation braucht semantische Materialrollen oder konkrete Realwelt-Primitives.`);
+  if (freeRemotion && !/ANIMATION_COLORS/.test(source)) {
+    fail(`${id}: freie Remotion-Animation muss weiterhin die zentrale ANIMATION_COLORS-Semantik verwenden.`);
   }
   // Nur tatsächliche JSX-Komponentennutzung blockieren. Qualitätskommentare wie
   // "kein Dashboard" oder "kein Flowchart" sind ausdrücklich erlaubt und sollen
@@ -113,6 +126,16 @@ for (const scene of animations) {
     fail(`${id}: MECHANIC_ID "${mechanicId}" dupliziert ${mechanicIds.get(mechanicId)}; jede Animationsszene braucht eine andere Mechanik.`);
   } else {
     mechanicIds.set(mechanicId, id);
+  }
+  if (freeRemotion) {
+    const techniqueId = source.match(/VISUAL_TECHNIQUE_ID:\s*([a-z0-9-]+)/i)?.[1];
+    if (!techniqueId) {
+      fail(`${id}: VISUAL_TECHNIQUE_ID fehlt; jede freie Remotion-Szene braucht eine eigene Haupttechnik.`);
+    } else if (techniqueIds.has(techniqueId)) {
+      fail(`${id}: VISUAL_TECHNIQUE_ID "${techniqueId}" dupliziert ${techniqueIds.get(techniqueId)}; Haupttechniken im selben Reel müssen variieren.`);
+    } else {
+      techniqueIds.set(techniqueId, id);
+    }
   }
   if (!/PRIMARY_ACTION:\s*[^\n]{18,}/i.test(source)) {
     fail(`${id}: PRIMARY_ACTION fehlt/ist zu kurz; die physische Hauptaktion muss explizit beschrieben sein.`);
@@ -152,7 +175,7 @@ if (errors.length) {
 }
 
 console.log(`\n✓ ${animations.length} kanonische Phase-1-Animation(en) erfüllen den cinematischen V9-Animationsvertrag.`);
-console.log('✓ Jede Animation nutzt eine eigene Realwelt-Mechanik mit konkreten Gegenständen und Start → Aktion → Ergebnis.');
+console.log(freeRemotion ? '✓ Remotion-Freedom: eigene Mechanik + eigene visuelle Haupttechnik je Szene; Physical*-Primitives sind optional.' : '✓ Jede Animation nutzt die alte Realwelt-Primitive-Mechanik mit Start → Aktion → Ergebnis.');
 console.log('✓ Generische Kartenreihen und Fortschrittsbalken können die visuelle Erklärung nicht mehr ersetzen.');
 console.log('✓ Mehrere koordinierte Motion-Channels sind Pflicht; reine Deko-Bewegung zählt nicht als Mechanik.');
 console.log('✓ PremiumPhysicalStage bleibt auf zentralem pure-black Canvas; Partikel/Aurora/Grid/Gradient-Hintergründe sind gesperrt.');

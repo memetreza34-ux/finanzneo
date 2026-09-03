@@ -18,9 +18,9 @@ COVER_HOOK_CONTRACT: finanzneo-cover-hook-v2
 
 - Szene 01 ist ein echtes Reel-Cover und zugleich der erste sichtbare Videoframe.
 - Rendere den exakten Titel aus scene-index.title mit Remotion bereits bei Frame 0. Kein Fade-in, kein Intro davor, keine verzögerte Einblendung.
-- Während scene-01 darf KEINE Caption-/Subtitle-Komponente gemountet oder sichtbar sein. Untertitel beginnen erst mit scene-02.
+- Während scene-01 sind Caption, Subtitle und Voiceover gesperrt. Audio und Untertitel starten ab Frame 3 mit scene-02.
 - Szene 01 enthält nur Hero-Bild + Reel-Titel. Kein normales SceneHeader-Icon, keine zweite Textzeile als Erklärung, kein CTA, keine Zusatzkarte.
-- Der Titel muss mindestens die ersten 30 Frames stabil lesbar sein und darf während scene-01 sichtbar bleiben.
+- Scene-01 dauert exakt 3 Frames = 0,1 s. In allen drei Frames sind nur Hero-Bild + exakter Reel-Titel sichtbar.
 - Das Flow-Bild selbst enthält den Titel NICHT; die exakte Typografie kommt aus Remotion.
 - Implementiere die Caption-Sperre im tatsächlichen Composition-Code über die aktive Szene/Frame-Grenze, nicht nur über Metadaten.
 - Playwright/Render-QA muss Frame 0 prüfen: Titel sichtbar, Bild sichtbar, keine Untertitel, kein Icon, keine Zusatztexte.
@@ -45,3 +45,14 @@ FUTURE IMAGE STORYTELLING V2 — VERBINDLICH:
 FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 
 Vor Post-Render-QA wird der finale Candidate automatisch auf -16 LUFS / -1 dBTP gemastert. Nicht manuell umgehen. Bei langen statischen Holds lieber zusätzliche Visual Beats nutzen. Animations-Hauptmechanik groß und bildfüllend halten; excessive empty space gilt als Qualitätsfehler.
+
+
+REMOTION_FREEDOM: unrestricted-explainer-v1
+Animationsszenen dürfen eigene React-/SVG-/CSS-3D-/Mask-/Perspektiv-/Three.js-Techniken verwenden. Physical*-Primitives sind optional. Jede Szene braucht eine andere VISUAL_TECHNIQUE_ID.
+
+
+## 3-FRAME-COVER — TECHNISCHE SPERRE
+
+- Während scene-01 darf KEINE Caption-/Subtitle-Komponente gemountet oder sichtbar sein.
+- Untertitel beginnen erst mit scene-02.
+- Voiceover ist in Frame 0–2 gesperrt und startet ab Frame 3 mit scene-02.

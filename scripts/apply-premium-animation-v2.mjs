@@ -43,22 +43,24 @@ Pflicht:
 - dieselbe realitätsnahe stylized-3D-Welt wie die Flow-Bilder; klar nicht fotorealistisch
 - echte Alltagssituation bzw. konkrete Finanzhandlung zuerst, abstrakte Symbole nur unterstützend
 - STARTZUSTAND → konkrete physische Hauptaktion → sichtbare Ursache/Wirkung → eindeutiges Ergebnis
-- mindestens zwei konkrete Realwelt-Objekte/-Instanzen in der visuellen Handlung
-- eindeutige MECHANIC_ID je Animationsszene; keine Mechanik im selben Reel doppelt verwenden
-- PRIMARY_ACTION benennt die tatsächliche physische Zustandsänderung
+- Remotion ist die freie Animationsfläche: eigene React-Komponenten, SVG, Masken, Clip-Paths, CSS-3D, Perspektive, Kamera-Choreografie, Morphing und bei Bedarf Three.js sind erlaubt
+- vorhandene Physical*-Primitives sind OPTIONALE Helfer und niemals Voraussetzung oder Kreativitätsgrenze
+- jede Szene erhält eine eindeutige MECHANIC_ID UND VISUAL_TECHNIQUE_ID; weder Mechanik noch Haupttechnik im selben Reel wiederholen
+- PRIMARY_ACTION benennt die tatsächliche sichtbare Zustandsänderung
 - mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable
 - kurze deutsche Labels dürfen helfen, tragen aber niemals allein die Erklärung
-- sichtbare Materialität, Dicke, Tiefe und Kontakt-Schatten
-- PremiumPhysicalStage bleibt transparent; der zentrale Reel-Canvas darunter ist statisch #000000
+- AnimationStage oder PremiumPhysicalStage hält die sichtbare Ausgabe in der Visual-Safe-Zone; der zentrale Reel-Canvas darunter bleibt #000000
+- Materialität, Tiefe, Perspektive und Kontakt-Schatten einsetzen, wenn sie zur gewählten Technik passen
 - Ergebnis mindestens 15 Frames stabil halten
 
-Bevorzugte konkrete Primitives, wenn passend:
-- PhysicalBill
-- PhysicalAccount
-- PhysicalWasher
-- PhysicalReserveTank
-- PhysicalCalendarPage
-- PhysicalCoinStack
+Mögliche Techniken — ausdrücklich keine geschlossene Liste:
+- eigene SVG-Illustration und SVG-Morph/Mask-Reveal
+- CSS-3D-Objekte, Perspektivräume und Kamerafahrten
+- Clip-Path-/Slice-/Cutaway-Mechaniken
+- Split-Screen, Match-Cut und Objekt-Transformation
+- data-driven Shapes und echte Diagramm-Transformationen
+- Canvas / Three.js / @remotion/three, wenn die Szene davon profitiert
+- vorhandene Physical*-Primitives nur dann, wenn sie für genau diese Szene die beste Lösung sind
 
 Streng verboten als Hauptsprache:
 - drei oder mehr generische beschriftete Kästen/Karten, die nur A → B → C darstellen
@@ -97,6 +99,6 @@ if (existsSync(overviewPath)) {
 }
 
 console.log(`✓ Cinematic Animation Contract angewendet: ${PREMIUM_ANIMATION_LOCK}`);
-console.log('  Realwelt-Mechanik zuerst · jede Szene eigene MECHANIC_ID · mehrere Motion-Channels.');
+console.log('  Remotion-Freiheit aktiv · jede Szene eigene MECHANIC_ID + VISUAL_TECHNIQUE_ID · mehrere Motion-Channels.');
 console.log('  Generische Kartenreihen und Fortschrittsbalken dürfen die visuelle Geschichte nicht ersetzen.');
 console.log('  Transparenter Stage über statischem #000000 Canvas · keine Partikel/Aurora/Grid/Glow-Hintergründe.');

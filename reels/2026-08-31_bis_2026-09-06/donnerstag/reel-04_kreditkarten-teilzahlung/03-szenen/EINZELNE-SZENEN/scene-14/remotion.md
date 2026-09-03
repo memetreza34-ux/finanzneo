@@ -4,21 +4,22 @@
 **Icon:** clock
 **Kanonische Codequelle:** animation.tsx
 **Quality Lock:** finanzneo-phase1-animation-code-v1
-**Premium Visual Lock:** finanzneo-premium-physical-animation-v2
 **Visuelle Zielwelt:** finanzneo-stylized-3d-animated-black-v9
-**Stage:** transparent über zentralem #000000 Reel-Canvas; sichtbare Ausgabe hart Y320–1400.
+**VISUAL_TECHNIQUE_ID:** perspective-month-tunnel
+**Remotion Freedom:** freie React/SVG/CSS-3D-Komposition; Physical*-Primitives sind optional.
+**Stage:** AnimationStage oder PremiumPhysicalStage transparent über zentralem #000000 Reel-Canvas; sichtbar hart Y320–1400.
 
 ## STARTZUSTAND
-Eine einzelne offene Kaufabrechnung liegt sichtbar vor dem ersten Monatskalender.
+Ein einzelner Einkauf bewegt sich in einen räumlichen Zeittunnel hinein.
 
 ## SICHTBARER MECHANISMUS
-Nacheinander erscheinen weitere Monatskalender hinter derselben offenen Abrechnung. Die Abrechnung bleibt bestehen und wird sichtbar über mehrere Monate mitgeschleppt.
+Ein offener Einkauf fährt durch einen perspektivischen Tunnel aus mehreren Monatsportalen und bleibt bis Monat drei offen.
 
 ## ERGEBNIS
-Die gleiche offene Schuld reicht sichtbar über mehrere Monatsseiten; aus einem Einkauf ist eine länger laufende Belastung geworden.
+MONAT 3 rastet ein; die Kamera stoppt auf dem weiterhin offenen Einkauf und dem Endhinweis MEHRERE MONATE OFFEN.
 
 ## RESULT HOLD
-Mindestens 24 Frames stabil.
+Mindestens 15 Frames stabil.
 
 ## VERBOTEN
-Keine Dashboard-/App-UI als Hauptsprache, keine Partikel/Aurora/Grid-Effekte, keine generische Kartenreihe als Ersatz für die reale Handlung, kein Fortschrittsbalken als Geschichte.
+Keine Wiederholung der Haupttechnik einer anderen Animationsszene, kein Dashboard/App-UI als Ersatz für die Geschichte, kein generischer Progressbar-Mechanismus, keine dekorativen Hintergrundeffekte.

@@ -4,21 +4,22 @@
 **Icon:** percent
 **Kanonische Codequelle:** animation.tsx
 **Quality Lock:** finanzneo-phase1-animation-code-v1
-**Premium Visual Lock:** finanzneo-premium-physical-animation-v2
 **Visuelle Zielwelt:** finanzneo-stylized-3d-animated-black-v9
-**Stage:** transparent über zentralem #000000 Reel-Canvas; sichtbare Ausgabe hart Y320–1400.
+**VISUAL_TECHNIQUE_ID:** debt-layer-extrusion
+**Remotion Freedom:** freie React/SVG/CSS-3D-Komposition; Physical*-Primitives sind optional.
+**Stage:** AnimationStage oder PremiumPhysicalStage transparent über zentralem #000000 Reel-Canvas; sichtbar hart Y320–1400.
 
 ## STARTZUSTAND
-Eine offene Restabrechnung liegt sichtbar vor einem neuen Monatskalender; noch sind keine zusätzlichen Kosten dargestellt.
+Ein massiver 500-Euro-Restblock bleibt sichtbar bestehen.
 
 ## SICHTBARER MECHANISMUS
-Der Kalender rückt in den nächsten Monat. Während die Restabrechnung offen bleibt, baut sich daneben ein zusätzlicher kleiner Kostenstapel auf.
+Ein massiver Restblock bleibt über den Monatsflip stehen; eine zusätzliche Kostenschicht extrudiert oben heraus.
 
 ## ERGEBNIS
-Die Restabrechnung bleibt offen und ein klarer zusätzlicher Kostenstapel zeigt die mögliche Zinsbelastung.
+Eine neue rot-orange Kostenschicht wächst physisch auf den offenen Restblock.
 
 ## RESULT HOLD
-Mindestens 24 Frames stabil.
+Mindestens 15 Frames stabil.
 
 ## VERBOTEN
-Keine Dashboard-/App-UI als Hauptsprache, keine Partikel/Aurora/Grid-Effekte, keine generische Kartenreihe als Ersatz für die reale Handlung, kein Fortschrittsbalken als Geschichte.
+Keine Wiederholung der Haupttechnik einer anderen Animationsszene, kein Dashboard/App-UI als Ersatz für die Geschichte, kein generischer Progressbar-Mechanismus, keine dekorativen Hintergrundeffekte.

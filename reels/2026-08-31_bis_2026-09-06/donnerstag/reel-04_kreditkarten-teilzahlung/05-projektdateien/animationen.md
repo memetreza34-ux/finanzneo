@@ -1,10 +1,12 @@
-# ANIMATIONEN
+# ANIMATIONEN — REMOTION FREEDOM
 
-Phase 1 liefert für jede Animationsszene die kanonische, produktionsreife animation.tsx.
-Visuell verbindlich: V9 stylized 3D animated, transparente PremiumPhysicalStage über pure-black Reel-Canvas, reale Ursache → Wirkung, Result-Hold >= 24 Frames.
+Phase 1 darf Remotion vollständig ausnutzen. Vorhandene Physical*-Primitives sind optionale Helfer, keine Pflicht.
 
-- scene-03: full-payment-clears-statement — Eine offene Kartenabrechnung wird am Abrechnungstermin durch eine vollständige Zahlung aus dem Girokonto sichtbar auf „BEZAHLT“ gesetzt.
-- scene-05: interest-accrues-on-open-balance — Eine offene Restabrechnung bleibt liegen, ein Kalender rückt weiter und daneben wächst sichtbar ein kleiner zusätzlicher Kostenstapel.
-- scene-07: partial-payment-leaves-principal — Von einer 600-Euro-Abrechnung werden sichtbar 100 Euro abgetragen; die Abrechnung bleibt mit 500 Euro offen und wird als Restschuld stabil gehalten.
-- scene-09: new-purchase-adds-to-card-balance — Eine alte Restabrechnung und eine neue Kaufabrechnung bewegen sich physisch in denselben Kartensaldo, der danach sichtbar höher steht.
-- scene-14: single-purchase-spans-multiple-months — Eine einzelne offene Kaufabrechnung bleibt bestehen, während mehrere Monatskalender nacheinander erscheinen und die offene Belastung sichtbar in die Länge gezogen wird.
+Pflicht bleibt: Safe-Zone Y320–1400, klare Ursache/Wirkung, mehrere koordinierte Motion-Channels, eigene MECHANIC_ID + eigene VISUAL_TECHNIQUE_ID je Szene, stabiler Endzustand und Render-QA.
+
+- scene-02 — mechanical-lever-reveal — mechanischer Rückzahlungshebel
+- scene-03 — svg-payment-wipe — vollflächiger SVG-Transfer-Wipe
+- scene-05 — debt-layer-extrusion — CSS-3D-Schuldenblock mit wachsender Kostenschicht
+- scene-07 — clip-slice-principal — physischer Slice/Cutaway eines 600-Euro-Körpers
+- scene-09 — purchase-drop-vessel — fallender Einkauf füllt einen transparenten Schuldenbehälter
+- scene-14 — perspective-month-tunnel — perspektivische Kamerafahrt durch Monatsportale
