@@ -45,6 +45,9 @@ jobs:
       - name: Phase-1-Inhalte einsetzen
         run: node scripts/.tmp-create-thursday-kreditkarte.mjs reels/2026-08-31_bis_2026-09-06/donnerstag/reel-04_kreditkarten-teilzahlung
 
+      - name: Temporären Generator vor Repo-Lint entfernen
+        run: rm scripts/.tmp-create-thursday-kreditkarte.mjs
+
       - name: Regression Guard nach Erstellung
         run: node scripts/check-reel-regression-baseline.mjs
 
@@ -57,10 +60,8 @@ jobs:
       - name: Render Smoke
         run: npm run smoke
 
-      - name: Temporäre Erstellungsdateien entfernen
-        run: |
-          rm scripts/.tmp-create-thursday-kreditkarte.mjs
-          rm .github/workflows/one-time-create-thursday-kreditkarte.yml
+      - name: Temporären Workflow entfernen
+        run: rm .github/workflows/one-time-create-thursday-kreditkarte.yml
 
       - name: Geänderte Pfade hart begrenzen
         shell: bash
