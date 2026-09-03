@@ -1,0 +1,93 @@
+name: One-time create Thursday credit-card reel
+
+on:
+  push:
+    branches:
+      - repo/reel-2026-09-03-kreditkarten-teilzahlung
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  create-reel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+        with:
+          ref: repo/reel-2026-09-03-kreditkarten-teilzahlung
+          fetch-depth: 0
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Generator syntaktisch prüfen
+        run: node --check scripts/.tmp-create-thursday-kreditkarte.mjs
+
+      - name: Bestehende Reels vor Erstellung prüfen
+        run: node scripts/check-reel-regression-baseline.mjs
+
+      - name: Future-V3-Reel-Gerüst anlegen
+        run: >-
+          npm run reel:create --
+          --target reels/2026-08-31_bis_2026-09-06/donnerstag/reel-04_kreditkarten-teilzahlung
+          --title "Warum die kleine Kreditkartenrate teuer werden kann"
+          --types image,image,animation,image,animation,image,animation,image,animation,image,image,image,image,animation
+
+      - name: Phase-1-Inhalte einsetzen
+        run: node scripts/.tmp-create-thursday-kreditkarte.mjs reels/2026-08-31_bis_2026-09-06/donnerstag/reel-04_kreditkarten-teilzahlung
+
+      - name: Regression Guard nach Erstellung
+        run: node scripts/check-reel-regression-baseline.mjs
+
+      - name: Vollständige Validatoren
+        run: npm run validate
+
+      - name: Remotion Bundle
+        run: npm run build
+
+      - name: Render Smoke
+        run: npm run smoke
+
+      - name: Temporäre Erstellungsdateien entfernen
+        run: |
+          rm scripts/.tmp-create-thursday-kreditkarte.mjs
+          rm .github/workflows/one-time-create-thursday-kreditkarte.yml
+
+      - name: Geänderte Pfade hart begrenzen
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -A
+          bad=0
+          while IFS= read -r path; do
+            case "$path" in
+              reels/2026-08-31_bis_2026-09-06/donnerstag/reel-04_kreditkarten-teilzahlung/*|scripts/.tmp-create-thursday-kreditkarte.mjs|.github/workflows/one-time-create-thursday-kreditkarte.yml)
+                ;;
+              *)
+                echo "Unerwarteter geänderter Pfad: $path"
+                bad=1
+                ;;
+            esac
+          done < <(git diff --cached --name-only)
+          test "$bad" -eq 0
+
+      - name: Finalen Regression Guard ausführen
+        run: node scripts/check-reel-regression-baseline.mjs
+
+      - name: Geprüftes Reel committen
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          FINANZNEO_ALLOW_PROTECTED_CHANGES=1 git commit -m "Create Thursday credit card partial-payment reel"
+          git push origin HEAD:repo/reel-2026-09-03-kreditkarten-teilzahlung
