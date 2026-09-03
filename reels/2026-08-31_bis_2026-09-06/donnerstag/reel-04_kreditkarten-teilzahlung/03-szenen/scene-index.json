@@ -1,0 +1,973 @@
+{
+  "version": 28,
+  "title": "Warum die kleine Kreditkartenrate teuer werden kann",
+  "sceneCount": 14,
+  "imageSceneCount": 9,
+  "animationSceneCount": 5,
+  "targetImageShare": 0.6,
+  "targetAnimationShare": 0.4,
+  "video": {
+    "aspectRatio": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "cover": {
+    "type": "scene-image",
+    "sourceSceneId": "scene-01",
+    "googleFlowFileName": "Bild 01 - Kleine Rate grosse Kosten.png",
+    "planFile": "03-szenen/00-cover/cover.txt",
+    "aspectRatio": "1:1",
+    "sameAssetAsFirstScene": true,
+    "separateGenerationForbidden": true,
+    "renderedTitleOverlayRequired": true,
+    "finalExportSource": "final-video-frame-0"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "phase3Executor": "antigravity",
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-sequential-v1",
+    "generationMode": "one-image-at-a-time",
+    "strictSequential": true,
+    "waitForCurrentImage": true,
+    "renameBeforeNext": true,
+    "qaBeforeNext": true,
+    "retrySameImageOnFailure": true,
+    "fileNameRule": "Bild XX - Kurzer Szenenname.png",
+    "numberSource": "real-scene-number",
+    "animationNumbersStayReserved": true,
+    "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
+    "distributeToSceneFolders": false,
+    "executionModeId": "finanzneo-flow-strict-single-job-v3",
+    "stateMachineId": "finanzneo-flow-state-machine-v1",
+    "autonomousFullRun": true,
+    "maxConcurrentGenerations": 1,
+    "batchGenerationForbidden": true,
+    "multiImageRequestForbidden": true,
+    "queueLaterImagesForbidden": true,
+    "galleryOrContactSheetForbidden": true,
+    "currentStepGateRequired": true,
+    "nextStepLockedUntilCurrentResultReturned": true,
+    "renameBeforeUnlockNext": true,
+    "qaBeforeUnlockNext": true,
+    "userContinueSignalForbidden": true,
+    "userApprovalBetweenImagesForbidden": true,
+    "internalWaitForGenerationOnly": true,
+    "autoContinueAfterQa": true,
+    "hardBlockerOnlyStop": true,
+    "structureLockId": "finanzneo-flow-structure-lock-v2",
+    "preserveStructureThroughLastImage": true,
+    "preserveStyleThroughLastImage": true
+  },
+  "phase1AnimationCode": {
+    "required": true,
+    "qualityLock": "finanzneo-phase1-animation-code-v1",
+    "canonicalSourceRequiredForEveryAnimation": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "placeholderMotionForbidden": true,
+    "decorativeMotionDoesNotCountAsExplanation": true,
+    "mathSinCosCompletionHackForbidden": true,
+    "realWorldMechanismRequired": true,
+    "uniqueMechanismPerAnimationRequired": true,
+    "physicalCauseEffectRequired": true,
+    "labelsSupplementalOnly": true,
+    "genericCardRowsForbidden": true,
+    "progressBarAsPrimaryStoryForbidden": true,
+    "narrativeMarkersRequired": [
+      "MECHANIC_ID",
+      "PRIMARY_ACTION",
+      "START",
+      "MECHANISM",
+      "RESULT",
+      "HERO",
+      "SUPPORT",
+      "MATERIAL",
+      "DEPTH"
+    ],
+    "resultHoldFramesMin": 15,
+    "premiumVisualLock": "finanzneo-premium-physical-animation-v2",
+    "visualTargetWorld": "finanzneo-stylized-3d-animated-black-v9",
+    "requirePremiumPhysicalStage": true,
+    "requirePhysicalObjects": true,
+    "supportingObjectCountFlexible": true,
+    "clarityBeforeObjectCount": true,
+    "requireMaterialDepthLighting": true,
+    "sameVisualLanguageAsFlowImages": true,
+    "startMechanismResultRequired": true,
+    "pureBlackCanvasRequired": true,
+    "transparentAnimationStageRequired": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridBackgroundForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "genericInfoCardsAsMainLanguageForbidden": true
+  },
+  "reelBackground": {
+    "contractId": "finanzneo-pure-black-background-v1",
+    "color": "#000000",
+    "staticRequired": true,
+    "decorativeEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridForbidden": true,
+    "glowBackgroundForbidden": true
+  },
+  "layoutVersion": "finanzneo-reel-layout-v5",
+  "layout": {
+    "headlineY": 154,
+    "visualTop": 320,
+    "visualBottom": 1400,
+    "subtitleBottom": 340,
+    "subtitleLeft": 72,
+    "subtitleRight": 140
+  },
+  "visualSafeZone": {
+    "top": 320,
+    "bottom": 1400,
+    "hardClipAnimations": true,
+    "headerIntrusionForbidden": true,
+    "captionIntrusionForbidden": true
+  },
+  "timingStandard": {
+    "imageSceneIdealSeconds": [
+      1.8,
+      3
+    ],
+    "imageSceneAbsoluteMaxSeconds": 4,
+    "animationSceneIdealSeconds": [
+      3,
+      5.5
+    ],
+    "splitOrAnimateIfImageExceedsMax": true,
+    "visualBeatContractId": "finanzneo-visual-beats-v2",
+    "actualTimingSource": "04-caption/word-timings.json",
+    "cameraMotionDoesNotResetVisualBeat": true,
+    "newConcreteVoiceIdeaShouldTriggerVisualChange": true,
+    "imageSceneSoftMaxSeconds": 3.6,
+    "longStaticSentenceNeedsAdditionalVisualBeat": true,
+    "extraImagePreferredOverLongHold": true
+  },
+  "clarityStandard": {
+    "mustReadInUnderSeconds": 2,
+    "oneMainIdeaPerBeat": true,
+    "sceneHeaderRequired": true,
+    "sceneIconRequired": true,
+    "animationStartMechanismResultRequired": true,
+    "blackTextOnDarkForbidden": true
+  },
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "seriesLockId": "finanzneo-same-world-v1",
+    "stylized3DLockId": "finanzneo-stylized-3d-editorial-v5",
+    "physicalExplainerLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "premiumVisualWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "animatedWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "generatedImageAspectRatio": "1:1",
+    "squareGeneratedImagesRequired": true,
+    "referencePromptFile": "03-szenen/bildwelt.txt",
+    "styleReferenceStrategy": "written-style-lock-only",
+    "referenceImageUse": "forbidden",
+    "style": "stylized-3d-animated-black-v9",
+    "sameWorldAcrossSeriesRequired": true,
+    "supportingObjectCountFlexible": true,
+    "supportingObjectsOnlyWhenHelpful": true,
+    "clarityBeforeObjectCount": true,
+    "contentFirstCompositionRequired": true,
+    "nonPhotorealisticRequired": true,
+    "stylized3DAnimatedRequired": true,
+    "softRoundedGeometryRequired": true,
+    "simplifiedDetailsRequired": true,
+    "premiumPlayfulBalanceRequired": true,
+    "clearMainSubjectOrActionRequired": true,
+    "deepBlackBackgroundRequired": true,
+    "cleanMinimalBackgroundRequired": true,
+    "subjectSeparationLightingRequired": true,
+    "softContactShadowsRequired": true,
+    "brandMarksRecognizableButStylizedRequired": true,
+    "flatPastedRealLogoForbidden": true,
+    "screenshotLikeBrandUiForbidden": true,
+    "objectLabelsOnly": true,
+    "headlinesInGeneratedImagesForbidden": true,
+    "subtitlesInGeneratedImagesForbidden": true,
+    "sentencesInGeneratedImagesForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "appUiCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "floatingUiTilesForbidden": true,
+    "microchipVisualLanguageForbidden": true,
+    "miniatureDioramaForbidden": true,
+    "photorealismForbidden": true,
+    "productPhotoLookForbidden": true,
+    "clutterForbidden": true,
+    "seamlessSingleBackgroundRequired": true,
+    "percentageZonesForbidden": true,
+    "floorWallBoundaryForbidden": true,
+    "horizonLineForbidden": true,
+    "backgroundBandsForbidden": true,
+    "visibleFaceRequiredWhenPersonPresent": true,
+    "realWorldGroundedSituationRequired": true,
+    "believableObjectProportionsRequired": true,
+    "recognizableEverydayDetailsRequired": true,
+    "completeExplanatorySceneRequired": true,
+    "causeEffectReadableRequired": true,
+    "understandableWithoutAudioRequired": true,
+    "germanObjectLabelsWhenHelpfulRequired": true,
+    "individuallyWrittenPromptRequired": true,
+    "genericPromptShorthandForbidden": true,
+    "abstractSymbolOnlyCompositionForbidden": true,
+    "genericFinanceIconCompositionForbidden": true,
+    "visualMetaphorInterpretationRequiredForbidden": true
+  },
+  "platformPublishing": {
+    "directory": "04-caption",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt",
+    "universalCaptionForAllReelPlatforms": true,
+    "platforms": [
+      "instagram-reels",
+      "tiktok",
+      "facebook-reels",
+      "snapchat"
+    ]
+  },
+  "timelineRules": {
+    "timingSource": "04-caption/word-timings.json",
+    "cutsFollowSentenceStarts": true,
+    "cutsFollowSentenceStartsAndMeaningfulPhraseStarts": true,
+    "equalLengthScenesForbiddenByDefault": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "imagePresentationContract": {
+    "imageFit": "contain",
+    "maxIntentionalImageScale": 1.04,
+    "maxSourceCropPerSide": 0.2,
+    "maxSourceCropTotal": 0.34,
+    "blurredImageBackgroundForbidden": true
+  },
+  "subtitleDisplay": {
+    "mode": "sentence-with-audio-synced-active-word",
+    "activeWordColor": "finance-green",
+    "normalWordColor": "white",
+    "maxLines": 2,
+    "noDeadGaps": true,
+    "holdDuringPauses": true,
+    "noWordJump": true,
+    "noWordScale": true,
+    "goldActiveWordForbidden": true,
+    "blackTextForbidden": true,
+    "clipToSceneBoundary": true,
+    "crossSceneSpillForbidden": true,
+    "textStrokeForbidden": true,
+    "fontWeight": 800,
+    "fontSize": 50,
+    "bottom": 340
+  },
+  "sceneHeader": {
+    "required": true,
+    "align": "center",
+    "presentation": "plain",
+    "headlineColor": "white",
+    "fontSize": 56,
+    "minFontSize": 50,
+    "maxLines": 2,
+    "iconSize": 34,
+    "defaultIconColor": "finance-green",
+    "semanticColorLivesOnIcon": true,
+    "capsuleForbidden": true,
+    "uppercaseTransformForbidden": true,
+    "uniqueIconPerScene": true,
+    "mustStateSceneMessage": true,
+    "samePositionAcrossReel": true
+  },
+  "animationColors": {
+    "neutral": "white",
+    "focus": "finance-green",
+    "warning": "red",
+    "money": "gold",
+    "blackOnDarkForbidden": true
+  },
+  "transitionContract": {
+    "continuityFrames": 3,
+    "continuityFramesMax": 3,
+    "imageEnterFrames": 4,
+    "fadeToBlackForbidden": true
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 102,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-01",
+      "headline": "Warum kann die kleine Rate teuer werden?",
+      "icon": "warning",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
+      "googleFlowFileName": "Bild 01 - Kleine Rate grosse Kosten.png",
+      "objectLabels": [
+        "Kleine Rate",
+        "Offener Rest"
+      ],
+      "expectedVisual": "A relatable credit-card situation where a very small monthly payment leaves a visibly large unpaid statement behind; the contrast must be obvious without UI.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.4,
+      "visualBeats": [
+        {
+          "id": "scene-01-beat-01",
+          "kind": "image",
+          "voiceText": "Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden.",
+          "visualChange": "Eine kleine Zahlung liegt vorne, während dahinter eine deutlich größere offene Kreditkartenabrechnung bestehen bleibt.",
+          "startSecond": 0,
+          "endSecond": 3.4
+        }
+      ],
+      "coverHook": true,
+      "captionEnabled": false,
+      "subtitleMode": "off",
+      "titleMode": "reel-title-overlay",
+      "titleVisibleFromFrame": 0,
+      "coverTitle": "Warum die kleine Kreditkartenrate teuer werden kann",
+      "targetSeconds": 3.4,
+      "audioTrigger": "Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden.",
+      "mainIdea": "Eine kleine Zahlung liegt vorne, während dahinter eine deutlich größere offene Kreditkartenabrechnung bestehen bleibt."
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "startFrame": 102,
+      "durationFrames": 66,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-02",
+      "headline": "Der Knackpunkt heißt Teilzahlung",
+      "icon": "repeat",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
+      "googleFlowFileName": "Bild 02 - Teilzahlung markiert.png",
+      "objectLabels": [
+        "Teilzahlung"
+      ],
+      "expectedVisual": "A real paper credit-card statement on a desk where the repayment method “Teilzahlung” is clearly selected or stamped, next to the physical card.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 2.2,
+      "visualBeats": [
+        {
+          "id": "scene-02-beat-01",
+          "kind": "image",
+          "voiceText": "Der entscheidende Punkt ist die Teilzahlung.",
+          "visualChange": "Auf einer echten Papierabrechnung ist „Teilzahlung“ klar markiert; die Kreditkarte liegt daneben.",
+          "startSecond": 0,
+          "endSecond": 2.2
+        }
+      ],
+      "targetSeconds": 2.2,
+      "audioTrigger": "Der entscheidende Punkt ist die Teilzahlung.",
+      "mainIdea": "Auf einer echten Papierabrechnung ist „Teilzahlung“ klar markiert; die Kreditkarte liegt daneben."
+    },
+    {
+      "id": "scene-03",
+      "type": "animation",
+      "startFrame": 168,
+      "durationFrames": 120,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-03",
+      "headline": "Vollzahlung gleicht alles aus",
+      "icon": "check",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-03/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-03/animation.tsx",
+      "animationExport": "Scene03Animation",
+      "animationIntent": "Eine offene Kartenabrechnung wird am Abrechnungstermin durch eine vollständige Zahlung aus dem Girokonto sichtbar auf „BEZAHLT“ gesetzt.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-03-beat-01",
+          "kind": "animation",
+          "voiceText": "Bei Vollzahlung wird der offene Kartenbetrag zum Abrechnungstermin vollständig ausgeglichen.",
+          "visualChange": "Eine offene Kartenabrechnung wird am Abrechnungstermin durch eine vollständige Zahlung aus dem Girokonto sichtbar auf „BEZAHLT“ gesetzt.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "targetSeconds": 4,
+      "audioTrigger": "Bei Vollzahlung wird der offene Kartenbetrag zum Abrechnungstermin vollständig ausgeglichen.",
+      "mainIdea": "Eine offene Kartenabrechnung wird am Abrechnungstermin durch eine vollständige Zahlung aus dem Girokonto sichtbar auf „BEZAHLT“ gesetzt."
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "startFrame": 288,
+      "durationFrames": 84,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-04",
+      "headline": "Teilzahlung lässt einen Rest offen",
+      "icon": "receipt",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
+      "googleFlowFileName": "Bild 04 - Nur Teil zurueckgezahlt.png",
+      "objectLabels": [
+        "Teilzahlung",
+        "Rest offen"
+      ],
+      "expectedVisual": "A physical credit-card statement showing a large open amount while only a visibly smaller payment has been placed against it; the remainder stays marked as open.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 2.8,
+      "visualBeats": [
+        {
+          "id": "scene-04-beat-01",
+          "kind": "image",
+          "voiceText": "Bei Teilzahlung zahlst du nur einen Teil zurück.",
+          "visualChange": "Nur ein kleiner Teil der Abrechnung ist bezahlt; ein deutlich größerer Rest bleibt sichtbar offen.",
+          "startSecond": 0,
+          "endSecond": 2.8
+        }
+      ],
+      "targetSeconds": 2.8,
+      "audioTrigger": "Bei Teilzahlung zahlst du nur einen Teil zurück.",
+      "mainIdea": "Nur ein kleiner Teil der Abrechnung ist bezahlt; ein deutlich größerer Rest bleibt sichtbar offen."
+    },
+    {
+      "id": "scene-05",
+      "type": "animation",
+      "startFrame": 372,
+      "durationFrames": 120,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-05",
+      "headline": "Auf dem Rest können Zinsen laufen",
+      "icon": "percent",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-05/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-05/animation.tsx",
+      "animationExport": "Scene05Animation",
+      "animationIntent": "Eine offene Restabrechnung bleibt liegen, ein Kalender rückt weiter und daneben wächst sichtbar ein kleiner zusätzlicher Kostenstapel.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-05-beat-01",
+          "kind": "animation",
+          "voiceText": "Auf den restlichen offenen Betrag können je nach Vertrag Zinsen anfallen.",
+          "visualChange": "Eine offene Restabrechnung bleibt liegen, ein Kalender rückt weiter und daneben wächst sichtbar ein kleiner zusätzlicher Kostenstapel.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "targetSeconds": 4,
+      "audioTrigger": "Auf den restlichen offenen Betrag können je nach Vertrag Zinsen anfallen.",
+      "mainIdea": "Eine offene Restabrechnung bleibt liegen, ein Kalender rückt weiter und daneben wächst sichtbar ein kleiner zusätzlicher Kostenstapel."
+    },
+    {
+      "id": "scene-06",
+      "type": "image",
+      "startFrame": 492,
+      "durationFrames": 123,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-06",
+      "headline": "600 Euro gekauft, 100 zurückgezahlt",
+      "icon": "euro",
+      "accent": "finance-green",
+      "headerTone": "neutral",
+      "planFile": "EINZELNE-SZENEN/scene-06/bildprompt.txt",
+      "googleFlowFileName": "Bild 06 - 600 Einkauf 100 Rueckzahlung.png",
+      "objectLabels": [
+        "Einkauf 600 €",
+        "Rückzahlung 100 €"
+      ],
+      "expectedVisual": "A grounded purchase scene with a physical card, shopping bag and paper statement for 600 euros, while only a separate 100-euro repayment is visibly applied.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4.1,
+      "visualBeats": [
+        {
+          "id": "scene-06-beat-01",
+          "kind": "image",
+          "voiceText": "Beispiel: Du kaufst für 600 Euro ein und zahlst nur 100 Euro zurück.",
+          "visualChange": "Ein realer Einkauf über 600 Euro steht einer klar kleineren Rückzahlung von 100 Euro gegenüber.",
+          "startSecond": 0,
+          "endSecond": 4.1
+        }
+      ],
+      "targetSeconds": 4.1,
+      "audioTrigger": "Beispiel: Du kaufst für 600 Euro ein und zahlst nur 100 Euro zurück.",
+      "mainIdea": "Ein realer Einkauf über 600 Euro steht einer klar kleineren Rückzahlung von 100 Euro gegenüber."
+    },
+    {
+      "id": "scene-07",
+      "type": "animation",
+      "startFrame": 615,
+      "durationFrames": 120,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-07",
+      "headline": "500 Euro bleiben offen",
+      "icon": "coins",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-07/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-07/animation.tsx",
+      "animationExport": "Scene07Animation",
+      "animationIntent": "Von einer 600-Euro-Abrechnung werden sichtbar 100 Euro abgetragen; die Abrechnung bleibt mit 500 Euro offen und wird als Restschuld stabil gehalten.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-07-beat-01",
+          "kind": "animation",
+          "voiceText": "500 Euro bleiben offen. Auf diesen Rest können weitere Zinsen kommen.",
+          "visualChange": "Von einer 600-Euro-Abrechnung werden sichtbar 100 Euro abgetragen; die Abrechnung bleibt mit 500 Euro offen und wird als Restschuld stabil gehalten.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "targetSeconds": 4,
+      "audioTrigger": "500 Euro bleiben offen. Auf diesen Rest können weitere Zinsen kommen.",
+      "mainIdea": "Von einer 600-Euro-Abrechnung werden sichtbar 100 Euro abgetragen; die Abrechnung bleibt mit 500 Euro offen und wird als Restschuld stabil gehalten."
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "startFrame": 735,
+      "durationFrames": 99,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-08",
+      "headline": "Neue Käufe kommen oben drauf",
+      "icon": "wallet",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-08/bildprompt.txt",
+      "googleFlowFileName": "Bild 08 - Neuer Einkauf trifft alten Rest.png",
+      "objectLabels": [
+        "Alter Rest",
+        "Neuer Einkauf"
+      ],
+      "expectedVisual": "A new everyday card purchase at a checkout is shown while an older unpaid credit-card statement is still physically present beside it.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.3,
+      "visualBeats": [
+        {
+          "id": "scene-08-beat-01",
+          "kind": "image",
+          "voiceText": "Kaufst du im nächsten Monat weiter mit der Karte ein,",
+          "visualChange": "Ein neuer Einkauf wird mit derselben Karte bezahlt, obwohl daneben noch eine alte offene Abrechnung liegt.",
+          "startSecond": 0,
+          "endSecond": 3.3
+        }
+      ],
+      "targetSeconds": 3.3,
+      "audioTrigger": "Kaufst du im nächsten Monat weiter mit der Karte ein,",
+      "mainIdea": "Ein neuer Einkauf wird mit derselben Karte bezahlt, obwohl daneben noch eine alte offene Abrechnung liegt."
+    },
+    {
+      "id": "scene-09",
+      "type": "animation",
+      "startFrame": 834,
+      "durationFrames": 84,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-09",
+      "headline": "Der offene Saldo kann wachsen",
+      "icon": "chart-up",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-09/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-09/animation.tsx",
+      "animationExport": "Scene09Animation",
+      "animationIntent": "Eine alte Restabrechnung und eine neue Kaufabrechnung bewegen sich physisch in denselben Kartensaldo, der danach sichtbar höher steht.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 2.8,
+      "visualBeats": [
+        {
+          "id": "scene-09-beat-01",
+          "kind": "animation",
+          "voiceText": "kann der offene Saldo zusätzlich wachsen.",
+          "visualChange": "Eine alte Restabrechnung und eine neue Kaufabrechnung bewegen sich physisch in denselben Kartensaldo, der danach sichtbar höher steht.",
+          "startSecond": 0,
+          "endSecond": 2.8
+        }
+      ],
+      "targetSeconds": 2.8,
+      "audioTrigger": "kann der offene Saldo zusätzlich wachsen.",
+      "mainIdea": "Eine alte Restabrechnung und eine neue Kaufabrechnung bewegen sich physisch in denselben Kartensaldo, der danach sichtbar höher steht."
+    },
+    {
+      "id": "scene-10",
+      "type": "image",
+      "startFrame": 918,
+      "durationFrames": 126,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-10",
+      "headline": "Prüf deine Rückzahlungsart",
+      "icon": "search",
+      "accent": "finance-green",
+      "headerTone": "neutral",
+      "planFile": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
+      "googleFlowFileName": "Bild 10 - Rueckzahlungsart pruefen.png",
+      "objectLabels": [
+        "Vollzahlung",
+        "Teilzahlung"
+      ],
+      "expectedVisual": "A person checks a real paper credit-card statement and a simple physical repayment selector, clearly comparing “Vollzahlung” and “Teilzahlung” without app-dashboard aesthetics.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4.2,
+      "visualBeats": [
+        {
+          "id": "scene-10-beat-01",
+          "kind": "image",
+          "voiceText": "Prüfe deshalb in deiner Abrechnung oder in den Karteneinstellungen, ob Vollzahlung oder Teilzahlung eingestellt ist.",
+          "visualChange": "Eine Person prüft die Rückzahlungsart; Vollzahlung und Teilzahlung sind als zwei klar erkennbare Optionen gegenübergestellt.",
+          "startSecond": 0,
+          "endSecond": 4.2
+        }
+      ],
+      "targetSeconds": 4.2,
+      "audioTrigger": "Prüfe deshalb in deiner Abrechnung oder in den Karteneinstellungen, ob Vollzahlung oder Teilzahlung eingestellt ist.",
+      "mainIdea": "Eine Person prüft die Rückzahlungsart; Vollzahlung und Teilzahlung sind als zwei klar erkennbare Optionen gegenübergestellt."
+    },
+    {
+      "id": "scene-11",
+      "type": "image",
+      "startFrame": 1044,
+      "durationFrames": 99,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-11",
+      "headline": "Schau auf den Zinssatz",
+      "icon": "document",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-11/bildprompt.txt",
+      "googleFlowFileName": "Bild 11 - Zinssatz in Unterlagen.png",
+      "objectLabels": [
+        "Zinssatz"
+      ],
+      "expectedVisual": "A real credit agreement or card statement is being inspected with a magnifier, with the short German label “Zinssatz” clearly highlighted on the paper.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.3,
+      "visualBeats": [
+        {
+          "id": "scene-11-beat-01",
+          "kind": "image",
+          "voiceText": "Wenn du Teilzahlung nutzt, schau auf den angegebenen Zinssatz",
+          "visualChange": "Ein Vertrag beziehungsweise eine Kartenabrechnung wird mit einer Lupe geprüft; der angegebene Zinssatz ist eindeutig markiert.",
+          "startSecond": 0,
+          "endSecond": 3.3
+        }
+      ],
+      "targetSeconds": 3.3,
+      "audioTrigger": "Wenn du Teilzahlung nutzt, schau auf den angegebenen Zinssatz",
+      "mainIdea": "Ein Vertrag beziehungsweise eine Kartenabrechnung wird mit einer Lupe geprüft; der angegebene Zinssatz ist eindeutig markiert."
+    },
+    {
+      "id": "scene-12",
+      "type": "image",
+      "startFrame": 1143,
+      "durationFrames": 81,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-12",
+      "headline": "Und auf deine echte Monatsrate",
+      "icon": "calendar",
+      "accent": "finance-green",
+      "headerTone": "neutral",
+      "planFile": "EINZELNE-SZENEN/scene-12/bildprompt.txt",
+      "googleFlowFileName": "Bild 12 - Monatsrate sichtbar.png",
+      "objectLabels": [
+        "Monatsrate"
+      ],
+      "expectedVisual": "A monthly calendar beside a physical repayment envelope and card statement makes the actual recurring monthly payment the focal point.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 2.7,
+      "visualBeats": [
+        {
+          "id": "scene-12-beat-01",
+          "kind": "image",
+          "voiceText": "und wie hoch deine monatliche Rate wirklich ist.",
+          "visualChange": "Kalender, Abrechnung und Rückzahlungsumschlag zeigen gemeinsam: Entscheidend ist die echte Monatsrate.",
+          "startSecond": 0,
+          "endSecond": 2.7
+        }
+      ],
+      "targetSeconds": 2.7,
+      "audioTrigger": "und wie hoch deine monatliche Rate wirklich ist.",
+      "mainIdea": "Kalender, Abrechnung und Rückzahlungsumschlag zeigen gemeinsam: Entscheidend ist die echte Monatsrate."
+    },
+    {
+      "id": "scene-13",
+      "type": "image",
+      "startFrame": 1224,
+      "durationFrames": 54,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-13",
+      "headline": "Kreditkarten können praktisch sein",
+      "icon": "target",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-13/bildprompt.txt",
+      "googleFlowFileName": "Bild 13 - Kreditkarte praktisch.png",
+      "objectLabels": [
+        "Praktisch"
+      ],
+      "expectedVisual": "A grounded everyday payment moment where a person uses a credit card cleanly and successfully at a normal checkout; positive but restrained.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 1.8,
+      "visualBeats": [
+        {
+          "id": "scene-13-beat-01",
+          "kind": "image",
+          "voiceText": "Eine Kreditkarte ist praktisch –",
+          "visualChange": "Eine alltägliche Kartenzahlung funktioniert bequem und unkompliziert; die Karte ist hier klar nur das praktische Werkzeug.",
+          "startSecond": 0,
+          "endSecond": 1.8
+        }
+      ],
+      "targetSeconds": 1.8,
+      "audioTrigger": "Eine Kreditkarte ist praktisch –",
+      "mainIdea": "Eine alltägliche Kartenzahlung funktioniert bequem und unkompliziert; die Karte ist hier klar nur das praktische Werkzeug."
+    },
+    {
+      "id": "scene-14",
+      "type": "animation",
+      "startFrame": 1278,
+      "durationFrames": 126,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-14",
+      "headline": "Teuer wird es über mehrere Monate",
+      "icon": "clock",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-14/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-14/animation.tsx",
+      "animationExport": "Scene14Animation",
+      "animationIntent": "Eine einzelne offene Kaufabrechnung bleibt bestehen, während mehrere Monatskalender nacheinander erscheinen und die offene Belastung sichtbar in die Länge gezogen wird.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 4.2,
+      "visualBeats": [
+        {
+          "id": "scene-14-beat-01",
+          "kind": "animation",
+          "voiceText": "teuer kann sie werden, wenn aus einem Einkauf mehrere Monate offene Schulden werden.",
+          "visualChange": "Eine einzelne offene Kaufabrechnung bleibt bestehen, während mehrere Monatskalender nacheinander erscheinen und die offene Belastung sichtbar in die Länge gezogen wird.",
+          "startSecond": 0,
+          "endSecond": 4.2
+        }
+      ],
+      "targetSeconds": 4.2,
+      "audioTrigger": "teuer kann sie werden, wenn aus einem Einkauf mehrere Monate offene Schulden werden.",
+      "mainIdea": "Eine einzelne offene Kaufabrechnung bleibt bestehen, während mehrere Monatskalender nacheinander erscheinen und die offene Belastung sichtbar in die Länge gezogen wird."
+    }
+  ],
+  "phase3CompletionContract": {
+    "id": "finanzneo-phase3-completion-v1",
+    "required": true,
+    "productionManifest": "05-projektdateien/phase3-production-manifest.json",
+    "renderQa": "05-projektdateien/phase3-render-qa.json",
+    "phase1AnimationSeal": "05-projektdateien/phase1-animation-seal.json",
+    "reelBackgroundContractId": "finanzneo-pure-black-background-v1",
+    "allScenesMustBeImplemented": true,
+    "imageVisualRequired": true,
+    "animationVisualRequired": true,
+    "captionOnlySceneForbidden": true,
+    "postRenderVisualQaRequired": true,
+    "exportRequiresPassedRenderQa": true,
+    "exactVideoHashRequiredForExport": true,
+    "finalVideoExistsOnlyAfterQaPass": true,
+    "canonicalPhase1AnimationRequired": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "phase1AnimationHashMustMatchSeal": true,
+    "pureBlackBackgroundRequired": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "backgroundMotionDoesNotCountAsAnimation": true,
+    "blackOrEmptyVisualMustFail": true,
+    "visualQa": {
+      "sampleImageRatios": [
+        0.5
+      ],
+      "sampleAnimationRatios": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "sampleBackgroundPerScene": true,
+      "minStdDev": 4,
+      "minContrastP90P10": 12,
+      "minEdgeMean": 0.5,
+      "minActivePixelRatio": 0.04,
+      "minAnimationMeanAbsDiff": 1,
+      "maxBackgroundMean": 12,
+      "maxBackgroundStdDev": 4
+    },
+    "autoExportAfterPassedRenderQa": true,
+    "finalVideoDirectory": "06-export",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt"
+  },
+  "visualBeatContract": {
+    "id": "finanzneo-visual-beats-v2",
+    "sceneCountFlexible": true,
+    "visualBeatCountFlexible": true,
+    "visualBeatPlanBeforeSceneCount": true,
+    "oneSpokenThoughtPerBeatRequired": true,
+    "splitMultiThoughtSentenceWhenHelpful": true,
+    "oneImagePerSentenceAllowed": true,
+    "oneImagePerSentencePreferredWhenItImprovesClarity": true,
+    "consecutiveImageScenesAllowedWhenMeaningAdvances": true,
+    "visualChangeWhenVoiceoverIntroducesNewConcreteIdea": true,
+    "extraImagePreferredOverOverloadedStill": true,
+    "staticImageBeatIdealSeconds": [
+      1.8,
+      3
+    ],
+    "staticImageBeatHardMaxSeconds": 4,
+    "animationSceneTypicalSeconds": [
+      3,
+      5.5
+    ],
+    "longerAnimationRequiresVisibleProgression": true,
+    "animationMustContainMultipleVisibleStates": true,
+    "visualMustAdvanceWithVoiceover": true,
+    "cameraMotionAloneDoesNotCountAsNewBeat": true,
+    "unchangedVisualAfterMessageUnderstoodForbidden": true,
+    "actualCutsFollowRealWordTimings": true,
+    "ratioIsGuidelineNotQuota": true,
+    "longStaticSentenceNeedsAdditionalVisualBeat": true,
+    "extraImagePreferredOverLongHold": true
+  },
+  "coverHookContract": {
+    "id": "finanzneo-cover-hook-v2",
+    "sourceSceneId": "scene-01",
+    "titleSource": "scene-index.title",
+    "titleRenderedByRemotion": true,
+    "titleInGeneratedFlowImageForbidden": true,
+    "titleVisibleFromFrame": 0,
+    "titleVisibleWithinFirstSecond": true,
+    "titleHoldMinFrames": 30,
+    "subtitlesForbiddenDuringScene01": true,
+    "captionStartsFromSceneId": "scene-02",
+    "imagePlusTitleOnly": true,
+    "standardSceneHeaderForbiddenDuringScene01": true,
+    "coverIconForbidden": true,
+    "secondaryTextForbidden": true,
+    "noIntroBeforeTitle": true,
+    "noFadeInDelay": true,
+    "flowImageMustReserveTitleSafeSpace": true,
+    "standaloneCoverRequired": true,
+    "exportedCoverSource": "final-video-frame-0"
+  },
+  "imageStorytellingContract": {
+    "id": "finanzneo-image-storytelling-v2",
+    "practicalEverydaySituationRequired": true,
+    "directMeaningWithoutCaptionRequired": true,
+    "visibleActionConflictOrConsequenceRequired": true,
+    "genericSymbolOnlyForbidden": true,
+    "isolatedFinanceIconAsMainStoryForbidden": true,
+    "decorativeObjectPileForbidden": true,
+    "staticCatalogCompositionForbidden": true,
+    "entertainmentThroughActionContrastOrConflictRequired": true,
+    "beforeAfterOrCauseEffectWhenHelpful": true,
+    "humanContextWhenHelpful": true,
+    "visualHookUnderOneSecondRequired": true,
+    "oneImagePerSentenceWhenItImprovesClarity": true,
+    "extraImagePreferredOverOverloadedStill": true,
+    "labelsSupplementalOnly": true
+  },
+  "futureProductionStandard": {
+    "id": "finanzneo-future-production-v3",
+    "appliesToNewReelsOnly": true,
+    "legacyReelsUntouched": true,
+    "timing": {
+      "staticImageIdealSeconds": [
+        1.8,
+        3
+      ],
+      "staticImageSoftMaxSeconds": 3.6,
+      "staticImageHardMaxSeconds": 4,
+      "longStaticSentenceNeedsAdditionalVisualBeat": true,
+      "sentenceMayUseMultipleImages": true,
+      "newConcreteIdeaNeedsVisualChange": true,
+      "extraImagePreferredOverLongHold": true,
+      "realWordTimingsRemainFinalAuthority": true
+    },
+    "animationFraming": {
+      "mainMechanismMustFeelFrameFilling": true,
+      "excessiveEmptySpaceForbidden": true,
+      "widerContextAllowedOnlyWhenStoryNeedsIt": true,
+      "wideContextMustProgressToCloserMechanismState": true,
+      "sampleRatios": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "minPeakActivePixelRatio": 0.15,
+      "minMedianActivePixelRatio": 0.12
+    },
+    "audioMastering": {
+      "normalizeBeforeRenderQa": true,
+      "targetIntegratedLufs": -16,
+      "integratedLufsTolerance": 1,
+      "targetTruePeakDbtp": -1,
+      "maxTruePeakDbtp": -0.8,
+      "targetLra": 11,
+      "audioBitrate": "320k",
+      "sampleRate": 48000
+    }
+  }
+}

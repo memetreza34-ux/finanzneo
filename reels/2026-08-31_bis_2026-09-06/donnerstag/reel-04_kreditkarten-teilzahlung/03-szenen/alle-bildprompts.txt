@@ -1,0 +1,274 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+
+STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH
+DIES IST KEIN BATCH-AUFTRAG
+MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG
+ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT, bis das aktuelle Bild vollständig zurückgegeben, exakt umbenannt und per QA geprüft wurde.
+VERBOTEN: mehrere Bilder in einem Generierungsaufruf.
+VERBOTEN: mehrere Bildprompts zusammenfassen.
+VERBOTEN: Bilder vorab in eine Queue stellen.
+VERBOTEN: alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen.
+WARTE NIEMALS AUF "WEITER". Nach erfolgreicher QA automatisch mit dem nächsten freigeschalteten Bildblock fortfahren.
+MAX_CONCURRENT_GENERATIONS = 1
+FINAL_IMAGE_DIRECTORY: 03-szenen/00-ALLE-BILDER-HIER-REIN/
+COVER = SZENE 01
+KEIN separates Cover erzeugen
+KEIN Bild 00 erzeugen
+
+## scene-01
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Kleine Rate grosse Kosten.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Kleine Rate
+- Offener Rest
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A relatable credit-card situation where a very small monthly payment leaves a visibly large unpaid statement behind; the contrast must be obvious without UI. The visible story must specifically communicate this action or consequence: Eine kleine Zahlung liegt vorne, während dahinter eine deutlich größere offene Kreditkartenabrechnung bestehen bleibt. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v2
+The Flow image itself contains KEINEN Reel-Titel, no headline, no subtitle and no CTA.
+Reserve calm deep-black negative space in the upper area for the exact Remotion reel title. The title is rendered later from frame 0.
+
+STYLE + SAFETY:
+Use premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for cost or warning. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.
+
+---
+
+## scene-02
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Teilzahlung markiert.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Teilzahlung
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A real paper credit-card statement on a desk where the repayment method “Teilzahlung” is clearly selected or stamped, next to the physical card. The visible story must specifically communicate this action or consequence: Auf einer echten Papierabrechnung ist „Teilzahlung“ klar markiert; die Kreditkarte liegt daneben. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+
+STYLE + SAFETY:
+Use premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for cost or warning. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.
+
+---
+
+## scene-03
+
+REMOTION-ANIMATION — KEIN BILD 03 ERZEUGEN. Nummer 03 bleibt reserviert.
+
+---
+
+## scene-04
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Nur Teil zurueckgezahlt.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Teilzahlung
+- Rest offen
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A physical credit-card statement showing a large open amount while only a visibly smaller payment has been placed against it; the remainder stays marked as open. The visible story must specifically communicate this action or consequence: Nur ein kleiner Teil der Abrechnung ist bezahlt; ein deutlich größerer Rest bleibt sichtbar offen. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+
+STYLE + SAFETY:
+Use premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for cost or warning. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.
+
+---
+
+## scene-05
+
+REMOTION-ANIMATION — KEIN BILD 05 ERZEUGEN. Nummer 05 bleibt reserviert.
+
+---
+
+## scene-06
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 06 - 600 Einkauf 100 Rueckzahlung.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Einkauf 600 €
+- Rückzahlung 100 €
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A grounded purchase scene with a physical card, shopping bag and paper statement for 600 euros, while only a separate 100-euro repayment is visibly applied. The visible story must specifically communicate this action or consequence: Ein realer Einkauf über 600 Euro steht einer klar kleineren Rückzahlung von 100 Euro gegenüber. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+
+STYLE + SAFETY:
+Use premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for cost or warning. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.
+
+---
+
+## scene-07
+
+REMOTION-ANIMATION — KEIN BILD 07 ERZEUGEN. Nummer 07 bleibt reserviert.
+
+---
+
+## scene-08
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Neuer Einkauf trifft alten Rest.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Alter Rest
+- Neuer Einkauf
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A new everyday card purchase at a checkout is shown while an older unpaid credit-card statement is still physically present beside it. The visible story must specifically communicate this action or consequence: Ein neuer Einkauf wird mit derselben Karte bezahlt, obwohl daneben noch eine alte offene Abrechnung liegt. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+
+STYLE + SAFETY:
+Use premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for cost or warning. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.
+
+---
+
+## scene-09
+
+REMOTION-ANIMATION — KEIN BILD 09 ERZEUGEN. Nummer 09 bleibt reserviert.
+
+---
+
+## scene-10
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Rueckzahlungsart pruefen.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Vollzahlung
+- Teilzahlung
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A person checks a real paper credit-card statement and a simple physical repayment selector, clearly comparing “Vollzahlung” and “Teilzahlung” without app-dashboard aesthetics. The visible story must specifically communicate this action or consequence: Eine Person prüft die Rückzahlungsart; Vollzahlung und Teilzahlung sind als zwei klar erkennbare Optionen gegenübergestellt. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+
+STYLE + SAFETY:
+Use premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for cost or warning. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.
+
+---
+
+## scene-11
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 11 - Zinssatz in Unterlagen.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Zinssatz
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A real credit agreement or card statement is being inspected with a magnifier, with the short German label “Zinssatz” clearly highlighted on the paper. The visible story must specifically communicate this action or consequence: Ein Vertrag beziehungsweise eine Kartenabrechnung wird mit einer Lupe geprüft; der angegebene Zinssatz ist eindeutig markiert. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+
+STYLE + SAFETY:
+Use premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for cost or warning. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.
+
+---
+
+## scene-12
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 12 - Monatsrate sichtbar.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Monatsrate
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A monthly calendar beside a physical repayment envelope and card statement makes the actual recurring monthly payment the focal point. The visible story must specifically communicate this action or consequence: Kalender, Abrechnung und Rückzahlungsumschlag zeigen gemeinsam: Entscheidend ist die echte Monatsrate. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+
+STYLE + SAFETY:
+Use premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for cost or warning. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.
+
+---
+
+## scene-13
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 13 - Kreditkarte praktisch.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Praktisch
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A grounded everyday payment moment where a person uses a credit card cleanly and successfully at a normal checkout; positive but restrained. The visible story must specifically communicate this action or consequence: Eine alltägliche Kartenzahlung funktioniert bequem und unkompliziert; die Karte ist hier klar nur das praktische Werkzeug. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+
+STYLE + SAFETY:
+Use premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for cost or warning. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.
+
+---
+
+## scene-14
+
+REMOTION-ANIMATION — KEIN BILD 14 ERZEUGEN. Nummer 14 bleibt reserviert.
+
+ABSCHLUSS:
+Beende den Auftrag erst, wenn jedes erwartete Bild einzeln erzeugt, exakt umbenannt und nach V9 geprüft wurde. Danach müssen alle Bilder gemeinsam in 03-szenen/00-ALLE-BILDER-HIER-REIN/ liegen.

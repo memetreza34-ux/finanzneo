@@ -1,0 +1,122 @@
+{
+  "version": 2,
+  "title": "Warum die kleine Kreditkartenrate teuer werden kann",
+  "fps": 30,
+  "timingSource": "04-caption/word-timings.json",
+  "cutRule": "voice-sentence-or-meaningful-phrase-start",
+  "sceneCount": 14,
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "plannedDurationSeconds": 3.4,
+      "headline": "Warum kann die kleine Rate teuer werden?",
+      "voiceText": "Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden.",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "plannedDurationSeconds": 2.2,
+      "headline": "Der Knackpunkt heißt Teilzahlung",
+      "voiceText": "Der entscheidende Punkt ist die Teilzahlung.",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-03",
+      "type": "animation",
+      "plannedDurationSeconds": 4,
+      "headline": "Vollzahlung gleicht alles aus",
+      "voiceText": "Bei Vollzahlung wird der offene Kartenbetrag zum Abrechnungstermin vollständig ausgeglichen.",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "plannedDurationSeconds": 2.8,
+      "headline": "Teilzahlung lässt einen Rest offen",
+      "voiceText": "Bei Teilzahlung zahlst du nur einen Teil zurück.",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-05",
+      "type": "animation",
+      "plannedDurationSeconds": 4,
+      "headline": "Auf dem Rest können Zinsen laufen",
+      "voiceText": "Auf den restlichen offenen Betrag können je nach Vertrag Zinsen anfallen.",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-06",
+      "type": "image",
+      "plannedDurationSeconds": 4.1,
+      "headline": "600 Euro gekauft, 100 zurückgezahlt",
+      "voiceText": "Beispiel: Du kaufst für 600 Euro ein und zahlst nur 100 Euro zurück.",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-07",
+      "type": "animation",
+      "plannedDurationSeconds": 4,
+      "headline": "500 Euro bleiben offen",
+      "voiceText": "500 Euro bleiben offen. Auf diesen Rest können weitere Zinsen kommen.",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "plannedDurationSeconds": 3.3,
+      "headline": "Neue Käufe kommen oben drauf",
+      "voiceText": "Kaufst du im nächsten Monat weiter mit der Karte ein,",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-09",
+      "type": "animation",
+      "plannedDurationSeconds": 2.8,
+      "headline": "Der offene Saldo kann wachsen",
+      "voiceText": "kann der offene Saldo zusätzlich wachsen.",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-10",
+      "type": "image",
+      "plannedDurationSeconds": 4.2,
+      "headline": "Prüf deine Rückzahlungsart",
+      "voiceText": "Prüfe deshalb in deiner Abrechnung oder in den Karteneinstellungen, ob Vollzahlung oder Teilzahlung eingestellt ist.",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-11",
+      "type": "image",
+      "plannedDurationSeconds": 3.3,
+      "headline": "Schau auf den Zinssatz",
+      "voiceText": "Wenn du Teilzahlung nutzt, schau auf den angegebenen Zinssatz",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-12",
+      "type": "image",
+      "plannedDurationSeconds": 2.7,
+      "headline": "Und auf deine echte Monatsrate",
+      "voiceText": "und wie hoch deine monatliche Rate wirklich ist.",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-13",
+      "type": "image",
+      "plannedDurationSeconds": 1.8,
+      "headline": "Kreditkarten können praktisch sein",
+      "voiceText": "Eine Kreditkarte ist praktisch –",
+      "timingStatus": "planned-until-real-word-timestamps"
+    },
+    {
+      "id": "scene-14",
+      "type": "animation",
+      "plannedDurationSeconds": 4.2,
+      "headline": "Teuer wird es über mehrere Monate",
+      "voiceText": "teuer kann sie werden, wenn aus einem Einkauf mehrere Monate offene Schulden werden.",
+      "timingStatus": "planned-until-real-word-timestamps"
+    }
+  ]
+}
