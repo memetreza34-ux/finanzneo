@@ -37,6 +37,7 @@ jobs:
           node --check scripts/.tmp-normalize-phase1-patcher-input.mjs
           node --check scripts/.tmp-upgrade-cover-remotion-freedom.mjs
           node --check scripts/.tmp-postpatch-cover-handoff.mjs
+          node --check scripts/.tmp-postpatch-static-timing.mjs
 
       - name: Phase-1-Template für Patch normalisieren
         run: node scripts/.tmp-normalize-phase1-patcher-input.mjs
@@ -47,11 +48,15 @@ jobs:
       - name: Cover-Handoff technisch ausrichten
         run: node scripts/.tmp-postpatch-cover-handoff.mjs
 
+      - name: Statische V3-Timings ausrichten
+        run: node scripts/.tmp-postpatch-static-timing.mjs
+
       - name: Temporäre Patcher vor Lint entfernen
         run: |
           rm scripts/.tmp-normalize-phase1-patcher-input.mjs
           rm scripts/.tmp-upgrade-cover-remotion-freedom.mjs
           rm scripts/.tmp-postpatch-cover-handoff.mjs
+          rm scripts/.tmp-postpatch-static-timing.mjs
 
       - name: Regression Guard nach Änderung
         run: node scripts/check-reel-regression-baseline.mjs
@@ -91,7 +96,7 @@ jobs:
           bad=0
           while IFS= read -r path; do
             case "$path" in
-              reels/2026-08-31_bis_2026-09-06/donnerstag/reel-04_kreditkarten-teilzahlung/*|scripts/lib/premium-animation-contract.mjs|scripts/apply-premium-animation-v2.mjs|scripts/apply-phase1-animation-code-contract.mjs|scripts/validate-animation-source-quality.mjs|scripts/apply-future-cover-hook-v2.mjs|scripts/validate-future-cover-hook-v2.mjs|scripts/validate-visual-beat-contract.mjs|tests/animation-source-quality.test.ts|src/design-system/README.md|scripts/.tmp-upgrade-cover-remotion-freedom.mjs|scripts/.tmp-normalize-phase1-patcher-input.mjs|scripts/.tmp-postpatch-cover-handoff.mjs|.github/workflows/one-time-upgrade-thursday-remotion.yml)
+              reels/2026-08-31_bis_2026-09-06/donnerstag/reel-04_kreditkarten-teilzahlung/*|scripts/lib/premium-animation-contract.mjs|scripts/apply-premium-animation-v2.mjs|scripts/apply-phase1-animation-code-contract.mjs|scripts/validate-animation-source-quality.mjs|scripts/apply-future-cover-hook-v2.mjs|scripts/validate-future-cover-hook-v2.mjs|scripts/validate-visual-beat-contract.mjs|tests/animation-source-quality.test.ts|src/design-system/README.md|scripts/.tmp-upgrade-cover-remotion-freedom.mjs|scripts/.tmp-normalize-phase1-patcher-input.mjs|scripts/.tmp-postpatch-cover-handoff.mjs|scripts/.tmp-postpatch-static-timing.mjs|.github/workflows/one-time-upgrade-thursday-remotion.yml)
                 ;;
               *)
                 echo "Unerwarteter geänderter Pfad: $path"
