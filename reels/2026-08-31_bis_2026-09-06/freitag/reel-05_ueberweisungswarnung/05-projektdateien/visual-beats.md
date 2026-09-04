@@ -1,131 +1,60 @@
-# Visual Beats
+# VISUAL BEATS
 
 VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v2
 
-Lieber ein zusätzliches gutes Bild planen als einen neuen konkreten Gedanken in ein überladenes Stillbild zu pressen.
+Regel: 1 gesprochener Gedanke = 1 sichtbarer Beat. Längere Animationen besitzen mehrere klar unterscheidbare Zustände. Kamera-Bewegung allein zählt nicht. Lieber ein zusätzliches gutes Bild als einen überladenen oder zu lange stehenden Still. Echte Wort-Timings bleiben in Phase 3 die finale Quelle.
 
-Cover-Regel: scene-01 = 0,1 s / 3 Frames / kein Voiceover.
+## scene-01
+- Beat: 3-Frame-Cover nur Hero-Bild + Titel.
 
-## scene-01 — Warum kann die kleine Rate teuer werden?
+## scene-02
+- Beat 1: Ein goldener Überweisungstoken wartet links vor einem transparenten Prüfportal; zwei Datenträger für Name und IBAN sind noch ungeprüft.
+- Beat 2: Das Portal fährt einen hellen Prüfbalken über beide Datenträger, zieht sie in zwei Prüfkanäle und stoppt den Zahlungstoken mechanisch vor dem Ausgang.
+- Beat 3: Der Zahlungstoken bleibt vor der Freigabe stehen und eine klare Warnmarke erscheint direkt am Prüfportal.
 
-Sprechtext: — (Cover ohne Voiceover)
+## scene-03
+- Beat: Ein Kalenderdatum markiert den Start des verpflichtenden Empfängerchecks; daneben trägt eine Überweisung erstmals ein sichtbares Prüfsiegel.
 
-Dauer: 0.1 s
+## scene-04
+- Beat 1: Ein großes Bankschloss steht geschlossen; links schweben zwei eindeutig unterschiedliche Schlüssel mit den kurzen Labels NAME und IBAN.
+- Beat 2: Beide Schlüssel fahren aus unterschiedlichen Winkeln in zwei getrennte Schlitze und richten die inneren Schlosssegmente sichtbar aus.
+- Beat 3: Der Zylinder dreht sich nur nach der gemeinsamen Passung und öffnet eine grüne Freigabeöffnung.
 
-- Beat 1: — | Sichtbar: Für exakt drei Frames sind nur das Hero-Bild und der exakte Reel-Titel sichtbar. | 0–0.1 s
+## scene-05
+- Beat: Empfängername und IBAN greifen sichtbar passgenau ineinander; daraus entsteht ein eindeutiges grünes Match-Siegel.
 
-## scene-02 — Kleine Rate – großer Rest
+## scene-06
+- Beat 1: Zwei Namensleisten liegen leicht versetzt auf parallelen Schienen; eine endet sichtbar einen Buchstaben früher.
+- Beat 2: Ein Magnetkern zieht beide Leisten nebeneinander, hebt genau die kleine Abweichung gelb hervor und richtet den gespeicherten Namen daneben aus.
+- Beat 3: Beide Namen stehen vergleichbar nebeneinander, die kleine Abweichung bleibt bewusst sichtbar statt automatisch zu verschwinden.
 
-Sprechtext: Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden. Der entscheidende Punkt ist die Teilzahlung.
+## scene-07
+- Beat: Name und IBAN führen sichtbar zu unterschiedlichen Zielschlitzen; eine massive Warnbarriere stoppt die Zahlung vor der Freigabe.
 
-Dauer: 5.6 s
+## scene-08
+- Beat: Die Warnbarriere hält die Zahlung an, aber ein separater mechanischer Bypass zeigt: Man kann bewusst trotzdem senden und übernimmt damit das Risiko.
 
-- Beat 1: Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden. | Sichtbar: Eine Kreditkarte steht vor einem großen offenen Restkörper; eine kleine Monatsrate wirkt im Vordergrund bequem und harmlos. | 0–2.8 s
-- Beat 2: Der entscheidende Punkt ist die Teilzahlung. | Sichtbar: Ein mechanischer Hebel kippt deutlich auf TEILZAHLUNG; die kleine Rate löst sich ab, während der große Rest sichtbar verriegelt bleibt. | 2.8–5.6 s
+## scene-09
+- Beat 1: Ein großer grüner Prüfrahmen umfasst nur zwei sauber passende Elemente: Name und IBAN.
+- Beat 2: Der Prüfrahmen schließt sich erfolgreich, während eine seitliche Cutaway-Maske aufgleitet und den bisher unsichtbaren Rechnungsbereich freilegt.
+- Beat 3: Innerhalb des Rahmens bleibt das grüne Match korrekt, außerhalb erscheint gleichzeitig eine rote Warnung an der Rechnung – Match ist nicht gleich Seriosität.
 
-## scene-03 — Vollzahlung gleicht alles aus
+## scene-10
+- Beat: Ein schmaler Prüfrahmen beleuchtet ausschließlich Name und IBAN; Rechnung, Anlass und Seriosität liegen sichtbar außerhalb seines Prüfbereichs.
 
-Sprechtext: Bei Vollzahlung wird der offene Kartenbetrag zum Abrechnungstermin vollständig ausgeglichen.
+## scene-11
+- Beat 1: Ein goldener Euro-Token liegt links in einer transparenten Transferkammer zwischen zwei stilisierten Bankkörpern.
+- Beat 2: Der Token beschleunigt sichtbar durch die Röhre, passiert nacheinander mehrere Einwegklappen und erreicht in kurzer Zeit die Empfängerseite.
+- Beat 3: Der Token liegt rechts beim Empfänger, während die Rücklaufsperren hinter ihm geschlossen bleiben und ein Rückweg blockiert ist.
 
-Dauer: 4 s
+## scene-12
+- Beat: Ein Telefonkontakt zur Bank wird unmittelbar aktiviert, während die fehlerhafte Überweisung bereits auf dem falschen Weg liegt.
 
-- Beat 1: Bei Vollzahlung wird der offene Kartenbetrag | Sichtbar: Eine große 600-Euro-Abrechnung steht vollständig offen; der Abrechnungstermin rastet sichtbar ein. | 0–1.25 s
-- Beat 2: zum Abrechnungstermin vollständig ausgeglichen. | Sichtbar: Ein grüner Transfer-Wipe fährt vollständig über die Abrechnung und löscht den offenen Betrag sichtbar bis 0 Euro. | 1.25–3.1 s
-- Beat 3: Vollständig ausgeglichen. | Sichtbar: Die Abrechnung bleibt stabil auf 0 Euro / BEZAHLT. | 3.1–4 s
+## scene-13
+- Beat: Die Bank zieht sichtbar eine Rückforderung zum Empfänger, doch ein Empfängerschloss blockiert die Rückgabe und macht klar: Rückzahlung ist nicht automatisch garantiert.
 
-## scene-04 — Teilzahlung lässt einen Rest offen
-
-Sprechtext: Bei Teilzahlung zahlst du nur einen Teil zurück.
-
-Dauer: 2.8 s
-
-- Beat 1: Bei Teilzahlung zahlst du nur einen Teil zurück. | Sichtbar: Nur ein kleiner Teil der Abrechnung ist bezahlt; ein deutlich größerer Rest bleibt sichtbar offen. | 0–2.8 s
-
-## scene-05 — Auf dem Rest können Zinsen laufen
-
-Sprechtext: Auf den restlichen offenen Betrag können je nach Vertrag Zinsen anfallen.
-
-Dauer: 4 s
-
-- Beat 1: Auf den restlichen offenen Betrag | Sichtbar: Ein massiver 500-Euro-Restblock bleibt sichtbar bestehen. | 0–1.25 s
-- Beat 2: können je nach Vertrag | Sichtbar: Der Kalender klappt in den nächsten Monat und der Restblock bleibt unverändert stehen. | 1.25–2.45 s
-- Beat 3: Zinsen anfallen. | Sichtbar: Eine neue rot-orange Kostenschicht wächst physisch auf den offenen Restblock. | 2.45–4 s
-
-## scene-06 — 600 Euro gekauft, 100 zurückgezahlt
-
-Sprechtext: Beispiel: Du kaufst für 600 Euro ein und zahlst nur 100 Euro zurück.
-
-Dauer: 4 s
-
-- Beat 1: Beispiel: Du kaufst für 600 Euro ein und zahlst nur 100 Euro zurück. | Sichtbar: Ein realer Einkauf über 600 Euro steht einer klar kleineren Rückzahlung von 100 Euro gegenüber. | 0–4 s
-
-## scene-07 — 500 Euro bleiben offen
-
-Sprechtext: 500 Euro bleiben offen. Auf diesen Rest können weitere Zinsen kommen.
-
-Dauer: 4 s
-
-- Beat 1: 500 Euro bleiben offen. | Sichtbar: Ein 600-Euro-Schuldenkörper wird an der 100-Euro-Stelle sichtbar durchschnitten. | 0–1.45 s
-- Beat 2: Die 100 Euro sind weg. | Sichtbar: Das kleine 100-Euro-Stück löst sich räumlich und fällt aus der Komposition; der große 500-Euro-Rest bleibt. | 1.45–2.55 s
-- Beat 3: Auf diesen Rest können weitere Zinsen kommen. | Sichtbar: Auf dem verbleibenden 500-Euro-Körper setzt sich eine zusätzliche Warnschicht sichtbar oben drauf. | 2.55–4 s
-
-## scene-08 — Neue Käufe kommen oben drauf
-
-Sprechtext: Kaufst du im nächsten Monat weiter mit der Karte ein,
-
-Dauer: 3.3 s
-
-- Beat 1: Kaufst du im nächsten Monat weiter mit der Karte ein, | Sichtbar: Ein neuer Einkauf wird mit derselben Karte bezahlt, obwohl daneben noch eine alte offene Abrechnung liegt. | 0–3.3 s
-
-## scene-09 — Der offene Saldo kann wachsen
-
-Sprechtext: kann der offene Saldo zusätzlich wachsen.
-
-Dauer: 2.8 s
-
-- Beat 1: Der offene Saldo | Sichtbar: Ein transparenter Schuldenbehälter steht bereits bei 500 Euro. | 0–0.85 s
-- Beat 2: kann zusätzlich | Sichtbar: Ein neuer Einkauf fällt als konkretes Objekt von oben in den Behälter. | 0.85–1.75 s
-- Beat 3: wachsen. | Sichtbar: Der Füllstand schießt sichtbar auf 620 Euro und hält. | 1.75–2.8 s
-
-## scene-10 — Prüf deine Rückzahlungsart
-
-Sprechtext: Prüfe deshalb in deiner Abrechnung oder in den Karteneinstellungen, ob Vollzahlung oder Teilzahlung eingestellt ist.
-
-Dauer: 4 s
-
-- Beat 1: Prüfe deshalb in deiner Abrechnung oder in den Karteneinstellungen, ob Vollzahlung oder Teilzahlung eingestellt ist. | Sichtbar: Eine Person prüft die Rückzahlungsart; Vollzahlung und Teilzahlung sind als zwei klar erkennbare Optionen gegenübergestellt. | 0–4 s
-
-## scene-11 — Schau auf den Zinssatz
-
-Sprechtext: Wenn du Teilzahlung nutzt, schau auf den angegebenen Zinssatz
-
-Dauer: 3.3 s
-
-- Beat 1: Wenn du Teilzahlung nutzt, schau auf den angegebenen Zinssatz | Sichtbar: Ein Vertrag beziehungsweise eine Kartenabrechnung wird mit einer Lupe geprüft; der angegebene Zinssatz ist eindeutig markiert. | 0–3.3 s
-
-## scene-12 — Und auf deine echte Monatsrate
-
-Sprechtext: und wie hoch deine monatliche Rate wirklich ist.
-
-Dauer: 2.7 s
-
-- Beat 1: und wie hoch deine monatliche Rate wirklich ist. | Sichtbar: Kalender, Abrechnung und Rückzahlungsumschlag zeigen gemeinsam: Entscheidend ist die echte Monatsrate. | 0–2.7 s
-
-## scene-13 — Kreditkarten können praktisch sein
-
-Sprechtext: Eine Kreditkarte ist praktisch –
-
-Dauer: 1.8 s
-
-- Beat 1: Eine Kreditkarte ist praktisch – | Sichtbar: Eine alltägliche Kartenzahlung funktioniert bequem und unkompliziert; die Karte ist hier klar nur das praktische Werkzeug. | 0–1.8 s
-
-## scene-14 — Teuer wird es über mehrere Monate
-
-Sprechtext: teuer kann sie werden, wenn aus einem Einkauf mehrere Monate offene Schulden werden.
-
-Dauer: 4.2 s
-
-- Beat 1: teuer kann sie werden, wenn aus einem Einkauf | Sichtbar: Ein einzelner Einkauf bewegt sich in einen räumlichen Zeittunnel hinein. | 0–1.45 s
-- Beat 2: mehrere Monate | Sichtbar: MONAT 1 und MONAT 2 ziehen als große perspektivische Tore am offenen Einkauf vorbei; die Belastung bleibt angekettet. | 1.45–2.9 s
-- Beat 3: offene Schulden werden. | Sichtbar: MONAT 3 rastet ein; die Kamera stoppt auf dem weiterhin offenen Einkauf und dem Endhinweis MEHRERE MONATE OFFEN. | 2.9–4.2 s
+## scene-14
+- Beat 1: Ein Goldtoken wartet direkt vor einem roten Drehkreuz; drei große Prüfringe sind noch offen.
+- Beat 2: Die Prüfringe für NAME, IBAN und PLAUSIBILITÄT schließen nacheinander sichtbar um den Zahlungsweg und drehen den Sperrmechanismus aus der Warnstellung.
+- Beat 3: Das Drehkreuz wechselt auf Emerald, öffnet vollständig und lässt den Token erst nach der Prüfung passieren.
 

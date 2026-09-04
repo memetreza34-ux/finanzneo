@@ -1,14 +1,14 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 13 - Rueckforderung nicht garantiert.png
+Bild 07 - Daten passen nicht.png
 
 BESCHRIFTUNGEN – EXAKT SO:
-- Rückforderung
-- Empfänger
+- Keine Übereinstimmung
+- Prüfen
 
 IMAGE PROMPT:
-Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A recall cable from the sender bank pulls toward a gold payment token behind a receiver-side locked gate, but the final lock can only be opened from the recipient side. The visible story must specifically communicate this action or consequence: Die Bank zieht sichtbar eine Rückforderung zum Empfänger, doch ein Empfängerschloss blockiert die Rückgabe und macht klar: Rückzahlung ist nicht automatisch garantiert. Ground the composition in a believable everyday finance situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A transfer token is stopped by a solid red-orange barrier because a recipient-name plate and an IBAN plate visibly point to different destination slots. The visible story must specifically communicate this action or consequence: Name und IBAN führen sichtbar zu unterschiedlichen Zielschlitzen; eine massive Warnbarriere stoppt die Zahlung vor der Freigabe. Ground the composition in a believable everyday finance situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

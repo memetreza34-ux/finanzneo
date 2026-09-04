@@ -1,22 +1,22 @@
 # Remotion-Spezifikation scene-09
 
-**Zwischenüberschrift:** Der offene Saldo kann wachsen
-**Icon:** chart-up
+**Zwischenüberschrift:** Ein Match ist keine Betrugsgarantie
+**Icon:** shield-alert
 **Kanonische Codequelle:** animation.tsx
 **Quality Lock:** finanzneo-phase1-animation-code-v1
 **Visuelle Zielwelt:** finanzneo-stylized-3d-animated-black-v9
-**VISUAL_TECHNIQUE_ID:** purchase-drop-vessel
+**VISUAL_TECHNIQUE_ID:** shield-cutaway-limitation
 **Remotion Freedom:** freie React/SVG/CSS-3D-Komposition; Physical*-Primitives sind optional.
 **Stage:** AnimationStage oder PremiumPhysicalStage transparent über zentralem #000000 Reel-Canvas; sichtbar hart Y320–1400.
 
 ## STARTZUSTAND
-Ein transparenter Schuldenbehälter steht bereits bei 500 Euro.
+Ein großer grüner Prüfrahmen umfasst nur zwei sauber passende Elemente: Name und IBAN.
 
 ## SICHTBARER MECHANISMUS
-Ein neuer Einkauf fällt in einen transparenten Schuldenbehälter und hebt den Füllstand von 500 auf 620 Euro.
+Der Prüfrahmen schließt sich erfolgreich, während eine seitliche Cutaway-Maske aufgleitet und den bisher unsichtbaren Rechnungsbereich freilegt.
 
 ## ERGEBNIS
-Der Füllstand schießt sichtbar auf 620 Euro und hält.
+Innerhalb des Rahmens bleibt das grüne Match korrekt, außerhalb erscheint gleichzeitig eine rote Warnung an der Rechnung – Match ist nicht gleich Seriosität.
 
 ## RESULT HOLD
 Mindestens 15 Frames stabil.

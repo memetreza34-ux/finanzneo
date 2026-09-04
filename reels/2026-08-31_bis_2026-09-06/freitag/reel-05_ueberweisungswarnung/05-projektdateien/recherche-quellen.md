@@ -1,25 +1,24 @@
 # RECHERCHE UND QUELLEN
 
-## BaFin — Kontenvergleich: Kreditkarte
-Abruf: 03. September 2026
-https://kontenvergleich.bafin.de/de/glossar/kreditkarte
+Stand: 4. September 2026
 
-Verwendete Kernaussagen:
-- Kreditkartenumsätze können zu einem vereinbarten Termin vollständig oder teilweise abgebucht werden.
-- Ob für die Kreditinanspruchnahme Zinsen berechnet werden, richtet sich nach der Kreditvereinbarung.
+## Deutsche Bundesbank
+- Fragen und Antworten zu Echtzeitüberweisungen und Empfängerüberprüfung
+- https://www.bundesbank.de/de/aufgaben/unbarer-zahlungsverkehr/veroeffentlichungen/fragen-und-antworten-zu-echtzeitueberweisungen-und-empfaengerueberpruefung
 
-## Verbraucherzentrale — Girokonto: Was Sie darüber wissen sollten
-Abruf: 03. September 2026
-https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/girokonto-was-sie-darueber-wissen-sollten-4990
+Verwendete Fakten:
+- Seit 9. Oktober 2025 müssen Zahlungsdienstleister im Euroraum bei SEPA- und SEPA-Echtzeitüberweisungen eine Empfängerüberprüfung durchführen.
+- Dabei werden Empfängername und IBAN vor der Autorisierung abgeglichen.
+- Ergebnisse können Match, geringfügige Abweichung oder keine Übereinstimmung sein.
+- Trotz Warnung kann die Zahlung grundsätzlich weiterhin autorisiert werden.
+- Der Check ersetzt nicht die eigene Prüfung der Plausibilität einer Zahlung.
+- Echtzeitüberweisungen sind grundsätzlich nicht widerruflich; bei Fehlern soll man sich sofort an den Zahlungsdienstleister wenden. Eine Rückforderung kann versucht werden und kann vom Einverständnis des Empfängers abhängen.
 
-Verwendete Kernaussagen:
-- Bei herkömmlicher vollständiger Abrechnung wird die komplette Summe fällig.
-- Bei Revolving-/Raten-Kreditkarten wird nur ein Teil des Saldos zurückgezahlt.
-- Für die Teilzahlungsfunktion können hohe Zinsen und Kosten anfallen.
-- Teilzahlung kann das Risiko erhöhen, den Überblick zu verlieren und sich zu überschulden.
+## Verbraucherzentrale
+- Neue Pflicht: Banken gleichen Name und IBAN bei Überweisungen ab
+- https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/neue-pflicht-banken-gleichen-name-und-iban-bei-ueberweisungen-ab-110143
 
-## Verbraucherzentrale — Kreditkarte oder Debitkarte? Das sind die Unterschiede
-Stand: 04. März 2026
-https://www.verbraucherzentrale.de/wissen/geld-versicherungen/kredit-schulden-insolvenz/kreditkarte-oder-debitkarte-das-sind-die-unterschiede-65038
-
-Das Reel nennt bewusst keinen pauschalen Zinssatz, weil Konditionen je nach Kartenvertrag variieren. Keine individuelle Finanzberatung.
+Verwendete Fakten:
+- Kleine Namensabweichungen können einen Hinweis auslösen.
+- Warnungen bei größerer Abweichung sollten ernst genommen werden.
+- Ein erfolgreicher Abgleich schützt nicht vor jeder Betrugsmasche.

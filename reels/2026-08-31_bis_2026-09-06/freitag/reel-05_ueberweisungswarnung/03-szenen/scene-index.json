@@ -1,6 +1,6 @@
 {
   "version": 28,
-  "title": "Warum die kleine Kreditkartenrate teuer werden kann",
+  "title": "Diese Überweisungswarnung solltest du nicht ignorieren",
   "sceneCount": 14,
   "imageSceneCount": 8,
   "animationSceneCount": 6,
@@ -15,7 +15,7 @@
   "cover": {
     "type": "scene-image",
     "sourceSceneId": "scene-01",
-    "googleFlowFileName": "Bild 01 - Kleine Rate grosse Kosten.png",
+    "googleFlowFileName": "Bild 01 - Ueberweisungswarnung.png",
     "planFile": "03-szenen/00-cover/cover.txt",
     "aspectRatio": "1:1",
     "sameAssetAsFirstScene": true,
@@ -314,17 +314,17 @@
       "durationFrames": 3,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-01",
-      "headline": "Warum kann die kleine Rate teuer werden?",
+      "headline": "Diese Überweisungswarnung solltest du nicht ignorieren",
       "icon": "warning",
       "accent": "finance-green",
       "headerTone": "warning",
       "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
-      "googleFlowFileName": "Bild 01 - Kleine Rate grosse Kosten.png",
+      "googleFlowFileName": "Bild 01 - Ueberweisungswarnung.png",
       "objectLabels": [
-        "Kleine Rate",
-        "Offener Rest"
+        "Name + IBAN",
+        "Warnung"
       ],
-      "expectedVisual": "A relatable credit-card situation where a very small monthly payment leaves a visibly large unpaid statement behind; the contrast must be obvious without UI.",
+      "expectedVisual": "A strong payment moment frozen before authorization: a gold transfer token approaches a bank transfer mechanism while a red-orange mismatch warning physically blocks the path between recipient name and IBAN.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
@@ -347,10 +347,10 @@
       "subtitleMode": "off",
       "titleMode": "reel-title-overlay",
       "titleVisibleFromFrame": 0,
-      "coverTitle": "Warum die kleine Kreditkartenrate teuer werden kann",
+      "coverTitle": "Diese Überweisungswarnung solltest du nicht ignorieren",
       "targetSeconds": 0.1,
       "audioTrigger": "",
-      "mainIdea": "Eine kleine Zahlung liegt vorne, während dahinter eine deutlich größere offene Kreditkartenabrechnung bestehen bleibt.",
+      "mainIdea": "Eine Überweisung wird unmittelbar vor dem Absenden von einer sichtbaren Warnung gestoppt, weil Empfängername und IBAN geprüft werden.",
       "coverOnly": true,
       "voiceoverEnabled": false
     },
@@ -358,374 +358,505 @@
       "id": "scene-02",
       "type": "animation",
       "startFrame": 3,
-      "durationFrames": 168,
+      "durationFrames": 138,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-02",
-      "headline": "Kleine Rate – großer Rest",
-      "icon": "repeat",
+      "headline": "Warnung nicht wegklicken",
+      "icon": "warning",
       "accent": "finance-green",
       "headerTone": "warning",
       "planFile": "EINZELNE-SZENEN/scene-02/remotion.md",
-      "plannedDurationSeconds": 5.6,
+      "plannedDurationSeconds": 4.6,
       "visualBeats": [
         {
           "id": "scene-02-beat-01",
           "kind": "animation",
-          "voiceText": "Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden.",
-          "visualChange": "Eine Kreditkarte steht vor einem großen offenen Restkörper; eine kleine Monatsrate wirkt im Vordergrund bequem und harmlos.",
+          "voiceText": "Diese Warnung beim Überweisen solltest du nicht einfach wegklicken.",
+          "visualChange": "Ein goldener Überweisungstoken wartet links vor einem transparenten Prüfportal; zwei Datenträger für Name und IBAN sind noch ungeprüft.",
           "startSecond": 0,
-          "endSecond": 2.8
+          "endSecond": 1.56
         },
         {
           "id": "scene-02-beat-02",
           "kind": "animation",
-          "voiceText": "Der entscheidende Punkt ist die Teilzahlung.",
-          "visualChange": "Ein mechanischer Hebel kippt deutlich auf TEILZAHLUNG; die kleine Rate löst sich ab, während der große Rest sichtbar verriegelt bleibt.",
-          "startSecond": 2.8,
-          "endSecond": 5.6
+          "voiceText": "Diese Warnung beim Überweisen solltest du nicht einfach wegklicken.",
+          "visualChange": "Das Portal fährt einen hellen Prüfbalken über beide Datenträger, zieht sie in zwei Prüfkanäle und stoppt den Zahlungstoken mechanisch vor dem Ausgang.",
+          "startSecond": 1.56,
+          "endSecond": 3.31
+        },
+        {
+          "id": "scene-02-beat-03",
+          "kind": "animation",
+          "voiceText": "Diese Warnung beim Überweisen solltest du nicht einfach wegklicken.",
+          "visualChange": "Der Zahlungstoken bleibt vor der Freigabe stehen und eine klare Warnmarke erscheint direkt am Prüfportal.",
+          "startSecond": 3.31,
+          "endSecond": 4.6
         }
       ],
-      "targetSeconds": 5.6,
-      "audioTrigger": "Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden. Der entscheidende Punkt ist die Teilzahlung.",
-      "mainIdea": "Ein physischer Rückzahlungshebel macht sichtbar: Bei Teilzahlung verschwindet nur eine kleine Rate, der große Rest bleibt.",
+      "targetSeconds": 4.6,
+      "audioTrigger": "Diese Warnung beim Überweisen solltest du nicht einfach wegklicken.",
+      "mainIdea": "Ein goldener Überweisungstoken fährt durch ein transparentes Prüfportal; Name und IBAN werden getrennt gescannt und die Zahlung stoppt sichtbar vor der Freigabe.",
       "animationSourceFile": "EINZELNE-SZENEN/scene-02/animation.tsx",
       "animationExport": "Scene02Animation",
-      "animationIntent": "Ein mechanischer Rückzahlungshebel kippt von Vollzahlung auf Teilzahlung; nur eine kleine Rate löst sich, während ein großer Restkörper sichtbar bestehen bleibt.",
+      "animationIntent": "Ein goldener Überweisungstoken fährt durch ein transparentes Prüfportal; Name und IBAN werden getrennt gescannt und die Zahlung stoppt sichtbar vor der Freigabe.",
       "animationQualityLock": "finanzneo-phase1-animation-code-v1",
       "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
-      "animationTechniqueId": "mechanical-lever-reveal"
+      "animationTechniqueId": "verification-scanner-portal"
     },
     {
       "id": "scene-03",
-      "type": "animation",
-      "startFrame": 171,
-      "durationFrames": 120,
+      "type": "image",
+      "startFrame": 141,
+      "durationFrames": 108,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-03",
-      "headline": "Vollzahlung gleicht alles aus",
-      "icon": "check",
+      "headline": "Seit Oktober 2025 Pflicht",
+      "icon": "calendar",
       "accent": "finance-green",
-      "headerTone": "positive",
-      "planFile": "EINZELNE-SZENEN/scene-03/remotion.md",
-      "animationSourceFile": "EINZELNE-SZENEN/scene-03/animation.tsx",
-      "animationExport": "Scene03Animation",
-      "animationIntent": "Eine offene Kartenabrechnung wird am Abrechnungstermin durch eine vollständige Zahlung aus dem Girokonto sichtbar auf „BEZAHLT“ gesetzt.",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-03/bildprompt.txt",
       "animationQualityLock": "finanzneo-phase1-animation-code-v1",
       "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
-      "plannedDurationSeconds": 4,
+      "plannedDurationSeconds": 3.6,
       "visualBeats": [
         {
           "id": "scene-03-beat-01",
-          "kind": "animation",
-          "voiceText": "Bei Vollzahlung wird der offene Kartenbetrag",
-          "visualChange": "Eine große 600-Euro-Abrechnung steht vollständig offen; der Abrechnungstermin rastet sichtbar ein.",
+          "kind": "image",
+          "voiceText": "Seit dem 9. Oktober 2025 gilt der neue Empfängercheck.",
+          "visualChange": "Ein Kalenderdatum markiert den Start des verpflichtenden Empfängerchecks; daneben trägt eine Überweisung erstmals ein sichtbares Prüfsiegel.",
           "startSecond": 0,
-          "endSecond": 1.25
-        },
-        {
-          "id": "scene-03-beat-02",
-          "kind": "animation",
-          "voiceText": "zum Abrechnungstermin vollständig ausgeglichen.",
-          "visualChange": "Ein grüner Transfer-Wipe fährt vollständig über die Abrechnung und löscht den offenen Betrag sichtbar bis 0 Euro.",
-          "startSecond": 1.25,
-          "endSecond": 3.1
-        },
-        {
-          "id": "scene-03-beat-03",
-          "kind": "animation",
-          "voiceText": "Vollständig ausgeglichen.",
-          "visualChange": "Die Abrechnung bleibt stabil auf 0 Euro / BEZAHLT.",
-          "startSecond": 3.1,
-          "endSecond": 4
+          "endSecond": 3.6
         }
       ],
-      "targetSeconds": 4,
-      "audioTrigger": "Bei Vollzahlung wird der offene Kartenbetrag zum Abrechnungstermin vollständig ausgeglichen.",
-      "mainIdea": "Eine offene Kartenabrechnung wird am Abrechnungstermin durch eine vollständige Zahlung aus dem Girokonto sichtbar auf „BEZAHLT“ gesetzt.",
-      "animationTechniqueId": "svg-payment-wipe"
+      "targetSeconds": 3.6,
+      "audioTrigger": "Seit dem 9. Oktober 2025 gilt der neue Empfängercheck.",
+      "mainIdea": "Ein Kalenderdatum markiert den Start des verpflichtenden Empfängerchecks; daneben trägt eine Überweisung erstmals ein sichtbares Prüfsiegel.",
+      "googleFlowFileName": "Bild 03 - Empfaengercheck seit 2025.png",
+      "objectLabels": [
+        "9. Oktober 2025",
+        "Empfängercheck"
+      ],
+      "expectedVisual": "A physical desk-calendar page for 9 October 2025 beside a stylized bank-transfer slip, with a new verification seal visibly attached to the transfer process.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      }
     },
     {
       "id": "scene-04",
-      "type": "image",
-      "startFrame": 291,
-      "durationFrames": 84,
+      "type": "animation",
+      "startFrame": 249,
+      "durationFrames": 132,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-04",
-      "headline": "Teilzahlung lässt einen Rest offen",
-      "icon": "receipt",
+      "headline": "Name und IBAN werden verglichen",
+      "icon": "link",
       "accent": "finance-green",
-      "headerTone": "warning",
-      "planFile": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
-      "googleFlowFileName": "Bild 04 - Nur Teil zurueckgezahlt.png",
-      "objectLabels": [
-        "Teilzahlung",
-        "Rest offen"
-      ],
-      "expectedVisual": "A physical credit-card statement showing a large open amount while only a visibly smaller payment has been placed against it; the remainder stays marked as open.",
-      "imagePresentation": {
-        "scale": 1.01,
-        "sourceCropTop": 0,
-        "sourceCropBottom": 0,
-        "cropSafe": true
-      },
-      "plannedDurationSeconds": 2.8,
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-04/remotion.md",
+      "plannedDurationSeconds": 4.4,
       "visualBeats": [
         {
           "id": "scene-04-beat-01",
-          "kind": "image",
-          "voiceText": "Bei Teilzahlung zahlst du nur einen Teil zurück.",
-          "visualChange": "Nur ein kleiner Teil der Abrechnung ist bezahlt; ein deutlich größerer Rest bleibt sichtbar offen.",
+          "kind": "animation",
+          "voiceText": "Vor der Freigabe vergleicht die Bank Empfängername und IBAN.",
+          "visualChange": "Ein großes Bankschloss steht geschlossen; links schweben zwei eindeutig unterschiedliche Schlüssel mit den kurzen Labels NAME und IBAN.",
           "startSecond": 0,
-          "endSecond": 2.8
+          "endSecond": 1.5
+        },
+        {
+          "id": "scene-04-beat-02",
+          "kind": "animation",
+          "voiceText": "Vor der Freigabe vergleicht die Bank Empfängername und IBAN.",
+          "visualChange": "Beide Schlüssel fahren aus unterschiedlichen Winkeln in zwei getrennte Schlitze und richten die inneren Schlosssegmente sichtbar aus.",
+          "startSecond": 1.5,
+          "endSecond": 3.17
+        },
+        {
+          "id": "scene-04-beat-03",
+          "kind": "animation",
+          "voiceText": "Vor der Freigabe vergleicht die Bank Empfängername und IBAN.",
+          "visualChange": "Der Zylinder dreht sich nur nach der gemeinsamen Passung und öffnet eine grüne Freigabeöffnung.",
+          "startSecond": 3.17,
+          "endSecond": 4.4
         }
       ],
-      "targetSeconds": 2.8,
-      "audioTrigger": "Bei Teilzahlung zahlst du nur einen Teil zurück.",
-      "mainIdea": "Nur ein kleiner Teil der Abrechnung ist bezahlt; ein deutlich größerer Rest bleibt sichtbar offen."
+      "targetSeconds": 4.4,
+      "audioTrigger": "Vor der Freigabe vergleicht die Bank Empfängername und IBAN.",
+      "mainIdea": "Zwei unterschiedlich geformte Schlüssel für Empfängername und IBAN fahren in ein gemeinsames Bankschloss; nur bei korrekter Passung kann sich der Freigabezylinder drehen.",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-04/animation.tsx",
+      "animationExport": "Scene04Animation",
+      "animationIntent": "Zwei unterschiedlich geformte Schlüssel für Empfängername und IBAN fahren in ein gemeinsames Bankschloss; nur bei korrekter Passung kann sich der Freigabezylinder drehen.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "animationTechniqueId": "dual-key-lock-alignment"
     },
     {
       "id": "scene-05",
-      "type": "animation",
-      "startFrame": 375,
-      "durationFrames": 120,
+      "type": "image",
+      "startFrame": 381,
+      "durationFrames": 108,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-05",
-      "headline": "Auf dem Rest können Zinsen laufen",
-      "icon": "percent",
+      "headline": "Match: Daten passen zusammen",
+      "icon": "check",
       "accent": "finance-green",
-      "headerTone": "warning",
-      "planFile": "EINZELNE-SZENEN/scene-05/remotion.md",
-      "animationSourceFile": "EINZELNE-SZENEN/scene-05/animation.tsx",
-      "animationExport": "Scene05Animation",
-      "animationIntent": "Eine offene Restabrechnung bleibt liegen, ein Kalender rückt weiter und daneben wächst sichtbar ein kleiner zusätzlicher Kostenstapel.",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
       "animationQualityLock": "finanzneo-phase1-animation-code-v1",
       "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
-      "plannedDurationSeconds": 4,
+      "plannedDurationSeconds": 3.6,
       "visualBeats": [
         {
           "id": "scene-05-beat-01",
-          "kind": "animation",
-          "voiceText": "Auf den restlichen offenen Betrag",
-          "visualChange": "Ein massiver 500-Euro-Restblock bleibt sichtbar bestehen.",
+          "kind": "image",
+          "voiceText": "Passen beide zusammen, bekommst du ein Match.",
+          "visualChange": "Empfängername und IBAN greifen sichtbar passgenau ineinander; daraus entsteht ein eindeutiges grünes Match-Siegel.",
           "startSecond": 0,
-          "endSecond": 1.25
-        },
-        {
-          "id": "scene-05-beat-02",
-          "kind": "animation",
-          "voiceText": "können je nach Vertrag",
-          "visualChange": "Der Kalender klappt in den nächsten Monat und der Restblock bleibt unverändert stehen.",
-          "startSecond": 1.25,
-          "endSecond": 2.45
-        },
-        {
-          "id": "scene-05-beat-03",
-          "kind": "animation",
-          "voiceText": "Zinsen anfallen.",
-          "visualChange": "Eine neue rot-orange Kostenschicht wächst physisch auf den offenen Restblock.",
-          "startSecond": 2.45,
-          "endSecond": 4
+          "endSecond": 3.6
         }
       ],
-      "targetSeconds": 4,
-      "audioTrigger": "Auf den restlichen offenen Betrag können je nach Vertrag Zinsen anfallen.",
-      "mainIdea": "Eine offene Restabrechnung bleibt liegen, ein Kalender rückt weiter und daneben wächst sichtbar ein kleiner zusätzlicher Kostenstapel.",
-      "animationTechniqueId": "debt-layer-extrusion"
-    },
-    {
-      "id": "scene-06",
-      "type": "image",
-      "startFrame": 495,
-      "durationFrames": 120,
-      "cutReason": "voice-sentence-or-meaningful-phrase-start",
-      "directory": "EINZELNE-SZENEN/scene-06",
-      "headline": "600 Euro gekauft, 100 zurückgezahlt",
-      "icon": "euro",
-      "accent": "finance-green",
-      "headerTone": "neutral",
-      "planFile": "EINZELNE-SZENEN/scene-06/bildprompt.txt",
-      "googleFlowFileName": "Bild 06 - 600 Einkauf 100 Rueckzahlung.png",
+      "targetSeconds": 3.6,
+      "audioTrigger": "Passen beide zusammen, bekommst du ein Match.",
+      "mainIdea": "Empfängername und IBAN greifen sichtbar passgenau ineinander; daraus entsteht ein eindeutiges grünes Match-Siegel.",
+      "googleFlowFileName": "Bild 05 - Name und IBAN passen.png",
       "objectLabels": [
-        "Einkauf 600 €",
-        "Rückzahlung 100 €"
+        "Match",
+        "Name + IBAN"
       ],
-      "expectedVisual": "A grounded purchase scene with a physical card, shopping bag and paper statement for 600 euros, while only a separate 100-euro repayment is visibly applied.",
+      "expectedVisual": "Two physical engraved data plates labeled NAME and IBAN interlock perfectly like precision parts, producing one clear emerald verification seal.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
         "sourceCropBottom": 0,
         "cropSafe": true
-      },
-      "plannedDurationSeconds": 4,
+      }
+    },
+    {
+      "id": "scene-06",
+      "type": "animation",
+      "startFrame": 489,
+      "durationFrames": 135,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-06",
+      "headline": "Kleine Abweichung? Erst prüfen",
+      "icon": "search",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-06/remotion.md",
+      "plannedDurationSeconds": 4.5,
       "visualBeats": [
         {
           "id": "scene-06-beat-01",
-          "kind": "image",
-          "voiceText": "Beispiel: Du kaufst für 600 Euro ein und zahlst nur 100 Euro zurück.",
-          "visualChange": "Ein realer Einkauf über 600 Euro steht einer klar kleineren Rückzahlung von 100 Euro gegenüber.",
+          "kind": "animation",
+          "voiceText": "Bei kleinen Abweichungen kann ein Hinweis erscheinen – etwa bei einem Tippfehler.",
+          "visualChange": "Zwei Namensleisten liegen leicht versetzt auf parallelen Schienen; eine endet sichtbar einen Buchstaben früher.",
           "startSecond": 0,
-          "endSecond": 4
+          "endSecond": 1.53
+        },
+        {
+          "id": "scene-06-beat-02",
+          "kind": "animation",
+          "voiceText": "Bei kleinen Abweichungen kann ein Hinweis erscheinen – etwa bei einem Tippfehler.",
+          "visualChange": "Ein Magnetkern zieht beide Leisten nebeneinander, hebt genau die kleine Abweichung gelb hervor und richtet den gespeicherten Namen daneben aus.",
+          "startSecond": 1.53,
+          "endSecond": 3.24
+        },
+        {
+          "id": "scene-06-beat-03",
+          "kind": "animation",
+          "voiceText": "Bei kleinen Abweichungen kann ein Hinweis erscheinen – etwa bei einem Tippfehler.",
+          "visualChange": "Beide Namen stehen vergleichbar nebeneinander, die kleine Abweichung bleibt bewusst sichtbar statt automatisch zu verschwinden.",
+          "startSecond": 3.24,
+          "endSecond": 4.5
         }
       ],
-      "targetSeconds": 4,
-      "audioTrigger": "Beispiel: Du kaufst für 600 Euro ein und zahlst nur 100 Euro zurück.",
-      "mainIdea": "Ein realer Einkauf über 600 Euro steht einer klar kleineren Rückzahlung von 100 Euro gegenüber."
+      "targetSeconds": 4.5,
+      "audioTrigger": "Bei kleinen Abweichungen kann ein Hinweis erscheinen – etwa bei einem Tippfehler.",
+      "mainIdea": "Ein leicht abweichender Empfängername wird auf einer magnetischen Schiene neben den hinterlegten Namen gezogen; die kleine Differenz bleibt gelb markiert und muss bewusst geprüft werden.",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-06/animation.tsx",
+      "animationExport": "Scene06Animation",
+      "animationIntent": "Ein leicht abweichender Empfängername wird auf einer magnetischen Schiene neben den hinterlegten Namen gezogen; die kleine Differenz bleibt gelb markiert und muss bewusst geprüft werden.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "animationTechniqueId": "magnetic-close-match-correction"
     },
     {
       "id": "scene-07",
-      "type": "animation",
-      "startFrame": 615,
-      "durationFrames": 120,
+      "type": "image",
+      "startFrame": 624,
+      "durationFrames": 108,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-07",
-      "headline": "500 Euro bleiben offen",
-      "icon": "coins",
+      "headline": "No Match: klare Warnung",
+      "icon": "x",
       "accent": "finance-green",
       "headerTone": "warning",
-      "planFile": "EINZELNE-SZENEN/scene-07/remotion.md",
-      "animationSourceFile": "EINZELNE-SZENEN/scene-07/animation.tsx",
-      "animationExport": "Scene07Animation",
-      "animationIntent": "Von einer 600-Euro-Abrechnung werden sichtbar 100 Euro abgetragen; die Abrechnung bleibt mit 500 Euro offen und wird als Restschuld stabil gehalten.",
+      "planFile": "EINZELNE-SZENEN/scene-07/bildprompt.txt",
       "animationQualityLock": "finanzneo-phase1-animation-code-v1",
       "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
-      "plannedDurationSeconds": 4,
+      "plannedDurationSeconds": 3.6,
       "visualBeats": [
         {
           "id": "scene-07-beat-01",
-          "kind": "animation",
-          "voiceText": "500 Euro bleiben offen.",
-          "visualChange": "Ein 600-Euro-Schuldenkörper wird an der 100-Euro-Stelle sichtbar durchschnitten.",
+          "kind": "image",
+          "voiceText": "Passen die Daten nicht zusammen, wirst du gewarnt.",
+          "visualChange": "Name und IBAN führen sichtbar zu unterschiedlichen Zielschlitzen; eine massive Warnbarriere stoppt die Zahlung vor der Freigabe.",
           "startSecond": 0,
-          "endSecond": 1.45
-        },
-        {
-          "id": "scene-07-beat-02",
-          "kind": "animation",
-          "voiceText": "Die 100 Euro sind weg.",
-          "visualChange": "Das kleine 100-Euro-Stück löst sich räumlich und fällt aus der Komposition; der große 500-Euro-Rest bleibt.",
-          "startSecond": 1.45,
-          "endSecond": 2.55
-        },
-        {
-          "id": "scene-07-beat-03",
-          "kind": "animation",
-          "voiceText": "Auf diesen Rest können weitere Zinsen kommen.",
-          "visualChange": "Auf dem verbleibenden 500-Euro-Körper setzt sich eine zusätzliche Warnschicht sichtbar oben drauf.",
-          "startSecond": 2.55,
-          "endSecond": 4
+          "endSecond": 3.6
         }
       ],
-      "targetSeconds": 4,
-      "audioTrigger": "500 Euro bleiben offen. Auf diesen Rest können weitere Zinsen kommen.",
-      "mainIdea": "Von einer 600-Euro-Abrechnung werden sichtbar 100 Euro abgetragen; die Abrechnung bleibt mit 500 Euro offen und wird als Restschuld stabil gehalten.",
-      "animationTechniqueId": "clip-slice-principal"
+      "targetSeconds": 3.6,
+      "audioTrigger": "Passen die Daten nicht zusammen, wirst du gewarnt.",
+      "mainIdea": "Name und IBAN führen sichtbar zu unterschiedlichen Zielschlitzen; eine massive Warnbarriere stoppt die Zahlung vor der Freigabe.",
+      "googleFlowFileName": "Bild 07 - Daten passen nicht.png",
+      "objectLabels": [
+        "Keine Übereinstimmung",
+        "Prüfen"
+      ],
+      "expectedVisual": "A transfer token is stopped by a solid red-orange barrier because a recipient-name plate and an IBAN plate visibly point to different destination slots.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      }
     },
     {
       "id": "scene-08",
       "type": "image",
-      "startFrame": 735,
-      "durationFrames": 99,
+      "startFrame": 732,
+      "durationFrames": 120,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-08",
-      "headline": "Neue Käufe kommen oben drauf",
-      "icon": "wallet",
+      "headline": "Trotz Warnung senden? Risiko",
+      "icon": "alert-triangle",
       "accent": "finance-green",
       "headerTone": "warning",
       "planFile": "EINZELNE-SZENEN/scene-08/bildprompt.txt",
-      "googleFlowFileName": "Bild 08 - Neuer Einkauf trifft alten Rest.png",
+      "googleFlowFileName": "Bild 08 - Trotzdem senden Risiko.png",
       "objectLabels": [
-        "Alter Rest",
-        "Neuer Einkauf"
+        "Warnung",
+        "Trotzdem senden"
       ],
-      "expectedVisual": "A new everyday card purchase at a checkout is shown while an older unpaid credit-card statement is still physically present beside it.",
+      "expectedVisual": "A gold payment token waits at a red verification barrier while a separate manual bypass lever labeled TROTZDEM SENDEN is reachable; the risky bypass path is visibly red-orange.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 3.3,
+      "plannedDurationSeconds": 4,
       "visualBeats": [
         {
           "id": "scene-08-beat-01",
           "kind": "image",
-          "voiceText": "Kaufst du im nächsten Monat weiter mit der Karte ein,",
-          "visualChange": "Ein neuer Einkauf wird mit derselben Karte bezahlt, obwohl daneben noch eine alte offene Abrechnung liegt.",
+          "voiceText": "Du kannst trotzdem senden – aber dann trägst du ein höheres Risiko.",
+          "visualChange": "Die Warnbarriere hält die Zahlung an, aber ein separater mechanischer Bypass zeigt: Man kann bewusst trotzdem senden und übernimmt damit das Risiko.",
           "startSecond": 0,
-          "endSecond": 3.3
+          "endSecond": 4
         }
       ],
-      "targetSeconds": 3.3,
-      "audioTrigger": "Kaufst du im nächsten Monat weiter mit der Karte ein,",
-      "mainIdea": "Ein neuer Einkauf wird mit derselben Karte bezahlt, obwohl daneben noch eine alte offene Abrechnung liegt."
+      "targetSeconds": 4,
+      "audioTrigger": "Du kannst trotzdem senden – aber dann trägst du ein höheres Risiko.",
+      "mainIdea": "Die Warnbarriere hält die Zahlung an, aber ein separater mechanischer Bypass zeigt: Man kann bewusst trotzdem senden und übernimmt damit das Risiko."
     },
     {
       "id": "scene-09",
       "type": "animation",
-      "startFrame": 834,
-      "durationFrames": 84,
+      "startFrame": 852,
+      "durationFrames": 150,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-09",
-      "headline": "Der offene Saldo kann wachsen",
-      "icon": "chart-up",
+      "headline": "Ein Match ist keine Betrugsgarantie",
+      "icon": "shield-alert",
       "accent": "finance-green",
       "headerTone": "warning",
       "planFile": "EINZELNE-SZENEN/scene-09/remotion.md",
       "animationSourceFile": "EINZELNE-SZENEN/scene-09/animation.tsx",
       "animationExport": "Scene09Animation",
-      "animationIntent": "Eine alte Restabrechnung und eine neue Kaufabrechnung bewegen sich physisch in denselben Kartensaldo, der danach sichtbar höher steht.",
+      "animationIntent": "Ein grüner Prüfrahmen bestätigt nur Name und IBAN; danach öffnet sich ein Cutaway und zeigt außerhalb des geprüften Bereichs eine manipulierte Rechnung mit Warnsignal.",
       "animationQualityLock": "finanzneo-phase1-animation-code-v1",
       "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
-      "plannedDurationSeconds": 2.8,
+      "plannedDurationSeconds": 5,
       "visualBeats": [
         {
           "id": "scene-09-beat-01",
           "kind": "animation",
-          "voiceText": "Der offene Saldo",
-          "visualChange": "Ein transparenter Schuldenbehälter steht bereits bei 500 Euro.",
+          "voiceText": "Wichtig: Ein grünes Match beweist nicht, dass Rechnung oder Empfänger seriös sind.",
+          "visualChange": "Ein großer grüner Prüfrahmen umfasst nur zwei sauber passende Elemente: Name und IBAN.",
           "startSecond": 0,
-          "endSecond": 0.85
+          "endSecond": 1.7
         },
         {
           "id": "scene-09-beat-02",
           "kind": "animation",
-          "voiceText": "kann zusätzlich",
-          "visualChange": "Ein neuer Einkauf fällt als konkretes Objekt von oben in den Behälter.",
-          "startSecond": 0.85,
-          "endSecond": 1.75
+          "voiceText": "Wichtig: Ein grünes Match beweist nicht, dass Rechnung oder Empfänger seriös sind.",
+          "visualChange": "Der Prüfrahmen schließt sich erfolgreich, während eine seitliche Cutaway-Maske aufgleitet und den bisher unsichtbaren Rechnungsbereich freilegt.",
+          "startSecond": 1.7,
+          "endSecond": 3.6
         },
         {
           "id": "scene-09-beat-03",
           "kind": "animation",
-          "voiceText": "wachsen.",
-          "visualChange": "Der Füllstand schießt sichtbar auf 620 Euro und hält.",
-          "startSecond": 1.75,
-          "endSecond": 2.8
+          "voiceText": "Wichtig: Ein grünes Match beweist nicht, dass Rechnung oder Empfänger seriös sind.",
+          "visualChange": "Innerhalb des Rahmens bleibt das grüne Match korrekt, außerhalb erscheint gleichzeitig eine rote Warnung an der Rechnung – Match ist nicht gleich Seriosität.",
+          "startSecond": 3.6,
+          "endSecond": 5
         }
       ],
-      "targetSeconds": 2.8,
-      "audioTrigger": "kann der offene Saldo zusätzlich wachsen.",
-      "mainIdea": "Eine alte Restabrechnung und eine neue Kaufabrechnung bewegen sich physisch in denselben Kartensaldo, der danach sichtbar höher steht.",
-      "animationTechniqueId": "purchase-drop-vessel"
+      "targetSeconds": 5,
+      "audioTrigger": "Wichtig: Ein grünes Match beweist nicht, dass Rechnung oder Empfänger seriös sind.",
+      "mainIdea": "Ein grüner Prüfrahmen bestätigt nur Name und IBAN; danach öffnet sich ein Cutaway und zeigt außerhalb des geprüften Bereichs eine manipulierte Rechnung mit Warnsignal.",
+      "animationTechniqueId": "shield-cutaway-limitation"
     },
     {
       "id": "scene-10",
       "type": "image",
-      "startFrame": 918,
-      "durationFrames": 120,
+      "startFrame": 1002,
+      "durationFrames": 114,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-10",
-      "headline": "Prüf deine Rückzahlungsart",
-      "icon": "search",
+      "headline": "Der Check prüft nur zwei Angaben",
+      "icon": "scan",
       "accent": "finance-green",
-      "headerTone": "neutral",
+      "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
-      "googleFlowFileName": "Bild 10 - Rueckzahlungsart pruefen.png",
+      "googleFlowFileName": "Bild 10 - Check prueft nur zwei Daten.png",
       "objectLabels": [
-        "Vollzahlung",
-        "Teilzahlung"
+        "Name",
+        "IBAN"
       ],
-      "expectedVisual": "A person checks a real paper credit-card statement and a simple physical repayment selector, clearly comparing “Vollzahlung” and “Teilzahlung” without app-dashboard aesthetics.",
+      "expectedVisual": "A narrow physical inspection frame illuminates only two engraved plates labeled NAME and IBAN, while the rest of a larger invoice and purchase context remains visibly outside the inspection area.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.8,
+      "visualBeats": [
+        {
+          "id": "scene-10-beat-01",
+          "kind": "image",
+          "voiceText": "Der Check erkennt nur, ob Name und IBAN zusammenpassen.",
+          "visualChange": "Ein schmaler Prüfrahmen beleuchtet ausschließlich Name und IBAN; Rechnung, Anlass und Seriosität liegen sichtbar außerhalb seines Prüfbereichs.",
+          "startSecond": 0,
+          "endSecond": 3.8
+        }
+      ],
+      "targetSeconds": 3.8,
+      "audioTrigger": "Der Check erkennt nur, ob Name und IBAN zusammenpassen.",
+      "mainIdea": "Ein schmaler Prüfrahmen beleuchtet ausschließlich Name und IBAN; Rechnung, Anlass und Seriosität liegen sichtbar außerhalb seines Prüfbereichs."
+    },
+    {
+      "id": "scene-11",
+      "type": "animation",
+      "startFrame": 1116,
+      "durationFrames": 150,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-11",
+      "headline": "Echtzeit heißt wirklich schnell",
+      "icon": "zap",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-11/remotion.md",
+      "plannedDurationSeconds": 5,
+      "visualBeats": [
+        {
+          "id": "scene-11-beat-01",
+          "kind": "animation",
+          "voiceText": "Bei Echtzeitüberweisungen ist das Geld in Sekunden da und grundsätzlich nicht einfach widerrufbar.",
+          "visualChange": "Ein goldener Euro-Token liegt links in einer transparenten Transferkammer zwischen zwei stilisierten Bankkörpern.",
+          "startSecond": 0,
+          "endSecond": 1.7
+        },
+        {
+          "id": "scene-11-beat-02",
+          "kind": "animation",
+          "voiceText": "Bei Echtzeitüberweisungen ist das Geld in Sekunden da und grundsätzlich nicht einfach widerrufbar.",
+          "visualChange": "Der Token beschleunigt sichtbar durch die Röhre, passiert nacheinander mehrere Einwegklappen und erreicht in kurzer Zeit die Empfängerseite.",
+          "startSecond": 1.7,
+          "endSecond": 3.6
+        },
+        {
+          "id": "scene-11-beat-03",
+          "kind": "animation",
+          "voiceText": "Bei Echtzeitüberweisungen ist das Geld in Sekunden da und grundsätzlich nicht einfach widerrufbar.",
+          "visualChange": "Der Token liegt rechts beim Empfänger, während die Rücklaufsperren hinter ihm geschlossen bleiben und ein Rückweg blockiert ist.",
+          "startSecond": 3.6,
+          "endSecond": 5
+        }
+      ],
+      "targetSeconds": 5,
+      "audioTrigger": "Bei Echtzeitüberweisungen ist das Geld in Sekunden da und grundsätzlich nicht einfach widerrufbar.",
+      "mainIdea": "Ein goldener Euro-Token wird in einer transparenten Pneumatikröhre in Sekunden von Bank A zu Bank B geschossen; hinter ihm schließen mehrere Rücklaufsperren.",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-11/animation.tsx",
+      "animationExport": "Scene11Animation",
+      "animationIntent": "Ein goldener Euro-Token wird in einer transparenten Pneumatikröhre in Sekunden von Bank A zu Bank B geschossen; hinter ihm schließen mehrere Rücklaufsperren.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "animationTechniqueId": "pneumatic-instant-transfer-tube"
+    },
+    {
+      "id": "scene-12",
+      "type": "image",
+      "startFrame": 1266,
+      "durationFrames": 114,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-12",
+      "headline": "Fehler? Sofort die Bank kontaktieren",
+      "icon": "phone",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-12/bildprompt.txt",
+      "googleFlowFileName": "Bild 12 - Sofort Bank kontaktieren.png",
+      "objectLabels": [
+        "Sofort melden",
+        "Bank"
+      ],
+      "expectedVisual": "A stylized phone receiver and urgent call signal are physically connected to a bank building while a mistaken transfer token sits beyond the bank path; urgency is clear without app UI.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.8,
+      "visualBeats": [
+        {
+          "id": "scene-12-beat-01",
+          "kind": "image",
+          "voiceText": "Bei einem Fehler: sofort deine Bank oder deinen Zahlungsdienstleister kontaktieren.",
+          "visualChange": "Ein Telefonkontakt zur Bank wird unmittelbar aktiviert, während die fehlerhafte Überweisung bereits auf dem falschen Weg liegt.",
+          "startSecond": 0,
+          "endSecond": 3.8
+        }
+      ],
+      "targetSeconds": 3.8,
+      "audioTrigger": "Bei einem Fehler: sofort deine Bank oder deinen Zahlungsdienstleister kontaktieren.",
+      "mainIdea": "Ein Telefonkontakt zur Bank wird unmittelbar aktiviert, während die fehlerhafte Überweisung bereits auf dem falschen Weg liegt."
+    },
+    {
+      "id": "scene-13",
+      "type": "image",
+      "startFrame": 1380,
+      "durationFrames": 120,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-13",
+      "headline": "Rückforderung ist nicht garantiert",
+      "icon": "undo",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-13/bildprompt.txt",
+      "googleFlowFileName": "Bild 13 - Rueckforderung nicht garantiert.png",
+      "objectLabels": [
+        "Rückforderung",
+        "Empfänger"
+      ],
+      "expectedVisual": "A recall cable from the sender bank pulls toward a gold payment token behind a receiver-side locked gate, but the final lock can only be opened from the recipient side.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
@@ -735,180 +866,66 @@
       "plannedDurationSeconds": 4,
       "visualBeats": [
         {
-          "id": "scene-10-beat-01",
+          "id": "scene-13-beat-01",
           "kind": "image",
-          "voiceText": "Prüfe deshalb in deiner Abrechnung oder in den Karteneinstellungen, ob Vollzahlung oder Teilzahlung eingestellt ist.",
-          "visualChange": "Eine Person prüft die Rückzahlungsart; Vollzahlung und Teilzahlung sind als zwei klar erkennbare Optionen gegenübergestellt.",
+          "voiceText": "Die Bank kann eine Rückforderung versuchen; ob das Geld zurückkommt, kann vom Empfänger abhängen.",
+          "visualChange": "Die Bank zieht sichtbar eine Rückforderung zum Empfänger, doch ein Empfängerschloss blockiert die Rückgabe und macht klar: Rückzahlung ist nicht automatisch garantiert.",
           "startSecond": 0,
           "endSecond": 4
         }
       ],
       "targetSeconds": 4,
-      "audioTrigger": "Prüfe deshalb in deiner Abrechnung oder in den Karteneinstellungen, ob Vollzahlung oder Teilzahlung eingestellt ist.",
-      "mainIdea": "Eine Person prüft die Rückzahlungsart; Vollzahlung und Teilzahlung sind als zwei klar erkennbare Optionen gegenübergestellt."
-    },
-    {
-      "id": "scene-11",
-      "type": "image",
-      "startFrame": 1038,
-      "durationFrames": 99,
-      "cutReason": "voice-sentence-or-meaningful-phrase-start",
-      "directory": "EINZELNE-SZENEN/scene-11",
-      "headline": "Schau auf den Zinssatz",
-      "icon": "document",
-      "accent": "finance-green",
-      "headerTone": "warning",
-      "planFile": "EINZELNE-SZENEN/scene-11/bildprompt.txt",
-      "googleFlowFileName": "Bild 11 - Zinssatz in Unterlagen.png",
-      "objectLabels": [
-        "Zinssatz"
-      ],
-      "expectedVisual": "A real credit agreement or card statement is being inspected with a magnifier, with the short German label “Zinssatz” clearly highlighted on the paper.",
-      "imagePresentation": {
-        "scale": 1.01,
-        "sourceCropTop": 0,
-        "sourceCropBottom": 0,
-        "cropSafe": true
-      },
-      "plannedDurationSeconds": 3.3,
-      "visualBeats": [
-        {
-          "id": "scene-11-beat-01",
-          "kind": "image",
-          "voiceText": "Wenn du Teilzahlung nutzt, schau auf den angegebenen Zinssatz",
-          "visualChange": "Ein Vertrag beziehungsweise eine Kartenabrechnung wird mit einer Lupe geprüft; der angegebene Zinssatz ist eindeutig markiert.",
-          "startSecond": 0,
-          "endSecond": 3.3
-        }
-      ],
-      "targetSeconds": 3.3,
-      "audioTrigger": "Wenn du Teilzahlung nutzt, schau auf den angegebenen Zinssatz",
-      "mainIdea": "Ein Vertrag beziehungsweise eine Kartenabrechnung wird mit einer Lupe geprüft; der angegebene Zinssatz ist eindeutig markiert."
-    },
-    {
-      "id": "scene-12",
-      "type": "image",
-      "startFrame": 1137,
-      "durationFrames": 81,
-      "cutReason": "voice-sentence-or-meaningful-phrase-start",
-      "directory": "EINZELNE-SZENEN/scene-12",
-      "headline": "Und auf deine echte Monatsrate",
-      "icon": "calendar",
-      "accent": "finance-green",
-      "headerTone": "neutral",
-      "planFile": "EINZELNE-SZENEN/scene-12/bildprompt.txt",
-      "googleFlowFileName": "Bild 12 - Monatsrate sichtbar.png",
-      "objectLabels": [
-        "Monatsrate"
-      ],
-      "expectedVisual": "A monthly calendar beside a physical repayment envelope and card statement makes the actual recurring monthly payment the focal point.",
-      "imagePresentation": {
-        "scale": 1.01,
-        "sourceCropTop": 0,
-        "sourceCropBottom": 0,
-        "cropSafe": true
-      },
-      "plannedDurationSeconds": 2.7,
-      "visualBeats": [
-        {
-          "id": "scene-12-beat-01",
-          "kind": "image",
-          "voiceText": "und wie hoch deine monatliche Rate wirklich ist.",
-          "visualChange": "Kalender, Abrechnung und Rückzahlungsumschlag zeigen gemeinsam: Entscheidend ist die echte Monatsrate.",
-          "startSecond": 0,
-          "endSecond": 2.7
-        }
-      ],
-      "targetSeconds": 2.7,
-      "audioTrigger": "und wie hoch deine monatliche Rate wirklich ist.",
-      "mainIdea": "Kalender, Abrechnung und Rückzahlungsumschlag zeigen gemeinsam: Entscheidend ist die echte Monatsrate."
-    },
-    {
-      "id": "scene-13",
-      "type": "image",
-      "startFrame": 1218,
-      "durationFrames": 54,
-      "cutReason": "voice-sentence-or-meaningful-phrase-start",
-      "directory": "EINZELNE-SZENEN/scene-13",
-      "headline": "Kreditkarten können praktisch sein",
-      "icon": "target",
-      "accent": "finance-green",
-      "headerTone": "positive",
-      "planFile": "EINZELNE-SZENEN/scene-13/bildprompt.txt",
-      "googleFlowFileName": "Bild 13 - Kreditkarte praktisch.png",
-      "objectLabels": [
-        "Praktisch"
-      ],
-      "expectedVisual": "A grounded everyday payment moment where a person uses a credit card cleanly and successfully at a normal checkout; positive but restrained.",
-      "imagePresentation": {
-        "scale": 1.01,
-        "sourceCropTop": 0,
-        "sourceCropBottom": 0,
-        "cropSafe": true
-      },
-      "plannedDurationSeconds": 1.8,
-      "visualBeats": [
-        {
-          "id": "scene-13-beat-01",
-          "kind": "image",
-          "voiceText": "Eine Kreditkarte ist praktisch –",
-          "visualChange": "Eine alltägliche Kartenzahlung funktioniert bequem und unkompliziert; die Karte ist hier klar nur das praktische Werkzeug.",
-          "startSecond": 0,
-          "endSecond": 1.8
-        }
-      ],
-      "targetSeconds": 1.8,
-      "audioTrigger": "Eine Kreditkarte ist praktisch –",
-      "mainIdea": "Eine alltägliche Kartenzahlung funktioniert bequem und unkompliziert; die Karte ist hier klar nur das praktische Werkzeug."
+      "audioTrigger": "Die Bank kann eine Rückforderung versuchen; ob das Geld zurückkommt, kann vom Empfänger abhängen.",
+      "mainIdea": "Die Bank zieht sichtbar eine Rückforderung zum Empfänger, doch ein Empfängerschloss blockiert die Rückgabe und macht klar: Rückzahlung ist nicht automatisch garantiert."
     },
     {
       "id": "scene-14",
       "type": "animation",
-      "startFrame": 1272,
-      "durationFrames": 126,
+      "startFrame": 1500,
+      "durationFrames": 144,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-14",
-      "headline": "Teuer wird es über mehrere Monate",
-      "icon": "clock",
+      "headline": "Erst prüfen, dann senden",
+      "icon": "check-circle",
       "accent": "finance-green",
-      "headerTone": "warning",
+      "headerTone": "positive",
       "planFile": "EINZELNE-SZENEN/scene-14/remotion.md",
       "animationSourceFile": "EINZELNE-SZENEN/scene-14/animation.tsx",
       "animationExport": "Scene14Animation",
-      "animationIntent": "Eine einzelne offene Kaufabrechnung bleibt bestehen, während mehrere Monatskalender nacheinander erscheinen und die offene Belastung sichtbar in die Länge gezogen wird.",
+      "animationIntent": "Ein goldener Zahlungstoken stoppt an einem roten Drehkreuz; Name, IBAN und die eigene Plausibilitätsprüfung rasten nacheinander ein, erst dann öffnet sich der sichere Weg.",
       "animationQualityLock": "finanzneo-phase1-animation-code-v1",
       "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
-      "plannedDurationSeconds": 4.2,
+      "plannedDurationSeconds": 4.8,
       "visualBeats": [
         {
           "id": "scene-14-beat-01",
           "kind": "animation",
-          "voiceText": "teuer kann sie werden, wenn aus einem Einkauf",
-          "visualChange": "Ein einzelner Einkauf bewegt sich in einen räumlichen Zeittunnel hinein.",
+          "voiceText": "Also: Warnung nicht wegklicken. Daten prüfen – dann erst senden.",
+          "visualChange": "Ein Goldtoken wartet direkt vor einem roten Drehkreuz; drei große Prüfringe sind noch offen.",
           "startSecond": 0,
-          "endSecond": 1.45
+          "endSecond": 1.63
         },
         {
           "id": "scene-14-beat-02",
           "kind": "animation",
-          "voiceText": "mehrere Monate",
-          "visualChange": "MONAT 1 und MONAT 2 ziehen als große perspektivische Tore am offenen Einkauf vorbei; die Belastung bleibt angekettet.",
-          "startSecond": 1.45,
-          "endSecond": 2.9
+          "voiceText": "Also: Warnung nicht wegklicken. Daten prüfen – dann erst senden.",
+          "visualChange": "Die Prüfringe für NAME, IBAN und PLAUSIBILITÄT schließen nacheinander sichtbar um den Zahlungsweg und drehen den Sperrmechanismus aus der Warnstellung.",
+          "startSecond": 1.63,
+          "endSecond": 3.46
         },
         {
           "id": "scene-14-beat-03",
           "kind": "animation",
-          "voiceText": "offene Schulden werden.",
-          "visualChange": "MONAT 3 rastet ein; die Kamera stoppt auf dem weiterhin offenen Einkauf und dem Endhinweis MEHRERE MONATE OFFEN.",
-          "startSecond": 2.9,
-          "endSecond": 4.2
+          "voiceText": "Also: Warnung nicht wegklicken. Daten prüfen – dann erst senden.",
+          "visualChange": "Das Drehkreuz wechselt auf Emerald, öffnet vollständig und lässt den Token erst nach der Prüfung passieren.",
+          "startSecond": 3.46,
+          "endSecond": 4.8
         }
       ],
-      "targetSeconds": 4.2,
-      "audioTrigger": "teuer kann sie werden, wenn aus einem Einkauf mehrere Monate offene Schulden werden.",
-      "mainIdea": "Eine einzelne offene Kaufabrechnung bleibt bestehen, während mehrere Monatskalender nacheinander erscheinen und die offene Belastung sichtbar in die Länge gezogen wird.",
-      "animationTechniqueId": "perspective-month-tunnel"
+      "targetSeconds": 4.8,
+      "audioTrigger": "Also: Warnung nicht wegklicken. Daten prüfen – dann erst senden.",
+      "mainIdea": "Ein goldener Zahlungstoken stoppt an einem roten Drehkreuz; Name, IBAN und die eigene Plausibilitätsprüfung rasten nacheinander ein, erst dann öffnet sich der sichere Weg.",
+      "animationTechniqueId": "inspection-turnstile-release"
     }
   ],
   "phase3CompletionContract": {

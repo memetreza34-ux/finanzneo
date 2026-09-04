@@ -1,10 +1,8 @@
 # scene-05
 
-**Typ:** animation
-**Zwischenüberschrift:** Auf dem Rest können Zinsen laufen
-**Icon:** percent
-**Sprechtext:** Auf den restlichen offenen Betrag können je nach Vertrag Zinsen anfallen.
-
-**Google Flow:** KEIN Bild 05; Nummer bleibt reserviert.
-**Animation:** Phase 1 liefert remotion.md + fertige animation.tsx.
-**Hauptaussage:** Eine offene Restabrechnung bleibt liegen, ein Kalender rückt weiter und daneben wächst sichtbar ein kleiner zusätzlicher Kostenstapel.
+**Typ:** image
+**Zwischenüberschrift:** Match: Daten passen zusammen
+**Icon:** check
+**Sprechtext:** Passen beide zusammen, bekommst du ein Match.
+**Hauptaussage:** Empfängername und IBAN greifen sichtbar passgenau ineinander; daraus entsteht ein eindeutiges grünes Match-Siegel.
+**Geplante Dauer:** 3.6 s

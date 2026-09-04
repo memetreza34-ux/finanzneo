@@ -1,10 +1,8 @@
 # scene-04
 
-**Typ:** image
-**Zwischenüberschrift:** Teilzahlung lässt einen Rest offen
-**Icon:** receipt
-**Sprechtext:** Bei Teilzahlung zahlst du nur einen Teil zurück.
-
-**Google-Flow-Dateiname:** Bild 04 - Nur Teil zurueckgezahlt.png
-**Erlaubte kurze Objektlabels:** Teilzahlung · Rest offen
-**Hauptaussage:** Nur ein kleiner Teil der Abrechnung ist bezahlt; ein deutlich größerer Rest bleibt sichtbar offen.
+**Typ:** animation
+**Zwischenüberschrift:** Name und IBAN werden verglichen
+**Icon:** link
+**Sprechtext:** Vor der Freigabe vergleicht die Bank Empfängername und IBAN.
+**Hauptaussage:** Zwei unterschiedlich geformte Schlüssel für Empfängername und IBAN fahren in ein gemeinsames Bankschloss; nur bei korrekter Passung kann sich der Freigabezylinder drehen.
+**Geplante Dauer:** 4.4 s

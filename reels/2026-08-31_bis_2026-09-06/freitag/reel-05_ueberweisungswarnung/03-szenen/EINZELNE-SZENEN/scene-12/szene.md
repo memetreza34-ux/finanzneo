@@ -1,10 +1,8 @@
 # scene-12
 
 **Typ:** image
-**Zwischenüberschrift:** Und auf deine echte Monatsrate
-**Icon:** calendar
-**Sprechtext:** und wie hoch deine monatliche Rate wirklich ist.
-
-**Google-Flow-Dateiname:** Bild 12 - Monatsrate sichtbar.png
-**Erlaubte kurze Objektlabels:** Monatsrate
-**Hauptaussage:** Kalender, Abrechnung und Rückzahlungsumschlag zeigen gemeinsam: Entscheidend ist die echte Monatsrate.
+**Zwischenüberschrift:** Fehler? Sofort die Bank kontaktieren
+**Icon:** phone
+**Sprechtext:** Bei einem Fehler: sofort deine Bank oder deinen Zahlungsdienstleister kontaktieren.
+**Hauptaussage:** Ein Telefonkontakt zur Bank wird unmittelbar aktiviert, während die fehlerhafte Überweisung bereits auf dem falschen Weg liegt.
+**Geplante Dauer:** 3.8 s

@@ -2,36 +2,44 @@ import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
 import {ANIMATION_COLORS, AnimationStage} from '../../../../../../../src/design-system';
 /**
- * MECHANIC_ID: new-purchase-adds-to-card-balance
- * VISUAL_TECHNIQUE_ID: purchase-drop-vessel
- * PRIMARY_ACTION: Ein konkretes Einkaufspaket fällt von oben in einen transparenten Schuldenbehälter und drückt dessen sichtbaren Füllstand von 500 Euro auf 620 Euro nach oben.
+ * MECHANIC_ID: verification-shield-cutaway-scope
+ * VISUAL_TECHNIQUE_ID: shield-cutaway-limitation
+ * PRIMARY_ACTION: Ein grüner Prüfrahmen bestätigt nur Name und IBAN; danach öffnet sich ein Cutaway und zeigt außerhalb des geprüften Bereichs eine manipulierte Rechnung mit Warnsignal.
  * ANIMATION_NARRATIVE
- * START: Ein transparenter Kartensaldo-Behälter steht bereits sichtbar bei 500 Euro Füllstand.
- * MECHANISM: Ein neues 120-Euro-Einkaufspaket fällt physisch in den Behälter; beim Aufprall steigt der rote Füllkörper deutlich an.
- * RESULT: Der Behälter hält stabil bei 620 Euro und zeigt, dass der offene Saldo durch neue Käufe weiter wachsen kann.
+ * START: Ein großer grüner Prüfrahmen umfasst nur zwei sauber passende Elemente: Name und IBAN.
+ * MECHANISM: Der Prüfrahmen schließt sich erfolgreich, während eine seitliche Cutaway-Maske aufgleitet und den bisher unsichtbaren Rechnungsbereich freilegt.
+ * RESULT: Innerhalb des Rahmens bleibt das grüne Match korrekt, außerhalb erscheint gleichzeitig eine rote Warnung an der Rechnung – Match ist nicht gleich Seriosität.
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Der transparente 3D-Behälter und der reale Fall des Einkaufspakets machen das Anwachsen körperlich sichtbar.
- * SUPPORT: 500- und 620-Euro-Markierungen erklären nur Start und Ergebnis; das fallende Paket trägt die Ursache.
- * MATERIAL: Glasartige helle Kontur, warmes Rot für offenen Saldo, Gold für das neue Einkaufspaket.
- * DEPTH: Behälter zentral vorne, Paket fällt aus oberer Tiefe hinein; Füllkörper wächst von unten und erzeugt klare Vertikalbewegung.
+ * HERO: Der aufschneidende Prüfrahmen zeigt räumlich die Grenze des Checks.
+ * SUPPORT: Name und IBAN bleiben im grünen Bereich; eine physische Rechnung liegt bewusst außerhalb.
+ * MATERIAL: Emerald für den gültigen Datenabgleich, Ivory für Dokumente, warmes Rot nur für den ungeprüften Betrugsbereich.
+ * DEPTH: Prüfrahmen vorne, Daten mittig, Rechnung wird aus einer tieferen verdeckten Ebene seitlich freigelegt.
  */
 export const RESULT_HOLD_FRAMES = 24;
 const clamp = {extrapolateLeft:'clamp' as const, extrapolateRight:'clamp' as const};
-export const Scene09Animation: React.FC<{durationFrames?:number}> = ({durationFrames=84}) => {
+export const Scene09Animation: React.FC<{durationFrames?:number}> = ({durationFrames=150}) => {
   const frame = useCurrentFrame();
-  const vesselIn = interpolate(frame,[2,14],[0,1],clamp);
-  const drop = interpolate(frame,[18,50],[0,1],clamp);
-  const fill = interpolate(frame,[44,66],[0,1],clamp);
-  const result = interpolate(frame,[62,Math.max(66,durationFrames-RESULT_HOLD_FRAMES)],[0,1],clamp);
-  const fillHeight = 260 + fill*115;
+  const frameIn = interpolate(frame,[4,32],[0,1],clamp);
+  const match = interpolate(frame,[28,60],[0,1],clamp);
+  const cut = interpolate(frame,[58,104],[0,1],clamp);
+  const invoice = interpolate(frame,[82,118],[0,1],clamp);
+  const warning = interpolate(frame,[108,Math.max(124,durationFrames-RESULT_HOLD_FRAMES)],[0,1],clamp);
   return <AnimationStage scale={1}>
-    <div style={{position:'absolute',left:245,top:480,width:590,height:700,perspective:1200,opacity:vesselIn}}>
-      <div style={{position:'absolute',left:95,top:145,width:400,height:455,border:'7px solid rgba(238,232,219,.8)',borderRadius:'36px 36px 70px 70px',boxShadow:'0 38px 70px rgba(0,0,0,.55), inset 0 0 24px rgba(255,255,255,.08)',overflow:'hidden',transform:'rotateX(3deg)'}}>
-        <div style={{position:'absolute',left:0,right:0,bottom:0,height:fillHeight,background:ANIMATION_COLORS.warning,opacity:.88,transition:'none'}} />
-        <div style={{position:'absolute',left:28,top:210-fill*85,fontSize:42,fontWeight:950,color:'white'}}>{fill>.55?'620 €':'500 €'}</div>
+    <div style={{position:'absolute',left:80,top:510,width:920,height:690,perspective:1400}}>
+      <div style={{position:'absolute',left:80,top:110,width:470,height:370,border:'7px solid '+ANIMATION_COLORS.positive,borderRadius:54,opacity:frameIn,boxShadow:'0 0 42px rgba(44,208,149,.22)'}}>
+        <div style={{position:'absolute',left:70,top:76,width:330,height:86,borderRadius:24,background:'#ddd6c8'}}><div style={{padding:25,fontSize:30,fontWeight:950}}>NAME</div></div>
+        <div style={{position:'absolute',left:70,top:205,width:330,height:86,borderRadius:24,background:'#bab5aa'}}><div style={{padding:25,fontSize:30,fontWeight:950}}>IBAN</div></div>
+        <div style={{position:'absolute',left:166,top:300,fontSize:31,fontWeight:950,color:ANIMATION_COLORS.positive,opacity:match}}>MATCH</div>
       </div>
-      <div style={{position:'absolute',left:215,top:-30+drop*325,width:165,height:135,borderRadius:28,background:ANIMATION_COLORS.money,boxShadow:'0 26px 50px rgba(0,0,0,.48)',transform:'rotate(' + (-8+drop*13) + 'deg) scale(' + (1-drop*.08) + ')'}}><div style={{padding:'29px 22px',fontSize:27,fontWeight:950,textAlign:'center'}}>NEUER KAUF<br/>120 €</div></div>
-      <div style={{position:'absolute',left:178,top:615,fontSize:30,fontWeight:950,color:ANIMATION_COLORS.warning,opacity:result}}>SALDO WÄCHST</div>
+      <div style={{position:'absolute',left:520,top:75,width:330,height:450,overflow:'hidden',clipPath:'inset(0 '+((1-cut)*100)+'% 0 0)',transform:'rotateY(-6deg)'}}>
+        <div style={{position:'absolute',left:20,top:35,width:290,height:390,borderRadius:34,background:'#d9d1c1',boxShadow:'0 30px 62px rgba(0,0,0,.48)',opacity:invoice}}>
+          <div style={{position:'absolute',left:40,top:45,width:210,height:22,borderRadius:10,background:'rgba(20,20,20,.18)'}} />
+          <div style={{position:'absolute',left:40,top:100,width:190,height:18,borderRadius:9,background:'rgba(20,20,20,.14)'}} />
+          <div style={{position:'absolute',left:40,top:150,width:220,height:18,borderRadius:9,background:'rgba(20,20,20,.14)'}} />
+          <div style={{position:'absolute',left:96,top:235,width:98,height:98,borderRadius:'50%',background:ANIMATION_COLORS.warning,opacity:warning}}><div style={{fontSize:54,fontWeight:950,color:'white',textAlign:'center',paddingTop:17}}>!</div></div>
+        </div>
+      </div>
+      <div style={{position:'absolute',left:520,top:535,fontSize:29,fontWeight:950,color:ANIMATION_COLORS.warning,opacity:warning}}>MATCH ≠ SERIÖS</div>
     </div>
   </AnimationStage>;
 };

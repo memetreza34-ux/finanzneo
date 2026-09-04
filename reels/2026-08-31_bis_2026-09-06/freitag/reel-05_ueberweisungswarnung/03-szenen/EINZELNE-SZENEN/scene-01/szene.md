@@ -1,8 +1,8 @@
 # scene-01
 
-**Typ:** image / Cover-Flash
-**Dauer:** exakt 3 Frames = 0,1 s bei 30 fps
-**Cover:** nur Hero-Bild + exakter Reel-Titel
-**Untertitel:** aus
-**Voiceover:** aus; Audio startet ab Frame 3 mit scene-02
-**Google-Flow-Dateiname:** Bild 01 - Kleine Rate grosse Kosten.png
+**Typ:** image
+**Zwischenüberschrift:** Diese Überweisungswarnung solltest du nicht ignorieren
+**Icon:** warning
+**Sprechtext:** Kein Voiceover – 3-Frame-Cover.
+**Hauptaussage:** Eine Überweisung wird unmittelbar vor dem Absenden von einer sichtbaren Warnung gestoppt, weil Empfängername und IBAN geprüft werden.
+**Geplante Dauer:** 0.1 s

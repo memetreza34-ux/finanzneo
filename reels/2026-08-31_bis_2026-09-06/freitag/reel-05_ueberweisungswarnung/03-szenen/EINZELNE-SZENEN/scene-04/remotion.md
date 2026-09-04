@@ -1,22 +1,22 @@
-# Remotion-Spezifikation scene-07
+# Remotion-Spezifikation scene-04
 
-**Zwischenüberschrift:** 500 Euro bleiben offen
-**Icon:** coins
+**Zwischenüberschrift:** Name und IBAN werden verglichen
+**Icon:** link
 **Kanonische Codequelle:** animation.tsx
 **Quality Lock:** finanzneo-phase1-animation-code-v1
 **Visuelle Zielwelt:** finanzneo-stylized-3d-animated-black-v9
-**VISUAL_TECHNIQUE_ID:** clip-slice-principal
+**VISUAL_TECHNIQUE_ID:** dual-key-lock-alignment
 **Remotion Freedom:** freie React/SVG/CSS-3D-Komposition; Physical*-Primitives sind optional.
 **Stage:** AnimationStage oder PremiumPhysicalStage transparent über zentralem #000000 Reel-Canvas; sichtbar hart Y320–1400.
 
 ## STARTZUSTAND
-Ein 600-Euro-Schuldenkörper wird an der 100-Euro-Stelle sichtbar durchschnitten.
+Ein großes Bankschloss steht geschlossen; links schweben zwei eindeutig unterschiedliche Schlüssel mit den kurzen Labels NAME und IBAN.
 
 ## SICHTBARER MECHANISMUS
-Ein 600-Euro-Körper wird bei 100 Euro durchschnitten; 100 lösen sich ab, 500 bleiben körperlich stehen.
+Beide Schlüssel fahren aus unterschiedlichen Winkeln in zwei getrennte Schlitze und richten die inneren Schlosssegmente sichtbar aus.
 
 ## ERGEBNIS
-Auf dem verbleibenden 500-Euro-Körper setzt sich eine zusätzliche Warnschicht sichtbar oben drauf.
+Der Zylinder dreht sich nur nach der gemeinsamen Passung und öffnet eine grüne Freigabeöffnung.
 
 ## RESULT HOLD
 Mindestens 15 Frames stabil.

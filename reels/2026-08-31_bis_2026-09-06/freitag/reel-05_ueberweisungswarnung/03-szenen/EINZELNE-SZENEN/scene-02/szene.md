@@ -1,8 +1,8 @@
 # scene-02
 
 **Typ:** animation
-**Zwischenüberschrift:** Kleine Rate – großer Rest
-**Icon:** repeat
-**Sprechtext:** Eine kleine Kreditkartenrate klingt bequem – kann aber teuer werden. Der entscheidende Punkt ist die Teilzahlung.
-**Google Flow:** KEIN Bild 02; Nummer 02 bleibt reserviert.
-**Animation:** remotion.md + animation.tsx, VISUAL_TECHNIQUE_ID mechanical-lever-reveal.
+**Zwischenüberschrift:** Warnung nicht wegklicken
+**Icon:** warning
+**Sprechtext:** Diese Warnung beim Überweisen solltest du nicht einfach wegklicken.
+**Hauptaussage:** Ein goldener Überweisungstoken fährt durch ein transparentes Prüfportal; Name und IBAN werden getrennt gescannt und die Zahlung stoppt sichtbar vor der Freigabe.
+**Geplante Dauer:** 4.6 s

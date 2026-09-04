@@ -1,20 +1,10 @@
-COVER_HOOK_CONTRACT: finanzneo-cover-hook-v2
-
-TECHNISCHER COVER-ALIAS ZU SCENE-01
-KEIN SEPARATER BILDJOB
-No separate cover generation
-no Bild 00
-KEIN separates Cover erzeugen
-KEIN Bild 00 erzeugen
-
-Cover-Quelle: scene-01
-Google-Flow-Datei: Bild 01 - Kleine Rate grosse Kosten.png
-Reel-Titel: Warum die kleine Kreditkartenrate teuer werden kann
-
-RENDER-REGEL:
-- Das Quellbild ist exakt dasselbe Asset wie scene-01.
-- Scene-01 dauert exakt 3 Frames = 0,1 s bei 30 fps.
-- In Frame 0–2 erscheinen ausschließlich Hero-Bild + exakter Reel-Titel.
-- Kein Icon, keine Caption, kein Subtitle, kein CTA, kein Voiceover.
-- Voiceover und Untertitel beginnen ab Frame 3 mit scene-02.
-- cover.png wird aus Frame 0 des final geprüften Videos exportiert.
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v2
+TECHNISCHER COVER-ALIAS — KEIN SEPARATER BILDJOB
+COVER = SZENE 01
+Cover-Quelle: Bild 01 - Ueberweisungswarnung.png
+No separate cover generation.
+no Bild 00.
+Das Flow-Bild enthält keinen Reel-Titel; der exakte Titel wird in Remotion ab Frame 0 gerendert.
+Cover-Flash: exakt 3 Frames / 0,1 s.
+Voiceover ist während scene-01 gesperrt und startet mit scene-02 ab Frame 3.
+Finale Cover-Datei wird aus final-video-frame-0 exportiert.

@@ -1,10 +1,8 @@
 # scene-03
 
-**Typ:** animation
-**Zwischenüberschrift:** Vollzahlung gleicht alles aus
-**Icon:** check
-**Sprechtext:** Bei Vollzahlung wird der offene Kartenbetrag zum Abrechnungstermin vollständig ausgeglichen.
-
-**Google Flow:** KEIN Bild 03; Nummer bleibt reserviert.
-**Animation:** Phase 1 liefert remotion.md + fertige animation.tsx.
-**Hauptaussage:** Eine offene Kartenabrechnung wird am Abrechnungstermin durch eine vollständige Zahlung aus dem Girokonto sichtbar auf „BEZAHLT“ gesetzt.
+**Typ:** image
+**Zwischenüberschrift:** Seit Oktober 2025 Pflicht
+**Icon:** calendar
+**Sprechtext:** Seit dem 9. Oktober 2025 gilt der neue Empfängercheck.
+**Hauptaussage:** Ein Kalenderdatum markiert den Start des verpflichtenden Empfängerchecks; daneben trägt eine Überweisung erstmals ein sichtbares Prüfsiegel.
+**Geplante Dauer:** 3.6 s

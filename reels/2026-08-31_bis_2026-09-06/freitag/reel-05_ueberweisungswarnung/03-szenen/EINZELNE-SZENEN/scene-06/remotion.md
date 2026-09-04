@@ -1,22 +1,22 @@
-# Remotion-Spezifikation scene-05
+# Remotion-Spezifikation scene-06
 
-**Zwischenüberschrift:** Auf dem Rest können Zinsen laufen
-**Icon:** percent
+**Zwischenüberschrift:** Kleine Abweichung? Erst prüfen
+**Icon:** search
 **Kanonische Codequelle:** animation.tsx
 **Quality Lock:** finanzneo-phase1-animation-code-v1
 **Visuelle Zielwelt:** finanzneo-stylized-3d-animated-black-v9
-**VISUAL_TECHNIQUE_ID:** debt-layer-extrusion
+**VISUAL_TECHNIQUE_ID:** magnetic-close-match-correction
 **Remotion Freedom:** freie React/SVG/CSS-3D-Komposition; Physical*-Primitives sind optional.
 **Stage:** AnimationStage oder PremiumPhysicalStage transparent über zentralem #000000 Reel-Canvas; sichtbar hart Y320–1400.
 
 ## STARTZUSTAND
-Ein massiver 500-Euro-Restblock bleibt sichtbar bestehen.
+Zwei Namensleisten liegen leicht versetzt auf parallelen Schienen; eine endet sichtbar einen Buchstaben früher.
 
 ## SICHTBARER MECHANISMUS
-Ein massiver Restblock bleibt über den Monatsflip stehen; eine zusätzliche Kostenschicht extrudiert oben heraus.
+Ein Magnetkern zieht beide Leisten nebeneinander, hebt genau die kleine Abweichung gelb hervor und richtet den gespeicherten Namen daneben aus.
 
 ## ERGEBNIS
-Eine neue rot-orange Kostenschicht wächst physisch auf den offenen Restblock.
+Beide Namen stehen vergleichbar nebeneinander, die kleine Abweichung bleibt bewusst sichtbar statt automatisch zu verschwinden.
 
 ## RESULT HOLD
 Mindestens 15 Frames stabil.
