@@ -48,14 +48,16 @@ index.imageStorytellingContract = {
 
 for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   if (scene?.type !== 'image') continue;
-  scene.imageStorytelling = {
-    strategy: 'literal',
-    literalSituation: '[EINFÜGEN — konkrete reale Situation, die im Sprechbeat wirklich passiert]',
-    contextAnchor: '[EINFÜGEN — klar erkennbarer Finanz-/Alltagskontext]',
-    voiceVisualMatch: '[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]',
-    transferabilityTest: '[EINFÜGEN — PASS: warum dieses Bild nicht genauso zu fünf anderen Finanzthemen passen könnte]',
-    metaphorJustification: 'none',
-  };
+  if (!scene.imageStorytelling || typeof scene.imageStorytelling !== 'object') {
+    scene.imageStorytelling = {
+      strategy: 'literal',
+      literalSituation: '[EINFÜGEN — konkrete reale Situation, die im Sprechbeat wirklich passiert]',
+      contextAnchor: '[EINFÜGEN — klar erkennbarer Finanz-/Alltagskontext]',
+      voiceVisualMatch: '[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]',
+      transferabilityTest: '[EINFÜGEN — PASS: warum dieses Bild nicht genauso zu fünf anderen Finanzthemen passen könnte]',
+      metaphorJustification: 'none',
+    };
+  }
 }
 writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');
 
@@ -82,7 +84,8 @@ FUTURE IMAGE STORYTELLING V3 — VERBINDLICH:
 - Ursache/Wirkung bleibt erwünscht, aber sie soll möglichst innerhalb der realen Situation stattfinden und nicht automatisch in eine Fantasiemaschine übersetzt werden.
 - Kurze deutsche Objektlabels sind nur Ergänzung. Die Situation muss ohne Label verständlich bleiben.
 - Weniger, passendere Objekte schlagen eine dekorative Finanzobjekt-Sammlung.
-- Ein zusätzliches gutes Bild ist besser als ein überladener oder nur ungefähr passender Still.`;
+- Ein zusätzliches gutes Bild ist besser als ein überladener oder nur ungefähr passender Still.
+- Die fünf Planwerte aus dem Bildprompt müssen identisch in scene-index.json unter scene.imageStorytelling stehen; Prompt und Index dürfen sich nicht widersprechen.`;
 
 const addPlanningBeforeImagePrompts = (source) => {
   if (source.includes('LITERAL_REAL_WORLD_SITUATION:')) return source;
