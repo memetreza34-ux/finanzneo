@@ -1,0 +1,122 @@
+name: One-time create Friday transfer-warning reel
+
+on:
+  push:
+    branches:
+      - repo/reel-2026-09-04-ueberweisungswarnung
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  create-friday:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+        with:
+          ref: repo/reel-2026-09-04-ueberweisungswarnung
+          fetch-depth: 0
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Security Audit
+        run: npm audit --audit-level=high
+
+      - name: Bestehende Reels vor Änderung schützen
+        run: node scripts/check-reel-regression-baseline.mjs
+
+      - name: Freitag-Generator zusammensetzen und prüfen
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat scripts/.tmp-friday-part-*.txt > scripts/.tmp-fill-friday.mjs
+          node --check scripts/.tmp-fill-friday.mjs
+
+      - name: Freitag-Reel vollständig ausfüllen
+        run: node scripts/.tmp-fill-friday.mjs
+
+      - name: Keine Donnerstag-Inhalte im Freitag-Reel
+        shell: bash
+        run: |
+          set -euo pipefail
+          TARGET='reels/2026-08-31_bis_2026-09-06/freitag/reel-05_ueberweisungswarnung'
+          if grep -R -n -E 'Kreditkartenrate|kreditkarten-teilzahlung|Kleine Rate grosse Kosten|Teilzahlung eingestellt' "$TARGET"; then
+            echo 'Unerwarteter Donnerstag-Inhalt im Freitag-Reel gefunden.'
+            exit 1
+          fi
+
+      - name: Temporäre Generator-Dateien vor Lint entfernen
+        shell: bash
+        run: |
+          rm scripts/.tmp-fill-friday.mjs
+          rm scripts/.tmp-friday-part-*.txt
+
+      - name: Regression Guard nach Inhaltserstellung
+        run: node scripts/check-reel-regression-baseline.mjs
+
+      - name: Cover-Flash prüfen
+        run: node scripts/validate-future-cover-hook-v2.mjs reels/2026-08-31_bis_2026-09-06/freitag/reel-05_ueberweisungswarnung
+
+      - name: Visual Beats prüfen
+        run: node scripts/validate-visual-beat-contract.mjs reels/2026-08-31_bis_2026-09-06/freitag/reel-05_ueberweisungswarnung
+
+      - name: Freie Remotion-Animationen prüfen
+        run: node scripts/validate-animation-source-quality.mjs reels/2026-08-31_bis_2026-09-06/freitag/reel-05_ueberweisungswarnung
+
+      - name: Future V3 prüfen
+        run: node scripts/validate-future-production-standard-v3.mjs reels/2026-08-31_bis_2026-09-06/freitag/reel-05_ueberweisungswarnung
+
+      - name: Scene-01-Cover-/Export-Vertrag prüfen
+        run: node scripts/validate-scene01-cover-export-contract.mjs reels/2026-08-31_bis_2026-09-06/freitag/reel-05_ueberweisungswarnung
+
+      - name: Vollständige Repo-Validatoren
+        run: npm run validate
+
+      - name: Remotion Bundle
+        run: npm run build
+
+      - name: Render Smoke
+        run: npm run smoke
+
+      - name: One-time Workflow entfernen
+        run: rm .github/workflows/one-time-create-friday-reel.yml
+
+      - name: Geänderte Pfade hart begrenzen
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add -A
+          bad=0
+          while IFS= read -r path; do
+            case "$path" in
+              reels/2026-08-31_bis_2026-09-06/freitag/reel-05_ueberweisungswarnung/*|scripts/.tmp-friday-part-*.txt|.github/workflows/one-time-create-friday-reel.yml)
+                ;;
+              *)
+                echo "Unerwarteter geänderter Pfad: $path"
+                bad=1
+                ;;
+            esac
+          done < <(git diff --cached --name-only)
+          test "$bad" -eq 0
+
+      - name: Finalen Regression Guard ausführen
+        run: node scripts/check-reel-regression-baseline.mjs
+
+      - name: Geprüften Freitag-Stand committen
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          FINANZNEO_ALLOW_PROTECTED_CHANGES=1 git commit -m "Create Friday transfer-warning reel"
+          git push origin HEAD:repo/reel-2026-09-04-ueberweisungswarnung
