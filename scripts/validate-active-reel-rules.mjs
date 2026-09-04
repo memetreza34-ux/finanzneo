@@ -21,6 +21,7 @@ const ACTIVE_RULE_FILES = [
   'docs/PHASE-3-COMPLETION-GATE.md',
   'docs/PLATFORM-PUBLISHING.md',
   'docs/SCENE-INDEX-SCHEMA.md',
+  'docs/FUTURE-IMAGE-STORYTELLING-V3.md',
   '.agents/rules/finanzneo-reel-safety.md',
   '.agents/skills/finanzneo-reel/SKILL.md',
   '.agents/workflows/build-finanzneo-reel.md',
@@ -33,6 +34,8 @@ const ACTIVE_RULE_FILES = [
   'scripts/validate-reel-layout-v5.mjs',
   'scripts/apply-stylized-animated-black-world-v9.mjs',
   'scripts/validate-global-image-world.mjs',
+  'scripts/apply-future-image-storytelling-v3.mjs',
+  'scripts/validate-future-image-storytelling-v3.mjs',
   'scripts/validate-animation-source-quality.mjs',
 ];
 
@@ -90,7 +93,10 @@ const requiredMarkers = new Map([
   ['scripts/scaffold-finanzneo-reel.mjs', ['visualBottom: 1400', 'fontSize:56', 'visualSafeZone:{top:320,bottom:1400']],
   ['scripts/apply-reel-layout-v5.mjs', ['visualBottom: 1400', 'fontSize: 56', 'hardClipAnimations: true']],
   ['scripts/validate-reel-layout-v5.mjs', ['visualBottom === 1400', 'fontSize === 56', 'hardClipAnimations === true']],
-  ['scripts/create-finanzneo-reel.mjs', ['apply-stylized-animated-black-world-v9.mjs', 'Visual Y320–1400']],
+  ['scripts/create-finanzneo-reel.mjs', ['apply-stylized-animated-black-world-v9.mjs', 'apply-future-image-storytelling-v3.mjs', 'Literal first, creative second', 'Visual Y320–1400']],
+  ['scripts/apply-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'Literal first, creative second', 'TRANSFERABILITY_TEST', 'Förderbänder, Schienen, Schranken, Käfige']],
+  ['scripts/validate-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'finanzneo-image-storytelling-v2', 'TRANSFERABILITY_TEST', 'METAPHOR_JUSTIFICATION']],
+  ['docs/FUTURE-IMAGE-STORYTELLING-V3.md', ['Literal first, creative second', 'Transferability-Test', 'METAPHOR_JUSTIFICATION']],
 ]);
 
 for (const [path, markers] of requiredMarkers) {
@@ -102,12 +108,13 @@ for (const [path, markers] of requiredMarkers) {
 }
 
 if (errors.length) {
-  console.error('\nAktive Reel-Regeln widersprechen dem V9/Pure-Black/Final-Layout-Stand:\n');
+  console.error('\nAktive Reel-Regeln widersprechen dem V9/Pure-Black/Final-Layout-/Image-Storytelling-Stand:\n');
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
 
-console.log('\n✓ Aktive Reel-Regelquellen sind auf V9/Pure-Black/Final-Layout ausgerichtet.');
+console.log('\n✓ Aktive Reel-Regelquellen sind auf V9/Pure-Black/Final-Layout/Image-Storytelling-V3 ausgerichtet.');
 console.log('✓ Keine aktive V4/V7/V8-Bildwelt, feste Objektquote, alte Y320–1480-Visualzone oder Partikel-Dekorationsregel gefunden.');
+console.log('✓ Neue Reels verwenden Literal-first V3 mit Kontextanker, Voiceover-Match und Transferability-Test.');
 console.log('✓ Header 56 px/max. 2 Zeilen, Visual Y320–1400 und Animation-Safe-Zone sind konsistent.');
 console.log('✓ Phase 1, Phase 2 und Phase 3 verweisen auf denselben aktuellen Produktionsstand.');
