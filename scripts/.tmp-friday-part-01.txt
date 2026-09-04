@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+import {readFileSync, writeFileSync, mkdirSync} from 'node:fs';
+import {resolve} from 'node:path';
+
+const target = resolve('reels/2026-08-31_bis_2026-09-06/freitag/reel-05_ueberweisungswarnung');
+const write = (rel, content) => {
+  const path = resolve(target, rel);
+  mkdirSync(resolve(path, '..'), {recursive: true});
+  writeFileSync(path, content, 'utf8');
+};
+
+const TITLE = 'Diese Überweisungswarnung solltest du nicht ignorieren';
+const WORLD = `FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3\nFINANZNEO_SERIES_LOCK: finanzneo-same-world-v1\nGENERATED_IMAGE_ASPECT_RATIO: 1:1\nPREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9\nIMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2`;
+const STYLE = `STYLE + SAFETY:\nUse premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for warning or danger. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.`;
+
+const scenes = [
+  {
+    id:'scene-01', type:'image', duration:0.1, headline:'Diese Überweisungswarnung solltest du nicht ignorieren', icon:'warning', tone:'warning',
+    voice:'', file:'Bild 01 - Ueberweisungswarnung.png', labels:['Name + IBAN','Warnung'],
+    expected:'A strong payment moment frozen before authorization: a gold transfer token approaches a bank transfer mechanism while a red-orange mismatch warning physically blocks the path between recipient name and IBAN.',
+    idea:'Eine Überweisung wird unmittelbar vor dem Absenden von einer sichtbaren Warnung gestoppt, weil Empfängername und IBAN geprüft werden.'
+  },
+  {
+    id:'scene-02', type:'animation', duration:4.6, headline:'Warnung nicht wegklicken', icon:'warning', tone:'warning',
+    voice:'Diese Warnung beim Überweisen solltest du nicht einfach wegklicken.',
+    technique:'verification-scanner-portal', mechanic:'bank-transfer-verification-scan', export:'Scene02Animation',
+    intent:'Ein goldener Überweisungstoken fährt durch ein transparentes Prüfportal; Name und IBAN werden getrennt gescannt und die Zahlung stoppt sichtbar vor der Freigabe.',
+    start:'Ein goldener Überweisungstoken wartet links vor einem transparenten Prüfportal; zwei Datenträger für Name und IBAN sind noch ungeprüft.',
+    mechanism:'Das Portal fährt einen hellen Prüfbalken über beide Datenträger, zieht sie in zwei Prüfkanäle und stoppt den Zahlungstoken mechanisch vor dem Ausgang.',
+    result:'Der Zahlungstoken bleibt vor der Freigabe stehen und eine klare Warnmarke erscheint direkt am Prüfportal.',
+    hero:'Das große Prüfportal mit dem gestoppten Goldtoken ist die dominante Hauptmechanik.', support:'Name- und IBAN-Datenträger erklären, was geprüft wird, ohne wie App-Karten zu wirken.', material:'Dunkles Metall und Glas, Gold für die Zahlung, Ivory für neutrale Daten, warmes Rot für die Warnung.', depth:'Token vorne links, Scanner zentral, Ausgang tiefer rechts; die Prüfung wirkt räumlich wie eine echte Schleuse.'
+  },
+  {
+    id:'scene-03', type:'image', duration:3.6, headline:'Seit Oktober 2025 Pflicht', icon:'calendar', tone:'default',
+    voice:'Seit dem 9. Oktober 2025 gilt der neue Empfängercheck.', file:'Bild 03 - Empfaengercheck seit 2025.png', labels:['9. Oktober 2025','Empfängercheck'],
+    expected:'A physical desk-calendar page for 9 October 2025 beside a stylized bank-transfer slip, with a new verification seal visibly attached to the transfer process.',
+    idea:'Ein Kalenderdatum markiert den Start des verpflichtenden Empfängerchecks; daneben trägt eine Überweisung erstmals ein sichtbares Prüfsiegel.'
+  },
+  {
+    id:'scene-04', type:'animation', duration:4.4, headline:'Name und IBAN werden verglichen', icon:'link', tone:'default',
+    voice:'Vor der Freigabe vergleicht die Bank Empfängername und IBAN.',
+    technique:'dual-key-lock-alignment', mechanic:'name-iban-dual-key-lock', export:'Scene04Animation',
+    intent:'Zwei unterschiedlich geformte Schlüssel für Empfängername und IBAN fahren in ein gemeinsames Bankschloss; nur bei korrekter Passung kann sich der Freigabezylinder drehen.',
+    start:'Ein großes Bankschloss steht geschlossen; links schweben zwei eindeutig unterschiedliche Schlüssel mit den kurzen Labels NAME und IBAN.',
+    mechanism:'Beide Schlüssel fahren aus unterschiedlichen Winkeln in zwei getrennte Schlitze und richten die inneren Schlosssegmente sichtbar aus.',
+    result:'Der Zylinder dreht sich nur nach der gemeinsamen Passung und öffnet eine grüne Freigabeöffnung.',
+    hero:'Das große zweistufige Bankschloss ist die visuelle Hauptidee.', support:'Die zwei Schlüssel zeigen klar die beiden verglichenen Angaben.', material:'Gebürstetes dunkles Metall, Ivory-Schlüssel, Emerald im geöffneten Zustand und Gold am Zahlungsweg.', depth:'Schlüssel kommen aus dem Vordergrund, greifen zentral ins Schloss und öffnen einen tieferen Tunnel nach rechts.'
+  },
+  {
+    id:'scene-05', type:'image', duration:3.6, headline:'Match: Daten passen zusammen', icon:'check', tone:'positive',
+    voice:'Passen beide zusammen, bekommst du ein Match.', file:'Bild 05 - Name und IBAN passen.png', labels:['Match','Name + IBAN'],
+    expected:'Two physical engraved data plates labeled NAME and IBAN interlock perfectly like precision parts, producing one clear emerald verification seal.',
+    idea:'Empfängername und IBAN greifen sichtbar passgenau ineinander; daraus entsteht ein eindeutiges grünes Match-Siegel.'
+  },
+  {
+    id:'scene-06', type:'animation', duration:4.5, headline:'Kleine Abweichung? Erst prüfen', icon:'search', tone:'warning',
+    voice:'Bei kleinen Abweichungen kann ein Hinweis erscheinen – etwa bei einem Tippfehler.',
+    technique:'magnetic-close-match-correction', mechanic:'close-match-magnetic-name-correction', export:'Scene06Animation',
+    intent:'Ein leicht abweichender Empfängername wird auf einer magnetischen Schiene neben den hinterlegten Namen gezogen; die kleine Differenz bleibt gelb markiert und muss bewusst geprüft werden.',
+    start:'Zwei Namensleisten liegen leicht versetzt auf parallelen Schienen; eine endet sichtbar einen Buchstaben früher.',
+    mechanism:'Ein Magnetkern zieht beide Leisten nebeneinander, hebt genau die kleine Abweichung gelb hervor und richtet den gespeicherten Namen daneben aus.',
+    result:'Beide Namen stehen vergleichbar nebeneinander, die kleine Abweichung bleibt bewusst sichtbar statt automatisch zu verschwinden.',
