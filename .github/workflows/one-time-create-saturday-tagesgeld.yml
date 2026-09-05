@@ -27,7 +27,9 @@ jobs:
         run: npm ci
 
       - name: Generator syntax
-        run: node --check scripts/.tmp-create-saturday-tagesgeld.mjs
+        run: |
+          node --check scripts/.tmp-create-saturday-tagesgeld.mjs
+          node --check scripts/.tmp-fix-saturday-source-contract.mjs
 
       - name: Regression before
         run: npm run reel:regression:check
@@ -42,9 +44,13 @@ jobs:
       - name: Fill production-ready Phase 1
         run: node scripts/.tmp-create-saturday-tagesgeld.mjs
 
+      - name: Align exact source-contract markers
+        run: node scripts/.tmp-fix-saturday-source-contract.mjs
+
       - name: Remove one-time helpers before validation
         run: |
           rm scripts/.tmp-create-saturday-tagesgeld.mjs
+          rm scripts/.tmp-fix-saturday-source-contract.mjs
           rm .github/workflows/one-time-create-saturday-tagesgeld.yml
 
       - name: Regression after
