@@ -1,0 +1,95 @@
+name: One-time validate YouTube Motion V2
+
+on:
+  push:
+    branches:
+      - repo/youtube-motion-v2-longform
+
+permissions:
+  contents: write
+
+concurrency:
+  group: youtube-motion-v2-final
+  cancel-in-progress: true
+
+jobs:
+  validate-youtube-motion-v2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.19.0'
+          cache: npm
+
+      - name: Update lockfile for exact Remotion versions
+        run: npm install --package-lock-only --ignore-scripts
+
+      - name: Install dependencies reproducibly
+        run: npm ci
+
+      - name: Verify Remotion package alignment
+        run: npx remotion versions
+
+      - name: Security audit
+        run: npm audit --audit-level=high
+
+      - name: Protect existing Reel production states
+        run: npm run reel:regression:check
+
+      - name: Full repository validation
+        run: npm run validate
+
+      - name: Remotion bundle
+        run: npm run build
+
+      - name: Full render smoke
+        run: npm run smoke
+
+      - name: Remove one-time workflow
+        run: rm .github/workflows/one-time-youtube-motion-v2-validation.yml
+
+      - name: Commit validated lockfile and workflow cleanup
+        env:
+          FINANZNEO_ALLOW_PROTECTED_CHANGES: '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json .github/workflows/one-time-youtube-motion-v2-validation.yml
+          if ! git diff --cached --quiet; then
+            git commit -m "Finalize YouTube Motion V2 validated lockfile"
+          fi
+
+      - name: Hard final changed-path gate
+        shell: bash
+        run: |
+          git fetch origin main
+          allowed='^(\.agents/skills/finanzneo-youtube-motion-director/SKILL\.md|docs/YOUTUBE-MOTION-V2\.md|docs/YOUTUBE-LONGFORM-WORKFLOW\.md|package\.json|package-lock\.json|scripts/lib/youtube-motion-contract\.mjs|scripts/lib/youtube-contract\.mjs|scripts/lib/youtube-readiness\.mjs|scripts/scaffold-finanzneo-youtube\.mjs|scripts/validate-youtube\.mjs|scripts/validate-youtube-animation-quality\.mjs|scripts/seal-youtube-phase1-animations\.mjs|scripts/check-youtube-production-ready\.mjs|tests/youtube-contract\.test\.ts|tests/youtube-readiness\.test\.ts|tests/youtube-motion-v2\.test\.ts|tests/youtube-scaffold-motion-v2\.test\.ts|youtube/PRODUKTIONSSTANDARD\.md|youtube/README\.md)$'
+          changed=$(git diff --name-only origin/main...HEAD)
+          echo "$changed"
+          bad=$(printf '%s\n' "$changed" | grep -Ev "$allowed" || true)
+          if [ -n "$bad" ]; then
+            echo "Unexpected final paths:" >&2
+            echo "$bad" >&2
+            exit 1
+          fi
+          if printf '%s\n' "$changed" | grep -q '^reels/'; then
+            echo 'Reel tree must remain untouched.' >&2
+            exit 1
+          fi
+
+      - name: Explicit image-world and Reel-core no-diff gate
+        run: |
+          git diff --exit-code origin/main...HEAD -- config src/brand src/design-system scripts/lib/reel-contract.mjs scripts/lib/premium-animation-contract.mjs reels
+
+      - name: Final regression guard
+        run: npm run reel:regression:check
+
+      - name: Push final checked commit
+        run: git push origin HEAD:repo/youtube-motion-v2-longform
