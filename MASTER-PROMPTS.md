@@ -5,6 +5,7 @@
 Vor Reels lesen:
 
 - `docs/PHASE-1-BRIEFING.md`
+- `docs/FUTURE-COVER-HOOK-V3.md`
 - `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
 - `docs/3-PHASEN-WORKFLOW.md`
 - `docs/PHASE-3-COMPLETION-GATE.md`
@@ -15,6 +16,11 @@ Vor Reels lesen:
 Phase 1 liefert Recherche, szenenweises Skript, V9-Bildprompts, natürliche Header,
 Remotion-Spezifikationen und für jede Animationsszene bereits die finale
 `animation.tsx`. Phase 3 darf keine fehlende Animation erfinden.
+
+Für neue Reels gilt `FUTURE_COVER_HOOK: finanzneo-cover-hook-v3`:
+`scene-01` ist gleichzeitig Cover und erster echter Content-Hook. Das Voiceover beginnt
+mit dem ersten gesprochenen Wort bereits in `scene-01`. Kein separater 0,1-s-/3-Frame-
+Cover-Clip, keine neutrale Titelkarte und keine Vorrede vor dem Hook.
 
 ## 2. Phase 3 — Antigravity / Claude Code integriert autonom
 
@@ -38,6 +44,13 @@ Mach das Reel: reels/<Woche>/<Tag>/<Reel>
    Bildszene:
    - exaktes Nutzerbild sichtbar rendern
    - kein Stock-/Placeholder-/Caption-only-Ersatz
+
+   Scene-01 bei Cover Hook V3:
+   - Frame 0 = Cover-Snapshot derselben normalen Hook-Szene
+   - Hero-Bild + exakter Remotion-Hook-Titel, keine Caption/kein Standard-Header-Icon auf Frame 0
+   - Voiceover startet bereits in scene-01
+   - Captions dürfen nach Frame 0 innerhalb scene-01 starten
+   - keine künstliche Cover-only-Dauer; echte Wort-Timestamps bestimmen den Hook-Beat
 
    Animationsszene:
    - DIREKT scene.animationSourceFile aus Phase 1 verwenden
@@ -142,7 +155,9 @@ Strict Single Job V3:
 7. erst nach PASS nächsten Bildblock freischalten
 
 Nie Batch, parallel, Queue oder Nutzer-„weiter“.
-Cover = Bild 00. Animationsnummern erzeugen kein Bild.
+scene-01 ist automatisch das Cover und bleibt Bild 01; kein Bild 00 und kein separater Cover-Bildjob.
+Bei Cover Hook V3 muss Bild 01 bereits den ersten gesprochenen Hook visuell tragen.
+Animationsnummern erzeugen kein Bild.
 ```
 
 ## 5. Voiceover, Timing und Remotion
@@ -151,6 +166,13 @@ Cover = Bild 00. Animationsnummern erzeugen kein Bild.
 Nur finales Voiceover verwenden.
 Echte Wort-Timings daraus erzeugen.
 Szenenschnitte an echten Satz-/Phrasenanfängen.
+
+Cover Hook V3:
+- Gesamtskript startet direkt mit scene-01.hook.spokenLine
+- Voiceover beginnt in scene-01, nicht scene-02
+- Frame 0 ist nur der Cover-Snapshot derselben Hook-Szene
+- kein 0,1-s-/3-Frame-Cover-Hold
+- Captions dürfen nach Frame 0 schon in scene-01 laufen
 
 1080×1920, 30 fps.
 Reel-Hintergrund immer statisch #000000.
@@ -171,6 +193,8 @@ Animationsszenen direkt aus den versiegelten Phase-1-animation.tsx-Dateien.
 - reel:phase3:preflight
 - Candidate-Render nur über reel:render
 - Post-Render-QA pro Szene
+- Frame 0 = sauberes Cover derselben scene-01-Hook-Szene
+- Voiceover beginnt direkt in scene-01
 - visueller Kern nicht leer
 - Animation erklärt wirklich den Inhalt
 - freier Rand bleibt statisch schwarz
@@ -187,9 +211,5 @@ Keine Prüfung als bestanden behaupten, wenn sie nicht tatsächlich ausgeführt 
 Pflicht in `04-caption/`:
 
 - `caption.txt`
-- `instagram-reels.txt`
-- `tiktok.txt`
-- `facebook-reels.txt`
-- `snapchat.txt`
 
-Keine YouTube Shorts. YouTube-Longform bleibt separat unter `youtube/`.
+Keine separaten Plattform-Captiondateien. Keine YouTube Shorts. YouTube-Longform bleibt separat unter `youtube/`.
