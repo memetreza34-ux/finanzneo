@@ -6,6 +6,12 @@ import {
   WORLD_ID,
   WORLD_ID_MARKER,
 } from './finanzneo-media-contract.mjs';
+import {
+  YOUTUBE_MOTION_STANDARD_ID,
+  YOUTUBE_VISUAL_TYPES,
+  YOUTUBE_MOTION_VISUAL_TYPES,
+  YOUTUBE_IMAGE_VISUAL_TYPES,
+} from './youtube-motion-contract.mjs';
 
 export {
   FLOW_AGENT_PROTOCOL_ID,
@@ -14,6 +20,10 @@ export {
   SERIES_LOCK_MARKER,
   WORLD_ID,
   WORLD_ID_MARKER,
+  YOUTUBE_MOTION_STANDARD_ID,
+  YOUTUBE_VISUAL_TYPES,
+  YOUTUBE_MOTION_VISUAL_TYPES,
+  YOUTUBE_IMAGE_VISUAL_TYPES,
 };
 
 export const GENERATED_IMAGE_ASPECT_RATIO = '16:9';
@@ -27,6 +37,7 @@ export const VISUAL_INDEX = '04-visuals/visual-index.json';
 export const ALL_PROMPTS = '04-visuals/alle-bildprompts.txt';
 export const IMAGE_INBOX = '04-visuals/00-ALLE-BILDER-HIER-REIN';
 export const WORD_TIMINGS = '03-audio/word-timings.json';
+export const ANIMATION_SEAL = '06-projektdateien/animation-seal.json';
 
 export const SUBTITLE_MODE = 'sentence-with-audio-synced-active-word';
 export const ACTIVE_WORD_COLOR = 'finance-green';
@@ -62,6 +73,7 @@ export const PHASE_1_FILES = [
   '04-visuals/bildwelt.txt',
   '04-visuals/thumbnail-prompt.txt',
   '06-projektdateien/visual-plan.md',
+  '06-projektdateien/remotion-plan.md',
   ...Object.values(YOUTUBE_PUBLISHING_FILES),
   ...Object.values(SOCIAL_PROMO_FILES),
 ];
