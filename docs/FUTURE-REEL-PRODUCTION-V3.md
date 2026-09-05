@@ -4,10 +4,19 @@
 
 Dieser Standard gilt **nur für neue Reels**, die mit dem aktuellen `npm run reel:create` angelegt werden. Bestehende Montag-/Dienstag-/Mittwoch-Reels und ältere Projekte werden nicht rückwirkend migriert oder strenger bewertet.
 
+Für neue Reels gilt zusätzlich:
+
+```text
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
+```
+
+`scene-01` ist damit **Cover + erster echter Content-Hook**. Frame 0 ist nur der Cover-Snapshot derselben normalen Szene; es gibt keinen separaten 0,1-s-/3-Frame-Cover-Clip. Das Voiceover beginnt mit dem ersten gesprochenen Wort bereits in scene-01. Details: `docs/FUTURE-COVER-HOOK-V3.md`.
+
 ## 1. Timing und Visual Beats
 
 Der bestehende Visual-Beat-V2-Vertrag bleibt die Basis. Future V3 verschärft nur den Rhythmus:
 
+- `scene-01` beginnt inhaltlich sofort mit dem ersten gesprochenen Hook-Wort
 - statischer Bildbeat ideal: **1,8–3,0 s**
 - ab ca. **3,6 s** aktiv prüfen, ob ein weiteres Bild/Visual Beat die Aussage klarer macht
 - ohne neue sichtbare Information: **hart maximal 4,0 s**
@@ -15,7 +24,7 @@ Der bestehende Visual-Beat-V2-Vertrag bleibt die Basis. Future V3 verschärft nu
 - ein neuer konkreter Gedanke soll eine neue sichtbare Information auslösen
 - echte Wort-Zeitstempel des finalen Nutzer-Voiceovers bleiben die finale Timing-Autorität
 
-Ziel: kein statisches Bild bleibt nur deshalb stehen, weil der gesprochene Satz noch nicht zu Ende ist.
+Ziel: kein statisches Bild bleibt nur deshalb stehen, weil der gesprochene Satz noch nicht zu Ende ist. Für scene-01 bedeutet das ausdrücklich: keine künstliche Cover-only-Dauer; der erste echte Hook-Sprechbeat bestimmt die Szene.
 
 ## 2. Animationsframing
 
