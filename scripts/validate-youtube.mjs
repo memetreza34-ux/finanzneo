@@ -18,12 +18,20 @@ import {
   WORD_TIMINGS,
   WORLD_ID,
   WORLD_ID_MARKER,
+  YOUTUBE_MOTION_STANDARD_ID,
   YOUTUBE_PUBLISHING_FILES,
   YOUTUBE_VIDEO_ASPECT_RATIO,
   YOUTUBE_VIDEO_FPS,
   YOUTUBE_VIDEO_HEIGHT,
   YOUTUBE_VIDEO_WIDTH,
+  YOUTUBE_VISUAL_TYPES,
 } from './lib/youtube-contract.mjs';
+import {
+  requiresYouTubeImage,
+  requiresYouTubeMotion,
+  validateYouTubeMotionMetadata,
+  validateYouTubeMotionVariety,
+} from './lib/youtube-motion-contract.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -60,11 +68,8 @@ let index = null;
 if (!existsSync(resolve(root, VISUAL_INDEX))) {
   errors.push(`${VISUAL_INDEX} fehlt.`);
 } else {
-  try {
-    index = JSON.parse(read(VISUAL_INDEX));
-  } catch (error) {
-    errors.push(`${VISUAL_INDEX} ist kein gültiges JSON: ${error.message}`);
-  }
+  try { index = JSON.parse(read(VISUAL_INDEX)); }
+  catch (error) { errors.push(`${VISUAL_INDEX} ist kein gültiges JSON: ${error.message}`); }
 }
 
 assert(existsSync(resolve(root, ALL_PROMPTS)), `${ALL_PROMPTS} fehlt.`);
@@ -75,6 +80,8 @@ assert(existsSync(resolve(root, WORD_TIMINGS)), `${WORD_TIMINGS} fehlt.`);
 if (index) {
   assert(index.format === 'youtube-longform', 'format muss youtube-longform sein.');
   assert(index.shortsForbidden === true, 'YouTube Shorts müssen ausdrücklich verboten sein.');
+  assert(index.fixedVisualCount === false, 'YouTube Longform darf keine feste Visualzahl erzwingen.');
+  assert(index.fixedImageAnimationRatio === false, 'YouTube Longform darf keine feste Bild-/Animationsquote erzwingen.');
   assert(index.video?.aspectRatio === YOUTUBE_VIDEO_ASPECT_RATIO, 'YouTube-Videoformat muss 16:9 sein.');
   assert(Number(index.video?.width) === YOUTUBE_VIDEO_WIDTH && Number(index.video?.height) === YOUTUBE_VIDEO_HEIGHT, 'YouTube-Video muss 1920 × 1080 verwenden.');
   assert(Number(index.video?.fps) === YOUTUBE_VIDEO_FPS, 'YouTube-Video muss 30 fps verwenden.');
@@ -84,20 +91,24 @@ if (index) {
   assert(index.imageWorld?.generatedImageAspectRatio === GENERATED_IMAGE_ASPECT_RATIO, 'YouTube-Quellbilder müssen 16:9 sein.');
   assert(index.imageWorld?.horizontalGeneratedImagesRequired === true, 'Horizontale 16:9-Quellbilder müssen verpflichtend sein.');
   assert(index.imageWorld?.sameWorldAcrossSeriesRequired === true, 'Dieselbe Bildwelt muss für die ganze Serie vorgeschrieben sein.');
+  assert(index.imageWorld?.literalFirst === true && index.imageWorld?.metaphorOptional === true, 'YouTube-Bilder müssen Literal-first V3 verwenden.');
   assert(index.imageWorld?.styleReferenceStrategy === 'approved-thumbnail-style-only', 'Das freigegebene Thumbnail muss reine Stilreferenz sein.');
   assert(index.imageWorld?.referencePromptFile === '04-visuals/bildwelt.txt', 'referencePromptFile ist falsch.');
+  assert(index.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID, `motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
+  assert(index.motionStandard?.contentFirstTechniqueSelection === true, 'Motion-Technik muss aus dem Inhalt gewählt werden.');
+  assert(index.motionStandard?.existingComponentsOptional === true && index.motionStandard?.physicalPrimitivesOptional === true, 'Bestehende/Physical-Primitives müssen optional bleiben.');
   assert(index.googleFlow?.protocolId === FLOW_AGENT_PROTOCOL_ID, 'Google-Flow-Agent-Protokoll fehlt.');
   assert(index.googleFlow?.generationMode === 'one-image-at-a-time' && index.googleFlow?.strictSequential === true, 'Google Flow muss strikt Bild für Bild arbeiten.');
   assert(index.googleFlow?.waitForCurrentImage === true && index.googleFlow?.renameBeforeNext === true && index.googleFlow?.qaBeforeNext === true, 'Google Flow muss warten, umbenennen und prüfen, bevor es fortfährt.');
   assert(index.googleFlow?.retrySameImageOnFailure === true, 'Fehlerhafte Bilder müssen unter derselben Nummer neu erzeugt werden.');
   assert(index.googleFlow?.finalCollectionDirectory === `${IMAGE_INBOX}/`, 'Finaler gemeinsamer Bilderordner ist falsch.');
   assert(index.googleFlow?.distributeToVisualFolders === false, 'Google Flow darf Bilder nicht auf Visual-Ordner verteilen.');
-  assert(index.timelineRules?.cutsFollowVoiceAndChapters === true, 'Schnitte müssen finalem Voiceover und Kapiteln folgen.');
+  assert(index.timelineRules?.cutsFollowVoiceAndChapters === true && index.timelineRules?.beatFirst === true, 'Schnitte müssen Voiceover/Beats/Kapiteln folgen.');
   assert(index.timelineRules?.equalLengthVisualsForbiddenByDefault === true, 'Starre gleich lange Visuals müssen standardmäßig verboten sein.');
   assert(Number(index.audio?.targetIntegratedLufs) === -16 && Number(index.audio?.targetTruePeakDbtp) === -1, 'Audioziel muss ungefähr -16 LUFS und höchstens -1 dBTP sein.');
   assert(index.thumbnail?.type === 'image' && typeof index.thumbnail?.googleFlowFileName === 'string', 'Thumbnail-Vertrag fehlt.');
   assert(index.thumbnail?.planFile === '04-visuals/thumbnail-prompt.txt', 'Thumbnail-Promptpfad ist falsch.');
-  assert(Array.isArray(index.visuals) && index.visuals.length > 0, `${VISUAL_INDEX} benötigt visuals[].`);
+  assert(Array.isArray(index.visuals) && index.visuals.length > 0, `${VISUAL_INDEX} benötigt nach Phase-1-Planung visuals[].`);
 
   for (const [key, expectedPath] of Object.entries(YOUTUBE_PUBLISHING_FILES)) {
     assert(index.publishing?.youtube?.[key] === expectedPath, `publishing.youtube.${key} muss auf ${expectedPath} zeigen.`);
@@ -113,19 +124,35 @@ if (index) {
     const id = typeof visual?.id === 'string' ? visual.id : 'Unbekanntes Visual';
     const expectedId = `visual-${String(position + 1).padStart(2, '0')}`;
     assert(id === expectedId, `${id}: ID und Reihenfolge müssen lückenlos ${expectedId} entsprechen.`);
-    assert(['image', 'animation'].includes(visual?.type), `${id}: type muss image oder animation sein.`);
-    assert(typeof visual?.planFile === 'string' && existsSync(resolve(root, visual.planFile ?? '')), `${id}: planFile fehlt oder zeigt auf keine Datei.`);
-    if (visual?.type === 'image') {
+    assert(YOUTUBE_VISUAL_TYPES.includes(visual?.type), `${id}: type muss ${YOUTUBE_VISUAL_TYPES.join(', ')} sein.`);
+    assert(typeof visual?.chapter === 'string' && visual.chapter.trim(), `${id}: chapter fehlt.`);
+    assert(typeof visual?.scriptBeat === 'string' && visual.scriptBeat.trim(), `${id}: scriptBeat fehlt.`);
+
+    if (requiresYouTubeImage(visual)) {
       assert(typeof visual.googleFlowFileName === 'string' && visual.googleFlowFileName.trim(), `${id}: googleFlowFileName fehlt.`);
       assert(!imageFileNames.has(visual.googleFlowFileName), `${id}: googleFlowFileName ist doppelt.`);
       imageFileNames.add(visual.googleFlowFileName);
-      assert(visual.planFile?.endsWith('/bildprompt.txt'), `${id}: Bildvisual muss bildprompt.txt verwenden.`);
+      const imagePlan = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
+      assert(typeof imagePlan === 'string' && imagePlan.endsWith('/bildprompt.txt') && existsSync(resolve(root, imagePlan)), `${id}: bildprompt.txt fehlt.`);
+      if (typeof imagePlan === 'string' && existsSync(resolve(root, imagePlan))) {
+        const prompt = readFileSync(resolve(root, imagePlan), 'utf8');
+        for (const marker of ['LITERAL_REAL_WORLD_SITUATION:', 'REAL_WORLD_CONTEXT_ANCHOR:', 'VOICEOVER_VISUAL_MATCH:', 'TRANSFERABILITY_TEST:', 'VISUAL_STRATEGY:', 'METAPHOR_JUSTIFICATION:']) {
+          assert(prompt.includes(marker), `${id}: Literal-first Marker fehlt: ${marker}`);
+        }
+      }
     }
-    if (visual?.type === 'animation') {
-      assert(visual.planFile?.endsWith('/remotion.md'), `${id}: Animation muss remotion.md verwenden.`);
-      assert(!Object.prototype.hasOwnProperty.call(visual, 'googleFlowFileName'), `${id}: Animation darf keinen Bilddateinamen haben.`);
+
+    if (requiresYouTubeMotion(visual)) {
+      errors.push(...validateYouTubeMotionMetadata(visual));
+      assert(typeof visual.planFile === 'string' && visual.planFile.endsWith('/remotion.md') && existsSync(resolve(root, visual.planFile)), `${id}: remotion.md fehlt.`);
+      assert(typeof visual.animationSourceFile === 'string' && existsSync(resolve(root, visual.animationSourceFile ?? '')), `${id}: animation.tsx fehlt.`);
+    }
+
+    if (visual?.type === 'data') {
+      assert(typeof visual.dataNotesFile === 'string' && existsSync(resolve(root, visual.dataNotesFile ?? '')), `${id}: data-notes.md fehlt.`);
     }
   }
+  errors.push(...validateYouTubeMotionVariety(index.visuals ?? []));
 }
 
 if (existsSync(resolve(root, ALL_PROMPTS))) {
@@ -139,6 +166,7 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes('regenerate the same image number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
   assert(prompts.includes(IMAGE_INBOX), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
+  assert(prompts.includes('Literal first, creative second'), 'Literal-first Bildlogik fehlt in der Flow-Übergabe.');
   assert(!/square 1:1 source image|portrait 9:16|vertical 9:16 image/i.test(prompts), 'YouTube-Prompts enthalten ein falsches Quellbildformat.');
 }
 
@@ -160,4 +188,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log('  16:9 · sequenzieller Google-Flow-Ablauf · vollständiges Upload-Paket · 4 Social-Promos · keine Shorts');
+console.log('  16:9 · Beat-first · Literal-first V3 · Motion V2 · sequenzieller Flow · keine Shorts');
