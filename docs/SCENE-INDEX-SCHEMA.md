@@ -19,7 +19,74 @@ Erlaubte `phase3Executor`-Werte:
 - `antigravity`
 - `claude-code`
 
-Neue Reels erhalten zusätzlich die Verträge für Google Flow, Phase-1-Animationscode, Reel-V5-Layout und Phase-3-Completion.
+Neue Reels erhalten zusätzlich die Verträge für Google Flow, **Cover Hook V3**, Image Storytelling V3, Phase-1-Animationscode, Reel-V5-Layout und Phase-3-Completion.
+
+## Cover Hook V3 — scene-01 ist Cover + erster Content-Beat
+
+Neue Reels verwenden:
+
+```text
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
+```
+
+`scene-index.coverHookContract` enthält unter anderem:
+
+```json
+{
+  "id": "finanzneo-cover-hook-v3",
+  "sourceSceneId": "scene-01",
+  "scene01IsCover": true,
+  "scene01IsFirstContentBeat": true,
+  "dedicatedCoverOnlySceneForbidden": true,
+  "zeroPointOneSecondCoverOnlyIntroForbidden": true,
+  "coverSnapshotFrame": 0,
+  "dedicatedCoverHoldFrames": 0,
+  "voiceoverRequiredInScene01": true,
+  "voiceoverStartsInScene01": true,
+  "hookRequiredAtFirstSpokenWord": true,
+  "genericIntroForbidden": true,
+  "captionStartsFromSceneId": "scene-01",
+  "coverFrameCaptionFree": true,
+  "captionsAllowedInsideScene01AfterCoverFrame": true,
+  "exportedCoverSource": "final-video-frame-0",
+  "scene01TimingSource": "first-spoken-hook-beat"
+}
+```
+
+Scene 01 besitzt zusätzlich:
+
+```json
+{
+  "coverHook": true,
+  "contentHook": true,
+  "coverOnlyIntro": false,
+  "voiceoverRequired": true,
+  "voiceoverStartsHere": true,
+  "coverFrameCaptionFree": true,
+  "durationPolicy": "content-driven-from-hook-voiceover",
+  "hook": {
+    "form": "question",
+    "spokenLine": "3 % Tagesgeld? Wie lange gilt dieser Zins wirklich?",
+    "topicAnchor": "Tagesgeld Zins",
+    "coverHeadline": "3 % Tagesgeld? Wie lange gilt der Zins wirklich?",
+    "startsAtFirstSpokenWord": true,
+    "noGenericIntro": true
+  }
+}
+```
+
+Erlaubte `hook.form`-Werte:
+
+- `question`
+- `claim`
+- `problem`
+- `warning`
+- `contrast`
+- `number`
+
+Das Gesamtskript muss exakt mit `scene-01.hook.spokenLine` beginnen. Kein „Hallo“, „Heute geht es um …“ oder sonstiger neutraler Intro-Satz davor.
+
+Frame 0 ist nur der Cover-Snapshot derselben normalen scene-01. Ein eigener 0,1-s-/3-Frame-Cover-Clip ist für V3 ungültig.
 
 ## Pflichtfelder jeder Szene
 
@@ -144,6 +211,7 @@ npm run reel:ready -- <Reel-Pfad>
 
 Dabei prüfen unter anderem:
 
+- `validate-future-cover-hook-v3.mjs` Cover + direkten ersten Hook + Voiceover-Start + verbotenen Cover-only-Clip
 - `validateSceneShape()` das zentrale Szenenschema
 - `validate-reel-layout-v5.mjs` den V5-Layoutvertrag inklusive Safe-Zone
 - `validate-animation-source-quality.mjs` den Phase-1-Animationscode
