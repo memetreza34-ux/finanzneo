@@ -150,6 +150,7 @@ FINAL_COMPLETE verlangt: alle Szenen belegt, exakter Animations-Seal, Audio vorh
 
 Finaler Standard:
 
-- `04-caption/caption.txt` ist die einzige universelle Reel-Caption.
+- `04-caption/caption.txt` ist die einzige universelle Reel-Caption und damit die kanonische Quelle.
+- Beim finalen Export wird genau diese Quelle als `06-export/caption-universal.txt` materialisiert.
 - Keine separaten Plattform-Captiondateien.
 - Keine YouTube Shorts; YouTube bleibt Longform unter `youtube/`.
