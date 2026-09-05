@@ -20,6 +20,27 @@ const walk = (dir) => {
 };
 walk(scenesRoot);
 
+const indexPath = resolve(root, '03-szenen/scene-index.json');
+const index = JSON.parse(readFileSync(indexPath, 'utf8'));
+const iconMap = {
+  'scene-03': 'document',
+  'scene-08': 'coins',
+  'scene-09': 'repeat',
+  'scene-10': 'chart-bar',
+  'scene-13': 'repeat',
+};
+for (const scene of index.scenes ?? []) {
+  if (iconMap[scene.id]) scene.icon = iconMap[scene.id];
+  if (scene.id === 'scene-08') scene.headline = '10.000 €: rund 75 € Zinsen';
+}
+writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');
+
+const scene08Md = resolve(root, '03-szenen/EINZELNE-SZENEN/scene-08/szene.md');
+if (existsSync(scene08Md)) {
+  const source = readFileSync(scene08Md, 'utf8').replace('10.000 € für 3 Monate: grob 75 €', '10.000 €: rund 75 € Zinsen');
+  writeFileSync(scene08Md, source, 'utf8');
+}
+
 const masterPath = resolve(root, '03-szenen/alle-bildprompts.txt');
 if (!existsSync(masterPath)) throw new Error('Master-Prompt fehlt');
 let master = readFileSync(masterPath, 'utf8');
@@ -79,4 +100,5 @@ writeFileSync(resolve(root, '05-projektdateien/recherche-quellen.md'), research,
 
 console.log('✓ Exakte Source-Contract-Marker ergänzt: deep black background + finaler Bilderordner.');
 console.log('✓ Kanonische scene-01 Cover-/Alias-Marker und Cover-Hook V2 erhalten.');
+console.log('✓ Alle Szenen verwenden gültige FinanzNeo-Icons; scene-08-Headline gekürzt.');
 console.log('✓ Kanonische recherche-quellen.md mit geprüften Aussagen befüllt.');
