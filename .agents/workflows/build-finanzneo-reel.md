@@ -12,8 +12,9 @@ description: Execute FinanzNeo Phase 3 safely from prepared Phase-1/Phase-2 asse
 2. `.agents/rules/finanzneo-reel-safety.md`
 3. target `03-szenen/scene-index.json`
 4. target `05-projektdateien/PHASENSTATUS.md`
-5. `docs/PHASE-3-COMPLETION-GATE.md`
-6. `reels/PRODUKTIONSSTANDARD.md`
+5. `docs/FUTURE-COVER-HOOK-V3.md`
+6. `docs/PHASE-3-COMPLETION-GATE.md`
+7. `reels/PRODUKTIONSSTANDARD.md`
 
 If `scene-index.json.phase3Executor` is not `antigravity`, stop and use the configured executor.
 
@@ -45,6 +46,20 @@ Implement every scene from `scene-index.json` and complete `phase3-production-ma
 - image visibly rendered
 - no stock/generated/placeholder replacement
 - no caption-only or header-only substitute
+
+### Scene-01 with Cover Hook V3
+
+When `scene-index.coverHookContract.id === finanzneo-cover-hook-v3`:
+
+- `scene-01` is **cover + first real content beat**
+- Frame 0 is only the cover snapshot of that same scene
+- no separate 0.1-second / 3-frame cover-only segment
+- render Hero image + exact Remotion hook title at Frame 0
+- Frame 0 has no caption, normal SceneHeader icon, CTA or extra card
+- voiceover starts already in `scene-01` with the first spoken word
+- captions may appear after Frame 0 while still inside `scene-01`
+- scene-01 duration follows the real first hook word timings, never an artificial cover hold
+- final `cover.png` comes from Frame 0 of the validated final MP4
 
 ### Animation scene
 
@@ -99,6 +114,7 @@ Source notes must stay above the caption and never overlap a two-line caption.
 - max 2 lines
 - no stroke, jump or scale-pop
 - clip at scene boundary
+- Cover Hook V3 exception: Frame 0 of scene-01 is caption-free, but captions may begin immediately after Frame 0 inside the same scene
 
 ## 6. Preflight
 
@@ -122,6 +138,8 @@ Render QA checks per scene:
 
 - visual core actually occupied
 - image scene not blank/caption-only
+- Cover Hook V3: Frame 0 is a clean cover AND a later frame of the same scene is still the first content hook
+- Cover Hook V3: audio begins in scene-01, not scene-02
 - animation scene has visible content and real motion
 - animation explains its beat
 - free edge remains static black
@@ -145,6 +163,8 @@ Only successful export = `FINAL_COMPLETE`.
 
 - claim an MP4 is finished because Remotion produced a file
 - bypass `reel:ready`, preflight or render QA
+- create a separate 0.1-second / 3-frame cover-only intro for Cover Hook V3
+- delay the voiceover until scene-02 for Cover Hook V3
 - hide missing visuals behind captions/header/background motion
 - use particles/aurora/grid to make frame-diff QA pass
 - alter sealed Phase-1 animation code
