@@ -1,0 +1,12 @@
+FINANZNEO YOUTUBE IMAGE WORLD
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+Literal first, creative second. Show the concrete real-world financial situation described by the script beat before considering any metaphor. The viewer should understand the approximate situation without a subtitle. Use a recognizable financial or everyday context anchor and show cause/effect in the same frame when possible. A metaphor is optional and must only be used when it communicates the beat more clearly than the literal situation. Avoid generic finance-symbol collections.
+
+Premium stylized 3D FinanzNeo world: deep charcoal green-black, vivid emerald and mint accents, gold only for money/value, warm red-orange only for risk/loss/debt, smooth rounded geometry, soft bevelled edges, premium matte and transparent materials, confident high-contrast lighting and restrained emerald rim light. Use only explicitly requested short German object labels near their objects. No headline, subtitle, explanatory sentence, random text, photorealism, real identifiable human, Pixar, clay, dashboard, app screen, floating info cards, flowchart, tiny diorama, generic conveyor belt, rail, fantasy portal, cage, sorting machine or giant lever unless that exact physical object is genuinely part of the real situation.
+
+Use ONE single seamless continuous deep charcoal green-black background across the entire horizontal 16:9 image. No horizontal divisions, panels, floor-wall boundary or horizon split. Compose for a cinematic horizontal frame with safe breathing room. Horizontal 16:9 source image; width approximately 1.7778 times height.

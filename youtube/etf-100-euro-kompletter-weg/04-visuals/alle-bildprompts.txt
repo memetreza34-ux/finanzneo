@@ -1,0 +1,472 @@
+FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+STRICT SEQUENTIAL WORKFLOW:
+1. Read the full file once, then work only on the current image block.
+2. Generate exactly ONE image. Never batch, parallelize or queue later images.
+3. Wait until the current image is fully complete.
+4. Rename it immediately to the exact final file name.
+5. Verify literal situation, context, German labels, seamless background, horizontal 16:9, same-world lock and filename.
+6. If anything fails, regenerate the same image number and replace the failed file.
+7. Continue only after PASS.
+8. Skip non-image visual numbers without renumbering.
+9. At the end place all correctly named files in 04-visuals/00-ALLE-BILDER-HIER-REIN/.
+
+Literal first, creative second.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THUMBNAIL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Thumbnail - ETF 100 Euro.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately. Horizontal 16:9.
+
+THUMBNAIL PROMPT:
+Create a high-impact literal FinanzNeo scene: a generic broker purchase confirmation with “100 €” on a real desk in the foreground, a large physical ETF share document immediately behind it, and a deep background containing many distinct real-economy companies. The composition must make one mystery obvious: the 100 euros pass through an ETF ownership layer before the underlying companies. Leave a clean dark area on the upper-left for typography added later in Remotion. Do not generate headline text inside the image.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 01 — HYBRID IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 01 - 100 Euro Start.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A premium stylized desk scene with a generic broker purchase confirmation showing only the short German label “100 €”, one clearly visible ETF share document in the foreground, and many different real-world company environments far behind it, separated so the viewer immediately sees that one fund share sits between the money and the companies.
+REAL_WORLD_CONTEXT_ANCHOR: broker desk and ETF purchase
+VOICEOVER_VISUAL_MATCH: The 100-euro purchase is visibly converted into one ETF fund share before the portfolio companies appear.
+TRANSFERABILITY_TEST: PASS — the scene specifically shows a 100-euro ETF purchase and the fund-share layer, not a generic money flow.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A premium stylized desk scene with a generic broker purchase confirmation showing only the short German label “100 €”, one clearly visible ETF share document in the foreground, and many different real-world company environments far behind it, separated so the viewer immediately sees that one fund share sits between the money and the companies.
+Use only these short German object labels when specified: 100 €, ETF-Anteil.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 02 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 02. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 03 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 03 - ETF Anteil statt Einzelaktien.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal stylized 3D investment desk: one large paper certificate labeled “ETF-Anteil” sits in the investor area. Behind a clear divider is the fund portfolio containing many small but recognizable company share documents. Do not show the investor directly holding each company share. Make the ownership layer unmistakable.
+REAL_WORLD_CONTEXT_ANCHOR: investment desk with fund ownership documents
+VOICEOVER_VISUAL_MATCH: The investor visibly owns the ETF share while the underlying company shares sit inside the separate fund portfolio.
+TRANSFERABILITY_TEST: PASS — the ownership distinction between an ETF share and its underlying portfolio is specific to this script beat.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal stylized 3D investment desk: one large paper certificate labeled “ETF-Anteil” sits in the investor area. Behind a clear divider is the fund portfolio containing many small but recognizable company share documents. Do not show the investor directly holding each company share. Make the ownership layer unmistakable.
+Use only these short German object labels when specified: ETF-Anteil, Fondsportfolio.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 04 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 04. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 05 — DATA / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 05. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 06 — HYBRID IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 06 - Index Regeln und Portfolio.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal 16:9 stylized 3D finance worktable with a printed rulebook labeled “Indexregeln” on the left and a real portfolio tray labeled “ETF-Portfolio” on the right. The rulebook contains simple weighted rows for generic sectors, and the portfolio tray visibly mirrors those weights with real share documents. No dashboard UI.
+REAL_WORLD_CONTEXT_ANCHOR: fund management worktable
+VOICEOVER_VISUAL_MATCH: The index rules are physically shown as the blueprint that determines the ETF portfolio composition.
+TRANSFERABILITY_TEST: PASS — the composition specifically depicts an index rulebook controlling an ETF portfolio.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal 16:9 stylized 3D finance worktable with a printed rulebook labeled “Indexregeln” on the left and a real portfolio tray labeled “ETF-Portfolio” on the right. The rulebook contains simple weighted rows for generic sectors, and the portfolio tray visibly mirrors those weights with real share documents. No dashboard UI.
+Use only these short German object labels when specified: Indexregeln, ETF-Portfolio.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 07 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 07. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 08 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 08. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 09 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 09 - Fondsgesellschaft Verwahrstelle.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal stylized 3D institutional scene with two clearly separate functions: a fund management desk labeled “Fondsgesellschaft” reviewing the ETF rulebook, and a secure custody area labeled “Verwahrstelle” physically holding the portfolio documents. The two areas are connected operationally but their assets are visibly separated.
+REAL_WORLD_CONTEXT_ANCHOR: fund administration and custody environment
+VOICEOVER_VISUAL_MATCH: Management and custody roles are simultaneously visible and clearly separated.
+TRANSFERABILITY_TEST: PASS — the two specific ETF fund roles make this unsuitable for generic finance topics.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal stylized 3D institutional scene with two clearly separate functions: a fund management desk labeled “Fondsgesellschaft” reviewing the ETF rulebook, and a secure custody area labeled “Verwahrstelle” physically holding the portfolio documents. The two areas are connected operationally but their assets are visibly separated.
+Use only these short German object labels when specified: Fondsgesellschaft, Verwahrstelle.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 10 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 10. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 11 — HYBRID IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 11 - Breite Unternehmen weltweit.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A cinematic stylized 3D global business landscape on one continuous dark background: generic technology campus, factory, healthcare facility, consumer goods warehouse and bank from different regions, all visibly connected back to one foreground object labeled “Breiter Aktien-ETF”. Keep every business recognizable and avoid logo copies.
+REAL_WORLD_CONTEXT_ANCHOR: global real-economy company landscape
+VOICEOVER_VISUAL_MATCH: Many clearly different industries and regions sit inside the economic exposure of one broad equity ETF.
+TRANSFERABILITY_TEST: PASS — the scene specifically visualizes broad equity-ETF diversification across real industries.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A cinematic stylized 3D global business landscape on one continuous dark background: generic technology campus, factory, healthcare facility, consumer goods warehouse and bank from different regions, all visibly connected back to one foreground object labeled “Breiter Aktien-ETF”. Keep every business recognizable and avoid logo copies.
+Use only these short German object labels when specified: Breiter Aktien-ETF.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 12 — DATA / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 12. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 13 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 13 - Themen ETF Konzentration.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal stylized 3D portfolio basket labeled “Themen-ETF” filled mostly with similar semiconductor and AI-related company documents from one narrow industry cluster. Beside it, a second smaller reference basket labeled “Breiter ETF” contains clearly different sectors. The narrow basket must visibly lack variety.
+REAL_WORLD_CONTEXT_ANCHOR: portfolio comparison table with real sector documents
+VOICEOVER_VISUAL_MATCH: The narrow thematic ETF visibly holds many similar businesses compared with a broad reference ETF.
+TRANSFERABILITY_TEST: PASS — the concentration warning is specific to comparing thematic and broad ETFs.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal stylized 3D portfolio basket labeled “Themen-ETF” filled mostly with similar semiconductor and AI-related company documents from one narrow industry cluster. Beside it, a second smaller reference basket labeled “Breiter ETF” contains clearly different sectors. The narrow basket must visibly lack variety.
+Use only these short German object labels when specified: Themen-ETF, Breiter ETF.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 14 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 14. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 15 — HYBRID IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 15 - Ausschuettend oder Thesaurierend.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal side-by-side stylized 3D fund administration scene. Left folder labeled “Ausschüttend”: dividend cash moves from the ETF fund toward an investor payout envelope. Right folder labeled “Thesaurierend”: dividend cash stays inside the fund and is placed back into portfolio securities. Keep both paths concrete and equally large.
+REAL_WORLD_CONTEXT_ANCHOR: fund income processing desk
+VOICEOVER_VISUAL_MATCH: The two allowed dividend handling paths are shown as concrete fund operations.
+TRANSFERABILITY_TEST: PASS — the scene is explicitly about ETF dividend distribution versus reinvestment.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal side-by-side stylized 3D fund administration scene. Left folder labeled “Ausschüttend”: dividend cash moves from the ETF fund toward an investor payout envelope. Right folder labeled “Thesaurierend”: dividend cash stays inside the fund and is placed back into portfolio securities. Keep both paths concrete and equally large.
+Use only these short German object labels when specified: Ausschüttend, Thesaurierend.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 16 — DATA / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 16. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 17 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 17. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 18 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 18 - Kosten Dokumente pruefen.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal stylized 3D desk with three real paper documents: one broker price sheet labeled “Orderkosten”, one exchange trade note labeled “Spread”, and one ETF product information sheet labeled “Laufende Kosten”. A simple magnifying glass inspects the three fields. No app UI and no generic floating cards.
+REAL_WORLD_CONTEXT_ANCHOR: investment document review desk
+VOICEOVER_VISUAL_MATCH: The exact three cost sources named in the narration are physically inspectable before purchase.
+TRANSFERABILITY_TEST: PASS — the document set is specifically about ETF purchase and ongoing costs.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal stylized 3D desk with three real paper documents: one broker price sheet labeled “Orderkosten”, one exchange trade note labeled “Spread”, and one ETF product information sheet labeled “Laufende Kosten”. A simple magnifying glass inspects the three fields. No app UI and no generic floating cards.
+Use only these short German object labels when specified: Orderkosten, Spread, Laufende Kosten.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 19 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 19. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 20 — DATA / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 20. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 21 — HYBRID IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 21 - ETF Schwankungen ueber Zeit.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal cinematic long-term investing scene: a desk calendar path from “2026” through later unlabeled years, with one ETF portfolio document traveling through clearly visible market up-phases and down-phases. The final state should not imply guaranteed profit; end near a neutral evaluation point, not a giant upward arrow.
+REAL_WORLD_CONTEXT_ANCHOR: long-term investment calendar and market cycle
+VOICEOVER_VISUAL_MATCH: The ETF is visibly carried through both positive and negative market periods over time.
+TRANSFERABILITY_TEST: PASS — the scene specifically combines an ETF investment with long-horizon market fluctuations without promising returns.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal cinematic long-term investing scene: a desk calendar path from “2026” through later unlabeled years, with one ETF portfolio document traveling through clearly visible market up-phases and down-phases. The final state should not imply guaranteed profit; end near a neutral evaluation point, not a giant upward arrow.
+Use only these short German object labels when specified: 2026, ETF.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 22 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 22. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 23 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 23 - Fondsvermoegen getrennt.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal stylized 3D fund structure scene: the office labeled “Fondsgesellschaft” is visibly closed, while a physically separate custody vault labeled “Fondsvermögen” remains intact with the portfolio documents inside. Do not use a shield metaphor and do not imply protection from falling market prices.
+REAL_WORLD_CONTEXT_ANCHOR: fund company and separate custody structure
+VOICEOVER_VISUAL_MATCH: The fund company can fail while the separate fund assets remain physically distinct.
+TRANSFERABILITY_TEST: PASS — the legal separation of fund-company assets and fund assets is specific to investment-fund structure.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal stylized 3D fund structure scene: the office labeled “Fondsgesellschaft” is visibly closed, while a physically separate custody vault labeled “Fondsvermögen” remains intact with the portfolio documents inside. Do not use a shield metaphor and do not imply protection from falling market prices.
+Use only these short German object labels when specified: Fondsgesellschaft, Fondsvermögen.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 24 — DATA / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 24. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 25 — HYBRID IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 25 - Was du wirklich besitzt.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal layered ownership scene. Foreground: one document labeled “Dein ETF-Anteil”. Middle layer: a transparent legal fund container labeled “Fondsvermögen”. Background: many real company share documents held inside that fund container. Keep the layers physically separated and readable.
+REAL_WORLD_CONTEXT_ANCHOR: legal fund ownership layers
+VOICEOVER_VISUAL_MATCH: The exact legal/economic ownership chain from ETF unit to fund assets to company securities is visible.
+TRANSFERABILITY_TEST: PASS — the three-layer ETF ownership structure is specific and cannot be reused for generic savings topics.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal layered ownership scene. Foreground: one document labeled “Dein ETF-Anteil”. Middle layer: a transparent legal fund container labeled “Fondsvermögen”. Background: many real company share documents held inside that fund container. Keep the layers physically separated and readable.
+Use only these short German object labels when specified: Dein ETF-Anteil, Fondsvermögen.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 26 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 26. Keep this visual number reserved and continue with the next block.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 27 — IMAGE IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 27 - Drei ETF Checks.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal stylized 3D review desk with three large physical documents arranged as a real checklist: “Index”, “Streuung”, and “Kosten & Risiken”. Each document contains one simple visual cue: index composition table, diverse sector list, and cost/risk section. A pen marks all three only after they are visibly inspected.
+REAL_WORLD_CONTEXT_ANCHOR: pre-purchase ETF document review
+VOICEOVER_VISUAL_MATCH: The three exact due-diligence checks from the narration are shown as documents being inspected before purchase.
+TRANSFERABILITY_TEST: PASS — the documents and labels are specifically an ETF pre-purchase checklist.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal stylized 3D review desk with three large physical documents arranged as a real checklist: “Index”, “Streuung”, and “Kosten & Risiken”. Each document contains one simple visual cue: index composition table, diverse sector list, and cost/risk section. A pen marks all three only after they are visibly inspected.
+Use only these short German object labels when specified: Index, Streuung, Kosten & Risiken.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 28 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DO NOT GENERATE IMAGE 28. Keep this visual number reserved and continue with the next block.

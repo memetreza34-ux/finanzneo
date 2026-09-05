@@ -1,0 +1,14 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Thumbnail - ETF 100 Euro.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately. Horizontal 16:9.
+
+THUMBNAIL PROMPT:
+Create a high-impact literal FinanzNeo scene: a generic broker purchase confirmation with “100 €” on a real desk in the foreground, a large physical ETF share document immediately behind it, and a deep background containing many distinct real-economy companies. The composition must make one mystery obvious: the 100 euros pass through an ETF ownership layer before the underlying companies. Leave a clean dark area on the upper-left for typography added later in Remotion. Do not generate headline text inside the image.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.

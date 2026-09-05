@@ -1,0 +1,23 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 15 - Ausschuettend oder Thesaurierend.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal side-by-side stylized 3D fund administration scene. Left folder labeled “Ausschüttend”: dividend cash moves from the ETF fund toward an investor payout envelope. Right folder labeled “Thesaurierend”: dividend cash stays inside the fund and is placed back into portfolio securities. Keep both paths concrete and equally large.
+REAL_WORLD_CONTEXT_ANCHOR: fund income processing desk
+VOICEOVER_VISUAL_MATCH: The two allowed dividend handling paths are shown as concrete fund operations.
+TRANSFERABILITY_TEST: PASS — the scene is explicitly about ETF dividend distribution versus reinvestment.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal side-by-side stylized 3D fund administration scene. Left folder labeled “Ausschüttend”: dividend cash moves from the ETF fund toward an investor payout envelope. Right folder labeled “Thesaurierend”: dividend cash stays inside the fund and is placed back into portfolio securities. Keep both paths concrete and equally large.
+Use only these short German object labels when specified: Ausschüttend, Thesaurierend.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.

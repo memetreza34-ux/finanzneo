@@ -1,0 +1,178 @@
+{
+  "version": 2,
+  "title": "Was passiert wirklich mit deinen 100 € im ETF?",
+  "fps": 30,
+  "timingSource": "03-audio/word-timings.json",
+  "cutRule": "voice-beat-and-chapter-driven",
+  "fixedVisualCount": false,
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "hybrid",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-02",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-04",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-05",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-06",
+      "type": "hybrid",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-07",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-08",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-09",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-10",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-11",
+      "type": "hybrid",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-12",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-13",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-14",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-15",
+      "type": "hybrid",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-16",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-17",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-18",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-19",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-20",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-21",
+      "type": "hybrid",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-22",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-23",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-24",
+      "type": "data",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-25",
+      "type": "hybrid",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-26",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-27",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0
+    },
+    {
+      "id": "visual-28",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0
+    }
+  ]
+}

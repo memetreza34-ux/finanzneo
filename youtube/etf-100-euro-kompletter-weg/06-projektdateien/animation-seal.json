@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "motionStandardId": "finanzneo-youtube-motion-v2",
+  "sourceIndex": "04-visuals/visual-index.json",
+  "entries": [
+    {
+      "id": "visual-01",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-01/animation.tsx",
+      "exportName": "YouTubeVisual01Animation",
+      "mechanicId": "purchase-to-fund-share",
+      "visualTechniqueId": "masked-money-to-etf-share",
+      "compositionFamilyId": "image-composite",
+      "sha256": "8f8aeca0fb681260b321c69c81c9f22631a2cedf36c5b4009c9392888270ab62"
+    },
+    {
+      "id": "visual-02",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx",
+      "exportName": "YouTubeVisual02Animation",
+      "mechanicId": "broker-order-routing",
+      "visualTechniqueId": "order-slip-market-match",
+      "compositionFamilyId": "document-motion",
+      "sha256": "1e6a6d3c4e985bfb8663d1bb727760b77ccc1df1afb3fd62ecb4c72946a57a76"
+    },
+    {
+      "id": "visual-04",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx",
+      "exportName": "YouTubeVisual04Animation",
+      "mechanicId": "creation-redemption-bridge",
+      "visualTechniqueId": "dual-market-basket-exchange",
+      "compositionFamilyId": "comparison",
+      "sha256": "37993cb0e209d64292240e2251bf09d3448dc8ee619a0182d69a74ddfd41ed1c"
+    },
+    {
+      "id": "visual-05",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-05/animation.tsx",
+      "exportName": "YouTubeVisual05Animation",
+      "mechanicId": "nav-price-convergence",
+      "visualTechniqueId": "nav-spread-band-convergence",
+      "compositionFamilyId": "data-viz",
+      "sha256": "8368886f3f0fe9af378c513a39003ec2fc73eefab6c9d72640ab113da19f0d61"
+    },
+    {
+      "id": "visual-06",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-06/animation.tsx",
+      "exportName": "YouTubeVisual06Animation",
+      "mechanicId": "index-to-portfolio-mapping",
+      "visualTechniqueId": "blueprint-weight-overlay",
+      "compositionFamilyId": "image-composite",
+      "sha256": "db52bae17593b3c66e809a65d1253e259a657e4b40a30e7b8247f8b578b3e6f5"
+    },
+    {
+      "id": "visual-07",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-07/animation.tsx",
+      "exportName": "YouTubeVisual07Animation",
+      "mechanicId": "physical-replication-assembly",
+      "visualTechniqueId": "threejs-weighted-portfolio-build",
+      "compositionFamilyId": "spatial-3d",
+      "sha256": "c21a55703cdb48d4ac79d3619be175080adfd059317978c35f273e94e128c953"
+    },
+    {
+      "id": "visual-08",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-08/animation.tsx",
+      "exportName": "YouTubeVisual08Animation",
+      "mechanicId": "sampling-selection",
+      "visualTechniqueId": "svg-representative-selection-funnel",
+      "compositionFamilyId": "vector-motion",
+      "sha256": "d542038be7cc28ea9c43e6974869d7e2790e2980991da55cd828413eb7e0390f"
+    },
+    {
+      "id": "visual-10",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-10/animation.tsx",
+      "exportName": "YouTubeVisual10Animation",
+      "mechanicId": "special-assets-separation",
+      "visualTechniqueId": "css3d-separated-custody-vaults",
+      "compositionFamilyId": "css-3d",
+      "sha256": "48aac86719f2e71f8ea1977573219d7f00f8badf001c72c7d9a2e81205e7789d"
+    },
+    {
+      "id": "visual-11",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-11/animation.tsx",
+      "exportName": "YouTubeVisual11Animation",
+      "mechanicId": "sector-world-reveal",
+      "visualTechniqueId": "layered-sector-camera-journey",
+      "compositionFamilyId": "camera-journey",
+      "sha256": "2cdd6ce26d721f7d091b2092fd5542cc9b0d2b01db4fa5016d698350cfb3f3db"
+    },
+    {
+      "id": "visual-12",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-12/animation.tsx",
+      "exportName": "YouTubeVisual12Animation",
+      "mechanicId": "diversification-risk-comparison",
+      "visualTechniqueId": "single-vs-broad-weight-grid",
+      "compositionFamilyId": "data-viz",
+      "sha256": "8fea55fa85b1b68d7d6af1308f6e344f981acd807a8bec2d16f1801213e2d1be"
+    },
+    {
+      "id": "visual-14",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-14/animation.tsx",
+      "exportName": "YouTubeVisual14Animation",
+      "mechanicId": "dividend-routing",
+      "visualTechniqueId": "company-cashflow-to-fund-simulation",
+      "compositionFamilyId": "simulation",
+      "sha256": "87f929dff98f6216ed5624def251b4016d1367498ed1c22295f9e207e5ce4543"
+    },
+    {
+      "id": "visual-15",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-15/animation.tsx",
+      "exportName": "YouTubeVisual15Animation",
+      "mechanicId": "dividend-path-split",
+      "visualTechniqueId": "dual-path-distribution-reinvestment",
+      "compositionFamilyId": "comparison",
+      "sha256": "11cb4d448ddaf16db674a6a12653b69bcf69337e68dcdb8932d95ae653a91ea8"
+    },
+    {
+      "id": "visual-16",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-16/animation.tsx",
+      "exportName": "YouTubeVisual16Animation",
+      "mechanicId": "cost-layer-waterfall",
+      "visualTechniqueId": "three-layer-cost-waterfall",
+      "compositionFamilyId": "data-viz",
+      "sha256": "67d81fe83b1f5548cbf8e615326e9fcfa08fca4fdb43a4eff47d534bc1d63c89"
+    },
+    {
+      "id": "visual-17",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-17/animation.tsx",
+      "exportName": "YouTubeVisual17Animation",
+      "mechanicId": "bid-ask-spread",
+      "visualTechniqueId": "bid-ask-price-squeeze",
+      "compositionFamilyId": "kinetic-type",
+      "sha256": "093ce7ff79d3f0007526b10d468960084dae8d96d2fd5096d2b67bb9a8d10360"
+    },
+    {
+      "id": "visual-19",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-19/animation.tsx",
+      "exportName": "YouTubeVisual19Animation",
+      "mechanicId": "portfolio-price-aggregation",
+      "visualTechniqueId": "multi-holding-price-aggregation",
+      "compositionFamilyId": "simulation",
+      "sha256": "53aaeab945b6a7da1ad60914ab7d4ea64a2dbe5afe97aa290dd6054b8a9b8205"
+    },
+    {
+      "id": "visual-20",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-20/animation.tsx",
+      "exportName": "YouTubeVisual20Animation",
+      "mechanicId": "drawdown-example",
+      "visualTechniqueId": "hundred-to-eighty-drawdown",
+      "compositionFamilyId": "data-viz",
+      "sha256": "54f5933396619058958e5ddafd82c7446955bf4c9cbd618bf93c9eee0b436269"
+    },
+    {
+      "id": "visual-21",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-21/animation.tsx",
+      "exportName": "YouTubeVisual21Animation",
+      "mechanicId": "market-cycle-timeline",
+      "visualTechniqueId": "calendar-market-cycle-corridor",
+      "compositionFamilyId": "timeline",
+      "sha256": "f60c32299f6bb445abe7943b2fe5b2c5d050bd0783c8de827f3b2a11ffcc62b9"
+    },
+    {
+      "id": "visual-22",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-22/animation.tsx",
+      "exportName": "YouTubeVisual22Animation",
+      "mechanicId": "broker-custody-transfer",
+      "visualTechniqueId": "custody-document-depot-transfer",
+      "compositionFamilyId": "document-motion",
+      "sha256": "2f88adc5011b5eafbe6ed2f83dc1cc6ac797ef03d05dba3ad88128dcede9389b"
+    },
+    {
+      "id": "visual-24",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-24/animation.tsx",
+      "exportName": "YouTubeVisual24Animation",
+      "mechanicId": "ter-scale-example",
+      "visualTechniqueId": "percentage-to-euro-cost-counter",
+      "compositionFamilyId": "data-viz",
+      "sha256": "db410ca1b669c5a2111d236260ef11d498d092aab9f63a6b85fb1f41b9207ca5"
+    },
+    {
+      "id": "visual-25",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-25/animation.tsx",
+      "exportName": "YouTubeVisual25Animation",
+      "mechanicId": "ownership-layer-reveal",
+      "visualTechniqueId": "threejs-ownership-layer-stack",
+      "compositionFamilyId": "spatial-3d",
+      "sha256": "f9f713b9eb8b04090dbe387a1bfa05e6cf3732c297f9a2ad4e7922088d21ac67"
+    },
+    {
+      "id": "visual-26",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-26/animation.tsx",
+      "exportName": "YouTubeVisual26Animation",
+      "mechanicId": "index-rebalancing",
+      "visualTechniqueId": "svg-weight-rebalance-morph",
+      "compositionFamilyId": "vector-motion",
+      "sha256": "09c165968a499712ae754630ab923a7ff60b66244253dfebf002f2ccd3527eb5"
+    },
+    {
+      "id": "visual-28",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-28/animation.tsx",
+      "exportName": "YouTubeVisual28Animation",
+      "mechanicId": "full-etf-path-recap",
+      "visualTechniqueId": "cinematic-etf-system-recap-flight",
+      "compositionFamilyId": "camera-journey",
+      "sha256": "4d4229a6b463184dd3d19ab19ca0ace96bc04b56895f4eec781dc3316b9780f3"
+    }
+  ]
+}
