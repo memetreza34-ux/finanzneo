@@ -39,7 +39,12 @@ index.coverHookContract = {
   titleInGeneratedFlowImageForbidden: true,
   titleVisibleFromFrame: 0,
   titleVisibleWithinFirstSecond: true,
-  titleHoldMinFrames: 30,
+  titleHoldMinFrames: 3,
+  coverFlashFrames: 3,
+  coverFlashSeconds: 0.1,
+  voiceoverForbiddenDuringScene01: true,
+  audioStartsAtFrame: 3,
+  audioStartsFromSceneId: 'scene-02',
   subtitlesForbiddenDuringScene01: true,
   captionStartsFromSceneId: 'scene-02',
   imagePlusTitleOnly: true,
@@ -70,6 +75,12 @@ index.scenes = scenes.map((scene, i) => i === 0 ? {
   titleMode: 'reel-title-overlay',
   titleVisibleFromFrame: 0,
   coverTitle: title,
+  durationFrames: 3,
+  plannedDurationSeconds: 0.1,
+  targetSeconds: 0.1,
+  coverOnly: true,
+  voiceoverEnabled: false,
+  audioTrigger: '',
 } : scene);
 
 writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');
@@ -113,9 +124,9 @@ const antigravityBlock = `COVER_HOOK_CONTRACT: ${CONTRACT_ID}
 
 - Szene 01 ist ein echtes Reel-Cover und zugleich der erste sichtbare Videoframe.
 - Rendere den exakten Titel aus scene-index.title mit Remotion bereits bei Frame 0. Kein Fade-in, kein Intro davor, keine verzögerte Einblendung.
-- Während scene-01 darf KEINE Caption-/Subtitle-Komponente gemountet oder sichtbar sein. Untertitel beginnen erst mit scene-02.
+- Während scene-01 darf KEINE Caption-/Subtitle-Komponente gemountet oder sichtbar sein. Auch Voiceover ist in diesen 3 Frames gesperrt. Untertitel und Voiceover beginnen ab Frame 3 mit scene-02.
 - Szene 01 enthält nur Hero-Bild + Reel-Titel. Kein normales SceneHeader-Icon, keine zweite Textzeile als Erklärung, kein CTA, keine Zusatzkarte.
-- Der Titel muss mindestens die ersten 30 Frames stabil lesbar sein und darf während scene-01 sichtbar bleiben.
+- Scene-01 dauert exakt 3 Frames = 0,1 s bei 30 fps. Titel und Hero-Bild sind in allen drei Frames sichtbar; danach beginnt sofort scene-02.
 - Das Flow-Bild selbst enthält den Titel NICHT; die exakte Typografie kommt aus Remotion.
 - Implementiere die Caption-Sperre im tatsächlichen Composition-Code über die aktive Szene/Frame-Grenze, nicht nur über Metadaten.
 - Playwright/Render-QA muss Frame 0 prüfen: Titel sichtbar, Bild sichtbar, keine Untertitel, kein Icon, keine Zusatztexte.
@@ -130,5 +141,5 @@ if (!existsSync(qaPath)) {
 }
 
 console.log('✓ Future Cover Hook gesetzt: ' + CONTRACT_ID);
-console.log('  Szene 01 = Hero-Bild + exakter Reel-Titel ab Frame 0 · keine Untertitel · Cover-Export aus finalem Frame 0.');
+console.log('  Szene 01 = exakt 3 Frames / 0,1 s · nur Hero-Bild + exakter Reel-Titel · Voiceover und Untertitel starten erst mit scene-02.');
 console.log('  Antigravity-Handoff ist für neue Reels garantiert vorhanden.');

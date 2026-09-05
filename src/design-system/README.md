@@ -201,3 +201,8 @@ Bei einer bestehenden Datei:
 6. erst danach alte Direktimporte entfernen.
 
 Die Premium-Bausteine werden schrittweise konsolidiert. Ein großer einmaliger Rename wird vermieden, weil er unnötig viele bestehende Szenen gefährden würde.
+
+
+## Remotion Freedom — neue Animationsregel
+
+Neue Reel-Animationen sind **nicht** auf den Physical*-Katalog beschränkt. Die Komponenten bleiben wiederverwendbare Helfer, aber die visuelle Lösung darf frei aus React, SVG, CSS-3D, Masken/Clip-Paths, Perspektive/Kamera, Canvas oder Three.js aufgebaut werden. Entscheidend sind Erklärwert, Safe-Zone, eindeutige Ursache/Wirkung, eigene VISUAL_TECHNIQUE_ID je Szene und bestandene Render-QA. Wiederholung derselben visuellen Haupttechnik innerhalb eines Reels ist zu vermeiden.

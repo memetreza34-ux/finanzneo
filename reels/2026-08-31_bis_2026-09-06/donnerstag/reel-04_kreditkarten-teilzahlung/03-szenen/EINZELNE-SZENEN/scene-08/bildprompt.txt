@@ -1,0 +1,20 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Neuer Einkauf trifft alten Rest.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Alter Rest
+- Neuer Einkauf
+
+IMAGE PROMPT:
+Create one polished stylized 3D animated finance-explainer image for this exact spoken beat. A new everyday card purchase at a checkout is shown while an older unpaid credit-card statement is still physically present beside it. The visible story must specifically communicate this action or consequence: Ein neuer Einkauf wird mit derselben Karte bezahlt, obwohl daneben noch eine alte offene Abrechnung liegt. Ground the composition in a believable everyday situation with recognizable real-world objects, clear physical relationships and one strong focal point. Make the cause-and-effect readable immediately without narration. Supporting objects are allowed only when they genuinely improve understanding. Keep the requested German object labels short, legible and naturally attached to their objects. Do not add any other explanatory text. Avoid a static catalog arrangement: show a moment, action, contrast or consequence that feels physically real inside the stylized world.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v2
+
+STYLE + SAFETY:
+Use premium stylized 3D animated geometry, believable everyday proportions, simplified but tangible materials and a seamless deep black background. Keep the result clearly non-photorealistic. Use emerald green for positive states, warm ivory/gray for neutral physical objects, subtle gold for money/value and warm red-orange only for cost or warning. Use soft contact shadows and clean subject-separation lighting. No photorealism, product-photo look, dashboard, app dashboard, website screenshot, flowchart, floating UI tiles, microchip/circuit language, miniature diorama, generic finance-icon main composition or decorative clutter. The real-life action or consequence must carry the explanation.

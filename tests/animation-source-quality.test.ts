@@ -43,6 +43,7 @@ import {ANIMATION_COLORS, PhysicalAccount, PhysicalBill, PhysicalCoinStack, Prem
 
 /**
  * MECHANIC_ID: cash-exchange-becomes-euro-balance
+ * VISUAL_TECHNIQUE_ID: physical-transfer
  * PRIMARY_ACTION: Ein konkreter Geldstapel bewegt sich von einer Wechselquittung zu einem realen Euro-Konto, während Betrag, Quittungsstatus und Kontozustand sichtbar gemeinsam wechseln.
  *
  * ANIMATION_NARRATIVE
@@ -180,6 +181,51 @@ test('Partikel-/Aurora-Hintergrundkomponenten werden in Animationen blockiert', 
     const result = validate(fixture.root);
     assert.notEqual(result.status, 0);
     assert.match(`${result.stdout}\n${result.stderr}`, /Partikel\/Aurora\/Grid/);
+  } finally {
+    rmSync(fixture.root, {recursive: true, force: true});
+  }
+});
+
+
+test('freie Remotion-Komposition ohne Physical-Primitives besteht', () => {
+  const fixture = buildFixture();
+  try {
+    const freeSource = `import React from 'react';
+import {interpolate, useCurrentFrame} from 'remotion';
+import {ANIMATION_COLORS, AnimationStage} from '../../../../../../src/design-system';
+/**
+ * MECHANIC_ID: debt-slab-slice
+ * VISUAL_TECHNIQUE_ID: svg-clip-slice
+ * PRIMARY_ACTION: Ein großer Schuldenblock wird sichtbar angeschnitten, ein kleiner bezahlter Teil trennt sich ab und der deutlich größere offene Rest bleibt stehen.
+ * ANIMATION_NARRATIVE
+ * START: Ein großer 600-Euro-Schuldenblock steht vollständig sichtbar im Zentrum der sicheren Visual-Zone.
+ * MECHANISM: Eine Schnittkante fährt durch den Block, der 100-Euro-Teil löst sich räumlich und der verbleibende 500-Euro-Körper rückt in den Fokus.
+ * RESULT: Der große Restblock bleibt stabil sichtbar und macht die verbleibende Belastung ohne Karten- oder Dashboard-Sprache eindeutig.
+ * PREMIUM_VISUAL_NARRATIVE
+ * HERO: Der individuell gezeichnete Schuldenblock und seine echte Slice-Transformation tragen die komplette visuelle Erklärung.
+ * SUPPORT: Kurze Betragslabels markieren nur die getrennten Teile und ersetzen niemals die sichtbare Transformation.
+ * MATERIAL: Gold markiert den bezahlten Ausschnitt, warmes Rot den offenen Rest und Emerald bestätigt ausschließlich den entfernten Teil.
+ * DEPTH: Der abgetrennte Teil fährt nach vorne links, während der Rest nach hinten rechts stabilisiert und dadurch klare räumliche Trennung entsteht.
+ */
+export const RESULT_HOLD_FRAMES = 18;
+const clamp = {extrapolateLeft:'clamp' as const, extrapolateRight:'clamp' as const};
+export const Scene02Animation: React.FC<{durationFrames?:number}> = ({durationFrames=120}) => {
+  const frame = useCurrentFrame();
+  const cut = interpolate(frame,[12,54],[0,1],clamp);
+  const detach = interpolate(frame,[42,78],[0,1],clamp);
+  const settle = interpolate(frame,[70,Math.max(82,durationFrames-RESULT_HOLD_FRAMES)],[0,1],clamp);
+  return <AnimationStage scale={1}>
+    <div style={{position:'absolute',left:150,top:610,width:780,height:330,perspective:1000}}>
+      <div style={{position:'absolute',left:0,top:0,width:160,height:300,borderRadius:28,background:ANIMATION_COLORS.money,transform:'translate(' + (-detach*90) + 'px,' + (detach*35) + 'px) rotateY(' + (-detach*18) + 'deg)',opacity:0.35+cut*0.65}}><div style={{padding:38,fontSize:42,fontWeight:900}}>100 €</div></div>
+      <div style={{position:'absolute',left:160-cut*20,top:0,width:620,height:300,borderRadius:28,background:ANIMATION_COLORS.warning,transform:'translateX(' + (settle*30) + 'px) scale(' + (0.94+settle*0.06) + ')'}}><div style={{padding:46,fontSize:58,fontWeight:950}}>500 € REST</div></div>
+      <svg width="780" height="330" style={{position:'absolute',inset:0,pointerEvents:'none'}}><line x1={160} y1={20} x2={160} y2={310} stroke={ANIMATION_COLORS.neutral} strokeWidth={8} opacity={cut}/></svg>
+    </div>
+  </AnimationStage>;
+};
+`;
+    writeFileSync(fixture.sourcePath, freeSource);
+    const result = validate(fixture.root);
+    assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
   } finally {
     rmSync(fixture.root, {recursive: true, force: true});
   }

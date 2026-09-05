@@ -133,7 +133,8 @@ for (const scene of scenes) {
     if (!id || PLACEHOLDER.test(id)) fail(prefix + ': gültige Beat-ID fehlt.');
     if (seenBeatIds.has(id)) fail(prefix + ': Beat-ID ist doppelt: ' + id);
     seenBeatIds.add(id);
-    if (!voiceText || PLACEHOLDER.test(voiceText)) fail(prefix + ': voiceText fehlt oder ist Platzhalter.');
+    const coverOnlyBeat = scene.id === 'scene-01' && scene.coverOnly === true && scene.voiceoverEnabled === false;
+    if ((!voiceText && !coverOnlyBeat) || PLACEHOLDER.test(voiceText)) fail(prefix + ': voiceText fehlt oder ist Platzhalter.');
     if (!visualChange || PLACEHOLDER.test(visualChange)) fail(prefix + ': visualChange fehlt oder ist Platzhalter.');
     if (!Number.isFinite(start) || !Number.isFinite(end) || start < 0 || end <= start) fail(prefix + ': startSecond/endSecond ungültig.');
     if (i === 0 && !almostEqual(start, 0)) fail(prefix + ': erster Beat muss bei 0 s beginnen.');

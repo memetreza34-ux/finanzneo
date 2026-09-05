@@ -43,7 +43,16 @@ for (const key of [
 assert(c.sourceSceneId === 'scene-01', 'Cover-Hook muss scene-01 verwenden.');
 assert(c.captionStartsFromSceneId === 'scene-02', 'Untertitel müssen erst mit scene-02 beginnen.');
 assert(Number(c.titleVisibleFromFrame) === 0, 'Titel muss ab Frame 0 sichtbar sein.');
-assert(Number(c.titleHoldMinFrames) >= 30, 'Titel muss mindestens 30 Frames lesbar bleiben.');
+const flashCover = Number(c.coverFlashFrames) === 3;
+if (flashCover) {
+  assert(Number(c.titleHoldMinFrames) === 3, '3-Frame-Cover verlangt titleHoldMinFrames=3.');
+  assert(Number(c.coverFlashSeconds) === 0.1, '3-Frame-Cover verlangt coverFlashSeconds=0.1.');
+  assert(c.voiceoverForbiddenDuringScene01 === true, 'Voiceover muss während des 3-Frame-Covers gesperrt sein.');
+  assert(Number(c.audioStartsAtFrame) === 3, 'Voiceover muss ab Frame 3 starten.');
+  assert(c.audioStartsFromSceneId === 'scene-02', 'Voiceover muss mit scene-02 starten.');
+} else {
+  assert(Number(c.titleHoldMinFrames) >= 30, 'Legacy-Cover muss mindestens 30 Frames lesbar bleiben.');
+}
 assert(c.exportedCoverSource === 'final-video-frame-0', 'Future-Cover muss aus dem finalen Video-Frame 0 exportiert werden.');
 
 const first = Array.isArray(index.scenes) ? index.scenes[0] : null;
@@ -54,6 +63,12 @@ assert(first?.subtitleMode === 'off', 'scene-01.subtitleMode muss off sein.');
 assert(first?.titleMode === 'reel-title-overlay', 'scene-01.titleMode muss reel-title-overlay sein.');
 assert(Number(first?.titleVisibleFromFrame) === 0, 'scene-01 Titel muss bei Frame 0 beginnen.');
 assert(first?.coverTitle === index.title, 'scene-01.coverTitle muss exakt scene-index.title entsprechen.');
+if (flashCover) {
+  assert(Number(first?.durationFrames) === 3, 'scene-01 muss beim Cover-Flash exakt 3 Frames dauern.');
+  assert(Number(first?.plannedDurationSeconds) === 0.1, 'scene-01.plannedDurationSeconds muss 0.1 sein.');
+  assert(first?.coverOnly === true, 'scene-01.coverOnly muss true sein.');
+  assert(first?.voiceoverEnabled === false, 'scene-01.voiceoverEnabled muss false sein.');
+}
 
 for (const relative of ['03-szenen/00-cover/cover.txt', first?.planFile, '05-projektdateien/ANTIGRAVITY-AUFTRAG.md', '05-projektdateien/technische-hinweise.md', '05-projektdateien/cover-hook-qa.md']) {
   if (!relative) continue;
@@ -80,5 +95,5 @@ if (errors.length) {
   process.exit(1);
 }
 console.log('\n✓ Future-Cover-Hook erfüllt: ' + ID);
-console.log('✓ Frame 0 = Hero-Bild + exakter Reel-Titel · keine Untertitel · kein Standard-Header-Icon.');
+console.log(flashCover ? '✓ Cover-Flash = exakt 3 Frames / 0,1 s · nur Hero-Bild + Titel · Voiceover ab scene-02.' : '✓ Legacy-Cover-Hook erfüllt.');
 console.log('✓ Cover-Export kommt aus dem geprüften finalen Video-Frame 0.');
