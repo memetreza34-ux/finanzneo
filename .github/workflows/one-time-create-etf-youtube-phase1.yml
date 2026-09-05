@@ -1,0 +1,117 @@
+name: One-time create ETF YouTube Phase 1
+
+on:
+  push:
+    branches:
+      - youtube/etf-100-euro-flagship-v1
+    paths:
+      - '.github/workflows/one-time-create-etf-youtube-phase1.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  create-phase1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.19.0
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Protect existing Reels before work
+        run: npm run reel:regression:check
+
+      - name: Patch and syntax-check one-time generator
+        run: |
+          python .tmp/patch-etf-generator.py
+          node --check .tmp/create-etf-100-youtube-phase1.mjs
+
+      - name: Create full Phase 1 project
+        run: node .tmp/create-etf-100-youtube-phase1.mjs
+
+      - name: Validate YouTube contract
+        run: npm run youtube:validate -- youtube/etf-100-euro-kompletter-weg
+
+      - name: Validate YouTube Motion V2
+        run: npm run youtube:animation:validate -- youtube/etf-100-euro-kompletter-weg
+
+      - name: Seal Phase 1 animations
+        run: npm run youtube:phase1:seal -- youtube/etf-100-euro-kompletter-weg
+
+      - name: Assert Phase 1 complete and only Phase 2 blocks readiness
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import {analyzeYouTubeReadiness} from './scripts/lib/youtube-readiness.mjs';
+          const result = analyzeYouTubeReadiness('youtube/etf-100-euro-kompletter-weg');
+          if (result.phase1Blockers.length) {
+            console.error(result.phase1Blockers.join('\n'));
+            process.exit(1);
+          }
+          if (!result.phase2Blockers.length) {
+            console.error('Expected Phase-2 blockers for user images/audio/timings, but none were found.');
+            process.exit(1);
+          }
+          console.log('Phase 1 complete; Phase 2 correctly remains user-owned.');
+          console.log(result.phase2Blockers.join('\n'));
+          NODE
+
+      - name: Full repository validation
+        run: npm run validate
+
+      - name: Remotion bundle
+        run: npm run build
+
+      - name: Render smoke
+        run: npm run smoke
+
+      - name: Remove temporary generator and workflow
+        run: |
+          rm -f .tmp/create-etf-100-youtube-phase1.mjs
+          rm -f .tmp/patch-etf-generator.py
+          rm -f .github/workflows/one-time-create-etf-youtube-phase1.yml
+
+      - name: Commit final Phase 1 project
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Create ETF 100 euro YouTube Phase 1'
+
+      - name: Hard changed-path gate
+        shell: bash
+        run: |
+          bad="$(git diff --name-only origin/main...HEAD | grep -v '^youtube/etf-100-euro-kompletter-weg/' || true)"
+          if [ -n "$bad" ]; then
+            echo 'Unexpected paths changed:'
+            echo "$bad"
+            exit 1
+          fi
+
+      - name: Explicit no-diff gate for Reel and image-world core
+        shell: bash
+        run: |
+          for path in reels config src/brand src/design-system scripts/lib/reel-contract.mjs scripts/lib/premium-animation-contract.mjs; do
+            if ! git diff --quiet origin/main...HEAD -- "$path"; then
+              echo "Protected existing area changed: $path"
+              exit 1
+            fi
+          done
+
+      - name: Final regression guard
+        run: npm run reel:regression:check
+
+      - name: Push checked Phase 1 commit
+        run: git push origin HEAD:youtube/etf-100-euro-flagship-v1
