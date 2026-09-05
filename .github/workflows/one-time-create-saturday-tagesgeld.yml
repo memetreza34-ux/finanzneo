@@ -30,6 +30,7 @@ jobs:
         run: |
           node --check scripts/.tmp-create-saturday-tagesgeld.mjs
           node --check scripts/.tmp-fix-saturday-source-contract.mjs
+          node --check scripts/.tmp-compact-saturday-prompts.mjs
 
       - name: Regression before
         run: npm run reel:regression:check
@@ -47,10 +48,14 @@ jobs:
       - name: Align exact source-contract markers
         run: node scripts/.tmp-fix-saturday-source-contract.mjs
 
+      - name: Compact V9 image prompts
+        run: node scripts/.tmp-compact-saturday-prompts.mjs
+
       - name: Remove one-time helpers before validation
         run: |
           rm scripts/.tmp-create-saturday-tagesgeld.mjs
           rm scripts/.tmp-fix-saturday-source-contract.mjs
+          rm scripts/.tmp-compact-saturday-prompts.mjs
           rm .github/workflows/one-time-create-saturday-tagesgeld.yml
 
       - name: Regression after
