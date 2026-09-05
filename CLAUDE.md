@@ -1,6 +1,6 @@
 # FinanzNeo — verbindliches Projekt-Gehirn
 
-> Höchste interne Quelle für Reel-Produktion. Bei Widersprüchen mit älteren Dateien gilt immer diese Datei. Für **neu erzeugte Reels mit `futureProductionStandard.id = finanzneo-future-production-v3`** gelten zusätzlich die strengeren Future-V3-Regeln aus `docs/FUTURE-REEL-PRODUCTION-V3.md`; ältere Reels werden nicht rückwirkend migriert.
+> Höchste interne Quelle für Reel-Produktion. Bei Widersprüchen mit älteren Dateien gilt immer diese Datei. Für **neu erzeugte Reels mit `futureProductionStandard.id = finanzneo-future-production-v3`** gelten zusätzlich `docs/FUTURE-REEL-PRODUCTION-V3.md`, `docs/FUTURE-COVER-HOOK-V3.md` und `docs/FUTURE-IMAGE-STORYTELLING-V3.md`; ältere Reels werden nicht rückwirkend migriert.
 
 ## 1. Kanal und Format
 
@@ -40,7 +40,7 @@ Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen und Phase 3 keine
 
 ### Phase 2 — Nutzer
 
-- erzeugt die Szenenbilder mit Google Flow; **scene-01 ist automatisch das Cover**, kein separater Cover-Bildjob und kein Bild 00
+- erzeugt die Szenenbilder mit Google Flow; **scene-01 ist automatisch das Cover UND der erste echte Content-Hook**, kein separater Cover-Bildjob und kein Bild 00
 - legt alle finalen Bilder exakt benannt in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 - legt genau ein finales Voiceover in `02-audio/`
 - erzeugt echte Wort-Zeitstempel
@@ -63,7 +63,7 @@ Phase 3 darf versiegelte Animationen **nicht kreativ ersetzen, vereinfachen oder
 
 ## 4. Reel-Struktur
 
-**Cover-Regel:** `scene-01` ist immer eine Bildszene und automatisch das Cover. Es wird kein separates Cover und kein `Bild 00` erzeugt. `03-szenen/00-cover/cover.txt` ist nur ein technischer Alias/Vertrag auf das Bild von `scene-01`.
+**Cover + erster Content-Beat:** `scene-01` ist immer eine Bildszene, automatisch das Cover **und gleichzeitig der erste echte inhaltliche Hook**. Es wird kein separates Cover und kein `Bild 00` erzeugt. Frame 0 ist nur der Cover-Snapshot derselben normalen Szene; es gibt keinen separaten `0,1 s`-/`3 Frames`-Cover-Clip. Das Voiceover beginnt bereits mit dem ersten gesprochenen Wort in `scene-01`. `03-szenen/00-cover/cover.txt` ist nur ein technischer Alias/Vertrag auf das Bild von `scene-01`.
 
 ```text
 01-script/
@@ -94,10 +94,15 @@ Bildszene:
 
 ## 5. Dramaturgie, Timing und Visual Beats
 
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
 VISUAL_BEAT_COMPATIBILITY_BASE: finanzneo-visual-beats-v1
 FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 
-- Hook in den ersten 2 Sekunden
+- **Hook beginnt mit dem ersten gesprochenen Wort in scene-01**; nicht erst irgendwann in den ersten 2 Sekunden
+- erste gesprochene Zeile = direkte Frage, klare Aussage, konkretes Problem, Warnung, Kontrast oder konkrete Zahl
+- der konkrete Themenanker muss bereits in Cover-Headline oder erster Hook-Zeile erkennbar sein
+- verboten vor dem Hook: Begrüßung, „Heute geht es um …“, „In diesem Video …“, neutrale Einleitung oder stiller Cover-Vorspann
+- Frame 0 bleibt als Cover-Snapshot caption-frei; danach dürfen Captions bereits innerhalb derselben scene-01 laufen
 - **keine feste Szenenzahl**: so wenige Szenen wie möglich, so viele wie nötig
 - Visual Beats werden unabhängig von der Szenenzahl geplant; erst gesprochene Gedanken, dann sichtbare Beats, dann Szenengruppierung
 - **1 gesprochener Gedanke = 1 sichtbarer Visual Beat**

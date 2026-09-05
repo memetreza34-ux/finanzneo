@@ -28,7 +28,10 @@ Assets integrieren + versiegelte Phase-1-Animationen binden
 ### Inhalt und Skript
 
 - 60–90 Sekunden als Standard
-- Hook in den ersten 2 Sekunden
+- **Cover Hook V3:** scene-01 ist Cover + erster Content-Beat
+- Hook beginnt mit dem ersten gesprochenen Wort in scene-01
+- erste Zeile = Frage/Aussage/Problem/Warnung/Kontrast/Zahl + konkreter Themenanker
+- kein separater 0,1-s-/3-Frame-Cover-Clip und keine neutrale Vorrede
 - von Anfang an Szene für Szene schreiben
 - ungefähr 14–16 Visual-Beats als Zielkorridor
 - ungefähr 60 % Bild / 40 % Animation als Richtwert, Qualität vor Quote
@@ -108,6 +111,9 @@ Alle finalen Bilder kommen nach:
 ### Audio und Timings
 
 - genau ein finales Voiceover in `02-audio/`
+- Voiceover startet bereits in scene-01 mit `scene-01.hook.spokenLine`; keine Begrüßung/Vorrede davor
+- Frame 0 ist nur der caption-freie Cover-Snapshot derselben normalen Hook-Szene
+- Captions dürfen nach Frame 0 bereits innerhalb scene-01 starten
 - echte Wortzeiten aus genau diesem Audio
 - keine Ersatz-Audiodatei
 - keine erfundenen Timings

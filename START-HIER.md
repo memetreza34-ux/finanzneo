@@ -24,11 +24,20 @@ Assets integrieren + versiegelte Phase-1-Animationen binden
 Einstiege:
 
 - Phase 1: `docs/PHASE-1-BRIEFING.md`
+- Cover/Hook: `docs/FUTURE-COVER-HOOK-V3.md`
 - Bildwelt: `docs/GLOBAL-IMAGE-WORLD-LOCK.md`
 - Animation: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
 - Scene Index: `docs/SCENE-INDEX-SCHEMA.md`
 - Gesamtworkflow: `docs/3-PHASEN-WORKFLOW.md`
 - Phase 3: `docs/PHASE-3-COMPLETION-GATE.md`
+
+## Cover Hook V3
+
+`scene-01` ist bei neuen Reels **Cover + erster echter Content-Hook**. Frame 0 wird als Cover exportiert, aber die Szene selbst läuft normal weiter. Das Voiceover beginnt mit dem ersten gesprochenen Wort bereits in scene-01. Kein separater 0,1-s-/3-Frame-Cover-Clip, kein Bild 00 und keine neutrale Einleitung.
+
+```text
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
+```
 
 ## Finales Layout
 

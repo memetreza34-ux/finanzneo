@@ -25,16 +25,28 @@ FinanzNeo erklärt Finanzgrundlagen auf Deutsch für Einsteiger. Direkte Du-Ansp
 FORMAT
 - 1080×1920, 9:16, 30 fps
 - 60–90 Sekunden
-- Hook in den ersten 2 Sekunden
+- FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
+- scene-01 = Cover + erster echter Content-Hook
+- Hook beginnt mit dem ersten gesprochenen Wort: Frage / Aussage / Problem / Warnung / Kontrast / konkrete Zahl + klarer Themenanker
+- keine Begrüßung, keine neutrale Einleitung und kein separater 0,1-s-/3-Frame-Cover-Clip
 - Ziel 14–16 Visual-Beats, Standard etwa 15
 - ungefähr 60 % Bild / 40 % Remotion-Animation, Qualität vor Quote
 - nie mehr als zwei Bildszenen direkt hintereinander
 - Bildbeat ideal 3,5–5,5 s, absolut max. 6 s
 - Animationsbeat ideal 4,5–7 s
-- alle Flow-Bildszenen strikt 1:1; scene-01 ist automatisch das Cover, kein separates Cover und kein Bild 00
+- alle Flow-Bildszenen strikt 1:1; scene-01 ist automatisch das Cover UND der erste Content-Beat, kein separates Cover und kein Bild 00; Frame 0 ist nur der Cover-Snapshot derselben Hook-Szene
 
 SKRIPT
 Schreibe von Anfang an SZENE FÜR SZENE. Nicht erst Fließtext schreiben und nachträglich schneiden.
+
+SZENE 01 — HARTE HOOK-REGEL
+- scene-01 ist bereits der erste gesprochene Inhalt, nicht nur ein Titelbild
+- erste gesprochene Zeile wird zusätzlich als `scene-01.hook.spokenLine` gespeichert
+- `script-fliess-text.txt` muss exakt mit dieser Zeile beginnen
+- `scene-01.hook.form`: question | claim | problem | warning | contrast | number
+- `scene-01.hook.topicAnchor`: konkretes Thema/Objekt, das sofort erkennbar sein muss
+- Cover-Headline muss selbst als Hook funktionieren, nicht nur als neutrale Themenbezeichnung
+- Voiceover startet in scene-01; Captions dürfen nach Frame 0 bereits in scene-01 beginnen
 
 Wortbudget:
 - Bildszene: 9–14 Wörter, absolut max. 15

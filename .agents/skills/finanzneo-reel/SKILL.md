@@ -11,9 +11,10 @@ Read in this order:
 
 1. `CLAUDE.md`
 2. target `03-szenen/scene-index.json`
-3. `docs/3-PHASEN-WORKFLOW.md`
-4. `docs/PHASE-3-COMPLETION-GATE.md`
-5. `reels/PRODUKTIONSSTANDARD.md`
+3. `docs/FUTURE-COVER-HOOK-V3.md`
+4. `docs/3-PHASEN-WORKFLOW.md`
+5. `docs/PHASE-3-COMPLETION-GATE.md`
+6. `reels/PRODUKTIONSSTANDARD.md`
 6. `.agents/rules/finanzneo-reel-safety.md`
 7. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
 8. `.agents/plugins/finanzneo-motion/rules/lottie-motion.md`
@@ -48,6 +49,12 @@ Integrates only. It must not invent missing Phase-1 animation or substitute miss
 If `phase3Executor` names another executor, do not take over Phase 3.
 
 After the animation SHA is sealed, Phase 3 may not invent a new Lottie concept, alter the physical mechanism or generate replacement animation code. Creative redesign returns to Phase 1.
+
+## Cover Hook V3
+
+For new reels, `scene-01` is **cover + first real content beat**. Frame 0 is only the clean cover snapshot of that same scene; never create a separate 0.1-second / 3-frame cover-only segment. The voiceover starts with the first spoken word already in scene-01. The first line must be a direct question, claim, problem, warning, contrast or concrete number with an immediately recognizable topic anchor. Captions may start after Frame 0 while scene-01 is still active.
+
+`script-fliess-text.txt` must begin exactly with `scene-01.hook.spokenLine`. Generic greetings or neutral topic intros before the hook are invalid.
 
 ## Visual Beat timing
 
