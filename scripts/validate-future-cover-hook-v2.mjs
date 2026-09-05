@@ -22,6 +22,10 @@ if (!c) {
   console.log('✓ Reel ohne Future-Cover-Hook bleibt rückwärtskompatibel.');
   process.exit(0);
 }
+if (c.id === 'finanzneo-cover-hook-v3') {
+  console.log('✓ Cover-Hook V3 wird vom V3-Validator geprüft; V2 bleibt für Bestandsreels zuständig.');
+  process.exit(0);
+}
 
 const errors = [];
 const assert = (condition, message) => { if (!condition) errors.push(message); };
