@@ -52,6 +52,9 @@ jobs:
       - name: Compact V9 image prompts
         run: node scripts/.tmp-compact-saturday-prompts.mjs
 
+      - name: Reapply strict Flow single-job contract
+        run: node scripts/apply-flow-autonomous-contract.mjs reels/2026-08-31_bis_2026-09-06/samstag/reel-06_tagesgeld-aktionszins
+
       - name: Make scene-06 ring deterministic
         run: node scripts/.tmp-fix-saturday-animation.mjs
 
