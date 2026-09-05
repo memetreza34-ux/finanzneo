@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform in drei Phasen
 
-> Bei Widersprüchen gilt `CLAUDE.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Für Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V2.md`.
 
 YouTube-Longform ist ein eigenständiges Format. Ein Reel wird weder gestreckt noch als YouTube Short gespiegelt. Ein Thema gehört in Longform, wenn es für Verständnis echte Tiefe braucht: mehrere Schritte, Beispiele, Vergleiche, Rechnungen, Einordnung oder häufige Fehler.
 
@@ -12,14 +12,32 @@ ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
 - geprüfte Recherche, Quellen, Datenstand, Annahmen und Rechenwege
 - Hook, Kapitel-Dramaturgie und Retention-Plan
 - vollständiges deutsches Voiceover-Skript
-- Visual-Plan mit Bild-/Remotion-Zuordnung
+- gesprochene Gedanken und sichtbare Visual Beats
+- danach die beste Visualart je Beat: `image`, `animation`, `hybrid` oder `data`
+- Visual-Plan ohne feste Visualzahl und ohne feste Bild-/Animationsquote
 - alle Google-Flow-Bildprompts in Englisch und mit exakten Dateinamen
+- für jedes Motion-Visual produktionsreife `animation.tsx`
+- pro Motion-Visual `mechanicId`, `visualTechniqueId`, `compositionFamilyId`, Motion Channels und Visual Beats
 - Thumbnail-Prompt und Thumbnail-Brief
 - Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords, Hashtags
 - Quellen-/Disclaimer-Text, angehefteten Kommentar, Community-Post und Upload-Checkliste
 - Promo-Texte für Instagram, TikTok, Facebook und Snapchat
 
-Die Videolänge folgt dem Thema und dem fertigen Skript. Es gibt keine künstliche Mindestlänge und keine Füllpassagen.
+### Motion-Auswahl
+
+Nicht zuerst eine vorhandene Komponente wählen. Zuerst festlegen, was der Zuschauer sehen soll. Danach darf Phase 1 frei zwischen Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Datenvisualisierung, Timeline, Kinetic Type, Document Motion, Simulation, Flow+Remotion-Hybrid und weiteren sinnvollen Remotion-Techniken wählen.
+
+Bestehende FinanzNeo-Komponenten und `Physical*`-Primitives sind optionale Werkzeuge, keine Pflichtvorlagen.
+
+Vor Phase 2:
+
+```bash
+npm run youtube:validate -- youtube/<Projekt>
+npm run youtube:animation:validate -- youtube/<Projekt>
+npm run youtube:phase1:seal -- youtube/<Projekt>
+```
+
+Der Seal bindet die kanonischen Motion-Quellen per SHA-256.
 
 ## Phase 2 — Nutzer erstellt Bilder und Audio
 
@@ -35,14 +53,15 @@ Der Agent arbeitet strikt:
 GENAU EIN BILD ERZEUGEN
 → VOLLSTÄNDIG WARTEN
 → SOFORT EXAKT UMBENENNEN
-→ MOTIV + LABELS + GESICHT + HINTERGRUND + 16:9 + DATEINAME PRÜFEN
+→ LITERALEN SPRECHPUNKT + KONTEXT + LABELS + HINTERGRUND + 16:9 + DATEINAME PRÜFEN
 → ERST DANN DAS NÄCHSTE BILD
 ```
 
 - Thumbnail zuerst erzeugen und nach bestandener Prüfung als reine Stilreferenz nutzen.
 - Nicht Motiv, Komposition oder Labels des Thumbnails in Folgebilder kopieren.
+- Neue Bilder folgen `Literal first, creative second`.
 - Fehlerhafte Bildnummer wiederholen; nie parallel oder als Batch fortfahren.
-- Animationsnummern überspringen, aber nicht neu nummerieren.
+- Nicht-Bild-Visualnummern überspringen, aber nicht neu nummerieren.
 - Alle fertigen Dateien gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen.
 - Alle YouTube-Quellbilder und das Thumbnail sind horizontal `16:9`.
 - Genau ein finales Voiceover in `03-audio/` ablegen.
@@ -50,7 +69,7 @@ GENAU EIN BILD ERZEUGEN
 
 Antigravity erzeugt keine fehlenden Bilder und kein Ersatz-Voiceover.
 
-## Phase 3 — Antigravity baut autonom
+## Phase 3 — Integration, Retiming, QA und Render
 
 Der Auftrag lautet:
 
@@ -58,20 +77,24 @@ Der Auftrag lautet:
 Mach das YouTube-Video: youtube/<Projekt>
 ```
 
-Antigravity beginnt immer mit:
+Phase 3 beginnt immer mit:
 
 ```bash
 npm run youtube:ready -- youtube/<Projekt>
 ```
 
-Bei erfolgreicher Prüfung arbeitet Antigravity ohne Rückfragen und Zwischenstopps:
+Bei erfolgreicher Prüfung arbeitet der Executor ohne Rückfragen und Zwischenstopps:
 
 1. finale Audio- und Bildassets einlesen
-2. Timeline aus Voiceover, Kapiteln und Visual-Plan ableiten
-3. Remotion-Animationen, Texteinblendungen und Untertitel bauen
-4. 1920 × 1080 bei 30 fps rendern
-5. Validator, Tests, Typecheck und Render-QA ausführen
-6. Bildsatz, Thumbnail, komplette MP4, Ton und Lautheit prüfen
-7. Kapitel-Zeitstempel und Upload-Paket an den finalen Render anpassen
+2. unveränderten Phase-1-Motion-Seal prüfen
+3. Timeline aus Voiceover, Visual Beats und Kapiteln ableiten
+4. versiegelte Motion-Quellen integrieren und nur zeitlich an echtes Audio anpassen
+5. Texteinblendungen, Untertitel und freigegebene lokale SFX integrieren
+6. 1920 × 1080 bei 30 fps rendern
+7. Validator, Tests, Typecheck und Render-QA ausführen
+8. Bildsatz, Thumbnail, komplette MP4, Ton und Lautheit prüfen
+9. Kapitel-Zeitstempel und Upload-Paket an den finalen Render anpassen
 
-Antigravity stoppt nur bei einem echten Blocker und meldet alle Blocker gesammelt mit exakten Pfaden: fehlendes/falsch benanntes Bild, fehlendes/mehrfaches/unlesbares Audio, falsche Wortzeiten, Fakten-/Sicherheitskonflikt oder nicht selbst lösbarer Validator-/Build-/Renderfehler.
+Phase 3 darf eine versiegelte Animation **nicht** durch eine einfachere Karten-, Balken-, Coin- oder Standardanimation ersetzen. Kreative Änderungen bedeuten zurück zu Phase 1, erneute Motion-Validation und erneuten Seal.
+
+Phase 3 stoppt nur bei einem echten Blocker und meldet alle Blocker gesammelt mit exakten Pfaden.
