@@ -21,6 +21,8 @@
 
 - Recherche + Quellen
 - einfaches, anfängerfreundliches Skript
+- **scene-01 als Cover + erster Content-Beat**
+- direkte Hook-Zeile als allererste gesprochene Zeile; Frage/Aussage/Problem/Warnung/Kontrast/Zahl + konkreter Themenanker
 - Szenenplan und V9-Flow-Prompts
 - Header + Icons
 - fertige kanonische `animation.tsx` je Animationsszene
@@ -40,12 +42,34 @@ Kein Agent ersetzt oder generiert diese Flow-Bilder oder das Haupt-Voiceover eig
 
 `scene-index.json.phase3Executor` entscheidet den Executor. Phase 3 integriert die finalen Nutzerassets, den versiegelten Animationscode und freigegebene lokale SFX. Sie darf zusätzlich Playwright Visual QA gegen die lokale Remotion-Preview durchführen. Eine kreative Änderung an Animation/Lottie nach dem Seal muss zurück in Phase 1 und neu versiegelt werden.
 
-## 3. Visual Beats und Timing
+## 3. Cover + erster Content-Beat
+
+```text
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
+```
+
+Für neu erzeugte Reels gilt:
+
+- `scene-01` ist gleichzeitig **Cover + erster Content-Beat**.
+- Frame 0 ist nur der Cover-Snapshot derselben normalen scene-01.
+- Es gibt **keinen separaten 0,1-s-/3-Frame-Cover-Clip**, keine stille Titelkarte und kein Bild 00.
+- **Voiceover startet bereits in scene-01** mit dem ersten gesprochenen Wort.
+- Die erste Zeile ist direkt eine konkrete Frage, Aussage, Problem-/Warn-Aussage, ein Kontrast oder eine Zahl und macht das Thema sofort klar.
+- Generische Starts wie „Hallo“, „Heute geht es um …“ oder „In diesem Video …“ sind verboten.
+- Frame 0 zeigt Hero-Bild + Remotion-Hook-Titel und bleibt caption-frei/ohne Standard-Header-Icon.
+- Captions dürfen nach Frame 0 innerhalb derselben scene-01 starten.
+- scene-01-Dauer folgt dem echten ersten Hook-Voiceover; kein künstlicher Cover-Hold.
+- `cover.png` wird aus Frame 0 der geprüften finalen MP4 exportiert.
+
+Bestehende V2-Reels werden nicht rückwirkend verändert.
+
+## 4. Visual Beats und Timing
 
 VISUAL_BEAT_COMPATIBILITY_BASE: finanzneo-visual-beats-v1
 FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 
 - Szenenzahl ist frei und themenabhängig.
+- Der Hook beginnt mit dem **ersten gesprochenen Wort in scene-01**; nicht erst irgendwann in den ersten zwei Sekunden.
 - Erst gesprochene Gedanken definieren, dann pro Gedanken einen sichtbaren Beat planen, danach Szenen gruppieren.
 - Ein Satz darf ein eigenes Bild erhalten; zwei Aussagen/Aktionen/Beispiele in einem Satz dürfen in zwei Beats geteilt werden.
 - Kompatibilitätsbasis älterer Reels: Bildbeats ideal 1,8–3,4 s und max. 4,5 s. **Neue Future-V3-Reels:** ideal 1,8–3,0 s; ab 3,6 s aktiv Split/zusätzliches Bild prüfen; ohne neue sichtbare Information hart maximal 4,0 s.
@@ -54,17 +78,18 @@ FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 - Finale Schnitte folgen den echten Wort-Zeitstempeln des Nutzer-Voiceovers.
 - 60/40 Bild/Animation bleibt Richtwert, keine Quote.
 
-## 4. Bilder / Google Flow
+## 5. Bilder / Google Flow
 
 - exakt ein Bildjob gleichzeitig
 - vollständig warten → exakt umbenennen → V9-QA → erst dann nächster Job
 - keine Batch-/Parallelgenerierung
-- scene-01 ist automatisch das Cover; kein Bild 00
+- scene-01 ist automatisch das Cover; kein Bild 00 und kein separater Cover-Bildjob
+- das scene-01-Bild ist zugleich das **erste visuelle Erklärbild des Hooks**, keine neutrale Cover-Deko
 - finale Bilder liegen in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 
 Bildwelt: `finanzneo-stylized-3d-animated-black-v9`. Reale Alltagssituation und klare Ursache/Wirkung zuerst; glaubwürdige Objektkonstruktion und Proportionen; semi-realistische Materialdetails in klar stilisiertem 3D; niemals fotorealistisch. Deep Black bleibt Pflicht.
 
-## 5. Layout V5
+## 6. Layout V5
 
 Quelle ist ausschließlich `REEL_STYLE`:
 
@@ -79,7 +104,7 @@ Transition 3 Frames
 
 Zweizeilige Header halten das Icon an der ersten Textzeile. `AnimationStage` clippt hart auf Y320–1400. Der produktive Hintergrund ist statisch `#000000`.
 
-## 6. Animationen
+## 7. Animationen
 
 Animationsszenen sind kleine visuelle Geschichten:
 
@@ -91,15 +116,22 @@ Pflicht sind konkrete Realwelt-Objekte, sichtbare Ursache/Wirkung, mehrere koord
 
 Nach `reel:ready` ist die kanonische Animation per SHA-256 versiegelt.
 
-## 7. SFX
+## 8. SFX
 
 SFX bestätigen sichtbare Ereignisse framegenau. Voiceover bleibt immer dominant. Keine Placeholder-Beeps, keine Remote-Sound-URLs, keine Casino-/Jackpot-Geldsounds. Fehlende freigegebene SFX dürfen mit dem konfigurierten Sound-Skill lokal erzeugt werden; das Haupt-Voiceover bleibt unverändert Nutzerasset.
 
-## 8. Playwright Visual QA
+## 9. Playwright Visual QA
 
 Playwright CLI prüft die lokale Remotion-Preview. Jede Bildszene erhält mindestens einen stabilen Check; jede Animationsszene mindestens START, TRIGGER, MID, NEAR RESULT und FINAL HOLD. Geprüft werden insbesondere Header/Icon-Konsistenz, Y320–1400, Caption-Abstand, Clipping, Hero-Größe, Leerraum und sichtbare Start→Ergebnis-Veränderung. Sichtbare Fehler müssen an der kanonischen Quelle behoben werden, auch wenn TypeScript/Bundle bereits grün sind.
 
-## 9. Phase 3 / Abschluss
+Bei Cover Hook V3 zusätzlich:
+
+- Frame 0 muss als sauberes Cover funktionieren.
+- Ein späterer Frame derselben scene-01 muss weiterhin denselben ersten Content-Hook zeigen.
+- Voiceover darf nicht bis scene-02 verzögert sein.
+- Ein 0,1-s-/3-Frame-Cover-only-Segment ist ein harter Fehler.
+
+## 10. Phase 3 / Abschluss
 
 Normale Kette:
 
@@ -114,17 +146,10 @@ npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.
 
 FINAL_COMPLETE verlangt: alle Szenen belegt, exakter Animations-Seal, Audio vorhanden, 1080×1920, korrekte Timeline, Visual-QA bestanden und vollständiges `06-export/`. Bei Future-V3-Reels kommt vor der Freigabe verpflichtend Audio-Mastering auf -16 LUFS / -1 dBTP plus gemessene Audio-/Animationsbelegungs-QA hinzu.
 
-## 10. Publishing
+## 11. Publishing
 
 Finaler Standard:
 
-```text
-06-export/<reel-name>.mp4
-06-export/cover.<ext>
-06-export/caption-universal.txt
-06-export/untertitel.srt
-06-export/bilder.zip
-06-export/UPLOAD.md
-```
-
-`caption-universal.txt` ist die einzige Caption für Instagram Reels, TikTok, Facebook Reels und Snapchat. Keine separaten Plattform-Captiondateien. YouTube bleibt eigenständiges Longform unter `youtube/`.
+- `04-caption/caption.txt` ist die einzige universelle Reel-Caption.
+- Keine separaten Plattform-Captiondateien.
+- Keine YouTube Shorts; YouTube bleibt Longform unter `youtube/`.
