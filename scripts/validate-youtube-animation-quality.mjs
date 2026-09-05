@@ -68,19 +68,20 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
   }
   if (!/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: useCurrentFrame() fehlt.`);
   if (!/\b(interpolate|spring)\s*\(/.test(source)) errors.push(`${id}: mindestens interpolate() oder spring() muss echte Frame-Motion steuern.`);
-  if (!source.includes(`MECHANIC_ID = '${visual.mechanicId}'`) && !source.includes(`MECHANIC_ID = \"${visual.mechanicId}\"`)) {
+  if (!source.includes(`MECHANIC_ID = '${visual.mechanicId}'`) && !source.includes(`MECHANIC_ID = "${visual.mechanicId}"`)) {
     errors.push(`${id}: MECHANIC_ID im Code stimmt nicht mit visual-index.json überein.`);
   }
-  if (!source.includes(`VISUAL_TECHNIQUE_ID = '${visual.visualTechniqueId}'`) && !source.includes(`VISUAL_TECHNIQUE_ID = \"${visual.visualTechniqueId}\"`)) {
+  if (!source.includes(`VISUAL_TECHNIQUE_ID = '${visual.visualTechniqueId}'`) && !source.includes(`VISUAL_TECHNIQUE_ID = "${visual.visualTechniqueId}"`)) {
     errors.push(`${id}: VISUAL_TECHNIQUE_ID im Code stimmt nicht mit visual-index.json überein.`);
   }
-  if (!source.includes(`COMPOSITION_FAMILY_ID = '${visual.compositionFamilyId}'`) && !source.includes(`COMPOSITION_FAMILY_ID = \"${visual.compositionFamilyId}\"`)) {
+  if (!source.includes(`COMPOSITION_FAMILY_ID = '${visual.compositionFamilyId}'`) && !source.includes(`COMPOSITION_FAMILY_ID = "${visual.compositionFamilyId}"`)) {
     errors.push(`${id}: COMPOSITION_FAMILY_ID im Code stimmt nicht mit visual-index.json überein.`);
   }
   if (!/ANIMATION_NARRATIVE/.test(source) || !/START/.test(source) || !/RESULT/.test(source)) {
     errors.push(`${id}: ANIMATION_NARRATIVE mit START und RESULT fehlt.`);
   }
-  const exportPattern = new RegExp(`export\\s+(?:const|function)\\s+${String(visual.animationExport ?? '').replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')}\\b`);
+  const safeExport = String(visual.animationExport ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const exportPattern = new RegExp(`export\\s+(?:const|function)\\s+${safeExport}\\b`);
   if (!visual.animationExport || !exportPattern.test(source)) errors.push(`${id}: Export ${visual.animationExport ?? '(fehlt)'} wurde nicht gefunden.`);
 }
 
