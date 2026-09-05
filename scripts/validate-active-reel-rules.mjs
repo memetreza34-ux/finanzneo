@@ -98,7 +98,7 @@ const requiredMarkers = new Map([
   ['scripts/validate-reel-layout-v5.mjs', ['visualBottom === 1400', 'fontSize === 56', 'hardClipAnimations === true']],
   ['scripts/create-finanzneo-reel.mjs', ['apply-stylized-animated-black-world-v9.mjs', 'apply-future-cover-hook-v3.mjs', 'Cover Hook V3', 'erster echter Content-Hook', 'apply-future-image-storytelling-v3.mjs', 'Literal first, creative second', 'Visual Y320–1400']],
   ['scripts/apply-future-cover-hook-v3.mjs', ['finanzneo-cover-hook-v3', 'scene01IsFirstContentBeat', 'zeroPointOneSecondCoverOnlyIntroForbidden', 'voiceoverStartsInScene01', 'captionStartsFromSceneId', 'NO_STANDALONE_COVER_BEAT: true']],
-  ['scripts/validate-future-cover-hook-v3.mjs', ['finanzneo-cover-hook-v3', 'finanzneo-cover-hook-v2', '0,1-s-/3-Frame-Cover-only', 'Gesamtskript muss exakt mit scene-01.hook.spokenLine beginnen']],
+  ['scripts/validate-future-cover-hook-v3.mjs', ['finanzneo-cover-hook-v3', 'finanzneo-cover-hook-v2', 'scene-01 darf nicht als 3-Frame/0,1-s-Cover-only-Szene', 'Gesamtskript muss exakt mit scene-01.hook.spokenLine beginnen']],
   ['docs/FUTURE-COVER-HOOK-V3.md', ['finanzneo-cover-hook-v3', 'Szene 01 ist gleichzeitig Cover und erster echter Content-Beat', 'keine separate Cover-Szene', 'Voiceover startet bereits mit dem ersten gesprochenen Wort in scene-01']],
   ['scripts/apply-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'Literal first, creative second', 'TRANSFERABILITY_TEST', 'Förderbänder, Schienen, Schranken, Käfige']],
   ['scripts/validate-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'finanzneo-image-storytelling-v2', 'TRANSFERABILITY_TEST', 'METAPHOR_JUSTIFICATION']],
