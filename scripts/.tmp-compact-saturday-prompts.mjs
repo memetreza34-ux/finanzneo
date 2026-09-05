@@ -37,7 +37,7 @@ const additions = {
 
 const compact = (path, sceneId, isCover = false) => {
   if (!existsSync(path)) throw new Error('Prompt fehlt: ' + path);
-  let source = readFileSync(path, 'utf8');
+  const source = readFileSync(path, 'utf8');
   const worldMarker = '\n\nFINANZNEO_WORLD_ID:';
   const worldAt = source.indexOf(worldMarker);
   if (worldAt < 0) throw new Error('FINANZNEO_WORLD_ID fehlt: ' + path);
@@ -56,9 +56,13 @@ const compact = (path, sceneId, isCover = false) => {
   }
 
   let suffix = compactTail;
-  if (isCover) {
-    suffix += `\nCOVER_HOOK_CONTRACT: finanzneo-cover-hook-v2\nTECHNISCHER COVER-ALIAS — KEIN SEPARATER BILDJOB\nNo separate cover generation.\nno Bild 00.\n`;
+  if (sceneId === 'scene-01' || isCover) {
+    suffix += `\nCOVER_HOOK_CONTRACT: finanzneo-cover-hook-v2\n`;
   }
+  if (isCover) {
+    suffix += `TECHNISCHER COVER-ALIAS — KEIN SEPARATER BILDJOB\nNo separate cover generation.\nno Bild 00.\n`;
+  }
+
   const output = head + '\n\n' + suffix;
   if (output.length > 4200) throw new Error(`${sceneId} bleibt zu lang: ${output.length}`);
   const imagePrompt = output.split('IMAGE PROMPT:')[1]?.split(/\n\nFINANZNEO_WORLD_ID:/)[0]?.trim() ?? '';
@@ -75,3 +79,4 @@ for (const scene of index.scenes ?? []) {
 compact(resolve(root, '03-szenen/00-cover/cover.txt'), 'scene-01-cover', true);
 
 console.log('✓ V9-Prompts kompakt gehalten: weniger Boilerplate, Motivinformation bleibt dominant.');
+console.log('✓ Cover-Hook-V2 bleibt in scene-01 und Cover-Alias erhalten.');
