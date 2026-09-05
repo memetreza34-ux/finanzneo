@@ -6,10 +6,12 @@ import {
   SOCIAL_PROMO_FILES,
   SERIES_LOCK_ID,
   WORLD_ID,
+  YOUTUBE_MOTION_STANDARD_ID,
   YOUTUBE_PUBLISHING_FILES,
   YOUTUBE_VIDEO_ASPECT_RATIO,
   YOUTUBE_VIDEO_HEIGHT,
   YOUTUBE_VIDEO_WIDTH,
+  YOUTUBE_VISUAL_TYPES,
 } from '../scripts/lib/youtube-contract.mjs';
 import {WORLD_ID as REEL_WORLD_ID} from '../scripts/lib/reel-contract.mjs';
 
@@ -22,6 +24,11 @@ test('YouTube verwendet dieselbe FinanzNeo-Welt, aber ein eigenes 16:9-Format', 
   assert.equal(YOUTUBE_VIDEO_ASPECT_RATIO, '16:9');
   assert.equal(YOUTUBE_VIDEO_WIDTH, 1920);
   assert.equal(YOUTUBE_VIDEO_HEIGHT, 1080);
+});
+
+test('YouTube Motion V2 trennt Longform-Motion von Reel-Physical-Pflichten', () => {
+  assert.equal(YOUTUBE_MOTION_STANDARD_ID, 'finanzneo-youtube-motion-v2');
+  assert.deepEqual(YOUTUBE_VISUAL_TYPES, ['image', 'animation', 'hybrid', 'data']);
 });
 
 test('YouTube-Paket enthält Upload-Metadaten und vier Social-Promos', () => {
