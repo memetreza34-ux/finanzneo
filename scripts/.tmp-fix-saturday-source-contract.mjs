@@ -5,6 +5,7 @@ import {resolve} from 'node:path';
 
 const root = resolve('reels/2026-08-31_bis_2026-09-06/samstag/reel-06_tagesgeld-aktionszins');
 const scenesRoot = resolve(root, '03-szenen');
+const COVER_HOOK_ID = 'finanzneo-cover-hook-v2';
 
 const walk = (dir) => {
   for (const entry of readdirSync(dir)) {
@@ -37,12 +38,21 @@ if (!existsSync(coverPath)) throw new Error('Cover-Alias fehlt');
 let cover = readFileSync(coverPath, 'utf8');
 const coverMarkers = `
 
+COVER_HOOK_CONTRACT: ${COVER_HOOK_ID}
 TECHNISCHER COVER-ALIAS — KEIN SEPARATER BILDJOB
 No separate cover generation.
 no Bild 00.
 `;
-if (!/KEIN SEPARATER BILDJOB/i.test(cover)) cover += coverMarkers;
+if (!cover.includes(COVER_HOOK_ID)) cover += coverMarkers;
 writeFileSync(coverPath, cover, 'utf8');
+
+const scene01Path = resolve(root, '03-szenen/EINZELNE-SZENEN/scene-01/bildprompt.txt');
+if (!existsSync(scene01Path)) throw new Error('scene-01 Bildprompt fehlt');
+let scene01 = readFileSync(scene01Path, 'utf8');
+if (!scene01.includes(COVER_HOOK_ID)) {
+  scene01 += `\n\nCOVER_HOOK_CONTRACT: ${COVER_HOOK_ID}\n`;
+  writeFileSync(scene01Path, scene01, 'utf8');
+}
 
 const research = `# Recherche und Quellen – Tagesgeld-Aktionszins
 
@@ -68,5 +78,5 @@ Keine konkrete Bankempfehlung. Keine individuelle Finanzberatung.
 writeFileSync(resolve(root, '05-projektdateien/recherche-quellen.md'), research, 'utf8');
 
 console.log('✓ Exakte Source-Contract-Marker ergänzt: deep black background + finaler Bilderordner.');
-console.log('✓ Kanonische scene-01 Cover-/Alias-Marker erhalten.');
+console.log('✓ Kanonische scene-01 Cover-/Alias-Marker und Cover-Hook V2 erhalten.');
 console.log('✓ Kanonische recherche-quellen.md mit geprüften Aussagen befüllt.');
