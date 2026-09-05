@@ -1,0 +1,754 @@
+{
+  "version": 2,
+  "title": "Was passiert wirklich mit deinen 100 € im ETF?",
+  "format": "youtube-longform",
+  "shortsForbidden": true,
+  "fixedVisualCount": false,
+  "fixedImageAnimationRatio": false,
+  "video": {
+    "aspectRatio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "thumbnail": {
+    "type": "image",
+    "googleFlowFileName": "YouTube Thumbnail - ETF 100 Euro.png",
+    "planFile": "04-visuals/thumbnail-prompt.txt"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-sequential-v1",
+    "generationMode": "one-image-at-a-time",
+    "strictSequential": true,
+    "waitForCurrentImage": true,
+    "renameBeforeNext": true,
+    "qaBeforeNext": true,
+    "retrySameImageOnFailure": true,
+    "finalCollectionDirectory": "04-visuals/00-ALLE-BILDER-HIER-REIN/",
+    "distributeToVisualFolders": false
+  },
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "seriesLockId": "finanzneo-same-world-v1",
+    "generatedImageAspectRatio": "16:9",
+    "horizontalGeneratedImagesRequired": true,
+    "referencePromptFile": "04-visuals/bildwelt.txt",
+    "styleReferenceStrategy": "approved-thumbnail-style-only",
+    "sameWorldAcrossSeriesRequired": true,
+    "literalFirst": true,
+    "metaphorOptional": true,
+    "seamlessSingleBackgroundRequired": true,
+    "objectLabelsOnly": true
+  },
+  "motionStandard": {
+    "id": "finanzneo-youtube-motion-v2",
+    "contentFirstTechniqueSelection": true,
+    "customReactAllowed": true,
+    "svgAllowed": true,
+    "css3dAllowed": true,
+    "canvasAllowed": true,
+    "threeAllowed": true,
+    "hybridAllowed": true,
+    "dataVisualizationAllowed": true,
+    "existingComponentsOptional": true,
+    "physicalPrimitivesOptional": true,
+    "uniqueTechniquePreferred": true
+  },
+  "timelineRules": {
+    "timingSource": "03-audio/word-timings.json",
+    "cutsFollowVoiceAndChapters": true,
+    "equalLengthVisualsForbiddenByDefault": true,
+    "beatFirst": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "publishing": {
+    "youtube": {
+      "titleOptions": "05-publishing/title-options.txt",
+      "finalTitle": "05-publishing/final-title.txt",
+      "description": "05-publishing/description.txt",
+      "chapters": "05-publishing/chapters.txt",
+      "tagsKeywords": "05-publishing/tags-keywords.txt",
+      "hashtags": "05-publishing/hashtags.txt",
+      "thumbnailBrief": "05-publishing/thumbnail-brief.txt",
+      "pinnedComment": "05-publishing/pinned-comment.txt",
+      "communityPost": "05-publishing/community-post.txt",
+      "sourcesDisclaimer": "05-publishing/sources-disclaimer.txt",
+      "uploadChecklist": "05-publishing/upload-checklist.md"
+    },
+    "socialPromo": {
+      "instagram": "05-publishing/social-promo/instagram.txt",
+      "tiktok": "05-publishing/social-promo/tiktok.txt",
+      "facebook": "05-publishing/social-promo/facebook.txt",
+      "snapchat": "05-publishing/social-promo/snapchat.txt"
+    }
+  },
+  "visuals": [
+    {
+      "id": "visual-01",
+      "type": "hybrid",
+      "chapter": "Hook",
+      "scriptBeat": "100 Euro verlassen das Verrechnungskonto, aber nicht direkt Richtung hundert Unternehmen.",
+      "googleFlowFileName": "YouTube Bild 01 - 100 Euro Start.png",
+      "expectedVisual": "A premium stylized desk scene with a generic broker purchase confirmation showing only the short German label “100 €”, one clearly visible ETF share document in the foreground, and many different real-world company environments far behind it, separated so the viewer immediately sees that one fund share sits between the money and the companies.",
+      "objectLabels": [
+        "100 €",
+        "ETF-Anteil"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-01/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-01/animation.tsx",
+      "animationExport": "YouTubeVisual01Animation",
+      "animationIntent": "Reveal the hidden ETF-share layer between the investor payment and underlying companies.",
+      "mechanicId": "purchase-to-fund-share",
+      "visualTechniqueId": "masked-money-to-etf-share",
+      "compositionFamilyId": "image-composite",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "money route reveal",
+        "ETF share scale and focus",
+        "background company depth shift"
+      ],
+      "visualBeats": [
+        "100 € at broker",
+        "ETF share becomes focal object",
+        "companies appear behind the fund layer"
+      ],
+      "imagePlanFile": "04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt",
+      "motionPlanFile": "04-visuals/EINZELNE-VISUALS/visual-01/remotion.md"
+    },
+    {
+      "id": "visual-02",
+      "type": "animation",
+      "chapter": "Kaufauftrag",
+      "scriptBeat": "Der Broker leitet den Auftrag an einen Handelsplatz; du kaufst einen Fondsanteil.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-02/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx",
+      "animationExport": "YouTubeVisual02Animation",
+      "animationIntent": "Show a concrete buy order becoming a matched ETF trade.",
+      "mechanicId": "broker-order-routing",
+      "visualTechniqueId": "order-slip-market-match",
+      "compositionFamilyId": "document-motion",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "order document movement",
+        "buyer/seller match",
+        "ETF unit handoff"
+      ],
+      "visualBeats": [
+        "buy order enters",
+        "seller quote matches",
+        "ETF share moves to investor"
+      ]
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "chapter": "Kaufauftrag",
+      "scriptBeat": "Du kaufst einen Anteil am Fonds, nicht gleichzeitig jede einzelne Aktie in deinem eigenen Namen.",
+      "googleFlowFileName": "YouTube Bild 03 - ETF Anteil statt Einzelaktien.png",
+      "expectedVisual": "A literal stylized 3D investment desk: one large paper certificate labeled “ETF-Anteil” sits in the investor area. Behind a clear divider is the fund portfolio containing many small but recognizable company share documents. Do not show the investor directly holding each company share. Make the ownership layer unmistakable.",
+      "objectLabels": [
+        "ETF-Anteil",
+        "Fondsportfolio"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-03/bildprompt.txt"
+    },
+    {
+      "id": "visual-04",
+      "type": "animation",
+      "chapter": "Creation und Redemption",
+      "scriptBeat": "Market Maker und Authorized Participant verbinden den Börsenhandel mit dem Fondsportfolio.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-04/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx",
+      "animationExport": "YouTubeVisual04Animation",
+      "animationIntent": "Explain secondary market versus primary market and the basket-for-shares exchange.",
+      "mechanicId": "creation-redemption-bridge",
+      "visualTechniqueId": "dual-market-basket-exchange",
+      "compositionFamilyId": "comparison",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "secondary-market trade",
+        "basket transfer",
+        "ETF-unit creation/redemption"
+      ],
+      "visualBeats": [
+        "investor trades existing share",
+        "AP assembles securities basket",
+        "basket and ETF units exchange with fund"
+      ]
+    },
+    {
+      "id": "visual-05",
+      "type": "data",
+      "chapter": "Creation und Redemption",
+      "scriptBeat": "Creation/Redemption hilft, den Börsenpreis nahe am Wert des Fondsportfolios zu halten.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-05/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-05/animation.tsx",
+      "animationExport": "YouTubeVisual05Animation",
+      "animationIntent": "Show a temporary ETF market-price gap narrowing toward portfolio value.",
+      "mechanicId": "nav-price-convergence",
+      "visualTechniqueId": "nav-spread-band-convergence",
+      "compositionFamilyId": "data-viz",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "market-price marker movement",
+        "spread band contraction",
+        "NAV reference hold"
+      ],
+      "visualBeats": [
+        "market price separated from NAV",
+        "arbitrage connection activates",
+        "gap narrows toward NAV"
+      ],
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-05/data-notes.md"
+    },
+    {
+      "id": "visual-06",
+      "type": "hybrid",
+      "chapter": "Index",
+      "scriptBeat": "Der Index ist das Regelwerk; der ETF versucht seine Wertentwicklung nachzubilden.",
+      "googleFlowFileName": "YouTube Bild 06 - Index Regeln und Portfolio.png",
+      "expectedVisual": "A literal 16:9 stylized 3D finance worktable with a printed rulebook labeled “Indexregeln” on the left and a real portfolio tray labeled “ETF-Portfolio” on the right. The rulebook contains simple weighted rows for generic sectors, and the portfolio tray visibly mirrors those weights with real share documents. No dashboard UI.",
+      "objectLabels": [
+        "Indexregeln",
+        "ETF-Portfolio"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-06/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-06/animation.tsx",
+      "animationExport": "YouTubeVisual06Animation",
+      "animationIntent": "Animate index weights from the rulebook onto the matching portfolio holdings.",
+      "mechanicId": "index-to-portfolio-mapping",
+      "visualTechniqueId": "blueprint-weight-overlay",
+      "compositionFamilyId": "image-composite",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "weight highlight sweep",
+        "portfolio object emphasis",
+        "mapping lines reveal"
+      ],
+      "visualBeats": [
+        "index rules visible",
+        "weights map to holdings",
+        "portfolio matches rule set"
+      ],
+      "imagePlanFile": "04-visuals/EINZELNE-VISUALS/visual-06/bildprompt.txt",
+      "motionPlanFile": "04-visuals/EINZELNE-VISUALS/visual-06/remotion.md"
+    },
+    {
+      "id": "visual-07",
+      "type": "animation",
+      "chapter": "Replikation",
+      "scriptBeat": "Bei physischer Replikation hält der Fonds tatsächlich Wertpapiere aus dem Index.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-07/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-07/animation.tsx",
+      "animationExport": "YouTubeVisual07Animation",
+      "animationIntent": "Build a tangible 3D portfolio from weighted securities that represent the index.",
+      "mechanicId": "physical-replication-assembly",
+      "visualTechniqueId": "threejs-weighted-portfolio-build",
+      "compositionFamilyId": "spatial-3d",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "3D securities placement",
+        "camera orbit",
+        "weight labels resolve"
+      ],
+      "visualBeats": [
+        "empty fund tray",
+        "weighted securities assemble",
+        "complete physical portfolio"
+      ]
+    },
+    {
+      "id": "visual-08",
+      "type": "animation",
+      "chapter": "Replikation",
+      "scriptBeat": "Bei sehr breiten Indizes kann Sampling eine repräsentative Auswahl statt jeder Position nutzen.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-08/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-08/animation.tsx",
+      "animationExport": "YouTubeVisual08Animation",
+      "animationIntent": "Show many index constituents narrowing to a representative sample while preserving category proportions.",
+      "mechanicId": "sampling-selection",
+      "visualTechniqueId": "svg-representative-selection-funnel",
+      "compositionFamilyId": "vector-motion",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "constituent stream",
+        "selection mask",
+        "category proportion bars"
+      ],
+      "visualBeats": [
+        "many index constituents",
+        "representative securities selected",
+        "sample keeps broad structure"
+      ]
+    },
+    {
+      "id": "visual-09",
+      "type": "image",
+      "chapter": "Fondsstruktur",
+      "scriptBeat": "Die Fondsgesellschaft verwaltet das Portfolio; eine Verwahrstelle hält das Fondsvermögen getrennt.",
+      "googleFlowFileName": "YouTube Bild 09 - Fondsgesellschaft Verwahrstelle.png",
+      "expectedVisual": "A literal stylized 3D institutional scene with two clearly separate functions: a fund management desk labeled “Fondsgesellschaft” reviewing the ETF rulebook, and a secure custody area labeled “Verwahrstelle” physically holding the portfolio documents. The two areas are connected operationally but their assets are visibly separated.",
+      "objectLabels": [
+        "Fondsgesellschaft",
+        "Verwahrstelle"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-09/bildprompt.txt"
+    },
+    {
+      "id": "visual-10",
+      "type": "animation",
+      "chapter": "Fondsstruktur",
+      "scriptBeat": "Fondsvermögen ist vom Vermögen der Kapitalverwaltungsgesellschaft getrennt.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-10/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-10/animation.tsx",
+      "animationExport": "YouTubeVisual10Animation",
+      "animationIntent": "Make legal asset separation tangible without implying protection from market losses.",
+      "mechanicId": "special-assets-separation",
+      "visualTechniqueId": "css3d-separated-custody-vaults",
+      "compositionFamilyId": "css-3d",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "management assets move aside",
+        "fund vault remains isolated",
+        "separation wall locks"
+      ],
+      "visualBeats": [
+        "company and fund assets visible",
+        "company side becomes unavailable",
+        "fund assets remain in separate custody"
+      ]
+    },
+    {
+      "id": "visual-11",
+      "type": "hybrid",
+      "chapter": "Diversifikation",
+      "scriptBeat": "Ein breit gestreuter Aktien-ETF kann viele Unternehmen aus Ländern und Branchen bündeln.",
+      "googleFlowFileName": "YouTube Bild 11 - Breite Unternehmen weltweit.png",
+      "expectedVisual": "A cinematic stylized 3D global business landscape on one continuous dark background: generic technology campus, factory, healthcare facility, consumer goods warehouse and bank from different regions, all visibly connected back to one foreground object labeled “Breiter Aktien-ETF”. Keep every business recognizable and avoid logo copies.",
+      "objectLabels": [
+        "Breiter Aktien-ETF"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-11/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-11/animation.tsx",
+      "animationExport": "YouTubeVisual11Animation",
+      "animationIntent": "Travel from one ETF share through different real-economy sectors to reveal diversification.",
+      "mechanicId": "sector-world-reveal",
+      "visualTechniqueId": "layered-sector-camera-journey",
+      "compositionFamilyId": "camera-journey",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "camera depth move",
+        "sector focus handoff",
+        "ETF connection lines"
+      ],
+      "visualBeats": [
+        "ETF share foreground",
+        "camera passes multiple sectors",
+        "wide diversified world revealed"
+      ],
+      "imagePlanFile": "04-visuals/EINZELNE-VISUALS/visual-11/bildprompt.txt",
+      "motionPlanFile": "04-visuals/EINZELNE-VISUALS/visual-11/remotion.md"
+    },
+    {
+      "id": "visual-12",
+      "type": "data",
+      "chapter": "Diversifikation",
+      "scriptBeat": "Breite Streuung reduziert Einzelwertrisiko, beseitigt aber nicht das Marktrisiko.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-12/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-12/animation.tsx",
+      "animationExport": "YouTubeVisual12Animation",
+      "animationIntent": "Contrast single-stock concentration with diversified holdings and then demonstrate common market risk.",
+      "mechanicId": "diversification-risk-comparison",
+      "visualTechniqueId": "single-vs-broad-weight-grid",
+      "compositionFamilyId": "data-viz",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "weight grid expansion",
+        "single-stock shock",
+        "market-wide shock overlay"
+      ],
+      "visualBeats": [
+        "single company concentration",
+        "many smaller holdings",
+        "broad market shock affects the group"
+      ],
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-12/data-notes.md"
+    },
+    {
+      "id": "visual-13",
+      "type": "image",
+      "chapter": "ETF ist nicht gleich ETF",
+      "scriptBeat": "Ein Themen-ETF kann stark konzentriert sein, obwohl ETF auf dem Etikett steht.",
+      "googleFlowFileName": "YouTube Bild 13 - Themen ETF Konzentration.png",
+      "expectedVisual": "A literal stylized 3D portfolio basket labeled “Themen-ETF” filled mostly with similar semiconductor and AI-related company documents from one narrow industry cluster. Beside it, a second smaller reference basket labeled “Breiter ETF” contains clearly different sectors. The narrow basket must visibly lack variety.",
+      "objectLabels": [
+        "Themen-ETF",
+        "Breiter ETF"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-13/bildprompt.txt"
+    },
+    {
+      "id": "visual-14",
+      "type": "animation",
+      "chapter": "Dividenden",
+      "scriptBeat": "Dividenden der Unternehmen fließen in das Fondsvermögen.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-14/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-14/animation.tsx",
+      "animationExport": "YouTubeVisual14Animation",
+      "animationIntent": "Route dividends from multiple companies into the ETF fund pool before any investor-level decision.",
+      "mechanicId": "dividend-routing",
+      "visualTechniqueId": "company-cashflow-to-fund-simulation",
+      "compositionFamilyId": "simulation",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "company payout tokens",
+        "fund pool fill",
+        "timed multi-source arrival"
+      ],
+      "visualBeats": [
+        "companies generate dividends",
+        "payments converge on fund",
+        "fund income pool increases"
+      ]
+    },
+    {
+      "id": "visual-15",
+      "type": "hybrid",
+      "chapter": "Dividenden",
+      "scriptBeat": "Ausschüttend zahlt aus; thesaurierend legt im Fonds wieder an.",
+      "googleFlowFileName": "YouTube Bild 15 - Ausschuettend oder Thesaurierend.png",
+      "expectedVisual": "A literal side-by-side stylized 3D fund administration scene. Left folder labeled “Ausschüttend”: dividend cash moves from the ETF fund toward an investor payout envelope. Right folder labeled “Thesaurierend”: dividend cash stays inside the fund and is placed back into portfolio securities. Keep both paths concrete and equally large.",
+      "objectLabels": [
+        "Ausschüttend",
+        "Thesaurierend"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-15/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-15/animation.tsx",
+      "animationExport": "YouTubeVisual15Animation",
+      "animationIntent": "Animate the same dividend entering two alternative ETF income paths.",
+      "mechanicId": "dividend-path-split",
+      "visualTechniqueId": "dual-path-distribution-reinvestment",
+      "compositionFamilyId": "comparison",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "left payout route",
+        "right reinvestment route",
+        "shared dividend source"
+      ],
+      "visualBeats": [
+        "same dividend enters",
+        "left route pays out",
+        "right route reinvests"
+      ],
+      "imagePlanFile": "04-visuals/EINZELNE-VISUALS/visual-15/bildprompt.txt",
+      "motionPlanFile": "04-visuals/EINZELNE-VISUALS/visual-15/remotion.md"
+    },
+    {
+      "id": "visual-16",
+      "type": "data",
+      "chapter": "Kosten",
+      "scriptBeat": "Orderkosten, Spread und laufende Fondskosten sind unterschiedliche Kostenebenen.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-16/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-16/animation.tsx",
+      "animationExport": "YouTubeVisual16Animation",
+      "animationIntent": "Separate transaction, market and fund-level costs so viewers do not confuse them.",
+      "mechanicId": "cost-layer-waterfall",
+      "visualTechniqueId": "three-layer-cost-waterfall",
+      "compositionFamilyId": "data-viz",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "cost-layer reveal",
+        "100-euro reference bar",
+        "annual-vs-one-time distinction"
+      ],
+      "visualBeats": [
+        "100 € reference",
+        "three cost layers appear",
+        "annual fund cost separated from transaction costs"
+      ],
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-16/data-notes.md"
+    },
+    {
+      "id": "visual-17",
+      "type": "animation",
+      "chapter": "Kosten",
+      "scriptBeat": "Der Spread ist die Differenz zwischen Kauf- und Verkaufspreis.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-17/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-17/animation.tsx",
+      "animationExport": "YouTubeVisual17Animation",
+      "animationIntent": "Make bid and ask prices converge visually while preserving the gap called Spread.",
+      "mechanicId": "bid-ask-spread",
+      "visualTechniqueId": "bid-ask-price-squeeze",
+      "compositionFamilyId": "kinetic-type",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "bid price move",
+        "ask price move",
+        "spread bracket resize"
+      ],
+      "visualBeats": [
+        "buy and sell prices separated",
+        "spread highlighted",
+        "prices and gap settle"
+      ]
+    },
+    {
+      "id": "visual-18",
+      "type": "image",
+      "chapter": "Kosten",
+      "scriptBeat": "Kosten stehen in Produkt- und Brokerinformationen und sollten vor dem Kauf geprüft werden.",
+      "googleFlowFileName": "YouTube Bild 18 - Kosten Dokumente pruefen.png",
+      "expectedVisual": "A literal stylized 3D desk with three real paper documents: one broker price sheet labeled “Orderkosten”, one exchange trade note labeled “Spread”, and one ETF product information sheet labeled “Laufende Kosten”. A simple magnifying glass inspects the three fields. No app UI and no generic floating cards.",
+      "objectLabels": [
+        "Orderkosten",
+        "Spread",
+        "Laufende Kosten"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-18/bildprompt.txt"
+    },
+    {
+      "id": "visual-19",
+      "type": "animation",
+      "chapter": "Kurs",
+      "scriptBeat": "Der ETF-Kurs folgt wirtschaftlich den Marktwerten der zugrunde liegenden Vermögenswerte.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-19/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-19/animation.tsx",
+      "animationExport": "YouTubeVisual19Animation",
+      "animationIntent": "Show several holdings moving differently and their weighted combined effect on one ETF value.",
+      "mechanicId": "portfolio-price-aggregation",
+      "visualTechniqueId": "multi-holding-price-aggregation",
+      "compositionFamilyId": "simulation",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "holding price changes",
+        "weight-aware aggregation",
+        "ETF value response"
+      ],
+      "visualBeats": [
+        "holdings start at baseline",
+        "different holdings rise/fall",
+        "ETF aggregate value changes"
+      ]
+    },
+    {
+      "id": "visual-20",
+      "type": "data",
+      "chapter": "Risiko",
+      "scriptBeat": "Ein hypothetischer Verlust von 20 Prozent macht aus 100 Euro 80 Euro.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-20/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-20/animation.tsx",
+      "animationExport": "YouTubeVisual20Animation",
+      "animationIntent": "Turn a 20% market drawdown into a concrete 100-to-80-euro example.",
+      "mechanicId": "drawdown-example",
+      "visualTechniqueId": "hundred-to-eighty-drawdown",
+      "compositionFamilyId": "data-viz",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "portfolio value descent",
+        "20% bracket reveal",
+        "warning label hold"
+      ],
+      "visualBeats": [
+        "100 € start",
+        "market drawdown -20%",
+        "80 € result with example label"
+      ],
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-20/data-notes.md"
+    },
+    {
+      "id": "visual-21",
+      "type": "hybrid",
+      "chapter": "Risiko über Zeit",
+      "scriptBeat": "Breite Aktienmärkte können schwanken; ein langer Anlagehorizont bedeutet nicht, dass Verluste unmöglich sind.",
+      "googleFlowFileName": "YouTube Bild 21 - ETF Schwankungen ueber Zeit.png",
+      "expectedVisual": "A literal cinematic long-term investing scene: a desk calendar path from “2026” through later unlabeled years, with one ETF portfolio document traveling through clearly visible market up-phases and down-phases. The final state should not imply guaranteed profit; end near a neutral evaluation point, not a giant upward arrow.",
+      "objectLabels": [
+        "2026",
+        "ETF"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-21/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-21/animation.tsx",
+      "animationExport": "YouTubeVisual21Animation",
+      "animationIntent": "Move the ETF through alternating up and down market periods over a long calendar.",
+      "mechanicId": "market-cycle-timeline",
+      "visualTechniqueId": "calendar-market-cycle-corridor",
+      "compositionFamilyId": "timeline",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "timeline travel",
+        "market-cycle amplitude",
+        "camera pacing"
+      ],
+      "visualBeats": [
+        "ETF enters timeline",
+        "up and down phases alternate",
+        "long horizon ends without guaranteed payoff"
+      ],
+      "imagePlanFile": "04-visuals/EINZELNE-VISUALS/visual-21/bildprompt.txt",
+      "motionPlanFile": "04-visuals/EINZELNE-VISUALS/visual-21/remotion.md"
+    },
+    {
+      "id": "visual-22",
+      "type": "animation",
+      "chapter": "Broker-Insolvenz",
+      "scriptBeat": "Bei Broker-Insolvenz bleiben verwahrte Wertpapiere grundsätzlich herausverlangbar oder übertragbar.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-22/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-22/animation.tsx",
+      "animationExport": "YouTubeVisual22Animation",
+      "animationIntent": "Separate broker business failure from custody of customer securities and show transfer to another depot.",
+      "mechanicId": "broker-custody-transfer",
+      "visualTechniqueId": "custody-document-depot-transfer",
+      "compositionFamilyId": "document-motion",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "broker office closes",
+        "custody documents detach",
+        "new depot receives securities"
+      ],
+      "visualBeats": [
+        "broker and depot connected",
+        "broker business closes",
+        "securities transfer to another custody account"
+      ]
+    },
+    {
+      "id": "visual-23",
+      "type": "image",
+      "chapter": "Fonds-Insolvenz",
+      "scriptBeat": "Das Fondsvermögen ist vom Vermögen der Kapitalverwaltungsgesellschaft getrennt.",
+      "googleFlowFileName": "YouTube Bild 23 - Fondsvermoegen getrennt.png",
+      "expectedVisual": "A literal stylized 3D fund structure scene: the office labeled “Fondsgesellschaft” is visibly closed, while a physically separate custody vault labeled “Fondsvermögen” remains intact with the portfolio documents inside. Do not use a shield metaphor and do not imply protection from falling market prices.",
+      "objectLabels": [
+        "Fondsgesellschaft",
+        "Fondsvermögen"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-23/bildprompt.txt"
+    },
+    {
+      "id": "visual-24",
+      "type": "data",
+      "chapter": "Kostenbeispiel",
+      "scriptBeat": "0,2 Prozent entsprechen bei 100 Euro ungefähr 20 Cent pro Jahr, wenn Kursänderungen ignoriert werden.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-24/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-24/animation.tsx",
+      "animationExport": "YouTubeVisual24Animation",
+      "animationIntent": "Translate a percentage fee into intuitive euro amounts at two portfolio sizes.",
+      "mechanicId": "ter-scale-example",
+      "visualTechniqueId": "percentage-to-euro-cost-counter",
+      "compositionFamilyId": "data-viz",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "percentage counter",
+        "100-euro conversion",
+        "10k-euro conversion"
+      ],
+      "visualBeats": [
+        "0.2% shown",
+        "100 € becomes 0.20 €",
+        "10,000 € becomes 20 €"
+      ],
+      "dataNotesFile": "04-visuals/EINZELNE-VISUALS/visual-24/data-notes.md"
+    },
+    {
+      "id": "visual-25",
+      "type": "hybrid",
+      "chapter": "Was du besitzt",
+      "scriptBeat": "Du besitzt ETF-Anteile; wirtschaftlich bist du am Fondsportfolio beteiligt, nicht direkt als Einzelaktionär jeder Firma eingetragen.",
+      "googleFlowFileName": "YouTube Bild 25 - Was du wirklich besitzt.png",
+      "expectedVisual": "A literal layered ownership scene. Foreground: one document labeled “Dein ETF-Anteil”. Middle layer: a transparent legal fund container labeled “Fondsvermögen”. Background: many real company share documents held inside that fund container. Keep the layers physically separated and readable.",
+      "objectLabels": [
+        "Dein ETF-Anteil",
+        "Fondsvermögen"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-25/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-25/animation.tsx",
+      "animationExport": "YouTubeVisual25Animation",
+      "animationIntent": "Move the camera through investor ETF share, fund-asset layer and underlying securities.",
+      "mechanicId": "ownership-layer-reveal",
+      "visualTechniqueId": "threejs-ownership-layer-stack",
+      "compositionFamilyId": "spatial-3d",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "depth camera move",
+        "layer separation",
+        "ownership labels resolve"
+      ],
+      "visualBeats": [
+        "ETF share foreground",
+        "fund layer appears",
+        "underlying securities revealed inside fund"
+      ],
+      "imagePlanFile": "04-visuals/EINZELNE-VISUALS/visual-25/bildprompt.txt",
+      "motionPlanFile": "04-visuals/EINZELNE-VISUALS/visual-25/remotion.md"
+    },
+    {
+      "id": "visual-26",
+      "type": "animation",
+      "chapter": "Indexpflege",
+      "scriptBeat": "Ändert sich der Index, passt der ETF sein Portfolio nach den Regeln an.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-26/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-26/animation.tsx",
+      "animationExport": "YouTubeVisual26Animation",
+      "animationIntent": "Show index weights changing and the fund portfolio rebalancing to follow them.",
+      "mechanicId": "index-rebalancing",
+      "visualTechniqueId": "svg-weight-rebalance-morph",
+      "compositionFamilyId": "vector-motion",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "index weights resize",
+        "portfolio holdings reposition",
+        "removed/new constituent handoff"
+      ],
+      "visualBeats": [
+        "old index weights",
+        "index rule change",
+        "ETF portfolio rebalanced"
+      ]
+    },
+    {
+      "id": "visual-27",
+      "type": "image",
+      "chapter": "Drei Checks",
+      "scriptBeat": "Vor dem Kauf: Index verstehen, Streuung prüfen, Kosten und Risiken des konkreten Fonds lesen.",
+      "googleFlowFileName": "YouTube Bild 27 - Drei ETF Checks.png",
+      "expectedVisual": "A literal stylized 3D review desk with three large physical documents arranged as a real checklist: “Index”, “Streuung”, and “Kosten & Risiken”. Each document contains one simple visual cue: index composition table, diverse sector list, and cost/risk section. A pen marks all three only after they are visibly inspected.",
+      "objectLabels": [
+        "Index",
+        "Streuung",
+        "Kosten & Risiken"
+      ],
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-27/bildprompt.txt"
+    },
+    {
+      "id": "visual-28",
+      "type": "animation",
+      "chapter": "Payoff",
+      "scriptBeat": "Der komplette Weg: Kaufauftrag, ETF-Anteil, Börsenmechanismus, Fondsportfolio, Erträge, Kosten und Risiko.",
+      "planFile": "04-visuals/EINZELNE-VISUALS/visual-28/remotion.md",
+      "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-28/animation.tsx",
+      "animationExport": "YouTubeVisual28Animation",
+      "animationIntent": "Finish with one coherent camera journey through the full ETF system without introducing new facts.",
+      "mechanicId": "full-etf-path-recap",
+      "visualTechniqueId": "cinematic-etf-system-recap-flight",
+      "compositionFamilyId": "camera-journey",
+      "repeatTechniqueReason": "",
+      "motionChannels": [
+        "camera travel",
+        "stage-by-stage highlight",
+        "final ownership chain lock"
+      ],
+      "visualBeats": [
+        "100 € purchase order",
+        "ETF share and market bridge",
+        "fund portfolio and companies",
+        "cost/risk layer",
+        "final ETF ownership overview"
+      ]
+    }
+  ]
+}

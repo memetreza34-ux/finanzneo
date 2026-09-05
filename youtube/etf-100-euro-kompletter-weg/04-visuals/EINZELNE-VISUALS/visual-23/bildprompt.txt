@@ -1,0 +1,23 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 23 - Fondsvermoegen getrennt.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal stylized 3D fund structure scene: the office labeled “Fondsgesellschaft” is visibly closed, while a physically separate custody vault labeled “Fondsvermögen” remains intact with the portfolio documents inside. Do not use a shield metaphor and do not imply protection from falling market prices.
+REAL_WORLD_CONTEXT_ANCHOR: fund company and separate custody structure
+VOICEOVER_VISUAL_MATCH: The fund company can fail while the separate fund assets remain physically distinct.
+TRANSFERABILITY_TEST: PASS — the legal separation of fund-company assets and fund assets is specific to investment-fund structure.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal stylized 3D fund structure scene: the office labeled “Fondsgesellschaft” is visibly closed, while a physically separate custody vault labeled “Fondsvermögen” remains intact with the portfolio documents inside. Do not use a shield metaphor and do not imply protection from falling market prices.
+Use only these short German object labels when specified: Fondsgesellschaft, Fondsvermögen.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.

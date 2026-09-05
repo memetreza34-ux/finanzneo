@@ -1,0 +1,23 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 21 - ETF Schwankungen ueber Zeit.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal cinematic long-term investing scene: a desk calendar path from “2026” through later unlabeled years, with one ETF portfolio document traveling through clearly visible market up-phases and down-phases. The final state should not imply guaranteed profit; end near a neutral evaluation point, not a giant upward arrow.
+REAL_WORLD_CONTEXT_ANCHOR: long-term investment calendar and market cycle
+VOICEOVER_VISUAL_MATCH: The ETF is visibly carried through both positive and negative market periods over time.
+TRANSFERABILITY_TEST: PASS — the scene specifically combines an ETF investment with long-horizon market fluctuations without promising returns.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal cinematic long-term investing scene: a desk calendar path from “2026” through later unlabeled years, with one ETF portfolio document traveling through clearly visible market up-phases and down-phases. The final state should not imply guaranteed profit; end near a neutral evaluation point, not a giant upward arrow.
+Use only these short German object labels when specified: 2026, ETF.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.

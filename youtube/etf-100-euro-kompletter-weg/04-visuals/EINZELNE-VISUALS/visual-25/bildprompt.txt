@@ -1,0 +1,23 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 25 - Was du wirklich besitzt.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal layered ownership scene. Foreground: one document labeled “Dein ETF-Anteil”. Middle layer: a transparent legal fund container labeled “Fondsvermögen”. Background: many real company share documents held inside that fund container. Keep the layers physically separated and readable.
+REAL_WORLD_CONTEXT_ANCHOR: legal fund ownership layers
+VOICEOVER_VISUAL_MATCH: The exact legal/economic ownership chain from ETF unit to fund assets to company securities is visible.
+TRANSFERABILITY_TEST: PASS — the three-layer ETF ownership structure is specific and cannot be reused for generic savings topics.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal layered ownership scene. Foreground: one document labeled “Dein ETF-Anteil”. Middle layer: a transparent legal fund container labeled “Fondsvermögen”. Background: many real company share documents held inside that fund container. Keep the layers physically separated and readable.
+Use only these short German object labels when specified: Dein ETF-Anteil, Fondsvermögen.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.

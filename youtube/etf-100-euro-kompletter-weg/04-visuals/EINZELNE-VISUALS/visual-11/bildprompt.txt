@@ -1,0 +1,23 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 11 - Breite Unternehmen weltweit.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A cinematic stylized 3D global business landscape on one continuous dark background: generic technology campus, factory, healthcare facility, consumer goods warehouse and bank from different regions, all visibly connected back to one foreground object labeled “Breiter Aktien-ETF”. Keep every business recognizable and avoid logo copies.
+REAL_WORLD_CONTEXT_ANCHOR: global real-economy company landscape
+VOICEOVER_VISUAL_MATCH: Many clearly different industries and regions sit inside the economic exposure of one broad equity ETF.
+TRANSFERABILITY_TEST: PASS — the scene specifically visualizes broad equity-ETF diversification across real industries.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A cinematic stylized 3D global business landscape on one continuous dark background: generic technology campus, factory, healthcare facility, consumer goods warehouse and bank from different regions, all visibly connected back to one foreground object labeled “Breiter Aktien-ETF”. Keep every business recognizable and avoid logo copies.
+Use only these short German object labels when specified: Breiter Aktien-ETF.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.

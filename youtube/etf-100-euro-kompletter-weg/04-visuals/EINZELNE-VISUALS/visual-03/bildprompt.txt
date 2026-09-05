@@ -1,0 +1,23 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_STORYTELLING_STANDARD: finanzneo-image-storytelling-v3
+
+FINAL FILE NAME:
+YouTube Bild 03 - ETF Anteil statt Einzelaktien.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. Verify the literal situation, financial context, requested German labels, seamless background, horizontal 16:9 format, same-world lock and exact file name. If any check fails, regenerate the same image number and replace the failed file. Continue only after this image passes. Never render the file name inside the image.
+
+LITERAL_REAL_WORLD_SITUATION: A literal stylized 3D investment desk: one large paper certificate labeled “ETF-Anteil” sits in the investor area. Behind a clear divider is the fund portfolio containing many small but recognizable company share documents. Do not show the investor directly holding each company share. Make the ownership layer unmistakable.
+REAL_WORLD_CONTEXT_ANCHOR: investment desk with fund ownership documents
+VOICEOVER_VISUAL_MATCH: The investor visibly owns the ETF share while the underlying company shares sit inside the separate fund portfolio.
+TRANSFERABILITY_TEST: PASS — the ownership distinction between an ETF share and its underlying portfolio is specific to this script beat.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+A literal stylized 3D investment desk: one large paper certificate labeled “ETF-Anteil” sits in the investor area. Behind a clear divider is the fund portfolio containing many small but recognizable company share documents. Do not show the investor directly holding each company share. Make the ownership layer unmistakable.
+Use only these short German object labels when specified: ETF-Anteil, Fondsportfolio.
+
+Premium FinanzNeo stylized 3D, deep charcoal green-black seamless background, vivid emerald/mint for positive and structural accents, gold only for money/value, warm red-orange only for warning/risk/loss. Real-world proportions and recognizable financial documents and environments. No photorealism, no brand logos, no app screenshot, no floating dashboard, no generic icon pile, no tiny diorama, no fantasy machinery. Cinematic horizontal 16:9 composition with strong focal hierarchy and breathing room.
+Literal first, creative second. The viewer must understand the approximate financial situation without subtitle text. No headline, subtitle, CTA or explanatory paragraph inside the generated image.
