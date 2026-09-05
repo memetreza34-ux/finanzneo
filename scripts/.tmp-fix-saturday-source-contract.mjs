@@ -22,10 +22,27 @@ walk(scenesRoot);
 const masterPath = resolve(root, '03-szenen/alle-bildprompts.txt');
 if (!existsSync(masterPath)) throw new Error('Master-Prompt fehlt');
 let master = readFileSync(masterPath, 'utf8');
-if (!master.includes('00-ALLE-BILDER-HIER-REIN')) {
-  master += '\n\nFINAL_COLLECTION_DIRECTORY: 03-szenen/00-ALLE-BILDER-HIER-REIN/\n';
-  writeFileSync(masterPath, master, 'utf8');
-}
+const masterMarkers = `
+
+FINAL_COLLECTION_DIRECTORY: 03-szenen/00-ALLE-BILDER-HIER-REIN/
+COVER = SZENE 01
+KEIN separates Cover erzeugen
+KEIN Bild 00 erzeugen
+`;
+if (!master.includes('COVER = SZENE 01')) master += masterMarkers;
+writeFileSync(masterPath, master, 'utf8');
+
+const coverPath = resolve(root, '03-szenen/00-cover/cover.txt');
+if (!existsSync(coverPath)) throw new Error('Cover-Alias fehlt');
+let cover = readFileSync(coverPath, 'utf8');
+const coverMarkers = `
+
+TECHNISCHER COVER-ALIAS — KEIN SEPARATER BILDJOB
+No separate cover generation.
+no Bild 00.
+`;
+if (!/KEIN SEPARATER BILDJOB/i.test(cover)) cover += coverMarkers;
+writeFileSync(coverPath, cover, 'utf8');
 
 const research = `# Recherche und Quellen – Tagesgeld-Aktionszins
 
@@ -51,4 +68,5 @@ Keine konkrete Bankempfehlung. Keine individuelle Finanzberatung.
 writeFileSync(resolve(root, '05-projektdateien/recherche-quellen.md'), research, 'utf8');
 
 console.log('✓ Exakte Source-Contract-Marker ergänzt: deep black background + finaler Bilderordner.');
+console.log('✓ Kanonische scene-01 Cover-/Alias-Marker erhalten.');
 console.log('✓ Kanonische recherche-quellen.md mit geprüften Aussagen befüllt.');
