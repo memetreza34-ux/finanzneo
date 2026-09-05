@@ -88,7 +88,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -A
-          git commit -m 'Create ETF 100 euro YouTube Phase 1'
+          FINANZNEO_ALLOW_PROTECTED_CHANGES=1 git commit -m 'Create ETF 100 euro YouTube Phase 1'
 
       - name: Hard changed-path gate
         shell: bash
