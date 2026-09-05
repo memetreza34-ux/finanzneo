@@ -20,6 +20,9 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 const contract = spawnSync(process.execPath, [resolve('scripts/validate-youtube.mjs'), root], {stdio: 'inherit'});
 if (contract.status !== 0) process.exit(contract.status ?? 1);
 
+const motion = spawnSync(process.execPath, [resolve('scripts/validate-youtube-animation-quality.mjs'), root], {stdio: 'inherit'});
+if (motion.status !== 0) process.exit(motion.status ?? 1);
+
 const result = analyzeYouTubeReadiness(root);
 const printBlockers = (title, blockers) => {
   if (blockers.length === 0) return;
@@ -30,7 +33,7 @@ printBlockers('Phase 1 ist noch nicht vollständig:', result.phase1Blockers);
 printBlockers('Phase 2 ist noch nicht vollständig:', result.phase2Blockers);
 
 if (!result.ready) {
-  console.error('\n✗ Phase 3 darf noch nicht starten. Alle Blocker stehen oben; keine Ersatzassets verwenden.');
+  console.error('\n✗ Phase 3 darf noch nicht starten. Alle Blocker stehen oben; keine Ersatzassets verwenden und versiegelte Motion nicht umgehen.');
   process.exit(1);
 }
 
@@ -54,11 +57,8 @@ for (const fileName of result.expectedImages) {
   const imageProbe = spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'json', imageFile], {encoding: 'utf8'});
   ensureProbeSucceeded(imageProbe, imageFile);
   let dimensions;
-  try {
-    dimensions = JSON.parse(imageProbe.stdout)?.streams?.[0];
-  } catch {
-    dimensions = null;
-  }
+  try { dimensions = JSON.parse(imageProbe.stdout)?.streams?.[0]; }
+  catch { dimensions = null; }
   const width = Number(dimensions?.width);
   const height = Number(dimensions?.height);
   if (!isSixteenNineDimensions(width, height)) {
@@ -68,5 +68,5 @@ for (const fileName of result.expectedImages) {
 }
 
 console.log('\n✓ YOUTUBE-PHASE 3 STARTKLAR');
-console.log(`  ${result.expectedImages.length} horizontale 16:9-Bilder · 1 finales Voiceover · echte Wort-Zeitstempel · vollständiges Publishing-Paket`);
-console.log('  Antigravity beginnt jetzt ohne Zwischenfragen mit Timeline, Remotion, Untertiteln, QA und Render.');
+console.log(`  ${result.expectedImages.length} horizontale 16:9-Bilder · 1 finales Voiceover · echte Wort-Zeitstempel · versiegelte Motion V2 · vollständiges Publishing-Paket`);
+console.log('  Phase 3 integriert jetzt die versiegelten Animationen, retimed sie zum echten Audio und übernimmt QA/Render ohne kreative Mechanik-Ersetzung.');

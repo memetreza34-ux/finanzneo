@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform-Produktionsstandard
 
-> Bei Widersprüchen gilt `CLAUDE.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Für YouTube-Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V2.md`.
 
 ## Projektstruktur
 
@@ -26,18 +26,69 @@ README.md
 - Zahlen, Annahmen und Datenstand prüfbar dokumentieren
 - keine individuelle Anlageberatung oder garantierte Rendite
 
+## Beat-first Visualplanung
+
+Es gibt **keine feste Visualzahl und keine feste Bild-/Animationsquote**.
+
+```text
+Skript
+→ gesprochene Gedanken
+→ sichtbare Visual Beats
+→ beste Visualart je Beat
+→ sinnvolle Gruppierung
+```
+
+Erlaubte Visualtypen:
+
+- `image`
+- `animation`
+- `hybrid`
+- `data`
+
+## Remotion / Motion V2
+
+`MOTION_STANDARD: finanzneo-youtube-motion-v2`
+
+Die visuelle Technik wird aus dem Inhalt gewählt, nicht aus einer festen Komponentenbibliothek. Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Masks, Paths/Shapes, Motion Blur, Effects, Lottie als Support, Datenvisualisierung und Bild+Motion-Hybrid sind erlaubt.
+
+`PremiumPhysicalStage` und `Physical*` sind **optional**. Bestehende Komponenten sind Werkzeuge, keine Pflichtvorlagen.
+
+Jedes Motion-Visual braucht:
+
+- produktionsreife `animation.tsx` bereits in Phase 1
+- `mechanicId`
+- `visualTechniqueId`
+- `compositionFamilyId`
+- `animationIntent`
+- mindestens zwei sinnvolle Motion Channels
+- mindestens zwei sichtbare Visual Beats
+
+Vor Phase 2:
+
+```bash
+npm run youtube:animation:validate -- youtube/<Projekt>
+npm run youtube:phase1:seal -- youtube/<Projekt>
+```
+
+Nach dem Seal darf Phase 3 die kreative Mechanik nicht ersetzen.
+
 ## Bildwelt und Google Flow
 
-- dieselbe FinanzNeo-Welt wie bei Reels: `finanzneo-connected-studio-v3`
-- derselbe Serien-Lock: `finanzneo-same-world-v1`
-- YouTube-Quellbilder sind horizontal 16:9; Reel-Quellbilder bleiben separat 1:1
-- Bildprompts immer Englisch; nur ausdrücklich gewünschte kurze Objektlabels im Bild sind Deutsch
-- eine dominante Finanzmetapher, wenige unterstützende Objekte
-- Person optional; wenn vorhanden, Gesicht klar sichtbar
-- ein einziger nahtloser deep-charcoal-green-black Hintergrund
-- Gold nur für Geld/Wert, warmes Rot-Orange nur für Risiko/Verlust/Schulden
-- keine Headline, Untertitel oder erklärenden Sätze im KI-Bild
-- Thumbnail zuerst; danach nur als Stilreferenz, nicht als Motivvorlage
+Die bestehende FinanzNeo-Welt bleibt unverändert:
+
+- `finanzneo-connected-studio-v3`
+- `finanzneo-same-world-v1`
+- YouTube-Quellbilder horizontal 16:9
+
+Für neue YouTube-Bilder gilt **Literal first, creative second**:
+
+- konkrete reale Situation zuerst
+- klarer Finanz-/Alltagskontext
+- sichtbarer Bezug zum Voiceover
+- Metapher nur, wenn sie wirklich klarer ist
+- kein generisches Finanzsymbolbild als Default
+
+Bildprompts immer Englisch; nur ausdrücklich gewünschte kurze Objektlabels im Bild sind Deutsch. Keine Headline, Untertitel oder erklärenden Sätze im KI-Bild.
 
 Einzige Übergabe an Google Flow:
 
@@ -51,7 +102,7 @@ Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt
 
 - genau ein finales Voiceover in `03-audio/`
 - echte Wort-Zeitstempel aus genau diesem Audio
-- Schnitte folgen Sprache, Kapiteln und inhaltlichen Payoffs
+- Schnitte folgen Sprache, Visual Beats, Kapiteln und Payoffs
 - keine pauschal gleich langen Visuals
 - Untertitel satzweise; aktives Wort grün, Rest weiß
 - Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP
@@ -71,13 +122,15 @@ Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt
 - Upload-Checkliste
 - Promo-Texte für Instagram, TikTok, Facebook und Snapchat
 
-Titel und Thumbnail dürfen neugierig machen, aber nichts versprechen, was das Video nicht erfüllt. Aktuelle Plattformgrenzen werden nicht fest im Repo verdrahtet, sondern vor einer konkreten Veröffentlichung offiziell geprüft.
+Titel und Thumbnail dürfen neugierig machen, aber nichts versprechen, was das Video nicht erfüllt.
 
 ## Startfreigabe
 
 ```bash
 npm run youtube:validate -- youtube/<Projekt>
+npm run youtube:animation:validate -- youtube/<Projekt>
+npm run youtube:phase1:seal -- youtube/<Projekt>
 npm run youtube:ready -- youtube/<Projekt>
 ```
 
-`youtube:ready` prüft Phase 1, exakte Nutzerbilder, 16:9-Abmessungen, genau ein lesbares Voiceover, passende Wortzeiten und das vollständige Publishing-Paket. Nur ein erfolgreicher Lauf gibt Phase 3 frei.
+`youtube:ready` prüft Phase 1, den unveränderten Motion-Seal, exakte Nutzerbilder, 16:9-Abmessungen, genau ein lesbares Voiceover, passende Wortzeiten und das vollständige Publishing-Paket. Nur ein erfolgreicher Lauf gibt Phase 3 frei.
