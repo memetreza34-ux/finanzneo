@@ -71,7 +71,7 @@
     "@remotion/three": "4.0.520",
     "@remotion/transitions": "4.0.520",
     "lottie-web": "^5.13.0",
-    "react": "^18.2.0",
+    "react": "^19.2.8",
     "react-dom": "^18.2.0",
     "recharts": "3.10.1",
     "remotion": "4.0.520",
@@ -79,7 +79,7 @@
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
-    "@types/react": "18.3.31",
+    "@types/react": "19.2.18",
     "@types/three": "0.185.4",
     "eslint": "10.8.1",
     "eslint-plugin-unused-imports": "4.4.1",
