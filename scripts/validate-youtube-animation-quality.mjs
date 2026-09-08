@@ -21,9 +21,9 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
   process.exit(1);
 }
 
-const indexPath = resolve(root, '04-visuals/visual-index.json');
+const indexPath = resolve(root, '05-projektdateien/scene-index.json');
 if (!existsSync(indexPath)) {
-  console.error('04-visuals/visual-index.json fehlt.');
+  console.error('05-projektdateien/scene-index.json fehlt.');
   process.exit(1);
 }
 

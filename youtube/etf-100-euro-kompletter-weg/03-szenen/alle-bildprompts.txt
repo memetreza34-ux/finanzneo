@@ -15,7 +15,7 @@ STRICT SEQUENTIAL WORKFLOW:
 6. If anything fails, regenerate the same image number and replace the failed file.
 7. Continue only after PASS.
 8. Skip non-image visual numbers without renumbering.
-9. At the end place all correctly named files in 04-visuals/00-ALLE-BILDER-HIER-REIN/.
+9. At the end place all correctly named files in 03-szenen/00-ALLE-BILDER-HIER-REIN/.
 
 Literal first, creative second.
 

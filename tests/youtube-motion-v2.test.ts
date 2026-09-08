@@ -26,7 +26,7 @@ const motion = (overrides = {}) => ({
   mechanicId: 'money-flow',
   visualTechniqueId: 'camera-follow-money',
   compositionFamilyId: 'camera-journey',
-  animationSourceFile: '04-visuals/EINZELNE-VISUALS/visual-01/animation.tsx',
+  animationSourceFile: '03-szenen/szene-01/animation.tsx',
   animationExport: 'Visual01Animation',
   motionChannels: ['Geld bewegt sich', 'Kamera folgt'],
   visualBeats: ['Start', 'Resultat'],

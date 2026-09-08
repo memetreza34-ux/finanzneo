@@ -125,7 +125,7 @@ npm run youtube:phase1:seal -- youtube/<Projekt>
 Der Seal liegt in:
 
 ```text
-06-projektdateien/animation-seal.json
+05-projektdateien/animation-seal.json
 ```
 
 und enthält SHA-256-Hashes der kanonischen Motion-Quellen.

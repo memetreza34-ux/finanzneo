@@ -15,15 +15,15 @@ test('YouTube-Scaffolder erzeugt Hybrid/Data/Motion ohne feste Quote', () => {
       '--types', 'image,hybrid,animation,data',
     ], {encoding:'utf8'});
     assert.equal(run.status, 0, run.stderr || run.stdout);
-    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/bildprompt.txt')), true);
-    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx')), true);
-    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-04/data-notes.md')), true);
-    const index = JSON.parse(readFileSync(resolve(absolute, '04-visuals/visual-index.json'), 'utf8'));
+    assert.equal(existsSync(resolve(absolute, '03-szenen/szene-02/bildprompt.txt')), true);
+    assert.equal(existsSync(resolve(absolute, '03-szenen/szene-02/animation.tsx')), true);
+    assert.equal(existsSync(resolve(absolute, '03-szenen/szene-04/data-notes.md')), true);
+    const index = JSON.parse(readFileSync(resolve(absolute, '05-projektdateien/scene-index.json'), 'utf8'));
     assert.equal(index.fixedVisualCount, false);
     assert.equal(index.fixedImageAnimationRatio, false);
     assert.equal(index.motionStandard.id, 'finanzneo-youtube-motion-v2');
     assert.deepEqual(index.visuals.map((visual: {type:string}) => visual.type), ['image','hybrid','animation','data']);
-    const prompt = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt'), 'utf8');
+    const prompt = readFileSync(resolve(absolute, '03-szenen/szene-01/bildprompt.txt'), 'utf8');
     assert.match(prompt, /Literal first, creative second/);
     assert.match(prompt, /TRANSFERABILITY_TEST:/);
   } finally {

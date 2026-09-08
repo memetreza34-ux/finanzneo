@@ -2,7 +2,7 @@
   "version": 2,
   "title": "Was passiert wirklich mit deinen 100 € im ETF?",
   "fps": 30,
-  "timingSource": "03-audio/word-timings.json",
+  "timingSource": "02-audio/word-timings.json",
   "cutRule": "voice-beat-and-chapter-driven",
   "fixedVisualCount": false,
   "visuals": [

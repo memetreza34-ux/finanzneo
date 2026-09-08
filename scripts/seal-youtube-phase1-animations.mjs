@@ -20,7 +20,7 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 const quality = spawnSync(process.execPath, [resolve('scripts/validate-youtube-animation-quality.mjs'), root], {stdio: 'inherit'});
 if (quality.status !== 0) process.exit(quality.status ?? 1);
 
-const indexPath = resolve(root, '04-visuals/visual-index.json');
+const indexPath = resolve(root, '05-projektdateien/scene-index.json');
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const entries = [];
 for (const visual of (index.visuals ?? []).filter(requiresYouTubeMotion)) {
@@ -41,12 +41,12 @@ for (const visual of (index.visuals ?? []).filter(requiresYouTubeMotion)) {
   });
 }
 
-const out = resolve(root, '06-projektdateien/animation-seal.json');
+const out = resolve(root, '05-projektdateien/animation-seal.json');
 mkdirSync(resolve(out, '..'), {recursive: true});
 writeFileSync(out, `${JSON.stringify({
   version: 1,
   motionStandardId: YOUTUBE_MOTION_STANDARD_ID,
-  sourceIndex: '04-visuals/visual-index.json',
+  sourceIndex: '05-projektdateien/scene-index.json',
   entries,
 }, null, 2)}\n`);
-console.log(`\n✓ ${entries.length} YouTube-Animation(en) versiegelt: 06-projektdateien/animation-seal.json`);
+console.log(`\n✓ ${entries.length} YouTube-Animation(en) versiegelt: 05-projektdateien/animation-seal.json`);

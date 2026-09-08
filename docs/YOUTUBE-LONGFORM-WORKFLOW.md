@@ -44,7 +44,7 @@ Der Seal bindet die kanonischen Motion-Quellen per SHA-256.
 Dem Google-Flow-KI-Agenten wird ausschließlich diese Datei gegeben:
 
 ```text
-04-visuals/alle-bildprompts.txt
+03-szenen/alle-bildprompts.txt
 ```
 
 Der Agent arbeitet strikt:
@@ -62,10 +62,10 @@ GENAU EIN BILD ERZEUGEN
 - Neue Bilder folgen `Literal first, creative second`.
 - Fehlerhafte Bildnummer wiederholen; nie parallel oder als Batch fortfahren.
 - Nicht-Bild-Visualnummern überspringen, aber nicht neu nummerieren.
-- Alle fertigen Dateien gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen.
+- Alle fertigen Dateien gemeinsam nach `03-szenen/00-ALLE-BILDER-HIER-REIN/` legen.
 - Alle YouTube-Quellbilder und das Thumbnail sind horizontal `16:9`.
-- Genau ein finales Voiceover in `03-audio/` ablegen.
-- Aus genau diesem Audio echte Wort-Zeitstempel in `03-audio/word-timings.json` erzeugen.
+- Genau ein finales Voiceover in `02-audio/` ablegen.
+- Aus genau diesem Audio echte Wort-Zeitstempel in `02-audio/word-timings.json` erzeugen.
 
 Antigravity erzeugt keine fehlenden Bilder und kein Ersatz-Voiceover.
 

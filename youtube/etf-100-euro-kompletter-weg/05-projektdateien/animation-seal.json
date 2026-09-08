@@ -1,11 +1,11 @@
 {
   "version": 1,
   "motionStandardId": "finanzneo-youtube-motion-v2",
-  "sourceIndex": "04-visuals/visual-index.json",
+  "sourceIndex": "05-projektdateien/scene-index.json",
   "entries": [
     {
       "id": "visual-01",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-01/animation.tsx",
+      "sourceFile": "03-szenen/szene-01/animation.tsx",
       "exportName": "YouTubeVisual01Animation",
       "mechanicId": "purchase-to-fund-share",
       "visualTechniqueId": "masked-money-to-etf-share",
@@ -14,7 +14,7 @@
     },
     {
       "id": "visual-02",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx",
+      "sourceFile": "03-szenen/szene-02/animation.tsx",
       "exportName": "YouTubeVisual02Animation",
       "mechanicId": "broker-order-routing",
       "visualTechniqueId": "order-slip-market-match",
@@ -23,7 +23,7 @@
     },
     {
       "id": "visual-04",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx",
+      "sourceFile": "03-szenen/szene-04/animation.tsx",
       "exportName": "YouTubeVisual04Animation",
       "mechanicId": "creation-redemption-bridge",
       "visualTechniqueId": "dual-market-basket-exchange",
@@ -32,7 +32,7 @@
     },
     {
       "id": "visual-05",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-05/animation.tsx",
+      "sourceFile": "03-szenen/szene-05/animation.tsx",
       "exportName": "YouTubeVisual05Animation",
       "mechanicId": "nav-price-convergence",
       "visualTechniqueId": "nav-spread-band-convergence",
@@ -41,7 +41,7 @@
     },
     {
       "id": "visual-06",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-06/animation.tsx",
+      "sourceFile": "03-szenen/szene-06/animation.tsx",
       "exportName": "YouTubeVisual06Animation",
       "mechanicId": "index-to-portfolio-mapping",
       "visualTechniqueId": "blueprint-weight-overlay",
@@ -50,7 +50,7 @@
     },
     {
       "id": "visual-07",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-07/animation.tsx",
+      "sourceFile": "03-szenen/szene-07/animation.tsx",
       "exportName": "YouTubeVisual07Animation",
       "mechanicId": "physical-replication-assembly",
       "visualTechniqueId": "threejs-weighted-portfolio-build",
@@ -59,7 +59,7 @@
     },
     {
       "id": "visual-08",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-08/animation.tsx",
+      "sourceFile": "03-szenen/szene-08/animation.tsx",
       "exportName": "YouTubeVisual08Animation",
       "mechanicId": "sampling-selection",
       "visualTechniqueId": "svg-representative-selection-funnel",
@@ -68,7 +68,7 @@
     },
     {
       "id": "visual-10",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-10/animation.tsx",
+      "sourceFile": "03-szenen/szene-10/animation.tsx",
       "exportName": "YouTubeVisual10Animation",
       "mechanicId": "special-assets-separation",
       "visualTechniqueId": "css3d-separated-custody-vaults",
@@ -77,7 +77,7 @@
     },
     {
       "id": "visual-11",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-11/animation.tsx",
+      "sourceFile": "03-szenen/szene-11/animation.tsx",
       "exportName": "YouTubeVisual11Animation",
       "mechanicId": "sector-world-reveal",
       "visualTechniqueId": "layered-sector-camera-journey",
@@ -86,7 +86,7 @@
     },
     {
       "id": "visual-12",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-12/animation.tsx",
+      "sourceFile": "03-szenen/szene-12/animation.tsx",
       "exportName": "YouTubeVisual12Animation",
       "mechanicId": "diversification-risk-comparison",
       "visualTechniqueId": "single-vs-broad-weight-grid",
@@ -95,7 +95,7 @@
     },
     {
       "id": "visual-14",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-14/animation.tsx",
+      "sourceFile": "03-szenen/szene-14/animation.tsx",
       "exportName": "YouTubeVisual14Animation",
       "mechanicId": "dividend-routing",
       "visualTechniqueId": "company-cashflow-to-fund-simulation",
@@ -104,7 +104,7 @@
     },
     {
       "id": "visual-15",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-15/animation.tsx",
+      "sourceFile": "03-szenen/szene-15/animation.tsx",
       "exportName": "YouTubeVisual15Animation",
       "mechanicId": "dividend-path-split",
       "visualTechniqueId": "dual-path-distribution-reinvestment",
@@ -113,7 +113,7 @@
     },
     {
       "id": "visual-16",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-16/animation.tsx",
+      "sourceFile": "03-szenen/szene-16/animation.tsx",
       "exportName": "YouTubeVisual16Animation",
       "mechanicId": "cost-layer-waterfall",
       "visualTechniqueId": "three-layer-cost-waterfall",
@@ -122,7 +122,7 @@
     },
     {
       "id": "visual-17",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-17/animation.tsx",
+      "sourceFile": "03-szenen/szene-17/animation.tsx",
       "exportName": "YouTubeVisual17Animation",
       "mechanicId": "bid-ask-spread",
       "visualTechniqueId": "bid-ask-price-squeeze",
@@ -131,7 +131,7 @@
     },
     {
       "id": "visual-19",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-19/animation.tsx",
+      "sourceFile": "03-szenen/szene-19/animation.tsx",
       "exportName": "YouTubeVisual19Animation",
       "mechanicId": "portfolio-price-aggregation",
       "visualTechniqueId": "multi-holding-price-aggregation",
@@ -140,7 +140,7 @@
     },
     {
       "id": "visual-20",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-20/animation.tsx",
+      "sourceFile": "03-szenen/szene-20/animation.tsx",
       "exportName": "YouTubeVisual20Animation",
       "mechanicId": "drawdown-example",
       "visualTechniqueId": "hundred-to-eighty-drawdown",
@@ -149,7 +149,7 @@
     },
     {
       "id": "visual-21",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-21/animation.tsx",
+      "sourceFile": "03-szenen/szene-21/animation.tsx",
       "exportName": "YouTubeVisual21Animation",
       "mechanicId": "market-cycle-timeline",
       "visualTechniqueId": "calendar-market-cycle-corridor",
@@ -158,7 +158,7 @@
     },
     {
       "id": "visual-22",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-22/animation.tsx",
+      "sourceFile": "03-szenen/szene-22/animation.tsx",
       "exportName": "YouTubeVisual22Animation",
       "mechanicId": "broker-custody-transfer",
       "visualTechniqueId": "custody-document-depot-transfer",
@@ -167,7 +167,7 @@
     },
     {
       "id": "visual-24",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-24/animation.tsx",
+      "sourceFile": "03-szenen/szene-24/animation.tsx",
       "exportName": "YouTubeVisual24Animation",
       "mechanicId": "ter-scale-example",
       "visualTechniqueId": "percentage-to-euro-cost-counter",
@@ -176,7 +176,7 @@
     },
     {
       "id": "visual-25",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-25/animation.tsx",
+      "sourceFile": "03-szenen/szene-25/animation.tsx",
       "exportName": "YouTubeVisual25Animation",
       "mechanicId": "ownership-layer-reveal",
       "visualTechniqueId": "threejs-ownership-layer-stack",
@@ -185,7 +185,7 @@
     },
     {
       "id": "visual-26",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-26/animation.tsx",
+      "sourceFile": "03-szenen/szene-26/animation.tsx",
       "exportName": "YouTubeVisual26Animation",
       "mechanicId": "index-rebalancing",
       "visualTechniqueId": "svg-weight-rebalance-morph",
@@ -194,7 +194,7 @@
     },
     {
       "id": "visual-28",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-28/animation.tsx",
+      "sourceFile": "03-szenen/szene-28/animation.tsx",
       "exportName": "YouTubeVisual28Animation",
       "mechanicId": "full-etf-path-recap",
       "visualTechniqueId": "cinematic-etf-system-recap-flight",
