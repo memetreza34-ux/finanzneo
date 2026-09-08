@@ -4,15 +4,24 @@
 
 ## Projektstruktur
 
+YouTube-Projekte verwenden dieselbe sichtbare Hauptstruktur wie Reels:
+
 ```text
-01-recherche/
-02-script/
-03-audio/
-04-visuals/
-05-publishing/
-06-projektdateien/
+01-script/
+02-audio/
+03-szenen/
+04-caption/
+05-projektdateien/
+06-export/
 README.md
 ```
+
+- `01-script/`: Voiceover, Kapitel/Dramaturgie und Retention
+- `02-audio/`: finales Voiceover und echte Wort-Timings
+- `03-szenen/`: Bildprompts, gemeinsamer Bilder-Inbox und Szenenordner
+- `04-caption/`: YouTube-Publishing und Social-Promos
+- `05-projektdateien/`: Quellen, Scene-Index, Timeline, Motion-Seal und Produktionspläne
+- `06-export/`: finaler 1920×1080-Render
 
 ## Format und Inhalt
 
@@ -93,14 +102,14 @@ Bildprompts immer Englisch; nur ausdrücklich gewünschte kurze Objektlabels im 
 Einzige Übergabe an Google Flow:
 
 ```text
-04-visuals/alle-bildprompts.txt
+03-szenen/alle-bildprompts.txt
 ```
 
-Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt und geprüft. Erst danach folgt das nächste Bild. Alle fertigen Dateien liegen gemeinsam in `04-visuals/00-ALLE-BILDER-HIER-REIN/`.
+Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt und geprüft. Erst danach folgt das nächste Bild. Alle fertigen Dateien liegen gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
 
 ## Audio, Timing und Untertitel
 
-- genau ein finales Voiceover in `03-audio/`
+- genau ein finales Voiceover in `02-audio/`
 - echte Wort-Zeitstempel aus genau diesem Audio
 - Schnitte folgen Sprache, Visual Beats, Kapiteln und Payoffs
 - keine pauschal gleich langen Visuals
@@ -109,7 +118,7 @@ Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt
 
 ## Vollständiges Publishing-Paket
 
-`05-publishing/` enthält:
+`04-caption/` enthält:
 
 - fünf belastbare Titelvarianten und einen finalen Titel
 - vollständige Beschreibung
