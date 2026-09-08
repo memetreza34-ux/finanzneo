@@ -129,7 +129,7 @@ jobs:
       - name: Hard changed-path gate
         shell: bash
         run: |
-          bad="$(git diff --name-only origin/main...HEAD | grep -vE '^(youtube/|scripts/([^/]*youtube[^/]*|lib/[^/]*youtube[^/]*)|tests/[^/]*youtube[^/]*|docs/[^/]*[Yy][Oo][Uu][Tt][Uu][Bb][Ee][^/]*|\.agent/.*[Yy][Oo][Uu][Tt][Uu][Bb][Ee].*)$' || true)"
+          bad="$(git diff --name-only origin/main...HEAD | grep -vE '^(youtube/.*|scripts/([^/]*youtube[^/]*|lib/[^/]*youtube[^/]*)|tests/[^/]*youtube[^/]*|docs/[^/]*[Yy][Oo][Uu][Tt][Uu][Bb][Ee][^/]*|\.agent/.*[Yy][Oo][Uu][Tt][Uu][Bb][Ee].*)$' || true)"
           if [ -n "$bad" ]; then
             echo 'Unexpected paths changed:'
             echo "$bad"
