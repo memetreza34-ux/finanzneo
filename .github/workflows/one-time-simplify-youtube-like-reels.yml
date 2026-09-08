@@ -1,0 +1,135 @@
+name: One-time simplify YouTube structure like Reels
+
+on:
+  push:
+    branches:
+      - youtube/etf-100-euro-flagship-v1
+    paths:
+      - '.github/workflows/one-time-simplify-youtube-like-reels.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  migrate-and-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.19.0
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Protect existing Reels before work
+        run: npm run reel:regression:check
+
+      - name: Migrate YouTube structure
+        run: node .tmp/simplify-youtube-like-reels.mjs
+
+      - name: Verify exact Reel-like top-level structure
+        shell: bash
+        run: |
+          root='youtube/etf-100-euro-kompletter-weg'
+          for dir in 01-script 02-audio 03-szenen 04-caption 05-projektdateien 06-export; do
+            test -d "$root/$dir" || { echo "Missing $dir"; exit 1; }
+          done
+          for old in 01-recherche 02-script 03-audio 04-visuals 05-publishing 06-projektdateien; do
+            test ! -e "$root/$old" || { echo "Old directory still exists: $old"; exit 1; }
+          done
+          test -f "$root/05-projektdateien/scene-index.json"
+          test -f "$root/03-szenen/alle-bildprompts.txt"
+          test -f "$root/06-export/README.md"
+          count="$(find "$root/03-szenen" -maxdepth 1 -type d -name 'szene-*' | wc -l | tr -d ' ')"
+          test "$count" = '28' || { echo "Expected 28 scene folders, found $count"; exit 1; }
+
+      - name: Syntax-check changed YouTube scripts
+        shell: bash
+        run: |
+          node --check scripts/scaffold-finanzneo-youtube.mjs
+          node --check scripts/lib/youtube-contract.mjs
+          node --check scripts/validate-youtube.mjs
+          node --check scripts/lib/youtube-readiness.mjs
+
+      - name: Validate YouTube contract
+        run: npm run youtube:validate -- youtube/etf-100-euro-kompletter-weg
+
+      - name: Validate YouTube Motion V2
+        run: npm run youtube:animation:validate -- youtube/etf-100-euro-kompletter-weg
+
+      - name: Re-seal Phase 1 after path-only migration
+        run: npm run youtube:phase1:seal -- youtube/etf-100-euro-kompletter-weg
+
+      - name: Assert Phase 1 remains complete
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import {analyzeYouTubeReadiness} from './scripts/lib/youtube-readiness.mjs';
+          const result = analyzeYouTubeReadiness('youtube/etf-100-euro-kompletter-weg');
+          if (result.phase1Blockers.length) {
+            console.error(result.phase1Blockers.join('\n'));
+            process.exit(1);
+          }
+          if (!result.phase2Blockers.length) {
+            console.error('Expected only Phase-2 blockers for user assets.');
+            process.exit(1);
+          }
+          console.log('Phase 1 remains complete; only Phase 2 user assets are missing.');
+          console.log(result.phase2Blockers.join('\n'));
+          NODE
+
+      - name: Full repository validation
+        run: npm run validate
+
+      - name: Remotion bundle
+        run: npm run build
+
+      - name: Render smoke
+        run: npm run smoke
+
+      - name: Remove temporary migration files
+        run: |
+          rm -f .tmp/simplify-youtube-like-reels.mjs
+          rm -f .github/workflows/one-time-simplify-youtube-like-reels.yml
+
+      - name: Commit final simplified structure
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          FINANZNEO_ALLOW_PROTECTED_CHANGES=1 git commit -m 'Simplify YouTube projects to Reel-like structure'
+
+      - name: Hard changed-path gate
+        shell: bash
+        run: |
+          bad="$(git diff --name-only origin/main...HEAD | grep -vE '^(youtube/|scripts/([^/]*youtube[^/]*|lib/[^/]*youtube[^/]*)|tests/[^/]*youtube[^/]*|docs/[^/]*[Yy][Oo][Uu][Tt][Uu][Bb][Ee][^/]*|\.agent/.*[Yy][Oo][Uu][Tt][Uu][Bb][Ee].*)$' || true)"
+          if [ -n "$bad" ]; then
+            echo 'Unexpected paths changed:'
+            echo "$bad"
+            exit 1
+          fi
+
+      - name: Explicit no-diff gate for Reel and image-world core
+        shell: bash
+        run: |
+          for path in reels config src/brand src/design-system scripts/lib/reel-contract.mjs scripts/lib/premium-animation-contract.mjs; do
+            if ! git diff --quiet origin/main...HEAD -- "$path"; then
+              echo "Protected existing area changed: $path"
+              exit 1
+            fi
+          done
+
+      - name: Final regression guard
+        run: npm run reel:regression:check
+
+      - name: Push checked migration
+        run: git push origin HEAD:youtube/etf-100-euro-flagship-v1
