@@ -4,7 +4,13 @@ import {mkdirSync, mkdtempSync, rmSync, unlinkSync, writeFileSync} from 'node:fs
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
-import {PHASE_1_FILES} from '../scripts/lib/youtube-contract.mjs';
+import {
+  ANIMATION_SEAL,
+  IMAGE_INBOX,
+  PHASE_1_FILES,
+  VISUAL_INDEX,
+  WORD_TIMINGS,
+} from '../scripts/lib/youtube-contract.mjs';
 import {analyzeYouTubeReadiness, isSixteenNineDimensions} from '../scripts/lib/youtube-readiness.mjs';
 
 const write = (root: string, relativePath: string, content: string | Buffer) => {
@@ -19,6 +25,10 @@ const createReadyFixture = () => {
 
   const animationSource = `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\nexport const MECHANIC_ID = 'monthly-buffer-build';\nexport const VISUAL_TECHNIQUE_ID = 'stacked-monthly-depth';\nexport const COMPOSITION_FAMILY_ID = 'css-3d';\nexport const ANIMATION_NARRATIVE = {START:'leer', MECHANISM:'wächst', RESULT:'drei Monate'};\nexport const YouTubeVisual02Animation: React.FC = () => { const frame=useCurrentFrame(); const p=interpolate(frame,[0,30],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); return <AbsoluteFill><div style={{transform:\`translateY(\${(1-p)*20}px)\`}}>Reserve</div></AbsoluteFill>; };\n`;
 
+  const imagePlan = '03-szenen/szene-01/bildprompt.txt';
+  const motionPlan = '03-szenen/szene-02/remotion.md';
+  const animationPath = '03-szenen/szene-02/animation.tsx';
+
   const index = {
     title: 'Notgroschen vollständig erklärt',
     motionStandard: {id: 'finanzneo-youtube-motion-v2'},
@@ -27,7 +37,7 @@ const createReadyFixture = () => {
       {
         id: 'visual-01',
         type: 'image',
-        planFile: '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt',
+        planFile: imagePlan,
         googleFlowFileName: 'YouTube Bild 01 - Sicherheitspuffer.png',
         chapter: 'Warum du einen Notgroschen brauchst',
         scriptBeat: 'Eine unerwartete Reparatur darf nicht in den Dispo führen.',
@@ -37,8 +47,8 @@ const createReadyFixture = () => {
       {
         id: 'visual-02',
         type: 'animation',
-        planFile: '04-visuals/EINZELNE-VISUALS/visual-02/remotion.md',
-        animationSourceFile: '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx',
+        planFile: motionPlan,
+        animationSourceFile: animationPath,
         animationExport: 'YouTubeVisual02Animation',
         animationIntent: 'Zeigt, wie mehrere Monatsausgaben als Reserve entstehen.',
         mechanicId: 'monthly-buffer-build',
@@ -52,16 +62,17 @@ const createReadyFixture = () => {
       },
     ],
   };
-  write(root, '04-visuals/visual-index.json', `${JSON.stringify(index)}\n`);
-  write(root, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt', 'Finaler englischer Literal-first Bildprompt ohne Platzhalter.');
-  write(root, '04-visuals/EINZELNE-VISUALS/visual-02/remotion.md', 'Finale Remotion-Spezifikation ohne Platzhalter.');
-  write(root, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx', animationSource);
-  write(root, '06-projektdateien/animation-seal.json', `${JSON.stringify({
+
+  write(root, VISUAL_INDEX, `${JSON.stringify(index)}\n`);
+  write(root, imagePlan, 'Finaler englischer Literal-first Bildprompt ohne Platzhalter.');
+  write(root, motionPlan, 'Finale Remotion-Spezifikation ohne Platzhalter.');
+  write(root, animationPath, animationSource);
+  write(root, ANIMATION_SEAL, `${JSON.stringify({
     version: 1,
     motionStandardId: 'finanzneo-youtube-motion-v2',
     entries: [{
       id: 'visual-02',
-      sourceFile: '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx',
+      sourceFile: animationPath,
       exportName: 'YouTubeVisual02Animation',
       mechanicId: 'monthly-buffer-build',
       visualTechniqueId: 'stacked-monthly-depth',
@@ -69,11 +80,11 @@ const createReadyFixture = () => {
       sha256: createHash('sha256').update(Buffer.from(animationSource)).digest('hex'),
     }],
   })}\n`);
-  write(root, '04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Thumbnail - Notgroschen.png', Buffer.from('thumbnail'));
-  write(root, '04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Sicherheitspuffer.png', Buffer.from('visual'));
-  write(root, '03-audio/voice.mp3', Buffer.from('audio'));
-  write(root, '03-audio/word-timings.json', `${JSON.stringify({
-    source: '03-audio/voice.mp3',
+  write(root, `${IMAGE_INBOX}/YouTube Thumbnail - Notgroschen.png`, Buffer.from('thumbnail'));
+  write(root, `${IMAGE_INBOX}/YouTube Bild 01 - Sicherheitspuffer.png`, Buffer.from('visual'));
+  write(root, '02-audio/voice.mp3', Buffer.from('audio'));
+  write(root, WORD_TIMINGS, `${JSON.stringify({
+    source: '02-audio/voice.mp3',
     subtitleMode: 'sentence-with-audio-synced-active-word',
     activeWordColor: 'finance-green',
     words: [{word:'Ein',start:0,end:0.2}],
@@ -86,7 +97,7 @@ test('Einsatzprüfung gibt ein vollständiges versiegeltes YouTube-Projekt für 
   const root = createReadyFixture();
   try {
     const result = analyzeYouTubeReadiness(root);
-    assert.equal(result.ready, true);
+    assert.equal(result.ready, true, `Blocker: ${JSON.stringify({phase1: result.phase1Blockers, phase2: result.phase2Blockers})}`);
     assert.deepEqual(result.phase1Blockers, []);
     assert.deepEqual(result.phase2Blockers, []);
   } finally {
@@ -104,10 +115,11 @@ test('16:9-Prüfung akzeptiert horizontale Quellbilder und blockiert Reel-Format
 test('Einsatzprüfung meldet ein fehlendes Nutzerbild exakt', () => {
   const root = createReadyFixture();
   try {
-    unlinkSync(join(root, '04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Sicherheitspuffer.png'));
+    const missingFile = 'YouTube Bild 01 - Sicherheitspuffer.png';
+    unlinkSync(join(root, IMAGE_INBOX, missingFile));
     const result = analyzeYouTubeReadiness(root);
     assert.equal(result.ready, false);
-    assert.ok(result.phase2Blockers.includes('Nutzerbild fehlt: 04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Sicherheitspuffer.png'));
+    assert.ok(result.phase2Blockers.includes(`Nutzerbild fehlt: ${IMAGE_INBOX}/${missingFile}`));
   } finally {
     rmSync(root, {recursive:true, force:true});
   }
@@ -116,7 +128,7 @@ test('Einsatzprüfung meldet ein fehlendes Nutzerbild exakt', () => {
 test('Einsatzprüfung blockiert veränderten Motion-Code nach Seal', () => {
   const root = createReadyFixture();
   try {
-    write(root, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx', 'manipuliert');
+    write(root, '03-szenen/szene-02/animation.tsx', 'manipuliert');
     const result = analyzeYouTubeReadiness(root);
     assert.equal(result.ready, false);
     assert.ok(result.phase1Blockers.some((blocker) => blocker.includes('Hash für visual-02 stimmt nicht mehr')));
@@ -128,12 +140,12 @@ test('Einsatzprüfung blockiert veränderten Motion-Code nach Seal', () => {
 test('Einsatzprüfung blockiert offene Metadaten und Social-Promo-Platzhalter', () => {
   const root = createReadyFixture();
   try {
-    write(root, '05-publishing/final-title.txt', '[FINALEN YOUTUBE-TITEL EINFÜGEN]');
-    write(root, '05-publishing/social-promo/instagram.txt', 'CAPTION: [EINFÜGEN]');
+    write(root, '04-caption/final-title.txt', '[FINALEN YOUTUBE-TITEL EINFÜGEN]');
+    write(root, '04-caption/social-promo/instagram.txt', 'CAPTION: [EINFÜGEN]');
     const result = analyzeYouTubeReadiness(root);
     assert.equal(result.ready, false);
-    assert.ok(result.phase1Blockers.includes('05-publishing/final-title.txt enthält noch Platzhalter.'));
-    assert.ok(result.phase1Blockers.includes('05-publishing/social-promo/instagram.txt enthält noch Platzhalter.'));
+    assert.ok(result.phase1Blockers.includes('04-caption/final-title.txt enthält noch Platzhalter.'));
+    assert.ok(result.phase1Blockers.includes('04-caption/social-promo/instagram.txt enthält noch Platzhalter.'));
   } finally {
     rmSync(root, {recursive:true, force:true});
   }
@@ -142,10 +154,10 @@ test('Einsatzprüfung blockiert offene Metadaten und Social-Promo-Platzhalter', 
 test('Einsatzprüfung blockiert mehrere Voiceover-Dateien', () => {
   const root = createReadyFixture();
   try {
-    write(root, '03-audio/zweite-stimme.wav', Buffer.from('audio'));
+    write(root, '02-audio/zweite-stimme.wav', Buffer.from('audio'));
     const result = analyzeYouTubeReadiness(root);
     assert.equal(result.ready, false);
-    assert.ok(result.phase2Blockers.some((blocker) => blocker.startsWith('03-audio/ enthält mehrere Audiodateien:')));
+    assert.ok(result.phase2Blockers.some((blocker) => blocker.startsWith('02-audio/ enthält mehrere Audiodateien:')));
   } finally {
     rmSync(root, {recursive:true, force:true});
   }
