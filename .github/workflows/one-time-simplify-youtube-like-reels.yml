@@ -35,6 +35,17 @@ jobs:
       - name: Migrate YouTube structure
         run: node .tmp/simplify-youtube-like-reels.mjs
 
+      - name: Normalize scaffold index path
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('scripts/scaffold-finanzneo-youtube.mjs')
+          s = p.read_text()
+          s = s.replace("write('05-projektdateien/scene-index.json',", "write(VISUAL_INDEX,")
+          p.write_text(s)
+          PY
+
       - name: Verify exact Reel-like top-level structure
         shell: bash
         run: |
@@ -133,5 +144,3 @@ jobs:
 
       - name: Push checked migration
         run: git push origin HEAD:youtube/etf-100-euro-flagship-v1
-
-# rerun after Produktionsstandard path migration
