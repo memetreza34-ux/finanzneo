@@ -6,7 +6,9 @@ import {
   ANIMATION_SEAL,
   AUDIO_DIR,
   IMAGE_INBOX,
+  MOTION_RENDER_QA,
   PHASE_1_FILES,
+  STATIC_IMAGE_MAX_SECONDS,
   SUBTITLE_MODE,
   TIMELINE,
   VISUAL_INDEX,
@@ -83,6 +85,7 @@ export const validateResolvedTimeline = (timeline, visuals, blockers) => {
     return;
   }
   let expectedStart = 0;
+  const maxImageFrames = STATIC_IMAGE_MAX_SECONDS * 30;
   for (let i = 0; i < visuals.length; i += 1) {
     const visual = visuals[i];
     const item = items[i];
@@ -92,7 +95,7 @@ export const validateResolvedTimeline = (timeline, visuals, blockers) => {
     if (!Number.isInteger(start) || start !== expectedStart) blockers.push(`${TIMELINE}: ${visual.id}.startFrame muss ${expectedStart} sein.`);
     if (!Number.isInteger(duration) || duration <= 0) blockers.push(`${TIMELINE}: ${visual.id}.durationFrames muss > 0 sein.`);
     if (Number.isInteger(duration) && duration > 0) {
-      if (visual.type === 'image' && duration > 210) blockers.push(`${TIMELINE}: ${visual.id} ist als statisches Bild länger als 7 Sekunden. Splitte den Beat oder nutze Hybrid-Motion.`);
+      if (visual.type === 'image' && duration > maxImageFrames) blockers.push(`${TIMELINE}: ${visual.id} ist als statisches Bild länger als ${STATIC_IMAGE_MAX_SECONDS} Sekunden. Splitte den Beat oder nutze Hybrid-Motion.`);
       if (requiresYouTubeMotion(visual)) {
         const events = Math.max(1, Array.isArray(visual.motionEvents) ? visual.motionEvents.length : 1);
         const quietBudget = Math.ceil(duration / (events + 1));
@@ -123,9 +126,7 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
   const index = readJson(resolve(root, VISUAL_INDEX), phase1Blockers, VISUAL_INDEX);
   const visuals = Array.isArray(index?.visuals) ? index.visuals : [];
   if (index && visuals.length === 0) phase1Blockers.push(`${VISUAL_INDEX} enthält keine Visuals.`);
-  if (index && (typeof index.title !== 'string' || !index.title.trim() || hasPlaceholder(index.title))) {
-    phase1Blockers.push(`${VISUAL_INDEX}: title fehlt oder enthält einen Platzhalter.`);
-  }
+  if (index && (typeof index.title !== 'string' || !index.title.trim() || hasPlaceholder(index.title))) phase1Blockers.push(`${VISUAL_INDEX}: title fehlt oder enthält einen Platzhalter.`);
   if (index?.motionStandard?.id !== YOUTUBE_MOTION_STANDARD_ID) phase1Blockers.push(`${VISUAL_INDEX}: motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
 
   const expectedImages = [];
@@ -155,7 +156,6 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
       checkCompletedText(root, visual.animationSourceFile ?? '', phase1Blockers);
       checkCompletedText(root, visual.planFile ?? '', phase1Blockers);
     }
-
     if (visual?.type === 'data') checkCompletedText(root, visual.dataNotesFile ?? '', phase1Blockers);
   }
   for (const error of validateYouTubeMotionVariety(visuals)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
@@ -165,6 +165,9 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
     const seal = readJson(resolve(root, ANIMATION_SEAL), phase1Blockers, ANIMATION_SEAL);
     if (seal) {
       if (seal.motionStandardId !== YOUTUBE_MOTION_STANDARD_ID) phase1Blockers.push(`${ANIMATION_SEAL}: motionStandardId ist falsch.`);
+      const qaPath = resolve(root, MOTION_RENDER_QA);
+      if (!isFile(qaPath)) phase1Blockers.push(`${MOTION_RENDER_QA} fehlt; Motion Render-QA erneut ausführen.`);
+      else if (!seal.motionRenderQaSha256 || seal.motionRenderQaSha256 !== sha256(qaPath)) phase1Blockers.push(`${ANIMATION_SEAL}: Motion-Render-QA-Hash stimmt nicht mehr.`);
       const entries = Array.isArray(seal.entries) ? seal.entries : [];
       for (const visual of motionVisuals) {
         const entry = entries.find((candidate) => candidate.id === visual.id);
