@@ -2,7 +2,7 @@
   "name": "finanzneo-brandkit",
   "version": "1.0.0",
   "private": true,
-  "description": "FinanzNeo Remotion-Studio für vertikale Finanz-Erklärvideos",
+  "description": "FinanzNeo Remotion-Studio für Finanz-Erklärvideos",
   "engines": {
     "node": ">=20.19.0"
   },
@@ -35,8 +35,12 @@
     "youtube:create": "node scripts/scaffold-finanzneo-youtube.mjs",
     "youtube:validate": "node scripts/validate-youtube.mjs",
     "youtube:animation:validate": "node scripts/validate-youtube-animation-quality.mjs",
+    "youtube:motion:qa": "node scripts/validate-youtube-motion-render-qa.mjs",
     "youtube:phase1:seal": "node scripts/seal-youtube-phase1-animations.mjs",
+    "youtube:timeline:build": "node scripts/build-youtube-timeline.mjs",
     "youtube:ready": "node scripts/check-youtube-production-ready.mjs",
+    "youtube:render": "node scripts/render-youtube-validated.mjs",
+    "youtube:final:qa": "node scripts/validate-youtube-final-render.mjs",
     "protect:install": "node scripts/install-git-guards.mjs",
     "protect:check-staged": "node scripts/check-staged-protected-files.mjs",
     "antigravity:safety": "node scripts/antigravity-repo-safety-check.mjs",
