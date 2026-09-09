@@ -17,7 +17,11 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
   process.exit(1);
 }
 
-for (const script of ['scripts/validate-youtube.mjs', 'scripts/validate-youtube-animation-quality.mjs']) {
+for (const script of [
+  'scripts/validate-youtube.mjs',
+  'scripts/validate-youtube-animation-quality.mjs',
+  'scripts/validate-youtube-motion-render-qa.mjs',
+]) {
   const gate = spawnSync(process.execPath, [resolve(script), root], {stdio: 'inherit'});
   if (gate.status !== 0) process.exit(gate.status ?? 1);
 }
@@ -65,5 +69,5 @@ for (const fileName of result.expectedImages) {
 }
 
 console.log('\n✓ YOUTUBE PHASE 3 STARTKLAR');
-console.log(`  ${result.expectedImages.length} Bilder · 1 finales Voiceover · echte Wort-Timestamps · aufgelöste Timeline · Motion V3 Seal.`);
+console.log(`  ${result.expectedImages.length} Bilder · 1 finales Voiceover · echte Wort-Timestamps · aufgelöste Timeline · aktuelle Render-QA · Motion V3 Seal.`);
 console.log('  Finalrender ausschließlich über: npm run youtube:render -- <Projekt>');
