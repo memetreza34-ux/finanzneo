@@ -14,6 +14,10 @@ import {
   GENERATED_IMAGE_ASPECT_MARKER,
   GENERATED_IMAGE_ASPECT_RATIO,
   IMAGE_INBOX,
+  IMAGE_STORYTELLING_CONTRACT_ID,
+  MIN_IMAGE_ASSETS_8_TO_10_MIN,
+  MIN_TOTAL_VISIBLE_BEATS_8_TO_10_MIN,
+  PREMIUM_VISUAL_WORLD_LOCK_ID,
   PROJECT_DIR,
   PRODUCTION_MANIFEST,
   SCENES_DIR,
@@ -21,12 +25,14 @@ import {
   SERIES_LOCK_ID,
   SERIES_LOCK_MARKER,
   SOCIAL_PROMO_FILES,
+  STATIC_IMAGE_MAX_SECONDS,
   SUBTITLE_MODE,
   TIMELINE,
   VISUAL_INDEX,
   WORD_TIMINGS,
   WORLD_ID,
   WORLD_ID_MARKER,
+  YOUTUBE_IMAGE_DENSITY_STANDARD_ID,
   YOUTUBE_MOTION_STANDARD_ID,
   YOUTUBE_PUBLISHING_FILES,
   YOUTUBE_VIDEO_ASPECT_RATIO,
@@ -92,9 +98,23 @@ if (index) {
 
   assert(index.imageWorld?.id === WORLD_ID, 'FinanzNeo Image World ID fehlt.');
   assert(index.imageWorld?.seriesLockId === SERIES_LOCK_ID, 'FinanzNeo Same-World-Lock fehlt.');
+  assert(index.imageWorld?.premiumVisualWorldLockId === PREMIUM_VISUAL_WORLD_LOCK_ID, `YouTube muss denselben Reel-V9-Lock ${PREMIUM_VISUAL_WORLD_LOCK_ID} verwenden.`);
+  assert(index.imageWorld?.imageStorytellingContractId === IMAGE_STORYTELLING_CONTRACT_ID, `Image Storytelling muss ${IMAGE_STORYTELLING_CONTRACT_ID} sein.`);
   assert(index.imageWorld?.generatedImageAspectRatio === GENERATED_IMAGE_ASPECT_RATIO, 'YouTube-Quellbilder müssen 16:9 sein.');
+  assert(index.imageWorld?.style === 'stylized-3d-animated-black-v9', 'YouTube-Bildstil muss die Reel-V9-Welt verwenden.');
   assert(index.imageWorld?.literalFirst === true && index.imageWorld?.metaphorOptional === true, 'YouTube-Bilder müssen Literal-first V3 verwenden.');
   assert(index.imageWorld?.referencePromptFile === `${SCENES_DIR}/bildwelt.txt`, 'referencePromptFile ist falsch.');
+  assert(index.imageWorld?.styleReferenceStrategy === 'written-style-lock-only' && index.imageWorld?.referenceImageUse === 'forbidden', 'Die schriftliche V9-Bildwelt muss die einzige Stilreferenz sein.');
+  for (const field of ['sameWorldAcrossSeriesRequired','realWorldGroundedSituationRequired','believableObjectProportionsRequired','recognizableEverydayDetailsRequired','genericAiLookForbidden','sciFiNeonTechForbidden','toyGameLookForbidden','miniatureDioramaForbidden','fakeUiForbidden','fakeLogoWallForbidden','abstractSymbolOnlyCompositionForbidden','genericFinanceIconCompositionForbidden','photorealismForbidden','clutterForbidden']) {
+    assert(index.imageWorld?.[field] === true, `imageWorld.${field} muss true sein.`);
+  }
+
+  assert(index.imageDensity?.id === YOUTUBE_IMAGE_DENSITY_STANDARD_ID, `imageDensity.id muss ${YOUTUBE_IMAGE_DENSITY_STANDARD_ID} sein.`);
+  assert(index.imageDensity?.adaptive === true, 'Bilddichte muss adaptiv und nicht als starre Quote geplant werden.');
+  assert(Number(index.imageDensity?.minDistinctImageAssetsFor8to10Min) === MIN_IMAGE_ASSETS_8_TO_10_MIN, `8–10 Minuten brauchen mindestens ${MIN_IMAGE_ASSETS_8_TO_10_MIN} Bild-/Hybrid-Assets.`);
+  assert(Number(index.imageDensity?.minTotalVisibleBeatsFor8to10Min) === MIN_TOTAL_VISIBLE_BEATS_8_TO_10_MIN, `8–10 Minuten brauchen mindestens ${MIN_TOTAL_VISIBLE_BEATS_8_TO_10_MIN} sichtbare Beats.`);
+  assert(Number(index.imageDensity?.staticImageMaxSeconds) === STATIC_IMAGE_MAX_SECONDS, `Reine Bildbeats dürfen maximal ${STATIC_IMAGE_MAX_SECONDS} Sekunden laufen.`);
+  assert(index.imageDensity?.preferExtraImageOverOverloadedStill === true, 'Ein zusätzliches fokussiertes Bild muss einem überladenen Still vorgezogen werden.');
 
   assert(index.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID, `motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
   assert(index.motionStandard?.contentFirstTechniqueSelection === true, 'Motion-Technik muss aus dem Inhalt gewählt werden.');
@@ -112,12 +132,23 @@ if (index) {
   assert(index.googleFlow?.finalCollectionDirectory === `${IMAGE_INBOX}/`, 'Finaler Bilderordner ist falsch.');
 
   assert(index.timelineRules?.beatFirst === true && index.timelineRules?.wordTimestampDriven === true, 'Timeline muss Beat-first und Wort-Timestamp-getrieben sein.');
-  assert(index.timelineRules?.staticImageMaxSeconds === 7, 'Statische Bilder dürfen maximal 7 Sekunden am Stück laufen.');
+  assert(index.timelineRules?.staticImageMaxSeconds === STATIC_IMAGE_MAX_SECONDS, `Statische Bilder dürfen maximal ${STATIC_IMAGE_MAX_SECONDS} Sekunden am Stück laufen.`);
   assert(index.timelineRules?.maxStaticRunFinalSeconds === 8, 'Finales Staticness-Limit muss 8 Sekunden sein.');
 
   assert(index.thumbnail?.type === 'image' && typeof index.thumbnail?.googleFlowFileName === 'string', 'Thumbnail-Vertrag fehlt.');
   assert(index.thumbnail?.planFile === `${SCENES_DIR}/thumbnail-prompt.txt`, 'Thumbnail-Promptpfad ist falsch.');
   assert(Array.isArray(index.visuals) && index.visuals.length > 0, `${VISUAL_INDEX} benötigt visuals[].`);
+
+  const imageBearingCount = (index.visuals ?? []).filter(requiresYouTubeImage).length;
+  const totalVisibleBeats = (index.visuals ?? []).reduce((sum, visual) => {
+    if (requiresYouTubeMotion(visual)) return sum + Math.max(1, Array.isArray(visual.visualBeats) ? visual.visualBeats.length : 1);
+    return sum + 1;
+  }, 0);
+  const isEightToTenMinuteProject = Number(index.targetDurationSeconds?.min) >= 480 && Number(index.targetDurationSeconds?.max) <= 600;
+  if (isEightToTenMinuteProject) {
+    assert(imageBearingCount >= MIN_IMAGE_ASSETS_8_TO_10_MIN, `8–10-Minuten-Projekt hat nur ${imageBearingCount} Bild-/Hybrid-Assets; mindestens ${MIN_IMAGE_ASSETS_8_TO_10_MIN} nötig.`);
+    assert(totalVisibleBeats >= MIN_TOTAL_VISIBLE_BEATS_8_TO_10_MIN, `8–10-Minuten-Projekt hat nur ${totalVisibleBeats} sichtbare Beats; mindestens ${MIN_TOTAL_VISIBLE_BEATS_8_TO_10_MIN} nötig.`);
+  }
 
   for (const [key, expectedPath] of Object.entries(YOUTUBE_PUBLISHING_FILES)) {
     assert(index.publishing?.youtube?.[key] === expectedPath, `publishing.youtube.${key} muss auf ${expectedPath} zeigen.`);
@@ -155,7 +186,8 @@ if (index) {
       assert(imagePlan === `${sceneDir}/bildprompt.txt` && existsSync(resolve(root, imagePlan)), `${id}: bildprompt.txt fehlt oder Pfad ist falsch.`);
       if (existsSync(resolve(root, imagePlan))) {
         const prompt = read(imagePlan);
-        for (const marker of ['LITERAL_REAL_WORLD_SITUATION:', 'REAL_WORLD_CONTEXT_ANCHOR:', 'VOICEOVER_VISUAL_MATCH:', 'TRANSFERABILITY_TEST:', 'VISUAL_STRATEGY:', 'METAPHOR_JUSTIFICATION:']) assert(prompt.includes(marker), `${id}: Literal-first Marker fehlt: ${marker}`);
+        for (const marker of ['LITERAL_REAL_WORLD_SITUATION:', 'REAL_WORLD_CONTEXT_ANCHOR:', 'VOICEOVER_VISUAL_MATCH:', 'TRANSFERABILITY_TEST:', 'SUBTITLE_OFF_TEST:', 'VISUAL_STRATEGY:', 'METAPHOR_JUSTIFICATION:', `PREMIUM_VISUAL_WORLD_LOCK: ${PREMIUM_VISUAL_WORLD_LOCK_ID}`, `IMAGE_STORYTELLING_CONTRACT: ${IMAGE_STORYTELLING_CONTRACT_ID}`]) assert(prompt.includes(marker), `${id}: Bildwelt-/Literal-first Marker fehlt: ${marker}`);
+        for (const requiredPhrase of ['not like generic AI art', 'No sci-fi, cyberpunk or neon-tech environment', 'No miniature world map made of toy buildings', 'No dashboard/app UI as the main composition']) assert(prompt.includes(requiredPhrase), `${id}: Anti-KI-/V9-Regel fehlt: ${requiredPhrase}`);
       }
     }
 
@@ -174,11 +206,14 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   const prompts = read(ALL_PROMPTS);
   assert(prompts.includes(WORLD_ID_MARKER), `${ALL_PROMPTS} verwendet nicht die FinanzNeo World ID.`);
   assert(prompts.includes(SERIES_LOCK_MARKER), `${ALL_PROMPTS} enthält keinen Same-World-Lock.`);
+  assert(prompts.includes(`PREMIUM_VISUAL_WORLD_LOCK: ${PREMIUM_VISUAL_WORLD_LOCK_ID}`), `${ALL_PROMPTS} enthält nicht den Reel-V9-Lock.`);
+  assert(prompts.includes(`IMAGE_STORYTELLING_CONTRACT: ${IMAGE_STORYTELLING_CONTRACT_ID}`), `${ALL_PROMPTS} enthält nicht Image Storytelling V3.`);
   assert(prompts.includes(GENERATED_IMAGE_ASPECT_MARKER), `${ALL_PROMPTS} schreibt 16:9 nicht vor.`);
   assert(prompts.includes(FLOW_AGENT_PROTOCOL_MARKER), `${ALL_PROMPTS} enthält kein Flow-Protokoll.`);
   assert(prompts.includes('Generate exactly ONE image'), 'Google Flow muss exakt ein Bild pro Schritt erzeugen.');
   assert(prompts.includes('Rename it immediately'), 'Sofortige Umbenennung vor dem nächsten Bild fehlt.');
   assert(prompts.includes('Literal first, creative second'), 'Literal-first Bildlogik fehlt.');
+  assert(prompts.includes('Reject generic AI-art'), 'Anti-KI-Look-QA fehlt in der Flow-Masterdatei.');
 }
 
 if (existsSync(resolve(root, WORD_TIMINGS))) {
@@ -196,4 +231,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 console.log('\n✓ YouTube-Longform-V3-Vertrag erfüllt.');
-console.log('  Reel-artige Struktur · 16:9 · Literal-first V3 · Motion V3 · Caption-Pflicht · Wortbereich-Timeline · keine Shorts');
+console.log(`  Reel-artige Struktur · Reel Image World V9 · mindestens ${MIN_IMAGE_ASSETS_8_TO_10_MIN} Bildassets/${MIN_TOTAL_VISIBLE_BEATS_8_TO_10_MIN} Beats bei 8–10 Min · Motion V3 · Captions`);
