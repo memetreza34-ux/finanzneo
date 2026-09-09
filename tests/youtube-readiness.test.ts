@@ -14,139 +14,131 @@ const write = (root: string, relativePath: string, content: string | Buffer) => 
 };
 
 const createReadyFixture = () => {
-  const root = mkdtempSync(join(tmpdir(), 'finanzneo-youtube-ready-'));
+  const root = mkdtempSync(join(tmpdir(), 'finanzneo-youtube-ready-v3-'));
   for (const path of PHASE_1_FILES) write(root, path, `Finaler Inhalt für ${path}.`);
 
-  const animationSource = `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\nexport const MECHANIC_ID = 'monthly-buffer-build';\nexport const VISUAL_TECHNIQUE_ID = 'stacked-monthly-depth';\nexport const COMPOSITION_FAMILY_ID = 'css-3d';\nexport const ANIMATION_NARRATIVE = {START:'leer', MECHANISM:'wächst', RESULT:'drei Monate'};\nexport const YouTubeVisual02Animation: React.FC = () => { const frame=useCurrentFrame(); const p=interpolate(frame,[0,30],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); return <AbsoluteFill><div style={{transform:\`translateY(\${(1-p)*20}px)\`}}>Reserve</div></AbsoluteFill>; };\n`;
-
+  const animationSource = `import React from 'react';\nexport const MECHANIC_ID='reserve-build';\nexport const VISUAL_TECHNIQUE_ID='depth-build';\nexport const COMPOSITION_FAMILY_ID='css-3d';\nexport const Scene02=()=>null;\n`;
   const index = {
-    title: 'Notgroschen vollständig erklärt',
-    motionStandard: {id: 'finanzneo-youtube-motion-v2'},
-    thumbnail: {googleFlowFileName: 'YouTube Thumbnail - Notgroschen.png'},
+    title: 'V3 Readiness Test',
+    motionStandard: {id:'finanzneo-youtube-motion-v3'},
+    thumbnail: {googleFlowFileName:'YouTube Thumbnail - Test.png'},
     visuals: [
       {
-        id: 'visual-01',
-        type: 'image',
-        planFile: '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt',
-        googleFlowFileName: 'YouTube Bild 01 - Sicherheitspuffer.png',
-        chapter: 'Warum du einen Notgroschen brauchst',
-        scriptBeat: 'Eine unerwartete Reparatur darf nicht in den Dispo führen.',
-        expectedVisual: 'Eine konkrete kaputte Waschmaschine, Reparaturrechnung und Reserve im selben FinanzNeo-Bild.',
-        objectLabels: ['Notgroschen', 'Reparatur'],
+        id:'szene-01',type:'image',planFile:'03-szenen/szene-01/bildprompt.txt',
+        googleFlowFileName:'YouTube Bild 01 - Test.png',chapter:'Hook',scriptBeat:'Konkreter Einstieg.',
+        expectedVisual:'Konkrete Finanzsituation.',objectLabels:[],wordStartIndex:0,wordEndIndex:29,
       },
       {
-        id: 'visual-02',
-        type: 'animation',
-        planFile: '04-visuals/EINZELNE-VISUALS/visual-02/remotion.md',
-        animationSourceFile: '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx',
-        animationExport: 'YouTubeVisual02Animation',
-        animationIntent: 'Zeigt, wie mehrere Monatsausgaben als Reserve entstehen.',
-        mechanicId: 'monthly-buffer-build',
-        visualTechniqueId: 'stacked-monthly-depth',
-        compositionFamilyId: 'css-3d',
-        repeatTechniqueReason: '',
-        motionChannels: ['Monatsblöcke bauen sich auf', 'Kamera zieht leicht zurück'],
-        visualBeats: ['Leere Reserve', 'Drei Monatsblöcke stehen sichtbar'],
-        chapter: 'Die richtige Höhe',
-        scriptBeat: 'Drei Monatsausgaben werden schrittweise aufgebaut.',
+        id:'szene-02',type:'animation',planFile:'03-szenen/szene-02/remotion.md',
+        animationSourceFile:'03-szenen/szene-02/animation.tsx',animationExport:'Scene02',
+        animationIntent:'Zeigt einen sichtbaren Prozess.',viewerTakeaway:'Der Ablauf wird verständlich.',qualityTier:'support',
+        mechanicId:'reserve-build',visualTechniqueId:'depth-build',compositionFamilyId:'css-3d',repeatTechniqueReason:'',
+        motionChannels:['Objekte','Kamera','Tiefe'],visualBeats:['Start','Aufbau','Verbindung','Resultat'],
+        motionEvents:['Start','Objekt 1','Objekt 2','Resultat'],previewDurationFrames:180,maxQuietFrames:90,
+        chapter:'Erklärung',scriptBeat:'Der Prozess wird sichtbar.',wordStartIndex:30,wordEndIndex:59,
       },
     ],
   };
-  write(root, '04-visuals/visual-index.json', `${JSON.stringify(index)}\n`);
-  write(root, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt', 'Finaler englischer Literal-first Bildprompt ohne Platzhalter.');
-  write(root, '04-visuals/EINZELNE-VISUALS/visual-02/remotion.md', 'Finale Remotion-Spezifikation ohne Platzhalter.');
-  write(root, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx', animationSource);
-  write(root, '06-projektdateien/animation-seal.json', `${JSON.stringify({
-    version: 1,
-    motionStandardId: 'finanzneo-youtube-motion-v2',
-    entries: [{
-      id: 'visual-02',
-      sourceFile: '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx',
-      exportName: 'YouTubeVisual02Animation',
-      mechanicId: 'monthly-buffer-build',
-      visualTechniqueId: 'stacked-monthly-depth',
-      compositionFamilyId: 'css-3d',
-      sha256: createHash('sha256').update(Buffer.from(animationSource)).digest('hex'),
+  write(root, '05-projektdateien/scene-index.json', `${JSON.stringify(index)}\n`);
+  write(root, '03-szenen/szene-01/bildprompt.txt', 'Finaler Literal-first Bildprompt.');
+  write(root, '03-szenen/szene-02/remotion.md', 'Finale Motion-V3-Spezifikation.');
+  write(root, '03-szenen/szene-02/animation.tsx', animationSource);
+  write(root, '05-projektdateien/animation-seal.json', `${JSON.stringify({
+    version:2,motionStandardId:'finanzneo-youtube-motion-v3',entries:[{
+      id:'szene-02',sourceFile:'03-szenen/szene-02/animation.tsx',exportName:'Scene02',qualityTier:'support',
+      mechanicId:'reserve-build',visualTechniqueId:'depth-build',compositionFamilyId:'css-3d',
+      sha256:createHash('sha256').update(Buffer.from(animationSource)).digest('hex'),
     }],
   })}\n`);
-  write(root, '04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Thumbnail - Notgroschen.png', Buffer.from('thumbnail'));
-  write(root, '04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Sicherheitspuffer.png', Buffer.from('visual'));
-  write(root, '03-audio/voice.mp3', Buffer.from('audio'));
-  write(root, '03-audio/word-timings.json', `${JSON.stringify({
-    source: '03-audio/voice.mp3',
-    subtitleMode: 'sentence-with-audio-synced-active-word',
-    activeWordColor: 'finance-green',
-    words: [{word:'Ein',start:0,end:0.2}],
-    sentences: [{text:'Ein',start:0,end:0.2,words:[{word:'Ein',start:0,end:0.2}]}],
+  write(root, '03-szenen/00-ALLE-BILDER-HIER-REIN/YouTube Thumbnail - Test.png', Buffer.from('thumbnail'));
+  write(root, '03-szenen/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Test.png', Buffer.from('visual'));
+  write(root, '02-audio/voice.mp3', Buffer.from('audio'));
+
+  const words = Array.from({length:60}, (_, i) => ({word:`Wort${i + 1}`,start:i * 0.2,end:i * 0.2 + 0.18}));
+  const sentences = Array.from({length:6}, (_, i) => ({
+    text:words.slice(i * 10, i * 10 + 10).map((word) => word.word).join(' '),
+    start:words[i * 10].start,
+    end:words[i * 10 + 9].end,
+    words:words.slice(i * 10, i * 10 + 10),
+  }));
+  write(root, '02-audio/word-timings.json', `${JSON.stringify({
+    source:'voice.mp3',subtitleMode:'sentence-with-audio-synced-active-word',activeWordColor:'finance-green',words,sentences,
+  })}\n`);
+  write(root, '05-projektdateien/timeline.json', `${JSON.stringify({
+    durationFrames:360,
+    visuals:[
+      {id:'szene-01',startFrame:0,durationFrames:150},
+      {id:'szene-02',startFrame:150,durationFrames:210},
+    ],
   })}\n`);
   return root;
 };
 
-test('Einsatzprüfung gibt ein vollständiges versiegeltes YouTube-Projekt für Phase 3 frei', () => {
+test('Motion V3 Readiness gibt nur vollständig aufgelöste Projekte frei', () => {
   const root = createReadyFixture();
   try {
     const result = analyzeYouTubeReadiness(root);
-    assert.equal(result.ready, true);
-    assert.deepEqual(result.phase1Blockers, []);
-    assert.deepEqual(result.phase2Blockers, []);
-  } finally {
-    rmSync(root, {recursive:true, force:true});
-  }
+    assert.equal(result.ready, true, [...result.phase1Blockers,...result.phase2Blockers].join('\n'));
+  } finally { rmSync(root, {recursive:true, force:true}); }
 });
 
-test('16:9-Prüfung akzeptiert horizontale Quellbilder und blockiert Reel-Formate', () => {
-  assert.equal(isSixteenNineDimensions(1920, 1080), true);
-  assert.equal(isSixteenNineDimensions(2048, 1152), true);
-  assert.equal(isSixteenNineDimensions(1080, 1080), false);
-  assert.equal(isSixteenNineDimensions(1080, 1920), false);
+test('16:9-Prüfung akzeptiert horizontale Quellen und blockiert Reel-Formate', () => {
+  assert.equal(isSixteenNineDimensions(1920,1080), true);
+  assert.equal(isSixteenNineDimensions(2048,1152), true);
+  assert.equal(isSixteenNineDimensions(1080,1080), false);
+  assert.equal(isSixteenNineDimensions(1080,1920), false);
 });
 
-test('Einsatzprüfung meldet ein fehlendes Nutzerbild exakt', () => {
+test('Fehlendes Nutzerbild wird exakt blockiert', () => {
   const root = createReadyFixture();
   try {
-    unlinkSync(join(root, '04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Sicherheitspuffer.png'));
+    unlinkSync(join(root,'03-szenen/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Test.png'));
     const result = analyzeYouTubeReadiness(root);
-    assert.equal(result.ready, false);
-    assert.ok(result.phase2Blockers.includes('Nutzerbild fehlt: 04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Sicherheitspuffer.png'));
-  } finally {
-    rmSync(root, {recursive:true, force:true});
-  }
+    assert.ok(result.phase2Blockers.includes('Nutzerbild fehlt: 03-szenen/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Test.png'));
+  } finally { rmSync(root,{recursive:true,force:true}); }
 });
 
-test('Einsatzprüfung blockiert veränderten Motion-Code nach Seal', () => {
+test('Veränderter Motion-Code nach Seal wird blockiert', () => {
   const root = createReadyFixture();
   try {
-    write(root, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx', 'manipuliert');
+    write(root,'03-szenen/szene-02/animation.tsx','manipuliert');
     const result = analyzeYouTubeReadiness(root);
-    assert.equal(result.ready, false);
-    assert.ok(result.phase1Blockers.some((blocker) => blocker.includes('Hash für visual-02 stimmt nicht mehr')));
-  } finally {
-    rmSync(root, {recursive:true, force:true});
-  }
+    assert.ok(result.phase1Blockers.some((blocker) => blocker.includes('Hash für szene-02 stimmt nicht mehr')));
+  } finally { rmSync(root,{recursive:true,force:true}); }
 });
 
-test('Einsatzprüfung blockiert offene Metadaten und Social-Promo-Platzhalter', () => {
+test('Leere Wort-Timestamps werden hart blockiert', () => {
   const root = createReadyFixture();
   try {
-    write(root, '05-publishing/final-title.txt', '[FINALEN YOUTUBE-TITEL EINFÜGEN]');
-    write(root, '05-publishing/social-promo/instagram.txt', 'CAPTION: [EINFÜGEN]');
+    write(root,'02-audio/word-timings.json',JSON.stringify({source:'voice.mp3',subtitleMode:'sentence-with-audio-synced-active-word',activeWordColor:'finance-green',words:[],sentences:[]}));
     const result = analyzeYouTubeReadiness(root);
-    assert.equal(result.ready, false);
-    assert.ok(result.phase1Blockers.includes('05-publishing/final-title.txt enthält noch Platzhalter.'));
-    assert.ok(result.phase1Blockers.includes('05-publishing/social-promo/instagram.txt enthält noch Platzhalter.'));
-  } finally {
-    rmSync(root, {recursive:true, force:true});
-  }
+    assert.ok(result.phase2Blockers.some((blocker) => blocker.includes('keine vollständigen echten Wort-Zeitstempel')));
+  } finally { rmSync(root,{recursive:true,force:true}); }
 });
 
-test('Einsatzprüfung blockiert mehrere Voiceover-Dateien', () => {
+test('0-Frame-Timeline wird hart blockiert', () => {
   const root = createReadyFixture();
   try {
-    write(root, '03-audio/zweite-stimme.wav', Buffer.from('audio'));
+    write(root,'05-projektdateien/timeline.json',JSON.stringify({durationFrames:0,visuals:[{id:'szene-01',startFrame:0,durationFrames:0},{id:'szene-02',startFrame:0,durationFrames:0}]}));
     const result = analyzeYouTubeReadiness(root);
-    assert.equal(result.ready, false);
-    assert.ok(result.phase2Blockers.some((blocker) => blocker.startsWith('03-audio/ enthält mehrere Audiodateien:')));
-  } finally {
-    rmSync(root, {recursive:true, force:true});
-  }
+    assert.ok(result.phase2Blockers.some((blocker) => blocker.includes('durationFrames muss > 0')));
+  } finally { rmSync(root,{recursive:true,force:true}); }
+});
+
+test('Statisches Bild über sieben Sekunden wird blockiert', () => {
+  const root = createReadyFixture();
+  try {
+    write(root,'05-projektdateien/timeline.json',JSON.stringify({durationFrames:450,visuals:[{id:'szene-01',startFrame:0,durationFrames:240},{id:'szene-02',startFrame:240,durationFrames:210}]}));
+    const result = analyzeYouTubeReadiness(root);
+    assert.ok(result.phase2Blockers.some((blocker) => blocker.includes('länger als 7 Sekunden')));
+  } finally { rmSync(root,{recursive:true,force:true}); }
+});
+
+test('Mehrere Voiceover-Dateien werden blockiert', () => {
+  const root = createReadyFixture();
+  try {
+    write(root,'02-audio/zweite-stimme.wav',Buffer.from('audio'));
+    const result = analyzeYouTubeReadiness(root);
+    assert.ok(result.phase2Blockers.some((blocker) => blocker.startsWith('02-audio/ enthält mehrere Audiodateien:')));
+  } finally { rmSync(root,{recursive:true,force:true}); }
 });
