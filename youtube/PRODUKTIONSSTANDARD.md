@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform-Produktionsstandard V3
 
-> YouTube Longform ist eigenständig. Reel-Regeln gelten nur dort, wo sie ausdrücklich gemeinsam sind. Die globale FinanzNeo-Bildwelt bleibt unverändert.
+> YouTube Longform ist eigenständig. Reel-Regeln gelten nur dort, wo sie ausdrücklich gemeinsam sind. **Die Bildwelt ist NICHT eigenständig:** YouTube verwendet exakt dieselbe FinanzNeo-Bildwelt wie die Reels; nur das Quellformat ist horizontal 16:9 statt quadratisch.
 
 ## Projektstruktur — bewusst so einfach wie bei Reels
 
@@ -25,9 +25,9 @@ Keine parallele alte Longform-Struktur mit `01-recherche`, `04-visuals` oder `05
 - Hook beginnt sofort, kein neutrales Intro
 - Länge folgt dem Thema; pro Projekt steht ein plausibles Zielzeitfenster im `scene-index.json`
 
-## Beat-first
+## Beat-first + hohe Visualdichte
 
-Es gibt keine feste Szenenzahl und keine feste Bild-/Animationsquote.
+Es gibt keine feste Szenenzahl und keine feste Bild-/Animationsquote. **Zu wenig Visuals ist trotzdem nicht erlaubt.**
 
 ```text
 Skript
@@ -45,7 +45,15 @@ Visualtypen:
 - `hybrid`
 - `data`
 
-Statische Bildbeats dürfen im finalen Timing standardmäßig höchstens 7 Sekunden am Stück laufen. Ein längerer Gedanke wird geteilt oder als Hybrid/Motion erzählt.
+Für ein typisches FinanzNeo-Video mit **8–10 Minuten** gilt als Mindestdichte:
+
+- mindestens **24 unterschiedliche Bild-/Hybrid-Assets**
+- mindestens **45 sichtbare Visual-Beats insgesamt**
+- reine statische Bildbeats maximal **6 Sekunden**
+- ein zusätzliches gutes Bild ist besser als ein überladener Still
+- wenn ein Satz oder Gedanke zwei deutlich verschiedene reale Situationen enthält, darf und soll er in mehrere Visual-Beats geteilt werden
+
+Diese Werte sind **keine starre Bild-/Animationsquote**. Wenn das Skript 30 oder 35 gute Bilder braucht, werden 30 oder 35 Bilder geplant.
 
 ## Motion V3
 
@@ -97,15 +105,65 @@ npm run youtube:phase1:seal -- youtube/<Projekt>
 
 Phase 3 darf versiegelte Motion nicht kreativ durch simplere Ersatzanimationen ersetzen.
 
-## Bildwelt / Flow
+## Bildwelt — exakt dieselbe wie bei den Reels
 
-Unverändert:
+Verbindliche IDs:
 
 - `finanzneo-connected-studio-v3`
 - `finanzneo-same-world-v1`
-- Literal first, creative second
-- horizontal 16:9
-- stylized premium 3D, deep black
+- `finanzneo-stylized-3d-animated-black-v9`
+- `finanzneo-image-storytelling-v3`
+
+YouTube darf daraus **keine eigene futuristische Interpretation** machen.
+
+### Was die Welt bedeutet
+
+- premium, realitätsnah und erwachsen
+- klar stylized 3D, aber niemals fotorealistisch
+- glaubwürdige Objektproportionen und erkennbare reale Konstruktion
+- reale Finanz-/Alltagssituation zuerst
+- sichtbare Ursache/Wirkung
+- deep-black Hintergrund mit sauberem Studio-Licht
+- Emerald/Mint für positive/aktive Elemente
+- Gold nur gezielt für Geld/Wert
+- warmes Rot-Orange nur für Risiko, Verlust oder Kosten
+- kurze deutsche Objektlabels nur wenn sie wirklich Klarheit schaffen
+
+### Was ausdrücklich NICHT die FinanzNeo-Welt ist
+
+Die folgenden Looks müssen verworfen und neu generiert werden:
+
+- generischer KI-Art-Look
+- Neon-Sci-Fi / Cyberpunk
+- leuchtende Technologie-Landschaften
+- Miniatur-Dioramen oder Spielzeugwelten
+- Weltkarten aus kleinen leuchtenden Gebäuden
+- Fantasie-Tresore, Portale, Maschinen, Förderbänder oder Kabelnetzwerke als Ersatz für reale Situationen
+- Fake-Broker-UIs oder Dashboard-Kompositionen
+- erfundene Firmenlogos / Logo-Wände
+- zufällige unlesbare KI-Texte
+- unmögliche oder verschmolzene Geometrie
+- übertriebener Glow
+- dekorative Finance-Icon-Collagen
+- Pixar-, Clay- oder Game-Asset-Optik
+
+### Literal first, creative second
+
+Jeder Bildbeat startet bei der Frage:
+
+> **Was passiert im gesprochenen Satz in der echten Welt tatsächlich?**
+
+Diese reale Situation ist die erste Bildwahl. Metaphern sind nur Fallback.
+
+Pflichttests:
+
+- **Subtitle-off-Test:** Ist ungefähr erkennbar, was erklärt wird, wenn alle Texte ausgeblendet sind?
+- **Transferability-Test:** Könnte dieses Bild unverändert auch fünf andere Finanzthemen illustrieren? Wenn ja, ist es zu generisch.
+- **Anti-AI-Look-Test:** Sieht das Bild nach typischer generischer Bild-KI statt nach bewusstem FinanzNeo-Art-Direction aus? Wenn ja, neu generieren.
+
+Ein weiteres fokussiertes Bild ist besser als ein Bild, das gleichzeitig fünf Aussagen zeigen will.
+
+## Google Flow
 
 Flow-Datei:
 
@@ -119,7 +177,11 @@ Fertige Bilder:
 03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-Flow arbeitet strikt **ein Bild nach dem anderen**: erzeugen → abwarten → exakt umbenennen → QA → erst dann nächstes Bild.
+Flow arbeitet strikt **ein Bild nach dem anderen**:
+
+`erzeugen → vollständig abwarten → exakt umbenennen → V9/Literal/Anti-AI-QA → erst dann nächstes Bild`
+
+Keine Batches. Keine Prompt-Zusammenfassung. Keine Queue. Keine späte Sammelumbenennung.
 
 ## Audio, Wortzeiten und Timeline
 
@@ -201,4 +263,9 @@ Wenn die QA scheitert, wird der Candidate entfernt und **kein neues finales MP4 
 > Nicht fragen: „Welche vorhandene Komponente kann ich hier einsetzen?“  
 > Fragen: „Was muss der Zuschauer in diesem Moment sichtbar passieren sehen, damit er den Gedanken sofort versteht?“
 
-Wenn eine Animation nahezu unverändert auch als PowerPoint-Folie funktionieren würde, ist sie für eine zentrale FinanzNeo-Longform-Erklärung in der Regel nicht gut genug.
+Und bei Bildern:
+
+> Nicht fragen: „Welche coole 3D-Metapher passt zu ETF?“  
+> Fragen: „Welche reale ETF-Situation zeigt genau diesen Satz und sieht in der bekannten FinanzNeo-Reel-Welt aus?“
+
+Wenn eine Animation nahezu unverändert auch als PowerPoint-Folie funktionieren würde, ist sie nicht gut genug. Wenn ein Bild wie generische KI-Kunst statt wie FinanzNeo aussieht, ist es ebenfalls nicht gut genug.
