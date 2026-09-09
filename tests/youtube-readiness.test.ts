@@ -18,6 +18,7 @@ const createReadyFixture = () => {
   for (const path of PHASE_1_FILES) write(root, path, `Finaler Inhalt für ${path}.`);
 
   const animationSource = `import React from 'react';\nexport const MECHANIC_ID='reserve-build';\nexport const VISUAL_TECHNIQUE_ID='depth-build';\nexport const COMPOSITION_FAMILY_ID='css-3d';\nexport const Scene02=()=>null;\n`;
+  const qa = JSON.stringify({version:'qa',report:[{id:'szene-02',passed:true}]});
   const index = {
     title: 'V3 Readiness Test',
     motionStandard: {id:'finanzneo-youtube-motion-v3'},
@@ -43,8 +44,9 @@ const createReadyFixture = () => {
   write(root, '03-szenen/szene-01/bildprompt.txt', 'Finaler Literal-first Bildprompt.');
   write(root, '03-szenen/szene-02/remotion.md', 'Finale Motion-V3-Spezifikation.');
   write(root, '03-szenen/szene-02/animation.tsx', animationSource);
+  write(root, '05-projektdateien/motion-render-qa.json', qa);
   write(root, '05-projektdateien/animation-seal.json', `${JSON.stringify({
-    version:2,motionStandardId:'finanzneo-youtube-motion-v3',entries:[{
+    version:2,motionStandardId:'finanzneo-youtube-motion-v3',motionRenderQaSha256:createHash('sha256').update(Buffer.from(qa)).digest('hex'),entries:[{
       id:'szene-02',sourceFile:'03-szenen/szene-02/animation.tsx',exportName:'Scene02',qualityTier:'support',
       mechanicId:'reserve-build',visualTechniqueId:'depth-build',compositionFamilyId:'css-3d',
       sha256:createHash('sha256').update(Buffer.from(animationSource)).digest('hex'),
@@ -65,10 +67,10 @@ const createReadyFixture = () => {
     source:'voice.mp3',subtitleMode:'sentence-with-audio-synced-active-word',activeWordColor:'finance-green',words,sentences,
   })}\n`);
   write(root, '05-projektdateien/timeline.json', `${JSON.stringify({
-    durationFrames:360,
+    durationFrames:330,
     visuals:[
       {id:'szene-01',startFrame:0,durationFrames:150},
-      {id:'szene-02',startFrame:150,durationFrames:210},
+      {id:'szene-02',startFrame:150,durationFrames:180},
     ],
   })}\n`);
   return root;
@@ -107,6 +109,15 @@ test('Veränderter Motion-Code nach Seal wird blockiert', () => {
   } finally { rmSync(root,{recursive:true,force:true}); }
 });
 
+test('Veränderter Motion-Render-QA-Bericht nach Seal wird blockiert', () => {
+  const root = createReadyFixture();
+  try {
+    write(root,'05-projektdateien/motion-render-qa.json',JSON.stringify({manipuliert:true}));
+    const result = analyzeYouTubeReadiness(root);
+    assert.ok(result.phase1Blockers.some((blocker) => blocker.includes('Motion-Render-QA-Hash stimmt nicht mehr')));
+  } finally { rmSync(root,{recursive:true,force:true}); }
+});
+
 test('Leere Wort-Timestamps werden hart blockiert', () => {
   const root = createReadyFixture();
   try {
@@ -125,12 +136,12 @@ test('0-Frame-Timeline wird hart blockiert', () => {
   } finally { rmSync(root,{recursive:true,force:true}); }
 });
 
-test('Statisches Bild über sieben Sekunden wird blockiert', () => {
+test('Statisches Bild über sechs Sekunden wird blockiert', () => {
   const root = createReadyFixture();
   try {
-    write(root,'05-projektdateien/timeline.json',JSON.stringify({durationFrames:450,visuals:[{id:'szene-01',startFrame:0,durationFrames:240},{id:'szene-02',startFrame:240,durationFrames:210}]}));
+    write(root,'05-projektdateien/timeline.json',JSON.stringify({durationFrames:390,visuals:[{id:'szene-01',startFrame:0,durationFrames:210},{id:'szene-02',startFrame:210,durationFrames:180}]}));
     const result = analyzeYouTubeReadiness(root);
-    assert.ok(result.phase2Blockers.some((blocker) => blocker.includes('länger als 7 Sekunden')));
+    assert.ok(result.phase2Blockers.some((blocker) => blocker.includes('länger als 6 Sekunden')));
   } finally { rmSync(root,{recursive:true,force:true}); }
 });
 
