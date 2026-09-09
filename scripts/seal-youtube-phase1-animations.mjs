@@ -4,6 +4,7 @@ import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {requiresYouTubeMotion, YOUTUBE_MOTION_STANDARD_ID} from './lib/youtube-motion-contract.mjs';
+import {ANIMATION_SEAL, MOTION_RENDER_QA, VISUAL_INDEX} from './lib/youtube-contract.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -17,10 +18,14 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
   process.exit(1);
 }
 
-const quality = spawnSync(process.execPath, [resolve('scripts/validate-youtube-animation-quality.mjs'), root], {stdio: 'inherit'});
-if (quality.status !== 0) process.exit(quality.status ?? 1);
+const runNodeGate = (script) => {
+  const result = spawnSync(process.execPath, [resolve(script), root], {stdio: 'inherit'});
+  if (result.status !== 0) process.exit(result.status ?? 1);
+};
+runNodeGate('scripts/validate-youtube-animation-quality.mjs');
+runNodeGate('scripts/validate-youtube-motion-render-qa.mjs');
 
-const indexPath = resolve(root, '04-visuals/visual-index.json');
+const indexPath = resolve(root, VISUAL_INDEX);
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const entries = [];
 for (const visual of (index.visuals ?? []).filter(requiresYouTubeMotion)) {
@@ -34,6 +39,7 @@ for (const visual of (index.visuals ?? []).filter(requiresYouTubeMotion)) {
     id: visual.id,
     sourceFile: visual.animationSourceFile,
     exportName: visual.animationExport,
+    qualityTier: visual.qualityTier,
     mechanicId: visual.mechanicId,
     visualTechniqueId: visual.visualTechniqueId,
     compositionFamilyId: visual.compositionFamilyId,
@@ -41,12 +47,21 @@ for (const visual of (index.visuals ?? []).filter(requiresYouTubeMotion)) {
   });
 }
 
-const out = resolve(root, '06-projektdateien/animation-seal.json');
+const qaPath = resolve(root, MOTION_RENDER_QA);
+if (!existsSync(qaPath)) {
+  console.error(`${MOTION_RENDER_QA} fehlt nach Render-QA.`);
+  process.exit(1);
+}
+const qaSha256 = createHash('sha256').update(readFileSync(qaPath)).digest('hex');
+
+const out = resolve(root, ANIMATION_SEAL);
 mkdirSync(resolve(out, '..'), {recursive: true});
 writeFileSync(out, `${JSON.stringify({
-  version: 1,
+  version: 2,
   motionStandardId: YOUTUBE_MOTION_STANDARD_ID,
-  sourceIndex: '04-visuals/visual-index.json',
+  sourceIndex: VISUAL_INDEX,
+  motionRenderQa: MOTION_RENDER_QA,
+  motionRenderQaSha256: qaSha256,
   entries,
 }, null, 2)}\n`);
-console.log(`\n✓ ${entries.length} YouTube-Animation(en) versiegelt: 06-projektdateien/animation-seal.json`);
+console.log(`\n✓ ${entries.length} YouTube-Motion-Szene(n) nach Source-QA + Render-QA versiegelt: ${ANIMATION_SEAL}`);
