@@ -15,7 +15,7 @@ test('YouTube-Scaffolder verlangt einen expliziten Beat-/Typplan', () => {
   assert.match(`${run.stderr}${run.stdout}`, /Keine Default-Szenenzahl|--types/);
 });
 
-test('YouTube-Scaffolder erzeugt Reel-artige Motion-V3-Struktur ohne feste Quote', () => {
+test('YouTube-Scaffolder erzeugt Reel-artige Motion-V3-Struktur mit Reel-V9-Bildwelt', () => {
   const target = `youtube/.tmp-motion-v3-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
@@ -47,12 +47,28 @@ test('YouTube-Scaffolder erzeugt Reel-artige Motion-V3-Struktur ohne feste Quote
     assert.equal(index.motionStandard.renderedFrameQaRequired, true);
     assert.equal(index.captions.required, true);
     assert.equal(index.timelineRules.wordTimestampDriven, true);
+    assert.equal(index.timelineRules.staticImageMaxSeconds, 6);
+    assert.equal(index.imageWorld.premiumVisualWorldLockId, 'finanzneo-stylized-3d-animated-black-v9');
+    assert.equal(index.imageWorld.imageStorytellingContractId, 'finanzneo-image-storytelling-v3');
+    assert.equal(index.imageWorld.styleReferenceStrategy, 'written-style-lock-only');
+    assert.equal(index.imageWorld.genericAiLookForbidden, true);
+    assert.equal(index.imageWorld.sciFiNeonTechForbidden, true);
+    assert.equal(index.imageWorld.miniatureDioramaForbidden, true);
+    assert.equal(index.imageDensity.id, 'finanzneo-youtube-image-density-v3');
+    assert.equal(index.imageDensity.minDistinctImageAssetsFor8to10Min, 24);
+    assert.equal(index.imageDensity.minTotalVisibleBeatsFor8to10Min, 45);
     assert.deepEqual(index.visuals.map((visual: {type:string}) => visual.type), ['image','hybrid','animation','data']);
     assert.deepEqual(index.visuals.map((visual: {id:string}) => visual.id), ['szene-01','szene-02','szene-03','szene-04']);
 
     const prompt = readFileSync(resolve(absolute, '03-szenen/szene-01/bildprompt.txt'), 'utf8');
     assert.match(prompt, /Literal first, creative second/);
     assert.match(prompt, /TRANSFERABILITY_TEST:/);
+    assert.match(prompt, /SUBTITLE_OFF_TEST:/);
+    assert.match(prompt, /finanzneo-stylized-3d-animated-black-v9/);
+    assert.match(prompt, /not like generic AI art/);
+    assert.match(prompt, /No sci-fi, cyberpunk or neon-tech environment/);
+    assert.match(prompt, /No miniature world map made of toy buildings/);
+
     const motion = readFileSync(resolve(absolute, '03-szenen/szene-02/animation.tsx'), 'utf8');
     assert.match(motion, /VIEWER_TEXT/);
     assert.match(motion, /MOTION_EVENTS/);
