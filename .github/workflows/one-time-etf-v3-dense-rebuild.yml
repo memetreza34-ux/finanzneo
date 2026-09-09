@@ -1,0 +1,132 @@
+name: One-time ETF V3 dense rebuild
+
+on:
+  push:
+    branches:
+      - repo/youtube-motion-v3-etf-rebuild
+    paths:
+      - .tmp/run-etf-v3
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: repo/youtube-motion-v3-etf-rebuild
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.19.0
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check generator syntax
+        run: node --check .tmp/create-etf-youtube-v3.mjs
+
+      - name: Existing Reel regression guard before rebuild
+        run: npm run reel:regression:check
+
+      - name: Generate dense ETF V3 project
+        run: node .tmp/create-etf-youtube-v3.mjs
+
+      - name: Verify project density and Reel V9 lock
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFileSync} from 'node:fs';
+          const p='youtube/etf-100-euro-kompletter-weg-v3/05-projektdateien/scene-index.json';
+          const x=JSON.parse(readFileSync(p,'utf8'));
+          const image=x.visuals.filter(v=>v.type==='image'||v.type==='hybrid');
+          const motion=x.visuals.filter(v=>['animation','hybrid','data'].includes(v.type));
+          if(x.visuals.length!==48) throw new Error(`Expected 48 scenes, got ${x.visuals.length}`);
+          if(image.length!==33) throw new Error(`Expected 33 image/hybrid scenes, got ${image.length}`);
+          if(motion.length!==23) throw new Error(`Expected 23 motion scenes, got ${motion.length}`);
+          if(x.imageWorld?.premiumVisualWorldLockId!=='finanzneo-stylized-3d-animated-black-v9') throw new Error('Reel V9 lock missing');
+          if(x.imageWorld?.imageStorytellingContractId!=='finanzneo-image-storytelling-v3') throw new Error('Image Storytelling V3 missing');
+          if(x.imageDensity?.minDistinctImageAssetsFor8to10Min!==24) throw new Error('Image density contract missing');
+          const prompts=readFileSync('youtube/etf-100-euro-kompletter-weg-v3/03-szenen/alle-bildprompts.txt','utf8');
+          for(const marker of ['PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9','IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3','Reject generic AI-art','SUBTITLE_OFF_TEST:']) if(!prompts.includes(marker)) throw new Error(`Prompt marker missing: ${marker}`);
+          console.log(`OK: ${x.visuals.length} scenes · ${image.length} image/hybrid · ${motion.length} motion`);
+          NODE
+
+      - name: Validate YouTube contract
+        run: npm run youtube:validate -- youtube/etf-100-euro-kompletter-weg-v3
+
+      - name: Validate Motion V3 source quality
+        run: npm run youtube:animation:validate -- youtube/etf-100-euro-kompletter-weg-v3
+
+      - name: Render-sample Motion V3 QA
+        run: npm run youtube:motion:qa -- youtube/etf-100-euro-kompletter-weg-v3
+
+      - name: Seal validated Phase 1 motion
+        run: npm run youtube:phase1:seal -- youtube/etf-100-euro-kompletter-weg-v3
+
+      - name: Require zero Phase-1 blockers and real Phase-2 blockers
+        run: |
+          node --input-type=module <<'NODE'
+          import {analyzeYouTubeReadiness} from './scripts/lib/youtube-readiness.mjs';
+          const r=analyzeYouTubeReadiness('youtube/etf-100-euro-kompletter-weg-v3');
+          if(r.phase1Blockers.length) throw new Error(`Phase 1 blockers:\n${r.phase1Blockers.join('\n')}`);
+          if(!r.phase2Blockers.length) throw new Error('Expected genuine Phase-2 blockers because no user assets/audio/timestamps were fabricated.');
+          const joined=r.phase2Blockers.join('\n');
+          for(const expected of ['Nutzerbild fehlt','Finales Voiceover fehlt','keine vollständigen echten Wort-Zeitstempel','durationFrames muss > 0']) if(!joined.includes(expected)) throw new Error(`Expected Phase-2 blocker missing: ${expected}`);
+          console.log(`Phase 1 clean. Phase 2 correctly blocked (${r.phase2Blockers.length} blockers).`);
+          NODE
+
+      - name: Full repository validation
+        run: npm run validate
+
+      - name: Remotion bundle
+        run: npm run build
+
+      - name: Full composition smoke render
+        run: npm run smoke
+
+      - name: Remove one-time helpers
+        run: |
+          rm -f .tmp/create-etf-youtube-v3.mjs .tmp/run-etf-v3 .github/workflows/one-time-etf-v3-dense-rebuild.yml
+          rmdir .tmp 2>/dev/null || true
+
+      - name: Commit final clean branch state
+        env:
+          FINANZNEO_ALLOW_PROTECTED_CHANGES: '1'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --quiet && { echo 'Nothing to commit'; exit 1; }
+          git commit -m 'Rebuild ETF YouTube V3 with dense Reel-world visuals'
+
+      - name: Hard changed-path gate against main
+        run: |
+          git fetch origin main
+          bad=$(git diff --name-only origin/main...HEAD | grep -Ev '^(package.json|scripts/(lib/youtube-contract\.mjs|lib/youtube-motion-contract\.mjs|lib/youtube-readiness\.mjs|scaffold-finanzneo-youtube\.mjs|validate-youtube\.mjs|validate-youtube-animation-quality\.mjs|validate-youtube-motion-render-qa\.mjs|seal-youtube-phase1-animations\.mjs|check-youtube-production-ready\.mjs|build-youtube-timeline\.mjs|render-youtube-validated\.mjs|validate-youtube-final-render\.mjs)|tests/youtube[^/]*\.test\.ts|youtube/PRODUKTIONSSTANDARD\.md|youtube/etf-100-euro-kompletter-weg-v3/.*)$' || true)
+          if [ -n "$bad" ]; then
+            echo 'Unexpected changed paths:'
+            echo "$bad"
+            exit 1
+          fi
+
+      - name: Explicit Reel and image-world core no-diff gate
+        run: |
+          for path in reels config src/brand src/design-system scripts/apply-stylized-animated-black-world-v9.mjs scripts/apply-future-image-storytelling-v3.mjs scripts/lib/reel-contract.mjs; do
+            if ! git diff --quiet origin/main...HEAD -- "$path"; then
+              echo "Forbidden existing Reel/image-world change: $path"
+              exit 1
+            fi
+          done
+
+      - name: Final Reel regression guard
+        run: npm run reel:regression:check
+
+      - name: Push final checked commit
+        run: git push origin HEAD:repo/youtube-motion-v3-etf-rebuild
