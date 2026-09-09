@@ -33,47 +33,59 @@ export const YOUTUBE_VIDEO_WIDTH = 1920;
 export const YOUTUBE_VIDEO_HEIGHT = 1080;
 export const YOUTUBE_VIDEO_FPS = 30;
 
-export const VISUAL_INDEX = '04-visuals/visual-index.json';
-export const ALL_PROMPTS = '04-visuals/alle-bildprompts.txt';
-export const IMAGE_INBOX = '04-visuals/00-ALLE-BILDER-HIER-REIN';
-export const WORD_TIMINGS = '03-audio/word-timings.json';
-export const ANIMATION_SEAL = '06-projektdateien/animation-seal.json';
+// YouTube uses the same simple top-level structure as Reels.
+export const SCRIPT_DIR = '01-script';
+export const AUDIO_DIR = '02-audio';
+export const SCENES_DIR = '03-szenen';
+export const CAPTION_DIR = '04-caption';
+export const PROJECT_DIR = '05-projektdateien';
+export const EXPORT_DIR = '06-export';
+
+export const VISUAL_INDEX = `${PROJECT_DIR}/scene-index.json`;
+export const ALL_PROMPTS = `${SCENES_DIR}/alle-bildprompts.txt`;
+export const IMAGE_INBOX = `${SCENES_DIR}/00-ALLE-BILDER-HIER-REIN`;
+export const WORD_TIMINGS = `${AUDIO_DIR}/word-timings.json`;
+export const ANIMATION_SEAL = `${PROJECT_DIR}/animation-seal.json`;
+export const TIMELINE = `${PROJECT_DIR}/timeline.json`;
+export const PRODUCTION_MANIFEST = `${PROJECT_DIR}/production-manifest.json`;
+export const MOTION_RENDER_QA = `${PROJECT_DIR}/motion-render-qa.json`;
 
 export const SUBTITLE_MODE = 'sentence-with-audio-synced-active-word';
 export const ACTIVE_WORD_COLOR = 'finance-green';
+export const CAPTION_LAYER_ID = 'finanzneo-youtube-caption-layer-v2';
 
 export const YOUTUBE_PUBLISHING_FILES = {
-  titleOptions: '05-publishing/title-options.txt',
-  finalTitle: '05-publishing/final-title.txt',
-  description: '05-publishing/description.txt',
-  chapters: '05-publishing/chapters.txt',
-  tagsKeywords: '05-publishing/tags-keywords.txt',
-  hashtags: '05-publishing/hashtags.txt',
-  thumbnailBrief: '05-publishing/thumbnail-brief.txt',
-  pinnedComment: '05-publishing/pinned-comment.txt',
-  communityPost: '05-publishing/community-post.txt',
-  sourcesDisclaimer: '05-publishing/sources-disclaimer.txt',
-  uploadChecklist: '05-publishing/upload-checklist.md',
+  titleOptions: `${CAPTION_DIR}/title-options.txt`,
+  finalTitle: `${CAPTION_DIR}/final-title.txt`,
+  description: `${CAPTION_DIR}/description.txt`,
+  chapters: `${CAPTION_DIR}/chapters.txt`,
+  tagsKeywords: `${CAPTION_DIR}/tags-keywords.txt`,
+  hashtags: `${CAPTION_DIR}/hashtags.txt`,
+  thumbnailBrief: `${CAPTION_DIR}/thumbnail-brief.txt`,
+  pinnedComment: `${CAPTION_DIR}/pinned-comment.txt`,
+  communityPost: `${CAPTION_DIR}/community-post.txt`,
+  sourcesDisclaimer: `${CAPTION_DIR}/sources-disclaimer.txt`,
+  uploadChecklist: `${CAPTION_DIR}/upload-checklist.md`,
 };
 
 export const SOCIAL_PROMO_FILES = {
-  instagram: '05-publishing/social-promo/instagram.txt',
-  tiktok: '05-publishing/social-promo/tiktok.txt',
-  facebook: '05-publishing/social-promo/facebook.txt',
-  snapchat: '05-publishing/social-promo/snapchat.txt',
+  instagram: `${CAPTION_DIR}/social-promo/instagram.txt`,
+  tiktok: `${CAPTION_DIR}/social-promo/tiktok.txt`,
+  facebook: `${CAPTION_DIR}/social-promo/facebook.txt`,
+  snapchat: `${CAPTION_DIR}/social-promo/snapchat.txt`,
 };
 
 export const PHASE_1_FILES = [
-  '01-recherche/briefing.md',
-  '01-recherche/recherche-quellen.md',
-  '02-script/script-fliess-text.txt',
-  '02-script/kapitel-dramaturgie.md',
-  '02-script/retention-plan.md',
+  `${PROJECT_DIR}/briefing.md`,
+  `${PROJECT_DIR}/recherche-quellen.md`,
+  `${SCRIPT_DIR}/script-fliess-text.txt`,
+  `${SCRIPT_DIR}/kapitel-dramaturgie.md`,
+  `${SCRIPT_DIR}/retention-plan.md`,
   ALL_PROMPTS,
-  '04-visuals/bildwelt.txt',
-  '04-visuals/thumbnail-prompt.txt',
-  '06-projektdateien/visual-plan.md',
-  '06-projektdateien/remotion-plan.md',
+  `${SCENES_DIR}/bildwelt.txt`,
+  `${SCENES_DIR}/thumbnail-prompt.txt`,
+  `${PROJECT_DIR}/visual-plan.md`,
+  `${PROJECT_DIR}/remotion-plan.md`,
   ...Object.values(YOUTUBE_PUBLISHING_FILES),
   ...Object.values(SOCIAL_PROMO_FILES),
 ];
