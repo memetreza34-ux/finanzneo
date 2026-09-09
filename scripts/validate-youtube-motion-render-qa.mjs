@@ -42,7 +42,14 @@ const comps = motion.map((visual, i) => `<Composition id="QAMotion${String(i + 1
 writeFileSync(entryPath, `import React from 'react';\nimport {Composition, registerRoot} from 'remotion';\n${imports}\nconst Root: React.FC = () => <>${comps}</>;\nregisterRoot(Root);\n`);
 
 const run = (command, args, options = {}) => {
-  const result = spawnSync(command, args, {encoding: 'utf8', ...options});
+  const result = spawnSync(command, args, {encoding: 'utf8', maxBuffer: 16 * 1024 * 1024, ...options});
+  if (result.error) {
+    const code = result.error.code ? ` (${result.error.code})` : '';
+    throw new Error(`${command} konnte nicht gestartet werden${code}: ${result.error.message}`);
+  }
+  if (result.signal) {
+    throw new Error(`${command} wurde durch Signal ${result.signal} beendet.`);
+  }
   if (result.status !== 0) {
     console.error(result.stdout ?? '');
     console.error(result.stderr ?? '');
@@ -51,6 +58,20 @@ const run = (command, args, options = {}) => {
   return `${result.stdout ?? ''}\n${result.stderr ?? ''}`;
 };
 const npx = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+
+const ffmpegProbe = spawnSync('ffmpeg', ['-version'], {encoding: 'utf8'});
+if (ffmpegProbe.error?.code === 'ENOENT') {
+  rmSync(entryPath, {force: true});
+  rmSync(tmpDir, {recursive: true, force: true});
+  console.error('ffmpeg fehlt. Motion Render-QA benötigt ffmpeg und darf ohne den visuellen Vergleich nicht übersprungen werden.');
+  process.exit(1);
+}
+if (ffmpegProbe.error || ffmpegProbe.status !== 0) {
+  rmSync(entryPath, {force: true});
+  rmSync(tmpDir, {recursive: true, force: true});
+  console.error(`ffmpeg ist nicht einsatzbereit: ${ffmpegProbe.error?.message ?? ffmpegProbe.stderr ?? ffmpegProbe.status}`);
+  process.exit(1);
+}
 
 const brightnessOf = (path) => {
   const text = run('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-i', path, '-vf', 'signalstats,metadata=print:file=-', '-frames:v', '1', '-f', 'null', '-']);
@@ -81,8 +102,9 @@ try {
     const ssim = [];
     for (let j = 1; j < files.length; j += 1) ssim.push(ssimOf(files[j - 1], files[j]));
     const nonBlank = brightness.filter((value) => Number.isFinite(value) && value > 2).length;
-    const changedPairs = ssim.filter((value) => Number.isFinite(value) && value < 0.992).length;
-    const averageSsim = ssim.filter(Number.isFinite).reduce((sum, value) => sum + value, 0) / Math.max(1, ssim.filter(Number.isFinite).length);
+    const finiteSsim = ssim.filter(Number.isFinite);
+    const changedPairs = finiteSsim.filter((value) => value < 0.992).length;
+    const averageSsim = finiteSsim.reduce((sum, value) => sum + value, 0) / Math.max(1, finiteSsim.length);
 
     if (nonBlank < 4) failures.push(`${visual.id}: ${nonBlank}/5 QA-Frames besitzen ausreichend sichtbaren Inhalt; mindestens 4 nötig.`);
     if (changedPairs < 2) failures.push(`${visual.id}: nur ${changedPairs}/4 QA-Übergänge verändern das Bild deutlich. Motion ist visuell zu statisch.`);
