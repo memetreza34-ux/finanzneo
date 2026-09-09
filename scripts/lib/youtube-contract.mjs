@@ -33,6 +33,14 @@ export const YOUTUBE_VIDEO_WIDTH = 1920;
 export const YOUTUBE_VIDEO_HEIGHT = 1080;
 export const YOUTUBE_VIDEO_FPS = 30;
 
+// YouTube keeps exactly the same visual identity as the Reels. Only the source framing changes to 16:9.
+export const PREMIUM_VISUAL_WORLD_LOCK_ID = 'finanzneo-stylized-3d-animated-black-v9';
+export const IMAGE_STORYTELLING_CONTRACT_ID = 'finanzneo-image-storytelling-v3';
+export const YOUTUBE_IMAGE_DENSITY_STANDARD_ID = 'finanzneo-youtube-image-density-v3';
+export const MIN_IMAGE_ASSETS_8_TO_10_MIN = 24;
+export const MIN_TOTAL_VISIBLE_BEATS_8_TO_10_MIN = 45;
+export const STATIC_IMAGE_MAX_SECONDS = 6;
+
 // YouTube uses the same simple top-level structure as Reels.
 export const SCRIPT_DIR = '01-script';
 export const AUDIO_DIR = '02-audio';
