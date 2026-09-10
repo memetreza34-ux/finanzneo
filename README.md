@@ -30,6 +30,7 @@ npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
 npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
 npm run youtube:validate -- youtube/<Projekt>
 npm run youtube:ready -- youtube/<Projekt>
+npm run protect:install
 npm run build
 npm run smoke
 npm run render
@@ -48,4 +49,4 @@ npm run render
 
 Verbindliche Abläufe: `docs/3-PHASEN-WORKFLOW.md` und `docs/YOUTUBE-LONGFORM-WORKFLOW.md`.
 
-Die Production Registry bleibt bewusst eine Freigabeliste und kann leer sein, solange kein Reel den vollständigen Produktionspfad bestanden hat.
+Die Produktionsregistry bleibt bewusst eine Freigabeliste und kann leer sein, solange kein Reel den vollständigen Produktionspfad bestanden hat.
