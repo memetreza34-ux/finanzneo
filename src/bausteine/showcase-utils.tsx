@@ -26,6 +26,7 @@ const CatalogBeat: React.FC<{
   footerLetterSpacing: number;
   footerColor: string;
   footerBottom: number;
+  footerTextShadow?: string;
 }> = ({
   item,
   background,
@@ -37,57 +38,22 @@ const CatalogBeat: React.FC<{
   footerLetterSpacing,
   footerColor,
   footerBottom,
+  footerTextShadow,
 }) => {
   const frame = useCurrentFrame();
 
   return (
     <AbsoluteFill>
       <BackgroundLayer kind={background} />
-      <AbsoluteFill
-        style={{
-          padding: contentPadding,
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
+      <AbsoluteFill style={{padding: contentPadding, display: 'flex', flexDirection: 'column'}}>
         {eyebrow ? (
-          <div
-            style={{
-              fontFamily: inter,
-              fontSize: 30,
-              fontWeight: 700,
-              letterSpacing: 6,
-              color: eyebrowColor,
-              opacity: Math.min(1, frame / 12),
-            }}
-          >
+          <div style={{fontFamily: inter, fontSize: 30, fontWeight: 700, letterSpacing: 6, color: eyebrowColor, opacity: Math.min(1, frame / 12)}}>
             {eyebrow}
           </div>
         ) : null}
-        <div
-          style={{
-            flex: 1,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {item.node}
-        </div>
+        <div style={{flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>{item.node}</div>
       </AbsoluteFill>
-      <div
-        style={{
-          position: 'absolute',
-          bottom: footerBottom,
-          width: '100%',
-          textAlign: 'center',
-          opacity: Math.min(1, (frame - 4) / 12),
-          fontFamily: footerFont === 'title' ? bebas : inter,
-          fontSize: footerSize,
-          letterSpacing: footerLetterSpacing,
-          color: footerColor,
-        }}
-      >
+      <div style={{position: 'absolute', bottom: footerBottom, width: '100%', textAlign: 'center', opacity: Math.min(1, (frame - 4) / 12), fontFamily: footerFont === 'title' ? bebas : inter, fontSize: footerSize, letterSpacing: footerLetterSpacing, color: footerColor, textShadow: footerTextShadow}}>
         {item.name}
       </div>
     </AbsoluteFill>
@@ -106,6 +72,7 @@ export const FNShowcaseCatalog: React.FC<{
   footerLetterSpacing?: number;
   footerColor?: string;
   footerBottom?: number;
+  footerTextShadow?: string;
 }> = ({
   items,
   beat,
@@ -118,23 +85,13 @@ export const FNShowcaseCatalog: React.FC<{
   footerLetterSpacing = 4,
   footerColor = 'rgba(255,255,255,0.4)',
   footerBottom = 50,
+  footerTextShadow,
 }) => (
   <AbsoluteFill style={{background: C.bg}}>
     <Series>
       {items.map((item, index) => (
         <Series.Sequence key={`${item.name}-${index}`} durationInFrames={beat}>
-          <CatalogBeat
-            item={item}
-            background={background}
-            contentPadding={contentPadding}
-            eyebrow={eyebrow}
-            eyebrowColor={eyebrowColor}
-            footerFont={footerFont}
-            footerSize={footerSize}
-            footerLetterSpacing={footerLetterSpacing}
-            footerColor={footerColor}
-            footerBottom={footerBottom}
-          />
+          <CatalogBeat item={item} background={background} contentPadding={contentPadding} eyebrow={eyebrow} eyebrowColor={eyebrowColor} footerFont={footerFont} footerSize={footerSize} footerLetterSpacing={footerLetterSpacing} footerColor={footerColor} footerBottom={footerBottom} footerTextShadow={footerTextShadow} />
         </Series.Sequence>
       ))}
     </Series>
@@ -153,9 +110,7 @@ export const FNShowcaseSeries: React.FC<{
       {scenes.map((Scene, index) => (
         <Series.Sequence key={index} durationInFrames={beat}>
           {centerContent ? (
-            <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center'}}>
-              <Scene />
-            </AbsoluteFill>
+            <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center'}}><Scene /></AbsoluteFill>
           ) : (
             <Scene />
           )}
