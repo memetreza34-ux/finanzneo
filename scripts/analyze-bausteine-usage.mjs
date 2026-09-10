@@ -145,7 +145,6 @@ for (const file of srcFiles) {
   const sourceFile = parse(file, source);
   parsedFiles.set(normalize(file), {
     file,
-    source,
     sourceFile,
     identifiers: collectIdentifiers(sourceFile),
   });
@@ -174,10 +173,16 @@ for (const [relative, parsed] of parsedFiles) {
 components.sort((a, b) => a.source.localeCompare(b.source) || a.name.localeCompare(b.name));
 
 const namesToSources = new Map();
+const definitionPositions = new Map();
 for (const component of components) {
   const sources = namesToSources.get(component.name) ?? new Set();
   sources.add(component.source);
   namesToSources.set(component.name, sources);
+
+  const key = `${component.source}::${component.name}`;
+  const positions = definitionPositions.get(key) ?? new Set();
+  positions.add(component.definitionStart);
+  definitionPositions.set(key, positions);
 }
 
 const classifyReference = (relative) => {
@@ -194,10 +199,8 @@ const rows = components.map((component) => {
     const positions = parsed.identifiers.get(component.name) ?? [];
     if (positions.length === 0 || isDesignFacade(relative)) continue;
 
-    let realReferenceCount = positions.length;
-    if (relative === component.source) {
-      realReferenceCount -= positions.filter((position) => position === component.definitionStart).length;
-    }
+    const definitions = definitionPositions.get(`${relative}::${component.name}`) ?? new Set();
+    const realReferenceCount = positions.filter((position) => !definitions.has(position)).length;
     if (realReferenceCount <= 0) continue;
 
     const kind = classifyReference(relative);
