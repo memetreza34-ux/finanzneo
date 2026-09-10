@@ -1,10 +1,11 @@
-import {AbsoluteFill, Series, useCurrentFrame} from 'remotion';
-import {C, bebas, inter, AuroraBG} from './fn_core';
+import {C} from './fn_core';
 import * as T from './fn_text';
 import * as CH from './fn_charts';
 import * as DG from './fn_diagrams';
+import {FNShowcaseCatalog, showcaseFrames} from './showcase-utils';
 
-const items: {name: string; node: React.ReactNode}[] = [
+const BEAT = 130;
+const items = [
   {name: 'Shimmer-Titel', node: <T.FNShimmer />},
   {name: 'Typewriter', node: <T.FNType />},
   {name: 'Word Reveal', node: <T.FNWordReveal />},
@@ -25,28 +26,20 @@ const items: {name: string; node: React.ReactNode}[] = [
   {name: 'Callout', node: <DG.FNCallout />},
   {name: 'VS-Vergleich', node: <DG.FNVS />},
 ];
-export const FNKIT2_FRAMES = items.length * 130;
-
-const Demo: React.FC<{name: string; node: React.ReactNode}> = ({name, node}) => {
-  const f = useCurrentFrame();
-  return (
-    <AbsoluteFill>
-      <AuroraBG />
-      <AbsoluteFill style={{padding: '90px 100px 120px', display: 'flex', flexDirection: 'column'}}>
-        <div style={{fontFamily: inter, fontSize: 30, fontWeight: 700, letterSpacing: 6, color: C.green,
-          opacity: Math.min(1, f / 12)}}>FINANZNEO · BAUSTEIN</div>
-        <div style={{flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>{node}</div>
-      </AbsoluteFill>
-      <div style={{position: 'absolute', bottom: 56, width: '100%', textAlign: 'center', opacity: Math.min(1, (f - 4) / 12),
-        fontFamily: bebas, fontSize: 56, color: C.ink, textShadow: '0 2px 24px rgba(0,0,0,0.7)'}}>{name}</div>
-    </AbsoluteFill>
-  );
-};
+export const FNKIT2_FRAMES = showcaseFrames(items.length, BEAT);
 
 export const FNKit2Showcase: React.FC = () => (
-  <AbsoluteFill style={{background: C.bg}}>
-    <Series>
-      {items.map((it, i) => <Series.Sequence key={i} durationInFrames={130}><Demo {...it} /></Series.Sequence>)}
-    </Series>
-  </AbsoluteFill>
+  <FNShowcaseCatalog
+    items={items}
+    beat={BEAT}
+    background="aurora"
+    contentPadding="90px 100px 120px"
+    eyebrow="FINANZNEO · BAUSTEIN"
+    eyebrowColor={C.green}
+    footerFont="title"
+    footerSize={56}
+    footerLetterSpacing={0}
+    footerColor={C.ink}
+    footerBottom={56}
+  />
 );
