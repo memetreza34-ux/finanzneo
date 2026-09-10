@@ -5,7 +5,6 @@ import ts from 'typescript';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const srcDir = path.join(root, 'src');
-const bausteineDir = path.join(srcDir, 'bausteine');
 const designSystemIndex = path.join(srcDir, 'design-system', 'index.ts');
 const args = new Set(process.argv.slice(2));
 const jsonOnly = args.has('--json');
@@ -16,7 +15,7 @@ const normalize = (value) => path.relative(root, value).split(path.sep).join('/'
 const sourceExtension = /\.(?:[cm]?[jt]sx?)$/i;
 const bausteinFile = /^fn_.*\.(?:ts|tsx)$/i;
 const supportDirectory = /(^|\/)(?:__tests__|tests?|showcases?|demos?|examples?|previews?|mocks?)(\/|$)/i;
-const supportFilename = /(?:Test|Demo|Showcase|Preview|Mock|Overview)\.(?:[jt]sx?)$/i;
+const supportFilename = /^(?:Mock.*|.*(?:Test|Demo|Showcase|Preview|Overview))\.(?:[jt]sx?)$/i;
 
 const walk = async (dir) => {
   const entries = await readdir(dir, {withFileTypes: true});
