@@ -1,13 +1,33 @@
 # FinanzNeo — Start hier
 
-> `CLAUDE.md` ist die höchste Regelquelle.
+> `CLAUDE.md` ist die höchste Regelquelle für Produktionsverantwortung und Agent-Verhalten.
+
+## Aktiver Produktionsstandard
+
+Welche Versionen aktuell zusammengehören, steht nur noch in:
+
+```text
+config/finanzneo-production-standard.json
+```
+
+Der Index verweist auf die jeweils autoritative Quelle für Layout, Hintergrund, Bildwelt, Google Flow, Animationscode und Produktions-Gates. Versionsnummern nicht aus alten Dokumenten zusammensuchen oder frei kombinieren.
+
+Wichtige Quellen:
+
+- Layout und Safe-Zones: `src/brand/tokens.ts -> REEL_STYLE`
+- Reel-Hintergrund: `src/design-system/FinanceBackground.tsx`
+- Bildwelt und Flow: `config/finanzneo-image-world-lock.json`
+- Komponentenwahl: `docs/COMPONENT-CATALOG.md`
+- Phase 1: `docs/PHASE-1-BRIEFING.md`
+- Animationscode: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
+- Gesamtworkflow: `docs/3-PHASEN-WORKFLOW.md`
+- Phase 3: `docs/PHASE-3-COMPLETION-GATE.md`
 
 ## Drei Phasen
 
 ```text
 PHASE 1 — ChatGPT
-Recherche + Skript + V9-Bildprompts + Header/Icons + Captions
-+ produktionsreife animation.tsx für jede Animationsszene
+Recherche + Skript + Bildprompts + produktionsreife animation.tsx
 
         ↓
 
@@ -17,107 +37,18 @@ Flow-Bilder + genau ein finales Voiceover + echte Wort-Timings
         ↓
 
 PHASE 3 — konfigurierter Executor
-Assets integrieren + versiegelte Phase-1-Animationen binden
-+ Preflight + Candidate-Render + Post-Render-QA + Export
+Assets integrieren + Animationen binden + Preflight + Render + QA + Export
 ```
 
-Einstiege:
+## Neuer Reel
 
-- Phase 1: `docs/PHASE-1-BRIEFING.md`
-- Bildwelt: `docs/GLOBAL-IMAGE-WORLD-LOCK.md`
-- Animation: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
-- Scene Index: `docs/SCENE-INDEX-SCHEMA.md`
-- Gesamtworkflow: `docs/3-PHASEN-WORKFLOW.md`
-- Phase 3: `docs/PHASE-3-COMPLETION-GATE.md`
-
-## Finales Layout
-
-`src/brand/tokens.ts -> REEL_STYLE` ist die einzige Wahrheit:
-
-```text
-Header               Y = 154
-Header Text          56 px, Minimum 50 px
-Header Icon          34 px
-Header Zeilen        max. 2
-Visual               Y = 320–1400
-Caption              bottom = 340
-Caption Font         50 px, Minimum 40 px
-Transition           3 Frames
+```bash
+npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
 ```
 
-Animationen werden technisch auf **Y320–1400** geclippt. Sie können nicht sichtbar in Header oder Caption-Zone hineinlaufen.
+Danach gilt der im aktiven Standard referenzierte Workflow. Ein Reel ist erst final, wenn die dort definierten Produktions-Gates vollständig bestanden sind. Eine vorhandene MP4 allein ist kein Fertigkeitsnachweis.
 
-Header: reines Weiß, normale Schreibweise, passendes Linien-Icon, keine Capsule/Chip/Pill und kein erzwungenes ALL CAPS.
-
-## Bildwelt V9
-
-```text
-finanzneo-stylized-3d-animated-black-v9
-```
-
-- Quellbilder inklusive Cover: 1:1
-- klar nicht realistisch
-- stylized 3D animated
-- soft rounded, vereinfachte erkennbare Details
-- premium, freundlich, leicht verspielt
-- deep-black Flow-Hintergrund Pflicht
-- keine feste Objektanzahl
-- Klarheit/Inhalt vor Deko
-- mittel-lange Prompts
-- kein Produktfoto, Dashboard, App-UI, Flowchart, Microchip, Mini-Diorama oder Clutter
-
-Marken/Logos: **erkennbar, aber stilisiert**. Kein Flat-Paste-Logo und kein Screenshot-Look.
-
-## Google Flow
-
-```text
-GENAU EIN Bild
-→ intern warten
-→ sofort exakt umbenennen
-→ V9-QA
-→ erst nach PASS nächstes Bild
-```
-
-Strict-Single-Job V3: nie Batch, parallel, Queue oder Nutzer-„weiter“.
-
-## Remotion-Hintergrund
-
-Produktive Reels:
-
-```text
-#000000
-statisch
-```
-
-Keine Partikel, Aurora, Grid, Glow-Felder, Vignette, Hintergrund-Gradienten oder Background-Motion. `PremiumPhysicalStage` bleibt transparent.
-
-## Animationen
-
-Jede Animationsszene besitzt in Phase 1:
-
-```text
-scene-XX/
-├── szene.md
-├── remotion.md
-└── animation.tsx
-```
-
-Pflicht:
-
-```text
-START → SICHTBARER MECHANISMUS → ERGEBNIS → mindestens 15 Frames stabil
-```
-
-- mindestens ein echtes sichtbares Hauptobjekt
-- **keine feste Support-Objekt-Anzahl**
-- Inhalt muss visuell erklärt werden
-- kein Dummy/Debug/Wackeln
-- kein `Math.sin`/`Math.cos`-QA-Hack
-- keine Hintergrundbewegung als Fake-Motion
-
-## Phase 3
-
-`scene-index.json -> phase3Executor` bestimmt Antigravity oder Claude Code.
+## Phase 3 — Befehle
 
 ```bash
 npm run reel:ready -- <Reel>
@@ -127,34 +58,6 @@ npm run reel:render -- <Reel>/05-projektdateien/phase3-production-manifest.json
 npm run reel:export -- <Reel> <Final-MP4>
 ```
 
-Eine MP4 allein ist **kein** Fertigkeitsnachweis.
+## Grundregel für Änderungen
 
-Post-Render-QA prüft insbesondere:
-
-- echter visueller Kern in jeder Szene
-- Bildszene nicht schwarz/leer/caption-only
-- Animation sichtbar und inhaltlich bewegt
-- freier Rand bleibt statisch schwarz
-- keine Partikel/Aurora/Grid/Glow-Hintergründe
-- Audio, 1080×1920 und Timeline korrekt
-
-**Schwarzes/leeres Reel = FAIL.** Header, Caption oder Hintergrund allein zählen nicht als Szenenvisual.
-
-## Neuer Reel
-
-```bash
-npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
-```
-
-Der Ersteller setzt automatisch:
-
-- Flow Strict-Single-Job V3
-- Stylized 3D Animated Black V9
-- Pure-Black Background V1
-- finales Reel-Layout V5 mit Y320–1400 Safe-Zone
-- Phase-1-Animationscode-Vertrag
-- Phase-3-Completion-Gate
-
-## Final
-
-Ein Reel ist erst final, wenn Assets vollständig sind, `reel:ready` bestanden ist, Preflight bestanden ist, Candidate-Render die Post-Render-QA besteht und `reel:export` erfolgreich war.
+Neue Regeln nicht parallel in mehreren Dokumenten neu definieren. Stattdessen die autoritative Quelle ändern und bei Bedarf nur darauf verweisen. Alte Versionsdokumente sind keine Grundlage für neue Produktionen, sofern sie nicht vom aktiven Produktionsstandard referenziert werden.
