@@ -16,6 +16,8 @@ Verbindliche Grundlagen:
 
 `fn_core.tsx` exportiert alte Namen wie `C`, `P`, `bebas` und `inter` nur noch als Kompatibilitäts-Aliase auf diese zentralen Grundlagen.
 
+Die internen Baustein-Showcases verwenden `showcase-utils.tsx` für gemeinsame Sequenz-, Hintergrund- und Beschriftungslogik. Die bestehenden Showcase-Dateien und Exportnamen bleiben als stabile Kompatibilitätspunkte erhalten.
+
 ## Neue Verwendung
 
 ```ts
