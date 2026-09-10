@@ -41,5 +41,6 @@ export const FNKit2Showcase: React.FC = () => (
     footerLetterSpacing={0}
     footerColor={C.ink}
     footerBottom={56}
+    footerTextShadow="0 2px 24px rgba(0,0,0,0.7)"
   />
 );
