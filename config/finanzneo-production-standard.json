@@ -7,7 +7,8 @@
     "source": "src/brand/tokens.ts#REEL_STYLE"
   },
   "background": {
-    "id": "pure-black-v1",
+    "id": "finanzneo-pure-black-background-v1",
+    "renderMarker": "pure-black-v1",
     "source": "src/design-system/FinanceBackground.tsx"
   },
   "imageWorld": {
