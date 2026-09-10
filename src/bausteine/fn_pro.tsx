@@ -4,11 +4,10 @@ import {useCurrentFrame, interpolate} from 'remotion';
 import {C, bebas, inter, P} from './fn_core';
 import {PremiumChart} from './fn_chart_base';
 import {calculateSavingsPlanFutureValue} from '../finance/calculations';
+import {clampInterpolation as CL, easeOutCubic as eo, formatIntegerDe as de, reveal16 as rev} from './internal-utils';
+
+// Kompatibilitäts-Reexport: bestehende Aufrufer dürfen P weiter aus fn_pro beziehen.
 export {P};
-const CL = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
-const de = (n: number) => Math.round(n).toLocaleString('de-DE');
-const eo = (t: number) => 1 - Math.pow(1 - t, 3);
-const rev = (f: number, s: number, d = 16) => Math.max(0, Math.min(1, (f - s) / d));
 const soft = '0 30px 80px rgba(0,0,0,0.45)';
 const glow = (c: string, o = 0.25) => `drop-shadow(0 0 46px ${c}${Math.round(o * 255).toString(16).padStart(2, '0')})`;
 

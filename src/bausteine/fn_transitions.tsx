@@ -1,10 +1,8 @@
 // FinanzNeo Transitions — Pro-Palette (Grün/Gold/Neutral).
 import {useCurrentFrame, useVideoConfig, spring} from 'remotion';
-import {C, bebas} from './fn_core';
-import {P} from './fn_pro';
+import {C, P, bebas} from './fn_core';
+import {clamp01 as c01, deterministicRand as rand} from './internal-utils';
 
-const c01 = (t: number) => Math.max(0, Math.min(1, t));
-const rand = (i: number) => {const x = Math.sin(i * 127.1 + 311.7) * 43758.5; return x - Math.floor(x);};
 const Card: React.FC<{t: string}> = ({t}) => (
   <div style={{padding: '50px 90px', borderRadius: 28, background: `linear-gradient(160deg,${P.greenLt},${P.green})`,
     fontFamily: bebas, fontSize: 76, color: C.bgDeep, boxShadow: '0 30px 80px rgba(0,0,0,0.5)'}}>{t}</div>

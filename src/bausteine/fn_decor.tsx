@@ -1,10 +1,7 @@
 // FinanzNeo Deko + Betonung — Pro-Palette (Grün/Gold/Neutral).
 import {useCurrentFrame} from 'remotion';
-import {C, bebas} from './fn_core';
-import {P} from './fn_pro';
-
-const c01 = (t: number) => Math.max(0, Math.min(1, t));
-const rev = (f: number, s: number, d = 16) => c01((f - s) / d);
+import {C, P, bebas} from './fn_core';
+import {clamp01 as c01, reveal16 as rev} from './internal-utils';
 
 // ---- Deko ----
 export const FNWaveDivider: React.FC = () => {

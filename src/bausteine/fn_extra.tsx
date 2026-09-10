@@ -1,12 +1,7 @@
 // FinanzNeo Zeit + Maps + Personen — Pro-Palette (Grün/Gold/Neutral).
 import {useCurrentFrame} from 'remotion';
-import {C, bebas, inter} from './fn_core';
-import {P} from './fn_pro';
-
-const c01 = (t: number) => Math.max(0, Math.min(1, t));
-const eo = (t: number) => 1 - Math.pow(1 - t, 3);
-const rev = (f: number, s: number, d = 16) => c01((f - s) / d);
-const rand = (i: number) => {const x = Math.sin(i * 127.1 + 311.7) * 43758.5; return x - Math.floor(x);};
+import {C, P, bebas, inter} from './fn_core';
+import {clamp01 as c01, deterministicRand as rand, easeOutCubic as eo, reveal16 as rev} from './internal-utils';
 
 // ---- Zeit ----
 export const FNCountdown: React.FC<{seconds?: number}> = ({seconds = 30}) => {

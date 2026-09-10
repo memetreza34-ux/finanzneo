@@ -1,7 +1,7 @@
-// ════════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 //  FINANZNEO · BRAND TOKENS
 //  Eine zentrale Quelle für Farben, Easing, Helpers — überall importiert.
-// ════════════════════════════════════════════════════════════════════════════
+// ═════════════════════════════════════════════════════════════════════════════
 import { Easing, interpolate } from 'remotion';
 
 export const C = {
@@ -23,6 +23,15 @@ export const ANIMATION_COLORS = {
 export const PREMIUM = {
   ink:C.whiteSoft, muted:C.graySoft, line:C.line, positive:C.accent,
   positiveLight:C.accentSoft, positiveDeep:C.surfacePositive, money:C.gold, loss:C.negativeLt,
+} as const;
+
+// Historische Apple-/Glass-Variante. Die Werte bleiben bewusst exakt erhalten,
+// liegen aber zentral, damit fn_glass.tsx keine zweite private Farbquelle bildet.
+export const GLASS_PREMIUM = {
+  bg:'#0A1310', bgHighlight:'#11201A', bgDeep:'#060B09',
+  ink:'#F2F6F3', muted:'#8B978F', faint:'rgba(255,255,255,0.06)',
+  line:'rgba(255,255,255,0.10)', green:'#34D399', greenSoft:'#6EE7B7',
+  greenGlow:'rgba(52,211,153,0.35)', greenSoftGlow:'rgba(110,231,183,0.7)',
 } as const;
 
 export const FORMAT = {

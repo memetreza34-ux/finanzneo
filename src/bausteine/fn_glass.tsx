@@ -3,21 +3,12 @@
 // weiche Schatten statt harter Glows, ruhige langsame Bewegung, gedämpfte Farben.
 import {AbsoluteFill, useCurrentFrame, useVideoConfig, spring, interpolate} from 'remotion';
 import {inter} from './fn_core';
-
-const CL = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
-const de = (n: number) => Math.round(n).toLocaleString('de-DE');
-// sanftes ease-in-out für ruhige, edle Bewegung
-const eio = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-
-// gedämpfte, edle Palette (weniger Neon)
-const P = {
-  bg: '#0A1310', ink: '#F2F6F3', muted: '#8B978F', faint: 'rgba(255,255,255,0.06)',
-  line: 'rgba(255,255,255,0.10)', green: '#34D399', greenSoft: '#6EE7B7',
-};
+import {GLASS_PREMIUM as P} from '../brand/tokens';
+import {clampInterpolation as CL, easeInOutCubic as eio, formatIntegerDe as de} from './internal-utils';
 
 // Ruhiger, edler Hintergrund: ein einziger weicher Schimmer + feine Körnung + Vignette
 const CalmBG: React.FC = () => (
-  <AbsoluteFill style={{background: `radial-gradient(120% 90% at 50% 28%, #11201A 0%, ${P.bg} 60%, #060B09 100%)`}}>
+  <AbsoluteFill style={{background: `radial-gradient(120% 90% at 50% 28%, ${P.bgHighlight} 0%, ${P.bg} 60%, ${P.bgDeep} 100%)`}}>
     <AbsoluteFill style={{background: `radial-gradient(40% 32% at 50% 30%, ${P.green}14, transparent 70%)`}} />
     <AbsoluteFill style={{opacity: 0.04, mixBlendMode: 'overlay',
       backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%222%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E")'}} />
@@ -98,12 +89,12 @@ export const FNGrowthGlass: React.FC<{
             <line x1={cx0} y1={cyB} x2={cx1} y2={cyB} stroke={P.line} strokeWidth={1} />
             {draw > 0 && <path d={`${d} L${tip[0]},${cyB} L${cx0},${cyB} Z`} fill="url(#gf)" />}
             <path d={d} fill="none" stroke="url(#gg)" strokeWidth={4} strokeLinecap="round" strokeLinejoin="round"
-              style={{filter: 'drop-shadow(0 4px 14px rgba(52,211,153,0.35))'}} />
+              style={{filter: `drop-shadow(0 4px 14px ${P.greenGlow})`}} />
             {/* weicher einmaliger Ring am Endpunkt (kein Dauer-Puls) */}
             {ringExpand > 0 && <circle cx={tip[0]} cy={tip[1]} r={6 + ringExpand * 26} fill="none"
               stroke={P.greenSoft} strokeWidth={2} opacity={(1 - ringExpand) * 0.8} />}
             {draw > 0 && <circle cx={tip[0]} cy={tip[1]} r={7} fill={P.greenSoft}
-              style={{filter: 'drop-shadow(0 0 10px rgba(110,231,183,0.7))'}} />}
+              style={{filter: `drop-shadow(0 0 10px ${P.greenSoftGlow})`}} />}
           </svg>
         </div>
       </AbsoluteFill>

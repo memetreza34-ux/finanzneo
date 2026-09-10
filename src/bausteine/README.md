@@ -18,6 +18,15 @@ Verbindliche Grundlagen:
 
 Die internen Baustein-Showcases verwenden `showcase-utils.tsx` für gemeinsame Sequenz-, Hintergrund- und Beschriftungslogik. Die bestehenden Showcase-Dateien und Exportnamen bleiben als stabile Kompatibilitätspunkte erhalten.
 
+`internal-utils.ts` bündelt kleine historische Animations- und Format-Helfer wie Clamp, Reveal, Cubic-Easing und deterministischen Zufall. Die Datei ist rein intern und wird nicht über `src/design-system` exportiert.
+
+## Interne Abhängigkeitsgrenzen
+
+- Bausteine beziehen `C`, `P`, Fonts und Hintergrund-Aliase direkt aus `fn_core.tsx`.
+- `fn_pro.tsx` re-exportiert `P` nur für bestehende Aufrufer. Andere Bausteinmodule dürfen `P` nicht über `fn_pro.tsx` beziehen.
+- Spezielle historische Farbvarianten liegen trotzdem zentral in `src/brand/tokens.ts`. Die Glass-Variante verwendet `GLASS_PREMIUM`.
+- Gleichnamige Komponenten in verschiedenen Namensräumen sind nicht automatisch Duplikate. Beispiel: `PremiumBlocks.FNRiskReturn` ist eine frei konfigurierbare Fullscreen-Grafik, `FinanceConcepts.FNRiskReturn` eine didaktische Concept-Darstellung mit Titel und Caption. Erst nach Funktionsvergleich konsolidieren.
+
 ## Neue Verwendung
 
 ```ts
