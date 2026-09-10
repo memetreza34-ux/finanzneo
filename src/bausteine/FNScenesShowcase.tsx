@@ -1,14 +1,10 @@
-import {AbsoluteFill, Series} from 'remotion';
-import {C} from './fn_core';
 import * as S from './fn_scenes';
+import {FNShowcaseSeries, showcaseFrames} from './showcase-utils';
 
+const BEAT = 160;
 const scenes = [S.FNCompoundScene, S.FNInflationScene, S.FNCompareScene, S.FNPortfolioScene, S.FNMarketScene];
-export const FNSCENES_FRAMES = scenes.length * 160;
+export const FNSCENES_FRAMES = showcaseFrames(scenes.length, BEAT);
 
 export const FNScenesShowcase: React.FC = () => (
-  <AbsoluteFill style={{background: C.bg}}>
-    <Series>
-      {scenes.map((Sc, i) => <Series.Sequence key={i} durationInFrames={160}><Sc /></Series.Sequence>)}
-    </Series>
-  </AbsoluteFill>
+  <FNShowcaseSeries scenes={scenes} beat={BEAT} background="none" centerContent={false} />
 );
