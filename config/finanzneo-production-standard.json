@@ -1,0 +1,40 @@
+{
+  "standardId": "finanzneo-production-2026-09",
+  "status": "active",
+  "scope": "reels",
+  "layout": {
+    "id": "finanzneo-reel-layout-v5",
+    "source": "src/brand/tokens.ts#REEL_STYLE"
+  },
+  "background": {
+    "id": "finanzneo-pure-black-background-v1",
+    "renderMarker": "pure-black-v1",
+    "source": "src/design-system/FinanceBackground.tsx"
+  },
+  "imageWorld": {
+    "id": "finanzneo-stylized-3d-animated-black-v9",
+    "source": "config/finanzneo-image-world-lock.json"
+  },
+  "flow": {
+    "id": "finanzneo-flow-strict-single-job-v3",
+    "source": "config/finanzneo-image-world-lock.json#googleFlow"
+  },
+  "animation": {
+    "id": "finanzneo-phase1-animation-code-v1",
+    "source": "docs/PHASE-1-ANIMATION-CODE-STANDARD.md"
+  },
+  "pipeline": {
+    "id": "finanzneo-three-phase-production-v1",
+    "source": "docs/3-PHASEN-WORKFLOW.md"
+  },
+  "productionGate": {
+    "source": "docs/PHASE-3-COMPLETION-GATE.md",
+    "steps": [
+      "reel:ready",
+      "reel:phase3:preflight",
+      "reel:render",
+      "post-render-qa",
+      "reel:export"
+    ]
+  }
+}

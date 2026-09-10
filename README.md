@@ -10,6 +10,16 @@ npm run validate
 npm run studio
 ```
 
+## Aktiver Produktionsstandard
+
+Die aktuell zusammengehörige Kombination aus Reel-Layout, Hintergrund, Bildwelt, Flow-Modus, Animationsstandard und Produktions-Gates steht in:
+
+```text
+config/finanzneo-production-standard.json
+```
+
+`CLAUDE.md` bleibt die höchste Regelquelle für Produktionsverantwortung und Agent-Verhalten. Der schnelle Einstieg liegt in `START-HIER.md`.
+
 ## Zentrale Befehle
 
 ```bash
@@ -28,16 +38,15 @@ npm run render
 
 ## Struktur
 
-- `src/design-system/` — freigegebene Design-Bausteine
+- `config/` — aktive Maschinen-Konfiguration und Locks
+- `src/design-system/` — öffentlicher Importpfad für neue Produktion
 - `src/production/reel-template/` — technische Reel-Vorlage
 - `src/root/` — getrennte Production-, Experiment- und Showcase-Registries
-- `reels/` — künftige konkrete Reel-Projekte
-- `youtube/` — eigenständige YouTube-Longform-Projekte, keine Shorts
+- `reels/` — konkrete Reel-Projekte
+- `youtube/` — eigenständige YouTube-Longform-Projekte
 - `scripts/` — Scaffold, Validatoren und Render-Gates
-- `docs/` — Bildwelt, Publishing und Qualitätsregeln
+- `docs/` — Detailregeln, Workflows und Qualitätsstandards
 
-Verbindliche Abläufe: [Reel in drei Phasen](docs/3-PHASEN-WORKFLOW.md) und [YouTube-Longform in drei Phasen](docs/YOUTUBE-LONGFORM-WORKFLOW.md).
+Verbindliche Abläufe: `docs/3-PHASEN-WORKFLOW.md` und `docs/YOUTUBE-LONGFORM-WORKFLOW.md`.
 
-Schreibschutz und Git-Hooks: [Repository-Schutz](docs/REPOSITORY-SCHUTZ.md).
-
-Die Produktionsregistry ist nach der Bereinigung bewusst leer. Verbindliche Projektregeln stehen in [`CLAUDE.md`](CLAUDE.md).
+Die Produktionsregistry bleibt bewusst eine Freigabeliste und kann leer sein, solange kein Reel den vollständigen Produktionspfad bestanden hat.
