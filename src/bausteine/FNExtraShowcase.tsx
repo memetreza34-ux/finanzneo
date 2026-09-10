@@ -1,11 +1,11 @@
-import {AbsoluteFill, Series, useCurrentFrame} from 'remotion';
-import {C, inter, StaticBG} from './fn_core';
 import * as TR from './fn_transitions';
 import * as DC from './fn_decor';
 import * as EX from './fn_extra';
 import * as UI from './fn_ui2';
+import {FNShowcaseCatalog, showcaseFrames} from './showcase-utils';
 
-const items: {name: string; node: React.ReactNode}[] = [
+const BEAT = 110;
+const items = [
   {name: 'Wipe In', node: <TR.FNWipeIn />}, {name: 'Circle Reveal', node: <TR.FNCircleReveal />},
   {name: 'Slide Over', node: <TR.FNSlideOver />}, {name: 'Zoom Blur', node: <TR.FNZoomBlur />},
   {name: 'Bars Wipe', node: <TR.FNBarsWipe />}, {name: 'Fade Through', node: <TR.FNFadeThrough />},
@@ -28,24 +28,8 @@ const items: {name: string; node: React.ReactNode}[] = [
   {name: 'Badge', node: <UI.FNBadge />}, {name: 'Chip', node: <UI.FNChip />},
   {name: 'Lower Third', node: <UI.FNLowerThird />}, {name: 'List Reveal', node: <UI.FNListReveal />},
 ];
-export const FNEXTRA_FRAMES = items.length * 110;
-
-const Demo: React.FC<{name: string; node: React.ReactNode}> = ({name, node}) => {
-  const f = useCurrentFrame();
-  return (
-    <AbsoluteFill>
-      <StaticBG />
-      <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', padding: '120px'}}>{node}</AbsoluteFill>
-      <div style={{position: 'absolute', bottom: 50, width: '100%', textAlign: 'center', opacity: Math.min(1, (f - 4) / 12),
-        fontFamily: inter, fontSize: 28, letterSpacing: 4, color: 'rgba(255,255,255,0.4)'}}>{name}</div>
-    </AbsoluteFill>
-  );
-};
+export const FNEXTRA_FRAMES = showcaseFrames(items.length, BEAT);
 
 export const FNExtraShowcase: React.FC = () => (
-  <AbsoluteFill style={{background: C.bg}}>
-    <Series>
-      {items.map((it, i) => <Series.Sequence key={i} durationInFrames={110}><Demo {...it} /></Series.Sequence>)}
-    </Series>
-  </AbsoluteFill>
+  <FNShowcaseCatalog items={items} beat={BEAT} background="static" contentPadding="120px" />
 );
