@@ -1,17 +1,19 @@
-import {AbsoluteFill, Series} from 'remotion';
-import {C, StaticBG} from './fn_core';
 import * as K from './fn_concepts';
+import {FNShowcaseSeries, showcaseFrames} from './showcase-utils';
 
-const scenes = [K.FNSnowball, K.FNCostAverage, K.FNDiversification, K.FNRiskReturn, K.FNDrawdown, K.FNNetWorth, K.FNFourPercent, K.FNEmergencyFund];
-export const FNCONCEPTS_FRAMES = scenes.length * 150;
+const BEAT = 150;
+const scenes = [
+  K.FNSnowball,
+  K.FNCostAverage,
+  K.FNDiversification,
+  K.FNRiskReturn,
+  K.FNDrawdown,
+  K.FNNetWorth,
+  K.FNFourPercent,
+  K.FNEmergencyFund,
+];
+export const FNCONCEPTS_FRAMES = showcaseFrames(scenes.length, BEAT);
 
 export const FNConceptsShowcase: React.FC = () => (
-  <AbsoluteFill style={{background: C.bg}}>
-    <StaticBG />
-    <Series>
-      {scenes.map((Sc, i) => <Series.Sequence key={i} durationInFrames={150}>
-        <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center'}}><Sc /></AbsoluteFill>
-      </Series.Sequence>)}
-    </Series>
-  </AbsoluteFill>
+  <FNShowcaseSeries scenes={scenes} beat={BEAT} background="static" />
 );
