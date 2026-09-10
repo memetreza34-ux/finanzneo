@@ -27,6 +27,34 @@ Die internen Baustein-Showcases verwenden `showcase-utils.tsx` für gemeinsame S
 - Spezielle historische Farbvarianten liegen trotzdem zentral in `src/brand/tokens.ts`. Die Glass-Variante verwendet `GLASS_PREMIUM`.
 - Gleichnamige Komponenten in verschiedenen Namensräumen sind nicht automatisch Duplikate. Beispiel: `PremiumBlocks.FNRiskReturn` ist eine frei konfigurierbare Fullscreen-Grafik, `FinanceConcepts.FNRiskReturn` eine didaktische Concept-Darstellung mit Titel und Caption. Erst nach Funktionsvergleich konsolidieren.
 
+## Usage-Klassifizierung
+
+`scripts/analyze-bausteine-usage.mjs` analysiert die exportierten React-Komponenten aus `fn_*.ts(x)` über den TypeScript-AST und ordnet sie dynamisch ein. Kommentare und reine Texttreffer zählen dadurch nicht als Nutzung.
+
+- **Active**: Die Komponente wird in produktivem Source-Code außerhalb von `src/bausteine` tatsächlich referenziert.
+- **Legacy**: Keine produktive Nutzung, aber eine Referenz aus einem anderen Baustein oder aus Test-, Demo-, Showcase-, Preview-, Mock- bzw. Overview-Code.
+- **Unused**: Keine produktive, interne oder Support-Referenz gefunden.
+
+Die reine Namespace-Freigabe über `src/design-system/index.ts` zählt bewusst nicht als aktive Nutzung. Sie wird separat als `publicNamespace` erfasst, weil sie einen Kompatibilitätsvertrag darstellt.
+
+Für Löschentscheidungen gilt zusätzlich `deletionRisk`:
+
+- `protected-active`: produktiv genutzt — nicht löschen.
+- `compatibility-use`: intern oder in Support-Code genutzt — zuerst migrieren.
+- `public-contract`: strukturell ungenutzt, aber noch öffentlich exportiert — zuerst API-Vertrag/deprecation klären.
+- `name-collision-review`: gleicher Exportname existiert in mehreren Modulen — Varianten semantisch vergleichen.
+- `candidate`: strukturell unreferenziert und nicht öffentlich exportiert — trotzdem vor Löschung fachlich prüfen.
+
+Ein Status **Unused bedeutet daher ausdrücklich nicht automatisch löschbar**.
+
+Analyse ausführen:
+
+```bash
+npm run bausteine:usage
+```
+
+Dabei entstehen `out/bausteine-usage.json` und `out/bausteine-usage.md`. Die CI führt mit `validate:bausteine-usage` dieselbe Klassifizierung im Prüfmodus aus. Statische Klassifizierungslisten werden nicht eingecheckt, damit sie nicht unbemerkt veralten.
+
 ## Neue Verwendung
 
 ```ts
@@ -82,9 +110,11 @@ const EmergencyFund = FinanceConcepts.FNEmergencyFund;
 
 Der Ordner wird nicht auf einmal umbenannt oder gelöscht. Stattdessen werden Komponenten bei tatsächlicher Nutzung geprüft:
 
-1. Duplikat im Kernsystem suchen.
-2. bessere Variante bestimmen.
-3. Farben und Fonts zentral anbinden.
-4. Finanzwerte validieren.
-5. über `src/design-system` exportieren.
-6. schwächere Variante erst nach erfolgreicher Migration archivieren.
+1. Usage-Status mit `npm run bausteine:usage` prüfen.
+2. Duplikat im Kernsystem suchen und Varianten semantisch vergleichen.
+3. bessere Variante bestimmen.
+4. Farben und Fonts zentral anbinden.
+5. Finanzwerte validieren.
+6. produktive Nutzung über `src/design-system` migrieren.
+7. öffentlichen Kompatibilitätsvertrag entfernen oder deprecaten.
+8. schwächere Variante erst nach erfolgreicher Migration und grüner CI archivieren oder löschen.
