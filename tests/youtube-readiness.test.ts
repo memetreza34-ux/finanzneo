@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {mkdirSync, mkdtempSync, rmSync, unlinkSync, writeFileSync} from 'node:fs';
+import {mkdirSync, mkdtempSync, readFileSync, rmSync, unlinkSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
@@ -140,7 +140,7 @@ test('Einsatzprüfung blockiert veränderten kreativen Motion-V3-Vertrag nach Se
   const root = createReadyFixture();
   try {
     const indexPath = join(root, '04-visuals/visual-index.json');
-    const index = JSON.parse(String(require('node:fs').readFileSync(indexPath)));
+    const index = JSON.parse(readFileSync(indexPath, 'utf8'));
     index.visuals[1].viewerChange = 'Eine andere sichtbare Idee wird nach dem Seal eingeschoben.';
     writeFileSync(indexPath, `${JSON.stringify(index)}\n`);
     const result = analyzeYouTubeReadiness(root);
