@@ -16,7 +16,7 @@ import {requiresYouTubeImage, requiresYouTubeMotion, validateYouTubeMotionMetada
 export const AUDIO_EXTENSIONS = new Set(['.mp3', '.wav', '.aiff', '.aif', '.m4a']);
 export const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
 
-const PLACEHOLDER_PATTERN = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|TITLE|SOURCE|HOOK|VISUAL|CHAPTER|SCRIPT BEAT|CORE|PROMISE|TENSION|MECHANIC|TECHNIQUE|FAMILY|CHANNEL|START|RESULT|ANIMATION INTENT|CONTEXT)[^\]]*)\]/i;
+const PLACEHOLDER_PATTERN = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|TITLE|SOURCE|HOOK|VISUAL|CHAPTER|SCRIPT BEAT|CORE|PROMISE|TENSION|VIEWER|MECHANIC|TECHNIQUE|FAMILY|TOOL|CHANNEL|CAMERA|LAYOUT|TRANSFORMATION|START|RESULT|ANIMATION INTENT|CONTEXT)[^\]]*)\]/i;
 const readText = (path) => readFileSync(path, 'utf8');
 const isFile = (path) => existsSync(path) && statSync(path).isFile();
 const hasPlaceholder = (content) => PLACEHOLDER_PATTERN.test(content) || /\b(?:TODO|PLACEHOLDER)\b/i.test(content);
@@ -66,6 +66,20 @@ const isValidTimingWord = (word) => {
 };
 
 const sha256 = (path) => createHash('sha256').update(readFileSync(path)).digest('hex');
+const sameJson = (left, right) => JSON.stringify(left) === JSON.stringify(right);
+const motionSealContract = (visual) => ({
+  viewerChange: visual?.viewerChange,
+  animationIntent: visual?.animationIntent,
+  mechanicId: visual?.mechanicId,
+  visualTechniqueId: visual?.visualTechniqueId,
+  techniqueDescription: visual?.techniqueDescription,
+  compositionFamilyId: visual?.compositionFamilyId,
+  toolStack: visual?.toolStack,
+  motionSignature: visual?.motionSignature,
+  motionChannels: visual?.motionChannels,
+  visualBeats: visual?.visualBeats,
+  repeatTechniqueReason: visual?.repeatTechniqueReason ?? '',
+});
 
 export const isSixteenNineDimensions = (widthValue, heightValue) => {
   const width = Number(widthValue);
@@ -138,16 +152,26 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
       else checkCompletedText(root, sourceFile, phase1Blockers);
       if (typeof visual.planFile !== 'string' || !visual.planFile.trim()) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.planFile fehlt.`);
       else checkCompletedText(root, visual.planFile, phase1Blockers);
-      for (const field of ['animationIntent', 'mechanicId', 'visualTechniqueId', 'compositionFamilyId', 'animationExport']) {
+
+      for (const field of ['viewerChange', 'animationIntent', 'mechanicId', 'visualTechniqueId', 'techniqueDescription', 'compositionFamilyId', 'animationExport']) {
         if (typeof visual?.[field] !== 'string' || !visual[field].trim() || hasPlaceholder(visual[field])) {
           phase1Blockers.push(`${VISUAL_INDEX}: ${id}.${field} fehlt oder enthält einen Platzhalter.`);
         }
       }
-      if (!Array.isArray(visual.motionChannels) || visual.motionChannels.length < 2 || visual.motionChannels.some(hasPlaceholder)) {
+      if (!Array.isArray(visual.toolStack) || visual.toolStack.length < 1 || visual.toolStack.some((item) => typeof item !== 'string' || !item.trim() || hasPlaceholder(item))) {
+        phase1Blockers.push(`${VISUAL_INDEX}: ${id}.toolStack benötigt mindestens ein finales Werkzeug/Verfahren.`);
+      }
+      if (!Array.isArray(visual.motionChannels) || visual.motionChannels.length < 2 || visual.motionChannels.some((item) => typeof item !== 'string' || !item.trim() || hasPlaceholder(item))) {
         phase1Blockers.push(`${VISUAL_INDEX}: ${id}.motionChannels benötigt mindestens zwei finale Kanäle.`);
       }
-      if (!Array.isArray(visual.visualBeats) || visual.visualBeats.length < 2 || visual.visualBeats.some(hasPlaceholder)) {
+      if (!Array.isArray(visual.visualBeats) || visual.visualBeats.length < 2 || visual.visualBeats.some((item) => typeof item !== 'string' || !item.trim() || hasPlaceholder(item))) {
         phase1Blockers.push(`${VISUAL_INDEX}: ${id}.visualBeats benötigt mindestens zwei finale Zustände.`);
+      }
+      for (const field of ['camera', 'layout', 'transformation']) {
+        const value = visual?.motionSignature?.[field];
+        if (typeof value !== 'string' || !value.trim() || hasPlaceholder(value)) {
+          phase1Blockers.push(`${VISUAL_INDEX}: ${id}.motionSignature.${field} fehlt oder enthält einen Platzhalter.`);
+        }
       }
     }
 
@@ -162,6 +186,7 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
   if (motionVisuals.length > 0) {
     const seal = readJson(resolve(root, ANIMATION_SEAL), phase1Blockers, ANIMATION_SEAL);
     if (seal) {
+      if (seal.version !== 2) phase1Blockers.push(`${ANIMATION_SEAL}: version muss 2 für Motion V3 sein.`);
       if (seal.motionStandardId !== YOUTUBE_MOTION_STANDARD_ID) phase1Blockers.push(`${ANIMATION_SEAL}: motionStandardId ist falsch.`);
       const entries = Array.isArray(seal.entries) ? seal.entries : [];
       for (const visual of motionVisuals) {
@@ -173,8 +198,21 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
         const sourcePath = resolve(root, visual.animationSourceFile ?? '');
         if (isFile(sourcePath) && entry.sha256 !== sha256(sourcePath)) phase1Blockers.push(`${ANIMATION_SEAL}: Hash für ${visual.id} stimmt nicht mehr; Phase 1 erneut validieren und versiegeln.`);
         if (entry.exportName !== visual.animationExport) phase1Blockers.push(`${ANIMATION_SEAL}: Export für ${visual.id} stimmt nicht.`);
-        if (entry.visualTechniqueId !== visual.visualTechniqueId || entry.compositionFamilyId !== visual.compositionFamilyId || entry.mechanicId !== visual.mechanicId) {
-          phase1Blockers.push(`${ANIMATION_SEAL}: Motion-Metadaten für ${visual.id} stimmen nicht mehr.`);
+        const sealedContract = motionSealContract({
+          viewerChange: entry.viewerChange,
+          animationIntent: entry.animationIntent,
+          mechanicId: entry.mechanicId,
+          visualTechniqueId: entry.visualTechniqueId,
+          techniqueDescription: entry.techniqueDescription,
+          compositionFamilyId: entry.compositionFamilyId,
+          toolStack: entry.toolStack,
+          motionSignature: entry.motionSignature,
+          motionChannels: entry.motionChannels,
+          visualBeats: entry.visualBeats,
+          repeatTechniqueReason: entry.repeatTechniqueReason,
+        });
+        if (!sameJson(sealedContract, motionSealContract(visual))) {
+          phase1Blockers.push(`${ANIMATION_SEAL}: kreativer Motion-V3-Vertrag für ${visual.id} stimmt nicht mehr.`);
         }
       }
       if (entries.length !== motionVisuals.length) phase1Blockers.push(`${ANIMATION_SEAL}: Anzahl versiegelter Animationen stimmt nicht.`);

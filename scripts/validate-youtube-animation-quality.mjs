@@ -86,10 +86,10 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
 }
 
 if (errors.length) {
-  console.error('\nYouTube Motion V2 verletzt:\n');
+  console.error('\nYouTube Motion V3 verletzt:\n');
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
 
-console.log('\n✓ YouTube Motion V2 erfüllt.');
-console.log('  Content-first · freie Remotion-Technik · deterministisch · Technik-/Familien-Variation geprüft.');
+console.log('\n✓ YouTube Motion V3 erfüllt.');
+console.log('  Viewer-change-first · offene Technik · deterministisch · echte Variety statt umbenannter Wiederholung.');

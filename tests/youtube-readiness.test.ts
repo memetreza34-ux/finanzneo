@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
-import {mkdirSync, mkdtempSync, rmSync, unlinkSync, writeFileSync} from 'node:fs';
+import {mkdirSync, mkdtempSync, readFileSync, rmSync, unlinkSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import test from 'node:test';
@@ -17,11 +17,29 @@ const createReadyFixture = () => {
   const root = mkdtempSync(join(tmpdir(), 'finanzneo-youtube-ready-'));
   for (const path of PHASE_1_FILES) write(root, path, `Finaler Inhalt für ${path}.`);
 
-  const animationSource = `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\nexport const MECHANIC_ID = 'monthly-buffer-build';\nexport const VISUAL_TECHNIQUE_ID = 'stacked-monthly-depth';\nexport const COMPOSITION_FAMILY_ID = 'css-3d';\nexport const ANIMATION_NARRATIVE = {START:'leer', MECHANISM:'wächst', RESULT:'drei Monate'};\nexport const YouTubeVisual02Animation: React.FC = () => { const frame=useCurrentFrame(); const p=interpolate(frame,[0,30],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); return <AbsoluteFill><div style={{transform:\`translateY(\${(1-p)*20}px)\`}}>Reserve</div></AbsoluteFill>; };\n`;
+  const animationSource = `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\nexport const MECHANIC_ID = 'monthly-buffer-build';\nexport const VISUAL_TECHNIQUE_ID = 'stacked-monthly-depth';\nexport const COMPOSITION_FAMILY_ID = 'reserve-depth-build';\nexport const ANIMATION_NARRATIVE = {START:'leer', MECHANISM:'wächst', RESULT:'drei Monate'};\nexport const YouTubeVisual02Animation: React.FC = () => { const frame=useCurrentFrame(); const p=interpolate(frame,[0,30],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); return <AbsoluteFill><div style={{transform:\`translateY(\${(1-p)*20}px)\`}}>Reserve</div></AbsoluteFill>; };\n`;
+
+  const motionContract = {
+    viewerChange: 'Drei Monatsausgaben erscheinen nacheinander und bilden sichtbar einen wachsenden Sicherheitspuffer.',
+    animationIntent: 'Zeigt, wie mehrere Monatsausgaben als Reserve entstehen.',
+    mechanicId: 'monthly-buffer-build',
+    visualTechniqueId: 'stacked-monthly-depth',
+    techniqueDescription: 'Drei Ausgabenblöcke bauen sich nacheinander in räumlicher Tiefe zu einer Reserve auf.',
+    compositionFamilyId: 'reserve-depth-build',
+    toolStack: ['React', 'CSS 3D', 'Remotion'],
+    motionSignature: {
+      camera: 'subtle pullback',
+      layout: 'centered stacked depth layers',
+      transformation: 'monthly blocks assemble into reserve',
+    },
+    repeatTechniqueReason: '',
+    motionChannels: ['Monatsblöcke bauen sich auf', 'Kamera zieht leicht zurück'],
+    visualBeats: ['Leere Reserve', 'Drei Monatsblöcke stehen sichtbar'],
+  };
 
   const index = {
     title: 'Notgroschen vollständig erklärt',
-    motionStandard: {id: 'finanzneo-youtube-motion-v2'},
+    motionStandard: {id: 'finanzneo-youtube-motion-v3'},
     thumbnail: {googleFlowFileName: 'YouTube Thumbnail - Notgroschen.png'},
     visuals: [
       {
@@ -40,13 +58,7 @@ const createReadyFixture = () => {
         planFile: '04-visuals/EINZELNE-VISUALS/visual-02/remotion.md',
         animationSourceFile: '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx',
         animationExport: 'YouTubeVisual02Animation',
-        animationIntent: 'Zeigt, wie mehrere Monatsausgaben als Reserve entstehen.',
-        mechanicId: 'monthly-buffer-build',
-        visualTechniqueId: 'stacked-monthly-depth',
-        compositionFamilyId: 'css-3d',
-        repeatTechniqueReason: '',
-        motionChannels: ['Monatsblöcke bauen sich auf', 'Kamera zieht leicht zurück'],
-        visualBeats: ['Leere Reserve', 'Drei Monatsblöcke stehen sichtbar'],
+        ...motionContract,
         chapter: 'Die richtige Höhe',
         scriptBeat: 'Drei Monatsausgaben werden schrittweise aufgebaut.',
       },
@@ -57,15 +69,14 @@ const createReadyFixture = () => {
   write(root, '04-visuals/EINZELNE-VISUALS/visual-02/remotion.md', 'Finale Remotion-Spezifikation ohne Platzhalter.');
   write(root, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx', animationSource);
   write(root, '06-projektdateien/animation-seal.json', `${JSON.stringify({
-    version: 1,
-    motionStandardId: 'finanzneo-youtube-motion-v2',
+    version: 2,
+    motionStandardId: 'finanzneo-youtube-motion-v3',
+    sourceIndex: '04-visuals/visual-index.json',
     entries: [{
       id: 'visual-02',
       sourceFile: '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx',
       exportName: 'YouTubeVisual02Animation',
-      mechanicId: 'monthly-buffer-build',
-      visualTechniqueId: 'stacked-monthly-depth',
-      compositionFamilyId: 'css-3d',
+      ...motionContract,
       sha256: createHash('sha256').update(Buffer.from(animationSource)).digest('hex'),
     }],
   })}\n`);
@@ -82,7 +93,7 @@ const createReadyFixture = () => {
   return root;
 };
 
-test('Einsatzprüfung gibt ein vollständiges versiegeltes YouTube-Projekt für Phase 3 frei', () => {
+test('Einsatzprüfung gibt ein vollständiges Motion-V3-versiegeltes YouTube-Projekt für Phase 3 frei', () => {
   const root = createReadyFixture();
   try {
     const result = analyzeYouTubeReadiness(root);
@@ -120,6 +131,21 @@ test('Einsatzprüfung blockiert veränderten Motion-Code nach Seal', () => {
     const result = analyzeYouTubeReadiness(root);
     assert.equal(result.ready, false);
     assert.ok(result.phase1Blockers.some((blocker) => blocker.includes('Hash für visual-02 stimmt nicht mehr')));
+  } finally {
+    rmSync(root, {recursive:true, force:true});
+  }
+});
+
+test('Einsatzprüfung blockiert veränderten kreativen Motion-V3-Vertrag nach Seal', () => {
+  const root = createReadyFixture();
+  try {
+    const indexPath = join(root, '04-visuals/visual-index.json');
+    const index = JSON.parse(readFileSync(indexPath, 'utf8'));
+    index.visuals[1].viewerChange = 'Eine andere sichtbare Idee wird nach dem Seal eingeschoben.';
+    writeFileSync(indexPath, `${JSON.stringify(index)}\n`);
+    const result = analyzeYouTubeReadiness(root);
+    assert.equal(result.ready, false);
+    assert.ok(result.phase1Blockers.some((blocker) => blocker.includes('kreativer Motion-V3-Vertrag für visual-02 stimmt nicht mehr')));
   } finally {
     rmSync(root, {recursive:true, force:true});
   }

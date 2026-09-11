@@ -21,6 +21,8 @@ Erlaubt:
 - `hybrid`
 - `data`
 
+Für Motion gilt V3: erst `viewerChange`, dann die beste Technik. Es gibt keine feste Animationsbibliothek und keine Whitelist für Composition Families.
+
 Danach:
 
 ```bash
@@ -33,8 +35,8 @@ npm run youtube:ready -- youtube/<Projekt>
 Verbindlich:
 
 - [Produktionsstandard](PRODUKTIONSSTANDARD.md)
-- [YouTube Motion V2](../docs/YOUTUBE-MOTION-V2.md)
+- [YouTube Motion V3](../docs/YOUTUBE-MOTION-V3.md)
 - [3-Phasen-Workflow](../docs/YOUTUBE-LONGFORM-WORKFLOW.md)
 - `CLAUDE.md`
 
-`youtube:ready` gibt Phase 3 nur frei, wenn Recherche, Skript, Visuals, produktionsreife und versiegelte Motion, Publishing-Paket, alle exakten 16:9-Nutzerbilder, genau ein finales Voiceover und echte Wort-Timings vollständig sind.
+`youtube:ready` gibt Phase 3 nur frei, wenn Recherche, Skript, Visuals, produktionsreife und Motion-V3-versiegelte Quellen, Publishing-Paket, alle exakten 16:9-Nutzerbilder, genau ein finales Voiceover und echte Wort-Timings vollständig sind.

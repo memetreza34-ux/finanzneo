@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform in drei Phasen
 
-> Bei Widersprüchen gilt `CLAUDE.md`. Für Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V2.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Für Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`.
 
 YouTube-Longform ist ein eigenständiges Format. Ein Reel wird weder gestreckt noch als YouTube Short gespiegelt. Ein Thema gehört in Longform, wenn es für Verständnis echte Tiefe braucht: mehrere Schritte, Beispiele, Vergleiche, Rechnungen, Einordnung oder häufige Fehler.
 
@@ -17,17 +17,25 @@ ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
 - Visual-Plan ohne feste Visualzahl und ohne feste Bild-/Animationsquote
 - alle Google-Flow-Bildprompts in Englisch und mit exakten Dateinamen
 - für jedes Motion-Visual produktionsreife `animation.tsx`
-- pro Motion-Visual `mechanicId`, `visualTechniqueId`, `compositionFamilyId`, Motion Channels und Visual Beats
+- pro Motion-Visual `viewerChange`, `animationIntent`, `mechanicId`, `visualTechniqueId`, `techniqueDescription`, freien `compositionFamilyId`, `toolStack`, `motionSignature`, Motion Channels und Visual Beats
 - Thumbnail-Prompt und Thumbnail-Brief
 - Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords, Hashtags
 - Quellen-/Disclaimer-Text, angehefteten Kommentar, Community-Post und Upload-Checkliste
 - Promo-Texte für Instagram, TikTok, Facebook und Snapchat
 
-### Motion-Auswahl
+### Motion-Auswahl — Viewer Change zuerst
 
-Nicht zuerst eine vorhandene Komponente wählen. Zuerst festlegen, was der Zuschauer sehen soll. Danach darf Phase 1 frei zwischen Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Datenvisualisierung, Timeline, Kinetic Type, Document Motion, Simulation, Flow+Remotion-Hybrid und weiteren sinnvollen Remotion-Techniken wählen.
+Nicht zuerst eine vorhandene Komponente oder Animationsfamilie wählen.
 
-Bestehende FinanzNeo-Komponenten und `Physical*`-Primitives sind optionale Werkzeuge, keine Pflichtvorlagen.
+Für jeden Motion-Beat zuerst in einem Satz beantworten:
+
+> Was soll der Zuschauer tatsächlich sehen, das sich verändert, enthüllt, vergleicht, aufbaut, zerlegt oder räumlich erschließt?
+
+Danach darf Phase 1 frei zwischen Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Datenvisualisierung, Timeline, Kinetic Type, Document Motion, Simulation, Flow+Remotion-Hybrid und weiteren sinnvollen oder neu kombinierten Remotion-Techniken wählen.
+
+Composition Families sind nur freie Beschreibungen, keine Whitelist. Bestehende FinanzNeo-Komponenten und `Physical*`-Primitives sind optionale Werkzeuge, keine Pflichtvorlagen.
+
+Vor Freigabe prüft Phase 1 die letzten vier Motion-Visuals. Ein anderer Name reicht nicht als Variation: Kamera, Layout und sichtbare Transformation dürfen nicht einfach wiederholt werden, außer die Wiederholung ist für Verständnis/Vergleich wirklich sinnvoll und wird mit `repeatTechniqueReason` begründet.
 
 Vor Phase 2:
 
@@ -37,7 +45,7 @@ npm run youtube:animation:validate -- youtube/<Projekt>
 npm run youtube:phase1:seal -- youtube/<Projekt>
 ```
 
-Der Seal bindet die kanonischen Motion-Quellen per SHA-256.
+Der Motion-V3-Seal bindet sowohl die kanonischen Motion-Quellen per SHA-256 als auch den kreativen Vertrag aus Viewer Change, Intent, Mechanik, Technikbeschreibung, Tool-Stack, Motion-Signatur, Channels und Beats.
 
 ## Phase 2 — Nutzer erstellt Bilder und Audio
 
@@ -57,8 +65,8 @@ GENAU EIN BILD ERZEUGEN
 → ERST DANN DAS NÄCHSTE BILD
 ```
 
-- Thumbnail zuerst erzeugen und nach bestandener Prüfung als reine Stilreferenz nutzen.
-- Nicht Motiv, Komposition oder Labels des Thumbnails in Folgebilder kopieren.
+- Bilder folgen `finanzneo-youtube-grounded-3d-black-v1`.
+- Nicht Motiv, Komposition oder Labels eines anderen Bildes als Standardvorlage kopieren.
 - Neue Bilder folgen `Literal first, creative second`.
 - Fehlerhafte Bildnummer wiederholen; nie parallel oder als Batch fortfahren.
 - Nicht-Bild-Visualnummern überspringen, aber nicht neu nummerieren.
@@ -86,7 +94,7 @@ npm run youtube:ready -- youtube/<Projekt>
 Bei erfolgreicher Prüfung arbeitet der Executor ohne Rückfragen und Zwischenstopps:
 
 1. finale Audio- und Bildassets einlesen
-2. unveränderten Phase-1-Motion-Seal prüfen
+2. unveränderten Phase-1-Motion-V3-Seal prüfen
 3. Timeline aus Voiceover, Visual Beats und Kapiteln ableiten
 4. versiegelte Motion-Quellen integrieren und nur zeitlich an echtes Audio anpassen
 5. Texteinblendungen, Untertitel und freigegebene lokale SFX integrieren

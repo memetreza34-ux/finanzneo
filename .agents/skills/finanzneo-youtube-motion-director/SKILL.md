@@ -1,17 +1,19 @@
 ---
 name: finanzneo-youtube-motion-director
-description: Directs FinanzNeo YouTube Longform motion with content-first technique selection, high visual variety, deterministic Remotion code and sealed Phase-1 animation sources.
+description: Directs FinanzNeo YouTube Longform motion with viewer-change-first technique selection, open-ended visual methods, semantic variety, deterministic Remotion code and sealed Phase-1 animation sources.
 ---
 
-# FinanzNeo YouTube Motion Director V2
+# FinanzNeo YouTube Motion Director V3
 
 ## Goal
 
-Create longform motion that explains the spoken idea with the best visual mechanism for that idea. Do not begin by choosing an existing component or primitive. Begin by deciding what the viewer should see happen.
+Create longform motion that explains each spoken idea with the best visible mechanism for that exact idea. Do not begin by choosing an existing component, family or animation pattern. Begin by deciding what the viewer should literally see happen.
 
 ## Core rule
 
-**Remotion has no predefined creative ceiling.** Existing FinanzNeo components, Physical* primitives and previous animation patterns are optional tools, never mandatory templates.
+**One FinanzNeo world, no fixed animation type.**
+
+Remotion has no predefined creative ceiling. Existing FinanzNeo components, Physical* primitives, previous animation patterns and named composition families are optional tools or descriptions, never mandatory templates.
 
 Allowed when useful:
 
@@ -32,6 +34,9 @@ Allowed when useful:
 - timelines and temporal progression
 - split-screen comparison
 - simulations and spatial camera journeys
+- material/object transformations
+- map/network/process motion
+- new custom combinations when they explain the beat better
 
 All productive motion remains deterministic from the Remotion frame timeline.
 
@@ -41,7 +46,7 @@ Read in this order:
 
 1. `CLAUDE.md`
 2. `youtube/PRODUKTIONSSTANDARD.md`
-3. `docs/YOUTUBE-MOTION-V2.md`
+3. `docs/YOUTUBE-MOTION-V3.md`
 4. target `04-visuals/visual-index.json`
 5. target visual `remotion.md` / `bildprompt.txt` / `data-notes.md`
 6. target `animation.tsx`
@@ -49,47 +54,102 @@ Read in this order:
 
 Reel-specific safe zones and PhysicalObject requirements do not automatically apply to YouTube Longform.
 
-## Technique selection
+## Viewer-change-first technique selection
 
-For each spoken beat, first write one sentence answering:
+For each spoken beat, first write `viewerChange` as one clear sentence answering:
 
-> What should the viewer literally see change, reveal, compare or travel through?
+> What should the viewer literally see change, reveal, compare, build, break apart or travel through?
 
-Then choose the best family. Useful families include:
+Do this **without naming a tool, library, existing component or composition family**.
 
-- `spatial-3d` — genuine depth/object/camera interaction
-- `vector-motion` — SVG/path/morph construction
-- `css-3d` — perspective, cards/paper/object layers
-- `kinetic-type` — a number/phrase itself is the visual event
-- `data-viz` — verified values, charts, tables, model outputs
-- `timeline` — time progression is the explanation
-- `document-motion` — contracts, invoices, statements, papers
-- `image-composite` — Flow image + masks/parallax/overlays
-- `simulation` — a process or system evolves visibly
-- `comparison` — two states/paths progress side by side
-- `camera-journey` — spatial movement itself reveals the relationship
-- `custom` — a better technique does not fit another family
+Then:
 
-Do not overuse a family because its implementation is convenient.
+1. decide the explanatory mechanism,
+2. review the previous four motion visuals,
+3. choose or invent the clearest technique,
+4. record the actual tools and motion signature,
+5. build production-ready source code.
+
+Do not choose a technique because it is convenient to implement.
+
+## Composition families are open
+
+Useful examples include:
+
+- `spatial-3d`
+- `vector-motion`
+- `css-3d`
+- `kinetic-type`
+- `data-viz`
+- `timeline`
+- `document-motion`
+- `image-composite`
+- `simulation`
+- `comparison`
+- `camera-journey`
+- `physical-process`
+- `material-transformation`
+- `map-journey`
+- `macro-to-micro`
+- `network-simulation`
+- `custom`
+
+These are examples only. `compositionFamilyId` is free-form in V3. Create a better family name when the actual scene needs one.
 
 ## Required metadata
 
 Every motion-capable visual defines:
 
+- `viewerChange`
+- `animationIntent`
 - `mechanicId`
 - `visualTechniqueId`
+- `techniqueDescription`
 - `compositionFamilyId`
-- `animationIntent`
+- `toolStack`
+- `motionSignature.camera`
+- `motionSignature.layout`
+- `motionSignature.transformation`
 - at least two meaningful `motionChannels`
 - at least two visible `visualBeats`
 - `animationSourceFile`
 - `animationExport`
 
-`visualTechniqueId` should be materially different across different mechanisms. Reuse needs an explicit `repeatTechniqueReason`.
+`viewerChange` is the creative starting point. `visualTechniqueId` is the implementation concept. `techniqueDescription` describes how the scene actually works. `motionSignature` describes the dominant camera, layout and visible transformation so fake variety cannot be hidden behind renamed IDs.
+
+## Variety rule
+
+Variation is semantic, not cosmetic.
+
+Bad variation:
+
+- same cards with different labels
+- same coin stack with different numbers
+- same camera push with a new technique name
+- same three-column layout with different colors
+- same slide-in blocks under different `MECHANIC_ID`s
+
+Good variation:
+
+- document comparison → SVG name/IBAN match
+- time progression → timeline or camera movement through dated layers
+- compound growth → simulation / spatial buildup
+- historical development → camera journey or map/time transformation
+- key number → restrained kinetic typography
+- real-life situation → Flow image hybrid with meaningful reveal
+- process → custom spatial or network simulation
+
+The validator checks repeated technique, mechanism, technique description and identical camera+layout+transformation signatures. It also flags more than two consecutive visuals from the same family.
+
+## Repetition remains valid when it is best
+
+Do not force novelty for novelty's sake. If the same technique is genuinely the clearest explanation, reuse it with a concrete `repeatTechniqueReason`.
+
+The reason must explain why consistency improves understanding, comparison or continuity. “Looks good” or “same style” is not enough.
 
 ## Narrative
 
-A YouTube motion visual is not required to imitate a physical machine. It must, however, visibly progress.
+A YouTube motion visual must visibly progress.
 
 Valid structures include:
 
@@ -99,6 +159,8 @@ Valid structures include:
 - DATA INPUT → CHANGE → COMPARISON
 - CAMERA ENTRY → DISCOVERY → PAYOFF
 - IMAGE ESTABLISH → MASK/DEPTH REVEAL → EXPLANATION
+- OBJECT ASSEMBLY → SYSTEM BEHAVIOR → OUTCOME
+- DOCUMENT STATE → MARK/COMPARE → DECISION
 
 Camera drift alone is not a new beat. Background motion alone is not a new beat.
 
@@ -106,16 +168,7 @@ Camera drift alone is not a new beat. Background motion alone is not a new beat.
 
 Do not cut on a fixed timer. Voiceover thought, visual information and chapter logic decide timing.
 
-A longer visual may remain on screen if it keeps producing new visible information. Example:
-
-0–2 s establish
-2–4 s trigger
-4–6 s first consequence
-6–8 s second consequence
-8–10 s comparison
-10–12 s payoff
-
-A static state must not sit under several new spoken thoughts without a visual reason.
+A longer visual may remain on screen if it keeps producing new visible information. A static state must not sit under several new spoken thoughts without a visual reason.
 
 ## Hybrid visuals
 
@@ -137,26 +190,6 @@ Do not add movement merely to avoid a static image.
 Verified data may use charts, counters, tables, axes or model simulations when those are the clearest explanation. Data visuals are exempt from the rule that every scene must contain physical real-world objects.
 
 Never fabricate values for visual drama.
-
-## Variety rule
-
-Variation is semantic, not cosmetic.
-
-Bad variation:
-
-- same cards with different labels
-- same coin stack with different numbers
-- same progress bar with different colors
-- same slide-in blocks under different `MECHANIC_ID`s
-
-Good variation:
-
-- document comparison → SVG name/IBAN match
-- time progression → calendar/timeline depth
-- compound growth → spatial stack/simulation
-- historical development → camera journey
-- key number → restrained kinetic typography
-- real-life situation → Flow image hybrid
 
 ## Source requirements
 
@@ -184,4 +217,4 @@ run:
 
 `npm run youtube:phase1:seal -- youtube/<Projekt>`
 
-Phase 3 may retime/integrate the sealed source, captions, local SFX and final assets. It may not replace the sealed mechanism with an easier animation.
+The V3 seal protects both source hash and the creative motion contract. Phase 3 may retime/integrate the sealed source, captions, local SFX and final assets. It may not replace the sealed mechanism with an easier animation.
