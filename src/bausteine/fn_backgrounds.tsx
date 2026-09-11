@@ -2,9 +2,8 @@
 // Neue Produktionen verwenden FinanceBackground aus src/design-system.
 // Diese Exporte bleiben als kompatible Spezialvarianten bestehen.
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {C, rand, bebas, inter} from './fn_core';
-import {C as BRAND_C, a, euro} from '../brand/tokens';
-import {calculateSavingsPlanFutureValue} from '../finance/calculations';
+import {C, rand} from './fn_core';
+import {C as BRAND_C, a} from '../brand/tokens';
 
 // EMPFOHLEN: seltener Premium-Hintergrund für Hook oder Payoff.
 export const FNBgAurora: React.FC = () => {
@@ -154,45 +153,3 @@ export const FN_BGS: [string, React.FC][] = [
   ...FN_RECOMMENDED_BGS,
   ...FN_EXPERIMENTAL_BGS,
 ];
-
-const BG_DEMO_VALUE = calculateSavingsPlanFutureValue({
-  contributionPerPeriod: 200,
-  annualReturnRate: 0.07,
-  years: 30,
-  periodsPerYear: 12,
-});
-
-// Demo mit reproduzierbarer Beispielrechnung statt frei eingetragener Zahl.
-export const FNBgDemo: React.FC = () => {
-  const f = useCurrentFrame();
-  const appear = (start: number) => Math.max(0, Math.min(1, (f - start) / 16));
-  return (
-    <AbsoluteFill>
-      <FNBgGrid />
-      <AbsoluteFill style={{flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center'}}>
-        <div style={{fontFamily: inter, fontWeight: 700, fontSize: 30, letterSpacing: 5, color: C.green,
-          opacity: appear(4)}}>BEISPIELRECHNUNG</div>
-        <div style={{fontFamily: bebas, fontSize: 210, lineHeight: 1, color: C.ink,
-          textShadow: `0 0 60px ${a(C.green, 0.33)}`, opacity: appear(14), marginTop: 20}}>{euro(BG_DEMO_VALUE)}</div>
-        <div style={{fontFamily: inter, fontSize: 34, color: C.muted, opacity: appear(28), marginTop: 18}}>
-          200 € monatlich · 30 Jahre · 7 % p. a.
-        </div>
-        <div style={{fontFamily: inter, fontSize: 24, color: a(C.muted, 0.72), opacity: appear(36), marginTop: 10}}>
-          Einzahlung am Monatsende · vor Kosten, Steuern und Inflation · keine Renditegarantie
-        </div>
-      </AbsoluteFill>
-    </AbsoluteFill>
-  );
-};
-
-export const FNBgGridShowcase: React.FC = () => (
-  <AbsoluteFill style={{background: '#000', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridTemplateRows: '1fr 1fr', gap: 6, padding: 6}}>
-    {FN_BGS.map(([name, Component]) => (
-      <div key={name} style={{position: 'relative', overflow: 'hidden', borderRadius: 10}}>
-        <Component />
-        <div style={{position: 'absolute', bottom: 14, left: 16, fontFamily: inter, fontSize: 26, fontWeight: 700,
-          color: C.ink, textShadow: '0 2px 8px rgba(0,0,0,0.8)'}}>{name}</div>
-      </div>
-    ))}
-  </AbsoluteFill>
-);
