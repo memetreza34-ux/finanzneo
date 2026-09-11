@@ -26,8 +26,8 @@ test('YouTube verwendet dieselbe FinanzNeo-Welt, aber ein eigenes 16:9-Format', 
   assert.equal(YOUTUBE_VIDEO_HEIGHT, 1080);
 });
 
-test('YouTube Motion V2 trennt Longform-Motion von Reel-Physical-Pflichten', () => {
-  assert.equal(YOUTUBE_MOTION_STANDARD_ID, 'finanzneo-youtube-motion-v2');
+test('YouTube Motion V3 trennt Longform-Motion von Reel-Pflichten und bleibt technikoffen', () => {
+  assert.equal(YOUTUBE_MOTION_STANDARD_ID, 'finanzneo-youtube-motion-v3');
   assert.deepEqual(YOUTUBE_VISUAL_TYPES, ['image', 'animation', 'hybrid', 'data']);
 });
 
