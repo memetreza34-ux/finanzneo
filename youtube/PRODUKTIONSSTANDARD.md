@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform-Produktionsstandard
 
-> Bei Widersprüchen gilt `CLAUDE.md`. Für YouTube-Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V2.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Für YouTube-Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`.
 
 ## Projektstruktur
 
@@ -26,15 +26,16 @@ README.md
 - Zahlen, Annahmen und Datenstand prüfbar dokumentieren
 - keine individuelle Anlageberatung oder garantierte Rendite
 
-## Beat-first Visualplanung
+## Viewer-change-first Visualplanung
 
-Es gibt **keine feste Visualzahl und keine feste Bild-/Animationsquote**.
+Es gibt **keine feste Visualzahl, keine feste Bild-/Animationsquote und keine feste Animationsbibliothek**.
 
 ```text
 Skript
 → gesprochene Gedanken
 → sichtbare Visual Beats
-→ beste Visualart je Beat
+→ Viewer Change: Was soll der Zuschauer tatsächlich sehen, das sich verändert?
+→ beste Visualart und Technik für genau diesen Beat
 → sinnvolle Gruppierung
 ```
 
@@ -45,23 +46,49 @@ Erlaubte Visualtypen:
 - `hybrid`
 - `data`
 
-## Remotion / Motion V2
+## Remotion / Motion V3
 
-`MOTION_STANDARD: finanzneo-youtube-motion-v2`
+`MOTION_STANDARD: finanzneo-youtube-motion-v3`
 
-Die visuelle Technik wird aus dem Inhalt gewählt, nicht aus einer festen Komponentenbibliothek. Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Masks, Paths/Shapes, Motion Blur, Effects, Lottie als Support, Datenvisualisierung und Bild+Motion-Hybrid sind erlaubt.
+### Grundregel
 
-`PremiumPhysicalStage` und `Physical*` sind **optional**. Bestehende Komponenten sind Werkzeuge, keine Pflichtvorlagen.
+**Eine FinanzNeo-Welt, aber keine feste Animationsart.**
+
+Die visuelle Technik wird erst gewählt, nachdem feststeht, was der Zuschauer tatsächlich sehen soll. Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Masks, Paths/Shapes, Motion Blur, Effects, Lottie als Support, Datenvisualisierung, Bild+Motion-Hybrid sowie neue sinnvolle Kombinationen sind erlaubt.
+
+Die bekannten Familien wie `spatial-3d`, `timeline`, `document-motion`, `data-viz`, `simulation` oder `camera-journey` sind **nur Beispiele zur Beschreibung**, keine Whitelist. Neue `compositionFamilyId`-Werte dürfen jederzeit entstehen, wenn sie die Szene besser beschreiben.
+
+`PremiumPhysicalStage`, `Physical*` und bestehende FinanzNeo-Komponenten sind **optionale Werkzeuge**, keine Pflichtvorlagen.
 
 Jedes Motion-Visual braucht:
 
 - produktionsreife `animation.tsx` bereits in Phase 1
+- `viewerChange` — was der Zuschauer konkret sichtbar verändern/enthüllen/vergleichen/reisen sehen soll
+- `animationIntent` — warum genau diese Veränderung den gesprochenen Punkt erklärt
 - `mechanicId`
 - `visualTechniqueId`
-- `compositionFamilyId`
-- `animationIntent`
+- `techniqueDescription`
+- freien `compositionFamilyId`
+- `toolStack`
+- `motionSignature` mit `camera`, `layout`, `transformation`
 - mindestens zwei sinnvolle Motion Channels
 - mindestens zwei sichtbare Visual Beats
+
+### Echte Vielfalt statt umbenannter Wiederholung
+
+Ein neuer Technikname allein zählt nicht als neue Animation.
+
+Die CI prüft zusätzlich:
+
+- doppelte `visualTechniqueId`
+- doppelte `mechanicId`
+- identische `techniqueDescription`
+- mehr als zwei gleiche Familien direkt hintereinander
+- identische Kombination aus **Kamera + Layout + Transformation** innerhalb der letzten vier Motion-Visuals
+
+Wiederholung bleibt erlaubt, wenn sie für den Inhalt tatsächlich die beste Lösung ist. Dann braucht sie eine konkrete `repeatTechniqueReason`.
+
+Das Ziel ist **nicht**, zwanghaft jeden Effekt nur einmal zu verwenden. Das Ziel ist, für jeden Gedanken die klarste visuelle Erklärung zu wählen und bequeme Copy-Paste-Motion zu verhindern.
 
 Vor Phase 2:
 
@@ -70,7 +97,7 @@ npm run youtube:animation:validate -- youtube/<Projekt>
 npm run youtube:phase1:seal -- youtube/<Projekt>
 ```
 
-Nach dem Seal darf Phase 3 die kreative Mechanik nicht ersetzen.
+Der Phase-1-Seal schützt danach sowohl den Motion-Code als auch den kreativen V3-Vertrag (`viewerChange`, Technikbeschreibung, Tool-Stack, Motion-Signatur, Beats und Channels). Phase 3 darf die Mechanik nicht kreativ ersetzen oder vereinfachen.
 
 ## Bildwelt und Google Flow
 
@@ -151,4 +178,4 @@ npm run youtube:phase1:seal -- youtube/<Projekt>
 npm run youtube:ready -- youtube/<Projekt>
 ```
 
-`youtube:ready` prüft Phase 1, den unveränderten Motion-Seal, exakte Nutzerbilder, 16:9-Abmessungen, genau ein lesbares Voiceover, passende Wortzeiten und das vollständige Publishing-Paket. Nur ein erfolgreicher Lauf gibt Phase 3 frei.
+`youtube:ready` prüft Phase 1, den unveränderten Motion-V3-Seal, exakte Nutzerbilder, 16:9-Abmessungen, genau ein lesbares Voiceover, passende Wortzeiten und das vollständige Publishing-Paket. Nur ein erfolgreicher Lauf gibt Phase 3 frei.
