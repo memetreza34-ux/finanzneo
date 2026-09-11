@@ -74,19 +74,37 @@ Nach dem Seal darf Phase 3 die kreative Mechanik nicht ersetzen.
 
 ## Bildwelt und Google Flow
 
-Die bestehende FinanzNeo-Welt bleibt unverändert:
+`IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1`
+
+Kanonische YouTube-Bildwelt:
+
+```text
+config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
+```
+
+Sie übernimmt die bestehende FinanzNeo-Grundwelt:
 
 - `finanzneo-connected-studio-v3`
 - `finanzneo-same-world-v1`
+- stilistische Herkunft: `finanzneo-stylized-3d-animated-black-v9`
 - YouTube-Quellbilder horizontal 16:9
+
+Der freigegebene Stilanker ist die **Waschmaschinen-/Reparatur-/Notgroschen-Szene**. Übernommen werden ausschließlich ihre visuellen Qualitäten: realitätsnahe Alltagssituation, klar stilisiertes Premium-3D, semi-realistische Materialien, große lesbare Objekte, tiefe schwarze Welt mit wenig glaubwürdigem Umgebungskontext, sichtbare Ursache/Wirkung, kontrolliertes Grün/Rot und sauberes Studio-Licht.
+
+Die konkreten Motive des Referenzbildes sind **keine Vorlage**. Waschmaschine, grüner Ordner, Münzen oder Geldfluss dürfen nicht automatisch in andere Themen kopiert werden. Ebenso sind Ordner, Münzstapel, Sparschwein, Pflanzen, Pfeile oder leuchtende Geldpfade keine wiederkehrenden FinanzNeo-YouTube-Pflichtmotive. Jede Szene wird aus dem tatsächlichen Sprechpunkt neu entwickelt.
 
 Für neue YouTube-Bilder gilt **Literal first, creative second**:
 
 - konkrete reale Situation zuerst
 - klarer Finanz-/Alltagskontext
 - sichtbarer Bezug zum Voiceover
+- Ursache und Wirkung möglichst im selben Bild verständlich
 - Metapher nur, wenn sie wirklich klarer ist
 - kein generisches Finanzsymbolbild als Default
+- keine flache Infografik oder Präsentationsfolie als Standardbild
+- wichtige Objekte groß und auch im YouTube-Playback sofort lesbar
+- lokaler Umgebungskontext nur, wenn er die Situation glaubwürdiger oder klarer macht; er löst sich in die schwarze FinanzNeo-Welt auf
+- das Standbild muss bereits funktionieren, bevor Remotion-Bewegung hinzukommt
 
 Bildprompts immer Englisch; nur ausdrücklich gewünschte kurze Objektlabels im Bild sind Deutsch. Keine Headline, Untertitel oder erklärenden Sätze im KI-Bild.
 
