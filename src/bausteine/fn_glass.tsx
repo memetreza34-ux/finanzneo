@@ -101,5 +101,3 @@ export const FNGrowthGlass: React.FC<{
     </AbsoluteFill>
   );
 };
-
-export const FNGrowthGlassDemo: React.FC = () => <FNGrowthGlass />;
