@@ -1,0 +1,205 @@
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+
+FINANZNEO YOUTUBE GROUNDED 3D BLACK WORLD — V1
+
+PURPOSE
+Adapt the approved FinanzNeo stylized 3D visual language to horizontal YouTube Longform images. The style anchor is the approved broken-washing-machine / repair-invoice / Notgroschen scene: a believable everyday financial situation, large readable real-world objects, visible cause and effect, premium stylized 3D materials, controlled green/red color roles and a deep-black world with only the local context needed to make the situation believable.
+
+This file defines visual qualities, not recurring props. Never copy the washing machine, folder, money ribbon or any other anchor object into unrelated scenes just because it appeared in the approved reference.
+
+BASE LOCKS
+- SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+- FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+- FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+- GENERATED_IMAGE_ASPECT_RATIO: 16:9
+- TARGET_USE: YouTube Longform image and hybrid visual source
+
+APPROVED STYLE ANCHOR
+The accepted reference is the FinanzNeo scene with:
+- a broken off-white washing machine as the concrete everyday problem
+- a short repair invoice label “Reparatur 280 €” as the cost
+- an emerald-green “Notgroschen” reserve as the solution
+- the payment relationship visibly connecting reserve and repair cost
+- a small believable laundry context that dissolves into black
+
+Inherit these qualities:
+- one instantly understandable real-life situation
+- strong physical cause-and-effect in the same frame
+- clearly stylized premium 3D, never photorealistic
+- believable object proportions and recognizable everyday details
+- semi-realistic materials with visibly stylized rendering
+- large, readable hero objects rather than tiny miniature scenes
+- deep seamless black as the dominant world
+- selective local environment context only when it improves understanding
+- clean soft studio lighting, controlled highlights, contact shadows and subtle surface reflection
+- emerald green for positive/solution/value flow
+- warm red-orange for problem/cost/warning
+- warm ivory and soft gray for neutral real-world objects
+- subtle gold only for money/value accents
+
+DO NOT inherit the literal anchor props. The washing machine, green folder, coins or payment ribbon are not a template.
+
+CORE STYLE
+- clearly stylized premium 3D animation-film rendering, never photorealistic
+- real-world-grounded situations first
+- familiar everyday objects with believable proportions and material cues
+- soft refined geometry where appropriate, but never generic toy objects
+- premium and polished without becoming childish, glossy-tech or sci-fi
+- the visual must explain the spoken point, not merely decorate it
+- every scene is designed individually from the exact Voiceover beat
+- one coherent situation is preferred over a collection of finance symbols
+- a strong still image must already work before Remotion animation is added
+
+YOUTUBE COMPOSITION
+Use horizontal 16:9 compositions built for YouTube viewing.
+- one clear main situation or subject cluster
+- important objects large enough to understand immediately on laptop, TV and mobile playback
+- use foreground, midground and background depth when useful
+- retain useful negative space, but never make the scene feel sterile or empty
+- local context may extend sideways in the wide frame, but only when it supports the explanation
+- avoid tiny diorama framing and distant miniature objects
+- avoid symmetrical presentation-slide layouts as a default
+- composition may vary strongly from scene to scene while staying in the same material, lighting and color world
+
+REAL-LIFE EXPLANATION FIRST
+Start with the literal real-world situation behind the spoken point.
+Examples of valid source material include household repairs, rent, invoices, shopping, work, salary, bank documents, contracts, calendars, phones, cards, account paperwork, travel, insurance situations, housing, energy costs or investing contexts when they genuinely match the voiceover.
+
+Make visible:
+1. what is happening,
+2. what is affected,
+3. what changes, solves or causes the consequence.
+
+The viewer should understand the intended message within roughly 1–2 seconds even without audio whenever the content allows it.
+
+Symbols such as coins, arrows, shields, folders, piggy banks, graphs or glowing paths may support a concrete situation, but they must never become the default visual language or replace the real-world explanation.
+
+NO RECURRING FINANCE-KIT DEFAULTS
+Do not build YouTube scenes from a reusable finance-icon kit.
+The following are NOT mandatory recurring motifs:
+- green folders
+- coin stacks
+- glowing money ribbons
+- piggy banks
+- plants growing from money
+- upward arrows
+- floating banknotes
+- generic charts
+
+Use any of them only when they are the clearest natural representation of that exact spoken point. Visual variety must come from the real situation being explained, not from recoloring the same finance props.
+
+BACKGROUND WORLD
+Deep seamless black is the dominant background.
+A small believable local environment may exist around the main subject — for example part of a laundry area, desk, kitchen counter, living space, shop, bank/document context or workplace — when it makes the scene more credible or understandable.
+
+Local context must:
+- remain secondary to the explanation
+- visually dissolve into the black world
+- avoid turning into a complete bright room or conventional interior render
+- use only props that contribute to context or meaning
+
+Do not use an empty black void when a small amount of real-world context would make the situation clearer. Do not fill the frame with decorative set dressing either.
+
+MATERIAL LANGUAGE
+Use semi-realistic material structure with visibly stylized rendering:
+- warm painted metal or plastic for appliances and everyday objects
+- paper and card with readable thickness and soft edge treatment
+- restrained matte or satin surfaces
+- subtle glass/metal reflections when physically appropriate
+- controlled texture, never hyper-detailed photorealism
+
+Objects must feel tangible and high quality, but still belong to an animated 3D world.
+
+COLOR LANGUAGE
+- deep black remains dominant
+- emerald green = positive, preferred, solution, savings or beneficial value when semantically correct
+- warm red-orange = cost, loss, warning, debt or problem when semantically correct
+- warm ivory and soft gray = neutral surfaces and documents
+- subtle gold = money or value accent only
+
+Do not force green/red into an object when the semantic role does not justify it. Avoid rainbow palettes, neon-cyberpunk color and excessive glow.
+
+LIGHTING
+Use clean soft premium studio lighting:
+- clear readable highlights
+- soft readable shadows
+- strong subject separation from the black world
+- soft contact shadows
+- subtle grounded reflections where useful
+- controlled warm/cool accent light based on semantic color roles
+
+The approved anchor has polished cinematic presence, but the scene must never become dark, moody or dramatic at the cost of understanding.
+
+GERMAN LABELS
+Short German labels are allowed when they materially remove ambiguity.
+- attach labels clearly to the object/state they describe
+- keep them short and functional
+- use only labels explicitly needed for the scene
+- no headline, subtitle, CTA or explanatory paragraph inside the generated image
+
+Examples: “Notgroschen”, “Reparatur 280 €”, “Girokonto”, “Dispo”, “Miete”, “Tagesgeld”.
+
+DATA + ABSTRACT EXCEPTIONS
+Some YouTube beats are genuinely best explained through verified charts, timelines, documents, numbers or Remotion-native motion rather than a generated 3D image. Do not force this image world onto every beat.
+
+When a Flow image is chosen, use this world. When data, typography, documents or code-driven motion explain the point better, use the appropriate YouTube visual type instead.
+
+ANIMATION-READY IMAGE DESIGN
+For image/hybrid beats, compose scenes so meaningful elements can later be animated or emphasized in Remotion where useful:
+- preserve clear foreground/midground/background separation
+- avoid unnecessary overlaps over key explanatory objects
+- give moving/revealed elements enough visual breathing room
+- keep the still frame complete and understandable by itself
+
+Do not deform the composition merely to create animation layers.
+
+BRANDS + LOGOS
+If a brand, bank, product or service is essential to the explanation, preserve enough recognizable identity for understanding while integrating it into the same stylized 3D world. Do not paste flat logos, screenshots, websites or photorealistic branded product shots into the generated scene.
+
+FORBIDDEN
+- photorealism or a frame that could be mistaken for a real photograph
+- stock-photo aesthetics
+- flat infographic or presentation-slide composition as the default
+- dashboard/app UI as the main generated-image composition
+- screenshot-like website/app scenes
+- flowchart as the main generated-image composition
+- generic vault/shield/coins/arrow finance icon scenes with no real situation
+- recurring green-folder or coin-stack template applied to unrelated topics
+- sci-fi holograms, cyberpunk neon or futuristic trading-room clichés
+- excessive glow
+- miniature toy/diorama framing that reduces readability
+- sterile isolated product shots with no explanatory situation
+- clutter and decorative props without meaning
+- pasted flat logos
+- long text inside generated images
+
+PROMPT POLICY
+Write every Google Flow / Nano Banana image prompt individually for the exact spoken point.
+Use medium-length but complete prompts in this order:
+1. exact concrete real-world situation and cause/effect
+2. exact short German object labels when genuinely useful
+3. approved FinanzNeo YouTube style and material language
+4. deep-black/local-context rule
+5. wide 16:9 composition and readability requirements
+6. scene-specific forbidden mistakes
+
+Never replace scene design with a generic master prompt plus a few changed nouns.
+
+QUALITY CHECK
+Reject and regenerate when:
+- the frame no longer feels like the approved anchor’s stylized 3D world
+- the image becomes photorealistic
+- it reads like a flat infographic, dashboard or slide
+- the viewer must decode a vague metaphor
+- the main real-life situation is missing
+- cause and effect are unclear where they should be visible
+- important objects are too small
+- the local environment overwhelms the explanation
+- the image is only generic finance symbols
+- a recurring folder/coin/arrow motif was used without a content reason
+- text is excessive or unclear
+- black is no longer the dominant world
+- lighting/material treatment no longer feels premium and coherent
+
+GOOGLE FLOW EXECUTION
+Use the existing FinanzNeo strict single-job Flow process: generate exactly one image at a time, wait for completion, rename immediately, run the quality check, regenerate the same image on failure, and only then continue to the next image.
