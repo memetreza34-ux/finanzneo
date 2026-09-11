@@ -20,9 +20,9 @@ export const FNGrowthStory: React.FC<{
   const W = 1920, H = 1080, x0 = 240, x1 = 1680, yBase = 820, yTop = 240;
 
   // PHASEN
-  const setup = spring({frame: f - 2, fps, config: {damping: 12}});
-  const draw = interpolate(f, [26, 96], [0, 1], CL);
-  const fazit = f > 98;
+  const setup = spring({frame: f - 2, fps, config: {damping: 12}});      // Beat 1
+  const draw = interpolate(f, [26, 96], [0, 1], CL);                      // Beat 2
+  const fazit = f > 98;                                                   // Beat 3
 
   // Exponentielle Sparplan-Kurve
   const pts = Array.from({length: 60}, (_, i) => {
@@ -40,6 +40,7 @@ export const FNGrowthStory: React.FC<{
 
   return (
     <AbsoluteFill>
+      {/* mitlaufende Zahl (Beat 2) + Kicker */}
       <div style={{position: 'absolute', top: 90, width: '100%', textAlign: 'center'}}>
         <div style={{fontFamily: inter, fontSize: 30, fontWeight: 700, letterSpacing: 5, color: C.green,
           opacity: setup}}>{perMonth} € IM MONAT · {rate}</div>
@@ -57,14 +58,18 @@ export const FNGrowthStory: React.FC<{
           <linearGradient id="gs" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stopColor={C.green} /><stop offset="100%" stopColor={C.gold} /></linearGradient>
           <linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={C.green} stopOpacity={0.32} /><stop offset="100%" stopColor={C.green} stopOpacity={0} /></linearGradient>
         </defs>
+        {/* Achse */}
         <line x1={x0} y1={yBase} x2={x1} y2={yBase} stroke="rgba(255,255,255,0.18)" strokeWidth={2} />
+        {/* Beat 1: Startbetrag */}
         <g opacity={setup} transform={`translate(${x0},${yBase}) scale(${setup})`}>
           <circle r={14} fill={C.gold} style={{filter: `drop-shadow(0 0 16px ${C.gold})`}} />
           <text x={0} y={56} fontSize={30} fill={C.muted} textAnchor="middle" fontFamily={inter}>Start: {de(start)} €</text>
         </g>
+        {/* Beat 2: Fläche + Kurve zeichnen */}
         {draw > 0 && <path d={`${d} L${tip[0]},${yBase} L${x0},${yBase} Z`} fill="url(#ga)" opacity={0.9} />}
         <path d={d} fill="none" stroke="url(#gs)" strokeWidth={11} strokeLinecap="round" strokeLinejoin="round"
           style={{filter: `drop-shadow(0 0 16px ${C.green}aa)`}} />
+        {/* Meilensteine leuchten auf, wenn die Kurve sie erreicht */}
         {milestones.map(([t, lab], i) => {
           if (draw < t) return null;
           const px = x0 + t * (x1 - x0); const ty = (Math.exp(3.0 * t) - 1) / (Math.exp(3.0) - 1);
@@ -74,16 +79,19 @@ export const FNGrowthStory: React.FC<{
             <text x={px} y={yBase + 44} fontSize={28} fill={C.muted} textAnchor="middle" fontFamily={inter}>{lab}</text>
           </g>;
         })}
+        {/* laufende Spitze mit Puls (lebt auch nach dem Zeichnen) */}
         {draw > 0 && <circle cx={tip[0]} cy={tip[1]} r={16 + (fazit ? Math.sin(f / 6) * 4 : 0)} fill={C.greenLt}
           style={{filter: `drop-shadow(0 0 24px ${C.greenLt})`}} />}
       </svg>
 
+      {/* Beat 3: Callout-Badge am Hochpunkt */}
       {fazit && (
         <div style={{position: 'absolute', left: tip[0] - 150, top: tip[1] - 96, fontFamily: bebas, fontSize: 64,
           color: C.bg, background: C.gold, padding: '6px 26px', borderRadius: 16,
           boxShadow: `0 0 40px ${C.gold}88`, opacity: interpolate(f, [100, 116], [0, 1], CL),
           transform: `scale(${spring({frame: f - 100, fps, config: {damping: 10}})})`}}>+{pct} %</div>
       )}
+      {/* Beat 3: Kernaussage */}
       {fazit && (
         <div style={{position: 'absolute', bottom: 90, width: '100%', textAlign: 'center', fontFamily: bebas,
           fontSize: 74, color: C.ink, opacity: interpolate(f, [112, 128], [0, 1], CL),
