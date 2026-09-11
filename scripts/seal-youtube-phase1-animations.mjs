@@ -34,9 +34,17 @@ for (const visual of (index.visuals ?? []).filter(requiresYouTubeMotion)) {
     id: visual.id,
     sourceFile: visual.animationSourceFile,
     exportName: visual.animationExport,
+    viewerChange: visual.viewerChange,
+    animationIntent: visual.animationIntent,
     mechanicId: visual.mechanicId,
     visualTechniqueId: visual.visualTechniqueId,
+    techniqueDescription: visual.techniqueDescription,
     compositionFamilyId: visual.compositionFamilyId,
+    toolStack: visual.toolStack,
+    motionSignature: visual.motionSignature,
+    motionChannels: visual.motionChannels,
+    visualBeats: visual.visualBeats,
+    repeatTechniqueReason: visual.repeatTechniqueReason ?? '',
     sha256: createHash('sha256').update(bytes).digest('hex'),
   });
 }
@@ -44,9 +52,9 @@ for (const visual of (index.visuals ?? []).filter(requiresYouTubeMotion)) {
 const out = resolve(root, '06-projektdateien/animation-seal.json');
 mkdirSync(resolve(out, '..'), {recursive: true});
 writeFileSync(out, `${JSON.stringify({
-  version: 1,
+  version: 2,
   motionStandardId: YOUTUBE_MOTION_STANDARD_ID,
   sourceIndex: '04-visuals/visual-index.json',
   entries,
 }, null, 2)}\n`);
-console.log(`\n✓ ${entries.length} YouTube-Animation(en) versiegelt: 06-projektdateien/animation-seal.json`);
+console.log(`\n✓ ${entries.length} YouTube-Animation(en) mit Motion-V3-Vertrag versiegelt: 06-projektdateien/animation-seal.json`);
