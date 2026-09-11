@@ -5,7 +5,7 @@
 
 ## Status
 
-`src/bausteine` enthält rund 163 experimentelle und spezialisierte FinanzNeo-Komponenten. Der Ordner bleibt erhalten, damit bestehende Szenen nicht brechen. Er ist aber nicht mehr das zweite unabhängige Designsystem.
+`src/bausteine` enthält historische experimentelle und spezialisierte FinanzNeo-Komponenten. Der Ordner bleibt erhalten, damit bestehende Szenen nicht brechen. Er ist aber nicht mehr das zweite unabhängige Designsystem.
 
 Verbindliche Grundlagen:
 
@@ -16,7 +16,7 @@ Verbindliche Grundlagen:
 
 `fn_core.tsx` exportiert alte Namen wie `C`, `P`, `bebas` und `inter` nur noch als Kompatibilitäts-Aliase auf diese zentralen Grundlagen.
 
-Die internen Baustein-Showcases verwenden `showcase-utils.tsx` für gemeinsame Sequenz-, Hintergrund- und Beschriftungslogik. Die bestehenden Showcase-Dateien und Exportnamen bleiben als stabile Kompatibilitätspunkte erhalten.
+Die internen Baustein-Showcases verwenden `showcase-utils.tsx` für gemeinsame Sequenz-, Hintergrund- und Beschriftungslogik. Bestehende Showcase-Dateien bleiben als Kompatibilitätspunkte erhalten, solange sie tatsächlich referenziert werden.
 
 `internal-utils.ts` bündelt kleine historische Animations- und Format-Helfer wie Clamp, Reveal, Cubic-Easing und deterministischen Zufall. Die Datei ist rein intern und wird nicht über `src/design-system` exportiert.
 
@@ -55,6 +55,17 @@ npm run bausteine:usage
 
 Dabei entstehen `out/bausteine-usage.json` und `out/bausteine-usage.md`. Die CI führt mit `validate:bausteine-usage` dieselbe Klassifizierung im Prüfmodus aus. Statische Klassifizierungslisten werden nicht eingecheckt, damit sie nicht unbemerkt veralten.
 
+## Cleanup V5
+
+V5 entfernt erstmals komplette historische Module, aber nur wenn der V4/V5-Analyzer keinerlei produktive, interne oder Support-Referenz findet und die öffentliche Namespace-Freigabe im selben Änderungssatz entfernt wird.
+
+Erster sicherer Lösch-Batch:
+
+- `FNSparbuchVsETF` / `fn_choreo.tsx`
+- `FNGlobe3D` / `fn_globe.tsx`
+
+Beide Komponenten waren jeweils der einzige exportierte React-Baustein ihres Moduls. Die Namespaces `Choreography` und `GlobeBlocks` wurden deshalb ebenfalls aus `src/design-system/index.ts` entfernt. Gemischte Module mit weiterhin genutzten Legacy-Komponenten werden getrennt behandelt.
+
 ## Neue Verwendung
 
 ```ts
@@ -88,13 +99,11 @@ const EmergencyFund = FinanceConcepts.FNEmergencyFund;
 | `ProBlocks` | `fn_pro.tsx` | ruhige Grün-Gold-Komponenten |
 | `SceneBlocks` | `fn_scenes.tsx` | vollständige Split-Szenen |
 | `StoryBlocks` | `fn_story.tsx` | Story-Bausteine |
-| `Choreography` | `fn_choreo.tsx` | choreografierte Sequenzen |
 | `TransitionBlocks` | `fn_transitions.tsx` | Übergänge |
 | `DecorationBlocks` | `fn_decor.tsx` | sparsame Betonung und Dekoration |
 | `ExtraBlocks` | `fn_extra.tsx` | Zeit, Karten und Personen-Symbole |
 | `UIBlocks` | `fn_ui2.tsx` | Endcards und UI-Helfer |
 | `GlassBlocks` | `fn_glass.tsx` | Glas-Layouts |
-| `GlobeBlocks` | `fn_globe.tsx` | Welt- und Portfolio-Visuals |
 | `LegacyKit` | `fn_kit.tsx` | frühe Basisbausteine |
 
 ## Qualitätsregeln
