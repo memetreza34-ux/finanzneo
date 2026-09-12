@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform-Produktionsstandard
 
-> Bei Widersprüchen gilt `CLAUDE.md`. Für YouTube-Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Für YouTube-Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`. Für die Wahl zwischen Remotion, Bild+Remotion, SVG, Icons und Lottie gilt `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
 
 ## Projektstruktur
 
@@ -46,6 +46,28 @@ Erlaubte Visualtypen:
 - `hybrid`
 - `data`
 
+## Visual Selection V1
+
+`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v1`
+
+Vor der konkreten Technik wird die Visualart festgelegt:
+
+- **einfache, zahlen-/datengetriebene Erklärung → pure Remotion**
+- **komplexe, reale oder räumliche Erklärung → Bild + Remotion Hybrid**
+- **SVG → präzise Pfade, Charts, Linien, Verbindungen und Vektor-Mechaniken**
+- **Icons → semantische Kurzschrift / Support**
+- **Lottie → kleine Support-Bewegung, niemals Hauptstil**
+
+Komplexes Thema bedeutet nicht automatisch komplexe Animation. Ziel ist, schwierige Finanzlogik so einfach sichtbar zu machen, dass der Zuschauer die Erklärung versteht und nicht die technische Komplexität wahrnimmt.
+
+Icons, Lottie und SVG werden nur ergänzt, wenn sie einen konkreten Erklärwert haben. Ein vorhandenes Asset ist niemals allein ein Grund für die Visualwahl.
+
+Kanonische Detailregel:
+
+```text
+docs/FINANZNEO-VISUAL-SELECTION-RULE.md
+```
+
 ## Remotion / Motion V3
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
@@ -54,7 +76,7 @@ Erlaubte Visualtypen:
 
 **Eine FinanzNeo-Welt, aber keine feste Animationsart.**
 
-Die visuelle Technik wird erst gewählt, nachdem feststeht, was der Zuschauer tatsächlich sehen soll. Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Masks, Paths/Shapes, Motion Blur, Effects, Lottie als Support, Datenvisualisierung, Bild+Motion-Hybrid sowie neue sinnvolle Kombinationen sind erlaubt.
+Die visuelle Technik wird erst gewählt, nachdem feststeht, was der Zuschauer tatsächlich sehen soll. Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Masks, Paths/Shapes, Motion Blur, Effects, Lottie als Support, konsistente SVG-Icons als Support, Datenvisualisierung, Bild+Motion-Hybrid sowie neue sinnvolle Kombinationen sind erlaubt.
 
 Die bekannten Familien wie `spatial-3d`, `timeline`, `document-motion`, `data-viz`, `simulation` oder `camera-journey` sind **nur Beispiele zur Beschreibung**, keine Whitelist. Neue `compositionFamilyId`-Werte dürfen jederzeit entstehen, wenn sie die Szene besser beschreiben.
 
