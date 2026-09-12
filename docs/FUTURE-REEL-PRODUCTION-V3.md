@@ -83,3 +83,30 @@ Für neue Reels gilt zusätzlich `docs/FUTURE-REEL-PRESENTATION-V1.md` als harte
 - ein anderes Lottie/Icon/SVG-Support-Asset macht eine sonst gleiche Animation nicht zu einer neuen Haupttechnik
 
 Phase 1, Phase-3-Preflight und finaler Candidate prüfen unterschiedliche Teile dieses Vertrags. Metadaten allein können die sichtbare Render-QA nicht bestehen.
+
+## 7. Phase 1 Individual Motion Direction V1
+
+`PHASE1_MOTION_DIRECTION: finanzneo-phase1-individual-motion-v1`
+
+Kanonische Regel: `docs/FUTURE-REEL-PHASE1-MOTION-DIRECTION-V1.md`.
+
+Für jede **Animationsszene** eines neuen Reels gilt vor `motionDesign` und vor `animation.tsx` diese Reihenfolge:
+
+```text
+Sprechpunkt analysieren
+→ sichtbares Verständnisziel
+→ visuelle Frage
+→ individuell beste Hauptmechanik
+→ passende Technik
+→ motionDesign
+→ animation.tsx
+```
+
+Es gibt **keine feste Animationsbibliothek als kreatives Auswahlmenü**. Frühere Animationen, Komponenten, Lotties, Icons und SVGs sind Werkzeuge und Referenzen. Sie bestimmen nicht die Szenenidee.
+
+Wiederverwendung bleibt erlaubt, wenn dieselbe Mechanik für den konkreten Inhalt wirklich der beste Fit ist. In diesem Fall muss Phase 1 die Wiederverwendung explizit dokumentieren und inhaltlich begründen.
+
+Damit greifen zwei verschiedene Schutzschichten zusammen:
+
+- **Motion Direction V1** verhindert Tool-first- und Template-first-Planung.
+- **Presentation V1** verhindert anschließend sichtbare Wiederholungen, schwache Hierarchie und Support-Asset-Scheinvarianten.
