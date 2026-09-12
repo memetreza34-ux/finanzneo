@@ -40,7 +40,32 @@ Regel:
 - Render-QA misst die reale aktive Visualfläche von Bildszenen
 - Mindestwert für neue Presentation-V1-Reels: `activePixelRatio >= 0.10` im visuellen Kern
 
-## 3. Motion-Diversität
+## 3. Content-first vor Motion-Diversität
+
+Die kreative Herleitung einer Animationsszene wird **nicht** von diesem Diversitätsvalidator erfunden. Sie muss vorher nach `docs/FUTURE-REEL-PHASE1-MOTION-DIRECTION-V1.md` stattfinden.
+
+Verbindliche Reihenfolge:
+
+```text
+Sprechpunkt
+→ Verständnisziel
+→ visuelle Frage
+→ individuell beste Hauptmechanik
+→ motionDesign
+→ animation.tsx
+```
+
+Erst nachdem die inhaltlich passende Mechanik gewählt wurde, prüft Presentation V1, ob das Reel sichtbar in unnötige Wiederholungen abrutscht.
+
+Damit gilt ausdrücklich:
+
+- nicht zuerst eine andere Animation suchen, nur um anders auszusehen
+- nicht zuerst eine vorhandene Komponente auswählen
+- nicht aus einer festen Animationsliste verteilen
+- zuerst die beste Erklärung entwickeln
+- Wiederverwendung ist erlaubt, wenn sie inhaltlich der beste Fit ist und begründet wurde
+
+## 4. Motion-Diversität
 
 Eine neue `MECHANIC_ID` allein bedeutet **nicht**, dass eine Animation für den Zuschauer neu wirkt.
 
@@ -70,7 +95,7 @@ Dieselbe dominierende `heroObjectFamily` darf innerhalb der vorherigen vier Anim
 
 Mehr als zwei identische `compositionFamilyId` direkt hintereinander brauchen ebenfalls eine konkrete Begründung.
 
-## 4. Lottie, Icons und SVG
+## 5. Lottie, Icons und SVG
 
 Lottie, Icons und SVG bleiben ausdrücklich erlaubt.
 
@@ -84,7 +109,7 @@ Das ist **keine neue Haupttechnik**.
 
 Eine neue Haupttechnik entsteht erst, wenn sich die sichtbare Erklärung wirklich ändert: andere Hauptaktion, anderes Layout, andere Transformation oder andere räumliche/zeitliche Logik.
 
-## 5. Strukturreferenz
+## 6. Strukturreferenz
 
 Für die Zuschauer-Hierarchie darf folgende bestehende Composition als Referenz gelesen werden:
 
@@ -100,11 +125,13 @@ Visual
 
 Nur diese **Struktur** dient als Referenz. Legacy-Hintergrund, alte Farben oder alte Bildwelt werden nicht übernommen. Neue Reels bleiben im aktuellen V9-/Pure-Black-System.
 
-## 6. Drei harte Prüfzeitpunkte
+## 7. Drei harte Prüfzeitpunkte
 
 ### Phase 1
 
-`validate-future-reel-presentation-v1.mjs` blockiert fehlende Präsentationsmetadaten und visuell wiederholte Motion-Pläne.
+`validate-future-reel-phase1-motion-direction-v1.mjs` prüft zuerst die Content-first-Herleitung jeder Animationsszene.
+
+`validate-future-reel-presentation-v1.mjs` blockiert danach fehlende Präsentationsmetadaten und visuell wiederholte Motion-Pläne.
 
 ### Phase 3 Preflight
 
@@ -123,4 +150,4 @@ Die Render-QA prüft am echten Video:
 
 ## Kurzregel
 
-> **Ab Szene 02 immer Header + Icon + echte Caption. Hauptvisual groß. Animationen müssen sich für den Zuschauer unterscheiden, nicht nur im Code. Lottie, Icons und SVG dürfen unterstützen, aber eine Support-Änderung zählt nicht als neue Hauptanimation.**
+> **Ab Szene 02 immer Header + Icon + echte Caption. Hauptvisual groß. Animationen werden zuerst individuell aus dem Inhalt hergeleitet und danach auf sichtbare Wiederholung geprüft. Lottie, Icons und SVG dürfen unterstützen, aber eine Support-Änderung zählt nicht als neue Hauptanimation.**
