@@ -8,6 +8,7 @@ import {Signature} from '../Signature';
 import {V1Clean, V2Glass, V3Editorial, V4Neon, V5Gradient, V6Duotone} from '../Variants';
 import {RealDataDemo, REAL_DATA_FRAMES} from '../RealDataDemo';
 import {LottieTest} from '../LottieTest';
+import {FinanceMotionLab, FINANCE_MOTION_LAB_FRAMES} from '../reels-test/FinanceMotionLab';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
 import {Scene03SparbuchVs, SCENE03_FRAMES} from '../zins/Scene03SparbuchVs';
@@ -39,6 +40,14 @@ const WIDE = FORMAT.landscape;
  */
 export const ExperimentCompositions: React.FC = () => (
   <>
+    <Composition
+      id="ReelsTestFinanceMotionLab"
+      component={FinanceMotionLab}
+      durationInFrames={FINANCE_MOTION_LAB_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
     <Composition id="ReelTemplateDemo" component={ReelTemplateDemo} durationInFrames={REEL_TEMPLATE_DEMO_FRAMES} fps={FPS} {...VERTICAL} />
 
     {/* Legacy: historischer Reel-Render vor V9/Pure-Black/Phase-3-Hardening.
