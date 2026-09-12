@@ -4,7 +4,7 @@
 // Stylized 3D Animated Black World V9 + Phase-3-Fertigkeitsvertrag + Reel-V5-Layout +
 // kanonischer Phase-1-Animationscode + Cinematic Real-World Animation Contract +
 // scene-01-als-Cover + Future Cover Hook V2 + Image Storytelling V3 + Visual Beats V2 +
-// Future Production V3 + Future Reel Presentation V1 + automatischer Finalexport.
+// Future Production V3 + Future Reel Presentation V1 + individuelle Phase-1-Motion-Direction + automatischer Finalexport.
 // Scheitert einer der Schritte, wird ein in diesem Lauf neu erzeugter Reel-Ordner
 // vollständig zurückgerollt. Bestehende Reels werden durch diesen Creator nie nachträglich verändert.
 
@@ -57,9 +57,11 @@ const steps = [
   ['scripts/apply-future-cover-hook-v2.mjs', [target]],
   ['scripts/apply-future-image-storytelling-v3.mjs', [target]],
   ['scripts/apply-future-production-standard-v3.mjs', [target]],
-  // Letzter Future-Layer: schützt die tatsächlich sichtbare Reel-Hierarchie
-  // und die Motion-Diversität. Alte Reels besitzen den Marker nicht.
+  // Sichtbare Hierarchie und Motion-Diversität zuerst setzen.
   ['scripts/apply-future-reel-presentation-v1.mjs', [target]],
+  // Danach wird die kreative Reihenfolge für jede Animationsszene festgeschrieben:
+  // Inhalt -> Verständnisziel -> sichtbare Mechanik -> Technik. Keine Template-Auswahlliste.
+  ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', [target]],
 ];
 
 for (const [script, scriptArgs] of steps) {
@@ -82,6 +84,8 @@ console.log('  Layout V5: Header Y154 · 56 px · max. 2 Zeilen · Visual Y320�
 console.log('  Presentation V1: ab scene-02 sind gerenderter SceneHeader+Icon und echte audio-synchrone Captions Pflicht; Render-QA prüft beides sichtbar.');
 console.log('  Presentation V1: kleine Quadratkarten in viel Schwarz sind gesperrt; Bildszenen müssen die Visualzone sinnvoll nutzen.');
 console.log('  Motion Diversity V1: gleiche camera+layout+transformation-Signatur oder ständig dieselbe Hero-Objektfamilie wird ohne inhaltlichen Grund blockiert.');
+console.log('  Phase 1 Motion Direction V1: jede Animationsszene wird erst inhaltlich analysiert; daraus entsteht individuell die beste sichtbare Mechanik.');
+console.log('  Phase 1 Motion Direction V1: keine feste Animations-Auswahlliste; Reuse nur als begründeter inhaltlicher Best-Fit.');
 console.log('  Lottie/Icons/SVG bleiben Support und zählen allein nicht als neue Hauptanimation.');
 console.log('  Animation Safe Zone: hart Y320–1400 · kein Eindringen in Header/Caption.');
 console.log('  Animation V3: reale stylized-3D-Situation · physische Ursache/Wirkung · Hauptmechanik größer/füllender · Occupancy-QA im echten Render.');
