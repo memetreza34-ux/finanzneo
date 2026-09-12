@@ -1,0 +1,35 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Kontostand und Kaufkraft.png
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Ein Kontoauszug mit unverändertem Kontostand von 100 Euro liegt direkt neben dem realen Einkaufskorb, sodass Geldbetrag und das dafür erhältliche Warenpaket gemeinsam betrachtet werden.
+REAL_WORLD_CONTEXT_ANCHOR: Alltagstisch mit Kontoauszug, 100-Euro-Kontostand und Lebensmittel-Einkauf.
+VOICEOVER_VISUAL_MATCH: Der sichtbare Kontostand `100 €` bleibt stabil, während der danebenliegende Einkauf den zweiten Maßstab `Kaufkraft` konkret verkörpert.
+TRANSFERABILITY_TEST: PASS – Kontoauszug plus konkreter Einkauf verbindet exakt die beiden Begriffe Kontostand und Kaufkraft aus dem Merksatz dieses Reels.
+METAPHOR_JUSTIFICATION: none
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Kontostand 100 €
+- Kaufkraft
+
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D final finance scene that makes the difference between nominal account balance and purchasing power tangible. Place a believable physical account statement or bank document showing the short label `Kontostand 100 €` beside the familiar grocery basket from the inflation example. Use a small physical label `Kaufkraft` attached to the grocery side so the viewer naturally compares the number on the account with what that money can actually buy. Keep both elements within one coherent everyday tabletop or checkout-adjacent situation rather than presenting them as two UI cards. The final image should feel resolved, simple and memorable. The viewer should instantly understand that a balance number alone does not show real buying capacity.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE:
+Premium stylized 3D, believable real-life proportions and polished materials; never photorealistic.
+BACKGROUND:
+Use one seamless deep black background with minimal tabletop context dissolving into black.
+COMPOSITION:
+Account document and actual groceries form one comparison. No dashboard, app UI or flowchart.
+TEXT:
+Only `Kontostand 100 €` and `Kaufkraft`.
+FORBIDDEN:
+No photorealism, stock look, dashboard, app UI, flowchart, icon collage, miniature diorama or clutter.
+
+Literal first, creative second. TRANSFERABILITY-TEST is mandatory. Förderbänder, Schienen, Schranken, Käfige and fantasy portals are not allowed as default explanation.

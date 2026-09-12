@@ -1,0 +1,114 @@
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+
+STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH
+- DIES IST KEIN BATCH-AUFTRAG. DIE GESAMTE DATEI DARF NIEMALS ALS EIN MEHRBILD-PROMPT AUSGEFÜHRT WERDEN.
+- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.
+- ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT, bis das aktuelle Bild vollständig zurückgegeben, exakt umbenannt und per QA geprüft wurde.
+- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY" ODER EINE NUTZERFREIGABE.
+- Bei QA-Fehler nur dieselbe Bildnummer neu erzeugen.
+- mehrere Bilder in einem Generierungsaufruf: VERBOTEN
+- mehrere Bildprompts zusammenfassen: VERBOTEN
+- Bilder vorab in eine Queue stellen: VERBOTEN
+- alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen: VERBOTEN
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+MAX_CONCURRENT_GENERATIONS = 1
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+
+Literal first, creative second.
+TRANSFERABILITY-TEST: Jede Bildszene muss so konkret sein, dass sie nicht unverändert zu fünf anderen Finanzthemen passen könnte.
+Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale und Sortieranlagen sind keine Standard-Erklärung.
+
+COVER = SZENE 01 — KEIN SEPARATER BILDJOB
+KEIN separates Cover erzeugen. KEIN Bild 00 erzeugen. Das final erzeugte `Bild 01 - Hundert Euro Kaufkraft.png` ist automatisch gleichzeitig das Reel-Cover.
+
+ACTIVE_STEP-Reihenfolge der einzigen Bildjobs:
+1. Bild 01 - Hundert Euro Kaufkraft.png
+2. Bild 02 - Weniger im Einkaufskorb.png
+3. Bild 05 - Einkauf nach fünf Jahren.png
+4. Bild 06 - Einkauf nach zehn Jahren.png
+5. Bild 08 - Drei Prozent Rechenbeispiel.png
+6. Bild 10 - Kontostand und Kaufkraft.png
+
+Die Nummern 03, 04, 07 und 09 sind Remotion-Animationen und werden ohne Bildjob übersprungen.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 01 – BILDSZENE / COVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINALER DATEINAME: Bild 01 - Hundert Euro Kaufkraft.png
+BESCHRIFTUNGEN – EXAKT SO: 100 €
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D supermarket-purchase scene about what a fixed 100-euro amount can buy. Place one clear 100-euro value object beside a believable grocery basket with bread, milk, vegetables and simple packaged basics. Keep the central basket and money large, connected and instantly readable. Reserve calm empty deep-black space in the upper area for the Remotion title from frame 0. Do not put a headline in the generated image. The visual must explain the relationship between fixed nominal money and real shopping without narration.
+STYLE: premium stylized 3D, believable proportions, never photorealistic.
+BACKGROUND: one seamless deep black background.
+FORBIDDEN: dashboard, app UI, flowchart, generic finance-icon composition, stock look, miniature diorama, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 02 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINALER DATEINAME: Bild 02 - Weniger im Einkaufskorb.png
+BESCHRIFTUNGEN – EXAKT SO: 100 € · 3 % Inflation
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D supermarket checkout where the fixed 100-euro budget remains visible while fewer desired groceries fit inside the paid purchase because prices are higher. Keep some desired groceries visibly outside the affordable group as a natural checkout consequence, not a fantasy mechanism. The viewer must instantly understand: nominal money is still 100 euros, but purchasing power is lower. Use one seamless deep black background and premium stylized materials, never photorealistic. No dashboard, app UI or flowchart.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 03 – REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 03 ERZEUGEN.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 04 – REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 04 ERZEUGEN.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 05 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINALER DATEINAME: Bild 05 - Einkauf nach fünf Jahren.png
+BESCHRIFTUNGEN – EXAKT SO: Heute 100 € · Jahr 5: 116 €
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D grocery scene showing the same recognizable basket of everyday goods after five years. The goods stay visibly unchanged while a physical receipt or price tag shows `Heute 100 €` and `Jahr 5: 116 €`. Make the unchanged basket and higher price the direct cause-and-effect comparison. Use one seamless deep black background, believable object proportions and premium stylized 3D materials. Never photorealistic. No dashboard, app UI, flowchart or icon collage.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 06 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINALER DATEINAME: Bild 06 - Einkauf nach zehn Jahren.png
+BESCHRIFTUNGEN – EXAKT SO: Heute 100 € · Jahr 10: 134 €
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D supermarket scene showing the same quantity of everyday groceries after ten years. Keep the basket composition stable while a physical receipt clearly shows `Heute 100 €` and `Jahr 10: 134 €`. The viewer must instantly understand that unchanged goods now require more nominal money. Use one seamless deep black background, premium stylized materials and clean studio lighting, never photorealistic. No dashboard, app UI, flowchart or clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 07 – REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 07 ERZEUGEN.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 08 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINALER DATEINAME: Bild 08 - Drei Prozent Rechenbeispiel.png
+BESCHRIFTUNGEN – EXAKT SO: Rechenbeispiel · 3 % konstant · keine Prognose
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D desk scene with a physical calculator, short calculation sheet and the grocery receipt from the example. Make `3 % konstant` clearly an input to the calculation and place `keine Prognose` separately so the viewer sees it is an assumption, not a forecast. Keep the objects large and coherent on one seamless deep black background. Premium stylized 3D, never photorealistic. No dashboard, app UI, flowchart or decorative finance symbols.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 09 – REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KEIN BILD 09 ERZEUGEN.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 10 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINALER DATEINAME: Bild 10 - Kontostand und Kaufkraft.png
+BESCHRIFTUNGEN – EXAKT SO: Kontostand 100 € · Kaufkraft
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D final scene with a believable physical account statement labeled `Kontostand 100 €` directly beside the familiar grocery basket labeled `Kaufkraft`. Put both in one coherent everyday tabletop situation so the viewer naturally compares nominal balance with what the money can actually buy. Use one seamless deep black background, believable proportions and premium materials, never photorealistic. No dashboard, app UI, flowchart, icon collage or clutter.
+
+ABSCHLUSS:
+Alle finalen Bilder müssen nach jedem Einzeljob sofort exakt benannt und nach V9 geprüft in `03-szenen/00-ALLE-BILDER-HIER-REIN/` gesammelt werden.

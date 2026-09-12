@@ -1,0 +1,36 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Drei Prozent Rechenbeispiel.png
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Auf einem realistischen Schreibtisch liegen ein Taschenrechner, eine kurze Rechennotiz und der Einkaufsbeleg; die Annahme drei Prozent ist sichtbar als Rechenwert und klar als keine Prognose markiert.
+REAL_WORLD_CONTEXT_ANCHOR: Schreibtisch mit Taschenrechner, Rechennotiz und dem Inflations-Einkaufsbeleg.
+VOICEOVER_VISUAL_MATCH: `3 % konstant` steht als Eingabewert der Rechnung neben `keine Prognose`, sodass die Zahl sichtbar als Modellannahme statt Vorhersage verstanden wird.
+TRANSFERABILITY_TEST: PASS – konkrete 3-%-Annahme, Einkaufsbeleg und Hinweis keine Prognose beziehen sich direkt auf die zuvor gezeigte Inflationsrechnung.
+METAPHOR_JUSTIFICATION: none
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Rechenbeispiel
+- 3 % konstant
+- keine Prognose
+
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D desk scene that clearly communicates a calculation assumption rather than a forecast. Place a physical calculator beside a concise handwritten-style calculation sheet and the grocery receipt from the inflation example. The calculator or note should carry the short label `3 % konstant`; nearby, use the separate small label `keine Prognose`, and use `Rechenbeispiel` as an object label on the calculation sheet, not as a floating headline. The arrangement must make it visually obvious that 3 percent is an input used to calculate an example. Keep the objects large, calm and believable, with the shopping receipt connecting this scene to the exact purchasing-power example. The viewer should instantly understand that the number is a model assumption and not a prediction.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE:
+Premium stylized 3D desk objects, believable construction, never photorealistic or stock-like.
+BACKGROUND:
+Use one seamless deep black background with a small desk surface fading into black.
+COMPOSITION:
+Calculator + calculation sheet + receipt tell one real-life explanation. No dashboard, app UI or flowchart.
+TEXT:
+Only the three exact short labels above.
+FORBIDDEN:
+No photorealism, stock look, dashboard, app UI, flowchart, generic finance-icon pile, miniature diorama or clutter.
+
+Literal first, creative second. TRANSFERABILITY-TEST is mandatory. Förderbänder, Schienen, Schranken, Käfige and fantasy portals are not allowed as default explanation.

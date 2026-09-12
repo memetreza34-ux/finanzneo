@@ -1,0 +1,44 @@
+COVER = SZENE 01 — KEIN SEPARATER BILDJOB
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v2
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+
+KEIN SEPARATER BILDJOB. No separate cover generation, no Bild 00. Das Cover ist exakt dieselbe Datei wie scene-01.
+
+SOURCE_SCENE_ID: scene-01
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Hundert Euro Kaufkraft.png
+
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Ein echter Einkaufskorb mit alltäglichen Lebensmitteln steht neben einem unveränderten 100-Euro-Geldbetrag; mehrere gut lesbare Preisschilder zeigen, dass es um Kaufkraft beim Einkaufen geht.
+REAL_WORLD_CONTEXT_ANCHOR: Supermarkt-Einkauf mit Lebensmitteln, Preisschildern und 100-Euro-Betrag.
+VOICEOVER_VISUAL_MATCH: Der unveränderte 100-Euro-Betrag steht sichtbar neben dem konkreten Einkauf und eröffnet den Gegensatz zwischen Kontostand und Kaufkraft.
+TRANSFERABILITY_TEST: PASS – Kombination aus exakt 100 €, Einkauf und Preisbezug ist spezifisch für die Frage, was Inflation mit der Kaufkraft dieses Betrags macht.
+METAPHOR_JUSTIFICATION: none
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 100 €
+
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D supermarket-purchase scene that immediately makes a viewer think about what a fixed 100-euro amount can buy. Place one clear 100-euro value object beside a believable grocery basket containing recognizable everyday food such as bread, milk, vegetables and a few packaged basics. Use a small checkout or shopping-surface context that disappears naturally into black. The money itself must look unchanged and stable while the surrounding grocery prices make purchasing power the obvious topic. Keep the central basket and the 100-euro value large, readable and visually connected rather than arranged as unrelated icons. Reserve calm empty deep-black space in the upper part for the exact Reel title that Remotion will add from frame 0. Do not place the title in the generated image. The visual must explain the money-versus-purchase relationship even without narration.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D with believable real-life object proportions, polished semi-realistic materials and premium soft lighting; never photorealistic or stock-like.
+
+BACKGROUND:
+One seamless deep black background. No bright studio, horizon, colored zone or decorative effects.
+
+COMPOSITION:
+Hero grocery basket + fixed 100-euro value. Cause-and-effect relationship must be readable in under one second. No dashboard, app UI, flowchart, generic finance-icon composition or clutter.
+
+TEXT:
+Only the short label `100 €`. No headline, subtitle, CTA or sentence.
+
+FORBIDDEN:
+No photorealism, no dashboard, no app UI, no flowchart, no miniature diorama, no abstract symbol-only replacement.
+
+Literal first, creative second. TRANSFERABILITY-TEST is mandatory. Förderbänder, Schienen, Schranken, Käfige and fantasy portals are not allowed as default explanation.

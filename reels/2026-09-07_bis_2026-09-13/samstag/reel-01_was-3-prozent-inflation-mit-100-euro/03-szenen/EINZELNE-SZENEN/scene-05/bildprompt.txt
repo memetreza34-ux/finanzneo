@@ -1,0 +1,35 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Einkauf nach fünf Jahren.png
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Derselbe klar erkennbare Einkauf wie zu Beginn liegt auf einer Supermarktfläche, aber ein Preisschild zeigt nach fünf Jahren rund 116 Euro statt 100 Euro.
+REAL_WORLD_CONTEXT_ANCHOR: Identischer Lebensmittel-Einkauf mit Zeitbezug Jahr 5 und eindeutigem Gesamtpreis.
+VOICEOVER_VISUAL_MATCH: Unveränderte Warenmenge und sichtbarer Gesamtpreis von 116 Euro zeigen direkt, dass derselbe Einkauf nach fünf Jahren mehr kostet.
+TRANSFERABILITY_TEST: PASS – identischer Lebensmittelkorb plus konkreter Fünf-Jahres-Preis von 116 € ist spezifisch für dieses Inflations-Rechenbeispiel.
+METAPHOR_JUSTIFICATION: none
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Heute 100 €
+- Jahr 5: 116 €
+
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D grocery-price comparison focused on the five-year result. Show one recognizable basket of the same everyday groceries used in the inflation example: bread, milk, vegetables and a few simple packaged basics. Keep the basket composition stable and believable so the viewer understands that the goods did not change. Place a clean physical price tag or receipt beside it with the exact short labels `Heute 100 €` and `Jahr 5: 116 €`, making the later price the visible consequence. The scene should feel like a genuine shopping situation rather than a presentation slide. The relationship between unchanged goods and higher total cost must be instantly understandable without narration.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE:
+Premium stylized 3D, believable proportions, semi-realistic materials, never photorealistic.
+BACKGROUND:
+One seamless deep black background with minimal shopping context.
+COMPOSITION:
+Same basket is hero; price consequence is secondary but large and readable. No dashboard, app UI or flowchart.
+TEXT:
+Only the two exact labels above.
+FORBIDDEN:
+No photorealism, stock look, dashboard, app UI, flowchart, icon collage, miniature diorama or clutter.
+
+Literal first, creative second. TRANSFERABILITY-TEST is mandatory. Förderbänder, Schienen, Schranken, Käfige and fantasy portals are not allowed as default explanation.

@@ -1,0 +1,31 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+
+Literal first, creative second.
+
+STYLE:
+Create real-world-grounded, clearly stylized 3D finance explainer scenes. Everyday objects keep believable proportions and recognizable details, with polished semi-realistic materials but visibly stylized rendering. Never use photorealism or a stock-photo/product-photo look. Every scene must visually explain the exact spoken point through a readable cause-and-effect, comparison or consequence.
+
+BACKGROUND:
+Use one seamless deep black background as a strict requirement. Small believable local context such as part of a checkout, shopping surface or desk may dissolve into black, but no bright studio, horizon, floor-wall boundary, decorative glow field or colored background zone.
+
+COMPOSITION:
+One clear real-life situation or action first. Supporting objects are flexible and appear only when they improve understanding. Important objects must be large enough to read instantly. No generic finance-icon arrangement, dashboard, app UI, flowchart, tiny floating cards, miniature diorama or clutter.
+
+COLORS + LIGHT:
+Emerald green = positive/preferred, warm ivory and soft gray = neutral, restrained gold = money/value, warm red-orange = cost/warning. Soft premium studio lighting and clear contact shadows.
+
+TEXT:
+Only explicitly requested short German object labels. No headline, subtitle, CTA or explanatory sentence inside the generated image.
+
+FORBIDDEN:
+No photorealism, no stock look, no dashboard, no app UI, no flowchart, no generic symbol-only explanation, no decorative object pile, no microchip/circuit world, no miniature diorama.
+
+FUTURE IMAGE STORYTELLING V3 — VERBINDLICH:
+- Beginne beim exakten Sprechbeat und zeige die konkrete reale Situation.
+- TRANSFERABILITY-TEST: Könnte dasselbe Bild unverändert zu fünf anderen Finanzthemen passen, ist es zu generisch.
+- Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale und Sortieranlagen sind keine Standard-Erklärung.
+- Ursache/Wirkung möglichst innerhalb der realen Situation zeigen.

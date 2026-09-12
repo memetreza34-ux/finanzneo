@@ -1,0 +1,22 @@
+{
+  "version": 3,
+  "title": "Was 3 % Inflation mit 100 € macht",
+  "fps": 30,
+  "timingSource": "04-caption/word-timings.json",
+  "cutRule": "voice-sentence-or-meaningful-phrase-start",
+  "sceneCount": 10,
+  "plannedDurationFrames": 1170,
+  "plannedDurationSeconds": 39,
+  "scenes": [
+    {"id":"scene-01","startFrame":0,"durationFrames":105},
+    {"id":"scene-02","startFrame":105,"durationFrames":120},
+    {"id":"scene-03","startFrame":225,"durationFrames":90},
+    {"id":"scene-04","startFrame":315,"durationFrames":150},
+    {"id":"scene-05","startFrame":465,"durationFrames":90},
+    {"id":"scene-06","startFrame":555,"durationFrames":90},
+    {"id":"scene-07","startFrame":645,"durationFrames":135},
+    {"id":"scene-08","startFrame":780,"durationFrames":120},
+    {"id":"scene-09","startFrame":900,"durationFrames":150},
+    {"id":"scene-10","startFrame":1050,"durationFrames":120}
+  ]
+}

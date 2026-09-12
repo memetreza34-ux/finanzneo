@@ -1,0 +1,36 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Weniger im Einkaufskorb.png
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Eine Person bezahlt mit einem festen 100-Euro-Budget an einer stilisierten Supermarktkasse, während ein Teil der gewünschten Lebensmittel wegen höherer Preise sichtbar außerhalb des bezahlbaren Einkaufs bleibt.
+REAL_WORLD_CONTEXT_ANCHOR: Supermarktkasse mit Einkaufskorb, Preisschildern und festem 100-Euro-Budget.
+VOICEOVER_VISUAL_MATCH: Derselbe 100-Euro-Betrag ist sichtbar begrenzt, während weniger Lebensmittel im bezahlbaren Korb verbleiben und die sinkende Kaufkraft konkret zeigen.
+TRANSFERABILITY_TEST: PASS – fester 100-Euro-Einkauf, steigende Lebensmittelpreise und sichtbar weniger bezahlte Waren bilden genau die Kaufkraftwirkung von Inflation ab.
+METAPHOR_JUSTIFICATION: none
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 100 €
+- 3 % Inflation
+
+IMAGE PROMPT:
+Create a real-world-grounded stylized 3D supermarket checkout situation showing the consequence of inflation on a fixed budget. A clearly readable 100-euro budget sits at the payment point while a believable grocery basket contains common food items. Several desired groceries should remain just outside the paid group because the total budget no longer stretches as far; make this a natural checkout consequence, not a fantasy machine. Include a small, clean `3 % Inflation` object label near the relevant price context, never as a headline. The viewer should instantly read: the nominal money is still 100 euros, but the amount of everyday shopping it covers has become smaller. Use large recognizable objects, clear spacing and a direct visible cause-and-effect.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D with believable real-life proportions and premium semi-realistic materials; never photorealistic or stock-like.
+BACKGROUND:
+One seamless deep black background with only a minimal checkout context dissolving into black.
+COMPOSITION:
+Fixed 100-euro budget + paid basket + a few unaffordable groceries as the actual story. No dashboard, app UI or flowchart.
+TEXT:
+Only `100 €` and `3 % Inflation`.
+FORBIDDEN:
+No photorealism, stock look, dashboard, app UI, flowchart, generic symbol-only composition, miniature diorama or clutter.
+
+Literal first, creative second. TRANSFERABILITY-TEST is mandatory. Förderbänder, Schienen, Schranken, Käfige and fantasy portals are not allowed as default explanation.
