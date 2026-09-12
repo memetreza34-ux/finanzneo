@@ -228,7 +228,7 @@ const Diversification: React.FC = () => {
     <div style={{...stage, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 30}}>
       <div style={{height: 520, ...panel, padding: 30}}>
         <svg width="100%" height="100%" viewBox="0 0 900 430">
-          {tracks.map((phase, index) => (
+          {tracks.map((phase) => (
             <polyline key={phase} points={build(phase)} fill="none" stroke={`rgba(255,255,255,${0.23 - focus * 0.13})`} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1-reveal} />
           ))}
           <polyline points={portfolio} fill="none" stroke={C.accentLt} strokeWidth={8 + focus * 5} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1-reveal} style={{filter: `drop-shadow(0 0 ${8 + focus * 18}px rgba(57,255,167,0.38))`}} />
