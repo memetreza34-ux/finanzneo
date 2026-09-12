@@ -52,3 +52,19 @@ Remotion Candidate
 ```
 
 Fehlt der V3-Marker im Reel, sind die neuen Mastering-/Occupancy-Schritte No-ops. Dadurch bleibt die bestehende Produktionshistorie unverändert.
+
+## 5. Visual Selection — Planungsregel
+
+`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v1`
+
+Für neue Reels wird bereits in Phase 1 nach `docs/FINANZNEO-VISUAL-SELECTION-RULE.md` geplant:
+
+- einfache, zahlen-/datengetriebene Aussage → möglichst klare native Remotion-Erklärung
+- komplexe oder reale Aussage → konkrete Bildszene bzw. Bildfolge bevorzugen; Remotion ergänzt nur, wenn es der zeitlichen Erklärung dient
+- SVG für präzise Vektor-/Pfadlogik
+- Icons nur als semantischer Support
+- Lottie nur als kleine Support-Bewegung
+
+Diese Planungsregel **schwächt keine harten Reel-Verträge ab**. `CLAUDE.md`, V9-Bildwelt, Reel-Layout, Phase-1-Codevertrag und Phase-3-Gates bleiben verbindlich.
+
+Ziel: komplexe Finanzinhalte einfach sichtbar erklären, nicht technisch möglichst kompliziert animieren.
