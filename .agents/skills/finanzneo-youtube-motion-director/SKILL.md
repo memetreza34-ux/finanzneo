@@ -15,6 +15,20 @@ Create longform motion that explains each spoken idea with the best visible mech
 
 Remotion has no predefined creative ceiling. Existing FinanzNeo components, Physical* primitives, previous animation patterns and named composition families are optional tools or descriptions, never mandatory templates.
 
+### Visual selection before technique
+
+Apply `docs/FINANZNEO-VISUAL-SELECTION-RULE.md` before choosing implementation details.
+
+Default decision:
+
+- simple, numeric or data-driven explanation → **pure Remotion**
+- complex, real-world or spatial explanation → **Flow image + Remotion hybrid**
+- SVG → precise paths, charts, connections and vector mechanics
+- icons → semantic shorthand only
+- Lottie → small support motion only
+
+The goal is not to maximize animation complexity. The goal is to make complex finance **look simple to understand**.
+
 Allowed when useful:
 
 - custom React / DOM
@@ -27,6 +41,7 @@ Allowed when useful:
 - @remotion/effects
 - @remotion/layout-utils
 - Lottie as a support layer
+- consistent SVG icon sets as support
 - charts and data visualization
 - Flow image + Remotion hybrid compositing
 - kinetic typography
@@ -47,10 +62,11 @@ Read in this order:
 1. `CLAUDE.md`
 2. `youtube/PRODUKTIONSSTANDARD.md`
 3. `docs/YOUTUBE-MOTION-V3.md`
-4. target `04-visuals/visual-index.json`
-5. target visual `remotion.md` / `bildprompt.txt` / `data-notes.md`
-6. target `animation.tsx`
-7. official Remotion skills
+4. `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`
+5. target `04-visuals/visual-index.json`
+6. target visual `remotion.md` / `bildprompt.txt` / `data-notes.md`
+7. target `animation.tsx`
+8. official Remotion skills
 
 Reel-specific safe zones and PhysicalObject requirements do not automatically apply to YouTube Longform.
 
@@ -65,12 +81,38 @@ Do this **without naming a tool, library, existing component or composition fami
 Then:
 
 1. decide the explanatory mechanism,
-2. review the previous four motion visuals,
-3. choose or invent the clearest technique,
-4. record the actual tools and motion signature,
-5. build production-ready source code.
+2. classify the beat as simple/data-driven vs. complex/real-world/spatial,
+3. choose the visual type using the Visual Selection Rule,
+4. review the previous four motion visuals,
+5. choose or invent the clearest technique,
+6. record the actual tools and motion signature,
+7. build production-ready source code.
 
 Do not choose a technique because it is convenient to implement.
+
+## Tool roles
+
+### Pure Remotion
+
+Prefer for clear numbers, percentages, charts, simple flows, debt/fee development, simple comparisons and timelines.
+
+### Flow image + Remotion
+
+Prefer when a concrete scene makes the financial mechanism easier to understand: everyday money situations, inflation, emergency fund, overdraft, insurance, complex multi-stage money flows or spatial ETF/index explanations.
+
+The still image must already explain the situation. Remotion adds temporal information such as focus, masks, value changes, selective highlights, meaningful 2.5D parallax, path overlays or before/after transformation.
+
+### SVG
+
+Use for precise vector mechanics: lines, curves, paths, chart construction, network links, weighting, flow paths and geometric comparison.
+
+### Icons
+
+Use only as semantic shorthand or support. Do not replace a complex explanation with an icon collection.
+
+### Lottie
+
+Use only as a support layer for small self-contained actions such as check, warning, search, document state, status or short focus cues. A ready-made Lottie is never a reason to choose the scene concept.
 
 ## Composition families are open
 

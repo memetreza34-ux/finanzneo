@@ -49,6 +49,28 @@ Erst danach darf eine Technik gewählt werden.
 
 Es gibt keine feste Szenenzahl und keine feste Bild-/Animationsquote.
 
+## Visual Selection V1
+
+`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v1`
+
+Kanonische Regel:
+
+```text
+docs/FINANZNEO-VISUAL-SELECTION-RULE.md
+```
+
+Vor der Technik wird die Visualart gewählt:
+
+- einfache, zahlen-/datengetriebene Erklärung → **pure Remotion**
+- komplexe, reale oder räumliche Erklärung → **Flow image + Remotion hybrid**
+- SVG → präzise Vektor-/Pfad-/Chartmechanik
+- Icons → semantischer Support
+- Lottie → kleine Support-Bewegung
+
+Die technische Umsetzung darf komplex sein. Die Erklärung für den Zuschauer soll dadurch **einfacher**, nicht komplizierter werden.
+
+Ein vorhandenes Lottie, Icon, Component oder 3D-Tool ist niemals allein ein Grund für die Visualwahl.
+
 ## Offene Technik
 
 Remotion und Web-Technologien sind Werkzeuge, keine Animationsbibliothek mit fester Endmenge.
@@ -65,6 +87,7 @@ Erlaubt sind unter anderem:
 - Remotion Effects
 - Layout Utils
 - Lottie als Support
+- konsistente SVG-Icons als Support
 - kinetic typography
 - document motion
 - timelines
@@ -185,11 +208,13 @@ For every motion beat:
 
 1. Write `viewerChange` without naming a tool or existing component.
 2. Decide the explanatory mechanism.
-3. Review the previous four motion visuals.
-4. Choose or invent the clearest technique.
-5. Record technique, tools and motion signature.
-6. Build production-ready `animation.tsx`.
-7. Validate actual diversity and source quality.
+3. Classify the beat as simple/data-driven vs. complex/real-world/spatial.
+4. Select `animation`, `hybrid`, `data` or `image` using Visual Selection V1.
+5. Review the previous four motion visuals.
+6. Choose or invent the clearest technique.
+7. Record technique, tools and motion signature.
+8. Build production-ready `animation.tsx`.
+9. Validate actual diversity and source quality.
 
 Do not choose a technique because it is easy to code or because a component already exists.
 
@@ -228,6 +253,13 @@ Use `hybrid` when a strong Flow image provides the detailed FinanzNeo world and 
 - depth compositing
 
 Do not add motion only to avoid a static image.
+
+## Support layers: SVG, Icons, Lottie
+
+- SVG may be a main explanatory mechanism when precise vector logic is clearest.
+- Icons are semantic shorthand and support, not a substitute for a complex scene.
+- Lottie is support for small self-contained cues such as warning, check, search, document or status actions.
+- Several tools may be combined only when every added layer contributes information.
 
 ## Data visuals
 
