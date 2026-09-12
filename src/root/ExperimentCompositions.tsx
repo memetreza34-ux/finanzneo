@@ -17,6 +17,10 @@ import {
   FinanceMotionLabAdvanced,
   FINANCE_MOTION_LAB_ADVANCED_FRAMES,
 } from '../reels-test/FinanceMotionLabAdvanced';
+import {
+  FinanceHeaderCaptionMotion,
+  FINANCE_HEADER_CAPTION_MOTION_FRAMES,
+} from '../reels-test/FinanceHeaderCaptionMotion';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
 import {Scene03SparbuchVs, SCENE03_FRAMES} from '../zins/Scene03SparbuchVs';
@@ -68,6 +72,14 @@ export const ExperimentCompositions: React.FC = () => (
       id="ReelsTestFinanceMotionLabAdvanced"
       component={FinanceMotionLabAdvanced}
       durationInFrames={FINANCE_MOTION_LAB_ADVANCED_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
+    <Composition
+      id="ReelsTestFinanceHeaderCaptionMotion"
+      component={FinanceHeaderCaptionMotion}
+      durationInFrames={FINANCE_HEADER_CAPTION_MOTION_FRAMES}
       fps={FPS}
       {...VERTICAL}
     />
