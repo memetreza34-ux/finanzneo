@@ -26,6 +26,8 @@
     "reel:animation:contract": "node scripts/apply-phase1-animation-code-contract.mjs",
     "reel:animation:premium": "node scripts/apply-premium-animation-v2.mjs",
     "reel:animation:validate": "node scripts/validate-animation-source-quality.mjs",
+    "reel:motion-direction:contract": "node scripts/apply-future-reel-phase1-motion-direction-v1.mjs",
+    "reel:motion-direction:validate": "node scripts/validate-future-reel-phase1-motion-direction-v1.mjs",
     "reel:phase1:seal-animations": "node scripts/seal-phase1-animation-code.mjs",
     "reel:phase3:contract": "node scripts/apply-phase3-completion-contract.mjs",
     "reel:phase3:init": "node scripts/init-phase3-production.mjs",
