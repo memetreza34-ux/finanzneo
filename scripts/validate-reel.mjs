@@ -21,6 +21,7 @@ const validators = [
   'scripts/validate-visual-beat-contract.mjs',
   'scripts/validate-future-image-storytelling-v3.mjs',
   'scripts/validate-future-production-standard-v3.mjs',
+  'scripts/validate-future-reel-presentation-v1.mjs',
   'scripts/validate-reel-layout-v5.mjs',
   'scripts/validate-premium-visual-contract.mjs',
   'scripts/validate-animation-source-quality.mjs',

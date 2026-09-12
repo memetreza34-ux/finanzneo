@@ -11,6 +11,7 @@ if (!target || !videoArg) {
 }
 
 const CONTRACT_ID = 'finanzneo-future-production-v3';
+const PRESENTATION_ID = 'finanzneo-future-reel-presentation-v1';
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 if (!existsSync(indexPath)) {
@@ -39,6 +40,8 @@ const failures = [];
 const fail = (message) => failures.push(message);
 const audio = contract.audioMastering ?? {};
 const framing = contract.animationFraming ?? {};
+const presentation = index.futurePresentationContract ?? null;
+if (presentation && presentation.id !== PRESENTATION_ID) fail(`Unbekannter Future-Reel-Presentation-Vertrag: ${String(presentation.id)}`);
 
 // ── Audio-Lautheit am echten gemasterten Candidate messen ──────────────────
 const loudnessProbe = spawnSync('ffmpeg', [
@@ -51,9 +54,7 @@ const loudnessProbe = spawnSync('ffmpeg', [
   '-',
 ], {encoding: 'utf8', maxBuffer: 10 * 1024 * 1024});
 
-if (loudnessProbe.error?.code === 'ENOENT') {
-  fail('ffmpeg fehlt; Future-V3-Lautheits-QA kann nicht durchgeführt werden.');
-}
+if (loudnessProbe.error?.code === 'ENOENT') fail('ffmpeg fehlt; Future-V3-Lautheits-QA kann nicht durchgeführt werden.');
 
 let loudness = null;
 if (!loudnessProbe.error) {
@@ -85,43 +86,46 @@ if (!loudnessProbe.error) {
   }
 }
 
-// ── Tatsächliche Animationsbelegung im visuellen Kern messen ───────────────
 const fps = Number(index.video?.fps) || 30;
 const layout = index.layout ?? {};
 const declaredVisualTop = Math.max(320, Number(layout.visualTop) || 320);
 const declaredVisualBottom = Math.min(1480, Number(layout.visualBottom) || 1480);
-const cropX = 92;
-const cropY = Math.min(declaredVisualBottom - 160, declaredVisualTop + 70);
-const cropWidth = 896;
-const cropBottom = Math.max(cropY + 160, Math.min(declaredVisualBottom - 170, 1260));
-const cropHeight = Math.max(160, cropBottom - cropY);
-const sampleWidth = 96;
-const sampleHeight = 104;
-const ratios = Array.isArray(framing.sampleRatios) ? framing.sampleRatios.map(Number) : [0.2, 0.5, 0.8];
-const minPeak = Number(framing.minPeakActivePixelRatio);
-const minMedian = Number(framing.minMedianActivePixelRatio);
+const visualCrop = {
+  x: 92,
+  y: Math.min(declaredVisualBottom - 160, declaredVisualTop + 70),
+  width: 896,
+  height: Math.max(160, Math.max(declaredVisualTop + 230, Math.min(declaredVisualBottom - 170, 1260)) - Math.min(declaredVisualBottom - 160, declaredVisualTop + 70)),
+};
+const headerCrop = {x: 60, y: 105, width: 960, height: 195};
+const captionCrop = {x: 60, y: 1435, width: 900, height: 250};
 
-const extractActiveRatio = (timeSeconds) => {
+const extractRegionActiveRatio = (timeSeconds, crop, outWidth, outHeight, threshold = 18) => {
   const result = spawnSync('ffmpeg', [
     '-v', 'error',
     '-ss', Math.max(0, timeSeconds).toFixed(3),
     '-i', videoPath,
-    '-vf', `crop=${cropWidth}:${cropHeight}:${cropX}:${cropY},scale=${sampleWidth}:${sampleHeight}:flags=area,format=gray`,
+    '-vf', `crop=${crop.width}:${crop.height}:${crop.x}:${crop.y},scale=${outWidth}:${outHeight}:flags=area,format=gray`,
     '-frames:v', '1',
     '-f', 'rawvideo',
     '-pix_fmt', 'gray',
     'pipe:1',
   ], {encoding: null, maxBuffer: 5 * 1024 * 1024});
   if (result.error?.code === 'ENOENT') throw new Error('ffmpeg fehlt.');
-  if (result.status !== 0 || !result.stdout || result.stdout.length < sampleWidth * sampleHeight) {
+  if (result.status !== 0 || !result.stdout || result.stdout.length < outWidth * outHeight) {
     throw new Error(`Frame bei ${timeSeconds.toFixed(2)} s konnte nicht gelesen werden.`);
   }
-  const bytes = result.stdout.subarray(0, sampleWidth * sampleHeight);
+  const bytes = result.stdout.subarray(0, outWidth * outHeight);
   let active = 0;
-  for (const value of bytes) if (value > 18) active += 1;
+  for (const value of bytes) if (value > threshold) active += 1;
   return active / bytes.length;
 };
 
+const extractVisualActiveRatio = (timeSeconds) => extractRegionActiveRatio(timeSeconds, visualCrop, 96, 104, 18);
+const ratios = Array.isArray(framing.sampleRatios) ? framing.sampleRatios.map(Number) : [0.2, 0.5, 0.8];
+const minPeak = Number(framing.minPeakActivePixelRatio);
+const minMedian = Number(framing.minMedianActivePixelRatio);
+
+// ── Tatsächliche Animationsbelegung im visuellen Kern messen ───────────────
 const animationQa = [];
 for (const scene of (Array.isArray(index.scenes) ? index.scenes : []).filter((item) => item?.type === 'animation')) {
   const durationFrames = Number(scene.durationFrames);
@@ -137,7 +141,7 @@ for (const scene of (Array.isArray(index.scenes) ? index.scenes : []).filter((it
       const localFrame = Math.max(1, Math.min(durationFrames - 1, Math.round(durationFrames * ratio)));
       const frame = startFrame + localFrame;
       const time = frame / fps;
-      samples.push({ratio, frame, time: Number(time.toFixed(3)), activePixelRatio: extractActiveRatio(time)});
+      samples.push({ratio, frame, time: Number(time.toFixed(3)), activePixelRatio: extractVisualActiveRatio(time)});
     }
   } catch (error) {
     fail(`${scene.id}: ${error instanceof Error ? error.message : String(error)}`);
@@ -166,11 +170,79 @@ for (const scene of (Array.isArray(index.scenes) ? index.scenes : []).filter((it
   });
 }
 
+// ── Presentation V1: echte sichtbare Hierarchie prüfen ─────────────────────
+const presentationQa = [];
+if (presentation?.id === PRESENTATION_ID) {
+  const scenes = Array.isArray(index.scenes) ? index.scenes : [];
+  const minHeader = 0.004;
+  const minCaption = 0.004;
+  const maxCoverCaption = 0.003;
+  const minImage = Number(presentation.minImageActivePixelRatio ?? 0.10);
+
+  for (const [position, scene] of scenes.entries()) {
+    const startFrame = Number(scene.startFrame);
+    const durationFrames = Number(scene.durationFrames);
+    if (!Number.isFinite(startFrame) || !Number.isFinite(durationFrames) || durationFrames <= 1) {
+      fail(`${scene.id}: startFrame/durationFrames fehlen für Presentation-V1-Render-QA.`);
+      continue;
+    }
+
+    const sampleTime = (ratio) => (startFrame + Math.max(1, Math.min(durationFrames - 1, Math.round(durationFrames * ratio)))) / fps;
+    const item = {id: scene.id, headerActivePixelRatio: null, captionPeakActivePixelRatio: null, imageActivePixelRatio: null, passed: true};
+
+    try {
+      if (position === 0) {
+        const titleRatio = extractRegionActiveRatio(sampleTime(Math.min(0.18, 6 / Math.max(1, durationFrames))), headerCrop, 96, 20, 18);
+        const coverCaptionRatio = extractRegionActiveRatio(sampleTime(0.5), captionCrop, 90, 25, 18);
+        item.headerActivePixelRatio = Number(titleRatio.toFixed(4));
+        item.captionPeakActivePixelRatio = Number(coverCaptionRatio.toFixed(4));
+        if (titleRatio < minHeader) {
+          item.passed = false;
+          fail('scene-01: Reel-Titel ist im vorgesehenen oberen Titel/Header-Bereich nicht sichtbar genug. Cover-Titel darf nicht in den unteren Bereich abrutschen.');
+        }
+        if (coverCaptionRatio > maxCoverCaption) {
+          item.passed = false;
+          fail('scene-01: Im Caption-Bereich ist sichtbarer Text/Inhalt vorhanden. Cover-Szene darf keine Untertitel oder zweite Textschicht zeigen.');
+        }
+      } else {
+        const headerRatio = extractRegionActiveRatio(sampleTime(0.5), headerCrop, 96, 20, 18);
+        const captionRatios = [0.2, 0.4, 0.6, 0.8].map((ratio) => extractRegionActiveRatio(sampleTime(ratio), captionCrop, 90, 25, 18));
+        const captionPeak = Math.max(...captionRatios);
+        item.headerActivePixelRatio = Number(headerRatio.toFixed(4));
+        item.captionPeakActivePixelRatio = Number(captionPeak.toFixed(4));
+        if (headerRatio < minHeader) {
+          item.passed = false;
+          fail(`${scene.id}: normaler FinanzNeo-SceneHeader inklusive Icon ist im echten Render nicht sichtbar.`);
+        }
+        if (captionPeak < minCaption) {
+          item.passed = false;
+          fail(`${scene.id}: audio-synchrone Caption ist im echten Render nicht sichtbar. Vorhandene Metadaten allein reichen nicht.`);
+        }
+      }
+
+      if (scene.type === 'image') {
+        const imageRatio = extractVisualActiveRatio(sampleTime(0.5));
+        item.imageActivePixelRatio = Number(imageRatio.toFixed(4));
+        if (imageRatio < minImage) {
+          item.passed = false;
+          fail(`${scene.id}: Bild wirkt im visuellen Kern zu klein/leer (${imageRatio.toFixed(3)} aktive Fläche; mindestens ${minImage.toFixed(2)}). Kleine Quadratkarte in viel Schwarz ist verboten.`);
+        }
+      }
+    } catch (error) {
+      item.passed = false;
+      fail(`${scene.id}: Presentation-V1-QA konnte nicht gemessen werden: ${error instanceof Error ? error.message : String(error)}`);
+    }
+
+    presentationQa.push(item);
+  }
+}
+
 const reportPath = resolve(root, '05-projektdateien/future-production-v3-render-qa.json');
 mkdirSync(dirname(reportPath), {recursive: true});
 writeFileSync(reportPath, `${JSON.stringify({
-  version: 1,
+  version: 2,
   contractId: CONTRACT_ID,
+  presentationContractId: presentation?.id ?? null,
   status: failures.length ? 'FAILED' : 'PASSED',
   generatedAt: new Date().toISOString(),
   loudness,
@@ -179,6 +251,11 @@ writeFileSync(reportPath, `${JSON.stringify({
     minMedianActivePixelRatio: minMedian,
     scenes: animationQa,
   },
+  presentation: presentation ? {
+    headerAndCaptionRenderedQa: true,
+    imageOccupancyRenderedQa: true,
+    scenes: presentationQa,
+  } : null,
   failures,
 }, null, 2)}\n`, 'utf8');
 
@@ -192,3 +269,4 @@ if (failures.length) {
 console.log('\n✓ FUTURE-PRODUCTION-V3-RENDER-QA BESTANDEN');
 console.log(`  Audio: ${loudness?.integratedLufs?.toFixed(2) ?? '?'} LUFS · True Peak ${loudness?.truePeakDbtp?.toFixed(2) ?? '?'} dBTP.`);
 console.log(`  Animationen: ${animationQa.length}/${animationQa.length} erfüllen größere/füllendere Hauptmechanik im echten Render.`);
+if (presentation) console.log(`  Presentation: ${presentationQa.length}/${presentationQa.length} Szenen bestehen echte Header-/Caption-/Bildgrößen-QA.`);

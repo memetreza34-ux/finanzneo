@@ -184,9 +184,19 @@ Vor einem neuen Motion Beat prüfen:
 - wurde gerade dieselbe Chart-Mechanik benutzt?
 - wurde derselbe Geldfluss benutzt?
 - ist Kamera + Layout + Transformation praktisch identisch?
+- dominiert erneut dieselbe sichtbare Objektfamilie?
 - gibt es eine klarere oder passendere Darstellung?
 
-Wiederholung bleibt erlaubt, wenn sie Vergleich, Kontinuität oder Verständnis verbessert.
+**Technisch verschieden reicht nicht.** Eine neue Komponenten-ID, `MECHANIC_ID`, andere Variable oder ein anderes Support-Asset macht eine Animation nicht automatisch visuell neu.
+
+Insbesondere gilt:
+
+- anderes Lottie + gleiche Hauptaktion = keine neue Haupttechnik
+- anderes Icon + gleiches Layout = keine neue Haupttechnik
+- anderes SVG-Supportelement + gleiche camera/layout/transformation-Signatur = keine neue Haupttechnik
+- wieder Account + Rechnung + Münzen mit leicht anderer Bewegung = weiterhin dieselbe sichtbare Familie, solange Hauptaktion und Komposition praktisch gleich bleiben
+
+Wiederholung bleibt erlaubt, wenn sie Vergleich, Kontinuität oder Verständnis verbessert und konkret begründet wird.
 
 ## 10. Verbotene Tool-first-Logik
 
@@ -212,8 +222,10 @@ Diese Regel ist **verbindlich** und ergänzt:
 
 ### Reels
 
-Für neue Reels ist diese Regel eine **Planungsregel**. Harte Reel-Verträge in `CLAUDE.md`, `docs/FUTURE-REEL-PRODUCTION-V3.md`, Layout-/Image-World-/Phase-3-Gates haben weiterhin Vorrang. Sie werden durch dieses Dokument nicht abgeschwächt.
+Für neue Reels ist diese Regel eine **Planungsregel**. Harte Reel-Verträge in `CLAUDE.md`, `docs/FUTURE-REEL-PRODUCTION-V3.md`, `docs/FUTURE-REEL-PRESENTATION-V1.md`, Layout-/Image-World-/Phase-3-Gates haben weiterhin Vorrang. Sie werden durch dieses Dokument nicht abgeschwächt.
+
+`FUTURE-REEL-PRESENTATION-V1` macht die Wiederholungsregel für neue Reels zusätzlich maschinenlesbar und prüft die sichtbare Zuschauer-Hierarchie im echten Render.
 
 ## Kurzregel
 
-> **Einfache Finanzthemen: pure Remotion. Komplexe oder reale Finanzthemen: Bild + Remotion. SVG, Icons und Lottie nur als gezielte Unterstützung. Immer zuerst das sichtbare Lernziel wählen, dann das Werkzeug.**
+> **Einfache Finanzthemen: pure Remotion. Komplexe oder reale Finanzthemen: Bild + Remotion. SVG, Icons und Lottie nur als gezielte Unterstützung. Immer zuerst das sichtbare Lernziel wählen, dann das Werkzeug. Technisch verschieden zählt erst dann als neu, wenn es auch sichtbar eine andere Erklärung ist.**

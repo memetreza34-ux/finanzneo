@@ -4,7 +4,7 @@
 // Stylized 3D Animated Black World V9 + Phase-3-Fertigkeitsvertrag + Reel-V5-Layout +
 // kanonischer Phase-1-Animationscode + Cinematic Real-World Animation Contract +
 // scene-01-als-Cover + Future Cover Hook V2 + Image Storytelling V3 + Visual Beats V2 +
-// Future Production V3 (Timing, Animationsframing, Audio-Mastering) + automatischer Finalexport.
+// Future Production V3 + Future Reel Presentation V1 + automatischer Finalexport.
 // Scheitert einer der Schritte, wird ein in diesem Lauf neu erzeugter Reel-Ordner
 // vollständig zurückgerollt. Bestehende Reels werden durch diesen Creator nie nachträglich verändert.
 
@@ -56,9 +56,10 @@ const steps = [
   // Image Storytelling seinen Block sicher in dieselbe Datei einhängen.
   ['scripts/apply-future-cover-hook-v2.mjs', [target]],
   ['scripts/apply-future-image-storytelling-v3.mjs', [target]],
-  // Letzter Future-Layer: verschärft nur neue Reels. Alte Reels besitzen den
-  // Marker nicht und bleiben bei Validator/Render vollständig unverändert.
   ['scripts/apply-future-production-standard-v3.mjs', [target]],
+  // Letzter Future-Layer: schützt die tatsächlich sichtbare Reel-Hierarchie
+  // und die Motion-Diversität. Alte Reels besitzen den Marker nicht.
+  ['scripts/apply-future-reel-presentation-v1.mjs', [target]],
 ];
 
 for (const [script, scriptArgs] of steps) {
@@ -78,9 +79,13 @@ console.log('  Cover-Export V2: finaler Frame 0 der geprüften MP4, damit die Re
 console.log('  Visual Beats V2 + Future V3: Szenenzahl flexibel · 1 Gedanke = 1 sichtbarer Beat · zusätzliche Bilder ausdrücklich erlaubt.');
 console.log('  Timing V3: statische Bilder ideal 1,8–3,0 s · ab 3,6 s Split prüfen · ohne neue sichtbare Information max. 4,0 s.');
 console.log('  Layout V5: Header Y154 · 56 px · max. 2 Zeilen · Visual Y320–1400 · Captions bottom340 ab scene-02.');
+console.log('  Presentation V1: ab scene-02 sind gerenderter SceneHeader+Icon und echte audio-synchrone Captions Pflicht; Render-QA prüft beides sichtbar.');
+console.log('  Presentation V1: kleine Quadratkarten in viel Schwarz sind gesperrt; Bildszenen müssen die Visualzone sinnvoll nutzen.');
+console.log('  Motion Diversity V1: gleiche camera+layout+transformation-Signatur oder ständig dieselbe Hero-Objektfamilie wird ohne inhaltlichen Grund blockiert.');
+console.log('  Lottie/Icons/SVG bleiben Support und zählen allein nicht als neue Hauptanimation.');
 console.log('  Animation Safe Zone: hart Y320–1400 · kein Eindringen in Header/Caption.');
 console.log('  Animation V3: reale stylized-3D-Situation · physische Ursache/Wirkung · Hauptmechanik größer/füllender · Occupancy-QA im echten Render.');
 console.log('  Audio V3: Candidate wird vor Render-QA automatisch auf -16 LUFS / -1 dBTP gemastert.');
 console.log('  Phase 1 muss jede placeholder animation.tsx individuell zum Sprechpunkt produktionsreif ausarbeiten; der Validator blockiert generische Ersatzmechaniken.');
-console.log('  Phase 3: MP4 allein gilt nicht als fertig · Frame-0-Cover-QA + jede Szene braucht Visual · Post-Render-QA + Future-V3-QA + Hash-Gate vor Export.');
-console.log('  Rückwärtskompatibilität: Image Storytelling V3 und Future Production V3 gelten nur für neu mit reel:create angelegte Reels.');
+console.log('  Phase 3: MP4 allein gilt nicht als fertig · Header-/Caption-/Image-Occupancy-QA + Frame-0-Cover-QA + Post-Render-QA + Hash-Gate vor Export.');
+console.log('  Rückwärtskompatibilität: alle Future-Verträge gelten nur für neu mit reel:create angelegte Reels.');

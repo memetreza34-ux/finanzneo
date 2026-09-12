@@ -68,3 +68,18 @@ Für neue Reels wird bereits in Phase 1 nach `docs/FINANZNEO-VISUAL-SELECTION-RU
 Diese Planungsregel **schwächt keine harten Reel-Verträge ab**. `CLAUDE.md`, V9-Bildwelt, Reel-Layout, Phase-1-Codevertrag und Phase-3-Gates bleiben verbindlich.
 
 Ziel: komplexe Finanzinhalte einfach sichtbar erklären, nicht technisch möglichst kompliziert animieren.
+
+## 6. Future Reel Presentation V1
+
+`FUTURE_REEL_PRESENTATION: finanzneo-future-reel-presentation-v1`
+
+Für neue Reels gilt zusätzlich `docs/FUTURE-REEL-PRESENTATION-V1.md` als harter Zuschauer-Vertrag:
+
+- scene-01 bleibt Cover-Sonderfall mit Hero-Bild + Reel-Titel
+- ab scene-02 muss im **echten Render** oben `SceneHeader` + Icon sichtbar sein
+- ab scene-02 müssen unten echte audio-synchrone Captions sichtbar sein
+- Bildszenen dürfen nicht als kleine quadratische Karten in viel Schwarz erscheinen
+- Motion-Diversität wird über sichtbare Haupttechnik, Hero-Objektfamilie und camera+layout+transformation geprüft
+- ein anderes Lottie/Icon/SVG-Support-Asset macht eine sonst gleiche Animation nicht zu einer neuen Haupttechnik
+
+Phase 1, Phase-3-Preflight und finaler Candidate prüfen unterschiedliche Teile dieses Vertrags. Metadaten allein können die sichtbare Render-QA nicht bestehen.
