@@ -9,6 +9,10 @@ import {V1Clean, V2Glass, V3Editorial, V4Neon, V5Gradient, V6Duotone} from '../V
 import {RealDataDemo, REAL_DATA_FRAMES} from '../RealDataDemo';
 import {LottieTest} from '../LottieTest';
 import {FinanceMotionLab, FINANCE_MOTION_LAB_FRAMES} from '../reels-test/FinanceMotionLab';
+import {
+  FinanceMotionLabComplex,
+  FINANCE_MOTION_LAB_COMPLEX_FRAMES,
+} from '../reels-test/FinanceMotionLabComplex';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
 import {Scene03SparbuchVs, SCENE03_FRAMES} from '../zins/Scene03SparbuchVs';
@@ -44,6 +48,14 @@ export const ExperimentCompositions: React.FC = () => (
       id="ReelsTestFinanceMotionLab"
       component={FinanceMotionLab}
       durationInFrames={FINANCE_MOTION_LAB_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
+    <Composition
+      id="ReelsTestFinanceMotionLabComplex"
+      component={FinanceMotionLabComplex}
+      durationInFrames={FINANCE_MOTION_LAB_COMPLEX_FRAMES}
       fps={FPS}
       {...VERTICAL}
     />
