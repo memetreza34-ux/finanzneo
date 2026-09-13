@@ -1,0 +1,39 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Mehr Puffer Verantwortung.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Auto
+- Familie
+- schwankendes Einkommen
+
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Ein Haushalt mit Auto, Familie und unregelmäßigen Einnahmen plant sichtbar eine größere Notfallreserve.
+REAL_WORLD_CONTEXT_ANCHOR: Autoschlüssel, Familienkalender, notwendige Haushaltskosten und ein Einkommenskalender mit unterschiedlich hohen Eingängen.
+VOICEOVER_VISUAL_MATCH: Die drei im Voiceover genannten Faktoren sind als reale Objekte bzw. Alltagselemente direkt neben der größeren Reserve sichtbar.
+TRANSFERABILITY_TEST: PASS: Die konkrete Kombination aus Auto, Familie, schwankendem Einkommen und Notgroschen ist nicht beliebig auf andere Finanzthemen übertragbar.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create one realistic-in-content but clearly stylized 3D household planning scene. A visible emergency reserve container is substantial and central. Around it, show three concrete real-life responsibility signals integrated into the same scene: car keys with a small tag “Auto”, a family calendar or child-related household item with the label “Familie”, and a monthly income sheet where incoming amounts visibly vary, labeled “schwankendes Einkommen”. Do not turn these into three separate cards. The scene should communicate that more obligations and less predictable income can justify a larger buffer. Keep one coherent spatial world and strong cause/context relationship.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: clearly stylized 3D animation, never photorealistic; premium semi-realistic materials, believable proportions.
+BACKGROUND: seamless deep black background.
+COLORS + LIGHT: emerald reserve, ivory/gray neutral household objects, gold money, warm red-orange only for uncertainty cues.
+TEXT: only the three requested labels. No headline/subtitle/CTA.
+FORBIDDEN: card row, dashboard, app UI, flowchart, isolated icon composition, mini-diorama, clutter.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+LITERAL_FIRST_POLICY: Literal first, creative second.
+SUBTITLE-OFF-TEST: The household responsibilities must visually justify why more buffer may be useful.
+TRANSFERABILITY-TEST: The exact Auto + Familie + variable income context makes this image topic-specific.
+Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale und ähnliche Fantasiemechaniken sind keine Standard-Erklärung.

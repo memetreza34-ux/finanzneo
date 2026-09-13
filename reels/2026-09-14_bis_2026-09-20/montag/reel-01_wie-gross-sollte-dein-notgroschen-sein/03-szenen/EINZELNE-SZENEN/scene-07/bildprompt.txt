@@ -1,0 +1,40 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Alltagsgeld und Reserve trennen.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Girokonto
+- Tagesgeld
+- Alltag
+- Reserve
+
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Auf einem echten Haushaltstisch liegen Girokonto-Alltagsausgaben und Tagesgeld-Reserve bewusst getrennt.
+REAL_WORLD_CONTEXT_ANCHOR: Girokonto bei Einkauf und Rechnung links, Tagesgeld/Reserve rechts mit deutlichem räumlichem Abstand.
+VOICEOVER_VISUAL_MATCH: Die physische Trennung der beiden Geldplätze zeigt exakt die im Voiceover geforderte Trennung von Alltag und Reserve.
+TRANSFERABILITY_TEST: PASS: Die Szene visualisiert spezifisch Girokonto-Alltagsgeld gegen Tagesgeld-Notfallreserve und nicht bloß zwei beliebige Konten.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create one coherent stylized-3D home-desk scene showing two physically separated money purposes. On the left, a generic account object labeled “Girokonto” sits next to a grocery receipt and ordinary household bill; a small label “Alltag” belongs to this side. On the right, with a clearly visible gap, show a calm emerald reserve container/account labeled “Tagesgeld” with the short label “Reserve”. No arrows are necessary. The separation itself is the explanation. Avoid any app interface or dashboard. Keep the two real-life purposes immediately readable at a glance.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: clearly stylized 3D animation, never photorealistic; premium materials and rounded construction.
+BACKGROUND: one seamless deep black background.
+COLORS + LIGHT: emerald reserve, ivory neutral Girokonto/receipts, subtle gold money; clean soft studio light.
+TEXT: only Girokonto, Tagesgeld, Alltag, Reserve. No headline/subtitle/CTA.
+FORBIDDEN: dashboard, banking app, flowchart, thin-line network, generic icon comparison, miniature diorama, clutter.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+LITERAL_FIRST_POLICY: Literal first, creative second.
+SUBTITLE-OFF-TEST: Everyday spending and emergency reserve must remain distinguishable without captions.
+TRANSFERABILITY-TEST: The exact Girokonto-versus-Tagesgeld reserve separation makes the still specific.
+Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale und ähnliche Fantasiemechaniken sind keine Standard-Erklärung.

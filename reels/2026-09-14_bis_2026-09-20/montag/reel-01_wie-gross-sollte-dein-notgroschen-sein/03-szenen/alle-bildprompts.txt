@@ -1,0 +1,77 @@
+FINANZNEO – GOOGLE FLOW MASTERLISTE
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+LITERAL_FIRST_POLICY: Literal first, creative second.
+
+Generate exactly one image at a time. Wait, rename, inspect and QA before unlocking the next. Never batch or queue later images.
+
+BILD 01 — Bild 01 - Waschmaschine Notgroschen.png
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Eine Waschmaschine fällt im Haushalt plötzlich aus und erzeugt eine konkrete Reparaturrechnung.
+REAL_WORLD_CONTEXT_ANCHOR: Waschmaschine, Reparaturrechnung und getrennte Geldreserve in einer glaubwürdigen Haushaltssituation.
+VOICEOVER_VISUAL_MATCH: Die kaputte Waschmaschine und die Rechnung zeigen exakt die unerwartete Ausgabe; der Notgroschen zeigt die vorhandene Reserve.
+TRANSFERABILITY_TEST: PASS: Das Bild ist spezifisch für eine unerwartete Haushaltsreparatur und eine Notfallreserve und passt nicht unverändert zu beliebigen Finanzthemen.
+METAPHOR_JUSTIFICATION: none
+Prompt: broken cream washing machine + “Reparatur 480 €” invoice + emerald “Notgroschen”; large premium stylized-3D real-life scene; reserve upper black title space; no title in image.
+
+BILD 02 — Bild 02 - Notgroschen faengt Kosten ab.png
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Eine unerwartete Autoreparatur verursacht eine Rechnung, die aus einer vorhandenen Reserve bezahlt werden kann.
+REAL_WORLD_CONTEXT_ANCHOR: Auto mit sichtbarem Reparaturproblem, Werkstattrechnung, Notgroschen und ungenutzter Dispo-Hinweis.
+VOICEOVER_VISUAL_MATCH: Die Reserve steht direkt bei der Reparaturrechnung, während der Dispo sichtbar ungenutzt bleibt.
+TRANSFERABILITY_TEST: PASS: Autoreparatur, Notgroschen und ungenutzter Dispo bilden genau den gesprochenen Schutz vor Schulden ab.
+METAPHOR_JUSTIFICATION: none
+Prompt: flat tire + “Reparatur 620 €” + emerald “Notgroschen” + untouched red-orange “Dispo”.
+
+BILD 04 — Bild 04 - Notgroschen individuell.png
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Eine Person plant ihre Rücklage anhand ihrer echten laufenden Verpflichtungen statt nach einer starren Universalzahl.
+REAL_WORLD_CONTEXT_ANCHOR: Haushaltstisch mit Mietunterlagen, Mobilitätskosten, Monatskalender und einer separaten Reserve.
+VOICEOVER_VISUAL_MATCH: Die unterschiedlichen realen Verpflichtungen liegen sichtbar um die Reserve; nur das kurze Label individuell erklärt den variablen Betrag.
+TRANSFERABILITY_TEST: PASS: Die Szene zeigt ausdrücklich die Bestimmung einer Notfallreserve anhand persönlicher Verpflichtungen und nicht einfach allgemeines Sparen.
+METAPHOR_JUSTIFICATION: none
+Prompt: real household planning situation, central reserve labeled “individuell”, no fixed recommended euro amount.
+
+BILD 05 — Bild 05 - Mehr Puffer Verantwortung.png
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Ein Haushalt mit Auto, Familie und unregelmäßigen Einnahmen plant sichtbar eine größere Notfallreserve.
+REAL_WORLD_CONTEXT_ANCHOR: Autoschlüssel, Familienkalender, notwendige Haushaltskosten und ein Einkommenskalender mit unterschiedlich hohen Eingängen.
+VOICEOVER_VISUAL_MATCH: Die drei im Voiceover genannten Faktoren sind als reale Objekte bzw. Alltagselemente direkt neben der größeren Reserve sichtbar.
+TRANSFERABILITY_TEST: PASS: Die konkrete Kombination aus Auto, Familie, schwankendem Einkommen und Notgroschen ist nicht beliebig auf andere Finanzthemen übertragbar.
+METAPHOR_JUSTIFICATION: none
+Prompt: one coherent household scene with “Auto”, “Familie”, “schwankendes Einkommen” and a larger reserve.
+
+BILD 07 — Bild 07 - Alltagsgeld und Reserve trennen.png
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Auf einem echten Haushaltstisch liegen Girokonto-Alltagsausgaben und Tagesgeld-Reserve bewusst getrennt.
+REAL_WORLD_CONTEXT_ANCHOR: Girokonto bei Einkauf und Rechnung links, Tagesgeld/Reserve rechts mit deutlichem räumlichem Abstand.
+VOICEOVER_VISUAL_MATCH: Die physische Trennung der beiden Geldplätze zeigt exakt die im Voiceover geforderte Trennung von Alltag und Reserve.
+TRANSFERABILITY_TEST: PASS: Die Szene visualisiert spezifisch Girokonto-Alltagsgeld gegen Tagesgeld-Notfallreserve und nicht bloß zwei beliebige Konten.
+METAPHOR_JUSTIFICATION: none
+Prompt: “Girokonto” + “Alltag” separated from “Tagesgeld” + “Reserve” in one real desk world, no UI.
+
+BILD 08 — Bild 08 - Rechnung ohne Dispo.png
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Eine unerwartete Stromnachzahlung trifft ein und wird aus dem Notgroschen bezahlt, ohne das Konto zu überziehen.
+REAL_WORLD_CONTEXT_ANCHOR: Stromrechnung, Notgroschen und sichtbar ungenutzter roter Dispo-Hinweis in einer Haushalts-/Schreibtischsituation.
+VOICEOVER_VISUAL_MATCH: Die Rechnung ist bezahlt bzw. gedeckt, während der Dispo klar ungenutzt bleibt.
+TRANSFERABILITY_TEST: PASS: Stromnachzahlung plus Notfallreserve plus ungenutzter Dispo zeigen genau die Vermeidung einer Kontoüberziehung.
+METAPHOR_JUSTIFICATION: none
+Prompt: paid “Stromnachzahlung 430 €” + reduced emerald “Notgroschen” + untouched red-orange “Dispo”.
+
+GLOBAL STYLE:
+Clearly stylized 3D animation, never photorealistic. Premium real-world-grounded situations, believable proportions, semi-realistic materials, soft rounded geometry, one seamless deep black background. Emerald positive, ivory/gray neutral, gold money, red-orange warnings. No headline/subtitle/CTA inside images. No dashboard, app UI, flowchart, generic finance-icon main composition, miniature diorama or clutter.
+
+SUBTITLE-OFF-TEST: Every still must communicate the approximate situation without captions.
+TRANSFERABILITY-TEST: Every still must be specific to its spoken beat.
+Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale und ähnliche Fantasiemechaniken sind keine Standard-Erklärung.

@@ -1,0 +1,44 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Waschmaschine Notgroschen.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig, benenne es exakt um und prüfe Motiv, erlaubte Labels, V9-Stil, deep black background und Dateiname. Keine Bildreferenz verwenden.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Reparatur 480 €
+- Notgroschen
+
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Eine Waschmaschine fällt im Haushalt plötzlich aus und erzeugt eine konkrete Reparaturrechnung.
+REAL_WORLD_CONTEXT_ANCHOR: Waschmaschine, Reparaturrechnung und getrennte Geldreserve in einer glaubwürdigen Haushaltssituation.
+VOICEOVER_VISUAL_MATCH: Die kaputte Waschmaschine und die Rechnung zeigen exakt die unerwartete Ausgabe; der Notgroschen zeigt die vorhandene Reserve.
+TRANSFERABILITY_TEST: PASS: Das Bild ist spezifisch für eine unerwartete Haushaltsreparatur und eine Notfallreserve und passt nicht unverändert zu beliebigen Finanzthemen.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create one coherent premium stylized-3D household emergency scene. Show a large cream-colored front-loading washing machine that is unmistakably broken, with a small realistic leak and subtle warning light. Place one ivory repair invoice next to it labeled exactly “Reparatur 480 €”. Beside the invoice, show a clearly separate emerald reserve container or envelope labeled exactly “Notgroschen”, visibly containing enough money to absorb the repair. The relationship must be readable immediately: unexpected appliance failure on one side, prepared reserve on the other. Keep the visual large and grounded, not a collection of icons. Leave calm black space in the upper area because the exact Reel title will be added later in Remotion.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE: clearly stylized 3D animation, never photorealistic; believable everyday proportions, premium semi-realistic materials, soft rounded geometry.
+BACKGROUND: one seamless deep black background; no horizon or bright room.
+COLORS + LIGHT: emerald reserve, ivory/gray neutrals, subtle gold money, red-orange only for cost/problem; clean soft studio lighting and contact shadows.
+TEXT: only the two requested German object labels. No headline, subtitle, CTA or sentence.
+FORBIDDEN: no dashboard, app UI, flowchart, generic finance-icon composition, miniature diorama, product-photo look, clutter, particles, aurora or grid.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+LITERAL_FIRST_POLICY: Literal first, creative second.
+SUBTITLE-OFF-TEST: The broken washer, invoice and reserve must communicate the approximate story without captions.
+TRANSFERABILITY-TEST: If the same image could fit five unrelated finance topics, regenerate it.
+Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale und ähnliche Fantasiemechaniken sind keine Standard-Erklärung.
+
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v2
+The generated image contains no Reel title. Reserve upper deep-black negative space for the exact Remotion title from frame 0.

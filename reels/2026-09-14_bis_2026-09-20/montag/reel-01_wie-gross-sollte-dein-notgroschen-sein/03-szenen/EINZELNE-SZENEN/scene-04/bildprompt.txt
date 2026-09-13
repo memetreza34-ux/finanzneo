@@ -1,0 +1,37 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+MAX_CONCURRENT_GENERATIONS = 1
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Notgroschen individuell.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- individuell
+
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Eine Person plant ihre Rücklage anhand ihrer echten laufenden Verpflichtungen statt nach einer starren Universalzahl.
+REAL_WORLD_CONTEXT_ANCHOR: Haushaltstisch mit Mietunterlagen, Mobilitätskosten, Monatskalender und einer separaten Reserve.
+VOICEOVER_VISUAL_MATCH: Die unterschiedlichen realen Verpflichtungen liegen sichtbar um die Reserve; nur das kurze Label individuell erklärt den variablen Betrag.
+TRANSFERABILITY_TEST: PASS: Die Szene zeigt ausdrücklich die Bestimmung einer Notfallreserve anhand persönlicher Verpflichtungen und nicht einfach allgemeines Sparen.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create one coherent stylized-3D household planning scene, not a comparison dashboard. Show one adult at a simple home table looking at real obligations: a rent document, a public-transport or mobility item, a monthly calendar and a separate emergency reserve container. The reserve is the large central financial object and carries only the short label “individuell”. Do not show a fixed recommended euro amount. The viewer should understand that the reserve size is being chosen around this person’s actual commitments, not copied from one universal number. Keep the scene calm, premium and instantly readable, with only the most useful objects.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: clearly stylized 3D animation, never photorealistic; believable everyday details and semi-realistic materials.
+BACKGROUND: seamless deep black background.
+COLORS + LIGHT: emerald reserve, ivory/gray documents, restrained gold money; soft studio light and contact shadows.
+TEXT: only “individuell”. No headline/subtitle/CTA.
+FORBIDDEN: triptych, card row, dashboard, app UI, flowchart, generic finance icons, tiny diorama, decorative clutter.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+LITERAL_FIRST_POLICY: Literal first, creative second.
+SUBTITLE-OFF-TEST: Personal obligations around the reserve must make the individual nature understandable.
+TRANSFERABILITY-TEST: This must look like personal emergency-fund sizing, not general budgeting.
+Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale und ähnliche Fantasiemechaniken sind keine Standard-Erklärung.
