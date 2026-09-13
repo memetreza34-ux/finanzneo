@@ -81,7 +81,7 @@ const scenes: PureImageSceneProps[] = [
 export const FinanceImageSceneTest: React.FC = () => (
   <AbsoluteFill style={{background: '#000'}}>
     <Series>
-      {scenes.map((scene, index) => (
+      {scenes.map((scene) => (
         <Series.Sequence key={scene.title} durationInFrames={FINANCE_IMAGE_SCENE_TEST_SCENE_FRAMES}>
           <PureImageScene {...scene} />
         </Series.Sequence>
