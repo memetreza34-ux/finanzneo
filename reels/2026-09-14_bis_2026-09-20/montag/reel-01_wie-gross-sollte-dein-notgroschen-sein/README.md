@@ -1,23 +1,46 @@
-# Girokonto oder Tagesgeld?
+# Wie groß sollte dein Notgroschen sein?
 
-Einfache Struktur:
-- 01-script = Voiceover-Skript
-- 02-audio = finales Voiceover
-- 03-szenen = Cover, V9-Bildprompts, Szenen und Nutzerbilder
-- 04-caption = universelle Caption und Wort-Timings
-- 05-projektdateien = Recherche, Timeline, Phase-3-Handoff
-- 06-export = fertiges Upload-Paket
+Erstes reguläres FinanzNeo-Reel für die Woche **14.09.2026–20.09.2026**.
 
-3 Phasen:
-1. Phase 1 erstellt Recherche, Skript, V9-Bildprompts und jede Animation als fertige animation.tsx.
-2. Nutzer erstellt Flow-Bilder, finales Audio und echte Wortzeiten.
-3. Der konfigurierte Executor integriert exakt diese Assets/Animationen und rendert nur über Preflight + QA.
+## Status
 
-Reel-Canvas: immer statisch #000000, keine Partikel/Aurora/Grid/Glow-Hintergründe.
-V5: Header Y154 / 56 px / max 2 Zeilen, Visual Y320–1400, Caption bottom340.
+Phase 1 ist in diesem Ordner vorbereitet:
 
-## Cover- und Export-Automatik
+- Recherche + Quellen
+- finales Voiceover-Skript
+- 10 Szenen mit 60/40-Richtwert
+- jede Szene ist exklusiv `IMAGE` oder `ANIMATION`
+- 6 individuelle Google-Flow-Bildprompts
+- 4 individuell aus dem Sprechpunkt entwickelte Remotion-Animationen
+- universelle Publishing-Caption
 
-- Szene 01 ist immer eine Bildszene und automatisch das Cover; es gibt keinen separaten Cover-Bildjob.
-- Nach bestandener Phase-3-Render-QA wird der Export automatisch gestartet.
-- Das fertige Reel liegt danach in `06-export/` zusammen mit `caption-universal.txt` als Standard-Caption für alle Reel-Plattformen.
+Phase 2 fehlt bewusst noch:
+
+- originale Google-Flow-Bilder
+- finales Voiceover
+- echte Wort-Timings
+
+Danach übernimmt Phase 3 die Integration und den geprüften Render.
+
+## Harte Szenenregel
+
+`IMAGE` = Hero-Bild + Header/Icon + Captions. Keine erklärende Animation über dem Bild.
+
+`ANIMATION` = individuelle Remotion-Erklärung + Header/Icon + Captions. Kein generiertes Bild als Hauptvisual.
+
+## Reel-Titel
+
+**Wie groß sollte dein Notgroschen sein?**
+
+## Inhalt
+
+Das Reel erklärt anfängerfreundlich:
+
+1. warum ein Notgroschen überhaupt gebraucht wird,
+2. die Verbraucherzentrale-Faustregel von zwei bis drei Monatsgehältern,
+3. warum die passende Höhe individuell ist,
+4. warum eine Liquiditätsreserve schnell verfügbar sein sollte,
+5. warum Tagesgeld für diesen Zweck geeigneter ist als schwankende Anlagen,
+6. wie man klein und automatisch startet.
+
+Quelle und Einordnung liegen in `05-projektdateien/recherche-quellen.md`.

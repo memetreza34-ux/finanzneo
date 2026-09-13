@@ -1,19 +1,27 @@
-# Recherche und Quellen
+# Recherche / Quellen
 
-## Kernaussagen
+Stand: 13.09.2026
 
-- Ein Girokonto ist ein Zahlungskonto und wird für alltägliche Zahlungsvorgänge genutzt.
-- Tagesgeld ist nicht für den normalen Zahlungsverkehr gedacht.
-- Über Tagesgeld kann grundsätzlich täglich verfügt werden.
-- Tagesgeldkonten bieten in der Regel Zinsen; die Zinshöhe kann sich ändern.
-- Tagesgeld eignet sich deshalb für eine Liquiditätsreserve bzw. kurzfristig verfügbare Rücklagen.
+## Hauptquelle
 
-## Quellen
+Verbraucherzentrale Schleswig-Holstein / Verbraucherzentrale.de:
+https://www.verbraucherzentrale.de/laura-zieht-aus/sparen
 
-1. Verbraucherzentrale: „Finanzglossar – Durchblick von A wie Aktien bis Z wie Zins“, Abschnitt Tagesgeldkonto. Abruf 30.08.2026. https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/finanzglossar-durchblick-von-a-wie-aktien-bis-z-wie-zins-15907
-2. Verbraucherzentrale: „Girokonto: Was Sie darüber wissen sollten“, Stand 10.12.2025. https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/girokonto-was-sie-darueber-wissen-sollten-4990
-3. BaFin-Kontenvergleich: Glossar „Zahlungskonto“ / Hinweise zu Girokonten. Abruf 30.08.2026. https://kontenvergleich.bafin.de/de/glossar/zahlungskonto
+Kerngedanke für das Reel:
+- Ein Notgroschen dient unerwarteten Ausgaben.
+- Als Faustregel werden zwei bis drei Monatsgehälter genannt.
+- Die passende Höhe hängt von der individuellen Situation ab.
+- Tagesgeld wird als geeigneter Ort für den Notgroschen genannt, weil das Geld verfügbar bleibt.
 
-## Sprachregel
+## Ergänzende Quelle
 
-Das Reel richtet sich an komplette Anfänger. Keine Produkt- oder Bankempfehlung, kein konkreter Zinssatz, keine Aussage über garantierte Rendite. Technische Begriffe werden vermieden, solange Alltagssprache reicht.
+Verbraucherzentrale Finanzglossar — Liquiditätsreserve:
+https://www.verbraucherzentrale.de/wissen/geld-versicherungen/sparen-und-anlegen/finanzglossar-durchblick-von-a-wie-aktien-bis-z-wie-zins-15907
+
+Relevanz:
+- Liquiditätsreserve soll kurzfristig verfügbar sein.
+- Aktien oder Investmentfonds sind wegen möglicher Kursschwankungen nicht als kurzfristige Liquiditätsreserve gedacht.
+
+## Redaktionsregel
+
+Die Angabe `2–3 Monatsgehälter` wird ausdrücklich als **Faustregel / Orientierung** formuliert, nicht als individuelle Finanzberatung oder starre Vorgabe.
