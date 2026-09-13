@@ -22,6 +22,7 @@
 - Recherche + Quellen
 - einfaches, anfängerfreundliches Skript
 - Szenenplan und V9-Flow-Prompts
+- pro Szene exakt `IMAGE` oder `ANIMATION`
 - Header + Icons
 - fertige kanonische `animation.tsx` je Animationsszene
 - Lottie nur als gezielte Support-Ebene vor dem Animation-Seal
@@ -44,17 +45,41 @@ Kein Agent ersetzt oder generiert diese Flow-Bilder oder das Haupt-Voiceover eig
 
 VISUAL_BEAT_COMPATIBILITY_BASE: finanzneo-visual-beats-v1
 FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
+VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v2
 
 - Szenenzahl ist frei und themenabhängig.
 - Erst gesprochene Gedanken definieren, dann pro Gedanken einen sichtbaren Beat planen, danach Szenen gruppieren.
-- Ein Satz darf ein eigenes Bild erhalten; zwei Aussagen/Aktionen/Beispiele in einem Satz dürfen in zwei Beats geteilt werden.
-- Kompatibilitätsbasis älterer Reels: Bildbeats ideal 1,8–3,4 s und max. 4,5 s. **Neue Future-V3-Reels:** ideal 1,8–3,0 s; ab 3,6 s aktiv Split/zusätzliches Bild prüfen; ohne neue sichtbare Information hart maximal 4,0 s.
+- Jede Szene ist exakt `IMAGE` oder `ANIMATION`. Es gibt keinen Reel-Haupttyp `hybrid`.
+- Ein Satz darf mehrere Visual Beats erhalten.
+- Future-V3-Bildbeats ideal 1,8–3,0 s; ab 3,6 s aktiv Split/zusätzliches Bild prüfen; ohne neue sichtbare Information hart maximal 4,0 s.
 - Mehrere Bildszenen nacheinander sind erlaubt, wenn jede die Erklärung sichtbar fortsetzt.
 - Animationen müssen während ihrer Laufzeit mehrere sichtbare Zustände durchlaufen; reine Kamera-Bewegung zählt nicht als neuer Beat.
 - Finale Schnitte folgen den echten Wort-Zeitstempeln des Nutzer-Voiceovers.
 - 60/40 Bild/Animation bleibt Richtwert, keine Quote.
 
 ## 4. Bilder / Google Flow
+
+Eine Bildszene besteht aus:
+
+```text
+Header + Icon
+Bild als einziges Hauptvisual
+Captions
+```
+
+Ausnahme: scene-01 ist der Cover-Sonderfall mit Hero-Bild + exaktem Reel-Titel und ohne normale Captions/Standard-Header.
+
+Für Bildszenen gilt:
+
+- keine animierten Pfeile oder Geldflüsse über dem Bild
+- keine Parallax-/2.5D-Erklärung
+- keine Chart-/Datenoverlays
+- keine Lottie- oder SVG-Hauptmechanik über dem Bild
+- keine dekorative Dauerbewegung nur damit das Bild animiert wirkt
+- kleine funktionale Objektlabels im generierten Bild sind erlaubt, wenn sie Verständnis schaffen
+- normale kurze Szenenübergänge bleiben erlaubt
+
+Google Flow:
 
 - exakt ein Bildjob gleichzeitig
 - vollständig warten → exakt umbenennen → V9-QA → erst dann nächster Job
@@ -81,13 +106,17 @@ Zweizeilige Header halten das Icon an der ersten Textzeile. `AnimationStage` cli
 
 ## 6. Animationen
 
+Eine Animationsszene verwendet kein generiertes Flow-Bild als Hauptvisual.
+
 Animationsszenen sind kleine visuelle Geschichten:
 
 ```text
 START → TRIGGER → PHYSISCHE AKTION → REAKTION → ERGEBNIS → RESULT HOLD
 ```
 
-Pflicht sind konkrete Realwelt-Objekte, sichtbare Ursache/Wirkung, mehrere koordinierte Motion-Channels und mindestens 15 Frames Ergebnis-Hold. Bei Future-V3-Reels muss die Hauptmechanik zusätzlich im echten Render ausreichend groß/füllend sein (Peak active-pixel ratio >= 0,15, Median >= 0,12). Remotion bleibt Timeline-/Render-Autorität. Three/R3F, Paths, Shapes, Motion Blur und Lottie sind Support-Werkzeuge, keine Ersatzmechanik. Kartenreihen, Flowcharts, Dashboard-UI, Fortschrittsbalken als Hauptgeschichte, Partikel/Aurora/Grid-Hintergründe und Debug-/Wackel-Hacks sind verboten.
+Die Mechanik wird für jeden Sprechpunkt individuell in Phase 1 hergeleitet. SVG, Icons, Lottie, Charts, Zahlen, Pfade und 3D-Objekte sind Werkzeuge innerhalb der Animationsszene, nicht die Szenenidee selbst.
+
+Pflicht sind konkrete Realwelt-Objekte oder eine klarere native Daten-/Vektormechanik, sichtbare Ursache/Wirkung, mehrere koordinierte Motion-Channels und mindestens 15 Frames Ergebnis-Hold. Bei Future-V3-Reels muss die Hauptmechanik zusätzlich im echten Render ausreichend groß/füllend sein (Peak active-pixel ratio >= 0,15, Median >= 0,12). Remotion bleibt Timeline-/Render-Autorität. Kartenreihen, Flowcharts, Dashboard-UI, Fortschrittsbalken als Hauptgeschichte, Partikel/Aurora/Grid-Hintergründe und Debug-/Wackel-Hacks sind verboten.
 
 Nach `reel:ready` ist die kanonische Animation per SHA-256 versiegelt.
 
