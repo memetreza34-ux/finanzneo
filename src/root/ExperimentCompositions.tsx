@@ -21,6 +21,10 @@ import {
   FinanceHeaderCaptionMotion,
   FINANCE_HEADER_CAPTION_MOTION_FRAMES,
 } from '../reels-test/FinanceHeaderCaptionMotion';
+import {
+  FinanceImageHybridMotion,
+  FINANCE_IMAGE_HYBRID_FRAMES,
+} from '../reels-test/FinanceImageHybridMotion';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
 import {Scene03SparbuchVs, SCENE03_FRAMES} from '../zins/Scene03SparbuchVs';
@@ -40,16 +44,10 @@ import {EinlagensicherungReel} from '../reels/einlagensicherung-100000/Einlagens
 import {TOTAL_FRAMES as EINLAGENSICHERUNG_LEGACY_FRAMES} from '../reels/einlagensicherung-100000/timeline';
 import {FORMAT} from '../brand/tokens';
 
-// Formatwerte kommen ausschließlich aus src/brand/tokens.ts, damit Registry
-// und Design-System nicht auseinanderlaufen können.
 const FPS = FORMAT.fps;
 const VERTICAL = FORMAT.vertical;
 const WIDE = FORMAT.landscape;
 
-/**
- * Stiltests, technische Prototypen und nicht freigegebene Reel-Entwürfe.
- * Diese Compositions dürfen nicht ungeprüft als Produktionsvideos gerendert werden.
- */
 export const ExperimentCompositions: React.FC = () => (
   <>
     <Composition
@@ -84,10 +82,16 @@ export const ExperimentCompositions: React.FC = () => (
       {...VERTICAL}
     />
 
+    <Composition
+      id="ReelsTestFinanceImageHybridMotion"
+      component={FinanceImageHybridMotion}
+      durationInFrames={FINANCE_IMAGE_HYBRID_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
     <Composition id="ReelTemplateDemo" component={ReelTemplateDemo} durationInFrames={REEL_TEMPLATE_DEMO_FRAMES} fps={FPS} {...VERTICAL} />
 
-    {/* Legacy: historischer Reel-Render vor V9/Pure-Black/Phase-3-Hardening.
-        Nur zur visuellen Referenz. Nicht als Produktionsvorlage verwenden. */}
     <Composition
       id="LegacyEinlagensicherung100000"
       component={EinlagensicherungReel}
@@ -122,7 +126,6 @@ export const ExperimentCompositions: React.FC = () => (
 
     <Composition id="Signature" component={Signature} durationInFrames={300} fps={FPS} {...VERTICAL} />
     <Composition id="RealDataDemo" component={RealDataDemo} durationInFrames={REAL_DATA_FRAMES} fps={FPS} {...VERTICAL} />
-
     <Composition id="LottieTest" component={LottieTest} durationInFrames={90} fps={FORMAT.fps} width={FORMAT.vertical.width} height={FORMAT.vertical.height} />
   </>
 );
