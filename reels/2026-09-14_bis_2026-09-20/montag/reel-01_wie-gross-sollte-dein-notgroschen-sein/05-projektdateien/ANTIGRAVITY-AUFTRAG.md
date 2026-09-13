@@ -1,34 +1,36 @@
-# Antigravity-Auftrag — Girokonto oder Tagesgeld?
+# ANTIGRAVITY — PHASE 3
 
-## Verantwortung
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+LITERAL_FIRST_POLICY: Literal first, creative second.
+FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
+FUTURE_REEL_PRESENTATION: finanzneo-future-reel-presentation-v1
+PHASE1_MOTION_DIRECTION: finanzneo-phase1-individual-motion-v1
+COVER_HOOK_CONTRACT: finanzneo-cover-hook-v2
 
-Phase 1 ist fertig vorbereitet: Skript, 6 Flow-Bildprompts, 4 kanonische Remotion-Animationen, Recherche, Universal-Caption, Sound- und Visual-QA-Pläne.
+Phase 3 startet erst, wenn der Nutzer die originalen Google-Flow-Bilder, genau ein finales Voiceover und echte Wort-Timings geliefert hat.
 
-Der Nutzer liefert in Phase 2:
-1. exakt die 6 Google-Flow-Bilder in 03-szenen/00-ALLE-BILDER-HIER-REIN/,
-2. genau eine finale Voiceover-Datei in 02-audio/.
+## Szenentypen
+- IMAGE: Flow-Bild ist einziges Hauptvisual. Ab scene-02 SceneHeader/Icon + echte Captions. Keine erklärenden Remotion-Overlays, Pfeile, Parallax-, Lottie-, SVG- oder Chart-Hauptmechanik über dem Bild.
+- ANIMATION: versiegelte Phase-1-animation.tsx verwenden. Kein generiertes Bild als Hauptvisual.
 
-Antigravity darf diese beiden Aufgaben NICHT übernehmen.
+## Szene 01 — harter Render-Vertrag
+- Szene 01 ist Hero-Bild + exakter Reel-Titel ab Frame 0.
+- Während scene-01 darf KEINE Caption-/Subtitle-Komponente gemountet oder sichtbar sein.
+- Untertitel beginnen erst mit scene-02.
+- Kein normales Header-Icon, keine Zusatzkarte, kein CTA.
+- Der finale Export erzeugt cover.png aus Frame 0 der bereits geprüften finalen MP4.
 
-## Danach
+## Finalisierung
+1. Assets exakt zuordnen.
+2. Echte Wort-Timings übernehmen; keine künstlich gleich langen Szenen.
+3. SceneHeader + Icon ab scene-02 mounten.
+4. Captions ab scene-02 audio-synchron mounten.
+5. Versiegelte Animationen nicht kreativ ersetzen.
+6. SFX nur framegenau und unterhalb der Voiceover-Priorität.
+7. Candidate auf -16 LUFS / -1 dBTP mastern.
+8. Playwright/Render-QA ausführen; sichtbarer Timing-, Layout- oder Erklärfehler = FAIL.
+9. Erst nach PASS final exportieren.
 
-1. echte Wort-Zeitstempel aus dem finalen Voiceover erzeugen/übernehmen;
-2. Szenegrenzen auf echte Sprache legen;
-3. vorhandene animation.tsx exakt integrieren, nicht durch andere Ideen ersetzen;
-4. Lottie nur als Mikro-Ergänzung, falls sie den bestehenden Mechanismus verbessert;
-5. SFX anhand sound-design.md framegenau erzeugen/einbauen;
-6. Playwright Visual QA nach visual-qa.md durchführen;
-7. Phase-3-Preflight, Render-QA und Hash-Gate vollständig bestehen;
-8. automatisch nach 06-export/ exportieren.
-
-## Unveränderliche Regeln
-
-- V9 stylized 3D animated black world.
-- Pure-black Reel-Canvas #000000.
-- Header V5 und feste Safe-Zones.
-- Szene 01 = Cover, kein Bild 00.
-- Eine Universal-Caption für alle Reel-Plattformen.
-- Keine separaten Plattform-Captions.
-- Voiceover bleibt dominant.
-- Keine neue generische Karten-/Balken-/Dashboard-Animation.
-- Nach Animation-Seal keine kreative Ersetzung der Phase-1-Animationen.
+## Future Image Storytelling V3
+Literal first, creative second. SUBTITLE-OFF-TEST und TRANSFERABILITY-TEST bleiben QA-Pflicht für Bilder.
+Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale und ähnliche Fantasiemechaniken sind keine Standard-Erklärung.

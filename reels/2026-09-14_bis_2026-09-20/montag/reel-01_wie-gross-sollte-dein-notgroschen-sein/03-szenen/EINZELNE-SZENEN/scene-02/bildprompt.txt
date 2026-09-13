@@ -4,45 +4,36 @@ FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
 FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
 MAX_CONCURRENT_GENERATIONS = 1
 
-AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
-
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 02 - Girokonto Alltag.png
-
-Erzeuge ausschließlich dieses eine Bild. Warte intern vollständig auf das Ergebnis, benenne es sofort exakt um und prüfe Motiv, erlaubte Labels, V9-Stil, tiefschwarzen Hintergrund und Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten.
+Bild 02 - Notgroschen faengt Kosten ab.png
 
 BESCHRIFTUNGEN – EXAKT SO:
-- Girokonto
-- Gehalt
-- Miete
+- Reparatur 620 €
+- Notgroschen
+- Dispo
+
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Eine unerwartete Autoreparatur verursacht eine Rechnung, die aus einer vorhandenen Reserve bezahlt werden kann.
+REAL_WORLD_CONTEXT_ANCHOR: Auto mit sichtbarem Reparaturproblem, Werkstattrechnung, Notgroschen und ungenutzter Dispo-Hinweis.
+VOICEOVER_VISUAL_MATCH: Die Reserve steht direkt bei der Reparaturrechnung, während der Dispo sichtbar ungenutzt bleibt.
+TRANSFERABILITY_TEST: PASS: Autoreparatur, Notgroschen und ungenutzter Dispo bilden genau den gesprochenen Schutz vor Schulden ab.
+METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a grounded everyday scene centered on one physical Girokonto object. Show salary arriving as a simple money envelope labeled “Gehalt”, while a rent envelope labeled “Miete” and a normal grocery receipt sit nearby as outgoing everyday obligations. The account must feel like the active hub of normal life, not like a savings vault.
-
-Make the cause and effect immediately understandable without narration: salary visibly arrives at the Girokonto, while rent and everyday spending visibly belong to the same active money area. The viewer should clearly recognize that this account is continuously used for normal incoming and outgoing payments. Keep the arrangement as one believable real-life situation rather than separate finance cards or UI tiles.
+Create one grounded premium stylized-3D car-repair emergency scene. Show the front corner of a believable compact car with one clearly flat tire and a nearby workshop invoice labeled exactly “Reparatur 620 €”. Place an emerald emergency-fund envelope/container labeled exactly “Notgroschen” immediately beside the invoice, visually ready to cover it. A small warm red-orange overdraft card/tag labeled exactly “Dispo” sits farther away and remains untouched. The key story is physical and immediate: the repair happened, the reserve is available, debt does not need to be used. No arrows and no motion overlay are needed; the still image itself must explain the relationship.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: clearly stylized 3D animation, never photorealistic; premium real-world-grounded materials and proportions.
+BACKGROUND: one seamless deep black background.
+COLORS + LIGHT: emerald positive reserve, ivory/gray neutral car and paper, gold money, red-orange only for Dispo/problem. Clean soft studio lighting.
+TEXT: only the three requested labels. No headline/subtitle/CTA.
+FORBIDDEN: dashboard, app UI, flowchart, generic icon-only composition, miniature diorama, clutter, particles, aurora, grid.
 
-STYLE:
-Use premium real-world-grounded stylized 3D. Keep recognizable everyday proportions, polished materials and soft rounded construction. The result must be clearly stylized and cinematic, never photorealistic, never a toy-like icon pack.
-
-BACKGROUND:
-Use one seamless deep black background. Any real-life context must fade naturally into the black world. No bright room, floor-wall boundary, horizon, colored background zone, particles, aurora or grid.
-
-COMPOSITION:
-One clear main situation per image. Supporting objects are flexible and appear only when they improve understanding. Real-world cause/effect and object relationships must be readable in 1–2 seconds.
-
-BRANDS + LOGOS:
-No real bank branding. Generic but recognizable financial objects only. Never paste screenshots, apps, websites or flat logos.
-
-COLORS + LIGHT:
-Emerald green for positive/separated reserve states, warm ivory and soft gray for neutral objects, subtle gold for money/value, warm red-orange only for warnings or costs. Clean soft lighting and contact shadows.
-
-TEXT:
-Only the explicitly requested short German object labels may appear. No headline, subtitle, CTA, long sentence or tiny body copy.
-
-FORBIDDEN:
-No photorealism, no dashboard, no app UI, no flowchart, no small boxes connected by thin lines, no generic card rows, no abstract icon-only replacement, no miniature diorama and no decorative clutter.
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+LITERAL_FIRST_POLICY: Literal first, creative second.
+SUBTITLE-OFF-TEST: Flat tire + repair invoice + Notgroschen + untouched Dispo must read without captions.
+TRANSFERABILITY-TEST: If this could be generic saving imagery, regenerate it.
+Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale und ähnliche Fantasiemechaniken sind keine Standard-Erklärung.
