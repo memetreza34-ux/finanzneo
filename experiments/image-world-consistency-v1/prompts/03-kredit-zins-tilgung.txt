@@ -1,0 +1,20 @@
+SCENE_SPECIFIC_CONTENT
+Create a grounded personal-finance scene that explains how one monthly loan payment is split between interest and principal repayment.
+
+Show a physical loan contract on a premium dark desk as the main anchor, labeled exactly “Kredit”. In front of it, place one monthly payment envelope labeled exactly “Monatsrate 500 €”. The envelope is physically opened into two clear destinations: a smaller warm red-orange paper tray labeled exactly “Zins” and a larger emerald-green paper tray labeled exactly “Tilgung”. Next to the contract, show a neat stack of remaining debt documents becoming visibly thinner toward the green repayment side. The viewer should understand immediately that the same monthly payment has two jobs and that repayment reduces the remaining debt. Avoid pie charts, app screens, dashboards and floating arrows as the main explanation.
+
+BEGIN_FINANZNEO_SHARED_STYLE_LOCK_V1
+Render this scene in the exact FinanzNeo premium stylized 3D visual world. The result must be clearly non-photorealistic and visibly animated-film 3D, while all objects remain believable, correctly proportioned and immediately recognizable from everyday life. Use semi-realistic structure with softly rounded geometry, premium matte surfaces, warm ivory and soft-gray neutrals, graphite details, subtle paper/card texture, restrained brushed-metal cues and only subtle glass where physically plausible.
+
+Use one seamless deep-black background world with no visible studio wall, colored backdrop or bright environment. A small amount of grounded real-world context may exist around the subject, but it must dissolve naturally into the black world. Keep the main situation large and readable, never as a tiny miniature diorama or a small square object cluster floating in empty black space.
+
+Use the same color language in every FinanzNeo scene: emerald green only for positive, protected or preferred elements; warm red-orange only for cost, danger, loss or pressure; subtle gold only for money or value; ivory, gray and graphite for neutral objects. Do not add decorative neon colors.
+
+Use clean soft premium studio lighting with a gentle three-quarter key light, readable soft contact shadows, controlled highlights and strong separation from the black background. Keep a cinematic three-quarter perspective with moderate depth and no extreme wide-angle distortion. The image should feel polished, calm and premium rather than flashy.
+
+Build one coherent explanatory real-world scene with a clear cause-and-effect relationship. The viewer should understand the intended financial point within roughly one to two seconds without audio. Real objects and situations must carry the explanation. Do not replace the main explanation with floating finance icons, generic coins, shields, arrows, dashboards, UI cards, flowcharts or abstract visual riddles.
+
+Only short functional German labels that are explicitly requested in the scene description may appear. No headline, subtitle, CTA, paragraph, watermark or decorative typography. No pasted real-world logo, website, app screenshot or photorealistic branded product shot.
+
+Compose as a clean 1:1 image. Keep the hero objects large, central and clearly separated, with enough surrounding context to understand the situation but without clutter. Every supporting object must materially improve the explanation.
+END_FINANZNEO_SHARED_STYLE_LOCK_V1
