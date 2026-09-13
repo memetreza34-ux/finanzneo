@@ -1,6 +1,6 @@
-# FinanzNeo Visual Selection Rule V1
+# FinanzNeo Visual Selection Rule V2
 
-`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v1`
+`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v2`
 
 Diese Regel entscheidet **vor der Umsetzung**, welche visuelle Form für einen gesprochenen Finanzgedanken verwendet wird.
 
@@ -21,130 +21,125 @@ Danach wird die **einfachste ausreichend starke** Visualisierung gewählt.
 ```text
 Sprechpunkt
 → sichtbares Lernziel / viewerChange
-→ Komplexität des Inhalts einschätzen
-→ passende Visualart wählen
-→ unterstützende Werkzeuge nur bei echtem Mehrwert ergänzen
+→ IMAGE oder ANIMATION wählen
+→ konkrete Umsetzung ableiten
 → Motion so einfach wie möglich, so komplex wie nötig
 ```
 
-## 1. Pure Remotion
+## 1. Reels: harte IMAGE-ODER-ANIMATION-Regel
 
-`pure-remotion` ist der Default für Inhalte, die ohne aufwendige Bildwelt klar verständlich werden.
+Für neue FinanzNeo-Reels ist jede Szene exakt einer von zwei Haupttypen:
+
+### IMAGE
+
+Eine Bildszene besteht aus:
+
+- FinanzNeo `SceneHeader` + passendem Icon oben, außer Cover-Sonderfall scene-01
+- genau einem klaren Google-Flow-Bild als Hauptvisual
+- audio-synchronen Captions unten, außer Cover-Sonderfall scene-01
+
+Das Bild selbst muss den gesprochenen Punkt bereits verständlich erklären.
+
+Erlaubt sind nur kleine funktionale Objektbeschriftungen im generierten Bild, wenn sie Mehrdeutigkeit entfernen, zum Beispiel `Notgroschen`, `Tagesgeld`, `Reparatur 280 €`, `ETF`, `Zins`, `Tilgung`.
+
+Nicht erlaubt sind erklärende Remotion-Overlays auf der Bildszene:
+
+- keine animierten Pfeile oder Geldflüsse
+- keine Parallax-/2.5D-Erklärung
+- keine Chart- oder Datenoverlays
+- keine Fokusmasken als zusätzliche Hauptaussage
+- keine Lottie-Erklärung über dem Bild
+- keine zusätzliche SVG-Hauptmechanik über dem Bild
+- keine dekorative Dauerbewegung, nur damit das Bild nicht statisch wirkt
+
+Normale kurze Szenenübergänge bleiben erlaubt.
+
+### ANIMATION
+
+Eine Animationsszene verwendet **kein generiertes Bild als Hauptvisual**.
+
+Sie darf Remotion, SVG, Icons, Lottie, Charts, Zahlen, Pfade, 3D-Objekte und andere technische Werkzeuge verwenden. Die Hauptmechanik wird aber für den konkreten Sprechpunkt individuell in Phase 1 hergeleitet.
+
+Pflicht-Reihenfolge:
+
+```text
+Sprechpunkt
+→ sichtbares Verständnisziel
+→ visuelle Frage
+→ individuell beste Hauptmechanik
+→ passende Technik
+→ motionDesign
+→ animation.tsx
+```
+
+Icons, Lottie und SVG sind Werkzeuge. Sie bestimmen nicht die Szenenidee.
+
+## 2. Wann IMAGE?
+
+IMAGE ist bevorzugt, wenn eine konkrete reale Situation als einzelnes Standbild schneller und klarer verstanden wird als eine Animation.
 
 Typische Fälle:
 
-- Zahlen hoch-/runterzählen
-- Prozentaufteilungen
-- Balken-, Linien- und Flächendiagramme
-- Sparraten, Rendite, Gebühren, Restschuld
-- einfache Vorher/Nachher-Vergleiche
-- einfache Zeitachsen
-- einfache Geldflüsse
-- Zins-/Tilgungsaufteilung
-- klar prüfbare Datenvisualisierung
+- Notgroschen bei kaputter Waschmaschine
+- Wasserschaden oder Reparatur
+- Einkauf / Inflation als reale Alltagssituation
+- Vertrag, Rechnung oder konkrete Ausgabe
+- konkrete Lebenssituation mit Auto, Wohnung, Arbeit oder Familie
+- ETF-/Finanzstruktur, wenn ein einziges klar aufgebautes Bild bereits genügt
 
-Ziel: **direkt, ruhig, hochwertig und sofort verständlich**.
+Das Bild muss innerhalb ungefähr 1–2 Sekunden lesbar sein.
+
+## 3. Wann ANIMATION?
+
+ANIMATION ist bevorzugt, wenn Veränderung, Reihenfolge, Vergleich oder Ursache/Wirkung über Zeit die Erklärung trägt.
+
+Typische Fälle:
+
+- Zahlen steigen oder sinken
+- zwei bis drei Monatsgehälter werden als Reserve aufgebaut
+- Sparrate wird monatlich übertragen
+- Kreditrate teilt sich in Zins und Tilgung
+- Gebühren wirken über Zeit
+- Restschuld sinkt
+- Gewichtungen verschieben sich
+- Geld wird zwischen klaren Stationen bewegt
 
 Komplexität darf im Code entstehen, aber nicht in der Wahrnehmung des Zuschauers.
 
-## 2. Bild + Remotion Hybrid
+## 4. SVG
 
-`hybrid` wird bevorzugt, wenn ein komplexes, reales oder räumliches Finanzthema durch eine konkrete Szene deutlich verständlicher wird.
+SVG ist erlaubt, wenn präzise Vektorbewegung die Animationsszene verbessert, zum Beispiel für Linien, Kurven, Donuts, Pfade, Netzwerke oder Markierungen.
 
-Typische Fälle:
+SVG darf Hauptmechanik einer **Animationsszene** sein, wenn die abstrakte Darstellung klarer ist als eine reale Bildszene.
 
-- Notgroschen in einer realen Alltagssituation
-- Inflation beim Einkauf
-- Dispo / Kontoüberziehung
-- Versicherung, Vertrag oder Rechnung
-- ETF-/Index-Strukturen mit mehreren realen oder räumlichen Ebenen
-- Dividende → Steuer → Reinvestition
-- komplexe Geldflüsse durch mehrere Stationen
-- Ursache/Wirkung, die als konkrete Situation schneller verstanden wird als als abstrakte Grafik
+## 5. Icons
 
-Das Bild muss bereits als Standbild verständlich sein. Remotion ergänzt **zeitliche Information**, zum Beispiel:
+Icons dienen als semantische Kurzschrift, nicht als Ersatz für eine Erklärung.
 
-- Kamera-Push oder kontrollierte 2.5D-Parallax
-- Fokuswechsel
-- Masken / Reveals
-- selektive Objekt-Hervorhebung
-- Wert- und Labeländerungen
-- Geldfluss-/Pfadbewegung
-- Vorher/Nachher-Transformation
-- Tiefenstaffelung
-- Chart-/Datenoverlay
+Geeignet für Bank, Karte, Wallet, Dokument, Steuer, Warnung, Uhr, Haus, Einkauf, Vertrag oder Status.
 
-Bewegung wird nicht nur hinzugefügt, damit ein Bild "animiert" aussieht.
+## 6. Lottie
 
-## 3. SVG
+Lottie ist eine Support-Schicht für kleine klar definierte Bewegungen, zum Beispiel Check, Warnung, Lupe, Dokumentstatus oder Wallet-Signal.
 
-SVG ist bevorzugt, wenn präzise Vektorbewegung die Erklärung verbessert.
+Lottie ist nicht der FinanzNeo-Hauptstil.
 
-Geeignet für:
+## 7. Reels: erlaubte Kombinationen
 
-- Linien und Kurven
-- Pfade und Verbindungen
-- Donuts / Kreise
-- Diagrammaufbau
-- Netzwerkverbindungen
-- Markierungen
-- Gewichtungen
-- Geldfluss- oder Prozesspfade
-
-SVG darf Hauptmechanik sein, wenn die abstrakte Darstellung klarer ist als eine reale Bildszene.
-
-## 4. Icons
-
-Icons dienen als **semantische Kurzschrift**, nicht als Haupt-Erklärung.
-
-Geeignet für:
-
-- Bank
-- Karte
-- Wallet
-- Dokument
-- Steuer
-- Warnung
-- Uhr
-- Haus
-- Einkauf
-- Vertrag
-- Status / Kategorie
-
-Bevorzugt werden konsistente, saubere SVG-Icon-Sets. Icons dürfen animiert werden, aber eine komplexe Finanzlogik nicht durch eine reine Icon-Sammlung ersetzen.
-
-## 5. Lottie
-
-Lottie ist eine **Support-Schicht** für kleine, klar definierte Bewegungen.
-
-Geeignet für:
-
-- Check / Erfolg
-- Warnung
-- Lupe / Prüfung
-- Dokumentstatus
-- kleines Geld-/Wallet-Signal
-- UI-/Statushinweis
-- kurze Übergangs- oder Fokusaktion
-
-Lottie ist nicht der FinanzNeo-Hauptstil. Kein komplettes Erklärvideo und keine komplexe Finanzmechanik wird nur deshalb als Lottie gebaut, weil ein fertiges Asset existiert.
-
-## 6. Kombinationen
-
-Erlaubte Kombinationen umfassen unter anderem:
+Innerhalb einer **Animationsszene** sind Kombinationen erlaubt, zum Beispiel:
 
 - Remotion + SVG
 - Remotion + Icons
 - Remotion + Lottie
-- Bild + Remotion
-- Bild + Remotion + SVG
-- Bild + Remotion + Icons
-- Bild + Remotion + Lottie
-- Bild + Remotion + SVG + Icons/Lottie
+- Remotion + SVG + Icons/Lottie
 
-Jedes zusätzliche Werkzeug muss einen **konkreten Erklärwert** haben.
+Für **Bildszenen** gilt dagegen:
 
-## 7. Komplexitätsregel
+> Bild + Header/Icon + Captions. Keine zusätzliche erklärende Hauptanimation über dem Bild.
+
+Damit gibt es bei Reels keinen dritten Haupttyp `hybrid`.
+
+## 8. Komplexitätsregel
 
 **Komplexes Finanzthema bedeutet nicht automatisch komplexe Animation.**
 
@@ -160,9 +155,7 @@ Beispiele:
 - Inflation: gleicher Geldbetrag kauft im Zeitverlauf weniger
 - ETF-Replikation: Indexgewichte werden verständlich auf den ETF gespiegelt
 
-Der Zuschauer soll die **Erklärung** sehen, nicht die technische Komplexität der Umsetzung.
-
-## 8. Qualitätsfragen
+## 9. Qualitätsfragen
 
 Jeder Visual Beat muss mindestens eine konkrete Frage sichtbar beantworten:
 
@@ -177,7 +170,7 @@ Jeder Visual Beat muss mindestens eine konkrete Frage sichtbar beantworten:
 
 Wenn die Szene nur dekorativ wirkt, ist die Visualwahl falsch.
 
-## 9. Wiederholungsregel
+## 10. Wiederholungsregel
 
 Vor einem neuen Motion Beat prüfen:
 
@@ -187,45 +180,30 @@ Vor einem neuen Motion Beat prüfen:
 - dominiert erneut dieselbe sichtbare Objektfamilie?
 - gibt es eine klarere oder passendere Darstellung?
 
-**Technisch verschieden reicht nicht.** Eine neue Komponenten-ID, `MECHANIC_ID`, andere Variable oder ein anderes Support-Asset macht eine Animation nicht automatisch visuell neu.
+Technisch verschieden reicht nicht. Wiederholung bleibt erlaubt, wenn sie Vergleich, Kontinuität oder Verständnis verbessert und konkret begründet wird.
 
-Insbesondere gilt:
-
-- anderes Lottie + gleiche Hauptaktion = keine neue Haupttechnik
-- anderes Icon + gleiches Layout = keine neue Haupttechnik
-- anderes SVG-Supportelement + gleiche camera/layout/transformation-Signatur = keine neue Haupttechnik
-- wieder Account + Rechnung + Münzen mit leicht anderer Bewegung = weiterhin dieselbe sichtbare Familie, solange Hauptaktion und Komposition praktisch gleich bleiben
-
-Wiederholung bleibt erlaubt, wenn sie Vergleich, Kontinuität oder Verständnis verbessert und konkret begründet wird.
-
-## 10. Verbotene Tool-first-Logik
+## 11. Verbotene Tool-first-Logik
 
 Nicht zulässig als Entscheidungsgrund:
 
-- "Wir haben dafür schon eine Komponente"
-- "Das Lottie sieht cool aus"
-- "Three.js ist komplexer"
-- "Wir brauchen mehr Effekte"
-- "Wir haben dieses Icon schon"
+- `Wir haben dafür schon eine Komponente`
+- `Das Lottie sieht cool aus`
+- `Three.js ist komplexer`
+- `Wir brauchen mehr Effekte`
+- `Wir haben dieses Icon schon`
 
 Werkzeuge folgen dem Inhalt, niemals umgekehrt.
 
-## 11. Geltungsbereich
-
-### YouTube Longform
-
-Diese Regel ist **verbindlich** und ergänzt:
-
-- `youtube/PRODUKTIONSSTANDARD.md`
-- `docs/YOUTUBE-MOTION-V3.md`
-- `.agents/skills/finanzneo-youtube-motion-director/SKILL.md`
+## 12. Geltungsbereich
 
 ### Reels
 
-Für neue Reels ist diese Regel eine **Planungsregel**. Harte Reel-Verträge in `CLAUDE.md`, `docs/FUTURE-REEL-PRODUCTION-V3.md`, `docs/FUTURE-REEL-PRESENTATION-V1.md`, Layout-/Image-World-/Phase-3-Gates haben weiterhin Vorrang. Sie werden durch dieses Dokument nicht abgeschwächt.
+Für neue Reels ist diese IMAGE-ODER-ANIMATION-Regel verbindlich. Harte Verträge in `CLAUDE.md`, `docs/FUTURE-REEL-PRODUCTION-V3.md`, `docs/FUTURE-REEL-PRESENTATION-V1.md`, Layout-, Image-World- und Phase-3-Gates gelten zusätzlich.
 
-`FUTURE-REEL-PRESENTATION-V1` macht die Wiederholungsregel für neue Reels zusätzlich maschinenlesbar und prüft die sichtbare Zuschauer-Hierarchie im echten Render.
+### YouTube Longform
+
+YouTube Longform darf weiterhin eigene Kombinationen und Hybrid-Techniken verwenden, wenn `youtube/PRODUKTIONSSTANDARD.md` und `docs/YOUTUBE-MOTION-V3.md` sie erlauben. Die exklusive IMAGE-ODER-ANIMATION-Regel dieses Dokuments bezieht sich auf Reels.
 
 ## Kurzregel
 
-> **Einfache Finanzthemen: pure Remotion. Komplexe oder reale Finanzthemen: Bild + Remotion. SVG, Icons und Lottie nur als gezielte Unterstützung. Immer zuerst das sichtbare Lernziel wählen, dann das Werkzeug. Technisch verschieden zählt erst dann als neu, wenn es auch sichtbar eine andere Erklärung ist.**
+> **Reel-Szene = IMAGE oder ANIMATION. IMAGE: Bild + Header/Icon + Captions, ohne erklärende Motion-Overlays. ANIMATION: kein generiertes Bild als Hauptvisual; die Mechanik wird individuell aus dem Sprechpunkt entwickelt.**
