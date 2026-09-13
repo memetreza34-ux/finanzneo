@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 
-// Legt ein neues Reel atomar an: Grundgerüst + Google-Flow-Lock +
-// Stylized 3D Animated Black World V9 + Phase-3-Fertigkeitsvertrag + Reel-V5-Layout +
-// kanonischer Phase-1-Animationscode + Cinematic Real-World Animation Contract +
-// scene-01-als-Cover + Future Cover Hook V2 + Image Storytelling V3 + Visual Beats V2 +
-// Future Production V3 + Future Reel Presentation V1 + individuelle Phase-1-Motion-Direction + automatischer Finalexport.
-// Scheitert einer der Schritte, wird ein in diesem Lauf neu erzeugter Reel-Ordner
-// vollständig zurückgerollt. Bestehende Reels werden durch diesen Creator nie nachträglich verändert.
+// Legt ein neues Reel atomar an: Grundgerüst + aktuelle Produktionsverträge.
+// Neue Reels erhalten Cover Hook V3: Titel ab Frame 0, Captions ab erstem gesprochenen Wort.
+// Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
+// und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -28,14 +25,12 @@ const reelsWurzel = resolve('reels');
 const zuruecknehmen = () => {
   if (bestandVorher || !existsSync(absolutesZiel)) return;
   rmSync(absolutesZiel, {recursive: true, force: true});
-
   let ordner = dirname(absolutesZiel);
   while (ordner.startsWith(reelsWurzel) && ordner !== reelsWurzel) {
     if (!existsSync(ordner) || readdirSync(ordner).length > 0) break;
     rmdirSync(ordner);
     ordner = dirname(ordner);
   }
-
   console.error(`\nAngelegtes Reel wurde wieder entfernt: ${target}`);
   console.error('Ursache oben beheben und reel:create erneut ausführen.');
 };
@@ -52,16 +47,12 @@ const steps = [
   ['scripts/apply-premium-animation-v2.mjs', [target]],
   ['scripts/apply-scene01-cover-export-contract.mjs', [target]],
   ['scripts/apply-visual-beat-contract.mjs', [target]],
-  // Cover Hook erstellt/garantiert zuerst den Phase-3-Handoff. Danach kann
-  // Image Storytelling seinen Block sicher in dieselbe Datei einhängen.
-  ['scripts/apply-future-cover-hook-v2.mjs', [target]],
+  ['scripts/apply-future-cover-hook-v3.mjs', [target]],
   ['scripts/apply-future-image-storytelling-v3.mjs', [target]],
   ['scripts/apply-future-production-standard-v3.mjs', [target]],
-  // Sichtbare Hierarchie und Motion-Diversität zuerst setzen.
   ['scripts/apply-future-reel-presentation-v1.mjs', [target]],
-  // Danach wird die kreative Reihenfolge für jede Animationsszene festgeschrieben:
-  // Inhalt -> Verständnisziel -> sichtbare Mechanik -> Technik. Keine Template-Auswahlliste.
   ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', [target]],
+  ['scripts/apply-reel-quality-guards-v1.mjs', [target]],
 ];
 
 for (const [script, scriptArgs] of steps) {
@@ -73,23 +64,15 @@ for (const [script, scriptArgs] of steps) {
 }
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
-console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob · kein Batch · kein Nutzer-„weiter“.');
-console.log('  Bildwelt V9 + Storytelling V3: Literal first, creative second · reale Situation + Kontextanker + Voiceover-Match vor Metapher.');
-console.log('  Bild-QA V3: Subtitle-off-Test + Transferability-Test · generische Maschinen-/Symbolbilder werden vor Flow blockiert.');
-console.log('  Cover Hook V2: scene-01 = Hero-Bild + exakter Reel-Titel ab Frame 0 · keine Untertitel · kein Standard-Header-Icon.');
-console.log('  Cover-Export V2: finaler Frame 0 der geprüften MP4, damit die Remotion-Titeltypografie im Cover enthalten ist.');
-console.log('  Visual Beats V2 + Future V3: Szenenzahl flexibel · 1 Gedanke = 1 sichtbarer Beat · zusätzliche Bilder ausdrücklich erlaubt.');
-console.log('  Timing V3: statische Bilder ideal 1,8–3,0 s · ab 3,6 s Split prüfen · ohne neue sichtbare Information max. 4,0 s.');
-console.log('  Layout V5: Header Y154 · 56 px · max. 2 Zeilen · Visual Y320–1400 · Captions bottom340 ab scene-02.');
-console.log('  Presentation V1: ab scene-02 sind gerenderter SceneHeader+Icon und echte audio-synchrone Captions Pflicht; Render-QA prüft beides sichtbar.');
-console.log('  Presentation V1: kleine Quadratkarten in viel Schwarz sind gesperrt; Bildszenen müssen die Visualzone sinnvoll nutzen.');
-console.log('  Motion Diversity V1: gleiche camera+layout+transformation-Signatur oder ständig dieselbe Hero-Objektfamilie wird ohne inhaltlichen Grund blockiert.');
-console.log('  Phase 1 Motion Direction V1: jede Animationsszene wird erst inhaltlich analysiert; daraus entsteht individuell die beste sichtbare Mechanik.');
-console.log('  Phase 1 Motion Direction V1: keine feste Animations-Auswahlliste; Reuse nur als begründeter inhaltlicher Best-Fit.');
-console.log('  Lottie/Icons/SVG bleiben Support und zählen allein nicht als neue Hauptanimation.');
-console.log('  Animation Safe Zone: hart Y320–1400 · kein Eindringen in Header/Caption.');
-console.log('  Animation V3: reale stylized-3D-Situation · physische Ursache/Wirkung · Hauptmechanik größer/füllender · Occupancy-QA im echten Render.');
-console.log('  Audio V3: Candidate wird vor Render-QA automatisch auf -16 LUFS / -1 dBTP gemastert.');
-console.log('  Phase 1 muss jede placeholder animation.tsx individuell zum Sprechpunkt produktionsreif ausarbeiten; der Validator blockiert generische Ersatzmechaniken.');
-console.log('  Phase 3: MP4 allein gilt nicht als fertig · Header-/Caption-/Image-Occupancy-QA + Frame-0-Cover-QA + Post-Render-QA + Hash-Gate vor Export.');
-console.log('  Rückwärtskompatibilität: alle Future-Verträge gelten nur für neu mit reel:create angelegte Reels.');
+console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob.');
+console.log('  Bildwelt V9 + Storytelling V3: reale Situation und verständliche Ursache/Wirkung.');
+console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
+console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
+console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
+console.log('  ANIMATION: individuelle Remotion-Hauptanimation + Header/Icon + Caption; kein Flow-Bild als Hauptvisual.');
+console.log('  Motion Direction: Inhalt -> Verständnisziel -> visuelle Frage -> individuelle Mechanik -> Technik.');
+console.log('  Source Diversity Guard: tatsächliche animation.tsx-Primitives werden verglichen; Metadaten allein reichen nicht.');
+console.log('  Animation Safe Zone: X72–1008 und Y320–1400; perspektivischer Innenabstand + Post-Render-Rand-QA.');
+console.log('  Lottie/Icons/SVG sind Support, nicht automatisch eine neue Hauptanimation.');
+console.log('  Audio V3: Candidate wird vor Render-QA auf -16 LUFS / -1 dBTP gemastert.');
+console.log('  Phase 3: Preflight + Render-QA + Edge-Band-QA + Export-Gate.');
