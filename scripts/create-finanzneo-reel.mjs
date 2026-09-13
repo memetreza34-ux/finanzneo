@@ -4,6 +4,7 @@
 // Neue Reels erhalten Cover Hook V3: Titel ab Frame 0, Captions ab erstem gesprochenen Wort.
 // Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
 // und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
+// Bildplanung bleibt: Literal first, creative second. Reel-Visual bleibt: Visual Y320–1400.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -65,14 +66,14 @@ for (const [script, scriptArgs] of steps) {
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
 console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob.');
-console.log('  Bildwelt V9 + Storytelling V3: reale Situation und verständliche Ursache/Wirkung.');
+console.log('  Bildwelt V9 + Storytelling V3: Literal first, creative second · reale Situation + Kontextanker + Voiceover-Match.');
 console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
 console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
 console.log('  ANIMATION: individuelle Remotion-Hauptanimation + Header/Icon + Caption; kein Flow-Bild als Hauptvisual.');
 console.log('  Motion Direction: Inhalt -> Verständnisziel -> visuelle Frage -> individuelle Mechanik -> Technik.');
 console.log('  Source Diversity Guard: tatsächliche animation.tsx-Primitives werden verglichen; Metadaten allein reichen nicht.');
-console.log('  Animation Safe Zone: X72–1008 und Y320–1400; perspektivischer Innenabstand + Post-Render-Rand-QA.');
+console.log('  Animation Safe Zone: X72–1008 · Visual Y320–1400 · perspektivischer Innenabstand + Post-Render-Rand-QA.');
 console.log('  Lottie/Icons/SVG sind Support, nicht automatisch eine neue Hauptanimation.');
 console.log('  Audio V3: Candidate wird vor Render-QA auf -16 LUFS / -1 dBTP gemastert.');
 console.log('  Phase 3: Preflight + Render-QA + Edge-Band-QA + Export-Gate.');
