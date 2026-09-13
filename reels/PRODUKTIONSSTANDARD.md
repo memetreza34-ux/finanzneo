@@ -13,95 +13,122 @@
 06-export/
 ```
 
-`04-caption/` enthält in aktiven Reels nur die universelle Publishing-Caption `caption.txt` und `word-timings.json`. Es gibt keine separaten Plattform-Captiondateien.
+`04-caption/` enthält nur `caption.txt` und `word-timings.json`. Es gibt keine separaten Plattform-Captiondateien.
 
 ## 2. Drei Phasen
 
 ### Phase 1 — ChatGPT / Motion Authoring
-
 - Recherche + Quellen
-- einfaches, anfängerfreundliches Skript
+- anfängerfreundliches Skript
 - Szenenplan und V9-Flow-Prompts
 - Header + Icons
 - fertige kanonische `animation.tsx` je Animationsszene
-- Lottie nur als gezielte Support-Ebene vor dem Animation-Seal
 - Sound-Cue-Plan
 - genau eine universelle Caption: `04-caption/caption.txt`
 
 ### Phase 2 — Nutzer
-
 - finale Google-Flow-Bilder
 - genau ein finales Haupt-Voiceover
 - echte Wort-Timings aus diesem Voiceover
 
-Kein Agent ersetzt oder generiert diese Flow-Bilder oder das Haupt-Voiceover eigenmächtig.
-
 ### Phase 3 — konfigurierter Executor
+Phase 3 integriert Nutzerassets, versiegelten Animationscode und SFX. Kreative Änderungen nach dem Animation-Seal müssen zurück in Phase 1.
 
-`scene-index.json.phase3Executor` entscheidet den Executor. Phase 3 integriert die finalen Nutzerassets, den versiegelten Animationscode und freigegebene lokale SFX. Sie darf zusätzlich Playwright Visual QA gegen die lokale Remotion-Preview durchführen. Eine kreative Änderung an Animation/Lottie nach dem Seal muss zurück in Phase 1 und neu versiegelt werden.
+## 3. Harte Szenentyp-Regel
 
-## 3. Visual Beats und Timing
+Für Reels ist jede Szene **exakt IMAGE oder ANIMATION**.
+
+### IMAGE
+- Flow-Bild als Hauptvisual
+- Titel/Header/Icon gemäß Szenenposition
+- audio-synchrone Captions
+- kurze funktionale Objektlabels erlaubt
+- **keine erklärende Remotion-Hauptanimation über dem Bild**
+
+### ANIMATION
+- eigenständige, individuell aus dem Sprechpunkt entwickelte Remotion-Hauptanimation
+- Header/Icon + Captions
+- SVG, Icons, Lottie, Shapes und Charts dürfen unterstützen
+- **kein Flow-Bild als Hauptvisual**
+
+Ein Bild+Animation-Hybrid als Reel-Hauptvisual ist verboten. Support-Werkzeuge machen aus einer wiederholten Hauptmechanik keine neue Animation.
+
+## 4. Visual Beats und Timing
 
 VISUAL_BEAT_COMPATIBILITY_BASE: finanzneo-visual-beats-v1
 FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 
-- Szenenzahl ist frei und themenabhängig.
-- Erst gesprochene Gedanken definieren, dann pro Gedanken einen sichtbaren Beat planen, danach Szenen gruppieren.
-- Ein Satz darf ein eigenes Bild erhalten; zwei Aussagen/Aktionen/Beispiele in einem Satz dürfen in zwei Beats geteilt werden.
-- Kompatibilitätsbasis älterer Reels: Bildbeats ideal 1,8–3,4 s und max. 4,5 s. **Neue Future-V3-Reels:** ideal 1,8–3,0 s; ab 3,6 s aktiv Split/zusätzliches Bild prüfen; ohne neue sichtbare Information hart maximal 4,0 s.
-- Mehrere Bildszenen nacheinander sind erlaubt, wenn jede die Erklärung sichtbar fortsetzt.
-- Animationen müssen während ihrer Laufzeit mehrere sichtbare Zustände durchlaufen; reine Kamera-Bewegung zählt nicht als neuer Beat.
-- Finale Schnitte folgen den echten Wort-Zeitstempeln des Nutzer-Voiceovers.
-- 60/40 Bild/Animation bleibt Richtwert, keine Quote.
+- Szenenzahl ist themenabhängig.
+- Erst Sprechgedanke → sichtbares Verständnisziel → Visual Beat.
+- Future-V3-Bildbeats ideal 1,8–3,0 s; ab 3,6 s Split prüfen; ohne neue Information max. 4,0 s.
+- Mehrere Bildszenen nacheinander sind erlaubt.
+- Finale Schnitte folgen echten Wort-Zeitstempeln.
+- 60/40 Bild/Animation bleibt nur Richtwert.
 
-## 4. Bilder / Google Flow
+## 5. Cover Hook V3 und Captions
+
+Neue Reels verwenden `finanzneo-cover-hook-v3`:
+
+- scene-01 = Hero-Bild + exakter Reel-Titel ab Frame 0
+- kein normaler SceneHeader und kein Header-Icon in scene-01
+- **Captions beginnen mit dem ersten gesprochenen Wort, auch in scene-01**
+- gesprochenes Voiceover ohne Captions ist verboten
+- eine mehrere Sekunden lange captionlose Cover-Szene bei laufendem Voiceover ist ein harter Fehler
+
+Ab scene-02: normaler SceneHeader + Icon + Captions.
+
+## 6. Bilder / Google Flow
 
 - exakt ein Bildjob gleichzeitig
-- vollständig warten → exakt umbenennen → V9-QA → erst dann nächster Job
+- warten → umbenennen → V9-QA → erst dann nächster Job
 - keine Batch-/Parallelgenerierung
 - scene-01 ist automatisch das Cover; kein Bild 00
 - finale Bilder liegen in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 
-Bildwelt: `finanzneo-stylized-3d-animated-black-v9`. Reale Alltagssituation und klare Ursache/Wirkung zuerst; glaubwürdige Objektkonstruktion und Proportionen; semi-realistische Materialdetails in klar stilisiertem 3D; niemals fotorealistisch. Deep Black bleibt Pflicht.
+Bildwelt: `finanzneo-stylized-3d-animated-black-v9`. Reale Alltagssituation und Ursache/Wirkung zuerst; klar stilisiertes 3D; niemals fotorealistisch; Deep Black Pflicht.
 
-## 5. Layout V5
-
-Quelle ist ausschließlich `REEL_STYLE`:
+## 7. Layout und Safe-Zone
 
 ```text
 Header Y154
 Header 56 px, Minimum 50 px, max. 2 Zeilen
-Icon 34 px, optisch normalisiert
+Icon 34 px
 Visual Y320–1400
 Caption bottom340, max. 2 Zeilen
+Animation X72–1008
 Transition 3 Frames
 ```
 
-Zweizeilige Header halten das Icon an der ersten Textzeile. `AnimationStage` clippt hart auf Y320–1400. Der produktive Hintergrund ist statisch `#000000`.
+`AnimationStage` clippt vertikal auf Y320–1400. Quality Guards V1 schützen zusätzlich horizontal X72–1008 plus perspektivischen Innenabstand. Der produktive Hintergrund bleibt statisch `#000000`.
 
-## 6. Animationen
+## 8. Animationen
 
-Animationsszenen sind kleine visuelle Geschichten:
+Animationsszenen folgen:
 
 ```text
-START → TRIGGER → PHYSISCHE AKTION → REAKTION → ERGEBNIS → RESULT HOLD
+Sprechpunkt
+→ Verständnisziel
+→ visuelle Frage
+→ individuell beste Hauptmechanik
+→ Technik
+→ START → AKTION → REAKTION → ERGEBNIS → RESULT HOLD
 ```
 
-Pflicht sind konkrete Realwelt-Objekte, sichtbare Ursache/Wirkung, mehrere koordinierte Motion-Channels und mindestens 15 Frames Ergebnis-Hold. Bei Future-V3-Reels muss die Hauptmechanik zusätzlich im echten Render ausreichend groß/füllend sein (Peak active-pixel ratio >= 0,15, Median >= 0,12). Remotion bleibt Timeline-/Render-Autorität. Three/R3F, Paths, Shapes, Motion Blur und Lottie sind Support-Werkzeuge, keine Ersatzmechanik. Kartenreihen, Flowcharts, Dashboard-UI, Fortschrittsbalken als Hauptgeschichte, Partikel/Aurora/Grid-Hintergründe und Debug-/Wackel-Hacks sind verboten.
+Pflicht: konkrete Ursache/Wirkung, mehrere koordinierte Motion-Channels, mindestens 15 Frames Ergebnis-Hold. Keine feste Animationsbibliothek als kreatives Auswahlmenü.
 
-Nach `reel:ready` ist die kanonische Animation per SHA-256 versiegelt.
+Quality Guards V1 lesen zusätzlich die **echte `animation.tsx`**. Unterschiedliche `MECHANIC_ID`, Labels, Icons oder Lotties reichen nicht, wenn tatsächliche Hauptobjekte und Komposition sichtbar gleich bleiben. Wiederholung braucht konkrete inhaltliche Begründung.
 
-## 7. SFX
+## 9. SFX
 
-SFX bestätigen sichtbare Ereignisse framegenau. Voiceover bleibt immer dominant. Keine Placeholder-Beeps, keine Remote-Sound-URLs, keine Casino-/Jackpot-Geldsounds. Fehlende freigegebene SFX dürfen mit dem konfigurierten Sound-Skill lokal erzeugt werden; das Haupt-Voiceover bleibt unverändert Nutzerasset.
+SFX bestätigen sichtbare Ereignisse framegenau. Voiceover bleibt dominant. Keine Placeholder-Beeps, Remote-Sound-URLs oder Casino-/Jackpot-Geldsounds.
 
-## 8. Playwright Visual QA
+## 10. Playwright Visual QA
 
-Playwright CLI prüft die lokale Remotion-Preview. Jede Bildszene erhält mindestens einen stabilen Check; jede Animationsszene mindestens START, TRIGGER, MID, NEAR RESULT und FINAL HOLD. Geprüft werden insbesondere Header/Icon-Konsistenz, Y320–1400, Caption-Abstand, Clipping, Hero-Größe, Leerraum und sichtbare Start→Ergebnis-Veränderung. Sichtbare Fehler müssen an der kanonischen Quelle behoben werden, auch wenn TypeScript/Bundle bereits grün sind.
+Playwright Visual QA prüft Bild- und Animationsszenen. Geprüft werden Header/Icon, Y320–1400, Caption-Abstand, Hero-Größe, Leerraum, sichtbare Start→Ergebnis-Veränderung und Clipping.
 
-## 9. Phase 3 / Abschluss
+Zusätzlich prüft die finale Candidate-QA bei neuen Reels die horizontalen Außenbänder. Sichtbarer Animationsinhalt außerhalb der Safe-Zone kann den Export blockieren.
 
-Normale Kette:
+## 11. Phase 3 / Abschluss
 
 ```bash
 npm run reel:ready -- <Reel-Pfad>
@@ -110,13 +137,11 @@ npm run reel:phase3:preflight -- <Reel-Pfad>
 npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 ```
 
-`reel:render` erzeugt den Candidate, führt Post-Render-QA aus und startet nach PASS automatisch den kanonischen Export. Ein direkter `reel:export`-Aufruf ist nur ein kontrollierter Re-Export einer bereits geprüften finalen MP4.
+`reel:render` erzeugt Candidate → Audio-Mastering → Render-QA → Presentation/Occupancy-QA → Edge-Band-QA → finalen Export.
 
-FINAL_COMPLETE verlangt: alle Szenen belegt, exakter Animations-Seal, Audio vorhanden, 1080×1920, korrekte Timeline, Visual-QA bestanden und vollständiges `06-export/`. Bei Future-V3-Reels kommt vor der Freigabe verpflichtend Audio-Mastering auf -16 LUFS / -1 dBTP plus gemessene Audio-/Animationsbelegungs-QA hinzu.
+FINAL_COMPLETE verlangt: alle Szenen belegt, Animations-Seal korrekt, Audio vorhanden, 1080×1920, echte Timings, Visual-QA bestanden, keine abgeschnittenen Animationsobjekte und vollständiges `06-export/`.
 
-## 10. Publishing
-
-Finaler Standard:
+## 12. Publishing
 
 ```text
 06-export/<reel-name>.mp4
