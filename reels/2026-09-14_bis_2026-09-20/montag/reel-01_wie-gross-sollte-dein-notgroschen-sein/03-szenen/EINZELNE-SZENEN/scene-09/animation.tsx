@@ -1,51 +1,61 @@
 import React from 'react';
-import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS, PhysicalAccount, PhysicalCalendarPage, PhysicalCoinStack, PhysicalReserveTank, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {ANIMATION_COLORS, PhysicalCalendarPage, PhysicalCoinStack, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
 
 /**
- * MECHANIC_ID: monthly-fixed-transfer-builds-reserve
- * PRIMARY_ACTION: Drei aufeinanderfolgende Monatswechsel lösen jeweils denselben kleinen Geldstapel vom Girokonto und übertragen ihn automatisch in den Notgroschen.
+ * MECHANIC_ID: three-calendar-auto-save-rhythm
+ * PRIMARY_ACTION: Drei Monatskalender werden nacheinander aktiv; unter jedem Monat erscheint derselbe kleine Goldstapel und bleibt als sichtbarer Beleg der automatischen Sparroutine stehen.
  * ANIMATION_NARRATIVE
- * START: Girokonto und niedrige Reserve stehen bereit; der September-Kalender markiert den Beginn der Routine.
- * MECHANISM: SEP, OKT und NOV wechseln nacheinander; bei jedem Wechsel bewegt sich ein identisch großer Geldstapel vom Girokonto zur Reserve und erhöht deren Füllstand.
- * RESULT: Drei gleich große Transfers sind abgeschlossen und AUTO JEDEN MONAT bestätigt nur die sichtbare Routine.
+ * START: Nur der erste Kalender ist präsent und noch kein Monatsbetrag liegt darunter.
+ * MECHANISM: SEP, OKT und NOV werden nacheinander aktiviert. Zu jedem Monatswechsel fällt exakt derselbe kleine Goldstapel an dieselbe relative Position unter den Kalender.
+ * RESULT: Drei Kalender und drei identische Sparbeträge stehen als klare Wiederholung nebeneinander; AUTO JEDEN MONAT fasst nur die sichtbare Routine zusammen.
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Drei wiederholte identische Geldtransfers zwischen realem Girokonto und Notgroschen-Reservetank.
- * SUPPORT: Die Kalenderseiten geben der Wiederholung klare Monatszeitpunkte, ohne die Hauptmechanik zu ersetzen.
- * MATERIAL: Ivory Kalender und Konto, Gold für jeden festen Betrag, Emerald für die wachsende Reserve.
- * DEPTH: Kalender links hinten, Girokonto links vorne, Bewegungsweg durch die Mitte, Reserve rechts vorne.
+ * HERO: Zeitliche Wiederholung über drei große physische Kalenderblätter — kein Konto, kein Reservetank und keine Geldbewegung zwischen zwei Karten.
+ * SUPPORT: Eine zurückhaltende Zeitlinie verbindet die drei Monate; die Goldstapel zeigen den identischen Betrag.
+ * MATERIAL: Warmes Ivory für Kalender, Emerald Monatskopf, Gold für den wiederholten Sparbetrag.
+ * DEPTH: Drei große Monatsblätter verteilen sich gleichmäßig innerhalb X=125–955 und bleiben vollständig im sicheren Innenbereich.
  */
-export const RESULT_HOLD_FRAMES = 22;
+export const RESULT_HOLD_FRAMES = 24;
 const clamp = {extrapolateLeft:'clamp' as const, extrapolateRight:'clamp' as const};
 
 export const Scene09Animation: React.FC<{durationFrames?:number}> = ({durationFrames=135}) => {
   const frame = useCurrentFrame();
-  const month1 = interpolate(frame,[0,20],[0,1],clamp);
-  const transfer1 = interpolate(frame,[16,42],[0,1],clamp);
-  const month2 = interpolate(frame,[38,56],[0,1],clamp);
-  const transfer2 = interpolate(frame,[50,76],[0,1],clamp);
-  const month3 = interpolate(frame,[72,90],[0,1],clamp);
-  const transfer3 = interpolate(frame,[84,110],[0,1],clamp);
-  const resultIn = interpolate(frame,[106,Math.max(114,durationFrames-RESULT_HOLD_FRAMES)],[0,1],clamp);
-  const fill = 0.18 + transfer1*0.16 + transfer2*0.16 + transfer3*0.16;
+  const {fps} = useVideoConfig();
 
-  const x1 = 325 + transfer1*390;
-  const x2 = 325 + transfer2*390;
-  const x3 = 325 + transfer3*390;
+  const sep = spring({frame, fps, config:{damping:18, stiffness:110}, durationInFrames:22});
+  const okt = spring({frame:Math.max(0,frame-34), fps, config:{damping:18, stiffness:110}, durationInFrames:22});
+  const nov = spring({frame:Math.max(0,frame-68), fps, config:{damping:18, stiffness:110}, durationInFrames:22});
+  const coin1 = interpolate(frame,[16,38],[0,1],clamp);
+  const coin2 = interpolate(frame,[50,72],[0,1],clamp);
+  const coin3 = interpolate(frame,[84,106],[0,1],clamp);
+  const lineProgress = interpolate(frame,[12,98],[0,1],clamp);
+  const resultIn = interpolate(frame,[102,Math.max(112,durationFrames-RESULT_HOLD_FRAMES)],[0,1],clamp);
 
-  return <PremiumPhysicalStage>
-    <PhysicalCalendarPage x={45} y={430} month="SEP" amount="Monat 1" scale={0.78} opacity={Math.max(0.18,1-month2*0.72)} rotate={-5} />
-    <PhysicalCalendarPage x={70} y={455} month="OKT" amount="Monat 2" scale={0.80} opacity={month2*(1-month3*0.72)} rotate={0} />
-    <PhysicalCalendarPage x={95} y={480} month="NOV" amount="Monat 3" scale={0.82} opacity={month3} rotate={5} />
-    <PhysicalAccount x={270} y={590} label="Girokonto" balance="fester Betrag" scale={0.96} />
-    <PhysicalReserveTank x={755} y={520} width={230} height={410} fill={fill} label="Notgroschen" scale={0.98+resultIn*0.02} />
+  return (
+    <PremiumPhysicalStage>
+      <div style={{
+        position:'absolute',left:160,top:770,width:720,height:8,
+        borderRadius:999,background:'rgba(255,255,255,0.10)',overflow:'hidden',
+      }}>
+        <div style={{width:`${lineProgress*100}%`,height:'100%',borderRadius:999,background:ANIMATION_COLORS.positive}} />
+      </div>
 
-    <PhysicalCoinStack x={x1} y={760-transfer1*55} count={3} scale={0.50} opacity={month1*(1-transfer1*0.18)} />
-    <PhysicalCoinStack x={x2} y={825-transfer2*55} count={3} scale={0.50} opacity={month2*(1-transfer2*0.18)} />
-    <PhysicalCoinStack x={x3} y={890-transfer3*55} count={3} scale={0.50} opacity={month3*(1-transfer3*0.18)} />
+      <PhysicalCalendarPage x={125} y={465-(1-sep)*30} month="SEP" amount="+ 100 €" scale={0.90+sep*0.05} opacity={sep} rotate={-3} />
+      <PhysicalCalendarPage x={435} y={465-(1-okt)*30} month="OKT" amount="+ 100 €" scale={0.90+okt*0.05} opacity={okt} rotate={0} />
+      <PhysicalCalendarPage x={745} y={465-(1-nov)*30} month="NOV" amount="+ 100 €" scale={0.90+nov*0.05} opacity={nov} rotate={3} />
 
-    <div style={{position:'absolute',left:610,top:1035,opacity:resultIn,transform:`translateY(${(1-resultIn)*14}px)`,color:ANIMATION_COLORS.positive}}>
-      <PhysicalTag material="positive" style={{fontSize:24}}>AUTO JEDEN MONAT</PhysicalTag>
-    </div>
-  </PremiumPhysicalStage>;
+      <PhysicalCoinStack x={155} y={815-(1-coin1)*75} count={3} scale={0.50+coin1*0.06} opacity={coin1} />
+      <PhysicalCoinStack x={465} y={815-(1-coin2)*75} count={3} scale={0.50+coin2*0.06} opacity={coin2} />
+      <PhysicalCoinStack x={775} y={815-(1-coin3)*75} count={3} scale={0.50+coin3*0.06} opacity={coin3} />
+
+      <div style={{
+        position:'absolute',left:355,top:1040,
+        opacity:resultIn,
+        transform:`translateY(${(1-resultIn)*14}px) scale(${0.96+resultIn*0.04})`,
+        color:ANIMATION_COLORS.positive,
+      }}>
+        <PhysicalTag material="positive" style={{fontSize:25}}>AUTO JEDEN MONAT</PhysicalTag>
+      </div>
+    </PremiumPhysicalStage>
+  );
 };
