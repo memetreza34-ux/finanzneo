@@ -29,30 +29,24 @@ const fail = (message) => errors.push(message);
 const placeholder = /\[|EINFÜGEN|TODO|TBD|XXX|\.\.\./i;
 const validText = (value, min = 6) => typeof value === 'string' && value.trim().length >= min && !placeholder.test(value);
 const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const coverV3 = index.coverHookContract?.id === 'finanzneo-cover-hook-v3';
 
 if (contract.id !== CONTRACT_ID) fail(`futurePresentationContract.id muss ${CONTRACT_ID} sein.`);
 for (const key of [
-  'appliesToNewReelsOnly',
-  'legacyReelsUntouched',
-  'scene01CoverUsesTitleInsteadOfStandardHeader',
-  'scene01CaptionsForbidden',
-  'standardHeaderRequiredFromScene02',
-  'standardIconRequiredFromScene02',
-  'captionsRequiredFromScene02',
-  'captionsMustUseRealWordTimings',
-  'phase3CompositionMustMountAudio',
-  'phase3CompositionMustMountSceneHeader',
-  'phase3CompositionMustMountCaptions',
-  'renderedHeaderQaRequired',
-  'renderedCaptionQaRequired',
-  'imageMustFeelFrameFilling',
-  'smallSquareCardLookForbidden',
-  'motionDiversityRequired',
-  'supportToolSwapDoesNotCountAsNewTechnique',
-  'exactMotionSignatureRepeatWithinPreviousFourForbiddenWithoutReason',
+  'appliesToNewReelsOnly', 'legacyReelsUntouched', 'scene01CoverUsesTitleInsteadOfStandardHeader',
+  'standardHeaderRequiredFromScene02', 'standardIconRequiredFromScene02', 'captionsRequiredFromScene02',
+  'captionsMustUseRealWordTimings', 'phase3CompositionMustMountAudio', 'phase3CompositionMustMountSceneHeader',
+  'phase3CompositionMustMountCaptions', 'renderedHeaderQaRequired', 'renderedCaptionQaRequired',
+  'imageMustFeelFrameFilling', 'smallSquareCardLookForbidden', 'motionDiversityRequired',
+  'supportToolSwapDoesNotCountAsNewTechnique', 'exactMotionSignatureRepeatWithinPreviousFourForbiddenWithoutReason',
   'sameHeroObjectFamilyMoreThanTwiceWithinPreviousFourForbiddenWithoutReason',
-]) {
-  if (contract[key] !== true) fail(`futurePresentationContract.${key} muss true sein.`);
+]) if (contract[key] !== true) fail(`futurePresentationContract.${key} muss true sein.`);
+
+if (coverV3) {
+  if (contract.scene01CaptionsFollowSpeech !== true) fail('Cover-Hook V3 verlangt scene01CaptionsFollowSpeech=true.');
+  if (contract.captionlessSpokenAudioForbidden !== true) fail('Cover-Hook V3 verlangt captionlessSpokenAudioForbidden=true.');
+} else if (contract.scene01CaptionsForbidden !== true) {
+  fail('Legacy-Cover verlangt scene01CaptionsForbidden=true.');
 }
 if (Number(contract.minImageActivePixelRatio) < 0.08) fail('minImageActivePixelRatio muss mindestens 0.08 sein.');
 
@@ -72,7 +66,11 @@ if (first) {
   if (p.coverTitleRequired !== true) fail('scene-01.presentation.coverTitleRequired muss true sein.');
   if (p.standardHeaderRequired !== false) fail('scene-01 darf keinen Standard-SceneHeader verlangen.');
   if (p.iconRequired !== false) fail('scene-01 darf kein Standard-Icon verlangen.');
-  if (p.captionsRequired !== false) fail('scene-01 darf keine Captions verlangen.');
+  if (coverV3) {
+    if (p.captionsRequired !== true || p.captionsFollowVoiceover !== true) fail('scene-01 muss bei Cover-Hook V3 Captions ab Voiceover verlangen.');
+  } else if (p.captionsRequired !== false) {
+    fail('Legacy scene-01 darf keine Captions verlangen.');
+  }
 }
 
 for (const [position, scene] of scenes.entries()) {
@@ -94,24 +92,20 @@ for (const scene of animations) {
     fail(`${id}: motionDesign fehlt.`);
     continue;
   }
-
   if (!validText(m.viewerChange, 18)) fail(`${id}: motionDesign.viewerChange fehlt/ist Platzhalter.`);
   if (!validText(m.primaryAction, 18)) fail(`${id}: motionDesign.primaryAction fehlt/ist Platzhalter.`);
   for (const key of ['visualTechniqueId', 'compositionFamilyId', 'heroObjectFamily']) {
     const value = m[key];
     if (!validText(value, 3) || !slug.test(value.trim())) fail(`${id}: motionDesign.${key} muss ein ausgefüllter slug sein.`);
   }
-  const allowedModes = new Set(['pure-remotion', 'svg', 'data', 'physical', 'typography', 'spatial', 'hybrid', 'other']);
-  if (!allowedModes.has(String(m.visualMode))) fail(`${id}: motionDesign.visualMode ist ungültig.`);
-  if (!Array.isArray(m.supportTools) || m.supportTools.some((tool) => typeof tool !== 'string' || !tool.trim())) {
-    fail(`${id}: motionDesign.supportTools muss eine saubere Liste sein.`);
-  }
+  const allowedModes = new Set(['pure-remotion', 'svg', 'data', 'physical', 'typography', 'spatial', 'other']);
+  if (!allowedModes.has(String(m.visualMode))) fail(`${id}: motionDesign.visualMode ist ungültig; Bild+Animation-Hybrid ist für Reel-Hauptvisuals gesperrt.`);
+  if (!Array.isArray(m.supportTools) || m.supportTools.some((tool) => typeof tool !== 'string' || !tool.trim())) fail(`${id}: motionDesign.supportTools muss eine saubere Liste sein.`);
 
   const sig = m.motionSignature ?? {};
   for (const key of ['camera', 'layout', 'transformation']) {
     if (!validText(sig[key], 3) || !slug.test(sig[key].trim())) fail(`${id}: motionDesign.motionSignature.${key} muss ein ausgefüllter slug sein.`);
   }
-
   const reason = typeof m.repetitionJustification === 'string' ? m.repetitionJustification.trim() : '';
   const hasReason = reason !== 'none' && validText(reason, 20);
   const technique = String(m.visualTechniqueId ?? '').trim();
@@ -119,25 +113,15 @@ for (const scene of animations) {
   const hero = String(m.heroObjectFamily ?? '').trim();
   const signature = `${String(sig.camera ?? '').trim()}|${String(sig.layout ?? '').trim()}|${String(sig.transformation ?? '').trim()}`;
 
-  if (technique && seenTechnique.has(technique) && !hasReason) {
-    fail(`${id}: visualTechniqueId "${technique}" wiederholt ${seenTechnique.get(technique)} ohne konkrete repetitionJustification.`);
-  } else if (technique && !seenTechnique.has(technique)) {
-    seenTechnique.set(technique, id);
-  }
+  if (technique && seenTechnique.has(technique) && !hasReason) fail(`${id}: visualTechniqueId "${technique}" wiederholt ${seenTechnique.get(technique)} ohne konkrete repetitionJustification.`);
+  else if (technique && !seenTechnique.has(technique)) seenTechnique.set(technique, id);
 
   const lastFour = previousAnimations.slice(-4);
-  if (lastFour.some((prev) => prev.signature === signature) && !hasReason) {
-    fail(`${id}: dieselbe sichtbare camera+layout+transformation-Signatur wurde innerhalb der letzten vier Animationen wiederholt.`);
-  }
+  if (lastFour.some((prev) => prev.signature === signature) && !hasReason) fail(`${id}: dieselbe sichtbare camera+layout+transformation-Signatur wurde innerhalb der letzten vier Animationen wiederholt.`);
   const heroCount = lastFour.filter((prev) => prev.hero === hero).length;
-  if (hero && heroCount >= 2 && !hasReason) {
-    fail(`${id}: heroObjectFamily "${hero}" wäre innerhalb der letzten vier Animationen zum dritten Mal Hauptsprache.`);
-  }
-  const consecutiveSameFamily = previousAnimations.slice(-2).every((prev) => prev.family === family) && previousAnimations.length >= 2;
-  if (family && consecutiveSameFamily && !hasReason) {
-    fail(`${id}: compositionFamilyId "${family}" wäre zum dritten Mal in Folge dieselbe visuelle Familie.`);
-  }
-
+  if (hero && heroCount >= 2 && !hasReason) fail(`${id}: heroObjectFamily "${hero}" wäre innerhalb der letzten vier Animationen zum dritten Mal Hauptsprache.`);
+  const consecutiveSameFamily = previousAnimations.length >= 2 && previousAnimations.slice(-2).every((prev) => prev.family === family);
+  if (family && consecutiveSameFamily && !hasReason) fail(`${id}: compositionFamilyId "${family}" wäre zum dritten Mal in Folge dieselbe visuelle Familie.`);
   previousAnimations.push({id, signature, hero, family});
 }
 
@@ -146,7 +130,6 @@ if (errors.length) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
-
 console.log(`\n✓ Future Reel Presentation erfüllt: ${CONTRACT_ID}`);
-console.log('✓ scene-01 bleibt Cover-Sonderfall; ab scene-02 sind Header+Icon+Captions als Präsentationsvertrag gesetzt.');
-console.log(`✓ ${animations.length} Animationsszenen erfüllen sichtbare Motion-Diversität; Support-Tool-Swaps zählen nicht als neue Haupttechnik.`);
+console.log(coverV3 ? '✓ scene-01: Titel ohne Standard-Icon, Captions ab erstem gesprochenen Wort.' : '✓ Legacy scene-01 bleibt captionlos.');
+console.log(`✓ ${animations.length} Animationsszenen erfüllen die geplante Motion-Diversität.`);
