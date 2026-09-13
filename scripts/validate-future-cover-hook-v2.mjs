@@ -22,10 +22,13 @@ if (!c) {
   console.log('✓ Reel ohne Future-Cover-Hook bleibt rückwärtskompatibel.');
   process.exit(0);
 }
+if (c.id !== ID) {
+  console.log(`✓ Cover-Hook ${String(c.id)} wird nicht vom Legacy-V2-Validator geprüft.`);
+  process.exit(0);
+}
 
 const errors = [];
 const assert = (condition, message) => { if (!condition) errors.push(message); };
-assert(c.id === ID, 'coverHookContract.id muss ' + ID + ' sein.');
 for (const key of [
   'titleRenderedByRemotion',
   'titleInGeneratedFlowImageForbidden',
@@ -65,20 +68,9 @@ for (const relative of ['03-szenen/00-cover/cover.txt', first?.planFile, '05-pro
   }
 }
 
-const handoffPath = resolve(root, '05-projektdateien/ANTIGRAVITY-AUFTRAG.md');
-if (existsSync(handoffPath)) {
-  const handoff = readFileSync(handoffPath, 'utf8');
-  assert(handoff.includes('Frame 0'), 'Antigravity-Handoff muss Frame 0 ausdrücklich festlegen.');
-  assert(handoff.includes('KEINE Caption-/Subtitle-Komponente'), 'Antigravity-Handoff muss Captions in scene-01 technisch sperren.');
-  assert(handoff.includes('Untertitel beginnen erst mit scene-02'), 'Antigravity-Handoff muss scene-02 als Caption-Start festlegen.');
-  assert(handoff.includes('finale Export erzeugt cover.png aus Frame 0'), 'Antigravity-Handoff muss den gerenderten Frame-0-Coverexport festlegen.');
-}
-
 if (errors.length) {
-  console.error('\nFuture-Cover-Hook verletzt:\n');
+  console.error('\nFuture-Cover-Hook V2 verletzt:\n');
   errors.forEach((e) => console.error('- ' + e));
   process.exit(1);
 }
-console.log('\n✓ Future-Cover-Hook erfüllt: ' + ID);
-console.log('✓ Frame 0 = Hero-Bild + exakter Reel-Titel · keine Untertitel · kein Standard-Header-Icon.');
-console.log('✓ Cover-Export kommt aus dem geprüften finalen Video-Frame 0.');
+console.log('\n✓ Legacy Future-Cover-Hook V2 erfüllt.');

@@ -21,13 +21,16 @@ const read = (path) => readFileSync(path, 'utf8');
 const write = (path, content) => writeFileSync(path, content.endsWith('\n') ? content : `${content}\n`, 'utf8');
 const index = JSON.parse(read(indexPath));
 const scenes = Array.isArray(index.scenes) ? index.scenes : [];
+const coverCaptionsFollowSpeech = index.coverHookContract?.id === 'finanzneo-cover-hook-v3';
 
 index.futurePresentationContract = {
   id: CONTRACT_ID,
   appliesToNewReelsOnly: true,
   legacyReelsUntouched: true,
   scene01CoverUsesTitleInsteadOfStandardHeader: true,
-  scene01CaptionsForbidden: true,
+  ...(coverCaptionsFollowSpeech
+    ? {scene01CaptionsFollowSpeech: true, captionlessSpokenAudioForbidden: true}
+    : {scene01CaptionsForbidden: true}),
   standardHeaderRequiredFromScene02: true,
   standardIconRequiredFromScene02: true,
   captionsRequiredFromScene02: true,
@@ -54,7 +57,8 @@ index.scenes = scenes.map((scene, position) => {
       coverTitleRequired: true,
       standardHeaderRequired: false,
       iconRequired: false,
-      captionsRequired: false,
+      captionsRequired: coverCaptionsFollowSpeech,
+      captionsFollowVoiceover: coverCaptionsFollowSpeech,
     } : {
       coverTitleRequired: false,
       standardHeaderRequired: true,
@@ -66,7 +70,7 @@ index.scenes = scenes.map((scene, position) => {
   if (scene.type === 'animation' && !scene.motionDesign) {
     next.motionDesign = {
       viewerChange: '[EINFÜGEN — was der Zuschauer nach dieser Animation sichtbar verstanden hat]',
-      visualMode: '[EINFÜGEN — pure-remotion | svg | data | physical | typography | spatial | hybrid | other]',
+      visualMode: '[EINFÜGEN — pure-remotion | svg | data | physical | typography | spatial | other]',
       visualTechniqueId: '[EINFÜGEN — eindeutige Haupttechnik als slug]',
       compositionFamilyId: '[EINFÜGEN — visuelle Familie als slug]',
       heroObjectFamily: '[EINFÜGEN — dominierende sichtbare Objektfamilie als slug]',
@@ -88,7 +92,7 @@ write(indexPath, JSON.stringify(index, null, 2));
 
 const projectDir = resolve(root, '05-projektdateien');
 mkdirSync(projectDir, {recursive: true});
-write(resolve(projectDir, 'future-reel-presentation-v1.md'), `# Future Reel Presentation V1\n\nFUTURE_REEL_PRESENTATION: ${CONTRACT_ID}\n\nDiese Regeln gelten nur für neue Reels ab diesem Vertrag.\n\n## Feste Zuschauer-Hierarchie\n- scene-01: Hero-Bild + exakter Reel-Titel; kein Standard-Header, kein Icon, keine Caption.\n- ab scene-02: jede Szene rendert oben den normalen FinanzNeo-SceneHeader mit passendem Icon.\n- ab scene-02: echte audio-synchrone Captions sind Pflicht. Leere word-timings oder nur vorhandene Caption-Metadaten reichen nicht.\n- Hauptvisual bleibt zwischen Header und Caption klar groß; ein kleines Quadrat in viel Schwarz gilt als Fehler.\n\n## Motion-Diversität\n- Eine andere MECHANIC_ID allein macht noch keine neue Animation.\n- Kamera + Layout + Transformation bilden die sichtbare Motion-Signatur.\n- Gleiche Signatur innerhalb der vorherigen vier Animationsszenen braucht eine konkrete inhaltliche Begründung.\n- Dieselbe dominierende Objektfamilie darf innerhalb der vorherigen vier Animationsszenen nicht mehr als zweimal die Hauptsprache sein, außer ein Vergleich verlangt es ausdrücklich.\n- Lottie, Icons und SVG-Support zählen nicht als neue Haupttechnik, wenn Hauptlayout und Hauptaktion gleich bleiben.\n- Komplexe Finanzthemen dürfen technisch aufwendig sein; sichtbar sollen sie einfacher werden.\n\n## Strukturreferenz\nAls Strukturreferenz darf src/reels/einlagensicherung-100000/EinlagensicherungReel.tsx gelesen werden: Visual in der Mitte, SceneHeader pro normaler Szene, globale audio-synchrone Captions. Nur die Struktur übernehmen, NICHT den alten Hintergrund oder Legacy-Look.\n`);
+write(resolve(projectDir, 'future-reel-presentation-v1.md'), `# Future Reel Presentation V1\n\nFUTURE_REEL_PRESENTATION: ${CONTRACT_ID}\n\n## Feste Zuschauer-Hierarchie\n- scene-01: Hero-Bild + exakter Reel-Titel; kein Standard-SceneHeader und kein Header-Icon.\n- Bei Cover-Hook V3 laufen echte audio-synchrone Captions bereits ab dem ersten gesprochenen Wort in scene-01. Gesprochenes Audio ohne Captions ist verboten.\n- ab scene-02: normaler SceneHeader + passendes Icon + echte audio-synchrone Captions.\n- Hauptvisual bleibt zwischen Header und Caption klar groß; ein kleines Quadrat in viel Schwarz gilt als Fehler.\n\n## Motion-Diversität\n- Eine andere MECHANIC_ID allein macht noch keine neue Animation.\n- Kamera + Layout + Transformation bilden die geplante Motion-Signatur; zusätzlich prüft der Source-Diversity-Guard die tatsächlich verwendeten TSX-Hauptobjekte.\n- Lottie, Icons und SVG-Support zählen nicht als neue Haupttechnik, wenn Hauptlayout und Hauptaktion gleich bleiben.\n- Komplexe Finanzthemen dürfen technisch aufwendig sein; sichtbar sollen sie einfacher werden.\n`);
 
 const append = (relativePath, heading, body) => {
   const path = resolve(root, relativePath);
@@ -98,17 +102,8 @@ const append = (relativePath, heading, body) => {
   write(path, `${current.trim()}\n\n## ${heading}\n\nFUTURE_REEL_PRESENTATION: ${CONTRACT_ID}\n\n${body}\n`);
 };
 
-append(
-  '05-projektdateien/animationen.md',
-  'Future Reel Presentation V1',
-  'Animationen müssen sich sichtbar unterscheiden, nicht nur technisch. Pro Animationsszene motionDesign vollständig ausfüllen: viewerChange, visualMode, visualTechniqueId, compositionFamilyId, heroObjectFamily, primaryAction sowie camera/layout/transformation. Lottie/Icons/SVG-Support zählt nicht als neue Haupttechnik, wenn die sichtbare Hauptmechanik gleich bleibt.',
-);
-append(
-  '05-projektdateien/ANTIGRAVITY-AUFTRAG.md',
-  'Future Reel Presentation V1',
-  'Ab scene-02 MUSS die echte Composition den normalen SceneHeader inklusive Icon und die globalen audio-synchronen Captions rendern. Scene-01 bleibt Cover-Sonderfall. Vor Render prüfen, dass echte word-timings vorhanden sind. Hauptvisuals groß in der Visualzone halten; kein kleines Quadrat in viel Schwarz. Strukturreferenz: src/reels/einlagensicherung-100000/EinlagensicherungReel.tsx nur für Header/Visual/Captions-Hierarchie, nicht für Legacy-Hintergrund. Motion-Design aus Phase 1 nicht durch ähnliche Account/Rechnung/Münzen-Varianten vereinheitlichen.',
-);
+append('05-projektdateien/animationen.md', 'Future Reel Presentation V1', 'Animationen müssen sich sichtbar unterscheiden, nicht nur technisch. motionDesign vollständig ausfüllen; die tatsächlichen TSX-Hauptobjekte werden zusätzlich durch den Source-Diversity-Guard geprüft.');
+append('05-projektdateien/ANTIGRAVITY-AUFTRAG.md', 'Future Reel Presentation V1', 'Scene-01 bleibt Cover-Sonderfall ohne normalen Header/Icon. Bei Cover-Hook V3 starten globale audio-synchrone Captions mit dem ersten gesprochenen Wort. Ab scene-02 sind SceneHeader+Icon+Captions Pflicht. Hauptvisuals groß halten; keine ähnlichen Standard-Objektkompositionen für verschiedene Animationen.');
 
 console.log(`✓ Future Reel Presentation gesetzt: ${CONTRACT_ID}`);
-console.log('  scene-01 = Cover-Sonderfall · ab scene-02 Header+Icon+echte Captions Pflicht.');
-console.log('  Kleine Quadrat-Visuals und nur technisch verschiedene Wiederholungsanimationen werden künftig blockiert.');
+console.log(coverCaptionsFollowSpeech ? '  scene-01: Cover-Titel + Captions ab erstem gesprochenen Wort.' : '  scene-01: Legacy-Cover ohne Captions.');

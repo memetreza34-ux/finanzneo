@@ -2,98 +2,68 @@
 
 `FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3`
 
-Dieser Standard gilt **nur für neue Reels**, die mit dem aktuellen `npm run reel:create` angelegt werden. Bestehende Montag-/Dienstag-/Mittwoch-Reels und ältere Projekte werden nicht rückwirkend migriert oder strenger bewertet.
+Dieser Standard gilt nur für neue Reels aus `npm run reel:create`. Zusätzliche harte Schutzregeln stehen in `docs/FUTURE-REEL-QUALITY-GUARDS-V1.md`.
 
 ## 1. Timing und Visual Beats
 
-Der bestehende Visual-Beat-V2-Vertrag bleibt die Basis. Future V3 verschärft nur den Rhythmus:
-
 - statischer Bildbeat ideal: **1,8–3,0 s**
-- ab ca. **3,6 s** aktiv prüfen, ob ein weiteres Bild/Visual Beat die Aussage klarer macht
-- ohne neue sichtbare Information: **hart maximal 4,0 s**
-- ein Satz darf mehrere Bilder bekommen
-- ein neuer konkreter Gedanke soll eine neue sichtbare Information auslösen
-- echte Wort-Zeitstempel des finalen Nutzer-Voiceovers bleiben die finale Timing-Autorität
+- ab ca. **3,6 s** aktiv prüfen, ob ein weiteres Bild/Visual Beat klarer wäre
+- ohne neue sichtbare Information hart maximal **4,0 s**
+- ein Satz darf mehrere Visual Beats bekommen
+- echte Wort-Zeitstempel des finalen Voiceovers bleiben Timing-Autorität
 
-Ziel: kein statisches Bild bleibt nur deshalb stehen, weil der gesprochene Satz noch nicht zu Ende ist.
+## 2. Exklusive Visual Selection für Reels
 
-## 2. Animationsframing
+Für jede Szene wird vor der Umsetzung genau eine Hauptform gewählt:
 
-Die physische Hauptmechanik muss im echten Render groß genug wirken. Schwarzer Leerraum ist nur dann sinnvoll, wenn er der Geschichte dient.
+### IMAGE
+- konkrete Flow-Bildszene
+- Überschrift/Header/Icon entsprechend der Szenenposition
+- audio-synchrone Captions
+- kleine funktionale Objektlabels erlaubt
+- **keine erklärende Remotion-Hauptanimation über dem Bild**
 
-Post-Render-QA misst im visuellen Kern bei mehreren Zeitpunkten:
+### ANIMATION
+- eigenständige individuelle Remotion-Animation
+- Header/Icon + Captions
+- SVG, Icons, Lottie, Shapes und Charts als passende Werkzeuge/Support erlaubt
+- **kein Flow-Bild als Hauptvisual**
 
-- **Peak active-pixel ratio >= 0,15**
-- **Median active-pixel ratio >= 0,12**
+`hybrid` ist für Reel-Hauptvisuals kein gültiger Szenentyp. Ein Inhalt wird nicht dadurch besser erklärt, dass Bild und Animation unnötig übereinandergelegt werden.
 
-Ein weiter Startzustand ist erlaubt, wenn die Animation anschließend sichtbar näher/größer zur eigentlichen Mechanik wechselt. Kamera-Zoom allein ersetzt keine echte Zustandsänderung.
+## 3. Animationsframing
 
-## 3. Audio Mastering
+Die Hauptmechanik muss groß genug wirken. Post-Render-QA misst:
 
-Für Future-V3-Reels wird der Candidate **vor** der Render-QA automatisch gemastert:
+- Peak active-pixel ratio >= **0,15**
+- Median active-pixel ratio >= **0,12**
 
-- Integrated Loudness: **-16 LUFS**
-- Ziel True Peak: **-1 dBTP**
-- harter True-Peak-Maximalwert: **-0,8 dBTP**
-- AAC **320k**
-- **48 kHz**
-
-Die V3-Render-QA misst danach das reale Ergebnis. Ein bloß vorhandener Audio-Stream reicht bei neuen V3-Reels nicht mehr.
-
-## 4. Render-Reihenfolge
+Zusätzlich gelten die Quality Guards:
 
 ```text
-Remotion Candidate
-→ Future-V3 Audio Mastering
-→ normale Phase-3 Render-QA
-→ Future-V3 Audio-/Occupancy-QA
-→ Final MP4
-→ automatischer Export
+Animation X = 72–1008
+Animation Y = 320–1400
 ```
 
-Fehlt der V3-Marker im Reel, sind die neuen Mastering-/Occupancy-Schritte No-ops. Dadurch bleibt die bestehende Produktionshistorie unverändert.
+Ein perspektivischer Innenabstand schützt vor abgeschnittenen 3D-Objekten. Im echten Candidate werden die Außenränder separat gesampelt.
 
-## 5. Visual Selection — Planungsregel
+## 4. Cover und Captions
 
-`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v1`
+Neue Reels verwenden `finanzneo-cover-hook-v3`:
 
-Für neue Reels wird bereits in Phase 1 nach `docs/FINANZNEO-VISUAL-SELECTION-RULE.md` geplant:
+- scene-01 bleibt Cover-Hook mit Hero-Bild + exaktem Reel-Titel ab Frame 0
+- kein normaler SceneHeader/Icon in scene-01
+- **Captions laufen bereits ab dem ersten gesprochenen Wort**
+- gesprochenes Voiceover ohne Captions ist verboten
 
-- einfache, zahlen-/datengetriebene Aussage → möglichst klare native Remotion-Erklärung
-- komplexe oder reale Aussage → konkrete Bildszene bzw. Bildfolge bevorzugen; Remotion ergänzt nur, wenn es der zeitlichen Erklärung dient
-- SVG für präzise Vektor-/Pfadlogik
-- Icons nur als semantischer Support
-- Lottie nur als kleine Support-Bewegung
+Ab scene-02 gelten normaler `SceneHeader` + Icon + Captions.
 
-Diese Planungsregel **schwächt keine harten Reel-Verträge ab**. `CLAUDE.md`, V9-Bildwelt, Reel-Layout, Phase-1-Codevertrag und Phase-3-Gates bleiben verbindlich.
+## 5. Motion Direction und echte Diversität
 
-Ziel: komplexe Finanzinhalte einfach sichtbar erklären, nicht technisch möglichst kompliziert animieren.
-
-## 6. Future Reel Presentation V1
-
-`FUTURE_REEL_PRESENTATION: finanzneo-future-reel-presentation-v1`
-
-Für neue Reels gilt zusätzlich `docs/FUTURE-REEL-PRESENTATION-V1.md` als harter Zuschauer-Vertrag:
-
-- scene-01 bleibt Cover-Sonderfall mit Hero-Bild + Reel-Titel
-- ab scene-02 muss im **echten Render** oben `SceneHeader` + Icon sichtbar sein
-- ab scene-02 müssen unten echte audio-synchrone Captions sichtbar sein
-- Bildszenen dürfen nicht als kleine quadratische Karten in viel Schwarz erscheinen
-- Motion-Diversität wird über sichtbare Haupttechnik, Hero-Objektfamilie und camera+layout+transformation geprüft
-- ein anderes Lottie/Icon/SVG-Support-Asset macht eine sonst gleiche Animation nicht zu einer neuen Haupttechnik
-
-Phase 1, Phase-3-Preflight und finaler Candidate prüfen unterschiedliche Teile dieses Vertrags. Metadaten allein können die sichtbare Render-QA nicht bestehen.
-
-## 7. Phase 1 Individual Motion Direction V1
-
-`PHASE1_MOTION_DIRECTION: finanzneo-phase1-individual-motion-v1`
-
-Kanonische Regel: `docs/FUTURE-REEL-PHASE1-MOTION-DIRECTION-V1.md`.
-
-Für jede **Animationsszene** eines neuen Reels gilt vor `motionDesign` und vor `animation.tsx` diese Reihenfolge:
+Für jede Animationsszene:
 
 ```text
-Sprechpunkt analysieren
+Sprechpunkt
 → sichtbares Verständnisziel
 → visuelle Frage
 → individuell beste Hauptmechanik
@@ -102,11 +72,30 @@ Sprechpunkt analysieren
 → animation.tsx
 ```
 
-Es gibt **keine feste Animationsbibliothek als kreatives Auswahlmenü**. Frühere Animationen, Komponenten, Lotties, Icons und SVGs sind Werkzeuge und Referenzen. Sie bestimmen nicht die Szenenidee.
+Metadaten-Diversität allein reicht nicht. `validate-reel-quality-guards-v1.mjs` analysiert zusätzlich die tatsächlich verwendeten Physical-Primitives in `animation.tsx`. Wiederholte Hauptobjekt-Sprache und stark überlappende Nachbarszenen werden blockiert, sofern keine konkrete inhaltliche Begründung existiert.
 
-Wiederverwendung bleibt erlaubt, wenn dieselbe Mechanik für den konkreten Inhalt wirklich der beste Fit ist. In diesem Fall muss Phase 1 die Wiederverwendung explizit dokumentieren und inhaltlich begründen.
+## 6. Audio Mastering
 
-Damit greifen zwei verschiedene Schutzschichten zusammen:
+- Integrated Loudness: **-16 LUFS**
+- Ziel True Peak: **-1 dBTP**
+- harter Maximalwert: **-0,8 dBTP**
+- AAC **320k**, 48 kHz
 
-- **Motion Direction V1** verhindert Tool-first- und Template-first-Planung.
-- **Presentation V1** verhindert anschließend sichtbare Wiederholungen, schwache Hierarchie und Support-Asset-Scheinvarianten.
+## 7. Render-Reihenfolge
+
+```text
+Remotion Candidate
+→ Audio Mastering
+→ Phase-3 Render-QA
+→ Future-V3 Presentation/Occupancy-QA
+→ Animation Edge-Band-QA
+→ Final MP4
+→ automatischer Export
+```
+
+## 8. Schutzschichten
+
+- Motion Direction V1: verhindert Template-first-Planung
+- Presentation V1: prüft Zuschauer-Hierarchie und geplante Motion-Diversität
+- Quality Guards V1: IMAGE/ANIMATION-Exklusivität, echte TSX-Diversität und horizontale Safe-Zone
+- Phase 3: prüft den echten Render statt nur Metadaten
