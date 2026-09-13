@@ -1,10 +1,5 @@
-# scene-01
+# scene-01 — IMAGE / Cover
 
-**Typ:** image
-**Zwischenüberschrift:** Zwei Konten, zwei Aufgaben
-**Icon:** wallet
-**Sprechtext:** Viele lassen ihr ganzes Geld auf einem Konto. Dabei haben Girokonto und Tagesgeld zwei verschiedene Aufgaben.
-**Hauptaussage:** Ein normaler Alltag zeigt zwei klar getrennte Geldplätze: Girokonto für laufende Zahlungen und Tagesgeld für Rücklagen.
+Sprechtext: Wenn morgen deine Waschmaschine kaputtgeht, bringt dich die Rechnung sofort ins Minus?
 
-**Google-Flow-Datei:** Bild 01 - Zwei Konten zwei Aufgaben.png
-**Bildprompt:** bildprompt.txt
+Hauptidee: Kaputte Waschmaschine + konkrete Reparaturrechnung + vorhandener Notgroschen. Das Flow-Bild ist das einzige Hauptvisual. Der exakte Reel-Titel wird ab Frame 0 in Remotion gesetzt; keine normalen Captions und kein Standard-Header/Icon in scene-01.

@@ -1,32 +1,14 @@
-# Sound Design — Girokonto oder Tagesgeld?
+# Sound Design — Notgroschen
 
-Voiceover bleibt immer dominant. SFX werden erst in Phase 3 erzeugt/eingebaut und müssen exakt an die tatsächlichen finalen Frames angepasst werden. Keine Placeholder-Beeps und keine Casino-/Jackpot-Geldsounds.
+Voiceover hat immer Priorität. Keine Musik.
 
-## scene-03
-- Gehalt landet: kurzer weicher money-land / paper-cash impact.
-- Miete und Einkauf erscheinen: zwei dezente paper impacts, leicht unterschiedlich.
-- Geld verlässt Girokonto: sehr leiser controlled money movement.
-- BEZAHLT-Moment: zwei kurze confirmation clicks.
+Geplante SFX erst in Phase 3 framegenau auf sichtbare Ereignisse setzen:
+- scene-01: sehr kurzer mechanischer Defekt-/Klick-Sound bei kaputter Waschmaschine, dezent.
+- scene-02: leiser Papier-/Rechnungs-Cue beim sichtbaren Reparaturbeleg.
+- scene-03: drei unterschiedlich leichte Coin/soft-thud Cues beim Eintreffen der Monatsblöcke; kein Casino-Sound.
+- scene-06: kurzer gedämpfter Down/Up-Cue bei ETF-Schwankung, danach ruhiger Bestätigungs-Cue beim Tagesgeld.
+- scene-08: dezenter Paper/settled Cue für gedeckte Rechnung.
+- scene-09: drei kurze, identische Transfer-Cues passend zu den Monatswechseln.
+- scene-10: ruhiger Sicherheits-Check, danach separater softer Activation-Cue für Investment.
 
-## scene-06
-- Alltagsrechnung erscheint: soft paper drop.
-- Geld verlässt Girokonto: subtle money movement.
-- Tagesgeld bleibt stabil: kein Dauer-Sound; am Result nur ein sehr dezenter positive settle click.
-
-## scene-09
-- Monatsblatt: kurzer page flip.
-- Gehalt landet: soft money impact.
-- Fester Teil trennt sich: kleiner mechanical split/click.
-- Transfer ins Tagesgeld: clean short whoosh + soft money land.
-- AUTO GETRENNT: leiser confirmation click.
-
-## scene-10
-- HEUTE/SPÄTER erscheinen: zwei sehr subtile page flips.
-- Einkauf erscheint: paper impact.
-- Zahlung: money movement + soft confirmation.
-- Schluss: kurzer clean settle sound, keine Fanfare.
-
-## Mix
-- SFX deutlich unter dem Voiceover.
-- Keine Musik/SFX, die Verständlichkeit verdecken.
-- Finale Lautheit des gesamten Reels weiterhin ungefähr -16 LUFS, True Peak höchstens -1 dBTP.
+Keine Placeholder-Beeps, keine Jackpot-/Casino-Geldsounds, keine Remote-Sound-URLs.

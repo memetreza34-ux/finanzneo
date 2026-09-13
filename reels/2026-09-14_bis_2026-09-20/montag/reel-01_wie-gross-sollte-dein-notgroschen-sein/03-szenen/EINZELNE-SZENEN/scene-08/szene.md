@@ -1,10 +1,5 @@
-# scene-08
+# scene-08 — IMAGE
 
-**Typ:** image
-**Zwischenüberschrift:** Nicht für tägliche Einkäufe
-**Icon:** cross
-**Sprechtext:** Wichtig: Tagesgeld ist nicht für Kartenzahlungen oder deine täglichen Einkäufe gedacht.
-**Hauptaussage:** Eine Alltagssituation an einer Kasse zeigt, dass die normale Zahlung über das Girokonto läuft und Tagesgeld nicht die Bezahlkarte ersetzt.
+Sprechtext: Eine unerwartete Rechnung zwingt dich dann nicht sofort in den Dispo.
 
-**Google-Flow-Datei:** Bild 08 - Nicht fuer Kartenzahlung.png
-**Bildprompt:** bildprompt.txt
+Hauptidee: Konkrete Stromnachzahlung wird aus dem Notgroschen gedeckt; Dispo bleibt sichtbar ungenutzt. Nur Bild + SceneHeader/Icon + Captions.

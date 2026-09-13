@@ -3,21 +3,20 @@
 ANIMATION_QUALITY_LOCK: finanzneo-phase1-animation-code-v1
 PREMIUM_VISUAL_LOCK: finanzneo-premium-physical-animation-v2
 VISUAL_TARGET_WORLD: finanzneo-stylized-3d-animated-black-v9
+PHASE1_MOTION_DIRECTION: finanzneo-phase1-individual-motion-v1
 
 ## Sprechtext
-Ein einfacher Start: Gehalt kommt aufs Girokonto. Ein fester Betrag geht automatisch aufs Tagesgeld.
+Starte klein und spare jeden Monat automatisch einen festen Betrag.
+
+## Verständnisziel
+Eine wiederholte Monatsroutine mit demselben kleinen Betrag baut die Reserve Schritt für Schritt auf.
 
 ## Mechanik
-MECHANIC_ID: salary-arrives-fixed-share-moves-to-savings
+MECHANIC_ID: monthly-fixed-transfer-builds-reserve
+PRIMARY_ACTION: SEP erscheint → fixer Geldstapel wandert Girokonto→Notgroschen → OKT erscheint → gleicher Betrag wandert erneut → NOV erscheint → dritter identischer Transfer erhöht den Füllstand → Ergebnis AUTO JEDEN MONAT.
 
-PRIMARY_ACTION: Monatsanfang erscheint → Gehalt landet im Girokonto → ein klar abgegrenzter Geldstapel löst sich → bewegt sich sichtbar zum Tagesgeld → Reservefüllstand steigt → Ergebnis AUTO GETRENNT.
+## Warum diese Mechanik
+Die Aussage handelt von Regelmäßigkeit. Wiederkehrende Monatsblätter plus identischer Transfer zeigen Automatisierung konkreter als ein einzelner Balken.
 
 ## Pflicht
-- START → MECHANISMUS → RESULT muss ohne Ton verständlich sein.
-- Reale physische Objekte tragen die Erklärung.
-- Mehrere koordinierte Motion-Channels mit unterschiedlicher Bewegungsphysik.
-- Ergebnis mindestens 15 Frames stabil halten.
-- Pure-black Canvas kommt zentral; AnimationStage bleibt transparent.
-- Keine Kartenreihe, kein Dashboard, kein Flowchart und kein Fortschrittsbalken als Hauptgeschichte.
-- Lottie nur als optionale Mikro-Ergänzung, niemals als Ersatz für die Hauptmechanik.
-- SFX erst in Phase 3 anhand von sound-design.md framegenau ergänzen.
+Kalender, Girokonto, Geld und Reserve sind konkrete Realweltobjekte. Keine Schleifen-Wackelbewegung, kein Dashboard, kein Flowchart.

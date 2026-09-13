@@ -1,10 +1,5 @@
-# scene-06
+# scene-06 — ANIMATION
 
-**Typ:** animation
-**Zwischenüberschrift:** Der Unterschied ist einfach
-**Icon:** arrowRight
-**Sprechtext:** Der Unterschied ist einfach: Girokonto bedeutet Alltag. Tagesgeld bedeutet Rücklage.
-**Hauptaussage:** Alltagsausgaben ziehen sichtbar Geld aus dem Girokonto, während der getrennte Tagesgeld-Reservetank ruhig stehen bleibt.
+Sprechtext: Wichtig: Das Geld muss schnell verfügbar sein. Deshalb eignet sich Tagesgeld besser als Aktien oder ETFs.
 
-**Animation:** animation.tsx
-**Mechanik:** daily-spending-moves-giro-reserve-stays
+Hauptidee: Tagesgeld bleibt stabil verfügbar, während ein ETF-Wert sichtbar schwankt; der Notgroschen landet danach eindeutig beim Tagesgeld. Kein Flow-Bild als Hauptvisual.

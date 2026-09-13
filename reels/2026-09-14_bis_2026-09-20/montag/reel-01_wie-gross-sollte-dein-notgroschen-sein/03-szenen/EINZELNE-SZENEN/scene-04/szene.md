@@ -1,10 +1,5 @@
-# scene-04
+# scene-04 — IMAGE
 
-**Typ:** image
-**Zwischenüberschrift:** Tagesgeld ist für später
-**Icon:** clock
-**Sprechtext:** Tagesgeld ist anders. Dort parkst du Rücklagen und kannst trotzdem täglich auf das Geld zugreifen.
-**Hauptaussage:** Tagesgeld wird als ruhig geparkte, erreichbare Rücklage gezeigt und klar vom Alltagskonto getrennt.
+Sprechtext: Aber das ist nur eine Orientierung und keine feste Zahl.
 
-**Google-Flow-Datei:** Bild 04 - Tagesgeld Ruecklage.png
-**Bildprompt:** bildprompt.txt
+Hauptidee: Eine Person bestimmt ihre Reserve anhand realer Verpflichtungen. Kein fixer Euro-Betrag, keine Kartenreihe. Nur Bild + SceneHeader/Icon + Captions.

@@ -1,10 +1,5 @@
-# scene-02
+# scene-02 — IMAGE
 
-**Typ:** image
-**Zwischenüberschrift:** Das Girokonto ist für heute
-**Icon:** bank
-**Sprechtext:** Das Girokonto ist für deinen Alltag. Hier kommen Gehalt rein und Miete, Einkäufe oder Rechnungen gehen raus.
-**Hauptaussage:** Ein Girokonto steht mitten im Alltag und ist sichtbar mit Gehalt, Miete, Einkäufen und Rechnungen verbunden.
+Sprechtext: Genau dafür ist ein Notgroschen da: Er fängt unerwartete Ausgaben ab, bevor du Schulden brauchst.
 
-**Google-Flow-Datei:** Bild 02 - Girokonto Alltag.png
-**Bildprompt:** bildprompt.txt
+Hauptidee: Reale Autoreparatur wird aus dem Notgroschen abgefangen; Dispo bleibt ungenutzt. Nur Bild + SceneHeader/Icon + Captions, keine erklärende Motion über dem Bild.

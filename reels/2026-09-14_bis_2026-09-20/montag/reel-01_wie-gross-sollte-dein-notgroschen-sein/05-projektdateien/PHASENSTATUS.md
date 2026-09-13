@@ -1,5 +1,19 @@
-# Phasenstatus
+# PHASENSTATUS
 
-- [x] Phase 1: Recherche, einfaches Anfänger-Skript, 10 Szenen, 6 V9-Bildprompts, 4 produktionsreife animation.tsx, Universal-Caption, SFX-Plan und Visual-QA-Plan fertig.
-- [ ] Phase 2: Nutzer erzeugt 6 Bilder in Google Flow und legt genau ein finales Voiceover in 02-audio/ ab. Danach echte Wort-Zeitstempel erzeugen.
-- [ ] Phase 3: Antigravity integriert Assets, SFX und echte Timings; Playwright Visual QA + Render-QA + Hash-Gate + Export bestehen.
+## Phase 1 — FERTIG VORBEREITET
+- [x] Thema
+- [x] Recherche / Quellen
+- [x] Voiceover-Skript
+- [x] 10 Szenen geplant
+- [x] 6 V9-Flow-Bildprompts
+- [x] 4 individuelle Remotion-Animationen
+- [x] IMAGE-ODER-ANIMATION-Regel umgesetzt
+- [x] universelle Publishing-Caption
+
+## Phase 2 — WARTET AUF NUTZERASSETS
+- [ ] 6 originale Google-Flow-Bilder
+- [ ] genau ein finales Voiceover
+- [ ] echte Wort-Timings
+
+## Phase 3 — NOCH NICHT STARTEN
+Erst nach vollständiger Phase 2: Asset-Sync → reel:ready / Animation-Seal → Phase3-Manifest → Retiming → Composition → Candidate → Mastering → Render-QA → Export.

@@ -1,10 +1,5 @@
-# scene-03
+# scene-03 — ANIMATION
 
-**Typ:** animation
-**Zwischenüberschrift:** Hier bewegt sich dein Geld
-**Icon:** repeat
-**Sprechtext:** Das Geld bewegt sich dort ständig: rein, raus, bezahlen. Genau dafür ist das Girokonto gemacht.
-**Hauptaussage:** Gehalt fließt sichtbar ins Girokonto; danach verlassen zwei Geldstapel das Konto und bezahlen Miete und Einkauf.
+Sprechtext: Als Faustregel nennt die Verbraucherzentrale zwei bis drei Monatsgehälter.
 
-**Animation:** animation.tsx
-**Mechanik:** giro-salary-in-daily-payments-out
+Hauptidee: Ganze Monatsgehalt-Blöcke erscheinen nacheinander und füllen sichtbar die Notgroschen-Reserve auf zwei bis drei Monatsgehälter. Kein Flow-Bild als Hauptvisual.

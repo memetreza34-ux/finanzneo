@@ -1,10 +1,5 @@
-# scene-07
+# scene-07 — IMAGE
 
-**Typ:** image
-**Zwischenüberschrift:** Tagesgeld kann Zinsen bringen
-**Icon:** percent
-**Sprechtext:** Auf Tagesgeld bekommst du oft Zinsen. Wie hoch sie sind, hängt von der Bank und dem Angebot ab.
-**Hauptaussage:** Ein Tagesgeld-Reservetopf erhält einen kleinen zusätzlichen Geldbetrag als Zins, ohne einen festen Zinssatz zu behaupten.
+Sprechtext: So bleibt deine Reserve getrennt vom Geld für den Alltag.
 
-**Google-Flow-Datei:** Bild 07 - Tagesgeld Zinsen.png
-**Bildprompt:** bildprompt.txt
+Hauptidee: Girokonto/Alltag und Tagesgeld/Reserve sind räumlich klar getrennt. Das Bild erklärt die Trennung selbst; keine Motion-Overlays.

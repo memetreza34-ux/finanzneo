@@ -1,10 +1,5 @@
-# scene-05
+# scene-05 — IMAGE
 
-**Typ:** image
-**Zwischenüberschrift:** Dafür eignet es sich
-**Icon:** target
-**Sprechtext:** Zum Beispiel für deinen Notgroschen oder Geld, das du in ein paar Monaten brauchst.
-**Hauptaussage:** Zwei konkrete Rücklagenzwecke liegen neben einem Tagesgeldkonto: Notgroschen und eine geplante Ausgabe in einigen Monaten.
+Sprechtext: Mit Auto, Familie oder schwankendem Einkommen kann ein größerer Puffer sinnvoll sein.
 
-**Google-Flow-Datei:** Bild 05 - Ruecklagen Beispiele.png
-**Bildprompt:** bildprompt.txt
+Hauptidee: Auto, Familie und schwankendes Einkommen werden als echte Alltagselemente neben einer größeren Reserve gezeigt. Keine Zusatzanimation über dem Bild.

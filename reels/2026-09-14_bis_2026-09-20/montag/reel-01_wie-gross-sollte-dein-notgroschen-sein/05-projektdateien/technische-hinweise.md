@@ -1,22 +1,17 @@
-# TECHNISCHE HINWEISE
+# Technische Hinweise
 
-- Reel: 1080 × 1920, 9:16, 30 fps
-- Flow-Bilder inklusive Cover: 1:1, keine Bildreferenz
-- Bildwelt: finanzneo-stylized-3d-animated-black-v9
-- Flow-Hintergrund: deep black
-- Remotion-Reel-Canvas: #000000 statisch (finanzneo-pure-black-background-v1)
-- keine Partikel/Aurora/Grid/Glow/Vignette als Reel-Hintergrund
-- Header: Y154, weiß, 56 px, min. 50 px, max. 2 Zeilen, 34-px-Icon
-- Visual: Y320–1400
-- AnimationStage: hart auf Y320–1400 geclippt
-- Captions: bottom340, aktives Wort grün, Rest weiß
-- Animation: fertige Phase-1-animation.tsx, START → MECHANISMUS → ERGEBNIS, Result-Hold >=15 Frames
-- Animation-Hacks/Debug-Platzhalter verboten
-- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP
+COVER_HOOK_CONTRACT: finanzneo-cover-hook-v2
+FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
+FUTURE_REEL_PRESENTATION: finanzneo-future-reel-presentation-v1
+PHASE1_MOTION_DIRECTION: finanzneo-phase1-individual-motion-v1
 
-## Finaler Cover-/Export-Vertrag
-
-- scene-01 = Cover; dieselbe 1:1-Quelldatei wird im Reel und als Cover verwendet.
-- FINAL_RENDER_QA_PASSED löst automatisch `reel:export` aus.
-- Finalvideo: `06-export/<reel-name>.mp4`.
-- Universelle Social-Caption: `06-export/caption-universal.txt` aus `04-caption/caption.txt`.
+- 1080×1920, 30 fps.
+- Zentraler Canvas bleibt statisch #000000.
+- V5: Header Y154; Visual Y320–1400; Captions bottom340.
+- scene-01: exakter Titel aus scene-index.title ab Frame 0, Hero-Bild sichtbar, keine Captions, kein Standard-Header-Icon.
+- Ab scene-02: echte SceneHeader + Icon + audio-synchrone Captions.
+- IMAGE: Bild bleibt einziges Hauptvisual; keine erklärenden Motion-Overlays.
+- ANIMATION: kanonische animation.tsx aus Phase 1; kein Flow-Bild als Hauptvisual.
+- Finale Szenenlängen werden aus dem finalen Nutzer-Voiceover und echten Wort-Timings retimed.
+- Future-V3 Candidate vor QA auf -16 LUFS / -1 dBTP mastern.
+- Der finale Export erzeugt cover.png aus Frame 0 der geprüften finalen MP4.

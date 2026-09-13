@@ -1,17 +1,19 @@
-# Animationen
+# Animationen — Phase 1
 
-Alle vier Animationsszenen sind bereits als kanonische Phase-1-animation.tsx angelegt. Phase 3 darf sie integrieren und an echte Szenendauern anbinden, aber nicht durch neue generische Mechaniken ersetzen.
+PHASE1_MOTION_DIRECTION: finanzneo-phase1-individual-motion-v1
+FUTURE_REEL_PRESENTATION: finanzneo-future-reel-presentation-v1
+FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 
-## scene-03 — giro-salary-in-daily-payments-out
-Gehalt hinein → Miete/Einkauf erscheinen → Geld hinaus → bezahlt.
+## scene-03 — salary-blocks-build-emergency-reserve
+Mengenrelation: drei vollständige Monatsgehalt-Stapel bauen sichtbar die Reserve auf. Haupttechnik: physical accumulate-and-fill.
 
-## scene-06 — daily-spending-moves-giro-reserve-stays
-Alltagsausgabe belastet Girokonto → Tagesgeld bleibt stabil → ALLTAG/RÜCKLAGE.
+## scene-06 — stable-access-versus-market-swing
+Verfügbarkeitsvergleich: Tagesgeld bleibt stabil, ETF schwankt, Notgroschen wählt danach Tagesgeld. Haupttechnik: physical fluctuate-then-select.
 
-## scene-09 — salary-arrives-fixed-share-moves-to-savings
-Gehalt ins Girokonto → fester Teil trennt sich → Tagesgeld füllt sich.
+## scene-09 — monthly-fixed-transfer-builds-reserve
+Routine: drei Kalenderwechsel lösen drei identische automatische Transfers aus. Haupttechnik: calendar-driven repeat-transfer-and-fill.
 
-## scene-10 — today-bill-uses-giro-future-money-stays
-HEUTE-Ausgabe wird aus Giro bezahlt → SPÄTER-Rücklage bleibt unangetastet.
+## scene-10 — reserve-completes-before-investment-activates
+Reihenfolge: Reserve wird zuerst fertig; erst danach aktiviert sich das langfristige Investment. Haupttechnik: sequential complete-gate-then-activate.
 
-Pflicht für alle: START → MECHANISMUS → RESULT, mindestens 15 Frames Result-Hold, mehrere Motion-Channels, PremiumPhysicalStage, pure-black Canvas zentral, keine Karten-/Balken-/Dashboard-Ersatzanimation.
+Alle vier Mechaniken wurden aus ihrem jeweiligen Sprechpunkt neu hergeleitet. Kein Tool oder vorhandenes Template war Ausgangspunkt. Die vier sichtbaren camera/layout/transformation-Signaturen sind unterschiedlich.

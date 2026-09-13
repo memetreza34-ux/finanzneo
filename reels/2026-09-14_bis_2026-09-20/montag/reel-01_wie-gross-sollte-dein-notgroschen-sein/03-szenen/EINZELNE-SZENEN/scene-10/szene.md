@@ -1,10 +1,5 @@
-# scene-10
+# scene-10 — ANIMATION
 
-**Typ:** animation
-**Zwischenüberschrift:** Giro heute, Tagesgeld später
-**Icon:** check
-**Sprechtext:** So bleibt dein Alltagsgeld getrennt von deiner Rücklage. Merke dir: Giro für heute, Tagesgeld für später.
-**Hauptaussage:** Eine heutige Alltagsrechnung wird aus dem Girokonto bezahlt, während ein zweiter Geldstapel beim Tagesgeld sichtbar für später stehen bleibt.
+Sprechtext: Erst Sicherheit aufbauen, dann langfristig investieren.
 
-**Animation:** animation.tsx
-**Mechanik:** today-bill-uses-giro-future-money-stays
+Hauptidee: Der Notgroschen erreicht zuerst einen sicheren Zielzustand. Erst danach wird der langfristige Investment-Baustein aktiviert. Die Reihenfolge ist die Erklärung.

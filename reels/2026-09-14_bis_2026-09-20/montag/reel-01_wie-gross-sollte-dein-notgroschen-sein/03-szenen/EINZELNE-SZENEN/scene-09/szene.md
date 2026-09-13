@@ -1,10 +1,5 @@
-# scene-09
+# scene-09 — ANIMATION
 
-**Typ:** animation
-**Zwischenüberschrift:** Trenn dein Geld automatisch
-**Icon:** repeat
-**Sprechtext:** Ein einfacher Start: Gehalt kommt aufs Girokonto. Ein fester Betrag geht automatisch aufs Tagesgeld.
-**Hauptaussage:** Nach Gehaltseingang trennt sich ein fester Geldstapel sichtbar vom Girokonto und wandert jeden Monat in den Tagesgeld-Reservetank.
+Sprechtext: Starte klein und spare jeden Monat automatisch einen festen Betrag.
 
-**Animation:** animation.tsx
-**Mechanik:** salary-arrives-fixed-share-moves-to-savings
+Hauptidee: Drei Monatswechsel lösen jeweils denselben festen Transfer vom Girokonto in den Notgroschen aus. Die Reserve wächst stufenweise. Kein Flow-Bild als Hauptvisual.

@@ -3,21 +3,20 @@
 ANIMATION_QUALITY_LOCK: finanzneo-phase1-animation-code-v1
 PREMIUM_VISUAL_LOCK: finanzneo-premium-physical-animation-v2
 VISUAL_TARGET_WORLD: finanzneo-stylized-3d-animated-black-v9
+PHASE1_MOTION_DIRECTION: finanzneo-phase1-individual-motion-v1
 
 ## Sprechtext
-So bleibt dein Alltagsgeld getrennt von deiner Rücklage. Merke dir: Giro für heute, Tagesgeld für später.
+Erst Sicherheit aufbauen, dann langfristig investieren.
+
+## Verständnisziel
+Die Reihenfolge ist der Punkt: Notfallreserve zuerst fertigstellen; langfristiges Investieren beginnt erst danach.
 
 ## Mechanik
-MECHANIC_ID: today-bill-uses-giro-future-money-stays
+MECHANIC_ID: reserve-completes-before-investment-activates
+PRIMARY_ACTION: Notgroschen startet teilweise gefüllt → mehrere Geldstapel füllen ihn bis zum sicheren Ziel → Sicherheits-Check erscheint → erst danach wird der vorher inaktive ETF-Baustein sichtbar aktiviert → Ergebnis hält Reihenfolge 1 SICHERHEIT, 2 INVESTIEREN.
 
-PRIMARY_ACTION: HEUTE-Kalender und Einkauf erscheinen beim Girokonto → Giro-Geld bezahlt den Einkauf → SPÄTER-Kalender bleibt beim Tagesgeld → Rücklage bleibt unberührt → Schlussbild stellt HEUTE und SPÄTER klar gegenüber.
+## Warum diese Mechanik
+Eine sichtbare Freigabereihenfolge erklärt „erst … dann …“ direkter als zwei gleichzeitig gezeigte Optionen.
 
 ## Pflicht
-- START → MECHANISMUS → RESULT muss ohne Ton verständlich sein.
-- Reale physische Objekte tragen die Erklärung.
-- Mehrere koordinierte Motion-Channels mit unterschiedlicher Bewegungsphysik.
-- Ergebnis mindestens 15 Frames stabil halten.
-- Pure-black Canvas kommt zentral; AnimationStage bleibt transparent.
-- Keine Kartenreihe, kein Dashboard, kein Flowchart und kein Fortschrittsbalken als Hauptgeschichte.
-- Lottie nur als optionale Mikro-Ergänzung, niemals als Ersatz für die Hauptmechanik.
-- SFX erst in Phase 3 anhand von sound-design.md framegenau ergänzen.
+Reserve und Investment bleiben zwei getrennte physische Objekte. Kein Flow-Bild, kein Dashboard, kein Fortschrittsbalken als Hauptgeschichte.

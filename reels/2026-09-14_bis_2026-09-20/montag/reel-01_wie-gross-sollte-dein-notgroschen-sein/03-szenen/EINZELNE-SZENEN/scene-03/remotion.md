@@ -3,21 +3,24 @@
 ANIMATION_QUALITY_LOCK: finanzneo-phase1-animation-code-v1
 PREMIUM_VISUAL_LOCK: finanzneo-premium-physical-animation-v2
 VISUAL_TARGET_WORLD: finanzneo-stylized-3d-animated-black-v9
+PHASE1_MOTION_DIRECTION: finanzneo-phase1-individual-motion-v1
 
 ## Sprechtext
-Das Geld bewegt sich dort ständig: rein, raus, bezahlen. Genau dafür ist das Girokonto gemacht.
+Als Faustregel nennt die Verbraucherzentrale zwei bis drei Monatsgehälter.
+
+## Verständnisziel
+Die Faustregel beschreibt eine Reserve in der Größenordnung von zwei bis drei vollständigen Monatsgehältern, keine Prozentzahl.
 
 ## Mechanik
-MECHANIC_ID: giro-salary-in-daily-payments-out
+MECHANIC_ID: salary-blocks-build-emergency-reserve
+PRIMARY_ACTION: Ein erster Monatsgehalt-Stapel steht bereit → zweiter und dritter gleich großer Monatsblock erscheinen nacheinander → jeder Block erhöht sichtbar den Notgroschen-Füllstand → Ergebnis hält zwei bis drei Monatsgehälter als Größenordnung.
 
-PRIMARY_ACTION: Gehalt kommt als echter Geldstapel ins Girokonto → Miete und Einkauf erscheinen → zwei Teilbeträge verlassen das Girokonto → beide Alltagsausgaben werden bezahlt → Girokonto bleibt als aktives Alltagskonto sichtbar.
+## Warum diese Mechanik
+Die Aussage ist eine Mengenrelation. Ganze wiederholte Monatsblöcke erklären sie direkter als ein Chart oder dekorativer Zähler.
 
 ## Pflicht
-- START → MECHANISMUS → RESULT muss ohne Ton verständlich sein.
-- Reale physische Objekte tragen die Erklärung.
-- Mehrere koordinierte Motion-Channels mit unterschiedlicher Bewegungsphysik.
-- Ergebnis mindestens 15 Frames stabil halten.
-- Pure-black Canvas kommt zentral; AnimationStage bleibt transparent.
-- Keine Kartenreihe, kein Dashboard, kein Flowchart und kein Fortschrittsbalken als Hauptgeschichte.
-- Lottie nur als optionale Mikro-Ergänzung, niemals als Ersatz für die Hauptmechanik.
-- SFX erst in Phase 3 anhand von sound-design.md framegenau ergänzen.
+- START → MECHANISMUS → RESULT ohne Ton verständlich.
+- PremiumPhysicalStage transparent auf zentralem Pure-Black-Canvas.
+- Reale Geldstapel + Reservebehälter tragen die Erklärung.
+- Mindestens 15 Frames stabiler Result-Hold.
+- Keine Kartenreihe, kein Dashboard, kein Flowchart, kein Fortschrittsbalken als Hauptgeschichte.
