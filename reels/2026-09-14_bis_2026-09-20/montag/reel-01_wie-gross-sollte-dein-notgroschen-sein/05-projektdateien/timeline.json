@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "title": "Girokonto oder Tagesgeld?",
+  "fps": 30,
+  "timingSource": "04-caption/word-timings.json",
+  "cutRule": "voice-sentence-or-meaningful-phrase-start",
+  "sceneCount": 10,
+  "planningOnlyUntilFinalAudio": true,
+  "scenes": [
+    {
+      "id": "scene-01",
+      "startFrame": 0,
+      "durationFrames": 150,
+      "targetSeconds": 5,
+      "audioTrigger": "Viele lassen ihr ganzes Geld auf einem Konto. Dabei haben Girokonto und Tagesgeld zwei verschiedene Aufgaben."
+    },
+    {
+      "id": "scene-02",
+      "startFrame": 150,
+      "durationFrames": 150,
+      "targetSeconds": 5,
+      "audioTrigger": "Das Girokonto ist für deinen Alltag. Hier kommen Gehalt rein und Miete, Einkäufe oder Rechnungen gehen raus."
+    },
+    {
+      "id": "scene-03",
+      "startFrame": 300,
+      "durationFrames": 150,
+      "targetSeconds": 5,
+      "audioTrigger": "Das Geld bewegt sich dort ständig: rein, raus, bezahlen. Genau dafür ist das Girokonto gemacht."
+    },
+    {
+      "id": "scene-04",
+      "startFrame": 450,
+      "durationFrames": 135,
+      "targetSeconds": 4.5,
+      "audioTrigger": "Tagesgeld ist anders. Dort parkst du Rücklagen und kannst trotzdem täglich auf das Geld zugreifen."
+    },
+    {
+      "id": "scene-05",
+      "startFrame": 585,
+      "durationFrames": 150,
+      "targetSeconds": 5,
+      "audioTrigger": "Zum Beispiel für deinen Notgroschen oder Geld, das du in ein paar Monaten brauchst."
+    },
+    {
+      "id": "scene-06",
+      "startFrame": 735,
+      "durationFrames": 135,
+      "targetSeconds": 4.5,
+      "audioTrigger": "Der Unterschied ist einfach: Girokonto bedeutet Alltag. Tagesgeld bedeutet Rücklage."
+    },
+    {
+      "id": "scene-07",
+      "startFrame": 870,
+      "durationFrames": 165,
+      "targetSeconds": 5.5,
+      "audioTrigger": "Auf Tagesgeld bekommst du oft Zinsen. Wie hoch sie sind, hängt von der Bank und dem Angebot ab."
+    },
+    {
+      "id": "scene-08",
+      "startFrame": 1035,
+      "durationFrames": 135,
+      "targetSeconds": 4.5,
+      "audioTrigger": "Wichtig: Tagesgeld ist nicht für Kartenzahlungen oder deine täglichen Einkäufe gedacht."
+    },
+    {
+      "id": "scene-09",
+      "startFrame": 1170,
+      "durationFrames": 165,
+      "targetSeconds": 5.5,
+      "audioTrigger": "Ein einfacher Start: Gehalt kommt aufs Girokonto. Ein fester Betrag geht automatisch aufs Tagesgeld."
+    },
+    {
+      "id": "scene-10",
+      "startFrame": 1335,
+      "durationFrames": 180,
+      "targetSeconds": 6,
+      "audioTrigger": "So bleibt dein Alltagsgeld getrennt von deiner Rücklage. Merke dir: Giro für heute, Tagesgeld für später."
+    }
+  ]
+}
