@@ -33,20 +33,18 @@ export const Scene03Animation: React.FC<{durationFrames?: number}> = ({durationF
 
   return (
     <PremiumPhysicalStage>
-      <div style={{position:'absolute',left:120,top:520,width:470,height:520}}>
-        <PhysicalCoinStack x={20} y={235 - (1 - one) * 55} count={6} scale={0.72 + one * 0.06} opacity={one} />
-        <PhysicalCoinStack x={175} y={235 - (1 - two) * 55} count={6} scale={0.72 + two * 0.06} opacity={two} />
-        <PhysicalCoinStack x={330} y={235 - (1 - three) * 55} count={6} scale={0.72 + three * 0.06} opacity={three} />
+      <PhysicalCoinStack x={120} y={755 - (1 - one) * 55} count={6} scale={0.72 + one * 0.06} opacity={one} />
+      <PhysicalCoinStack x={280} y={755 - (1 - two) * 55} count={6} scale={0.72 + two * 0.06} opacity={two} />
+      <PhysicalCoinStack x={440} y={755 - (1 - three) * 55} count={6} scale={0.72 + three * 0.06} opacity={three} />
 
-        <div style={{position:'absolute',left:18,top:410,opacity:one,color:ANIMATION_COLORS.money}}>
-          <PhysicalTag material="money" style={{fontSize:20}}>MONAT 1</PhysicalTag>
-        </div>
-        <div style={{position:'absolute',left:173,top:410,opacity:two,color:ANIMATION_COLORS.money}}>
-          <PhysicalTag material="money" style={{fontSize:20}}>MONAT 2</PhysicalTag>
-        </div>
-        <div style={{position:'absolute',left:328,top:410,opacity:three,color:ANIMATION_COLORS.money}}>
-          <PhysicalTag material="money" style={{fontSize:20}}>MONAT 3</PhysicalTag>
-        </div>
+      <div style={{position:'absolute',left:118,top:930,opacity:one,color:ANIMATION_COLORS.money}}>
+        <PhysicalTag material="money" style={{fontSize:20}}>MONAT 1</PhysicalTag>
+      </div>
+      <div style={{position:'absolute',left:278,top:930,opacity:two,color:ANIMATION_COLORS.money}}>
+        <PhysicalTag material="money" style={{fontSize:20}}>MONAT 2</PhysicalTag>
+      </div>
+      <div style={{position:'absolute',left:438,top:930,opacity:three,color:ANIMATION_COLORS.money}}>
+        <PhysicalTag material="money" style={{fontSize:20}}>MONAT 3</PhysicalTag>
       </div>
 
       <PhysicalReserveTank
@@ -62,7 +60,7 @@ export const Scene03Animation: React.FC<{durationFrames?: number}> = ({durationF
       <div style={{
         position:'absolute',
         left:360,
-        top:1030,
+        top:1040,
         opacity:resultIn,
         transform:`translateY(${(1-resultIn)*16}px) scale(${0.96 + resultIn*0.04})`,
         color:ANIMATION_COLORS.positive,
