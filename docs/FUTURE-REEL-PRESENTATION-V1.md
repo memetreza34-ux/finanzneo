@@ -8,12 +8,21 @@ Dieser Standard gilt nur für neu erzeugte Reels und wird durch `docs/FUTURE-REE
 
 ### Szene 01 — Cover Hook V3
 
-- Hero-Bild
-- exakter Reel-Titel ab Frame 0
+**Frame 0 ist bereits das fertige Cover.** Es gibt keinen vorgelagerten schwarzen Frame und keine nachträgliche Hero-Bild-Einblendung.
+
+Pflicht ab dem allerersten Videoframe:
+
+- vollständiges Hero-Bild bereits sichtbar, `opacity = 1`
+- exakter Reel-Titel bereits sichtbar
+- kein Bild-Fade-in
+- keine Cover-Entrance-Transition
+- kein schwarzer Lead-in
 - kein normaler `SceneHeader`
 - kein Standard-Icon
-- **audio-synchrone Captions ab dem ersten gesprochenen Wort**
+- audio-synchrone Captions ab dem ersten gesprochenen Wort
 - kein gesprochenes Voiceover ohne Captions
+
+Die generische kurze `imageEnterFrames`-Animation anderer Bildszenen darf **nicht** auf scene-01 angewendet werden. Für scene-01 gilt `scene01ImageEnterFrames = 0`.
 
 Captions sind keine zweite Erklärungsschicht, sondern die normale Untertitelspur des Voiceovers. Eine mehrere Sekunden lange captionlose Cover-Szene bei laufendem Voiceover ist verboten.
 
@@ -39,6 +48,8 @@ SVG, Icons und Lottie können Animationsszenen unterstützen. Sie verwandeln ein
 ## 3. Bildgröße
 
 Flow-Bilder bleiben als Quelle 1:1, müssen im 9:16-Reel aber groß und klar wirken. `activePixelRatio >= 0.10` im visuellen Kern bleibt das Render-Ziel. Kleine Quadratkarten in viel schwarzem Leerraum sind verboten.
+
+Für das Cover reicht eine spätere Belegungsprobe ausdrücklich nicht: `validate-cover-frame0-render-v1.mjs` misst den visuellen Kern **exakt bei Frame 0** und vergleicht ihn zusätzlich mit dem frühen stabilen Cover-Zustand. Titel auf Schwarz mit erst danach eingeblendetem Bild ist ein harter FAIL.
 
 ## 4. Content-first Motion
 
@@ -81,13 +92,14 @@ Phase 3 prüft den echten Candidate zusätzlich an den linken/rechten Außenbän
 ### Phase 1
 - Content-first Motion Direction
 - Presentation-Metadaten
+- Cover-Hero ab Frame 0 / kein Cover-Fade-in
 - tatsächliche Source-Diversität
 - IMAGE/ANIMATION-Exklusivität
 - statisch prüfbare horizontale Safe-Zone
 
 ### Phase 3
 - echtes Audio und echte Wort-Timings
-- Cover-Titel ab Frame 0
+- exakter Frame 0: Hero-Bild + Cover-Titel bereits vollständig sichtbar
 - Captions ab erstem gesprochenen Wort
 - Header/Icon ab Szene 02
 - Bild-/Animationsbelegung
@@ -95,4 +107,4 @@ Phase 3 prüft den echten Candidate zusätzlich an den linken/rechten Außenbän
 
 ## Kurzregel
 
-> **Cover-Titel ab Frame 0, Captions ab dem ersten gesprochenen Wort. Jede Szene ist IMAGE oder ANIMATION. Animationen werden inhaltlich individuell entwickelt, anhand der echten TSX-Quelle auf Wiederholung geprüft und dürfen nicht an den Seiten abgeschnitten werden.**
+> **Frame 0 ist bereits das fertige Cover: Hero-Bild + Titel sofort sichtbar, kein schwarzer Vorlauf und kein Bild-Fade-in. Captions starten mit dem ersten gesprochenen Wort. Jede Szene ist IMAGE oder ANIMATION. Animationen werden inhaltlich individuell entwickelt, anhand der echten TSX-Quelle auf Wiederholung geprüft und dürfen nicht an den Seiten abgeschnitten werden.**

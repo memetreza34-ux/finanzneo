@@ -119,9 +119,8 @@ if (qa.status !== 0) {
   process.exit(qa.status ?? 1);
 }
 
-// Zusätzliche V3-QA prüft am echten Candidate die zwei Qualitätshebel, die
-// normale Render-QA bewusst nicht für ältere Reels erzwingt: Audio-Lautheit
-// und ausreichend große/füllende Animations-Hauptmechanik.
+// Zusätzliche V3-QA prüft Audio, visuelle Belegung, Caption-/Header-Hierarchie
+// und die geschützten Animationsränder.
 const futureQa = spawnSync(process.execPath, [
   resolve('scripts/validate-future-production-render-v3.mjs'),
   reelProject,
@@ -133,6 +132,22 @@ if (futureQa.status !== 0) {
   console.error('\n✗ Candidate hat die Future-Production-V3-Render-QA nicht bestanden.');
   console.error('  Candidate wurde entfernt; es existiert KEIN neu freigegebenes finales MP4.');
   process.exit(futureQa.status ?? 1);
+}
+
+// Cover Hook V3 bekommt ein eigenes exaktes Frame-0-Gate. Eine spätere
+// Stichprobe reicht hier nicht: Das exportierte Cover IST der erste Frame.
+// Titel auf Schwarz + erst danach eingeblendetes Hero-Bild ist daher FAIL.
+const coverFrame0Qa = spawnSync(process.execPath, [
+  resolve('scripts/validate-cover-frame0-render-v1.mjs'),
+  reelProject,
+  candidateOutput,
+], {stdio: 'inherit'});
+
+if (coverFrame0Qa.status !== 0) {
+  if (existsSync(candidateOutput)) rmSync(candidateOutput, {force: true});
+  console.error('\n✗ Candidate hat die Cover-Frame-0-Hero-QA nicht bestanden.');
+  console.error('  Candidate wurde entfernt; es existiert KEIN neu freigegebenes finales MP4.');
+  process.exit(coverFrame0Qa.status ?? 1);
 }
 
 if (existsSync(finalOutput)) rmSync(finalOutput, {force: true});

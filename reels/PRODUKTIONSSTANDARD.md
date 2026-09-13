@@ -67,13 +67,21 @@ FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 
 ## 5. Cover Hook V3 und Captions
 
-Neue Reels verwenden `finanzneo-cover-hook-v3`:
+Neue Reels verwenden `finanzneo-cover-hook-v3`.
 
-- scene-01 = Hero-Bild + exakter Reel-Titel ab Frame 0
+**Frame 0 ist bereits das fertige Cover:**
+
+- Hero-Bild ist im allerersten Videoframe vollständig sichtbar (`opacity = 1`)
+- exakter Reel-Titel ist ebenfalls ab Frame 0 sichtbar
+- kein schwarzer Vorlauf
+- kein Hero-Bild-Fade-in
+- keine Cover-Entrance-Transition
+- die generischen `imageEnterFrames` anderer Bildszenen werden auf scene-01 nicht angewendet; `scene01ImageEnterFrames = 0`
 - kein normaler SceneHeader und kein Header-Icon in scene-01
 - **Captions beginnen mit dem ersten gesprochenen Wort, auch in scene-01**
 - gesprochenes Voiceover ohne Captions ist verboten
-- eine mehrere Sekunden lange captionlose Cover-Szene bei laufendem Voiceover ist ein harter Fehler
+
+Ein Titel auf schwarzem Hintergrund, bei dem das Hero-Bild erst nach einigen Frames erscheint, ist ein harter Fehler und darf nicht exportiert werden.
 
 Ab scene-02: normaler SceneHeader + Icon + Captions.
 
@@ -128,6 +136,8 @@ Playwright Visual QA prüft Bild- und Animationsszenen. Geprüft werden Header/I
 
 Zusätzlich prüft die finale Candidate-QA bei neuen Reels die horizontalen Außenbänder. Sichtbarer Animationsinhalt außerhalb der Safe-Zone kann den Export blockieren.
 
+Für Cover Hook V3 wird der visuelle Kern **exakt bei Frame 0** geprüft und mit einem frühen stabilen Cover-Frame verglichen. So kann ein schwarzer Startframe oder versteckter Bild-Fade-in nicht mehr durch eine spätere Stichprobe bestehen.
+
 ## 11. Phase 3 / Abschluss
 
 ```bash
@@ -137,9 +147,9 @@ npm run reel:phase3:preflight -- <Reel-Pfad>
 npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 ```
 
-`reel:render` erzeugt Candidate → Audio-Mastering → Render-QA → Presentation/Occupancy-QA → Edge-Band-QA → finalen Export.
+`reel:render` erzeugt Candidate → Audio-Mastering → Render-QA → Presentation/Occupancy-QA → Edge-Band-QA → exakte Frame-0-Hero-QA → finalen Export.
 
-FINAL_COMPLETE verlangt: alle Szenen belegt, Animations-Seal korrekt, Audio vorhanden, 1080×1920, echte Timings, Visual-QA bestanden, keine abgeschnittenen Animationsobjekte und vollständiges `06-export/`.
+FINAL_COMPLETE verlangt: alle Szenen belegt, Animations-Seal korrekt, Audio vorhanden, 1080×1920, echte Timings, Visual-QA bestanden, vollständiges Hero-Bild ab Frame 0, keine abgeschnittenen Animationsobjekte und vollständiges `06-export/`.
 
 ## 12. Publishing
 
