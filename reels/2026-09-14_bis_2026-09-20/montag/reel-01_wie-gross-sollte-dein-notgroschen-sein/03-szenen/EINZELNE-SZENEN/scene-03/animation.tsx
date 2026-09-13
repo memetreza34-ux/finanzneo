@@ -1,49 +1,73 @@
 import React from 'react';
-import {interpolate, useCurrentFrame} from 'remotion';
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {ANIMATION_COLORS, PhysicalCoinStack, PhysicalReserveTank, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
 
 /**
- * MECHANIC_ID: salary-blocks-build-emergency-reserve
- * PRIMARY_ACTION: Drei vollständige Monatsgehalt-Stapel erscheinen nacheinander und bauen den Notgroschen sichtbar auf zwei bis drei Monatsgehälter auf.
+ * MECHANIC_ID: three-salary-blocks-fill-one-reserve
+ * PRIMARY_ACTION: Drei gleich große Monatsgehalt-Stapel erscheinen klar nacheinander; mit jedem Monatsblock steigt derselbe zentrale Notgroschen sichtbar bis zur 2–3-Monatsgehälter-Zone.
  * ANIMATION_NARRATIVE
- * START: Ein erster Monatsgehalt-Stapel und ein noch niedriger Notgroschen stehen als Ausgangspunkt bereit.
- * MECHANISM: Zweiter und dritter gleich großer Monatsblock kommen zeitlich getrennt hinzu; mit jedem Block steigt der Reservefüllstand sichtbar.
- * RESULT: Drei Monatsblöcke stehen vollständig lesbar neben einer deutlich gefüllten Reserve; 2–3 MONATSGEHÄLTER bestätigt die Größenordnung.
+ * START: Links steht nur Monat 1, rechts ein bewusst niedriger Notgroschen.
+ * MECHANISM: Monat 2 und Monat 3 kommen nacheinander hinzu; exakt bei jedem neuen Stapel steigt der Füllstand des einen Reservebehälters in einer klaren Stufe.
+ * RESULT: Drei vollständige Monatsblöcke bleiben sichtbar, der Notgroschen steht deutlich gefüllt daneben und die kurze Ergebniszeile bestätigt 2–3 Monatsgehälter.
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Der große Notgroschen-Reservetank und drei gleich gewichtete Monatsgehalt-Stapel bilden die zentrale Mengenbeziehung.
- * SUPPORT: Kurze Tags markieren Monat 1, Monat 2 und Monat 3, ohne die physische Erklärung zu ersetzen.
- * MATERIAL: Emerald Reserve, warmes Gold für Geldstapel, Ivory für kurze neutrale Beschriftungen.
- * DEPTH: Reserve groß rechts vorne, Monatsstapel staffeln sich links nach rechts mit leichter Tiefenversetzung.
+ * HERO: Eine einzige Mengenbeziehung: drei gleichartige Goldstapel links gegen einen großen Reservebehälter rechts.
+ * SUPPORT: Kleine Monatslabels und ein kurzer Ergebnis-Tag; keine Konten, Rechnungen, Kalender oder zweite Mechanik.
+ * MATERIAL: Warmes Gold für Monatsgehälter, Emerald/Gold für die Reserve, Ivory nur für neutrale Beschriftung.
+ * DEPTH: Alle Hauptobjekte liegen bewusst innerhalb X=120–860; keine Elemente berühren die horizontalen Reel-Ränder.
  */
-export const RESULT_HOLD_FRAMES = 22;
+export const RESULT_HOLD_FRAMES = 24;
 const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
 
 export const Scene03Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 135}) => {
   const frame = useCurrentFrame();
-  const firstIn = interpolate(frame, [0, 24], [0, 1], clamp);
-  const secondIn = interpolate(frame, [28, 55], [0, 1], clamp);
-  const thirdIn = interpolate(frame, [58, 86], [0, 1], clamp);
-  const reserveRise = interpolate(frame, [18, 92], [0.22, 0.88], clamp);
-  const resultIn = interpolate(frame, [88, Math.max(98, durationFrames - RESULT_HOLD_FRAMES)], [0, 1], clamp);
+  const {fps} = useVideoConfig();
+
+  const one = spring({frame, fps, config: {damping: 18, stiffness: 105, mass: 0.9}, durationInFrames: 24});
+  const two = spring({frame: Math.max(0, frame - 30), fps, config: {damping: 18, stiffness: 105, mass: 0.9}, durationInFrames: 24});
+  const three = spring({frame: Math.max(0, frame - 62), fps, config: {damping: 18, stiffness: 105, mass: 0.9}, durationInFrames: 24});
+  const reserveStep1 = interpolate(frame, [10, 28], [0.18, 0.38], clamp);
+  const reserveStep2 = interpolate(frame, [38, 58], [0.38, 0.62], clamp);
+  const reserveStep3 = interpolate(frame, [70, 92], [0.62, 0.86], clamp);
+  const fill = frame < 38 ? reserveStep1 : frame < 70 ? reserveStep2 : reserveStep3;
+  const resultIn = interpolate(frame, [90, Math.max(102, durationFrames - RESULT_HOLD_FRAMES)], [0, 1], clamp);
 
   return (
     <PremiumPhysicalStage>
-      <PhysicalCoinStack x={95} y={735 - (1 - firstIn) * 70} count={6} scale={0.75} opacity={firstIn} />
-      <PhysicalCoinStack x={330} y={735 - (1 - secondIn) * 70} count={6} scale={0.75} opacity={secondIn} />
-      <PhysicalCoinStack x={565} y={735 - (1 - thirdIn) * 70} count={6} scale={0.75} opacity={thirdIn} />
-      <PhysicalReserveTank x={715} y={500} width={250} height={430} fill={reserveRise} label="Notgroschen" scale={0.96 + resultIn * 0.04} />
+      <div style={{position:'absolute',left:120,top:520,width:470,height:520}}>
+        <PhysicalCoinStack x={20} y={235 - (1 - one) * 55} count={6} scale={0.72 + one * 0.06} opacity={one} />
+        <PhysicalCoinStack x={175} y={235 - (1 - two) * 55} count={6} scale={0.72 + two * 0.06} opacity={two} />
+        <PhysicalCoinStack x={330} y={235 - (1 - three) * 55} count={6} scale={0.72 + three * 0.06} opacity={three} />
 
-      <div style={{position:'absolute',left:95,top:930,opacity:firstIn,color:ANIMATION_COLORS.money}}>
-        <PhysicalTag material="money" style={{fontSize:22}}>MONAT 1</PhysicalTag>
+        <div style={{position:'absolute',left:18,top:410,opacity:one,color:ANIMATION_COLORS.money}}>
+          <PhysicalTag material="money" style={{fontSize:20}}>MONAT 1</PhysicalTag>
+        </div>
+        <div style={{position:'absolute',left:173,top:410,opacity:two,color:ANIMATION_COLORS.money}}>
+          <PhysicalTag material="money" style={{fontSize:20}}>MONAT 2</PhysicalTag>
+        </div>
+        <div style={{position:'absolute',left:328,top:410,opacity:three,color:ANIMATION_COLORS.money}}>
+          <PhysicalTag material="money" style={{fontSize:20}}>MONAT 3</PhysicalTag>
+        </div>
       </div>
-      <div style={{position:'absolute',left:330,top:930,opacity:secondIn,color:ANIMATION_COLORS.money}}>
-        <PhysicalTag material="money" style={{fontSize:22}}>MONAT 2</PhysicalTag>
-      </div>
-      <div style={{position:'absolute',left:565,top:930,opacity:thirdIn,color:ANIMATION_COLORS.money}}>
-        <PhysicalTag material="money" style={{fontSize:22}}>MONAT 3</PhysicalTag>
-      </div>
-      <div style={{position:'absolute',left:585,top:1040,opacity:resultIn,transform:`translateY(${(1-resultIn)*14}px)`,color:ANIMATION_COLORS.positive}}>
-        <PhysicalTag material="positive" style={{fontSize:24}}>2–3 MONATSGEHÄLTER</PhysicalTag>
+
+      <PhysicalReserveTank
+        x={620}
+        y={500}
+        width={240}
+        height={440}
+        fill={fill}
+        label="Notgroschen"
+        scale={0.96 + resultIn * 0.04}
+      />
+
+      <div style={{
+        position:'absolute',
+        left:360,
+        top:1030,
+        opacity:resultIn,
+        transform:`translateY(${(1-resultIn)*16}px) scale(${0.96 + resultIn*0.04})`,
+        color:ANIMATION_COLORS.positive,
+      }}>
+        <PhysicalTag material="positive" style={{fontSize:25}}>2–3 MONATSGEHÄLTER</PhysicalTag>
       </div>
     </PremiumPhysicalStage>
   );
