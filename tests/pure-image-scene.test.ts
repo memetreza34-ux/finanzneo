@@ -1,6 +1,7 @@
+import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
-import {describe, expect, it} from 'vitest';
+import test from 'node:test';
 
 const root = process.cwd();
 const imageScenePath = path.join(root, 'src/reels-test/FinanceImageSceneTest.tsx');
@@ -8,31 +9,29 @@ const registryPath = path.join(root, 'src/root/ExperimentCompositions.tsx');
 
 const read = (file: string) => fs.readFileSync(file, 'utf8');
 
-describe('pure image scene test', () => {
-  it('uses image + header + captions as the complete scene structure', () => {
-    const source = read(imageScenePath);
+test('pure image scene uses image + header + captions as the complete structure', () => {
+  const source = read(imageScenePath);
 
-    expect(source).toContain('<Img');
-    expect(source).toContain('<SceneHeader');
-    expect(source).toContain('<Captions');
-    expect(source).toContain("background: '#000'");
-  });
+  assert.match(source, /<Img/);
+  assert.match(source, /<SceneHeader/);
+  assert.match(source, /<Captions/);
+  assert.match(source, /background: '#000'/);
+});
 
-  it('does not add explanatory Remotion motion on top of the image', () => {
-    const source = read(imageScenePath);
+test('pure image scene does not add explanatory Remotion motion on top of the image', () => {
+  const source = read(imageScenePath);
 
-    expect(source).not.toContain('useCurrentFrame');
-    expect(source).not.toContain('interpolate(');
-    expect(source).not.toContain('spring(');
-    expect(source).not.toContain('LottieBox');
-    expect(source).not.toContain('<svg');
-    expect(source).not.toContain('transform:');
-  });
+  assert.doesNotMatch(source, /useCurrentFrame/);
+  assert.doesNotMatch(source, /interpolate\(/);
+  assert.doesNotMatch(source, /spring\(/);
+  assert.doesNotMatch(source, /LottieBox/);
+  assert.doesNotMatch(source, /<svg/);
+  assert.doesNotMatch(source, /transform:/);
+});
 
-  it('replaces the misunderstood hybrid composition in the experiment registry', () => {
-    const registry = read(registryPath);
+test('pure image scene replaces the misunderstood hybrid composition in the experiment registry', () => {
+  const registry = read(registryPath);
 
-    expect(registry).toContain('ReelsTestFinanceImageScenes');
-    expect(registry).not.toContain('ReelsTestFinanceImageHybridMotion');
-  });
+  assert.match(registry, /ReelsTestFinanceImageScenes/);
+  assert.doesNotMatch(registry, /ReelsTestFinanceImageHybridMotion/);
 });
