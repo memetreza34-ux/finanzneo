@@ -1,0 +1,14 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Literal first, creative second. Jede Szene zeigt zuerst die konkrete reale Finanz- oder Alltagssituation. Ursache und Wirkung sollen ohne Untertitel ungefähr verständlich sein. Metaphern sind optional und nur erlaubt, wenn sie klarer als die reale Situation sind.
+
+Premium clearly stylized 3D FinanzNeo world, never photorealistic and never toy-like. Believable everyday objects, semi-realistic materials, large readable hero objects, deep seamless black as dominant world, only as much local environment as the explanation needs. Emerald green for protected reserve/solution, warm red-orange for costs/risk/loss, warm ivory and soft gray for neutral objects, subtle gold only for money/value. Clean soft studio lighting, readable contact shadows, controlled highlights and strong separation.
+
+Der visuelle Qualitätsanker ist die bereits freigegebene Waschmaschinen-/Reparatur-/Notgroschen-Welt: reale Alltagssituation, hochwertige stylized-3D-Materialien, große lesbare Objekte, tiefe schwarze Umgebung und sofort erkennbare Ursache/Wirkung. Das konkrete Motiv darf nicht als Vorlage kopiert werden.
+
+Keine generischen Tresor-, Münzstapel-, Sparschwein-, Pfeil-, Ordner- oder Pflanzenmotive als Default. Keine Dashboards, App-Screens, Floating Cards, Flowcharts, Mini-Dioramen oder dekorativen Finance-Icon-Sammlungen. Kurze deutsche Objektlabels nur dort, wo sie Mehrdeutigkeit vermeiden. Keine Headline, kein Untertitel und kein CTA im KI-Bild.
+
+Alle Quellbilder horizontal 16:9; wichtige Objekte groß genug für Mobile, Laptop und TV. Eine nahtlose deep-black FinanzNeo-Welt über die gesamte Serie.
