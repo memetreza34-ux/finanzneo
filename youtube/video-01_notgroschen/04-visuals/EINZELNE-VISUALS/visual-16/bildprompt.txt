@@ -1,0 +1,19 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 16 - Auto und Depot.png
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. If any check fails, regenerate the same image number before continuing.
+
+LITERAL_REAL_WORLD_SITUATION: A believable everyday car is in a workshop with a clearly urgent brake/repair situation. A readable service invoice area carries only the short German label `Reparatur`. Leave a clean dark area in the upper/right portion for a later Remotion chart overlay.
+REAL_WORLD_CONTEXT_ANCHOR: Realistic stylized vehicle workshop, ordinary commuter car, necessary repair.
+VOICEOVER_VISUAL_MATCH: The concrete emergency is the car repair; Remotion will later add the hypothetical -25% depot drawdown and forced-sale timing conflict.
+TRANSFERABILITY_TEST: PASS — the workshop repair context is specifically designed to collide with the investment drawdown beat rather than represent generic automotive or investing content.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+IMAGE PROMPT:
+Horizontal 16:9 premium stylized 3D. Show an ordinary commuter car lifted or opened for a necessary brake repair in a believable small workshop that dissolves into the FinanzNeo deep-black world. Make the real repair action obvious through wheel/brake service detail without gore, sparks or drama. Place a clear neutral invoice/service object labeled only `Reparatur`. Reserve roughly the upper-right third as uncluttered deep-black negative space for a later SVG depot curve. Use warm red-orange subtly on the repair problem, neutral soft gray/ivory materials elsewhere. Large readable objects, believable construction and scale.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+Literal first, creative second.
+Forbidden: chart inside generated image, stock symbols, crash accident, luxury sports car, floating cards, dashboard UI, generic arrows, tiny diorama, headline, subtitle, CTA, extra text.

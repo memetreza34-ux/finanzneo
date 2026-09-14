@@ -1,0 +1,19 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 11 - Person A.png
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. If any check fails, regenerate the same image number before continuing.
+
+LITERAL_REAL_WORLD_SITUATION: A young adult lives in a shared/family home environment, uses public transport or a simple bicycle rather than owning a car, has only a few necessary monthly obligations and a stable work routine. Short labels: `Niedrige Fixkosten`, `Stabiler Job`.
+REAL_WORLD_CONTEXT_ANCHOR: Modest shared-home entrance/desk setting with work bag and transit context.
+VOICEOVER_VISUAL_MATCH: Person A has fewer unavoidable expenses and less financial exposure, so a smaller emergency reserve can plausibly cover more of their risk.
+TRANSFERABILITY_TEST: PASS — the exact housing, no-car and low-fixed-cost context is central to the comparison between two people with equal income.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+IMAGE PROMPT:
+Horizontal 16:9 premium stylized 3D. Show one believable young adult in a calm shared/family home setting. Avoid portrait glamour; the environment tells the story. Include a modest desk/entry area, public transport pass or bicycle cue, only a small stack of unavoidable bills, and a stable-work cue such as work bag/ID without brand logos. Use short labels `Niedrige Fixkosten` and `Stabiler Job` placed naturally near their relevant objects. Deep black world, restrained emerald accent, semi-realistic materials, believable scale and clean studio lighting.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+Literal first, creative second.
+Forbidden: wealth symbolism, coin rain, stock charts, generic finance cards, dashboard, mansion, photoreal face, toy figure, headline, subtitle, CTA, random text.

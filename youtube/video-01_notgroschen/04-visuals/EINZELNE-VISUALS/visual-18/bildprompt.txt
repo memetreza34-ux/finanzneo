@@ -1,0 +1,19 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 18 - Giro zu Tagesgeld.png
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. If any check fails, regenerate the same image number before continuing.
+
+LITERAL_REAL_WORLD_SITUATION: A grounded banking/home-finance scene contains two clearly separate account/document anchors: everyday `Girokonto` on the left and separate `Tagesgeld` on the right, with the reserve area additionally labeled `Notgroschen`. Leave a clean corridor between them for a later animated transfer path.
+REAL_WORLD_CONTEXT_ANCHOR: Realistic personal banking documents/cards on a home finance desk, without depicting any real bank brand or app screen.
+VOICEOVER_VISUAL_MATCH: The viewer can immediately see that the emergency reserve is moved away from everyday spending while remaining a normal bank deposit.
+TRANSFERABILITY_TEST: PASS — the explicit Girokonto/Tagesgeld spatial separation is unique to the storage recommendation in this video.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+IMAGE PROMPT:
+Create one horizontal 16:9 premium stylized-3D finance desk scene. Left side: everyday account/document anchor labeled `Girokonto` with modest normal spending context. Right side: separate savings/deposit anchor labeled `Tagesgeld`, with a calm protected reserve object labeled `Notgroschen`. Keep a clean visual path between both anchors so Remotion can animate the transfer. Do not render a bank app or website. Deep seamless black environment, emerald emphasis only on the reserve/Tagesgeld side, neutral materials on Giro side, believable cards/documents, soft studio lighting.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+Literal first, creative second.
+Forbidden: real bank logos, mobile app UI, dashboard, giant arrow already drawn, random coin streams, piggy bank, vault, floating cards, photorealism, headline, subtitle, CTA, extra text.

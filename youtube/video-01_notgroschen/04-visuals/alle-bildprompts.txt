@@ -1,0 +1,133 @@
+FINANZNEO — SINGLE HANDOFF FILE FOR GOOGLE FLOW
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+STRICT WORKFLOW
+1. Literal first, creative second.
+2. Work top to bottom on only the current block.
+3. Generate exactly ONE image.
+4. Wait until the current image is fully complete.
+5. Rename it immediately to the exact FINAL FILE NAME.
+6. Verify the literal situation, requested short German labels, seamless deep-black FinanzNeo world and horizontal 16:9 format.
+7. If any check fails, regenerate the same image number and replace the failed file.
+8. Only after PASS continue to the next image.
+9. Final accepted files belong in `04-visuals/00-ALLE-BILDER-HIER-REIN/`.
+10. Never batch, parallelize, pre-queue or generate multiple images in one job.
+
+GLOBAL STYLE
+Premium clearly stylized 3D FinanzNeo world, never photorealistic and never toy-like. Believable everyday objects, semi-realistic materials, large readable hero objects, deep seamless black dominant environment, minimal real-world context, emerald green for protected reserve/solution, warm red-orange for cost/risk, warm ivory/soft gray neutral, restrained gold only for money/value. No generic finance-symbol collection, dashboard, app UI, floating cards, flowchart, tiny diorama, decorative clutter, headline, subtitle or CTA.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 01 — YouTube Bild 01 - Waschmaschine kaputt.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LITERAL_REAL_WORLD_SITUATION: Broken household washing machine plus large foreground repair invoice `Reparatur 480 €`.
+REAL_WORLD_CONTEXT_ANCHOR: Home laundry area.
+VOICEOVER_VISUAL_MATCH: Exact opening emergency and concrete 480-euro cost.
+TRANSFERABILITY_TEST: PASS — appliance defect and repair invoice make the beat specific.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+Prompt: Wide believable laundry corner dissolving into deep black; correctly proportioned modern washing machine visibly in repair state; large foreground invoice with only `Reparatur 480 €`; warm red-orange cost emphasis; clean negative space for later motion.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 05 — YouTube Bild 05 - Kein Konsum.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LITERAL_REAL_WORLD_SITUATION: Protected `Notgroschen` physically separated from optional `Urlaub`, `Neues Handy`, `Sale` spending.
+REAL_WORLD_CONTEXT_ANCHOR: Home budgeting desk.
+VOICEOVER_VISUAL_MATCH: Defines what the emergency fund is not for.
+TRANSFERABILITY_TEST: PASS — exact optional purchases are contrasted with reserve.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+Prompt: One coherent real-world budgeting scene; calm emerald reserve area labeled `Notgroschen`; believable suitcase, smartphone purchase box and shopping item outside it with short labels; no icon grid.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 06 — YouTube Bild 06 - Echte Notfälle.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LITERAL_REAL_WORLD_SITUATION: Connected scene with appliance repair, necessary bill, car/work commute and reduced income document.
+REAL_WORLD_CONTEXT_ANCHOR: Home-entry/garage everyday environment.
+VOICEOVER_VISUAL_MATCH: Shows necessary hard-to-delay costs and income gap.
+TRANSFERABILITY_TEST: PASS — four necessity anchors are specific to emergency-fund definition.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+Prompt: Wide connected environment with four large zones for later Remotion focus; short labels only `Reparatur`, `Rechnung`, `Arbeitsweg`, `Weniger Einkommen`; deep black, no collage boxes.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 11 — YouTube Bild 11 - Person A.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LITERAL_REAL_WORLD_SITUATION: Young adult in shared/family home, no owned car, low unavoidable costs, stable work routine.
+REAL_WORLD_CONTEXT_ANCHOR: Shared-home entry/desk with transit/bicycle cue.
+VOICEOVER_VISUAL_MATCH: Shows lower fixed-cost and dependency profile.
+TRANSFERABILITY_TEST: PASS — specific low-obligation life setup is required for later comparison.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+Prompt: Calm shared-home scene; public transport pass or bicycle; small unavoidable bill stack; work bag/ID without brand; short labels `Niedrige Fixkosten`, `Stabiler Job`.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 12 — YouTube Bild 12 - Person B.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LITERAL_REAL_WORLD_SITUATION: Young adult living alone, own apartment, car-dependent commute, several unavoidable obligations.
+REAL_WORLD_CONTEXT_ANCHOR: Apartment entry/desk linked to ordinary car context.
+VOICEOVER_VISUAL_MATCH: Shows higher fixed costs and dependencies despite potentially same income.
+TRANSFERABILITY_TEST: PASS — solo housing and car dependency are central to risk contrast.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+Prompt: Same FinanzNeo world as Person A; rent document `Miete`, ordinary commuter car `Auto`, recurring necessary bills `Laufende Kosten`; no poverty or luxury coding.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 15 — YouTube Bild 15 - Langfristiges Investment.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LITERAL_REAL_WORLD_SITUATION: Calm long-term investment planning setup tied to a multi-year horizon.
+REAL_WORLD_CONTEXT_ANCHOR: Home financial-planning desk.
+VOICEOVER_VISUAL_MATCH: Long-term investment has a valid but different job from emergency cash.
+TRANSFERABILITY_TEST: PASS — multi-year context distinguishes long-term function.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+Prompt: Grounded desk, investment document/account and multi-year calendar/timeline; labels only `Langfristig`, `Investment`; no upward-only chart or return promise.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 16 — YouTube Bild 16 - Auto und Depot.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LITERAL_REAL_WORLD_SITUATION: Ordinary commuter car in workshop with urgent necessary repair and service document `Reparatur`.
+REAL_WORLD_CONTEXT_ANCHOR: Small realistic stylized workshop.
+VOICEOVER_VISUAL_MATCH: Real repair will later collide with a hypothetical -25% depot drawdown in Remotion.
+TRANSFERABILITY_TEST: PASS — workshop emergency is staged specifically for the timing-risk explanation.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+Prompt: Large ordinary car/brake repair left/center; invoice `Reparatur`; reserve uncluttered upper-right deep-black area for later SVG chart; do not generate chart inside image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 18 — YouTube Bild 18 - Giro zu Tagesgeld.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LITERAL_REAL_WORLD_SITUATION: Grounded personal banking scene with separate `Girokonto` and `Tagesgeld`, reserve side additionally `Notgroschen`.
+REAL_WORLD_CONTEXT_ANCHOR: Home finance desk, no real bank brand or app screen.
+VOICEOVER_VISUAL_MATCH: Shows separation from everyday spending while staying bank-accessible.
+TRANSFERABILITY_TEST: PASS — explicit Giro/Tagesgeld staging is unique to storage recommendation.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+Prompt: Giro anchor left, Tagesgeld/Notgroschen right, clean corridor between them for animated transfer; emerald only on reserve side; believable documents/cards, no UI.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 20 — YouTube Bild 20 - Reserve trennen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LITERAL_REAL_WORLD_SITUATION: One everyday money area labeled `Monatsbudget` sits near optional spending, while separate `Notgroschen` area remains physically isolated.
+REAL_WORLD_CONTEXT_ANCHOR: Home budgeting desk.
+VOICEOVER_VISUAL_MATCH: Provides before/after base for mixed balance versus separate reserve.
+TRANSFERABILITY_TEST: PASS — behavioral separation is specific to this beat.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+Prompt: Single coherent wide desk; mixed monthly-money zone left/center with small consumption objects; calm separate reserve zone right; no infographic divider, spatial separation only.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 25 — YouTube Bild 25 - Notfall bezahlen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+LITERAL_REAL_WORLD_SITUATION: Necessary repair successfully paid from `Notgroschen`; paid invoice says `Reparatur bezahlt`.
+REAL_WORLD_CONTEXT_ANCHOR: Calm home repair completion scene.
+VOICEOVER_VISUAL_MATCH: Using the emergency fund correctly is shown as tool use, not failure.
+TRANSFERABILITY_TEST: PASS — completed repair plus reserve use is specific to lifecycle explanation.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+Prompt: Functional repaired appliance/service state, paid invoice `Reparatur bezahlt`, slightly reduced but orderly reserve `Notgroschen`; calm relief, no trophy/confetti/guilt.
+
+END. Do not generate any other video image numbers. Pure Remotion/data visuals are intentionally image-free.
