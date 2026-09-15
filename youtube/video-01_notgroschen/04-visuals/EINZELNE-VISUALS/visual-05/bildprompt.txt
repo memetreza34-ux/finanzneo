@@ -1,19 +1,16 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINAL FILE NAME: YouTube Bild 05 - Kein Konsum.png
-Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. If any check fails, regenerate the same image number before continuing.
-
-LITERAL_REAL_WORLD_SITUATION: A young adult stands at a realistic home desk with one clearly separate emergency reserve object labeled `Notgroschen`. Nearby, but visually outside the protected reserve area, are three optional spending situations: travel suitcase labeled `Urlaub`, premium smartphone box labeled `Neues Handy`, and shopping bag/tag labeled `Sale`.
-REAL_WORLD_CONTEXT_ANCHOR: Everyday home budgeting situation.
-VOICEOVER_VISUAL_MATCH: The frame explains what the emergency fund is NOT for: optional consumption remains outside the protected reserve.
-TRANSFERABILITY_TEST: PASS — the deliberate separation of emergency reserve from holiday, phone and sale purchases directly matches this definition beat.
-VISUAL_STRATEGY: literal
-METAPHOR_JUSTIFICATION: NONE
-
-IMAGE PROMPT:
-Horizontal 16:9 premium stylized 3D. Compose one coherent real-world budgeting scene, not four floating icons. The protected reserve sits physically separated and calm, labeled only `Notgroschen`, with controlled emerald-green emphasis. On the other side of the same desk/environment, show a believable travel suitcase, smartphone purchase box and shopping item with only the short labels `Urlaub`, `Neues Handy`, `Sale`. They must look optional, not dangerous. Deep seamless black world with just enough home context for credibility. Large objects, clean spacing, soft studio light, semi-realistic materials.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-Literal first, creative second.
-Forbidden: icon grid, checklist poster, vault, piggy bank, coin pile, arrows, app/dashboard UI, floating cards, tiny diorama, headline, subtitle, CTA, extra text.
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly: rounded simplified geometry, soft sculpted materials, cinematic light, deep black stage, strong depth. Reality-inspired but never realistic.
+
+CORE IDEA
+Notgroschen ist getrennt von freiwilligem Konsum.
+
+IMAGE PROMPT
+On deep black, show ONE large emerald rounded reserve container labeled `Notgroschen`. Outside it float only three stylized animated-film objects: suitcase `Urlaub`, smartphone `Neues Handy`, sale tag/object `Sale`. Few large forms, clear separation, playful but premium. No desk, no room, no icon-grid look.
+
+HARD NO
+Photorealism, semi-realistic product render, realistic room, realistic materials, UI, dashboard, cyberpunk, blue/purple neon, extra text, headline, subtitle, CTA.
