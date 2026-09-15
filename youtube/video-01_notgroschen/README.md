@@ -30,16 +30,33 @@ Danach werden nur diese Bereiche benötigt:
 
 `04-visuals/EINZELNE-VISUALS/` enthält die bereits vorbereiteten Phase-1-Motionquellen und muss während Phase 2 nicht rekursiv eingelesen werden.
 
+## Optionale externe Support-Assets
+
+Phase 1 hat zusätzlich konkrete, optionale Slots für B-Roll, SVG-Icons und kleine Lottie-Cues vorbereitet. Diese Slots werden **nicht in Phase 2 gesucht oder heruntergeladen**, damit der Fast-Path schlank bleibt.
+
+Kanonische Dateien:
+
+```text
+06-projektdateien/external-assets-plan.md
+06-projektdateien/external-assets-manifest.json
+04-visuals/external-assets/README.md
+04-visuals/external-assets/external-assets-ledger.json
+```
+
+Phase 3 darf nur die dort freigegebenen Slots mit lizenzgeprüften lokalen Assets füllen. Wenn kein Treffer die Qualitäts- oder Lizenzprüfung besteht, bleibt der Slot leer und die vorbereitete Hauptvisualisierung läuft unverändert weiter.
+
 ## Kernidee
 
 Nicht nur eine Faustregel nennen, sondern zeigen, wie Zuschauer die Größe eines Notgroschens sinnvoll einschätzen, wo das Geld liegen kann und warum kurzfristig benötigte Rücklagen nicht dasselbe sind wie langfristiges Investieren.
 
 ## Produktionsprinzip
 
-Skript → gesprochene Gedanken → Visual Beats → Viewer Change → beste Visualart → konkrete Bild-/Motion-Produktion.
+Skript → gesprochene Gedanken → Visual Beats → Viewer Change → beste Visualart → optionale Support-Asset-Prüfung → konkrete Bild-/Motion-Produktion.
 
 Die Bildwelt übernimmt die freigegebenen Qualitäten der Waschmaschinen-/Reparatur-/Notgroschen-Szene aus dem Reel, wird aber horizontal und für Longform neu komponiert.
 
 ## Sicherheit
 
 Der Phase-2-Fast-Path löscht oder vereinfacht keine Produktionsdateien. Animationen, Motion-V3-Metadaten, Visual-Pläne und Validatoren bleiben vollständig für Phase 3 erhalten.
+
+Externe Assets sind ausschließlich Support. Sie dürfen weder eine versiegelte `animation.tsx` kreativ verändern noch Flow-/Remotion-Hauptbeats durch Stockmaterial ersetzen. Remote-Assets und API-Keys sind im Render/Repository verboten.
