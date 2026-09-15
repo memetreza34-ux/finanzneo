@@ -1,0 +1,16 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 16 - Auto und Depot.png
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly. The car must look like an animated-film object, not a real car render.
+
+CORE IDEA
+Eine Reparatur kann genau dann kommen, wenn das Depot ungünstig steht.
+
+IMAGE PROMPT
+Show ONE clearly stylized commuter car with simplified rounded proportions and one visible wheel/brake repair. Add one stylized repair document labeled `Reparatur`. Keep the world deep black with only minimal stylized repair context. Leave a large clean black area on the right/upper-right for the later Remotion -25% chart. Use soft sculpted materials and cinematic animated-feature lighting.
+
+HARD NO
+Realistic workshop, real-looking mechanic, photorealistic car, automotive-ad render, realistic reflections/materials, chart in the generated image, cyberpunk/neon, extra text.

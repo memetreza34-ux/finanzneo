@@ -1,0 +1,16 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 20 - Reserve trennen.png
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly.
+
+CORE IDEA
+Monatsbudget und Notgroschen nicht vermischen.
+
+IMAGE PROMPT
+Create a very simple deep-black animated-feature 3D left-right composition. Left: one neutral rounded container labeled `Monatsbudget` with only two small stylized spending objects nearby. Right: one isolated emerald rounded container labeled `Notgroschen`, separated by clean black space. Use soft sculpted materials, rounded simplified geometry and cinematic animated-film lighting.
+
+HARD NO
+Desk, realistic receipts/cards, piggy bank, gold bars, realistic finance props, photorealism, semi-realism, app UI, dashboard, cyberpunk, extra text.

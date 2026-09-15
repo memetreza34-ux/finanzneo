@@ -1,0 +1,16 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 25 - Notfall bezahlen.png
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly.
+
+CORE IDEA
+Notgroschen im echten Notfall zu benutzen ist richtig.
+
+IMAGE PROMPT
+Show ONE repaired stylized washing machine as the large hero, one simple paid invoice reading `Reparatur bezahlt`, and one smaller emerald reserve object labeled `Notgroschen`, visibly reduced but orderly. Deep black stage, smooth rounded simplified geometry, soft sculpted materials, cinematic animated-film lighting, calm satisfying resolution.
+
+HARD NO
+Photorealism, semi-realistic appliance/product render, realistic room, coin pile, piggy bank, confetti, trophy, realistic paperwork, dashboard/UI, cyberpunk, extra text.

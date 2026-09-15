@@ -1,0 +1,16 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 11 - Person A.png
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly. Do not make a realistic room or person.
+
+CORE IDEA
+Wenige Verpflichtungen = geringerer Reservebedarf.
+
+IMAGE PROMPT
+On deep black, create a simple stylized 3D profile using only three large animated-film objects: a public-transport pass or bicycle cue, a small home/key cue and a small tidy stack of bills. Add only `Niedrige Fixkosten` and `Stabiler Job`. Rounded simplified geometry, soft sculpted materials, clean depth, appealing animated-feature staging. No full room and no person required.
+
+HARD NO
+White realistic background, photorealism, semi-realistic paper/materials, office desk, live-action person, dashboard/UI, cyberpunk, extra text.

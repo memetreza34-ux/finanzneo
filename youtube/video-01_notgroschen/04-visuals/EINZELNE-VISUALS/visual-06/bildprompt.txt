@@ -1,0 +1,16 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 06 - Echte Notfälle.png
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look, not realism.
+
+CORE IDEA
+Echte Notfälle sind notwendige Kosten oder weniger Einkommen.
+
+IMAGE PROMPT
+Create a simple deep-black animated-feature 3D composition with only THREE large stylized objects around a calm emerald reserve element: broken repair object `Reparatur`, urgent invoice `Rechnung`, shrinking payslip/income block `Weniger Einkommen`. Keep everything rounded, simplified and immediately readable. No environment, no miniature city, no four-zone diorama, no realistic paperwork.
+
+HARD NO
+Photorealism, semi-realism, stock-photo look, realistic room, UI/dashboard, icon wall, cyberpunk, blue/purple neon, extra text.

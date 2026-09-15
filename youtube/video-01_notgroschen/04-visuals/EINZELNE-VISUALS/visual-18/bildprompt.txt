@@ -1,0 +1,16 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 18 - Giro zu Tagesgeld.png
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly.
+
+CORE IDEA
+Alltagsgeld und Notgroschen liegen bewusst getrennt.
+
+IMAGE PROMPT
+On deep black, create TWO large friendly sculpted 3D account containers/anchors: neutral gray `Girokonto` on the left and emerald `Tagesgeld` on the right with smaller label `Notgroschen`. Leave open space between them for later Remotion transfer animation. Use smooth rounded shapes, soft sculpted materials and cinematic animated-film lighting. These should feel like physical objects from the same world as Image 01, not letters, logos or banking software.
+
+HARD NO
+Realistic bank cards/documents, app UI, dashboard, letter-shaped logos, hard industrial geometry, photorealism, semi-realism, cyberpunk, extra text.

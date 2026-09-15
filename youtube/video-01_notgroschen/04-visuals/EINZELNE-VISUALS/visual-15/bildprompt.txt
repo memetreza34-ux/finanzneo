@@ -1,0 +1,16 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 15 - Langfristiges Investment.png
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D materials, lighting and depth. Do not use a realistic finance desk.
+
+CORE IDEA
+Investment braucht einen langen Zeithorizont.
+
+IMAGE PROMPT
+Create ONE bold physical stylized-3D timeline floating in deep black. Use a few large year markers and one smooth sculpted investment path that rises and falls into the distance. Add only `Langfristig` and `Investment`. The timeline should look like a tangible object from an animated feature film, with rounded simplified geometry and soft materials.
+
+HARD NO
+Realistic metal rail, realistic office/desk, trading app, finance dashboard, software-chart look, photorealism, semi-realism, blue/purple cyberpunk, extra text.
