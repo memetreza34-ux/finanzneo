@@ -39,6 +39,30 @@ gesprochenen Satz und traegt die Pflichtfelder:
 Eine Metapher ist nur erlaubt, wenn sie nachweislich klarer ist als die reale
 Situation; dann wird sie in `METAPHOR_JUSTIFICATION` begruendet.
 
+KEIN SPIELZEUG, KEIN CLAY
+Kein Clay-, Knet-, Marzipan-, Seifenstueck- oder Badespielzeug-Look.
+Keine glatten, merkmalslosen Rundklumpen.
+Keine Miniatur-Spielzeugstadt, keine Spielzeughaeuser, keine Spielzeugautos, kein Tischdiorama.
+Reale Objekte behalten ihre echte Konstruktion: die Waschmaschine hat Tuerdichtung, Drehregler und Fuesse, das Auto hat Spaltmasse, Scheinwerfer und Gummireifen, die Rechnung hat echtes Druckbild und Papierstaerke.
+Abgerundete Kanten sind ein Finish, niemals ein Ersatz fuer die echte Form.
+Pastellmint oder Babyblau als Objektfarbe ist falsch; es gelten die Farbrollen.
+
+KEINE TYPOGRAFIE ALS MOTIV
+Nie ein Wort, eine Ueberschrift oder eine Zahl als grosses 3D-Objekt bauen.
+Deutsche Labels sind klein und stehen gedruckt, gestempelt, graviert, handschriftlich oder als kleines Anhaengeschild AM zugehoerigen Objekt.
+Ein Label ist nie das groesste oder auffaelligste Element im Bild.
+Keine erfundenen Zusatztexte, Formularfelder, Tabellenkoepfe, Adressen oder Markennamen auf Dokumenten. Ein Dokument zeigt nur das im Prompt genannte Label plus unlesbare, nicht ablenkende Drucktextur.
+
+UNTERHALTSAM, ABER IMMER ERKLAEREND
+Die Szene soll Spass machen: echte Inszenierung, klare Situation, ein kleines sprechendes Detail oder eine leichte Uebertreibung, die die Aussage landen laesst — ein ueberquellender Stapel, ein Teil im Fallen, eine Pfuetze, eine offene Schublade, ein Objekt das sich zu einem anderen neigt.
+Die Erklaerung gewinnt immer gegen den Gag. Macht das verspielte Detail die Aussage unklarer, faellt es weg.
+Nie dekorieren. Jedes Objekt traegt die Situation oder wird entfernt.
+
+PLATZ OBEN FUER DIE ZWISCHENUEBERSCHRIFT
+Oben im Bild bleibt ruhiger schwarzer Freiraum. Das Hauptmotiv sitzt im mittleren und unteren Drittel, damit spaeter in Remotion eine Zwischenueberschrift ueber dem Bild stehen kann. Nichts Wichtiges beruehrt die obere Kante.
+
+ABWECHSLUNG UEBER DIE SERIE
+Nicht in jeder Szene dieselbe Objektfamilie verwenden. Waschecke, Regal mit Konsumgegenstaenden, Kuechentheke mit Dokumenten, persoenliche Habe, Kalenderreihe in die Tiefe, Auto, Kontoauszuege und Schubladen sind eigene Situationen. Gleiche Welt, andere Szene.
 KERNLOOK
 - klar stilisiertes Premium-3D im Animationsfilm-Rendering, niemals fotorealistisch
 - reale Alltagsgegenstaende mit glaubwuerdigen Proportionen und erkennbaren Details
