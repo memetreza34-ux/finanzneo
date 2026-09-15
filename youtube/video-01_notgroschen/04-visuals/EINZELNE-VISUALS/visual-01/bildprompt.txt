@@ -10,10 +10,12 @@ VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
 IMAGE PROMPT:
-Create a horizontal 16:9 premium stylized-3D FinanzNeo scene. Show a believable home laundry corner dissolving naturally into a seamless deep-black environment. The washing machine is large, correctly proportioned, visibly faulty through an open service panel or clear repair state, never destroyed or cartoonish. Put one large readable repair invoice in the foreground with exactly the short German object label `Reparatur 480 €`. Use warm red-orange only to emphasize the problem/cost. Leave clear visual breathing room on the opposite side for later Remotion motion and captions. Premium semi-realistic materials, controlled soft studio light, readable contact shadows, strong depth, no tiny diorama.
+Create a horizontal 16:9 scene in the exact FinanzNeo Reel-V9 visual world: premium real-world-grounded stylized 3D, clearly stylized and never photorealistic. Show a believable home laundry corner dissolving naturally into a seamless deep-black environment. The washing machine is large, correctly proportioned, visibly faulty through an open service panel or clear repair state, never destroyed or cartoonish. Put one large readable repair invoice in the foreground with exactly the short German object label `Reparatur 480 €`. Use warm red-orange only to emphasize the problem/cost. Use warm ivory and soft gray for neutral materials; emerald only if a positive/protected element is actually present. Leave clear visual breathing room on the opposite side for later Remotion motion and captions. Keep the same polished stylized materials, soft studio lighting, readable contact shadows and object language as the FinanzNeo Reels. No blue/purple neon, no cyberpunk blocks, no sci-fi geometry and no decorative visual system outside the FinanzNeo palette.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_WORLD: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 Literal first, creative second.
-Forbidden: photorealism, toy look, piggy bank, vault, random coins, generic arrows, dashboard, app UI, floating cards, flowchart, decorative plants, headline, subtitle, CTA, random text.
+Forbidden: photorealism, stock-photo look, toy look, piggy bank, vault, random coins, generic arrows, dashboard, app UI, floating cards, flowchart, decorative plants, headline, subtitle, CTA, random text, blue/purple cyberpunk neon, sci-fi geometry.
