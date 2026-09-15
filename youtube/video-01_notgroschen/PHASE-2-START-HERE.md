@@ -9,6 +9,10 @@ Dieses Dokument ist der schnelle Einstieg für Phase 2. Für Bilder und Voiceove
 
 Diese Datei enthält alle Bildjobs. Bilder strikt einzeln erzeugen, vollständig warten, exakt umbenennen und erst danach das nächste Bild starten.
 
+WICHTIG: Bestehende Flow-Bilder aus einer älteren Prompt-Version sind **nicht automatisch bestanden**. Jedes vorhandene Bild muss gegen die aktuelle vereinheitlichte V9-Bildwelt und die aktuelle Simple-Composition-QA geprüft werden. Wenn es überladen, zu fotorealistisch, cyberpunkig, zu stark auf Schreibtisch/Realraum fixiert oder schwer in 1–2 Sekunden verständlich ist, denselben Bildslot neu generieren und ersetzen.
+
+Aktuelle Bildregel: **beste visuelle Erklärung zuerst**. Reale Szene nur wenn sie wirklich besser erklärt; sonst wenige große schwebende 3D-Objekte, 3D-Diagramm, räumliche Finanzmechanik oder klarer Vergleich. Ein Bild = ein Gedanke.
+
 ### 2. Fertige Bilder
 `04-visuals/00-ALLE-BILDER-HIER-REIN/`
 
