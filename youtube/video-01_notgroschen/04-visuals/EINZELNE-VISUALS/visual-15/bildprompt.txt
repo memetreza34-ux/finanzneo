@@ -1,19 +1,16 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINAL FILE NAME: YouTube Bild 15 - Langfristiges Investment.png
-Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. If any check fails, regenerate the same image number before continuing.
-
-LITERAL_REAL_WORLD_SITUATION: A calm long-term investing setup at a home desk where a clearly separated investment document/account is associated with a multi-year calendar/timeline. Short labels: `Langfristig`, `Investment`.
-REAL_WORLD_CONTEXT_ANCHOR: Realistic home financial-planning desk, not a trading floor.
-VOICEOVER_VISUAL_MATCH: The image communicates that investing can have a valid long-term role, but it is a different bucket from immediately available emergency cash.
-TRANSFERABILITY_TEST: PASS — the multi-year planning context and deliberate separation from emergency money directly establish long-term use.
-VISUAL_STRATEGY: literal
-METAPHOR_JUSTIFICATION: NONE
-
-IMAGE PROMPT:
-Create a horizontal 16:9 premium stylized-3D scene. Show a grounded home planning desk with a long-horizon investment document/account object and a visible multi-year calendar or timeline extending into depth. Use only the short labels `Langfristig` and `Investment`. Keep the scene calm and credible, with no promise of returns and no upward-only chart. A separate empty/neutral space should make it obvious that this is not the emergency-fund scene. Deep black environment, subtle emerald and neutral tones, restrained gold only as value accent, soft studio light.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-Literal first, creative second.
-Forbidden: guaranteed growth, rocket, moon, bull, giant green arrow, trading dashboard, broker app, coin pile, vault, photorealism, headline, subtitle, CTA, extra text.
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D materials, lighting and depth. Do not use a realistic finance desk.
+
+CORE IDEA
+Investment braucht einen langen Zeithorizont.
+
+IMAGE PROMPT
+Create ONE bold physical stylized-3D timeline floating in deep black. Use a few large year markers and one smooth sculpted investment path that rises and falls into the distance. Add only `Langfristig` and `Investment`. The timeline should look like a tangible object from an animated feature film, with rounded simplified geometry and soft materials.
+
+HARD NO
+Realistic metal rail, realistic office/desk, trading app, finance dashboard, software-chart look, photorealism, semi-realism, blue/purple cyberpunk, extra text.
