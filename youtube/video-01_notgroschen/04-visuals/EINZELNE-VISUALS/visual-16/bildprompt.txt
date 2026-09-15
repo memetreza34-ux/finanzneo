@@ -1,19 +1,16 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINAL FILE NAME: YouTube Bild 16 - Auto und Depot.png
-Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. If any check fails, regenerate the same image number before continuing.
-
-LITERAL_REAL_WORLD_SITUATION: A believable everyday car is in a workshop with a clearly urgent brake/repair situation. A readable service invoice area carries only the short German label `Reparatur`. Leave a clean dark area in the upper/right portion for a later Remotion chart overlay.
-REAL_WORLD_CONTEXT_ANCHOR: Realistic stylized vehicle workshop, ordinary commuter car, necessary repair.
-VOICEOVER_VISUAL_MATCH: The concrete emergency is the car repair; Remotion will later add the hypothetical -25% depot drawdown and forced-sale timing conflict.
-TRANSFERABILITY_TEST: PASS — the workshop repair context is specifically designed to collide with the investment drawdown beat rather than represent generic automotive or investing content.
-VISUAL_STRATEGY: literal
-METAPHOR_JUSTIFICATION: NONE
-
-IMAGE PROMPT:
-Horizontal 16:9 premium stylized 3D. Show an ordinary commuter car lifted or opened for a necessary brake repair in a believable small workshop that dissolves into the FinanzNeo deep-black world. Make the real repair action obvious through wheel/brake service detail without gore, sparks or drama. Place a clear neutral invoice/service object labeled only `Reparatur`. Reserve roughly the upper-right third as uncluttered deep-black negative space for a later SVG depot curve. Use warm red-orange subtly on the repair problem, neutral soft gray/ivory materials elsewhere. Large readable objects, believable construction and scale.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-Literal first, creative second.
-Forbidden: chart inside generated image, stock symbols, crash accident, luxury sports car, floating cards, dashboard UI, generic arrows, tiny diorama, headline, subtitle, CTA, extra text.
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly. The car must look like an animated-film object, not a real car render.
+
+CORE IDEA
+Eine Reparatur kann genau dann kommen, wenn das Depot ungünstig steht.
+
+IMAGE PROMPT
+Show ONE clearly stylized commuter car with simplified rounded proportions and one visible wheel/brake repair. Add one stylized repair document labeled `Reparatur`. Keep the world deep black with only minimal stylized repair context. Leave a large clean black area on the right/upper-right for the later Remotion -25% chart. Use soft sculpted materials and cinematic animated-feature lighting.
+
+HARD NO
+Realistic workshop, real-looking mechanic, photorealistic car, automotive-ad render, realistic reflections/materials, chart in the generated image, cyberpunk/neon, extra text.
