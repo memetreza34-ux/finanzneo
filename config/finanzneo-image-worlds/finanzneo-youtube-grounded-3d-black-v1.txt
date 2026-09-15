@@ -50,6 +50,28 @@ CORE STYLE
 - one coherent situation is preferred over a collection of finance symbols
 - a strong still image must already work before Remotion animation is added
 
+REAL IN IDENTITY, STYLIZED IN RENDERING
+An object must carry the features by which it is recognized in real life.
+Money is recognizable euro banknotes: correct colour for the value, correct proportions,
+readable denomination. Never generic coloured paper and never dollars.
+Money keeps its own real colour even when that colour is not its semantic role colour.
+Invoices, account statements, payslips and contracts follow ordinary German layout.
+Cars, appliances and packaging are ordinary European everyday objects.
+
+AT LEAST ONE REAL 3D OBJECT
+Every image needs at least one tangible three-dimensional object.
+Never build a scene out of paper and documents alone — paper is what an image model renders
+photographically by default, and that is where this world breaks.
+
+ONE RELATION PER IMAGE
+An image shows exactly one relation: big/small, near/far, open/closed, tipping/standing,
+pressing/being pressed. Plus one telling detail that shows that relation.
+No chain of four things. Abstract sentences become simple once a single relation is chosen.
+
+PROMPT LENGTH AND ORDER
+Keep prompts short. Long rule blocks consume the attention the scene needs.
+Order: style block, then SCENE, then a short style reminder at the end.
+The style appears at the front AND the end; image models weight the ending strongly.
 NOT A TOY, NOT CLAY
 Do not produce a clay, plasticine, marzipan, soap-bar or bath-toy look.
 Do not reduce objects to smooth featureless rounded lumps.

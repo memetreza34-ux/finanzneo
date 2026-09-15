@@ -39,78 +39,45 @@ GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 01 - Waschmaschine kaputt.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
-Check the literal situation, the German labels, the seamless black world, the top breathing room, the horizontal 16:9 format and the file name.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
-Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: A washing machine has just broken down in a home laundry corner and the repair quote of 480 € stands in front of it.
-REAL_WORLD_CONTEXT_ANCHOR: Home laundry corner, ordinary household repair.
+LITERAL_REAL_WORLD_SITUATION: A washing machine has just died mid-cycle and the repair quote already stands in front of it.
+REAL_WORLD_CONTEXT_ANCHOR: Home laundry, ordinary household repair.
 VOICEOVER_VISUAL_MATCH: The opening line names the broken washing machine and the sudden 480 € repair cost.
-TRANSFERABILITY_TEST: PASS — a broken appliance next to a readable repair amount reads as an unplanned, unavoidable cost within 1-2 seconds without audio.
+TRANSFERABILITY_TEST: PASS — a dead appliance plus a readable repair amount is understood in under two seconds.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
 CORE IDEA (DE): Waschmaschine kaputt = plötzlich 480 € Kosten.
-GERMAN LABELS (exactly these, nothing else, small and attached to their object): `Reparatur 480 €`
+ONE RELATION: the machine has stopped, the water has not
+GERMAN LABELS (exactly these, nothing else): `Reparatur 480 €`
 
-IMAGE PROMPT
-Show ONE full-size household washing machine as the hero, standing in a small believable laundry corner and clearly out of order: door ajar with a visible rubber door seal, dark control panel, a real control dial, the drain hose slipped out and a small puddle of water spreading across the floor tiles.
-The machine is a real appliance in off-white painted metal with visible panel gaps, buttons and adjustable feet — not a smooth rounded plastic shape.
-In the foreground, leaning against the machine, ONE upright repair quote on real printed paper carrying only the label `Reparatur 480 €` in warm red-orange.
-The telling detail is the spreading puddle: the problem is still happening.
-Keep the laundry context to a hint of tiled floor and a laundry basket at the edge that dissolves into the black.
-No emerald in this frame.
+Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
+photorealistic, never a photo on a real desk. Not clay, not a toy.
+Objects must be recognizable as the real thing: correct identifying features and correct
+European everyday details. Money is recognizable euro banknotes — correct colour for the
+value, readable denomination, never generic coloured paper and never dollars.
+Real in identity, stylized in rendering.
+Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
+the objects float in black with soft contact shadows.
+Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
+red-orange for cost. Money keeps its own real colour.
+Only the German labels listed in this prompt, small and printed on their object. No other text,
+no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
-FINANZNEO STYLE LOCK
+SCENE
+A real European front-loading washing machine, off-white painted metal, door hanging wide
+open with the rubber seal visible and one lonely sock still caught in it. Water runs out
+and spreads into the black. The drain hose lies twitching beside it.
+Leaning against the machine, a German repair quote on printed paper, the amount clearly
+readable, label `Reparatur 480 €` in warm red-orange.
+The machine looks defeated. The water is still spreading.
 
-RENDERING
-Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
-Real everyday objects keep their believable proportions, construction and recognizable functional details — a washing machine has a real door seal, a control dial and feet; an invoice has real print layout and paper thickness; a car has real panel gaps, lights and tyres.
-Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
-
-NOT A TOY, NOT CLAY
-Do NOT produce a clay, plasticine, marzipan, soap-bar or bath-toy look.
-Do NOT reduce objects to smooth featureless rounded lumps.
-Do NOT build a miniature toy town, toy houses, toy cars or a tabletop diorama.
-Rounded edges are allowed as a finish, never as a replacement for the real shape of the object.
-Pastel mint or baby-blue plastic surfaces are wrong; use the FinanzNeo colour roles below.
-
-NO TYPOGRAPHY AS A SUBJECT
-Never build a word, headline, phrase or number as a large sculpted 3D object.
-German labels are small and printed, stamped, engraved, handwritten or hanging as a small tag ON or directly AT the object they describe.
-A label must never be the largest or most prominent element in the frame.
-Never invent extra text, form fields, table headers, addresses, brand names or placeholder copy on documents. A document shows only the label listed in this prompt plus plausible, unreadable, non-distracting print texture.
-
-ENTERTAINING BUT ALWAYS EXPLAINING
-The scene must be enjoyable to look at: real staging, a clear situation, one small telling detail or light exaggeration that makes the point land — an overflowing stack, a part caught mid-fall, a puddle, a drawer left open, an object leaning eagerly toward another.
-The explanation always wins over the gag. If the playful detail makes the message less clear, drop it.
-Never decorate. Every object in the frame either carries the situation or is removed.
-
-BACKGROUND AND FRAMING
-ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
-Keep calm black breathing room along the TOP edge. The hero sits in the middle and lower two thirds of the frame, so a subheading can later be placed above the image. Nothing important touches the top edge.
-
-LIGHT
-Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
-
-COLOUR ROLES
-Emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Deep black: the world.
-Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
-
-READABILITY
-Horizontal 16:9. One clear main situation. Cause and effect readable in the same frame. Understandable in 1-2 seconds without audio. Hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
-
-HARD NO — ALWAYS
-Photorealism or any frame mistakable for a real photograph. Stock-photo look. Product-advertisement render. Realistic human being.
-Clay, plasticine, soap-bar, marzipan or bath-toy rendering. Featureless rounded blobs. Miniature toy town, toy houses, toy cars, tabletop diorama.
-Any word, headline or number built as a large 3D sculpture. Invented text, fake form fields, fake table headers, fake addresses, placeholder copy such as `FinanzNeo V9`.
-Safe, vault, strongbox, keyhole box, piggy bank, coin stack, coin pile, treasure chest, shield, upward arrow, glowing money ribbon, plant growing from money, green folder as a recurring motif.
-Flat infographic or presentation slide. Dashboard or app UI. Website or app screenshot. Flowchart. Floating info cards.
-Sci-fi hologram, cyberpunk neon, excessive glow. Sterile isolated product shot with no situation. Decorative props without meaning. Pasted flat logos. Long text inside the image.
-
-HARD NO — THIS SCENE
-Emerald reserve object, coins, gems, technician, complete bright utility room, pastel mint or baby-blue appliance, smooth toy washing machine without a door seal or dial.
+Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
+Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BLOCK 2 / 10 — visual-05 — YouTube Bild 05 - Kein Konsum.png
@@ -125,77 +92,46 @@ GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 05 - Kein Konsum.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
-Check the literal situation, the German labels, the seamless black world, the top breathing room, the horizontal 16:9 format and the file name.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
-Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: A sealed bank envelope holding the emergency reserve stands alone on a shelf, physically separated from three ordinary consumer purchases.
-REAL_WORLD_CONTEXT_ANCHOR: Everyday household money decisions: reserve versus optional spending.
+LITERAL_REAL_WORLD_SITUATION: Three purchases all lean toward the sealed reserve envelope, and none of them reaches it.
+REAL_WORLD_CONTEXT_ANCHOR: Everyday spending decisions at home.
 VOICEOVER_VISUAL_MATCH: The line says the Notgroschen is not for holidays, a new phone or a sale.
-TRANSFERABILITY_TEST: PASS — one closed, untouched envelope against three tempting purchases, with clear space between them, shows the separation without audio.
+TRANSFERABILITY_TEST: PASS — everything in the frame falls toward the envelope while the envelope stands still.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
 CORE IDEA (DE): Der Notgroschen ist getrennt von freiwilligem Konsum.
-GERMAN LABELS (exactly these, nothing else, small and attached to their object): `Notgroschen`, `Urlaub`, `Neues Handy`, `Sale`
+ONE RELATION: everything tips, one thing stands
+GERMAN LABELS (exactly these, nothing else): `Notgroschen`, `Urlaub`, `Neues Handy`, `Sale`
 
-IMAGE PROMPT
-Show ONE closed, sealed bank envelope standing upright on the left, in warm ivory paper with a calm emerald seal, carrying only the small printed label `Notgroschen`. It is visibly untouched.
-Clearly separated by black space on the right, THREE recognizable everyday purchases crowded together: an open packed travel suitcase with a small tag `Urlaub`, a new smartphone half out of its opened box with a small tag `Neues Handy`, and a shopping bag tipping forward with a price tag `Sale`.
-The telling detail is that the three purchases lean eagerly toward the envelope while a clean edge of black keeps them apart.
-Neutral ivory and soft gray for the purchases with a restrained warm red-orange price tag. Emerald appears only on the envelope seal.
-No shelf furniture, no room — only a hinted surface under the objects that dissolves into the black.
+Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
+photorealistic, never a photo on a real desk. Not clay, not a toy.
+Objects must be recognizable as the real thing: correct identifying features and correct
+European everyday details. Money is recognizable euro banknotes — correct colour for the
+value, readable denomination, never generic coloured paper and never dollars.
+Real in identity, stylized in rendering.
+Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
+the objects float in black with soft contact shadows.
+Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
+red-orange for cost. Money keeps its own real colour.
+Only the German labels listed in this prompt, small and printed on their object. No other text,
+no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
-FINANZNEO STYLE LOCK
+SCENE
+A closed ivory envelope with an emerald wax seal stands perfectly upright and still,
+small printed label `Notgroschen`.
+Three purchases lean hard toward it from the right, all reaching, none touching: a packed
+hard-shell suitcase tipping on one corner `Urlaub`, a new smartphone sliding halfway out
+of its opened box `Neues Handy`, a paper shopping bag already spilled over with a dangling
+price tag `Sale`.
+Everything in the frame is falling toward the envelope. The envelope does not move.
 
-RENDERING
-Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
-Real everyday objects keep their believable proportions, construction and recognizable functional details — a washing machine has a real door seal, a control dial and feet; an invoice has real print layout and paper thickness; a car has real panel gaps, lights and tyres.
-Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
-
-NOT A TOY, NOT CLAY
-Do NOT produce a clay, plasticine, marzipan, soap-bar or bath-toy look.
-Do NOT reduce objects to smooth featureless rounded lumps.
-Do NOT build a miniature toy town, toy houses, toy cars or a tabletop diorama.
-Rounded edges are allowed as a finish, never as a replacement for the real shape of the object.
-Pastel mint or baby-blue plastic surfaces are wrong; use the FinanzNeo colour roles below.
-
-NO TYPOGRAPHY AS A SUBJECT
-Never build a word, headline, phrase or number as a large sculpted 3D object.
-German labels are small and printed, stamped, engraved, handwritten or hanging as a small tag ON or directly AT the object they describe.
-A label must never be the largest or most prominent element in the frame.
-Never invent extra text, form fields, table headers, addresses, brand names or placeholder copy on documents. A document shows only the label listed in this prompt plus plausible, unreadable, non-distracting print texture.
-
-ENTERTAINING BUT ALWAYS EXPLAINING
-The scene must be enjoyable to look at: real staging, a clear situation, one small telling detail or light exaggeration that makes the point land — an overflowing stack, a part caught mid-fall, a puddle, a drawer left open, an object leaning eagerly toward another.
-The explanation always wins over the gag. If the playful detail makes the message less clear, drop it.
-Never decorate. Every object in the frame either carries the situation or is removed.
-
-BACKGROUND AND FRAMING
-ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
-Keep calm black breathing room along the TOP edge. The hero sits in the middle and lower two thirds of the frame, so a subheading can later be placed above the image. Nothing important touches the top edge.
-
-LIGHT
-Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
-
-COLOUR ROLES
-Emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Deep black: the world.
-Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
-
-READABILITY
-Horizontal 16:9. One clear main situation. Cause and effect readable in the same frame. Understandable in 1-2 seconds without audio. Hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
-
-HARD NO — ALWAYS
-Photorealism or any frame mistakable for a real photograph. Stock-photo look. Product-advertisement render. Realistic human being.
-Clay, plasticine, soap-bar, marzipan or bath-toy rendering. Featureless rounded blobs. Miniature toy town, toy houses, toy cars, tabletop diorama.
-Any word, headline or number built as a large 3D sculpture. Invented text, fake form fields, fake table headers, fake addresses, placeholder copy such as `FinanzNeo V9`.
-Safe, vault, strongbox, keyhole box, piggy bank, coin stack, coin pile, treasure chest, shield, upward arrow, glowing money ribbon, plant growing from money, green folder as a recurring motif.
-Flat infographic or presentation slide. Dashboard or app UI. Website or app screenshot. Flowchart. Floating info cards.
-Sci-fi hologram, cyberpunk neon, excessive glow. Sterile isolated product shot with no situation. Decorative props without meaning. Pasted flat logos. Long text inside the image.
-
-HARD NO — THIS SCENE
-Safe, vault, strongbox, keyhole, piggy bank, glass jar, coins, shop interior, price signs, icon grid, oversized lettering.
+Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
+Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BLOCK 3 / 10 — visual-06 — YouTube Bild 06 - Echte Notfälle.png
@@ -210,79 +146,45 @@ GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 06 - Echte Notfälle.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
-Check the literal situation, the German labels, the seamless black world, the top breathing room, the horizontal 16:9 format and the file name.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
-Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: Three real emergency triggers land on one kitchen counter at the same time: a broken heater with a leak, an urgent overdue bill and a payslip with a visibly shorter amount.
-REAL_WORLD_CONTEXT_ANCHOR: Ordinary household objects and documents that force unplanned spending.
-VOICEOVER_VISUAL_MATCH: The line defines real emergencies as necessary, non-postponable costs or income gaps.
-TRANSFERABILITY_TEST: PASS — a broken appliance, an overdue bill and a reduced payslip are instantly recognizable triggers and need no interpretation.
+LITERAL_REAL_WORLD_SITUATION: A cracked home boiler is still dripping while two documents that arrived with it lie underneath.
+REAL_WORLD_CONTEXT_ANCHOR: Household breakdown plus the paperwork it causes.
+VOICEOVER_VISUAL_MATCH: The line defines real emergencies as necessary costs or income gaps.
+TRANSFERABILITY_TEST: PASS — a leaking boiler, an overdue bill and a shorter payslip need no interpretation.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
 CORE IDEA (DE): Echte Notfälle sind notwendige Kosten oder weniger Einkommen.
-GERMAN LABELS (exactly these, nothing else, small and attached to their object): `Reparatur`, `Rechnung`, `Weniger Einkommen`
+ONE RELATION: one thing breaks, two more follow
+GERMAN LABELS (exactly these, nothing else): `Reparatur`, `Rechnung`, `Weniger Einkommen`
 
-IMAGE PROMPT
-Build ONE connected situation on a hinted kitchen counter with THREE large recognizable real triggers, slightly overlapping as if they all arrived on the same unlucky day:
-a wall-mounted home heater unit with a cracked front panel and a thin drip running down it, with a small tag `Reparatur`;
-an opened paper bill with a warm red-orange overdue stamp, small label `Rechnung`;
-a payslip whose printed amount column is visibly shorter than the one behind it, small label `Weniger Einkommen`.
-The telling detail is the overlap: three problems at once, none of them optional.
-Real materials — painted metal on the heater, real printed paper on both documents. Keep all three equally large and readable, with breathing room around each so Remotion can focus them one by one.
-Warm red-orange only on the damage and the overdue stamp. No emerald in this frame.
+Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
+photorealistic, never a photo on a real desk. Not clay, not a toy.
+Objects must be recognizable as the real thing: correct identifying features and correct
+European everyday details. Money is recognizable euro banknotes — correct colour for the
+value, readable denomination, never generic coloured paper and never dollars.
+Real in identity, stylized in rendering.
+Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
+the objects float in black with soft contact shadows.
+Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
+red-orange for cost. Money keeps its own real colour.
+Only the German labels listed in this prompt, small and printed on their object. No other text,
+no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
-FINANZNEO STYLE LOCK
+SCENE
+A real wall-mounted German gas boiler, white casing cracked open at the front, a thin line
+of water still running down it and one drop caught mid-fall. Small label `Reparatur`.
+Directly beneath it, landed in the splash: a German invoice with a warm red-orange overdue
+stamp `Rechnung`, and a German payslip whose printed amount column is visibly shorter than
+the one behind it `Weniger Einkommen`.
+The boiler broke first. The paper arrived because of it.
 
-RENDERING
-Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
-Real everyday objects keep their believable proportions, construction and recognizable functional details — a washing machine has a real door seal, a control dial and feet; an invoice has real print layout and paper thickness; a car has real panel gaps, lights and tyres.
-Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
-
-NOT A TOY, NOT CLAY
-Do NOT produce a clay, plasticine, marzipan, soap-bar or bath-toy look.
-Do NOT reduce objects to smooth featureless rounded lumps.
-Do NOT build a miniature toy town, toy houses, toy cars or a tabletop diorama.
-Rounded edges are allowed as a finish, never as a replacement for the real shape of the object.
-Pastel mint or baby-blue plastic surfaces are wrong; use the FinanzNeo colour roles below.
-
-NO TYPOGRAPHY AS A SUBJECT
-Never build a word, headline, phrase or number as a large sculpted 3D object.
-German labels are small and printed, stamped, engraved, handwritten or hanging as a small tag ON or directly AT the object they describe.
-A label must never be the largest or most prominent element in the frame.
-Never invent extra text, form fields, table headers, addresses, brand names or placeholder copy on documents. A document shows only the label listed in this prompt plus plausible, unreadable, non-distracting print texture.
-
-ENTERTAINING BUT ALWAYS EXPLAINING
-The scene must be enjoyable to look at: real staging, a clear situation, one small telling detail or light exaggeration that makes the point land — an overflowing stack, a part caught mid-fall, a puddle, a drawer left open, an object leaning eagerly toward another.
-The explanation always wins over the gag. If the playful detail makes the message less clear, drop it.
-Never decorate. Every object in the frame either carries the situation or is removed.
-
-BACKGROUND AND FRAMING
-ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
-Keep calm black breathing room along the TOP edge. The hero sits in the middle and lower two thirds of the frame, so a subheading can later be placed above the image. Nothing important touches the top edge.
-
-LIGHT
-Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
-
-COLOUR ROLES
-Emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Deep black: the world.
-Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
-
-READABILITY
-Horizontal 16:9. One clear main situation. Cause and effect readable in the same frame. Understandable in 1-2 seconds without audio. Hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
-
-HARD NO — ALWAYS
-Photorealism or any frame mistakable for a real photograph. Stock-photo look. Product-advertisement render. Realistic human being.
-Clay, plasticine, soap-bar, marzipan or bath-toy rendering. Featureless rounded blobs. Miniature toy town, toy houses, toy cars, tabletop diorama.
-Any word, headline or number built as a large 3D sculpture. Invented text, fake form fields, fake table headers, fake addresses, placeholder copy such as `FinanzNeo V9`.
-Safe, vault, strongbox, keyhole box, piggy bank, coin stack, coin pile, treasure chest, shield, upward arrow, glowing money ribbon, plant growing from money, green folder as a recurring motif.
-Flat infographic or presentation slide. Dashboard or app UI. Website or app screenshot. Flowchart. Floating info cards.
-Sci-fi hologram, cyberpunk neon, excessive glow. Sterile isolated product shot with no situation. Decorative props without meaning. Pasted flat logos. Long text inside the image.
-
-HARD NO — THIS SCENE
-Miniature city, toy houses, four-zone diorama, complete kitchen interior, icon wall, abstract container, oversized lettering, warning triangles.
+Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
+Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BLOCK 4 / 10 — visual-11 — YouTube Bild 11 - Person A.png
@@ -297,77 +199,44 @@ GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 11 - Person A.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
-Check the literal situation, the German labels, the seamless black world, the top breathing room, the horizontal 16:9 format and the file name.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
-Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: Everything a person with low fixed costs is responsible for fits easily next to one small backpack: a bicycle, a single room key and a thin envelope of bills.
-REAL_WORLD_CONTEXT_ANCHOR: Living at home, no car, stable job, few recurring obligations.
+LITERAL_REAL_WORLD_SITUATION: Everything this person is responsible for fits easily around one small backpack.
+REAL_WORLD_CONTEXT_ANCHOR: Living at home, no car, stable job.
 VOICEOVER_VISUAL_MATCH: The line describes person A: lives at home, no car, low fixed costs, stable job.
-TRANSFERABILITY_TEST: PASS — few, small, easily contained everyday objects communicate a light obligation load without audio.
+TRANSFERABILITY_TEST: PASS — few small objects with a lot of calm space around them read as a light load.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
 CORE IDEA (DE): Wenige Verpflichtungen = geringerer Reservebedarf.
-GERMAN LABELS (exactly these, nothing else, small and attached to their object): `Niedrige Fixkosten`, `Stabiler Job`
+ONE RELATION: little, and it all fits
+GERMAN LABELS (exactly these, nothing else): `Niedrige Fixkosten`, `Stabiler Job`
 
-IMAGE PROMPT
-Show ONE small everyday backpack standing open, with the few obligations of this person arranged calmly around it: a real commuter bicycle leaning behind it with visible spokes, chain and handlebars, ONE single room key on a plain ring, and ONE thin envelope of bills with a small printed tag `Niedrige Fixkosten`.
-Behind them, ONE plain employment letter lying flat with a small printed tag `Stabiler Job`.
-The telling detail is how much calm black space is left around the group — everything fits, nothing spills.
-Neutral ivory and soft gray materials, one restrained emerald accent on the employment letter.
-No person, no room. Only a hinted floor that dissolves into the black.
+Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
+photorealistic, never a photo on a real desk. Not clay, not a toy.
+Objects must be recognizable as the real thing: correct identifying features and correct
+European everyday details. Money is recognizable euro banknotes — correct colour for the
+value, readable denomination, never generic coloured paper and never dollars.
+Real in identity, stylized in rendering.
+Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
+the objects float in black with soft contact shadows.
+Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
+red-orange for cost. Money keeps its own real colour.
+Only the German labels listed in this prompt, small and printed on their object. No other text,
+no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
-FINANZNEO STYLE LOCK
+SCENE
+One small everyday backpack stands open. Around it, calmly spaced: a real city bicycle
+leaning behind it with visible chain, spokes and handlebars, one single room key on a plain
+ring, and one thin envelope of bills with a small tag `Niedrige Fixkosten`.
+Behind them one plain German employment contract lies flat with a small tag `Stabiler Job`.
+There is far more empty black around the group than there are objects in it.
 
-RENDERING
-Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
-Real everyday objects keep their believable proportions, construction and recognizable functional details — a washing machine has a real door seal, a control dial and feet; an invoice has real print layout and paper thickness; a car has real panel gaps, lights and tyres.
-Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
-
-NOT A TOY, NOT CLAY
-Do NOT produce a clay, plasticine, marzipan, soap-bar or bath-toy look.
-Do NOT reduce objects to smooth featureless rounded lumps.
-Do NOT build a miniature toy town, toy houses, toy cars or a tabletop diorama.
-Rounded edges are allowed as a finish, never as a replacement for the real shape of the object.
-Pastel mint or baby-blue plastic surfaces are wrong; use the FinanzNeo colour roles below.
-
-NO TYPOGRAPHY AS A SUBJECT
-Never build a word, headline, phrase or number as a large sculpted 3D object.
-German labels are small and printed, stamped, engraved, handwritten or hanging as a small tag ON or directly AT the object they describe.
-A label must never be the largest or most prominent element in the frame.
-Never invent extra text, form fields, table headers, addresses, brand names or placeholder copy on documents. A document shows only the label listed in this prompt plus plausible, unreadable, non-distracting print texture.
-
-ENTERTAINING BUT ALWAYS EXPLAINING
-The scene must be enjoyable to look at: real staging, a clear situation, one small telling detail or light exaggeration that makes the point land — an overflowing stack, a part caught mid-fall, a puddle, a drawer left open, an object leaning eagerly toward another.
-The explanation always wins over the gag. If the playful detail makes the message less clear, drop it.
-Never decorate. Every object in the frame either carries the situation or is removed.
-
-BACKGROUND AND FRAMING
-ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
-Keep calm black breathing room along the TOP edge. The hero sits in the middle and lower two thirds of the frame, so a subheading can later be placed above the image. Nothing important touches the top edge.
-
-LIGHT
-Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
-
-COLOUR ROLES
-Emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Deep black: the world.
-Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
-
-READABILITY
-Horizontal 16:9. One clear main situation. Cause and effect readable in the same frame. Understandable in 1-2 seconds without audio. Hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
-
-HARD NO — ALWAYS
-Photorealism or any frame mistakable for a real photograph. Stock-photo look. Product-advertisement render. Realistic human being.
-Clay, plasticine, soap-bar, marzipan or bath-toy rendering. Featureless rounded blobs. Miniature toy town, toy houses, toy cars, tabletop diorama.
-Any word, headline or number built as a large 3D sculpture. Invented text, fake form fields, fake table headers, fake addresses, placeholder copy such as `FinanzNeo V9`.
-Safe, vault, strongbox, keyhole box, piggy bank, coin stack, coin pile, treasure chest, shield, upward arrow, glowing money ribbon, plant growing from money, green folder as a recurring motif.
-Flat infographic or presentation slide. Dashboard or app UI. Website or app screenshot. Flowchart. Floating info cards.
-Sci-fi hologram, cyberpunk neon, excessive glow. Sterile isolated product shot with no situation. Decorative props without meaning. Pasted flat logos. Long text inside the image.
-
-HARD NO — THIS SCENE
-Person or character, white studio background, office desk, apartment interior, toy bicycle, oversized 3D lettering, floating abstract profile shapes.
+Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
+Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BLOCK 5 / 10 — visual-12 — YouTube Bild 12 - Person B.png
@@ -382,79 +251,45 @@ GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 12 - Person B.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
-Check the literal situation, the German labels, the seamless black world, the top breathing room, the horizontal 16:9 format and the file name.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
-Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: The obligations of someone living alone, laid out as one group that no longer fits: a rent letter, a real commuter car and a stack of recurring bills spilling over the edge.
-REAL_WORLD_CONTEXT_ANCHOR: Own flat, car needed for work, several recurring monthly obligations.
+LITERAL_REAL_WORLD_SITUATION: The same kind of group, but a car dominates it and the bills are sliding apart.
+REAL_WORLD_CONTEXT_ANCHOR: Own flat, car needed for work, several recurring obligations.
 VOICEOVER_VISUAL_MATCH: The line describes person B: lives alone, needs a car, higher rent, several obligations.
-TRANSFERABILITY_TEST: PASS — everyday belongings that are visibly heavier and overflowing make the higher reserve need readable at a glance.
+TRANSFERABILITY_TEST: PASS — visibly more and heavier objects, and one stack that no longer holds together.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
 CORE IDEA (DE): Mehr feste Verpflichtungen = höherer Reservebedarf.
-GERMAN LABELS (exactly these, nothing else, small and attached to their object): `Miete`, `Auto`, `Laufende Kosten`
+ONE RELATION: too much, and it no longer holds
+GERMAN LABELS (exactly these, nothing else): `Miete`, `Auto`, `Laufende Kosten`
 
-IMAGE PROMPT
-Stage the objects as one calm group seen from a normal standing distance, as if laid out side by side — but this time the load clearly does not fit into that group.
-Show ONE real everyday commuter car as the largest object, three-quarter view, with real panel gaps, headlights, mirrors and rubber tyres — an ordinary used compact car, not a toy and not a showroom render — with a small tag `Auto` hanging from the mirror.
-Next to it, ONE rent letter standing upright with a flat door key resting on it, small printed tag `Miete`.
-In front, ONE thick stack of recurring bills that is visibly spilling over and sliding apart, small printed tag `Laufende Kosten`.
-The telling detail is the spilling stack: more obligations than the person can hold.
-Neutral ivory and soft gray with restrained warm red-orange edges on the recurring bills.
-No person, no apartment interior, no street.
+Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
+photorealistic, never a photo on a real desk. Not clay, not a toy.
+Objects must be recognizable as the real thing: correct identifying features and correct
+European everyday details. Money is recognizable euro banknotes — correct colour for the
+value, readable denomination, never generic coloured paper and never dollars.
+Real in identity, stylized in rendering.
+Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
+the objects float in black with soft contact shadows.
+Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
+red-orange for cost. Money keeps its own real colour.
+Only the German labels listed in this prompt, small and printed on their object. No other text,
+no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
-FINANZNEO STYLE LOCK
+SCENE
+A real ordinary European compact commuter car, slightly used, three-quarter view, with panel
+gaps, headlights, mirrors and rubber tyres. A small paper tag `Auto` hangs from the mirror.
+Next to it a German rent letter stands upright with a flat door key resting on it, tag `Miete`.
+In front, a thick stack of recurring bills is sliding apart, the top three already slipping
+off, tag `Laufende Kosten`.
+The group is visibly heavier than it can carry.
 
-RENDERING
-Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
-Real everyday objects keep their believable proportions, construction and recognizable functional details — a washing machine has a real door seal, a control dial and feet; an invoice has real print layout and paper thickness; a car has real panel gaps, lights and tyres.
-Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
-
-NOT A TOY, NOT CLAY
-Do NOT produce a clay, plasticine, marzipan, soap-bar or bath-toy look.
-Do NOT reduce objects to smooth featureless rounded lumps.
-Do NOT build a miniature toy town, toy houses, toy cars or a tabletop diorama.
-Rounded edges are allowed as a finish, never as a replacement for the real shape of the object.
-Pastel mint or baby-blue plastic surfaces are wrong; use the FinanzNeo colour roles below.
-
-NO TYPOGRAPHY AS A SUBJECT
-Never build a word, headline, phrase or number as a large sculpted 3D object.
-German labels are small and printed, stamped, engraved, handwritten or hanging as a small tag ON or directly AT the object they describe.
-A label must never be the largest or most prominent element in the frame.
-Never invent extra text, form fields, table headers, addresses, brand names or placeholder copy on documents. A document shows only the label listed in this prompt plus plausible, unreadable, non-distracting print texture.
-
-ENTERTAINING BUT ALWAYS EXPLAINING
-The scene must be enjoyable to look at: real staging, a clear situation, one small telling detail or light exaggeration that makes the point land — an overflowing stack, a part caught mid-fall, a puddle, a drawer left open, an object leaning eagerly toward another.
-The explanation always wins over the gag. If the playful detail makes the message less clear, drop it.
-Never decorate. Every object in the frame either carries the situation or is removed.
-
-BACKGROUND AND FRAMING
-ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
-Keep calm black breathing room along the TOP edge. The hero sits in the middle and lower two thirds of the frame, so a subheading can later be placed above the image. Nothing important touches the top edge.
-
-LIGHT
-Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
-
-COLOUR ROLES
-Emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Deep black: the world.
-Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
-
-READABILITY
-Horizontal 16:9. One clear main situation. Cause and effect readable in the same frame. Understandable in 1-2 seconds without audio. Hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
-
-HARD NO — ALWAYS
-Photorealism or any frame mistakable for a real photograph. Stock-photo look. Product-advertisement render. Realistic human being.
-Clay, plasticine, soap-bar, marzipan or bath-toy rendering. Featureless rounded blobs. Miniature toy town, toy houses, toy cars, tabletop diorama.
-Any word, headline or number built as a large 3D sculpture. Invented text, fake form fields, fake table headers, fake addresses, placeholder copy such as `FinanzNeo V9`.
-Safe, vault, strongbox, keyhole box, piggy bank, coin stack, coin pile, treasure chest, shield, upward arrow, glowing money ribbon, plant growing from money, green folder as a recurring motif.
-Flat infographic or presentation slide. Dashboard or app UI. Website or app screenshot. Flowchart. Floating info cards.
-Sci-fi hologram, cyberpunk neon, excessive glow. Sterile isolated product shot with no situation. Decorative props without meaning. Pasted flat logos. Long text inside the image.
-
-HARD NO — THIS SCENE
-Toy car, car advertisement render, photorealistic car, toy houses, miniature town, person or character, complete apartment, showroom, oversized 3D lettering.
+Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
+Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BLOCK 6 / 10 — visual-15 — YouTube Bild 15 - Langfristiges Investment.png
@@ -469,78 +304,46 @@ GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 15 - Langfristiges Investment.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
-Check the literal situation, the German labels, the seamless black world, the top breathing room, the horizontal 16:9 format and the file name.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
-Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: A long row of yearly calendar sheets runs away into the depth, and only at the far end lies the depot letter — the distance is the waiting time.
+LITERAL_REAL_WORLD_SITUATION: A thick desk calendar stands in front, and the depot letter lies far away at the end of a long row of years.
 REAL_WORLD_CONTEXT_ANCHOR: Household paperwork and a calendar that spans many years.
 VOICEOVER_VISUAL_MATCH: The line says an ETF can make sense long term but has a different job than the reserve.
-TRANSFERABILITY_TEST: PASS — a visibly long run of years with the investment document far away shows the required time horizon without audio.
+TRANSFERABILITY_TEST: PASS — the depot is visibly far away in time, small and at the far end.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
 CORE IDEA (DE): Investment braucht einen langen Zeithorizont.
-GERMAN LABELS (exactly these, nothing else, small and attached to their object): `Langfristig`, `Investment`
+ONE RELATION: near time, far payoff
+GERMAN LABELS (exactly these, nothing else): `Langfristig`, `Investment`
 
-IMAGE PROMPT
-Show a long row of real yearly calendar sheets standing one behind the other, running away from the camera into the black depth, each a real printed paper sheet with a visible year number, the nearest sheets sharp and the far ones fading into the dark.
-A small printed tag `Langfristig` hangs at the near end of the row.
-At the far end of the row, small in the distance, ONE depot letter lying flat with a calm rising value line printed on the paper itself and a small tag `Investment`.
-The telling detail is the distance: the payoff is genuinely far away.
-Warm ivory paper, restrained gold only on the printed value line, one emerald accent on the far calendar sheet.
-No desk, no wall, no room. The row floats in the black world.
+Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
+photorealistic, never a photo on a real desk. Not clay, not a toy.
+Objects must be recognizable as the real thing: correct identifying features and correct
+European everyday details. Money is recognizable euro banknotes — correct colour for the
+value, readable denomination, never generic coloured paper and never dollars.
+Real in identity, stylized in rendering.
+Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
+the objects float in black with soft contact shadows.
+Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
+red-orange for cost. Money keeps its own real colour.
+Only the German labels listed in this prompt, small and printed on their object. No other text,
+no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
-FINANZNEO STYLE LOCK
+SCENE
+A real German desk calendar with a thick block of paper sheets stands close to the camera,
+the current year readable on the front sheet, small tag `Langfristig`.
+Behind it, a long row of further year blocks recedes into the black, each one smaller and
+darker than the last.
+At the far end, small and almost swallowed by the dark, one German depot statement lies flat
+with a calm rising line printed on the paper itself, small tag `Investment`.
+The payoff is genuinely far away.
 
-RENDERING
-Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
-Real everyday objects keep their believable proportions, construction and recognizable functional details — a washing machine has a real door seal, a control dial and feet; an invoice has real print layout and paper thickness; a car has real panel gaps, lights and tyres.
-Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
-
-NOT A TOY, NOT CLAY
-Do NOT produce a clay, plasticine, marzipan, soap-bar or bath-toy look.
-Do NOT reduce objects to smooth featureless rounded lumps.
-Do NOT build a miniature toy town, toy houses, toy cars or a tabletop diorama.
-Rounded edges are allowed as a finish, never as a replacement for the real shape of the object.
-Pastel mint or baby-blue plastic surfaces are wrong; use the FinanzNeo colour roles below.
-
-NO TYPOGRAPHY AS A SUBJECT
-Never build a word, headline, phrase or number as a large sculpted 3D object.
-German labels are small and printed, stamped, engraved, handwritten or hanging as a small tag ON or directly AT the object they describe.
-A label must never be the largest or most prominent element in the frame.
-Never invent extra text, form fields, table headers, addresses, brand names or placeholder copy on documents. A document shows only the label listed in this prompt plus plausible, unreadable, non-distracting print texture.
-
-ENTERTAINING BUT ALWAYS EXPLAINING
-The scene must be enjoyable to look at: real staging, a clear situation, one small telling detail or light exaggeration that makes the point land — an overflowing stack, a part caught mid-fall, a puddle, a drawer left open, an object leaning eagerly toward another.
-The explanation always wins over the gag. If the playful detail makes the message less clear, drop it.
-Never decorate. Every object in the frame either carries the situation or is removed.
-
-BACKGROUND AND FRAMING
-ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
-Keep calm black breathing room along the TOP edge. The hero sits in the middle and lower two thirds of the frame, so a subheading can later be placed above the image. Nothing important touches the top edge.
-
-LIGHT
-Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
-
-COLOUR ROLES
-Emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Deep black: the world.
-Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
-
-READABILITY
-Horizontal 16:9. One clear main situation. Cause and effect readable in the same frame. Understandable in 1-2 seconds without audio. Hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
-
-HARD NO — ALWAYS
-Photorealism or any frame mistakable for a real photograph. Stock-photo look. Product-advertisement render. Realistic human being.
-Clay, plasticine, soap-bar, marzipan or bath-toy rendering. Featureless rounded blobs. Miniature toy town, toy houses, toy cars, tabletop diorama.
-Any word, headline or number built as a large 3D sculpture. Invented text, fake form fields, fake table headers, fake addresses, placeholder copy such as `FinanzNeo V9`.
-Safe, vault, strongbox, keyhole box, piggy bank, coin stack, coin pile, treasure chest, shield, upward arrow, glowing money ribbon, plant growing from money, green folder as a recurring motif.
-Flat infographic or presentation slide. Dashboard or app UI. Website or app screenshot. Flowchart. Floating info cards.
-Sci-fi hologram, cyberpunk neon, excessive glow. Sterile isolated product shot with no situation. Decorative props without meaning. Pasted flat logos. Long text inside the image.
-
-HARD NO — THIS SCENE
-Giant sculpted lettering, ribbon or wave sculpture, trading app, broker dashboard, software chart window, glowing data grid, stock-ticker wall, realistic office desk.
+Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
+Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BLOCK 7 / 10 — visual-16 — YouTube Bild 16 - Auto und Depot.png
@@ -555,78 +358,46 @@ GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 16 - Auto und Depot.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
-Check the literal situation, the German labels, the seamless black world, the top breathing room, the horizontal 16:9 format and the file name.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
-Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: A car stands with the wheel removed and a brake damage visible, an urgent repair invoice lies in front of it, and the depot letter lies within reach.
+LITERAL_REAL_WORLD_SITUATION: A worn brake disc has been set down on the depot statement, right on the lowest point of the line.
 REAL_WORLD_CONTEXT_ANCHOR: Unplanned car repair while invested money is temporarily down.
 VOICEOVER_VISUAL_MATCH: The line describes a broken car at the same moment the depot is down by an example 25 percent.
-TRANSFERABILITY_TEST: PASS — visible damage, an urgent invoice and the depot document in the same frame set up the forced-sale conflict.
+TRANSFERABILITY_TEST: PASS — the metal physically pins the curve down at its worst moment.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
 CORE IDEA (DE): Die Reparatur kann genau dann kommen, wenn das Depot schlecht steht.
-GERMAN LABELS (exactly these, nothing else, small and attached to their object): `Reparatur`
+ONE RELATION: something heavy holds something down at the worst moment
+GERMAN LABELS (exactly these, nothing else): `Reparatur`, `Depot`
 
-IMAGE PROMPT
-Show ONE real everyday commuter car in three-quarter view on the left, jacked up with the front wheel removed and leaning against the body, the worn brake disc clearly visible — real panel gaps, headlights and rubber, an ordinary used car.
-In the foreground, ONE urgent repair invoice on real printed paper with a warm red-orange due stamp and a small label `Reparatur`.
-Just behind the invoice, ONE depot letter lying flat and face up, neutral, with no chart printed on it, leaving its surface clean.
-Keep the entire right third of the frame as calm empty black space so Remotion can draw the falling -25% curve there afterwards.
-The telling detail is the removed wheel: the car cannot be used until this is paid.
-Minimal repair context only — a jack and a single tool on the hinted ground. No workshop.
+Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
+photorealistic, never a photo on a real desk. Not clay, not a toy.
+Objects must be recognizable as the real thing: correct identifying features and correct
+European everyday details. Money is recognizable euro banknotes — correct colour for the
+value, readable denomination, never generic coloured paper and never dollars.
+Real in identity, stylized in rendering.
+Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
+the objects float in black with soft contact shadows.
+Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
+red-orange for cost. Money keeps its own real colour.
+Only the German labels listed in this prompt, small and printed on their object. No other text,
+no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
-FINANZNEO STYLE LOCK
+SCENE
+A German depot statement lies flat, its printed value line clearly sinking toward the bottom
+of the page, small tag `Depot`.
+A heavy worn car brake disc, real cast iron with a bright scored ring, has just been set down
+on it — right on the lowest point of the line — with an urgent repair invoice trapped
+underneath, one corner sticking out, small tag `Reparatur`.
+Keep the right third of the frame calm and empty for a chart added later in Remotion.
+The metal is holding the worst moment of the curve down.
 
-RENDERING
-Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
-Real everyday objects keep their believable proportions, construction and recognizable functional details — a washing machine has a real door seal, a control dial and feet; an invoice has real print layout and paper thickness; a car has real panel gaps, lights and tyres.
-Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
-
-NOT A TOY, NOT CLAY
-Do NOT produce a clay, plasticine, marzipan, soap-bar or bath-toy look.
-Do NOT reduce objects to smooth featureless rounded lumps.
-Do NOT build a miniature toy town, toy houses, toy cars or a tabletop diorama.
-Rounded edges are allowed as a finish, never as a replacement for the real shape of the object.
-Pastel mint or baby-blue plastic surfaces are wrong; use the FinanzNeo colour roles below.
-
-NO TYPOGRAPHY AS A SUBJECT
-Never build a word, headline, phrase or number as a large sculpted 3D object.
-German labels are small and printed, stamped, engraved, handwritten or hanging as a small tag ON or directly AT the object they describe.
-A label must never be the largest or most prominent element in the frame.
-Never invent extra text, form fields, table headers, addresses, brand names or placeholder copy on documents. A document shows only the label listed in this prompt plus plausible, unreadable, non-distracting print texture.
-
-ENTERTAINING BUT ALWAYS EXPLAINING
-The scene must be enjoyable to look at: real staging, a clear situation, one small telling detail or light exaggeration that makes the point land — an overflowing stack, a part caught mid-fall, a puddle, a drawer left open, an object leaning eagerly toward another.
-The explanation always wins over the gag. If the playful detail makes the message less clear, drop it.
-Never decorate. Every object in the frame either carries the situation or is removed.
-
-BACKGROUND AND FRAMING
-ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
-Keep calm black breathing room along the TOP edge. The hero sits in the middle and lower two thirds of the frame, so a subheading can later be placed above the image. Nothing important touches the top edge.
-
-LIGHT
-Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
-
-COLOUR ROLES
-Emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Deep black: the world.
-Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
-
-READABILITY
-Horizontal 16:9. One clear main situation. Cause and effect readable in the same frame. Understandable in 1-2 seconds without audio. Hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
-
-HARD NO — ALWAYS
-Photorealism or any frame mistakable for a real photograph. Stock-photo look. Product-advertisement render. Realistic human being.
-Clay, plasticine, soap-bar, marzipan or bath-toy rendering. Featureless rounded blobs. Miniature toy town, toy houses, toy cars, tabletop diorama.
-Any word, headline or number built as a large 3D sculpture. Invented text, fake form fields, fake table headers, fake addresses, placeholder copy such as `FinanzNeo V9`.
-Safe, vault, strongbox, keyhole box, piggy bank, coin stack, coin pile, treasure chest, shield, upward arrow, glowing money ribbon, plant growing from money, green folder as a recurring motif.
-Flat infographic or presentation slide. Dashboard or app UI. Website or app screenshot. Flowchart. Floating info cards.
-Sci-fi hologram, cyberpunk neon, excessive glow. Sterile isolated product shot with no situation. Decorative props without meaning. Pasted flat logos. Long text inside the image.
-
-HARD NO — THIS SCENE
-Complete workshop, mechanic, toy car, car advertisement render, photorealistic car, any chart or percentage drawn inside the generated image, oversized lettering.
+Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
+Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BLOCK 8 / 10 — visual-18 — YouTube Bild 18 - Giro zu Tagesgeld.png
@@ -641,78 +412,44 @@ GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 18 - Giro zu Tagesgeld.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
-Check the literal situation, the German labels, the seamless black world, the top breathing room, the horizontal 16:9 format and the file name.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
-Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: Two real bank statements stand side by side: the everyday current account is covered in transaction lines, the separate savings statement is almost empty and calm.
-REAL_WORLD_CONTEXT_ANCHOR: Ordinary German bank paperwork: Girokonto and Tagesgeldkonto.
-VOICEOVER_VISUAL_MATCH: The line says a separate Tagesgeld account keeps the reserve apart from the current account while staying quickly available.
-TRANSFERABILITY_TEST: PASS — a busy statement next to a calm one, clearly labelled and clearly separated, shows the split without audio.
+LITERAL_REAL_WORLD_SITUATION: The everyday card lies on a busy statement, the reserve sits closed in a sealed envelope beside it.
+REAL_WORLD_CONTEXT_ANCHOR: Ordinary German banking: Girokonto and Tagesgeldkonto.
+VOICEOVER_VISUAL_MATCH: The line says a separate Tagesgeld account keeps the reserve apart while staying available.
+TRANSFERABILITY_TEST: PASS — one side is used daily and busy, the other is closed and quiet.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
 CORE IDEA (DE): Alltagsgeld und Reserve liegen bewusst getrennt.
-GERMAN LABELS (exactly these, nothing else, small and attached to their object): `Girokonto`, `Tagesgeld`, `Notgroschen`
+ONE RELATION: open and busy against closed and quiet
+GERMAN LABELS (exactly these, nothing else): `Girokonto`, `Tagesgeld`, `Notgroschen`
 
-IMAGE PROMPT
-Show TWO real bank account statements standing upright on real printed paper, facing the camera and clearly separated.
-Left: a well-used everyday statement densely covered with many small transaction lines, slightly dog-eared, in neutral soft gray, with a small printed label `Girokonto`.
-Right: a clean separate savings statement with only one single calm line on it and an emerald accent edge, with a small printed label `Tagesgeld` and a smaller secondary tag `Notgroschen`.
-The telling detail is the contrast in density: one page is busy every day, the other is deliberately quiet.
-Keep a clean, generous black gap between the two statements so Remotion can animate the transfer between them afterwards.
-Both are physical paper with readable thickness, soft edges and contact shadows. The printed lines are plausible texture and stay unreadable.
+Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
+photorealistic, never a photo on a real desk. Not clay, not a toy.
+Objects must be recognizable as the real thing: correct identifying features and correct
+European everyday details. Money is recognizable euro banknotes — correct colour for the
+value, readable denomination, never generic coloured paper and never dollars.
+Real in identity, stylized in rendering.
+Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
+the objects float in black with soft contact shadows.
+Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
+red-orange for cost. Money keeps its own real colour.
+Only the German labels listed in this prompt, small and printed on their object. No other text,
+no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
-FINANZNEO STYLE LOCK
+SCENE
+Left: a real German bank card lies face up on a well-used account statement densely covered
+with small transaction lines, the paper slightly dog-eared, small tag `Girokonto`.
+Right, separated by a clean gap of black: a closed ivory envelope with an emerald wax seal
+stands upright, small tag `Tagesgeld` and a smaller tag `Notgroschen`.
+One side is handled every day. The other has not been opened.
 
-RENDERING
-Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
-Real everyday objects keep their believable proportions, construction and recognizable functional details — a washing machine has a real door seal, a control dial and feet; an invoice has real print layout and paper thickness; a car has real panel gaps, lights and tyres.
-Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
-
-NOT A TOY, NOT CLAY
-Do NOT produce a clay, plasticine, marzipan, soap-bar or bath-toy look.
-Do NOT reduce objects to smooth featureless rounded lumps.
-Do NOT build a miniature toy town, toy houses, toy cars or a tabletop diorama.
-Rounded edges are allowed as a finish, never as a replacement for the real shape of the object.
-Pastel mint or baby-blue plastic surfaces are wrong; use the FinanzNeo colour roles below.
-
-NO TYPOGRAPHY AS A SUBJECT
-Never build a word, headline, phrase or number as a large sculpted 3D object.
-German labels are small and printed, stamped, engraved, handwritten or hanging as a small tag ON or directly AT the object they describe.
-A label must never be the largest or most prominent element in the frame.
-Never invent extra text, form fields, table headers, addresses, brand names or placeholder copy on documents. A document shows only the label listed in this prompt plus plausible, unreadable, non-distracting print texture.
-
-ENTERTAINING BUT ALWAYS EXPLAINING
-The scene must be enjoyable to look at: real staging, a clear situation, one small telling detail or light exaggeration that makes the point land — an overflowing stack, a part caught mid-fall, a puddle, a drawer left open, an object leaning eagerly toward another.
-The explanation always wins over the gag. If the playful detail makes the message less clear, drop it.
-Never decorate. Every object in the frame either carries the situation or is removed.
-
-BACKGROUND AND FRAMING
-ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
-Keep calm black breathing room along the TOP edge. The hero sits in the middle and lower two thirds of the frame, so a subheading can later be placed above the image. Nothing important touches the top edge.
-
-LIGHT
-Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
-
-COLOUR ROLES
-Emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Deep black: the world.
-Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
-
-READABILITY
-Horizontal 16:9. One clear main situation. Cause and effect readable in the same frame. Understandable in 1-2 seconds without audio. Hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
-
-HARD NO — ALWAYS
-Photorealism or any frame mistakable for a real photograph. Stock-photo look. Product-advertisement render. Realistic human being.
-Clay, plasticine, soap-bar, marzipan or bath-toy rendering. Featureless rounded blobs. Miniature toy town, toy houses, toy cars, tabletop diorama.
-Any word, headline or number built as a large 3D sculpture. Invented text, fake form fields, fake table headers, fake addresses, placeholder copy such as `FinanzNeo V9`.
-Safe, vault, strongbox, keyhole box, piggy bank, coin stack, coin pile, treasure chest, shield, upward arrow, glowing money ribbon, plant growing from money, green folder as a recurring motif.
-Flat infographic or presentation slide. Dashboard or app UI. Website or app screenshot. Flowchart. Floating info cards.
-Sci-fi hologram, cyberpunk neon, excessive glow. Sterile isolated product shot with no situation. Decorative props without meaning. Pasted flat logos. Long text inside the image.
-
-HARD NO — THIS SCENE
-Bank app UI, online banking screenshot, letter-shaped logos, real bank branding, plastic bank cards, safe, vault, soap-bar shapes, oversized 3D lettering, invented form fields or addresses.
+Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
+Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BLOCK 9 / 10 — visual-20 — YouTube Bild 20 - Reserve trennen.png
@@ -727,78 +464,46 @@ GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 20 - Reserve trennen.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
-Check the literal situation, the German labels, the seamless black world, the top breathing room, the horizontal 16:9 format and the file name.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
-Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: One open drawer holds the messy running month with groceries and receipts, while a second closed drawer holds the reserve untouched.
-REAL_WORLD_CONTEXT_ANCHOR: Household money kept in one place versus money kept deliberately apart.
-VOICEOVER_VISUAL_MATCH: The line says on the current account the reserve mixes with everyday spending, while separated money keeps its purpose visible.
-TRANSFERABILITY_TEST: PASS — a full, messy open drawer next to a closed, calm one shows the mixing problem and its fix at a glance.
+LITERAL_REAL_WORLD_SITUATION: One drawer is pulled open and overflowing with the running month, the drawer below it is closed and untouched.
+REAL_WORLD_CONTEXT_ANCHOR: Household money kept in one place versus kept deliberately apart.
+VOICEOVER_VISUAL_MATCH: The line says on the current account the reserve mixes with everyday spending.
+TRANSFERABILITY_TEST: PASS — a messy open drawer above a calm closed one shows the problem and the fix at once.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
 CORE IDEA (DE): Monatsbudget und Notgroschen nicht vermischen.
-GERMAN LABELS (exactly these, nothing else, small and attached to their object): `Monatsbudget`, `Notgroschen`
+ONE RELATION: open and overflowing against closed and untouched
+GERMAN LABELS (exactly these, nothing else): `Monatsbudget`, `Notgroschen`
 
-IMAGE PROMPT
-Show TWO real drawers of the same simple household cabinet, floating in the black world with no surrounding furniture.
-The upper drawer is pulled fully open and crowded: a grocery bag tipping over, several crumpled receipts, a used shopping list, everything jumbled together, with a small printed tag `Monatsbudget` on the drawer front.
-The lower drawer is closed, clean and calm, with a small emerald tag `Notgroschen` on its front and nothing spilling from it.
-The telling detail is the mess in the open drawer versus the untouched closed one directly below it.
-Neutral ivory and soft gray with restrained warm red-orange on the receipts. Emerald only on the closed drawer tag.
-No room, no wall, no complete cabinet — only the two drawers and their fronts, dissolving into the black.
+Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
+photorealistic, never a photo on a real desk. Not clay, not a toy.
+Objects must be recognizable as the real thing: correct identifying features and correct
+European everyday details. Money is recognizable euro banknotes — correct colour for the
+value, readable denomination, never generic coloured paper and never dollars.
+Real in identity, stylized in rendering.
+Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
+the objects float in black with soft contact shadows.
+Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
+red-orange for cost. Money keeps its own real colour.
+Only the German labels listed in this prompt, small and printed on their object. No other text,
+no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
-FINANZNEO STYLE LOCK
+SCENE
+Two real drawers of the same simple household cabinet, floating in the black with no
+surrounding furniture.
+The upper drawer is pulled fully open and overflowing: a paper grocery bag tipping out,
+crumpled German receipts, a handwritten shopping list, a few coins caught mid-slide.
+Small tag `Monatsbudget` on the drawer front.
+The lower drawer is completely closed, clean and still, with a small emerald tag
+`Notgroschen`. Nothing spills from it.
 
-RENDERING
-Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
-Real everyday objects keep their believable proportions, construction and recognizable functional details — a washing machine has a real door seal, a control dial and feet; an invoice has real print layout and paper thickness; a car has real panel gaps, lights and tyres.
-Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
-
-NOT A TOY, NOT CLAY
-Do NOT produce a clay, plasticine, marzipan, soap-bar or bath-toy look.
-Do NOT reduce objects to smooth featureless rounded lumps.
-Do NOT build a miniature toy town, toy houses, toy cars or a tabletop diorama.
-Rounded edges are allowed as a finish, never as a replacement for the real shape of the object.
-Pastel mint or baby-blue plastic surfaces are wrong; use the FinanzNeo colour roles below.
-
-NO TYPOGRAPHY AS A SUBJECT
-Never build a word, headline, phrase or number as a large sculpted 3D object.
-German labels are small and printed, stamped, engraved, handwritten or hanging as a small tag ON or directly AT the object they describe.
-A label must never be the largest or most prominent element in the frame.
-Never invent extra text, form fields, table headers, addresses, brand names or placeholder copy on documents. A document shows only the label listed in this prompt plus plausible, unreadable, non-distracting print texture.
-
-ENTERTAINING BUT ALWAYS EXPLAINING
-The scene must be enjoyable to look at: real staging, a clear situation, one small telling detail or light exaggeration that makes the point land — an overflowing stack, a part caught mid-fall, a puddle, a drawer left open, an object leaning eagerly toward another.
-The explanation always wins over the gag. If the playful detail makes the message less clear, drop it.
-Never decorate. Every object in the frame either carries the situation or is removed.
-
-BACKGROUND AND FRAMING
-ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
-Keep calm black breathing room along the TOP edge. The hero sits in the middle and lower two thirds of the frame, so a subheading can later be placed above the image. Nothing important touches the top edge.
-
-LIGHT
-Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
-
-COLOUR ROLES
-Emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Deep black: the world.
-Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
-
-READABILITY
-Horizontal 16:9. One clear main situation. Cause and effect readable in the same frame. Understandable in 1-2 seconds without audio. Hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
-
-HARD NO — ALWAYS
-Photorealism or any frame mistakable for a real photograph. Stock-photo look. Product-advertisement render. Realistic human being.
-Clay, plasticine, soap-bar, marzipan or bath-toy rendering. Featureless rounded blobs. Miniature toy town, toy houses, toy cars, tabletop diorama.
-Any word, headline or number built as a large 3D sculpture. Invented text, fake form fields, fake table headers, fake addresses, placeholder copy such as `FinanzNeo V9`.
-Safe, vault, strongbox, keyhole box, piggy bank, coin stack, coin pile, treasure chest, shield, upward arrow, glowing money ribbon, plant growing from money, green folder as a recurring motif.
-Flat infographic or presentation slide. Dashboard or app UI. Website or app screenshot. Flowchart. Floating info cards.
-Sci-fi hologram, cyberpunk neon, excessive glow. Sterile isolated product shot with no situation. Decorative props without meaning. Pasted flat logos. Long text inside the image.
-
-HARD NO — THIS SCENE
-Piggy bank, safe, vault, gold bars, coin stacks, wallet, desk, app UI, two identical abstract containers, oversized 3D lettering.
+Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
+Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BLOCK 10 / 10 — visual-25 — YouTube Bild 25 - Notfall bezahlen.png
@@ -813,75 +518,43 @@ GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 25 - Notfall bezahlen.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
-Check the literal situation, the German labels, the seamless black world, the top breathing room, the horizontal 16:9 format and the file name.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
-Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: In the laundry corner the washing machine runs again, the invoice carries a paid stamp, and the reserve envelope is visibly thinner but still intact.
-REAL_WORLD_CONTEXT_ANCHOR: Home laundry corner after a completed repair.
+LITERAL_REAL_WORLD_SITUATION: The washing machine runs again, the invoice is stamped paid, and the envelope is thinner but intact.
+REAL_WORLD_CONTEXT_ANCHOR: Home laundry after a completed repair.
 VOICEOVER_VISUAL_MATCH: The line says using the Notgroschen for a real emergency was not a mistake.
-TRANSFERABILITY_TEST: PASS — working appliance, paid invoice and a thinner but intact reserve read as a correct, completed use of the reserve.
+TRANSFERABILITY_TEST: PASS — working machine, paid stamp and a thinner but tidy envelope read as correct use.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
 CORE IDEA (DE): Den Notgroschen im echten Notfall zu benutzen ist richtig.
-GERMAN LABELS (exactly these, nothing else, small and attached to their object): `Reparatur bezahlt`, `Notgroschen`
+ONE RELATION: the problem is gone, the reserve is smaller
+GERMAN LABELS (exactly these, nothing else): `Reparatur bezahlt`, `Notgroschen`
 
-IMAGE PROMPT
-Show ONE full-size off-white household washing machine in a small hinted laundry corner, clearly working again: door closed with the rubber seal visible, control panel lit by one calm emerald indicator, the drain hose properly reattached, the floor completely dry.
-In the foreground, ONE invoice on real printed paper with a calm emerald paid stamp, carrying only the label `Reparatur bezahlt`.
-Beside it, ONE opened warm-ivory bank envelope with a calm emerald seal, visibly thinner but neatly kept, with the small printed label `Notgroschen`.
-The telling detail is the completely dry, clean floor under the machine — the problem is finished.
-The tone is quiet relief and correct use: not celebration, not loss, not guilt.
-Emerald for the resolution, warm ivory for the paper. No warm red-orange in this frame.
+Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
+photorealistic, never a photo on a real desk. Not clay, not a toy.
+Objects must be recognizable as the real thing: correct identifying features and correct
+European everyday details. Money is recognizable euro banknotes — correct colour for the
+value, readable denomination, never generic coloured paper and never dollars.
+Real in identity, stylized in rendering.
+Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
+the objects float in black with soft contact shadows.
+Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
+red-orange for cost. Money keeps its own real colour.
+Only the German labels listed in this prompt, small and printed on their object. No other text,
+no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
-FINANZNEO STYLE LOCK
+SCENE
+A real European front-loading washing machine, off-white painted metal, door closed with the
+rubber seal visible, one calm emerald indicator lit on the control panel, the drain hose
+properly reattached. The floor beneath it is completely dry.
+In front, a German invoice with a calm emerald paid stamp, label `Reparatur bezahlt`.
+Beside it an opened ivory envelope with a broken emerald seal, visibly thinner but neatly
+kept, with two green 100-euro notes still inside, label `Notgroschen`.
+The machine is quietly working again.
 
-RENDERING
-Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
-Real everyday objects keep their believable proportions, construction and recognizable functional details — a washing machine has a real door seal, a control dial and feet; an invoice has real print layout and paper thickness; a car has real panel gaps, lights and tyres.
-Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
-
-NOT A TOY, NOT CLAY
-Do NOT produce a clay, plasticine, marzipan, soap-bar or bath-toy look.
-Do NOT reduce objects to smooth featureless rounded lumps.
-Do NOT build a miniature toy town, toy houses, toy cars or a tabletop diorama.
-Rounded edges are allowed as a finish, never as a replacement for the real shape of the object.
-Pastel mint or baby-blue plastic surfaces are wrong; use the FinanzNeo colour roles below.
-
-NO TYPOGRAPHY AS A SUBJECT
-Never build a word, headline, phrase or number as a large sculpted 3D object.
-German labels are small and printed, stamped, engraved, handwritten or hanging as a small tag ON or directly AT the object they describe.
-A label must never be the largest or most prominent element in the frame.
-Never invent extra text, form fields, table headers, addresses, brand names or placeholder copy on documents. A document shows only the label listed in this prompt plus plausible, unreadable, non-distracting print texture.
-
-ENTERTAINING BUT ALWAYS EXPLAINING
-The scene must be enjoyable to look at: real staging, a clear situation, one small telling detail or light exaggeration that makes the point land — an overflowing stack, a part caught mid-fall, a puddle, a drawer left open, an object leaning eagerly toward another.
-The explanation always wins over the gag. If the playful detail makes the message less clear, drop it.
-Never decorate. Every object in the frame either carries the situation or is removed.
-
-BACKGROUND AND FRAMING
-ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
-Keep calm black breathing room along the TOP edge. The hero sits in the middle and lower two thirds of the frame, so a subheading can later be placed above the image. Nothing important touches the top edge.
-
-LIGHT
-Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
-
-COLOUR ROLES
-Emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Deep black: the world.
-Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
-
-READABILITY
-Horizontal 16:9. One clear main situation. Cause and effect readable in the same frame. Understandable in 1-2 seconds without audio. Hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
-
-HARD NO — ALWAYS
-Photorealism or any frame mistakable for a real photograph. Stock-photo look. Product-advertisement render. Realistic human being.
-Clay, plasticine, soap-bar, marzipan or bath-toy rendering. Featureless rounded blobs. Miniature toy town, toy houses, toy cars, tabletop diorama.
-Any word, headline or number built as a large 3D sculpture. Invented text, fake form fields, fake table headers, fake addresses, placeholder copy such as `FinanzNeo V9`.
-Safe, vault, strongbox, keyhole box, piggy bank, coin stack, coin pile, treasure chest, shield, upward arrow, glowing money ribbon, plant growing from money, green folder as a recurring motif.
-Flat infographic or presentation slide. Dashboard or app UI. Website or app screenshot. Flowchart. Floating info cards.
-Sci-fi hologram, cyberpunk neon, excessive glow. Sterile isolated product shot with no situation. Decorative props without meaning. Pasted flat logos. Long text inside the image.
-
-HARD NO — THIS SCENE
-Confetti, trophy, sad face, coins, gems, piggy bank, safe, celebration, complete bright utility room, technician, pastel mint or baby-blue appliance, invented form fields or addresses on the invoice.
+Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
+Every object recognizable as the real thing.

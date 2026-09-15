@@ -39,6 +39,30 @@ gesprochenen Satz und traegt die Pflichtfelder:
 Eine Metapher ist nur erlaubt, wenn sie nachweislich klarer ist als die reale
 Situation; dann wird sie in `METAPHOR_JUSTIFICATION` begruendet.
 
+IDENTITAET REAL, RENDERING STILISIERT
+Der Gegenstand muss die Merkmale tragen, an denen man ihn im echten Leben erkennt.
+Geld sind erkennbare Euro-Scheine: richtige Farbe zum Wert, richtige Proportion, lesbare
+Wertzahl. Kein generisches faerbiges Papier, keine Dollarnoten.
+Geld behaelt seine echte Farbe, auch wenn sie nicht in die Farbrolle passt.
+Rechnung, Kontoauszug, Lohnzettel und Vertrag folgen deutschem Alltagslayout.
+Auto, Geraete und Verpackungen sind europaeische Alltagsobjekte.
+Realistisch in der Identitaet, stilisiert in der Darstellung.
+
+MINDESTENS EIN ECHTES 3D-OBJEKT
+Jedes Bild braucht mindestens einen greifbaren dreidimensionalen Gegenstand.
+Nie eine Szene, die nur aus Papier und Dokumenten besteht — Papier ist das, was ein
+Bildmodell am liebsten fotorealistisch rendert, und genau dort kippt die Welt.
+
+EINE BEZIEHUNG PRO BILD
+Ein Bild zeigt genau ein Verhaeltnis: gross/klein, nah/fern, offen/zu, kippt/steht,
+drueckt/wird gedrueckt. Dazu ein sprechendes Detail, das dieses Verhaeltnis zeigt.
+Keine Kette aus vier Dingen. Abstrakte Saetze werden einfach, wenn man eine einzige
+Beziehung waehlt.
+
+PROMPTLAENGE UND AUFBAU
+Kurz halten. Lange Regelbloecke fressen die Aufmerksamkeit, die der Szene fehlt.
+Aufbau: Stilblock → SCENE → kurze Stil-Erinnerung am Ende.
+Der Stil steht vorne UND hinten; Bildmodelle gewichten das Ende stark.
 KEIN SPIELZEUG, KEIN CLAY
 Kein Clay-, Knet-, Marzipan-, Seifenstueck- oder Badespielzeug-Look.
 Keine glatten, merkmalslosen Rundklumpen.
