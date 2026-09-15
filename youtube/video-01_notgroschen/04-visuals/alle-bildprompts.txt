@@ -3,6 +3,8 @@ FINANZNEO — SINGLE HANDOFF FILE FOR GOOGLE FLOW
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+IMAGE_WORLD: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
 STRICT WORKFLOW
@@ -11,14 +13,14 @@ STRICT WORKFLOW
 3. Generate exactly ONE image.
 4. Wait until the current image is fully complete.
 5. Rename it immediately to the exact FINAL FILE NAME.
-6. Verify the literal situation, requested short German labels, seamless deep-black FinanzNeo world and horizontal 16:9 format.
+6. Verify the literal situation, requested short German labels, Reel-V9 FinanzNeo visual world, seamless deep-black background and horizontal 16:9 format.
 7. If any check fails, regenerate the same image number and replace the failed file.
 8. Only after PASS continue to the next image.
 9. Final accepted files belong in `04-visuals/00-ALLE-BILDER-HIER-REIN/`.
 10. Never batch, parallelize, pre-queue or generate multiple images in one job.
 
-GLOBAL STYLE
-Premium clearly stylized 3D FinanzNeo world, never photorealistic and never toy-like. Believable everyday objects, semi-realistic materials, large readable hero objects, deep seamless black dominant environment, minimal real-world context, emerald green for protected reserve/solution, warm red-orange for cost/risk, warm ivory/soft gray neutral, restrained gold only for money/value. No generic finance-symbol collection, dashboard, app UI, floating cards, flowchart, tiny diorama, decorative clutter, headline, subtitle or CTA.
+GLOBAL STYLE — SAME WORLD AS FINANZNEO REELS V9
+Use exactly the same core image world as the FinanzNeo Reels: premium real-world-grounded stylized 3D, clearly stylized and never photorealistic, believable everyday-object proportions and recognizable construction, polished useful material detail, never toy-like, never an icon pack and never a stock-photo look. A seamless deep-black background is mandatory. A small believable local environment may exist only where it helps explain the spoken point and must visually dissolve into the deep-black world. Build one coherent real-life explanatory situation with visible cause and effect whenever possible. Use emerald green for positive/protected reserve elements, warm red-orange for costs/risk/loss, warm ivory and soft gray for neutral surfaces, subtle gold only for money/value. Clean soft studio lighting, clear highlights, readable shadows and soft contact shadows. No blue/purple cyberpunk neon, sci-fi geometry or decorative colors outside the FinanzNeo palette. No generic finance-symbol collection, dashboard, app UI, floating cards, flowchart, tiny diorama, decorative clutter, headline, subtitle or CTA. YouTube differs from Reels only in canvas/composition: keep this exact V9 visual language but compose it horizontally in 16:9 with large readable hero objects and useful negative space for Remotion.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 01 — YouTube Bild 01 - Waschmaschine kaputt.png
@@ -29,7 +31,7 @@ VOICEOVER_VISUAL_MATCH: Exact opening emergency and concrete 480-euro cost.
 TRANSFERABILITY_TEST: PASS — appliance defect and repair invoice make the beat specific.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
-Prompt: Wide believable laundry corner dissolving into deep black; correctly proportioned modern washing machine visibly in repair state; large foreground invoice with only `Reparatur 480 €`; warm red-orange cost emphasis; clean negative space for later motion.
+Prompt: Wide believable laundry corner dissolving into deep black; correctly proportioned modern washing machine visibly in repair state; large foreground invoice with only `Reparatur 480 €`; warm red-orange cost emphasis; clean negative space for later motion. Maintain the exact FinanzNeo Reel-V9 stylized-3D material language; no photorealism, no blue/purple neon blocks and no sci-fi decoration.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 05 — YouTube Bild 05 - Kein Konsum.png
@@ -40,7 +42,7 @@ VOICEOVER_VISUAL_MATCH: Defines what the emergency fund is not for.
 TRANSFERABILITY_TEST: PASS — exact optional purchases are contrasted with reserve.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
-Prompt: One coherent real-world budgeting scene; calm emerald reserve area labeled `Notgroschen`; believable suitcase, smartphone purchase box and shopping item outside it with short labels; no icon grid.
+Prompt: One coherent real-world budgeting scene; calm emerald reserve area labeled `Notgroschen`; believable suitcase, smartphone purchase box and shopping item outside it with short labels; no icon grid. Same FinanzNeo Reel-V9 stylized-3D world, deep black and identical material/lighting language.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 06 — YouTube Bild 06 - Echte Notfälle.png
@@ -51,7 +53,7 @@ VOICEOVER_VISUAL_MATCH: Shows necessary hard-to-delay costs and income gap.
 TRANSFERABILITY_TEST: PASS — four necessity anchors are specific to emergency-fund definition.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
-Prompt: Wide connected environment with four large zones for later Remotion focus; short labels only `Reparatur`, `Rechnung`, `Arbeitsweg`, `Weniger Einkommen`; deep black, no collage boxes.
+Prompt: Wide connected environment with four large zones for later Remotion focus; short labels only `Reparatur`, `Rechnung`, `Arbeitsweg`, `Weniger Einkommen`; seamless deep black, no collage boxes. Same FinanzNeo Reel-V9 stylized-3D world and palette.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 11 — YouTube Bild 11 - Person A.png
@@ -62,7 +64,7 @@ VOICEOVER_VISUAL_MATCH: Shows lower fixed-cost and dependency profile.
 TRANSFERABILITY_TEST: PASS — specific low-obligation life setup is required for later comparison.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
-Prompt: Calm shared-home scene; public transport pass or bicycle; small unavoidable bill stack; work bag/ID without brand; short labels `Niedrige Fixkosten`, `Stabiler Job`.
+Prompt: Calm shared-home scene; public transport pass or bicycle; small unavoidable bill stack; work bag/ID without brand; short labels `Niedrige Fixkosten`, `Stabiler Job`. Same FinanzNeo Reel-V9 stylized-3D character/object treatment and deep-black world.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 12 — YouTube Bild 12 - Person B.png
@@ -73,7 +75,7 @@ VOICEOVER_VISUAL_MATCH: Shows higher fixed costs and dependencies despite potent
 TRANSFERABILITY_TEST: PASS — solo housing and car dependency are central to risk contrast.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
-Prompt: Same FinanzNeo world as Person A; rent document `Miete`, ordinary commuter car `Auto`, recurring necessary bills `Laufende Kosten`; no poverty or luxury coding.
+Prompt: Same FinanzNeo Reel-V9 world as Person A; rent document `Miete`, ordinary commuter car `Auto`, recurring necessary bills `Laufende Kosten`; no poverty or luxury coding; deep-black background, same materials and lighting.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 15 — YouTube Bild 15 - Langfristiges Investment.png
@@ -84,7 +86,7 @@ VOICEOVER_VISUAL_MATCH: Long-term investment has a valid but different job from 
 TRANSFERABILITY_TEST: PASS — multi-year context distinguishes long-term function.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
-Prompt: Grounded desk, investment document/account and multi-year calendar/timeline; labels only `Langfristig`, `Investment`; no upward-only chart or return promise.
+Prompt: Grounded desk, investment document/account and multi-year calendar/timeline; labels only `Langfristig`, `Investment`; no upward-only chart or return promise. Same FinanzNeo Reel-V9 stylized-3D world, not photorealistic.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 16 — YouTube Bild 16 - Auto und Depot.png
@@ -95,7 +97,7 @@ VOICEOVER_VISUAL_MATCH: Real repair will later collide with a hypothetical -25% 
 TRANSFERABILITY_TEST: PASS — workshop emergency is staged specifically for the timing-risk explanation.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
-Prompt: Large ordinary car/brake repair left/center; invoice `Reparatur`; reserve uncluttered upper-right deep-black area for later SVG chart; do not generate chart inside image.
+Prompt: Large ordinary car/brake repair left/center; invoice `Reparatur`; reserve uncluttered upper-right deep-black area for later SVG chart; do not generate chart inside image. Same FinanzNeo Reel-V9 stylized-3D construction, materials, lighting and palette.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 18 — YouTube Bild 18 - Giro zu Tagesgeld.png
@@ -106,7 +108,7 @@ VOICEOVER_VISUAL_MATCH: Shows separation from everyday spending while staying ba
 TRANSFERABILITY_TEST: PASS — explicit Giro/Tagesgeld staging is unique to storage recommendation.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
-Prompt: Giro anchor left, Tagesgeld/Notgroschen right, clean corridor between them for animated transfer; emerald only on reserve side; believable documents/cards, no UI.
+Prompt: Giro anchor left, Tagesgeld/Notgroschen right, clean corridor between them for animated transfer; emerald only on reserve side; believable documents/cards, no UI. Same FinanzNeo Reel-V9 stylized-3D visual language and deep-black world.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 20 — YouTube Bild 20 - Reserve trennen.png
@@ -117,7 +119,7 @@ VOICEOVER_VISUAL_MATCH: Provides before/after base for mixed balance versus sepa
 TRANSFERABILITY_TEST: PASS — behavioral separation is specific to this beat.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
-Prompt: Single coherent wide desk; mixed monthly-money zone left/center with small consumption objects; calm separate reserve zone right; no infographic divider, spatial separation only.
+Prompt: Single coherent wide desk; mixed monthly-money zone left/center with small consumption objects; calm separate reserve zone right; no infographic divider, spatial separation only. Same FinanzNeo Reel-V9 stylized-3D world.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 25 — YouTube Bild 25 - Notfall bezahlen.png
@@ -128,6 +130,6 @@ VOICEOVER_VISUAL_MATCH: Using the emergency fund correctly is shown as tool use,
 TRANSFERABILITY_TEST: PASS — completed repair plus reserve use is specific to lifecycle explanation.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
-Prompt: Functional repaired appliance/service state, paid invoice `Reparatur bezahlt`, slightly reduced but orderly reserve `Notgroschen`; calm relief, no trophy/confetti/guilt.
+Prompt: Functional repaired appliance/service state, paid invoice `Reparatur bezahlt`, slightly reduced but orderly reserve `Notgroschen`; calm relief, no trophy/confetti/guilt. Same FinanzNeo Reel-V9 stylized-3D materials, lighting and deep-black world.
 
 END. Do not generate any other video image numbers. Pure Remotion/data visuals are intentionally image-free.
