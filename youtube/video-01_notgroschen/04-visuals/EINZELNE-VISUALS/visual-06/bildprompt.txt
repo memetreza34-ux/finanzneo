@@ -1,19 +1,16 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINAL FILE NAME: YouTube Bild 06 - Echte Notfälle.png
-Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. If any check fails, regenerate the same image number before continuing.
-
-LITERAL_REAL_WORLD_SITUATION: One connected everyday environment contains four believable emergency anchors without becoming a collage: a repair-needed household appliance, a necessary invoice on a table, a car/work-commute element, and a pay/income document showing a visible reduction. Short German labels may read `Reparatur`, `Rechnung`, `Arbeitsweg`, `Weniger Einkommen`.
-REAL_WORLD_CONTEXT_ANCHOR: Home plus immediate everyday mobility context merged naturally into the black FinanzNeo world.
-VOICEOVER_VISUAL_MATCH: These are necessary, hard-to-delay expenses or income gaps, exactly the situations the voiceover lists as real emergencies.
-TRANSFERABILITY_TEST: PASS — the four concrete necessity anchors distinguish this from generic saving or investing imagery.
-VISUAL_STRATEGY: literal
-METAPHOR_JUSTIFICATION: NONE
-
-IMAGE PROMPT:
-Create a wide horizontal 16:9 stylized-3D scene with one dominant everyday environment and four spatially readable zones that can later be highlighted by Remotion. Keep the zones physically connected through a believable household/entry/garage context rather than floating panels. Appliance repair and invoice should be readable foreground anchors; commute/car and reduced-income document should occupy distinct secondary zones. Use warm red-orange sparingly for urgent costs and soft neutral materials elsewhere. Deep seamless black dominates the environment. Do not solve the animation inside the image; simply make all four anchors clear and large enough for later selective focus.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-Literal first, creative second.
-Forbidden: collage boxes, floating cards, finance icons, generic arrows, dashboard, UI, toy proportions, tiny objects, headline, subtitle, CTA, extra text.
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look, not realism.
+
+CORE IDEA
+Echte Notfälle sind notwendige Kosten oder weniger Einkommen.
+
+IMAGE PROMPT
+Create a simple deep-black animated-feature 3D composition with only THREE large stylized objects around a calm emerald reserve element: broken repair object `Reparatur`, urgent invoice `Rechnung`, shrinking payslip/income block `Weniger Einkommen`. Keep everything rounded, simplified and immediately readable. No environment, no miniature city, no four-zone diorama, no realistic paperwork.
+
+HARD NO
+Photorealism, semi-realism, stock-photo look, realistic room, UI/dashboard, icon wall, cyberpunk, blue/purple neon, extra text.
