@@ -9,9 +9,35 @@ Dieses Dokument ist der schnelle Einstieg für Phase 2. Für Bilder und Voiceove
 
 Diese Datei enthält alle Bildjobs. Bilder strikt einzeln erzeugen, vollständig warten, exakt umbenennen und erst danach das nächste Bild starten.
 
-WICHTIG: Bestehende Flow-Bilder aus einer älteren Prompt-Version sind **nicht automatisch bestanden**. Jedes vorhandene Bild muss gegen die aktuelle vereinheitlichte V9-Bildwelt und die aktuelle Simple-Composition-QA geprüft werden. Wenn es überladen, zu fotorealistisch, cyberpunkig, zu stark auf Schreibtisch/Realraum fixiert oder schwer in 1–2 Sekunden verständlich ist, denselben Bildslot neu generieren und ersetzen.
+### YouTube-Bildwelt
 
-Aktuelle Bildregel: **beste visuelle Erklärung zuerst**. Reale Szene nur wenn sie wirklich besser erklärt; sonst wenige große schwebende 3D-Objekte, 3D-Diagramm, räumliche Finanzmechanik oder klarer Vergleich. Ein Bild = ein Gedanke.
+Diese YouTube-Produktion verwendet absichtlich eine eigene Bildwelt:
+
+`finanzneo-youtube-animated-feature-3d-v1`
+
+Die Reel-Bildwelt bleibt unverändert.
+
+### Direkte Stilreferenz
+
+`04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png`
+
+Bild 01 ist der verbindliche visuelle Referenzanker. Vor jedem weiteren Bild muss der Flow-Agent Bild 01 als visuelle Referenz prüfen/verwenden und dessen 3D-Stilisierung, Formen, Materialien, Licht, Tiefe und Animationsfilm-Look übernehmen.
+
+Das Ziel ist **realitätsnah erkennbar, aber niemals realistisch**: klarer hochwertiger 3D-Animationsfilm-Look mit weichen gerundeten Formen und vereinfachten Details. Fotorealismus, semi-realistischer Produktlook, real wirkende Personen/Autos/Räume oder Stockfoto-Optik sind QA-Fails.
+
+Bestehende Flow-Bilder aus älteren Prompt-Versionen sind **nicht automatisch bestanden**. Regenerieren, wenn sie:
+- zu realistisch/fotorealistisch sind
+- wie Produktwerbung oder Stockfoto aussehen
+- nicht wie Bild 01 gerendert sind
+- real wirkende Menschen oder Autos zeigen
+- wie UI/Dashboard aussehen
+- cyberpunkig/blau-lila werden
+- zu voll oder schwer verständlich sind
+- erfundene Texte wie `FinanzNeo V9` enthalten
+
+Darstellungsfreiheit ist ausdrücklich erlaubt: schwebende 3D-Objekte, stilisierte Figuren, 3D-Charts, Diagramme, Zeitachsen, große Zahlen, Vorher/Nachher und räumliche Finanzmechaniken. Reale Räume/Schreibtische nur, wenn sie die Aussage wirklich besser erklären.
+
+Ein Bild = ein klarer Gedanke.
 
 ### 2. Fertige Bilder
 `04-visuals/00-ALLE-BILDER-HIER-REIN/`
@@ -48,8 +74,6 @@ Solange keine Phase-1-Korrektur ausdrücklich nötig ist:
 - andere Reel-/YouTube-Projekte
 
 Die externen Support-Assets sind bereits in Phase 1 geplant und werden **erst in Phase 3** anhand des Manifests gesucht, lizenzgeprüft und lokal integriert. Dadurch bleibt Phase 2 schnell.
-
-Diese Dateien bleiben unverändert für Phase 3 erhalten.
 
 ## Wichtig
 
