@@ -5,25 +5,47 @@ IMAGE_WORLD: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
 MASTER RULE
-YouTube and Reels use the SAME FinanzNeo visual world. The style, materials, palette, object language, lighting and explanatory logic must remain recognizably identical across both formats. Only the canvas/composition changes: YouTube source images are horizontal 16:9 and may use the extra horizontal space for wider real-world context.
+YouTube and Reels use the SAME FinanzNeo V9 visual world. The style, materials, palette, lighting and object language must remain recognizably identical. YouTube only changes the canvas to horizontal 16:9.
 
 STYLE
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
+Create premium clearly stylized 3D, never photorealistic and never toy-like. Keep believable object construction where real objects are used, but simplify detail enough that the image reads immediately. Use large hero forms, polished material cues and the same soft rounded FinanzNeo visual language across the full series.
 
 BACKGROUND
-A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter, apartment entry or workshop may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
+A seamless deep-black background is the common stage. Real environments are OPTIONAL, not mandatory. Use a laundry room, apartment, desk, workshop or other location only when that place itself makes the idea easier to understand. Otherwise let a few large 3D objects, a financial mechanism, a chart or a comparison float cleanly in the black space.
 
-COMPOSITION
-Literal first, creative second. Every image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
+REPRESENTATION CHOICE
+Choose the strongest representation for the spoken point, not the most realistic one:
+- REAL-WORLD SCENE for concrete emergencies or actions
+- FLOATING OBJECT STAGE for categories, separation and simple comparisons
+- 3D DATA / DIAGRAM for amounts, ratios, timelines and market movement
+- SPATIAL FINANCE MECHANISM for reserve, money flow, pressure, buffers and separation
+- SIMPLE TWO-STATE COMPARISON for before/after or Person A vs Person B
+
+All representation modes must still look like the same FinanzNeo V9 world.
+
+SIMPLICITY — ONE IMAGE, ONE IDEA
+Every image must communicate one dominant idea within 1–2 seconds.
+- one clear hero focus
+- few large elements instead of many small elements
+- no requirement to fill the frame
+- deep-black negative space is good
+- no tiny multi-zone scenes
+- no cluttered collage or miniature city/diorama
+- labels only when they remove ambiguity
+
+If a concept needs many unrelated object groups, split it into more simple planned images in Phase 1 instead of forcing everything into one frame.
+
+ENTERTAINING VISUAL RHYTHM
+Do not repeat the same desk composition. Vary the series through scale, depth, asymmetry, floating objects, bold single objects, simple chart forms, large 3D numbers, clear left/right comparisons and motion-ready negative space. The result should feel interesting and modern while staying easy to understand.
 
 COLORS + LIGHT
-Use emerald green for positive/protected reserve elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings, costs or loss. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows. Do not introduce blue/purple cyberpunk neon, sci-fi geometry or decorative color systems outside the FinanzNeo palette.
+Use emerald green for positive/protected reserve and solution, warm red-orange for costs/risk/loss, warm ivory and soft gray for neutral objects, and restrained gold only for money/value. Use clean soft studio lighting, readable contact/object shadows and strong separation. No blue/purple cyberpunk neon, no sci-fi glow system and no unrelated decorative colors.
 
 TEXT
-Only explicitly requested short German object labels may appear. Use labels only when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence inside the generated image.
+Only short German object labels when needed. No headline, subtitle, CTA or explanatory sentence inside the generated image. Prefer visual explanation over text.
 
 FORBIDDEN
-No photorealism or stock-photo look. No toy-like miniature look. No generic finance-icon composition as the main explanation. No isolated vault + shield + coins + arrow scene without real-life context. No abstract visual riddle. No flat pasted real logo. No screenshot-like branded UI. No dashboard or app UI as the main composition. No flowchart as the main composition. No tiny floating info cards. No microchip/circuit/cyberpunk visual language. No tiny unreadable miniature scene. No decorative clutter. No blue/purple neon blocks.
+No photorealism or stock-photo look. No repeated desk as default. No overloaded scene. No tiny floating info-card collection. No generic finance-icon wall. No dashboard/app UI as default. No flowchart as main composition. No microchip/circuit/cyberpunk visual language. No decorative clutter. No blue/purple neon blocks.
 
 YOUTUBE FORMAT ADAPTATION
-All YouTube source images remain horizontal 16:9. Important objects must stay large and readable on mobile, laptop and TV. Use the wider frame for useful environment, depth or negative space for Remotion — never to invent a different visual style.
+All source images remain horizontal 16:9. Important objects must stay large and readable on mobile, laptop and TV. Use the wider frame for strong composition, depth or Remotion negative space — not to add more clutter.
