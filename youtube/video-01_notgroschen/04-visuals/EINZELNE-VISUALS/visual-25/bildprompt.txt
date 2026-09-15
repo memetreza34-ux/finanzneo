@@ -1,19 +1,16 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINAL FILE NAME: YouTube Bild 25 - Notfall bezahlen.png
-Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. If any check fails, regenerate the same image number before continuing.
-
-LITERAL_REAL_WORLD_SITUATION: A real necessary household repair has just been paid directly from a clearly identified emergency reserve. The repaired appliance or completed service is visible, along with a reserve/account object labeled `Notgroschen` and a paid invoice labeled `Reparatur bezahlt`.
-REAL_WORLD_CONTEXT_ANCHOR: Calm home repair completion scene.
-VOICEOVER_VISUAL_MATCH: Using the emergency fund for a genuine emergency is shown as successful tool use, not failure or loss.
-TRANSFERABILITY_TEST: PASS — completed repair plus explicitly used emergency reserve communicates the lifecycle point of the video.
-VISUAL_STRATEGY: literal
-METAPHOR_JUSTIFICATION: NONE
-
-IMAGE PROMPT:
-Create a horizontal 16:9 premium stylized-3D FinanzNeo scene after a necessary household repair. The appliance is functional again or the technician/service state is clearly complete. Show a paid invoice with only `Reparatur bezahlt` and a separate reserve/account object labeled `Notgroschen`, now slightly reduced but still calm and orderly. The emotional tone is relief and correct use, not guilt, celebration or wealth. Deep seamless black environment with modest home context, emerald green for successful problem resolution, neutral materials, soft studio lighting, believable proportions.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-Literal first, creative second.
-Forbidden: trophy, confetti, sad face, debt warning, coin rain, vault, piggy bank, generic finance icons, UI/dashboard, photorealism, headline, subtitle, CTA, extra text.
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly.
+
+CORE IDEA
+Notgroschen im echten Notfall zu benutzen ist richtig.
+
+IMAGE PROMPT
+Show ONE repaired stylized washing machine as the large hero, one simple paid invoice reading `Reparatur bezahlt`, and one smaller emerald reserve object labeled `Notgroschen`, visibly reduced but orderly. Deep black stage, smooth rounded simplified geometry, soft sculpted materials, cinematic animated-film lighting, calm satisfying resolution.
+
+HARD NO
+Photorealism, semi-realistic appliance/product render, realistic room, coin pile, piggy bank, confetti, trophy, realistic paperwork, dashboard/UI, cyberpunk, extra text.
