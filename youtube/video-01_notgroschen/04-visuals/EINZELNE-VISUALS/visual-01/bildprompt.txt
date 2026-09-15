@@ -1,21 +1,35 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINAL FILE NAME: YouTube Bild 01 - Waschmaschine kaputt.png
-Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. If any check fails, regenerate the same image number before continuing.
-
-LITERAL_REAL_WORLD_SITUATION: A believable household laundry corner where a modern washing machine has clearly failed and needs an urgent repair. A large repair invoice in the foreground shows only the short German label `Reparatur 480 €`.
-REAL_WORLD_CONTEXT_ANCHOR: Home laundry area, realistic household scale and believable appliance construction.
-VOICEOVER_VISUAL_MATCH: The viewer instantly sees the exact opening problem: an everyday appliance breaks and creates a concrete 480-euro expense.
-TRANSFERABILITY_TEST: PASS — the broken washing machine, open service area and 480-euro repair invoice make this specific to an emergency-expense story, not a generic finance topic.
-VISUAL_STRATEGY: literal
-METAPHOR_JUSTIFICATION: NONE
-
-IMAGE PROMPT:
-Create a horizontal 16:9 scene in the exact FinanzNeo Reel-V9 visual world: premium real-world-grounded stylized 3D, clearly stylized and never photorealistic. Show a believable home laundry corner dissolving naturally into a seamless deep-black environment. The washing machine is large, correctly proportioned, visibly faulty through an open service panel or clear repair state, never destroyed or cartoonish. Put one large readable repair invoice in the foreground with exactly the short German object label `Reparatur 480 €`. Use warm red-orange only to emphasize the problem/cost. Use warm ivory and soft gray for neutral materials; emerald only if a positive/protected element is actually present. Leave clear visual breathing room on the opposite side for later Remotion motion and captions. Keep the same polished stylized materials, soft studio lighting, readable contact shadows and object language as the FinanzNeo Reels. No blue/purple neon, no cyberpunk blocks, no sci-fi geometry and no decorative visual system outside the FinanzNeo palette.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-IMAGE_WORLD: finanzneo-stylized-3d-animated-black-v9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+ROLE: MASTER STYLE REFERENCE IMAGE FOR THIS YOUTUBE VIDEO
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-Literal first, creative second.
-Forbidden: photorealism, stock-photo look, toy look, piggy bank, vault, random coins, generic arrows, dashboard, app UI, floating cards, flowchart, decorative plants, headline, subtitle, CTA, random text, blue/purple cyberpunk neon, sci-fi geometry.
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. This image becomes the direct style reference for every later YouTube image in this project.
+
+CORE IDEA
+Waschmaschine kaputt = plötzlich 480 € Kosten.
+
+IMAGE PROMPT
+Create a premium cinematic animated-feature 3D scene on a deep black stage. The user wants a Pixar-like 3D animation feel, but the result must be original and must not copy existing characters or movie designs.
+
+Show ONE large broken washing machine as the hero object and ONE large repair invoice reading only `Reparatur 480 €`.
+
+Reality-inspired but NOT realistic:
+- washing machine instantly recognizable
+- smooth rounded simplified geometry
+- slightly exaggerated appealing proportions
+- simplified controls/details
+- soft sculpted materials
+- cinematic soft lighting
+- polished animated-film finish
+- strong depth and silhouette separation
+
+Minimal local laundry context is allowed only if it supports recognition. Do not build a realistic room.
+
+HARD NO:
+photorealism, semi-photorealistic appliance render, stock-photo look, realistic product-ad look, realistic household photography, cyberpunk, blue/purple neon, UI, finance icons, extra text, headline, subtitle, CTA.
+
+PALETTE
+Deep black stage, warm ivory/soft gray neutral, warm red-orange for repair/cost. Emerald only if semantically needed.
+
+The final accepted image defines the exact rendering style, material softness, shape language, lighting and depth for every later image in this YouTube production.
