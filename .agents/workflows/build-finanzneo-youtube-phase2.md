@@ -4,7 +4,7 @@ Use this workflow only when the user wants to prepare or open Phase 2 for an exi
 
 ## Goal
 
-Phase 2 is a lightweight asset handoff. Do **not** analyze or rebuild the Phase-1 motion tree.
+Phase 2 is a lightweight asset handoff. Do **not** analyze or rebuild the Phase-1 motion tree and do **not** perform external stock/icon sourcing here.
 
 For a project at `youtube/<Projekt>` read only:
 
@@ -23,10 +23,13 @@ Unless the user explicitly asks to inspect or change Phase 1, do **not** recursi
 - any `remotion.md`
 - `06-projektdateien/visual-plan.md`
 - `06-projektdateien/remotion-plan.md`
+- `06-projektdateien/external-assets-plan.md`
+- `06-projektdateien/external-assets-manifest.json`
+- `04-visuals/external-assets/`
 - source code under `src/`
 - reel projects
 
-Those files belong to Phase 1/3 and are intentionally left untouched during Phase 2.
+External support assets are planned in Phase 1 and sourced/integrated in Phase 3. Keeping them out of Phase 2 prevents unnecessary indexing, downloads and license work during the user media handoff.
 
 ## Phase 2 actions
 
@@ -41,6 +44,8 @@ Those files belong to Phase 1/3 and are intentionally left untouched during Phas
 
 - Do not regenerate Motion code.
 - Do not touch or reseal Phase-1 animations.
+- Do not source/download B-roll, icon libraries or Lottie packs.
+- Do not touch the external-assets ledger.
 - Do not run full-repository analysis just to open the Phase-2 folders.
 - Do not run `npm install`, `npm run validate`, Remotion bundle, render, or smoke tests merely to enter Phase 2.
 - Do not create placeholder images or replacement voiceovers.
