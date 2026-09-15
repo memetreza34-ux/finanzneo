@@ -1,9 +1,16 @@
 {
-  "version": 1,
+  "version": 2,
   "project": "youtube/video-01_notgroschen",
   "purpose": "lightweight-phase2-handoff",
   "imagePromptFile": "04-visuals/alle-bildprompts.txt",
   "imageInbox": "04-visuals/00-ALLE-BILDER-HIER-REIN/",
+  "youtubeVisualWorldLock": "finanzneo-youtube-animated-feature-3d-v1",
+  "styleReferenceImage": "04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png",
+  "styleReferenceMode": "direct-image-reference",
+  "reelImageWorldMustRemainUntouched": true,
+  "photorealismForbidden": true,
+  "semiPhotorealismForbidden": true,
+  "animatedFeature3DRequired": true,
   "audioDirectory": "03-audio/",
   "wordTimings": "03-audio/word-timings.json",
   "expectedImages": [
