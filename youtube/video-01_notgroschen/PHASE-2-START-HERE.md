@@ -11,31 +11,40 @@ Diese Datei enthält alle Bildjobs. Bilder strikt einzeln erzeugen, vollständig
 
 ### YouTube-Bildwelt
 
-Diese YouTube-Produktion verwendet absichtlich eine eigene Bildwelt:
+Diese YouTube-Produktion verwendet die **bestehende FinanzNeo-Reel-Bildwelt** in ihrer horizontalen YouTube-Adaption:
 
-`finanzneo-youtube-animated-feature-3d-v1`
+```text
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE:    finanzneo-stylized-3d-animated-black-v9
+```
 
-Die Reel-Bildwelt bleibt unverändert.
+Kanonische Definition: `config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt`
+Projektfassung: `04-visuals/bildwelt.txt`
 
-### Direkte Stilreferenz
+Die alte projekteigene Welt `finanzneo-youtube-animated-feature-3d-v1` und der Pixar-Zielbegriff sind abgeschafft.
 
-`04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png`
+### Keine Bild-zu-Bild-Referenz
 
-Bild 01 ist der verbindliche visuelle Referenzanker. Vor jedem weiteren Bild muss der Flow-Agent Bild 01 als visuelle Referenz prüfen/verwenden und dessen 3D-Stilisierung, Formen, Materialien, Licht, Tiefe und Animationsfilm-Look übernehmen.
+**Kein Bild wird als Referenz hochgeladen oder angehängt — auch Bild 01 nicht.**
 
-Das Ziel ist **realitätsnah erkennbar, aber niemals realistisch**: klarer hochwertiger 3D-Animationsfilm-Look mit weichen gerundeten Formen und vereinfachten Details. Fotorealismus, semi-realistischer Produktlook, real wirkende Personen/Autos/Räume oder Stockfoto-Optik sind QA-Fails.
+Google Flow hat zwischen zwei Jobs kein Gedächtnis. Eine Bildreferenz schleppt Motiv und Komposition mit, und der Rendering-Stil fällt trotzdem auf den fotorealistischen Default zurück. Genau daran sind die bisherigen Durchläufe gescheitert.
 
-Bestehende Flow-Bilder aus älteren Prompt-Versionen sind **nicht automatisch bestanden**. Regenerieren, wenn sie:
-- zu realistisch/fotorealistisch sind
-- wie Produktwerbung oder Stockfoto aussehen
-- nicht wie Bild 01 gerendert sind
-- real wirkende Menschen oder Autos zeigen
-- wie UI/Dashboard aussehen
-- cyberpunkig/blau-lila werden
-- zu voll oder schwer verständlich sind
-- erfundene Texte wie `FinanzNeo V9` enthalten
+Die Einheitlichkeit entsteht ausschließlich dadurch, dass der vollständige Style Lock in **jedem einzelnen Prompt** ausgeschrieben steht. `alle-bildprompts.txt` enthält ihn pro Block bereits vollständig — einfach Block für Block abarbeiten, nichts ergänzen, nichts kürzen.
 
-Darstellungsfreiheit ist ausdrücklich erlaubt: schwebende 3D-Objekte, stilisierte Figuren, 3D-Charts, Diagramme, Zeitachsen, große Zahlen, Vorher/Nachher und räumliche Finanzmechaniken. Reale Räume/Schreibtische nur, wenn sie die Aussage wirklich besser erklären.
+### Literal first, creative second
+
+Jeder Block startet bei der konkreten realen Situation hinter dem gesprochenen Satz. Zielbild: klar stilisiertes Premium-3D im Animationsfilm-Rendering mit **echten Alltagsgegenständen** in glaubwürdigen Proportionen, auf einer einzigen nahtlos tiefschwarzen Welt.
+
+QA-Fail und dieselbe Bildnummer neu erzeugen, wenn das Bild:
+- fotorealistisch oder wie ein Produkt-/Stockfoto wirkt
+- wie flache Infografik, Präsentationsfolie, Dashboard oder App-UI aussieht
+- die reale Situation weglässt und nur Finanzsymbole zeigt
+- Ursache und Wirkung nicht erkennen lässt
+- Hauptobjekte zu klein zeigt
+- den schwarzen Hintergrund durch einen hellen Raum, eine Boden-Wand-Grenze oder farbige Zonen ersetzt
+- zusätzlichen oder falschen Text enthält (z. B. `FinanzNeo V9`)
+
+Bestehende Flow-Bilder aus älteren Prompt-Versionen sind **nicht automatisch bestanden** — sie stammen aus der abgeschafften Bildwelt und werden neu erzeugt.
 
 Ein Bild = ein klarer Gedanke.
 

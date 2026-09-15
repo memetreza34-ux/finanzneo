@@ -4,13 +4,11 @@
   "purpose": "lightweight-phase2-handoff",
   "imagePromptFile": "04-visuals/alle-bildprompts.txt",
   "imageInbox": "04-visuals/00-ALLE-BILDER-HIER-REIN/",
-  "youtubeVisualWorldLock": "finanzneo-youtube-animated-feature-3d-v1",
-  "styleReferenceImage": "04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png",
-  "styleReferenceMode": "direct-image-reference",
+  "youtubeVisualWorldLock": "finanzneo-youtube-grounded-3d-black-v1",
+  "styleReferenceMode": "written-style-lock-in-every-prompt",
   "reelImageWorldMustRemainUntouched": true,
   "photorealismForbidden": true,
   "semiPhotorealismForbidden": true,
-  "animatedFeature3DRequired": true,
   "audioDirectory": "03-audio/",
   "wordTimings": "03-audio/word-timings.json",
   "expectedImages": [
@@ -34,5 +32,11 @@
     "06-projektdateien/remotion-plan.md",
     "src/"
   ],
-  "phase3StartCommand": "npm run youtube:ready -- youtube/video-01_notgroschen"
+  "phase3StartCommand": "npm run youtube:ready -- youtube/video-01_notgroschen",
+  "sourceVisualLanguage": "finanzneo-stylized-3d-animated-black-v9",
+  "imageWorldDefinition": "config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt",
+  "projectImageWorldFile": "04-visuals/bildwelt.txt",
+  "imageToImageReferenceForbidden": true,
+  "literalFirstRequired": true,
+  "stylized3DRequired": true
 }

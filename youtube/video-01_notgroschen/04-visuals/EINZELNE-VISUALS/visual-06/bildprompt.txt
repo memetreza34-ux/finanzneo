@@ -1,16 +1,46 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-FINAL FILE NAME: YouTube Bild 06 - Echte Notfälle.png
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
-STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 06 - Echte Notfälle.png
 
-Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look, not realism.
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
 
-CORE IDEA
-Echte Notfälle sind notwendige Kosten oder weniger Einkommen.
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: Three real emergency triggers stand around one calm labelled reserve document: a necessary repair, an urgent bill and a reduced payslip.
+REAL_WORLD_CONTEXT_ANCHOR: Ordinary household documents and objects that force unplanned spending.
+VOICEOVER_VISUAL_MATCH: The line defines real emergencies as necessary, non-postponable costs or income gaps.
+TRANSFERABILITY_TEST: PASS — repair, urgent bill and reduced payslip are recognizable triggers, and the reserve between them shows what they draw on.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Echte Notfälle sind notwendige Kosten oder weniger Einkommen.
+GERMAN LABELS (exactly these, nothing else): `Notgroschen`, `Reparatur`, `Rechnung`, `Weniger Einkommen`
 
 IMAGE PROMPT
-Create a simple deep-black animated-feature 3D composition with only THREE large stylized objects around a calm emerald reserve element: broken repair object `Reparatur`, urgent invoice `Rechnung`, shrinking payslip/income block `Weniger Einkommen`. Keep everything rounded, simplified and immediately readable. No environment, no miniature city, no four-zone diorama, no realistic paperwork.
+Build ONE connected situation on deep black with THREE large recognizable real-world triggers arranged around a calm emerald savings statement labelled `Notgroschen`:
+a broken household part with a visible defect labelled `Reparatur`, an urgent unpaid bill with a warm red-orange due stamp labelled `Rechnung`, and a payslip whose amount is visibly smaller than usual labelled `Weniger Einkommen`.
+Keep the three triggers equally large and clearly readable, and show that all three point at the same reserve.
+Leave individual breathing room around each trigger so Remotion can focus them one after another.
 
-HARD NO
-Photorealism, semi-realism, stock-photo look, realistic room, UI/dashboard, icon wall, cyberpunk, blue/purple neon, extra text.
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
+
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
+
+HARD NO — THIS SCENE
+Miniature city, four-zone diorama, complete office, icon wall, abstract container instead of the savings statement.

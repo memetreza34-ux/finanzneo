@@ -1,30 +1,49 @@
 FINANZNEO YOUTUBE THUMBNAIL — VIDEO 01 NOTGROSCHEN
 
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-STYLE_REFERENCE_IMAGE: 04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+FINAL FILE NAME: YouTube Thumbnail - Notgroschen.png
 
-Use Image 01 as the DIRECT style reference. Match its animated-feature 3D stylization, rounded geometry, simplified detail, material softness, cinematic lighting, depth and black-stage integration. Do not copy its exact composition.
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
 
-Create exactly one horizontal 16:9 thumbnail source image.
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A broken household washing machine with a 480 € repair quote stands opposite the savings statement that covers it.
+REAL_WORLD_CONTEXT_ANCHOR: Home laundry corner, unplanned repair cost against a prepared reserve.
+VOICEOVER_VISUAL_MATCH: The video answers what the Notgroschen is for and how much it needs to be.
+TRANSFERABILITY_TEST: PASS — cost on one side, reserve on the other, readable as a thumbnail at small size.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
 
-ONE THUMBNAIL = ONE TENSION
-Unexpected repair cost versus protected emergency reserve.
+CORE TENSION (DE): Unerwartete Reparaturkosten gegen den vorbereiteten Notgroschen.
+GERMAN LABELS (exactly these, nothing else): `Reparatur 480 €`, `Notgroschen`
 
-COMPOSITION
-Show ONE large stylized broken washing machine and ONE large invoice reading only `Reparatur 480 €` on one side. On the opposite side show ONE large emerald reserve object labeled `Notgroschen`. Large simple forms, strong separation, generous black negative space, immediate readability.
+IMAGE PROMPT
+Left half: ONE large off-white household washing machine clearly out of order, with ONE large upright repair quote card in front of it carrying only the label `Reparatur 480 €` in warm red-orange.
+Right half: ONE large upright savings account statement card with a calm emerald accent, carrying only the label `Notgroschen`.
+Separate the two halves with clean black space so the opposition is instantly readable at small thumbnail size.
+Keep the laundry context to a minimal hint that dissolves into the black world.
+Leave calm black space along the upper edge for typography that is added later in Remotion.
 
-LOOK
-Premium cinematic animated-feature 3D — reality-inspired but clearly not realistic. Smooth rounded forms, simplified construction, soft sculpted surfaces, appealing proportions, cinematic light and strong depth. The result should feel like a frame from a polished animated film, not a photo, stock render or realistic product advertisement.
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
 
-HARD NO
-No photorealism. No semi-realistic appliance render. No realistic room. No live-action look. No realistic person. No stock-photo aesthetic. No dashboard/UI. No random coins. No piggy bank. No vault. No cyberpunk. No blue/purple neon. No extra invented text such as `FinanzNeo V9`.
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
 
-PALETTE
-Deep black, emerald green for reserve, warm red-orange for repair cost, ivory/soft gray neutral, restrained gold only if value needs it.
-
-Leave clean space for typography added later in Remotion. Do not generate a headline, subtitle or CTA.
-
-Horizontal 16:9; main objects must remain clear on mobile, laptop and TV.
+HARD NO — THIS SCENE
+Headline, subtitle or CTA generated inside the image, arrows, shock face, red circles, coins, piggy bank, vault, complete bright room.

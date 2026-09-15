@@ -1,111 +1,540 @@
 FINANZNEO — GOOGLE FLOW YOUTUBE HANDOFF
 
+GENERIERT AUS DEN EINZELNEN bildprompt.txt — NICHT VON HAND BEARBEITEN.
+Quelle: 04-visuals/EINZELNE-VISUALS/<visual>/bildprompt.txt
+Neu bauen: npm run youtube:prompts:build -- youtube/video-01_notgroschen
+
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-STYLE_REFERENCE_IMAGE: YouTube Bild 01 - Waschmaschine kaputt.png
 
-CRITICAL STYLE RULE
-This is a YOUTUBE-ONLY image world. Do not change or reuse Reel rules.
+ARBEITSWEISE — STRIKT SEQUENZIELL
+Work through the blocks below in the given order, one block at a time.
+Generate exactly ONE image per block. Wait until it is fully complete.
+Rename it immediately to the exact FINAL FILE NAME of that block.
+Run the checks of the block. If any check fails, regenerate the same image number and replace the failed file.
+Only then continue with the next block.
+Never generate several images in parallel or as a batch.
+Never attach or upload another image as a reference. Every block carries its complete style lock in writing.
 
-`YouTube Bild 01 - Waschmaschine kaputt.png` is the DIRECT STYLE REFERENCE for every later image. Before generating each later image, inspect/use Image 01 as the visual reference. Match its exact level of stylization, rounded geometry, simplified forms, material feel, soft cinematic lighting, depth, black-stage integration and animated-film finish. Copy the LOOK, never the subject/layout.
+Literal first, creative second — every block starts from the concrete real-world situation behind the spoken line.
 
-TARGET LOOK
-Premium cinematic animated-feature 3D — the user describes the intended feel as Pixar-like 3D animation — but original, with no copied franchise characters/designs.
+All source images are horizontal 16:9.
+Put every finished, correctly named file together into 04-visuals/00-ALLE-BILDER-HIER-REIN/
 
-Reality-inspired but NEVER realistic:
-- instantly recognizable objects
-- clearly stylized 3D rendering
-- smooth rounded geometry
-- simplified details
-- appealing slightly exaggerated proportions
-- soft sculpted materials
-- cinematic lighting and depth
-- polished animation-film finish
+Blocks in this handoff: 10
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 1 / 10 — visual-01 — YouTube Bild 01 - Waschmaschine kaputt.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-HARD FAILS
-Regenerate if the image is photorealistic, semi-photorealistic, stock-photo-like, a product-ad render, a realistic person, realistic car/interior render, software/dashboard UI, cyberpunk, blue/purple neon, cluttered, or clearly different from Image 01.
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 01 - Waschmaschine kaputt.png
 
-NO REALISM DEFAULT
-Do not build a realistic room, office, desk or workshop unless that location is truly useful. Objects may float freely in the black world. Charts, diagrams, timelines, large numbers and finance mechanisms may be generated directly as stylized 3D images.
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
 
-ONE IMAGE = ONE IDEA
-Use very few large elements. A viewer should understand the main point in 1–2 seconds. Empty black space is good. Do not force many concepts into one image.
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A household washing machine has just broken down in a home laundry corner and the repair quote of 480 € is lying in front of it.
+REAL_WORLD_CONTEXT_ANCHOR: Home laundry corner, ordinary household repair.
+VOICEOVER_VISUAL_MATCH: The opening line names the broken washing machine and the sudden 480 € repair cost.
+TRANSFERABILITY_TEST: PASS — a broken appliance next to a readable repair amount reads as an unplanned, unavoidable cost within 1-2 seconds without audio.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
 
-TEXT
-Only the short German labels explicitly requested in each block. Never invent `FinanzNeo V9`, headlines, subtitles, CTA or fake UI copy.
+CORE IDEA (DE): Waschmaschine kaputt = plötzlich 480 € Kosten.
+GERMAN LABELS (exactly these, nothing else): `Reparatur 480 €`
 
-STRICT WORKFLOW
-1. Image 01 establishes the style reference.
-2. For every later image, first inspect/use Image 01 as style reference.
-3. Generate exactly ONE image at a time.
-4. Wait until fully complete.
-5. Rename immediately to the exact FINAL FILE NAME.
-6. Check style match + simplicity + readability + 16:9.
-7. If any check fails, regenerate the SAME image number.
-8. Only then continue.
+IMAGE PROMPT
+Show ONE large off-white household washing machine as the hero, standing in a small believable laundry corner and clearly out of order: door ajar, dark control panel, a loose hose and a small puddle on the floor.
+In the foreground, ONE large upright repair quote card leaning against the machine, carrying only the label `Reparatur 480 €`.
+Keep the laundry context minimal — a hint of tiled floor and a laundry basket — and let it dissolve into the black world.
+Warm red-orange accents on the fault and on the invoice amount. No emerald in this frame.
+Leave calm black space in the upper right so Remotion can highlight the defect and the amount afterwards.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 01 — YouTube Bild 01 - Waschmaschine kaputt.png
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-STYLE ROLE: MASTER REFERENCE IMAGE
-CORE IDEA: Waschmaschine kaputt = plötzlich 480 € Kosten.
-Prompt: Create a premium cinematic stylized 3D animation-film scene on deep black. Show ONE large broken washing machine with smooth rounded simplified geometry and one large foreground invoice reading only `Reparatur 480 €`. The washer should be recognizable but visibly animated/stylized rather than realistic. Use soft sculpted materials, warm cinematic light, clean depth and strong silhouette separation. Minimal environment only. No photorealistic appliance texture, no realistic room, no cyberpunk, no extra finance objects. This image becomes the style reference for every following image.
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 05 — YouTube Bild 05 - Kein Konsum.png
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CORE IDEA: Notgroschen ist getrennt von freiwilligem Konsum.
-Prompt: Match Image 01's exact animated-feature 3D look. On deep black, show ONE large emerald reserve container labeled `Notgroschen`. Outside it float only three stylized objects: suitcase `Urlaub`, smartphone `Neues Handy`, sale tag/object `Sale`. Keep forms rounded, simplified and animated-film-like. No desk, no room, no realism, no icon-grid look.
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 06 — YouTube Bild 06 - Echte Notfälle.png
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CORE IDEA: Echte Notfälle sind notwendige Kosten oder weniger Einkommen.
-Prompt: Match Image 01's exact animated-feature 3D look. Use only THREE large floating stylized objects around a calm emerald reserve element: broken repair object `Reparatur`, urgent invoice `Rechnung`, shrinking payslip/income block `Weniger Einkommen`. Keep the composition simple, playful and immediately readable. No miniature city, no environment, no realistic documents, no extra clutter.
+HARD NO — THIS SCENE
+Realistic appliance photography, appliance-catalogue render, a complete bright bathroom or utility room, technician, emerald reserve object, coins.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 11 — YouTube Bild 11 - Person A.png
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CORE IDEA: Wenige Verpflichtungen = geringerer Reservebedarf.
-Prompt: Match Image 01's exact animated-feature 3D look. Build a simple floating-object profile with only three large stylized items: transit pass/bicycle cue, small home/key cue, small tidy bill stack. Add only `Niedrige Fixkosten` and `Stabiler Job`. Deep black stage, soft rounded geometry, animated-film materials. No realistic paper photography, no white background, no office/desk.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 2 / 10 — visual-05 — YouTube Bild 05 - Kein Konsum.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 12 — YouTube Bild 12 - Person B.png
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CORE IDEA: Mehr Verpflichtungen = höherer Reservebedarf.
-Prompt: Match Image 01 and Image 11 exactly in animated-feature 3D style. Use only three large stylized items: apartment/rent object `Miete`, simplified commuter car `Auto`, larger recurring-bill stack `Laufende Kosten`. The car must look like an animated-film 3D object, not a realistic car advertisement. No realistic human, no UI, no room, no photorealistic materials.
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 05 - Kein Konsum.png
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 15 — YouTube Bild 15 - Langfristiges Investment.png
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CORE IDEA: Investment braucht einen langen Zeithorizont.
-Prompt: Match Image 01's exact animated-feature 3D material/light language. Create ONE bold physical 3D timeline floating in deep black, with a few large year markers and a smooth sculpted investment path that rises and falls into the distance. Labels only `Langfristig` and `Investment`. It should look like a tangible object from an animated movie, not a finance dashboard, software chart or realistic metal rail.
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 16 — YouTube Bild 16 - Auto und Depot.png
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CORE IDEA: Reparatur kann kommen, wenn das Depot schlecht steht.
-Prompt: Match Image 01's exact animated-feature 3D look. Show ONE clearly stylized commuter car with simplified rounded proportions and one visible wheel/brake repair. Add one stylized repair document labeled `Reparatur`. Leave a large clean black area for the later Remotion -25% chart. No realistic workshop, no real-looking mechanic, no car-ad realism, no neon/cyberpunk lighting.
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A separate savings account document marked as the emergency reserve lies clearly apart from three ordinary consumer purchases.
+REAL_WORLD_CONTEXT_ANCHOR: Everyday household money decisions: reserve versus optional spending.
+VOICEOVER_VISUAL_MATCH: The line says the Notgroschen is not for holidays, a new phone or a sale.
+TRANSFERABILITY_TEST: PASS — the visible gap between one labelled reserve document and three recognizable purchases shows the separation without audio.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 18 — YouTube Bild 18 - Giro zu Tagesgeld.png
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CORE IDEA: Alltagsgeld und Reserve liegen getrennt.
-Prompt: Match Image 01's exact animated-feature 3D look. On deep black, create TWO large friendly sculpted 3D containers/anchors: neutral gray `Girokonto` on the left and emerald `Tagesgeld` on the right with smaller `Notgroschen`. Leave open space between them for later money-flow animation. Avoid letter-shaped logos, banking UI, real cards, realistic account screenshots or hard industrial geometry.
+CORE IDEA (DE): Der Notgroschen ist getrennt von freiwilligem Konsum.
+GERMAN LABELS (exactly these, nothing else): `Notgroschen`, `Urlaub`, `Neues Handy`, `Sale`
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 20 — YouTube Bild 20 - Reserve trennen.png
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CORE IDEA: Monatsbudget und Notgroschen nicht vermischen.
-Prompt: Match Image 01's exact animated-feature 3D look. Create a simple left-right visual: one neutral rounded container `Monatsbudget` with only two small stylized spending objects nearby, and one separate emerald rounded container `Notgroschen` isolated by clean black space. No desk, no piggy bank, no gold bars, no realistic finance props, no UI.
+IMAGE PROMPT
+On the left, ONE upright savings account statement card with a calm emerald accent, carrying only the label `Notgroschen`.
+Separated by clear black space on the right, THREE recognizable everyday purchases: a packed travel suitcase labelled `Urlaub`, a new smartphone in its open box labelled `Neues Handy`, and a shopping bag with a price tag labelled `Sale`.
+The gap between the reserve document and the three purchases must be the most visible relationship in the frame.
+Neutral ivory and soft gray for the purchases, emerald only on the reserve document.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 25 — YouTube Bild 25 - Notfall bezahlen.png
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CORE IDEA: Notgroschen im Notfall zu benutzen ist richtig.
-Prompt: Match Image 01's exact animated-feature 3D look. Show ONE repaired stylized washing machine as hero, one simple paid invoice reading `Reparatur bezahlt`, and one smaller emerald reserve object `Notgroschen`, visibly reduced but orderly. Calm satisfying resolution. No photorealism, no coins pile, no piggy bank, no confetti, no realistic room.
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
 
-END. Generate no other current image numbers. Pure Remotion/data visuals remain image-free in this handoff.
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
+
+HARD NO — THIS SCENE
+Emerald container or jar as a stand-in for the reserve, shop interior, desk, icon grid, coins, piggy bank.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 3 / 10 — visual-06 — YouTube Bild 06 - Echte Notfälle.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 06 - Echte Notfälle.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: Three real emergency triggers stand around one calm labelled reserve document: a necessary repair, an urgent bill and a reduced payslip.
+REAL_WORLD_CONTEXT_ANCHOR: Ordinary household documents and objects that force unplanned spending.
+VOICEOVER_VISUAL_MATCH: The line defines real emergencies as necessary, non-postponable costs or income gaps.
+TRANSFERABILITY_TEST: PASS — repair, urgent bill and reduced payslip are recognizable triggers, and the reserve between them shows what they draw on.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Echte Notfälle sind notwendige Kosten oder weniger Einkommen.
+GERMAN LABELS (exactly these, nothing else): `Notgroschen`, `Reparatur`, `Rechnung`, `Weniger Einkommen`
+
+IMAGE PROMPT
+Build ONE connected situation on deep black with THREE large recognizable real-world triggers arranged around a calm emerald savings statement labelled `Notgroschen`:
+a broken household part with a visible defect labelled `Reparatur`, an urgent unpaid bill with a warm red-orange due stamp labelled `Rechnung`, and a payslip whose amount is visibly smaller than usual labelled `Weniger Einkommen`.
+Keep the three triggers equally large and clearly readable, and show that all three point at the same reserve.
+Leave individual breathing room around each trigger so Remotion can focus them one after another.
+
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
+
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
+
+HARD NO — THIS SCENE
+Miniature city, four-zone diorama, complete office, icon wall, abstract container instead of the savings statement.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 4 / 10 — visual-11 — YouTube Bild 11 - Person A.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 11 - Person A.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: The everyday belongings of someone with low fixed costs: a bicycle, a single room key on a keyring and a small tidy stack of bills.
+REAL_WORLD_CONTEXT_ANCHOR: Living at home, no car, stable job, few recurring obligations.
+VOICEOVER_VISUAL_MATCH: The line describes person A: lives at home, no car, low fixed costs, stable job.
+TRANSFERABILITY_TEST: PASS — few, small, tidy everyday objects communicate a light obligation load without audio.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Wenige Verpflichtungen = geringerer Reservebedarf.
+GERMAN LABELS (exactly these, nothing else): `Niedrige Fixkosten`, `Stabiler Job`
+
+IMAGE PROMPT
+Show THREE large recognizable everyday objects on deep black, arranged as one calm connected set: a simple commuter bicycle, a single room key on a small keyring, and a small tidy stack of paid bills.
+Add only the labels `Niedrige Fixkosten` near the bill stack and `Stabiler Job` near a plain employment contract card behind it.
+Keep the whole group visibly light and uncluttered — the small amount of stuff is the message.
+Neutral ivory and soft gray materials, one calm emerald accent on the contract card.
+
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
+
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
+
+HARD NO — THIS SCENE
+Person or character, white studio background, office desk, apartment interior, floating abstract profile shapes.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 5 / 10 — visual-12 — YouTube Bild 12 - Person B.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 12 - Person B.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: The everyday obligations of someone living alone: a rent notice, a commuter car and a noticeably thicker stack of recurring bills.
+REAL_WORLD_CONTEXT_ANCHOR: Own flat, car needed for work, several recurring monthly obligations.
+VOICEOVER_VISUAL_MATCH: The line describes person B: lives alone, needs a car, higher rent, several obligations.
+TRANSFERABILITY_TEST: PASS — the same object family as person A but visibly heavier and more numerous makes the higher reserve need readable.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Mehr feste Verpflichtungen = höherer Reservebedarf.
+GERMAN LABELS (exactly these, nothing else): `Miete`, `Auto`, `Laufende Kosten`
+
+IMAGE PROMPT
+Show THREE large recognizable everyday objects on deep black as one connected set: an upright rent notice with a flat key labelled `Miete`, a stylized everyday commuter car labelled `Auto`, and a clearly thicker stack of recurring bills labelled `Laufende Kosten`.
+Keep the object family and the camera distance comparable to the previous scene, but make the load visibly heavier and denser.
+Neutral ivory and soft gray materials with restrained warm red-orange accents on the recurring costs.
+
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
+
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
+
+HARD NO — THIS SCENE
+Realistic car render, car advertisement, person or character, complete apartment interior, dashboard, showroom.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 6 / 10 — visual-15 — YouTube Bild 15 - Langfristiges Investment.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 15 - Langfristiges Investment.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: An ETF depot statement stands next to a long wall calendar whose many year sheets show how much time the investment needs.
+REAL_WORLD_CONTEXT_ANCHOR: Bank and depot paperwork at home, planning over many years.
+VOICEOVER_VISUAL_MATCH: The line says an ETF can make sense long term but has a different job than the reserve.
+TRANSFERABILITY_TEST: PASS — a depot statement plus a visibly long run of years communicates the required time horizon without audio.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Investment braucht einen langen Zeithorizont.
+GERMAN LABELS (exactly these, nothing else): `Investment`, `Langfristig`
+
+IMAGE PROMPT
+Show ONE upright ETF depot statement card labelled `Investment` on deep black, with a calm rising value line printed on the paper itself.
+Next to it, ONE long wall calendar built from many year sheets receding into depth, labelled `Langfristig`, so the number of years is immediately visible.
+Both objects are physical paper and card with readable thickness and soft edges, lit as one connected desk-free situation.
+Restrained gold only on the value line, emerald on the calendar end, neutral ivory for the paper.
+
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
+
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
+
+HARD NO — THIS SCENE
+Trading app, broker dashboard, software chart window, glowing data grid, realistic office desk, stock-ticker wall.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 7 / 10 — visual-16 — YouTube Bild 16 - Auto und Depot.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 16 - Auto und Depot.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A car has a visible brake and wheel damage, an urgent repair invoice lies next to it, and the depot statement sits within reach.
+REAL_WORLD_CONTEXT_ANCHOR: Unplanned car repair while invested money is temporarily down.
+VOICEOVER_VISUAL_MATCH: The line describes a broken car at the same moment the depot is down by an example 25 percent.
+TRANSFERABILITY_TEST: PASS — visible damage, an urgent invoice and the depot document in the same frame set up the forced-sale conflict.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Die Reparatur kann genau dann kommen, wenn das Depot schlecht steht.
+GERMAN LABELS (exactly these, nothing else): `Reparatur`
+
+IMAGE PROMPT
+Show ONE stylized everyday commuter car from a three-quarter angle with a clearly visible wheel and brake damage, the wheel removed and leaning against the car.
+In the foreground, ONE urgent repair invoice card labelled `Reparatur` with a warm red-orange due stamp.
+Behind the invoice, ONE upright depot statement card lying face up, neutral and unlabelled, so Remotion can draw the falling curve on it afterwards.
+Keep the whole right third of the frame as calm empty black space for the later Remotion -25% chart.
+Minimal repair context only: a hint of ground and a single tool. No workshop.
+
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
+
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
+
+HARD NO — THIS SCENE
+Complete workshop, mechanic, realistic car render, automotive advertisement, chart drawn inside the generated image, percentage numbers in the image.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 8 / 10 — visual-18 — YouTube Bild 18 - Giro zu Tagesgeld.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 18 - Giro zu Tagesgeld.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: Two real bank account documents lie side by side on deep black: the everyday current account and the separate instant-access savings account holding the reserve.
+REAL_WORLD_CONTEXT_ANCHOR: Ordinary German bank paperwork: Girokonto and Tagesgeldkonto.
+VOICEOVER_VISUAL_MATCH: The line says a separate Tagesgeld account keeps the reserve apart from the current account while staying quickly available.
+TRANSFERABILITY_TEST: PASS — two clearly separated, clearly labelled account documents show the split without audio.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Alltagsgeld und Reserve liegen bewusst getrennt.
+GERMAN LABELS (exactly these, nothing else): `Girokonto`, `Tagesgeld`, `Notgroschen`
+
+IMAGE PROMPT
+Show TWO large upright bank account statement cards on deep black, facing the camera and clearly separated.
+Left: a neutral soft gray current account card labelled `Girokonto`, with a few everyday transaction lines printed on it.
+Right: a calm emerald instant-access savings card labelled `Tagesgeld`, carrying one smaller secondary label `Notgroschen`.
+Keep a clean, generous black gap between the two cards so Remotion can animate the transfer between them afterwards.
+Both cards are physical paper and card with readable thickness, soft edges and contact shadows.
+
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
+
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
+
+HARD NO — THIS SCENE
+Bank app UI, online banking screenshot, letter-shaped logos, real bank branding, plastic bank cards, vault, safe.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 9 / 10 — visual-20 — YouTube Bild 20 - Reserve trennen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 20 - Reserve trennen.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: On one side the monthly budget document is surrounded by everyday spending, on the other side the reserve document lies untouched and separate.
+REAL_WORLD_CONTEXT_ANCHOR: Household money that gets mixed up on one account versus money kept apart.
+VOICEOVER_VISUAL_MATCH: The line says on the current account the reserve mixes with everyday spending, while separated money keeps its purpose visible.
+TRANSFERABILITY_TEST: PASS — spending objects crowding one document while the other stays clean shows the mixing problem without audio.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Monatsbudget und Notgroschen nicht vermischen.
+GERMAN LABELS (exactly these, nothing else): `Monatsbudget`, `Notgroschen`
+
+IMAGE PROMPT
+Left side: ONE upright budget statement card labelled `Monatsbudget`, crowded closely by TWO recognizable everyday spending items — a grocery bag and a till receipt — visibly overlapping and pressing against it.
+Right side: ONE upright savings statement card labelled `Notgroschen`, calm, emerald, untouched, isolated by clean black space with nothing near it.
+The contrast between the crowded left side and the clean right side is the message.
+Neutral ivory and soft gray on the left with restrained warm red-orange on the receipt, emerald only on the right.
+
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
+
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
+
+HARD NO — THIS SCENE
+Desk, piggy bank, gold bars, coin stacks, wallet, app UI, dashboard, two identical abstract containers.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 10 / 10 — visual-25 — YouTube Bild 25 - Notfall bezahlen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 25 - Notfall bezahlen.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+Check the literal situation, the German labels, the seamless black world, the horizontal 16:9 format and the file name.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image. Consistency comes from this written style lock alone.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: The washing machine from the hook is repaired and running again, the invoice is stamped as paid, and the reserve document shows a visibly reduced but orderly balance.
+REAL_WORLD_CONTEXT_ANCHOR: The same home laundry corner as the opening scene, after the repair.
+VOICEOVER_VISUAL_MATCH: The line says using the Notgroschen for a real emergency was not a mistake.
+TRANSFERABILITY_TEST: PASS — working appliance, paid invoice and a smaller but intact reserve read as a correct, completed use of the reserve.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Den Notgroschen im echten Notfall zu benutzen ist richtig.
+GERMAN LABELS (exactly these, nothing else): `Reparatur bezahlt`, `Notgroschen`
+
+IMAGE PROMPT
+Show the SAME off-white household washing machine as the opening scene, now clearly working again: door closed, control panel lit with a calm emerald indicator, floor dry, hose reattached.
+In the foreground, ONE invoice card with a calm emerald paid stamp, carrying only the label `Reparatur bezahlt`.
+Beside it, ONE upright savings statement card labelled `Notgroschen`, visibly reduced but tidy and intact.
+The tone is quiet relief and correct use — not celebration, not loss, not guilt.
+Emerald for the resolution, neutral ivory for the paper, no warm red-orange in this frame.
+
+FINANZNEO STYLE LOCK
+Clearly stylized premium 3D animation-film rendering, never photorealistic and never mistakable for a photograph.
+Real everyday objects keep believable proportions, construction and recognizable details, while the rendering stays visibly stylized.
+Semi-realistic materials with a stylized finish: warm painted metal and plastic, paper and card with readable thickness and soft edges, restrained matte or satin surfaces, controlled texture, no hyper-detail.
+Soft refined geometry where it fits, but no toy shapes, no icon-pack look, no childish cartoon.
+ONE deep seamless black world dominates the frame. A small believable local context around the subject is allowed when it makes the situation credible; it stays secondary and dissolves into the black. No bright room, no studio wall, no floor-wall boundary, no horizon line, no coloured background zones, no particle or glow decor.
+Clean soft premium studio lighting: readable highlights, soft readable shadows, strong separation from the black, soft contact shadows, subtle grounded reflections.
+Colour roles — emerald green: reserve, solution, positive value. Warm red-orange: cost, loss, warning, debt, problem. Warm ivory and soft gray: neutral real objects. Subtle gold: money accent only. Never force a colour onto an object whose meaning does not justify it. No rainbow palette, no neon cyberpunk, no excessive glow.
+Composition — horizontal 16:9, one clear main situation, cause and effect readable in the same frame, understandable in 1-2 seconds without audio, hero objects large enough to read on mobile, laptop and TV. Useful negative space, never sterile. Foreground, midground and background depth where it helps.
+Labels — only the short German object labels listed in this prompt, placed directly at the object they describe. No headline, no subtitle, no CTA, no explanatory sentence, no invented brand text, no fake UI copy.
+
+HARD NO — ALWAYS
+Photorealism or any frame mistakable for a real photograph, stock-photo look, product-advertisement render, realistic person, flat infographic or presentation slide, dashboard or app UI, website or app screenshot, flowchart, generic vault/shield/coin/arrow finance icon scene without a real situation, recurring green-folder or coin-stack template, piggy bank as a default motif, sci-fi hologram, cyberpunk neon, excessive glow, miniature toy diorama framing, sterile isolated product shot, decorative props without meaning, pasted flat logos, long text inside the image.
+
+HARD NO — THIS SCENE
+Confetti, trophy, sad face, coin pile, piggy bank, celebration, complete bright utility room, technician.
