@@ -37,8 +37,13 @@ Solange keine Phase-1-Korrektur ausdrücklich nötig ist:
 - alle `remotion.md`
 - `06-projektdateien/visual-plan.md`
 - `06-projektdateien/remotion-plan.md`
+- `06-projektdateien/external-assets-manifest.json`
+- `06-projektdateien/external-assets-plan.md`
+- `04-visuals/external-assets/`
 - `src/`
 - andere Reel-/YouTube-Projekte
+
+Die externen Support-Assets sind bereits in Phase 1 geplant und werden **erst in Phase 3** anhand des Manifests gesucht, lizenzgeprüft und lokal integriert. Dadurch bleibt Phase 2 schnell.
 
 Diese Dateien bleiben unverändert für Phase 3 erhalten.
 
