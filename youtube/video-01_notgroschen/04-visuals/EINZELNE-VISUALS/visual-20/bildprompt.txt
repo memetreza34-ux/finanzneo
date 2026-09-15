@@ -1,19 +1,16 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINAL FILE NAME: YouTube Bild 20 - Reserve trennen.png
-Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. If any check fails, regenerate the same image number before continuing.
-
-LITERAL_REAL_WORLD_SITUATION: A wide everyday finance desk can be read as two states. On one side, normal spending money and emergency reserve physically sit together around a single `Monatsbudget`. On the other side, the `Notgroschen` is visibly separated into its own calm account/document area. Optional purchase objects can exist only near the monthly-budget side.
-REAL_WORLD_CONTEXT_ANCHOR: Home budgeting desk with real objects and account documents.
-VOICEOVER_VISUAL_MATCH: The image provides the grounded base for showing how spending can eat into a mixed balance but leaves a separately held emergency reserve untouched.
-TRANSFERABILITY_TEST: PASS — this exact mixed-versus-separated reserve setup is tailored to the behavioral reason for using a separate account.
-VISUAL_STRATEGY: literal
-METAPHOR_JUSTIFICATION: NONE
-
-IMAGE PROMPT:
-Horizontal 16:9 premium stylized 3D. Design a single coherent desk scene with enough spatial separation for a later Remotion before/after split. Left/center: one everyday money area labeled `Monatsbudget`, with realistic small consumption objects nearby such as dining/shopping receipt. Right: a clearly separate quieter banking/document area labeled `Notgroschen`, with emerald accent and no consumption objects. Do not draw a dividing line; spatial staging should create the separation naturally. Deep black world, semi-realistic materials, large readable objects, controlled soft light.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-Literal first, creative second.
-Forbidden: app UI, dashboard, infographic split panel, floating cards, arrow diagram, vault, piggy bank, piles of coins, toy look, headline, subtitle, CTA, extra text.
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly.
+
+CORE IDEA
+Monatsbudget und Notgroschen nicht vermischen.
+
+IMAGE PROMPT
+Create a very simple deep-black animated-feature 3D left-right composition. Left: one neutral rounded container labeled `Monatsbudget` with only two small stylized spending objects nearby. Right: one isolated emerald rounded container labeled `Notgroschen`, separated by clean black space. Use soft sculpted materials, rounded simplified geometry and cinematic animated-film lighting.
+
+HARD NO
+Desk, realistic receipts/cards, piggy bank, gold bars, realistic finance props, photorealism, semi-realism, app UI, dashboard, cyberpunk, extra text.
