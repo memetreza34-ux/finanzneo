@@ -1,19 +1,16 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINAL FILE NAME: YouTube Bild 12 - Person B.png
-Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. If any check fails, regenerate the same image number before continuing.
-
-LITERAL_REAL_WORLD_SITUATION: A young adult lives alone in their own apartment, depends on a car for work, and has several unavoidable monthly obligations. Short object labels: `Miete`, `Auto`, `Laufende Kosten`.
-REAL_WORLD_CONTEXT_ANCHOR: Small apartment entry/desk area visibly connected to a parked everyday car or garage/driveway context.
-VOICEOVER_VISUAL_MATCH: Person B has higher fixed costs and more dependencies, so the same income can require a larger emergency reserve.
-TRANSFERABILITY_TEST: PASS — the combination of solo housing, car dependency and multiple unavoidable bills makes this specifically the high-obligation half of the comparison.
-VISUAL_STRATEGY: literal
-METAPHOR_JUSTIFICATION: NONE
-
-IMAGE PROMPT:
-Horizontal 16:9 premium stylized 3D in the identical FinanzNeo world as Person A. Show a believable small apartment context with a clearly readable rent document labeled `Miete`, visible car/work-commute dependency labeled `Auto`, and a compact but noticeable group of necessary recurring obligations labeled `Laufende Kosten`. The person is secondary; the dependencies are the visual story. Do not make the person look poor or distressed. Warm red-orange may lightly mark obligation pressure, while neutrals dominate. Deep seamless black, believable proportions, strong object readability, soft controlled lighting.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-Literal first, creative second.
-Forbidden: melodrama, debt collector imagery, luxury car, icon collage, floating cards, app UI, dashboard, photorealism, toy look, headline, subtitle, CTA, extra text.
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly. This scene must not become a realistic person/car render.
+
+CORE IDEA
+Mehr feste Verpflichtungen = höherer Reservebedarf.
+
+IMAGE PROMPT
+On deep black, create a simple animated-feature 3D profile using only three large stylized objects: apartment/rent object `Miete`, simplified rounded commuter car `Auto`, and a larger recurring-bill stack `Laufende Kosten`. Use appealing exaggerated proportions and soft sculpted materials. The heavier obligation profile should be obvious without a realistic human or room.
+
+HARD NO
+Photorealistic car, car-ad render, live-action person, realistic office/apartment, semi-realistic materials, UI/dashboard, cyberpunk, extra text.
