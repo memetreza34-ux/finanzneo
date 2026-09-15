@@ -2,25 +2,29 @@ FINANZNEO YOUTUBE THUMBNAIL — VIDEO 01 NOTGROSCHEN
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
+STYLE_REFERENCE_IMAGE: 04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 
-Create exactly one horizontal 16:9 YouTube thumbnail source image in the SAME FinanzNeo stylized-3D animated-black V9 world used by the Reels. Do not invent a separate YouTube art style.
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D stylization, rounded geometry, simplified detail, material softness, cinematic lighting, depth and black-stage integration. Do not copy its exact composition.
+
+Create exactly one horizontal 16:9 thumbnail source image.
 
 ONE THUMBNAIL = ONE TENSION
-Communicate only: unexpected repair cost versus protected emergency reserve.
+Unexpected repair cost versus protected emergency reserve.
 
-Use a simple, bold composition on deep black. Show ONE large broken washing machine and ONE large repair invoice reading only `Reparatur 480 €` on one side. On the opposite side show ONE clean emerald reserve object labeled `Notgroschen`. Keep the objects large, separated and immediately readable. A small amount of laundry-room context is allowed only around the washing machine if it improves recognition; do not build a full room or a busy desk.
+COMPOSITION
+Show ONE large stylized broken washing machine and ONE large invoice reading only `Reparatur 480 €` on one side. On the opposite side show ONE large emerald reserve object labeled `Notgroschen`. Large simple forms, strong separation, generous black negative space, immediate readability.
 
-STYLE — SAME AS REELS V9
-Premium clearly stylized 3D, never photorealistic, never toy-like. Same soft rounded forms, polished materials, soft studio lighting and object scale as the Reel V9 image world. Deep seamless black is the shared stage.
+LOOK
+Premium cinematic animated-feature 3D — reality-inspired but clearly not realistic. Smooth rounded forms, simplified construction, soft sculpted surfaces, appealing proportions, cinematic light and strong depth. The result should feel like a frame from a polished animated film, not a photo, stock render or realistic product advertisement.
+
+HARD NO
+No photorealism. No semi-realistic appliance render. No realistic room. No live-action look. No realistic person. No stock-photo aesthetic. No dashboard/UI. No random coins. No piggy bank. No vault. No cyberpunk. No blue/purple neon. No extra invented text such as `FinanzNeo V9`.
 
 PALETTE
-Warm red-orange only for the cost/problem; emerald green only for the protected reserve; warm ivory/soft gray for neutral materials; subtle gold only for money/value. No blue/purple cyberpunk neon or unrelated color systems.
+Deep black, emerald green for reserve, warm red-orange for repair cost, ivory/soft gray neutral, restrained gold only if value needs it.
 
-FORBIDDEN
-No overloaded room, no random coins, piggy bank, vault, floating-card collection, stock dashboard, arrow maze, decorative plants, miniature diorama, cyberpunk geometry, photorealistic stock-photo look or extra finance props.
+Leave clean space for typography added later in Remotion. Do not generate a headline, subtitle or CTA.
 
-Leave generous clean negative space near upper-right/center-right for typography added later in Remotion. Do NOT generate a headline, subtitle, CTA or explanatory sentence. Only the two requested short object labels may appear.
-
-Horizontal 16:9. The main objects must remain clear on mobile, laptop and TV playback.
+Horizontal 16:9; main objects must remain clear on mobile, laptop and TV.
