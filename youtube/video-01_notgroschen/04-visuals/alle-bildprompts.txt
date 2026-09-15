@@ -1,109 +1,111 @@
-FINANZNEO — SINGLE HANDOFF FILE FOR GOOGLE FLOW
+FINANZNEO — GOOGLE FLOW YOUTUBE HANDOFF
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-IMAGE_WORLD: finanzneo-stylized-3d-animated-black-v9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
+STYLE_REFERENCE_IMAGE: YouTube Bild 01 - Waschmaschine kaputt.png
+
+CRITICAL STYLE RULE
+This is a YOUTUBE-ONLY image world. Do not change or reuse Reel rules.
+
+`YouTube Bild 01 - Waschmaschine kaputt.png` is the DIRECT STYLE REFERENCE for every later image. Before generating each later image, inspect/use Image 01 as the visual reference. Match its exact level of stylization, rounded geometry, simplified forms, material feel, soft cinematic lighting, depth, black-stage integration and animated-film finish. Copy the LOOK, never the subject/layout.
+
+TARGET LOOK
+Premium cinematic animated-feature 3D — the user describes the intended feel as Pixar-like 3D animation — but original, with no copied franchise characters/designs.
+
+Reality-inspired but NEVER realistic:
+- instantly recognizable objects
+- clearly stylized 3D rendering
+- smooth rounded geometry
+- simplified details
+- appealing slightly exaggerated proportions
+- soft sculpted materials
+- cinematic lighting and depth
+- polished animation-film finish
+
+HARD FAILS
+Regenerate if the image is photorealistic, semi-photorealistic, stock-photo-like, a product-ad render, a realistic person, realistic car/interior render, software/dashboard UI, cyberpunk, blue/purple neon, cluttered, or clearly different from Image 01.
+
+NO REALISM DEFAULT
+Do not build a realistic room, office, desk or workshop unless that location is truly useful. Objects may float freely in the black world. Charts, diagrams, timelines, large numbers and finance mechanisms may be generated directly as stylized 3D images.
+
+ONE IMAGE = ONE IDEA
+Use very few large elements. A viewer should understand the main point in 1–2 seconds. Empty black space is good. Do not force many concepts into one image.
+
+TEXT
+Only the short German labels explicitly requested in each block. Never invent `FinanzNeo V9`, headlines, subtitles, CTA or fake UI copy.
 
 STRICT WORKFLOW
-1. Choose the BEST visual explanation for the current spoken point — not automatically the most realistic scene.
-2. Work top to bottom on only the current block.
-3. Generate exactly ONE image.
-4. Wait until the current image is fully complete.
-5. Rename it immediately to the exact FINAL FILE NAME.
-6. Verify: one clear idea, one hero focus, simple composition, same Reel-V9 FinanzNeo world, deep-black stage and horizontal 16:9.
-7. If the image is cluttered, too realistic, too different from the series, too desk-like, too cyberpunk or hard to understand in 1–2 seconds, regenerate the same image number.
-8. Only after PASS continue to the next image.
-9. Final accepted files belong in `04-visuals/00-ALLE-BILDER-HIER-REIN/`.
-10. Never batch, parallelize, pre-queue or generate multiple images in one job.
-
-GLOBAL VISUAL DIRECTION — SAME FINANZNEO REELS V9 WORLD
-Use the exact same core visual world as the FinanzNeo Reels V9: premium clearly stylized 3D, never photorealistic, never toy-like, deep seamless black, soft studio light, polished rounded forms, strong large hero objects, emerald green for protected/positive, warm red-orange for cost/risk, ivory/soft gray for neutral and restrained gold for money/value.
-
-Do NOT default to a desk, room or person. Choose one of these representations based on what explains the point best:
-- REAL-WORLD SCENE for a concrete event such as a broken appliance or car repair.
-- FLOATING OBJECT STAGE for categories, separation and comparisons.
-- 3D DATA / DIAGRAM STAGE for amounts, ratios, timelines or market movement.
-- SPATIAL FINANCE MECHANISM for money flow, reserve, pressure, separation or buffer logic.
-- SIMPLE TWO-STATE COMPARISON for before/after or low-vs-high obligations.
-
-ONE IMAGE = ONE IDEA.
-Use few large elements. Empty black space is allowed and desirable. Never build a miniature city, multi-room collage, tiny four-zone world or overloaded infographic. Keep the image entertaining through scale, depth, clean asymmetry, floating objects and strong silhouettes — not through clutter.
-
-The full series must look as if every image was built in the SAME FinanzNeo V9 studio even when the representation changes. No blue/purple cyberpunk neon, no sci-fi UI, no photorealistic stock look, no generic icon wall, no dashboard, no tiny floating cards, no decorative plants and no random filler.
-
-If a future Phase-1 beat genuinely needs several independent ideas, plan more simple image slots before Flow generation instead of forcing everything into one frame. This current handoff contains only the registered image slots below.
+1. Image 01 establishes the style reference.
+2. For every later image, first inspect/use Image 01 as style reference.
+3. Generate exactly ONE image at a time.
+4. Wait until fully complete.
+5. Rename immediately to the exact FINAL FILE NAME.
+6. Check style match + simplicity + readability + 16:9.
+7. If any check fails, regenerate the SAME image number.
+8. Only then continue.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 01 — YouTube Bild 01 - Waschmaschine kaputt.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VISUAL MODE: REAL-WORLD SCENE
-CORE IDEA: Ein normaler Alltagsgegenstand verursacht plötzlich 480 € Kosten.
-Prompt: Create one simple stylized-3D laundry repair scene in the FinanzNeo Reel-V9 world. Show ONE large broken washing machine as the hero object and ONE large foreground repair invoice reading only `Reparatur 480 €`. Keep the room context minimal and let it dissolve quickly into deep black. Warm red-orange may emphasize the repair cost. No extra finance props, no cyberpunk elements, no decorative clutter. The viewer must understand “Waschmaschine kaputt = 480 € unerwartete Kosten” instantly.
+STYLE ROLE: MASTER REFERENCE IMAGE
+CORE IDEA: Waschmaschine kaputt = plötzlich 480 € Kosten.
+Prompt: Create a premium cinematic stylized 3D animation-film scene on deep black. Show ONE large broken washing machine with smooth rounded simplified geometry and one large foreground invoice reading only `Reparatur 480 €`. The washer should be recognizable but visibly animated/stylized rather than realistic. Use soft sculpted materials, warm cinematic light, clean depth and strong silhouette separation. Minimal environment only. No photorealistic appliance texture, no realistic room, no cyberpunk, no extra finance objects. This image becomes the style reference for every following image.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 05 — YouTube Bild 05 - Kein Konsum.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VISUAL MODE: FLOATING OBJECT STAGE
-CORE IDEA: Der Notgroschen ist getrennt von freiwilligem Konsum.
-Prompt: On a clean deep-black FinanzNeo V9 stage, show ONE large calm emerald reserve container/tray labeled `Notgroschen` as the hero. Outside and clearly separated from it, float only three simple optional-spending objects: a suitcase labeled `Urlaub`, a smartphone labeled `Neues Handy`, and one sale tag/object labeled `Sale`. No desk, no room, no shelves, no icon grid. Use generous spacing and make the separation obvious in one glance.
+CORE IDEA: Notgroschen ist getrennt von freiwilligem Konsum.
+Prompt: Match Image 01's exact animated-feature 3D look. On deep black, show ONE large emerald reserve container labeled `Notgroschen`. Outside it float only three stylized objects: suitcase `Urlaub`, smartphone `Neues Handy`, sale tag/object `Sale`. Keep forms rounded, simplified and animated-film-like. No desk, no room, no realism, no icon-grid look.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 06 — YouTube Bild 06 - Echte Notfälle.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VISUAL MODE: FLOATING OBJECT + FINANCE MECHANISM
-CORE IDEA: Echte Notfälle sind notwendige, schwer verschiebbare Belastungen oder Einkommenslücken.
-Prompt: Create a simple deep-black FinanzNeo V9 composition with THREE large floating hero-support objects only: a broken repair part/object labeled `Reparatur`, an urgent invoice labeled `Rechnung`, and a shrinking/fading payslip or income block labeled `Weniger Einkommen`. Arrange them around a calm emerald reserve object without turning the frame into a four-zone collage. No environment needed. Large readable forms, strong depth, one clear message: unavoidable pressure can come from necessary costs or less income.
+CORE IDEA: Echte Notfälle sind notwendige Kosten oder weniger Einkommen.
+Prompt: Match Image 01's exact animated-feature 3D look. Use only THREE large floating stylized objects around a calm emerald reserve element: broken repair object `Reparatur`, urgent invoice `Rechnung`, shrinking payslip/income block `Weniger Einkommen`. Keep the composition simple, playful and immediately readable. No miniature city, no environment, no realistic documents, no extra clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 11 — YouTube Bild 11 - Person A.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VISUAL MODE: SIMPLE PROFILE OBJECT STAGE
 CORE IDEA: Wenige Verpflichtungen = geringerer Reservebedarf.
-Prompt: Create a clean FinanzNeo V9 profile scene without a desk. Use only a few large floating 3D objects representing a low-obligation life setup: a public-transport pass or bicycle cue, a small key/home cue, and a small tidy stack of unavoidable bills. Add only the short labels `Niedrige Fixkosten` and `Stabiler Job`. No full room, no miniature city, no unrelated objects. The image should feel calm, light and simple.
+Prompt: Match Image 01's exact animated-feature 3D look. Build a simple floating-object profile with only three large stylized items: transit pass/bicycle cue, small home/key cue, small tidy bill stack. Add only `Niedrige Fixkosten` and `Stabiler Job`. Deep black stage, soft rounded geometry, animated-film materials. No realistic paper photography, no white background, no office/desk.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 12 — YouTube Bild 12 - Person B.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VISUAL MODE: SIMPLE PROFILE OBJECT STAGE
-CORE IDEA: Mehr feste Verpflichtungen = höherer Reservebedarf.
-Prompt: Match Image 11 exactly in FinanzNeo V9 material, lighting, camera feel and object scale. Use only a few large floating 3D objects: an apartment/rent document labeled `Miete`, one ordinary commuter car labeled `Auto`, and a visibly larger recurring-bill stack labeled `Laufende Kosten`. No person required, no room, no poverty/luxury coding, no UI. Make the heavier obligation profile visually obvious while staying simple.
+CORE IDEA: Mehr Verpflichtungen = höherer Reservebedarf.
+Prompt: Match Image 01 and Image 11 exactly in animated-feature 3D style. Use only three large stylized items: apartment/rent object `Miete`, simplified commuter car `Auto`, larger recurring-bill stack `Laufende Kosten`. The car must look like an animated-film 3D object, not a realistic car advertisement. No realistic human, no UI, no room, no photorealistic materials.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 15 — YouTube Bild 15 - Langfristiges Investment.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VISUAL MODE: 3D DATA / TIMELINE STAGE
-CORE IDEA: Investment ist für einen langen Zeithorizont, nicht für kurzfristige Notfälle.
-Prompt: Create a clean stylized-3D FinanzNeo V9 timeline on deep black. Use ONE strong long horizontal time path with a few large year markers moving into the distance and one restrained investment line that visibly rises and falls along the path instead of only rising. Add only the labels `Langfristig` and `Investment`. No desk, no laptop, no app screen, no fake stock dashboard. Make time horizon the hero idea.
+CORE IDEA: Investment braucht einen langen Zeithorizont.
+Prompt: Match Image 01's exact animated-feature 3D material/light language. Create ONE bold physical 3D timeline floating in deep black, with a few large year markers and a smooth sculpted investment path that rises and falls into the distance. Labels only `Langfristig` and `Investment`. It should look like a tangible object from an animated movie, not a finance dashboard, software chart or realistic metal rail.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 16 — YouTube Bild 16 - Auto und Depot.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VISUAL MODE: REAL-WORLD SCENE + MOTION-READY SPACE
-CORE IDEA: Eine echte Reparatur kann genau dann kommen, wenn das Depot ungünstig steht.
-Prompt: Create one simple FinanzNeo V9 car-repair scene. Show ONE ordinary commuter car with a clearly visible wheel/brake repair as the hero and one repair document labeled `Reparatur`. Keep the workshop context very minimal and stylized, not photorealistic and not neon/cyberpunk. Leave a large clean deep-black area on the right or upper-right for the later Remotion -25% depot chart. Do NOT generate a stock chart in this image. No extra tools beyond what is necessary to read the repair.
+CORE IDEA: Reparatur kann kommen, wenn das Depot schlecht steht.
+Prompt: Match Image 01's exact animated-feature 3D look. Show ONE clearly stylized commuter car with simplified rounded proportions and one visible wheel/brake repair. Add one stylized repair document labeled `Reparatur`. Leave a large clean black area for the later Remotion -25% chart. No realistic workshop, no real-looking mechanic, no car-ad realism, no neon/cyberpunk lighting.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 18 — YouTube Bild 18 - Giro zu Tagesgeld.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VISUAL MODE: SPATIAL FINANCE MECHANISM
-CORE IDEA: Alltagsgeld und Notgroschen liegen bewusst getrennt.
-Prompt: On deep black, create two large stylized-3D financial containers/anchors with no desk and no app UI. Left: a neutral gray object labeled `Girokonto`. Right: a calm emerald object labeled `Tagesgeld` with a smaller attached label `Notgroschen`. Leave a clear open corridor between them for later animated money transfer. Use large simple forms and strong spacing. No bank logos, no cards scattered around, no screen.
+CORE IDEA: Alltagsgeld und Reserve liegen getrennt.
+Prompt: Match Image 01's exact animated-feature 3D look. On deep black, create TWO large friendly sculpted 3D containers/anchors: neutral gray `Girokonto` on the left and emerald `Tagesgeld` on the right with smaller `Notgroschen`. Leave open space between them for later money-flow animation. Avoid letter-shaped logos, banking UI, real cards, realistic account screenshots or hard industrial geometry.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 20 — YouTube Bild 20 - Reserve trennen.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VISUAL MODE: SIMPLE TWO-STATE COMPARISON
-CORE IDEA: Monatsbudget und Reserve sollen nicht vermischt sein.
-Prompt: Create a very simple FinanzNeo V9 left-right comparison on deep black. Left: one neutral container labeled `Monatsbudget` with only two or three small everyday-spending cues close to it. Right: one isolated emerald container labeled `Notgroschen`, clearly separated by empty black space. No desk, no room, no piggy bank, no gold bars, no pile of random finance props. The separation itself must be the visual message.
+CORE IDEA: Monatsbudget und Notgroschen nicht vermischen.
+Prompt: Match Image 01's exact animated-feature 3D look. Create a simple left-right visual: one neutral rounded container `Monatsbudget` with only two small stylized spending objects nearby, and one separate emerald rounded container `Notgroschen` isolated by clean black space. No desk, no piggy bank, no gold bars, no realistic finance props, no UI.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 25 — YouTube Bild 25 - Notfall bezahlen.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-VISUAL MODE: REAL-WORLD RESULT SCENE
-CORE IDEA: Den Notgroschen im echten Notfall zu benutzen ist richtig.
-Prompt: Create one clean FinanzNeo V9 result scene with a repaired washing machine as the large hero, one paid invoice reading only `Reparatur bezahlt`, and one simple emerald reserve object labeled `Notgroschen` shown slightly reduced but still orderly. Keep everything on a deep-black stage with only minimal real-world context. No coins pile, no piggy bank, no trophy, no confetti, no guilt. The feeling should be calm resolution: the reserve did its job.
+CORE IDEA: Notgroschen im Notfall zu benutzen ist richtig.
+Prompt: Match Image 01's exact animated-feature 3D look. Show ONE repaired stylized washing machine as hero, one simple paid invoice reading `Reparatur bezahlt`, and one smaller emerald reserve object `Notgroschen`, visibly reduced but orderly. Calm satisfying resolution. No photorealism, no coins pile, no piggy bank, no confetti, no realistic room.
 
-END. Do not generate any other current video image numbers. Pure Remotion/data visuals are intentionally image-free in this registered handoff.
+END. Generate no other current image numbers. Pure Remotion/data visuals remain image-free in this handoff.
