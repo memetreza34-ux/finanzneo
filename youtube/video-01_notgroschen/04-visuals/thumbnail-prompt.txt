@@ -5,19 +5,22 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
-Create exactly one horizontal 16:9 YouTube thumbnail source image in the SAME FinanzNeo stylized-3D animated-black V9 world used by the Reels. Do not invent a separate YouTube art style. The only format adaptation is the wider horizontal composition.
+Create exactly one horizontal 16:9 YouTube thumbnail source image in the SAME FinanzNeo stylized-3D animated-black V9 world used by the Reels. Do not invent a separate YouTube art style.
 
-Show a concrete real-world emergency-fund situation, not a generic finance-symbol composition: a believable household laundry area dissolving naturally into a seamless deep-black FinanzNeo world. A large modern washing machine is visibly broken/open and clearly needs repair. In the strong foreground place one large readable repair invoice object showing only the short German object label `Reparatur 480 €`. On the opposite side, clearly separated from everyday spending, show a calm protected emergency reserve represented through a believable bank/account object labeled only `Notgroschen`, with controlled emerald-green visual emphasis. The composition must communicate at a glance: unexpected repair cost versus available emergency reserve.
+ONE THUMBNAIL = ONE TENSION
+Communicate only: unexpected repair cost versus protected emergency reserve.
+
+Use a simple, bold composition on deep black. Show ONE large broken washing machine and ONE large repair invoice reading only `Reparatur 480 €` on one side. On the opposite side show ONE clean emerald reserve object labeled `Notgroschen`. Keep the objects large, separated and immediately readable. A small amount of laundry-room context is allowed only around the washing machine if it improves recognition; do not build a full room or a busy desk.
 
 STYLE — SAME AS REELS V9
-Premium real-world-grounded stylized 3D. Everyday objects keep believable proportions, recognizable construction and useful material detail, while the rendering remains clearly stylized and never photorealistic. Polished and high quality, never toy-like, never an icon pack and never a stock-photo look. Deep seamless black remains the dominant world. Use clean soft studio lighting, clear highlights, readable shadows and soft contact shadows.
+Premium clearly stylized 3D, never photorealistic, never toy-like. Same soft rounded forms, polished materials, soft studio lighting and object scale as the Reel V9 image world. Deep seamless black is the shared stage.
 
 PALETTE
-Warm red-orange only for the cost/problem; emerald green only for the protected reserve; warm ivory/soft gray for neutral materials; subtle gold only for money/value. No blue/purple cyberpunk neon, no sci-fi blocks and no unrelated decorative color system.
+Warm red-orange only for the cost/problem; emerald green only for the protected reserve; warm ivory/soft gray for neutral materials; subtle gold only for money/value. No blue/purple cyberpunk neon or unrelated color systems.
 
 FORBIDDEN
-No random coins, piggy bank, vault, floating cards, chart, dashboard, arrow maze, decorative plants, generic finance icon kit, cyberpunk geometry, microchip look, photorealistic stock-photo look or miniature diorama.
+No overloaded room, no random coins, piggy bank, vault, floating-card collection, stock dashboard, arrow maze, decorative plants, miniature diorama, cyberpunk geometry, photorealistic stock-photo look or extra finance props.
 
-Leave generous clean negative space near the upper-right/center-right area for typography added later in Remotion. Do NOT generate a headline, subtitle, CTA or explanatory sentence in the image. Only the explicitly requested short object labels may appear.
+Leave generous clean negative space near upper-right/center-right for typography added later in Remotion. Do NOT generate a headline, subtitle, CTA or explanatory sentence. Only the two requested short object labels may appear.
 
-Horizontal 16:9 source image; width approximately 1.7778 times height. Important objects must remain clear on mobile, laptop and TV playback.
+Horizontal 16:9. The main objects must remain clear on mobile, laptop and TV playback.
