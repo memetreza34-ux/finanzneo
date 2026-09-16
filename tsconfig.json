@@ -18,6 +18,7 @@
     "src",
     "public/captions",
     "youtube",
-    "reels"
+    "reels",
+    "scripts"
   ]
 }

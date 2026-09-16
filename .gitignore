@@ -69,3 +69,7 @@ npm-debug.log*
 # Editor
 .vscode/
 .idea/
+
+# Gespiegelte YouTube-Nutzerassets. Quelle bleibt das Projekt unter youtube/;
+# public/youtube/ wird von youtube:phase3:stage jedes Mal neu aufgebaut.
+public/youtube/

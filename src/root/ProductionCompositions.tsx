@@ -1,11 +1,15 @@
 import React from 'react';
+import {YouTubeProjectCompositions} from '../youtube/projects';
 
 /**
- * Nur vollständig validierte Phase-3-Produktionen gehören hier hinein.
+ * Veröffentlichbare Videos und exportierbare Kanal-Assets.
  *
- * Absichtlich leer, solange kein aktuelles Reel den vollständigen Pfad
- * reel:ready -> phase3:preflight -> candidate render -> render QA -> export
- * durchlaufen hat. Alte Demo-/Legacy-Reels dürfen niemals als Produktions-
- * Vorlage dienen.
+ * YouTube-Longform-Projekte werden nicht von Hand eingetragen. Sie entstehen aus
+ * `npm run youtube:phase3:build -- youtube/<Woche>/<Thema>`, das Szenen, Timeline
+ * und Animationsbindungen aus den Projektdaten generiert und hier registriert.
  */
-export const ProductionCompositions: React.FC = () => <></>;
+export const ProductionCompositions: React.FC = () => (
+  <>
+    <YouTubeProjectCompositions />
+  </>
+);

@@ -237,3 +237,27 @@ npm run youtube:ready -- youtube/<Woche>/<Thema>
 ```
 
 `youtube:ready` prüft Phase 1, den unveränderten Motion-V3-Seal, exakte Nutzerbilder, 16:9-Abmessungen, genau ein lesbares Voiceover, passende Wortzeiten und das vollständige Publishing-Paket. Nur ein erfolgreicher Lauf gibt Phase 3 frei.
+
+## Phase 3 — von den Assets zur fertigen MP4
+
+```bash
+npm run youtube:phase3:stage -- youtube/<Woche>/<Thema>   # Assets nach public/ spiegeln
+npm run youtube:phase3:build -- youtube/<Woche>/<Thema>   # Composition aus den Projektdaten erzeugen
+npm run youtube:render       -- youtube/<Woche>/<Thema>   # Preflight, Render, QA und Export in einem Lauf
+```
+
+`youtube:render` fährt die ganze Kette und bricht an jedem Tor ab, statt ein halbes Video weiterzureichen:
+
+```text
+Preflight    youtube:ready · Animationsbindungen · gespiegelte Assets · Composition aktuell
+Render       1920 × 1080, 30 fps, H.264 CRF 16
+Render-QA    Auflösung · Framerate · Länge gegen Timeline · Tonspur
+             pro Szene ein Frame auf echten Bildinhalt geprüft
+Export       Video, Thumbnail und Kapitel-Zeitstempel nach 03-export/
+```
+
+Die Einzelschritte `youtube:phase3:preflight`, `youtube:phase3:qa` und `youtube:export` gibt es für kontrollierte Wiederholungen.
+
+Die Composition wird **generiert**, nicht von Hand gepflegt: `youtube:phase3:build` schreibt sie aus `visual-index.json` und den Wortzeiten. Der Preflight vergleicht sie mit den aktuellen Projektdaten und blockiert, wenn sie veraltet ist.
+
+**Eine vorhandene MP4 gilt nicht als fertig.** Die Render-QA misst je Szene die Spitzenhelligkeit in der Visualzone gegen den Schwarzwert des Videos — gemessen 223 bei echtem Inhalt gegen 16 bei Vollschwarz. Ein schwarzes oder nur mit Überschrift gefülltes Video fällt durch.
