@@ -2,7 +2,7 @@
 import {spawnSync} from 'node:child_process';
 import {relative, resolve, sep} from 'node:path';
 import {analyzeYouTubeReadiness, isSixteenNineDimensions} from './lib/youtube-readiness.mjs';
-import {IMAGE_INBOX} from './lib/youtube-contract.mjs';
+import {AUDIO_DIRECTORY, IMAGE_INBOX} from './lib/youtube-contract.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -48,7 +48,7 @@ const ensureProbeSucceeded = (probe, mediaFile) => {
   }
 };
 
-const audioFile = resolve(root, '03-audio', result.audioFiles[0]);
+const audioFile = resolve(root, AUDIO_DIRECTORY, result.audioFiles[0]);
 const audioProbe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', audioFile], {encoding: 'utf8'});
 ensureProbeSucceeded(audioProbe, audioFile);
 

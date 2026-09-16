@@ -32,8 +32,8 @@ If NO: do not add an external slot.
 
 If YES:
 
-1. add the slot to `06-projektdateien/external-assets-manifest.json`,
-2. document the purpose in `06-projektdateien/external-assets-plan.md`,
+1. add the slot to `04-projekt/external-assets-manifest.json`,
+2. document the purpose in `04-projekt/external-assets-plan.md`,
 3. define allowed type, source priority, search terms/icon names and integration boundary,
 4. keep the primary visual fully understandable if the slot remains empty.
 
@@ -67,9 +67,9 @@ The primary `animation.tsx` remains deterministic and remote-free.
 Run:
 
 ```bash
-npm run youtube:validate -- youtube/<Projekt>
-npm run youtube:animation:validate -- youtube/<Projekt>
-npm run youtube:phase1:seal -- youtube/<Projekt>
+npm run youtube:validate -- youtube/<Woche>/<Thema>
+npm run youtube:animation:validate -- youtube/<Woche>/<Thema>
+npm run youtube:phase1:seal -- youtube/<Woche>/<Thema>
 ```
 
 Do not weaken validation to make an asset plan pass. External slots are optional enhancement and must never become a substitute for incomplete Phase-1 work.

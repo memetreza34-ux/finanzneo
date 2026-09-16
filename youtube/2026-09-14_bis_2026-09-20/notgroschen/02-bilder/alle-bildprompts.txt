@@ -1,8 +1,8 @@
 FINANZNEO — GOOGLE FLOW YOUTUBE HANDOFF
 
 GENERIERT AUS DEN EINZELNEN bildprompt.txt — NICHT VON HAND BEARBEITEN.
-Quelle: 04-visuals/EINZELNE-VISUALS/<visual>/bildprompt.txt
-Neu bauen: npm run youtube:prompts:build -- youtube/video-01_notgroschen
+Quelle: 04-projekt/VISUALS/<visual>/bildprompt.txt
+Neu bauen: npm run youtube:prompts:build -- youtube/2026-09-14_bis_2026-09-20/notgroschen
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
@@ -23,7 +23,7 @@ Never attach or upload another image as a reference. Every block carries its com
 Literal first, creative second — every block starts from the concrete real-world situation behind the spoken line.
 
 All source images are horizontal 16:9.
-Put every finished, correctly named file together into 04-visuals/00-ALLE-BILDER-HIER-REIN/
+Put every finished, correctly named file together into 02-bilder/00-ALLE-BILDER-HIER-REIN/
 
 Blocks in this handoff: 10
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

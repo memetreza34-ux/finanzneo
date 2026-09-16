@@ -5,7 +5,7 @@ Dieses Dokument ist der schnelle Einstieg für Phase 2. Für Bilder und Voiceove
 ## Nur diese Pfade jetzt benutzen
 
 ### 1. Google-Flow-Prompts
-`04-visuals/alle-bildprompts.txt`
+`02-bilder/alle-bildprompts.txt`
 
 Diese Datei enthält alle Bildjobs. Bilder strikt einzeln erzeugen, vollständig warten, exakt umbenennen und erst danach das nächste Bild starten.
 
@@ -19,7 +19,7 @@ SOURCE_VISUAL_LANGUAGE:    finanzneo-stylized-3d-animated-black-v9
 ```
 
 Kanonische Definition: `config/finanzneo-image-worlds/finanzneo-youtube-cg-animated-black-v2.txt`
-Projektfassung: `04-visuals/bildwelt.txt`
+Projektfassung: `02-bilder/bildwelt.txt`
 
 Die alte projekteigene Welt `finanzneo-youtube-animated-feature-3d-v1` und der Pixar-Zielbegriff sind abgeschafft.
 
@@ -49,17 +49,17 @@ Bestehende Flow-Bilder aus älteren Prompt-Versionen sind **nicht automatisch be
 Ein Bild = ein klarer Gedanke.
 
 ### 2. Fertige Bilder
-`04-visuals/00-ALLE-BILDER-HIER-REIN/`
+`02-bilder/00-ALLE-BILDER-HIER-REIN/`
 
 Alle finalen 16:9-Bilder und das Thumbnail kommen gemeinsam hier hinein.
 
 ### 3. Voiceover
-`03-audio/`
+`01-script/`
 
 Genau eine finale Voiceover-Datei ablegen.
 
 ### 4. Wort-Zeitstempel
-`03-audio/word-timings.json`
+`01-script/word-timings.json`
 
 Erst aus dem finalen Voiceover erzeugen/aktualisieren.
 
@@ -71,14 +71,14 @@ Erst aus dem finalen Voiceover erzeugen/aktualisieren.
 
 Solange keine Phase-1-Korrektur ausdrücklich nötig ist:
 
-- `04-visuals/EINZELNE-VISUALS/`
+- `04-projekt/VISUALS/`
 - alle `animation.tsx`
 - alle `remotion.md`
-- `06-projektdateien/visual-plan.md`
-- `06-projektdateien/remotion-plan.md`
-- `06-projektdateien/external-assets-manifest.json`
-- `06-projektdateien/external-assets-plan.md`
-- `04-visuals/external-assets/`
+- `04-projekt/visual-plan.md`
+- `04-projekt/remotion-plan.md`
+- `04-projekt/external-assets-manifest.json`
+- `04-projekt/external-assets-plan.md`
+- `04-projekt/external-assets/`
 - `src/`
 - andere Reel-/YouTube-Projekte
 

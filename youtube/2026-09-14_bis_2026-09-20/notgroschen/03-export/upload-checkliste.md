@@ -12,7 +12,7 @@
 - [ ] Verbraucherzentrale-/BaFin-Aussagen im finalen Schnitt unverändert korrekt
 - [ ] angehefteten Kommentar vorbereiten
 - [ ] Endscreen/Kanal-CTA nur dezent und passend
-- [ ] jedes tatsächlich verwendete externe Asset steht in `04-visuals/external-assets/external-assets-ledger.json`
+- [ ] jedes tatsächlich verwendete externe Asset steht in `04-projekt/external-assets/external-assets-ledger.json`
 - [ ] für jedes externe Asset kommerzielle Nutzung/Lizenz geprüft
 - [ ] keine Remote-URLs, API-Keys, Wasserzeichen oder unfreigegebenen Marken/Personendaten im finalen Render
 - [ ] erforderliche Attributionen aus dem Asset-Ledger in Beschreibung/Quellenpaket übernommen

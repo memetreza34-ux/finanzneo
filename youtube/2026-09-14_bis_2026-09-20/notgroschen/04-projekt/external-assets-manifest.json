@@ -4,8 +4,8 @@
   "policy": "optional-support-only",
   "primaryVisualMustWorkWithoutExternalAsset": true,
   "remoteRuntimeAssetsForbidden": true,
-  "localDirectory": "04-visuals/external-assets/",
-  "ledger": "04-visuals/external-assets/external-assets-ledger.json",
+  "localDirectory": "04-projekt/external-assets/",
+  "ledger": "04-projekt/external-assets/external-assets-ledger.json",
   "sourcePolicy": "docs/FINANZNEO-EXTERNAL-ASSET-SOURCES.md",
   "slots": [
     {

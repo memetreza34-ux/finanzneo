@@ -165,7 +165,7 @@ Wenn B-Roll verwendet wird:
 ## Nächster technischer Schritt
 
 Wenn echte Assets ausgewählt wurden:
-1. lokal nach `04-visuals/external-assets/` speichern
+1. lokal nach `04-projekt/external-assets/` speichern
 2. `external-assets-ledger.json` ergänzen
 3. nur die betroffenen Visuals verbinden
 4. `youtube:animation:validate` erneut ausführen, falls versiegelter Motion-Code verändert wurde

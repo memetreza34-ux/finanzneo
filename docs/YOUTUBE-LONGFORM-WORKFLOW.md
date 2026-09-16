@@ -57,9 +57,9 @@ Nicht zulässig:
 Projektbezogen werden dafür verwendet:
 
 ```text
-06-projektdateien/external-assets-plan.md
-06-projektdateien/external-assets-manifest.json
-04-visuals/external-assets/external-assets-ledger.json
+04-projekt/external-assets-plan.md
+04-projekt/external-assets-manifest.json
+04-projekt/external-assets/external-assets-ledger.json
 ```
 
 Das Manifest beschreibt nur erlaubte Slots und ihren Zweck. Ein Slot darf leer bleiben, wenn kein Asset die Qualitäts- und Lizenzprüfung besteht. Das Video muss auch ohne den optionalen Asset-Treffer inhaltlich funktionieren.
@@ -81,9 +81,9 @@ Vor Freigabe prüft Phase 1 die letzten vier Motion-Visuals. Ein anderer Name re
 Vor Phase 2:
 
 ```bash
-npm run youtube:validate -- youtube/<Projekt>
-npm run youtube:animation:validate -- youtube/<Projekt>
-npm run youtube:phase1:seal -- youtube/<Projekt>
+npm run youtube:validate -- youtube/<Woche>/<Thema>
+npm run youtube:animation:validate -- youtube/<Woche>/<Thema>
+npm run youtube:phase1:seal -- youtube/<Woche>/<Thema>
 ```
 
 Der Motion-V3-Seal bindet sowohl die kanonischen Motion-Quellen per SHA-256 als auch den kreativen Vertrag aus Viewer Change, Intent, Mechanik, Technikbeschreibung, Tool-Stack, Motion-Signatur, Channels und Beats.
@@ -92,10 +92,18 @@ Externe Asset-Slots werden **nicht** in den Motion-Seal hineingefälscht. Der Se
 
 ## Phase 2 — Nutzer erstellt Bilder und Audio
 
+Die fertigen Bilder kommen als ZIP aus Flow. ZIP nach `02-bilder/ZIP-HIER-REIN/` legen und importieren:
+
+```bash
+npm run youtube:images:import -- youtube/<Woche>/<Thema>
+```
+
+Der Import entpackt, prüft jeden Dateinamen gegen `04-projekt/visual-index.json` und meldet fehlende und falsch benannte Bilder gesammelt.
+
 Dem Google-Flow-KI-Agenten wird ausschließlich diese Datei gegeben:
 
 ```text
-04-visuals/alle-bildprompts.txt
+02-bilder/alle-bildprompts.txt
 ```
 
 Der Agent arbeitet strikt:
@@ -113,10 +121,10 @@ GENAU EIN BILD ERZEUGEN
 - Neue Bilder folgen `Literal first, creative second`.
 - Fehlerhafte Bildnummer wiederholen; nie parallel oder als Batch fortfahren.
 - Nicht-Bild-Visualnummern überspringen, aber nicht neu nummerieren.
-- Alle fertigen Dateien gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen.
+- Alle fertigen Dateien gemeinsam nach `02-bilder/00-ALLE-BILDER-HIER-REIN/` legen.
 - Alle YouTube-Quellbilder und das Thumbnail sind horizontal `16:9`.
-- Genau ein finales Voiceover in `03-audio/` ablegen.
-- Aus genau diesem Audio echte Wort-Zeitstempel in `03-audio/word-timings.json` erzeugen.
+- Genau ein finales Voiceover in `01-script/` ablegen.
+- Aus genau diesem Audio echte Wort-Zeitstempel in `01-script/word-timings.json` erzeugen.
 
 Antigravity erzeugt keine fehlenden Bilder und kein Ersatz-Voiceover.
 
@@ -127,13 +135,13 @@ Externe Support-Assets gehören **nicht** zum schnellen Phase-2-Flow-Hand-off. S
 Der Auftrag lautet:
 
 ```text
-Mach das YouTube-Video: youtube/<Projekt>
+Mach das YouTube-Video: youtube/<Woche>/<Thema>
 ```
 
 Phase 3 beginnt immer mit:
 
 ```bash
-npm run youtube:ready -- youtube/<Projekt>
+npm run youtube:ready -- youtube/<Woche>/<Thema>
 ```
 
 Bei erfolgreicher Prüfung arbeitet der Executor ohne Rückfragen und Zwischenstopps:
@@ -143,7 +151,7 @@ Bei erfolgreicher Prüfung arbeitet der Executor ohne Rückfragen und Zwischenst
 3. `external-assets-manifest.json` lesen und nur dort freigegebene externe Slots berücksichtigen
 4. für einen freigegebenen Slot zuerst vorhandene lokale Assets prüfen; andernfalls nur freigegebene Quellen aus `docs/FINANZNEO-EXTERNAL-ASSET-SOURCES.md` verwenden
 5. jedes ausgewählte externe Asset vor Nutzung auf Lizenz, Qualität, Logos/Personen und Format prüfen und in `external-assets-ledger.json` dokumentieren
-6. Asset lokal nach `04-visuals/external-assets/` speichern; produktiver Remotion-Code darf keine Remote-URL laden
+6. Asset lokal nach `04-projekt/external-assets/` speichern; produktiver Remotion-Code darf keine Remote-URL laden
 7. Timeline aus Voiceover, Visual Beats und Kapiteln ableiten
 8. versiegelte Motion-Quellen integrieren und nur zeitlich an echtes Audio anpassen
 9. freigegebene B-Roll/Icon/Lottie-Supportschichten nur innerhalb ihres dokumentierten Zwecks integrieren

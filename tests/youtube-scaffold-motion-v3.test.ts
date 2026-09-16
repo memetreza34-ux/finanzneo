@@ -15,11 +15,11 @@ test('YouTube-Scaffolder erzeugt Motion V3 mit offener Technik und Viewer Change
       '--types', 'image,hybrid,animation,data',
     ], {encoding:'utf8'});
     assert.equal(run.status, 0, run.stderr || run.stdout);
-    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/bildprompt.txt')), true);
-    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx')), true);
-    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-04/data-notes.md')), true);
+    assert.equal(existsSync(resolve(absolute, '04-projekt/VISUALS/visual-02/bildprompt.txt')), true);
+    assert.equal(existsSync(resolve(absolute, '04-projekt/VISUALS/visual-02/animation.tsx')), true);
+    assert.equal(existsSync(resolve(absolute, '04-projekt/VISUALS/visual-04/data-notes.md')), true);
 
-    const index = JSON.parse(readFileSync(resolve(absolute, '04-visuals/visual-index.json'), 'utf8'));
+    const index = JSON.parse(readFileSync(resolve(absolute, '04-projekt/visual-index.json'), 'utf8'));
     assert.equal(index.version, 3);
     assert.equal(index.fixedVisualCount, false);
     assert.equal(index.fixedImageAnimationRatio, false);
@@ -37,11 +37,11 @@ test('YouTube-Scaffolder erzeugt Motion V3 mit offener Technik und Viewer Change
     assert.equal(Array.isArray(hybrid.toolStack), true);
     assert.deepEqual(Object.keys(hybrid.motionSignature).sort(), ['camera','layout','transformation']);
 
-    const remotionPlan = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/remotion.md'), 'utf8');
+    const remotionPlan = readFileSync(resolve(absolute, '04-projekt/VISUALS/visual-02/remotion.md'), 'utf8');
     assert.match(remotionPlan, /Viewer Change/);
     assert.match(remotionPlan, /Composition Family: \[FREE DESCRIPTIVE FAMILY/);
 
-    const prompt = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt'), 'utf8');
+    const prompt = readFileSync(resolve(absolute, '04-projekt/VISUALS/visual-01/bildprompt.txt'), 'utf8');
     assert.match(prompt, /finanzneo-youtube-cg-animated-black-v2/);
     assert.match(prompt, /Literal first, creative second/);
     assert.match(prompt, /TRANSFERABILITY_TEST:/);

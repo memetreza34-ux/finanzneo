@@ -34,7 +34,7 @@ const motion = (overrides = {}) => ({
     layout: 'stacked yearly planes in z-depth',
     transformation: 'nonlinear portfolio expansion around deposits',
   },
-  animationSourceFile: '04-visuals/EINZELNE-VISUALS/visual-01/animation.tsx',
+  animationSourceFile: '04-projekt/VISUALS/visual-01/animation.tsx',
   animationExport: 'Visual01Animation',
   motionChannels: ['Einzahlungen kommen hinzu', 'Renditebereich expandiert'],
   visualBeats: ['Erste Einzahlung', 'Rendite dominiert den Endwert'],

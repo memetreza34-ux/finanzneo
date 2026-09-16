@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Baut 04-visuals/alle-bildprompts.txt aus den einzelnen bildprompt.txt.
+// Baut die Flow-Handoff-Datei aus den einzelnen bildprompt.txt.
 //
 // Die Handoff-Datei ist die einzige Übergabe an Google Flow. Wurde sie von Hand
 // gepflegt, drifteten Einzelprompt und Handoff auseinander: korrigiert wurde der
@@ -15,6 +15,7 @@ import {
   GENERATED_IMAGE_ASPECT_MARKER,
   IMAGE_INBOX,
   SERIES_LOCK_MARKER,
+  VISUALS_DIRECTORY,
   VISUAL_INDEX,
   WORLD_ID_MARKER,
 } from './lib/youtube-contract.mjs';
@@ -56,7 +57,7 @@ const header = [
   'FINANZNEO — GOOGLE FLOW YOUTUBE HANDOFF',
   '',
   'GENERIERT AUS DEN EINZELNEN bildprompt.txt — NICHT VON HAND BEARBEITEN.',
-  'Quelle: 04-visuals/EINZELNE-VISUALS/<visual>/bildprompt.txt',
+  `Quelle: ${VISUALS_DIRECTORY}/<visual>/bildprompt.txt`,
   'Neu bauen: npm run youtube:prompts:build -- ' + target,
   '',
   FLOW_AGENT_PROTOCOL_MARKER,

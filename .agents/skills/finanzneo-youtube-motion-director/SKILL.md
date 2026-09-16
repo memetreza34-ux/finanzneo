@@ -63,7 +63,7 @@ Read in this order:
 2. `youtube/PRODUKTIONSSTANDARD.md`
 3. `docs/YOUTUBE-MOTION-V3.md`
 4. `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`
-5. target `04-visuals/visual-index.json`
+5. target `04-projekt/visual-index.json`
 6. target visual `remotion.md` / `bildprompt.txt` / `data-notes.md`
 7. target `animation.tsx`
 8. official Remotion skills
@@ -253,10 +253,10 @@ Phase 1 owns creative motion design and production-ready source code.
 
 After:
 
-`npm run youtube:animation:validate -- youtube/<Projekt>`
+`npm run youtube:animation:validate -- youtube/<Woche>/<Thema>`
 
 run:
 
-`npm run youtube:phase1:seal -- youtube/<Projekt>`
+`npm run youtube:phase1:seal -- youtube/<Woche>/<Thema>`
 
 The V3 seal protects both source hash and the creative motion contract. Phase 3 may retime/integrate the sealed source, captions, local SFX and final assets. It may not replace the sealed mechanism with an easier animation.

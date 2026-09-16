@@ -99,4 +99,4 @@ ein Flow-Bild. Diese Welt wird nicht auf jeden Beat gezwungen.
 GOOGLE FLOW
 Genau ein Bild, vollstaendig abwarten, sofort exakt umbenennen, pruefen, bei Fehler
 dieselbe Bildnummer neu erzeugen, erst dann weiter. Nie Batch, nie parallel.
-Alle fertigen Dateien gemeinsam nach 04-visuals/00-ALLE-BILDER-HIER-REIN/.
+Alle fertigen Dateien gemeinsam nach 02-bilder/00-ALLE-BILDER-HIER-REIN/.

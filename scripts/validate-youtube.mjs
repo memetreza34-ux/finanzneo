@@ -10,6 +10,9 @@ import {
   GENERATED_IMAGE_ASPECT_MARKER,
   GENERATED_IMAGE_ASPECT_RATIO,
   IMAGE_INBOX,
+  IMAGE_WORLD_FILE,
+  REQUIRED_DIRECTORIES,
+  THUMBNAIL_PROMPT,
   SERIES_LOCK_ID,
   SERIES_LOCK_MARKER,
   SOCIAL_PROMO_FILES,
@@ -49,7 +52,7 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 const errors = [];
 const assert = (condition, message) => { if (!condition) errors.push(message); };
 const read = (relativePath) => readFileSync(resolve(root, relativePath), 'utf8');
-const requiredDirectories = ['01-recherche', '02-script', '03-audio', '04-visuals', '05-publishing', '06-projektdateien', IMAGE_INBOX];
+const requiredDirectories = REQUIRED_DIRECTORIES;
 for (const directory of requiredDirectories) {
   assert(existsSync(resolve(root, directory)) && statSync(resolve(root, directory)).isDirectory(), `${directory}/ fehlt.`);
 }
@@ -73,8 +76,8 @@ if (!existsSync(resolve(root, VISUAL_INDEX))) {
 }
 
 assert(existsSync(resolve(root, ALL_PROMPTS)), `${ALL_PROMPTS} fehlt.`);
-assert(existsSync(resolve(root, '04-visuals/bildwelt.txt')), '04-visuals/bildwelt.txt fehlt.');
-assert(existsSync(resolve(root, '04-visuals/thumbnail-prompt.txt')), '04-visuals/thumbnail-prompt.txt fehlt.');
+assert(existsSync(resolve(root, IMAGE_WORLD_FILE)), `${IMAGE_WORLD_FILE} fehlt.`);
+assert(existsSync(resolve(root, THUMBNAIL_PROMPT)), `${THUMBNAIL_PROMPT} fehlt.`);
 assert(existsSync(resolve(root, WORD_TIMINGS)), `${WORD_TIMINGS} fehlt.`);
 
 if (index) {
@@ -93,7 +96,7 @@ if (index) {
   assert(index.imageWorld?.sameWorldAcrossSeriesRequired === true, 'Dieselbe Bildwelt muss für die ganze Serie vorgeschrieben sein.');
   assert(index.imageWorld?.literalFirst === true && index.imageWorld?.metaphorOptional === true, 'YouTube-Bilder müssen Literal-first V3 verwenden.');
   assert(index.imageWorld?.styleReferenceStrategy === 'approved-thumbnail-style-only', 'Das freigegebene Thumbnail muss reine Stilreferenz sein.');
-  assert(index.imageWorld?.referencePromptFile === '04-visuals/bildwelt.txt', 'referencePromptFile ist falsch.');
+  assert(index.imageWorld?.referencePromptFile === IMAGE_WORLD_FILE, 'referencePromptFile ist falsch.');
   assert(index.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID, `motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
   assert(index.motionStandard?.contentFirstTechniqueSelection === true, 'Motion-Technik muss aus dem Inhalt gewählt werden.');
   assert(index.motionStandard?.existingComponentsOptional === true && index.motionStandard?.physicalPrimitivesOptional === true, 'Bestehende/Physical-Primitives müssen optional bleiben.');
@@ -107,7 +110,7 @@ if (index) {
   assert(index.timelineRules?.equalLengthVisualsForbiddenByDefault === true, 'Starre gleich lange Visuals müssen standardmäßig verboten sein.');
   assert(Number(index.audio?.targetIntegratedLufs) === -16 && Number(index.audio?.targetTruePeakDbtp) === -1, 'Audioziel muss ungefähr -16 LUFS und höchstens -1 dBTP sein.');
   assert(index.thumbnail?.type === 'image' && typeof index.thumbnail?.googleFlowFileName === 'string', 'Thumbnail-Vertrag fehlt.');
-  assert(index.thumbnail?.planFile === '04-visuals/thumbnail-prompt.txt', 'Thumbnail-Promptpfad ist falsch.');
+  assert(index.thumbnail?.planFile === THUMBNAIL_PROMPT, 'Thumbnail-Promptpfad ist falsch.');
   assert(Array.isArray(index.visuals) && index.visuals.length > 0, `${VISUAL_INDEX} benötigt nach Phase-1-Planung visuals[].`);
 
   for (const [key, expectedPath] of Object.entries(YOUTUBE_PUBLISHING_FILES)) {

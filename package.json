@@ -37,6 +37,7 @@
     "youtube:create": "node scripts/scaffold-finanzneo-youtube.mjs",
     "youtube:validate": "node scripts/validate-youtube.mjs",
     "youtube:prompts:build": "node scripts/build-youtube-prompt-handoff.mjs",
+    "youtube:images:import": "node scripts/import-youtube-flow-images.mjs",
     "youtube:animation:validate": "node scripts/validate-youtube-animation-quality.mjs",
     "youtube:phase1:seal": "node scripts/seal-youtube-phase1-animations.mjs",
     "youtube:ready": "node scripts/check-youtube-production-ready.mjs",

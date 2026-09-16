@@ -29,9 +29,9 @@ Each planned slot must state:
 Canonical project files:
 
 ```text
-06-projektdateien/external-assets-plan.md
-06-projektdateien/external-assets-manifest.json
-04-visuals/external-assets/external-assets-ledger.json
+04-projekt/external-assets-plan.md
+04-projekt/external-assets-manifest.json
+04-projekt/external-assets/external-assets-ledger.json
 ```
 
 A planned slot is permission to evaluate an asset, not a requirement to use one. If no asset passes quality/license QA, leave the slot empty.
@@ -103,7 +103,7 @@ Reason: per-item license or attribution requirements may vary.
 - Remote URLs are discovery inputs only.
 - Productive Remotion code must never fetch remote media at runtime.
 - Download approved media locally before render.
-- Store project media below `04-visuals/external-assets/`.
+- Store project media below `04-projekt/external-assets/`.
 - Do not commit API keys, access tokens or credentials.
 - Pexels/Pixabay API keys may only come from environment variables / secret storage.
 - Do not scrape or bulk-download libraries.

@@ -7,6 +7,7 @@ import {
   validateYouTubeMotionVariety,
   YOUTUBE_MOTION_STANDARD_ID,
 } from './lib/youtube-motion-contract.mjs';
+import {VISUAL_INDEX} from './lib/youtube-contract.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -21,9 +22,9 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
   process.exit(1);
 }
 
-const indexPath = resolve(root, '04-visuals/visual-index.json');
+const indexPath = resolve(root, VISUAL_INDEX);
 if (!existsSync(indexPath)) {
-  console.error('04-visuals/visual-index.json fehlt.');
+  console.error(`${VISUAL_INDEX} fehlt.`);
   process.exit(1);
 }
 

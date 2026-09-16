@@ -11,8 +11,8 @@ Phase 2 is an asset handoff, not a code-analysis phase.
 When the user asks to enter/open/update Phase 2, start with:
 
 ```text
-youtube/<Projekt>/PHASE-2-START-HERE.md
-youtube/<Projekt>/phase2-manifest.json
+youtube/<Woche>/<Thema>/PHASE-2-START-HERE.md
+youtube/<Woche>/<Thema>/phase2-manifest.json
 ```
 
 Then access only the exact prompt/inbox/audio paths listed there.
@@ -21,11 +21,11 @@ Then access only the exact prompt/inbox/audio paths listed there.
 
 Unless the user explicitly requests a Phase-1 correction or a concrete blocker points there, do not recursively read or analyze:
 
-- `04-visuals/EINZELNE-VISUALS/`
+- `04-projekt/VISUALS/`
 - `animation.tsx`
 - `remotion.md`
-- `06-projektdateien/visual-plan.md`
-- `06-projektdateien/remotion-plan.md`
+- `04-projekt/visual-plan.md`
+- `04-projekt/remotion-plan.md`
 - `src/`
 - unrelated Reel or YouTube project folders
 

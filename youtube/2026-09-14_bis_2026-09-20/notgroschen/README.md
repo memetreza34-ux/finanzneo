@@ -23,12 +23,12 @@ phase2-manifest.json
 Danach werden nur diese Bereiche benötigt:
 
 ```text
-04-visuals/alle-bildprompts.txt
-04-visuals/00-ALLE-BILDER-HIER-REIN/
-03-audio/
+02-bilder/alle-bildprompts.txt
+02-bilder/00-ALLE-BILDER-HIER-REIN/
+01-script/
 ```
 
-`04-visuals/EINZELNE-VISUALS/` enthält die bereits vorbereiteten Phase-1-Motionquellen und muss während Phase 2 nicht rekursiv eingelesen werden.
+`04-projekt/VISUALS/` enthält die bereits vorbereiteten Phase-1-Motionquellen und muss während Phase 2 nicht rekursiv eingelesen werden.
 
 ## Optionale externe Support-Assets
 
@@ -37,10 +37,10 @@ Phase 1 hat zusätzlich konkrete, optionale Slots für B-Roll, SVG-Icons und kle
 Kanonische Dateien:
 
 ```text
-06-projektdateien/external-assets-plan.md
-06-projektdateien/external-assets-manifest.json
-04-visuals/external-assets/README.md
-04-visuals/external-assets/external-assets-ledger.json
+04-projekt/external-assets-plan.md
+04-projekt/external-assets-manifest.json
+04-projekt/external-assets/README.md
+04-projekt/external-assets/external-assets-ledger.json
 ```
 
 Phase 3 darf nur die dort freigegebenen Slots mit lizenzgeprüften lokalen Assets füllen. Wenn kein Treffer die Qualitäts- oder Lizenzprüfung besteht, bleibt der Slot leer und die vorbereitete Hauptvisualisierung läuft unverändert weiter.

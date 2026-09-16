@@ -33,47 +33,63 @@ export const YOUTUBE_VIDEO_WIDTH = 1920;
 export const YOUTUBE_VIDEO_HEIGHT = 1080;
 export const YOUTUBE_VIDEO_FPS = 30;
 
-export const VISUAL_INDEX = '04-visuals/visual-index.json';
-export const ALL_PROMPTS = '04-visuals/alle-bildprompts.txt';
-export const IMAGE_INBOX = '04-visuals/00-ALLE-BILDER-HIER-REIN';
-export const WORD_TIMINGS = '03-audio/word-timings.json';
-export const ANIMATION_SEAL = '06-projektdateien/animation-seal.json';
+// Ordnerstruktur: youtube/<Woche>/<Thema>/
+export const SCRIPT_DIRECTORY = '01-script';
+export const IMAGE_DIRECTORY = '02-bilder';
+export const EXPORT_DIRECTORY = '03-export';
+export const PROJECT_DIRECTORY = '04-projekt';
+
+export const AUDIO_DIRECTORY = SCRIPT_DIRECTORY;
+export const SCRIPT_FILE = `${SCRIPT_DIRECTORY}/script.txt`;
+export const WORD_TIMINGS = `${SCRIPT_DIRECTORY}/word-timings.json`;
+
+export const ALL_PROMPTS = `${IMAGE_DIRECTORY}/alle-bildprompts.txt`;
+export const IMAGE_WORLD_FILE = `${IMAGE_DIRECTORY}/bildwelt.txt`;
+export const THUMBNAIL_PROMPT = `${IMAGE_DIRECTORY}/thumbnail-prompt.txt`;
+export const IMAGE_INBOX = `${IMAGE_DIRECTORY}/00-ALLE-BILDER-HIER-REIN`;
+export const ZIP_INBOX = `${IMAGE_DIRECTORY}/ZIP-HIER-REIN`;
+
+export const VISUAL_INDEX = `${PROJECT_DIRECTORY}/visual-index.json`;
+export const VISUALS_DIRECTORY = `${PROJECT_DIRECTORY}/VISUALS`;
+export const ANIMATION_SEAL = `${PROJECT_DIRECTORY}/animation-seal.json`;
+
+export const REQUIRED_DIRECTORIES = [SCRIPT_DIRECTORY, IMAGE_DIRECTORY, EXPORT_DIRECTORY, PROJECT_DIRECTORY, IMAGE_INBOX, ZIP_INBOX, VISUALS_DIRECTORY];
 
 export const SUBTITLE_MODE = 'sentence-with-audio-synced-active-word';
 export const ACTIVE_WORD_COLOR = 'finance-green';
 
 export const YOUTUBE_PUBLISHING_FILES = {
-  titleOptions: '05-publishing/title-options.txt',
-  finalTitle: '05-publishing/final-title.txt',
-  description: '05-publishing/description.txt',
-  chapters: '05-publishing/chapters.txt',
-  tagsKeywords: '05-publishing/tags-keywords.txt',
-  hashtags: '05-publishing/hashtags.txt',
-  thumbnailBrief: '05-publishing/thumbnail-brief.txt',
-  pinnedComment: '05-publishing/pinned-comment.txt',
-  communityPost: '05-publishing/community-post.txt',
-  sourcesDisclaimer: '05-publishing/sources-disclaimer.txt',
-  uploadChecklist: '05-publishing/upload-checklist.md',
+  titleOptions: `${EXPORT_DIRECTORY}/titel-varianten.txt`,
+  finalTitle: `${EXPORT_DIRECTORY}/titel.txt`,
+  description: `${EXPORT_DIRECTORY}/beschreibung.txt`,
+  chapters: `${EXPORT_DIRECTORY}/kapitel.txt`,
+  tagsKeywords: `${EXPORT_DIRECTORY}/keywords.txt`,
+  hashtags: `${EXPORT_DIRECTORY}/hashtags.txt`,
+  thumbnailBrief: `${EXPORT_DIRECTORY}/thumbnail-brief.txt`,
+  pinnedComment: `${EXPORT_DIRECTORY}/angehefteter-kommentar.txt`,
+  communityPost: `${EXPORT_DIRECTORY}/community-post.txt`,
+  sourcesDisclaimer: `${EXPORT_DIRECTORY}/quellen-disclaimer.txt`,
+  uploadChecklist: `${EXPORT_DIRECTORY}/upload-checkliste.md`,
 };
 
 export const SOCIAL_PROMO_FILES = {
-  instagram: '05-publishing/social-promo/instagram.txt',
-  tiktok: '05-publishing/social-promo/tiktok.txt',
-  facebook: '05-publishing/social-promo/facebook.txt',
-  snapchat: '05-publishing/social-promo/snapchat.txt',
+  instagram: `${EXPORT_DIRECTORY}/social/instagram.txt`,
+  tiktok: `${EXPORT_DIRECTORY}/social/tiktok.txt`,
+  facebook: `${EXPORT_DIRECTORY}/social/facebook.txt`,
+  snapchat: `${EXPORT_DIRECTORY}/social/snapchat.txt`,
 };
 
 export const PHASE_1_FILES = [
-  '01-recherche/briefing.md',
-  '01-recherche/recherche-quellen.md',
-  '02-script/script-fliess-text.txt',
-  '02-script/kapitel-dramaturgie.md',
-  '02-script/retention-plan.md',
+  `${PROJECT_DIRECTORY}/briefing.md`,
+  `${PROJECT_DIRECTORY}/quellen.md`,
+  SCRIPT_FILE,
+  `${PROJECT_DIRECTORY}/kapitel-dramaturgie.md`,
+  `${PROJECT_DIRECTORY}/retention-plan.md`,
   ALL_PROMPTS,
-  '04-visuals/bildwelt.txt',
-  '04-visuals/thumbnail-prompt.txt',
-  '06-projektdateien/visual-plan.md',
-  '06-projektdateien/remotion-plan.md',
+  IMAGE_WORLD_FILE,
+  THUMBNAIL_PROMPT,
+  `${PROJECT_DIRECTORY}/visual-plan.md`,
+  `${PROJECT_DIRECTORY}/remotion-plan.md`,
   ...Object.values(YOUTUBE_PUBLISHING_FILES),
   ...Object.values(SOCIAL_PROMO_FILES),
 ];

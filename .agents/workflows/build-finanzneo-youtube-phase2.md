@@ -6,26 +6,26 @@ Use this workflow only when the user wants to prepare or open Phase 2 for an exi
 
 Phase 2 is a lightweight asset handoff. Do **not** analyze or rebuild the Phase-1 motion tree and do **not** perform external stock/icon sourcing here.
 
-For a project at `youtube/<Projekt>` read only:
+For a project at `youtube/<Woche>/<Thema>` read only:
 
-1. `youtube/<Projekt>/PHASE-2-START-HERE.md`
-2. `youtube/<Projekt>/04-visuals/alle-bildprompts.txt`
-3. `youtube/<Projekt>/04-visuals/00-ALLE-BILDER-HIER-REIN/README.md`
-4. `youtube/<Projekt>/03-audio/README.md`
-5. `youtube/<Projekt>/03-audio/word-timings.json` only when timings already exist or must be updated from final audio
+1. `youtube/<Woche>/<Thema>/PHASE-2-START-HERE.md`
+2. `youtube/<Woche>/<Thema>/02-bilder/alle-bildprompts.txt`
+3. `youtube/<Woche>/<Thema>/02-bilder/00-ALLE-BILDER-HIER-REIN/README.md`
+4. `youtube/<Woche>/<Thema>/01-script/README.md`
+5. `youtube/<Woche>/<Thema>/01-script/word-timings.json` only when timings already exist or must be updated from final audio
 
 ## Hard scope limit during Phase 2
 
 Unless the user explicitly asks to inspect or change Phase 1, do **not** recursively read, index, summarize or edit:
 
-- `youtube/<Projekt>/04-visuals/EINZELNE-VISUALS/`
+- `youtube/<Woche>/<Thema>/04-projekt/VISUALS/`
 - any `animation.tsx`
 - any `remotion.md`
-- `06-projektdateien/visual-plan.md`
-- `06-projektdateien/remotion-plan.md`
-- `06-projektdateien/external-assets-plan.md`
-- `06-projektdateien/external-assets-manifest.json`
-- `04-visuals/external-assets/`
+- `04-projekt/visual-plan.md`
+- `04-projekt/remotion-plan.md`
+- `04-projekt/external-assets-plan.md`
+- `04-projekt/external-assets-manifest.json`
+- `04-projekt/external-assets/`
 - source code under `src/`
 - reel projects
 
@@ -33,12 +33,12 @@ External support assets are planned in Phase 1 and sourced/integrated in Phase 3
 
 ## Phase 2 actions
 
-- Show/open the image inbox: `youtube/<Projekt>/04-visuals/00-ALLE-BILDER-HIER-REIN/`
-- Use only `04-visuals/alle-bildprompts.txt` for Google Flow image generation.
+- Show/open the image inbox: `youtube/<Woche>/<Thema>/02-bilder/00-ALLE-BILDER-HIER-REIN/`
+- Use only `02-bilder/alle-bildprompts.txt` for Google Flow image generation.
 - Generate images strictly one at a time, using the exact requested file names.
 - Put final images in the common image inbox only.
-- Put exactly one final voiceover in `youtube/<Projekt>/03-audio/`.
-- Generate/update `03-audio/word-timings.json` only from that final voiceover.
+- Put exactly one final voiceover in `youtube/<Woche>/<Thema>/01-script/`.
+- Generate/update `01-script/word-timings.json` only from that final voiceover.
 
 ## Forbidden in Phase 2
 
@@ -55,7 +55,7 @@ External support assets are planned in Phase 1 and sourced/integrated in Phase 3
 Only then hand off to Phase 3 with:
 
 ```bash
-npm run youtube:ready -- youtube/<Projekt>
+npm run youtube:ready -- youtube/<Woche>/<Thema>
 ```
 
 If readiness fails, report the exact missing Phase-2 assets. Do not inspect or rewrite the complete motion tree unless the blocker explicitly points there.

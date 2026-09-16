@@ -5,14 +5,21 @@
 ## Projektstruktur
 
 ```text
-01-recherche/
-02-script/
-03-audio/
-04-visuals/
-05-publishing/
-06-projektdateien/
-README.md
+youtube/
+└── <Woche>/                      z. B. 2026-09-14_bis_2026-09-20 (Montag bis Sonntag)
+    └── <Thema>/                  z. B. notgroschen
+        ├── 01-script/            script.txt · voiceover ← du · word-timings.json
+        ├── 02-bilder/            alle-bildprompts.txt · bildwelt.txt
+        │                         ZIP-HIER-REIN/ ← du · 00-ALLE-BILDER-HIER-REIN/
+        ├── 03-export/            video.mp4 · thumbnail.png · titel.txt
+        │                         beschreibung.txt · kapitel.txt · keywords.txt
+        │                         hashtags.txt · social/
+        └── 04-projekt/           briefing · quellen · visual-index.json
+                                  visual-plan · remotion-plan · VISUALS/
 ```
+
+Im Alltag berührst du nur `01-script`, `02-bilder` und `03-export`. `04-projekt` hält
+Recherche und Technik und muss für Phase 2 nicht geöffnet werden.
 
 ## Format und Inhalt
 
@@ -115,8 +122,8 @@ Das Ziel ist **nicht**, zwanghaft jeden Effekt nur einmal zu verwenden. Das Ziel
 Vor Phase 2:
 
 ```bash
-npm run youtube:animation:validate -- youtube/<Projekt>
-npm run youtube:phase1:seal -- youtube/<Projekt>
+npm run youtube:animation:validate -- youtube/<Woche>/<Thema>
+npm run youtube:phase1:seal -- youtube/<Woche>/<Thema>
 ```
 
 Der Phase-1-Seal schützt danach sowohl den Motion-Code als auch den kreativen V3-Vertrag (`viewerChange`, Technikbeschreibung, Tool-Stack, Motion-Signatur, Beats und Channels). Phase 3 darf die Mechanik nicht kreativ ersetzen oder vereinfachen.
@@ -177,14 +184,14 @@ Bildprompts immer Englisch; nur ausdrücklich gewünschte kurze Objektlabels im 
 Einzige Übergabe an Google Flow:
 
 ```text
-04-visuals/alle-bildprompts.txt
+02-bilder/alle-bildprompts.txt
 ```
 
-Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt und geprüft. Erst danach folgt das nächste Bild. Alle fertigen Dateien liegen gemeinsam in `04-visuals/00-ALLE-BILDER-HIER-REIN/`.
+Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt und geprüft. Erst danach folgt das nächste Bild. Alle fertigen Dateien liegen gemeinsam in `02-bilder/00-ALLE-BILDER-HIER-REIN/`.
 
 ## Audio, Timing und Untertitel
 
-- genau ein finales Voiceover in `03-audio/`
+- genau ein finales Voiceover in `01-script/`
 - echte Wort-Zeitstempel aus genau diesem Audio
 - Schnitte folgen Sprache, Visual Beats, Kapiteln und Payoffs
 - keine pauschal gleich langen Visuals
@@ -193,7 +200,7 @@ Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt
 
 ## Vollständiges Publishing-Paket
 
-`05-publishing/` enthält:
+`03-export/` enthält neben dem fertigen Video und dem Thumbnail:
 
 - fünf belastbare Titelvarianten und einen finalen Titel
 - vollständige Beschreibung
@@ -211,10 +218,10 @@ Titel und Thumbnail dürfen neugierig machen, aber nichts versprechen, was das V
 ## Startfreigabe
 
 ```bash
-npm run youtube:validate -- youtube/<Projekt>
-npm run youtube:animation:validate -- youtube/<Projekt>
-npm run youtube:phase1:seal -- youtube/<Projekt>
-npm run youtube:ready -- youtube/<Projekt>
+npm run youtube:validate -- youtube/<Woche>/<Thema>
+npm run youtube:animation:validate -- youtube/<Woche>/<Thema>
+npm run youtube:phase1:seal -- youtube/<Woche>/<Thema>
+npm run youtube:ready -- youtube/<Woche>/<Thema>
 ```
 
 `youtube:ready` prüft Phase 1, den unveränderten Motion-V3-Seal, exakte Nutzerbilder, 16:9-Abmessungen, genau ein lesbares Voiceover, passende Wortzeiten und das vollständige Publishing-Paket. Nur ein erfolgreicher Lauf gibt Phase 3 frei.

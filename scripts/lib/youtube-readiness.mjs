@@ -2,6 +2,7 @@ import {createHash} from 'node:crypto';
 import {existsSync, readFileSync, readdirSync, statSync} from 'node:fs';
 import {basename, extname, resolve} from 'node:path';
 import {
+  AUDIO_DIRECTORY,
   ACTIVE_WORD_COLOR,
   ANIMATION_SEAL,
   IMAGE_INBOX,
@@ -230,10 +231,10 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
     if (!expectedSet.has(fileName)) phase2Blockers.push(`Unerwartetes Nutzerbild: ${IMAGE_INBOX}/${fileName}`);
   }
 
-  const audioFiles = listFiles(resolve(root, '03-audio'), AUDIO_EXTENSIONS);
-  if (audioFiles.length === 0) phase2Blockers.push('Finales Voiceover fehlt in 03-audio/.');
-  if (audioFiles.length > 1) phase2Blockers.push(`03-audio/ enthält mehrere Audiodateien: ${audioFiles.join(', ')}`);
-  if (audioFiles.length === 1 && statSync(resolve(root, '03-audio', audioFiles[0])).size === 0) phase2Blockers.push(`Finales Voiceover ist leer: 03-audio/${audioFiles[0]}`);
+  const audioFiles = listFiles(resolve(root, AUDIO_DIRECTORY), AUDIO_EXTENSIONS);
+  if (audioFiles.length === 0) phase2Blockers.push(`Finales Voiceover fehlt in ${AUDIO_DIRECTORY}/.`);
+  if (audioFiles.length > 1) phase2Blockers.push(`${AUDIO_DIRECTORY}/ enthält mehrere Audiodateien: ${audioFiles.join(', ')}`);
+  if (audioFiles.length === 1 && statSync(resolve(root, AUDIO_DIRECTORY, audioFiles[0])).size === 0) phase2Blockers.push(`Finales Voiceover ist leer: ${AUDIO_DIRECTORY}/${audioFiles[0]}`);
 
   const timing = readJson(resolve(root, WORD_TIMINGS), phase2Blockers, WORD_TIMINGS);
   if (timing) {
@@ -245,7 +246,7 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
     if (!Array.isArray(timing.sentences) || timing.sentences.length === 0) phase2Blockers.push(`${WORD_TIMINGS} enthält keine satzbasierten Caption-Gruppen.`);
     if (audioFiles.length === 1) {
       const sourceName = typeof timing.source === 'string' ? basename(timing.source) : '';
-      if (!sourceName || sourceName !== audioFiles[0]) phase2Blockers.push(`${WORD_TIMINGS} muss nachweislich aus 03-audio/${audioFiles[0]} erzeugt sein.`);
+      if (!sourceName || sourceName !== audioFiles[0]) phase2Blockers.push(`${WORD_TIMINGS} muss nachweislich aus ${AUDIO_DIRECTORY}/${audioFiles[0]} erzeugt sein.`);
     }
   }
 

@@ -7,7 +7,16 @@ import {
   FLOW_AGENT_PROTOCOL_MARKER,
   GENERATED_IMAGE_ASPECT_MARKER,
   GENERATED_IMAGE_ASPECT_RATIO,
+  ALL_PROMPTS,
+  EXPORT_DIRECTORY,
   IMAGE_INBOX,
+  IMAGE_WORLD_FILE,
+  SCRIPT_FILE,
+  THUMBNAIL_PROMPT,
+  VISUALS_DIRECTORY,
+  VISUAL_INDEX,
+  WORD_TIMINGS,
+  ZIP_INBOX,
   SERIES_LOCK_ID,
   SERIES_LOCK_MARKER,
   SOCIAL_PROMO_FILES,
@@ -85,7 +94,7 @@ const motionTemplate = (index, type) => {
 const visuals = types.map((type, index) => {
   const number = numberOf(index);
   const id = `visual-${number}`;
-  const directory = `04-visuals/EINZELNE-VISUALS/${id}`;
+  const directory = `${VISUALS_DIRECTORY}/${id}`;
   const base = {
     id,
     type,
@@ -149,23 +158,26 @@ const promptSections = visuals.map((visual, index) => {
   return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nVISUAL ${numberOf(index)} — ${visual.type.toUpperCase()} IMAGE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${promptFor(index)}`;
 }).join('\n');
 
+write(`${ZIP_INBOX}/README.md`, '# FLOW-ZIP HIER REIN\n\nDie von Google Flow heruntergeladene ZIP-Datei hier ablegen. Danach:\n\n```bash\nnpm run youtube:images:import -- ${targetArg}\n```\n\nDer Import entpackt die ZIP, prueft jeden Dateinamen gegen visual-index.json und legt die geprueften Bilder in die Bilder-Inbox.\n');
+write(`${IMAGE_INBOX}/README.md`, '# ALLE BILDER HIER REIN\n\nHier liegen am Ende alle exakt benannten 16:9-Bilder und das Thumbnail.\n');
+write(`${EXPORT_DIRECTORY}/README.md`, '# EXPORT\n\nHier landet das fertige Video, das Thumbnail und das komplette Upload-Paket: Titel, Beschreibung, Kapitel, Keywords, Hashtags und die Social-Texte unter social/.\n');
 write('README.md', `# ${title}\n\nEigenständiges YouTube-Longform-Projekt. Kein Reel und kein YouTube Short.\n\n## Drei Phasen\n\n1. ChatGPT vervollständigt Recherche, Skript, Visual Beats, Visualtypen, alle Bildprompts und jede Motion-Szene als produktionsreife animation.tsx. Motion V3 arbeitet Viewer-change-first und hat keine feste Animationsbibliothek oder erlaubte Familienliste.\n2. Der Nutzer erstellt Thumbnail und alle benötigten 16:9-Bilder einzeln mit Google Flow, benennt sie sofort exakt um und legt sie gemeinsam in \`${IMAGE_INBOX}/\`. Danach genau ein finales Voiceover plus echte Wort-Timings.\n3. Nach Motion-Validation + Phase-1-Seal prüft \`npm run youtube:ready -- ${targetArg}\` alles. Phase 3 integriert die versiegelte Motion, retimed sie zum echten Voiceover und übernimmt QA/Render, ohne die Mechanik kreativ zu ersetzen.\n`);
-write('01-recherche/briefing.md', '# Briefing\n\n- Thema: [THEMA]\n- Zielgruppe: Finanzanfänger\n- Lernziel: [EINFÜGEN]\n- Kernversprechen: [EINFÜGEN]\n- Warum Longform nötig ist: [EINFÜGEN]\n- Datenstand: [EINFÜGEN]\n');
-write('01-recherche/recherche-quellen.md', '# Recherche und Quellen\n\n[GEPRÜFTE QUELLEN, DATENSTAND, ANNAHMEN UND RECHENWEGE EINFÜGEN]\n');
-write('02-script/script-fliess-text.txt', '[VOLLSTÄNDIGES LONGFORM-VOICEOVER-SKRIPT EINFÜGEN]\n');
-write('02-script/kapitel-dramaturgie.md', '# Kapitel und Dramaturgie\n\n[HOOK, KAPITEL, BEISPIELE, PAYOFFS, ZUSAMMENFASSUNG UND CTA EINFÜGEN]\n');
-write('02-script/retention-plan.md', '# Retention-Plan\n\n[OFFENE FRAGEN, PAYOFFS, PATTERN-INTERRUPTS, VISUELLE RHYTHMUSWECHSEL UND ÜBERGÄNGE EINFÜGEN]\n');
-write('03-audio/README.md', '# AUDIO HIER REIN\n\nGenau eine finale Voiceover-Datei ablegen. Danach aus genau dieser Datei echte Wort-Zeitstempel in `word-timings.json` erzeugen.\n');
-write('03-audio/word-timings.json', `${JSON.stringify({version:'finanzneo-caption-v1',language:'de',source:'',generatedAt:'',duration:0,wordCount:0,fps:YOUTUBE_VIDEO_FPS,subtitleMode:SUBTITLE_MODE,activeWordColor:ACTIVE_WORD_COLOR,words:[],sentences:[]}, null, 2)}\n`);
+write('04-projekt/briefing.md', '# Briefing\n\n- Thema: [THEMA]\n- Zielgruppe: Finanzanfänger\n- Lernziel: [EINFÜGEN]\n- Kernversprechen: [EINFÜGEN]\n- Warum Longform nötig ist: [EINFÜGEN]\n- Datenstand: [EINFÜGEN]\n');
+write('04-projekt/quellen.md', '# Recherche und Quellen\n\n[GEPRÜFTE QUELLEN, DATENSTAND, ANNAHMEN UND RECHENWEGE EINFÜGEN]\n');
+write(SCRIPT_FILE, '[VOLLSTÄNDIGES LONGFORM-VOICEOVER-SKRIPT EINFÜGEN]\n');
+write('04-projekt/kapitel-dramaturgie.md', '# Kapitel und Dramaturgie\n\n[HOOK, KAPITEL, BEISPIELE, PAYOFFS, ZUSAMMENFASSUNG UND CTA EINFÜGEN]\n');
+write('04-projekt/retention-plan.md', '# Retention-Plan\n\n[OFFENE FRAGEN, PAYOFFS, PATTERN-INTERRUPTS, VISUELLE RHYTHMUSWECHSEL UND ÜBERGÄNGE EINFÜGEN]\n');
+write('01-script/README-AUDIO.md', '# AUDIO HIER REIN\n\nGenau eine finale Voiceover-Datei ablegen. Danach aus genau dieser Datei echte Wort-Zeitstempel in `word-timings.json` erzeugen.\n');
+write(WORD_TIMINGS, `${JSON.stringify({version:'finanzneo-caption-v1',language:'de',source:'',generatedAt:'',duration:0,wordCount:0,fps:YOUTUBE_VIDEO_FPS,subtitleMode:SUBTITLE_MODE,activeWordColor:ACTIVE_WORD_COLOR,words:[],sentences:[]}, null, 2)}\n`);
 write(`${IMAGE_INBOX}/README.md`, '# ALLE FERTIGEN 16:9-BILDER HIER REIN\n\nThumbnail und Video-Bilder einzeln erzeugen, sofort exakt umbenennen, prüfen und erst danach das nächste Bild starten. Keine Batches.\n');
-write('04-visuals/bildwelt.txt', `FINANZNEO YOUTUBE IMAGE WORLD\n\n${styleBlock}`);
-write('04-visuals/thumbnail-prompt.txt', thumbnailPrompt);
-write('04-visuals/alle-bildprompts.txt', `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT\n\n${FLOW_AGENT_PROTOCOL_MARKER}\n\nSTRICT SEQUENTIAL WORKFLOW:\n1. Read the full file once, then work from top to bottom on only the current image block.\n2. Generate exactly ONE image. Never generate a batch and never prepare the next image in parallel.\n3. Wait until the current image is fully complete.\n4. Rename it immediately to the exact final file name stated in its block.\n5. Verify literal situation, context, labels, seamless background, 16:9 format, same-world lock and file name.\n6. If anything fails, regenerate the same image number and replace the failed file. Do not move on.\n7. Continue only after the current image passes.\n8. Skip non-image blocks without closing the numbering gap.\n9. At the end, place every generated and correctly named image together in ${IMAGE_INBOX}/.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTHUMBNAIL\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${thumbnailPrompt}\n${promptSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nFINISH\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nFinish only after every expected image has been generated one at a time, renamed immediately and verified. All final files must be together in ${IMAGE_INBOX}/.\n`);
-write('06-projektdateien/visual-plan.md', '# Visual-Plan — Viewer Change First\n\n1. Skript in gesprochene Gedanken zerlegen.\n2. Jedem Gedanken einen sichtbaren Visual Beat geben.\n3. Für jeden Motion-Beat zuerst in einem Satz festlegen: Was soll der Zuschauer tatsächlich sehen, das sich verändert, enthüllt, vergleicht oder räumlich erschließt?\n4. Erst danach den besten Typ und die beste konkrete Technik wählen.\n5. Technik darf frei erfunden oder kombiniert werden; Familien sind nur Beschreibungen, keine Whitelist.\n6. Vor Freigabe die letzten vier Motion-Visuals auf echte Wiederholung von Kamera, Layout und Transformation prüfen.\n\nKeine feste Visualzahl. Keine feste Bild-/Animationsquote. Keine Standardanimation. Keine bestehende Komponente auswählen, bevor klar ist, was der Zuschauer sehen soll. Variation dient der Erklärung, nicht der Effekthascherei.\n');
-write('06-projektdateien/remotion-plan.md', `# Remotion-Plan — ${YOUTUBE_MOTION_STANDARD_ID}\n\n- Ausgabe: 1920 × 1080, 16:9, 30 fps\n- Viewer Change zuerst; Technik danach.\n- Remotion hat keine vorgegebene kreative Obergrenze.\n- Erlaubt: Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Masks, clip-path, Paths, Shapes, Motion Blur, Effects, Lottie als Support, Datenvisualisierung, Bild+Motion-Hybrid und neue sinnvolle Kombinationen.\n- Composition Families sind freie Beschreibungen, keine erlaubte Endmenge.\n- Bestehende FinanzNeo-Komponenten sind optionale Werkzeuge, keine Pflichtvorlagen.\n- Pro Motion-Visual: viewerChange + animationIntent + mechanicId + visualTechniqueId + techniqueDescription + toolStack + motionSignature + mehrere Motion Channels + mehrere sichtbare Beats.\n- Anti-Fake-Variation: neuer Name allein reicht nicht; Kamera + Layout + Transformation werden gegen die letzten vier Motion-Visuals geprüft.\n- Wiederholung bleibt erlaubt, wenn sie für den Inhalt wirklich die beste Lösung ist und mit repeatTechniqueReason begründet wird.\n- Schnitte und finale Dauern folgen dem finalen Voiceover.\n`);
-write('06-projektdateien/PHASENSTATUS.md', `# Phasenstatus\n\n- [ ] Phase 1 vollständig und ohne Platzhalter\n- [ ] \`npm run youtube:animation:validate -- ${targetArg}\` erfolgreich\n- [ ] \`npm run youtube:phase1:seal -- ${targetArg}\` erfolgreich\n- [ ] Phase 2: alle exakten 16:9-Bilder, ein finales Voiceover und echte Wort-Timings vorhanden\n- [ ] Phase 3: \`npm run youtube:ready -- ${targetArg}\` erfolgreich; Produktion und QA abgeschlossen\n`);
-write('06-projektdateien/timeline.json', `${JSON.stringify({version:2,title,fps:YOUTUBE_VIDEO_FPS,timingSource:'03-audio/word-timings.json',cutRule:'voice-beat-and-chapter-driven',fixedVisualCount:false,visuals:visuals.map((visual) => ({id:visual.id,type:visual.type,startFrame:0,durationFrames:0}))}, null, 2)}\n`);
-write('04-visuals/visual-index.json', `${JSON.stringify({
+write(IMAGE_WORLD_FILE, `FINANZNEO YOUTUBE IMAGE WORLD\n\n${styleBlock}`);
+write(THUMBNAIL_PROMPT, thumbnailPrompt);
+write(ALL_PROMPTS, `FINANZNEO — SINGLE HANDOFF FILE FOR THE GOOGLE FLOW AI AGENT\n\n${FLOW_AGENT_PROTOCOL_MARKER}\n\nSTRICT SEQUENTIAL WORKFLOW:\n1. Read the full file once, then work from top to bottom on only the current image block.\n2. Generate exactly ONE image. Never generate a batch and never prepare the next image in parallel.\n3. Wait until the current image is fully complete.\n4. Rename it immediately to the exact final file name stated in its block.\n5. Verify literal situation, context, labels, seamless background, 16:9 format, same-world lock and file name.\n6. If anything fails, regenerate the same image number and replace the failed file. Do not move on.\n7. Continue only after the current image passes.\n8. Skip non-image blocks without closing the numbering gap.\n9. At the end, place every generated and correctly named image together in ${IMAGE_INBOX}/.\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nTHUMBNAIL\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${thumbnailPrompt}\n${promptSections}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nFINISH\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nFinish only after every expected image has been generated one at a time, renamed immediately and verified. All final files must be together in ${IMAGE_INBOX}/.\n`);
+write('04-projekt/visual-plan.md', '# Visual-Plan — Viewer Change First\n\n1. Skript in gesprochene Gedanken zerlegen.\n2. Jedem Gedanken einen sichtbaren Visual Beat geben.\n3. Für jeden Motion-Beat zuerst in einem Satz festlegen: Was soll der Zuschauer tatsächlich sehen, das sich verändert, enthüllt, vergleicht oder räumlich erschließt?\n4. Erst danach den besten Typ und die beste konkrete Technik wählen.\n5. Technik darf frei erfunden oder kombiniert werden; Familien sind nur Beschreibungen, keine Whitelist.\n6. Vor Freigabe die letzten vier Motion-Visuals auf echte Wiederholung von Kamera, Layout und Transformation prüfen.\n\nKeine feste Visualzahl. Keine feste Bild-/Animationsquote. Keine Standardanimation. Keine bestehende Komponente auswählen, bevor klar ist, was der Zuschauer sehen soll. Variation dient der Erklärung, nicht der Effekthascherei.\n');
+write('04-projekt/remotion-plan.md', `# Remotion-Plan — ${YOUTUBE_MOTION_STANDARD_ID}\n\n- Ausgabe: 1920 × 1080, 16:9, 30 fps\n- Viewer Change zuerst; Technik danach.\n- Remotion hat keine vorgegebene kreative Obergrenze.\n- Erlaubt: Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Masks, clip-path, Paths, Shapes, Motion Blur, Effects, Lottie als Support, Datenvisualisierung, Bild+Motion-Hybrid und neue sinnvolle Kombinationen.\n- Composition Families sind freie Beschreibungen, keine erlaubte Endmenge.\n- Bestehende FinanzNeo-Komponenten sind optionale Werkzeuge, keine Pflichtvorlagen.\n- Pro Motion-Visual: viewerChange + animationIntent + mechanicId + visualTechniqueId + techniqueDescription + toolStack + motionSignature + mehrere Motion Channels + mehrere sichtbare Beats.\n- Anti-Fake-Variation: neuer Name allein reicht nicht; Kamera + Layout + Transformation werden gegen die letzten vier Motion-Visuals geprüft.\n- Wiederholung bleibt erlaubt, wenn sie für den Inhalt wirklich die beste Lösung ist und mit repeatTechniqueReason begründet wird.\n- Schnitte und finale Dauern folgen dem finalen Voiceover.\n`);
+write('04-projekt/PHASENSTATUS.md', `# Phasenstatus\n\n- [ ] Phase 1 vollständig und ohne Platzhalter\n- [ ] \`npm run youtube:animation:validate -- ${targetArg}\` erfolgreich\n- [ ] \`npm run youtube:phase1:seal -- ${targetArg}\` erfolgreich\n- [ ] Phase 2: alle exakten 16:9-Bilder, ein finales Voiceover und echte Wort-Timings vorhanden\n- [ ] Phase 3: \`npm run youtube:ready -- ${targetArg}\` erfolgreich; Produktion und QA abgeschlossen\n`);
+write('04-projekt/timeline.json', `${JSON.stringify({version:2,title,fps:YOUTUBE_VIDEO_FPS,timingSource:WORD_TIMINGS,cutRule:'voice-beat-and-chapter-driven',fixedVisualCount:false,visuals:visuals.map((visual) => ({id:visual.id,type:visual.type,startFrame:0,durationFrames:0}))}, null, 2)}\n`);
+write(VISUAL_INDEX, `${JSON.stringify({
   version:3,
   title,
   format:'youtube-longform',
@@ -173,13 +185,13 @@ write('04-visuals/visual-index.json', `${JSON.stringify({
   fixedVisualCount:false,
   fixedImageAnimationRatio:false,
   video:{aspectRatio:YOUTUBE_VIDEO_ASPECT_RATIO,width:YOUTUBE_VIDEO_WIDTH,height:YOUTUBE_VIDEO_HEIGHT,fps:YOUTUBE_VIDEO_FPS},
-  thumbnail:{type:'image',googleFlowFileName:thumbnailFileName,planFile:'04-visuals/thumbnail-prompt.txt'},
+  thumbnail:{type:'image',googleFlowFileName:thumbnailFileName,planFile:THUMBNAIL_PROMPT},
   userCreatesImages:true,
   antigravityGeneratesImages:false,
   googleFlow:{protocolId:FLOW_AGENT_PROTOCOL_ID,generationMode:'one-image-at-a-time',strictSequential:true,waitForCurrentImage:true,renameBeforeNext:true,qaBeforeNext:true,retrySameImageOnFailure:true,finalCollectionDirectory:`${IMAGE_INBOX}/`,distributeToVisualFolders:false},
-  imageWorld:{id:WORLD_ID,seriesLockId:SERIES_LOCK_ID,generatedImageAspectRatio:GENERATED_IMAGE_ASPECT_RATIO,horizontalGeneratedImagesRequired:true,referencePromptFile:'04-visuals/bildwelt.txt',styleReferenceStrategy:'canonical-youtube-image-world',sameWorldAcrossSeriesRequired:true,literalFirst:true,metaphorOptional:true,seamlessSingleBackgroundRequired:true,objectLabelsOnly:true},
+  imageWorld:{id:WORLD_ID,seriesLockId:SERIES_LOCK_ID,generatedImageAspectRatio:GENERATED_IMAGE_ASPECT_RATIO,horizontalGeneratedImagesRequired:true,referencePromptFile:IMAGE_WORLD_FILE,styleReferenceStrategy:'canonical-youtube-image-world',sameWorldAcrossSeriesRequired:true,literalFirst:true,metaphorOptional:true,seamlessSingleBackgroundRequired:true,objectLabelsOnly:true},
   motionStandard:{id:YOUTUBE_MOTION_STANDARD_ID,viewerChangeFirstRequired:true,openTechniqueSelection:true,compositionFamiliesAreExamplesOnly:true,motionSignatureRequired:true,recentMotionWindow:4,customReactAllowed:true,svgAllowed:true,css3dAllowed:true,canvasAllowed:true,threeAllowed:true,hybridAllowed:true,dataVisualizationAllowed:true,existingComponentsOptional:true,physicalPrimitivesOptional:true,semanticVariationRequired:true},
-  timelineRules:{timingSource:'03-audio/word-timings.json',cutsFollowVoiceAndChapters:true,equalLengthVisualsForbiddenByDefault:true,beatFirst:true},
+  timelineRules:{timingSource:WORD_TIMINGS,cutsFollowVoiceAndChapters:true,equalLengthVisualsForbiddenByDefault:true,beatFirst:true},
   audio:{targetIntegratedLufs:-16,targetTruePeakDbtp:-1},
   publishing:{youtube:YOUTUBE_PUBLISHING_FILES,socialPromo:SOCIAL_PROMO_FILES},
   visuals,

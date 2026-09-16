@@ -7,16 +7,16 @@ Use this workflow when integrating a completed YouTube Longform Phase 2 and prod
 Always begin with:
 
 ```bash
-npm run youtube:ready -- youtube/<Projekt>
+npm run youtube:ready -- youtube/<Woche>/<Thema>
 ```
 
 If readiness fails, report the exact blockers and stop. Do not fabricate missing Flow images, voiceover, timings, seals or assets.
 
 ## Read order
 
-1. `youtube/<Projekt>/04-visuals/visual-index.json`
-2. `youtube/<Projekt>/06-projektdateien/animation-seal.json`
-3. `youtube/<Projekt>/06-projektdateien/external-assets-manifest.json` when present
+1. `youtube/<Woche>/<Thema>/04-projekt/visual-index.json`
+2. `youtube/<Woche>/<Thema>/04-projekt/animation-seal.json`
+3. `youtube/<Woche>/<Thema>/04-projekt/external-assets-manifest.json` when present
 4. `docs/FINANZNEO-EXTERNAL-ASSET-SOURCES.md`
 5. `.agents/rules/finanzneo-external-assets.md`
 6. final user images, final voiceover and real word timings

@@ -4,7 +4,7 @@ Dieser Ordner ist ausschließlich für lokal gespeicherte, lizenzgeprüfte Suppo
 
 ## Quelle der Wahrheit
 
-- Slot-Plan: `../../06-projektdateien/external-assets-manifest.json`
+- Slot-Plan: `../../04-projekt/external-assets-manifest.json`
 - Lizenz-/Quellenregeln: `../../../../docs/FINANZNEO-EXTERNAL-ASSET-SOURCES.md`
 - Asset-Ledger: `external-assets-ledger.json`
 

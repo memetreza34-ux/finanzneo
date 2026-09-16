@@ -4,6 +4,7 @@ import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {requiresYouTubeMotion, YOUTUBE_MOTION_STANDARD_ID} from './lib/youtube-motion-contract.mjs';
+import {ANIMATION_SEAL, VISUAL_INDEX} from './lib/youtube-contract.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -20,7 +21,7 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 const quality = spawnSync(process.execPath, [resolve('scripts/validate-youtube-animation-quality.mjs'), root], {stdio: 'inherit'});
 if (quality.status !== 0) process.exit(quality.status ?? 1);
 
-const indexPath = resolve(root, '04-visuals/visual-index.json');
+const indexPath = resolve(root, VISUAL_INDEX);
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const entries = [];
 for (const visual of (index.visuals ?? []).filter(requiresYouTubeMotion)) {
@@ -49,12 +50,12 @@ for (const visual of (index.visuals ?? []).filter(requiresYouTubeMotion)) {
   });
 }
 
-const out = resolve(root, '06-projektdateien/animation-seal.json');
+const out = resolve(root, ANIMATION_SEAL);
 mkdirSync(resolve(out, '..'), {recursive: true});
 writeFileSync(out, `${JSON.stringify({
   version: 2,
   motionStandardId: YOUTUBE_MOTION_STANDARD_ID,
-  sourceIndex: '04-visuals/visual-index.json',
+  sourceIndex: VISUAL_INDEX,
   entries,
 }, null, 2)}\n`);
-console.log(`\n✓ ${entries.length} YouTube-Animation(en) mit Motion-V3-Vertrag versiegelt: 06-projektdateien/animation-seal.json`);
+console.log(`\n✓ ${entries.length} YouTube-Animation(en) mit Motion-V3-Vertrag versiegelt: ${ANIMATION_SEAL}`);
