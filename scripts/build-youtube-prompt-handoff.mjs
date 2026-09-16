@@ -7,7 +7,7 @@
 // Einzelprompt, erzeugt wurde aus dem alten Handoff. Deshalb ist der Einzelprompt
 // ab hier die einzige Quelle und die Handoff-Datei nur noch generiert.
 
-import {readFileSync, writeFileSync} from 'node:fs';
+import {existsSync, readFileSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {
   ALL_PROMPTS,
@@ -103,12 +103,8 @@ const blocks = imageVisuals.map((visual, position) => {
 const content = `${header}${blocks.join('\n')}`;
 
 if (check) {
-  let current = null;
-  try {
-    current = read(ALL_PROMPTS);
-  } catch {
-    current = null;
-  }
+  // Eine fehlende Handoff-Datei zählt wie eine veraltete: beides heißt neu bauen.
+  const current = existsSync(resolve(root, ALL_PROMPTS)) ? read(ALL_PROMPTS) : null;
   if (current !== content) {
     console.error(`\n✗ ${ALL_PROMPTS} ist nicht mehr synchron mit den einzelnen bildprompt.txt.`);
     console.error(`  Neu bauen: npm run youtube:prompts:build -- ${target}`);
