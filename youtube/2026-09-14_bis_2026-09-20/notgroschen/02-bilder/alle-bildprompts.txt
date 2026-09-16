@@ -202,7 +202,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 4 / 15 — visual-05 — YouTube Bild 05 - Kein Konsum.png
+BLOCK 4 / 15 — visual-06 — YouTube Bild 06 - Kein Konsum.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -211,7 +211,7 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-FINAL FILE NAME: YouTube Bild 05 - Kein Konsum.png
+FINAL FILE NAME: YouTube Bild 06 - Kein Konsum.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
@@ -261,7 +261,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 5 / 15 — visual-06 — YouTube Bild 06 - Echte Notfälle.png
+BLOCK 5 / 15 — visual-07 — YouTube Bild 07 - Echte Notfälle.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -270,7 +270,7 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-FINAL FILE NAME: YouTube Bild 06 - Echte Notfälle.png
+FINAL FILE NAME: YouTube Bild 07 - Echte Notfälle.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
@@ -319,7 +319,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 6 / 15 — visual-07 — YouTube Bild 07 - Verfuegbar statt Rendite.png
+BLOCK 6 / 15 — visual-08 — YouTube Bild 08 - Verfuegbar statt Rendite.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -328,7 +328,7 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-FINAL FILE NAME: YouTube Bild 07 - Verfuegbar statt Rendite.png
+FINAL FILE NAME: YouTube Bild 08 - Verfuegbar statt Rendite.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.

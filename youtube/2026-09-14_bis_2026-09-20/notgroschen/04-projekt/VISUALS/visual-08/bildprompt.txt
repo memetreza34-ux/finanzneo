@@ -4,23 +4,23 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-FINAL FILE NAME: YouTube Bild 05 - Kein Konsum.png
+FINAL FILE NAME: YouTube Bild 08 - Verfuegbar statt Rendite.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
 Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: Three purchases all lean toward the sealed reserve envelope, and none of them reaches it.
-REAL_WORLD_CONTEXT_ANCHOR: Everyday spending decisions at home.
-VOICEOVER_VISUAL_MATCH: The line says the Notgroschen is not for holidays, a new phone or a sale.
-TRANSFERABILITY_TEST: PASS — everything in the frame falls toward the envelope while the envelope stands still.
+LITERAL_REAL_WORLD_SITUATION: The reserve envelope lies open and within reach with a banknote already sliding out, while the depot letter sits far back, buried under other papers.
+REAL_WORLD_CONTEXT_ANCHOR: Household paperwork: what you can reach today versus what you cannot.
+VOICEOVER_VISUAL_MATCH: The line says the job is not return but being available when you need it.
+TRANSFERABILITY_TEST: PASS — one thing is reachable, the other is visibly far away and covered.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
-CORE IDEA (DE): Der Notgroschen ist getrennt von freiwilligem Konsum.
-ONE RELATION: everything tips, one thing stands
-GERMAN LABELS (exactly these, nothing else): `Notgroschen`, `Urlaub`, `Neues Handy`, `Sale`
+CORE IDEA (DE): Der Job des Notgroschens ist Verfuegbarkeit, nicht Rendite.
+ONE RELATION: near and open against far and buried
+GERMAN LABELS (exactly these, nothing else): `Notgroschen`, `Depot`
 
 Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
 rendered — nothing is photographic. No photo texture, no scanned material, no camera
@@ -36,19 +36,18 @@ Warm cinematic key light with a soft rim light and gentle bounce. Soft contact s
 No person in this frame.
 Pure black background. The objects float in black. No floor, no wall, no desk, no wood,
 no table surface, no room, no gradient backdrop.
-Ivory and gray neutral, emerald green for the reserve, warm red-orange for the price tag.
+Ivory and gray neutral, emerald green for the reserve.
 Only the German labels listed in this prompt, small and printed on their object.
 No other text, no large lettering, no word built as a 3D sculpture.
 Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
 SCENE
-A closed ivory envelope with an emerald wax seal stands perfectly upright and still,
-small label `Notgroschen`.
-Three purchases lean hard toward it from the right, all reaching, none touching: a packed
-hard-shell suitcase tipping on one corner `Urlaub`, a new smartphone sliding halfway out of
-its opened box `Neues Handy`, a paper shopping bag already spilled over with a dangling
-price tag `Sale`.
-Everything in the frame is falling toward the envelope. The envelope does not move.
+An ivory envelope with an emerald wax seal lies open at the very front, a clearly recognizable green 100-euro
+banknote sliding halfway out, its denomination readable, folded once the way money sits in an envelope.
+Small printed label `Notgroschen`.
+Far behind it, deep in the black and much smaller, a German depot statement lies buried under a heavy stack of
+other papers, only one corner visible. Small tag `Depot`.
+The telling detail is the open envelope against the covered corner: one is ready, the other is not.
 
 A frame from a CG animated feature film on pure black. Modeled and rendered, never
 photographed. Every object recognizable as the real thing.

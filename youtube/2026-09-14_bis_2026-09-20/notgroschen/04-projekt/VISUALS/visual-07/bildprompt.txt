@@ -4,23 +4,23 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-FINAL FILE NAME: YouTube Bild 07 - Verfuegbar statt Rendite.png
+FINAL FILE NAME: YouTube Bild 07 - Echte Notfälle.png
 
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
 If any check fails, regenerate the same image number and replace the failed file. Only then continue.
 Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: The reserve envelope lies open and within reach with a banknote already sliding out, while the depot letter sits far back, buried under other papers.
-REAL_WORLD_CONTEXT_ANCHOR: Household paperwork: what you can reach today versus what you cannot.
-VOICEOVER_VISUAL_MATCH: The line says the job is not return but being available when you need it.
-TRANSFERABILITY_TEST: PASS — one thing is reachable, the other is visibly far away and covered.
+LITERAL_REAL_WORLD_SITUATION: A cracked home boiler is still dripping while the two documents that arrived with it lie underneath.
+REAL_WORLD_CONTEXT_ANCHOR: Household breakdown plus the paperwork it causes.
+VOICEOVER_VISUAL_MATCH: The line defines real emergencies as necessary costs or income gaps.
+TRANSFERABILITY_TEST: PASS — a leaking boiler, an overdue bill and a shorter payslip need no interpretation.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
-CORE IDEA (DE): Der Job des Notgroschens ist Verfuegbarkeit, nicht Rendite.
-ONE RELATION: near and open against far and buried
-GERMAN LABELS (exactly these, nothing else): `Notgroschen`, `Depot`
+CORE IDEA (DE): Echte Notfälle sind notwendige Kosten oder weniger Einkommen.
+ONE RELATION: one thing breaks, two more follow
+GERMAN LABELS (exactly these, nothing else): `Reparatur`, `Rechnung`, `Weniger Einkommen`
 
 Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
 rendered — nothing is photographic. No photo texture, no scanned material, no camera
@@ -36,18 +36,18 @@ Warm cinematic key light with a soft rim light and gentle bounce. Soft contact s
 No person in this frame.
 Pure black background. The objects float in black. No floor, no wall, no desk, no wood,
 no table surface, no room, no gradient backdrop.
-Ivory and gray neutral, emerald green for the reserve.
+Ivory and gray neutral, warm red-orange for cost.
 Only the German labels listed in this prompt, small and printed on their object.
 No other text, no large lettering, no word built as a 3D sculpture.
 Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
 SCENE
-An ivory envelope with an emerald wax seal lies open at the very front, a clearly recognizable green 100-euro
-banknote sliding halfway out, its denomination readable, folded once the way money sits in an envelope.
-Small printed label `Notgroschen`.
-Far behind it, deep in the black and much smaller, a German depot statement lies buried under a heavy stack of
-other papers, only one corner visible. Small tag `Depot`.
-The telling detail is the open envelope against the covered corner: one is ready, the other is not.
+A real wall-mounted German gas boiler, white casing cracked open at the front, a thin line
+of water running down it and one drop caught mid-fall. Small label `Reparatur`.
+Directly beneath it, landed in the splash: a German invoice with a warm red-orange overdue
+stamp `Rechnung`, and a German payslip whose printed amount column is visibly shorter than
+the one behind it `Weniger Einkommen`.
+The boiler broke first. The paper arrived because of it.
 
 A frame from a CG animated feature film on pure black. Modeled and rendered, never
 photographed. Every object recognizable as the real thing.

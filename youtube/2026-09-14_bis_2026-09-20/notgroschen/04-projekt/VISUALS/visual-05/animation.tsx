@@ -7,7 +7,7 @@ export const VISUAL_TECHNIQUE_ID = 'salary-band-build';
 export const COMPOSITION_FAMILY_ID = 'data-viz';
 export const ANIMATION_NARRATIVE = {START:'Ein Monatsgehalt als Referenz', MECHANISM:'Zweiter und dritter Monatsblock bauen sich auf', RESULT:'2–3 wird ausdrücklich als Daumenregel markiert'};
 
-export const YouTubeVisual08Animation: React.FC = () => {
+export const YouTubeVisual05Animation: React.FC = () => {
   const frame=useCurrentFrame(); const {fps}=useVideoConfig();
   const starts=[8,34,60];
   return <MotionStage>
