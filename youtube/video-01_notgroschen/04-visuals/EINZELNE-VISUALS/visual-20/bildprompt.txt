@@ -1,0 +1,23 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 20 - Reserve trennen.png
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+LITERAL_REAL_WORLD_SITUATION: Monatsbudget und Notgroschen werden bewusst getrennt geführt, damit die Reserve nicht wie frei verfügbares Konsumgeld wirkt.
+REAL_WORLD_CONTEXT_ANCHOR: Ein Bereich für laufende Monatsausgaben und ein separater Bereich für die Notfallreserve.
+VOICEOVER_VISUAL_MATCH: Das Bild zeigt die praktische Trennung von normalem Monatsbudget und Notgroschen.
+TRANSFERABILITY_TEST: Ohne Voiceover ist sichtbar, dass Konsum-/Monatsgeld und Reserve nicht vermischt werden sollen.
+VISUAL_STRATEGY: Literal first, creative second — zwei reale Geldzwecke klar räumlich trennen.
+METAPHOR_JUSTIFICATION: Die zwei Container sind eine direkte räumliche Vereinfachung von zwei getrennten Geldtöpfen/Konten.
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly.
+
+CORE IDEA
+Monatsbudget und Notgroschen nicht vermischen.
+
+IMAGE PROMPT
+Create a very simple deep-black animated-feature 3D left-right composition. Left: one neutral rounded container labeled `Monatsbudget` with only two small stylized spending objects nearby. Right: one isolated emerald rounded container labeled `Notgroschen`, separated by clean black space. Use soft sculpted materials, rounded simplified geometry and cinematic animated-film lighting.
+
+HARD NO
+Desk, realistic receipts/cards, piggy bank, gold bars, realistic finance props, photorealism, semi-realism, app UI, dashboard, cyberpunk, extra text.

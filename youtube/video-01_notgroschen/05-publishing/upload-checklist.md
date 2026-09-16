@@ -1,0 +1,21 @@
+# Upload-Checkliste — Video 01 Notgroschen
+
+- [ ] finaler 1920×1080-Render, 16:9, 30 fps geprüft
+- [ ] Audio ungefähr -16 LUFS, True Peak höchstens -1 dBTP
+- [ ] Thumbnail final und auf Mobile lesbar
+- [ ] finalen Titel aus `final-title.txt` übernehmen
+- [ ] Beschreibung prüfen
+- [ ] Kapitel anhand des finalen Voiceovers framegenau aktualisieren
+- [ ] Quellen-/Disclaimer-Text übernehmen
+- [ ] keine Renditegarantie oder individuelle Finanzempfehlung im Titel/Thumbnail
+- [ ] Untertitel vollständig und audio-synchron
+- [ ] Verbraucherzentrale-/BaFin-Aussagen im finalen Schnitt unverändert korrekt
+- [ ] angehefteten Kommentar vorbereiten
+- [ ] Endscreen/Kanal-CTA nur dezent und passend
+- [ ] jedes tatsächlich verwendete externe Asset steht in `04-visuals/external-assets/external-assets-ledger.json`
+- [ ] für jedes externe Asset kommerzielle Nutzung/Lizenz geprüft
+- [ ] keine Remote-URLs, API-Keys, Wasserzeichen oder unfreigegebenen Marken/Personendaten im finalen Render
+- [ ] erforderliche Attributionen aus dem Asset-Ledger in Beschreibung/Quellenpaket übernommen
+- [ ] optionale Stock-/Icon-/Lottie-Slots haben keine versiegelte Hauptmechanik ersetzt oder verändert
+- [ ] ungenutzte externe Downloads entfernt oder im Ledger eindeutig als ungenutzt markiert
+- [ ] nach Upload: CTR, Retention, durchschnittliche Wiedergabedauer und Abbruchstellen dokumentieren

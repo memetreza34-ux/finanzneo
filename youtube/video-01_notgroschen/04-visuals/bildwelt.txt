@@ -1,0 +1,63 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+STYLE_REFERENCE_IMAGE: 04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+
+MASTER RULE — YOUTUBE ONLY
+This YouTube project has its own image world. Do NOT inherit or rewrite the Reel image world. Reels remain unchanged.
+
+DIRECT REFERENCE RULE
+`YouTube Bild 01 - Waschmaschine kaputt.png` is the mandatory visual style anchor for every later generated image in this YouTube video. Before generating Image 05, 06, 11, 12, 15, 16, 18, 20 or 25, inspect/use Image 01 as the style/reference image. Match its rendering language: stylization level, rounded geometry, simplified detail, material feel, lighting softness, depth, black-stage integration, color intensity and cinematic animated-film finish.
+
+Do NOT copy the subject or layout of Image 01. Copy the LOOK.
+
+CORE LOOK
+Create a premium cinematic animated-feature 3D world — the user describes the target as a Pixar-like 3D animation feel — while remaining original and not copying any existing movie characters or designs.
+
+Reality-inspired, NOT realistic:
+- objects must be instantly recognizable
+- proportions may be simplified and slightly exaggerated
+- forms should be smooth, rounded and sculpted
+- details should be simplified to what matters visually
+- surfaces should look polished and animated, not photographic
+- lighting should feel cinematic and soft, not like a real camera shot
+- depth of field may be used for a filmic 3D-animation feel
+
+HARD NO REALISM
+No photorealism. No semi-photorealistic product render. No stock-photo look. No live-action aesthetic. No realistic human skin. No realistic car-commercial render. No realistic office/interior photography look. If a human appears, use a clearly stylized animated 3D character.
+
+VISUAL FREEDOM
+Choose whatever representation makes the financial point clearest and most entertaining. A real room or desk is never required.
+
+Allowed:
+- one large floating 3D object
+- a few floating 3D objects
+- stylized 3D characters
+- simple 3D charts or graphs
+- 3D timeline
+- large 3D numbers
+- before/after
+- left/right comparison
+- spatial money/reserve mechanism
+- reduced everyday setting only when the setting itself helps the idea
+
+Charts/diagrams are explicitly allowed as generated images when useful. They must look like physical stylized 3D objects from the same animated world, never software UI.
+
+ONE IMAGE = ONE IDEA
+Each image should communicate one dominant thought in 1–2 seconds. Prefer 1–4 large readable elements over many small details. Do not fill the frame just because space exists. Strong black negative space is good. If a concept genuinely needs more, Phase 1 should plan more simple images instead of creating one overloaded image.
+
+ENTERTAINMENT
+Keep the series visually varied and fun through scale, depth, perspective, bold silhouettes, floating objects, animated-feature staging, simple visual metaphors and clear finance mechanisms. Do not repeat the same desk, room or camera setup.
+
+PALETTE
+Deep black stage. Emerald green for protected reserve/positive solution. Warm red-orange for cost/risk/loss. Ivory and soft gray for neutral. Restrained gold for money/value. No blue/purple cyberpunk palette and no unrelated neon system.
+
+TEXT
+Only explicitly requested short German object labels. Never invent headlines or brand text such as `FinanzNeo V9`. No subtitle, CTA, long explanation or fake UI text in the generated image.
+
+QA FAIL = REGENERATE
+Regenerate the same slot if the image looks photorealistic, semi-realistic, like a product ad, like stock photography, like a real person, like a realistic car/interior render, like dashboard/UI, like cyberpunk, too cluttered, or visibly different from the Image-01 reference look.
+
+FORMAT
+All YouTube source images remain horizontal 16:9. Important objects must be large and readable on mobile, laptop and TV.

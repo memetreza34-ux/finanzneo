@@ -1,0 +1,23 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 12 - Person B.png
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+LITERAL_REAL_WORLD_SITUATION: Eine Person mit höherer Miete, eigenem Auto und mehreren laufenden Verpflichtungen trägt ein größeres monatliches Risiko.
+REAL_WORLD_CONTEXT_ANCHOR: Miete, Auto und laufende Rechnungen als konkrete notwendige Ausgaben.
+VOICEOVER_VISUAL_MATCH: Das Bild unterstützt Person B: höhere Miete, Auto für den Arbeitsweg und mehrere laufende Verpflichtungen.
+TRANSFERABILITY_TEST: Ohne Voiceover wirkt das Profil sichtbar belasteter und verpflichtungsintensiver als Person A.
+VISUAL_STRATEGY: Literal first, creative second — konkrete Kostenobjekte statt abstrakter Risikosymbole.
+METAPHOR_JUSTIFICATION: Die Objektgruppe vereinfacht nur die Personendarstellung; die finanzielle Situation bleibt real und nachvollziehbar.
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly. This scene must not become a realistic person/car render.
+
+CORE IDEA
+Mehr feste Verpflichtungen = höherer Reservebedarf.
+
+IMAGE PROMPT
+On deep black, create a simple animated-feature 3D profile using only three large stylized objects: apartment/rent object `Miete`, simplified rounded commuter car `Auto`, and a larger recurring-bill stack `Laufende Kosten`. Use appealing exaggerated proportions and soft sculpted materials. The heavier obligation profile should be obvious without a realistic human or room.
+
+HARD NO
+Photorealistic car, car-ad render, live-action person, realistic office/apartment, semi-realistic materials, UI/dashboard, cyberpunk, extra text.
