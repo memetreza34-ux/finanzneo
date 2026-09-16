@@ -1,0 +1,765 @@
+{
+  "version": 2,
+  "motionStandardId": "finanzneo-youtube-motion-v3",
+  "sourceIndex": "04-projekt/visual-index.json",
+  "entries": [
+    {
+      "id": "visual-01",
+      "sourceFile": "04-projekt/VISUALS/visual-01/animation.tsx",
+      "exportName": "YouTubeVisual01Animation",
+      "viewerChange": "Die normale Waschecke wird zum klaren Notfall: Defekt und 480-Euro-Rechnung werden nacheinander hervorgehoben.",
+      "animationIntent": "Der Zuschauer erlebt den Auslöser des Videos als konkrete Ursache-Wirkung-Situation statt als Finanzsymbol.",
+      "mechanicId": "defect-focus-reveal",
+      "visualTechniqueId": "grounded-image-depth-reveal",
+      "techniqueDescription": "Ein 16:9-Alltagsbild wird über maskierte Fokuszonen und kontrollierten Kamera-Push von normaler Waschecke zu Defekt und Rechnung geführt.",
+      "compositionFamilyId": "image-composite",
+      "toolStack": [
+        "Remotion",
+        "CSS masks",
+        "2.5D transform"
+      ],
+      "motionSignature": {
+        "camera": "slow focus push toward invoice",
+        "layout": "appliance-left invoice-foreground",
+        "transformation": "selective focus and invoice reveal"
+      },
+      "motionChannels": [
+        "camera depth push",
+        "selective problem highlight"
+      ],
+      "visualBeats": [
+        "normale Waschecke",
+        "Defekt sichtbar",
+        "Rechnung 480 € dominant"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "d50f3c97cae7aa94a55fb473ebc9273fd3806950a6ceea6095a10f52ce2783a8"
+    },
+    {
+      "id": "visual-02",
+      "sourceFile": "04-projekt/VISUALS/visual-02/animation.tsx",
+      "exportName": "YouTubeVisual02Animation",
+      "viewerChange": "Eine unerwartete Ausgabe wird zu drei Kostenereignissen, die das freie Monatsbudget sichtbar zusammendrücken.",
+      "animationIntent": "Die Eskalation mehrerer Notfälle wird physisch spürbar, bevor über Lösungen gesprochen wird.",
+      "mechanicId": "accumulating-cost-pressure",
+      "visualTechniqueId": "sequential-cost-impact-stage",
+      "techniqueDescription": "Drei große Kostenobjekte treffen nacheinander auf einen Budgetblock und verkleinern dessen verfügbaren Bereich.",
+      "compositionFamilyId": "physical-process",
+      "toolStack": [
+        "Remotion",
+        "SVG",
+        "spring"
+      ],
+      "motionSignature": {
+        "camera": "locked wide stage",
+        "layout": "cost objects around central budget",
+        "transformation": "sequential impacts compress budget"
+      },
+      "motionChannels": [
+        "cost object arrivals",
+        "budget compression"
+      ],
+      "visualBeats": [
+        "eine Rechnung",
+        "Bremsen kommen hinzu",
+        "Nachzahlung kommt hinzu",
+        "Budget sichtbar eingeengt"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "c34b2bfd02f605e3b2bff000b3137277405b38ff4fd173440b11eefb2740e64a"
+    },
+    {
+      "id": "visual-03",
+      "sourceFile": "04-projekt/VISUALS/visual-03/animation.tsx",
+      "exportName": "YouTubeVisual03Animation",
+      "viewerChange": "Eine offene Rechnung sucht drei Wege; Dispo und Kredit warnen rot, beim Depot wird ein Verkauf im falschen Moment sichtbar.",
+      "animationIntent": "Der Zuschauer sieht, warum fehlende Reserve andere Teile des Finanzsystems belastet.",
+      "mechanicId": "consequence-routing",
+      "visualTechniqueId": "branching-finance-path",
+      "techniqueDescription": "Eine Rechnung verzweigt über animierte Pfade zu Dispo, Kredit und Depot; jeder Pfad zeigt eine andere negative Konsequenz.",
+      "compositionFamilyId": "network-simulation",
+      "toolStack": [
+        "Remotion",
+        "SVG paths",
+        "interpolate"
+      ],
+      "motionSignature": {
+        "camera": "lateral track across branches",
+        "layout": "central bill branching to three destinations",
+        "transformation": "routes illuminate and consequences activate"
+      },
+      "motionChannels": [
+        "path travel",
+        "destination state changes"
+      ],
+      "visualBeats": [
+        "Rechnung ohne Puffer",
+        "Dispo aktiviert",
+        "Kredit aktiviert",
+        "Depotverkauf erzwungen"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "969632b962c7ff0bc78c83def5ee26d3d7e1e9f5200a28b342d1d304ac207a11"
+    },
+    {
+      "id": "visual-04",
+      "sourceFile": "04-projekt/VISUALS/visual-04/animation.tsx",
+      "exportName": "YouTubeVisual04Animation",
+      "viewerChange": "Drei konkurrierende Zielgrößen erscheinen, verlieren ihren Absolutheitsanspruch und werden durch eine individuelle Frage ersetzt.",
+      "animationIntent": "Die Szene bricht bewusst die Erwartung einer einzigen magischen Zahl.",
+      "mechanicId": "target-number-debate",
+      "visualTechniqueId": "kinetic-scale-comparison",
+      "techniqueDescription": "Große Zielzahlen treten nacheinander in den Raum, skalieren gegeneinander und lösen sich in ein zentrales Fragezeichen auf.",
+      "compositionFamilyId": "kinetic-type",
+      "toolStack": [
+        "Remotion",
+        "spring",
+        "CSS perspective"
+      ],
+      "motionSignature": {
+        "camera": "subtle orbit around number field",
+        "layout": "three competing numeric anchors",
+        "transformation": "scale competition into question mark"
+      },
+      "motionChannels": [
+        "number scale shifts",
+        "depth reordering"
+      ],
+      "visualBeats": [
+        "1.000 €",
+        "3 Monatsgehälter",
+        "mehr?",
+        "keine Universalzahl"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "577ddcffe4fa39752f7ebff373d6fc48a1e6a736b8a7c005cc02b45e135ae462"
+    },
+    {
+      "id": "visual-06",
+      "sourceFile": "04-projekt/VISUALS/visual-06/animation.tsx",
+      "exportName": "YouTubeVisual06Animation",
+      "viewerChange": "Vier reale Notfallauslöser werden in einer zusammenhängenden Szene nacheinander fokussiert.",
+      "animationIntent": "Die Definition wird über konkrete Situationen verständlich und nicht über abstrakte Kategorien.",
+      "mechanicId": "emergency-context-highlights",
+      "visualTechniqueId": "grounded-context-spotlight-sequence",
+      "techniqueDescription": "Ein breites Alltagsbild bleibt räumlich stabil, während vier semantische Zonen nacheinander durch Fokus, Licht und kurze Labels aktiviert werden.",
+      "compositionFamilyId": "image-composite",
+      "toolStack": [
+        "Remotion",
+        "mask overlays",
+        "depth pan"
+      ],
+      "motionSignature": {
+        "camera": "controlled pan between real-world anchors",
+        "layout": "four contextual zones in one wide environment",
+        "transformation": "selective highlight plus income fade"
+      },
+      "motionChannels": [
+        "camera pan",
+        "semantic highlight sequence"
+      ],
+      "visualBeats": [
+        "Reparatur",
+        "Rechnung",
+        "Mobilität",
+        "Einkommenslücke"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "083bf7d67da8fd742aafbfbd421e8064b786fa52729c12ff4baf68ab0fc71629"
+    },
+    {
+      "id": "visual-07",
+      "sourceFile": "04-projekt/VISUALS/visual-07/animation.tsx",
+      "exportName": "YouTubeVisual07Animation",
+      "viewerChange": "Ein Renditeversprechen verliert visuelles Gewicht, während eine stabile Reserve sofort für eine notwendige Ausgabe verfügbar wird.",
+      "animationIntent": "Die Aufgabe des Notgroschens wird als Prioritätswechsel sichtbar.",
+      "mechanicId": "liquidity-priority-shift",
+      "visualTechniqueId": "priority-weight-transfer",
+      "techniqueDescription": "Gewicht und Licht wandern von einer schwankenden Renditezone zu einer stabilen Liquiditätsreserve, die sich anschließend für eine Rechnung öffnet.",
+      "compositionFamilyId": "material-transformation",
+      "toolStack": [
+        "Remotion",
+        "SVG",
+        "interpolate"
+      ],
+      "motionSignature": {
+        "camera": "centered static emphasis",
+        "layout": "yield zone left reserve zone right",
+        "transformation": "yield dims while reserve stabilizes and opens"
+      },
+      "motionChannels": [
+        "priority weight shift",
+        "reserve access reveal"
+      ],
+      "visualBeats": [
+        "Rendite lockt",
+        "Rendite tritt zurück",
+        "Reserve bleibt stabil",
+        "Geld verfügbar"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "152caedf8f07d671f5da9a0cc7c98a851b981ffca7559ce248cff16663582c8a"
+    },
+    {
+      "id": "visual-08",
+      "sourceFile": "04-projekt/VISUALS/visual-08/animation.tsx",
+      "exportName": "YouTubeVisual08Animation",
+      "viewerChange": "Aus einem Monatsgehalt entsteht eine Bandbreite von zwei bis drei Monatsgehältern; der Begriff Daumenregel erscheint ausdrücklich.",
+      "animationIntent": "Die Quelle wird korrekt als Orientierung und nicht als Pflicht dargestellt.",
+      "mechanicId": "rule-of-thumb-band",
+      "visualTechniqueId": "salary-band-build",
+      "techniqueDescription": "Monatsblöcke bauen sich horizontal von eins auf zwei und drei auf; eine Klammer markiert ausschließlich die 2–3-Spanne als Daumenregel.",
+      "compositionFamilyId": "data-viz",
+      "toolStack": [
+        "Remotion",
+        "SVG brackets",
+        "interpolate"
+      ],
+      "motionSignature": {
+        "camera": "orthographic locked data view",
+        "layout": "horizontal salary-month band",
+        "transformation": "month blocks extend and band annotation appears"
+      },
+      "motionChannels": [
+        "block growth",
+        "annotation reveal"
+      ],
+      "visualBeats": [
+        "1 Monatsgehalt",
+        "2 Monatsgehälter",
+        "3 Monatsgehälter",
+        "Daumenregel 2–3"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "e0365a03526489b0b072248fda2630bef58d6918f5d8c90e170b3797cda0fb61"
+    },
+    {
+      "id": "visual-09",
+      "sourceFile": "04-projekt/VISUALS/visual-09/animation.tsx",
+      "exportName": "YouTubeVisual09Animation",
+      "viewerChange": "Miete, Lebensmittel, Strom, Versicherungen und Mobilität setzen sich sichtbar zu 1.500 Euro notwendigem Monatsbudget zusammen.",
+      "animationIntent": "Die persönliche Berechnung wird aus konkreten Kosten statt aus Einkommen hergeleitet.",
+      "mechanicId": "essential-budget-assembly",
+      "visualTechniqueId": "category-to-total-ledger",
+      "techniqueDescription": "Große Kostenkategorien docken nacheinander an ein zentrales Monatsbudget an; der Gesamtwert zählt kontrolliert auf 1.500 Euro.",
+      "compositionFamilyId": "document-motion",
+      "toolStack": [
+        "Remotion",
+        "SVG icons",
+        "counter interpolation"
+      ],
+      "motionSignature": {
+        "camera": "top-down ledger reveal",
+        "layout": "categories orbit into central monthly ledger",
+        "transformation": "cost categories assemble and total updates"
+      },
+      "motionChannels": [
+        "category docking",
+        "numeric total update"
+      ],
+      "visualBeats": [
+        "Miete",
+        "Lebensmittel",
+        "Strom und Versicherungen",
+        "Mobilität",
+        "1.500 € Gesamt"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "d6a01b74262448da526295bd99d86fe418fc3ee26173c29e7caac99f3d5a7a5c"
+    },
+    {
+      "id": "visual-10",
+      "sourceFile": "04-projekt/VISUALS/visual-10/animation.tsx",
+      "exportName": "YouTubeVisual10Animation",
+      "viewerChange": "Ein 1.500-Euro-Monatsblock vervielfacht sich räumlich zu zwei und drei Sicherheitsmonaten, während die Summe korrekt mitwächst.",
+      "animationIntent": "Die Größenordnung wird intuitiv und mathematisch transparent.",
+      "mechanicId": "reserve-month-multiplication",
+      "visualTechniqueId": "stacked-month-volume-build",
+      "techniqueDescription": "Ein großer Monatsblock dupliziert sich in der Tiefe; Summen springen synchron von 1.500 auf 3.000 und 4.500 Euro.",
+      "compositionFamilyId": "spatial-3d",
+      "toolStack": [
+        "Remotion",
+        "CSS 3D",
+        "interpolate"
+      ],
+      "motionSignature": {
+        "camera": "slow pullback as depth grows",
+        "layout": "stacked monthly blocks in perspective",
+        "transformation": "block duplication with synchronized total"
+      },
+      "motionChannels": [
+        "depth duplication",
+        "sum change"
+      ],
+      "visualBeats": [
+        "1 Monat 1.500 €",
+        "2 Monate 3.000 €",
+        "3 Monate 4.500 €"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "1dc76601206e121eeece3523f38fe447e93137a5a00cf98eb04f8c9b30d86783"
+    },
+    {
+      "id": "visual-13",
+      "sourceFile": "04-projekt/VISUALS/visual-13/animation.tsx",
+      "exportName": "YouTubeVisual13Animation",
+      "viewerChange": "Ein identischer Gehaltsblock teilt sich in zwei Lebenssituationen; bei Person B wachsen notwendige Verpflichtungen und Reservebedarf sichtbar stärker.",
+      "animationIntent": "Der Zuschauer versteht, warum Einkommen allein keine ausreichende Zielgröße ist.",
+      "mechanicId": "matched-income-risk-divergence",
+      "visualTechniqueId": "mirrored-risk-split",
+      "techniqueDescription": "Ein gemeinsamer Einkommensblock spiegelt sich in zwei Lanes; identische Startwerte entwickeln durch unterschiedliche Verpflichtungen verschiedene Risikoprofile.",
+      "compositionFamilyId": "comparison",
+      "toolStack": [
+        "Remotion",
+        "SVG",
+        "spring"
+      ],
+      "motionSignature": {
+        "camera": "center-lock mirrored comparison",
+        "layout": "two symmetric life lanes from one income source",
+        "transformation": "obligation load diverges while income stays equal"
+      },
+      "motionChannels": [
+        "lane split",
+        "risk load growth"
+      ],
+      "visualBeats": [
+        "gleiches Einkommen",
+        "zwei Personen",
+        "unterschiedliche Verpflichtungen",
+        "unterschiedliche Reserve"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "cb067556d4eb5504e01b7f4092fe77e094374c985bcfa4b0bf3bef9e35bce99b"
+    },
+    {
+      "id": "visual-14",
+      "sourceFile": "04-projekt/VISUALS/visual-14/animation.tsx",
+      "exportName": "YouTubeVisual14Animation",
+      "viewerChange": "Vier konkrete Fragen füllen einen Prüfrahmen und verdichten sich zu einem individuellen Reserveprofil.",
+      "animationIntent": "Die abstrakte Empfehlung wird in eine praktisch nutzbare Selbstprüfung übersetzt.",
+      "mechanicId": "personal-risk-questionnaire",
+      "visualTechniqueId": "question-to-profile-map",
+      "techniqueDescription": "Vier Fragen werden wie Prüfpunkte in ein vertikales Dokument gesetzt; ihre Antworten speisen anschließend ein klar beschriftetes persönliches Risikoprofil.",
+      "compositionFamilyId": "document-motion",
+      "toolStack": [
+        "Remotion",
+        "SVG checkmarks",
+        "interpolate"
+      ],
+      "motionSignature": {
+        "camera": "vertical travel down assessment sheet",
+        "layout": "stacked question rows into summary profile",
+        "transformation": "questions stamp in then collapse into profile"
+      },
+      "motionChannels": [
+        "question row reveal",
+        "profile synthesis"
+      ],
+      "visualBeats": [
+        "unerwartete Ausgaben",
+        "notwendige Kosten",
+        "zwingende Dinge",
+        "Ausgaben senkbar",
+        "Risikoprofil"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "70e41f3808e24ceb52b5e88c4b224b60a7f689ccdb03a2391b5d0d4e78adc74c"
+    },
+    {
+      "id": "visual-16",
+      "sourceFile": "04-projekt/VISUALS/visual-16/animation.tsx",
+      "exportName": "YouTubeVisual16Animation",
+      "viewerChange": "Eine Depotkurve fällt beispielhaft auf minus 25 Prozent; genau dort kollidiert die dringende Reparatur mit dem Depot und markiert einen erzwungenen Verkauf.",
+      "animationIntent": "Das Timing-Risiko eines investierten Notgroschens wird ohne Prognose als hypothetische Situation sichtbar.",
+      "mechanicId": "emergency-at-market-drawdown",
+      "visualTechniqueId": "chart-event-collision",
+      "techniqueDescription": "Über einer grounded Werkstattszene fällt eine reduzierte Depotkurve; am Tiefpunkt fährt die Reparaturforderung in die Kurve und setzt einen Verkaufsmarker.",
+      "compositionFamilyId": "data-viz",
+      "toolStack": [
+        "Remotion",
+        "SVG path",
+        "image compositing"
+      ],
+      "motionSignature": {
+        "camera": "curve-follow then snap to repair event",
+        "layout": "grounded workshop base with chart overlay corridor",
+        "transformation": "chart drawdown collides with repair and forced-sale marker"
+      },
+      "motionChannels": [
+        "market curve movement",
+        "repair-event collision"
+      ],
+      "visualBeats": [
+        "Depot normal",
+        "hypothetisch -25 %",
+        "Reparatur tritt ein",
+        "Verkauf im Minus"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "1c845fb6676859e5474893b6c8ae5218e959245e2b4e87448add6340536159f2"
+    },
+    {
+      "id": "visual-17",
+      "sourceFile": "04-projekt/VISUALS/visual-17/animation.tsx",
+      "exportName": "YouTubeVisual17Animation",
+      "viewerChange": "Ein Geldbetrag teilt sich in einen kurzen stabilen Reserveweg und einen langen schwankenden Investmentweg.",
+      "animationIntent": "Die Rollen werden als zwei getrennte Zeithorizonte verständlich.",
+      "mechanicId": "dual-horizon-separation",
+      "visualTechniqueId": "horizon-lane-split",
+      "techniqueDescription": "Ein gemeinsamer Geldpunkt teilt sich in zwei räumliche Zeitachsen: kurze Liquiditätslane und lange Investmentlane mit kontrollierter Schwankung.",
+      "compositionFamilyId": "timeline",
+      "toolStack": [
+        "Remotion",
+        "SVG paths",
+        "interpolate"
+      ],
+      "motionSignature": {
+        "camera": "zoom out to reveal unequal time horizons",
+        "layout": "short upper lane and long lower lane",
+        "transformation": "single capital source splits into two time paths"
+      },
+      "motionChannels": [
+        "capital split",
+        "timeline extension"
+      ],
+      "visualBeats": [
+        "ein Geldtopf",
+        "kurzfristige Reserve",
+        "langfristiges Investment",
+        "unterschiedliche Aufgaben"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "3571310ee7d5d9a62975f22cd866a8ae07a249d0ba6be7462202380a995a48d1"
+    },
+    {
+      "id": "visual-18",
+      "sourceFile": "04-projekt/VISUALS/visual-18/animation.tsx",
+      "exportName": "YouTubeVisual18Animation",
+      "viewerChange": "Ein Teil des Geldes bewegt sich vom Giro auf das separate Tagesgeld; anschließend bleibt eine klare Zugriffslinie für den Notfall sichtbar.",
+      "animationIntent": "Trennung und kurzfristige Erreichbarkeit werden gleichzeitig gezeigt.",
+      "mechanicId": "giro-to-tagesgeld-transfer",
+      "visualTechniqueId": "account-depth-transfer",
+      "techniqueDescription": "Zwei grounded Kontoanker liegen auf unterschiedlichen Tiefenebenen; ein kontrollierter Transfer wandert vom Giro zum Tagesgeld und endet in einem stabilen Reservezustand.",
+      "compositionFamilyId": "image-composite",
+      "toolStack": [
+        "Remotion",
+        "SVG transfer path",
+        "2.5D compositing"
+      ],
+      "motionSignature": {
+        "camera": "lateral rack focus between account anchors",
+        "layout": "giro left tagesgeld right in grounded banking scene",
+        "transformation": "money transfer then persistent access connection"
+      },
+      "motionChannels": [
+        "account focus shift",
+        "transfer path movement"
+      ],
+      "visualBeats": [
+        "Girokonto",
+        "Transfer",
+        "Tagesgeld getrennt",
+        "kurzfristiger Zugriff"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "aa88930b469810b120d58540e5a5d1e348386946081f7112fbc299087581d0d1"
+    },
+    {
+      "id": "visual-19",
+      "sourceFile": "04-projekt/VISUALS/visual-19/animation.tsx",
+      "exportName": "YouTubeVisual19Animation",
+      "viewerChange": "Ein Guthaben wächst; ein Schutzrahmen begleitet es bis zur markierten 100.000-Euro-Grenze und stoppt dort.",
+      "animationIntent": "Die gesetzliche Standardgrenze wird präzise und ohne Übertreibung visualisiert.",
+      "mechanicId": "deposit-protection-threshold",
+      "visualTechniqueId": "protected-cap-envelope",
+      "techniqueDescription": "Ein vertikaler Guthabenmeter steigt innerhalb einer grünen Schutzhülle; bei 100.000 Euro endet die Hülle sichtbar und die Grenze wird beschriftet.",
+      "compositionFamilyId": "data-viz",
+      "toolStack": [
+        "Remotion",
+        "SVG meter",
+        "counter interpolation"
+      ],
+      "motionSignature": {
+        "camera": "gentle elevation following meter",
+        "layout": "single vertical deposit meter inside protection shell",
+        "transformation": "deposit and protection rise together until fixed cap"
+      },
+      "motionChannels": [
+        "meter growth",
+        "protection boundary reveal"
+      ],
+      "visualBeats": [
+        "Guthaben wächst",
+        "Schutzrahmen folgt",
+        "100.000 € Grenze",
+        "Hinweis Anbieter prüfen"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "86da125c0f29a17ce6e9e6f5be896d38f906509336e56d669157260dbb272970"
+    },
+    {
+      "id": "visual-20",
+      "sourceFile": "04-projekt/VISUALS/visual-20/animation.tsx",
+      "exportName": "YouTubeVisual20Animation",
+      "viewerChange": "Auf einer vermischten Giroseite ziehen Konsumausgaben die Reserve mit herunter; nach räumlicher Trennung bleibt der Notgroschen unangetastet.",
+      "animationIntent": "Der psychologische Vorteil eines separaten Kontos wird als beobachtbares Verhalten gezeigt.",
+      "mechanicId": "reserve-separation-behavior",
+      "visualTechniqueId": "spending-contamination-vs-separation",
+      "techniqueDescription": "Eine grounded Szene teilt sich in zwei Zustände: links ein vermischter Geldbereich, rechts ein getrenntes Monatsbudget plus geschützte Reserve; Konsumimpulse wirken nur links auf alles.",
+      "compositionFamilyId": "simulation",
+      "toolStack": [
+        "Remotion",
+        "mask split",
+        "image compositing"
+      ],
+      "motionSignature": {
+        "camera": "split-state comparison with slight parallax",
+        "layout": "merged-money state left separated-money state right",
+        "transformation": "spending drains merged pool while reserve stays isolated"
+      },
+      "motionChannels": [
+        "spending drain",
+        "state separation reveal"
+      ],
+      "visualBeats": [
+        "alles auf Giro",
+        "Kauf zieht Gesamtbetrag runter",
+        "Konten trennen",
+        "Reserve bleibt"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "ecf926687608bb1933e46e79390f2b2fc18929c7099b1ac1d5238c920e25b11a"
+    },
+    {
+      "id": "visual-21",
+      "sourceFile": "04-projekt/VISUALS/visual-21/animation.tsx",
+      "exportName": "YouTubeVisual21Animation",
+      "viewerChange": "Ein weit entferntes großes Sparziel verliert Dominanz; eine nahe erste Sicherheitsstufe wird erreichbar und deckt eine typische Rechnung ab.",
+      "animationIntent": "Der Aufbau wird psychologisch und praktisch in einen erreichbaren ersten Schritt übersetzt.",
+      "mechanicId": "first-milestone-reframe",
+      "visualTechniqueId": "distant-goal-to-near-step",
+      "techniqueDescription": "Die Kamera blickt zunächst auf ein weit entferntes großes Ziel und fährt dann zurück zu einer nahen ersten Stufe, die durch eine Rechnung konkret begründet wird.",
+      "compositionFamilyId": "camera-journey",
+      "toolStack": [
+        "Remotion",
+        "CSS perspective",
+        "spring"
+      ],
+      "motionSignature": {
+        "camera": "dolly from distant goal back to near milestone",
+        "layout": "depth path with large far target and close first step",
+        "transformation": "attention reframes from total goal to first protective milestone"
+      },
+      "motionChannels": [
+        "camera dolly",
+        "milestone activation"
+      ],
+      "visualBeats": [
+        "großes fernes Ziel",
+        "erste Stufe erscheint",
+        "typische Rechnung abgedeckt"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "00f7d961d5b5f1ca6dfd1584a67bfca5e8be0e9a9dd9c165cf957c06145b25f9"
+    },
+    {
+      "id": "visual-22",
+      "sourceFile": "04-projekt/VISUALS/visual-22/animation.tsx",
+      "exportName": "YouTubeVisual22Animation",
+      "viewerChange": "Das Gehalt trifft ein und wird vor den Alltagsausgaben automatisch in Giro-Rest und Reserveanteil geteilt.",
+      "animationIntent": "Automatisierung wird als konkrete Reihenfolge sichtbar: erst sparen, dann ausgeben.",
+      "mechanicId": "salary-auto-routing",
+      "visualTechniqueId": "payday-automatic-switch",
+      "techniqueDescription": "Ein Gehaltsstrom trifft einen sichtbaren Umschaltpunkt, der einen festen Anteil sofort in die Reserve lenkt und den Rest auf dem Giro weiterführt.",
+      "compositionFamilyId": "physical-process",
+      "toolStack": [
+        "Remotion",
+        "SVG paths",
+        "spring"
+      ],
+      "motionSignature": {
+        "camera": "top-down routing view",
+        "layout": "salary rail splitting into reserve and giro lanes",
+        "transformation": "incoming salary is automatically diverted before spending lane"
+      },
+      "motionChannels": [
+        "salary flow",
+        "automatic route switch"
+      ],
+      "visualBeats": [
+        "Gehalt kommt",
+        "automatischer Split",
+        "Reserve bekommt Anteil",
+        "Rest bleibt verfügbar"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "d7b6ec7255c0b9c966397b376ff72649428dc4259fb6664d25bf45fec8a09431"
+    },
+    {
+      "id": "visual-23",
+      "sourceFile": "04-projekt/VISUALS/visual-23/animation.tsx",
+      "exportName": "YouTubeVisual23Animation",
+      "viewerChange": "Drei gleichwertige Sparraten bewegen sich auf dasselbe Beispielziel zu, erreichen es aber unterschiedlich schnell.",
+      "animationIntent": "Es wird keine Rate als richtig verkauft; nur der Einfluss der Höhe auf die Aufbaugeschwindigkeit wird gezeigt.",
+      "mechanicId": "savings-rate-timefield",
+      "visualTechniqueId": "rate-speed-comparison",
+      "techniqueDescription": "Drei horizontale Lanes mit 50, 100 und 200 Euro senden periodische Einzahlungsimpulse zum selben Ziel; höhere Rate verkürzt ausschließlich die Zeitachse.",
+      "compositionFamilyId": "data-viz",
+      "toolStack": [
+        "Remotion",
+        "SVG lanes",
+        "interpolate"
+      ],
+      "motionSignature": {
+        "camera": "horizontal sweep across three rate lanes",
+        "layout": "parallel savings lanes converging on same target",
+        "transformation": "deposit pulses advance at rate-dependent speed"
+      },
+      "motionChannels": [
+        "deposit pulse movement",
+        "time-to-target progression"
+      ],
+      "visualBeats": [
+        "50 €",
+        "100 €",
+        "200 €",
+        "unterschiedliche Geschwindigkeit gleiche Funktion"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "38fea209d8921b7e266417c77e2d1df483a4d5014ed8f9b434e128b934bd0d71"
+    },
+    {
+      "id": "visual-24",
+      "sourceFile": "04-projekt/VISUALS/visual-24/animation.tsx",
+      "exportName": "YouTubeVisual24Animation",
+      "viewerChange": "Kalendermonate wechseln; derselbe automatische Transfer wiederholt sich und die Reserve wächst sichtbar Stufe für Stufe.",
+      "animationIntent": "Die Kraft der Routine wird als wiederholbarer Prozess statt als Motivationstrick erklärt.",
+      "mechanicId": "recurring-month-cycle",
+      "visualTechniqueId": "calendar-reserve-cycle",
+      "techniqueDescription": "Monatskarten drehen nacheinander um; synchron löst jeder Monatswechsel denselben Transfer aus und erhöht einen physischen Reservestapel.",
+      "compositionFamilyId": "timeline",
+      "toolStack": [
+        "Remotion",
+        "CSS 3D",
+        "interpolate"
+      ],
+      "motionSignature": {
+        "camera": "rhythmic page-turn follow",
+        "layout": "calendar rail above reserve stack",
+        "transformation": "month flips trigger repeated reserve increments"
+      },
+      "motionChannels": [
+        "calendar progression",
+        "reserve stack growth"
+      ],
+      "visualBeats": [
+        "Monat 1",
+        "Monat 2",
+        "Monat 3",
+        "Routine läuft weiter"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "eee474884dba66fce81f91dc15c55d238d5be4e8651f6a5aad0a13be1a2c3d01"
+    },
+    {
+      "id": "visual-26",
+      "sourceFile": "04-projekt/VISUALS/visual-26/animation.tsx",
+      "exportName": "YouTubeVisual26Animation",
+      "viewerChange": "Ein voller Puffer bezahlt eine Reparatur, fällt kontrolliert ab und wächst danach durch neue automatische Einzahlungen wieder.",
+      "animationIntent": "Benutzung und Wiederaufbau werden als normaler Lebenszyklus des Notgroschens gezeigt.",
+      "mechanicId": "emergency-deplete-rebuild",
+      "visualTechniqueId": "reserve-breathing-cycle",
+      "techniqueDescription": "Ein großer Reservetank verliert bei der Reparatur einen klar definierten Teil und füllt sich anschließend durch mehrere grüne Einzahlungsimpulse wieder auf.",
+      "compositionFamilyId": "material-transformation",
+      "toolStack": [
+        "Remotion",
+        "SVG fill mask",
+        "spring"
+      ],
+      "motionSignature": {
+        "camera": "close focus on reserve vessel",
+        "layout": "reserve center with repair event sidecar",
+        "transformation": "controlled depletion followed by stepped refill"
+      },
+      "motionChannels": [
+        "reserve level change",
+        "rebuild pulse sequence"
+      ],
+      "visualBeats": [
+        "voller Puffer",
+        "Notfall bezahlt",
+        "Reserve niedriger",
+        "Wiederaufbau"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "035e54c3b25f8eb0983db62a97a4521a2fd3cf6ee894f69ad0a11678185382c1"
+    },
+    {
+      "id": "visual-27",
+      "sourceFile": "04-projekt/VISUALS/visual-27/animation.tsx",
+      "exportName": "YouTubeVisual27Animation",
+      "viewerChange": "Reparatur und Einkommenslücke treffen nacheinander auf die Reserve; sie werden absorbiert, während Dispo, Kredit und Depot dunkel und unangetastet bleiben.",
+      "animationIntent": "Die Zieldefinition wird als Belastungstest statt als magische Zahl gezeigt.",
+      "mechanicId": "stress-absorption-shield",
+      "visualTechniqueId": "shock-buffer-sequence",
+      "techniqueDescription": "Zwei große Stressereignisse bewegen sich auf einen zentralen Reservepuffer zu und werden dort abgefangen; rote Auswege hinter dem Puffer bleiben inaktiv.",
+      "compositionFamilyId": "simulation",
+      "toolStack": [
+        "Remotion",
+        "spring physics",
+        "SVG"
+      ],
+      "motionSignature": {
+        "camera": "incoming-event tracking toward buffer",
+        "layout": "reserve barrier between shocks and debt exits",
+        "transformation": "stress events are absorbed before reaching red exits"
+      },
+      "motionChannels": [
+        "shock arrivals",
+        "buffer response"
+      ],
+      "visualBeats": [
+        "Reparatur kommt",
+        "Einkommenslücke kommt",
+        "Reserve fängt ab",
+        "keine Schulden kein Depotverkauf"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "695c37c6b9007f04b5aca7a0580d5f5b7d2a9118bff8add353754e771bc718d3"
+    },
+    {
+      "id": "visual-28",
+      "sourceFile": "04-projekt/VISUALS/visual-28/animation.tsx",
+      "exportName": "YouTubeVisual28Animation",
+      "viewerChange": "Die Sicherheitszone baut sich vollständig auf und schließt; erst danach öffnet sich dahinter ein langer eigenständiger Investmentpfad.",
+      "animationIntent": "Die Reihenfolge Sicherheit vor langfristigem Investieren bildet den visuellen Payoff des Videos.",
+      "mechanicId": "security-gate-to-investment",
+      "visualTechniqueId": "gate-then-growth-path",
+      "techniqueDescription": "Eine leere Sicherheitszone füllt sich und verriegelt sichtbar; die Kamera fährt anschließend durch ein separates Tor auf einen langen Investmenthorizont.",
+      "compositionFamilyId": "camera-journey",
+      "toolStack": [
+        "Remotion",
+        "CSS perspective",
+        "SVG path"
+      ],
+      "motionSignature": {
+        "camera": "forward pass through completed safety gate",
+        "layout": "near safety chamber opening into long investment horizon",
+        "transformation": "reserve completes and unlocks separate growth path"
+      },
+      "motionChannels": [
+        "security completion",
+        "investment path reveal"
+      ],
+      "visualBeats": [
+        "Reserve unvollständig",
+        "Reserve funktioniert",
+        "Sicherheitszone stabil",
+        "Investmentpfad öffnet"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "75b033214463da5cc65563f9e0b96b5947053c6e2b20751fee834211617c6879"
+    }
+  ]
+}

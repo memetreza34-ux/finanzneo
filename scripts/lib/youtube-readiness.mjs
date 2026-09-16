@@ -17,7 +17,10 @@ import {requiresYouTubeImage, requiresYouTubeMotion, validateYouTubeMotionMetada
 export const AUDIO_EXTENSIONS = new Set(['.mp3', '.wav', '.aiff', '.aif', '.m4a']);
 export const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
 
-const PLACEHOLDER_PATTERN = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|TITLE|SOURCE|HOOK|VISUAL|CHAPTER|SCRIPT BEAT|CORE|PROMISE|TENSION|VIEWER|MECHANIC|TECHNIQUE|FAMILY|TOOL|CHANNEL|CAMERA|LAYOUT|TRANSFORMATION|START|RESULT|ANIMATION INTENT|CONTEXT)[^\]]*)\]/i;
+const PLACEHOLDER_PATTERN = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|TITLE|SOURCE|HOOK|VISUAL|CHAPTER|SCRIPT BEAT|CORE|PROMISE|TENSION|VIEWER|MECHANIC|TECHNIQUE|FAMILY|TOOL|CHANNEL|CAMERA|LAYOUT|TRANSFORMATION|START|RESULT|ANIMATION INTENT|CONTEXT)[^\]]*)\]/;
+// Ohne /i: Platzhalter sind in diesem Repo immer GROSSGESCHRIEBEN ([KURZER NAME],
+// [VISUAL BEAT EINFÜGEN]). Mit /i schlugen Code-Bezeichner in TSX-Array-Literalen an
+// — `[{label:'50 €', start:0}]` galt als Platzhalter, weil "label" auf LABEL passte.
 const readText = (path) => readFileSync(path, 'utf8');
 const isFile = (path) => existsSync(path) && statSync(path).isFile();
 const hasPlaceholder = (content) => PLACEHOLDER_PATTERN.test(content) || /\b(?:TODO|PLACEHOLDER)\b/i.test(content);
