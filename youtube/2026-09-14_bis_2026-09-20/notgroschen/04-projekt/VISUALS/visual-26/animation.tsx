@@ -1,18 +1,58 @@
 import React from 'react';
-import {interpolate, useCurrentFrame} from 'remotion';
-import {COLORS, MotionStage, Panel} from '../../motion-kit';
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {clamp01, COLORS, frameAt, Icon, MotionStage, PhysicalBill, PhysicalReserveTank, progressBetween, YouTubePhysicalStage} from '../../motion-kit';
 
 export const MECHANIC_ID = 'emergency-deplete-rebuild';
 export const VISUAL_TECHNIQUE_ID = 'reserve-breathing-cycle';
 export const COMPOSITION_FAMILY_ID = 'material-transformation';
-export const ANIMATION_NARRATIVE = {START:'Reserve ist gefüllt', MECHANISM:'Echte Reparatur senkt den Puffer, regelmäßige Einzahlungen starten erneut', RESULT:'Notgroschen wird planmäßig wieder aufgebaut'};
+export const ANIMATION_NARRATIVE = {START:'Volle Reserve', MECHANISM:'Der Notfall zieht Pegel ab, danach fuellen Raten ihn wieder auf', RESULT:'Reserve wieder auf Stand'};
 
 export const YouTubeVisual26Animation: React.FC = () => {
-  const frame=useCurrentFrame();
-  const depletion=interpolate(frame,[18,58],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); const rebuild=interpolate(frame,[66,126],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); const level=100-55*depletion+45*rebuild;
+  const frame = useCurrentFrame();
+  const {fps, durationInFrames} = useVideoConfig();
+
+  // Der Pegel selbst ist die Aussage: erst faellt er, dann steigt er in Stufen
+  // zurueck. Kein Balken, kein Textpfeil — ein Behaelter, der sich leert und fuellt.
+  const drain = progressBetween(frame, durationInFrames, 0.12, 0.40);
+  const refill = progressBetween(frame, durationInFrames, 0.52, 0.88);
+  const level = clamp01(1 - 0.55 * drain + 0.5 * refill);
+
+  const billLands = spring({frame: frame - frameAt(durationInFrames, 0.14), fps, config: {damping: 15, stiffness: 130}});
+  const refillPulse = spring({frame: frame - frameAt(durationInFrames, 0.56), fps, config: {damping: 18, stiffness: 110}});
+
   return <MotionStage>
-    <Panel style={{position:'absolute',left:300,top:180,width:600,height:720,padding:55,borderColor:COLORS.green}}><div style={{fontSize:42,fontWeight:900}}>Notgroschen</div><div style={{position:'absolute',left:80,right:80,bottom:70,height:510,borderRadius:34,border:`4px solid ${COLORS.line}`,overflow:'hidden'}}><div style={{position:'absolute',left:0,right:0,bottom:0,height:`${level}%`,backgroundColor:COLORS.green}}/></div></Panel>
-    <Panel style={{position:'absolute',right:260,top:300,width:560,height:220,padding:45,borderColor:COLORS.red,opacity:interpolate(frame,[12,34],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'})}}><div style={{fontSize:42,fontWeight:900}}>Reparatur bezahlt</div><div style={{fontSize:28,color:COLORS.gray,marginTop:22}}>dafür ist die Reserve da</div></Panel>
-    <div style={{position:'absolute',right:290,top:620,fontSize:40,fontWeight:900,color:COLORS.green,opacity:rebuild}}>↻ wieder auffüllen</div>
+    <YouTubePhysicalStage>
+      <PhysicalReserveTank x={700} y={300} fill={level} label="Notgroschen" width={300} height={430} />
+      <PhysicalBill
+        x={1180}
+        y={340 + billLands * 40}
+        amount="480 €"
+        label="Reparatur"
+        rotate={-6}
+        scale={0.85 + billLands * 0.1}
+        opacity={billLands}
+        paid={drain > 0.8}
+      />
+    </YouTubePhysicalStage>
+
+    {/* Die Rueckfuellung als drei sichtbare Stufen, nicht als Text. */}
+    {[0.58, 0.70, 0.82].map((at, index) => {
+      const step = progressBetween(frame, durationInFrames, at, at + 0.08);
+      return <div key={at} style={{
+        position: 'absolute',
+        left: 620,
+        top: 700 - index * 52,
+        width: 60 * step,
+        height: 10,
+        borderRadius: 5,
+        backgroundColor: COLORS.green,
+        opacity: step,
+      }} />;
+    })}
+
+    <div style={{position: 'absolute', left: 660, top: 790, display: 'flex', alignItems: 'center', gap: 16, opacity: refillPulse, transform: `translateY(${interpolate(refillPulse, [0, 1], [16, 0])}px)`}}>
+      <Icon name="repeat" size={44} color={COLORS.green} stroke={2.2} />
+      <span style={{fontSize: 34, fontWeight: 900, color: COLORS.green}}>wieder auffüllen</span>
+    </div>
   </MotionStage>;
 };

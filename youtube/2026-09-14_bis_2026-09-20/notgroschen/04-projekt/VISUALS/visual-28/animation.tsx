@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {COLORS, FinanceEyebrow, MotionStage, clamp01, frameAt, progressBetween} from '../../motion-kit';
+import {COLORS, FinanceEyebrow, Icon, MotionStage, clamp01, frameAt, progressBetween} from '../../motion-kit';
 
 export const MECHANIC_ID = 'security-gate-to-investment';
 export const VISUAL_TECHNIQUE_ID = 'gate-then-growth-path';
@@ -18,17 +18,22 @@ export const YouTubeVisual28Animation: React.FC = () => {
   const cameraX=interpolate(camera,[0,1],[0,-760]);
   const worldScale=interpolate(camera,[0,1],[1,1.045]);
 
+  // Diese Szene stammt aus der Zeit vor dem Layout V1 und war fuer den vollen
+  // 1080er Frame komponiert. YouTubeAnimationFrame zeigt nur y 180–900; ohne
+  // diese Einpassung werden Kopf- und Fusszeile der Szene abgeschnitten.
   return <MotionStage>
+    <div style={{position: 'absolute', inset: 0, transform: 'translateY(96px) scale(0.78)', transformOrigin: '50% 50%'}}>
     <div style={{position:'absolute',left:0,top:0,width:2800,height:1080,transform:`translateX(${cameraX}px) scale(${worldScale})`,transformOrigin:'center left'}}>
-      <FinanceEyebrow style={{position:'absolute',left:120,top:82}}>Die Reihenfolge macht den Unterschied</FinanceEyebrow>
-      <div style={{position:'absolute',left:120,top:142,fontSize:58,fontWeight:900}}>Erst Sicherheit. Dann langfristiger Aufbau.</div>
+      {/* Keine szeneneigene Ueberschrift: die Zwischenueberschrift kommt aus dem
+          Layout ueber YouTubeHeader. Zwei Ueberschriften uebereinander waren der
+          Fehler im ersten fertigen Video. */}
 
       <div style={{position:'absolute',left:150,top:300,width:650,height:500,borderRadius:64,border:`6px solid ${COLORS.green}`,overflow:'hidden',background:'#0A0D0F',boxShadow:'0 30px 70px rgba(0,0,0,0.42)'}}>
         <div style={{position:'absolute',left:0,right:0,bottom:0,height:`${fill*100}%`,background:'linear-gradient(180deg, rgba(45,216,129,0.32), rgba(45,216,129,0.68))'}}/>
         {[0.25,0.5,0.75].map(mark=><div key={mark} style={{position:'absolute',left:25,right:25,bottom:`${mark*100}%`,height:2,background:'rgba(255,255,255,0.14)'}}/>)}
         <div style={{position:'absolute',left:0,right:0,top:150,textAlign:'center',fontSize:31,color:'#DDF8EA',fontWeight:800}}>NOTGROSCHEN</div>
         <div style={{position:'absolute',left:0,right:0,top:205,textAlign:'center',fontSize:76,fontWeight:900}}>Sicherheit</div>
-        <div style={{position:'absolute',left:0,right:0,bottom:48,textAlign:'center',fontSize:28,fontWeight:900,color:COLORS.green,opacity:secured}}>✓ Ziel erreicht</div>
+        <div style={{position:'absolute',left:0,right:0,bottom:48,display:'flex',alignItems:'center',justifyContent:'center',gap:12,fontSize:28,fontWeight:900,color:COLORS.green,opacity:secured}}><Icon name="check" size={32} color={COLORS.green} stroke={2.2} />Ziel erreicht</div>
       </div>
 
       <div style={{position:'absolute',left:900,top:250,width:170,height:610}}>
@@ -59,6 +64,7 @@ export const YouTubeVisual28Animation: React.FC = () => {
           <div style={{fontSize:29,fontWeight:900,marginTop:14,color:COLORS.gold}}>{item.label}</div>
         </div>;
       })}
+    </div>
     </div>
   </MotionStage>;
 };

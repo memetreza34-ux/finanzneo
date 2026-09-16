@@ -1,17 +1,77 @@
 import React from 'react';
-import {interpolate, useCurrentFrame} from 'remotion';
-import {COLORS, MotionStage} from '../../motion-kit';
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {clamp01, COLORS, frameAt, MotionStage, PhysicalCoinStack, PhysicalObject, progressBetween, YouTubePhysicalStage} from '../../motion-kit';
 
 export const MECHANIC_ID = 'savings-rate-timefield';
 export const VISUAL_TECHNIQUE_ID = 'rate-speed-comparison';
 export const COMPOSITION_FAMILY_ID = 'data-viz';
-export const ANIMATION_NARRATIVE = {START:'Drei mögliche Beispielraten', MECHANISM:'Alle bewegen sich auf dasselbe Ziel mit unterschiedlicher Geschwindigkeit', RESULT:'Passende Rate beeinflusst Tempo, nicht die Funktion'};
+export const ANIMATION_NARRATIVE = {START:'Drei leere Stapel, ein gemeinsames Ziel', MECHANISM:'Jede Rate legt Geld nach, unterschiedlich schnell', RESULT:'Alle erreichen dasselbe Ziel, nur zu verschiedenen Zeitpunkten'};
+
+/** Beispielraten aus dem Skript. Die Zielhöhe ist für alle drei dieselbe. */
+const RATES = [
+  {label: '50 €', share: 0.45, y: 300},
+  {label: '100 €', share: 0.72, y: 480},
+  {label: '200 €', share: 1.0, y: 660},
+];
 
 export const YouTubeVisual23Animation: React.FC = () => {
-  const frame=useCurrentFrame();
-  const rows=[{label:'50 €',speed:0.55,y:300},{label:'100 €',speed:0.78,y:510},{label:'200 €',speed:1,y:720}];
+  const frame = useCurrentFrame();
+  const {fps, durationInFrames} = useVideoConfig();
+
+  // Kein Fortschrittsbalken: echtes Geld stappelt sich unterschiedlich schnell
+  // auf dieselbe Ziellinie. Was man vergleicht, ist die Zeit bis dorthin.
+  const fill = progressBetween(frame, durationInFrames, 0.10, 0.82);
+  const targetLine = progressBetween(frame, durationInFrames, 0.04, 0.16);
+
   return <MotionStage>
-    <div style={{position:'absolute',left:180,top:120,fontSize:44,fontWeight:900}}>Beispielraten – keine davon ist „die richtige“</div>
-    {rows.map((row)=>{const p=interpolate(frame,[10,110/row.speed],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});return <div key={row.label}><div style={{position:'absolute',left:200,top:row.y-20,fontSize:42,fontWeight:900,width:160}}>{row.label}</div><div style={{position:'absolute',left:400,top:row.y,width:1180,height:24,borderRadius:12,backgroundColor:COLORS.line}}/><div style={{position:'absolute',left:400,top:row.y,width:1180*p,height:24,borderRadius:12,backgroundColor:COLORS.green}}/><div style={{position:'absolute',left:400+1180*p-22,top:row.y-10,width:44,height:44,borderRadius:22,backgroundColor:COLORS.gold}}/><div style={{position:'absolute',left:1610,top:row.y-22,fontSize:30,color:p>=0.99?COLORS.green:COLORS.gray}}>Ziel</div></div>;})}
+    {/* Gemeinsame Ziellinie, gegen die alle drei laufen. */}
+    <div style={{
+      position: 'absolute',
+      left: 1360,
+      top: 260,
+      width: 6,
+      height: 480 * targetLine,
+      backgroundColor: COLORS.green,
+      opacity: 0.55,
+    }} />
+    <div style={{position: 'absolute', left: 1400, top: 258, fontSize: 28, color: COLORS.green, opacity: targetLine}}>Ziel</div>
+
+    <YouTubePhysicalStage>
+      {RATES.map((rate, index) => {
+        const reached = clamp01(fill / rate.share);
+        const arrive = spring({frame: frame - frameAt(durationInFrames, 0.10 + rate.share * 0.72), fps, config: {damping: 16, stiffness: 130}});
+        const x = interpolate(reached, [0, 1], [330, 1300]);
+        return (
+          <React.Fragment key={rate.label}>
+            {/* Sichtbare Bahn, damit der zurueckgelegte Weg lesbar wird. */}
+            <PhysicalObject
+              x={330}
+              y={rate.y + 34}
+              width={990}
+              height={8}
+              material="structure"
+              opacity={0.5}
+            />
+            <PhysicalObject
+              x={180}
+              y={rate.y}
+              width={130}
+              height={92}
+              material={reached >= 1 ? 'positive' : 'money'}
+            >
+              <div style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 34, fontWeight: 900}}>
+                {rate.label}
+              </div>
+            </PhysicalObject>
+            <PhysicalCoinStack
+              x={x}
+              y={rate.y - 96 - arrive * 10}
+              count={Math.max(1, Math.round(1 + reached * 6))}
+              scale={0.85}
+            />
+          </React.Fragment>
+        );
+      })}
+    </YouTubePhysicalStage>
   </MotionStage>;
 };
