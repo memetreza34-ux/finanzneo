@@ -4,6 +4,13 @@ YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
 STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
+LITERAL_REAL_WORLD_SITUATION: Langfristiges Investieren bedeutet einen langen Anlagehorizont mit möglichen Schwankungen über die Zeit.
+REAL_WORLD_CONTEXT_ANCHOR: Eine klar lesbare Zeitachse mit mehreren Jahren statt kurzfristigem Kontozugriff.
+VOICEOVER_VISUAL_MATCH: Das Bild unterstützt die Aussage, dass langfristiges Investment eine andere Aufgabe und einen längeren Zeithorizont als der Notgroschen hat.
+TRANSFERABILITY_TEST: Ohne Voiceover ist sofort sichtbar, dass Geld über einen langen Zeitraum investiert bleibt und Schwankungen durchläuft.
+VISUAL_STRATEGY: Literal first, creative second — Zeitverlauf zuerst, stylisierte 3D-Inszenierung danach.
+METAPHOR_JUSTIFICATION: Die physische 3D-Zeitachse ist eine direkte Visualisierung von Zeit, keine losgelöste Finanzmetapher.
+
 Use Image 01 as the DIRECT style reference. Match its animated-feature 3D materials, lighting and depth. Do not use a realistic finance desk.
 
 CORE IDEA
