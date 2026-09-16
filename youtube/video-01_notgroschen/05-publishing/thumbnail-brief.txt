@@ -19,4 +19,4 @@ Nur eine kurze Textzeile verwenden. Text nicht von Flow generieren lassen.
 4. Gesicht ist nicht nötig; Objektgeschichte muss allein funktionieren
 
 ## Stil
-FinanzNeo grounded stylized 3D black. Starker Kontrast, große Objekte, wenig Clutter, kontrolliertes Grün für Reserve und Rot-Orange für Kosten.
+`finanzneo-youtube-animated-feature-3d-v1`. Bild 01 ist der direkte Stilanker. Premium cineastischer, klar stilisierter 3D-Animationsfilm-Look: gerundete vereinfachte Formen, weiche Materialien, starke Silhouetten, tiefschwarze Bühne und kontrollierte Tiefenwirkung. Kein Foto-, Stock-, Produktwerbe- oder semi-fotorealistischer Look. Grün nur für Schutz/Reserve, Rot-Orange für Kosten/Risiko.
