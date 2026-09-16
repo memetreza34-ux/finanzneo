@@ -4,6 +4,13 @@ YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
 STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
+LITERAL_REAL_WORLD_SITUATION: Alltagsgeld und Notgroschen liegen bewusst auf getrennten Konten.
+REAL_WORLD_CONTEXT_ANCHOR: Zwei klar getrennte Konto-/Geldbereiche mit Girokonto links und Tagesgeld/Notgroschen rechts.
+VOICEOVER_VISUAL_MATCH: Das Bild unterstützt die Empfehlung, die Reserve vom normalen Monatsbudget sichtbar zu trennen.
+TRANSFERABILITY_TEST: Ohne Voiceover ist sofort erkennbar, dass Alltagsgeld und Notfallreserve zwei getrennte Bereiche sind.
+VISUAL_STRATEGY: Literal first, creative second — Kontentrennung zuerst, stilisierte physische 3D-Objekte danach.
+METAPHOR_JUSTIFICATION: Die Container sind eine direkte räumliche Darstellung von Kontentrennung, keine losgelöste Metapher.
+
 Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly.
 
 CORE IDEA
