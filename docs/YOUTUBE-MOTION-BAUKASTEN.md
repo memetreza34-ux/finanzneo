@@ -11,6 +11,35 @@ Der Pfad ist in jedem Projekt gleich. `04-projekt/motion-kit.tsx` ist nur ein We
 
 Vorher hatte jedes Projekt eine eigene kleine `motion-kit.tsx` mit genau drei Dingen: Bühne, Panel, Farben. Phase 1 hatte damit nichts als beschriftete Kästen zur Hand — und genau die verbietet `CLAUDE.md` Abschnitt 11 als Hauptsprache. Die Bibliothek mit 149 Komponenten, 27 Icons und 14 Lottie-Dateien lag ungenutzt daneben.
 
+## Composition und Timeline
+
+`src/youtube/timeline.ts` leitet die Szenen ab, `src/youtube/YouTubeVideo.tsx` rendert sie.
+
+**Schnitte folgen den Satzgrenzen aus `word-timings.json`.** Eine Szene läuft von einem Satzanfang bis zum Ende ihres letzten Satzes. Dadurch werden Szenen automatisch unterschiedlich lang, und der Ton liegt nie mitten in einem Schnitt.
+
+Jedes Visual bekommt dafür in `visual-index.json` eine `sentenceSpan`:
+
+```json
+{"id": "visual-01", "type": "image", "sentenceSpan": {"from": 1, "to": 3}}
+```
+
+Fehlt sie, teilt der Builder die Sätze der Reihe nach zu und schreibt für **jede** so erzeugte Szene einen Hinweis in `timeline.notes`. Diese Hinweise sind vor dem Render zu lesen — die Zuteilung kennt den Inhalt nicht.
+
+`validateYouTubeTimeline` prüft:
+
+- keine Lücke und keine Überlappung zwischen Szenen
+- keine Szene kürzer als ein Szenenwechsel braucht
+- **nicht alle Szenen exakt gleich lang** — dann folgte der Schnitt einem Raster statt dem Voiceover
+- Timeline-Länge passt auf 1,5 s zur Audiolänge
+
+**Bindung wie beim Reel.** Jede Animations-, Hybrid- und Data-Szene braucht einen Eintrag in `animations`. Fehlt einer, bricht der Render hart ab — kein Text-, CTA- oder Schwarzbild-Ersatz. `missingYouTubeBindings` und `missingYouTubeImages` melden alles gesammelt, bevor gebündelt wird.
+
+**Assets** liegen unter `public/<assetBase>/images/` und `public/<assetBase>/audio/`, referenziert über `staticFile` — dasselbe Muster wie bei den Reels.
+
+Szenenwechsel laufen über eine kurze Deckkraft- und Versatzüberlappung. **Schwarzblenden sind verboten**: auf einer schwarzen Welt wirken sie wie ein Aussetzer.
+
+Zum Anschauen: `YouTubeVideoDemo` im Studio — Bildszene, Animationsszene und Hybrid aus einer echten Timeline.
+
 ## Layout V1 — 1920 × 1080
 
 Kanonische Quelle: `src/youtube/layout.ts`. Projekte überschreiben diese Werte nicht.
