@@ -9,6 +9,7 @@ import {
   GENERATED_IMAGE_ASPECT_RATIO,
   ALL_PROMPTS,
   EXPORT_DIRECTORY,
+  PROJECT_DIRECTORY,
   IMAGE_INBOX,
   IMAGE_WORLD_FILE,
   SCRIPT_FILE,
@@ -88,7 +89,49 @@ const thumbnailPrompt = `${flowStep(thumbnailFileName, 'Use the approved FinanzN
 
 const motionTemplate = (index, type) => {
   const exportName = exportNameFor(index);
-  return `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\n\nexport const MECHANIC_ID = '[MECHANIC_ID]';\nexport const VISUAL_TECHNIQUE_ID = '[VISUAL_TECHNIQUE_ID]';\nexport const COMPOSITION_FAMILY_ID = '[COMPOSITION_FAMILY_ID]';\nexport const ANIMATION_NARRATIVE = {\n  START: '[START STATE]',\n  MECHANISM: '[VISIBLE CHANGE]',\n  RESULT: '[CLEAR RESULT]',\n};\n\nexport const ${exportName}: React.FC = () => {\n  const frame = useCurrentFrame();\n  const progress = interpolate(frame, [0, 30], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});\n  return (\n    <AbsoluteFill>\n      {/* PLACEHOLDER: replace in Phase 1 with production-ready ${type} motion chosen from viewerChange, not from a preset animation list. */}\n      <div style={{opacity: progress}}>[EINFÜGEN]</div>\n    </AbsoluteFill>\n  );\n};\n`;
+  return [
+    `import React from 'react';`,
+    `import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';`,
+    `import {COLORS, Icon, MotionStage, PhysicalBill, progressBetween} from '../../motion-kit';`,
+    ``,
+    `// Verfügbar aus '../../motion-kit' — Inventar: docs/YOUTUBE-MOTION-BAUKASTEN.md`,
+    `//   Icon             27 Stroke-Icons, semantisch einfärbbar`,
+    `//   LottieBox        14 lokale Lottie-Dateien, Pfad über lottieFile('zeit')`,
+    `//   Physical*        Bill, Account, Washer, ReserveTank, CalendarPage, CoinStack, Rail, Tag`,
+    `//   progressBetween  Beats als Anteil der Szenendauer, damit Phase 3 retimen kann`,
+    `//   MotionStage      schwarze Bühne. Panel ist ein Rahmen, keine Erklärung.`,
+    `//`,
+    `// Eine Szene aus beschrifteten Kästen, Fortschrittsbalken oder reinem Text ist`,
+    `// laut CLAUDE.md Abschnitt 11 keine gültige Animation. Die Mechanik muss ein`,
+    `// sichtbarer physischer Vorgang mit Startzustand, Veränderung und Ergebnis sein.`,
+    ``,
+    `export const MECHANIC_ID = '[MECHANIC_ID]';`,
+    `export const VISUAL_TECHNIQUE_ID = '[VISUAL_TECHNIQUE_ID]';`,
+    `export const COMPOSITION_FAMILY_ID = '[COMPOSITION_FAMILY_ID]';`,
+    `export const ANIMATION_NARRATIVE = {`,
+    `  START: '[START STATE]',`,
+    `  MECHANISM: '[VISIBLE CHANGE]',`,
+    `  RESULT: '[CLEAR RESULT]',`,
+    `};`,
+    ``,
+    `export const ${exportName}: React.FC = () => {`,
+    `  const frame = useCurrentFrame();`,
+    `  const {fps, durationInFrames} = useVideoConfig();`,
+    `  const enter = progressBetween(frame, durationInFrames, 0.05, 0.25);`,
+    `  const settle = spring({frame: frame - 30, fps, config: {damping: 16, stiffness: 140}});`,
+    `  const lift = interpolate(enter, [0, 1], [18, 0]);`,
+    `  return (`,
+    `    <MotionStage>`,
+    `      {/* Phase 1 ersetzt diesen Block durch die produktionsreife ${type}-Mechanik,`,
+    `          gewählt aus dem viewerChange und nicht aus einer Preset-Liste. */}`,
+    `      <PhysicalBill x={760} y={480} amount="[BETRAG]" scale={0.9 + 0.1 * settle} />`,
+    `      <Icon name="euro" size={96} color={COLORS.gold} style={{position: 'absolute', left: 540, top: 470, opacity: enter}} />`,
+    `      <div style={{position: 'absolute', left: 540, top: 760, fontSize: 34, color: COLORS.gray, opacity: enter, transform: 'translateY(' + lift + 'px)'}}>[EINFÜGEN]</div>`,
+    `    </MotionStage>`,
+    `  );`,
+    `};`,
+    ``,
+  ].join('\n');
 };
 
 const visuals = types.map((type, index) => {
@@ -161,6 +204,17 @@ const promptSections = visuals.map((visual, index) => {
 write(`${ZIP_INBOX}/README.md`, '# FLOW-ZIP HIER REIN\n\nDie von Google Flow heruntergeladene ZIP-Datei hier ablegen. Danach:\n\n```bash\nnpm run youtube:images:import -- ${targetArg}\n```\n\nDer Import entpackt die ZIP, prueft jeden Dateinamen gegen visual-index.json und legt die geprueften Bilder in die Bilder-Inbox.\n');
 write(`${IMAGE_INBOX}/README.md`, '# ALLE BILDER HIER REIN\n\nHier liegen am Ende alle exakt benannten 16:9-Bilder und das Thumbnail.\n');
 write(`${EXPORT_DIRECTORY}/README.md`, '# EXPORT\n\nHier landet das fertige Video, das Thumbnail und das komplette Upload-Paket: Titel, Beschreibung, Kapitel, Keywords, Hashtags und die Social-Texte unter social/.\n');
+const kitImport = relative(resolve(root, PROJECT_DIRECTORY), resolve('src/youtube/motion-kit')).split(sep).join('/');
+write(`${PROJECT_DIRECTORY}/motion-kit.tsx`, [
+  `// Projekt-Zugang zum gemeinsamen YouTube Motion Kit.`,
+  `//`,
+  `// Der Importpfad '../../motion-kit' bleibt für jede animation.tsx stabil, auch`,
+  `// wenn sich der Baukasten weiterentwickelt. Inhalt gehört nach`,
+  `// src/youtube/motion-kit.tsx, nicht hierher.`,
+  `export * from '${kitImport}';`,
+  ``,
+].join('\n'));
+
 write('README.md', `# ${title}\n\nEigenständiges YouTube-Longform-Projekt. Kein Reel und kein YouTube Short.\n\n## Drei Phasen\n\n1. ChatGPT vervollständigt Recherche, Skript, Visual Beats, Visualtypen, alle Bildprompts und jede Motion-Szene als produktionsreife animation.tsx. Motion V3 arbeitet Viewer-change-first und hat keine feste Animationsbibliothek oder erlaubte Familienliste.\n2. Der Nutzer erstellt Thumbnail und alle benötigten 16:9-Bilder einzeln mit Google Flow, benennt sie sofort exakt um und legt sie gemeinsam in \`${IMAGE_INBOX}/\`. Danach genau ein finales Voiceover plus echte Wort-Timings.\n3. Nach Motion-Validation + Phase-1-Seal prüft \`npm run youtube:ready -- ${targetArg}\` alles. Phase 3 integriert die versiegelte Motion, retimed sie zum echten Voiceover und übernimmt QA/Render, ohne die Mechanik kreativ zu ersetzen.\n`);
 write('04-projekt/briefing.md', '# Briefing\n\n- Thema: [THEMA]\n- Zielgruppe: Finanzanfänger\n- Lernziel: [EINFÜGEN]\n- Kernversprechen: [EINFÜGEN]\n- Warum Longform nötig ist: [EINFÜGEN]\n- Datenstand: [EINFÜGEN]\n');
 write('04-projekt/quellen.md', '# Recherche und Quellen\n\n[GEPRÜFTE QUELLEN, DATENSTAND, ANNAHMEN UND RECHENWEGE EINFÜGEN]\n');
