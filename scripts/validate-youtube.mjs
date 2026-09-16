@@ -135,7 +135,7 @@ if (index) {
       assert(typeof visual.googleFlowFileName === 'string' && visual.googleFlowFileName.trim(), `${id}: googleFlowFileName fehlt.`);
       assert(!imageFileNames.has(visual.googleFlowFileName), `${id}: googleFlowFileName ist doppelt.`);
       imageFileNames.add(visual.googleFlowFileName);
-      const imagePlan = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
+      const imagePlan = visual.planFile;
       assert(typeof imagePlan === 'string' && imagePlan.endsWith('/bildprompt.txt') && existsSync(resolve(root, imagePlan)), `${id}: bildprompt.txt fehlt.`);
       if (typeof imagePlan === 'string' && existsSync(resolve(root, imagePlan))) {
         const prompt = readFileSync(resolve(root, imagePlan), 'utf8');

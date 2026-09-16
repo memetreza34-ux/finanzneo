@@ -3,20 +3,20 @@
 Ziel: ca. 28 Hauptvisuals mit ungefähr 55–70 tatsächlich sichtbaren Zustandsänderungen. Keine feste Sekundentaktung; finale Dauer folgt dem Voiceover.
 
 ## V01 — Waschmaschine kaputt
-- Typ: hybrid
+- Typ: image
 - Script Beat: „Stell dir vor, morgen geht deine Waschmaschine kaputt. 480 Euro Reparatur.“
 - Viewer Change: Eine glaubwürdige Waschecke wird etabliert; die defekte Maschine rückt in den Fokus und die konkrete Reparaturrechnung 480 € wird sichtbar.
 - Bildwelt: direkter Qualitätsanker aus dem freigegebenen Reel-Stil, aber horizontal neu komponiert.
 - Beats: Alltag normal → Defekt sichtbar → Rechnung 480 €.
 
 ## V02 — Kosten eskalieren
-- Typ: animation
+- Typ: image
 - Script Beat: „Zwei Tage später braucht dein Auto neue Bremsen. Und am Monatsende kommt noch eine Nachzahlung.“
 - Viewer Change: Eine einzelne unerwartete Ausgabe wird zu drei nacheinander eintreffenden Kostenblöcken.
 - Beats: 480 € Waschmaschine → + Bremsen → + Nachzahlung → Summe drückt Budget sichtbar zusammen.
 
 ## V03 — Falsche Auswege
-- Typ: animation
+- Typ: image
 - Script Beat: „...sofort deinen Dispo, einen Kredit oder dein Depot trifft.“
 - Viewer Change: Die Kosten suchen nacheinander drei Auswege; Dispo und Kredit werden rot, beim Depot wird ein Verkauf erzwungen.
 - Beats: Rechnung → Dispo → Kredit → Depotverkauf.
@@ -34,13 +34,13 @@ Ziel: ca. 28 Hauptvisuals mit ungefähr 55–70 tatsächlich sichtbaren Zustands
 - Beat: ein starkes, selbsterklärendes Standbild.
 
 ## V06 — Echte Notfälle
-- Typ: hybrid
+- Typ: image
 - Script Beat: Waschmaschine, Autoreparatur, unerwartete Rechnung, weniger Einkommen.
 - Viewer Change: Innerhalb einer zusammenhängenden Alltagsszene werden nacheinander die wirklich notwendigen Auslöser hervorgehoben.
 - Beats: Reparatur → Rechnung → Mobilität → Einkommenslücke.
 
 ## V07 — Aufgabe des Notgroschens
-- Typ: animation
+- Typ: image
 - Script Beat: „Sein Job ist nicht Rendite. Sein Job ist verfügbar zu sein.“
 - Viewer Change: Rendite-Symbolik tritt zurück; eine Reserve bleibt stabil und öffnet sich sofort für eine notwendige Ausgabe.
 - Beats: Rendite lockt → wird gedimmt → Reserve bleibt → Auszahlung möglich.
@@ -91,7 +91,7 @@ Ziel: ca. 28 Hauptvisuals mit ungefähr 55–70 tatsächlich sichtbaren Zustands
 - Bild: langfristige Anlage als ruhige, mehrjährige Finanzsituation; klar getrennt vom Notfallkonto.
 
 ## V16 — Der falsche Zeitpunkt
-- Typ: hybrid/data
+- Typ: image
 - Script Beat: Auto kaputt, während Depot 25 % im Minus steht.
 - Viewer Change: Depotkurve fällt; genau am Tiefpunkt erscheint die dringende Autoreparatur und erzwingt einen Verkauf.
 - Beats: Depot normal → -25 % → Reparatur erscheint → Verkauf markiert Verlust.
@@ -104,7 +104,7 @@ Ziel: ca. 28 Hauptvisuals mit ungefähr 55–70 tatsächlich sichtbaren Zustands
 - Beats: ein Geldtopf → kurzfristige Reserve → langfristiges Investment → verschiedene Zeitachsen.
 
 ## V18 — Tagesgeld als Parkplatz
-- Typ: hybrid
+- Typ: image
 - Script Beat: separates Tagesgeld, kurzfristiger Zugriff.
 - Viewer Change: Geld wird sichtbar vom Alltag-Giro auf ein separates Tagesgeldkonto verschoben; Verbindung bleibt erreichbar.
 - Beats: Giro → Transfer → Tagesgeld → Zugriff möglich.
@@ -116,13 +116,13 @@ Ziel: ca. 28 Hauptvisuals mit ungefähr 55–70 tatsächlich sichtbaren Zustands
 - Beats: Guthaben steigt → Schutzrahmen → 100.000 € Grenze.
 
 ## V20 — Warum nicht alles auf Giro?
-- Typ: hybrid
+- Typ: image
 - Script Beat: Reserve neben Monatsbudget wirkt wie frei verfügbares Geld.
 - Viewer Change: Auf dem Giro vermischt sich Reserve mit Konsumausgaben; nach Trennung bleibt ein klar beschrifteter Notgroschen unangetastet.
 - Beats: alles auf Giro → Konsumausgabe zieht Geld ab → Trennung → Reserve bleibt.
 
 ## V21 — Erste Sicherheitsstufe
-- Typ: animation
+- Typ: image
 - Script Beat: nicht mit riesigem Ziel starten; zuerst typische unerwartete Rechnung abfangen.
 - Viewer Change: Ein weit entferntes großes Ziel wird durch eine erreichbare erste Stufe ersetzt.
 - Beats: großes Ziel wirkt weit → erste Stufe erscheint → erste Rechnung abgedeckt.
@@ -157,7 +157,7 @@ Ziel: ca. 28 Hauptvisuals mit ungefähr 55–70 tatsächlich sichtbaren Zustands
 - Beats: voller Puffer → Ausgabe → niedrigere Reserve → Wiederaufbau.
 
 ## V27 — Wann ist genug?
-- Typ: animation
+- Typ: image
 - Script Beat: realistische Notfälle und kurze Durststrecke führen nicht sofort zu Schulden/Depotverkauf.
 - Viewer Change: Mehrere Stressereignisse treffen auf die Reserve; solange sie abgedeckt werden, bleiben Dispo/Kredit/Depot unangetastet.
 - Beats: Reparatur → Einkommenslücke → Reserve absorbiert → keine roten Auswege.

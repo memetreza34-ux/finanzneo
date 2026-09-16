@@ -32,13 +32,13 @@ Fehlt sie, teilt der Builder die Sätze der Reihe nach zu und schreibt für **je
 - **nicht alle Szenen exakt gleich lang** — dann folgte der Schnitt einem Raster statt dem Voiceover
 - Timeline-Länge passt auf 1,5 s zur Audiolänge
 
-**Bindung wie beim Reel.** Jede Animations-, Hybrid- und Data-Szene braucht einen Eintrag in `animations`. Fehlt einer, bricht der Render hart ab — kein Text-, CTA- oder Schwarzbild-Ersatz. `missingYouTubeBindings` und `missingYouTubeImages` melden alles gesammelt, bevor gebündelt wird.
+**Bindung wie beim Reel.** Jede Animations- und Data-Szene braucht einen Eintrag in `animations`. Fehlt einer, bricht der Render hart ab — kein Text-, CTA- oder Schwarzbild-Ersatz. `missingYouTubeBindings` und `missingYouTubeImages` melden alles gesammelt, bevor gebündelt wird.
 
 **Assets** liegen unter `public/<assetBase>/images/` und `public/<assetBase>/audio/`, referenziert über `staticFile` — dasselbe Muster wie bei den Reels.
 
 Szenenwechsel laufen über eine kurze Deckkraft- und Versatzüberlappung. **Schwarzblenden sind verboten**: auf einer schwarzen Welt wirken sie wie ein Aussetzer.
 
-Zum Anschauen: `YouTubeVideoDemo` im Studio — Bildszene, Animationsszene und Hybrid aus einer echten Timeline.
+Zum Anschauen: `YouTubeVideoDemo` im Studio — je eine Bild-, Animations- und Datenszene aus einer echten Timeline.
 
 ## Layout V1 — 1920 × 1080
 
@@ -167,7 +167,7 @@ line   #2A2F34   Kanten
 |---|---|---|
 | keine Pfeile oder Haken als Textzeichen (`↗︎` `↻` `✓`) | alle Motion-Visuals | Typografie ist kein Visual. Es gibt `Icon` mit `arrowRight`, `check`, `cross`, `trending` |
 | mindestens zwei unabhängige Motion-Treiber | alle Motion-Visuals | codeseitiges Gegenstück zu den zwei Motion Channels, die der Vertrag ohnehin verlangt |
-| sichtbare Transformation, nicht nur Fade und Zoom | nur `type: animation` | bei `hybrid` trägt das Flow-Bild und bei `data` der Chart einen Teil der Aussage; bei einer reinen Animation trägt die Bewegung sie allein |
+| sichtbare Transformation, nicht nur Fade und Zoom | nur `type: animation` | bei `data` trägt der Chart einen Teil der Aussage; bei einer reinen Animation trägt die Bewegung sie allein |
 
 Als sichtbare Transformation zählt: `translate`, `rotate`, `clipPath`, `strokeDash`, `skew`, `perspective`, ein interpoliertes SVG-`d`, oder eine frameabhängige Ausdehnung über `width`, `height`, `top`, `left`, `bottom`.
 

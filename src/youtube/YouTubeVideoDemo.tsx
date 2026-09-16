@@ -1,7 +1,7 @@
 // End-to-End-Sichtprüfung der YouTube-Composition.
 //
 // Baut aus synthetischen Satzgrenzen eine echte Timeline und rendert sie durch
-// YouTubeVideo: eine Bildszene, eine Animationsszene und ein Hybrid. Dient der
+// YouTubeVideo: je eine Bild-, Animations- und Datenszene. Dient der
 // Abnahme der Kette Timeline → Series → Layout, nicht der Produktion.
 
 import React from 'react';
@@ -38,8 +38,7 @@ const VISUALS: YouTubeVisual[] = [
   },
   {
     id: 'visual-03',
-    type: 'hybrid',
-    googleFlowFileName: 'YouTube Bild 01 - Probe.png',
+    type: 'data',
     animationExport: 'DemoHighlight',
     sentenceSpan: {from: 4, to: 4},
     headline: 'Bezahlt aus der Reserve',

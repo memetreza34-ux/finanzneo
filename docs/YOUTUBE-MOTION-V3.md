@@ -44,7 +44,6 @@ Erst danach darf eine Technik gewählt werden.
 
 - `image`: statisches 16:9-Flow-Bild
 - `animation`: vollständig native Remotion-Motion
-- `hybrid`: 16:9-Flow-Bild + bedeutungsvolle Remotion-Komposition
 - `data`: verifizierte Daten-/Chart-/Modellanimation
 
 Es gibt keine feste Szenenzahl und keine feste Bild-/Animationsquote.
@@ -62,7 +61,7 @@ docs/FINANZNEO-VISUAL-SELECTION-RULE.md
 Vor der Technik wird die Visualart gewählt:
 
 - einfache, zahlen-/datengetriebene Erklärung → **pure Remotion**
-- komplexe, reale oder räumliche Erklärung → **Flow image + Remotion hybrid**
+- komplexe, reale oder räumliche Erklärung → **Flow image**, ruhig und selbsterklärend
 - SVG → präzise Vektor-/Pfad-/Chartmechanik
 - Icons → semantischer Support
 - Lottie → kleine Support-Bewegung
@@ -130,7 +129,7 @@ These names are examples only. A scene may use a new `compositionFamilyId` witho
 
 ## Required Motion V3 metadata
 
-Every `animation`, `hybrid` or `data` visual defines:
+Every `animation` or `data` visual defines:
 
 ```text
 viewerChange
@@ -209,7 +208,7 @@ For every motion beat:
 1. Write `viewerChange` without naming a tool or existing component.
 2. Decide the explanatory mechanism.
 3. Classify the beat as simple/data-driven vs. complex/real-world/spatial.
-4. Select `animation`, `hybrid`, `data` or `image` using Visual Selection V1.
+4. Select `animation`, `data` or `image` using Visual Selection V1.
 5. Review the previous four motion visuals.
 6. Choose or invent the clearest technique.
 7. Record technique, tools and motion signature.
@@ -239,20 +238,13 @@ Do not cut on a fixed timer. Voiceover thought, visual information and chapter l
 
 A long visual is allowed when it continues to reveal meaningful information. A static state must not remain while several new spoken thoughts arrive without a visual reason.
 
-## Hybrid visuals
+## Kein Bild mit Animation
 
-Use `hybrid` when a strong Flow image provides the detailed FinanzNeo world and Remotion adds meaningful temporal information, for example:
+`hybrid` ist abgeschafft. Eine Szene ist ein Bild **oder** Bewegung, nie beides.
 
-- controlled 2.5D parallax
-- masks / focus reveals
-- value changes
-- selective object highlights
-- document annotations
-- before/after transitions
-- chart overlays
-- depth compositing
+Im ersten fertigen Video lag Remotion-Motion über randlosen Flow-Bildern: Rechtecke über unscharfen Bildern, Text über Text, ein abgeschnittener Betrag. Weder ruhiges Bild noch klare Mechanik.
 
-Do not add motion only to avoid a static image.
+Braucht ein Beat wirklich eine Zeitebene, wird er eine `animation` ohne Flow-Bild. Trägt eine Alltagssituation die Aussage, wird er ein `image` ohne Motion darüber. Zahlen und Kurven gehören nach `data`.
 
 ## Support layers: SVG, Icons, Lottie
 

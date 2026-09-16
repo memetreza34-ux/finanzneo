@@ -80,14 +80,15 @@ Neue Reels nutzen deshalb zusätzlich `finanzneo-reel-quality-guards-v1`, das di
 
 Wiederholung ist erlaubt, wenn sie für Vergleich/Kontinuität wirklich der beste Fit ist. Sie muss konkret inhaltlich begründet werden.
 
-## YouTube Longform — vier Typen statt zwei
+## YouTube Longform — drei Typen
 
-Reels haben ein hartes Entweder-oder. YouTube nicht: der Zuschauer sitzt länger, schaut mit Ton und verträgt aufeinander aufbauende Formen. `YOUTUBE_VISUAL_TYPES` kennt deshalb vier Werte.
+Auch YouTube hat ein hartes Entweder-oder: eine Szene ist ein Bild **oder** Bewegung, nie beides.
+
+`hybrid` gab es kurzzeitig als Longform-Ausnahme. Im fertigen Video wurde daraus weder ein ruhiges Bild noch eine klare Mechanik: Animationen lagen über randlosen Bildern, Text überlappte Text. Der Typ ist abgeschafft.
 
 ```text
 image      eine konkrete reale Situation, als Standbild sofort verständlich
 animation  eine Veränderung über Zeit; die Bewegung trägt die Erklärung allein
-hybrid     eine reale Situation, die zusätzlich eine Zeitebene braucht
 data       geprüfte Zahlen, Beträge, Kurven, Zeitachsen, Vergleiche
 ```
 
@@ -96,11 +97,11 @@ data       geprüfte Zahlen, Beträge, Kurven, Zeitachsen, Vergleiche
 ```text
 Sprechpunkt
 → Steckt eine Zahl darin, die stimmen muss?           → data
-→ Braucht der Zuschauer eine Veränderung über Zeit?
-    → trägt eine reale Situation sie mit?             → hybrid
-    → sonst                                           → animation
-→ Sonst: gibt es eine konkrete Alltagssituation?      → image
+→ Passiert wirklich etwas über Zeit?                  → animation
+→ Sonst                                               → image
 ```
+
+Im Zweifel Bild. Eine Alltagssituation als ruhiges Standbild ist fast immer verständlicher als eine Animation, die dieselbe Aussage in Bewegung übersetzt.
 
 ### IMAGE
 
@@ -109,11 +110,11 @@ Wenn ein starkes Standbild schneller verständlich ist als jede Bewegung: kaputt
 - das Flow-Bild ist das Hauptvisual
 - Zwischenüberschrift, Icon und optionaler Infotext kommen von Remotion
 - kurze deutsche Objektlabels im Bild sind erlaubt
-- keine Erkläranimation darüber — sonst ist es ein `hybrid`
+- keine Erkläranimation darüber. Braucht der Beat Bewegung, ist er eine `animation` ohne Bild
 
 ### ANIMATION
 
-Wenn der Zuschauer eine Veränderung, Aufteilung, Reihenfolge oder Ursache/Wirkung über Zeit sehen muss und keine reale Szene sie trägt.
+Wenn der Zuschauer eine Veränderung, Aufteilung, Reihenfolge oder Ursache/Wirkung über Zeit sehen muss — und ein Standbild sie nicht tragen kann.
 
 - eigenständige Remotion-Mechanik, kein Flow-Bild
 - Startzustand → sichtbarer Mechanismus → eindeutiges Ergebnis
@@ -121,18 +122,6 @@ Wenn der Zuschauer eine Veränderung, Aufteilung, Reihenfolge oder Ursache/Wirku
 - sichtbare Transformation, nicht nur Ein-/Ausblenden und Zoom
 
 Das prüft `youtube:animation:validate` am Code, nicht nur an den Metadaten.
-
-### HYBRID
-
-Die Longform-Ausnahme, die es für Reels nicht gibt. Nur wählen, wenn **beides** zutrifft: eine reale Situation trägt die Szene, **und** eine Zeitebene darüber macht sie nachweislich klarer.
-
-Beispiel: ein Auto mit abmontiertem Rad als Flow-Bild, darüber die fallende Depotkurve, die den Konflikt im Timing zeigt.
-
-- das Bild wird für die Animation komponiert: der Prompt lässt die nötige Fläche frei
-- die Animation ergänzt das Bild, sie wiederholt es nicht
-- ohne die Animation muss das Bild noch immer eine gültige Aussage haben
-
-Kein `hybrid`, nur weil ein Bild vorhanden ist. Dann ist es `image`.
 
 ### DATA
 
@@ -158,7 +147,7 @@ Grund: die Bildwelt verbietet erfundene Zahlen, und ein Bildmodell kann eine Zah
 
 ### Vielfalt über die Serie
 
-Nicht Szene für Szene derselbe Typ und nicht dieselbe Objektfamilie. Drei `image` hintereinander mit derselben Papierkarte sind eine Wiederholung, auch wenn die Motive verschieden heißen. `youtube:animation:validate` prüft Kamera, Layout und Transformation gegen die letzten vier Motion-Visuals.
+Nicht Szene für Szene dieselbe Objektfamilie. Drei `image` hintereinander mit derselben Papierkarte sind eine Wiederholung, auch wenn die Motive verschieden heißen. Mehrere Bildszenen nacheinander sind dagegen ausdrücklich in Ordnung, solange jede die Aussage sichtbar weiterführt. `youtube:animation:validate` prüft Kamera, Layout und Transformation gegen die letzten vier Motion-Visuals.
 
 ## Qualitätsfragen
 
@@ -175,4 +164,4 @@ Jeder Beat muss sichtbar mindestens eine konkrete Frage beantworten:
 
 > **Reels: entweder IMAGE oder ANIMATION.** Bilder bleiben ruhig und selbsterklärend; Animationen werden individuell aus dem Sprechpunkt entwickelt. SVG, Icons und Lottie sind Werkzeuge.
 >
-> **YouTube: image, animation, hybrid oder data.** Zahlen gehören nach Remotion, nie in ein Flow-Bild. Hybrid nur, wenn Bild und Zeitebene beide gebraucht werden. Jede Szene bekommt eine Zwischenüberschrift mit Icon, und Bilder werden so komponiert, dass die Kopfbahn frei bleibt.
+> **YouTube: image, animation oder data — nie Bild und Animation zusammen.** Zahlen gehören nach Remotion, nie in ein Flow-Bild. Im Zweifel Bild. Jede Szene bekommt eine Zwischenüberschrift mit Icon, und Bilder werden so komponiert, dass die Kopfbahn frei bleibt.

@@ -11,7 +11,7 @@ export type YouTubeSentence = {start: number; end: number; text?: string};
 
 export type YouTubeVisual = {
   id: string;
-  type: 'image' | 'animation' | 'hybrid' | 'data';
+  type: 'image' | 'animation' | 'data';
   chapter?: string;
   scriptBeat?: string;
   googleFlowFileName?: string;
@@ -191,6 +191,6 @@ export const missingYouTubeBindings = (timeline: YouTubeTimeline, availableIds: 
 /** Bildszenen ohne Dateinamen — dasselbe Prinzip wie bei den Animationen. */
 export const missingYouTubeImages = (timeline: YouTubeTimeline): string[] => (
   timeline.scenes
-    .filter((scene) => (scene.type === 'image' || scene.type === 'hybrid') && !scene.imageFileName)
+    .filter((scene) => scene.type === 'image' && !scene.imageFileName)
     .map((scene) => `${scene.id}: kein googleFlowFileName im Visual-Index.`)
 );

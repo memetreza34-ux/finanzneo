@@ -12,12 +12,15 @@ test('YouTube-Scaffolder erzeugt Motion V3 mit offener Technik und Viewer Change
       resolve('scripts/scaffold-finanzneo-youtube.mjs'),
       '--target', target,
       '--title', 'Motion V3 Test',
-      '--types', 'image,hybrid,animation,data',
+      '--types', 'image,animation,data',
     ], {encoding:'utf8'});
     assert.equal(run.status, 0, run.stderr || run.stdout);
-    assert.equal(existsSync(resolve(absolute, '04-projekt/VISUALS/visual-02/bildprompt.txt')), true);
+    // image / animation / data — visual-01 traegt den Bildprompt, visual-02 die
+    // Motion, visual-03 die Datennotiz. Bild UND Animation in einer Szene gibt es nicht.
+    assert.equal(existsSync(resolve(absolute, '04-projekt/VISUALS/visual-01/bildprompt.txt')), true);
+    assert.equal(existsSync(resolve(absolute, '04-projekt/VISUALS/visual-01/animation.tsx')), false);
     assert.equal(existsSync(resolve(absolute, '04-projekt/VISUALS/visual-02/animation.tsx')), true);
-    assert.equal(existsSync(resolve(absolute, '04-projekt/VISUALS/visual-04/data-notes.md')), true);
+    assert.equal(existsSync(resolve(absolute, '04-projekt/VISUALS/visual-03/data-notes.md')), true);
 
     const index = JSON.parse(readFileSync(resolve(absolute, '04-projekt/visual-index.json'), 'utf8'));
     assert.equal(index.version, 3);
@@ -29,7 +32,7 @@ test('YouTube-Scaffolder erzeugt Motion V3 mit offener Technik und Viewer Change
     assert.equal(index.motionStandard.compositionFamiliesAreExamplesOnly, true);
     assert.equal(index.motionStandard.motionSignatureRequired, true);
     assert.equal(index.motionStandard.recentMotionWindow, 4);
-    assert.deepEqual(index.visuals.map((visual: {type:string}) => visual.type), ['image','hybrid','animation','data']);
+    assert.deepEqual(index.visuals.map((visual: {type:string}) => visual.type), ['image','animation','data']);
 
     const hybrid = index.visuals[1];
     assert.equal(typeof hybrid.viewerChange, 'string');

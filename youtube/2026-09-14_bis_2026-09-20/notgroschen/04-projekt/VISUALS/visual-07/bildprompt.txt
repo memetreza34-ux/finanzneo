@@ -1,0 +1,53 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 07 - Verfuegbar statt Rendite.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: The reserve envelope lies open and within reach with a banknote already sliding out, while the depot letter sits far back, buried under other papers.
+REAL_WORLD_CONTEXT_ANCHOR: Household paperwork: what you can reach today versus what you cannot.
+VOICEOVER_VISUAL_MATCH: The line says the job is not return but being available when you need it.
+TRANSFERABILITY_TEST: PASS — one thing is reachable, the other is visibly far away and covered.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Der Job des Notgroschens ist Verfuegbarkeit, nicht Rendite.
+ONE RELATION: near and open against far and buried
+GERMAN LABELS (exactly these, nothing else): `Notgroschen`, `Depot`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood,
+no table surface, no room, no gradient backdrop.
+Ivory and gray neutral, emerald green for the reserve.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+An ivory envelope with an emerald wax seal lies open at the very front, a clearly recognizable green 100-euro
+banknote sliding halfway out, its denomination readable, folded once the way money sits in an envelope.
+Small printed label `Notgroschen`.
+Far behind it, deep in the black and much smaller, a German depot statement lies buried under a heavy stack of
+other papers, only one corner visible. Small tag `Depot`.
+The telling detail is the open envelope against the covered corner: one is ready, the other is not.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.

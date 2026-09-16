@@ -58,7 +58,7 @@ const SceneView: React.FC<{
   assetBase: string;
   animations?: YouTubeAnimationMap;
 }> = ({scene, assetBase, animations}) => {
-  const needsImage = scene.type === 'image' || scene.type === 'hybrid';
+  const needsImage = scene.type === 'image';
   const needsAnimation = scene.type !== 'image';
 
   let Animation: React.ComponentType | undefined;

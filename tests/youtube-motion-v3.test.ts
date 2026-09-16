@@ -5,11 +5,11 @@ import {YOUTUBE_MOTION_STANDARD_ID, requiresYouTubeImage, requiresYouTubeMotion,
 test('YouTube Motion V3 erlaubt Animation, Hybrid und Data ohne feste Animationsbibliothek', () => {
   assert.equal(YOUTUBE_MOTION_STANDARD_ID, 'finanzneo-youtube-motion-v3');
   assert.equal(requiresYouTubeMotion({type:'animation'}), true);
-  assert.equal(requiresYouTubeMotion({type:'hybrid'}), true);
+  assert.equal(requiresYouTubeMotion({type:'hybrid'}), false);
   assert.equal(requiresYouTubeMotion({type:'data'}), true);
   assert.equal(requiresYouTubeMotion({type:'image'}), false);
   assert.equal(requiresYouTubeImage({type:'image'}), true);
-  assert.equal(requiresYouTubeImage({type:'hybrid'}), true);
+  assert.equal(requiresYouTubeImage({type:'hybrid'}), false);
   assert.equal(requiresYouTubeImage({type:'animation'}), false);
 });
 
@@ -115,9 +115,9 @@ test('Bildsprache: reines Ein-/Ausblenden reicht für eine Animationsszene nicht
   const animation = validateYouTubeMotionSource({id: 'visual-01', type: 'animation'}, faded);
   assert.ok(animation.some((error) => error.includes('nur Ein-/Ausblenden und Zoom')));
 
-  // Bei hybrid trägt das Flow-Bild die Szene, die Bewegung hebt nur hervor.
-  const hybrid = validateYouTubeMotionSource({id: 'visual-01', type: 'hybrid'}, faded);
-  assert.ok(!hybrid.some((error) => error.includes('nur Ein-/Ausblenden und Zoom')));
+  // Bei data trägt der Chart einen Teil der Aussage, die Bewegung hebt nur hervor.
+  const data = validateYouTubeMotionSource({id: 'visual-08', type: 'data'}, faded);
+  assert.ok(!data.some((error) => error.includes('nur Ein-/Ausblenden und Zoom')));
 });
 
 test('Bildsprache: eine echte Mechanik mit zwei Treibern passiert sauber', () => {

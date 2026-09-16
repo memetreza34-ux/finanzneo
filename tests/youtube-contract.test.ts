@@ -28,7 +28,8 @@ test('YouTube verwendet dieselbe FinanzNeo-Welt, aber ein eigenes 16:9-Format', 
 
 test('YouTube Motion V3 trennt Longform-Motion von Reel-Pflichten und bleibt technikoffen', () => {
   assert.equal(YOUTUBE_MOTION_STANDARD_ID, 'finanzneo-youtube-motion-v3');
-  assert.deepEqual(YOUTUBE_VISUAL_TYPES, ['image', 'animation', 'hybrid', 'data']);
+  // Hartes Entweder-oder: ein Bild mit Erklaeranimation darueber gibt es nicht mehr.
+  assert.deepEqual(YOUTUBE_VISUAL_TYPES, ['image', 'animation', 'data']);
 });
 
 test('YouTube-Paket enthält Upload-Metadaten und vier Social-Promos', () => {

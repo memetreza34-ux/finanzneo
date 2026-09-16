@@ -43,14 +43,13 @@ npm run youtube:create -- --target youtube/<Woche>/<Thema> --title "Titel"
 Ohne `--types` wird bewusst **keine feste Visualzahl** vorgegeben. Phase 1 plant zuerst Skript und Visual Beats. Wenn die Visualtypen bereits feststehen, können sie beim Scaffold übergeben werden:
 
 ```bash
-npm run youtube:create -- --target youtube/<Woche>/<Thema> --title "Titel" --types image,hybrid,animation,data,image
+npm run youtube:create -- --target youtube/<Woche>/<Thema> --title "Titel" --types image,animation,data,image
 ```
 
 Erlaubt:
 
 - `image`
 - `animation`
-- `hybrid`
 - `data`
 
 Für Motion gilt V3: erst `viewerChange`, dann die beste Technik. Es gibt keine feste Animationsbibliothek und keine Whitelist für Composition Families.

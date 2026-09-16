@@ -141,12 +141,12 @@ test('Bindung: eine reine Bildszene braucht keine Animation, aber einen Dateinam
   assert.match(missing[0], /visual-02: kein googleFlowFileName/);
 });
 
-test('Bindung: ein Hybrid braucht beides', () => {
+test('Bindung: eine Datenszene braucht eine Animation, aber kein Bild', () => {
   const timeline = buildYouTubeTimeline(
-    [{id: 'visual-01', type: 'hybrid', animationExport: 'X', sentenceSpan: {from: 1, to: 4}}],
+    [{id: 'visual-08', type: 'data', animationExport: 'X', sentenceSpan: {from: 1, to: 4}}],
     sentences,
     30,
   );
-  assert.deepEqual(missingYouTubeImages(timeline), ['visual-01: kein googleFlowFileName im Visual-Index.']);
-  assert.deepEqual(missingYouTubeBindings(timeline, []), ['visual-01: animations["visual-01"] fehlt.']);
+  assert.deepEqual(missingYouTubeImages(timeline), []);
+  assert.deepEqual(missingYouTubeBindings(timeline, []), ['visual-08: animations["visual-08"] fehlt.']);
 });

@@ -1,0 +1,53 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 03 - Drei schlechte Auswege.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: Three real bank documents stand side by side as the three ways out someone reaches for without a reserve.
+REAL_WORLD_CONTEXT_ANCHOR: Ordinary German banking paperwork: overdraft, loan agreement, securities sale.
+VOICEOVER_VISUAL_MATCH: The line names overdraft, a loan or selling from the depot as poor spontaneous ways out.
+TRANSFERABILITY_TEST: PASS — three recognizable documents in a row, each marked as a cost, read as three bad doors.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Dispo, Kredit und Depotverkauf sind schlechte spontane Auswege.
+ONE RELATION: three doors, all of them expensive
+GERMAN LABELS (exactly these, nothing else): `Dispo`, `Kredit`, `Depotverkauf`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood,
+no table surface, no room, no gradient backdrop.
+Ivory and gray neutral, warm red-orange on all three cost marks.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+Three real German bank documents stand upright in a row, evenly spaced, each leaning slightly back as if being
+pushed away: a current account statement with an overdrawn balance marked in warm red-orange, small tag `Dispo`;
+a stapled loan agreement with an interest line marked the same way, small tag `Kredit`; a securities sale slip with a
+falling value line printed on it, small tag `Depotverkauf`.
+The telling detail is that all three carry the same red mark — whichever one you take, it costs.
+No emerald in this frame.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.

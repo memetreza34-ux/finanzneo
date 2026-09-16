@@ -1,0 +1,53 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 27 - Notfall ohne Schulden.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A repair invoice has been paid from the reserve envelope, and the loan agreement and the securities sale slip lie untouched and face down beside it.
+REAL_WORLD_CONTEXT_ANCHOR: The same paperwork as the bad ways out, but this time unused.
+VOICEOVER_VISUAL_MATCH: The line says a realistic emergency does not immediately lead to debt or selling from the depot.
+TRANSFERABILITY_TEST: PASS — the paid invoice next to two documents that were never needed.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Mit genug Reserve fuehrt ein Notfall nicht sofort zu Schulden.
+ONE RELATION: one document used, two left untouched
+GERMAN LABELS (exactly these, nothing else): `Bezahlt`, `Kredit`, `Depotverkauf`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood,
+no table surface, no room, no gradient backdrop.
+Ivory and gray neutral, emerald green on the paid stamp.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+In the foreground, a German repair invoice with a calm emerald paid stamp, small tag `Bezahlt`, resting against an
+opened ivory envelope with a broken emerald seal, visibly thinner but neatly kept.
+Beside them, pushed aside and lying face down with a light film of dust, a stapled loan agreement with a small tag
+`Kredit` and a securities sale slip with a small tag `Depotverkauf`.
+The telling detail is the dust: these two were never needed.
+No warm red-orange in this frame.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.

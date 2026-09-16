@@ -231,7 +231,7 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
       if (!Array.isArray(visual.objectLabels) || visual.objectLabels.some((label) => typeof label !== 'string' || !label.trim() || hasPlaceholder(label))) {
         phase1Blockers.push(`${VISUAL_INDEX}: ${id}.objectLabels fehlen oder enthalten Platzhalter.`);
       }
-      const imagePlanFile = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
+      const imagePlanFile = visual.planFile;
       if (typeof imagePlanFile !== 'string' || !imagePlanFile.trim()) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.image plan file fehlt.`);
       else checkCompletedText(root, imagePlanFile, phase1Blockers);
     }

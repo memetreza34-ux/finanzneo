@@ -1,8 +1,11 @@
 export const YOUTUBE_MOTION_STANDARD_ID = 'finanzneo-youtube-motion-v3';
 
-export const YOUTUBE_VISUAL_TYPES = ['image', 'animation', 'hybrid', 'data'];
-export const YOUTUBE_MOTION_VISUAL_TYPES = new Set(['animation', 'hybrid', 'data']);
-export const YOUTUBE_IMAGE_VISUAL_TYPES = new Set(['image', 'hybrid']);
+// Hartes Entweder-oder wie bei den Reels: eine Szene ist ein Bild ODER Bewegung.
+// `hybrid` gab es kurzzeitig als YouTube-Ausnahme; ein Bild mit Erklaeranimation
+// darueber ist in der Praxis weder ruhiges Bild noch klare Mechanik geworden.
+export const YOUTUBE_VISUAL_TYPES = ['image', 'animation', 'data'];
+export const YOUTUBE_MOTION_VISUAL_TYPES = new Set(['animation', 'data']);
+export const YOUTUBE_IMAGE_VISUAL_TYPES = new Set(['image']);
 
 // Beispiele zur Inspiration, ausdrücklich KEINE Whitelist.
 // Neue compositionFamilyId-Werte sind erlaubt, wenn sie die konkrete Szene besser beschreiben.
@@ -170,8 +173,8 @@ export const validateYouTubeMotionSource = (visual, source = '') => {
   if ((source.match(MOTION_DRIVERS) ?? []).length < 2) {
     errors.push(`${id}: mindestens zwei unabhängige Motion-Treiber (interpolate/spring/progressBetween) müssen die Szene steuern.`);
   }
-  // Bei hybrid und data tragen Bild beziehungsweise Chart einen Teil der Aussage.
-  // Bei einer reinen Animation trägt die Bewegung sie allein.
+  // Bei data traegt der Chart einen Teil der Aussage. Bei einer reinen Animation
+  // traegt die Bewegung sie allein.
   if (visual?.type === 'animation' && !REAL_TRANSFORMATION.test(source)) {
     errors.push(`${id}: nur Ein-/Ausblenden und Zoom. Eine Animationsszene braucht eine sichtbare Transformation.`);
   }

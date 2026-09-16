@@ -46,11 +46,10 @@ Skript
 → sinnvolle Gruppierung
 ```
 
-Erlaubte Visualtypen:
+Erlaubte Visualtypen — eine Szene ist ein Bild **oder** Bewegung, nie beides:
 
 - `image`
 - `animation`
-- `hybrid`
 - `data`
 
 ## Visual Selection V1

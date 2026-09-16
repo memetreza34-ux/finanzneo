@@ -46,7 +46,7 @@ const typesArg = valueOf('--types');
 const types = typesArg ? typesArg.split(',').map((value) => value.trim()).filter(Boolean) : [];
 
 if (!targetArg || !title) {
-  console.error('Nutzung: npm run youtube:create -- --target youtube/<Projekt> --title "Titel" [--types image,hybrid,animation,data,...]');
+  console.error('Nutzung: npm run youtube:create -- --target youtube/<Projekt> --title "Titel" [--types image,animation,data,...]');
   process.exit(1);
 }
 if (types.some((type) => !YOUTUBE_VISUAL_TYPES.includes(type))) {
@@ -190,10 +190,6 @@ const visuals = types.map((type, index) => {
     base.planFile = `${directory}/bildprompt.txt`;
   }
 
-  if (type === 'hybrid') {
-    base.imagePlanFile = `${directory}/bildprompt.txt`;
-    base.motionPlanFile = `${directory}/remotion.md`;
-  }
   if (type === 'data') {
     write(`${directory}/data-notes.md`, '# Daten / Rechenweg\n\n[GEPRÜFTE DATENQUELLE, WERTE, EINHEITEN, RECHENWEG UND DARSTELLUNGSGRENZEN EINFÜGEN]\n');
     base.dataNotesFile = `${directory}/data-notes.md`;
@@ -251,7 +247,7 @@ write(VISUAL_INDEX, `${JSON.stringify({
   antigravityGeneratesImages:false,
   googleFlow:{protocolId:FLOW_AGENT_PROTOCOL_ID,generationMode:'one-image-at-a-time',strictSequential:true,waitForCurrentImage:true,renameBeforeNext:true,qaBeforeNext:true,retrySameImageOnFailure:true,finalCollectionDirectory:`${IMAGE_INBOX}/`,distributeToVisualFolders:false},
   imageWorld:{id:WORLD_ID,seriesLockId:SERIES_LOCK_ID,generatedImageAspectRatio:GENERATED_IMAGE_ASPECT_RATIO,horizontalGeneratedImagesRequired:true,referencePromptFile:IMAGE_WORLD_FILE,styleReferenceStrategy:'canonical-youtube-image-world',sameWorldAcrossSeriesRequired:true,literalFirst:true,metaphorOptional:true,seamlessSingleBackgroundRequired:true,objectLabelsOnly:true},
-  motionStandard:{id:YOUTUBE_MOTION_STANDARD_ID,viewerChangeFirstRequired:true,openTechniqueSelection:true,compositionFamiliesAreExamplesOnly:true,motionSignatureRequired:true,recentMotionWindow:4,customReactAllowed:true,svgAllowed:true,css3dAllowed:true,canvasAllowed:true,threeAllowed:true,hybridAllowed:true,dataVisualizationAllowed:true,existingComponentsOptional:true,physicalPrimitivesOptional:true,semanticVariationRequired:true},
+  motionStandard:{id:YOUTUBE_MOTION_STANDARD_ID,viewerChangeFirstRequired:true,openTechniqueSelection:true,compositionFamiliesAreExamplesOnly:true,motionSignatureRequired:true,recentMotionWindow:4,customReactAllowed:true,svgAllowed:true,css3dAllowed:true,canvasAllowed:true,threeAllowed:true,dataVisualizationAllowed:true,existingComponentsOptional:true,physicalPrimitivesOptional:true,semanticVariationRequired:true},
   timelineRules:{timingSource:WORD_TIMINGS,cutsFollowVoiceAndChapters:true,equalLengthVisualsForbiddenByDefault:true,beatFirst:true},
   audio:{targetIntegratedLufs:-16,targetTruePeakDbtp:-1},
   publishing:{youtube:YOUTUBE_PUBLISHING_FILES,socialPromo:SOCIAL_PROMO_FILES},

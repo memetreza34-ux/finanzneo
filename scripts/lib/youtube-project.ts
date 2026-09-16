@@ -97,7 +97,7 @@ export const expectedImages = (index: YouTubeProject['index']) => {
   const thumbnail = (index as {thumbnail?: {googleFlowFileName?: string}}).thumbnail?.googleFlowFileName;
   if (typeof thumbnail === 'string') names.push(thumbnail);
   for (const visual of index.visuals ?? []) {
-    if ((visual.type === 'image' || visual.type === 'hybrid') && visual.googleFlowFileName) {
+    if (visual.type === 'image' && visual.googleFlowFileName) {
       names.push(visual.googleFlowFileName);
     }
   }

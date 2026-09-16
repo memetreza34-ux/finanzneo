@@ -13,7 +13,7 @@ ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
 - Hook, Kapitel-Dramaturgie und Retention-Plan
 - vollständiges deutsches Voiceover-Skript
 - gesprochene Gedanken und sichtbare Visual Beats
-- danach die beste Visualart je Beat: `image`, `animation`, `hybrid` oder `data`
+- danach die beste Visualart je Beat: `image`, `animation` oder `data` — eine Szene ist ein Bild **oder** Bewegung, nie beides
 - Visual-Plan ohne feste Visualzahl und ohne feste Bild-/Animationsquote
 - pro Szene eine **Zwischenüberschrift** (`headline`), ein **Icon** aus dem vorhandenen Satz (`icon`) und bei Bedarf eine Tonalität (`tone`)
 - pro Szene die **Satzzuordnung** (`sentenceSpan`): erster und letzter Satz **des eigenen Skripts**, 1-basiert und inklusiv — daraus entstehen später die Schnitte

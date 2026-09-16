@@ -88,7 +88,7 @@ const header = [
 const divider = '━'.repeat(60);
 
 const blocks = imageVisuals.map((visual, position) => {
-  const planFile = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
+  const planFile = visual.planFile;
   const body = read(planFile).trimEnd();
   return [
     divider,
