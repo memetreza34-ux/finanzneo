@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "project": "youtube/video-01_notgroschen",
+  "project": "youtube/2026-09-14_bis_2026-09-20/notgroschen",
   "purpose": "lightweight-phase2-handoff",
   "imagePromptFile": "02-bilder/alle-bildprompts.txt",
   "imageInbox": "02-bilder/00-ALLE-BILDER-HIER-REIN/",
@@ -32,7 +32,7 @@
     "04-projekt/remotion-plan.md",
     "src/"
   ],
-  "phase3StartCommand": "npm run youtube:ready -- youtube/video-01_notgroschen",
+  "phase3StartCommand": "npm run youtube:ready -- youtube/2026-09-14_bis_2026-09-20/notgroschen",
   "sourceVisualLanguage": "finanzneo-stylized-3d-animated-black-v9",
   "imageWorldDefinition": "config/finanzneo-image-worlds/finanzneo-youtube-cg-animated-black-v2.txt",
   "projectImageWorldFile": "02-bilder/bildwelt.txt",

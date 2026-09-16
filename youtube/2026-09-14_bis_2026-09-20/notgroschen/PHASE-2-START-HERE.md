@@ -91,5 +91,5 @@ Für das bloße Öffnen/Aktualisieren von Phase 2 sind **kein `npm install`, kei
 Erst wenn alle finalen Bilder, genau ein Voiceover und echte Wort-Zeitstempel vorhanden sind, startet die Phase-3-Prüfung mit:
 
 ```bash
-npm run youtube:ready -- youtube/video-01_notgroschen
+npm run youtube:ready -- youtube/2026-09-14_bis_2026-09-20/notgroschen
 ```
