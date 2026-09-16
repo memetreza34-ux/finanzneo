@@ -1,12 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {
-  requiresYouTubeImage,
-  requiresYouTubeMotion,
-  validateYouTubeMotionMetadata,
-  validateYouTubeMotionVariety,
-  YOUTUBE_MOTION_STANDARD_ID,
-} from '../scripts/lib/youtube-motion-contract.mjs';
+import {YOUTUBE_MOTION_STANDARD_ID, requiresYouTubeImage, requiresYouTubeMotion, validateYouTubeMotionMetadata, validateYouTubeMotionSource, validateYouTubeMotionVariety} from '../scripts/lib/youtube-motion-contract.mjs';
 
 test('YouTube Motion V3 erlaubt Animation, Hybrid und Data ohne feste Animationsbibliothek', () => {
   assert.equal(YOUTUBE_MOTION_STANDARD_ID, 'finanzneo-youtube-motion-v3');
@@ -98,4 +92,39 @@ test('Mehr als zwei gleiche freie Composition-Familien in Folge brauchen einen G
     motion({id:'visual-03', visualTechniqueId:'tech-3', mechanicId:'m3', techniqueDescription:'desc-3', motionSignature:{camera:'orbit',layout:'centered',transformation:'assemble'}}),
   ]);
   assert.ok(errors.some((error) => error.includes('mehr als zwei Motion-Visuals')));
+});
+
+test('Bildsprache: Pfeile als Textzeichen gelten nicht als Visual', () => {
+  const errors = validateYouTubeMotionSource(
+    {id: 'visual-07', type: 'animation'},
+    'const a = interpolate(f,[0,1],[0,1]); const b = spring({frame}); <div style={{transform:`translateX(${a}px)`}}>↗︎ mehr</div>',
+  );
+  assert.ok(errors.some((error) => error.includes('Pfeile oder Haken als Textzeichen')));
+});
+
+test('Bildsprache: eine Szene braucht zwei unabhängige Motion-Treiber', () => {
+  const errors = validateYouTubeMotionSource(
+    {id: 'visual-23', type: 'animation'},
+    'const p = interpolate(frame,[0,90],[0,1]); <div style={{transform:`translateY(${p}px)`}}/>',
+  );
+  assert.ok(errors.some((error) => error.includes('zwei unabhängige Motion-Treiber')));
+});
+
+test('Bildsprache: reines Ein-/Ausblenden reicht für eine Animationsszene nicht', () => {
+  const faded = 'const a = interpolate(f,[0,1],[0,1]); const b = spring({frame}); <div style={{opacity:a, transform:`scale(${b})`}}/>';
+  const animation = validateYouTubeMotionSource({id: 'visual-01', type: 'animation'}, faded);
+  assert.ok(animation.some((error) => error.includes('nur Ein-/Ausblenden und Zoom')));
+
+  // Bei hybrid trägt das Flow-Bild die Szene, die Bewegung hebt nur hervor.
+  const hybrid = validateYouTubeMotionSource({id: 'visual-01', type: 'hybrid'}, faded);
+  assert.ok(!hybrid.some((error) => error.includes('nur Ein-/Ausblenden und Zoom')));
+});
+
+test('Bildsprache: eine echte Mechanik mit zwei Treibern passiert sauber', () => {
+  const source = [
+    'const flip = progressBetween(frame, durationInFrames, 0.1, 0.3);',
+    'const settle = spring({frame: frame - 20, fps});',
+    '<div style={{transform:`rotateX(${-82 * flip}deg) translateY(${settle}px)`}}/>',
+  ].join('\n');
+  assert.deepEqual(validateYouTubeMotionSource({id: 'visual-24', type: 'animation'}, source), []);
 });

@@ -6,6 +6,7 @@ import {
   validateYouTubeMotionMetadata,
   validateYouTubeMotionVariety,
   YOUTUBE_MOTION_STANDARD_ID,
+  validateYouTubeMotionSource,
 } from './lib/youtube-motion-contract.mjs';
 import {VISUAL_INDEX} from './lib/youtube-contract.mjs';
 
@@ -81,6 +82,7 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
   if (!/ANIMATION_NARRATIVE/.test(source) || !/START/.test(source) || !/RESULT/.test(source)) {
     errors.push(`${id}: ANIMATION_NARRATIVE mit START und RESULT fehlt.`);
   }
+  errors.push(...validateYouTubeMotionSource(visual, source));
   const safeExport = String(visual.animationExport ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const exportPattern = new RegExp(`export\\s+(?:const|function)\\s+${safeExport}\\b`);
   if (!visual.animationExport || !exportPattern.test(source)) errors.push(`${id}: Export ${visual.animationExport ?? '(fehlt)'} wurde nicht gefunden.`);

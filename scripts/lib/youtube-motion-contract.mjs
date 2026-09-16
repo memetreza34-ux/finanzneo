@@ -144,3 +144,37 @@ export const validateYouTubeMotionVariety = (visuals = []) => {
 
   return errors;
 };
+
+// ── Bildsprache ─────────────────────────────────────────────────────────────
+// Die Metadaten eines Projekts können vielfältig sein, während der Code dahinter
+// aus Kästen, Balken und ein-/ausgeblendetem Text besteht. CLAUDE.md Abschnitt 11
+// verbietet genau das als Hauptsprache, aber die Vertragsprüfung allein sieht es
+// nicht — sie liest nur visual-index.json.
+
+/** Pfeile und Haken als Textzeichen. Dafür gibt es Icon und echte Objekte. */
+const TYPOGRAPHIC_SYMBOLS = /[\u2191-\u2199\u2194\u2195\u21BA\u21BB\u21E7\u21E9\u2794\u279C\u2713\u2714\u2717\u2718]/;
+
+/** Verschieben, drehen, aufdecken, Ausdehnung ändern. Fade und Zoom zählen nicht. */
+const REAL_TRANSFORMATION = /translate|rotate|clipPath|clip-path|strokeDash|skew|perspective|\bd=\{|height:\s*`|width:\s*`|bottom:\s*`|left:\s*`|top:\s*`/;
+
+/** Codeseitiges Gegenstück zu den zwei Motion Channels, die der Vertrag verlangt. */
+const MOTION_DRIVERS = /\b(?:interpolate|spring|progressBetween)\s*\(/g;
+
+export const validateYouTubeMotionSource = (visual, source = '') => {
+  const errors = [];
+  const id = visual?.id ?? 'Unbekanntes Visual';
+
+  if (TYPOGRAPHIC_SYMBOLS.test(source)) {
+    errors.push(`${id}: Pfeile oder Haken als Textzeichen sind kein Visual. Icon oder echtes Objekt verwenden.`);
+  }
+  if ((source.match(MOTION_DRIVERS) ?? []).length < 2) {
+    errors.push(`${id}: mindestens zwei unabhängige Motion-Treiber (interpolate/spring/progressBetween) müssen die Szene steuern.`);
+  }
+  // Bei hybrid und data tragen Bild beziehungsweise Chart einen Teil der Aussage.
+  // Bei einer reinen Animation trägt die Bewegung sie allein.
+  if (visual?.type === 'animation' && !REAL_TRANSFORMATION.test(source)) {
+    errors.push(`${id}: nur Ein-/Ausblenden und Zoom. Eine Animationsszene braucht eine sichtbare Transformation.`);
+  }
+
+  return errors;
+};

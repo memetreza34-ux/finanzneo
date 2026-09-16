@@ -103,6 +103,20 @@ panel  #111315   Panel-Fläche
 line   #2A2F34   Kanten
 ```
 
+## Was der Validator prüft
+
+`npm run youtube:animation:validate -- <Projekt>` prüft seit der Bildsprachen-Erweiterung nicht mehr nur den Vertrag in `visual-index.json`, sondern auch den Code:
+
+| Regel | gilt für | warum |
+|---|---|---|
+| keine Pfeile oder Haken als Textzeichen (`↗︎` `↻` `✓`) | alle Motion-Visuals | Typografie ist kein Visual. Es gibt `Icon` mit `arrowRight`, `check`, `cross`, `trending` |
+| mindestens zwei unabhängige Motion-Treiber | alle Motion-Visuals | codeseitiges Gegenstück zu den zwei Motion Channels, die der Vertrag ohnehin verlangt |
+| sichtbare Transformation, nicht nur Fade und Zoom | nur `type: animation` | bei `hybrid` trägt das Flow-Bild und bei `data` der Chart einen Teil der Aussage; bei einer reinen Animation trägt die Bewegung sie allein |
+
+Als sichtbare Transformation zählt: `translate`, `rotate`, `clipPath`, `strokeDash`, `skew`, `perspective`, ein interpoliertes SVG-`d`, oder eine frameabhängige Ausdehnung über `width`, `height`, `top`, `left`, `bottom`.
+
+Die Regeln liegen in `scripts/lib/youtube-motion-contract.mjs` als `validateYouTubeMotionSource` und sind in `tests/youtube-motion-v3.test.ts` abgedeckt.
+
 ## Verboten als Hauptsprache
 
 Aus `CLAUDE.md` Abschnitt 11:
