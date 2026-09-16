@@ -4,6 +4,13 @@ YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
 STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
+LITERAL_REAL_WORLD_SITUATION: Eine klar getrennte Notfallreserve steht freiwilligen Konsumwünschen gegenüber.
+REAL_WORLD_CONTEXT_ANCHOR: Urlaub, Smartphone und Sale sind konkrete freiwillige Ausgaben, die nicht aus dem Notgroschen bezahlt werden sollen.
+VOICEOVER_VISUAL_MATCH: Das Bild zeigt exakt, dass der Notgroschen nicht für Urlaub, neues Handy oder Sale gedacht ist.
+TRANSFERABILITY_TEST: Ohne Voiceover ist sichtbar, dass die Reserve von freiwilligem Konsum getrennt bleibt.
+VISUAL_STRATEGY: Literal first, creative second — reale Konsumkategorien als wenige große 3D-Objekte statt abstrakter Symbole.
+METAPHOR_JUSTIFICATION: Der Reserve-Container ist nur eine räumliche Vereinfachung, um die Trennung klar sichtbar zu machen.
+
 Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly: rounded simplified geometry, soft sculpted materials, cinematic light, deep black stage, strong depth. Reality-inspired but never realistic.
 
 CORE IDEA
