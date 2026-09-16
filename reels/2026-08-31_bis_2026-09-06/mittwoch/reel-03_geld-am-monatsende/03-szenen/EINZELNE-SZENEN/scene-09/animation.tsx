@@ -26,7 +26,7 @@ export const Scene09Animation: React.FC<{durationFrames?:number}> = ({durationFr
   const drain = interpolate(frame,[24,120],[0,1],clamp);
   const result = interpolate(frame,[116,Math.max(126,durationFrames-RESULT_HOLD_FRAMES)],[0,1],clamp);
   return <PremiumPhysicalStage>
-    <PhysicalAccount x={250} y={520} label="Alltagsgeld" balance={drain>0.82?'56 €':drain>0.55?'75 €':drain>0.25?'93 €':'100 €'} state={result>0.5?'warning':'normal'} scale={1-drain*0.035} />
+    <PhysicalAccount x={250} y={520} label="Alltagsgeld" balance={drain>0.82?'56 €':drain>0.55?'75 €':drain>0.25?'93 €':'100 €'} state={result>0.5?'danger':'normal'} scale={1-drain*0.035} />
     <PhysicalCoinStack x={430+drain*180} y={820+drain*45} count={5} scale={0.68-drain*0.08} opacity={1-drain*0.52} />
     <PhysicalBill x={650} y={500-(1-coffee)*55} label="Kaffee" amount="4 €" rotate={-6} scale={0.55} opacity={coffee} paid={drain>0.22} />
     <PhysicalBill x={765} y={650-(1-snack)*55} label="Snack" amount="3 €" rotate={5} scale={0.55} opacity={snack} paid={drain>0.42} />

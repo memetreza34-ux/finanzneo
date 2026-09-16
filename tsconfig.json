@@ -17,6 +17,7 @@
   "include": [
     "src",
     "public/captions",
-    "youtube"
+    "youtube",
+    "reels"
   ]
 }
