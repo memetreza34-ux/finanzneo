@@ -4,6 +4,13 @@ YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
 ROLE: MASTER STYLE REFERENCE IMAGE FOR THIS YOUTUBE VIDEO
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
+LITERAL_REAL_WORLD_SITUATION: Eine Waschmaschine fällt unerwartet aus und verursacht eine konkrete Reparaturrechnung von 480 Euro.
+REAL_WORLD_CONTEXT_ANCHOR: Alltagshaushalt mit klar erkennbarem Haushaltsgerät und Reparaturrechnung; kein abstraktes Finanzsymbol.
+VOICEOVER_VISUAL_MATCH: Das Bild zeigt exakt den Hook „Waschmaschine kaputt. 480 Euro Reparatur.“
+TRANSFERABILITY_TEST: Die Aussage bleibt ohne Voiceover sofort als unerwarteter notwendiger Kostenfall verständlich.
+VISUAL_STRATEGY: Literal first, creative second — konkrete Alltagssituation zuerst, stilisierte 3D-Inszenierung danach.
+METAPHOR_JUSTIFICATION: Keine Metapher nötig; der reale Defekt ist die klarste Darstellung.
+
 Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. This image becomes the direct style reference for every later YouTube image in this project.
 
 CORE IDEA
