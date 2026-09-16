@@ -4,6 +4,13 @@ YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
 STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
+LITERAL_REAL_WORLD_SITUATION: Eine Person mit niedrigen Fixkosten, wenig Verpflichtungen und stabilem Einkommen hat geringere finanzielle Belastungen.
+REAL_WORLD_CONTEXT_ANCHOR: Mobilität ohne eigenes Auto, geringe Wohn-/Alltagskosten und kleiner Rechnungsstapel.
+VOICEOVER_VISUAL_MATCH: Das Bild unterstützt Person A: niedrige feste Ausgaben, kein Auto und stabiler Job.
+TRANSFERABILITY_TEST: Ohne Voiceover wirkt das Profil sichtbar leichter und weniger verpflichtungsintensiv als Person B.
+VISUAL_STRATEGY: Literal first, creative second — konkrete Alltagskosten als wenige große 3D-Objekte statt abstrakter Risikoskala.
+METAPHOR_JUSTIFICATION: Die Objektgruppe ersetzt nur eine Personendarstellung; die Kosten-/Verpflichtungssituation bleibt konkret.
+
 Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly. Do not make a realistic room or person.
 
 CORE IDEA
