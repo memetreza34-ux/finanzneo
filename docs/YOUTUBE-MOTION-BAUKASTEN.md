@@ -11,6 +11,33 @@ Der Pfad ist in jedem Projekt gleich. `04-projekt/motion-kit.tsx` ist nur ein We
 
 Vorher hatte jedes Projekt eine eigene kleine `motion-kit.tsx` mit genau drei Dingen: Bühne, Panel, Farben. Phase 1 hatte damit nichts als beschriftete Kästen zur Hand — und genau die verbietet `CLAUDE.md` Abschnitt 11 als Hauptsprache. Die Bibliothek mit 149 Komponenten, 27 Icons und 14 Lottie-Dateien lag ungenutzt daneben.
 
+## Layout V1 — 1920 × 1080
+
+Kanonische Quelle: `src/youtube/layout.ts`. Projekte überschreiben diese Werte nicht.
+
+```text
+  0 – 180     Kopfbahn        YouTubeHeader — Zwischenüberschrift + Icon
+180 – 990     Visualzone      Bild 1440 × 810 bei x = 240 (drei Viertel der Breite)
+990 – 1080    Infobahn        YouTubeInfoText — optional, eine Zeile
+```
+
+| Komponente | Aufgabe |
+|---|---|
+| `YouTubeStage` | schwarzer Vollframe |
+| `YouTubeHeader` | Zwischenüberschrift mit Icon, nutzt denselben `SceneHeader` wie die Reels |
+| `YouTubeImage` | Flow-Bild in der Visualzone, `object-fit: contain` |
+| `YouTubeAnimationFrame` | Bühne für native Motion |
+| `YouTubePhysicalStage` | Perspektive für die Physical-Primitives |
+| `YouTubeInfoText` | optionale einzeilige Notiz unten |
+
+**Keine Untertitel.** Reels laufen stumm im Feed und brauchen Karaoke-Captions. Longform wird mit Ton geschaut. Unten steht höchstens kurzer Infotext — dieselbe Rolle wie ein Label in einer Animation, kein mitlaufender Sprechtext.
+
+**Das Bild steht bewusst kleiner als der Frame.** Es ist 16:9 wie das Video, also entstehen links und rechts schwarze Ränder. Weil die Bildwelt reines Schwarz vorschreibt, gehen die Kanten in die Videofläche über — es ist kein Kasten sichtbar, nur ein Bild mit Luft darüber für die Überschrift.
+
+**Animationen bekommen die volle Breite**, aber `YouTubeAnimationFrame` schneidet die Kopf- und Infobahn hart ab. Das Koordinatensystem bleibt volle 1920 × 1080, damit Phase-1-Code in echten Framekoordinaten schreiben kann. Was in die Bahnen hineingezeichnet wird, ist einfach nicht sichtbar, statt mit der Überschrift zu kollidieren.
+
+**`PremiumPhysicalStage` aus dem Reel-Baukasten nicht verwenden.** Sie clippt über `AnimationStage` mit `inset(320px 0 520px 0)` aus den Reel-Tokens; in einem 1080 hohen Frame schneidet das bei y = 560 ab. `YouTubePhysicalStage` gibt dieselbe Perspektive ohne Reel-Clipping.
+
 ## Bühne und Timing
 
 | | |

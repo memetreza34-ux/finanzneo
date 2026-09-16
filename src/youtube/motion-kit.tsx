@@ -8,11 +8,20 @@
 import React from 'react';
 import {AbsoluteFill, interpolate} from 'remotion';
 
+export {
+  YouTubeAnimationFrame,
+  YouTubeInfoText,
+  YouTubeHeader,
+  YouTubeImage,
+  YouTubePhysicalStage,
+  YouTubeStage,
+} from './components';
+export {YOUTUBE_FORMAT, YOUTUBE_STYLE, youtubeLayoutIssues} from './layout';
+
 export {Icon} from '../brand/components/Icon';
 export type {IconName} from '../brand/components/Icon';
 export {LottieBox} from '../brand/components/Lottie';
 export {
-  PremiumPhysicalStage,
   PremiumDepthGuide,
   PhysicalAccount,
   PhysicalBill,

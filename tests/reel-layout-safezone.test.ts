@@ -17,8 +17,12 @@ test('zentraler Reel-Layoutvertrag nutzt die finale Mobile-Hierarchie', () => {
 test('SceneHeader darf lange Titel zweizeilig statt winzig darstellen', () => {
   const source = read('src/brand/components/SceneHeader.tsx');
   assert.match(source, /whiteSpace: 'normal'/);
-  assert.match(source, /WebkitLineClamp: H\.maxLines/);
-  assert.match(source, /Math\.max\(\s*H\.minFontSize/);
+  // Seit SceneHeader auch YouTube bedient, kommen die Reel-Werte über Defaults.
+  // Geprüft wird beides: die Bindung an REEL_STYLE und die tatsächliche Nutzung.
+  assert.match(source, /maxLines = H\.maxLines/);
+  assert.match(source, /WebkitLineClamp: maxLines/);
+  assert.match(source, /minSize = H\.minFontSize/);
+  assert.match(source, /Math\.max\(\s*minSize/);
 });
 
 test('SceneHeader hält Icon-Größe, Abstand und erste Textzeile optisch konstant', () => {
@@ -27,7 +31,10 @@ test('SceneHeader hält Icon-Größe, Abstand und erste Textzeile optisch konsta
   assert.match(header, /data-finanzneo-header-layout="icon-first-line-lock-v1"/);
   assert.match(header, /alignItems: 'flex-start'/);
   assert.match(header, /height: firstLineHeight/);
-  assert.match(header, /width: H\.iconBox/);
+  assert.match(header, /iconBox = H\.iconBox/);
+  assert.match(header, /width: iconBox/);
+  assert.match(header, /iconSize = H\.iconSize/);
+  assert.match(header, /size=\{iconSize\}/);
   assert.match(header, /textAlign: 'left'/);
   assert.match(header, /opticalNormalize/);
   assert.match(icon, /HEADER_OPTICAL_SCALE/);

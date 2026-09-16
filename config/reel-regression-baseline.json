@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "sourceCommit": "353d20c06513fd6024171a7eb842a3e9ebc3ff3e",
+  "sourceCommit": "8e89090ea4804087e340e2fc8f82c8f3e363060e",
   "createdAt": "2026-09-02",
   "purpose": "Protect already-working reel production directories from accidental changes while allowing new reel directories and future production work.",
   "protectedObjects": [
@@ -25,8 +25,8 @@
     {
       "path": "reels/2026-08-31_bis_2026-09-06/mittwoch",
       "type": "tree",
-      "sha": "18afa5d1f1269c77092fecf890b9f5efd7b0f308",
-      "reason": "Known-working Wednesday reel state"
+      "sha": "0934eeff4d046dbd2df9f7eef33effeec1b60559",
+      "reason": "Known-working Wednesday reel state. Baseline am 16.09.2026 bewusst neu gesetzt: scene-09 nutzte state=\"warning\", das PhysicalAccount nicht kennt, sodass der rote Warnzustand nie erschien. Einzige Aenderung im Baum, geprueft per Diff."
     }
   ]
 }

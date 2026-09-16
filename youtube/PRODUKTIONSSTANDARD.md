@@ -87,7 +87,7 @@ Die visuelle Technik wird erst gewählt, nachdem feststeht, was der Zuschauer ta
 
 Die bekannten Familien wie `spatial-3d`, `timeline`, `document-motion`, `data-viz`, `simulation` oder `camera-journey` sind **nur Beispiele zur Beschreibung**, keine Whitelist. Neue `compositionFamilyId`-Werte dürfen jederzeit entstehen, wenn sie die Szene besser beschreiben.
 
-`PremiumPhysicalStage`, `Physical*` und bestehende FinanzNeo-Komponenten sind **optionale Werkzeuge**, keine Pflichtvorlagen.
+`Physical*` und bestehende FinanzNeo-Komponenten sind **optionale Werkzeuge**, keine Pflichtvorlagen. `PremiumPhysicalStage` ist dabei ausgenommen: sie clippt mit Reel-Tokens und schneidet in 16:9 bei y = 560 ab. Für YouTube gilt `YouTubePhysicalStage`.
 
 Jedes Motion-Visual braucht:
 
@@ -189,13 +189,25 @@ Einzige Übergabe an Google Flow:
 
 Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt und geprüft. Erst danach folgt das nächste Bild. Alle fertigen Dateien liegen gemeinsam in `02-bilder/00-ALLE-BILDER-HIER-REIN/`.
 
+## Layout V1
+
+Kanonische Quelle: `src/youtube/layout.ts`. Details und Komponenten: `docs/YOUTUBE-MOTION-BAUKASTEN.md`.
+
+```text
+  0 – 180     Kopfbahn        Zwischenüberschrift + Icon
+180 – 990     Visualzone      Bild 1440 × 810 bei x = 240
+990 – 1080    Infobahn        optionaler einzeiliger Infotext
+```
+
+Das Bild steht auf drei Vierteln der Framebreite, damit oben Platz für die Zwischenüberschrift bleibt. Da die Bildwelt reines Schwarz vorschreibt, gehen die Bildkanten in die Videofläche über.
+
 ## Audio, Timing und Untertitel
 
 - genau ein finales Voiceover in `01-script/`
 - echte Wort-Zeitstempel aus genau diesem Audio
 - Schnitte folgen Sprache, Visual Beats, Kapiteln und Payoffs
 - keine pauschal gleich langen Visuals
-- Untertitel satzweise; aktives Wort grün, Rest weiß
+- **keine Untertitel**: Reels laufen stumm im Feed und brauchen Karaoke-Captions, Longform wird mit Ton geschaut. Unten steht höchstens optionaler einzeiliger Infotext
 - Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP
 
 ## Vollständiges Publishing-Paket

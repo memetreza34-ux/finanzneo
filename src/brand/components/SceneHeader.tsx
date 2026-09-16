@@ -36,6 +36,14 @@ export const SceneHeader: React.FC<{
   left?: number;
   right?: number;
   size?: number;
+  /** Optionale Formatwerte. Ohne Angabe gilt unverändert REEL_STYLE. */
+  minSize?: number;
+  iconBox?: number;
+  iconSize?: number;
+  gap?: number;
+  maxWidth?: number;
+  maxLines?: number;
+  enterFrames?: number;
 }> = ({
   title,
   icon,
@@ -45,12 +53,19 @@ export const SceneHeader: React.FC<{
   left = H.left,
   right = H.right,
   size = H.fontSize,
+  minSize = H.minFontSize,
+  iconBox = H.iconBox,
+  iconSize = H.iconSize,
+  gap = H.gap,
+  maxWidth = H.maxWidth,
+  maxLines = H.maxLines,
+  enterFrames = H.enterFrames,
 }) => {
   const frame = useCurrentFrame();
-  const enter = prog(frame, at, at + H.enterFrames, E.out);
+  const enter = prog(frame, at, at + enterFrames, E.out);
   const iconColor = iconColorForTone(tone);
   const fittedSize = Math.max(
-    H.minFontSize,
+    minSize,
     title.length > 64 ? size - 6 : title.length > 48 ? size - 3 : size,
   );
   const lineHeight = 1.08;
@@ -77,15 +92,15 @@ export const SceneHeader: React.FC<{
           display: 'inline-flex',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          gap: H.gap,
+          gap,
           maxWidth: '100%',
         }}
       >
         <div
           style={{
-            width: H.iconBox,
+            width: iconBox,
             height: firstLineHeight,
-            flex: `0 0 ${H.iconBox}px`,
+            flex: `0 0 ${iconBox}px`,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -93,7 +108,7 @@ export const SceneHeader: React.FC<{
         >
           <Icon
             name={icon}
-            size={H.iconSize}
+            size={iconSize}
             color={iconColor}
             stroke={2.15}
             glow={false}
@@ -103,7 +118,7 @@ export const SceneHeader: React.FC<{
         <div
           style={{
             minWidth: 0,
-            maxWidth: H.maxWidth,
+            maxWidth,
             fontFamily: FONT.body,
             fontSize: fittedSize,
             fontWeight: H.fontWeight,
@@ -116,7 +131,7 @@ export const SceneHeader: React.FC<{
             overflow: 'hidden',
             display: '-webkit-box',
             WebkitBoxOrient: 'vertical',
-            WebkitLineClamp: H.maxLines,
+            WebkitLineClamp: maxLines,
             textShadow: H.textShadow,
             textRendering: 'geometricPrecision',
             WebkitFontSmoothing: 'antialiased',

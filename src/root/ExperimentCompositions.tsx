@@ -43,6 +43,7 @@ import {
 import {EinlagensicherungReel} from '../reels/einlagensicherung-100000/EinlagensicherungReel';
 import {TOTAL_FRAMES as EINLAGENSICHERUNG_LEGACY_FRAMES} from '../reels/einlagensicherung-100000/timeline';
 import {FORMAT} from '../brand/tokens';
+import {YouTubeLayoutDemo, YOUTUBE_LAYOUT_DEMO_FRAMES} from '../youtube/YouTubeLayoutDemo';
 
 const FPS = FORMAT.fps;
 const VERTICAL = FORMAT.vertical;
@@ -50,6 +51,23 @@ const WIDE = FORMAT.landscape;
 
 export const ExperimentCompositions: React.FC = () => (
   <>
+    <Composition
+      id="YouTubeLayoutDemo"
+      component={YouTubeLayoutDemo}
+      durationInFrames={YOUTUBE_LAYOUT_DEMO_FRAMES}
+      fps={FPS}
+      {...WIDE}
+    />
+
+    <Composition
+      id="YouTubeLayoutDemoImage"
+      component={YouTubeLayoutDemo}
+      defaultProps={{showImage: true, outline: true}}
+      durationInFrames={YOUTUBE_LAYOUT_DEMO_FRAMES}
+      fps={FPS}
+      {...WIDE}
+    />
+
     <Composition
       id="ReelsTestFinanceMotionLab"
       component={FinanceMotionLab}
