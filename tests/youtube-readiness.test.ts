@@ -93,8 +93,13 @@ const createReadyFixture = () => {
     source: '01-script/voice.mp3',
     subtitleMode: 'sentence-with-audio-synced-active-word',
     activeWordColor: 'finance-green',
-    words: [{word:'Ein',start:0,end:0.2}],
-    sentences: [{text:'Ein',start:0,end:0.2,words:[{word:'Ein',start:0,end:0.2}]}],
+    // Zwei Sätze, weil die beiden Visuals sentenceSpan 1 und 2 beanspruchen.
+    // Weicht die Anzahl ab, zeigen die Spannen auf andere Sätze als geplant.
+    words: [{word:'Ein',start:0,end:0.2},{word:'Zwei',start:0.2,end:0.4}],
+    sentences: [
+      {text:'Ein Satz.',start:0,end:0.2,words:[{word:'Ein',start:0,end:0.2}]},
+      {text:'Zwei Satz.',start:0.2,end:0.4,words:[{word:'Zwei',start:0.2,end:0.4}]},
+    ],
   })}\n`);
   return root;
 };

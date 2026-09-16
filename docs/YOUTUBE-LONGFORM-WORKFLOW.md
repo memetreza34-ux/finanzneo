@@ -16,7 +16,11 @@ ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
 - danach die beste Visualart je Beat: `image`, `animation`, `hybrid` oder `data`
 - Visual-Plan ohne feste Visualzahl und ohne feste Bild-/Animationsquote
 - pro Szene eine **Zwischenüberschrift** (`headline`), ein **Icon** aus dem vorhandenen Satz (`icon`) und bei Bedarf eine Tonalität (`tone`)
-- pro Szene die **Satzzuordnung** (`sentenceSpan`): erster und letzter Satz aus `01-script/word-timings.json`, 1-basiert und inklusiv — daraus entstehen die Schnitte
+- pro Szene die **Satzzuordnung** (`sentenceSpan`): erster und letzter Satz **des eigenen Skripts**, 1-basiert und inklusiv — daraus entstehen später die Schnitte
+
+`sentenceSpan` braucht kein Voiceover. Phase 1 schreibt das Skript, zählt also seine eigenen Sätze 1…N und ordnet sie den Szenen zu. Phase 2 hängt an genau dieselben Sätze die Zeiten. Die Spannen müssen das Skript **lückenlos und ohne Überlappung** abdecken: eine Lücke heißt, ein gesprochener Satz hat kein Bild.
+
+`youtube:ready` prüft beides — die lückenlose Abdeckung in Phase 1 und in Phase 2, ob `word-timings.json` dieselbe Satzanzahl liefert wie das Skript. Weichen sie ab, zeigen die Spannen auf andere Sätze und jeder Schnitt sitzt falsch.
 - alle Google-Flow-Bildprompts in Englisch und mit exakten Dateinamen
 - für jedes Motion-Visual produktionsreife `animation.tsx`
 - pro Motion-Visual `viewerChange`, `animationIntent`, `mechanicId`, `visualTechniqueId`, `techniqueDescription`, freien `compositionFamilyId`, `toolStack`, `motionSignature`, Motion Channels und Visual Beats
@@ -80,7 +84,7 @@ Composition Families sind nur freie Beschreibungen, keine Whitelist. Bestehende 
 
 Vor Freigabe prüft Phase 1 die letzten vier Motion-Visuals. Ein anderer Name reicht nicht als Variation: Kamera, Layout und sichtbare Transformation dürfen nicht einfach wiederholt werden, außer die Wiederholung ist für Verständnis/Vergleich wirklich sinnvoll und wird mit `repeatTechniqueReason` begründet.
 
-Ohne `headline`, `icon` und `sentenceSpan` bleibt die Kopfbahn im fertigen Video leer und die Schnitte werden nur der Reihe nach verteilt. `youtube:ready` meldet beides pro Szene namentlich. Die erlaubten Iconnamen stehen in `docs/YOUTUBE-MOTION-BAUKASTEN.md`.
+Ohne `headline`, `icon` und `sentenceSpan` bleibt die Kopfbahn im fertigen Video leer und die Schnitte werden nur der Reihe nach verteilt. `youtube:ready` meldet das pro Szene namentlich. Die erlaubten Iconnamen stehen in `docs/YOUTUBE-MOTION-BAUKASTEN.md`.
 
 Vor Phase 2:
 

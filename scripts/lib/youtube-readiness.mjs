@@ -3,6 +3,7 @@ import {existsSync, readFileSync, readdirSync, statSync} from 'node:fs';
 import {basename, extname, resolve} from 'node:path';
 import {
   AUDIO_DIRECTORY,
+  SCRIPT_FILE,
   YOUTUBE_HEADER_TONES,
   YOUTUBE_ICON_NAMES,
   ACTIVE_WORD_COLOR,
@@ -127,6 +128,53 @@ const checkSceneLayoutFields = (visuals, blockers) => {
     if (!Number.isInteger(from) || !Number.isInteger(to) || from < 1 || to < from) {
       blockers.push(`${id}: sentenceSpan fehlt oder ist ungültig. Erster und letzter Satz dieser Szene, 1-basiert und inklusiv.`);
     }
+  }
+
+  // Die Spannen müssen das Skript lückenlos abdecken. Eine Lücke heißt: ein
+  // gesprochener Satz hat kein Bild. Eine Überlappung heißt: zwei Szenen wollen
+  // denselben Satz. Beides fällt sonst erst im fertigen Video auf.
+  const spans = (visuals ?? [])
+    .map((visual) => ({id: visual?.id, span: visual?.sentenceSpan}))
+    .filter((entry) => Number.isInteger(Number(entry.span?.from)) && Number.isInteger(Number(entry.span?.to)));
+  let expected = 1;
+  for (const {id, span} of spans) {
+    if (Number(span.from) !== expected) {
+      blockers.push(`${id}: sentenceSpan beginnt bei Satz ${span.from}, erwartet ${expected}. Die Szenen müssen das Skript lückenlos und ohne Überlappung abdecken.`);
+      break;
+    }
+    expected = Number(span.to) + 1;
+  }
+};
+
+/**
+ * Phase 2 muss dieselben Sätze liefern, auf die Phase 1 ihre Szenen bezogen hat.
+ *
+ * Phase 1 zählt die Sätze im eigenen Skript und setzt danach die Spannen; Phase 2
+ * hängt an genau diese Sätze die Zeiten. Weichen die Anzahlen ab, zeigen die
+ * Spannen auf andere Sätze und jeder Schnitt sitzt falsch — ohne Fehlermeldung.
+ */
+const checkSentenceCoverage = (root, visuals, timing, blockers) => {
+  const sentences = Array.isArray(timing?.sentences) ? timing.sentences.length : 0;
+  if (sentences === 0) return;
+
+  const highest = (visuals ?? [])
+    .map((visual) => Number(visual?.sentenceSpan?.to))
+    .filter((value) => Number.isInteger(value))
+    .reduce((max, value) => Math.max(max, value), 0);
+
+  if (highest === 0) return;
+  if (highest !== sentences) {
+    blockers.push(`${WORD_TIMINGS} hat ${sentences} Sätze, die Szenen decken ${highest} ab. Skript und Voiceover müssen dieselben Sätze haben.`);
+  }
+
+  const scriptPath = resolve(root, SCRIPT_FILE);
+  if (!existsSync(scriptPath)) return;
+  const scriptSentences = readText(scriptPath)
+    .split(/(?<=[.!?])\s+/)
+    .map((entry) => entry.trim())
+    .filter(Boolean).length;
+  if (scriptSentences > 0 && Math.abs(scriptSentences - sentences) > 2) {
+    blockers.push(`${SCRIPT_FILE} hat ${scriptSentences} Sätze, ${WORD_TIMINGS} ${sentences}. Die Wortzeiten stammen offenbar nicht aus diesem Skript.`);
   }
 };
 
@@ -283,6 +331,7 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
     const words = flattenTimingWords(timing);
     if (timing.subtitleMode !== SUBTITLE_MODE) phase2Blockers.push(`${WORD_TIMINGS}: subtitleMode muss ${SUBTITLE_MODE} sein.`);
     if (timing.activeWordColor !== ACTIVE_WORD_COLOR) phase2Blockers.push(`${WORD_TIMINGS}: activeWordColor muss ${ACTIVE_WORD_COLOR} sein.`);
+    checkSentenceCoverage(root, visuals, timing, phase2Blockers);
     if (words.length === 0) phase2Blockers.push(`${WORD_TIMINGS} enthält keine echten Wort-Zeitstempel.`);
     else if (words.some((word) => !isValidTimingWord(word))) phase2Blockers.push(`${WORD_TIMINGS} enthält ungültige Wort-Zeitstempel.`);
     if (!Array.isArray(timing.sentences) || timing.sentences.length === 0) phase2Blockers.push(`${WORD_TIMINGS} enthält keine satzbasierten Caption-Gruppen.`);
