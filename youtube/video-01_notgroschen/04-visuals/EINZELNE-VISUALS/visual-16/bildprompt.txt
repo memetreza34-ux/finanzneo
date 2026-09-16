@@ -4,6 +4,13 @@ YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
 STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
+LITERAL_REAL_WORLD_SITUATION: Eine notwendige Autoreparatur fällt genau dann an, wenn langfristig investiertes Geld ungünstig steht.
+REAL_WORLD_CONTEXT_ANCHOR: Erkennbares Auto mit Reparaturbedarf und konkrete Reparaturrechnung; der Depotverlust wird später separat in Remotion gezeigt.
+VOICEOVER_VISUAL_MATCH: Das Bild bereitet die Aussage vor, dass man nicht zum ungünstigen Zeitpunkt Depotanteile verkaufen möchte, nur um eine Reparatur zu bezahlen.
+TRANSFERABILITY_TEST: Ohne Voiceover ist eine notwendige Autoreparatur klar erkennbar; die freie Fläche macht Platz für den späteren Depot-Kontext.
+VISUAL_STRATEGY: Literal first, creative second — reale Reparatursituation zuerst, Daten-/Depotebene danach in Remotion.
+METAPHOR_JUSTIFICATION: Keine Metapher im Bild; Auto und Reparatur bleiben konkrete Alltagssituation.
+
 Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly. The car must look like an animated-film object, not a real car render.
 
 CORE IDEA
