@@ -4,6 +4,13 @@ YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
 STYLE_REFERENCE_IMAGE: ../../00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
+LITERAL_REAL_WORLD_SITUATION: Monatsbudget und Notgroschen werden bewusst getrennt geführt, damit die Reserve nicht wie frei verfügbares Konsumgeld wirkt.
+REAL_WORLD_CONTEXT_ANCHOR: Ein Bereich für laufende Monatsausgaben und ein separater Bereich für die Notfallreserve.
+VOICEOVER_VISUAL_MATCH: Das Bild zeigt die praktische Trennung von normalem Monatsbudget und Notgroschen.
+TRANSFERABILITY_TEST: Ohne Voiceover ist sichtbar, dass Konsum-/Monatsgeld und Reserve nicht vermischt werden sollen.
+VISUAL_STRATEGY: Literal first, creative second — zwei reale Geldzwecke klar räumlich trennen.
+METAPHOR_JUSTIFICATION: Die zwei Container sind eine direkte räumliche Vereinfachung von zwei getrennten Geldtöpfen/Konten.
+
 Use Image 01 as the DIRECT style reference. Match its animated-feature 3D look exactly.
 
 CORE IDEA
