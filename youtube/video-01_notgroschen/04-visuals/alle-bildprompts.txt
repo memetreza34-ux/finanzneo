@@ -6,6 +6,7 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 STYLE_REFERENCE_IMAGE: YouTube Bild 01 - Waschmaschine kaputt.png
+IMAGE_INBOX: 04-visuals/00-ALLE-BILDER-HIER-REIN
 
 CRITICAL STYLE RULE
 This is a YOUTUBE-ONLY image world. Do not change or reuse Reel rules.
@@ -37,15 +38,24 @@ Use very few large elements. A viewer should understand the main point in 1–2 
 TEXT
 Only the short German labels explicitly requested in each block. Never invent `FinanzNeo V9`, headlines, subtitles, CTA or fake UI copy.
 
+GLOBAL GENERATION CONTRACT
+Literal first, creative second.
+Generate exactly ONE image at a time.
+Every source image must be horizontal 16:9.
+Rename it immediately to the exact FINAL FILE NAME before continuing.
+Save accepted images in 04-visuals/00-ALLE-BILDER-HIER-REIN/.
+If any check fails, regenerate the same image number before continuing.
+
 STRICT WORKFLOW
 1. Image 01 establishes the style reference.
 2. For every later image, first inspect/use Image 01 as style reference.
 3. Generate exactly ONE image at a time.
 4. Wait until fully complete.
-5. Rename immediately to the exact FINAL FILE NAME.
-6. Check style match + simplicity + readability + 16:9.
-7. If any check fails, regenerate the SAME image number.
-8. Only then continue.
+5. Rename it immediately to the exact FINAL FILE NAME.
+6. Check style match + simplicity + readability + horizontal 16:9.
+7. If any check fails, regenerate the same image number.
+8. Store the accepted file in 04-visuals/00-ALLE-BILDER-HIER-REIN/.
+9. Only then continue.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 01 — YouTube Bild 01 - Waschmaschine kaputt.png
