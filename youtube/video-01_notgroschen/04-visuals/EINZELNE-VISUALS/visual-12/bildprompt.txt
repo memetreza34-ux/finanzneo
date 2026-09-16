@@ -1,7 +1,7 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 12 - Person B.png
@@ -11,10 +11,10 @@ If any check fails, regenerate the same image number and replace the failed file
 Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
-LITERAL_REAL_WORLD_SITUATION: The same kind of group, but a car dominates it and the bills are sliding apart.
+LITERAL_REAL_WORLD_SITUATION: A man beside his car is holding a stack of bills that is already sliding apart in his hands.
 REAL_WORLD_CONTEXT_ANCHOR: Own flat, car needed for work, several recurring obligations.
 VOICEOVER_VISUAL_MATCH: The line describes person B: lives alone, needs a car, higher rent, several obligations.
-TRANSFERABILITY_TEST: PASS — visibly more and heavier objects, and one stack that no longer holds together.
+TRANSFERABILITY_TEST: PASS — the same kind of person, but visibly carrying more than two hands can hold.
 VISUAL_STRATEGY: literal
 METAPHOR_JUSTIFICATION: NONE
 
@@ -22,27 +22,37 @@ CORE IDEA (DE): Mehr feste Verpflichtungen = höherer Reservebedarf.
 ONE RELATION: too much, and it no longer holds
 GERMAN LABELS (exactly these, nothing else): `Miete`, `Auto`, `Laufende Kosten`
 
-Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
-photorealistic, never a photo on a real desk. Not clay, not a toy.
-Objects must be recognizable as the real thing: correct identifying features and correct
-European everyday details. Money is recognizable euro banknotes — correct colour for the
-value, readable denomination, never generic coloured paper and never dollars.
-Real in identity, stylized in rendering.
-Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
-the objects float in black with soft contact shadows.
-Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
-red-orange for cost. Money keeps its own real colour.
-Only the German labels listed in this prompt, small and printed on their object. No other text,
-no large lettering, no word built as a 3D sculpture.
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+A stylized anonymous 3D animation-film person appears in this frame. The face is always
+clearly visible with stylized eyes, nose and mouth, in front or natural three-quarter
+view. Never a real or identifiable person, never photorealistic skin, never a faceless
+mannequin, never a blank smooth face, never a pure back view. One person only.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood,
+no table surface, no room, no gradient backdrop.
+Ivory and gray neutral, warm red-orange on the recurring bills.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
 Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
 SCENE
-A real ordinary European compact commuter car, slightly used, three-quarter view, with panel
-gaps, headlights, mirrors and rubber tyres. A small paper tag `Auto` hangs from the mirror.
-Next to it a German rent letter stands upright with a flat door key resting on it, tag `Miete`.
-In front, a thick stack of recurring bills is sliding apart, the top three already slipping
-off, tag `Laufende Kosten`.
-The group is visibly heavier than it can carry.
+A stylized 3D animation-film man in his thirties stands beside his car, face clearly visible
+in three-quarter view, slightly strained, holding a thick stack of bills that is sliding
+apart, the top three letters already slipping out of his grip. Small tag `Laufende Kosten`
+on the stack.
+Behind him a real ordinary European compact commuter car with panel gaps, headlights,
+mirrors and rubber tyres, small tag `Auto` hanging from the mirror. Leaning against the car,
+a German rent letter with a flat door key on it, tag `Miete`.
+He is holding more than fits in two hands.
 
-Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
-Every object recognizable as the real thing.
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.

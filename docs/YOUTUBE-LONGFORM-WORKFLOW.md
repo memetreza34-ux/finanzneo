@@ -108,7 +108,7 @@ GENAU EIN BILD ERZEUGEN
 → ERST DANN DAS NÄCHSTE BILD
 ```
 
-- Bilder folgen `finanzneo-youtube-grounded-3d-black-v1`.
+- Bilder folgen `finanzneo-youtube-cg-animated-black-v2`.
 - Nicht Motiv, Komposition oder Labels eines anderen Bildes als Standardvorlage kopieren.
 - Neue Bilder folgen `Literal first, creative second`.
 - Fehlerhafte Bildnummer wiederholen; nie parallel oder als Batch fortfahren.

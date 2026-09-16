@@ -42,7 +42,7 @@ test('YouTube-Scaffolder erzeugt Motion V3 mit offener Technik und Viewer Change
     assert.match(remotionPlan, /Composition Family: \[FREE DESCRIPTIVE FAMILY/);
 
     const prompt = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt'), 'utf8');
-    assert.match(prompt, /finanzneo-youtube-grounded-3d-black-v1/);
+    assert.match(prompt, /finanzneo-youtube-cg-animated-black-v2/);
     assert.match(prompt, /Literal first, creative second/);
     assert.match(prompt, /TRANSFERABILITY_TEST:/);
   } finally {

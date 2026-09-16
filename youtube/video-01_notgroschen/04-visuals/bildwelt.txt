@@ -1,142 +1,102 @@
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 
 KANONISCHE QUELLE
-config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
+config/finanzneo-image-worlds/finanzneo-youtube-cg-animated-black-v2.txt
 
-Dieses Projekt verwendet die bestehende FinanzNeo-Reel-Bildwelt
-`finanzneo-stylized-3d-animated-black-v9` in ihrer horizontalen
-YouTube-Adaption `finanzneo-youtube-grounded-3d-black-v1`.
-Es gibt keine projekteigene YouTube-Bildwelt.
+KERNSATZ
+Real in der Identitaet, animiert im Rendering.
 
-AUSSER KRAFT
-- `finanzneo-youtube-animated-feature-3d-v1` wird nicht mehr verwendet.
-- Der „Pixar-like animated feature" Zielbegriff wird nicht mehr verwendet.
-- `STYLE_REFERENCE_IMAGE` wird nicht mehr verwendet.
+- Identitaet echt: der Gegenstand ist genau das Ding, das ein deutscher Haushalt besitzt,
+  mit den Merkmalen, an denen man ihn erkennt.
+- Material und Licht CGI: modelliert, sauber, als Animationsfilm-Asset beleuchtet.
+- Nichts im Bild wurde jemals fotografiert.
 
-KEINE BILD-ZU-BILD-REFERENZ
-Kein Bild dieses Projekts wird als Referenzbild hochgeladen oder angehängt —
-auch `YouTube Bild 01` nicht. Google Flow hat zwischen zwei Jobs kein
-Gedaechtnis; eine Bildreferenz kopiert Motiv und Komposition mit und der
-Rendering-Stil faellt trotzdem auf den fotorealistischen Default zurueck.
-Die Einheitlichkeit entsteht ausschliesslich dadurch, dass der Style Lock in
-JEDEM einzelnen Prompt vollstaendig ausgeschrieben steht.
+Die Woerter Pixar, Cartoon, Clay oder Toy stehen NIE im Prompt. Bildmodelle lesen sie als
+Knetfiguren und Badespielzeug. Das Handwerk wird stattdessen ausgeschrieben.
 
-LITERAL FIRST, CREATIVE SECOND
-Jeder Bildprompt beginnt mit der konkreten realen Situation hinter dem
-gesprochenen Satz und traegt die Pflichtfelder:
+RENDERING
+Frame aus einem vollstaendig CG-animierten 3D-Spielfilm. Alles modelliert und gerendert.
+Keine Fototextur, kein gescanntes Material, kein Kamerakorn, kein Linsenschmutz.
+Saubere skulptierte CG-Materialien: weiche idealisierte Lackierung, mattes Plastik, glattes
+Papier, sanft poliertes Metall.
+Formen ansprechend und leicht vereinfacht, aber vollstaendig wiedererkennbar.
+Warmes cinematisches Key Light mit weichem Rim Light, weiche Kontaktschatten.
 
-  LITERAL_REAL_WORLD_SITUATION:
-  REAL_WORLD_CONTEXT_ANCHOR:
-  VOICEOVER_VISUAL_MATCH:
-  TRANSFERABILITY_TEST:
-  VISUAL_STRATEGY:
-  METAPHOR_JUSTIFICATION:
-
-Eine Metapher ist nur erlaubt, wenn sie nachweislich klarer ist als die reale
-Situation; dann wird sie in `METAPHOR_JUSTIFICATION` begruendet.
-
-IDENTITAET REAL, RENDERING STILISIERT
-Der Gegenstand muss die Merkmale tragen, an denen man ihn im echten Leben erkennt.
+IDENTITAET
 Geld sind erkennbare Euro-Scheine: richtige Farbe zum Wert, richtige Proportion, lesbare
-Wertzahl. Kein generisches faerbiges Papier, keine Dollarnoten.
+Wertzahl. Kein generisches farbiges Papier, keine Dollarnoten.
 Geld behaelt seine echte Farbe, auch wenn sie nicht in die Farbrolle passt.
-Rechnung, Kontoauszug, Lohnzettel und Vertrag folgen deutschem Alltagslayout.
-Auto, Geraete und Verpackungen sind europaeische Alltagsobjekte.
-Realistisch in der Identitaet, stilisiert in der Darstellung.
+Rechnung, Kontoauszug, Lohnzettel, Mietschreiben und Vertrag folgen deutschem Layout.
+Auto, Geraete, Verpackungen und Lebensmittel sind europaeische Alltagsobjekte.
+
+HINTERGRUND
+Reines Schwarz. Die Objekte stehen im Schwarz mit weichen Kontaktschatten.
+Ein kleiner zweckgebundener Ausschnitt eines echten Ortes ist erlaubt, wenn die Situation
+ihn braucht — ein Regalabschnitt, eine Tuer, eine Ecke, eine Waschecke — und er loest sich
+nach kurzer Distanz ins Schwarz auf.
+Nie ein ganzer Raum, nie ein generischer Studioboden, nie eine Schreibtisch- oder
+Tischflaeche, nie Holz, nie ein Verlaufshintergrund.
+
+MENSCHEN
+Eine stilisierte anonyme 3D-Animationsfilm-Person darf auftreten, wenn die Situation
+menschlich ist — einkaufen, entscheiden, tragen, warten, arbeiten.
+Das Gesicht ist immer klar sichtbar, mit stilisierten Augen, Nase und Mund, frontal oder in
+natuerlicher Dreiviertelansicht.
+Eine Person, einfache natuerliche Pose, die wirklich etwas tut.
+Nie eine reale oder identifizierbare Person, nie fotorealistische Haut, nie eine
+gesichtslose Mannequin-Figur, nie ein glattes leeres Gesicht, nie reine Rueckenansicht,
+nie eine Menschenmenge.
+Die Situation muss auch ohne die Person lesbar bleiben.
 
 MINDESTENS EIN ECHTES 3D-OBJEKT
 Jedes Bild braucht mindestens einen greifbaren dreidimensionalen Gegenstand.
-Nie eine Szene, die nur aus Papier und Dokumenten besteht — Papier ist das, was ein
-Bildmodell am liebsten fotorealistisch rendert, und genau dort kippt die Welt.
+Nie eine Szene, die nur aus Papier und Dokumenten besteht.
 
 EINE BEZIEHUNG PRO BILD
-Ein Bild zeigt genau ein Verhaeltnis: gross/klein, nah/fern, offen/zu, kippt/steht,
-drueckt/wird gedrueckt. Dazu ein sprechendes Detail, das dieses Verhaeltnis zeigt.
-Keine Kette aus vier Dingen. Abstrakte Saetze werden einfach, wenn man eine einzige
-Beziehung waehlt.
+Genau ein Verhaeltnis: gross/klein, nah/fern, offen/zu, kippt/steht, drueckt/wird
+gedrueckt, passt/passt nicht. Dazu ein sprechendes Detail, das genau das zeigt.
 
-PROMPTLAENGE UND AUFBAU
-Kurz halten. Lange Regelbloecke fressen die Aufmerksamkeit, die der Szene fehlt.
-Aufbau: Stilblock → SCENE → kurze Stil-Erinnerung am Ende.
-Der Stil steht vorne UND hinten; Bildmodelle gewichten das Ende stark.
-KEIN SPIELZEUG, KEIN CLAY
-Kein Clay-, Knet-, Marzipan-, Seifenstueck- oder Badespielzeug-Look.
-Keine glatten, merkmalslosen Rundklumpen.
-Keine Miniatur-Spielzeugstadt, keine Spielzeughaeuser, keine Spielzeugautos, kein Tischdiorama.
-Reale Objekte behalten ihre echte Konstruktion: die Waschmaschine hat Tuerdichtung, Drehregler und Fuesse, das Auto hat Spaltmasse, Scheinwerfer und Gummireifen, die Rechnung hat echtes Druckbild und Papierstaerke.
-Abgerundete Kanten sind ein Finish, niemals ein Ersatz fuer die echte Form.
-Pastellmint oder Babyblau als Objektfarbe ist falsch; es gelten die Farbrollen.
+LITERAL FIRST, CREATIVE SECOND
+Jeder Prompt startet bei der konkreten realen Situation und traegt die Pflichtfelder
+LITERAL_REAL_WORLD_SITUATION, REAL_WORLD_CONTEXT_ANCHOR, VOICEOVER_VISUAL_MATCH,
+TRANSFERABILITY_TEST, VISUAL_STRATEGY und METAPHOR_JUSTIFICATION.
 
-KEINE TYPOGRAFIE ALS MOTIV
-Nie ein Wort, eine Ueberschrift oder eine Zahl als grosses 3D-Objekt bauen.
-Deutsche Labels sind klein und stehen gedruckt, gestempelt, graviert, handschriftlich oder als kleines Anhaengeschild AM zugehoerigen Objekt.
-Ein Label ist nie das groesste oder auffaelligste Element im Bild.
-Keine erfundenen Zusatztexte, Formularfelder, Tabellenkoepfe, Adressen oder Markennamen auf Dokumenten. Ein Dokument zeigt nur das im Prompt genannte Label plus unlesbare, nicht ablenkende Drucktextur.
-
-UNTERHALTSAM, ABER IMMER ERKLAEREND
-Die Szene soll Spass machen: echte Inszenierung, klare Situation, ein kleines sprechendes Detail oder eine leichte Uebertreibung, die die Aussage landen laesst — ein ueberquellender Stapel, ein Teil im Fallen, eine Pfuetze, eine offene Schublade, ein Objekt das sich zu einem anderen neigt.
-Die Erklaerung gewinnt immer gegen den Gag. Macht das verspielte Detail die Aussage unklarer, faellt es weg.
-Nie dekorieren. Jedes Objekt traegt die Situation oder wird entfernt.
-
-PLATZ OBEN FUER DIE ZWISCHENUEBERSCHRIFT
-Oben im Bild bleibt ruhiger schwarzer Freiraum. Das Hauptmotiv sitzt im mittleren und unteren Drittel, damit spaeter in Remotion eine Zwischenueberschrift ueber dem Bild stehen kann. Nichts Wichtiges beruehrt die obere Kante.
-
-ABWECHSLUNG UEBER DIE SERIE
-Nicht in jeder Szene dieselbe Objektfamilie verwenden. Waschecke, Regal mit Konsumgegenstaenden, Kuechentheke mit Dokumenten, persoenliche Habe, Kalenderreihe in die Tiefe, Auto, Kontoauszuege und Schubladen sind eigene Situationen. Gleiche Welt, andere Szene.
-KERNLOOK
-- klar stilisiertes Premium-3D im Animationsfilm-Rendering, niemals fotorealistisch
-- reale Alltagsgegenstaende mit glaubwuerdigen Proportionen und erkennbaren Details
-- semi-realistische Materialstruktur, sichtbar stilisiertes Rendering
-- grosse, lesbare Hauptobjekte statt Miniaturszene
-- Ursache und Wirkung moeglichst im selben Frame
-- das Standbild muss ohne Ton und ohne Remotion bereits funktionieren
-
-HINTERGRUND
-Eine einzige nahtlose tiefschwarze Welt, dominant im Bild. Wenig glaubwuerdiger
-lokaler Kontext ist erlaubt, wenn er die Situation verstaendlicher macht; er
-bleibt sekundaer und loest sich ins Schwarz auf. Keine helle Studiowelt, keine
-Boden-Wand-Grenze, kein Horizont, keine farbigen Hintergrundzonen, keine
-Partikel- oder Glow-Deko.
+KEINE BILD-ZU-BILD-REFERENZ
+Kein Bild wird als Referenz hochgeladen oder angehaengt, auch kein freigegebenes aus
+derselben Serie. Google Flow hat zwischen zwei Jobs kein Gedaechtnis; eine Bildreferenz
+schleppt Motiv und Layout mit, waehrend der Renderstil trotzdem auf den fotografischen
+Default zurueckfaellt.
+Einheitlichkeit entsteht nur durch den ausgeschriebenen Style Lock in jedem Prompt.
 
 FARBROLLEN
-- Emerald Green = Reserve, Loesung, positiver Wert
-- Warm Red-Orange = Kosten, Verlust, Warnung, Schulden, Problem
-- Warm Ivory / Soft Gray = neutrale reale Objekte
-- zurueckhaltendes Gold = nur Geld-/Wertakzent
-- Deep Black = Welt
-Farbe wird nie erzwungen, wenn die Bedeutung sie nicht rechtfertigt.
-
-KEINE WIEDERKEHRENDEN FINANCE-KIT-MOTIVE
-Gruene Ordner, Muenzstapel, leuchtende Geldbaender, Sparschweine, Pflanzen aus
-Geld, Aufwaertspfeile und generische Charts sind keine Pflichtmotive. Jede Szene
-wird aus dem tatsaechlichen Sprechpunkt neu entwickelt. Auch Motiv, Komposition
-und Labels von `YouTube Bild 01` sind keine Vorlage fuer spaetere Bilder.
+Emerald Green = Reserve, Loesung, positiver Wert. Warm Red-Orange = Kosten, Verlust,
+Warnung, Schulden. Warm Ivory und Soft Gray = neutrale reale Objekte. Gold = nur
+Geldakzent. Deep Black = Welt. Geld ist die Ausnahme und behaelt seine echte Farbe.
 
 TEXT IM BILD
-Nur die im jeweiligen Prompt ausdruecklich gelisteten kurzen deutschen
-Objektlabels, direkt am zugehoerigen Objekt. Keine Headline, kein Untertitel,
-kein CTA, kein erklaerender Satz, kein erfundener Markentext, keine Fake-UI.
+Nur die im jeweiligen Prompt gelisteten kurzen deutschen Objektlabels, klein und direkt am
+Objekt. Nie ein Wort oder eine Zahl als grosses 3D-Objekt. Keine Headline, kein Untertitel,
+kein CTA, kein erfundener Text, keine erfundene Zahl.
 
-FORMAT
-Alle YouTube-Quellbilder und das Thumbnail sind horizontal 16:9.
-Wichtige Objekte bleiben auf Handy, Laptop und TV sofort lesbar.
+KOMPOSITION
+Horizontal 16:9. Eine klare Hauptsituation. Ursache und Wirkung im selben Frame.
+In ein bis zwei Sekunden ohne Ton verstaendlich. Hauptobjekte auf Handy, Laptop und TV
+lesbar. Oben ruhiger schwarzer Freiraum fuer die spaetere Zwischenueberschrift; nichts
+Wichtiges beruehrt die obere Kante.
 
-QA — NEU ERZEUGEN, WENN
-- das Bild fotorealistisch oder wie ein Foto/Produktrender wirkt
-- es wie flache Infografik, Praesentationsfolie, Dashboard oder App-UI aussieht
-- die reale Situation fehlt oder der Zuschauer eine Metapher entschluesseln muss
-- Ursache und Wirkung unklar sind, obwohl sie sichtbar sein sollten
-- Hauptobjekte zu klein sind
-- der lokale Kontext die Erklaerung ueberlagert
-- Schwarz nicht mehr die dominante Welt ist
-- zusaetzlicher oder falscher Text im Bild steht
-- ein wiederkehrendes Ordner-/Muenz-/Pfeil-Motiv ohne inhaltlichen Grund auftaucht
+PROMPTLAENGE UND AUFBAU
+Kurz halten, etwa fuenfzig Zeilen inklusive Metadatenblock.
+Aufbau: Stilblock → SCENE → kurze Stil-Erinnerung am Ende. Der Stil steht vorne UND hinten.
+
+DATEN UND ABSTRAKTE BEATS
+Geprüfte Zahlen, Charts, Zeitachsen und Betragsvergleiche gehoeren nach Remotion, nicht in
+ein Flow-Bild. Diese Welt wird nicht auf jeden Beat gezwungen.
 
 GOOGLE FLOW
-Genau ein Bild erzeugen, vollstaendig abwarten, sofort exakt umbenennen,
-pruefen, bei Fehler dieselbe Bildnummer neu erzeugen, erst dann weiter.
+Genau ein Bild, vollstaendig abwarten, sofort exakt umbenennen, pruefen, bei Fehler
+dieselbe Bildnummer neu erzeugen, erst dann weiter. Nie Batch, nie parallel.
 Alle fertigen Dateien gemeinsam nach 04-visuals/00-ALLE-BILDER-HIER-REIN/.

@@ -123,12 +123,12 @@ Der Phase-1-Seal schützt danach sowohl den Motion-Code als auch den kreativen V
 
 ## Bildwelt und Google Flow
 
-`IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1`
+`IMAGE_WORLD: finanzneo-youtube-cg-animated-black-v2`
 
 Kanonische YouTube-Bildwelt:
 
 ```text
-config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
+config/finanzneo-image-worlds/finanzneo-youtube-cg-animated-black-v2.txt
 ```
 
 Sie übernimmt die bestehende FinanzNeo-Grundwelt:
@@ -138,10 +138,27 @@ Sie übernimmt die bestehende FinanzNeo-Grundwelt:
 - stilistische Herkunft: `finanzneo-stylized-3d-animated-black-v9`
 - YouTube-Quellbilder horizontal 16:9
 
-Der freigegebene Stilanker ist die **Waschmaschinen-/Reparatur-/Notgroschen-Szene**. Übernommen werden ausschließlich ihre visuellen Qualitäten: realitätsnahe Alltagssituation, klar stilisiertes Premium-3D, semi-realistische Materialien, große lesbare Objekte, tiefe schwarze Welt mit wenig glaubwürdigem Umgebungskontext, sichtbare Ursache/Wirkung, kontrolliertes Grün/Rot und sauberes Studio-Licht.
+**Kernsatz: real in der Identität, animiert im Rendering.**
 
-Die konkreten Motive des Referenzbildes sind **keine Vorlage**. Waschmaschine, grüner Ordner, Münzen oder Geldfluss dürfen nicht automatisch in andere Themen kopiert werden. Ebenso sind Ordner, Münzstapel, Sparschwein, Pflanzen, Pfeile oder leuchtende Geldpfade keine wiederkehrenden FinanzNeo-YouTube-Pflichtmotive. Jede Szene wird aus dem tatsächlichen Sprechpunkt neu entwickelt.
+- Identität echt: der Gegenstand ist genau das Ding, das ein deutscher Haushalt besitzt, mit den Merkmalen, an denen man ihn erkennt. Geld sind erkennbare Euro-Scheine mit richtiger Farbe und lesbarer Wertzahl; Geld behält seine echte Farbe.
+- Material und Licht CGI: Frame aus einem vollständig CG-animierten 3D-Spielfilm, sauber modelliert, warmes Key Light mit weichem Rim Light. Keine Fototextur, kein gescanntes Material, kein Kamerakorn.
+- Nichts im Bild wurde jemals fotografiert.
 
+Die Wörter Pixar, Cartoon, Clay oder Toy stehen **nie** im Prompt — Bildmodelle lesen sie als Knetfiguren und Badespielzeug. Das Handwerk wird ausgeschrieben.
+
+Es gibt **kein Referenzbild**. Kein Bild wird als Stilanker hochgeladen oder angehängt, auch kein freigegebenes aus derselben Serie. Google Flow hat zwischen zwei Jobs kein Gedächtnis; eine Bildreferenz schleppt Motiv und Layout mit, während der Renderstil trotzdem auf den fotografischen Default zurückfällt. Einheitlichkeit entsteht nur durch den ausgeschriebenen Style Lock in jedem einzelnen Prompt.
+
+Weitere verbindliche Regeln der V2-Welt:
+
+- **mindestens ein echtes 3D-Objekt pro Bild**; nie eine Szene nur aus Papier und Dokumenten
+- **eine Beziehung pro Bild** — groß/klein, nah/fern, offen/zu, kippt/steht, drückt/wird gedrückt — plus ein sprechendes Detail, das genau diese Beziehung zeigt
+- **Hintergrund reines Schwarz.** Ein kleiner zweckgebundener Ausschnitt eines echten Ortes ist erlaubt, wenn die Situation ihn braucht, und löst sich nach kurzer Distanz ins Schwarz auf. Nie ein ganzer Raum, nie ein Studioboden, nie eine Schreibtisch- oder Holzfläche, nie ein Verlaufshintergrund.
+- **Menschen sind erlaubt**, wenn die Situation menschlich ist: stilisierte anonyme 3D-Animationsfilm-Person, Gesicht immer klar sichtbar, frontal oder Dreiviertelansicht, eine Person, einfache natürliche Pose. Nie eine reale oder identifizierbare Person, nie fotorealistische Haut, nie eine gesichtslose Figur, nie reine Rückenansicht. Die Situation bleibt auch ohne die Person lesbar.
+- **kein Wort und keine Zahl als großes 3D-Objekt**, kein erfundener Text, keine erfundene Zahl
+- **oben ruhiger schwarzer Freiraum** für die spätere Zwischenüberschrift
+- Prompts kurz halten, Aufbau Stilblock → SCENE → kurze Stil-Erinnerung; der Stil steht vorne **und** hinten
+
+Wiederkehrende Finance-Kit-Motive sind keine Pflichtmotive: Ordner, Münzstapel, Sparschwein, Tresor, Pflanzen, Pfeile oder leuchtende Geldpfade. Jede Szene wird aus dem tatsächlichen Sprechpunkt neu entwickelt.
 Für neue YouTube-Bilder gilt **Literal first, creative second**:
 
 - konkrete reale Situation zuerst

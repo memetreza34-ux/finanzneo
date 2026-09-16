@@ -14,11 +14,11 @@ Diese Datei enthält alle Bildjobs. Bilder strikt einzeln erzeugen, vollständig
 Diese YouTube-Produktion verwendet die **bestehende FinanzNeo-Reel-Bildwelt** in ihrer horizontalen YouTube-Adaption:
 
 ```text
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
 SOURCE_VISUAL_LANGUAGE:    finanzneo-stylized-3d-animated-black-v9
 ```
 
-Kanonische Definition: `config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt`
+Kanonische Definition: `config/finanzneo-image-worlds/finanzneo-youtube-cg-animated-black-v2.txt`
 Projektfassung: `04-visuals/bildwelt.txt`
 
 Die alte projekteigene Welt `finanzneo-youtube-animated-feature-3d-v1` und der Pixar-Zielbegriff sind abgeschafft.

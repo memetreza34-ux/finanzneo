@@ -1,0 +1,161 @@
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+
+FINANZNEO YOUTUBE CG ANIMATED BLACK WORLD — V2
+
+PURPOSE
+The FinanzNeo YouTube image world. Every source image is a frame from a fully CG 3D
+animated feature film, showing ordinary German everyday situations on a deep black world.
+Real in identity, animated in rendering.
+
+Replaces finanzneo-youtube-grounded-3d-black-v1, which allowed results that drifted into
+photography, clay and toy renders.
+
+BASE LOCKS
+- SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+- FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+- FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+- GENERATED_IMAGE_ASPECT_RATIO: 16:9
+- TARGET_USE: YouTube Longform image and hybrid visual source
+
+THE CORE SENTENCE
+Real in identity, animated in rendering.
+
+- Identity is real: the object is exactly the thing a German household owns, with the
+  features it is recognized by.
+- Material and light are CG: modeled, sculpted, lit as an animation-film asset.
+- Nothing in the frame was ever photographed.
+
+Never write the words Pixar, cartoon, clay or toy into a prompt. Image models read them
+as plasticine figures and bath toys. Write out the craft instead.
+
+RENDERING
+Frame from a fully CG 3D animated feature film. Everything is modeled and rendered.
+No photo texture, no scanned material, no camera grain, no lens dirt, no photography.
+Clean sculpted CG materials: soft idealized paint, matte plastic, smooth paper, gently
+polished metal.
+Shapes are appealing and slightly simplified while staying completely recognizable.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+
+IDENTITY RULES
+An object carries the features by which it is recognized in real life.
+Money is recognizable euro banknotes: correct colour for the value, correct proportions,
+readable denomination. Never generic coloured paper and never dollars.
+Money keeps its own real colour even when that colour is not its semantic role colour.
+Invoices, account statements, payslips, rent letters and contracts follow ordinary German
+layout, with a readable amount where the scene needs one.
+Cars, appliances, packaging and food are ordinary European everyday items.
+
+BACKGROUND
+Pure deep black. The objects float in black with soft contact shadows.
+A small purposeful fragment of a real place is allowed when the situation needs it — one
+shelf section, one doorway, one corner, one laundry nook — and it must fade into the
+black within a short distance.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a horizon, never a gradient backdrop, never coloured background
+zones, never particle or glow decor.
+
+PEOPLE
+A stylized anonymous 3D animation-film person may appear when the situation is a human
+one — shopping, deciding, carrying, waiting, working.
+The face is always clearly visible, with stylized eyes, nose and mouth, in front or
+natural three-quarter view.
+One person, natural simple pose, actually doing something.
+Never a real or identifiable person, never photorealistic skin, never a faceless
+mannequin, never a blank smooth face, never a hidden face, never a pure back view,
+never a crowd.
+The situation must still be readable if the person were removed. The person supports the
+explanation, it does not replace it.
+
+AT LEAST ONE REAL 3D OBJECT
+Every image needs at least one tangible three-dimensional object.
+Never build a scene out of paper and documents alone. Paper is what an image model renders
+photographically by default, and that is where this world breaks.
+
+ONE RELATION PER IMAGE
+An image shows exactly one relation: big/small, near/far, open/closed, tipping/standing,
+pressing/being pressed, fits/does not fit.
+Plus one telling detail that shows that relation — an overflowing stack, a bolt still
+rolling away, a puddle still spreading, a drawer left open, a basket still empty.
+No chain of four things. Abstract sentences become simple once a single relation is chosen.
+
+LITERAL FIRST, CREATIVE SECOND
+Start from the concrete real situation behind the spoken line. Every prompt carries:
+  LITERAL_REAL_WORLD_SITUATION:
+  REAL_WORLD_CONTEXT_ANCHOR:
+  VOICEOVER_VISUAL_MATCH:
+  TRANSFERABILITY_TEST:
+  VISUAL_STRATEGY:
+  METAPHOR_JUSTIFICATION:
+A metaphor is allowed only when it is demonstrably clearer than the real situation, and
+must then be justified in METAPHOR_JUSTIFICATION.
+
+NO IMAGE-TO-IMAGE REFERENCE
+Never attach, upload or reference another image, not even an approved one from the same
+series. Flow has no memory between jobs; an image reference carries subject and layout
+across while the rendering style still falls back to the photographic default.
+Consistency comes only from the written style lock repeated in every prompt.
+
+COLOUR ROLES
+Deep black is the world. Emerald green is reserve, solution and positive value. Warm
+red-orange is cost, loss, warning, debt and problem. Warm ivory and soft gray are neutral
+real objects. Subtle gold is a money accent only.
+Never force a colour onto an object whose meaning does not justify it. No rainbow palette,
+no neon cyberpunk, no excessive glow. Money is the exception and keeps its real colour.
+
+TEXT IN THE IMAGE
+Only the short German object labels listed in that prompt, small, printed, stamped,
+engraved or hung as a small tag on or directly at the object they describe.
+A label is never the largest or most prominent element in the frame.
+Never build a word, headline, phrase or number as a large sculpted 3D object.
+Never invent extra text, form fields, table headers, addresses, brand names or placeholder
+copy. Never invent a number that has not been researched.
+No headline, no subtitle, no CTA, no explanatory sentence.
+
+COMPOSITION
+Horizontal 16:9. One clear main situation. Cause and effect readable in the same frame.
+Understandable in one to two seconds without audio.
+Hero objects large enough to read on mobile, laptop and TV.
+Keep calm black space along the top edge: the hero sits in the middle and lower two
+thirds so a subheading can be placed above the image in Remotion. Nothing important
+touches the top edge.
+Useful negative space, never sterile. Foreground, midground and background depth where it
+helps. The still frame must already work before any Remotion motion is added.
+
+VARIETY ACROSS THE SERIES
+Do not reuse the same object family scene after scene. Same world, different situation:
+an appliance nook, a shelf of purchases, a counter of documents, personal belongings, a
+row of calendar sheets receding into depth, a car, bank paperwork, drawers, a supermarket
+shelf section.
+
+PROMPT LENGTH AND ORDER
+Keep prompts short — roughly fifty lines including the metadata block. Long rule blocks
+consume the attention the scene needs.
+Order: style block, then SCENE, then a short style reminder at the end.
+The style appears at the front AND the end; image models weight the ending strongly.
+Write every prompt individually for the exact spoken point. Never a generic master prompt
+with a few changed nouns.
+
+DATA AND ABSTRACT BEATS
+Some beats are better explained by Remotion than by a generated image: verified numbers,
+charts, timelines, comparisons of amounts. Do not force this world onto every beat. Plan
+those as animation or data visuals instead.
+
+QUALITY CHECK — REGENERATE THE SAME IMAGE NUMBER WHEN
+- the frame looks photographic, or like a photo of real paper on a real desk
+- it looks like clay, plasticine, a soap bar or a bath toy
+- objects are featureless rounded lumps without real construction
+- it became a toy town, toy houses, toy cars or a tabletop diorama
+- a word or number was built as a large 3D sculpture
+- invented text, fake form fields or an unresearched number appears
+- money looks like generic coloured paper, or like dollars
+- the scene is only paper and documents
+- a person has no clearly visible face, or is shown from behind
+- black is no longer the dominant world, or a full room appeared
+- more than one relation is being shown and the point is no longer readable
+- a vault, safe, piggy bank, coin stack, shield or upward arrow replaced the real situation
+- the top edge is crowded and leaves no room for a subheading
+
+GOOGLE FLOW EXECUTION
+Generate exactly one image at a time. Wait for completion. Rename immediately. Run the
+quality check. On failure regenerate the same image number. Only then continue.
+Never batch, never queue, never generate several images in parallel.

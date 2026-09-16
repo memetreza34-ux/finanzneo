@@ -1,7 +1,7 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Bild 25 - Notfall bezahlen.png
@@ -12,7 +12,7 @@ Do NOT attach, upload or reference any other image.
 
 LITERAL FIRST, CREATIVE SECOND
 LITERAL_REAL_WORLD_SITUATION: The washing machine runs again, the invoice is stamped paid, and the envelope is thinner but intact.
-REAL_WORLD_CONTEXT_ANCHOR: Home laundry after a completed repair.
+REAL_WORLD_CONTEXT_ANCHOR: Home laundry nook after a completed repair.
 VOICEOVER_VISUAL_MATCH: The line says using the Notgroschen for a real emergency was not a mistake.
 TRANSFERABILITY_TEST: PASS — working machine, paid stamp and a thinner but tidy envelope read as correct use.
 VISUAL_STRATEGY: literal
@@ -22,28 +22,35 @@ CORE IDEA (DE): Den Notgroschen im echten Notfall zu benutzen ist richtig.
 ONE RELATION: the problem is gone, the reserve is smaller
 GERMAN LABELS (exactly these, nothing else): `Reparatur bezahlt`, `Notgroschen`
 
-Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
-photorealistic, never a photo on a real desk. Not clay, not a toy.
-Objects must be recognizable as the real thing: correct identifying features and correct
-European everyday details. Money is recognizable euro banknotes — correct colour for the
-value, readable denomination, never generic coloured paper and never dollars.
-Real in identity, stylized in rendering.
-Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
-the objects float in black with soft contact shadows.
-Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
-red-orange for cost. Money keeps its own real colour.
-Only the German labels listed in this prompt, small and printed on their object. No other text,
-no large lettering, no word built as a 3D sculpture.
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. Only one small purposeful fragment of a real place is allowed —
+a short stretch of dry tiled laundry floor — and it must fade into the black within a short distance.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, emerald green for the resolution. No warm red-orange in this frame.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
 Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
 SCENE
-A real European front-loading washing machine, off-white painted metal, door closed with the
-rubber seal visible, one calm emerald indicator lit on the control panel, the drain hose
-properly reattached. The floor beneath it is completely dry.
+A real European front-loading washing machine, off-white, door closed with the rubber seal
+visible, one calm emerald indicator lit on the control panel, the drain hose properly
+reattached. The tiles beneath it are completely dry.
 In front, a German invoice with a calm emerald paid stamp, label `Reparatur bezahlt`.
 Beside it an opened ivory envelope with a broken emerald seal, visibly thinner but neatly
-kept, with two green 100-euro notes still inside, label `Notgroschen`.
+kept, two green 100-euro notes still inside, label `Notgroschen`.
 The machine is quietly working again.
 
-Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
-Every object recognizable as the real thing.
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.

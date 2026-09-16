@@ -62,7 +62,7 @@ const header = [
   FLOW_AGENT_PROTOCOL_MARKER,
   WORLD_ID_MARKER,
   SERIES_LOCK_MARKER,
-  'YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1',
+  'YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2',
   'SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9',
   GENERATED_IMAGE_ASPECT_MARKER,
   '',

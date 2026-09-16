@@ -3,7 +3,7 @@ FINANZNEO YOUTUBE THUMBNAIL — VIDEO 01 NOTGROSCHEN
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINAL FILE NAME: YouTube Thumbnail - Notgroschen.png
@@ -24,18 +24,23 @@ CORE IDEA (DE): Unerwartete Reparaturkosten gegen den vorbereiteten Notgroschen.
 ONE RELATION: the cost is loud, the reserve is calm
 GERMAN LABELS (exactly these, nothing else): `Reparatur 480 €`, `Notgroschen`
 
-Stylized 3D animation-film render of real everyday objects. Clearly stylized, never
-photorealistic, never a photo on a real desk. Not clay, not a toy.
-Objects must be recognizable as the real thing: correct identifying features and correct
-European everyday details. Money is recognizable euro banknotes — correct colour for the
-value, readable denomination, never generic coloured paper and never dollars.
-Real in identity, stylized in rendering.
-Pure black background. No floor, no wall, no desk, no wood, no surface, no gradient —
-the objects float in black with soft contact shadows.
-Soft cinematic key light. Ivory and gray neutral, emerald green for the reserve, warm
-red-orange for cost. Money keeps its own real colour.
-Only the German labels listed in this prompt, small and printed on their object. No other text,
-no large lettering, no word built as a 3D sculpture.
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood,
+no table surface, no room, no gradient backdrop.
+Ivory and gray neutral, emerald green for the reserve, warm red-orange for cost.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
 Horizontal 16:9, subject in the lower two thirds, calm black space above.
 
 SCENE
@@ -48,5 +53,5 @@ label `Notgroschen`.
 Keep generous calm black space along the top edge for typography added later in Remotion.
 One side is chaos. The other side is ready.
 
-Stylized 3D animation-film render on pure black. Never a photograph, never a desk.
-Every object recognizable as the real thing.
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
