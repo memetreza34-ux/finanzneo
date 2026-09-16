@@ -15,6 +15,8 @@ ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
 - gesprochene Gedanken und sichtbare Visual Beats
 - danach die beste Visualart je Beat: `image`, `animation`, `hybrid` oder `data`
 - Visual-Plan ohne feste Visualzahl und ohne feste Bild-/Animationsquote
+- pro Szene eine **Zwischenüberschrift** (`headline`), ein **Icon** aus dem vorhandenen Satz (`icon`) und bei Bedarf eine Tonalität (`tone`)
+- pro Szene die **Satzzuordnung** (`sentenceSpan`): erster und letzter Satz aus `01-script/word-timings.json`, 1-basiert und inklusiv — daraus entstehen die Schnitte
 - alle Google-Flow-Bildprompts in Englisch und mit exakten Dateinamen
 - für jedes Motion-Visual produktionsreife `animation.tsx`
 - pro Motion-Visual `viewerChange`, `animationIntent`, `mechanicId`, `visualTechniqueId`, `techniqueDescription`, freien `compositionFamilyId`, `toolStack`, `motionSignature`, Motion Channels und Visual Beats
@@ -77,6 +79,8 @@ Danach darf Phase 1 frei zwischen Custom React, SVG, CSS 3D, Canvas, Three.js/R3
 Composition Families sind nur freie Beschreibungen, keine Whitelist. Bestehende FinanzNeo-Komponenten und `Physical*`-Primitives sind optionale Werkzeuge, keine Pflichtvorlagen.
 
 Vor Freigabe prüft Phase 1 die letzten vier Motion-Visuals. Ein anderer Name reicht nicht als Variation: Kamera, Layout und sichtbare Transformation dürfen nicht einfach wiederholt werden, außer die Wiederholung ist für Verständnis/Vergleich wirklich sinnvoll und wird mit `repeatTechniqueReason` begründet.
+
+Ohne `headline`, `icon` und `sentenceSpan` bleibt die Kopfbahn im fertigen Video leer und die Schnitte werden nur der Reihe nach verteilt. `youtube:ready` meldet beides pro Szene namentlich. Die erlaubten Iconnamen stehen in `docs/YOUTUBE-MOTION-BAUKASTEN.md`.
 
 Vor Phase 2:
 

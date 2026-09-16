@@ -99,3 +99,19 @@ export const FORBIDDEN_YOUTUBE_ARTIFACTS = [
   'shorts.txt',
   'shorts-metadata.txt',
 ];
+
+/**
+ * Vorhandene Icons für die Zwischenüberschrift.
+ *
+ * Kanonische Quelle sind die PATHS in src/brand/components/Icon.tsx. Diese Liste
+ * ist die Kopie für die Validatoren, die kein TSX laden können; ein Test hält
+ * beide gegeneinander, damit sie nicht auseinanderlaufen.
+ */
+export const YOUTUBE_ICON_NAMES = [
+  'arrowRight', 'bank', 'bulb', 'calendar', 'chart-bar', 'chart-up', 'check', 'clock',
+  'coins', 'cross', 'document', 'euro', 'flame', 'hourglass', 'list', 'lock', 'percent',
+  'phone', 'receipt', 'repeat', 'rocket', 'search', 'shield', 'target', 'trending',
+  'wallet', 'warning',
+];
+
+export const YOUTUBE_HEADER_TONES = ['default', 'positive', 'warning', 'money', 'neutral'];

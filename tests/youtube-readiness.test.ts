@@ -45,6 +45,9 @@ const createReadyFixture = () => {
       {
         id: 'visual-01',
         type: 'image',
+        headline: 'Sicherheitspuffer aufbauen',
+        icon: 'shield',
+        sentenceSpan: {from: 1, to: 1},
         planFile: '04-projekt/VISUALS/visual-01/bildprompt.txt',
         googleFlowFileName: 'YouTube Bild 01 - Sicherheitspuffer.png',
         chapter: 'Warum du einen Notgroschen brauchst',
@@ -55,6 +58,9 @@ const createReadyFixture = () => {
       {
         id: 'visual-02',
         type: 'animation',
+        headline: 'Reserve waechst',
+        icon: 'chart-up',
+        sentenceSpan: {from: 2, to: 2},
         planFile: '04-projekt/VISUALS/visual-02/remotion.md',
         animationSourceFile: '04-projekt/VISUALS/visual-02/animation.tsx',
         animationExport: 'YouTubeVisual02Animation',

@@ -143,6 +143,13 @@ const visuals = types.map((type, index) => {
     type,
     chapter: '[CHAPTER]',
     scriptBeat: '[SCRIPT BEAT]',
+    // Layout V1: jede Szene traegt oben eine Zwischenueberschrift mit Icon.
+    headline: '[ZWISCHENUEBERSCHRIFT]',
+    icon: '[ICON NAME]',
+    tone: 'default',
+    // Schnitt folgt dem Voiceover: erster und letzter Satz dieser Szene,
+    // 1-basiert und inklusiv, bezogen auf 01-script/word-timings.json.
+    sentenceSpan: {from: 0, to: 0},
   };
 
   if (requiresYouTubeImage({type})) {

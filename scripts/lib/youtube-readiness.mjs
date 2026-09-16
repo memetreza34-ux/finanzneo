@@ -3,6 +3,8 @@ import {existsSync, readFileSync, readdirSync, statSync} from 'node:fs';
 import {basename, extname, resolve} from 'node:path';
 import {
   AUDIO_DIRECTORY,
+  YOUTUBE_HEADER_TONES,
+  YOUTUBE_ICON_NAMES,
   ACTIVE_WORD_COLOR,
   ANIMATION_SEAL,
   IMAGE_INBOX,
@@ -92,6 +94,42 @@ export const isSixteenNineDimensions = (widthValue, heightValue) => {
   return Math.abs((width / height) - (16 / 9)) <= 0.01;
 };
 
+/**
+ * Layout V1 verlangt pro Szene eine Zwischenüberschrift mit Icon und eine
+ * Satzzuordnung. Ohne sie rendert die Composition eine leere Kopfbahn und die
+ * Schnitte werden nur der Reihe nach verteilt — beides fällt erst im fertigen
+ * Video auf, deshalb gehört es in die Phase-1-Abnahme.
+ */
+const checkSceneLayoutFields = (visuals, blockers) => {
+  const icons = new Set(YOUTUBE_ICON_NAMES);
+  const tones = new Set(YOUTUBE_HEADER_TONES);
+  for (const visual of visuals ?? []) {
+    const id = typeof visual?.id === 'string' ? visual.id : 'Unbekanntes Visual';
+    const headline = typeof visual?.headline === 'string' ? visual.headline.trim() : '';
+    if (!headline || hasPlaceholder(headline)) {
+      blockers.push(`${id}: headline fehlt oder ist noch ein Platzhalter.`);
+    } else if (headline.length > 60) {
+      blockers.push(`${id}: headline ist ${headline.length} Zeichen lang. Eine Zwischenüberschrift ist kurz und direkt, kein Satz.`);
+    }
+
+    const icon = typeof visual?.icon === 'string' ? visual.icon.trim() : '';
+    if (!icons.has(icon)) {
+      blockers.push(`${id}: icon "${icon || '(fehlt)'}" gibt es nicht. Erlaubt: ${YOUTUBE_ICON_NAMES.join(', ')}.`);
+    }
+
+    if (visual?.tone !== undefined && !tones.has(visual.tone)) {
+      blockers.push(`${id}: tone "${visual.tone}" gibt es nicht. Erlaubt: ${YOUTUBE_HEADER_TONES.join(', ')}.`);
+    }
+
+    const span = visual?.sentenceSpan;
+    const from = Number(span?.from);
+    const to = Number(span?.to);
+    if (!Number.isInteger(from) || !Number.isInteger(to) || from < 1 || to < from) {
+      blockers.push(`${id}: sentenceSpan fehlt oder ist ungültig. Erster und letzter Satz dieser Szene, 1-basiert und inklusiv.`);
+    }
+  }
+};
+
 export const analyzeYouTubeReadiness = (rootDirectory) => {
   const root = resolve(rootDirectory);
   const phase1Blockers = [];
@@ -107,6 +145,7 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
   const index = readJson(resolve(root, VISUAL_INDEX), phase1Blockers, VISUAL_INDEX);
   const visuals = Array.isArray(index?.visuals) ? index.visuals : [];
   if (index && visuals.length === 0) phase1Blockers.push(`${VISUAL_INDEX} enthält keine Visuals.`);
+  if (index) checkSceneLayoutFields(visuals, phase1Blockers);
   if (index && (typeof index.title !== 'string' || !index.title.trim() || hasPlaceholder(index.title))) {
     phase1Blockers.push(`${VISUAL_INDEX}: title fehlt oder enthält einen Platzhalter.`);
   }
