@@ -7,34 +7,36 @@
       "id": "visual-04",
       "sourceFile": "04-projekt/VISUALS/visual-04/animation.tsx",
       "exportName": "YouTubeVisual04Animation",
-      "viewerChange": "Drei konkurrierende Zielgrößen erscheinen, verlieren ihren Absolutheitsanspruch und werden durch eine individuelle Frage ersetzt.",
-      "animationIntent": "Die Szene bricht bewusst die Erwartung einer einzigen magischen Zahl.",
-      "mechanicId": "target-number-debate",
-      "visualTechniqueId": "kinetic-scale-comparison",
-      "techniqueDescription": "Große Zielzahlen treten nacheinander in den Raum, skalieren gegeneinander und lösen sich in ein zentrales Fragezeichen auf.",
-      "compositionFamilyId": "kinetic-type",
+      "viewerChange": "Ein leerer Reservebehälter füllt sich in drei Stufen; jede Zielgröße setzt ihre eigene Marke, am Ende stehen drei gleichberechtigt nebeneinander.",
+      "animationIntent": "Die Szene zeigt am selben Behälter, dass drei verbreitete Zielgrößen verschiedene Höhen fordern — es gibt keine Universalzahl.",
+      "mechanicId": "reserve-tank-mark-contest",
+      "visualTechniqueId": "filling-tank-competing-marks",
+      "techniqueDescription": "Münzstapel wandern in einen Reservebehälter, dessen Füllstand stufenweise steigt; auf jeder erreichten Höhe setzt sich eine beschriftete Marke an die Behälterwand.",
+      "compositionFamilyId": "physical-container",
       "toolStack": [
         "Remotion",
-        "spring",
-        "CSS perspective"
+        "interpolate",
+        "PremiumPhysical"
       ],
       "motionSignature": {
-        "camera": "subtle orbit around number field",
-        "layout": "three competing numeric anchors",
-        "transformation": "scale competition into question mark"
+        "camera": "static frontal on the tank",
+        "layout": "coin source left, tank centre, marks right",
+        "transformation": "rising fill level sets competing height marks"
       },
       "motionChannels": [
-        "number scale shifts",
-        "depth reordering"
+        "tank fill level",
+        "coin source depletion",
+        "mark set and breathe"
       ],
       "visualBeats": [
-        "1.000 €",
-        "3 Monatsgehälter",
-        "mehr?",
-        "keine Universalzahl"
+        "leerer Behälter mit Geld daneben",
+        "Füllstand auf 1.000 €",
+        "Füllstand auf 3 Monatsgehälter",
+        "Füllstand auf viel mehr",
+        "drei Marken ohne Sieger"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "577ddcffe4fa39752f7ebff373d6fc48a1e6a736b8a7c005cc02b45e135ae462"
+      "sha256": "953a49baf339a226ed822cb95a8a6a5db60f5634d8df1412058f8bd817fb23aa"
     },
     {
       "id": "visual-05",
@@ -67,7 +69,7 @@
         "Daumenregel 2–3"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "c1801dc062a924407baacb866328fc09076921256fb0cfe0cb348cac19327cb9"
+      "sha256": "fdb886d7284c5e9083fc979d5127d82fff9649d14934557010b2768df5f90347"
     },
     {
       "id": "visual-09",
@@ -101,7 +103,7 @@
         "1.500 € Gesamt"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "d6a01b74262448da526295bd99d86fe418fc3ee26173c29e7caac99f3d5a7a5c"
+      "sha256": "479e51d37dd1adf736764b54658d888e40605c67bf11058db8aa112238c86741"
     },
     {
       "id": "visual-10",
@@ -133,7 +135,7 @@
         "3 Monate 4.500 €"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "1dc76601206e121eeece3523f38fe447e93137a5a00cf98eb04f8c9b30d86783"
+      "sha256": "c6c22b449985587dcab4768801abe1317ce1066c1e15a9f4b655d25f0df88762"
     },
     {
       "id": "visual-13",
@@ -166,41 +168,41 @@
         "unterschiedliche Reserve"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "cb067556d4eb5504e01b7f4092fe77e094374c985bcfa4b0bf3bef9e35bce99b"
+      "sha256": "e826fb188cca04acc76b49213fab086a56bdfd1a4f98ddc1e226d4ab82fef35f"
     },
     {
       "id": "visual-14",
       "sourceFile": "04-projekt/VISUALS/visual-14/animation.tsx",
       "exportName": "YouTubeVisual14Animation",
-      "viewerChange": "Vier konkrete Fragen füllen einen Prüfrahmen und verdichten sich zu einem individuellen Reserveprofil.",
-      "animationIntent": "Die abstrakte Empfehlung wird in eine praktisch nutzbare Selbstprüfung übersetzt.",
-      "mechanicId": "personal-risk-questionnaire",
-      "visualTechniqueId": "question-to-profile-map",
-      "techniqueDescription": "Vier Fragen werden wie Prüfpunkte in ein vertikales Dokument gesetzt; ihre Antworten speisen anschließend ein klar beschriftetes persönliches Risikoprofil.",
-      "compositionFamilyId": "document-motion",
+      "viewerChange": "Vier konkrete Dinge kommen nacheinander herein und stehen am Ende aufgereiht: das kaputte Gerät, die laufenden Kosten, das für die Arbeit Nötige und das sinkende Einkommen.",
+      "animationIntent": "Die eigene Höhe ergibt sich aus konkreten Dingen, nicht aus einer Faustregel.",
+      "mechanicId": "four-factors-take-the-table",
+      "visualTechniqueId": "objects-enter-and-line-up",
+      "techniqueDescription": "Vier reale Gegenstände fahren nacheinander von unten in die Szene, setzen sich auf eine gemeinsame Standlinie und werden erst danach beschriftet.",
+      "compositionFamilyId": "physical-collection",
       "toolStack": [
         "Remotion",
-        "SVG checkmarks",
-        "interpolate"
+        "interpolate",
+        "PremiumPhysical"
       ],
       "motionSignature": {
-        "camera": "vertical travel down assessment sheet",
-        "layout": "stacked question rows into summary profile",
-        "transformation": "questions stamp in then collapse into profile"
+        "camera": "static frontal along a standing line",
+        "layout": "four objects entering left to right",
+        "transformation": "objects drop in and settle into a shared row"
       },
       "motionChannels": [
-        "question row reveal",
-        "profile synthesis"
+        "object entry drop",
+        "label reveal after settling"
       ],
       "visualBeats": [
-        "unerwartete Ausgaben",
-        "notwendige Kosten",
-        "zwingende Dinge",
-        "Ausgaben senkbar",
-        "Risikoprofil"
+        "leere Standlinie",
+        "kaputtes Gerät steht",
+        "Rechnung kommt dazu",
+        "Arbeitsweg kommt dazu",
+        "sinkendes Einkommen schließt die Reihe"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "372a11ab23feb5f86b3a3ccc2b3606a17a35ab2143e24db402bf110c0329c923"
+      "sha256": "80eb2a2d5ec87bd5ca8c6c758529da01951995a9e445f6c2c42200058cdb2a09"
     },
     {
       "id": "visual-17",
@@ -266,40 +268,41 @@
         "Hinweis Anbieter prüfen"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "86da125c0f29a17ce6e9e6f5be896d38f906509336e56d669157260dbb272970"
+      "sha256": "5e3ff479a6eed39687eed9b863cc3ffb8841bd7385e06f5bf77fea6eabd3633e"
     },
     {
       "id": "visual-22",
       "sourceFile": "04-projekt/VISUALS/visual-22/animation.tsx",
       "exportName": "YouTubeVisual22Animation",
-      "viewerChange": "Das Gehalt trifft ein und wird vor den Alltagsausgaben automatisch in Giro-Rest und Reserveanteil geteilt.",
-      "animationIntent": "Automatisierung wird als konkrete Reihenfolge sichtbar: erst sparen, dann ausgeben.",
-      "mechanicId": "salary-auto-routing",
-      "visualTechniqueId": "payday-automatic-switch",
-      "techniqueDescription": "Ein Gehaltsstrom trifft einen sichtbaren Umschaltpunkt, der einen festen Anteil sofort in die Reserve lenkt und den Rest auf dem Giro weiterführt.",
+      "viewerChange": "Das Gehalt landet auf dem Girokonto, ein fester Betrag wandert sofort sichtbar auf das Rücklagenkonto, das daraufhin auf geschützt umschlägt.",
+      "animationIntent": "Der Aufbau passiert automatisch, bevor der Alltag am Geld zehrt.",
+      "mechanicId": "standing-order-fixed-split",
+      "visualTechniqueId": "payday-amount-walks-over",
+      "techniqueDescription": "Zwei reale Konten stehen nebeneinander; nach dem Gehaltseingang löst sich ein beschrifteter Geldbetrag und legt den Weg zum zweiten Konto sichtbar zurück.",
       "compositionFamilyId": "physical-process",
       "toolStack": [
         "Remotion",
-        "SVG paths",
-        "spring"
+        "interpolate",
+        "PremiumPhysical"
       ],
       "motionSignature": {
-        "camera": "top-down routing view",
-        "layout": "salary rail splitting into reserve and giro lanes",
-        "transformation": "incoming salary is automatically diverted before spending lane"
+        "camera": "static frontal on both accounts",
+        "layout": "source account left, target account right, amount travelling between",
+        "transformation": "fixed amount physically relocates and flips the target to protected"
       },
       "motionChannels": [
-        "salary flow",
-        "automatic route switch"
+        "payday balance jump",
+        "amount travel along an arc",
+        "target account state change"
       ],
       "visualBeats": [
-        "Gehalt kommt",
-        "automatischer Split",
-        "Reserve bekommt Anteil",
-        "Rest bleibt verfügbar"
+        "Gehalt trifft ein",
+        "fester Betrag löst sich",
+        "Betrag wandert hinüber",
+        "Rücklagenkonto steht geschützt"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "d7b6ec7255c0b9c966397b376ff72649428dc4259fb6664d25bf45fec8a09431"
+      "sha256": "68b44ab1ad907b29d8424d2c67c6c0203c87be8584f6967908c39dd6a3a88674"
     },
     {
       "id": "visual-23",
@@ -332,40 +335,42 @@
         "unterschiedliche Geschwindigkeit gleiche Funktion"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "43e8d4bbdc700c1f00dec5acf3a237e0d288b9978bd56baa9cbe46719ede4e46"
+      "sha256": "444b7353f8f5fc1afa57c6fd1b98c76dce2940f761baaf64ef49abe858e4d558"
     },
     {
       "id": "visual-24",
       "sourceFile": "04-projekt/VISUALS/visual-24/animation.tsx",
       "exportName": "YouTubeVisual24Animation",
-      "viewerChange": "Kalendermonate wechseln; derselbe automatische Transfer wiederholt sich und die Reserve wächst sichtbar Stufe für Stufe.",
-      "animationIntent": "Die Kraft der Routine wird als wiederholbarer Prozess statt als Motivationstrick erklärt.",
-      "mechanicId": "recurring-month-cycle",
-      "visualTechniqueId": "calendar-reserve-cycle",
-      "techniqueDescription": "Monatskarten drehen nacheinander um; synchron löst jeder Monatswechsel denselben Transfer aus und erhöht einen physischen Reservestapel.",
-      "compositionFamilyId": "timeline",
+      "viewerChange": "Drei Kalenderblätter kippen nacheinander weg und schicken jeweils denselben Betrag in den Reservebehälter, der stufenweise steigt.",
+      "animationIntent": "Die Reserve wächst durch den Takt, nicht durch eine monatlich neue Entscheidung.",
+      "mechanicId": "monthly-page-feeds-tank",
+      "visualTechniqueId": "calendar-page-tear-into-reserve",
+      "techniqueDescription": "Jedes abgelaufene Kalenderblatt kippt nach vorn weg und gibt einen gleich großen Geldbetrag frei, der sichtbar in den Reservebehälter wandert und dessen Füllstand um eine Stufe hebt.",
+      "compositionFamilyId": "physical-cycle",
       "toolStack": [
         "Remotion",
-        "CSS 3D",
-        "interpolate"
+        "interpolate",
+        "PremiumPhysical"
       ],
       "motionSignature": {
-        "camera": "rhythmic page-turn follow",
-        "layout": "calendar rail above reserve stack",
-        "transformation": "month flips trigger repeated reserve increments"
+        "camera": "static frontal across calendar and tank",
+        "layout": "three calendar pages left, reserve tank right",
+        "transformation": "page tears away and its amount physically relocates into the tank"
       },
       "motionChannels": [
-        "calendar progression",
-        "reserve stack growth"
+        "calendar page tear",
+        "amount carried to the tank",
+        "tank fill stepping up"
       ],
       "visualBeats": [
-        "Monat 1",
-        "Monat 2",
-        "Monat 3",
-        "Routine läuft weiter"
+        "drei volle Monate, leerer Behälter",
+        "Monat 1 liefert",
+        "Monat 2 liefert",
+        "Monat 3 liefert",
+        "Behälter gefüllt ohne neue Entscheidung"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "eee474884dba66fce81f91dc15c55d238d5be4e8651f6a5aad0a13be1a2c3d01"
+      "sha256": "bdb0aa373885f172ddddbce8f9e1502023779d0919bf71ade14d225fa61bd93a"
     },
     {
       "id": "visual-26",
@@ -431,7 +436,7 @@
         "Investmentpfad öffnet"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "9f4439016bf2bb510e1aed762dcc3f7dbed53a64addd446c9abeb8f49eeac71f"
+      "sha256": "a939077bd5cb49f585dc739514cc42540275f2f536e4e74d8e5ae518ee88cae1"
     }
   ]
 }

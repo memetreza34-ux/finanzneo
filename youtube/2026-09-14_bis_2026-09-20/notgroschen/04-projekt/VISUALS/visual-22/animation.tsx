@@ -1,21 +1,102 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {COLORS, MotionStage, Panel} from '../../motion-kit';
+import {PhysicalAccount, PhysicalCoinStack, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
 
-export const MECHANIC_ID = 'salary-auto-routing';
-export const VISUAL_TECHNIQUE_ID = 'payday-automatic-switch';
+export const MECHANIC_ID = 'standing-order-fixed-split';
+export const VISUAL_TECHNIQUE_ID = 'payday-amount-walks-over';
 export const COMPOSITION_FAMILY_ID = 'physical-process';
-export const ANIMATION_NARRATIVE = {START:'Gehalt kommt aufs Konto', MECHANISM:'Automatischer Schalter trennt den Sparanteil sofort ab', RESULT:'Reserve wächst bevor Alltag konsumiert'};
+export const RESULT_HOLD_FRAMES = 48;
+
+export const ANIMATION_NARRATIVE = {
+  START: 'Das Gehalt landet auf dem Girokonto, das Rücklagenkonto steht leer daneben',
+  MECHANISM: 'Ein fester Betrag löst sich sofort ab und wandert sichtbar zum zweiten Konto',
+  RESULT: 'Die Rücklage steht auf dem eigenen Konto, bevor der Alltag am Rest zehrt',
+};
+
+export const PREMIUM_VISUAL_NARRATIVE = {
+  HERO: 'Der feste Betrag, der von einem Konto zum anderen wandert',
+  SUPPORT: 'Girokonto als Quelle, Rücklagenkonto als Ziel, Dauerauftrag als Etikett',
+  MATERIAL: 'Gold für den wandernden Betrag, Grün für das geschützte Rücklagenkonto',
+  DEPTH: 'Beide Konten auf einer Ebene, der Betrag davor',
+};
+
+const ramp = (frame: number, from: number, to: number) =>
+  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+
+const GIRO = {x: 210, y: 372};
+const RESERVE = {x: 1400, y: 372};
+/** Der Betrag startet am Girokonto und endet am Rücklagenkonto. */
+const WALK_FROM = 330;
+/**
+ * Der Betrag endet vor dem Zielkonto, nicht darauf.
+ *
+ * Läuft er bis in die Kontofläche hinein, überdeckt er Label und Betrag. Er hält
+ * kurz davor an und geht dort auf — im selben Moment steht die Summe auf dem
+ * Konto, und genau das ist die Aussage.
+ */
+const WALK_TO = 1090;
 
 export const YouTubeVisual22Animation: React.FC = () => {
-  const frame=useCurrentFrame(); const flow=interpolate(frame,[8,78],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); const reserve=interpolate(frame,[48,94],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
-  const mainX=170+620*Math.min(1,flow*1.35);
-  return <MotionStage>
-    <Panel style={{position:'absolute',left:100,top:420,width:300,height:160,padding:40,borderColor:COLORS.white}}><div style={{fontSize:42,fontWeight:900}}>Gehalt</div></Panel>
-    <svg width="1920" height="1080" style={{position:'absolute',inset:0}}><line x1="400" y1="500" x2="920" y2="500" stroke={COLORS.white} strokeWidth="12"/><path d="M 920 500 C 1100 500, 1120 300, 1420 300" fill="none" stroke={COLORS.green} strokeWidth="12"/><path d="M 920 500 C 1100 500, 1120 700, 1420 700" fill="none" stroke={COLORS.gray} strokeWidth="12"/></svg>
-    <div style={{position:'absolute',left:mainX-28,top:472,width:56,height:56,borderRadius:28,backgroundColor:COLORS.gold}}/>
-    <div style={{position:'absolute',left:900,top:450,width:70,height:100,borderRadius:20,border:`4px solid ${COLORS.green}`,transform:`rotate(${reserve*32-16}deg)`,transformOrigin:'center'}}/>
-    <Panel style={{position:'absolute',left:1420,top:220,width:360,height:160,padding:36,borderColor:COLORS.green,opacity:reserve}}><div style={{fontSize:38,fontWeight:900}}>Notgroschen</div></Panel>
-    <Panel style={{position:'absolute',left:1420,top:620,width:360,height:160,padding:36,opacity:flow}}><div style={{fontSize:38,fontWeight:900}}>Giro-Rest</div></Panel>
-  </MotionStage>;
+  const frame = useCurrentFrame();
+
+  // Kanal 1 — das Gehalt trifft ein: der Kontostand springt auf seinen Wert.
+  const payday = ramp(frame, 6, 30);
+
+  // Kanal 2 — der feste Betrag wandert hinüber. Er startet erst, wenn das Gehalt
+  // da ist, und braucht sichtbar Zeit für den Weg.
+  const walk = ramp(frame, 40, 128);
+
+  // Kanal 3 — das Rücklagenkonto nimmt den Betrag auf und schaltet auf geschützt.
+  const landed = ramp(frame, 118, 150);
+
+  const walkX = interpolate(walk, [0, 1], [WALK_FROM, WALK_TO]);
+  // Der Betrag hebt sich auf dem Weg leicht an, statt stur zu gleiten.
+  const arc = Math.sin(walk * Math.PI) * 86;
+
+  return (
+    <YouTubePhysicalStage>
+      <PhysicalAccount
+        x={GIRO.x}
+        y={GIRO.y}
+        label="Girokonto"
+        balance={payday > 0.5 ? '2.400 €' : '0 €'}
+        scale={1.34}
+      />
+
+      <PhysicalAccount
+        x={RESERVE.x}
+        y={RESERVE.y}
+        label="Rücklagenkonto"
+        balance={landed > 0.5 ? '150 €' : '0 €'}
+        state={landed > 0.5 ? 'protected' : 'normal'}
+        scale={1.34}
+      />
+
+      {/* Der feste Betrag selbst — das Hauptobjekt der Szene. */}
+      <div
+        style={{
+          position: 'absolute',
+          left: 0,
+          top: 626,
+          transform: `translate(${walkX}px, ${-arc}px)`,
+          opacity: payday * (1 - landed),
+        }}
+      >
+        <PhysicalCoinStack x={0} y={0} count={4} scale={1.3} />
+      </div>
+
+      {/* Das Etikett läuft mit und benennt, warum sich der Betrag bewegt. */}
+      <div
+        style={{
+          position: 'absolute',
+          left: 0,
+          top: 546,
+          transform: `translate(${walkX - 30}px, ${-arc}px)`,
+          opacity: payday * (1 - landed),
+        }}
+      >
+        <PhysicalTag material="money">Dauerauftrag 150 €</PhysicalTag>
+      </div>
+    </YouTubePhysicalStage>
+  );
 };

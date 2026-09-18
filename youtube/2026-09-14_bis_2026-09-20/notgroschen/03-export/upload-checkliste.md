@@ -8,7 +8,7 @@
 - [ ] Kapitel anhand des finalen Voiceovers framegenau aktualisieren
 - [ ] Quellen-/Disclaimer-Text übernehmen
 - [ ] keine Renditegarantie oder individuelle Finanzempfehlung im Titel/Thumbnail
-- [ ] Untertitel vollständig und audio-synchron
+- [ ] keine Untertitel hochladen — Longform läuft mit Ton, YouTube-Auto-Untertitel nicht ersetzen
 - [ ] Verbraucherzentrale-/BaFin-Aussagen im finalen Schnitt unverändert korrekt
 - [ ] angehefteten Kommentar vorbereiten
 - [ ] Endscreen/Kanal-CTA nur dezent und passend

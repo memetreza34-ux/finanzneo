@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
-import {COLORS, FinanceEyebrow, FinanceValue, MotionStage, progressBetween} from '../../motion-kit';
+import {COLORS, FinanceValue, MotionStage, progressBetween} from '../../motion-kit';
 
 export const MECHANIC_ID = 'essential-budget-assembly';
 export const VISUAL_TECHNIQUE_ID = 'category-to-total-ledger';
@@ -26,8 +26,12 @@ export const YouTubeVisual09Animation: React.FC = () => {
   const finish=progressBetween(frame,durationInFrames,0.72,0.96);
 
   return <MotionStage>
-    <FinanceEyebrow style={{position:'absolute',left:120,top:86}}>Dein echter Bedarf beginnt bei notwendigen Ausgaben</FinanceEyebrow>
-    <div style={{position:'absolute',left:120,top:145,fontSize:54,fontWeight:900}}>Was muss jeden Monat wirklich bezahlt werden?</div>
+    {/*
+      Hier standen zwei Textzeilen auf y 86 und y 145. Die Visualzone beginnt bei
+      y 180, und die Animationsbühne clippt hart: die obere Zeile war nie zu sehen,
+      von der unteren ragten nur die Unterkanten der Buchstaben ins Bild. Die
+      Aussage trägt die Szenenüberschrift, der Rest ist der Kreis darunter.
+    */}
 
     <div style={{position:'absolute',left:180,top:215,width:1080,height:760}}>
       <svg width="1080" height="760" viewBox="0 0 1080 760" style={{position:'absolute',inset:0}}>

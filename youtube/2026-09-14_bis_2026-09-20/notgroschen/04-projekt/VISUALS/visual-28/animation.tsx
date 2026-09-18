@@ -23,7 +23,7 @@ export const YouTubeVisual28Animation: React.FC = () => {
   // diese Einpassung werden Kopf- und Fusszeile der Szene abgeschnitten.
   return <MotionStage>
     <div style={{position: 'absolute', inset: 0, transform: 'translateY(96px) scale(0.78)', transformOrigin: '50% 50%'}}>
-    <div style={{position:'absolute',left:0,top:0,width:2800,height:1080,transform:`translateX(${cameraX}px) scale(${worldScale})`,transformOrigin:'center left'}}>
+    <div style={{position:'absolute',left:0,top:0,width:2800,height:1080,transform:`translateX(${cameraX}px) scale(${worldScale})`,transformOrigin:'center left'}}>  {/* zone-ok: relativ zum Container in der Zone */}
       {/* Keine szeneneigene Ueberschrift: die Zwischenueberschrift kommt aus dem
           Layout ueber YouTubeHeader. Zwei Ueberschriften uebereinander waren der
           Fehler im ersten fertigen Video. */}
@@ -31,17 +31,17 @@ export const YouTubeVisual28Animation: React.FC = () => {
       <div style={{position:'absolute',left:150,top:300,width:650,height:500,borderRadius:64,border:`6px solid ${COLORS.green}`,overflow:'hidden',background:'#0A0D0F',boxShadow:'0 30px 70px rgba(0,0,0,0.42)'}}>
         <div style={{position:'absolute',left:0,right:0,bottom:0,height:`${fill*100}%`,background:'linear-gradient(180deg, rgba(45,216,129,0.32), rgba(45,216,129,0.68))'}}/>
         {[0.25,0.5,0.75].map(mark=><div key={mark} style={{position:'absolute',left:25,right:25,bottom:`${mark*100}%`,height:2,background:'rgba(255,255,255,0.14)'}}/>)}
-        <div style={{position:'absolute',left:0,right:0,top:150,textAlign:'center',fontSize:31,color:'#DDF8EA',fontWeight:800}}>NOTGROSCHEN</div>
+        <div style={{position:'absolute',left:0,right:0,top:150,textAlign:'center',fontSize:31,color:'#DDF8EA',fontWeight:800}}>NOTGROSCHEN</div>  {/* zone-ok: relativ zum Container in der Zone */}
         <div style={{position:'absolute',left:0,right:0,top:205,textAlign:'center',fontSize:76,fontWeight:900}}>Sicherheit</div>
         <div style={{position:'absolute',left:0,right:0,bottom:48,display:'flex',alignItems:'center',justifyContent:'center',gap:12,fontSize:28,fontWeight:900,color:COLORS.green,opacity:secured}}><Icon name="check" size={32} color={COLORS.green} stroke={2.2} />Ziel erreicht</div>
       </div>
 
       <div style={{position:'absolute',left:900,top:250,width:170,height:610}}>
-        {[0,1,2,3].map(index=><div key={index} style={{position:'absolute',left:20+index*35,top:0,width:20,height:430,borderRadius:10,background:'#2B3135',transform:`translateY(${-470*gateOpen}px)`,boxShadow:'0 8px 20px rgba(0,0,0,0.3)'}}/>)}
+        {[0,1,2,3].map(index=><div key={index} style={{position:'absolute',left:20+index*35,top:0,width:20,height:430,borderRadius:10,background:'#2B3135',transform:`translateY(${-470*gateOpen}px)`,boxShadow:'0 8px 20px rgba(0,0,0,0.3)'}}/>)} // zone-ok: relativ zum Container in der Zone
         <div style={{position:'absolute',left:0,top:420,width:170,height:34,borderRadius:17,background:COLORS.green}}/>
         <div style={{position:'absolute',left:38,top:474,width:94,height:72,borderRadius:22,border:`5px solid ${COLORS.green}`,opacity:secured}}>
-          <div style={{position:'absolute',left:27,top:-49,width:40,height:48,border:`5px solid ${COLORS.green}`,borderBottom:'none',borderRadius:'24px 24px 0 0'}}/>
-          <div style={{position:'absolute',left:38,top:25,width:18,height:18,borderRadius:9,background:COLORS.green}}/>
+          <div style={{position:'absolute',left:27,top:-49,width:40,height:48,border:`5px solid ${COLORS.green}`,borderBottom:'none',borderRadius:'24px 24px 0 0'}}/>  {/* zone-ok: relativ zum Container in der Zone */}
+          <div style={{position:'absolute',left:38,top:25,width:18,height:18,borderRadius:9,background:COLORS.green}}/>  {/* zone-ok: relativ zum Container in der Zone */}
         </div>
         <div style={{position:'absolute',left:-30,top:570,width:230,textAlign:'center',fontSize:25,fontWeight:900,color:COLORS.green,opacity:secured}}>Sicherheitsziel zuerst</div>
       </div>

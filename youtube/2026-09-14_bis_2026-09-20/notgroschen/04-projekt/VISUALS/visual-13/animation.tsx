@@ -24,10 +24,10 @@ const LifeWorld: React.FC<WorldProps> = ({label,left,obligationCount,reserveTarg
   const reserve=progressBetween(frame,durationInFrames,0.58,0.88);
   const blocks=Array.from({length:obligationCount},(_,index)=>index);
   return <div style={{position:'absolute',left,top:260,width:650,height:620,opacity:reveal}}>
-    <div style={{position:'absolute',left:0,top:0,fontSize:45,fontWeight:900}}>{label}</div>
-    <div style={{position:'absolute',left:0,top:65,fontSize:27,color:COLORS.gray,fontWeight:700}}>{obligationCount <= 2 ? 'weniger laufende Verpflichtungen' : 'mehr laufende Verpflichtungen'}</div>
+    <div style={{position:'absolute',left:0,top:0,fontSize:45,fontWeight:900}}>{label}</div>  {/* zone-ok: relativ zum Container in der Zone */}
+    <div style={{position:'absolute',left:0,top:65,fontSize:27,color:COLORS.gray,fontWeight:700}}>{obligationCount <= 2 ? 'weniger laufende Verpflichtungen' : 'mehr laufende Verpflichtungen'}</div>  {/* zone-ok: relativ zum Container in der Zone */}
 
-    <div style={{position:'absolute',left:35,top:170,width:340,height:300,perspective:900}}>
+    <div style={{position:'absolute',left:35,top:170,width:340,height:300,perspective:900}}>  {/* zone-ok: relativ zum Container in der Zone */}
       <div style={{position:'absolute',left:0,bottom:0,width:340,height:34,borderRadius:17,background:'#252A2E'}}/>
       {blocks.map((index)=>{
         const blockP=interpolate(load,[Math.max(0,index/obligationCount-0.12),Math.min(1,(index+1)/obligationCount+0.12)],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});
@@ -37,7 +37,7 @@ const LifeWorld: React.FC<WorldProps> = ({label,left,obligationCount,reserveTarg
       <div style={{position:'absolute',left:22,bottom:-52,fontSize:25,color:COLORS.red,fontWeight:800}}>Verpflichtungen</div>
     </div>
 
-    <div style={{position:'absolute',right:28,top:165,width:150,height:310,borderRadius:46,border:`4px solid ${color}`,overflow:'hidden',background:'#0A0D0F'}}>
+    <div style={{position:'absolute',right:28,top:165,width:150,height:310,borderRadius:46,border:`4px solid ${color}`,overflow:'hidden',background:'#0A0D0F'}}>  {/* zone-ok: relativ zum Container in der Zone */}
       <div style={{position:'absolute',left:0,right:0,bottom:0,height:`${reserve*reserveTarget*100}%`,background:`linear-gradient(180deg, ${color}, rgba(45,216,129,0.28))`}}/>
       <div style={{position:'absolute',left:18,right:18,top:`${(1-reserveTarget)*100}%`,height:3,background:COLORS.white,opacity:0.75}}/>
     </div>
@@ -58,8 +58,8 @@ export const YouTubeVisual13Animation: React.FC = () => {
   const compare=progressBetween(frame,durationInFrames,0.76,0.96);
 
   return <MotionStage>
-    <FinanceEyebrow style={{position:'absolute',left:0,right:0,top:78,textAlign:'center'}}>Gleiches Einkommen bedeutet nicht gleiches Risiko</FinanceEyebrow>
-    <div style={{position:'absolute',left:0,right:0,top:132,textAlign:'center',fontSize:60,fontWeight:900}}>Gleiches Einkommen</div>
+    <FinanceEyebrow style={{position:'absolute',left:0,right:0,top:78,textAlign:'center'}}>Gleiches Einkommen bedeutet nicht gleiches Risiko</FinanceEyebrow>  {/* zone-ok: relativ zum Container in der Zone */}
+    <div style={{position:'absolute',left:0,right:0,top:132,textAlign:'center',fontSize:60,fontWeight:900}}>Gleiches Einkommen</div>  {/* zone-ok: relativ zum Container in der Zone */}
     <div style={{position:'absolute',left:960,top:245,width:2,height:620,background:COLORS.line,opacity:split}}/>
 
     <div style={{position:'absolute',left:760,top:205,width:400,height:58,borderRadius:29,background:COLORS.gold,transform:`scaleX(${split})`,boxShadow:'0 0 30px rgba(216,177,90,0.16)'}}/>

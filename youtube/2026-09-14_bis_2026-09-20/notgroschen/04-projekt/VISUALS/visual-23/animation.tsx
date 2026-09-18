@@ -9,9 +9,9 @@ export const ANIMATION_NARRATIVE = {START:'Drei leere Stapel, ein gemeinsames Zi
 
 /** Beispielraten aus dem Skript. Die Zielhöhe ist für alle drei dieselbe. */
 const RATES = [
-  {label: '50 €', share: 0.45, y: 300},
-  {label: '100 €', share: 0.72, y: 480},
-  {label: '200 €', share: 1.0, y: 660},
+  {label: '50 €', share: 0.45, y: 340},
+  {label: '100 €', share: 0.72, y: 560},
+  {label: '200 €', share: 1.0, y: 780},
 ];
 
 export const YouTubeVisual23Animation: React.FC = () => {
@@ -28,13 +28,13 @@ export const YouTubeVisual23Animation: React.FC = () => {
     <div style={{
       position: 'absolute',
       left: 1360,
-      top: 260,
+      top: 296,
       width: 6,
-      height: 480 * targetLine,
+      height: 566 * targetLine,
       backgroundColor: COLORS.green,
       opacity: 0.55,
     }} />
-    <div style={{position: 'absolute', left: 1400, top: 258, fontSize: 28, color: COLORS.green, opacity: targetLine}}>Ziel</div>
+    <div style={{position: 'absolute', left: 1400, top: 294, fontSize: 30, color: COLORS.green, opacity: targetLine}}>Ziel</div>
 
     <YouTubePhysicalStage>
       {RATES.map((rate, index) => {

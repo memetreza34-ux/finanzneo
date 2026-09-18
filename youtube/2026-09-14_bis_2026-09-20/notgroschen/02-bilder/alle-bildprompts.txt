@@ -25,9 +25,9 @@ Literal first, creative second — every block starts from the concrete real-wor
 All source images are horizontal 16:9.
 Put every finished, correctly named file together into 02-bilder/00-ALLE-BILDER-HIER-REIN/
 
-Blocks in this handoff: 15
+Blocks in this handoff: 16 (15 Videobilder + 1 Thumbnail)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 1 / 15 — visual-01 — YouTube Bild 01 - Waschmaschine kaputt.png
+BLOCK 1 / 16 — visual-01 — YouTube Bild 01 - Waschmaschine kaputt.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -87,7 +87,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 2 / 15 — visual-02 — YouTube Bild 02 - Bremsen und Nachzahlung.png
+BLOCK 2 / 16 — visual-02 — YouTube Bild 02 - Bremsen und Nachzahlung.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -144,7 +144,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 3 / 15 — visual-03 — YouTube Bild 03 - Drei schlechte Auswege.png
+BLOCK 3 / 16 — visual-03 — YouTube Bild 03 - Drei schlechte Auswege.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -202,7 +202,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 4 / 15 — visual-06 — YouTube Bild 06 - Kein Konsum.png
+BLOCK 4 / 16 — visual-06 — YouTube Bild 06 - Kein Konsum.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -261,7 +261,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 5 / 15 — visual-07 — YouTube Bild 07 - Echte Notfälle.png
+BLOCK 5 / 16 — visual-07 — YouTube Bild 07 - Echte Notfälle.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -319,7 +319,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 6 / 15 — visual-08 — YouTube Bild 08 - Verfuegbar statt Rendite.png
+BLOCK 6 / 16 — visual-08 — YouTube Bild 08 - Verfuegbar statt Rendite.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -377,7 +377,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 7 / 15 — visual-11 — YouTube Bild 11 - Person A.png
+BLOCK 7 / 16 — visual-11 — YouTube Bild 11 - Person A.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -438,7 +438,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 8 / 15 — visual-12 — YouTube Bild 12 - Person B.png
+BLOCK 8 / 16 — visual-12 — YouTube Bild 12 - Person B.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -501,7 +501,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 9 / 15 — visual-15 — YouTube Bild 15 - Langfristiges Investment.png
+BLOCK 9 / 16 — visual-15 — YouTube Bild 15 - Langfristiges Investment.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -560,7 +560,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 10 / 15 — visual-16 — YouTube Bild 16 - Auto und Depot.png
+BLOCK 10 / 16 — visual-16 — YouTube Bild 16 - Auto und Depot.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -619,7 +619,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 11 / 15 — visual-18 — YouTube Bild 18 - Giro zu Tagesgeld.png
+BLOCK 11 / 16 — visual-18 — YouTube Bild 18 - Giro zu Tagesgeld.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -676,7 +676,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 12 / 15 — visual-20 — YouTube Bild 20 - Reserve trennen.png
+BLOCK 12 / 16 — visual-20 — YouTube Bild 20 - Reserve trennen.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -735,7 +735,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 13 / 15 — visual-21 — YouTube Bild 21 - Erste Stufe statt Endziel.png
+BLOCK 13 / 16 — visual-21 — YouTube Bild 21 - Erste Stufe statt Endziel.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -793,7 +793,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 14 / 15 — visual-25 — YouTube Bild 25 - Notfall bezahlen.png
+BLOCK 14 / 16 — visual-25 — YouTube Bild 25 - Notfall bezahlen.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -854,7 +854,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 15 / 15 — visual-27 — YouTube Bild 27 - Notfall ohne Schulden.png
+BLOCK 15 / 16 — visual-27 — YouTube Bild 27 - Notfall ohne Schulden.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -907,6 +907,68 @@ Beside them, pushed aside and lying face down with a light film of dust, a stapl
 `Kredit` and a securities sale slip with a small tag `Depotverkauf`.
 The telling detail is the dust: these two were never needed.
 No warm red-orange in this frame.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 16 / 16 — thumbnail — YouTube Thumbnail - Notgroschen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FINANZNEO YOUTUBE THUMBNAIL — VIDEO 01 NOTGROSCHEN
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Thumbnail - Notgroschen.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A dead washing machine with its repair quote stands opposite the sealed envelope that covers it.
+REAL_WORLD_CONTEXT_ANCHOR: Home laundry, unplanned cost against a prepared reserve.
+VOICEOVER_VISUAL_MATCH: The video answers what the Notgroschen is for and how large it should be.
+TRANSFERABILITY_TEST: PASS — cost on one side, reserve on the other, readable at thumbnail size.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Unerwartete Reparaturkosten gegen den vorbereiteten Notgroschen.
+ONE RELATION: the cost is loud, the reserve is calm
+GERMAN LABELS (exactly these, nothing else): `Reparatur 480 €`, `Notgroschen`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood,
+no table surface, no room, no gradient backdrop.
+Ivory and gray neutral, emerald green for the reserve, warm red-orange for cost.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+Left: a real European front-loading washing machine, door hanging open with the rubber seal
+visible, water spreading from it, and a German repair quote leaning against it with the
+readable label `Reparatur 480 €` in warm red-orange.
+Right, separated by a clean gap of black: a closed ivory envelope with an emerald wax seal
+standing upright and completely still, one green 100-euro note just visible at its opening,
+label `Notgroschen`.
+Keep generous calm black space along the top edge for typography added later in Remotion.
+One side is chaos. The other side is ready.
 
 A frame from a CG animated feature film on pure black. Modeled and rendered, never
 photographed. Every object recognizable as the real thing.

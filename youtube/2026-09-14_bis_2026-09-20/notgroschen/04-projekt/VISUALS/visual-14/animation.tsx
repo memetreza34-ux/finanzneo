@@ -1,71 +1,98 @@
 import React from 'react';
-import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {COLORS, frameAt, Icon, MotionStage, PhysicalObject, progressBetween, YouTubePhysicalStage} from '../../motion-kit';
+import {interpolate, useCurrentFrame} from 'remotion';
+import {PhysicalAccount, PhysicalBill, PhysicalObject, PhysicalTag, PhysicalWasher, YouTubePhysicalStage} from '../../motion-kit';
 
-export const MECHANIC_ID = 'personal-risk-questionnaire';
-export const VISUAL_TECHNIQUE_ID = 'question-to-profile-map';
-export const COMPOSITION_FAMILY_ID = 'document-motion';
-export const ANIMATION_NARRATIVE = {START:'Vier leere Karten', MECHANISM:'Jede Antwort legt eine Karte auf den Stapel und hebt den Pegel', RESULT:'Aus vier Antworten entsteht ein persoenliches Profil'};
+export const MECHANIC_ID = 'four-factors-take-the-table';
+export const VISUAL_TECHNIQUE_ID = 'objects-enter-and-line-up';
+export const COMPOSITION_FAMILY_ID = 'physical-collection';
+export const RESULT_HOLD_FRAMES = 60;
 
-const QUESTIONS = [
-  {tag: 'Notfälle', icon: 'warning' as const},
-  {tag: 'Fixkosten', icon: 'receipt' as const},
-  {tag: 'Einkommen', icon: 'wallet' as const},
-  {tag: 'Puffer', icon: 'clock' as const},
+export const ANIMATION_NARRATIVE = {
+  START: 'Ein leerer Tisch — die Frage nach der eigenen Höhe ist noch unbeantwortet',
+  MECHANISM: 'Vier reale Dinge kommen nacheinander herein und stellen sich nebeneinander',
+  RESULT: 'Vier Gegenstände stehen aufgereiht: das ist es, was die eigene Höhe bestimmt',
+};
+
+export const PREMIUM_VISUAL_NARRATIVE = {
+  HERO: 'Die Reihe aus vier konkreten Dingen, die zusammen den Bedarf ergeben',
+  SUPPORT: 'Kaputtes Gerät, Rechnung, Arbeitsweg, schrumpfendes Einkommen',
+  MATERIAL: 'Metall für das Gerät, Papier für die Rechnung, Warnrot für das sinkende Einkommen',
+  DEPTH: 'Alle vier auf einer Standlinie, das zuletzt eingetroffene vorn',
+};
+
+const ramp = (frame: number, from: number, to: number) =>
+  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+
+/**
+ * Die vier Fragen aus dem Skript als vier Gegenstände.
+ *
+ * Die Vorgängerfassung zeigte Fortschrittsbalken — laut Standard als Hauptsprache
+ * verboten. Jede Frage bekommt hier das Ding, nach dem sie fragt: die unerwartete
+ * Ausgabe, die laufenden Kosten, das für Arbeit Nötige, das sinkende Einkommen.
+ *
+ * Alles sitzt in der Visualzone y 180–990.
+ */
+const ARRIVALS = [
+  {key: 'unerwartet', x: 120, label: 'Unerwartet', start: 8},
+  {key: 'fixkosten', x: 570, label: 'Fixkosten', start: 60},
+  {key: 'arbeitsweg', x: 1010, label: 'Arbeitsweg', start: 112},
+  {key: 'einkommen', x: 1450, label: 'Weniger Einkommen', start: 164},
 ];
+
+const STAND_Y = 420;
 
 export const YouTubeVisual14Animation: React.FC = () => {
   const frame = useCurrentFrame();
-  const {fps, durationInFrames} = useVideoConfig();
 
-  // Vier Antworten fallen als echte Karten auf einen Stapel. Die Hoehe des
-  // Stapels IST das Profil — kein Haken, keine Checkliste, keine Ergebnistafel.
-  const cards = QUESTIONS.map((question, index) => {
-    const at = 0.10 + index * 0.16;
-    const drop = progressBetween(frame, durationInFrames, at, at + 0.10);
-    const settle = spring({frame: frame - frameAt(durationInFrames, at + 0.10), fps, config: {damping: 15, stiffness: 140}});
-    return {...question, drop, settle, index};
-  });
-
-  const stacked = cards.reduce((sum, card) => sum + card.settle, 0);
-  const profile = progressBetween(frame, durationInFrames, 0.74, 0.92);
-
-  return <MotionStage>
+  return (
     <YouTubePhysicalStage>
-      {cards.map((card) => (
-        <PhysicalObject
-          key={card.tag}
-          x={520}
-          y={interpolate(card.drop, [0, 1], [200, 690 - card.index * 52])}
-          width={520}
-          height={70}
-          material={card.settle > 0.5 ? 'positive' : 'neutral'}
-          opacity={card.drop}
-        >
-          <div style={{width: '100%', height: '100%', display: 'flex', alignItems: 'center', paddingLeft: 28, fontSize: 32, fontWeight: 800}}>
-            {card.tag}
+      {ARRIVALS.map((arrival) => {
+        // Kanal 1 — das Ding kommt von unten herein und setzt sich auf die Standlinie.
+        const enter = ramp(frame, arrival.start, arrival.start + 30);
+        // Kanal 2 — das Etikett wird erst danach lesbar, damit der Gegenstand zuerst wirkt.
+        const named = ramp(frame, arrival.start + 26, arrival.start + 46);
+        const drop = interpolate(enter, [0, 1], [190, 0]);
+
+        return (
+          <div
+            key={arrival.key}
+            style={{
+              position: 'absolute',
+              left: 0,
+              top: 0,
+              transform: `translateY(${drop}px)`,
+              opacity: enter,
+            }}
+          >
+            {arrival.key === 'unerwartet' ? (
+              <PhysicalWasher x={arrival.x} y={STAND_Y} broken scale={1.08} />
+            ) : null}
+            {arrival.key === 'fixkosten' ? (
+              <PhysicalBill x={arrival.x} y={STAND_Y + 20} amount="1.500 €" label="Monatliche Kosten" rotate={-3} scale={1.06} />
+            ) : null}
+            {arrival.key === 'arbeitsweg' ? (
+              <PhysicalObject x={arrival.x} y={STAND_Y + 60} width={300} height={280} material="neutral" radius={30}>
+                <div style={{padding: 30, fontSize: 30, fontWeight: 900, color: '#142019'}}>Auto für den Weg zur Arbeit</div>
+              </PhysicalObject>
+            ) : null}
+            {arrival.key === 'einkommen' ? (
+              <PhysicalAccount x={arrival.x} y={STAND_Y + 70} label="Einkommen" balance="− 40 %" state="danger" scale={1.02} />
+            ) : null}
+
+            <div
+              style={{
+                position: 'absolute',
+                left: arrival.x + 10,
+                top: STAND_Y + 380,
+                opacity: named,
+                transform: `translateY(${(1 - named) * 16}px)`,
+              }}
+            >
+              <PhysicalTag material={arrival.key === 'einkommen' ? 'warning' : 'neutral'}>{arrival.label}</PhysicalTag>
+            </div>
           </div>
-        </PhysicalObject>
-      ))}
+        );
+      })}
     </YouTubePhysicalStage>
-
-    {cards.map((card) => (
-      <div key={`${card.tag}-icon`} style={{
-        position: 'absolute',
-        left: 420,
-        top: interpolate(card.drop, [0, 1], [206, 696 - card.index * 52]),
-        opacity: card.drop,
-      }}>
-        <Icon name={card.icon} size={40} color={card.settle > 0.5 ? COLORS.green : COLORS.gray} stroke={2.1} />
-      </div>
-    ))}
-
-    {/* Die Saeule rechts waechst mit jeder gelegten Karte. Sie ist das Ergebnis. */}
-    <div style={{position: 'absolute', left: 1220, top: 300, width: 120, height: 450, borderRadius: 24, border: `3px solid ${COLORS.line}`, overflow: 'hidden'}}>
-      <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: `${(stacked / QUESTIONS.length) * 100}%`, backgroundColor: COLORS.green}} />
-    </div>
-    <div style={{position: 'absolute', left: 1180, top: 780, width: 200, textAlign: 'center', fontSize: 30, fontWeight: 900, color: COLORS.green, opacity: profile, transform: `translateY(${interpolate(profile, [0, 1], [14, 0])}px)`}}>
-      dein Profil
-    </div>
-  </MotionStage>;
+  );
 };

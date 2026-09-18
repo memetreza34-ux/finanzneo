@@ -1,13 +1,9233 @@
 {
-  "version":"finanzneo-caption-v1",
-  "language":"de",
-  "source":"",
-  "generatedAt":"",
-  "duration":0,
-  "wordCount":0,
-  "fps":30,
-  "subtitleMode":"sentence-with-audio-synced-active-word",
-  "activeWordColor":"finance-green",
-  "words":[],
-  "sentences":[]
+  "version": "finanzneo-caption-v1",
+  "language": "de",
+  "source": "youtube/2026-09-14_bis_2026-09-20/notgroschen/01-script/voiceover.wav",
+  "generatedAt": "2026-09-17T03:35:10.735Z",
+  "duration": 388.224,
+  "wordCount": 863,
+  "fps": 30,
+  "subtitleMode": "sentence-with-audio-synced-active-word",
+  "activeWordColor": "finance-green",
+  "words": [
+    {
+      "word": "Stell",
+      "start": 0,
+      "end": 0.66
+    },
+    {
+      "word": "dir",
+      "start": 0.66,
+      "end": 0.88
+    },
+    {
+      "word": "vor,",
+      "start": 0.88,
+      "end": 1.44
+    },
+    {
+      "word": "morgen",
+      "start": 1.9,
+      "end": 2.1
+    },
+    {
+      "word": "geht",
+      "start": 2.1,
+      "end": 2.36
+    },
+    {
+      "word": "deine",
+      "start": 2.36,
+      "end": 2.62
+    },
+    {
+      "word": "Waschmaschine",
+      "start": 2.62,
+      "end": 3.34
+    },
+    {
+      "word": "kaputt.",
+      "start": 3.34,
+      "end": 4.2
+    },
+    {
+      "word": "480",
+      "start": 4.9,
+      "end": 5.58
+    },
+    {
+      "word": "Euro",
+      "start": 5.58,
+      "end": 6
+    },
+    {
+      "word": "Reparatur.",
+      "start": 6,
+      "end": 7.04
+    },
+    {
+      "word": "Zwei",
+      "start": 7.44,
+      "end": 7.68
+    },
+    {
+      "word": "Tage",
+      "start": 7.68,
+      "end": 7.92
+    },
+    {
+      "word": "später",
+      "start": 7.92,
+      "end": 8.36
+    },
+    {
+      "word": "braucht",
+      "start": 8.36,
+      "end": 8.64
+    },
+    {
+      "word": "dein",
+      "start": 8.64,
+      "end": 8.84
+    },
+    {
+      "word": "Auto",
+      "start": 8.84,
+      "end": 9.32
+    },
+    {
+      "word": "neue",
+      "start": 9.32,
+      "end": 9.6
+    },
+    {
+      "word": "Bremsen.",
+      "start": 9.6,
+      "end": 10.2
+    },
+    {
+      "word": "Und",
+      "start": 10.7,
+      "end": 10.84
+    },
+    {
+      "word": "am",
+      "start": 10.84,
+      "end": 11.02
+    },
+    {
+      "word": "Monatsende",
+      "start": 11.02,
+      "end": 11.78
+    },
+    {
+      "word": "kommt",
+      "start": 11.78,
+      "end": 12.12
+    },
+    {
+      "word": "noch",
+      "start": 12.12,
+      "end": 12.4
+    },
+    {
+      "word": "eine",
+      "start": 12.4,
+      "end": 12.66
+    },
+    {
+      "word": "Nachzahlung.",
+      "start": 12.66,
+      "end": 13.52
+    },
+    {
+      "word": "Das",
+      "start": 14.32,
+      "end": 14.5
+    },
+    {
+      "word": "Problem",
+      "start": 14.5,
+      "end": 14.84
+    },
+    {
+      "word": "ist",
+      "start": 14.84,
+      "end": 15.1
+    },
+    {
+      "word": "nicht,",
+      "start": 15.1,
+      "end": 15.34
+    },
+    {
+      "word": "dass",
+      "start": 15.38,
+      "end": 15.58
+    },
+    {
+      "word": "solche",
+      "start": 15.58,
+      "end": 15.84
+    },
+    {
+      "word": "Dinge",
+      "start": 15.84,
+      "end": 16.08
+    },
+    {
+      "word": "passieren.",
+      "start": 16.08,
+      "end": 16.74
+    },
+    {
+      "word": "Das",
+      "start": 17.42,
+      "end": 17.58
+    },
+    {
+      "word": "Problem",
+      "start": 17.58,
+      "end": 17.94
+    },
+    {
+      "word": "ist,",
+      "start": 17.94,
+      "end": 18.4
+    },
+    {
+      "word": "wenn",
+      "start": 18.62,
+      "end": 18.94
+    },
+    {
+      "word": "jede",
+      "start": 18.94,
+      "end": 19.32
+    },
+    {
+      "word": "unerwartete",
+      "start": 19.32,
+      "end": 20.08
+    },
+    {
+      "word": "Rechnung",
+      "start": 20.08,
+      "end": 20.6
+    },
+    {
+      "word": "sofort",
+      "start": 20.6,
+      "end": 21.12
+    },
+    {
+      "word": "deinen",
+      "start": 21.12,
+      "end": 21.44
+    },
+    {
+      "word": "Dispo,",
+      "start": 21.44,
+      "end": 22.04
+    },
+    {
+      "word": "einen",
+      "start": 22.3,
+      "end": 22.5
+    },
+    {
+      "word": "Kredit",
+      "start": 22.5,
+      "end": 23.04
+    },
+    {
+      "word": "oder",
+      "start": 23.04,
+      "end": 23.36
+    },
+    {
+      "word": "dein",
+      "start": 23.36,
+      "end": 23.56
+    },
+    {
+      "word": "Depot",
+      "start": 23.56,
+      "end": 23.88
+    },
+    {
+      "word": "trifft.",
+      "start": 23.88,
+      "end": 24.7
+    },
+    {
+      "word": "Genau",
+      "start": 25.4,
+      "end": 25.76
+    },
+    {
+      "word": "dafür",
+      "start": 25.76,
+      "end": 26.28
+    },
+    {
+      "word": "gibt",
+      "start": 26.28,
+      "end": 26.58
+    },
+    {
+      "word": "es",
+      "start": 26.58,
+      "end": 26.8
+    },
+    {
+      "word": "den",
+      "start": 26.8,
+      "end": 26.98
+    },
+    {
+      "word": "Notgroschen.",
+      "start": 26.98,
+      "end": 27.62
+    },
+    {
+      "word": "Aber",
+      "start": 27.62,
+      "end": 28.58
+    },
+    {
+      "word": "wie",
+      "start": 28.58,
+      "end": 29.12
+    },
+    {
+      "word": "viel",
+      "start": 29.12,
+      "end": 29.38
+    },
+    {
+      "word": "Geld",
+      "start": 29.38,
+      "end": 29.68
+    },
+    {
+      "word": "sollte",
+      "start": 29.68,
+      "end": 29.98
+    },
+    {
+      "word": "dort",
+      "start": 29.98,
+      "end": 30.24
+    },
+    {
+      "word": "wirklich",
+      "start": 30.24,
+      "end": 30.66
+    },
+    {
+      "word": "liegen?",
+      "start": 30.66,
+      "end": 31.1
+    },
+    {
+      "word": "1.000",
+      "start": 32,
+      "end": 32.04
+    },
+    {
+      "word": "Euro?",
+      "start": 32.04,
+      "end": 32.5
+    },
+    {
+      "word": "Drei",
+      "start": 32.92,
+      "end": 33.22
+    },
+    {
+      "word": "Monatsgehälter?",
+      "start": 33.22,
+      "end": 33.66
+    },
+    {
+      "word": "Oder",
+      "start": 34.7,
+      "end": 35.06
+    },
+    {
+      "word": "viel",
+      "start": 35.06,
+      "end": 35.52
+    },
+    {
+      "word": "mehr?",
+      "start": 35.52,
+      "end": 35.92
+    },
+    {
+      "word": "Die",
+      "start": 37.02,
+      "end": 37.3
+    },
+    {
+      "word": "kurze",
+      "start": 37.3,
+      "end": 37.56
+    },
+    {
+      "word": "Antwort:",
+      "start": 37.56,
+      "end": 38.02
+    },
+    {
+      "word": "Es",
+      "start": 38.34,
+      "end": 38.5
+    },
+    {
+      "word": "gibt",
+      "start": 38.5,
+      "end": 38.8
+    },
+    {
+      "word": "keine",
+      "start": 38.8,
+      "end": 39.14
+    },
+    {
+      "word": "Zahl,",
+      "start": 39.14,
+      "end": 39.48
+    },
+    {
+      "word": "die",
+      "start": 39.52,
+      "end": 39.64
+    },
+    {
+      "word": "für",
+      "start": 39.64,
+      "end": 39.84
+    },
+    {
+      "word": "jeden",
+      "start": 39.84,
+      "end": 40.12
+    },
+    {
+      "word": "passt.",
+      "start": 40.12,
+      "end": 40.52
+    },
+    {
+      "word": "Die",
+      "start": 41.3,
+      "end": 41.4
+    },
+    {
+      "word": "Verbraucherzentrale",
+      "start": 41.4,
+      "end": 42.38
+    },
+    {
+      "word": "nennt",
+      "start": 42.38,
+      "end": 42.78
+    },
+    {
+      "word": "zwei",
+      "start": 42.78,
+      "end": 43.2
+    },
+    {
+      "word": "bis",
+      "start": 43.2,
+      "end": 43.2
+    },
+    {
+      "word": "drei",
+      "start": 43.2,
+      "end": 43.7
+    },
+    {
+      "word": "Monatsgehälter",
+      "start": 43.7,
+      "end": 44.2
+    },
+    {
+      "word": "als",
+      "start": 44.54,
+      "end": 44.82
+    },
+    {
+      "word": "Daumenregel.",
+      "start": 44.82,
+      "end": 45.78
+    },
+    {
+      "word": "Sie",
+      "start": 46.22,
+      "end": 46.38
+    },
+    {
+      "word": "sagt",
+      "start": 46.38,
+      "end": 46.6
+    },
+    {
+      "word": "aber",
+      "start": 46.6,
+      "end": 46.92
+    },
+    {
+      "word": "gleichzeitig,",
+      "start": 46.92,
+      "end": 47.48
+    },
+    {
+      "word": "dass",
+      "start": 47.58,
+      "end": 47.76
+    },
+    {
+      "word": "die",
+      "start": 47.76,
+      "end": 48.02
+    },
+    {
+      "word": "passende",
+      "start": 48.02,
+      "end": 48.38
+    },
+    {
+      "word": "Höhe",
+      "start": 48.38,
+      "end": 48.8
+    },
+    {
+      "word": "von",
+      "start": 48.8,
+      "end": 49.02
+    },
+    {
+      "word": "deiner",
+      "start": 49.02,
+      "end": 49.3
+    },
+    {
+      "word": "persönlichen",
+      "start": 49.3,
+      "end": 49.92
+    },
+    {
+      "word": "Situation",
+      "start": 49.92,
+      "end": 50.52
+    },
+    {
+      "word": "abhängt.",
+      "start": 50.52,
+      "end": 50.98
+    },
+    {
+      "word": "Und",
+      "start": 51.72,
+      "end": 52.08
+    },
+    {
+      "word": "genau",
+      "start": 52.08,
+      "end": 52.38
+    },
+    {
+      "word": "dieser",
+      "start": 52.38,
+      "end": 52.72
+    },
+    {
+      "word": "zweite",
+      "start": 52.72,
+      "end": 53.18
+    },
+    {
+      "word": "Satz",
+      "start": 53.18,
+      "end": 53.66
+    },
+    {
+      "word": "ist",
+      "start": 53.66,
+      "end": 53.96
+    },
+    {
+      "word": "eigentlich",
+      "start": 53.96,
+      "end": 54.46
+    },
+    {
+      "word": "der",
+      "start": 54.46,
+      "end": 54.66
+    },
+    {
+      "word": "wichtigere.",
+      "start": 54.66,
+      "end": 55.24
+    },
+    {
+      "word": "Ein",
+      "start": 55.92,
+      "end": 56.44
+    },
+    {
+      "word": "Notgroschen",
+      "start": 56.44,
+      "end": 56.98
+    },
+    {
+      "word": "ist",
+      "start": 56.98,
+      "end": 57.26
+    },
+    {
+      "word": "kein",
+      "start": 57.26,
+      "end": 57.52
+    },
+    {
+      "word": "Geld",
+      "start": 57.52,
+      "end": 57.74
+    },
+    {
+      "word": "für",
+      "start": 57.74,
+      "end": 58.02
+    },
+    {
+      "word": "Urlaub,",
+      "start": 58.02,
+      "end": 58.56
+    },
+    {
+      "word": "ein",
+      "start": 58.88,
+      "end": 58.94
+    },
+    {
+      "word": "neues",
+      "start": 58.94,
+      "end": 59.24
+    },
+    {
+      "word": "Handy",
+      "start": 59.24,
+      "end": 59.64
+    },
+    {
+      "word": "oder",
+      "start": 59.64,
+      "end": 60.02
+    },
+    {
+      "word": "den",
+      "start": 60.02,
+      "end": 60.14
+    },
+    {
+      "word": "nächsten",
+      "start": 60.14,
+      "end": 60.56
+    },
+    {
+      "word": "Sale.",
+      "start": 60.56,
+      "end": 60.88
+    },
+    {
+      "word": "Er",
+      "start": 61.58,
+      "end": 61.72
+    },
+    {
+      "word": "ist",
+      "start": 61.72,
+      "end": 61.94
+    },
+    {
+      "word": "eine",
+      "start": 61.94,
+      "end": 62.2
+    },
+    {
+      "word": "Reserve",
+      "start": 62.2,
+      "end": 62.62
+    },
+    {
+      "word": "für",
+      "start": 62.62,
+      "end": 62.92
+    },
+    {
+      "word": "Ausgaben,",
+      "start": 62.92,
+      "end": 63.46
+    },
+    {
+      "word": "die",
+      "start": 63.6,
+      "end": 63.7
+    },
+    {
+      "word": "notwendig",
+      "start": 63.7,
+      "end": 64.36
+    },
+    {
+      "word": "sind",
+      "start": 64.36,
+      "end": 64.64
+    },
+    {
+      "word": "und",
+      "start": 64.64,
+      "end": 64.98
+    },
+    {
+      "word": "die",
+      "start": 64.98,
+      "end": 65.12
+    },
+    {
+      "word": "du",
+      "start": 65.12,
+      "end": 65.3
+    },
+    {
+      "word": "nicht",
+      "start": 65.3,
+      "end": 65.68
+    },
+    {
+      "word": "sinnvoll",
+      "start": 65.68,
+      "end": 66.08
+    },
+    {
+      "word": "verschieben",
+      "start": 66.08,
+      "end": 66.56
+    },
+    {
+      "word": "kannst.",
+      "start": 66.56,
+      "end": 66.88
+    },
+    {
+      "word": "Eine",
+      "start": 67.52,
+      "end": 67.8
+    },
+    {
+      "word": "kaputte",
+      "start": 67.8,
+      "end": 68.2
+    },
+    {
+      "word": "Waschmaschine.",
+      "start": 68.2,
+      "end": 68.88
+    },
+    {
+      "word": "Eine",
+      "start": 69.38,
+      "end": 69.62
+    },
+    {
+      "word": "dringende",
+      "start": 69.62,
+      "end": 70
+    },
+    {
+      "word": "Autoreparatur.",
+      "start": 70,
+      "end": 70.96
+    },
+    {
+      "word": "Eine",
+      "start": 71.4,
+      "end": 71.64
+    },
+    {
+      "word": "unerwartete",
+      "start": 71.64,
+      "end": 72.32
+    },
+    {
+      "word": "Rechnung.",
+      "start": 72.32,
+      "end": 73.06
+    },
+    {
+      "word": "Oder",
+      "start": 73.06,
+      "end": 73.48
+    },
+    {
+      "word": "eine",
+      "start": 73.48,
+      "end": 73.8
+    },
+    {
+      "word": "Phase,",
+      "start": 73.8,
+      "end": 74.18
+    },
+    {
+      "word": "in",
+      "start": 74.22,
+      "end": 74.4
+    },
+    {
+      "word": "der",
+      "start": 74.4,
+      "end": 74.56
+    },
+    {
+      "word": "plötzlich",
+      "start": 74.56,
+      "end": 75.06
+    },
+    {
+      "word": "weniger",
+      "start": 75.06,
+      "end": 75.44
+    },
+    {
+      "word": "Geld",
+      "start": 75.44,
+      "end": 75.72
+    },
+    {
+      "word": "reinkommt.",
+      "start": 75.72,
+      "end": 76.24
+    },
+    {
+      "word": "Sein",
+      "start": 77.48,
+      "end": 77.64
+    },
+    {
+      "word": "Job",
+      "start": 77.64,
+      "end": 77.82
+    },
+    {
+      "word": "ist",
+      "start": 77.82,
+      "end": 78.06
+    },
+    {
+      "word": "deshalb",
+      "start": 78.06,
+      "end": 78.36
+    },
+    {
+      "word": "nicht,",
+      "start": 78.36,
+      "end": 78.72
+    },
+    {
+      "word": "möglichst",
+      "start": 79.18,
+      "end": 79.2
+    },
+    {
+      "word": "viel",
+      "start": 79.2,
+      "end": 79.48
+    },
+    {
+      "word": "Rendite",
+      "start": 79.48,
+      "end": 79.96
+    },
+    {
+      "word": "zu",
+      "start": 79.96,
+      "end": 80.18
+    },
+    {
+      "word": "machen.",
+      "start": 80.18,
+      "end": 80.46
+    },
+    {
+      "word": "Sein",
+      "start": 81.18,
+      "end": 81.34
+    },
+    {
+      "word": "Job",
+      "start": 81.34,
+      "end": 81.54
+    },
+    {
+      "word": "ist,",
+      "start": 81.54,
+      "end": 82
+    },
+    {
+      "word": "verfügbar",
+      "start": 82.16,
+      "end": 82.64
+    },
+    {
+      "word": "zu",
+      "start": 82.64,
+      "end": 82.88
+    },
+    {
+      "word": "sein,",
+      "start": 82.88,
+      "end": 83.1
+    },
+    {
+      "word": "wenn",
+      "start": 83.22,
+      "end": 83.38
+    },
+    {
+      "word": "du",
+      "start": 83.38,
+      "end": 83.48
+    },
+    {
+      "word": "ihn",
+      "start": 83.48,
+      "end": 83.74
+    },
+    {
+      "word": "brauchst.",
+      "start": 83.74,
+      "end": 84.2
+    },
+    {
+      "word": "Wie",
+      "start": 85.16,
+      "end": 85.56
+    },
+    {
+      "word": "groß",
+      "start": 85.56,
+      "end": 85.96
+    },
+    {
+      "word": "sollte",
+      "start": 85.96,
+      "end": 86.28
+    },
+    {
+      "word": "diese",
+      "start": 86.28,
+      "end": 86.56
+    },
+    {
+      "word": "Reserve",
+      "start": 86.56,
+      "end": 86.94
+    },
+    {
+      "word": "also",
+      "start": 86.94,
+      "end": 87.3
+    },
+    {
+      "word": "sein?",
+      "start": 87.3,
+      "end": 87.6
+    },
+    {
+      "word": "Statt",
+      "start": 89,
+      "end": 89.22
+    },
+    {
+      "word": "nur",
+      "start": 89.22,
+      "end": 89.46
+    },
+    {
+      "word": "eine",
+      "start": 89.46,
+      "end": 89.74
+    },
+    {
+      "word": "pauschale",
+      "start": 89.74,
+      "end": 90.38
+    },
+    {
+      "word": "Zahl",
+      "start": 90.38,
+      "end": 90.64
+    },
+    {
+      "word": "zu",
+      "start": 90.64,
+      "end": 90.86
+    },
+    {
+      "word": "übernehmen,",
+      "start": 90.86,
+      "end": 91.46
+    },
+    {
+      "word": "kannst",
+      "start": 91.82,
+      "end": 91.86
+    },
+    {
+      "word": "du",
+      "start": 91.86,
+      "end": 92.06
+    },
+    {
+      "word": "zuerst",
+      "start": 92.06,
+      "end": 92.56
+    },
+    {
+      "word": "auf",
+      "start": 92.56,
+      "end": 92.76
+    },
+    {
+      "word": "deine",
+      "start": 92.76,
+      "end": 93.04
+    },
+    {
+      "word": "notwendigen",
+      "start": 93.04,
+      "end": 93.78
+    },
+    {
+      "word": "monatlichen",
+      "start": 93.78,
+      "end": 94.38
+    },
+    {
+      "word": "Ausgaben",
+      "start": 94.38,
+      "end": 94.88
+    },
+    {
+      "word": "schauen.",
+      "start": 94.88,
+      "end": 95.24
+    },
+    {
+      "word": "Nehmen",
+      "start": 95.96,
+      "end": 96.16
+    },
+    {
+      "word": "wir",
+      "start": 96.16,
+      "end": 96.32
+    },
+    {
+      "word": "ein",
+      "start": 96.32,
+      "end": 96.64
+    },
+    {
+      "word": "einfaches",
+      "start": 96.64,
+      "end": 97
+    },
+    {
+      "word": "Beispiel.",
+      "start": 97,
+      "end": 97.54
+    },
+    {
+      "word": "Miete,",
+      "start": 98.16,
+      "end": 98.7
+    },
+    {
+      "word": "Lebensmittel,",
+      "start": 99.06,
+      "end": 99.64
+    },
+    {
+      "word": "Strom,",
+      "start": 100,
+      "end": 100.32
+    },
+    {
+      "word": "Versicherungen,",
+      "start": 100.68,
+      "end": 101.3
+    },
+    {
+      "word": "Mobilität",
+      "start": 101.64,
+      "end": 102.26
+    },
+    {
+      "word": "und",
+      "start": 102.26,
+      "end": 102.8
+    },
+    {
+      "word": "andere",
+      "start": 102.8,
+      "end": 103.14
+    },
+    {
+      "word": "Dinge,",
+      "start": 103.14,
+      "end": 103.4
+    },
+    {
+      "word": "auf",
+      "start": 103.4,
+      "end": 103.56
+    },
+    {
+      "word": "die",
+      "start": 103.56,
+      "end": 103.68
+    },
+    {
+      "word": "du",
+      "start": 103.68,
+      "end": 103.84
+    },
+    {
+      "word": "nicht",
+      "start": 103.84,
+      "end": 104.14
+    },
+    {
+      "word": "einfach",
+      "start": 104.14,
+      "end": 104.38
+    },
+    {
+      "word": "verzichten",
+      "start": 104.38,
+      "end": 104.84
+    },
+    {
+      "word": "kannst,",
+      "start": 104.84,
+      "end": 105.18
+    },
+    {
+      "word": "kosten",
+      "start": 105.64,
+      "end": 105.84
+    },
+    {
+      "word": "zusammen",
+      "start": 105.84,
+      "end": 106.44
+    },
+    {
+      "word": "1.500",
+      "start": 106.44,
+      "end": 107.16
+    },
+    {
+      "word": "Euro",
+      "start": 107.16,
+      "end": 107.76
+    },
+    {
+      "word": "im",
+      "start": 107.76,
+      "end": 107.94
+    },
+    {
+      "word": "Monat.",
+      "start": 107.94,
+      "end": 109.2
+    },
+    {
+      "word": "Ein",
+      "start": 109.56,
+      "end": 109.8
+    },
+    {
+      "word": "Monat",
+      "start": 109.8,
+      "end": 110.2
+    },
+    {
+      "word": "Reserve",
+      "start": 110.2,
+      "end": 110.62
+    },
+    {
+      "word": "wären",
+      "start": 110.62,
+      "end": 111.06
+    },
+    {
+      "word": "dann",
+      "start": 111.06,
+      "end": 111.5
+    },
+    {
+      "word": "1.500",
+      "start": 111.5,
+      "end": 112.14
+    },
+    {
+      "word": "Euro.",
+      "start": 112.14,
+      "end": 112.58
+    },
+    {
+      "word": "Zwei",
+      "start": 112.58,
+      "end": 113.5
+    },
+    {
+      "word": "Monate",
+      "start": 113.5,
+      "end": 113.94
+    },
+    {
+      "word": "3.000",
+      "start": 113.94,
+      "end": 114.62
+    },
+    {
+      "word": "Euro.",
+      "start": 114.62,
+      "end": 115.32
+    },
+    {
+      "word": "Drei",
+      "start": 115.6,
+      "end": 115.84
+    },
+    {
+      "word": "Monate",
+      "start": 115.84,
+      "end": 116.36
+    },
+    {
+      "word": "4.500",
+      "start": 116.36,
+      "end": 117.58
+    },
+    {
+      "word": "Euro.",
+      "start": 117.58,
+      "end": 117.94
+    },
+    {
+      "word": "Das",
+      "start": 118.86,
+      "end": 119
+    },
+    {
+      "word": "ist",
+      "start": 119,
+      "end": 119.2
+    },
+    {
+      "word": "keine",
+      "start": 119.2,
+      "end": 119.5
+    },
+    {
+      "word": "neue",
+      "start": 119.5,
+      "end": 119.86
+    },
+    {
+      "word": "offizielle",
+      "start": 119.86,
+      "end": 120.38
+    },
+    {
+      "word": "Faustregel,",
+      "start": 120.38,
+      "end": 121.22
+    },
+    {
+      "word": "sondern",
+      "start": 121.46,
+      "end": 121.68
+    },
+    {
+      "word": "nur",
+      "start": 121.68,
+      "end": 121.92
+    },
+    {
+      "word": "eine",
+      "start": 121.92,
+      "end": 122.18
+    },
+    {
+      "word": "einfache",
+      "start": 122.18,
+      "end": 122.56
+    },
+    {
+      "word": "Methode,",
+      "start": 122.56,
+      "end": 123.02
+    },
+    {
+      "word": "um",
+      "start": 123.22,
+      "end": 123.22
+    },
+    {
+      "word": "zu",
+      "start": 123.22,
+      "end": 123.44
+    },
+    {
+      "word": "verstehen,",
+      "start": 123.44,
+      "end": 123.88
+    },
+    {
+      "word": "welche",
+      "start": 124.42,
+      "end": 124.6
+    },
+    {
+      "word": "Größenordnung",
+      "start": 124.6,
+      "end": 125.4
+    },
+    {
+      "word": "zu",
+      "start": 125.4,
+      "end": 125.68
+    },
+    {
+      "word": "deinem",
+      "start": 125.68,
+      "end": 125.96
+    },
+    {
+      "word": "Alltag",
+      "start": 125.96,
+      "end": 126.38
+    },
+    {
+      "word": "passt.",
+      "start": 126.38,
+      "end": 126.68
+    },
+    {
+      "word": "Jetzt",
+      "start": 128.6,
+      "end": 128.88
+    },
+    {
+      "word": "kommt",
+      "start": 128.88,
+      "end": 129.08
+    },
+    {
+      "word": "der",
+      "start": 129.08,
+      "end": 129.34
+    },
+    {
+      "word": "entscheidende",
+      "start": 129.34,
+      "end": 129.8
+    },
+    {
+      "word": "Punkt:",
+      "start": 129.8,
+      "end": 130.12
+    },
+    {
+      "word": "Zwei",
+      "start": 130.94,
+      "end": 131.18
+    },
+    {
+      "word": "Menschen",
+      "start": 131.18,
+      "end": 131.56
+    },
+    {
+      "word": "mit",
+      "start": 131.56,
+      "end": 131.76
+    },
+    {
+      "word": "demselben",
+      "start": 131.76,
+      "end": 132.26
+    },
+    {
+      "word": "Einkommen",
+      "start": 132.26,
+      "end": 132.94
+    },
+    {
+      "word": "können",
+      "start": 132.94,
+      "end": 133.36
+    },
+    {
+      "word": "völlig",
+      "start": 133.36,
+      "end": 133.94
+    },
+    {
+      "word": "unterschiedliche",
+      "start": 133.94,
+      "end": 134.62
+    },
+    {
+      "word": "Notgroschen",
+      "start": 134.62,
+      "end": 135.14
+    },
+    {
+      "word": "brauchen.",
+      "start": 135.14,
+      "end": 135.6
+    },
+    {
+      "word": "Person",
+      "start": 136.88,
+      "end": 137.14
+    },
+    {
+      "word": "A",
+      "start": 137.14,
+      "end": 137.5
+    },
+    {
+      "word": "wohnt",
+      "start": 137.5,
+      "end": 137.82
+    },
+    {
+      "word": "noch",
+      "start": 137.82,
+      "end": 138.08
+    },
+    {
+      "word": "zu",
+      "start": 138.08,
+      "end": 138.24
+    },
+    {
+      "word": "Hause,",
+      "start": 138.24,
+      "end": 138.6
+    },
+    {
+      "word": "hat",
+      "start": 138.82,
+      "end": 139.02
+    },
+    {
+      "word": "kein",
+      "start": 139.02,
+      "end": 139.24
+    },
+    {
+      "word": "Auto,",
+      "start": 139.24,
+      "end": 139.66
+    },
+    {
+      "word": "niedrige",
+      "start": 140.16,
+      "end": 140.54
+    },
+    {
+      "word": "feste",
+      "start": 140.54,
+      "end": 140.94
+    },
+    {
+      "word": "Ausgaben",
+      "start": 140.94,
+      "end": 141.4
+    },
+    {
+      "word": "und",
+      "start": 141.4,
+      "end": 141.68
+    },
+    {
+      "word": "einen",
+      "start": 141.68,
+      "end": 141.9
+    },
+    {
+      "word": "stabilen",
+      "start": 141.9,
+      "end": 142.38
+    },
+    {
+      "word": "Job.",
+      "start": 142.38,
+      "end": 142.66
+    },
+    {
+      "word": "Wenn",
+      "start": 143.38,
+      "end": 143.56
+    },
+    {
+      "word": "etwas",
+      "start": 143.56,
+      "end": 143.8
+    },
+    {
+      "word": "passiert,",
+      "start": 143.8,
+      "end": 144.28
+    },
+    {
+      "word": "sind",
+      "start": 144.78,
+      "end": 144.78
+    },
+    {
+      "word": "die",
+      "start": 144.78,
+      "end": 145.06
+    },
+    {
+      "word": "finanziellen",
+      "start": 145.06,
+      "end": 145.54
+    },
+    {
+      "word": "Folgen",
+      "start": 145.54,
+      "end": 145.92
+    },
+    {
+      "word": "oft",
+      "start": 145.92,
+      "end": 146.18
+    },
+    {
+      "word": "kleiner.",
+      "start": 146.18,
+      "end": 146.68
+    },
+    {
+      "word": "Person",
+      "start": 147.48,
+      "end": 147.64
+    },
+    {
+      "word": "B",
+      "start": 147.64,
+      "end": 148
+    },
+    {
+      "word": "lebt",
+      "start": 148,
+      "end": 148.42
+    },
+    {
+      "word": "allein,",
+      "start": 148.42,
+      "end": 148.96
+    },
+    {
+      "word": "braucht",
+      "start": 149.24,
+      "end": 149.46
+    },
+    {
+      "word": "täglich",
+      "start": 149.46,
+      "end": 149.9
+    },
+    {
+      "word": "ein",
+      "start": 149.9,
+      "end": 150.16
+    },
+    {
+      "word": "Auto",
+      "start": 150.16,
+      "end": 150.36
+    },
+    {
+      "word": "für",
+      "start": 150.36,
+      "end": 150.52
+    },
+    {
+      "word": "den",
+      "start": 150.52,
+      "end": 150.76
+    },
+    {
+      "word": "Arbeitsweg,",
+      "start": 150.76,
+      "end": 151.3
+    },
+    {
+      "word": "zahlt",
+      "start": 151.86,
+      "end": 151.98
+    },
+    {
+      "word": "eine",
+      "start": 151.98,
+      "end": 152.26
+    },
+    {
+      "word": "höhere",
+      "start": 152.26,
+      "end": 152.66
+    },
+    {
+      "word": "Miete",
+      "start": 152.66,
+      "end": 153.12
+    },
+    {
+      "word": "und",
+      "start": 153.12,
+      "end": 153.42
+    },
+    {
+      "word": "hat",
+      "start": 153.42,
+      "end": 153.66
+    },
+    {
+      "word": "mehrere",
+      "start": 153.66,
+      "end": 154.12
+    },
+    {
+      "word": "laufende",
+      "start": 154.12,
+      "end": 154.6
+    },
+    {
+      "word": "Verpflichtungen.",
+      "start": 154.6,
+      "end": 155.3
+    },
+    {
+      "word": "Für",
+      "start": 155.9,
+      "end": 156.18
+    },
+    {
+      "word": "diese",
+      "start": 156.18,
+      "end": 156.44
+    },
+    {
+      "word": "Person",
+      "start": 156.44,
+      "end": 156.86
+    },
+    {
+      "word": "kann",
+      "start": 156.86,
+      "end": 157.3
+    },
+    {
+      "word": "eine",
+      "start": 157.3,
+      "end": 157.6
+    },
+    {
+      "word": "größere",
+      "start": 157.6,
+      "end": 158.12
+    },
+    {
+      "word": "Reserve",
+      "start": 158.12,
+      "end": 158.5
+    },
+    {
+      "word": "deutlich",
+      "start": 158.5,
+      "end": 159.16
+    },
+    {
+      "word": "sinnvoller",
+      "start": 159.16,
+      "end": 159.7
+    },
+    {
+      "word": "sein.",
+      "start": 159.7,
+      "end": 159.9
+    },
+    {
+      "word": "Deshalb",
+      "start": 160.86,
+      "end": 161.1
+    },
+    {
+      "word": "solltest",
+      "start": 161.1,
+      "end": 161.42
+    },
+    {
+      "word": "du",
+      "start": 161.42,
+      "end": 161.56
+    },
+    {
+      "word": "nicht",
+      "start": 161.56,
+      "end": 161.78
+    },
+    {
+      "word": "nur",
+      "start": 161.78,
+      "end": 162.02
+    },
+    {
+      "word": "fragen:",
+      "start": 162.02,
+      "end": 162.46
+    },
+    {
+      "word": "Wie",
+      "start": 162.84,
+      "end": 163.08
+    },
+    {
+      "word": "viel",
+      "start": 163.08,
+      "end": 163.34
+    },
+    {
+      "word": "verdiene",
+      "start": 163.34,
+      "end": 163.76
+    },
+    {
+      "word": "ich?",
+      "start": 163.76,
+      "end": 164.42
+    },
+    {
+      "word": "Sondern",
+      "start": 164.7,
+      "end": 164.92
+    },
+    {
+      "word": "auch:",
+      "start": 164.92,
+      "end": 165.54
+    },
+    {
+      "word": "Welche",
+      "start": 165.9,
+      "end": 166.12
+    },
+    {
+      "word": "Ausgaben",
+      "start": 166.12,
+      "end": 166.78
+    },
+    {
+      "word": "können",
+      "start": 166.78,
+      "end": 167.02
+    },
+    {
+      "word": "mich",
+      "start": 167.02,
+      "end": 167.4
+    },
+    {
+      "word": "unerwartet",
+      "start": 167.4,
+      "end": 168
+    },
+    {
+      "word": "treffen?",
+      "start": 168,
+      "end": 168.3
+    },
+    {
+      "word": "Wie",
+      "start": 168.78,
+      "end": 169.1
+    },
+    {
+      "word": "hoch",
+      "start": 169.1,
+      "end": 169.42
+    },
+    {
+      "word": "sind",
+      "start": 169.42,
+      "end": 169.64
+    },
+    {
+      "word": "meine",
+      "start": 169.64,
+      "end": 169.92
+    },
+    {
+      "word": "notwendigen",
+      "start": 169.92,
+      "end": 170.56
+    },
+    {
+      "word": "monatlichen",
+      "start": 170.56,
+      "end": 171.1
+    },
+    {
+      "word": "Kosten?",
+      "start": 171.1,
+      "end": 171.48
+    },
+    {
+      "word": "Welche",
+      "start": 172.14,
+      "end": 172.52
+    },
+    {
+      "word": "Dinge",
+      "start": 172.52,
+      "end": 172.8
+    },
+    {
+      "word": "brauche",
+      "start": 172.8,
+      "end": 173.16
+    },
+    {
+      "word": "ich",
+      "start": 173.16,
+      "end": 173.4
+    },
+    {
+      "word": "zwingend",
+      "start": 173.4,
+      "end": 173.82
+    },
+    {
+      "word": "für",
+      "start": 173.82,
+      "end": 174.06
+    },
+    {
+      "word": "Arbeit",
+      "start": 174.06,
+      "end": 174.42
+    },
+    {
+      "word": "und",
+      "start": 174.42,
+      "end": 174.62
+    },
+    {
+      "word": "Alltag?",
+      "start": 174.62,
+      "end": 175.16
+    },
+    {
+      "word": "Und",
+      "start": 175.66,
+      "end": 175.98
+    },
+    {
+      "word": "wie",
+      "start": 175.98,
+      "end": 176.3
+    },
+    {
+      "word": "schnell",
+      "start": 176.3,
+      "end": 176.58
+    },
+    {
+      "word": "könnte",
+      "start": 176.58,
+      "end": 176.82
+    },
+    {
+      "word": "ich",
+      "start": 176.82,
+      "end": 177.04
+    },
+    {
+      "word": "meine",
+      "start": 177.04,
+      "end": 177.2
+    },
+    {
+      "word": "Ausgaben",
+      "start": 177.2,
+      "end": 177.72
+    },
+    {
+      "word": "reduzieren,",
+      "start": 177.72,
+      "end": 178.36
+    },
+    {
+      "word": "wenn",
+      "start": 178.42,
+      "end": 178.56
+    },
+    {
+      "word": "mein",
+      "start": 178.56,
+      "end": 178.78
+    },
+    {
+      "word": "Einkommen",
+      "start": 178.78,
+      "end": 179.28
+    },
+    {
+      "word": "vorübergehend",
+      "start": 179.28,
+      "end": 179.94
+    },
+    {
+      "word": "sinkt?",
+      "start": 179.94,
+      "end": 180.38
+    },
+    {
+      "word": "Dann",
+      "start": 181.3,
+      "end": 181.62
+    },
+    {
+      "word": "gibt",
+      "start": 181.62,
+      "end": 181.8
+    },
+    {
+      "word": "es",
+      "start": 181.8,
+      "end": 181.94
+    },
+    {
+      "word": "noch",
+      "start": 181.94,
+      "end": 182.14
+    },
+    {
+      "word": "einen",
+      "start": 182.14,
+      "end": 182.4
+    },
+    {
+      "word": "Fehler,",
+      "start": 182.4,
+      "end": 182.7
+    },
+    {
+      "word": "der",
+      "start": 182.76,
+      "end": 183
+    },
+    {
+      "word": "ziemlich",
+      "start": 183,
+      "end": 183.46
+    },
+    {
+      "word": "logisch",
+      "start": 183.46,
+      "end": 183.9
+    },
+    {
+      "word": "klingt:",
+      "start": 183.9,
+      "end": 184.22
+    },
+    {
+      "word": "Warum",
+      "start": 184.92,
+      "end": 185.28
+    },
+    {
+      "word": "den",
+      "start": 185.28,
+      "end": 185.56
+    },
+    {
+      "word": "Notgroschen",
+      "start": 185.56,
+      "end": 186.12
+    },
+    {
+      "word": "nicht",
+      "start": 186.12,
+      "end": 186.42
+    },
+    {
+      "word": "einfach",
+      "start": 186.42,
+      "end": 186.8
+    },
+    {
+      "word": "investieren?",
+      "start": 186.8,
+      "end": 187.48
+    },
+    {
+      "word": "Ein",
+      "start": 188.24,
+      "end": 188.48
+    },
+    {
+      "word": "ETF",
+      "start": 188.48,
+      "end": 188.92
+    },
+    {
+      "word": "kann",
+      "start": 188.92,
+      "end": 189.18
+    },
+    {
+      "word": "langfristig",
+      "start": 189.18,
+      "end": 189.82
+    },
+    {
+      "word": "für",
+      "start": 189.82,
+      "end": 189.96
+    },
+    {
+      "word": "den",
+      "start": 189.96,
+      "end": 190.2
+    },
+    {
+      "word": "Vermögensaufbau",
+      "start": 190.2,
+      "end": 190.94
+    },
+    {
+      "word": "sinnvoll",
+      "start": 190.94,
+      "end": 191.36
+    },
+    {
+      "word": "sein.",
+      "start": 191.36,
+      "end": 191.6
+    },
+    {
+      "word": "Aber",
+      "start": 192.1,
+      "end": 192.52
+    },
+    {
+      "word": "ein",
+      "start": 192.52,
+      "end": 192.78
+    },
+    {
+      "word": "Aktien-ETF",
+      "start": 192.78,
+      "end": 193.3
+    },
+    {
+      "word": "schwankt",
+      "start": 193.82,
+      "end": 194.26
+    },
+    {
+      "word": "im",
+      "start": 194.26,
+      "end": 194.48
+    },
+    {
+      "word": "Wert.",
+      "start": 194.48,
+      "end": 194.76
+    },
+    {
+      "word": "Die",
+      "start": 195.28,
+      "end": 195.5
+    },
+    {
+      "word": "Verbraucherzentrale",
+      "start": 195.5,
+      "end": 196.36
+    },
+    {
+      "word": "weist",
+      "start": 196.36,
+      "end": 196.64
+    },
+    {
+      "word": "darauf",
+      "start": 196.64,
+      "end": 196.86
+    },
+    {
+      "word": "hin,",
+      "start": 196.86,
+      "end": 197.14
+    },
+    {
+      "word": "dass",
+      "start": 197.14,
+      "end": 197.5
+    },
+    {
+      "word": "selbst",
+      "start": 197.5,
+      "end": 197.5
+    },
+    {
+      "word": "breit",
+      "start": 197.5,
+      "end": 198.3
+    },
+    {
+      "word": "gestreute",
+      "start": 198.3,
+      "end": 198.76
+    },
+    {
+      "word": "Aktienmärkte",
+      "start": 198.76,
+      "end": 199.56
+    },
+    {
+      "word": "deutlich",
+      "start": 199.56,
+      "end": 200.12
+    },
+    {
+      "word": "fallen",
+      "start": 200.12,
+      "end": 200.4
+    },
+    {
+      "word": "können",
+      "start": 200.4,
+      "end": 200.82
+    },
+    {
+      "word": "und",
+      "start": 200.82,
+      "end": 201.24
+    },
+    {
+      "word": "sich",
+      "start": 201.24,
+      "end": 201.48
+    },
+    {
+      "word": "Verlustphasen",
+      "start": 201.48,
+      "end": 202.26
+    },
+    {
+      "word": "über",
+      "start": 202.26,
+      "end": 202.52
+    },
+    {
+      "word": "Jahre",
+      "start": 202.52,
+      "end": 202.82
+    },
+    {
+      "word": "ziehen",
+      "start": 202.82,
+      "end": 203.2
+    },
+    {
+      "word": "können.",
+      "start": 203.2,
+      "end": 203.58
+    },
+    {
+      "word": "Das",
+      "start": 204.46,
+      "end": 204.6
+    },
+    {
+      "word": "Problem",
+      "start": 204.6,
+      "end": 204.86
+    },
+    {
+      "word": "ist",
+      "start": 204.86,
+      "end": 205.14
+    },
+    {
+      "word": "also",
+      "start": 205.14,
+      "end": 205.3
+    },
+    {
+      "word": "nicht,",
+      "start": 205.3,
+      "end": 205.46
+    },
+    {
+      "word": "dass",
+      "start": 205.46,
+      "end": 205.66
+    },
+    {
+      "word": "ein",
+      "start": 205.66,
+      "end": 205.9
+    },
+    {
+      "word": "ETF",
+      "start": 205.9,
+      "end": 206.26
+    },
+    {
+      "word": "grundsätzlich",
+      "start": 206.26,
+      "end": 206.98
+    },
+    {
+      "word": "schlecht",
+      "start": 206.98,
+      "end": 207.3
+    },
+    {
+      "word": "wäre.",
+      "start": 207.3,
+      "end": 207.6
+    },
+    {
+      "word": "Das",
+      "start": 208.24,
+      "end": 208.36
+    },
+    {
+      "word": "Problem",
+      "start": 208.36,
+      "end": 208.76
+    },
+    {
+      "word": "ist",
+      "start": 208.76,
+      "end": 208.98
+    },
+    {
+      "word": "der",
+      "start": 208.98,
+      "end": 209.24
+    },
+    {
+      "word": "Zeitpunkt.",
+      "start": 209.24,
+      "end": 209.8
+    },
+    {
+      "word": "Wenn",
+      "start": 210.42,
+      "end": 210.6
+    },
+    {
+      "word": "dein",
+      "start": 210.6,
+      "end": 210.76
+    },
+    {
+      "word": "Auto",
+      "start": 210.76,
+      "end": 211.1
+    },
+    {
+      "word": "genau",
+      "start": 211.1,
+      "end": 211.5
+    },
+    {
+      "word": "dann",
+      "start": 211.5,
+      "end": 211.76
+    },
+    {
+      "word": "kaputtgeht,",
+      "start": 211.76,
+      "end": 212.08
+    },
+    {
+      "word": "wenn",
+      "start": 212.64,
+      "end": 212.78
+    },
+    {
+      "word": "dein",
+      "start": 212.78,
+      "end": 212.96
+    },
+    {
+      "word": "Depot",
+      "start": 212.96,
+      "end": 213.24
+    },
+    {
+      "word": "25",
+      "start": 213.24,
+      "end": 213.92
+    },
+    {
+      "word": "Prozent",
+      "start": 213.92,
+      "end": 214.4
+    },
+    {
+      "word": "im",
+      "start": 214.4,
+      "end": 214.6
+    },
+    {
+      "word": "Minus",
+      "start": 214.6,
+      "end": 214.9
+    },
+    {
+      "word": "steht,",
+      "start": 214.9,
+      "end": 215.18
+    },
+    {
+      "word": "möchtest",
+      "start": 215.78,
+      "end": 215.96
+    },
+    {
+      "word": "du",
+      "start": 215.96,
+      "end": 216.04
+    },
+    {
+      "word": "nicht",
+      "start": 216.04,
+      "end": 216.28
+    },
+    {
+      "word": "gezwungen",
+      "start": 216.28,
+      "end": 216.76
+    },
+    {
+      "word": "sein,",
+      "start": 216.76,
+      "end": 217.02
+    },
+    {
+      "word": "Anteile",
+      "start": 217.24,
+      "end": 217.54
+    },
+    {
+      "word": "mit",
+      "start": 217.54,
+      "end": 217.78
+    },
+    {
+      "word": "Verlust",
+      "start": 217.78,
+      "end": 218.02
+    },
+    {
+      "word": "zu",
+      "start": 218.02,
+      "end": 218.3
+    },
+    {
+      "word": "verkaufen,",
+      "start": 218.3,
+      "end": 218.74
+    },
+    {
+      "word": "nur",
+      "start": 219.02,
+      "end": 219.24
+    },
+    {
+      "word": "um",
+      "start": 219.24,
+      "end": 219.42
+    },
+    {
+      "word": "die",
+      "start": 219.42,
+      "end": 219.56
+    },
+    {
+      "word": "Werkstatt",
+      "start": 219.56,
+      "end": 219.88
+    },
+    {
+      "word": "zu",
+      "start": 219.88,
+      "end": 220.1
+    },
+    {
+      "word": "bezahlen.",
+      "start": 220.1,
+      "end": 221.08
+    },
+    {
+      "word": "Notgroschen",
+      "start": 221.56,
+      "end": 222.16
+    },
+    {
+      "word": "und",
+      "start": 222.16,
+      "end": 222.38
+    },
+    {
+      "word": "langfristiges",
+      "start": 222.38,
+      "end": 223.06
+    },
+    {
+      "word": "Investment",
+      "start": 223.06,
+      "end": 223.62
+    },
+    {
+      "word": "haben",
+      "start": 223.62,
+      "end": 224.06
+    },
+    {
+      "word": "deshalb",
+      "start": 224.06,
+      "end": 224.54
+    },
+    {
+      "word": "zwei",
+      "start": 224.54,
+      "end": 224.92
+    },
+    {
+      "word": "unterschiedliche",
+      "start": 224.92,
+      "end": 225.66
+    },
+    {
+      "word": "Aufgaben.",
+      "start": 225.66,
+      "end": 226.7
+    },
+    {
+      "word": "Der",
+      "start": 226.9,
+      "end": 227.04
+    },
+    {
+      "word": "Notgroschen",
+      "start": 227.04,
+      "end": 227.76
+    },
+    {
+      "word": "soll",
+      "start": 227.76,
+      "end": 228.02
+    },
+    {
+      "word": "kurzfristig",
+      "start": 228.02,
+      "end": 228.8
+    },
+    {
+      "word": "stabil",
+      "start": 228.8,
+      "end": 229.2
+    },
+    {
+      "word": "und",
+      "start": 229.2,
+      "end": 229.5
+    },
+    {
+      "word": "verfügbar",
+      "start": 229.5,
+      "end": 229.92
+    },
+    {
+      "word": "sein.",
+      "start": 229.92,
+      "end": 230.2
+    },
+    {
+      "word": "Langfristiges",
+      "start": 230.78,
+      "end": 231.5
+    },
+    {
+      "word": "Investieren",
+      "start": 231.5,
+      "end": 232.18
+    },
+    {
+      "word": "soll",
+      "start": 232.18,
+      "end": 232.52
+    },
+    {
+      "word": "Vermögen",
+      "start": 232.52,
+      "end": 233
+    },
+    {
+      "word": "über",
+      "start": 233,
+      "end": 233.3
+    },
+    {
+      "word": "viele",
+      "start": 233.3,
+      "end": 233.62
+    },
+    {
+      "word": "Jahre",
+      "start": 233.62,
+      "end": 233.92
+    },
+    {
+      "word": "aufbauen",
+      "start": 233.92,
+      "end": 234.52
+    },
+    {
+      "word": "und",
+      "start": 234.52,
+      "end": 234.9
+    },
+    {
+      "word": "darf",
+      "start": 234.9,
+      "end": 235.14
+    },
+    {
+      "word": "dafür",
+      "start": 235.14,
+      "end": 235.62
+    },
+    {
+      "word": "stärkere",
+      "start": 235.62,
+      "end": 236.06
+    },
+    {
+      "word": "Schwankungen",
+      "start": 236.06,
+      "end": 236.54
+    },
+    {
+      "word": "aushalten.",
+      "start": 236.54,
+      "end": 237.06
+    },
+    {
+      "word": "Für",
+      "start": 238.1,
+      "end": 238.26
+    },
+    {
+      "word": "den",
+      "start": 238.26,
+      "end": 238.48
+    },
+    {
+      "word": "Notgroschen",
+      "start": 238.48,
+      "end": 238.98
+    },
+    {
+      "word": "wird",
+      "start": 238.98,
+      "end": 239.16
+    },
+    {
+      "word": "deshalb",
+      "start": 239.16,
+      "end": 239.54
+    },
+    {
+      "word": "häufig",
+      "start": 239.54,
+      "end": 239.94
+    },
+    {
+      "word": "Tagesgeld",
+      "start": 239.94,
+      "end": 240.54
+    },
+    {
+      "word": "genannt.",
+      "start": 240.54,
+      "end": 240.9
+    },
+    {
+      "word": "Du",
+      "start": 241.36,
+      "end": 241.64
+    },
+    {
+      "word": "trennst",
+      "start": 241.64,
+      "end": 241.88
+    },
+    {
+      "word": "die",
+      "start": 241.88,
+      "end": 242.08
+    },
+    {
+      "word": "Reserve",
+      "start": 242.08,
+      "end": 242.36
+    },
+    {
+      "word": "damit",
+      "start": 242.36,
+      "end": 242.7
+    },
+    {
+      "word": "vom",
+      "start": 242.7,
+      "end": 242.86
+    },
+    {
+      "word": "normalen",
+      "start": 242.86,
+      "end": 243.42
+    },
+    {
+      "word": "Girokonto,",
+      "start": 243.42,
+      "end": 244.26
+    },
+    {
+      "word": "kannst",
+      "start": 244.5,
+      "end": 244.68
+    },
+    {
+      "word": "aber",
+      "start": 244.68,
+      "end": 244.9
+    },
+    {
+      "word": "in",
+      "start": 244.9,
+      "end": 245
+    },
+    {
+      "word": "der",
+      "start": 245,
+      "end": 245.16
+    },
+    {
+      "word": "Regel",
+      "start": 245.16,
+      "end": 245.38
+    },
+    {
+      "word": "kurzfristig",
+      "start": 245.38,
+      "end": 246.06
+    },
+    {
+      "word": "darauf",
+      "start": 246.06,
+      "end": 246.26
+    },
+    {
+      "word": "zugreifen.",
+      "start": 246.26,
+      "end": 247.14
+    },
+    {
+      "word": "Und",
+      "start": 247.36,
+      "end": 247.54
+    },
+    {
+      "word": "bei",
+      "start": 247.54,
+      "end": 247.8
+    },
+    {
+      "word": "Bankeinlagen",
+      "start": 247.8,
+      "end": 248.62
+    },
+    {
+      "word": "greift",
+      "start": 248.62,
+      "end": 248.98
+    },
+    {
+      "word": "grundsätzlich",
+      "start": 248.98,
+      "end": 249.6
+    },
+    {
+      "word": "die",
+      "start": 249.6,
+      "end": 249.82
+    },
+    {
+      "word": "gesetzliche",
+      "start": 249.82,
+      "end": 250.28
+    },
+    {
+      "word": "Einlagensicherung",
+      "start": 250.28,
+      "end": 251.16
+    },
+    {
+      "word": "bis",
+      "start": 251.16,
+      "end": 251.54
+    },
+    {
+      "word": "100.000",
+      "start": 251.54,
+      "end": 252.02
+    },
+    {
+      "word": "Euro",
+      "start": 252.32,
+      "end": 252.72
+    },
+    {
+      "word": "pro",
+      "start": 252.72,
+      "end": 252.92
+    },
+    {
+      "word": "Person",
+      "start": 252.92,
+      "end": 253.32
+    },
+    {
+      "word": "und",
+      "start": 253.32,
+      "end": 253.79
+    },
+    {
+      "word": "Bank.",
+      "start": 253.79,
+      "end": 254.26
+    },
+    {
+      "word": "Wichtig",
+      "start": 254.26,
+      "end": 254.82
+    },
+    {
+      "word": "ist",
+      "start": 254.82,
+      "end": 255.04
+    },
+    {
+      "word": "trotzdem,",
+      "start": 255.04,
+      "end": 255.48
+    },
+    {
+      "word": "den",
+      "start": 255.7,
+      "end": 255.88
+    },
+    {
+      "word": "Anbieter",
+      "start": 255.88,
+      "end": 256.42
+    },
+    {
+      "word": "und",
+      "start": 256.42,
+      "end": 256.58
+    },
+    {
+      "word": "die",
+      "start": 256.58,
+      "end": 256.74
+    },
+    {
+      "word": "konkrete",
+      "start": 256.74,
+      "end": 257.1
+    },
+    {
+      "word": "Einlagensicherung",
+      "start": 257.1,
+      "end": 257.9
+    },
+    {
+      "word": "zu",
+      "start": 257.9,
+      "end": 258.16
+    },
+    {
+      "word": "prüfen.",
+      "start": 258.16,
+      "end": 259.18
+    },
+    {
+      "word": "Warum",
+      "start": 259.5,
+      "end": 259.74
+    },
+    {
+      "word": "nicht",
+      "start": 259.74,
+      "end": 260
+    },
+    {
+      "word": "alles",
+      "start": 260,
+      "end": 260.24
+    },
+    {
+      "word": "einfach",
+      "start": 260.24,
+      "end": 260.62
+    },
+    {
+      "word": "auf",
+      "start": 260.62,
+      "end": 260.8
+    },
+    {
+      "word": "dem",
+      "start": 260.8,
+      "end": 260.94
+    },
+    {
+      "word": "Girokonto",
+      "start": 260.94,
+      "end": 261.46
+    },
+    {
+      "word": "lassen?",
+      "start": 261.46,
+      "end": 261.78
+    },
+    {
+      "word": "Kannst",
+      "start": 262.38,
+      "end": 262.64
+    },
+    {
+      "word": "du",
+      "start": 262.64,
+      "end": 262.76
+    },
+    {
+      "word": "natürlich.",
+      "start": 262.76,
+      "end": 263.18
+    },
+    {
+      "word": "Praktisch",
+      "start": 263.66,
+      "end": 264.1
+    },
+    {
+      "word": "hat",
+      "start": 264.1,
+      "end": 264.22
+    },
+    {
+      "word": "ein",
+      "start": 264.22,
+      "end": 264.4
+    },
+    {
+      "word": "separates",
+      "start": 264.4,
+      "end": 264.94
+    },
+    {
+      "word": "Konto",
+      "start": 264.94,
+      "end": 265.22
+    },
+    {
+      "word": "aber",
+      "start": 265.22,
+      "end": 265.48
+    },
+    {
+      "word": "einen",
+      "start": 265.48,
+      "end": 265.74
+    },
+    {
+      "word": "Vorteil:",
+      "start": 265.74,
+      "end": 266.02
+    },
+    {
+      "word": "Dein",
+      "start": 266.7,
+      "end": 266.96
+    },
+    {
+      "word": "Notgroschen",
+      "start": 266.96,
+      "end": 267.5
+    },
+    {
+      "word": "sieht",
+      "start": 267.5,
+      "end": 267.74
+    },
+    {
+      "word": "nicht",
+      "start": 267.74,
+      "end": 268
+    },
+    {
+      "word": "wie",
+      "start": 268,
+      "end": 268.26
+    },
+    {
+      "word": "frei",
+      "start": 268.26,
+      "end": 268.54
+    },
+    {
+      "word": "verfügbares",
+      "start": 268.54,
+      "end": 269.16
+    },
+    {
+      "word": "Geld",
+      "start": 269.16,
+      "end": 269.38
+    },
+    {
+      "word": "aus.",
+      "start": 269.38,
+      "end": 269.7
+    },
+    {
+      "word": "Wenn",
+      "start": 270.28,
+      "end": 270.54
+    },
+    {
+      "word": "4.000",
+      "start": 270.9,
+      "end": 271.06
+    },
+    {
+      "word": "Euro",
+      "start": 271.06,
+      "end": 271.42
+    },
+    {
+      "word": "direkt",
+      "start": 271.42,
+      "end": 271.8
+    },
+    {
+      "word": "neben",
+      "start": 271.8,
+      "end": 272
+    },
+    {
+      "word": "deinem",
+      "start": 272,
+      "end": 272.26
+    },
+    {
+      "word": "normalen",
+      "start": 272.26,
+      "end": 272.78
+    },
+    {
+      "word": "Monatsbudget",
+      "start": 272.78,
+      "end": 273.34
+    },
+    {
+      "word": "liegen,",
+      "start": 273.34,
+      "end": 273.64
+    },
+    {
+      "word": "wird",
+      "start": 274.12,
+      "end": 274.2
+    },
+    {
+      "word": "aus",
+      "start": 274.2,
+      "end": 274.36
+    },
+    {
+      "word": "einer",
+      "start": 274.36,
+      "end": 274.58
+    },
+    {
+      "word": "Reserve",
+      "start": 274.58,
+      "end": 274.96
+    },
+    {
+      "word": "schnell",
+      "start": 274.96,
+      "end": 275.38
+    },
+    {
+      "word": "ein",
+      "start": 275.38,
+      "end": 275.62
+    },
+    {
+      "word": "größerer",
+      "start": 275.62,
+      "end": 276.02
+    },
+    {
+      "word": "Urlaub",
+      "start": 276.02,
+      "end": 276.5
+    },
+    {
+      "word": "oder",
+      "start": 276.5,
+      "end": 276.76
+    },
+    {
+      "word": "ein",
+      "start": 276.76,
+      "end": 276.98
+    },
+    {
+      "word": "spontaner",
+      "start": 276.98,
+      "end": 277.54
+    },
+    {
+      "word": "Kauf.",
+      "start": 277.54,
+      "end": 277.7
+    },
+    {
+      "word": "Eine",
+      "start": 278.32,
+      "end": 278.64
+    },
+    {
+      "word": "klare",
+      "start": 278.64,
+      "end": 278.98
+    },
+    {
+      "word": "Trennung",
+      "start": 278.98,
+      "end": 279.42
+    },
+    {
+      "word": "macht",
+      "start": 279.42,
+      "end": 279.66
+    },
+    {
+      "word": "den",
+      "start": 279.66,
+      "end": 279.88
+    },
+    {
+      "word": "Zweck",
+      "start": 279.88,
+      "end": 280.12
+    },
+    {
+      "word": "sichtbar.",
+      "start": 280.12,
+      "end": 280.62
+    },
+    {
+      "word": "Und",
+      "start": 281.13,
+      "end": 281.5
+    },
+    {
+      "word": "wie",
+      "start": 281.5,
+      "end": 282
+    },
+    {
+      "word": "baut",
+      "start": 282,
+      "end": 282.28
+    },
+    {
+      "word": "man",
+      "start": 282.28,
+      "end": 282.46
+    },
+    {
+      "word": "den",
+      "start": 282.46,
+      "end": 282.64
+    },
+    {
+      "word": "Notgroschen",
+      "start": 282.64,
+      "end": 283.16
+    },
+    {
+      "word": "auf,",
+      "start": 283.16,
+      "end": 283.52
+    },
+    {
+      "word": "wenn",
+      "start": 283.56,
+      "end": 283.72
+    },
+    {
+      "word": "man",
+      "start": 283.72,
+      "end": 284.14
+    },
+    {
+      "word": "gerade",
+      "start": 284.14,
+      "end": 284.54
+    },
+    {
+      "word": "kaum",
+      "start": 284.54,
+      "end": 284.82
+    },
+    {
+      "word": "Rücklagen",
+      "start": 284.82,
+      "end": 285.3
+    },
+    {
+      "word": "hat?",
+      "start": 285.3,
+      "end": 285.62
+    },
+    {
+      "word": "Nicht",
+      "start": 286.84,
+      "end": 287.14
+    },
+    {
+      "word": "mit",
+      "start": 287.14,
+      "end": 287.32
+    },
+    {
+      "word": "einem",
+      "start": 287.32,
+      "end": 287.6
+    },
+    {
+      "word": "riesigen",
+      "start": 287.6,
+      "end": 288.16
+    },
+    {
+      "word": "Ziel",
+      "start": 288.16,
+      "end": 288.38
+    },
+    {
+      "word": "starten.",
+      "start": 288.38,
+      "end": 289.34
+    },
+    {
+      "word": "Baue",
+      "start": 289.54,
+      "end": 289.74
+    },
+    {
+      "word": "zuerst",
+      "start": 289.74,
+      "end": 290.2
+    },
+    {
+      "word": "eine",
+      "start": 290.2,
+      "end": 290.66
+    },
+    {
+      "word": "kleine",
+      "start": 290.66,
+      "end": 291.02
+    },
+    {
+      "word": "erste",
+      "start": 291.02,
+      "end": 291.42
+    },
+    {
+      "word": "Sicherheitsstufe",
+      "start": 291.42,
+      "end": 292.16
+    },
+    {
+      "word": "auf.",
+      "start": 292.16,
+      "end": 292.48
+    },
+    {
+      "word": "Zum",
+      "start": 292.96,
+      "end": 293.1
+    },
+    {
+      "word": "Beispiel",
+      "start": 293.1,
+      "end": 293.52
+    },
+    {
+      "word": "einen",
+      "start": 293.52,
+      "end": 293.8
+    },
+    {
+      "word": "Betrag,",
+      "start": 293.8,
+      "end": 294.2
+    },
+    {
+      "word": "der",
+      "start": 294.38,
+      "end": 294.38
+    },
+    {
+      "word": "eine",
+      "start": 294.38,
+      "end": 294.68
+    },
+    {
+      "word": "typische",
+      "start": 294.68,
+      "end": 295.2
+    },
+    {
+      "word": "unerwartete",
+      "start": 295.2,
+      "end": 295.88
+    },
+    {
+      "word": "Rechnung",
+      "start": 295.88,
+      "end": 296.26
+    },
+    {
+      "word": "auffangen",
+      "start": 296.26,
+      "end": 296.6
+    },
+    {
+      "word": "kann.",
+      "start": 296.6,
+      "end": 296.92
+    },
+    {
+      "word": "Danach",
+      "start": 297.76,
+      "end": 298.26
+    },
+    {
+      "word": "automatisierst",
+      "start": 298.26,
+      "end": 299.04
+    },
+    {
+      "word": "du",
+      "start": 299.04,
+      "end": 299.14
+    },
+    {
+      "word": "den",
+      "start": 299.14,
+      "end": 299.26
+    },
+    {
+      "word": "Aufbau.",
+      "start": 299.26,
+      "end": 299.74
+    },
+    {
+      "word": "Ein",
+      "start": 300.44,
+      "end": 300.68
+    },
+    {
+      "word": "fester",
+      "start": 300.68,
+      "end": 300.92
+    },
+    {
+      "word": "Betrag",
+      "start": 300.92,
+      "end": 301.4
+    },
+    {
+      "word": "geht",
+      "start": 301.4,
+      "end": 301.66
+    },
+    {
+      "word": "kurz",
+      "start": 301.66,
+      "end": 302.06
+    },
+    {
+      "word": "nach",
+      "start": 302.06,
+      "end": 302.26
+    },
+    {
+      "word": "dem",
+      "start": 302.26,
+      "end": 302.48
+    },
+    {
+      "word": "Gehaltseingang",
+      "start": 302.48,
+      "end": 303.18
+    },
+    {
+      "word": "auf",
+      "start": 303.18,
+      "end": 303.4
+    },
+    {
+      "word": "das",
+      "start": 303.4,
+      "end": 303.58
+    },
+    {
+      "word": "separate",
+      "start": 303.58,
+      "end": 304.02
+    },
+    {
+      "word": "Rücklagenkonto.",
+      "start": 304.02,
+      "end": 304.86
+    },
+    {
+      "word": "50",
+      "start": 305.48,
+      "end": 305.88
+    },
+    {
+      "word": "Euro,",
+      "start": 305.88,
+      "end": 306.28
+    },
+    {
+      "word": "100",
+      "start": 306.44,
+      "end": 306.72
+    },
+    {
+      "word": "Euro,",
+      "start": 306.72,
+      "end": 307.1
+    },
+    {
+      "word": "200",
+      "start": 307.34,
+      "end": 307.62
+    },
+    {
+      "word": "Euro",
+      "start": 307.62,
+      "end": 308.04
+    },
+    {
+      "word": "die",
+      "start": 308.04,
+      "end": 308.72
+    },
+    {
+      "word": "passende",
+      "start": 308.72,
+      "end": 309.14
+    },
+    {
+      "word": "Rate",
+      "start": 309.14,
+      "end": 309.42
+    },
+    {
+      "word": "hängt",
+      "start": 309.42,
+      "end": 309.68
+    },
+    {
+      "word": "von",
+      "start": 309.68,
+      "end": 309.86
+    },
+    {
+      "word": "deinem",
+      "start": 309.86,
+      "end": 310.1
+    },
+    {
+      "word": "Budget",
+      "start": 310.1,
+      "end": 310.38
+    },
+    {
+      "word": "ab.",
+      "start": 310.38,
+      "end": 310.96
+    },
+    {
+      "word": "Wichtig",
+      "start": 312,
+      "end": 312.28
+    },
+    {
+      "word": "ist",
+      "start": 312.28,
+      "end": 312.54
+    },
+    {
+      "word": "nicht,",
+      "start": 312.54,
+      "end": 312.72
+    },
+    {
+      "word": "dass",
+      "start": 312.8,
+      "end": 312.88
+    },
+    {
+      "word": "du",
+      "start": 312.88,
+      "end": 313.04
+    },
+    {
+      "word": "in",
+      "start": 313.04,
+      "end": 313.3
+    },
+    {
+      "word": "drei",
+      "start": 313.3,
+      "end": 313.5
+    },
+    {
+      "word": "Monaten",
+      "start": 313.5,
+      "end": 313.86
+    },
+    {
+      "word": "fertig",
+      "start": 313.86,
+      "end": 314.3
+    },
+    {
+      "word": "bist.",
+      "start": 314.3,
+      "end": 314.58
+    },
+    {
+      "word": "Wichtig",
+      "start": 315.46,
+      "end": 315.86
+    },
+    {
+      "word": "ist,",
+      "start": 315.86,
+      "end": 316.1
+    },
+    {
+      "word": "dass",
+      "start": 316.1,
+      "end": 316.3
+    },
+    {
+      "word": "die",
+      "start": 316.3,
+      "end": 316.5
+    },
+    {
+      "word": "Reserve",
+      "start": 316.5,
+      "end": 316.88
+    },
+    {
+      "word": "regelmäßig",
+      "start": 316.88,
+      "end": 317.66
+    },
+    {
+      "word": "wächst,",
+      "start": 317.66,
+      "end": 318.14
+    },
+    {
+      "word": "ohne",
+      "start": 318.48,
+      "end": 318.72
+    },
+    {
+      "word": "dass",
+      "start": 318.72,
+      "end": 318.86
+    },
+    {
+      "word": "du",
+      "start": 318.86,
+      "end": 319.04
+    },
+    {
+      "word": "jeden",
+      "start": 319.04,
+      "end": 319.28
+    },
+    {
+      "word": "Monat",
+      "start": 319.28,
+      "end": 319.64
+    },
+    {
+      "word": "neu",
+      "start": 319.64,
+      "end": 319.82
+    },
+    {
+      "word": "darüber",
+      "start": 319.82,
+      "end": 320.12
+    },
+    {
+      "word": "entscheiden",
+      "start": 320.12,
+      "end": 320.5
+    },
+    {
+      "word": "musst.",
+      "start": 320.5,
+      "end": 320.78
+    },
+    {
+      "word": "Und",
+      "start": 321.88,
+      "end": 322.22
+    },
+    {
+      "word": "wenn",
+      "start": 322.22,
+      "end": 322.66
+    },
+    {
+      "word": "du",
+      "start": 322.66,
+      "end": 322.78
+    },
+    {
+      "word": "den",
+      "start": 322.78,
+      "end": 322.92
+    },
+    {
+      "word": "Notgroschen",
+      "start": 322.92,
+      "end": 323.36
+    },
+    {
+      "word": "benutzt?",
+      "start": 323.36,
+      "end": 324
+    },
+    {
+      "word": "Dann",
+      "start": 324.56,
+      "end": 324.7
+    },
+    {
+      "word": "war",
+      "start": 324.7,
+      "end": 324.88
+    },
+    {
+      "word": "das",
+      "start": 324.88,
+      "end": 325.06
+    },
+    {
+      "word": "kein",
+      "start": 325.06,
+      "end": 325.26
+    },
+    {
+      "word": "Fehler.",
+      "start": 325.26,
+      "end": 325.62
+    },
+    {
+      "word": "Genau",
+      "start": 326.2,
+      "end": 326.56
+    },
+    {
+      "word": "dafür",
+      "start": 326.56,
+      "end": 326.88
+    },
+    {
+      "word": "ist",
+      "start": 326.88,
+      "end": 327.06
+    },
+    {
+      "word": "er",
+      "start": 327.06,
+      "end": 327.22
+    },
+    {
+      "word": "da.",
+      "start": 327.22,
+      "end": 327.48
+    },
+    {
+      "word": "Wenn",
+      "start": 328.18,
+      "end": 328.34
+    },
+    {
+      "word": "die",
+      "start": 328.34,
+      "end": 328.56
+    },
+    {
+      "word": "Reparatur",
+      "start": 328.56,
+      "end": 328.98
+    },
+    {
+      "word": "bezahlt",
+      "start": 328.98,
+      "end": 329.3
+    },
+    {
+      "word": "ist,",
+      "start": 329.3,
+      "end": 329.76
+    },
+    {
+      "word": "baust",
+      "start": 330.04,
+      "end": 330.14
+    },
+    {
+      "word": "du",
+      "start": 330.14,
+      "end": 330.24
+    },
+    {
+      "word": "ihn",
+      "start": 330.24,
+      "end": 330.46
+    },
+    {
+      "word": "anschließend",
+      "start": 330.46,
+      "end": 330.94
+    },
+    {
+      "word": "wieder",
+      "start": 330.94,
+      "end": 331.18
+    },
+    {
+      "word": "auf.",
+      "start": 331.18,
+      "end": 331.48
+    },
+    {
+      "word": "Ein",
+      "start": 332.26,
+      "end": 332.42
+    },
+    {
+      "word": "Notgroschen",
+      "start": 332.42,
+      "end": 332.86
+    },
+    {
+      "word": "ist",
+      "start": 332.86,
+      "end": 333.08
+    },
+    {
+      "word": "kein",
+      "start": 333.08,
+      "end": 333.28
+    },
+    {
+      "word": "Pokal,",
+      "start": 333.28,
+      "end": 333.84
+    },
+    {
+      "word": "den",
+      "start": 333.86,
+      "end": 333.98
+    },
+    {
+      "word": "man",
+      "start": 333.98,
+      "end": 334.14
+    },
+    {
+      "word": "nie",
+      "start": 334.14,
+      "end": 334.36
+    },
+    {
+      "word": "anfassen",
+      "start": 334.36,
+      "end": 334.76
+    },
+    {
+      "word": "darf.",
+      "start": 334.76,
+      "end": 335
+    },
+    {
+      "word": "Er",
+      "start": 335,
+      "end": 335.58
+    },
+    {
+      "word": "ist",
+      "start": 335.58,
+      "end": 335.78
+    },
+    {
+      "word": "ein",
+      "start": 335.78,
+      "end": 336.06
+    },
+    {
+      "word": "finanzielles",
+      "start": 336.06,
+      "end": 336.72
+    },
+    {
+      "word": "Werkzeug.",
+      "start": 336.72,
+      "end": 337.76
+    },
+    {
+      "word": "Wann",
+      "start": 338.46,
+      "end": 338.66
+    },
+    {
+      "word": "ist",
+      "start": 338.66,
+      "end": 338.82
+    },
+    {
+      "word": "er",
+      "start": 338.82,
+      "end": 338.96
+    },
+    {
+      "word": "groß",
+      "start": 338.96,
+      "end": 339.2
+    },
+    {
+      "word": "genug?",
+      "start": 339.2,
+      "end": 339.56
+    },
+    {
+      "word": "Wenn",
+      "start": 340.66,
+      "end": 340.88
+    },
+    {
+      "word": "deine",
+      "start": 340.88,
+      "end": 341.16
+    },
+    {
+      "word": "realistischen",
+      "start": 341.16,
+      "end": 341.96
+    },
+    {
+      "word": "Notfälle",
+      "start": 341.96,
+      "end": 342.58
+    },
+    {
+      "word": "und",
+      "start": 342.58,
+      "end": 343
+    },
+    {
+      "word": "eine",
+      "start": 343,
+      "end": 343.32
+    },
+    {
+      "word": "vorübergehende",
+      "start": 343.32,
+      "end": 343.98
+    },
+    {
+      "word": "finanzielle",
+      "start": 343.98,
+      "end": 344.58
+    },
+    {
+      "word": "Durststrecke",
+      "start": 344.58,
+      "end": 345.62
+    },
+    {
+      "word": "nicht",
+      "start": 345.62,
+      "end": 345.88
+    },
+    {
+      "word": "mehr",
+      "start": 345.88,
+      "end": 346.22
+    },
+    {
+      "word": "sofort",
+      "start": 346.22,
+      "end": 346.6
+    },
+    {
+      "word": "zu",
+      "start": 346.6,
+      "end": 346.88
+    },
+    {
+      "word": "Schulden",
+      "start": 346.88,
+      "end": 347.38
+    },
+    {
+      "word": "oder",
+      "start": 347.38,
+      "end": 347.7
+    },
+    {
+      "word": "zum",
+      "start": 347.7,
+      "end": 347.84
+    },
+    {
+      "word": "Verkauf",
+      "start": 347.84,
+      "end": 348.34
+    },
+    {
+      "word": "langfristiger",
+      "start": 348.34,
+      "end": 349
+    },
+    {
+      "word": "Anlagen",
+      "start": 349,
+      "end": 349.42
+    },
+    {
+      "word": "führen",
+      "start": 349.42,
+      "end": 349.7
+    },
+    {
+      "word": "würden.",
+      "start": 349.7,
+      "end": 350.02
+    },
+    {
+      "word": "Für",
+      "start": 350.82,
+      "end": 351.02
+    },
+    {
+      "word": "manche",
+      "start": 351.02,
+      "end": 351.36
+    },
+    {
+      "word": "reichen",
+      "start": 351.36,
+      "end": 351.66
+    },
+    {
+      "word": "dafür",
+      "start": 351.66,
+      "end": 351.94
+    },
+    {
+      "word": "vielleicht",
+      "start": 351.94,
+      "end": 352.36
+    },
+    {
+      "word": "zwei",
+      "start": 352.36,
+      "end": 352.64
+    },
+    {
+      "word": "Monatsgehälter",
+      "start": 352.64,
+      "end": 353.36
+    },
+    {
+      "word": "als",
+      "start": 353.36,
+      "end": 353.62
+    },
+    {
+      "word": "Orientierung.",
+      "start": 353.62,
+      "end": 354.42
+    },
+    {
+      "word": "Andere",
+      "start": 354.82,
+      "end": 355.18
+    },
+    {
+      "word": "brauchen",
+      "start": 355.18,
+      "end": 355.46
+    },
+    {
+      "word": "mehr",
+      "start": 355.46,
+      "end": 355.76
+    },
+    {
+      "word": "oder",
+      "start": 355.76,
+      "end": 356
+    },
+    {
+      "word": "weniger.",
+      "start": 356,
+      "end": 356.42
+    },
+    {
+      "word": "Entscheidend",
+      "start": 357.14,
+      "end": 357.64
+    },
+    {
+      "word": "ist,",
+      "start": 357.64,
+      "end": 357.92
+    },
+    {
+      "word": "dass",
+      "start": 358.22,
+      "end": 358.34
+    },
+    {
+      "word": "die",
+      "start": 358.34,
+      "end": 358.58
+    },
+    {
+      "word": "Zahl",
+      "start": 358.58,
+      "end": 358.82
+    },
+    {
+      "word": "zu",
+      "start": 358.82,
+      "end": 359.06
+    },
+    {
+      "word": "deinen",
+      "start": 359.06,
+      "end": 359.28
+    },
+    {
+      "word": "notwendigen",
+      "start": 359.28,
+      "end": 359.94
+    },
+    {
+      "word": "Kosten",
+      "start": 359.94,
+      "end": 360.34
+    },
+    {
+      "word": "und",
+      "start": 360.34,
+      "end": 360.66
+    },
+    {
+      "word": "deinem",
+      "start": 360.66,
+      "end": 360.98
+    },
+    {
+      "word": "Risiko",
+      "start": 360.98,
+      "end": 361.46
+    },
+    {
+      "word": "passt.",
+      "start": 361.46,
+      "end": 361.76
+    },
+    {
+      "word": "Die",
+      "start": 363.2,
+      "end": 363.3
+    },
+    {
+      "word": "Reihenfolge",
+      "start": 363.3,
+      "end": 363.82
+    },
+    {
+      "word": "ist",
+      "start": 363.82,
+      "end": 364
+    },
+    {
+      "word": "damit",
+      "start": 364,
+      "end": 364.2
+    },
+    {
+      "word": "ziemlich",
+      "start": 364.2,
+      "end": 364.6
+    },
+    {
+      "word": "einfach:",
+      "start": 364.6,
+      "end": 365.04
+    },
+    {
+      "word": "Erst",
+      "start": 365.64,
+      "end": 365.94
+    },
+    {
+      "word": "eine",
+      "start": 365.94,
+      "end": 366.18
+    },
+    {
+      "word": "funktionierende",
+      "start": 366.18,
+      "end": 367.06
+    },
+    {
+      "word": "Reserve",
+      "start": 367.06,
+      "end": 367.46
+    },
+    {
+      "word": "aufbauen.",
+      "start": 367.46,
+      "end": 368.06
+    },
+    {
+      "word": "Dann",
+      "start": 368.52,
+      "end": 368.72
+    },
+    {
+      "word": "musst",
+      "start": 368.72,
+      "end": 368.94
+    },
+    {
+      "word": "du",
+      "start": 368.94,
+      "end": 369.02
+    },
+    {
+      "word": "bei",
+      "start": 369.02,
+      "end": 369.24
+    },
+    {
+      "word": "jeder",
+      "start": 369.24,
+      "end": 369.44
+    },
+    {
+      "word": "kaputten",
+      "start": 369.44,
+      "end": 369.86
+    },
+    {
+      "word": "Waschmaschine",
+      "start": 369.86,
+      "end": 370.56
+    },
+    {
+      "word": "nicht",
+      "start": 370.56,
+      "end": 370.9
+    },
+    {
+      "word": "dein",
+      "start": 370.9,
+      "end": 371.08
+    },
+    {
+      "word": "komplettes",
+      "start": 371.08,
+      "end": 371.62
+    },
+    {
+      "word": "Finanzsystem",
+      "start": 371.62,
+      "end": 372.28
+    },
+    {
+      "word": "auseinandernehmen.",
+      "start": 372.28,
+      "end": 373
+    },
+    {
+      "word": "Und",
+      "start": 373.88,
+      "end": 374.16
+    },
+    {
+      "word": "Geld,",
+      "start": 374.16,
+      "end": 374.48
+    },
+    {
+      "word": "das",
+      "start": 374.48,
+      "end": 374.64
+    },
+    {
+      "word": "du",
+      "start": 374.64,
+      "end": 374.82
+    },
+    {
+      "word": "langfristig",
+      "start": 374.82,
+      "end": 375.42
+    },
+    {
+      "word": "wirklich",
+      "start": 375.42,
+      "end": 375.74
+    },
+    {
+      "word": "nicht",
+      "start": 375.74,
+      "end": 376.02
+    },
+    {
+      "word": "brauchst,",
+      "start": 376.02,
+      "end": 376.64
+    },
+    {
+      "word": "kann",
+      "start": 376.82,
+      "end": 376.94
+    },
+    {
+      "word": "anschließend",
+      "start": 376.94,
+      "end": 377.52
+    },
+    {
+      "word": "eine",
+      "start": 377.52,
+      "end": 377.68
+    },
+    {
+      "word": "ganz",
+      "start": 377.68,
+      "end": 378.12
+    },
+    {
+      "word": "andere",
+      "start": 378.12,
+      "end": 378.34
+    },
+    {
+      "word": "Aufgabe",
+      "start": 378.34,
+      "end": 378.74
+    },
+    {
+      "word": "bekommen:",
+      "start": 378.74,
+      "end": 379.12
+    },
+    {
+      "word": "Vermögen",
+      "start": 379.92,
+      "end": 380.34
+    },
+    {
+      "word": "aufzubauen.",
+      "start": 380.34,
+      "end": 381.08
+    },
+    {
+      "word": "Das",
+      "start": 382,
+      "end": 382.24
+    },
+    {
+      "word": "ist",
+      "start": 382.24,
+      "end": 382.5
+    },
+    {
+      "word": "der",
+      "start": 382.5,
+      "end": 382.68
+    },
+    {
+      "word": "Unterschied",
+      "start": 382.68,
+      "end": 383.08
+    },
+    {
+      "word": "zwischen",
+      "start": 383.08,
+      "end": 383.36
+    },
+    {
+      "word": "einfach",
+      "start": 383.36,
+      "end": 383.74
+    },
+    {
+      "word": "nur",
+      "start": 383.74,
+      "end": 383.98
+    },
+    {
+      "word": "Geld",
+      "start": 383.98,
+      "end": 384.22
+    },
+    {
+      "word": "zurücklegen",
+      "start": 384.22,
+      "end": 384.8
+    },
+    {
+      "word": "und",
+      "start": 384.8,
+      "end": 385.36
+    },
+    {
+      "word": "einem",
+      "start": 385.36,
+      "end": 385.62
+    },
+    {
+      "word": "Notgroschen,",
+      "start": 385.62,
+      "end": 386.18
+    },
+    {
+      "word": "der",
+      "start": 386.22,
+      "end": 386.42
+    },
+    {
+      "word": "wirklich",
+      "start": 386.42,
+      "end": 386.86
+    },
+    {
+      "word": "zu",
+      "start": 386.86,
+      "end": 387.1
+    },
+    {
+      "word": "deinem",
+      "start": 387.1,
+      "end": 387.38
+    },
+    {
+      "word": "Leben",
+      "start": 387.38,
+      "end": 387.54
+    },
+    {
+      "word": "passt.",
+      "start": 387.54,
+      "end": 387.86
+    }
+  ],
+  "sentences": [
+    {
+      "text": "Stell dir vor, morgen geht deine Waschmaschine kaputt.",
+      "start": 0,
+      "end": 4.9,
+      "words": [
+        {
+          "word": "Stell",
+          "start": 0,
+          "end": 0.66
+        },
+        {
+          "word": "dir",
+          "start": 0.66,
+          "end": 0.88
+        },
+        {
+          "word": "vor,",
+          "start": 0.88,
+          "end": 1.44
+        },
+        {
+          "word": "morgen",
+          "start": 1.9,
+          "end": 2.1
+        },
+        {
+          "word": "geht",
+          "start": 2.1,
+          "end": 2.36
+        },
+        {
+          "word": "deine",
+          "start": 2.36,
+          "end": 2.62
+        },
+        {
+          "word": "Waschmaschine",
+          "start": 2.62,
+          "end": 3.34
+        },
+        {
+          "word": "kaputt.",
+          "start": 3.34,
+          "end": 4.2
+        }
+      ]
+    },
+    {
+      "text": "480 Euro Reparatur.",
+      "start": 4.9,
+      "end": 7.44,
+      "words": [
+        {
+          "word": "480",
+          "start": 4.9,
+          "end": 5.58
+        },
+        {
+          "word": "Euro",
+          "start": 5.58,
+          "end": 6
+        },
+        {
+          "word": "Reparatur.",
+          "start": 6,
+          "end": 7.04
+        }
+      ]
+    },
+    {
+      "text": "Zwei Tage später braucht dein Auto neue Bremsen.",
+      "start": 7.44,
+      "end": 10.7,
+      "words": [
+        {
+          "word": "Zwei",
+          "start": 7.44,
+          "end": 7.68
+        },
+        {
+          "word": "Tage",
+          "start": 7.68,
+          "end": 7.92
+        },
+        {
+          "word": "später",
+          "start": 7.92,
+          "end": 8.36
+        },
+        {
+          "word": "braucht",
+          "start": 8.36,
+          "end": 8.64
+        },
+        {
+          "word": "dein",
+          "start": 8.64,
+          "end": 8.84
+        },
+        {
+          "word": "Auto",
+          "start": 8.84,
+          "end": 9.32
+        },
+        {
+          "word": "neue",
+          "start": 9.32,
+          "end": 9.6
+        },
+        {
+          "word": "Bremsen.",
+          "start": 9.6,
+          "end": 10.2
+        }
+      ]
+    },
+    {
+      "text": "Und am Monatsende kommt noch eine Nachzahlung.",
+      "start": 10.7,
+      "end": 14.32,
+      "words": [
+        {
+          "word": "Und",
+          "start": 10.7,
+          "end": 10.84
+        },
+        {
+          "word": "am",
+          "start": 10.84,
+          "end": 11.02
+        },
+        {
+          "word": "Monatsende",
+          "start": 11.02,
+          "end": 11.78
+        },
+        {
+          "word": "kommt",
+          "start": 11.78,
+          "end": 12.12
+        },
+        {
+          "word": "noch",
+          "start": 12.12,
+          "end": 12.4
+        },
+        {
+          "word": "eine",
+          "start": 12.4,
+          "end": 12.66
+        },
+        {
+          "word": "Nachzahlung.",
+          "start": 12.66,
+          "end": 13.52
+        }
+      ]
+    },
+    {
+      "text": "Das Problem ist nicht, dass solche Dinge passieren.",
+      "start": 14.32,
+      "end": 17.42,
+      "words": [
+        {
+          "word": "Das",
+          "start": 14.32,
+          "end": 14.5
+        },
+        {
+          "word": "Problem",
+          "start": 14.5,
+          "end": 14.84
+        },
+        {
+          "word": "ist",
+          "start": 14.84,
+          "end": 15.1
+        },
+        {
+          "word": "nicht,",
+          "start": 15.1,
+          "end": 15.34
+        },
+        {
+          "word": "dass",
+          "start": 15.38,
+          "end": 15.58
+        },
+        {
+          "word": "solche",
+          "start": 15.58,
+          "end": 15.84
+        },
+        {
+          "word": "Dinge",
+          "start": 15.84,
+          "end": 16.08
+        },
+        {
+          "word": "passieren.",
+          "start": 16.08,
+          "end": 16.74
+        }
+      ]
+    },
+    {
+      "text": "Das Problem ist, wenn jede unerwartete Rechnung sofort deinen Dispo, einen Kredit oder dein Depot trifft.",
+      "start": 17.42,
+      "end": 25.4,
+      "words": [
+        {
+          "word": "Das",
+          "start": 17.42,
+          "end": 17.58
+        },
+        {
+          "word": "Problem",
+          "start": 17.58,
+          "end": 17.94
+        },
+        {
+          "word": "ist,",
+          "start": 17.94,
+          "end": 18.4
+        },
+        {
+          "word": "wenn",
+          "start": 18.62,
+          "end": 18.94
+        },
+        {
+          "word": "jede",
+          "start": 18.94,
+          "end": 19.32
+        },
+        {
+          "word": "unerwartete",
+          "start": 19.32,
+          "end": 20.08
+        },
+        {
+          "word": "Rechnung",
+          "start": 20.08,
+          "end": 20.6
+        },
+        {
+          "word": "sofort",
+          "start": 20.6,
+          "end": 21.12
+        },
+        {
+          "word": "deinen",
+          "start": 21.12,
+          "end": 21.44
+        },
+        {
+          "word": "Dispo,",
+          "start": 21.44,
+          "end": 22.04
+        },
+        {
+          "word": "einen",
+          "start": 22.3,
+          "end": 22.5
+        },
+        {
+          "word": "Kredit",
+          "start": 22.5,
+          "end": 23.04
+        },
+        {
+          "word": "oder",
+          "start": 23.04,
+          "end": 23.36
+        },
+        {
+          "word": "dein",
+          "start": 23.36,
+          "end": 23.56
+        },
+        {
+          "word": "Depot",
+          "start": 23.56,
+          "end": 23.88
+        },
+        {
+          "word": "trifft.",
+          "start": 23.88,
+          "end": 24.7
+        }
+      ]
+    },
+    {
+      "text": "Genau dafür gibt es den Notgroschen.",
+      "start": 25.4,
+      "end": 27.62,
+      "words": [
+        {
+          "word": "Genau",
+          "start": 25.4,
+          "end": 25.76
+        },
+        {
+          "word": "dafür",
+          "start": 25.76,
+          "end": 26.28
+        },
+        {
+          "word": "gibt",
+          "start": 26.28,
+          "end": 26.58
+        },
+        {
+          "word": "es",
+          "start": 26.58,
+          "end": 26.8
+        },
+        {
+          "word": "den",
+          "start": 26.8,
+          "end": 26.98
+        },
+        {
+          "word": "Notgroschen.",
+          "start": 26.98,
+          "end": 27.62
+        }
+      ]
+    },
+    {
+      "text": "Aber wie viel Geld sollte dort wirklich liegen?",
+      "start": 27.62,
+      "end": 32,
+      "words": [
+        {
+          "word": "Aber",
+          "start": 27.62,
+          "end": 28.58
+        },
+        {
+          "word": "wie",
+          "start": 28.58,
+          "end": 29.12
+        },
+        {
+          "word": "viel",
+          "start": 29.12,
+          "end": 29.38
+        },
+        {
+          "word": "Geld",
+          "start": 29.38,
+          "end": 29.68
+        },
+        {
+          "word": "sollte",
+          "start": 29.68,
+          "end": 29.98
+        },
+        {
+          "word": "dort",
+          "start": 29.98,
+          "end": 30.24
+        },
+        {
+          "word": "wirklich",
+          "start": 30.24,
+          "end": 30.66
+        },
+        {
+          "word": "liegen?",
+          "start": 30.66,
+          "end": 31.1
+        }
+      ]
+    },
+    {
+      "text": "1.000 Euro?",
+      "start": 32,
+      "end": 32.92,
+      "words": [
+        {
+          "word": "1.000",
+          "start": 32,
+          "end": 32.04
+        },
+        {
+          "word": "Euro?",
+          "start": 32.04,
+          "end": 32.5
+        }
+      ]
+    },
+    {
+      "text": "Drei Monatsgehälter?",
+      "start": 32.92,
+      "end": 34.7,
+      "words": [
+        {
+          "word": "Drei",
+          "start": 32.92,
+          "end": 33.22
+        },
+        {
+          "word": "Monatsgehälter?",
+          "start": 33.22,
+          "end": 33.66
+        }
+      ]
+    },
+    {
+      "text": "Oder viel mehr?",
+      "start": 34.7,
+      "end": 37.02,
+      "words": [
+        {
+          "word": "Oder",
+          "start": 34.7,
+          "end": 35.06
+        },
+        {
+          "word": "viel",
+          "start": 35.06,
+          "end": 35.52
+        },
+        {
+          "word": "mehr?",
+          "start": 35.52,
+          "end": 35.92
+        }
+      ]
+    },
+    {
+      "text": "Die kurze Antwort: Es gibt keine Zahl, die für jeden passt.",
+      "start": 37.02,
+      "end": 41.3,
+      "words": [
+        {
+          "word": "Die",
+          "start": 37.02,
+          "end": 37.3
+        },
+        {
+          "word": "kurze",
+          "start": 37.3,
+          "end": 37.56
+        },
+        {
+          "word": "Antwort:",
+          "start": 37.56,
+          "end": 38.02
+        },
+        {
+          "word": "Es",
+          "start": 38.34,
+          "end": 38.5
+        },
+        {
+          "word": "gibt",
+          "start": 38.5,
+          "end": 38.8
+        },
+        {
+          "word": "keine",
+          "start": 38.8,
+          "end": 39.14
+        },
+        {
+          "word": "Zahl,",
+          "start": 39.14,
+          "end": 39.48
+        },
+        {
+          "word": "die",
+          "start": 39.52,
+          "end": 39.64
+        },
+        {
+          "word": "für",
+          "start": 39.64,
+          "end": 39.84
+        },
+        {
+          "word": "jeden",
+          "start": 39.84,
+          "end": 40.12
+        },
+        {
+          "word": "passt.",
+          "start": 40.12,
+          "end": 40.52
+        }
+      ]
+    },
+    {
+      "text": "Die Verbraucherzentrale nennt zwei bis drei Monatsgehälter als Daumenregel.",
+      "start": 41.3,
+      "end": 46.22,
+      "words": [
+        {
+          "word": "Die",
+          "start": 41.3,
+          "end": 41.4
+        },
+        {
+          "word": "Verbraucherzentrale",
+          "start": 41.4,
+          "end": 42.38
+        },
+        {
+          "word": "nennt",
+          "start": 42.38,
+          "end": 42.78
+        },
+        {
+          "word": "zwei",
+          "start": 42.78,
+          "end": 43.2
+        },
+        {
+          "word": "bis",
+          "start": 43.2,
+          "end": 43.2
+        },
+        {
+          "word": "drei",
+          "start": 43.2,
+          "end": 43.7
+        },
+        {
+          "word": "Monatsgehälter",
+          "start": 43.7,
+          "end": 44.2
+        },
+        {
+          "word": "als",
+          "start": 44.54,
+          "end": 44.82
+        },
+        {
+          "word": "Daumenregel.",
+          "start": 44.82,
+          "end": 45.78
+        }
+      ]
+    },
+    {
+      "text": "Sie sagt aber gleichzeitig, dass die passende Höhe von deiner persönlichen Situation abhängt.",
+      "start": 46.22,
+      "end": 51.72,
+      "words": [
+        {
+          "word": "Sie",
+          "start": 46.22,
+          "end": 46.38
+        },
+        {
+          "word": "sagt",
+          "start": 46.38,
+          "end": 46.6
+        },
+        {
+          "word": "aber",
+          "start": 46.6,
+          "end": 46.92
+        },
+        {
+          "word": "gleichzeitig,",
+          "start": 46.92,
+          "end": 47.48
+        },
+        {
+          "word": "dass",
+          "start": 47.58,
+          "end": 47.76
+        },
+        {
+          "word": "die",
+          "start": 47.76,
+          "end": 48.02
+        },
+        {
+          "word": "passende",
+          "start": 48.02,
+          "end": 48.38
+        },
+        {
+          "word": "Höhe",
+          "start": 48.38,
+          "end": 48.8
+        },
+        {
+          "word": "von",
+          "start": 48.8,
+          "end": 49.02
+        },
+        {
+          "word": "deiner",
+          "start": 49.02,
+          "end": 49.3
+        },
+        {
+          "word": "persönlichen",
+          "start": 49.3,
+          "end": 49.92
+        },
+        {
+          "word": "Situation",
+          "start": 49.92,
+          "end": 50.52
+        },
+        {
+          "word": "abhängt.",
+          "start": 50.52,
+          "end": 50.98
+        }
+      ]
+    },
+    {
+      "text": "Und genau dieser zweite Satz ist eigentlich der wichtigere.",
+      "start": 51.72,
+      "end": 55.92,
+      "words": [
+        {
+          "word": "Und",
+          "start": 51.72,
+          "end": 52.08
+        },
+        {
+          "word": "genau",
+          "start": 52.08,
+          "end": 52.38
+        },
+        {
+          "word": "dieser",
+          "start": 52.38,
+          "end": 52.72
+        },
+        {
+          "word": "zweite",
+          "start": 52.72,
+          "end": 53.18
+        },
+        {
+          "word": "Satz",
+          "start": 53.18,
+          "end": 53.66
+        },
+        {
+          "word": "ist",
+          "start": 53.66,
+          "end": 53.96
+        },
+        {
+          "word": "eigentlich",
+          "start": 53.96,
+          "end": 54.46
+        },
+        {
+          "word": "der",
+          "start": 54.46,
+          "end": 54.66
+        },
+        {
+          "word": "wichtigere.",
+          "start": 54.66,
+          "end": 55.24
+        }
+      ]
+    },
+    {
+      "text": "Ein Notgroschen ist kein Geld für Urlaub, ein neues Handy oder den nächsten Sale.",
+      "start": 55.92,
+      "end": 61.58,
+      "words": [
+        {
+          "word": "Ein",
+          "start": 55.92,
+          "end": 56.44
+        },
+        {
+          "word": "Notgroschen",
+          "start": 56.44,
+          "end": 56.98
+        },
+        {
+          "word": "ist",
+          "start": 56.98,
+          "end": 57.26
+        },
+        {
+          "word": "kein",
+          "start": 57.26,
+          "end": 57.52
+        },
+        {
+          "word": "Geld",
+          "start": 57.52,
+          "end": 57.74
+        },
+        {
+          "word": "für",
+          "start": 57.74,
+          "end": 58.02
+        },
+        {
+          "word": "Urlaub,",
+          "start": 58.02,
+          "end": 58.56
+        },
+        {
+          "word": "ein",
+          "start": 58.88,
+          "end": 58.94
+        },
+        {
+          "word": "neues",
+          "start": 58.94,
+          "end": 59.24
+        },
+        {
+          "word": "Handy",
+          "start": 59.24,
+          "end": 59.64
+        },
+        {
+          "word": "oder",
+          "start": 59.64,
+          "end": 60.02
+        },
+        {
+          "word": "den",
+          "start": 60.02,
+          "end": 60.14
+        },
+        {
+          "word": "nächsten",
+          "start": 60.14,
+          "end": 60.56
+        },
+        {
+          "word": "Sale.",
+          "start": 60.56,
+          "end": 60.88
+        }
+      ]
+    },
+    {
+      "text": "Er ist eine Reserve für Ausgaben, die notwendig sind und die du nicht sinnvoll verschieben kannst.",
+      "start": 61.58,
+      "end": 67.52,
+      "words": [
+        {
+          "word": "Er",
+          "start": 61.58,
+          "end": 61.72
+        },
+        {
+          "word": "ist",
+          "start": 61.72,
+          "end": 61.94
+        },
+        {
+          "word": "eine",
+          "start": 61.94,
+          "end": 62.2
+        },
+        {
+          "word": "Reserve",
+          "start": 62.2,
+          "end": 62.62
+        },
+        {
+          "word": "für",
+          "start": 62.62,
+          "end": 62.92
+        },
+        {
+          "word": "Ausgaben,",
+          "start": 62.92,
+          "end": 63.46
+        },
+        {
+          "word": "die",
+          "start": 63.6,
+          "end": 63.7
+        },
+        {
+          "word": "notwendig",
+          "start": 63.7,
+          "end": 64.36
+        },
+        {
+          "word": "sind",
+          "start": 64.36,
+          "end": 64.64
+        },
+        {
+          "word": "und",
+          "start": 64.64,
+          "end": 64.98
+        },
+        {
+          "word": "die",
+          "start": 64.98,
+          "end": 65.12
+        },
+        {
+          "word": "du",
+          "start": 65.12,
+          "end": 65.3
+        },
+        {
+          "word": "nicht",
+          "start": 65.3,
+          "end": 65.68
+        },
+        {
+          "word": "sinnvoll",
+          "start": 65.68,
+          "end": 66.08
+        },
+        {
+          "word": "verschieben",
+          "start": 66.08,
+          "end": 66.56
+        },
+        {
+          "word": "kannst.",
+          "start": 66.56,
+          "end": 66.88
+        }
+      ]
+    },
+    {
+      "text": "Eine kaputte Waschmaschine.",
+      "start": 67.52,
+      "end": 69.38,
+      "words": [
+        {
+          "word": "Eine",
+          "start": 67.52,
+          "end": 67.8
+        },
+        {
+          "word": "kaputte",
+          "start": 67.8,
+          "end": 68.2
+        },
+        {
+          "word": "Waschmaschine.",
+          "start": 68.2,
+          "end": 68.88
+        }
+      ]
+    },
+    {
+      "text": "Eine dringende Autoreparatur.",
+      "start": 69.38,
+      "end": 71.4,
+      "words": [
+        {
+          "word": "Eine",
+          "start": 69.38,
+          "end": 69.62
+        },
+        {
+          "word": "dringende",
+          "start": 69.62,
+          "end": 70
+        },
+        {
+          "word": "Autoreparatur.",
+          "start": 70,
+          "end": 70.96
+        }
+      ]
+    },
+    {
+      "text": "Eine unerwartete Rechnung.",
+      "start": 71.4,
+      "end": 73.06,
+      "words": [
+        {
+          "word": "Eine",
+          "start": 71.4,
+          "end": 71.64
+        },
+        {
+          "word": "unerwartete",
+          "start": 71.64,
+          "end": 72.32
+        },
+        {
+          "word": "Rechnung.",
+          "start": 72.32,
+          "end": 73.06
+        }
+      ]
+    },
+    {
+      "text": "Oder eine Phase, in der plötzlich weniger Geld reinkommt.",
+      "start": 73.06,
+      "end": 77.48,
+      "words": [
+        {
+          "word": "Oder",
+          "start": 73.06,
+          "end": 73.48
+        },
+        {
+          "word": "eine",
+          "start": 73.48,
+          "end": 73.8
+        },
+        {
+          "word": "Phase,",
+          "start": 73.8,
+          "end": 74.18
+        },
+        {
+          "word": "in",
+          "start": 74.22,
+          "end": 74.4
+        },
+        {
+          "word": "der",
+          "start": 74.4,
+          "end": 74.56
+        },
+        {
+          "word": "plötzlich",
+          "start": 74.56,
+          "end": 75.06
+        },
+        {
+          "word": "weniger",
+          "start": 75.06,
+          "end": 75.44
+        },
+        {
+          "word": "Geld",
+          "start": 75.44,
+          "end": 75.72
+        },
+        {
+          "word": "reinkommt.",
+          "start": 75.72,
+          "end": 76.24
+        }
+      ]
+    },
+    {
+      "text": "Sein Job ist deshalb nicht, möglichst viel Rendite zu machen.",
+      "start": 77.48,
+      "end": 81.18,
+      "words": [
+        {
+          "word": "Sein",
+          "start": 77.48,
+          "end": 77.64
+        },
+        {
+          "word": "Job",
+          "start": 77.64,
+          "end": 77.82
+        },
+        {
+          "word": "ist",
+          "start": 77.82,
+          "end": 78.06
+        },
+        {
+          "word": "deshalb",
+          "start": 78.06,
+          "end": 78.36
+        },
+        {
+          "word": "nicht,",
+          "start": 78.36,
+          "end": 78.72
+        },
+        {
+          "word": "möglichst",
+          "start": 79.18,
+          "end": 79.2
+        },
+        {
+          "word": "viel",
+          "start": 79.2,
+          "end": 79.48
+        },
+        {
+          "word": "Rendite",
+          "start": 79.48,
+          "end": 79.96
+        },
+        {
+          "word": "zu",
+          "start": 79.96,
+          "end": 80.18
+        },
+        {
+          "word": "machen.",
+          "start": 80.18,
+          "end": 80.46
+        }
+      ]
+    },
+    {
+      "text": "Sein Job ist, verfügbar zu sein, wenn du ihn brauchst.",
+      "start": 81.18,
+      "end": 85.16,
+      "words": [
+        {
+          "word": "Sein",
+          "start": 81.18,
+          "end": 81.34
+        },
+        {
+          "word": "Job",
+          "start": 81.34,
+          "end": 81.54
+        },
+        {
+          "word": "ist,",
+          "start": 81.54,
+          "end": 82
+        },
+        {
+          "word": "verfügbar",
+          "start": 82.16,
+          "end": 82.64
+        },
+        {
+          "word": "zu",
+          "start": 82.64,
+          "end": 82.88
+        },
+        {
+          "word": "sein,",
+          "start": 82.88,
+          "end": 83.1
+        },
+        {
+          "word": "wenn",
+          "start": 83.22,
+          "end": 83.38
+        },
+        {
+          "word": "du",
+          "start": 83.38,
+          "end": 83.48
+        },
+        {
+          "word": "ihn",
+          "start": 83.48,
+          "end": 83.74
+        },
+        {
+          "word": "brauchst.",
+          "start": 83.74,
+          "end": 84.2
+        }
+      ]
+    },
+    {
+      "text": "Wie groß sollte diese Reserve also sein?",
+      "start": 85.16,
+      "end": 89,
+      "words": [
+        {
+          "word": "Wie",
+          "start": 85.16,
+          "end": 85.56
+        },
+        {
+          "word": "groß",
+          "start": 85.56,
+          "end": 85.96
+        },
+        {
+          "word": "sollte",
+          "start": 85.96,
+          "end": 86.28
+        },
+        {
+          "word": "diese",
+          "start": 86.28,
+          "end": 86.56
+        },
+        {
+          "word": "Reserve",
+          "start": 86.56,
+          "end": 86.94
+        },
+        {
+          "word": "also",
+          "start": 86.94,
+          "end": 87.3
+        },
+        {
+          "word": "sein?",
+          "start": 87.3,
+          "end": 87.6
+        }
+      ]
+    },
+    {
+      "text": "Statt nur eine pauschale Zahl zu übernehmen, kannst du zuerst auf deine notwendigen monatlichen Ausgaben schauen.",
+      "start": 89,
+      "end": 95.96,
+      "words": [
+        {
+          "word": "Statt",
+          "start": 89,
+          "end": 89.22
+        },
+        {
+          "word": "nur",
+          "start": 89.22,
+          "end": 89.46
+        },
+        {
+          "word": "eine",
+          "start": 89.46,
+          "end": 89.74
+        },
+        {
+          "word": "pauschale",
+          "start": 89.74,
+          "end": 90.38
+        },
+        {
+          "word": "Zahl",
+          "start": 90.38,
+          "end": 90.64
+        },
+        {
+          "word": "zu",
+          "start": 90.64,
+          "end": 90.86
+        },
+        {
+          "word": "übernehmen,",
+          "start": 90.86,
+          "end": 91.46
+        },
+        {
+          "word": "kannst",
+          "start": 91.82,
+          "end": 91.86
+        },
+        {
+          "word": "du",
+          "start": 91.86,
+          "end": 92.06
+        },
+        {
+          "word": "zuerst",
+          "start": 92.06,
+          "end": 92.56
+        },
+        {
+          "word": "auf",
+          "start": 92.56,
+          "end": 92.76
+        },
+        {
+          "word": "deine",
+          "start": 92.76,
+          "end": 93.04
+        },
+        {
+          "word": "notwendigen",
+          "start": 93.04,
+          "end": 93.78
+        },
+        {
+          "word": "monatlichen",
+          "start": 93.78,
+          "end": 94.38
+        },
+        {
+          "word": "Ausgaben",
+          "start": 94.38,
+          "end": 94.88
+        },
+        {
+          "word": "schauen.",
+          "start": 94.88,
+          "end": 95.24
+        }
+      ]
+    },
+    {
+      "text": "Nehmen wir ein einfaches Beispiel.",
+      "start": 95.96,
+      "end": 98.16,
+      "words": [
+        {
+          "word": "Nehmen",
+          "start": 95.96,
+          "end": 96.16
+        },
+        {
+          "word": "wir",
+          "start": 96.16,
+          "end": 96.32
+        },
+        {
+          "word": "ein",
+          "start": 96.32,
+          "end": 96.64
+        },
+        {
+          "word": "einfaches",
+          "start": 96.64,
+          "end": 97
+        },
+        {
+          "word": "Beispiel.",
+          "start": 97,
+          "end": 97.54
+        }
+      ]
+    },
+    {
+      "text": "Miete, Lebensmittel, Strom, Versicherungen, Mobilität und andere Dinge, auf die du nicht einfach verzichten kannst, kosten zusammen 1.500 Euro im Monat.",
+      "start": 98.16,
+      "end": 109.56,
+      "words": [
+        {
+          "word": "Miete,",
+          "start": 98.16,
+          "end": 98.7
+        },
+        {
+          "word": "Lebensmittel,",
+          "start": 99.06,
+          "end": 99.64
+        },
+        {
+          "word": "Strom,",
+          "start": 100,
+          "end": 100.32
+        },
+        {
+          "word": "Versicherungen,",
+          "start": 100.68,
+          "end": 101.3
+        },
+        {
+          "word": "Mobilität",
+          "start": 101.64,
+          "end": 102.26
+        },
+        {
+          "word": "und",
+          "start": 102.26,
+          "end": 102.8
+        },
+        {
+          "word": "andere",
+          "start": 102.8,
+          "end": 103.14
+        },
+        {
+          "word": "Dinge,",
+          "start": 103.14,
+          "end": 103.4
+        },
+        {
+          "word": "auf",
+          "start": 103.4,
+          "end": 103.56
+        },
+        {
+          "word": "die",
+          "start": 103.56,
+          "end": 103.68
+        },
+        {
+          "word": "du",
+          "start": 103.68,
+          "end": 103.84
+        },
+        {
+          "word": "nicht",
+          "start": 103.84,
+          "end": 104.14
+        },
+        {
+          "word": "einfach",
+          "start": 104.14,
+          "end": 104.38
+        },
+        {
+          "word": "verzichten",
+          "start": 104.38,
+          "end": 104.84
+        },
+        {
+          "word": "kannst,",
+          "start": 104.84,
+          "end": 105.18
+        },
+        {
+          "word": "kosten",
+          "start": 105.64,
+          "end": 105.84
+        },
+        {
+          "word": "zusammen",
+          "start": 105.84,
+          "end": 106.44
+        },
+        {
+          "word": "1.500",
+          "start": 106.44,
+          "end": 107.16
+        },
+        {
+          "word": "Euro",
+          "start": 107.16,
+          "end": 107.76
+        },
+        {
+          "word": "im",
+          "start": 107.76,
+          "end": 107.94
+        },
+        {
+          "word": "Monat.",
+          "start": 107.94,
+          "end": 109.2
+        }
+      ]
+    },
+    {
+      "text": "Ein Monat Reserve wären dann 1.500 Euro.",
+      "start": 109.56,
+      "end": 112.58,
+      "words": [
+        {
+          "word": "Ein",
+          "start": 109.56,
+          "end": 109.8
+        },
+        {
+          "word": "Monat",
+          "start": 109.8,
+          "end": 110.2
+        },
+        {
+          "word": "Reserve",
+          "start": 110.2,
+          "end": 110.62
+        },
+        {
+          "word": "wären",
+          "start": 110.62,
+          "end": 111.06
+        },
+        {
+          "word": "dann",
+          "start": 111.06,
+          "end": 111.5
+        },
+        {
+          "word": "1.500",
+          "start": 111.5,
+          "end": 112.14
+        },
+        {
+          "word": "Euro.",
+          "start": 112.14,
+          "end": 112.58
+        }
+      ]
+    },
+    {
+      "text": "Zwei Monate 3.000 Euro.",
+      "start": 112.58,
+      "end": 115.6,
+      "words": [
+        {
+          "word": "Zwei",
+          "start": 112.58,
+          "end": 113.5
+        },
+        {
+          "word": "Monate",
+          "start": 113.5,
+          "end": 113.94
+        },
+        {
+          "word": "3.000",
+          "start": 113.94,
+          "end": 114.62
+        },
+        {
+          "word": "Euro.",
+          "start": 114.62,
+          "end": 115.32
+        }
+      ]
+    },
+    {
+      "text": "Drei Monate 4.500 Euro.",
+      "start": 115.6,
+      "end": 118.86,
+      "words": [
+        {
+          "word": "Drei",
+          "start": 115.6,
+          "end": 115.84
+        },
+        {
+          "word": "Monate",
+          "start": 115.84,
+          "end": 116.36
+        },
+        {
+          "word": "4.500",
+          "start": 116.36,
+          "end": 117.58
+        },
+        {
+          "word": "Euro.",
+          "start": 117.58,
+          "end": 117.94
+        }
+      ]
+    },
+    {
+      "text": "Das ist keine neue offizielle Faustregel, sondern nur eine einfache Methode, um zu verstehen, welche Größenordnung zu deinem Alltag passt.",
+      "start": 118.86,
+      "end": 128.6,
+      "words": [
+        {
+          "word": "Das",
+          "start": 118.86,
+          "end": 119
+        },
+        {
+          "word": "ist",
+          "start": 119,
+          "end": 119.2
+        },
+        {
+          "word": "keine",
+          "start": 119.2,
+          "end": 119.5
+        },
+        {
+          "word": "neue",
+          "start": 119.5,
+          "end": 119.86
+        },
+        {
+          "word": "offizielle",
+          "start": 119.86,
+          "end": 120.38
+        },
+        {
+          "word": "Faustregel,",
+          "start": 120.38,
+          "end": 121.22
+        },
+        {
+          "word": "sondern",
+          "start": 121.46,
+          "end": 121.68
+        },
+        {
+          "word": "nur",
+          "start": 121.68,
+          "end": 121.92
+        },
+        {
+          "word": "eine",
+          "start": 121.92,
+          "end": 122.18
+        },
+        {
+          "word": "einfache",
+          "start": 122.18,
+          "end": 122.56
+        },
+        {
+          "word": "Methode,",
+          "start": 122.56,
+          "end": 123.02
+        },
+        {
+          "word": "um",
+          "start": 123.22,
+          "end": 123.22
+        },
+        {
+          "word": "zu",
+          "start": 123.22,
+          "end": 123.44
+        },
+        {
+          "word": "verstehen,",
+          "start": 123.44,
+          "end": 123.88
+        },
+        {
+          "word": "welche",
+          "start": 124.42,
+          "end": 124.6
+        },
+        {
+          "word": "Größenordnung",
+          "start": 124.6,
+          "end": 125.4
+        },
+        {
+          "word": "zu",
+          "start": 125.4,
+          "end": 125.68
+        },
+        {
+          "word": "deinem",
+          "start": 125.68,
+          "end": 125.96
+        },
+        {
+          "word": "Alltag",
+          "start": 125.96,
+          "end": 126.38
+        },
+        {
+          "word": "passt.",
+          "start": 126.38,
+          "end": 126.68
+        }
+      ]
+    },
+    {
+      "text": "Jetzt kommt der entscheidende Punkt: Zwei Menschen mit demselben Einkommen können völlig unterschiedliche Notgroschen brauchen.",
+      "start": 128.6,
+      "end": 136.88,
+      "words": [
+        {
+          "word": "Jetzt",
+          "start": 128.6,
+          "end": 128.88
+        },
+        {
+          "word": "kommt",
+          "start": 128.88,
+          "end": 129.08
+        },
+        {
+          "word": "der",
+          "start": 129.08,
+          "end": 129.34
+        },
+        {
+          "word": "entscheidende",
+          "start": 129.34,
+          "end": 129.8
+        },
+        {
+          "word": "Punkt:",
+          "start": 129.8,
+          "end": 130.12
+        },
+        {
+          "word": "Zwei",
+          "start": 130.94,
+          "end": 131.18
+        },
+        {
+          "word": "Menschen",
+          "start": 131.18,
+          "end": 131.56
+        },
+        {
+          "word": "mit",
+          "start": 131.56,
+          "end": 131.76
+        },
+        {
+          "word": "demselben",
+          "start": 131.76,
+          "end": 132.26
+        },
+        {
+          "word": "Einkommen",
+          "start": 132.26,
+          "end": 132.94
+        },
+        {
+          "word": "können",
+          "start": 132.94,
+          "end": 133.36
+        },
+        {
+          "word": "völlig",
+          "start": 133.36,
+          "end": 133.94
+        },
+        {
+          "word": "unterschiedliche",
+          "start": 133.94,
+          "end": 134.62
+        },
+        {
+          "word": "Notgroschen",
+          "start": 134.62,
+          "end": 135.14
+        },
+        {
+          "word": "brauchen.",
+          "start": 135.14,
+          "end": 135.6
+        }
+      ]
+    },
+    {
+      "text": "Person A wohnt noch zu Hause, hat kein Auto, niedrige feste Ausgaben und einen stabilen Job.",
+      "start": 136.88,
+      "end": 143.38,
+      "words": [
+        {
+          "word": "Person",
+          "start": 136.88,
+          "end": 137.14
+        },
+        {
+          "word": "A",
+          "start": 137.14,
+          "end": 137.5
+        },
+        {
+          "word": "wohnt",
+          "start": 137.5,
+          "end": 137.82
+        },
+        {
+          "word": "noch",
+          "start": 137.82,
+          "end": 138.08
+        },
+        {
+          "word": "zu",
+          "start": 138.08,
+          "end": 138.24
+        },
+        {
+          "word": "Hause,",
+          "start": 138.24,
+          "end": 138.6
+        },
+        {
+          "word": "hat",
+          "start": 138.82,
+          "end": 139.02
+        },
+        {
+          "word": "kein",
+          "start": 139.02,
+          "end": 139.24
+        },
+        {
+          "word": "Auto,",
+          "start": 139.24,
+          "end": 139.66
+        },
+        {
+          "word": "niedrige",
+          "start": 140.16,
+          "end": 140.54
+        },
+        {
+          "word": "feste",
+          "start": 140.54,
+          "end": 140.94
+        },
+        {
+          "word": "Ausgaben",
+          "start": 140.94,
+          "end": 141.4
+        },
+        {
+          "word": "und",
+          "start": 141.4,
+          "end": 141.68
+        },
+        {
+          "word": "einen",
+          "start": 141.68,
+          "end": 141.9
+        },
+        {
+          "word": "stabilen",
+          "start": 141.9,
+          "end": 142.38
+        },
+        {
+          "word": "Job.",
+          "start": 142.38,
+          "end": 142.66
+        }
+      ]
+    },
+    {
+      "text": "Wenn etwas passiert, sind die finanziellen Folgen oft kleiner.",
+      "start": 143.38,
+      "end": 147.48,
+      "words": [
+        {
+          "word": "Wenn",
+          "start": 143.38,
+          "end": 143.56
+        },
+        {
+          "word": "etwas",
+          "start": 143.56,
+          "end": 143.8
+        },
+        {
+          "word": "passiert,",
+          "start": 143.8,
+          "end": 144.28
+        },
+        {
+          "word": "sind",
+          "start": 144.78,
+          "end": 144.78
+        },
+        {
+          "word": "die",
+          "start": 144.78,
+          "end": 145.06
+        },
+        {
+          "word": "finanziellen",
+          "start": 145.06,
+          "end": 145.54
+        },
+        {
+          "word": "Folgen",
+          "start": 145.54,
+          "end": 145.92
+        },
+        {
+          "word": "oft",
+          "start": 145.92,
+          "end": 146.18
+        },
+        {
+          "word": "kleiner.",
+          "start": 146.18,
+          "end": 146.68
+        }
+      ]
+    },
+    {
+      "text": "Person B lebt allein, braucht täglich ein Auto für den Arbeitsweg, zahlt eine höhere Miete und hat mehrere laufende Verpflichtungen.",
+      "start": 147.48,
+      "end": 155.9,
+      "words": [
+        {
+          "word": "Person",
+          "start": 147.48,
+          "end": 147.64
+        },
+        {
+          "word": "B",
+          "start": 147.64,
+          "end": 148
+        },
+        {
+          "word": "lebt",
+          "start": 148,
+          "end": 148.42
+        },
+        {
+          "word": "allein,",
+          "start": 148.42,
+          "end": 148.96
+        },
+        {
+          "word": "braucht",
+          "start": 149.24,
+          "end": 149.46
+        },
+        {
+          "word": "täglich",
+          "start": 149.46,
+          "end": 149.9
+        },
+        {
+          "word": "ein",
+          "start": 149.9,
+          "end": 150.16
+        },
+        {
+          "word": "Auto",
+          "start": 150.16,
+          "end": 150.36
+        },
+        {
+          "word": "für",
+          "start": 150.36,
+          "end": 150.52
+        },
+        {
+          "word": "den",
+          "start": 150.52,
+          "end": 150.76
+        },
+        {
+          "word": "Arbeitsweg,",
+          "start": 150.76,
+          "end": 151.3
+        },
+        {
+          "word": "zahlt",
+          "start": 151.86,
+          "end": 151.98
+        },
+        {
+          "word": "eine",
+          "start": 151.98,
+          "end": 152.26
+        },
+        {
+          "word": "höhere",
+          "start": 152.26,
+          "end": 152.66
+        },
+        {
+          "word": "Miete",
+          "start": 152.66,
+          "end": 153.12
+        },
+        {
+          "word": "und",
+          "start": 153.12,
+          "end": 153.42
+        },
+        {
+          "word": "hat",
+          "start": 153.42,
+          "end": 153.66
+        },
+        {
+          "word": "mehrere",
+          "start": 153.66,
+          "end": 154.12
+        },
+        {
+          "word": "laufende",
+          "start": 154.12,
+          "end": 154.6
+        },
+        {
+          "word": "Verpflichtungen.",
+          "start": 154.6,
+          "end": 155.3
+        }
+      ]
+    },
+    {
+      "text": "Für diese Person kann eine größere Reserve deutlich sinnvoller sein.",
+      "start": 155.9,
+      "end": 160.86,
+      "words": [
+        {
+          "word": "Für",
+          "start": 155.9,
+          "end": 156.18
+        },
+        {
+          "word": "diese",
+          "start": 156.18,
+          "end": 156.44
+        },
+        {
+          "word": "Person",
+          "start": 156.44,
+          "end": 156.86
+        },
+        {
+          "word": "kann",
+          "start": 156.86,
+          "end": 157.3
+        },
+        {
+          "word": "eine",
+          "start": 157.3,
+          "end": 157.6
+        },
+        {
+          "word": "größere",
+          "start": 157.6,
+          "end": 158.12
+        },
+        {
+          "word": "Reserve",
+          "start": 158.12,
+          "end": 158.5
+        },
+        {
+          "word": "deutlich",
+          "start": 158.5,
+          "end": 159.16
+        },
+        {
+          "word": "sinnvoller",
+          "start": 159.16,
+          "end": 159.7
+        },
+        {
+          "word": "sein.",
+          "start": 159.7,
+          "end": 159.9
+        }
+      ]
+    },
+    {
+      "text": "Deshalb solltest du nicht nur fragen: Wie viel verdiene ich?",
+      "start": 160.86,
+      "end": 164.7,
+      "words": [
+        {
+          "word": "Deshalb",
+          "start": 160.86,
+          "end": 161.1
+        },
+        {
+          "word": "solltest",
+          "start": 161.1,
+          "end": 161.42
+        },
+        {
+          "word": "du",
+          "start": 161.42,
+          "end": 161.56
+        },
+        {
+          "word": "nicht",
+          "start": 161.56,
+          "end": 161.78
+        },
+        {
+          "word": "nur",
+          "start": 161.78,
+          "end": 162.02
+        },
+        {
+          "word": "fragen:",
+          "start": 162.02,
+          "end": 162.46
+        },
+        {
+          "word": "Wie",
+          "start": 162.84,
+          "end": 163.08
+        },
+        {
+          "word": "viel",
+          "start": 163.08,
+          "end": 163.34
+        },
+        {
+          "word": "verdiene",
+          "start": 163.34,
+          "end": 163.76
+        },
+        {
+          "word": "ich?",
+          "start": 163.76,
+          "end": 164.42
+        }
+      ]
+    },
+    {
+      "text": "Sondern auch: Welche Ausgaben können mich unerwartet treffen?",
+      "start": 164.7,
+      "end": 168.78,
+      "words": [
+        {
+          "word": "Sondern",
+          "start": 164.7,
+          "end": 164.92
+        },
+        {
+          "word": "auch:",
+          "start": 164.92,
+          "end": 165.54
+        },
+        {
+          "word": "Welche",
+          "start": 165.9,
+          "end": 166.12
+        },
+        {
+          "word": "Ausgaben",
+          "start": 166.12,
+          "end": 166.78
+        },
+        {
+          "word": "können",
+          "start": 166.78,
+          "end": 167.02
+        },
+        {
+          "word": "mich",
+          "start": 167.02,
+          "end": 167.4
+        },
+        {
+          "word": "unerwartet",
+          "start": 167.4,
+          "end": 168
+        },
+        {
+          "word": "treffen?",
+          "start": 168,
+          "end": 168.3
+        }
+      ]
+    },
+    {
+      "text": "Wie hoch sind meine notwendigen monatlichen Kosten?",
+      "start": 168.78,
+      "end": 172.14,
+      "words": [
+        {
+          "word": "Wie",
+          "start": 168.78,
+          "end": 169.1
+        },
+        {
+          "word": "hoch",
+          "start": 169.1,
+          "end": 169.42
+        },
+        {
+          "word": "sind",
+          "start": 169.42,
+          "end": 169.64
+        },
+        {
+          "word": "meine",
+          "start": 169.64,
+          "end": 169.92
+        },
+        {
+          "word": "notwendigen",
+          "start": 169.92,
+          "end": 170.56
+        },
+        {
+          "word": "monatlichen",
+          "start": 170.56,
+          "end": 171.1
+        },
+        {
+          "word": "Kosten?",
+          "start": 171.1,
+          "end": 171.48
+        }
+      ]
+    },
+    {
+      "text": "Welche Dinge brauche ich zwingend für Arbeit und Alltag?",
+      "start": 172.14,
+      "end": 175.66,
+      "words": [
+        {
+          "word": "Welche",
+          "start": 172.14,
+          "end": 172.52
+        },
+        {
+          "word": "Dinge",
+          "start": 172.52,
+          "end": 172.8
+        },
+        {
+          "word": "brauche",
+          "start": 172.8,
+          "end": 173.16
+        },
+        {
+          "word": "ich",
+          "start": 173.16,
+          "end": 173.4
+        },
+        {
+          "word": "zwingend",
+          "start": 173.4,
+          "end": 173.82
+        },
+        {
+          "word": "für",
+          "start": 173.82,
+          "end": 174.06
+        },
+        {
+          "word": "Arbeit",
+          "start": 174.06,
+          "end": 174.42
+        },
+        {
+          "word": "und",
+          "start": 174.42,
+          "end": 174.62
+        },
+        {
+          "word": "Alltag?",
+          "start": 174.62,
+          "end": 175.16
+        }
+      ]
+    },
+    {
+      "text": "Und wie schnell könnte ich meine Ausgaben reduzieren, wenn mein Einkommen vorübergehend sinkt?",
+      "start": 175.66,
+      "end": 181.3,
+      "words": [
+        {
+          "word": "Und",
+          "start": 175.66,
+          "end": 175.98
+        },
+        {
+          "word": "wie",
+          "start": 175.98,
+          "end": 176.3
+        },
+        {
+          "word": "schnell",
+          "start": 176.3,
+          "end": 176.58
+        },
+        {
+          "word": "könnte",
+          "start": 176.58,
+          "end": 176.82
+        },
+        {
+          "word": "ich",
+          "start": 176.82,
+          "end": 177.04
+        },
+        {
+          "word": "meine",
+          "start": 177.04,
+          "end": 177.2
+        },
+        {
+          "word": "Ausgaben",
+          "start": 177.2,
+          "end": 177.72
+        },
+        {
+          "word": "reduzieren,",
+          "start": 177.72,
+          "end": 178.36
+        },
+        {
+          "word": "wenn",
+          "start": 178.42,
+          "end": 178.56
+        },
+        {
+          "word": "mein",
+          "start": 178.56,
+          "end": 178.78
+        },
+        {
+          "word": "Einkommen",
+          "start": 178.78,
+          "end": 179.28
+        },
+        {
+          "word": "vorübergehend",
+          "start": 179.28,
+          "end": 179.94
+        },
+        {
+          "word": "sinkt?",
+          "start": 179.94,
+          "end": 180.38
+        }
+      ]
+    },
+    {
+      "text": "Dann gibt es noch einen Fehler, der ziemlich logisch klingt: Warum den Notgroschen nicht einfach investieren?",
+      "start": 181.3,
+      "end": 188.24,
+      "words": [
+        {
+          "word": "Dann",
+          "start": 181.3,
+          "end": 181.62
+        },
+        {
+          "word": "gibt",
+          "start": 181.62,
+          "end": 181.8
+        },
+        {
+          "word": "es",
+          "start": 181.8,
+          "end": 181.94
+        },
+        {
+          "word": "noch",
+          "start": 181.94,
+          "end": 182.14
+        },
+        {
+          "word": "einen",
+          "start": 182.14,
+          "end": 182.4
+        },
+        {
+          "word": "Fehler,",
+          "start": 182.4,
+          "end": 182.7
+        },
+        {
+          "word": "der",
+          "start": 182.76,
+          "end": 183
+        },
+        {
+          "word": "ziemlich",
+          "start": 183,
+          "end": 183.46
+        },
+        {
+          "word": "logisch",
+          "start": 183.46,
+          "end": 183.9
+        },
+        {
+          "word": "klingt:",
+          "start": 183.9,
+          "end": 184.22
+        },
+        {
+          "word": "Warum",
+          "start": 184.92,
+          "end": 185.28
+        },
+        {
+          "word": "den",
+          "start": 185.28,
+          "end": 185.56
+        },
+        {
+          "word": "Notgroschen",
+          "start": 185.56,
+          "end": 186.12
+        },
+        {
+          "word": "nicht",
+          "start": 186.12,
+          "end": 186.42
+        },
+        {
+          "word": "einfach",
+          "start": 186.42,
+          "end": 186.8
+        },
+        {
+          "word": "investieren?",
+          "start": 186.8,
+          "end": 187.48
+        }
+      ]
+    },
+    {
+      "text": "Ein ETF kann langfristig für den Vermögensaufbau sinnvoll sein.",
+      "start": 188.24,
+      "end": 192.1,
+      "words": [
+        {
+          "word": "Ein",
+          "start": 188.24,
+          "end": 188.48
+        },
+        {
+          "word": "ETF",
+          "start": 188.48,
+          "end": 188.92
+        },
+        {
+          "word": "kann",
+          "start": 188.92,
+          "end": 189.18
+        },
+        {
+          "word": "langfristig",
+          "start": 189.18,
+          "end": 189.82
+        },
+        {
+          "word": "für",
+          "start": 189.82,
+          "end": 189.96
+        },
+        {
+          "word": "den",
+          "start": 189.96,
+          "end": 190.2
+        },
+        {
+          "word": "Vermögensaufbau",
+          "start": 190.2,
+          "end": 190.94
+        },
+        {
+          "word": "sinnvoll",
+          "start": 190.94,
+          "end": 191.36
+        },
+        {
+          "word": "sein.",
+          "start": 191.36,
+          "end": 191.6
+        }
+      ]
+    },
+    {
+      "text": "Aber ein Aktien-ETF schwankt im Wert.",
+      "start": 192.1,
+      "end": 195.28,
+      "words": [
+        {
+          "word": "Aber",
+          "start": 192.1,
+          "end": 192.52
+        },
+        {
+          "word": "ein",
+          "start": 192.52,
+          "end": 192.78
+        },
+        {
+          "word": "Aktien-ETF",
+          "start": 192.78,
+          "end": 193.3
+        },
+        {
+          "word": "schwankt",
+          "start": 193.82,
+          "end": 194.26
+        },
+        {
+          "word": "im",
+          "start": 194.26,
+          "end": 194.48
+        },
+        {
+          "word": "Wert.",
+          "start": 194.48,
+          "end": 194.76
+        }
+      ]
+    },
+    {
+      "text": "Die Verbraucherzentrale weist darauf hin, dass selbst breit gestreute Aktienmärkte deutlich fallen können und sich Verlustphasen über Jahre ziehen können.",
+      "start": 195.28,
+      "end": 204.46,
+      "words": [
+        {
+          "word": "Die",
+          "start": 195.28,
+          "end": 195.5
+        },
+        {
+          "word": "Verbraucherzentrale",
+          "start": 195.5,
+          "end": 196.36
+        },
+        {
+          "word": "weist",
+          "start": 196.36,
+          "end": 196.64
+        },
+        {
+          "word": "darauf",
+          "start": 196.64,
+          "end": 196.86
+        },
+        {
+          "word": "hin,",
+          "start": 196.86,
+          "end": 197.14
+        },
+        {
+          "word": "dass",
+          "start": 197.14,
+          "end": 197.5
+        },
+        {
+          "word": "selbst",
+          "start": 197.5,
+          "end": 197.5
+        },
+        {
+          "word": "breit",
+          "start": 197.5,
+          "end": 198.3
+        },
+        {
+          "word": "gestreute",
+          "start": 198.3,
+          "end": 198.76
+        },
+        {
+          "word": "Aktienmärkte",
+          "start": 198.76,
+          "end": 199.56
+        },
+        {
+          "word": "deutlich",
+          "start": 199.56,
+          "end": 200.12
+        },
+        {
+          "word": "fallen",
+          "start": 200.12,
+          "end": 200.4
+        },
+        {
+          "word": "können",
+          "start": 200.4,
+          "end": 200.82
+        },
+        {
+          "word": "und",
+          "start": 200.82,
+          "end": 201.24
+        },
+        {
+          "word": "sich",
+          "start": 201.24,
+          "end": 201.48
+        },
+        {
+          "word": "Verlustphasen",
+          "start": 201.48,
+          "end": 202.26
+        },
+        {
+          "word": "über",
+          "start": 202.26,
+          "end": 202.52
+        },
+        {
+          "word": "Jahre",
+          "start": 202.52,
+          "end": 202.82
+        },
+        {
+          "word": "ziehen",
+          "start": 202.82,
+          "end": 203.2
+        },
+        {
+          "word": "können.",
+          "start": 203.2,
+          "end": 203.58
+        }
+      ]
+    },
+    {
+      "text": "Das Problem ist also nicht, dass ein ETF grundsätzlich schlecht wäre.",
+      "start": 204.46,
+      "end": 208.24,
+      "words": [
+        {
+          "word": "Das",
+          "start": 204.46,
+          "end": 204.6
+        },
+        {
+          "word": "Problem",
+          "start": 204.6,
+          "end": 204.86
+        },
+        {
+          "word": "ist",
+          "start": 204.86,
+          "end": 205.14
+        },
+        {
+          "word": "also",
+          "start": 205.14,
+          "end": 205.3
+        },
+        {
+          "word": "nicht,",
+          "start": 205.3,
+          "end": 205.46
+        },
+        {
+          "word": "dass",
+          "start": 205.46,
+          "end": 205.66
+        },
+        {
+          "word": "ein",
+          "start": 205.66,
+          "end": 205.9
+        },
+        {
+          "word": "ETF",
+          "start": 205.9,
+          "end": 206.26
+        },
+        {
+          "word": "grundsätzlich",
+          "start": 206.26,
+          "end": 206.98
+        },
+        {
+          "word": "schlecht",
+          "start": 206.98,
+          "end": 207.3
+        },
+        {
+          "word": "wäre.",
+          "start": 207.3,
+          "end": 207.6
+        }
+      ]
+    },
+    {
+      "text": "Das Problem ist der Zeitpunkt.",
+      "start": 208.24,
+      "end": 210.42,
+      "words": [
+        {
+          "word": "Das",
+          "start": 208.24,
+          "end": 208.36
+        },
+        {
+          "word": "Problem",
+          "start": 208.36,
+          "end": 208.76
+        },
+        {
+          "word": "ist",
+          "start": 208.76,
+          "end": 208.98
+        },
+        {
+          "word": "der",
+          "start": 208.98,
+          "end": 209.24
+        },
+        {
+          "word": "Zeitpunkt.",
+          "start": 209.24,
+          "end": 209.8
+        }
+      ]
+    },
+    {
+      "text": "Wenn dein Auto genau dann kaputtgeht, wenn dein Depot 25 Prozent im Minus steht, möchtest du nicht gezwungen sein, Anteile mit Verlust zu verkaufen, nur um die Werkstatt zu bezahlen.",
+      "start": 210.42,
+      "end": 221.56,
+      "words": [
+        {
+          "word": "Wenn",
+          "start": 210.42,
+          "end": 210.6
+        },
+        {
+          "word": "dein",
+          "start": 210.6,
+          "end": 210.76
+        },
+        {
+          "word": "Auto",
+          "start": 210.76,
+          "end": 211.1
+        },
+        {
+          "word": "genau",
+          "start": 211.1,
+          "end": 211.5
+        },
+        {
+          "word": "dann",
+          "start": 211.5,
+          "end": 211.76
+        },
+        {
+          "word": "kaputtgeht,",
+          "start": 211.76,
+          "end": 212.08
+        },
+        {
+          "word": "wenn",
+          "start": 212.64,
+          "end": 212.78
+        },
+        {
+          "word": "dein",
+          "start": 212.78,
+          "end": 212.96
+        },
+        {
+          "word": "Depot",
+          "start": 212.96,
+          "end": 213.24
+        },
+        {
+          "word": "25",
+          "start": 213.24,
+          "end": 213.92
+        },
+        {
+          "word": "Prozent",
+          "start": 213.92,
+          "end": 214.4
+        },
+        {
+          "word": "im",
+          "start": 214.4,
+          "end": 214.6
+        },
+        {
+          "word": "Minus",
+          "start": 214.6,
+          "end": 214.9
+        },
+        {
+          "word": "steht,",
+          "start": 214.9,
+          "end": 215.18
+        },
+        {
+          "word": "möchtest",
+          "start": 215.78,
+          "end": 215.96
+        },
+        {
+          "word": "du",
+          "start": 215.96,
+          "end": 216.04
+        },
+        {
+          "word": "nicht",
+          "start": 216.04,
+          "end": 216.28
+        },
+        {
+          "word": "gezwungen",
+          "start": 216.28,
+          "end": 216.76
+        },
+        {
+          "word": "sein,",
+          "start": 216.76,
+          "end": 217.02
+        },
+        {
+          "word": "Anteile",
+          "start": 217.24,
+          "end": 217.54
+        },
+        {
+          "word": "mit",
+          "start": 217.54,
+          "end": 217.78
+        },
+        {
+          "word": "Verlust",
+          "start": 217.78,
+          "end": 218.02
+        },
+        {
+          "word": "zu",
+          "start": 218.02,
+          "end": 218.3
+        },
+        {
+          "word": "verkaufen,",
+          "start": 218.3,
+          "end": 218.74
+        },
+        {
+          "word": "nur",
+          "start": 219.02,
+          "end": 219.24
+        },
+        {
+          "word": "um",
+          "start": 219.24,
+          "end": 219.42
+        },
+        {
+          "word": "die",
+          "start": 219.42,
+          "end": 219.56
+        },
+        {
+          "word": "Werkstatt",
+          "start": 219.56,
+          "end": 219.88
+        },
+        {
+          "word": "zu",
+          "start": 219.88,
+          "end": 220.1
+        },
+        {
+          "word": "bezahlen.",
+          "start": 220.1,
+          "end": 221.08
+        }
+      ]
+    },
+    {
+      "text": "Notgroschen und langfristiges Investment haben deshalb zwei unterschiedliche Aufgaben.",
+      "start": 221.56,
+      "end": 226.9,
+      "words": [
+        {
+          "word": "Notgroschen",
+          "start": 221.56,
+          "end": 222.16
+        },
+        {
+          "word": "und",
+          "start": 222.16,
+          "end": 222.38
+        },
+        {
+          "word": "langfristiges",
+          "start": 222.38,
+          "end": 223.06
+        },
+        {
+          "word": "Investment",
+          "start": 223.06,
+          "end": 223.62
+        },
+        {
+          "word": "haben",
+          "start": 223.62,
+          "end": 224.06
+        },
+        {
+          "word": "deshalb",
+          "start": 224.06,
+          "end": 224.54
+        },
+        {
+          "word": "zwei",
+          "start": 224.54,
+          "end": 224.92
+        },
+        {
+          "word": "unterschiedliche",
+          "start": 224.92,
+          "end": 225.66
+        },
+        {
+          "word": "Aufgaben.",
+          "start": 225.66,
+          "end": 226.7
+        }
+      ]
+    },
+    {
+      "text": "Der Notgroschen soll kurzfristig stabil und verfügbar sein.",
+      "start": 226.9,
+      "end": 230.78,
+      "words": [
+        {
+          "word": "Der",
+          "start": 226.9,
+          "end": 227.04
+        },
+        {
+          "word": "Notgroschen",
+          "start": 227.04,
+          "end": 227.76
+        },
+        {
+          "word": "soll",
+          "start": 227.76,
+          "end": 228.02
+        },
+        {
+          "word": "kurzfristig",
+          "start": 228.02,
+          "end": 228.8
+        },
+        {
+          "word": "stabil",
+          "start": 228.8,
+          "end": 229.2
+        },
+        {
+          "word": "und",
+          "start": 229.2,
+          "end": 229.5
+        },
+        {
+          "word": "verfügbar",
+          "start": 229.5,
+          "end": 229.92
+        },
+        {
+          "word": "sein.",
+          "start": 229.92,
+          "end": 230.2
+        }
+      ]
+    },
+    {
+      "text": "Langfristiges Investieren soll Vermögen über viele Jahre aufbauen und darf dafür stärkere Schwankungen aushalten.",
+      "start": 230.78,
+      "end": 238.1,
+      "words": [
+        {
+          "word": "Langfristiges",
+          "start": 230.78,
+          "end": 231.5
+        },
+        {
+          "word": "Investieren",
+          "start": 231.5,
+          "end": 232.18
+        },
+        {
+          "word": "soll",
+          "start": 232.18,
+          "end": 232.52
+        },
+        {
+          "word": "Vermögen",
+          "start": 232.52,
+          "end": 233
+        },
+        {
+          "word": "über",
+          "start": 233,
+          "end": 233.3
+        },
+        {
+          "word": "viele",
+          "start": 233.3,
+          "end": 233.62
+        },
+        {
+          "word": "Jahre",
+          "start": 233.62,
+          "end": 233.92
+        },
+        {
+          "word": "aufbauen",
+          "start": 233.92,
+          "end": 234.52
+        },
+        {
+          "word": "und",
+          "start": 234.52,
+          "end": 234.9
+        },
+        {
+          "word": "darf",
+          "start": 234.9,
+          "end": 235.14
+        },
+        {
+          "word": "dafür",
+          "start": 235.14,
+          "end": 235.62
+        },
+        {
+          "word": "stärkere",
+          "start": 235.62,
+          "end": 236.06
+        },
+        {
+          "word": "Schwankungen",
+          "start": 236.06,
+          "end": 236.54
+        },
+        {
+          "word": "aushalten.",
+          "start": 236.54,
+          "end": 237.06
+        }
+      ]
+    },
+    {
+      "text": "Für den Notgroschen wird deshalb häufig Tagesgeld genannt.",
+      "start": 238.1,
+      "end": 241.36,
+      "words": [
+        {
+          "word": "Für",
+          "start": 238.1,
+          "end": 238.26
+        },
+        {
+          "word": "den",
+          "start": 238.26,
+          "end": 238.48
+        },
+        {
+          "word": "Notgroschen",
+          "start": 238.48,
+          "end": 238.98
+        },
+        {
+          "word": "wird",
+          "start": 238.98,
+          "end": 239.16
+        },
+        {
+          "word": "deshalb",
+          "start": 239.16,
+          "end": 239.54
+        },
+        {
+          "word": "häufig",
+          "start": 239.54,
+          "end": 239.94
+        },
+        {
+          "word": "Tagesgeld",
+          "start": 239.94,
+          "end": 240.54
+        },
+        {
+          "word": "genannt.",
+          "start": 240.54,
+          "end": 240.9
+        }
+      ]
+    },
+    {
+      "text": "Du trennst die Reserve damit vom normalen Girokonto, kannst aber in der Regel kurzfristig darauf zugreifen.",
+      "start": 241.36,
+      "end": 247.36,
+      "words": [
+        {
+          "word": "Du",
+          "start": 241.36,
+          "end": 241.64
+        },
+        {
+          "word": "trennst",
+          "start": 241.64,
+          "end": 241.88
+        },
+        {
+          "word": "die",
+          "start": 241.88,
+          "end": 242.08
+        },
+        {
+          "word": "Reserve",
+          "start": 242.08,
+          "end": 242.36
+        },
+        {
+          "word": "damit",
+          "start": 242.36,
+          "end": 242.7
+        },
+        {
+          "word": "vom",
+          "start": 242.7,
+          "end": 242.86
+        },
+        {
+          "word": "normalen",
+          "start": 242.86,
+          "end": 243.42
+        },
+        {
+          "word": "Girokonto,",
+          "start": 243.42,
+          "end": 244.26
+        },
+        {
+          "word": "kannst",
+          "start": 244.5,
+          "end": 244.68
+        },
+        {
+          "word": "aber",
+          "start": 244.68,
+          "end": 244.9
+        },
+        {
+          "word": "in",
+          "start": 244.9,
+          "end": 245
+        },
+        {
+          "word": "der",
+          "start": 245,
+          "end": 245.16
+        },
+        {
+          "word": "Regel",
+          "start": 245.16,
+          "end": 245.38
+        },
+        {
+          "word": "kurzfristig",
+          "start": 245.38,
+          "end": 246.06
+        },
+        {
+          "word": "darauf",
+          "start": 246.06,
+          "end": 246.26
+        },
+        {
+          "word": "zugreifen.",
+          "start": 246.26,
+          "end": 247.14
+        }
+      ]
+    },
+    {
+      "text": "Und bei Bankeinlagen greift grundsätzlich die gesetzliche Einlagensicherung bis 100.000 Euro pro Person und Bank.",
+      "start": 247.36,
+      "end": 254.26,
+      "words": [
+        {
+          "word": "Und",
+          "start": 247.36,
+          "end": 247.54
+        },
+        {
+          "word": "bei",
+          "start": 247.54,
+          "end": 247.8
+        },
+        {
+          "word": "Bankeinlagen",
+          "start": 247.8,
+          "end": 248.62
+        },
+        {
+          "word": "greift",
+          "start": 248.62,
+          "end": 248.98
+        },
+        {
+          "word": "grundsätzlich",
+          "start": 248.98,
+          "end": 249.6
+        },
+        {
+          "word": "die",
+          "start": 249.6,
+          "end": 249.82
+        },
+        {
+          "word": "gesetzliche",
+          "start": 249.82,
+          "end": 250.28
+        },
+        {
+          "word": "Einlagensicherung",
+          "start": 250.28,
+          "end": 251.16
+        },
+        {
+          "word": "bis",
+          "start": 251.16,
+          "end": 251.54
+        },
+        {
+          "word": "100.000",
+          "start": 251.54,
+          "end": 252.02
+        },
+        {
+          "word": "Euro",
+          "start": 252.32,
+          "end": 252.72
+        },
+        {
+          "word": "pro",
+          "start": 252.72,
+          "end": 252.92
+        },
+        {
+          "word": "Person",
+          "start": 252.92,
+          "end": 253.32
+        },
+        {
+          "word": "und",
+          "start": 253.32,
+          "end": 253.79
+        },
+        {
+          "word": "Bank.",
+          "start": 253.79,
+          "end": 254.26
+        }
+      ]
+    },
+    {
+      "text": "Wichtig ist trotzdem, den Anbieter und die konkrete Einlagensicherung zu prüfen.",
+      "start": 254.26,
+      "end": 259.5,
+      "words": [
+        {
+          "word": "Wichtig",
+          "start": 254.26,
+          "end": 254.82
+        },
+        {
+          "word": "ist",
+          "start": 254.82,
+          "end": 255.04
+        },
+        {
+          "word": "trotzdem,",
+          "start": 255.04,
+          "end": 255.48
+        },
+        {
+          "word": "den",
+          "start": 255.7,
+          "end": 255.88
+        },
+        {
+          "word": "Anbieter",
+          "start": 255.88,
+          "end": 256.42
+        },
+        {
+          "word": "und",
+          "start": 256.42,
+          "end": 256.58
+        },
+        {
+          "word": "die",
+          "start": 256.58,
+          "end": 256.74
+        },
+        {
+          "word": "konkrete",
+          "start": 256.74,
+          "end": 257.1
+        },
+        {
+          "word": "Einlagensicherung",
+          "start": 257.1,
+          "end": 257.9
+        },
+        {
+          "word": "zu",
+          "start": 257.9,
+          "end": 258.16
+        },
+        {
+          "word": "prüfen.",
+          "start": 258.16,
+          "end": 259.18
+        }
+      ]
+    },
+    {
+      "text": "Warum nicht alles einfach auf dem Girokonto lassen?",
+      "start": 259.5,
+      "end": 262.38,
+      "words": [
+        {
+          "word": "Warum",
+          "start": 259.5,
+          "end": 259.74
+        },
+        {
+          "word": "nicht",
+          "start": 259.74,
+          "end": 260
+        },
+        {
+          "word": "alles",
+          "start": 260,
+          "end": 260.24
+        },
+        {
+          "word": "einfach",
+          "start": 260.24,
+          "end": 260.62
+        },
+        {
+          "word": "auf",
+          "start": 260.62,
+          "end": 260.8
+        },
+        {
+          "word": "dem",
+          "start": 260.8,
+          "end": 260.94
+        },
+        {
+          "word": "Girokonto",
+          "start": 260.94,
+          "end": 261.46
+        },
+        {
+          "word": "lassen?",
+          "start": 261.46,
+          "end": 261.78
+        }
+      ]
+    },
+    {
+      "text": "Kannst du natürlich.",
+      "start": 262.38,
+      "end": 263.66,
+      "words": [
+        {
+          "word": "Kannst",
+          "start": 262.38,
+          "end": 262.64
+        },
+        {
+          "word": "du",
+          "start": 262.64,
+          "end": 262.76
+        },
+        {
+          "word": "natürlich.",
+          "start": 262.76,
+          "end": 263.18
+        }
+      ]
+    },
+    {
+      "text": "Praktisch hat ein separates Konto aber einen Vorteil: Dein Notgroschen sieht nicht wie frei verfügbares Geld aus.",
+      "start": 263.66,
+      "end": 270.28,
+      "words": [
+        {
+          "word": "Praktisch",
+          "start": 263.66,
+          "end": 264.1
+        },
+        {
+          "word": "hat",
+          "start": 264.1,
+          "end": 264.22
+        },
+        {
+          "word": "ein",
+          "start": 264.22,
+          "end": 264.4
+        },
+        {
+          "word": "separates",
+          "start": 264.4,
+          "end": 264.94
+        },
+        {
+          "word": "Konto",
+          "start": 264.94,
+          "end": 265.22
+        },
+        {
+          "word": "aber",
+          "start": 265.22,
+          "end": 265.48
+        },
+        {
+          "word": "einen",
+          "start": 265.48,
+          "end": 265.74
+        },
+        {
+          "word": "Vorteil:",
+          "start": 265.74,
+          "end": 266.02
+        },
+        {
+          "word": "Dein",
+          "start": 266.7,
+          "end": 266.96
+        },
+        {
+          "word": "Notgroschen",
+          "start": 266.96,
+          "end": 267.5
+        },
+        {
+          "word": "sieht",
+          "start": 267.5,
+          "end": 267.74
+        },
+        {
+          "word": "nicht",
+          "start": 267.74,
+          "end": 268
+        },
+        {
+          "word": "wie",
+          "start": 268,
+          "end": 268.26
+        },
+        {
+          "word": "frei",
+          "start": 268.26,
+          "end": 268.54
+        },
+        {
+          "word": "verfügbares",
+          "start": 268.54,
+          "end": 269.16
+        },
+        {
+          "word": "Geld",
+          "start": 269.16,
+          "end": 269.38
+        },
+        {
+          "word": "aus.",
+          "start": 269.38,
+          "end": 269.7
+        }
+      ]
+    },
+    {
+      "text": "Wenn 4.000 Euro direkt neben deinem normalen Monatsbudget liegen, wird aus einer Reserve schnell ein größerer Urlaub oder ein spontaner Kauf.",
+      "start": 270.28,
+      "end": 278.32,
+      "words": [
+        {
+          "word": "Wenn",
+          "start": 270.28,
+          "end": 270.54
+        },
+        {
+          "word": "4.000",
+          "start": 270.9,
+          "end": 271.06
+        },
+        {
+          "word": "Euro",
+          "start": 271.06,
+          "end": 271.42
+        },
+        {
+          "word": "direkt",
+          "start": 271.42,
+          "end": 271.8
+        },
+        {
+          "word": "neben",
+          "start": 271.8,
+          "end": 272
+        },
+        {
+          "word": "deinem",
+          "start": 272,
+          "end": 272.26
+        },
+        {
+          "word": "normalen",
+          "start": 272.26,
+          "end": 272.78
+        },
+        {
+          "word": "Monatsbudget",
+          "start": 272.78,
+          "end": 273.34
+        },
+        {
+          "word": "liegen,",
+          "start": 273.34,
+          "end": 273.64
+        },
+        {
+          "word": "wird",
+          "start": 274.12,
+          "end": 274.2
+        },
+        {
+          "word": "aus",
+          "start": 274.2,
+          "end": 274.36
+        },
+        {
+          "word": "einer",
+          "start": 274.36,
+          "end": 274.58
+        },
+        {
+          "word": "Reserve",
+          "start": 274.58,
+          "end": 274.96
+        },
+        {
+          "word": "schnell",
+          "start": 274.96,
+          "end": 275.38
+        },
+        {
+          "word": "ein",
+          "start": 275.38,
+          "end": 275.62
+        },
+        {
+          "word": "größerer",
+          "start": 275.62,
+          "end": 276.02
+        },
+        {
+          "word": "Urlaub",
+          "start": 276.02,
+          "end": 276.5
+        },
+        {
+          "word": "oder",
+          "start": 276.5,
+          "end": 276.76
+        },
+        {
+          "word": "ein",
+          "start": 276.76,
+          "end": 276.98
+        },
+        {
+          "word": "spontaner",
+          "start": 276.98,
+          "end": 277.54
+        },
+        {
+          "word": "Kauf.",
+          "start": 277.54,
+          "end": 277.7
+        }
+      ]
+    },
+    {
+      "text": "Eine klare Trennung macht den Zweck sichtbar.",
+      "start": 278.32,
+      "end": 281.13,
+      "words": [
+        {
+          "word": "Eine",
+          "start": 278.32,
+          "end": 278.64
+        },
+        {
+          "word": "klare",
+          "start": 278.64,
+          "end": 278.98
+        },
+        {
+          "word": "Trennung",
+          "start": 278.98,
+          "end": 279.42
+        },
+        {
+          "word": "macht",
+          "start": 279.42,
+          "end": 279.66
+        },
+        {
+          "word": "den",
+          "start": 279.66,
+          "end": 279.88
+        },
+        {
+          "word": "Zweck",
+          "start": 279.88,
+          "end": 280.12
+        },
+        {
+          "word": "sichtbar.",
+          "start": 280.12,
+          "end": 280.62
+        }
+      ]
+    },
+    {
+      "text": "Und wie baut man den Notgroschen auf, wenn man gerade kaum Rücklagen hat?",
+      "start": 281.13,
+      "end": 286.84,
+      "words": [
+        {
+          "word": "Und",
+          "start": 281.13,
+          "end": 281.5
+        },
+        {
+          "word": "wie",
+          "start": 281.5,
+          "end": 282
+        },
+        {
+          "word": "baut",
+          "start": 282,
+          "end": 282.28
+        },
+        {
+          "word": "man",
+          "start": 282.28,
+          "end": 282.46
+        },
+        {
+          "word": "den",
+          "start": 282.46,
+          "end": 282.64
+        },
+        {
+          "word": "Notgroschen",
+          "start": 282.64,
+          "end": 283.16
+        },
+        {
+          "word": "auf,",
+          "start": 283.16,
+          "end": 283.52
+        },
+        {
+          "word": "wenn",
+          "start": 283.56,
+          "end": 283.72
+        },
+        {
+          "word": "man",
+          "start": 283.72,
+          "end": 284.14
+        },
+        {
+          "word": "gerade",
+          "start": 284.14,
+          "end": 284.54
+        },
+        {
+          "word": "kaum",
+          "start": 284.54,
+          "end": 284.82
+        },
+        {
+          "word": "Rücklagen",
+          "start": 284.82,
+          "end": 285.3
+        },
+        {
+          "word": "hat?",
+          "start": 285.3,
+          "end": 285.62
+        }
+      ]
+    },
+    {
+      "text": "Nicht mit einem riesigen Ziel starten.",
+      "start": 286.84,
+      "end": 289.54,
+      "words": [
+        {
+          "word": "Nicht",
+          "start": 286.84,
+          "end": 287.14
+        },
+        {
+          "word": "mit",
+          "start": 287.14,
+          "end": 287.32
+        },
+        {
+          "word": "einem",
+          "start": 287.32,
+          "end": 287.6
+        },
+        {
+          "word": "riesigen",
+          "start": 287.6,
+          "end": 288.16
+        },
+        {
+          "word": "Ziel",
+          "start": 288.16,
+          "end": 288.38
+        },
+        {
+          "word": "starten.",
+          "start": 288.38,
+          "end": 289.34
+        }
+      ]
+    },
+    {
+      "text": "Baue zuerst eine kleine erste Sicherheitsstufe auf.",
+      "start": 289.54,
+      "end": 292.96,
+      "words": [
+        {
+          "word": "Baue",
+          "start": 289.54,
+          "end": 289.74
+        },
+        {
+          "word": "zuerst",
+          "start": 289.74,
+          "end": 290.2
+        },
+        {
+          "word": "eine",
+          "start": 290.2,
+          "end": 290.66
+        },
+        {
+          "word": "kleine",
+          "start": 290.66,
+          "end": 291.02
+        },
+        {
+          "word": "erste",
+          "start": 291.02,
+          "end": 291.42
+        },
+        {
+          "word": "Sicherheitsstufe",
+          "start": 291.42,
+          "end": 292.16
+        },
+        {
+          "word": "auf.",
+          "start": 292.16,
+          "end": 292.48
+        }
+      ]
+    },
+    {
+      "text": "Zum Beispiel einen Betrag, der eine typische unerwartete Rechnung auffangen kann.",
+      "start": 292.96,
+      "end": 297.76,
+      "words": [
+        {
+          "word": "Zum",
+          "start": 292.96,
+          "end": 293.1
+        },
+        {
+          "word": "Beispiel",
+          "start": 293.1,
+          "end": 293.52
+        },
+        {
+          "word": "einen",
+          "start": 293.52,
+          "end": 293.8
+        },
+        {
+          "word": "Betrag,",
+          "start": 293.8,
+          "end": 294.2
+        },
+        {
+          "word": "der",
+          "start": 294.38,
+          "end": 294.38
+        },
+        {
+          "word": "eine",
+          "start": 294.38,
+          "end": 294.68
+        },
+        {
+          "word": "typische",
+          "start": 294.68,
+          "end": 295.2
+        },
+        {
+          "word": "unerwartete",
+          "start": 295.2,
+          "end": 295.88
+        },
+        {
+          "word": "Rechnung",
+          "start": 295.88,
+          "end": 296.26
+        },
+        {
+          "word": "auffangen",
+          "start": 296.26,
+          "end": 296.6
+        },
+        {
+          "word": "kann.",
+          "start": 296.6,
+          "end": 296.92
+        }
+      ]
+    },
+    {
+      "text": "Danach automatisierst du den Aufbau.",
+      "start": 297.76,
+      "end": 300.44,
+      "words": [
+        {
+          "word": "Danach",
+          "start": 297.76,
+          "end": 298.26
+        },
+        {
+          "word": "automatisierst",
+          "start": 298.26,
+          "end": 299.04
+        },
+        {
+          "word": "du",
+          "start": 299.04,
+          "end": 299.14
+        },
+        {
+          "word": "den",
+          "start": 299.14,
+          "end": 299.26
+        },
+        {
+          "word": "Aufbau.",
+          "start": 299.26,
+          "end": 299.74
+        }
+      ]
+    },
+    {
+      "text": "Ein fester Betrag geht kurz nach dem Gehaltseingang auf das separate Rücklagenkonto.",
+      "start": 300.44,
+      "end": 305.48,
+      "words": [
+        {
+          "word": "Ein",
+          "start": 300.44,
+          "end": 300.68
+        },
+        {
+          "word": "fester",
+          "start": 300.68,
+          "end": 300.92
+        },
+        {
+          "word": "Betrag",
+          "start": 300.92,
+          "end": 301.4
+        },
+        {
+          "word": "geht",
+          "start": 301.4,
+          "end": 301.66
+        },
+        {
+          "word": "kurz",
+          "start": 301.66,
+          "end": 302.06
+        },
+        {
+          "word": "nach",
+          "start": 302.06,
+          "end": 302.26
+        },
+        {
+          "word": "dem",
+          "start": 302.26,
+          "end": 302.48
+        },
+        {
+          "word": "Gehaltseingang",
+          "start": 302.48,
+          "end": 303.18
+        },
+        {
+          "word": "auf",
+          "start": 303.18,
+          "end": 303.4
+        },
+        {
+          "word": "das",
+          "start": 303.4,
+          "end": 303.58
+        },
+        {
+          "word": "separate",
+          "start": 303.58,
+          "end": 304.02
+        },
+        {
+          "word": "Rücklagenkonto.",
+          "start": 304.02,
+          "end": 304.86
+        }
+      ]
+    },
+    {
+      "text": "50 Euro, 100 Euro, 200 Euro – die passende Rate hängt von deinem Budget ab.",
+      "start": 305.48,
+      "end": 312,
+      "words": [
+        {
+          "word": "50",
+          "start": 305.48,
+          "end": 305.88
+        },
+        {
+          "word": "Euro,",
+          "start": 305.88,
+          "end": 306.28
+        },
+        {
+          "word": "100",
+          "start": 306.44,
+          "end": 306.72
+        },
+        {
+          "word": "Euro,",
+          "start": 306.72,
+          "end": 307.1
+        },
+        {
+          "word": "200",
+          "start": 307.34,
+          "end": 307.62
+        },
+        {
+          "word": "Euro",
+          "start": 307.62,
+          "end": 308.04
+        },
+        {
+          "word": "die",
+          "start": 308.04,
+          "end": 308.72
+        },
+        {
+          "word": "passende",
+          "start": 308.72,
+          "end": 309.14
+        },
+        {
+          "word": "Rate",
+          "start": 309.14,
+          "end": 309.42
+        },
+        {
+          "word": "hängt",
+          "start": 309.42,
+          "end": 309.68
+        },
+        {
+          "word": "von",
+          "start": 309.68,
+          "end": 309.86
+        },
+        {
+          "word": "deinem",
+          "start": 309.86,
+          "end": 310.1
+        },
+        {
+          "word": "Budget",
+          "start": 310.1,
+          "end": 310.38
+        },
+        {
+          "word": "ab.",
+          "start": 310.38,
+          "end": 310.96
+        }
+      ]
+    },
+    {
+      "text": "Wichtig ist nicht, dass du in drei Monaten fertig bist.",
+      "start": 312,
+      "end": 315.46,
+      "words": [
+        {
+          "word": "Wichtig",
+          "start": 312,
+          "end": 312.28
+        },
+        {
+          "word": "ist",
+          "start": 312.28,
+          "end": 312.54
+        },
+        {
+          "word": "nicht,",
+          "start": 312.54,
+          "end": 312.72
+        },
+        {
+          "word": "dass",
+          "start": 312.8,
+          "end": 312.88
+        },
+        {
+          "word": "du",
+          "start": 312.88,
+          "end": 313.04
+        },
+        {
+          "word": "in",
+          "start": 313.04,
+          "end": 313.3
+        },
+        {
+          "word": "drei",
+          "start": 313.3,
+          "end": 313.5
+        },
+        {
+          "word": "Monaten",
+          "start": 313.5,
+          "end": 313.86
+        },
+        {
+          "word": "fertig",
+          "start": 313.86,
+          "end": 314.3
+        },
+        {
+          "word": "bist.",
+          "start": 314.3,
+          "end": 314.58
+        }
+      ]
+    },
+    {
+      "text": "Wichtig ist, dass die Reserve regelmäßig wächst, ohne dass du jeden Monat neu darüber entscheiden musst.",
+      "start": 315.46,
+      "end": 321.88,
+      "words": [
+        {
+          "word": "Wichtig",
+          "start": 315.46,
+          "end": 315.86
+        },
+        {
+          "word": "ist,",
+          "start": 315.86,
+          "end": 316.1
+        },
+        {
+          "word": "dass",
+          "start": 316.1,
+          "end": 316.3
+        },
+        {
+          "word": "die",
+          "start": 316.3,
+          "end": 316.5
+        },
+        {
+          "word": "Reserve",
+          "start": 316.5,
+          "end": 316.88
+        },
+        {
+          "word": "regelmäßig",
+          "start": 316.88,
+          "end": 317.66
+        },
+        {
+          "word": "wächst,",
+          "start": 317.66,
+          "end": 318.14
+        },
+        {
+          "word": "ohne",
+          "start": 318.48,
+          "end": 318.72
+        },
+        {
+          "word": "dass",
+          "start": 318.72,
+          "end": 318.86
+        },
+        {
+          "word": "du",
+          "start": 318.86,
+          "end": 319.04
+        },
+        {
+          "word": "jeden",
+          "start": 319.04,
+          "end": 319.28
+        },
+        {
+          "word": "Monat",
+          "start": 319.28,
+          "end": 319.64
+        },
+        {
+          "word": "neu",
+          "start": 319.64,
+          "end": 319.82
+        },
+        {
+          "word": "darüber",
+          "start": 319.82,
+          "end": 320.12
+        },
+        {
+          "word": "entscheiden",
+          "start": 320.12,
+          "end": 320.5
+        },
+        {
+          "word": "musst.",
+          "start": 320.5,
+          "end": 320.78
+        }
+      ]
+    },
+    {
+      "text": "Und wenn du den Notgroschen benutzt?",
+      "start": 321.88,
+      "end": 324.56,
+      "words": [
+        {
+          "word": "Und",
+          "start": 321.88,
+          "end": 322.22
+        },
+        {
+          "word": "wenn",
+          "start": 322.22,
+          "end": 322.66
+        },
+        {
+          "word": "du",
+          "start": 322.66,
+          "end": 322.78
+        },
+        {
+          "word": "den",
+          "start": 322.78,
+          "end": 322.92
+        },
+        {
+          "word": "Notgroschen",
+          "start": 322.92,
+          "end": 323.36
+        },
+        {
+          "word": "benutzt?",
+          "start": 323.36,
+          "end": 324
+        }
+      ]
+    },
+    {
+      "text": "Dann war das kein Fehler.",
+      "start": 324.56,
+      "end": 326.2,
+      "words": [
+        {
+          "word": "Dann",
+          "start": 324.56,
+          "end": 324.7
+        },
+        {
+          "word": "war",
+          "start": 324.7,
+          "end": 324.88
+        },
+        {
+          "word": "das",
+          "start": 324.88,
+          "end": 325.06
+        },
+        {
+          "word": "kein",
+          "start": 325.06,
+          "end": 325.26
+        },
+        {
+          "word": "Fehler.",
+          "start": 325.26,
+          "end": 325.62
+        }
+      ]
+    },
+    {
+      "text": "Genau dafür ist er da.",
+      "start": 326.2,
+      "end": 328.18,
+      "words": [
+        {
+          "word": "Genau",
+          "start": 326.2,
+          "end": 326.56
+        },
+        {
+          "word": "dafür",
+          "start": 326.56,
+          "end": 326.88
+        },
+        {
+          "word": "ist",
+          "start": 326.88,
+          "end": 327.06
+        },
+        {
+          "word": "er",
+          "start": 327.06,
+          "end": 327.22
+        },
+        {
+          "word": "da.",
+          "start": 327.22,
+          "end": 327.48
+        }
+      ]
+    },
+    {
+      "text": "Wenn die Reparatur bezahlt ist, baust du ihn anschließend wieder auf.",
+      "start": 328.18,
+      "end": 332.26,
+      "words": [
+        {
+          "word": "Wenn",
+          "start": 328.18,
+          "end": 328.34
+        },
+        {
+          "word": "die",
+          "start": 328.34,
+          "end": 328.56
+        },
+        {
+          "word": "Reparatur",
+          "start": 328.56,
+          "end": 328.98
+        },
+        {
+          "word": "bezahlt",
+          "start": 328.98,
+          "end": 329.3
+        },
+        {
+          "word": "ist,",
+          "start": 329.3,
+          "end": 329.76
+        },
+        {
+          "word": "baust",
+          "start": 330.04,
+          "end": 330.14
+        },
+        {
+          "word": "du",
+          "start": 330.14,
+          "end": 330.24
+        },
+        {
+          "word": "ihn",
+          "start": 330.24,
+          "end": 330.46
+        },
+        {
+          "word": "anschließend",
+          "start": 330.46,
+          "end": 330.94
+        },
+        {
+          "word": "wieder",
+          "start": 330.94,
+          "end": 331.18
+        },
+        {
+          "word": "auf.",
+          "start": 331.18,
+          "end": 331.48
+        }
+      ]
+    },
+    {
+      "text": "Ein Notgroschen ist kein Pokal, den man nie anfassen darf.",
+      "start": 332.26,
+      "end": 335,
+      "words": [
+        {
+          "word": "Ein",
+          "start": 332.26,
+          "end": 332.42
+        },
+        {
+          "word": "Notgroschen",
+          "start": 332.42,
+          "end": 332.86
+        },
+        {
+          "word": "ist",
+          "start": 332.86,
+          "end": 333.08
+        },
+        {
+          "word": "kein",
+          "start": 333.08,
+          "end": 333.28
+        },
+        {
+          "word": "Pokal,",
+          "start": 333.28,
+          "end": 333.84
+        },
+        {
+          "word": "den",
+          "start": 333.86,
+          "end": 333.98
+        },
+        {
+          "word": "man",
+          "start": 333.98,
+          "end": 334.14
+        },
+        {
+          "word": "nie",
+          "start": 334.14,
+          "end": 334.36
+        },
+        {
+          "word": "anfassen",
+          "start": 334.36,
+          "end": 334.76
+        },
+        {
+          "word": "darf.",
+          "start": 334.76,
+          "end": 335
+        }
+      ]
+    },
+    {
+      "text": "Er ist ein finanzielles Werkzeug.",
+      "start": 335,
+      "end": 338.46,
+      "words": [
+        {
+          "word": "Er",
+          "start": 335,
+          "end": 335.58
+        },
+        {
+          "word": "ist",
+          "start": 335.58,
+          "end": 335.78
+        },
+        {
+          "word": "ein",
+          "start": 335.78,
+          "end": 336.06
+        },
+        {
+          "word": "finanzielles",
+          "start": 336.06,
+          "end": 336.72
+        },
+        {
+          "word": "Werkzeug.",
+          "start": 336.72,
+          "end": 337.76
+        }
+      ]
+    },
+    {
+      "text": "Wann ist er groß genug?",
+      "start": 338.46,
+      "end": 340.66,
+      "words": [
+        {
+          "word": "Wann",
+          "start": 338.46,
+          "end": 338.66
+        },
+        {
+          "word": "ist",
+          "start": 338.66,
+          "end": 338.82
+        },
+        {
+          "word": "er",
+          "start": 338.82,
+          "end": 338.96
+        },
+        {
+          "word": "groß",
+          "start": 338.96,
+          "end": 339.2
+        },
+        {
+          "word": "genug?",
+          "start": 339.2,
+          "end": 339.56
+        }
+      ]
+    },
+    {
+      "text": "Wenn deine realistischen Notfälle und eine vorübergehende finanzielle Durststrecke nicht mehr sofort zu Schulden oder zum Verkauf langfristiger Anlagen führen würden.",
+      "start": 340.66,
+      "end": 350.82,
+      "words": [
+        {
+          "word": "Wenn",
+          "start": 340.66,
+          "end": 340.88
+        },
+        {
+          "word": "deine",
+          "start": 340.88,
+          "end": 341.16
+        },
+        {
+          "word": "realistischen",
+          "start": 341.16,
+          "end": 341.96
+        },
+        {
+          "word": "Notfälle",
+          "start": 341.96,
+          "end": 342.58
+        },
+        {
+          "word": "und",
+          "start": 342.58,
+          "end": 343
+        },
+        {
+          "word": "eine",
+          "start": 343,
+          "end": 343.32
+        },
+        {
+          "word": "vorübergehende",
+          "start": 343.32,
+          "end": 343.98
+        },
+        {
+          "word": "finanzielle",
+          "start": 343.98,
+          "end": 344.58
+        },
+        {
+          "word": "Durststrecke",
+          "start": 344.58,
+          "end": 345.62
+        },
+        {
+          "word": "nicht",
+          "start": 345.62,
+          "end": 345.88
+        },
+        {
+          "word": "mehr",
+          "start": 345.88,
+          "end": 346.22
+        },
+        {
+          "word": "sofort",
+          "start": 346.22,
+          "end": 346.6
+        },
+        {
+          "word": "zu",
+          "start": 346.6,
+          "end": 346.88
+        },
+        {
+          "word": "Schulden",
+          "start": 346.88,
+          "end": 347.38
+        },
+        {
+          "word": "oder",
+          "start": 347.38,
+          "end": 347.7
+        },
+        {
+          "word": "zum",
+          "start": 347.7,
+          "end": 347.84
+        },
+        {
+          "word": "Verkauf",
+          "start": 347.84,
+          "end": 348.34
+        },
+        {
+          "word": "langfristiger",
+          "start": 348.34,
+          "end": 349
+        },
+        {
+          "word": "Anlagen",
+          "start": 349,
+          "end": 349.42
+        },
+        {
+          "word": "führen",
+          "start": 349.42,
+          "end": 349.7
+        },
+        {
+          "word": "würden.",
+          "start": 349.7,
+          "end": 350.02
+        }
+      ]
+    },
+    {
+      "text": "Für manche reichen dafür vielleicht zwei Monatsgehälter als Orientierung.",
+      "start": 350.82,
+      "end": 354.82,
+      "words": [
+        {
+          "word": "Für",
+          "start": 350.82,
+          "end": 351.02
+        },
+        {
+          "word": "manche",
+          "start": 351.02,
+          "end": 351.36
+        },
+        {
+          "word": "reichen",
+          "start": 351.36,
+          "end": 351.66
+        },
+        {
+          "word": "dafür",
+          "start": 351.66,
+          "end": 351.94
+        },
+        {
+          "word": "vielleicht",
+          "start": 351.94,
+          "end": 352.36
+        },
+        {
+          "word": "zwei",
+          "start": 352.36,
+          "end": 352.64
+        },
+        {
+          "word": "Monatsgehälter",
+          "start": 352.64,
+          "end": 353.36
+        },
+        {
+          "word": "als",
+          "start": 353.36,
+          "end": 353.62
+        },
+        {
+          "word": "Orientierung.",
+          "start": 353.62,
+          "end": 354.42
+        }
+      ]
+    },
+    {
+      "text": "Andere brauchen mehr oder weniger.",
+      "start": 354.82,
+      "end": 357.14,
+      "words": [
+        {
+          "word": "Andere",
+          "start": 354.82,
+          "end": 355.18
+        },
+        {
+          "word": "brauchen",
+          "start": 355.18,
+          "end": 355.46
+        },
+        {
+          "word": "mehr",
+          "start": 355.46,
+          "end": 355.76
+        },
+        {
+          "word": "oder",
+          "start": 355.76,
+          "end": 356
+        },
+        {
+          "word": "weniger.",
+          "start": 356,
+          "end": 356.42
+        }
+      ]
+    },
+    {
+      "text": "Entscheidend ist, dass die Zahl zu deinen notwendigen Kosten und deinem Risiko passt.",
+      "start": 357.14,
+      "end": 363.2,
+      "words": [
+        {
+          "word": "Entscheidend",
+          "start": 357.14,
+          "end": 357.64
+        },
+        {
+          "word": "ist,",
+          "start": 357.64,
+          "end": 357.92
+        },
+        {
+          "word": "dass",
+          "start": 358.22,
+          "end": 358.34
+        },
+        {
+          "word": "die",
+          "start": 358.34,
+          "end": 358.58
+        },
+        {
+          "word": "Zahl",
+          "start": 358.58,
+          "end": 358.82
+        },
+        {
+          "word": "zu",
+          "start": 358.82,
+          "end": 359.06
+        },
+        {
+          "word": "deinen",
+          "start": 359.06,
+          "end": 359.28
+        },
+        {
+          "word": "notwendigen",
+          "start": 359.28,
+          "end": 359.94
+        },
+        {
+          "word": "Kosten",
+          "start": 359.94,
+          "end": 360.34
+        },
+        {
+          "word": "und",
+          "start": 360.34,
+          "end": 360.66
+        },
+        {
+          "word": "deinem",
+          "start": 360.66,
+          "end": 360.98
+        },
+        {
+          "word": "Risiko",
+          "start": 360.98,
+          "end": 361.46
+        },
+        {
+          "word": "passt.",
+          "start": 361.46,
+          "end": 361.76
+        }
+      ]
+    },
+    {
+      "text": "Die Reihenfolge ist damit ziemlich einfach: Erst eine funktionierende Reserve aufbauen.",
+      "start": 363.2,
+      "end": 368.52,
+      "words": [
+        {
+          "word": "Die",
+          "start": 363.2,
+          "end": 363.3
+        },
+        {
+          "word": "Reihenfolge",
+          "start": 363.3,
+          "end": 363.82
+        },
+        {
+          "word": "ist",
+          "start": 363.82,
+          "end": 364
+        },
+        {
+          "word": "damit",
+          "start": 364,
+          "end": 364.2
+        },
+        {
+          "word": "ziemlich",
+          "start": 364.2,
+          "end": 364.6
+        },
+        {
+          "word": "einfach:",
+          "start": 364.6,
+          "end": 365.04
+        },
+        {
+          "word": "Erst",
+          "start": 365.64,
+          "end": 365.94
+        },
+        {
+          "word": "eine",
+          "start": 365.94,
+          "end": 366.18
+        },
+        {
+          "word": "funktionierende",
+          "start": 366.18,
+          "end": 367.06
+        },
+        {
+          "word": "Reserve",
+          "start": 367.06,
+          "end": 367.46
+        },
+        {
+          "word": "aufbauen.",
+          "start": 367.46,
+          "end": 368.06
+        }
+      ]
+    },
+    {
+      "text": "Dann musst du bei jeder kaputten Waschmaschine nicht dein komplettes Finanzsystem auseinandernehmen.",
+      "start": 368.52,
+      "end": 373.88,
+      "words": [
+        {
+          "word": "Dann",
+          "start": 368.52,
+          "end": 368.72
+        },
+        {
+          "word": "musst",
+          "start": 368.72,
+          "end": 368.94
+        },
+        {
+          "word": "du",
+          "start": 368.94,
+          "end": 369.02
+        },
+        {
+          "word": "bei",
+          "start": 369.02,
+          "end": 369.24
+        },
+        {
+          "word": "jeder",
+          "start": 369.24,
+          "end": 369.44
+        },
+        {
+          "word": "kaputten",
+          "start": 369.44,
+          "end": 369.86
+        },
+        {
+          "word": "Waschmaschine",
+          "start": 369.86,
+          "end": 370.56
+        },
+        {
+          "word": "nicht",
+          "start": 370.56,
+          "end": 370.9
+        },
+        {
+          "word": "dein",
+          "start": 370.9,
+          "end": 371.08
+        },
+        {
+          "word": "komplettes",
+          "start": 371.08,
+          "end": 371.62
+        },
+        {
+          "word": "Finanzsystem",
+          "start": 371.62,
+          "end": 372.28
+        },
+        {
+          "word": "auseinandernehmen.",
+          "start": 372.28,
+          "end": 373
+        }
+      ]
+    },
+    {
+      "text": "Und Geld, das du langfristig wirklich nicht brauchst, kann anschließend eine ganz andere Aufgabe bekommen: Vermögen aufzubauen.",
+      "start": 373.88,
+      "end": 382,
+      "words": [
+        {
+          "word": "Und",
+          "start": 373.88,
+          "end": 374.16
+        },
+        {
+          "word": "Geld,",
+          "start": 374.16,
+          "end": 374.48
+        },
+        {
+          "word": "das",
+          "start": 374.48,
+          "end": 374.64
+        },
+        {
+          "word": "du",
+          "start": 374.64,
+          "end": 374.82
+        },
+        {
+          "word": "langfristig",
+          "start": 374.82,
+          "end": 375.42
+        },
+        {
+          "word": "wirklich",
+          "start": 375.42,
+          "end": 375.74
+        },
+        {
+          "word": "nicht",
+          "start": 375.74,
+          "end": 376.02
+        },
+        {
+          "word": "brauchst,",
+          "start": 376.02,
+          "end": 376.64
+        },
+        {
+          "word": "kann",
+          "start": 376.82,
+          "end": 376.94
+        },
+        {
+          "word": "anschließend",
+          "start": 376.94,
+          "end": 377.52
+        },
+        {
+          "word": "eine",
+          "start": 377.52,
+          "end": 377.68
+        },
+        {
+          "word": "ganz",
+          "start": 377.68,
+          "end": 378.12
+        },
+        {
+          "word": "andere",
+          "start": 378.12,
+          "end": 378.34
+        },
+        {
+          "word": "Aufgabe",
+          "start": 378.34,
+          "end": 378.74
+        },
+        {
+          "word": "bekommen:",
+          "start": 378.74,
+          "end": 379.12
+        },
+        {
+          "word": "Vermögen",
+          "start": 379.92,
+          "end": 380.34
+        },
+        {
+          "word": "aufzubauen.",
+          "start": 380.34,
+          "end": 381.08
+        }
+      ]
+    },
+    {
+      "text": "Das ist der Unterschied zwischen einfach nur Geld zurücklegen und einem Notgroschen, der wirklich zu deinem Leben passt.",
+      "start": 382,
+      "end": 388.224,
+      "words": [
+        {
+          "word": "Das",
+          "start": 382,
+          "end": 382.24
+        },
+        {
+          "word": "ist",
+          "start": 382.24,
+          "end": 382.5
+        },
+        {
+          "word": "der",
+          "start": 382.5,
+          "end": 382.68
+        },
+        {
+          "word": "Unterschied",
+          "start": 382.68,
+          "end": 383.08
+        },
+        {
+          "word": "zwischen",
+          "start": 383.08,
+          "end": 383.36
+        },
+        {
+          "word": "einfach",
+          "start": 383.36,
+          "end": 383.74
+        },
+        {
+          "word": "nur",
+          "start": 383.74,
+          "end": 383.98
+        },
+        {
+          "word": "Geld",
+          "start": 383.98,
+          "end": 384.22
+        },
+        {
+          "word": "zurücklegen",
+          "start": 384.22,
+          "end": 384.8
+        },
+        {
+          "word": "und",
+          "start": 384.8,
+          "end": 385.36
+        },
+        {
+          "word": "einem",
+          "start": 385.36,
+          "end": 385.62
+        },
+        {
+          "word": "Notgroschen,",
+          "start": 385.62,
+          "end": 386.18
+        },
+        {
+          "word": "der",
+          "start": 386.22,
+          "end": 386.42
+        },
+        {
+          "word": "wirklich",
+          "start": 386.42,
+          "end": 386.86
+        },
+        {
+          "word": "zu",
+          "start": 386.86,
+          "end": 387.1
+        },
+        {
+          "word": "deinem",
+          "start": 387.1,
+          "end": 387.38
+        },
+        {
+          "word": "Leben",
+          "start": 387.38,
+          "end": 387.54
+        },
+        {
+          "word": "passt.",
+          "start": 387.54,
+          "end": 387.86
+        }
+      ]
+    }
+  ]
 }

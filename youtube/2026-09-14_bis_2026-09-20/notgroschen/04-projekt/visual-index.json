@@ -1,951 +1,956 @@
 {
-  "format": "youtube-longform",
-  "title": "Notgroschen: Wie viel Geld brauchst du wirklich?",
-  "shortsForbidden": true,
-  "fixedVisualCount": false,
-  "fixedImageAnimationRatio": false,
-  "video": {
-    "aspectRatio": "16:9",
-    "width": 1920,
-    "height": 1080,
-    "fps": 30
+ "format": "youtube-longform",
+ "title": "Notgroschen: Wie viel Geld brauchst du wirklich?",
+ "shortsForbidden": true,
+ "fixedVisualCount": false,
+ "fixedImageAnimationRatio": false,
+ "video": {
+  "aspectRatio": "16:9",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30
+ },
+ "userCreatesImages": true,
+ "antigravityGeneratesImages": false,
+ "imageWorld": {
+  "id": "finanzneo-connected-studio-v3",
+  "seriesLockId": "finanzneo-same-world-v1",
+  "generatedImageAspectRatio": "16:9",
+  "horizontalGeneratedImagesRequired": true,
+  "sameWorldAcrossSeriesRequired": true,
+  "literalFirst": true,
+  "metaphorOptional": true,
+  "styleReferenceStrategy": "approved-thumbnail-style-only",
+  "referencePromptFile": "02-bilder/bildwelt.txt"
+ },
+ "motionStandard": {
+  "id": "finanzneo-youtube-motion-v3",
+  "contentFirstTechniqueSelection": true,
+  "existingComponentsOptional": true,
+  "physicalPrimitivesOptional": true
+ },
+ "googleFlow": {
+  "protocolId": "finanzneo-flow-sequential-v1",
+  "generationMode": "one-image-at-a-time",
+  "strictSequential": true,
+  "waitForCurrentImage": true,
+  "renameBeforeNext": true,
+  "qaBeforeNext": true,
+  "retrySameImageOnFailure": true,
+  "finalCollectionDirectory": "02-bilder/00-ALLE-BILDER-HIER-REIN/",
+  "distributeToVisualFolders": false
+ },
+ "timelineRules": {
+  "cutsFollowVoiceAndChapters": true,
+  "beatFirst": true,
+  "equalLengthVisualsForbiddenByDefault": true
+ },
+ "audio": {
+  "targetIntegratedLufs": -16,
+  "targetTruePeakDbtp": -1,
+  "subtitleMode": "sentence-with-audio-synced-active-word",
+  "activeWordColor": "finance-green"
+ },
+ "thumbnail": {
+  "type": "image",
+  "googleFlowFileName": "YouTube Thumbnail - Notgroschen.png",
+  "planFile": "02-bilder/thumbnail-prompt.txt"
+ },
+ "publishing": {
+  "youtube": {
+   "titleOptions": "03-export/titel-varianten.txt",
+   "finalTitle": "03-export/titel.txt",
+   "description": "03-export/beschreibung.txt",
+   "chapters": "03-export/kapitel.txt",
+   "tagsKeywords": "03-export/keywords.txt",
+   "hashtags": "03-export/hashtags.txt",
+   "thumbnailBrief": "03-export/thumbnail-brief.txt",
+   "pinnedComment": "03-export/angehefteter-kommentar.txt",
+   "communityPost": "03-export/community-post.txt",
+   "sourcesDisclaimer": "03-export/quellen-disclaimer.txt",
+   "uploadChecklist": "03-export/upload-checkliste.md"
   },
-  "userCreatesImages": true,
-  "antigravityGeneratesImages": false,
-  "imageWorld": {
-    "id": "finanzneo-connected-studio-v3",
-    "seriesLockId": "finanzneo-same-world-v1",
-    "generatedImageAspectRatio": "16:9",
-    "horizontalGeneratedImagesRequired": true,
-    "sameWorldAcrossSeriesRequired": true,
-    "literalFirst": true,
-    "metaphorOptional": true,
-    "styleReferenceStrategy": "approved-thumbnail-style-only",
-    "referencePromptFile": "02-bilder/bildwelt.txt"
+  "socialPromo": {
+   "instagram": "03-export/social/instagram.txt",
+   "tiktok": "03-export/social/tiktok.txt",
+   "facebook": "03-export/social/facebook.txt",
+   "snapchat": "03-export/social/snapchat.txt"
+  }
+ },
+ "visuals": [
+  {
+   "id": "visual-01",
+   "type": "image",
+   "chapter": "Hook",
+   "scriptBeat": "Waschmaschine kaputt, 480 Euro Reparatur.",
+   "googleFlowFileName": "YouTube Bild 01 - Waschmaschine kaputt.png",
+   "expectedVisual": "Defekte Waschmaschine mit konkreter 480-Euro-Rechnung in realistischer FinanzNeo-Alltagswelt.",
+   "objectLabels": [
+    "Reparatur 480 €"
+   ],
+   "planFile": "04-projekt/VISUALS/visual-01/bildprompt.txt",
+   "headline": "Waschmaschine kaputt",
+   "icon": "warning",
+   "tone": "warning",
+   "sentenceSpan": {
+    "from": 1,
+    "to": 2
+   }
   },
-  "motionStandard": {
-    "id": "finanzneo-youtube-motion-v3",
-    "contentFirstTechniqueSelection": true,
-    "existingComponentsOptional": true,
-    "physicalPrimitivesOptional": true
+  {
+   "id": "visual-02",
+   "type": "image",
+   "chapter": "Hook",
+   "scriptBeat": "Bremsen und Nachzahlung kommen direkt danach.",
+   "planFile": "04-projekt/VISUALS/visual-02/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 02 - Bremsen und Nachzahlung.png",
+   "headline": "Und es hört nicht auf",
+   "icon": "receipt",
+   "tone": "warning",
+   "sentenceSpan": {
+    "from": 3,
+    "to": 4
+   },
+   "expectedVisual": "Eine abgenommene, blank gescheuerte Bremsscheibe liegt noch da, während die Nebenkostenabrechnung im Fallen darauf zusteuert. Die zweite Rechnung kommt, bevor die erste weg ist.",
+   "objectLabels": [
+    "Bremsen",
+    "Nachzahlung"
+   ]
   },
-  "googleFlow": {
-    "protocolId": "finanzneo-flow-sequential-v1",
-    "generationMode": "one-image-at-a-time",
-    "strictSequential": true,
-    "waitForCurrentImage": true,
-    "renameBeforeNext": true,
-    "qaBeforeNext": true,
-    "retrySameImageOnFailure": true,
-    "finalCollectionDirectory": "02-bilder/00-ALLE-BILDER-HIER-REIN/",
-    "distributeToVisualFolders": false
+  {
+   "id": "visual-03",
+   "type": "image",
+   "chapter": "Hook",
+   "scriptBeat": "Dispo, Kredit oder Depotverkauf als schlechte spontane Auswege.",
+   "planFile": "04-projekt/VISUALS/visual-03/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 03 - Drei schlechte Auswege.png",
+   "headline": "Die teuren Auswege",
+   "icon": "bank",
+   "tone": "warning",
+   "sentenceSpan": {
+    "from": 5,
+    "to": 7
+   },
+   "expectedVisual": "Drei echte Bankdokumente stehen in einer Reihe und lehnen sich zurück: überzogener Kontoauszug, Kreditvertrag und Wertpapierverkauf. Alle drei tragen dieselbe warm-rote Markierung.",
+   "objectLabels": [
+    "Dispo",
+    "Kredit",
+    "Depotverkauf"
+   ]
   },
-  "timelineRules": {
-    "cutsFollowVoiceAndChapters": true,
-    "beatFirst": true,
-    "equalLengthVisualsForbiddenByDefault": true
+  {
+   "id": "visual-04",
+   "type": "animation",
+   "chapter": "Frage",
+   "scriptBeat": "1.000 Euro, drei Monatsgehälter oder viel mehr?",
+   "planFile": "04-projekt/VISUALS/visual-04/remotion.md",
+   "viewerChange": "Ein leerer Reservebehälter füllt sich in drei Stufen; jede Zielgröße setzt ihre eigene Marke, am Ende stehen drei gleichberechtigt nebeneinander.",
+   "animationIntent": "Die Szene zeigt am selben Behälter, dass drei verbreitete Zielgrößen verschiedene Höhen fordern — es gibt keine Universalzahl.",
+   "mechanicId": "reserve-tank-mark-contest",
+   "visualTechniqueId": "filling-tank-competing-marks",
+   "techniqueDescription": "Münzstapel wandern in einen Reservebehälter, dessen Füllstand stufenweise steigt; auf jeder erreichten Höhe setzt sich eine beschriftete Marke an die Behälterwand.",
+   "compositionFamilyId": "physical-container",
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "motionSignature": {
+    "camera": "static frontal on the tank",
+    "layout": "coin source left, tank centre, marks right",
+    "transformation": "rising fill level sets competing height marks"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "tank fill level",
+    "coin source depletion",
+    "mark set and breathe"
+   ],
+   "visualBeats": [
+    "leerer Behälter mit Geld daneben",
+    "Füllstand auf 1.000 €",
+    "Füllstand auf 3 Monatsgehälter",
+    "Füllstand auf viel mehr",
+    "drei Marken ohne Sieger"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-04/animation.tsx",
+   "animationExport": "YouTubeVisual04Animation",
+   "headline": "Wie viel ist genug?",
+   "icon": "search",
+   "tone": "default",
+   "sentenceSpan": {
+    "from": 8,
+    "to": 12
+   }
   },
-  "audio": {
-    "targetIntegratedLufs": -16,
-    "targetTruePeakDbtp": -1,
-    "subtitleMode": "sentence-with-audio-synced-active-word",
-    "activeWordColor": "finance-green"
+  {
+   "id": "visual-05",
+   "type": "data",
+   "chapter": "Höhe",
+   "scriptBeat": "Verbraucherzentrale nennt zwei bis drei Monatsgehälter als Daumenregel.",
+   "planFile": "04-projekt/VISUALS/visual-05/remotion.md",
+   "dataNotesFile": "04-projekt/VISUALS/visual-05/data-notes.md",
+   "viewerChange": "Aus einem Monatsgehalt entsteht eine Bandbreite von zwei bis drei Monatsgehältern; der Begriff Daumenregel erscheint ausdrücklich.",
+   "animationIntent": "Die Quelle wird korrekt als Orientierung und nicht als Pflicht dargestellt.",
+   "mechanicId": "rule-of-thumb-band",
+   "visualTechniqueId": "salary-band-build",
+   "techniqueDescription": "Monatsblöcke bauen sich horizontal von eins auf zwei und drei auf; eine Klammer markiert ausschließlich die 2–3-Spanne als Daumenregel.",
+   "compositionFamilyId": "data-viz",
+   "toolStack": [
+    "Remotion",
+    "SVG brackets",
+    "interpolate"
+   ],
+   "motionSignature": {
+    "camera": "orthographic locked data view",
+    "layout": "horizontal salary-month band",
+    "transformation": "month blocks extend and band annotation appears"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "block growth",
+    "annotation reveal"
+   ],
+   "visualBeats": [
+    "1 Monatsgehalt",
+    "2 Monatsgehälter",
+    "3 Monatsgehälter",
+    "Daumenregel 2–3"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-05/animation.tsx",
+   "animationExport": "YouTubeVisual05Animation",
+   "headline": "Die Daumenregel",
+   "icon": "list",
+   "tone": "neutral",
+   "sentenceSpan": {
+    "from": 13,
+    "to": 15
+   }
   },
-  "thumbnail": {
-    "type": "image",
-    "googleFlowFileName": "YouTube Thumbnail - Notgroschen.png",
-    "planFile": "02-bilder/thumbnail-prompt.txt"
+  {
+   "id": "visual-06",
+   "type": "image",
+   "chapter": "Definition",
+   "scriptBeat": "Notgroschen ist nicht Urlaub, neues Handy oder Sale.",
+   "googleFlowFileName": "YouTube Bild 06 - Kein Konsum.png",
+   "expectedVisual": "Separate Notfallreserve bleibt unangetastet, während Urlaub, Smartphone und Sale klar als freiwillige Käufe außerhalb liegen.",
+   "objectLabels": [
+    "Notgroschen",
+    "Urlaub",
+    "Neues Handy",
+    "Sale"
+   ],
+   "planFile": "04-projekt/VISUALS/visual-06/bildprompt.txt",
+   "headline": "Kein Geld für Konsum",
+   "icon": "cross",
+   "tone": "neutral",
+   "sentenceSpan": {
+    "from": 16,
+    "to": 16
+   }
   },
-  "publishing": {
-    "youtube": {
-      "titleOptions": "03-export/titel-varianten.txt",
-      "finalTitle": "03-export/titel.txt",
-      "description": "03-export/beschreibung.txt",
-      "chapters": "03-export/kapitel.txt",
-      "tagsKeywords": "03-export/keywords.txt",
-      "hashtags": "03-export/hashtags.txt",
-      "thumbnailBrief": "03-export/thumbnail-brief.txt",
-      "pinnedComment": "03-export/angehefteter-kommentar.txt",
-      "communityPost": "03-export/community-post.txt",
-      "sourcesDisclaimer": "03-export/quellen-disclaimer.txt",
-      "uploadChecklist": "03-export/upload-checkliste.md"
-    },
-    "socialPromo": {
-      "instagram": "03-export/social/instagram.txt",
-      "tiktok": "03-export/social/tiktok.txt",
-      "facebook": "03-export/social/facebook.txt",
-      "snapchat": "03-export/social/snapchat.txt"
-    }
+  {
+   "id": "visual-07",
+   "type": "image",
+   "chapter": "Definition",
+   "scriptBeat": "Echte Notfälle sind notwendige, nicht sinnvoll verschiebbare Ausgaben oder Einkommenslücken.",
+   "googleFlowFileName": "YouTube Bild 07 - Echte Notfälle.png",
+   "expectedVisual": "Zusammenhängende Alltagsszene mit Reparatur, notwendiger Rechnung, Mobilität und Einkommenslücke.",
+   "objectLabels": [
+    "Reparatur",
+    "Rechnung",
+    "Arbeitsweg",
+    "Weniger Einkommen"
+   ],
+   "planFile": "04-projekt/VISUALS/visual-07/bildprompt.txt",
+   "headline": "Was ein echter Notfall ist",
+   "icon": "warning",
+   "tone": "warning",
+   "sentenceSpan": {
+    "from": 17,
+    "to": 21
+   }
   },
-  "visuals": [
-    {
-      "id": "visual-01",
-      "type": "image",
-      "chapter": "Hook",
-      "scriptBeat": "Waschmaschine kaputt, 480 Euro Reparatur.",
-      "googleFlowFileName": "YouTube Bild 01 - Waschmaschine kaputt.png",
-      "expectedVisual": "Defekte Waschmaschine mit konkreter 480-Euro-Rechnung in realistischer FinanzNeo-Alltagswelt.",
-      "objectLabels": [
-        "Reparatur 480 €"
-      ],
-      "planFile": "04-projekt/VISUALS/visual-01/bildprompt.txt",
-      "headline": "Waschmaschine kaputt",
-      "icon": "warning",
-      "tone": "warning",
-      "sentenceSpan": {
-        "from": 1,
-        "to": 2
-      }
-    },
-    {
-      "id": "visual-02",
-      "type": "image",
-      "chapter": "Hook",
-      "scriptBeat": "Bremsen und Nachzahlung kommen direkt danach.",
-      "planFile": "04-projekt/VISUALS/visual-02/bildprompt.txt",
-      "googleFlowFileName": "YouTube Bild 02 - Bremsen und Nachzahlung.png",
-      "headline": "Und es hört nicht auf",
-      "icon": "receipt",
-      "tone": "warning",
-      "sentenceSpan": {
-        "from": 3,
-        "to": 4
-      },
-      "expectedVisual": "Eine abgenommene, blank gescheuerte Bremsscheibe liegt noch da, während die Nebenkostenabrechnung im Fallen darauf zusteuert. Die zweite Rechnung kommt, bevor die erste weg ist.",
-      "objectLabels": [
-        "Bremsen",
-        "Nachzahlung"
-      ]
-    },
-    {
-      "id": "visual-03",
-      "type": "image",
-      "chapter": "Hook",
-      "scriptBeat": "Dispo, Kredit oder Depotverkauf als schlechte spontane Auswege.",
-      "planFile": "04-projekt/VISUALS/visual-03/bildprompt.txt",
-      "googleFlowFileName": "YouTube Bild 03 - Drei schlechte Auswege.png",
-      "headline": "Die teuren Auswege",
-      "icon": "bank",
-      "tone": "warning",
-      "sentenceSpan": {
-        "from": 5,
-        "to": 7
-      },
-      "expectedVisual": "Drei echte Bankdokumente stehen in einer Reihe und lehnen sich zurück: überzogener Kontoauszug, Kreditvertrag und Wertpapierverkauf. Alle drei tragen dieselbe warm-rote Markierung.",
-      "objectLabels": [
-        "Dispo",
-        "Kredit",
-        "Depotverkauf"
-      ]
-    },
-    {
-      "id": "visual-04",
-      "type": "animation",
-      "chapter": "Frage",
-      "scriptBeat": "1.000 Euro, drei Monatsgehälter oder viel mehr?",
-      "planFile": "04-projekt/VISUALS/visual-04/remotion.md",
-      "viewerChange": "Drei konkurrierende Zielgrößen erscheinen, verlieren ihren Absolutheitsanspruch und werden durch eine individuelle Frage ersetzt.",
-      "animationIntent": "Die Szene bricht bewusst die Erwartung einer einzigen magischen Zahl.",
-      "mechanicId": "target-number-debate",
-      "visualTechniqueId": "kinetic-scale-comparison",
-      "techniqueDescription": "Große Zielzahlen treten nacheinander in den Raum, skalieren gegeneinander und lösen sich in ein zentrales Fragezeichen auf.",
-      "compositionFamilyId": "kinetic-type",
-      "toolStack": [
-        "Remotion",
-        "spring",
-        "CSS perspective"
-      ],
-      "motionSignature": {
-        "camera": "subtle orbit around number field",
-        "layout": "three competing numeric anchors",
-        "transformation": "scale competition into question mark"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "number scale shifts",
-        "depth reordering"
-      ],
-      "visualBeats": [
-        "1.000 €",
-        "3 Monatsgehälter",
-        "mehr?",
-        "keine Universalzahl"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-04/animation.tsx",
-      "animationExport": "YouTubeVisual04Animation",
-      "headline": "Wie viel ist genug?",
-      "icon": "search",
-      "tone": "default",
-      "sentenceSpan": {
-        "from": 8,
-        "to": 12
-      }
-    },
-    {
-      "id": "visual-05",
-      "type": "data",
-      "chapter": "Höhe",
-      "scriptBeat": "Verbraucherzentrale nennt zwei bis drei Monatsgehälter als Daumenregel.",
-      "planFile": "04-projekt/VISUALS/visual-05/remotion.md",
-      "dataNotesFile": "04-projekt/VISUALS/visual-05/data-notes.md",
-      "viewerChange": "Aus einem Monatsgehalt entsteht eine Bandbreite von zwei bis drei Monatsgehältern; der Begriff Daumenregel erscheint ausdrücklich.",
-      "animationIntent": "Die Quelle wird korrekt als Orientierung und nicht als Pflicht dargestellt.",
-      "mechanicId": "rule-of-thumb-band",
-      "visualTechniqueId": "salary-band-build",
-      "techniqueDescription": "Monatsblöcke bauen sich horizontal von eins auf zwei und drei auf; eine Klammer markiert ausschließlich die 2–3-Spanne als Daumenregel.",
-      "compositionFamilyId": "data-viz",
-      "toolStack": [
-        "Remotion",
-        "SVG brackets",
-        "interpolate"
-      ],
-      "motionSignature": {
-        "camera": "orthographic locked data view",
-        "layout": "horizontal salary-month band",
-        "transformation": "month blocks extend and band annotation appears"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "block growth",
-        "annotation reveal"
-      ],
-      "visualBeats": [
-        "1 Monatsgehalt",
-        "2 Monatsgehälter",
-        "3 Monatsgehälter",
-        "Daumenregel 2–3"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-05/animation.tsx",
-      "animationExport": "YouTubeVisual05Animation",
-      "headline": "Die Daumenregel",
-      "icon": "list",
-      "tone": "neutral",
-      "sentenceSpan": {
-        "from": 13,
-        "to": 15
-      }
-    },
-    {
-      "id": "visual-06",
-      "type": "image",
-      "chapter": "Definition",
-      "scriptBeat": "Notgroschen ist nicht Urlaub, neues Handy oder Sale.",
-      "googleFlowFileName": "YouTube Bild 06 - Kein Konsum.png",
-      "expectedVisual": "Separate Notfallreserve bleibt unangetastet, während Urlaub, Smartphone und Sale klar als freiwillige Käufe außerhalb liegen.",
-      "objectLabels": [
-        "Notgroschen",
-        "Urlaub",
-        "Neues Handy",
-        "Sale"
-      ],
-      "planFile": "04-projekt/VISUALS/visual-06/bildprompt.txt",
-      "headline": "Kein Geld für Konsum",
-      "icon": "cross",
-      "tone": "neutral",
-      "sentenceSpan": {
-        "from": 16,
-        "to": 16
-      }
-    },
-    {
-      "id": "visual-07",
-      "type": "image",
-      "chapter": "Definition",
-      "scriptBeat": "Echte Notfälle sind notwendige, nicht sinnvoll verschiebbare Ausgaben oder Einkommenslücken.",
-      "googleFlowFileName": "YouTube Bild 07 - Echte Notfälle.png",
-      "expectedVisual": "Zusammenhängende Alltagsszene mit Reparatur, notwendiger Rechnung, Mobilität und Einkommenslücke.",
-      "objectLabels": [
-        "Reparatur",
-        "Rechnung",
-        "Arbeitsweg",
-        "Weniger Einkommen"
-      ],
-      "planFile": "04-projekt/VISUALS/visual-07/bildprompt.txt",
-      "headline": "Was ein echter Notfall ist",
-      "icon": "warning",
-      "tone": "warning",
-      "sentenceSpan": {
-        "from": 17,
-        "to": 21
-      }
-    },
-    {
-      "id": "visual-08",
-      "type": "image",
-      "chapter": "Definition",
-      "scriptBeat": "Sein Job ist nicht Rendite, sondern Verfügbarkeit.",
-      "planFile": "04-projekt/VISUALS/visual-08/bildprompt.txt",
-      "googleFlowFileName": "YouTube Bild 08 - Verfuegbar statt Rendite.png",
-      "headline": "Verfügbar statt rentabel",
-      "icon": "clock",
-      "tone": "default",
-      "sentenceSpan": {
-        "from": 22,
-        "to": 23
-      },
-      "expectedVisual": "Der geöffnete Reserveumschlag liegt griffbereit vorn, ein grüner Hundert-Euro-Schein rutscht heraus. Weit dahinter liegt der Depotauszug unter einem schweren Papierstapel begraben.",
-      "objectLabels": [
-        "Notgroschen",
-        "Depot"
-      ]
-    },
-    {
-      "id": "visual-09",
-      "type": "animation",
-      "chapter": "Höhe",
-      "scriptBeat": "Notwendige monatliche Ausgaben ergeben im Beispiel 1.500 Euro.",
-      "planFile": "04-projekt/VISUALS/visual-09/remotion.md",
-      "viewerChange": "Miete, Lebensmittel, Strom, Versicherungen und Mobilität setzen sich sichtbar zu 1.500 Euro notwendigem Monatsbudget zusammen.",
-      "animationIntent": "Die persönliche Berechnung wird aus konkreten Kosten statt aus Einkommen hergeleitet.",
-      "mechanicId": "essential-budget-assembly",
-      "visualTechniqueId": "category-to-total-ledger",
-      "techniqueDescription": "Große Kostenkategorien docken nacheinander an ein zentrales Monatsbudget an; der Gesamtwert zählt kontrolliert auf 1.500 Euro.",
-      "compositionFamilyId": "document-motion",
-      "toolStack": [
-        "Remotion",
-        "SVG icons",
-        "counter interpolation"
-      ],
-      "motionSignature": {
-        "camera": "top-down ledger reveal",
-        "layout": "categories orbit into central monthly ledger",
-        "transformation": "cost categories assemble and total updates"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "category docking",
-        "numeric total update"
-      ],
-      "visualBeats": [
-        "Miete",
-        "Lebensmittel",
-        "Strom und Versicherungen",
-        "Mobilität",
-        "1.500 € Gesamt"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-09/animation.tsx",
-      "animationExport": "YouTubeVisual09Animation",
-      "headline": "Deine notwendigen Kosten",
-      "icon": "receipt",
-      "tone": "money",
-      "sentenceSpan": {
-        "from": 24,
-        "to": 28
-      }
-    },
-    {
-      "id": "visual-10",
-      "type": "data",
-      "chapter": "Höhe",
-      "scriptBeat": "Ein, zwei und drei Monate entsprechen 1.500, 3.000 und 4.500 Euro.",
-      "planFile": "04-projekt/VISUALS/visual-10/remotion.md",
-      "dataNotesFile": "04-projekt/VISUALS/visual-10/data-notes.md",
-      "viewerChange": "Ein 1.500-Euro-Monatsblock vervielfacht sich räumlich zu zwei und drei Sicherheitsmonaten, während die Summe korrekt mitwächst.",
-      "animationIntent": "Die Größenordnung wird intuitiv und mathematisch transparent.",
-      "mechanicId": "reserve-month-multiplication",
-      "visualTechniqueId": "stacked-month-volume-build",
-      "techniqueDescription": "Ein großer Monatsblock dupliziert sich in der Tiefe; Summen springen synchron von 1.500 auf 3.000 und 4.500 Euro.",
-      "compositionFamilyId": "spatial-3d",
-      "toolStack": [
-        "Remotion",
-        "CSS 3D",
-        "interpolate"
-      ],
-      "motionSignature": {
-        "camera": "slow pullback as depth grows",
-        "layout": "stacked monthly blocks in perspective",
-        "transformation": "block duplication with synchronized total"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "depth duplication",
-        "sum change"
-      ],
-      "visualBeats": [
-        "1 Monat 1.500 €",
-        "2 Monate 3.000 €",
-        "3 Monate 4.500 €"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-10/animation.tsx",
-      "animationExport": "YouTubeVisual10Animation",
-      "headline": "Ein, zwei oder drei Monate",
-      "icon": "calendar",
-      "tone": "money",
-      "sentenceSpan": {
-        "from": 29,
-        "to": 31
-      }
-    },
-    {
-      "id": "visual-11",
-      "type": "image",
-      "chapter": "Risiko",
-      "scriptBeat": "Person A wohnt zu Hause, hat kein Auto, niedrige Fixkosten und stabilen Job.",
-      "googleFlowFileName": "YouTube Bild 11 - Person A.png",
-      "expectedVisual": "Junge Person in günstiger Wohnsituation mit wenigen zwingenden finanziellen Verpflichtungen.",
-      "objectLabels": [
-        "Niedrige Fixkosten",
-        "Stabiler Job"
-      ],
-      "planFile": "04-projekt/VISUALS/visual-11/bildprompt.txt",
-      "headline": "Wenige Verpflichtungen",
-      "icon": "check",
-      "tone": "positive",
-      "sentenceSpan": {
-        "from": 32,
-        "to": 34
-      }
-    },
-    {
-      "id": "visual-12",
-      "type": "image",
-      "chapter": "Risiko",
-      "scriptBeat": "Person B lebt allein, braucht Auto, zahlt höhere Miete und hat mehrere Verpflichtungen.",
-      "googleFlowFileName": "YouTube Bild 12 - Person B.png",
-      "expectedVisual": "Alleinlebende Person mit Wohnung, Auto und mehreren sichtbaren notwendigen Verpflichtungen.",
-      "objectLabels": [
-        "Miete",
-        "Auto",
-        "Laufende Kosten"
-      ],
-      "planFile": "04-projekt/VISUALS/visual-12/bildprompt.txt",
-      "headline": "Mehr Verpflichtungen",
-      "icon": "wallet",
-      "tone": "warning",
-      "sentenceSpan": {
-        "from": 35,
-        "to": 36
-      }
-    },
-    {
-      "id": "visual-13",
-      "type": "animation",
-      "chapter": "Risiko",
-      "scriptBeat": "Gleiches Einkommen kann unterschiedliche Reserve bedeuten.",
-      "planFile": "04-projekt/VISUALS/visual-13/remotion.md",
-      "viewerChange": "Ein identischer Gehaltsblock teilt sich in zwei Lebenssituationen; bei Person B wachsen notwendige Verpflichtungen und Reservebedarf sichtbar stärker.",
-      "animationIntent": "Der Zuschauer versteht, warum Einkommen allein keine ausreichende Zielgröße ist.",
-      "mechanicId": "matched-income-risk-divergence",
-      "visualTechniqueId": "mirrored-risk-split",
-      "techniqueDescription": "Ein gemeinsamer Einkommensblock spiegelt sich in zwei Lanes; identische Startwerte entwickeln durch unterschiedliche Verpflichtungen verschiedene Risikoprofile.",
-      "compositionFamilyId": "comparison",
-      "toolStack": [
-        "Remotion",
-        "SVG",
-        "spring"
-      ],
-      "motionSignature": {
-        "camera": "center-lock mirrored comparison",
-        "layout": "two symmetric life lanes from one income source",
-        "transformation": "obligation load diverges while income stays equal"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "lane split",
-        "risk load growth"
-      ],
-      "visualBeats": [
-        "gleiches Einkommen",
-        "zwei Personen",
-        "unterschiedliche Verpflichtungen",
-        "unterschiedliche Reserve"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-13/animation.tsx",
-      "animationExport": "YouTubeVisual13Animation",
-      "headline": "Gleiches Gehalt, andere Reserve",
-      "icon": "percent",
-      "tone": "default",
-      "sentenceSpan": {
-        "from": 37,
-        "to": 37
-      }
-    },
-    {
-      "id": "visual-14",
-      "type": "animation",
-      "chapter": "Risiko",
-      "scriptBeat": "Vier Fragen ergeben dein persönliches Risikoprofil.",
-      "planFile": "04-projekt/VISUALS/visual-14/remotion.md",
-      "viewerChange": "Vier konkrete Fragen füllen einen Prüfrahmen und verdichten sich zu einem individuellen Reserveprofil.",
-      "animationIntent": "Die abstrakte Empfehlung wird in eine praktisch nutzbare Selbstprüfung übersetzt.",
-      "mechanicId": "personal-risk-questionnaire",
-      "visualTechniqueId": "question-to-profile-map",
-      "techniqueDescription": "Vier Fragen werden wie Prüfpunkte in ein vertikales Dokument gesetzt; ihre Antworten speisen anschließend ein klar beschriftetes persönliches Risikoprofil.",
-      "compositionFamilyId": "document-motion",
-      "toolStack": [
-        "Remotion",
-        "SVG checkmarks",
-        "interpolate"
-      ],
-      "motionSignature": {
-        "camera": "vertical travel down assessment sheet",
-        "layout": "stacked question rows into summary profile",
-        "transformation": "questions stamp in then collapse into profile"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "question row reveal",
-        "profile synthesis"
-      ],
-      "visualBeats": [
-        "unerwartete Ausgaben",
-        "notwendige Kosten",
-        "zwingende Dinge",
-        "Ausgaben senkbar",
-        "Risikoprofil"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-14/animation.tsx",
-      "animationExport": "YouTubeVisual14Animation",
-      "headline": "Vier Fragen an dich",
-      "icon": "list",
-      "tone": "default",
-      "sentenceSpan": {
-        "from": 38,
-        "to": 41
-      }
-    },
-    {
-      "id": "visual-15",
-      "type": "image",
-      "chapter": "Investieren",
-      "scriptBeat": "ETF kann langfristig für Vermögensaufbau sinnvoll sein, hat aber eine andere Aufgabe.",
-      "googleFlowFileName": "YouTube Bild 15 - Langfristiges Investment.png",
-      "expectedVisual": "Ruhige langfristige Anlagewelt mit mehrjährigem Horizont, räumlich klar getrennt von kurzfristiger Reserve.",
-      "objectLabels": [
-        "Langfristig",
-        "Investment"
-      ],
-      "planFile": "04-projekt/VISUALS/visual-15/bildprompt.txt",
-      "headline": "ETF braucht Zeit",
-      "icon": "hourglass",
-      "tone": "default",
-      "sentenceSpan": {
-        "from": 42,
-        "to": 45
-      }
-    },
-    {
-      "id": "visual-16",
-      "type": "image",
-      "chapter": "Investieren",
-      "scriptBeat": "Auto kaputt, während das Depot beispielhaft 25 Prozent im Minus steht.",
-      "googleFlowFileName": "YouTube Bild 16 - Auto und Depot.png",
-      "expectedVisual": "Dringende Autoreparatur in realer Werkstattsituation mit Raum für eine eingeblendete hypothetische Depotkurve.",
-      "objectLabels": [
-        "Reparatur"
-      ],
-      "planFile": "04-projekt/VISUALS/visual-16/bildprompt.txt",
-      "headline": "Der falsche Zeitpunkt",
-      "icon": "chart-bar",
-      "tone": "warning",
-      "sentenceSpan": {
-        "from": 46,
-        "to": 48
-      }
-    },
-    {
-      "id": "visual-17",
-      "type": "animation",
-      "chapter": "Investieren",
-      "scriptBeat": "Notgroschen und Investment haben unterschiedliche Zeithorizonte und Aufgaben.",
-      "planFile": "04-projekt/VISUALS/visual-17/remotion.md",
-      "viewerChange": "Ein Geldbetrag teilt sich in einen kurzen stabilen Reserveweg und einen langen schwankenden Investmentweg.",
-      "animationIntent": "Die Rollen werden als zwei getrennte Zeithorizonte verständlich.",
-      "mechanicId": "dual-horizon-separation",
-      "visualTechniqueId": "horizon-lane-split",
-      "techniqueDescription": "Ein gemeinsamer Geldpunkt teilt sich in zwei räumliche Zeitachsen: kurze Liquiditätslane und lange Investmentlane mit kontrollierter Schwankung.",
-      "compositionFamilyId": "timeline",
-      "toolStack": [
-        "Remotion",
-        "SVG paths",
-        "interpolate"
-      ],
-      "motionSignature": {
-        "camera": "zoom out to reveal unequal time horizons",
-        "layout": "short upper lane and long lower lane",
-        "transformation": "single capital source splits into two time paths"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "capital split",
-        "timeline extension"
-      ],
-      "visualBeats": [
-        "ein Geldtopf",
-        "kurzfristige Reserve",
-        "langfristiges Investment",
-        "unterschiedliche Aufgaben"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-17/animation.tsx",
-      "animationExport": "YouTubeVisual17Animation",
-      "headline": "Zwei verschiedene Aufgaben",
-      "icon": "repeat",
-      "tone": "default",
-      "sentenceSpan": {
-        "from": 49,
-        "to": 51
-      }
-    },
-    {
-      "id": "visual-18",
-      "type": "image",
-      "chapter": "Aufbewahrung",
-      "scriptBeat": "Separates Tagesgeld trennt die Reserve vom Giro und bleibt kurzfristig erreichbar.",
-      "googleFlowFileName": "YouTube Bild 18 - Giro zu Tagesgeld.png",
-      "expectedVisual": "Glaubwürdige Banksituation mit klar getrennten Kontoobjekten für Giro und Tagesgeld.",
-      "objectLabels": [
-        "Girokonto",
-        "Tagesgeld",
-        "Notgroschen"
-      ],
-      "planFile": "04-projekt/VISUALS/visual-18/bildprompt.txt",
-      "headline": "Tagesgeld statt Girokonto",
-      "icon": "bank",
-      "tone": "positive",
-      "sentenceSpan": {
-        "from": 52,
-        "to": 53
-      }
-    },
-    {
-      "id": "visual-19",
-      "type": "data",
-      "chapter": "Aufbewahrung",
-      "scriptBeat": "Gesetzliche Einlagensicherung grundsätzlich bis 100.000 Euro pro Person und Bank.",
-      "planFile": "04-projekt/VISUALS/visual-19/remotion.md",
-      "dataNotesFile": "04-projekt/VISUALS/visual-19/data-notes.md",
-      "viewerChange": "Ein Guthaben wächst; ein Schutzrahmen begleitet es bis zur markierten 100.000-Euro-Grenze und stoppt dort.",
-      "animationIntent": "Die gesetzliche Standardgrenze wird präzise und ohne Übertreibung visualisiert.",
-      "mechanicId": "deposit-protection-threshold",
-      "visualTechniqueId": "protected-cap-envelope",
-      "techniqueDescription": "Ein vertikaler Guthabenmeter steigt innerhalb einer grünen Schutzhülle; bei 100.000 Euro endet die Hülle sichtbar und die Grenze wird beschriftet.",
-      "compositionFamilyId": "data-viz",
-      "toolStack": [
-        "Remotion",
-        "SVG meter",
-        "counter interpolation"
-      ],
-      "motionSignature": {
-        "camera": "gentle elevation following meter",
-        "layout": "single vertical deposit meter inside protection shell",
-        "transformation": "deposit and protection rise together until fixed cap"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "meter growth",
-        "protection boundary reveal"
-      ],
-      "visualBeats": [
-        "Guthaben wächst",
-        "Schutzrahmen folgt",
-        "100.000 € Grenze",
-        "Hinweis Anbieter prüfen"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-19/animation.tsx",
-      "animationExport": "YouTubeVisual19Animation",
-      "headline": "Einlagensicherung",
-      "icon": "lock",
-      "tone": "positive",
-      "sentenceSpan": {
-        "from": 54,
-        "to": 55
-      }
-    },
-    {
-      "id": "visual-20",
-      "type": "image",
-      "chapter": "Aufbewahrung",
-      "scriptBeat": "Auf dem Giro vermischt sich Reserve mit Konsum; getrennt bleibt der Zweck sichtbar.",
-      "googleFlowFileName": "YouTube Bild 20 - Reserve trennen.png",
-      "expectedVisual": "Alltagsbudget und Notgroschen als räumlich getrennte reale Geldbereiche; auf der Giroseite drohen freiwillige Käufe die Reserve anzuzapfen.",
-      "objectLabels": [
-        "Monatsbudget",
-        "Notgroschen"
-      ],
-      "planFile": "04-projekt/VISUALS/visual-20/bildprompt.txt",
-      "headline": "Getrennt halten",
-      "icon": "wallet",
-      "tone": "positive",
-      "sentenceSpan": {
-        "from": 56,
-        "to": 60
-      }
-    },
-    {
-      "id": "visual-21",
-      "type": "image",
-      "chapter": "Aufbau",
-      "scriptBeat": "Nicht mit riesigem Ziel starten, sondern eine erste Sicherheitsstufe aufbauen.",
-      "planFile": "04-projekt/VISUALS/visual-21/bildprompt.txt",
-      "googleFlowFileName": "YouTube Bild 21 - Erste Stufe statt Endziel.png",
-      "headline": "Die erste Stufe",
-      "icon": "target",
-      "tone": "positive",
-      "sentenceSpan": {
-        "from": 61,
-        "to": 64
-      },
-      "expectedVisual": "Ein unerreichbar hoher Rechnungsturm verliert sich hinten im Schwarz, während vorn eine einzelne Rechnung mit grüner Kante zum Greifen nah liegt.",
-      "objectLabels": [
-        "Erste Stufe"
-      ]
-    },
-    {
-      "id": "visual-22",
-      "type": "animation",
-      "chapter": "Aufbau",
-      "scriptBeat": "Kurz nach Gehaltseingang geht automatisch ein fester Betrag auf das Rücklagenkonto.",
-      "planFile": "04-projekt/VISUALS/visual-22/remotion.md",
-      "viewerChange": "Das Gehalt trifft ein und wird vor den Alltagsausgaben automatisch in Giro-Rest und Reserveanteil geteilt.",
-      "animationIntent": "Automatisierung wird als konkrete Reihenfolge sichtbar: erst sparen, dann ausgeben.",
-      "mechanicId": "salary-auto-routing",
-      "visualTechniqueId": "payday-automatic-switch",
-      "techniqueDescription": "Ein Gehaltsstrom trifft einen sichtbaren Umschaltpunkt, der einen festen Anteil sofort in die Reserve lenkt und den Rest auf dem Giro weiterführt.",
-      "compositionFamilyId": "physical-process",
-      "toolStack": [
-        "Remotion",
-        "SVG paths",
-        "spring"
-      ],
-      "motionSignature": {
-        "camera": "top-down routing view",
-        "layout": "salary rail splitting into reserve and giro lanes",
-        "transformation": "incoming salary is automatically diverted before spending lane"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "salary flow",
-        "automatic route switch"
-      ],
-      "visualBeats": [
-        "Gehalt kommt",
-        "automatischer Split",
-        "Reserve bekommt Anteil",
-        "Rest bleibt verfügbar"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-22/animation.tsx",
-      "animationExport": "YouTubeVisual22Animation",
-      "headline": "Automatisch statt vorgenommen",
-      "icon": "repeat",
-      "tone": "positive",
-      "sentenceSpan": {
-        "from": 65,
-        "to": 66
-      }
-    },
-    {
-      "id": "visual-23",
-      "type": "data",
-      "chapter": "Aufbau",
-      "scriptBeat": "50, 100 oder 200 Euro sind Beispielraten; die passende Rate hängt vom Budget ab.",
-      "planFile": "04-projekt/VISUALS/visual-23/remotion.md",
-      "dataNotesFile": "04-projekt/VISUALS/visual-23/data-notes.md",
-      "viewerChange": "Drei gleichwertige Sparraten bewegen sich auf dasselbe Beispielziel zu, erreichen es aber unterschiedlich schnell.",
-      "animationIntent": "Es wird keine Rate als richtig verkauft; nur der Einfluss der Höhe auf die Aufbaugeschwindigkeit wird gezeigt.",
-      "mechanicId": "savings-rate-timefield",
-      "visualTechniqueId": "rate-speed-comparison",
-      "techniqueDescription": "Drei horizontale Lanes mit 50, 100 und 200 Euro senden periodische Einzahlungsimpulse zum selben Ziel; höhere Rate verkürzt ausschließlich die Zeitachse.",
-      "compositionFamilyId": "data-viz",
-      "toolStack": [
-        "Remotion",
-        "SVG lanes",
-        "interpolate"
-      ],
-      "motionSignature": {
-        "camera": "horizontal sweep across three rate lanes",
-        "layout": "parallel savings lanes converging on same target",
-        "transformation": "deposit pulses advance at rate-dependent speed"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "deposit pulse movement",
-        "time-to-target progression"
-      ],
-      "visualBeats": [
-        "50 €",
-        "100 €",
-        "200 €",
-        "unterschiedliche Geschwindigkeit gleiche Funktion"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-23/animation.tsx",
-      "animationExport": "YouTubeVisual23Animation",
-      "headline": "Welche Rate passt?",
-      "icon": "coins",
-      "tone": "money",
-      "sentenceSpan": {
-        "from": 67,
-        "to": 67
-      }
-    },
-    {
-      "id": "visual-24",
-      "type": "animation",
-      "chapter": "Aufbau",
-      "scriptBeat": "Regelmäßigkeit lässt die Reserve wachsen, ohne jeden Monat neu zu entscheiden.",
-      "planFile": "04-projekt/VISUALS/visual-24/remotion.md",
-      "viewerChange": "Kalendermonate wechseln; derselbe automatische Transfer wiederholt sich und die Reserve wächst sichtbar Stufe für Stufe.",
-      "animationIntent": "Die Kraft der Routine wird als wiederholbarer Prozess statt als Motivationstrick erklärt.",
-      "mechanicId": "recurring-month-cycle",
-      "visualTechniqueId": "calendar-reserve-cycle",
-      "techniqueDescription": "Monatskarten drehen nacheinander um; synchron löst jeder Monatswechsel denselben Transfer aus und erhöht einen physischen Reservestapel.",
-      "compositionFamilyId": "timeline",
-      "toolStack": [
-        "Remotion",
-        "CSS 3D",
-        "interpolate"
-      ],
-      "motionSignature": {
-        "camera": "rhythmic page-turn follow",
-        "layout": "calendar rail above reserve stack",
-        "transformation": "month flips trigger repeated reserve increments"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "calendar progression",
-        "reserve stack growth"
-      ],
-      "visualBeats": [
-        "Monat 1",
-        "Monat 2",
-        "Monat 3",
-        "Routine läuft weiter"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-24/animation.tsx",
-      "animationExport": "YouTubeVisual24Animation",
-      "headline": "Routine schlägt Motivation",
-      "icon": "calendar",
-      "tone": "positive",
-      "sentenceSpan": {
-        "from": 68,
-        "to": 69
-      }
-    },
-    {
-      "id": "visual-25",
-      "type": "image",
-      "chapter": "Nutzung",
-      "scriptBeat": "Wenn du den Notgroschen für einen echten Notfall benutzt, war das kein Fehler.",
-      "googleFlowFileName": "YouTube Bild 25 - Notfall bezahlen.png",
-      "expectedVisual": "Echte notwendige Reparatur wird ruhig aus klar markierter Reserve bezahlt; kein Schuld- oder Versagensbild.",
-      "objectLabels": [
-        "Notgroschen",
-        "Reparatur bezahlt"
-      ],
-      "planFile": "04-projekt/VISUALS/visual-25/bildprompt.txt",
-      "headline": "Benutzen ist richtig",
-      "icon": "check",
-      "tone": "positive",
-      "sentenceSpan": {
-        "from": 70,
-        "to": 72
-      }
-    },
-    {
-      "id": "visual-26",
-      "type": "animation",
-      "chapter": "Nutzung",
-      "scriptBeat": "Nach der Ausgabe sinkt die Reserve und wird anschließend wieder aufgebaut.",
-      "planFile": "04-projekt/VISUALS/visual-26/remotion.md",
-      "viewerChange": "Ein voller Puffer bezahlt eine Reparatur, fällt kontrolliert ab und wächst danach durch neue automatische Einzahlungen wieder.",
-      "animationIntent": "Benutzung und Wiederaufbau werden als normaler Lebenszyklus des Notgroschens gezeigt.",
-      "mechanicId": "emergency-deplete-rebuild",
-      "visualTechniqueId": "reserve-breathing-cycle",
-      "techniqueDescription": "Ein großer Reservetank verliert bei der Reparatur einen klar definierten Teil und füllt sich anschließend durch mehrere grüne Einzahlungsimpulse wieder auf.",
-      "compositionFamilyId": "material-transformation",
-      "toolStack": [
-        "Remotion",
-        "SVG fill mask",
-        "spring"
-      ],
-      "motionSignature": {
-        "camera": "close focus on reserve vessel",
-        "layout": "reserve center with repair event sidecar",
-        "transformation": "controlled depletion followed by stepped refill"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "reserve level change",
-        "rebuild pulse sequence"
-      ],
-      "visualBeats": [
-        "voller Puffer",
-        "Notfall bezahlt",
-        "Reserve niedriger",
-        "Wiederaufbau"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-26/animation.tsx",
-      "animationExport": "YouTubeVisual26Animation",
-      "headline": "Nutzen und auffüllen",
-      "icon": "repeat",
-      "tone": "positive",
-      "sentenceSpan": {
-        "from": 73,
-        "to": 75
-      }
-    },
-    {
-      "id": "visual-27",
-      "type": "image",
-      "chapter": "Ziel",
-      "scriptBeat": "Genug Reserve heißt: realistische Notfälle führen nicht sofort zu Schulden oder Depotverkauf.",
-      "planFile": "04-projekt/VISUALS/visual-27/bildprompt.txt",
-      "googleFlowFileName": "YouTube Bild 27 - Notfall ohne Schulden.png",
-      "headline": "Groß genug",
-      "icon": "shield",
-      "tone": "positive",
-      "sentenceSpan": {
-        "from": 76,
-        "to": 80
-      },
-      "expectedVisual": "Die bezahlte Reparaturrechnung mit grünem Stempel lehnt am dünner gewordenen Reserveumschlag. Daneben liegen Kreditvertrag und Wertpapierverkauf verstaubt und ungenutzt.",
-      "objectLabels": [
-        "Bezahlt",
-        "Kredit",
-        "Depotverkauf"
-      ]
-    },
-    {
-      "id": "visual-28",
-      "type": "animation",
-      "chapter": "Fazit",
-      "scriptBeat": "Erst funktioniert die Reserve, danach bekommt langfristiges Geld die Aufgabe Vermögen aufzubauen.",
-      "planFile": "04-projekt/VISUALS/visual-28/remotion.md",
-      "viewerChange": "Die Sicherheitszone baut sich vollständig auf und schließt; erst danach öffnet sich dahinter ein langer eigenständiger Investmentpfad.",
-      "animationIntent": "Die Reihenfolge Sicherheit vor langfristigem Investieren bildet den visuellen Payoff des Videos.",
-      "mechanicId": "security-gate-to-investment",
-      "visualTechniqueId": "gate-then-growth-path",
-      "techniqueDescription": "Eine leere Sicherheitszone füllt sich und verriegelt sichtbar; die Kamera fährt anschließend durch ein separates Tor auf einen langen Investmenthorizont.",
-      "compositionFamilyId": "camera-journey",
-      "toolStack": [
-        "Remotion",
-        "CSS perspective",
-        "SVG path"
-      ],
-      "motionSignature": {
-        "camera": "forward pass through completed safety gate",
-        "layout": "near safety chamber opening into long investment horizon",
-        "transformation": "reserve completes and unlocks separate growth path"
-      },
-      "repeatTechniqueReason": "",
-      "motionChannels": [
-        "security completion",
-        "investment path reveal"
-      ],
-      "visualBeats": [
-        "Reserve unvollständig",
-        "Reserve funktioniert",
-        "Sicherheitszone stabil",
-        "Investmentpfad öffnet"
-      ],
-      "animationSourceFile": "04-projekt/VISUALS/visual-28/animation.tsx",
-      "animationExport": "YouTubeVisual28Animation",
-      "headline": "Erst Reserve, dann Aufbau",
-      "icon": "trending",
-      "tone": "positive",
-      "sentenceSpan": {
-        "from": 81,
-        "to": 84
-      }
-    }
-  ]
+  {
+   "id": "visual-08",
+   "type": "image",
+   "chapter": "Definition",
+   "scriptBeat": "Sein Job ist nicht Rendite, sondern Verfügbarkeit.",
+   "planFile": "04-projekt/VISUALS/visual-08/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 08 - Verfuegbar statt Rendite.png",
+   "headline": "Verfügbar statt rentabel",
+   "icon": "clock",
+   "tone": "default",
+   "sentenceSpan": {
+    "from": 22,
+    "to": 23
+   },
+   "expectedVisual": "Der geöffnete Reserveumschlag liegt griffbereit vorn, ein grüner Hundert-Euro-Schein rutscht heraus. Weit dahinter liegt der Depotauszug unter einem schweren Papierstapel begraben.",
+   "objectLabels": [
+    "Notgroschen",
+    "Depot"
+   ]
+  },
+  {
+   "id": "visual-09",
+   "type": "animation",
+   "chapter": "Höhe",
+   "scriptBeat": "Notwendige monatliche Ausgaben ergeben im Beispiel 1.500 Euro.",
+   "planFile": "04-projekt/VISUALS/visual-09/remotion.md",
+   "viewerChange": "Miete, Lebensmittel, Strom, Versicherungen und Mobilität setzen sich sichtbar zu 1.500 Euro notwendigem Monatsbudget zusammen.",
+   "animationIntent": "Die persönliche Berechnung wird aus konkreten Kosten statt aus Einkommen hergeleitet.",
+   "mechanicId": "essential-budget-assembly",
+   "visualTechniqueId": "category-to-total-ledger",
+   "techniqueDescription": "Große Kostenkategorien docken nacheinander an ein zentrales Monatsbudget an; der Gesamtwert zählt kontrolliert auf 1.500 Euro.",
+   "compositionFamilyId": "document-motion",
+   "toolStack": [
+    "Remotion",
+    "SVG icons",
+    "counter interpolation"
+   ],
+   "motionSignature": {
+    "camera": "top-down ledger reveal",
+    "layout": "categories orbit into central monthly ledger",
+    "transformation": "cost categories assemble and total updates"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "category docking",
+    "numeric total update"
+   ],
+   "visualBeats": [
+    "Miete",
+    "Lebensmittel",
+    "Strom und Versicherungen",
+    "Mobilität",
+    "1.500 € Gesamt"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-09/animation.tsx",
+   "animationExport": "YouTubeVisual09Animation",
+   "headline": "Deine notwendigen Kosten",
+   "icon": "receipt",
+   "tone": "money",
+   "sentenceSpan": {
+    "from": 24,
+    "to": 28
+   }
+  },
+  {
+   "id": "visual-10",
+   "type": "data",
+   "chapter": "Höhe",
+   "scriptBeat": "Ein, zwei und drei Monate entsprechen 1.500, 3.000 und 4.500 Euro.",
+   "planFile": "04-projekt/VISUALS/visual-10/remotion.md",
+   "dataNotesFile": "04-projekt/VISUALS/visual-10/data-notes.md",
+   "viewerChange": "Ein 1.500-Euro-Monatsblock vervielfacht sich räumlich zu zwei und drei Sicherheitsmonaten, während die Summe korrekt mitwächst.",
+   "animationIntent": "Die Größenordnung wird intuitiv und mathematisch transparent.",
+   "mechanicId": "reserve-month-multiplication",
+   "visualTechniqueId": "stacked-month-volume-build",
+   "techniqueDescription": "Ein großer Monatsblock dupliziert sich in der Tiefe; Summen springen synchron von 1.500 auf 3.000 und 4.500 Euro.",
+   "compositionFamilyId": "spatial-3d",
+   "toolStack": [
+    "Remotion",
+    "CSS 3D",
+    "interpolate"
+   ],
+   "motionSignature": {
+    "camera": "slow pullback as depth grows",
+    "layout": "stacked monthly blocks in perspective",
+    "transformation": "block duplication with synchronized total"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "depth duplication",
+    "sum change"
+   ],
+   "visualBeats": [
+    "1 Monat 1.500 €",
+    "2 Monate 3.000 €",
+    "3 Monate 4.500 €"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-10/animation.tsx",
+   "animationExport": "YouTubeVisual10Animation",
+   "headline": "Ein, zwei oder drei Monate",
+   "icon": "calendar",
+   "tone": "money",
+   "sentenceSpan": {
+    "from": 29,
+    "to": 31
+   }
+  },
+  {
+   "id": "visual-11",
+   "type": "image",
+   "chapter": "Risiko",
+   "scriptBeat": "Person A wohnt zu Hause, hat kein Auto, niedrige Fixkosten und stabilen Job.",
+   "googleFlowFileName": "YouTube Bild 11 - Person A.png",
+   "expectedVisual": "Junge Person in günstiger Wohnsituation mit wenigen zwingenden finanziellen Verpflichtungen.",
+   "objectLabels": [
+    "Niedrige Fixkosten",
+    "Stabiler Job"
+   ],
+   "planFile": "04-projekt/VISUALS/visual-11/bildprompt.txt",
+   "headline": "Wenige Verpflichtungen",
+   "icon": "check",
+   "tone": "positive",
+   "sentenceSpan": {
+    "from": 32,
+    "to": 34
+   }
+  },
+  {
+   "id": "visual-12",
+   "type": "image",
+   "chapter": "Risiko",
+   "scriptBeat": "Person B lebt allein, braucht Auto, zahlt höhere Miete und hat mehrere Verpflichtungen.",
+   "googleFlowFileName": "YouTube Bild 12 - Person B.png",
+   "expectedVisual": "Alleinlebende Person mit Wohnung, Auto und mehreren sichtbaren notwendigen Verpflichtungen.",
+   "objectLabels": [
+    "Miete",
+    "Auto",
+    "Laufende Kosten"
+   ],
+   "planFile": "04-projekt/VISUALS/visual-12/bildprompt.txt",
+   "headline": "Mehr Verpflichtungen",
+   "icon": "wallet",
+   "tone": "warning",
+   "sentenceSpan": {
+    "from": 35,
+    "to": 36
+   }
+  },
+  {
+   "id": "visual-13",
+   "type": "animation",
+   "chapter": "Risiko",
+   "scriptBeat": "Gleiches Einkommen kann unterschiedliche Reserve bedeuten.",
+   "planFile": "04-projekt/VISUALS/visual-13/remotion.md",
+   "viewerChange": "Ein identischer Gehaltsblock teilt sich in zwei Lebenssituationen; bei Person B wachsen notwendige Verpflichtungen und Reservebedarf sichtbar stärker.",
+   "animationIntent": "Der Zuschauer versteht, warum Einkommen allein keine ausreichende Zielgröße ist.",
+   "mechanicId": "matched-income-risk-divergence",
+   "visualTechniqueId": "mirrored-risk-split",
+   "techniqueDescription": "Ein gemeinsamer Einkommensblock spiegelt sich in zwei Lanes; identische Startwerte entwickeln durch unterschiedliche Verpflichtungen verschiedene Risikoprofile.",
+   "compositionFamilyId": "comparison",
+   "toolStack": [
+    "Remotion",
+    "SVG",
+    "spring"
+   ],
+   "motionSignature": {
+    "camera": "center-lock mirrored comparison",
+    "layout": "two symmetric life lanes from one income source",
+    "transformation": "obligation load diverges while income stays equal"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "lane split",
+    "risk load growth"
+   ],
+   "visualBeats": [
+    "gleiches Einkommen",
+    "zwei Personen",
+    "unterschiedliche Verpflichtungen",
+    "unterschiedliche Reserve"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-13/animation.tsx",
+   "animationExport": "YouTubeVisual13Animation",
+   "headline": "Gleiches Gehalt, andere Reserve",
+   "icon": "percent",
+   "tone": "default",
+   "sentenceSpan": {
+    "from": 37,
+    "to": 37
+   }
+  },
+  {
+   "id": "visual-14",
+   "type": "animation",
+   "chapter": "Risiko",
+   "scriptBeat": "Vier Fragen ergeben dein persönliches Risikoprofil.",
+   "planFile": "04-projekt/VISUALS/visual-14/remotion.md",
+   "viewerChange": "Vier konkrete Dinge kommen nacheinander herein und stehen am Ende aufgereiht: das kaputte Gerät, die laufenden Kosten, das für die Arbeit Nötige und das sinkende Einkommen.",
+   "animationIntent": "Die eigene Höhe ergibt sich aus konkreten Dingen, nicht aus einer Faustregel.",
+   "mechanicId": "four-factors-take-the-table",
+   "visualTechniqueId": "objects-enter-and-line-up",
+   "techniqueDescription": "Vier reale Gegenstände fahren nacheinander von unten in die Szene, setzen sich auf eine gemeinsame Standlinie und werden erst danach beschriftet.",
+   "compositionFamilyId": "physical-collection",
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "motionSignature": {
+    "camera": "static frontal along a standing line",
+    "layout": "four objects entering left to right",
+    "transformation": "objects drop in and settle into a shared row"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "object entry drop",
+    "label reveal after settling"
+   ],
+   "visualBeats": [
+    "leere Standlinie",
+    "kaputtes Gerät steht",
+    "Rechnung kommt dazu",
+    "Arbeitsweg kommt dazu",
+    "sinkendes Einkommen schließt die Reihe"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-14/animation.tsx",
+   "animationExport": "YouTubeVisual14Animation",
+   "headline": "Vier Fragen an dich",
+   "icon": "list",
+   "tone": "default",
+   "sentenceSpan": {
+    "from": 38,
+    "to": 41
+   }
+  },
+  {
+   "id": "visual-15",
+   "type": "image",
+   "chapter": "Investieren",
+   "scriptBeat": "ETF kann langfristig für Vermögensaufbau sinnvoll sein, hat aber eine andere Aufgabe.",
+   "googleFlowFileName": "YouTube Bild 15 - Langfristiges Investment.png",
+   "expectedVisual": "Ruhige langfristige Anlagewelt mit mehrjährigem Horizont, räumlich klar getrennt von kurzfristiger Reserve.",
+   "objectLabels": [
+    "Langfristig",
+    "Investment"
+   ],
+   "planFile": "04-projekt/VISUALS/visual-15/bildprompt.txt",
+   "headline": "ETF braucht Zeit",
+   "icon": "hourglass",
+   "tone": "default",
+   "sentenceSpan": {
+    "from": 42,
+    "to": 45
+   }
+  },
+  {
+   "id": "visual-16",
+   "type": "image",
+   "chapter": "Investieren",
+   "scriptBeat": "Auto kaputt, während das Depot beispielhaft 25 Prozent im Minus steht.",
+   "googleFlowFileName": "YouTube Bild 16 - Auto und Depot.png",
+   "expectedVisual": "Dringende Autoreparatur in realer Werkstattsituation mit Raum für eine eingeblendete hypothetische Depotkurve.",
+   "objectLabels": [
+    "Reparatur"
+   ],
+   "planFile": "04-projekt/VISUALS/visual-16/bildprompt.txt",
+   "headline": "Der falsche Zeitpunkt",
+   "icon": "chart-bar",
+   "tone": "warning",
+   "sentenceSpan": {
+    "from": 46,
+    "to": 48
+   }
+  },
+  {
+   "id": "visual-17",
+   "type": "animation",
+   "chapter": "Investieren",
+   "scriptBeat": "Notgroschen und Investment haben unterschiedliche Zeithorizonte und Aufgaben.",
+   "planFile": "04-projekt/VISUALS/visual-17/remotion.md",
+   "viewerChange": "Ein Geldbetrag teilt sich in einen kurzen stabilen Reserveweg und einen langen schwankenden Investmentweg.",
+   "animationIntent": "Die Rollen werden als zwei getrennte Zeithorizonte verständlich.",
+   "mechanicId": "dual-horizon-separation",
+   "visualTechniqueId": "horizon-lane-split",
+   "techniqueDescription": "Ein gemeinsamer Geldpunkt teilt sich in zwei räumliche Zeitachsen: kurze Liquiditätslane und lange Investmentlane mit kontrollierter Schwankung.",
+   "compositionFamilyId": "timeline",
+   "toolStack": [
+    "Remotion",
+    "SVG paths",
+    "interpolate"
+   ],
+   "motionSignature": {
+    "camera": "zoom out to reveal unequal time horizons",
+    "layout": "short upper lane and long lower lane",
+    "transformation": "single capital source splits into two time paths"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "capital split",
+    "timeline extension"
+   ],
+   "visualBeats": [
+    "ein Geldtopf",
+    "kurzfristige Reserve",
+    "langfristiges Investment",
+    "unterschiedliche Aufgaben"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-17/animation.tsx",
+   "animationExport": "YouTubeVisual17Animation",
+   "headline": "Zwei verschiedene Aufgaben",
+   "icon": "repeat",
+   "tone": "default",
+   "sentenceSpan": {
+    "from": 49,
+    "to": 51
+   }
+  },
+  {
+   "id": "visual-18",
+   "type": "image",
+   "chapter": "Aufbewahrung",
+   "scriptBeat": "Separates Tagesgeld trennt die Reserve vom Giro und bleibt kurzfristig erreichbar.",
+   "googleFlowFileName": "YouTube Bild 18 - Giro zu Tagesgeld.png",
+   "expectedVisual": "Glaubwürdige Banksituation mit klar getrennten Kontoobjekten für Giro und Tagesgeld.",
+   "objectLabels": [
+    "Girokonto",
+    "Tagesgeld",
+    "Notgroschen"
+   ],
+   "planFile": "04-projekt/VISUALS/visual-18/bildprompt.txt",
+   "headline": "Tagesgeld statt Girokonto",
+   "icon": "bank",
+   "tone": "positive",
+   "sentenceSpan": {
+    "from": 52,
+    "to": 53
+   }
+  },
+  {
+   "id": "visual-19",
+   "type": "data",
+   "chapter": "Aufbewahrung",
+   "scriptBeat": "Gesetzliche Einlagensicherung grundsätzlich bis 100.000 Euro pro Person und Bank.",
+   "planFile": "04-projekt/VISUALS/visual-19/remotion.md",
+   "dataNotesFile": "04-projekt/VISUALS/visual-19/data-notes.md",
+   "viewerChange": "Ein Guthaben wächst; ein Schutzrahmen begleitet es bis zur markierten 100.000-Euro-Grenze und stoppt dort.",
+   "animationIntent": "Die gesetzliche Standardgrenze wird präzise und ohne Übertreibung visualisiert.",
+   "mechanicId": "deposit-protection-threshold",
+   "visualTechniqueId": "protected-cap-envelope",
+   "techniqueDescription": "Ein vertikaler Guthabenmeter steigt innerhalb einer grünen Schutzhülle; bei 100.000 Euro endet die Hülle sichtbar und die Grenze wird beschriftet.",
+   "compositionFamilyId": "data-viz",
+   "toolStack": [
+    "Remotion",
+    "SVG meter",
+    "counter interpolation"
+   ],
+   "motionSignature": {
+    "camera": "gentle elevation following meter",
+    "layout": "single vertical deposit meter inside protection shell",
+    "transformation": "deposit and protection rise together until fixed cap"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "meter growth",
+    "protection boundary reveal"
+   ],
+   "visualBeats": [
+    "Guthaben wächst",
+    "Schutzrahmen folgt",
+    "100.000 € Grenze",
+    "Hinweis Anbieter prüfen"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-19/animation.tsx",
+   "animationExport": "YouTubeVisual19Animation",
+   "headline": "Einlagensicherung",
+   "icon": "lock",
+   "tone": "positive",
+   "sentenceSpan": {
+    "from": 54,
+    "to": 55
+   }
+  },
+  {
+   "id": "visual-20",
+   "type": "image",
+   "chapter": "Aufbewahrung",
+   "scriptBeat": "Auf dem Giro vermischt sich Reserve mit Konsum; getrennt bleibt der Zweck sichtbar.",
+   "googleFlowFileName": "YouTube Bild 20 - Reserve trennen.png",
+   "expectedVisual": "Alltagsbudget und Notgroschen als räumlich getrennte reale Geldbereiche; auf der Giroseite drohen freiwillige Käufe die Reserve anzuzapfen.",
+   "objectLabels": [
+    "Monatsbudget",
+    "Notgroschen"
+   ],
+   "planFile": "04-projekt/VISUALS/visual-20/bildprompt.txt",
+   "headline": "Getrennt halten",
+   "icon": "wallet",
+   "tone": "positive",
+   "sentenceSpan": {
+    "from": 56,
+    "to": 60
+   }
+  },
+  {
+   "id": "visual-21",
+   "type": "image",
+   "chapter": "Aufbau",
+   "scriptBeat": "Nicht mit riesigem Ziel starten, sondern eine erste Sicherheitsstufe aufbauen.",
+   "planFile": "04-projekt/VISUALS/visual-21/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 21 - Erste Stufe statt Endziel.png",
+   "headline": "Die erste Stufe",
+   "icon": "target",
+   "tone": "positive",
+   "sentenceSpan": {
+    "from": 61,
+    "to": 64
+   },
+   "expectedVisual": "Ein unerreichbar hoher Rechnungsturm verliert sich hinten im Schwarz, während vorn eine einzelne Rechnung mit grüner Kante zum Greifen nah liegt.",
+   "objectLabels": [
+    "Erste Stufe"
+   ]
+  },
+  {
+   "id": "visual-22",
+   "type": "animation",
+   "chapter": "Aufbau",
+   "scriptBeat": "Kurz nach Gehaltseingang geht automatisch ein fester Betrag auf das Rücklagenkonto.",
+   "planFile": "04-projekt/VISUALS/visual-22/remotion.md",
+   "viewerChange": "Das Gehalt landet auf dem Girokonto, ein fester Betrag wandert sofort sichtbar auf das Rücklagenkonto, das daraufhin auf geschützt umschlägt.",
+   "animationIntent": "Der Aufbau passiert automatisch, bevor der Alltag am Geld zehrt.",
+   "mechanicId": "standing-order-fixed-split",
+   "visualTechniqueId": "payday-amount-walks-over",
+   "techniqueDescription": "Zwei reale Konten stehen nebeneinander; nach dem Gehaltseingang löst sich ein beschrifteter Geldbetrag und legt den Weg zum zweiten Konto sichtbar zurück.",
+   "compositionFamilyId": "physical-process",
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "motionSignature": {
+    "camera": "static frontal on both accounts",
+    "layout": "source account left, target account right, amount travelling between",
+    "transformation": "fixed amount physically relocates and flips the target to protected"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "payday balance jump",
+    "amount travel along an arc",
+    "target account state change"
+   ],
+   "visualBeats": [
+    "Gehalt trifft ein",
+    "fester Betrag löst sich",
+    "Betrag wandert hinüber",
+    "Rücklagenkonto steht geschützt"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-22/animation.tsx",
+   "animationExport": "YouTubeVisual22Animation",
+   "headline": "Automatisch statt vorgenommen",
+   "icon": "repeat",
+   "tone": "positive",
+   "sentenceSpan": {
+    "from": 65,
+    "to": 66
+   }
+  },
+  {
+   "id": "visual-23",
+   "type": "data",
+   "chapter": "Aufbau",
+   "scriptBeat": "50, 100 oder 200 Euro sind Beispielraten; die passende Rate hängt vom Budget ab.",
+   "planFile": "04-projekt/VISUALS/visual-23/remotion.md",
+   "dataNotesFile": "04-projekt/VISUALS/visual-23/data-notes.md",
+   "viewerChange": "Drei gleichwertige Sparraten bewegen sich auf dasselbe Beispielziel zu, erreichen es aber unterschiedlich schnell.",
+   "animationIntent": "Es wird keine Rate als richtig verkauft; nur der Einfluss der Höhe auf die Aufbaugeschwindigkeit wird gezeigt.",
+   "mechanicId": "savings-rate-timefield",
+   "visualTechniqueId": "rate-speed-comparison",
+   "techniqueDescription": "Drei horizontale Lanes mit 50, 100 und 200 Euro senden periodische Einzahlungsimpulse zum selben Ziel; höhere Rate verkürzt ausschließlich die Zeitachse.",
+   "compositionFamilyId": "data-viz",
+   "toolStack": [
+    "Remotion",
+    "SVG lanes",
+    "interpolate"
+   ],
+   "motionSignature": {
+    "camera": "horizontal sweep across three rate lanes",
+    "layout": "parallel savings lanes converging on same target",
+    "transformation": "deposit pulses advance at rate-dependent speed"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "deposit pulse movement",
+    "time-to-target progression"
+   ],
+   "visualBeats": [
+    "50 €",
+    "100 €",
+    "200 €",
+    "unterschiedliche Geschwindigkeit gleiche Funktion"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-23/animation.tsx",
+   "animationExport": "YouTubeVisual23Animation",
+   "headline": "Welche Rate passt?",
+   "icon": "coins",
+   "tone": "money",
+   "sentenceSpan": {
+    "from": 67,
+    "to": 67
+   }
+  },
+  {
+   "id": "visual-24",
+   "type": "animation",
+   "chapter": "Aufbau",
+   "scriptBeat": "Regelmäßigkeit lässt die Reserve wachsen, ohne jeden Monat neu zu entscheiden.",
+   "planFile": "04-projekt/VISUALS/visual-24/remotion.md",
+   "viewerChange": "Drei Kalenderblätter kippen nacheinander weg und schicken jeweils denselben Betrag in den Reservebehälter, der stufenweise steigt.",
+   "animationIntent": "Die Reserve wächst durch den Takt, nicht durch eine monatlich neue Entscheidung.",
+   "mechanicId": "monthly-page-feeds-tank",
+   "visualTechniqueId": "calendar-page-tear-into-reserve",
+   "techniqueDescription": "Jedes abgelaufene Kalenderblatt kippt nach vorn weg und gibt einen gleich großen Geldbetrag frei, der sichtbar in den Reservebehälter wandert und dessen Füllstand um eine Stufe hebt.",
+   "compositionFamilyId": "physical-cycle",
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "motionSignature": {
+    "camera": "static frontal across calendar and tank",
+    "layout": "three calendar pages left, reserve tank right",
+    "transformation": "page tears away and its amount physically relocates into the tank"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "calendar page tear",
+    "amount carried to the tank",
+    "tank fill stepping up"
+   ],
+   "visualBeats": [
+    "drei volle Monate, leerer Behälter",
+    "Monat 1 liefert",
+    "Monat 2 liefert",
+    "Monat 3 liefert",
+    "Behälter gefüllt ohne neue Entscheidung"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-24/animation.tsx",
+   "animationExport": "YouTubeVisual24Animation",
+   "headline": "Routine schlägt Motivation",
+   "icon": "calendar",
+   "tone": "positive",
+   "sentenceSpan": {
+    "from": 68,
+    "to": 69
+   }
+  },
+  {
+   "id": "visual-25",
+   "type": "image",
+   "chapter": "Nutzung",
+   "scriptBeat": "Wenn du den Notgroschen für einen echten Notfall benutzt, war das kein Fehler.",
+   "googleFlowFileName": "YouTube Bild 25 - Notfall bezahlen.png",
+   "expectedVisual": "Echte notwendige Reparatur wird ruhig aus klar markierter Reserve bezahlt; kein Schuld- oder Versagensbild.",
+   "objectLabels": [
+    "Notgroschen",
+    "Reparatur bezahlt"
+   ],
+   "planFile": "04-projekt/VISUALS/visual-25/bildprompt.txt",
+   "headline": "Benutzen ist richtig",
+   "icon": "check",
+   "tone": "positive",
+   "sentenceSpan": {
+    "from": 70,
+    "to": 72
+   }
+  },
+  {
+   "id": "visual-26",
+   "type": "animation",
+   "chapter": "Nutzung",
+   "scriptBeat": "Nach der Ausgabe sinkt die Reserve und wird anschließend wieder aufgebaut.",
+   "planFile": "04-projekt/VISUALS/visual-26/remotion.md",
+   "viewerChange": "Ein voller Puffer bezahlt eine Reparatur, fällt kontrolliert ab und wächst danach durch neue automatische Einzahlungen wieder.",
+   "animationIntent": "Benutzung und Wiederaufbau werden als normaler Lebenszyklus des Notgroschens gezeigt.",
+   "mechanicId": "emergency-deplete-rebuild",
+   "visualTechniqueId": "reserve-breathing-cycle",
+   "techniqueDescription": "Ein großer Reservetank verliert bei der Reparatur einen klar definierten Teil und füllt sich anschließend durch mehrere grüne Einzahlungsimpulse wieder auf.",
+   "compositionFamilyId": "material-transformation",
+   "toolStack": [
+    "Remotion",
+    "SVG fill mask",
+    "spring"
+   ],
+   "motionSignature": {
+    "camera": "close focus on reserve vessel",
+    "layout": "reserve center with repair event sidecar",
+    "transformation": "controlled depletion followed by stepped refill"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "reserve level change",
+    "rebuild pulse sequence"
+   ],
+   "visualBeats": [
+    "voller Puffer",
+    "Notfall bezahlt",
+    "Reserve niedriger",
+    "Wiederaufbau"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-26/animation.tsx",
+   "animationExport": "YouTubeVisual26Animation",
+   "headline": "Nutzen und auffüllen",
+   "icon": "repeat",
+   "tone": "positive",
+   "sentenceSpan": {
+    "from": 73,
+    "to": 75
+   }
+  },
+  {
+   "id": "visual-27",
+   "type": "image",
+   "chapter": "Ziel",
+   "scriptBeat": "Genug Reserve heißt: realistische Notfälle führen nicht sofort zu Schulden oder Depotverkauf.",
+   "planFile": "04-projekt/VISUALS/visual-27/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 27 - Notfall ohne Schulden.png",
+   "headline": "Groß genug",
+   "icon": "shield",
+   "tone": "positive",
+   "sentenceSpan": {
+    "from": 76,
+    "to": 80
+   },
+   "expectedVisual": "Die bezahlte Reparaturrechnung mit grünem Stempel lehnt am dünner gewordenen Reserveumschlag. Daneben liegen Kreditvertrag und Wertpapierverkauf verstaubt und ungenutzt.",
+   "objectLabels": [
+    "Bezahlt",
+    "Kredit",
+    "Depotverkauf"
+   ]
+  },
+  {
+   "id": "visual-28",
+   "type": "animation",
+   "chapter": "Fazit",
+   "scriptBeat": "Erst funktioniert die Reserve, danach bekommt langfristiges Geld die Aufgabe Vermögen aufzubauen.",
+   "planFile": "04-projekt/VISUALS/visual-28/remotion.md",
+   "viewerChange": "Die Sicherheitszone baut sich vollständig auf und schließt; erst danach öffnet sich dahinter ein langer eigenständiger Investmentpfad.",
+   "animationIntent": "Die Reihenfolge Sicherheit vor langfristigem Investieren bildet den visuellen Payoff des Videos.",
+   "mechanicId": "security-gate-to-investment",
+   "visualTechniqueId": "gate-then-growth-path",
+   "techniqueDescription": "Eine leere Sicherheitszone füllt sich und verriegelt sichtbar; die Kamera fährt anschließend durch ein separates Tor auf einen langen Investmenthorizont.",
+   "compositionFamilyId": "camera-journey",
+   "toolStack": [
+    "Remotion",
+    "CSS perspective",
+    "SVG path"
+   ],
+   "motionSignature": {
+    "camera": "forward pass through completed safety gate",
+    "layout": "near safety chamber opening into long investment horizon",
+    "transformation": "reserve completes and unlocks separate growth path"
+   },
+   "repeatTechniqueReason": "",
+   "motionChannels": [
+    "security completion",
+    "investment path reveal"
+   ],
+   "visualBeats": [
+    "Reserve unvollständig",
+    "Reserve funktioniert",
+    "Sicherheitszone stabil",
+    "Investmentpfad öffnet"
+   ],
+   "animationSourceFile": "04-projekt/VISUALS/visual-28/animation.tsx",
+   "animationExport": "YouTubeVisual28Animation",
+   "headline": "Erst Reserve, dann Aufbau",
+   "icon": "trending",
+   "tone": "positive",
+   "sentenceSpan": {
+    "from": 81,
+    "to": 84
+   }
+  }
+ ]
 }

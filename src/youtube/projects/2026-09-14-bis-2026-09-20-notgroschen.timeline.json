@@ -1,0 +1,455 @@
+{
+  "fps": 30,
+  "durationInFrames": 11646,
+  "scenes": [
+    {
+      "id": "visual-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationInFrames": 223,
+      "startSeconds": 0,
+      "endSeconds": 7.44,
+      "sentenceSpan": {
+        "from": 1,
+        "to": 2
+      },
+      "headline": "Waschmaschine kaputt",
+      "icon": "warning",
+      "tone": "warning",
+      "imageFileName": "YouTube Bild 01 - Waschmaschine kaputt.png"
+    },
+    {
+      "id": "visual-02",
+      "type": "image",
+      "startFrame": 223,
+      "durationInFrames": 206,
+      "startSeconds": 7.44,
+      "endSeconds": 14.32,
+      "sentenceSpan": {
+        "from": 3,
+        "to": 4
+      },
+      "headline": "Und es hört nicht auf",
+      "icon": "receipt",
+      "tone": "warning",
+      "imageFileName": "YouTube Bild 02 - Bremsen und Nachzahlung.png"
+    },
+    {
+      "id": "visual-03",
+      "type": "image",
+      "startFrame": 429,
+      "durationInFrames": 399,
+      "startSeconds": 14.32,
+      "endSeconds": 27.62,
+      "sentenceSpan": {
+        "from": 5,
+        "to": 7
+      },
+      "headline": "Die teuren Auswege",
+      "icon": "bank",
+      "tone": "warning",
+      "imageFileName": "YouTube Bild 03 - Drei schlechte Auswege.png"
+    },
+    {
+      "id": "visual-04",
+      "type": "animation",
+      "startFrame": 828,
+      "durationInFrames": 410,
+      "startSeconds": 27.62,
+      "endSeconds": 41.3,
+      "sentenceSpan": {
+        "from": 8,
+        "to": 12
+      },
+      "headline": "Wie viel ist genug?",
+      "icon": "search",
+      "tone": "default",
+      "animationId": "visual-04"
+    },
+    {
+      "id": "visual-05",
+      "type": "data",
+      "startFrame": 1238,
+      "durationInFrames": 439,
+      "startSeconds": 41.3,
+      "endSeconds": 55.92,
+      "sentenceSpan": {
+        "from": 13,
+        "to": 15
+      },
+      "headline": "Die Daumenregel",
+      "icon": "list",
+      "tone": "neutral",
+      "animationId": "visual-05"
+    },
+    {
+      "id": "visual-06",
+      "type": "image",
+      "startFrame": 1677,
+      "durationInFrames": 170,
+      "startSeconds": 55.92,
+      "endSeconds": 61.58,
+      "sentenceSpan": {
+        "from": 16,
+        "to": 16
+      },
+      "headline": "Kein Geld für Konsum",
+      "icon": "cross",
+      "tone": "neutral",
+      "imageFileName": "YouTube Bild 06 - Kein Konsum.png"
+    },
+    {
+      "id": "visual-07",
+      "type": "image",
+      "startFrame": 1847,
+      "durationInFrames": 477,
+      "startSeconds": 61.58,
+      "endSeconds": 77.48,
+      "sentenceSpan": {
+        "from": 17,
+        "to": 21
+      },
+      "headline": "Was ein echter Notfall ist",
+      "icon": "warning",
+      "tone": "warning",
+      "imageFileName": "YouTube Bild 07 - Echte Notfälle.png"
+    },
+    {
+      "id": "visual-08",
+      "type": "image",
+      "startFrame": 2324,
+      "durationInFrames": 230,
+      "startSeconds": 77.48,
+      "endSeconds": 85.16,
+      "sentenceSpan": {
+        "from": 22,
+        "to": 23
+      },
+      "headline": "Verfügbar statt rentabel",
+      "icon": "clock",
+      "tone": "default",
+      "imageFileName": "YouTube Bild 08 - Verfuegbar statt Rendite.png"
+    },
+    {
+      "id": "visual-09",
+      "type": "animation",
+      "startFrame": 2554,
+      "durationInFrames": 823,
+      "startSeconds": 85.16,
+      "endSeconds": 112.58,
+      "sentenceSpan": {
+        "from": 24,
+        "to": 28
+      },
+      "headline": "Deine notwendigen Kosten",
+      "icon": "receipt",
+      "tone": "money",
+      "animationId": "visual-09"
+    },
+    {
+      "id": "visual-10",
+      "type": "data",
+      "startFrame": 3377,
+      "durationInFrames": 481,
+      "startSeconds": 112.58,
+      "endSeconds": 128.6,
+      "sentenceSpan": {
+        "from": 29,
+        "to": 31
+      },
+      "headline": "Ein, zwei oder drei Monate",
+      "icon": "calendar",
+      "tone": "money",
+      "animationId": "visual-10"
+    },
+    {
+      "id": "visual-11",
+      "type": "image",
+      "startFrame": 3858,
+      "durationInFrames": 566,
+      "startSeconds": 128.6,
+      "endSeconds": 147.48,
+      "sentenceSpan": {
+        "from": 32,
+        "to": 34
+      },
+      "headline": "Wenige Verpflichtungen",
+      "icon": "check",
+      "tone": "positive",
+      "imageFileName": "YouTube Bild 11 - Person A.png"
+    },
+    {
+      "id": "visual-12",
+      "type": "image",
+      "startFrame": 4424,
+      "durationInFrames": 401,
+      "startSeconds": 147.48,
+      "endSeconds": 160.86,
+      "sentenceSpan": {
+        "from": 35,
+        "to": 36
+      },
+      "headline": "Mehr Verpflichtungen",
+      "icon": "wallet",
+      "tone": "warning",
+      "imageFileName": "YouTube Bild 12 - Person B.png"
+    },
+    {
+      "id": "visual-13",
+      "type": "animation",
+      "startFrame": 4825,
+      "durationInFrames": 115,
+      "startSeconds": 160.86,
+      "endSeconds": 164.7,
+      "sentenceSpan": {
+        "from": 37,
+        "to": 37
+      },
+      "headline": "Gleiches Gehalt, andere Reserve",
+      "icon": "percent",
+      "tone": "default",
+      "animationId": "visual-13"
+    },
+    {
+      "id": "visual-14",
+      "type": "animation",
+      "startFrame": 4940,
+      "durationInFrames": 498,
+      "startSeconds": 164.7,
+      "endSeconds": 181.3,
+      "sentenceSpan": {
+        "from": 38,
+        "to": 41
+      },
+      "headline": "Vier Fragen an dich",
+      "icon": "list",
+      "tone": "default",
+      "animationId": "visual-14"
+    },
+    {
+      "id": "visual-15",
+      "type": "image",
+      "startFrame": 5438,
+      "durationInFrames": 695,
+      "startSeconds": 181.3,
+      "endSeconds": 204.46,
+      "sentenceSpan": {
+        "from": 42,
+        "to": 45
+      },
+      "headline": "ETF braucht Zeit",
+      "icon": "hourglass",
+      "tone": "default",
+      "imageFileName": "YouTube Bild 15 - Langfristiges Investment.png"
+    },
+    {
+      "id": "visual-16",
+      "type": "image",
+      "startFrame": 6133,
+      "durationInFrames": 513,
+      "startSeconds": 204.46,
+      "endSeconds": 221.56,
+      "sentenceSpan": {
+        "from": 46,
+        "to": 48
+      },
+      "headline": "Der falsche Zeitpunkt",
+      "icon": "chart-bar",
+      "tone": "warning",
+      "imageFileName": "YouTube Bild 16 - Auto und Depot.png"
+    },
+    {
+      "id": "visual-17",
+      "type": "animation",
+      "startFrame": 6646,
+      "durationInFrames": 496,
+      "startSeconds": 221.56,
+      "endSeconds": 238.1,
+      "sentenceSpan": {
+        "from": 49,
+        "to": 51
+      },
+      "headline": "Zwei verschiedene Aufgaben",
+      "icon": "repeat",
+      "tone": "default",
+      "animationId": "visual-17"
+    },
+    {
+      "id": "visual-18",
+      "type": "image",
+      "startFrame": 7142,
+      "durationInFrames": 278,
+      "startSeconds": 238.1,
+      "endSeconds": 247.36,
+      "sentenceSpan": {
+        "from": 52,
+        "to": 53
+      },
+      "headline": "Tagesgeld statt Girokonto",
+      "icon": "bank",
+      "tone": "positive",
+      "imageFileName": "YouTube Bild 18 - Giro zu Tagesgeld.png"
+    },
+    {
+      "id": "visual-19",
+      "type": "data",
+      "startFrame": 7420,
+      "durationInFrames": 364,
+      "startSeconds": 247.36,
+      "endSeconds": 259.5,
+      "sentenceSpan": {
+        "from": 54,
+        "to": 55
+      },
+      "headline": "Einlagensicherung",
+      "icon": "lock",
+      "tone": "positive",
+      "animationId": "visual-19"
+    },
+    {
+      "id": "visual-20",
+      "type": "image",
+      "startFrame": 7784,
+      "durationInFrames": 649,
+      "startSeconds": 259.5,
+      "endSeconds": 281.13,
+      "sentenceSpan": {
+        "from": 56,
+        "to": 60
+      },
+      "headline": "Getrennt halten",
+      "icon": "wallet",
+      "tone": "positive",
+      "imageFileName": "YouTube Bild 20 - Reserve trennen.png"
+    },
+    {
+      "id": "visual-21",
+      "type": "image",
+      "startFrame": 8433,
+      "durationInFrames": 499,
+      "startSeconds": 281.13,
+      "endSeconds": 297.76,
+      "sentenceSpan": {
+        "from": 61,
+        "to": 64
+      },
+      "headline": "Die erste Stufe",
+      "icon": "target",
+      "tone": "positive",
+      "imageFileName": "YouTube Bild 21 - Erste Stufe statt Endziel.png"
+    },
+    {
+      "id": "visual-22",
+      "type": "animation",
+      "startFrame": 8932,
+      "durationInFrames": 232,
+      "startSeconds": 297.76,
+      "endSeconds": 305.48,
+      "sentenceSpan": {
+        "from": 65,
+        "to": 66
+      },
+      "headline": "Automatisch statt vorgenommen",
+      "icon": "repeat",
+      "tone": "positive",
+      "animationId": "visual-22"
+    },
+    {
+      "id": "visual-23",
+      "type": "data",
+      "startFrame": 9164,
+      "durationInFrames": 196,
+      "startSeconds": 305.48,
+      "endSeconds": 312,
+      "sentenceSpan": {
+        "from": 67,
+        "to": 67
+      },
+      "headline": "Welche Rate passt?",
+      "icon": "coins",
+      "tone": "money",
+      "animationId": "visual-23"
+    },
+    {
+      "id": "visual-24",
+      "type": "animation",
+      "startFrame": 9360,
+      "durationInFrames": 296,
+      "startSeconds": 312,
+      "endSeconds": 321.88,
+      "sentenceSpan": {
+        "from": 68,
+        "to": 69
+      },
+      "headline": "Routine schlägt Motivation",
+      "icon": "calendar",
+      "tone": "positive",
+      "animationId": "visual-24"
+    },
+    {
+      "id": "visual-25",
+      "type": "image",
+      "startFrame": 9656,
+      "durationInFrames": 189,
+      "startSeconds": 321.88,
+      "endSeconds": 328.18,
+      "sentenceSpan": {
+        "from": 70,
+        "to": 72
+      },
+      "headline": "Benutzen ist richtig",
+      "icon": "check",
+      "tone": "positive",
+      "imageFileName": "YouTube Bild 25 - Notfall bezahlen.png"
+    },
+    {
+      "id": "visual-26",
+      "type": "animation",
+      "startFrame": 9845,
+      "durationInFrames": 308,
+      "startSeconds": 328.18,
+      "endSeconds": 338.46,
+      "sentenceSpan": {
+        "from": 73,
+        "to": 75
+      },
+      "headline": "Nutzen und auffüllen",
+      "icon": "repeat",
+      "tone": "positive",
+      "animationId": "visual-26"
+    },
+    {
+      "id": "visual-27",
+      "type": "image",
+      "startFrame": 10153,
+      "durationInFrames": 742,
+      "startSeconds": 338.46,
+      "endSeconds": 363.2,
+      "sentenceSpan": {
+        "from": 76,
+        "to": 80
+      },
+      "headline": "Groß genug",
+      "icon": "shield",
+      "tone": "positive",
+      "imageFileName": "YouTube Bild 27 - Notfall ohne Schulden.png"
+    },
+    {
+      "id": "visual-28",
+      "type": "animation",
+      "startFrame": 10895,
+      "durationInFrames": 751,
+      "startSeconds": 363.2,
+      "endSeconds": 388.224,
+      "sentenceSpan": {
+        "from": 81,
+        "to": 84
+      },
+      "headline": "Erst Reserve, dann Aufbau",
+      "icon": "trending",
+      "tone": "positive",
+      "animationId": "visual-28"
+    }
+  ],
+  "notes": []
+}
