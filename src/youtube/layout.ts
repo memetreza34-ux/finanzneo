@@ -12,6 +12,16 @@
 export const YOUTUBE_FORMAT = {width: 1920, height: 1080, fps: 30} as const;
 
 /**
+ * Tonziel für den fertigen Longform-Upload.
+ *
+ * YouTube normalisiert lautere Uploads nach unten, hebt leisere aber nicht an.
+ * Ein Video, das deutlich unter dem Ziel liegt, klingt neben allem anderen im
+ * Feed dünn. Die Renderkette mastert vor der QA auf diese Werte, die QA misst
+ * danach nach — ein bloß vorhandener Audiostream zählt nicht als bestanden.
+ */
+export const YOUTUBE_AUDIO = {lufs: -16, truePeak: -1} as const;
+
+/**
  * Das Flow-Bild ist 16:9 wie der Frame. Es wird deshalb nicht formatfüllend
  * gesetzt, sondern auf exakt drei Viertel skaliert: 1440 × 810, zentriert bei
  * x = 240, y = 180. Darüber bleibt eine ruhige schwarze Bahn für die

@@ -169,12 +169,61 @@ const checkSentenceCoverage = (root, visuals, timing, blockers) => {
 
   const scriptPath = resolve(root, SCRIPT_FILE);
   if (!existsSync(scriptPath)) return;
-  const scriptSentences = readText(scriptPath)
+  const scriptList = readText(scriptPath)
     .split(/(?<=[.!?])\s+/)
     .map((entry) => entry.trim())
-    .filter(Boolean).length;
+    .filter(Boolean);
+  const scriptSentences = scriptList.length;
   if (scriptSentences > 0 && Math.abs(scriptSentences - sentences) > 2) {
     blockers.push(`${SCRIPT_FILE} hat ${scriptSentences} Sätze, ${WORD_TIMINGS} ${sentences}. Die Wortzeiten stammen offenbar nicht aus diesem Skript.`);
+    return;
+  }
+
+  // Gleiche Anzahl heißt nicht gleiche Grenzen.
+  //
+  // Eine Transkription setzt ihre Satzzeichen selbst. Beim Notgroschen-Video kam
+  // sie zufällig ebenfalls auf 84 Sätze, hatte aber vier Skriptsätze zu einem
+  // zusammengezogen und dafür an anderer Stelle geteilt. Die Zählung war grün,
+  // die Szenen zeigten trotzdem auf die falschen Stellen. Deshalb wird hier
+  // verglichen, was in den Sätzen steht, nicht nur wie viele es sind.
+  const normalise = (text) => text.toLowerCase().replace(/[^a-zäöüß0-9 ]/g, ' ').split(/\s+/).filter(Boolean);
+  const drifted = [];
+  for (let index = 0; index < Math.min(scriptSentences, sentences); index++) {
+    const expected = normalise(scriptList[index]);
+    const actual = normalise(String(timing.sentences[index]?.text ?? ''));
+    if (expected.length === 0) continue;
+    const shared = new Set(actual);
+    const hits = expected.filter((word) => shared.has(word)).length;
+    if (hits / expected.length < 0.6) drifted.push(index + 1);
+  }
+  if (drifted.length > 0) {
+    const shown = drifted.slice(0, 5).join(', ');
+    const rest = drifted.length > 5 ? ` und ${drifted.length - 5} weitere` : '';
+    blockers.push(
+      `${WORD_TIMINGS}: Satz ${shown}${rest} deckt sich nicht mit ${SCRIPT_FILE}. `
+      + 'Die Satzgrenzen der Wortzeiten sitzen anders als im Skript, damit greift jeder Szenenschnitt daneben. '
+      + 'Die Wortzeiten müssen an den Sätzen des Skripts ausgerichtet werden.',
+    );
+  }
+
+  // Lücken zwischen den Sätzen fallen aus der Timeline heraus.
+  //
+  // Szenen werden an Satzgrenzen geschnitten und ohne Zwischenraum aneinander
+  // gehängt. Endet ein Satz am letzten gesprochenen Wort statt am Anfang des
+  // nächsten, fehlt jede Sprechpause im Bild — im Notgroschen-Video summierte
+  // sich das auf zwanzig Sekunden, um die das Video kürzer war als der Ton.
+  let gap = 0;
+  for (let index = 0; index + 1 < sentences; index++) {
+    const current = Number(timing.sentences[index]?.end);
+    const next = Number(timing.sentences[index + 1]?.start);
+    if (Number.isFinite(current) && Number.isFinite(next) && next > current) gap += next - current;
+  }
+  if (gap > 1.5) {
+    blockers.push(
+      `${WORD_TIMINGS}: zwischen den Sätzen klaffen zusammen ${gap.toFixed(1)} s. `
+      + 'Die Timeline hängt Szenen ohne Zwischenraum aneinander, also fehlt diese Zeit im Bild. '
+      + 'Jeder Satz muss bis zum Anfang des nächsten reichen.',
+    );
   }
 };
 

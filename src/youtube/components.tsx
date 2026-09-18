@@ -52,9 +52,21 @@ export const YouTubeHeader: React.FC<{
  * Weil die Bildwelt reines Schwarz als Hintergrund vorschreibt, gehen die
  * Bildkanten in die Videofläche über — es entsteht kein sichtbarer Kasten.
  */
+/**
+ * Sichtbarkeit, mit der ein Bild einsetzt.
+ *
+ * Nicht 0: die Szenen stehen in einer Series direkt aneinander, es gibt also
+ * keine vorige Szene, durch die hindurchgeblendet würde. Ein Einblenden aus 0
+ * hieße, dass der erste Frame jeder Bildszene schwarz ist — beim Wechsel von
+ * Bild zu Bild blitzt dann Schwarz auf, genau das, was `fadeToBlackForbidden`
+ * ausschließt. Gemessen an einem Render traf das 10 von 27 Schnitten.
+ * Das Bild setzt deshalb sichtbar ein und zieht nur noch leicht an.
+ */
+const IMAGE_ENTER_FROM = 0.82;
+
 export const YouTubeImage: React.FC<{src: string; at?: number}> = ({src, at = 0}) => {
   const frame = useCurrentFrame();
-  const enter = interpolate(frame, [at, at + T.imageEnterFrames], [0, 1], {
+  const enter = interpolate(frame, [at, at + T.imageEnterFrames], [IMAGE_ENTER_FROM, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });

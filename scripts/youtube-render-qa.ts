@@ -7,7 +7,7 @@
 
 import {spawnSync} from 'node:child_process';
 import {loadYouTubeProject} from './lib/youtube-project';
-import {YOUTUBE_FORMAT} from '../src/youtube/layout';
+import {YOUTUBE_AUDIO, YOUTUBE_FORMAT} from '../src/youtube/layout';
 
 const [target, videoPath] = process.argv.slice(2);
 if (!target || !videoPath) {
@@ -52,6 +52,28 @@ if (Math.abs(fps - YOUTUBE_FORMAT.fps) > 0.2) {
 }
 if (audioStreams.length === 0) failures.push('Das Video hat keine Tonspur.');
 
+/**
+ * Lautheit wirklich messen, nicht nur die Tonspur zählen.
+ *
+ * Bis hierher galt die QA als bestanden, sobald irgendein Audiostream vorhanden
+ * war. Das Notgroschen-Video lief damit auf -20,9 LUFS durch — fast fünf Dezibel
+ * unter dem Kanalziel. Gemessen wird nach dem Mastering, also am echten Ergebnis.
+ */
+let measuredLufs: number | null = null;
+if (audioStreams.length > 0) {
+  const loudness = spawnSync('ffmpeg', ['-nostats', '-i', videoPath, '-af', 'ebur128=framelog=quiet', '-f', 'null', '-'], {encoding: 'utf8'});
+  const match = /I:\s*(-?\d+(?:\.\d+)?)\s*LUFS/.exec(`${loudness.stderr ?? ''}`);
+  if (!match) {
+    failures.push('Lautheit konnte nicht gemessen werden.');
+  } else {
+    measuredLufs = Number(match[1]);
+    // Eine LU Toleranz: loudnorm trifft das Ziel nicht auf die Nachkommastelle.
+    if (Math.abs(measuredLufs - YOUTUBE_AUDIO.lufs) > 1.5) {
+      failures.push(`Lautheit ${measuredLufs} LUFS, Ziel ${YOUTUBE_AUDIO.lufs} LUFS. Das Mastering hat nicht gegriffen.`);
+    }
+  }
+}
+
 const expectedSeconds = project.timeline.durationInFrames / project.timeline.fps;
 if (Math.abs(durationSeconds - expectedSeconds) > 1.0) {
   failures.push(`Länge ist ${durationSeconds.toFixed(1)} s, die Timeline erwartet ${expectedSeconds.toFixed(1)} s.`);
@@ -89,7 +111,7 @@ if (dark.length > 0) {
 console.log(`\nRender-QA ${videoPath}`);
 console.log(`  Format      ${video.width}×${video.height} · ${fps.toFixed(0)} fps`);
 console.log(`  Länge       ${durationSeconds.toFixed(1)} s (Timeline ${expectedSeconds.toFixed(1)} s)`);
-console.log(`  Ton         ${audioStreams.length > 0 ? 'vorhanden' : 'FEHLT'}`);
+console.log(`  Ton         ${measuredLufs === null ? (audioStreams.length > 0 ? 'vorhanden' : 'FEHLT') : `${measuredLufs} LUFS`}`);
 console.log(`  Szenen      ${project.timeline.scenes.length} geprüft, ${dark.length} ohne Bildinhalt (Spitzen ${Math.min(...brightness).toFixed(0)}–${Math.max(...brightness).toFixed(0)}, Schwarz = ${BLACK_LEVEL})`);
 
 if (failures.length > 0) {

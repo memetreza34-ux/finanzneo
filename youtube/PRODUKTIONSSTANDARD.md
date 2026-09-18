@@ -33,6 +33,16 @@ Recherche und Technik und muss für Phase 2 nicht geöffnet werden.
 - Zahlen, Annahmen und Datenstand prüfbar dokumentieren
 - keine individuelle Anlageberatung oder garantierte Rendite
 
+## Skript, das sich bebildern lässt
+
+Das Skript entscheidet, ob gute Visuals überhaupt möglich sind. Es wird deshalb von Anfang an so geschrieben, dass zu jedem Gedanken etwas Sichtbares gehört.
+
+- Jeder Absatz nennt **konkrete Dinge**: Waschmaschine, Rechnung, Konto, Kalenderblatt, Geldschein. Abstrakte Sätze ohne Gegenstand lassen sich nur mit Text bebildern — und Text ist als Hauptaussage verboten.
+- Zahlen kommen mit ihrem Bezug: nicht „eine Reserve aufbauen", sondern „1.500 Euro im Monat, also 4.500 für drei Monate". Eine Zahl mit Bezug wird ein Füllstand, ein Stapel, eine Höhe.
+- Vergleiche werden als **zwei Zustände** formuliert, nicht als Begriffspaar. „Vorher / nachher", „mit / ohne", „Person A / Person B" ergeben eine sichtbare Veränderung.
+- Eine Aufzählung im Text wird zu einer Reihe echter Gegenstände. Vier Fragen heißen vier Dinge, nicht vier Kästchen.
+- Wo das Skript nur benennt statt zu zeigen, wird es umformuliert — nicht die Animation mit Text gefüllt.
+
 ## Viewer-change-first Visualplanung
 
 Es gibt **keine feste Visualzahl, keine feste Bild-/Animationsquote und keine feste Animationsbibliothek**.
@@ -51,6 +61,24 @@ Erlaubte Visualtypen — eine Szene ist ein Bild **oder** Bewegung, nie beides:
 - `image`
 - `animation`
 - `data`
+
+### Nichts wird abgeschnitten
+
+Gilt für Bilder wie für Motion, und zwar über die ganze Kette:
+
+- Ein Flow-Prompt verlangt **nie**, dass etwas beschnitten, zugeschnitten oder am Rand abgeschnitten wird. Das Bild wird vollständig als 16:9 erzeugt.
+- Beim Einsortieren wird ein Nutzerbild **nie** beschnitten. `youtube:images:import` kopiert nur — es gibt keinen Grund, daran vorbei von Hand zuzuschneiden.
+- Im Layout steht das Bild mit `objectFit: contain` in der Visualzone. Es wird vollständig gezeigt, auch wenn dabei schmale schwarze Ränder bleiben. Ränder sind kein Fehler; ein abgeschnittener Gegenstand ist einer.
+- Eine Animation zeichnet ausschließlich innerhalb der Visualzone. Die Bühne clippt hart, und was außerhalb liegt, sieht niemand in der Preview, im Render aber als abgeschnittene Kante. `youtube:animation:validate` prüft das; ein bewusst relativer Wert wird mit `zone-ok` in derselben Zeile markiert.
+
+### So viele Visuals wie die Aussage braucht
+
+Mehr Bilder und mehr Animationen sind ausdrücklich erlaubt. Ein zusätzlicher Beat kostet nur einen Flow-Job, ein zu lange stehendes Bild kostet Zuschauer.
+
+- Wichtige Aussagen, Zahlenbeispiele und Wendepunkte bekommen ein **eigenes** Visual, nicht eine Ecke eines bestehenden.
+- Steht ein Standbild länger als etwa zwölf Sekunden, gehört an dieser Stelle ein weiterer Beat geprüft.
+- Trägt ein Beat eine echte Veränderung — etwas wird mehr, weniger, wandert, kippt, geht auf —, ist eine Animation die bessere Wahl als ein Bild.
+- Dieselbe Mechanik nicht zweimal im selben Video.
 
 ## Visual Selection V1
 
@@ -101,6 +129,18 @@ Jedes Motion-Visual braucht:
 - `motionSignature` mit `camera`, `layout`, `transformation`
 - mindestens zwei sinnvolle Motion Channels
 - mindestens zwei sichtbare Visual Beats
+
+### Jedes Video bekommt eigene Animationen
+
+Animationen werden **pro Video neu gebaut**, nicht aus einem früheren übernommen.
+
+- Keine Animation aus einem anderen Video kopieren, umbenennen oder mit getauschten Beschriftungen wiederverwenden.
+- Die Mechanik einer Szene wird aus **ihrem** Satz abgeleitet: Was passiert dort konkret, und welcher Gegenstand macht das sichtbar? Nicht aus einem Katalog gewählt und dann passend geredet.
+- `mechanicId` und `visualTechniqueId` sind pro Video neu und beschreiben, was in dieser Szene tatsächlich geschieht.
+- Ein Baukasten-Primitive wie `PhysicalReserveTank` darf in mehreren Videos vorkommen — die **Mechanik** darum herum nicht. Derselbe Behälter, der in jedem Video gleich vollläuft, ist Wiederholung.
+- Gründlich heißt: erst das Skript und die Szene lesen, dann die Mechanik festlegen, dann bauen. Nicht andersherum.
+
+Der Grund ist derselbe wie bei der Vielfalt innerhalb eines Videos: Übernommene Motion passt fast nie genau auf den neuen Satz, und was nicht genau passt, erklärt nichts.
 
 ### Echte Vielfalt statt umbenannter Wiederholung
 
@@ -206,7 +246,7 @@ Das Bild steht auf drei Vierteln der Framebreite, damit oben Platz für die Zwis
 - echte Wort-Zeitstempel aus genau diesem Audio
 - Schnitte folgen Sprache, Visual Beats, Kapiteln und Payoffs
 - keine pauschal gleich langen Visuals
-- **keine Untertitel**: Reels laufen stumm im Feed und brauchen Karaoke-Captions, Longform wird mit Ton geschaut. Unten steht höchstens optionaler einzeiliger Infotext
+- **keine Untertitel** — weder ins Bild gebrannt noch als hochladbare Datei (SRT/VTT) im Export: Reels laufen stumm im Feed und brauchen Karaoke-Captions, Longform wird mit Ton geschaut. Unten steht höchstens optionaler einzeiliger Infotext. Die Wort-Zeitstempel dienen ausschließlich den Schnitten, nicht der Untertitelung
 - Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP
 
 ## Vollständiges Publishing-Paket

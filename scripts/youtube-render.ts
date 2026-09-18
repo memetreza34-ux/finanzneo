@@ -5,11 +5,11 @@
 // Render-QA → Export; jeder Schritt bricht ab, statt ein halbes Video
 // weiterzureichen.
 
-import {existsSync, mkdirSync} from 'node:fs';
+import {existsSync, mkdirSync, renameSync, unlinkSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {resolve} from 'node:path';
 import {loadYouTubeProject} from './lib/youtube-project';
-import {YOUTUBE_FORMAT} from '../src/youtube/layout';
+import {YOUTUBE_AUDIO, YOUTUBE_FORMAT} from '../src/youtube/layout';
 
 const args = process.argv.slice(2);
 const target = args.find((arg) => !arg.startsWith('--'));
@@ -56,6 +56,32 @@ if (!existsSync(outFile)) {
   console.error('\n✗ Render lieferte keine Datei.');
   process.exit(1);
 }
+
+/**
+ * Ton auf das Kanalziel ziehen, bevor die QA misst.
+ *
+ * Remotion legt das Voiceover so in die Datei, wie es aufgenommen wurde. Das
+ * Notgroschen-Video kam damit auf -20,9 LUFS statt der geforderten -16 und wäre
+ * spürbar leiser als alles andere auf YouTube gelaufen. Die Reel-Kette mastert an
+ * dieser Stelle längst; für Longform fehlte der Schritt.
+ *
+ * Das Video wird dabei nur durchgereicht (`-c:v copy`), es wird nicht neu codiert.
+ */
+const masteredFile = resolve(outDirectory, 'video-mastered.mp4');
+step('Ton mastern', 'ffmpeg', [
+  '-v', 'error', '-y',
+  '-i', outFile,
+  '-c:v', 'copy',
+  '-af', `loudnorm=I=${YOUTUBE_AUDIO.lufs}:TP=${YOUTUBE_AUDIO.truePeak}:LRA=11`,
+  '-c:a', 'aac', '-b:a', '192k',
+  masteredFile,
+]);
+if (!existsSync(masteredFile)) {
+  console.error('\n✗ Mastering lieferte keine Datei.');
+  process.exit(1);
+}
+unlinkSync(outFile);
+renameSync(masteredFile, outFile);
 
 step('Render-QA', process.execPath, ['--import', 'tsx', resolve('scripts/youtube-render-qa.ts'), project.root, outFile]);
 

@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {YOUTUBE_MOTION_STANDARD_ID, requiresYouTubeImage, requiresYouTubeMotion, validateYouTubeMotionMetadata, validateYouTubeMotionSource, validateYouTubeMotionVariety} from '../scripts/lib/youtube-motion-contract.mjs';
+import {YOUTUBE_MOTION_STANDARD_ID, YOUTUBE_VISUAL_ZONE, findYouTubeZoneEscapes, requiresYouTubeImage, requiresYouTubeMotion, validateYouTubeMotionMetadata, validateYouTubeMotionSource, validateYouTubeMotionVariety} from '../scripts/lib/youtube-motion-contract.mjs';
+import {YOUTUBE_STYLE} from '../src/youtube/layout';
 
 test('YouTube Motion V3 erlaubt Animation, Hybrid und Data ohne feste Animationsbibliothek', () => {
   assert.equal(YOUTUBE_MOTION_STANDARD_ID, 'finanzneo-youtube-motion-v3');
@@ -124,7 +125,72 @@ test('Bildsprache: eine echte Mechanik mit zwei Treibern passiert sauber', () =>
   const source = [
     'const flip = progressBetween(frame, durationInFrames, 0.1, 0.3);',
     'const settle = spring({frame: frame - 20, fps});',
-    '<div style={{transform:`rotateX(${-82 * flip}deg) translateY(${settle}px)`}}/>',
+    '<div style={{transform:`rotateX(${-82 * flip}deg) translateY(${settle}px)`}}>',
+    '  <PhysicalCalendarPage x={200} y={300} month="Monat 1" />',
+    '</div>',
   ].join('\n');
   assert.deepEqual(validateYouTubeMotionSource({id: 'visual-24', type: 'animation'}, source), []);
+});
+
+test('Zone: was oberhalb der Visualzone gezeichnet wird, wird gemeldet', () => {
+  // Genau der Fehler aus dem Notgroschen-Video: eine Textzeile auf y 150. Die
+  // Bühne clippt ab y 180, also war sie im Render abgeschnitten.
+  const escapes = findYouTubeZoneEscapes(
+    "<div style={{position:'absolute',left:250,top:150,fontSize:46}}>Gesetzliche Einlagensicherung</div>",
+  );
+  assert.equal(escapes.length, 1);
+  assert.equal(escapes[0].top, 150);
+});
+
+test('Zone: ein Wert innerhalb der Zone ist kein Fund', () => {
+  assert.deepEqual(
+    findYouTubeZoneEscapes("<div style={{position:'absolute',left:250,top:320}}/>"),
+    [],
+  );
+});
+
+test('Zone: ein bewusst relativer Wert wird mit zone-ok stillgelegt', () => {
+  assert.deepEqual(
+    findYouTubeZoneEscapes("<div style={{position:'absolute',left:0,top:65}}/> // zone-ok: relativ zum Container"),
+    [],
+  );
+});
+
+test('Zone: die Prüfung nutzt dieselbe Grenze wie das Layout', () => {
+  // YOUTUBE_VISUAL_ZONE ist eine Kopie, weil layout.ts TypeScript ist. Läuft sie
+  // auseinander, prüft der Validator gegen eine Grenze, die es nicht mehr gibt.
+  assert.equal(YOUTUBE_VISUAL_ZONE.top, YOUTUBE_STYLE.visual.top);
+  assert.equal(YOUTUBE_VISUAL_ZONE.bottom, YOUTUBE_STYLE.visual.bottom);
+});
+
+test('Bildsprache: eine Animationsszene ohne reale Gegenstände wird abgelehnt', () => {
+  // Die Texttafel aus visual-04: zwei Treiber, echte Transformation — und trotzdem
+  // nur Text. Vorher lief so etwas durch.
+  const source = [
+    'const a = interpolate(frame,[0,60],[0,1]);',
+    'const b = spring({frame, fps});',
+    '<div style={{transform:`translateY(${a * 40}px) scale(${b})`}}>1.000 €</div>',
+  ].join('\n');
+  const errors = validateYouTubeMotionSource({id: 'visual-04', type: 'animation'}, source);
+  assert.ok(errors.some((error) => error.includes('keine realen Gegenstände')));
+});
+
+test('Bildsprache: mit einem Physical-Primitive ist die Szene in Ordnung', () => {
+  const source = [
+    'const fill = interpolate(frame,[0,60],[0,1]);',
+    'const walk = interpolate(frame,[0,90],[0,400]);',
+    '<PhysicalReserveTank x={700} y={300} fill={fill} />',
+    '<div style={{transform:`translateX(${walk}px)`}}><PhysicalCoinStack x={0} y={0} /></div>',
+  ].join('\n');
+  assert.deepEqual(validateYouTubeMotionSource({id: 'visual-04', type: 'animation'}, source), []);
+});
+
+test('Bildsprache: eine data-Szene braucht keine Physical-Primitives', () => {
+  const source = [
+    'const grow = interpolate(frame,[0,60],[0,1]);',
+    'const shift = spring({frame, fps});',
+    '<div style={{height:`${grow * 200}px`, transform:`translateY(${shift}px)`}}/>',
+  ].join('\n');
+  const errors = validateYouTubeMotionSource({id: 'visual-10', type: 'data'}, source);
+  assert.ok(!errors.some((error) => error.includes('keine realen Gegenstände')));
 });

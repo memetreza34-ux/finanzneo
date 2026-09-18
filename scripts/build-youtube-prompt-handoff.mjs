@@ -53,6 +53,20 @@ if (imageVisuals.length === 0) {
   process.exit(1);
 }
 
+// Das Thumbnail steht in index.thumbnail, nicht in index.visuals, und fiel
+// deshalb aus dem Handoff heraus: Phase 2 hat fünfzehn Bildblöcke abgearbeitet
+// und das sechzehnte Pflichtbild nie zu Gesicht bekommen. Es ist ein Flow-Bild
+// wie jedes andere und gehört an dieselbe Übergabe — als letzter Block, weil es
+// erst nach den Videobildern entsteht.
+const thumbnail = index.thumbnail;
+const blockSources = [...imageVisuals];
+if (thumbnail?.googleFlowFileName && thumbnail?.planFile) {
+  blockSources.push({...thumbnail, id: 'thumbnail'});
+} else {
+  console.error('✗ visual-index.json hat kein thumbnail mit googleFlowFileName und planFile.');
+  process.exit(1);
+}
+
 const header = [
   'FINANZNEO — GOOGLE FLOW YOUTUBE HANDOFF',
   '',
@@ -81,18 +95,18 @@ const header = [
   'All source images are horizontal 16:9.',
   `Put every finished, correctly named file together into ${IMAGE_INBOX}/`,
   '',
-  `Blocks in this handoff: ${imageVisuals.length}`,
+  `Blocks in this handoff: ${blockSources.length} (${imageVisuals.length} Videobilder + 1 Thumbnail)`,
   '',
 ].join('\n');
 
 const divider = '━'.repeat(60);
 
-const blocks = imageVisuals.map((visual, position) => {
+const blocks = blockSources.map((visual, position) => {
   const planFile = visual.planFile;
   const body = read(planFile).trimEnd();
   return [
     divider,
-    `BLOCK ${position + 1} / ${imageVisuals.length} — ${visual.id} — ${visual.googleFlowFileName}`,
+    `BLOCK ${position + 1} / ${blockSources.length} — ${visual.id} — ${visual.googleFlowFileName}`,
     divider,
     '',
     body,
@@ -110,10 +124,10 @@ if (check) {
     console.error(`  Neu bauen: npm run youtube:prompts:build -- ${target}`);
     process.exit(1);
   }
-  console.log(`✓ ${ALL_PROMPTS} ist synchron (${imageVisuals.length} Blöcke).`);
+  console.log(`✓ ${ALL_PROMPTS} ist synchron (${blockSources.length} Blöcke).`);
   process.exit(0);
 }
 
 writeFileSync(resolve(root, ALL_PROMPTS), content);
-console.log(`✓ ${ALL_PROMPTS} neu gebaut (${imageVisuals.length} Blöcke).`);
-imageVisuals.forEach((visual) => console.log(`  ${visual.id} → ${visual.googleFlowFileName}`));
+console.log(`✓ ${ALL_PROMPTS} neu gebaut (${blockSources.length} Blöcke).`);
+blockSources.forEach((visual) => console.log(`  ${visual.id} → ${visual.googleFlowFileName}`));

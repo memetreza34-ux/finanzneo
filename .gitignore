@@ -73,3 +73,7 @@ npm-debug.log*
 # Gespiegelte YouTube-Nutzerassets. Quelle bleibt das Projekt unter youtube/;
 # public/youtube/ wird von youtube:phase3:stage jedes Mal neu aufgebaut.
 public/youtube/
+
+# Flow-ZIPs sind Zwischenprodukte: der Import entpackt sie, die geprüften
+# Einzelbilder sind das Ergebnis. Die ZIP darf lokal liegen bleiben.
+youtube/**/02-bilder/**/*.zip

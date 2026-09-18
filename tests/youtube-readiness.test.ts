@@ -17,7 +17,7 @@ const createReadyFixture = () => {
   const root = mkdtempSync(join(tmpdir(), 'finanzneo-youtube-ready-'));
   for (const path of PHASE_1_FILES) write(root, path, `Finaler Inhalt für ${path}.`);
 
-  const animationSource = `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\nexport const MECHANIC_ID = 'monthly-buffer-build';\nexport const VISUAL_TECHNIQUE_ID = 'stacked-monthly-depth';\nexport const COMPOSITION_FAMILY_ID = 'reserve-depth-build';\nexport const ANIMATION_NARRATIVE = {START:'leer', MECHANISM:'wächst', RESULT:'drei Monate'};\nexport const YouTubeVisual02Animation: React.FC = () => { const frame=useCurrentFrame(); const p=interpolate(frame,[0,30],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); return <AbsoluteFill><div style={{transform:\`translateY(\${(1-p)*20}px)\`}}>Reserve</div></AbsoluteFill>; };\n`;
+  const animationSource = `import React from 'react';\nimport {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';\nexport const MECHANIC_ID = 'monthly-buffer-build';\nexport const VISUAL_TECHNIQUE_ID = 'stacked-monthly-depth';\nexport const COMPOSITION_FAMILY_ID = 'reserve-depth-build';\nexport const ANIMATION_NARRATIVE = {START:'leer', MECHANISM:'wächst', RESULT:'drei Monate'};\nexport const YouTubeVisual02Animation: React.FC = () => { const frame=useCurrentFrame(); const p=interpolate(frame,[0,30],[0,1],{extrapolateLeft:'clamp',extrapolateRight:'clamp'}); return <AbsoluteFill><div style={{transform:\`translateY(\${(1-p)*20}px)\`}}><PhysicalReserveTank x={700} y={300} fill={p} /></div></AbsoluteFill>; };\n`;
 
   const motionContract = {
     viewerChange: 'Drei Monatsausgaben erscheinen nacheinander und bilden sichtbar einen wachsenden Sicherheitspuffer.',
@@ -89,6 +89,9 @@ const createReadyFixture = () => {
   write(root, '02-bilder/00-ALLE-BILDER-HIER-REIN/YouTube Thumbnail - Notgroschen.png', Buffer.from('thumbnail'));
   write(root, '02-bilder/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Sicherheitspuffer.png', Buffer.from('visual'));
   write(root, '01-script/voice.mp3', Buffer.from('audio'));
+  // Das Skript muss zu den Wortzeiten passen: seit der Inhaltsprüfung reicht es
+  // nicht mehr, dass die Satzanzahl stimmt — die Sätze werden verglichen.
+  write(root, '01-script/script.txt', 'Ein Satz. Zwei Satz.\n');
   write(root, '01-script/word-timings.json', `${JSON.stringify({
     source: '01-script/voice.mp3',
     subtitleMode: 'sentence-with-audio-synced-active-word',

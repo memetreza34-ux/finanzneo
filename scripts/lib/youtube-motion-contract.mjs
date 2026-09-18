@@ -163,6 +163,72 @@ const REAL_TRANSFORMATION = /translate|rotate|clipPath|clip-path|strokeDash|skew
 /** Codeseitiges Gegenstück zu den zwei Motion Channels, die der Vertrag verlangt. */
 const MOTION_DRIVERS = /\b(?:interpolate|spring|progressBetween)\s*\(/g;
 
+/**
+ * Die Visualzone aus YOUTUBE_STYLE, gespiegelt für die statische Prüfung.
+ *
+ * `src/youtube/layout.ts` ist TypeScript und hier nicht importierbar. Die Werte
+ * müssen deshalb übereinstimmen; `tests/youtube-motion-v3.test.ts` hält sie
+ * zusammen, damit sie nicht auseinanderlaufen.
+ */
+export const YOUTUBE_VISUAL_ZONE = {top: 180, bottom: 990};
+
+/**
+ * Markierung für Koordinaten, die bewusst klein sind.
+ *
+ * Ein `top` unter 180 ist harmlos, wenn das Element in einem Container sitzt, der
+ * selbst schon in der Zone steht — dann ist der Wert relativ. Das ist statisch
+ * nicht entscheidbar, also trägt der Autor es ein.
+ */
+const ZONE_OK_MARKER = /zone-ok/;
+
+/** Absolut positionierte Elemente mit ihrem top-Wert. */
+const ABSOLUTE_TOP = /position\s*:\s*'absolute'[^}]*?\btop\s*:\s*(-?\d+)|\btop\s*:\s*(-?\d+)[^}]*?position\s*:\s*'absolute'/g;
+
+/**
+ * Findet Inhalt, der außerhalb der Visualzone gezeichnet wird.
+ *
+ * Die Animationsbühne behält das volle 1920x1080-Koordinatensystem, zeigt aber nur
+ * y 180–990 und clippt den Rest hart weg. Wer darüber hinaus zeichnet, sieht es
+ * in der Preview nicht und im Render nur als abgeschnittene Kante. Genau so sind
+ * im Notgroschen-Video drei Textzeilen verschwunden, zwei davon halb sichtbar.
+ *
+ * Geprüft wird der rohe top-Wert. Sitzt ein Element in einem Container, der selbst
+ * schon in der Zone steht, ist der Wert relativ und harmlos — dann gehört
+ * `zone-ok` als Kommentar in dieselbe Zeile.
+ */
+export const findYouTubeZoneEscapes = (source = '') => {
+  const escapes = [];
+  const lines = source.split('\n');
+  lines.forEach((line, index) => {
+    if (ZONE_OK_MARKER.test(line)) return;
+    ABSOLUTE_TOP.lastIndex = 0;
+    let match;
+    while ((match = ABSOLUTE_TOP.exec(line)) !== null) {
+      const raw = match[1] ?? match[2];
+      if (raw === undefined) continue;
+      const top = Number(raw);
+      if (top < YOUTUBE_VISUAL_ZONE.top) {
+        escapes.push({line: index + 1, top});
+      }
+    }
+  });
+  return escapes;
+};
+
+/**
+ * Reale Gegenstände aus dem Baukasten.
+ *
+ * Eine Animationsszene erzählt mit Dingen, die es gibt — Rechnung, Konto,
+ * Waschmaschine, Kalenderblatt, Geldstapel, Reservebehälter. Was ohne sie gebaut
+ * wird, landet erfahrungsgemäß bei beschrifteten Kästen, Pfeilen und Balken:
+ * im Notgroschen-Video wurden so eine Texttafel, ein Flowchart und drei
+ * Fortschrittsbalken produziert, obwohl der Standard alle drei verbietet.
+ * Der Validator hatte nichts, woran er das festmachen konnte.
+ *
+ * Für `data` gilt das nicht — dort trägt die Darstellung der Zahlen die Aussage.
+ */
+const PHYSICAL_PRIMITIVE = /<Physical[A-Z][A-Za-z]*/;
+
 export const validateYouTubeMotionSource = (visual, source = '') => {
   const errors = [];
   const id = visual?.id ?? 'Unbekanntes Visual';
@@ -177,6 +243,21 @@ export const validateYouTubeMotionSource = (visual, source = '') => {
   // traegt die Bewegung sie allein.
   if (visual?.type === 'animation' && !REAL_TRANSFORMATION.test(source)) {
     errors.push(`${id}: nur Ein-/Ausblenden und Zoom. Eine Animationsszene braucht eine sichtbare Transformation.`);
+  }
+
+  if (visual?.type === 'animation' && !PHYSICAL_PRIMITIVE.test(source)) {
+    errors.push(
+      `${id}: keine realen Gegenstände. Eine Animationsszene baut auf den Physical-Primitives des Baukastens auf `
+      + '(PhysicalBill, PhysicalAccount, PhysicalWasher, PhysicalReserveTank, PhysicalCalendarPage, PhysicalCoinStack …). '
+      + 'Ohne sie entstehen beschriftete Kästen, Balken und Texttafeln, die der Standard als Hauptsprache ausschließt.',
+    );
+  }
+
+  for (const escape of findYouTubeZoneEscapes(source)) {
+    errors.push(
+      `${id}: Zeile ${escape.line} zeichnet auf y ${escape.top}, die Visualzone beginnt bei ${YOUTUBE_VISUAL_ZONE.top}. `
+      + 'Das wird im Render abgeschnitten. Nach unten setzen — oder, wenn der Wert relativ zu einem Container in der Zone ist, `zone-ok` in die Zeile schreiben.',
+    );
   }
 
   return errors;
