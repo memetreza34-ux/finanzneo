@@ -6,9 +6,12 @@ Remotion-Studio und Produktionspipeline für deutsche Finanz-Erklärvideos.
 
 ```bash
 npm ci
+npm run skills:install
 npm run validate
 npm run studio
 ```
+
+`skills:install` stellt die offiziellen Remotion Agent Skills aus `skills-lock.json` wieder her. Sie liegen gevendort unter `.agents/skills/` und damit bewusst nicht im Git; die Symlinks unter `.claude/skills/` zeigen erst nach diesem Schritt auf echte Dateien. `npm run setup:check` meldet, wenn etwas fehlt.
 
 ## Aktiver Produktionsstandard
 

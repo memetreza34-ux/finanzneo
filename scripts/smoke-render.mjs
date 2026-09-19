@@ -62,7 +62,11 @@ for (const [index, id] of ids.entries()) {
 
   const result = spawnSync(
     npx,
-    ['remotion', 'still', ENTRY, id, join(outDir, `${id}.png`), '--frame=0', '--log=error'],
+    // `--gl=angle` ist Pflicht, sobald eine Composition WebGL benutzt: ohne den
+    // Flag bricht Three.js im Headless-Chromium ab ("Error creating WebGL
+    // context"). Die Renderkette setzt ihn, der Smoke-Test bisher nicht —
+    // dadurch meldete er ThreeCoinTest als kaputt, obwohl die Szene rendert.
+    ['remotion', 'still', ENTRY, id, join(outDir, `${id}.png`), '--frame=0', '--gl=angle', '--log=error'],
     {encoding: 'utf8'},
   );
 

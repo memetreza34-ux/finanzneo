@@ -1,14 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {
-  ANIMATION_COLORS,
-  PhysicalAccount,
-  PhysicalBill,
-  PhysicalCoinStack,
-  PhysicalReserveTank,
-  PhysicalTag,
-  PremiumPhysicalStage,
-} from '../../../../../../../src/design-system';
+import {ANIMATION_COLORS, E, PhysicalAccount, PhysicalBill, PhysicalCoinStack, PhysicalReserveTank, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
 
 /**
  * MECHANIC_ID: buffer-intercepts-before-overdraft
@@ -27,7 +19,15 @@ import {
  */
 export const RESULT_HOLD_FRAMES = 20;
 
-const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
+/**
+ * Easing statt linearer Bewegung.
+ *
+ * `E.out` ist die Standardrampe des Kanals — schnell los, sanft aus. Alle
+ * `interpolate`-Aufrufe dieser Szene reichen `clamp` durch und bekommen sie
+ * damit gemeinsam. Vorher lief hier jede Bewegung linear: sie startet und
+ * stoppt abrupt und wirkt mechanisch, egal wie gut das Objekt aussieht.
+ */
+const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const, easing: E.out};
 
 export const Scene04Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 150}) => {
   const frame = useCurrentFrame();

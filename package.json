@@ -9,6 +9,7 @@
   "scripts": {
     "prepare": "node scripts/install-git-guards.mjs",
     "setup:check": "node scripts/check-setup.mjs",
+    "skills:install": "npx -y skills experimental_install",
     "studio": "npx remotion studio",
     "lint": "eslint . --max-warnings=0",
     "test": "node --import tsx --test tests/*.test.ts",

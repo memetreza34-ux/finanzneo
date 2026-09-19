@@ -36,3 +36,8 @@ export * as DecorationBlocks from '../bausteine/fn_decor';
 export * as ExtraBlocks from '../bausteine/fn_extra';
 export * as UIBlocks from '../bausteine/fn_ui2';
 export * as LegacyKit from '../bausteine/fn_kit';
+
+// Bewegungsbauteile und gezeichnete Gegenstaende. Beides lag vorher nur unter
+// src/youtube/ und war fuer Reels nicht erreichbar.
+export * from './motion';
+export * from './object-kit';

@@ -6,7 +6,8 @@
 // Hauptsprache verboten. Dieser Baukasten reicht die bestehende Bibliothek durch.
 
 import React from 'react';
-import {AbsoluteFill, Easing, interpolate} from 'remotion';
+import {AbsoluteFill} from 'remotion';
+import {FONT} from '../brand/fonts';
 
 export {
   YouTubeAnimationFrame,
@@ -61,7 +62,14 @@ export const COLORS = {
   line: '#2A2F34',
 } as const;
 
-export const FONT_STACK = 'Arial, Helvetica, sans-serif';
+/**
+ * Die Kanalschrift, nicht Arial.
+ *
+ * `MotionStage` hat hier bis jetzt Arial erzwungen und damit die lokal geladene
+ * Inter in 17 Szenen ueberschrieben, waehrend Header und Untertitel darueber in
+ * Inter standen. Die Fallbacks bleiben stehen, falls das Laden scheitert.
+ */
+export const FONT_STACK = `${FONT.body}, Helvetica, Arial, sans-serif`;
 
 /** Vorhandene Icons. Phase 1 wählt nur aus dieser Liste und erfindet keine Namen. */
 export const YOUTUBE_ICONS = [
@@ -79,8 +87,21 @@ export const YOUTUBE_LOTTIE = [
 
 export const lottieFile = (name: (typeof YOUTUBE_LOTTIE)[number]) => `lottie/${name}.json`;
 
-export const MotionStage: React.FC<{children: React.ReactNode; transparent?: boolean}> = ({children, transparent = false}) => (
-  <AbsoluteFill style={{backgroundColor: transparent ? 'transparent' : COLORS.black, color: COLORS.white, fontFamily: FONT_STACK, overflow: 'hidden'}}>
+/**
+ * Bühne für eine Animationsszene.
+ *
+ * Der Hintergrund bleibt transparent. `COLORS.black` ist #050505 und lag damit
+ * als messbar helleres Rechteck über dem #000000-Grund der Komposition — im
+ * Render sichtbar als Kante an Ober- und Unterkante der Visualzone (gemessen
+ * RGB 5,5,5 gegen 0,0,0). CLAUDE.md §10 lässt genau einen produktiven
+ * Hintergrund zu, und der liegt bereits darunter.
+ *
+ * `transparent` ist ohne Wirkung und bleibt nur stehen, weil drei versiegelte
+ * Szenen des Notgroschen-Videos es setzen. Ein Entfernen wuerde deren Hash
+ * aendern, ohne am Bild etwas zu verbessern. Neue Szenen lassen es weg.
+ */
+export const MotionStage: React.FC<{children: React.ReactNode; transparent?: boolean}> = ({children}) => (
+  <AbsoluteFill style={{backgroundColor: 'transparent', color: COLORS.white, fontFamily: FONT_STACK, overflow: 'hidden'}}>
     {children}
   </AbsoluteFill>
 );
@@ -93,62 +114,50 @@ export const Panel: React.FC<{children: React.ReactNode; style?: React.CSSProper
   <div style={{backgroundColor: COLORS.panel, border: `2px solid ${COLORS.line}`, borderRadius: 28, boxSizing: 'border-box', ...style}}>{children}</div>
 );
 
+// ── Bewegung und Zeichnen ───────────────────────────────────────────────────
+// Liegt im Design-System, damit Reels und YouTube dieselben Bauteile benutzen.
+export {
+  CameraPush,
+  clamp01,
+  dropIn,
+  ease,
+  fitLabel,
+  frameAt,
+  linear,
+  progressBetween,
+  settle,
+} from '../design-system/motion';
+export type {DropMotion} from '../design-system/motion';
+
+export {
+  Arrow,
+  Circle,
+  ContactShadow,
+  DrawnLine,
+  Ellipse,
+  ObjectBikeWheel,
+  ObjectCrate,
+  ObjectGlasses,
+  ObjectSuitcase,
+  ObjectTable,
+  OBJECT_TONES,
+  Pie,
+  Polygon,
+  Rect,
+  Star,
+  Triangle,
+} from '../design-system/object-kit';
+export type {ObjectProps} from '../design-system/object-kit';
+
 /**
- * Bewegung mit Beschleunigung statt linear.
+ * Bewegungsunschärfe kommt aus dem Brand-Kit.
  *
- * Bis hierher lief jede Animation im Projekt auf blankem `interpolate` ohne
- * Easing — 36 von 36. Eine lineare Bewegung startet und stoppt abrupt und wirkt
- * dadurch mechanisch, egal wie gut das Objekt aussieht. Das ist der Hauptgrund,
- * warum die Motion neben den Flow-Bildern billig wirkte.
- *
- * `ease` ist die Standardrampe für alles, was einsetzt, ankommt oder sich
- * aufbaut: schnell los, sanft aus. `settle` ist für Dinge, die physisch an einem
- * Ort ankommen und dabei kurz nachgeben.
+ * `CameraBlur` dort ist bereits `CameraMotionBlur` mit denselben Vorgaben. Eine
+ * zweite Fassung hier waere dieselbe Komponente unter anderem Namen.
  */
-export const ease = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-    easing: Easing.bezier(0.16, 1, 0.3, 1),
-  });
+export {CameraBlur} from '../brand/components/Effects';
 
-/** Ankommen mit kurzem Nachgeben — für Objekte, die sich irgendwo absetzen. */
-export const settle = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-    easing: Easing.out(Easing.back(1.4)),
-  });
-
-/** Gleichmäßig — nur für Dinge, die wirklich gleichförmig laufen, etwa Rotation. */
-export const linear = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
-export const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
-
-/**
- * Motion-V3-Timing: Beats werden als Anteil der finalen Szenendauer ausgedrückt,
- * damit Phase 3 auf das echte Voiceover retimen kann, ohne einen eingefrorenen
- * Schwanz zu erzeugen.
- */
-export const frameAt = (durationInFrames: number, ratio: number) => (
-  Math.max(0, Math.round((Math.max(2, durationInFrames) - 1) * clamp01(ratio)))
-);
-
-export const progressBetween = (
-  frame: number,
-  durationInFrames: number,
-  startRatio: number,
-  endRatio: number,
-) => {
-  const start = frameAt(durationInFrames, startRatio);
-  const end = Math.max(start + 1, frameAt(durationInFrames, endRatio));
-  return interpolate(frame, [start, end], [0, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
-};
-
+/** YouTube-Typografie: Kleinzeile und grosse Zahl. Kein Bewegungsbauteil. */
 export const FinanceEyebrow: React.FC<{children: React.ReactNode; style?: React.CSSProperties}> = ({children, style}) => (
   <div style={{fontSize: 30, fontWeight: 700, letterSpacing: 1.2, color: COLORS.gray, textTransform: 'uppercase', ...style}}>{children}</div>
 );

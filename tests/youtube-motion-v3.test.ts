@@ -172,7 +172,43 @@ test('Bildsprache: eine Animationsszene ohne reale Gegenstände wird abgelehnt',
     '<div style={{transform:`translateY(${a * 40}px) scale(${b})`}}>1.000 €</div>',
   ].join('\n');
   const errors = validateYouTubeMotionSource({id: 'visual-04', type: 'animation'}, source);
-  assert.ok(errors.some((error) => error.includes('keine realen Gegenstände')));
+  assert.ok(errors.some((error) => error.includes('kein erkennbarer Gegenstand')));
+});
+
+test('Bildsprache: beschriftete Kästen dürfen die Szene nicht tragen', () => {
+  // Genau die verworfene visual-05: sieben Rechtecke mit Aufschrift. Sie enthielt
+  // `<PhysicalPhone` und `<PhysicalTag` und kam deshalb durch die alte Prüfung,
+  // die nur irgendein `<Physical…` verlangte.
+  const source = [
+    'const drop = interpolate(frame,[0,60],[0,1]);',
+    'const slide = spring({frame, fps});',
+    '<div style={{transform:`translateY(${drop * 40}px)`}}>',
+    '<PhysicalPhone x={0} y={0} />',
+    '<PhysicalObject x={0} y={0} width={190} height={92}>Brille</PhysicalObject>',
+    '<PhysicalObject x={0} y={0} width={190} height={92}>Koffer</PhysicalObject>',
+    '<PhysicalTag material="warning">und so weiter</PhysicalTag>',
+    `<div style={{transform:\`translateX(\${slide}px)\`}} />`,
+    '</div>',
+  ].join('\n');
+  const errors = validateYouTubeMotionSource({id: 'visual-05', type: 'animation'}, source);
+  assert.ok(errors.some((error) => error.includes('generische Karten/Schilder tragen die Szene')));
+});
+
+test('Bildsprache: gezeichnete Formen zählen als echter Gegenstand', () => {
+  // Eine sauber gebaute SVG-Szene benutzt kein einziges Baukasten-Primitive und
+  // muss trotzdem durchkommen — sonst bestraft die Regel genau die gute Arbeit.
+  const source = [
+    'const spin = interpolate(frame,[0,60],[0,1]);',
+    'const roll = spring({frame, fps});',
+    '<svg viewBox="0 0 170 170">',
+    '<circle cx={85} cy={85} r={77} />',
+    '<circle cx={85} cy={85} r={65} />',
+    '<path d="M85 85 L148 85" />',
+    '<path d="M85 85 L85 148" />',
+    '</svg>',
+    '<div style={{transform:`rotate(${spin * 360}deg) translateX(${roll}px)`}} />',
+  ].join('\n');
+  assert.deepEqual(validateYouTubeMotionSource({id: 'visual-09', type: 'animation'}, source), []);
 });
 
 test('Bildsprache: mit einem Physical-Primitive ist die Szene in Ordnung', () => {
@@ -192,5 +228,5 @@ test('Bildsprache: eine data-Szene braucht keine Physical-Primitives', () => {
     '<div style={{height:`${grow * 200}px`, transform:`translateY(${shift}px)`}}/>',
   ].join('\n');
   const errors = validateYouTubeMotionSource({id: 'visual-10', type: 'data'}, source);
-  assert.ok(!errors.some((error) => error.includes('keine realen Gegenstände')));
+  assert.ok(!errors.some((error) => error.includes('kein erkennbarer Gegenstand')));
 });

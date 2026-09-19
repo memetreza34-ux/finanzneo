@@ -14,9 +14,16 @@ import {YOUTUBE_FORMAT, YOUTUBE_STYLE} from './layout';
 
 const {header: H, visual: V, infoText: INFO, transition: T} = YOUTUBE_STYLE;
 
-/** Schwarzer Vollframe. Der einzige produktive YouTube-Hintergrund. */
+/**
+ * Schwarzer Vollframe. Der einzige produktive YouTube-Hintergrund.
+ *
+ * Setzt zusaetzlich die Kanalschrift fuer alles, was darin liegt. Ohne das erbt
+ * eine Animation, die selbst keine Schrift setzt, die Chromium-Standardschrift —
+ * im Notgroschen-Render kamen so `Notgroschen`, `3 Monatsgehaelter` und `1.000 €`
+ * in Times New Roman heraus, direkt unter einem Inter-Header.
+ */
 export const YouTubeStage: React.FC<{children: React.ReactNode}> = ({children}) => (
-  <AbsoluteFill style={{backgroundColor: '#000000'}}>{children}</AbsoluteFill>
+  <AbsoluteFill style={{backgroundColor: '#000000', fontFamily: FONT.body}}>{children}</AbsoluteFill>
 );
 
 export const YouTubeHeader: React.FC<{

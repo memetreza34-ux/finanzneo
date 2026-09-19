@@ -222,18 +222,37 @@ export const findYouTubeZoneEscapes = (source = '') => {
 };
 
 /**
- * Reale Gegenstände aus dem Baukasten.
+ * Reale Gegenstände gegen beschriftete Kästen.
  *
  * Eine Animationsszene erzählt mit Dingen, die es gibt — Rechnung, Konto,
- * Waschmaschine, Kalenderblatt, Geldstapel, Reservebehälter. Was ohne sie gebaut
- * wird, landet erfahrungsgemäß bei beschrifteten Kästen, Pfeilen und Balken:
- * im Notgroschen-Video wurden so eine Texttafel, ein Flowchart und drei
- * Fortschrittsbalken produziert, obwohl der Standard alle drei verbietet.
- * Der Validator hatte nichts, woran er das festmachen konnte.
+ * Waschmaschine, Koffer, Laufrad, Kalenderblatt. Die vorige Fassung dieser
+ * Prüfung verlangte nur irgendein `<Physical…`, und `PhysicalObject` sowie
+ * `PhysicalTag` erfüllten das: eine Szene aus sieben beschrifteten Rechtecken
+ * kam damit durch und wurde versiegelt. Genau das schliesst CLAUDE.md §11 als
+ * Hauptsprache aus.
+ *
+ * Geprüft wird deshalb das Verhältnis, nicht die blosse Anwesenheit:
+ *
+ * - `CONCRETE_OBJECT` — benannte Gegenstände aus dem Baukasten
+ * - `DRAWN_GEOMETRY` — selbst gezeichnete Formen; ein sauber gebautes SVG ist
+ *   genauso ein echter Gegenstand und darf nicht bestraft werden
+ * - `GENERIC_BOX` — Karte, Schild, Balken. Beiwerk, niemals Hauptsprache.
  *
  * Für `data` gilt das nicht — dort trägt die Darstellung der Zahlen die Aussage.
  */
-const PHYSICAL_PRIMITIVE = /<Physical[A-Z][A-Za-z]*/;
+const CONCRETE_OBJECT = /<Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack|Policy|Phone)\b|<Object[A-Z][A-Za-z]*/g;
+const DRAWN_GEOMETRY = /<(?:path|circle|polygon|ellipse|polyline)\b/g;
+const GENERIC_BOX = /<Physical(?:Object|Tag|Rail)\b/g;
+
+/**
+ * Ab so vielen Karten/Schildern wird das Verhältnis geprüft.
+ *
+ * Gezählt wird der Quelltext, nicht das Bild: ein `<PhysicalObject` in einer
+ * `.map()` erzeugt sieben Kästen und zählt trotzdem als einer. Deshalb ist die
+ * Schwelle niedrig und die eigentliche Regel ein Verhältnis — Kästen dürfen
+ * echte Gegenstände nicht überstimmen.
+ */
+const BOX_DOMINANCE = 2;
 
 export const validateYouTubeMotionSource = (visual, source = '') => {
   const errors = [];
@@ -251,12 +270,26 @@ export const validateYouTubeMotionSource = (visual, source = '') => {
     errors.push(`${id}: nur Ein-/Ausblenden und Zoom. Eine Animationsszene braucht eine sichtbare Transformation.`);
   }
 
-  if (visual?.type === 'animation' && !PHYSICAL_PRIMITIVE.test(source)) {
-    errors.push(
-      `${id}: keine realen Gegenstände. Eine Animationsszene baut auf den Physical-Primitives des Baukastens auf `
-      + '(PhysicalBill, PhysicalAccount, PhysicalWasher, PhysicalReserveTank, PhysicalCalendarPage, PhysicalCoinStack …). '
-      + 'Ohne sie entstehen beschriftete Kästen, Balken und Texttafeln, die der Standard als Hauptsprache ausschließt.',
-    );
+  if (visual?.type === 'animation') {
+    const concrete = (source.match(CONCRETE_OBJECT) ?? []).length;
+    const drawn = (source.match(DRAWN_GEOMETRY) ?? []).length;
+    const boxes = (source.match(GENERIC_BOX) ?? []).length;
+
+    if (concrete < 1 && drawn < 2) {
+      errors.push(
+        `${id}: kein erkennbarer Gegenstand. Eine Animationsszene braucht entweder benannte Objekte aus dem Baukasten `
+        + '(PhysicalBill, PhysicalWasher, ObjectSuitcase, ObjectBikeWheel …) oder selbst gezeichnete Formen. '
+        + 'Text und Karten allein sind keine Animation.',
+      );
+    }
+
+    if (boxes >= BOX_DOMINANCE && boxes > concrete && drawn < 6) {
+      errors.push(
+        `${id}: ${boxes} generische Karten/Schilder tragen die Szene, aber nur ${concrete} konkrete Gegenstände und `
+        + `${drawn} gezeichnete Formen stehen dagegen. Beschriftete Kästen sind laut CLAUDE.md §11 als Hauptsprache `
+        + 'ausgeschlossen — wer den Text nicht liest, sieht nichts. Objekte aus dem Baukasten verwenden oder zeichnen.',
+      );
+    }
   }
 
   for (const escape of findYouTubeZoneEscapes(source)) {
