@@ -295,7 +295,7 @@
     "to": 27
    },
    "planFile": "04-projekt/VISUALS/visual-08/bildprompt.txt",
-   "googleFlowFileName": "YouTube Bild 05 - Display kaputt: 250 €.png",
+   "googleFlowFileName": "YouTube Bild 05 - Display kaputt 250 Euro.png",
    "expectedVisual": "Ein Smartphone mit gesprungenem Display neben einem Reparaturbeleg über 250 Euro und einem Umschlag mit Notgroschen.",
    "objectLabels": [
     "Reparatur 250 €",
@@ -314,7 +314,7 @@
     "to": 31
    },
    "planFile": "04-projekt/VISUALS/visual-09/bildprompt.txt",
-   "googleFlowFileName": "YouTube Bild 06 - Fahrrad weg: 600 €.png",
+   "googleFlowFileName": "YouTube Bild 06 - Fahrrad weg 600 Euro.png",
    "expectedVisual": "Ein durchtrenntes Fahrradschloss am leeren Fahrradständer, daneben ein Preisschild über 600 Euro.",
    "objectLabels": [
     "Fahrrad 600 €"

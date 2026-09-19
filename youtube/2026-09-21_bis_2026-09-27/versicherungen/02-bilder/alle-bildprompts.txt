@@ -259,7 +259,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 5 / 19 — visual-08 — YouTube Bild 05 - Display kaputt: 250 €.png
+BLOCK 5 / 19 — visual-08 — YouTube Bild 05 - Display kaputt 250 Euro.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -318,7 +318,7 @@ A frame from a CG animated feature film on pure black. Modeled and rendered, nev
 photographed. Every object recognizable as the real thing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BLOCK 6 / 19 — visual-09 — YouTube Bild 06 - Fahrrad weg: 600 €.png
+BLOCK 6 / 19 — visual-09 — YouTube Bild 06 - Fahrrad weg 600 Euro.png
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1

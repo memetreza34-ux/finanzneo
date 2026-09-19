@@ -29,6 +29,17 @@ import {
   YOUTUBE_VIDEO_WIDTH,
   YOUTUBE_VISUAL_TYPES,
 } from './lib/youtube-contract.mjs';
+
+/**
+ * Zeichen, die als Dateiname Ärger machen.
+ *
+ * Phase 2 muss jedes Bild exakt so benennen, wie es hier steht. Ein Doppelpunkt
+ * ist unter Windows verboten und erscheint im macOS-Finder als Schrägstrich —
+ * die Datei lässt sich damit nicht so speichern, und der Import lehnt sie ab.
+ * Aufgefallen ist das erst, als ein generierter Dateiname die Satzzeichen seiner
+ * Überschrift mitgeschleppt hat.
+ */
+const UNSAFE_FILENAME = /[:\\/?*|"<>]/;
 import {
   requiresYouTubeImage,
   requiresYouTubeMotion,
@@ -110,6 +121,7 @@ if (index) {
   assert(index.timelineRules?.equalLengthVisualsForbiddenByDefault === true, 'Starre gleich lange Visuals müssen standardmäßig verboten sein.');
   assert(Number(index.audio?.targetIntegratedLufs) === -16 && Number(index.audio?.targetTruePeakDbtp) === -1, 'Audioziel muss ungefähr -16 LUFS und höchstens -1 dBTP sein.');
   assert(index.thumbnail?.type === 'image' && typeof index.thumbnail?.googleFlowFileName === 'string', 'Thumbnail-Vertrag fehlt.');
+  assert(!UNSAFE_FILENAME.test(String(index.thumbnail?.googleFlowFileName ?? '')), 'Thumbnail: googleFlowFileName enthält ein Zeichen, das als Dateiname nicht zulässig ist.');
   assert(index.thumbnail?.planFile === THUMBNAIL_PROMPT, 'Thumbnail-Promptpfad ist falsch.');
   assert(Array.isArray(index.visuals) && index.visuals.length > 0, `${VISUAL_INDEX} benötigt nach Phase-1-Planung visuals[].`);
 
@@ -134,6 +146,7 @@ if (index) {
     if (requiresYouTubeImage(visual)) {
       assert(typeof visual.googleFlowFileName === 'string' && visual.googleFlowFileName.trim(), `${id}: googleFlowFileName fehlt.`);
       assert(!imageFileNames.has(visual.googleFlowFileName), `${id}: googleFlowFileName ist doppelt.`);
+      assert(!UNSAFE_FILENAME.test(visual.googleFlowFileName), `${id}: googleFlowFileName enthält ein Zeichen, das als Dateiname nicht zulässig ist (: \\ / ? * | " < >).`);
       imageFileNames.add(visual.googleFlowFileName);
       const imagePlan = visual.planFile;
       assert(typeof imagePlan === 'string' && imagePlan.endsWith('/bildprompt.txt') && existsSync(resolve(root, imagePlan)), `${id}: bildprompt.txt fehlt.`);
