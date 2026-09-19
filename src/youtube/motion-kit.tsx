@@ -6,7 +6,7 @@
 // Hauptsprache verboten. Dieser Baukasten reicht die bestehende Bibliothek durch.
 
 import React from 'react';
-import {AbsoluteFill, interpolate} from 'remotion';
+import {AbsoluteFill, Easing, interpolate} from 'remotion';
 
 export {
   YouTubeAnimationFrame,
@@ -92,6 +92,37 @@ export const MotionStage: React.FC<{children: React.ReactNode; transparent?: boo
 export const Panel: React.FC<{children: React.ReactNode; style?: React.CSSProperties}> = ({children, style}) => (
   <div style={{backgroundColor: COLORS.panel, border: `2px solid ${COLORS.line}`, borderRadius: 28, boxSizing: 'border-box', ...style}}>{children}</div>
 );
+
+/**
+ * Bewegung mit Beschleunigung statt linear.
+ *
+ * Bis hierher lief jede Animation im Projekt auf blankem `interpolate` ohne
+ * Easing — 36 von 36. Eine lineare Bewegung startet und stoppt abrupt und wirkt
+ * dadurch mechanisch, egal wie gut das Objekt aussieht. Das ist der Hauptgrund,
+ * warum die Motion neben den Flow-Bildern billig wirkte.
+ *
+ * `ease` ist die Standardrampe für alles, was einsetzt, ankommt oder sich
+ * aufbaut: schnell los, sanft aus. `settle` ist für Dinge, die physisch an einem
+ * Ort ankommen und dabei kurz nachgeben.
+ */
+export const ease = (frame: number, from: number, to: number) =>
+  interpolate(frame, [from, to], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+    easing: Easing.bezier(0.16, 1, 0.3, 1),
+  });
+
+/** Ankommen mit kurzem Nachgeben — für Objekte, die sich irgendwo absetzen. */
+export const settle = (frame: number, from: number, to: number) =>
+  interpolate(frame, [from, to], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+    easing: Easing.out(Easing.back(1.4)),
+  });
+
+/** Gleichmäßig — nur für Dinge, die wirklich gleichförmig laufen, etwa Rotation. */
+export const linear = (frame: number, from: number, to: number) =>
+  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
 
 export const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
 

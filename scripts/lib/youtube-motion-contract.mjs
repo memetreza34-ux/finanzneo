@@ -160,8 +160,14 @@ const TYPOGRAPHIC_SYMBOLS = /[\u2191-\u2199\u2194\u2195\u21BA\u21BB\u21E7\u21E9\
 /** Verschieben, drehen, aufdecken, Ausdehnung ändern. Fade und Zoom zählen nicht. */
 const REAL_TRANSFORMATION = /translate|rotate|clipPath|clip-path|strokeDash|skew|perspective|\bd=\{|height:\s*`|width:\s*`|bottom:\s*`|left:\s*`|top:\s*`/;
 
-/** Codeseitiges Gegenstück zu den zwei Motion Channels, die der Vertrag verlangt. */
-const MOTION_DRIVERS = /\b(?:interpolate|spring|progressBetween)\s*\(/g;
+/**
+ * Codeseitiges Gegenstück zu den zwei Motion Channels, die der Vertrag verlangt.
+ *
+ * `ease` und `settle` aus dem Baukasten sind interpolate mit Beschleunigung und
+ * zählen genauso. Sie sind der Normalfall: eine lineare Bewegung startet und
+ * stoppt abrupt und wirkt mechanisch, egal wie gut das Objekt aussieht.
+ */
+const MOTION_DRIVERS = /\b(?:interpolate|spring|progressBetween|ease|settle)\s*\(/g;
 
 /**
  * Die Visualzone aus YOUTUBE_STYLE, gespiegelt für die statische Prüfung.

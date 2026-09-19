@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalCoinStack, PhysicalReserveTank, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalCoinStack, PhysicalReserveTank, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'working-life-adds-up';
 export const VISUAL_TECHNIQUE_ID = 'yearly-packets-fill-a-container';
@@ -20,16 +20,13 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Pakete links, Behälter rechts',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 const TANK = {x: 1080, y: 250, width: 420, height: 620};
 
 export const YouTubeVisual20Animation: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Kanal 1 — die Jahre laufen durch und füllen den Behälter.
-  const years = ramp(frame, 16, 180);
+  const years = ease(frame, 16, 180);
   const fill = years * 0.88;
   // Kanal 2 — die Jahreszahl läuft mit.
   const age = Math.round(interpolate(years, [0, 1], [30, 67]));
@@ -38,7 +35,7 @@ export const YouTubeVisual20Animation: React.FC = () => {
     <YouTubePhysicalStage>
       {/* Drei Pakete stehen stellvertretend für die Jahre und wandern hinüber. */}
       {[0, 1, 2].map((slot) => {
-        const travel = ramp(frame, 20 + slot * 44, 20 + slot * 44 + 40);
+        const travel = ease(frame, 20 + slot * 44, 20 + slot * 44 + 40);
         const x = interpolate(travel, [0, 1], [260 + slot * 40, TANK.x - 190]);
         const lift = Math.sin(travel * Math.PI) * 80;
         return (
@@ -48,7 +45,7 @@ export const YouTubeVisual20Animation: React.FC = () => {
         );
       })}
 
-      <div style={{position: 'absolute', left: 250, top: 420, opacity: ramp(frame, 8, 30)}}>
+      <div style={{position: 'absolute', left: 250, top: 420, opacity: ease(frame, 8, 30)}}>
         <PhysicalTag material="neutral">{`mit ${age}`}</PhysicalTag>
       </div>
 
@@ -61,7 +58,7 @@ export const YouTubeVisual20Animation: React.FC = () => {
         label="Arbeitsleben"
       />
 
-      <div style={{position: 'absolute', left: TANK.x + 60, top: TANK.y - 66, opacity: ramp(frame, 150, 182)}}>
+      <div style={{position: 'absolute', left: TANK.x + 60, top: TANK.y - 66, opacity: ease(frame, 150, 182)}}>
         <PhysicalTag material="positive">über 1 Million €</PhysicalTag>
       </div>
     </YouTubePhysicalStage>

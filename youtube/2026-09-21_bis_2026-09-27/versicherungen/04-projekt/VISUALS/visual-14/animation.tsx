@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalBill, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalBill, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'worst-case-not-likely-case';
 export const VISUAL_TECHNIQUE_ID = 'rare-large-outweighs-frequent-small';
@@ -20,18 +20,15 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Balken hinten, Schalen davor',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 const PIVOT = {x: 960, y: 380};
 
 export const YouTubeVisual14Animation: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Kanal 1 — die kleinen Belege sammeln sich nacheinander an.
-  const small = ramp(frame, 14, 104);
+  const small = ease(frame, 14, 104);
   // Kanal 2 — der eine große Beleg fällt und kippt die Waage.
-  const largeDrop = ramp(frame, 112, 148);
+  const largeDrop = ease(frame, 112, 148);
   const tilt = largeDrop * 15;
 
   const armY = (side: number) => Math.sin((tilt * Math.PI) / 180) * 420 * side;
@@ -56,7 +53,7 @@ export const YouTubeVisual14Animation: React.FC = () => {
       {/* Linke Schale: viele kleine Belege. */}
       <div style={{position: 'absolute', left: 0, top: 0, transform: `translate(${380 - swing}px, ${PIVOT.y + 120 + armY(-1)}px)`}}> // zone-ok: relativ zum Container in der Zone
         {[0, 1, 2, 3, 4].map((item) => {
-          const shown = ramp(frame, 14 + item * 18, 34 + item * 18);
+          const shown = ease(frame, 14 + item * 18, 34 + item * 18);
           return (
             <div key={item} style={{position: 'absolute', left: item * 26, top: -item * 22, opacity: shown, transform: 'scale(0.3)'}}>
               <PhysicalBill x={0} y={0} amount="120 €" label="klein" rotate={item % 2 === 0 ? -5 : 4} />

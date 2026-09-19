@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalBill, PhysicalObject, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalBill, PhysicalObject, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'damages-sorted-by-size';
 export const VISUAL_TECHNIQUE_ID = 'items-roll-into-two-bins';
@@ -20,9 +20,6 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Rutsche oben, Behälter unten davor',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 const DROPS = [
   {amount: '250 €', big: false, at: 16},
   {amount: '600 €', big: false, at: 52},
@@ -34,7 +31,7 @@ export const YouTubeVisual32Animation: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Kanal 1 — die Rutsche wird sichtbar.
-  const chute = ramp(frame, 0, 22);
+  const chute = ease(frame, 0, 22);
 
   return (
     <YouTubePhysicalStage>
@@ -54,7 +51,7 @@ export const YouTubeVisual32Animation: React.FC = () => {
 
       {DROPS.map((drop) => {
         // Kanal 2 — jeder Beleg rollt los und fällt in seinen Behälter.
-        const roll = ramp(frame, drop.at, drop.at + 42);
+        const roll = ease(frame, drop.at, drop.at + 42);
         const targetX = drop.big ? 1300 : 400;
         const x = interpolate(roll, [0, 1], [760, targetX]);
         const y = interpolate(roll, [0, 1], [280, drop.big ? 700 : 780]);
@@ -72,10 +69,10 @@ export const YouTubeVisual32Animation: React.FC = () => {
         );
       })}
 
-      <div style={{position: 'absolute', left: 320, top: 950, opacity: ramp(frame, 160, 186)}}>
+      <div style={{position: 'absolute', left: 320, top: 950, opacity: ease(frame, 160, 186)}}>
         <PhysicalTag material="neutral">kleine Schäden</PhysicalTag>
       </div>
-      <div style={{position: 'absolute', left: 1240, top: 950, opacity: ramp(frame, 160, 186)}}>
+      <div style={{position: 'absolute', left: 1240, top: 950, opacity: ease(frame, 160, 186)}}>
         <PhysicalTag material="positive">große Schäden</PhysicalTag>
       </div>
     </YouTubePhysicalStage>

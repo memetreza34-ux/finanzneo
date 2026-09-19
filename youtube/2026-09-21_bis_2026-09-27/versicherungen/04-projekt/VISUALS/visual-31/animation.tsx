@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalBill, PhysicalReserveTank, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalBill, PhysicalReserveTank, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'reserve-and-policy-same-job';
 export const VISUAL_TECHNIQUE_ID = 'two-catchers-one-falling-damage';
@@ -20,18 +20,15 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Behälter auf einer Linie, Belege fallen davor',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 export const YouTubeVisual31Animation: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Kanal 1 — der kleine Schaden fällt in den kleinen Behälter.
-  const smallFall = ramp(frame, 22, 68);
-  const smallFill = ramp(frame, 60, 86);
+  const smallFall = ease(frame, 22, 68);
+  const smallFill = ease(frame, 60, 86);
   // Kanal 2 — der große Schaden fällt in den großen Behälter.
-  const largeFall = ramp(frame, 96, 148);
-  const largeFill = ramp(frame, 140, 170);
+  const largeFall = ease(frame, 96, 148);
+  const largeFill = ease(frame, 140, 170);
 
   return (
     <YouTubePhysicalStage>

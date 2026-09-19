@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalBill, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalBill, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'small-bounces-large-caught';
 export const VISUAL_TECHNIQUE_ID = 'two-sizes-meet-the-same-net';
@@ -20,26 +20,23 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Netz im Vordergrund, fallende Belege dahinter',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 const NET_Y = 700;
 
 export const YouTubeVisual07Animation: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Kanal 1 — das Netz spannt sich auf.
-  const spun = ramp(frame, 0, 24);
+  const spun = ease(frame, 0, 24);
 
   // Kanal 2 — der kleine Beleg fällt und prallt ab.
-  const smallDrop = ramp(frame, 30, 58);
-  const smallBounce = ramp(frame, 58, 96);
+  const smallDrop = ease(frame, 30, 58);
+  const smallBounce = ease(frame, 58, 96);
   const smallY = interpolate(smallDrop, [0, 1], [210, NET_Y - 150])
     + Math.sin(smallBounce * Math.PI) * -120
     + smallBounce * 260;
 
   // Kanal 3 — der große Beleg fällt und wird gehalten; das Netz gibt nach.
-  const largeDrop = ramp(frame, 104, 150);
+  const largeDrop = ease(frame, 104, 150);
   const largeY = interpolate(largeDrop, [0, 1], [190, NET_Y - 250]);
   const sag = largeDrop * 54;
 
@@ -81,7 +78,7 @@ export const YouTubeVisual07Animation: React.FC = () => {
       <div style={{position: 'absolute', left: 300, top: 930, opacity: smallBounce}}>
         <PhysicalTag material="neutral">prallt ab</PhysicalTag>
       </div>
-      <div style={{position: 'absolute', left: 1180, top: 930, opacity: ramp(frame, 150, 176)}}>
+      <div style={{position: 'absolute', left: 1180, top: 930, opacity: ease(frame, 150, 176)}}>
         <PhysicalTag material="positive">wird gehalten</PhysicalTag>
       </div>
     </YouTubePhysicalStage>

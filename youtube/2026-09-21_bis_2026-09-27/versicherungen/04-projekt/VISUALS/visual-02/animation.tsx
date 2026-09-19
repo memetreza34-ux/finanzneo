@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalPhone, PhysicalPolicy, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalPhone, PhysicalPolicy, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'policy-sheets-cover-objects';
 export const VISUAL_TECHNIQUE_ID = 'covering-sheet-leaves-one-bare';
@@ -20,9 +20,6 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Gegenstände auf einer Ebene, die Policen davor',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 /** Alles sitzt in der Visualzone y 180–990. */
 const ROW_Y = 470;
 const SLOTS = [
@@ -38,9 +35,9 @@ export const YouTubeVisual02Animation: React.FC = () => {
     <YouTubePhysicalStage>
       {SLOTS.map((slot) => {
         // Kanal 1 — der Gegenstand steht von Anfang an da.
-        const shown = ramp(frame, 0, 18);
+        const shown = ease(frame, 0, 18);
         // Kanal 2 — die Police sinkt herab, aber nur über zwei der drei.
-        const cover = slot.covered ? ramp(frame, slot.start, slot.start + 34) : 0;
+        const cover = slot.covered ? ease(frame, slot.start, slot.start + 34) : 0;
 
         return (
           <React.Fragment key={slot.key}>

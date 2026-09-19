@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalObject, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalObject, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'pension-below-the-line';
 export const VISUAL_TECHNIQUE_ID = 'bar-stops-under-a-reference-line';
@@ -20,9 +20,6 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Linie hinten, Balken davor',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 const BASE_Y = 900;
 const LINE_Y = 380;
 
@@ -30,9 +27,9 @@ export const YouTubeVisual18Animation: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Kanal 1 — die Referenzlinie wird gezogen.
-  const line = ramp(frame, 8, 44);
+  const line = ease(frame, 8, 44);
   // Kanal 2 — der Balken wächst und stoppt weit darunter.
-  const grow = ramp(frame, 48, 116);
+  const grow = ease(frame, 48, 116);
   const height = grow * 240;
 
   return (
@@ -59,7 +56,7 @@ export const YouTubeVisual18Animation: React.FC = () => {
 
       <PhysicalObject x={260} y={BASE_Y} width={1400} height={8} material="neutral" radius={4} opacity={0.45} />
 
-      <div style={{position: 'absolute', left: 1010, top: 520, opacity: ramp(frame, 120, 150)}}>
+      <div style={{position: 'absolute', left: 1010, top: 520, opacity: ease(frame, 120, 150)}}>
         <PhysicalTag material="warning">Lücke</PhysicalTag>
       </div>
     </YouTubePhysicalStage>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalCoinStack, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalCoinStack, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'income-drops-to-remainder';
 export const VISUAL_TECHNIQUE_ID = 'stack-shrinks-to-a-fraction';
@@ -20,9 +20,6 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Stapel vorn, Lückenmarkierung dahinter',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 const BASE_Y = 880;
 const FULL_HEIGHT = 520;
 const REST_HEIGHT = 95;
@@ -31,12 +28,12 @@ export const YouTubeVisual19Animation: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Kanal 1 — der volle Stapel steht zuerst.
-  const full = ramp(frame, 0, 26);
+  const full = ease(frame, 0, 26);
   // Kanal 2 — er sackt auf den Rest zusammen.
-  const collapse = ramp(frame, 48, 96);
+  const collapse = ease(frame, 48, 96);
   const height = interpolate(collapse, [0, 1], [FULL_HEIGHT, REST_HEIGHT]);
   // Kanal 3 — die Lücke wird danach markiert.
-  const gap = ramp(frame, 100, 138);
+  const gap = ease(frame, 100, 138);
 
   return (
     <YouTubePhysicalStage>

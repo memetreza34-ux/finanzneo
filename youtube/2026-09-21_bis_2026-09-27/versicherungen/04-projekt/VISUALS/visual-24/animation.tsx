@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalBill, PhysicalObject, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalBill, PhysicalObject, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'replace-the-whole-room';
 export const VISUAL_TECHNIQUE_ID = 'room-empties-then-price-appears';
@@ -20,9 +20,6 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Möbel auf einer Standlinie, Rechnungen davor',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 const FURNITURE = [
   {key: 'sofa', label: 'Sofa', x: 240, y: 560, w: 420, h: 220, at: 18},
   {key: 'shelf', label: 'Regal', x: 730, y: 420, w: 260, h: 360, at: 58},
@@ -36,9 +33,9 @@ export const YouTubeVisual24Animation: React.FC = () => {
     <YouTubePhysicalStage>
       {FURNITURE.map((piece, index) => {
         // Kanal 1 — das Möbelstück verschwindet.
-        const gone = ramp(frame, piece.at, piece.at + 30);
+        const gone = ease(frame, piece.at, piece.at + 30);
         // Kanal 2 — an seiner Stelle erscheint die Rechnung dafür.
-        const billed = ramp(frame, piece.at + 22, piece.at + 52);
+        const billed = ease(frame, piece.at + 22, piece.at + 52);
 
         return (
           <React.Fragment key={piece.key}>
@@ -54,7 +51,7 @@ export const YouTubeVisual24Animation: React.FC = () => {
         );
       })}
 
-      <div style={{position: 'absolute', left: 1440, top: 640, opacity: ramp(frame, 150, 184)}}>
+      <div style={{position: 'absolute', left: 1440, top: 640, opacity: ease(frame, 150, 184)}}>
         <PhysicalTag material="warning">alles zusammen</PhysicalTag>
       </div>
     </YouTubePhysicalStage>

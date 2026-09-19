@@ -34,7 +34,7 @@
         "Arbeitskraft bleibt offen"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "8b961072b3ba8ee0d3cc464f22fb40bf6310f17318cfe5f62eaa90c2066e9f22"
+      "sha256": "1a49374e49ccbe533a49331f08d9ea48946e448a7076ef527198c656d7b7b12c"
     },
     {
       "id": "visual-05",
@@ -68,7 +68,7 @@
         "Stapel läuft über"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "b29e35e3ce217e77f6f740ac461c9167b43b5d25e9742be698d4af086bf8e4da"
+      "sha256": "25728218889443152770de07fcbfaf5d3ada157cfe57c7e4f07eac2cb66976df"
     },
     {
       "id": "visual-07",
@@ -101,7 +101,7 @@
         "Netz fängt ihn"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "bb041dc0e8465ae2e7c995555fbfb8c5c0266c087f92011b8093941b93949192"
+      "sha256": "e79766338ec9e5dd1604b8d27539a015fb4f5d4e154d433c6a11cd36b6cf0e1f"
     },
     {
       "id": "visual-11",
@@ -134,7 +134,7 @@
         "Betrag verlässt das Bild"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "bb9e8b8d257c8a383512184951b27c4bfc633aeb689cae4cf58b233bf68f91cb"
+      "sha256": "4666706a302cb6c47d5f2c4cb934bb08ef7158d678997bc765a5c74aaa4f6350"
     },
     {
       "id": "visual-13",
@@ -167,7 +167,7 @@
         "Beitrag bleibt fast gleich"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "19055ef94b5803f94d14c7d34d85b6bf75c36cbb88b172a213f5729ae6a5e926"
+      "sha256": "33330c376efa75695c6e8db8a69232f7d1fda1af6c9de2afb80b03841a6044b0"
     },
     {
       "id": "visual-14",
@@ -200,7 +200,7 @@
         "Waage kippt"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "a776a648f376a556eef6921c2b5162afc9c124d3ad583854b52023fd7e1e2b69"
+      "sha256": "66c4280733b040736892dbf451bb1892bf68395f51018799e15683157efb9e9c"
     },
     {
       "id": "visual-18",
@@ -232,7 +232,7 @@
         "Balken stoppt darunter"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "822b0e2cea8ca5b8acce9c1ad05d5d3b9ac6b80a90c18c632a775d3041796946"
+      "sha256": "ea4d2d38ffdad47b352193d715a0b3bd268bb3f3b1a52a1964d8f218b1785a6e"
     },
     {
       "id": "visual-19",
@@ -265,7 +265,7 @@
         "1.800 € Lücke markiert"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "690ebd1edc4d17847569b01287679e570a50404a24fb530d4b417994c27f7f10"
+      "sha256": "60e2c97cd7c85f3359aa36e402b1cf955f692593df5e7dfa4552ba6252f75606"
     },
     {
       "id": "visual-20",
@@ -298,7 +298,7 @@
         "über 1 Million"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "7159a10c4ee0f9da53f418a89e77978539f6872fcaaa0647c77a61202720286b"
+      "sha256": "1b01d210d6aceaaf0af207b381922927d099a4676e2d7941b35506c4debb79c0"
     },
     {
       "id": "visual-24",
@@ -331,7 +331,7 @@
         "leeres Zimmer mit Summe"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "c2a19913f277d93720b156a2e2adba0b5ad2112f35dd023fac7940aad1b2567b"
+      "sha256": "148dae16f1b43ab4d6e92fde0ee7e084cabb10aa657c617d0f06aac020745a1f"
     },
     {
       "id": "visual-27",
@@ -364,7 +364,7 @@
         "Kosten laufen weiter"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "4359cbb70224970aeef1971f9431f9c285f31e6386d1f5a145c25533f6581557"
+      "sha256": "a0cc31bdf212d38aedc16b574d90437d68e74865724704fce44fcb91ef2b4cab"
     },
     {
       "id": "visual-28",
@@ -397,7 +397,7 @@
         "entspricht einer Haftpflicht"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "a32e47689ec4283249d6e5e8970a2056bf04b8364c2fe5d39ae61cc79f307c74"
+      "sha256": "00335a8d3fa2bda16b1e0be2a084a33f3597416822f1688db18427eb10e37a70"
     },
     {
       "id": "visual-30",
@@ -430,7 +430,7 @@
         "Hausrat obenauf"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "09d9a4930e9517b0c9f61a4e80fb39852712f9d9c2dd6b13bbc9cf039d56e13e"
+      "sha256": "dec5b109c967bfdcec93e114625a87d515a21c36227a7e6bbdd4071fef8d64fb"
     },
     {
       "id": "visual-31",
@@ -463,7 +463,7 @@
         "beide fangen ab"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "70c2da3ea013dfe415c81b3b8d59795a43c9ef9cd297438755ba2323c3afd1ab"
+      "sha256": "7f4224b95538a0d87c6103e7556c11b30d758b077d709c10daee55e69fbb0444"
     },
     {
       "id": "visual-32",
@@ -496,7 +496,7 @@
         "beide Behälter gefüllt"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "c255904b47d0316e03344da8520900030930775fdb652241746daf9fbf514729"
+      "sha256": "222e1ce7c8fc82e86adee2168eb7e47066840ac0e268cea9f50897f6bb84bfe5"
     }
   ]
 }

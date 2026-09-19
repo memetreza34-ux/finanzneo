@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalPolicy, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalPolicy, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'small-premiums-add-up';
 export const VISUAL_TECHNIQUE_ID = 'monthly-amounts-become-a-year';
@@ -20,20 +20,17 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Monate links, Jahressumme rechts',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 export const YouTubeVisual28Animation: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Kanal 1 — die drei kleinen Policen liegen da.
-  const shown = ramp(frame, 0, 24);
+  const shown = ease(frame, 0, 24);
   // Kanal 2 — die Monate laufen durch.
-  const months = ramp(frame, 30, 130);
+  const months = ease(frame, 30, 130);
   const monthCount = Math.round(months * 12);
   const total = Math.round(months * 288);
   // Kanal 3 — die Haftpflicht zum Vergleich.
-  const compare = ramp(frame, 138, 176);
+  const compare = ease(frame, 138, 176);
 
   return (
     <YouTubePhysicalStage>

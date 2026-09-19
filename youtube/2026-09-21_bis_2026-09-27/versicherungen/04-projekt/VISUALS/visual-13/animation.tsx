@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalObject, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalObject, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'coverage-levels-compared';
 export const VISUAL_TECHNIQUE_ID = 'three-coverage-heights';
@@ -20,9 +20,6 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Säulen hinten, Beiträge davor',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 /** Die Säulen stehen auf y 880 und wachsen nach oben in die Zone hinein. */
 const BASE_Y = 880;
 const LEVELS = [
@@ -38,9 +35,9 @@ export const YouTubeVisual13Animation: React.FC = () => {
     <YouTubePhysicalStage>
       {LEVELS.map((level) => {
         // Kanal 1 — die Säule wächst von unten auf ihre Höhe.
-        const grow = ramp(frame, level.at, level.at + 34);
+        const grow = ease(frame, level.at, level.at + 34);
         // Kanal 2 — der Beitrag erscheint erst danach und bleibt klein.
-        const priced = ramp(frame, level.at + 30, level.at + 50);
+        const priced = ease(frame, level.at + 30, level.at + 50);
         const height = grow * level.height;
 
         return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalCoinStack, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalCoinStack, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'liability-counter-without-ceiling';
 export const VISUAL_TECHNIQUE_ID = 'amount-runs-past-every-marker';
@@ -20,9 +20,6 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Marken hinten an der Wand, Betrag davor',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 /** Die Marken liegen in der Zone y 180-990, der Betrag läuft an ihnen vorbei. */
 const MARKS = [
   {label: 'Erspartes 8.000 €', y: 820, at: 34},
@@ -34,7 +31,7 @@ export const YouTubeVisual11Animation: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Kanal 1 — der Betrag steigt und hört nicht auf.
-  const rise = ramp(frame, 20, 190);
+  const rise = ease(frame, 20, 190);
   // Der Betrag steigt bis knapp unter den oberen Zonenrand. Weiter hoch hiesse,
   // dass sein Etikett darueber abgeschnitten wird — die Aussage "hoert nicht auf"
   // traegt die letzte Marke, die er hinter sich laesst, nicht das Verlassen des Bildes.
@@ -44,8 +41,8 @@ export const YouTubeVisual11Animation: React.FC = () => {
     <YouTubePhysicalStage>
       {MARKS.map((mark) => {
         // Kanal 2 — jede Marke wird gesetzt und beim Passieren blass.
-        const set = ramp(frame, mark.at - 22, mark.at);
-        const passed = ramp(frame, mark.at + 14, mark.at + 40);
+        const set = ease(frame, mark.at - 22, mark.at);
+        const passed = ease(frame, mark.at + 14, mark.at + 40);
         return (
           <React.Fragment key={mark.label}>
             <div style={{
@@ -67,7 +64,7 @@ export const YouTubeVisual11Animation: React.FC = () => {
         <PhysicalTag material="warning">Schaden</PhysicalTag>
       </div>
 
-      <div style={{position: 'absolute', left: 300, top: 250, opacity: ramp(frame, 168, 196)}}>
+      <div style={{position: 'absolute', left: 300, top: 250, opacity: ease(frame, 168, 196)}}>
         <PhysicalTag material="warning">keine Obergrenze</PhysicalTag>
       </div>
     </YouTubePhysicalStage>

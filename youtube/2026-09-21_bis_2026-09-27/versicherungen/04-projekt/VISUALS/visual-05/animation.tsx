@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalObject, PhysicalPhone, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalObject, PhysicalPhone, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'endless-item-pile';
 export const VISUAL_TECHNIQUE_ID = 'items-drop-until-frame-overflows';
@@ -20,9 +20,6 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Der Stapel baut sich nach vorn und nach oben auf',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 /** Jeder Gegenstand fällt an seinen Platz im Stapel. Alles bleibt in y 180-990. */
 const ITEMS = [
   {key: 'phone', label: 'Handy', x: 700, rest: 760, start: 6},
@@ -41,7 +38,7 @@ export const YouTubeVisual05Animation: React.FC = () => {
     <YouTubePhysicalStage>
       {ITEMS.map((item) => {
         // Kanal 1 — der Gegenstand fällt von oben an seine Position im Stapel.
-        const drop = ramp(frame, item.start, item.start + 22);
+        const drop = ease(frame, item.start, item.start + 22);
         const y = interpolate(drop, [0, 1], [150, item.rest]);
         // Kanal 2 — je höher der Stapel, desto kleiner und blasser die Neuzugänge.
         const fade = item.label === '' ? 0.55 : 1;
@@ -77,7 +74,7 @@ export const YouTubeVisual05Animation: React.FC = () => {
         );
       })}
 
-      <div style={{position: 'absolute', left: 250, top: 820, opacity: ramp(frame, 150, 176)}}>
+      <div style={{position: 'absolute', left: 250, top: 820, opacity: ease(frame, 150, 176)}}>
         <PhysicalTag material="warning">und so weiter</PhysicalTag>
       </div>
     </YouTubePhysicalStage>

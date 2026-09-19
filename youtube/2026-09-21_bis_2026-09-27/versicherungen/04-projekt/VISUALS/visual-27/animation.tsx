@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalBill, PhysicalPolicy, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalBill, PhysicalPolicy, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'double-cover-same-damage';
 export const VISUAL_TECHNIQUE_ID = 'two-covers-for-one-small-item';
@@ -20,22 +20,19 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Schaden unten, erste Deckung darüber, zweite ganz vorn',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 const SPOT = {x: 700, y: 480};
 
 export const YouTubeVisual27Animation: React.FC = () => {
   const frame = useCurrentFrame();
 
   // Kanal 1 — der Schaden liegt von Anfang an da.
-  const damage = ramp(frame, 0, 20);
+  const damage = ease(frame, 0, 20);
   // Kanal 2 — die erste Deckung liegt bereits darüber.
-  const first = ramp(frame, 22, 52);
+  const first = ease(frame, 22, 52);
   // Kanal 3 — die zweite Police sinkt auf dieselbe Stelle.
-  const second = ramp(frame, 66, 112);
+  const second = ease(frame, 66, 112);
   // Kanal 4 — die Kosten laufen sichtbar weiter.
-  const cost = ramp(frame, 112, 168);
+  const cost = ease(frame, 112, 168);
 
   return (
     <YouTubePhysicalStage>

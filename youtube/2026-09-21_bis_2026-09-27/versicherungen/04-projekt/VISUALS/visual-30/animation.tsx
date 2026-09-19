@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {PhysicalPolicy, PhysicalTag, YouTubePhysicalStage} from '../../motion-kit';
+import {PhysicalPolicy, PhysicalTag, YouTubePhysicalStage, ease} from '../../motion-kit';
 
 export const MECHANIC_ID = 'three-policies-in-order';
 export const VISUAL_TECHNIQUE_ID = 'policies-stack-bottom-up';
@@ -20,9 +20,6 @@ export const PREMIUM_VISUAL_NARRATIVE = {
   DEPTH: 'Jede neue Police liegt weiter vorn',
 };
 
-const ramp = (frame: number, from: number, to: number) =>
-  interpolate(frame, [from, to], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-
 const STACK = [
   {label: '1. Privathaftpflicht', y: 700, at: 10},
   {label: '2. Berufsunfähigkeit', y: 520, at: 62},
@@ -36,10 +33,10 @@ export const YouTubeVisual30Animation: React.FC = () => {
     <YouTubePhysicalStage>
       {STACK.map((item, index) => {
         // Kanal 1 — die Police fährt an ihren Platz.
-        const placed = ramp(frame, item.at, item.at + 38);
+        const placed = ease(frame, item.at, item.at + 38);
         const y = interpolate(placed, [0, 1], [190, item.y]);
         // Kanal 2 — erst danach wird sie benannt.
-        const named = ramp(frame, item.at + 32, item.at + 56);
+        const named = ease(frame, item.at + 32, item.at + 56);
 
         return (
           <React.Fragment key={item.label}>
