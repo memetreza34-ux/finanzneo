@@ -16,11 +16,14 @@ import {
   DrawnLine,
   FONT,
   OBJECT_TONES,
+  balkenHoehe,
   clamp01,
   dropIn,
   ease,
+  euroText,
   pointOnPath,
   settle,
+  sparplanFuerAnimation,
 } from '../../design-system';
 
 export const PREMIUM_MOTION_PROBE_FRAMES = 5 * 150;
@@ -88,6 +91,15 @@ const Muenze: React.FC<{w: number; h: number; farbe: string; kante: string}> = (
 // gleichmässig, der Zinsanteil beschleunigt und überholt es am Ende sichtbar.
 const JAHRE = 9;
 
+/**
+ * Die Balken kommen aus `src/finance/calculations.ts`, nicht aus dem Gefühl.
+ *
+ * Die erste Fassung hatte `eingezahlt = 46 + i * 40` und `zinsen = i * i * 7.2`
+ * — Kurvenformen, die plausibel aussehen und nichts rechnen. Jetzt trägt jeder
+ * Balken den Wert, den ein Sparplan nach dem jeweiligen Jahr wirklich hat.
+ */
+const SPARPLAN = sparplanFuerAnimation({monatlich: 200, renditeProzent: 7, jahre: JAHRE});
+
 const Zinseszins: React.FC = () => {
   const frame = useCurrentFrame();
   const saeulenBreite = 96;
@@ -104,12 +116,10 @@ const Zinseszins: React.FC = () => {
           const start = 14 + i * 9;
           const auf = ease(frame, start, start + 26);
 
-          // Eingezahlt wächst linear, Zinsen quadratisch — der Punkt der Szene.
-          const eingezahlt = 46 + i * 40;
-          const zinsen = 6 + i * i * 7.2;
-
-          const hEin = eingezahlt * auf;
-          const hZins = zinsen * auf;
+          // Jahr 0 ist der leere Start, deshalb i + 1.
+          const punkt = SPARPLAN.jahre[i + 1];
+          const hEin = balkenHoehe(punkt.eingezahlt, SPARPLAN.maximum, 470) * auf;
+          const hZins = balkenHoehe(punkt.zinsen, SPARPLAN.maximum, 470) * auf;
 
           return (
             <div key={i}>
@@ -146,8 +156,24 @@ const Zinseszins: React.FC = () => {
         })}
 
         <div style={{position: 'absolute', left: 1500, top: 300, opacity: ease(frame, 96, 124)}}>
-          <div style={{fontFamily: FONT.body, fontSize: 34, fontWeight: 900, color: TONE.gold}}>Zinsen</div>
-          <div style={{fontFamily: FONT.body, fontSize: 34, fontWeight: 900, color: OBJECT_TONES.ivory, marginTop: 16}}>Eingezahlt</div>
+          <div style={{fontFamily: FONT.body, fontSize: 34, fontWeight: 900, color: TONE.gold}}>Zinsen {euroText(SPARPLAN.zinsenGesamt)}</div>
+          <div style={{fontFamily: FONT.body, fontSize: 34, fontWeight: 900, color: OBJECT_TONES.ivory, marginTop: 16}}>Eingezahlt {euroText(SPARPLAN.eingezahltGesamt)}</div>
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 986,
+            textAlign: 'center',
+            fontFamily: FONT.body,
+            fontSize: 20,
+            fontWeight: 700,
+            color: '#5C666D',
+            opacity: ease(frame, 110, 140),
+          }}
+        >
+          {SPARPLAN.hinweis}
         </div>
       </CameraPush>
     </AbsoluteFill>

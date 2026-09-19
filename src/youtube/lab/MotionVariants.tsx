@@ -23,9 +23,11 @@ import {
   clamp01,
   dropIn,
   ease,
+  euroText,
   linear,
   pointOnPath,
   settle,
+  sparplanFuerAnimation,
 } from '../../design-system';
 import {CoinStack3D, Slab3D, Tank3D, ThreeStage} from '../three-kit';
 
@@ -76,10 +78,13 @@ const Dreidimensional: React.FC = () => {
 // ── 2 · Kinetische Zahl ─────────────────────────────────────────────────────
 // Keine Objekte. Die Zahl selbst ist das Motiv: sie zählt hoch, kommt mit
 // Gewicht an und die Zeile darunter zieht sich unter ihr durch.
+/** 200 € monatlich, 7 % p. a., 15 Jahre — gerechnet, nicht geschätzt. */
+const KINETISCH_PLAN = sparplanFuerAnimation({monatlich: 200, renditeProzent: 7, jahre: 15});
+
 const Kinetisch: React.FC = () => {
   const frame = useCurrentFrame();
   const zaehlen = ease(frame, 12, 96);
-  const wert = Math.round(zaehlen * 47320);
+  const wert = Math.round(zaehlen * KINETISCH_PLAN.endwert);
   const ankommen = settle(frame, 88, 116);
   const strich = ease(frame, 96, 128);
 
@@ -102,7 +107,7 @@ const Kinetisch: React.FC = () => {
           transform: `scale(${0.88 + ease(frame, 12, 60) * 0.12 + ankommen * 0.04})`,
         }}
       >
-        {wert.toLocaleString('de-DE')} €
+        {euroText(wert)}
       </div>
       <div style={{position: 'absolute', left: 560, top: 660, width: 800, height: 8, background: '#1C2226', borderRadius: 4}}>
         <div
@@ -128,7 +133,23 @@ const Kinetisch: React.FC = () => {
           opacity: strich,
         }}
       >
-        nach 15 Jahren
+        nach 15 Jahren · davon {euroText(KINETISCH_PLAN.zinsenGesamt)} Zinsen
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 986,
+          textAlign: 'center',
+          fontFamily: FONT.body,
+          fontSize: 20,
+          fontWeight: 700,
+          color: '#5C666D',
+          opacity: strich,
+        }}
+      >
+        {KINETISCH_PLAN.hinweis}
       </div>
     </AbsoluteFill>
   );
@@ -190,21 +211,29 @@ const Kurve: React.FC = () => {
 // ── 4 · Direktvergleich ─────────────────────────────────────────────────────
 // Zwei Wege nebeneinander. Beide starten gleich, einer setzt sich ab — die
 // Aussage liegt im Abstand, nicht in einem einzelnen Objekt.
+/**
+ * Zwei Rechnungen mit derselben Rate über dieselbe Zeit, nur andere Rendite.
+ * Vorher standen hier „1,1×" und „3,0×" als frei gewählte Zahlen.
+ */
+const SPARBUCH = sparplanFuerAnimation({monatlich: 200, renditeProzent: 0.5, jahre: 25});
+const GESTREUT = sparplanFuerAnimation({monatlich: 200, renditeProzent: 7, jahre: 25});
+
 const Vergleich: React.FC = () => {
   const frame = useCurrentFrame();
   const lauf = ease(frame, 14, 118);
   const boden = 880;
+  const maximum = GESTREUT.endwert;
 
   const bahnen = [
-    {x: 560, label: 'Sparbuch', hoehe: 190, farbe: OBJECT_TONES.ivory, kante: OBJECT_TONES.ivoryEdge},
-    {x: 1080, label: 'Breit gestreut', hoehe: 560, farbe: TONE.green, kante: TONE.greenDeep},
+    {x: 560, label: 'Sparbuch · 0,5 %', wert: SPARBUCH.endwert, farbe: OBJECT_TONES.ivory, kante: OBJECT_TONES.ivoryEdge},
+    {x: 1080, label: 'Breit gestreut · 7 %', wert: GESTREUT.endwert, farbe: TONE.green, kante: TONE.greenDeep},
   ];
 
   return (
     <AbsoluteFill>
       <Kopf text="Direktvergleich" unter="Der Abstand ist die Aussage" />
       {bahnen.map((b, i) => {
-        const h = b.hoehe * ease(frame, 14 + i * 10, 118);
+        const h = (b.wert / maximum) * 560 * ease(frame, 14 + i * 10, 118);
         return (
           <div key={b.label}>
             <ContactShadow x={b.x} y={boden + 8} width={280} contact={lauf} opacity={lauf * 0.75} />
@@ -227,20 +256,20 @@ const Vergleich: React.FC = () => {
                 width: 280,
                 textAlign: 'center',
                 fontFamily: FONT.body,
-                fontSize: 36,
+                fontSize: 34,
                 fontWeight: 900,
                 color: i === 1 ? TONE.green : TONE.dim,
                 opacity: ease(frame, 40 + i * 12, 70 + i * 12),
               }}
             >
-              {i === 1 ? '3,0×' : '1,1×'}
+              {euroText(b.wert)}
             </div>
             <div
               style={{
                 position: 'absolute',
-                left: b.x,
+                left: b.x - 60,
                 top: boden + 22,
-                width: 280,
+                width: 400,
                 textAlign: 'center',
                 fontFamily: FONT.body,
                 fontSize: 30,

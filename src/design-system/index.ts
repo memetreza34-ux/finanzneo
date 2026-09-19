@@ -41,3 +41,7 @@ export * as LegacyKit from '../bausteine/fn_kit';
 // src/youtube/ und war fuer Reels nicht erreichbar.
 export * from './motion';
 export * from './object-kit';
+
+// Finanzmathematik in animationsfertiger Form. Eine Szene holt ihre Zahlen hier
+// statt sie zu schaetzen — CLAUDE.md §5 verlangt geprueften Zahlen.
+export * from './finance-motion';
