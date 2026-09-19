@@ -45,3 +45,6 @@ export * from './object-kit';
 // Finanzmathematik in animationsfertiger Form. Eine Szene holt ihre Zahlen hier
 // statt sie zu schaetzen — CLAUDE.md §5 verlangt geprueften Zahlen.
 export * from './finance-motion';
+
+// Echte Kursreihen aus public/data/. Quelle und Stand reisen mit den Daten.
+export * from './market-data';

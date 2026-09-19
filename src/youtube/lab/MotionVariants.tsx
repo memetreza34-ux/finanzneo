@@ -10,6 +10,7 @@
 // 4 Direktvergleich    zwei Wege nebeneinander, einer setzt sich ab
 // 5 Geldstrom          viele kleine Einheiten statt einem grossen Objekt
 // 6 Makro              ein Gegenstand füllt den Frame, Kamera geht nah ran
+// 7 Echte Daten        eine gemessene Reihe statt einer gerechneten Annahme
 
 import React from 'react';
 import {AbsoluteFill, Series, useCurrentFrame} from 'remotion';
@@ -27,11 +28,14 @@ import {
   linear,
   pointOnPath,
   settle,
+  kursPfad,
+  kursreiheFuerAnimation,
   sparplanFuerAnimation,
 } from '../../design-system';
+import msciWorld from '../../../public/data/msci-world-10y.json';
 import {CoinStack3D, Slab3D, Tank3D, ThreeStage} from '../three-kit';
 
-export const MOTION_VARIANTS_FRAMES = 6 * 150;
+export const MOTION_VARIANTS_FRAMES = 7 * 150;
 
 const TONE = {
   ink: '#F7F7F2',
@@ -425,6 +429,89 @@ const Makro: React.FC = () => {
   );
 };
 
+// ── 7 · Echte Daten ─────────────────────────────────────────────────────────
+// Der Unterschied zu Szene 3: dort war die Kurve eine erfundene Form. Hier sind
+// es 60 gemessene Monatswerte. Die Kurve steigt — aber sie steigt unruhig, und
+// dieser Einbruch ist der Teil, den eine gerechnete Annahme wegglättet.
+const MSCI = kursreiheFuerAnimation(msciWorld);
+const MSCI_PFAD = kursPfad(MSCI, {breite: 1680, hoehe: 480, rand: 20});
+
+const EchteDaten: React.FC = () => {
+  const frame = useCurrentFrame();
+  const zeichnen = ease(frame, 12, 116);
+  const kopf = pointOnPath(MSCI_PFAD, zeichnen);
+
+  return (
+    <AbsoluteFill>
+      <Kopf text="Echte Daten" unter="MSCI World, 60 Monatswerte" />
+      <div style={{position: 'absolute', left: 120, top: 300}}>
+        <DrawnLine d={MSCI_PFAD} progress={zeichnen} width={1680} height={480} stroke={TONE.green} strokeWidth={6} />
+      </div>
+      <CameraBlur>
+        <div
+          style={{
+            position: 'absolute',
+            left: 120 + kopf.x - 15,
+            top: 300 + kopf.y - 15,
+            width: 30,
+            height: 30,
+            borderRadius: '50%',
+            background: TONE.green,
+            boxShadow: `0 0 24px ${TONE.green}`,
+            opacity: ease(frame, 12, 26),
+          }}
+        />
+      </CameraBlur>
+
+      <div
+        style={{
+          position: 'absolute',
+          left: 130,
+          top: 812,
+          fontFamily: FONT.body,
+          fontSize: 34,
+          fontWeight: 900,
+          color: TONE.green,
+          opacity: ease(frame, 112, 134),
+        }}
+      >
+        {MSCI.faktor.toFixed(2).replace('.', ',')}× in zehn Jahren
+      </div>
+      <div
+        style={{
+          position: 'absolute',
+          left: 130,
+          top: 862,
+          fontFamily: FONT.body,
+          fontSize: 34,
+          fontWeight: 900,
+          color: TONE.red,
+          opacity: ease(frame, 124, 146),
+        }}
+      >
+        zwischendurch −{Math.round(MSCI.groessterRueckgangProzent)} %
+      </div>
+
+      <div
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          top: 986,
+          textAlign: 'center',
+          fontFamily: FONT.body,
+          fontSize: 20,
+          fontWeight: 700,
+          color: '#5C666D',
+          opacity: ease(frame, 118, 144),
+        }}
+      >
+        {MSCI.quellenzeile}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 export const MotionVariants: React.FC = () => (
   <AbsoluteFill style={{backgroundColor: '#000000'}}>
     <Series>
@@ -434,6 +521,7 @@ export const MotionVariants: React.FC = () => (
       <Series.Sequence durationInFrames={150}><Vergleich /></Series.Sequence>
       <Series.Sequence durationInFrames={150}><Geldstrom /></Series.Sequence>
       <Series.Sequence durationInFrames={150}><Makro /></Series.Sequence>
+      <Series.Sequence durationInFrames={150}><EchteDaten /></Series.Sequence>
     </Series>
   </AbsoluteFill>
 );
