@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS, E, PhysicalAccount, PhysicalBill, PhysicalCoinStack, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
+import {ANIMATION_COLORS, PhysicalAccount, PhysicalBill, PhysicalCoinStack, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
 
 /**
  * MECHANIC_ID: small-purchases-accumulate-into-visible-cost
@@ -16,15 +16,7 @@ import {ANIMATION_COLORS, E, PhysicalAccount, PhysicalBill, PhysicalCoinStack, P
  * DEPTH: Konto links, Rechnungen gestaffelt rechts, Geld bewegt sich dazwischen im Vordergrund.
  */
 export const RESULT_HOLD_FRAMES = 26;
-/**
- * Easing statt linearer Bewegung.
- *
- * `E.out` ist die Standardrampe des Kanals — schnell los, sanft aus. Alle
- * `interpolate`-Aufrufe dieser Szene reichen `clamp` durch und bekommen sie
- * damit gemeinsam. Vorher lief hier jede Bewegung linear: sie startet und
- * stoppt abrupt und wirkt mechanisch, egal wie gut das Objekt aussieht.
- */
-const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const, easing: E.out};
+const clamp = {extrapolateLeft:'clamp' as const, extrapolateRight:'clamp' as const};
 export const Scene09Animation: React.FC<{durationFrames?:number}> = ({durationFrames=174}) => {
   const frame = useCurrentFrame();
   const coffee = interpolate(frame,[8,32],[0,1],clamp);

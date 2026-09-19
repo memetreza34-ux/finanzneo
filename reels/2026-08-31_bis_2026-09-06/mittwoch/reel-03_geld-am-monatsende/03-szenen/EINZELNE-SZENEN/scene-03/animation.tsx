@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS, E, PhysicalAccount, PhysicalCalendarPage, PhysicalCoinStack, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
+import {ANIMATION_COLORS, PhysicalAccount, PhysicalCalendarPage, PhysicalCoinStack, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
 
 /**
  * MECHANIC_ID: salary-arrives-before-budgeting
@@ -16,15 +16,7 @@ import {ANIMATION_COLORS, E, PhysicalAccount, PhysicalCalendarPage, PhysicalCoin
  * DEPTH: Kalender links hinten, Konto zentral, Geld bewegt sich aus dem Vordergrund zum Konto.
  */
 export const RESULT_HOLD_FRAMES = 24;
-/**
- * Easing statt linearer Bewegung.
- *
- * `E.out` ist die Standardrampe des Kanals — schnell los, sanft aus. Alle
- * `interpolate`-Aufrufe dieser Szene reichen `clamp` durch und bekommen sie
- * damit gemeinsam. Vorher lief hier jede Bewegung linear: sie startet und
- * stoppt abrupt und wirkt mechanisch, egal wie gut das Objekt aussieht.
- */
-const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const, easing: E.out};
+const clamp = {extrapolateLeft:'clamp' as const, extrapolateRight:'clamp' as const};
 export const Scene03Animation: React.FC<{durationFrames?:number}> = ({durationFrames=162}) => {
   const frame = useCurrentFrame();
   const calendarIn = interpolate(frame,[4,24],[0,1],clamp);

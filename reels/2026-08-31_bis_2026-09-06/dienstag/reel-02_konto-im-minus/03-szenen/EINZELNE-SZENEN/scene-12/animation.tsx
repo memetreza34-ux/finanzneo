@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS, E, PhysicalAccount, PhysicalBill, PhysicalCoinStack, PhysicalReserveTank, PhysicalTag, PhysicalWasher, PremiumPhysicalStage} from '../../../../../../../src/design-system';
+import {ANIMATION_COLORS, PhysicalAccount, PhysicalBill, PhysicalCoinStack, PhysicalReserveTank, PhysicalTag, PhysicalWasher, PremiumPhysicalStage} from '../../../../../../../src/design-system';
 
 /**
  * MECHANIC_ID: emergency-fund-prevents-long-overdraft
@@ -16,15 +16,7 @@ import {ANIMATION_COLORS, E, PhysicalAccount, PhysicalBill, PhysicalCoinStack, P
  * DEPTH: Maschine links hinten, Rechnung Mitte vorne, Reserve rechts, Girokonto unten mittig.
  */
 export const RESULT_HOLD_FRAMES = 24;
-/**
- * Easing statt linearer Bewegung.
- *
- * `E.out` ist die Standardrampe des Kanals — schnell los, sanft aus. Alle
- * `interpolate`-Aufrufe dieser Szene reichen `clamp` durch und bekommen sie
- * damit gemeinsam. Vorher lief hier jede Bewegung linear: sie startet und
- * stoppt abrupt und wirkt mechanisch, egal wie gut das Objekt aussieht.
- */
-const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const, easing: E.out};
+const clamp = {extrapolateLeft:'clamp' as const, extrapolateRight:'clamp' as const};
 export const Scene12Animation: React.FC<{durationFrames?:number}> = ({durationFrames=156}) => {
   const frame = useCurrentFrame();
   const emergency = interpolate(frame,[8,36],[0,1],clamp);
