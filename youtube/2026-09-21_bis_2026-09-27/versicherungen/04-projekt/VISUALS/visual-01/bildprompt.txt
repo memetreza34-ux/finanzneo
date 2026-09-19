@@ -1,0 +1,53 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 01 - Viel versichert, falsch versichert.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A year of insurance paperwork sits in one stack while the thing that earns the money stands next to it with nothing on it.
+REAL_WORLD_CONTEXT_ANCHOR: Kitchen table paperwork evening, ordinary German household.
+VOICEOVER_VISUAL_MATCH: The opening line names the 2.000 € a year and the unprotected working capacity.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Viel Geld für Policen, und das Wichtigste ist nicht dabei.
+ONE RELATION: the stack is thick, the space beside it is empty
+GERMAN LABELS (exactly these, nothing else): `Versicherungen 2.000 € / Jahr`, `Arbeitskraft`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for cost.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A thick stack of German insurance policies, maybe fifteen documents, held together by a paper clip, with
+a readable summary sheet on top carrying the label `Versicherungen 2.000 € / Jahr` in warm red-orange.
+To the right of the stack, separated by a clear gap of black, a pair of well-used work gloves and a
+lunchbox lie alone with a small ivory label `Arbeitskraft` — nothing covers them, nothing protects them.
+The paperwork is abundant. The thing that earns it is bare.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.

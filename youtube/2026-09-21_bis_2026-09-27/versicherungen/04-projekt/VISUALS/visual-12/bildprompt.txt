@@ -1,0 +1,52 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 08 - Die eine Pflichtpolice.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A single private liability policy lies alone, clean and open, as the one document everybody needs.
+REAL_WORLD_CONTEXT_ANCHOR: Document on its own, nothing competing.
+VOICEOVER_VISUAL_MATCH: The line calls the Privathaftpflicht an absolute must for everyone.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Die Privathaftpflicht braucht wirklich jeder.
+ONE RELATION: one document, nothing else in the frame
+GERMAN LABELS (exactly these, nothing else): `Privathaftpflicht`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, emerald green for what is protected, gold for money.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A single German insurance policy lies open and perfectly lit in the centre, its cover page carrying the
+readable label `Privathaftpflicht` and an emerald green seal pressed into the paper.
+The paper is crisp, the fold sharp, the surface clean.
+Nothing else is in the frame. One document, and it is enough.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.

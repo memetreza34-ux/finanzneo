@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "title": "Welche Versicherungen brauchst du wirklich?",
+  "fps": 30,
+  "timingSource": "01-script/word-timings.json",
+  "cutRule": "voice-beat-and-chapter-driven",
+  "fixedVisualCount": false,
+  "visuals": []
+}

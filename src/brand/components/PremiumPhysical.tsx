@@ -333,6 +333,80 @@ export const PhysicalCoinStack: React.FC<{
   </div>
 );
 
+/**
+ * Versicherungspolice als Papierdokument.
+ *
+ * Kommt in jedem Versicherungsthema vor und war bisher nur als generisches
+ * PhysicalObject darstellbar — also als beschrifteter Kasten, was der Standard
+ * als Hauptsprache ausschliesst. `struck` zeichnet den Streichstrich fuer eine
+ * verzichtbare Police, `sealed` das Siegel fuer eine, die wirklich gilt.
+ */
+export const PhysicalPolicy: React.FC<{
+  x: number;
+  y: number;
+  label: string;
+  sealed?: boolean;
+  struck?: number;
+  scale?: number;
+  opacity?: number;
+  rotate?: number;
+}> = ({x, y, label, sealed = false, struck = 0, scale = 1, opacity = 1, rotate = 0}) => (
+  <div style={{
+    position:'absolute',left:x,top:y,width:260,height:340,borderRadius:14,
+    background:'linear-gradient(158deg,#FFFDF8 0%,#F2EFE6 46%,#D8D3C6 100%)',
+    border:'1px solid rgba(255,255,255,0.5)',
+    boxShadow:'0 30px 52px rgba(0,0,0,0.44), inset 0 1px 0 rgba(255,255,255,0.8)',
+    transform:`translateZ(28px) rotateZ(${rotate}deg) scale(${scale})`,opacity,overflow:'hidden',
+  }}>
+    <div style={{position:'absolute',left:26,top:30,right:26,fontSize:27,fontWeight:950,color:'#172019'}}>{label}</div>
+    {[0,1,2,3,4].map((row) => (
+      <div key={row} style={{position:'absolute',left:26,top:96+row*26,width:row===4?110:208,height:7,borderRadius:4,background:'#C9C4B6'}} />
+    ))}
+    {sealed ? (
+      <div style={{
+        position:'absolute',right:28,bottom:28,width:66,height:66,borderRadius:'50%',
+        background:'radial-gradient(circle at 38% 34%,#5CFFAD 0%,#0C7A47 52%,#04331F 100%)',
+        border:'2px solid rgba(255,255,255,0.32)',
+        boxShadow:'0 8px 16px rgba(0,0,0,0.34)',
+      }} />
+    ) : null}
+    {struck > 0 ? (
+      <div style={{
+        position:'absolute',left:14,top:168,width:`${Math.max(0,Math.min(1,struck))*236}px`,height:11,borderRadius:6,
+        background:'linear-gradient(90deg,#FF8A68,#D8442A)',transform:'rotate(-9deg)',
+        boxShadow:'0 4px 10px rgba(0,0,0,0.3)',
+      }} />
+    ) : null}
+  </div>
+);
+
+/** Smartphone; `cracked` zeigt den gesprungenen Bildschirm des Schadensfalls. */
+export const PhysicalPhone: React.FC<{
+  x: number;
+  y: number;
+  cracked?: boolean;
+  scale?: number;
+  opacity?: number;
+  rotate?: number;
+}> = ({x, y, cracked = false, scale = 1, opacity = 1, rotate = 0}) => (
+  <div style={{
+    position:'absolute',left:x,top:y,width:150,height:290,borderRadius:26,
+    background:'linear-gradient(150deg,#E8ECEF 0%,#9AA3A9 54%,#4B5459 100%)',
+    border:'2px solid rgba(255,255,255,0.46)',
+    boxShadow:'0 26px 44px rgba(0,0,0,0.46), inset 0 1px 0 rgba(255,255,255,0.7)',
+    transform:`translateZ(34px) rotateZ(${rotate}deg) scale(${scale})`,opacity,overflow:'hidden',
+  }}>
+    <div style={{position:'absolute',inset:9,borderRadius:19,background:'linear-gradient(165deg,#12181C,#05080A)'}} />
+    {cracked ? (
+      <>
+        <div style={{position:'absolute',left:64,top:36,width:4,height:150,background:'rgba(255,255,255,0.72)',transform:'rotate(15deg)'}} />
+        <div style={{position:'absolute',left:30,top:96,width:88,height:3,background:'rgba(255,255,255,0.6)',transform:'rotate(-28deg)'}} />
+        <div style={{position:'absolute',left:52,top:140,width:74,height:3,background:'rgba(255,255,255,0.5)',transform:'rotate(38deg)'}} />
+      </>
+    ) : null}
+  </div>
+);
+
 export const PremiumDepthGuide = {
   visualTop: REEL_STYLE.visual.top,
   visualBottom: REEL_STYLE.visual.bottom,

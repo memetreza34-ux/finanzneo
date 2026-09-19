@@ -28,6 +28,8 @@ export {
   PhysicalCalendarPage,
   PhysicalCoinStack,
   PhysicalObject,
+  PhysicalPhone,
+  PhysicalPolicy,
   PhysicalRail,
   PhysicalReserveTank,
   PhysicalTag,

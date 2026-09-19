@@ -1,0 +1,52 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 11 - Was der Staat übrig lässt.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: An official German pension statement shows the occupational disability line struck out and only the reduced earning capacity pension left.
+REAL_WORLD_CONTEXT_ANCHOR: Official letter from the pension insurance.
+VOICEOVER_VISUAL_MATCH: The line explains that everyone born after 1961 only gets the Erwerbsminderungsrente.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Der Staat zahlt nur noch die Erwerbsminderungsrente.
+ONE RELATION: one line crossed out, one line remaining
+GERMAN LABELS (exactly these, nothing else): `Berufsunfähigkeitsrente`, `Erwerbsminderungsrente`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for what is at risk.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+An official German pension statement lies flat and clearly lit, its header area carrying a formal seal.
+Two entries are readable on it. The upper one, `Berufsunfähigkeitsrente`, is struck through with a firm
+red-orange line. The lower one, `Erwerbsminderungsrente`, stands untouched in ivory.
+One option was removed. Only the smaller one is left.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.

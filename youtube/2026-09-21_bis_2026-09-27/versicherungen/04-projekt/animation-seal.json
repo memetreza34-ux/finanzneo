@@ -1,0 +1,502 @@
+{
+  "version": 2,
+  "motionStandardId": "finanzneo-youtube-motion-v3",
+  "sourceIndex": "04-projekt/visual-index.json",
+  "entries": [
+    {
+      "id": "visual-02",
+      "sourceFile": "04-projekt/VISUALS/visual-02/animation.tsx",
+      "exportName": "YouTubeVisual02Animation",
+      "viewerChange": "Zwei Gegenstände bekommen sichtbar eine Police übergelegt, der dritte bleibt offen liegen.",
+      "animationIntent": "Der Schutz sitzt an den billigen Stellen und fehlt an der teuren.",
+      "mechanicId": "policy-sheets-cover-objects",
+      "visualTechniqueId": "covering-sheet-leaves-one-bare",
+      "techniqueDescription": "Schutzfolien legen sich nacheinander über Handy und Fahrrad; der dritte Gegenstand bleibt unbedeckt liegen.",
+      "compositionFamilyId": "physical-covering",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static frontal on three objects",
+        "layout": "three objects in a row",
+        "transformation": "sheets settle onto two of three"
+      },
+      "motionChannels": [
+        "sheet descending onto object",
+        "uncovered object left exposed"
+      ],
+      "visualBeats": [
+        "drei Gegenstände offen",
+        "Handy bedeckt",
+        "Fahrrad bedeckt",
+        "Arbeitskraft bleibt offen"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "8b961072b3ba8ee0d3cc464f22fb40bf6310f17318cfe5f62eaa90c2066e9f22"
+    },
+    {
+      "id": "visual-05",
+      "sourceFile": "04-projekt/VISUALS/visual-05/animation.tsx",
+      "exportName": "YouTubeVisual05Animation",
+      "viewerChange": "Ein Stapel Alltagsgegenstände wächst ohne Ende weiter, bis klar wird, dass die Liste nie aufhört.",
+      "animationIntent": "Die Frage nach allem Kaputtgehbaren führt zu einer unendlichen Liste.",
+      "mechanicId": "endless-item-pile",
+      "visualTechniqueId": "items-drop-until-frame-overflows",
+      "techniqueDescription": "Gegenstände fallen einer nach dem anderen auf einen Stapel, der schneller wächst als der Platz reicht.",
+      "compositionFamilyId": "physical-accumulation",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static wide on the pile",
+        "layout": "growing pile centre",
+        "transformation": "items drop in and raise the pile"
+      },
+      "motionChannels": [
+        "items dropping in",
+        "pile height rising"
+      ],
+      "visualBeats": [
+        "leerer Tisch",
+        "Handy fällt",
+        "Brille fällt",
+        "Koffer und Fahrrad",
+        "Stapel läuft über"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "b29e35e3ce217e77f6f740ac461c9167b43b5d25e9742be698d4af086bf8e4da"
+    },
+    {
+      "id": "visual-07",
+      "sourceFile": "04-projekt/VISUALS/visual-07/animation.tsx",
+      "exportName": "YouTubeVisual07Animation",
+      "viewerChange": "Zwei unterschiedlich große Schäden treffen dasselbe Netz und werden unterschiedlich behandelt.",
+      "animationIntent": "Eine Versicherung ist kein Rundum-Schutz, sondern eine Schwelle.",
+      "mechanicId": "small-bounces-large-caught",
+      "visualTechniqueId": "two-sizes-meet-the-same-net",
+      "techniqueDescription": "Ein kleiner und ein großer Schadensbeleg fallen auf dasselbe Auffangnetz; der kleine prallt ab, der große wird gehalten.",
+      "compositionFamilyId": "physical-threshold",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static frontal on the net",
+        "layout": "net across the lower half",
+        "transformation": "small item bounces off, large item is caught"
+      },
+      "motionChannels": [
+        "falling items",
+        "net deforming under load"
+      ],
+      "visualBeats": [
+        "gespanntes Netz",
+        "kleiner Beleg prallt ab",
+        "großer Beleg fällt",
+        "Netz fängt ihn"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "bb041dc0e8465ae2e7c995555fbfb8c5c0266c087f92011b8093941b93949192"
+    },
+    {
+      "id": "visual-11",
+      "sourceFile": "04-projekt/VISUALS/visual-11/animation.tsx",
+      "exportName": "YouTubeVisual11Animation",
+      "viewerChange": "Der Betrag läuft über alle eigenen Grenzen hinaus, ohne anzuhalten.",
+      "animationIntent": "Die Haftung hat keine Obergrenze.",
+      "mechanicId": "liability-counter-without-ceiling",
+      "visualTechniqueId": "amount-runs-past-every-marker",
+      "techniqueDescription": "Ein Schadensbetrag läuft an Marken für Gehalt, Erspartes und Besitz vorbei, ohne an einer davon stehen zu bleiben.",
+      "compositionFamilyId": "physical-scale",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "slow rise following the amount",
+        "layout": "vertical scale with personal markers",
+        "transformation": "amount passes every marker and leaves the frame"
+      },
+      "motionChannels": [
+        "amount rising",
+        "markers passing by"
+      ],
+      "visualBeats": [
+        "Marke Erspartes",
+        "Marke Jahresgehalt",
+        "Betrag zieht vorbei",
+        "Betrag verlässt das Bild"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "77428155bc331bb06b74b65aa79cd0521ec1af65b10860edf24e1fd5e0137ac8"
+    },
+    {
+      "id": "visual-13",
+      "sourceFile": "04-projekt/VISUALS/visual-13/animation.tsx",
+      "exportName": "YouTubeVisual13Animation",
+      "viewerChange": "Die Deckungssumme wächst um ein Vielfaches, der Beitrag daneben kaum.",
+      "animationIntent": "Mehr Deckung kostet fast nichts zusätzlich.",
+      "mechanicId": "coverage-levels-compared",
+      "visualTechniqueId": "three-coverage-heights",
+      "techniqueDescription": "Drei Deckungssummen stehen als unterschiedlich hohe Säulen nebeneinander, der Beitragsunterschied daneben bleibt fast gleich.",
+      "compositionFamilyId": "data-viz",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static frontal on the columns",
+        "layout": "three columns with a price row",
+        "transformation": "columns grow to very different heights"
+      },
+      "motionChannels": [
+        "columns growing",
+        "price row staying level"
+      ],
+      "visualBeats": [
+        "10 Millionen",
+        "50 Millionen",
+        "100 Millionen",
+        "Beitrag bleibt fast gleich"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "19055ef94b5803f94d14c7d34d85b6bf75c36cbb88b172a213f5729ae6a5e926"
+    },
+    {
+      "id": "visual-14",
+      "sourceFile": "04-projekt/VISUALS/visual-14/animation.tsx",
+      "exportName": "YouTubeVisual14Animation",
+      "viewerChange": "Ein einzelner großer Schaden wiegt schwerer als viele kleine zusammen.",
+      "animationIntent": "Versichert wird der schlimmste Fall, nicht der häufigste.",
+      "mechanicId": "worst-case-not-likely-case",
+      "visualTechniqueId": "rare-large-outweighs-frequent-small",
+      "techniqueDescription": "Viele kleine Belege und ein einzelner großer liegen auf zwei Seiten einer Waage; der eine große senkt seine Seite.",
+      "compositionFamilyId": "physical-balance",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static frontal on the balance",
+        "layout": "two pans, many small versus one large",
+        "transformation": "the single large item tips the balance"
+      },
+      "motionChannels": [
+        "small items accumulating",
+        "balance tipping"
+      ],
+      "visualBeats": [
+        "leere Waage",
+        "viele kleine Belege",
+        "ein großer Beleg",
+        "Waage kippt"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "a776a648f376a556eef6921c2b5162afc9c124d3ad583854b52023fd7e1e2b69"
+    },
+    {
+      "id": "visual-18",
+      "sourceFile": "04-projekt/VISUALS/visual-18/animation.tsx",
+      "exportName": "YouTubeVisual18Animation",
+      "viewerChange": "Der Balken hört sichtbar unterhalb der Linie auf, die er erreichen müsste.",
+      "animationIntent": "Die gesetzliche Absicherung reicht nicht zum Leben.",
+      "mechanicId": "pension-below-the-line",
+      "visualTechniqueId": "bar-stops-under-a-reference-line",
+      "techniqueDescription": "Ein Balken für die durchschnittliche Erwerbsminderungsrente wächst an und bleibt unter der eingezeichneten Grundsicherungslinie stehen.",
+      "compositionFamilyId": "data-viz",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static frontal on the chart",
+        "layout": "single bar against a reference line",
+        "transformation": "bar grows and stops below the line"
+      },
+      "motionChannels": [
+        "bar growing",
+        "reference line drawn"
+      ],
+      "visualBeats": [
+        "Grundsicherungslinie",
+        "Balken wächst",
+        "Balken stoppt darunter"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "822b0e2cea8ca5b8acce9c1ad05d5d3b9ac6b80a90c18c632a775d3041796946"
+    },
+    {
+      "id": "visual-19",
+      "sourceFile": "04-projekt/VISUALS/visual-19/animation.tsx",
+      "exportName": "YouTubeVisual19Animation",
+      "viewerChange": "Der Einkommensstapel fällt auf einen Bruchteil, und die Lücke bleibt sichtbar stehen.",
+      "animationIntent": "Zwischen Einkommen und Erwerbsminderungsrente klafft jeden Monat dieselbe Lücke.",
+      "mechanicId": "income-drops-to-remainder",
+      "visualTechniqueId": "stack-shrinks-to-a-fraction",
+      "techniqueDescription": "Ein Geldstapel über 2.200 Euro sackt auf die Höhe von 400 Euro zusammen; die fehlende Höhe bleibt als Leerraum markiert.",
+      "compositionFamilyId": "physical-shrink",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static frontal on the stack",
+        "layout": "single stack with a gap marker",
+        "transformation": "stack collapses and leaves a marked void"
+      },
+      "motionChannels": [
+        "stack height collapsing",
+        "gap marker appearing"
+      ],
+      "visualBeats": [
+        "2.200 € stehen",
+        "Stapel sackt ab",
+        "400 € bleiben",
+        "1.800 € Lücke markiert"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "6007dc97a742bbb5d9c375f313838f7d811daafa9fe56ba2fe50d3c10385ff67"
+    },
+    {
+      "id": "visual-20",
+      "sourceFile": "04-projekt/VISUALS/visual-20/animation.tsx",
+      "exportName": "YouTubeVisual20Animation",
+      "viewerChange": "Aus einzelnen Arbeitsjahren wird sichtbar ein Betrag über einer Million.",
+      "animationIntent": "Die Arbeitskraft ist der größte Vermögenswert, den man hat.",
+      "mechanicId": "working-life-adds-up",
+      "visualTechniqueId": "yearly-packets-fill-a-container",
+      "techniqueDescription": "Jahrespakete wandern eines nach dem anderen in einen Behälter, bis er über einer Million steht.",
+      "compositionFamilyId": "physical-accumulation-large",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "slow pull back as the container fills",
+        "layout": "yearly packets left, container right",
+        "transformation": "packets accumulate into a visible total"
+      },
+      "motionChannels": [
+        "packets travelling",
+        "container filling"
+      ],
+      "visualBeats": [
+        "erstes Arbeitsjahr",
+        "Pakete wandern",
+        "Behälter füllt sich",
+        "über 1 Million"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "7159a10c4ee0f9da53f418a89e77978539f6872fcaaa0647c77a61202720286b"
+    },
+    {
+      "id": "visual-24",
+      "sourceFile": "04-projekt/VISUALS/visual-24/animation.tsx",
+      "exportName": "YouTubeVisual24Animation",
+      "viewerChange": "Das Zimmer leert sich und an derselben Stelle wächst der Betrag für die Neuanschaffung.",
+      "animationIntent": "Entscheidend ist, ob man die gesamte Einrichtung ersetzen könnte.",
+      "mechanicId": "replace-the-whole-room",
+      "visualTechniqueId": "room-empties-then-price-appears",
+      "techniqueDescription": "Die Einrichtung eines Zimmers verschwindet Stück für Stück, und an ihrer Stelle stapeln sich die Rechnungen für den Neukauf.",
+      "compositionFamilyId": "physical-replacement",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static frontal into the room",
+        "layout": "furnished room emptying",
+        "transformation": "objects vanish and are replaced by invoices"
+      },
+      "motionChannels": [
+        "furniture disappearing",
+        "invoice stack rising"
+      ],
+      "visualBeats": [
+        "eingerichtetes Zimmer",
+        "Möbel verschwinden",
+        "Rechnungen stapeln sich",
+        "leeres Zimmer mit Summe"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "c2a19913f277d93720b156a2e2adba0b5ad2112f35dd023fac7940aad1b2567b"
+    },
+    {
+      "id": "visual-27",
+      "sourceFile": "04-projekt/VISUALS/visual-27/animation.tsx",
+      "exportName": "YouTubeVisual27Animation",
+      "viewerChange": "Über einen bereits abgedeckten Schaden legt sich eine zweite Absicherung, ohne dass mehr abgedeckt wird.",
+      "animationIntent": "Doppelt abgesichert heißt nicht sicherer, sondern teurer.",
+      "mechanicId": "double-cover-same-damage",
+      "visualTechniqueId": "two-covers-for-one-small-item",
+      "techniqueDescription": "Ein kleiner Schaden liegt unter dem Notgroschen; eine zweite Police legt sich darüber und deckt genau dieselbe Fläche noch einmal ab.",
+      "compositionFamilyId": "physical-overlap",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static top-down on the damage",
+        "layout": "damage with two overlapping covers",
+        "transformation": "second cover lands on an already covered area"
+      },
+      "motionChannels": [
+        "second cover descending",
+        "monthly cost ticking up"
+      ],
+      "visualBeats": [
+        "Schaden liegt da",
+        "Notgroschen deckt ihn",
+        "zweite Police legt sich darüber",
+        "Kosten laufen weiter"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "4359cbb70224970aeef1971f9431f9c285f31e6386d1f5a145c25533f6581557"
+    },
+    {
+      "id": "visual-28",
+      "sourceFile": "04-projekt/VISUALS/visual-28/animation.tsx",
+      "exportName": "YouTubeVisual28Animation",
+      "viewerChange": "Aus drei kleinen Beträgen wird eine Jahressumme, die einer ganzen Haftpflicht entspricht.",
+      "animationIntent": "Viele kleine Beiträge sind zusammen teuer.",
+      "mechanicId": "small-premiums-add-up",
+      "visualTechniqueId": "monthly-amounts-become-a-year",
+      "techniqueDescription": "Drei kleine Monatsbeiträge werden zwölfmal wiederholt und stehen am Ende als eine Jahressumme neben dem Beitrag einer Haftpflicht.",
+      "compositionFamilyId": "data-viz",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static frontal on the totals",
+        "layout": "three monthly amounts left, year total right",
+        "transformation": "monthly amounts multiply into a year sum"
+      },
+      "motionChannels": [
+        "months repeating",
+        "year total assembling"
+      ],
+      "visualBeats": [
+        "3 x 8 Euro",
+        "zwölf Monate",
+        "288 Euro im Jahr",
+        "entspricht einer Haftpflicht"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "a32e47689ec4283249d6e5e8970a2056bf04b8364c2fe5d39ae61cc79f307c74"
+    },
+    {
+      "id": "visual-30",
+      "sourceFile": "04-projekt/VISUALS/visual-30/animation.tsx",
+      "exportName": "YouTubeVisual30Animation",
+      "viewerChange": "Die drei Policen bauen sich in ihrer Reihenfolge auf, eine nach der anderen.",
+      "animationIntent": "Die Reihenfolge entscheidet, was zuerst abgesichert wird.",
+      "mechanicId": "three-policies-in-order",
+      "visualTechniqueId": "policies-stack-bottom-up",
+      "techniqueDescription": "Drei Policen legen sich in fester Reihenfolge übereinander, jede erst, wenn die darunter liegt.",
+      "compositionFamilyId": "physical-sequence",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static frontal on the stack",
+        "layout": "three policies stacking upward",
+        "transformation": "each policy lands only after the one below"
+      },
+      "motionChannels": [
+        "policies landing in order",
+        "stack height growing"
+      ],
+      "visualBeats": [
+        "leerer Tisch",
+        "Haftpflicht liegt",
+        "Berufsunfähigkeit darüber",
+        "Hausrat obenauf"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "09d9a4930e9517b0c9f61a4e80fb39852712f9d9c2dd6b13bbc9cf039d56e13e"
+    },
+    {
+      "id": "visual-31",
+      "sourceFile": "04-projekt/VISUALS/visual-31/animation.tsx",
+      "exportName": "YouTubeVisual31Animation",
+      "viewerChange": "Derselbe Vorgang läuft zweimal ab, nur der auffangende Behälter ist verschieden groß.",
+      "animationIntent": "Notgroschen und Versicherung tun dasselbe, nur in anderer Größenordnung.",
+      "mechanicId": "reserve-and-policy-same-job",
+      "visualTechniqueId": "two-catchers-one-falling-damage",
+      "techniqueDescription": "Zwei Auffangbehälter unterschiedlicher Größe stehen nebeneinander; derselbe Schaden fällt einmal in den kleinen und einmal in den großen.",
+      "compositionFamilyId": "physical-pairing",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static frontal on both catchers",
+        "layout": "small catcher left, large catcher right",
+        "transformation": "the same damage falls into each in turn"
+      },
+      "motionChannels": [
+        "damage falling",
+        "catcher absorbing"
+      ],
+      "visualBeats": [
+        "zwei Behälter",
+        "kleiner Schaden fällt links",
+        "großer Schaden fällt rechts",
+        "beide fangen ab"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "70c2da3ea013dfe415c81b3b8d59795a43c9ef9cd297438755ba2323c3afd1ab"
+    },
+    {
+      "id": "visual-32",
+      "sourceFile": "04-projekt/VISUALS/visual-32/animation.tsx",
+      "exportName": "YouTubeVisual32Animation",
+      "viewerChange": "Jeder Schaden landet sichtbar in dem Behälter, der zu seiner Größe gehört.",
+      "animationIntent": "Die Größe des Schadens entscheidet, wer ihn trägt.",
+      "mechanicId": "damages-sorted-by-size",
+      "visualTechniqueId": "items-roll-into-two-bins",
+      "techniqueDescription": "Schadensbelege unterschiedlicher Größe rollen über eine Rutsche und fallen je nach Größe in einen von zwei Behältern.",
+      "compositionFamilyId": "physical-sorting",
+      "toolStack": [
+        "Remotion",
+        "interpolate",
+        "PremiumPhysical"
+      ],
+      "motionSignature": {
+        "camera": "static frontal on the chute",
+        "layout": "chute above two bins",
+        "transformation": "items sort themselves into the matching bin"
+      },
+      "motionChannels": [
+        "items travelling down the chute",
+        "bins filling separately"
+      ],
+      "visualBeats": [
+        "Rutsche steht",
+        "kleiner Beleg rollt links",
+        "großer Beleg rollt rechts",
+        "beide Behälter gefüllt"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "c255904b47d0316e03344da8520900030930775fdb652241746daf9fbf514729"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+THUMBNAIL — VERSICHERUNGEN
+
+Bildidee: Links ein hoher, unordentlicher Stapel Policen (Label "viele Policen"), rechts getrennt durch Schwarz eine einzelne Police mit grünem Siegel (Label "wirklich nötig").
+
+Oben bleibt ruhige schwarze Fläche für die Typografie.
+
+Titelvorschlag im Bild: höchstens drei Wörter, zum Beispiel "Welche wirklich?".
+
+Keine Renditeversprechen, keine Angstmache, keine Personenabbildung.
+
+Prompt: 02-bilder/thumbnail-prompt.txt

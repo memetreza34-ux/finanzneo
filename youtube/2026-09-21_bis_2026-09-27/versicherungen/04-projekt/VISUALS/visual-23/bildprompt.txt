@@ -1,0 +1,54 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 14 - Ein Teller oder die halbe Wohnung.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A single broken plate lies on one side, a water-damaged room on the other.
+REAL_WORLD_CONTEXT_ANCHOR: Kitchen floor and a flooded living room.
+VOICEOVER_VISUAL_MATCH: The line contrasts one plate against half a flat needing replacement.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Ein Teller ist kein Versicherungsfall, die halbe Wohnung schon.
+ONE RELATION: one piece broken, a whole room soaked
+GERMAN LABELS (exactly these, nothing else): `ein Teller`, `halbe Wohnung`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. Only one small purposeful fragment of a real place is allowed — a short stretch of tiled floor under the plate, dissolving into the black — and it must fade into the black within a short distance.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for what is at risk.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+On the left, a single white plate lies broken into three clean pieces on tiles, with a small ivory label
+`ein Teller` — calm, small, easily replaced.
+On the right, separated by black, a soaked living room corner: a sofa dark with water up to the seat,
+a swollen wooden shelf sagging, water spread across the floor, labelled `halbe Wohnung` in warm
+red-orange.
+The same category of accident. A completely different size.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.

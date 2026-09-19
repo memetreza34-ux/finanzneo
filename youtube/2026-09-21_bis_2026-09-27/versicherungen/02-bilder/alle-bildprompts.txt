@@ -1,0 +1,1133 @@
+FINANZNEO — GOOGLE FLOW YOUTUBE HANDOFF
+
+GENERIERT AUS DEN EINZELNEN bildprompt.txt — NICHT VON HAND BEARBEITEN.
+Quelle: 04-projekt/VISUALS/<visual>/bildprompt.txt
+Neu bauen: npm run youtube:prompts:build -- youtube/2026-09-21_bis_2026-09-27/versicherungen
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+ARBEITSWEISE — STRIKT SEQUENZIELL
+Work through the blocks below in the given order, one block at a time.
+Generate exactly ONE image per block. Wait until it is fully complete.
+Rename it immediately to the exact FINAL FILE NAME of that block.
+Run the checks of the block. If any check fails, regenerate the same image number and replace the failed file.
+Only then continue with the next block.
+Never generate several images in parallel or as a batch.
+Never attach or upload another image as a reference. Every block carries its complete style lock in writing.
+
+Literal first, creative second — every block starts from the concrete real-world situation behind the spoken line.
+
+All source images are horizontal 16:9.
+Put every finished, correctly named file together into 02-bilder/00-ALLE-BILDER-HIER-REIN/
+
+Blocks in this handoff: 19 (18 Videobilder + 1 Thumbnail)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 1 / 19 — visual-01 — YouTube Bild 01 - Viel versichert, falsch versichert.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 01 - Viel versichert, falsch versichert.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A year of insurance paperwork sits in one stack while the thing that earns the money stands next to it with nothing on it.
+REAL_WORLD_CONTEXT_ANCHOR: Kitchen table paperwork evening, ordinary German household.
+VOICEOVER_VISUAL_MATCH: The opening line names the 2.000 € a year and the unprotected working capacity.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Viel Geld für Policen, und das Wichtigste ist nicht dabei.
+ONE RELATION: the stack is thick, the space beside it is empty
+GERMAN LABELS (exactly these, nothing else): `Versicherungen 2.000 € / Jahr`, `Arbeitskraft`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for cost.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A thick stack of German insurance policies, maybe fifteen documents, held together by a paper clip, with
+a readable summary sheet on top carrying the label `Versicherungen 2.000 € / Jahr` in warm red-orange.
+To the right of the stack, separated by a clear gap of black, a pair of well-used work gloves and a
+lunchbox lie alone with a small ivory label `Arbeitskraft` — nothing covers them, nothing protects them.
+The paperwork is abundant. The thing that earns it is bare.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 2 / 19 — visual-03 — YouTube Bild 02 - Eine Regel statt einer Liste.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 02 - Eine Regel statt einer Liste.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A single printed rule card lies in front of a stack of policies that it makes unnecessary to read.
+REAL_WORLD_CONTEXT_ANCHOR: Kitchen table decision moment.
+VOICEOVER_VISUAL_MATCH: The line promises one rule instead of a list of products.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Eine Regel ersetzt die ganze Produktliste.
+ONE RELATION: one card in front, the unread stack behind
+GERMAN LABELS (exactly these, nothing else): `Eine Regel`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, emerald green for what is protected, gold for money.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A single ivory card stands upright and clearly lit in the front, label `Eine Regel` printed small at its
+top edge, its surface otherwise empty and inviting.
+Behind it, pushed back into the darkness and slightly out of focus, the same thick stack of insurance
+policies lies closed and unopened.
+The card is small. It is also the only thing that matters here.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 3 / 19 — visual-04 — YouTube Bild 03 - Die falsche Frage.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 03 - Die falsche Frage.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A checklist of things that could break runs off the bottom of the frame without ending.
+REAL_WORLD_CONTEXT_ANCHOR: Household inventory list.
+VOICEOVER_VISUAL_MATCH: The line says the answer to "what could break" is endless.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Die Frage nach allem Kaputtgehbaren hat kein Ende.
+ONE RELATION: the list begins neatly and never finishes
+GERMAN LABELS (exactly these, nothing else): `Was kann kaputtgehen?`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for cost.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A long printed paper list unrolls from the upper area downward, its heading `Was kann kaputtgehen?`
+readable at the top in ivory.
+The first entries are neatly printed and legible. Further down the entries become smaller and denser,
+and the paper continues past the lower edge of the frame without ever reaching an end.
+The list does not stop. That is the whole point.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 4 / 19 — visual-06 — YouTube Bild 04 - Die richtige Frage.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 04 - Die richtige Frage.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: The same household objects lie together, and exactly one of them is marked as the one that could not be paid out of pocket.
+REAL_WORLD_CONTEXT_ANCHOR: Same household objects as before, now sorted.
+VOICEOVER_VISUAL_MATCH: The line introduces the real question: which damage could I not pay myself.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Nur ein einziger Fall ist der, den man nicht selbst tragen kann.
+ONE RELATION: four ordinary objects, one marked apart
+GERMAN LABELS (exactly these, nothing else): `selbst bezahlbar`, `nicht selbst bezahlbar`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for what is at risk.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+Four everyday objects lie loosely grouped on the left: a smartphone, a pair of glasses, a small suitcase
+and a bicycle wheel, all calm in ivory and gray, with one small shared label `selbst bezahlbar`.
+Alone on the right, separated by a wide gap of black, stands a thick medical and legal document bundle,
+lit in warm red-orange, labelled `nicht selbst bezahlbar`.
+Four things are replaceable. One is not.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 5 / 19 — visual-08 — YouTube Bild 05 - Display kaputt: 250 €.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 05 - Display kaputt: 250 €.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A dropped smartphone with a shattered screen lies next to its repair quote and the envelope that will pay it.
+REAL_WORLD_CONTEXT_ANCHOR: Hallway floor where the phone landed.
+VOICEOVER_VISUAL_MATCH: The line names the 250 € repair and the Notgroschen that covers it.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Display kaputt = 250 €, das trägt der Notgroschen.
+ONE RELATION: the screen is broken, the envelope is already open
+GERMAN LABELS (exactly these, nothing else): `Reparatur 250 €`, `Notgroschen`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. Only one small purposeful fragment of a real place is allowed — a short stretch of hallway tiles under the phone — and it must fade into the black within a short distance.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, emerald green for what is protected, gold for money.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A modern smartphone lies face up with a clearly modelled spider-web crack across its display, one corner
+scuffed from the fall.
+Leaning against it, a small German repair quote with the readable label `Reparatur 250 €`.
+Directly beside them, an ivory envelope with an emerald wax seal stands open, a green 100-euro note and
+two smaller notes visible at its opening, labelled `Notgroschen`.
+The damage is real. The money for it is already there.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 6 / 19 — visual-09 — YouTube Bild 06 - Fahrrad weg: 600 €.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 06 - Fahrrad weg: 600 €.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A cut bicycle lock hangs from an empty bike stand where the bicycle used to be.
+REAL_WORLD_CONTEXT_ANCHOR: Street bike stand, ordinary theft.
+VOICEOVER_VISUAL_MATCH: The line names the stolen bicycle and the 600 €.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Fahrrad weg = 600 €, ärgerlich aber nicht existenziell.
+ONE RELATION: the lock is still there, the bicycle is not
+GERMAN LABELS (exactly these, nothing else): `Fahrrad 600 €`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. Only one small purposeful fragment of a real place is allowed — a short stretch of pavement with the base of the bike stand — and it must fade into the black within a short distance.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for cost.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A steel bicycle lock hangs cleanly cut through from an empty metal bike stand, the cut ends bright where
+the metal was severed.
+The space where the bicycle stood is empty black.
+On the ground beside the stand lies a small price tag with the readable label `Fahrrad 600 €` in warm
+red-orange.
+Something is missing, and it has a price.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 7 / 19 — visual-10 — YouTube Bild 07 - Wenn ein Mensch zu Schaden kommt.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 07 - Wenn ein Mensch zu Schaden kommt.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A bicycle lies on its side on a pavement and the paperwork that follows such an accident has already piled up beside it.
+REAL_WORLD_CONTEXT_ANCHOR: Pavement after a collision with a pedestrian.
+VOICEOVER_VISUAL_MATCH: The line turns the 600 € case into treatment, care and lost earnings over decades.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Ein Personenschaden ist kein 600-Euro-Fall mehr.
+ONE RELATION: one fallen bicycle, a stack of consequences
+GERMAN LABELS (exactly these, nothing else): `Behandlung`, `Pflege`, `Verdienstausfall`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. Only one small purposeful fragment of a real place is allowed — a short stretch of pavement with a single dropped walking stick at its edge — and it must fade into the black within a short distance.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for what is at risk.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A bicycle lies on its side, front wheel bent, one pedal still turning position, abandoned mid-fall.
+Rising directly behind it, a tall and clearly heavier stack of German documents in three visible groups,
+each with its own small label in warm red-orange: `Behandlung`, `Pflege`, `Verdienstausfall`.
+The stack is far taller than the bicycle. That difference is the message.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 8 / 19 — visual-12 — YouTube Bild 08 - Die eine Pflichtpolice.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 08 - Die eine Pflichtpolice.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A single private liability policy lies alone, clean and open, as the one document everybody needs.
+REAL_WORLD_CONTEXT_ANCHOR: Document on its own, nothing competing.
+VOICEOVER_VISUAL_MATCH: The line calls the Privathaftpflicht an absolute must for everyone.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Die Privathaftpflicht braucht wirklich jeder.
+ONE RELATION: one document, nothing else in the frame
+GERMAN LABELS (exactly these, nothing else): `Privathaftpflicht`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, emerald green for what is protected, gold for money.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A single German insurance policy lies open and perfectly lit in the centre, its cover page carrying the
+readable label `Privathaftpflicht` and an emerald green seal pressed into the paper.
+The paper is crisp, the fold sharp, the surface clean.
+Nothing else is in the frame. One document, and it is enough.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 9 / 19 — visual-15 — YouTube Bild 09 - Die Police, die am häufigsten fehlt.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 09 - Die Police, die am häufigsten fehlt.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A row of insurance policies stands filed upright with one conspicuous empty slot in the middle.
+REAL_WORLD_CONTEXT_ANCHOR: Document file with one folder missing.
+VOICEOVER_VISUAL_MATCH: The line says the second existential cover is the one most often missing.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Genau die wichtigste Police fehlt am häufigsten.
+ONE RELATION: the row is full, the gap is obvious
+GERMAN LABELS (exactly these, nothing else): `fehlt`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for what is at risk.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+Seven German insurance policies stand upright in a row like files, each with a readable spine, evenly
+lit and slightly worn from use.
+In the middle of the row, one slot is empty — the neighbouring documents lean slightly into the gap,
+and the empty space is lit in warm red-orange with a small label `fehlt`.
+Everything is in order except the one thing that is not there.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 10 / 19 — visual-16 — YouTube Bild 10 - Wenn du nicht mehr arbeiten kannst.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 10 - Wenn du nicht mehr arbeiten kannst.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: Work boots and tools stand untouched against a wall with a sick note that has no end date.
+REAL_WORLD_CONTEXT_ANCHOR: Workshop corner after the last working day.
+VOICEOVER_VISUAL_MATCH: The line describes not being able to work, permanently.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Nicht zwei Wochen, sondern dauerhaft.
+ONE RELATION: the tools are ready, nobody picks them up
+GERMAN LABELS (exactly these, nothing else): `ohne Enddatum`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. Only one small purposeful fragment of a real place is allowed — a short stretch of workshop floor with the base of the wall — and it must fade into the black within a short distance.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for what is at risk.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A pair of well-worn work boots stands neatly side by side against a wall, laces still tied, a fine layer
+of dust on them.
+Beside them a toolbox sits closed, handle up, clearly unused for a long time.
+Leaning against the boots, a German medical certificate where the end-date field is visibly empty,
+labelled `ohne Enddatum` in warm red-orange.
+Everything is ready for work. The work does not happen.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 11 / 19 — visual-17 — YouTube Bild 11 - Was der Staat übrig lässt.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 11 - Was der Staat übrig lässt.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: An official German pension statement shows the occupational disability line struck out and only the reduced earning capacity pension left.
+REAL_WORLD_CONTEXT_ANCHOR: Official letter from the pension insurance.
+VOICEOVER_VISUAL_MATCH: The line explains that everyone born after 1961 only gets the Erwerbsminderungsrente.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Der Staat zahlt nur noch die Erwerbsminderungsrente.
+ONE RELATION: one line crossed out, one line remaining
+GERMAN LABELS (exactly these, nothing else): `Berufsunfähigkeitsrente`, `Erwerbsminderungsrente`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for what is at risk.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+An official German pension statement lies flat and clearly lit, its header area carrying a formal seal.
+Two entries are readable on it. The upper one, `Berufsunfähigkeitsrente`, is struck through with a firm
+red-orange line. The lower one, `Erwerbsminderungsrente`, stands untouched in ivory.
+One option was removed. Only the smaller one is left.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 12 / 19 — visual-21 — YouTube Bild 12 - Sie versichert dein Einkommen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 12 - Sie versichert dein Einkommen.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: An insurance policy lies protectively over a pay envelope instead of over an object.
+REAL_WORLD_CONTEXT_ANCHOR: Monthly pay envelope on the table.
+VOICEOVER_VISUAL_MATCH: The line says the BU insures income, not a thing.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Die Berufsunfähigkeit versichert das Einkommen, keinen Gegenstand.
+ONE RELATION: the policy covers money, not an object
+GERMAN LABELS (exactly these, nothing else): `Berufsunfähigkeit`, `Einkommen`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, emerald green for what is protected, gold for money.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A German pay envelope lies in the centre, slightly open, with recognizable euro banknotes visible at its
+mouth and a small label `Einkommen`.
+Spread across it like a protective sheet lies a translucent emerald-tinted insurance policy, its corner
+lifted just enough to show the envelope underneath, labelled `Berufsunfähigkeit`.
+Beside them, a smartphone and a bicycle wheel lie deliberately outside the policy's edge, uncovered.
+The cover is over the money, not over the things.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 13 / 19 — visual-22 — YouTube Bild 13 - Die dritte Kategorie.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 13 - Die dritte Kategorie.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: An open apartment door reveals a fully furnished living room behind it.
+REAL_WORLD_CONTEXT_ANCHOR: Apartment entrance, ordinary rented flat.
+VOICEOVER_VISUAL_MATCH: The line introduces the Hausratversicherung as the third category.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Die Hausratversicherung sichert die ganze Einrichtung.
+ONE RELATION: one door, everything behind it
+GERMAN LABELS (exactly these, nothing else): `Hausrat`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. Only one small purposeful fragment of a real place is allowed — the door frame and a short stretch of the hallway floor — and it must fade into the black within a short distance.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for cost.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+An apartment door stands open at an angle, its handle and lock clearly modelled, a key still in the lock.
+Through the opening, a furnished living room is visible in warm light: a sofa, a shelf with books, a
+lamp, a small table — all recognizable, all ordinary, all belonging to one household.
+A small ivory label `Hausrat` hangs on the door handle.
+The door is the frame. What matters is everything behind it.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 14 / 19 — visual-23 — YouTube Bild 14 - Ein Teller oder die halbe Wohnung.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 14 - Ein Teller oder die halbe Wohnung.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A single broken plate lies on one side, a water-damaged room on the other.
+REAL_WORLD_CONTEXT_ANCHOR: Kitchen floor and a flooded living room.
+VOICEOVER_VISUAL_MATCH: The line contrasts one plate against half a flat needing replacement.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Ein Teller ist kein Versicherungsfall, die halbe Wohnung schon.
+ONE RELATION: one piece broken, a whole room soaked
+GERMAN LABELS (exactly these, nothing else): `ein Teller`, `halbe Wohnung`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. Only one small purposeful fragment of a real place is allowed — a short stretch of tiled floor under the plate, dissolving into the black — and it must fade into the black within a short distance.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for what is at risk.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+On the left, a single white plate lies broken into three clean pieces on tiles, with a small ivory label
+`ein Teller` — calm, small, easily replaced.
+On the right, separated by black, a soaked living room corner: a sofa dark with water up to the seat,
+a swollen wooden shelf sagging, water spread across the floor, labelled `halbe Wohnung` in warm
+red-orange.
+The same category of accident. A completely different size.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 15 / 19 — visual-25 — YouTube Bild 15 - Diese Policen kannst du streichen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 15 - Diese Policen kannst du streichen.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: Four German insurance policies lie side by side, each visibly marked as dispensable.
+REAL_WORLD_CONTEXT_ANCHOR: Cancelled paperwork sorted on the table.
+VOICEOVER_VISUAL_MATCH: The line names Reisegepäck, Glas, Sterbegeld and private Arbeitslosenversicherung as dispensable.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Diese vier Policen kann man streichen.
+ONE RELATION: four documents, all crossed through
+GERMAN LABELS (exactly these, nothing else): `Reisegepäck`, `Glas`, `Sterbegeld`, `Arbeitslosigkeit`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for cost.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+Four German insurance policies lie spread in a loose row, each clearly a separate document, each with its
+own readable label: `Reisegepäck`, `Glas`, `Sterbegeld`, `Arbeitslosigkeit`.
+Across each of the four runs a single firm red-orange diagonal line, drawn as if with a marker, the ink
+slightly thicker where the stroke ends.
+Four documents. Four strokes. Nothing to discuss.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 16 / 19 — visual-26 — YouTube Bild 16 - Auch die Geräteversicherungen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 16 - Auch die Geräteversicherungen.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A smartphone, a bicycle, a laptop and a pair of glasses each carry their own small extra policy stuck onto them.
+REAL_WORLD_CONTEXT_ANCHOR: Everyday objects with product insurance stickers.
+VOICEOVER_VISUAL_MATCH: The line lists the extra device policies for Handy, Fahrrad, Laptop and Brille.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Für jedes Gerät eine eigene kleine Police.
+ONE RELATION: four objects, four separate little policies
+GERMAN LABELS (exactly these, nothing else): `Handy`, `Fahrrad`, `Laptop`, `Brille`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for cost.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+Four everyday objects stand grouped: a smartphone upright, a bicycle wheel leaning, a closed laptop and a
+pair of glasses folded.
+Onto each of them a small separate insurance certificate is stuck like a price label, each with its own
+readable name: `Handy`, `Fahrrad`, `Laptop`, `Brille`, each with its own tiny seal.
+Four objects, four contracts. The paperwork weighs more than the risk.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 17 / 19 — visual-29 — YouTube Bild 17 - Zuerst die Haftpflicht.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 17 - Zuerst die Haftpflicht.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: One private liability policy lies alone in first position, clean and unmistakably first.
+REAL_WORLD_CONTEXT_ANCHOR: Sorted paperwork, first step done.
+VOICEOVER_VISUAL_MATCH: The line says the Privathaftpflicht comes first because it costs little and covers the most.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Erster Schritt: die Privathaftpflicht.
+ONE RELATION: one document in front, an empty ordered space behind
+GERMAN LABELS (exactly these, nothing else): `1. Privathaftpflicht`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, emerald green for what is protected, gold for money.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A single German private liability policy lies in the front, lit clearly, with the readable label
+`1. Privathaftpflicht` and an emerald green seal.
+Behind it, two empty document outlines are indicated only by faint ivory edges in the dark — the places
+where the next two policies will go, still unfilled.
+The first step is done and visibly first.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 18 / 19 — visual-33 — YouTube Bild 18 - Der eine Satz.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 18 - Der eine Satz.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A printed card with the closing rule stands between a small receipt and an enormous one.
+REAL_WORLD_CONTEXT_ANCHOR: The final card on the table.
+VOICEOVER_VISUAL_MATCH: The closing line contrasts what annoys you with what ruins you.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Versichere nicht, was dich ärgert. Versichere, was dich ruiniert.
+ONE RELATION: a small slip on one side, a towering bill on the other
+GERMAN LABELS (exactly these, nothing else): `Versichere, was dich ruiniert`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, emerald green for what is protected, gold for money.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+In the centre stands a single upright ivory card with the readable label
+`Versichere, was dich ruiniert`, pressed into the paper and lit warmly.
+To its left lies one small crumpled receipt, barely the size of a hand.
+To its right rises a single enormous invoice, many times taller than the card, its printed rows
+disappearing upward into the black.
+The card is small. It stands between two very different sizes of trouble.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BLOCK 19 / 19 — thumbnail — YouTube Thumbnail - Versicherungen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Thumbnail - Versicherungen.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A thick stack of insurance policies stands opposite a single one, and only the single one is sealed.
+REAL_WORLD_CONTEXT_ANCHOR: Kitchen table decision, one document against many.
+VOICEOVER_VISUAL_MATCH: The video answers which insurances are genuinely needed.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Viele Policen gegen die wenigen, die wirklich zählen.
+ONE RELATION: many on one side, one that counts on the other
+GERMAN LABELS (exactly these, nothing else): `viele Policen`, `wirklich nötig`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. The objects float in black. No floor, no wall, no desk, no wood, no table surface, no room.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, emerald green for what is protected, gold for money.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+Left: a tall untidy stack of German insurance policies, corners sticking out in all directions, slightly
+leaning, labelled `viele Policen` in warm red-orange.
+Right, separated by a clean gap of black: one single upright policy with an emerald wax seal, calm and
+perfectly lit, labelled `wirklich nötig`.
+Keep generous calm black space along the top edge for typography added later in Remotion.
+One side is noise. The other side is the answer.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.

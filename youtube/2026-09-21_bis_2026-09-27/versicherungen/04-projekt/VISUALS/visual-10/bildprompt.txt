@@ -1,0 +1,52 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-cg-animated-black-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FINAL FILE NAME: YouTube Bild 07 - Wenn ein Mensch zu Schaden kommt.png
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above.
+If any check fails, regenerate the same image number and replace the failed file. Only then continue.
+Do NOT attach, upload or reference any other image.
+
+LITERAL FIRST, CREATIVE SECOND
+LITERAL_REAL_WORLD_SITUATION: A bicycle lies on its side on a pavement and the paperwork that follows such an accident has already piled up beside it.
+REAL_WORLD_CONTEXT_ANCHOR: Pavement after a collision with a pedestrian.
+VOICEOVER_VISUAL_MATCH: The line turns the 600 € case into treatment, care and lost earnings over decades.
+TRANSFERABILITY_TEST: PASS — the situation and its size are readable in under two seconds without sound.
+VISUAL_STRATEGY: literal
+METAPHOR_JUSTIFICATION: NONE
+
+CORE IDEA (DE): Ein Personenschaden ist kein 600-Euro-Fall mehr.
+ONE RELATION: one fallen bicycle, a stack of consequences
+GERMAN LABELS (exactly these, nothing else): `Behandlung`, `Pflege`, `Verdienstausfall`
+
+Frame from a fully CG 3D animated feature film. Everything in the image is modeled and
+rendered — nothing is photographic. No photo texture, no scanned material, no camera
+grain, no lens dirt, no real-world photography of any kind.
+Surfaces are clean sculpted CG materials: soft idealized paint, matte plastic, smooth
+paper, gently polished metal. Shapes are appealing and slightly simplified while staying
+completely recognizable.
+Real in identity, animated in rendering: the object is exactly the real thing a German
+household owns, rendered as an animation-film asset.
+Money is recognizable euro banknotes — correct colour for the value, readable
+denomination, never generic coloured paper and never dollars. Money keeps its real colour.
+Warm cinematic key light with a soft rim light and gentle bounce. Soft contact shadows.
+No person in this frame.
+Pure black background. Only one small purposeful fragment of a real place is allowed — a short stretch of pavement with a single dropped walking stick at its edge — and it must fade into the black within a short distance.
+Never a full room, never a generic studio floor, never a desk or table surface, never a
+wooden surface, never a gradient backdrop.
+Ivory and gray neutral, warm red-orange for what is at risk.
+Only the German labels listed in this prompt, small and printed on their object.
+No other text, no large lettering, no word built as a 3D sculpture.
+Horizontal 16:9, subject in the lower two thirds, calm black space above.
+
+SCENE
+A bicycle lies on its side, front wheel bent, one pedal still turning position, abandoned mid-fall.
+Rising directly behind it, a tall and clearly heavier stack of German documents in three visible groups,
+each with its own small label in warm red-orange: `Behandlung`, `Pflege`, `Verdienstausfall`.
+The stack is far taller than the bicycle. That difference is the message.
+
+A frame from a CG animated feature film on pure black. Modeled and rendered, never
+photographed. Every object recognizable as the real thing.

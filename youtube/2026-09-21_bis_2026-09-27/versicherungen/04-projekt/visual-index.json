@@ -1,0 +1,1075 @@
+{
+ "format": "youtube-longform",
+ "title": "Welche Versicherungen brauchst du wirklich?",
+ "shortsForbidden": true,
+ "fixedVisualCount": false,
+ "fixedImageAnimationRatio": false,
+ "video": {
+  "aspectRatio": "16:9",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30
+ },
+ "userCreatesImages": true,
+ "antigravityGeneratesImages": false,
+ "imageWorld": {
+  "id": "finanzneo-connected-studio-v3",
+  "seriesLockId": "finanzneo-same-world-v1",
+  "generatedImageAspectRatio": "16:9",
+  "horizontalGeneratedImagesRequired": true,
+  "sameWorldAcrossSeriesRequired": true,
+  "literalFirst": true,
+  "metaphorOptional": true,
+  "styleReferenceStrategy": "approved-thumbnail-style-only",
+  "referencePromptFile": "02-bilder/bildwelt.txt"
+ },
+ "motionStandard": {
+  "id": "finanzneo-youtube-motion-v3",
+  "contentFirstTechniqueSelection": true,
+  "existingComponentsOptional": true,
+  "physicalPrimitivesOptional": true
+ },
+ "googleFlow": {
+  "protocolId": "finanzneo-flow-sequential-v1",
+  "generationMode": "one-image-at-a-time",
+  "strictSequential": true,
+  "waitForCurrentImage": true,
+  "renameBeforeNext": true,
+  "qaBeforeNext": true,
+  "retrySameImageOnFailure": true,
+  "finalCollectionDirectory": "02-bilder/00-ALLE-BILDER-HIER-REIN/",
+  "distributeToVisualFolders": false
+ },
+ "timelineRules": {
+  "cutsFollowVoiceAndChapters": true,
+  "beatFirst": true,
+  "equalLengthVisualsForbiddenByDefault": true
+ },
+ "audio": {
+  "targetIntegratedLufs": -16,
+  "targetTruePeakDbtp": -1,
+  "subtitleMode": "sentence-with-audio-synced-active-word",
+  "activeWordColor": "finance-green"
+ },
+ "thumbnail": {
+  "type": "image",
+  "googleFlowFileName": "YouTube Thumbnail - Versicherungen.png",
+  "planFile": "02-bilder/thumbnail-prompt.txt"
+ },
+ "publishing": {
+  "youtube": {
+   "titleOptions": "03-export/titel-varianten.txt",
+   "finalTitle": "03-export/titel.txt",
+   "description": "03-export/beschreibung.txt",
+   "chapters": "03-export/kapitel.txt",
+   "tagsKeywords": "03-export/keywords.txt",
+   "hashtags": "03-export/hashtags.txt",
+   "thumbnailBrief": "03-export/thumbnail-brief.txt",
+   "pinnedComment": "03-export/angehefteter-kommentar.txt",
+   "communityPost": "03-export/community-post.txt",
+   "sourcesDisclaimer": "03-export/quellen-disclaimer.txt",
+   "uploadChecklist": "03-export/upload-checkliste.md"
+  },
+  "socialPromo": {
+   "instagram": "03-export/social/instagram.txt",
+   "tiktok": "03-export/social/tiktok.txt",
+   "facebook": "03-export/social/facebook.txt",
+   "snapchat": "03-export/social/snapchat.txt"
+  }
+ },
+ "visuals": [
+  {
+   "id": "visual-01",
+   "type": "image",
+   "chapter": "Das Problem",
+   "scriptBeat": "Über 2.000 Euro im Jahr für Versicherungen — und die Arbeitskraft bleibt ungeschützt.",
+   "headline": "Viel versichert, falsch versichert",
+   "icon": "receipt",
+   "sentenceSpan": {
+    "from": 1,
+    "to": 3
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-01/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 01 - Viel versichert, falsch versichert.png",
+   "expectedVisual": "Ein dicker Stapel Policen neben einer Jahresrechnung über 2.000 Euro, daneben ein leerer Platz für die Arbeitskraft.",
+   "objectLabels": [
+    "Versicherungen 2.000 € / Jahr",
+    "Arbeitskraft"
+   ]
+  },
+  {
+   "id": "visual-02",
+   "type": "animation",
+   "chapter": "Das Problem",
+   "scriptBeat": "Handy und Fahrrad tragen eine Police, die eigene Arbeitskraft nicht.",
+   "headline": "Das Handy ja, du nicht",
+   "icon": "shield",
+   "sentenceSpan": {
+    "from": 4,
+    "to": 6
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-02/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-02/animation.tsx",
+   "animationExport": "YouTubeVisual02Animation",
+   "mechanicId": "policy-sheets-cover-objects",
+   "visualTechniqueId": "covering-sheet-leaves-one-bare",
+   "techniqueDescription": "Schutzfolien legen sich nacheinander über Handy und Fahrrad; der dritte Gegenstand bleibt unbedeckt liegen.",
+   "compositionFamilyId": "physical-covering",
+   "viewerChange": "Zwei Gegenstände bekommen sichtbar eine Police übergelegt, der dritte bleibt offen liegen.",
+   "animationIntent": "Der Schutz sitzt an den billigen Stellen und fehlt an der teuren.",
+   "motionSignature": {
+    "camera": "static frontal on three objects",
+    "layout": "three objects in a row",
+    "transformation": "sheets settle onto two of three"
+   },
+   "motionChannels": [
+    "sheet descending onto object",
+    "uncovered object left exposed"
+   ],
+   "visualBeats": [
+    "drei Gegenstände offen",
+    "Handy bedeckt",
+    "Fahrrad bedeckt",
+    "Arbeitskraft bleibt offen"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-03",
+   "type": "image",
+   "chapter": "Das Problem",
+   "scriptBeat": "Es geht um eine Regel, die man selbst anwenden kann.",
+   "headline": "Eine Regel statt einer Liste",
+   "icon": "bulb",
+   "sentenceSpan": {
+    "from": 7,
+    "to": 8
+   },
+   "planFile": "04-projekt/VISUALS/visual-03/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 02 - Eine Regel statt einer Liste.png",
+   "expectedVisual": "Eine einzelne aufgeschlagene Karte mit einer Regel darauf, die einen ganzen Stapel Policen ersetzt.",
+   "objectLabels": [
+    "Eine Regel"
+   ]
+  },
+  {
+   "id": "visual-04",
+   "type": "image",
+   "chapter": "Die richtige Frage",
+   "scriptBeat": "Was könnte alles kaputtgehen? Die Antwort ist unendlich lang.",
+   "headline": "Die falsche Frage",
+   "icon": "cross",
+   "sentenceSpan": {
+    "from": 9,
+    "to": 11
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-04/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 03 - Die falsche Frage.png",
+   "expectedVisual": "Eine endlose Liste von Gegenständen, die aus dem Bild hinausläuft.",
+   "objectLabels": [
+    "Was kann kaputtgehen?"
+   ]
+  },
+  {
+   "id": "visual-05",
+   "type": "animation",
+   "chapter": "Die richtige Frage",
+   "scriptBeat": "Handy, Brille, Koffer, Fahrrad — der Stapel wächst endlos weiter.",
+   "headline": "Die Liste hört nie auf",
+   "icon": "list",
+   "sentenceSpan": {
+    "from": 12,
+    "to": 15
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-05/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-05/animation.tsx",
+   "animationExport": "YouTubeVisual05Animation",
+   "mechanicId": "endless-item-pile",
+   "visualTechniqueId": "items-drop-until-frame-overflows",
+   "techniqueDescription": "Gegenstände fallen einer nach dem anderen auf einen Stapel, der schneller wächst als der Platz reicht.",
+   "compositionFamilyId": "physical-accumulation",
+   "viewerChange": "Ein Stapel Alltagsgegenstände wächst ohne Ende weiter, bis klar wird, dass die Liste nie aufhört.",
+   "animationIntent": "Die Frage nach allem Kaputtgehbaren führt zu einer unendlichen Liste.",
+   "motionSignature": {
+    "camera": "static wide on the pile",
+    "layout": "growing pile centre",
+    "transformation": "items drop in and raise the pile"
+   },
+   "motionChannels": [
+    "items dropping in",
+    "pile height rising"
+   ],
+   "visualBeats": [
+    "leerer Tisch",
+    "Handy fällt",
+    "Brille fällt",
+    "Koffer und Fahrrad",
+    "Stapel läuft über"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-06",
+   "type": "image",
+   "chapter": "Die richtige Frage",
+   "scriptBeat": "Welchen Schaden könnte ich nicht selbst bezahlen?",
+   "headline": "Die richtige Frage",
+   "icon": "search",
+   "sentenceSpan": {
+    "from": 16,
+    "to": 17
+   },
+   "planFile": "04-projekt/VISUALS/visual-06/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 04 - Die richtige Frage.png",
+   "expectedVisual": "Dieselben Gegenstände, aber nur einer davon ist rot markiert: der, den man nicht selbst bezahlen könnte.",
+   "objectLabels": [
+    "Was kann ich nicht selbst bezahlen?"
+   ]
+  },
+  {
+   "id": "visual-07",
+   "type": "animation",
+   "chapter": "Die richtige Frage",
+   "scriptBeat": "Eine Versicherung fängt nur das ab, was das Leben aus der Bahn wirft.",
+   "headline": "Wofür eine Police da ist",
+   "icon": "shield",
+   "sentenceSpan": {
+    "from": 18,
+    "to": 22
+   },
+   "tone": "positive",
+   "planFile": "04-projekt/VISUALS/visual-07/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-07/animation.tsx",
+   "animationExport": "YouTubeVisual07Animation",
+   "mechanicId": "small-bounces-large-caught",
+   "visualTechniqueId": "two-sizes-meet-the-same-net",
+   "techniqueDescription": "Ein kleiner und ein großer Schadensbeleg fallen auf dasselbe Auffangnetz; der kleine prallt ab, der große wird gehalten.",
+   "compositionFamilyId": "physical-threshold",
+   "viewerChange": "Zwei unterschiedlich große Schäden treffen dasselbe Netz und werden unterschiedlich behandelt.",
+   "animationIntent": "Eine Versicherung ist kein Rundum-Schutz, sondern eine Schwelle.",
+   "motionSignature": {
+    "camera": "static frontal on the net",
+    "layout": "net across the lower half",
+    "transformation": "small item bounces off, large item is caught"
+   },
+   "motionChannels": [
+    "falling items",
+    "net deforming under load"
+   ],
+   "visualBeats": [
+    "gespanntes Netz",
+    "kleiner Beleg prallt ab",
+    "großer Beleg fällt",
+    "Netz fängt ihn"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-08",
+   "type": "image",
+   "chapter": "Was du selbst trägst",
+   "scriptBeat": "Ein kaputtes Display kostet 250 Euro — das fängt der Notgroschen ab.",
+   "headline": "Display kaputt: 250 €",
+   "icon": "phone",
+   "sentenceSpan": {
+    "from": 23,
+    "to": 27
+   },
+   "planFile": "04-projekt/VISUALS/visual-08/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 05 - Display kaputt: 250 €.png",
+   "expectedVisual": "Ein Smartphone mit gesprungenem Display neben einem Reparaturbeleg über 250 Euro und einem Umschlag mit Notgroschen.",
+   "objectLabels": [
+    "Reparatur 250 €",
+    "Notgroschen"
+   ]
+  },
+  {
+   "id": "visual-09",
+   "type": "image",
+   "chapter": "Was du selbst trägst",
+   "scriptBeat": "600 Euro tun weh, verändern das Leben aber nicht.",
+   "headline": "Fahrrad weg: 600 €",
+   "icon": "wallet",
+   "sentenceSpan": {
+    "from": 28,
+    "to": 31
+   },
+   "planFile": "04-projekt/VISUALS/visual-09/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 06 - Fahrrad weg: 600 €.png",
+   "expectedVisual": "Ein durchtrenntes Fahrradschloss am leeren Fahrradständer, daneben ein Preisschild über 600 Euro.",
+   "objectLabels": [
+    "Fahrrad 600 €"
+   ]
+  },
+  {
+   "id": "visual-10",
+   "type": "image",
+   "chapter": "Was dich ruiniert",
+   "scriptBeat": "Ein Fahrradunfall mit dauerhafter Pflege ist kein 600-Euro-Fall mehr.",
+   "headline": "Wenn ein Mensch zu Schaden kommt",
+   "icon": "warning",
+   "sentenceSpan": {
+    "from": 32,
+    "to": 36
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-10/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 07 - Wenn ein Mensch zu Schaden kommt.png",
+   "expectedVisual": "Ein umgestürztes Fahrrad auf dem Gehweg, daneben Behandlungs-, Pflege- und Verdienstausfallbelege, die sich zu einem hohen Stapel türmen.",
+   "objectLabels": [
+    "Behandlung",
+    "Pflege",
+    "Verdienstausfall"
+   ]
+  },
+  {
+   "id": "visual-11",
+   "type": "animation",
+   "chapter": "Was dich ruiniert",
+   "scriptBeat": "Nach deutschem Recht haftet man in unbegrenzter Höhe.",
+   "headline": "Haftung ohne Obergrenze",
+   "icon": "warning",
+   "sentenceSpan": {
+    "from": 37,
+    "to": 40
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-11/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-11/animation.tsx",
+   "animationExport": "YouTubeVisual11Animation",
+   "mechanicId": "liability-counter-without-ceiling",
+   "visualTechniqueId": "amount-runs-past-every-marker",
+   "techniqueDescription": "Ein Schadensbetrag läuft an Marken für Gehalt, Erspartes und Besitz vorbei, ohne an einer davon stehen zu bleiben.",
+   "compositionFamilyId": "physical-scale",
+   "viewerChange": "Der Betrag läuft über alle eigenen Grenzen hinaus, ohne anzuhalten.",
+   "animationIntent": "Die Haftung hat keine Obergrenze.",
+   "motionSignature": {
+    "camera": "slow rise following the amount",
+    "layout": "vertical scale with personal markers",
+    "transformation": "amount passes every marker and leaves the frame"
+   },
+   "motionChannels": [
+    "amount rising",
+    "markers passing by"
+   ],
+   "visualBeats": [
+    "Marke Erspartes",
+    "Marke Jahresgehalt",
+    "Betrag zieht vorbei",
+    "Betrag verlässt das Bild"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-12",
+   "type": "image",
+   "chapter": "Was dich ruiniert",
+   "scriptBeat": "Die Privathaftpflicht braucht wirklich jeder.",
+   "headline": "Die eine Pflichtpolice",
+   "icon": "shield",
+   "sentenceSpan": {
+    "from": 41,
+    "to": 42
+   },
+   "tone": "positive",
+   "planFile": "04-projekt/VISUALS/visual-12/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 08 - Die eine Pflichtpolice.png",
+   "expectedVisual": "Eine einzelne Police mit der Aufschrift Privathaftpflicht, klar und aufgeräumt beleuchtet.",
+   "objectLabels": [
+    "Privathaftpflicht"
+   ]
+  },
+  {
+   "id": "visual-13",
+   "type": "data",
+   "chapter": "Was dich ruiniert",
+   "scriptBeat": "Mindestens 10 Millionen, besser 50 oder 100 — für wenige Euro Unterschied.",
+   "headline": "Wie hoch die Deckung sein sollte",
+   "icon": "chart-bar",
+   "sentenceSpan": {
+    "from": 43,
+    "to": 45
+   },
+   "planFile": "04-projekt/VISUALS/visual-13/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-13/animation.tsx",
+   "animationExport": "YouTubeVisual13Animation",
+   "mechanicId": "coverage-levels-compared",
+   "visualTechniqueId": "three-coverage-heights",
+   "techniqueDescription": "Drei Deckungssummen stehen als unterschiedlich hohe Säulen nebeneinander, der Beitragsunterschied daneben bleibt fast gleich.",
+   "compositionFamilyId": "data-viz",
+   "viewerChange": "Die Deckungssumme wächst um ein Vielfaches, der Beitrag daneben kaum.",
+   "animationIntent": "Mehr Deckung kostet fast nichts zusätzlich.",
+   "motionSignature": {
+    "camera": "static frontal on the columns",
+    "layout": "three columns with a price row",
+    "transformation": "columns grow to very different heights"
+   },
+   "motionChannels": [
+    "columns growing",
+    "price row staying level"
+   ],
+   "visualBeats": [
+    "10 Millionen",
+    "50 Millionen",
+    "100 Millionen",
+    "Beitrag bleibt fast gleich"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": "",
+   "dataNotesFile": "04-projekt/VISUALS/visual-13/data-notes.md"
+  },
+  {
+   "id": "visual-14",
+   "type": "animation",
+   "chapter": "Was dich ruiniert",
+   "scriptBeat": "Eine Versicherung deckt den schlimmsten Fall ab, nicht den wahrscheinlichen.",
+   "headline": "Nicht der wahrscheinliche Fall",
+   "icon": "target",
+   "sentenceSpan": {
+    "from": 46,
+    "to": 48
+   },
+   "planFile": "04-projekt/VISUALS/visual-14/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-14/animation.tsx",
+   "animationExport": "YouTubeVisual14Animation",
+   "mechanicId": "worst-case-not-likely-case",
+   "visualTechniqueId": "rare-large-outweighs-frequent-small",
+   "techniqueDescription": "Viele kleine Belege und ein einzelner großer liegen auf zwei Seiten einer Waage; der eine große senkt seine Seite.",
+   "compositionFamilyId": "physical-balance",
+   "viewerChange": "Ein einzelner großer Schaden wiegt schwerer als viele kleine zusammen.",
+   "animationIntent": "Versichert wird der schlimmste Fall, nicht der häufigste.",
+   "motionSignature": {
+    "camera": "static frontal on the balance",
+    "layout": "two pans, many small versus one large",
+    "transformation": "the single large item tips the balance"
+   },
+   "motionChannels": [
+    "small items accumulating",
+    "balance tipping"
+   ],
+   "visualBeats": [
+    "leere Waage",
+    "viele kleine Belege",
+    "ein großer Beleg",
+    "Waage kippt"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-15",
+   "type": "image",
+   "chapter": "Deine Arbeitskraft",
+   "scriptBeat": "Die zweite existenzielle Absicherung fehlt am häufigsten.",
+   "headline": "Die Police, die am häufigsten fehlt",
+   "icon": "search",
+   "sentenceSpan": {
+    "from": 49,
+    "to": 50
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-15/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 09 - Die Police, die am häufigsten fehlt.png",
+   "expectedVisual": "Eine Reihe vorhandener Policen mit einer auffällig leeren Lücke in der Mitte.",
+   "objectLabels": [
+    "Lücke"
+   ]
+  },
+  {
+   "id": "visual-16",
+   "type": "image",
+   "chapter": "Deine Arbeitskraft",
+   "scriptBeat": "Nicht für zwei Wochen, sondern dauerhaft.",
+   "headline": "Wenn du nicht mehr arbeiten kannst",
+   "icon": "warning",
+   "sentenceSpan": {
+    "from": 51,
+    "to": 54
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-16/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 10 - Wenn du nicht mehr arbeiten kannst.png",
+   "expectedVisual": "Werkzeug und Arbeitsschuhe stehen unberührt an der Wand, davor eine Krankschreibung ohne Enddatum.",
+   "objectLabels": [
+    "dauerhaft"
+   ]
+  },
+  {
+   "id": "visual-17",
+   "type": "image",
+   "chapter": "Deine Arbeitskraft",
+   "scriptBeat": "Wer nach 1961 geboren ist, bekommt nur die Erwerbsminderungsrente.",
+   "headline": "Was der Staat übrig lässt",
+   "icon": "bank",
+   "sentenceSpan": {
+    "from": 55,
+    "to": 58
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-17/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 11 - Was der Staat übrig lässt.png",
+   "expectedVisual": "Ein amtlicher Rentenbescheid, auf dem die Berufsunfähigkeitsrente durchgestrichen und nur die Erwerbsminderungsrente stehen geblieben ist.",
+   "objectLabels": [
+    "Erwerbsminderungsrente"
+   ]
+  },
+  {
+   "id": "visual-18",
+   "type": "data",
+   "chapter": "Deine Arbeitskraft",
+   "scriptBeat": "Die Erwerbsminderungsrente liegt im Schnitt unter dem Grundsicherungsniveau.",
+   "headline": "Rund 400 Euro im Monat",
+   "icon": "chart-bar",
+   "sentenceSpan": {
+    "from": 59,
+    "to": 61
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-18/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-18/animation.tsx",
+   "animationExport": "YouTubeVisual18Animation",
+   "mechanicId": "pension-below-the-line",
+   "visualTechniqueId": "bar-stops-under-a-reference-line",
+   "techniqueDescription": "Ein Balken für die durchschnittliche Erwerbsminderungsrente wächst an und bleibt unter der eingezeichneten Grundsicherungslinie stehen.",
+   "compositionFamilyId": "data-viz",
+   "viewerChange": "Der Balken hört sichtbar unterhalb der Linie auf, die er erreichen müsste.",
+   "animationIntent": "Die gesetzliche Absicherung reicht nicht zum Leben.",
+   "motionSignature": {
+    "camera": "static frontal on the chart",
+    "layout": "single bar against a reference line",
+    "transformation": "bar grows and stops below the line"
+   },
+   "motionChannels": [
+    "bar growing",
+    "reference line drawn"
+   ],
+   "visualBeats": [
+    "Grundsicherungslinie",
+    "Balken wächst",
+    "Balken stoppt darunter"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": "",
+   "dataNotesFile": "04-projekt/VISUALS/visual-18/data-notes.md"
+  },
+  {
+   "id": "visual-19",
+   "type": "animation",
+   "chapter": "Deine Arbeitskraft",
+   "scriptBeat": "Von 2.200 Euro netto bleiben 400 — es fehlen 1.800 Euro, jeden Monat.",
+   "headline": "Die Lücke jeden Monat",
+   "icon": "euro",
+   "sentenceSpan": {
+    "from": 62,
+    "to": 65
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-19/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-19/animation.tsx",
+   "animationExport": "YouTubeVisual19Animation",
+   "mechanicId": "income-drops-to-remainder",
+   "visualTechniqueId": "stack-shrinks-to-a-fraction",
+   "techniqueDescription": "Ein Geldstapel über 2.200 Euro sackt auf die Höhe von 400 Euro zusammen; die fehlende Höhe bleibt als Leerraum markiert.",
+   "compositionFamilyId": "physical-shrink",
+   "viewerChange": "Der Einkommensstapel fällt auf einen Bruchteil, und die Lücke bleibt sichtbar stehen.",
+   "animationIntent": "Zwischen Einkommen und Erwerbsminderungsrente klafft jeden Monat dieselbe Lücke.",
+   "motionSignature": {
+    "camera": "static frontal on the stack",
+    "layout": "single stack with a gap marker",
+    "transformation": "stack collapses and leaves a marked void"
+   },
+   "motionChannels": [
+    "stack height collapsing",
+    "gap marker appearing"
+   ],
+   "visualBeats": [
+    "2.200 € stehen",
+    "Stapel sackt ab",
+    "400 € bleiben",
+    "1.800 € Lücke markiert"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-20",
+   "type": "animation",
+   "chapter": "Deine Arbeitskraft",
+   "scriptBeat": "Von dreißig bis siebenundsechzig kommt oft weit mehr als eine Million zusammen.",
+   "headline": "Was ein Arbeitsleben wert ist",
+   "icon": "trending",
+   "sentenceSpan": {
+    "from": 66,
+    "to": 68
+   },
+   "tone": "positive",
+   "planFile": "04-projekt/VISUALS/visual-20/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-20/animation.tsx",
+   "animationExport": "YouTubeVisual20Animation",
+   "mechanicId": "working-life-adds-up",
+   "visualTechniqueId": "yearly-packets-fill-a-container",
+   "techniqueDescription": "Jahrespakete wandern eines nach dem anderen in einen Behälter, bis er über einer Million steht.",
+   "compositionFamilyId": "physical-accumulation-large",
+   "viewerChange": "Aus einzelnen Arbeitsjahren wird sichtbar ein Betrag über einer Million.",
+   "animationIntent": "Die Arbeitskraft ist der größte Vermögenswert, den man hat.",
+   "motionSignature": {
+    "camera": "slow pull back as the container fills",
+    "layout": "yearly packets left, container right",
+    "transformation": "packets accumulate into a visible total"
+   },
+   "motionChannels": [
+    "packets travelling",
+    "container filling"
+   ],
+   "visualBeats": [
+    "erstes Arbeitsjahr",
+    "Pakete wandern",
+    "Behälter füllt sich",
+    "über 1 Million"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-21",
+   "type": "image",
+   "chapter": "Deine Arbeitskraft",
+   "scriptBeat": "Die Berufsunfähigkeitsversicherung schützt kein Ding, sondern das Einkommen.",
+   "headline": "Sie versichert dein Einkommen",
+   "icon": "shield",
+   "sentenceSpan": {
+    "from": 69,
+    "to": 71
+   },
+   "tone": "positive",
+   "planFile": "04-projekt/VISUALS/visual-21/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 12 - Sie versichert dein Einkommen.png",
+   "expectedVisual": "Eine Police liegt schützend über einem Gehaltsumschlag statt über einem Gegenstand.",
+   "objectLabels": [
+    "Berufsunfähigkeit",
+    "Einkommen"
+   ]
+  },
+  {
+   "id": "visual-22",
+   "type": "image",
+   "chapter": "Sinnvoll, nicht Pflicht",
+   "scriptBeat": "Nicht für jeden Pflicht, aber schnell sinnvoll: die Hausratversicherung.",
+   "headline": "Die dritte Kategorie",
+   "icon": "list",
+   "sentenceSpan": {
+    "from": 72,
+    "to": 74
+   },
+   "planFile": "04-projekt/VISUALS/visual-22/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 13 - Die dritte Kategorie.png",
+   "expectedVisual": "Eine Wohnungstür steht offen und gibt den Blick auf eine vollständig eingerichtete Wohnung frei.",
+   "objectLabels": [
+    "Hausrat"
+   ]
+  },
+  {
+   "id": "visual-23",
+   "type": "image",
+   "chapter": "Sinnvoll, nicht Pflicht",
+   "scriptBeat": "Ein Teller ist kein Versicherungsfall, eine ausgebrannte Wohnung schon.",
+   "headline": "Ein Teller oder die halbe Wohnung",
+   "icon": "flame",
+   "sentenceSpan": {
+    "from": 75,
+    "to": 76
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-23/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 14 - Ein Teller oder die halbe Wohnung.png",
+   "expectedVisual": "Links ein einzelner zerbrochener Teller, rechts ein wassergeschädigtes Zimmer mit durchweichten Möbeln.",
+   "objectLabels": [
+    "ein Teller",
+    "halbe Wohnung"
+   ]
+  },
+  {
+   "id": "visual-24",
+   "type": "animation",
+   "chapter": "Sinnvoll, nicht Pflicht",
+   "scriptBeat": "Die Frage ist dieselbe: Könnte man die Einrichtung komplett ersetzen?",
+   "headline": "Könntest du alles neu kaufen?",
+   "icon": "receipt",
+   "sentenceSpan": {
+    "from": 77,
+    "to": 78
+   },
+   "planFile": "04-projekt/VISUALS/visual-24/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-24/animation.tsx",
+   "animationExport": "YouTubeVisual24Animation",
+   "mechanicId": "replace-the-whole-room",
+   "visualTechniqueId": "room-empties-then-price-appears",
+   "techniqueDescription": "Die Einrichtung eines Zimmers verschwindet Stück für Stück, und an ihrer Stelle stapeln sich die Rechnungen für den Neukauf.",
+   "compositionFamilyId": "physical-replacement",
+   "viewerChange": "Das Zimmer leert sich und an derselben Stelle wächst der Betrag für die Neuanschaffung.",
+   "animationIntent": "Entscheidend ist, ob man die gesamte Einrichtung ersetzen könnte.",
+   "motionSignature": {
+    "camera": "static frontal into the room",
+    "layout": "furnished room emptying",
+    "transformation": "objects vanish and are replaced by invoices"
+   },
+   "motionChannels": [
+    "furniture disappearing",
+    "invoice stack rising"
+   ],
+   "visualBeats": [
+    "eingerichtetes Zimmer",
+    "Möbel verschwinden",
+    "Rechnungen stapeln sich",
+    "leeres Zimmer mit Summe"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-25",
+   "type": "image",
+   "chapter": "Was du dir sparst",
+   "scriptBeat": "Reisegepäck, Glas, Sterbegeld und private Arbeitslosenversicherung sind verzichtbar.",
+   "headline": "Diese Policen kannst du streichen",
+   "icon": "cross",
+   "sentenceSpan": {
+    "from": 79,
+    "to": 83
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-25/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 15 - Diese Policen kannst du streichen.png",
+   "expectedVisual": "Vier Policen liegen mit ihren Namen sichtbar auf dem Tisch, alle vier deutlich als verzichtbar markiert.",
+   "objectLabels": [
+    "Reisegepäck",
+    "Glas",
+    "Sterbegeld",
+    "Arbeitslosigkeit"
+   ]
+  },
+  {
+   "id": "visual-26",
+   "type": "image",
+   "chapter": "Was du dir sparst",
+   "scriptBeat": "Extra-Policen für Handy, Fahrrad, Laptop und Brille.",
+   "headline": "Auch die Geräteversicherungen",
+   "icon": "phone",
+   "sentenceSpan": {
+    "from": 84,
+    "to": 88
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-26/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 16 - Auch die Geräteversicherungen.png",
+   "expectedVisual": "Handy, Fahrrad, Laptop und Brille, jedes mit einer eigenen kleinen Police beklebt.",
+   "objectLabels": [
+    "Handy",
+    "Fahrrad",
+    "Laptop",
+    "Brille"
+   ]
+  },
+  {
+   "id": "visual-27",
+   "type": "animation",
+   "chapter": "Was du dir sparst",
+   "scriptBeat": "Diese Policen decken genau das ab, was der Notgroschen ohnehin trägt.",
+   "headline": "Doppelt abgesichert",
+   "icon": "repeat",
+   "sentenceSpan": {
+    "from": 89,
+    "to": 91
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-27/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-27/animation.tsx",
+   "animationExport": "YouTubeVisual27Animation",
+   "mechanicId": "double-cover-same-damage",
+   "visualTechniqueId": "two-covers-for-one-small-item",
+   "techniqueDescription": "Ein kleiner Schaden liegt unter dem Notgroschen; eine zweite Police legt sich darüber und deckt genau dieselbe Fläche noch einmal ab.",
+   "compositionFamilyId": "physical-overlap",
+   "viewerChange": "Über einen bereits abgedeckten Schaden legt sich eine zweite Absicherung, ohne dass mehr abgedeckt wird.",
+   "animationIntent": "Doppelt abgesichert heißt nicht sicherer, sondern teurer.",
+   "motionSignature": {
+    "camera": "static top-down on the damage",
+    "layout": "damage with two overlapping covers",
+    "transformation": "second cover lands on an already covered area"
+   },
+   "motionChannels": [
+    "second cover descending",
+    "monthly cost ticking up"
+   ],
+   "visualBeats": [
+    "Schaden liegt da",
+    "Notgroschen deckt ihn",
+    "zweite Police legt sich darüber",
+    "Kosten laufen weiter"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-28",
+   "type": "data",
+   "chapter": "Was du dir sparst",
+   "scriptBeat": "Drei Policen à 8 Euro sind 288 Euro im Jahr — eine ganze Haftpflicht.",
+   "headline": "Was sich da summiert",
+   "icon": "coins",
+   "sentenceSpan": {
+    "from": 92,
+    "to": 95
+   },
+   "tone": "warning",
+   "planFile": "04-projekt/VISUALS/visual-28/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-28/animation.tsx",
+   "animationExport": "YouTubeVisual28Animation",
+   "mechanicId": "small-premiums-add-up",
+   "visualTechniqueId": "monthly-amounts-become-a-year",
+   "techniqueDescription": "Drei kleine Monatsbeiträge werden zwölfmal wiederholt und stehen am Ende als eine Jahressumme neben dem Beitrag einer Haftpflicht.",
+   "compositionFamilyId": "data-viz",
+   "viewerChange": "Aus drei kleinen Beträgen wird eine Jahressumme, die einer ganzen Haftpflicht entspricht.",
+   "animationIntent": "Viele kleine Beiträge sind zusammen teuer.",
+   "motionSignature": {
+    "camera": "static frontal on the totals",
+    "layout": "three monthly amounts left, year total right",
+    "transformation": "monthly amounts multiply into a year sum"
+   },
+   "motionChannels": [
+    "months repeating",
+    "year total assembling"
+   ],
+   "visualBeats": [
+    "3 x 8 Euro",
+    "zwölf Monate",
+    "288 Euro im Jahr",
+    "entspricht einer Haftpflicht"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": "",
+   "dataNotesFile": "04-projekt/VISUALS/visual-28/data-notes.md"
+  },
+  {
+   "id": "visual-29",
+   "type": "image",
+   "chapter": "Die Reihenfolge",
+   "scriptBeat": "Sie kostet wenig und deckt das größte Risiko ab.",
+   "headline": "Zuerst die Haftpflicht",
+   "icon": "check",
+   "sentenceSpan": {
+    "from": 96,
+    "to": 98
+   },
+   "tone": "positive",
+   "planFile": "04-projekt/VISUALS/visual-29/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 17 - Zuerst die Haftpflicht.png",
+   "expectedVisual": "Eine Privathaftpflicht-Police liegt allein und klar an erster Stelle auf dem Tisch.",
+   "objectLabels": [
+    "1. Privathaftpflicht"
+   ]
+  },
+  {
+   "id": "visual-30",
+   "type": "animation",
+   "chapter": "Die Reihenfolge",
+   "scriptBeat": "Danach die Berufsunfähigkeit, danach der Hausrat.",
+   "headline": "Dann kommt der Rest",
+   "icon": "list",
+   "sentenceSpan": {
+    "from": 99,
+    "to": 101
+   },
+   "tone": "positive",
+   "planFile": "04-projekt/VISUALS/visual-30/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-30/animation.tsx",
+   "animationExport": "YouTubeVisual30Animation",
+   "mechanicId": "three-policies-in-order",
+   "visualTechniqueId": "policies-stack-bottom-up",
+   "techniqueDescription": "Drei Policen legen sich in fester Reihenfolge übereinander, jede erst, wenn die darunter liegt.",
+   "compositionFamilyId": "physical-sequence",
+   "viewerChange": "Die drei Policen bauen sich in ihrer Reihenfolge auf, eine nach der anderen.",
+   "animationIntent": "Die Reihenfolge entscheidet, was zuerst abgesichert wird.",
+   "motionSignature": {
+    "camera": "static frontal on the stack",
+    "layout": "three policies stacking upward",
+    "transformation": "each policy lands only after the one below"
+   },
+   "motionChannels": [
+    "policies landing in order",
+    "stack height growing"
+   ],
+   "visualBeats": [
+    "leerer Tisch",
+    "Haftpflicht liegt",
+    "Berufsunfähigkeit darüber",
+    "Hausrat obenauf"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-31",
+   "type": "animation",
+   "chapter": "Die Reihenfolge",
+   "scriptBeat": "Notgroschen und Versicherung fangen beide Schäden ab, nur unterschiedlich große.",
+   "headline": "Zwei Größen, eine Aufgabe",
+   "icon": "shield",
+   "sentenceSpan": {
+    "from": 102,
+    "to": 106
+   },
+   "planFile": "04-projekt/VISUALS/visual-31/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-31/animation.tsx",
+   "animationExport": "YouTubeVisual31Animation",
+   "mechanicId": "reserve-and-policy-same-job",
+   "visualTechniqueId": "two-catchers-one-falling-damage",
+   "techniqueDescription": "Zwei Auffangbehälter unterschiedlicher Größe stehen nebeneinander; derselbe Schaden fällt einmal in den kleinen und einmal in den großen.",
+   "compositionFamilyId": "physical-pairing",
+   "viewerChange": "Derselbe Vorgang läuft zweimal ab, nur der auffangende Behälter ist verschieden groß.",
+   "animationIntent": "Notgroschen und Versicherung tun dasselbe, nur in anderer Größenordnung.",
+   "motionSignature": {
+    "camera": "static frontal on both catchers",
+    "layout": "small catcher left, large catcher right",
+    "transformation": "the same damage falls into each in turn"
+   },
+   "motionChannels": [
+    "damage falling",
+    "catcher absorbing"
+   ],
+   "visualBeats": [
+    "zwei Behälter",
+    "kleiner Schaden fällt links",
+    "großer Schaden fällt rechts",
+    "beide fangen ab"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-32",
+   "type": "animation",
+   "chapter": "Die Reihenfolge",
+   "scriptBeat": "Kleine Schäden trägt der Notgroschen, große die Versicherung.",
+   "headline": "Was wohin gehört",
+   "icon": "target",
+   "sentenceSpan": {
+    "from": 107,
+    "to": 109
+   },
+   "tone": "positive",
+   "planFile": "04-projekt/VISUALS/visual-32/remotion.md",
+   "animationSourceFile": "04-projekt/VISUALS/visual-32/animation.tsx",
+   "animationExport": "YouTubeVisual32Animation",
+   "mechanicId": "damages-sorted-by-size",
+   "visualTechniqueId": "items-roll-into-two-bins",
+   "techniqueDescription": "Schadensbelege unterschiedlicher Größe rollen über eine Rutsche und fallen je nach Größe in einen von zwei Behältern.",
+   "compositionFamilyId": "physical-sorting",
+   "viewerChange": "Jeder Schaden landet sichtbar in dem Behälter, der zu seiner Größe gehört.",
+   "animationIntent": "Die Größe des Schadens entscheidet, wer ihn trägt.",
+   "motionSignature": {
+    "camera": "static frontal on the chute",
+    "layout": "chute above two bins",
+    "transformation": "items sort themselves into the matching bin"
+   },
+   "motionChannels": [
+    "items travelling down the chute",
+    "bins filling separately"
+   ],
+   "visualBeats": [
+    "Rutsche steht",
+    "kleiner Beleg rollt links",
+    "großer Beleg rollt rechts",
+    "beide Behälter gefüllt"
+   ],
+   "toolStack": [
+    "Remotion",
+    "interpolate",
+    "PremiumPhysical"
+   ],
+   "repeatTechniqueReason": ""
+  },
+  {
+   "id": "visual-33",
+   "type": "image",
+   "chapter": "Die Reihenfolge",
+   "scriptBeat": "Versichere nicht, was dich ärgert. Versichere, was dich ruiniert.",
+   "headline": "Der eine Satz",
+   "icon": "bulb",
+   "sentenceSpan": {
+    "from": 110,
+    "to": 111
+   },
+   "tone": "positive",
+   "planFile": "04-projekt/VISUALS/visual-33/bildprompt.txt",
+   "googleFlowFileName": "YouTube Bild 18 - Der eine Satz.png",
+   "expectedVisual": "Eine einzelne Karte mit dem Merksatz, davor ein kleiner und ein sehr großer Schadensbeleg.",
+   "objectLabels": [
+    "Versichere, was dich ruiniert"
+   ]
+  }
+ ]
+}
