@@ -207,7 +207,7 @@ export const ContactShadow: React.FC<{
         position: 'absolute',
         left: 0,
         top: 0,
-        transform: `translate(${x + width / 2 - spread / 2}px, ${y - height / 2}px)`,
+        translate: `${x + width / 2 - spread / 2}px ${y - height / 2}px`,
         width: spread,
         height,
         borderRadius: '50%',

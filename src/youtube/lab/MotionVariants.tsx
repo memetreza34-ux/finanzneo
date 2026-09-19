@@ -104,7 +104,7 @@ const Kinetisch: React.FC = () => {
           color: TONE.ink,
           letterSpacing: -10,
           fontVariantNumeric: 'tabular-nums',
-          transform: `scale(${0.88 + ease(frame, 12, 60) * 0.12 + ankommen * 0.04})`,
+          scale: String(0.88 + ease(frame, 12, 60) * 0.12 + ankommen * 0.04),
         }}
       >
         {euroText(wert)}
@@ -372,7 +372,8 @@ const Makro: React.FC = () => {
             position: 'absolute',
             left: 520,
             top: 250,
-            transform: `rotate(${(1 - auf) * -5}deg) scale(${0.94 + auf * 0.06})`,
+            rotate: `${(1 - auf) * -5}deg`,
+            scale: String(0.94 + auf * 0.06),
             opacity: auf,
           }}
         >
@@ -396,7 +397,7 @@ const Makro: React.FC = () => {
             fontWeight: 900,
             color: '#8A2E1C',
             opacity: zeile,
-            transform: `translateX(${(1 - zeile) * -26}px)`,
+            translate: `${(1 - zeile) * -26}px 0px`,
           }}
         >
           Verwaltung 1,9 % p. a.
@@ -407,7 +408,8 @@ const Makro: React.FC = () => {
             position: 'absolute',
             left: 1080,
             top: 470 + stempel.offsetY,
-            transform: `rotate(${-14 + stempel.rotate}deg) scale(${stempel.scaleX}, ${stempel.scaleY})`,
+            rotate: `${-14 + stempel.rotate}deg`,
+            scale: `${stempel.scaleX} ${stempel.scaleY}`,
             opacity: stempel.progress,
           }}
         >

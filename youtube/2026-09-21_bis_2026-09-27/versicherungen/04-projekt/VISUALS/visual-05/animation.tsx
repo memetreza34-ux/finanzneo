@@ -1,5 +1,5 @@
 import React from 'react';
-import {useCurrentFrame} from 'remotion';
+import {Interactive, useCurrentFrame} from 'remotion';
 import {
   CameraPush,
   ContactShadow,
@@ -101,9 +101,9 @@ export const YouTubeVisual05Animation: React.FC = () => {
   return (
     <YouTubePhysicalStage>
       <CameraPush from={1} to={1.055} start={10} end={200}>
-        <div style={{position: 'absolute', left: 470, top: 860, transform: `translateY(${sag * 0.4}px)`}}>
+        <Interactive.Div name="Tisch" style={{position: 'absolute', left: 470, top: 860, translate: `0px ${sag * 0.4}px`}}>
           <ObjectTable sag={sag} />
-        </div>
+        </Interactive.Div>
 
         <CameraBlur>
           {ITEMS.map((item) => {
@@ -119,26 +119,29 @@ export const YouTubeVisual05Animation: React.FC = () => {
                   contact={drop.contact}
                   opacity={drop.contact}
                 />
-                <div
+                <Interactive.Div
+                  name={item.key}
                   style={{
                     position: 'absolute',
                     left: 0,
                     top: 0,
                     transformOrigin: `${item.ox + item.w / 2}px ${item.oy + item.h}px`,
-                    transform: `translate(${item.x + drop.swingX}px, ${item.rest + drop.offsetY + shake * 7}px) rotate(${drop.rotate}deg) scale(${drop.scaleX}, ${drop.scaleY})`,
+                    translate: `${item.x + drop.swingX}px ${item.rest + drop.offsetY + shake * 7}px`,
+                    rotate: `${drop.rotate}deg`,
+                    scale: `${drop.scaleX} ${drop.scaleY}`,
                     opacity: drop.progress * (isExtra ? 0.62 : 1),
                   }}
                 >
                   <Body itemKey={item.key} />
-                </div>
+                </Interactive.Div>
               </div>
             );
           })}
         </CameraBlur>
 
-        <div style={{position: 'absolute', left: 1230, top: 690, opacity: ease(frame, 168, 192)}}>
+        <Interactive.Div name="Schild" style={{position: 'absolute', left: 1230, top: 690, opacity: ease(frame, 168, 192)}}>
           <PhysicalTag material="warning">und so weiter</PhysicalTag>
-        </div>
+        </Interactive.Div>
       </CameraPush>
     </YouTubePhysicalStage>
   );

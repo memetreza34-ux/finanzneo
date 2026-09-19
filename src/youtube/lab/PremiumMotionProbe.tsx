@@ -203,7 +203,8 @@ const Inflation: React.FC = () => {
             position: 'absolute',
             left: 430,
             top: 470,
-            transform: `rotate(${(1 - scheinAuf) * -9}deg) scale(${0.9 + scheinAuf * 0.1})`,
+            rotate: `${(1 - scheinAuf) * -9}deg`,
+            scale: String(0.9 + scheinAuf * 0.1),
             opacity: scheinAuf,
           }}
         >
@@ -227,7 +228,7 @@ const Inflation: React.FC = () => {
                 left: stueck.x,
                 top: stueck.y - (1 - rein) * 60 - raus * 40,
                 opacity: da,
-                transform: `scale(${0.82 + da * 0.18})`,
+                scale: String(0.82 + da * 0.18),
               }}
             >
               <Ware art={stueck.art} />
@@ -362,7 +363,8 @@ const Streuung: React.FC = () => {
                 position: 'absolute',
                 left: x,
                 top: y + runter * 260,
-                transform: `rotate(${dreh + runter * 22}deg) scale(${1 - zerfall * 0.12})`,
+                rotate: `${dreh + runter * 22}deg`,
+                scale: String(1 - zerfall * 0.12),
                 opacity: 1 - runter * 0.75,
               }}
             >
@@ -430,7 +432,8 @@ const Rate: React.FC = () => {
                   position: 'absolute',
                   left: r.x + drop.swingX,
                   top: ruhe + drop.offsetY,
-                  transform: `rotate(${drop.rotate}deg) scale(${drop.scaleX}, ${drop.scaleY})`,
+                  rotate: `${drop.rotate}deg`,
+                  scale: `${drop.scaleX} ${drop.scaleY}`,
                   opacity: drop.progress,
                 }}
               >

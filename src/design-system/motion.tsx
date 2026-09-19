@@ -178,7 +178,7 @@ export const CameraPush: React.FC<{
 }> = ({children, from = 1, to = 1.055, start = 0, end = 200}) => {
   const frame = useCurrentFrame();
   return (
-    <AbsoluteFill style={{transform: `scale(${interpolate(ease(frame, start, end), [0, 1], [from, to])})`}}>
+    <AbsoluteFill style={{scale: String(interpolate(ease(frame, start, end), [0, 1], [from, to]))}}>
       {children}
     </AbsoluteFill>
   );
@@ -206,3 +206,27 @@ export const pointOnPath = (d: string, progress: number) => {
   // Nur bei einem leeren Pfad null. Dann liegt der Reisende im Ursprung.
   return punkt ? {x: punkt.x, y: punkt.y} : {x: 0, y: 0};
 };
+
+/**
+ * Konvention: bewegte Elemente heissen im Studio etwas.
+ *
+ * Remotion Studio kann ein Element anwaehlen, verschieben und seine Stile
+ * aendern, wenn es als `<Interactive.Div name="...">` steht statt als nacktes
+ * `<div>`. Ohne das ist eine Szene im Studio ein einziger Block: wer das Timing
+ * um vier Frames verschieben will, muss den Code aendern.
+ *
+ * Zwei Regeln aus dem offiziellen `remotion-interactivity`-Skill, die hier
+ * gelten:
+ *
+ * 1. `scale`, `translate` und `rotate` als einzelne CSS-Eigenschaften setzen,
+ *    nicht als `transform`-String. Nur einzelne Eigenschaften sind editierbar.
+ * 2. Namen hartkodieren, nicht berechnen — `name="Tisch"`, nicht
+ *    `name={\`Objekt ${i}\`}`.
+ *
+ * Was hier bewusst NICHT gilt: die Regel, `interpolate` inline ins `style`-Prop
+ * zu schreiben. Sie wuerde `dropIn` und die anderen Bauteile ausschliessen und
+ * jede Szene zurueck zu fuenfzig Zeilen Handarbeit schicken. Die Keyframes sind
+ * dadurch im Studio ausgegraut; Position, Groesse und Farbe bleiben editierbar.
+ *
+ * Beispiel: `youtube/2026-09-21_bis_2026-09-27/versicherungen/04-projekt/VISUALS/visual-05`.
+ */
