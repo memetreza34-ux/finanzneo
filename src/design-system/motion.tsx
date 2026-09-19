@@ -10,6 +10,7 @@
 import React from 'react';
 import {AbsoluteFill, Easing, interpolate, useCurrentFrame} from 'remotion';
 import {fitText} from '@remotion/layout-utils';
+import {getLength, getPointAtLength} from '@remotion/paths';
 import {FONT} from '../brand/fonts';
 
 /**
@@ -190,3 +191,18 @@ export const CameraPush: React.FC<{
  * zweite Fassung hier waere dieselbe Komponente unter anderem Namen.
  */
 export {CameraBlur} from '../brand/components/Effects';
+
+/**
+ * Ein Punkt auf einem Pfad.
+ *
+ * Damit folgt etwas einer Strecke statt sich nur geradeaus zu bewegen: Geld,
+ * das durch mehrere Stationen läuft, eine Rate, die ihren Weg zum Depot nimmt,
+ * ein Wert entlang einer Kurve. Zusammen mit `DrawnLine`, das denselben Pfad
+ * zeichnet, ergibt das Strecke und Reisenden aus einer Quelle.
+ */
+export const pointOnPath = (d: string, progress: number) => {
+  const laenge = getLength(d);
+  const punkt = getPointAtLength(d, laenge * Math.max(0, Math.min(1, progress)));
+  // Nur bei einem leeren Pfad null. Dann liegt der Reisende im Ursprung.
+  return punkt ? {x: punkt.x, y: punkt.y} : {x: 0, y: 0};
+};

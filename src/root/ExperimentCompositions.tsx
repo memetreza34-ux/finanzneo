@@ -47,6 +47,7 @@ import {YouTubeLayoutDemo, YOUTUBE_LAYOUT_DEMO_FRAMES} from '../youtube/YouTubeL
 import {YouTubeVideoDemo, YOUTUBE_VIDEO_DEMO_FRAMES} from '../youtube/YouTubeVideoDemo';
 import {YouTubePreviewCompositions} from '../youtube/projects/previews';
 import {ThreeCoinTest, THREE_COIN_TEST_FRAMES} from '../youtube/lab/ThreeCoinTest';
+import {PremiumMotionProbe, PREMIUM_MOTION_PROBE_FRAMES} from '../youtube/lab/PremiumMotionProbe';
 
 const FPS = FORMAT.fps;
 const VERTICAL = FORMAT.vertical;
@@ -161,6 +162,14 @@ export const ExperimentCompositions: React.FC = () => (
       id="ThreeCoinTest"
       component={ThreeCoinTest}
       durationInFrames={THREE_COIN_TEST_FRAMES}
+      fps={30}
+      width={1920}
+      height={1080}
+    />
+    <Composition
+      id="PremiumMotionProbe"
+      component={PremiumMotionProbe}
+      durationInFrames={PREMIUM_MOTION_PROBE_FRAMES}
       fps={30}
       width={1920}
       height={1080}
