@@ -40,6 +40,7 @@
     "youtube:images:import": "node scripts/import-youtube-flow-images.mjs",
     "youtube:animation:validate": "node scripts/validate-youtube-animation-quality.mjs",
     "youtube:phase1:seal": "node scripts/seal-youtube-phase1-animations.mjs",
+    "youtube:phase1:preview": "node --import tsx scripts/youtube-preview-animations.ts",
     "youtube:ready": "node scripts/check-youtube-production-ready.mjs",
     "youtube:phase3:stage": "node --import tsx scripts/youtube-stage-assets.ts",
     "youtube:phase3:build": "node --import tsx scripts/youtube-build-composition.ts",

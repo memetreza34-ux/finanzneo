@@ -45,6 +45,7 @@ import {TOTAL_FRAMES as EINLAGENSICHERUNG_LEGACY_FRAMES} from '../reels/einlagen
 import {FORMAT} from '../brand/tokens';
 import {YouTubeLayoutDemo, YOUTUBE_LAYOUT_DEMO_FRAMES} from '../youtube/YouTubeLayoutDemo';
 import {YouTubeVideoDemo, YOUTUBE_VIDEO_DEMO_FRAMES} from '../youtube/YouTubeVideoDemo';
+import {YouTubePreviewCompositions} from '../youtube/projects/previews';
 
 const FPS = FORMAT.fps;
 const VERTICAL = FORMAT.vertical;
@@ -154,5 +155,6 @@ export const ExperimentCompositions: React.FC = () => (
     <Composition id="Signature" component={Signature} durationInFrames={300} fps={FPS} {...VERTICAL} />
     <Composition id="RealDataDemo" component={RealDataDemo} durationInFrames={REAL_DATA_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="LottieTest" component={LottieTest} durationInFrames={90} fps={FORMAT.fps} width={FORMAT.vertical.width} height={FORMAT.vertical.height} />
+    <YouTubePreviewCompositions />
   </>
 );

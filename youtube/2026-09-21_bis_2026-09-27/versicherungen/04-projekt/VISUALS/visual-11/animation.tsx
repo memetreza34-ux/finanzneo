@@ -35,7 +35,10 @@ export const YouTubeVisual11Animation: React.FC = () => {
 
   // Kanal 1 — der Betrag steigt und hört nicht auf.
   const rise = ramp(frame, 20, 190);
-  const amountY = interpolate(rise, [0, 1], [900, 120]);
+  // Der Betrag steigt bis knapp unter den oberen Zonenrand. Weiter hoch hiesse,
+  // dass sein Etikett darueber abgeschnitten wird — die Aussage "hoert nicht auf"
+  // traegt die letzte Marke, die er hinter sich laesst, nicht das Verlassen des Bildes.
+  const amountY = interpolate(rise, [0, 1], [880, 300]);
 
   return (
     <YouTubePhysicalStage>

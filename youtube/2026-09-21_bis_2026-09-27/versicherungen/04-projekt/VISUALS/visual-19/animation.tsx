@@ -42,8 +42,12 @@ export const YouTubeVisual19Animation: React.FC = () => {
     <YouTubePhysicalStage>
       {/* Der Stapel selbst: echte Münzen, deren Anzahl mit der Höhe sinkt. */}
       {[0, 1, 2, 3, 4, 5].map((level) => {
-        const levelTop = BASE_Y - (level + 1) * (height / 6);
-        const visible = level < Math.round((height / FULL_HEIGHT) * 6) ? 1 : 0;
+        // Die Stapelelemente sind 170 hoch. Vom Boden aus gerechnet muss die
+        // unterste noch vollstaendig ueber BASE_Y liegen, sonst schneidet die
+        // Zonenkante sie unten ab.
+        const levelTop = BASE_Y - 170 - level * 74;
+        const steps = Math.max(1, Math.round((height / FULL_HEIGHT) * 6));
+        const visible = level < steps ? 1 : 0;
         return (
           <div key={level} style={{position: 'absolute', left: 0, top: 0, transform: `translate(640px, ${levelTop}px)`, opacity: full * visible}}> // zone-ok: relativ zum Container in der Zone
             <PhysicalCoinStack x={0} y={0} count={4} scale={1.25} />
@@ -51,7 +55,7 @@ export const YouTubeVisual19Animation: React.FC = () => {
         );
       })}
 
-      <div style={{position: 'absolute', left: 620, top: BASE_Y + 28, opacity: full}}>
+      <div style={{position: 'absolute', left: 620, top: BASE_Y + 12, opacity: full}}>
         <PhysicalTag material="money">{collapse > 0.6 ? '400 € bleiben' : '2.200 € netto'}</PhysicalTag>
       </div>
 
