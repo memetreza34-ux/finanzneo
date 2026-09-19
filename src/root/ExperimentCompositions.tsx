@@ -46,6 +46,7 @@ import {FORMAT} from '../brand/tokens';
 import {YouTubeLayoutDemo, YOUTUBE_LAYOUT_DEMO_FRAMES} from '../youtube/YouTubeLayoutDemo';
 import {YouTubeVideoDemo, YOUTUBE_VIDEO_DEMO_FRAMES} from '../youtube/YouTubeVideoDemo';
 import {YouTubePreviewCompositions} from '../youtube/projects/previews';
+import {ThreeCoinTest, THREE_COIN_TEST_FRAMES} from '../youtube/lab/ThreeCoinTest';
 
 const FPS = FORMAT.fps;
 const VERTICAL = FORMAT.vertical;
@@ -156,5 +157,13 @@ export const ExperimentCompositions: React.FC = () => (
     <Composition id="RealDataDemo" component={RealDataDemo} durationInFrames={REAL_DATA_FRAMES} fps={FPS} {...VERTICAL} />
     <Composition id="LottieTest" component={LottieTest} durationInFrames={90} fps={FORMAT.fps} width={FORMAT.vertical.width} height={FORMAT.vertical.height} />
     <YouTubePreviewCompositions />
+    <Composition
+      id="ThreeCoinTest"
+      component={ThreeCoinTest}
+      durationInFrames={THREE_COIN_TEST_FRAMES}
+      fps={30}
+      width={1920}
+      height={1080}
+    />
   </>
 );

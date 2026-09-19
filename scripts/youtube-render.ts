@@ -48,6 +48,10 @@ step('Render', 'npx', [
   '--codec=h264',
   '--crf=16',
   '--image-format=png',
+  // WebGL braucht im Headless-Chromium den ANGLE-Renderer. Ohne diesen Flag
+  // bricht jede Szene ab, die three benutzt, mit "Error creating WebGL context".
+  // Er schadet den übrigen Szenen nicht, also steht er dauerhaft in der Kette.
+  '--gl=angle',
   `--width=${YOUTUBE_FORMAT.width}`,
   `--height=${YOUTUBE_FORMAT.height}`,
 ]);

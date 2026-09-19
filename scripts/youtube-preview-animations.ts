@@ -185,4 +185,4 @@ console.log(`  Szenen        ${motion.length} à ${framesPerScene} Frames`);
 console.log(`  Datei         src/youtube/projects/${fileSafe}.tsx`);
 console.log('');
 console.log('  Rendern:');
-console.log(`  npx remotion render src/index.ts YouTubePreview-${fileSafe} out/preview-${fileSafe}.mp4`);
+console.log(`  npx remotion render src/index.ts YouTubePreview-${fileSafe} out/preview-${fileSafe}.mp4 --gl=angle`);

@@ -18,6 +18,14 @@ export {
 } from './components';
 export {YOUTUBE_FORMAT, YOUTUBE_STYLE, youtubeLayoutIssues} from './layout';
 
+/**
+ * Echtes 3D. Licht und Material sind dort einmal entschieden, damit eine Szene
+ * nur noch Körper setzen muss. Der Render braucht dafür `--gl=angle`, was die
+ * Renderkette gesetzt hat.
+ */
+export {Coin3D, CoinStack3D, Material, Slab3D, Tank3D, ThreeStage, THREE_MATERIALS} from './three-kit';
+export type {ThreeMaterial} from './three-kit';
+
 export {Icon} from '../brand/components/Icon';
 export type {IconName} from '../brand/components/Icon';
 export {LottieBox} from '../brand/components/Lottie';
