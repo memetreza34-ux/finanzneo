@@ -1,3 +1,5 @@
+import {boxesDominate, countVisualLanguage, hasRealSubject} from './visual-language.mjs';
+
 export const YOUTUBE_MOTION_STANDARD_ID = 'finanzneo-youtube-motion-v3';
 
 // Hartes Entweder-oder wie bei den Reels: eine Szene ist ein Bild ODER Bewegung.
@@ -224,35 +226,11 @@ export const findYouTubeZoneEscapes = (source = '') => {
 /**
  * Reale Gegenstände gegen beschriftete Kästen.
  *
- * Eine Animationsszene erzählt mit Dingen, die es gibt — Rechnung, Konto,
- * Waschmaschine, Koffer, Laufrad, Kalenderblatt. Die vorige Fassung dieser
- * Prüfung verlangte nur irgendein `<Physical…`, und `PhysicalObject` sowie
- * `PhysicalTag` erfüllten das: eine Szene aus sieben beschrifteten Rechtecken
- * kam damit durch und wurde versiegelt. Genau das schliesst CLAUDE.md §11 als
- * Hauptsprache aus.
- *
- * Geprüft wird deshalb das Verhältnis, nicht die blosse Anwesenheit:
- *
- * - `CONCRETE_OBJECT` — benannte Gegenstände aus dem Baukasten
- * - `DRAWN_GEOMETRY` — selbst gezeichnete Formen; ein sauber gebautes SVG ist
- *   genauso ein echter Gegenstand und darf nicht bestraft werden
- * - `GENERIC_BOX` — Karte, Schild, Balken. Beiwerk, niemals Hauptsprache.
+ * Die Definitionen liegen in `visual-language.mjs`, damit Reel- und YouTube-
+ * Prüfung dieselbe Bildsprache kennen. Vorher hatte jede ihre eigene Liste.
  *
  * Für `data` gilt das nicht — dort trägt die Darstellung der Zahlen die Aussage.
  */
-const CONCRETE_OBJECT = /<Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack|Policy|Phone)\b|<Object[A-Z][A-Za-z]*/g;
-const DRAWN_GEOMETRY = /<(?:path|circle|polygon|ellipse|polyline)\b/g;
-const GENERIC_BOX = /<Physical(?:Object|Tag|Rail)\b/g;
-
-/**
- * Ab so vielen Karten/Schildern wird das Verhältnis geprüft.
- *
- * Gezählt wird der Quelltext, nicht das Bild: ein `<PhysicalObject` in einer
- * `.map()` erzeugt sieben Kästen und zählt trotzdem als einer. Deshalb ist die
- * Schwelle niedrig und die eigentliche Regel ein Verhältnis — Kästen dürfen
- * echte Gegenstände nicht überstimmen.
- */
-const BOX_DOMINANCE = 2;
 
 export const validateYouTubeMotionSource = (visual, source = '') => {
   const errors = [];
@@ -271,11 +249,10 @@ export const validateYouTubeMotionSource = (visual, source = '') => {
   }
 
   if (visual?.type === 'animation') {
-    const concrete = (source.match(CONCRETE_OBJECT) ?? []).length;
-    const drawn = (source.match(DRAWN_GEOMETRY) ?? []).length;
-    const boxes = (source.match(GENERIC_BOX) ?? []).length;
+    const zaehlung = countVisualLanguage(source);
+    const {concrete, drawn, boxes} = zaehlung;
 
-    if (concrete < 1 && drawn < 2) {
+    if (!hasRealSubject(zaehlung)) {
       errors.push(
         `${id}: kein erkennbarer Gegenstand. Eine Animationsszene braucht entweder benannte Objekte aus dem Baukasten `
         + '(PhysicalBill, PhysicalWasher, ObjectSuitcase, ObjectBikeWheel …) oder selbst gezeichnete Formen. '
@@ -283,7 +260,7 @@ export const validateYouTubeMotionSource = (visual, source = '') => {
       );
     }
 
-    if (boxes >= BOX_DOMINANCE && boxes > concrete && drawn < 6) {
+    if (boxesDominate(zaehlung)) {
       errors.push(
         `${id}: ${boxes} generische Karten/Schilder tragen die Szene, aber nur ${concrete} konkrete Gegenstände und `
         + `${drawn} gezeichnete Formen stehen dagegen. Beschriftete Kästen sind laut CLAUDE.md §11 als Hauptsprache `

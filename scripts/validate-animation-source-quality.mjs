@@ -7,6 +7,12 @@ import {
   PREMIUM_ANIMATION_LOCK,
   validatePremiumAnimationSceneMetadata,
 } from './lib/premium-animation-contract.mjs';
+import {
+  DRAWN_EQUIVALENT,
+  boxesDominate,
+  countVisualLanguage,
+  hasRealSubject,
+} from './lib/visual-language.mjs';
 
 const target = process.argv[2];
 if (!target) {
@@ -28,7 +34,6 @@ const errors = [];
 const fail = (message) => errors.push(message);
 const placeholder = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|ONE LARGE)[^\]]*)\]|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
 const hackWords = /\b(dummy|debug|placeholder|temporary|technik-hack|wackel|wiggle|test rectangle|fake motion)\b/i;
-const realWorldPrimitive = /<Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)\b/g;
 const mechanicIds = new Map();
 
 if (index.phase1AnimationCode?.required !== true) fail('phase1AnimationCode.required muss true sein.');
@@ -78,20 +83,24 @@ for (const scene of animations) {
   if (!/(?:prog\s*\(|interpolate\s*\(|spring\s*\()/.test(source)) fail(`${id}: kein nachvollziehbarer zeitlicher Animationsfortschritt gefunden.`);
 
   if (!/PremiumPhysicalStage/.test(source)) fail(`${id}: Animation muss PremiumPhysicalStage verwenden.`);
-  const genericObjects = [...source.matchAll(/<PhysicalObject\b/g)].length;
-  const concreteObjects = [...source.matchAll(realWorldPrimitive)].length;
-  if (genericObjects + concreteObjects < 1) fail(`${id}: Animation braucht mindestens ein physisches Hauptmotiv.`);
-  if (concreteObjects < 2) {
-    fail(`${id}: mindestens zwei konkrete Realwelt-Objekte/-Instanzen sind nötig (z. B. Rechnung, Konto, Waschmaschine, Reserve, Kalender, Münzen); generische Karten reichen nicht.`);
+  // Bildsprache aus der gemeinsamen Quelle. Dadurch kennt die Reel-Prüfung
+  // dieselben Gegenstände wie die YouTube-Prüfung — inklusive der gezeichneten
+  // aus `src/design-system/object-kit.tsx`, die es hier vorher nicht gab.
+  const sprache = countVisualLanguage(source);
+  const {concrete: concreteObjects, drawn: drawnShapes, boxes: genericObjects} = sprache;
+
+  if (!hasRealSubject(sprache)) fail(`${id}: Animation braucht mindestens ein physisches Hauptmotiv.`);
+  if (concreteObjects < 2 && drawnShapes < DRAWN_EQUIVALENT) {
+    fail(`${id}: mindestens zwei konkrete Realwelt-Objekte/-Instanzen sind nötig (z. B. Rechnung, Konto, Waschmaschine, Koffer, Laufrad, Kalender, Münzen) oder eine selbst gezeichnete Szene; generische Karten reichen nicht.`);
   }
-  if (genericObjects >= 3 && concreteObjects < 3) {
-    fail(`${id}: drei oder mehr generische PhysicalObject-Karten dominieren die Szene; Realwelt-Mechanik muss die Hauptsprache sein.`);
+  if (boxesDominate(sprache)) {
+    fail(`${id}: ${genericObjects} generische Karten/Schilder tragen die Szene gegen ${concreteObjects} konkrete Gegenstände und ${drawnShapes} gezeichnete Formen; Realwelt-Mechanik muss die Hauptsprache sein.`);
   }
-  if (/<PhysicalRail\b/.test(source) && concreteObjects < 3) {
+  if (/<PhysicalRail\b/.test(source) && concreteObjects < 3 && drawnShapes < DRAWN_EQUIVALENT) {
     fail(`${id}: PhysicalRail/Fortschrittsbalken darf niemals die primäre Animation ersetzen; bei Nutzung müssen mindestens drei konkrete Realwelt-Objekte die Geschichte tragen.`);
   }
-  if (!/(?:material=['"](?:neutral|money|warning|positive)['"]|Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack))/.test(source)) {
-    fail(`${id}: Animation braucht semantische Materialrollen oder konkrete Realwelt-Primitives.`);
+  if (!/material=['"](?:neutral|money|warning|positive)['"]/.test(source) && concreteObjects < 1 && drawnShapes < 2) {
+    fail(`${id}: Animation braucht semantische Materialrollen, konkrete Realwelt-Primitives oder gezeichnete Formen.`);
   }
   // Nur tatsächliche JSX-Komponentennutzung blockieren. Qualitätskommentare wie
   // "kein Dashboard" oder "kein Flowchart" sind ausdrücklich erlaubt und sollen
