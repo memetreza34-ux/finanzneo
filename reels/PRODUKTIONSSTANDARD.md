@@ -101,7 +101,12 @@ Transition 3 Frames
 
 `AnimationStage` clippt vertikal auf Y320–1400. Quality Guards V1 schützen zusätzlich horizontal X72–1008 plus perspektivischen Innenabstand. Der produktive Hintergrund bleibt statisch `#000000`.
 
-## 8. Animationen
+## 8. Animationen — Motion Core V1
+
+MOTION_CORE: finanzneo-motion-core-v1
+CANONICAL_MOTION_SOURCE: src/motion
+MOTION_DIRECTOR: .agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md
+MECHANIC_SELECTION: .agents/plugins/finanzneo-motion/rules/mechanic-selection.md
 
 Animationsszenen folgen:
 
@@ -109,14 +114,34 @@ Animationsszenen folgen:
 Sprechpunkt
 → Verständnisziel
 → visuelle Frage
+→ physische Ursache/Wirkung
+→ eindeutige MECHANIC_ID
+→ Hero + Support
 → individuell beste Hauptmechanik
 → Technik
 → START → AKTION → REAKTION → ERGEBNIS → RESULT HOLD
 ```
 
-Pflicht: konkrete Ursache/Wirkung, mehrere koordinierte Motion-Channels, mindestens 15 Frames Ergebnis-Hold. Keine feste Animationsbibliothek als kreatives Auswahlmenü.
+`src/motion` ist für **neue oder bewusst überarbeitete Reel-Animationen** die kanonische technische Basis. Vor lokalen Neuentwicklungen werden `PremiumPhysicalStage`, die Physical-Primitives und `FN_MOTION` geprüft und wiederverwendet, wenn sie semantisch passen.
 
-Quality Guards V1 lesen zusätzlich die **echte `animation.tsx`**. Unterschiedliche `MECHANIC_ID`, Labels, Icons oder Lotties reichen nicht, wenn tatsächliche Hauptobjekte und Komposition sichtbar gleich bleiben. Wiederholung braucht konkrete inhaltliche Begründung.
+Das bedeutet ausdrücklich **nicht**, dass Animationen aus einem festen Template-Menü ausgewählt werden. Die Mechanik wird weiterhin aus dem Sprechpunkt hergeleitet. Die Mechanik-Familien sind semantische Referenzen für Ursache/Wirkung; sie sind keine fertigen Layout-Schablonen. Neue lokale szenenspezifische Objekte bleiben erlaubt, wenn der Inhalt sie benötigt.
+
+Pflicht: konkrete Ursache/Wirkung, mehrere koordinierte Motion-Channels, mindestens 15 Frames Ergebnis-Hold. Lottie, Three, Paths, Shapes und Motion Blur bleiben Support-Werkzeuge innerhalb der Remotion-Timeline und ersetzen keine schwache Hauptmechanik.
+
+### Mechanik-Ledger und Anti-Wiederholung
+
+Vor Code wird für alle Animationsszenen eines Reels ein Mechanik-Ledger geführt:
+
+```text
+SCENE_ID | MECHANIC_ID | HERO_OBJECT | PRIMARY_ACTION | MOTION_AXIS | RESULT_TYPE
+```
+
+- dieselbe `MECHANIC_ID` darf im selben Reel nicht doppelt vorkommen;
+- stimmen mindestens drei Kerndimensionen mit einer früheren Szene überein, wird die physische Erklärung neu entworfen;
+- andere Farbe, anderes Label/Icon, Mirroring, Timing oder Kamera machen aus derselben Mechanik keine neue Animation;
+- alte `FinanceMotionLab*`-/Experiment-Kompositionen sind keine Produktions-Stilreferenz.
+
+Quality Guards lesen zusätzlich die **echte `animation.tsx`**. Metadaten allein reichen nicht, wenn tatsächliche Hauptobjekte und Komposition sichtbar gleich bleiben. Wiederholung braucht eine konkrete inhaltliche Begründung.
 
 ## 9. SFX
 
@@ -127,6 +152,8 @@ SFX bestätigen sichtbare Ereignisse framegenau. Voiceover bleibt dominant. Kein
 Playwright Visual QA prüft Bild- und Animationsszenen. Geprüft werden Header/Icon, Y320–1400, Caption-Abstand, Hero-Größe, Leerraum, sichtbare Start→Ergebnis-Veränderung und Clipping.
 
 Zusätzlich prüft die finale Candidate-QA bei neuen Reels die horizontalen Außenbänder. Sichtbarer Animationsinhalt außerhalb der Safe-Zone kann den Export blockieren.
+
+Ein Frame-0-Smoke-Test beweist nur Renderbarkeit. Neue Mechaniken, Core-Änderungen und repräsentative Pilotfälle werden zusätzlich an mehreren Frames oder per Vollrender visuell geprüft.
 
 ## 11. Phase 3 / Abschluss
 
