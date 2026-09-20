@@ -24,6 +24,7 @@
 - Header + Icons
 - fertige kanonische `animation.tsx` je Animationsszene
 - Sound-Cue-Plan
+- Motion Art Direction + Playwright Visual QA für Motion-Core-Reels
 - genau eine universelle Caption: `04-caption/caption.txt`
 
 ### Phase 2 — Nutzer
@@ -105,7 +106,10 @@ Transition 3 Frames
 
 MOTION_CORE: finanzneo-motion-core-v1
 CANONICAL_MOTION_SOURCE: src/motion
+MECHANIC_REGISTRY: src/motion/mechanics.ts
 MOTION_DIRECTOR: .agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md
+MOTION_ART_DIRECTOR: .agents/plugins/finanzneo-motion/skills/motion-art-director/SKILL.md
+MOTION_CORE_CURATOR: .agents/plugins/finanzneo-motion/skills/motion-core-curator/SKILL.md
 MECHANIC_SELECTION: .agents/plugins/finanzneo-motion/rules/mechanic-selection.md
 
 Animationsszenen folgen:
@@ -116,15 +120,33 @@ Sprechpunkt
 → visuelle Frage
 → physische Ursache/Wirkung
 → eindeutige MECHANIC_ID
-→ Hero + Support
+→ Hero + optionaler Support
 → individuell beste Hauptmechanik
 → Technik
 → START → AKTION → REAKTION → ERGEBNIS → RESULT HOLD
+→ Motion Art Direction
+→ Playwright Visual QA
 ```
 
-`src/motion` ist für **neue oder bewusst überarbeitete Reel-Animationen** die kanonische technische Basis. Vor lokalen Neuentwicklungen werden `PremiumPhysicalStage`, die Physical-Primitives und `FN_MOTION` geprüft und wiederverwendet, wenn sie semantisch passen.
+`src/motion` ist für **neue oder bewusst überarbeitete Reel-Animationen** die kanonische technische Basis. Vor lokalen Neuentwicklungen werden `PremiumPhysicalStage`, die Physical-Primitives, `FN_MOTION` und die Mechanik-Registry geprüft und wiederverwendet, wenn sie semantisch passen.
 
 Das bedeutet ausdrücklich **nicht**, dass Animationen aus einem festen Template-Menü ausgewählt werden. Die Mechanik wird weiterhin aus dem Sprechpunkt hergeleitet. Die Mechanik-Familien sind semantische Referenzen für Ursache/Wirkung; sie sind keine fertigen Layout-Schablonen. Neue lokale szenenspezifische Objekte bleiben erlaubt, wenn der Inhalt sie benötigt.
+
+### Hero vor Objektquote
+
+Pflicht ist ein **klares physisches Hero-Objekt**, nicht eine Mindestmenge an Objekten. Ein starkes Hero darf allein reichen. Support-Objekte werden nur ergänzt, wenn sie Ursache/Wirkung verständlicher machen.
+
+Neue Motion-Core-Szenen bevorzugen semantisch eindeutige Namen:
+
+- `PhysicalBanknote` = Geldschein/Werteinheit
+- `PhysicalInvoice` = Rechnung/Dokument
+- `PhysicalAccount`
+- `PhysicalCoinStack`
+- `PhysicalReserveTank`
+- `PhysicalCalendarPage`
+- `PhysicalWasher`
+
+`PhysicalBill` bleibt nur als kompatibler alter Motion-Core-Name erhalten. Alte Physical-Exports aus `src/brand`/`src/design-system` sind Legacy-Kompatibilität, keine Quelle für neue Motion-Core-Reels.
 
 Pflicht: konkrete Ursache/Wirkung, mehrere koordinierte Motion-Channels, mindestens 15 Frames Ergebnis-Hold. Lottie, Three, Paths, Shapes und Motion Blur bleiben Support-Werkzeuge innerhalb der Remotion-Timeline und ersetzen keine schwache Hauptmechanik.
 
@@ -143,13 +165,44 @@ SCENE_ID | MECHANIC_ID | HERO_OBJECT | PRIMARY_ACTION | MOTION_AXIS | RESULT_TYP
 
 Quality Guards lesen zusätzlich die **echte `animation.tsx`**. Metadaten allein reichen nicht, wenn tatsächliche Hauptobjekte und Komposition sichtbar gleich bleiben. Wiederholung braucht eine konkrete inhaltliche Begründung.
 
+### Primitive Promotion
+
+Szenenspezifische Objekte dürfen lokal entstehen. Erst wenn dieselbe semantische Form in mindestens zwei unterschiedlichen Szenen/Reels wirklich wiederverwendet wird, prüft der `motion-core-curator` die Promotion nach `src/motion`. Der Core wird weder durch Copy-Paste fragmentiert noch mit Einmal-Komponenten aufgebläht.
+
 ## 9. SFX
 
 SFX bestätigen sichtbare Ereignisse framegenau. Voiceover bleibt dominant. Keine Placeholder-Beeps, Remote-Sound-URLs oder Casino-/Jackpot-Geldsounds.
 
-## 10. Playwright Visual QA
+## 10. Motion Art Direction + Playwright Visual QA
+
+Neue Motion-Core-Reels besitzen automatisch:
+
+```text
+05-projektdateien/visual-qa.md
+```
+
+Der Motion Art Director prüft insbesondere Hero-Größe, Proportionen, Materialität, Tiefe, Perspektive, optische Zentrierung, Blickführung, Kamera und einen sauberen RESULT HOLD.
 
 Playwright Visual QA prüft Bild- und Animationsszenen. Geprüft werden Header/Icon, Y320–1400, Caption-Abstand, Hero-Größe, Leerraum, sichtbare Start→Ergebnis-Veränderung und Clipping.
+
+Animationsszenen mindestens an:
+
+```text
+START
+TRIGGER
+MID-MECHANISM
+NEAR RESULT
+FINAL RESULT HOLD
+```
+
+Vor produktivem Phase-3-Render müssen in `visual-qa.md` stehen:
+
+```text
+MOTION_ART_DIRECTION=PASS
+PLAYWRIGHT_VISUAL_QA=PASS
+```
+
+Außerdem darf keine Szenenzeile mehr `PENDING` oder `FAIL` sein. `reel:phase3:preflight` blockiert sonst. Marker dürfen nur nach echter Sichtprüfung geändert werden, niemals nur um den Gate-Check zu bestehen.
 
 Zusätzlich prüft die finale Candidate-QA bei neuen Reels die horizontalen Außenbänder. Sichtbarer Animationsinhalt außerhalb der Safe-Zone kann den Export blockieren.
 
@@ -164,9 +217,11 @@ npm run reel:phase3:preflight -- <Reel-Pfad>
 npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 ```
 
+`reel:phase3:preflight` verlangt bei Motion-Core-V1-Reels zusätzlich Art-Direction- und Playwright-PASS.
+
 `reel:render` erzeugt Candidate → Audio-Mastering → Render-QA → Presentation/Occupancy-QA → Edge-Band-QA → finalen Export.
 
-FINAL_COMPLETE verlangt: alle Szenen belegt, Animations-Seal korrekt, Audio vorhanden, 1080×1920, echte Timings, Visual-QA bestanden, keine abgeschnittenen Animationsobjekte und vollständiges `06-export/`.
+FINAL_COMPLETE verlangt: alle Szenen belegt, Animations-Seal korrekt, Audio vorhanden, 1080×1920, echte Timings, Art Direction + Visual-QA bestanden, keine abgeschnittenen Animationsobjekte und vollständiges `06-export/`.
 
 ## 12. Publishing
 
