@@ -20,12 +20,27 @@ Komplexer Inhalt bedeutet nicht automatisch komplexe Animation.
 Für neue FinanzNeo-Reels gilt pro Szene **genau eine Hauptform**. Es gibt drei, und die Entscheidung läuft in dieser Reihenfolge:
 
 ```text
-Braucht die Aussage eine echte Zahl?               → DATA
-Trägt eine sichtbare Zustandsänderung die Aussage? → ANIMATION
-Sonst                                              → IMAGE
+Kann ein Bild die Aussage tragen?                  → IMAGE
+Nein, es braucht eine echte Zahl?                  → DATA
+Nein, die Veränderung selbst IST die Aussage?      → ANIMATION
 ```
 
-Keine Quote zwischen den dreien. Jede Szene wird einzeln entschieden.
+Die Reihenfolge ist Absicht: IMAGE ist der Standardfall, nicht die Restkategorie.
+Eine Szene verlässt ihn nur, wenn ein Bild die Aussage wirklich nicht tragen kann.
+
+Keine Quote zwischen den dreien, aber eine klare Erwartung: so viele Flow-Bilder wie
+möglich, so wenige Animationen wie nötig, und lieber gar keine Animation als eine
+mittelmäßige.
+
+**Animation kann Mengen über Zeit, keine Situationen.** Eine Kurve, die sich zeichnet,
+zwei Flächen, die auseinanderlaufen, ein Puffer, der sich füllt — das trägt. Eine
+Alltagssituation mit Personen, Gegenständen und Haltung wird in Code zu beschrifteten
+Karten mit wechselnden Zahlen. Das ist eine bewegte Tabelle, keine Erklärung, und
+gehört zu Google Flow.
+
+**Eine Remotion-Standbildszene ersetzt kein Flow-Bild.** Code zeichnet geometrisch,
+Flow zeichnet die Welt; nebeneinander bricht das den FINANZNEO_SERIES_LOCK.
+Remotion-Statik ist nur als DATA-Szene erlaubt, also mit belegter Zahl im Bild.
 
 ### IMAGE
 
@@ -192,6 +207,6 @@ Jeder Beat muss sichtbar mindestens eine konkrete Frage beantworten:
 
 ## Kurzregel
 
-> **Reels: IMAGE, ANIMATION oder DATA — genau eine Hauptform pro Szene.** Zahl → DATA, Veränderung → ANIMATION, sonst IMAGE. Bilder bleiben ruhig und selbsterklärend; Animationen werden individuell aus dem Sprechpunkt entwickelt; Datenszenen zeigen ihre Quelle. SVG, Icons und Lottie sind Werkzeuge.
+> **Reels: IMAGE, ANIMATION oder DATA — genau eine Hauptform pro Szene.** Bild zuerst; nur wenn es die Aussage nicht tragen kann, Zahl → DATA oder Veränderung → ANIMATION. Bilder bleiben ruhig und selbsterklärend; Animationen werden individuell aus dem Sprechpunkt entwickelt; Datenszenen zeigen ihre Quelle. SVG, Icons und Lottie sind Werkzeuge.
 >
 > **YouTube: image, animation oder data — nie Bild und Animation zusammen.** Zahlen gehören nach Remotion, nie in ein Flow-Bild. Im Zweifel Bild. Jede Szene bekommt eine Zwischenüberschrift mit Icon, und Bilder werden so komponiert, dass die Kopfbahn frei bleibt.

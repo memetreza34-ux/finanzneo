@@ -116,15 +116,21 @@ FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 - Kompatibilitätsbasis älterer Reels: statischer Bildbeat ca. 1,8–3,4 s, max. 4,5 s. **Neue Future-V3-Reels:** ideal 1,8–3,0 s; ab ca. 3,6 s aktiv einen zusätzlichen Visual Beat prüfen; ohne neue sichtbare Information **hart max. 4,0 s**
 - Animationen dürfen länger sein, müssen aber währenddessen mehrere klar unterschiedliche Zustände zeigen; Kamera-Push/Zoom allein zählt nicht als neuer Beat
 - Voiceover und Visual müssen gemeinsam fortschreiten: ist die Bildaussage bereits verstanden, darf das Bild nicht unnötig stehen bleiben
-- **keine Quote zwischen den drei Szenentypen.** Jede Szene wird einzeln entschieden:
+- **Das Flow-Bild ist der Standardfall.** Eine Szene verlässt ihn nur, wenn sie muss:
 
 ```text
-Braucht die Aussage eine echte Zahl?               → Datenszene
-Trägt eine sichtbare Zustandsänderung die Aussage? → Animation
-Sonst                                              → Flow-Bild
+Kann ein Bild die Aussage tragen?                  → Flow-Bild
+Nein, es braucht eine echte Zahl?                  → Datenszene
+Nein, die Veränderung selbst IST die Aussage?      → Animation
 ```
 
-  Eine Quote lädt dazu ein, Animationen zu bauen, um eine Zahl zu treffen. Bei einfachen Anfänger-Erklärungen sind bewusst mehr Bilder erlaubt; entscheidend ist, ob die Szene verstanden wird, nicht welchen Typ sie hat
+  Die Reihenfolge ist Absicht. Wer mit der Animation anfängt, animiert Dinge, die ein Bild schneller gesagt hätte. Wer mit dem Bild anfängt, animiert nur noch das, was ein Bild nicht kann.
+
+- **Animation nur bei Mengen über Zeit, nicht bei Situationen.** Remotion kann eine Größe zeigen, die wächst, fällt, sich füllt oder sich aufteilt — eine Kurve, die sich zeichnet, zwei Flächen, die auseinanderlaufen, ein Puffer, der sich füllt. Eine Alltagssituation mit Personen, Gegenständen und Haltung kann es nicht: daraus werden beschriftete Karten mit wechselnden Zahlen, und das ist eine bewegte Tabelle, keine Erklärung. Situationen gehören zu Google Flow.
+
+- **Keine Quote zwischen den Typen, aber eine klare Erwartung:** so viele Flow-Bilder wie möglich, so wenige Animationen wie nötig, und lieber gar keine Animation als eine mittelmäßige.
+
+- **Eine Remotion-Standbildszene ist kein Ersatz für ein Flow-Bild.** Code zeichnet geometrisch, Flow zeichnet die Welt. Nebeneinander bricht das den `FINANZNEO_SERIES_LOCK`. Remotion-Statik ist nur dort erlaubt, wo eine belegte Zahl im Bild steht — also als Datenszene.
 - echte Wort-Zeitstempel bestimmen finale Schnitte und Szenendauern; keine künstlich gleich langen Szenen
 - kurze klare Sätze, kein unnötiger Fachjargon
 - Logik: Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz; CTA nur wenn er wirklich passt

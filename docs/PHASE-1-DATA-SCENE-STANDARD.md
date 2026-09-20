@@ -9,10 +9,13 @@ Technische Quelle ist `scripts/validate-data-scene-contract.mjs`. Dieses Dokumen
 Ein Reel hat drei Bildsprachen, und sie beantworten verschiedene Fragen:
 
 ```text
-Zeigt die Szene eine Situation?     → Flow-Bild
-Zeigt die Szene eine Veränderung?   → Animation
-Zeigt die Szene ein Verhältnis?     → Datenszene
+Kann ein Bild die Aussage tragen?                  → Flow-Bild
+Nein, es braucht eine echte Zahl?                  → Datenszene
+Nein, die Veränderung selbst IST die Aussage?      → Animation
 ```
+
+Das Flow-Bild ist der Standardfall, nicht die Restkategorie. Eine Datenszene entsteht
+nur dort, wo eine belegte Zahl die Aussage traegt und ein Bild sie nicht zeigen koennte.
 
 Ein Foto kann nicht zeigen, wie unruhig zehn Jahre Weltmarkt waren. Eine Animation kann es auch nicht — sie müsste eine Bewegung erfinden, die der Inhalt nicht hat. Ein gezeichnetes Verhältnis kann es.
 

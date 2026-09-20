@@ -30,10 +30,14 @@ beim nächsten Abruf nicht mehr zum Bild.
 Szenentyp je Szene einzeln entscheiden, ohne Quote:
 
 ```text
-Braucht die Aussage eine echte Zahl?               → Datenszene
-Trägt eine sichtbare Zustandsänderung die Aussage? → Animation
-Sonst                                              → Flow-Bild
+Kann ein Bild die Aussage tragen?                  → Flow-Bild
+Nein, es braucht eine echte Zahl?                  → Datenszene
+Nein, die Veränderung selbst IST die Aussage?      → Animation
 ```
+
+**Animation nur bei Mengen über Zeit, nicht bei Situationen.** Remotion kann eine Größe zeigen, die wächst, fällt, sich füllt oder sich aufteilt. Eine Alltagssituation mit Personen und Haltung kann es nicht — daraus werden beschriftete Karten mit wechselnden Zahlen. Situationen gehören zu Google Flow.
+
+So viele Flow-Bilder wie möglich, so wenige Animationen wie nötig. Lieber gar keine Animation als eine mittelmäßige.
 
 ## 2. Phase 3 — Antigravity / Claude Code integriert autonom
 
