@@ -6,6 +6,7 @@ Vor Reels lesen:
 
 - `docs/PHASE-1-BRIEFING.md`
 - `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
+- `docs/PHASE-1-DATA-SCENE-STANDARD.md`
 - `docs/3-PHASEN-WORKFLOW.md`
 - `docs/PHASE-3-COMPLETION-GATE.md`
 - `reels/PRODUKTIONSSTANDARD.md`
@@ -13,8 +14,26 @@ Vor Reels lesen:
 ## 1. Phase 1 — ChatGPT bereitet komplett vor
 
 Phase 1 liefert Recherche, szenenweises Skript, V9-Bildprompts, natürliche Header,
-Remotion-Spezifikationen und für jede Animationsszene bereits die finale
-`animation.tsx`. Phase 3 darf keine fehlende Animation erfinden.
+Remotion-Spezifikationen und für jede Animations- **und Datenszene** bereits die
+finale `animation.tsx`. Phase 3 darf keine fehlende Animation erfinden.
+
+**Vor der ersten Zeile Skript**, sobald echte Zahlen vorkommen:
+
+```bash
+node scripts/fetch-data.mjs stock URTH 10y msci-world
+```
+
+Die Reihe wird einmal geholt und behält ihr Abrufdatum. Erst danach dürfen
+Zahlen ins Skript, in den Header und ins Voiceover — sonst passt das Voiceover
+beim nächsten Abruf nicht mehr zum Bild.
+
+Szenentyp je Szene einzeln entscheiden, ohne Quote:
+
+```text
+Braucht die Aussage eine echte Zahl?               → Datenszene
+Trägt eine sichtbare Zustandsänderung die Aussage? → Animation
+Sonst                                              → Flow-Bild
+```
 
 ## 2. Phase 3 — Antigravity / Claude Code integriert autonom
 
@@ -34,6 +53,11 @@ Mach das Reel: reels/<Woche>/<Tag>/<Reel>
    npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
 
 4. Jede Szene implementieren.
+
+   Datenszene:
+   - versiegelte animation.tsx binden wie bei einer Animation
+   - Reihe aus dataSource unverändert lassen; KEINE frischen Daten holen
+   - Quellenzeile aus sourceNote muss im Render sichtbar sein
 
    Bildszene:
    - exaktes Nutzerbild sichtbar rendern

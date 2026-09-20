@@ -17,7 +17,15 @@ Komplexer Inhalt bedeutet nicht automatisch komplexe Animation.
 
 ## Reels — harte exklusive Auswahl
 
-Für neue FinanzNeo-Reels gilt pro Szene **genau eine Hauptform**:
+Für neue FinanzNeo-Reels gilt pro Szene **genau eine Hauptform**. Es gibt drei, und die Entscheidung läuft in dieser Reihenfolge:
+
+```text
+Braucht die Aussage eine echte Zahl?               → DATA
+Trägt eine sichtbare Zustandsänderung die Aussage? → ANIMATION
+Sonst                                              → IMAGE
+```
+
+Keine Quote zwischen den dreien. Jede Szene wird einzeln entschieden.
 
 ### IMAGE
 
@@ -49,6 +57,28 @@ ANIMATION bedeutet:
 - kein generiertes Flow-Bild als Hauptvisual
 - SVG, Icons, Lottie, Charts, Zahlen, Shapes und 3D-/Physical-Primitives sind Werkzeuge
 - Technik wird individuell nach dem Sprechpunkt gewählt
+
+### DATA
+
+Nutzen, wenn eine **echte Zahl** die Aussage trägt und weder ein Bild noch eine erfundene Bewegung sie zeigen könnte, z. B.:
+
+- wie unruhig zehn Jahre Weltmarkt wirklich waren
+- wie viel von einem Endwert nie eingezahlt wurde
+- wie weit ein Puffer noch vom Ziel entfernt ist
+- wie zwei Anlagen über denselben Zeitraum auseinanderlaufen
+
+DATA bedeutet:
+- eigenständige Remotion-Hauptszene aus belegten Zahlen
+- kein generiertes Flow-Bild als Hauptvisual
+- `dataOrigin`, `dataSource`, `dataClaim` und `sourceNote` stehen im `scene-index.json`
+- die Quellenzeile ist im Bild sichtbar, nicht nur im Index
+- die Reihe wird in Phase 1 geholt und eingefroren; Phase 3 holt nichts nach
+
+Ohne echte Zahl ist es keine DATA-Szene, sondern ein Bild.
+
+Eine gezeichnete Kurve allein füllt den Frame nicht. Wo ein Gegenstand aus `src/motion` neben der Reihe steht, steigt die gemessene Visualbelegung deutlich — bei einer geprüften Szene von 11,5 % auf 25,1 %. Die Zahl trägt die Aussage, der Gegenstand trägt das Bild.
+
+Details: `docs/PHASE-1-DATA-SCENE-STANDARD.md`
 
 ### Für Reels verboten
 
@@ -162,6 +192,6 @@ Jeder Beat muss sichtbar mindestens eine konkrete Frage beantworten:
 
 ## Kurzregel
 
-> **Reels: entweder IMAGE oder ANIMATION.** Bilder bleiben ruhig und selbsterklärend; Animationen werden individuell aus dem Sprechpunkt entwickelt. SVG, Icons und Lottie sind Werkzeuge.
+> **Reels: IMAGE, ANIMATION oder DATA — genau eine Hauptform pro Szene.** Zahl → DATA, Veränderung → ANIMATION, sonst IMAGE. Bilder bleiben ruhig und selbsterklärend; Animationen werden individuell aus dem Sprechpunkt entwickelt; Datenszenen zeigen ihre Quelle. SVG, Icons und Lottie sind Werkzeuge.
 >
 > **YouTube: image, animation oder data — nie Bild und Animation zusammen.** Zahlen gehören nach Remotion, nie in ein Flow-Bild. Im Zweifel Bild. Jede Szene bekommt eine Zwischenüberschrift mit Icon, und Bilder werden so komponiert, dass die Kopfbahn frei bleibt.

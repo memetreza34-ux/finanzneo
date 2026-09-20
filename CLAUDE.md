@@ -33,7 +33,8 @@ Phase 1 liefert vollständig:
 - Google-Flow-Prompts
 - natürliche Szenenüberschriften + passende Icons
 - Remotion-Spezifikationen
-- **produktionsreife `animation.tsx` für jede Animationsszene**
+- **produktionsreife `animation.tsx` für jede Animations- und jede Datenszene**
+- bei Datenszenen: Zahlen **zuerst holen und einfrieren** (`node scripts/fetch-data.mjs …`), erst danach Zahlen behaupten
 - genau eine universelle Social-Caption: `04-caption/caption.txt`
 
 Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen und Phase 3 keine kreative Animation mehr erfinden muss.
@@ -84,6 +85,15 @@ Animationsszene:
 └── animation.tsx
 ```
 
+Datenszene:
+
+```text
+03-szenen/EINZELNE-SZENEN/scene-XX/
+├── szene.md
+├── daten.md
+└── animation.tsx
+```
+
 Bildszene:
 
 ```text
@@ -106,7 +116,15 @@ FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 - Kompatibilitätsbasis älterer Reels: statischer Bildbeat ca. 1,8–3,4 s, max. 4,5 s. **Neue Future-V3-Reels:** ideal 1,8–3,0 s; ab ca. 3,6 s aktiv einen zusätzlichen Visual Beat prüfen; ohne neue sichtbare Information **hart max. 4,0 s**
 - Animationen dürfen länger sein, müssen aber währenddessen mehrere klar unterschiedliche Zustände zeigen; Kamera-Push/Zoom allein zählt nicht als neuer Beat
 - Voiceover und Visual müssen gemeinsam fortschreiten: ist die Bildaussage bereits verstanden, darf das Bild nicht unnötig stehen bleiben
-- ungefähr 60 % Bild / 40 % Animation ist nur ein Richtwert; bei einfachen Anfänger-Erklärungen sind bewusst mehr Bilder erlaubt
+- **keine Quote zwischen den drei Szenentypen.** Jede Szene wird einzeln entschieden:
+
+```text
+Braucht die Aussage eine echte Zahl?               → Datenszene
+Trägt eine sichtbare Zustandsänderung die Aussage? → Animation
+Sonst                                              → Flow-Bild
+```
+
+  Eine Quote lädt dazu ein, Animationen zu bauen, um eine Zahl zu treffen. Bei einfachen Anfänger-Erklärungen sind bewusst mehr Bilder erlaubt; entscheidend ist, ob die Szene verstanden wird, nicht welchen Typ sie hat
 - echte Wort-Zeitstempel bestimmen finale Schnitte und Szenendauern; keine künstlich gleich langen Szenen
 - kurze klare Sätze, kein unnötiger Fachjargon
 - Logik: Hook → Problem → Erklärung → Beispiel → Lösung/Merksatz; CTA nur wenn er wirklich passt
@@ -467,7 +485,7 @@ Streng verboten:
 
 ## 12. Phase-3-Seal und Dispatch
 
-`npm run reel:ready -- <Reel-Pfad>` versiegelt jede kanonische `animation.tsx` per SHA-256.
+`npm run reel:ready -- <Reel-Pfad>` versiegelt jede kanonische `animation.tsx` per SHA-256 — Animations- **und** Datenszenen.
 
 Phase 3 verlangt danach:
 

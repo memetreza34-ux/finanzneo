@@ -36,7 +36,7 @@ Neue Reels erhalten zusätzlich die Verträge für Google Flow, Phase-1-Animatio
 Pflicht:
 
 - `id`
-- `type`: `image` oder `animation`
+- `type`: `image`, `animation` oder `data`
 - `headline`: natürliche Aussage oder Frage, keine reine Zahl/Stichwort
 - `icon`: existierendes FinanzNeo-Icon
 - `planFile`
@@ -58,6 +58,27 @@ Zusätzlich verpflichtend:
 ```
 
 `objectLabels` dürfen als hilfreiche Metadaten vorkommen, sind aber keine zweite Wahrheit neben dem eigentlichen Bildprompt.
+
+## Datenszene
+
+Technisch dasselbe Artefakt wie eine Animationsszene: dieselbe kanonische TSX, derselbe Export, derselbe Seal, dasselbe Binding. Deshalb gelten alle `animation*`-Pflichtfelder unverändert.
+
+Zusätzlich verpflichtend:
+
+```json
+{
+  "dataOrigin": "measured",
+  "dataSource": "public/data/msci-world-10y.json",
+  "dataClaim": "Zehn Jahre Weltmarkt steigen fast aufs Dreifache und fallen zwischendurch deutlich.",
+  "sourceNote": "Quelle: Yahoo Finance · URTH · 10y, Stand 7.6.2026"
+}
+```
+
+`dataOrigin` ist `measured` oder `calculated`. Bei `measured` muss die Datei unter `public/data/` existieren und ein `fetchedAt` tragen, und `sourceNote` muss den Stand nennen. Bei `calculated` muss `sourceNote` die Annahme als Annahme kennzeichnen.
+
+`googleFlowFileName` ist verboten — eine Datenszene erwartet kein Flow-Bild, die Bildnummer bleibt reserviert.
+
+Geprüft von `scripts/validate-data-scene-contract.mjs`. Details in `docs/PHASE-1-DATA-SCENE-STANDARD.md`.
 
 ## Animationsszene — V5
 

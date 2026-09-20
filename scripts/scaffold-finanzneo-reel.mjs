@@ -19,6 +19,7 @@ import {AUTONOMY_BLOCK, FLOW_AGENT_BLOCK, flowAutonomyFields} from './lib/flow-a
 import {
   ANIMATION_QUALITY_LOCK,
   DEFAULT_PHASE3_EXECUTOR,
+  SCENE_TYPES,
 } from './lib/reel-scene-schema.mjs';
 
 const STYLIZED_3D_LOCK_ID = 'finanzneo-stylized-3d-editorial-v5';
@@ -52,11 +53,11 @@ const typeArg = readArg('types');
 const types = typeArg ? typeArg.split(',').map((v) => v.trim()) : DEFAULT_TYPES;
 
 if (!targetArg) {
-  console.error('Nutzung: npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel" [--types image,image,animation]');
+  console.error('Nutzung: npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel" [--types image,image,data,animation]');
   process.exit(1);
 }
-if (types.length < 5 || types.length > 20 || types.some((t) => !['image', 'animation'].includes(t))) {
-  console.error('Szenentypen: 5–20 Einträge, nur image oder animation.');
+if (types.length < 5 || types.length > 20 || types.some((t) => !SCENE_TYPES.includes(t))) {
+  console.error(`Szenentypen: 5–20 Einträge, nur ${SCENE_TYPES.join(', ')}.`);
   process.exit(1);
 }
 
@@ -128,7 +129,7 @@ const scenes = types.map((type, index) => {
     headerTone:'default',
   };
 
-  write(`${dir}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n**Zwischenüberschrift:** [EINFÜGEN — natürliche Aussage/Frage; weiß, 56 px, max. 2 Zeilen + einfaches Icon]\n**Icon:** [EINFÜGEN — inhaltlich passend]\n**Sprechtext:** [EINFÜGEN — nur Wörter dieser Szene]\n\n${type === 'image' ? `**Google-Flow-Dateiname:** ${sceneFileName(index)}\n**Erlaubte kurze Objektlabels:** [EINFÜGEN]\n` : `**Google Flow:** KEIN Bild ${number}; Nummer bleibt reserviert.\n**Animation:** Phase 1 liefert remotion.md + fertige animation.tsx.\n`}`);
+  write(`${dir}/szene.md`, `# ${id}\n\n**Typ:** ${type}\n**Zwischenüberschrift:** [EINFÜGEN — natürliche Aussage/Frage; weiß, 56 px, max. 2 Zeilen + einfaches Icon]\n**Icon:** [EINFÜGEN — inhaltlich passend]\n**Sprechtext:** [EINFÜGEN — nur Wörter dieser Szene]\n\n${type === 'image' ? `**Google-Flow-Dateiname:** ${sceneFileName(index)}\n**Erlaubte kurze Objektlabels:** [EINFÜGEN]\n` : type === 'data' ? `**Google Flow:** KEIN Bild ${number}; Nummer bleibt reserviert.\n**Datenszene:** Phase 1 liefert daten.md + fertige animation.tsx mit belegten Zahlen.\n` : `**Google Flow:** KEIN Bild ${number}; Nummer bleibt reserviert.\n**Animation:** Phase 1 liefert remotion.md + fertige animation.tsx.\n`}`);
 
   if (type === 'image') {
     write(`${dir}/bildprompt.txt`, imagePrompt(id, index));
@@ -144,6 +145,27 @@ const scenes = types.map((type, index) => {
 
   const animationExport = animationExportName(index);
   const animationSourceFile = `EINZELNE-SZENEN/${id}/animation.tsx`;
+
+  if (type === 'data') {
+    // Die Datenszene bekommt keine remotion.md, weil sie keine Mechanik plant,
+    // sondern einen Beleg. daten.md fragt deshalb nach Herkunft und Aussage.
+    write(`${dir}/daten.md`, `# Datenszene ${id}\n\n**Zwischenüberschrift:** [EINFÜGEN — natürliche Schreibweise; 56 px; max. 2 Zeilen]\n**Icon:** [EINFÜGEN]\n**Kanonische Codequelle:** animation.tsx\n**Quality Lock:** ${ANIMATION_QUALITY_LOCK}\n\n## AUSSAGE\n[EINFÜGEN — der Satz, den die Zahlen belegen sollen]\n\n## DATENQUELLE\n**Herkunft:** [EINFÜGEN — measured oder calculated]\n**Quelle:** [EINFÜGEN — public/data/<datei>.json bei measured, Rechenfunktion bei calculated]\n\nBei measured zuerst holen, dann behaupten:\n\n    node scripts/fetch-data.mjs stock <SYMBOL> <ZEITRAUM> <name>\n\nDie Datei trägt ihr Abrufdatum. Erst wenn sie liegt, dürfen Zahlen ins Skript.\n\n## KENNZAHLEN\n[EINFÜGEN — welche Zahlen im Bild stehen und woraus sie berechnet sind]\n\n## QUELLENZEILE\n[EINFÜGEN — genau der Satz, der im Bild erscheint; bei measured mit Stand, bei calculated als Annahme gekennzeichnet]\n\n## VERBOTEN\nZahlen ohne Quelle, Quellenzeile nur im scene-index statt im Bild, gerundete Werte die nicht aus der Quelle stammen, "ungefähr" statt eines belegten Werts.\n`);
+    write(`03-szenen/${animationSourceFile}`, `import React from 'react';\n\n/**\n * PHASE-1 CANONICAL DATA SCENE SOURCE\n * Vor Abschluss von Phase 1 vollständig durch produktionsreifen Code ersetzen.\n * Phase 3 darf diese Quelle später nicht kreativ ersetzen oder verändern.\n *\n * DATA_NARRATIVE\n * CLAIM: [EINFÜGEN — der Satz, den die Zahlen belegen]\n * SOURCE: [EINFÜGEN — public/data/<datei>.json oder Rechenfunktion]\n * FIGURES: [EINFÜGEN — die Kennzahlen, die sichtbar werden]\n *\n * Die Quellenzeile muss im gerenderten Bild stehen, nicht nur hier.\n */\nexport const RESULT_HOLD_FRAMES = 15;\n\nexport const ${animationExport}: React.FC<{durationFrames?: number}> = () => {\n  throw new Error('PHASE 1 ANIMATION CODE NOT COMPLETED');\n};\n`);
+
+    return {
+      ...common,
+      planFile:`EINZELNE-SZENEN/${id}/daten.md`,
+      animationSourceFile,
+      animationExport,
+      animationIntent:'[EINFÜGEN — konkrete sichtbare Kette: Startzustand → Aufbau der Reihe → stehende Kennzahl]',
+      animationQualityLock:ANIMATION_QUALITY_LOCK,
+      dataOrigin:'[EINFÜGEN — measured oder calculated]',
+      dataSource:'[EINFÜGEN — public/data/<datei>.json oder Rechenfunktion]',
+      dataClaim:'[EINFÜGEN — der Satz, den die Zahlen belegen sollen]',
+      sourceNote:'[EINFÜGEN — Quellenzeile fürs Bild, mit Stand bzw. als Annahme gekennzeichnet]',
+    };
+  }
+
   write(`${dir}/remotion.md`, `# Remotion-Spezifikation ${id}\n\n**Zwischenüberschrift:** [EINFÜGEN — natürliche Schreibweise; 56 px; max. 2 Zeilen; Plain Header]\n**Icon:** [EINFÜGEN]\n**Kanonische Codequelle:** animation.tsx\n**Quality Lock:** ${ANIMATION_QUALITY_LOCK}\n**Visuelle Zielwelt:** ${ANIMATED_WORLD_LOCK_ID}\n**Stage:** transparent über zentralem #000000 Reel-Canvas; sichtbare Ausgabe hart Y320–1400; keine dekorativen Hintergrundeffekte.\n\n## STARTZUSTAND\n[EINFÜGEN]\n\n## SICHTBARER MECHANISMUS\n[EINFÜGEN]\n\n## ERGEBNIS\n[EINFÜGEN]\n\n## RESULT HOLD\nMindestens 15 Frames stabil.\n\n## VERBOTEN\nDummy/Placeholder/Debug-Boxen, wackelnde Rechtecke, Math.sin/Math.cos als künstlicher Frame-Diff, Hintergrundpartikel/Aurora/Grid/Glow, reine Dauerbewegung ohne Aussage, "erst Tests bestehen, später hübsch machen".\n`);
   write(`03-szenen/${animationSourceFile}`, `import React from 'react';\n\n/**\n * PHASE-1 CANONICAL ANIMATION SOURCE\n * Vor Abschluss von Phase 1 vollständig durch produktionsreifen Code ersetzen.\n * Phase 3 darf diese Quelle später nicht kreativ ersetzen oder verändern.\n *\n * ANIMATION_NARRATIVE\n * START: [EINFÜGEN — konkreter visueller Ausgangszustand]\n * MECHANISM: [EINFÜGEN — konkrete sichtbare Ursache-Wirkungs-Veränderung]\n * RESULT: [EINFÜGEN — eindeutiger visueller Endzustand]\n */\nexport const RESULT_HOLD_FRAMES = 15;\n\nexport const ${animationExport}: React.FC<{durationFrames?: number}> = () => {\n  throw new Error('PHASE 1 ANIMATION CODE NOT COMPLETED');\n};\n`);
 
@@ -160,6 +182,7 @@ const scenes = types.map((type, index) => {
 const allSections = types.map((type,index) => {
   const number = num(index);
   if (type === 'animation') return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSZENE ${number} – REMOTION-ANIMATION\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nKEIN BILD ${number} ERZEUGEN. Nummer ${number} bleibt reserviert.\n`;
+  if (type === 'data') return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSZENE ${number} – DATENSZENE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nKEIN BILD ${number} ERZEUGEN. Nummer ${number} bleibt reserviert. Die Szene entsteht aus belegten Zahlen in Remotion.\n`;
   return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSZENE ${number} – BILDSZENE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${imagePrompt(`scene-${number}`, index)}`;
 }).join('\n');
 

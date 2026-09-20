@@ -4,6 +4,20 @@
 
 ## Phase 1 — ChatGPT
 
+### Schritt 0 — Zahlen holen, bevor Zahlen behauptet werden
+
+Sobald ein Reel mit echten Zahlen arbeitet, steht das **vor** der ersten Zeile Skript:
+
+```bash
+node scripts/fetch-data.mjs stock URTH 10y msci-world
+node scripts/fetch-data.mjs crypto bitcoin 365 btc
+node scripts/fetch-data.mjs fx EUR
+```
+
+Die Datei landet in `public/data/` und trägt Quelle, Symbol und Abrufdatum. Erst danach dürfen Zahlen ins Skript, in den Header und ins Voiceover.
+
+Der Grund ist nicht Ordnung, sondern Haltbarkeit: Ein Kurs ändert sich täglich. Wer „2,91×" ins Skript schreibt und die Reihe später neu holt, hat ein Voiceover, das nicht mehr zum Bild passt. Die Reihe wird einmal eingefroren und behält ihr Datum.
+
 Phase 1 liefert vollständig:
 
 - Recherche + Quellen
@@ -13,6 +27,7 @@ Phase 1 liefert vollständig:
 - Bild-/Animations-Zuordnung
 - V9-Flow-Prompts + exakte Dateinamen
 - pro Animationsszene `remotion.md` + **produktionsreife `animation.tsx`**
+- pro Datenszene `daten.md` + **produktionsreife `animation.tsx` mit belegten Zahlen**
 - Master- und Plattform-Captions
 
 Phase 1 besitzt die kreative Animation. Phase 3 darf nichts Fehlendes erfinden oder durch einen technisch leichteren Hack ersetzen.
@@ -85,6 +100,16 @@ npm run reel:export -- <Reel-Pfad> <Final-MP4>
 - Hash muss Phase-1-Seal entsprechen
 - fehlendes Binding = harter Fehler
 - keine Ersatzanimation, kein Dummy, kein QA-Wackeln
+
+### Datenszene
+
+Technisch wie eine Animationsszene: dieselbe `animationSourceFile`, derselbe Export, derselbe Seal, dasselbe Binding.
+
+Zusätzlich gilt:
+
+- die Reihe unter `dataSource` bleibt unverändert; Phase 3 holt **keine** frischen Daten nach
+- die Quellenzeile aus `sourceNote` muss im Render sichtbar sein
+- kein Flow-Bild; die Bildnummer bleibt reserviert
 
 ### Pure-Black-Canvas
 
