@@ -41,12 +41,31 @@ Bevorzugt werden die zentralen Bausteine aus `physical.tsx`:
 
 Sie enthalten bewusst keine eigene Dauerschleifen-Animation. Die Szene liefert Position, Progress und Zustand.
 
+Die Basiskomponenten liefern Materialtiefe, Kanten, Highlights und Kontakt-/Bodenschatten zentral. Einzelne Szenen sollen diese Materiallogik nicht erneut erfinden.
+
 ## Materialrollen
 
 - `neutral`: Kontext / neutrale Objekte
 - `money`: Geld / Wert
 - `warning`: Kosten / Risiko / Verlust
 - `positive`: Lösung / Zielzustand
+
+## Zehn kanonische Mechaniken
+
+`FinanzNeoMotionReferenceV1` zeigt aktuell zehn wiederverwendbare Erklärprinzipien:
+
+1. Wachstum / Kapitalaufbau
+2. Kostenabzug / Verlust durch Mechanismus
+3. Rebalancing / Transfer zwischen Zuständen
+4. Result-Lock / stabiles Ergebnis
+5. Aufteilung / Allocation Split
+6. Konto-zu-Konto-Transfer
+7. Schockpuffer / Notgroschen absorbiert Belastung
+8. Ergebnisvergleich A gegen B
+9. Zeit + Zinseszinseffekt
+10. Positive Resolution / stabiler Zielzustand
+
+Das sind keine starren Vorlagen. Neue Szenen dürfen andere konkrete Objekte verwenden, sollen aber zuerst prüfen, ob ihre Aussage mit einer dieser Mechaniken klar erklärbar ist.
 
 ## Lottie
 
@@ -57,3 +76,5 @@ Lottie ist eine Support-Schicht, kein Ersatz für die Hauptmechanik.
 
 Die Remotion-Composition `FinanzNeoMotionReferenceV1` ist die visuelle Referenz für neue Motion-Arbeit.
 Sie ist ein Showcase, kein veröffentlichbares Produktionsvideo.
+
+Bei 30 fps umfasst sie 10 Szenen à 90 Frames und damit 30 Sekunden. Jede Szene endet in einem stabilen HOLD statt in dekorativer Dauerbewegung.
