@@ -83,7 +83,7 @@ const FlowArrow: React.FC<{left: number; top: number; width: number; progress: n
           background: color,
           transform: `scaleX(${progress})`,
           transformOrigin: 'left center',
-          boxShadow: `0 8px 18px rgba(0,0,0,0.3)`,
+          boxShadow: '0 8px 18px rgba(0,0,0,0.3)',
         }}
       />
       <div
@@ -99,6 +99,20 @@ const FlowArrow: React.FC<{left: number; top: number; width: number; progress: n
           transform: `translateX(${(1 - progress) * -24}px)`,
         }}
       />
+    </div>
+  );
+};
+
+const PhysicalSplitter: React.FC<{progress: number}> = ({progress}) => {
+  const p = Math.max(0, Math.min(1, progress));
+  const pipe = `linear-gradient(90deg, #708078, ${C.whiteSoft} 44%, #86978e)`;
+  return (
+    <div style={{position: 'absolute', left: 446, top: 214, width: 188, height: 170, opacity: p, transform: `scale(${0.9 + p * 0.1})`}}>
+      <PhysicalObject x={55} y={0} width={78} height={72} depth={14} radius={24} role="neutral" grounding={0}>
+        <div style={{position: 'absolute', left: 23, top: 21, width: 32, height: 32, borderRadius: '50%', background: '#243129', boxShadow: 'inset 0 4px 8px rgba(0,0,0,0.5)'}} />
+      </PhysicalObject>
+      <div style={{position: 'absolute', left: 82, top: 58, width: 24, height: 116, borderRadius: 999, background: pipe, transform: 'rotate(31deg)', transformOrigin: 'center top', boxShadow: '0 9px 16px rgba(0,0,0,0.38)'}} />
+      <div style={{position: 'absolute', left: 82, top: 58, width: 24, height: 116, borderRadius: 999, background: pipe, transform: 'rotate(-31deg)', transformOrigin: 'center top', boxShadow: '0 9px 16px rgba(0,0,0,0.38)'}} />
     </div>
   );
 };
@@ -227,9 +241,7 @@ const SplitScene: React.FC = () => {
         <PhysicalBill x={375} y={315} value="100 %" progress={enter * (1 - split)} />
         <PhysicalBill x={leftX} y={335} value="70 %" progress={split} scale={leftScale} role="positive" />
         <PhysicalBill x={rightX} y={335} value="30 %" progress={split} scale={rightScale} role="money" />
-        <PhysicalObject x={474} y={220} width={132} height={112} depth={18} radius={30} role="neutral" opacity={split} grounding={0}>
-          <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#111', fontSize: 46, fontWeight: 950}}>Y</div>
-        </PhysicalObject>
+        <PhysicalSplitter progress={motionProgress(frame, 16, 40)} />
         <ResultLabel progress={result} color={C.white}>Allokation wird als echte Trennung verständlich.</ResultLabel>
       </PremiumPhysicalStage>
     </AbsoluteFill>
@@ -241,15 +253,16 @@ const AccountTransferScene: React.FC = () => {
   const accounts = motionProgress(frame, 4, 18);
   const transfer = motionProgress(frame, 18, 62);
   const result = motionProgress(frame, 62, 74);
-  const billX = motionValue(frame, 18, 62, 175, 600);
-  const billY = interpolate(transfer, [0, 0.5, 1], [485, 340, 485], CLAMP);
+  const billX = motionValue(frame, 18, 62, 175, 650);
+  const billY = interpolate(transfer, [0, 0.5, 1], [485, 330, 410], CLAMP);
+  const billOpacity = interpolate(transfer, [0, 0.08, 0.82, 1], [0, 1, 1, 0], CLAMP);
   return (
     <AbsoluteFill>
       <ReferenceHeader number="MOTION 06" title="Überweisung ist ein Weg" note="Geld verlässt einen Ort und kommt an einem anderen an" />
       <PremiumPhysicalStage>
         <PhysicalAccount x={48} y={250} balance={result > 0.5 ? '4.000 €' : '5.000 €'} progress={accounts} label="GIRO" />
         <PhysicalAccount x={602} y={250} balance={result > 0.5 ? '11.000 €' : '10.000 €'} progress={accounts} role="positive" label="DEPOT" />
-        <PhysicalObject x={billX} y={billY} width={170} height={92} depth={14} radius={22} role="money" opacity={transfer} grounding={0}>
+        <PhysicalObject x={billX} y={billY} width={170} height={92} depth={14} radius={22} role="money" opacity={billOpacity} grounding={0}>
           <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4a2d00', fontSize: 34, fontWeight: 950}}>1.000 €</div>
         </PhysicalObject>
         <ResultLabel progress={result} color={C.accentLt}>Der Zielwert ändert sich erst nach dem sichtbaren Transfer.</ResultLabel>
@@ -263,14 +276,14 @@ const ShockBufferScene: React.FC = () => {
   const enter = motionProgress(frame, 5, 20);
   const shock = motionProgress(frame, 20, 56);
   const result = motionProgress(frame, 56, 72);
-  const warningX = motionValue(frame, 20, 56, -160, 365);
+  const warningX = motionValue(frame, 20, 56, -160, 300);
   const reserveFill = interpolate(shock, [0, 1], [0.8, 0.48], CLAMP);
   return (
     <AbsoluteFill>
       <ReferenceHeader number="MOTION 07" title="Reserve fängt einen Schock ab" note="Risiko trifft zuerst den Puffer statt das Depot" />
       <PremiumPhysicalStage>
-        <PhysicalReserveTank x={420} y={205} fill={reserveFill} label="NOTGROSCHEN" role="positive" />
-        <PhysicalAccount x={690} y={300} balance="10.000 €" progress={enter} label="DEPOT" />
+        <PhysicalReserveTank x={350} y={205} fill={reserveFill} label="NOTGROSCHEN" role="positive" />
+        <PhysicalAccount x={610} y={300} balance="10.000 €" progress={enter} label="DEPOT" />
         <PhysicalObject x={warningX} y={330} width={190} height={132} depth={22} radius={28} role="warning" opacity={shock} rotate={motionValue(frame, 20, 56, -8, 0)} grounding={shock}>
           <div style={{position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: C.white, fontWeight: 950}}>
             <div style={{fontSize: 46}}>!</div>
@@ -335,7 +348,7 @@ const PositiveResolutionScene: React.FC = () => {
   const fund = motionProgress(frame, 18, 58);
   const result = motionProgress(frame, 58, 72);
   const fill = interpolate(fund, [0, 1], [0.12, 0.72], CLAMP);
-  const billX = motionValue(frame, 18, 58, 80, 395);
+  const billX = motionValue(frame, 18, 58, 60, 310);
   const billOpacity = interpolate(fund, [0, 0.8, 1], [1, 1, 0], CLAMP);
   return (
     <AbsoluteFill>
@@ -344,8 +357,8 @@ const PositiveResolutionScene: React.FC = () => {
         <div style={{position: 'absolute', left: billX, top: 360, opacity: billOpacity}}>
           <PhysicalBill x={0} y={0} value="500 €" progress={enter} />
         </div>
-        <PhysicalReserveTank x={445} y={205} fill={fill} label={result > 0.5 ? 'PUFFER GEFÜLLT' : 'PUFFER'} role="positive" />
-        <PhysicalAccount x={705} y={305} balance="10.000 €" progress={enter} role="positive" label="DEPOT" />
+        <PhysicalReserveTank x={350} y={205} fill={fill} label={result > 0.5 ? 'PUFFER GEFÜLLT' : 'PUFFER'} role="positive" />
+        <PhysicalAccount x={610} y={305} balance="10.000 €" progress={enter} role="positive" label="DEPOT" />
         <ResultLabel progress={result} color={C.accentLt}>Ein gefüllter Puffer schafft einen stabilen Zielzustand.</ResultLabel>
       </PremiumPhysicalStage>
     </AbsoluteFill>
