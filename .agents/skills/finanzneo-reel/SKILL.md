@@ -1,6 +1,6 @@
 ---
 name: finanzneo-reel
-description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, V9 explanatory image world, cinematic Remotion motion, controlled Lottie/SFX enhancement, Playwright visual QA, sealed animations, pure-black canvas and completion gates.
+description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, V9 explanatory image world, canonical Motion Core V1, controlled Lottie/SFX enhancement, Playwright visual QA, sealed animations, pure-black canvas and completion gates.
 ---
 
 # FinanzNeo Reel Skill
@@ -14,11 +14,14 @@ Read in this order:
 3. `docs/3-PHASEN-WORKFLOW.md`
 4. `docs/PHASE-3-COMPLETION-GATE.md`
 5. `reels/PRODUKTIONSSTANDARD.md`
-6. `.agents/rules/finanzneo-reel-safety.md`
-7. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
-8. `.agents/plugins/finanzneo-motion/rules/lottie-motion.md`
-9. `.agents/plugins/finanzneo-motion/rules/sound-design.md`
-10. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
+6. `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
+7. `.agents/rules/finanzneo-reel-safety.md`
+8. `.agents/plugins/finanzneo-motion/rules/mechanic-selection.md`
+9. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
+10. `.agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md`
+11. `.agents/plugins/finanzneo-motion/rules/lottie-motion.md`
+12. `.agents/plugins/finanzneo-motion/rules/sound-design.md`
+13. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
 
 `CLAUDE.md` wins on conflicts.
 
@@ -28,8 +31,11 @@ Read in this order:
 
 Owns research, beginner-friendly scene-by-scene script, Flow prompts, headers/icons, captions and the final production-ready `animation.tsx` for every animation scene.
 
+For every animation scene, Phase 1 routes creative motion decisions through the FinanzNeo `remotion-director` and the canonical `src/motion` core before writing JSX.
+
 Phase 1 may use the FinanzNeo Motion Stack while authoring:
 
+- canonical `src/motion` Physical-Primitives + `FN_MOTION`
 - Remotion / HTML / CSS primitives
 - React Three Fiber / Three.js where spatial depth genuinely helps
 - Lottie Creator MCP for focused support motion
@@ -91,7 +97,9 @@ Do not use background motion to make an otherwise empty scene pass visual QA.
 The workspace plugin `.agents/plugins/finanzneo-motion/` extends Antigravity with:
 
 - official Remotion Agent Skills bootstrapped locally at workspace start;
-- `remotion-director` for cinematic real-world motion choreography;
+- `remotion-director` for content-first real-world motion choreography;
+- `mechanic-selection` for semantic mechanism routing and anti-repetition;
+- canonical `src/motion` Motion Core V1 for Physical-Primitives, Stage, timing and springs;
 - Lottie Creator MCP + `lottie-motion` for controlled vector support animation;
 - ElevenLabs `sound-effects` Agent Skill bootstrap for optional SFX generation;
 - `sound-design` for frame-synchronized sound planning;
@@ -99,6 +107,34 @@ The workspace plugin `.agents/plugins/finanzneo-motion/` extends Antigravity wit
 - repo validation through `npm run validate:antigravity-motion`.
 
 Remotion remains the timeline/render authority.
+
+### Motion Core V1 — mandatory routing for new animations
+
+For new or intentionally reworked Reel animations:
+
+1. read all animation scenes in the target Reel;
+2. derive the finance statement and visible understanding goal;
+3. derive the physical cause/effect before choosing tools;
+4. assign one validator-compatible lower-kebab-case `MECHANIC_ID`;
+5. record `HERO_OBJECT`, `PRIMARY_ACTION`, `MOTION_AXIS` and `RESULT_TYPE`;
+6. compare against the Reel mechanic ledger;
+7. pass the anti-repetition gate;
+8. check `src/motion` for suitable canonical primitives and timing;
+9. only then implement the scene.
+
+The ledger shape is:
+
+```text
+SCENE_ID | MECHANIC_ID | HERO_OBJECT | PRIMARY_ACTION | MOTION_AXIS | RESULT_TYPE
+```
+
+The same `MECHANIC_ID` must never occur twice inside one Reel. If at least three central ledger dimensions match another animation, redesign the physical explanation before coding.
+
+A different color, label, icon, Lottie, camera move, mirroring or speed is **not** a new mechanism.
+
+`src/motion` is a technical house-style core, **not a fixed creative template menu**. The content still decides the mechanism. Scene-specific physical objects are allowed when they are genuinely needed, but do not duplicate existing core primitives merely to restyle them.
+
+Old `FinanceMotionLab*`, experiment compositions and legacy Reel animation styles may provide technical reference only; they are not production house-style authority.
 
 ### Animation language
 
@@ -155,6 +191,7 @@ For each production Reel:
 - compare one-line and two-line headers across scenes;
 - compare optical icon size, icon-to-text gap and vertical alignment;
 - inspect safe-zone boundaries, clipping, centering, hero scale and dead space;
+- for a new mechanism, changed Motion Core or representative pilot, prefer a full render when practical;
 - treat visible inconsistency as QA failure even if TypeScript/bundle/smoke are green.
 
 Playwright screenshots and traces are temporary QA artifacts, not production assets.
@@ -171,6 +208,8 @@ For every animation scene:
 - bind through the production composition/customAnimations mapping
 - missing binding = hard failure
 - Phase 3 may not replace or simplify the source
+
+For a new Reel carrying `finanzneo-motion-core-v1`, canonical Physical-/Motion-Primitives come from `src/motion`. A Reel that imports the old core primitives from `src/design-system` fails the new Motion-Direction gate.
 
 No placeholders, debug rectangles, `Math.sin`/`Math.cos` QA-wiggle or motion whose only purpose is frame difference.
 
@@ -213,6 +252,8 @@ QA must reject:
 - missing animation binding
 - animation with no real motion
 - animation that does not explain its beat
+- repeated physical mechanism disguised by color/text/camera changes
+- new Motion-Core Reel animation that bypasses `src/motion`
 - visible header/icon inconsistency found by Playwright QA
 - safe-zone/clipping/centering defects found by Playwright QA
 - non-black/decorative background
