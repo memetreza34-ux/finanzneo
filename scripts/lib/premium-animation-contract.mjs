@@ -5,6 +5,7 @@ export const premiumAnimationContractFields = () => ({
   visualTargetWorld: 'finanzneo-stylized-3d-animated-black-v9',
   requirePremiumPhysicalStage: true,
   requirePhysicalObjects: true,
+  singleHeroObjectAllowed: true,
   supportingObjectCountFlexible: true,
   clarityBeforeObjectCount: true,
   requireMaterialDepthLighting: true,
