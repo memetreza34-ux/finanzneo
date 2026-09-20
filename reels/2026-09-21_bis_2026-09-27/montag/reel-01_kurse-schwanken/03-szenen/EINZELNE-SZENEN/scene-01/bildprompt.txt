@@ -1,0 +1,49 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Rotes Depot am Kuechentisch.png
+
+Erzeuge ausschliesslich dieses eine Bild. Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, erst nach PASS das naechste Bild. Keine Bildreferenz. MAX_CONCURRENT_GENERATIONS = 1.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Depot -18 %
+
+COVER_HOOK_CONTRACT: finanzneo-cover-hook-v3
+Der Reel-Titel wird von Remotion ab Frame 0 ueber dieses Bild gelegt.
+Das generierte Bild enthaelt selbst KEINEN Titel und KEINEN Text ausser den Objektlabels.
+Komposition so anlegen, dass im oberen Drittel Platz fuer den Titel frei bleibt.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Abends am Kuechentisch sieht ein Mann auf seinem Handy, dass sein Depot im Minus steht.
+REAL_WORLD_CONTEXT_ANCHOR: Kuechentisch mit Handy, Kontoauszug und Kaffeetasse — private Geldsituation zu Hause.
+VOICEOVER_VISUAL_MATCH: Die rote fallende Kurve auf dem Handy und das Label Depot -18 % zeigen genau das Minus, von dem gesprochen wird.
+TRANSFERABILITY_TEST: PASS: Das Bild zeigt eine konkrete Depotanzeige im Minus mit koerperlicher Reaktion, nicht ein allgemeines Geldsorgen-Motiv.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D everyday evening scene at a kitchen table, immediately after someone has opened their investment app. A man in his late thirties sits at the table and looks at a smartphone lying in front of him; the phone shows a clearly readable falling red portfolio curve and the short label. His shoulders are sunken and one hand rests against his temple, so the emotional reaction is visible in the body and not only in the screen. Beside the phone place a half empty coffee mug and an opened bank statement, so the situation reads as private household money rather than a trading desk. Keep the phone and the person large enough that both the curve and the posture are readable at a glance.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.

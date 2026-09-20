@@ -34,6 +34,17 @@ const errors = [];
 const fail = (message) => errors.push(message);
 const placeholder = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|ONE LARGE)[^\]]*)\]|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
 const hackWords = /\b(dummy|debug|placeholder|temporary|technik-hack|wackel|wiggle|test rectangle|fake motion)\b/i;
+
+// Die kanonischen Zeitfunktionen des Repos zählen wie interpolate selbst.
+//
+// `ease`, `settle`, `linear` und `motionProgress` sind dünne Hüllen um
+// interpolate; `prog` ebenso. Wer sie benutzt, schreibt keine schwächere
+// Animation, sondern dieselbe über die vorgesehene Quelle. Vorher galt nur der
+// direkte interpolate-Aufruf, was genau die Szenen bestraft hat, die sich an
+// das Design-System halten.
+const ZEITFUNKTIONEN = 'interpolate|spring|prog|ease|settle|linear|motionProgress|motionValue|resultProgress';
+const ZEITFORTSCHRITT = new RegExp(`(?:${ZEITFUNKTIONEN})\\s*\\(`);
+const MOTION_CHANNEL = new RegExp(`const\\s+[A-Za-z0-9_]+\\s*=\\s*(?:${ZEITFUNKTIONEN})\\s*\\(`, 'g');
 const mechanicIds = new Map();
 
 if (index.phase1AnimationCode?.required !== true) fail('phase1AnimationCode.required muss true sein.');
@@ -81,7 +92,7 @@ for (const scene of animations) {
   if (!source.includes(scene.animationExport)) fail(`${id}: Export ${scene.animationExport} ist im kanonischen Code nicht auffindbar.`);
   if (!/useCurrentFrame/.test(source)) fail(`${id}: Animation muss useCurrentFrame nutzen und sichtbar zeitgesteuert sein.`);
   if (!/ANIMATION_COLORS/.test(source)) fail(`${id}: Animation muss die zentrale ANIMATION_COLORS-Palette verwenden.`);
-  if (!/(?:prog\s*\(|interpolate\s*\(|spring\s*\()/.test(source)) fail(`${id}: kein nachvollziehbarer zeitlicher Animationsfortschritt gefunden.`);
+  if (!ZEITFORTSCHRITT.test(source)) fail(`${id}: kein nachvollziehbarer zeitlicher Animationsfortschritt gefunden.`);
 
   if (!/PremiumPhysicalStage/.test(source)) fail(`${id}: Animation muss PremiumPhysicalStage verwenden.`);
   // Bildsprache aus der gemeinsamen Quelle. Dadurch kennt die Reel-Prüfung
@@ -128,7 +139,7 @@ for (const scene of animations) {
     fail(`${id}: PRIMARY_ACTION fehlt/ist zu kurz; die physische Hauptaktion muss explizit beschrieben sein.`);
   }
 
-  const motionChannels = [...source.matchAll(/const\s+[A-Za-z0-9_]+\s*=\s*(?:interpolate|spring)\s*\(/g)].length;
+  const motionChannels = [...source.matchAll(MOTION_CHANNEL)].length;
   if (motionChannels < 3) {
     fail(`${id}: nur ${motionChannels} echte Motion-Channels gefunden; hochwertige Animation braucht mehrere koordinierte Zustandsänderungen statt einer einzigen Progress-Variable.`);
   }

@@ -1,0 +1,347 @@
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+
+STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH
+- DIES IST KEIN BATCH-AUFTRAG. DIE GESAMTE DATEI DARF NIEMALS ALS EIN MEHRBILD-PROMPT AUSGEFÜHRT WERDEN.
+- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.
+- STARTE NIEMALS MEHRERE BILDER, MEHRERE GENERIERUNGSJOBS ODER MEHRERE SZENEN IN EINEM SCHRITT / TOOL-CALL / BATCH.
+- ERZEUGE KEINE GALERIE, KEINEN KONTAKTBOGEN, KEIN MULTI-PANEL, KEINE COLLAGE UND KEIN BILD MIT MEHREREN SZENEN.
+- INITIAL IST NUR DER ERSTE BENÖTIGTE BILDBLOCK FREIGESCHALTET. ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT.
+- EIN SPÄTERER BILDBLOCK DARF ERST FREIGESCHALTET WERDEN, WENN DAS AKTUELLE BILD: (1) vollständig zurückgegeben, (2) exakt umbenannt und (3) per QA geprüft wurde.
+- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE BILDBLOCK GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.
+- NACH BESTANDENER QA WIRD GENAU DER NÄCHSTE BENÖTIGTE BILDBLOCK IN DOKUMENTREIHENFOLGE FREIGESCHALTET. NICHT VORHER.
+- REMOTION-/ANIMATIONSNUMMERN WERDEN OHNE GENERIERUNG ÜBERSPRUNGEN.
+- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTÄTIGUNG ODER FREIGABE DES NUTZERS.
+- "WARTEN" BEDEUTET NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.
+- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.
+- STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.
+- STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.
+
+FINANZNEO — GOOGLE FLOW MASTERDATEI
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+AUSFÜHRUNGSPROTOKOLL — STATE MACHINE, NICHT BATCH:
+0. Betrachte spätere Bildblöcke zunächst nur als GESPERRTE DATEN. Sie sind noch KEINE ausführbaren Bildaufträge.
+1. Setze ACTIVE_STEP auf den ersten benötigten Bildblock in Dokumentreihenfolge.
+2. Nimm AUSSCHLIESSLICH den BILDPROMPT von ACTIVE_STEP. Sende niemals Text aus mehreren Bildblöcken gemeinsam an die Bildgenerierung.
+3. Starte GENAU EINEN Bildgenerierungsjob für ACTIVE_STEP. MAX_CONCURRENT_GENERATIONS = 1.
+4. Starte KEINEN weiteren Job, solange dieser Job läuft oder noch kein Ergebnis zurückgegeben wurde.
+5. Sobald das einzelne Bild zurückgegeben wurde: benenne DIESE Datei SOFORT exakt auf den vorgegebenen finalen Dateinamen um.
+6. Prüfe danach ausschließlich dieses eine Bild: Aussage/Beat-Zuordnung, erlaubte Labels, klarer stylized-3D-animated V9-Look, tiefschwarzer sauberer Hintergrund, sinnvolle statt quotierte Objektanzahl, sichtbares Gesicht falls Person, Marken nur erkennbar-stilisiert und exakter Dateiname.
+7. QA FEHLER: ACTIVE_STEP bleibt unverändert. Erzeuge ausschließlich dieselbe Bildnummer neu. Alle späteren Schritte bleiben gesperrt.
+8. QA BESTANDEN: markiere ACTIVE_STEP als DONE. Erst JETZT darfst du den nächsten benötigten Bildblock in Dokumentreihenfolge freischalten.
+9. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Bildjob überspringen und zum nächsten benötigten Bildblock gehen.
+10. Wiederhole 2–9, bis jedes erwartete Bild einzeln DONE ist. Keine Nutzerfreigabe dazwischen.
+11. Erst NACH Abschluss aller Einzeljobs darfst du eine Abschlusszusammenfassung über alle finalen Dateien geben.
+12. Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen oder anhängen.
+
+HART VERBOTEN:
+- mehrere Bilder in einem Generierungsaufruf
+- mehrere Bildprompts zusammenfassen
+- Bilder vorab in eine Queue stellen
+- alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen
+- Kontaktbogen / Galerie / Collage / Multi-Panel als Ersatz für Einzelbilder
+
+
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+BILDWELT: realitätsnahe Alltagssituation als vollständige Erklärszene · klar stylized 3D statt fotorealistisch · deep black · Ursache/Wirkung direkt sichtbar · kurze deutsche Labels wenn hilfreich · keine Symbolrätsel · jeder Prompt individuell vollständig geschrieben.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+
+Literal first, creative second. Jede Bildszene zeigt zuerst die konkrete reale
+Situation, die im Sprechbeat wirklich passiert; erst danach wird gestaltet.
+
+TRANSFERABILITY-TEST: Ein Bild faellt durch, wenn es genauso gut zu fuenf anderen
+Finanzthemen passen wuerde. Alle Bildszenen dieses Reels zeigen dieselbe Person an
+demselben Tisch mit demselben Depot.
+
+VERBOTEN als Ersatz fuer die reale Situation: Förderbänder, Schienen, Schranken, Käfige
+und andere generische Fantasiemechaniken.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+COVER = SZENE 01.
+KEIN separates Cover erzeugen. KEIN Bild 00 erzeugen.
+Das Cover ist automatisch dasselbe Bild wie scene-01:
+Bild 01 - Rotes Depot am Kuechentisch.png
+Der Titel wird spaeter in Remotion ueber Frame 0 gelegt.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 01 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Rotes Depot am Kuechentisch.png
+
+Erzeuge ausschliesslich dieses eine Bild. Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, erst nach PASS das naechste Bild. Keine Bildreferenz. MAX_CONCURRENT_GENERATIONS = 1.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Depot -18 %
+
+COVER_HOOK_CONTRACT: finanzneo-cover-hook-v3
+Der Reel-Titel wird von Remotion ab Frame 0 ueber dieses Bild gelegt.
+Das generierte Bild enthaelt selbst KEINEN Titel und KEINEN Text ausser den Objektlabels.
+Komposition so anlegen, dass im oberen Drittel Platz fuer den Titel frei bleibt.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Abends am Kuechentisch sieht ein Mann auf seinem Handy, dass sein Depot im Minus steht.
+REAL_WORLD_CONTEXT_ANCHOR: Kuechentisch mit Handy, Kontoauszug und Kaffeetasse — private Geldsituation zu Hause.
+VOICEOVER_VISUAL_MATCH: Die rote fallende Kurve auf dem Handy und das Label Depot -18 % zeigen genau das Minus, von dem gesprochen wird.
+TRANSFERABILITY_TEST: PASS: Das Bild zeigt eine konkrete Depotanzeige im Minus mit koerperlicher Reaktion, nicht ein allgemeines Geldsorgen-Motiv.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D everyday evening scene at a kitchen table, immediately after someone has opened their investment app. A man in his late thirties sits at the table and looks at a smartphone lying in front of him; the phone shows a clearly readable falling red portfolio curve and the short label. His shoulders are sunken and one hand rests against his temple, so the emotional reaction is visible in the body and not only in the screen. Beside the phone place a half empty coffee mug and an opened bank statement, so the situation reads as private household money rather than a trading desk. Keep the phone and the person large enough that both the curve and the posture are readable at a glance.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 02 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Daumen ueber Verkaufen.png
+
+Erzeuge ausschliesslich dieses eine Bild. Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, erst nach PASS das naechste Bild. Keine Bildreferenz. MAX_CONCURRENT_GENERATIONS = 1.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Verkaufen
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Der Daumen schwebt ueber dem Verkaufen-Knopf, ohne ihn zu druecken.
+REAL_WORLD_CONTEXT_ANCHOR: Depot-App-Knopf Verkaufen auf dem Handy in der Hand.
+VOICEOVER_VISUAL_MATCH: Das Zoegern des Daumens zeigt genau den Moment vor der Entscheidung, von dem der Satz spricht.
+TRANSFERABILITY_TEST: PASS: Ein schwebender Daumen ueber genau diesem Knopf gehoert nur zur Verkaufsentscheidung und nicht zu anderen Finanzthemen.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D close top view of the same smartphone from the previous scene, held in one hand. A thumb hovers motionless a few millimetres above a single large red button carrying the short German label; the thumb clearly does not touch the button yet. Behind the button the red falling curve stays unchanged, so the viewer understands that nothing has happened yet. The hesitation itself is the whole action, so let phone and thumb fill most of the frame and keep every other element out. Render the gap between thumb and button clearly enough that the pause is unmistakable, with a soft contact shadow under the phone.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 03 – DATENSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 03 ERZEUGEN. Nummer 03 bleibt reserviert. Die Szene entsteht aus belegten Zahlen in Remotion.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 04 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Verkauf am Tiefpunkt.png
+
+Erzeuge ausschliesslich dieses eine Bild. Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, erst nach PASS das naechste Bild. Keine Bildreferenz. MAX_CONCURRENT_GENERATIONS = 1.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Tiefpunkt
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Die Verkaufsorder wird genau in dem Moment ausgeloest, in dem die gedruckte Kurve ihren Tiefpunkt erreicht.
+REAL_WORLD_CONTEXT_ANCHOR: Gedruckter Depotauszug neben dem Handy mit gedruecktem Verkaufen-Knopf.
+VOICEOVER_VISUAL_MATCH: Der Pfeil vom markierten Tiefpunkt zum gedrueckten Knopf zeigt, dass genau unten ausgestiegen wird.
+TRANSFERABILITY_TEST: PASS: Die Gleichzeitigkeit von Tiefpunkt und Knopfdruck ist spezifisch fuer genau diesen Fehler.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D scene in which the same hand now presses the red sell button all the way down, so the action is finished and not hesitating any more. Under the phone lies a printed portfolio statement whose curve ends exactly at its lowest point, marked with the short German label. A short clear arrow runs from that marked low point to the pressed button, so cause and effect sit inside the same frame and the viewer sees that the exit happens at the bottom. Keep both the printed low point and the pressed button large and readable, and let the table fade into the black.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 05 – REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 05 ERZEUGEN. Nummer 05 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 06 – DATENSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 06 ERZEUGEN. Nummer 06 bleibt reserviert. Die Szene entsteht aus belegten Zahlen in Remotion.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 07 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Blick auf den Kalender.png
+
+Erzeuge ausschliesslich dieses eine Bild. Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, erst nach PASS das naechste Bild. Keine Bildreferenz. MAX_CONCURRENT_GENERATIONS = 1.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 10 Jahre
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Der Mann legt das Handy weg und schaut stattdessen auf einen Kalender mit mehreren Jahresblaettern.
+REAL_WORLD_CONTEXT_ANCHOR: Wandkalender mit Jahresblaettern neben dem abgelegten Handy.
+VOICEOVER_VISUAL_MATCH: Der Blickwechsel vom Handy zum Kalender zeigt den Wechsel von Tagesreaktion zu Zeitraum.
+TRANSFERABILITY_TEST: PASS: Handy weglegen und Jahre ansehen ist die konkrete Handlung dieses Satzes und kein allgemeines Zeitmotiv.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D scene in which the same man places the smartphone face down on the kitchen table and turns his attention to a wall calendar instead. The calendar carries several year sheets hanging over each other and the short German label, so a long span of time is immediately visible as a physical object. His posture is noticeably more upright than in the earlier scenes, so the change of attitude is readable in the body. The change of gaze from phone to calendar is the whole action; keep both objects large and let only a small slice of wall and table edge fade into the black.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 08 – BILDSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Zehn Jahre nicht angefasst.png
+
+Erzeuge ausschliesslich dieses eine Bild. Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, erst nach PASS das naechste Bild. Keine Bildreferenz. MAX_CONCURRENT_GENERATIONS = 1.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- nicht angefasst
+- Depot
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Das Handy liegt seit Jahren unberuehrt, der Kalender zeigt zehn abgehakte Jahre und der Depotauszug endet oberhalb seines Anfangs.
+REAL_WORLD_CONTEXT_ANCHOR: Handy, Kalender und Depotauszug auf demselben Tisch als Endzustand.
+VOICEOVER_VISUAL_MATCH: Die Staubschicht und die zehn abgehakten Jahre zeigen genau das Drinbleiben, von dem gesprochen wird.
+TRANSFERABILITY_TEST: PASS: Unberuehrtes Handy plus zehn abgehakte Jahre plus gestiegene Kurve ist genau dieser Merksatz.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a calm stylized 3D end state on the same kitchen table. The smartphone lies untouched and face down with a thin visible layer of dust on it, carrying the first short German label, so the viewer sees that nobody has opened it for a long time. Next to it the wall calendar shows ten ticked-off years, and a printed portfolio statement with the second label ends clearly above the height where it began. The three objects belong together and tell the outcome without any movement: nothing was done, time passed, and the value is higher than at the start. Keep all three large and evenly lit.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSCHLUSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Beende den Auftrag erst, wenn jedes erwartete Bild einzeln erzeugt, exakt umbenannt und nach V9 geprueft wurde. Danach muessen alle Bilder gemeinsam hier liegen:
+03-szenen/00-ALLE-BILDER-HIER-REIN/

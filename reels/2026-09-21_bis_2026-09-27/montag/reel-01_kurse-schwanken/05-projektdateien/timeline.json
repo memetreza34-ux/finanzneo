@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "title": "Langfristig hoch, aber nie gerade",
+  "fps": 30,
+  "timingSource": "04-caption/word-timings.json",
+  "cutRule": "voice-sentence-or-meaningful-phrase-start",
+  "sceneCount": 8,
+  "scenes": []
+}

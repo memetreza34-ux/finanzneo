@@ -1,0 +1,60 @@
+TECHNISCHER ALIAS — KEIN SEPARATER BILDJOB
+COVER = SZENE 01. No separate cover generation, no Bild 00.
+Das Cover ist dieselbe Datei wie scene-01: Bild 01 - Rotes Depot am Kuechentisch.png
+
+COVER_HOOK_CONTRACT: finanzneo-cover-hook-v3
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+
+Literal first, creative second. Zuerst die konkrete reale Situation zeigen, die im
+Sprechbeat wirklich passiert; erst danach darf gestaltet werden.
+
+TRANSFERABILITY-TEST: Das Bild faellt durch, wenn es genauso gut zu fuenf anderen
+Finanzthemen passen wuerde. Hier zeigt es eine Depotanzeige im Minus und die
+koerperliche Reaktion darauf.
+
+VERBOTEN als Ersatz fuer die reale Situation: Förderbänder, Schienen, Schranken, Käfige
+und andere generische Fantasiemechaniken.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Depot -18 %
+
+IMAGE PROMPT:
+Create a stylized 3D everyday evening scene at a kitchen table, immediately after
+someone has opened their investment app. A man in his late thirties sits at the
+table and looks at a smartphone lying in front of him; the phone shows a clearly
+readable falling red portfolio curve and the short label. His shoulders are sunken
+and one hand rests against his temple, so the emotional reaction is visible in the
+body and not only in the screen. Beside the phone place a half empty coffee mug and
+an opened bank statement, so the situation reads as private household money rather
+than a trading desk. Keep the phone and the person large enough that both the curve
+and the posture are readable at a glance. Leave the upper third of the frame calm,
+because Remotion renders the reel title over it from frame 0; the generated image
+itself contains no title text.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and
+believable, with recognizable everyday object construction and semi-realistic
+material detail. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds
+without narration. Supporting objects only when they improve cause-and-effect clarity.
+
+COLORS + LIGHT:
+Emerald for positive, warm ivory and soft gray for neutral objects, subtle gold for
+money, warm red-orange only for warning or cost. Clean soft lighting.
+
+TEXT:
+No headline, subtitle or CTA. Only the exact short German object label listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart,
+no floating info cards, no miniature diorama, no clutter.

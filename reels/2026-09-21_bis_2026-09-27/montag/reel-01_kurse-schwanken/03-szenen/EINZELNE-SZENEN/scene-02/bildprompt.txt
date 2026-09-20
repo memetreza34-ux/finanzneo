@@ -1,0 +1,44 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Daumen ueber Verkaufen.png
+
+Erzeuge ausschliesslich dieses eine Bild. Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, erst nach PASS das naechste Bild. Keine Bildreferenz. MAX_CONCURRENT_GENERATIONS = 1.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Verkaufen
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Der Daumen schwebt ueber dem Verkaufen-Knopf, ohne ihn zu druecken.
+REAL_WORLD_CONTEXT_ANCHOR: Depot-App-Knopf Verkaufen auf dem Handy in der Hand.
+VOICEOVER_VISUAL_MATCH: Das Zoegern des Daumens zeigt genau den Moment vor der Entscheidung, von dem der Satz spricht.
+TRANSFERABILITY_TEST: PASS: Ein schwebender Daumen ueber genau diesem Knopf gehoert nur zur Verkaufsentscheidung und nicht zu anderen Finanzthemen.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D close top view of the same smartphone from the previous scene, held in one hand. A thumb hovers motionless a few millimetres above a single large red button carrying the short German label; the thumb clearly does not touch the button yet. Behind the button the red falling curve stays unchanged, so the viewer understands that nothing has happened yet. The hesitation itself is the whole action, so let phone and thumb fill most of the frame and keep every other element out. Render the gap between thumb and button clearly enough that the pause is unmistakable, with a soft contact shadow under the phone.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
