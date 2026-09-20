@@ -15,29 +15,34 @@ type PhysicalObjectProps = {
   opacity?: number;
   scale?: number;
   rotate?: number;
+  grounding?: number;
   style?: React.CSSProperties;
 };
 
-const material: Record<PhysicalMaterialRole, {front: string; edge: string; highlight: string}> = {
+const material: Record<PhysicalMaterialRole, {front: string; edge: string; highlight: string; ambient: string}> = {
   neutral: {
-    front: `linear-gradient(145deg, ${C.white}, ${C.whiteSoft} 55%, #cbd6d0)`,
-    edge: '#7e9187',
+    front: `linear-gradient(145deg, ${C.white}, ${C.whiteSoft} 52%, #cbd6d0)`,
+    edge: '#788c82',
     highlight: ANIMATION_COLORS.neutralText,
+    ambient: 'rgba(235,247,240,0.18)',
   },
   money: {
-    front: `linear-gradient(145deg, ${C.goldLt}, ${C.gold} 58%, #b77908)`,
-    edge: '#7d4c00',
+    front: `linear-gradient(145deg, ${C.goldLt}, ${C.gold} 54%, #b77908)`,
+    edge: '#744600',
     highlight: C.goldLt,
+    ambient: 'rgba(255,200,61,0.18)',
   },
   warning: {
-    front: `linear-gradient(145deg, #ff9d72, ${C.negativeLt} 52%, ${C.negativeDk})`,
-    edge: '#650617',
+    front: `linear-gradient(145deg, #ffb08d, ${C.negativeLt} 48%, ${C.negativeDk})`,
+    edge: '#620515',
     highlight: '#ffd1bf',
+    ambient: 'rgba(255,107,107,0.17)',
   },
   positive: {
-    front: `linear-gradient(145deg, ${C.accentSoft}, ${C.accent} 55%, ${C.accentDk})`,
-    edge: '#004c27',
+    front: `linear-gradient(145deg, ${C.accentSoft}, ${C.accent} 50%, ${C.accentDk})`,
+    edge: '#004522',
     highlight: C.accentLt,
+    ambient: 'rgba(0,210,106,0.18)',
   },
 };
 
@@ -79,9 +84,11 @@ export const PhysicalObject: React.FC<PhysicalObjectProps> = ({
   opacity = 1,
   scale = 1,
   rotate = 0,
+  grounding = 1,
   style,
 }) => {
   const colors = material[role];
+  const ground = clamp01(grounding);
   return (
     <div
       style={{
@@ -93,20 +100,35 @@ export const PhysicalObject: React.FC<PhysicalObjectProps> = ({
         opacity,
         transform: `translate3d(0, 0, 0) rotate(${rotate}deg) scale(${scale})`,
         transformOrigin: 'center center',
-        filter: `drop-shadow(0 ${Math.max(8, depth)}px ${Math.max(14, depth * 1.6)}px rgba(0,0,0,0.5))`,
+        filter: `drop-shadow(0 ${Math.max(7, depth * 0.72)}px ${Math.max(16, depth * 1.65)}px rgba(0,0,0,0.48))`,
         ...style,
       }}
     >
       <div
         style={{
           position: 'absolute',
-          left: depth * 0.48,
-          top: depth * 0.7,
+          left: '10%',
+          right: '8%',
+          height: Math.max(18, depth * 1.25),
+          bottom: -Math.max(18, depth * 1.15),
+          borderRadius: '50%',
+          background: `radial-gradient(ellipse at center, rgba(0,0,0,${0.56 * ground}) 0%, rgba(0,0,0,${0.28 * ground}) 48%, rgba(0,0,0,0) 76%)`,
+          filter: `blur(${Math.max(5, depth * 0.34)}px)`,
+          transform: 'scaleX(1.04)',
+          pointerEvents: 'none',
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          left: depth * 0.5,
+          top: depth * 0.72,
           width,
           height,
           borderRadius: radius,
-          background: colors.edge,
-          opacity: 0.9,
+          background: `linear-gradient(160deg, ${colors.edge}, #111 145%)`,
+          boxShadow: `0 7px 18px rgba(0,0,0,0.34)`,
+          opacity: 0.98,
         }}
       />
       <div
@@ -115,21 +137,36 @@ export const PhysicalObject: React.FC<PhysicalObjectProps> = ({
           inset: 0,
           borderRadius: radius,
           background: colors.front,
-          border: `2px solid ${a(colors.highlight, 0.38)}`,
-          boxShadow: `inset 0 2px 0 ${a(colors.highlight, 0.5)}, inset 0 -10px 24px rgba(0,0,0,0.14)`,
+          border: `2px solid ${a(colors.highlight, 0.4)}`,
+          boxShadow: [
+            `inset 0 2px 0 ${a(colors.highlight, 0.6)}`,
+            'inset 0 -12px 26px rgba(0,0,0,0.17)',
+            `0 0 24px ${colors.ambient}`,
+          ].join(', '),
           overflow: 'hidden',
         }}
       >
         <div
           style={{
             position: 'absolute',
-            left: '9%',
-            top: '8%',
-            width: '54%',
-            height: '15%',
+            left: '7%',
+            top: '6%',
+            width: '58%',
+            height: '12%',
             borderRadius: 999,
-            background: 'rgba(255,255,255,0.32)',
-            filter: 'blur(2px)',
+            background: 'rgba(255,255,255,0.38)',
+            filter: 'blur(1.5px)',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            left: '5%',
+            right: '5%',
+            bottom: '5%',
+            height: Math.max(4, Math.min(9, depth * 0.34)),
+            borderRadius: 999,
+            background: 'rgba(0,0,0,0.12)',
           }}
         />
         {children}
@@ -160,6 +197,7 @@ export const PhysicalBill: React.FC<{
       opacity={p}
       scale={(0.9 + p * 0.1) * scale}
       rotate={rotate}
+      grounding={p}
     >
       <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <div
@@ -168,6 +206,7 @@ export const PhysicalBill: React.FC<{
             height: 102,
             borderRadius: '50%',
             border: '5px solid rgba(40,24,0,0.35)',
+            boxShadow: 'inset 0 3px 8px rgba(255,255,255,0.28)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -194,6 +233,19 @@ export const PhysicalCoinStack: React.FC<{
   const total = Math.max(1, coins);
   return (
     <div style={{position: 'absolute', left: x, top: y, width: 270, height: 460}}>
+      <div
+        style={{
+          position: 'absolute',
+          left: 28,
+          width: 214,
+          height: 38,
+          bottom: -6,
+          borderRadius: '50%',
+          background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.58), rgba(0,0,0,0) 72%)',
+          filter: 'blur(7px)',
+          opacity: clamp01(progress),
+        }}
+      />
       {Array.from({length: total}).map((_, index) => {
         const reveal = clamp01((progress - index * 0.075) / 0.2);
         const bottom = index * 38;
@@ -211,7 +263,7 @@ export const PhysicalCoinStack: React.FC<{
               transformOrigin: 'center bottom',
             }}
           >
-            <PhysicalObject x={0} y={0} width={250} height={62} depth={12} radius={999} role={role}>
+            <PhysicalObject x={0} y={0} width={250} height={62} depth={12} radius={999} role={role} grounding={index === 0 ? reveal : 0}>
               <div
                 style={{
                   position: 'absolute',
@@ -259,11 +311,12 @@ export const PhysicalAccount: React.FC<{
       role={role}
       opacity={p}
       scale={0.94 + p * 0.06}
+      grounding={p}
     >
       <div style={{position: 'absolute', left: 38, right: 38, top: 48}}>
         <div style={{fontSize: 24, fontWeight: 900, letterSpacing: 3, color: 'rgba(0,0,0,0.55)'}}>{label}</div>
         <div style={{marginTop: 34, fontSize: 60, lineHeight: 1, fontWeight: 950, color: '#07110b'}}>{balance}</div>
-        <div style={{marginTop: 28, height: 12, borderRadius: 999, background: 'rgba(0,0,0,0.16)'}}>
+        <div style={{marginTop: 28, height: 12, borderRadius: 999, background: 'rgba(0,0,0,0.16)', boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.2)'}}>
           <div style={{width: `${35 + p * 58}%`, height: '100%', borderRadius: 999, background: 'rgba(0,0,0,0.42)'}} />
         </div>
       </div>
@@ -283,7 +336,7 @@ export const PhysicalReserveTank: React.FC<{
   return (
     <div style={{position: 'absolute', left: x, top: y, width: 260, height: 480}}>
       <PhysicalObject x={0} y={0} width={260} height={410} depth={18} radius={44} role="neutral">
-        <div style={{position: 'absolute', left: 24, right: 24, top: 24, bottom: 24, borderRadius: 28, background: '#111a15', overflow: 'hidden'}}>
+        <div style={{position: 'absolute', left: 24, right: 24, top: 24, bottom: 24, borderRadius: 28, background: '#111a15', border: '3px solid rgba(255,255,255,0.22)', overflow: 'hidden', boxShadow: 'inset 0 12px 28px rgba(0,0,0,0.7)'}}>
           <div
             style={{
               position: 'absolute',
@@ -292,7 +345,7 @@ export const PhysicalReserveTank: React.FC<{
               bottom: 0,
               height: `${f * 100}%`,
               background: `linear-gradient(180deg, ${a(liquid, 0.82)}, ${liquid})`,
-              boxShadow: `inset 0 10px 18px rgba(255,255,255,0.16)`,
+              boxShadow: 'inset 0 10px 18px rgba(255,255,255,0.16)',
             }}
           />
         </div>
@@ -311,7 +364,7 @@ export const PhysicalCalendarPage: React.FC<{
 }> = ({x, y, month, year, progress = 1}) => {
   const p = clamp01(progress);
   return (
-    <PhysicalObject x={x} y={y + (1 - p) * 42} width={300} height={330} depth={20} radius={34} role="neutral" opacity={p} scale={0.92 + 0.08 * p}>
+    <PhysicalObject x={x} y={y + (1 - p) * 42} width={300} height={330} depth={20} radius={34} role="neutral" opacity={p} scale={0.92 + 0.08 * p} grounding={p}>
       <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: 82, background: C.negative, color: C.white, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, fontWeight: 950, letterSpacing: 2}}>{month}</div>
       <div style={{position: 'absolute', inset: '105px 0 0', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', color: '#111'}}>
         <div style={{fontSize: 72, fontWeight: 950}}>12</div>
@@ -330,8 +383,8 @@ export const PhysicalWasher: React.FC<{
 }> = ({x, y, progress = 1, role = 'warning'}) => {
   const p = clamp01(progress);
   return (
-    <PhysicalObject x={x} y={y} width={330} height={400} depth={24} radius={50} role={role} opacity={p} scale={0.94 + p * 0.06}>
-      <div style={{position: 'absolute', left: 58, top: 78, width: 214, height: 214, borderRadius: '50%', background: '#111814', border: '16px solid rgba(255,255,255,0.38)', boxShadow: 'inset 0 12px 30px rgba(0,0,0,0.65)'}}>
+    <PhysicalObject x={x} y={y} width={330} height={400} depth={24} radius={50} role={role} opacity={p} scale={0.94 + p * 0.06} grounding={p}>
+      <div style={{position: 'absolute', left: 58, top: 78, width: 214, height: 214, borderRadius: '50%', background: '#111814', border: '16px solid rgba(255,255,255,0.38)', boxShadow: 'inset 0 12px 30px rgba(0,0,0,0.65), 0 3px 0 rgba(255,255,255,0.12)'}}>
         <div style={{position: 'absolute', inset: 42, borderRadius: '50%', border: '7px dashed rgba(255,255,255,0.36)'}} />
       </div>
       <div style={{position: 'absolute', left: 70, right: 70, bottom: 46, textAlign: 'center', color: role === 'warning' ? C.white : '#111', fontSize: 26, fontWeight: 950, letterSpacing: 2}}>KOSTEN</div>
