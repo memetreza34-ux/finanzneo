@@ -12,6 +12,7 @@ const MOTION_CORE_ID = 'finanzneo-motion-core-v1';
 type RootOptions = {
   withContract?: boolean;
   withMotionCore?: boolean;
+  withVisualQa?: boolean;
   source?: string;
   ledger?: string;
 };
@@ -23,6 +24,7 @@ const makeRoot = (
   const {
     withContract = true,
     withMotionCore = true,
+    withVisualQa = true,
     source = "import {PremiumPhysicalStage, PhysicalAccount} from '../../../../../../../src/motion';\nexport const Scene02Animation = () => null;\n",
     ledger,
   } = options;
@@ -71,12 +73,16 @@ const makeRoot = (
     semanticMechanicFamiliesNotTemplates: true,
     motionCoreVersion: MOTION_CORE_ID,
     canonicalMotionSource: 'src/motion',
+    mechanicRegistry: 'src/motion/mechanics.ts',
     mechanicSelectionRule: '.agents/plugins/finanzneo-motion/rules/mechanic-selection.md',
     motionDirectorSkill: '.agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md',
+    motionArtDirectorSkill: '.agents/plugins/finanzneo-motion/skills/motion-art-director/SKILL.md',
+    motionCoreCuratorSkill: '.agents/plugins/finanzneo-motion/skills/motion-core-curator/SKILL.md',
     mechanicLedgerRequired: true,
     antiRepetitionGateRequired: true,
     coreReuseBeforeLocalPrimitive: true,
     legacyLabsNotStyleReference: true,
+    visualQaGateRequiredBeforePhase3Render: true,
   } : {};
 
   const index = {
@@ -99,7 +105,7 @@ const makeRoot = (
   writeFileSync(join(root, '03-szenen/EINZELNE-SZENEN/scene-02/animation.tsx'), source);
 
   const policy = withMotionCore
-    ? `PHASE1_MOTION_DIRECTION: ${CONTRACT_ID}\nMOTION_CORE: ${MOTION_CORE_ID}\nCANONICAL_MOTION_SOURCE: src/motion\nSprechpunkt -> Verständnisziel -> Mechanik.\nKein Animations-Menü.\n`
+    ? `PHASE1_MOTION_DIRECTION: ${CONTRACT_ID}\nMOTION_CORE: ${MOTION_CORE_ID}\nCANONICAL_MOTION_SOURCE: src/motion\nMECHANIC_REGISTRY: src/motion/mechanics.ts\nSprechpunkt -> Verständnisziel -> Mechanik.\nKein Animations-Menü.\n`
     : `PHASE1_MOTION_DIRECTION: ${CONTRACT_ID}\nSprechpunkt -> Verständnisziel -> Mechanik.\nKeine Animations-Auswahlliste.\n`;
   writeFileSync(join(root, '05-projektdateien/phase1-motion-direction-v1.md'), policy);
 
@@ -108,6 +114,12 @@ const makeRoot = (
       join(root, '05-projektdateien/motion-mechanic-ledger.md'),
       ledger ?? `SCENE_ID | MECHANIC_ID | HERO_OBJECT | PRIMARY_ACTION | MOTION_AXIS | RESULT_TYPE\nscene-02 | fn-loan-rate-split | Monatsrate | Split | zentral+vertikal | Verhältnis verändert\n`,
     );
+    if (withVisualQa) {
+      writeFileSync(
+        join(root, '05-projektdateien/visual-qa.md'),
+        `MOTION_ART_DIRECTION=PENDING\nPLAYWRIGHT_VISUAL_QA=PENDING\n| scene-02 | START / MID / RESULT | PENDING |\n`,
+      );
+    }
   }
 
   return root;
@@ -117,6 +129,17 @@ test('akzeptiert eine sauber Content-first hergeleitete Motion-Core-Animation', 
   const root = makeRoot();
   try {
     execFileSync(process.execPath, [validator, root], {stdio: 'pipe'});
+  } finally {
+    rmSync(root, {recursive: true, force: true});
+  }
+});
+
+test('blockiert fehlendes Visual-QA-Gate bei neuen Motion-Core-Reels', () => {
+  const root = makeRoot({}, {withVisualQa: false});
+  try {
+    const result = spawnSync(process.execPath, [validator, root], {encoding: 'utf8'});
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /visual-qa\.md|QA-Gate/i);
   } finally {
     rmSync(root, {recursive: true, force: true});
   }
