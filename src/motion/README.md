@@ -1,7 +1,7 @@
 # FinanzNeo Motion Core V1
 
-`src/motion` ist die kanonische Motion-Schicht für neue FinanzNeo-Animationen.
-Alte `FinanceMotionLab*`-Compositions bleiben Technik-Sandboxes und sind keine Stilreferenz.
+`src/motion` ist die kanonische Motion-Schicht für neue FinanzNeo-Reel-Animationen.
+Alte `FinanceMotionLab*`-Compositions und `src/brand/components/PremiumPhysical.tsx` bleiben Technik-/Legacy-Kompatibilität, sind aber keine Stil- oder Importreferenz für neue Motion-Core-Reels.
 
 ## Motion-Grammatik
 
@@ -13,8 +13,8 @@ Pflichtgedanke: Die Bewegung muss die Finanz-Aussage erklären. Bewegung nur fü
 
 ## Dichte
 
-- ein Hero-Objekt
-- höchstens eine Support-Gruppe
+- ein klares Hero-Objekt; ein starkes Hero darf allein reichen
+- höchstens eine Support-Gruppe, wenn sie die Aussage wirklich klarer macht
 - höchstens zwei gleichzeitig wichtige Bewegungen
 - höchstens eine Kameraaktion
 - keine dekorative Hintergrundanimation
@@ -28,18 +28,21 @@ Keine CSS-Transitions oder CSS-Keyframes für produktive Motion.
 
 ## Physical Primitives
 
-Bevorzugt werden die zentralen Bausteine aus `physical.tsx`:
+Bevorzugt werden die zentralen Bausteine aus `src/motion`:
 
 - `PremiumPhysicalStage`
 - `PhysicalObject`
-- `PhysicalBill`
+- `PhysicalBanknote` — eindeutiger Name für Geldschein/Werteinheit
+- `PhysicalInvoice` — eindeutiger Name für Rechnung/Dokument
 - `PhysicalCoinStack`
 - `PhysicalAccount`
 - `PhysicalReserveTank`
 - `PhysicalCalendarPage`
 - `PhysicalWasher`
 
-Sie enthalten bewusst keine eigene Dauerschleifen-Animation. Die Szene liefert Position, Progress und Zustand.
+`PhysicalBill` bleibt innerhalb Motion Core V1 als Legacy-Alias für die bisherige Banknote erhalten. Neue Szenen sollen den semantisch eindeutigen Namen `PhysicalBanknote` verwenden.
+
+Die Primitives enthalten bewusst keine eigene Dauerschleifen-Animation. Die Szene liefert Position, Progress und Zustand.
 
 Die Basiskomponenten liefern Materialtiefe, Kanten, Highlights und Kontakt-/Bodenschatten zentral. Einzelne Szenen sollen diese Materiallogik nicht erneut erfinden.
 
@@ -50,22 +53,50 @@ Die Basiskomponenten liefern Materialtiefe, Kanten, Highlights und Kontakt-/Bode
 - `warning`: Kosten / Risiko / Verlust
 - `positive`: Lösung / Zielzustand
 
-## Zehn kanonische Mechaniken
+## Kanonische Mechanik-Registry
 
-`FinanzNeoMotionReferenceV1` zeigt aktuell zehn wiederverwendbare Erklärprinzipien:
+`mechanics.ts` ist die maschinenlesbare Quelle für die V1-Mechanik-Familien. Agenten, Validatoren und Dokumentation sollen diese Registry statt paralleler frei formulierter Listen verwenden, wenn technische Auswertung nötig ist.
 
-1. Wachstum / Kapitalaufbau
-2. Kostenabzug / Verlust durch Mechanismus
-3. Rebalancing / Transfer zwischen Zuständen
-4. Result-Lock / stabiles Ergebnis
-5. Aufteilung / Allocation Split
-6. Konto-zu-Konto-Transfer
-7. Schockpuffer / Notgroschen absorbiert Belastung
-8. Ergebnisvergleich A gegen B
-9. Zeit + Zinseszinseffekt
-10. Positive Resolution / stabiler Zielzustand
+Aktuell enthalten:
 
-Das sind keine starren Vorlagen. Neue Szenen dürfen andere konkrete Objekte verwenden, sollen aber zuerst prüfen, ob ihre Aussage mit einer dieser Mechaniken klar erklärbar ist.
+1. `fn-growth-build`
+2. `fn-cost-extraction`
+3. `fn-rebalance-transfer`
+4. `fn-result-lock`
+5. `fn-allocation-split`
+6. `fn-account-transfer`
+7. `fn-shock-buffer`
+8. `fn-comparison-mass`
+9. `fn-time-compounding`
+10. `fn-positive-resolution`
+
+`FinanzNeoMotionReferenceV1` zeigt diese zehn Erklärprinzipien visuell. Die Familien sind keine starren Templates. Neue Szenen dürfen andere konkrete Objekte und Choreografien verwenden, solange die Ursache/Wirkung zum Inhalt passt.
+
+## Primitive Promotion
+
+Szenenspezifische Objekte dürfen lokal entstehen, wenn kein Core-Primitive die reale Handlung sinnvoll ausdrückt.
+
+Promotion-Regel:
+
+1. einmalige Spezialform → lokal im Reel lassen;
+2. echte Wiederverwendung in mindestens zwei unterschiedlichen Szenen/Reels → als Core-Kandidat markieren;
+3. vor Promotion Semantik, Props, Materialrolle und Name vereinheitlichen;
+4. erst danach nach `src/motion` verschieben/exportieren;
+5. keine zwei fast identischen Core-Primitives mit anderem Namen pflegen.
+
+Der `motion-core-curator` ist für diese Pflege zuständig.
+
+## Art Direction
+
+Der `remotion-director` entscheidet **was** sichtbar passieren muss. Der `motion-art-director` prüft danach **wie** die Mechanik hochwertig inszeniert wird: Proportionen, Materialität, Tiefe, Perspektive, Blickführung, Kamera, optisches Gewicht und Result-State.
+
+Art Direction darf die Mechanik nicht ersetzen oder durch dekorative Effekte verschleiern.
+
+## Importgrenzen
+
+- Brand, Typografie, Header, Captions, Layout und allgemeine Design-Tokens: `src/brand` / `src/design-system`
+- produktive Reel-Motion-Primitives, Timing und Mechanik-Registry: `src/motion`
+- alte Physical-Exports aus `src/brand` bleiben nur für Legacy-Reels rückwärtskompatibel
 
 ## Lottie
 
