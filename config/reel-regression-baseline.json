@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "sourceCommit": "353d20c06513fd6024171a7eb842a3e9ebc3ff3e",
-  "createdAt": "2026-09-02",
+  "sourceCommit": "c3599f47101b2bd32d85f3081cbc43ccaba76bd7",
+  "createdAt": "2026-09-20",
   "purpose": "Protect already-working reel production directories from accidental changes while allowing new reel directories and future production work.",
   "protectedObjects": [
     {
@@ -13,8 +13,8 @@
     {
       "path": "reels/2026-08-31_bis_2026-09-06/montag",
       "type": "tree",
-      "sha": "ec8fc0da82590c933d477ef3c36615bef7fae91f",
-      "reason": "Known-working Monday reel state"
+      "sha": "a4ea3d1a1fff08d65be253d5eec86230407d5dd3",
+      "reason": "Reviewed Motion Director V2 pilot reel state"
     },
     {
       "path": "reels/2026-08-31_bis_2026-09-06/dienstag",
