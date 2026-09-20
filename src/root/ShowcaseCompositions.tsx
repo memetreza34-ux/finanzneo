@@ -27,6 +27,10 @@ import {FNChartProShowcase, FNCHARTPRO_FRAMES} from '../bausteine/FNChartProShow
 import {FNExtraShowcase, FNEXTRA_FRAMES} from '../bausteine/FNExtraShowcase';
 import {FNScenesShowcase, FNSCENES_FRAMES} from '../bausteine/FNScenesShowcase';
 import {FNFinanceCoreShowcase, FNFC_FRAMES} from '../bausteine/FNFinanceCoreShowcase';
+import {
+  FinanzNeoMotionReferenceV1,
+  FINANZNEO_MOTION_REFERENCE_FRAMES,
+} from '../motion';
 import {FORMAT} from '../brand/tokens';
 
 // Formatwerte kommen ausschließlich aus src/brand/tokens.ts, damit Registry
@@ -59,6 +63,14 @@ export const ShowcaseCompositions: React.FC = () => (
     <Composition id="ProfilePic3" component={ProfilePic3} durationInFrames={1} fps={FPS} width={1080} height={1080} />
     <Composition id="DisclaimerVertical" component={DisclaimerPreview} durationInFrames={300} fps={FPS} {...VERTICAL} />
     <Composition id="DisclaimerWide" component={DisclaimerPreview} durationInFrames={300} fps={FPS} {...WIDE} />
+
+    <Composition
+      id="FinanzNeoMotionReferenceV1"
+      component={FinanzNeoMotionReferenceV1}
+      durationInFrames={FINANZNEO_MOTION_REFERENCE_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
 
     {/* Baustein-Übersichten: zeigen je eine Gruppe aus src/bausteine im Zusammenhang. */}
     <Composition id="FNShowcase" component={FNShowcase} durationInFrames={FN_FRAMES} fps={FPS} {...VERTICAL} />
