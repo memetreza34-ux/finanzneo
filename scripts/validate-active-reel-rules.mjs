@@ -126,7 +126,7 @@ const requiredMarkers = new Map([
   ['scripts/apply-premium-animation-v2.mjs', ['ein starkes Hero darf allein reichen', 'PhysicalBanknote', 'PhysicalInvoice', 'niemals als Objektquote']],
   ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', ['finanzneo-motion-core-v1', "canonicalMotionSource: 'src/motion'", "mechanicRegistry: 'src/motion/mechanics.ts'", 'motionArtDirectorSkill', 'motionCoreCuratorSkill', 'visualQaGateRequiredBeforePhase3Render: true', 'motion-mechanic-ledger.md', 'visual-qa.md']],
   ['scripts/validate-future-reel-phase1-motion-direction-v1.mjs', ['finanzneo-motion-core-v1', 'mechanicRegistry', 'motionArtDirectorSkill', 'motionCoreCuratorSkill', 'visualQaGateRequiredBeforePhase3Render', 'motion-mechanic-ledger.md', 'visual-qa.md', 'src/motion importieren']],
-  ['scripts/validate-animation-source-quality.mjs', ['singleHeroObjectAllowed', 'PhysicalBanknote', 'PhysicalInvoice', 'Ein starkes Hero darf allein reichen']],
+  ['scripts/validate-animation-source-quality.mjs', ['singleHeroObjectAllowed', 'Physical(?:Banknote|Invoice|Bill', 'Ein starkes Hero darf allein reichen']],
   ['scripts/validate-phase3-preflight.mjs', ['MOTION_ART_DIRECTION=PASS', 'PLAYWRIGHT_VISUAL_QA=PASS', 'Motion-Core Visual-QA-Gate']],
   ['scripts/apply-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'Literal first, creative second', 'TRANSFERABILITY_TEST', 'Förderbänder, Schienen, Schranken, Käfige']],
   ['scripts/validate-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'finanzneo-image-storytelling-v2', 'TRANSFERABILITY_TEST', 'METAPHOR_JUSTIFICATION']],
