@@ -25,9 +25,13 @@
     "motionCore": {
       "id": "finanzneo-motion-core-v1",
       "source": "src/motion/index.ts",
+      "mechanicRegistry": "src/motion/mechanics.ts",
       "reference": "src/motion/FinanzNeoMotionReferenceV1.tsx",
       "director": ".agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md",
+      "artDirector": ".agents/plugins/finanzneo-motion/skills/motion-art-director/SKILL.md",
+      "curator": ".agents/plugins/finanzneo-motion/skills/motion-core-curator/SKILL.md",
       "mechanicSelection": ".agents/plugins/finanzneo-motion/rules/mechanic-selection.md",
+      "singleHeroObjectAllowed": true,
       "appliesTo": "new-or-intentionally-reworked-reel-animations"
     }
   },
@@ -37,6 +41,14 @@
   },
   "productionGate": {
     "source": "docs/PHASE-3-COMPLETION-GATE.md",
+    "visualQaGate": {
+      "motionCoreV1Only": true,
+      "source": "05-projektdateien/visual-qa.md",
+      "requiredMarkers": [
+        "MOTION_ART_DIRECTION=PASS",
+        "PLAYWRIGHT_VISUAL_QA=PASS"
+      ]
+    },
     "steps": [
       "reel:ready",
       "reel:phase3:preflight",
