@@ -49,6 +49,7 @@ import {YouTubePreviewCompositions} from '../youtube/projects/previews';
 import {ThreeCoinTest, THREE_COIN_TEST_FRAMES} from '../youtube/lab/ThreeCoinTest';
 import {PremiumMotionProbe, PREMIUM_MOTION_PROBE_FRAMES} from '../youtube/lab/PremiumMotionProbe';
 import {MotionVariants, MOTION_VARIANTS_FRAMES} from '../youtube/lab/MotionVariants';
+import {DatenSzenen, DATEN_SZENEN_FRAMES} from '../reels-test/DatenSzenen';
 
 const FPS = FORMAT.fps;
 const VERTICAL = FORMAT.vertical;
@@ -56,6 +57,14 @@ const WIDE = FORMAT.landscape;
 
 export const ExperimentCompositions: React.FC = () => (
   <>
+    <Composition
+      id="DatenSzenen"
+      component={DatenSzenen}
+      durationInFrames={DATEN_SZENEN_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
     <Composition
       id="YouTubeVideoDemo"
       component={YouTubeVideoDemo}
