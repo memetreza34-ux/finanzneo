@@ -9,6 +9,13 @@ export {
   PhysicalCalendarPage,
   PhysicalWasher,
 } from './physical';
+export {PhysicalBanknote, PhysicalInvoice} from './objects';
+export {
+  FINANZNEO_MECHANICS,
+  FINANZNEO_MECHANIC_IDS,
+  getFinanzNeoMechanic,
+} from './mechanics';
+export type {FinanzNeoMechanicId, FinanzNeoMechanicKey} from './mechanics';
 export {
   FinanzNeoMotionReferenceV1,
   FINANZNEO_MOTION_REFERENCE_FRAMES,
