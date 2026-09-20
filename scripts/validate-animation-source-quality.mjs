@@ -95,7 +95,7 @@ for (const scene of animations) {
   // bleibt, sind zwei Fragen an die Qualität: Ist überhaupt etwas Gegenständliches
   // zu sehen, und tragen echte Gegenstände die Szene statt beschrifteter Kästen?
   if (!hasRealSubject(sprache)) {
-    fail(`${id}: Animation braucht mindestens ein klares gegenständliches Hauptmotiv — ein einzelnes starkes Objekt genügt.`);
+    fail(`${id}: Animation braucht mindestens ein klares gegenständliches Hauptmotiv. Ein starkes Hero darf allein reichen; zusätzliche Objekte sind keine Pflicht.`);
   }
   if (boxesDominate(sprache)) {
     fail(`${id}: ${genericObjects} generische Karten/Schilder tragen die Szene gegen ${concreteObjects} konkrete Gegenstände und ${drawnShapes} gezeichnete Formen; Realwelt-Mechanik muss die Hauptsprache sein.`);
