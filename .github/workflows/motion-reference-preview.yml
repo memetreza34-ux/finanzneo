@@ -1,0 +1,42 @@
+name: Motion Reference Preview
+
+on:
+  pull_request:
+    paths:
+      - 'src/motion/**'
+      - '.github/workflows/motion-reference-preview.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  render-motion-reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Remotion-Browser vorbereiten
+        run: npx remotion browser ensure
+
+      - name: FinanzNeo Motion Reference rendern
+        run: npx remotion render src/index.ts FinanzNeoMotionReferenceV1 out/FinanzNeoMotionReferenceV1.mp4 --codec=h264 --crf=18 --log=warn
+
+      - name: Preview-Artefakt hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: finanzneo-motion-reference-v1
+          path: out/FinanzNeoMotionReferenceV1.mp4
+          if-no-files-found: error
+          retention-days: 1
