@@ -9,11 +9,64 @@ The repository contract wins over generic agent advice:
 1. `CLAUDE.md`
 2. target reel `03-szenen/scene-index.json`
 3. target scene `szene.md` / `remotion.md`
-4. canonical `animation.tsx`
-5. FinanzNeo motion skills/rules
-6. installed official Remotion Agent Skills
+4. `src/motion/README.md` and `src/motion/*` as canonical motion implementation
+5. `.agents/plugins/finanzneo-motion/rules/mechanic-selection.md`
+6. target scene `animation.tsx` as the scene-specific implementation to improve, not as a competing style authority
+7. FinanzNeo motion skills/rules
+8. installed official Remotion Agent Skills
 
 Official Remotion skills are best-practice guidance. They must never override FinanzNeo layout, visual-world, seal, safety or completion contracts.
+
+`FinanceMotionLab*`, old experiment compositions and legacy reel animation styles are not production style references. They may supply isolated technical ideas only.
+
+## Canonical Motion Core
+
+For every new or intentionally redesigned animation scene, inspect `src/motion` before inventing local motion infrastructure.
+
+Prefer:
+
+- `PremiumPhysicalStage`
+- `PhysicalObject`
+- `PhysicalBill`
+- `PhysicalCoinStack`
+- `PhysicalAccount`
+- `PhysicalReserveTank`
+- `PhysicalCalendarPage`
+- `PhysicalWasher`
+- `FN_MOTION` timing/spring presets
+
+Do not create local duplicate versions of these primitives merely to change styling.
+
+The production routing order is:
+
+```text
+VOICEOVER BEAT
+→ FINANCE STATEMENT
+→ PHYSICAL CAUSE / EFFECT
+→ MECHANIC_ID
+→ HERO + SUPPORT OBJECTS
+→ START / ACTION / REACTION / RESULT / HOLD
+→ REMOTION TIMELINE
+```
+
+The visible mechanism is chosen before decorative treatment.
+
+## Mechanic selection and anti-repetition
+
+Follow `.agents/plugins/finanzneo-motion/rules/mechanic-selection.md` before authoring JSX.
+
+Every animation scene must define a unique `MECHANIC_ID`.
+The same mechanic must not be used twice within one reel.
+
+Before implementing the current scene, inspect all animation scenes in the target reel and compare at least:
+
+- `MECHANIC_ID`
+- hero object
+- `PRIMARY_ACTION`
+- dominant motion axis
+- result type
+
+If three or more of those characteristics duplicate an earlier scene, redesign the physical explanation instead of disguising the repetition with color, text, camera or timing changes.
 
 ## Remotion is the timeline authority
 
@@ -26,6 +79,7 @@ Use:
 - `spring()`
 - deliberate easing
 - `Sequence`/frame windows where useful
+- central `FN_MOTION` presets when they fit
 
 Do not use CSS keyframe animations, CSS transitions, timers, random runtime state or network-dependent motion.
 
@@ -52,19 +106,17 @@ The visible story must advance with the spoken story. Each meaningful spoken tho
 
 ## Motion density
 
-Use enough coordinated motion to make the mechanism feel alive, but not busy.
+Distinguish between primary explanatory motion and supporting motion.
 
-As a practical target, use 4–8 meaningful motion channels when the scene naturally supports them. Examples:
+The canonical density target from `src/motion` wins:
 
-- hero translation
-- secondary reaction
-- fill/balance state
-- money path
-- paper settle
-- controlled scale/recoil
-- subtle camera push/parallax
-- Lottie accent
-- result confirmation
+- one hero object
+- at most one support group
+- at most two simultaneously important primary motions
+- at most one camera action
+- no decorative background animation
+
+A scene may still contain several coordinated support channels such as contact reactions, fill-state changes, paper settle or result confirmation, but they must remain subordinate to the one clear mechanism.
 
 Do not create meaningless motion only to reach a channel count.
 
@@ -106,6 +158,8 @@ Lottie is a support layer governed by `lottie-motion.md`.
 
 Use it for compact vector acting and accents. Do not let it replace a stronger real-world Remotion mechanism.
 
+Lottie does not count as a unique mechanic merely because the icon or animation file changes.
+
 ## Representative-frame review
 
 Before sealing an animation, inspect representative states rather than only the first frame:
@@ -117,6 +171,8 @@ Before sealing an animation, inspect representative states rather than only the 
 - final hold
 
 The scene must remain readable and centered throughout the action.
+
+For meaningful motion-system changes, prefer a complete reference or target-scene render when practical; frame-0 smoke tests prove renderability, not visual quality.
 
 ## Audio relationship
 
@@ -148,3 +204,5 @@ Reject a scene if it becomes:
 - overpacked with simultaneous accents
 - dependent on background motion
 - dependent on a remote service at render time
+- a duplicate of an earlier reel mechanic disguised by different colors, labels, icons, mirroring or camera motion
+- a second local motion system when the required physical primitives already exist in `src/motion`
