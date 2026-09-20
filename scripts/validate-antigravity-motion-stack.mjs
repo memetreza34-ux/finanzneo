@@ -14,9 +14,12 @@ const requiredFiles = [
   '.agents/plugins/finanzneo-motion/hooks.json',
   '.agents/plugins/finanzneo-motion/skills/lottie-motion/SKILL.md',
   '.agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md',
+  '.agents/plugins/finanzneo-motion/skills/motion-art-director/SKILL.md',
+  '.agents/plugins/finanzneo-motion/skills/motion-core-curator/SKILL.md',
   '.agents/plugins/finanzneo-motion/skills/sound-design/SKILL.md',
   '.agents/plugins/finanzneo-motion/skills/playwright-visual-qa/SKILL.md',
   '.agents/plugins/finanzneo-motion/rules/lottie-motion.md',
+  '.agents/plugins/finanzneo-motion/rules/mechanic-selection.md',
   '.agents/plugins/finanzneo-motion/rules/remotion-production.md',
   '.agents/plugins/finanzneo-motion/rules/sound-design.md',
   '.agents/plugins/finanzneo-motion/rules/playwright-qa.md',
@@ -24,6 +27,8 @@ const requiredFiles = [
   'public/lottie/README.md',
   'public/sounds/README.md',
   'src/brand/components/Lottie.tsx',
+  'src/motion/mechanics.ts',
+  'src/motion/objects.tsx',
   'reels/2026-08-24_bis_2026-08-30/freitag/reel-02_notgroschen-richtig-aufbauen/05-projektdateien/sound-design.md',
   'reels/2026-08-24_bis_2026-08-30/freitag/reel-02_notgroschen-richtig-aufbauen/05-projektdateien/visual-qa.md',
 ];
@@ -46,6 +51,8 @@ if (!errors.length) {
 
   if (plugin && plugin.name !== 'finanzneo-motion') fail('plugin.json muss name="finanzneo-motion" verwenden.');
   if (plugin && !/Playwright visual QA/i.test(plugin.description ?? '')) fail('plugin.json muss Playwright Visual QA als Teil des Motion Stacks benennen.');
+  if (plugin && !/art direction/i.test(plugin.description ?? '')) fail('plugin.json muss Motion Art Direction benennen.');
+  if (plugin && !/core curation/i.test(plugin.description ?? '')) fail('plugin.json muss Motion Core Curation benennen.');
 
   const lottieServer = mcp?.mcpServers?.['lottiefiles-creator'];
   if (!lottieServer) fail('Lottie Creator MCP fehlt in mcp_config.json.');
@@ -79,6 +86,26 @@ if (!errors.length) {
   const director = read('.agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md');
   for (const marker of ['START', 'TRIGGER', 'PHYSICAL ACTION', 'RESULT HOLD', 'useCurrentFrame()', 'Lottie', 'Sound']) {
     if (!director.includes(marker)) fail(`remotion-director Skill fehlt Pflichtmarker: ${marker}`);
+  }
+
+  const artDirector = read('.agents/plugins/finanzneo-motion/skills/motion-art-director/SKILL.md');
+  for (const marker of ['hero-object scale', 'Material', 'Perspective', 'RESULT HOLD', 'Playwright Visual QA']) {
+    if (!artDirector.toLowerCase().includes(marker.toLowerCase())) fail(`motion-art-director Skill fehlt Pflichtmarker: ${marker}`);
+  }
+
+  const curator = read('.agents/plugins/finanzneo-motion/skills/motion-core-curator/SKILL.md');
+  for (const marker of ['Primitive promotion', 'src/motion/mechanics.ts', 'KEEP_LOCAL', 'PROMOTE', 'DEPRECATE_ALIAS']) {
+    if (!curator.toLowerCase().includes(marker.toLowerCase())) fail(`motion-core-curator Skill fehlt Pflichtmarker: ${marker}`);
+  }
+
+  const mechanics = read('src/motion/mechanics.ts');
+  for (const marker of ['fn-growth-build', 'fn-cost-extraction', 'fn-account-transfer', 'fn-time-compounding', 'FINANZNEO_MECHANICS']) {
+    if (!mechanics.includes(marker)) fail(`Motion-Mechanik-Registry fehlt Pflichtmarker: ${marker}`);
+  }
+
+  const objects = read('src/motion/objects.tsx');
+  for (const marker of ['PhysicalBanknote', 'PhysicalInvoice']) {
+    if (!objects.includes(marker)) fail(`Semantische Motion-Objekte fehlen Pflichtmarker: ${marker}`);
   }
 
   const soundSkill = read('.agents/plugins/finanzneo-motion/skills/sound-design/SKILL.md');
@@ -138,7 +165,7 @@ if (errors.length) {
 }
 
 console.log('\n✓ Antigravity FinanzNeo Motion Stack vollständig.');
-console.log('✓ Lottie Creator MCP + Remotion Director + Sound Design + Playwright Visual QA Skills/Rules vorhanden.');
+console.log('✓ Motion Core + Remotion Director + Motion Art Director + Core Curator + Lottie + Sound + Playwright QA vorhanden.');
 console.log('✓ Antigravity PreInvocation-Bootstrap für offizielle Remotion Skills und ElevenLabs sound-effects konfiguriert.');
 console.log('✓ Playwright CLI ist der definierte token-effiziente Visual-QA-Weg für Remotion Studio.');
 console.log('✓ Lottie rendert standardmäßig ohne Endlos-Loop.');
