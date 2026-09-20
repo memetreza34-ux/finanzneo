@@ -23,8 +23,9 @@ Read in this order:
 5. `src/motion/README.md`
 6. `src/motion/mechanics.ts`
 7. `src/motion/FinanzNeoMotionReferenceV1.tsx`
-8. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
-9. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
+8. target `05-projektdateien/visual-qa.md`
+9. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
+10. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
 
 Do not change the approved `MECHANIC_ID`, finance meaning or PRIMARY_ACTION merely to create a prettier shot. If the mechanism itself is weak, return the scene to the Remotion Director instead.
 
@@ -115,7 +116,24 @@ Check that:
 4. fix proportions/composition/material/depth at the canonical source;
 5. do not add new support objects unless clarity requires them;
 6. recheck the same representative frames;
-7. hand off to Playwright Visual QA.
+7. update the Motion Art Direction marker only after the real review passes;
+8. hand off to Playwright Visual QA.
+
+## Hard gate output
+
+For new Motion-Core Reels, `05-projektdateien/visual-qa.md` contains:
+
+```text
+MOTION_ART_DIRECTION=PENDING
+```
+
+After the actual representative-frame review passes, set exactly:
+
+```text
+MOTION_ART_DIRECTION=PASS
+```
+
+If any scene still has a material/composition/depth defect, keep the marker PENDING or set FAIL and fix the source. Never set PASS merely to unblock `reel:phase3:preflight`.
 
 ## PASS criteria
 
