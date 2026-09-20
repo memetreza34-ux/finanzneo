@@ -1,7 +1,7 @@
 import {createHash} from 'node:crypto';
 import {existsSync, readFileSync, statSync} from 'node:fs';
 import {basename, isAbsolute, relative, resolve} from 'node:path';
-import {ANIMATION_QUALITY_LOCK} from './reel-scene-schema.mjs';
+import {ANIMATION_QUALITY_LOCK, sceneNeedsComponent, sceneNeedsFlowImage} from './reel-scene-schema.mjs';
 
 export const PHASE3_CONTRACT_ID = 'finanzneo-phase3-completion-v1';
 export const PHASE3_MANIFEST_RELATIVE = '05-projektdateien/phase3-production-manifest.json';
@@ -114,7 +114,7 @@ export const createPhase3ManifestSkeleton = (reelRoot, {composition, entryPoint 
     },
     assets: [],
     scenes: scenes.map((scene) => {
-      if (scene.type === 'image') {
+      if (sceneNeedsFlowImage(scene)) {
         return {
           id: scene.id,
           type: scene.type,
@@ -204,7 +204,7 @@ export const validatePhase3Manifest = (reelRoot, manifestOverride = null) => {
   }
 
   let animationSeal = null;
-  const expectedAnimations = expectedScenes.filter((scene) => scene?.type === 'animation');
+  const expectedAnimations = expectedScenes.filter((scene) => sceneNeedsComponent(scene));
   if (expectedAnimations.length > 0) {
     const sealPath = resolve(root, contract.phase1AnimationSeal ?? PHASE1_ANIMATION_SEAL_RELATIVE);
     try {
@@ -243,14 +243,14 @@ export const validatePhase3Manifest = (reelRoot, manifestOverride = null) => {
     if (Number.isInteger(startFrame) && startFrame !== expectedStart) fail(`${label}: startFrame ${startFrame} ist nicht lückenlos; erwartet ${expectedStart}.`);
     if (Number.isInteger(durationFrames) && durationFrames > 0) expectedStart = startFrame + durationFrames;
 
-    if (expected.type === 'image') {
+    if (sceneNeedsFlowImage(expected)) {
       if (actual.sourceImageFileName !== expected.googleFlowFileName) fail(`${label}: sourceImageFileName stimmt nicht mit googleFlowFileName überein.`);
       if (typeof actual.assetPath !== 'string' || !actual.assetPath.trim() || PLACEHOLDER.test(actual.assetPath)) {
         fail(`${label}: assetPath fehlt.`);
       } else {
         try { ensureFile(resolveProjectPath(actual.assetPath), `${label} Bild-Asset`, 100); } catch (error) { fail(error instanceof Error ? error.message : String(error)); }
       }
-    } else if (expected.type === 'animation') {
+    } else if (sceneNeedsComponent(expected)) {
       if (expected.animationQualityLock !== ANIMATION_QUALITY_LOCK) fail(`${label}: scene-index hat keinen gültigen Phase-1-Animationslock.`);
       if (typeof expected.animationSourceFile !== 'string' || !expected.animationSourceFile.trim()) {
         fail(`${label}: animationSourceFile fehlt im scene-index.`);

@@ -3,6 +3,7 @@
 import {existsSync, readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {resolveProjectPath, validatePhase3Manifest} from './lib/phase3-completion.mjs';
+import {sceneIsData, sceneNeedsFlowImage} from './lib/reel-scene-schema.mjs';
 import {
   REEL_BACKGROUND_CONTRACT_ID,
   validateCentralReelBackgroundContract,
@@ -90,10 +91,11 @@ try {
     }
   }
 
-  const images = result.scenes.filter((scene) => scene.type === 'image').length;
+  const images = result.scenes.filter((scene) => sceneNeedsFlowImage(scene)).length;
   const animations = result.scenes.filter((scene) => scene.type === 'animation').length;
+  const datenszenen = result.scenes.filter((scene) => sceneIsData(scene)).length;
   console.log('\n✓ PHASE-3-PREFLIGHT BESTANDEN');
-  console.log(`  ${result.scenes.length} Szenen vollständig implementiert · ${images} Bild · ${animations} Animation`);
+  console.log(`  ${result.scenes.length} Szenen vollständig implementiert · ${images} Bild · ${animations} Animation · ${datenszenen} Daten`);
   console.log(`  Timeline lückenlos: ${result.totalFrames} Frames`);
   console.log(`  Hintergrund: ${REEL_BACKGROUND_CONTRACT_ID} · statisch #000000 · keine Partikel/Aurora/Grid`);
   if (presentation) console.log('  Presentation V1: echte Composition enthält Audio + SceneHeader + Captions; echte Wort-Timings vorhanden.');

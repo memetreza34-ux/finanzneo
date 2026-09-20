@@ -11,6 +11,8 @@ import {
 import {
   DEFAULT_PHASE3_EXECUTOR,
   canonicalSceneDirectory,
+  sceneNeedsComponent,
+  sceneNeedsFlowImage,
   validatePhase3Executor,
   validateSceneShape,
 } from './reel-scene-schema.mjs';
@@ -149,7 +151,7 @@ export const analyzeReelReadiness = (rootDirectory) => {
       checkCompletedText(root, `03-szenen/${scene.planFile.replace(/^03-szenen\//, '')}`, phase1Blockers);
     }
 
-    if (scene?.type === 'image') {
+    if (sceneNeedsFlowImage(scene)) {
       const fileName = scene.googleFlowFileName;
       if (typeof fileName !== 'string' || !fileName.trim() || hasPlaceholder(fileName)) {
         phase1Blockers.push(`${SCENE_INDEX}: ${id}.googleFlowFileName fehlt oder enthält einen Platzhalter.`);
@@ -167,7 +169,7 @@ export const analyzeReelReadiness = (rootDirectory) => {
     }
   });
 
-  if (scenes.some((scene) => scene?.type === 'animation')) {
+  if (scenes.some((scene) => sceneNeedsComponent(scene))) {
     checkCompletedText(root, '05-projektdateien/animationen.md', phase1Blockers);
   }
 

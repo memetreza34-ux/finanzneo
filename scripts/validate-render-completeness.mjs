@@ -3,6 +3,7 @@
 import {existsSync, mkdirSync, statSync, writeFileSync} from 'node:fs';
 import {dirname, relative, resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
+import {sceneIsData, sceneNeedsComponent, sceneNeedsFlowImage} from './lib/reel-scene-schema.mjs';
 import {
   PHASE3_QA_RELATIVE,
   normalizeRepoPath,
@@ -194,7 +195,7 @@ const hasPureBlackBackground = (metrics) => (
 
 const sceneQa = [];
 for (const scene of scenes) {
-  const ratios = scene.type === 'animation'
+  const ratios = sceneNeedsComponent(scene)
     ? (Array.isArray(qaRules.sampleAnimationRatios) ? qaRules.sampleAnimationRatios : [0.2, 0.5, 0.8])
     : (Array.isArray(qaRules.sampleImageRatios) ? qaRules.sampleImageRatios : [0.5]);
   const buffers = [];
@@ -227,7 +228,7 @@ for (const scene of scenes) {
     fail(`${scene.id}: Reel-Hintergrund ist im freien Rand nicht statisch schwarz. Aurora/Grid/Partikel/Glow/Gradient sind verboten.`);
   }
 
-  if (scene.type === 'image') {
+  if (sceneNeedsFlowImage(scene)) {
     if (structured < 1) {
       passed = false;
       fail(`${scene.id}: visueller Kern wirkt leer/caption-only; erwartetes Bild ist im Render nicht sicher sichtbar.`);
@@ -280,8 +281,9 @@ const qa = {
   visualCrop: {x: cropX, y: cropY, width: cropWidth, height: cropHeight, excludesHeaderAndCaptions: true},
   backgroundCrop: {...backgroundCrop, expected: '#000000', excludesContent: true},
   sceneCount: scenes.length,
-  imageSceneCount: scenes.filter((scene) => scene.type === 'image').length,
+  imageSceneCount: scenes.filter((scene) => sceneNeedsFlowImage(scene)).length,
   animationSceneCount: scenes.filter((scene) => scene.type === 'animation').length,
+  dataSceneCount: scenes.filter((scene) => sceneIsData(scene)).length,
   checks: {
     allScenesImplemented: true,
     audioStreamPresent: Boolean(audioStream),

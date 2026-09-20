@@ -3,6 +3,7 @@
 import {existsSync, readFileSync, writeFileSync} from 'node:fs';
 import {relative, resolve} from 'node:path';
 import {sha256File} from './lib/phase3-completion.mjs';
+import {sceneNeedsComponent} from './lib/reel-scene-schema.mjs';
 
 const target = process.argv[2];
 if (!target) {
@@ -18,7 +19,9 @@ if (!existsSync(indexPath)) {
 }
 
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
-const animations = (Array.isArray(index.scenes) ? index.scenes : []).filter((scene) => scene?.type === 'animation');
+// Datenszenen werden mitversiegelt: sie liefern dieselbe kanonische TSX und
+// dürfen nach dem Seal genauso wenig ersetzt werden wie eine Animation.
+const animations = (Array.isArray(index.scenes) ? index.scenes : []).filter((scene) => sceneNeedsComponent(scene));
 const sources = [];
 
 for (const scene of animations) {

@@ -27,6 +27,55 @@ export const ANIMATION_SCENE_REQUIRED_FIELDS = [
 
 export const ANIMATION_QUALITY_LOCK = 'finanzneo-phase1-animation-code-v1';
 
+/**
+ * Zusätzliche Primärdaten für Datenszenen.
+ *
+ * Eine Datenszene ist technisch dasselbe Artefakt wie eine Animationsszene:
+ * eine in Phase 1 fertiggestellte, versiegelte TSX-Quelle. Deshalb erbt sie die
+ * `animation*`-Felder unverändert — Seal, Preflight, Binding und Render-QA
+ * arbeiten dadurch ohne Sonderweg weiter.
+ *
+ * Der Unterschied liegt im Inhalt. Eine Bildszene zeigt eine Situation, eine
+ * Animationsszene eine Veränderung, eine Datenszene ein Verhältnis. Ein Foto
+ * kann nicht zeigen, wie unruhig zehn Jahre Weltmarkt waren; eine gezeichnete
+ * Reihe schon. Damit das nachprüfbar bleibt, muss die Szene sagen, woher ihre
+ * Zahl stammt, was die Zahl belegen soll und mit welchem Satz sie das im Bild
+ * offenlegt.
+ */
+export const DATA_SCENE_REQUIRED_FIELDS = [
+  'dataOrigin',
+  'dataSource',
+  'dataClaim',
+  'sourceNote',
+];
+
+/**
+ * Woher die Zahl einer Datenszene stammt.
+ *
+ * `measured` ist eine abgerufene Reihe unter `public/data/`; sie trägt ein
+ * Abrufdatum, weil eine Reihe ein Stand ist und kein Live-Wert. `calculated`
+ * ist eine Rechnung aus `src/design-system/finance-motion.ts`; sie trägt ihre
+ * Annahme, weil eine Annahme keine Zusage ist.
+ */
+export const DATA_ORIGINS = ['measured', 'calculated'];
+
+export const SCENE_TYPES = ['image', 'animation', 'data'];
+
+/** Braucht die Szene ein Google-Flow-Bild aus Phase 2? */
+export const sceneNeedsFlowImage = (scene) => scene?.type === 'image';
+
+/**
+ * Braucht die Szene eine kanonische Phase-1-Komponente?
+ *
+ * Animations- und Datenszenen sind hier bewusst gleich: beide liefern eine TSX,
+ * beide werden versiegelt, beide brauchen ein Binding. Wer das trennt, muss
+ * Seal, Preflight und Render-QA doppelt pflegen.
+ */
+export const sceneNeedsComponent = (scene) => scene?.type === 'animation' || scene?.type === 'data';
+
+/** Ist die Szene eine Datenszene? */
+export const sceneIsData = (scene) => scene?.type === 'data';
+
 /** Erlaubte Werte für eine explizit gespeicherte semantische Akzentfarbe. */
 export const SCENE_ACCENTS = ['finance-green', 'price-pressure', 'gold', 'warning', 'neutral'];
 
@@ -81,8 +130,8 @@ export const validateSceneShape = (scene, {index = 0} = {}) => {
     }
   }
 
-  if (scene?.type && !['image', 'animation'].includes(scene.type)) {
-    fehler.push(`${id}.type muss image oder animation sein.`);
+  if (scene?.type && !SCENE_TYPES.includes(scene.type)) {
+    fehler.push(`${id}.type muss ${SCENE_TYPES.join(', ')} sein.`);
   }
 
   if (!canonicalSceneDirectory(scene)) {
@@ -118,7 +167,7 @@ export const validateSceneShape = (scene, {index = 0} = {}) => {
     }
   }
 
-  if (scene?.type === 'animation') {
+  if (sceneNeedsComponent(scene)) {
     for (const feld of ANIMATION_SCENE_REQUIRED_FIELDS) {
       const wert = scene?.[feld];
       if (typeof wert !== 'string' || !wert.trim()) {
@@ -139,6 +188,29 @@ export const validateSceneShape = (scene, {index = 0} = {}) => {
     }
     if (typeof scene.animationIntent === 'string' && scene.animationIntent.trim().length < 18) {
       fehler.push(`${id}.animationIntent ist zu vage; Start/Mechanismus/Ergebnis müssen konkret beschrieben sein.`);
+    }
+  }
+
+  if (sceneIsData(scene)) {
+    for (const feld of DATA_SCENE_REQUIRED_FIELDS) {
+      const wert = scene?.[feld];
+      if (typeof wert !== 'string' || !wert.trim()) {
+        fehler.push(`${id}.${feld} fehlt.`);
+      } else if (hatPlatzhalter(wert)) {
+        fehler.push(`${id}.${feld} enthält noch einen Platzhalter.`);
+      }
+    }
+
+    if (typeof scene.dataOrigin === 'string' && !DATA_ORIGINS.includes(scene.dataOrigin.trim())) {
+      fehler.push(`${id}.dataOrigin "${scene.dataOrigin}" ist unbekannt. Erlaubt: ${DATA_ORIGINS.join(', ')}`);
+    }
+    // Eine Behauptung ohne Satz ist keine Behauptung. Dieselbe Mindestlänge wie
+    // animationIntent, damit „Kurve" oder „Zahlen" nicht als Beleg durchgeht.
+    if (typeof scene.dataClaim === 'string' && scene.dataClaim.trim().length < 18) {
+      fehler.push(`${id}.dataClaim ist zu vage; die Aussage, die die Zahlen belegen sollen, muss als Satz dastehen.`);
+    }
+    if (scene.googleFlowFileName !== undefined) {
+      fehler.push(`${id}: eine Datenszene erwartet kein Google-Flow-Bild; googleFlowFileName gehört nicht in den Index.`);
     }
   }
 
