@@ -9,7 +9,7 @@ The repository contract wins over generic agent advice:
 1. `CLAUDE.md`
 2. target reel `03-szenen/scene-index.json`
 3. target scene `szene.md` / `remotion.md`
-4. `src/motion/README.md` and `src/motion/*` as canonical motion implementation
+4. `src/motion/README.md`, `src/motion/mechanics.ts` and `src/motion/*` as canonical motion implementation
 5. `.agents/plugins/finanzneo-motion/rules/mechanic-selection.md`
 6. target scene `animation.tsx` as the scene-specific implementation to improve, not as a competing style authority
 7. FinanzNeo motion skills/rules
@@ -23,17 +23,20 @@ Official Remotion skills are best-practice guidance. They must never override Fi
 
 For every new or intentionally redesigned animation scene, inspect `src/motion` before inventing local motion infrastructure.
 
-Prefer:
+Prefer semantic names:
 
 - `PremiumPhysicalStage`
 - `PhysicalObject`
-- `PhysicalBill`
+- `PhysicalBanknote`
+- `PhysicalInvoice`
 - `PhysicalCoinStack`
 - `PhysicalAccount`
 - `PhysicalReserveTank`
 - `PhysicalCalendarPage`
 - `PhysicalWasher`
 - `FN_MOTION` timing/spring presets
+
+`PhysicalBill` remains compatibility naming for the old Motion-Core banknote. New code should use `PhysicalBanknote` or `PhysicalInvoice` according to meaning.
 
 Do not create local duplicate versions of these primitives merely to change styling.
 
@@ -44,18 +47,20 @@ VOICEOVER BEAT
 → FINANCE STATEMENT
 → PHYSICAL CAUSE / EFFECT
 → MECHANIC_ID
-→ HERO + SUPPORT OBJECTS
+→ HERO + OPTIONAL SUPPORT OBJECTS
 → START / ACTION / REACTION / RESULT / HOLD
 → REMOTION TIMELINE
+→ MOTION ART DIRECTION
+→ PLAYWRIGHT VISUAL QA
 ```
 
 The visible mechanism is chosen before decorative treatment.
 
 ## Mechanic selection and anti-repetition
 
-Follow `.agents/plugins/finanzneo-motion/rules/mechanic-selection.md` before authoring JSX.
+Follow `.agents/plugins/finanzneo-motion/rules/mechanic-selection.md` and inspect `src/motion/mechanics.ts` before authoring JSX.
 
-Every animation scene must define a unique `MECHANIC_ID`.
+Every animation scene must define a unique `MECHANIC_ID` under Motion Core V1.
 The same mechanic must not be used twice within one reel.
 
 Before implementing the current scene, inspect all animation scenes in the target reel and compare at least:
@@ -67,6 +72,14 @@ Before implementing the current scene, inspect all animation scenes in the targe
 - result type
 
 If three or more of those characteristics duplicate an earlier scene, redesign the physical explanation instead of disguising the repetition with color, text, camera or timing changes.
+
+## Hero before object count
+
+A production animation needs at least one clear physical Hero. **One strong Hero may be enough.**
+
+Do not add a second or third object simply to satisfy a component count. Supporting objects are justified only when they improve cause/effect comprehension.
+
+`singleHeroObjectAllowed=true`, `supportingObjectCountFlexible=true` and `clarityBeforeObjectCount=true` are the intended Motion-Core-V1 contract.
 
 ## Remotion is the timeline authority
 
@@ -111,7 +124,7 @@ Distinguish between primary explanatory motion and supporting motion.
 The canonical density target from `src/motion` wins:
 
 - one hero object
-- at most one support group
+- zero or one support group according to clarity
 - at most two simultaneously important primary motions
 - at most one camera action
 - no decorative background animation
@@ -160,19 +173,34 @@ Use it for compact vector acting and accents. Do not let it replace a stronger r
 
 Lottie does not count as a unique mechanic merely because the icon or animation file changes.
 
+## Art Direction
+
+After mechanism/code correctness, use `.agents/plugins/finanzneo-motion/skills/motion-art-director/SKILL.md`.
+
+Art Direction may refine scale, proportions, material/depth, perspective, optical centering, negative space, camera and RESULT HOLD composition. It may not change the finance meaning merely for style.
+
 ## Representative-frame review
 
 Before sealing an animation, inspect representative states rather than only the first frame:
 
-- start
-- first trigger
-- middle of mechanism
-- near-result
-- final hold
+- START
+- TRIGGER
+- MID-MECHANISM
+- NEAR RESULT
+- FINAL RESULT HOLD
 
 The scene must remain readable and centered throughout the action.
 
 For meaningful motion-system changes, prefer a complete reference or target-scene render when practical; frame-0 smoke tests prove renderability, not visual quality.
+
+For Motion-Core-V1 future Reels, `05-projektdateien/visual-qa.md` must record real review results. `reel:phase3:preflight` requires:
+
+```text
+MOTION_ART_DIRECTION=PASS
+PLAYWRIGHT_VISUAL_QA=PASS
+```
+
+and no open PENDING/FAIL scene rows.
 
 ## Audio relationship
 
@@ -202,6 +230,7 @@ Reject a scene if it becomes:
 - abstract finance symbolism where a real situation is possible
 - visually tiny inside excessive empty space
 - overpacked with simultaneous accents
+- padded with unnecessary objects only to satisfy a count
 - dependent on background motion
 - dependent on a remote service at render time
 - a duplicate of an earlier reel mechanic disguised by different colors, labels, icons, mirroring or camera motion
