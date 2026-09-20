@@ -10,6 +10,7 @@ const ACTIVE_RULE_FILES = [
   'MASTER-PROMPTS.md',
   'START-HIER.md',
   'reels/PRODUKTIONSSTANDARD.md',
+  'config/finanzneo-production-standard.json',
   'docs/IMAGE-SYSTEM.md',
   'docs/GLOBAL-IMAGE-WORLD-LOCK.md',
   'docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md',
@@ -25,9 +26,14 @@ const ACTIVE_RULE_FILES = [
   '.agents/rules/finanzneo-reel-safety.md',
   '.agents/skills/finanzneo-reel/SKILL.md',
   '.agents/workflows/build-finanzneo-reel.md',
+  '.agents/plugins/finanzneo-motion/rules/mechanic-selection.md',
+  '.agents/plugins/finanzneo-motion/rules/remotion-production.md',
+  '.agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md',
   'src/brand/tokens.ts',
   'src/brand/components/ReelStage.tsx',
   'src/brand/components/SceneHeader.tsx',
+  'src/motion/README.md',
+  'src/motion/index.ts',
   'scripts/scaffold-finanzneo-reel.mjs',
   'scripts/create-finanzneo-reel.mjs',
   'scripts/apply-reel-layout-v5.mjs',
@@ -36,6 +42,8 @@ const ACTIVE_RULE_FILES = [
   'scripts/validate-global-image-world.mjs',
   'scripts/apply-future-image-storytelling-v3.mjs',
   'scripts/validate-future-image-storytelling-v3.mjs',
+  'scripts/apply-future-reel-phase1-motion-direction-v1.mjs',
+  'scripts/validate-future-reel-phase1-motion-direction-v1.mjs',
   'scripts/validate-animation-source-quality.mjs',
 ];
 
@@ -80,20 +88,28 @@ const requiredMarkers = new Map([
   ['ANLEITUNG.md', ['finanzneo-stylized-3d-animated-black-v9', '#000000', 'phase3Executor']],
   ['CLAUDE.md', ['finanzneo-stylized-3d-animated-black-v9', '#000000', 'Visualzone           Y = 320–1400', 'Header Text          56 px', 'Keine feste Support-Objekt-Anzahl']],
   ['docs/IMAGE-SYSTEM.md', ['finanzneo-stylized-3d-animated-black-v9', 'keine feste', 'tiefschwarzen Hintergrund']],
-  ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['PremiumPhysicalStage', '#000000', 'Y 320–1400', 'keine feste Support-Objekt-Anzahl']],
+  ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['PremiumPhysicalStage', '#000000', 'Y 320–1400', 'keine feste Support-Objekt-Anzahl', 'finanzneo-motion-core-v1', 'src/motion', 'Anti-Wiederholung']],
   ['docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md', ['56 px', 'Y = 320–1400', 'SourceNote']],
   ['docs/PHASE-3-COMPLETION-GATE.md', ['Post-Render', 'Caption-/Header-only', 'FINAL_COMPLETE']],
   ['docs/PLATFORM-PUBLISHING.md', ['caption-universal.txt', 'keine separaten Plattform-Captiondateien']],
-  ['reels/PRODUKTIONSSTANDARD.md', ['caption-universal.txt', 'Playwright Visual QA', 'Keine separaten Plattform-Captiondateien']],
+  ['reels/PRODUKTIONSSTANDARD.md', ['caption-universal.txt', 'Playwright Visual QA', 'Keine separaten Plattform-Captiondateien', 'MOTION_CORE: finanzneo-motion-core-v1', 'CANONICAL_MOTION_SOURCE: src/motion', 'Mechanik-Ledger']],
+  ['config/finanzneo-production-standard.json', ['finanzneo-motion-core-v1', 'src/motion/index.ts', 'mechanic-selection.md', 'remotion-director/SKILL.md']],
   ['CLAUDE.md', ['caption-universal.txt', 'Playwright Visual QA']],
   ['MASTER-PROMPTS.md', ['#000000', 'FNBgParticles', 'customAnimations']],
   ['src/brand/tokens.ts', ['fontSize:56', 'minFontSize:50', 'maxLines:2', 'top:320,bottom:1400', 'sourceNote']],
   ['src/brand/components/ReelStage.tsx', ['clipPath', 'Y320–1400', 'visual-only']],
   ['src/brand/components/SceneHeader.tsx', ['WebkitLineClamp', 'H.maxLines', "whiteSpace: 'normal'"]],
+  ['src/motion/README.md', ['STATE -> MECHANISM -> CHANGE -> RESULT -> HOLD', 'FinanzNeoMotionReferenceV1', 'Lottie']],
+  ['src/motion/index.ts', ['PremiumPhysicalStage', 'PhysicalBill', 'PhysicalAccount', 'FN_MOTION']],
+  ['.agents/plugins/finanzneo-motion/rules/mechanic-selection.md', ['src/motion', 'Anti-Wiederholungs-Gate', 'fn-account-transfer', 'MECHANIC_ID']],
+  ['.agents/plugins/finanzneo-motion/rules/remotion-production.md', ['src/motion', 'MECHANIC_ID']],
+  ['.agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md', ['src/motion', 'mechanic-selection.md', 'MECHANIC_ID', 'WARUM NICHT DOPPELT']],
   ['scripts/scaffold-finanzneo-reel.mjs', ['visualBottom: 1400', 'fontSize:56', 'visualSafeZone:{top:320,bottom:1400']],
   ['scripts/apply-reel-layout-v5.mjs', ['visualBottom: 1400', 'fontSize: 56', 'hardClipAnimations: true']],
   ['scripts/validate-reel-layout-v5.mjs', ['visualBottom === 1400', 'fontSize === 56', 'hardClipAnimations === true']],
-  ['scripts/create-finanzneo-reel.mjs', ['apply-stylized-animated-black-world-v9.mjs', 'apply-future-image-storytelling-v3.mjs', 'Literal first, creative second', 'Visual Y320–1400']],
+  ['scripts/create-finanzneo-reel.mjs', ['apply-stylized-animated-black-world-v9.mjs', 'apply-future-image-storytelling-v3.mjs', 'apply-future-reel-phase1-motion-direction-v1.mjs', 'Literal first, creative second', 'Visual Y320–1400']],
+  ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', ['finanzneo-motion-core-v1', "canonicalMotionSource: 'src/motion'", 'mechanicLedgerRequired: true', 'antiRepetitionGateRequired: true', 'motion-mechanic-ledger.md']],
+  ['scripts/validate-future-reel-phase1-motion-direction-v1.mjs', ['finanzneo-motion-core-v1', 'canonicalMotionSource', 'motion-mechanic-ledger.md', 'src/motion importieren']],
   ['scripts/apply-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'Literal first, creative second', 'TRANSFERABILITY_TEST', 'Förderbänder, Schienen, Schranken, Käfige']],
   ['scripts/validate-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'finanzneo-image-storytelling-v2', 'TRANSFERABILITY_TEST', 'METAPHOR_JUSTIFICATION']],
   ['docs/FUTURE-IMAGE-STORYTELLING-V3.md', ['Literal first, creative second', 'Transferability-Test', 'METAPHOR_JUSTIFICATION']],
@@ -108,13 +124,14 @@ for (const [path, markers] of requiredMarkers) {
 }
 
 if (errors.length) {
-  console.error('\nAktive Reel-Regeln widersprechen dem V9/Pure-Black/Final-Layout-/Image-Storytelling-Stand:\n');
+  console.error('\nAktive Reel-Regeln widersprechen dem V9/Pure-Black/Final-Layout-/Image-Storytelling-/Motion-Core-Stand:\n');
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
 
-console.log('\n✓ Aktive Reel-Regelquellen sind auf V9/Pure-Black/Final-Layout/Image-Storytelling-V3 ausgerichtet.');
+console.log('\n✓ Aktive Reel-Regelquellen sind auf V9/Pure-Black/Final-Layout/Image-Storytelling-V3/Motion-Core-V1 ausgerichtet.');
 console.log('✓ Keine aktive V4/V7/V8-Bildwelt, feste Objektquote, alte Y320–1480-Visualzone oder Partikel-Dekorationsregel gefunden.');
 console.log('✓ Neue Reels verwenden Literal-first V3 mit Kontextanker, Voiceover-Match und Transferability-Test.');
+console.log('✓ Neue Reel-Animationen sind an finanzneo-motion-core-v1, src/motion, Mechanik-Ledger und Anti-Wiederholungs-Gate gebunden.');
 console.log('✓ Header 56 px/max. 2 Zeilen, Visual Y320–1400 und Animation-Safe-Zone sind konsistent.');
 console.log('✓ Phase 1, Phase 2 und Phase 3 verweisen auf denselben aktuellen Produktionsstand.');
