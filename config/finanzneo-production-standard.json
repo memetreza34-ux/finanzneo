@@ -21,7 +21,15 @@
   },
   "animation": {
     "id": "finanzneo-phase1-animation-code-v1",
-    "source": "docs/PHASE-1-ANIMATION-CODE-STANDARD.md"
+    "source": "docs/PHASE-1-ANIMATION-CODE-STANDARD.md",
+    "motionCore": {
+      "id": "finanzneo-motion-core-v1",
+      "source": "src/motion/index.ts",
+      "reference": "src/motion/FinanzNeoMotionReferenceV1.tsx",
+      "director": ".agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md",
+      "mechanicSelection": ".agents/plugins/finanzneo-motion/rules/mechanic-selection.md",
+      "appliesTo": "new-or-intentionally-reworked-reel-animations"
+    }
   },
   "pipeline": {
     "id": "finanzneo-three-phase-production-v1",
