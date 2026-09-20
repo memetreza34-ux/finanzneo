@@ -43,7 +43,7 @@ Pflicht:
 - dieselbe realitätsnahe stylized-3D-Welt wie die Flow-Bilder; klar nicht fotorealistisch
 - echte Alltagssituation bzw. konkrete Finanzhandlung zuerst, abstrakte Symbole nur unterstützend
 - STARTZUSTAND → konkrete physische Hauptaktion → sichtbare Ursache/Wirkung → eindeutiges Ergebnis
-- mindestens zwei konkrete Realwelt-Objekte/-Instanzen in der visuellen Handlung
+- mindestens ein klar erkennbares physisches Hero-Objekt; ein starkes Hero darf allein reichen, Support-Objekte nur wenn sie die Aussage wirklich klarer machen
 - eindeutige MECHANIC_ID je Animationsszene; keine Mechanik im selben Reel doppelt verwenden
 - PRIMARY_ACTION benennt die tatsächliche physische Zustandsänderung
 - mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable
@@ -52,8 +52,9 @@ Pflicht:
 - PremiumPhysicalStage bleibt transparent; der zentrale Reel-Canvas darunter ist statisch #000000
 - Ergebnis mindestens 15 Frames stabil halten
 
-Bevorzugte konkrete Primitives, wenn passend:
-- PhysicalBill
+Bevorzugte konkrete Primitives, wenn semantisch passend — niemals als Objektquote:
+- PhysicalBanknote / PhysicalBill (Legacy-Alias)
+- PhysicalInvoice
 - PhysicalAccount
 - PhysicalWasher
 - PhysicalReserveTank
@@ -97,6 +98,6 @@ if (existsSync(overviewPath)) {
 }
 
 console.log(`✓ Cinematic Animation Contract angewendet: ${PREMIUM_ANIMATION_LOCK}`);
-console.log('  Realwelt-Mechanik zuerst · jede Szene eigene MECHANIC_ID · mehrere Motion-Channels.');
+console.log('  Realwelt-Mechanik zuerst · ein klares Hero kann reichen · Support nur bei echtem Mehrwert.');
 console.log('  Generische Kartenreihen und Fortschrittsbalken dürfen die visuelle Geschichte nicht ersetzen.');
 console.log('  Transparenter Stage über statischem #000000 Canvas · keine Partikel/Aurora/Grid/Glow-Hintergründe.');

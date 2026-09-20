@@ -414,7 +414,7 @@ Pflicht:
 - `ANIMATION_NARRATIVE` START / MECHANISM / RESULT
 - `PREMIUM_VISUAL_NARRATIVE` HERO / SUPPORT / MATERIAL / DEPTH
 
-**Keine feste Support-Objekt-Anzahl.** Klarheit entscheidet.
+**Keine feste Objektanzahl — weder Mindestzahl noch Obergrenze.** Klarheit entscheidet.
 
 Animationen müssen Inhalt **erklären und unterhaltsam visualisieren**, nicht nur Pixel bewegen.
 
@@ -433,7 +433,7 @@ REALE AUSGANGSSITUATION
 ```
 
 - reale bzw. unmittelbar erkennbare Gegenstände verwenden, wenn der Inhalt sie hergibt: Rechnung, Konto, Waschmaschine, Kalender, Geldstapel, Reservebehälter usw.
-- mindestens zwei konkrete Realwelt-Objekte/-Instanzen tragen die Handlung
+- **keine Stückzahl in beide Richtungen**: ein einzelnes starkes Objekt darf eine Szene allein tragen, und viele Objekte sind erlaubt, solange jedes erklärt. Es zählt nur, ob die Szene gut aussieht und verstanden wird — nicht wie viele Gegenstände sie enthält. Geprüft wird deshalb die Qualität: mindestens ein klares gegenständliches Hauptmotiv, und beschriftete Kästen dürfen echte Gegenstände nie überstimmen
 - jede Szene erhält eine eindeutige `MECHANIC_ID`; dieselbe Mechanik nicht mehrfach im Reel wiederholen
 - `PRIMARY_ACTION` beschreibt die wirkliche physische Zustandsänderung
 - mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable

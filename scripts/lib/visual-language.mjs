@@ -20,7 +20,7 @@
  * zeigen eine Sache, die es gibt — Rechnung, Konto, Waschmaschine, Koffer,
  * Laufrad, Kalenderblatt.
  */
-export const CONCRETE_OBJECT = /<Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack|Policy|Phone)\b|<Object[A-Z][A-Za-z]*/g;
+export const CONCRETE_OBJECT = /<Physical(?:Banknote|Invoice|Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack|Policy|Phone)\b|<Object[A-Z][A-Za-z]*/g;
 
 /**
  * Selbst gezeichnete Formen.

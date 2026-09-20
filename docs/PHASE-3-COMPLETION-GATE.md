@@ -8,6 +8,7 @@ Dieses Gate verhindert insbesondere:
 - nur Untertitel oder Header sind sichtbar
 - Nutzerbild wurde nicht eingebunden
 - Phase-1-Animation wurde vergessen/ersetzt
+- Motion-Core-Reel wurde ohne echte Art-Direction-/Playwright-Sichtprüfung freigegeben
 - künstliche Hintergrundbewegung lässt eine leere Szene technisch „bewegt“ wirken
 - Partikel/Aurora/Grid werden als Reel-Hintergrund benutzt
 - ein alter Candidate-Render wird als final exportiert
@@ -18,6 +19,7 @@ Dieses Gate verhindert insbesondere:
 READY_FOR_PHASE3
 → PHASE1_ANIMATIONS_SEALED
 → IMPLEMENTING
+→ VISUAL_QA_PASSED
 → READY_TO_RENDER
 → PHASE3_CANDIDATE
 → RENDER_QA_PASSED
@@ -94,7 +96,34 @@ Als Hintergrund verboten:
 
 Der zentrale `FinanceBackground` ignoriert alte `standard/data/premium`-Varianten und rendert immer Schwarz. Die Props bleiben nur aus Kompatibilitätsgründen bestehen.
 
-## 4. Preflight
+## 4. Motion-Core Visual-QA-Gate
+
+Neue Reels mit `finanzneo-motion-core-v1` besitzen:
+
+```text
+05-projektdateien/visual-qa.md
+```
+
+Vor dem produktiven Render muss die tatsächliche Produktions-Composition in Remotion Studio/Playwright visuell geprüft werden.
+
+Pflichtmarker nach echter Prüfung:
+
+```text
+MOTION_ART_DIRECTION=PASS
+PLAYWRIGHT_VISUAL_QA=PASS
+```
+
+Zusätzlich darf keine Szenenzeile in `visual-qa.md` auf `PENDING` oder `FAIL` stehen.
+
+Der Motion Art Director prüft insbesondere Hero-Größe, Proportionen, Materialität, Tiefe, Perspektive, optische Zentrierung, Blickführung, Kamera und RESULT HOLD.
+
+Playwright Visual QA prüft Animationen mindestens an START, TRIGGER, MID-MECHANISM, NEAR RESULT und FINAL RESULT HOLD sowie Bildszenen an einem stabilen repräsentativen Frame.
+
+Diese Marker dürfen niemals nur gesetzt werden, um den Preflight grün zu bekommen.
+
+Legacy-Reels ohne Motion-Core-V1-Marker werden dadurch nicht rückwirkend blockiert.
+
+## 5. Preflight
 
 ```bash
 npm run reel:phase3:preflight -- <Reel-Pfad>
@@ -110,10 +139,11 @@ Blockiert unter anderem:
 - Timeline-Lücken
 - fehlende Audio-/Caption-/Header-Layer
 - verbotene Reel-Hintergrundkomponenten in der Produktions-Composition
+- bei Motion-Core-V1: fehlendes Art-Direction-/Playwright-PASS oder offene QA-Szenenzeilen
 
 Bei FAIL darf kein produktiver Render gestartet werden.
 
-## 5. Render nur über Gate
+## 6. Render nur über Gate
 
 ```bash
 npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
@@ -127,7 +157,7 @@ Zuerst entsteht nur:
 *.phase3-candidate.mp4
 ```
 
-## 6. Post-Render-QA
+## 7. Post-Render-QA
 
 Der QA-Sampler schließt Header und Captions aus und prüft den eigentlichen visuellen Kern.
 
@@ -163,7 +193,7 @@ QA-Bericht:
 
 Bei Fehler bleibt das Reel `NOT_COMPLETE`; Candidate wird nicht freigegeben.
 
-## 7. Export
+## 8. Export
 
 ```bash
 npm run reel:export -- <Reel-Pfad> <Final-MP4>
@@ -171,12 +201,14 @@ npm run reel:export -- <Reel-Pfad> <Final-MP4>
 
 Export blockiert bei fehlender/fehlgeschlagener QA oder Hash-Abweichung.
 
-## 8. Fertig bedeutet wirklich fertig
+## 9. Fertig bedeutet wirklich fertig
 
 ```text
 reel:ready                 PASS
 Phase-1-Animations-Seal    vorhanden
 Manifest                   READY_TO_RENDER
+Motion Art Direction       PASS (Motion-Core V1)
+Playwright Visual QA       PASS (Motion-Core V1)
 phase3 preflight           PASS
 Candidate render           SUCCESS
 Post-render QA             PASSED

@@ -131,7 +131,8 @@ A screenshot review must answer:
 When a defect is found, fix the canonical source:
 
 - central design system for global header/icon/layout issues;
-- target `animation.tsx` for scene motion/composition issues;
+- `src/motion` for proven reusable Motion-Core defects;
+- target `animation.tsx` for scene-specific motion/composition issues;
 - Flow source/prompt only when the user-provided image itself is wrong;
 - never patch a rendered screenshot.
 
@@ -159,7 +160,40 @@ Reject when:
 - motion paths make objects collide unintentionally or cross safe zones;
 - supporting Lottie/paths/blur dominate the real mechanism;
 - objects appear visually mis-scaled relative to each other;
-- the result state is visually busier than the mechanism.
+- the result state is visually busier than the mechanism;
+- an obsolete transfer/ghost object remains visible in FINAL RESULT HOLD;
+- visual quality is technically valid but obviously unbalanced, cramped or mostly empty.
+
+## Future Motion-Core hard gate
+
+New Motion-Core reels scaffold:
+
+```text
+05-projektdateien/visual-qa.md
+```
+
+The file starts with:
+
+```text
+MOTION_ART_DIRECTION=PENDING
+PLAYWRIGHT_VISUAL_QA=PENDING
+```
+
+Do not set `PLAYWRIGHT_VISUAL_QA=PASS` before the actual screenshots/frames were inspected.
+
+After every required scene row has been reviewed and any source defect fixed:
+
+1. set that scene row to `PASS`;
+2. verify there are no `PENDING` or `FAIL` scene rows;
+3. set exactly:
+
+```text
+PLAYWRIGHT_VISUAL_QA=PASS
+```
+
+`reel:phase3:preflight` blocks Motion-Core-V1 production renders while this marker is not PASS. Never change the marker merely to get CI/render green.
+
+The separate `MOTION_ART_DIRECTION=PASS` marker belongs to the Motion Art Director and must already be PASS before final preflight.
 
 ## Screenshot discipline
 
@@ -186,6 +220,8 @@ Playwright QA is PASS only when:
 3. no important visual crosses safe zones;
 4. every animation clearly changes from start to mechanism to result;
 5. no major spacing/centering/clipping defect remains;
-6. any discovered source defects were fixed and rechecked.
+6. any discovered source defects were fixed and rechecked;
+7. every `visual-qa.md` scene row is PASS;
+8. `PLAYWRIGHT_VISUAL_QA=PASS` is written only after the real review.
 
 This PASS complements, but never replaces, `reel:validate`, Phase-3 preflight and post-render QA.

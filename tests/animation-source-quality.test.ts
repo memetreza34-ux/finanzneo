@@ -132,6 +132,20 @@ test('produktionsreifer V9-kompatibler Phase-1-Animationscode besteht den Qualit
   }
 });
 
+test('ein einzelnes klares Physical-Hero ist erlaubt; Support-Objekte sind keine Quote', () => {
+  const fixture = buildFixture();
+  try {
+    const oneHero = fixture.validSource
+      .replace(/\n\s*<PhysicalBill[\s\S]*?\/>\n/, '\n')
+      .replace(/\n\s*<PhysicalCoinStack[\s\S]*?\/>\n/, '\n');
+    writeFileSync(fixture.sourcePath, oneHero);
+    const result = validate(fixture.root);
+    assert.equal(result.status, 0, `${result.stdout}\n${result.stderr}`);
+  } finally {
+    rmSync(fixture.root, {recursive: true, force: true});
+  }
+});
+
 test('Math.sin-Wackelbewegung wird auch bei sonst vollständiger Animation blockiert', () => {
   const fixture = buildFixture();
   try {

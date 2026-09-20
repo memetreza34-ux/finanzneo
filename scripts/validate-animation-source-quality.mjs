@@ -8,7 +8,6 @@ import {
   validatePremiumAnimationSceneMetadata,
 } from './lib/premium-animation-contract.mjs';
 import {
-  DRAWN_EQUIVALENT,
   boxesDominate,
   countVisualLanguage,
   hasRealSubject,
@@ -30,6 +29,7 @@ if (!existsSync(indexPath)) {
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const scenes = Array.isArray(index.scenes) ? index.scenes : [];
 const animations = scenes.filter((scene) => scene?.type === 'animation');
+const motionCoreV1 = index.phase1MotionDirectionContract?.motionCoreVersion === 'finanzneo-motion-core-v1';
 const errors = [];
 const fail = (message) => errors.push(message);
 const placeholder = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|ONE LARGE)[^\]]*)\]|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
@@ -42,6 +42,7 @@ if (index.phase1AnimationCode?.premiumVisualLock !== PREMIUM_ANIMATION_LOCK) fai
 if (index.phase1AnimationCode?.phase3MayNotReplaceCanonicalAnimation !== true) fail('Phase 3 darf kanonischen Phase-1-Animationscode nicht ersetzen.');
 if (index.phase1AnimationCode?.requirePremiumPhysicalStage !== true) fail('PremiumPhysicalStage muss für den Animationsvertrag verpflichtend sein.');
 if (index.phase1AnimationCode?.requirePhysicalObjects !== true) fail('Mindestens ein echtes physisches Hauptobjekt muss verpflichtend sein.');
+if (motionCoreV1 && index.phase1AnimationCode?.singleHeroObjectAllowed !== true) fail('Motion-Core-V1 braucht singleHeroObjectAllowed=true; ein starkes Hero darf allein reichen.');
 if (index.phase1AnimationCode?.supportingObjectCountFlexible !== true) fail('Animationskomposition braucht supportingObjectCountFlexible=true.');
 if (index.phase1AnimationCode?.clarityBeforeObjectCount !== true) fail('Animationskomposition braucht clarityBeforeObjectCount=true.');
 if (index.phase1AnimationCode?.sameVisualLanguageAsFlowImages !== true) fail('Animationen müssen dieselbe visuelle Sprache wie Flow-Bilder verwenden.');
@@ -85,19 +86,19 @@ for (const scene of animations) {
   if (!/PremiumPhysicalStage/.test(source)) fail(`${id}: Animation muss PremiumPhysicalStage verwenden.`);
   // Bildsprache aus der gemeinsamen Quelle. Dadurch kennt die Reel-Prüfung
   // dieselben Gegenstände wie die YouTube-Prüfung — inklusive der gezeichneten
-  // aus `src/design-system/object-kit.tsx`, die es hier vorher nicht gab.
+  // aus `src/design-system/object-kit.tsx` und der neuen aus `src/motion`.
   const sprache = countVisualLanguage(source);
   const {concrete: concreteObjects, drawn: drawnShapes, boxes: genericObjects} = sprache;
 
-  if (!hasRealSubject(sprache)) fail(`${id}: Animation braucht mindestens ein physisches Hauptmotiv.`);
-  if (concreteObjects < 2 && drawnShapes < DRAWN_EQUIVALENT) {
-    fail(`${id}: mindestens zwei konkrete Realwelt-Objekte/-Instanzen sind nötig (z. B. Rechnung, Konto, Waschmaschine, Koffer, Laufrad, Kalender, Münzen) oder eine selbst gezeichnete Szene; generische Karten reichen nicht.`);
+  // Keine Stückzahl in beide Richtungen. Ein starkes Objekt darf eine Szene
+  // allein tragen, und viele Objekte sind erlaubt, solange sie erklären. Was
+  // bleibt, sind zwei Fragen an die Qualität: Ist überhaupt etwas Gegenständliches
+  // zu sehen, und tragen echte Gegenstände die Szene statt beschrifteter Kästen?
+  if (!hasRealSubject(sprache)) {
+    fail(`${id}: Animation braucht mindestens ein klares gegenständliches Hauptmotiv — ein einzelnes starkes Objekt genügt.`);
   }
   if (boxesDominate(sprache)) {
     fail(`${id}: ${genericObjects} generische Karten/Schilder tragen die Szene gegen ${concreteObjects} konkrete Gegenstände und ${drawnShapes} gezeichnete Formen; Realwelt-Mechanik muss die Hauptsprache sein.`);
-  }
-  if (/<PhysicalRail\b/.test(source) && concreteObjects < 3 && drawnShapes < DRAWN_EQUIVALENT) {
-    fail(`${id}: PhysicalRail/Fortschrittsbalken darf niemals die primäre Animation ersetzen; bei Nutzung müssen mindestens drei konkrete Realwelt-Objekte die Geschichte tragen.`);
   }
   if (!/material=['"](?:neutral|money|warning|positive)['"]/.test(source) && concreteObjects < 1 && drawnShapes < 2) {
     fail(`${id}: Animation braucht semantische Materialrollen, konkrete Realwelt-Primitives oder gezeichnete Formen.`);
@@ -161,7 +162,8 @@ if (errors.length) {
 }
 
 console.log(`\n✓ ${animations.length} kanonische Phase-1-Animation(en) erfüllen den cinematischen V9-Animationsvertrag.`);
-console.log('✓ Jede Animation nutzt eine eigene Realwelt-Mechanik mit konkreten Gegenständen und Start → Aktion → Ergebnis.');
+console.log('✓ Jede Animation nutzt eine eigene Realwelt-Mechanik mit mindestens einem klaren physischen Hero und Start → Aktion → Ergebnis.');
+if (motionCoreV1) console.log('✓ Motion Core V1: ein starkes Hero darf allein reichen; Support-Objekte werden nur aus inhaltlichem Bedarf ergänzt.');
 console.log('✓ Generische Kartenreihen und Fortschrittsbalken können die visuelle Erklärung nicht mehr ersetzen.');
 console.log('✓ Mehrere koordinierte Motion-Channels sind Pflicht; reine Deko-Bewegung zählt nicht als Mechanik.');
 console.log('✓ PremiumPhysicalStage bleibt auf zentralem pure-black Canvas; Partikel/Aurora/Grid/Gradient-Hintergründe sind gesperrt.');
