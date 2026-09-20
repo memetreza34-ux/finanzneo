@@ -1,0 +1,59 @@
+# FinanzNeo Motion Core V1
+
+`src/motion` ist die kanonische Motion-Schicht für neue FinanzNeo-Animationen.
+Alte `FinanceMotionLab*`-Compositions bleiben Technik-Sandboxes und sind keine Stilreferenz.
+
+## Motion-Grammatik
+
+Jeder Erklärbeat folgt:
+
+`STATE -> MECHANISM -> CHANGE -> RESULT -> HOLD`
+
+Pflichtgedanke: Die Bewegung muss die Finanz-Aussage erklären. Bewegung nur für visuelle Aktivität ist kein gültiger Mechanismus.
+
+## Dichte
+
+- ein Hero-Objekt
+- höchstens eine Support-Gruppe
+- höchstens zwei gleichzeitig wichtige Bewegungen
+- höchstens eine Kameraaktion
+- keine dekorative Hintergrundanimation
+
+Die numerischen Defaults stehen in `FN_MOTION`.
+
+## Timeline
+
+Alle zeitabhängigen Werte werden aus der Remotion-Timeline abgeleitet (`useCurrentFrame`, `interpolate`, `spring`).
+Keine CSS-Transitions oder CSS-Keyframes für produktive Motion.
+
+## Physical Primitives
+
+Bevorzugt werden die zentralen Bausteine aus `physical.tsx`:
+
+- `PremiumPhysicalStage`
+- `PhysicalObject`
+- `PhysicalBill`
+- `PhysicalCoinStack`
+- `PhysicalAccount`
+- `PhysicalReserveTank`
+- `PhysicalCalendarPage`
+- `PhysicalWasher`
+
+Sie enthalten bewusst keine eigene Dauerschleifen-Animation. Die Szene liefert Position, Progress und Zustand.
+
+## Materialrollen
+
+- `neutral`: Kontext / neutrale Objekte
+- `money`: Geld / Wert
+- `warning`: Kosten / Risiko / Verlust
+- `positive`: Lösung / Zielzustand
+
+## Lottie
+
+Lottie ist eine Support-Schicht, kein Ersatz für die Hauptmechanik.
+`LottieBox` bleibt standardmäßig `loop={false}`. Dauerloops sind für Erklärmechaniken zu vermeiden; wenn ein Lottie gebraucht wird, bekommt es ein eindeutiges Zeitfenster in der Remotion-Sequenz.
+
+## Referenz
+
+Die Remotion-Composition `FinanzNeoMotionReferenceV1` ist die visuelle Referenz für neue Motion-Arbeit.
+Sie ist ein Showcase, kein veröffentlichbares Produktionsvideo.
