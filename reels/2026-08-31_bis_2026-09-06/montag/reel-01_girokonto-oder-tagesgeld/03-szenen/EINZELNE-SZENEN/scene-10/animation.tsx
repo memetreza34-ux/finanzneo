@@ -1,132 +1,41 @@
 import React from 'react';
 import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS} from '../../../../../../../src/brand/tokens';
-import {
-  PhysicalAccount,
-  PhysicalObject,
-  PhysicalReserveTank,
-  PremiumPhysicalStage,
-} from '../../../../../../../src/motion';
+import {ANIMATION_COLORS, PhysicalAccount, PhysicalBill, PhysicalCalendarPage, PhysicalCoinStack, PhysicalReserveTank, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
 
 /**
- * MECHANIC_ID: fn-result-lock
- * PRIMARY_ACTION: Girokonto und Tagesgeld setzen sich in zwei feste Rollenpositionen; danach rastet ein physischer Mittelverschluss ein und hält den Merksatz HEUTE gegen SPÄTER stabil fest.
+ * MECHANIC_ID: today-bill-uses-giro-future-money-stays
+ * PRIMARY_ACTION: Eine heutige Alltagsausgabe wird aus dem Girokonto bezahlt, während die Tagesgeld-Rücklage physisch stehen bleibt und mit SPÄTER verknüpft wird.
  * ANIMATION_NARRATIVE
- * START: Girokonto und Tagesgeld stehen noch näher beieinander und wirken wie zwei Geldorte ohne endgültig gesetzte Rollen.
- * MECHANISM: Beide Objekte bewegen sich kontrolliert nach außen in ihre festen Plätze; anschließend senkt sich ein massiver Verschluss zwischen sie und verriegelt die Trennung.
- * RESULT: Girokonto bleibt links unter HEUTE, Tagesgeld rechts unter SPÄTER; der Endzustand hält ruhig und lesbar bis Szenenende.
+ * START: HEUTE steht beim Girokonto, SPÄTER beim Tagesgeld; beide Geldbereiche sind getrennt.
+ * MECHANISM: Eine Einkaufsrechnung erscheint bei HEUTE, ein Geldstapel verlässt das Girokonto und bezahlt sie. Die Reserve rechts bleibt unverändert.
+ * RESULT: Einkauf ist bezahlt; HEUTE/Giro und SPÄTER/Tagesgeld bleiben als zwei klare Aufgaben sichtbar.
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Der finale räumlich verriegelte Zwei-Rollen-Zustand ist die Hauptaussage statt einer weiteren Geldbewegung.
- * SUPPORT: Girokonto, Tagesgeldbehälter und kurze HEUTE/SPÄTER-Marker machen die Merkhilfe sofort lesbar.
- * MATERIAL: Neutraler Girokörper, positiver Reservebehälter und ein schwerer neutraler Verschluss mit grünem Bestätigungskern.
- * DEPTH: Beide Geldorte setzen sich links und rechts auf derselben Ebene; der Verschluss kommt mittig aus dem Vordergrund und beendet die Bewegung.
+ * HERO: Konkrete heutige Zahlung links gegen sichtbar unangetastete Rücklage rechts.
+ * SUPPORT: Kalenderblätter benennen nur den Zeitbezug.
+ * MATERIAL: Ivory Kalender/Rechnung, Gold Geld, neutraler Girokörper, Emerald nur für abgeschlossene Zahlung und Reserve.
+ * DEPTH: HEUTE links oben, Giro und Rechnung links unten; SPÄTER und Reserve rechts als stabile zweite Ebene.
  */
 export const RESULT_HOLD_FRAMES = 24;
-const clamp = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
+const clamp = {extrapolateLeft:'clamp' as const, extrapolateRight:'clamp' as const};
 
-export const Scene10Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 180}) => {
+export const Scene10Animation: React.FC<{durationFrames?:number}> = ({durationFrames=180}) => {
   const frame = useCurrentFrame();
-  const objectsIn = interpolate(frame, [2, 22], [0, 1], clamp);
-  const spread = interpolate(frame, [20, 72], [0, 1], clamp);
-  const markers = interpolate(frame, [54, 86], [0, 1], clamp);
-  const lockDrop = interpolate(frame, [72, 112], [0, 1], clamp);
-  const confirm = interpolate(frame, [104, 128], [0, 1], clamp);
-  const result = interpolate(frame, [122, Math.max(132, durationFrames - RESULT_HOLD_FRAMES)], [0, 1], clamp);
+  const calendars = interpolate(frame,[2,28],[0,1],clamp);
+  const billIn = interpolate(frame,[28,60],[0,1],clamp);
+  const pay = interpolate(frame,[58,108],[0,1],clamp);
+  const reserveEmphasis = interpolate(frame,[88,126],[0,1],clamp);
+  const result = interpolate(frame,[118,Math.max(130,durationFrames-RESULT_HOLD_FRAMES)],[0,1],clamp);
+  const payX = 330 - pay*145;
+  const payY = 770 + pay*150;
 
-  const giroX = interpolate(spread, [0, 1], [250, 70], clamp);
-  const reserveX = interpolate(spread, [0, 1], [560, 750], clamp);
-  const lockY = interpolate(lockDrop, [0, 1], [-260, 300], clamp);
-  const leftSettle = interpolate(spread, [0, 0.78, 1], [0.96, 1.025, 1], clamp);
-  const rightSettle = interpolate(spread, [0, 0.78, 1], [0.96, 1.02, 1], clamp);
-
-  return (
-    <PremiumPhysicalStage>
-      <div
-        style={{
-          position: 'absolute',
-          left: 130,
-          top: 175,
-          color: ANIMATION_COLORS.secondaryText,
-          fontSize: 28,
-          fontWeight: 950,
-          letterSpacing: 2,
-          opacity: markers,
-          transform: `translateY(${(1 - markers) * 18}px)`,
-        }}
-      >
-        HEUTE
-      </div>
-
-      <div
-        style={{
-          position: 'absolute',
-          right: 105,
-          top: 175,
-          color: ANIMATION_COLORS.positive,
-          fontSize: 28,
-          fontWeight: 950,
-          letterSpacing: 2,
-          opacity: markers,
-          transform: `translateY(${(1 - markers) * 18}px)`,
-        }}
-      >
-        SPÄTER
-      </div>
-
-      <div style={{position: 'absolute', left: giroX, top: 265, transform: `scale(${leftSettle})`, transformOrigin: 'center'}}>
-        <PhysicalAccount
-          x={0}
-          y={0}
-          balance="HEUTE"
-          label="GIROKONTO"
-          progress={objectsIn}
-          role="neutral"
-        />
-      </div>
-
-      <div style={{position: 'absolute', left: reserveX, top: 225, transform: `scale(${rightSettle})`, transformOrigin: 'center'}}>
-        <PhysicalReserveTank
-          x={0}
-          y={0}
-          fill={0.72}
-          label="TAGESGELD"
-          role="positive"
-        />
-      </div>
-
-      <PhysicalObject
-        x={480}
-        y={lockY}
-        width={126}
-        height={270}
-        depth={24}
-        radius={34}
-        role="neutral"
-        opacity={lockDrop}
-        grounding={lockDrop}
-      >
-        <div style={{position: 'absolute', left: 28, right: 28, top: 44, height: 92, borderRadius: 999, border: '10px solid rgba(0,0,0,0.34)'}} />
-        <div style={{position: 'absolute', left: 24, right: 24, bottom: 38, height: 86, borderRadius: 24, background: `rgba(0,210,106,${0.18 + confirm * 0.62})`}}>
-          <div style={{position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#05311c', fontSize: 44, fontWeight: 950}}>✓</div>
-        </div>
-      </PhysicalObject>
-
-      <div
-        style={{
-          position: 'absolute',
-          left: 100,
-          right: 100,
-          top: 850,
-          textAlign: 'center',
-          color: ANIMATION_COLORS.positive,
-          fontSize: 31,
-          fontWeight: 950,
-          opacity: result,
-          transform: `translateY(${(1 - result) * 14}px)`,
-        }}
-      >
-        GIRO FÜR HEUTE · TAGESGELD FÜR SPÄTER
-      </div>
-    </PremiumPhysicalStage>
-  );
+  return <PremiumPhysicalStage>
+    <PhysicalCalendarPage x={65} y={420-(1-calendars)*55} month="HEUTE" scale={0.72} opacity={calendars} />
+    <PhysicalCalendarPage x={785} y={420-(1-calendars)*55} month="SPÄTER" scale={0.72} opacity={calendars} />
+    <PhysicalAccount x={120} y={625} label="Girokonto" balance="Alltag" scale={0.96+pay*0.025} />
+    <PhysicalBill x={45} y={905-(1-billIn)*70} label="Einkauf" amount="65 €" scale={0.67} opacity={billIn} paid={pay>0.7} />
+    <PhysicalCoinStack x={payX} y={payY} count={3} scale={0.56} opacity={billIn*(1-pay*0.42)} />
+    <PhysicalReserveTank x={720} y={600-reserveEmphasis*10} width={245} height={380} fill={0.72} label="Tagesgeld" scale={0.96+reserveEmphasis*0.04} />
+    <div style={{position:'absolute',left:105,top:1035,opacity:result,color:ANIMATION_COLORS.positive}}><PhysicalTag material="positive" style={{fontSize:23}}>BEZAHLT</PhysicalTag></div>
+    <div style={{position:'absolute',left:745,top:1035,opacity:result,color:ANIMATION_COLORS.positive}}><PhysicalTag material="positive" style={{fontSize:23}}>BLEIBT LIEGEN</PhysicalTag></div>
+  </PremiumPhysicalStage>;
 };
