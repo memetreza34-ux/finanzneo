@@ -57,14 +57,18 @@ if (contract.motionCoreVersion != null && !motionCoreEnabled) {
 
 if (motionCoreEnabled) {
   if (contract.canonicalMotionSource !== 'src/motion') fail('phase1MotionDirectionContract.canonicalMotionSource muss src/motion sein.');
+  if (contract.mechanicRegistry !== 'src/motion/mechanics.ts') fail('phase1MotionDirectionContract.mechanicRegistry muss auf src/motion/mechanics.ts zeigen.');
   if (contract.mechanicSelectionRule !== '.agents/plugins/finanzneo-motion/rules/mechanic-selection.md') fail('mechanicSelectionRule zeigt nicht auf die kanonische FinanzNeo-Regel.');
   if (contract.motionDirectorSkill !== '.agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md') fail('motionDirectorSkill zeigt nicht auf den kanonischen Remotion Director.');
+  if (contract.motionArtDirectorSkill !== '.agents/plugins/finanzneo-motion/skills/motion-art-director/SKILL.md') fail('motionArtDirectorSkill zeigt nicht auf den kanonischen Motion Art Director.');
+  if (contract.motionCoreCuratorSkill !== '.agents/plugins/finanzneo-motion/skills/motion-core-curator/SKILL.md') fail('motionCoreCuratorSkill zeigt nicht auf den kanonischen Motion Core Curator.');
   for (const key of [
     'semanticMechanicFamiliesNotTemplates',
     'mechanicLedgerRequired',
     'antiRepetitionGateRequired',
     'coreReuseBeforeLocalPrimitive',
     'legacyLabsNotStyleReference',
+    'visualQaGateRequiredBeforePhase3Render',
   ]) {
     if (contract[key] !== true) fail(`phase1MotionDirectionContract.${key} muss für ${MOTION_CORE_ID} true sein.`);
   }
@@ -79,8 +83,8 @@ if (!existsSync(policyPath)) {
   if (!/Sprechpunkt/i.test(policy) || !/Verständnisziel/i.test(policy) || !/keine Animations-Auswahlliste|kein Animations-Menü/i.test(policy)) {
     fail('phase1-motion-direction-v1.md muss Content-first-Reihenfolge und Verbot eines festen Animations-Menüs festlegen.');
   }
-  if (motionCoreEnabled && (!policy.includes(`MOTION_CORE: ${MOTION_CORE_ID}`) || !/src\/motion/.test(policy))) {
-    fail(`phase1-motion-direction-v1.md muss ${MOTION_CORE_ID} und src/motion als technische Basis nennen.`);
+  if (motionCoreEnabled && (!policy.includes(`MOTION_CORE: ${MOTION_CORE_ID}`) || !/src\/motion/.test(policy) || !/src\/motion\/mechanics\.ts/.test(policy))) {
+    fail(`phase1-motion-direction-v1.md muss ${MOTION_CORE_ID}, src/motion und die Mechanik-Registry nennen.`);
   }
 }
 
@@ -88,6 +92,15 @@ const ledgerPath = resolve(root, '05-projektdateien/motion-mechanic-ledger.md');
 const ledger = motionCoreEnabled && existsSync(ledgerPath) ? readFileSync(ledgerPath, 'utf8') : '';
 if (motionCoreEnabled && !existsSync(ledgerPath)) {
   fail('05-projektdateien/motion-mechanic-ledger.md fehlt; neue Motion-Core-Reels brauchen den Anti-Wiederholungs-Ledger.');
+}
+
+const visualQaPath = resolve(root, '05-projektdateien/visual-qa.md');
+if (motionCoreEnabled && !existsSync(visualQaPath)) {
+  fail('05-projektdateien/visual-qa.md fehlt; neue Motion-Core-Reels brauchen das Art-Direction-/Playwright-QA-Gate.');
+} else if (motionCoreEnabled) {
+  const visualQa = readFileSync(visualQaPath, 'utf8');
+  if (!/MOTION_ART_DIRECTION=(?:PENDING|PASS|FAIL)/.test(visualQa)) fail('visual-qa.md braucht MOTION_ART_DIRECTION=PENDING|PASS|FAIL.');
+  if (!/PLAYWRIGHT_VISUAL_QA=(?:PENDING|PASS|FAIL)/.test(visualQa)) fail('visual-qa.md braucht PLAYWRIGHT_VISUAL_QA=PENDING|PASS|FAIL.');
 }
 
 const scenes = Array.isArray(index.scenes) ? index.scenes : [];
@@ -170,7 +183,7 @@ for (const scene of animations) {
     if (!/from\s+['"][^'"]*src\/motion(?:\/index)?['"]/.test(source)) {
       fail(`${id}: neue Motion-Core-Animation muss ihre kanonischen Physical-/Motion-Bausteine aus src/motion importieren.`);
     }
-    const legacyCoreImport = /import\s*\{[^}]*\b(?:PremiumPhysicalStage|PhysicalObject|PhysicalBill|PhysicalCoinStack|PhysicalAccount|PhysicalReserveTank|PhysicalCalendarPage|PhysicalWasher)\b[^}]*\}\s*from\s*['"][^'"]*src\/design-system['"]/s;
+    const legacyCoreImport = /import\s*\{[^}]*\b(?:PremiumPhysicalStage|PhysicalObject|PhysicalBill|PhysicalBanknote|PhysicalInvoice|PhysicalCoinStack|PhysicalAccount|PhysicalReserveTank|PhysicalCalendarPage|PhysicalWasher)\b[^}]*\}\s*from\s*['"][^'"]*src\/design-system['"]/s;
     if (legacyCoreImport.test(source)) {
       fail(`${id}: Core-Primitives dürfen bei ${MOTION_CORE_ID} nicht mehr aus src/design-system importiert werden; Quelle ist src/motion.`);
     }
@@ -186,5 +199,5 @@ if (errors.length) {
 console.log(`\n✓ Phase 1 Motion Direction erfüllt: ${CONTRACT_ID}`);
 console.log(`✓ ${animations.length} Animationsszenen wurden Content-first dokumentiert; Wiederverwendung ist nur als begründeter Best-Fit erlaubt.`);
 if (motionCoreEnabled) {
-  console.log(`✓ ${MOTION_CORE_ID}: src/motion ist kanonische technische Quelle; Mechanik-Ledger und Anti-Wiederholungs-Metadaten sind vollständig.`);
+  console.log(`✓ ${MOTION_CORE_ID}: src/motion + mechanics.ts sind kanonisch; Mechanik-Ledger und QA-Gate sind vollständig vorbereitet.`);
 }
