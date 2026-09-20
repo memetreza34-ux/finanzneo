@@ -1,6 +1,10 @@
-// FinanzNeo Design System — einziger öffentlicher Importpfad für neue Produktion.
+// FinanzNeo Design System — öffentlicher Importpfad für Brand, Layout,
+// Captions, Charts, Templates und allgemeine Produktionsbausteine.
 //
-// Beispiel:
+// Produktive Reel-Motion-Primitives sind bewusst getrennt:
+// import {PhysicalAccount, FN_MOTION} from '../motion';
+//
+// Beispiel für Design-System:
 // import {C, FONT, SAFE_AREA, Captions, FinanceBackground, PremiumCharts} from '../design-system';
 
 // Bewährtes Kernsystem: Tokens, Layout, Captions, Charts, Templates und Branding.

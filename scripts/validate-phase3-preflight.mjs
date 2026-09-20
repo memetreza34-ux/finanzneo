@@ -16,6 +16,7 @@ if (!target) {
 }
 
 const PRESENTATION_ID = 'finanzneo-future-reel-presentation-v1';
+const MOTION_CORE_ID = 'finanzneo-motion-core-v1';
 
 try {
   const result = validatePhase3Manifest(resolve(target), manifestPath ?? null);
@@ -62,6 +63,33 @@ try {
     }
   }
 
+  const motionContract = result.index.phase1MotionDirectionContract;
+  const motionCoreQaRequired = motionContract?.motionCoreVersion === MOTION_CORE_ID
+    && motionContract?.visualQaGateRequiredBeforePhase3Render === true;
+
+  if (motionCoreQaRequired) {
+    const visualQaPath = resolve(result.root, '05-projektdateien/visual-qa.md');
+    const visualQaErrors = [];
+    if (!existsSync(visualQaPath)) {
+      visualQaErrors.push('05-projektdateien/visual-qa.md fehlt.');
+    } else {
+      const visualQa = readFileSync(visualQaPath, 'utf8');
+      if (!/^MOTION_ART_DIRECTION=PASS$/m.test(visualQa)) {
+        visualQaErrors.push('Motion Art Direction ist nicht PASS. Vor Render Proportionen, Materialität, Tiefe, Perspektive, Blickführung und RESULT HOLD visuell prüfen.');
+      }
+      if (!/^PLAYWRIGHT_VISUAL_QA=PASS$/m.test(visualQa)) {
+        visualQaErrors.push('Playwright Visual QA ist nicht PASS. Vor Render echte repräsentative Frames/Screenshots prüfen.');
+      }
+      const pendingRows = visualQa.split('\n').filter((line) => /^\|[^|]+\|[^|]+\|\s*(?:PENDING|FAIL)\s*\|\s*$/i.test(line));
+      if (pendingRows.length) {
+        visualQaErrors.push(`${pendingRows.length} Visual-QA-Szenenzeile(n) stehen noch auf PENDING/FAIL.`);
+      }
+    }
+    if (visualQaErrors.length) {
+      throw new Error(`Motion-Core Visual-QA-Gate verletzt:\n${visualQaErrors.map((error) => `- ${error}`).join('\n')}`);
+    }
+  }
+
   const images = result.scenes.filter((scene) => scene.type === 'image').length;
   const animations = result.scenes.filter((scene) => scene.type === 'animation').length;
   console.log('\n✓ PHASE-3-PREFLIGHT BESTANDEN');
@@ -69,6 +97,7 @@ try {
   console.log(`  Timeline lückenlos: ${result.totalFrames} Frames`);
   console.log(`  Hintergrund: ${REEL_BACKGROUND_CONTRACT_ID} · statisch #000000 · keine Partikel/Aurora/Grid`);
   if (presentation) console.log('  Presentation V1: echte Composition enthält Audio + SceneHeader + Captions; echte Wort-Timings vorhanden.');
+  if (motionCoreQaRequired) console.log('  Motion Core V1: Motion Art Direction + Playwright Visual QA sind dokumentiert PASS.');
   console.log('  Caption-only-Szenen sind laut Manifest verboten; Render-QA folgt nach dem Render.');
 } catch (error) {
   console.error(`\n✗ ${error instanceof Error ? error.message : String(error)}`);

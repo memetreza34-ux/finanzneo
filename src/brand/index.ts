@@ -1,6 +1,10 @@
 // ════════════════════════════════════════════════════════════════════════════
-//  FINANZNEO BRANDKIT — zentraler Import.
+//  FINANZNEO BRANDKIT — zentraler Import für Brand/Layout/Typografie.
 //  In jeder Szene:  import { C, Card, Counter, ... } from '../brand';
+//
+//  WICHTIG: Die unten weiterhin exportierten PremiumPhysical-* Bausteine sind
+//  Legacy-Kompatibilität für bestehende Reels. Neue Motion-Core-Reels nutzen
+//  Physical-Primitives ausschließlich aus ../motion.
 // ════════════════════════════════════════════════════════════════════════════
 import './fonts';                       // Fonts beim Import laden
 
@@ -14,6 +18,7 @@ export type { SceneHeaderTone } from './components/SceneHeader';
 export { MechanismCue } from './components/MechanismCue';
 export { SceneTransition, AnimationStage, VISUAL_TOP, VISUAL_BOTTOM, VISUAL_CENTER_Y } from './components/ReelStage';
 export type { MechanismCueTone } from './components/MechanismCue';
+// Legacy Physical API — nicht für neue Motion-Core-Reels verwenden.
 export {
   PremiumPhysicalStage,
   PhysicalObject,

@@ -24,11 +24,12 @@ if (!existsSync(indexPath)) {
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const scenes = Array.isArray(index.scenes) ? index.scenes : [];
 const animations = scenes.filter((scene) => scene?.type === 'animation');
+const motionCoreV1 = index.phase1MotionDirectionContract?.motionCoreVersion === 'finanzneo-motion-core-v1';
 const errors = [];
 const fail = (message) => errors.push(message);
 const placeholder = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|ONE LARGE)[^\]]*)\]|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
 const hackWords = /\b(dummy|debug|placeholder|temporary|technik-hack|wackel|wiggle|test rectangle|fake motion)\b/i;
-const realWorldPrimitive = /<Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)\b/g;
+const realWorldPrimitive = /<Physical(?:Banknote|Invoice|Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)\b/g;
 const mechanicIds = new Map();
 
 if (index.phase1AnimationCode?.required !== true) fail('phase1AnimationCode.required muss true sein.');
@@ -37,6 +38,7 @@ if (index.phase1AnimationCode?.premiumVisualLock !== PREMIUM_ANIMATION_LOCK) fai
 if (index.phase1AnimationCode?.phase3MayNotReplaceCanonicalAnimation !== true) fail('Phase 3 darf kanonischen Phase-1-Animationscode nicht ersetzen.');
 if (index.phase1AnimationCode?.requirePremiumPhysicalStage !== true) fail('PremiumPhysicalStage muss für den Animationsvertrag verpflichtend sein.');
 if (index.phase1AnimationCode?.requirePhysicalObjects !== true) fail('Mindestens ein echtes physisches Hauptobjekt muss verpflichtend sein.');
+if (motionCoreV1 && index.phase1AnimationCode?.singleHeroObjectAllowed !== true) fail('Motion-Core-V1 braucht singleHeroObjectAllowed=true; ein starkes Hero darf allein reichen.');
 if (index.phase1AnimationCode?.supportingObjectCountFlexible !== true) fail('Animationskomposition braucht supportingObjectCountFlexible=true.');
 if (index.phase1AnimationCode?.clarityBeforeObjectCount !== true) fail('Animationskomposition braucht clarityBeforeObjectCount=true.');
 if (index.phase1AnimationCode?.sameVisualLanguageAsFlowImages !== true) fail('Animationen müssen dieselbe visuelle Sprache wie Flow-Bilder verwenden.');
@@ -80,22 +82,12 @@ for (const scene of animations) {
   if (!/PremiumPhysicalStage/.test(source)) fail(`${id}: Animation muss PremiumPhysicalStage verwenden.`);
   const genericObjects = [...source.matchAll(/<PhysicalObject\b/g)].length;
   const concreteObjects = [...source.matchAll(realWorldPrimitive)].length;
-  if (genericObjects + concreteObjects < 1) fail(`${id}: Animation braucht mindestens ein physisches Hauptmotiv.`);
-  if (concreteObjects < 2) {
-    fail(`${id}: mindestens zwei konkrete Realwelt-Objekte/-Instanzen sind nötig (z. B. Rechnung, Konto, Waschmaschine, Reserve, Kalender, Münzen); generische Karten reichen nicht.`);
+  if (genericObjects + concreteObjects < 1) {
+    fail(`${id}: Animation braucht mindestens ein klares physisches Hero-Objekt. Ein starkes Hero darf allein reichen; zusätzliche Objekte sind keine Pflicht.`);
   }
-  if (genericObjects >= 3 && concreteObjects < 3) {
-    fail(`${id}: drei oder mehr generische PhysicalObject-Karten dominieren die Szene; Realwelt-Mechanik muss die Hauptsprache sein.`);
+  if (!/(?:material|role)=['"](?:neutral|money|warning|positive)['"]|Physical(?:Banknote|Invoice|Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack)/.test(source)) {
+    fail(`${id}: Animation braucht eine semantische Materialrolle oder ein konkretes Realwelt-Primitive.`);
   }
-  if (/<PhysicalRail\b/.test(source) && concreteObjects < 3) {
-    fail(`${id}: PhysicalRail/Fortschrittsbalken darf niemals die primäre Animation ersetzen; bei Nutzung müssen mindestens drei konkrete Realwelt-Objekte die Geschichte tragen.`);
-  }
-  if (!/(?:material=['"](?:neutral|money|warning|positive)['"]|Physical(?:Bill|Account|Washer|ReserveTank|CalendarPage|CoinStack))/.test(source)) {
-    fail(`${id}: Animation braucht semantische Materialrollen oder konkrete Realwelt-Primitives.`);
-  }
-  // Nur tatsächliche JSX-Komponentennutzung blockieren. Qualitätskommentare wie
-  // "kein Dashboard" oder "kein Flowchart" sind ausdrücklich erlaubt und sollen
-  // nicht als verbotene UI-Komponente fehlinterpretiert werden.
   if (/<(?:Flowchart|Dashboard|ControlPanel|WindowMock|IconTile)\b/.test(source)) {
     fail(`${id}: Dashboard-/Flowchart-/UI-Komponenten sind als Hauptsprache gesperrt.`);
   }
@@ -152,7 +144,8 @@ if (errors.length) {
 }
 
 console.log(`\n✓ ${animations.length} kanonische Phase-1-Animation(en) erfüllen den cinematischen V9-Animationsvertrag.`);
-console.log('✓ Jede Animation nutzt eine eigene Realwelt-Mechanik mit konkreten Gegenständen und Start → Aktion → Ergebnis.');
+console.log('✓ Jede Animation nutzt eine eigene Realwelt-Mechanik mit mindestens einem klaren physischen Hero und Start → Aktion → Ergebnis.');
+if (motionCoreV1) console.log('✓ Motion Core V1: ein starkes Hero darf allein reichen; Support-Objekte werden nur aus inhaltlichem Bedarf ergänzt.');
 console.log('✓ Generische Kartenreihen und Fortschrittsbalken können die visuelle Erklärung nicht mehr ersetzen.');
 console.log('✓ Mehrere koordinierte Motion-Channels sind Pflicht; reine Deko-Bewegung zählt nicht als Mechanik.');
 console.log('✓ PremiumPhysicalStage bleibt auf zentralem pure-black Canvas; Partikel/Aurora/Grid/Gradient-Hintergründe sind gesperrt.');

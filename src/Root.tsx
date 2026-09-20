@@ -10,7 +10,7 @@ import {ShowcaseCompositions} from './root/ShowcaseCompositions';
  * einem Bereich zugeordnet:
  * - Production: veröffentlichbare Videos und exportierbare Kanal-Assets
  * - Experiments: Stiltests, Prototypen und nicht freigegebene Entwürfe
- * - Showcases: interne Baukasten- und Komponentenübersichten
+ * - Showcases: interne Baukasten-, Motion- und Komponentenübersichten
  */
 export const RemotionRoot: React.FC = () => (
   <>
