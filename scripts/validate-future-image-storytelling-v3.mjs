@@ -11,6 +11,7 @@ if (!target) {
 
 const V2 = 'finanzneo-image-storytelling-v2';
 const V3 = 'finanzneo-image-storytelling-v3';
+const V4 = 'finanzneo-image-storytelling-v4';
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 if (!existsSync(indexPath)) {
@@ -26,6 +27,10 @@ if (!c) {
 }
 if (c.id === V2) {
   console.log('✓ Bestehendes Image-Storytelling-V2-Reel bleibt unverändert rückwärtskompatibel.');
+  process.exit(0);
+}
+if (c.id === V4) {
+  console.log('✓ Image-Storytelling-V4 wird vom eigenen V4-Validator geprüft; V3 bleibt rückwärtskompatibel.');
   process.exit(0);
 }
 
