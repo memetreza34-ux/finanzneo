@@ -20,6 +20,7 @@ const validators = [
   'scripts/validate-future-cover-hook-v3.mjs',
   'scripts/validate-scene-quality.mjs',
   'scripts/validate-visual-beat-contract.mjs',
+  'scripts/validate-creative-director-v1.mjs',
   'scripts/validate-future-image-storytelling-v3.mjs',
   'scripts/validate-future-production-standard-v3.mjs',
   'scripts/validate-future-reel-presentation-v1.mjs',
