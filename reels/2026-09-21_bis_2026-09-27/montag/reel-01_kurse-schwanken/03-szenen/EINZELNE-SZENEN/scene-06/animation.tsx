@@ -28,7 +28,7 @@ import {
  * MATERIAL: Blau fuer Eingezahltes, Gold fuer Zinsen, Ivory fuer Beschriftung.
  * DEPTH: Stapel links vorne, Flaechen dahinter ueber die volle Breite.
  */
-export const RESULT_HOLD_FRAMES = 28;
+export const RESULT_HOLD_FRAMES = 20;
 
 /** 200 Euro monatlich, 6 Prozent pro Jahr, 30 Jahre — gerechnet, nicht geschaetzt. */
 const PLAN = sparplanFuerAnimation({monatlich: 200, renditeProzent: 6, jahre: 30});
@@ -47,15 +47,15 @@ const flaechenPfad = (werte: number[]) => {
 const GESAMT = flaechenPfad(PLAN.jahre.map((jahr) => jahr.gesamt));
 const EINGEZAHLT = flaechenPfad(PLAN.jahre.map((jahr) => jahr.eingezahlt));
 
-export const Scene06Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 270}) => {
+export const Scene06Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 194}) => {
   const frame = useCurrentFrame();
-  const wachsen = ease(frame, 22, 186);
-  const betraege = settle(frame, 196, 226);
+  const wachsen = ease(frame, 16, 142);
+  const betraege = settle(frame, 148, 170);
   const stand = PLAN.endwert * wachsen;
 
   return (
     <PremiumPhysicalStage>
-      <PhysicalCoinStack x={104} y={780} count={3} scale={1.1} opacity={ease(frame, 6, 30)} />
+      <PhysicalCoinStack x={150} y={780} count={3} scale={1.1} opacity={ease(frame, 6, 30)} />
 
       <svg
         width={FLAECHE.breite}
@@ -158,7 +158,7 @@ export const Scene06Animation: React.FC<{durationFrames?: number}> = ({durationF
           fontFamily: FONT.body,
           fontSize: 24,
           color: ANIMATION_COLORS.neutralText,
-          opacity: ease(frame, 210, durationFrames - RESULT_HOLD_FRAMES) * 0.85,
+          opacity: ease(frame, 156, durationFrames - RESULT_HOLD_FRAMES) * 0.85,
         }}
       >
         Beispielannahme: 200 Euro monatlich, 6 Prozent pro Jahr, 30 Jahre. Keine Zusage einer Rendite.

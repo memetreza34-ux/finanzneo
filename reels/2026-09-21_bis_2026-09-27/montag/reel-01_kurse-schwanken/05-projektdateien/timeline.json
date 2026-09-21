@@ -5,5 +5,64 @@
   "timingSource": "04-caption/word-timings.json",
   "cutRule": "voice-sentence-or-meaningful-phrase-start",
   "sceneCount": 8,
-  "scenes": []
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 102,
+      "audioTrigger": "Dein Depot ist rot"
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "startFrame": 102,
+      "durationFrames": 67,
+      "audioTrigger": "Bevor du das machst"
+    },
+    {
+      "id": "scene-03",
+      "type": "data",
+      "startFrame": 169,
+      "durationFrames": 240,
+      "audioTrigger": "Zehn Jahre Weltmarkt"
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "startFrame": 409,
+      "durationFrames": 67,
+      "audioTrigger": "Genau da steigen die meisten aus"
+    },
+    {
+      "id": "scene-05",
+      "type": "animation",
+      "startFrame": 476,
+      "durationFrames": 168,
+      "audioTrigger": "Wer verkauft, macht den Verlust echt"
+    },
+    {
+      "id": "scene-06",
+      "type": "data",
+      "startFrame": 644,
+      "durationFrames": 194,
+      "audioTrigger": "Und 200 Euro im Monat"
+    },
+    {
+      "id": "scene-07",
+      "type": "image",
+      "startFrame": 838,
+      "durationFrames": 48,
+      "audioTrigger": "Nicht weil du clever warst"
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "startFrame": 886,
+      "durationFrames": 49,
+      "audioTrigger": "sondern weil du drin geblieben bist"
+    }
+  ],
+  "totalFrames": 935,
+  "audioFile": "02-audio/voiceover.m4a"
 }

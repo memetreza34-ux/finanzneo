@@ -299,26 +299,67 @@ Bild verwerfen und **dieselbe Bildnummer neu erzeugen**, wenn:
 - der Hintergrund nicht deep black bleibt
 - UI/Flowchart/Clutter die Erklärung verdrängen
 
-## 7. Google Flow — Strict Single Job V3
+## 7. Google Flow — Style-Anker V4
 
 ```text
-FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_EXECUTION_MODE: finanzneo-flow-style-anchor-v4
 FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
 ```
 
-Zu jedem Zeitpunkt maximal **ein** Bildjob:
+Der bisherige Strict-Single-Job-Lauf hat jedes Bild ohne Bezug zu den anderen erzeugt. Das Ergebnis war vorhersehbar: Bilder desselben Reels hatten unterschiedliche Helligkeit, unterschiedliche Materialwirkung und teils gar keinen deep-black Hintergrund. `FINANZNEO_SERIES_LOCK` lässt sich so strukturell nicht halten — ohne gemeinsame Referenz hat der Generator nichts, woran er sich festhalten kann.
+
+### Schritt 1 — der Style-Anker
+
+**`scene-01` wird immer zuerst und immer allein erzeugt.**
 
 ```text
-aktuellen Prompt lesen
+Prompt von scene-01 lesen
 → GENAU EIN Bild starten
 → intern vollständig warten
 → sofort exakt umbenennen
 → V9-QA
 → bei Fehler dieselbe Bildnummer neu erzeugen
-→ erst nach PASS nächsten Bildblock freischalten
+→ erst nach PASS weiter
 ```
 
-Verboten: Batch, parallele Jobs, Queue späterer Bilder, Kontaktbogen/Galerie als Ersatz, Nutzer-„weiter“ zwischen Bildern und Bild-zu-Bild-Referenzen.
+Dieses Bild ist der **Style-Anker** des gesamten Reels. Es ist gleichzeitig das Cover. Fällt es durch die QA, wird ausschließlich dieselbe Bildnummer neu erzeugt — niemals das nächste Bild vorgezogen.
+
+### Schritt 2 — die restlichen Bilder in Blöcken zu fünf
+
+Nach bestandener Anker-QA laufen die übrigen Bilder in Blöcken von höchstens fünf.
+
+**Jedes Bild in jedem Block referenziert den Style-Anker.** Das ist Pflicht, keine Option. Der Anker legt fest: Hintergrundschwärze, Lichtführung, Materialwirkung, Figurenstil und Farbtemperatur. Die Bildaussage kommt aus dem jeweiligen Einzelprompt, der Look kommt vom Anker.
+
+```text
+Style-Anker aus scene-01 bereithalten
+→ Block von höchstens fünf Bildern starten, jedes mit Anker-Referenz
+→ vollständig warten
+→ jedes Bild sofort exakt umbenennen
+→ V9-QA je Bild, zusätzlich Anker-Abgleich
+→ durchgefallene Bildnummern einzeln neu erzeugen, mit demselben Anker
+→ erst wenn der ganze Block PASS ist, den nächsten Block starten
+```
+
+### Anker-Abgleich — zusätzlich zur V9-QA
+
+Ein Bild besteht nur, wenn es neben der normalen V9-QA auch zum Anker passt:
+
+- derselbe deep-black Hintergrund, kein hellerer Untergrund
+- dieselbe Lichtrichtung und Lichthärte
+- dieselbe Materialwirkung und Oberflächenqualität
+- derselbe Figuren- und Objektstil
+- dieselbe Farbtemperatur
+
+Weicht eines davon sichtbar ab, wird dieselbe Bildnummer neu erzeugt.
+
+### Weiterhin verboten
+
+- Kontaktbogen, Galerie, Collage oder Multi-Panel als Ersatz für einzelne Bilder
+- mehr als fünf Bilder in einem Block
+- einen Block starten, bevor der Anker die QA bestanden hat
+- Referenz auf irgendein anderes Bild als den Anker
+- auf ein Nutzer-„weiter" zwischen Blöcken warten
+- Animations- und Datenszenen erzeugen; deren Nummern bleiben reserviert
 
 ## 8. Finales Reel-Layout V5
 

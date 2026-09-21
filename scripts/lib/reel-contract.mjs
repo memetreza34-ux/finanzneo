@@ -29,7 +29,13 @@ export const ALL_PROMPTS = '03-szenen/alle-bildprompts.txt';
 // darf genau EIN Bildauftrag aktiv/laufend sein. Erst nachdem dessen Ergebnis
 // zurück ist, exakt umbenannt und geprüft wurde, wird der nächste Bildblock
 // freigeschaltet. Nutzer-Zwischenfreigaben bleiben weiterhin verboten.
-export const FLOW_EXECUTION_MODE_ID = 'finanzneo-flow-strict-single-job-v3';
+export const FLOW_EXECUTION_MODE_ID = 'finanzneo-flow-style-anchor-v4';
+/** Bestandsreels bleiben gültig; sie wurden ohne Style-Anker erzeugt. */
+export const FLOW_EXECUTION_MODE_ID_LEGACY = 'finanzneo-flow-strict-single-job-v3';
+export const FLOW_EXECUTION_MODE_IDS = [FLOW_EXECUTION_MODE_ID, FLOW_EXECUTION_MODE_ID_LEGACY];
+export const FLOW_STYLE_ANCHOR_ID = 'finanzneo-flow-style-anchor-v4';
+/** Höchstens so viele Bilder in einem Block nach dem Anker. */
+export const FLOW_BLOCK_SIZE = 5;
 export const FLOW_EXECUTION_MODE_MARKER = `FLOW_EXECUTION_MODE: ${FLOW_EXECUTION_MODE_ID}`;
 export const FLOW_STRUCTURE_LOCK_ID = 'finanzneo-flow-structure-lock-v2';
 export const FLOW_STRUCTURE_LOCK_MARKER = `FLOW_STRUCTURE_LOCK: ${FLOW_STRUCTURE_LOCK_ID}`;

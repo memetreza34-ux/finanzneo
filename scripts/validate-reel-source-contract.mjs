@@ -9,6 +9,7 @@ import {
   FLOW_AGENT_PROTOCOL_ID,
   FLOW_AGENT_PROTOCOL_MARKER,
   FLOW_EXECUTION_MODE_ID,
+  FLOW_EXECUTION_MODE_IDS,
   FLOW_STATE_MACHINE_ID,
   GENERATED_IMAGE_ASPECT_MARKER,
   GENERATED_IMAGE_ASPECT_RATIO,
@@ -136,7 +137,8 @@ if (!legacyImageWorld) {
 
 const googleFlow = index.googleFlow ?? {};
 assert(googleFlow.protocolId === FLOW_AGENT_PROTOCOL_ID, `googleFlow.protocolId muss ${FLOW_AGENT_PROTOCOL_ID} sein.`);
-assert(googleFlow.executionModeId === FLOW_EXECUTION_MODE_ID, `googleFlow.executionModeId muss ${FLOW_EXECUTION_MODE_ID} sein.`);
+// Bestandsreels behalten ihren V3-Modus; sie werden nicht rückwirkend migriert.
+assert(FLOW_EXECUTION_MODE_IDS.includes(googleFlow.executionModeId), `googleFlow.executionModeId muss einer von ${FLOW_EXECUTION_MODE_IDS.join(' | ')} sein.`);
 assert(googleFlow.stateMachineId === FLOW_STATE_MACHINE_ID, `googleFlow.stateMachineId muss ${FLOW_STATE_MACHINE_ID} sein.`);
 assert(googleFlow.generationMode === 'one-image-at-a-time', 'Google Flow muss one-image-at-a-time verwenden.');
 assert(googleFlow.strictSequential === true, 'Google Flow muss strikt sequenziell arbeiten.');
@@ -232,7 +234,7 @@ for (const [label, path] of promptFiles) {
 if (existsSync(allPromptsPath)) {
   const master = read(allPromptsPath);
   assert(master.includes(FLOW_AGENT_PROTOCOL_MARKER), 'Master-Prompt enthält das Flow-Agent-Protokoll nicht.');
-  assert(master.includes(`FLOW_EXECUTION_MODE: ${FLOW_EXECUTION_MODE_ID}`), 'Master-Prompt enthält Strict-Single-Job V3 nicht.');
+  assert(master.includes(`FLOW_EXECUTION_MODE: ${googleFlow.executionModeId}`), `Master-Prompt enthält den Marker zu ${googleFlow.executionModeId} nicht.`);
   assert(master.includes(`FLOW_STATE_MACHINE: ${FLOW_STATE_MACHINE_ID}`), 'Master-Prompt enthält die Flow-State-Machine nicht.');
   assert(/MAX_CONCURRENT_GENERATIONS\s*=\s*1/.test(master) || /CONCURRENCY\s*=\s*1/.test(master), 'Master-Prompt begrenzt die Bildgenerierung nicht auf concurrency=1.');
   assert(master.includes('00-ALLE-BILDER-HIER-REIN'), 'Master-Prompt nennt den finalen Bilderordner nicht.');
@@ -275,7 +277,7 @@ for (const relativePath of [
 
 if (legacyImageWorld) notes.push('Legacy-Bildwelt erkannt: nur Strukturvertrag geprüft; V9-Migration wird nicht rückwirkend erzwungen.');
 else notes.push(`V9-Bildwelt geprüft: ${V9_WORLD_LOCK} · deep black · flexible Objektanzahl.`);
-notes.push(`Google Flow geprüft: ${FLOW_EXECUTION_MODE_ID} · concurrency=1.`);
+notes.push(`Google Flow geprüft: ${googleFlow.executionModeId}${googleFlow.executionModeId === FLOW_EXECUTION_MODE_ID ? ' · scene-01 als Style-Anker · Blöcke zu höchstens 5' : ' · concurrency=1'}.`);
 notes.push(`Phase 3 geprüft: ${PURE_BLACK_CONTRACT} · leere/schwarze Visuals müssen scheitern.`);
 
 if (errors.length) {

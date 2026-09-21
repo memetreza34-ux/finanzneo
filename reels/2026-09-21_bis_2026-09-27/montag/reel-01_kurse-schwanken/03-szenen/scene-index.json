@@ -306,7 +306,7 @@
       "id": "scene-01",
       "type": "image",
       "startFrame": 0,
-      "durationFrames": 114,
+      "durationFrames": 102,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-01",
       "headline": "Dein Depot ist rot",
@@ -325,7 +325,7 @@
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 3.8,
+      "plannedDurationSeconds": 3.4,
       "visualBeats": [
         {
           "id": "scene-01-beat-01",
@@ -333,7 +333,7 @@
           "voiceText": "Dein Depot ist rot und dein Kopf sagt: raus.",
           "visualChange": "Das Handy auf dem Kuechentisch zeigt eine rote fallende Depotkurve und das Label Depot -18 %.",
           "startSecond": 0.0,
-          "endSecond": 3.8
+          "endSecond": 3.4
         }
       ],
       "coverHook": true,
@@ -357,13 +357,14 @@
         "iconRequired": false,
         "captionsRequired": true,
         "captionsFollowVoiceover": true
-      }
+      },
+      "audioTrigger": "Dein Depot ist rot"
     },
     {
       "id": "scene-02",
       "type": "image",
-      "startFrame": 114,
-      "durationFrames": 102,
+      "startFrame": 102,
+      "durationFrames": 67,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-02",
       "headline": "Warte kurz",
@@ -382,7 +383,7 @@
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 3.4,
+      "plannedDurationSeconds": 2.23,
       "visualBeats": [
         {
           "id": "scene-02-beat-01",
@@ -390,7 +391,7 @@
           "voiceText": "Bevor du das machst, schau dir das an.",
           "visualChange": "Der Daumen steht reglos ueber dem roten Verkaufen-Knopf, ohne ihn zu beruehren.",
           "startSecond": 0.0,
-          "endSecond": 3.4
+          "endSecond": 2.23
         }
       ],
       "imageStorytelling": {
@@ -406,13 +407,14 @@
         "standardHeaderRequired": true,
         "iconRequired": true,
         "captionsRequired": true
-      }
+      },
+      "audioTrigger": "Bevor du das machst"
     },
     {
       "id": "scene-03",
       "type": "data",
-      "startFrame": 216,
-      "durationFrames": 330,
+      "startFrame": 169,
+      "durationFrames": 240,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-03",
       "headline": "Zehn Jahre Weltmarkt",
@@ -428,7 +430,7 @@
       "dataSource": "public/data/msci-world.json",
       "dataClaim": "Zehn Jahre Weltmarkt steigen auf das 2,91-fache und fallen zwischendurch 24 Prozent unter das vorherige Hoch.",
       "sourceNote": "Quelle: Yahoo Finance · URTH · 10y, Stand 20.9.2026. Historische Entwicklung, keine Aussage ueber die Zukunft.",
-      "plannedDurationSeconds": 11.0,
+      "plannedDurationSeconds": 8.0,
       "visualBeats": [
         {
           "id": "scene-03-beat-01",
@@ -436,23 +438,23 @@
           "voiceText": "Zehn Jahre Weltmarkt.",
           "visualChange": "Leeres Raster mit einem kleinen Geldstapel links; die Reihe beginnt sich von links zu zeichnen.",
           "startSecond": 0.0,
-          "endSecond": 3.67
+          "endSecond": 2.67
         },
         {
           "id": "scene-03-beat-02",
           "kind": "animation-phase",
           "voiceText": "Aus einem Euro wurden fast drei.",
           "visualChange": "Die Kurve erreicht rechts ihren Hoechststand, der Geldstapel ist auf sechs Muenzen gewachsen.",
-          "startSecond": 3.67,
-          "endSecond": 7.33
+          "startSecond": 2.67,
+          "endSecond": 5.33
         },
         {
           "id": "scene-03-beat-03",
           "kind": "animation-phase",
           "voiceText": "Aber zwischendurch ging es vierundzwanzig Prozent nach unten, fast ein Jahr lang.",
           "visualChange": "Der tiefste Einbruch wird als roter Punkt markiert; 2,91x und -24 % bleiben stehen.",
-          "startSecond": 7.33,
-          "endSecond": 11.0
+          "startSecond": 5.33,
+          "endSecond": 8.0
         }
       ],
       "presentation": {
@@ -495,13 +497,14 @@
         "reuseDecision": "invent-new",
         "reusedTechniqueId": "none",
         "reuseJustification": "none"
-      }
+      },
+      "audioTrigger": "Zehn Jahre Weltmarkt"
     },
     {
       "id": "scene-04",
       "type": "image",
-      "startFrame": 546,
-      "durationFrames": 102,
+      "startFrame": 409,
+      "durationFrames": 67,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-04",
       "headline": "Genau hier steigen viele aus",
@@ -520,7 +523,7 @@
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 3.4,
+      "plannedDurationSeconds": 2.23,
       "visualBeats": [
         {
           "id": "scene-04-beat-01",
@@ -528,7 +531,7 @@
           "voiceText": "Genau da steigen die meisten aus.",
           "visualChange": "Der Daumen drueckt den Verkaufen-Knopf, waehrend die gedruckte Kurve genau am Tiefpunkt endet.",
           "startSecond": 0.0,
-          "endSecond": 3.4
+          "endSecond": 2.23
         }
       ],
       "imageStorytelling": {
@@ -544,13 +547,14 @@
         "standardHeaderRequired": true,
         "iconRequired": true,
         "captionsRequired": true
-      }
+      },
+      "audioTrigger": "Genau da steigen die meisten aus"
     },
     {
       "id": "scene-05",
       "type": "animation",
-      "startFrame": 648,
-      "durationFrames": 285,
+      "startFrame": 476,
+      "durationFrames": 168,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-05",
       "headline": "Verkaufen macht den Verlust echt",
@@ -563,7 +567,7 @@
       "animationIntent": "Zwei Depotwerte starten gleich hoch; einer wird am Tiefpunkt verkauft und bleibt unten, der andere bleibt liegen und steht am Ende wieder oberhalb des Starts.",
       "animationQualityLock": "finanzneo-phase1-animation-code-v1",
       "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
-      "plannedDurationSeconds": 9.5,
+      "plannedDurationSeconds": 5.6,
       "visualBeats": [
         {
           "id": "scene-05-beat-01",
@@ -571,23 +575,23 @@
           "voiceText": "Wer verkauft, macht den Verlust echt.",
           "visualChange": "Beide Depots fallen gemeinsam von 10.000 auf 7.600 Euro.",
           "startSecond": 0.0,
-          "endSecond": 3.17
+          "endSecond": 1.87
         },
         {
           "id": "scene-05-beat-02",
           "kind": "animation-phase",
           "voiceText": "Wer liegen laesst, wartet ihn aus.",
           "visualChange": "Aus dem linken Depot wandert das Geld als Stapel heraus, sein Wert friert bei 7.600 Euro ein.",
-          "startSecond": 3.17,
-          "endSecond": 6.33
+          "startSecond": 1.87,
+          "endSecond": 3.73
         },
         {
           "id": "scene-05-beat-03",
           "kind": "animation-phase",
           "voiceText": "Das Geld war nie weg.",
           "visualChange": "Das rechte Depot bleibt unangetastet und steigt auf 11.900 Euro.",
-          "startSecond": 6.33,
-          "endSecond": 9.5
+          "startSecond": 3.73,
+          "endSecond": 5.6
         }
       ],
       "presentation": {
@@ -630,13 +634,14 @@
         "reuseDecision": "invent-new",
         "reusedTechniqueId": "none",
         "reuseJustification": "none"
-      }
+      },
+      "audioTrigger": "Wer verkauft, macht den Verlust echt"
     },
     {
       "id": "scene-06",
       "type": "data",
-      "startFrame": 933,
-      "durationFrames": 270,
+      "startFrame": 644,
+      "durationFrames": 194,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-06",
       "headline": "Was daraus wachsen kann",
@@ -652,7 +657,7 @@
       "dataSource": "sparplanFuerAnimation",
       "dataClaim": "Aus 72.000 Euro Einzahlung werden in dreissig Jahren rund 200.900 Euro, der groessere Teil davon sind Zinsen.",
       "sourceNote": "Beispielannahme: 200 Euro monatlich, 6 Prozent pro Jahr, 30 Jahre. Keine Zusage einer Rendite.",
-      "plannedDurationSeconds": 9.0,
+      "plannedDurationSeconds": 6.47,
       "visualBeats": [
         {
           "id": "scene-06-beat-01",
@@ -660,15 +665,15 @@
           "voiceText": "Und zweihundert Euro im Monat werden in dreissig Jahren zu ueber zweihunderttausend.",
           "visualChange": "Die blaue Einzahlungsflaeche und die goldene Zinsflaeche wachsen gemeinsam nach rechts.",
           "startSecond": 0.0,
-          "endSecond": 4.5
+          "endSecond": 3.23
         },
         {
           "id": "scene-06-beat-02",
           "kind": "animation-phase",
           "voiceText": "Der groesste Teil davon sind Zinsen.",
           "visualChange": "Die goldene Flaeche ist am Ende sichtbar groesser; 72.000 Euro eingezahlt und 128.903 Euro Zinsen bleiben stehen.",
-          "startSecond": 4.5,
-          "endSecond": 9.0
+          "startSecond": 3.23,
+          "endSecond": 6.47
         }
       ],
       "presentation": {
@@ -711,13 +716,14 @@
         "reuseDecision": "invent-new",
         "reusedTechniqueId": "none",
         "reuseJustification": "none"
-      }
+      },
+      "audioTrigger": "Und 200 Euro im Monat"
     },
     {
       "id": "scene-07",
       "type": "image",
-      "startFrame": 1203,
-      "durationFrames": 102,
+      "startFrame": 838,
+      "durationFrames": 48,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-07",
       "headline": "Nicht weil du clever warst",
@@ -736,7 +742,7 @@
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 3.4,
+      "plannedDurationSeconds": 1.6,
       "visualBeats": [
         {
           "id": "scene-07-beat-01",
@@ -744,7 +750,7 @@
           "voiceText": "Nicht weil du clever warst.",
           "visualChange": "Das Handy liegt mit dem Display nach unten, der Blick geht zum Wandkalender mit zehn Jahresblaettern.",
           "startSecond": 0.0,
-          "endSecond": 3.4
+          "endSecond": 1.6
         }
       ],
       "imageStorytelling": {
@@ -760,13 +766,14 @@
         "standardHeaderRequired": true,
         "iconRequired": true,
         "captionsRequired": true
-      }
+      },
+      "audioTrigger": "Nicht weil du clever warst"
     },
     {
       "id": "scene-08",
       "type": "image",
-      "startFrame": 1305,
-      "durationFrames": 108,
+      "startFrame": 886,
+      "durationFrames": 49,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-08",
       "headline": "Sondern weil du drin bleibst",
@@ -786,7 +793,7 @@
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 3.6,
+      "plannedDurationSeconds": 1.63,
       "visualBeats": [
         {
           "id": "scene-08-beat-01",
@@ -794,7 +801,7 @@
           "voiceText": "Sondern weil du drin geblieben bist.",
           "visualChange": "Das unberuehrte Handy liegt neben zehn abgehakten Jahren, der Depotauszug endet oberhalb seines Anfangs.",
           "startSecond": 0.0,
-          "endSecond": 3.6
+          "endSecond": 1.63
         }
       ],
       "imageStorytelling": {
@@ -810,7 +817,8 @@
         "standardHeaderRequired": true,
         "iconRequired": true,
         "captionsRequired": true
-      }
+      },
+      "audioTrigger": "sondern weil du drin geblieben bist"
     }
   ],
   "phase3CompletionContract": {

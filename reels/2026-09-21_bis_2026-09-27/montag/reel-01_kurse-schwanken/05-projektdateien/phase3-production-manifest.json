@@ -1,0 +1,164 @@
+{
+  "version": 2,
+  "contractId": "finanzneo-phase3-completion-v1",
+  "name": "Langfristig hoch, aber nie gerade",
+  "reelProject": "reels/2026-09-21_bis_2026-09-27/montag/reel-01_kurse-schwanken",
+  "composition": "KurseSchwankenReel",
+  "compositionSourcePath": "src/reels/kurse-schwanken/KurseSchwankenReel.tsx",
+  "entryPoint": "src/index.ts",
+  "output": "out/reel-01_kurse-schwanken.mp4",
+  "status": "READY_TO_RENDER",
+  "globalLayers": {
+    "audioImplemented": true,
+    "captionsImplemented": true,
+    "sceneHeadersImplemented": true
+  },
+  "assets": [
+    {
+      "id": "scene-01",
+      "kind": "image",
+      "path": "public/reels/kurse-schwanken/images/scene-01.png",
+      "sourceFileName": "Bild 01 - Rotes Depot am Kuechentisch.png"
+    },
+    {
+      "id": "scene-02",
+      "kind": "image",
+      "path": "public/reels/kurse-schwanken/images/scene-02.png",
+      "sourceFileName": "Bild 02 - Daumen ueber Verkaufen.png"
+    },
+    {
+      "id": "scene-04",
+      "kind": "image",
+      "path": "public/reels/kurse-schwanken/images/scene-04.png",
+      "sourceFileName": "Bild 04 - Verkauf am Tiefpunkt.png"
+    },
+    {
+      "id": "scene-07",
+      "kind": "image",
+      "path": "public/reels/kurse-schwanken/images/scene-07.png",
+      "sourceFileName": "Bild 07 - Blick auf den Kalender.png"
+    },
+    {
+      "id": "scene-08",
+      "kind": "image",
+      "path": "public/reels/kurse-schwanken/images/scene-08.png",
+      "sourceFileName": "Bild 08 - Zehn Jahre nicht angefasst.png"
+    },
+    {
+      "id": "voiceover",
+      "kind": "audio",
+      "path": "public/reels/kurse-schwanken/voiceover.m4a",
+      "sourceFileName": "voiceover.m4a"
+    },
+    {
+      "id": "word-timings",
+      "kind": "captions",
+      "path": "reels/2026-09-21_bis_2026-09-27/montag/reel-01_kurse-schwanken/04-caption/word-timings.json",
+      "sourceFileName": "word-timings.json"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "implemented": true,
+      "visualKind": "image",
+      "visualLayerRequired": true,
+      "captionOnlyForbidden": true,
+      "startFrame": 0,
+      "durationFrames": 102,
+      "sourceImageFileName": "Bild 01 - Rotes Depot am Kuechentisch.png",
+      "assetPath": "public/reels/kurse-schwanken/images/scene-01.png"
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "implemented": true,
+      "visualKind": "image",
+      "visualLayerRequired": true,
+      "captionOnlyForbidden": true,
+      "startFrame": 102,
+      "durationFrames": 67,
+      "sourceImageFileName": "Bild 02 - Daumen ueber Verkaufen.png",
+      "assetPath": "public/reels/kurse-schwanken/images/scene-02.png"
+    },
+    {
+      "id": "scene-03",
+      "type": "data",
+      "implemented": true,
+      "visualKind": "data",
+      "visualLayerRequired": true,
+      "captionOnlyForbidden": true,
+      "startFrame": 169,
+      "durationFrames": 240,
+      "canonicalSourcePath": "reels/2026-09-21_bis_2026-09-27/montag/reel-01_kurse-schwanken/03-szenen/EINZELNE-SZENEN/scene-03/animation.tsx",
+      "canonicalSourceSha256": "9972ee6841f1fa8baf0c46985c9c9166a07224e0662da8a0a02fa4ff457d4e35",
+      "componentPath": "reels/2026-09-21_bis_2026-09-27/montag/reel-01_kurse-schwanken/03-szenen/EINZELNE-SZENEN/scene-03/animation.tsx",
+      "componentExport": "Scene03Animation"
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "implemented": true,
+      "visualKind": "image",
+      "visualLayerRequired": true,
+      "captionOnlyForbidden": true,
+      "startFrame": 409,
+      "durationFrames": 67,
+      "sourceImageFileName": "Bild 04 - Verkauf am Tiefpunkt.png",
+      "assetPath": "public/reels/kurse-schwanken/images/scene-04.png"
+    },
+    {
+      "id": "scene-05",
+      "type": "animation",
+      "implemented": true,
+      "visualKind": "animation",
+      "visualLayerRequired": true,
+      "captionOnlyForbidden": true,
+      "startFrame": 476,
+      "durationFrames": 168,
+      "canonicalSourcePath": "reels/2026-09-21_bis_2026-09-27/montag/reel-01_kurse-schwanken/03-szenen/EINZELNE-SZENEN/scene-05/animation.tsx",
+      "canonicalSourceSha256": "a4ef54ce692869270f3ee1fea687452414abc8de8138bdc7433d0ac2733ae1bf",
+      "componentPath": "reels/2026-09-21_bis_2026-09-27/montag/reel-01_kurse-schwanken/03-szenen/EINZELNE-SZENEN/scene-05/animation.tsx",
+      "componentExport": "Scene05Animation"
+    },
+    {
+      "id": "scene-06",
+      "type": "data",
+      "implemented": true,
+      "visualKind": "data",
+      "visualLayerRequired": true,
+      "captionOnlyForbidden": true,
+      "startFrame": 644,
+      "durationFrames": 194,
+      "canonicalSourcePath": "reels/2026-09-21_bis_2026-09-27/montag/reel-01_kurse-schwanken/03-szenen/EINZELNE-SZENEN/scene-06/animation.tsx",
+      "canonicalSourceSha256": "b5569a1f8d032194f44ef4e599d4f54cc18daf08dd4a0d24d6d0201a74ceef2f",
+      "componentPath": "reels/2026-09-21_bis_2026-09-27/montag/reel-01_kurse-schwanken/03-szenen/EINZELNE-SZENEN/scene-06/animation.tsx",
+      "componentExport": "Scene06Animation"
+    },
+    {
+      "id": "scene-07",
+      "type": "image",
+      "implemented": true,
+      "visualKind": "image",
+      "visualLayerRequired": true,
+      "captionOnlyForbidden": true,
+      "startFrame": 838,
+      "durationFrames": 48,
+      "sourceImageFileName": "Bild 07 - Blick auf den Kalender.png",
+      "assetPath": "public/reels/kurse-schwanken/images/scene-07.png"
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "implemented": true,
+      "visualKind": "image",
+      "visualLayerRequired": true,
+      "captionOnlyForbidden": true,
+      "startFrame": 886,
+      "durationFrames": 49,
+      "sourceImageFileName": "Bild 08 - Zehn Jahre nicht angefasst.png",
+      "assetPath": "public/reels/kurse-schwanken/images/scene-08.png"
+    }
+  ]
+}

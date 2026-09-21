@@ -59,11 +59,11 @@ const punktBei = (index: number) => {
   };
 };
 
-export const Scene03Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 330}) => {
+export const Scene03Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 240}) => {
   const frame = useCurrentFrame();
-  const zeichnen = ease(frame, 24, 210);
-  const marke = settle(frame, 214, 244);
-  const kennzahlen = settle(frame, 248, 278);
+  const zeichnen = ease(frame, 16, 142);
+  const marke = settle(frame, 146, 166);
+  const kennzahlen = settle(frame, 170, 190);
 
   const tief = punktBei(TIEFPUNKT);
   const ende = punktBei(REIHE.punkte.length - 1);
@@ -73,7 +73,7 @@ export const Scene03Animation: React.FC<{durationFrames?: number}> = ({durationF
   return (
     <PremiumPhysicalStage>
       {/* Der Stapel wächst mit der Reihe: die Kurve bekommt einen Körper. */}
-      <PhysicalCoinStack x={96} y={720} count={muenzen} scale={1.15} opacity={ease(frame, 8, 34)} />
+      <PhysicalCoinStack x={150} y={720} count={muenzen} scale={1.15} opacity={ease(frame, 8, 34)} />
 
       <svg
         width={FLAECHE.breite}
@@ -138,7 +138,7 @@ export const Scene03Animation: React.FC<{durationFrames?: number}> = ({durationF
       ) : null}
 
       <svg width={1080} height={1920} style={{position: 'absolute', left: 0, top: 0}}>
-        <circle cx={ende.x} cy={ende.y} r={16} fill={ANIMATION_COLORS.positive} opacity={ease(frame, 196, 216)} />
+        <circle cx={ende.x} cy={ende.y} r={16} fill={ANIMATION_COLORS.positive} opacity={ease(frame, 134, 148)} />
       </svg>
 
       <div
@@ -187,7 +187,7 @@ export const Scene03Animation: React.FC<{durationFrames?: number}> = ({durationF
           fontFamily: FONT.body,
           fontSize: 24,
           color: ANIMATION_COLORS.neutralText,
-          opacity: ease(frame, 260, durationFrames - RESULT_HOLD_FRAMES) * 0.85,
+          opacity: ease(frame, 178, durationFrames - RESULT_HOLD_FRAMES) * 0.85,
         }}
       >
         Quelle: Yahoo Finance · URTH · 10y, Stand 20.9.2026. Historische Entwicklung, keine Aussage ueber die Zukunft.

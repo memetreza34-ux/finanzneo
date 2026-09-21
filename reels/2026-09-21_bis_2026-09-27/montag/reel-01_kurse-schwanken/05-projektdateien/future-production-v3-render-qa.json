@@ -1,0 +1,111 @@
+{
+  "version": 3,
+  "contractId": "finanzneo-future-production-v3",
+  "presentationContractId": "finanzneo-future-reel-presentation-v1",
+  "coverHookContractId": "finanzneo-cover-hook-v3",
+  "qualityGuardContractId": "finanzneo-reel-quality-guards-v1",
+  "status": "PASSED",
+  "generatedAt": "2026-09-20T17:54:12.249Z",
+  "loudness": {
+    "integratedLufs": -16.43,
+    "truePeakDbtp": -2.22,
+    "lra": 2.4
+  },
+  "animationFraming": {
+    "minPeakActivePixelRatio": 0.15,
+    "minMedianActivePixelRatio": 0.12,
+    "scenes": [
+      {
+        "id": "scene-05",
+        "passed": true,
+        "peakActivePixelRatio": 0.3313,
+        "medianActivePixelRatio": 0.3097,
+        "samples": [
+          {
+            "ratio": 0.2,
+            "frame": 510,
+            "time": 17,
+            "activePixelRatio": 0.3097
+          },
+          {
+            "ratio": 0.5,
+            "frame": 560,
+            "time": 18.667,
+            "activePixelRatio": 0.3093
+          },
+          {
+            "ratio": 0.8,
+            "frame": 610,
+            "time": 20.333,
+            "activePixelRatio": 0.3313
+          }
+        ]
+      }
+    ]
+  },
+  "presentation": {
+    "headerAndCaptionRenderedQa": true,
+    "coverCaptionContinuityChecked": true,
+    "imageOccupancyRenderedQa": true,
+    "scenes": [
+      {
+        "id": "scene-01",
+        "headerActivePixelRatio": 0.0974,
+        "captionPeakActivePixelRatio": 0.136,
+        "imageActivePixelRatio": 0.4439,
+        "passed": true
+      },
+      {
+        "id": "scene-02",
+        "headerActivePixelRatio": 0.0646,
+        "captionPeakActivePixelRatio": 0.0822,
+        "imageActivePixelRatio": 0.8233,
+        "passed": true
+      },
+      {
+        "id": "scene-03",
+        "headerActivePixelRatio": 0.1271,
+        "captionPeakActivePixelRatio": 0.1502,
+        "imageActivePixelRatio": null,
+        "passed": true
+      },
+      {
+        "id": "scene-04",
+        "headerActivePixelRatio": 0.1583,
+        "captionPeakActivePixelRatio": 0.128,
+        "imageActivePixelRatio": 0.7274,
+        "passed": true
+      },
+      {
+        "id": "scene-05",
+        "headerActivePixelRatio": 0.1833,
+        "captionPeakActivePixelRatio": 0.1209,
+        "imageActivePixelRatio": null,
+        "passed": true
+      },
+      {
+        "id": "scene-06",
+        "headerActivePixelRatio": 0.1495,
+        "captionPeakActivePixelRatio": 0.1471,
+        "imageActivePixelRatio": null,
+        "passed": true
+      },
+      {
+        "id": "scene-07",
+        "headerActivePixelRatio": 0.1417,
+        "captionPeakActivePixelRatio": 0.1369,
+        "imageActivePixelRatio": 0.4491,
+        "passed": true
+      },
+      {
+        "id": "scene-08",
+        "headerActivePixelRatio": 0.1589,
+        "captionPeakActivePixelRatio": 0.1369,
+        "imageActivePixelRatio": 0.51,
+        "passed": true
+      }
+    ]
+  },
+  "animationEdgeBandQaPassed": true,
+  "failures": []
+}

@@ -1,0 +1,484 @@
+{
+  "version": 2,
+  "contractId": "finanzneo-phase3-completion-v1",
+  "status": "PASSED",
+  "generatedAt": "2026-09-20T17:54:08.141Z",
+  "reelProject": "reels/2026-09-21_bis_2026-09-27/montag/reel-01_kurse-schwanken",
+  "composition": "KurseSchwankenReel",
+  "validatedVideoPath": "out/reel-01_kurse-schwanken.mp4",
+  "analyzedVideoPath": "out/reel-01_kurse-schwanken.phase3-candidate.mp4",
+  "videoSha256": "9c2c6f77a3ef1faa2d4e89a783b0aa8f93b35ed33b729691a0a9cc7dc114ec0f",
+  "videoSize": 6127806,
+  "sceneIndexSha256": "e4035458b026f427070a1c872b61500d1cf2412afd7ceac963705b63423a399d",
+  "productionManifestSha256": "6f67b57ff05d61ebfa7967a92510d0dda27c9871f3bbc887196b0b70ffc9726c",
+  "width": 1080,
+  "height": 1920,
+  "duration": 31.3,
+  "expectedDuration": 31.166666666666668,
+  "fps": 30,
+  "audioStreamPresent": true,
+  "visualCrop": {
+    "x": 92,
+    "y": 390,
+    "width": 896,
+    "height": 840,
+    "excludesHeaderAndCaptions": true
+  },
+  "backgroundCrop": {
+    "x": 0,
+    "y": 360,
+    "width": 48,
+    "height": 920,
+    "expected": "#000000",
+    "excludesContent": true
+  },
+  "sceneCount": 8,
+  "imageSceneCount": 5,
+  "animationSceneCount": 1,
+  "dataSceneCount": 2,
+  "checks": {
+    "allScenesImplemented": true,
+    "audioStreamPresent": true,
+    "captionOnlySceneForbidden": true,
+    "visualCoreSampledPerScene": true,
+    "activeVisualOccupancyChecked": true,
+    "animationMotionChecked": true,
+    "pureBlackBackgroundChecked": true,
+    "exactVideoHashRecorded": true
+  },
+  "failures": [],
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "passed": true,
+      "structuredSamples": 1,
+      "blackBackground": true,
+      "animationMeanAbsDiff": null,
+      "samples": [
+        {
+          "ratio": 0.5,
+          "frame": 51,
+          "time": 1.7,
+          "metrics": {
+            "mean": 38.707,
+            "stdDev": 55.317,
+            "contrastP90P10": 123,
+            "edgeMean": 6.695,
+            "activePixelRatio": 0.4439
+          }
+        }
+      ],
+      "backgroundSamples": [
+        {
+          "ratio": 0.5,
+          "frame": 51,
+          "time": 1.7,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "passed": true,
+      "structuredSamples": 1,
+      "blackBackground": true,
+      "animationMeanAbsDiff": null,
+      "samples": [
+        {
+          "ratio": 0.5,
+          "frame": 136,
+          "time": 4.533,
+          "metrics": {
+            "mean": 135.918,
+            "stdDev": 75.738,
+            "contrastP90P10": 204,
+            "edgeMean": 7.301,
+            "activePixelRatio": 0.8233
+          }
+        }
+      ],
+      "backgroundSamples": [
+        {
+          "ratio": 0.5,
+          "frame": 136,
+          "time": 4.533,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-03",
+      "type": "data",
+      "passed": true,
+      "structuredSamples": 2,
+      "blackBackground": true,
+      "animationMeanAbsDiff": 6.691,
+      "samples": [
+        {
+          "ratio": 0.2,
+          "frame": 217,
+          "time": 7.233,
+          "metrics": {
+            "mean": 7.267,
+            "stdDev": 27.489,
+            "contrastP90P10": 9,
+            "edgeMean": 2.783,
+            "activePixelRatio": 0.0668
+          }
+        },
+        {
+          "ratio": 0.5,
+          "frame": 289,
+          "time": 9.633,
+          "metrics": {
+            "mean": 8.897,
+            "stdDev": 29.403,
+            "contrastP90P10": 17,
+            "edgeMean": 3.072,
+            "activePixelRatio": 0.0939
+          }
+        },
+        {
+          "ratio": 0.8,
+          "frame": 361,
+          "time": 12.033,
+          "metrics": {
+            "mean": 15.509,
+            "stdDev": 37.782,
+            "contrastP90P10": 60,
+            "edgeMean": 7.777,
+            "activePixelRatio": 0.1728
+          }
+        }
+      ],
+      "backgroundSamples": [
+        {
+          "ratio": 0.2,
+          "frame": 217,
+          "time": 7.233,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        },
+        {
+          "ratio": 0.5,
+          "frame": 289,
+          "time": 9.633,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        },
+        {
+          "ratio": 0.8,
+          "frame": 361,
+          "time": 12.033,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "passed": true,
+      "structuredSamples": 1,
+      "blackBackground": true,
+      "animationMeanAbsDiff": null,
+      "samples": [
+        {
+          "ratio": 0.5,
+          "frame": 443,
+          "time": 14.767,
+          "metrics": {
+            "mean": 123.102,
+            "stdDev": 94.298,
+            "contrastP90P10": 242,
+            "edgeMean": 9.683,
+            "activePixelRatio": 0.7274
+          }
+        }
+      ],
+      "backgroundSamples": [
+        {
+          "ratio": 0.5,
+          "frame": 443,
+          "time": 14.767,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-05",
+      "type": "animation",
+      "passed": true,
+      "structuredSamples": 3,
+      "blackBackground": true,
+      "animationMeanAbsDiff": 16.997,
+      "samples": [
+        {
+          "ratio": 0.2,
+          "frame": 510,
+          "time": 17,
+          "metrics": {
+            "mean": 66.892,
+            "stdDev": 103.507,
+            "contrastP90P10": 248,
+            "edgeMean": 6.084,
+            "activePixelRatio": 0.3097
+          }
+        },
+        {
+          "ratio": 0.5,
+          "frame": 560,
+          "time": 18.667,
+          "metrics": {
+            "mean": 54.414,
+            "stdDev": 88.397,
+            "contrastP90P10": 227,
+            "edgeMean": 5.276,
+            "activePixelRatio": 0.3093
+          }
+        },
+        {
+          "ratio": 0.8,
+          "frame": 610,
+          "time": 20.333,
+          "metrics": {
+            "mean": 41.519,
+            "stdDev": 63.663,
+            "contrastP90P10": 149,
+            "edgeMean": 5.626,
+            "activePixelRatio": 0.3313
+          }
+        }
+      ],
+      "backgroundSamples": [
+        {
+          "ratio": 0.2,
+          "frame": 510,
+          "time": 17,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        },
+        {
+          "ratio": 0.5,
+          "frame": 560,
+          "time": 18.667,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        },
+        {
+          "ratio": 0.8,
+          "frame": 610,
+          "time": 20.333,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-06",
+      "type": "data",
+      "passed": true,
+      "structuredSamples": 3,
+      "blackBackground": true,
+      "animationMeanAbsDiff": 8.636,
+      "samples": [
+        {
+          "ratio": 0.2,
+          "frame": 683,
+          "time": 22.767,
+          "metrics": {
+            "mean": 15.327,
+            "stdDev": 41.119,
+            "contrastP90P10": 82,
+            "edgeMean": 5.597,
+            "activePixelRatio": 0.1423
+          }
+        },
+        {
+          "ratio": 0.5,
+          "frame": 741,
+          "time": 24.7,
+          "metrics": {
+            "mean": 20.579,
+            "stdDev": 44.705,
+            "contrastP90P10": 98,
+            "edgeMean": 6.188,
+            "activePixelRatio": 0.2029
+          }
+        },
+        {
+          "ratio": 0.8,
+          "frame": 799,
+          "time": 26.633,
+          "metrics": {
+            "mean": 22.778,
+            "stdDev": 46.459,
+            "contrastP90P10": 98,
+            "edgeMean": 7.783,
+            "activePixelRatio": 0.2254
+          }
+        }
+      ],
+      "backgroundSamples": [
+        {
+          "ratio": 0.2,
+          "frame": 683,
+          "time": 22.767,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        },
+        {
+          "ratio": 0.5,
+          "frame": 741,
+          "time": 24.7,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        },
+        {
+          "ratio": 0.8,
+          "frame": 799,
+          "time": 26.633,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-07",
+      "type": "image",
+      "passed": true,
+      "structuredSamples": 1,
+      "blackBackground": true,
+      "animationMeanAbsDiff": null,
+      "samples": [
+        {
+          "ratio": 0.5,
+          "frame": 862,
+          "time": 28.733,
+          "metrics": {
+            "mean": 77.044,
+            "stdDev": 90.578,
+            "contrastP90P10": 219,
+            "edgeMean": 9.037,
+            "activePixelRatio": 0.4491
+          }
+        }
+      ],
+      "backgroundSamples": [
+        {
+          "ratio": 0.5,
+          "frame": 862,
+          "time": 28.733,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "passed": true,
+      "structuredSamples": 1,
+      "blackBackground": true,
+      "animationMeanAbsDiff": null,
+      "samples": [
+        {
+          "ratio": 0.5,
+          "frame": 911,
+          "time": 30.367,
+          "metrics": {
+            "mean": 74.653,
+            "stdDev": 81.989,
+            "contrastP90P10": 223,
+            "edgeMean": 5.9,
+            "activePixelRatio": 0.51
+          }
+        }
+      ],
+      "backgroundSamples": [
+        {
+          "ratio": 0.5,
+          "frame": 911,
+          "time": 30.367,
+          "metrics": {
+            "mean": 0,
+            "stdDev": 0,
+            "contrastP90P10": 0,
+            "edgeMean": 0,
+            "activePixelRatio": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -18,21 +18,21 @@ import {PhysicalAccount, PhysicalCoinStack, PremiumPhysicalStage} from '../../..
  * MATERIAL: Warnrot für das verkaufte Depot, Emerald für das liegengebliebene, Gold für das entnommene Geld.
  * DEPTH: Depots hinten nebeneinander, der Stapel kommt nach vorne aus dem linken heraus.
  */
-export const RESULT_HOLD_FRAMES = 26;
+export const RESULT_HOLD_FRAMES = 20;
 
 const START = 10000;
 const TIEF = 7600;
 const ENDE = 11900;
 
-export const Scene05Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 285}) => {
+export const Scene05Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 168}) => {
   const frame = useCurrentFrame();
 
   // Drei getrennte Bewegungen statt einer globalen Variable: der gemeinsame
   // Fall, der Verkauf am Tiefpunkt und die spätere Erholung nur rechts.
-  const fallen = ease(frame, 20, 96);
-  const verkaufen = ease(frame, 104, 152);
-  const erholen = ease(frame, 160, 246);
-  const schluss = settle(frame, 232, 262);
+  const fallen = ease(frame, 12, 62);
+  const verkaufen = ease(frame, 66, 100);
+  const erholen = ease(frame, 98, 142);
+  const schluss = settle(frame, 128, 148);
 
   const linksWert = START - (START - TIEF) * fallen;
   const rechtsWert = START - (START - TIEF) * fallen + (ENDE - TIEF) * erholen;
@@ -42,7 +42,7 @@ export const Scene05Animation: React.FC<{durationFrames?: number}> = ({durationF
   return (
     <PremiumPhysicalStage>
       <PhysicalAccount
-        x={96}
+        x={130}
         y={620}
         label="verkauft"
         balance={euroText(linksWert)}
@@ -51,7 +51,7 @@ export const Scene05Animation: React.FC<{durationFrames?: number}> = ({durationF
       />
 
       <PhysicalAccount
-        x={592}
+        x={520}
         y={620}
         label="liegen gelassen"
         balance={euroText(rechtsWert)}
@@ -61,7 +61,7 @@ export const Scene05Animation: React.FC<{durationFrames?: number}> = ({durationF
 
       {/* Das Geld verlässt das linke Depot sichtbar — der Verkauf hat einen Körper. */}
       <PhysicalCoinStack
-        x={150}
+        x={190}
         y={1060 + (1 - verkaufen) * 120}
         coins={5}
         progress={verkaufen}
@@ -111,7 +111,7 @@ export const Scene05Animation: React.FC<{durationFrames?: number}> = ({durationF
           fontFamily: FONT.body,
           fontSize: 28,
           color: ANIMATION_COLORS.neutralText,
-          opacity: ease(frame, 200, durationFrames - RESULT_HOLD_FRAMES) * 0.85,
+          opacity: ease(frame, 112, durationFrames - RESULT_HOLD_FRAMES) * 0.85,
         }}
       >
         Beispielhafte Betraege zur Veranschaulichung, keine echte Kursreihe.

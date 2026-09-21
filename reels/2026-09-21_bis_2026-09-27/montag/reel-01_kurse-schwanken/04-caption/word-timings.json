@@ -1,13 +1,1016 @@
 {
   "version": "finanzneo-caption-v1",
   "language": "de",
-  "source": "",
-  "generatedAt": "",
-  "duration": 0,
-  "wordCount": 0,
+  "source": "02-audio/voiceover.m4a",
+  "generatedAt": "2026-09-20T17:52:30.336501Z",
+  "duration": 30.8,
+  "wordCount": 91,
   "fps": 30,
   "subtitleMode": "sentence-with-audio-synced-active-word",
   "activeWordColor": "finance-green",
-  "words": [],
-  "sentences": []
+  "words": [
+    {
+      "word": "Dein",
+      "start": 0.0,
+      "end": 0.18
+    },
+    {
+      "word": "Depot",
+      "start": 0.18,
+      "end": 0.54
+    },
+    {
+      "word": "ist",
+      "start": 0.54,
+      "end": 0.78
+    },
+    {
+      "word": "rot",
+      "start": 0.78,
+      "end": 1.12
+    },
+    {
+      "word": "und",
+      "start": 1.12,
+      "end": 1.7
+    },
+    {
+      "word": "dein",
+      "start": 1.7,
+      "end": 1.84
+    },
+    {
+      "word": "Kopf",
+      "start": 1.84,
+      "end": 2.1
+    },
+    {
+      "word": "sagt",
+      "start": 2.1,
+      "end": 2.42
+    },
+    {
+      "word": "raus.",
+      "start": 2.42,
+      "end": 2.92
+    },
+    {
+      "word": "Bevor",
+      "start": 3.4,
+      "end": 3.68
+    },
+    {
+      "word": "du",
+      "start": 3.68,
+      "end": 3.82
+    },
+    {
+      "word": "das",
+      "start": 3.82,
+      "end": 3.98
+    },
+    {
+      "word": "machst,",
+      "start": 3.98,
+      "end": 4.26
+    },
+    {
+      "word": "schau",
+      "start": 4.68,
+      "end": 4.78
+    },
+    {
+      "word": "dir",
+      "start": 4.78,
+      "end": 4.92
+    },
+    {
+      "word": "das",
+      "start": 4.92,
+      "end": 5.16
+    },
+    {
+      "word": "an.",
+      "start": 5.16,
+      "end": 5.4
+    },
+    {
+      "word": "Zehn",
+      "start": 5.62,
+      "end": 5.88
+    },
+    {
+      "word": "Jahre",
+      "start": 5.88,
+      "end": 6.1
+    },
+    {
+      "word": "Weltmarkt.",
+      "start": 6.1,
+      "end": 6.78
+    },
+    {
+      "word": "Aus",
+      "start": 7.06,
+      "end": 7.22
+    },
+    {
+      "word": "einem",
+      "start": 7.22,
+      "end": 7.52
+    },
+    {
+      "word": "Euro",
+      "start": 7.52,
+      "end": 7.9
+    },
+    {
+      "word": "wurden",
+      "start": 7.9,
+      "end": 8.26
+    },
+    {
+      "word": "fast",
+      "start": 8.26,
+      "end": 8.62
+    },
+    {
+      "word": "drei.",
+      "start": 8.62,
+      "end": 9.02
+    },
+    {
+      "word": "Aber",
+      "start": 9.26,
+      "end": 9.36
+    },
+    {
+      "word": "zwischendurch",
+      "start": 9.36,
+      "end": 10.04
+    },
+    {
+      "word": "ging",
+      "start": 10.04,
+      "end": 10.34
+    },
+    {
+      "word": "es",
+      "start": 10.34,
+      "end": 10.5
+    },
+    {
+      "word": "24",
+      "start": 10.5,
+      "end": 11.1
+    },
+    {
+      "word": "%",
+      "start": 11.1,
+      "end": 11.6
+    },
+    {
+      "word": "nach",
+      "start": 11.6,
+      "end": 11.82
+    },
+    {
+      "word": "unten.",
+      "start": 11.82,
+      "end": 12.12
+    },
+    {
+      "word": "Fast",
+      "start": 12.44,
+      "end": 12.64
+    },
+    {
+      "word": "ein",
+      "start": 12.64,
+      "end": 13.0
+    },
+    {
+      "word": "Jahr",
+      "start": 13.0,
+      "end": 13.24
+    },
+    {
+      "word": "lang.",
+      "start": 13.24,
+      "end": 13.46
+    },
+    {
+      "word": "Genau",
+      "start": 13.62,
+      "end": 13.94
+    },
+    {
+      "word": "da",
+      "start": 13.94,
+      "end": 14.28
+    },
+    {
+      "word": "steigen",
+      "start": 14.28,
+      "end": 14.72
+    },
+    {
+      "word": "die",
+      "start": 14.72,
+      "end": 14.86
+    },
+    {
+      "word": "meisten",
+      "start": 14.86,
+      "end": 15.18
+    },
+    {
+      "word": "aus.",
+      "start": 15.18,
+      "end": 15.48
+    },
+    {
+      "word": "Wer",
+      "start": 15.88,
+      "end": 16.0
+    },
+    {
+      "word": "verkauft,",
+      "start": 16.0,
+      "end": 16.48
+    },
+    {
+      "word": "macht",
+      "start": 16.88,
+      "end": 17.02
+    },
+    {
+      "word": "den",
+      "start": 17.02,
+      "end": 17.16
+    },
+    {
+      "word": "Verlust",
+      "start": 17.16,
+      "end": 17.5
+    },
+    {
+      "word": "echt.",
+      "start": 17.5,
+      "end": 17.82
+    },
+    {
+      "word": "Wer",
+      "start": 18.18,
+      "end": 18.32
+    },
+    {
+      "word": "liegen",
+      "start": 18.32,
+      "end": 18.56
+    },
+    {
+      "word": "lässt,",
+      "start": 18.56,
+      "end": 18.9
+    },
+    {
+      "word": "wartet",
+      "start": 19.24,
+      "end": 19.44
+    },
+    {
+      "word": "ihn",
+      "start": 19.44,
+      "end": 19.62
+    },
+    {
+      "word": "aus.",
+      "start": 19.62,
+      "end": 19.9
+    },
+    {
+      "word": "Das",
+      "start": 20.24,
+      "end": 20.38
+    },
+    {
+      "word": "Geld",
+      "start": 20.38,
+      "end": 20.58
+    },
+    {
+      "word": "war",
+      "start": 20.58,
+      "end": 20.78
+    },
+    {
+      "word": "nie",
+      "start": 20.78,
+      "end": 21.0
+    },
+    {
+      "word": "weg.",
+      "start": 21.0,
+      "end": 21.24
+    },
+    {
+      "word": "Und",
+      "start": 21.48,
+      "end": 21.66
+    },
+    {
+      "word": "200",
+      "start": 21.66,
+      "end": 22.14
+    },
+    {
+      "word": "Euro",
+      "start": 22.14,
+      "end": 22.6
+    },
+    {
+      "word": "im",
+      "start": 22.6,
+      "end": 22.8
+    },
+    {
+      "word": "Monat",
+      "start": 22.8,
+      "end": 23.14
+    },
+    {
+      "word": "werden",
+      "start": 23.14,
+      "end": 23.34
+    },
+    {
+      "word": "in",
+      "start": 23.34,
+      "end": 23.5
+    },
+    {
+      "word": "30",
+      "start": 23.5,
+      "end": 23.84
+    },
+    {
+      "word": "Jahren",
+      "start": 23.84,
+      "end": 24.22
+    },
+    {
+      "word": "zu",
+      "start": 24.22,
+      "end": 24.44
+    },
+    {
+      "word": "über",
+      "start": 24.44,
+      "end": 24.7
+    },
+    {
+      "word": "200",
+      "start": 24.7,
+      "end": 25.24
+    },
+    {
+      "word": ".000.",
+      "start": 25.24,
+      "end": 26.0
+    },
+    {
+      "word": "Der",
+      "start": 26.22,
+      "end": 26.36
+    },
+    {
+      "word": "größte",
+      "start": 26.36,
+      "end": 26.78
+    },
+    {
+      "word": "Teil",
+      "start": 26.78,
+      "end": 26.92
+    },
+    {
+      "word": "davon",
+      "start": 26.92,
+      "end": 27.16
+    },
+    {
+      "word": "sind",
+      "start": 27.16,
+      "end": 27.36
+    },
+    {
+      "word": "Zinsen.",
+      "start": 27.36,
+      "end": 27.86
+    },
+    {
+      "word": "Nicht",
+      "start": 28.02,
+      "end": 28.2
+    },
+    {
+      "word": "weil",
+      "start": 28.2,
+      "end": 28.34
+    },
+    {
+      "word": "du",
+      "start": 28.34,
+      "end": 28.46
+    },
+    {
+      "word": "clever",
+      "start": 28.46,
+      "end": 28.68
+    },
+    {
+      "word": "warst,",
+      "start": 28.68,
+      "end": 29.18
+    },
+    {
+      "word": "sondern",
+      "start": 29.18,
+      "end": 29.54
+    },
+    {
+      "word": "weil",
+      "start": 29.54,
+      "end": 29.82
+    },
+    {
+      "word": "du",
+      "start": 29.82,
+      "end": 29.94
+    },
+    {
+      "word": "drin",
+      "start": 29.94,
+      "end": 30.18
+    },
+    {
+      "word": "geblieben",
+      "start": 30.18,
+      "end": 30.6
+    },
+    {
+      "word": "bist.",
+      "start": 30.6,
+      "end": 30.8
+    }
+  ],
+  "sentences": [
+    {
+      "text": "Dein Depot ist rot und dein Kopf sagt raus.",
+      "start": 0.0,
+      "end": 2.92,
+      "words": [
+        {
+          "word": "Dein",
+          "start": 0.0,
+          "end": 0.18
+        },
+        {
+          "word": "Depot",
+          "start": 0.18,
+          "end": 0.54
+        },
+        {
+          "word": "ist",
+          "start": 0.54,
+          "end": 0.78
+        },
+        {
+          "word": "rot",
+          "start": 0.78,
+          "end": 1.12
+        },
+        {
+          "word": "und",
+          "start": 1.12,
+          "end": 1.7
+        },
+        {
+          "word": "dein",
+          "start": 1.7,
+          "end": 1.84
+        },
+        {
+          "word": "Kopf",
+          "start": 1.84,
+          "end": 2.1
+        },
+        {
+          "word": "sagt",
+          "start": 2.1,
+          "end": 2.42
+        },
+        {
+          "word": "raus.",
+          "start": 2.42,
+          "end": 2.92
+        }
+      ]
+    },
+    {
+      "text": "Bevor du das machst, schau dir das an.",
+      "start": 3.4,
+      "end": 5.4,
+      "words": [
+        {
+          "word": "Bevor",
+          "start": 3.4,
+          "end": 3.68
+        },
+        {
+          "word": "du",
+          "start": 3.68,
+          "end": 3.82
+        },
+        {
+          "word": "das",
+          "start": 3.82,
+          "end": 3.98
+        },
+        {
+          "word": "machst,",
+          "start": 3.98,
+          "end": 4.26
+        },
+        {
+          "word": "schau",
+          "start": 4.68,
+          "end": 4.78
+        },
+        {
+          "word": "dir",
+          "start": 4.78,
+          "end": 4.92
+        },
+        {
+          "word": "das",
+          "start": 4.92,
+          "end": 5.16
+        },
+        {
+          "word": "an.",
+          "start": 5.16,
+          "end": 5.4
+        }
+      ]
+    },
+    {
+      "text": "Zehn Jahre Weltmarkt.",
+      "start": 5.62,
+      "end": 6.78,
+      "words": [
+        {
+          "word": "Zehn",
+          "start": 5.62,
+          "end": 5.88
+        },
+        {
+          "word": "Jahre",
+          "start": 5.88,
+          "end": 6.1
+        },
+        {
+          "word": "Weltmarkt.",
+          "start": 6.1,
+          "end": 6.78
+        }
+      ]
+    },
+    {
+      "text": "Aus einem Euro wurden fast drei.",
+      "start": 7.06,
+      "end": 9.02,
+      "words": [
+        {
+          "word": "Aus",
+          "start": 7.06,
+          "end": 7.22
+        },
+        {
+          "word": "einem",
+          "start": 7.22,
+          "end": 7.52
+        },
+        {
+          "word": "Euro",
+          "start": 7.52,
+          "end": 7.9
+        },
+        {
+          "word": "wurden",
+          "start": 7.9,
+          "end": 8.26
+        },
+        {
+          "word": "fast",
+          "start": 8.26,
+          "end": 8.62
+        },
+        {
+          "word": "drei.",
+          "start": 8.62,
+          "end": 9.02
+        }
+      ]
+    },
+    {
+      "text": "Aber zwischendurch ging es 24 % nach unten.",
+      "start": 9.26,
+      "end": 12.12,
+      "words": [
+        {
+          "word": "Aber",
+          "start": 9.26,
+          "end": 9.36
+        },
+        {
+          "word": "zwischendurch",
+          "start": 9.36,
+          "end": 10.04
+        },
+        {
+          "word": "ging",
+          "start": 10.04,
+          "end": 10.34
+        },
+        {
+          "word": "es",
+          "start": 10.34,
+          "end": 10.5
+        },
+        {
+          "word": "24",
+          "start": 10.5,
+          "end": 11.1
+        },
+        {
+          "word": "%",
+          "start": 11.1,
+          "end": 11.6
+        },
+        {
+          "word": "nach",
+          "start": 11.6,
+          "end": 11.82
+        },
+        {
+          "word": "unten.",
+          "start": 11.82,
+          "end": 12.12
+        }
+      ]
+    },
+    {
+      "text": "Fast ein Jahr lang.",
+      "start": 12.44,
+      "end": 13.46,
+      "words": [
+        {
+          "word": "Fast",
+          "start": 12.44,
+          "end": 12.64
+        },
+        {
+          "word": "ein",
+          "start": 12.64,
+          "end": 13.0
+        },
+        {
+          "word": "Jahr",
+          "start": 13.0,
+          "end": 13.24
+        },
+        {
+          "word": "lang.",
+          "start": 13.24,
+          "end": 13.46
+        }
+      ]
+    },
+    {
+      "text": "Genau da steigen die meisten aus.",
+      "start": 13.62,
+      "end": 15.48,
+      "words": [
+        {
+          "word": "Genau",
+          "start": 13.62,
+          "end": 13.94
+        },
+        {
+          "word": "da",
+          "start": 13.94,
+          "end": 14.28
+        },
+        {
+          "word": "steigen",
+          "start": 14.28,
+          "end": 14.72
+        },
+        {
+          "word": "die",
+          "start": 14.72,
+          "end": 14.86
+        },
+        {
+          "word": "meisten",
+          "start": 14.86,
+          "end": 15.18
+        },
+        {
+          "word": "aus.",
+          "start": 15.18,
+          "end": 15.48
+        }
+      ]
+    },
+    {
+      "text": "Wer verkauft, macht den Verlust echt.",
+      "start": 15.88,
+      "end": 17.82,
+      "words": [
+        {
+          "word": "Wer",
+          "start": 15.88,
+          "end": 16.0
+        },
+        {
+          "word": "verkauft,",
+          "start": 16.0,
+          "end": 16.48
+        },
+        {
+          "word": "macht",
+          "start": 16.88,
+          "end": 17.02
+        },
+        {
+          "word": "den",
+          "start": 17.02,
+          "end": 17.16
+        },
+        {
+          "word": "Verlust",
+          "start": 17.16,
+          "end": 17.5
+        },
+        {
+          "word": "echt.",
+          "start": 17.5,
+          "end": 17.82
+        }
+      ]
+    },
+    {
+      "text": "Wer liegen lässt, wartet ihn aus.",
+      "start": 18.18,
+      "end": 19.9,
+      "words": [
+        {
+          "word": "Wer",
+          "start": 18.18,
+          "end": 18.32
+        },
+        {
+          "word": "liegen",
+          "start": 18.32,
+          "end": 18.56
+        },
+        {
+          "word": "lässt,",
+          "start": 18.56,
+          "end": 18.9
+        },
+        {
+          "word": "wartet",
+          "start": 19.24,
+          "end": 19.44
+        },
+        {
+          "word": "ihn",
+          "start": 19.44,
+          "end": 19.62
+        },
+        {
+          "word": "aus.",
+          "start": 19.62,
+          "end": 19.9
+        }
+      ]
+    },
+    {
+      "text": "Das Geld war nie weg.",
+      "start": 20.24,
+      "end": 21.24,
+      "words": [
+        {
+          "word": "Das",
+          "start": 20.24,
+          "end": 20.38
+        },
+        {
+          "word": "Geld",
+          "start": 20.38,
+          "end": 20.58
+        },
+        {
+          "word": "war",
+          "start": 20.58,
+          "end": 20.78
+        },
+        {
+          "word": "nie",
+          "start": 20.78,
+          "end": 21.0
+        },
+        {
+          "word": "weg.",
+          "start": 21.0,
+          "end": 21.24
+        }
+      ]
+    },
+    {
+      "text": "Und 200 Euro im Monat werden in 30 Jahren zu über 200 .000.",
+      "start": 21.48,
+      "end": 26.0,
+      "words": [
+        {
+          "word": "Und",
+          "start": 21.48,
+          "end": 21.66
+        },
+        {
+          "word": "200",
+          "start": 21.66,
+          "end": 22.14
+        },
+        {
+          "word": "Euro",
+          "start": 22.14,
+          "end": 22.6
+        },
+        {
+          "word": "im",
+          "start": 22.6,
+          "end": 22.8
+        },
+        {
+          "word": "Monat",
+          "start": 22.8,
+          "end": 23.14
+        },
+        {
+          "word": "werden",
+          "start": 23.14,
+          "end": 23.34
+        },
+        {
+          "word": "in",
+          "start": 23.34,
+          "end": 23.5
+        },
+        {
+          "word": "30",
+          "start": 23.5,
+          "end": 23.84
+        },
+        {
+          "word": "Jahren",
+          "start": 23.84,
+          "end": 24.22
+        },
+        {
+          "word": "zu",
+          "start": 24.22,
+          "end": 24.44
+        },
+        {
+          "word": "über",
+          "start": 24.44,
+          "end": 24.7
+        },
+        {
+          "word": "200",
+          "start": 24.7,
+          "end": 25.24
+        },
+        {
+          "word": ".000.",
+          "start": 25.24,
+          "end": 26.0
+        }
+      ]
+    },
+    {
+      "text": "Der größte Teil davon sind Zinsen.",
+      "start": 26.22,
+      "end": 27.86,
+      "words": [
+        {
+          "word": "Der",
+          "start": 26.22,
+          "end": 26.36
+        },
+        {
+          "word": "größte",
+          "start": 26.36,
+          "end": 26.78
+        },
+        {
+          "word": "Teil",
+          "start": 26.78,
+          "end": 26.92
+        },
+        {
+          "word": "davon",
+          "start": 26.92,
+          "end": 27.16
+        },
+        {
+          "word": "sind",
+          "start": 27.16,
+          "end": 27.36
+        },
+        {
+          "word": "Zinsen.",
+          "start": 27.36,
+          "end": 27.86
+        }
+      ]
+    },
+    {
+      "text": "Nicht weil du clever warst, sondern weil du drin geblieben bist.",
+      "start": 28.02,
+      "end": 30.8,
+      "words": [
+        {
+          "word": "Nicht",
+          "start": 28.02,
+          "end": 28.2
+        },
+        {
+          "word": "weil",
+          "start": 28.2,
+          "end": 28.34
+        },
+        {
+          "word": "du",
+          "start": 28.34,
+          "end": 28.46
+        },
+        {
+          "word": "clever",
+          "start": 28.46,
+          "end": 28.68
+        },
+        {
+          "word": "warst,",
+          "start": 28.68,
+          "end": 29.18
+        },
+        {
+          "word": "sondern",
+          "start": 29.18,
+          "end": 29.54
+        },
+        {
+          "word": "weil",
+          "start": 29.54,
+          "end": 29.82
+        },
+        {
+          "word": "du",
+          "start": 29.82,
+          "end": 29.94
+        },
+        {
+          "word": "drin",
+          "start": 29.94,
+          "end": 30.18
+        },
+        {
+          "word": "geblieben",
+          "start": 30.18,
+          "end": 30.6
+        },
+        {
+          "word": "bist.",
+          "start": 30.6,
+          "end": 30.8
+        }
+      ]
+    }
+  ]
 }

@@ -4,11 +4,12 @@ import {relative, resolve, sep} from 'node:path';
 import {
   ALL_PROMPTS,
   FLOW_EXECUTION_MODE_ID,
-  FLOW_EXECUTION_MODE_MARKER,
+  FLOW_EXECUTION_MODE_ID_LEGACY,
   FLOW_STATE_MACHINE_ID,
   FLOW_STATE_MACHINE_MARKER,
   FLOW_STRUCTURE_LOCK_ID,
   FLOW_STRUCTURE_LOCK_MARKER,
+  FLOW_BLOCK_SIZE,
   SCENE_INDEX,
 } from './lib/reel-contract.mjs';
 
@@ -39,17 +40,35 @@ if (existsSync(masterPath) && existsSync(indexPath)) {
   const index = JSON.parse(readFileSync(indexPath, 'utf8'));
   const flow = index.googleFlow ?? {};
 
-  assert(master.includes(FLOW_EXECUTION_MODE_MARKER), `${ALL_PROMPTS} benötigt ${FLOW_EXECUTION_MODE_MARKER}.`);
+  // Bestandsreels wurden ohne Style-Anker erzeugt und werden laut CLAUDE.md
+  // nicht rückwirkend migriert. Sie durchlaufen weiter die V3-Prüfung.
+  const styleAnchor = flow.executionModeId === FLOW_EXECUTION_MODE_ID;
+  const legacy = flow.executionModeId === FLOW_EXECUTION_MODE_ID_LEGACY;
+  assert(styleAnchor || legacy, `scene-index.googleFlow.executionModeId muss ${FLOW_EXECUTION_MODE_ID} oder ${FLOW_EXECUTION_MODE_ID_LEGACY} sein.`);
+  assert(master.includes(`FLOW_EXECUTION_MODE: ${flow.executionModeId}`), `${ALL_PROMPTS} benötigt den Marker zu ${flow.executionModeId}.`);
   assert(master.includes(FLOW_STRUCTURE_LOCK_MARKER), `${ALL_PROMPTS} benötigt ${FLOW_STRUCTURE_LOCK_MARKER}.`);
   assert(master.includes(FLOW_STATE_MACHINE_MARKER), `${ALL_PROMPTS} benötigt ${FLOW_STATE_MACHINE_MARKER}.`);
-  assert(master.includes('STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH'), 'Strict-Single-Job-State-Machine fehlt im Masterprompt.');
-  assert(master.includes('DIES IST KEIN BATCH-AUFTRAG'), 'Masterprompt verbietet die Batch-Interpretation nicht ausdrücklich.');
-  assert(master.includes('MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG'), 'Concurrency=1 ist nicht ausdrücklich festgelegt.');
-  assert(master.includes('ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT'), 'Spätere Bildblöcke sind vor Abschluss des aktuellen Bildes nicht gesperrt.');
-  assert(master.includes('exakt umbenannt') && master.includes('per QA geprüft'), 'Rename+QA-Gate vor Freischaltung des nächsten Bildes fehlt.');
-  assert(master.includes('mehrere Bilder in einem Generierungsaufruf'), 'Multi-Image-Generierung ist nicht ausdrücklich verboten.');
-  assert(master.includes('mehrere Bildprompts zusammenfassen'), 'Zusammenfassen mehrerer Bildprompts ist nicht ausdrücklich verboten.');
-  assert(master.includes('Bilder vorab in eine Queue stellen'), 'Queueing späterer Bilder ist nicht ausdrücklich verboten.');
+  if (styleAnchor) {
+    assert(master.includes('STYLE-ANKER STATE MACHINE — VERBINDLICH'), 'Style-Anker-State-Machine fehlt im Masterprompt.');
+    assert(master.includes('SZENE 01 IST DER STYLE-ANKER'), 'Masterprompt benennt scene-01 nicht als Style-Anker.');
+    assert(master.includes('SOLANGE DER ANKER DIE QA NICHT BESTANDEN HAT, IST JEDER WEITERE BILDBLOCK GESPERRT'), 'Anker-Gate vor dem ersten Block fehlt.');
+    assert(master.includes('BLOECKEN VON HOECHSTENS 5 BILDERN'), 'Blockgroesse von hoechstens fuenf Bildern ist nicht festgelegt.');
+    assert(master.includes('MUSS DEN STYLE-ANKER ALS REFERENZ MITGEBEN'), 'Anker-Referenzpflicht fehlt im Masterprompt.');
+    assert(master.includes('KEINE REFERENZ AUF IRGENDEIN ANDERES BILD ALS DEN ANKER'), 'Referenz auf andere Bilder ist nicht ausdruecklich verboten.');
+    assert(master.includes('EINZELN UMBENANNT UND EINZELN GEPRUEFT'), 'Rename+QA je Bild fehlt.');
+    assert(master.includes('mehr als 5 Bilder in einem Block'), 'Ueberschreiten der Blockgroesse ist nicht ausdruecklich verboten.');
+    assert(master.includes('mehrere Bildprompts zu einem Generierungsaufruf zusammenfassen'), 'Zusammenfassen mehrerer Bildprompts ist nicht ausdrücklich verboten.');
+    assert(master.includes('einen Block starten, bevor der Anker die QA bestanden hat'), 'Blockstart vor Anker-QA ist nicht ausdruecklich verboten.');
+  } else {
+    assert(master.includes('STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH'), 'Strict-Single-Job-State-Machine fehlt im Masterprompt.');
+    assert(master.includes('DIES IST KEIN BATCH-AUFTRAG'), 'Masterprompt verbietet die Batch-Interpretation nicht ausdrücklich.');
+    assert(master.includes('MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG'), 'Concurrency=1 ist nicht ausdrücklich festgelegt.');
+    assert(master.includes('ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT'), 'Spätere Bildblöcke sind vor Abschluss des aktuellen Bildes nicht gesperrt.');
+    assert(master.includes('exakt umbenannt') && master.includes('per QA geprüft'), 'Rename+QA-Gate vor Freischaltung des nächsten Bildes fehlt.');
+    assert(master.includes('mehrere Bilder in einem Generierungsaufruf'), 'Multi-Image-Generierung ist nicht ausdrücklich verboten.');
+    assert(master.includes('mehrere Bildprompts zusammenfassen'), 'Zusammenfassen mehrerer Bildprompts ist nicht ausdrücklich verboten.');
+    assert(master.includes('Bilder vorab in eine Queue stellen'), 'Queueing späterer Bilder ist nicht ausdrücklich verboten.');
+  }
   assert(master.includes('alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen'), 'Gesammeltes spätes Umbenennen ist nicht ausdrücklich verboten.');
   assert(master.includes('WARTE NIEMALS AUF "WEITER"'), 'Masterprompt verbietet Nutzer-„weiter“ nicht.');
 
@@ -69,11 +88,19 @@ if (existsSync(masterPath) && existsSync(indexPath)) {
   // als Gesamtauftrag interpretieren, bevor das Single-Image-Gate griff.
   assert(!master.includes('Lies die gesamte Datei einmal'), 'Alter Batch-fördernder Satz „Lies die gesamte Datei einmal“ ist verboten.');
 
-  assert(flow.executionModeId === FLOW_EXECUTION_MODE_ID, `scene-index.googleFlow.executionModeId muss ${FLOW_EXECUTION_MODE_ID} sein.`);
   assert(flow.stateMachineId === FLOW_STATE_MACHINE_ID, `scene-index.googleFlow.stateMachineId muss ${FLOW_STATE_MACHINE_ID} sein.`);
   assert(flow.autonomousFullRun === true, 'scene-index muss autonomousFullRun=true setzen.');
-  assert(flow.maxConcurrentGenerations === 1, 'scene-index muss maxConcurrentGenerations=1 setzen.');
-  assert(flow.batchGenerationForbidden === true, 'Batch-Generierung muss verboten sein.');
+  if (styleAnchor) {
+    assert(flow.styleAnchorSceneId === 'scene-01', 'scene-index muss scene-01 als styleAnchorSceneId setzen.');
+    assert(flow.styleAnchorRequiredForEveryImage === true, 'Jedes Bild muss den Style-Anker referenzieren.');
+    assert(flow.styleAnchorMustPassQaBeforeBlocks === true, 'Der Anker muss vor dem ersten Block die QA bestehen.');
+    assert(flow.maxImagesPerBlock === FLOW_BLOCK_SIZE, `scene-index muss maxImagesPerBlock=${FLOW_BLOCK_SIZE} setzen.`);
+    assert(flow.referenceAnyOtherImageForbidden === true, 'Referenz auf andere Bilder als den Anker muss verboten sein.');
+    assert(flow.anchorMatchQaRequired === true, 'Der Anker-Abgleich muss Teil der QA sein.');
+  } else {
+    assert(flow.maxConcurrentGenerations === 1, 'scene-index muss maxConcurrentGenerations=1 setzen.');
+    assert(flow.batchGenerationForbidden === true, 'Batch-Generierung muss verboten sein.');
+  }
   assert(flow.multiImageRequestForbidden === true, 'Multi-Image-Requests müssen verboten sein.');
   assert(flow.queueLaterImagesForbidden === true, 'Spätere Bilder dürfen nicht vorab gequeued werden.');
   assert(flow.galleryOrContactSheetForbidden === true, 'Galerie/Kontaktbogen als Ersatz für Einzelbilder muss verboten sein.');
@@ -108,5 +135,5 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('\n✓ Google-Flow-Single-Job-State-Machine erfüllt.');
-console.log('  Concurrency=1 · kein Batch/Queueing · aktuelles Bild → Rückgabe → Rename → QA → erst dann nächstes Bild · kein Nutzer-„weiter“ nötig.');
+console.log('\n✓ Google-Flow-Style-Anker-State-Machine erfüllt.');
+console.log('  scene-01 ist Style-Anker · Blöcke zu höchstens 5 · jedes Bild referenziert den Anker · Anker-Abgleich ist Teil der QA · kein Nutzer-„weiter“ nötig.');
