@@ -2,9 +2,9 @@
 
 // Legt ein neues Reel atomar an: Grundgerüst + aktuelle Produktionsverträge.
 // Neue Reels erhalten Cover Hook V3: Titel ab Frame 0, Captions ab erstem gesprochenen Wort.
-// Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
-// und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
-// Bildplanung bleibt: Literal first, creative second. Reel-Visual bleibt: Visual Y320–1400.
+// Zusätzlich gelten Creative Director V1 + Quality Guards V1: erst Story Moment und Shot Design,
+// dann IMAGE xor ANIMATION, tatsächliche Source-Diversität und horizontale Animation-Safe-Zone.
+// Bildplanung bleibt: reale Situation first, Style Lock second. Reel-Visual bleibt: Visual Y320–1400.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -48,6 +48,7 @@ const steps = [
   ['scripts/apply-premium-animation-v2.mjs', [target]],
   ['scripts/apply-scene01-cover-export-contract.mjs', [target]],
   ['scripts/apply-visual-beat-contract.mjs', [target]],
+  ['scripts/apply-creative-director-v1.mjs', [target]],
   ['scripts/apply-future-cover-hook-v3.mjs', [target]],
   ['scripts/apply-future-image-storytelling-v3.mjs', [target]],
   ['scripts/apply-future-production-standard-v3.mjs', [target]],
@@ -65,12 +66,14 @@ for (const [script, scriptArgs] of steps) {
 }
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
+console.log('  Creative Director V1: Sprechpunkt -> Story Moment -> Handlung/Konsequenz -> Shot Design -> Visual-Typ.');
+console.log('  Boring-Scene-Guard: korrekte, aber folienartige Standardvisuals sind kein PASS.');
 console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob.');
-console.log('  Bildwelt V9 + Storytelling V3: Literal first, creative second · reale Situation + Kontextanker + Voiceover-Match.');
+console.log('  Bildwelt V9 + Storytelling V3: reale Situation + Kontextanker + Voiceover-Match; Style Lock erst nach der Idee.');
 console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
-console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
-console.log('  ANIMATION: individuelle Remotion-Hauptanimation + Header/Icon + Caption; kein Flow-Bild als Hauptvisual.');
+console.log('  IMAGE: Story Moment + Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
+console.log('  ANIMATION: START -> Aktion/Ursache -> Veränderung -> RESULTAT; kein Flow-Bild als Hauptvisual.');
 console.log('  Motion Direction: Inhalt -> Verständnisziel -> visuelle Frage -> individuelle Mechanik -> Technik.');
 console.log('  Source Diversity Guard: tatsächliche animation.tsx-Primitives werden verglichen; Metadaten allein reichen nicht.');
 console.log('  Animation Safe Zone: X72–1008 · Visual Y320–1400 · perspektivischer Innenabstand + Post-Render-Rand-QA.');
