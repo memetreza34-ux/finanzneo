@@ -88,8 +88,9 @@ START → SICHTBARER MECHANISMUS → ERGEBNIS
 
 ## 6. Timing
 
-- Bildbeat ideal 3,5–5,5 s
-- Bildbeat absolut max. 6 s
+- Bildbeat bis 3,5 s unkritisch
+- ab 3,6 s zusätzlichen Visual Beat prüfen
+- Bildbeat ohne neue sichtbare Information absolut max. 4,0 s
 - Animationsbeat ideal 4,5–7 s
 - Schnitte folgen finalem Audio und sinnvollen Satz-/Phrasenanfängen
 

@@ -121,7 +121,7 @@ Kein vorheriges Reel-Bild wird als Image-to-Image-Referenz benötigt. Konsistenz
 
 ## Timing
 
-- Bildbeat ideal 3,5–5,5 s
+- Bildbeat bis 3,5 s unkritisch, ohne neue sichtbare Information max. 4,0 s
 - absolut max. 6,0 s
 - länger nötig: splitten oder animieren
 - ungefähr 60 % Bild / 40 % Animation als Ziel, Qualität vor Quote

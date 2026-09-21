@@ -15,13 +15,22 @@ FinanzNeo-Reels sollen schnell verständlich, hochwertig und dynamisch sein. Zus
 
 ### Bildbeats
 
-- ideal: **3,5–5,5 Sekunden**
-- absolutes Maximum: **6,0 Sekunden**
-- braucht dieselbe Aussage länger: splitten oder animieren
+Gültig für Future-V3-Reels (`finanzneo-future-production-v3`):
+
+- unkritisch: **bis 3,5 Sekunden**
+- besonders dicht wirkt: 1,8–3,0 Sekunden
+- ab **3,6 Sekunden**: aktiv einen zusätzlichen Visual Beat prüfen
+- ohne neue sichtbare Information hart maximal: **4,0 Sekunden**
+- braucht dieselbe Aussage länger: splitten, ein zweites Bild geben oder animieren
+
+Ältere Reels laufen auf der Kompatibilitätsbasis ca. 1,8–3,4 s, max. 4,5 s weiter und werden nicht migriert.
+
+Die alten Werte 3,5–5,5 s / max 6,0 s galten vor Future-V3 und sind nicht mehr gültig. Ein Bild, das vier Sekunden steht, ohne dass sich etwas ändert, wirkt im Reel wie ein Standbild-Fehler.
 
 ### Animationsbeats
 
-- ideal: **4,5–7,0 Sekunden**
+- ideal: **4,5–7,0 Sekunden**, aber nur, wenn in dieser Zeit mehrere klar unterschiedliche Zustände zu sehen sind
+- ein Kamera-Push oder Zoom ist kein zusätzlicher Zustand
 - Animation braucht einen echten Mechanismus:
 
 ```text

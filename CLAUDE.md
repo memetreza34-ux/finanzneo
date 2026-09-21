@@ -115,7 +115,7 @@ FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
 - **1 gesprochener Gedanke = 1 sichtbarer Visual Beat**
 - ein Satz darf ein eigenes Bild bekommen; enthält er zwei Aktionen, Beispiele, einen Vergleich oder Vorher/Nachher, wird er bei Bedarf in mehrere Beats geteilt
 - mehrere Bildszenen direkt hintereinander sind erlaubt, wenn jedes neue Bild die Aussage sichtbar weiterführt
-- Kompatibilitätsbasis älterer Reels: statischer Bildbeat ca. 1,8–3,4 s, max. 4,5 s. **Neue Future-V3-Reels:** ideal 1,8–3,0 s; ab ca. 3,6 s aktiv einen zusätzlichen Visual Beat prüfen; ohne neue sichtbare Information **hart max. 4,0 s**
+- Kompatibilitätsbasis älterer Reels: statischer Bildbeat ca. 1,8–3,4 s, max. 4,5 s. **Neue Future-V3-Reels:** bis 3,5 s unkritisch, besonders dicht wirken 1,8–3,0 s; ab 3,6 s aktiv einen zusätzlichen Visual Beat prüfen; ohne neue sichtbare Information **hart max. 4,0 s**
 - Animationen dürfen länger sein, müssen aber währenddessen mehrere klar unterschiedliche Zustände zeigen; Kamera-Push/Zoom allein zählt nicht als neuer Beat
 - Voiceover und Visual müssen gemeinsam fortschreiten: ist die Bildaussage bereits verstanden, darf das Bild nicht unnötig stehen bleiben
 - **Das Flow-Bild ist der Standardfall.** Eine Szene verlässt ihn nur, wenn sie muss:

@@ -29,7 +29,7 @@ FORMAT
 - Ziel 14–16 Visual-Beats, Standard etwa 15
 - ungefähr 60 % Bild / 40 % Remotion-Animation, Qualität vor Quote
 - nie mehr als zwei Bildszenen direkt hintereinander
-- Bildbeat ideal 3,5–5,5 s, absolut max. 6 s
+- Bildbeat bis 3,5 s unkritisch; ab 3,6 s zusätzlichen Visual Beat prüfen; ohne neue sichtbare Information hart max. 4,0 s
 - Animationsbeat ideal 4,5–7 s
 - alle Flow-Bildszenen strikt 1:1; scene-01 ist automatisch das Cover, kein separates Cover und kein Bild 00
 
@@ -319,7 +319,7 @@ LIEFERUNG PHASE 1
 ABSCHLUSSPRÜFUNG PHASE 1
 - keine Platzhalter außer expliziten Phase-2-Timingfeldern
 - Fakten geprüft
-- Bildbeats max. 6 s planbar
+- Bildbeats ohne neue sichtbare Information max. 4,0 s planbar
 - V9-Bildwelt in jedem Bildprompt
 - jeder Bildprompt zeigt eine konkrete realitätsnahe Erklärszene statt abstrakter Symbolsammlung
 - Ursache/Wirkung ohne Ton verständlich

@@ -182,8 +182,9 @@ Post-Render-QA prüft danach den echten visuellen Kern. Header, Caption oder sch
 
 ## 13. Bilddauer und Übergänge
 
-- Bildbeat ideal 3,5–5,5 s
-- absolut max. 6 s
+- Bildbeat bis 3,5 s unkritisch
+- ab 3,6 s zusätzlichen Visual Beat prüfen
+- ohne neue sichtbare Information absolut max. 4,0 s
 - länger = splitten oder animieren
 - Continuity-Schnitt exakt 3 Frames
 - kein Fade-to-black

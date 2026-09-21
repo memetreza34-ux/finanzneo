@@ -106,8 +106,9 @@ Wenn relevant:
 
 ## 10. Timing und Caption
 
-- [ ] Bildbeat ideal 3,5–5,5 s.
-- [ ] absolut max. 6 s.
+- [ ] Bildbeat bis 3,5 s.
+- [ ] ab 3,6 s ist ein zusätzlicher Visual Beat geprüft.
+- [ ] ohne neue sichtbare Information absolut max. 4,0 s.
 - [ ] Schnitt folgt finalem Audio.
 - [ ] aktives Caption-Wort grün, Rest weiß.
 - [ ] max. zwei Caption-Zeilen.
@@ -139,7 +140,7 @@ Wenn relevant:
 - Bild zeigt einen fertigen Zustand statt eines Augenblicks
 - Bild wirkt wie eine Variante des Ankers oder des Vorgängers
 - wiederholte Deko-Requisite ohne inhaltlichen Grund
-- Bildbeat >6 s
+- Bildbeat >4,0 s ohne neue sichtbare Information
 
 ## Protokoll
 
