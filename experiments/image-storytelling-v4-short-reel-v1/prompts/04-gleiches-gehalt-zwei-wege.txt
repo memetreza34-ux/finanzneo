@@ -1,0 +1,37 @@
+SCENE_SPECIFIC_CONTENT
+Create a grounded side-by-side finance comparison showing how two people with the same monthly income can end the month differently.
+
+VISUAL_STRATEGY: literal
+VISUAL_MODE: comparison
+VISUAL_PURPOSE: compare behavior instead of income
+STORY_ACTION: two comparable young adults each receive the same salary envelope but allocate it differently on two adjacent real tables
+TENSION_OR_CONSEQUENCE: one side spends first and has no meaningful reserve; the other side moves a fixed amount into savings before discretionary purchases
+VISUAL_HOOK: symmetric same-income setup with a dramatically different amount left protected at the end
+SHOT_SCALE: wide
+CAMERA_ANGLE: eye-level
+DEPTH_PLAN: two table edges in foreground, both people and salary envelopes central, spending objects versus savings folder behind them
+EMOTIONAL_BEAT: contrast and clarity
+CAUSE_EFFECT: identical income is visible on both sides while different choices produce visibly different reserves
+PATTERN_INTERRUPT: comparison
+MOTION_HINT: none for this image-only test
+NOVELTY_CHECK: PASS — first deliberately symmetrical comparison scene, visually unlike the previous single-person high-angle scene
+TRANSFERABILITY_TEST: PASS — identical salary labels and different allocation behavior make this specifically about saving rate, not generic success versus failure
+METAPHOR_JUSTIFICATION: none
+
+Create one coherent wide scene in the same deep-black world with two adjacent real table setups, not a graphic split screen and not UI panels. On the left, show one stylized young adult with a physical envelope labeled exactly “Gehalt 2.400 €”, several discretionary purchase receipts and shopping items, and an almost empty neutral folder labeled exactly “Rücklage”. On the right, show a comparable stylized young adult with the same physical envelope labeled exactly “Gehalt 2.400 €”, fewer discretionary items and a clearly fuller emerald-green folder labeled exactly “Rücklage 300 €”. Both faces must remain visible. The two salary envelopes must look equally sized so income is clearly the same. Keep the contrast grounded in real objects and behavior. No scales, arrows, winner icons, dashboards or floating labels.
+
+BEGIN_FINANZNEO_SHARED_STYLE_LOCK_V1
+Render this scene in the exact FinanzNeo premium stylized 3D visual world. The result must be clearly non-photorealistic and visibly animated-film 3D, while all objects remain believable, correctly proportioned and immediately recognizable from everyday life. Use semi-realistic structure with softly rounded geometry, premium matte surfaces, warm ivory and soft-gray neutrals, graphite details, subtle paper/card texture, restrained brushed-metal cues and only subtle glass where physically plausible.
+
+Use one seamless deep-black background world with no visible studio wall, colored backdrop or bright environment. A small amount of grounded real-world context may exist around the subject, but it must dissolve naturally into the black world. Keep the main situation large and readable, never as a tiny miniature diorama or a small square object cluster floating in empty black space.
+
+Use the same color language in every FinanzNeo scene: emerald green only for positive, protected or preferred elements; warm red-orange only for cost, danger, loss or pressure; subtle gold only for money or value; ivory, gray and graphite for neutral objects. Do not add decorative neon colors.
+
+Use clean soft premium studio lighting with a gentle three-quarter key light, readable soft contact shadows, controlled highlights and strong separation from the black background. Keep a cinematic three-quarter perspective with moderate depth and no extreme wide-angle distortion. The image should feel polished, calm and premium rather than flashy.
+
+Build one coherent explanatory real-world scene with a clear cause-and-effect relationship. The viewer should understand the intended financial point within roughly one to two seconds without audio. Real objects and situations must carry the explanation. Do not replace the main explanation with floating finance icons, generic coins, shields, arrows, dashboards, UI cards, flowcharts or abstract visual riddles.
+
+Only short functional German labels that are explicitly requested in the scene description may appear. No headline, subtitle, CTA, paragraph, watermark or decorative typography. No pasted real-world logo, website, app screenshot or photorealistic branded product shot.
+
+Compose as a clean 1:1 image. Keep the hero objects large, central and clearly separated, with enough surrounding context to understand the situation but without clutter. Every supporting object must materially improve the explanation.
+END_FINANZNEO_SHARED_STYLE_LOCK_V1
