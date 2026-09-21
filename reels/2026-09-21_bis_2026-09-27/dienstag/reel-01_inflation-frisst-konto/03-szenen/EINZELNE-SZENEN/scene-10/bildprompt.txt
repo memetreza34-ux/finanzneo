@@ -1,0 +1,50 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Notgroschen bleibt liegen.png
+
+Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
+
+STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
+Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
+Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
+Nur die Bildaussage kommt aus dem Prompt unten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Notgroschen
+- bleibt
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Ein beschrifteter Umschlag mit dem Notgroschen wird bewusst zurueckgelegt.
+REAL_WORLD_CONTEXT_ANCHOR: Beschrifteter Umschlag auf dem Kuechentisch, eine Hand legt ihn zurueck.
+VOICEOVER_VISUAL_MATCH: Das bewusste Zuruecklegen zeigt genau, dass dieser Teil unangetastet bleibt.
+TRANSFERABILITY_TEST: PASS: Ein beschrifteter Notgroschen-Umschlag, der bewusst liegen bleibt, ist genau diese Handlung.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D scene in which a hand places a labelled paper envelope back down onto the same dark kitchen table, flat and deliberate. The envelope carries the two short German labels and is visibly filled with banknotes. The gesture is finished, not hesitant: this part of the money stays where it is. Keep the envelope and the hand large and readable, use emerald only as a small accent on the label, and keep the surface dark. The two earlier banknote stacks are still faintly visible at the edge of the frame, so the viewer recognises the same table and the same evening as in the scenes before.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment. The surface under the objects must stay dark; never place the scene on a white or light grey plane.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.

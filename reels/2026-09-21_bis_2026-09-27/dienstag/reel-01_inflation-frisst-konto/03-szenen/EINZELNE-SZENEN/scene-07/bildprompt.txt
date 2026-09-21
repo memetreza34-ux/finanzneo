@@ -1,0 +1,49 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Zinsbeleg mit null Komma null eins.png
+
+Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
+
+STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
+Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
+Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
+Nur die Bildaussage kommt aus dem Prompt unten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 0,01 % Zinsen
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Ein Zinsbeleg der Bank weist 0,01 Prozent aus.
+REAL_WORLD_CONTEXT_ANCHOR: Gedruckter Zinsbeleg neben dem Kontoauszug auf demselben Tisch.
+VOICEOVER_VISUAL_MATCH: Der ausgedruckte Zinssatz zeigt genau, dass das Konto den Verlust nicht ausgleicht.
+TRANSFERABILITY_TEST: PASS: Ein Beleg mit genau diesem Zinssatz gehoert zu dieser Aussage und zu keiner anderen.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D scene of a small printed interest statement lying on the same dark kitchen table, next to the older bank statement from the earlier scenes. The interest rate is the single largest readable element on the slip and carries the short German label. The slip is small and unimportant-looking compared to the balance beside it, so the viewer understands at a glance that this rate cannot make up the difference. Keep both papers large enough to read and keep the surface dark.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment. The surface under the objects must stay dark; never place the scene on a white or light grey plane.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.

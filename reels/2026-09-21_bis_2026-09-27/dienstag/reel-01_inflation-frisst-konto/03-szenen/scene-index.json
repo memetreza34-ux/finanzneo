@@ -1,0 +1,1226 @@
+{
+  "version": 28,
+  "title": "Dein Geld auf dem Konto wird jedes Jahr weniger",
+  "sceneCount": 11,
+  "imageSceneCount": 8,
+  "animationSceneCount": 1,
+  "targetImageShare": 0.6,
+  "targetAnimationShare": 0.4,
+  "video": {
+    "aspectRatio": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "cover": {
+    "type": "scene-image",
+    "sourceSceneId": "scene-01",
+    "googleFlowFileName": "Bild 01 - Zehntausend auf dem Konto.png",
+    "planFile": "03-szenen/00-cover/cover.txt",
+    "aspectRatio": "1:1",
+    "sameAssetAsFirstScene": true,
+    "separateGenerationForbidden": true,
+    "renderedTitleOverlayRequired": true,
+    "finalExportSource": "final-video-frame-0"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "phase3Executor": "antigravity",
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-sequential-v1",
+    "generationMode": "one-image-at-a-time",
+    "strictSequential": true,
+    "waitForCurrentImage": true,
+    "renameBeforeNext": true,
+    "qaBeforeNext": true,
+    "retrySameImageOnFailure": true,
+    "fileNameRule": "Bild XX - Kurzer Szenenname.png",
+    "numberSource": "real-scene-number",
+    "animationNumbersStayReserved": true,
+    "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
+    "distributeToSceneFolders": false,
+    "executionModeId": "finanzneo-flow-style-anchor-v4",
+    "stateMachineId": "finanzneo-flow-state-machine-v1",
+    "autonomousFullRun": true,
+    "styleAnchorSceneId": "scene-01",
+    "styleAnchorRequiredForEveryImage": true,
+    "styleAnchorMustPassQaBeforeBlocks": true,
+    "maxImagesPerBlock": 5,
+    "referenceAnyOtherImageForbidden": true,
+    "anchorMatchQaRequired": true,
+    "multiImageRequestForbidden": true,
+    "queueLaterImagesForbidden": true,
+    "galleryOrContactSheetForbidden": true,
+    "currentStepGateRequired": true,
+    "nextStepLockedUntilCurrentResultReturned": true,
+    "renameBeforeUnlockNext": true,
+    "qaBeforeUnlockNext": true,
+    "userContinueSignalForbidden": true,
+    "userApprovalBetweenImagesForbidden": true,
+    "internalWaitForGenerationOnly": true,
+    "autoContinueAfterQa": true,
+    "hardBlockerOnlyStop": true,
+    "structureLockId": "finanzneo-flow-structure-lock-v2",
+    "preserveStructureThroughLastImage": true,
+    "preserveStyleThroughLastImage": true
+  },
+  "phase1AnimationCode": {
+    "required": true,
+    "qualityLock": "finanzneo-phase1-animation-code-v1",
+    "canonicalSourceRequiredForEveryAnimation": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "placeholderMotionForbidden": true,
+    "decorativeMotionDoesNotCountAsExplanation": true,
+    "mathSinCosCompletionHackForbidden": true,
+    "realWorldMechanismRequired": true,
+    "uniqueMechanismPerAnimationRequired": true,
+    "physicalCauseEffectRequired": true,
+    "labelsSupplementalOnly": true,
+    "genericCardRowsForbidden": true,
+    "progressBarAsPrimaryStoryForbidden": true,
+    "narrativeMarkersRequired": [
+      "MECHANIC_ID",
+      "PRIMARY_ACTION",
+      "START",
+      "MECHANISM",
+      "RESULT",
+      "HERO",
+      "SUPPORT",
+      "MATERIAL",
+      "DEPTH"
+    ],
+    "resultHoldFramesMin": 15,
+    "premiumVisualLock": "finanzneo-premium-physical-animation-v2",
+    "visualTargetWorld": "finanzneo-stylized-3d-animated-black-v9",
+    "requirePremiumPhysicalStage": true,
+    "requirePhysicalObjects": true,
+    "singleHeroObjectAllowed": true,
+    "supportingObjectCountFlexible": true,
+    "clarityBeforeObjectCount": true,
+    "requireMaterialDepthLighting": true,
+    "sameVisualLanguageAsFlowImages": true,
+    "startMechanismResultRequired": true,
+    "pureBlackCanvasRequired": true,
+    "transparentAnimationStageRequired": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridBackgroundForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "genericInfoCardsAsMainLanguageForbidden": true
+  },
+  "reelBackground": {
+    "contractId": "finanzneo-pure-black-background-v1",
+    "color": "#000000",
+    "staticRequired": true,
+    "decorativeEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridForbidden": true,
+    "glowBackgroundForbidden": true
+  },
+  "layoutVersion": "finanzneo-reel-layout-v5",
+  "layout": {
+    "headlineY": 154,
+    "visualTop": 320,
+    "visualBottom": 1400,
+    "subtitleBottom": 340,
+    "subtitleLeft": 72,
+    "subtitleRight": 140
+  },
+  "visualSafeZone": {
+    "top": 320,
+    "bottom": 1400,
+    "hardClipAnimations": true,
+    "headerIntrusionForbidden": true,
+    "captionIntrusionForbidden": true
+  },
+  "timingStandard": {
+    "imageSceneIdealSeconds": [
+      1.8,
+      3
+    ],
+    "imageSceneAbsoluteMaxSeconds": 4,
+    "animationSceneIdealSeconds": [
+      3,
+      5.5
+    ],
+    "splitOrAnimateIfImageExceedsMax": true,
+    "visualBeatContractId": "finanzneo-visual-beats-v2",
+    "actualTimingSource": "04-caption/word-timings.json",
+    "cameraMotionDoesNotResetVisualBeat": true,
+    "newConcreteVoiceIdeaShouldTriggerVisualChange": true,
+    "imageSceneSoftMaxSeconds": 3.6,
+    "longStaticSentenceNeedsAdditionalVisualBeat": true,
+    "extraImagePreferredOverLongHold": true
+  },
+  "clarityStandard": {
+    "mustReadInUnderSeconds": 2,
+    "oneMainIdeaPerBeat": true,
+    "sceneHeaderRequired": true,
+    "sceneIconRequired": true,
+    "animationStartMechanismResultRequired": true,
+    "blackTextOnDarkForbidden": true
+  },
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "seriesLockId": "finanzneo-same-world-v1",
+    "stylized3DLockId": "finanzneo-stylized-3d-editorial-v5",
+    "physicalExplainerLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "premiumVisualWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "animatedWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "generatedImageAspectRatio": "1:1",
+    "squareGeneratedImagesRequired": true,
+    "referencePromptFile": "03-szenen/bildwelt.txt",
+    "styleReferenceStrategy": "written-style-lock-only",
+    "referenceImageUse": "forbidden",
+    "style": "stylized-3d-animated-black-v9",
+    "sameWorldAcrossSeriesRequired": true,
+    "supportingObjectCountFlexible": true,
+    "supportingObjectsOnlyWhenHelpful": true,
+    "clarityBeforeObjectCount": true,
+    "contentFirstCompositionRequired": true,
+    "nonPhotorealisticRequired": true,
+    "stylized3DAnimatedRequired": true,
+    "softRoundedGeometryRequired": true,
+    "simplifiedDetailsRequired": true,
+    "premiumPlayfulBalanceRequired": true,
+    "clearMainSubjectOrActionRequired": true,
+    "deepBlackBackgroundRequired": true,
+    "cleanMinimalBackgroundRequired": true,
+    "subjectSeparationLightingRequired": true,
+    "softContactShadowsRequired": true,
+    "brandMarksRecognizableButStylizedRequired": true,
+    "flatPastedRealLogoForbidden": true,
+    "screenshotLikeBrandUiForbidden": true,
+    "objectLabelsOnly": true,
+    "headlinesInGeneratedImagesForbidden": true,
+    "subtitlesInGeneratedImagesForbidden": true,
+    "sentencesInGeneratedImagesForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "appUiCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "floatingUiTilesForbidden": true,
+    "microchipVisualLanguageForbidden": true,
+    "miniatureDioramaForbidden": true,
+    "photorealismForbidden": true,
+    "productPhotoLookForbidden": true,
+    "clutterForbidden": true,
+    "seamlessSingleBackgroundRequired": true,
+    "percentageZonesForbidden": true,
+    "floorWallBoundaryForbidden": true,
+    "horizonLineForbidden": true,
+    "backgroundBandsForbidden": true,
+    "visibleFaceRequiredWhenPersonPresent": true,
+    "realWorldGroundedSituationRequired": true,
+    "believableObjectProportionsRequired": true,
+    "recognizableEverydayDetailsRequired": true,
+    "completeExplanatorySceneRequired": true,
+    "causeEffectReadableRequired": true,
+    "understandableWithoutAudioRequired": true,
+    "germanObjectLabelsWhenHelpfulRequired": true,
+    "individuallyWrittenPromptRequired": true,
+    "genericPromptShorthandForbidden": true,
+    "abstractSymbolOnlyCompositionForbidden": true,
+    "genericFinanceIconCompositionForbidden": true,
+    "visualMetaphorInterpretationRequiredForbidden": true
+  },
+  "platformPublishing": {
+    "directory": "04-caption",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt",
+    "universalCaptionForAllReelPlatforms": true,
+    "platforms": [
+      "instagram-reels",
+      "tiktok",
+      "facebook-reels",
+      "snapchat"
+    ]
+  },
+  "timelineRules": {
+    "timingSource": "04-caption/word-timings.json",
+    "cutsFollowSentenceStarts": true,
+    "cutsFollowSentenceStartsAndMeaningfulPhraseStarts": true,
+    "equalLengthScenesForbiddenByDefault": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "imagePresentationContract": {
+    "imageFit": "contain",
+    "maxIntentionalImageScale": 1.04,
+    "maxSourceCropPerSide": 0.2,
+    "maxSourceCropTotal": 0.34,
+    "blurredImageBackgroundForbidden": true
+  },
+  "subtitleDisplay": {
+    "mode": "sentence-with-audio-synced-active-word",
+    "activeWordColor": "finance-green",
+    "normalWordColor": "white",
+    "maxLines": 2,
+    "noDeadGaps": true,
+    "holdDuringPauses": true,
+    "noWordJump": true,
+    "noWordScale": true,
+    "goldActiveWordForbidden": true,
+    "blackTextForbidden": true,
+    "clipToSceneBoundary": true,
+    "crossSceneSpillForbidden": true,
+    "textStrokeForbidden": true,
+    "fontWeight": 800,
+    "fontSize": 50,
+    "bottom": 340
+  },
+  "sceneHeader": {
+    "required": true,
+    "align": "center",
+    "presentation": "plain",
+    "headlineColor": "white",
+    "fontSize": 56,
+    "minFontSize": 50,
+    "maxLines": 2,
+    "iconSize": 34,
+    "defaultIconColor": "finance-green",
+    "semanticColorLivesOnIcon": true,
+    "capsuleForbidden": true,
+    "uppercaseTransformForbidden": true,
+    "uniqueIconPerScene": true,
+    "mustStateSceneMessage": true,
+    "samePositionAcrossReel": true
+  },
+  "animationColors": {
+    "neutral": "white",
+    "focus": "finance-green",
+    "warning": "red",
+    "money": "gold",
+    "blackOnDarkForbidden": true
+  },
+  "transitionContract": {
+    "continuityFrames": 3,
+    "continuityFramesMax": 3,
+    "imageEnterFrames": 4,
+    "fadeToBlackForbidden": true
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 108,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-01",
+      "headline": "Zehntausend auf dem Konto",
+      "icon": "bank",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
+      "googleFlowFileName": "Bild 01 - Zehntausend auf dem Konto.png",
+      "objectLabels": [
+        "10.000 €"
+      ],
+      "expectedVisual": "Ein Kontoauszug mit 10.000 Euro liegt auf dem Kuechentisch, daneben eine Hand mit Kaffee.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.6,
+      "visualBeats": [
+        {
+          "id": "scene-01-beat-01",
+          "kind": "image",
+          "voiceText": "Zehntausend Euro liegen auf deinem Konto.",
+          "visualChange": "Ein Kontoauszug mit 10.000 Euro liegt auf dem Kuechentisch, daneben eine Hand mit Kaffee.",
+          "startSecond": 0.0,
+          "endSecond": 3.6
+        }
+      ],
+      "coverHook": true,
+      "captionEnabled": true,
+      "subtitleMode": "sentence-with-audio-synced-active-word",
+      "captionsStartWithVoiceover": true,
+      "titleMode": "reel-title-overlay",
+      "titleVisibleFromFrame": 0,
+      "coverTitle": "Dein Geld auf dem Konto wird jedes Jahr weniger",
+      "imageStorytelling": {
+        "strategy": "literal",
+        "literalSituation": "Ein Kontoauszug mit 10.000 Euro Guthaben liegt abends auf dem Kuechentisch.",
+        "contextAnchor": "Kuechentisch mit gedrucktem Kontoauszug und Kaffeetasse — privates Ersparnis zu Hause.",
+        "voiceVisualMatch": "Der gedruckte Betrag 10.000 Euro auf dem Auszug ist genau die Summe, von der gesprochen wird.",
+        "transferabilityTest": "PASS: Ein konkreter Kontoauszug mit genau diesem Guthaben gehoert zu dieser Aussage und nicht zu einem allgemeinen Sparmotiv.",
+        "metaphorJustification": "none"
+      },
+      "presentation": {
+        "coverTitleRequired": true,
+        "standardHeaderRequired": false,
+        "iconRequired": false,
+        "captionsRequired": true,
+        "captionsFollowVoiceover": true
+      },
+      "audioTrigger": "Zehntausend Euro liegen auf deinem Konto."
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "startFrame": 108,
+      "durationFrames": 102,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-02",
+      "headline": "Sicher, denkst du",
+      "icon": "shield",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
+      "googleFlowFileName": "Bild 02 - Auszug wird weggelegt.png",
+      "objectLabels": [
+        "liegt einfach da"
+      ],
+      "expectedVisual": "Der Auszug wird ruhig zur Seite gelegt, nichts bewegt sich.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.4,
+      "visualBeats": [
+        {
+          "id": "scene-02-beat-01",
+          "kind": "image",
+          "voiceText": "Sicher, denkst du. Da passiert nichts.",
+          "visualChange": "Der Auszug wird ruhig zur Seite gelegt, nichts bewegt sich.",
+          "startSecond": 0.0,
+          "endSecond": 3.4
+        }
+      ],
+      "imageStorytelling": {
+        "strategy": "literal",
+        "literalSituation": "Der Kontoauszug wird beiseite gelegt, niemand tut etwas damit.",
+        "contextAnchor": "Derselbe Kuechentisch, der Auszug wandert unter eine Ablage.",
+        "voiceVisualMatch": "Das Weglegen zeigt genau das Nichtstun, von dem der Satz spricht.",
+        "transferabilityTest": "PASS: Ein bewusst zur Seite gelegter Kontoauszug ist die konkrete Handlung dieses Satzes.",
+        "metaphorJustification": "none"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "audioTrigger": "Sicher, denkst du. Da passiert nichts."
+    },
+    {
+      "id": "scene-03",
+      "type": "data",
+      "startFrame": 210,
+      "durationFrames": 270,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-03",
+      "headline": "Was nach zehn Jahren bleibt",
+      "icon": "trending",
+      "accent": "warning",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-03/daten.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-03/animation.tsx",
+      "animationExport": "Scene03Animation",
+      "animationIntent": "Zwei Balken stehen gleich hoch; der rechte sinkt sichtbar auf 7.812 Euro und die Differenz bleibt als roter Block stehen.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "dataOrigin": "calculated",
+      "dataSource": "kaufkraftFuerAnimation",
+      "dataClaim": "Aus 10.000 Euro werden bei 2,5 Prozent Inflation in zehn Jahren noch 7.812 Euro Kaufkraft, ein Verlust von 21,9 Prozent.",
+      "sourceNote": "Beispielannahme: konstant 2,5 % Inflation pro Jahr ueber 10 Jahre. Die tatsaechliche Inflation schwankt.",
+      "plannedDurationSeconds": 9.0,
+      "visualBeats": [
+        {
+          "id": "scene-03-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Genau das ist das Problem.",
+          "visualChange": "Zwei Balken stehen nebeneinander, der rechte ist noch leer.",
+          "startSecond": 0.0,
+          "endSecond": 3.0
+        },
+        {
+          "id": "scene-03-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Bei zweieinhalb Prozent Inflation sind aus zehntausend Euro nach zehn Jahren noch knapp siebentausendachthundert geworden.",
+          "visualChange": "Der rechte Balken sinkt sichtbar auf 7.812 Euro.",
+          "startSecond": 3.0,
+          "endSecond": 6.0
+        },
+        {
+          "id": "scene-03-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Fast zweiundzwanzig Prozent weg.",
+          "visualChange": "Die Differenz wird als roter Block zwischen beiden Balken sichtbar und bleibt stehen.",
+          "startSecond": 6.0,
+          "endSecond": 9.0
+        }
+      ],
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "audioTrigger": "Genau das ist das Problem.",
+      "motionDesign": {
+        "viewerChange": "Der Zuschauer sieht, dass derselbe Betrag nach zehn Jahren spuerbar weniger wert ist.",
+        "primaryAction": "Zwei gleich hohe Balken stehen nebeneinander; der rechte sinkt sichtbar ab und die Differenz bleibt als roter Block stehen.",
+        "visualTechniqueId": "paired-bars-one-sinks",
+        "compositionFamilyId": "two-bars-side-by-side",
+        "heroObjectFamily": "value-bar-pair",
+        "visualMode": "data",
+        "supportTools": [
+          "PhysicalCoinStack"
+        ],
+        "motionSignature": {
+          "camera": "static",
+          "layout": "symmetric-bar-pair",
+          "transformation": "single-bar-descent"
+        },
+        "repetitionJustification": "none"
+      },
+      "phase1MotionDirection": {
+        "spokenPoint": "Bei 2,5 Prozent Inflation sind aus 10.000 Euro nach zehn Jahren noch knapp 7.800 geworden.",
+        "viewerMustUnderstand": "Dass der Verlust real ist, obwohl auf dem Konto dieselbe Zahl steht.",
+        "visualQuestion": "Wie zeige ich einen Verlust, den man auf dem Kontoauszug nicht sieht?",
+        "chosenMechanism": "Zwei gleich hohe Balken; nur der rechte sinkt, die Luecke bleibt sichtbar stehen.",
+        "mechanismRationale": "Der gemeinsame Startpunkt macht den Unterschied erst messbar; ohne ihn waere der rechte Balken nur eine Zahl.",
+        "mechanicId": "same-sum-lower-purchasing-power",
+        "heroObject": "Das Balkenpaar aus heutigem Betrag und spaeterer Kaufkraft.",
+        "supportObjects": "Ein Muenzstapel links zeigt, dass der Betrag selbst unveraendert bleibt.",
+        "primaryAction": "Der rechte Balken sinkt auf 7.812 Euro, die Differenz bleibt als roter Block stehen.",
+        "motionAxis": "vertikal absinkend bei stehendem Vergleichsbalken",
+        "resultType": "zwei stehende Betraege und der Verlust in Prozent",
+        "uniquenessRationale": "Als einzige Szene arbeitet hier ein Balkenpaar; Szene 6 bewegt Gegenstaende, Szene 8 zeichnet eine Linie.",
+        "reuseDecision": "invent-new",
+        "reusedTechniqueId": "none",
+        "reuseJustification": "none"
+      }
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "startFrame": 480,
+      "durationFrames": 96,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-04",
+      "headline": "Der Betrag bleibt gleich",
+      "icon": "receipt",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
+      "googleFlowFileName": "Bild 04 - Dieselbe Zahl auf dem Auszug.png",
+      "objectLabels": [
+        "weiterhin 10.000 €"
+      ],
+      "expectedVisual": "Derselbe Kontoauszug zeigt unveraendert 10.000 Euro.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.2,
+      "visualBeats": [
+        {
+          "id": "scene-04-beat-01",
+          "kind": "image",
+          "voiceText": "Auf dem Auszug steht weiter dieselbe Zahl.",
+          "visualChange": "Derselbe Kontoauszug zeigt unveraendert 10.000 Euro.",
+          "startSecond": 0.0,
+          "endSecond": 3.2
+        }
+      ],
+      "imageStorytelling": {
+        "strategy": "literal",
+        "literalSituation": "Derselbe Auszug zeigt Jahre spaeter unveraendert 10.000 Euro.",
+        "contextAnchor": "Gedruckter Kontoauszug mit unveraendertem Guthaben neben einem aelteren Kalenderblatt.",
+        "voiceVisualMatch": "Die unveraenderte Zahl auf dem Auszug zeigt genau, dass der Betrag gleich geblieben ist.",
+        "transferabilityTest": "PASS: Derselbe Betrag auf einem sichtbar aelteren Beleg ist spezifisch fuer diese Aussage.",
+        "metaphorJustification": "none"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "audioTrigger": "Auf dem Auszug steht weiter dieselbe Zahl."
+    },
+    {
+      "id": "scene-05",
+      "type": "image",
+      "startFrame": 576,
+      "durationFrames": 90,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-05",
+      "headline": "Der Einkauf wird kleiner",
+      "icon": "warning",
+      "accent": "warning",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
+      "googleFlowFileName": "Bild 05 - Halbleerer Einkaufswagen.png",
+      "objectLabels": [
+        "gleicher Betrag",
+        "weniger drin"
+      ],
+      "expectedVisual": "Ein halbleerer Einkaufswagen neben einem vollen Bon.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.0,
+      "visualBeats": [
+        {
+          "id": "scene-05-beat-01",
+          "kind": "image",
+          "voiceText": "Im Einkaufswagen landet trotzdem weniger.",
+          "visualChange": "Ein halbleerer Einkaufswagen neben einem vollen Bon.",
+          "startSecond": 0.0,
+          "endSecond": 3.0
+        }
+      ],
+      "imageStorytelling": {
+        "strategy": "literal",
+        "literalSituation": "Ein Einkaufswagen ist nur halb gefuellt, obwohl der Kassenbon dieselbe Summe zeigt.",
+        "contextAnchor": "Supermarkt-Einkaufswagen mit Kassenbon, alltaeglicher Einkauf.",
+        "voiceVisualMatch": "Der halbleere Wagen neben dem gleich langen Bon zeigt genau, dass dieselbe Summe weniger kauft.",
+        "transferabilityTest": "PASS: Halbleerer Wagen plus unveraenderte Bonsumme gehoert nur zur Kaufkraft-Aussage.",
+        "metaphorJustification": "none"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "audioTrigger": "Im Einkaufswagen landet trotzdem weniger."
+    },
+    {
+      "id": "scene-06",
+      "type": "animation",
+      "startFrame": 666,
+      "durationFrames": 210,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-06",
+      "headline": "Gleicher Betrag, weniger Wert",
+      "icon": "hourglass",
+      "accent": "warning",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-06/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-06/animation.tsx",
+      "animationExport": "Scene06Animation",
+      "animationIntent": "Der Kontostand bleibt bei 10.000 Euro stehen, waehrend der Kalender durch zehn Jahre laeuft und der Muenzstapel daneben auf knapp drei Viertel schrumpft.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 7.0,
+      "visualBeats": [
+        {
+          "id": "scene-06-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Das Geld verschwindet nicht.",
+          "visualChange": "Kontostand 10.000 Euro, daneben ein voller Muenzstapel, Kalender auf Jahr 1.",
+          "startSecond": 0.0,
+          "endSecond": 2.33
+        },
+        {
+          "id": "scene-06-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Es kauft nur jedes Jahr ein bisschen weniger.",
+          "visualChange": "Der Kalender laeuft durch die Jahre, der Kontostand bleibt, der Stapel schrumpft.",
+          "startSecond": 2.33,
+          "endSecond": 4.67
+        },
+        {
+          "id": "scene-06-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Nach zehn Jahren fehlt fast ein Viertel.",
+          "visualChange": "Kalender steht auf Jahr 10, Stapel ist sichtbar kleiner, beide Werte bleiben stehen.",
+          "startSecond": 4.67,
+          "endSecond": 7.0
+        }
+      ],
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "motionDesign": {
+        "viewerChange": "Der Zuschauer sieht, dass die Zeit die Ursache ist und nicht der Betrag.",
+        "primaryAction": "Der Kalender laeuft durch zehn Jahre, der Kontostand bleibt stehen und der Muenzstapel daneben schrumpft.",
+        "visualTechniqueId": "calendar-runs-stack-shrinks",
+        "compositionFamilyId": "three-objects-in-a-row",
+        "heroObjectFamily": "calendar-account-stack",
+        "visualMode": "physical",
+        "supportTools": [
+          "PhysicalCalendarPage",
+          "PhysicalAccount",
+          "PhysicalCoinStack"
+        ],
+        "motionSignature": {
+          "camera": "static",
+          "layout": "left-time-right-effect",
+          "transformation": "counter-motion-stack-decay"
+        },
+        "repetitionJustification": "none"
+      },
+      "phase1MotionDirection": {
+        "spokenPoint": "Das Geld verschwindet nicht, es kauft nur jedes Jahr ein bisschen weniger.",
+        "viewerMustUnderstand": "Dass Zeit die Ursache ist und der gleichbleibende Kontostand kein Schutz.",
+        "visualQuestion": "Wie zeige ich, dass sich etwas veraendert, obwohl die Zahl gleich bleibt?",
+        "chosenMechanism": "Kalender laeuft, Kontostand steht still, Muenzstapel daneben schrumpft.",
+        "mechanismRationale": "Erst die Gegenbewegung von stehender Zahl und schrumpfendem Stapel macht den unsichtbaren Verlust sichtbar.",
+        "mechanicId": "amount-stays-purchasing-power-shrinks",
+        "heroObject": "Kontostand und Muenzstapel nebeneinander.",
+        "supportObjects": "Ein Kalenderblatt macht sichtbar, dass Zeit vergeht.",
+        "primaryAction": "Der Kalender laeuft von Jahr 1 auf Jahr 10, der Stapel verliert dabei Muenzen.",
+        "motionAxis": "Zeit laeuft links, Wirkung schrumpft rechts",
+        "resultType": "stehender Kontostand neben sichtbar kleinerem Stapel",
+        "uniquenessRationale": "Als einzige Szene bewegen sich hier echte Gegenstaende; Szene 3 und 8 zeichnen Formen.",
+        "reuseDecision": "invent-new",
+        "reusedTechniqueId": "none",
+        "reuseJustification": "none"
+      },
+      "audioTrigger": "Das Geld verschwindet nicht."
+    },
+    {
+      "id": "scene-07",
+      "type": "image",
+      "startFrame": 876,
+      "durationFrames": 96,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-07",
+      "headline": "Zinsen holen das nicht auf",
+      "icon": "percent",
+      "accent": "warning",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-07/bildprompt.txt",
+      "googleFlowFileName": "Bild 07 - Zinsbeleg mit null Komma null eins.png",
+      "objectLabels": [
+        "0,01 % Zinsen"
+      ],
+      "expectedVisual": "Ein Zinsbeleg mit 0,01 Prozent liegt neben dem Auszug.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.2,
+      "visualBeats": [
+        {
+          "id": "scene-07-beat-01",
+          "kind": "image",
+          "voiceText": "Und die Zinsen auf dem Konto holen das nicht auf.",
+          "visualChange": "Ein Zinsbeleg mit 0,01 Prozent liegt neben dem Auszug.",
+          "startSecond": 0.0,
+          "endSecond": 3.2
+        }
+      ],
+      "imageStorytelling": {
+        "strategy": "literal",
+        "literalSituation": "Ein Zinsbeleg der Bank weist 0,01 Prozent aus.",
+        "contextAnchor": "Gedruckter Zinsbeleg neben dem Kontoauszug auf demselben Tisch.",
+        "voiceVisualMatch": "Der ausgedruckte Zinssatz zeigt genau, dass das Konto den Verlust nicht ausgleicht.",
+        "transferabilityTest": "PASS: Ein Beleg mit genau diesem Zinssatz gehoert zu dieser Aussage und zu keiner anderen.",
+        "metaphorJustification": "none"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "audioTrigger": "Und die Zinsen auf dem Konto holen das nicht auf."
+    },
+    {
+      "id": "scene-08",
+      "type": "data",
+      "startFrame": 972,
+      "durationFrames": 255,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-08",
+      "headline": "Zehn Jahre Weltmarkt",
+      "icon": "trending",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-08/daten.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-08/animation.tsx",
+      "animationExport": "Scene08Animation",
+      "animationIntent": "Die gemessene Reihe zeichnet sich von links nach rechts, danach faellt der tiefste Einbruch als Markierung ein und bleibt mit beiden Kennzahlen stehen.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "dataOrigin": "measured",
+      "dataSource": "public/data/msci-world.json",
+      "dataClaim": "Zehn Jahre Weltmarkt steigen auf das 2,93-fache und fallen zwischendurch 24 Prozent unter das vorherige Hoch.",
+      "sourceNote": "Quelle: Yahoo Finance · URTH · 10y, Stand 21.9.2026. Historische Entwicklung, keine Aussage ueber die Zukunft.",
+      "plannedDurationSeconds": 8.5,
+      "visualBeats": [
+        {
+          "id": "scene-08-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Zehn Jahre Weltmarkt sahen so aus.",
+          "visualChange": "Leeres Raster mit einem Geldstapel links.",
+          "startSecond": 0.0,
+          "endSecond": 2.83
+        },
+        {
+          "id": "scene-08-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Aus einem Euro wurden fast drei.",
+          "visualChange": "Die gemessene Reihe zeichnet sich bis zum Hoechststand.",
+          "startSecond": 2.83,
+          "endSecond": 5.67
+        },
+        {
+          "id": "scene-08-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Aber zwischendurch ging es vierundzwanzig Prozent nach unten.",
+          "visualChange": "Der tiefste Einbruch wird markiert, beide Kennzahlen bleiben stehen.",
+          "startSecond": 5.67,
+          "endSecond": 8.5
+        }
+      ],
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "audioTrigger": "Zehn Jahre Weltmarkt sahen so aus.",
+      "motionDesign": {
+        "viewerChange": "Der Zuschauer sieht, dass derselbe Zeitraum Aufstieg und tiefen Einbruch gleichzeitig enthaelt.",
+        "primaryAction": "Die gemessene Kursreihe zeichnet sich von links nach rechts, danach faellt der tiefste Punkt als Markierung ein.",
+        "visualTechniqueId": "measured-series-draw-in",
+        "compositionFamilyId": "full-width-series-with-scale-object",
+        "heroObjectFamily": "measured-curve",
+        "visualMode": "data",
+        "supportTools": [
+          "PhysicalCoinStack",
+          "SVG-Pfad aus kursPfad"
+        ],
+        "motionSignature": {
+          "camera": "static",
+          "layout": "left-object-right-series",
+          "transformation": "path-draw-then-mark"
+        },
+        "repetitionJustification": "none"
+      },
+      "phase1MotionDirection": {
+        "spokenPoint": "Zehn Jahre Weltmarkt: aus einem Euro wurden fast drei, zwischendurch ging es 24 Prozent nach unten.",
+        "viewerMustUnderstand": "Dass die Alternative zum Konto nicht ruhig verlaeuft.",
+        "visualQuestion": "Wie zeige ich Ergebnis und Unruhe desselben Zeitraums gleichzeitig?",
+        "chosenMechanism": "Die gemessene Reihe zeichnet sich durch, danach wird der tiefste Punkt markiert.",
+        "mechanismRationale": "Der Einbruch wird erst als Teil des Weges verstanden, wenn die Linie vorher an ihm vorbeigefahren ist.",
+        "mechanicId": "measured-decade-with-marked-drawdown",
+        "heroObject": "Die gemessene Kursreihe als gezeichnete Linie mit Flaeche.",
+        "supportObjects": "Ein wachsender Geldstapel gibt der Linie einen koerperlichen Massstab.",
+        "primaryAction": "Der Pfad zeichnet sich von links nach rechts, der Tiefpunkt faellt als markierter Kreis ein.",
+        "motionAxis": "horizontal von links nach rechts, danach vertikale Markierung",
+        "resultType": "zwei stehende Kennzahlen: 2,93x und -24 Prozent",
+        "uniquenessRationale": "Als einzige Szene zeichnet hier eine gemessene Reihe sich selbst.",
+        "reuseDecision": "invent-new",
+        "reusedTechniqueId": "none",
+        "reuseJustification": "none"
+      }
+    },
+    {
+      "id": "scene-09",
+      "type": "image",
+      "startFrame": 1227,
+      "durationFrames": 96,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-09",
+      "headline": "Nicht alles, nur das Geparkte",
+      "icon": "coins",
+      "accent": "gold",
+      "headerTone": "money",
+      "planFile": "EINZELNE-SZENEN/scene-09/bildprompt.txt",
+      "googleFlowFileName": "Bild 09 - Zwei getrennte Bargeldstapel.png",
+      "objectLabels": [
+        "Notgroschen",
+        "liegt zu lange"
+      ],
+      "expectedVisual": "Zwei getrennte Stapel Bargeld auf dem Tisch, einer klar kleiner.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.2,
+      "visualBeats": [
+        {
+          "id": "scene-09-beat-01",
+          "kind": "image",
+          "voiceText": "Es geht nicht um alles. Nur um das, was jahrelang nur herumliegt.",
+          "visualChange": "Zwei getrennte Stapel Bargeld auf dem Tisch, einer klar kleiner.",
+          "startSecond": 0.0,
+          "endSecond": 3.2
+        }
+      ],
+      "imageStorytelling": {
+        "strategy": "literal",
+        "literalSituation": "Zwei getrennte Bargeldstapel liegen auf dem Tisch, einer deutlich kleiner.",
+        "contextAnchor": "Zwei beschriftete Bargeldstapel auf demselben Kuechentisch.",
+        "voiceVisualMatch": "Die Trennung in zwei Stapel zeigt genau, dass es nur um den geparkten Teil geht.",
+        "transferabilityTest": "PASS: Genau zwei getrennte Stapel mit diesen Beschriftungen gehoeren zu dieser Unterscheidung.",
+        "metaphorJustification": "none"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "audioTrigger": "Es geht nicht um alles. Nur um das, was jahrelang nur herumliegt."
+    },
+    {
+      "id": "scene-10",
+      "type": "image",
+      "startFrame": 1323,
+      "durationFrames": 96,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-10",
+      "headline": "Notgroschen bleibt liegen",
+      "icon": "lock",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
+      "googleFlowFileName": "Bild 10 - Notgroschen bleibt liegen.png",
+      "objectLabels": [
+        "Notgroschen",
+        "bleibt"
+      ],
+      "expectedVisual": "Ein beschrifteter Umschlag Notgroschen wird bewusst zurueckgelegt.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.2,
+      "visualBeats": [
+        {
+          "id": "scene-10-beat-01",
+          "kind": "image",
+          "voiceText": "Der Notgroschen bleibt, wo er ist.",
+          "visualChange": "Ein beschrifteter Umschlag Notgroschen wird bewusst zurueckgelegt.",
+          "startSecond": 0.0,
+          "endSecond": 3.2
+        }
+      ],
+      "imageStorytelling": {
+        "strategy": "literal",
+        "literalSituation": "Ein beschrifteter Umschlag mit dem Notgroschen wird bewusst zurueckgelegt.",
+        "contextAnchor": "Beschrifteter Umschlag auf dem Kuechentisch, eine Hand legt ihn zurueck.",
+        "voiceVisualMatch": "Das bewusste Zuruecklegen zeigt genau, dass dieser Teil unangetastet bleibt.",
+        "transferabilityTest": "PASS: Ein beschrifteter Notgroschen-Umschlag, der bewusst liegen bleibt, ist genau diese Handlung.",
+        "metaphorJustification": "none"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "audioTrigger": "Der Notgroschen bleibt, wo er ist."
+    },
+    {
+      "id": "scene-11",
+      "type": "image",
+      "startFrame": 1419,
+      "durationFrames": 102,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-11",
+      "headline": "Der Rest darf arbeiten",
+      "icon": "rocket",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-11/bildprompt.txt",
+      "googleFlowFileName": "Bild 11 - Der Rest wandert ins Depot.png",
+      "objectLabels": [
+        "Depot",
+        "arbeitet"
+      ],
+      "expectedVisual": "Der zweite Stapel wandert in einen Depot-Umschlag, der Tisch bleibt aufgeraeumt.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.4,
+      "visualBeats": [
+        {
+          "id": "scene-11-beat-01",
+          "kind": "image",
+          "voiceText": "Der Rest darf arbeiten.",
+          "visualChange": "Der zweite Stapel wandert in einen Depot-Umschlag, der Tisch bleibt aufgeraeumt.",
+          "startSecond": 0.0,
+          "endSecond": 3.4
+        }
+      ],
+      "imageStorytelling": {
+        "strategy": "literal",
+        "literalSituation": "Der zweite Bargeldstapel wandert in einen beschrifteten Depot-Umschlag.",
+        "contextAnchor": "Zweiter Umschlag auf demselben Tisch, Geld wandert hinein.",
+        "voiceVisualMatch": "Das Einlegen des zweiten Stapels zeigt genau, dass der Rest angelegt wird.",
+        "transferabilityTest": "PASS: Genau dieser zweite beschriftete Umschlag neben dem liegengebliebenen Notgroschen gehoert zu diesem Schlusssatz.",
+        "metaphorJustification": "none"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "audioTrigger": "Der Rest darf arbeiten."
+    }
+  ],
+  "phase3CompletionContract": {
+    "id": "finanzneo-phase3-completion-v1",
+    "required": true,
+    "productionManifest": "05-projektdateien/phase3-production-manifest.json",
+    "renderQa": "05-projektdateien/phase3-render-qa.json",
+    "phase1AnimationSeal": "05-projektdateien/phase1-animation-seal.json",
+    "reelBackgroundContractId": "finanzneo-pure-black-background-v1",
+    "allScenesMustBeImplemented": true,
+    "imageVisualRequired": true,
+    "animationVisualRequired": true,
+    "captionOnlySceneForbidden": true,
+    "postRenderVisualQaRequired": true,
+    "exportRequiresPassedRenderQa": true,
+    "exactVideoHashRequiredForExport": true,
+    "finalVideoExistsOnlyAfterQaPass": true,
+    "canonicalPhase1AnimationRequired": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "phase1AnimationHashMustMatchSeal": true,
+    "pureBlackBackgroundRequired": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "backgroundMotionDoesNotCountAsAnimation": true,
+    "blackOrEmptyVisualMustFail": true,
+    "visualQa": {
+      "sampleImageRatios": [
+        0.5
+      ],
+      "sampleAnimationRatios": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "sampleBackgroundPerScene": true,
+      "minStdDev": 4,
+      "minContrastP90P10": 12,
+      "minEdgeMean": 0.5,
+      "minActivePixelRatio": 0.04,
+      "minAnimationMeanAbsDiff": 1,
+      "maxBackgroundMean": 12,
+      "maxBackgroundStdDev": 4
+    },
+    "autoExportAfterPassedRenderQa": true,
+    "finalVideoDirectory": "06-export",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt"
+  },
+  "visualBeatContract": {
+    "id": "finanzneo-visual-beats-v2",
+    "sceneCountFlexible": true,
+    "visualBeatCountFlexible": true,
+    "visualBeatPlanBeforeSceneCount": true,
+    "oneSpokenThoughtPerBeatRequired": true,
+    "splitMultiThoughtSentenceWhenHelpful": true,
+    "oneImagePerSentenceAllowed": true,
+    "oneImagePerSentencePreferredWhenItImprovesClarity": true,
+    "consecutiveImageScenesAllowedWhenMeaningAdvances": true,
+    "visualChangeWhenVoiceoverIntroducesNewConcreteIdea": true,
+    "extraImagePreferredOverOverloadedStill": true,
+    "staticImageBeatIdealSeconds": [
+      1.8,
+      3
+    ],
+    "staticImageBeatHardMaxSeconds": 4,
+    "animationSceneTypicalSeconds": [
+      3,
+      5.5
+    ],
+    "longerAnimationRequiresVisibleProgression": true,
+    "animationMustContainMultipleVisibleStates": true,
+    "visualMustAdvanceWithVoiceover": true,
+    "cameraMotionAloneDoesNotCountAsNewBeat": true,
+    "unchangedVisualAfterMessageUnderstoodForbidden": true,
+    "actualCutsFollowRealWordTimings": true,
+    "ratioIsGuidelineNotQuota": true,
+    "longStaticSentenceNeedsAdditionalVisualBeat": true,
+    "extraImagePreferredOverLongHold": true
+  },
+  "coverHookContract": {
+    "id": "finanzneo-cover-hook-v3",
+    "sourceSceneId": "scene-01",
+    "titleSource": "scene-index.title",
+    "titleRenderedByRemotion": true,
+    "titleInGeneratedFlowImageForbidden": true,
+    "titleVisibleFromFrame": 0,
+    "titleVisibleWithinFirstSecond": true,
+    "titleHoldMinFrames": 30,
+    "captionsFollowVoiceoverFromFirstSpokenWord": true,
+    "captionlessSpokenAudioForbidden": true,
+    "standardSceneHeaderForbiddenDuringScene01": true,
+    "coverIconForbidden": true,
+    "secondaryTextForbidden": true,
+    "noIntroBeforeTitle": true,
+    "noFadeInDelay": true,
+    "flowImageMustReserveTitleSafeSpace": true,
+    "standaloneCoverRequired": true,
+    "exportedCoverSource": "final-video-frame-0"
+  },
+  "imageStorytellingContract": {
+    "id": "finanzneo-image-storytelling-v3",
+    "appliesToNewReelsOnly": true,
+    "literalFirstRequired": true,
+    "directRealWorldDepictionPreferred": true,
+    "recognizableFinanceContextRequired": true,
+    "exactVoiceBeatVisualMatchRequired": true,
+    "transferabilityTestRequired": true,
+    "metaphorFallbackOnly": true,
+    "metaphorNeedsExplicitJustification": true,
+    "genericFantasyMechanismAsDefaultForbidden": true,
+    "railsConveyorsGatesCagesPortalsAsDefaultForbidden": true,
+    "practicalEverydaySituationRequired": true,
+    "directMeaningWithoutCaptionRequired": true,
+    "visibleActionConflictOrConsequenceRequired": true,
+    "genericSymbolOnlyForbidden": true,
+    "isolatedFinanceIconAsMainStoryForbidden": true,
+    "decorativeObjectPileForbidden": true,
+    "staticCatalogCompositionForbidden": true,
+    "entertainmentThroughActionContrastOrConflictRequired": true,
+    "beforeAfterOrCauseEffectWhenHelpful": true,
+    "humanContextWhenHelpful": true,
+    "visualHookUnderOneSecondRequired": true,
+    "oneImagePerSentenceWhenItImprovesClarity": true,
+    "extraImagePreferredOverOverloadedStill": true,
+    "labelsSupplementalOnly": true
+  },
+  "futureProductionStandard": {
+    "id": "finanzneo-future-production-v3",
+    "appliesToNewReelsOnly": true,
+    "legacyReelsUntouched": true,
+    "timing": {
+      "staticImageIdealSeconds": [
+        1.8,
+        3
+      ],
+      "staticImageSoftMaxSeconds": 3.6,
+      "staticImageHardMaxSeconds": 4,
+      "longStaticSentenceNeedsAdditionalVisualBeat": true,
+      "sentenceMayUseMultipleImages": true,
+      "newConcreteIdeaNeedsVisualChange": true,
+      "extraImagePreferredOverLongHold": true,
+      "realWordTimingsRemainFinalAuthority": true
+    },
+    "animationFraming": {
+      "mainMechanismMustFeelFrameFilling": true,
+      "excessiveEmptySpaceForbidden": true,
+      "widerContextAllowedOnlyWhenStoryNeedsIt": true,
+      "wideContextMustProgressToCloserMechanismState": true,
+      "sampleRatios": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "minPeakActivePixelRatio": 0.15,
+      "minMedianActivePixelRatio": 0.12
+    },
+    "audioMastering": {
+      "normalizeBeforeRenderQa": true,
+      "targetIntegratedLufs": -16,
+      "integratedLufsTolerance": 1,
+      "targetTruePeakDbtp": -1,
+      "maxTruePeakDbtp": -0.8,
+      "targetLra": 11,
+      "audioBitrate": "320k",
+      "sampleRate": 48000
+    }
+  },
+  "futurePresentationContract": {
+    "id": "finanzneo-future-reel-presentation-v1",
+    "appliesToNewReelsOnly": true,
+    "legacyReelsUntouched": true,
+    "scene01CoverUsesTitleInsteadOfStandardHeader": true,
+    "scene01CaptionsFollowSpeech": true,
+    "captionlessSpokenAudioForbidden": true,
+    "standardHeaderRequiredFromScene02": true,
+    "standardIconRequiredFromScene02": true,
+    "captionsRequiredFromScene02": true,
+    "captionsMustUseRealWordTimings": true,
+    "phase3CompositionMustMountAudio": true,
+    "phase3CompositionMustMountSceneHeader": true,
+    "phase3CompositionMustMountCaptions": true,
+    "renderedHeaderQaRequired": true,
+    "renderedCaptionQaRequired": true,
+    "imageMustFeelFrameFilling": true,
+    "smallSquareCardLookForbidden": true,
+    "minImageActivePixelRatio": 0.1,
+    "motionDiversityRequired": true,
+    "supportToolSwapDoesNotCountAsNewTechnique": true,
+    "exactMotionSignatureRepeatWithinPreviousFourForbiddenWithoutReason": true,
+    "sameHeroObjectFamilyMoreThanTwiceWithinPreviousFourForbiddenWithoutReason": true
+  },
+  "phase1MotionDirectionContract": {
+    "id": "finanzneo-phase1-individual-motion-v1",
+    "appliesToNewReelsOnly": true,
+    "legacyReelsUntouched": true,
+    "analyzeSpokenPointBeforeTechnique": true,
+    "viewerUnderstandingBeforeImplementation": true,
+    "visualQuestionBeforeTechnique": true,
+    "mechanismDerivedFromContent": true,
+    "noFixedAnimationMenu": true,
+    "semanticMechanicFamiliesNotTemplates": true,
+    "toolsFollowContent": true,
+    "templateReuseOnlyWhenBestFit": true,
+    "reuseNeedsExplicitJustification": true,
+    "supportAssetsCannotDriveSceneConcept": true,
+    "phase1DirectionMustPrecedeMotionDesign": true,
+    "phase1DirectionMustPrecedeAnimationCode": true,
+    "motionCoreVersion": "finanzneo-motion-core-v1",
+    "canonicalMotionSource": "src/motion",
+    "mechanicRegistry": "src/motion/mechanics.ts",
+    "mechanicSelectionRule": ".agents/plugins/finanzneo-motion/rules/mechanic-selection.md",
+    "motionDirectorSkill": ".agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md",
+    "motionArtDirectorSkill": ".agents/plugins/finanzneo-motion/skills/motion-art-director/SKILL.md",
+    "motionCoreCuratorSkill": ".agents/plugins/finanzneo-motion/skills/motion-core-curator/SKILL.md",
+    "mechanicLedgerRequired": true,
+    "antiRepetitionGateRequired": true,
+    "coreReuseBeforeLocalPrimitive": true,
+    "legacyLabsNotStyleReference": true,
+    "visualQaGateRequiredBeforePhase3Render": true
+  },
+  "reelQualityGuards": {
+    "id": "finanzneo-reel-quality-guards-v1",
+    "appliesToNewReelsOnly": true,
+    "sceneTypeExclusive": true,
+    "imageAnimationHybridMainVisualForbidden": true,
+    "sourceBasedAnimationDiversityRequired": true,
+    "metadataOnlyDiversityForbidden": true,
+    "actualPrimitiveReuseLimited": true,
+    "horizontalAnimationSafeZoneRequired": true,
+    "animationHorizontalSafeZone": {
+      "left": 72,
+      "right": 1008,
+      "top": 320,
+      "bottom": 1400,
+      "perspectiveGuardPx": 24
+    },
+    "postRenderEdgeBandQaRequired": true,
+    "edgeBandActivePixelRatioMax": 0.012
+  },
+  "dataSceneCount": 2
+}

@@ -1,0 +1,50 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Zwei getrennte Bargeldstapel.png
+
+Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
+
+STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
+Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
+Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
+Nur die Bildaussage kommt aus dem Prompt unten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Notgroschen
+- liegt zu lange
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Zwei getrennte Bargeldstapel liegen auf dem Tisch, einer deutlich kleiner.
+REAL_WORLD_CONTEXT_ANCHOR: Zwei beschriftete Bargeldstapel auf demselben Kuechentisch.
+VOICEOVER_VISUAL_MATCH: Die Trennung in zwei Stapel zeigt genau, dass es nur um den geparkten Teil geht.
+TRANSFERABILITY_TEST: PASS: Genau zwei getrennte Stapel mit diesen Beschriftungen gehoeren zu dieser Unterscheidung.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D scene on the same dark kitchen table showing two clearly separated stacks of banknotes with a visible gap between them. The smaller left stack carries the first short German label, the noticeably larger right stack carries the second. The separation itself is the statement: one part has a job, the other has been sitting still for years. Keep both stacks large, use the same warm light direction as before, and let the table fade into the black background.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment. The surface under the objects must stay dark; never place the scene on a white or light grey plane.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.

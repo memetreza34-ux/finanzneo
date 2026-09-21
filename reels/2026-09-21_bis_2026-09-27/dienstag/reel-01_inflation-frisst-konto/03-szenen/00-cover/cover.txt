@@ -1,0 +1,59 @@
+TECHNISCHER ALIAS — KEIN SEPARATER BILDJOB
+COVER = SZENE 01. No separate cover generation, no Bild 00.
+Das Cover ist dieselbe Datei wie scene-01: Bild 01 - Zehntausend auf dem Konto.png
+
+COVER_HOOK_CONTRACT: finanzneo-cover-hook-v3
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+
+Dieses Bild ist zugleich der STYLE-ANKER des Reels. Es wird zuerst und allein
+erzeugt und legt Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur fuer alle weiteren Bilder fest.
+
+Literal first, creative second. Zuerst die konkrete reale Situation zeigen, die im
+Sprechbeat wirklich passiert; erst danach darf gestaltet werden.
+
+TRANSFERABILITY-TEST: Das Bild faellt durch, wenn es genauso gut zu fuenf anderen
+Finanzthemen passen wuerde. Hier zeigt es einen Kontoauszug mit genau diesem Guthaben
+auf einem privaten Kuechentisch.
+
+VERBOTEN als Ersatz fuer die reale Situation: Förderbänder, Schienen, Schranken, Käfige
+und andere generische Fantasiemechaniken.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 10.000 €
+
+IMAGE PROMPT:
+Create a stylized 3D everyday evening scene at a kitchen table. A printed bank
+statement lies flat on the table, showing one clearly readable balance carrying the
+short German label; the number is the largest readable element on the paper. Beside
+it stand a warm ceramic coffee mug and a pair of reading glasses, so the scene reads
+as private household money rather than an office. Leave the upper third of the frame
+calm, because Remotion renders the reel title over it from frame 0; the generated
+image itself contains no title text.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and
+believable, with semi-realistic material detail. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. The surface under the
+objects stays dark; never a white or light grey plane.
+
+COMPOSITION:
+Make the main object large and readable within 1-2 seconds without narration.
+
+COLORS + LIGHT:
+Warm ivory and soft gray for neutral objects, subtle gold for money. Clean soft
+lighting and contact shadows.
+
+TEXT:
+No headline, subtitle or CTA. Only the exact short German object label listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart,
+no floating info cards, no miniature diorama, no clutter.

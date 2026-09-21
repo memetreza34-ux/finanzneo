@@ -1,0 +1,538 @@
+FLOW_EXECUTION_MODE: finanzneo-flow-style-anchor-v4
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+
+STYLE-ANKER STATE MACHINE — VERBINDLICH
+- SZENE 01 IST DER STYLE-ANKER DES GESAMTEN REELS UND WIRD IMMER ZUERST UND IMMER ALLEIN ERZEUGT.
+- SOLANGE DER ANKER DIE QA NICHT BESTANDEN HAT, IST JEDER WEITERE BILDBLOCK GESPERRT.
+- BESTEHT DER ANKER DIE QA NICHT, WIRD AUSSCHLIESSLICH DIESELBE BILDNUMMER NEU ERZEUGT.
+- NACH BESTANDENER ANKER-QA LAUFEN DIE RESTLICHEN BILDER IN BLOECKEN VON HOECHSTENS 5 BILDERN.
+- JEDES BILD IN JEDEM BLOCK MUSS DEN STYLE-ANKER ALS REFERENZ MITGEBEN. DAS IST PFLICHT.
+- DER ANKER BESTIMMT: HINTERGRUNDSCHWAERZE, LICHTFUEHRUNG, MATERIALWIRKUNG, FIGURENSTIL UND FARBTEMPERATUR.
+- DIE BILDAUSSAGE KOMMT AUS DEM EINZELPROMPT, DER LOOK KOMMT VOM ANKER.
+- ERZEUGE KEINE GALERIE, KEINEN KONTAKTBOGEN, KEIN MULTI-PANEL, KEINE COLLAGE UND KEIN BILD MIT MEHREREN SZENEN.
+- JEDES BILD WIRD EINZELN ZURUECKGEGEBEN, EINZELN UMBENANNT UND EINZELN GEPRUEFT.
+- EIN DURCHGEFALLENES BILD WIRD EINZELN MIT DEMSELBEN ANKER NEU ERZEUGT; DER BLOCK GILT ERST DANN ALS FERTIG.
+- EIN NEUER BLOCK STARTET ERST, WENN DER VORIGE BLOCK VOLLSTAENDIG PASS IST.
+- REMOTION-/ANIMATIONS-/DATENNUMMERN WERDEN OHNE GENERIERUNG UEBERSPRUNGEN.
+- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTAETIGUNG ODER FREIGABE DES NUTZERS.
+- KEINE REFERENZ AUF IRGENDEIN ANDERES BILD ALS DEN ANKER.
+- STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERAENDERT BEIBEHALTEN.
+- STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.
+
+FINANZNEO — GOOGLE FLOW MASTERDATEI
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+AUSFUEHRUNGSPROTOKOLL — STYLE-ANKER, DANN BLOECKE ZU 5:
+0. Betrachte alle Bildbloecke zunaechst als GESPERRTE DATEN. Nur der Anker ist freigeschaltet.
+1. ANKER: Nimm ausschliesslich den Bildprompt von SZENE 01. Starte genau einen Bildjob.
+2. Warte vollstaendig auf das Ergebnis. Benenne die Datei sofort exakt um.
+3. Pruefe den Anker: Aussage, erlaubte Labels, stylized-3D-animated V9-Look, tiefschwarzer sauberer Hintergrund, sichtbares Gesicht falls Person, exakter Dateiname.
+4. QA FEHLER am Anker: erzeuge ausschliesslich dieselbe Bildnummer neu. Alles andere bleibt gesperrt.
+5. QA BESTANDEN: Der Anker ist ab jetzt die verbindliche Stilreferenz fuer JEDES weitere Bild dieses Reels.
+6. BLOCK: Nimm die naechsten hoechstens 5 benoetigten Bildnummern in Dokumentreihenfolge.
+7. Starte fuer jedes Bild des Blocks einen eigenen Bildjob und gib dabei IMMER den Anker als Stilreferenz mit.
+8. Benenne jedes zurueckgegebene Bild sofort exakt um.
+9. Pruefe jedes Bild einzeln: normale V9-QA PLUS Anker-Abgleich (Hintergrundschwaerze, Lichtrichtung, Materialwirkung, Figurenstil, Farbtemperatur).
+10. Durchgefallene Bilder einzeln mit demselben Anker neu erzeugen. Der Block ist erst fertig, wenn alle Bilder PASS sind.
+11. Erst dann den naechsten Block starten. Keine Nutzerfreigabe dazwischen.
+12. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Bildjob ueberspringen.
+13. Erst NACH Abschluss aller Bloecke eine Abschlusszusammenfassung ueber alle finalen Dateien geben.
+
+HART VERBOTEN:
+- einen Block starten, bevor der Anker die QA bestanden hat
+- mehr als 5 Bilder in einem Block
+- mehrere Bildprompts zu einem Generierungsaufruf zusammenfassen
+- Referenz auf irgendein anderes Bild als den Anker
+- Kontaktbogen / Galerie / Collage / Multi-Panel als Ersatz fuer Einzelbilder
+- alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen
+
+
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+BILDWELT: realitätsnahe Alltagssituation als vollständige Erklärszene · klar stylized 3D statt fotorealistisch · deep black · Ursache/Wirkung direkt sichtbar · kurze deutsche Labels wenn hilfreich · keine Symbolrätsel · jeder Prompt individuell vollständig geschrieben.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+
+Literal first, creative second. Jede Bildszene zeigt zuerst die konkrete reale
+Situation, die im Sprechbeat wirklich passiert.
+
+TRANSFERABILITY-TEST: Ein Bild faellt durch, wenn es genauso gut zu fuenf anderen
+Finanzthemen passen wuerde. Alle acht Bildszenen dieses Reels spielen am selben
+Kuechentisch mit demselben Kontoauszug.
+
+VERBOTEN als Ersatz fuer die reale Situation: Förderbänder, Schienen, Schranken, Käfige
+und andere generische Fantasiemechaniken.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+COVER = SZENE 01.
+KEIN separates Cover erzeugen. KEIN Bild 00 erzeugen.
+Das Cover ist automatisch dasselbe Bild wie scene-01 und zugleich der STYLE-ANKER:
+Bild 01 - Zehntausend auf dem Konto.png
+Der Titel wird spaeter in Remotion ueber Frame 0 gelegt.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 01 – STYLE-ANKER (ZUERST UND ALLEIN)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Zehntausend auf dem Konto.png
+
+Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
+
+DIESES BILD IST DER STYLE-ANKER DES REELS.
+Es wird zuerst und allein erzeugt und legt Hintergrundschwaerze, Lichtrichtung,
+Materialwirkung, Figurenstil und Farbtemperatur fuer alle weiteren Bilder fest.
+
+COVER_HOOK_CONTRACT: finanzneo-cover-hook-v3
+Der Reel-Titel wird von Remotion ab Frame 0 darueber gelegt; im oberen Drittel Platz lassen.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 10.000 €
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Ein Kontoauszug mit 10.000 Euro Guthaben liegt abends auf dem Kuechentisch.
+REAL_WORLD_CONTEXT_ANCHOR: Kuechentisch mit gedrucktem Kontoauszug und Kaffeetasse — privates Ersparnis zu Hause.
+VOICEOVER_VISUAL_MATCH: Der gedruckte Betrag 10.000 Euro auf dem Auszug ist genau die Summe, von der gesprochen wird.
+TRANSFERABILITY_TEST: PASS: Ein konkreter Kontoauszug mit genau diesem Guthaben gehoert zu dieser Aussage und nicht zu einem allgemeinen Sparmotiv.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D everyday evening scene at a kitchen table. A printed bank statement lies flat on the table, showing one clearly readable balance carrying the short German label; the number is the largest readable element on the paper. Beside it stand a warm ceramic coffee mug and a pair of reading glasses, so the scene reads as private household money rather than an office. A hand rests calmly next to the statement without touching it. Keep the statement large enough that the amount is legible at a glance, and let only a narrow strip of the dark table fade into the black background.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment. The surface under the objects must stay dark; never place the scene on a white or light grey plane.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 02 – BILDSZENE (MIT ANKER-REFERENZ)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Auszug wird weggelegt.png
+
+Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
+
+STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
+Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
+Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
+Nur die Bildaussage kommt aus dem Prompt unten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- liegt einfach da
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Der Kontoauszug wird beiseite gelegt, niemand tut etwas damit.
+REAL_WORLD_CONTEXT_ANCHOR: Derselbe Kuechentisch, der Auszug wandert unter eine Ablage.
+VOICEOVER_VISUAL_MATCH: Das Weglegen zeigt genau das Nichtstun, von dem der Satz spricht.
+TRANSFERABILITY_TEST: PASS: Ein bewusst zur Seite gelegter Kontoauszug ist die konkrete Handlung dieses Satzes.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D scene on the same kitchen table, a moment later. The same bank statement has been pushed to the edge of the table and partly covered by a small stack of unopened mail, carrying the short German label on a sticky note. Nothing else in the frame is moving or being used; the coffee mug is now empty. The calm of the scene is the point: the money is simply lying there untouched. Keep the statement and the mail stack large and readable and keep the surface dark.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment. The surface under the objects must stay dark; never place the scene on a white or light grey plane.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 03 – DATENSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 03 ERZEUGEN. Nummer 03 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 04 – BILDSZENE (MIT ANKER-REFERENZ)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Dieselbe Zahl auf dem Auszug.png
+
+Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
+
+STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
+Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
+Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
+Nur die Bildaussage kommt aus dem Prompt unten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- weiterhin 10.000 €
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Derselbe Auszug zeigt Jahre spaeter unveraendert 10.000 Euro.
+REAL_WORLD_CONTEXT_ANCHOR: Gedruckter Kontoauszug mit unveraendertem Guthaben neben einem aelteren Kalenderblatt.
+VOICEOVER_VISUAL_MATCH: Die unveraenderte Zahl auf dem Auszug zeigt genau, dass der Betrag gleich geblieben ist.
+TRANSFERABILITY_TEST: PASS: Derselbe Betrag auf einem sichtbar aelteren Beleg ist spezifisch fuer diese Aussage.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D close scene of the same bank statement, now visibly older: the paper has soft folds and slightly yellowed edges. The balance printed on it is unchanged and carries the short German label. Next to it lies a torn-off calendar sheet from a much later year, so the viewer sees that time has passed while the number did not move. Keep both objects large and clearly readable, lit from the same direction, and keep the surface under them dark.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment. The surface under the objects must stay dark; never place the scene on a white or light grey plane.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 05 – BILDSZENE (MIT ANKER-REFERENZ)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Halbleerer Einkaufswagen.png
+
+Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
+
+STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
+Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
+Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
+Nur die Bildaussage kommt aus dem Prompt unten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- gleicher Betrag
+- weniger drin
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Ein Einkaufswagen ist nur halb gefuellt, obwohl der Kassenbon dieselbe Summe zeigt.
+REAL_WORLD_CONTEXT_ANCHOR: Supermarkt-Einkaufswagen mit Kassenbon, alltaeglicher Einkauf.
+VOICEOVER_VISUAL_MATCH: Der halbleere Wagen neben dem gleich langen Bon zeigt genau, dass dieselbe Summe weniger kauft.
+TRANSFERABILITY_TEST: PASS: Halbleerer Wagen plus unveraenderte Bonsumme gehoert nur zur Kaufkraft-Aussage.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D everyday shopping scene. A shopping basket stands only about half filled with a few groceries, while a long printed receipt hangs over its edge carrying the two short German labels. The contrast between the long receipt and the sparse contents is the whole statement: the same money, fewer goods. Keep basket and receipt large and instantly readable, use restrained warning colour only on the receipt, and let the floor under the basket fade into the black background.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment. The surface under the objects must stay dark; never place the scene on a white or light grey plane.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 06 – REMOTION-ANIMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 06 ERZEUGEN. Nummer 06 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 07 – BILDSZENE (MIT ANKER-REFERENZ)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 07 - Zinsbeleg mit null Komma null eins.png
+
+Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
+
+STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
+Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
+Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
+Nur die Bildaussage kommt aus dem Prompt unten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 0,01 % Zinsen
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Ein Zinsbeleg der Bank weist 0,01 Prozent aus.
+REAL_WORLD_CONTEXT_ANCHOR: Gedruckter Zinsbeleg neben dem Kontoauszug auf demselben Tisch.
+VOICEOVER_VISUAL_MATCH: Der ausgedruckte Zinssatz zeigt genau, dass das Konto den Verlust nicht ausgleicht.
+TRANSFERABILITY_TEST: PASS: Ein Beleg mit genau diesem Zinssatz gehoert zu dieser Aussage und zu keiner anderen.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D scene of a small printed interest statement lying on the same dark kitchen table, next to the older bank statement from the earlier scenes. The interest rate is the single largest readable element on the slip and carries the short German label. The slip is small and unimportant-looking compared to the balance beside it, so the viewer understands at a glance that this rate cannot make up the difference. Keep both papers large enough to read and keep the surface dark.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment. The surface under the objects must stay dark; never place the scene on a white or light grey plane.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 08 – DATENSZENE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEIN BILD 08 ERZEUGEN. Nummer 08 bleibt reserviert.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 09 – BILDSZENE (MIT ANKER-REFERENZ)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Zwei getrennte Bargeldstapel.png
+
+Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
+
+STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
+Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
+Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
+Nur die Bildaussage kommt aus dem Prompt unten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Notgroschen
+- liegt zu lange
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Zwei getrennte Bargeldstapel liegen auf dem Tisch, einer deutlich kleiner.
+REAL_WORLD_CONTEXT_ANCHOR: Zwei beschriftete Bargeldstapel auf demselben Kuechentisch.
+VOICEOVER_VISUAL_MATCH: Die Trennung in zwei Stapel zeigt genau, dass es nur um den geparkten Teil geht.
+TRANSFERABILITY_TEST: PASS: Genau zwei getrennte Stapel mit diesen Beschriftungen gehoeren zu dieser Unterscheidung.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D scene on the same dark kitchen table showing two clearly separated stacks of banknotes with a visible gap between them. The smaller left stack carries the first short German label, the noticeably larger right stack carries the second. The separation itself is the statement: one part has a job, the other has been sitting still for years. Keep both stacks large, use the same warm light direction as before, and let the table fade into the black background.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment. The surface under the objects must stay dark; never place the scene on a white or light grey plane.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 10 – BILDSZENE (MIT ANKER-REFERENZ)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Notgroschen bleibt liegen.png
+
+Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
+
+STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
+Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
+Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
+Nur die Bildaussage kommt aus dem Prompt unten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Notgroschen
+- bleibt
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Ein beschrifteter Umschlag mit dem Notgroschen wird bewusst zurueckgelegt.
+REAL_WORLD_CONTEXT_ANCHOR: Beschrifteter Umschlag auf dem Kuechentisch, eine Hand legt ihn zurueck.
+VOICEOVER_VISUAL_MATCH: Das bewusste Zuruecklegen zeigt genau, dass dieser Teil unangetastet bleibt.
+TRANSFERABILITY_TEST: PASS: Ein beschrifteter Notgroschen-Umschlag, der bewusst liegen bleibt, ist genau diese Handlung.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a stylized 3D scene in which a hand places a labelled paper envelope back down onto the same dark kitchen table, flat and deliberate. The envelope carries the two short German labels and is visibly filled with banknotes. The gesture is finished, not hesitant: this part of the money stays where it is. Keep the envelope and the hand large and readable, use emerald only as a small accent on the label, and keep the surface dark. The two earlier banknote stacks are still faintly visible at the edge of the frame, so the viewer recognises the same table and the same evening as in the scenes before.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment. The surface under the objects must stay dark; never place the scene on a white or light grey plane.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 11 – BILDSZENE (MIT ANKER-REFERENZ)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 11 - Der Rest wandert ins Depot.png
+
+Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
+
+STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
+Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
+Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
+Nur die Bildaussage kommt aus dem Prompt unten.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Depot
+- arbeitet
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Der zweite Bargeldstapel wandert in einen beschrifteten Depot-Umschlag.
+REAL_WORLD_CONTEXT_ANCHOR: Zweiter Umschlag auf demselben Tisch, Geld wandert hinein.
+VOICEOVER_VISUAL_MATCH: Das Einlegen des zweiten Stapels zeigt genau, dass der Rest angelegt wird.
+TRANSFERABILITY_TEST: PASS: Genau dieser zweite beschriftete Umschlag neben dem liegengebliebenen Notgroschen gehoert zu diesem Schlusssatz.
+METAPHOR_JUSTIFICATION: none
+
+IMAGE PROMPT:
+Create a calm stylized 3D end state on the same dark kitchen table. The larger stack of banknotes is being slid into a second labelled envelope carrying the two short German labels, while the first envelope from the previous scene stays untouched beside it. The table is otherwise tidy and the light is the same as in every earlier scene. The two envelopes side by side tell the outcome without movement: one part stays, the other goes to work. Keep both envelopes large and clearly readable.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE:
+Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+
+BACKGROUND:
+One seamless deep black background, clean and uninterrupted. A small slice of real context may fade into the black, but no floor-wall boundary, horizon or bright studio environment. The surface under the objects must stay dark; never place the scene on a white or light grey plane.
+
+COMPOSITION:
+Make the main explanatory action large and immediately readable within 1-2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity. No fixed supporting-object count.
+
+COLORS + LIGHT:
+Emerald for positive/protected, warm ivory and soft gray for neutral objects, subtle gold for money, warm red-orange only for warning or cost. Clean soft lighting and contact shadows.
+
+TEXT:
+No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
+
+FORBIDDEN:
+No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ABSCHLUSS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Beende den Auftrag erst, wenn jedes erwartete Bild einzeln erzeugt, exakt umbenannt, gegen den Anker abgeglichen und nach V9 geprueft wurde. Danach muessen alle Bilder gemeinsam hier liegen:
+03-szenen/00-ALLE-BILDER-HIER-REIN/

@@ -2,7 +2,7 @@
   "source": "Yahoo Finance",
   "symbol": "URTH",
   "range": "10y",
-  "fetchedAt": "2026-09-20",
+  "fetchedAt": "2026-09-21",
   "currency": "USD",
   "chart": [
     {
@@ -243,7 +243,7 @@
     },
     {
       "x": "2026-09",
-      "y": 206.77
+      "y": 208.73
     }
   ]
 }

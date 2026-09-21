@@ -142,8 +142,17 @@ assert(FLOW_EXECUTION_MODE_IDS.includes(googleFlow.executionModeId), `googleFlow
 assert(googleFlow.stateMachineId === FLOW_STATE_MACHINE_ID, `googleFlow.stateMachineId muss ${FLOW_STATE_MACHINE_ID} sein.`);
 assert(googleFlow.generationMode === 'one-image-at-a-time', 'Google Flow muss one-image-at-a-time verwenden.');
 assert(googleFlow.strictSequential === true, 'Google Flow muss strikt sequenziell arbeiten.');
-assert(Number(googleFlow.maxConcurrentGenerations) === 1, 'Google Flow darf maximal einen laufenden Bildjob haben.');
-assert(googleFlow.batchGenerationForbidden === true, 'Batch-Generierung muss verboten sein.');
+// V4 erlaubt Bloecke zu fuenf, verlangt dafuer aber den Style-Anker an jedem Bild.
+// V3-Bestandsreels bleiben auf einem Job gleichzeitig.
+if (googleFlow.executionModeId === FLOW_EXECUTION_MODE_ID) {
+  assert(googleFlow.styleAnchorSceneId === 'scene-01', 'Style-Anker muss scene-01 sein.');
+  assert(googleFlow.styleAnchorRequiredForEveryImage === true, 'Jedes Bild muss den Style-Anker referenzieren.');
+  assert(Number(googleFlow.maxImagesPerBlock) === 5, 'Ein Block darf höchstens fünf Bilder enthalten.');
+  assert(googleFlow.referenceAnyOtherImageForbidden === true, 'Referenz auf andere Bilder als den Anker muss verboten sein.');
+} else {
+  assert(Number(googleFlow.maxConcurrentGenerations) === 1, 'Google Flow darf maximal einen laufenden Bildjob haben.');
+  assert(googleFlow.batchGenerationForbidden === true, 'Batch-Generierung muss verboten sein.');
+}
 assert(googleFlow.queueLaterImagesForbidden === true, 'Queueing späterer Bilder muss verboten sein.');
 assert(googleFlow.waitForCurrentImage === true, 'Auf den aktuellen einzelnen Bildjob muss intern gewartet werden.');
 assert(googleFlow.renameBeforeNext === true, 'Aktuelles Bild muss vor dem nächsten Bild umbenannt werden.');
@@ -236,7 +245,12 @@ if (existsSync(allPromptsPath)) {
   assert(master.includes(FLOW_AGENT_PROTOCOL_MARKER), 'Master-Prompt enthält das Flow-Agent-Protokoll nicht.');
   assert(master.includes(`FLOW_EXECUTION_MODE: ${googleFlow.executionModeId}`), `Master-Prompt enthält den Marker zu ${googleFlow.executionModeId} nicht.`);
   assert(master.includes(`FLOW_STATE_MACHINE: ${FLOW_STATE_MACHINE_ID}`), 'Master-Prompt enthält die Flow-State-Machine nicht.');
-  assert(/MAX_CONCURRENT_GENERATIONS\s*=\s*1/.test(master) || /CONCURRENCY\s*=\s*1/.test(master), 'Master-Prompt begrenzt die Bildgenerierung nicht auf concurrency=1.');
+  if (googleFlow.executionModeId === FLOW_EXECUTION_MODE_ID) {
+    assert(/BLOECKEN VON HOECHSTENS 5 BILDERN/.test(master), 'Master-Prompt begrenzt die Blockgröße nicht auf fünf Bilder.');
+    assert(/MUSS DEN STYLE-ANKER ALS REFERENZ MITGEBEN/.test(master), 'Master-Prompt verlangt die Anker-Referenz nicht.');
+  } else {
+    assert(/MAX_CONCURRENT_GENERATIONS\s*=\s*1/.test(master) || /CONCURRENCY\s*=\s*1/.test(master), 'Master-Prompt begrenzt die Bildgenerierung nicht auf concurrency=1.');
+  }
   assert(master.includes('00-ALLE-BILDER-HIER-REIN'), 'Master-Prompt nennt den finalen Bilderordner nicht.');
 }
 

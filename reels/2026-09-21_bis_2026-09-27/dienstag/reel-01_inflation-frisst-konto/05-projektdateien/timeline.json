@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "title": "Dein Geld auf dem Konto wird jedes Jahr weniger",
+  "fps": 30,
+  "timingSource": "04-caption/word-timings.json",
+  "cutRule": "voice-sentence-or-meaningful-phrase-start",
+  "sceneCount": 11,
+  "scenes": []
+}
