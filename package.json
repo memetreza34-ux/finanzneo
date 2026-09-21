@@ -15,6 +15,8 @@
     "typecheck": "tsc --noEmit",
     "build": "npx remotion bundle src/index.ts",
     "reel:create": "node scripts/create-finanzneo-reel.mjs",
+    "reel:creative:contract": "node scripts/apply-creative-director-v1.mjs",
+    "reel:creative:validate": "node scripts/validate-creative-director-v1.mjs",
     "reel:visual-world:v9": "node scripts/apply-stylized-animated-black-world-v9.mjs",
     "reel:sort-images": "node scripts/sort-reel-images.mjs",
     "reel:validate": "node scripts/validate-reel.mjs",
