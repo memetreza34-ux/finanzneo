@@ -1,9 +1,12 @@
 # FinanzNeo — aktuelle Master-Prompts
 
-> `CLAUDE.md` ist die höchste Regelquelle.
+> `CLAUDE.md` ist die höchste Regelquelle. Für neue Future-V3-Reels gilt zusätzlich verbindlich `docs/CREATIVE-DIRECTOR-V1.md` über `docs/FUTURE-REEL-PRODUCTION-V3.md`.
 
 Vor Reels lesen:
 
+- `docs/CREATIVE-DIRECTOR-V1.md`
+- `docs/FUTURE-REEL-PRODUCTION-V3.md`
+- `docs/FUTURE-REEL-QUALITY-GUARDS-V1.md`
 - `docs/PHASE-1-BRIEFING.md`
 - `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
 - `docs/3-PHASEN-WORKFLOW.md`
@@ -12,9 +15,45 @@ Vor Reels lesen:
 
 ## 1. Phase 1 — ChatGPT bereitet komplett vor
 
-Phase 1 liefert Recherche, szenenweises Skript, V9-Bildprompts, natürliche Header,
-Remotion-Spezifikationen und für jede Animationsszene bereits die finale
-`animation.tsx`. Phase 3 darf keine fehlende Animation erfinden.
+Phase 1 liefert Recherche, szenenweises Skript, Creative Direction, Shot Design, V9-Bildprompts, natürliche Header, Remotion-Spezifikationen und für jede Animationsszene bereits die finale `animation.tsx`. Phase 3 darf keine fehlende Animation erfinden.
+
+### Creative Director — Pflicht vor jeder Szene
+
+Für jeden gesprochenen Gedanken zuerst:
+
+```text
+Sprechpunkt
+→ Zuschauerfrage
+→ interessantester sichtbarer Moment
+→ Handlung / Konsequenz / Kontrast
+→ Shot Design
+→ IMAGE oder ANIMATION
+→ konkrete Hauptmechanik
+→ V9 Art Direction
+→ Prompt bzw. animation.tsx
+→ Boring-Scene-QA
+```
+
+Vor Prompt oder Code intern mindestens festlegen:
+
+```text
+VISUAL_GOAL:
+VIEWER_QUESTION:
+STORY_MOMENT:
+PRIMARY_ACTION:
+VISIBLE_CONSEQUENCE:
+SHOT_TYPE:
+CAMERA_POSITION:
+FOREGROUND:
+HERO:
+CONTEXT:
+UNIQUE_DETAIL:
+DIFFERENCE_FROM_PREVIOUS_BEATS:
+IMAGE_OR_ANIMATION:
+BORING_SCENE_RISK:
+```
+
+Harte Regel: **FinanzNeo zeigt keine Folien. FinanzNeo zeigt Momente.** Ein technisch korrektes Visual wird verworfen, wenn es nur dekorativ illustriert oder keine interessante sichtbare Situation erzeugt.
 
 ## 2. Phase 3 — Antigravity / Claude Code integriert autonom
 
@@ -107,14 +146,22 @@ STRIKT VERBOTEN:
 Erstelle einen FinanzNeo-Bildprompt für diesen gesprochenen Satz:
 [SATZ]
 
+VOR DEM PROMPT:
+- entwickle den interessantesten sichtbaren Moment nach `docs/CREATIVE-DIRECTOR-V1.md`
+- definiere konkrete Handlung, Konsequenz oder Vorher/Nachher-Kontrast
+- definiere bewusst Kamera, Vordergrund, Hero und Kontext
+- vermeide dieselbe Shot-Logik wie in den letzten zwei Visual Beats
+- wenn die Idee nur Person + Geld + Kalender/Schild/Münzen wäre: neu entwickeln
+
 Verbindlich:
 - Quellbild 1:1
 - WORLD LOCK: finanzneo-stylized-3d-animated-black-v9
 - klar nicht-realistische stylized 3D animated Bildwelt
 - soft rounded shapes, vereinfachte erkennbare Details
 - premium, leicht verspielt, nicht technisch
-- tiefschwarzer sauberer Hintergrund Pflicht
+- tiefschwarze Markenwelt Pflicht; reale Szenenkontexte dürfen glaubwürdig in diese Welt übergehen
 - Inhalt/Klarheit vor Objektzahl; keine feste Anzahl
+- echte Szene / echter Moment statt Objektkatalog
 - Emerald positiv, Ivory/Soft Gray neutral, Gold Geld/Wert, Rot-Orange Warnung/Kosten
 - keine Headline, kein Untertitel, kein erklärender Satz
 - nur kurze deutsche Objektlabels
@@ -122,6 +169,13 @@ Verbindlich:
 - Prompt mittellang
 - finalen Dateinamen direkt angeben
 - Bildnummer = echte Szenennummer
+
+HARTES BORING-SCENE-FAIL:
+- generische Person + Finanzsymbole
+- Bank + Schild + Münzen + Pfeil
+- statische Icon-/Objekt-Reihe
+- Bild funktioniert nur wegen Labels
+- keine sichtbare Handlung, Konsequenz oder klarer Kontrast
 
 Falls Marke/Logo/App vorkommt:
 - erkennbar ähnlich, aber stilisiert in derselben 3D-Animationswelt
@@ -137,12 +191,12 @@ Strict Single Job V3:
 2. GENAU EIN Bild starten
 3. intern auf Ergebnis warten
 4. sofort exakt umbenennen
-5. V9-QA
+5. V9-QA + Boring-Scene-QA
 6. bei Fehler dieselbe Bildnummer wiederholen
 7. erst nach PASS nächsten Bildblock freischalten
 
 Nie Batch, parallel, Queue oder Nutzer-„weiter“.
-Cover = Bild 00. Animationsnummern erzeugen kein Bild.
+Cover = scene-01. Animationsnummern erzeugen kein Bild.
 ```
 
 ## 5. Voiceover, Timing und Remotion
@@ -160,11 +214,19 @@ V5: Header Y154 / 56 px / max 2 Zeilen, Visual Y320–1400, Caption bottom340.
 Animationen hart auf Y320–1400 begrenzen.
 Aktives Caption-Wort grün, Rest weiß, max. zwei Zeilen.
 Animationsszenen direkt aus den versiegelten Phase-1-animation.tsx-Dateien.
+
+Wichtig:
+- Ken-Burns/Zoom/Pan allein zählt nicht als neuer Visual Beat
+- Animation muss START → Aktion/Ursache → Veränderung → RESULTAT zeigen
+- reine Chips/Karten/Icons/Rahmen-Motion ist keine Standardlösung
+- visuelle Hauptsprache soll dieselbe stylized-3D-Welt wie die Flow-Bilder sprechen
 ```
 
 ## 6. Finale QA
 
 ```text
+- Creative-Director-Plan vorhanden
+- Boring-Scene-QA bestanden
 - reel:ready
 - Asset-Sync
 - Produktionsmanifest vollständig
@@ -173,12 +235,14 @@ Animationsszenen direkt aus den versiegelten Phase-1-animation.tsx-Dateien.
 - Post-Render-QA pro Szene
 - visueller Kern nicht leer
 - Animation erklärt wirklich den Inhalt
+- Szene ist nicht nur technisch korrekt, sondern visuell interessant
 - freier Rand bleibt statisch schwarz
 - komplette MP4 mit Ton
 - reel:export
 
 Eine MP4 allein ist kein fertiges Reel.
 Untertitel/Header/Hintergrund allein sind kein gültiges Szenenvisual.
+Eine hübsche, aber langweilige 3D-Illustration ist ebenfalls kein gültiger PASS.
 Keine Prüfung als bestanden behaupten, wenn sie nicht tatsächlich ausgeführt wurde.
 ```
 
