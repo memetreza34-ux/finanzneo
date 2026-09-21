@@ -4,7 +4,8 @@
 // Neue Reels erhalten Cover Hook V3: Titel ab Frame 0, Captions ab erstem gesprochenen Wort.
 // Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
 // und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
-// Bildplanung bleibt: Literal first, creative second. Reel-Visual bleibt: Visual Y320–1400.
+// Bildplanung V4: reale Situation bleibt Anker, die Regie darf aber cineastischer, abwechslungsreicher
+// und unterhaltsamer werden. Die globale V9-Bildwelt bleibt dabei unverändert gesperrt.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -49,7 +50,7 @@ const steps = [
   ['scripts/apply-scene01-cover-export-contract.mjs', [target]],
   ['scripts/apply-visual-beat-contract.mjs', [target]],
   ['scripts/apply-future-cover-hook-v3.mjs', [target]],
-  ['scripts/apply-future-image-storytelling-v3.mjs', [target]],
+  ['scripts/apply-future-image-storytelling-v4.mjs', [target]],
   ['scripts/apply-future-production-standard-v3.mjs', [target]],
   ['scripts/apply-future-reel-presentation-v1.mjs', [target]],
   ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', [target]],
@@ -66,7 +67,8 @@ for (const [script, scriptArgs] of steps) {
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
 console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob.');
-console.log('  Bildwelt V9 + Storytelling V3: Literal first, creative second · reale Situation + Kontextanker + Voiceover-Match.');
+console.log('  Bildwelt V9 bleibt unverändert gesperrt. Storytelling V4 verbessert nur Bildidee, Handlung, Kamera, Hook und Vielfalt.');
+console.log('  Grounded first, nicht literal-only: reale Finanzsituation bleibt sofort lesbar; abstrakte Rätsel bleiben verboten.');
 console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
 console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
