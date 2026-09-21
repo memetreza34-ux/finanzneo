@@ -12,6 +12,7 @@ if (!target) {
 const V2 = 'finanzneo-image-storytelling-v2';
 const V3 = 'finanzneo-image-storytelling-v3';
 const V4 = 'finanzneo-image-storytelling-v4';
+const V5 = 'finanzneo-image-storytelling-v5';
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 if (!existsSync(indexPath)) {
@@ -31,6 +32,10 @@ if (c.id === V2) {
 }
 if (c.id === V4) {
   console.log('✓ Image-Storytelling-V4 wird vom eigenen V4-Validator geprüft; V3 bleibt rückwärtskompatibel.');
+  process.exit(0);
+}
+if (c.id === V5) {
+  console.log('✓ Image-Storytelling-V5 wird vom eigenen V5-Validator geprüft; V3 bleibt rückwärtskompatibel.');
   process.exit(0);
 }
 
@@ -104,16 +109,10 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
     if (!nonPlaceholder(meta.literalSituation, 18)) fail(prefix + ': konkrete reale Situation fehlt/ist Platzhalter.');
     if (!nonPlaceholder(meta.contextAnchor, 12)) fail(prefix + ': erkennbarer Finanz-/Alltagskontext fehlt/ist Platzhalter.');
     if (!nonPlaceholder(meta.voiceVisualMatch, 18)) fail(prefix + ': direkte Verbindung zwischen Voiceover und sichtbarem Detail fehlt/ist Platzhalter.');
-    if (!nonPlaceholder(meta.transferabilityTest, 20) || !/^PASS\b/i.test(meta.transferabilityTest.trim())) {
-      fail(prefix + ': transferabilityTest muss mit PASS beginnen und konkret begründen, warum das Bild themenspezifisch ist.');
-    }
+    if (!nonPlaceholder(meta.transferabilityTest, 20) || !/^PASS\b/i.test(meta.transferabilityTest.trim())) fail(prefix + ': transferabilityTest muss mit PASS beginnen und konkret begründen, warum das Bild themenspezifisch ist.');
     if (meta.strategy === 'metaphor') {
-      if (!nonPlaceholder(meta.metaphorJustification, 20) || /^none$/i.test(meta.metaphorJustification.trim())) {
-        fail(prefix + ': Metapher gewählt, aber METAPHOR_JUSTIFICATION fehlt.');
-      }
-    } else if (String(meta.metaphorJustification).trim().toLowerCase() !== 'none') {
-      fail(prefix + ': bei literal muss metaphorJustification exakt none sein.');
-    }
+      if (!nonPlaceholder(meta.metaphorJustification, 20) || /^none$/i.test(meta.metaphorJustification.trim())) fail(prefix + ': Metapher gewählt, aber METAPHOR_JUSTIFICATION fehlt.');
+    } else if (String(meta.metaphorJustification).trim().toLowerCase() !== 'none') fail(prefix + ': bei literal muss metaphorJustification exakt none sein.');
   }
 
   if (typeof scene.planFile !== 'string') {
@@ -139,14 +138,10 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   if (!nonPlaceholder(literalSituation, 18)) fail(prefix + ': LITERAL_REAL_WORLD_SITUATION fehlt/ist Platzhalter.');
   if (!nonPlaceholder(contextAnchor, 12)) fail(prefix + ': REAL_WORLD_CONTEXT_ANCHOR fehlt/ist Platzhalter.');
   if (!nonPlaceholder(voiceMatch, 18)) fail(prefix + ': VOICEOVER_VISUAL_MATCH fehlt/ist Platzhalter.');
-  if (!nonPlaceholder(transferability, 20) || !/^PASS\b/i.test(transferability)) {
-    fail(prefix + ': TRANSFERABILITY_TEST muss PASS + konkrete Begründung enthalten.');
-  }
+  if (!nonPlaceholder(transferability, 20) || !/^PASS\b/i.test(transferability)) fail(prefix + ': TRANSFERABILITY_TEST muss PASS + konkrete Begründung enthalten.');
   if (strategy === 'metaphor') {
     if (!nonPlaceholder(metaphorJustification, 20) || /^none$/i.test(metaphorJustification)) fail(prefix + ': Metapher braucht eine konkrete METAPHOR_JUSTIFICATION.');
-  } else if (metaphorJustification.toLowerCase() !== 'none') {
-    fail(prefix + ': literal verlangt METAPHOR_JUSTIFICATION: none.');
-  }
+  } else if (metaphorJustification.toLowerCase() !== 'none') fail(prefix + ': literal verlangt METAPHOR_JUSTIFICATION: none.');
 
   if (meta && typeof meta === 'object') {
     if (strategy !== meta.strategy) fail(prefix + ': Prompt und scene-index widersprechen sich bei strategy.');
