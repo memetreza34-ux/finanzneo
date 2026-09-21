@@ -355,11 +355,12 @@
       "coverTitle": "Dein Geld auf dem Konto wird jedes Jahr weniger",
       "imageStorytelling": {
         "strategy": "literal",
-        "literalSituation": "Ein Kontoauszug mit 10.000 Euro Guthaben liegt abends auf dem Kuechentisch.",
+        "literalSituation": "Abends am Kuechentisch wird ein Kontoauszug mit 10.000 Euro Guthaben gerade aus dem Umschlag gezogen.",
         "contextAnchor": "Kuechentisch mit gedrucktem Kontoauszug und Kaffeetasse — privates Ersparnis zu Hause.",
         "voiceVisualMatch": "Der gedruckte Betrag 10.000 Euro auf dem Auszug ist genau die Summe, von der gesprochen wird.",
         "transferabilityTest": "PASS: Ein konkreter Kontoauszug mit genau diesem Guthaben gehoert zu dieser Aussage und nicht zu einem allgemeinen Sparmotiv.",
-        "metaphorJustification": "none"
+        "metaphorJustification": "none",
+        "decisiveMoment": "Der Auszug ist halb aus dem Umschlag gezogen und die Zahl kommt gerade zum Vorschein; eine Sekunde spaeter liegt er offen auf dem Tisch."
       },
       "presentation": {
         "coverTitleRequired": true,
@@ -410,7 +411,8 @@
         "contextAnchor": "Flur-Sideboard mit halb geoeffneter Ablageschublade voller Papiere.",
         "voiceVisualMatch": "Die zugeschobene Schublade zeigt genau das Nichtstun, von dem der Satz spricht.",
         "transferabilityTest": "PASS: Ein bewusst zur Seite gelegter Kontoauszug ist die konkrete Handlung dieses Satzes.",
-        "metaphorJustification": "none"
+        "metaphorJustification": "none",
+        "decisiveMoment": "Die Schublade ist im letzten Spalt vor dem Zufallen; eine Sekunde spaeter ist der Auszug nicht mehr zu sehen."
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -545,11 +547,12 @@
       ],
       "imageStorytelling": {
         "strategy": "literal",
-        "literalSituation": "Jahre spaeter wird ein frischer Kontoauszug im Hausflur hochgehalten und zeigt exakt denselben Betrag.",
+        "literalSituation": "Jahre spaeter wird ein frischer Kontoauszug aus dem Briefkasten gezogen und zeigt exakt denselben Betrag.",
         "contextAnchor": "Hausflur am offenen Briefkasten, Auszug senkrecht in der Hand, Wandkalender eines viel spaeteren Jahres daneben.",
         "voiceVisualMatch": "Die unveraenderte Zahl auf dem frischen Auszug zeigt genau, dass der Betrag gleich geblieben ist.",
         "transferabilityTest": "PASS: Derselbe Betrag auf einem sichtbar aelteren Beleg ist spezifisch fuer diese Aussage.",
-        "metaphorJustification": "none"
+        "metaphorJustification": "none",
+        "decisiveMoment": "Der neue Auszug wird gerade aus dem Briefkastenschlitz gezogen; eine Sekunde spaeter ist er ganz draussen und die Zahl ist immer noch dieselbe."
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -600,7 +603,8 @@
         "contextAnchor": "Supermarktkasse, wenige Waren auf dem Kassenband, langer Bon am Drucker.",
         "voiceVisualMatch": "Die wenigen Waren auf dem langen Band neben dem gleich langen Bon zeigen genau, dass dieselbe Summe weniger kauft.",
         "transferabilityTest": "PASS: Halbleerer Wagen plus unveraenderte Bonsumme gehoert nur zur Kaufkraft-Aussage.",
-        "metaphorJustification": "none"
+        "metaphorJustification": "none",
+        "decisiveMoment": "Der Bon laeuft noch aus dem Drucker, waehrend die letzte Ware ueber den Scanner geht; eine Sekunde spaeter ist bezahlt und das Band leer."
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -738,7 +742,8 @@
         "contextAnchor": "Bankfoyer, Kontoauszugsdrucker an der Wand, frisch gedruckter Zinsbeleg im Ausgabeschlitz.",
         "voiceVisualMatch": "Der ausgedruckte Zinssatz zeigt genau, dass das Konto den Verlust nicht ausgleicht.",
         "transferabilityTest": "PASS: Ein Beleg mit genau diesem Zinssatz gehoert zu dieser Aussage und zu keiner anderen.",
-        "metaphorJustification": "none"
+        "metaphorJustification": "none",
+        "decisiveMoment": "Der schmale Zinsbeleg wird gerade an der Perforation abgerissen; eine Sekunde spaeter haelt die Hand ihn lose in der Luft."
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -875,11 +880,12 @@
       ],
       "imageStorytelling": {
         "strategy": "literal",
-        "literalSituation": "In einer offenen Geldkassette liegt das Bargeld in zwei getrennten Faechern, eines deutlich voller.",
+        "literalSituation": "In einer offenen Geldkassette wird das Bargeld gerade in zwei Faecher aufgeteilt, eines wird deutlich voller.",
         "contextAnchor": "Offene Metall-Geldkassette auf einem Regalbrett, zwei beschriftete Faecher.",
         "voiceVisualMatch": "Die Trennung in zwei Faecher zeigt genau, dass es nur um den geparkten Teil geht.",
         "transferabilityTest": "PASS: Genau zwei getrennte Stapel mit diesen Beschriftungen gehoeren zu dieser Unterscheidung.",
-        "metaphorJustification": "none"
+        "metaphorJustification": "none",
+        "decisiveMoment": "Die Hand schiebt den groesseren Teil gerade ueber den Trenner; eine Sekunde spaeter liegen beide Teile getrennt."
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -926,11 +932,12 @@
       ],
       "imageStorytelling": {
         "strategy": "literal",
-        "literalSituation": "Der beschriftete Umschlag mit dem Notgroschen wird ins Fach zurueckgelegt und der Deckel geht zu.",
+        "literalSituation": "Der halb herausgezogene Umschlag mit dem Notgroschen wird zurueck ins Fach gedrueckt.",
         "contextAnchor": "Seitliche Nahaufnahme derselben Geldkassette, eine Hand schliesst den Deckel ueber dem linken Fach.",
         "voiceVisualMatch": "Das Zuruecklegen und der schliessende Deckel zeigen genau, dass dieser Teil unangetastet bleibt.",
         "transferabilityTest": "PASS: Ein beschrifteter Notgroschen-Umschlag, der bewusst liegen bleibt, ist genau diese Handlung.",
-        "metaphorJustification": "none"
+        "metaphorJustification": "none",
+        "decisiveMoment": "Der halb herausgezogene Umschlag wird im letzten Moment zurueckgedrueckt; eine Sekunde spaeter sitzt er wieder ganz im Fach."
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -977,11 +984,12 @@
       ],
       "imageStorytelling": {
         "strategy": "literal",
-        "literalSituation": "Das zweite Bargeldbuendel liegt auf einem ausgefuellten Depot-Antrag am Schreibtisch.",
+        "literalSituation": "Das zweite Bargeldbuendel wird auf einen ausgefuellten Depot-Antrag am Schreibtisch geschoben.",
         "contextAnchor": "Schreibtisch am Fenster, gedruckter Depot-Antrag mit Unterschriftszeile, Geldbuendel darauf.",
         "voiceVisualMatch": "Das Buendel auf dem ausgefuellten Depot-Antrag zeigt genau, dass der Rest angelegt wird.",
         "transferabilityTest": "PASS: Genau dieser zweite beschriftete Umschlag neben dem liegengebliebenen Notgroschen gehoert zu diesem Schlusssatz.",
-        "metaphorJustification": "none"
+        "metaphorJustification": "none",
+        "decisiveMoment": "Das Buendel wird gerade auf den Depot-Antrag geschoben und verlaesst die Hand; eine Sekunde spaeter liegt es dort und die Hand ist leer."
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -1113,7 +1121,9 @@
     "visualHookUnderOneSecondRequired": true,
     "oneImagePerSentenceWhenItImprovesClarity": true,
     "extraImagePreferredOverOverloadedStill": true,
-    "labelsSupplementalOnly": true
+    "labelsSupplementalOnly": true,
+    "decisiveMomentRequired": true,
+    "finishedTidyEndStateAsMainStoryForbidden": true
   },
   "futureProductionStandard": {
     "id": "finanzneo-future-production-v3",

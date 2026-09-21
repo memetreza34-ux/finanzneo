@@ -33,6 +33,7 @@ Phase 1 liefert vollständig:
 - Google-Flow-Prompts
 - natürliche Szenenüberschriften + passende Icons
 - **geplante Szenenvarianz**: Schauplatz und Blickwinkel je Bildszene bewusst unterschiedlich, bevor der erste Prompt geschrieben wird
+- **je Bildszene ein entscheidender Moment**: `DECISIVE_MOMENT` ausgefüllt, bevor der Bildprompt geschrieben wird
 - Remotion-Spezifikationen
 - **produktionsreife `animation.tsx` für jede Animations- und jede Datenszene**
 - bei Datenszenen: Zahlen **zuerst holen und einfrieren** (`node scripts/fetch-data.mjs …`), erst danach Zahlen behaupten
@@ -159,6 +160,29 @@ Die Bilder sind **visuelle Erklärszenen**, keine Dekoration und keine Sammlung 
 - hochwertig, sauber und professionell; nicht wie Spielzeug oder Icon-Pack
 - der gesprochene Punkt muss im Bild direkt verständlich werden
 - gleiche Welt über das gesamte Reel
+
+### Der entscheidende Moment — Pflicht
+
+Ein Bild wird nicht dadurch interessant, dass es sauber ist. Es wird interessant, wenn man sieht, dass gerade etwas passiert.
+
+**Jedes Bild zeigt den Augenblick, in dem sich etwas entscheidet — nicht den aufgeräumten Zustand danach.** Der Deckel fällt gerade zu, der Bon reißt gerade ab, die Hand zieht gerade zurück, das Papier rutscht gerade aus dem Schlitz.
+
+Pflichtfeld in jedem `bildprompt.txt`:
+
+```text
+DECISIVE_MOMENT: <was passiert in genau dieser Sekunde, und was wäre eine Sekunde später anders>
+```
+
+Gibt es darauf keine Antwort, ist das Bild ein Katalogfoto und wird neu geplant.
+
+Verboten als Hauptaussage:
+
+- fertige, aufgeräumte Endzustände
+- Gegenstände, die nur daliegen
+- angepinnte Zettel, Aushänge oder Plakate statt einer Handlung
+- Stillleben, in denen nichts in Bewegung oder in der Schwebe ist
+
+Das gilt zusätzlich zu `literal first`: die Situation bleibt echt, aber sie wird im stärksten Moment gezeigt statt danach.
 
 ### Szenenvarianz — Pflicht
 
@@ -318,6 +342,8 @@ Bild verwerfen und **dieselbe Bildnummer neu erzeugen**, wenn:
 - es fotorealistisch wird
 - der Hintergrund nicht deep black bleibt
 - UI/Flowchart/Clutter die Erklärung verdrängen
+- es einen fertigen Zustand zeigt statt eines Augenblicks
+- die Frage „was wäre eine Sekunde später anders?" unbeantwortet bleibt
 - es wie eine zweite Aufnahme des Ankers oder des vorigen Bildes wirkt
 - es eine Deko-Requisite des vorigen Bildes ohne inhaltlichen Grund wiederholt
 

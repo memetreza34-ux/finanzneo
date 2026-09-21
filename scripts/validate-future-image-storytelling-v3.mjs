@@ -68,6 +68,13 @@ for (const key of [
   if (c[key] !== true) fail('imageStorytellingContract.' + key + ' muss true sein.');
 }
 
+// Die Moment-Regel kam nach den ersten V3-Reels dazu. Reels ohne das Flag
+// bleiben gültig; wer es führt, muss den entscheidenden Augenblick belegen.
+const decisiveMomentRequired = c.decisiveMomentRequired === true;
+if (decisiveMomentRequired && c.finishedTidyEndStateAsMainStoryForbidden !== true) {
+  fail('imageStorytellingContract.finishedTidyEndStateAsMainStoryForbidden muss true sein, wenn die Moment-Regel gilt.');
+}
+
 const globalPaths = [
   '03-szenen/alle-bildprompts.txt',
   '03-szenen/bildwelt.txt',
@@ -102,6 +109,9 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
     if (!nonPlaceholder(meta.transferabilityTest, 20) || !/^PASS\b/i.test(meta.transferabilityTest.trim())) {
       fail(prefix + ': transferabilityTest muss mit PASS beginnen und konkret begründen, warum das Bild themenspezifisch ist.');
     }
+    if (decisiveMomentRequired && !nonPlaceholder(meta.decisiveMoment, 18)) {
+      fail(prefix + ': decisiveMoment fehlt/ist Platzhalter — welcher Augenblick ist zu sehen?');
+    }
     if (meta.strategy === 'metaphor') {
       if (!nonPlaceholder(meta.metaphorJustification, 20) || /^none$/i.test(meta.metaphorJustification.trim())) {
         fail(prefix + ': Metapher gewählt, aber METAPHOR_JUSTIFICATION fehlt.');
@@ -128,6 +138,7 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   const contextAnchor = readMarker(source, 'REAL_WORLD_CONTEXT_ANCHOR');
   const voiceMatch = readMarker(source, 'VOICEOVER_VISUAL_MATCH');
   const transferability = readMarker(source, 'TRANSFERABILITY_TEST');
+  const decisiveMoment = readMarker(source, 'DECISIVE_MOMENT');
   const metaphorJustification = readMarker(source, 'METAPHOR_JUSTIFICATION');
 
   if (!['literal', 'metaphor'].includes(strategy)) fail(prefix + ': VISUAL_STRATEGY muss literal oder metaphor sein.');
@@ -136,6 +147,9 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   if (!nonPlaceholder(voiceMatch, 18)) fail(prefix + ': VOICEOVER_VISUAL_MATCH fehlt/ist Platzhalter.');
   if (!nonPlaceholder(transferability, 20) || !/^PASS\b/i.test(transferability)) {
     fail(prefix + ': TRANSFERABILITY_TEST muss PASS + konkrete Begründung enthalten.');
+  }
+  if (decisiveMomentRequired && !nonPlaceholder(decisiveMoment, 18)) {
+    fail(prefix + ': DECISIVE_MOMENT fehlt/ist Platzhalter — das Bild zeigt sonst einen fertigen Zustand statt eines Augenblicks.');
   }
   if (strategy === 'metaphor') {
     if (!nonPlaceholder(metaphorJustification, 20) || /^none$/i.test(metaphorJustification)) fail(prefix + ': Metapher braucht eine konkrete METAPHOR_JUSTIFICATION.');
@@ -149,6 +163,7 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
     if (contextAnchor !== meta.contextAnchor) fail(prefix + ': Prompt und scene-index widersprechen sich bei contextAnchor.');
     if (voiceMatch !== meta.voiceVisualMatch) fail(prefix + ': Prompt und scene-index widersprechen sich bei voiceVisualMatch.');
     if (transferability !== meta.transferabilityTest) fail(prefix + ': Prompt und scene-index widersprechen sich beim transferabilityTest.');
+    if (decisiveMomentRequired && decisiveMoment !== meta.decisiveMoment) fail(prefix + ': Prompt und scene-index widersprechen sich bei decisiveMoment.');
     if (metaphorJustification !== meta.metaphorJustification) fail(prefix + ': Prompt und scene-index widersprechen sich bei metaphorJustification.');
   }
 }
@@ -163,3 +178,6 @@ console.log('\n✓ Future-Image-Storytelling erfüllt: ' + V3);
 console.log('✓ Literal first: reale Situation, Kontextanker und exaktes Voiceover-Match sind für jede Bildszene dokumentiert.');
 console.log('✓ Transferability-Test bestanden; generische Finanzbilder werden vor Flow blockiert.');
 console.log('✓ Metaphern sind weiterhin erlaubt, aber nur als begründeter Fallback.');
+if (decisiveMomentRequired) {
+  console.log('✓ Moment-Regel erfüllt: jede Bildszene belegt den Augenblick, in dem sich etwas entscheidet.');
+}

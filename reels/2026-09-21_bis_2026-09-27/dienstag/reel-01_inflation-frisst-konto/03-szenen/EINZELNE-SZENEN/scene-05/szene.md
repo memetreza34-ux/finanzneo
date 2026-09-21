@@ -8,6 +8,7 @@
 
 **Google-Flow-Dateiname:** Bild 05 - Halbleerer Einkaufswagen.png
 **Erlaubte kurze Objektlabels:** gleicher Betrag, weniger drin
-**Erwartetes Visual:** Wenige Waren auf dem langen Kassenband, daneben ein langer Bon aus der Kasse.
+**Erwartetes Visual:** Die letzte Ware laeuft ueber den Scanner, waehrend der lange Bon noch aus der Kasse faehrt.
+**Moment:** Das Bild friert den Augenblick ein, nicht den Zustand danach.
 **Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png wird als reine Stilreferenz mitgegeben.
 **Varianz:** Schauplatz, Kamerawinkel und Requisiten kommen aus dieser Szene, nicht vom Anker.

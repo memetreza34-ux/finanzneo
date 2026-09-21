@@ -19,15 +19,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Jahre spaeter wird ein frischer Kontoauszug im Hausflur hochgehalten und zeigt exakt denselben Betrag.
+LITERAL_REAL_WORLD_SITUATION: Jahre spaeter wird ein frischer Kontoauszug aus dem Briefkasten gezogen und zeigt exakt denselben Betrag.
 REAL_WORLD_CONTEXT_ANCHOR: Hausflur am offenen Briefkasten, Auszug senkrecht in der Hand, Wandkalender eines viel spaeteren Jahres daneben.
 VOICEOVER_VISUAL_MATCH: Die unveraenderte Zahl auf dem frischen Auszug zeigt genau, dass der Betrag gleich geblieben ist.
 SCENE_VARIANCE: Der Auszug kehrt absichtlich wieder, weil genau seine unveraenderte Zahl der Beat ist. Ort und Kamera wechseln trotzdem: Hausflur am Briefkasten statt Kuechentisch, senkrecht gehaltenes Papier frontal statt flacher Aufsicht.
 TRANSFERABILITY_TEST: PASS: Derselbe Betrag auf einem sichtbar aelteren Beleg ist spezifisch fuer diese Aussage.
+DECISIVE_MOMENT: Der neue Auszug wird gerade aus dem Briefkastenschlitz gezogen; eine Sekunde spaeter ist er ganz draussen und die Zahl ist immer noch dieselbe.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene in an apartment hallway at the open letterbox, camera straight on at eye level. A hand holds a freshly opened bank statement upright towards the viewer, the balance printed large and carrying the short German label. On the wall behind hangs a paper calendar showing a year clearly far in the future, and the letterbox flap is still open below. The point is the contradiction: new paper, later year, identical number. No table surface in the frame. Keep the balance and the calendar year readable and let the hallway fade into the black background.
+Create a stylized 3D scene in an apartment hallway, camera straight on at the letterboxes. A hand is pulling a fresh bank statement out of the letterbox slot; the paper is still half inside and bends slightly under the pull, but the balance with the short German label is already readable. On the wall beside it hangs a paper calendar showing a year clearly far in the future. The contradiction is the point: new paper, later year, the same number as years ago. No table surface in the frame. Keep the balance and the calendar year readable and let the hallway fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

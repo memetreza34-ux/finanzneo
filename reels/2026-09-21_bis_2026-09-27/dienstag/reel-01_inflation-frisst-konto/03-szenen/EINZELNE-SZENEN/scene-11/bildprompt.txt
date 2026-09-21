@@ -20,15 +20,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Das zweite Bargeldbuendel liegt auf einem ausgefuellten Depot-Antrag am Schreibtisch.
+LITERAL_REAL_WORLD_SITUATION: Das zweite Bargeldbuendel wird auf einen ausgefuellten Depot-Antrag am Schreibtisch geschoben.
 REAL_WORLD_CONTEXT_ANCHOR: Schreibtisch am Fenster, gedruckter Depot-Antrag mit Unterschriftszeile, Geldbuendel darauf.
 VOICEOVER_VISUAL_MATCH: Das Buendel auf dem ausgefuellten Depot-Antrag zeigt genau, dass der Rest angelegt wird.
 SCENE_VARIANCE: Schreibtisch am Fenster statt Kassette und Kuechentisch, Schulterblick schraeg von oben.
 TRANSFERABILITY_TEST: PASS: Genau dieser zweite beschriftete Umschlag neben dem liegengebliebenen Notgroschen gehoert zu diesem Schlusssatz.
+DECISIVE_MOMENT: Das Buendel wird gerade auf den Depot-Antrag geschoben und verlaesst die Hand; eine Sekunde spaeter liegt es dort und die Hand ist leer.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a calm stylized 3D end state at a desk by a window, camera looking over the shoulder at a steep angle. A printed brokerage account application lies filled in on the desk with a pen resting across it, and the larger bundle of banknotes sits squarely on the form, carrying the two short German labels. The cash box from the previous scene stands closed at the far edge of the desk, small and out of the way. The outcome reads without any movement: one part stays shut away, this part is on its way to work. Use emerald only as a small accent on the label, keep form and bundle large and clearly readable, and let the desk fade into the black background.
+Create a stylized 3D scene at a desk by a window, camera looking over the shoulder at a steep angle. A hand is sliding the larger bundle of banknotes across the desk onto a filled-in printed brokerage account application; the bundle is still moving, the fingers are already opening to let go, and the form shifts slightly under it. The bundle carries the two short German labels. The cash box from the previous scene stands closed at the far edge of the desk, small and out of the way. The handover is happening right now: one part stays shut away, this part is going to work. Use emerald only as a small accent on the label, keep form and bundle large and clearly readable, and let the desk fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

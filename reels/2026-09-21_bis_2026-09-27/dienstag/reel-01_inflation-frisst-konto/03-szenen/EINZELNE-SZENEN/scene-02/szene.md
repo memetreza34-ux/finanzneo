@@ -8,6 +8,7 @@
 
 **Google-Flow-Dateiname:** Bild 02 - Auszug wird weggelegt.png
 **Erlaubte kurze Objektlabels:** liegt einfach da
-**Erwartetes Visual:** Der Auszug verschwindet in einer Flur-Schublade, eine Hand schiebt sie zu.
+**Erwartetes Visual:** Die Flur-Schublade steht im letzten Spalt, der Auszug ist gleich nicht mehr zu sehen.
+**Moment:** Das Bild friert den Augenblick ein, nicht den Zustand danach.
 **Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png wird als reine Stilreferenz mitgegeben.
 **Varianz:** Schauplatz, Kamerawinkel und Requisiten kommen aus dieser Szene, nicht vom Anker.

@@ -25,10 +25,11 @@ REAL_WORLD_CONTEXT_ANCHOR: Supermarktkasse, wenige Waren auf dem Kassenband, lan
 VOICEOVER_VISUAL_MATCH: Die wenigen Waren auf dem langen Band neben dem gleich langen Bon zeigen genau, dass dieselbe Summe weniger kauft.
 SCENE_VARIANCE: Supermarktkasse statt Kuechentisch, tiefe Kamera auf Bandhoehe statt Aufsicht.
 TRANSFERABILITY_TEST: PASS: Halbleerer Wagen plus unveraenderte Bonsumme gehoert nur zur Kaufkraft-Aussage.
+DECISIVE_MOMENT: Der Bon laeuft noch aus dem Drucker, waehrend die letzte Ware ueber den Scanner geht; eine Sekunde spaeter ist bezahlt und das Band leer.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D supermarket checkout scene, camera low at conveyor-belt height looking along the belt. Only a handful of groceries travel towards the register, spaced far apart on the wide empty belt, while a long printed receipt already spills from the till and curls towards the viewer, carrying the two short German labels. The contrast between the long receipt and the nearly empty belt is the whole statement: the same money, fewer goods. Use restrained warning colour only on the receipt, keep belt and receipt large and instantly readable, and let the checkout fade into the black background.
+Create a stylized 3D supermarket checkout scene, camera low at conveyor-belt height looking along the belt. The last of only a handful of groceries is passing the scanner right now, while the long printed receipt is still feeding out of the till, curling down towards the viewer and carrying the two short German labels. The belt behind it is wide and almost empty. The contrast between the growing receipt and the nearly empty belt is the whole statement: the same money, fewer goods. Use restrained warning colour only on the receipt, keep belt and receipt large and instantly readable, and let the checkout fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

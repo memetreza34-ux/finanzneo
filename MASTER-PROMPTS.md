@@ -151,6 +151,11 @@ Verbindlich:
 - finalen Dateinamen direkt angeben
 - Bildnummer = echte Szenennummer
 
+Entscheidender Moment (Pflicht):
+- das Bild zeigt den Augenblick, in dem sich etwas entscheidet, nicht den aufgeraeumten Zustand danach
+- DECISIVE_MOMENT im Prompt ausfuellen: was passiert in genau dieser Sekunde, was waere eine Sekunde spaeter anders
+- keine fertigen Endzustaende, keine nur daliegenden Gegenstaende, keine angepinnten Zettel statt einer Handlung
+
 Szenenvarianz (Pflicht):
 - Schauplatz, Kameraabstand und Blickwinkel unterscheiden sich sichtbar vom vorigen Bild und von scene-01
 - keine wiederholte Deko-Requisite (Tasse, Brille, ruhende Hand) über mehrere Bilder

@@ -37,6 +37,8 @@ index.imageStorytellingContract = {
   isolatedFinanceIconAsMainStoryForbidden: true,
   decorativeObjectPileForbidden: true,
   staticCatalogCompositionForbidden: true,
+  decisiveMomentRequired: true,
+  finishedTidyEndStateAsMainStoryForbidden: true,
   entertainmentThroughActionContrastOrConflictRequired: true,
   beforeAfterOrCauseEffectWhenHelpful: true,
   humanContextWhenHelpful: true,
@@ -55,6 +57,7 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
       contextAnchor: '[EINFÜGEN — klar erkennbarer Finanz-/Alltagskontext]',
       voiceVisualMatch: '[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]',
       transferabilityTest: '[EINFÜGEN — PASS: warum dieses Bild nicht genauso zu fünf anderen Finanzthemen passen könnte]',
+      decisiveMoment: '[EINFÜGEN — was passiert in genau dieser Sekunde, und was wäre eine Sekunde später anders]',
       metaphorJustification: 'none',
     };
   }
@@ -66,6 +69,7 @@ LITERAL_REAL_WORLD_SITUATION: [EINFÜGEN — konkrete reale Situation, die im Sp
 REAL_WORLD_CONTEXT_ANCHOR: [EINFÜGEN — klar erkennbarer Finanz-/Alltagskontext]
 VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
 TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum dieses Bild nicht genauso zu fünf anderen Finanzthemen passen könnte]
+DECISIVE_MOMENT: [EINFÜGEN — was passiert in genau dieser Sekunde, und was wäre eine Sekunde später anders]
 METAPHOR_JUSTIFICATION: none`;
 
 const policyBlock = `IMAGE_STORYTELLING_CONTRACT: ${CONTRACT_ID}
@@ -77,6 +81,8 @@ FUTURE IMAGE STORYTELLING V3 — VERBINDLICH:
 - Zeige einen sofort erkennbaren Finanz-/Alltagskontext wie Überweisung, Rechnung, Karte, Konto, Einkauf, Vertrag, Bankkontakt oder Zahlung, wenn dieser Kontext im Sprechbeat vorkommt.
 - Das Bild muss die gesprochene Aussage direkt zeigen; es darf nicht nur allgemein zum Oberthema Finanzen passen.
 - SUBTITLE-OFF-TEST: Ohne Überschrift und Untertitel muss ein fremder Zuschauer ungefähr erkennen können, was gerade erklärt wird.
+- MOMENT-REGEL: Das Bild zeigt den Augenblick, in dem sich etwas entscheidet — nicht den aufgeräumten Zustand danach. DECISIVE_MOMENT beantwortet: Was passiert in genau dieser Sekunde, und was wäre eine Sekunde später anders? Gibt es darauf keine Antwort, ist das Bild ein Katalogfoto und wird neu geplant.
+- Verboten als Hauptaussage: fertige aufgeräumte Endzustände, Gegenstände die nur daliegen, angepinnte Zettel oder Aushänge statt einer Handlung.
 - TRANSFERABILITY-TEST: Könnte dasselbe Bild unverändert auch zu fünf anderen Finanzthemen passen, ist es zu generisch und muss neu geplant werden.
 - Metaphern sind nur Fallback. Nutze sie erst, wenn die reale Situation visuell deutlich schlechter oder unverständlich wäre.
 - Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale, Sortieranlagen, große Hebel und ähnliche Maschinen sind bei statischen Bildern KEINE Standard-Erklärung.
@@ -85,7 +91,7 @@ FUTURE IMAGE STORYTELLING V3 — VERBINDLICH:
 - Kurze deutsche Objektlabels sind nur Ergänzung. Die Situation muss ohne Label verständlich bleiben.
 - Weniger, passendere Objekte schlagen eine dekorative Finanzobjekt-Sammlung.
 - Ein zusätzliches gutes Bild ist besser als ein überladener oder nur ungefähr passender Still.
-- Die fünf Planwerte aus dem Bildprompt müssen identisch in scene-index.json unter scene.imageStorytelling stehen; Prompt und Index dürfen sich nicht widersprechen.`;
+- Die sechs Planwerte aus dem Bildprompt müssen identisch in scene-index.json unter scene.imageStorytelling stehen; Prompt und Index dürfen sich nicht widersprechen.`;
 
 const addPlanningBeforeImagePrompts = (source) => {
   if (source.includes('LITERAL_REAL_WORLD_SITUATION:')) return source;
@@ -127,3 +133,4 @@ updatePolicyFile('05-projektdateien/ANTIGRAVITY-AUFTRAG.md');
 console.log('✓ Future Image Storytelling gesetzt: ' + CONTRACT_ID);
 console.log('✓ Literal first, creative second · reale Situation + Kontextanker + Voiceover-Match + Transferability-Test sind Pflicht.');
 console.log('✓ Metaphern bleiben möglich, müssen aber bewusst gewählt und konkret begründet werden.');
+console.log('✓ Moment-Regel: jede Bildszene dokumentiert ihren entscheidenden Augenblick statt eines fertigen Endzustands.');

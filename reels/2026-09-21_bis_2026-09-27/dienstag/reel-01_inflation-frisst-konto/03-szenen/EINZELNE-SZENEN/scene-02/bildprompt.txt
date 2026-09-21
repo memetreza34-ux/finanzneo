@@ -24,10 +24,11 @@ REAL_WORLD_CONTEXT_ANCHOR: Flur-Sideboard mit halb geoeffneter Ablageschublade v
 VOICEOVER_VISUAL_MATCH: Die zugeschobene Schublade zeigt genau das Nichtstun, von dem der Satz spricht.
 SCENE_VARIANCE: Neuer Ort und neuer Blickwinkel gegenueber scene-01: Flur statt Kuechentisch, schraege Aufsicht in eine Schublade statt Tischebene.
 TRANSFERABILITY_TEST: PASS: Ein bewusst zur Seite gelegter Kontoauszug ist die konkrete Handlung dieses Satzes.
+DECISIVE_MOMENT: Die Schublade ist im letzten Spalt vor dem Zufallen; eine Sekunde spaeter ist der Auszug nicht mehr zu sehen.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene at a hallway sideboard, seen at a steep angle from above into a half-open filing drawer. Inside the drawer lies a loose stack of household papers; the printed bank statement sits on top with a small sticky note carrying the short German label. A hand pushes the drawer shut, so the statement is about to disappear from sight. No table, no mug, no reading glasses anywhere in the frame. Keep the drawer opening and the sticky note large and readable and let the sideboard fade into the black background.
+Create a stylized 3D scene at a hallway sideboard, seen at a steep angle from above. A hand has pushed a filing drawer almost shut; only a narrow gap of light is left, and through it the printed bank statement is still visible on top of a loose stack of household papers, carrying the short German label on a sticky note. The paper is about to slide into the dark. No table, no mug, no reading glasses anywhere in the frame. Keep the remaining gap and the sticky note large and readable and let the sideboard fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

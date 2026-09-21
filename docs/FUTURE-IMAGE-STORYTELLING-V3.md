@@ -28,6 +28,7 @@ Jeder individuelle `bildprompt.txt` enthält:
 - `REAL_WORLD_CONTEXT_ANCHOR`
 - `VOICEOVER_VISUAL_MATCH`
 - `TRANSFERABILITY_TEST: PASS - ...`
+- `DECISIVE_MOMENT`
 - `METAPHOR_JUSTIFICATION`
 
 Bei `VISUAL_STRATEGY: literal` muss `METAPHOR_JUSTIFICATION: none` gesetzt sein.
@@ -52,6 +53,29 @@ Beispiel:
 
 - Schlecht: Goldmünze vor roter Schranke. Könnte Kredit, Gebühren, Betrug, Sparen oder Schulden bedeuten.
 - Gut: Überweisungsbeleg mit Empfängername und IBAN, sichtbare Abweichung, Zahlung noch nicht freigegeben.
+
+## Moment-Regel
+
+`literal first` hat in der ersten Praxis einen Nebeneffekt erzeugt: Jedes Bild wurde ein korrektes, aufgeräumtes Beleg-Foto. Richtig, aber langweilig — die Kassette war zu, das Formular ausgefüllt, der Zettel hing an der Wand. Nichts passierte mehr.
+
+**Jedes Bild zeigt den Augenblick, in dem sich etwas entscheidet.**
+
+Zwei Fragen vor jedem Prompt:
+
+> Was passiert in genau dieser Sekunde?
+> Was wäre eine Sekunde später anders?
+
+Gibt es darauf keine Antwort, ist das Bild ein Katalogfoto und wird neu geplant.
+
+Pflichtfeld:
+
+```text
+DECISIVE_MOMENT: <der Augenblick, den das Bild einfriert>
+```
+
+Verboten als Hauptaussage: fertige aufgeräumte Endzustände, Gegenstände die nur daliegen, angepinnte Zettel oder Aushänge statt einer Handlung, Stillleben ohne Schwebezustand.
+
+Der Vertrag führt dafür `decisiveMomentRequired` und `finishedTidyEndStateAsMainStoryForbidden`. Reels ohne diese Flags bleiben gültig und werden nicht migriert.
 
 ## Nachbar-Szenen-Test
 

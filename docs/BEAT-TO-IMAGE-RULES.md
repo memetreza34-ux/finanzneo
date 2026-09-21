@@ -66,6 +66,7 @@ Jedes Flow-Bild:
 - zusätzliche Objekte nur, wenn sie helfen
 - kurze deutsche Labels nur wenn nötig
 - keine UI-/Dashboard-/Flowchart-/Diorama-Komposition
+- zeigt einen Augenblick, in dem sich etwas entscheidet, nie einen fertigen Endzustand
 - eigener Schauplatz und eigener Blickwinkel, sichtbar anders als beim Vorgänger und beim Style-Anker
 - keine wiederholte Deko-Requisite über mehrere Bilder
 
@@ -115,5 +116,6 @@ Benötigte Daten: ...
 - Animation ohne echte Ursache-Wirkung
 - Bildbeat über 6 Sekunden
 - Background-Motion statt Szenenanimation
+- fertiger, aufgeräumter Zustand statt eines Augenblicks
 - zwei aufeinanderfolgende Bilder am selben Ort aus derselben Perspektive
 - Bild wirkt wie eine zweite Aufnahme des Style-Ankers

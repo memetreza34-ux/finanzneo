@@ -40,6 +40,14 @@ Diese Checkliste gilt für einzelne Google-Flow-Bilder und den gesamten Bildsatz
 - [ ] kein Clutter.
 - [ ] kein kleines technisches Boxen-/Connector-Layout.
 
+## 4a. Der entscheidende Moment
+
+- [ ] Man sieht, dass gerade etwas passiert.
+- [ ] Die Frage „was wäre eine Sekunde später anders?" ist am Bild beantwortbar.
+- [ ] Kein fertiger, aufgeräumter Endzustand als Hauptaussage.
+- [ ] Kein Gegenstand, der nur dekorativ daliegt.
+- [ ] Kein angepinnter Zettel oder Aushang anstelle einer Handlung.
+
 ## 4b. Szenenvarianz
 
 - [ ] Schauplatz oder Blickwinkel unterscheidet sich sichtbar vom vorigen Bild.
@@ -128,6 +136,7 @@ Wenn relevant:
 - große Headline/Satz
 - Screenshot-/Flat-Logo-Look
 - Bildaussage passt nicht zum Satz
+- Bild zeigt einen fertigen Zustand statt eines Augenblicks
 - Bild wirkt wie eine Variante des Ankers oder des Vorgängers
 - wiederholte Deko-Requisite ohne inhaltlichen Grund
 - Bildbeat >6 s
@@ -141,6 +150,7 @@ Deep-Black Background: [BESTANDEN / NICHT BESTANDEN]
 Clarity 1–2 s: [BESTANDEN / NICHT BESTANDEN]
 Labels/Marken: [BESTANDEN / NICHT BESTANDEN]
 Satzgenauigkeit: [BESTANDEN / NICHT BESTANDEN]
+Entscheidender Moment: [BESTANDEN / NICHT BESTANDEN]
 Szenenvarianz: [BESTANDEN / NICHT BESTANDEN]
 Render-Sichtbarkeit: [BESTANDEN / NICHT BESTANDEN]
 ```

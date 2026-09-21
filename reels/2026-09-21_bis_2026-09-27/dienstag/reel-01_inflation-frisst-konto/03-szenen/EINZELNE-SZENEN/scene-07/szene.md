@@ -8,6 +8,7 @@
 
 **Google-Flow-Dateiname:** Bild 07 - Zinsbeleg mit null Komma null eins.png
 **Erlaubte kurze Objektlabels:** 0,01 % Zinsen
-**Erwartetes Visual:** Ein Zinsbeleg mit 0,01 Prozent haengt aus dem Kontoauszugsdrucker im Bankfoyer.
+**Erwartetes Visual:** Ein Zinsbeleg mit 0,01 Prozent wird gerade aus dem Drucker im Bankfoyer abgerissen.
+**Moment:** Das Bild friert den Augenblick ein, nicht den Zustand danach.
 **Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png wird als reine Stilreferenz mitgegeben.
 **Varianz:** Schauplatz, Kamerawinkel und Requisiten kommen aus dieser Szene, nicht vom Anker.

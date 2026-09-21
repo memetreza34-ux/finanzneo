@@ -119,14 +119,15 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Ein Kontoauszug mit 10.000 Euro Guthaben liegt abends auf dem Kuechentisch.
+LITERAL_REAL_WORLD_SITUATION: Abends am Kuechentisch wird ein Kontoauszug mit 10.000 Euro Guthaben gerade aus dem Umschlag gezogen.
 REAL_WORLD_CONTEXT_ANCHOR: Kuechentisch mit gedrucktem Kontoauszug und Kaffeetasse — privates Ersparnis zu Hause.
 VOICEOVER_VISUAL_MATCH: Der gedruckte Betrag 10.000 Euro auf dem Auszug ist genau die Summe, von der gesprochen wird.
 TRANSFERABILITY_TEST: PASS: Ein konkreter Kontoauszug mit genau diesem Guthaben gehoert zu dieser Aussage und nicht zu einem allgemeinen Sparmotiv.
+DECISIVE_MOMENT: Der Auszug ist halb aus dem Umschlag gezogen und die Zahl kommt gerade zum Vorschein; eine Sekunde spaeter liegt er offen auf dem Tisch.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D everyday evening scene at a kitchen table. A printed bank statement lies flat on the table, showing one clearly readable balance carrying the short German label; the number is the largest readable element on the paper. Beside it stand a warm ceramic coffee mug and a pair of reading glasses, so the scene reads as private household money rather than an office. A hand rests calmly next to the statement without touching it. Keep the statement large enough that the amount is legible at a glance, and let only a narrow strip of the dark table fade into the black background.
+Create a stylized 3D everyday evening scene at a kitchen table, caught mid-action. A hand is pulling a printed bank statement out of its opened envelope; the paper is still half inside, and the balance with the short German label has just come into view as the largest readable element on the page. The torn envelope flap is still bending back from the pull. A warm ceramic coffee mug and reading glasses sit beside it, so the scene reads as private household money rather than an office. Keep the statement large enough that the amount is legible at a glance, and let only a narrow strip of the dark table fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -186,10 +187,11 @@ REAL_WORLD_CONTEXT_ANCHOR: Flur-Sideboard mit halb geoeffneter Ablageschublade v
 VOICEOVER_VISUAL_MATCH: Die zugeschobene Schublade zeigt genau das Nichtstun, von dem der Satz spricht.
 SCENE_VARIANCE: Neuer Ort und neuer Blickwinkel gegenueber scene-01: Flur statt Kuechentisch, schraege Aufsicht in eine Schublade statt Tischebene.
 TRANSFERABILITY_TEST: PASS: Ein bewusst zur Seite gelegter Kontoauszug ist die konkrete Handlung dieses Satzes.
+DECISIVE_MOMENT: Die Schublade ist im letzten Spalt vor dem Zufallen; eine Sekunde spaeter ist der Auszug nicht mehr zu sehen.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene at a hallway sideboard, seen at a steep angle from above into a half-open filing drawer. Inside the drawer lies a loose stack of household papers; the printed bank statement sits on top with a small sticky note carrying the short German label. A hand pushes the drawer shut, so the statement is about to disappear from sight. No table, no mug, no reading glasses anywhere in the frame. Keep the drawer opening and the sticky note large and readable and let the sideboard fade into the black background.
+Create a stylized 3D scene at a hallway sideboard, seen at a steep angle from above. A hand has pushed a filing drawer almost shut; only a narrow gap of light is left, and through it the printed bank statement is still visible on top of a loose stack of household papers, carrying the short German label on a sticky note. The paper is about to slide into the dark. No table, no mug, no reading glasses anywhere in the frame. Keep the remaining gap and the sticky note large and readable and let the sideboard fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -250,15 +252,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Jahre spaeter wird ein frischer Kontoauszug im Hausflur hochgehalten und zeigt exakt denselben Betrag.
+LITERAL_REAL_WORLD_SITUATION: Jahre spaeter wird ein frischer Kontoauszug aus dem Briefkasten gezogen und zeigt exakt denselben Betrag.
 REAL_WORLD_CONTEXT_ANCHOR: Hausflur am offenen Briefkasten, Auszug senkrecht in der Hand, Wandkalender eines viel spaeteren Jahres daneben.
 VOICEOVER_VISUAL_MATCH: Die unveraenderte Zahl auf dem frischen Auszug zeigt genau, dass der Betrag gleich geblieben ist.
 SCENE_VARIANCE: Der Auszug kehrt absichtlich wieder, weil genau seine unveraenderte Zahl der Beat ist. Ort und Kamera wechseln trotzdem: Hausflur am Briefkasten statt Kuechentisch, senkrecht gehaltenes Papier frontal statt flacher Aufsicht.
 TRANSFERABILITY_TEST: PASS: Derselbe Betrag auf einem sichtbar aelteren Beleg ist spezifisch fuer diese Aussage.
+DECISIVE_MOMENT: Der neue Auszug wird gerade aus dem Briefkastenschlitz gezogen; eine Sekunde spaeter ist er ganz draussen und die Zahl ist immer noch dieselbe.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene in an apartment hallway at the open letterbox, camera straight on at eye level. A hand holds a freshly opened bank statement upright towards the viewer, the balance printed large and carrying the short German label. On the wall behind hangs a paper calendar showing a year clearly far in the future, and the letterbox flap is still open below. The point is the contradiction: new paper, later year, identical number. No table surface in the frame. Keep the balance and the calendar year readable and let the hallway fade into the black background.
+Create a stylized 3D scene in an apartment hallway, camera straight on at the letterboxes. A hand is pulling a fresh bank statement out of the letterbox slot; the paper is still half inside and bends slightly under the pull, but the balance with the short German label is already readable. On the wall beside it hangs a paper calendar showing a year clearly far in the future. The contradiction is the point: new paper, later year, the same number as years ago. No table surface in the frame. Keep the balance and the calendar year readable and let the hallway fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -319,10 +322,11 @@ REAL_WORLD_CONTEXT_ANCHOR: Supermarktkasse, wenige Waren auf dem Kassenband, lan
 VOICEOVER_VISUAL_MATCH: Die wenigen Waren auf dem langen Band neben dem gleich langen Bon zeigen genau, dass dieselbe Summe weniger kauft.
 SCENE_VARIANCE: Supermarktkasse statt Kuechentisch, tiefe Kamera auf Bandhoehe statt Aufsicht.
 TRANSFERABILITY_TEST: PASS: Halbleerer Wagen plus unveraenderte Bonsumme gehoert nur zur Kaufkraft-Aussage.
+DECISIVE_MOMENT: Der Bon laeuft noch aus dem Drucker, waehrend die letzte Ware ueber den Scanner geht; eine Sekunde spaeter ist bezahlt und das Band leer.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D supermarket checkout scene, camera low at conveyor-belt height looking along the belt. Only a handful of groceries travel towards the register, spaced far apart on the wide empty belt, while a long printed receipt already spills from the till and curls towards the viewer, carrying the two short German labels. The contrast between the long receipt and the nearly empty belt is the whole statement: the same money, fewer goods. Use restrained warning colour only on the receipt, keep belt and receipt large and instantly readable, and let the checkout fade into the black background.
+Create a stylized 3D supermarket checkout scene, camera low at conveyor-belt height looking along the belt. The last of only a handful of groceries is passing the scanner right now, while the long printed receipt is still feeding out of the till, curling down towards the viewer and carrying the two short German labels. The belt behind it is wide and almost empty. The contrast between the growing receipt and the nearly empty belt is the whole statement: the same money, fewer goods. Use restrained warning colour only on the receipt, keep belt and receipt large and instantly readable, and let the checkout fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -388,10 +392,11 @@ REAL_WORLD_CONTEXT_ANCHOR: Bankfoyer, Kontoauszugsdrucker an der Wand, frisch ge
 VOICEOVER_VISUAL_MATCH: Der ausgedruckte Zinssatz zeigt genau, dass das Konto den Verlust nicht ausgleicht.
 SCENE_VARIANCE: Bankfoyer statt Wohnung, frontale Geraeteaufnahme statt Papier auf einer Flaeche.
 TRANSFERABILITY_TEST: PASS: Ein Beleg mit genau diesem Zinssatz gehoert zu dieser Aussage und zu keiner anderen.
+DECISIVE_MOMENT: Der schmale Zinsbeleg wird gerade an der Perforation abgerissen; eine Sekunde spaeter haelt die Hand ihn lose in der Luft.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene in a bank lobby, camera straight on at a wall-mounted account statement printer. A narrow paper slip has just been printed and hangs out of the output slot; the interest rate is the single largest readable element on it and carries the short German label. The slip is thin and almost weightless against the solid machine, so the viewer understands at a glance that this rate cannot make up the difference. No table, no other documents in the frame. Keep the printed rate large and readable and let the lobby wall fade into the black background.
+Create a stylized 3D scene in a bank lobby, camera straight on at a wall-mounted account statement printer. A hand is tearing a narrow paper slip out of the output slot; the slip is still attached at the perforation and buckles under the pull, while the interest rate on it is already the single largest readable element and carries the short German label. The slip is thin and almost weightless against the solid machine, so the viewer understands at a glance that this rate cannot make up the difference. No table, no other documents in the frame. Keep the printed rate large and readable and let the lobby wall fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -453,15 +458,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: In einer offenen Geldkassette liegt das Bargeld in zwei getrennten Faechern, eines deutlich voller.
+LITERAL_REAL_WORLD_SITUATION: In einer offenen Geldkassette wird das Bargeld gerade in zwei Faecher aufgeteilt, eines wird deutlich voller.
 REAL_WORLD_CONTEXT_ANCHOR: Offene Metall-Geldkassette auf einem Regalbrett, zwei beschriftete Faecher.
 VOICEOVER_VISUAL_MATCH: Die Trennung in zwei Faecher zeigt genau, dass es nur um den geparkten Teil geht.
 SCENE_VARIANCE: Geldkassette im Regal statt Tisch, senkrechte Draufsicht statt Blick ueber die Tischebene.
 TRANSFERABILITY_TEST: PASS: Genau zwei getrennte Stapel mit diesen Beschriftungen gehoeren zu dieser Unterscheidung.
+DECISIVE_MOMENT: Die Hand schiebt den groesseren Teil gerade ueber den Trenner; eine Sekunde spaeter liegen beide Teile getrennt.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene seen straight down from above into an open metal cash box standing on a shelf. The inside is split into two compartments by a divider: the smaller left compartment holds a modest bundle of banknotes and carries the first short German label, the noticeably fuller right compartment carries the second. The divider itself is the statement: one part has a job, the other has been sitting still for years. No table and no loose stacks in the frame. Keep both compartments and their labels large and readable and let the shelf fade into the black background.
+Create a stylized 3D scene seen straight down from above into an open metal cash box standing on a shelf. A hand is in the middle of splitting the money: it pushes the larger part of the banknotes across the divider into the right compartment, and the notes are still sliding and fanning out from the movement. The smaller left compartment is already settled and carries the first short German label, the growing right one carries the second. The split itself is the statement: one part has a job, the other has been sitting still for years. No table and no loose stacks in the frame. Keep both compartments and their labels large and readable and let the shelf fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -517,15 +523,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Der beschriftete Umschlag mit dem Notgroschen wird ins Fach zurueckgelegt und der Deckel geht zu.
+LITERAL_REAL_WORLD_SITUATION: Der halb herausgezogene Umschlag mit dem Notgroschen wird zurueck ins Fach gedrueckt.
 REAL_WORLD_CONTEXT_ANCHOR: Seitliche Nahaufnahme derselben Geldkassette, eine Hand schliesst den Deckel ueber dem linken Fach.
 VOICEOVER_VISUAL_MATCH: Das Zuruecklegen und der schliessende Deckel zeigen genau, dass dieser Teil unangetastet bleibt.
 SCENE_VARIANCE: Dieselbe Kassette wie in scene-09, weil der Beat direkt daran anschliesst — aber seitliche Nahaufnahme auf Deckelhoehe statt Draufsicht.
 TRANSFERABILITY_TEST: PASS: Ein beschrifteter Notgroschen-Umschlag, der bewusst liegen bleibt, ist genau diese Handlung.
+DECISIVE_MOMENT: Der halb herausgezogene Umschlag wird im letzten Moment zurueckgedrueckt; eine Sekunde spaeter sitzt er wieder ganz im Fach.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D close scene from the side, at the height of the cash box lid. A hand sets a labelled paper envelope, visibly filled with banknotes, back into the left compartment and is already lowering the lid over it. The envelope carries the two short German labels. The gesture is finished, not hesitant: this part of the money stays exactly where it is. Use emerald only as a small accent on the label, keep envelope, hand and lid large and readable, and let the shelf fade into the black background.
+Create a stylized 3D close scene from the side, at the height of the cash box lid. A labelled paper envelope, visibly filled with banknotes, has already been pulled half out of the left compartment — and a thumb is pressing it back down into place, the paper still bowing under the pressure. The envelope carries the two short German labels. The decision is happening right now: this part of the money is being put back rather than taken. Use emerald only as a small accent on the label, keep envelope, thumb and compartment large and readable, and let the shelf fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -581,15 +588,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Das zweite Bargeldbuendel liegt auf einem ausgefuellten Depot-Antrag am Schreibtisch.
+LITERAL_REAL_WORLD_SITUATION: Das zweite Bargeldbuendel wird auf einen ausgefuellten Depot-Antrag am Schreibtisch geschoben.
 REAL_WORLD_CONTEXT_ANCHOR: Schreibtisch am Fenster, gedruckter Depot-Antrag mit Unterschriftszeile, Geldbuendel darauf.
 VOICEOVER_VISUAL_MATCH: Das Buendel auf dem ausgefuellten Depot-Antrag zeigt genau, dass der Rest angelegt wird.
 SCENE_VARIANCE: Schreibtisch am Fenster statt Kassette und Kuechentisch, Schulterblick schraeg von oben.
 TRANSFERABILITY_TEST: PASS: Genau dieser zweite beschriftete Umschlag neben dem liegengebliebenen Notgroschen gehoert zu diesem Schlusssatz.
+DECISIVE_MOMENT: Das Buendel wird gerade auf den Depot-Antrag geschoben und verlaesst die Hand; eine Sekunde spaeter liegt es dort und die Hand ist leer.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a calm stylized 3D end state at a desk by a window, camera looking over the shoulder at a steep angle. A printed brokerage account application lies filled in on the desk with a pen resting across it, and the larger bundle of banknotes sits squarely on the form, carrying the two short German labels. The cash box from the previous scene stands closed at the far edge of the desk, small and out of the way. The outcome reads without any movement: one part stays shut away, this part is on its way to work. Use emerald only as a small accent on the label, keep form and bundle large and clearly readable, and let the desk fade into the black background.
+Create a stylized 3D scene at a desk by a window, camera looking over the shoulder at a steep angle. A hand is sliding the larger bundle of banknotes across the desk onto a filled-in printed brokerage account application; the bundle is still moving, the fingers are already opening to let go, and the form shifts slightly under it. The bundle carries the two short German labels. The cash box from the previous scene stands closed at the far edge of the desk, small and out of the way. The handover is happening right now: one part stays shut away, this part is going to work. Use emerald only as a small accent on the label, keep form and bundle large and clearly readable, and let the desk fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

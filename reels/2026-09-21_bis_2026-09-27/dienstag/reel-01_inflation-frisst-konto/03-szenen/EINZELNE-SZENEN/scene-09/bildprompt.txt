@@ -20,15 +20,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: In einer offenen Geldkassette liegt das Bargeld in zwei getrennten Faechern, eines deutlich voller.
+LITERAL_REAL_WORLD_SITUATION: In einer offenen Geldkassette wird das Bargeld gerade in zwei Faecher aufgeteilt, eines wird deutlich voller.
 REAL_WORLD_CONTEXT_ANCHOR: Offene Metall-Geldkassette auf einem Regalbrett, zwei beschriftete Faecher.
 VOICEOVER_VISUAL_MATCH: Die Trennung in zwei Faecher zeigt genau, dass es nur um den geparkten Teil geht.
 SCENE_VARIANCE: Geldkassette im Regal statt Tisch, senkrechte Draufsicht statt Blick ueber die Tischebene.
 TRANSFERABILITY_TEST: PASS: Genau zwei getrennte Stapel mit diesen Beschriftungen gehoeren zu dieser Unterscheidung.
+DECISIVE_MOMENT: Die Hand schiebt den groesseren Teil gerade ueber den Trenner; eine Sekunde spaeter liegen beide Teile getrennt.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene seen straight down from above into an open metal cash box standing on a shelf. The inside is split into two compartments by a divider: the smaller left compartment holds a modest bundle of banknotes and carries the first short German label, the noticeably fuller right compartment carries the second. The divider itself is the statement: one part has a job, the other has been sitting still for years. No table and no loose stacks in the frame. Keep both compartments and their labels large and readable and let the shelf fade into the black background.
+Create a stylized 3D scene seen straight down from above into an open metal cash box standing on a shelf. A hand is in the middle of splitting the money: it pushes the larger part of the banknotes across the divider into the right compartment, and the notes are still sliding and fanning out from the movement. The smaller left compartment is already settled and carries the first short German label, the growing right one carries the second. The split itself is the statement: one part has a job, the other has been sitting still for years. No table and no loose stacks in the frame. Keep both compartments and their labels large and readable and let the shelf fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

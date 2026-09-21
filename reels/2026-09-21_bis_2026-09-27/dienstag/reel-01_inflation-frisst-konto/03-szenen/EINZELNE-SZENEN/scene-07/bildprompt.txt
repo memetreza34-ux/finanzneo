@@ -24,10 +24,11 @@ REAL_WORLD_CONTEXT_ANCHOR: Bankfoyer, Kontoauszugsdrucker an der Wand, frisch ge
 VOICEOVER_VISUAL_MATCH: Der ausgedruckte Zinssatz zeigt genau, dass das Konto den Verlust nicht ausgleicht.
 SCENE_VARIANCE: Bankfoyer statt Wohnung, frontale Geraeteaufnahme statt Papier auf einer Flaeche.
 TRANSFERABILITY_TEST: PASS: Ein Beleg mit genau diesem Zinssatz gehoert zu dieser Aussage und zu keiner anderen.
+DECISIVE_MOMENT: Der schmale Zinsbeleg wird gerade an der Perforation abgerissen; eine Sekunde spaeter haelt die Hand ihn lose in der Luft.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene in a bank lobby, camera straight on at a wall-mounted account statement printer. A narrow paper slip has just been printed and hangs out of the output slot; the interest rate is the single largest readable element on it and carries the short German label. The slip is thin and almost weightless against the solid machine, so the viewer understands at a glance that this rate cannot make up the difference. No table, no other documents in the frame. Keep the printed rate large and readable and let the lobby wall fade into the black background.
+Create a stylized 3D scene in a bank lobby, camera straight on at a wall-mounted account statement printer. A hand is tearing a narrow paper slip out of the output slot; the slip is still attached at the perforation and buckles under the pull, while the interest rate on it is already the single largest readable element and carries the short German label. The slip is thin and almost weightless against the solid machine, so the viewer understands at a glance that this rate cannot make up the difference. No table, no other documents in the frame. Keep the printed rate large and readable and let the lobby wall fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

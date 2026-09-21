@@ -8,6 +8,7 @@
 
 **Google-Flow-Dateiname:** Bild 04 - Dieselbe Zahl auf dem Auszug.png
 **Erlaubte kurze Objektlabels:** weiterhin 10.000 €
-**Erwartetes Visual:** Ein frischer Auszug wird im Hausflur hochgehalten und zeigt dieselbe Zahl, daneben ein viel spaeterer Kalender.
+**Erwartetes Visual:** Ein frischer Auszug wird aus dem Briefkasten gezogen und zeigt dieselbe Zahl, daneben ein viel spaeterer Kalender.
+**Moment:** Das Bild friert den Augenblick ein, nicht den Zustand danach.
 **Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png wird als reine Stilreferenz mitgegeben.
 **Varianz:** Schauplatz, Kamerawinkel und Requisiten kommen aus dieser Szene, nicht vom Anker.

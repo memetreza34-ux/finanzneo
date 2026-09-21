@@ -101,6 +101,13 @@ ZIELWELT
 - Bild erklärt den gesprochenen Punkt und ist nicht nur Dekoration
 - jede Szene darf anders komponiert sein, muss aber nach derselben Welt aussehen
 
+DER ENTSCHEIDENDE MOMENT — PFLICHT
+- jedes Bild zeigt den Augenblick, in dem sich etwas entscheidet, nicht den aufgeräumten Zustand danach
+- Pflichtfeld je Bildprompt: DECISIVE_MOMENT — was passiert in genau dieser Sekunde, und was wäre eine Sekunde später anders
+- gibt es darauf keine Antwort, ist das Bild ein Katalogfoto und wird neu geplant
+- verboten als Hauptaussage: fertige aufgeräumte Endzustände, Gegenstände die nur daliegen, angepinnte Zettel oder Aushänge statt einer Handlung
+- die Situation bleibt echt; sie wird nur im stärksten Moment gezeigt statt danach
+
 SZENENVARIANZ — PFLICHT
 SCENE_VARIANCE_LOCK: finanzneo-scene-variance-v1
 - gleiche Welt heißt gleicher Look, nicht gleicher Schauplatz
