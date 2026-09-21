@@ -22,6 +22,7 @@ const ACTIVE_RULE_FILES = [
   'docs/PLATFORM-PUBLISHING.md',
   'docs/SCENE-INDEX-SCHEMA.md',
   'docs/FUTURE-IMAGE-STORYTELLING-V3.md',
+  'docs/FUTURE-IMAGE-STORYTELLING-V5.md',
   '.agents/rules/finanzneo-reel-safety.md',
   '.agents/skills/finanzneo-reel/SKILL.md',
   '.agents/workflows/build-finanzneo-reel.md',
@@ -34,11 +35,13 @@ const ACTIVE_RULE_FILES = [
   'scripts/validate-reel-layout-v5.mjs',
   'scripts/apply-stylized-animated-black-world-v9.mjs',
   'scripts/validate-global-image-world.mjs',
-  // V3 bleibt als Legacy-Vertrag prüfbar; neue Produktionen werden über V4 angelegt.
+  // V3/V4 bleiben als Legacy-Verträge prüfbar; neue Produktionen werden über V5 angelegt.
   'scripts/apply-future-image-storytelling-v3.mjs',
   'scripts/validate-future-image-storytelling-v3.mjs',
   'scripts/apply-future-image-storytelling-v4.mjs',
   'scripts/validate-future-image-storytelling-v4.mjs',
+  'scripts/apply-future-image-storytelling-v5.mjs',
+  'scripts/validate-future-image-storytelling-v5.mjs',
   'scripts/validate-animation-source-quality.mjs',
 ];
 
@@ -71,7 +74,6 @@ for (const path of ACTIVE_RULE_FILES) {
       const start = Math.max(0, match.index - 100);
       const end = Math.min(source.length, match.index + match[0].length + 120);
       const context = source.slice(start, end);
-      // Negativ-/Historienhinweise dürfen alte Begriffe benennen, ohne sie aktiv zu machen.
       if (/\b(?:kein|keine|keinen|keiner|nicht|verboten|ungültig|alt|alte|alten|historisch|legacy|entfernt|gibt es keinen|no active)\b/i.test(context)) continue;
       fail(`${path}: enthält ${label}: "${match[0]}".`);
     }
@@ -96,12 +98,15 @@ const requiredMarkers = new Map([
   ['scripts/scaffold-finanzneo-reel.mjs', ['visualBottom: 1400', 'fontSize:56', 'visualSafeZone:{top:320,bottom:1400']],
   ['scripts/apply-reel-layout-v5.mjs', ['visualBottom: 1400', 'fontSize: 56', 'hardClipAnimations: true']],
   ['scripts/validate-reel-layout-v5.mjs', ['visualBottom === 1400', 'fontSize === 56', 'hardClipAnimations === true']],
-  ['scripts/create-finanzneo-reel.mjs', ['apply-stylized-animated-black-world-v9.mjs', 'apply-future-image-storytelling-v4.mjs', 'Grounded first, nicht literal-only', 'Visual Y320–1400']],
+  ['scripts/create-finanzneo-reel.mjs', ['apply-stylized-animated-black-world-v9.mjs', 'apply-future-image-storytelling-v5.mjs', 'Grounded first, nicht literal-only', 'Visual Y320–1400']],
   ['scripts/apply-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'Literal first, creative second', 'TRANSFERABILITY_TEST', 'Förderbänder, Schienen, Schranken, Käfige']],
-  ['scripts/validate-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'finanzneo-image-storytelling-v2', 'finanzneo-image-storytelling-v4', 'TRANSFERABILITY_TEST', 'METAPHOR_JUSTIFICATION']],
+  ['scripts/validate-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'finanzneo-image-storytelling-v2', 'finanzneo-image-storytelling-v4', 'finanzneo-image-storytelling-v5', 'TRANSFERABILITY_TEST', 'METAPHOR_JUSTIFICATION']],
   ['scripts/apply-future-image-storytelling-v4.mjs', ['finanzneo-image-storytelling-v4', 'finanzneo-stylized-3d-animated-black-v9', 'Grounded first, not literal-only', 'VISUAL_HOOK', 'NOVELTY_CHECK']],
   ['scripts/validate-future-image-storytelling-v4.mjs', ['finanzneo-image-storytelling-v4', 'finanzneo-stylized-3d-animated-black-v9', 'maxSameVisualModeInRow', 'noveltyCheck']],
+  ['scripts/apply-future-image-storytelling-v5.mjs', ['finanzneo-image-storytelling-v5', 'finanzneo-visual-sequence-plan-v1', 'sequencePlanningRequiredBeforePrompts', 'maxTableDocumentScenesPerSixImages', 'cameraDirectionOverridesGenericStyleFraming']],
+  ['scripts/validate-future-image-storytelling-v5.mjs', ['finanzneo-image-storytelling-v5', 'finanzneo-visual-sequence-plan-v1', 'maxSameCompositionFamilyInRow', 'maxImagesWithoutPatternInterrupt', 'tableDocumentScene']],
   ['docs/FUTURE-IMAGE-STORYTELLING-V3.md', ['Literal first, creative second', 'Transferability-Test', 'METAPHOR_JUSTIFICATION']],
+  ['docs/FUTURE-IMAGE-STORYTELLING-V5.md', ['Erst die gesamte visuelle Sequenz planen', 'TABLE_DOCUMENT_SCENE', 'ENERGY_LEVEL', 'VISUAL_ARCHETYPE']],
 ]);
 
 for (const [path, markers] of requiredMarkers) {
@@ -118,9 +123,10 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log('\n✓ Aktive Reel-Regelquellen sind auf V9/Pure-Black/Final-Layout/Image-Storytelling-V4 ausgerichtet.');
-console.log('✓ Legacy Storytelling V3 bleibt prüfbar; neue Reels werden ausschließlich mit V4 angelegt.');
+console.log('\n✓ Aktive Reel-Regelquellen sind auf V9/Pure-Black/Final-Layout/Image-Storytelling-V5 ausgerichtet.');
+console.log('✓ Legacy Storytelling V3/V4 bleibt prüfbar; neue Reels werden ausschließlich mit V5 angelegt.');
 console.log('✓ Keine alte Physical-Explainer-Bildwelt, feste Objektquote, alte Y320–1480-Visualzone oder Partikel-Dekorationsregel gefunden.');
-console.log('✓ Neue Reels verwenden Grounded-Cinematic V4 mit realem Kontextanker, Voiceover-Match, Hook, Handlung, Kamera, Novelty- und Transferability-Test.');
+console.log('✓ Neue Reels verwenden Sequence-first V5 mit Energy Arc, Archetyp-/Kompositionsrotation, Pattern Interrupts und Table/Document-Limit.');
+console.log('✓ V9 bleibt unverändert: Deep Black, stylized 3D, Farbrollen, Materialgefühl, 1:1 und Single-Job bleiben gesperrt.');
 console.log('✓ Header 56 px/max. 2 Zeilen, Visual Y320–1400 und Animation-Safe-Zone sind konsistent.');
 console.log('✓ Phase 1, Phase 2 und Phase 3 verweisen auf denselben aktuellen Produktionsstand.');
