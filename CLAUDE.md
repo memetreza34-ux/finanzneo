@@ -32,6 +32,7 @@ Phase 1 liefert vollständig:
 - Bild-/Animations-Zuordnung
 - Google-Flow-Prompts
 - natürliche Szenenüberschriften + passende Icons
+- **geplante Szenenvarianz**: Schauplatz und Blickwinkel je Bildszene bewusst unterschiedlich, bevor der erste Prompt geschrieben wird
 - Remotion-Spezifikationen
 - **produktionsreife `animation.tsx` für jede Animations- und jede Datenszene**
 - bei Datenszenen: Zahlen **zuerst holen und einfrieren** (`node scripts/fetch-data.mjs …`), erst danach Zahlen behaupten
@@ -158,6 +159,25 @@ Die Bilder sind **visuelle Erklärszenen**, keine Dekoration und keine Sammlung 
 - hochwertig, sauber und professionell; nicht wie Spielzeug oder Icon-Pack
 - der gesprochene Punkt muss im Bild direkt verständlich werden
 - gleiche Welt über das gesamte Reel
+
+### Szenenvarianz — Pflicht
+
+```text
+SCENE_VARIANCE_LOCK: finanzneo-scene-variance-v1
+```
+
+**Gleiche Welt heißt gleicher Look, nicht gleiche Szene.** `FINANZNEO_SERIES_LOCK` bindet Schwärze, Licht, Material, Figurenstil und Farbtemperatur — nicht den Schauplatz. Ein Reel, in dem jedes Bild denselben Tisch, dieselbe Tasse und denselben Kamerawinkel zeigt, erfüllt den Lock nicht, sondern bricht diese Regel.
+
+Für jede Bildszene gilt:
+
+- jedes Bild zeigt eine **sichtbar andere Situation** als das Bild davor und als `scene-01`
+- Schauplatz, Kameraabstand und Blickwinkel wechseln, sobald der Sprechbeat es zulässt: Nahaufnahme, Aufsicht, Schulterblick, Küche, Supermarkt, Flur, Automat, Briefkasten, unterwegs
+- eine Requisite kehrt nur wieder, wenn **genau sie** den Beat erklärt — z. B. derselbe Kontoauszug, wenn die Aussage „Jahre später steht dieselbe Zahl da" lautet
+- Deko wiederholt sich nie: Kaffeetasse, Brille, ruhende Hand und ähnliche Füllobjekte gehören höchstens in ein Bild pro Reel
+- Formulierungen wie `on the same table`, `same scene as before` oder `same light as before` sind im Bildprompt **verboten**, solange nicht genau diese Wiedererkennung die Aussage ist
+- ein Bild darf überraschen und unterhalten; die sichere Wiederholung der Vorgängerszene ist der schlechtere Weg
+
+Prüfung vor Google Flow: Zwei aufeinanderfolgende Bildprompts nebeneinanderlegen. Beschreiben sie denselben Ort aus derselben Perspektive, wird der spätere neu geschrieben.
 
 ### Erklärlogik — Pflicht
 
@@ -298,12 +318,15 @@ Bild verwerfen und **dieselbe Bildnummer neu erzeugen**, wenn:
 - es fotorealistisch wird
 - der Hintergrund nicht deep black bleibt
 - UI/Flowchart/Clutter die Erklärung verdrängen
+- es wie eine zweite Aufnahme des Ankers oder des vorigen Bildes wirkt
+- es eine Deko-Requisite des vorigen Bildes ohne inhaltlichen Grund wiederholt
 
 ## 7. Google Flow — Style-Anker V4
 
 ```text
 FLOW_EXECUTION_MODE: finanzneo-flow-style-anchor-v4
 FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+SCENE_VARIANCE_LOCK: finanzneo-scene-variance-v1
 ```
 
 Der bisherige Strict-Single-Job-Lauf hat jedes Bild ohne Bezug zu den anderen erzeugt. Das Ergebnis war vorhersehbar: Bilder desselben Reels hatten unterschiedliche Helligkeit, unterschiedliche Materialwirkung und teils gar keinen deep-black Hintergrund. `FINANZNEO_SERIES_LOCK` lässt sich so strukturell nicht halten — ohne gemeinsame Referenz hat der Generator nichts, woran er sich festhalten kann.
@@ -328,7 +351,30 @@ Dieses Bild ist der **Style-Anker** des gesamten Reels. Es ist gleichzeitig das 
 
 Nach bestandener Anker-QA laufen die übrigen Bilder in Blöcken von höchstens fünf.
 
-**Jedes Bild in jedem Block referenziert den Style-Anker.** Das ist Pflicht, keine Option. Der Anker legt fest: Hintergrundschwärze, Lichtführung, Materialwirkung, Figurenstil und Farbtemperatur. Die Bildaussage kommt aus dem jeweiligen Einzelprompt, der Look kommt vom Anker.
+**Jedes Bild in jedem Block referenziert den Style-Anker.** Das ist Pflicht, keine Option.
+
+**Der Anker ist eine Stilreferenz, keine Bildvorlage.** Das ist der entscheidende Unterschied, und er wird jedem Bildjob mitgegeben:
+
+```text
+Vom Anker kommen:        Hintergrundschwärze, Lichtführung, Materialwirkung,
+                         Figurenstil, Farbtemperatur
+Vom Anker kommen NICHT:  Schauplatz, Möbel, Kamerawinkel, Bildaufbau,
+                         Requisiten, Objektanordnung
+```
+
+Wird der Anker als Bildvorlage benutzt, entsteht ein Reel aus acht Varianten desselben Fotos. Genau das ist einmal passiert und ist der Grund für diese Regel. Szene, Blickwinkel und Objekte kommen ausschließlich aus dem Einzelprompt und müssen sich vom Anker sichtbar unterscheiden.
+
+Kanonischer Anker-Hinweis in jedem `bildprompt.txt` ab `scene-02`:
+
+```text
+STYLE-ANKER: Bild 01 - <Ankername>.png
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
+```
 
 ```text
 Style-Anker aus scene-01 bereithalten
@@ -352,12 +398,24 @@ Ein Bild besteht nur, wenn es neben der normalen V9-QA auch zum Anker passt:
 
 Weicht eines davon sichtbar ab, wird dieselbe Bildnummer neu erzeugt.
 
+### Varianz-Abgleich — ebenfalls Pflicht
+
+Direkt nach dem Anker-Abgleich läuft die Gegenprobe. Ein Bild fällt durch, wenn:
+
+- es wie eine zweite Aufnahme des Ankers oder des vorigen Bildes wirkt
+- Schauplatz **und** Blickwinkel gleich geblieben sind, obwohl der Beat gewechselt hat
+- eine Deko-Requisite des vorigen Bildes ohne inhaltlichen Grund wieder im Frame liegt
+
+Fällt dieselbe Bildnummer **zweimal** am Varianz-Abgleich durch, wird sie ohne Anker-Referenz erzeugt — nur mit dem geschriebenen V9-Lock. Die Welt hält dann der Text, nicht das Referenzbild.
+
 ### Weiterhin verboten
 
 - Kontaktbogen, Galerie, Collage oder Multi-Panel als Ersatz für einzelne Bilder
 - mehr als fünf Bilder in einem Block
 - einen Block starten, bevor der Anker die QA bestanden hat
 - Referenz auf irgendein anderes Bild als den Anker
+- Komposition, Schauplatz, Kamerawinkel oder Requisiten des Ankers in ein weiteres Bild übernehmen
+- dieselbe Szenerie in mehreren Bildern wiederholen, ohne dass der Sprechbeat genau diese Wiedererkennung verlangt
 - auf ein Nutzer-„weiter" zwischen Blöcken warten
 - Animations- und Datenszenen erzeugen; deren Nummern bleiben reserviert
 

@@ -8,5 +8,6 @@
 
 **Google-Flow-Dateiname:** Bild 10 - Notgroschen bleibt liegen.png
 **Erlaubte kurze Objektlabels:** Notgroschen, bleibt
-**Erwartetes Visual:** Ein beschrifteter Umschlag Notgroschen wird bewusst zurueckgelegt.
-**Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png muss als Referenz mitgegeben werden.
+**Erwartetes Visual:** Der Umschlag Notgroschen geht zurueck ins Fach, der Deckel schliesst sich darueber.
+**Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png wird als reine Stilreferenz mitgegeben.
+**Varianz:** Schauplatz, Kamerawinkel und Requisiten kommen aus dieser Szene, nicht vom Anker.

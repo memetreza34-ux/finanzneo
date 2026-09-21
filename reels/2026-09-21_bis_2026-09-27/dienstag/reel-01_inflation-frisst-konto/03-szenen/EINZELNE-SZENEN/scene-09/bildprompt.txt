@@ -7,9 +7,12 @@ Bild 09 - Zwei getrennte Bargeldstapel.png
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - Notgroschen
@@ -17,14 +20,15 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Zwei getrennte Bargeldstapel liegen auf dem Tisch, einer deutlich kleiner.
-REAL_WORLD_CONTEXT_ANCHOR: Zwei beschriftete Bargeldstapel auf demselben Kuechentisch.
-VOICEOVER_VISUAL_MATCH: Die Trennung in zwei Stapel zeigt genau, dass es nur um den geparkten Teil geht.
+LITERAL_REAL_WORLD_SITUATION: In einer offenen Geldkassette liegt das Bargeld in zwei getrennten Faechern, eines deutlich voller.
+REAL_WORLD_CONTEXT_ANCHOR: Offene Metall-Geldkassette auf einem Regalbrett, zwei beschriftete Faecher.
+VOICEOVER_VISUAL_MATCH: Die Trennung in zwei Faecher zeigt genau, dass es nur um den geparkten Teil geht.
+SCENE_VARIANCE: Geldkassette im Regal statt Tisch, senkrechte Draufsicht statt Blick ueber die Tischebene.
 TRANSFERABILITY_TEST: PASS: Genau zwei getrennte Stapel mit diesen Beschriftungen gehoeren zu dieser Unterscheidung.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene on the same dark kitchen table showing two clearly separated stacks of banknotes with a visible gap between them. The smaller left stack carries the first short German label, the noticeably larger right stack carries the second. The separation itself is the statement: one part has a job, the other has been sitting still for years. Keep both stacks large, use the same warm light direction as before, and let the table fade into the black background.
+Create a stylized 3D scene seen straight down from above into an open metal cash box standing on a shelf. The inside is split into two compartments by a divider: the smaller left compartment holds a modest bundle of banknotes and carries the first short German label, the noticeably fuller right compartment carries the second. The divider itself is the statement: one part has a job, the other has been sitting still for years. No table and no loose stacks in the frame. Keep both compartments and their labels large and readable and let the shelf fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

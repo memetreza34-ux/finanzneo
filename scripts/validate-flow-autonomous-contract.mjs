@@ -11,6 +11,8 @@ import {
   FLOW_STRUCTURE_LOCK_MARKER,
   FLOW_BLOCK_SIZE,
   SCENE_INDEX,
+  SCENE_VARIANCE_LOCK_ID,
+  SCENE_VARIANCE_LOCK_MARKER,
 } from './lib/reel-contract.mjs';
 
 const [target] = process.argv.slice(2);
@@ -59,6 +61,15 @@ if (existsSync(masterPath) && existsSync(indexPath)) {
     assert(master.includes('mehr als 5 Bilder in einem Block'), 'Ueberschreiten der Blockgroesse ist nicht ausdruecklich verboten.');
     assert(master.includes('mehrere Bildprompts zu einem Generierungsaufruf zusammenfassen'), 'Zusammenfassen mehrerer Bildprompts ist nicht ausdrücklich verboten.');
     assert(master.includes('einen Block starten, bevor der Anker die QA bestanden hat'), 'Blockstart vor Anker-QA ist nicht ausdruecklich verboten.');
+    // Szenenvarianz: Der Anker darf den Look vorgeben, niemals die Szene.
+    assert(master.includes(SCENE_VARIANCE_LOCK_MARKER), `${ALL_PROMPTS} benötigt ${SCENE_VARIANCE_LOCK_MARKER}.`);
+    assert(master.includes('DER ANKER IST EINE STILREFERENZ UND KEINE BILDVORLAGE'), 'Masterprompt trennt Stilreferenz und Bildvorlage nicht.');
+    assert(master.includes('DER ANKER BESTIMMT NIEMALS: SCHAUPLATZ, MOEBEL, KAMERAWINKEL, BILDAUFBAU, REQUISITEN ODER OBJEKTANORDNUNG'), 'Masterprompt schliesst Motivuebernahme vom Anker nicht aus.');
+    assert(master.includes('SZENENVARIANZ — VERBINDLICH'), 'Szenenvarianz-Block fehlt im Masterprompt.');
+    assert(master.includes('JEDES BILD ZEIGT EINE SICHTBAR ANDERE SITUATION ALS DAS BILD DAVOR UND ALS DER ANKER'), 'Varianzpflicht je Bild fehlt.');
+    assert(master.includes('VARIANZ-QA JE BILD'), 'Varianz-QA fehlt im Masterprompt.');
+    assert(master.includes('die Komposition, den Schauplatz, den Kamerawinkel oder die Requisiten des Ankers in ein weiteres Bild uebernehmen'), 'Kompositionskopie vom Anker ist nicht ausdruecklich verboten.');
+    assert(master.includes('dieselbe Szenerie in mehreren Bildern wiederholen'), 'Szenenwiederholung ist nicht ausdruecklich verboten.');
   } else {
     assert(master.includes('STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH'), 'Strict-Single-Job-State-Machine fehlt im Masterprompt.');
     assert(master.includes('DIES IST KEIN BATCH-AUFTRAG'), 'Masterprompt verbietet die Batch-Interpretation nicht ausdrücklich.');
@@ -97,6 +108,12 @@ if (existsSync(masterPath) && existsSync(indexPath)) {
     assert(flow.maxImagesPerBlock === FLOW_BLOCK_SIZE, `scene-index muss maxImagesPerBlock=${FLOW_BLOCK_SIZE} setzen.`);
     assert(flow.referenceAnyOtherImageForbidden === true, 'Referenz auf andere Bilder als den Anker muss verboten sein.');
     assert(flow.anchorMatchQaRequired === true, 'Der Anker-Abgleich muss Teil der QA sein.');
+    assert(flow.styleAnchorTransfersStyleOnly === true, 'Der Anker darf ausschliesslich Stil uebertragen.');
+    assert(flow.styleAnchorCompositionCopyForbidden === true, 'Kopieren der Anker-Komposition muss verboten sein.');
+    assert(flow.sceneVarianceLockId === SCENE_VARIANCE_LOCK_ID, `scene-index muss sceneVarianceLockId=${SCENE_VARIANCE_LOCK_ID} setzen.`);
+    assert(flow.sceneVarianceQaRequired === true, 'Die Varianz-QA muss verpflichtend sein.');
+    assert(flow.repeatedSetDressingForbidden === true, 'Wiederholte Deko-Requisiten muessen verboten sein.');
+    assert(flow.anchorFallbackWithoutReferenceAfterVarianceFail === true, 'Nach zweifachem Varianz-FAIL muss ohne Anker-Referenz neu erzeugt werden.');
   } else {
     assert(flow.maxConcurrentGenerations === 1, 'scene-index muss maxConcurrentGenerations=1 setzen.');
     assert(flow.batchGenerationForbidden === true, 'Batch-Generierung muss verboten sein.');
@@ -137,3 +154,4 @@ if (errors.length) {
 
 console.log('\n✓ Google-Flow-Style-Anker-State-Machine erfüllt.');
 console.log('  scene-01 ist Style-Anker · Blöcke zu höchstens 5 · jedes Bild referenziert den Anker · Anker-Abgleich ist Teil der QA · kein Nutzer-„weiter“ nötig.');
+console.log('  Der Anker überträgt nur den Look · Schauplatz, Kamerawinkel und Requisiten kommen je Bild neu · Varianz-QA ist Pflicht.');

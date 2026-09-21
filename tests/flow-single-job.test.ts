@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {AUTONOMY_BLOCK, FLOW_AGENT_BLOCK, flowAutonomyFields} from '../scripts/lib/flow-autonomy.mjs';
+import {AUTONOMY_BLOCK, FLOW_AGENT_BLOCK, STYLE_ANCHOR_NOTE, flowAutonomyFields} from '../scripts/lib/flow-autonomy.mjs';
 
 test('Flow-Autonomievertrag macht scene-01 zum Style-Anker und begrenzt Bloecke auf fuenf', () => {
   assert.match(AUTONOMY_BLOCK, /SZENE 01 IST DER STYLE-ANKER/);
@@ -28,4 +28,32 @@ test('scene-index Flow-Felder bilden das Style-Anker-Gate maschinenlesbar ab', (
   assert.equal(flow.nextStepLockedUntilCurrentResultReturned, true);
   assert.equal(flow.renameBeforeUnlockNext, true);
   assert.equal(flow.qaBeforeUnlockNext, true);
+});
+
+test('Der Style-Anker uebertraegt nur den Look, niemals die Szene', () => {
+  assert.match(AUTONOMY_BLOCK, /DER ANKER IST EINE STILREFERENZ UND KEINE BILDVORLAGE/);
+  assert.match(AUTONOMY_BLOCK, /DER ANKER BESTIMMT NIEMALS: SCHAUPLATZ, MOEBEL, KAMERAWINKEL/);
+  assert.match(AUTONOMY_BLOCK, /KOPIERE NIEMALS DIE KOMPOSITION DES ANKERS/);
+  assert.match(FLOW_AGENT_BLOCK, /uebernimm NICHT Schauplatz, Kamerawinkel, Moebel oder Requisiten/);
+  assert.match(FLOW_AGENT_BLOCK, /die Komposition, den Schauplatz, den Kamerawinkel oder die Requisiten des Ankers/);
+  assert.match(STYLE_ANCHOR_NOTE, /Der Anker ist NUR Stilreferenz/);
+  assert.match(STYLE_ANCHOR_NOTE, /Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten/);
+});
+
+test('Szenenvarianz ist Teil des Flow-Vertrags und der QA', () => {
+  assert.match(AUTONOMY_BLOCK, /SCENE_VARIANCE_LOCK: finanzneo-scene-variance-v1/);
+  assert.match(AUTONOMY_BLOCK, /SZENENVARIANZ — VERBINDLICH/);
+  assert.match(AUTONOMY_BLOCK, /JEDES BILD ZEIGT EINE SICHTBAR ANDERE SITUATION ALS DAS BILD DAVOR UND ALS DER ANKER/);
+  assert.match(AUTONOMY_BLOCK, /VARIANZ-QA JE BILD/);
+  assert.match(AUTONOMY_BLOCK, /OHNE ANKER-REFERENZ NUR MIT DEM GESCHRIEBENEN V9-LOCK NEU ERZEUGT/);
+  assert.match(FLOW_AGENT_BLOCK, /Pruefe zusaetzlich die VARIANZ/);
+  assert.match(FLOW_AGENT_BLOCK, /dieselbe Szenerie in mehreren Bildern wiederholen/);
+
+  const flow = flowAutonomyFields();
+  assert.equal(flow.styleAnchorTransfersStyleOnly, true);
+  assert.equal(flow.styleAnchorCompositionCopyForbidden, true);
+  assert.equal(flow.sceneVarianceLockId, 'finanzneo-scene-variance-v1');
+  assert.equal(flow.sceneVarianceQaRequired, true);
+  assert.equal(flow.repeatedSetDressingForbidden, true);
+  assert.equal(flow.anchorFallbackWithoutReferenceAfterVarianceFail, true);
 });

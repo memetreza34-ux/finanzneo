@@ -7,9 +7,12 @@ Bild 11 - Der Rest wandert ins Depot.png
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - Depot
@@ -17,14 +20,15 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Der zweite Bargeldstapel wandert in einen beschrifteten Depot-Umschlag.
-REAL_WORLD_CONTEXT_ANCHOR: Zweiter Umschlag auf demselben Tisch, Geld wandert hinein.
-VOICEOVER_VISUAL_MATCH: Das Einlegen des zweiten Stapels zeigt genau, dass der Rest angelegt wird.
+LITERAL_REAL_WORLD_SITUATION: Das zweite Bargeldbuendel liegt auf einem ausgefuellten Depot-Antrag am Schreibtisch.
+REAL_WORLD_CONTEXT_ANCHOR: Schreibtisch am Fenster, gedruckter Depot-Antrag mit Unterschriftszeile, Geldbuendel darauf.
+VOICEOVER_VISUAL_MATCH: Das Buendel auf dem ausgefuellten Depot-Antrag zeigt genau, dass der Rest angelegt wird.
+SCENE_VARIANCE: Schreibtisch am Fenster statt Kassette und Kuechentisch, Schulterblick schraeg von oben.
 TRANSFERABILITY_TEST: PASS: Genau dieser zweite beschriftete Umschlag neben dem liegengebliebenen Notgroschen gehoert zu diesem Schlusssatz.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a calm stylized 3D end state on the same dark kitchen table. The larger stack of banknotes is being slid into a second labelled envelope carrying the two short German labels, while the first envelope from the previous scene stays untouched beside it. The table is otherwise tidy and the light is the same as in every earlier scene. The two envelopes side by side tell the outcome without movement: one part stays, the other goes to work. Keep both envelopes large and clearly readable.
+Create a calm stylized 3D end state at a desk by a window, camera looking over the shoulder at a steep angle. A printed brokerage account application lies filled in on the desk with a pen resting across it, and the larger bundle of banknotes sits squarely on the form, carrying the two short German labels. The cash box from the previous scene stands closed at the far edge of the desk, small and out of the way. The outcome reads without any movement: one part stays shut away, this part is on its way to work. Use emerald only as a small accent on the label, keep form and bundle large and clearly readable, and let the desk fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

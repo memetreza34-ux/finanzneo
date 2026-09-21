@@ -151,6 +151,14 @@ Verbindlich:
 - finalen Dateinamen direkt angeben
 - Bildnummer = echte Szenennummer
 
+Szenenvarianz (Pflicht):
+- Schauplatz, Kameraabstand und Blickwinkel unterscheiden sich sichtbar vom vorigen Bild und von scene-01
+- keine wiederholte Deko-Requisite (Tasse, Brille, ruhende Hand) über mehrere Bilder
+- Formulierungen wie "on the same table", "same scene as before", "same light as before" sind verboten,
+  solange nicht genau diese Wiedererkennung die Aussage ist
+- ab scene-02 den kanonischen Anker-Hinweis mitschreiben: Anker liefert nur Licht, Material, Schwaerze,
+  Figurenstil und Farbtemperatur — niemals Schauplatz, Kamerawinkel, Moebel oder Requisiten
+
 Falls Marke/Logo/App vorkommt:
 - erkennbar ähnlich, aber stilisiert in derselben 3D-Animationswelt
 - kein flach aufgeklebtes echtes Logo
@@ -160,17 +168,20 @@ Falls Marke/Logo/App vorkommt:
 ## 4. Google Flow
 
 ```text
-Strict Single Job V3:
-1. aktuellen Bildblock lesen
-2. GENAU EIN Bild starten
-3. intern auf Ergebnis warten
-4. sofort exakt umbenennen
-5. V9-QA
-6. bei Fehler dieselbe Bildnummer wiederholen
-7. erst nach PASS nächsten Bildblock freischalten
+Style-Anker V4:
+1. scene-01 zuerst und allein erzeugen — das ist der Style-Anker und zugleich das Cover
+2. intern auf Ergebnis warten, sofort exakt umbenennen, V9-QA
+3. bei Fehler ausschließlich dieselbe Bildnummer wiederholen; alles andere bleibt gesperrt
+4. nach PASS: restliche Bilder in Blöcken zu höchstens 5, jedes Bild als eigener Job
+5. jedem Job den Anker als STILREFERENZ mitgeben:
+   übernimm Licht, Material, Schwärze, Figurenstil, Farbtemperatur
+   übernimm NICHT Schauplatz, Kamerawinkel, Möbel, Requisiten
+6. je Bild: Rename → V9-QA → Anker-Abgleich → Varianz-Abgleich
+7. Varianz-FAIL: dieselbe Bildnummer neu; zweimal FAIL: ohne Anker-Referenz nur mit dem V9-Lock
+8. erst wenn der ganze Block PASS ist, den nächsten Block starten
 
 Nie Batch, parallel, Queue oder Nutzer-„weiter“.
-Cover = Bild 00. Animationsnummern erzeugen kein Bild.
+Kein separates Bild 00. Animations- und Datennummern erzeugen kein Bild.
 ```
 
 ## 5. Voiceover, Timing und Remotion

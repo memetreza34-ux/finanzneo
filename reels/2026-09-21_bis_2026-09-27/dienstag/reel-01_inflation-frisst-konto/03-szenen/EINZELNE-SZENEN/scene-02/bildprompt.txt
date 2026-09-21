@@ -7,23 +7,27 @@ Bild 02 - Auszug wird weggelegt.png
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - liegt einfach da
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Der Kontoauszug wird beiseite gelegt, niemand tut etwas damit.
-REAL_WORLD_CONTEXT_ANCHOR: Derselbe Kuechentisch, der Auszug wandert unter eine Ablage.
-VOICEOVER_VISUAL_MATCH: Das Weglegen zeigt genau das Nichtstun, von dem der Satz spricht.
+LITERAL_REAL_WORLD_SITUATION: Der Kontoauszug verschwindet ungelesen in einer Ablageschublade und bleibt dort liegen.
+REAL_WORLD_CONTEXT_ANCHOR: Flur-Sideboard mit halb geoeffneter Ablageschublade voller Papiere.
+VOICEOVER_VISUAL_MATCH: Die zugeschobene Schublade zeigt genau das Nichtstun, von dem der Satz spricht.
+SCENE_VARIANCE: Neuer Ort und neuer Blickwinkel gegenueber scene-01: Flur statt Kuechentisch, schraege Aufsicht in eine Schublade statt Tischebene.
 TRANSFERABILITY_TEST: PASS: Ein bewusst zur Seite gelegter Kontoauszug ist die konkrete Handlung dieses Satzes.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene on the same kitchen table, a moment later. The same bank statement has been pushed to the edge of the table and partly covered by a small stack of unopened mail, carrying the short German label on a sticky note. Nothing else in the frame is moving or being used; the coffee mug is now empty. The calm of the scene is the point: the money is simply lying there untouched. Keep the statement and the mail stack large and readable and keep the surface dark.
+Create a stylized 3D scene at a hallway sideboard, seen at a steep angle from above into a half-open filing drawer. Inside the drawer lies a loose stack of household papers; the printed bank statement sits on top with a small sticky note carrying the short German label. A hand pushes the drawer shut, so the statement is about to disappear from sight. No table, no mug, no reading glasses anywhere in the frame. Keep the drawer opening and the sticky note large and readable and let the sideboard fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

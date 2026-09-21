@@ -5,7 +5,14 @@ import {
   ALL_PROMPTS,
   SCENE_INDEX,
 } from './lib/reel-contract.mjs';
-import {AUTONOMY_BLOCK, FLOW_AGENT_BLOCK, flowAutonomyFields, modernizeLegacyWaitWording} from './lib/flow-autonomy.mjs';
+import {
+  AUTONOMY_BLOCK,
+  FLOW_AGENT_BLOCK,
+  LEGACY_STYLE_ANCHOR_NOTES,
+  STYLE_ANCHOR_NOTE,
+  flowAutonomyFields,
+  modernizeLegacyWaitWording,
+} from './lib/flow-autonomy.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -29,22 +36,32 @@ if (!existsSync(allPromptsPath) || !existsSync(indexPath)) {
 
 let master = readFileSync(allPromptsPath, 'utf8');
 
-// V2/V1-Kopf immer vollständig ersetzen. So kann kein alter Batch-fördernder
-// Satz wie "Lies die gesamte Datei einmal" unter dem neuen V3-Kopf überleben.
-const handoffMarker = 'FINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN';
-const handoffIndex = master.indexOf(handoffMarker);
-if (handoffIndex !== -1) {
-  master = `${AUTONOMY_BLOCK}\n${master.slice(handoffIndex)}`;
+// Alten Kopf immer vollständig ersetzen. So überlebt weder ein Batch-fördernder
+// Satz wie "Lies die gesamte Datei einmal" noch eine Anker-Fassung ohne
+// Szenenvarianz unter dem neuen Kopfblock.
+// Der Kopf endet immer vor der ersten "FINANZNEO — ..."-Titelzeile. Über diese
+// Grenze wird er ersetzt, egal wie die Titelzeile in der jeweiligen Generation
+// hieß. Sonst stapeln sich alter und neuer Kopfblock übereinander.
+const headlineMatch = master.match(/^FINANZNEO — .*$/m);
+if (headlineMatch?.index !== undefined) {
+  master = `${AUTONOMY_BLOCK}\n${master.slice(headlineMatch.index)}`;
 } else {
   master = `${AUTONOMY_BLOCK}\n${master}`;
 }
 
 // Den Agentenblock ebenfalls kanonisch ersetzen statt nur einzelne Wörter zu
-// patchen. Ende des Blocks ist in allen Masterprompts die Bildnummerierung.
+// patchen. Je nach Generation folgt auf ihn die Bildnummerierung oder direkt
+// der Bildwelt-Lock; es gewinnt der erste Abschnitt, der danach beginnt.
+const AGENT_BLOCK_END_MARKERS = ['BILDNUMMERIERUNG:', 'PREMIUM_VISUAL_WORLD_LOCK:', 'BILDWELT:'];
 const protocolIndex = master.indexOf('FLOW_AGENT_PROTOCOL:');
-const numberingIndex = master.indexOf('BILDNUMMERIERUNG:', protocolIndex);
-if (protocolIndex !== -1 && numberingIndex !== -1) {
-  master = `${master.slice(0, protocolIndex)}${FLOW_AGENT_BLOCK}\n${master.slice(numberingIndex)}`;
+if (protocolIndex !== -1) {
+  const endIndex = AGENT_BLOCK_END_MARKERS
+    .map((marker) => master.indexOf(marker, protocolIndex))
+    .filter((index) => index !== -1)
+    .sort((a, b) => a - b)[0];
+  if (endIndex !== undefined) {
+    master = `${master.slice(0, protocolIndex)}${FLOW_AGENT_BLOCK}\n${master.slice(endIndex)}`;
+  }
 }
 
 master = modernizeLegacyWaitWording(master);
@@ -59,11 +76,16 @@ master = master
     'FLOW_STEP_GATE: STRICT_CURRENT_ONLY\nCURRENT_STEP_ONLY: true\nNEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true\nBATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN\nGOOGLE FLOW – FINALER DATEINAME:',
   );
 
+// Anker-Hinweis je Bildblock auf die Stilreferenz-Fassung heben.
+for (const legacy of LEGACY_STYLE_ANCHOR_NOTES) {
+  master = master.replaceAll(legacy, STYLE_ANCHOR_NOTE);
+}
+
 writeFileSync(allPromptsPath, master, 'utf8');
 
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 index.googleFlow = {...(index.googleFlow ?? {}), ...flowAutonomyFields()};
 writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`, 'utf8');
 
-console.log('✓ Google-Flow Strict-Single-Job V3 gesetzt.');
-console.log('  Concurrency=1 · kein Batch/Queueing · Ergebnis → Rename → QA → erst dann nächster Bildblock · kein Nutzer-„weiter“ nötig.');
+console.log('✓ Google-Flow Style-Anker V4 mit Szenenvarianz gesetzt.');
+console.log('  Concurrency=1 · Blöcke zu höchstens 5 · Anker liefert nur den Look · Varianz-QA je Bild · kein Nutzer-„weiter“ nötig.');

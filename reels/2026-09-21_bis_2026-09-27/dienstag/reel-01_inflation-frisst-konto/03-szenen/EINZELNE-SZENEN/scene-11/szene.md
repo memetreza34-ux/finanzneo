@@ -8,5 +8,6 @@
 
 **Google-Flow-Dateiname:** Bild 11 - Der Rest wandert ins Depot.png
 **Erlaubte kurze Objektlabels:** Depot, arbeitet
-**Erwartetes Visual:** Der zweite Stapel wandert in einen Depot-Umschlag, der Tisch bleibt aufgeraeumt.
-**Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png muss als Referenz mitgegeben werden.
+**Erwartetes Visual:** Das zweite Buendel liegt auf einem ausgefuellten Depot-Antrag am Schreibtisch.
+**Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png wird als reine Stilreferenz mitgegeben.
+**Varianz:** Schauplatz, Kamerawinkel und Requisiten kommen aus dieser Szene, nicht vom Anker.

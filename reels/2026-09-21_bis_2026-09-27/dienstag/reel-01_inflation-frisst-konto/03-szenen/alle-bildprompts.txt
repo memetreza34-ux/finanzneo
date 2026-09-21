@@ -1,6 +1,7 @@
 FLOW_EXECUTION_MODE: finanzneo-flow-style-anchor-v4
 FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
 FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+SCENE_VARIANCE_LOCK: finanzneo-scene-variance-v1
 
 STYLE-ANKER STATE MACHINE — VERBINDLICH
 - SZENE 01 IST DER STYLE-ANKER DES GESAMTEN REELS UND WIRD IMMER ZUERST UND IMMER ALLEIN ERZEUGT.
@@ -8,7 +9,10 @@ STYLE-ANKER STATE MACHINE — VERBINDLICH
 - BESTEHT DER ANKER DIE QA NICHT, WIRD AUSSCHLIESSLICH DIESELBE BILDNUMMER NEU ERZEUGT.
 - NACH BESTANDENER ANKER-QA LAUFEN DIE RESTLICHEN BILDER IN BLOECKEN VON HOECHSTENS 5 BILDERN.
 - JEDES BILD IN JEDEM BLOCK MUSS DEN STYLE-ANKER ALS REFERENZ MITGEBEN. DAS IST PFLICHT.
-- DER ANKER BESTIMMT: HINTERGRUNDSCHWAERZE, LICHTFUEHRUNG, MATERIALWIRKUNG, FIGURENSTIL UND FARBTEMPERATUR.
+- DER ANKER IST EINE STILREFERENZ UND KEINE BILDVORLAGE.
+- DER ANKER BESTIMMT NUR: HINTERGRUNDSCHWAERZE, LICHTFUEHRUNG, MATERIALWIRKUNG, FIGURENSTIL UND FARBTEMPERATUR.
+- DER ANKER BESTIMMT NIEMALS: SCHAUPLATZ, MOEBEL, KAMERAWINKEL, BILDAUFBAU, REQUISITEN ODER OBJEKTANORDNUNG.
+- KOPIERE NIEMALS DIE KOMPOSITION DES ANKERS. JEDES BILD IST EINE EIGENE SZENE.
 - DIE BILDAUSSAGE KOMMT AUS DEM EINZELPROMPT, DER LOOK KOMMT VOM ANKER.
 - ERZEUGE KEINE GALERIE, KEINEN KONTAKTBOGEN, KEIN MULTI-PANEL, KEINE COLLAGE UND KEIN BILD MIT MEHREREN SZENEN.
 - JEDES BILD WIRD EINZELN ZURUECKGEGEBEN, EINZELN UMBENANNT UND EINZELN GEPRUEFT.
@@ -20,6 +24,15 @@ STYLE-ANKER STATE MACHINE — VERBINDLICH
 - STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERAENDERT BEIBEHALTEN.
 - STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.
 
+SZENENVARIANZ — VERBINDLICH
+- GLEICHE WELT HEISST GLEICHER LOOK. GLEICHE WELT HEISST NICHT GLEICHER TISCH UND NICHT DIESELBE REQUISITE IN JEDEM BILD.
+- JEDES BILD ZEIGT EINE SICHTBAR ANDERE SITUATION ALS DAS BILD DAVOR UND ALS DER ANKER.
+- SCHAUPLATZ, KAMERAABSTAND UND BLICKWINKEL WECHSELN, SOBALD DER SPRECHBEAT ES ZULAESST.
+- EINE REQUISITE DARF NUR WIEDERKEHREN, WENN GENAU SIE DEN SPRECHBEAT ERKLAERT. DEKO WIEDERHOLT SICH NIE.
+- VARIANZ-QA JE BILD: WIRKT DAS BILD WIE EINE ZWEITE AUFNAHME DES ANKERS ODER DES VORIGEN BILDES, IST ES FAIL.
+- FAELLT DIESELBE BILDNUMMER ZWEIMAL DURCH DIE VARIANZ-QA, WIRD SIE OHNE ANKER-REFERENZ NUR MIT DEM GESCHRIEBENEN V9-LOCK NEU ERZEUGT.
+- LIEBER EINE NEUE, UEBERRASCHENDE UND UNTERHALTSAME SITUATION ALS EINE SICHERE WIEDERHOLUNG DER VORIGEN.
+
 FINANZNEO — GOOGLE FLOW MASTERDATEI
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -30,12 +43,14 @@ AUSFUEHRUNGSPROTOKOLL — STYLE-ANKER, DANN BLOECKE ZU 5:
 2. Warte vollstaendig auf das Ergebnis. Benenne die Datei sofort exakt um.
 3. Pruefe den Anker: Aussage, erlaubte Labels, stylized-3D-animated V9-Look, tiefschwarzer sauberer Hintergrund, sichtbares Gesicht falls Person, exakter Dateiname.
 4. QA FEHLER am Anker: erzeuge ausschliesslich dieselbe Bildnummer neu. Alles andere bleibt gesperrt.
-5. QA BESTANDEN: Der Anker ist ab jetzt die verbindliche Stilreferenz fuer JEDES weitere Bild dieses Reels.
+5. QA BESTANDEN: Der Anker ist ab jetzt die verbindliche STILREFERENZ fuer JEDES weitere Bild dieses Reels — nicht die Bildvorlage.
 6. BLOCK: Nimm die naechsten hoechstens 5 benoetigten Bildnummern in Dokumentreihenfolge.
-7. Starte fuer jedes Bild des Blocks einen eigenen Bildjob und gib dabei IMMER den Anker als Stilreferenz mit.
+7. Starte fuer jedes Bild des Blocks einen eigenen Bildjob und gib dabei IMMER den Anker als Stilreferenz mit. Sage dem Generator ausdruecklich: uebernimm Licht, Material, Schwaerze und Figurenstil, uebernimm NICHT Schauplatz, Kamerawinkel, Moebel oder Requisiten.
 8. Benenne jedes zurueckgegebene Bild sofort exakt um.
 9. Pruefe jedes Bild einzeln: normale V9-QA PLUS Anker-Abgleich (Hintergrundschwaerze, Lichtrichtung, Materialwirkung, Figurenstil, Farbtemperatur).
+9b. Pruefe zusaetzlich die VARIANZ: anderer Schauplatz oder anderer Blickwinkel als beim Anker und beim vorigen Bild, keine wiederholte Deko-Requisite. Sieht es aus wie dieselbe Szene noch einmal, ist es FAIL.
 10. Durchgefallene Bilder einzeln mit demselben Anker neu erzeugen. Der Block ist erst fertig, wenn alle Bilder PASS sind.
+10b. Faellt dieselbe Bildnummer zweimal an der Varianz durch, erzeuge sie ohne Anker-Referenz nur mit dem geschriebenen V9-Lock neu.
 11. Erst dann den naechsten Block starten. Keine Nutzerfreigabe dazwischen.
 12. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Bildjob ueberspringen.
 13. Erst NACH Abschluss aller Bloecke eine Abschlusszusammenfassung ueber alle finalen Dateien geben.
@@ -45,9 +60,10 @@ HART VERBOTEN:
 - mehr als 5 Bilder in einem Block
 - mehrere Bildprompts zu einem Generierungsaufruf zusammenfassen
 - Referenz auf irgendein anderes Bild als den Anker
+- die Komposition, den Schauplatz, den Kamerawinkel oder die Requisiten des Ankers in ein weiteres Bild uebernehmen
+- dieselbe Szenerie in mehreren Bildern wiederholen, ohne dass der Sprechbeat genau diese Wiedererkennung verlangt
 - Kontaktbogen / Galerie / Collage / Multi-Panel als Ersatz fuer Einzelbilder
 - alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen
-
 
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 BILDWELT: realitätsnahe Alltagssituation als vollständige Erklärszene · klar stylized 3D statt fotorealistisch · deep black · Ursache/Wirkung direkt sichtbar · kurze deutsche Labels wenn hilfreich · keine Symbolrätsel · jeder Prompt individuell vollständig geschrieben.
@@ -81,6 +97,11 @@ SZENE 01 – STYLE-ANKER (ZUERST UND ALLEIN)
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 01 - Zehntausend auf dem Konto.png
 
@@ -137,29 +158,38 @@ SZENE 02 – BILDSZENE (MIT ANKER-REFERENZ)
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 02 - Auszug wird weggelegt.png
 
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - liegt einfach da
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Der Kontoauszug wird beiseite gelegt, niemand tut etwas damit.
-REAL_WORLD_CONTEXT_ANCHOR: Derselbe Kuechentisch, der Auszug wandert unter eine Ablage.
-VOICEOVER_VISUAL_MATCH: Das Weglegen zeigt genau das Nichtstun, von dem der Satz spricht.
+LITERAL_REAL_WORLD_SITUATION: Der Kontoauszug verschwindet ungelesen in einer Ablageschublade und bleibt dort liegen.
+REAL_WORLD_CONTEXT_ANCHOR: Flur-Sideboard mit halb geoeffneter Ablageschublade voller Papiere.
+VOICEOVER_VISUAL_MATCH: Die zugeschobene Schublade zeigt genau das Nichtstun, von dem der Satz spricht.
+SCENE_VARIANCE: Neuer Ort und neuer Blickwinkel gegenueber scene-01: Flur statt Kuechentisch, schraege Aufsicht in eine Schublade statt Tischebene.
 TRANSFERABILITY_TEST: PASS: Ein bewusst zur Seite gelegter Kontoauszug ist die konkrete Handlung dieses Satzes.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene on the same kitchen table, a moment later. The same bank statement has been pushed to the edge of the table and partly covered by a small stack of unopened mail, carrying the short German label on a sticky note. Nothing else in the frame is moving or being used; the coffee mug is now empty. The calm of the scene is the point: the money is simply lying there untouched. Keep the statement and the mail stack large and readable and keep the surface dark.
+Create a stylized 3D scene at a hallway sideboard, seen at a steep angle from above into a half-open filing drawer. Inside the drawer lies a loose stack of household papers; the printed bank statement sits on top with a small sticky note carrying the short German label. A hand pushes the drawer shut, so the statement is about to disappear from sight. No table, no mug, no reading glasses anywhere in the frame. Keep the drawer opening and the sticky note large and readable and let the sideboard fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -197,29 +227,38 @@ SZENE 04 – BILDSZENE (MIT ANKER-REFERENZ)
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 04 - Dieselbe Zahl auf dem Auszug.png
 
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - weiterhin 10.000 €
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Derselbe Auszug zeigt Jahre spaeter unveraendert 10.000 Euro.
-REAL_WORLD_CONTEXT_ANCHOR: Gedruckter Kontoauszug mit unveraendertem Guthaben neben einem aelteren Kalenderblatt.
-VOICEOVER_VISUAL_MATCH: Die unveraenderte Zahl auf dem Auszug zeigt genau, dass der Betrag gleich geblieben ist.
+LITERAL_REAL_WORLD_SITUATION: Jahre spaeter wird ein frischer Kontoauszug im Hausflur hochgehalten und zeigt exakt denselben Betrag.
+REAL_WORLD_CONTEXT_ANCHOR: Hausflur am offenen Briefkasten, Auszug senkrecht in der Hand, Wandkalender eines viel spaeteren Jahres daneben.
+VOICEOVER_VISUAL_MATCH: Die unveraenderte Zahl auf dem frischen Auszug zeigt genau, dass der Betrag gleich geblieben ist.
+SCENE_VARIANCE: Der Auszug kehrt absichtlich wieder, weil genau seine unveraenderte Zahl der Beat ist. Ort und Kamera wechseln trotzdem: Hausflur am Briefkasten statt Kuechentisch, senkrecht gehaltenes Papier frontal statt flacher Aufsicht.
 TRANSFERABILITY_TEST: PASS: Derselbe Betrag auf einem sichtbar aelteren Beleg ist spezifisch fuer diese Aussage.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D close scene of the same bank statement, now visibly older: the paper has soft folds and slightly yellowed edges. The balance printed on it is unchanged and carries the short German label. Next to it lies a torn-off calendar sheet from a much later year, so the viewer sees that time has passed while the number did not move. Keep both objects large and clearly readable, lit from the same direction, and keep the surface under them dark.
+Create a stylized 3D scene in an apartment hallway at the open letterbox, camera straight on at eye level. A hand holds a freshly opened bank statement upright towards the viewer, the balance printed large and carrying the short German label. On the wall behind hangs a paper calendar showing a year clearly far in the future, and the letterbox flap is still open below. The point is the contradiction: new paper, later year, identical number. No table surface in the frame. Keep the balance and the calendar year readable and let the hallway fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -251,15 +290,23 @@ SZENE 05 – BILDSZENE (MIT ANKER-REFERENZ)
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 05 - Halbleerer Einkaufswagen.png
 
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - gleicher Betrag
@@ -268,13 +315,14 @@ BESCHRIFTUNGEN – EXAKT SO:
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
 LITERAL_REAL_WORLD_SITUATION: Ein Einkaufswagen ist nur halb gefuellt, obwohl der Kassenbon dieselbe Summe zeigt.
-REAL_WORLD_CONTEXT_ANCHOR: Supermarkt-Einkaufswagen mit Kassenbon, alltaeglicher Einkauf.
-VOICEOVER_VISUAL_MATCH: Der halbleere Wagen neben dem gleich langen Bon zeigt genau, dass dieselbe Summe weniger kauft.
+REAL_WORLD_CONTEXT_ANCHOR: Supermarktkasse, wenige Waren auf dem Kassenband, langer Bon am Drucker.
+VOICEOVER_VISUAL_MATCH: Die wenigen Waren auf dem langen Band neben dem gleich langen Bon zeigen genau, dass dieselbe Summe weniger kauft.
+SCENE_VARIANCE: Supermarktkasse statt Kuechentisch, tiefe Kamera auf Bandhoehe statt Aufsicht.
 TRANSFERABILITY_TEST: PASS: Halbleerer Wagen plus unveraenderte Bonsumme gehoert nur zur Kaufkraft-Aussage.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D everyday shopping scene. A shopping basket stands only about half filled with a few groceries, while a long printed receipt hangs over its edge carrying the two short German labels. The contrast between the long receipt and the sparse contents is the whole statement: the same money, fewer goods. Keep basket and receipt large and instantly readable, use restrained warning colour only on the receipt, and let the floor under the basket fade into the black background.
+Create a stylized 3D supermarket checkout scene, camera low at conveyor-belt height looking along the belt. Only a handful of groceries travel towards the register, spaced far apart on the wide empty belt, while a long printed receipt already spills from the till and curls towards the viewer, carrying the two short German labels. The contrast between the long receipt and the nearly empty belt is the whole statement: the same money, fewer goods. Use restrained warning colour only on the receipt, keep belt and receipt large and instantly readable, and let the checkout fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -312,29 +360,38 @@ SZENE 07 – BILDSZENE (MIT ANKER-REFERENZ)
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 07 - Zinsbeleg mit null Komma null eins.png
 
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - 0,01 % Zinsen
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Ein Zinsbeleg der Bank weist 0,01 Prozent aus.
-REAL_WORLD_CONTEXT_ANCHOR: Gedruckter Zinsbeleg neben dem Kontoauszug auf demselben Tisch.
+LITERAL_REAL_WORLD_SITUATION: Ein Kontoauszugsdrucker im Bankfoyer gibt einen schmalen Zinsbeleg mit 0,01 Prozent aus.
+REAL_WORLD_CONTEXT_ANCHOR: Bankfoyer, Kontoauszugsdrucker an der Wand, frisch gedruckter Zinsbeleg im Ausgabeschlitz.
 VOICEOVER_VISUAL_MATCH: Der ausgedruckte Zinssatz zeigt genau, dass das Konto den Verlust nicht ausgleicht.
+SCENE_VARIANCE: Bankfoyer statt Wohnung, frontale Geraeteaufnahme statt Papier auf einer Flaeche.
 TRANSFERABILITY_TEST: PASS: Ein Beleg mit genau diesem Zinssatz gehoert zu dieser Aussage und zu keiner anderen.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene of a small printed interest statement lying on the same dark kitchen table, next to the older bank statement from the earlier scenes. The interest rate is the single largest readable element on the slip and carries the short German label. The slip is small and unimportant-looking compared to the balance beside it, so the viewer understands at a glance that this rate cannot make up the difference. Keep both papers large enough to read and keep the surface dark.
+Create a stylized 3D scene in a bank lobby, camera straight on at a wall-mounted account statement printer. A narrow paper slip has just been printed and hangs out of the output slot; the interest rate is the single largest readable element on it and carries the short German label. The slip is thin and almost weightless against the solid machine, so the viewer understands at a glance that this rate cannot make up the difference. No table, no other documents in the frame. Keep the printed rate large and readable and let the lobby wall fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -372,15 +429,23 @@ SZENE 09 – BILDSZENE (MIT ANKER-REFERENZ)
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 09 - Zwei getrennte Bargeldstapel.png
 
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - Notgroschen
@@ -388,14 +453,15 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Zwei getrennte Bargeldstapel liegen auf dem Tisch, einer deutlich kleiner.
-REAL_WORLD_CONTEXT_ANCHOR: Zwei beschriftete Bargeldstapel auf demselben Kuechentisch.
-VOICEOVER_VISUAL_MATCH: Die Trennung in zwei Stapel zeigt genau, dass es nur um den geparkten Teil geht.
+LITERAL_REAL_WORLD_SITUATION: In einer offenen Geldkassette liegt das Bargeld in zwei getrennten Faechern, eines deutlich voller.
+REAL_WORLD_CONTEXT_ANCHOR: Offene Metall-Geldkassette auf einem Regalbrett, zwei beschriftete Faecher.
+VOICEOVER_VISUAL_MATCH: Die Trennung in zwei Faecher zeigt genau, dass es nur um den geparkten Teil geht.
+SCENE_VARIANCE: Geldkassette im Regal statt Tisch, senkrechte Draufsicht statt Blick ueber die Tischebene.
 TRANSFERABILITY_TEST: PASS: Genau zwei getrennte Stapel mit diesen Beschriftungen gehoeren zu dieser Unterscheidung.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene on the same dark kitchen table showing two clearly separated stacks of banknotes with a visible gap between them. The smaller left stack carries the first short German label, the noticeably larger right stack carries the second. The separation itself is the statement: one part has a job, the other has been sitting still for years. Keep both stacks large, use the same warm light direction as before, and let the table fade into the black background.
+Create a stylized 3D scene seen straight down from above into an open metal cash box standing on a shelf. The inside is split into two compartments by a divider: the smaller left compartment holds a modest bundle of banknotes and carries the first short German label, the noticeably fuller right compartment carries the second. The divider itself is the statement: one part has a job, the other has been sitting still for years. No table and no loose stacks in the frame. Keep both compartments and their labels large and readable and let the shelf fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -427,15 +493,23 @@ SZENE 10 – BILDSZENE (MIT ANKER-REFERENZ)
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 10 - Notgroschen bleibt liegen.png
 
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - Notgroschen
@@ -443,14 +517,15 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Ein beschrifteter Umschlag mit dem Notgroschen wird bewusst zurueckgelegt.
-REAL_WORLD_CONTEXT_ANCHOR: Beschrifteter Umschlag auf dem Kuechentisch, eine Hand legt ihn zurueck.
-VOICEOVER_VISUAL_MATCH: Das bewusste Zuruecklegen zeigt genau, dass dieser Teil unangetastet bleibt.
+LITERAL_REAL_WORLD_SITUATION: Der beschriftete Umschlag mit dem Notgroschen wird ins Fach zurueckgelegt und der Deckel geht zu.
+REAL_WORLD_CONTEXT_ANCHOR: Seitliche Nahaufnahme derselben Geldkassette, eine Hand schliesst den Deckel ueber dem linken Fach.
+VOICEOVER_VISUAL_MATCH: Das Zuruecklegen und der schliessende Deckel zeigen genau, dass dieser Teil unangetastet bleibt.
+SCENE_VARIANCE: Dieselbe Kassette wie in scene-09, weil der Beat direkt daran anschliesst — aber seitliche Nahaufnahme auf Deckelhoehe statt Draufsicht.
 TRANSFERABILITY_TEST: PASS: Ein beschrifteter Notgroschen-Umschlag, der bewusst liegen bleibt, ist genau diese Handlung.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene in which a hand places a labelled paper envelope back down onto the same dark kitchen table, flat and deliberate. The envelope carries the two short German labels and is visibly filled with banknotes. The gesture is finished, not hesitant: this part of the money stays where it is. Keep the envelope and the hand large and readable, use emerald only as a small accent on the label, and keep the surface dark. The two earlier banknote stacks are still faintly visible at the edge of the frame, so the viewer recognises the same table and the same evening as in the scenes before.
+Create a stylized 3D close scene from the side, at the height of the cash box lid. A hand sets a labelled paper envelope, visibly filled with banknotes, back into the left compartment and is already lowering the lid over it. The envelope carries the two short German labels. The gesture is finished, not hesitant: this part of the money stays exactly where it is. Use emerald only as a small accent on the label, keep envelope, hand and lid large and readable, and let the shelf fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
@@ -482,15 +557,23 @@ SZENE 11 – BILDSZENE (MIT ANKER-REFERENZ)
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 11 - Der Rest wandert ins Depot.png
 
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - Depot
@@ -498,14 +581,15 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Der zweite Bargeldstapel wandert in einen beschrifteten Depot-Umschlag.
-REAL_WORLD_CONTEXT_ANCHOR: Zweiter Umschlag auf demselben Tisch, Geld wandert hinein.
-VOICEOVER_VISUAL_MATCH: Das Einlegen des zweiten Stapels zeigt genau, dass der Rest angelegt wird.
+LITERAL_REAL_WORLD_SITUATION: Das zweite Bargeldbuendel liegt auf einem ausgefuellten Depot-Antrag am Schreibtisch.
+REAL_WORLD_CONTEXT_ANCHOR: Schreibtisch am Fenster, gedruckter Depot-Antrag mit Unterschriftszeile, Geldbuendel darauf.
+VOICEOVER_VISUAL_MATCH: Das Buendel auf dem ausgefuellten Depot-Antrag zeigt genau, dass der Rest angelegt wird.
+SCENE_VARIANCE: Schreibtisch am Fenster statt Kassette und Kuechentisch, Schulterblick schraeg von oben.
 TRANSFERABILITY_TEST: PASS: Genau dieser zweite beschriftete Umschlag neben dem liegengebliebenen Notgroschen gehoert zu diesem Schlusssatz.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a calm stylized 3D end state on the same dark kitchen table. The larger stack of banknotes is being slid into a second labelled envelope carrying the two short German labels, while the first envelope from the previous scene stays untouched beside it. The table is otherwise tidy and the light is the same as in every earlier scene. The two envelopes side by side tell the outcome without movement: one part stays, the other goes to work. Keep both envelopes large and clearly readable.
+Create a calm stylized 3D end state at a desk by a window, camera looking over the shoulder at a steep angle. A printed brokerage account application lies filled in on the desk with a pen resting across it, and the larger bundle of banknotes sits squarely on the form, carrying the two short German labels. The cash box from the previous scene stands closed at the far edge of the desk, small and out of the way. The outcome reads without any movement: one part stays shut away, this part is on its way to work. Use emerald only as a small accent on the label, keep form and bundle large and clearly readable, and let the desk fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

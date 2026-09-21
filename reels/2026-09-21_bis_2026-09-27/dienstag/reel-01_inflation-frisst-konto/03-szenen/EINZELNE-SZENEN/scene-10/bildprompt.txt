@@ -7,9 +7,12 @@ Bild 10 - Notgroschen bleibt liegen.png
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - Notgroschen
@@ -17,14 +20,15 @@ BESCHRIFTUNGEN – EXAKT SO:
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Ein beschrifteter Umschlag mit dem Notgroschen wird bewusst zurueckgelegt.
-REAL_WORLD_CONTEXT_ANCHOR: Beschrifteter Umschlag auf dem Kuechentisch, eine Hand legt ihn zurueck.
-VOICEOVER_VISUAL_MATCH: Das bewusste Zuruecklegen zeigt genau, dass dieser Teil unangetastet bleibt.
+LITERAL_REAL_WORLD_SITUATION: Der beschriftete Umschlag mit dem Notgroschen wird ins Fach zurueckgelegt und der Deckel geht zu.
+REAL_WORLD_CONTEXT_ANCHOR: Seitliche Nahaufnahme derselben Geldkassette, eine Hand schliesst den Deckel ueber dem linken Fach.
+VOICEOVER_VISUAL_MATCH: Das Zuruecklegen und der schliessende Deckel zeigen genau, dass dieser Teil unangetastet bleibt.
+SCENE_VARIANCE: Dieselbe Kassette wie in scene-09, weil der Beat direkt daran anschliesst — aber seitliche Nahaufnahme auf Deckelhoehe statt Draufsicht.
 TRANSFERABILITY_TEST: PASS: Ein beschrifteter Notgroschen-Umschlag, der bewusst liegen bleibt, ist genau diese Handlung.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene in which a hand places a labelled paper envelope back down onto the same dark kitchen table, flat and deliberate. The envelope carries the two short German labels and is visibly filled with banknotes. The gesture is finished, not hesitant: this part of the money stays where it is. Keep the envelope and the hand large and readable, use emerald only as a small accent on the label, and keep the surface dark. The two earlier banknote stacks are still faintly visible at the edge of the frame, so the viewer recognises the same table and the same evening as in the scenes before.
+Create a stylized 3D close scene from the side, at the height of the cash box lid. A hand sets a labelled paper envelope, visibly filled with banknotes, back into the left compartment and is already lowering the lid over it. The envelope carries the two short German labels. The gesture is finished, not hesitant: this part of the money stays exactly where it is. Use emerald only as a small accent on the label, keep envelope, hand and lid large and readable, and let the shelf fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

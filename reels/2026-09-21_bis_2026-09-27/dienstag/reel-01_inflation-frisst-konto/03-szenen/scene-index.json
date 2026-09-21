@@ -62,7 +62,13 @@
     "hardBlockerOnlyStop": true,
     "structureLockId": "finanzneo-flow-structure-lock-v2",
     "preserveStructureThroughLastImage": true,
-    "preserveStyleThroughLastImage": true
+    "preserveStyleThroughLastImage": true,
+    "styleAnchorTransfersStyleOnly": true,
+    "styleAnchorCompositionCopyForbidden": true,
+    "sceneVarianceLockId": "finanzneo-scene-variance-v1",
+    "sceneVarianceQaRequired": true,
+    "repeatedSetDressingForbidden": true,
+    "anchorFallbackWithoutReferenceAfterVarianceFail": true
   },
   "phase1AnimationCode": {
     "required": true,
@@ -336,7 +342,7 @@
           "kind": "image",
           "voiceText": "Zehntausend Euro liegen auf deinem Konto.",
           "visualChange": "Ein Kontoauszug mit 10.000 Euro liegt auf dem Kuechentisch, daneben eine Hand mit Kaffee.",
-          "startSecond": 0.0,
+          "startSecond": 0,
           "endSecond": 3.6
         }
       ],
@@ -394,15 +400,15 @@
           "kind": "image",
           "voiceText": "Sicher, denkst du. Da passiert nichts.",
           "visualChange": "Der Auszug wird ruhig zur Seite gelegt, nichts bewegt sich.",
-          "startSecond": 0.0,
+          "startSecond": 0,
           "endSecond": 3.4
         }
       ],
       "imageStorytelling": {
         "strategy": "literal",
-        "literalSituation": "Der Kontoauszug wird beiseite gelegt, niemand tut etwas damit.",
-        "contextAnchor": "Derselbe Kuechentisch, der Auszug wandert unter eine Ablage.",
-        "voiceVisualMatch": "Das Weglegen zeigt genau das Nichtstun, von dem der Satz spricht.",
+        "literalSituation": "Der Kontoauszug verschwindet ungelesen in einer Ablageschublade und bleibt dort liegen.",
+        "contextAnchor": "Flur-Sideboard mit halb geoeffneter Ablageschublade voller Papiere.",
+        "voiceVisualMatch": "Die zugeschobene Schublade zeigt genau das Nichtstun, von dem der Satz spricht.",
         "transferabilityTest": "PASS: Ein bewusst zur Seite gelegter Kontoauszug ist die konkrete Handlung dieses Satzes.",
         "metaphorJustification": "none"
       },
@@ -434,31 +440,31 @@
       "dataSource": "kaufkraftFuerAnimation",
       "dataClaim": "Aus 10.000 Euro werden bei 2,5 Prozent Inflation in zehn Jahren noch 7.812 Euro Kaufkraft, ein Verlust von 21,9 Prozent.",
       "sourceNote": "Beispielannahme: konstant 2,5 % Inflation pro Jahr ueber 10 Jahre. Die tatsaechliche Inflation schwankt.",
-      "plannedDurationSeconds": 9.0,
+      "plannedDurationSeconds": 9,
       "visualBeats": [
         {
           "id": "scene-03-beat-01",
           "kind": "animation-phase",
           "voiceText": "Genau das ist das Problem.",
           "visualChange": "Zwei Balken stehen nebeneinander, der rechte ist noch leer.",
-          "startSecond": 0.0,
-          "endSecond": 3.0
+          "startSecond": 0,
+          "endSecond": 3
         },
         {
           "id": "scene-03-beat-02",
           "kind": "animation-phase",
           "voiceText": "Bei zweieinhalb Prozent Inflation sind aus zehntausend Euro nach zehn Jahren noch knapp siebentausendachthundert geworden.",
           "visualChange": "Der rechte Balken sinkt sichtbar auf 7.812 Euro.",
-          "startSecond": 3.0,
-          "endSecond": 6.0
+          "startSecond": 3,
+          "endSecond": 6
         },
         {
           "id": "scene-03-beat-03",
           "kind": "animation-phase",
           "voiceText": "Fast zweiundzwanzig Prozent weg.",
           "visualChange": "Die Differenz wird als roter Block zwischen beiden Balken sichtbar und bleibt stehen.",
-          "startSecond": 6.0,
-          "endSecond": 9.0
+          "startSecond": 6,
+          "endSecond": 9
         }
       ],
       "presentation": {
@@ -533,15 +539,15 @@
           "kind": "image",
           "voiceText": "Auf dem Auszug steht weiter dieselbe Zahl.",
           "visualChange": "Derselbe Kontoauszug zeigt unveraendert 10.000 Euro.",
-          "startSecond": 0.0,
+          "startSecond": 0,
           "endSecond": 3.2
         }
       ],
       "imageStorytelling": {
         "strategy": "literal",
-        "literalSituation": "Derselbe Auszug zeigt Jahre spaeter unveraendert 10.000 Euro.",
-        "contextAnchor": "Gedruckter Kontoauszug mit unveraendertem Guthaben neben einem aelteren Kalenderblatt.",
-        "voiceVisualMatch": "Die unveraenderte Zahl auf dem Auszug zeigt genau, dass der Betrag gleich geblieben ist.",
+        "literalSituation": "Jahre spaeter wird ein frischer Kontoauszug im Hausflur hochgehalten und zeigt exakt denselben Betrag.",
+        "contextAnchor": "Hausflur am offenen Briefkasten, Auszug senkrecht in der Hand, Wandkalender eines viel spaeteren Jahres daneben.",
+        "voiceVisualMatch": "Die unveraenderte Zahl auf dem frischen Auszug zeigt genau, dass der Betrag gleich geblieben ist.",
         "transferabilityTest": "PASS: Derselbe Betrag auf einem sichtbar aelteren Beleg ist spezifisch fuer diese Aussage.",
         "metaphorJustification": "none"
       },
@@ -577,22 +583,22 @@
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 3.0,
+      "plannedDurationSeconds": 3,
       "visualBeats": [
         {
           "id": "scene-05-beat-01",
           "kind": "image",
           "voiceText": "Im Einkaufswagen landet trotzdem weniger.",
           "visualChange": "Ein halbleerer Einkaufswagen neben einem vollen Bon.",
-          "startSecond": 0.0,
-          "endSecond": 3.0
+          "startSecond": 0,
+          "endSecond": 3
         }
       ],
       "imageStorytelling": {
         "strategy": "literal",
         "literalSituation": "Ein Einkaufswagen ist nur halb gefuellt, obwohl der Kassenbon dieselbe Summe zeigt.",
-        "contextAnchor": "Supermarkt-Einkaufswagen mit Kassenbon, alltaeglicher Einkauf.",
-        "voiceVisualMatch": "Der halbleere Wagen neben dem gleich langen Bon zeigt genau, dass dieselbe Summe weniger kauft.",
+        "contextAnchor": "Supermarktkasse, wenige Waren auf dem Kassenband, langer Bon am Drucker.",
+        "voiceVisualMatch": "Die wenigen Waren auf dem langen Band neben dem gleich langen Bon zeigen genau, dass dieselbe Summe weniger kauft.",
         "transferabilityTest": "PASS: Halbleerer Wagen plus unveraenderte Bonsumme gehoert nur zur Kaufkraft-Aussage.",
         "metaphorJustification": "none"
       },
@@ -621,14 +627,14 @@
       "animationIntent": "Der Kontostand bleibt bei 10.000 Euro stehen, waehrend der Kalender durch zehn Jahre laeuft und der Muenzstapel daneben auf knapp drei Viertel schrumpft.",
       "animationQualityLock": "finanzneo-phase1-animation-code-v1",
       "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
-      "plannedDurationSeconds": 7.0,
+      "plannedDurationSeconds": 7,
       "visualBeats": [
         {
           "id": "scene-06-beat-01",
           "kind": "animation-phase",
           "voiceText": "Das Geld verschwindet nicht.",
           "visualChange": "Kontostand 10.000 Euro, daneben ein voller Muenzstapel, Kalender auf Jahr 1.",
-          "startSecond": 0.0,
+          "startSecond": 0,
           "endSecond": 2.33
         },
         {
@@ -645,7 +651,7 @@
           "voiceText": "Nach zehn Jahren fehlt fast ein Viertel.",
           "visualChange": "Kalender steht auf Jahr 10, Stapel ist sichtbar kleiner, beide Werte bleiben stehen.",
           "startSecond": 4.67,
-          "endSecond": 7.0
+          "endSecond": 7
         }
       ],
       "presentation": {
@@ -722,14 +728,14 @@
           "kind": "image",
           "voiceText": "Und die Zinsen auf dem Konto holen das nicht auf.",
           "visualChange": "Ein Zinsbeleg mit 0,01 Prozent liegt neben dem Auszug.",
-          "startSecond": 0.0,
+          "startSecond": 0,
           "endSecond": 3.2
         }
       ],
       "imageStorytelling": {
         "strategy": "literal",
-        "literalSituation": "Ein Zinsbeleg der Bank weist 0,01 Prozent aus.",
-        "contextAnchor": "Gedruckter Zinsbeleg neben dem Kontoauszug auf demselben Tisch.",
+        "literalSituation": "Ein Kontoauszugsdrucker im Bankfoyer gibt einen schmalen Zinsbeleg mit 0,01 Prozent aus.",
+        "contextAnchor": "Bankfoyer, Kontoauszugsdrucker an der Wand, frisch gedruckter Zinsbeleg im Ausgabeschlitz.",
         "voiceVisualMatch": "Der ausgedruckte Zinssatz zeigt genau, dass das Konto den Verlust nicht ausgleicht.",
         "transferabilityTest": "PASS: Ein Beleg mit genau diesem Zinssatz gehoert zu dieser Aussage und zu keiner anderen.",
         "metaphorJustification": "none"
@@ -769,7 +775,7 @@
           "kind": "animation-phase",
           "voiceText": "Zehn Jahre Weltmarkt sahen so aus.",
           "visualChange": "Leeres Raster mit einem Geldstapel links.",
-          "startSecond": 0.0,
+          "startSecond": 0,
           "endSecond": 2.83
         },
         {
@@ -863,15 +869,15 @@
           "kind": "image",
           "voiceText": "Es geht nicht um alles. Nur um das, was jahrelang nur herumliegt.",
           "visualChange": "Zwei getrennte Stapel Bargeld auf dem Tisch, einer klar kleiner.",
-          "startSecond": 0.0,
+          "startSecond": 0,
           "endSecond": 3.2
         }
       ],
       "imageStorytelling": {
         "strategy": "literal",
-        "literalSituation": "Zwei getrennte Bargeldstapel liegen auf dem Tisch, einer deutlich kleiner.",
-        "contextAnchor": "Zwei beschriftete Bargeldstapel auf demselben Kuechentisch.",
-        "voiceVisualMatch": "Die Trennung in zwei Stapel zeigt genau, dass es nur um den geparkten Teil geht.",
+        "literalSituation": "In einer offenen Geldkassette liegt das Bargeld in zwei getrennten Faechern, eines deutlich voller.",
+        "contextAnchor": "Offene Metall-Geldkassette auf einem Regalbrett, zwei beschriftete Faecher.",
+        "voiceVisualMatch": "Die Trennung in zwei Faecher zeigt genau, dass es nur um den geparkten Teil geht.",
         "transferabilityTest": "PASS: Genau zwei getrennte Stapel mit diesen Beschriftungen gehoeren zu dieser Unterscheidung.",
         "metaphorJustification": "none"
       },
@@ -914,15 +920,15 @@
           "kind": "image",
           "voiceText": "Der Notgroschen bleibt, wo er ist.",
           "visualChange": "Ein beschrifteter Umschlag Notgroschen wird bewusst zurueckgelegt.",
-          "startSecond": 0.0,
+          "startSecond": 0,
           "endSecond": 3.2
         }
       ],
       "imageStorytelling": {
         "strategy": "literal",
-        "literalSituation": "Ein beschrifteter Umschlag mit dem Notgroschen wird bewusst zurueckgelegt.",
-        "contextAnchor": "Beschrifteter Umschlag auf dem Kuechentisch, eine Hand legt ihn zurueck.",
-        "voiceVisualMatch": "Das bewusste Zuruecklegen zeigt genau, dass dieser Teil unangetastet bleibt.",
+        "literalSituation": "Der beschriftete Umschlag mit dem Notgroschen wird ins Fach zurueckgelegt und der Deckel geht zu.",
+        "contextAnchor": "Seitliche Nahaufnahme derselben Geldkassette, eine Hand schliesst den Deckel ueber dem linken Fach.",
+        "voiceVisualMatch": "Das Zuruecklegen und der schliessende Deckel zeigen genau, dass dieser Teil unangetastet bleibt.",
         "transferabilityTest": "PASS: Ein beschrifteter Notgroschen-Umschlag, der bewusst liegen bleibt, ist genau diese Handlung.",
         "metaphorJustification": "none"
       },
@@ -965,15 +971,15 @@
           "kind": "image",
           "voiceText": "Der Rest darf arbeiten.",
           "visualChange": "Der zweite Stapel wandert in einen Depot-Umschlag, der Tisch bleibt aufgeraeumt.",
-          "startSecond": 0.0,
+          "startSecond": 0,
           "endSecond": 3.4
         }
       ],
       "imageStorytelling": {
         "strategy": "literal",
-        "literalSituation": "Der zweite Bargeldstapel wandert in einen beschrifteten Depot-Umschlag.",
-        "contextAnchor": "Zweiter Umschlag auf demselben Tisch, Geld wandert hinein.",
-        "voiceVisualMatch": "Das Einlegen des zweiten Stapels zeigt genau, dass der Rest angelegt wird.",
+        "literalSituation": "Das zweite Bargeldbuendel liegt auf einem ausgefuellten Depot-Antrag am Schreibtisch.",
+        "contextAnchor": "Schreibtisch am Fenster, gedruckter Depot-Antrag mit Unterschriftszeile, Geldbuendel darauf.",
+        "voiceVisualMatch": "Das Buendel auf dem ausgefuellten Depot-Antrag zeigt genau, dass der Rest angelegt wird.",
         "transferabilityTest": "PASS: Genau dieser zweite beschriftete Umschlag neben dem liegengebliebenen Notgroschen gehoert zu diesem Schlusssatz.",
         "metaphorJustification": "none"
       },

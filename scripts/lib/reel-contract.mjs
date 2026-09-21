@@ -42,6 +42,13 @@ export const FLOW_STRUCTURE_LOCK_MARKER = `FLOW_STRUCTURE_LOCK: ${FLOW_STRUCTURE
 export const FLOW_STATE_MACHINE_ID = 'finanzneo-flow-state-machine-v1';
 export const FLOW_STATE_MACHINE_MARKER = `FLOW_STATE_MACHINE: ${FLOW_STATE_MACHINE_ID}`;
 
+// Szenenvarianz-Lock. Behebt einen realen Produktionsfehler: Der Style-Anker
+// wurde als Bildvorlage verstanden, nicht als Stilreferenz. Ergebnis war ein
+// Reel, in dem jedes Bild denselben Tisch, dieselbe Tasse und denselben
+// Kamerawinkel zeigte. Gleiche Welt heisst gleicher Look, nicht gleiche Szene.
+export const SCENE_VARIANCE_LOCK_ID = 'finanzneo-scene-variance-v1';
+export const SCENE_VARIANCE_LOCK_MARKER = `SCENE_VARIANCE_LOCK: ${SCENE_VARIANCE_LOCK_ID}`;
+
 export const SUBTITLE_MODE = 'sentence-with-audio-synced-active-word';
 export const ACTIVE_WORD_COLOR = 'finance-green';
 

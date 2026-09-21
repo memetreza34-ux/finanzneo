@@ -7,9 +7,12 @@ Bild 05 - Halbleerer Einkaufswagen.png
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - gleicher Betrag
@@ -18,13 +21,14 @@ BESCHRIFTUNGEN – EXAKT SO:
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
 LITERAL_REAL_WORLD_SITUATION: Ein Einkaufswagen ist nur halb gefuellt, obwohl der Kassenbon dieselbe Summe zeigt.
-REAL_WORLD_CONTEXT_ANCHOR: Supermarkt-Einkaufswagen mit Kassenbon, alltaeglicher Einkauf.
-VOICEOVER_VISUAL_MATCH: Der halbleere Wagen neben dem gleich langen Bon zeigt genau, dass dieselbe Summe weniger kauft.
+REAL_WORLD_CONTEXT_ANCHOR: Supermarktkasse, wenige Waren auf dem Kassenband, langer Bon am Drucker.
+VOICEOVER_VISUAL_MATCH: Die wenigen Waren auf dem langen Band neben dem gleich langen Bon zeigen genau, dass dieselbe Summe weniger kauft.
+SCENE_VARIANCE: Supermarktkasse statt Kuechentisch, tiefe Kamera auf Bandhoehe statt Aufsicht.
 TRANSFERABILITY_TEST: PASS: Halbleerer Wagen plus unveraenderte Bonsumme gehoert nur zur Kaufkraft-Aussage.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D everyday shopping scene. A shopping basket stands only about half filled with a few groceries, while a long printed receipt hangs over its edge carrying the two short German labels. The contrast between the long receipt and the sparse contents is the whole statement: the same money, fewer goods. Keep basket and receipt large and instantly readable, use restrained warning colour only on the receipt, and let the floor under the basket fade into the black background.
+Create a stylized 3D supermarket checkout scene, camera low at conveyor-belt height looking along the belt. Only a handful of groceries travel towards the register, spaced far apart on the wide empty belt, while a long printed receipt already spills from the till and curls towards the viewer, carrying the two short German labels. The contrast between the long receipt and the nearly empty belt is the whole statement: the same money, fewer goods. Use restrained warning colour only on the receipt, keep belt and receipt large and instantly readable, and let the checkout fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

@@ -40,6 +40,16 @@ Diese Checkliste gilt für einzelne Google-Flow-Bilder und den gesamten Bildsatz
 - [ ] kein Clutter.
 - [ ] kein kleines technisches Boxen-/Connector-Layout.
 
+## 4b. Szenenvarianz
+
+- [ ] Schauplatz oder Blickwinkel unterscheidet sich sichtbar vom vorigen Bild.
+- [ ] Bild wirkt nicht wie eine zweite Aufnahme von `scene-01`.
+- [ ] keine Deko-Requisite des Vorgängers ohne inhaltlichen Grund im Frame.
+- [ ] wiederkehrendes Objekt nur dort, wo genau es den Beat erklärt.
+- [ ] Anker hat nur Licht/Material/Schwärze/Figurenstil geliefert, nicht die Szene.
+
+**Zweimal FAIL an diesem Punkt:** dieselbe Bildnummer ohne Anker-Referenz neu erzeugen, nur mit dem geschriebenen V9-Lock.
+
 ## 5. Farben und Licht
 
 - [ ] Emerald nur für Fokus/positiv/bevorzugt.
@@ -103,6 +113,7 @@ Wenn relevant:
 4. Labels/Marken prüfen.
 5. gesamten Bildsatz als Kontaktbogen prüfen.
 6. keine Szene darf sichtbar aus der V9-Welt fallen.
+6b. keine zwei Bilder dürfen wie derselbe Ort aus derselben Perspektive wirken.
 7. Anfang/Mitte/Ende jeder Bildszene im Render prüfen.
 8. komplette MP4 mit Ton prüfen.
 
@@ -117,6 +128,8 @@ Wenn relevant:
 - große Headline/Satz
 - Screenshot-/Flat-Logo-Look
 - Bildaussage passt nicht zum Satz
+- Bild wirkt wie eine Variante des Ankers oder des Vorgängers
+- wiederholte Deko-Requisite ohne inhaltlichen Grund
 - Bildbeat >6 s
 
 ## Protokoll
@@ -128,5 +141,6 @@ Deep-Black Background: [BESTANDEN / NICHT BESTANDEN]
 Clarity 1–2 s: [BESTANDEN / NICHT BESTANDEN]
 Labels/Marken: [BESTANDEN / NICHT BESTANDEN]
 Satzgenauigkeit: [BESTANDEN / NICHT BESTANDEN]
+Szenenvarianz: [BESTANDEN / NICHT BESTANDEN]
 Render-Sichtbarkeit: [BESTANDEN / NICHT BESTANDEN]
 ```

@@ -8,5 +8,6 @@
 
 **Google-Flow-Dateiname:** Bild 04 - Dieselbe Zahl auf dem Auszug.png
 **Erlaubte kurze Objektlabels:** weiterhin 10.000 €
-**Erwartetes Visual:** Derselbe Kontoauszug zeigt unveraendert 10.000 Euro.
-**Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png muss als Referenz mitgegeben werden.
+**Erwartetes Visual:** Ein frischer Auszug wird im Hausflur hochgehalten und zeigt dieselbe Zahl, daneben ein viel spaeterer Kalender.
+**Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png wird als reine Stilreferenz mitgegeben.
+**Varianz:** Schauplatz, Kamerawinkel und Requisiten kommen aus dieser Szene, nicht vom Anker.

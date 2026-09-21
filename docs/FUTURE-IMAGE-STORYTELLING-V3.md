@@ -53,6 +53,23 @@ Beispiel:
 - Schlecht: Goldmünze vor roter Schranke. Könnte Kredit, Gebühren, Betrug, Sparen oder Schulden bedeuten.
 - Gut: Überweisungsbeleg mit Empfängername und IBAN, sichtbare Abweichung, Zahlung noch nicht freigegeben.
 
+## Nachbar-Szenen-Test
+
+Neben dem Transferability-Test läuft ein zweiter Test, und zwar **vor** Google Flow: zwei aufeinanderfolgende Bildprompts nebeneinanderlegen.
+
+> Beschreiben beide denselben Ort aus derselben Perspektive?
+
+Wenn ja: **FAIL.** Der spätere Prompt wird neu geschrieben — anderer Schauplatz, anderer Kameraabstand oder anderer Blickwinkel.
+
+Der Test existiert wegen eines realen Reels: Weil in fast jedem Prompt „on the same kitchen table“ stand, zeigte der fertige Bildsatz achtmal denselben Tisch mit derselben Tasse. Jedes einzelne Bild hatte den Transferability-Test bestanden — der Bildsatz war trotzdem unbrauchbar.
+
+Deshalb gilt für die Prompt-Formulierung:
+
+- `on the same table`, `same scene as before`, `same light as before` sind verboten, solange nicht genau diese Wiedererkennung die Aussage ist
+- ein wiederkehrendes Objekt wird benannt, weil **es** den Beat trägt („derselbe Kontoauszug, Jahre später“), nicht um die Szene zusammenzuhalten
+- Deko-Requisiten wie Tasse, Brille oder ruhende Hand stehen höchstens in einem Bild pro Reel
+- der Look hält die Welt zusammen, nicht das Möbelstück
+
 ## Metaphern
 
 Metaphern bleiben ausdrücklich erlaubt. Sie sind aber ein **Fallback**, nicht der Standard für statische Bilder.
@@ -81,6 +98,6 @@ Ein gutes Bild zeigt den Satz möglichst direkt:
 
 ## Was weiterhin gilt
 
-V9-Bildwelt, 1:1-Flow-Format, tiefschwarzer Hintergrund, kurze Objektlabels, Strict-Single-Job Flow V3 und alle bisherigen Sicherheits-/Layoutregeln bleiben unverändert.
+V9-Bildwelt, 1:1-Flow-Format, tiefschwarzer Hintergrund, kurze Objektlabels, der Style-Anker-Flow V4 mit Szenenvarianz-Lock und alle bisherigen Sicherheits-/Layoutregeln bleiben unverändert.
 
 V3 ändert **nicht den Look**, sondern die Auswahl und Präzision des Motivs.

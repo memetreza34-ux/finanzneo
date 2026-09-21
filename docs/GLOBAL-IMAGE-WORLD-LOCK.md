@@ -24,6 +24,8 @@ Alle Google-Flow-Quellbilder sind strikt `1:1`, einschließlich `Bild 00`. Das f
 - Inhalt und Verständlichkeit vor Deko
 - gleiche Welt über die Serie, freie Komposition je Szene
 
+**Gleiche Welt heißt gleicher Look, nicht gleiche Szene.** Der Same-World-Lock bindet Schwärze, Licht, Material, Figurenstil und Farbtemperatur — nie den Schauplatz. Schauplatz, Kameraabstand, Blickwinkel und Requisiten werden je Bild neu entschieden. Siehe `SCENE_VARIANCE_LOCK: finanzneo-scene-variance-v1` in `CLAUDE.md` Abschnitt 6.
+
 ## Schwarzer Flow-Hintergrund ist Pflicht
 
 Jedes Flow-Bild braucht einen **nahtlosen tiefschwarzen Hintergrund**:
@@ -108,22 +110,24 @@ Neu erzeugen, wenn:
 - Marke wie aufgeklebt oder screenshotartig aussieht
 - Bild sichtbar aus der V9-Welt fällt
 
-## Google Flow: Strict Single Job
+## Google Flow: Style-Anker, dann Blöcke zu fünf
 
 Autonom bedeutet **nicht Batch**.
 
-1. maximal ein laufender Bildjob
-2. nur aktueller Bildblock
-3. auf vollständige Rückgabe warten
-4. sofort exakt umbenennen
-5. QA für dieses Bild
-6. erst danach nächsten Bildblock freischalten
-7. Fehler: nur dieselbe Bildnummer neu
+1. `scene-01` zuerst und allein — Style-Anker und zugleich Cover
+2. auf vollständige Rückgabe warten, sofort exakt umbenennen, QA
+3. Fehler am Anker: nur dieselbe Bildnummer neu, alles andere bleibt gesperrt
+4. nach PASS: restliche Bilder in Blöcken zu höchstens fünf, jedes Bild ein eigener Job
+5. jedes Bild bekommt den Anker als **Stilreferenz**, nicht als Bildvorlage
+6. je Bild: Rename → V9-QA → Anker-Abgleich → Varianz-Abgleich
+7. erst wenn der ganze Block PASS ist, startet der nächste
 8. keine Nutzer-Zwischenfreigabe / kein `Weiter?`
 
-Verboten: parallele Generierung, Queueing späterer Bilder, späteres Sammel-Umbenennen, Kontaktbogen/Galerie/Collage als Ersatz für Einzelbilder.
+Der Anker liefert Hintergrundschwärze, Lichtführung, Materialwirkung, Figurenstil und Farbtemperatur. Er liefert nie Schauplatz, Möbel, Kamerawinkel, Bildaufbau oder Requisiten.
 
-Ablaufvertrag: `finanzneo-flow-strict-single-job-v3`.
+Verboten: parallele Generierung, Queueing späterer Bilder, späteres Sammel-Umbenennen, Kontaktbogen/Galerie/Collage als Ersatz für Einzelbilder, Übernahme der Anker-Komposition, Wiederholung derselben Szenerie ohne inhaltlichen Grund.
+
+Ablaufvertrag: `finanzneo-flow-style-anchor-v4` mit `finanzneo-scene-variance-v1`. Bestandsreels auf `finanzneo-flow-strict-single-job-v3` bleiben gültig.
 
 ## Wichtig: Flow-Schwarz vs. Remotion-Schwarz
 

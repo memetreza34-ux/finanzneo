@@ -66,6 +66,8 @@ Jedes Flow-Bild:
 - zusätzliche Objekte nur, wenn sie helfen
 - kurze deutsche Labels nur wenn nötig
 - keine UI-/Dashboard-/Flowchart-/Diorama-Komposition
+- eigener Schauplatz und eigener Blickwinkel, sichtbar anders als beim Vorgänger und beim Style-Anker
+- keine wiederholte Deko-Requisite über mehrere Bilder
 
 ## 5. Animationsregel
 
@@ -113,3 +115,5 @@ Benötigte Daten: ...
 - Animation ohne echte Ursache-Wirkung
 - Bildbeat über 6 Sekunden
 - Background-Motion statt Szenenanimation
+- zwei aufeinanderfolgende Bilder am selben Ort aus derselben Perspektive
+- Bild wirkt wie eine zweite Aufnahme des Style-Ankers

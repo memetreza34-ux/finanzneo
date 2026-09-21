@@ -7,23 +7,27 @@ Bild 04 - Dieselbe Zahl auf dem Auszug.png
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - weiterhin 10.000 €
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Derselbe Auszug zeigt Jahre spaeter unveraendert 10.000 Euro.
-REAL_WORLD_CONTEXT_ANCHOR: Gedruckter Kontoauszug mit unveraendertem Guthaben neben einem aelteren Kalenderblatt.
-VOICEOVER_VISUAL_MATCH: Die unveraenderte Zahl auf dem Auszug zeigt genau, dass der Betrag gleich geblieben ist.
+LITERAL_REAL_WORLD_SITUATION: Jahre spaeter wird ein frischer Kontoauszug im Hausflur hochgehalten und zeigt exakt denselben Betrag.
+REAL_WORLD_CONTEXT_ANCHOR: Hausflur am offenen Briefkasten, Auszug senkrecht in der Hand, Wandkalender eines viel spaeteren Jahres daneben.
+VOICEOVER_VISUAL_MATCH: Die unveraenderte Zahl auf dem frischen Auszug zeigt genau, dass der Betrag gleich geblieben ist.
+SCENE_VARIANCE: Der Auszug kehrt absichtlich wieder, weil genau seine unveraenderte Zahl der Beat ist. Ort und Kamera wechseln trotzdem: Hausflur am Briefkasten statt Kuechentisch, senkrecht gehaltenes Papier frontal statt flacher Aufsicht.
 TRANSFERABILITY_TEST: PASS: Derselbe Betrag auf einem sichtbar aelteren Beleg ist spezifisch fuer diese Aussage.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D close scene of the same bank statement, now visibly older: the paper has soft folds and slightly yellowed edges. The balance printed on it is unchanged and carries the short German label. Next to it lies a torn-off calendar sheet from a much later year, so the viewer sees that time has passed while the number did not move. Keep both objects large and clearly readable, lit from the same direction, and keep the surface under them dark.
+Create a stylized 3D scene in an apartment hallway at the open letterbox, camera straight on at eye level. A hand holds a freshly opened bank statement upright towards the viewer, the balance printed large and carrying the short German label. On the wall behind hangs a paper calendar showing a year clearly far in the future, and the letterbox flap is still open below. The point is the contradiction: new paper, later year, identical number. No table surface in the frame. Keep the balance and the calendar year readable and let the hallway fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

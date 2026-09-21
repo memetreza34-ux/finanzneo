@@ -8,5 +8,6 @@
 
 **Google-Flow-Dateiname:** Bild 09 - Zwei getrennte Bargeldstapel.png
 **Erlaubte kurze Objektlabels:** Notgroschen, liegt zu lange
-**Erwartetes Visual:** Zwei getrennte Stapel Bargeld auf dem Tisch, einer klar kleiner.
-**Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png muss als Referenz mitgegeben werden.
+**Erwartetes Visual:** Draufsicht in eine Geldkassette mit zwei getrennten Faechern, eines klar voller.
+**Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png wird als reine Stilreferenz mitgegeben.
+**Varianz:** Schauplatz, Kamerawinkel und Requisiten kommen aus dieser Szene, nicht vom Anker.

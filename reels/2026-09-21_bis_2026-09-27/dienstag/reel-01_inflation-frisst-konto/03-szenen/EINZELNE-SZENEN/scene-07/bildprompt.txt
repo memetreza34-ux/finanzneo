@@ -7,23 +7,27 @@ Bild 07 - Zinsbeleg mit null Komma null eins.png
 Vollstaendig warten, sofort exakt umbenennen, Aussage und erlaubte Labels und V9-Stil und deep black pruefen, zusaetzlich gegen den Style-Anker abgleichen. Bei Fehler dieselbe Bildnummer neu erzeugen.
 
 STYLE-ANKER: Bild 01 - Zehntausend auf dem Konto.png
-Dieses Bild MUSS den Style-Anker als Referenz mitbekommen. Hintergrundschwaerze,
-Lichtrichtung, Materialwirkung, Figurenstil und Farbtemperatur kommen vom Anker.
-Nur die Bildaussage kommt aus dem Prompt unten.
+Der Anker ist NUR Stilreferenz.
+Vom Anker kommen Hintergrundschwaerze, Lichtrichtung, Materialwirkung,
+Figurenstil und Farbtemperatur.
+Vom Anker kommen NICHT Schauplatz, Kamerawinkel, Moebel und Requisiten.
+Szene, Blickwinkel und Objekte kommen ausschliesslich aus dem Prompt unten und
+muessen sich vom Anker und vom vorigen Bild sichtbar unterscheiden.
 
 BESCHRIFTUNGEN – EXAKT SO:
 - 0,01 % Zinsen
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: Ein Zinsbeleg der Bank weist 0,01 Prozent aus.
-REAL_WORLD_CONTEXT_ANCHOR: Gedruckter Zinsbeleg neben dem Kontoauszug auf demselben Tisch.
+LITERAL_REAL_WORLD_SITUATION: Ein Kontoauszugsdrucker im Bankfoyer gibt einen schmalen Zinsbeleg mit 0,01 Prozent aus.
+REAL_WORLD_CONTEXT_ANCHOR: Bankfoyer, Kontoauszugsdrucker an der Wand, frisch gedruckter Zinsbeleg im Ausgabeschlitz.
 VOICEOVER_VISUAL_MATCH: Der ausgedruckte Zinssatz zeigt genau, dass das Konto den Verlust nicht ausgleicht.
+SCENE_VARIANCE: Bankfoyer statt Wohnung, frontale Geraeteaufnahme statt Papier auf einer Flaeche.
 TRANSFERABILITY_TEST: PASS: Ein Beleg mit genau diesem Zinssatz gehoert zu dieser Aussage und zu keiner anderen.
 METAPHOR_JUSTIFICATION: none
 
 IMAGE PROMPT:
-Create a stylized 3D scene of a small printed interest statement lying on the same dark kitchen table, next to the older bank statement from the earlier scenes. The interest rate is the single largest readable element on the slip and carries the short German label. The slip is small and unimportant-looking compared to the balance beside it, so the viewer understands at a glance that this rate cannot make up the difference. Keep both papers large enough to read and keep the surface dark.
+Create a stylized 3D scene in a bank lobby, camera straight on at a wall-mounted account statement printer. A narrow paper slip has just been printed and hangs out of the output slot; the interest rate is the single largest readable element on it and carries the short German label. The slip is thin and almost weightless against the solid machine, so the viewer understands at a glance that this rate cannot make up the difference. No table, no other documents in the frame. Keep the printed rate large and readable and let the lobby wall fade into the black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

@@ -101,6 +101,17 @@ ZIELWELT
 - Bild erklärt den gesprochenen Punkt und ist nicht nur Dekoration
 - jede Szene darf anders komponiert sein, muss aber nach derselben Welt aussehen
 
+SZENENVARIANZ — PFLICHT
+SCENE_VARIANCE_LOCK: finanzneo-scene-variance-v1
+- gleiche Welt heißt gleicher Look, nicht gleicher Schauplatz
+- jede Bildszene bekommt einen eigenen Ort und einen eigenen Blickwinkel
+- Ort und Kamera wechseln, sobald der Sprechbeat es zulässt: Küche, Flur, Briefkasten, Kasse, Bankfoyer, Schreibtisch, unterwegs
+- ein Gegenstand kehrt nur wieder, wenn genau er den Beat erklärt
+- Deko wie Kaffeetasse, Brille oder ruhende Hand steht höchstens in einem Bild pro Reel
+- `on the same table`, `same scene as before`, `same light as before` sind im Prompt verboten
+- Nachbar-Szenen-Test vor der Abgabe: zwei aufeinanderfolgende Prompts dürfen nicht denselben Ort aus derselben Perspektive beschreiben
+- ab scene-02 den Anker-Hinweis mitschreiben: der Anker liefert nur Licht, Material, Schwärze, Figurenstil und Farbtemperatur — nie Schauplatz, Kamerawinkel, Möbel oder Requisiten
+
 ERKLÄRLOGIK — PFLICHT
 - zuerst die konkrete reale Situation zeigen
 - danach sichtbar machen: Was passiert? Was ist betroffen? Was löst oder verändert es?

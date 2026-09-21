@@ -8,5 +8,6 @@
 
 **Google-Flow-Dateiname:** Bild 02 - Auszug wird weggelegt.png
 **Erlaubte kurze Objektlabels:** liegt einfach da
-**Erwartetes Visual:** Der Auszug wird ruhig zur Seite gelegt, nichts bewegt sich.
-**Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png muss als Referenz mitgegeben werden.
+**Erwartetes Visual:** Der Auszug verschwindet in einer Flur-Schublade, eine Hand schiebt sie zu.
+**Style-Anker:** Bild 01 - Zehntausend auf dem Konto.png wird als reine Stilreferenz mitgegeben.
+**Varianz:** Schauplatz, Kamerawinkel und Requisiten kommen aus dieser Szene, nicht vom Anker.
