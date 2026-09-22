@@ -11,14 +11,15 @@ Read in this order:
 
 1. `CLAUDE.md`
 2. target `03-szenen/scene-index.json`
-3. `docs/3-PHASEN-WORKFLOW.md`
-4. `docs/PHASE-3-COMPLETION-GATE.md`
-5. `reels/PRODUKTIONSSTANDARD.md`
-6. `.agents/rules/finanzneo-reel-safety.md`
-7. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
-8. `.agents/plugins/finanzneo-motion/rules/lottie-motion.md`
-9. `.agents/plugins/finanzneo-motion/rules/sound-design.md`
-10. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
+3. `docs/FUTURE-IMAGE-STORYTELLING-V5.md`
+4. `docs/3-PHASEN-WORKFLOW.md`
+5. `docs/PHASE-3-COMPLETION-GATE.md`
+6. `reels/PRODUKTIONSSTANDARD.md`
+7. `.agents/rules/finanzneo-reel-safety.md`
+8. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
+9. `.agents/plugins/finanzneo-motion/rules/lottie-motion.md`
+10. `.agents/plugins/finanzneo-motion/rules/sound-design.md`
+11. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
 
 `CLAUDE.md` wins on conflicts.
 
@@ -36,6 +37,13 @@ Phase 1 may use the FinanzNeo Motion Stack while authoring:
 - frame-accurate SFX planning
 
 All final animation choices and local support assets must be committed before the animation seal.
+
+For new V5 reels, Phase 1 is not complete until the full IMAGE sequence is planned, all hardening placeholders are resolved, and the final Flow prompts have been compiled with:
+
+```bash
+npm run reel:image-prompts:compile -- <Reel-Pfad>
+npm run reel:validate -- <Reel-Pfad>
+```
 
 ### Phase 2 — user
 
@@ -55,9 +63,94 @@ VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
 
 For new reels, do not choose a scene count first. Parse the voiceover into spoken thoughts, assign one visible beat per thought, then group beats into scenes. A sentence may receive its own Flow image. If one sentence contains two actions, examples, a comparison or a before/after change, split it into multiple visible beats when that improves comprehension.
 
-Static image beats should normally last about 1.8–3.4 seconds and must not remain unchanged beyond 4.5 seconds once the message is already understood. Multiple consecutive image scenes are allowed when each one advances meaning. Camera push, zoom or parallax alone does not reset the beat.
+For new Future-V3 reels, static image beats should normally last about **1.8–3.0 seconds**. From about **3.6 seconds**, actively check whether a new visual beat would improve comprehension. Without new visible information, a static image beat must not exceed **4.0 seconds**. Multiple consecutive image scenes are allowed when each one advances meaning. Camera push, zoom or parallax alone does not reset the beat.
 
 Animation scenes may be longer only when the visible state keeps advancing with the voiceover. Final cuts follow real word timings from Phase 2, never equal-length scene padding. The 60/40 image-animation mix is guidance, not a quota.
+
+## V5 image storytelling hardening
+
+New reels use:
+
+```text
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v5
+IMAGE_STORYTELLING_HARDENING: finanzneo-image-storytelling-v5-hardening-v1
+VISUAL_SEQUENCE_PLAN: finanzneo-visual-sequence-plan-v1
+```
+
+### Sequence first
+
+Before finalizing any individual IMAGE prompt:
+
+1. plan the entire IMAGE sequence;
+2. assign sequence role and energy;
+3. vary archetype, composition, camera, location, human presence and main subject;
+4. choose a real pattern interrupt where needed;
+5. only then finalize each individual prompt.
+
+Do not optimize six images independently. Optimize the sequence.
+
+### No creative defaults
+
+The following fields must be consciously chosen, not accepted from generic defaults:
+
+- `VISUAL_MODE`
+- `ENERGY_LEVEL`
+- `SHOT_SCALE`
+- `CAMERA_ANGLE`
+- `TABLE_DOCUMENT_SCENE`
+- `LOCATION_CLASS`
+- `MAIN_SUBJECT_CLASS`
+- `LIGHTING_VARIATION`
+- `PATTERN_INTERRUPT_TYPE`
+- `LABEL_BUDGET`
+
+### Window diversity
+
+For every complete six-IMAGE window, require at least three distinct values for:
+
+- visual archetype
+- composition family
+- camera angle
+- location class
+- main-subject class
+
+For a whole sequence of four or five IMAGE scenes, the same minimum of three distinct values applies across the sequence.
+
+A-B-A-B-A-B is not sufficient diversity.
+
+### Pattern interrupt truthfulness
+
+`PATTERN_INTERRUPT_TYPE` must reflect a real change. Examples:
+
+- `camera-change` -> camera angle actually changes
+- `scale-change` -> shot scale actually changes
+- `location-change` -> location class actually changes
+- `human-change` -> human presence actually changes
+
+Do not claim an interrupt just to satisfy metadata.
+
+### Label budget
+
+Use 0–2 short German object labels by default. Three labels require a concrete justification. The image must primarily explain itself visually.
+
+### Prompt compilation
+
+The metadata is not the final Flow instruction. After planning, run the compiler. It inserts a canonical `V5_COMPILED_DIRECTION` directly inside every `IMAGE PROMPT`, including:
+
+- camera
+- archetype
+- action
+- location
+- main subject
+- human presence
+- lighting
+- tension/consequence
+- cause/effect
+- visual hook
+- pattern interrupt
+- label budget
+
+If scene-index metadata changes after compilation, compile again. `reel:validate` must reject stale compiled prompts.
 
 ## V9 image world
 
