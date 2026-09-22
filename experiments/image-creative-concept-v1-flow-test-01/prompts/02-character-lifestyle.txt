@@ -1,0 +1,25 @@
+FINANZNEO IMAGE TEST — CREATIVE CONCEPT V1
+Generate exactly ONE image. Aspect ratio 1:1.
+
+CONCEPT_MODE: character-moment
+VIEWER_THOUGHT: "Mehr Einkommen kann sofort in einen teureren Lebensstil fließen."
+ENTERTAINMENT_HOOK: A relatable human moment of excitement contrasts with a visibly neglected savings reserve.
+MEMORABILITY_HOOK: The person admires a new premium purchase while the small green "Rücklage" folder sits almost ignored at the edge.
+REALITY_ANCHOR: Real apartment scene with a new smartphone box, sneaker box and a savings folder labeled "Rücklage".
+FANTASY_LEVEL: 0
+FANTASY_JUSTIFICATION: none
+WHY_THIS_CONCEPT: The point is behavioral, so a believable human decision is stronger than abstract money symbols.
+
+IMAGE PROMPT:
+Create a stylized 3D everyday apartment moment. A young adult stands or sits near a table, visibly pleased and focused on opening a premium-looking new smartphone box. A clean sneaker box and one tasteful new purchase sit nearby as believable lifestyle upgrades. The person should have readable but natural body language: pleased, absorbed, slightly proud, not exaggerated.
+
+At the edge of the same real scene, place a small emerald-green folder labeled only "Rücklage". It should be clearly visible but noticeably smaller and less attended to than the new purchase. The visual message must be immediate: more money arrived, but the lifestyle upgrade received the attention first.
+
+Do not turn this into a cluttered shopping scene. Use only the few objects needed to explain the behavior. No bank app, no chart, no floating arrows, no coins flying around. Keep the apartment context recognizable but let it naturally dissolve into the deep-black FinanzNeo world.
+
+FINANZNEO V9 STYLE LOCK:
+Clearly stylized premium 3D animation, never photorealistic. Real-world-grounded situation, believable proportions, semi-realistic materials, polished but not childish. Seamless deep black background with the local apartment area organically fading into black. Soft premium studio lighting, readable highlights, contact shadows and strong separation. Emerald green for positive/savings, warm ivory/soft gray for neutral surfaces, subtle gold only for money/value, warm red-orange only for cost or warning.
+
+Only the explicitly requested short German label "Rücklage" may appear. No headline, subtitle, CTA or long explanatory text. No dashboard, app UI, flowchart, generic finance-icon composition, pasted logos, stock-photo look, photorealism, clutter or decorative props without meaning.
+
+The image must be understandable within roughly 1–2 seconds and feel like the same FinanzNeo stylized 3D deep-black world.
