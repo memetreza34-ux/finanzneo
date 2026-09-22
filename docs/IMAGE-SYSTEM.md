@@ -9,6 +9,8 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v5
+IMAGE_STORYTELLING_HARDENING: finanzneo-image-storytelling-v5-hardening-v1
 ```
 
 Es gibt keinen aktiven V4/V7/V8-Physical-Explainer-Lock mehr. Neue Prompts verwenden ausschließlich V9.
@@ -62,7 +64,8 @@ Damit sind alte Regeln wie `2–5`, `3–6`, `supportingObjectsMin` oder `suppor
 
 ## Licht und Material
 
-- clean soft studio lighting
+- clean soft studio lighting als gemeinsame V9-Basis
+- V5 darf die konkrete Lichtregie zwischen `soft-key`, `side-key`, `top-light`, `rim-heavy`, `warm-practical` und `dramatic-low-key` variieren
 - klare Highlights
 - lesbare Schatten
 - gute Trennung vom schwarzen Hintergrund
@@ -93,6 +96,8 @@ Erlaubt:
 - nur ausdrücklich verlangte kurze deutsche Objektlabels
 - kurze Zahlen/Preise, wenn sie für die Aussage nötig sind
 
+Für neue V5-Hardening-Reels gilt zusätzlich ein `LABEL_BUDGET` von 0–3. Mehr als zwei Labels benötigen eine konkrete Begründung.
+
 Verboten:
 
 - Headline
@@ -121,10 +126,13 @@ Kein vorheriges Reel-Bild wird als Image-to-Image-Referenz benötigt. Konsistenz
 
 ## Timing
 
-- Bildbeat ideal 3,5–5,5 s
-- absolut max. 6,0 s
-- länger nötig: splitten oder animieren
-- ungefähr 60 % Bild / 40 % Animation als Ziel, Qualität vor Quote
+Für **neue Future-V3-Reels** gilt die zentrale Timing-Regel aus `CLAUDE.md` und `docs/FUTURE-REEL-PRODUCTION-V3.md`:
+
+- statischer Bildbeat ideal **1,8–3,0 s**
+- ab ca. **3,6 s** aktiv einen zusätzlichen Visual Beat prüfen
+- ohne neue sichtbare Information hart maximal **4,0 s**
+- ältere Reels dürfen aus Kompatibilitätsgründen längere Legacy-Beats besitzen
+- ungefähr 60 % Bild / 40 % Animation bleibt nur Richtwert, Qualität vor Quote
 
 ## Pflichtinhalt jedes Bildprompts
 
@@ -138,8 +146,20 @@ Kein vorheriges Reel-Bild wird als Image-to-Image-Referenz benötigt. Konsistenz
 8. erlaubte kurze Labels
 9. kurze Forbidden-Liste
 10. QA: Aussage in 1–2 Sekunden verständlich
+11. bei neuen V5-Hardening-Reels ein kompilierter `V5_COMPILED_DIRECTION`-Block direkt im `IMAGE PROMPT`
 
 Einzelprompts bleiben mittel-lang; die eigentliche Bildidee steht vor dem Regelblock.
+
+## V5 Prompt Compiler
+
+Nach abgeschlossener Bild- und Sequenzplanung:
+
+```bash
+npm run reel:image-prompts:compile -- <Reel-Pfad>
+npm run reel:validate -- <Reel-Pfad>
+```
+
+Der Compiler schreibt Kamera, Archetyp, Handlung, Ort, Hauptmotiv, Spannung, Cause/Effect, Licht und Label-Budget direkt in den finalen `IMAGE PROMPT`. Der Validator blockiert fehlende oder veraltete Compile-Blöcke.
 
 ## Google Flow — Strict Single Job
 
@@ -165,6 +185,8 @@ Neu erzeugen, wenn:
 - Dashboard/UI/Flowchart/Diorama entsteht
 - Labels falsch sind
 - Marken wie echte Screenshots/aufgeklebte Logos wirken
+- die sichtbare Kamera/Location/Hauptaktion der V5-Regie widerspricht
+- die Szene trotz unterschiedlicher Metadaten wieder wie eine generische Person-am-Tisch-Komposition wirkt
 
 Technische Prüfung:
 

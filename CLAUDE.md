@@ -38,6 +38,17 @@ Phase 1 liefert vollständig:
 
 Phase 1 ist erst fertig, wenn keine Platzhalter mehr vorkommen und Phase 3 keine kreative Animation mehr erfinden muss.
 
+Für neue V5-Reels gehört zusätzlich zwingend zu Phase 1:
+
+```text
+gesamte IMAGE-Sequenz planen
+→ alle V5-/Hardening-Felder bewusst ausfüllen
+→ npm run reel:image-prompts:compile -- <Reel-Pfad>
+→ npm run reel:validate -- <Reel-Pfad>
+```
+
+Ein V5-Reel mit fehlendem oder veraltetem `V5_COMPILED_DIRECTION` im eigentlichen `IMAGE PROMPT` ist **nicht Phase-1-fertig**.
+
 ### Phase 2 — Nutzer
 
 - erzeugt die Szenenbilder mit Google Flow; **scene-01 ist automatisch das Cover**, kein separater Cover-Bildjob und kein Bild 00
@@ -121,6 +132,9 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v5
+IMAGE_STORYTELLING_HARDENING: finanzneo-image-storytelling-v5-hardening-v1
+VISUAL_SEQUENCE_PLAN: finanzneo-visual-sequence-plan-v1
 ```
 
 ### Kernziel
@@ -201,6 +215,7 @@ Regeln:
 - kein Untertitel
 - kein CTA
 - kein langer erklärender Satz
+- bei V5-Hardening gilt `LABEL_BUDGET` 0–3; 0–2 = Normalfall, 3 nur mit konkreter Begründung
 
 ### Marken und Logos
 
@@ -219,6 +234,62 @@ Wenn inhaltlich nötig:
 - Warm Red-Orange = Warnung / Kosten / Verlust
 - Deep Black = Hintergrund
 
+### Image Storytelling V5 + Hardening — Pflicht für neue Reels
+
+Die V9-Bildwelt bestimmt den **Look**. V5 bestimmt die **Regie und Sequenz**.
+
+Arbeitsreihenfolge:
+
+```text
+Sprechbeats
+→ gesamte IMAGE-Sequenz planen
+→ Energy Arc
+→ Archetyp / Komposition / Kamera / Ort / Mensch / Hauptmotiv variieren
+→ einzelne Bildideen finalisieren
+→ V5-Prompt-Compiler
+→ Reel-Validator
+→ erst danach Google Flow
+```
+
+Pflichtfelder ohne kreative Defaultwerte:
+
+- `VISUAL_MODE`
+- `ENERGY_LEVEL`
+- `SHOT_SCALE`
+- `CAMERA_ANGLE`
+- `TABLE_DOCUMENT_SCENE`
+- `LOCATION_CLASS`
+- `MAIN_SUBJECT_CLASS`
+- `LIGHTING_VARIATION`
+- `PATTERN_INTERRUPT_TYPE`
+- `LABEL_BUDGET`
+
+Semantische Klassen verhindern Scheinvielfalt durch Synonyme. `LOCATION_FAMILY` und `MAIN_SUBJECT_FAMILY` bleiben konkret; `LOCATION_CLASS` und `MAIN_SUBJECT_CLASS` normalisieren die grobe visuelle Kategorie.
+
+In jedem vollständigen 6-IMAGE-Fenster müssen mindestens drei unterschiedliche Werte vorkommen bei:
+
+- `VISUAL_ARCHETYPE`
+- `COMPOSITION_FAMILY`
+- `CAMERA_ANGLE`
+- `LOCATION_CLASS`
+- `MAIN_SUBJECT_CLASS`
+
+Bei einer gesamten Sequenz aus 4–5 IMAGE-Szenen gilt dieselbe Mindestvielfalt 3 über die ganze Sequenz. Ein A-B-A-B-A-B-Muster gilt damit nicht als ausreichende Vielfalt.
+
+`PATTERN_INTERRUPT_TYPE` muss eine reale Änderung beschreiben. `camera-change`, `scale-change`, `location-change` und `human-change` müssen sich gegenüber der vorherigen IMAGE-Szene tatsächlich in den entsprechenden Planwerten ändern.
+
+`LIGHTING_VARIATION` darf zwischen `soft-key`, `side-key`, `top-light`, `rim-heavy`, `warm-practical` und `dramatic-low-key` variieren. Das ändert nie Deep Black, Farbrollen, Materiallogik oder den V9-Look.
+
+Nach jeder finalen Planänderung ist Pflicht:
+
+```bash
+npm run reel:image-prompts:compile -- <Reel-Pfad>
+```
+
+Der Compiler schreibt einen kanonischen `V5_COMPILED_DIRECTION` direkt **in den eigentlichen `IMAGE PROMPT`**. Dadurch sieht Google Flow Kamera, Archetyp, Handlung, Ort, Hauptmotiv, Spannung, Cause/Effect, Licht und Label-Budget unmittelbar. Metadaten allein reichen nicht.
+
+`npm run reel:validate -- <Reel-Pfad>` muss fehlende oder veraltete Compile-Blöcke, unzureichende Sequenzvielfalt, unechte Pattern Interrupts und offensichtliche `TABLE_DOCUMENT_SCENE=false`-Widersprüche blockieren.
+
 ### Prompt-Qualität — Pflicht
 
 Jeder konkrete Bildprompt wird **individuell und vollständig für exakt den Sprechpunkt geschrieben**.
@@ -234,7 +305,8 @@ Verboten:
 Reihenfolge jedes fertigen Prompts:
 
 ```text
-konkrete reale Situation + sichtbare Ursache/Wirkung
+V5_COMPILED_DIRECTION mit konkreter Regie
+→ konkrete reale Situation + sichtbare Ursache/Wirkung
 → exakte kurze deutsche Labels, wenn hilfreich
 → Style
 → Background
@@ -274,6 +346,8 @@ Bild verwerfen und **dieselbe Bildnummer neu erzeugen**, wenn:
 - es fotorealistisch wird
 - der Hintergrund nicht deep black bleibt
 - UI/Flowchart/Clutter die Erklärung verdrängen
+- die sichtbare Kamera, Location, Handlung oder Hauptmotiv-Hierarchie der kompilierten V5-Regie widerspricht
+- es trotz unterschiedlicher Metadaten wieder wie eine generische Person-am-Tisch-/Katalogszene wirkt
 
 ## 7. Google Flow — Strict Single Job V3
 
@@ -418,7 +492,6 @@ Pflicht:
 
 Animationen müssen Inhalt **erklären und unterhaltsam visualisieren**, nicht nur Pixel bewegen.
 
-
 ### Cinematic Real-World Animation — Pflicht
 
 Eine Animationsszene ist eine **kleine visuelle Geschichte**, keine bewegte Infografik.
@@ -532,6 +605,7 @@ Im normalen Phase-3-Lauf wird `reel:export` nach bestandener Render-QA automatis
 
 ```bash
 npm run reel:create -- --target <Reel-Pfad> --title "Titel"
+npm run reel:image-prompts:compile -- <Reel-Pfad>
 npm run reel:validate -- <Reel-Pfad>
 npm run reel:ready -- <Reel-Pfad>
 npm run reel:phase3:preflight -- <Reel-Pfad>

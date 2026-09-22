@@ -15,6 +15,13 @@
     "id": "finanzneo-stylized-3d-animated-black-v9",
     "source": "config/finanzneo-image-world-lock.json"
   },
+  "imageStorytelling": {
+    "id": "finanzneo-image-storytelling-v5",
+    "hardeningId": "finanzneo-image-storytelling-v5-hardening-v1",
+    "sequencePlanId": "finanzneo-visual-sequence-plan-v1",
+    "compiler": "scripts/compile-future-image-prompts-v5.mjs",
+    "validator": "scripts/validate-future-image-storytelling-v5-hardening.mjs"
+  },
   "flow": {
     "id": "finanzneo-flow-strict-single-job-v3",
     "source": "config/finanzneo-image-world-lock.json#googleFlow"

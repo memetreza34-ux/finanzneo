@@ -11,14 +11,16 @@ Read in this order:
 
 1. `CLAUDE.md`
 2. target `03-szenen/scene-index.json`
-3. `docs/3-PHASEN-WORKFLOW.md`
-4. `docs/PHASE-3-COMPLETION-GATE.md`
-5. `reels/PRODUKTIONSSTANDARD.md`
-6. `.agents/rules/finanzneo-reel-safety.md`
-7. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
-8. `.agents/plugins/finanzneo-motion/rules/lottie-motion.md`
-9. `.agents/plugins/finanzneo-motion/rules/sound-design.md`
-10. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
+3. `docs/FUTURE-IMAGE-STORYTELLING-V5.md`
+4. `docs/IMAGE-VISION-QA-V1.md`
+5. `docs/3-PHASEN-WORKFLOW.md`
+6. `docs/PHASE-3-COMPLETION-GATE.md`
+7. `reels/PRODUKTIONSSTANDARD.md`
+8. `.agents/rules/finanzneo-reel-safety.md`
+9. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
+10. `.agents/plugins/finanzneo-motion/rules/lottie-motion.md`
+11. `.agents/plugins/finanzneo-motion/rules/sound-design.md`
+12. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
 
 `CLAUDE.md` wins on conflicts.
 
@@ -37,9 +39,33 @@ Phase 1 may use the FinanzNeo Motion Stack while authoring:
 
 All final animation choices and local support assets must be committed before the animation seal.
 
-### Phase 2 — user
+For new V5 reels, Phase 1 is not complete until the full IMAGE sequence is planned, all hardening placeholders are resolved, and the final Flow prompts have been compiled with:
+
+```bash
+npm run reel:image-prompts:compile -- <Reel-Pfad>
+npm run reel:validate -- <Reel-Pfad>
+```
+
+### Phase 2 — user + generated-image pixel QA
 
 Owns final Flow images, final voiceover and real word timings.
+
+For a new V5-Hardening reel, every generated IMAGE scene must also complete `finanzneo-image-vision-qa-v1` before the next image is unlocked:
+
+```text
+one Flow image
+→ exact rename + save to 03-szenen/00-ALLE-BILDER-HIER-REIN/
+→ npm run reel:image-vision:prepare -- <Reel> --scene scene-XX
+→ multimodal evaluator opens the actual image file
+→ write the exact resultSchema to results/scene-XX.json
+→ npm run reel:image-vision:validate -- <Reel> --scene scene-XX
+→ PASS: next image
+→ REGENERATE: same scene/image number only
+```
+
+A prompt-only or metadata-only review is not pixel QA. The evaluator must inspect the actual generated pixels and provide concrete visual evidence. Request and result are bound to the image SHA-256; replacing/regenerating the image invalidates the old PASS.
+
+Previously generated images may be opened only for QA/sequence-novelty comparison. Never upload them to Flow as generation references.
 
 ### Phase 3 — configured executor
 
@@ -49,15 +75,124 @@ If `phase3Executor` names another executor, do not take over Phase 3.
 
 After the animation SHA is sealed, Phase 3 may not invent a new Lottie concept, alter the physical mechanism or generate replacement animation code. Creative redesign returns to Phase 1.
 
+For new V5-Hardening reels, `reel:ready` must also verify a current hash-bound Pixel-Vision-QA PASS for every IMAGE scene. Missing, stale or REGENERATE reports block Phase 3.
+
 ## Visual Beat timing
 
 VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
 
 For new reels, do not choose a scene count first. Parse the voiceover into spoken thoughts, assign one visible beat per thought, then group beats into scenes. A sentence may receive its own Flow image. If one sentence contains two actions, examples, a comparison or a before/after change, split it into multiple visible beats when that improves comprehension.
 
-Static image beats should normally last about 1.8–3.4 seconds and must not remain unchanged beyond 4.5 seconds once the message is already understood. Multiple consecutive image scenes are allowed when each one advances meaning. Camera push, zoom or parallax alone does not reset the beat.
+For new Future-V3 reels, static image beats should normally last about **1.8–3.0 seconds**. From about **3.6 seconds**, actively check whether a new visual beat would improve comprehension. Without new visible information, a static image beat must not exceed **4.0 seconds**. Multiple consecutive image scenes are allowed when each one advances meaning. Camera push, zoom or parallax alone does not reset the beat.
 
 Animation scenes may be longer only when the visible state keeps advancing with the voiceover. Final cuts follow real word timings from Phase 2, never equal-length scene padding. The 60/40 image-animation mix is guidance, not a quota.
+
+## V5 image storytelling hardening
+
+New reels use:
+
+```text
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v5
+IMAGE_STORYTELLING_HARDENING: finanzneo-image-storytelling-v5-hardening-v1
+VISUAL_SEQUENCE_PLAN: finanzneo-visual-sequence-plan-v1
+POST_GENERATION_VISION_QA: finanzneo-image-vision-qa-v1
+```
+
+### Sequence first
+
+Before finalizing any individual IMAGE prompt:
+
+1. plan the entire IMAGE sequence;
+2. assign sequence role and energy;
+3. vary archetype, composition, camera, location, human presence and main subject;
+4. choose a real pattern interrupt where needed;
+5. only then finalize each individual prompt.
+
+Do not optimize six images independently. Optimize the sequence.
+
+### No creative defaults
+
+The following fields must be consciously chosen, not accepted from generic defaults:
+
+- `VISUAL_MODE`
+- `ENERGY_LEVEL`
+- `SHOT_SCALE`
+- `CAMERA_ANGLE`
+- `TABLE_DOCUMENT_SCENE`
+- `LOCATION_CLASS`
+- `MAIN_SUBJECT_CLASS`
+- `LIGHTING_VARIATION`
+- `PATTERN_INTERRUPT_TYPE`
+- `LABEL_BUDGET`
+
+### Window diversity
+
+For every complete six-IMAGE window, require at least three distinct values for:
+
+- visual archetype
+- composition family
+- camera angle
+- location class
+- main-subject class
+
+For a whole sequence of four or five IMAGE scenes, the same minimum of three distinct values applies across the sequence.
+
+A-B-A-B-A-B is not sufficient diversity.
+
+### Pattern interrupt truthfulness
+
+`PATTERN_INTERRUPT_TYPE` must reflect a real change. Examples:
+
+- `camera-change` -> camera angle actually changes
+- `scale-change` -> shot scale actually changes
+- `location-change` -> location class actually changes
+- `human-change` -> human presence actually changes
+
+Do not claim an interrupt just to satisfy metadata.
+
+### Label budget
+
+Use 0–2 short German object labels by default. Three labels require a concrete justification. The image must primarily explain itself visually.
+
+### Prompt compilation
+
+The metadata is not the final Flow instruction. After planning, run the compiler. It inserts a canonical `V5_COMPILED_DIRECTION` directly inside every `IMAGE PROMPT`, including:
+
+- camera
+- archetype
+- action
+- location
+- main subject
+- human presence
+- lighting
+- tension/consequence
+- cause/effect
+- visual hook
+- pattern interrupt
+- label budget
+
+If scene-index metadata changes after compilation, compile again. `reel:validate` must reject stale compiled prompts.
+
+## Post-generation Image Vision QA V1
+
+This gate checks whether Flow actually delivered the planned scene instead of merely accepting a good prompt.
+
+The semantic evaluator must visually inspect the real file and score:
+
+- plan/voice-beat alignment
+- camera + shot-scale compliance
+- visible action / cause-effect readability
+- hook strength
+- visual interest
+- V9 world consistency
+- composition clarity
+- sequence novelty against already generated images
+
+Hard failures include photorealism, generic finance-icon main compositions, static catalog-like staging, wrong background, forbidden sentence/headline text, label-budget overflow and scene mismatch.
+
+Generic desk scenes and dominant dead space receive stricter handling; do not pass them merely because other scores are acceptable. `scene-01` / cover requires a stronger hook threshold than a normal IMAGE scene.
+
+Every result must contain at least three concrete observations from the pixels. Never fabricate visual evidence from prompt text.
 
 ## V9 image world
 
@@ -193,6 +328,7 @@ Central `REEL_STYLE` only:
 ## Completion sequence
 
 ```bash
+# V5-Hardening: Pixel-Vision-QA must already PASS on current image hashes
 npm run reel:ready -- <Reel>
 npm run reel:phase3:init -- <Reel> <Composition-ID>
 # integrate every sealed scene + final Phase-2 assets
@@ -210,6 +346,9 @@ QA must reject:
 - black/empty visual core
 - caption-only/header-only scene
 - missing image
+- missing or stale V5 Pixel-Vision-QA report
+- a generated image whose report is bound to another SHA-256
+- prompt-only QA presented as pixel QA
 - missing animation binding
 - animation with no real motion
 - animation that does not explain its beat
