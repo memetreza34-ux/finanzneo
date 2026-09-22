@@ -1,6 +1,13 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {evaluateVisionQaResult, IMAGE_VISION_QA_ID} from '../scripts/lib/image-vision-qa.mjs';
+import {
+  evaluateVisionQaResult,
+  IMAGE_VISION_QA_ID,
+  dHashFromGray9x8,
+  hammingDistanceHex,
+  luminanceStats,
+  evaluateObjectivePixelProbe,
+} from '../scripts/lib/image-vision-qa.mjs';
 
 const baseResult = () => ({
   contractId: IMAGE_VISION_QA_ID,
@@ -81,4 +88,37 @@ test('Prompt-only Bericht ohne konkrete Pixelbeobachtungen wird blockiert', () =
   assert.equal(result.expectedVerdict, 'REGENERATE');
   assert.ok(result.errors.some((error) => error.includes('multimodal-pixel-review')));
   assert.ok(result.errors.some((error) => error.includes('Pixel-Beobachtungen')));
+});
+
+test('dHash liefert für identische Pixelproben Distanz 0', () => {
+  const bytes = Buffer.from(Array.from({length: 72}, (_, index) => (index * 23) % 256));
+  const hash = dHashFromGray9x8(bytes);
+  assert.equal(hash.length, 16);
+  assert.equal(hammingDistanceHex(hash, hash), 0);
+});
+
+test('objektive Pixel-QA blockiert Near-Duplicates', () => {
+  const result = evaluateObjectivePixelProbe({
+    luminance: {mean: 70, stddev: 28, nonBlackRatio: 0.45},
+    nearestDHashDistance: 2,
+  });
+  assert.equal(result.status, 'FAIL');
+  assert.ok(result.blockers.some((error) => error.includes('Near-Duplicate')));
+});
+
+test('objektive Pixel-QA blockiert nahezu leeres schwarzes Bild', () => {
+  const luminance = luminanceStats(Buffer.alloc(1024, 0));
+  const result = evaluateObjectivePixelProbe({luminance, nearestDHashDistance: null});
+  assert.equal(result.status, 'FAIL');
+  assert.ok(result.blockers.some((error) => error.includes('leeres/schwarzes')));
+});
+
+test('starke Ähnlichkeit oberhalb Hard-Fail-Grenze erzeugt Warnung statt Blocker', () => {
+  const result = evaluateObjectivePixelProbe({
+    luminance: {mean: 80, stddev: 35, nonBlackRatio: 0.55},
+    nearestDHashDistance: 6,
+  });
+  assert.equal(result.status, 'PASS');
+  assert.equal(result.blockers.length, 0);
+  assert.ok(result.warnings.some((warning) => warning.includes('Ähnlichkeit')));
 });
