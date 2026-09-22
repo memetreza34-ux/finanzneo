@@ -82,8 +82,22 @@ test('Novelty-PASS wird ungültig, wenn ein verglichenes Bild später andere Pix
       imageFile: 'Bild 02 - Vergleich.png',
       imageSha256: secondHash,
       isCover: false,
+      objectivePixelQa: {
+        dHash: '0123456789abcdef',
+        luminance: {mean: 72, stddev: 24, nonBlackRatio: 0.48},
+        nearestDHashDistance: 18,
+        nearestSceneId: 'scene-01',
+        status: 'PASS',
+        blockers: [],
+        warnings: [],
+      },
       expected: {labelBudget: 0},
-      compareAgainst: [{sceneId: 'scene-01', imageFile: 'Bild 01 - Start.png', imageSha256: firstHash}],
+      compareAgainst: [{
+        sceneId: 'scene-01',
+        imageFile: 'Bild 01 - Start.png',
+        imageSha256: firstHash,
+        dHash: 'fedcba9876543210',
+      }],
     }));
     write(root, '03-szenen/vision-qa/results/scene-02.json', JSON.stringify(passingResult(secondHash, firstHash)));
 
