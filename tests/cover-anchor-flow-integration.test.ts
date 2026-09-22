@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import test from 'node:test';
+import {AUTONOMY_BLOCK, FLOW_AGENT_BLOCK} from '../scripts/lib/flow-autonomy.mjs';
 
 const read = (path: string) => readFileSync(path, 'utf8');
 
@@ -14,12 +15,13 @@ test('new reel pipeline applies cover anchor after creative concept', () => {
 });
 
 test('reel flow keeps single-job generation but uses approved cover as only persistent reference', () => {
-  const source = read('scripts/lib/flow-autonomy.mjs');
-  assert.match(source, /MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB/);
-  assert.match(source, /scene-01 IST ZUERST ZU ERZEUGEN/);
-  assert.match(source, /PLANBLÖCKEN ZU MAXIMAL \$\{COVER_ANCHOR_BLOCK_SIZE\} BILDERN/);
-  assert.match(source, /KEIN ANDERES VORHERIGES BILD DARF ALS PERSISTENTE GENERIERUNGSREFERENZ/);
-  assert.doesNotMatch(source, /Keine Bildreferenz verwenden\. Kein vorheriges Bild als Generierungsreferenz hochladen/);
+  assert.match(AUTONOMY_BLOCK, /MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB/);
+  assert.match(AUTONOMY_BLOCK, /scene-01 IST ZUERST ZU ERZEUGEN/);
+  assert.match(AUTONOMY_BLOCK, /PLANBLÖCKEN ZU MAXIMAL 5 BILDERN/);
+  assert.match(AUTONOMY_BLOCK, /KEIN ANDERES VORHERIGES BILD DARF ALS PERSISTENTE GENERIERUNGSREFERENZ/);
+  assert.match(FLOW_AGENT_BLOCK, /freigegebene scene-01-Datei als direkte visuelle Referenz\/Vorlage/);
+  assert.doesNotMatch(AUTONOMY_BLOCK, /Keine Bildreferenz verwenden\. Kein vorheriges Bild als Generierungsreferenz hochladen/);
+  assert.doesNotMatch(FLOW_AGENT_BLOCK, /Keine Bildreferenz verwenden\. Kein vorheriges Bild als Generierungsreferenz hochladen/);
 });
 
 test('youtube pipeline applies the same master-anchor principle', () => {
