@@ -3,6 +3,7 @@
 `IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v5`  
 `IMAGE_STORYTELLING_HARDENING: finanzneo-image-storytelling-v5-hardening-v1`  
 `VISUAL_SEQUENCE_PLAN: finanzneo-visual-sequence-plan-v1`  
+`POST_GENERATION_VISION_QA: finanzneo-image-vision-qa-v1`  
 `IMAGE_WORLD_LOCK_PRESERVED: finanzneo-stylized-3d-animated-black-v9`
 
 ## Ziel
@@ -17,7 +18,11 @@ V5-Hardening ergänzt eine zweite Schutzschicht:
 
 **Nach fertiger Planung wird die Regie automatisch direkt in den finalen `IMAGE PROMPT` kompiliert.** Google Flow soll Kamera, Handlung, Ort und visuelle Konsequenz nicht mehr aus vorgelagerten Metadaten erraten müssen.
 
-Die V9-Bildwelt bleibt unverändert. V5 ändert nur Regie, Rhythmus, Szenenwahl, Kamera und Abwechslung.
+Image Vision QA V1 ergänzt die dritte Schutzschicht:
+
+**Nach der Generierung muss ein multimodaler Evaluator die tatsächlich erzeugte Bilddatei prüfen.** Ein guter Prompt ist kein Beweis dafür, dass Flow die geplante Regie tatsächlich geliefert hat.
+
+Die V9-Bildwelt bleibt unverändert. V5 ändert nur Regie, Rhythmus, Szenenwahl, Kamera, Abwechslung und die Qualitätskontrolle nach der Generierung.
 
 ## Sequenzfelder pro IMAGE-Szene
 
@@ -230,6 +235,50 @@ Dieser Block enthält unter anderem:
 
 `reel:validate` blockiert einen fehlenden oder veralteten Compile-Block. Nach jeder relevanten Planänderung muss erneut kompiliert werden.
 
+## Post-Generation Image Vision QA V1
+
+Der Prompt-Compiler schützt die Anweisung an Flow. Die Pixel-QA prüft anschließend, ob Flow diese Anweisung **sichtbar umgesetzt** hat.
+
+Ablauf je IMAGE-Szene:
+
+```bash
+npm run reel:image-vision:prepare -- <Reel-Pfad> --scene scene-XX
+# multimodaler Evaluator öffnet die tatsächliche Bilddatei und schreibt results/scene-XX.json
+npm run reel:image-vision:validate -- <Reel-Pfad> --scene scene-XX
+```
+
+Der Request enthält den SHA-256-Hash der aktuellen Bilddatei. Result und Request müssen auf exakt denselben Hash zeigen. Nach Regeneration ist der alte PASS automatisch ungültig.
+
+Die semantische Bewertung darf nicht aus Prompttext oder Metadaten erfunden werden. Der multimodale Evaluator muss die echten Pixel sehen und mindestens drei konkrete sichtbare Beobachtungen liefern.
+
+Bewertet werden:
+
+- Plan-/Sprechbeat-Match
+- Kamera und Shot Scale
+- sichtbare Handlung / Cause-Effect
+- Hook-Stärke
+- Visual Interest
+- V9-World-Consistency
+- Kompositionsklarheit
+- Sequenz-Neuheit gegenüber den bereits erzeugten Bildern
+- sichtbare Text-/Label-Menge
+
+Hard Fails:
+
+- Fotorealismus
+- generisches Finance-Icon-Hauptmotiv
+- statische Katalogkomposition
+- falscher Hintergrund
+- Headline oder erklärender Satz im generierten Bild
+- Label-Budget überschritten
+- sichtbarer Szenen-Mismatch
+
+`scene-01` / Cover hat einen strengeren Hook-Mindestwert. Generische Schreibtischszenen und dominanter Leerraum werden zusätzlich streng behandelt.
+
+Bei `REGENERATE` bleibt exakt dieselbe Bildnummer aktiv. Spätere Bildblöcke bleiben gesperrt. Erst nach `PASS` darf die nächste IMAGE-Szene erzeugt werden.
+
+Details: `docs/IMAGE-VISION-QA-V1.md`.
+
 ## Arbeitsablauf
 
 1. Sprechbeats lesen.
@@ -239,7 +288,10 @@ Dieser Block enthält unter anderem:
 5. Erst danach Einzelprompts schreiben.
 6. `npm run reel:image-prompts:compile -- <Reel-Pfad>` ausführen.
 7. `npm run reel:validate -- <Reel-Pfad>` ausführen.
-8. Google Flow weiterhin strikt als Single-Job: immer genau ein Bild gleichzeitig.
+8. Google Flow strikt als Single-Job: immer genau ein Bild gleichzeitig.
+9. Nach jedem Bild hashgebundene Pixel-Vision-QA ausführen.
+10. Nur nach PASS nächste IMAGE-Szene freischalten; bei REGENERATE dieselbe Bildnummer neu erzeugen.
+11. `reel:ready` blockiert Phase 3, solange nicht alle aktuellen Bildhashes einen gültigen PASS besitzen.
 
 ## Unverändert
 
