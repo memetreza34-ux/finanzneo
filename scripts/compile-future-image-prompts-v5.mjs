@@ -8,6 +8,7 @@ import {
   compileAllPromptBlocksFromMarkers,
   compileOnePromptSource,
 } from './lib/image-storytelling-v5-hardening.mjs';
+import {V5_STAGING_ID} from './lib/image-storytelling-v5-staging.mjs';
 
 const target = process.argv[2];
 if (!target) {
@@ -32,6 +33,7 @@ if (index.imageStorytellingContract?.hardeningId !== V5_HARDENING_ID) {
   process.exit(1);
 }
 
+const stagingRequired = index.imageStorytellingContract?.stagingId === V5_STAGING_ID;
 const placeholder = /\[|EINFÜGEN|TODO|TBD|XXX|\.\.\./i;
 const required = [
   'strategy', 'visualMode', 'sequenceRole', 'visualArchetype', 'locationFamily', 'locationClass',
@@ -40,11 +42,15 @@ const required = [
   'visualHook', 'shotScale', 'cameraAngle', 'depthPlan', 'emotionalBeat', 'causeEffect',
   'patternInterrupt', 'patternInterruptType', 'motionHint', 'noveltyCheck', 'lightingVariation',
 ];
+const stagingRequiredFields = [
+  'frameOccupancyClass', 'stagingMode', 'causeEffectStrength', 'humanReaction',
+  'humanReactionJustification', 'spatialPressure', 'impactComposition',
+];
 
 const imageScenes = (Array.isArray(index.scenes) ? index.scenes : []).filter((scene) => scene?.type === 'image');
 for (const scene of imageScenes) {
   const meta = scene.imageStorytelling ?? {};
-  for (const key of required) {
+  for (const key of [...required, ...(stagingRequired ? stagingRequiredFields : [])]) {
     const value = String(meta[key] ?? '').trim();
     if (!value || placeholder.test(value)) {
       console.error(`${scene.id}: ${key} ist noch nicht final geplant. Compile abgebrochen.`);
@@ -96,4 +102,5 @@ writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');
 
 console.log(`✓ ${imageScenes.length} V5-Bildprompts kompiliert.`);
 console.log('✓ Kamera, Archetyp, Handlung, Ort, Hauptmotiv, Spannung, Cause/Effect, Licht und Label-Budget stehen jetzt direkt im IMAGE PROMPT.');
+if (stagingRequired) console.log('✓ V5.1: Frame Occupancy, Dynamic Staging, Human Reaction, Spatial Pressure und Impact Composition stehen ebenfalls direkt im IMAGE PROMPT.');
 console.log('✓ Google Flow muss diese Regie nicht mehr aus vorgelagerten Metadaten erraten.');
