@@ -41,6 +41,14 @@ if (direction.status !== 0) {
   process.exit(direction.status ?? 1);
 }
 
+const anchor = run('scripts/apply-youtube-cover-anchor-flow-v1.mjs', [target]);
+if (anchor.status !== 0) {
+  rollback();
+  process.exit(anchor.status ?? 1);
+}
+
 console.log('\n✓ Neues YouTube-Projekt vollständig angelegt.');
-console.log('  Bestehende YouTube-Bildwelt und Flow-Regeln bleiben erhalten.');
 console.log('  Visual Direction V1 ergänzt Hook, Handlung, Spannung, Kamera, Tiefe, Pattern Interrupts und Novelty-Checks.');
+console.log('  visual-01 ist das Master-Anchor-Bild des Videos und muss zuerst erzeugt/freigegeben werden.');
+console.log('  Thumbnail und Folge-Bilder nutzen danach visual-01 als Art-Direction-Referenz, ohne dessen Komposition zu kopieren.');
+console.log('  Folge-Bilder werden in 5er-Planblöcken organisiert, aber weiterhin streng einzeln generiert, umbenannt und geprüft.');
