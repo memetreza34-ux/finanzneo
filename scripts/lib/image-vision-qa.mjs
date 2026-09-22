@@ -15,6 +15,13 @@ export const IMAGE_VISION_QA_THRESHOLDS = Object.freeze({
   sequenceNovelty: 70,
 });
 
+export const OBJECTIVE_PIXEL_THRESHOLDS = Object.freeze({
+  nearDuplicateDHashDistance: 3,
+  strongSimilarityWarningDistance: 7,
+  minLumaStddev: 7,
+  minNonBlackRatio: 0.035,
+});
+
 export const HARD_FAIL_FLAGS = Object.freeze([
   'photorealistic',
   'genericFinanceIconMain',
@@ -28,6 +35,72 @@ export const HARD_FAIL_FLAGS = Object.freeze([
 export const sha256Hex = async (buffer) => {
   const {createHash} = await import('node:crypto');
   return createHash('sha256').update(buffer).digest('hex');
+};
+
+export const dHashFromGray9x8 = (bytes) => {
+  if (!bytes || bytes.length !== 72) throw new Error('dHash erwartet exakt 72 Graustufenbytes (9x8).');
+  let bits = 0n;
+  let bit = 0n;
+  for (let y = 0; y < 8; y += 1) {
+    for (let x = 0; x < 8; x += 1) {
+      const left = bytes[y * 9 + x];
+      const right = bytes[y * 9 + x + 1];
+      if (left > right) bits |= 1n << bit;
+      bit += 1n;
+    }
+  }
+  return bits.toString(16).padStart(16, '0');
+};
+
+const bitCount64 = (value) => {
+  let current = BigInt(value);
+  let count = 0;
+  while (current) {
+    count += Number(current & 1n);
+    current >>= 1n;
+  }
+  return count;
+};
+
+export const hammingDistanceHex = (left, right) => {
+  if (!/^[0-9a-f]{16}$/i.test(String(left)) || !/^[0-9a-f]{16}$/i.test(String(right))) return null;
+  return bitCount64(BigInt(`0x${left}`) ^ BigInt(`0x${right}`));
+};
+
+export const luminanceStats = (bytes) => {
+  if (!bytes?.length) return {mean: 0, stddev: 0, nonBlackRatio: 0};
+  let sum = 0;
+  let nonBlack = 0;
+  for (const value of bytes) {
+    sum += value;
+    if (value >= 16) nonBlack += 1;
+  }
+  const mean = sum / bytes.length;
+  let variance = 0;
+  for (const value of bytes) variance += (value - mean) ** 2;
+  variance /= bytes.length;
+  return {
+    mean: Number(mean.toFixed(3)),
+    stddev: Number(Math.sqrt(variance).toFixed(3)),
+    nonBlackRatio: Number((nonBlack / bytes.length).toFixed(4)),
+  };
+};
+
+export const evaluateObjectivePixelProbe = ({luminance, nearestDHashDistance}) => {
+  const blockers = [];
+  const warnings = [];
+  if (
+    Number(luminance?.stddev) < OBJECTIVE_PIXEL_THRESHOLDS.minLumaStddev &&
+    Number(luminance?.nonBlackRatio) < OBJECTIVE_PIXEL_THRESHOLDS.minNonBlackRatio
+  ) {
+    blockers.push('Nahezu leeres/schwarzes Bild: zu wenig sichtbare Bildinformation.');
+  }
+  if (nearestDHashDistance !== null && nearestDHashDistance <= OBJECTIVE_PIXEL_THRESHOLDS.nearDuplicateDHashDistance) {
+    blockers.push(`Near-Duplicate erkannt: dHash-Distanz ${nearestDHashDistance}.`);
+  } else if (nearestDHashDistance !== null && nearestDHashDistance <= OBJECTIVE_PIXEL_THRESHOLDS.strongSimilarityWarningDistance) {
+    warnings.push(`Starke visuelle Ähnlichkeit: dHash-Distanz ${nearestDHashDistance}; Sequenz-Neuheit besonders streng prüfen.`);
+  }
+  return {status: blockers.length ? 'FAIL' : 'PASS', blockers, warnings};
 };
 
 export const expectedVisionQaForScene = (scene, {isCover = false} = {}) => ({
