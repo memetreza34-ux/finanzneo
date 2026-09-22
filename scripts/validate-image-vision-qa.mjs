@@ -84,6 +84,20 @@ for (const scene of selected) {
   if (result.imageFile !== imageFile) errors.push(`${scene.id}: Ergebnis referenziert falsche Bilddatei.`);
   if (result.imageSha256 !== currentHash) errors.push(`${scene.id}: PASS/FAIL gehört nicht zu den aktuellen Pixeln. Aktueller Hash: ${currentHash}.`);
 
+  const objective = request.objectivePixelQa;
+  if (!objective || objective.status !== 'PASS') {
+    errors.push(`${scene.id}: objektive Pixel-QA ist nicht PASS: ${(objective?.blockers ?? ['fehlender objektiver Pixel-Report']).join(' | ')}`);
+  }
+  if (typeof objective?.dHash !== 'string' || !/^[0-9a-f]{16}$/i.test(objective.dHash)) {
+    errors.push(`${scene.id}: objectivePixelQa.dHash fehlt oder ist ungültig.`);
+  }
+  for (const key of ['mean', 'stddev', 'nonBlackRatio']) {
+    if (!Number.isFinite(Number(objective?.luminance?.[key]))) errors.push(`${scene.id}: objectivePixelQa.luminance.${key} fehlt.`);
+  }
+  if (!Array.isArray(objective?.blockers) || !Array.isArray(objective?.warnings)) {
+    errors.push(`${scene.id}: objectivePixelQa blockers/warnings müssen Arrays sein.`);
+  }
+
   const comparisons = Array.isArray(request.compareAgainst) ? request.compareAgainst : [];
   for (const compared of comparisons) {
     const comparedScene = imageSceneById.get(compared.sceneId);
@@ -99,6 +113,9 @@ for (const scene of selected) {
     const currentComparedHash = await sha256Hex(readFileSync(comparedPath));
     if (currentComparedHash !== compared.imageSha256) {
       errors.push(`${scene.id}: Sequenzvergleich ist veraltet, weil ${compared.sceneId} inzwischen andere Pixel besitzt. Request und Vision-QA neu erstellen.`);
+    }
+    if (typeof compared.dHash !== 'string' || !/^[0-9a-f]{16}$/i.test(compared.dHash)) {
+      errors.push(`${scene.id}: Vergleichsreferenz ${compared.sceneId} hat keinen gültigen dHash.`);
     }
   }
 
@@ -135,5 +152,6 @@ if (errors.length > 0) {
 
 console.log(`\n✓ PIXEL-VISION-QA PASS: ${selected.length} IMAGE-Szene${selected.length === 1 ? '' : 'n'}`);
 console.log('✓ Jeder PASS gehört zum SHA-256-Hash der aktuellen echten Bildpixel.');
+console.log('✓ Objektive Pixel-QA hat Near-Duplicate-/Leerbild-Gates bestanden.');
 console.log('✓ Auch alle Bildhashes, auf denen der Sequenz-/Novelty-Vergleich basiert, sind noch aktuell.');
 console.log('✓ Plan-Match, Kamera, Handlung, Hook, Visual Interest, V9-Welt, Klarheit und Sequenz-Neuheit erfüllen die Mindestwerte.');
