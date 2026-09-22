@@ -5,8 +5,9 @@
 // Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
 // und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
 // Bildplanung V5 erweitert V4: erst die gesamte Bildfolge planen, dann Einzelprompts.
-// V5-Hardening erzwingt danach bewusste kreative Entscheidungen und einen kompilierten
-// Director-Brief direkt innerhalb jedes finalen IMAGE PROMPT.
+// V5-Hardening erzwingt bewusste kreative Entscheidungen und einen kompilierten Director-Brief.
+// V5.1 Dynamic Staging ergänzt Frame-Füllung, aktive Cause/Effect-Inszenierung,
+// Human Reaction, räumlichen Druck und Impact Composition.
 // Die globale V9-Bildwelt bleibt dabei unverändert gesperrt.
 
 import {spawnSync} from 'node:child_process';
@@ -53,9 +54,10 @@ const steps = [
   ['scripts/apply-visual-beat-contract.mjs', [target]],
   ['scripts/apply-future-cover-hook-v3.mjs', [target]],
   // Legacy bleibt im Repo: scripts/apply-future-image-storytelling-v4.mjs
-  // Neue Reels erhalten direkt V5, damit keine doppelten Planblöcke entstehen.
+  // Neue Reels erhalten direkt V5, Hardening und V5.1 Dynamic Staging.
   ['scripts/apply-future-image-storytelling-v5.mjs', [target]],
   ['scripts/apply-future-image-storytelling-v5-hardening.mjs', [target]],
+  ['scripts/apply-future-image-storytelling-v5-staging.mjs', [target]],
   ['scripts/apply-future-production-standard-v3.mjs', [target]],
   ['scripts/apply-future-reel-presentation-v1.mjs', [target]],
   ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', [target]],
@@ -74,11 +76,12 @@ console.log('\n✓ Neues Reel vollständig angelegt.');
 console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob.');
 console.log('  Bildwelt V9 bleibt unverändert gesperrt. Storytelling V5 plant zuerst die ganze Bildfolge und erst danach Einzelprompts.');
 console.log('  V5-Hardening: keine kreativen Defaults; Kamera, Energie, Licht, Klassen, Label-Budget und Interrupt werden bewusst gewählt.');
+console.log('  V5.1 Dynamic Staging: kein kleines Motiv im leeren Schwarz; aktive Handlung, sichtbare Konsequenz, räumlicher Druck und lesbare Human Reaction.');
+console.log('  V5.1 Impact Composition: spätestens innerhalb jedes 4-IMAGE-Fensters ein starker Perspektiv-/Raum-/Scale-Beat.');
 console.log('  Nach fertiger Phase-1-Bildplanung: npm run reel:image-prompts:compile -- <Reel-Pfad>.');
-console.log('  Der Compiler schreibt die V5-Regie direkt in jeden IMAGE PROMPT, damit Flow sie nicht aus Metadaten erraten muss.');
+console.log('  Der Compiler schreibt V5 + V5.1 direkt in jeden IMAGE PROMPT, damit Flow die Regie nicht aus Metadaten erraten muss.');
 console.log('  Grounded first, nicht literal-only: reale Finanzsituation bleibt sofort lesbar; abstrakte Rätsel bleiben verboten.');
 console.log('  V5 Anti-Wiederholung: Archetyp, Composition, Location, Kamera, Hauptmotiv, Human Presence und Table/Document-Muster werden sequenzweit gesteuert.');
-console.log('  V5 Energy Arc: frühe Hook-Energie, bewusste Peaks/Ruhe und spätestens nach zwei ruhigen Bildern ein Pattern Interrupt.');
 console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
 console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
@@ -86,6 +89,5 @@ console.log('  ANIMATION: individuelle Remotion-Hauptanimation + Header/Icon + C
 console.log('  Motion Direction: Inhalt -> Verständnisziel -> visuelle Frage -> individuelle Mechanik -> Technik.');
 console.log('  Source Diversity Guard: tatsächliche animation.tsx-Primitives werden verglichen; Metadaten allein reichen nicht.');
 console.log('  Animation Safe Zone: X72–1008 · Visual Y320–1400 · perspektivischer Innenabstand + Post-Render-Rand-QA.');
-console.log('  Lottie/Icons/SVG sind Support, nicht automatisch eine neue Hauptanimation.');
 console.log('  Audio V3: Candidate wird vor Render-QA auf -16 LUFS / -1 dBTP gemastert.');
 console.log('  Phase 3: Preflight + Render-QA + Edge-Band-QA + Export-Gate.');

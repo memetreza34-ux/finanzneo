@@ -15,6 +15,7 @@ import {
   luminanceStats,
   evaluateObjectivePixelProbe,
 } from './lib/image-vision-qa.mjs';
+import {V5_STAGING_ID} from './lib/image-storytelling-v5-staging.mjs';
 
 const args = process.argv.slice(2);
 const target = args.find((arg) => !arg.startsWith('--'));
@@ -38,6 +39,7 @@ if (index.imageStorytellingContract?.hardeningId !== 'finanzneo-image-storytelli
   console.log('✓ Kein gehärtetes V5-Reel; Pixel-Vision-QA übersprungen.');
   process.exit(0);
 }
+const dynamicStagingRequired = index.imageStorytellingContract?.stagingId === V5_STAGING_ID;
 
 const imageScenes = (Array.isArray(index.scenes) ? index.scenes : []).filter((scene) => scene?.type === 'image');
 const selected = sceneFilter ? imageScenes.filter((scene) => scene.id === sceneFilter) : imageScenes;
@@ -131,7 +133,13 @@ for (const scene of selected) {
 
   const imageSha256 = current.imageSha256;
   const isCover = index.cover?.sourceSceneId === scene.id || scene.id === 'scene-01';
-  const expected = expectedVisionQaForScene(scene, {isCover});
+  const expected = expectedVisionQaForScene(scene, {isCover, dynamicStagingRequired});
+  const dynamicReview = dynamicStagingRequired ? [
+    'V5.1: Check frame occupancy. Reject a small isolated subject floating in dominant empty black when the planned staging calls for a filled action or environment.',
+    'V5.1: Reject studio-showcase or neatly arranged catalog staging. Objects must be visibly used, collide, displace, block, drain, crowd, grow, shrink, repeat or otherwise show consequence as planned.',
+    'V5.1: Check spatial pressure and impact composition against expected: foreground overlap, POV, scale, environmental depth or reveal must be visibly present when requested.',
+    'V5.1: When humans or hands are visible, body language/hand posture/facial reaction must communicate the planned emotional reaction without melodrama.',
+  ] : [];
   const request = {
     contractId: IMAGE_VISION_QA_ID,
     evaluatorModeRequired: 'multimodal-pixel-review',
@@ -159,6 +167,7 @@ for (const scene of selected) {
       'Compare against the other generated images and score sequence novelty.',
       'Treat objectivePixelQa warnings as an explicit reason to scrutinize visual similarity and dead space.',
       'Count visible labels and reject headlines, sentences or text beyond the planned label budget.',
+      ...dynamicReview,
       'If any hard requirement fails, verdict must be REGENERATE and the same scene/file must be regenerated.',
     ],
     resultSchema: {
@@ -177,6 +186,12 @@ for (const scene of selected) {
         worldConsistency: '0-100',
         compositionClarity: '0-100',
         sequenceNovelty: '0-100',
+        ...(dynamicStagingRequired ? {
+          spatialStaging: '0-100',
+          causeEffectStrength: '0-100',
+          humanReactionReadability: '0-100; use 100 when HUMAN_PRESENCE=none and no human reaction is required',
+          impactComposition: '0-100',
+        } : {}),
       },
       flags: {
         photorealistic: false,
@@ -188,6 +203,13 @@ for (const scene of selected) {
         sceneMismatch: false,
         genericDeskScene: false,
         deadSpaceDominant: false,
+        ...(dynamicStagingRequired ? {
+          studioShowcaseLike: false,
+          objectsNeatlyArranged: false,
+          actionConsequenceWeak: false,
+          humanReactionWeak: false,
+          emptyBlackDominant: false,
+        } : {}),
       },
       observed: {
         cameraAngle: 'describe observed camera angle',
@@ -196,6 +218,12 @@ for (const scene of selected) {
         mainSubjectClass: 'describe observed main subject',
         dominantAction: 'describe the visible action',
         labelCount: 0,
+        ...(dynamicStagingRequired ? {
+          frameOccupancy: 'describe how much of the frame is actively used',
+          spatialStaging: 'describe foreground/main/background pressure and overlap',
+          humanReaction: 'describe visible body/hand/face reaction or none',
+          causeEffectEvidence: 'describe the physically visible consequence',
+        } : {}),
       },
       evidence: [
         'Concrete visible observation 1',
@@ -214,6 +242,7 @@ for (const scene of selected) {
 console.log(`✓ ${count} Pixel-Vision-QA-Request${count === 1 ? '' : 's'} vorbereitet.`);
 console.log('✓ Jeder Request ist an den SHA-256-Hash des tatsächlich erzeugten Bildes gebunden.');
 console.log('✓ Objektive Pixel-QA prüft zusätzlich Near-Duplicates und nahezu leere/schwarze Bilder.');
+if (dynamicStagingRequired) console.log('✓ V5.1-Vision-QA prüft zusätzlich Frame Occupancy, aktive Inszenierung, Cause/Effect, Human Reaction, Spatial Pressure und Impact Composition.');
 if (objectiveFailures.length > 0) {
   console.error('\n✗ OBJEKTIVE PIXEL-QA NICHT BESTANDEN:\n');
   objectiveFailures.forEach((error) => console.error(`- ${error}`));
