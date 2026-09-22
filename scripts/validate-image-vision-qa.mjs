@@ -35,6 +35,7 @@ if (index.imageStorytellingContract?.hardeningId !== 'finanzneo-image-storytelli
 }
 
 const imageScenes = (Array.isArray(index.scenes) ? index.scenes : []).filter((scene) => scene?.type === 'image');
+const imageSceneById = new Map(imageScenes.map((scene) => [scene.id, scene]));
 const selected = sceneFilter ? imageScenes.filter((scene) => scene.id === sceneFilter) : imageScenes;
 if (sceneFilter && selected.length === 0) {
   console.error(`IMAGE-Szene nicht gefunden: ${sceneFilter}`);
@@ -83,10 +84,28 @@ for (const scene of selected) {
   if (result.imageFile !== imageFile) errors.push(`${scene.id}: Ergebnis referenziert falsche Bilddatei.`);
   if (result.imageSha256 !== currentHash) errors.push(`${scene.id}: PASS/FAIL gehört nicht zu den aktuellen Pixeln. Aktueller Hash: ${currentHash}.`);
 
-  const expectedComparisonHashes = (request.compareAgainst ?? []).map((item) => item.imageSha256).sort();
+  const comparisons = Array.isArray(request.compareAgainst) ? request.compareAgainst : [];
+  for (const compared of comparisons) {
+    const comparedScene = imageSceneById.get(compared.sceneId);
+    if (!comparedScene || comparedScene.googleFlowFileName !== compared.imageFile) {
+      errors.push(`${scene.id}: Vergleichsreferenz ${compared.sceneId ?? 'unbekannt'} passt nicht mehr zum scene-index.`);
+      continue;
+    }
+    const comparedPath = resolve(root, IMAGE_INBOX, compared.imageFile);
+    if (!existsSync(comparedPath)) {
+      errors.push(`${scene.id}: verglichenes Bild fehlt inzwischen: ${compared.imageFile}.`);
+      continue;
+    }
+    const currentComparedHash = await sha256Hex(readFileSync(comparedPath));
+    if (currentComparedHash !== compared.imageSha256) {
+      errors.push(`${scene.id}: Sequenzvergleich ist veraltet, weil ${compared.sceneId} inzwischen andere Pixel besitzt. Request und Vision-QA neu erstellen.`);
+    }
+  }
+
+  const expectedComparisonHashes = comparisons.map((item) => item.imageSha256).sort();
   const reportedComparisonHashes = Array.isArray(result.comparedImageSha256) ? [...result.comparedImageSha256].sort() : [];
-  if (expectedComparisonHashes.length > 0 && JSON.stringify(reportedComparisonHashes) !== JSON.stringify(expectedComparisonHashes)) {
-    errors.push(`${scene.id}: Sequenzvergleich ist unvollständig oder bezieht sich auf veraltete Nachbarbilder.`);
+  if (JSON.stringify(reportedComparisonHashes) !== JSON.stringify(expectedComparisonHashes)) {
+    errors.push(`${scene.id}: Sequenzvergleich ist unvollständig oder bezieht sich auf andere Bildhashes als der QA-Request.`);
   }
 
   const expectedLabelBudget = Number(request.expected?.labelBudget ?? 0);
@@ -110,10 +129,11 @@ if (errors.length > 0) {
   console.error('\n✗ PIXEL-VISION-QA NICHT BESTANDEN:\n');
   errors.forEach((error) => console.error(`- ${error}`));
   if (sceneFilter) console.error(`\nREGENERATE_SAME_SCENE: ${sceneFilter}`);
-  else console.error('\nNur fehlgeschlagene IMAGE-Szenen neu erzeugen; ihre Bildnummer bleibt unverändert. Spätere Flow-Schritte bleiben bis PASS gesperrt.');
+  else console.error('\nNur fehlgeschlagene IMAGE-Szenen neu erzeugen oder veraltete QA erneut ausführen; ihre Bildnummer bleibt unverändert. Spätere Flow-Schritte bleiben bis PASS gesperrt.');
   process.exit(1);
 }
 
 console.log(`\n✓ PIXEL-VISION-QA PASS: ${selected.length} IMAGE-Szene${selected.length === 1 ? '' : 'n'}`);
 console.log('✓ Jeder PASS gehört zum SHA-256-Hash der aktuellen echten Bildpixel.');
+console.log('✓ Auch alle Bildhashes, auf denen der Sequenz-/Novelty-Vergleich basiert, sind noch aktuell.');
 console.log('✓ Plan-Match, Kamera, Handlung, Hook, Visual Interest, V9-Welt, Klarheit und Sequenz-Neuheit erfüllen die Mindestwerte.');
