@@ -21,6 +21,9 @@
 - Recherche + Quellen
 - anfängerfreundliches Skript
 - Szenenplan und V9-Flow-Prompts
+- für neue Reels: Sequence-first Image Storytelling V5 + Hardening
+- nach finaler Bildplanung: `npm run reel:image-prompts:compile -- <Reel-Pfad>`
+- anschließend `npm run reel:validate -- <Reel-Pfad>`
 - Header + Icons
 - fertige kanonische `animation.tsx` je Animationsszene
 - Sound-Cue-Plan
@@ -79,6 +82,37 @@ Ab scene-02: normaler SceneHeader + Icon + Captions.
 
 ## 6. Bilder / Google Flow
 
+Aktive Verträge für neue Reels:
+
+```text
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v5
+IMAGE_STORYTELLING_HARDENING: finanzneo-image-storytelling-v5-hardening-v1
+VISUAL_SEQUENCE_PLAN: finanzneo-visual-sequence-plan-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+```
+
+Vor Google Flow gilt:
+
+```text
+gesamte IMAGE-Sequenz planen
+→ keine kreativen Defaultwerte übernehmen
+→ Vielfalt über Archetyp / Komposition / Kamera / Ort / Hauptmotiv prüfen
+→ einzelne Prompts finalisieren
+→ reel:image-prompts:compile
+→ reel:validate
+```
+
+Der Compiler schreibt `V5_COMPILED_DIRECTION` direkt in den echten `IMAGE PROMPT`. Metadaten allein reichen nicht.
+
+Hardening-Regeln:
+- bei 4–5 IMAGE-Szenen mindestens 3 unterschiedliche Archetypen, Composition Families, Camera Angles, Location Classes und Main Subject Classes über die ganze Sequenz
+- bei 6+ IMAGE-Szenen gilt diese Mindestvielfalt in jedem gleitenden 6-IMAGE-Fenster
+- Pattern Interrupts müssen einen realen visuellen Wechsel abbilden
+- `LABEL_BUDGET` 0–2 ist Normalfall; 3 nur mit Begründung
+- `TABLE_DOCUMENT_SCENE=false` darf nicht offensichtlich einem Tisch-/Dokument-Hauptprompt widersprechen
+- Lighting Variation ist innerhalb V9 erlaubt; Deep Black und der gemeinsame Stylized-3D-Look bleiben gesperrt
+
+Ausführung:
 - exakt ein Bildjob gleichzeitig
 - warten → umbenennen → V9-QA → erst dann nächster Job
 - keine Batch-/Parallelgenerierung
