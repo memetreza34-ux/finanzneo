@@ -1,9 +1,7 @@
 // Verbindlicher Google-Flow-Vertrag — eine Quelle für alle Reels.
-//
-// V3 behebt einen echten Produktionsfehler: Ein Agent interpretierte den alten
-// "autonomen Gesamtdurchlauf" trotz "GENAU EIN Bild" als Batch-Auftrag und
-// startete mehrere Bilder auf einmal. Autonomie ist deshalb ausdrücklich eine
-// STATE MACHINE mit maximal EINEM laufenden Generierungsjob.
+// V3 bleibt eine Strict-Single-Job-State-Machine. Cover Anchor V1 ergänzt nur
+// die persistente visuelle Referenz: scene-01 wird zuerst freigegeben und ist
+// danach die einzige erlaubte Generierungsreferenz für alle Folge-Bilder.
 
 import {
   FLOW_AGENT_PROTOCOL_MARKER,
@@ -14,69 +12,67 @@ import {
   FLOW_STRUCTURE_LOCK_ID,
   FLOW_STRUCTURE_LOCK_MARKER,
 } from './reel-contract.mjs';
+import {COVER_ANCHOR_BLOCK_SIZE, COVER_ANCHOR_FLOW_ID} from './cover-anchor-flow-v1.mjs';
 
 const IMAGE_VISION_QA_ID = 'finanzneo-image-vision-qa-v1';
 
-/** Kopfblock: autonom bis zum Ende, aber NIEMALS Batch-Generierung. */
 export const AUTONOMY_BLOCK = [
   FLOW_EXECUTION_MODE_MARKER,
   FLOW_STRUCTURE_LOCK_MARKER,
   FLOW_STATE_MACHINE_MARKER,
   `POST_GENERATION_VISION_QA: ${IMAGE_VISION_QA_ID}`,
+  `COVER_ANCHOR_FLOW: ${COVER_ANCHOR_FLOW_ID}`,
+  `FOLLOWUP_PLAN_BLOCK_SIZE: ${COVER_ANCHOR_BLOCK_SIZE}`,
   '',
   'STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH',
-  '- DIES IST KEIN BATCH-AUFTRAG. DIE GESAMTE DATEI DARF NIEMALS ALS EIN MEHRBILD-PROMPT AUSGEFÜHRT WERDEN.',
-  '- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.',
-  '- STARTE NIEMALS MEHRERE BILDER, MEHRERE GENERIERUNGSJOBS ODER MEHRERE SZENEN IN EINEM SCHRITT / TOOL-CALL / BATCH.',
-  '- ERZEUGE KEINE GALERIE, KEINEN KONTAKTBOGEN, KEIN MULTI-PANEL, KEINE COLLAGE UND KEIN BILD MIT MEHREREN SZENEN.',
-  '- INITIAL IST NUR DER ERSTE BENÖTIGTE BILDBLOCK FREIGESCHALTET. ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT.',
-  '- EIN SPÄTERER BILDBLOCK DARF ERST FREIGESCHALTET WERDEN, WENN DAS AKTUELLE BILD: (1) vollständig zurückgegeben, (2) exakt umbenannt und (3) per echter Pixel-Vision-QA auf genau diesem Datei-Hash mit PASS geprüft wurde.',
-  '- PROMPT-/METADATEN-QA ALLEIN IST KEIN PIXEL-PASS. DER MULTIMODALE EVALUATOR MUSS DIE TATSÄCHLICH ERZEUGTE BILDDATEI SEHEN.',
-  '- WENN SICH DIE BILDDATEI ÄNDERT, IST DER ALTE QA-PASS UNGÜLTIG, WEIL DER SHA-256-HASH NICHT MEHR PASST.',
-  '- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE BILDBLOCK GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.',
-  '- NACH BESTANDENER PIXEL-QA WIRD GENAU DER NÄCHSTE BENÖTIGTE BILDBLOCK IN DOKUMENTREIHENFOLGE FREIGESCHALTET. NICHT VORHER.',
-  '- REMOTION-/ANIMATIONSNUMMERN WERDEN OHNE GENERIERUNG ÜBERSPRUNGEN.',
-  '- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTÄTIGUNG ODER FREIGABE DES NUTZERS.',
-  '- "WARTEN" BEDEUTET NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.',
-  '- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.',
-  '- STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.',
-  '- STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.',
+  '- DIES IST KEIN BATCH-AUFTRAG. MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.',
+  '- scene-01 IST ZUERST ZU ERZEUGEN. SIE IST GLEICHZEITIG ERSTE SZENE, COVER UND MASTER-REFERENZ.',
+  '- scene-01 MUSS VOLLSTÄNDIG ZURÜCKGEGEBEN, EXAKT UMBENANNT UND PER ECHTER PIXEL-/VISION-QA AUF GENAU DIESEM DATEI-HASH MIT PASS FREIGEGEBEN WERDEN.',
+  '- ERST NACH DIESEM PASS DARF DIE FERTIGE scene-01-DATEI ALS DIREKTE VISUELLE GENERIERUNGSREFERENZ FÜR SPÄTERE BILDER VERWENDET WERDEN.',
+  `- NACH DEM COVER WERDEN DIE FOLGE-BILDER IN PLANBLÖCKEN ZU MAXIMAL ${COVER_ANCHOR_BLOCK_SIZE} BILDERN ORGANISIERT. DAS IST NUR PLANUNG; DIE GENERIERUNG BLEIBT STRENG EINZELN.`,
+  '- FÜR JEDES FOLGE-BILD: COVER-REFERENZ ANHÄNGEN/ALS VISUELLE VORLAGE VERWENDEN, DANN GENAU EINEN BILDJOB STARTEN.',
+  '- DIE COVER-REFERENZ STEUERT ART-DIRECTION, FIGUREN-/FORMENSPRACHE, MATERIALIEN, TEXTUREN, LICHT, FARBWIRKUNG, UMGEBUNGSRENDERING UND FINISH-QUALITÄT.',
+  '- DIE COVER-REFERENZ DARF NICHT DIE EIGENE SZENENIDEE, KAMERA, KOMPOSITION, POSE ODER REQUISITEN KOPIEREN. DER AKTUELLE SZENENPROMPT BLEIBT INHALTLICH PRIMÄR.',
+  '- KEIN ANDERES VORHERIGES BILD DARF ALS PERSISTENTE GENERIERUNGSREFERENZ VERWENDET WERDEN. ANDERE BILDER DIENEN NUR DEM QA-/NOVELTY-VERGLEICH.',
+  '- NACH JEDEM BILD: VOLLSTÄNDIG WARTEN → SOFORT EXAKT UMBENENNEN → IN DEN GEMEINSAMEN BILDORDNER LEGEN → PIXEL-/VISION-QA → ERST DANN NÄCHSTES BILD.',
+  '- WENN QA FEHLSCHLÄGT, BLEIBT DIESELBE BILDNUMMER AKTIV. NUR DIESE DATEI NEU GENERIEREN.',
+  '- ERZEUGE KEINE GALERIE, KEINEN KONTAKTBOGEN, KEIN MULTI-PANEL, KEINE COLLAGE UND KEINEN MEHRBILD-JOB.',
+  '- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY" ODER NUTZERFREIGABE ZWISCHEN DEN BILDERN.',
+  '- STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER, Z. B. WENN DIE VERBINDLICHE COVER-REFERENZ FÜR FOLGEBILDER NICHT VERWENDET WERDEN KANN.',
   '',
 ].join('\n');
 
-/** Schrittfolge für den Agenten. */
 export const FLOW_AGENT_BLOCK = [
   FLOW_AGENT_PROTOCOL_MARKER,
   '',
-  'AUSFÜHRUNGSPROTOKOLL — STATE MACHINE, NICHT BATCH:',
-  '0. Betrachte spätere Bildblöcke zunächst nur als GESPERRTE DATEN. Sie sind noch KEINE ausführbaren Bildaufträge.',
-  '1. Setze ACTIVE_STEP auf den ersten benötigten Bildblock in Dokumentreihenfolge.',
-  '2. Nimm AUSSCHLIESSLICH den BILDPROMPT von ACTIVE_STEP. Sende niemals Text aus mehreren Bildblöcken gemeinsam an die Bildgenerierung.',
-  '3. Starte GENAU EINEN Bildgenerierungsjob für ACTIVE_STEP. MAX_CONCURRENT_GENERATIONS = 1.',
-  '4. Starte KEINEN weiteren Job, solange dieser Job läuft oder noch kein Ergebnis zurückgegeben wurde.',
-  '5. Sobald das einzelne Bild zurückgegeben wurde: benenne DIESE Datei SOFORT exakt auf den vorgegebenen finalen Dateinamen um und lege sie in 03-szenen/00-ALLE-BILDER-HIER-REIN/ ab.',
-  '6. Erzeuge danach den hashgebundenen QA-Request: npm run reel:image-vision:prepare -- <REEL-PFAD> --scene <ACTIVE_SCENE_ID>.',
-  '7. PIXEL-QA: Ein multimodaler Evaluator muss die tatsächliche Bilddatei öffnen/sehen und gegen den Request prüfen: Sprechbeat/Regie, Hauptaktion, Kamera/Shot Scale, Ort/Hauptmotiv, Hook, Visual Interest, V9-Welt, Deep Black, Text/Labels, Klarheit und visuelle Neuheit gegenüber den bereits erzeugten Bildern. Nur Prompttext zu lesen ist verboten.',
-  '8. Schreibe das Ergebnis exakt in die im Request genannte results/<scene>.json und führe aus: npm run reel:image-vision:validate -- <REEL-PFAD> --scene <ACTIVE_SCENE_ID>.',
-  '9. QA FEHLER / REGENERATE: ACTIVE_STEP bleibt unverändert. Erzeuge ausschließlich dieselbe Bildnummer neu, ersetze die Datei, erzeuge wegen des neuen SHA-256-Hashs einen neuen Request und prüfe erneut. Alle späteren Schritte bleiben gesperrt.',
-  '10. QA BESTANDEN: markiere ACTIVE_STEP als DONE. Erst JETZT darfst du den nächsten benötigten Bildblock in Dokumentreihenfolge freischalten.',
-  '11. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Bildjob überspringen und zum nächsten benötigten Bildblock gehen.',
-  '12. Wiederhole 2–11, bis jedes erwartete Bild einzeln DONE ist. Keine Nutzerfreigabe dazwischen.',
-  '13. Erst NACH Abschluss aller Einzeljobs darfst du eine Abschlusszusammenfassung über alle finalen Dateien geben.',
-  '14. Keine Bildreferenz verwenden. Kein vorheriges Bild als Generierungsreferenz hochladen oder anhängen; vorherige Bilder dürfen ausschließlich für den QA-Vergleich betrachtet werden.',
+  'AUSFÜHRUNGSPROTOKOLL — COVER-ANCHOR + STATE MACHINE:',
+  '0. Betrachte spätere Bildblöcke zunächst nur als gesperrte Daten.',
+  '1. Erzeuge scene-01 zuerst und allein. Sie ist das Cover und der Master Visual Anchor.',
+  '2. Nimm ausschließlich den BILDPROMPT von scene-01. Starte genau EINEN Bildgenerierungsjob.',
+  '3. Warte intern auf das einzelne Ergebnis, benenne es sofort exakt um und lege es in 03-szenen/00-ALLE-BILDER-HIER-REIN/ ab.',
+  '4. Erzeuge den hashgebundenen QA-Request und führe die echte multimodale Pixelprüfung aus. Ohne PASS ist der Anchor NICHT freigegeben.',
+  '5. Bei FAIL: nur scene-01 neu erzeugen. Bei PASS: APPROVED_COVER_ANCHOR auf genau diese Datei/diesen Hash setzen.',
+  `6. Organisiere danach die nächsten benötigten IMAGE-Szenen in einem Planblock von höchstens ${COVER_ANCHOR_BLOCK_SIZE} Bildern. Diese fünf dürfen gemeinsam auf Konsistenz geplant, aber niemals gemeinsam generiert werden.`,
+  '7. Setze ACTIVE_STEP auf das erste Bild dieses Blocks. Verwende die freigegebene scene-01-Datei als direkte visuelle Referenz/Vorlage für diesen EINEN Generierungsjob.',
+  '8. Nimm ausschließlich den BILDPROMPT von ACTIVE_STEP. Die Referenz gibt nur die visuelle DNA vor; Inhalt, Kamera und Komposition kommen aus ACTIVE_STEP.',
+  '9. Starte genau EINEN Bildgenerierungsjob. Keine Queue und kein Paralleljob.',
+  '10. Nach Rückgabe: sofort exakt umbenennen und in 03-szenen/00-ALLE-BILDER-HIER-REIN/ ablegen.',
+  '11. Pixel-/Vision-QA gegen den aktuellen Prompt UND gegen die freigegebene Cover-Referenz ausführen.',
+  '12. Bei REGENERATE: ACTIVE_STEP bleibt gleich. Nur dieselbe Bildnummer neu erzeugen, weiterhin mit derselben freigegebenen Cover-Referenz.',
+  '13. Bei PASS: ACTIVE_STEP DONE; erst jetzt den nächsten Einzeljob desselben 5er-Planblocks starten.',
+  '14. Nach maximal fünf bestandenen Folge-Bildern den nächsten Planblock von maximal fünf Bildern bilden und identisch fortfahren.',
+  '15. REMOTION-/ANIMATIONSNUMMERN ohne Bildjob überspringen. Nach dem letzten Bild Abschlusszusammenfassung geben.',
   '',
   'HART VERBOTEN:',
   '- mehrere Bilder in einem Generierungsaufruf',
-  '- mehrere Bildprompts zusammenfassen',
-  '- Bilder vorab in eine Queue stellen',
+  '- mehrere Bildprompts gemeinsam an die Generierung senden',
+  '- Folge-Bilder ohne freigegebenes scene-01-Referenzbild generieren',
+  '- ein anderes Folge-Bild statt scene-01 als persistente Stilreferenz verwenden',
   '- alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen',
-  '- Kontaktbogen / Galerie / Collage / Multi-Panel als Ersatz für Einzelbilder',
   '- QA-PASS ohne Sichtprüfung der echten Bildpixel',
-  '- Wiederverwendung eines QA-PASS für eine Datei mit anderem SHA-256-Hash',
   '',
 ].join('\n');
 
-/** googleFlow-Felder im scene-index. */
 export const flowAutonomyFields = () => ({
   executionModeId: FLOW_EXECUTION_MODE_ID,
   stateMachineId: FLOW_STATE_MACHINE_ID,
@@ -97,6 +93,13 @@ export const flowAutonomyFields = () => ({
   visionQaBoundToImageSha256: true,
   nextStepLockedUntilVisionQaPass: true,
   regenerateSameSceneOnVisionQaFail: true,
+  coverAnchorFlowId: COVER_ANCHOR_FLOW_ID,
+  coverAnchorSourceSceneId: 'scene-01',
+  coverAnchorQaPassRequiredBeforeFollowups: true,
+  followupPlanBlockSize: COVER_ANCHOR_BLOCK_SIZE,
+  followupGenerationStillSingleJob: true,
+  approvedCoverImageReferenceRequiredForFollowups: true,
+  onlyCoverMayBePersistentGenerationReference: true,
   userContinueSignalForbidden: true,
   userApprovalBetweenImagesForbidden: true,
   internalWaitForGenerationOnly: true,
@@ -107,7 +110,6 @@ export const flowAutonomyFields = () => ({
   preserveStyleThroughLastImage: true,
 });
 
-/** Bestandsreels sprachlich auf V3 heben. */
 export const modernizeLegacyWaitWording = (master) => master
   .replaceAll('AUTONOMER GESAMTDURCHLAUF — VERBINDLICH', 'STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH')
   .replaceAll('1. Lies die gesamte Datei einmal, arbeite danach strikt von oben nach unten immer nur am aktuellen Bildblock.', '0. Betrachte spätere Bildblöcke zunächst nur als GESPERRTE DATEN. Sie sind noch KEINE ausführbaren Bildaufträge.')
@@ -115,4 +117,5 @@ export const modernizeLegacyWaitWording = (master) => master
   .replaceAll('3. Vollständig warten.', '2. INTERN auf die Rückgabe dieses einzelnen Bildjobs warten; keinen weiteren Job starten.')
   .replaceAll('3. Warte, bis dieses eine Bild vollständig erzeugt ist.', '2. INTERN auf die Rückgabe dieses einzelnen Bildjobs warten; keinen weiteren Job starten.')
   .replaceAll('7. Erst nach bestandener QA das nächste Bild.', '7. Erst nach bestandener Pixel-Vision-QA den nächsten Bildblock freischalten; vorher bleibt er gesperrt.')
-  .replaceAll('7. Erst nach bestandener QA darf der nächste Bildblock beginnen.', '7. Erst nach bestandener Pixel-Vision-QA den nächsten Bildblock freischalten; vorher bleibt er gesperrt.');
+  .replaceAll('7. Erst nach bestandener QA darf der nächste Bildblock beginnen.', '7. Erst nach bestandener Pixel-Vision-QA den nächsten Bildblock freischalten; vorher bleibt er gesperrt.')
+  .replaceAll('14. Keine Bildreferenz verwenden. Kein vorheriges Bild als Generierungsreferenz hochladen oder anhängen; vorherige Bilder dürfen ausschließlich für den QA-Vergleich betrachtet werden.', '14. Nach PASS von scene-01 genau diese Datei als einzige persistente Generierungsreferenz für alle Folge-Bilder verwenden; andere Bilder nur für QA vergleichen.');
