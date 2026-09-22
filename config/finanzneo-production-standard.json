@@ -18,9 +18,13 @@
   "imageStorytelling": {
     "id": "finanzneo-image-storytelling-v5",
     "hardeningId": "finanzneo-image-storytelling-v5-hardening-v1",
+    "stagingId": "finanzneo-image-storytelling-v5-staging-v1",
     "sequencePlanId": "finanzneo-visual-sequence-plan-v1",
+    "stagingApply": "scripts/apply-future-image-storytelling-v5-staging.mjs",
     "compiler": "scripts/compile-future-image-prompts-v5.mjs",
-    "validator": "scripts/validate-future-image-storytelling-v5-hardening.mjs"
+    "validator": "scripts/validate-future-image-storytelling-v5-hardening.mjs",
+    "stagingValidator": "scripts/validate-future-image-storytelling-v5-staging.mjs",
+    "visionQa": "scripts/validate-image-vision-qa.mjs"
   },
   "flow": {
     "id": "finanzneo-flow-strict-single-job-v3",
