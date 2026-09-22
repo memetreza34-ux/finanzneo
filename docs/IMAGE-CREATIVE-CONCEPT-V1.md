@@ -14,20 +14,20 @@ Contract: `finanzneo-image-creative-concept-v1`
 
 Es gibt keine Pflichtquote für Personen, Cause/Effect, mehrere Objekte, Impact-Shots oder Fantasie.
 
-Ein Bild darf sein:
+Kanonische `CONCEPT_MODE`-Werte:
 
-- ein einziges ikonisches Objekt
-- eine Objektinteraktion
-- ein Charakter-Moment
-- POV
-- eine reale Umgebung
-- ein Vergleich
-- eine visuelle Metapher
-- kontrollierte Fantasie
-- eine Visualisierung eines Gedankens/Gefühls
-- Cause/Effect
-- Reveal
-- Payoff
+- `single-iconic-object` – ein einziges ikonisches Objekt
+- `object-interaction` – eine Objektinteraktion
+- `character-moment` – ein Charakter-Moment
+- `pov-moment` – POV / Zuschauer mitten in der Situation
+- `real-environment` – eine reale Umgebung trägt die Aussage
+- `comparison` – ein direkter Vergleich
+- `visual-metaphor` – eine sofort verständliche visuelle Metapher
+- `controlled-fantasy` – kontrollierte Fantasie mit klarem Realitätsanker
+- `thought-visualization` – Visualisierung eines Gedankens oder Gefühls
+- `cause-effect` – sichtbare Ursache und Wirkung
+- `reveal` – visuelle Enthüllung
+- `payoff` – klarer visueller Abschluss
 
 Minimalismus ist erlaubt. Komplexität ist erlaubt. Entscheidend ist, ob das Bild den exakten Beat besser macht.
 
