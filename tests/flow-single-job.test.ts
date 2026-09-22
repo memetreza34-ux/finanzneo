@@ -14,7 +14,7 @@ test('Flow-Autonomievertrag verbietet Batch und erzwingt Concurrency 1', () => {
   assert.match(FLOW_AGENT_BLOCK, /Keine Queue und kein Paralleljob/);
   assert.match(FLOW_AGENT_BLOCK, /reel:image-vision:prepare/);
   assert.match(FLOW_AGENT_BLOCK, /reel:image-vision:validate/);
-  assert.match(FLOW_AGENT_BLOCK, /tatsächliche Bilddatei/);
+  assert.match(FLOW_AGENT_BLOCK, /tatsächlichen Bilddatei/);
   assert.match(FLOW_AGENT_BLOCK, /QA-PASS ohne Sichtprüfung der echten Bildpixel/);
   assert.match(FLOW_AGENT_BLOCK, /mehrere Bilder in einem Generierungsaufruf/);
   assert.match(FLOW_AGENT_BLOCK, /alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen/);
