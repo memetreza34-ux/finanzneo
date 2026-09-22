@@ -1,0 +1,35 @@
+{
+  "id": "cover-anchor-flow-v1-test-01",
+  "production": false,
+  "publishable": false,
+  "topic": "Warum kleine Monatsraten dein Budget auffressen können",
+  "contract": "finanzneo-cover-anchor-flow-v1",
+  "anchor": {
+    "scene": "image-01",
+    "file": "Bild 01 - Cover - Kleine Raten.png",
+    "mustGenerateFirst": true,
+    "mustPassBeforeFollowups": true,
+    "usedAsDirectVisualReferenceForFollowups": true
+  },
+  "followupPlanning": {
+    "blockSize": 5,
+    "block1": ["image-02", "image-03", "image-04", "image-05", "image-06"],
+    "generationMode": "strict-single-job",
+    "maxConcurrentGenerations": 1
+  },
+  "images": [
+    {"id":"image-01","role":"cover-anchor","concept":"character + controlled visual tension","file":"Bild 01 - Cover - Kleine Raten.png"},
+    {"id":"image-02","role":"followup","concept":"POV checkout","file":"Bild 02 - 29 Euro wirken klein.png"},
+    {"id":"image-03","role":"followup","concept":"single iconic object","file":"Bild 03 - Viele kleine Raten.png"},
+    {"id":"image-04","role":"followup","concept":"character moment","file":"Bild 04 - Monat wird eng.png"},
+    {"id":"image-05","role":"followup","concept":"controlled metaphor","file":"Bild 05 - Jeden Monat ein Biss.png"},
+    {"id":"image-06","role":"followup","concept":"real payoff","file":"Bild 06 - Wieder Luft im Budget.png"}
+  ],
+  "evaluation": [
+    "Do all six images feel like the same art-directed series?",
+    "Does image 01 establish a distinctive visual DNA rather than generic AI 3D?",
+    "Do images 02-06 inherit style/material/lighting/character language without copying composition?",
+    "Are the five follow-ups still visually varied and entertaining?",
+    "Would the set still look coherent when shown together without captions?"
+  ]
+}
