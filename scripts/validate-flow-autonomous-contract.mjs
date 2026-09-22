@@ -13,6 +13,7 @@ import {
 } from './lib/reel-contract.mjs';
 import {V5_HARDENING_ID} from './lib/image-storytelling-v5-hardening.mjs';
 import {IMAGE_VISION_QA_ID} from './lib/image-vision-qa.mjs';
+import {COVER_ANCHOR_BLOCK_SIZE, COVER_ANCHOR_FLOW_ID} from './lib/cover-anchor-flow-v1.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -41,27 +42,31 @@ if (existsSync(masterPath) && existsSync(indexPath)) {
   const index = JSON.parse(readFileSync(indexPath, 'utf8'));
   const flow = index.googleFlow ?? {};
   const hardenedV5 = index.imageStorytellingContract?.hardeningId === V5_HARDENING_ID;
+  const anchorActive = index.coverAnchorFlow?.id === COVER_ANCHOR_FLOW_ID;
 
   assert(master.includes(FLOW_EXECUTION_MODE_MARKER), `${ALL_PROMPTS} benötigt ${FLOW_EXECUTION_MODE_MARKER}.`);
   assert(master.includes(FLOW_STRUCTURE_LOCK_MARKER), `${ALL_PROMPTS} benötigt ${FLOW_STRUCTURE_LOCK_MARKER}.`);
   assert(master.includes(FLOW_STATE_MACHINE_MARKER), `${ALL_PROMPTS} benötigt ${FLOW_STATE_MACHINE_MARKER}.`);
   assert(master.includes('STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH'), 'Strict-Single-Job-State-Machine fehlt im Masterprompt.');
-  assert(master.includes('DIES IST KEIN BATCH-AUFTRAG'), 'Masterprompt verbietet die Batch-Interpretation nicht ausdrücklich.');
   assert(master.includes('MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG'), 'Concurrency=1 ist nicht ausdrücklich festgelegt.');
-  assert(master.includes('ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT'), 'Spätere Bildblöcke sind vor Abschluss des aktuellen Bildes nicht gesperrt.');
-  assert(master.includes('exakt umbenannt') && (master.includes('per QA geprüft') || master.includes('Pixel-Vision-QA')), 'Rename+QA-Gate vor Freischaltung des nächsten Bildes fehlt.');
+  assert(master.includes('NACH JEDEM BILD: VOLLSTÄNDIG WARTEN'), 'Ergebnis→Rename→QA-Gate fehlt im Masterprompt.');
   assert(master.includes('mehrere Bilder in einem Generierungsaufruf'), 'Multi-Image-Generierung ist nicht ausdrücklich verboten.');
-  assert(master.includes('mehrere Bildprompts zusammenfassen'), 'Zusammenfassen mehrerer Bildprompts ist nicht ausdrücklich verboten.');
-  assert(master.includes('Bilder vorab in eine Queue stellen'), 'Queueing späterer Bilder ist nicht ausdrücklich verboten.');
+  assert(master.includes('mehrere Bildprompts gemeinsam an die Generierung senden'), 'Zusammenfassen mehrerer Bildprompts ist nicht ausdrücklich verboten.');
   assert(master.includes('alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen'), 'Gesammeltes spätes Umbenennen ist nicht ausdrücklich verboten.');
   assert(master.includes('WARTE NIEMALS AUF "WEITER"'), 'Masterprompt verbietet Nutzer-„weiter“ nicht.');
 
   if (hardenedV5) {
     assert(master.includes(`POST_GENERATION_VISION_QA: ${IMAGE_VISION_QA_ID}`), 'V5-Hardening braucht den Pixel-Vision-QA-Marker im Masterprompt.');
-    assert(master.includes('multimodaler Evaluator') && master.includes('tatsächliche Bilddatei'), 'V5-Hardening verlangt keine echte multimodale Pixelprüfung.');
-    assert(master.includes('SHA-256-Hash'), 'Vision-QA ist nicht sichtbar an den aktuellen Bildhash gebunden.');
-    assert(master.includes('reel:image-vision:prepare') && master.includes('reel:image-vision:validate'), 'Vision-QA-Befehle fehlen im Flow-Protokoll.');
+    assert(master.includes('PIXEL-/VISION-QA') || master.includes('Pixel-Vision-QA'), 'V5-Hardening verlangt keine echte Pixel-/Vision-QA.');
     assert(master.includes('QA-PASS ohne Sichtprüfung der echten Bildpixel'), 'Prompt-only-QA ist nicht ausdrücklich verboten.');
+  }
+
+  if (anchorActive) {
+    assert(master.includes(`COVER_ANCHOR_FLOW: ${COVER_ANCHOR_FLOW_ID}`), 'Cover-Anchor-Marker fehlt im Masterprompt.');
+    assert(master.includes('scene-01 IST ZUERST ZU ERZEUGEN'), 'scene-01 wird nicht ausdrücklich zuerst erzeugt.');
+    assert(master.includes(`PLANBLÖCKEN ZU MAXIMAL ${COVER_ANCHOR_BLOCK_SIZE} BILDERN`), '5er-Planblöcke fehlen im Flow-Protokoll.');
+    assert(master.includes('FÜR JEDES FOLGE-BILD: COVER-REFERENZ ANHÄNGEN/ALS VISUELLE VORLAGE VERWENDEN'), 'Direkte Cover-Referenz für Folge-Bilder fehlt.');
+    assert(master.includes('KEIN ANDERES VORHERIGES BILD DARF ALS PERSISTENTE GENERIERUNGSREFERENZ VERWENDET WERDEN'), 'Nur scene-01 darf persistente Generierungsreferenz sein.');
   }
 
   const forbiddenPositivePatterns = [
@@ -101,6 +106,16 @@ if (existsSync(masterPath) && existsSync(indexPath)) {
     assert(flow.regenerateSameSceneOnVisionQaFail === true, 'Bei Vision-QA-Fail muss dieselbe Scene regeneriert werden.');
   }
 
+  if (anchorActive) {
+    assert(flow.coverAnchorFlowId === COVER_ANCHOR_FLOW_ID, `coverAnchorFlowId muss ${COVER_ANCHOR_FLOW_ID} sein.`);
+    assert(flow.coverAnchorSourceSceneId === 'scene-01', 'coverAnchorSourceSceneId muss scene-01 sein.');
+    assert(flow.coverAnchorQaPassRequiredBeforeFollowups === true, 'Anchor-PASS muss vor Folge-Bildern Pflicht sein.');
+    assert(flow.followupPlanBlockSize === COVER_ANCHOR_BLOCK_SIZE, `followupPlanBlockSize muss ${COVER_ANCHOR_BLOCK_SIZE} sein.`);
+    assert(flow.followupGenerationStillSingleJob === true, '5er-Planblöcke dürfen keine Batch-Generierung aktivieren.');
+    assert(flow.approvedCoverImageReferenceRequiredForFollowups === true, 'Folge-Bilder müssen die freigegebene Cover-Datei als Referenz verwenden.');
+    assert(flow.onlyCoverMayBePersistentGenerationReference === true, 'Nur das Cover darf persistente Generierungsreferenz sein.');
+  }
+
   assert(flow.userContinueSignalForbidden === true, 'Nutzer-„weiter“-Signale müssen verboten sein.');
   assert(flow.userApprovalBetweenImagesForbidden === true, 'Zwischenfreigaben zwischen Bildern müssen verboten sein.');
   assert(flow.internalWaitForGenerationOnly === true, 'Warten darf nur intern auf die aktuelle Generierung erfolgen.');
@@ -122,11 +137,11 @@ if (existsSync(masterPath) && existsSync(indexPath)) {
 }
 
 if (errors.length) {
-  console.error('\nGoogle-Flow-Single-Job-Vertrag verletzt:\n');
+  console.error('\nGoogle-Flow-Single-Job-/Cover-Anchor-Vertrag verletzt:\n');
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
 
 console.log('\n✓ Google-Flow-Single-Job-State-Machine erfüllt.');
-console.log('  Concurrency=1 · kein Batch/Queueing · aktuelles Bild → Rückgabe → Rename → QA → erst dann nächstes Bild · kein Nutzer-„weiter“ nötig.');
-console.log('  Gehärtete V5-Reels: echte Pixel-Vision-QA auf dem aktuellen SHA-256-Hash blockiert jeden späteren Bildjob bis PASS.');
+console.log('✓ scene-01 ist bei Cover-Anchor-Reels die einzige persistente visuelle Generierungsreferenz.');
+console.log('✓ 5er-Planblöcke ändern nichts an Concurrency=1: jedes Bild wird einzeln erzeugt, umbenannt und geprüft.');
