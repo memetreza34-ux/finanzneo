@@ -124,6 +124,7 @@ GENAU EIN Flow-Bild erzeugen
 → vollständig warten
 → exakt umbenennen und im gemeinsamen Bilderordner ablegen
 → reel:image-vision:prepare für genau diese scene-XX
+→ objektive Pixelprobe muss PASS sein
 → multimodaler Evaluator öffnet die echte Bilddatei
 → Result mit konkreter Pixel-Evidenz schreiben
 → reel:image-vision:validate für genau diese scene-XX
@@ -132,6 +133,8 @@ GENAU EIN Flow-Bild erzeugen
 ```
 
 Der QA-Request ist an den SHA-256-Hash der Bilddatei gebunden. Wird ein Bild ersetzt oder regeneriert, ist ein alter PASS automatisch ungültig. Ein Prompt-only-Review oder die bloße Aussage „V5 ist ausgefüllt“ darf niemals als Pixel-QA gelten.
+
+Vor dem multimodalen Review läuft zusätzlich eine **objektive Pixelprobe** auf den echten Bilddaten. Sie blockiert nahezu leere/schwarze Bilder und visuell nahezu identische Bilder per dHash. Starke, aber nicht harte Ähnlichkeit wird als Warnsignal in den QA-Request geschrieben und muss bei `sequenceNovelty` besonders streng bewertet werden. Diese Heuristik ersetzt die multimodale Prüfung nicht; beide Stufen müssen bestehen.
 
 Pixel-QA bewertet mindestens: Plan-/Beat-Match, Kamera/Shot Scale, sichtbare Handlung, Hook, Visual Interest, V9-Welt, Kompositionsklarheit, Label-Budget und visuelle Neuheit gegenüber den bereits erzeugten Bildern. Photorealismus, generisches Finance-Icon-Hauptmotiv, statische Katalogszene, falscher Hintergrund, unzulässiger Bildtext oder Szenen-Mismatch sind Hard Fails.
 
@@ -195,7 +198,7 @@ npm run reel:phase3:preflight -- <Reel-Pfad>
 npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 ```
 
-`reel:ready` verlangt für neue V5-Hardening-Reels zusätzlich vollständige `finanzneo-image-vision-qa-v1`-PASS-Reports, deren SHA-256 jeweils exakt zur aktuellen Bilddatei passt.
+`reel:ready` verlangt für neue V5-Hardening-Reels zusätzlich vollständige `finanzneo-image-vision-qa-v1`-PASS-Reports, deren SHA-256 jeweils exakt zur aktuellen Bilddatei passt. Die objektive Pixelprobe muss ebenfalls PASS sein.
 
 `reel:render` erzeugt Candidate → Audio-Mastering → Render-QA → Presentation/Occupancy-QA → Edge-Band-QA → finalen Export.
 
