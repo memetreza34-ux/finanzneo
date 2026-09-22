@@ -10,9 +10,16 @@ import {
   validateSemanticAssessment,
 } from './lib/post-generation-image-qa-v1.mjs';
 
-const [target] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const fileIndex = args.indexOf('--file');
+const requestedFile = fileIndex === -1 ? null : args[fileIndex + 1] ?? null;
+const target = args.find((arg, index) => !arg.startsWith('--') && index !== fileIndex + 1);
 if (!target) {
-  console.error('Nutzung: npm run reel:image-qa:validate -- reels/<Woche>/<Tag>/<Reel>');
+  console.error('Nutzung: npm run reel:image-qa:validate -- reels/<Woche>/<Tag>/<Reel> [--file <Bilddatei>]');
+  process.exit(1);
+}
+if (fileIndex !== -1 && !requestedFile) {
+  console.error('--file braucht einen Dateinamen.');
   process.exit(1);
 }
 const root = resolve(target);
@@ -30,7 +37,7 @@ const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const report = JSON.parse(readFileSync(reportPath, 'utf8'));
 if (report.id !== POST_GENERATION_QA_ID) fail(`QA-ID muss ${POST_GENERATION_QA_ID} sein.`);
 if (Number(report.pixelQaVersion) !== PIXEL_QA_VERSION) fail(`pixelQaVersion muss ${PIXEL_QA_VERSION} sein.`);
-for (const key of ['semanticQaMustInspectActualPixels', 'doNotInferFromPromptOrFileName', 'failMeansRegenerateSameImageNumber', 'doNotAdvanceSingleJobQueueOnFail']) {
+for (const key of ['semanticQaMustInspectActualPixels', 'doNotInferFromPromptOrFileName', 'failMeansRegenerateSameImageNumber', 'doNotAdvanceSingleJobQueueOnFail', 'semanticPassInvalidatedWhenPixelsChange']) {
   if (report.instructions?.[key] !== true) fail(`instructions.${key} muss true sein.`);
 }
 const expected = [];
@@ -39,8 +46,12 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   if (scene?.type !== 'image' || typeof scene.googleFlowFileName !== 'string') continue;
   if (!expected.some((entry) => entry.fileName === scene.googleFlowFileName)) expected.push({sceneId: scene.id, fileName: scene.googleFlowFileName});
 }
+if (requestedFile && !expected.some((entry) => entry.fileName === requestedFile)) {
+  fail(`--file ist kein erwartetes Flow-Bild dieses Reels: ${requestedFile}`);
+}
+const scope = requestedFile ? expected.filter((entry) => entry.fileName === requestedFile) : expected;
 const entries = Array.isArray(report.images) ? report.images : [];
-for (const item of expected) {
+for (const item of scope) {
   const entry = entries.find((candidate) => candidate?.fileName === item.fileName);
   if (!entry) {
     fail(`${item.sceneId}: QA-Eintrag für ${item.fileName} fehlt.`);
@@ -52,8 +63,10 @@ for (const item of expected) {
   for (const error of validateSemanticAssessment(entry.semanticQa)) fail(`${item.sceneId}: ${error}`);
   if (entry.semanticQa?.fileName !== item.fileName) fail(`${item.sceneId}: semanticQa.fileName passt nicht zum Bild.`);
 }
-for (const entry of entries) {
-  if (!expected.some((item) => item.fileName === entry?.fileName)) fail(`QA enthält unerwartetes Bild: ${entry?.fileName ?? '<ohne Dateiname>'}`);
+if (!requestedFile) {
+  for (const entry of entries) {
+    if (!expected.some((item) => item.fileName === entry?.fileName)) fail(`QA enthält unerwartetes Bild: ${entry?.fileName ?? '<ohne Dateiname>'}`);
+  }
 }
 if (errors.length) {
   console.error('\nPost-Generation Image QA nicht bestanden:\n');
@@ -61,5 +74,6 @@ if (errors.length) {
   console.error('\nFAIL bedeutet: dieselbe Bildnummer in Flow neu generieren und die Single-Job-Queue nicht fortsetzen.');
   process.exit(1);
 }
-console.log(`\n✓ Post-Generation Image QA bestanden: ${expected.length} Bild(er).`);
-console.log('✓ Pixel-QA PASS + echte semantische Vision-QA PASS für jedes finale Flow-Bild.');
+console.log(`\n✓ Post-Generation Image QA bestanden: ${scope.length} Bild${scope.length === 1 ? '' : 'er'}.`);
+if (requestedFile) console.log(`✓ Strict-Single-Job-Gate offen für den nächsten Flow-Job nach ${requestedFile}.`);
+else console.log('✓ Pixel-QA PASS + echte semantische Vision-QA PASS für jedes finale Flow-Bild.');
