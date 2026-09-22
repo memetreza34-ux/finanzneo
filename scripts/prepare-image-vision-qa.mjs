@@ -16,6 +16,7 @@ import {
   evaluateObjectivePixelProbe,
 } from './lib/image-vision-qa.mjs';
 import {IMAGE_CREATIVE_CONCEPT_ID} from './lib/image-creative-concept-v1.mjs';
+import {COVER_ANCHOR_FLOW_ID} from './lib/cover-anchor-flow-v1.mjs';
 
 const args = process.argv.slice(2);
 const target = args.find((arg) => !arg.startsWith('--'));
@@ -40,6 +41,8 @@ if (index.imageStorytellingContract?.hardeningId !== 'finanzneo-image-storytelli
   process.exit(0);
 }
 const creativeConceptRequired = index.imageStorytellingContract?.creativeConceptId === IMAGE_CREATIVE_CONCEPT_ID;
+const coverAnchorRequired = index.coverAnchorFlow?.id === COVER_ANCHOR_FLOW_ID;
+const anchorSceneId = coverAnchorRequired ? String(index.coverAnchorFlow.sourceSceneId ?? 'scene-01') : null;
 
 const imageScenes = (Array.isArray(index.scenes) ? index.scenes : []).filter((scene) => scene?.type === 'image');
 const selected = sceneFilter ? imageScenes.filter((scene) => scene.id === sceneFilter) : imageScenes;
@@ -95,6 +98,12 @@ for (const scene of imageScenes) {
   });
 }
 
+const approvedAnchorPixels = coverAnchorRequired ? existingImages.find((item) => item.sceneId === anchorSceneId) : null;
+if (coverAnchorRequired && selected.some((scene) => scene.id !== anchorSceneId) && !approvedAnchorPixels) {
+  console.error('Cover Anchor Flow: scene-01-Bild fehlt. Folge-Bild-QA darf ohne echte Anchor-Pixel nicht vorbereitet werden.');
+  process.exit(1);
+}
+
 let count = 0;
 const objectiveFailures = [];
 for (const scene of selected) {
@@ -131,6 +140,15 @@ for (const scene of selected) {
 
   const imageSha256 = current.imageSha256;
   const isCover = index.cover?.sourceSceneId === scene.id || scene.id === 'scene-01';
+  const anchorRequiredForScene = coverAnchorRequired && scene.id !== anchorSceneId;
+  const anchorReference = anchorRequiredForScene ? {
+    contractId: COVER_ANCHOR_FLOW_ID,
+    sourceSceneId: anchorSceneId,
+    imageFile: approvedAnchorPixels.imageFile,
+    imageSha256: approvedAnchorPixels.imageSha256,
+    dHash: approvedAnchorPixels.dHash,
+    role: 'art-direction-reference-only',
+  } : null;
   const expected = expectedVisionQaForScene(scene, {isCover, creativeConceptRequired});
   const creativeReview = creativeConceptRequired ? [
     'Creative Concept: judge whether the chosen visual idea is genuinely interesting for this exact voice beat, not merely clean or technically correct.',
@@ -139,6 +157,12 @@ for (const scene of selected) {
     'Check that the actual pixels trigger the planned VIEWER_THOUGHT and contain the planned ENTERTAINMENT_HOOK and MEMORABILITY_HOOK.',
     'Fantasy must remain immediately understandable through the REALITY_ANCHOR. Reject random spectacle, confusing symbolism or decorative fantasy without finance meaning.',
     'Reject boring literal restatements, generic explanatory prop layouts and unnecessary clutter when a stronger simpler concept was planned.',
+  ] : [];
+  const anchorReview = anchorRequiredForScene ? [
+    `Directly compare this image against the approved cover anchor ${approvedAnchorPixels.imageFile}.`,
+    'Require strong continuity of art-direction DNA: character abstraction, geometry, materials, texture treatment, lighting character, palette treatment, environment rendering, black-world integration and finish quality.',
+    'Do NOT require the same subject, pose, camera or composition. In fact, flag anchorContentCopy if the follow-up merely copies the cover composition instead of expressing its own scene.',
+    'Set anchorDrift=true if the follow-up looks like a different visual universe despite matching V9 generically.',
   ] : [];
 
   const request = {
@@ -149,6 +173,7 @@ for (const scene of selected) {
     imageRelativePath: `${IMAGE_INBOX}/${scene.googleFlowFileName}`,
     imageSha256,
     isCover,
+    anchorReference,
     objectivePixelQa: {
       dHash: current.dHash,
       luminance: current.luminance,
@@ -169,6 +194,7 @@ for (const scene of selected) {
       'Treat objectivePixelQa warnings as an explicit reason to scrutinize visual similarity and unusably empty output.',
       'Count visible labels and reject headlines, sentences or text beyond the planned label budget.',
       ...creativeReview,
+      ...anchorReview,
       'If any hard requirement fails, verdict must be REGENERATE and the same scene/file must be regenerated.',
     ],
     resultSchema: {
@@ -185,6 +211,7 @@ for (const scene of selected) {
         hookStrength: '0-100',
         visualInterest: '0-100',
         worldConsistency: '0-100',
+        ...(anchorRequiredForScene ? {anchorConsistency: '0-100'} : {}),
         compositionClarity: '0-100',
         sequenceNovelty: '0-100',
         ...(creativeConceptRequired ? {
@@ -210,6 +237,10 @@ for (const scene of selected) {
           fantasyConfusing: false,
           overexplainedPropLayout: false,
         } : {}),
+        ...(anchorRequiredForScene ? {
+          anchorDrift: false,
+          anchorContentCopy: false,
+        } : {}),
       },
       observed: {
         cameraAngle: 'describe observed camera angle',
@@ -223,6 +254,9 @@ for (const scene of selected) {
           viewerThoughtRead: 'state what a viewer is likely to think or feel immediately',
           memorableElement: 'name the one visual element most likely to be remembered',
           fantasyReadability: 'describe why fantasy/metaphor is clear, or none if fantasy level is 0',
+        } : {}),
+        ...(anchorRequiredForScene ? {
+          anchorMatchNotes: 'describe which art-direction traits clearly match the approved cover and how the composition remains scene-specific',
         } : {}),
       },
       evidence: [
@@ -243,6 +277,7 @@ console.log(`✓ ${count} Pixel-Vision-QA-Request${count === 1 ? '' : 's'} vorbe
 console.log('✓ Jeder Request ist an den SHA-256-Hash des tatsächlich erzeugten Bildes gebunden.');
 console.log('✓ Objektive Pixel-QA prüft zusätzlich Near-Duplicates und nahezu leere/schwarze Fehlausgaben.');
 if (creativeConceptRequired) console.log('✓ Creative-Concept-QA prüft zusätzlich Concept Clarity, Entertainment Value, Memorability und Viewer-Thought-Match.');
+if (coverAnchorRequired) console.log('✓ Folge-Bild-QA ist zusätzlich an die echten Pixel des freigegebenen scene-01-Cover-Anchors gebunden.');
 if (objectiveFailures.length > 0) {
   console.error('\n✗ OBJEKTIVE PIXEL-QA NICHT BESTANDEN:\n');
   objectiveFailures.forEach((error) => console.error(`- ${error}`));
