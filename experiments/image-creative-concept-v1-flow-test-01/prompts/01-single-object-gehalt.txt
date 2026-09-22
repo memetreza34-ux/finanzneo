@@ -1,0 +1,25 @@
+FINANZNEO IMAGE TEST — CREATIVE CONCEPT V1
+Generate exactly ONE image. Aspect ratio 1:1.
+
+CONCEPT_MODE: single-iconic-object
+VIEWER_THOUGHT: "Krass, selbst ein höheres Gehalt kann bis Monatsende sichtbar zusammenschrumpfen."
+ENTERTAINMENT_HOOK: One familiar financial object tells the entire story without a busy scene.
+MEMORABILITY_HOOK: The same salary document physically compresses from substantial to almost paper-thin across its own form.
+REALITY_ANCHOR: A believable German salary document showing "Gehalt 2.700 €" and "Monatsende 0 €".
+FANTASY_LEVEL: 1
+FANTASY_JUSTIFICATION: A mild physical deformation of a real salary document makes the loss of disposable money instantly visible while keeping the financial meaning literal and obvious.
+WHY_THIS_CONCEPT: A single unforgettable object is stronger here than another desk scene full of bills, envelopes and props.
+
+IMAGE PROMPT:
+Create one dominant stylized 3D German salary document as the only meaningful hero object in the image. It should stand diagonally in three-dimensional space and fill most of the square frame. The left side of the same document looks substantial, crisp and slightly thick, while the document progressively compresses and becomes visibly thinner toward the right side, as if the money represented by it has been squeezed out over the month. Do NOT add hands, people, coins, arrows, charts, shopping bags, desks or supporting finance props.
+
+Place the short German label "Gehalt 2.700 €" clearly on the fuller left portion and "Monatsende 0 €" on the almost-flat right portion. These are the only readable words in the image. The transformation must read immediately as: the same income starts strong and ends with nothing left.
+
+Keep the object believable as a salary document, but allow the subtle impossible physical compression as the visual hook. The image should feel bold, simple and memorable rather than empty or like a sterile product photo. Use strong perspective and enough scale that the document dominates the frame.
+
+FINANZNEO V9 STYLE LOCK:
+Clearly stylized premium 3D animation, never photorealistic. Semi-realistic materials and believable object structure, soft rounded geometry only where natural, polished but not childish. Seamless deep black background, clean and uninterrupted. Soft premium studio lighting, readable highlights, contact shadows and strong separation from black. Warm ivory/soft gray for neutral paper, subtle emerald-green accent for positive/value detail, subtle gold only if necessary for money/value, warm red-orange only for loss/warning. Content and clarity before decoration.
+
+Only the explicitly requested short German labels may appear. No headline, subtitle, CTA or long sentence. No dashboard, app UI, flowchart, floating info cards, generic finance icons, vault/shield/coin composition, microchip language, pasted logos, stock-photo look or photorealism. No clutter. No tiny diorama framing.
+
+The result must be understandable within roughly 1–2 seconds and should feel like the same FinanzNeo stylized 3D deep-black world.
