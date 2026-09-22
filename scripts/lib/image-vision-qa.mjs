@@ -13,10 +13,10 @@ export const IMAGE_VISION_QA_THRESHOLDS = Object.freeze({
   worldConsistency: 85,
   compositionClarity: 75,
   sequenceNovelty: 70,
-  spatialStaging: 76,
-  causeEffectStrength: 78,
-  humanReactionReadability: 72,
-  impactComposition: 74,
+  conceptClarity: 82,
+  entertainmentValue: 76,
+  memorability: 74,
+  viewerThoughtMatch: 80,
 });
 
 export const OBJECTIVE_PIXEL_THRESHOLDS = Object.freeze({
@@ -36,12 +36,11 @@ export const HARD_FAIL_FLAGS = Object.freeze([
   'sceneMismatch',
 ]);
 
-export const DYNAMIC_STAGING_HARD_FAIL_FLAGS = Object.freeze([
-  'studioShowcaseLike',
-  'objectsNeatlyArranged',
-  'actionConsequenceWeak',
-  'humanReactionWeak',
-  'emptyBlackDominant',
+export const CREATIVE_CONCEPT_HARD_FAIL_FLAGS = Object.freeze([
+  'boringLiteral',
+  'decorativeWithoutMeaning',
+  'fantasyConfusing',
+  'overexplainedPropLayout',
 ]);
 
 export const sha256Hex = async (buffer) => {
@@ -115,7 +114,7 @@ export const evaluateObjectivePixelProbe = ({luminance, nearestDHashDistance}) =
   return {status: blockers.length ? 'FAIL' : 'PASS', blockers, warnings};
 };
 
-export const expectedVisionQaForScene = (scene, {isCover = false, dynamicStagingRequired = false} = {}) => ({
+export const expectedVisionQaForScene = (scene, {isCover = false, creativeConceptRequired = false} = {}) => ({
   sceneId: scene.id,
   imageFile: scene.googleFlowFileName,
   isCover,
@@ -132,19 +131,22 @@ export const expectedVisionQaForScene = (scene, {isCover = false, dynamicStaging
     visualHook: scene.imageStorytelling?.visualHook ?? '',
     causeEffect: scene.imageStorytelling?.causeEffect ?? '',
     labelBudget: Number(scene.imageStorytelling?.labelBudget ?? 0),
-    dynamicStagingRequired,
-    frameOccupancyClass: scene.imageStorytelling?.frameOccupancyClass ?? '',
-    stagingMode: scene.imageStorytelling?.stagingMode ?? '',
-    causeEffectStrength: scene.imageStorytelling?.causeEffectStrength ?? '',
-    humanReaction: scene.imageStorytelling?.humanReaction ?? '',
-    spatialPressure: scene.imageStorytelling?.spatialPressure ?? '',
-    impactComposition: scene.imageStorytelling?.impactComposition ?? '',
+    creativeConceptRequired,
+    conceptMode: scene.imageStorytelling?.conceptMode ?? '',
+    viewerThought: scene.imageStorytelling?.viewerThought ?? '',
+    entertainmentHook: scene.imageStorytelling?.entertainmentHook ?? '',
+    memorabilityHook: scene.imageStorytelling?.memorabilityHook ?? '',
+    realityAnchor: scene.imageStorytelling?.realityAnchor ?? '',
+    fantasyLevel: Number(scene.imageStorytelling?.fantasyLevel ?? 0),
+    fantasyJustification: scene.imageStorytelling?.fantasyJustification ?? '',
+    whyThisConcept: scene.imageStorytelling?.whyThisConcept ?? '',
   },
 });
 
 const validScore = (value) => Number.isFinite(Number(value)) && Number(value) >= 0 && Number(value) <= 100;
+const ACTION_OPTIONAL_CONCEPTS = new Set(['single-iconic-object', 'visual-metaphor', 'controlled-fantasy', 'thought-visualization']);
 
-export const evaluateVisionQaResult = (result, {isCover = false, dynamicStagingRequired = false} = {}) => {
+export const evaluateVisionQaResult = (result, {isCover = false, creativeConceptRequired = false, conceptMode = ''} = {}) => {
   const errors = [];
   if (result?.contractId !== IMAGE_VISION_QA_ID) errors.push(`contractId muss ${IMAGE_VISION_QA_ID} sein.`);
   if (result?.evaluatorMode !== 'multimodal-pixel-review') errors.push('evaluatorMode muss multimodal-pixel-review sein.');
@@ -156,17 +158,17 @@ export const evaluateVisionQaResult = (result, {isCover = false, dynamicStagingR
   const requiredScores = [
     ['planAlignment', IMAGE_VISION_QA_THRESHOLDS.planAlignment],
     ['cameraCompliance', IMAGE_VISION_QA_THRESHOLDS.cameraCompliance],
-    ['actionReadability', IMAGE_VISION_QA_THRESHOLDS.actionReadability],
+    ...(!creativeConceptRequired || !ACTION_OPTIONAL_CONCEPTS.has(conceptMode) ? [['actionReadability', IMAGE_VISION_QA_THRESHOLDS.actionReadability]] : []),
     ['hookStrength', isCover ? IMAGE_VISION_QA_THRESHOLDS.coverHookStrength : IMAGE_VISION_QA_THRESHOLDS.hookStrength],
     ['visualInterest', IMAGE_VISION_QA_THRESHOLDS.visualInterest],
     ['worldConsistency', IMAGE_VISION_QA_THRESHOLDS.worldConsistency],
     ['compositionClarity', IMAGE_VISION_QA_THRESHOLDS.compositionClarity],
     ['sequenceNovelty', IMAGE_VISION_QA_THRESHOLDS.sequenceNovelty],
-    ...(dynamicStagingRequired ? [
-      ['spatialStaging', IMAGE_VISION_QA_THRESHOLDS.spatialStaging],
-      ['causeEffectStrength', IMAGE_VISION_QA_THRESHOLDS.causeEffectStrength],
-      ['humanReactionReadability', IMAGE_VISION_QA_THRESHOLDS.humanReactionReadability],
-      ['impactComposition', IMAGE_VISION_QA_THRESHOLDS.impactComposition],
+    ...(creativeConceptRequired ? [
+      ['conceptClarity', IMAGE_VISION_QA_THRESHOLDS.conceptClarity],
+      ['entertainmentValue', IMAGE_VISION_QA_THRESHOLDS.entertainmentValue],
+      ['memorability', IMAGE_VISION_QA_THRESHOLDS.memorability],
+      ['viewerThoughtMatch', IMAGE_VISION_QA_THRESHOLDS.viewerThoughtMatch],
     ] : []),
   ];
   for (const [key, threshold] of requiredScores) {
@@ -175,7 +177,7 @@ export const evaluateVisionQaResult = (result, {isCover = false, dynamicStagingR
   }
 
   const flags = result?.flags ?? {};
-  for (const flag of [...HARD_FAIL_FLAGS, ...(dynamicStagingRequired ? DYNAMIC_STAGING_HARD_FAIL_FLAGS : [])]) {
+  for (const flag of [...HARD_FAIL_FLAGS, ...(creativeConceptRequired ? CREATIVE_CONCEPT_HARD_FAIL_FLAGS : [])]) {
     if (flags[flag] === true) errors.push(`Hard-Fail-Flag aktiv: ${flag}.`);
     else if (flags[flag] !== false) errors.push(`flags.${flag} muss explizit true oder false sein.`);
   }

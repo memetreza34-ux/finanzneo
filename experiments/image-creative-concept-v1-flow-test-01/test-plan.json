@@ -1,0 +1,65 @@
+{
+  "id": "finanzneo-image-creative-concept-v1-flow-test-01",
+  "production": false,
+  "publishable": false,
+  "purpose": "visual-practice-test-only",
+  "topic": "Warum mehr Gehalt nicht automatisch mehr Vermögen bedeutet.",
+  "imageWorldLock": "finanzneo-stylized-3d-animated-black-v9",
+  "creativeConceptContract": "finanzneo-image-creative-concept-v1",
+  "generatedImageAspectRatio": "1:1",
+  "audio": false,
+  "captions": false,
+  "animation": false,
+  "googleFlow": {
+    "mode": "strict-single-job",
+    "maxConcurrentJobs": 1,
+    "batchForbidden": true,
+    "qaBeforeNext": true
+  },
+  "scenes": [
+    {
+      "id": "image-01",
+      "conceptMode": "single-iconic-object",
+      "viewerThought": "Krass, selbst ein höheres Gehalt kann bis Monatsende sichtbar zusammenschrumpfen.",
+      "entertainmentHook": "Ein einziges Gehaltsdokument verändert seine Form dramatisch von voll zu fast leer.",
+      "memorabilityHook": "Dasselbe Gehaltsblatt wirkt wie zusammengeschoben und ausgezehrt.",
+      "realityAnchor": "Deutsches Gehaltsdokument mit 2.700 € und Monatsende 0 €.",
+      "fantasyLevel": 1,
+      "fantasyJustification": "Leichte physische Verformung eines realen Dokuments macht den Geldverlust sofort sichtbar, ohne die Aussage zu verfremden.",
+      "output": "Bild 01 - Gehalt schrumpft.png"
+    },
+    {
+      "id": "image-02",
+      "conceptMode": "character-moment",
+      "viewerThought": "Mehr Einkommen kann sofort in einen teureren Lebensstil fließen.",
+      "entertainmentHook": "Eine Person freut sich über einen neuen Premium-Kauf, während die Rücklage fast unbeachtet bleibt.",
+      "memorabilityHook": "Die kleine grüne Rücklage liegt sichtbar abseits neben dem neuen Kauf.",
+      "realityAnchor": "Wohnung, neues Smartphone, Sneakerkarton und Rücklage-Ordner.",
+      "fantasyLevel": 0,
+      "fantasyJustification": "none",
+      "output": "Bild 02 - Lifestyle Entscheidung.png"
+    },
+    {
+      "id": "image-03",
+      "conceptMode": "controlled-fantasy",
+      "viewerThought": "Lifestyle kann mit dem Einkommen mitwachsen und die Ersparnis verdrängen.",
+      "entertainmentHook": "Sofa, Fernseher und Shoppingobjekte wachsen sichtbar überdimensioniert in den Raum.",
+      "memorabilityHook": "Die winzige Rücklage wird buchstäblich an den Rand gedrückt.",
+      "realityAnchor": "Reale Wohnungsgegenstände plus eindeutig beschrifteter Rücklage-Ordner.",
+      "fantasyLevel": 2,
+      "fantasyJustification": "Übertrieben wachsende Alltagsgegenstände visualisieren Lifestyle-Inflation, während der reale Finanzanker Rücklage die Bedeutung sofort klar hält.",
+      "output": "Bild 03 - Lifestyle waechst.png"
+    },
+    {
+      "id": "image-04",
+      "conceptMode": "comparison",
+      "viewerThought": "Nicht nur das Gehalt, sondern die Reihenfolge der Entscheidungen macht den Unterschied.",
+      "entertainmentHook": "Zwei direkt nebeneinanderliegende reale Alltagssituationen starten mit demselben Gehalt und enden sichtbar unterschiedlich.",
+      "memorabilityHook": "Links ist Rücklage fast leer, rechts liegt sie mit 300 € zuerst bereit.",
+      "realityAnchor": "Beide Seiten erhalten dasselbe Gehalt 2.700 €; rechts Dauerauftrag 300 €.",
+      "fantasyLevel": 0,
+      "fantasyJustification": "none",
+      "output": "Bild 04 - Gleiches Gehalt zwei Wege.png"
+    }
+  ]
+}

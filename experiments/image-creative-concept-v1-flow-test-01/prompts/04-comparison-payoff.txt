@@ -1,0 +1,27 @@
+FINANZNEO IMAGE TEST — CREATIVE CONCEPT V1
+Generate exactly ONE image. Aspect ratio 1:1.
+
+CONCEPT_MODE: comparison
+VIEWER_THOUGHT: "Nicht nur das Gehalt, sondern die Reihenfolge der Entscheidungen macht den Unterschied."
+ENTERTAINMENT_HOOK: Two adjacent real-life setups start with the exact same income but visibly end in different financial states.
+MEMORABILITY_HOOK: On the right, the green "Rücklage 300 €" is already secured before leisure spending; on the left, the reserve is nearly empty.
+REALITY_ANCHOR: Both sides receive the same salary "Gehalt 2.700 €"; the right side uses a standing order "Dauerauftrag 300 €".
+FANTASY_LEVEL: 0
+FANTASY_JUSTIFICATION: none
+WHY_THIS_CONCEPT: A direct real-world comparison makes the behavioral difference instantly obvious without charts or abstract explanation.
+
+IMAGE PROMPT:
+Create one coherent stylized 3D comparison scene in a shared FinanzNeo deep-black world. Do NOT create a graphic split-screen, dashboard, infographic or two boxed panels. Instead, stage two adjacent real everyday setups in the same physical space, clearly separated by composition and body position.
+
+Left setup: a person receives a real salary envelope labeled "Gehalt 2.700 €" and has several normal discretionary purchases already open or in use. A small savings folder labeled "Rücklage" is almost empty and visually secondary.
+
+Right setup: another version of the same person receives the same salary envelope labeled "Gehalt 2.700 €". Before leisure spending, a clear standing-order document labeled "Dauerauftrag 300 €" leads to a substantial emerald-green folder labeled "Rücklage 300 €". Leisure purchases remain fewer and unopened in the background.
+
+The visual message must read instantly: same income, different order of decisions, different savings result. Keep both sides realistic, uncluttered and comparable. Use matching lighting and scale so the behavior—not a design trick—creates the contrast.
+
+FINANZNEO V9 STYLE LOCK:
+Clearly stylized premium 3D animation, never photorealistic. Real-world-grounded setup, believable proportions, semi-realistic materials, polished but not childish. Seamless deep black background with local real-world context naturally dissolving into black. Soft premium studio lighting, readable shadows and clean separation. Emerald green for savings/positive elements, warm ivory and soft gray for neutral surfaces, subtle gold only for money/value, warm red-orange only for cost/warning.
+
+Only these short German labels may appear: "Gehalt 2.700 €", "Rücklage", "Dauerauftrag 300 €", "Rücklage 300 €". No headline, subtitle, CTA or long explanatory sentence. No dashboard, app UI, chart, flowchart, arrows, floating info cards, generic finance-icon composition, pasted logos, stock-photo look, photorealism or clutter.
+
+The comparison must be understandable within roughly 1–2 seconds and feel like the same FinanzNeo stylized 3D deep-black world.

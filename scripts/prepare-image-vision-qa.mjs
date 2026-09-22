@@ -15,7 +15,7 @@ import {
   luminanceStats,
   evaluateObjectivePixelProbe,
 } from './lib/image-vision-qa.mjs';
-import {V5_STAGING_ID} from './lib/image-storytelling-v5-staging.mjs';
+import {IMAGE_CREATIVE_CONCEPT_ID} from './lib/image-creative-concept-v1.mjs';
 
 const args = process.argv.slice(2);
 const target = args.find((arg) => !arg.startsWith('--'));
@@ -39,7 +39,7 @@ if (index.imageStorytellingContract?.hardeningId !== 'finanzneo-image-storytelli
   console.log('✓ Kein gehärtetes V5-Reel; Pixel-Vision-QA übersprungen.');
   process.exit(0);
 }
-const dynamicStagingRequired = index.imageStorytellingContract?.stagingId === V5_STAGING_ID;
+const creativeConceptRequired = index.imageStorytellingContract?.creativeConceptId === IMAGE_CREATIVE_CONCEPT_ID;
 
 const imageScenes = (Array.isArray(index.scenes) ? index.scenes : []).filter((scene) => scene?.type === 'image');
 const selected = sceneFilter ? imageScenes.filter((scene) => scene.id === sceneFilter) : imageScenes;
@@ -127,19 +127,20 @@ for (const scene of selected) {
     luminance: current.luminance,
     nearestDHashDistance,
   });
-  if (objectivePixelQa.status !== 'PASS') {
-    objectiveFailures.push(`${scene.id}: ${objectivePixelQa.blockers.join(' | ')}`);
-  }
+  if (objectivePixelQa.status !== 'PASS') objectiveFailures.push(`${scene.id}: ${objectivePixelQa.blockers.join(' | ')}`);
 
   const imageSha256 = current.imageSha256;
   const isCover = index.cover?.sourceSceneId === scene.id || scene.id === 'scene-01';
-  const expected = expectedVisionQaForScene(scene, {isCover, dynamicStagingRequired});
-  const dynamicReview = dynamicStagingRequired ? [
-    'V5.1: Check frame occupancy. Reject a small isolated subject floating in dominant empty black when the planned staging calls for a filled action or environment.',
-    'V5.1: Reject studio-showcase or neatly arranged catalog staging. Objects must be visibly used, collide, displace, block, drain, crowd, grow, shrink, repeat or otherwise show consequence as planned.',
-    'V5.1: Check spatial pressure and impact composition against expected: foreground overlap, POV, scale, environmental depth or reveal must be visibly present when requested.',
-    'V5.1: When humans or hands are visible, body language/hand posture/facial reaction must communicate the planned emotional reaction without melodrama.',
+  const expected = expectedVisionQaForScene(scene, {isCover, creativeConceptRequired});
+  const creativeReview = creativeConceptRequired ? [
+    'Creative Concept: judge whether the chosen visual idea is genuinely interesting for this exact voice beat, not merely clean or technically correct.',
+    'A strong single iconic object is valid. Do not penalize minimalism, empty breathing room, absence of people or absence of action when that is the planned concept.',
+    'Multiple objects, real environments, character moments, metaphors, thought-visualizations and controlled fantasy are also valid when they strengthen the beat.',
+    'Check that the actual pixels trigger the planned VIEWER_THOUGHT and contain the planned ENTERTAINMENT_HOOK and MEMORABILITY_HOOK.',
+    'Fantasy must remain immediately understandable through the REALITY_ANCHOR. Reject random spectacle, confusing symbolism or decorative fantasy without finance meaning.',
+    'Reject boring literal restatements, generic explanatory prop layouts and unnecessary clutter when a stronger simpler concept was planned.',
   ] : [];
+
   const request = {
     contractId: IMAGE_VISION_QA_ID,
     evaluatorModeRequired: 'multimodal-pixel-review',
@@ -161,13 +162,13 @@ for (const scene of selected) {
       .map(({sceneId, imageFile, imageSha256, dHash}) => ({sceneId, imageFile, imageSha256, dHash})),
     requiredReview: [
       'Inspect the actual image pixels, not only prompt text or metadata.',
-      'Check exact story beat, main action, camera, shot scale, location and main subject against expected.',
+      'Check exact story beat, camera, shot scale, location and main subject against expected.',
       'Check V9 world: stylized 3D, deep black, non-photorealistic, clean subject separation.',
       'Check whether the image is visually interesting rather than generic desk/catalog/finance-icon staging.',
       'Compare against the other generated images and score sequence novelty.',
-      'Treat objectivePixelQa warnings as an explicit reason to scrutinize visual similarity and dead space.',
+      'Treat objectivePixelQa warnings as an explicit reason to scrutinize visual similarity and unusably empty output.',
       'Count visible labels and reject headlines, sentences or text beyond the planned label budget.',
-      ...dynamicReview,
+      ...creativeReview,
       'If any hard requirement fails, verdict must be REGENERATE and the same scene/file must be regenerated.',
     ],
     resultSchema: {
@@ -180,17 +181,17 @@ for (const scene of selected) {
       scores: {
         planAlignment: '0-100',
         cameraCompliance: '0-100',
-        actionReadability: '0-100',
+        actionReadability: '0-100; may be low without penalty for action-optional creative concepts',
         hookStrength: '0-100',
         visualInterest: '0-100',
         worldConsistency: '0-100',
         compositionClarity: '0-100',
         sequenceNovelty: '0-100',
-        ...(dynamicStagingRequired ? {
-          spatialStaging: '0-100',
-          causeEffectStrength: '0-100',
-          humanReactionReadability: '0-100; use 100 when HUMAN_PRESENCE=none and no human reaction is required',
-          impactComposition: '0-100',
+        ...(creativeConceptRequired ? {
+          conceptClarity: '0-100',
+          entertainmentValue: '0-100',
+          memorability: '0-100',
+          viewerThoughtMatch: '0-100',
         } : {}),
       },
       flags: {
@@ -203,12 +204,11 @@ for (const scene of selected) {
         sceneMismatch: false,
         genericDeskScene: false,
         deadSpaceDominant: false,
-        ...(dynamicStagingRequired ? {
-          studioShowcaseLike: false,
-          objectsNeatlyArranged: false,
-          actionConsequenceWeak: false,
-          humanReactionWeak: false,
-          emptyBlackDominant: false,
+        ...(creativeConceptRequired ? {
+          boringLiteral: false,
+          decorativeWithoutMeaning: false,
+          fantasyConfusing: false,
+          overexplainedPropLayout: false,
         } : {}),
       },
       observed: {
@@ -216,13 +216,13 @@ for (const scene of selected) {
         shotScale: 'describe observed shot scale',
         locationClass: 'describe observed location',
         mainSubjectClass: 'describe observed main subject',
-        dominantAction: 'describe the visible action',
+        dominantAction: 'describe visible action or explicitly state none/minimal by concept',
         labelCount: 0,
-        ...(dynamicStagingRequired ? {
-          frameOccupancy: 'describe how much of the frame is actively used',
-          spatialStaging: 'describe foreground/main/background pressure and overlap',
-          humanReaction: 'describe visible body/hand/face reaction or none',
-          causeEffectEvidence: 'describe the physically visible consequence',
+        ...(creativeConceptRequired ? {
+          conceptRead: 'describe the visual concept visible in the pixels',
+          viewerThoughtRead: 'state what a viewer is likely to think or feel immediately',
+          memorableElement: 'name the one visual element most likely to be remembered',
+          fantasyReadability: 'describe why fantasy/metaphor is clear, or none if fantasy level is 0',
         } : {}),
       },
       evidence: [
@@ -241,8 +241,8 @@ for (const scene of selected) {
 
 console.log(`✓ ${count} Pixel-Vision-QA-Request${count === 1 ? '' : 's'} vorbereitet.`);
 console.log('✓ Jeder Request ist an den SHA-256-Hash des tatsächlich erzeugten Bildes gebunden.');
-console.log('✓ Objektive Pixel-QA prüft zusätzlich Near-Duplicates und nahezu leere/schwarze Bilder.');
-if (dynamicStagingRequired) console.log('✓ V5.1-Vision-QA prüft zusätzlich Frame Occupancy, aktive Inszenierung, Cause/Effect, Human Reaction, Spatial Pressure und Impact Composition.');
+console.log('✓ Objektive Pixel-QA prüft zusätzlich Near-Duplicates und nahezu leere/schwarze Fehlausgaben.');
+if (creativeConceptRequired) console.log('✓ Creative-Concept-QA prüft zusätzlich Concept Clarity, Entertainment Value, Memorability und Viewer-Thought-Match.');
 if (objectiveFailures.length > 0) {
   console.error('\n✗ OBJEKTIVE PIXEL-QA NICHT BESTANDEN:\n');
   objectiveFailures.forEach((error) => console.error(`- ${error}`));

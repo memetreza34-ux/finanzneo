@@ -8,7 +8,7 @@ import {
   compileAllPromptBlocksFromMarkers,
   compileOnePromptSource,
 } from './lib/image-storytelling-v5-hardening.mjs';
-import {V5_STAGING_ID} from './lib/image-storytelling-v5-staging.mjs';
+import {IMAGE_CREATIVE_CONCEPT_ID} from './lib/image-creative-concept-v1.mjs';
 
 const target = process.argv[2];
 if (!target) {
@@ -33,7 +33,7 @@ if (index.imageStorytellingContract?.hardeningId !== V5_HARDENING_ID) {
   process.exit(1);
 }
 
-const stagingRequired = index.imageStorytellingContract?.stagingId === V5_STAGING_ID;
+const creativeRequired = index.imageStorytellingContract?.creativeConceptId === IMAGE_CREATIVE_CONCEPT_ID;
 const placeholder = /\[|EINFÜGEN|TODO|TBD|XXX|\.\.\./i;
 const required = [
   'strategy', 'visualMode', 'sequenceRole', 'visualArchetype', 'locationFamily', 'locationClass',
@@ -42,15 +42,15 @@ const required = [
   'visualHook', 'shotScale', 'cameraAngle', 'depthPlan', 'emotionalBeat', 'causeEffect',
   'patternInterrupt', 'patternInterruptType', 'motionHint', 'noveltyCheck', 'lightingVariation',
 ];
-const stagingRequiredFields = [
-  'frameOccupancyClass', 'stagingMode', 'causeEffectStrength', 'humanReaction',
-  'humanReactionJustification', 'spatialPressure', 'impactComposition',
+const creativeRequiredFields = [
+  'conceptMode', 'viewerThought', 'entertainmentHook', 'memorabilityHook',
+  'realityAnchor', 'fantasyJustification', 'whyThisConcept',
 ];
 
 const imageScenes = (Array.isArray(index.scenes) ? index.scenes : []).filter((scene) => scene?.type === 'image');
 for (const scene of imageScenes) {
   const meta = scene.imageStorytelling ?? {};
-  for (const key of [...required, ...(stagingRequired ? stagingRequiredFields : [])]) {
+  for (const key of [...required, ...(creativeRequired ? creativeRequiredFields : [])]) {
     const value = String(meta[key] ?? '').trim();
     if (!value || placeholder.test(value)) {
       console.error(`${scene.id}: ${key} ist noch nicht final geplant. Compile abgebrochen.`);
@@ -67,6 +67,10 @@ for (const scene of imageScenes) {
   }
   if (!Number.isInteger(Number(meta.labelBudget)) || Number(meta.labelBudget) < 0 || Number(meta.labelBudget) > 3) {
     console.error(`${scene.id}: labelBudget muss vor dem Compile 0–3 sein.`);
+    process.exit(1);
+  }
+  if (creativeRequired && (!Number.isInteger(Number(meta.fantasyLevel)) || Number(meta.fantasyLevel) < 0 || Number(meta.fantasyLevel) > 3)) {
+    console.error(`${scene.id}: fantasyLevel muss vor dem Compile 0–3 sein.`);
     process.exit(1);
   }
 
@@ -101,6 +105,6 @@ index.imageStorytellingContract.compiledPromptCount = imageScenes.length;
 writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');
 
 console.log(`✓ ${imageScenes.length} V5-Bildprompts kompiliert.`);
-console.log('✓ Kamera, Archetyp, Handlung, Ort, Hauptmotiv, Spannung, Cause/Effect, Licht und Label-Budget stehen jetzt direkt im IMAGE PROMPT.');
-if (stagingRequired) console.log('✓ V5.1: Frame Occupancy, Dynamic Staging, Human Reaction, Spatial Pressure und Impact Composition stehen ebenfalls direkt im IMAGE PROMPT.');
-console.log('✓ Google Flow muss diese Regie nicht mehr aus vorgelagerten Metadaten erraten.');
+console.log('✓ Kamera, Archetyp, Handlung, Ort, Hauptmotiv, Spannung, Licht und Label-Budget stehen direkt im IMAGE PROMPT.');
+if (creativeRequired) console.log('✓ Creative Concept: Viewer Thought, Entertainment Hook, Memorability, Reality Anchor und Fantasy-Regie stehen ebenfalls direkt im IMAGE PROMPT.');
+console.log('✓ Google Flow muss die kreative Regie nicht aus vorgelagerten Metadaten erraten.');
