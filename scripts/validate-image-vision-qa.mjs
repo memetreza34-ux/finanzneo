@@ -10,6 +10,7 @@ import {
   evaluateVisionQaResult,
   sha256Hex,
 } from './lib/image-vision-qa.mjs';
+import {COVER_ANCHOR_FLOW_ID} from './lib/cover-anchor-flow-v1.mjs';
 
 const args = process.argv.slice(2);
 const target = args.find((arg) => !arg.startsWith('--'));
@@ -33,6 +34,8 @@ if (index.imageStorytellingContract?.hardeningId !== 'finanzneo-image-storytelli
   console.log('✓ Kein gehärtetes V5-Reel; Pixel-Vision-QA übersprungen.');
   process.exit(0);
 }
+const coverAnchorRequired = index.coverAnchorFlow?.id === COVER_ANCHOR_FLOW_ID;
+const anchorSceneId = coverAnchorRequired ? String(index.coverAnchorFlow.sourceSceneId ?? 'scene-01') : null;
 
 const imageScenes = (Array.isArray(index.scenes) ? index.scenes : []).filter((scene) => scene?.type === 'image');
 const imageSceneById = new Map(imageScenes.map((scene) => [scene.id, scene]));
@@ -125,6 +128,27 @@ for (const scene of selected) {
     errors.push(`${scene.id}: Sequenzvergleich ist unvollständig oder bezieht sich auf andere Bildhashes als der QA-Request.`);
   }
 
+  const anchorRequiredForScene = coverAnchorRequired && scene.id !== anchorSceneId;
+  if (anchorRequiredForScene) {
+    const anchorReference = request.anchorReference;
+    const anchorScene = imageSceneById.get(anchorSceneId);
+    const expectedAnchorFile = anchorScene?.googleFlowFileName;
+    if (anchorReference?.contractId !== COVER_ANCHOR_FLOW_ID) errors.push(`${scene.id}: anchorReference.contractId fehlt/falsch.`);
+    if (anchorReference?.sourceSceneId !== anchorSceneId) errors.push(`${scene.id}: anchorReference.sourceSceneId muss ${anchorSceneId} sein.`);
+    if (anchorReference?.imageFile !== expectedAnchorFile) errors.push(`${scene.id}: anchorReference.imageFile muss die aktuelle scene-01-Datei sein.`);
+    if (expectedAnchorFile) {
+      const anchorPath = resolve(root, IMAGE_INBOX, expectedAnchorFile);
+      if (!existsSync(anchorPath)) errors.push(`${scene.id}: Anchor-Datei fehlt: ${expectedAnchorFile}.`);
+      else {
+        const currentAnchorHash = await sha256Hex(readFileSync(anchorPath));
+        if (anchorReference?.imageSha256 !== currentAnchorHash) errors.push(`${scene.id}: Anchor-Referenz ist veraltet; scene-01-Pixel haben sich geändert. QA neu vorbereiten.`);
+      }
+    }
+    if (String(result.observed?.anchorMatchNotes ?? '').trim().length < 12) errors.push(`${scene.id}: observed.anchorMatchNotes fehlt.`);
+  } else if (request.anchorReference !== null && request.anchorReference !== undefined) {
+    errors.push(`${scene.id}: Master/Cover darf keine externe anchorReference benötigen.`);
+  }
+
   const expectedLabelBudget = Number(request.expected?.labelBudget ?? 0);
   const observedLabelCount = Number(result.observed?.labelCount);
   if (!Number.isInteger(observedLabelCount) || observedLabelCount < 0) {
@@ -146,7 +170,7 @@ for (const scene of selected) {
 
   const isCover = request.isCover === true;
   const conceptMode = String(request.expected?.conceptMode ?? '');
-  const evaluation = evaluateVisionQaResult(result, {isCover, creativeConceptRequired, conceptMode});
+  const evaluation = evaluateVisionQaResult(result, {isCover, creativeConceptRequired, conceptMode, anchorRequired: anchorRequiredForScene});
   for (const error of evaluation.errors) errors.push(`${scene.id}: ${error}`);
 }
 
@@ -164,3 +188,4 @@ console.log('✓ Objektive Pixel-QA hat Near-Duplicate-/Leerbild-Gates bestanden
 console.log('✓ Auch alle Bildhashes, auf denen der Sequenz-/Novelty-Vergleich basiert, sind noch aktuell.');
 console.log('✓ Plan-Match, Kamera, Hook, Visual Interest, V9-Welt, Klarheit und Sequenz-Neuheit erfüllen die Mindestwerte.');
 console.log('✓ Bei Creative-Concept-Reels sind zusätzlich Concept Clarity, Entertainment Value, Memorability und Viewer-Thought-Match geprüft.');
+if (coverAnchorRequired) console.log('✓ Folge-Bilder sind zusätzlich gegen die aktuellen echten Pixel des scene-01-Cover-Anchors geprüft.');
