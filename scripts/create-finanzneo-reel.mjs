@@ -85,4 +85,5 @@ console.log('  Nach fertiger Phase-1-Bildplanung: npm run reel:image-prompts:com
 console.log('  Der Compiler schreibt V5 + Creative Concept + Cover Anchor direkt in jeden IMAGE PROMPT.');
 console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
+console.log('  Animation Safe Zone: Visual Y320–1400.');
 console.log('  Phase 3: Preflight + Render-QA + Edge-Band-QA + Export-Gate.');
