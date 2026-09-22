@@ -12,6 +12,7 @@ import {
   V5_COMPILED_START,
   V5_COMPILED_END,
   buildCompiledDirection,
+  removeCompiledDirection,
 } from './lib/image-storytelling-v5-hardening.mjs';
 
 const target = process.argv[2];
@@ -99,9 +100,15 @@ for (let i = 0; i < imageScenes.length; i += 1) {
   if (!source.includes(V5_COMPILED_START) || !source.includes(V5_COMPILED_END)) fail(`${id}: V5_COMPILED_DIRECTION fehlt. Führe reel:image-prompts:compile aus.`);
   else if (!source.includes(compiled)) fail(`${id}: V5_COMPILED_DIRECTION ist veraltet oder widerspricht scene-index.json. Neu kompilieren.`);
 
-  const imagePromptStart = source.indexOf('IMAGE PROMPT:');
-  const styleStart = source.indexOf('\n\nSTYLE:', imagePromptStart);
-  const body = imagePromptStart >= 0 ? source.slice(imagePromptStart, styleStart >= 0 ? styleStart : source.length) : '';
+  // Die Plausibilitätsprüfung darf nur den frei geschriebenen Szenenprompt lesen.
+  // Der kompilierte Director-Brief enthält absichtlich Anti-Beispiele wie
+  // "person-at-desk"; diese dürfen den Heuristik-Check nicht selbst auslösen.
+  const freePromptSource = removeCompiledDirection(source);
+  const imagePromptStart = freePromptSource.indexOf('IMAGE PROMPT:');
+  const styleStart = freePromptSource.indexOf('\n\nSTYLE:', imagePromptStart);
+  const body = imagePromptStart >= 0
+    ? freePromptSource.slice(imagePromptStart, styleStart >= 0 ? styleStart : freePromptSource.length)
+    : '';
   if (meta.tableDocumentScene === false && tableWords.test(body) && documentWords.test(body)) {
     fail(`${id}: TABLE_DOCUMENT_SCENE=false kollidiert mit Tisch/Schreibtisch + Dokument/Rechnung im eigentlichen IMAGE PROMPT.`);
   }
