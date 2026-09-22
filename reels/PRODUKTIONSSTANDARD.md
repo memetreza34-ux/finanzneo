@@ -29,13 +29,16 @@
 - Sound-Cue-Plan
 - genau eine universelle Caption: `04-caption/caption.txt`
 
-### Phase 2 — Nutzer
+### Phase 2 — Nutzer + finale Bild-QA
 - finale Google-Flow-Bilder
+- nach den finalen Bildern: `npm run reel:image-qa:prepare -- <Reel-Pfad>`
+- tatsächliche Pixel semantisch prüfen und `05-projektdateien/image-vision-qa.json` ausfüllen
+- danach `npm run reel:image-qa:validate -- <Reel-Pfad>`
 - genau ein finales Haupt-Voiceover
 - echte Wort-Timings aus diesem Voiceover
 
 ### Phase 3 — konfigurierter Executor
-Phase 3 integriert Nutzerassets, versiegelten Animationscode und SFX. Kreative Änderungen nach dem Animation-Seal müssen zurück in Phase 1.
+Phase 3 integriert Nutzerassets, versiegelten Animationscode und SFX. Kreative Änderungen nach dem Animation-Seal müssen zurück in Phase 1. Neue Reels mit `finanzneo-post-generation-image-qa-v1` dürfen Phase 3 erst nach vollständig bestandenem Pixel- und Vision-QA-Gate starten.
 
 ## 3. Harte Szenentyp-Regel
 
@@ -88,6 +91,7 @@ Aktive Verträge für neue Reels:
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v5
 IMAGE_STORYTELLING_HARDENING: finanzneo-image-storytelling-v5-hardening-v1
 VISUAL_SEQUENCE_PLAN: finanzneo-visual-sequence-plan-v1
+POST_GENERATION_IMAGE_QA: finanzneo-post-generation-image-qa-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 ```
 
@@ -114,10 +118,40 @@ Hardening-Regeln:
 
 Ausführung:
 - exakt ein Bildjob gleichzeitig
-- warten → umbenennen → V9-QA → erst dann nächster Job
+- warten → umbenennen → Bild-QA → erst dann nächster Job
 - keine Batch-/Parallelgenerierung
 - scene-01 ist automatisch das Cover; kein Bild 00
 - finale Bilder liegen in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
+
+### Post-Generation Image QA V1
+
+Nach den finalen Flow-Bildern gilt zwingend:
+
+```text
+npm run reel:image-qa:prepare -- <Reel-Pfad>
+→ automatische Pixel-QA
+→ echte semantische Vision-QA am tatsächlich erzeugten Bild
+→ npm run reel:image-qa:validate -- <Reel-Pfad>
+→ erst bei PASS darf Phase 3 starten
+```
+
+Automatische Pixel-QA prüft unter anderem:
+- nahezu leere/schwarze Bilder
+- visuell nahezu identische Bilder per dHash
+- starke Ähnlichkeit als Warnsignal
+
+Die semantische Vision-QA muss die **echten Pixel** prüfen und darf nicht aus Prompt, Dateiname oder Metadaten raten. Pro Bild werden mindestens bewertet:
+- Voice-Beat-Match
+- Kamera-Match
+- sichtbare Story Action
+- Ort
+- Hauptmotiv
+- Cause/Effect-Lesbarkeit
+- Visual Hook
+- V9-Weltkonsistenz
+- Neuheit gegenüber der restlichen Sequenz
+
+Jede Dimension muss mindestens 4/5 erreichen. Bei FAIL gilt `REGENERATE_SAME_IMAGE_NUMBER`: dieselbe Bildnummer neu erzeugen und die Strict-Single-Job-Queue nicht fortsetzen.
 
 Bildwelt: `finanzneo-stylized-3d-animated-black-v9`. Reale Alltagssituation und Ursache/Wirkung zuerst; klar stilisiertes 3D; niemals fotorealistisch; Deep Black Pflicht.
 
@@ -170,6 +204,8 @@ npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
 npm run reel:phase3:preflight -- <Reel-Pfad>
 npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 ```
+
+`reel:ready` blockiert neue QA-aktivierte Reels, solange `finanzneo-post-generation-image-qa-v1` nicht vollständig PASS ist.
 
 `reel:render` erzeugt Candidate → Audio-Mastering → Render-QA → Presentation/Occupancy-QA → Edge-Band-QA → finalen Export.
 
