@@ -6,6 +6,7 @@ import {IMAGE_INBOX} from './lib/reel-contract.mjs';
 import {
   IMAGE_VISION_QA_ID,
   IMAGE_VISION_QA_REQUESTS_DIR,
+  IMAGE_VISION_QA_RESULTS_DIR,
   expectedVisionQaForScene,
   sha256Hex,
 } from './lib/image-vision-qa.mjs';
@@ -41,7 +42,9 @@ if (sceneFilter && selected.length === 0) {
 }
 
 const requestDir = resolve(root, IMAGE_VISION_QA_REQUESTS_DIR);
+const resultDir = resolve(root, IMAGE_VISION_QA_RESULTS_DIR);
 mkdirSync(requestDir, {recursive: true});
+mkdirSync(resultDir, {recursive: true});
 
 const existingImages = [];
 for (const scene of imageScenes) {
