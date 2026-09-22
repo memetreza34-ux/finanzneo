@@ -123,8 +123,6 @@ export const compileAllPromptBlocksFromMarkers = (source) => {
     output += source.slice(cursor, index);
     const before = source.slice(0, index);
     const meta = metaFromMarkerText(before);
-    const tail = source.slice(index);
-    const cleanedTail = removeCompiledDirection(tail);
     const markerLength = 'IMAGE PROMPT:'.length;
     output += `IMAGE PROMPT:\n${buildCompiledDirection(meta)}\n`;
     cursor = index + markerLength;
