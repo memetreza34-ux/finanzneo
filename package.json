@@ -48,7 +48,7 @@
     "youtube:ready": "node scripts/check-youtube-production-ready.mjs",
     "protect:install": "node scripts/install-git-guards.mjs",
     "protect:check-staged": "node scripts/check-staged-protected-files.mjs",
-    "antigravity:safety": "node scripts/antigravity-repo-safety-check.mjs --manual",
+    "antigravity:safety": "node scripts/antigravity-repo-safety-check.mjs",
     "antigravity:motion:bootstrap": "node scripts/antigravity-motion-bootstrap.mjs --manual",
     "validate:antigravity-motion": "node scripts/validate-antigravity-motion-stack.mjs",
     "validate:compositions": "node scripts/validate-compositions.mjs",
