@@ -24,7 +24,7 @@ const validators = [
   'scripts/validate-future-image-storytelling-v4.mjs',
   'scripts/validate-future-image-storytelling-v5.mjs',
   'scripts/validate-future-image-storytelling-v5-hardening.mjs',
-  'scripts/validate-future-image-storytelling-v5-staging.mjs',
+  'scripts/validate-image-creative-concept-v1.mjs',
   'scripts/validate-future-production-standard-v3.mjs',
   'scripts/validate-future-reel-presentation-v1.mjs',
   'scripts/validate-future-reel-phase1-motion-direction-v1.mjs',
