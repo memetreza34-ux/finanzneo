@@ -15,9 +15,16 @@ import {
   emptySemanticAssessment,
 } from './lib/post-generation-image-qa-v1.mjs';
 
-const [target] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const fileIndex = args.indexOf('--file');
+const requestedFile = fileIndex === -1 ? null : args[fileIndex + 1] ?? null;
+const target = args.find((arg, index) => !arg.startsWith('--') && index !== fileIndex + 1);
 if (!target) {
-  console.error('Nutzung: npm run reel:image-qa:prepare -- reels/<Woche>/<Tag>/<Reel>');
+  console.error('Nutzung: npm run reel:image-qa:prepare -- reels/<Woche>/<Tag>/<Reel> [--file <Bilddatei>]');
+  process.exit(1);
+}
+if (fileIndex !== -1 && !requestedFile) {
+  console.error('--file braucht einen Dateinamen.');
   process.exit(1);
 }
 
@@ -28,14 +35,18 @@ if (!existsSync(indexPath)) {
   process.exit(1);
 }
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
-const images = [];
+const expected = [];
 if (typeof index.cover?.googleFlowFileName === 'string') {
-  images.push({sceneId: 'cover', fileName: index.cover.googleFlowFileName, role: 'cover'});
+  expected.push({sceneId: 'cover', fileName: index.cover.googleFlowFileName, role: 'cover'});
 }
 for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   if (scene?.type !== 'image' || typeof scene.googleFlowFileName !== 'string') continue;
-  if (images.some((item) => item.fileName === scene.googleFlowFileName)) continue;
-  images.push({sceneId: scene.id, fileName: scene.googleFlowFileName, role: 'scene'});
+  if (expected.some((item) => item.fileName === scene.googleFlowFileName)) continue;
+  expected.push({sceneId: scene.id, fileName: scene.googleFlowFileName, role: 'scene'});
+}
+if (requestedFile && !expected.some((item) => item.fileName === requestedFile)) {
+  console.error(`--file ist kein erwartetes Flow-Bild dieses Reels: ${requestedFile}`);
+  process.exit(1);
 }
 
 const runRaw = (file, filter) => {
@@ -45,67 +56,103 @@ const runRaw = (file, filter) => {
   return result.stdout;
 };
 
-const rows = [];
-for (const item of images) {
+const readPixels = (item) => {
   const file = resolve(root, IMAGE_INBOX, item.fileName);
-  if (!existsSync(file)) {
-    console.error(`Fehlendes Bild: ${IMAGE_INBOX}/${item.fileName}`);
-    process.exit(1);
-  }
   const hashBytes = runRaw(file, 'scale=9:8:flags=area');
   const statBytes = runRaw(file, 'scale=32:32:flags=area');
-  if (hashBytes.length !== 72 || statBytes.length !== 1024) {
-    console.error(`Unerwartete Pixelprobe für ${item.fileName}.`);
+  if (hashBytes.length !== 72 || statBytes.length !== 1024) throw new Error(`Unerwartete Pixelprobe für ${item.fileName}.`);
+  return {...item, dHash: dHashFromGray9x8(hashBytes), luminance: luminanceStats(statBytes)};
+};
+
+const existingExpected = expected.filter((item) => existsSync(resolve(root, IMAGE_INBOX, item.fileName)));
+if (!requestedFile) {
+  const missing = expected.filter((item) => !existsSync(resolve(root, IMAGE_INBOX, item.fileName)));
+  if (missing.length) {
+    console.error('Für die komplette QA fehlen noch Bilder:');
+    missing.forEach((item) => console.error(`- ${IMAGE_INBOX}/${item.fileName}`));
+    console.error('Für inkrementelle QA direkt nach einem Flow-Job: --file <Bilddatei> verwenden.');
     process.exit(1);
   }
-  rows.push({...item, dHash: dHashFromGray9x8(hashBytes), luminance: luminanceStats(statBytes)});
+} else if (!existsSync(resolve(root, IMAGE_INBOX, requestedFile))) {
+  console.error(`Fehlendes Bild: ${IMAGE_INBOX}/${requestedFile}`);
+  process.exit(1);
 }
 
-for (let i = 0; i < rows.length; i += 1) {
+let pool;
+try {
+  pool = existingExpected.map(readPixels);
+} catch (error) {
+  console.error(error.message);
+  process.exit(1);
+}
+const targets = requestedFile ? pool.filter((row) => row.fileName === requestedFile) : pool;
+for (const row of targets) {
   let nearest = null;
   let nearestSceneId = null;
-  for (let j = 0; j < rows.length; j += 1) {
-    if (i === j) continue;
-    const distance = hammingDistanceHex(rows[i].dHash, rows[j].dHash);
+  for (const other of pool) {
+    if (row.fileName === other.fileName) continue;
+    const distance = hammingDistanceHex(row.dHash, other.dHash);
     if (distance !== null && (nearest === null || distance < nearest)) {
       nearest = distance;
-      nearestSceneId = rows[j].sceneId;
+      nearestSceneId = other.sceneId;
     }
   }
-  const result = evaluatePixelQa({stats: rows[i].luminance, nearestDistance: nearest});
-  rows[i].pixelQa = {...result, nearestDistance: nearest, nearestSceneId};
+  const result = evaluatePixelQa({stats: row.luminance, nearestDistance: nearest});
+  row.pixelQa = {...result, nearestDistance: nearest, nearestSceneId};
 }
 
-const existingPath = resolve(root, POST_GENERATION_QA_FILE);
+const reportPath = resolve(root, POST_GENERATION_QA_FILE);
 let existing = null;
-if (existsSync(existingPath)) {
-  try { existing = JSON.parse(readFileSync(existingPath, 'utf8')); } catch { existing = null; }
+if (existsSync(reportPath)) {
+  try { existing = JSON.parse(readFileSync(reportPath, 'utf8')); } catch { existing = null; }
 }
-const previousAssessments = new Map((existing?.images ?? []).map((entry) => [entry.fileName, entry.semanticQa]));
-const report = {
-  id: POST_GENERATION_QA_ID,
-  pixelQaVersion: PIXEL_QA_VERSION,
-  generatedAt: new Date().toISOString(),
-  instructions: {
-    semanticQaMustInspectActualPixels: true,
-    doNotInferFromPromptOrFileName: true,
-    failMeansRegenerateSameImageNumber: true,
-    doNotAdvanceSingleJobQueueOnFail: true,
-  },
-  images: rows.map((row) => ({
+const oldByFile = new Map((existing?.images ?? []).map((entry) => [entry.fileName, entry]));
+const updatedByFile = new Map();
+for (const row of targets) {
+  const previous = oldByFile.get(row.fileName);
+  const samePixels = previous?.dHash === row.dHash;
+  updatedByFile.set(row.fileName, {
     sceneId: row.sceneId,
     fileName: row.fileName,
     role: row.role,
     dHash: row.dHash,
     luminance: row.luminance,
     pixelQa: row.pixelQa,
-    semanticQa: previousAssessments.get(row.fileName) ?? emptySemanticAssessment(row.sceneId, row.fileName),
-  })),
-};
-writeFileSync(existingPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+    semanticQa: samePixels && previous?.semanticQa
+      ? previous.semanticQa
+      : emptySemanticAssessment(row.sceneId, row.fileName),
+  });
+}
 
-const failed = report.images.filter((entry) => entry.pixelQa.status !== 'PASS');
-console.log(`\n✓ Pixel-QA vorbereitet: ${report.images.length} Bilder geprüft.`);
+const images = [];
+for (const item of expected) {
+  const updated = updatedByFile.get(item.fileName);
+  if (updated) {
+    images.push(updated);
+    continue;
+  }
+  const previous = oldByFile.get(item.fileName);
+  if (previous && existsSync(resolve(root, IMAGE_INBOX, item.fileName))) images.push(previous);
+}
+
+const report = {
+  id: POST_GENERATION_QA_ID,
+  pixelQaVersion: PIXEL_QA_VERSION,
+  generatedAt: new Date().toISOString(),
+  mode: requestedFile ? 'incremental-single-image' : 'full-sequence',
+  instructions: {
+    semanticQaMustInspectActualPixels: true,
+    doNotInferFromPromptOrFileName: true,
+    failMeansRegenerateSameImageNumber: true,
+    doNotAdvanceSingleJobQueueOnFail: true,
+    semanticPassInvalidatedWhenPixelsChange: true,
+  },
+  images,
+};
+writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+
+const failed = targets.filter((entry) => entry.pixelQa.status !== 'PASS');
+console.log(`\n✓ Pixel-QA vorbereitet: ${targets.length} Bild${targets.length === 1 ? '' : 'er'} geprüft.`);
 if (failed.length) {
   console.error(`✗ ${failed.length} Bild(er) fallen bereits in der Pixel-QA durch.`);
   for (const entry of failed) console.error(`- ${entry.sceneId}: ${entry.pixelQa.blockers.join(' | ')}`);
@@ -113,4 +160,5 @@ if (failed.length) {
   process.exit(1);
 }
 console.log(`✓ Report: ${POST_GENERATION_QA_FILE}`);
-console.log('Nächster Schritt: tatsächliche Pixel visuell prüfen und semanticQa je Bild ausfüllen; danach reel:image-qa:validate.');
+if (requestedFile) console.log(`✓ Inkrementeller Flow-Gate vorbereitet für ${requestedFile}.`);
+console.log('Nächster Schritt: tatsächliche Pixel visuell prüfen und semanticQa ausfüllen; danach reel:image-qa:validate.');
