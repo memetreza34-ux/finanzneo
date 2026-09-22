@@ -79,16 +79,19 @@ const hardeningPolicy = `IMAGE_STORYTELLING_HARDENING: ${V5_HARDENING_ID}\n\nV5 
 
 const hardenPrompt = (source) => {
   let next = source
-    .replace(/^VISUAL_STRATEGY:.*$/m, 'VISUAL_STRATEGY: [EINFÜGEN — literal / metaphor]')
-    .replace(/^VISUAL_MODE:.*$/m, 'VISUAL_MODE: [EINFÜGEN — cinematic-literal / cause-effect / comparison / scale / object-story / pov / grounded-metaphor]')
-    .replace(/^ENERGY_LEVEL:.*$/m, 'ENERGY_LEVEL: 0')
-    .replace(/^TABLE_DOCUMENT_SCENE:.*$/m, 'TABLE_DOCUMENT_SCENE: [EINFÜGEN — true / false]')
-    .replace(/^SHOT_SCALE:.*$/m, 'SHOT_SCALE: [EINFÜGEN — extreme-wide / wide / medium / close-up / extreme-close-up / macro]')
-    .replace(/^CAMERA_ANGLE:.*$/m, 'CAMERA_ANGLE: [EINFÜGEN — eye-level / low-angle / high-angle / top-down / over-shoulder / pov / dutch-subtle]')
-    .replace(/^METAPHOR_JUSTIFICATION:.*$/m, 'METAPHOR_JUSTIFICATION: [EINFÜGEN — none oder konkrete Begründung]');
-  if (!next.includes('LOCATION_CLASS:')) {
-    next = next.replace(/(^|\n)IMAGE PROMPT:/, `$1${extraPlanning}\n\nIMAGE PROMPT:`);
-  }
+    .replace(/^VISUAL_STRATEGY:.*$/gm, 'VISUAL_STRATEGY: [EINFÜGEN — literal / metaphor]')
+    .replace(/^VISUAL_MODE:.*$/gm, 'VISUAL_MODE: [EINFÜGEN — cinematic-literal / cause-effect / comparison / scale / object-story / pov / grounded-metaphor]')
+    .replace(/^ENERGY_LEVEL:.*$/gm, 'ENERGY_LEVEL: 0')
+    .replace(/^TABLE_DOCUMENT_SCENE:.*$/gm, 'TABLE_DOCUMENT_SCENE: [EINFÜGEN — true / false]')
+    .replace(/^SHOT_SCALE:.*$/gm, 'SHOT_SCALE: [EINFÜGEN — extreme-wide / wide / medium / close-up / extreme-close-up / macro]')
+    .replace(/^CAMERA_ANGLE:.*$/gm, 'CAMERA_ANGLE: [EINFÜGEN — eye-level / low-angle / high-angle / top-down / over-shoulder / pov / dutch-subtle]')
+    .replace(/^METAPHOR_JUSTIFICATION:.*$/gm, 'METAPHOR_JUSTIFICATION: [EINFÜGEN — none oder konkrete Begründung]')
+    .replace(/^(LOCATION_CLASS|MAIN_SUBJECT_CLASS|PATTERN_INTERRUPT_TYPE|LIGHTING_VARIATION|LABEL_BUDGET|LABEL_BUDGET_JUSTIFICATION):.*\r?\n?/gm, '');
+
+  // Masterdateien enthalten mehrere IMAGE-PROMPT-Blöcke. Deshalb werden die
+  // Hardening-Marker bewusst vor JEDEM Prompt neu eingesetzt, nicht nur einmal global.
+  next = next.replace(/(^|\n)IMAGE PROMPT:/g, `$1${extraPlanning}\n\nIMAGE PROMPT:`);
+
   if (!next.includes(`IMAGE_STORYTELLING_HARDENING: ${V5_HARDENING_ID}`)) next += `\n\n${hardeningPolicy}\n`;
   return next;
 };
@@ -113,4 +116,5 @@ for (const relativePath of ['03-szenen/bildwelt.txt', '05-projektdateien/szenenp
 
 console.log(`✓ V5-Hardening gesetzt: ${V5_HARDENING_ID}`);
 console.log('✓ Keine kreativen Defaults: Kamera, Energie, Licht, Klassen, Label-Budget und Interrupt müssen bewusst geplant werden.');
+console.log('✓ Jeder IMAGE-PROMPT-Block in Einzeldateien und Masterdatei enthält die Hardening-Marker.');
 console.log('✓ Nächster Pflichtschritt nach fertiger Planung: reel:image-prompts:compile.');
