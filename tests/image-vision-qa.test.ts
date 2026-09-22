@@ -54,13 +54,19 @@ test('langweilige generische Schreibtischszene wird bei schwachem Visual Interes
 });
 
 test('Cover braucht einen stärkeren Hook als normale Bildszenen', () => {
-  const input = baseResult();
-  input.scores.hookStrength = 78;
-  input.verdict = 'REGENERATE';
-  input.regenerationInstruction = 'Increase first-second impact with one dominant hero action, stronger scale contrast and clearer immediate consequence.';
-  const normal = evaluateVisionQaResult(input, {isCover: false});
-  const cover = evaluateVisionQaResult(input, {isCover: true});
-  assert.equal(normal.expectedVerdict, 'REGENERATE');
+  const normalInput = baseResult();
+  normalInput.scores.hookStrength = 78;
+  normalInput.verdict = 'PASS';
+  const normal = evaluateVisionQaResult(normalInput, {isCover: false});
+
+  const coverInput = baseResult();
+  coverInput.scores.hookStrength = 78;
+  coverInput.verdict = 'REGENERATE';
+  coverInput.regenerationInstruction = 'Increase first-second impact with one dominant hero action, stronger scale contrast and clearer immediate consequence.';
+  const cover = evaluateVisionQaResult(coverInput, {isCover: true});
+
+  assert.equal(normal.expectedVerdict, 'PASS');
+  assert.deepEqual(normal.errors, []);
   assert.equal(cover.expectedVerdict, 'REGENERATE');
   assert.ok(cover.errors.some((error) => error.includes('unter 82')));
 });
