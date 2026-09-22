@@ -1,0 +1,27 @@
+FINANZNEO IMAGE TEST — CREATIVE CONCEPT V1
+Generate exactly ONE image. Aspect ratio 1:1.
+
+CONCEPT_MODE: controlled-fantasy
+VIEWER_THOUGHT: "Lifestyle kann mit dem Einkommen mitwachsen und die Ersparnis verdrängen."
+ENTERTAINMENT_HOOK: Familiar lifestyle objects physically grow far beyond normal scale and crowd the savings reserve out of the scene.
+MEMORABILITY_HOOK: An oversized sofa and television push a tiny green "Rücklage" folder toward the edge.
+REALITY_ANCHOR: Recognizable apartment objects plus a clearly labeled real savings folder.
+FANTASY_LEVEL: 2
+FANTASY_JUSTIFICATION: Exaggerated growth of normal lifestyle objects makes lifestyle inflation visible while the labeled savings folder keeps the financial meaning instantly understandable.
+WHY_THIS_CONCEPT: Literal shopping props alone would be ordinary; controlled scale fantasy makes the same idea faster, funnier and more memorable.
+
+IMAGE PROMPT:
+Create a stylized 3D apartment scene where normal lifestyle upgrades are visibly growing too large for the space. A modern sofa and a television have expanded to exaggerated oversized proportions, with one or two additional recognizable lifestyle purchases also becoming slightly too large. Their scale should feel intentionally impossible but still visually clean and easy to understand.
+
+Near the edge of the frame, a small emerald-green folder labeled only "Rücklage" is being physically crowded outward by the expanding furniture. The folder remains fully recognizable and readable. The visual meaning must be immediate: as lifestyle expands, savings lose space.
+
+Include one stylized person in the scene noticing the expansion with a believable surprised/concerned reaction, but do not make the character the main subject. The oversized real-world objects are the visual hook. Keep the scene coherent; do not turn it into random surrealism.
+
+Use strong foreground scale and depth so the oversized objects feel visually dominant, while the "Rücklage" folder is clearly threatened but not hidden. The apartment may occupy a meaningful part of the frame, then organically dissolve into the deep-black world.
+
+FINANZNEO V9 STYLE LOCK:
+Clearly stylized premium 3D animation, never photorealistic. Believable object materials and recognizable everyday forms despite the controlled fantasy scale. Seamless deep black background with the local apartment area fading naturally into black. Soft premium studio lighting, clean highlights, contact shadows and strong separation. Emerald green for savings/positive value, warm ivory and soft gray for neutral surfaces, subtle gold only for money/value, warm red-orange only for cost/warning.
+
+Only the explicitly requested short German label "Rücklage" may appear. No headline, subtitle, CTA or explanatory sentence. No dashboard, app UI, flowchart, floating finance icons, arrows, generic vault/shield/coin composition, pasted logos, stock-photo look, photorealism, clutter or decorative nonsense.
+
+The financial meaning must remain understandable within roughly 1–2 seconds. Fantasy should strengthen the idea, not turn it into a riddle. Keep the same FinanzNeo stylized 3D deep-black world.
