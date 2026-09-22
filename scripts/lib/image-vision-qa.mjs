@@ -11,6 +11,7 @@ export const IMAGE_VISION_QA_THRESHOLDS = Object.freeze({
   coverHookStrength: 82,
   visualInterest: 72,
   worldConsistency: 85,
+  anchorConsistency: 85,
   compositionClarity: 75,
   sequenceNovelty: 70,
   conceptClarity: 82,
@@ -41,6 +42,11 @@ export const CREATIVE_CONCEPT_HARD_FAIL_FLAGS = Object.freeze([
   'decorativeWithoutMeaning',
   'fantasyConfusing',
   'overexplainedPropLayout',
+]);
+
+export const ANCHOR_HARD_FAIL_FLAGS = Object.freeze([
+  'anchorDrift',
+  'anchorContentCopy',
 ]);
 
 export const sha256Hex = async (buffer) => {
@@ -140,13 +146,17 @@ export const expectedVisionQaForScene = (scene, {isCover = false, creativeConcep
     fantasyLevel: Number(scene.imageStorytelling?.fantasyLevel ?? 0),
     fantasyJustification: scene.imageStorytelling?.fantasyJustification ?? '',
     whyThisConcept: scene.imageStorytelling?.whyThisConcept ?? '',
+    coverAnchorRole: scene.imageStorytelling?.coverAnchorRole ?? '',
+    coverAnchorReferenceFile: scene.imageStorytelling?.coverAnchorReferenceFile ?? '',
+    coverAnchorBlock: Number(scene.imageStorytelling?.coverAnchorBlock ?? 0),
+    coverAnchorBlockSlot: Number(scene.imageStorytelling?.coverAnchorBlockSlot ?? 0),
   },
 });
 
 const validScore = (value) => Number.isFinite(Number(value)) && Number(value) >= 0 && Number(value) <= 100;
 const ACTION_OPTIONAL_CONCEPTS = new Set(['single-iconic-object', 'visual-metaphor', 'controlled-fantasy', 'thought-visualization']);
 
-export const evaluateVisionQaResult = (result, {isCover = false, creativeConceptRequired = false, conceptMode = ''} = {}) => {
+export const evaluateVisionQaResult = (result, {isCover = false, creativeConceptRequired = false, conceptMode = '', anchorRequired = false} = {}) => {
   const errors = [];
   if (result?.contractId !== IMAGE_VISION_QA_ID) errors.push(`contractId muss ${IMAGE_VISION_QA_ID} sein.`);
   if (result?.evaluatorMode !== 'multimodal-pixel-review') errors.push('evaluatorMode muss multimodal-pixel-review sein.');
@@ -162,6 +172,7 @@ export const evaluateVisionQaResult = (result, {isCover = false, creativeConcept
     ['hookStrength', isCover ? IMAGE_VISION_QA_THRESHOLDS.coverHookStrength : IMAGE_VISION_QA_THRESHOLDS.hookStrength],
     ['visualInterest', IMAGE_VISION_QA_THRESHOLDS.visualInterest],
     ['worldConsistency', IMAGE_VISION_QA_THRESHOLDS.worldConsistency],
+    ...(anchorRequired ? [['anchorConsistency', IMAGE_VISION_QA_THRESHOLDS.anchorConsistency]] : []),
     ['compositionClarity', IMAGE_VISION_QA_THRESHOLDS.compositionClarity],
     ['sequenceNovelty', IMAGE_VISION_QA_THRESHOLDS.sequenceNovelty],
     ...(creativeConceptRequired ? [
@@ -177,7 +188,11 @@ export const evaluateVisionQaResult = (result, {isCover = false, creativeConcept
   }
 
   const flags = result?.flags ?? {};
-  for (const flag of [...HARD_FAIL_FLAGS, ...(creativeConceptRequired ? CREATIVE_CONCEPT_HARD_FAIL_FLAGS : [])]) {
+  for (const flag of [
+    ...HARD_FAIL_FLAGS,
+    ...(creativeConceptRequired ? CREATIVE_CONCEPT_HARD_FAIL_FLAGS : []),
+    ...(anchorRequired ? ANCHOR_HARD_FAIL_FLAGS : []),
+  ]) {
     if (flags[flag] === true) errors.push(`Hard-Fail-Flag aktiv: ${flag}.`);
     else if (flags[flag] !== false) errors.push(`flags.${flag} muss explizit true oder false sein.`);
   }
