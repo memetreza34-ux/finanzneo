@@ -7,7 +7,7 @@ test('Flow-Autonomievertrag verbietet Batch und erzwingt Concurrency 1', () => {
   assert.match(AUTONOMY_BLOCK, /MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG/);
   assert.match(AUTONOMY_BLOCK, /ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT/);
   assert.match(AUTONOMY_BLOCK, /POST_GENERATION_VISION_QA: finanzneo-image-vision-qa-v1/);
-  assert.match(AUTONOMY_BLOCK, /SHA-256-Hash/);
+  assert.match(AUTONOMY_BLOCK, /SHA-256-HASH/i);
   assert.doesNotMatch(FLOW_AGENT_BLOCK, /Lies die gesamte Datei einmal/);
   assert.match(FLOW_AGENT_BLOCK, /MAX_CONCURRENT_GENERATIONS = 1/);
   assert.match(FLOW_AGENT_BLOCK, /reel:image-vision:prepare/);
