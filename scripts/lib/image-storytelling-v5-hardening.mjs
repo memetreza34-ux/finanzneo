@@ -1,3 +1,5 @@
+import {stagingDirectionText} from './image-storytelling-v5-staging.mjs';
+
 export const V5_CONTRACT_ID = 'finanzneo-image-storytelling-v5';
 export const V5_HARDENING_ID = 'finanzneo-image-storytelling-v5-hardening-v1';
 export const V5_COMPILED_START = 'V5_COMPILED_DIRECTION_START';
@@ -26,6 +28,13 @@ export const HARDENING_MARKERS = [
   ['LABEL_BUDGET', 'labelBudget'],
   ['LABEL_BUDGET_JUSTIFICATION', 'labelBudgetJustification'],
   ['PATTERN_INTERRUPT_TYPE', 'patternInterruptType'],
+  ['FRAME_OCCUPANCY_CLASS', 'frameOccupancyClass'],
+  ['STAGING_MODE', 'stagingMode'],
+  ['CAUSE_EFFECT_STRENGTH', 'causeEffectStrength'],
+  ['HUMAN_REACTION', 'humanReaction'],
+  ['HUMAN_REACTION_JUSTIFICATION', 'humanReactionJustification'],
+  ['SPATIAL_PRESSURE', 'spatialPressure'],
+  ['IMPACT_COMPOSITION', 'impactComposition'],
 ];
 
 export const readMarker = (source, marker) => {
@@ -67,6 +76,13 @@ export const metaFromMarkerText = (source) => {
     ['LIGHTING_VARIATION', 'lightingVariation'],
     ['LABEL_BUDGET', 'labelBudget'],
     ['LABEL_BUDGET_JUSTIFICATION', 'labelBudgetJustification'],
+    ['FRAME_OCCUPANCY_CLASS', 'frameOccupancyClass'],
+    ['STAGING_MODE', 'stagingMode'],
+    ['CAUSE_EFFECT_STRENGTH', 'causeEffectStrength'],
+    ['HUMAN_REACTION', 'humanReaction'],
+    ['HUMAN_REACTION_JUSTIFICATION', 'humanReactionJustification'],
+    ['SPATIAL_PRESSURE', 'spatialPressure'],
+    ['IMPACT_COMPOSITION', 'impactComposition'],
   ];
   return Object.fromEntries(mapping.map(([marker, key]) => [key, readMarker(source, marker)]));
 };
@@ -77,11 +93,13 @@ export const buildCompiledDirection = (meta) => {
   const location = [clean(meta.locationClass), clean(meta.locationFamily)].filter(Boolean).join(' / ');
   const subject = [clean(meta.mainSubjectClass), clean(meta.mainSubjectFamily)].filter(Boolean).join(' / ');
   const interrupt = [clean(meta.patternInterruptType), clean(meta.patternInterrupt)].filter(Boolean).join(' — ');
+  const staging = stagingDirectionText(meta, clean);
   return `${V5_COMPILED_START}\n` +
 `Treat the following visual-direction decisions as mandatory production instructions, not notes.\n` +
 `Sequence role: ${clean(meta.sequenceRole)}. Energy: ${clean(meta.energyLevel)}/5. Visual mode: ${clean(meta.visualMode)}. Archetype: ${clean(meta.visualArchetype)}.\n` +
 `Location: ${location}. Human presence: ${clean(meta.humanPresence)}. Composition: ${clean(meta.compositionFamily)}. Main subject: ${subject}.\n` +
 `Camera: ${clean(meta.shotScale)}, ${clean(meta.cameraAngle)}. Depth staging: ${clean(meta.depthPlan)}. Lighting variation inside the locked V9 world: ${clean(meta.lightingVariation)}.\n` +
+`${staging}` +
 `Exact real-world situation: ${clean(meta.literalSituation)}\n` +
 `Context anchor: ${clean(meta.contextAnchor)}\n` +
 `Exact voiceover-to-visual match: ${clean(meta.voiceVisualMatch)}\n` +
