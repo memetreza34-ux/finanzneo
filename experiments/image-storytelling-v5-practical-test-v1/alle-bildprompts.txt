@@ -1,0 +1,325 @@
+FINANZNEO V5 PRACTICAL IMAGE TEST V1 — GOOGLE FLOW MASTER PROMPT
+
+IMPORTANT EXECUTION CONTRACT
+You are executing one strict sequential image-generation state machine.
+There are eight image jobs below, but you must NEVER generate them as a batch, contact sheet, collage, grid, multi-panel output or parallel queue.
+
+Mandatory state machine:
+1. Read ONLY IMAGE JOB 01.
+2. Generate exactly ONE 1:1 image for IMAGE JOB 01.
+3. Wait until that image is fully completed.
+4. Check it against the job-specific QA and GLOBAL WORLD LOCK.
+5. If it fails, regenerate IMAGE JOB 01 only.
+6. When it passes, save/rename it exactly as specified.
+7. Only then unlock IMAGE JOB 02.
+8. Repeat this exact process until IMAGE JOB 08 is complete.
+
+Never combine two jobs into one image.
+Never use later jobs as extra elements in an earlier image.
+Never ask the user to type “continue” between successful jobs.
+Do not change filenames.
+Do not create additional cover art.
+
+GLOBAL WORLD LOCK — APPLIES TO ALL EIGHT IMAGES
+Keep the exact FinanzNeo visual world `finanzneo-stylized-3d-animated-black-v9`:
+- clearly stylized premium 3D animation, visibly non-photorealistic
+- believable everyday objects and proportions, not toy-like finance icons
+- seamless deep-black background world; local real-world context may exist but must dissolve naturally into black
+- emerald green only for positive/protected/preferred elements
+- warm red-orange only for cost, pressure, warning or loss
+- subtle gold only for money/value
+- ivory, gray and graphite for neutral objects
+- polished matte materials, readable soft shadows, controlled highlights
+- one coherent real-world financial situation per image
+- cause and effect should be visible without audio within roughly 1–2 seconds
+- no generic floating coin/shield/arrow composition as the main explanation
+- no dashboard, app UI, flowchart, screenshot, pasted logo or abstract visual riddle
+- no photorealism or stock-photo look
+- no headline, subtitle, CTA, paragraph or decorative typography
+- only the explicitly requested short German labels may appear
+- compose cleanly in 1:1 with the hero action large and readable
+
+VERY IMPORTANT V5 DIRECTION RULE
+The scene-specific CAMERA, SHOT SCALE, LIGHTING, LOCATION and COMPOSITION instructions below take priority over any generic framing habit. Do not normalize the eight images back into the same three-quarter desk composition. The eight images must clearly belong to the same visual world while looking visibly different in staging, camera, location, human presence and dominant object.
+
+GLOBAL SEQUENCE QA
+Across the full set, avoid repeating the same composition rhythm. In particular:
+- do not turn several scenes into “person sitting at desk with papers”
+- do not make every scene eye-level medium shot
+- do not use the same hero-object placement repeatedly
+- do not use black empty space as a substitute for composition
+- do not turn real locations into tiny floating dioramas
+
+==================================================
+IMAGE JOB 01 — HOOK
+FILENAME: Bild 01 - Gehalt unter Druck.png
+==================================================
+
+Create a high-impact close-up, low-angle FinanzNeo scene in the entrance area of a normal apartment.
+
+MAIN ACTION:
+A freshly arrived salary envelope marked only `Gehalt 2.400 €` is being physically crowded from three different directions by large, believable fixed-cost objects: an ivory rent envelope marked `Miete 900 €`, a neutral car-key-and-contract bundle, and a red-orange electricity bill marked `Strom 85 €`. The salary envelope must visibly have less free space around it as these obligations press inward. A person has just entered the apartment; only part of the lower body and one hand placing the salary envelope down are visible. Do NOT stage this as someone sitting at a desk.
+
+VISUAL PURPOSE:
+The first second should communicate: the income arrives, but much of it is already claimed.
+
+CAMERA:
+Low-angle close-up from near console-surface height, salary envelope dominant in foreground, fixed costs converging toward it. Strong foreground/background depth.
+
+LIGHTING:
+Rim-heavy premium lighting with controlled warm highlights, still clearly inside the V9 world.
+
+LABEL BUDGET:
+Maximum two clearly readable labels besides the salary label. Prefer `Miete 900 €` and `Strom 85 €`. No other text.
+
+HARD FAILS:
+- generic person-at-desk scene
+- floating finance icons
+- salary envelope tiny in empty black space
+- flat infographic layout
+- photorealistic apartment photography
+
+PASS WHEN:
+The salary is visually under pressure before the viewer reads every label, and the low-angle hook looks clearly different from a normal explanatory table shot.
+
+==================================================
+IMAGE JOB 02 — SMALL PURCHASES
+FILENAME: Bild 02 - Kleinvieh an der Kasse.png
+==================================================
+
+Create a macro top-down POV scene at a supermarket checkout.
+
+MAIN ACTION:
+Two human hands are visible from first-person perspective. One hand is holding a small basket with several ordinary low-cost items while the other receives a visibly longer-than-expected printed receipt from the checkout. A coffee-to-go cup and one impulse snack are recognizable among the items. Near the payment area, a small red-orange cost marker may read only `47,60 €`.
+
+VISUAL PURPOSE:
+Make small everyday purchases feel harmless individually but visibly accumulate into a meaningful total.
+
+CAMERA:
+True top-down macro/POV. Hands, receipt and basket dominate. No face. No eye-level angle.
+
+LIGHTING:
+Focused top-light with soft contact shadows and strong object readability.
+
+LABEL BUDGET:
+Maximum one label: `47,60 €`.
+
+HARD FAILS:
+- app UI or card-payment screen as main image
+- multiple floating price tags
+- desk setting
+- generic pile of coins
+- same camera feeling as IMAGE JOB 01
+
+PASS WHEN:
+The receipt length and many small real purchases communicate accumulation instantly.
+
+==================================================
+IMAGE JOB 03 — CAR COSTS
+FILENAME: Bild 03 - Auto zieht jeden Monat.png
+==================================================
+
+Create a wide high-angle environment scene inside a stylized underground parking garage that dissolves into the FinanzNeo deep-black world.
+
+MAIN ACTION:
+A normal compact car is parked centrally. Around the car, three grounded cost sources are physically present in the real environment: a fuel nozzle resting near the rear side, an insurance letter attached under the windshield wiper, and a workshop/service invoice lying on a small nearby tool trolley. The three costs should visually converge on the car through placement and warm red-orange emphasis, not through floating arrows. No person is required.
+
+Two short labels only: `Versicherung` and `Werkstatt`.
+
+VISUAL PURPOSE:
+Show that owning the car creates recurring costs beyond the purchase price.
+
+CAMERA:
+Wide high-angle shot with strong environmental depth. The car must feel embedded in a real parking-garage context rather than floating on black.
+
+LIGHTING:
+Directional side-key with garage-like practical reflections, still premium stylized 3D.
+
+HARD FAILS:
+- isolated car product shot
+- dashboard or cost chart
+- floating finance icons
+- tiny diorama
+- same close framing as previous scenes
+
+PASS WHEN:
+The viewer immediately sees one real car surrounded by several recurring real-world cost sources.
+
+==================================================
+IMAGE JOB 04 — SAME PAY, TWO OUTCOMES
+FILENAME: Bild 04 - Gleicher Lohn zwei Wege.png
+==================================================
+
+Create one coherent wide eye-level comparison scene using two adjacent real apartment zones, not a graphic split-screen UI.
+
+MAIN ACTION:
+Two people receive the same simple salary envelope marked `2.400 €` in their respective side-by-side living zones.
+
+LEFT SIDE:
+The first person has several discretionary purchases already opened around them: shopping bag, takeout container and a newly opened accessory box. A small almost-empty neutral savings folder sits farther away.
+
+RIGHT SIDE:
+The second person has fewer discretionary objects and is physically placing money into an emerald folder marked `Rücklage 300 €` before opening a leisure envelope.
+
+VISUAL PURPOSE:
+Same income, different order of decisions, different result.
+
+CAMERA:
+Wide eye-level shot with both real-world zones visible in one coherent environment. Do not make it look like two UI cards or a flat before/after graphic.
+
+LIGHTING:
+Soft premium key light; both halves belong to exactly the same V9 world.
+
+LABEL BUDGET:
+Use only `2.400 €` and `Rücklage 300 €` as functional text.
+
+HARD FAILS:
+- infographic split screen
+- arrows between the people
+- identical mirrored poses
+- both people sitting behind desks
+
+PASS WHEN:
+The behavioral contrast is understandable from the physical actions alone.
+
+==================================================
+IMAGE JOB 05 — LIFESTYLE INFLATION
+FILENAME: Bild 05 - Lifestyle wird groesser.png
+==================================================
+
+Create a medium low-angle scale-dominance scene during a living-room delivery moment.
+
+MAIN ACTION:
+A person is receiving an oversized premium-looking television box and a large new furniture package that now dominate the room. These new lifestyle objects physically take over the visual space. At the far edge of the composition, a small emerald savings folder marked only `Rücklage` is visibly being crowded toward the side by the expanding purchases. A small neutral paper in the person’s hand may read `mehr Gehalt`, but no other text.
+
+VISUAL PURPOSE:
+Higher income can disappear when lifestyle expands at the same time.
+
+CAMERA:
+Medium low-angle with the new purchases intentionally large and imposing. Strong scale contrast. Do not turn this into a normal eye-level shopping scene.
+
+LIGHTING:
+Dramatic low-key lighting with clear rim separation and premium material highlights.
+
+LABEL BUDGET:
+Maximum two labels: `mehr Gehalt` and `Rücklage`.
+
+HARD FAILS:
+- person sitting at a table
+- generic luxury-icons composition
+- floating arrows
+- product-advertising shot with no financial consequence
+
+PASS WHEN:
+The new lifestyle visually occupies more and more space while the savings element is literally pushed aside.
+
+==================================================
+IMAGE JOB 06 — RECURRING SUBSCRIPTIONS
+FILENAME: Bild 06 - Abos kommen wieder.png
+==================================================
+
+Create a medium object-story scene around a real apartment wall calendar and mail-slot area.
+
+MAIN ACTION:
+Three physical calendar pages are visible in spatial sequence: `Januar`, `Februar`, `März`. Beside each month, a nearly identical small subscription envelope has appeared again from the mail slot. The envelopes should form a clear repeated physical rhythm through the scene. One neutral household money pouch nearby becomes visibly thinner from January to March. No human is needed.
+
+VISUAL PURPOSE:
+Make recurring small costs feel persistent because they return every month.
+
+CAMERA:
+Medium object-led perspective, slightly over the shoulder of the calendar structure rather than top-down or low-angle. Use deep staging so the repeated months recede through space.
+
+LIGHTING:
+Warm practical local light around the calendar/mail zone while the environment fades into deep black.
+
+LABEL BUDGET:
+Only the month names. Do not add subscription prices unless absolutely necessary.
+
+HARD FAILS:
+- timeline infographic
+- flowchart
+- three floating cards
+- same environment/composition as IMAGE JOB 04 or 05
+
+PASS WHEN:
+The repetition is understood as a real monthly event, not as a graphic chart.
+
+==================================================
+IMAGE JOB 07 — SAVE FIRST
+FILENAME: Bild 07 - Sparen zuerst.png
+==================================================
+
+Create a close first-person POV allocation-action scene at a small physical home money station.
+
+MAIN ACTION:
+Two hands have just received a salary envelope. Before anything else is opened, one hand is placing a defined portion directly into a substantial emerald folder marked `Rücklage 300 €`. A separate neutral envelope marked `Freizeit` remains closed farther back. The action must clearly show saving happens first, not with whatever is left over.
+
+VISUAL PURPOSE:
+Show the behavioral solution through one decisive physical action.
+
+CAMERA:
+True POV close-up from the person’s perspective. Hands and transfer action dominate. Different framing from the supermarket top-down macro in IMAGE JOB 02.
+
+LIGHTING:
+Calm soft-key lighting with a clear emerald positive focal point.
+
+LABEL BUDGET:
+Only `Rücklage 300 €` and `Freizeit`.
+
+HARD FAILS:
+- bank app interface
+- percentage chart
+- floating arrow transferring money
+- person sitting behind a desk
+
+PASS WHEN:
+The viewer understands “save first” from the physical order of actions without needing explanatory text.
+
+==================================================
+IMAGE JOB 08 — PAYOFF
+FILENAME: Bild 08 - Ruecklage bleibt stehen.png
+==================================================
+
+Create a calm wide over-shoulder payoff scene in a quiet apartment morning.
+
+MAIN ACTION:
+A person stands near an open apartment doorway looking into the room after an unexpected ordinary household problem has occurred: a washing machine panel is open and a small repair note is nearby. In the foreground, a substantial emerald folder marked `Rücklage` remains clearly available and undisturbed. There is no panic, no red emergency lighting and no giant money symbol. The scene should feel stable because the reserve already exists.
+
+VISUAL PURPOSE:
+End with the emotional consequence of the new behavior: an unexpected cost no longer destroys the month.
+
+CAMERA:
+Wide over-shoulder environmental shot with calm depth. Person is not seated. Environment must feel larger and more breathable than prior scenes while still dissolving into deep black.
+
+LIGHTING:
+Soft morning-like key within the stylized black world, quiet and reassuring.
+
+LABEL BUDGET:
+Only `Rücklage`.
+
+HARD FAILS:
+- celebratory pile of coins
+- shield icon as main subject
+- generic smiling person portrait
+- flat “success” infographic
+
+PASS WHEN:
+The final image communicates stability and preparedness through the real situation, and feels deliberately calmer than IMAGE JOB 05.
+
+==================================================
+FINAL SET CHECK — AFTER IMAGE JOB 08 ONLY
+==================================================
+
+After all eight individual jobs have passed their own checks, review the set as a sequence. Do not regenerate the entire set automatically.
+
+The set fails sequence QA if:
+- three or more images feel like the same camera/composition with different props
+- person + desk + papers becomes a repeating dominant template
+- the real-world locations are visually indistinguishable
+- all eight scenes have the same energy and lighting rhythm
+- labels carry the explanation instead of the scene action
+- any image breaks the V9 stylized 3D / deep-black world
+
+If a sequence-level issue is found, regenerate only the specific weakest image number while preserving the other passed images.
+
+END OF MASTER PROMPT
