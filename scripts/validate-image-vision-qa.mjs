@@ -137,15 +137,16 @@ for (const scene of selected) {
     if (String(result.observed?.[key] ?? '').trim().length < 2) errors.push(`${scene.id}: observed.${key} fehlt.`);
   }
 
-  const dynamicStagingRequired = request.expected?.dynamicStagingRequired === true;
-  if (dynamicStagingRequired) {
-    for (const key of ['frameOccupancy', 'spatialStaging', 'humanReaction', 'causeEffectEvidence']) {
-      if (String(result.observed?.[key] ?? '').trim().length < 2) errors.push(`${scene.id}: V5.1 observed.${key} fehlt.`);
+  const creativeConceptRequired = request.expected?.creativeConceptRequired === true;
+  if (creativeConceptRequired) {
+    for (const key of ['conceptRead', 'viewerThoughtRead', 'memorableElement', 'fantasyReadability']) {
+      if (String(result.observed?.[key] ?? '').trim().length < 2) errors.push(`${scene.id}: Creative Concept observed.${key} fehlt.`);
     }
   }
 
   const isCover = request.isCover === true;
-  const evaluation = evaluateVisionQaResult(result, {isCover, dynamicStagingRequired});
+  const conceptMode = String(request.expected?.conceptMode ?? '');
+  const evaluation = evaluateVisionQaResult(result, {isCover, creativeConceptRequired, conceptMode});
   for (const error of evaluation.errors) errors.push(`${scene.id}: ${error}`);
 }
 
@@ -161,5 +162,5 @@ console.log(`\n✓ PIXEL-VISION-QA PASS: ${selected.length} IMAGE-Szene${selecte
 console.log('✓ Jeder PASS gehört zum SHA-256-Hash der aktuellen echten Bildpixel.');
 console.log('✓ Objektive Pixel-QA hat Near-Duplicate-/Leerbild-Gates bestanden.');
 console.log('✓ Auch alle Bildhashes, auf denen der Sequenz-/Novelty-Vergleich basiert, sind noch aktuell.');
-console.log('✓ Plan-Match, Kamera, Handlung, Hook, Visual Interest, V9-Welt, Klarheit und Sequenz-Neuheit erfüllen die Mindestwerte.');
-console.log('✓ Bei V5.1-Reels sind zusätzlich räumliche Inszenierung, Cause/Effect-Stärke, Human Reaction und Impact Composition geprüft.');
+console.log('✓ Plan-Match, Kamera, Hook, Visual Interest, V9-Welt, Klarheit und Sequenz-Neuheit erfüllen die Mindestwerte.');
+console.log('✓ Bei Creative-Concept-Reels sind zusätzlich Concept Clarity, Entertainment Value, Memorability und Viewer-Thought-Match geprüft.');
