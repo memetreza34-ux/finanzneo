@@ -12,14 +12,15 @@ Read in this order:
 1. `CLAUDE.md`
 2. target `03-szenen/scene-index.json`
 3. `docs/FUTURE-IMAGE-STORYTELLING-V5.md`
-4. `docs/3-PHASEN-WORKFLOW.md`
-5. `docs/PHASE-3-COMPLETION-GATE.md`
-6. `reels/PRODUKTIONSSTANDARD.md`
-7. `.agents/rules/finanzneo-reel-safety.md`
-8. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
-9. `.agents/plugins/finanzneo-motion/rules/lottie-motion.md`
-10. `.agents/plugins/finanzneo-motion/rules/sound-design.md`
-11. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
+4. `docs/IMAGE-VISION-QA-V1.md`
+5. `docs/3-PHASEN-WORKFLOW.md`
+6. `docs/PHASE-3-COMPLETION-GATE.md`
+7. `reels/PRODUKTIONSSTANDARD.md`
+8. `.agents/rules/finanzneo-reel-safety.md`
+9. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
+10. `.agents/plugins/finanzneo-motion/rules/lottie-motion.md`
+11. `.agents/plugins/finanzneo-motion/rules/sound-design.md`
+12. `.agents/plugins/finanzneo-motion/rules/playwright-qa.md`
 
 `CLAUDE.md` wins on conflicts.
 
@@ -45,9 +46,26 @@ npm run reel:image-prompts:compile -- <Reel-Pfad>
 npm run reel:validate -- <Reel-Pfad>
 ```
 
-### Phase 2 — user
+### Phase 2 — user + generated-image pixel QA
 
 Owns final Flow images, final voiceover and real word timings.
+
+For a new V5-Hardening reel, every generated IMAGE scene must also complete `finanzneo-image-vision-qa-v1` before the next image is unlocked:
+
+```text
+one Flow image
+→ exact rename + save to 03-szenen/00-ALLE-BILDER-HIER-REIN/
+→ npm run reel:image-vision:prepare -- <Reel> --scene scene-XX
+→ multimodal evaluator opens the actual image file
+→ write the exact resultSchema to results/scene-XX.json
+→ npm run reel:image-vision:validate -- <Reel> --scene scene-XX
+→ PASS: next image
+→ REGENERATE: same scene/image number only
+```
+
+A prompt-only or metadata-only review is not pixel QA. The evaluator must inspect the actual generated pixels and provide concrete visual evidence. Request and result are bound to the image SHA-256; replacing/regenerating the image invalidates the old PASS.
+
+Previously generated images may be opened only for QA/sequence-novelty comparison. Never upload them to Flow as generation references.
 
 ### Phase 3 — configured executor
 
@@ -56,6 +74,8 @@ Integrates only. It must not invent missing Phase-1 animation or substitute miss
 If `phase3Executor` names another executor, do not take over Phase 3.
 
 After the animation SHA is sealed, Phase 3 may not invent a new Lottie concept, alter the physical mechanism or generate replacement animation code. Creative redesign returns to Phase 1.
+
+For new V5-Hardening reels, `reel:ready` must also verify a current hash-bound Pixel-Vision-QA PASS for every IMAGE scene. Missing, stale or REGENERATE reports block Phase 3.
 
 ## Visual Beat timing
 
@@ -75,6 +95,7 @@ New reels use:
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v5
 IMAGE_STORYTELLING_HARDENING: finanzneo-image-storytelling-v5-hardening-v1
 VISUAL_SEQUENCE_PLAN: finanzneo-visual-sequence-plan-v1
+POST_GENERATION_VISION_QA: finanzneo-image-vision-qa-v1
 ```
 
 ### Sequence first
@@ -151,6 +172,27 @@ The metadata is not the final Flow instruction. After planning, run the compiler
 - label budget
 
 If scene-index metadata changes after compilation, compile again. `reel:validate` must reject stale compiled prompts.
+
+## Post-generation Image Vision QA V1
+
+This gate checks whether Flow actually delivered the planned scene instead of merely accepting a good prompt.
+
+The semantic evaluator must visually inspect the real file and score:
+
+- plan/voice-beat alignment
+- camera + shot-scale compliance
+- visible action / cause-effect readability
+- hook strength
+- visual interest
+- V9 world consistency
+- composition clarity
+- sequence novelty against already generated images
+
+Hard failures include photorealism, generic finance-icon main compositions, static catalog-like staging, wrong background, forbidden sentence/headline text, label-budget overflow and scene mismatch.
+
+Generic desk scenes and dominant dead space receive stricter handling; do not pass them merely because other scores are acceptable. `scene-01` / cover requires a stronger hook threshold than a normal IMAGE scene.
+
+Every result must contain at least three concrete observations from the pixels. Never fabricate visual evidence from prompt text.
 
 ## V9 image world
 
@@ -286,6 +328,7 @@ Central `REEL_STYLE` only:
 ## Completion sequence
 
 ```bash
+# V5-Hardening: Pixel-Vision-QA must already PASS on current image hashes
 npm run reel:ready -- <Reel>
 npm run reel:phase3:init -- <Reel> <Composition-ID>
 # integrate every sealed scene + final Phase-2 assets
@@ -303,6 +346,9 @@ QA must reject:
 - black/empty visual core
 - caption-only/header-only scene
 - missing image
+- missing or stale V5 Pixel-Vision-QA report
+- a generated image whose report is bound to another SHA-256
+- prompt-only QA presented as pixel QA
 - missing animation binding
 - animation with no real motion
 - animation that does not explain its beat
