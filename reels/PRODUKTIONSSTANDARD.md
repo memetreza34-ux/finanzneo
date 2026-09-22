@@ -29,13 +29,16 @@
 - Sound-Cue-Plan
 - genau eine universelle Caption: `04-caption/caption.txt`
 
-### Phase 2 — Nutzer
+### Phase 2 — Nutzer + Pixel-QA
 - finale Google-Flow-Bilder
 - genau ein finales Haupt-Voiceover
 - echte Wort-Timings aus diesem Voiceover
+- bei neuen V5-Hardening-Reels: jedes erzeugte Bild muss die hashgebundene `finanzneo-image-vision-qa-v1` bestehen
+- der multimodale Evaluator muss die **tatsächliche Bilddatei** sehen; Prompt-/Metadatenprüfung allein gilt nicht als PASS
+- QA-Fail = dieselbe Bildnummer neu erzeugen; späterer Flow-Schritt bleibt gesperrt
 
 ### Phase 3 — konfigurierter Executor
-Phase 3 integriert Nutzerassets, versiegelten Animationscode und SFX. Kreative Änderungen nach dem Animation-Seal müssen zurück in Phase 1.
+Phase 3 integriert Nutzerassets, versiegelten Animationscode und SFX. Kreative Änderungen nach dem Animation-Seal müssen zurück in Phase 1. Neue gehärtete V5-Reels kommen nur nach Pixel-Vision-QA-PASS auf den aktuellen Bildhashes in Phase 3.
 
 ## 3. Harte Szenentyp-Regel
 
@@ -77,6 +80,7 @@ Neue Reels verwenden `finanzneo-cover-hook-v3`:
 - **Captions beginnen mit dem ersten gesprochenen Wort, auch in scene-01**
 - gesprochenes Voiceover ohne Captions ist verboten
 - eine mehrere Sekunden lange captionlose Cover-Szene bei laufendem Voiceover ist ein harter Fehler
+- scene-01/Cover hat in der Pixel-Vision-QA einen strengeren Hook-Mindestwert als normale Bildszenen
 
 Ab scene-02: normaler SceneHeader + Icon + Captions.
 
@@ -88,6 +92,7 @@ Aktive Verträge für neue Reels:
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v5
 IMAGE_STORYTELLING_HARDENING: finanzneo-image-storytelling-v5-hardening-v1
 VISUAL_SEQUENCE_PLAN: finanzneo-visual-sequence-plan-v1
+POST_GENERATION_VISION_QA: finanzneo-image-vision-qa-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 ```
 
@@ -112,12 +117,31 @@ Hardening-Regeln:
 - `TABLE_DOCUMENT_SCENE=false` darf nicht offensichtlich einem Tisch-/Dokument-Hauptprompt widersprechen
 - Lighting Variation ist innerhalb V9 erlaubt; Deep Black und der gemeinsame Stylized-3D-Look bleiben gesperrt
 
-Ausführung:
+Ausführung für jede IMAGE-Szene:
+
+```text
+GENAU EIN Flow-Bild erzeugen
+→ vollständig warten
+→ exakt umbenennen und im gemeinsamen Bilderordner ablegen
+→ reel:image-vision:prepare für genau diese scene-XX
+→ multimodaler Evaluator öffnet die echte Bilddatei
+→ Result mit konkreter Pixel-Evidenz schreiben
+→ reel:image-vision:validate für genau diese scene-XX
+→ PASS: nächster Bildblock
+→ REGENERATE: dieselbe Bildnummer neu erzeugen
+```
+
+Der QA-Request ist an den SHA-256-Hash der Bilddatei gebunden. Wird ein Bild ersetzt oder regeneriert, ist ein alter PASS automatisch ungültig. Ein Prompt-only-Review oder die bloße Aussage „V5 ist ausgefüllt“ darf niemals als Pixel-QA gelten.
+
+Pixel-QA bewertet mindestens: Plan-/Beat-Match, Kamera/Shot Scale, sichtbare Handlung, Hook, Visual Interest, V9-Welt, Kompositionsklarheit, Label-Budget und visuelle Neuheit gegenüber den bereits erzeugten Bildern. Photorealismus, generisches Finance-Icon-Hauptmotiv, statische Katalogszene, falscher Hintergrund, unzulässiger Bildtext oder Szenen-Mismatch sind Hard Fails.
+
+Zusätzlich gilt:
 - exakt ein Bildjob gleichzeitig
-- warten → umbenennen → V9-QA → erst dann nächster Job
 - keine Batch-/Parallelgenerierung
-- scene-01 ist automatisch das Cover; kein Bild 00
+- spätere Bildblöcke bleiben bis Pixel-QA-PASS gesperrt
+- scene-01 ist automatisch das Cover; kein separater Cover-Bildjob
 - finale Bilder liegen in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
+- vorherige Bilder dürfen nur für QA/Variety verglichen werden, nicht als Flow-Generierungsreferenz
 
 Bildwelt: `finanzneo-stylized-3d-animated-black-v9`. Reale Alltagssituation und Ursache/Wirkung zuerst; klar stilisiertes 3D; niemals fotorealistisch; Deep Black Pflicht.
 
@@ -158,7 +182,7 @@ SFX bestätigen sichtbare Ereignisse framegenau. Voiceover bleibt dominant. Kein
 
 ## 10. Playwright Visual QA
 
-Playwright Visual QA prüft Bild- und Animationsszenen. Geprüft werden Header/Icon, Y320–1400, Caption-Abstand, Hero-Größe, Leerraum, sichtbare Start→Ergebnis-Veränderung und Clipping.
+Playwright Visual QA prüft Bild- und Animationsszenen **nach der Integration in Remotion**. Das ist getrennt von der Flow-Pixel-Vision-QA. Geprüft werden Header/Icon, Y320–1400, Caption-Abstand, Hero-Größe, Leerraum, sichtbare Start→Ergebnis-Veränderung und Clipping.
 
 Zusätzlich prüft die finale Candidate-QA bei neuen Reels die horizontalen Außenbänder. Sichtbarer Animationsinhalt außerhalb der Safe-Zone kann den Export blockieren.
 
@@ -170,6 +194,8 @@ npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
 npm run reel:phase3:preflight -- <Reel-Pfad>
 npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 ```
+
+`reel:ready` verlangt für neue V5-Hardening-Reels zusätzlich vollständige `finanzneo-image-vision-qa-v1`-PASS-Reports, deren SHA-256 jeweils exakt zur aktuellen Bilddatei passt.
 
 `reel:render` erzeugt Candidate → Audio-Mastering → Render-QA → Presentation/Occupancy-QA → Edge-Band-QA → finalen Export.
 
