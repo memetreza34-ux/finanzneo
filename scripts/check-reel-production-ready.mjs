@@ -76,6 +76,15 @@ for (const fileName of result.expectedImages) {
   }
 }
 
+// Neue gehärtete V5-Reels dürfen Phase 3 erst betreten, wenn ein multimodaler
+// Evaluator die tatsächlich erzeugten Pixel gesehen hat. Der PASS ist an den
+// SHA-256-Hash der Bilddatei gebunden; Regeneration macht alte Reports ungültig.
+const visionQa = spawnSync(process.execPath, [resolve('scripts/validate-image-vision-qa.mjs'), root], {stdio: 'inherit'});
+if (visionQa.status !== 0) {
+  console.error('\n✗ Phase 3 darf noch nicht starten: Pixel-Vision-QA fehlt, ist veraltet oder verlangt Regeneration.');
+  process.exit(visionQa.status ?? 1);
+}
+
 // Ab hier ist Phase 1 abgeschlossen. Der kanonische Animationscode wird jetzt
 // gehasht und versiegelt. Phase 3 darf ihn danach nicht mehr verändern oder
 // durch eigene Platzhalter-/Wackelkomponenten ersetzen.
@@ -88,6 +97,7 @@ if (seal.status !== 0) {
 const executor = PHASE3_EXECUTORS[result.phase3Executor];
 console.log('\n✓ PHASE 3 STARTKLAR');
 console.log(`  ${result.expectedImages.length} quadratische 1:1-Bilder · 1 finales Voiceover · echte Wort-Zeitstempel`);
+console.log('  Pixel-Vision-QA: PASS auf den SHA-256-Hashes der aktuellen Bilddateien.');
 console.log(`  Executor: ${executor.label}`);
 console.log(`  Übergabe: ${executor.handoff}`);
 console.log('  Phase-1-Animationscode ist versiegelt und darf in Phase 3 nicht ersetzt werden.');
