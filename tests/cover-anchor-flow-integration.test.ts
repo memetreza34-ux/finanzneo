@@ -17,7 +17,7 @@ test('reel flow keeps single-job generation but uses approved cover as only pers
   const source = read('scripts/lib/flow-autonomy.mjs');
   assert.match(source, /MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB/);
   assert.match(source, /scene-01 IST ZUERST ZU ERZEUGEN/);
-  assert.match(source, /PLANBLÖCKEN ZU MAXIMAL 5 BILDERN/);
+  assert.match(source, /PLANBLÖCKEN ZU MAXIMAL \$\{COVER_ANCHOR_BLOCK_SIZE\} BILDERN/);
   assert.match(source, /KEIN ANDERES VORHERIGES BILD DARF ALS PERSISTENTE GENERIERUNGSREFERENZ/);
   assert.doesNotMatch(source, /Keine Bildreferenz verwenden\. Kein vorheriges Bild als Generierungsreferenz hochladen/);
 });
