@@ -1,0 +1,453 @@
+FINANZNEO V5.1 DYNAMIC STAGING TEST V1 — ONE GOOGLE FLOW MASTER PROMPT
+
+PURPOSE
+Create eight separate 1:1 FinanzNeo images for a visual-only test about an emergency fund. The visual question is: what happens when a washing machine and a car both fail and there is no emergency reserve?
+
+IMPORTANT EXECUTION CONTRACT — STRICT SINGLE JOB
+You are executing one strict sequential image-generation state machine.
+There are eight IMAGE JOBS below, but you must NEVER generate them as a batch, contact sheet, collage, grid, multi-panel sheet or parallel queue.
+
+Mandatory state machine:
+1. Read ONLY IMAGE JOB 01.
+2. Generate exactly ONE 1:1 image for IMAGE JOB 01.
+3. Wait until the image is fully completed.
+4. Inspect that exact result against the job QA and GLOBAL WORLD + V5.1 STAGING LOCK.
+5. If it fails, regenerate IMAGE JOB 01 only. Do not unlock any later job.
+6. When it passes, save/rename it exactly as specified.
+7. Only then unlock IMAGE JOB 02.
+8. Repeat this exact process one job at a time until IMAGE JOB 08 passes.
+
+MAX_CONCURRENT_GENERATIONS = 1
+BATCH_GENERATION = FORBIDDEN
+PARALLEL_QUEUE = FORBIDDEN
+CONTACT_SHEET = FORBIDDEN
+COLLAGE = FORBIDDEN
+ASK_USER_TO_CONTINUE = FORBIDDEN
+EXTRA_COVER = FORBIDDEN
+DO_NOT_CHANGE_FILENAMES = TRUE
+
+GLOBAL FINANZNEO V9 WORLD LOCK — APPLIES TO ALL EIGHT IMAGES
+- Keep the exact visual identity `finanzneo-stylized-3d-animated-black-v9`.
+- Clearly stylized premium 3D animation; visibly non-photorealistic and never stock-photo realistic.
+- Real everyday objects must remain believable and correctly proportioned, not toy-like generic finance icons.
+- Keep the seamless deep-black FinanzNeo world. IMPORTANT: deep black is the world boundary, NOT an instruction to leave most of the frame empty. A real local environment may occupy much of the frame when it strengthens the scene, then dissolve naturally into deep black toward the outer world.
+- Emerald green only for positive/protected/preferred financial elements such as the emergency reserve.
+- Warm red-orange only for cost, pressure, warning or loss.
+- Subtle gold only for money/value.
+- Ivory, gray and graphite for neutral objects.
+- Premium matte materials, believable paper/card texture, restrained metal/glass cues where physically plausible.
+- The exact job-specific camera, shot scale and spatial direction OVERRIDE any generic framing habit. Do not force all scenes into the same three-quarter camera.
+- Lighting must follow the job-specific lighting direction while remaining inside the same V9 premium world.
+- One coherent real-world financial situation per image.
+- The financial meaning should read within roughly 1–2 seconds without audio.
+- Real action and physical consequence must carry the explanation.
+- No dashboard, app UI, chart, flowchart, screenshot, floating finance cards, generic coin/shield/arrow composition, abstract riddle or pasted brand/logo.
+- No headline, subtitle, CTA, paragraph, watermark or decorative typography.
+- Only the explicitly allowed short German labels may appear.
+- Clean 1:1 image.
+
+V5.1 DYNAMIC STAGING LOCK — APPLIES TO ALL EIGHT IMAGES
+The previous FinanzNeo tests were sometimes too polite, too neatly arranged and too empty. Do NOT solve these jobs as isolated objects on a black studio stage.
+
+Mandatory staging behavior:
+- Make the planned ACTION the image, not a display of props.
+- Do not neatly line up explanatory objects side by side like a catalog.
+- Whenever the scene says explicit cause/effect, make the consequence physically visible: overlap, pressure, displacement, blocking, draining, crowding, shrinking, growth, repetition, spill, transfer or another concrete real-world change.
+- Use foreground/main/background overlap deliberately. Important foreground elements may partially block or pressure the subject when the job asks for it.
+- When people or hands are visible, their posture, hands and facial/body reaction must communicate the planned emotion. Keep it believable and restrained, never melodramatic.
+- Respect FRAME OCCUPANCY. Avoid tiny diorama framing. The meaningful action plus its useful local environment should fill the square frame according to the job.
+- Real local environments such as a laundry area, workshop, hallway or kitchen are encouraged when requested. They may fill much of the frame, but should fade naturally into the deep-black FinanzNeo world at the edges/background boundary.
+- Do not convert environmental scenes back into a single table or desk setup.
+- Do not add decorative objects that do not help explain the financial beat.
+
+============================================================
+IMAGE JOB 01 — WASHING MACHINE FAILURE / HOOK
+============================================================
+OUTPUT FILE: Bild 01 - Waschmaschine faellt aus.png
+
+SEQUENCE_ROLE: hook
+ENERGY_LEVEL: 5/5
+VISUAL_MODE: cause-effect
+VISUAL_ARCHETYPE: character-action
+LOCATION: real home laundry/utility area
+HUMAN_PRESENCE: single-person
+COMPOSITION: environment-led action
+MAIN_SUBJECT: failing washing machine and escaping water
+SHOT_SCALE: close-up
+CAMERA_ANGLE: low-angle
+LIGHTING: dramatic low-key inside V9
+FRAME_OCCUPANCY: tight — the meaningful action should dominate roughly 65–85% of the usable square frame
+STAGING_MODE: environmental-action
+CAUSE_EFFECT_STRENGTH: explicit
+HUMAN_REACTION: concerned
+SPATIAL_PRESSURE: foreground-dominant
+IMPACT_COMPOSITION: foreground-blocking
+LABEL_BUDGET: 0
+
+IMAGE PROMPT:
+Create a strong low-angle close-up inside a believable stylized 3D home laundry area. The washing machine is visibly failing right now: water is actively escaping from beneath the machine and spreading toward the camera so the moving puddle becomes a large near-field foreground shape that partially blocks the lower frame. The washing-machine door and lower body remain clearly readable behind the water.
+
+A stylized adult is caught in the moment, leaning urgently toward the machine with concerned body language, one hand reaching toward the plug, shutoff valve or control area while the other hand braces against the nearby surface. The person must look like they are reacting to a real unexpected problem, not posing for a finance illustration. Keep the reaction believable, not exaggerated.
+
+The local laundry environment should be visually present enough to feel like a real place — part of the utility counter, hose area, floor and nearby wall structure — and should fill meaningful frame space before dissolving into the seamless deep-black FinanzNeo world. Do NOT isolate the machine as a product shot in empty black.
+
+The first-second hook is the water rushing toward the viewer while the person reacts. Cause and effect must be instantly readable: machine failure -> water damage / urgent problem. Use strong depth overlap: water foreground, machine and reaching hand central, reacting person and local room context behind.
+
+No text at all. No repair invoice yet. No coins, arrows, UI or finance icons.
+
+JOB 01 QA — REGENERATE THIS SAME JOB IF ANY FAILS:
+- Water is not visibly escaping/spreading.
+- Person looks neutral, posed or detached.
+- Machine appears as a clean isolated product in black.
+- Most of the frame is empty black instead of active scene/context.
+- Camera does not feel low and close.
+- Scene becomes photorealistic.
+
+After PASS rename exactly: Bild 01 - Waschmaschine faellt aus.png
+Only then unlock IMAGE JOB 02.
+
+============================================================
+IMAGE JOB 02 — CAR REPAIR BECOMES EXPENSIVE / ESCALATION
+============================================================
+OUTPUT FILE: Bild 02 - Auto wird teuer.png
+
+SEQUENCE_ROLE: escalation
+ENERGY_LEVEL: 5/5
+VISUAL_MODE: cause-effect
+VISUAL_ARCHETYPE: scale-reveal
+LOCATION: real auto workshop
+HUMAN_PRESENCE: multi-person
+COMPOSITION: scale-reveal
+MAIN_SUBJECT: car repair and financial pressure
+SHOT_SCALE: wide
+CAMERA_ANGLE: low-angle
+LIGHTING: side-key inside V9
+FRAME_OCCUPANCY: environmental — real workshop context should actively fill roughly 65–85% of the usable frame and dissolve into black
+STAGING_MODE: active-collision
+CAUSE_EFFECT_STRENGTH: explicit
+HUMAN_REACTION: pressured
+SPATIAL_PRESSURE: foreground-dominant
+IMPACT_COMPOSITION: low-angle-scale
+LABEL_BUDGET: 1
+ALLOWED GERMAN LABEL: "Reparatur"
+
+IMAGE PROMPT:
+Create a wide low-angle stylized 3D scene inside a believable auto workshop. A car with its hood open occupies the midground while a mechanic is actively inspecting or working at the engine. The owner stands nearby with visibly pressured body language — shoulders slightly tense, weight shifted back, attention fixed on the repair situation.
+
+In the very near foreground, a large physical repair document or estimate enters the frame at an angle and visually interrupts the owner's clean line to the car. It should feel like the repair cost has physically inserted itself between the person and the vehicle. The document must not be neatly placed on a table. It is being held or presented in the active workshop interaction. It may carry only the short German label "Reparatur".
+
+Make the workshop real and spatial: lift structure, open hood, tool trolley or workshop floor may appear where useful, but every element must support the repair situation. The environment occupies substantial frame area and then dissolves into deep black toward the outer world. Do not turn the scene into a black stage with one car under a spotlight.
+
+Cause and effect must read instantly: vehicle problem -> workshop repair -> immediate financial pressure. Use strong low-angle scale so the open car and foreground repair document feel consequential rather than decorative.
+
+No price number, no logo, no UI, no floating symbols.
+
+JOB 02 QA — REGENERATE THIS SAME JOB IF ANY FAILS:
+- Car is merely showcased with red lighting and no active repair interaction.
+- Repair document is neatly arranged rather than actively presented/held.
+- Owner looks emotionally neutral.
+- Workshop context is missing or tiny.
+- Low-angle scale is weak.
+- More than the one allowed label appears.
+
+After PASS rename exactly: Bild 02 - Auto wird teuer.png
+Only then unlock IMAGE JOB 03.
+
+============================================================
+IMAGE JOB 03 — TWO COSTS HIT ONE RESERVE / POV
+============================================================
+OUTPUT FILE: Bild 03 - Zwei Kosten eine Ruecklage.png
+
+SEQUENCE_ROLE: escalation
+ENERGY_LEVEL: 4/5
+VISUAL_MODE: pov
+VISUAL_ARCHETYPE: pov
+LOCATION: apartment hallway / transition area
+HUMAN_PRESENCE: hands-only
+COMPOSITION: process / collision
+MAIN_SUBJECT: two repair demands versus one small reserve
+SHOT_SCALE: close-up
+CAMERA_ANGLE: strong POV
+LIGHTING: top-light inside V9
+FRAME_OCCUPANCY: tight
+STAGING_MODE: active-collision
+CAUSE_EFFECT_STRENGTH: explicit
+HUMAN_REACTION: concerned through hand tension/grip
+SPATIAL_PRESSURE: subject-dominant
+IMPACT_COMPOSITION: strong-pov
+LABEL_BUDGET: 2
+ALLOWED GERMAN LABELS: "Auto", "Waschmaschine"
+
+IMAGE PROMPT:
+Create a first-person POV close-up. Both hands are visible and slightly tense, holding two real repair documents that overlap each other rather than sitting neatly side by side. One document is associated with the car and carries only the short label "Auto"; the other is associated with the appliance repair and carries only "Waschmaschine".
+
+The overlapping repair demands should physically occupy most of the central frame and push a small visible emergency-money envelope or modest reserve toward the lower edge so it looks spatially crowded and insufficient. Do not use arrows. The pressure must be communicated by actual overlap, hand grip and lack of space.
+
+Use a believable apartment hallway/transition context in the background: for example car keys hanging near the door and a distant glimpse toward the laundry area. Keep those cues secondary and naturally dissolve the environment into the deep-black FinanzNeo world.
+
+The image should feel like the viewer is personally holding two necessary costs at the same moment. Cause and effect: two failures -> two immediate demands -> one small reserve gets crowded out. The hands should communicate concern through grip and posture, not through dramatic gestures.
+
+No table. No dashboard. No extra labels. No floating finance icons.
+
+JOB 03 QA — REGENERATE THIS SAME JOB IF ANY FAILS:
+- Camera does not clearly feel first-person POV.
+- Documents are cleanly arranged instead of overlapping/crowding.
+- Small reserve is not visibly pressured toward the frame edge.
+- Hands look relaxed/posed despite the planned concern.
+- Scene becomes a desk composition.
+- More than two labels appear.
+
+After PASS rename exactly: Bild 03 - Zwei Kosten eine Ruecklage.png
+Only then unlock IMAGE JOB 04.
+
+============================================================
+IMAGE JOB 04 — THE EMERGENCY FUND IS MISSING / PEAK REVEAL
+============================================================
+OUTPUT FILE: Bild 04 - Notgroschen fehlt.png
+
+SEQUENCE_ROLE: reveal
+ENERGY_LEVEL: 5/5
+VISUAL_MODE: cause-effect
+VISUAL_ARCHETYPE: macro-object
+LOCATION: real kitchen counter area
+HUMAN_PRESENCE: hands-only
+COMPOSITION: object-led reveal
+MAIN_SUBJECT: almost empty emergency envelope
+SHOT_SCALE: macro
+CAMERA_ANGLE: top-down
+LIGHTING: dramatic low-key inside V9
+FRAME_OCCUPANCY: tight
+STAGING_MODE: reveal
+CAUSE_EFFECT_STRENGTH: explicit
+HUMAN_REACTION: pressured through hand action
+SPATIAL_PRESSURE: foreground-dominant
+IMPACT_COMPOSITION: reveal
+LABEL_BUDGET: 1
+ALLOWED GERMAN LABEL: "Notgroschen"
+
+IMAGE PROMPT:
+Create a top-down macro scene over a real kitchen-counter area. The central action is a hand pulling the final small amount of cash out of an almost empty physical envelope labeled only "Notgroschen". The envelope is visibly open and nearly empty.
+
+The two repair documents from the car and washing-machine problems invade the composition from opposite sides and partially overlap the emergency envelope. They must feel as if two real obligations are simultaneously claiming the same small reserve. Do not place them symmetrically or neatly. One may cover part of the envelope while the other presses into the hand's working space.
+
+The hand action must be clear and tense: fingers are taking the last money because it is needed now. The kitchen surface may occupy the frame as real context, with only minimal relevant household cues. Keep the frame tightly filled by the active collision. Deep black may appear around the local scene boundary, but not as dominant empty space.
+
+First-second reveal: the envelope is almost empty while two costs are already on top of it. Cause and effect: insufficient emergency reserve -> both repairs cannot be absorbed comfortably.
+
+No extra text, no headline, no coins pile, no chart, no UI.
+
+JOB 04 QA — REGENERATE THIS SAME JOB IF ANY FAILS:
+- Envelope looks full or healthy.
+- Documents are neatly placed instead of overlapping the reserve.
+- Hand is passive instead of actively taking the final money.
+- Top-down macro impact is weak.
+- Empty black dominates the frame.
+- More than "Notgroschen" appears as text.
+
+After PASS rename exactly: Bild 04 - Notgroschen fehlt.png
+Only then unlock IMAGE JOB 05.
+
+============================================================
+IMAGE JOB 05 — WITH VS WITHOUT RESERVE / REAL-WORLD COMPARISON
+============================================================
+OUTPUT FILE: Bild 05 - Mit oder ohne Reserve.png
+
+SEQUENCE_ROLE: contrast
+ENERGY_LEVEL: 4/5
+VISUAL_MODE: comparison
+VISUAL_ARCHETYPE: comparison
+LOCATION: two adjacent believable repair situations, NOT graphic UI panels
+HUMAN_PRESENCE: multi-person
+COMPOSITION: comparison-action
+MAIN_SUBJECT: different financial reaction to the same kind of emergency
+SHOT_SCALE: wide
+CAMERA_ANGLE: eye-level
+LIGHTING: warm practical inside V9
+FRAME_OCCUPANCY: environmental
+STAGING_MODE: comparison-action
+CAUSE_EFFECT_STRENGTH: implied but visually obvious
+HUMAN_REACTION: contrasting pressured vs relieved/controlled
+SPATIAL_PRESSURE: environmental-depth
+IMPACT_COMPOSITION: environment-wide
+LABEL_BUDGET: 2
+ALLOWED GERMAN LABELS: "ohne Rücklage", "Notgroschen"
+
+IMAGE PROMPT:
+Create one coherent wide environmental comparison using two adjacent real-life repair situations inside the same FinanzNeo world — NOT a dashboard, split-screen UI, infographic or boxed graphic.
+
+On the left, a person in a believable repair/service context is visibly pressured by an open necessary repair situation. Their shoulders and hands show uncertainty while a small physical marker attached naturally to their side may read "ohne Rücklage". The repair interaction should visibly occupy their working space.
+
+On the right, a second person faces a comparable real repair situation but actively pays from a substantial emerald-green emergency envelope/folder labeled only "Notgroschen". Their posture is visibly calmer and more controlled because the reserve is doing its job. The green reserve must be actively used — held/opened/money transferred — not simply displayed upright like a product.
+
+Use real spatial depth on both sides: service counters, workshop/laundry repair context or technician interaction may be present. Let the two environments visually relate across the frame rather than becoming two graphic cards. The background/world should transition naturally into deep black at the outer boundaries.
+
+The viewer should instantly understand: similar emergency, different financial pressure because one side has a reserve. Human body language is essential.
+
+No arrows, no percentages, no app UI, no generic before/after labels beyond the two allowed short German labels.
+
+JOB 05 QA — REGENERATE THIS SAME JOB IF ANY FAILS:
+- Looks like a UI split screen or infographic.
+- People stand posed holding signs rather than actively dealing with repairs.
+- Green emergency fund is a static folder showcase.
+- Human reactions do not visibly differ.
+- Real environment is too weak or the frame is mostly empty black.
+- More than two allowed labels appear.
+
+After PASS rename exactly: Bild 05 - Mit oder ohne Reserve.png
+Only then unlock IMAGE JOB 06.
+
+============================================================
+IMAGE JOB 06 — EMERGENCY FUND ABSORBS THE REPAIR / SOLUTION IN ACTION
+============================================================
+OUTPUT FILE: Bild 06 - Notgroschen faengt Reparatur ab.png
+
+SEQUENCE_ROLE: payoff
+ENERGY_LEVEL: 3/5
+VISUAL_MODE: object-story
+VISUAL_ARCHETYPE: character-action
+LOCATION: laundry area with repair technician
+HUMAN_PRESENCE: multi-person
+COMPOSITION: process
+MAIN_SUBJECT: emergency reserve being actively used
+SHOT_SCALE: medium
+CAMERA_ANGLE: over-shoulder
+LIGHTING: soft-key inside V9
+FRAME_OCCUPANCY: balanced
+STAGING_MODE: active-use
+CAUSE_EFFECT_STRENGTH: explicit
+HUMAN_REACTION: relieved
+SPATIAL_PRESSURE: balanced-depth
+IMPACT_COMPOSITION: none — deliberately calmer beat after the peak
+LABEL_BUDGET: 1
+ALLOWED GERMAN LABEL: "Notgroschen"
+
+IMAGE PROMPT:
+Create a medium over-shoulder scene inside the same type of believable laundry/utility environment. The person is actively taking money from an open emerald-green envelope/folder labeled only "Notgroschen" and handing the payment toward a repair technician. The transfer action must be clearly visible between the hands.
+
+The washing machine is in the same real room behind the transaction and now appears repaired/closed/stable. Relevant technician tools may be present in use or nearby, but do not arrange them decoratively.
+
+The person's posture should read as relieved and controlled after the emergency is handled — relaxed shoulders, deliberate hand movement — rather than smiling for the camera. The technician remains part of the active repair/payment context.
+
+Use balanced real-world depth: over-shoulder foreground, payment transfer in the middle, repaired appliance and local utility-room environment behind. Let the local scene dissolve into deep black at the edges while still occupying most meaningful frame area.
+
+Cause and effect: reserve exists -> repair can be paid -> immediate pressure is absorbed. The emergency fund must be USED, not showcased.
+
+No extra labels, no UI, no coins floating, no green glow effect.
+
+JOB 06 QA — REGENERATE THIS SAME JOB IF ANY FAILS:
+- Green reserve is merely standing/displayed instead of being used.
+- Payment handoff is not visible.
+- Person is neutral/posed instead of visibly relieved.
+- Washing-machine context is missing.
+- Scene returns to a desk/table arrangement.
+- More than one label appears.
+
+After PASS rename exactly: Bild 06 - Notgroschen faengt Reparatur ab.png
+Only then unlock IMAGE JOB 07.
+
+============================================================
+IMAGE JOB 07 — SAVE FIRST / BEHAVIOR CHANGE
+============================================================
+OUTPUT FILE: Bild 07 - Ruecklage zuerst.png
+
+SEQUENCE_ROLE: bridge toward final habit
+ENERGY_LEVEL: 4/5
+VISUAL_MODE: pov
+VISUAL_ARCHETYPE: pov
+LOCATION: real kitchen counter immediately after money arrives
+HUMAN_PRESENCE: hands-only
+COMPOSITION: process
+MAIN_SUBJECT: money moved to emergency reserve first
+SHOT_SCALE: close-up
+CAMERA_ANGLE: strong POV
+LIGHTING: top-light inside V9
+FRAME_OCCUPANCY: tight
+STAGING_MODE: active-use
+CAUSE_EFFECT_STRENGTH: explicit
+HUMAN_REACTION: decisive through hand posture
+SPATIAL_PRESSURE: subject-dominant
+IMPACT_COMPOSITION: strong-pov
+LABEL_BUDGET: 2
+ALLOWED GERMAN LABELS: "Notgroschen", "Freizeit"
+
+IMAGE PROMPT:
+Create a decisive first-person POV close-up over a real kitchen-counter area immediately after money becomes available. One hand is actively moving a meaningful portion of cash into an open emerald-green envelope/folder labeled "Notgroschen" FIRST. The other hand steadies the envelope or remaining money.
+
+A separate neutral leisure envelope labeled "Freizeit" sits clearly farther back in the scene and remains closed/unfunded for this moment. It must be secondary in depth, not neatly paired side by side with the emergency fund. The spatial hierarchy itself should communicate priority: emergency reserve near and active, leisure farther away and waiting.
+
+The hands should look purposeful and decisive through grip and direction. Use strong POV depth so the money transfer fills the near/middle frame. A small amount of real kitchen context may remain behind and dissolve into deep black.
+
+Cause and effect: reserve funded first -> future emergencies have a buffer before discretionary spending happens. Do not use an app, bank screen, arrow or percentage chart.
+
+JOB 07 QA — REGENERATE THIS SAME JOB IF ANY FAILS:
+- Not a convincing first-person POV.
+- Emergency fund and leisure are neatly displayed as equal objects.
+- No visible transfer of money into the emergency reserve.
+- Hands look passive.
+- Deep black dominates more than the active foreground/process.
+- More than two labels appear.
+
+After PASS rename exactly: Bild 07 - Ruecklage zuerst.png
+Only then unlock IMAGE JOB 08.
+
+============================================================
+IMAGE JOB 08 — REBUILD THE RESERVE / CALM ENVIRONMENTAL PAYOFF
+============================================================
+OUTPUT FILE: Bild 08 - Ruecklage wird neu aufgebaut.png
+
+SEQUENCE_ROLE: final payoff
+ENERGY_LEVEL: 2/5
+VISUAL_MODE: cinematic-literal
+VISUAL_ARCHETYPE: environment
+LOCATION: real apartment with visible laundry nook / entry context
+HUMAN_PRESENCE: single-person
+COMPOSITION: environment-led
+MAIN_SUBJECT: rebuilding the emergency reserve after the solved problem
+SHOT_SCALE: wide
+CAMERA_ANGLE: over-shoulder
+LIGHTING: warm practical inside V9
+FRAME_OCCUPANCY: environmental
+STAGING_MODE: payoff-action
+CAUSE_EFFECT_STRENGTH: implied but clear
+HUMAN_REACTION: relieved
+SPATIAL_PRESSURE: environmental-depth
+IMPACT_COMPOSITION: environment-wide
+LABEL_BUDGET: 1
+ALLOWED GERMAN LABEL: "Notgroschen"
+
+IMAGE PROMPT:
+Create a wide over-shoulder environmental payoff inside a believable stylized apartment. The person is moving naturally through the space and actively placing a new amount of money back into an emerald-green envelope/folder labeled only "Notgroschen" on a practical shelf or console. This is an action moment, not a posed hero shot of the folder.
+
+The environment should tell the resolution quietly: a functioning washing machine is visible within a real laundry nook or utility opening deeper in the scene, and car keys hang normally near the entry area as a subtle real-world cue that the vehicle problem has been handled. Do not add a second car inside the apartment or create an impossible set.
+
+The person's posture should be visibly relieved and settled — relaxed shoulders, calm deliberate movement — while rebuilding the reserve. Use clear environmental depth: over-shoulder human foreground, active money placement in the middle, functioning home cues deeper in the frame.
+
+Let the apartment context occupy substantial frame area and then dissolve softly into the deep-black FinanzNeo world at outer boundaries. This should feel like a real place inside the black world, not a small lit box floating in darkness.
+
+The final visual meaning: emergency handled -> life returns to normal -> reserve gets rebuilt. Calm payoff, but still active.
+
+No extra text, no UI, no celebratory confetti, no floating finance symbols.
+
+JOB 08 QA — REGENERATE THIS SAME JOB IF ANY FAILS:
+- Green reserve is a static product display rather than receiving money.
+- Person is posed/neutral rather than naturally relieved.
+- Environment reads as a tiny diorama surrounded by empty black.
+- Washing-machine/home cues are missing or clutter the scene.
+- Camera is not a wide environmental payoff.
+- More than the one allowed label appears.
+
+After PASS rename exactly: Bild 08 - Ruecklage wird neu aufgebaut.png
+
+============================================================
+FINAL STATE
+============================================================
+When all eight jobs have independently passed QA, stop generating.
+Return a concise completion list with exactly these eight filenames and no additional images:
+1. Bild 01 - Waschmaschine faellt aus.png
+2. Bild 02 - Auto wird teuer.png
+3. Bild 03 - Zwei Kosten eine Ruecklage.png
+4. Bild 04 - Notgroschen fehlt.png
+5. Bild 05 - Mit oder ohne Reserve.png
+6. Bild 06 - Notgroschen faengt Reparatur ab.png
+7. Bild 07 - Ruecklage zuerst.png
+8. Bild 08 - Ruecklage wird neu aufgebaut.png
