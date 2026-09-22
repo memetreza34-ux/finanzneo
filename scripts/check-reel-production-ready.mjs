@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 import {spawnSync} from 'node:child_process';
+import {readFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {analyzeReelReadiness, isSquareImageDimensions} from './lib/reel-readiness.mjs';
-import {IMAGE_INBOX} from './lib/reel-contract.mjs';
+import {IMAGE_INBOX, SCENE_INDEX} from './lib/reel-contract.mjs';
 import {PHASE3_EXECUTORS} from './lib/reel-scene-schema.mjs';
 
 const [target] = process.argv.slice(2);
@@ -76,6 +77,15 @@ for (const fileName of result.expectedImages) {
   }
 }
 
+const sceneIndex = JSON.parse(readFileSync(resolve(root, SCENE_INDEX), 'utf8'));
+if (sceneIndex.postGenerationImageQaContract?.requiredBeforePhase3 === true) {
+  const imageQa = spawnSync(process.execPath, [resolve('scripts/validate-post-generation-image-qa-v1.mjs'), root], {stdio: 'inherit'});
+  if (imageQa.status !== 0) {
+    console.error('\n✗ Phase 3 darf noch nicht starten: finale Flow-Bilder haben Post-Generation Image QA V1 noch nicht vollständig bestanden.');
+    process.exit(imageQa.status ?? 1);
+  }
+}
+
 // Ab hier ist Phase 1 abgeschlossen. Der kanonische Animationscode wird jetzt
 // gehasht und versiegelt. Phase 3 darf ihn danach nicht mehr verändern oder
 // durch eigene Platzhalter-/Wackelkomponenten ersetzen.
@@ -88,6 +98,9 @@ if (seal.status !== 0) {
 const executor = PHASE3_EXECUTORS[result.phase3Executor];
 console.log('\n✓ PHASE 3 STARTKLAR');
 console.log(`  ${result.expectedImages.length} quadratische 1:1-Bilder · 1 finales Voiceover · echte Wort-Zeitstempel`);
+if (sceneIndex.postGenerationImageQaContract?.requiredBeforePhase3 === true) {
+  console.log('  Post-Generation Image QA V1: Pixel-QA + semantische Vision-QA PASSED.');
+}
 console.log(`  Executor: ${executor.label}`);
 console.log(`  Übergabe: ${executor.handoff}`);
 console.log('  Phase-1-Animationscode ist versiegelt und darf in Phase 3 nicht ersetzt werden.');
