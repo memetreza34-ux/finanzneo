@@ -20,7 +20,9 @@ Vor jeder Szene wird zuerst entschieden:
 2. Muss ein Finanzmechanismus intuitiv verstanden werden? → **Money Flow / Cause-Effect Image**.
 3. Ist ein Vergleich ohne exakte Daten die Kernidee? → **Comparison Image**.
 4. Reicht ein einziges starkes Objekt? → **Single Strong Object**.
-5. Trägt eine Person wirklich Emotion, Entscheidung oder Alltagssituation? → **Human Context Scene**.
+5. Wirken Kosten/Risiko sichtbar auf ein Budget? → **Pressure / Problem Image**.
+6. Wird etwas finanziell abgefedert oder geschützt? → **Protection / Buffer Image**.
+7. Trägt eine Person wirklich Emotion, Entscheidung oder Alltagssituation? → **Human Context Scene**.
 
 Menschen sind eine Option, niemals der Standard-Fallback.
 
@@ -110,13 +112,21 @@ Kanonische Routing-ID: `finanzneo-visual-routing-v1`.
 Mögliche Routen:
 
 - `concept-image`
+- `single-object-image`
 - `money-flow-image`
 - `comparison-image`
+- `pressure-problem-image`
+- `protection-buffer-image`
 - `human-context-image`
 - `data-line-remotion`
 - `data-bar-remotion`
 - `data-allocation-remotion`
 - `timeline-remotion`
+
+Jede Route bestimmt außerdem die Engine:
+
+- Bildrouten → `google-flow`
+- exakte Datenrouten → `remotion`
 
 Aktuell bleibt die bestehende Produktionsregel **IMAGE xor ANIMATION** erhalten. Eine Szene wird also bewusst einem Hauptvisual zugeordnet und nicht heimlich als Bild+Animation-Hybrid gebaut.
 
