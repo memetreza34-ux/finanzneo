@@ -109,7 +109,7 @@ Damit bedeutet Konsistenz nicht Gleichförmigkeit.
 
 ## Unverändert
 
-- Google Flow bleibt Strict-Single-Job.
+- Google Flow bleibt **Strict Single Job** (`Strict-Single-Job`): maximal ein laufender Bildjob gleichzeitig.
 - Keine Galerie, Collage, Kontaktbogen oder Mehrbild-Generierung.
 - Creative Concept V1 bleibt frei: Einzelobjekt, Person, POV, reale Szene, Metapher, kontrollierte Fantasie usw.
 - V5 Sequence-first / Hardening bleibt aktiv.
