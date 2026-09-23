@@ -45,6 +45,8 @@ export { CompareSplit, Checklist, Quote, Badge, FeatureGrid } from './components
 export { Mindmap, Flowchart, Pyramid, Cycle } from './components/Diagrams';
 export { Balance, GoalTracker, Ranking, Callout } from './components/MoreBlocks';
 export { AreaPremium, BarsPremium, PiePremium, RadarPremium } from './components/PremiumCharts';
+export { FinanceDataVisual } from './components/FinanceDataVisual';
+export type { FinanceDataVisualProps } from './components/FinanceDataVisual';
 export { RollingNumber, MoneyRain, Confetti, Sparkles, AuroraBG, PulseGrid, Shine, SpotlightReveal, Emphasis, PushIn, MotionBlur, CameraBlur } from './components/Effects';
 export { Captions, CaptionsBoxed } from './components/Captions';
 export type { CaptionWord } from './components/Captions';
