@@ -46,11 +46,14 @@ export const coverAnchorDirectionText = (meta) => {
       `Color language: ${clean(meta.coverAnchorColorLanguage)}\n` +
       `Texture language: ${clean(meta.coverAnchorTextureLanguage)}\n` +
       `Quality bar: ${clean(meta.coverAnchorQualityBar)}\n` +
-      `The approved pixels of ${reference} become the visual template for later images. Do not create a style sheet, collage or multi-panel output.\n`;
+      `After this image is generated, renamed and internally QA-checked, STOP. Do not generate any follow-up image until the user explicitly approves the actual image (for example: \"sieht gut aus\", \"passt\" or an equivalent clear approval).\n` +
+      `Only QA PASS plus explicit user approval may set APPROVED_COVER_ANCHOR. If the user rejects it, regenerate scene 01 only and wait again.\n` +
+      `The approved pixels of ${reference} then become the visual template for every later image. Do not create a style sheet, collage or multi-panel output.\n`;
   }
 
   return `ANCHOR-REFERENCED FOLLOWUP — MANDATORY\n` +
     `Generation block: ${clean(meta.coverAnchorBlock)}, slot ${clean(meta.coverAnchorBlockSlot)} of ${COVER_ANCHOR_BLOCK_SIZE}.\n` +
+    `This follow-up is allowed only after scene 01 has both QA PASS and explicit user approval. After that one approval, follow-up blocks run autonomously without asking the user between images.\n` +
     `Before generating this image, use the approved scene-01 file ${reference} as the direct visual reference/template. Match its art-direction DNA: character design language, face abstraction, geometry, materials, texture treatment, lighting character, color treatment, environment rendering, black-world integration and overall finish quality.\n` +
     `Do NOT copy the anchor's subject, camera, composition, pose or props unless the current scene independently requires them. The current scene concept and camera remain primary; the anchor controls visual identity, not content.\n` +
     `Only the approved scene-01 anchor may be used as the persistent generation reference. Other previous images are QA comparison material only.\n`;
