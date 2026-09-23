@@ -34,9 +34,16 @@ if (contract.sourceSceneId !== 'scene-01') errors.push('sourceSceneId muss scene
 if (contract.blockSize !== COVER_ANCHOR_BLOCK_SIZE) errors.push(`blockSize muss ${COVER_ANCHOR_BLOCK_SIZE} sein.`);
 if (contract.unifiedOutputDirectory !== COVER_ANCHOR_OUTPUT_DIR) errors.push(`unifiedOutputDirectory muss ${COVER_ANCHOR_OUTPUT_DIR} sein.`);
 for (const key of [
-  'firstSceneIsCoverAndMasterAnchor', 'anchorMustPassVisionQaBeforeFollowups',
-  'followupsMustUseApprovedAnchorImageReference', 'planningOccursInFiveImageBlocks',
-  'generationRemainsStrictSingleJob', 'renameImmediatelyAfterEachImage',
+  'firstSceneIsCoverAndMasterAnchor',
+  'anchorMustPassVisionQaBeforeFollowups',
+  'anchorRequiresExplicitUserApproval',
+  'followupsMustUseApprovedAnchorImageReference',
+  'planningOccursInFiveImageBlocks',
+  'followupBlocksAutoRunAfterUserApproval',
+  'noFurtherUserConfirmationInsideFollowupBlocks',
+  'automaticallyAdvanceToNextFollowupBlock',
+  'generationRemainsStrictSingleJob',
+  'renameImmediatelyAfterEachImage',
   'onlyScene01MayBePersistentGenerationReference',
 ]) if (contract[key] !== true) errors.push(`coverAnchorFlow.${key} muss true sein.`);
 
@@ -74,11 +81,21 @@ else {
     `COVER_ANCHOR_FLOW: ${COVER_ANCHOR_FLOW_ID}`,
     `COVER_ANCHOR_BLOCK_SIZE: ${COVER_ANCHOR_BLOCK_SIZE}`,
     `COVER_ANCHOR_OUTPUT_DIR: ${COVER_ANCHOR_OUTPUT_DIR}`,
+    'COVER_ANCHOR_MANUAL_GATE: explicit-user-approval-after-scene-01',
+    'COVER_ANCHOR_AUTORUN_AFTER_APPROVAL: true',
   ]) if (!master.includes(marker)) errors.push(`Masterprompt fehlt: ${marker}`);
 }
 
 const planPath = resolve(root, '05-projektdateien/COVER-ANCHOR-PLAN.md');
 if (!existsSync(planPath)) errors.push('05-projektdateien/COVER-ANCHOR-PLAN.md fehlt.');
+else {
+  const plan = readFileSync(planPath, 'utf8');
+  for (const marker of [
+    'ausdrückliche Nutzerfreigabe',
+    'Keine weitere Nutzerbestätigung',
+    'automatisch der nächste 5er-Block',
+  ]) if (!plan.includes(marker)) errors.push(`COVER-ANCHOR-PLAN.md fehlt Regel: ${marker}`);
+}
 
 if (errors.length) {
   console.error('\n✗ COVER ANCHOR FLOW NICHT BESTANDEN:\n');
@@ -87,5 +104,6 @@ if (errors.length) {
 }
 
 console.log(`✓ Cover Anchor Flow PASS: ${COVER_ANCHOR_FLOW_ID}`);
-console.log(`✓ scene-01 ist Cover + Master-Referenz; Folge-Bilder sind in ${COVER_ANCHOR_BLOCK_SIZE}er-Planblöcken organisiert.`);
-console.log('✓ Generierung bleibt strikt einzeln; alle Dateien landen im gemeinsamen Bildordner.');
+console.log('✓ scene-01 wird zuerst allein erzeugt und braucht QA-PASS + ausdrückliche Nutzerfreigabe.');
+console.log(`✓ Danach laufen Folge-Bilder automatisch in ${COVER_ANCHOR_BLOCK_SIZE}er-Blöcken weiter; technisch bleibt Strict Single Job aktiv.`);
+console.log('✓ Keine weitere Nutzerbestätigung zwischen Folge-Bildern oder Folge-Blöcken erforderlich.');
