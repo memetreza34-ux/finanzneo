@@ -51,7 +51,12 @@ Ein V5-Reel mit fehlendem oder veraltetem `V5_COMPILED_DIRECTION` im eigentliche
 
 ### Phase 2 — Nutzer
 
-- erzeugt die Szenenbilder mit Google Flow; **scene-01 ist automatisch das Cover**, kein separater Cover-Bildjob und kein Bild 00
+- erzeugt die Szenenbilder mit Google Flow; **scene-01 ist automatisch das Cover und der Master Visual Anchor**, kein separater Cover-Bildjob und kein Bild 00
+- erzeugt `scene-01` zuerst und allein, benennt sie sofort exakt um und lässt die echte hashgebundene Pixel-/Vision-QA auf genau dieser Datei bestehen
+- erst nach PASS darf die freigegebene `scene-01`-Datei als **einzige persistente visuelle Generierungsreferenz** für alle späteren Bildszenen verwendet werden
+- Folge-Bilder werden in Planblöcken von maximal 5 Bildern auf Rhythmus und Konsistenz geplant, aber weiterhin strikt einzeln erzeugt: `1 Bild → warten → umbenennen → QA → nächstes Bild`
+- die Anchor-Referenz überträgt nur visuelle DNA wie Art Direction, Figuren-/Formensprache, Materialien, Texturen, Licht, Farbbehandlung, Environment Rendering und Finish; Motiv, Kamera, Komposition, Pose und Requisiten kommen aus dem aktuellen Szenenprompt und dürfen nicht aus dem Cover kopiert werden
+- kein anderes vorheriges Bild darf als persistente Generierungsreferenz verwendet werden; andere Bilder dienen ausschließlich dem QA-/Novelty-Vergleich
 - legt alle finalen Bilder exakt benannt in `03-szenen/00-ALLE-BILDER-HIER-REIN/`
 - legt genau ein finales Voiceover in `02-audio/`
 - erzeugt echte Wort-Zeitstempel
@@ -349,26 +354,38 @@ Bild verwerfen und **dieselbe Bildnummer neu erzeugen**, wenn:
 - die sichtbare Kamera, Location, Handlung oder Hauptmotiv-Hierarchie der kompilierten V5-Regie widerspricht
 - es trotz unterschiedlicher Metadaten wieder wie eine generische Person-am-Tisch-/Katalogszene wirkt
 
-## 7. Google Flow — Strict Single Job V3
+## 7. Google Flow — Strict Single Job V3 + Cover Anchor V1
 
 ```text
 FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
 FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+COVER_ANCHOR_FLOW: finanzneo-cover-anchor-flow-v1
+FOLLOWUP_PLAN_BLOCK_SIZE: 5
 ```
 
-Zu jedem Zeitpunkt maximal **ein** Bildjob:
+Zu jedem Zeitpunkt maximal **ein** Bildjob. `scene-01` wird zuerst allein erzeugt und erst nach echter Pixel-/Vision-QA als Master Visual Anchor freigegeben:
 
 ```text
-aktuellen Prompt lesen
-→ GENAU EIN Bild starten
+scene-01-Prompt lesen
+→ GENAU EIN Cover-/Anchor-Bild starten
 → intern vollständig warten
-→ sofort exakt umbenennen
-→ V9-QA
-→ bei Fehler dieselbe Bildnummer neu erzeugen
-→ erst nach PASS nächsten Bildblock freischalten
+→ sofort exakt umbenennen und im gemeinsamen Bildordner speichern
+→ hashgebundene Pixel-/Vision-QA
+→ bei FAIL nur scene-01 neu erzeugen
+→ bei PASS APPROVED_COVER_ANCHOR setzen
+→ nächste maximal 5 Folge-Bilder gemeinsam planen, aber nicht gemeinsam generieren
+→ für genau EIN Folge-Bild die freigegebene scene-01-Datei als visuelle Referenz anhängen
+→ GENAU EINEN Bildjob starten
+→ intern vollständig warten
+→ sofort exakt umbenennen und speichern
+→ Pixel-/Vision-QA gegen aktuellen Szenenprompt UND Cover-Anchor
+→ bei FAIL dieselbe Bildnummer neu erzeugen
+→ bei PASS erst den nächsten Einzeljob freischalten
 ```
 
-Verboten: Batch, parallele Jobs, Queue späterer Bilder, Kontaktbogen/Galerie als Ersatz, Nutzer-„weiter“ zwischen Bildern und Bild-zu-Bild-Referenzen.
+Die Cover-Referenz ist die **einzige persistente Generierungsreferenz**. Sie steuert visuelle DNA, nicht den Szeneninhalt. Der aktuelle Prompt bleibt für Motiv, Kamera, Komposition, Pose und Requisiten primär.
+
+Verboten: Batch, parallele Jobs, Queue späterer Bilder, Kontaktbogen/Galerie als Ersatz, Nutzer-„weiter“ zwischen Bildern, Folge-Bilder ohne freigegebenes `scene-01`-Referenzbild, ein anderes vorheriges Bild als persistente Generierungsreferenz sowie das Kopieren von Cover-Motiv, Cover-Kamera, Cover-Komposition, Cover-Pose oder Cover-Requisiten in Folge-Szenen.
 
 ## 8. Finales Reel-Layout V5
 
