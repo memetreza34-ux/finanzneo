@@ -105,5 +105,5 @@ if (errors.length) {
 
 console.log(`✓ Cover Anchor Flow PASS: ${COVER_ANCHOR_FLOW_ID}`);
 console.log('✓ scene-01 wird zuerst allein erzeugt und braucht QA-PASS + ausdrückliche Nutzerfreigabe.');
-console.log(`✓ Danach laufen Folge-Bilder automatisch in ${COVER_ANCHOR_BLOCK_SIZE}er-Blöcken weiter; technisch bleibt Strict Single Job aktiv.`);
-console.log('✓ Keine weitere Nutzerbestätigung zwischen Folge-Bildern oder Folge-Blöcken erforderlich.');
+console.log(`✓ Danach laufen Folge-Bilder automatisch in ${COVER_ANCHOR_BLOCK_SIZE}er-Blöcken weiter.`);
+console.log('✓ Generierung bleibt strikt einzeln; keine weitere Nutzerbestätigung zwischen Folge-Bildern oder Folge-Blöcken erforderlich.');
