@@ -27,7 +27,7 @@ test('cover anchor uses scene 01 as master and groups follow-ups into planning b
   assert.equal(assigned[11].slot, 1);
 });
 
-test('master direction turns first scene into detailed cover and visual DNA source', () => {
+test('master direction turns first scene into detailed cover and requires explicit user approval before followups', () => {
   const text = coverAnchorDirectionText({
     coverAnchorRole: 'MASTER',
     coverAnchorReferenceFile: 'Bild 01 - Cover.png',
@@ -46,9 +46,13 @@ test('master direction turns first scene into detailed cover and visual DNA sour
   assert.match(text, /minimal faces/);
   assert.match(text, /never plastic AI gloss/);
   assert.match(text, /Bild 01 - Cover\.png/);
+  assert.match(text, /STOP/);
+  assert.match(text, /explicitly approves/);
+  assert.match(text, /sieht gut aus/);
+  assert.match(text, /QA PASS plus explicit user approval/);
 });
 
-test('follow-up direction requires approved cover as style reference without copying content', () => {
+test('follow-up direction requires user-approved cover as style reference and then runs without more user stops', () => {
   const text = coverAnchorDirectionText({
     coverAnchorRole: 'FOLLOWUP',
     coverAnchorReferenceFile: 'Bild 01 - Cover.png',
@@ -59,6 +63,8 @@ test('follow-up direction requires approved cover as style reference without cop
   assert.equal(COVER_ANCHOR_FLOW_ID, 'finanzneo-cover-anchor-flow-v1');
   assert.match(text, /direct visual reference\/template/);
   assert.match(text, /block: 2, slot 4 of 5/i);
+  assert.match(text, /explicit user approval/);
+  assert.match(text, /run autonomously without asking the user between images/);
   assert.match(text, /Do NOT copy the anchor's subject, camera, composition, pose or props/);
   assert.match(text, /Only the approved scene-01 anchor/);
 });
