@@ -9,6 +9,7 @@ import {
   compileOnePromptSource,
 } from './lib/image-storytelling-v5-hardening.mjs';
 import {IMAGE_CREATIVE_CONCEPT_ID} from './lib/image-creative-concept-v1.mjs';
+import {COVER_ANCHOR_FLOW_ID} from './lib/cover-anchor-flow-v1.mjs';
 
 const target = process.argv[2];
 if (!target) {
@@ -34,6 +35,7 @@ if (index.imageStorytellingContract?.hardeningId !== V5_HARDENING_ID) {
 }
 
 const creativeRequired = index.imageStorytellingContract?.creativeConceptId === IMAGE_CREATIVE_CONCEPT_ID;
+const anchorRequired = index.coverAnchorFlow?.id === COVER_ANCHOR_FLOW_ID;
 const placeholder = /\[|EINFÜGEN|TODO|TBD|XXX|\.\.\./i;
 const required = [
   'strategy', 'visualMode', 'sequenceRole', 'visualArchetype', 'locationFamily', 'locationClass',
@@ -46,9 +48,14 @@ const creativeRequiredFields = [
   'conceptMode', 'viewerThought', 'entertainmentHook', 'memorabilityHook',
   'realityAnchor', 'fantasyJustification', 'whyThisConcept',
 ];
+const coverMasterRequiredFields = [
+  'coverAnchorVisualDna', 'coverAnchorCharacterLanguage', 'coverAnchorEnvironmentLanguage',
+  'coverAnchorMaterialLanguage', 'coverAnchorLightingLanguage', 'coverAnchorColorLanguage',
+  'coverAnchorTextureLanguage', 'coverAnchorQualityBar',
+];
 
 const imageScenes = (Array.isArray(index.scenes) ? index.scenes : []).filter((scene) => scene?.type === 'image');
-for (const scene of imageScenes) {
+for (const [imageIndex, scene] of imageScenes.entries()) {
   const meta = scene.imageStorytelling ?? {};
   for (const key of [...required, ...(creativeRequired ? creativeRequiredFields : [])]) {
     const value = String(meta[key] ?? '').trim();
@@ -72,6 +79,27 @@ for (const scene of imageScenes) {
   if (creativeRequired && (!Number.isInteger(Number(meta.fantasyLevel)) || Number(meta.fantasyLevel) < 0 || Number(meta.fantasyLevel) > 3)) {
     console.error(`${scene.id}: fantasyLevel muss vor dem Compile 0–3 sein.`);
     process.exit(1);
+  }
+
+  if (anchorRequired) {
+    const expectedRole = imageIndex === 0 ? 'MASTER' : 'FOLLOWUP';
+    if (meta.coverAnchorRole !== expectedRole) {
+      console.error(`${scene.id}: coverAnchorRole muss ${expectedRole} sein.`);
+      process.exit(1);
+    }
+    if (meta.coverAnchorReferenceFile !== imageScenes[0]?.googleFlowFileName) {
+      console.error(`${scene.id}: coverAnchorReferenceFile muss auf scene-01 zeigen.`);
+      process.exit(1);
+    }
+    if (imageIndex === 0) {
+      for (const key of coverMasterRequiredFields) {
+        const value = String(meta[key] ?? '').trim();
+        if (!value || placeholder.test(value)) {
+          console.error(`scene-01: ${key} muss als detaillierte visuelle Master-DNA final beschrieben sein.`);
+          process.exit(1);
+        }
+      }
+    }
   }
 
   if (typeof scene.planFile !== 'string') {
@@ -102,9 +130,11 @@ writeFileSync(masterPath, compileAllPromptBlocksFromMarkers(readFileSync(masterP
 
 index.imageStorytellingContract.lastCompiledAt = new Date().toISOString();
 index.imageStorytellingContract.compiledPromptCount = imageScenes.length;
+if (anchorRequired) index.coverAnchorFlow.lastCompiledAt = index.imageStorytellingContract.lastCompiledAt;
 writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');
 
 console.log(`✓ ${imageScenes.length} V5-Bildprompts kompiliert.`);
 console.log('✓ Kamera, Archetyp, Handlung, Ort, Hauptmotiv, Spannung, Licht und Label-Budget stehen direkt im IMAGE PROMPT.');
 if (creativeRequired) console.log('✓ Creative Concept: Viewer Thought, Entertainment Hook, Memorability, Reality Anchor und Fantasy-Regie stehen ebenfalls direkt im IMAGE PROMPT.');
+if (anchorRequired) console.log('✓ Cover Anchor: scene-01 enthält die detaillierte Master-DNA; Folge-Bilder verlangen die freigegebene scene-01-Datei als direkte visuelle Referenz.');
 console.log('✓ Google Flow muss die kreative Regie nicht aus vorgelagerten Metadaten erraten.');

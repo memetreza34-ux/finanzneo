@@ -50,22 +50,32 @@ npm run reel:validate -- <Reel-Pfad>
 
 Owns final Flow images, final voiceover and real word timings.
 
-For a new V5-Hardening reel, every generated IMAGE scene must also complete `finanzneo-image-vision-qa-v1` before the next image is unlocked:
+For a new V5-Hardening reel, `scene-01` is the cover and **Master Visual Anchor**. It must be generated first and alone, then exactly renamed, saved and hash-bound to a real Pixel-Vision-QA PASS before any follow-up image may start.
+
+After the Anchor PASS:
 
 ```text
-one Flow image
+scene-01 = APPROVED_COVER_ANCHOR
+→ plan the next required IMAGE scenes in a block of at most 5
+→ attach the approved scene-01 file as the only persistent visual generation reference for exactly one follow-up image
+→ generate exactly one Flow image
+→ wait for the returned result
 → exact rename + save to 03-szenen/00-ALLE-BILDER-HIER-REIN/
 → npm run reel:image-vision:prepare -- <Reel> --scene scene-XX
 → multimodal evaluator opens the actual image file
 → write the exact resultSchema to results/scene-XX.json
 → npm run reel:image-vision:validate -- <Reel> --scene scene-XX
-→ PASS: next image
-→ REGENERATE: same scene/image number only
+→ PASS: unlock the next single image job
+→ REGENERATE: same scene/image number only, still using the same approved scene-01 reference
 ```
 
-A prompt-only or metadata-only review is not pixel QA. The evaluator must inspect the actual generated pixels and provide concrete visual evidence. Request and result are bound to the image SHA-256; replacing/regenerating the image invalidates the old PASS.
+The five-image block is planning only. Generation remains strict single-job: no batch, no queue, no parallel image jobs.
 
-Previously generated images may be opened only for QA/sequence-novelty comparison. Never upload them to Flow as generation references.
+The cover reference transfers visual DNA only: art direction, character/form language, materials, textures, lighting character, color treatment, environment rendering, black-world integration and finish quality. The current scene prompt stays primary for motif, camera, composition, pose and props. Do not copy the cover composition into later scenes.
+
+No other previously generated image may become a persistent Flow generation reference. Other generated images may be opened only for QA and sequence-novelty comparison.
+
+A prompt-only or metadata-only review is not pixel QA. The evaluator must inspect the actual generated pixels and provide concrete visual evidence. Request and result are bound to the image SHA-256; replacing/regenerating the image invalidates the old PASS.
 
 ### Phase 3 — configured executor
 
@@ -96,6 +106,8 @@ IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v5
 IMAGE_STORYTELLING_HARDENING: finanzneo-image-storytelling-v5-hardening-v1
 VISUAL_SEQUENCE_PLAN: finanzneo-visual-sequence-plan-v1
 POST_GENERATION_VISION_QA: finanzneo-image-vision-qa-v1
+COVER_ANCHOR_FLOW: finanzneo-cover-anchor-flow-v1
+FOLLOWUP_PLAN_BLOCK_SIZE: 5
 ```
 
 ### Sequence first

@@ -1,0 +1,49 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import test from 'node:test';
+import {AUTONOMY_BLOCK, FLOW_AGENT_BLOCK} from '../scripts/lib/flow-autonomy.mjs';
+
+const read = (path: string) => readFileSync(path, 'utf8');
+
+test('new reel pipeline applies cover anchor after creative concept', () => {
+  const source = read('scripts/create-finanzneo-reel.mjs');
+  const creative = source.indexOf('apply-image-creative-concept-v1.mjs');
+  const anchor = source.indexOf('apply-cover-anchor-flow-v1.mjs');
+  assert.ok(creative >= 0);
+  assert.ok(anchor > creative);
+  assert.match(source, /scene-01 = erste Szene \+ Cover \+ Master Visual Anchor/);
+});
+
+test('reel flow has one manual cover approval gate and then autonomous five-image blocks', () => {
+  assert.match(AUTONOMY_BLOCK, /MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB/);
+  assert.match(AUTONOMY_BLOCK, /scene-01 IST ZUERST UND ALLEIN ZU ERZEUGEN/);
+  assert.match(AUTONOMY_BLOCK, /HART STOPPEN/);
+  assert.match(AUTONOMY_BLOCK, /SIEHT GUT AUS/);
+  assert.match(AUTONOMY_BLOCK, /QA-PASS \+ AUSDRÜCKLICHE NUTZERFREIGABE/);
+  assert.match(AUTONOMY_BLOCK, /ARBEITSBLÖCKEN ZU MAXIMAL 5 BILDERN/);
+  assert.match(AUTONOMY_BLOCK, /OHNE WEITERE NUTZERBESTÄTIGUNG/);
+  assert.match(AUTONOMY_BLOCK, /NÄCHSTEN MAXIMALEN 5ER-BLOCK STARTEN/);
+  assert.match(AUTONOMY_BLOCK, /KEIN ANDERES VORHERIGES BILD DARF ALS PERSISTENTE GENERIERUNGSREFERENZ/);
+  assert.match(FLOW_AGENT_BLOCK, /freigegebene scene-01-Datei als direkte visuelle Referenz\/Vorlage/);
+  assert.match(FLOW_AGENT_BLOCK, /Bei QA-PASS: HART STOPPEN/);
+  assert.match(FLOW_AGENT_BLOCK, /ohne weitere Nutzerstopps/);
+  assert.doesNotMatch(AUTONOMY_BLOCK, /Keine Bildreferenz verwenden\. Kein vorheriges Bild als Generierungsreferenz hochladen/);
+  assert.doesNotMatch(FLOW_AGENT_BLOCK, /Keine Bildreferenz verwenden\. Kein vorheriges Bild als Generierungsreferenz hochladen/);
+});
+
+test('youtube pipeline applies the same master-anchor principle', () => {
+  const source = read('scripts/create-finanzneo-youtube.mjs');
+  assert.match(source, /apply-youtube-cover-anchor-flow-v1\.mjs/);
+  assert.match(source, /visual-01 ist das Master-Anchor-Bild/);
+  const validator = read('scripts/validate-youtube-cover-anchor-flow-v1.mjs');
+  assert.match(validator, /blockSize muss/);
+  assert.match(validator, /visual-01 muss das erste bildbasierte Video-Visual sein/);
+});
+
+test('production standard registers the anchor contract and five-image planning blocks', () => {
+  const standard = JSON.parse(read('config/finanzneo-production-standard.json'));
+  assert.equal(standard.imageStorytelling.coverAnchorFlowId, 'finanzneo-cover-anchor-flow-v1');
+  assert.equal(standard.imageStorytelling.coverAnchorBlockSize, 5);
+  assert.equal(standard.flow.followupPlanBlockSize, 5);
+  assert.equal(standard.flow.generationMode, 'strict-single-job');
+});

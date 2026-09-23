@@ -1,0 +1,247 @@
+FINANZNEO V10 IMAGE-WORLD TEST 01 — GOOGLE FLOW COPY-PASTE PROMPT
+
+TEST PURPOSE
+This test isolates the visual-world problem seen in previous Flow outputs. Keep the financial subject comparable to the earlier monthly-rate test, but render everything with the experimental visual world:
+
+finanzneo-editorial-3d-black-v10-test
+
+The goal is NOT to create prettier generic 3D. The goal is to create one coherent, mature editorial 3D illustration language that does not look Pixar-like, toy-like, glossy, game-rendered or like a random AI render.
+
+==================================================
+EXECUTION STATE MACHINE
+==================================================
+
+PHASE A — IMAGE 01 ONLY
+1. Generate ONLY Image 01.
+2. Wait for the result.
+3. Rename exactly.
+4. Inspect the actual pixels.
+5. STOP completely.
+6. Do NOT create Image 02 yet.
+7. Wait until the user explicitly approves the actual Image 01, e.g. "sieht gut aus", "passt", "ja weiter" or equivalent.
+8. Internal QA alone is NOT approval.
+9. If the user rejects Image 01, regenerate ONLY Image 01 and stop again.
+10. Only after explicit user approval set APPROVED_MASTER_ANCHOR.
+
+PHASE B — FIRST AUTOMATIC 5-IMAGE BLOCK
+After user approval of Image 01, automatically process Image 02–06 without asking the user again.
+
+Strictly one image at a time:
+Image 02 → wait → rename → internal QA → PASS → Image 03 → ... → Image 06.
+
+If any follow-up fails QA, regenerate that same image number only, then continue automatically.
+
+Every follow-up image MUST use the actual user-approved Image 01 as the ONLY persistent visual style reference.
+Do NOT use Image 02 as reference for Image 03, etc.
+
+MAX_CONCURRENT_GENERATIONS = 1
+No batch. No grid. No collage. No contact sheet. No parallel jobs.
+
+==================================================
+EXPERIMENTAL V10 VISUAL WORLD — MANDATORY
+==================================================
+
+MATURE EDITORIAL 3D ILLUSTRATION
+- clearly stylized 3D, never photorealistic
+- should feel like a premium editorial magazine illustration translated into 3D
+- graphic, designed shape language with simplified planar forms and restrained bevels
+- strong silhouettes; large readable forms before tiny detail
+- mature, calm, precise visual language
+- one coherent abstraction level across people, hands, objects and environments
+
+ABSOLUTELY AVOID
+- Pixar-like / Disney-like / DreamWorks-like character design
+- generic animated-movie protagonist look
+- cute oversized heads or big eyes
+- toy, clay, vinyl figure or collectible figurine look
+- glossy AI-plastic skin or objects
+- mobile-game / AAA-game cinematic render
+- photorealistic stock-photo look
+- product-advertising render
+- fuzzy black circular vignette around a tiny scene
+- miniature island floating in darkness
+- heavy bokeh, bloom, neon rim light, lens flare
+
+ADULT CHARACTER LANGUAGE
+- believable adult body proportions, roughly 1:7 to 1:7.5 head-to-body ratio
+- normal-sized head, hands and feet
+- simplified adult face with small eyes, restrained nose and mouth, clearer jaw and cheek planes
+- minimal skin detail; matte skin shading
+- expression primarily through posture, eyebrow angle, head position and subtle mouth shape
+- hair designed as several clean masses, not individual photoreal strands
+- broad matte clothing forms with a few meaningful folds
+
+OBJECT LANGUAGE
+- keep real functional construction recognizable
+- simplify into large planes
+- restrained edges and bevels, not fully rounded toy geometry
+- matte or satin materials; restrained highlights
+- no glossy product-shot finish
+
+ENVIRONMENT LANGUAGE
+- believable architectural fragments, not a fully cluttered room
+- use a real floor, counter, table or wall plane so the scene feels grounded
+- deep black is clean negative space around the architecture
+- let architecture crop/open naturally into black
+- NEVER use a fuzzy vignette halo as the transition to black
+
+CAMERA
+- editorial and graphic, not movie-still cinematic
+- natural 45–70 mm perspective for human/environment scenes
+- restrained depth of field; important planes stay readable
+- no dramatic ultra-wide distortion unless specifically required
+
+LIGHTING
+- one broad soft directional key
+- restrained fill
+- subtle separation only when required
+- broad readable shadows
+- no neon rim glow, no fog, no bloom
+
+COLOR
+- graphite / warm gray / ivory = neutral
+- emerald = positive / protected / available
+- warm red-orange = cost / pressure / warning
+- muted brushed gold = money/value only
+- accent colors stay limited; neutral world remains dominant
+
+TEXT
+- only exact short labels requested by the scene
+- no posters, wall writing, decorative typography, headlines, subtitles, logos or random text
+
+==================================================
+IMAGE 01 — MASTER ANCHOR
+==================================================
+FINAL FILENAME:
+Bild 01 - V10 Anchor - Kleine Raten.png
+
+VIEWER THOUGHT:
+"Viele kleine Monatsraten ziehen zusammen spürbar Geld aus meinem Budget."
+
+PROMPT:
+Create a mature editorial 3D illustration of an adult man in his late 20s standing in a simplified modern living-room fragment. He has believable adult proportions, a normal-sized head, small restrained eyes, a simplified adult face with clear jaw and cheek planes, short dark hair designed as a few clean masses, graphite trousers, an ivory shirt and a muted dark overshirt. He must look like an editorial adult figure, NOT an animated-movie character.
+
+He holds one matte emerald salary envelope at chest height. The envelope is large, flat, graphic and clearly readable. It carries exactly one label: "2.400 €".
+
+Five thin warm red-orange tension bands physically pull small sections of the envelope's value toward five real financed everyday objects integrated into the room: smartphone, television, sofa, laptop and e-scooter helmet. Each object has exactly one small physical price tab attached to it: "29 €", "39 €", "49 €", "59 €", "69 €".
+
+The metaphor must remain physically readable and controlled. The bands should feel like taut fabric/rubber strips, not magical laser beams. The man looks down at the shrinking available money with restrained concern; posture slightly tense but not theatrical.
+
+COMPOSITION:
+Use a deliberate editorial composition, medium-wide at natural eye level, approximately 55 mm perspective. The man and envelope occupy the central-left area; the financed objects create a clear visual rhythm around him without forming a catalog lineup. Use asymmetry and deliberate negative space. Keep important objects large enough for mobile reading.
+
+ENVIRONMENT:
+Show only the necessary living-room architecture: one floor plane, partial back wall, a section of sofa area and one side table. Do not construct a full room. Let the architectural edges crop cleanly and open into deep black negative space. No circular black vignette, no glowing halo, no fog.
+
+MATERIALS:
+Matte painted-resin / paper-coated surfaces, subtle micro-roughness, restrained highlights, dry fabric clothing, matte skin shading. No glossy plastic, no waxy face, no chrome.
+
+LIGHTING:
+One broad soft key from upper-left, restrained neutral fill, soft grounded contact shadows. No dramatic rim glow, no blue/orange movie lighting.
+
+STYLE RESULT:
+The frame should look like a high-end financial magazine illustration built in 3D: graphic, mature, deliberate, memorable and unmistakably designed. It must not look like Pixar, a game cutscene, a toy render or generic AI 3D.
+
+ONLY ALLOWED TEXT:
+"2.400 €", "29 €", "39 €", "49 €", "59 €", "69 €".
+No other text anywhere.
+
+Generate exactly ONE image.
+Rename exactly: Bild 01 - V10 Anchor - Kleine Raten.png
+Inspect actual pixels.
+Then STOP and wait for explicit user approval.
+
+==================================================
+IMAGE 02 — POV CHECKOUT
+==================================================
+FINAL FILENAME:
+Bild 02 - V10 - 29 Euro wirken klein.png
+
+REFERENCE:
+Use the user-approved actual Image 01 as the direct visual style reference.
+
+Create a first-person POV at a simplified electronics checkout counter. Two mature stylized adult hands hold one small matte financing card labeled exactly "29 € / Monat". A smartphone box sits physically on the counter. A smaller neutral paper tag near it reads exactly "Gesamt 696 €".
+
+Preserve Image 01's exact abstraction level, planar geometry, matte material roughness, restrained lighting, black-space integration and editorial finish. The hands must match the same mature adult visual language, not become realistic and not become cartoon hands.
+
+The monthly amount should dominate visual attention while the total price is intentionally secondary but still readable. No app UI, no brand interface, no decorative text.
+
+Generate one image only → wait → rename → QA → automatically continue on PASS.
+
+==================================================
+IMAGE 03 — ONE ICONIC OBJECT
+==================================================
+FINAL FILENAME:
+Bild 03 - V10 - Viele kleine Raten.png
+
+REFERENCE:
+Use only the approved Image 01 as the persistent visual style reference.
+
+Create a bold single-object editorial 3D image: one upright dark graphite wallet, large in frame, with five warm red-orange payment tabs physically compressing it from different directions. Tabs read exactly "29 €", "39 €", "49 €", "59 €", "69 €". A narrow emerald banknote edge remains barely visible inside.
+
+No person. No prop collection. No decorative coins. No tiny finance symbols. Preserve the same matte tactile V10 material language, restrained bevels, clean silhouette, black negative space and soft broad lighting established by Image 01.
+
+Generate one image only → wait → rename → QA → automatically continue on PASS.
+
+==================================================
+IMAGE 04 — REAL CHARACTER MOMENT
+==================================================
+FINAL FILENAME:
+Bild 04 - V10 - Monat wird eng.png
+
+REFERENCE:
+Use only the approved Image 01 as the persistent visual style reference.
+
+Create a simplified evening kitchen fragment using the same mature character language as Image 01. Over-the-shoulder framing, approximately 60 mm perspective. The adult opens an almost empty dark wallet next to a normal grocery bag. Five small monthly-payment letters rest naturally near the counter edge; they must not form a catalog spread. One small emerald card reads exactly "Frei 42 €".
+
+Use only necessary kitchen planes: counter, partial wall, one cabinet edge. Architecture opens cleanly into deep black negative space. Same matte materials, adult proportions, small facial features, restrained lighting and graphic editorial shape language as the approved anchor.
+
+Generate one image only → wait → rename → QA → automatically continue on PASS.
+
+==================================================
+IMAGE 05 — CONTROLLED METAPHOR
+==================================================
+FINAL FILENAME:
+Bild 05 - V10 - Jeden Monat ein Biss.png
+
+REFERENCE:
+Use only the approved Image 01 as the persistent visual style reference.
+
+Create a controlled editorial visual metaphor on a real kitchen counter: one large matte emerald monthly-budget block labeled exactly "MONAT". Five clean bite-shaped sections are removed from one edge. Beside them sit five matching warm red-orange payment tabs marked "29", "39", "49", "59", "69 €".
+
+Behind the block are three simple physical calendar sheets labeled exactly "Okt", "Nov", "Dez". Each shows the same repeating bite pattern. The recurrence must be understood instantly without arrows or charts.
+
+Keep the metaphor graphic and physically grounded, not magical. Same planar V10 forms, matte tactile material, restrained lighting and clean black negative-space treatment.
+
+Generate one image only → wait → rename → QA → automatically continue on PASS.
+
+==================================================
+IMAGE 06 — PAYOFF
+==================================================
+FINAL FILENAME:
+Bild 06 - V10 - Wieder Luft im Budget.png
+
+REFERENCE:
+Use only the approved Image 01 as the persistent visual style reference.
+
+Create a calm payoff in a simplified dining-area fragment with the same adult character language as Image 01. Fresh wide composition, approximately 50 mm perspective. The adult sits relaxed at a dining table. Three closed cancelled payment letters are stacked off to one side. In the foreground, one thicker matte emerald envelope labeled exactly "Frei 250 €" is the dominant object.
+
+The room feels more open but not luxurious. Keep architecture minimal and grounded, opening cleanly into deep black negative space. Same planar geometry, adult proportions, matte materials, restrained soft key light and editorial finish as the approved anchor.
+
+Generate one image only → wait → rename → QA.
+
+==================================================
+FINAL STYLE CHECK
+==================================================
+Reject any image that drifts into:
+- animated-movie / Pixar-like character design
+- toy, clay or collectible look
+- glossy AI plastic
+- game cinematic rendering
+- photorealism
+- circular black vignette
+- miniature floating diorama
+- excessive depth-of-field blur
+- mismatched style between people, hands, objects and environment
+
+All six images must feel as if the same mature editorial 3D illustration studio designed them.

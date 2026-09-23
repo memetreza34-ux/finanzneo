@@ -16,6 +16,7 @@ const validators = [
   'scripts/validate-reel-background.mjs',
   'scripts/validate-reel-source-contract.mjs',
   'scripts/validate-scene01-cover-export-contract.mjs',
+  'scripts/validate-cover-anchor-flow-v1.mjs',
   'scripts/validate-future-cover-hook-v2.mjs',
   'scripts/validate-future-cover-hook-v3.mjs',
   'scripts/validate-scene-quality.mjs',

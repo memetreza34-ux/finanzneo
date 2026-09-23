@@ -13,6 +13,7 @@ const ACTIVE_RULE_FILES = [
   'docs/IMAGE-SYSTEM.md',
   'docs/IMAGE-VISION-QA-V1.md',
   'docs/IMAGE-CREATIVE-CONCEPT-V1.md',
+  'docs/COVER-ANCHOR-FLOW-V1.md',
   'docs/GLOBAL-IMAGE-WORLD-LOCK.md',
   'docs/FINANZNEO-VISUAL-TIMING-AND-CLARITY-STANDARD.md',
   'docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md',
@@ -38,6 +39,9 @@ const ACTIVE_RULE_FILES = [
   'scripts/validate-reel-layout-v5.mjs',
   'scripts/apply-stylized-animated-black-world-v9.mjs',
   'scripts/validate-global-image-world.mjs',
+  'scripts/apply-cover-anchor-flow-v1.mjs',
+  'scripts/validate-cover-anchor-flow-v1.mjs',
+  'scripts/lib/cover-anchor-flow-v1.mjs',
   'scripts/lib/flow-autonomy.mjs',
   'scripts/validate-flow-autonomous-contract.mjs',
   // V3/V4 bleiben Legacy-kompatibel; neue Produktionen nutzen V5 + Hardening + Creative Concept V1.
@@ -104,6 +108,9 @@ const requiredMarkers = new Map([
     'finanzneo-image-storytelling-v5-hardening-v1',
     'V5_COMPILED_DIRECTION',
     'reel:image-prompts:compile',
+    'finanzneo-cover-anchor-flow-v1',
+    'FOLLOWUP_PLAN_BLOCK_SIZE: 5',
+    'einzige persistente visuelle Generierungsreferenz',
     '#000000',
     'Visualzone           Y = 320–1400',
     'Header Text          56 px',
@@ -114,22 +121,26 @@ const requiredMarkers = new Map([
   ['docs/IMAGE-SYSTEM.md', ['finanzneo-stylized-3d-animated-black-v9', 'finanzneo-image-storytelling-v5-hardening-v1', 'V5_COMPILED_DIRECTION', '1,8–3,0 s', 'keine feste', 'tiefschwarzen Hintergrund']],
   ['docs/IMAGE-VISION-QA-V1.md', ['finanzneo-image-vision-qa-v1', 'SHA-256', 'multimodalen Evaluator', 'Prompt-', 'REGENERATE', 'Phase-3-Gate']],
   ['docs/IMAGE-CREATIVE-CONCEPT-V1.md', ['finanzneo-image-creative-concept-v1', 'Die stärkste passende Bildidee gewinnt', 'single-iconic-object', 'kontrollierte Fantasie', 'entertainmentValue', 'memorability']],
+  ['docs/COVER-ANCHOR-FLOW-V1.md', ['finanzneo-cover-anchor-flow-v1', 'scene-01', '5', 'Strict Single Job', 'persistente']],
   ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['PremiumPhysicalStage', '#000000', 'Y 320–1400', 'keine feste Support-Objekt-Anzahl']],
   ['docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md', ['56 px', 'Y = 320–1400', 'SourceNote']],
   ['docs/PHASE-3-COMPLETION-GATE.md', ['Post-Render', 'Caption-/Header-only', 'FINAL_COMPLETE']],
   ['docs/PLATFORM-PUBLISHING.md', ['caption-universal.txt', 'keine separaten Plattform-Captiondateien']],
   ['reels/PRODUKTIONSSTANDARD.md', ['caption-universal.txt', 'Playwright Visual QA', 'Keine separaten Plattform-Captiondateien', 'finanzneo-image-vision-qa-v1', 'reel:image-vision:prepare', 'reel:image-vision:validate', 'SHA-256']],
   ['MASTER-PROMPTS.md', ['#000000', 'FNBgParticles', 'customAnimations']],
-  ['config/finanzneo-production-standard.json', ['finanzneo-image-creative-concept-v1', 'apply-image-creative-concept-v1.mjs', 'validate-image-creative-concept-v1.mjs']],
+  ['config/finanzneo-production-standard.json', ['finanzneo-image-creative-concept-v1', 'apply-image-creative-concept-v1.mjs', 'validate-image-creative-concept-v1.mjs', 'finanzneo-cover-anchor-flow-v1', 'coverAnchorBlockSize', 'followupPlanBlockSize']],
   ['src/brand/tokens.ts', ['fontSize:56', 'minFontSize:50', 'maxLines:2', 'top:320,bottom:1400', 'sourceNote']],
   ['src/brand/components/ReelStage.tsx', ['clipPath', 'Y320–1400', 'visual-only']],
   ['src/brand/components/SceneHeader.tsx', ['WebkitLineClamp', 'H.maxLines', "whiteSpace: 'normal'"]],
   ['scripts/scaffold-finanzneo-reel.mjs', ['visualBottom: 1400', 'fontSize:56', 'visualSafeZone:{top:320,bottom:1400']],
   ['scripts/apply-reel-layout-v5.mjs', ['visualBottom: 1400', 'fontSize: 56', 'hardClipAnimations: true']],
   ['scripts/validate-reel-layout-v5.mjs', ['visualBottom === 1400', 'fontSize === 56', 'hardClipAnimations === true']],
-  ['scripts/create-finanzneo-reel.mjs', ['apply-stylized-animated-black-world-v9.mjs', 'apply-future-image-storytelling-v5.mjs', 'apply-future-image-storytelling-v5-hardening.mjs', 'apply-image-creative-concept-v1.mjs', 'reel:image-prompts:compile', 'Creative Concept V1', 'Visual Y320–1400']],
-  ['scripts/lib/flow-autonomy.mjs', ['POST_GENERATION_VISION_QA', 'finanzneo-image-vision-qa-v1', 'SHA-256-Hash', 'reel:image-vision:prepare', 'reel:image-vision:validate', 'promptOnlyQaForbidden']],
-  ['scripts/validate-flow-autonomous-contract.mjs', ['IMAGE_VISION_QA_ID', 'multimodalPixelInspectionRequired', 'visionQaBoundToImageSha256', 'nextStepLockedUntilVisionQaPass']],
+  ['scripts/create-finanzneo-reel.mjs', ['apply-stylized-animated-black-world-v9.mjs', 'apply-future-image-storytelling-v5.mjs', 'apply-future-image-storytelling-v5-hardening.mjs', 'apply-image-creative-concept-v1.mjs', 'apply-cover-anchor-flow-v1.mjs', 'reel:image-prompts:compile', 'Creative Concept V1', 'Visual Y320–1400']],
+  ['scripts/apply-cover-anchor-flow-v1.mjs', ['COVER_ANCHOR_FLOW_ID', 'COVER_ANCHOR_BLOCK_SIZE', 'followupsMustUseApprovedAnchorImageReference', 'onlyScene01MayBePersistentGenerationReference', 'COVER-ANCHOR-PLAN.md']],
+  ['scripts/validate-cover-anchor-flow-v1.mjs', ['COVER_ANCHOR_FLOW_ID', 'followupsMustUseApprovedAnchorImageReference', 'onlyScene01MayBePersistentGenerationReference', 'Generierung bleibt strikt einzeln']],
+  ['scripts/lib/cover-anchor-flow-v1.mjs', ['finanzneo-cover-anchor-flow-v1', 'COVER_ANCHOR_BLOCK_SIZE = 5', 'ANCHOR-REFERENCED FOLLOWUP', 'Only the approved scene-01 anchor may be used as the persistent generation reference']],
+  ['scripts/lib/flow-autonomy.mjs', ['POST_GENERATION_VISION_QA', 'finanzneo-image-vision-qa-v1', 'COVER_ANCHOR_FLOW', 'FOLLOWUP_PLAN_BLOCK_SIZE', 'SHA-256-Hash', 'reel:image-vision:prepare', 'reel:image-vision:validate', 'approvedCoverImageReferenceRequiredForFollowups', 'onlyCoverMayBePersistentGenerationReference', 'promptOnlyQaForbidden']],
+  ['scripts/validate-flow-autonomous-contract.mjs', ['IMAGE_VISION_QA_ID', 'multimodalPixelInspectionRequired', 'visionQaBoundToImageSha256', 'nextStepLockedUntilVisionQaPass', 'approvedCoverImageReferenceRequiredForFollowups', 'onlyCoverMayBePersistentGenerationReference']],
   ['scripts/apply-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'Literal first, creative second', 'TRANSFERABILITY_TEST', 'Förderbänder, Schienen, Schranken, Käfige']],
   ['scripts/validate-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'finanzneo-image-storytelling-v2', 'finanzneo-image-storytelling-v4', 'finanzneo-image-storytelling-v5', 'TRANSFERABILITY_TEST', 'METAPHOR_JUSTIFICATION']],
   ['scripts/apply-future-image-storytelling-v4.mjs', ['finanzneo-image-storytelling-v4', 'finanzneo-stylized-3d-animated-black-v9', 'Grounded first, not literal-only', 'VISUAL_HOOK', 'NOVELTY_CHECK']],
@@ -149,7 +160,7 @@ const requiredMarkers = new Map([
   ['scripts/check-reel-production-ready.mjs', ['validate-image-vision-qa.mjs', 'Pixel-Vision-QA', 'SHA-256']],
   ['docs/FUTURE-IMAGE-STORYTELLING-V3.md', ['Literal first, creative second', 'Transferability-Test', 'METAPHOR_JUSTIFICATION']],
   ['docs/FUTURE-IMAGE-STORYTELLING-V5.md', ['Erst die gesamte visuelle Sequenz planen', 'finanzneo-image-storytelling-v5-hardening-v1', 'V5_COMPILED_DIRECTION', 'LABEL_BUDGET', 'ENERGY_LEVEL', 'VISUAL_ARCHETYPE']],
-  ['.agents/skills/finanzneo-reel/SKILL.md', ['finanzneo-image-storytelling-v5-hardening-v1', 'reel:image-prompts:compile', 'A-B-A-B-A-B']],
+  ['.agents/skills/finanzneo-reel/SKILL.md', ['finanzneo-image-storytelling-v5-hardening-v1', 'reel:image-prompts:compile', 'finanzneo-cover-anchor-flow-v1', 'FOLLOWUP_PLAN_BLOCK_SIZE: 5', 'only persistent visual generation reference', 'A-B-A-B-A-B']],
 ]);
 
 for (const [path, markers] of requiredMarkers) {
@@ -169,6 +180,7 @@ if (errors.length) {
 console.log('\n✓ Aktive Reel-Regelquellen sind auf V9/Pure-Black/Final-Layout/Image-Storytelling-V5 ausgerichtet.');
 console.log('✓ Legacy Storytelling V3/V4 bleibt prüfbar; neue Reels nutzen V5 + Hardening + Creative Concept V1.');
 console.log('✓ Creative Concept V1 erlaubt Einzelobjekt, reale Szene, Metapher, Thought Visualization und kontrollierte Fantasie ohne starre Bildtyp-Quote.');
+console.log('✓ Cover Anchor V1 ist als aktive Regel geschützt: scene-01 zuerst, QA-PASS, danach einzige persistente Referenz; Folge-Bilder bleiben Strict Single Job in 5er-Planblöcken.');
 console.log('✓ V5-Hardening, Prompt-Compiler und der kompilierte Director-Brief sind als aktive Produktionsregeln geschützt.');
 console.log('✓ Neue Reels verlangen nach Flow eine hashgebundene multimodale Pixel-Vision-QA vor dem nächsten Bild und vor Phase 3.');
 console.log('✓ V9 bleibt unverändert: Deep Black, stylized 3D, Farbrollen, Materialgefühl, 1:1 und Single-Job bleiben gesperrt.');

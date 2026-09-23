@@ -1,4 +1,5 @@
 import {creativeConceptDirectionText, CREATIVE_CONCEPT_MARKERS} from './image-creative-concept-v1.mjs';
+import {coverAnchorDirectionText, COVER_ANCHOR_MARKERS} from './cover-anchor-flow-v1.mjs';
 
 export const V5_CONTRACT_ID = 'finanzneo-image-storytelling-v5';
 export const V5_HARDENING_ID = 'finanzneo-image-storytelling-v5-hardening-v1';
@@ -29,6 +30,7 @@ export const HARDENING_MARKERS = [
   ['LABEL_BUDGET_JUSTIFICATION', 'labelBudgetJustification'],
   ['PATTERN_INTERRUPT_TYPE', 'patternInterruptType'],
   ...CREATIVE_CONCEPT_MARKERS,
+  ...COVER_ANCHOR_MARKERS,
 ];
 
 export const readMarker = (source, marker) => {
@@ -71,6 +73,7 @@ export const metaFromMarkerText = (source) => {
     ['LABEL_BUDGET', 'labelBudget'],
     ['LABEL_BUDGET_JUSTIFICATION', 'labelBudgetJustification'],
     ...CREATIVE_CONCEPT_MARKERS,
+    ...COVER_ANCHOR_MARKERS,
   ];
   return Object.fromEntries(mapping.map(([marker, key]) => [key, readMarker(source, marker)]));
 };
@@ -82,12 +85,14 @@ export const buildCompiledDirection = (meta) => {
   const subject = [clean(meta.mainSubjectClass), clean(meta.mainSubjectFamily)].filter(Boolean).join(' / ');
   const interrupt = [clean(meta.patternInterruptType), clean(meta.patternInterrupt)].filter(Boolean).join(' — ');
   const creativeConcept = creativeConceptDirectionText(meta);
+  const coverAnchor = coverAnchorDirectionText(meta);
   return `${V5_COMPILED_START}\n` +
 `Treat the following visual-direction decisions as mandatory production instructions, not notes.\n` +
 `Sequence role: ${clean(meta.sequenceRole)}. Energy: ${clean(meta.energyLevel)}/5. Visual mode: ${clean(meta.visualMode)}. Archetype: ${clean(meta.visualArchetype)}.\n` +
 `Location: ${location}. Human presence: ${clean(meta.humanPresence)}. Composition: ${clean(meta.compositionFamily)}. Main subject: ${subject}.\n` +
 `Camera: ${clean(meta.shotScale)}, ${clean(meta.cameraAngle)}. Depth staging: ${clean(meta.depthPlan)}. Lighting variation inside the locked V9 world: ${clean(meta.lightingVariation)}.\n` +
 `${creativeConcept}` +
+`${coverAnchor}` +
 `Exact real-world situation: ${clean(meta.literalSituation)}\n` +
 `Context anchor: ${clean(meta.contextAnchor)}\n` +
 `Exact voiceover-to-visual match: ${clean(meta.voiceVisualMatch)}\n` +

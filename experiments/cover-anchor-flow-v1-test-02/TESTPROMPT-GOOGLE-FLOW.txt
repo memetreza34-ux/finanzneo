@@ -1,0 +1,381 @@
+FINANZNEO COVER-ANCHOR TEST 02 — GOOGLE FLOW COPY-PASTE PROMPT
+
+ZIEL
+Dieser Test soll NICHT nur die Bildqualität testen, sondern vor allem den kompletten neuen Ablauf:
+
+Bild 01 allein erzeugen
+→ intern prüfen
+→ HARD STOP
+→ auf ausdrückliche Nutzerfreigabe warten
+→ danach Bild 02–06 automatisch als erster 5er-Block
+→ danach Bild 07–11 automatisch als zweiter 5er-Block
+→ ohne weitere Nutzerbestätigung
+
+Bild 01 bleibt für ALLE späteren Bilder die einzige persistente visuelle Stilreferenz.
+
+==================================================
+VERBINDLICHER ABLAUF
+==================================================
+
+PHASE A — NUR BILD 01
+
+1. Erzeuge zuerst ausschließlich Bild 01.
+2. Starte keinen weiteren Bildjob gleichzeitig.
+3. Warte vollständig auf das Ergebnis.
+4. Benenne die Datei exakt um.
+5. Prüfe das tatsächliche Bild intern auf Stil, Verständlichkeit, Komposition und technische Fehler.
+6. Danach STOPPE vollständig.
+7. Erzeuge noch KEIN Bild 02.
+8. Warte auf eine ausdrückliche Freigabe des Nutzers für das tatsächliche Bild 01, zum Beispiel:
+   - „sieht gut aus“
+   - „passt“
+   - „ja weiter“
+   - oder eine gleichwertige eindeutige Zustimmung.
+9. Interne QA allein reicht NICHT als Freigabe.
+10. Wenn der Nutzer Änderungen verlangt, erzeuge ausschließlich Bild 01 neu und warte danach erneut auf die Freigabe.
+11. Erst nach ausdrücklicher Freigabe wird Bild 01 zu APPROVED_MASTER_ANCHOR.
+
+PHASE B — AUTOMATISCHER 5ER-BLOCK 1
+
+Nach Freigabe von Bild 01:
+
+Bild 02 → vollständig warten → exakt umbenennen → interne QA
+→ bei PASS automatisch Bild 03
+→ Bild 04
+→ Bild 05
+→ Bild 06
+
+Der Nutzer wird zwischen diesen Bildern NICHT gefragt.
+
+PHASE C — AUTOMATISCHER 5ER-BLOCK 2
+
+Sobald Bild 06 bestanden ist:
+
+Bild 07 → vollständig warten → exakt umbenennen → interne QA
+→ bei PASS automatisch Bild 08
+→ Bild 09
+→ Bild 10
+→ Bild 11
+
+Auch zwischen den 5er-Blöcken KEINE Nutzerfreigabe anfordern.
+
+Bei einem QA-Fail:
+- nur dieselbe Bildnummer neu erzeugen;
+- danach intern erneut prüfen;
+- bei PASS automatisch fortfahren.
+
+==================================================
+STRICT SINGLE JOB
+==================================================
+
+- MAX_CONCURRENT_GENERATIONS = 1
+- niemals mehrere Bilder gleichzeitig generieren
+- keine parallele Queue
+- kein Grid
+- keine Collage
+- kein Kontaktbogen
+- kein Multi-Image-Output
+- ein 5er-Block bedeutet fünf Bilder NACHEINANDER, niemals fünf Bilder gleichzeitig
+- jedes fertige Bild sofort umbenennen, nicht erst am Ende gesammelt
+
+==================================================
+MASTER-ANCHOR-REGEL
+==================================================
+
+Bild 01 ist die einzige persistente visuelle Referenz für Bild 02–11.
+
+Für JEDES Folge-Bild:
+- das tatsächlich erzeugte und vom Nutzer freigegebene Bild 01 als direkte visuelle Referenz / reference image / ingredient verwenden;
+- niemals Bild 02 als Stilreferenz für Bild 03 verwenden;
+- niemals Bild 03 als Stilreferenz für Bild 04 verwenden;
+- niemals eine Kette aus vorherigen Bildern aufbauen.
+
+Bild 01 überträgt ausschließlich die visuelle DNA:
+- Art Direction
+- Charakter- und Gesichtssprache
+- Abstraktionsgrad
+- Geometrie
+- Materialien
+- Texturen
+- Lichtcharakter
+- Farbverhalten
+- Environment Rendering
+- Deep-Black-Integration
+- Finish-Qualität
+
+Bild 01 darf NICHT automatisch übernehmen:
+- Motiv
+- Handlung
+- Kamera
+- Perspektive
+- Komposition
+- Pose
+- Requisiten
+
+Jede spätere Szene muss eine eigene starke Bildidee besitzen.
+
+==================================================
+GLOBALE FINANZNEO-BILDWELT
+==================================================
+
+- quadratisches 1:1 Bild
+- klar stilisierte hochwertige Editorial-3D-Illustration
+- niemals fotorealistisch
+- keine Stockfoto-Ästhetik
+- matte, taktile Oberflächen
+- leicht papierartige / painted-resin Materialwirkung
+- glaubwürdige reale Gegenstände
+- vereinfachte, ausdrucksstarke Menschen
+- reduzierte Gesichtsdetails
+- starke Silhouetten
+- hochwertige kontrollierte Studiobeleuchtung
+- lokale reale Umgebung darf sichtbar sein und an den Rändern natürlich in tiefes Schwarz übergehen
+- Deep Black ist die Weltgrenze, nicht automatisch leerer Hintergrund
+- Emerald Green = positiv / geschützt / Reserve
+- Warm Red-Orange = Kosten / Druck / Verlust
+- dezentes Gold = Geld / Wert
+- Ivory / Soft Gray / Graphite = neutral
+- kurze deutsche Labels nur wenn sie die Aussage schneller verständlich machen
+- keine Headline
+- kein Untertitel
+- kein CTA
+- keine Logos
+- kein Dashboard als Hauptmotiv
+- keine App-UI als Hauptmotiv
+- kein Flowchart
+- kein generisches Finance-Icon-Arrangement
+- jedes Bild muss auf Mobile in ungefähr 1–2 Sekunden verständlich sein
+
+==================================================
+THEMA DES TESTS
+==================================================
+
+„Warum kleine monatliche Ausgaben zusammen plötzlich groß werden.“
+
+==================================================
+BILD 01 — COVER + MASTER VISUAL ANCHOR
+==================================================
+
+FINALER DATEINAME:
+Bild 01 - Cover - Kleine Ausgaben.png
+
+VIEWER THOUGHT:
+„Jede Ausgabe wirkt klein, aber zusammen ziehen sie richtig viel Geld weg.“
+
+IMAGE PROMPT:
+Create the strongest possible cover image for this FinanzNeo test series. A stylized young adult, late 20s, short dark hair, medium build, simplified expressive face, stands in a believable modest apartment living room that fades naturally into deep black at the outer edges.
+
+The person holds one thick emerald-green monthly budget envelope labeled exactly „MONAT 2.400 €“ at chest height. Five visible warm red-orange straps pull away from the envelope toward five ordinary recurring expenses placed naturally around the room: smartphone, streaming remote, takeaway bag, gym bag and e-scooter helmet.
+
+Each expense has exactly one compact physical price tag: „35 €“, „49 €“, „65 €“, „79 €“, „89 €“.
+
+The envelope must clearly look compressed and under tension while the individual expenses still look harmless on their own. The visual idea must be understood instantly without narration.
+
+Use a premium medium-wide camera, slight low angle, strong foreground-to-background depth, clean readable silhouette, restrained facial expression and clear mobile readability.
+
+ART-DIRECTION DNA FOR ALL LATER IMAGES:
+Stylized premium editorial 3D, matte tactile materials, subtle paper-like and painted-resin texture, simplified but believable anatomy, reduced facial detail, slightly exaggerated readable proportions, soft directional key light from upper left, restrained rim separation, readable contact shadows, moderate contrast, real environment fading into deep black, no glossy AI-plastic skin, no generic game-render look.
+
+ONLY ALLOWED TEXT:
+„MONAT 2.400 €“, „35 €“, „49 €“, „65 €“, „79 €“, „89 €“.
+No other text.
+
+EXECUTION:
+Generate exactly ONE image.
+Wait for the result.
+Rename exactly to:
+Bild 01 - Cover - Kleine Ausgaben.png
+
+Run internal visual QA.
+Then STOP completely.
+Do NOT generate Bild 02 yet.
+Wait for explicit user approval of this actual image.
+
+==================================================
+BILD 02 — POV KAUFMOMENT
+==================================================
+
+FINALER DATEINAME:
+Bild 02 - 35 Euro wirken klein.png
+
+REFERENCE:
+Use the APPROVED actual Bild 01 as the direct visual reference.
+
+IMAGE PROMPT:
+Create a true first-person POV at a believable checkout counter. Two stylized hands hold a small payment card showing only „35 € / Monat“. A smartphone box sits on the counter. A much smaller neutral paper tag nearby shows „Gesamt 840 €“.
+
+The monthly amount should dominate attention while the total cost is easy to overlook. Use a noticeably different camera language from the cover while preserving the exact art-direction DNA, materials, texture treatment, lighting character and rendering quality from Bild 01.
+
+No branded UI. No extra text.
+
+==================================================
+BILD 03 — STARKES EINZELOBJEKT
+==================================================
+
+FINALER DATEINAME:
+Bild 03 - Fuenf kleine Abbuchungen.png
+
+REFERENCE:
+Use the APPROVED actual Bild 01 as the direct visual reference.
+
+IMAGE PROMPT:
+Create one bold iconic hero object with no person: a dark everyday wallet standing upright. Five warm red-orange payment clips visibly squeeze the wallet from different sides. The clips are labeled exactly „35 €“, „49 €“, „65 €“, „79 €“, „89 €“. Only a very thin emerald banknote edge remains visible inside.
+
+Keep the frame minimal, graphic and memorable, with a large hero object and strong silhouette. Preserve Bild 01 art direction but do not copy its room, camera or composition.
+
+==================================================
+BILD 04 — REALER ALLTAGSMOMENT
+==================================================
+
+FINALER DATEINAME:
+Bild 04 - Einkauf wird knapp.png
+
+REFERENCE:
+Use the APPROVED actual Bild 01 as the direct visual reference.
+
+IMAGE PROMPT:
+Create an evening supermarket checkout scene from an over-the-shoulder camera. A stylized person from the same character-design language as Bild 01 watches normal groceries on the belt while checking an almost empty wallet. A small emerald card near the wallet reads only „Noch 42 €“.
+
+The scene must feel lived-in and narrative, not staged like a catalog. Preserve the anchor's visual DNA while using a fresh setting, pose and composition.
+
+==================================================
+BILD 05 — SCALE REVEAL
+==================================================
+
+FINALER DATEINAME:
+Bild 05 - Zusammen 317 Euro.png
+
+REFERENCE:
+Use the APPROVED actual Bild 01 as the direct visual reference.
+
+IMAGE PROMPT:
+Create a dramatic scale-reveal image with no person. Five small everyday expense objects sit in the foreground: smartphone, takeaway bag, gym bag, streaming remote and e-scooter helmet. Behind them rises one much larger warm red-orange monthly stack labeled exactly „317 €“.
+
+The visual message must be immediate: several harmless-looking small expenses have combined into one large monthly burden. Use a low camera with strong depth and scale contrast. Preserve the anchor's materials, stylization and lighting DNA.
+
+==================================================
+BILD 06 — ERSTER BLOCK PAYOFF
+==================================================
+
+FINALER DATEINAME:
+Bild 06 - Monatlich wieder weg.png
+
+REFERENCE:
+Use the APPROVED actual Bild 01 as the direct visual reference.
+
+IMAGE PROMPT:
+Create a real kitchen-counter scene with a physical calendar in the background. Three visible month pages — „Oktober“, „November“, „Dezember“ — each have the same five small warm red-orange payment tabs attached. In the foreground, an emerald monthly budget envelope becomes visibly thinner from left to right across three physical positions.
+
+Show recurrence clearly without arrows, charts or dashboard graphics. Preserve Bild 01 visual DNA but use a new composition and camera.
+
+AFTER QA PASS OF BILD 06:
+Do NOT ask the user anything.
+Automatically begin the second 5-image block with Bild 07.
+
+==================================================
+BILD 07 — BEFORE / AFTER
+==================================================
+
+FINALER DATEINAME:
+Bild 07 - Vorher und nachher.png
+
+REFERENCE:
+Use the APPROVED actual Bild 01 as the direct visual reference.
+
+IMAGE PROMPT:
+Create a clean before-and-after composition split physically by one central vertical room divider, not by UI panels. On the left, the same stylized character is surrounded by five recurring expense objects and holds a thin emerald budget envelope. On the right, only two necessary recurring expenses remain and the emerald envelope is visibly thicker.
+
+Use the same character language as Bild 01, but a new side-on composition. No infographic cards or dashboard layout.
+
+==================================================
+BILD 08 — OBJECT STORY
+==================================================
+
+FINALER DATEINAME:
+Bild 08 - Drei Abos gekuendigt.png
+
+REFERENCE:
+Use the APPROVED actual Bild 01 as the direct visual reference.
+
+IMAGE PROMPT:
+Create a close-up object-story scene on a real tabletop. Three closed neutral subscription letters are pushed decisively into a small warm red-orange tray marked „gekündigt“. Beside them, one emerald envelope marked „frei“ becomes visibly thicker.
+
+Use hands only, no full person. Keep the action physical and immediately readable. Preserve Bild 01 material, texture and lighting DNA.
+
+==================================================
+BILD 09 — ENVIRONMENT PAYOFF
+==================================================
+
+FINALER DATEINAME:
+Bild 09 - Mehr Luft im Monat.png
+
+REFERENCE:
+Use the APPROVED actual Bild 01 as the direct visual reference.
+
+IMAGE PROMPT:
+Create a calm wide apartment scene. The same character-design language as Bild 01 appears in a relaxed standing pose near an uncluttered kitchen-living area. A noticeably thicker emerald envelope labeled „Frei 250 €“ sits clearly in the foreground. The room feels more open because unnecessary recurring expense objects are gone, not because it is luxurious.
+
+Use a wide eye-level camera and calmer lighting while preserving the exact anchor rendering identity.
+
+==================================================
+BILD 10 — MACRO DETAIL
+==================================================
+
+FINALER DATEINAME:
+Bild 10 - Kleine Betraege addieren sich.png
+
+REFERENCE:
+Use the APPROVED actual Bild 01 as the direct visual reference.
+
+IMAGE PROMPT:
+Create an extreme macro close-up of five small physical red-orange payment tokens sliding into one compact stack. The visible values are „35“, „49“, „65“, „79“, „89“. The combined stack has one small final label „317 €“.
+
+No person, no room-wide scene. Use tactile materials and shallow stylized depth while keeping Bild 01's visual DNA.
+
+==================================================
+BILD 11 — FINALER PAYOFF
+==================================================
+
+FINALER DATEINAME:
+Bild 11 - Weniger Fixkosten mehr Freiheit.png
+
+REFERENCE:
+Use the APPROVED actual Bild 01 as the direct visual reference.
+
+IMAGE PROMPT:
+Create the final payoff in the same overall home-world language as the cover but with a clearly different composition. The stylized character places one thick emerald envelope labeled „Frei 317 €“ into a simple drawer marked „Rücklage“. Only a few necessary recurring-expense objects remain in the background.
+
+The character posture is calm and deliberate. The result must feel practical, not luxurious or motivational-poster-like. Use a fresh three-quarter camera and preserve the exact anchor art-direction DNA.
+
+AFTER QA PASS OF BILD 11:
+The image sequence is complete.
+Do not generate additional images.
+Confirm that every final image was generated individually, immediately renamed, internally checked, and that Bild 02–11 each used the actual user-approved Bild 01 as the direct visual reference.
+
+==================================================
+EXACTE DATEINAMEN
+==================================================
+
+Bild 01 - Cover - Kleine Ausgaben.png
+Bild 02 - 35 Euro wirken klein.png
+Bild 03 - Fuenf kleine Abbuchungen.png
+Bild 04 - Einkauf wird knapp.png
+Bild 05 - Zusammen 317 Euro.png
+Bild 06 - Monatlich wieder weg.png
+Bild 07 - Vorher und nachher.png
+Bild 08 - Drei Abos gekuendigt.png
+Bild 09 - Mehr Luft im Monat.png
+Bild 10 - Kleine Betraege addieren sich.png
+Bild 11 - Weniger Fixkosten mehr Freiheit.png
+
+FINALER HARD CHECK:
+- Bild 01 zuerst und allein.
+- Nach Bild 01 genau EIN manueller Nutzer-Stopp.
+- Ohne Nutzerfreigabe kein Bild 02.
+- Nach Nutzerfreigabe keine weiteren Nutzerstopps.
+- Bild 02–06 automatisch.
+- Danach Bild 07–11 automatisch.
+- Trotzdem immer nur ein laufender Bildjob gleichzeitig.
+- Jedes Bild sofort umbenennen und QA prüfen.
+- Bei Fehler nur dieselbe Bildnummer wiederholen.
+- Bild 01 bleibt die einzige persistente visuelle Referenz für alle Folge-Bilder.

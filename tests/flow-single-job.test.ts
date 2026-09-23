@@ -5,20 +5,26 @@ import {AUTONOMY_BLOCK, FLOW_AGENT_BLOCK, flowAutonomyFields} from '../scripts/l
 test('Flow-Autonomievertrag verbietet Batch und erzwingt Concurrency 1', () => {
   assert.match(AUTONOMY_BLOCK, /DIES IST KEIN BATCH-AUFTRAG/);
   assert.match(AUTONOMY_BLOCK, /MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG/);
-  assert.match(AUTONOMY_BLOCK, /ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT/);
+  assert.match(AUTONOMY_BLOCK, /scene-01 IST ZUERST UND ALLEIN ZU ERZEUGEN/);
+  assert.match(AUTONOMY_BLOCK, /HART STOPPEN/);
+  assert.match(AUTONOMY_BLOCK, /SIEHT GUT AUS/);
+  assert.match(AUTONOMY_BLOCK, /NACH JEDEM FOLGE-BILD: VOLLSTÄNDIG WARTEN.*AUTOMATISCH NÄCHSTES BILD/);
   assert.match(AUTONOMY_BLOCK, /POST_GENERATION_VISION_QA: finanzneo-image-vision-qa-v1/);
   assert.match(AUTONOMY_BLOCK, /SHA-256-HASH/i);
   assert.doesNotMatch(FLOW_AGENT_BLOCK, /Lies die gesamte Datei einmal/);
-  assert.match(FLOW_AGENT_BLOCK, /MAX_CONCURRENT_GENERATIONS = 1/);
+  assert.match(FLOW_AGENT_BLOCK, /Starte genau EINEN Bildgenerierungsjob/);
+  assert.match(FLOW_AGENT_BLOCK, /Keine Queue und kein Paralleljob/);
   assert.match(FLOW_AGENT_BLOCK, /reel:image-vision:prepare/);
   assert.match(FLOW_AGENT_BLOCK, /reel:image-vision:validate/);
-  assert.match(FLOW_AGENT_BLOCK, /tatsächliche Bilddatei/);
+  assert.match(FLOW_AGENT_BLOCK, /tatsächlichen Bilddatei/);
   assert.match(FLOW_AGENT_BLOCK, /QA-PASS ohne Sichtprüfung der echten Bildpixel/);
   assert.match(FLOW_AGENT_BLOCK, /mehrere Bilder in einem Generierungsaufruf/);
   assert.match(FLOW_AGENT_BLOCK, /alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen/);
+  assert.match(FLOW_AGENT_BLOCK, /Bei QA-PASS: HART STOPPEN/);
+  assert.match(FLOW_AGENT_BLOCK, /ohne weitere Nutzerstopps/);
 });
 
-test('scene-index Flow-Felder bilden Single-Job plus Pixel-Vision-Gate maschinenlesbar ab', () => {
+test('scene-index Flow-Felder bilden manuellen Cover-Gate plus autonome 5er-Folgeblöcke ab', () => {
   const flow = flowAutonomyFields();
   assert.equal(flow.maxConcurrentGenerations, 1);
   assert.equal(flow.batchGenerationForbidden, true);
@@ -35,4 +41,16 @@ test('scene-index Flow-Felder bilden Single-Job plus Pixel-Vision-Gate maschinen
   assert.equal(flow.visionQaBoundToImageSha256, true);
   assert.equal(flow.nextStepLockedUntilVisionQaPass, true);
   assert.equal(flow.regenerateSameSceneOnVisionQaFail, true);
+  assert.equal(flow.coverAnchorFlowId, 'finanzneo-cover-anchor-flow-v1');
+  assert.equal(flow.coverAnchorSourceSceneId, 'scene-01');
+  assert.equal(flow.coverAnchorQaPassRequiredBeforeFollowups, true);
+  assert.equal(flow.coverAnchorExplicitUserApprovalRequired, true);
+  assert.equal(flow.manualPauseAfterCoverQaPassRequired, true);
+  assert.equal(flow.followupPlanBlockSize, 5);
+  assert.equal(flow.followupGenerationStillSingleJob, true);
+  assert.equal(flow.followupBlocksAutoRunAfterCoverApproval, true);
+  assert.equal(flow.userApprovalBetweenFollowupsForbidden, true);
+  assert.equal(flow.automaticallyAdvanceToNextFollowupBlock, true);
+  assert.equal(flow.approvedCoverImageReferenceRequiredForFollowups, true);
+  assert.equal(flow.onlyCoverMayBePersistentGenerationReference, true);
 });
