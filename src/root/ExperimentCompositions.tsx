@@ -25,6 +25,10 @@ import {
   FinanceImageSceneTest,
   FINANCE_IMAGE_SCENE_TEST_FRAMES,
 } from '../reels-test/FinanceImageSceneTest';
+import {
+  VisualDnaRemotionDemo,
+  VISUAL_DNA_REMOTION_DEMO_FRAMES,
+} from '../reels-test/VisualDnaRemotionDemo';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
 import {Scene03SparbuchVs, SCENE03_FRAMES} from '../zins/Scene03SparbuchVs';
@@ -86,6 +90,14 @@ export const ExperimentCompositions: React.FC = () => (
       id="ReelsTestFinanceImageScenes"
       component={FinanceImageSceneTest}
       durationInFrames={FINANCE_IMAGE_SCENE_TEST_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
+    <Composition
+      id="VisualDnaRemotionDemo"
+      component={VisualDnaRemotionDemo}
+      durationInFrames={VISUAL_DNA_REMOTION_DEMO_FRAMES}
       fps={FPS}
       {...VERTICAL}
     />
