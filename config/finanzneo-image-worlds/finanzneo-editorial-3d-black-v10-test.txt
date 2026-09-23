@@ -1,0 +1,146 @@
+PREMIUM_VISUAL_WORLD_TEST: finanzneo-editorial-3d-black-v10-test
+STATUS: EXPERIMENTAL — DO NOT REPLACE V9 UNTIL USER APPROVES REAL FLOW OUTPUTS
+
+FINANZNEO EDITORIAL 3D BLACK WORLD — V10 TEST
+
+PURPOSE
+Create a mature, highly recognizable editorial 3D illustration world for FinanzNeo. The images must feel designed rather than merely rendered. They should communicate financial ideas immediately while avoiding the generic AI-3D, Pixar-like, toy-like, glossy game-render look seen in earlier tests.
+
+CORE VISUAL IDENTITY
+- mature editorial 3D illustration, not animated-movie character art
+- clearly stylized, never photorealistic
+- graphic shape design with simplified planar forms, restrained bevels and strong silhouettes
+- believable adult proportions; stylization comes from simplification, not cartoon anatomy
+- controlled visual abstraction: enough detail to recognize the real object or situation, but no unnecessary surface realism
+- every frame should feel like a premium magazine illustration translated into 3D
+- one coherent visual grammar across people, hands, objects and environments
+
+CHARACTER LANGUAGE
+When people are present:
+- adult body proportions around realistic 1:7 to 1:7.5 head-to-body ratio
+- normal-sized heads, hands and feet; never chibi, mascot-like or toy-like
+- simplified adult faces with small eyes, restrained noses and mouths, clear jaw/cheek structure and minimal skin detail
+- expressions communicated mostly through posture, head angle, eyebrows and simple mouth shape
+- no giant animated-film eyes, button noses, soft baby faces or exaggerated cute expressions
+- hair built from a few designed masses, not thousands of photoreal strands
+- clothing uses broad matte fabric shapes with a few meaningful folds, not glossy fashion-render materials
+- characters should read as editorial figures, not Pixar/DreamWorks/Disney-style protagonists
+
+HAND LANGUAGE
+- simplified adult hands with believable finger count and proportions
+- clean graphic finger shapes; no hyper-detailed skin
+- no oversized cartoon hands
+- hands and characters must share the same abstraction level
+
+OBJECT LANGUAGE
+- preserve the real functional construction of familiar objects
+- simplify surfaces into large readable planes
+- use restrained bevels and edges instead of fully rounded toy geometry
+- no icon-like simplification when the real object matters
+- no glossy product-shot finish
+- no miniature-toy appearance
+
+MATERIAL LANGUAGE
+- matte or satin only as the default
+- subtle painted-resin, paper-coated, powder-coated-metal and dry fabric qualities
+- visible micro-roughness through restrained highlights, not noisy photoreal texture
+- avoid perfect plastic smoothness
+- avoid strong mirror reflections
+- avoid waxy skin
+- avoid translucent gummy materials
+- gold is brushed/matte, not chrome
+
+ENVIRONMENT LANGUAGE
+- use real architectural fragments and believable spatial context when helpful: part of a kitchen, checkout, desk, living room, train platform, office or workshop
+- environments are simplified into large architectural planes and a few functional objects
+- do not build full cluttered rooms
+- deep black acts as controlled negative space around the scene, not as a circular vignette or fog halo
+- scene edges may open naturally into black through missing walls, cropped architecture or clean negative space
+- no glowing black tunnel, fuzzy vignette, spotlight bubble or miniature diorama floating in darkness
+
+BACKGROUND + STAGING
+- base world remains deep black / near-black negative space
+- the subject should feel grounded on a real floor, counter, table or architectural plane
+- use one or two large background planes where needed to establish location
+- avoid empty product-stage photography
+- avoid isolated floating objects unless the concept specifically benefits from one iconic-object composition
+
+CAMERA LANGUAGE
+- editorial, graphic and deliberate
+- prefer natural 45–70 mm equivalent perspective for human/environment scenes
+- POV is allowed when narratively useful
+- avoid ultra-wide distortion unless explicitly required
+- avoid excessive cinematic depth of field, bokeh and lens bloom
+- keep important planes readable from front to back
+- composition should feel designed like an illustration, not captured like a movie still
+
+LIGHTING LANGUAGE
+- one soft directional key plus restrained fill and a subtle separation light only when needed
+- broad readable shadows
+- no neon rim glow
+- no dramatic game-cinematic blue/orange lighting
+- no volumetric fog, bloom or lens flare
+- enough contrast to separate forms from black, without making every edge glossy
+
+COLOR LANGUAGE
+- graphite, warm gray, ivory and muted natural materials = neutral world
+- emerald green = positive, protected, available, preferred
+- warm red-orange = cost, pressure, warning, loss
+- muted gold = money/value only
+- accents should occupy a minority of the image; neutral forms remain dominant
+- never flood the whole environment with semantic accent colors
+
+COMPOSITION
+- one unmistakable focal idea per frame
+- large readable shapes before small props
+- use asymmetry and negative space intentionally
+- the focal subject should usually occupy roughly 45–70% of the meaningful visual area
+- support objects only when they strengthen the spoken beat
+- no catalog layout, prop lineup or scattered explanatory kit
+- no tiny mini-world where the main idea becomes unreadable
+
+TEXT
+- no headline, subtitle, CTA, poster text, room decoration text or random AI typography
+- only explicitly requested short functional labels may appear
+- labels must belong physically to the object they describe
+- use as little generated text as possible
+
+CREATIVE FREEDOM
+Allowed when the spoken beat benefits:
+- one iconic object
+- multiple interacting objects
+- adult character moment
+- first-person POV
+- real environment
+- comparison
+- controlled visual metaphor
+- thought visualization
+- cause/effect
+- reveal or payoff
+
+Fantasy or metaphor must remain instantly understandable through a concrete real-world anchor. Do not create abstract spectacle.
+
+HARD NEGATIVES — REJECT THE IMAGE IF ANY APPEAR
+- Pixar-like, Disney-like, DreamWorks-like or generic animated-movie character design
+- cute oversized head, huge eyes, mascot proportions or childlike face language
+- generic mobile-game or AAA-game cinematic render
+- glossy AI-plastic people, objects or skin
+- clay-toy, vinyl-figure or collectible-figurine appearance
+- photorealistic stock-photo look
+- product-advertising render with no explanatory story
+- fuzzy circular black vignette around a small scene
+- scene floating as a miniature island in darkness without grounding
+- excessive bokeh, bloom, rim glow or dramatic lens effects
+- mismatched abstraction levels between character, hands, objects and room
+- random signs, wall text, decorative typography or invented labels
+- dashboard/app UI/flowchart as the main image
+- generic finance icons as the main explanation
+
+ANCHOR RULE
+The first approved image defines the visual DNA for the entire production. It must establish the exact character abstraction, object geometry, material roughness, environment simplification, camera feel, lighting restraint and black-space treatment. Later images inherit those visual qualities but must not copy the first image's subject, pose, camera or composition.
+
+QUALITY BAR
+A successful image should feel like it belongs to one mature editorial illustration studio. It should not look like a random Nano Banana / generic 3D generation. Removing all labels and finance context should still leave a recognizable, consistent visual style.
+
+GOOGLE FLOW
+Use strict single-job execution. First image only → user approval → then follow-up images automatically in 5-image work blocks, still one generation at a time. Every follow-up uses only the user-approved first image as the persistent visual style reference.
