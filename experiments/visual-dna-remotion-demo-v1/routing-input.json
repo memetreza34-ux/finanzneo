@@ -1,0 +1,43 @@
+{
+  "title": "Warum kleine Kosten langfristig groß werden können",
+  "scenes": [
+    {
+      "id": "scene-01",
+      "text": "Viele kleine Kosten wirken einzeln harmlos, zusammen schneiden sie aber jeden Monat sichtbar ins Budget.",
+      "routeReason": "Cover soll die eigene FinanzNeo-Objektsprache ohne Person setzen."
+    },
+    {
+      "id": "scene-02",
+      "text": "Vom Einkommen fließt Geld zuerst in Fixkosten und Gebühren, nur der Rest erreicht die Rücklage.",
+      "moneyMovement": true,
+      "routeReason": "Geldbewegung ist als FinanzNeo-Flow-Bild schneller verständlich als mit einer Person."
+    },
+    {
+      "id": "scene-03",
+      "text": "So entwickelte sich der S&P 500 über 10 Jahre.",
+      "exactTimeSeries": true,
+      "dataSource": "Yahoo Finance (^GSPC)",
+      "dataAsOf": "2026-06-07",
+      "routeReason": "Historische Zeitreihe muss exakt aus Daten kommen und wird in Remotion gezeichnet."
+    },
+    {
+      "id": "scene-04",
+      "text": "Vergleiche den S&P-500-Punktestand am Anfang der verwendeten 10-Jahres-Reihe mit dem letzten Datenpunkt.",
+      "exactNumericComparison": true,
+      "dataSource": "Yahoo Finance (^GSPC)",
+      "dataAsOf": "2026-06-07",
+      "routeReason": "Zwei exakte Werte werden als Balken statt als KI-Bild verglichen."
+    },
+    {
+      "id": "scene-05",
+      "text": "Eine Person entscheidet bewusst, eine unnötige Monatsrate nicht abzuschließen.",
+      "humanNarrativeValue": true,
+      "routeReason": "Hier trägt die menschliche Entscheidung die Aussage; deshalb ist die Person begründet."
+    },
+    {
+      "id": "scene-06",
+      "text": "Die eingesparte Belastung bleibt als grüne Rücklage sichtbar übrig.",
+      "routeReason": "Payoff als starkes Protection-/Reserve-Objekt, ohne weitere Person."
+    }
+  ]
+}

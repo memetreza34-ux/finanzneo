@@ -1,0 +1,78 @@
+{
+  "contract": "finanzneo-visual-routing-v1",
+  "title": "Warum kleine Kosten langfristig groß werden können",
+  "generatedFrom": "experiments/visual-dna-remotion-demo-v1/routing-input.json",
+  "rules": {
+    "peopleAreOptional": true,
+    "humanIsNeverDefaultFallback": true,
+    "exactDataUsesRemotion": true,
+    "generatedConceptsUseGoogleFlow": true,
+    "imageXorAnimationRemainsRequired": true
+  },
+  "counts": {
+    "scenes": 6,
+    "googleFlow": 4,
+    "remotion": 2,
+    "blocked": 0
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "route": "pressure-problem-image",
+      "engine": "google-flow",
+      "sceneType": "image",
+      "exactDataRequired": false,
+      "status": "READY",
+      "routeReason": "Cover setzt die eigene FinanzNeo-Objektsprache ohne Person; kleine Kosten drücken sichtbar auf das Budget."
+    },
+    {
+      "id": "scene-02",
+      "route": "money-flow-image",
+      "engine": "google-flow",
+      "sceneType": "image",
+      "exactDataRequired": false,
+      "status": "READY",
+      "routeReason": "Geldbewegung wird als FinanzNeo-Flow-Bild schneller verständlich als mit einer Person."
+    },
+    {
+      "id": "scene-03",
+      "route": "data-line-remotion",
+      "engine": "remotion",
+      "sceneType": "animation",
+      "exactDataRequired": true,
+      "dataSource": "Yahoo Finance (^GSPC)",
+      "dataAsOf": "2026-06-07",
+      "status": "READY",
+      "routeReason": "Historische Zeitreihe wird aus echten Daten in Remotion gezeichnet."
+    },
+    {
+      "id": "scene-04",
+      "route": "data-bar-remotion",
+      "engine": "remotion",
+      "sceneType": "animation",
+      "exactDataRequired": true,
+      "dataSource": "Yahoo Finance (^GSPC)",
+      "dataAsOf": "2026-06-07",
+      "status": "READY",
+      "routeReason": "Zwei exakte Punktestände werden als Balken statt als KI-Bild verglichen."
+    },
+    {
+      "id": "scene-05",
+      "route": "human-context-image",
+      "engine": "google-flow",
+      "sceneType": "image",
+      "exactDataRequired": false,
+      "status": "READY",
+      "routeReason": "Die menschliche Entscheidung trägt hier die Aussage und ist deshalb begründet."
+    },
+    {
+      "id": "scene-06",
+      "route": "protection-buffer-image",
+      "engine": "google-flow",
+      "sceneType": "image",
+      "exactDataRequired": false,
+      "status": "READY",
+      "routeReason": "Payoff als wiederkehrendes Reserve-/Schutzmotiv ohne Person."
+    }
+  ]
+}
