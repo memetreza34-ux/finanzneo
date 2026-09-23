@@ -28,10 +28,18 @@ const errors = [];
 if (contract.id !== COVER_ANCHOR_FLOW_ID) errors.push(`coverAnchorFlow.id muss ${COVER_ANCHOR_FLOW_ID} sein.`);
 if (contract.blockSize !== COVER_ANCHOR_BLOCK_SIZE) errors.push(`blockSize muss ${COVER_ANCHOR_BLOCK_SIZE} sein.`);
 for (const key of [
-  'firstVisualIsMasterAnchor', 'anchorMustPassQaBeforeOtherGeneratedImages',
-  'followupsMustUseApprovedAnchorImageReference', 'planningOccursInFiveImageBlocks',
-  'generationRemainsStrictSingleJob', 'renameImmediatelyAfterEachImage',
-  'thumbnailIsSeparatePublishingAsset', 'thumbnailMayUseApprovedAnchorForArtDirection',
+  'firstVisualIsMasterAnchor',
+  'anchorMustPassQaBeforeOtherGeneratedImages',
+  'anchorRequiresExplicitUserApproval',
+  'followupsMustUseApprovedAnchorImageReference',
+  'planningOccursInFiveImageBlocks',
+  'followupBlocksAutoRunAfterUserApproval',
+  'noFurtherUserConfirmationInsideFollowupBlocks',
+  'automaticallyAdvanceToNextFollowupBlock',
+  'generationRemainsStrictSingleJob',
+  'renameImmediatelyAfterEachImage',
+  'thumbnailIsSeparatePublishingAsset',
+  'thumbnailMayUseApprovedAnchorForArtDirection',
   'onlyVisual01MayBePersistentGenerationReference',
 ]) if (contract[key] !== true) errors.push(`coverAnchorFlow.${key} muss true sein.`);
 
@@ -61,9 +69,20 @@ else {
     'COVER ANCHOR FLOW V1 — EXECUTION ORDER OVERRIDE',
     `COVER_ANCHOR_FLOW: ${COVER_ANCHOR_FLOW_ID}`,
     `FOLLOWUP_PLAN_BLOCK_SIZE: ${COVER_ANCHOR_BLOCK_SIZE}`,
+    'MANUAL_GATE: explicit-user-approval-after-visual-01',
+    'FOLLOWUP_AUTORUN_AFTER_APPROVAL: true',
+    'Then STOP completely',
+    'without further approvals',
   ]) if (!master.includes(marker)) errors.push(`YouTube-Masterprompt fehlt: ${marker}`);
 }
-if (!existsSync(resolve(root, '06-projektdateien/COVER-ANCHOR-PLAN.md'))) errors.push('06-projektdateien/COVER-ANCHOR-PLAN.md fehlt.');
+const planPath = resolve(root, '06-projektdateien/COVER-ANCHOR-PLAN.md');
+if (!existsSync(planPath)) errors.push('06-projektdateien/COVER-ANCHOR-PLAN.md fehlt.');
+else {
+  const plan = readFileSync(planPath, 'utf8');
+  for (const marker of ['ausdrückliche Nutzerfreigabe', 'ohne weitere Nutzerstopps', 'automatisch der nächste']) {
+    if (!plan.includes(marker)) errors.push(`YouTube COVER-ANCHOR-PLAN.md fehlt Regel: ${marker}`);
+  }
+}
 
 if (errors.length) {
   console.error('\n✗ YOUTUBE COVER ANCHOR FLOW NICHT BESTANDEN:\n');
@@ -72,4 +91,5 @@ if (errors.length) {
 }
 
 console.log(`✓ YouTube Cover Anchor Flow PASS: ${COVER_ANCHOR_FLOW_ID}`);
-console.log('✓ visual-01 ist Master-Referenz; Folge-Bildvisuals sind in 5er-Planblöcken organisiert und bleiben Einzeljobs.');
+console.log('✓ visual-01 wird zuerst allein erzeugt und braucht QA-PASS + ausdrückliche Nutzerfreigabe.');
+console.log(`✓ Danach laufen Folge-Bildvisuals automatisch in ${COVER_ANCHOR_BLOCK_SIZE}er-Blöcken; Generierung bleibt strikt einzeln.`);
