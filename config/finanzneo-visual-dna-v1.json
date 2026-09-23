@@ -1,0 +1,59 @@
+{
+  "id": "finanzneo-visual-dna-v1",
+  "routingId": "finanzneo-visual-routing-v1",
+  "principle": "right-visual-for-the-message",
+  "humanPresence": {
+    "default": "optional",
+    "fallbackForbidden": true,
+    "consecutiveHumanScenesRequireJustification": true
+  },
+  "imageFamilies": [
+    "single-strong-object",
+    "money-flow",
+    "comparison",
+    "pressure-problem",
+    "protection-buffer",
+    "human-context"
+  ],
+  "remotionFamilies": [
+    "data-line",
+    "data-bar",
+    "data-allocation",
+    "timeline"
+  ],
+  "routes": [
+    "concept-image",
+    "money-flow-image",
+    "comparison-image",
+    "human-context-image",
+    "data-line-remotion",
+    "data-bar-remotion",
+    "data-allocation-remotion",
+    "timeline-remotion"
+  ],
+  "semanticLanguage": {
+    "positiveProtectedPreferred": "emerald",
+    "costPressureLoss": "warm-red-orange",
+    "moneyValue": "muted-gold",
+    "neutral": "graphite-ivory-soft-gray"
+  },
+  "remotionDataRule": {
+    "exactDataUsesRemotion": true,
+    "sourceRequired": true,
+    "asOfRequired": true,
+    "aiGeneratedHistoricalCurveForbidden": true
+  },
+  "motionPolicy": {
+    "default": "restrained",
+    "decorativeMotionForbidden": true,
+    "preferred": [
+      "line-reveal",
+      "bar-grow",
+      "single-flow-reveal",
+      "number-count",
+      "comparison-reveal",
+      "subtle-push"
+    ]
+  },
+  "mainVisualRule": "image-xor-animation"
+}
