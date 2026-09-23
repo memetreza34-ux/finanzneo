@@ -43,8 +43,12 @@ index.coverAnchorFlow = {
   blockSize: COVER_ANCHOR_BLOCK_SIZE,
   firstSceneIsCoverAndMasterAnchor: true,
   anchorMustPassVisionQaBeforeFollowups: true,
+  anchorRequiresExplicitUserApproval: true,
   followupsMustUseApprovedAnchorImageReference: true,
   planningOccursInFiveImageBlocks: true,
+  followupBlocksAutoRunAfterUserApproval: true,
+  noFurtherUserConfirmationInsideFollowupBlocks: true,
+  automaticallyAdvanceToNextFollowupBlock: true,
   generationRemainsStrictSingleJob: true,
   renameImmediatelyAfterEachImage: true,
   unifiedOutputDirectory: COVER_ANCHOR_OUTPUT_DIR,
@@ -118,7 +122,7 @@ if (existsSync(masterPath)) {
     const markers = coverAnchorPlanningMarkerText(scene.imageStorytelling);
     master = `${master.slice(0, promptIndex)}${markers}\n\n${master.slice(promptIndex)}`;
   }
-  const header = `COVER_ANCHOR_FLOW: ${COVER_ANCHOR_FLOW_ID}\nCOVER_ANCHOR_SOURCE: scene-01 / ${anchorScene.googleFlowFileName}\nCOVER_ANCHOR_BLOCK_SIZE: ${COVER_ANCHOR_BLOCK_SIZE}\nCOVER_ANCHOR_OUTPUT_DIR: ${COVER_ANCHOR_OUTPUT_DIR}\n\n`;
+  const header = `COVER_ANCHOR_FLOW: ${COVER_ANCHOR_FLOW_ID}\nCOVER_ANCHOR_SOURCE: scene-01 / ${anchorScene.googleFlowFileName}\nCOVER_ANCHOR_BLOCK_SIZE: ${COVER_ANCHOR_BLOCK_SIZE}\nCOVER_ANCHOR_OUTPUT_DIR: ${COVER_ANCHOR_OUTPUT_DIR}\nCOVER_ANCHOR_MANUAL_GATE: explicit-user-approval-after-scene-01\nCOVER_ANCHOR_AUTORUN_AFTER_APPROVAL: true\n\n`;
   if (!master.includes(`COVER_ANCHOR_FLOW: ${COVER_ANCHOR_FLOW_ID}`)) master = `${header}${master}`;
   writeFileSync(masterPath, master, 'utf8');
 }
@@ -127,7 +131,7 @@ const coverAliasPath = resolve(root, '03-szenen/00-cover/cover.txt');
 if (existsSync(coverAliasPath)) {
   let coverAlias = readFileSync(coverAliasPath, 'utf8');
   if (!coverAlias.includes(`COVER_ANCHOR_FLOW: ${COVER_ANCHOR_FLOW_ID}`)) {
-    coverAlias += `\n\nCOVER_ANCHOR_FLOW: ${COVER_ANCHOR_FLOW_ID}\nDieses scene-01-Bild ist nach bestandener Pixel-/Vision-QA die verbindliche visuelle Referenz für alle späteren Google-Flow-Bilder. Kein separater Cover-Job.\n`;
+    coverAlias += `\n\nCOVER_ANCHOR_FLOW: ${COVER_ANCHOR_FLOW_ID}\nDieses scene-01-Bild ist erst nach bestandener Pixel-/Vision-QA UND ausdrücklicher Nutzerfreigabe die verbindliche visuelle Referenz für alle späteren Google-Flow-Bilder. Kein separater Cover-Job.\n`;
     writeFileSync(coverAliasPath, coverAlias, 'utf8');
   }
 }
@@ -138,9 +142,10 @@ const rows = imageScenes.map((scene) => {
   const a = assignments.get(scene.id);
   return `| ${scene.id} | ${a.role} | ${a.block} | ${a.slot} | ${scene.googleFlowFileName} |`;
 });
-writeFileSync(resolve(planDir, 'COVER-ANCHOR-PLAN.md'), `# Cover Anchor Flow V1\n\n- Contract: \`${COVER_ANCHOR_FLOW_ID}\`\n- scene-01 ist gleichzeitig erste Szene, Cover und Master-Referenz.\n- scene-01 wird zuerst extrem detailliert geplant, erzeugt, exakt umbenannt und per echter Pixel-/Vision-QA freigegeben.\n- Erst nach PASS darf die Referenz für Folge-Bilder verwendet werden.\n- Folge-Bilder werden in Planblöcken zu maximal ${COVER_ANCHOR_BLOCK_SIZE} Bildern organisiert, aber weiterhin strikt einzeln generiert.\n- Jedes Folge-Bild nutzt ausschließlich das freigegebene scene-01-Bild als persistente Generierungsreferenz.\n- Das Referenzbild steuert Art Direction und Serienidentität, NICHT Inhalt/Kamera/Komposition der Folge-Szene.\n- Jede fertige Datei wird sofort umbenannt und in \`${COVER_ANCHOR_OUTPUT_DIR}/\` gelegt.\n\n| Szene | Rolle | 5er-Block | Slot | Datei |\n|---|---|---:|---:|---|\n${rows.join('\n')}\n`, 'utf8');
+writeFileSync(resolve(planDir, 'COVER-ANCHOR-PLAN.md'), `# Cover Anchor Flow V1\n\n- Contract: \`${COVER_ANCHOR_FLOW_ID}\`\n- scene-01 ist gleichzeitig erste Szene, Cover und Master-Referenz.\n- scene-01 wird zuerst extrem detailliert geplant, allein erzeugt, exakt umbenannt und per echter Pixel-/Vision-QA geprüft.\n- Danach MUSS der Prozess stoppen und auf eine ausdrückliche Nutzerfreigabe des echten Bildes warten, z. B. \"sieht gut aus\".\n- Erst QA-PASS + Nutzerfreigabe ergeben APPROVED_COVER_ANCHOR.\n- Nach dieser einzigen manuellen Freigabe laufen die restlichen Folge-Bilder automatisch in Plan-/Arbeitsblöcken zu maximal ${COVER_ANCHOR_BLOCK_SIZE} Bildern weiter.\n- Innerhalb eines Blocks bleibt die Generierung Strict Single Job: ein Bild erzeugen, warten, sofort umbenennen, QA; bei PASS automatisch zum nächsten Bild.\n- Nach Abschluss eines 5er-Blocks beginnt automatisch der nächste 5er-Block, bis alle Bilder fertig sind.\n- Keine weitere Nutzerbestätigung zwischen Folge-Bildern oder Folge-Blöcken erforderlich.\n- Jedes Folge-Bild nutzt ausschließlich das freigegebene scene-01-Bild als persistente Generierungsreferenz.\n- Das Referenzbild steuert Art Direction und Serienidentität, NICHT Inhalt/Kamera/Komposition der Folge-Szene.\n- Jede fertige Datei wird sofort umbenannt und in \`${COVER_ANCHOR_OUTPUT_DIR}/\` gelegt.\n\n| Szene | Rolle | 5er-Block | Slot | Datei |\n|---|---|---:|---:|---|\n${rows.join('\n')}\n`, 'utf8');
 
 console.log(`✓ Cover Anchor Flow gesetzt: ${COVER_ANCHOR_FLOW_ID}`);
 console.log(`✓ scene-01 = Cover + Master-Referenz: ${anchorScene.googleFlowFileName}`);
-console.log(`✓ Folge-Bilder: Planblöcke à ${COVER_ANCHOR_BLOCK_SIZE}, Generierung weiterhin strikt einzeln.`);
+console.log('✓ Nach scene-01 QA: harter Nutzer-Gate bis ausdrückliche Freigabe.');
+console.log(`✓ Danach Folge-Bilder automatisch in ${COVER_ANCHOR_BLOCK_SIZE}er-Blöcken, technisch weiterhin Strict Single Job.`);
 console.log(`✓ Alle finalen Bilder gemeinsam in ${COVER_ANCHOR_OUTPUT_DIR}/.`);
