@@ -3,28 +3,40 @@ FINANZNEO COVER-ANCHOR TEST — GOOGLE FLOW COPY-PASTE PROMPT
 ZIEL
 Erzeuge eine zusammenhängende Serie aus 6 Bildern. Bild 01 ist zuerst die visuelle Master-Referenz. Danach werden Bild 02–06 inhaltlich unterschiedlich, aber stilistisch klar an Bild 01 angelehnt.
 
+WICHTIG: ES GIBT NUR EINEN MANUELLEN NUTZER-STOPP
+1. Erzeuge zuerst NUR Bild 01.
+2. Benenne Bild 01 exakt um und prüfe es intern.
+3. STOPPE danach vollständig und warte auf eine ausdrückliche Nachricht des Nutzers, dass das tatsächliche Bild gefällt, z. B. „sieht gut aus“, „passt“ oder eine gleichwertige klare Freigabe.
+4. Ohne diese ausdrückliche Nutzerfreigabe darf KEIN Bild 02 oder später erzeugt werden.
+5. Wenn der Nutzer Bild 01 ablehnt oder Änderungen will: nur Bild 01 neu erzeugen und danach wieder auf Nutzerfreigabe warten.
+6. Erst nach Nutzerfreigabe wird Bild 01 zu APPROVED_MASTER_ANCHOR.
+7. Danach KEINE weiteren Nutzerstopps mehr. Arbeite alle restlichen Bilder automatisch in 5er-Arbeitsblöcken ab.
+
 WICHTIGER AUSFÜHRUNGSVERTRAG
-- Erzeuge NIEMALS mehrere Bilder gleichzeitig.
-- Kein Batch, keine Collage, kein Grid, kein Kontaktbogen, keine Parallel-Queue.
-- MAX_CONCURRENT_GENERATIONS = 1.
-- Bild 01 MUSS zuerst allein erzeugt werden.
-- Nach jeder Generierung: warten → exakt umbenennen → visuell prüfen → erst bei PASS weiter.
-- Falls ein Bild nicht passt: dieselbe Bildnummer neu erzeugen. Nicht zum nächsten Bild springen.
+- Kein paralleler Bildjob. MAX_CONCURRENT_GENERATIONS = 1.
+- Kein Batch als Collage, Grid, Kontaktbogen oder Mehrbild-Output.
+- Ein „5er-Block“ bedeutet: fünf Folge-Bilder automatisch hintereinander abarbeiten, NICHT fünf Bilder gleichzeitig generieren.
+- Innerhalb eines 5er-Blocks: Bild erzeugen → vollständig warten → exakt umbenennen → intern prüfen → bei PASS automatisch nächstes Bild.
+- Bei FAIL dieselbe Bildnummer automatisch neu erzeugen; den Nutzer nicht wegen jedes Folge-Bilds fragen.
+- Nach Abschluss eines 5er-Blocks automatisch den nächsten maximalen 5er-Block starten, bis alle Bilder fertig sind.
 - Alle finalen Bilder gehören in denselben Ordner.
 
 ANCHOR-REGEL
 - Bild 01 ist Cover + MASTER VISUAL ANCHOR.
-- Bild 02–06 dürfen erst nach PASS von Bild 01 erzeugt werden.
-- Für Bild 02–06 MUSS das tatsächlich erzeugte und freigegebene Bild 01 als direkte visuelle Referenz / reference image / ingredient verwendet werden.
-- Nutze für alle Folge-Bilder IMMER Bild 01 als persistente Stilreferenz. Nicht Bild 02 als Referenz für Bild 03 usw.
+- Bild 02 und alle späteren Bilder dürfen erst nach ausdrücklicher Nutzerfreigabe von Bild 01 erzeugt werden.
+- Für jedes Folge-Bild MUSS das tatsächlich erzeugte und vom Nutzer freigegebene Bild 01 als direkte visuelle Referenz / reference image / ingredient verwendet werden.
+- Nutze für ALLE Folge-Bilder IMMER Bild 01 als persistente Stilreferenz. Nicht Bild 02 als Referenz für Bild 03 usw.
 - Falls die aktuelle Flow-Funktion keine echte Bildreferenz zulässt: STOPP. Nicht ohne Anchor weitermachen.
 - Der Anchor steuert nur: Art Direction, Figuren-/Gesichtssprache, Abstraktionsgrad, Geometrie, Materialien, Texturen, Lichtcharakter, Farbverhalten, Environment Rendering, Deep-Black-Integration und Finish-Qualität.
 - Der Anchor darf NICHT automatisch Motiv, Kamera, Pose, Requisiten oder Komposition kopieren.
 
-5ER-REGEL
-Nach PASS von Bild 01 gehören Bild 02–06 zu EINEM 5er-Planblock.
-Du darfst die fünf Konzepte gemeinsam auf Rhythmus und Abwechslung abstimmen, aber du generierst trotzdem strikt:
-Bild 02 → warten → umbenennen → prüfen → PASS → Bild 03 → ... → Bild 06.
+5ER-AUTORUN-REGEL
+Nach ausdrücklicher Freigabe von Bild 01 gehören Bild 02–06 zum ersten 5er-Arbeitsblock.
+Plane die fünf Konzepte gemeinsam auf Rhythmus und Abwechslung. Danach arbeite sie OHNE weitere Nutzerbestätigung automatisch ab:
+Bild 02 → warten → umbenennen → QA → Bild 03 → warten → umbenennen → QA → Bild 04 → Bild 05 → Bild 06.
+
+Bei längeren Produktionen danach automatisch:
+Bild 07–11 → danach Bild 12–16 → danach Bild 17–21 → usw., bis alle geplanten Bilder fertig sind.
 
 GLOBALE BILDWELT
 - 1:1
@@ -68,11 +80,14 @@ ONLY ALLOWED TEXT IN THE IMAGE:
 „2.400 €“, „29 €“, „39 €“, „49 €“, „59 €“, „69 €“.
 No other text anywhere.
 
-GENERATE EXACTLY ONE IMAGE.
+GENERATE EXACTLY ONE IMAGE AND NOTHING ELSE.
 Wait for result.
 Rename exactly to: Bild 01 - Cover - Kleine Raten.png
-Inspect carefully.
-Only after PASS mark this exact image as APPROVED_MASTER_ANCHOR.
+Inspect it internally.
+THEN STOP COMPLETELY.
+Do not create Bild 02 yet.
+Wait for the user's explicit approval of the ACTUAL Bild 01, for example „sieht gut aus“ or „passt“.
+Only after that explicit user approval mark this exact image as APPROVED_MASTER_ANCHOR and start the automatic 5-image follow-up block.
 
 ==================================================
 BILD 02 — POV: KLEINE RATE WIRKT HARMLOS
@@ -81,7 +96,7 @@ FINALER DATEINAME:
 Bild 02 - 29 Euro wirken klein.png
 
 REFERENCE REQUIRED:
-Attach/use the approved actual Bild 01 as the direct visual reference.
+Attach/use the user-approved actual Bild 01 as the direct visual reference.
 
 VIEWER THOUGHT:
 „29 Euro sehen beim Kauf wirklich harmlos aus.“
@@ -93,7 +108,7 @@ The visual point is immediate: the monthly amount dominates attention while the 
 
 No realistic branded app UI. No extra decorative text.
 
-Generate exactly one image. Wait. Rename. QA. Only after PASS continue.
+Generate exactly one image. Wait. Rename immediately. Run internal QA. On PASS continue automatically to Bild 03 without asking the user. On FAIL regenerate Bild 02 only.
 
 ==================================================
 BILD 03 — EIN STARKES OBJEKT
@@ -102,7 +117,7 @@ FINALER DATEINAME:
 Bild 03 - Viele kleine Raten.png
 
 REFERENCE REQUIRED:
-Attach/use the approved actual Bild 01 as the direct visual reference.
+Attach/use the user-approved actual Bild 01 as the direct visual reference.
 
 VIEWER THOUGHT:
 „Nicht eine Rate ist das Problem — sondern fünf gleichzeitig.“
@@ -112,7 +127,7 @@ Create one bold iconic hero object with no person: a single dark everyday wallet
 
 Make the image minimal, strong and memorable. Large close hero object, clean silhouette, no decorative props, no pile of generic finance icons. Keep the exact matte editorial 3D material language, lighting character, texture treatment and deep-black edge behavior established by Bild 01.
 
-Generate exactly one image. Wait. Rename. QA. Only after PASS continue.
+Generate exactly one image. Wait. Rename immediately. Run internal QA. On PASS continue automatically to Bild 04 without asking the user. On FAIL regenerate Bild 03 only.
 
 ==================================================
 BILD 04 — REALER CHARAKTERMOMENT
@@ -121,7 +136,7 @@ FINALER DATEINAME:
 Bild 04 - Monat wird eng.png
 
 REFERENCE REQUIRED:
-Attach/use the approved actual Bild 01 as the direct visual reference and recurring character-language reference.
+Attach/use the user-approved actual Bild 01 as the direct visual reference and recurring character-language reference.
 
 VIEWER THOUGHT:
 „Am Monatsende fehlt plötzlich Luft, obwohl keine einzelne Ausgabe riesig war.“
@@ -131,7 +146,7 @@ Create an evening kitchen scene with an over-the-shoulder camera. Use the same c
 
 The scene must feel lived-in and narrative, not staged like a catalog. Shoulders slightly tense, restrained expression, realistic everyday kitchen context, same matte textures, simplified facial language, lighting DNA and black-world edge treatment as Bild 01.
 
-Generate exactly one image. Wait. Rename. QA. Only after PASS continue.
+Generate exactly one image. Wait. Rename immediately. Run internal QA. On PASS continue automatically to Bild 05 without asking the user. On FAIL regenerate Bild 04 only.
 
 ==================================================
 BILD 05 — KONTROLLIERTE FANTASIE / METAPHER
@@ -140,7 +155,7 @@ FINALER DATEINAME:
 Bild 05 - Jeden Monat ein Biss.png
 
 REFERENCE REQUIRED:
-Attach/use the approved actual Bild 01 as the direct visual reference.
+Attach/use the user-approved actual Bild 01 as the direct visual reference.
 
 VIEWER THOUGHT:
 „Die kleinen Raten kommen nächsten Monat einfach wieder.“
@@ -150,7 +165,7 @@ Create an instantly understandable controlled visual metaphor. A large emerald-g
 
 In the background, three physical calendar pages labeled „Oktober“, „November“, „Dezember“ repeat the same bite pattern. The recurrence must be obvious in under two seconds without arrows, charts or explanation text. Keep the exact visual DNA from Bild 01: matte editorial 3D, tactile texture, lighting, palette and environment treatment.
 
-Generate exactly one image. Wait. Rename. QA. Only after PASS continue.
+Generate exactly one image. Wait. Rename immediately. Run internal QA. On PASS continue automatically to Bild 06 without asking the user. On FAIL regenerate Bild 05 only.
 
 ==================================================
 BILD 06 — PAYOFF
@@ -159,7 +174,7 @@ FINALER DATEINAME:
 Bild 06 - Wieder Luft im Budget.png
 
 REFERENCE REQUIRED:
-Attach/use the approved actual Bild 01 as the direct visual reference and recurring character-language reference.
+Attach/use the user-approved actual Bild 01 as the direct visual reference and recurring character-language reference.
 
 VIEWER THOUGHT:
 „Weniger laufende Raten geben mir jeden Monat wieder Spielraum.“
@@ -169,11 +184,14 @@ Create a calm visual payoff in the same home and same character-design language,
 
 The character posture is relaxed. The room feels more open, but not luxurious. Keep the exact anchor DNA from Bild 01: matte tactile surfaces, simplified expressive face, restrained editorial lighting, same geometry language, same neutral base and semantic accent colors. The composition must clearly differ from all previous images.
 
-Generate exactly one image. Wait. Rename. QA.
+Generate exactly one image. Wait. Rename immediately. Run internal QA. On FAIL regenerate Bild 06 only. On PASS finish this 5er-block.
 
 ==================================================
 FINAL CHECK
 ==================================================
-Do not declare the job finished until all 6 final images exist with the exact filenames.
-Confirm internally that Bild 02–06 each used the ACTUAL APPROVED Bild 01 as the direct visual reference.
-All six images must look like one coherent FinanzNeo series while every scene still has its own composition and idea.
+Do not declare the job finished until all 6 final images exist with the exact filenames above.
+There is exactly ONE manual user approval gate: after Bild 01.
+After that approval, Bild 02–06 must run automatically without asking the user to say „weiter“ between images.
+For longer productions, automatically continue with the next 5er-block after the previous one is complete.
+Confirm internally that every follow-up image used the ACTUAL USER-APPROVED Bild 01 as the direct visual reference.
+All final images must look like one coherent FinanzNeo series while every scene still has its own composition and idea.
