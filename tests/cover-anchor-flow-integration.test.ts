@@ -14,12 +14,19 @@ test('new reel pipeline applies cover anchor after creative concept', () => {
   assert.match(source, /scene-01 = erste Szene \+ Cover \+ Master Visual Anchor/);
 });
 
-test('reel flow keeps single-job generation but uses approved cover as only persistent reference', () => {
+test('reel flow has one manual cover approval gate and then autonomous five-image blocks', () => {
   assert.match(AUTONOMY_BLOCK, /MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB/);
-  assert.match(AUTONOMY_BLOCK, /scene-01 IST ZUERST ZU ERZEUGEN/);
-  assert.match(AUTONOMY_BLOCK, /PLANBLÖCKEN ZU MAXIMAL 5 BILDERN/);
+  assert.match(AUTONOMY_BLOCK, /scene-01 IST ZUERST UND ALLEIN ZU ERZEUGEN/);
+  assert.match(AUTONOMY_BLOCK, /HART STOPPEN/);
+  assert.match(AUTONOMY_BLOCK, /SIEHT GUT AUS/);
+  assert.match(AUTONOMY_BLOCK, /QA-PASS \+ AUSDRÜCKLICHE NUTZERFREIGABE/);
+  assert.match(AUTONOMY_BLOCK, /ARBEITSBLÖCKEN ZU MAXIMAL 5 BILDERN/);
+  assert.match(AUTONOMY_BLOCK, /OHNE WEITERE NUTZERBESTÄTIGUNG/);
+  assert.match(AUTONOMY_BLOCK, /NÄCHSTEN MAXIMALEN 5ER-BLOCK STARTEN/);
   assert.match(AUTONOMY_BLOCK, /KEIN ANDERES VORHERIGES BILD DARF ALS PERSISTENTE GENERIERUNGSREFERENZ/);
   assert.match(FLOW_AGENT_BLOCK, /freigegebene scene-01-Datei als direkte visuelle Referenz\/Vorlage/);
+  assert.match(FLOW_AGENT_BLOCK, /Bei QA-PASS: HART STOPPEN/);
+  assert.match(FLOW_AGENT_BLOCK, /ohne weitere Nutzerstopps/);
   assert.doesNotMatch(AUTONOMY_BLOCK, /Keine Bildreferenz verwenden\. Kein vorheriges Bild als Generierungsreferenz hochladen/);
   assert.doesNotMatch(FLOW_AGENT_BLOCK, /Keine Bildreferenz verwenden\. Kein vorheriges Bild als Generierungsreferenz hochladen/);
 });
