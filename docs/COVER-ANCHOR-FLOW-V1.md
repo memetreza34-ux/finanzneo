@@ -14,7 +14,7 @@ Für YouTube-Longform gilt:
 - `visual-01` = erster bildbasierter Video-Beat = Master Visual Anchor.
 - Das Publishing-Thumbnail bleibt ein separates Asset, darf aber erst nach Freigabe des Anchors dessen Art Direction übernehmen.
 
-## Phase A — Master Anchor zuerst
+## Phase A — nur Master Anchor erzeugen und dann STOPP
 
 Die erste Szene wird besonders detailliert geplant. Sie muss die visuelle DNA festlegen:
 
@@ -27,27 +27,48 @@ Die erste Szene wird besonders detailliert geplant. Sie muss die visuelle DNA fe
 - Texturgrad / Detaildichte
 - sichtbare Qualitätsmesslatte
 
-Google Flow erzeugt zuerst ausschließlich dieses eine Bild. Danach:
+Google Flow erzeugt zuerst **ausschließlich dieses eine Bild**:
 
-`Ergebnis → exakt umbenennen → gemeinsamer Bildordner → echte Pixel-/Vision-QA → PASS`
+`scene-01 erzeugen → warten → exakt umbenennen → gemeinsamer Bildordner → Pixel-/Vision-QA`
 
-Erst ein bestandener Anchor darf als Referenz für Folge-Bilder verwendet werden.
+Danach gilt ein **harter manueller Nutzer-Gate**:
 
-## Phase B — Folge-Bilder in 5er-Planblöcken
+- Flow/Agent muss STOPPEN.
+- Kein Folge-Bild darf erzeugt werden.
+- Ein technischer QA-PASS allein reicht noch nicht zum Start der Folge-Bilder.
+- Erst wenn der Nutzer das tatsächliche Bild ausdrücklich freigibt, z. B. mit **„sieht gut aus“**, **„passt“**, **„weiter“** oder einer gleichwertigen eindeutigen Zustimmung, wird `APPROVED_COVER_ANCHOR` gesetzt.
+- Bei Ablehnung oder Änderungswunsch wird nur Bild 01 erneut erzeugt. Danach erneut auf Nutzerfreigabe warten.
 
-Nach dem Anchor werden die nächsten benötigten Bildszenen in Gruppen von **maximal fünf** gemeinsam aufeinander abgestimmt.
+Damit bedeutet `APPROVED_COVER_ANCHOR` immer:
 
-Das ist **keine Batch-Generierung**.
+`echtes Bild 01 vorhanden + QA bestanden + Nutzer ausdrücklich zufrieden`.
 
-Ein 5er-Planblock bedeutet nur:
-- die nächsten bis zu fünf Konzepte zusammen auf Rhythmus und Konsistenz planen,
-- danach jedes Bild strikt einzeln erzeugen.
+## Phase B — nach Nutzerfreigabe autonom in 5er-Arbeitsblöcken
 
-Ausführung:
+Nach `APPROVED_COVER_ANCHOR` arbeitet Flow/Agent die restlichen Bildszenen **ohne weitere Nutzerbestätigung zwischen den einzelnen Bildern** ab.
+
+Die nächsten benötigten Bildszenen werden in Gruppen von **maximal fünf** gemeinsam auf Rhythmus, Abwechslung und Konsistenz geplant.
+
+Ein 5er-Arbeitsblock bedeutet:
+
+1. bis zu fünf Folge-Bilder gemeinsam planen,
+2. dann weiterhin technisch **ein Bild nach dem anderen** erzeugen,
+3. jedes Ergebnis sofort exakt umbenennen und im gemeinsamen Ordner speichern,
+4. interne Pixel-/Vision-QA ausführen,
+5. bei FAIL dieselbe Bildnummer automatisch neu erzeugen,
+6. bei PASS ohne Nutzerstopp zum nächsten Bild im Block gehen,
+7. nach Abschluss des Blocks automatisch den nächsten maximalen 5er-Block beginnen,
+8. fortsetzen, bis alle geplanten Bilder fertig sind.
+
+Ausführung innerhalb eines Blocks:
 
 `Bild → warten → umbenennen → QA → PASS → nächstes Bild`
 
-Nach maximal fünf bestandenen Folge-Bildern beginnt der nächste Planblock.
+Blockfolge bei genügend Bildern:
+
+`Bild 02–06 → Bild 07–11 → Bild 12–16 → ...`
+
+**Nur der Anchor zwischen Phase A und Phase B braucht die ausdrückliche Nutzerfreigabe.**
 
 ## Referenzregel
 
@@ -78,7 +99,7 @@ Diese Punkte kommen weiterhin aus dem individuellen Szenenprompt. Folge-Bilder d
 
 ## Einzige persistente Generierungsreferenz
 
-Nur das freigegebene Cover-/Anchor-Bild darf als persistente Generierungsreferenz verwendet werden.
+Nur das ausdrücklich vom Nutzer freigegebene Cover-/Anchor-Bild darf als persistente Generierungsreferenz verwendet werden.
 
 Andere bereits erzeugte Bilder werden nur für QA, Near-Duplicate-Erkennung und Sequenz-Neuheit betrachtet. Dadurch entsteht keine schleichende Stilkopie von Szene zu Szene.
 
@@ -110,6 +131,7 @@ Damit bedeutet Konsistenz nicht Gleichförmigkeit.
 ## Unverändert
 
 - Google Flow bleibt **Strict Single Job** (`Strict-Single-Job`): maximal ein laufender Bildjob gleichzeitig.
+- 5er-Arbeitsblock bedeutet Automatisierungs-/Planblock, nicht fünf parallele Generierungen.
 - Keine Galerie, Collage, Kontaktbogen oder Mehrbild-Generierung.
 - Creative Concept V1 bleibt frei: Einzelobjekt, Person, POV, reale Szene, Metapher, kontrollierte Fantasie usw.
 - V5 Sequence-first / Hardening bleibt aktiv.
