@@ -18,7 +18,10 @@ Die bestehende Reel-Produktion behält ihre eigenen Layout-, Bildwelt-, Flow- un
 
 ```text
 config/finanzneo-production-standard.json
+docs/3-PHASEN-WORKFLOW.md
 ```
+
+`docs/3-PHASEN-WORKFLOW.md` bleibt der verbindliche Einstieg für den bestehenden Reel-3-Phasen-Prozess. Der YouTube-Umbau verändert diese Reel-Regeln nicht.
 
 ### YouTube Longform
 
