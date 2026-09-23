@@ -26,13 +26,24 @@ Dieser Test prüft den neuen Ablauf mit einer echten visuellen Master-Referenz:
 
 Die Folge-Bilder sollen **nicht dieselbe Komposition kopieren**. Sie sollen nur eindeutig dieselbe Art Direction, Material-/Figurensprache, Lichtwelt und Finish-Qualität wie Bild 01 besitzen.
 
-## Google Flow
+## Google Flow — genau diese Datei verwenden
 
-Nur diese Datei komplett verwenden:
+Für den Praxistest nur diese Datei komplett kopieren und einmal in Google Flow einfügen:
 
-`alle-bildprompts.txt`
+`TESTPROMPT-GOOGLE-FLOW.txt`
 
-Wichtig: Der Masterprompt enthält sechs Jobs, aber niemals sechs parallele Generierungen. Bild 01 zuerst; danach Bild 02–06 einzeln mit Bild 01 als Referenz.
+Sie ist die eindeutige Copy-Paste-Version des Tests und enthält:
+
+- den Cover-/Anchor-Ablauf,
+- die 5er-Planblock-Regel,
+- Strict-Single-Job,
+- alle sechs Bildjobs,
+- exakte Dateinamen,
+- die Pflicht, Bild 01 als echte visuelle Referenz für Bild 02–06 zu verwenden.
+
+`alle-bildprompts.txt` bleibt als ausführliche Referenzdatei im Experiment erhalten, ist aber **nicht mehr die empfohlene Copy-Paste-Datei für diesen Test**.
+
+Wichtig: Niemals sechs parallele Generierungen. Bild 01 zuerst; danach Bild 02–06 einzeln mit dem tatsächlich erzeugten und freigegebenen Bild 01 als Referenz.
 
 ## Erwartete Dateien
 
