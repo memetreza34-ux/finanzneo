@@ -75,6 +75,22 @@ export const routeUsesRemotion = (route) => routeNeedsExactData(route);
 
 export const routeUsesGeneratedImage = (route) => !routeUsesRemotion(route);
 
+export const visualEngineForRoute = (route) => routeUsesRemotion(route) ? 'remotion' : 'google-flow';
+
+export const sceneTypeForVisualRoute = (route) => routeUsesRemotion(route) ? 'animation' : 'image';
+
+export const buildVisualRoutingDecision = (input = {}) => {
+  const route = recommendVisualRoute(input);
+  return {
+    contract: VISUAL_ROUTING_ID,
+    route,
+    engine: visualEngineForRoute(route),
+    sceneType: sceneTypeForVisualRoute(route),
+    exactDataRequired: routeNeedsExactData(route),
+    humanDefaultForbidden: route !== 'human-context-image',
+  };
+};
+
 export const assertVisualRoute = (route) => {
   if (!VISUAL_ROUTES.includes(route)) {
     throw new Error(`Unbekannte Visual-Route: ${route}. Erlaubt: ${VISUAL_ROUTES.join(', ')}`);
