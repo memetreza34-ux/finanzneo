@@ -2,6 +2,25 @@
 
 Status: **ausführbarer Integrations-Test, nicht Produktion.**
 
+## EINZIGER TEST-EINSTIEG
+
+Für den eigentlichen Praxistest wird nur diese Datei benutzt:
+
+`MASTER-TEST-FLOW-REMOTION.md`
+
+Dort stehen in **einer einzigen Datei**:
+
+- kompletter Ablauf
+- Bild-01-Freigabe
+- alle Google-Flow-Prompts
+- alle Remotion-Spezifikationen
+- Dateinamen
+- Datenquelle
+- QA-Regeln
+- finale Szenenreihenfolge
+
+Die übrigen Dateien in diesem Ordner sind nur technische Implementierung / Routing-Support und müssen für den manuellen Test nicht einzeln geöffnet werden.
+
 ## Demo-Ziel
 
 Prüfen, ob FinanzNeo mit einer Mischung aus starken statischen Konzeptbildern und wenigen präzisen Remotion-Datenvisuals eine eigene, wiedererkennbare Sprache bekommt — ohne in jeder Szene eine Person zu zeigen.
@@ -75,7 +94,8 @@ Wichtig: Die vier Google-Flow-Routen werden in dieser Composition bewusst nur al
 
 ## Noch offen
 
-1. echte Flow-Bilder für Szene 01/02/05/06 nach finaler Visual-DNA-Freigabe erzeugen
-2. diese vier Assets anstelle der Platzhalter einsetzen
-3. vollständigen gemischten Render mit echten Flow-Bildern + Remotion-Datenvisuals prüfen
-4. erst danach Routing V1 in die allgemeine Reel-Erstellung integrieren
+1. `MASTER-TEST-FLOW-REMOTION.md` praktisch ausführen
+2. echte Flow-Bilder für Szene 01/02/05/06 erzeugen
+3. diese vier Assets anstelle der Platzhalter einsetzen
+4. vollständigen gemischten Render mit echten Flow-Bildern + Remotion-Datenvisuals prüfen
+5. erst danach Routing V1 in die allgemeine Reel-Erstellung integrieren
