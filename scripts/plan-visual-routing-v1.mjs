@@ -32,8 +32,11 @@ const decisions = input.scenes.map((scene, index) => {
     exactNumericComparison: Boolean(scene.exactNumericComparison),
     exactAllocation: Boolean(scene.exactAllocation),
     exactTimeline: Boolean(scene.exactTimeline),
+    singleObject: Boolean(scene.singleObject),
     moneyMovement: Boolean(scene.moneyMovement),
     comparison: Boolean(scene.comparison),
+    pressureProblem: Boolean(scene.pressureProblem),
+    protectionBuffer: Boolean(scene.protectionBuffer),
     humanNarrativeValue: Boolean(scene.humanNarrativeValue),
   });
 
