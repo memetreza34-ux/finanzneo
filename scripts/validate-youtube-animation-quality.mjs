@@ -2,9 +2,9 @@
 import {existsSync, readFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {
+  LEGACY_YOUTUBE_MOTION_STANDARD_IDS,
   requiresYouTubeMotion,
   validateYouTubeMotionMetadata,
-  validateYouTubeMotionVariety,
   YOUTUBE_MOTION_STANDARD_ID,
 } from './lib/youtube-motion-contract.mjs';
 
@@ -36,12 +36,13 @@ try {
 }
 
 const errors = [];
-if (index?.motionStandard?.id !== YOUTUBE_MOTION_STANDARD_ID) {
-  errors.push(`motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
+const acceptedStandards = new Set([YOUTUBE_MOTION_STANDARD_ID, ...LEGACY_YOUTUBE_MOTION_STANDARD_IDS]);
+if (!acceptedStandards.has(index?.motionStandard?.id)) {
+  errors.push(`motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein (Legacy V3 wird nur für bestehende Projekte akzeptiert).`);
 }
+
 const visuals = Array.isArray(index?.visuals) ? index.visuals : [];
 for (const visual of visuals) errors.push(...validateYouTubeMotionMetadata(visual));
-errors.push(...validateYouTubeMotionVariety(visuals));
 
 const forbiddenSourcePatterns = [
   [/\bMath\.random\s*\(/, 'Math.random ist in produktiver Motion verboten.'],
@@ -52,7 +53,7 @@ const forbiddenSourcePatterns = [
   [/https?:\/\//, 'Remote Runtime-Abhängigkeiten sind in animation.tsx verboten.'],
   [/\banimation\s*:/, 'CSS animation ist für gerenderte Motion verboten.'],
   [/\btransition\s*:/, 'CSS transition ist für gerenderte Motion verboten.'],
-  [/\b(TODO|PLACEHOLDER|EINFÜGEN|KURZER NAME|SCRIPT BEAT)\b/i, 'animation.tsx enthält noch einen Platzhalter.'],
+  [/\b(TODO|PLACEHOLDER|EINFÜGEN|KURZER NAME|SCRIPT BEAT|VIEWER CHANGE|MOTION REASON)\b/i, 'animation.tsx enthält noch einen Platzhalter.'],
 ];
 
 for (const visual of visuals.filter(requiresYouTubeMotion)) {
@@ -62,34 +63,35 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
     errors.push(`${id}: animation.tsx fehlt: ${visual.animationSourceFile ?? '(kein Pfad)'}.`);
     continue;
   }
+
   const source = readFileSync(sourcePath, 'utf8');
   for (const [pattern, message] of forbiddenSourcePatterns) {
     if (pattern.test(source)) errors.push(`${id}: ${message}`);
   }
+
   if (!/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: useCurrentFrame() fehlt.`);
-  if (!/\b(interpolate|spring)\s*\(/.test(source)) errors.push(`${id}: mindestens interpolate() oder spring() muss echte Frame-Motion steuern.`);
-  if (!source.includes(`MECHANIC_ID = '${visual.mechanicId}'`) && !source.includes(`MECHANIC_ID = "${visual.mechanicId}"`)) {
-    errors.push(`${id}: MECHANIC_ID im Code stimmt nicht mit visual-index.json überein.`);
+  if (!/\b(interpolate|spring)\s*\(/.test(source)) {
+    errors.push(`${id}: mindestens interpolate() oder spring() muss sichtbare Frame-Motion steuern.`);
   }
-  if (!source.includes(`VISUAL_TECHNIQUE_ID = '${visual.visualTechniqueId}'`) && !source.includes(`VISUAL_TECHNIQUE_ID = "${visual.visualTechniqueId}"`)) {
-    errors.push(`${id}: VISUAL_TECHNIQUE_ID im Code stimmt nicht mit visual-index.json überein.`);
-  }
-  if (!source.includes(`COMPOSITION_FAMILY_ID = '${visual.compositionFamilyId}'`) && !source.includes(`COMPOSITION_FAMILY_ID = "${visual.compositionFamilyId}"`)) {
-    errors.push(`${id}: COMPOSITION_FAMILY_ID im Code stimmt nicht mit visual-index.json überein.`);
-  }
-  if (!/ANIMATION_NARRATIVE/.test(source) || !/START/.test(source) || !/RESULT/.test(source)) {
-    errors.push(`${id}: ANIMATION_NARRATIVE mit START und RESULT fehlt.`);
-  }
+
   const safeExport = String(visual.animationExport ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const exportPattern = new RegExp(`export\\s+(?:const|function)\\s+${safeExport}\\b`);
-  if (!visual.animationExport || !exportPattern.test(source)) errors.push(`${id}: Export ${visual.animationExport ?? '(fehlt)'} wurde nicht gefunden.`);
+  const exportPattern = safeExport
+    ? new RegExp(`export\\s+(?:const|function)\\s+${safeExport}\\b`)
+    : null;
+  if (!exportPattern || !exportPattern.test(source)) {
+    errors.push(`${id}: Export ${visual.animationExport ?? '(fehlt)'} wurde nicht gefunden.`);
+  }
 }
 
 if (errors.length) {
-  console.error('\nYouTube Motion V3 verletzt:\n');
+  console.error('\nYouTube Motion verletzt den Produktionsvertrag:\n');
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
 
-console.log('\n✓ YouTube Motion V3 erfüllt.');
-console.log('  Viewer-change-first · offene Technik · deterministisch · echte Variety statt umbenannter Wiederholung.');
+console.log('\n✓ YouTube Motion erfüllt den Produktionsvertrag.');
+if (index?.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID) {
+  console.log('  Motion V4 Simple · verständlich · wiederverwendbar · deterministisch · keine künstliche Variety-Quote.');
+} else {
+  console.log('  Legacy Motion V3 akzeptiert; neue Projekte sollen Motion V4 Simple verwenden.');
+}
