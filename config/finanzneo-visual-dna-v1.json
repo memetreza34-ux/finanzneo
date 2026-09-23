@@ -23,8 +23,11 @@
   ],
   "routes": [
     "concept-image",
+    "single-object-image",
     "money-flow-image",
     "comparison-image",
+    "pressure-problem-image",
+    "protection-buffer-image",
     "human-context-image",
     "data-line-remotion",
     "data-bar-remotion",
