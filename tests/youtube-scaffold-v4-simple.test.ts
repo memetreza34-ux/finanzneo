@@ -1,0 +1,78 @@
+import assert from 'node:assert/strict';
+import {existsSync, readFileSync, rmSync} from 'node:fs';
+import {resolve} from 'node:path';
+import {spawnSync} from 'node:child_process';
+import test from 'node:test';
+
+test('YouTube-Scaffolder erzeugt Simple Finance V4 mit Remotion-Default, Flow-Gate und echten Assets', () => {
+  const target = `youtube/.tmp-motion-v4-${process.pid}-${Date.now()}`;
+  const absolute = resolve(target);
+  try {
+    const run = spawnSync(process.execPath, [
+      resolve('scripts/scaffold-finanzneo-youtube.mjs'),
+      '--target', target,
+      '--title', 'Simple Finance V4 Test',
+      '--types', 'image,hybrid,animation,data,real-asset',
+    ], {encoding:'utf8'});
+    assert.equal(run.status, 0, run.stderr || run.stdout);
+
+    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt')), true);
+    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/bildprompt.txt')), true);
+    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx')), true);
+    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-04/data-notes.md')), true);
+    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-05/asset-plan.md')), true);
+
+    const index = JSON.parse(readFileSync(resolve(absolute, '04-visuals/visual-index.json'), 'utf8'));
+    assert.equal(index.version, 4);
+    assert.equal(index.fixedVisualCount, false);
+    assert.equal(index.fixedImageAnimationRatio, false);
+    assert.equal(index.visualProfile.id, 'finanzneo-youtube-simple-finance-v1');
+    assert.equal(index.visualProfile.simplestVisualFirst, true);
+    assert.equal(index.visualProfile.remotionDefault, true);
+    assert.equal(index.visualProfile.flowRequiresJustification, true);
+    assert.equal(index.visualProfile.realAssetsPreferred, true);
+    assert.equal(index.visualProfile.reusablePatternsAllowed, true);
+    assert.equal(index.motionStandard.id, 'finanzneo-youtube-motion-v4-simple');
+    assert.equal(index.motionStandard.repetitionAllowed, true);
+    assert.equal(index.motionStandard.varietyQuota, false);
+    assert.equal(index.motionStandard.advancedMotionNeedsReason, true);
+    assert.equal(index.imageWorld.id, 'finanzneo-youtube-simple-editorial-v1');
+    assert.equal(index.imageWorld.cinematic3DDefault, false);
+    assert.equal(index.imageWorld.remotionOwnsTextAndNumbers, true);
+    assert.deepEqual(index.visuals.map((visual: {type:string}) => visual.type), ['image','hybrid','animation','data','real-asset']);
+
+    const image = index.visuals[0];
+    assert.equal(image.assetSource, 'google-flow');
+    assert.equal(image.flowAllowed, true);
+    assert.equal(typeof image.flowReason, 'string');
+
+    const animation = index.visuals[2];
+    assert.equal(animation.assetSource, 'remotion');
+    assert.equal(animation.flowAllowed, false);
+    assert.equal(typeof animation.viewerChange, 'string');
+    assert.equal(typeof animation.motionPreset, 'string');
+
+    const realAsset = index.visuals[4];
+    assert.equal(realAsset.assetSource, 'real-asset');
+    assert.equal(realAsset.flowAllowed, false);
+    assert.match(realAsset.planFile, /asset-plan\.md$/);
+
+    const remotionPlan = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-03/remotion.md'), 'utf8');
+    assert.match(remotionPlan, /Viewer Change/);
+    assert.match(remotionPlan, /Motion Preset/);
+    assert.match(remotionPlan, /Do not invent complexity for variety/);
+
+    const prompt = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt'), 'utf8');
+    assert.match(prompt, /finanzneo-youtube-simple-editorial-v1/);
+    assert.match(prompt, /FLOW_NECESSITY_REASON:/);
+    assert.match(prompt, /MAIN_SUBJECT:/);
+    assert.match(prompt, /REMOTION_OVERLAY_TEXT:/);
+    assert.doesNotMatch(prompt, /grounded-3d-black-v1/);
+
+    const allPrompts = readFileSync(resolve(absolute, '04-visuals/alle-bildprompts.txt'), 'utf8');
+    assert.match(allPrompts, /Flow is NOT the default visual source/);
+    assert.match(allPrompts, /NO FLOW IMAGE/);
+  } finally {
+    rmSync(absolute, {recursive:true, force:true});
+  }
+});
