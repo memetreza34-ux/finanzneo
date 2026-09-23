@@ -1,553 +1,206 @@
 # FinanzNeo — MASTER TEST: Google Flow + Remotion
 
-Status: **Experiment / nicht Produktion**  
-Contract: `finanzneo-visual-dna-v1` + `finanzneo-visual-routing-v1`
+Status: **Experiment / nicht Produktion**
 
-> **DIESE DATEI IST DER EINZIGE EINSTIEGSPUNKT FÜR DIESEN TEST.**
-> Sie enthält den kompletten Ablauf, alle Google-Flow-Bildprompts und die Remotion-Spezifikation. Andere Dateien im Experiment sind nur technische Implementierung/Support.
+Diese eine Datei enthält den Test. Wichtig: **Die Google-Flow-Codeblöcke enthalten ausschließlich die gewünschte Bildbeschreibung.** Produktionslogik, Dateinamen, QA, Anchor-Auswahl und Routing gehören nicht in den Prompt, den Google Flow erhält.
 
----
+## Testthema
 
-# 1. Ziel
+**Warum kleine Kosten langfristig groß werden können**
 
-Thema des Tests:
-
-**„Warum kleine Kosten langfristig groß werden können“**
-
-Der Test soll zeigen, dass FinanzNeo nicht aus zufälligen KI-Bildern besteht, sondern eine eigene visuelle Grammatik besitzt:
-
-- starke statische 3D-Erklärbilder
-- nicht ständig Menschen
-- wiederkehrende FinanzNeo-Formen
-- wenig, aber sinnvolle Animation
-- exakte Daten mit Remotion statt erfundener KI-Charts
-- Google Flow für illustrative / konzeptionelle Bilder
-- Remotion für exakte Zeitreihen und Zahlenvergleiche
-
-Die 6 Szenen:
-
-| Szene | Engine | Route | Hauptvisual | Mensch? |
-|---|---|---|---|---|
-| 01 | Google Flow | `pressure-problem-image` | Budgetblock wird von kleinen Kosten belastet | Nein |
-| 02 | Google Flow | `money-flow-image` | Einkommen → Kosten → Rücklage | Nein |
-| 03 | Remotion | `data-line-remotion` | S&P 500 über 10 Jahre | Nein |
-| 04 | Remotion | `data-bar-remotion` | erster vs. letzter Datenpunkt | Nein |
-| 05 | Google Flow | `human-context-image` | bewusste Finanzentscheidung | Ja |
-| 06 | Google Flow | `protection-buffer-image` | Rücklage fängt Belastung ab | Nein |
-
-Nur **1 von 6 Szenen** braucht bewusst eine Person.
+| Szene | Engine | Visual |
+|---|---|---|
+| 01 | Google Flow | Kleine Kosten drücken auf das Budget |
+| 02 | Google Flow | Monatlicher Geldfluss |
+| 03 | Remotion | S&P 500 über 10 Jahre |
+| 04 | Remotion | Startwert vs. letzter Datenpunkt |
+| 05 | Google Flow | Bewusste Finanzentscheidung |
+| 06 | Google Flow | Rücklage fängt Belastung ab |
 
 ---
 
-# 2. FinanzNeo Visual DNA für diesen Test
+# GOOGLE FLOW — BILD 01
 
-## Wiederkehrende Markenelemente
+Dateiname: `Bild 01 - Kleine Kosten druecken Budget.png`
 
-Diese Elemente verbinden Google-Flow-Bilder und Remotion:
-
-- **Emerald Money / Reserve** = verfügbares, geschütztes oder bevorzugtes Geld
-- **Warm red-orange Cost Tag** = Kosten, Gebühren, Druck, Verlust
-- **Muted Gold Value Marker / Flow Band** = Wert oder Geldbewegung
-- **Graphite / Ivory / Soft Gray** = neutrale Gegenstände und Flächen
-- **Deep Black** = dominanter ruhiger Hintergrund / negative space
-
-## Eigene Formensprache
-
-- hochwertige stilisierte **3D-Animationsfilm-Ästhetik**
-- klar nicht fotorealistisch
-- weich gerundete, aber bewusst designte Formen
-- starke Silhouetten
-- saubere mobile Lesbarkeit
-- keine zufälligen generischen Finanzicons
-- keine sterile Dashboard-Optik
-- keine Spielzeug-Sammlung auf einem Tisch
-- keine Person nur als Füllmotiv
-- Figuren nur dort, wo Entscheidung oder Emotion wirklich gebraucht wird
-
-## Bewegungsregel
-
-Animation erklärt etwas und läuft nicht nur dekorativ:
-
-- Chart-Linie zeichnet sich einmal auf
-- Balken wachsen einmal
-- Geldfluss darf einmal sichtbar werden
-- leichter Push / Zoom erlaubt
-- kein permanentes Wackeln
-- keine Partikel nur für Bewegung
-- keine unnötigen Kamerafahrten
-
----
-
-# 3. Verbindlicher Produktionsablauf
-
-## PHASE A — NUR BILD 01
-
-1. Google Flow erzeugt **ausschließlich Bild 01**.
-2. Es läuft immer nur **ein** Bildjob.
-3. Ergebnis vollständig abwarten.
-4. Datei exakt umbenennen.
-5. Tatsächliche Pixel intern prüfen.
-6. Danach **HARD STOP**.
-7. **Kein Bild 02, 05 oder 06 erzeugen.**
-8. Auf ausdrückliche Freigabe des Nutzers warten, z. B.:
-   - „sieht gut aus“
-   - „passt“
-   - „ja weiter“
-9. Interne QA allein ist keine Freigabe.
-10. Bei Ablehnung nur Bild 01 erneut erzeugen und danach wieder stoppen.
-11. Erst nach Nutzerfreigabe wird Bild 01 zu `APPROVED_MASTER_ANCHOR`.
-
-## PHASE B — NACH FREIGABE AUTOMATISCH WEITER
-
-Nach Freigabe von Bild 01 werden die restlichen Assets ohne weitere Nutzerstopps fertiggestellt.
-
-### Google Flow
-
-Die restlichen Flow-Bilder werden **nacheinander**, niemals parallel, erzeugt:
-
-`Bild 02 → warten → umbenennen → interne QA → Bild 05 → warten → umbenennen → QA → Bild 06 → warten → umbenennen → QA`
-
-Da dieser Demo-Test nur drei weitere Flow-Bilder hat, ist das ein **Teil-5er-Block**.
-
-Für jedes Folge-Bild gilt:
-
-- ausschließlich das **echte freigegebene Bild 01** als persistente Stilreferenz verwenden
-- Bild 02 niemals als Referenz für Bild 05 verwenden
-- Bild 05 niemals als Referenz für Bild 06 verwenden
-- Anchor überträgt Stil / Materialien / Licht / Formensprache / Finish
-- Anchor kopiert nicht automatisch Motiv, Kamera, Pose oder Requisiten
-
-Bei QA-Fail nur dieselbe Bildnummer neu erzeugen und danach automatisch fortfahren.
-
-### Remotion
-
-Szene 03 und 04 werden **nicht in Google Flow** generiert.
-
-Sie werden mit Remotion aus exakten Daten gebaut.
-
-Datenquelle im Repo:
-
-`public/data/sp500-10y.json`
-
-Pflicht:
-
-- echte gespeicherte Datenwerte verwenden
-- Quelle aus der JSON anzeigen
-- Datenstand `fetchedAt` anzeigen
-- keine erfundene Kurve
-- keine KI-generierte Chart-Grafik
-
----
-
-# 4. GOOGLE FLOW — BILD 01
-
-## Route
-
-`pressure-problem-image`
-
-## Dateiname
-
-`Bild 01 - Kleine Kosten druecken Budget.png`
-
-## Viewer Thought
-
-**„Viele kleine Beträge wirken einzeln harmlos, drücken zusammen aber deutlich auf mein verfügbares Budget.“**
-
-## Funktion
-
-Bild 01 ist:
-
-- erste Szene
-- Cover-/Anchor-Szene
-- visuelle Master-Referenz für alle späteren Google-Flow-Bilder
-
-## COPY-PASTE PROMPT
+**Nur diesen Codeblock an Google Flow geben:**
 
 ```text
-Create one premium stylized 3D animated-feature finance illustration for the German brand FinanzNeo.
+Create a premium stylized 3D animated-feature finance illustration with no person.
 
-IMPORTANT: No person in this scene.
+Show one large emerald-green budget block as the clear hero object. Several small warm red-orange monthly cost tags physically press into and compress the outer edges of the budget block from different directions.
 
-MAIN IDEA:
-Show one large emerald-green FINANZNEO BUDGET BLOCK as the clear hero object. It should feel substantial, valuable and protected at first glance. Several small warm red-orange monthly cost tags physically press into, bite into or compress the outer edges of this one budget block from different directions.
-
-Use exactly these small cost labels:
+Use exactly these labels on the cost tags:
 "9 €"
 "19 €"
 "29 €"
 "39 €"
 "49 €"
 
-The viewer must understand within 1–2 seconds: every cost looks small alone, but together they visibly reduce the available budget.
+The image must communicate instantly that every individual cost looks small, but together they noticeably reduce the available budget.
 
-FINANZNEO DESIGN LANGUAGE:
-- premium stylized 3D animation-film look, clearly non-photorealistic
-- expressive rounded geometry, but not a toy collection
-- strong simple silhouette
-- deep black negative-space background
-- emerald green only for available/protected money
-- warm red-orange only for cost/pressure
-- tiny muted-gold accents only if they represent actual value
-- graphite, ivory and soft gray for neutral support elements
-- clean soft studio lighting
-- soft grounded contact shadows
-- polished, memorable and mobile-readable
+Use a polished non-photorealistic 3D animation-film aesthetic with expressive rounded geometry, strong silhouettes, deep black negative space, clean soft studio lighting and soft grounded shadows.
 
-COMPOSITION:
-The green budget block dominates the frame. The red-orange cost tags should interact physically with it instead of floating like UI chips. Use asymmetry and clear depth. No room, no desk, no person, no generic finance icon cloud.
+Emerald green represents available or protected money. Warm red-orange represents cost and pressure. Use graphite, ivory and soft gray only for neutral supporting forms.
 
-TEXT:
-Only the exact short labels "9 €", "19 €", "29 €", "39 €", "49 €" may appear. No headline, no subtitle, no logo text, no CTA, no random typography.
+The green budget block must dominate the composition. The cost tags must physically interact with it instead of floating like interface elements. Keep the composition simple, memorable and easy to read on a phone.
 
-FORBIDDEN:
-photorealism, dashboard UI, app interface, flowchart, generic coins-and-arrows composition, product catalog layout, random props, miniature diorama, text-heavy infographic, person or human hands.
+No room, no desk, no person, no human hands, no dashboard, no app interface, no flowchart, no generic finance-icon cloud, no product catalog layout, no miniature diorama and no additional text.
 
-Generate exactly ONE image in 1:1.
-Rename exactly:
-Bild 01 - Kleine Kosten druecken Budget.png
-
-Inspect the actual result. Then STOP completely and wait for explicit user approval. Do not create any later image yet.
+Square 1:1 image.
 ```
 
 ---
 
-# 5. GOOGLE FLOW — BILD 02
+# GOOGLE FLOW — BILD 02
 
-## Route
+Dateiname: `Bild 02 - Geldfluss im Monat.png`
 
-`money-flow-image`
-
-## Dateiname
-
-`Bild 02 - Geldfluss im Monat.png`
-
-## Voraussetzung
-
-Nur nach ausdrücklicher Freigabe von Bild 01.
-
-## COPY-PASTE PROMPT
+**Nur diesen Codeblock an Google Flow geben:**
 
 ```text
-Use the actual user-approved Image 01 as the ONLY persistent visual style reference.
+Create a premium stylized 3D animated-feature finance illustration with no person.
 
-Create a new FinanzNeo scene in the same stylized 3D animated visual world, but with a completely different composition and no person.
+Show one emerald income block on the left labeled "2.400 €". A clear muted-gold physical flow band leaves the income block and divides into three visible destinations:
 
-MAIN IDEA:
-Show one emerald income block labeled "2.400 €" on the left. A clear muted-gold physical flow band leaves this block and splits into three readable destinations:
+- a graphite neutral block labeled "Fixkosten"
+- a warm red-orange block labeled "Gebühren"
+- an emerald protected reserve block labeled "Rücklage"
 
-1. one graphite neutral block labeled "Fixkosten"
-2. one warm red-orange block labeled "Gebühren"
-3. one protected emerald reserve block labeled "Rücklage"
+The image must communicate instantly where monthly income goes. Make the money flow physical, spatial and visually elegant rather than a flat diagram.
 
-The viewer should immediately understand where monthly money goes. Make the flow physical and spatial, not a flat diagram and not a dashboard.
+Use the same premium non-photorealistic 3D animation-film language: expressive rounded geometry, strong silhouettes, deep black negative space, clean soft lighting and restrained materials.
 
-VISUAL DNA:
-Preserve the approved Image 01's abstraction level, rounded 3D geometry, material finish, lighting, black-space integration and overall premium animated-feature quality.
+Emerald green represents available or protected money. Warm red-orange represents costs. Muted gold represents actual money movement. Graphite, ivory and soft gray are neutral.
 
-No person. No hands. No room. No app UI. No spreadsheet. No chart.
+No person, no hands, no room, no dashboard, no app interface, no spreadsheet, no chart and no additional text.
 
-Only allowed text:
-"2.400 €"
-"Fixkosten"
-"Gebühren"
-"Rücklage"
-
-Generate exactly one image in 1:1.
-Rename exactly:
-Bild 02 - Geldfluss im Monat.png
-
-Wait for the result, rename, run internal QA, then automatically continue if PASS. Do not ask the user again.
+Square 1:1 image.
 ```
 
 ---
 
-# 6. REMOTION — SZENE 03
+# REMOTION — SZENE 03
 
-## Route
+Output: `Visual 03 - SP500 10 Jahre`
 
-`data-line-remotion`
-
-## Output
-
-- Composition segment: Szene 03
-- optional QA still: `Visual 03 - SP500 10 Jahre.png`
-- final clip inside Mixed Demo: 4 seconds
-
-## Daten
-
-Use exactly:
+Use the existing component `FinanceDataVisual` with `kind="line"` and the exact data from:
 
 `public/data/sp500-10y.json`
 
-Fields:
-
-- series = `chart`
-- source = `source`
-- symbol = `symbol`
-- asOf = `fetchedAt`
-
-## Remotion-Komponente
-
 Use:
+- series: `chart`
+- source: `source`
+- symbol: `symbol`
+- data date: `fetchedAt`
 
-`FinanceDataVisual`
+Content:
+- title: `S&P 500 · 10 Jahre`
+- subtitle: `Echte Zeitreihe`
+- emerald line
+- graphite / soft-gray axes
+- visible source and data date
 
-with:
-
-`kind="line"`
-
-## Inhalt
-
-Titel:
-
-`S&P 500 · 10 Jahre`
-
-Untertitel:
-
-`Echte Zeitreihe`
-
-Quelle unten sichtbar:
-
-`Quelle: {source} · {symbol} · Stand: {fetchedAt}`
-
-## Animation
-
-- ruhiger Start
-- Linie zeichnet sich einmal von links nach rechts auf
-- keine Daueranimation danach
-- Ergebnis mindestens ca. 0,8 Sekunden stabil sichtbar
-- kein Dashboard-Rahmen
-- keine erfundene Zusatzkurve
-
-## Styling
-
-- gleicher FinanzNeo Deep-Black/Green/Gold/Graphite-Farbcode
-- Linie Emerald
-- neutrale Achsen Graphite / Soft Gray
-- Quelle klein, aber lesbar
-- Datenvisual soll Teil derselben Marke wirken wie Bild 01/02
+Motion:
+- line reveals once from left to right
+- no decorative looping motion
+- final state remains stable
+- no fake or interpolated extra market series
 
 ---
 
-# 7. REMOTION — SZENE 04
+# REMOTION — SZENE 04
 
-## Route
+Output: `Visual 04 - Start vs Heute`
 
-`data-bar-remotion`
-
-## Output
-
-- Composition segment: Szene 04
-- optional QA still: `Visual 04 - Start vs Heute.png`
-- final clip inside Mixed Demo: 4 seconds
-
-## Daten
-
-Use dieselbe Datei:
+Use `FinanceDataVisual` with `kind="bar"` and the same exact file:
 
 `public/data/sp500-10y.json`
 
-Vergleiche exakt:
+Compare:
+- first entry of `chart`
+- last entry of `chart`
 
-- ersten Eintrag aus `chart`
-- letzten Eintrag aus `chart`
+Content:
+- title: `Start vs. letzter Datenpunkt`
+- subtitle: `Punktestand im Vergleich`
+- first bar: graphite / gray
+- last bar: emerald
+- source and data date visible
 
-Keine erfundenen Werte.
-
-## Remotion-Komponente
-
-Use:
-
-`FinanceDataVisual`
-
-with:
-
-`kind="bar"`
-
-## Inhalt
-
-Titel:
-
-`Start vs. letzter Datenpunkt`
-
-Untertitel:
-
-`Punktestand im Vergleich`
-
-Balken:
-
-- erster Datenpunkt = neutral Graphite/Gray
-- letzter Datenpunkt = Emerald
-
-Quelle + Datenstand sichtbar.
-
-## Animation
-
-- beide Balken wachsen einmal kontrolliert
-- kein Springen / Wackeln
-- danach stabiler Hold
+Motion:
+- both bars grow once
+- then remain stable
+- no decorative motion
 
 ---
 
-# 8. GOOGLE FLOW — BILD 05
+# GOOGLE FLOW — BILD 05
 
-## Route
+Dateiname: `Bild 05 - Bewusste Entscheidung.png`
 
-`human-context-image`
-
-## Dateiname
-
-`Bild 05 - Bewusste Entscheidung.png`
-
-## Warum hier eine Person erlaubt ist
-
-Die Aussage lebt von einer bewussten Entscheidung. Deshalb hat die Person hier echten narrativen Mehrwert.
-
-## COPY-PASTE PROMPT
+**Nur diesen Codeblock an Google Flow geben:**
 
 ```text
-Use the actual user-approved Image 01 as the ONLY persistent visual style reference.
+Create a premium stylized 3D animated-feature finance illustration showing one young adult making a clear everyday financial decision.
 
-Create one mature but clearly stylized 3D animated-feature FinanzNeo scene.
+The person sees a warm red-orange financing offer labeled "29 € / Monat" beside one desirable everyday product, but deliberately chooses not to take the monthly payment.
 
-This is the ONE human-context scene in the test. The person is here because the financial decision itself is the story.
+Show the decision through a simple physical action: the person calmly pushes the financing offer away while an emerald reserve envelope labeled "Rücklage" remains protected on the other side.
 
-MAIN IDEA:
-Show one young adult in a simple everyday purchase moment. The person sees a warm red-orange financing offer labeled "29 € / Monat" next to a desirable everyday product, but deliberately chooses not to take the monthly payment.
+The financial choice is the main idea, not the person. Keep the environment minimal and show only the person, one purchase object, one financing offer and one reserve envelope.
 
-The decision must be visible through posture and action: the hand calmly pushes the financing card away while an emerald reserve envelope remains protected on the other side.
+Use a polished non-photorealistic 3D animation-film aesthetic with expressive stylized character design, rounded forms, strong silhouettes, deep black integration, clean soft lighting and restrained materials.
 
-Do not make the person the whole point. The financial choice is the hero action.
+Emerald green represents protected money. Warm red-orange represents cost or financial pressure. Neutral objects use graphite, ivory and soft gray.
 
-VISUAL DNA:
-Match the approved Image 01's stylized 3D animated-feature quality, material finish, rounded shape language, lighting, emerald/red-orange semantics and deep-black integration.
+Only the labels "29 € / Monat" and "Rücklage" may appear.
 
-Keep the environment minimal. One purchase object, one financing card, one reserve envelope. No clutter.
+No dashboard, no app interface, no random posters, no decorative writing, no clutter and no additional text.
 
-Allowed text only:
-"29 € / Monat"
-"Rücklage"
-
-No headline, no app UI, no dashboard, no random posters or decorative writing.
-
-Generate exactly one image in 1:1.
-Rename exactly:
-Bild 05 - Bewusste Entscheidung.png
-
-Wait → rename → internal QA → automatically continue on PASS. Do not ask the user again.
+Square 1:1 image.
 ```
 
 ---
 
-# 9. GOOGLE FLOW — BILD 06
+# GOOGLE FLOW — BILD 06
 
-## Route
+Dateiname: `Bild 06 - Ruecklage faengt Belastung ab.png`
 
-`protection-buffer-image`
-
-## Dateiname
-
-`Bild 06 - Ruecklage faengt Belastung ab.png`
-
-## COPY-PASTE PROMPT
+**Nur diesen Codeblock an Google Flow geben:**
 
 ```text
-Use the actual user-approved Image 01 as the ONLY persistent visual style reference.
+Create a premium stylized 3D animated-feature finance illustration with no person.
 
-Create a strong person-free FinanzNeo payoff image in the same stylized 3D animated-feature world.
+Show one solid emerald reserve block labeled "Rücklage" acting as a visible financial buffer. A warm red-orange unexpected-cost object labeled "Reparatur 280 €" hits the reserve block from one side.
 
-MAIN IDEA:
-Show one solid emerald reserve block labeled "Rücklage" acting as a visible financial buffer. A warm red-orange unexpected-cost object labeled "Reparatur 280 €" hits the buffer from one side. The reserve block absorbs the impact and remains visibly intact enough to show protection.
+The reserve absorbs the impact and remains visibly strong enough to protect a neutral graphite budget object positioned behind it.
 
-The meaning must be obvious within 1–2 seconds: the reserve prevents the unexpected cost from destroying the rest of the budget.
+The meaning must be understandable instantly: the reserve prevents an unexpected cost from damaging the rest of the budget.
 
-Use a clear cause-and-effect composition. The red-orange cost comes in, the emerald reserve absorbs it, and a graphite neutral budget object behind the reserve remains protected.
+Use a clear cause-and-effect composition with strong silhouettes, premium non-photorealistic 3D animation-film styling, rounded designed geometry, deep black negative space, clean soft lighting and grounded shadows.
 
-VISUAL DNA:
-Same approved Image 01 abstraction level, rounded 3D geometry, material finish, black negative space, soft premium lighting and semantic color language.
+Emerald green represents protection and available reserves. Warm red-orange represents the unexpected cost. Graphite, ivory and soft gray are neutral.
 
-No person. No hands. No generic shield icon. No floating dashboard. Do not turn it into a flowchart.
+Only the labels "Rücklage" and "Reparatur 280 €" may appear.
 
-Allowed text only:
-"Rücklage"
-"Reparatur 280 €"
+No person, no hands, no generic shield icon, no dashboard, no flowchart, no floating interface elements and no additional text.
 
-Generate exactly one image in 1:1.
-Rename exactly:
-Bild 06 - Ruecklage faengt Belastung ab.png
-
-Wait → rename → internal QA.
+Square 1:1 image.
 ```
 
 ---
 
-# 10. Gemeinsame QA
+# Pipeline-Regeln — NICHT an Google Flow senden
 
-## Google-Flow-Bilder
+Diese Regeln steuert unsere Pipeline außerhalb der Bildprompts:
 
-Jedes Bild muss bestehen:
+1. Bild 01 zuerst allein erzeugen und vom Nutzer freigeben lassen.
+2. Nach Freigabe bleibt Bild 01 die visuelle Referenz für die weiteren Flow-Bilder.
+3. Folge-Bilder einzeln erzeugen; keine parallelen Bildjobs.
+4. Dateinamen nach der Generierung exakt setzen.
+5. Bild-QA außerhalb des Flow-Prompts durchführen.
+6. Szene 03 und 04 ausschließlich mit Remotion aus echten Daten erzeugen.
+7. Die fertige Serie besteht aus vier Flow-Bildern und zwei Remotion-Datenvisuals.
 
-- Aussage in ca. 1–2 Sekunden verständlich
-- kein generischer KI-Finanzlook
-- FinanzNeo-Farblogik korrekt
-- starke klare Hauptidee
-- Folge-Bilder passen stilistisch zu freigegebenem Bild 01
-- Folge-Bilder kopieren Bild 01 nicht stumpf
-- Person nur in Bild 05
-- keine unnötigen Props
-- keine unerlaubte Schrift
-- kein Dashboard / App-UI als Hauptbild
-
-Hard-Fail:
-
-- `boringLiteral`
-- `decorativeWithoutMeaning`
-- `overexplainedPropLayout`
-- `genericFinanceIconMain`
-- `anchorDrift`
-- `anchorContentCopy`
-- `sceneMismatch`
-
-## Remotion
-
-Jedes Datenvisual muss bestehen:
-
-- exakte Daten aus definierter Quelle
-- Quelle sichtbar
-- Datenstand sichtbar
-- kein erfundener Verlauf
-- klare mobile Lesbarkeit
-- gleiche Markenfarben wie die Bildwelt
-- Animation erklärt den Aufbau
-- kein generischer Dashboard-Screenshot-Look
-
----
-
-# 11. Finaler Asset-Satz
-
-Nach erfolgreichem Test soll der Satz logisch so aussehen:
-
-```text
-Bild 01 - Kleine Kosten druecken Budget.png       [Google Flow / Anchor]
-Bild 02 - Geldfluss im Monat.png                  [Google Flow]
-Visual 03 - SP500 10 Jahre                        [Remotion]
-Visual 04 - Start vs Heute                        [Remotion]
-Bild 05 - Bewusste Entscheidung.png               [Google Flow]
-Bild 06 - Ruecklage faengt Belastung ab.png       [Google Flow]
-```
-
-Die Reihenfolge des finalen Videos bleibt exakt 01 → 02 → 03 → 04 → 05 → 06.
-
----
-
-# 12. Wichtig für den Agenten
-
-- Nicht alle sechs Szenen an Google Flow schicken.
-- Szene 03 und 04 sind ausschließlich Remotion.
-- Nur Bild 01 braucht manuelle Nutzerfreigabe.
-- Nach Bild-01-Freigabe keine weiteren Nutzerstopps.
-- Google Flow weiterhin Strict Single Job.
-- Bild 01 bleibt einzige persistente Bildreferenz für Bild 02/05/06.
-- Remotion übernimmt die Bilddatei nicht als Chart-Hintergrund; es übernimmt die **FinanzNeo Visual DNA** über Farben, Typografie, Formen und ruhige Bewegung.
-- Keine bestehende Produktion überschreiben.
-- Dieser Test ist nicht publishable, solange der Nutzer die Bildwelt und den Mixed-Render nicht freigegeben hat.
+Damit bleibt der Flow-Prompt selbst bewusst simpel: **nur das gewünschte Bild beschreiben.**
