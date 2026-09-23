@@ -2,8 +2,11 @@ export const VISUAL_ROUTING_ID = 'finanzneo-visual-routing-v1';
 
 export const VISUAL_ROUTES = [
   'concept-image',
+  'single-object-image',
   'money-flow-image',
   'comparison-image',
+  'pressure-problem-image',
+  'protection-buffer-image',
   'human-context-image',
   'data-line-remotion',
   'data-bar-remotion',
@@ -21,8 +24,11 @@ export const recommendVisualRoute = ({
   exactNumericComparison = false,
   exactAllocation = false,
   exactTimeline = false,
+  singleObject = false,
   moneyMovement = false,
   comparison = false,
+  pressureProblem = false,
+  protectionBuffer = false,
   humanNarrativeValue = false,
 } = {}) => {
   const normalized = normalize(text);
@@ -49,15 +55,29 @@ export const recommendVisualRoute = ({
   ]);
   if (exactNumericComparison || inferredNumericComparison) return 'data-bar-remotion';
 
+  const inferredProtection = hasAny(normalized, [
+    'rücklage bleibt', 'ruecklage bleibt', 'notgroschen schützt', 'notgroschen schuetzt',
+    'puffer', 'abfedern', 'abgefedert', 'reserve bleibt', 'rücklage schützt', 'ruecklage schuetzt',
+  ]);
+  if (protectionBuffer || inferredProtection) return 'protection-buffer-image';
+
+  const inferredPressure = hasAny(normalized, [
+    'auffressen', 'frisst', 'drückt auf', 'drueckt auf', 'kosten ziehen', 'belastung wächst',
+    'belastung waechst', 'viele kleine kosten', 'budget wird eng',
+  ]);
+  if (pressureProblem || inferredPressure) return 'pressure-problem-image';
+
   const inferredMoneyMovement = hasAny(normalized, [
     'geld fließt', 'geld fliesst', 'einkommen', 'fixkosten', 'rücklage', 'ruecklage',
-    'notgroschen', 'abbuchung', 'dauerauftrag', 'rate', 'kosten ziehen',
+    'notgroschen', 'abbuchung', 'dauerauftrag', 'rate',
   ]);
   if (moneyMovement || inferredMoneyMovement) return 'money-flow-image';
 
   if (comparison || hasAny(normalized, ['zwei wege', 'vorher nachher', 'vorher/nachher', 'vergleich'])) {
     return 'comparison-image';
   }
+
+  if (singleObject) return 'single-object-image';
 
   if (humanNarrativeValue) return 'human-context-image';
 
