@@ -1,0 +1,179 @@
+FINANZNEO COVER-ANCHOR TEST — GOOGLE FLOW COPY-PASTE PROMPT
+
+ZIEL
+Erzeuge eine zusammenhängende Serie aus 6 Bildern. Bild 01 ist zuerst die visuelle Master-Referenz. Danach werden Bild 02–06 inhaltlich unterschiedlich, aber stilistisch klar an Bild 01 angelehnt.
+
+WICHTIGER AUSFÜHRUNGSVERTRAG
+- Erzeuge NIEMALS mehrere Bilder gleichzeitig.
+- Kein Batch, keine Collage, kein Grid, kein Kontaktbogen, keine Parallel-Queue.
+- MAX_CONCURRENT_GENERATIONS = 1.
+- Bild 01 MUSS zuerst allein erzeugt werden.
+- Nach jeder Generierung: warten → exakt umbenennen → visuell prüfen → erst bei PASS weiter.
+- Falls ein Bild nicht passt: dieselbe Bildnummer neu erzeugen. Nicht zum nächsten Bild springen.
+- Alle finalen Bilder gehören in denselben Ordner.
+
+ANCHOR-REGEL
+- Bild 01 ist Cover + MASTER VISUAL ANCHOR.
+- Bild 02–06 dürfen erst nach PASS von Bild 01 erzeugt werden.
+- Für Bild 02–06 MUSS das tatsächlich erzeugte und freigegebene Bild 01 als direkte visuelle Referenz / reference image / ingredient verwendet werden.
+- Nutze für alle Folge-Bilder IMMER Bild 01 als persistente Stilreferenz. Nicht Bild 02 als Referenz für Bild 03 usw.
+- Falls die aktuelle Flow-Funktion keine echte Bildreferenz zulässt: STOPP. Nicht ohne Anchor weitermachen.
+- Der Anchor steuert nur: Art Direction, Figuren-/Gesichtssprache, Abstraktionsgrad, Geometrie, Materialien, Texturen, Lichtcharakter, Farbverhalten, Environment Rendering, Deep-Black-Integration und Finish-Qualität.
+- Der Anchor darf NICHT automatisch Motiv, Kamera, Pose, Requisiten oder Komposition kopieren.
+
+5ER-REGEL
+Nach PASS von Bild 01 gehören Bild 02–06 zu EINEM 5er-Planblock.
+Du darfst die fünf Konzepte gemeinsam auf Rhythmus und Abwechslung abstimmen, aber du generierst trotzdem strikt:
+Bild 02 → warten → umbenennen → prüfen → PASS → Bild 03 → ... → Bild 06.
+
+GLOBALE BILDWELT
+- 1:1
+- deutlich stilisierte Editorial-3D-Illustration, niemals fotorealistisch
+- eigenständig und hochwertig, nicht wie generischer KI-Game-Render
+- matte, taktile Materialien; leichte Papier-/Painted-Resin-Anmutung
+- vereinfachte ausdrucksstarke Menschen mit reduzierten Gesichtsdetails
+- starke Silhouetten und klare Formen
+- lokale reale Räume dürfen sichtbar sein und an den Bildrändern weich in tiefes Schwarz übergehen
+- Deep Black ist Weltgrenze, NICHT automatisch leerer Hintergrund
+- Emerald Green = geschützt / positiv / Geldreserve
+- Warm Red-Orange = Kosten / Verlust / Druck
+- dezentes Gold ausschließlich für Geld/Wert
+- Graphit / Ivory / Soft Gray = neutral
+- kurze deutsche Labels nur wenn sie wirklich helfen
+- keine Headlines, Untertitel, CTA, Logos oder dekorative Texte
+- kein Dashboard, keine App-UI als Hauptmotiv, kein Flowchart, kein generisches Finance-Icon-Kit
+- jedes Bild soll auf Mobile in ca. 1–2 Sekunden verstanden werden
+- unterhaltsam, merkbar und passend zum jeweiligen Beat
+
+==================================================
+BILD 01 — COVER + MASTER VISUAL ANCHOR
+==================================================
+FINALER DATEINAME:
+Bild 01 - Cover - Kleine Raten.png
+
+VIEWER THOUGHT:
+„Krass — jede Rate ist klein, aber zusammen ziehen sie mir jeden Monat Geld weg.“
+
+PROMPT:
+Create the strongest possible cover image for the series. A stylized young adult, late 20s, medium build, short dark hair, simplified expressive face, stands in a modest modern living room. He holds one emerald-green salary envelope labeled exactly „2.400 €“ at chest height. The envelope is the clear hero object.
+
+Five thin warm red-orange elastic straps visibly pull away from that salary envelope toward five ordinary financed objects naturally placed in the room: smartphone, television, sofa, laptop and e-scooter helmet. Each object has exactly one small monthly label: „29 €“, „39 €“, „49 €“, „59 €“, „69 €“.
+
+The straps are a controlled visual metaphor: immediately understandable, slightly exaggerated for clarity, but not magical spectacle. The character looks down at what remains with restrained concern. Keep the room uncluttered and believable. Use a medium-wide, slightly low eye-level camera with strong foreground-to-background depth. The character and envelope must read clearly on mobile.
+
+ART-DIRECTION DNA FOR ALL LATER IMAGES:
+matte tactile surfaces, subtle paper-like and painted-resin texture, simplified human anatomy, minimal facial detail, strong silhouette, slightly exaggerated but believable proportions, premium editorial composition, soft directional key light from upper left, subtle rim separation, readable contact shadows, moderate contrast, real room fading naturally into deep black at the edges, no glossy AI-plastic skin, no generic cinematic game-render look.
+
+ONLY ALLOWED TEXT IN THE IMAGE:
+„2.400 €“, „29 €“, „39 €“, „49 €“, „59 €“, „69 €“.
+No other text anywhere.
+
+GENERATE EXACTLY ONE IMAGE.
+Wait for result.
+Rename exactly to: Bild 01 - Cover - Kleine Raten.png
+Inspect carefully.
+Only after PASS mark this exact image as APPROVED_MASTER_ANCHOR.
+
+==================================================
+BILD 02 — POV: KLEINE RATE WIRKT HARMLOS
+==================================================
+FINALER DATEINAME:
+Bild 02 - 29 Euro wirken klein.png
+
+REFERENCE REQUIRED:
+Attach/use the approved actual Bild 01 as the direct visual reference.
+
+VIEWER THOUGHT:
+„29 Euro sehen beim Kauf wirklich harmlos aus.“
+
+PROMPT:
+Create a true first-person POV at a real checkout counter. Two stylized hands hold a simple financing card showing only „29 € / Monat“. A new smartphone box sits physically on the counter beside the hands. A much smaller neutral paper tag near the box reads „Gesamt: 696 €“.
+
+The visual point is immediate: the monthly amount dominates attention while the total cost is easy to overlook. Use the same art-direction DNA as Bild 01: same stylization level, matte tactile materials, simplified hand design, lighting character, texture treatment and palette behavior. Use a completely different POV composition from the cover.
+
+No realistic branded app UI. No extra decorative text.
+
+Generate exactly one image. Wait. Rename. QA. Only after PASS continue.
+
+==================================================
+BILD 03 — EIN STARKES OBJEKT
+==================================================
+FINALER DATEINAME:
+Bild 03 - Viele kleine Raten.png
+
+REFERENCE REQUIRED:
+Attach/use the approved actual Bild 01 as the direct visual reference.
+
+VIEWER THOUGHT:
+„Nicht eine Rate ist das Problem — sondern fünf gleichzeitig.“
+
+PROMPT:
+Create one bold iconic hero object with no person: a single dark everyday wallet standing upright. Five small warm red-orange payment tabs physically compress the wallet from different sides. Each tab has one label only: „29 €“, „39 €“, „49 €“, „59 €“, „69 €“. A very thin emerald-green banknote edge is barely visible inside.
+
+Make the image minimal, strong and memorable. Large close hero object, clean silhouette, no decorative props, no pile of generic finance icons. Keep the exact matte editorial 3D material language, lighting character, texture treatment and deep-black edge behavior established by Bild 01.
+
+Generate exactly one image. Wait. Rename. QA. Only after PASS continue.
+
+==================================================
+BILD 04 — REALER CHARAKTERMOMENT
+==================================================
+FINALER DATEINAME:
+Bild 04 - Monat wird eng.png
+
+REFERENCE REQUIRED:
+Attach/use the approved actual Bild 01 as the direct visual reference and recurring character-language reference.
+
+VIEWER THOUGHT:
+„Am Monatsende fehlt plötzlich Luft, obwohl keine einzelne Ausgabe riesig war.“
+
+PROMPT:
+Create an evening kitchen scene with an over-the-shoulder camera. Use the same character-design language as Bild 01, but a clearly different pose and composition. The person opens an almost empty wallet beside a normal grocery bag. Five small monthly-payment letters lie naturally near the counter edge. A small emerald card labeled „Frei“ shows only „42 €“ remaining.
+
+The scene must feel lived-in and narrative, not staged like a catalog. Shoulders slightly tense, restrained expression, realistic everyday kitchen context, same matte textures, simplified facial language, lighting DNA and black-world edge treatment as Bild 01.
+
+Generate exactly one image. Wait. Rename. QA. Only after PASS continue.
+
+==================================================
+BILD 05 — KONTROLLIERTE FANTASIE / METAPHER
+==================================================
+FINALER DATEINAME:
+Bild 05 - Jeden Monat ein Biss.png
+
+REFERENCE REQUIRED:
+Attach/use the approved actual Bild 01 as the direct visual reference.
+
+VIEWER THOUGHT:
+„Die kleinen Raten kommen nächsten Monat einfach wieder.“
+
+PROMPT:
+Create an instantly understandable controlled visual metaphor. A large emerald-green rectangular monthly budget block labeled only „MONAT“ sits on a real kitchen counter. Five warm red-orange bite-shaped pieces are visibly missing from its edge. Beside the missing pieces are five matching small payment tabs labeled „29“, „39“, „49“, „59“, „69 €“.
+
+In the background, three physical calendar pages labeled „Oktober“, „November“, „Dezember“ repeat the same bite pattern. The recurrence must be obvious in under two seconds without arrows, charts or explanation text. Keep the exact visual DNA from Bild 01: matte editorial 3D, tactile texture, lighting, palette and environment treatment.
+
+Generate exactly one image. Wait. Rename. QA. Only after PASS continue.
+
+==================================================
+BILD 06 — PAYOFF
+==================================================
+FINALER DATEINAME:
+Bild 06 - Wieder Luft im Budget.png
+
+REFERENCE REQUIRED:
+Attach/use the approved actual Bild 01 as the direct visual reference and recurring character-language reference.
+
+VIEWER THOUGHT:
+„Weniger laufende Raten geben mir jeden Monat wieder Spielraum.“
+
+PROMPT:
+Create a calm visual payoff in the same home and same character-design language, but with a fresh wide camera. The young adult sits comfortably at the dining table. Only two necessary financed objects remain visible. Three cancelled payment letters are closed and placed aside, not spread decoratively. In the foreground one simple emerald envelope labeled „Frei 250 €“ is visibly thicker and important.
+
+The character posture is relaxed. The room feels more open, but not luxurious. Keep the exact anchor DNA from Bild 01: matte tactile surfaces, simplified expressive face, restrained editorial lighting, same geometry language, same neutral base and semantic accent colors. The composition must clearly differ from all previous images.
+
+Generate exactly one image. Wait. Rename. QA.
+
+==================================================
+FINAL CHECK
+==================================================
+Do not declare the job finished until all 6 final images exist with the exact filenames.
+Confirm internally that Bild 02–06 each used the ACTUAL APPROVED Bild 01 as the direct visual reference.
+All six images must look like one coherent FinanzNeo series while every scene still has its own composition and idea.
