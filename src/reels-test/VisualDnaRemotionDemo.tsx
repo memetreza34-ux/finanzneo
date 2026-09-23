@@ -4,6 +4,8 @@ import {C, FONT, sec} from '../brand';
 import {FinanceDataVisual} from '../brand/components/FinanceDataVisual';
 import sp500 from '../../public/data/sp500-10y.json';
 
+const COST = '#E85D3F';
+
 export const VISUAL_DNA_REMOTION_DEMO_SCENE_FRAMES = sec(4);
 export const VISUAL_DNA_REMOTION_DEMO_FRAMES = VISUAL_DNA_REMOTION_DEMO_SCENE_FRAMES * 6;
 
@@ -30,7 +32,7 @@ const CostTag: React.FC<{label: string; rotate?: number}> = ({label, rotate = 0}
   <div style={{
     padding: '12px 18px',
     borderRadius: 16,
-    background: C.warning,
+    background: COST,
     color: C.bg,
     fontFamily: FONT.body,
     fontWeight: 800,
@@ -73,7 +75,7 @@ const FlowMock: React.FC = () => (
     <div style={{position: 'absolute', left: 20, top: 250, width: 230, height: 150, borderRadius: 32, background: C.accent, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT.title, fontSize: 44, color: C.bg}}>EINKOMMEN</div>
     <div style={{position: 'absolute', left: 260, right: 220, top: 312, height: 18, background: C.gold, borderRadius: 10}} />
     {['FIXKOSTEN', 'GEBÜHREN'].map((label, i) => (
-      <div key={label} style={{position: 'absolute', right: 20, top: 155 + i * 170, width: 210, height: 110, borderRadius: 28, background: C.warning, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT.body, fontWeight: 800, fontSize: 25, color: C.bg}}>{label}</div>
+      <div key={label} style={{position: 'absolute', right: 20, top: 155 + i * 170, width: 210, height: 110, borderRadius: 28, background: COST, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT.body, fontWeight: 800, fontSize: 25, color: C.bg}}>{label}</div>
     ))}
     <div style={{position: 'absolute', right: 20, bottom: 70, width: 210, height: 110, borderRadius: 28, border: `5px solid ${C.accent}`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: FONT.body, fontWeight: 800, fontSize: 25, color: C.accentLt}}>RÜCKLAGE</div>
     <div style={{position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', fontFamily: FONT.body, fontSize: 26, color: C.gray}}>
