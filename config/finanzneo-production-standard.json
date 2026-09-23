@@ -23,6 +23,8 @@
     "coverAnchorFlowId": "finanzneo-cover-anchor-flow-v1",
     "coverAnchorBlockSize": 5,
     "coverAnchorSourceScene": "scene-01",
+    "coverAnchorExplicitUserApprovalRequired": true,
+    "followupBlocksAutoRunAfterCoverApproval": true,
     "creativeConceptApply": "scripts/apply-image-creative-concept-v1.mjs",
     "coverAnchorApply": "scripts/apply-cover-anchor-flow-v1.mjs",
     "compiler": "scripts/compile-future-image-prompts-v5.mjs",
@@ -36,6 +38,9 @@
     "coverAnchorFlowId": "finanzneo-cover-anchor-flow-v1",
     "followupPlanBlockSize": 5,
     "generationMode": "strict-single-job",
+    "manualGate": "explicit-user-approval-after-scene-01",
+    "noFurtherUserApprovalAfterAnchor": true,
+    "automaticallyAdvanceFollowupBlocks": true,
     "source": "config/finanzneo-image-world-lock.json#googleFlow"
   },
   "animation": {
