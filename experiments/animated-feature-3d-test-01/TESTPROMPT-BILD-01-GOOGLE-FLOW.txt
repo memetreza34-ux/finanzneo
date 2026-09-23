@@ -1,0 +1,129 @@
+FINANZNEO — BILDWELT TEST: HOCHWERTIGER 3D-ANIMATIONSFILM-LOOK
+GOOGLE FLOW — NUR BILD 01
+
+ZIEL
+Dieser Test prüft ausschließlich die gewünschte Bildwelt für FinanzNeo.
+Noch KEINE Folge-Bilder erzeugen.
+Noch KEINE globale Bildwelt im Repo ersetzen.
+
+Das Ergebnis soll wie ein hochwertiges modernes 3D-Animationsfilm-Standbild wirken: klar stilisiert, warm, ausdrucksstark, hochwertig gerendert und sofort erzählerisch lesbar.
+
+WICHTIG:
+Nicht halb-realistisch.
+Nicht wie ein Architektur-/Produkt-Render.
+Nicht wie eine kleine Diorama-Bühne.
+Nicht wie eine steife erwachsene 3D-Figur mit fast realistischem Gesicht.
+Nicht wie ein Videospiel-Cutscene-Render.
+
+Stattdessen:
+- klar erkennbare stilisierte 3D-Animationsfilm-Figur
+- sympathische, ausdrucksstarke Gesichtsformen
+- leicht vereinfachte, charmante Proportionen
+- große klare Augen, aber nicht kindlich oder übertrieben
+- weiche, saubere Gesichtsgeometrie
+- starke Mimik und Körpersprache
+- hochwertige Haarformen als saubere 3D-Massen
+- weiche, hochwertige Stoffe und Materialien
+- runde, organische Formen
+- farblich harmonische Umgebung
+- echtes Szenengefühl statt freigestellter Produkt-/Diorama-Aufbau
+- filmische Tiefe und hochwertige Animationsfilm-Beleuchtung
+- klarer Vordergrund, Mittelgrund und Hintergrund
+- starke, sofort lesbare Story im Bild
+
+==================================================
+BILD 01 — MASTER-ANCHOR-TEST
+==================================================
+
+DATEINAME:
+Bild 01 - Animationsfilm Anchor - Kleine Raten.png
+
+THEMA:
+Warum kleine Monatsraten zusammen das Budget auffressen.
+
+VIEWER THOUGHT:
+„Jede Rate wirkt klein, aber zusammen ziehen sie jeden Monat richtig viel Geld weg.“
+
+IMAGE PROMPT:
+Create a premium stylized 3D animated-feature-film scene for a German finance explainer.
+
+Show a young adult man in his late 20s standing inside a believable, warm modern living room. He must look unmistakably like a high-end stylized animated-film character, not semi-realistic and not photorealistic.
+
+CHARACTER DESIGN:
+Use a clearly stylized adult male character with appealing animated-feature proportions: slightly enlarged head compared with real life, expressive but believable eyes, simplified nose and mouth, soft cheek and jaw shapes, clean brows, friendly readable face, expressive posture, and subtle concern in his expression. Keep him adult and modern, not childish. His hands should have the same stylized animation language as his face and body. Short dark hair formed from clean soft 3D shapes rather than realistic individual strands.
+
+CLOTHING:
+Simple modern casual outfit: dark graphite trousers, soft ivory shirt, muted dark overshirt. Clothing should use soft stylized fabric materials and readable folds, matching a premium animated movie.
+
+MAIN ACTION:
+He holds a large emerald-green salary envelope at chest height. The envelope is the visual focus and carries exactly one label:
+„2.400 €“
+
+Five warm red-orange elastic bands visibly pull money away from the envelope toward five financed everyday objects placed naturally around the living room:
+- smartphone — label „29 €“
+- television — label „39 €“
+- sofa — label „49 €“
+- laptop — label „59 €“
+- e-scooter helmet — label „69 €“
+
+The elastic bands must look physical, playful and easy to understand, like a clever visual storytelling device in an animated film. They are not laser beams and not infographic arrows.
+
+STORYTELLING:
+The man looks down at the envelope with a clear „wait, where is all my money going?“ expression. His shoulders and hands communicate mild tension. The viewer must understand the idea within one second even without audio.
+
+ENVIRONMENT:
+Build a complete but simplified stylized living-room scene around him, not a cropped architectural box floating in black. Include a sofa, TV area, side table and a few necessary household details, all designed in the same soft rounded animated-film shape language.
+
+The room should feel inhabited and cinematic, not like a furniture catalog. Keep the composition clean and avoid unnecessary clutter.
+
+BACKGROUND / FINANZNEO INTEGRATION:
+Use a dark, elegant environment with black and graphite tones, but DO NOT create a black circular vignette, black halo or miniature diorama island. The living room should feel like a real continuous animated-film set. Dark areas may fade naturally toward black at the far edges, but the scene itself must remain a complete believable space.
+
+LIGHTING:
+Use premium animated-feature-film lighting: soft warm key light from one side, gentle cool-neutral fill, subtle rim separation, soft contact shadows, rich but controlled contrast, pleasant skin shading and readable materials. Avoid harsh studio-product lighting.
+
+MATERIALS:
+Soft stylized materials with clean highlights and gentle subsurface feeling on skin. Slightly soft rounded edges on furniture and props. High-quality 3D rendering, but never photorealistic.
+
+CAMERA:
+Medium-wide cinematic composition at approximately chest-to-eye level, natural perspective around 45–55 mm equivalent. Character large and readable on mobile. Do not place the scene on a tiny stage. Do not use an ultra-wide lens.
+
+COLOR LANGUAGE:
+- emerald green = available/protected money
+- warm red-orange = recurring financial pressure
+- warm ivory / soft gray / graphite = neutral environment
+- subtle gold only where real money/value needs emphasis
+
+ONLY ALLOWED TEXT:
+„2.400 €“, „29 €“, „39 €“, „49 €“, „59 €“, „69 €“
+No other visible text.
+
+ABSOLUTELY FORBIDDEN:
+- photorealistic human
+- semi-realistic corporate 3D person
+- realistic facial anatomy with only slight stylization
+- architecture visualization look
+- product-render look
+- miniature diorama stage
+- room box floating in black
+- black fuzzy vignette around the scene
+- game cutscene look
+- stiff mannequin pose
+- flat infographic
+- finance dashboard
+- UI cards
+- random decorative finance icons
+- excessive props
+- mismatched realism between person, hands and objects
+
+QUALITY TARGET:
+The final frame should immediately read as a premium stylized 3D animated-feature-film still: expressive character, charming but adult visual language, soft cinematic shapes, coherent environment, strong storytelling, memorable composition and polished rendering.
+
+EXECUTION:
+1. Generate exactly ONE image only.
+2. Wait until it is fully finished.
+3. Rename exactly:
+   Bild 01 - Animationsfilm Anchor - Kleine Raten.png
+4. Do NOT generate Image 02.
+5. Stop and show the actual Image 01 to the user.
+6. Wait for explicit user approval before anything else.
