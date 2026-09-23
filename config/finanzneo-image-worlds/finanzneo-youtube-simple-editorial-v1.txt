@@ -1,0 +1,91 @@
+FINANZNEO YOUTUBE IMAGE WORLD
+IMAGE_WORLD: finanzneo-youtube-simple-editorial-v1
+FORMAT: 16:9 horizontal
+PURPOSE: simple finance explainer longform
+
+CORE PRINCIPLE
+Use Google Flow only when a concrete real-world situation communicates the spoken point better than text, numbers, charts, icons, diagrams or a real screenshot/asset.
+
+STYLE
+- simple editorial 2D / 2.5D illustration
+- clean, modern, trustworthy finance education look
+- one clear subject or situation
+- maximum visual clarity before visual spectacle
+- few large readable objects
+- flat or lightly dimensional shapes
+- restrained depth; no cinematic 3D world
+- neutral light or dark background chosen for readability, not as a mandatory brand gimmick
+- strong contrast and clean separation
+- green may signal positive/value; blue may signal trust/information; red/orange may signal warning/cost; neutral white/gray for structure
+- professional, not childish and not photorealistic
+
+COMPOSITION
+- one main idea per image
+- preferably one hero object/situation plus at most 2–3 supporting objects
+- remove decorative objects that do not explain the voiceover
+- important objects must remain readable on mobile, laptop and TV playback
+- no tiny diorama
+- no dense environment
+- no cinematic camera angle unless it materially improves understanding
+
+TEXT
+- do not render headlines, subtitles, long explanations or important numbers inside the generated image
+- Remotion owns all important text, numbers, labels, captions and comparisons
+- short object labels inside the image are allowed only when absolutely necessary and explicitly requested
+
+USE FLOW FOR
+- broken household item + repair bill
+- shopping/inflation situation
+- rent/contract/insurance situation
+- everyday money stress or decision
+- a concrete human-scale scene that cannot be explained equally well with a simple graphic
+
+DO NOT USE FLOW FOR
+- percentages
+- big numbers
+- fee comparisons
+- savings rates
+- compound growth
+- timelines
+- charts
+- ETF structure
+- allocation
+- process steps
+- formulas
+- tables
+- app/website/product screenshots
+- logos or documents that can be shown as real assets
+
+FORBIDDEN
+- cinematic finance scene
+- complex 3D environment
+- deep-black world as a mandatory default
+- glossy premium toy look
+- generic coin/tresor/piggy-bank composition
+- random money rain
+- floating UI cards
+- dashboard imitation
+- fake app screens
+- fake websites
+- infographic layout inside the generated image
+- tiny unreadable objects
+- decorative clutter
+- abstract metaphor that needs interpretation
+- photorealistic stock-photo look
+
+PROMPT RULE
+Describe the exact everyday situation literally. State the main subject, only necessary supporting objects, simple composition, readable framing and the visual reason the scene helps the voiceover. Keep the prompt short enough that Google Flow does not invent unnecessary complexity.
+
+BASE PROMPT
+Simple editorial finance illustration, clean 2D/2.5D visual style, one clear subject, very few objects, strong visual clarity, flat or lightly dimensional shapes, clean neutral background, strong contrast, professional finance education look, no cinematic scene, no complex environment, no tiny details, no headline or explanatory text, no infographic layout inside the image, horizontal 16:9.
+
+QA
+PASS only when:
+1. the main idea is understandable in about 1–2 seconds;
+2. there is one dominant idea;
+3. every visible object has a reason;
+4. the scene would be harder to explain with Remotion alone;
+5. no important text or number was delegated to the image generator;
+6. the image remains readable at normal YouTube playback size.
+
+If a simpler visual would explain the same point equally well, do not generate the image.
