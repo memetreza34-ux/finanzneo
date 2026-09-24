@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 
-test('YouTube-Scaffolder erzeugt Simple Finance V4 mit Remotion-Default, Flow-Gate, echten Assets und stylized-3D-Flow-Welt', () => {
+test('YouTube-Scaffolder erzeugt V4 mit 1-Gedanke-Flow-Storytelling, Shared-Handoff und stylized-3D-Welt', () => {
   const target = `youtube/.tmp-motion-v4-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
@@ -28,10 +28,21 @@ test('YouTube-Scaffolder erzeugt Simple Finance V4 mit Remotion-Default, Flow-Ga
     assert.equal(index.fixedImageAnimationRatio, false);
     assert.equal(index.visualProfile.id, 'finanzneo-youtube-simple-finance-v1');
     assert.equal(index.visualProfile.simplestVisualFirst, true);
+    assert.equal(index.visualProfile.oneMainIdeaPerVisual, true);
+    assert.deepEqual(index.visualProfile.recommendedFlowVoiceoverSentences, [1,2]);
+    assert.equal(index.visualProfile.splitMultiIdeaBeats, true);
     assert.equal(index.visualProfile.remotionDefault, true);
     assert.equal(index.visualProfile.flowRequiresJustification, true);
     assert.equal(index.visualProfile.realAssetsPreferred, true);
     assert.equal(index.visualProfile.reusablePatternsAllowed, true);
+    assert.equal(index.visualProfile.flowVisualStorytellingRequired, true);
+    assert.equal(index.visualProfile.staticCatalogDefaultForbidden, true);
+
+    assert.equal(index.googleFlow.sharedHandoffMayContainMultipleImageBlocks, true);
+    assert.equal(index.googleFlow.fixedImageBlockCount, false);
+    assert.equal(index.googleFlow.strictSequential, true);
+    assert.equal(index.googleFlow.stopAfterFinalPlannedImage, true);
+
     assert.equal(index.motionStandard.id, 'finanzneo-youtube-motion-v4-simple');
     assert.equal(index.motionStandard.repetitionAllowed, true);
     assert.equal(index.motionStandard.varietyQuota, false);
@@ -39,6 +50,7 @@ test('YouTube-Scaffolder erzeugt Simple Finance V4 mit Remotion-Default, Flow-Ga
     assert.equal(index.imageWorld.id, 'finanzneo-youtube-grounded-3d-black-v1');
     assert.equal(index.imageWorld.stylized3D, true);
     assert.equal(index.imageWorld.simpleComposition, true);
+    assert.equal(index.imageWorld.visualStorytellingRequired, true);
     assert.equal(index.imageWorld.deepBlackWorld, true);
     assert.equal(index.imageWorld.remotionOwnsTextAndNumbers, true);
     assert.deepEqual(index.visuals.map((visual: {type:string}) => visual.type), ['image','hybrid','animation','data','real-asset']);
@@ -47,6 +59,7 @@ test('YouTube-Scaffolder erzeugt Simple Finance V4 mit Remotion-Default, Flow-Ga
     assert.equal(image.assetSource, 'google-flow');
     assert.equal(image.flowAllowed, true);
     assert.equal(typeof image.flowReason, 'string');
+    assert.equal(typeof image.visualStory, 'string');
 
     const animation = index.visuals[2];
     assert.equal(animation.assetSource, 'remotion');
@@ -69,12 +82,22 @@ test('YouTube-Scaffolder erzeugt Simple Finance V4 mit Remotion-Default, Flow-Ga
     assert.match(prompt, /stylized 3D animation-film/i);
     assert.match(prompt, /deep seamless black/i);
     assert.match(prompt, /FLOW_NECESSITY_REASON:/);
-    assert.match(prompt, /MAIN_SUBJECT:/);
+    assert.match(prompt, /VOICEOVER CONTEXT:/);
+    assert.match(prompt, /VISUAL STORYTELLING:/);
+    assert.match(prompt, /1-2 short Voiceover sentences/i);
+    assert.match(prompt, /static tabletop|catalog/i);
     assert.match(prompt, /REMOTION_OVERLAY_TEXT:/);
     assert.doesNotMatch(prompt, /Simple editorial finance illustration/);
 
     const allPrompts = readFileSync(resolve(absolute, '04-visuals/alle-bildprompts.txt'), 'utf8');
-    assert.match(allPrompts, /Flow is NOT the default visual source/);
+    assert.match(allPrompts, /ONE shared Google Flow handoff/);
+    assert.match(allPrompts, /3, 5, 10 or more planned image blocks/);
+    assert.match(allPrompts, /exactly ONE image/i);
+    assert.match(allPrompts, /Only after PASS continue/i);
+    assert.match(allPrompts, /After the final planned image, STOP/);
+    assert.match(allPrompts, /one dominant idea/i);
+    assert.match(allPrompts, /1-2 short Voiceover sentences/i);
+    assert.match(allPrompts, /visual storytelling|cause-effect/i);
     assert.match(allPrompts, /premium stylized 3D/i);
     assert.match(allPrompts, /NO FLOW IMAGE/);
   } finally {
