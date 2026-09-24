@@ -29,8 +29,8 @@ export {
 };
 
 export const YOUTUBE_VISUAL_PROFILE_ID = 'finanzneo-youtube-simple-finance-v1';
-export const YOUTUBE_IMAGE_WORLD_ID = 'finanzneo-youtube-simple-editorial-v1';
-export const YOUTUBE_IMAGE_WORLD_FILE = 'config/finanzneo-image-worlds/finanzneo-youtube-simple-editorial-v1.txt';
+export const YOUTUBE_IMAGE_WORLD_ID = 'finanzneo-youtube-grounded-3d-black-v1';
+export const YOUTUBE_IMAGE_WORLD_FILE = 'config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt';
 
 export const GENERATED_IMAGE_ASPECT_RATIO = '16:9';
 export const GENERATED_IMAGE_ASPECT_MARKER = `GENERATED_IMAGE_ASPECT_RATIO: ${GENERATED_IMAGE_ASPECT_RATIO}`;
