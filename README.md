@@ -46,7 +46,7 @@ Sprechpunkt
 → Google Flow nur bei wirklich hilfreicher Alltagsszene
 ```
 
-Wichtige Texte und Zahlen werden in Remotion gerendert. Flow ist kein Default und nutzt die einfache Bildwelt `finanzneo-youtube-simple-editorial-v1`.
+Wichtige Texte und Zahlen werden in Remotion gerendert. Flow ist kein Default. Wenn Flow eingesetzt wird, bleibt die freigegebene premium stylized 3D Bildwelt `finanzneo-youtube-grounded-3d-black-v1` verbindlich. **Simple** bedeutet wenige klare Elemente und einfache Komposition — nicht flache 2D-Illustrationen.
 
 `CLAUDE.md` bleibt die höchste Regelquelle für Produktionsverantwortung und Repository-Sicherheit. Reel-spezifische V9-Regeln werden nicht automatisch auf YouTube Longform übertragen.
 
