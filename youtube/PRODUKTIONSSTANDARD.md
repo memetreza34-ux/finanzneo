@@ -1,10 +1,10 @@
 # FinanzNeo — YouTube-Longform-Produktionsstandard
 
-> Bei Widersprüchen gilt `CLAUDE.md`. Für YouTube-Motion gilt `docs/YOUTUBE-MOTION-V4-SIMPLE.md`. Für die Visualwahl gilt `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Für Flow-Storyboard/Prompting gilt `docs/YOUTUBE-FLOW-STORYBOARD-STANDARD.md`. Für YouTube-Motion gilt `docs/YOUTUBE-MOTION-V4-SIMPLE.md`. Für die Visualwahl gilt `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
 
 ## Ziel
 
-FinanzNeo ist ein **faceless Simple-Finance-Explainer**: seriös und strukturiert erklärt, visuell direkt, wenige Elemente, einfache Animationen. Nicht Finanzbär oder Finanzfluss kopieren; übernommen werden nur die Prinzipien verständliche Struktur, konkrete Beispiele, große lesbare Informationen und zweckmäßige Bewegung.
+FinanzNeo ist ein **faceless Simple-Finance-Explainer**: seriös und strukturiert erklärt, visuell direkt, wenige Elemente, einfache Animationen und bei Flow-Bildern eine kleine visuelle Geschichte statt statischer Produktkatalog-Inszenierung. Nicht Finanzbär oder Finanzfluss kopieren; übernommen werden nur die Prinzipien verständliche Struktur, konkrete Beispiele, große lesbare Informationen und zweckmäßige Bewegung.
 
 ## Projektstruktur
 
@@ -44,6 +44,14 @@ Skript
 → nur notwendige Bewegung
 ```
 
+### Szenengröße
+
+Für Flow gilt als Standard:
+
+> **1 Bild = 1 dominanter Gedanke = normalerweise 1–2 kurze Voiceover-Sätze.**
+
+Wenn ein Sprechblock mehrere unabhängige Aussagen, Beispiele oder Konsequenzen enthält, wird er in mehrere Visuals geteilt. Die Regel ist semantisch, kein starres Satz-Zählwerk: Zwei kurze Sätze dürfen zusammengehören; fünf verschiedene Gedanken gehören nicht in ein einziges Flow-Bild.
+
 Erlaubte Visualtypen:
 
 - `animation`
@@ -56,7 +64,7 @@ Erlaubte Visualtypen:
 
 1. **Remotion** — Default für Zahlen, Vergleiche, Prozente, Charts, Zeitverläufe, Aufteilungen, Rechenwege und Prozesse.
 2. **Echtes Asset** — reale Website, App, Dokument, Factsheet, Logo, Produkt oder Quelle.
-3. **Google Flow** — nur wenn eine konkrete Alltagssituation als Bild deutlich besser verständlich ist.
+3. **Google Flow** — nur wenn eine konkrete Situation als Bild deutlich besser verständlich ist.
 
 Vor jedem Flow-Bild gilt:
 
@@ -65,6 +73,63 @@ Vor jedem Flow-Bild gilt:
 **Ja → kein Flow. Nein → Flow nur mit konkreter `flowReason`.**
 
 Wichtig: **Simple-first betrifft die Komposition und Erklärlogik, nicht die Bildstil-Dimension.** Wenn Flow gewählt wird, bleibt die freigegebene premium stylized 3D FinanzNeo-Welt Pflicht.
+
+## Flow Storyboard Standard
+
+Kanonische Regel:
+
+```text
+docs/YOUTUBE-FLOW-STORYBOARD-STANDARD.md
+```
+
+Jedes Flow-Bild muss eine sinnvolle sichtbare Beziehung zwischen den wichtigen Elementen zeigen. Gute Bilder wirken wie ein eingefrorener Moment aus einer Finanzgeschichte: etwas zieht, drückt, blockiert, schützt, wächst, stapelt sich, öffnet sich, wickelt sich, bewegt sich durch Tiefe oder legt eine Konsequenz frei.
+
+Nicht als Default erlaubt:
+
+- Objekt + Dokument + Objekt ordentlich auf einem Tisch
+- zentrierter Produktshot mit Finanz-Props
+- symmetrische Katalog-Anordnung
+- schwebende Objekte ohne Ursache/Wirkung
+- dieselbe erfolgreiche Komposition für jedes neue Thema
+
+Tisch, Boden, Raum oder frei schwebende Objekte sind erlaubt, wenn genau diese Inszenierung den Sprechpunkt am besten erzählt.
+
+### Flow-Prompt-Format
+
+Ein finaler Bildblock ist vollständig und copy/paste-ready und enthält:
+
+1. `FINAL FILE NAME`
+2. `VOICEOVER CONTEXT` — normalerweise 1–2 kurze Sätze
+3. `SCENE`
+4. `IMPORTANT GERMAN OBJECT LABELS`
+5. `OBJECTS`
+6. `VISUAL STORYTELLING`
+7. `COMPOSITION`
+8. `MATERIALS`
+9. `BACKGROUND`
+10. `LIGHTING`
+11. `COLOR LANGUAGE`
+12. `TEXT`
+13. `FORBIDDEN`
+
+Kurze deutsche Objektlabels werden nur dort verwendet, wo ein wichtiges Objekt sonst missverstanden werden könnte. Offensichtliche Objekte bleiben unbeschriftet. Wichtige Zahlen, Prozente und Vergleiche gehören grundsätzlich in Remotion.
+
+### Ein gemeinsamer Prompt mit mehreren Bildern
+
+`04-visuals/alle-bildprompts.txt` darf viele vollständige Bildblöcke in **einem gemeinsamen Google-Flow-Handoff** enthalten, z. B. 3, 5, 10 oder mehr. Es gibt keine feste Batchgröße.
+
+Die Generierung bleibt trotzdem strikt sequenziell:
+
+```text
+BILD 01 erzeugen
+→ vollständig warten
+→ exakt umbenennen
+→ QA
+→ bei Fehler dasselbe Bild regenerieren
+→ erst nach PASS zu BILD 02
+```
+
+Nie mehrere Bilder parallel erzeugen und nie zusätzliche Bilder erfinden.
 
 ## Motion V4 Simple
 
@@ -162,7 +227,7 @@ config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
 - nicht fotorealistisch, nicht anime, nicht flache 2D-Illustration, nicht isometrisch
 - 16:9 horizontal
 
-**Simple bedeutet hier:** wenige Elemente, klare Komposition und schnelle Verständlichkeit. Es bedeutet **nicht** 2D, 2.5D oder flachen Vektor-Look.
+**Simple bedeutet hier:** wenige Elemente, klare Komposition und schnelle Verständlichkeit. Es bedeutet **nicht** 2D, 2.5D, flachen Vektor-Look oder langweilige Produktshot-Inszenierung.
 
 ### Text und Zahlen
 
@@ -207,12 +272,16 @@ Vor Freigabe jedes Visuals:
 
 1. Ist die Hauptaussage in ungefähr 1–2 Sekunden erkennbar?
 2. Gibt es nur einen dominanten Gedanken?
-3. Kann etwas ohne Informationsverlust entfernt werden? Dann entfernen.
-4. Ist Flow wirklich notwendig?
-5. Wenn Flow verwendet wird: sieht das Bild eindeutig nach der freigegebenen premium stylized 3D FinanzNeo-Welt aus?
-6. Werden wichtige Texte/Zahlen von Remotion gerendert?
-7. Hat die Bewegung einen Erklärzweck?
-8. Würde eine einfachere **Komposition** gleich gut funktionieren? Dann vereinfachen — aber nicht den Bildstil auf 2D herunterbrechen.
+3. Enthält ein Flow-Beat normalerweise nur 1–2 kurze Voiceover-Sätze?
+4. Wurde ein Beat geteilt, wenn mehrere unabhängige Gedanken enthalten waren?
+5. Kann etwas ohne Informationsverlust entfernt werden? Dann entfernen.
+6. Ist Flow wirklich notwendig?
+7. Wenn Flow verwendet wird: sieht das Bild eindeutig nach der freigegebenen premium stylized 3D FinanzNeo-Welt aus?
+8. Gibt es eine sinnvolle visuelle Beziehung/Story statt statischer Katalog-Anordnung?
+9. Sind wichtige unklare Objekte bei Bedarf kurz auf Deutsch beschriftet?
+10. Werden wichtige Texte/Zahlen von Remotion gerendert?
+11. Hat die Bewegung einen Erklärzweck?
+12. Würde eine einfachere **Komposition** gleich gut funktionieren? Dann vereinfachen — aber nicht den Bildstil oder die sinnvolle visuelle Geschichte entfernen.
 
 ## Audio, Timing und Untertitel
 
