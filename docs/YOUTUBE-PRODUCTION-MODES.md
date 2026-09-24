@@ -1,39 +1,78 @@
 # FinanzNeo — YouTube Production Modes
 
-FinanzNeo YouTube Longform unterstützt mehrere Produktionsarten. Die Bildwelt, Script-Beat-Regeln und Flow-Qualität bleiben gleich; nur die erlaubten Visualquellen unterscheiden sich.
+FinanzNeo YouTube Longform unterstützt zwei Produktionsarten. Beide verwenden dieselbe feste Szenen-Layoutlogik. Der Unterschied ist ausschließlich, ob Bewegung/Animation erlaubt ist.
+
+## Gemeinsamer Szenen-Lock — gilt IMMER
+
+Jede YouTube-Szene ist ein fertiger 16:9-Frame mit klarer Hierarchie:
+
+1. kurze Szenenüberschrift im oberen Bereich;
+2. direkt daneben ein passendes, einfaches Icon;
+3. darunter bzw. daneben das eigentliche FinanzNeo-Visual in einem klar begrenzten Bildfenster;
+4. das Flow-Bild darf niemals den kompletten 16:9-Frame als Vollbild-Hintergrund ausfüllen.
+
+Kanonische Layoutregeln:
+- `sceneHeadingRequired: true`
+- `sceneIconRequired: true`
+- `flowImageFullscreenForbidden: true`
+- `flowImagePlacement: contained-visual-window`
+- tiefe schwarze FinanzNeo-Grundfläche bleibt als sichtbarer Rahmen/Hintergrund erhalten
+- Flow-Visual bleibt groß genug für schnelle Verständlichkeit, aber es ist immer eindeutig ein Element innerhalb des gesamten Video-Frames
+- Überschrift und Icon gehören zur Video-Szene und nicht zum generierten Flow-Bild
+- das Flow-Bild selbst enthält weiterhin keine Headline oder dekorative UI
+- Layout darf pro Szene leicht variieren, aber niemals in ein Vollbild-Flow-Bild wechseln
+
+Empfohlene statische Standardgeometrie für 1920 × 1080:
+- Außenabstand mindestens ca. 72 px
+- Headerzone ca. 150–190 px hoch
+- Icon ca. 56–72 px
+- Visualfenster maximal ca. 78 % der Framebreite und ca. 70 % der Framehöhe
+- Visualfenster darf links, rechts oder zentral sitzen, solange Header + Icon klar getrennt bleiben und das Bild nie fullscreen wird
 
 ## Mode A — `images-only`
 
-Ziel: Ein vollständiges YouTube-Video nur aus statischen Bildern testen.
+Ziel: Ein vollständiges YouTube-Video ohne Animation testen.
+
+Wichtig: `images-only` bedeutet **nicht** rohe Vollbildbilder. Es bedeutet **fertige statische YouTube-Szenen**.
 
 Regeln:
-- pro Visual genau ein statisches 16:9-Bild
-- Google-Flow-Bilder in `finanzneo-youtube-grounded-3d-black-v1`
+- pro Szene genau ein statisches Flow-Visual als Hauptbild
+- jede Szene enthält trotzdem die gemeinsame Überschrift + Icon + eingebettetes Visualfenster
+- keine Bewegung innerhalb der Szene
+- keine animierten Zahlen, Charts, Icons, Texte oder Kameraeffekte
+- statische Layout-Komposition ist ausdrücklich erlaubt und erforderlich
+- Google-Flow-Bilder bleiben in `finanzneo-youtube-grounded-3d-black-v1`
 - normalerweise 1–2 kurze Voiceover-Sätze pro Bild
 - ein dominanter Gedanke pro Bild
 - sichtbares Visual Storytelling statt statischem Produktkatalog
-- keine Remotion-Erklärgrafik
-- keine Remotion-Zahlen, Charts, Icons, Überschriften oder Animationen
 - keine `animation`, `data` oder `hybrid` Visualtypen
-- wichtige Zahlen werden im Script erklärt oder der Beat wird so formuliert, dass das Bild ohne eingeblendete Zahl funktioniert
-- kurze deutsche Beschriftungen sind nur als physischer Teil eines wichtigen, sonst missverständlichen Objekts erlaubt
-- finaler Bildschnitt darf als normaler Videoschnitt erfolgen; die Visualquelle bleibt vollständig statisch
+- kurze deutsche Beschriftungen sind nur als physischer Teil eines wichtigen, sonst missverständlichen Objekts im Flow-Bild erlaubt
+- finaler Schnitt darf normale harte Cuts oder statische Bildwechsel verwenden; keine Szenenanimation
 
-Der Zweck dieses Modes ist ausdrücklich zu testen, ob FinanzNeo auch mit starken, gut inszenierten Bildern allein ein unterhaltsames YouTube-Video tragen kann.
+Der Zweck dieses Modes ist zu testen, ob starke statische Layout-Szenen mit hochwertigen Flow-Bildern, Überschrift und Icon ein komplettes YouTube-Video tragen können.
 
 ## Mode B — `hybrid`
 
-Ziel: Bilder mit Remotion-Erklärvisuals und Animationen kombinieren.
+Ziel: Exakt dieselbe visuelle Grundstruktur wie Mode A, aber Bewegung und zusätzliche Erkläranimationen sind erlaubt.
 
-Erlaubt:
-- Google-Flow-Bilder
+Gemeinsam mit Mode A:
+- gleiche Headerzone
+- gleiche Überschrift-Logik
+- gleiche Icon-Logik
+- gleiches eingebettetes Visualfenster
+- Flow-Bild niemals fullscreen
+- gleiche FinanzNeo-3D-Bildwelt
+
+Zusätzlich erlaubt:
+- Animationen innerhalb des Layouts
+- Remotion-Zahlen, Charts und Diagramme
+- animierte Icons und Überschriften
 - echte statische Assets
-- Remotion-Zahlen, Überschriften, Icons, Charts und Diagramme
-- Animationen und Hybrid-Szenen
+- Hybrid-Szenen
 
-Die bestehende Simple-first-Entscheidungslogik gilt: Remotion für exakte Daten/Erklärung, echte Assets wenn Realität wichtig ist, Flow für konkrete physische Story-Momente.
+Die Animation ergänzt das bestehende Layout; sie ersetzt es nicht durch ein anderes Vollbild-System.
 
-## Gemeinsame Regeln
+## Gemeinsame Inhaltsregeln
 
 Beide Modes behalten:
 - 16:9 YouTube Longform
@@ -50,15 +89,15 @@ Beide Modes behalten:
 
 ## CLI
 
-### Nur Bilder
+### Mode A — statische Szenen
 
 ```bash
 npm run youtube:create:mode -- --mode images-only --target youtube/<projekt> --title "<Titel>" --visual-count 20
 ```
 
-Der Wrapper erzeugt ausschließlich `image`-Visuals und markiert das Projekt als `images-only`.
+Der Wrapper erzeugt ausschließlich `image`-Visuals, verbietet Animationen und aktiviert den festen Static-Layout-Lock mit Überschrift, Icon und niemals fullscreen dargestelltem Flow-Bild.
 
-### Bilder + Animation
+### Mode B — gleiche Szenenwelt + Animation
 
 ```bash
 npm run youtube:create:mode -- --mode hybrid --target youtube/<projekt> --title "<Titel>" --types image,animation,image,data,hybrid
