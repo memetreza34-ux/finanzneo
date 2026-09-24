@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 
-test('YouTube-Scaffolder erzeugt Simple Finance V4 mit Remotion-Default, Flow-Gate und echten Assets', () => {
+test('YouTube-Scaffolder erzeugt Simple Finance V4 mit Remotion-Default, Flow-Gate, echten Assets und stylized-3D-Flow-Welt', () => {
   const target = `youtube/.tmp-motion-v4-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
@@ -36,8 +36,10 @@ test('YouTube-Scaffolder erzeugt Simple Finance V4 mit Remotion-Default, Flow-Ga
     assert.equal(index.motionStandard.repetitionAllowed, true);
     assert.equal(index.motionStandard.varietyQuota, false);
     assert.equal(index.motionStandard.advancedMotionNeedsReason, true);
-    assert.equal(index.imageWorld.id, 'finanzneo-youtube-simple-editorial-v1');
-    assert.equal(index.imageWorld.cinematic3DDefault, false);
+    assert.equal(index.imageWorld.id, 'finanzneo-youtube-grounded-3d-black-v1');
+    assert.equal(index.imageWorld.stylized3D, true);
+    assert.equal(index.imageWorld.simpleComposition, true);
+    assert.equal(index.imageWorld.deepBlackWorld, true);
     assert.equal(index.imageWorld.remotionOwnsTextAndNumbers, true);
     assert.deepEqual(index.visuals.map((visual: {type:string}) => visual.type), ['image','hybrid','animation','data','real-asset']);
 
@@ -63,14 +65,17 @@ test('YouTube-Scaffolder erzeugt Simple Finance V4 mit Remotion-Default, Flow-Ga
     assert.match(remotionPlan, /Do not invent complexity for variety/);
 
     const prompt = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt'), 'utf8');
-    assert.match(prompt, /finanzneo-youtube-simple-editorial-v1/);
+    assert.match(prompt, /finanzneo-youtube-grounded-3d-black-v1/);
+    assert.match(prompt, /stylized 3D animation-film/i);
+    assert.match(prompt, /deep seamless black/i);
     assert.match(prompt, /FLOW_NECESSITY_REASON:/);
     assert.match(prompt, /MAIN_SUBJECT:/);
     assert.match(prompt, /REMOTION_OVERLAY_TEXT:/);
-    assert.doesNotMatch(prompt, /grounded-3d-black-v1/);
+    assert.doesNotMatch(prompt, /Simple editorial finance illustration/);
 
     const allPrompts = readFileSync(resolve(absolute, '04-visuals/alle-bildprompts.txt'), 'utf8');
     assert.match(allPrompts, /Flow is NOT the default visual source/);
+    assert.match(allPrompts, /premium stylized 3D/i);
     assert.match(allPrompts, /NO FLOW IMAGE/);
   } finally {
     rmSync(absolute, {recursive:true, force:true});
