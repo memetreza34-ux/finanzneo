@@ -1,0 +1,9 @@
+Create a high-impact horizontal 16:9 YouTube thumbnail in the same premium stylized 3D FinanzNeo animation-film world.
+
+SCENE: A thick wallet in the foreground is visibly being pulled open from several directions by only three strong cost forces: one red-orange rent document labeled “Miete”, one small group of subscription cards, and one takeaway bag. Banknotes are being pulled away from the wallet while a single remaining note stays inside. The scene should instantly communicate that money is being drained by several everyday costs.
+
+COMPOSITION: wallet large in lower-center foreground, three cost forces entering diagonally from different sides, deep black background, strong depth, dramatic but clean. Leave no typography area because this images-only test intentionally uses an image-only thumbnail.
+
+STYLE: premium stylized 3D animation-film rendering, deep black world, warm ivory neutrals, red-orange costs, subtle emerald accent only on the remaining protected money. Never photorealistic, never flat 2D, never a tabletop catalog shot.
+
+TEXT: only the physical label “Miete”. No headline, no subtitle, no floating UI, no numbers.

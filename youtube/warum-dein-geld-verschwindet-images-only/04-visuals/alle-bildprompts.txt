@@ -1,0 +1,640 @@
+FINANZNEO — GOOGLE FLOW HANDOFF — 20 IMAGE YOUTUBE TEST
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+PRODUCTION_MODE: images-only
+
+IMPORTANT:
+This is ONE shared Google Flow handoff containing 20 planned image blocks. Generate exactly ONE image at a time. Wait until the current image is fully complete. Rename it immediately to the exact final file name. QA it before continuing. If it fails, regenerate the SAME image number. After the final planned image, stop.
+
+GLOBAL VISUAL WORLD:
+Premium clearly stylized 3D animation-film rendering, deep seamless black dominant world, high-quality modeling, refined rounded geometry, semi-realistic but visibly stylized materials, premium studio lighting, controlled highlights, readable shadows, strong depth. Warm ivory and soft gray are neutral. Emerald green means positive/value/solution. Warm red-orange means cost/risk/problem. Subtle gold only for money/value accents. Horizontal 16:9.
+
+GLOBAL STORY RULE:
+One image carries one dominant idea and normally 1-2 short Voiceover sentences. Every frame must feel like a frozen moment from an animated finance story. Show a visible relationship, cause-effect, progression, tension or transformation. Do not default to static tabletop/catalog staging, centered product shots, symmetric prop layouts or meaningless floating objects. Floating is allowed only when the spoken point benefits from it. No Remotion overlay will be added in this mode, so every frame must be understandable by itself. No headline, subtitle, paragraph, critical amount or percentage. Only short German labels physically printed on important ambiguous objects.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 01
+FINAL FILE NAME: YouTube Bild 01 - Zahltag Geld verschwindet.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Am Zahltag sieht dein Konto plötzlich voll aus. Zwei Wochen später fragst du dich: Wo ist das Geld hin?”
+SCENE:
+Show a premium stylized wallet in the foreground, initially visibly full, while several everyday cost objects physically pull banknotes out of it toward different depths of the black world. The wallet remains the hero object and is visibly becoming emptier.
+IMPORTANT GERMAN OBJECT LABELS:
+One red-orange document may show “Miete”. No other labels needed.
+OBJECTS:
+- one full wallet
+- one rent document
+- one takeaway bag
+- one small subscription-card cluster
+VISUAL STORYTELLING:
+The costs pull money away from the wallet in three directions, creating a clear frozen moment of money disappearing through normal spending rather than magic.
+COMPOSITION:
+Close-medium 3/4 view, wallet large lower-center foreground, cost objects pulling diagonally into midground/background, asymmetric and energetic, clear depth.
+MATERIALS:
+Satin leather wallet, thick paper document, stylized paper food bag, matte cards.
+BACKGROUND:
+Deep seamless black, no desk or room.
+LIGHTING:
+Warm neutral key light on wallet, restrained red-orange accents on outgoing costs.
+COLOR LANGUAGE:
+Black dominant, ivory neutrals, red-orange cost accents, subtle gold on money.
+TEXT:
+Only “Miete”. No headline, subtitle, UI or numbers.
+FORBIDDEN:
+Static tabletop/catalog layout, money rain, random coin piles, flat 2D, photorealism, cheap toy 3D, cyberpunk, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 02
+FINAL FILE NAME: YouTube Bild 02 - Fixkosten greifen zuerst.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Das Problem beginnt oft direkt nach dem Gehalt. Miete, Strom, Handy und Versicherungen nehmen ihren Anteil, bevor du bewusst etwas ausgegeben hast.”
+SCENE:
+Show one thick salary envelope labeled “Gehalt” being pulled apart by four strong physical straps leading to four cost documents.
+IMPORTANT GERMAN OBJECT LABELS:
+“Gehalt”, “Miete”, “Strom”, “Handy”, “Versicherung”. Keep labels physically printed and large.
+OBJECTS:
+- salary envelope
+- four cost documents/straps
+VISUAL STORYTELLING:
+The salary envelope is caught in the center while the four fixed-cost straps already pull value away before any lifestyle purchase appears.
+COMPOSITION:
+Salary envelope large center-left, straps fan diagonally into background, dynamic tension, strong depth, no table.
+MATERIALS:
+Thick ivory paper, fabric-like straps, satin card stock.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Neutral on salary, red-orange accents toward fixed costs.
+COLOR LANGUAGE:
+Ivory salary, red-orange fixed-cost tension, black dominant.
+TEXT:
+Only the physical labels listed above. No amounts.
+FORBIDDEN:
+Presentation slide, neat document row, static product shot, floating UI, flat infographic, photorealism, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 03
+FINAL FILE NAME: YouTube Bild 03 - Abos im Hintergrund.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Dann kommen die kleinen Abos. Ein einzelnes wirkt harmlos, mehrere laufen aber gleichzeitig im Hintergrund.”
+SCENE:
+Show one bank card moving forward while three small subscription cards hang behind it like quiet weights, each pulling slightly downward.
+IMPORTANT GERMAN OBJECT LABELS:
+“Streaming”, “Fitness”, “Cloud”.
+OBJECTS:
+- one bank card
+- three subscription cards
+- small connecting clips
+VISUAL STORYTELLING:
+Each subscription looks small alone, but together they visibly drag on the main card as a combined background burden.
+COMPOSITION:
+Bank card dominant in foreground, subscription cards trailing behind at different depths, diagonal motion path, no desk.
+MATERIALS:
+Satin plastic cards, small brushed-metal clips.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Clean neutral key light, subtle red-orange rim on subscription cards.
+COLOR LANGUAGE:
+Black, soft gray/ivory, restrained red-orange costs.
+TEXT:
+Only the three physical labels. No prices.
+FORBIDDEN:
+Fake app screens, logos, grid layout, catalog display, excessive floating without connection, flat 2D, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 04
+FINAL FILE NAME: YouTube Bild 04 - Bequemlichkeit kostet.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Auch Bequemlichkeit kostet. Lieferessen, Snacks unterwegs und spontane Bestellungen tauchen immer wieder auf.”
+SCENE:
+Show one wallet being passed along a curved path between a takeaway bag, a coffee/snack cup and a delivery parcel, with each object taking a small receipt from the wallet.
+IMPORTANT GERMAN OBJECT LABELS:
+No labels needed.
+OBJECTS:
+- wallet
+- takeaway bag
+- snack/coffee cup
+- delivery parcel
+VISUAL STORYTELLING:
+The same wallet travels through three convenience moments, leaving a growing trail of small receipts behind it.
+COMPOSITION:
+Curved diagonal path through foreground-to-background, wallet closest to viewer, three purchase moments spaced through depth.
+MATERIALS:
+Leather wallet, paper bag, coated cup, cardboard parcel, paper receipts.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Warm premium key light, red-orange accents increasing along the path.
+COLOR LANGUAGE:
+Neutral objects, restrained red-orange cost trail.
+TEXT:
+No text.
+FORBIDDEN:
+Objects simply lying side by side, store shelf, full restaurant scene, flat infographic, random coins, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 05
+FINAL FILE NAME: YouTube Bild 05 - Unsichtbares Bezahlen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Mit Karte oder Handy fühlt sich Bezahlen weniger sichtbar an. Du gibst Geld aus, ohne dass dein Portemonnaie leichter wird.”
+SCENE:
+Show a hand tapping a bank card at a payment terminal in the foreground while a long trail of physical receipts quietly unfolds behind the card into the black depth.
+IMPORTANT GERMAN OBJECT LABELS:
+No labels needed.
+OBJECTS:
+- hand with bank card
+- payment terminal
+- growing receipt trail
+VISUAL STORYTELLING:
+The tap looks quick and effortless in front, while the hidden receipt trail behind reveals the spending that accumulates out of sight.
+COMPOSITION:
+Close-up 3/4 view, card and terminal large foreground, receipts receding diagonally into background.
+MATERIALS:
+Satin plastic card, matte terminal plastic, warm paper receipts.
+BACKGROUND:
+Deep seamless black, no store interior.
+LIGHTING:
+Clean neutral key light, subtle red-orange glow only along later receipts.
+COLOR LANGUAGE:
+Black/gray neutrals, red-orange cost accents.
+TEXT:
+No text or UI.
+FORBIDDEN:
+Fake banking screen, holograms, cyberpunk payment effects, catalog shot, photorealism, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 06
+FINAL FILE NAME: YouTube Bild 06 - Wiederholungen summieren sich.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Genau deshalb unterschätzt man Wiederholungen. Nicht der eine Kauf ist das Problem, sondern dass dieselbe Ausgabe ständig zurückkommt.”
+SCENE:
+Show one small takeaway cup in the foreground duplicated into a long physical chain of identical cups and receipts that becomes heavier and denser deeper in the scene.
+IMPORTANT GERMAN OBJECT LABELS:
+No labels needed.
+OBJECTS:
+- repeated takeaway cup
+- repeated small receipts
+VISUAL STORYTELLING:
+The first purchase looks harmless; the repeated chain visibly grows into a large accumulated burden.
+COMPOSITION:
+First cup large foreground left, chain curves through midground to a dense red-orange cluster in right background.
+MATERIALS:
+Matte paper cups, thick receipts.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Neutral foreground, gradually warmer red-orange deeper into the chain.
+COLOR LANGUAGE:
+Ivory/gray neutrals, red-orange accumulation.
+TEXT:
+No text.
+FORBIDDEN:
+Chart bars, number counters, table layout, random coins, flat infographic, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 07
+FINAL FILE NAME: YouTube Bild 07 - Unregelmaessige Kosten.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Dazu kommen unregelmäßige Kosten. Eine Reparatur oder Jahresrechnung passt selten perfekt in den Monat.”
+SCENE:
+Show a calm physical monthly calendar block in the foreground suddenly interrupted by one large red-orange document dropping diagonally into it from above.
+IMPORTANT GERMAN OBJECT LABELS:
+The document must show “Jahresrechnung”.
+OBJECTS:
+- physical monthly calendar block
+- one large unexpected bill
+VISUAL STORYTELLING:
+The month looks orderly until the unexpected bill physically crashes into the calendar and disrupts the planned space.
+COMPOSITION:
+Calendar lower-center, bill entering from upper-right at an angle, frozen impact moment, pieces/pages slightly displaced.
+MATERIALS:
+Thick paper calendar, premium paper bill.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Neutral calendar, warm red-orange on incoming bill.
+COLOR LANGUAGE:
+Ivory neutral month, red-orange disruption.
+TEXT:
+Only “Jahresrechnung”. No amount.
+FORBIDDEN:
+Desk calendar product shot, generic alarm icons, floating UI, photorealism, flat 2D, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 08
+FINAL FILE NAME: YouTube Bild 08 - Kein Puffer Kreditkarte.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Fehlt dafür ein Puffer, wird aus einer Überraschung sofort Stress. Dann landet die Ausgabe schnell auf Kreditkarte oder Dispo.”
+SCENE:
+Show a red-orange bill moving toward a thin empty envelope labeled “Puffer”; the empty envelope collapses and the bill continues directly onto a bank card behind it.
+IMPORTANT GERMAN OBJECT LABELS:
+“Puffer” on the empty envelope, “Kreditkarte” on the card.
+OBJECTS:
+- incoming bill
+- empty Puffer envelope
+- bank card
+VISUAL STORYTELLING:
+The missing reserve fails to stop the unexpected cost, so the bill physically passes through to borrowed money.
+COMPOSITION:
+Bill left foreground moving right, collapsed Puffer center, credit card right-midground, strong directional story.
+MATERIALS:
+Paper bill/envelope, satin plastic card.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Red-orange on bill and card edge, neutral weak light on empty Puffer.
+COLOR LANGUAGE:
+Red-orange risk/cost, black dominant.
+TEXT:
+Only “Puffer” and “Kreditkarte”.
+FORBIDDEN:
+Superhero shield, sci-fi force field, credit score UI, table layout, flat infographic, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 09
+FINAL FILE NAME: YouTube Bild 09 - Schulden naechster Monat.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Und Schulden machen den nächsten Monat enger. Jetzt zahlst du neue Ausgaben und alte gleichzeitig zurück.”
+SCENE:
+Show two thick physical calendar pages in depth. A red-orange chain labeled “Schulden” begins on the older page and visibly stretches forward onto the next page, where new neutral bills are already waiting.
+IMPORTANT GERMAN OBJECT LABELS:
+“Schulden” physically on one link/tag of the chain.
+OBJECTS:
+- two calendar pages
+- red-orange debt chain
+- small new bills on second page
+VISUAL STORYTELLING:
+Old debt literally crosses the boundary into the next month and occupies space before the new expenses arrive.
+COMPOSITION:
+Older calendar page back-left, next page front-right, chain diagonally connecting them, strong depth.
+MATERIALS:
+Paper calendars, stylized metal chain, paper bills.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Neutral pages, red-orange chain emphasis.
+COLOR LANGUAGE:
+Black/ivory with red-orange debt.
+TEXT:
+Only “Schulden”. No dates or amounts.
+FORBIDDEN:
+Timeline infographic, dashboard, floating arrows, table scene, photorealism, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 10
+FINAL FILE NAME: YouTube Bild 10 - Lifestyle Creep.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Ein weiterer Effekt ist Lifestyle-Creep. Steigt dein Einkommen, steigen oft unbemerkt auch Ansprüche und Gewohnheiten.”
+SCENE:
+Show a physical platform labeled “Gehalt” rising upward. Attached to the same rising mechanism, a coffee cup, smartphone box and restaurant bag rise with it instead of staying below.
+IMPORTANT GERMAN OBJECT LABELS:
+Only “Gehalt” on the platform.
+OBJECTS:
+- rising salary platform
+- coffee cup
+- smartphone box
+- restaurant bag
+VISUAL STORYTELLING:
+As income rises, lifestyle objects are mechanically pulled upward with it, showing that spending expectations rise too.
+COMPOSITION:
+Low 3/4 angle, salary platform center, lifestyle objects at different heights around it, upward diagonal energy.
+MATERIALS:
+Matte platform, paper/cardboard consumer objects, satin phone box.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Neutral/gold accent on salary, restrained red-orange rim on lifestyle objects.
+COLOR LANGUAGE:
+Subtle gold value, red-orange cost, black dominant.
+TEXT:
+Only “Gehalt”.
+FORBIDDEN:
+Graph arrows, bar chart, luxury mansion cliché, floating euro signs, flat infographic, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 11
+FINAL FILE NAME: YouTube Bild 11 - Gewohnheiten werden teurer.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Plötzlich wird aus dem normalen Kaffee der teurere, aus dem alten Handy ein neues und aus seltenem Essen gehen eine Routine.”
+SCENE:
+Show a short conveyor-like physical path where three ordinary everyday objects progressively transform into more premium versions: simple coffee to premium cup, older phone to new phone, simple meal bag to restaurant-style bag.
+IMPORTANT GERMAN OBJECT LABELS:
+No labels needed.
+OBJECTS:
+- coffee pair
+- phone pair
+- meal/restaurant pair
+VISUAL STORYTELLING:
+The objects visually upgrade as they travel along the same path, showing gradual lifestyle escalation rather than one dramatic purchase.
+COMPOSITION:
+Diagonal conveyor through depth, ordinary versions foreground-left, upgraded versions mid/right, clean separation.
+MATERIALS:
+Paper cups, satin phone materials, paper food packaging.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Neutral start, warmer red-orange highlights toward premium end.
+COLOR LANGUAGE:
+Neutral to warmer cost emphasis.
+TEXT:
+No text.
+FORBIDDEN:
+Brand logos, luxury ad aesthetic, neat product catalog grid, flat infographic, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 12
+FINAL FILE NAME: YouTube Bild 12 - Mehr Gehalt wenig frei.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Das Gehalt steigt, aber dein freier Betrag kaum. Mehr Einkommen löst das Problem nicht automatisch.”
+SCENE:
+Show a large physical balance scale. On one side, a thicker envelope labeled “Gehalt” grows larger; on the other, a bundle of everyday cost objects grows almost equally, keeping the scale nearly balanced.
+IMPORTANT GERMAN OBJECT LABELS:
+Only “Gehalt”.
+OBJECTS:
+- balance scale
+- salary envelope
+- compact bundle of everyday costs
+VISUAL STORYTELLING:
+The salary becomes visibly larger, but the cost side expands at the same time, so there is almost no extra free space.
+COMPOSITION:
+Scale dominant center, salary left, costs right, slightly tilted but near balance, cinematic 3/4 view.
+MATERIALS:
+Brushed metal scale, thick paper salary envelope, mixed stylized everyday materials.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Subtle gold on salary, red-orange accents on cost side.
+COLOR LANGUAGE:
+Gold value, red-orange cost, black dominant.
+TEXT:
+Only “Gehalt”. No numbers.
+FORBIDDEN:
+Bar chart, percentages, slide layout, coin piles, photorealism, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 13
+FINAL FILE NAME: YouTube Bild 13 - Geld sichtbar aufteilen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Die Lösung beginnt nicht mit Verzicht, sondern mit Sichtbarkeit. Teile dein Geld direkt nach dem Gehalt in feste Bereiche.”
+SCENE:
+Show one salary envelope opening in the foreground and three clean physical money packets sliding into three separate compartments.
+IMPORTANT GERMAN OBJECT LABELS:
+“Fixkosten”, “Alltag”, “Puffer” physically printed on the three compartments.
+OBJECTS:
+- salary envelope
+- three compartments
+- three money packets
+VISUAL STORYTELLING:
+The previously mixed money becomes visibly organized into three clear destinations immediately after payday.
+COMPOSITION:
+Salary envelope upper-left foreground, compartments staggered diagonally lower-right through depth, packets visibly moving into them.
+MATERIALS:
+Warm paper envelope, matte premium organizer compartments, paper money packets.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Neutral salary light, emerald accent strongest on Puffer, clean studio separation.
+COLOR LANGUAGE:
+Ivory neutrals, emerald positive organization, restrained red-orange only if needed.
+TEXT:
+Only “Fixkosten”, “Alltag”, “Puffer”. No amounts.
+FORBIDDEN:
+Dashboard UI, spreadsheet, flat budget chart, table still life, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 14
+FINAL FILE NAME: YouTube Bild 14 - Fixkosten zuerst.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Fixkosten bekommen zuerst ihren Platz. So weißt du, welcher Betrag wirklich noch frei verfügbar ist.”
+SCENE:
+Show a large compartment labeled “Fixkosten” physically locking closed after receiving its money packet, while a separate smaller open wallet remains in the foreground as the genuinely free amount.
+IMPORTANT GERMAN OBJECT LABELS:
+“Fixkosten” on the locked compartment.
+OBJECTS:
+- Fixkosten compartment
+- money packet inside
+- separate open wallet
+VISUAL STORYTELLING:
+The fixed-cost money becomes unavailable first; only the separated wallet remains accessible for free spending.
+COMPOSITION:
+Locked compartment midground-left, open wallet dominant foreground-right, clear separation and depth.
+MATERIALS:
+Matte organizer, brushed latch, leather wallet, paper packet.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Neutral on locked fixed costs, slightly warmer clean light on free wallet.
+COLOR LANGUAGE:
+Neutral ivory/gray, subtle emerald on organized separation.
+TEXT:
+Only “Fixkosten”.
+FORBIDDEN:
+Padlock cybersecurity cliché, pie chart, table arrangement, floating UI, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 15
+FINAL FILE NAME: YouTube Bild 15 - Wochenbudget.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Für variable Ausgaben hilft ein Wochenbudget. Dann merkst du früh, wenn du deutlich zu viel verbrauchst.”
+SCENE:
+Show a large monthly wallet safely in the background while a much smaller detachable spending wallet labeled “Woche” is carried forward for current purchases.
+IMPORTANT GERMAN OBJECT LABELS:
+“Woche” on the small spending wallet.
+OBJECTS:
+- protected monthly wallet
+- detachable weekly wallet
+- one small everyday purchase object
+VISUAL STORYTELLING:
+Only the smaller weekly portion moves into the spending zone, while the rest of the month’s money stays physically separated behind.
+COMPOSITION:
+Weekly wallet large foreground, monthly wallet farther back and stable, one purchase object near weekly wallet, strong depth.
+MATERIALS:
+Leather wallets, small paper/card object.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Clean neutral key light, subtle emerald on protected monthly wallet.
+COLOR LANGUAGE:
+Neutral with emerald protection, red-orange only on current spending object.
+TEXT:
+Only “Woche”.
+FORBIDDEN:
+Calendar chart, seven-day infographic, numbers, table still life, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 16
+FINAL FILE NAME: YouTube Bild 16 - Abos pruefen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Wiederkehrende Kosten solltest du regelmäßig prüfen. Alles, was du kaum nutzt, muss sich neu rechtfertigen.”
+SCENE:
+Show a bank card with three subscription cards attached by thin physical strips. A pair of scissors is cutting one unused subscription strip away while two remain connected.
+IMPORTANT GERMAN OBJECT LABELS:
+“Streaming”, “Fitness”, “Cloud” on the three small cards.
+OBJECTS:
+- bank card
+- three subscription cards
+- scissors
+VISUAL STORYTELLING:
+One recurring cost is visibly removed from the payment source instead of all subscriptions being accepted automatically.
+COMPOSITION:
+Bank card foreground-right, subscription cards fanning left, scissors frozen mid-cut on one strip, dynamic close-medium angle.
+MATERIALS:
+Satin cards, metal scissors, thin fabric/plastic strips.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Neutral light with emerald accent on the clean cut, red-orange on remaining cost links.
+COLOR LANGUAGE:
+Emerald solution, red-orange recurring costs.
+TEXT:
+Only the three subscription labels.
+FORBIDDEN:
+Fake app cancellation screen, logos, tidy card grid, table layout, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 17
+FINAL FILE NAME: YouTube Bild 17 - Jahresrechnung monatlich planen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Plane unregelmäßige Rechnungen monatlich mit ein. So wird die Jahreszahlung nicht mehr zur Überraschung.”
+SCENE:
+Show one large red-orange paper document labeled “Jahresrechnung” entering a physical twelve-slot organizer, where it is visibly divided into many smaller neutral paper portions that fill the organizer gradually.
+IMPORTANT GERMAN OBJECT LABELS:
+“Jahresrechnung” on the large bill, “Rücklage” on the organizer.
+OBJECTS:
+- large annual bill
+- multi-slot reserve organizer
+- smaller monthly paper portions
+VISUAL STORYTELLING:
+The big annual cost is physically broken into smaller planned pieces instead of arriving as one shock.
+COMPOSITION:
+Large bill upper-left, organizer lower-right, paper portions visibly traveling between them through depth.
+MATERIALS:
+Thick paper, matte organizer compartments.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Red-orange on large bill, neutral-to-emerald on organized portions.
+COLOR LANGUAGE:
+Red-orange shock transformed into emerald planning.
+TEXT:
+Only “Jahresrechnung” and “Rücklage”. No amounts.
+FORBIDDEN:
+Spreadsheet, twelve-number infographic, calculator UI, table still life, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 18
+FINAL FILE NAME: YouTube Bild 18 - Puffer aufbauen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Baue außerdem einen Puffer auf, bevor du ihn brauchst. Schon eine Reserve trennt eine Panne von einem finanziellen Notfall.”
+SCENE:
+Show a solid emerald reserve drawer labeled “Puffer” opening just as a red-orange repair invoice arrives; the invoice is absorbed into the reserve drawer before it can reach the bank card behind it.
+IMPORTANT GERMAN OBJECT LABELS:
+“Puffer” on the reserve drawer, “Reparatur” on the invoice.
+OBJECTS:
+- reserve drawer
+- repair invoice
+- bank card behind
+VISUAL STORYTELLING:
+The reserve physically intercepts the unexpected cost, protecting the everyday payment card from taking the hit.
+COMPOSITION:
+Invoice enters from left foreground, open Puffer drawer center, bank card safe in right background, strong directional flow.
+MATERIALS:
+Matte solid reserve drawer, thick paper invoice, satin card.
+BACKGROUND:
+Deep seamless black.
+LIGHTING:
+Emerald positive light on reserve, red-orange on incoming repair cost.
+COLOR LANGUAGE:
+Emerald protection, red-orange problem, black dominant.
+TEXT:
+Only “Puffer” and “Reparatur”.
+FORBIDDEN:
+Superhero shield, sci-fi energy barrier, piggy bank, coin pile, table scene, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 19
+FINAL FILE NAME: YouTube Bild 19 - Geld hat Aufgaben.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Dein Geld verschwindet also nicht einfach. Es wird oft ausgegeben, bevor du ihm bewusst eine Aufgabe gegeben hast.”
+SCENE:
+Show one salary envelope at the start of a branching physical paper path. The path visibly leads to three clear destinations instead of fading into darkness.
+IMPORTANT GERMAN OBJECT LABELS:
+“Fixkosten”, “Alltag”, “Puffer” on the three destination containers.
+OBJECTS:
+- salary envelope
+- branching physical path
+- three destination containers
+VISUAL STORYTELLING:
+Money no longer disappears into the black world; every branch ends at a visible purpose.
+COMPOSITION:
+Salary envelope foreground-left, three paths spreading through depth to containers right/background, clean readable branching.
+MATERIALS:
+Paper envelope and path strips, matte containers.
+BACKGROUND:
+Deep seamless black, negative space but not sterile.
+LIGHTING:
+Neutral origin, emerald accent on purposeful endpoints.
+COLOR LANGUAGE:
+Ivory neutrals, emerald organization, minimal red-orange.
+TEXT:
+Only the three category labels.
+FORBIDDEN:
+Flowchart UI, arrows/icons, spreadsheet, table layout, abstract glowing money ribbon with no physical grounding, clutter.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 20
+FINAL FILE NAME: YouTube Bild 20 - Entspannteres Monatsende.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT:
+“Wenn du zuerst planst und danach ausgibst, fühlt sich der Monatsanfang vielleicht weniger reich an. Dafür fühlt sich das Monatsende entspannter an.”
+SCENE:
+Show a calm end-of-month scene in the FinanzNeo black world: one wallet still containing a small protected reserve sits beside three neatly completed physical compartments, while a closed red-orange cost document remains fully handled inside its assigned section rather than threatening the wallet.
+IMPORTANT GERMAN OBJECT LABELS:
+“Fixkosten”, “Alltag”, “Puffer” on the three compartments.
+OBJECTS:
+- wallet with small reserve
+- three completed compartments
+- handled cost document
+VISUAL STORYTELLING:
+Nothing is flying or chaotic anymore. The visual payoff is controlled order: costs have places, the wallet is not empty, and the Puffer remains intact.
+COMPOSITION:
+Wallet dominant foreground, compartments staggered behind in depth, asymmetrical but calm, subtle local ground plane dissolving into black.
+MATERIALS:
+Leather wallet, matte organizers, thick paper document.
+BACKGROUND:
+Deep seamless black with minimal grounded surface.
+LIGHTING:
+Soft premium studio light, gentle emerald accent around the intact Puffer, restrained warm highlights.
+COLOR LANGUAGE:
+Black/ivory with emerald positive ending, minimal red-orange.
+TEXT:
+Only “Fixkosten”, “Alltag”, “Puffer”. No headline or numbers.
+FORBIDDEN:
+Celebration confetti, money rain, luxury fantasy, static catalog symmetry, flat 2D, photorealism, clutter.
+
+FINISH:
+After IMAGE 20 passes QA, stop. Do not invent additional images. Keep all exact file names. All 20 images must feel like the same premium stylized 3D FinanzNeo film world while using different scene-specific storytelling mechanisms.

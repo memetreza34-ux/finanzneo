@@ -1,0 +1,12 @@
+{
+  "id": "images-only",
+  "staticImageVisualsOnly": true,
+  "remotionExplainerVisualsAllowed": false,
+  "remotionAnimationAllowed": false,
+  "allowedVisualTypes": ["image"],
+  "assemblyIntent": "static-image-sequence-with-voiceover",
+  "oneMainIdeaPerVisual": true,
+  "recommendedVoiceoverSentencesPerImage": [1, 2],
+  "targetDurationSeconds": 150,
+  "plannedVisualCount": 20
+}
