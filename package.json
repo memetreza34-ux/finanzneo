@@ -35,6 +35,7 @@
     "reel:phase3:qa": "node scripts/validate-render-completeness.mjs",
     "reel:render": "node scripts/render-validated.mjs",
     "youtube:create": "node scripts/scaffold-finanzneo-youtube.mjs",
+    "youtube:create:mode": "node scripts/create-finanzneo-youtube-mode.mjs",
     "youtube:validate": "node scripts/validate-youtube.mjs",
     "youtube:animation:validate": "node scripts/validate-youtube-animation-quality.mjs",
     "youtube:phase1:seal": "node scripts/seal-youtube-phase1-animations.mjs",
