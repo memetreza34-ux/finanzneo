@@ -17,7 +17,7 @@ import {
 } from '../scripts/lib/youtube-contract.mjs';
 import {WORLD_ID as REEL_WORLD_ID} from '../scripts/lib/reel-contract.mjs';
 
-test('YouTube behält die FinanzNeo-Marke, hat aber ein eigenes Simple-Finance-Bildsystem in 16:9', () => {
+test('YouTube behält die FinanzNeo-Marke und nutzt die freigegebene stylized-3D-Bildwelt in 16:9', () => {
   assert.equal(WORLD_ID, 'finanzneo-connected-studio-v3');
   assert.equal(WORLD_ID, REEL_WORLD_ID);
   assert.equal(SERIES_LOCK_ID, 'finanzneo-same-world-v1');
@@ -27,7 +27,7 @@ test('YouTube behält die FinanzNeo-Marke, hat aber ein eigenes Simple-Finance-B
   assert.equal(YOUTUBE_VIDEO_WIDTH, 1920);
   assert.equal(YOUTUBE_VIDEO_HEIGHT, 1080);
   assert.equal(YOUTUBE_VISUAL_PROFILE_ID, 'finanzneo-youtube-simple-finance-v1');
-  assert.equal(YOUTUBE_IMAGE_WORLD_ID, 'finanzneo-youtube-simple-editorial-v1');
+  assert.equal(YOUTUBE_IMAGE_WORLD_ID, 'finanzneo-youtube-grounded-3d-black-v1');
 });
 
 test('YouTube Motion V4 Simple unterstützt Remotion, Flow und echte Assets ohne künstliche Variety-Quote', () => {
