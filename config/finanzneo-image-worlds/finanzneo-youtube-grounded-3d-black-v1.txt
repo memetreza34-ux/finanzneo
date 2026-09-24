@@ -130,14 +130,29 @@ Use clean soft premium studio lighting:
 
 The approved anchor has polished cinematic presence, but the scene must never become dark, moody or dramatic at the cost of understanding.
 
-GERMAN LABELS
-Short German labels are allowed when they materially remove ambiguity.
-- attach labels clearly to the object/state they describe
-- keep them short and functional
-- use only labels explicitly needed for the scene
-- no headline, subtitle, CTA or explanatory paragraph inside the generated image
+GERMAN OBJECT LABELS — READABILITY RULE
+Short German labels are not decoration. Use them when an important object could be misunderstood or is not self-explanatory at first glance.
 
-Examples: “Notgroschen”, “Reparatur 280 €”, “Girokonto”, “Dispo”, “Miete”, “Tagesgeld”.
+Label important ambiguous finance props directly on the physical object whenever the label materially improves 1–2 second comprehension.
+Examples:
+- a generic paper/envelope that represents a bill → “Rechnung”
+- an insurance document/card → “Versicherung”
+- a maintenance invoice/tool context → “Wartung”
+- a repair document → “Reparatur”
+- a rent document → “Miete”
+- a contract sheet → “Vertrag”
+- a reserve folder/container → “Notgroschen”
+- an overdraft/account state → “Dispo” or “Girokonto”
+
+Rules:
+- label only the 1–3 important ambiguous objects needed to understand the scene
+- labels must be short German nouns or very short functional phrases
+- place the label physically on the object, card, document, folder, tag or sign it describes; do not float it like UI
+- make the label large enough to read at normal YouTube playback size
+- if the object is already unmistakable (car, television, fuel nozzle, shopping cart), do not label it
+- do not use labels for decorative props
+- important explanatory totals, percentages and comparison numbers still belong in Remotion unless the number is naturally part of the physical object and essential to the scene
+- no headline, subtitle, CTA or explanatory paragraph inside the generated image
 
 DATA + ABSTRACT EXCEPTIONS
 Some YouTube beats are genuinely best explained through verified charts, timelines, documents, numbers or Remotion-native motion rather than a generated 3D image. Do not force this image world onto every beat.
@@ -172,16 +187,18 @@ FORBIDDEN
 - clutter and decorative props without meaning
 - pasted flat logos
 - long text inside generated images
+- important ambiguous documents/props left unlabeled when the viewer could reasonably misread them
 
 PROMPT POLICY
 Write every Google Flow / Nano Banana image prompt individually for the exact spoken point.
 Use medium-length but complete prompts in this order:
 1. exact concrete real-world situation and cause/effect
-2. exact short German object labels when genuinely useful
-3. approved FinanzNeo YouTube style and material language
-4. deep-black/local-context rule
-5. wide 16:9 composition and readability requirements
-6. scene-specific forbidden mistakes
+2. identify which important objects are ambiguous at a glance
+3. assign exact short German object labels to those ambiguous objects only
+4. approved FinanzNeo YouTube style and material language
+5. deep-black/local-context rule
+6. wide 16:9 composition and readability requirements
+7. scene-specific forbidden mistakes
 
 Never replace scene design with a generic master prompt plus a few changed nouns.
 
@@ -194,6 +211,8 @@ Reject and regenerate when:
 - the main real-life situation is missing
 - cause and effect are unclear where they should be visible
 - important objects are too small
+- an important document/card/object is ambiguous and lacks a short German label
+- a label is detached from the object it describes or too small to read
 - the local environment overwhelms the explanation
 - the image is only generic finance symbols
 - a recurring folder/coin/arrow motif was used without a content reason
