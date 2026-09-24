@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform in drei Phasen
 
-> Bei Widersprüchen gilt `CLAUDE.md`. Für YouTube-Motion gilt `docs/YOUTUBE-MOTION-V4-SIMPLE.md`. Für Visualwahl gilt `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Für Flow-Storyboard/Prompting gilt `docs/YOUTUBE-FLOW-STORYBOARD-STANDARD.md`. Für YouTube-Motion gilt `docs/YOUTUBE-MOTION-V4-SIMPLE.md`. Für Visualwahl gilt `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
 
 YouTube-Longform ist ein eigenständiges Format. Ein Reel wird weder gestreckt noch als YouTube Short gespiegelt.
 
@@ -8,7 +8,8 @@ YouTube-Longform ist ein eigenständiges Format. Ein Reel wird weder gestreckt n
 
 ```text
 Sprechpunkt
-→ Was muss verstanden werden?
+→ genau ein Hauptgedanke
+→ normalerweise 1–2 kurze Sätze pro Flow-Bild
 → einfachste Visualform
 → Remotion ODER echtes Asset ODER begründetes Flow-Bild
 → nur notwendige Bewegung
@@ -16,7 +17,7 @@ Sprechpunkt
 
 FinanzNeo Longform soll wie ein klarer Finance-Explainer funktionieren: seriöse, anfängerfreundliche Erklärung; konkrete Beispiele; große lesbare Informationen; wenige visuelle Elemente; einfache wiederverwendbare Motion.
 
-**Simple-first betrifft die Erklärlogik und Komposition. Wenn Google Flow gewählt wird, bleibt die freigegebene premium stylized 3D FinanzNeo-Bildwelt verbindlich.**
+**Simple-first betrifft die Erklärlogik und Komposition. Wenn Google Flow gewählt wird, bleibt die freigegebene premium stylized 3D FinanzNeo-Bildwelt verbindlich. Simple bedeutet nicht langweilig.**
 
 ## Phase 1 — ChatGPT bereitet vollständig vor
 
@@ -28,10 +29,13 @@ ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
 - vollständiges deutsches Voiceover-Skript
 - gesprochene Gedanken und sichtbare Visual Beats
 - für jeden Beat zuerst `message`: Was muss der Zuschauer verstehen?
+- für Flow-Beats normalerweise nur 1–2 kurze Voiceover-Sätze mit genau einem dominanten Gedanken
+- längere Multi-Idea-Blöcke in mehrere Visuals aufteilen
 - danach die einfachste Visualart: `animation`, `data`, `image`, `hybrid` oder `real-asset`
 - `assetSource`: `remotion`, `real-asset` oder `google-flow`
 - `reason`: Warum ist genau diese Darstellung die einfachste klare Erklärung?
 - bei Flow zusätzlich `flowReason`
+- bei jedem Flow-Bild eine sichtbare kleine visuelle Geschichte / Ursache-Wirkung statt statischer Produktshot-Anordnung
 - für jedes Motion-Visual produktionsreife `animation.tsx`
 - Thumbnail-Prompt und Thumbnail-Brief
 - vollständiges Publishing-Paket
@@ -70,7 +74,7 @@ Keine KI-Imitation, wenn das echte Asset verfügbar ist.
 
 #### Google Flow — Ausnahme
 
-Nur bei konkreten Alltagssituationen, die als Bild schneller verstanden werden, z. B. Einkauf/Inflation, Miet- oder Nebenkosten, Autoreparatur, Arbeitsplatz/Gehalt oder Versicherungs-/Vertragssituation.
+Nur bei konkreten Situationen, die als Bild schneller verstanden werden, z. B. Einkauf/Inflation, Miet- oder Nebenkosten, Autoreparatur, Arbeitsplatz/Gehalt oder Versicherungs-/Vertragssituation.
 
 Pflichtfrage vor Flow:
 
@@ -79,6 +83,46 @@ Pflichtfrage vor Flow:
 **Ja → kein Flow. Nein → Flow mit konkreter `flowReason`.**
 
 Wenn Flow gewählt wird, wird die Szene als **premium stylized 3D animation-film frame** in der freigegebenen FinanzNeo-Welt gebaut. Keine flache 2D-/Corporate-Illustration.
+
+### Flow-Szenengröße
+
+Kanonische Regel:
+
+> **1 Flow-Bild = 1 Hauptgedanke = normalerweise 1–2 kurze Sätze.**
+
+Wenn sich ein Beat nicht in einem kurzen Satz zusammenfassen lässt, wird er aufgeteilt. Dadurch entstehen lieber mehr einfache, klare Bilder statt weniger überladener Bilder.
+
+### Flow-Storytelling
+
+Vor jedem Flow-Prompt bestimmen:
+
+1. Was ist die sichtbare Ursache?
+2. Was ist die sichtbare Folge?
+3. Welche physische/räumliche Beziehung macht das verständlich?
+
+Erlaubt und erwünscht sind z. B. Ziehen, Drücken, Blockieren, Schützen, Stapeln, Wachsen, Öffnen, Umwickeln, Ketten, räumliche Progression, diagonale Komposition oder ein echtes lokales Umfeld.
+
+Nicht als Default: Objekt + Dokument + Objekt sauber auf einem Tisch, statischer Produktshot, symmetrische Katalogszene oder grundlos schwebende Props.
+
+### Flow-Prompt-Format
+
+Jeder finale Bildblock ist copy/paste-ready und enthält mindestens:
+
+- `FINAL FILE NAME`
+- `VOICEOVER CONTEXT`
+- `SCENE`
+- `IMPORTANT GERMAN OBJECT LABELS`
+- `OBJECTS`
+- `VISUAL STORYTELLING`
+- `COMPOSITION`
+- `MATERIALS`
+- `BACKGROUND`
+- `LIGHTING`
+- `COLOR LANGUAGE`
+- `TEXT`
+- `FORBIDDEN`
+
+Keine Produktions-Platzhalter bleiben stehen.
 
 ### Motion V4 Simple
 
@@ -116,30 +160,40 @@ Dem Google-Flow-Agenten wird ausschließlich gegeben:
 04-visuals/alle-bildprompts.txt
 ```
 
+Diese Datei ist **ein gemeinsamer Flow-Handoff** und darf mehrere fertige Bildblöcke enthalten. 3, 5, 10 oder mehr Bildblöcke sind möglich; die Anzahl folgt dem Skript und ist nicht fest.
+
 Wichtig: Diese Datei enthält nur Thumbnail und **bereits als notwendig eingestufte Flow-Bilder**. Nicht jeder Sprechpunkt braucht ein KI-Bild.
 
-Flow arbeitet strikt:
+Flow arbeitet strikt sequenziell:
 
 ```text
-GENAU EIN BILD
+BILD 01 ERZEUGEN
 → VOLLSTÄNDIG WARTEN
 → EXAKT UMBENENNEN
-→ KLARHEIT + STYLIZED-3D-BILDWELT + 16:9 + DATEINAME PRÜFEN
-→ ERST DANN NÄCHSTES BILD
+→ KLARHEIT + STORYTELLING + STYLIZED-3D-BILDWELT + 16:9 + DATEINAME PRÜFEN
+→ BEI FEHLER BILD 01 ERNEUT ERZEUGEN
+→ ERST NACH PASS ZU BILD 02
+→ ...
+→ NACH DEM LETZTEN GEPLANTEN BILD STOPPEN
 ```
+
+Nie mehrere Bilder parallel erzeugen. Nie zusätzliche Bilder erfinden.
 
 - Bildwelt: `finanzneo-youtube-grounded-3d-black-v1`
 - premium stylized 3D animation-film rendering
 - klar animierter 3D-Look, nicht fotorealistisch
 - keine flache Editorial-/Corporate-Vektorillustration
 - wenige große Objekte und ein dominanter Gedanke
+- pro Flow-Bild normalerweise 1–2 kurze Voiceover-Sätze
+- sichtbare kleine Geschichte / räumliche Beziehung statt Produktkatalog-Anordnung
 - tiefe schwarze FinanzNeo-Welt als dominanter Hintergrund
 - nur wenig lokaler Alltagskontext; Umgebung löst sich in Schwarz auf
 - weiche hochwertige Geometrie, semi-realistische Materialien, Studio-Licht und Kontakt-Schatten
+- kurze deutsche Objektlabels nur bei wichtigen unklaren Objekten
 - keine Headline oder wichtige Zahl im generierten Bild
 - erklärende Texte/Zahlen später in Remotion
 - keine Fake-App, Fake-Website oder KI-Nachbildung realer Dokumente
-- fehlerhafte Bildnummer wiederholen; nie Batch/parallel
+- fehlerhafte Bildnummer wiederholen
 - fertige Flow-Bilder gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/`
 - alle Flow-Bilder und Thumbnail horizontal 16:9
 
