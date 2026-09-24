@@ -82,7 +82,7 @@ Never generate a fake version of a real source when the real source can be shown
 Use only for a concrete everyday situation where an image is faster and clearer than text/data, for example:
 
 - a grocery-shopping inflation moment
-- a rent increase letter on a kitchen table
+- a rent increase letter in a real housing context
 - a car repair creating an unexpected cost
 - a salary or workplace money decision
 - an insurance or contract situation
@@ -90,6 +90,39 @@ Use only for a concrete everyday situation where an image is faster and clearer 
 Before Flow, apply the mandatory gate from `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
 
 If Flow is used, the scene is rendered in the approved stylized 3D animation-film FinanzNeo world. Do not switch to flat editorial art just because the composition should be simple.
+
+## Flow visual storytelling — mandatory
+
+A Flow image must not merely contain the right objects. It must show a clear visual relationship between them.
+
+Before writing any Flow prompt, determine:
+
+1. the visible cause;
+2. the visible consequence;
+3. the physical or spatial storytelling device that connects them.
+
+Good storytelling devices include, when appropriate:
+
+- progression through depth
+- one object pulling, pushing, blocking, weighing down, splitting, covering or connecting another
+- growing stacks, chains or sequences
+- asymmetric / diagonal composition
+- meaningful overlap and scale hierarchy
+- objects suspended in space when no real surface is needed
+- a believable local environment when grounding improves the story
+- lighting accents that support cost/risk/solution semantics
+
+Do not turn one successful device into a new template. Floating objects are not mandatory. Tables/desks are not mandatory. Every staging decision must come from the spoken point.
+
+Reject generic staging such as:
+
+- object + document + object arranged neatly on a table
+- centered product shot with finance props
+- symmetrical catalog layout
+- three unrelated objects lying side by side
+- floating props with no cause/effect simply because the background is black
+
+The still frame should feel like a paused moment from an animated finance story while remaining immediately understandable.
 
 ## Standard visual patterns
 
@@ -185,6 +218,7 @@ Important text, values, labels and captions belong in Remotion. Flow should gene
 Generated images must contain:
 
 - one clear real-world situation
+- a visible cause/effect, progression, tension or relationship when the spoken point contains one
 - only a few meaningful supporting objects
 - premium stylized 3D animation-film rendering
 - believable but clearly stylized people/objects
@@ -204,8 +238,10 @@ Generated images must **not** become:
 - isometric diagram art
 - generic coins/vault/piggy-bank scene
 - cluttered cinematic environment
+- static tabletop/catalog still life with no narrative relationship
+- repeated floating-object template unrelated to the spoken point
 
-Simple means fewer elements and clearer composition — **not** lower-dimensional or flatter rendering.
+Simple means fewer elements and clearer composition — **not** boring staging and not lower-dimensional or flatter rendering.
 
 ## Hybrid
 
@@ -231,11 +267,14 @@ Before accepting a visual ask:
 3. Can anything be removed?
 4. Is Flow actually needed?
 5. If Flow is used: is the approved stylized 3D world unmistakable?
-6. Are important text/numbers rendered by Remotion?
-7. Does the motion explain or focus information?
-8. Could a simpler visual work equally well?
+6. If the spoken point has cause/effect or progression: is that relationship visible in the staging?
+7. Does this look like a paused story moment rather than a catalog/product shot?
+8. Are important ambiguous physical objects labeled briefly in German when needed?
+9. Are important explanatory text/numbers rendered by Remotion?
+10. Does the motion explain or focus information?
+11. Could a simpler visual work equally well?
 
-If yes to question 8, simplify the composition — not the approved image style.
+If yes to question 11, simplify the composition — not the approved image style or meaningful visual storytelling.
 
 ## Phase ownership
 
