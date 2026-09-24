@@ -109,8 +109,9 @@ if (index) {
     assert(index.imageWorld?.brandWorldId === WORLD_ID, 'FinanzNeo Brand World ID fehlt.');
     assert(index.imageWorld?.seriesLockId === SERIES_LOCK_ID, 'FinanzNeo Same-World-Lock fehlt.');
     assert(index.imageWorld?.generatedImageAspectRatio === GENERATED_IMAGE_ASPECT_RATIO, 'YouTube-Quellbilder müssen 16:9 sein.');
-    assert(index.imageWorld?.simpleEditorial === true, 'YouTube-Bildwelt muss simple-editorial sein.');
-    assert(index.imageWorld?.cinematic3DDefault === false, 'Cinematic 3D darf nicht Default sein.');
+    assert(index.imageWorld?.stylized3D === true, 'YouTube-Flow-Bildwelt muss premium stylized 3D sein.');
+    assert(index.imageWorld?.simpleComposition === true, 'YouTube-Flow-Bilder müssen einfach komponiert bleiben.');
+    assert(index.imageWorld?.deepBlackWorld === true, 'YouTube-Flow-Bilder müssen die freigegebene deep-black FinanzNeo-Welt verwenden.');
     assert(index.imageWorld?.remotionOwnsTextAndNumbers === true, 'Wichtige Texte und Zahlen müssen Remotion gehören.');
 
     assert(index.motionStandard?.simplestVisualFirst === true, 'Motion V4 muss simplestVisualFirst verwenden.');
@@ -181,6 +182,9 @@ if (index) {
         for (const marker of ['FLOW_NECESSITY_REASON:', 'VOICEOVER_VISUAL_MATCH:', 'MAIN_SUBJECT:', 'SUPPORTING_OBJECTS:', 'IMAGE PROMPT:']) {
           assert(prompt.includes(marker), `${id}: Simple-Flow-Marker fehlt: ${marker}`);
         }
+        assert(/stylized 3D animation-film/i.test(prompt), `${id}: freigegebener stylized-3D-Bildstil fehlt im Flow-Prompt.`);
+        assert(/deep-black|deep seamless black/i.test(prompt), `${id}: deep-black FinanzNeo-Welt fehlt im Flow-Prompt.`);
+        assert(!/simple editorial finance illustration|clean 2D\/2\.5D visual style/i.test(prompt), `${id}: flacher Editorial-2D-Stil ist für Flow nicht erlaubt.`);
       }
     }
 
@@ -207,6 +211,8 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes('regenerate the same image number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
   assert(prompts.includes(IMAGE_INBOX), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
+  assert(prompts.includes(YOUTUBE_IMAGE_WORLD_ID), `Freigegebene YouTube-Bildwelt ${YOUTUBE_IMAGE_WORLD_ID} fehlt in der Flow-Übergabe.`);
+  assert(/stylized 3D animation-film/i.test(prompts), 'Flow-Übergabe muss premium stylized 3D erzwingen.');
   assert(!/square 1:1 source image|portrait 9:16|vertical 9:16 image/i.test(prompts), 'YouTube-Prompts enthalten ein falsches Quellbildformat.');
 }
 
@@ -228,4 +234,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log(`  16:9 · Simple-first · ${YOUTUBE_MOTION_STANDARD_ID} · Flow nur mit Begründung · echte Assets bevorzugt · keine Shorts`);
+console.log(`  16:9 · Simple-first · Flow-Bilder premium stylized 3D · ${YOUTUBE_MOTION_STANDARD_ID} · Flow nur mit Begründung · echte Assets bevorzugt · keine Shorts`);
