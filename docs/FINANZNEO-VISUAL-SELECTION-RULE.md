@@ -25,6 +25,8 @@ Die beste Szene ist die einfachste Szene, die den Gedanken korrekt und sofort ve
 
 Für YouTube Longform gilt: **Remotion ist das Standardwerkzeug. Google Flow ist eine begründete Ausnahme. Echte Assets werden niemals unnötig durch KI imitiert.**
 
+Wichtig: **Simple-first bedeutet einfache Komposition und klare Erklärlogik. Es bedeutet nicht 2D- oder Flat-Illustration.** Sobald Google Flow gewählt wird, bleibt die freigegebene premium stylized 3D FinanzNeo-Bildwelt verbindlich.
+
 ### Entscheidungsbaum
 
 ```text
@@ -40,7 +42,7 @@ Was muss verstanden werden?
 │  → ECHTES ASSET / SCREENSHOT
 │
 └─ konkrete Alltagssituation, die als Bild deutlich schneller verstanden wird?
-   → GOOGLE FLOW
+   → GOOGLE FLOW in der freigegebenen stylized-3D-Bildwelt
 ```
 
 ### Flow-Gate — Pflicht
@@ -56,7 +58,8 @@ Beispiele:
 
 - „ETF A kostet 0,2 %, ETF B 1,5 %“ → Remotion-Vergleich, **kein Flow**.
 - „100 € monatlich wachsen über 30 Jahre“ → Remotion-Chart, **kein Flow**.
-- „Eine kaputte Waschmaschine verursacht plötzlich 600 € Kosten“ → einfaches Flow-Alltagsbild möglich.
+- „Die Miete steigt und der Haushaltsplan wird enger“ → Flow-Alltagsszene möglich.
+- „Der Wagen muss unerwartet in die Werkstatt“ → Flow-Alltagsszene möglich.
 - „Das steht im ETF-Factsheet“ → echtes Factsheet/Screenshot, **kein Flow-Nachbau**.
 
 ### Remotion — Standard
@@ -115,19 +118,34 @@ Kein KI-Bild soll eine existierende Website, App, Quelle oder ein Dokument erfin
 
 Google Flow ist für wenige konkrete Situationen gedacht, z. B.:
 
-- kaputtes Haushaltsgerät + Rechnung
 - Einkauf / Inflation
-- Miet-/Versicherungs-/Vertragssituation
-- konkrete Alltagssituation mit Geldproblem
-- einfacher menschlicher Kontext, der mit Zahlen/Diagrammen nicht gleich verständlich wäre
+- Miete / Nebenkosten
+- Autoreparatur / unerwartete Ausgabe
+- Arbeitsplatz / Gehalt / finanzielle Entscheidung
+- Versicherung / Vertrag / Kündigung
+- konkrete Alltagssituation, die mit Zahlen oder Diagrammen nicht gleich schnell verstanden wird
 
 Kanonische YouTube-Bildwelt:
 
 ```text
-config/finanzneo-image-worlds/finanzneo-youtube-simple-editorial-v1.txt
+config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
 ```
 
-Wichtige Regel: **Text, Zahlen und Erklärlabels gehören grundsätzlich in Remotion, nicht in das KI-Bild.**
+Wenn Flow eingesetzt wird, gilt:
+
+- premium stylized 3D animation-film look
+- klar erkennbare stilisierte 3D-Figuren und -Objekte
+- glaubwürdige Alltagsproportionen
+- semi-realistische Materialien mit sichtbar stilisiertem Rendering
+- tiefe schwarze FinanzNeo-Welt als dominanter Hintergrund
+- nur wenig lokaler Kontext
+- wenige große Objekte
+- keine flache Corporate-/Editorial-Vektorillustration
+- kein Canva-/Stock-Look
+- nicht fotorealistisch
+- keine generische Münz-/Tresor-/Sparschwein-Komposition
+
+**Wichtige Regel:** Text, Zahlen und Erklärlabels gehören grundsätzlich in Remotion, nicht in das KI-Bild.
 
 ### YouTube-Visual-Metadaten
 
@@ -156,9 +174,10 @@ Vor Freigabe jedes Visuals:
 2. Gibt es genau einen dominanten Gedanken?
 3. Kann etwas entfernt werden, ohne Information zu verlieren? Dann entfernen.
 4. Ist Flow wirklich nötig?
-5. Kommen wichtige Texte und Zahlen aus Remotion?
-6. Hat die Bewegung einen Erklärzweck?
-7. Würde ein einfacheres Visual gleich gut funktionieren? Dann vereinfachen.
+5. Wenn Flow genutzt wird: ist die freigegebene stylized-3D-Bildwelt eindeutig erkennbar?
+6. Kommen wichtige Texte und Zahlen aus Remotion?
+7. Hat die Bewegung einen Erklärzweck?
+8. Würde eine einfachere Komposition gleich gut funktionieren? Dann vereinfachen — nicht den Bildstil auf 2D reduzieren.
 
 ---
 
@@ -204,11 +223,11 @@ ANIMATION bedeutet:
 ## Support-Werkzeuge
 
 - **Icons:** schnelle semantische Erkennung
-- **SVG:** präise Pfade, Linien, Charts, Verbindungen
+- **SVG:** präzise Pfade, Linien, Charts, Verbindungen
 - **Lottie:** kleine Status-/Fokusbewegung
 - **Charts/Zahlen:** messbare Entwicklung
 - **Physical-Primitives:** nur wenn konkrete physische Mechanik wirklich hilft
 
 ## Kurzregel
 
-> **YouTube: Remotion zuerst, echte Assets wenn real vorhanden, Flow nur mit Begründung. Reels behalten ihr bestehendes IMAGE/ANIMATION-System. Immer die einfachste verständliche Darstellung wählen.**
+> **YouTube: Remotion zuerst, echte Assets wenn real vorhanden, Flow nur mit Begründung und dann immer in der freigegebenen stylized-3D-FinanzNeo-Welt. Reels behalten ihr bestehendes IMAGE/ANIMATION-System. Immer die einfachste verständliche Darstellung wählen.**
