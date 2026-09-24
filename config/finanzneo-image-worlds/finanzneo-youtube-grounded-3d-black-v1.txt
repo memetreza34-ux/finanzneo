@@ -61,6 +61,38 @@ Use horizontal 16:9 compositions built for YouTube viewing.
 - avoid symmetrical presentation-slide layouts as a default
 - composition may vary strongly from scene to scene while staying in the same material, lighting and color world
 
+VISUAL STORYTELLING — ANTI-BORING RULE
+Every Flow image must feel like a meaningful frozen moment from a finance story, not like objects photographed for a catalog.
+
+Before writing the prompt, answer:
+1. What is the visual cause?
+2. What is the visual consequence?
+3. What physical relationship, tension, progression or transformation makes that relationship visible?
+
+Prefer scene-specific storytelling devices when they clarify the point:
+- objects moving or arranged along a directional path
+- one object visibly pulling, pushing, weighing down, blocking, splitting, covering or connecting another
+- progression through depth from foreground to background
+- diagonal or asymmetric compositions when they improve energy and readability
+- a growing stack, chain, sequence or spatial escalation when the spoken point describes accumulation
+- visible before/after tension in one coherent frame when useful
+- suspended objects in the black world when physical grounding is not needed
+- controlled tilt, overlap, scale hierarchy and depth to create a clear visual narrative
+- scene-specific light accents that reinforce cost, risk, solution or value
+
+Do NOT make floating objects a new mandatory template. The storytelling device must come from the exact spoken point. Some scenes should float, others may use a believable local environment, floor, wall, counter, shop, workplace or household context when that tells the story better.
+
+Static tabletop / desk / product-shot layouts are forbidden as a default. They are allowed only when the tabletop itself is genuinely part of the real situation and the composition still contains visible cause-and-effect or narrative tension.
+
+Reject a scene concept if it is basically:
+- object A + document B + object C lying side by side
+- centered product shot with supporting props
+- three finance props placed neatly on a table
+- symmetric catalog display
+- generic still life with no visible relationship between the objects
+
+The goal is NOT maximum spectacle. The goal is a simple, immediately understandable visual story with enough spatial energy to stay engaging.
+
 REAL-LIFE EXPLANATION FIRST
 Start with the literal real-world situation behind the spoken point.
 Examples of valid source material include household repairs, rent, invoices, shopping, work, salary, bank documents, contracts, calendars, phones, cards, account paperwork, travel, insurance situations, housing, energy costs or investing contexts when they genuinely match the voiceover.
@@ -184,6 +216,9 @@ FORBIDDEN
 - excessive glow
 - miniature toy/diorama framing that reduces readability
 - sterile isolated product shots with no explanatory situation
+- static tabletop/catalog compositions used only because they are easy to prompt
+- side-by-side finance props with no visible cause/effect, progression or narrative relationship
+- repeated floating-object composition used as a new template regardless of content
 - clutter and decorative props without meaning
 - pasted flat logos
 - long text inside generated images
@@ -193,29 +228,36 @@ PROMPT POLICY
 Write every Google Flow / Nano Banana image prompt individually for the exact spoken point.
 Use medium-length but complete prompts in this order:
 1. exact concrete real-world situation and cause/effect
-2. identify which important objects are ambiguous at a glance
-3. assign exact short German object labels to those ambiguous objects only
-4. approved FinanzNeo YouTube style and material language
-5. deep-black/local-context rule
-6. wide 16:9 composition and readability requirements
-7. scene-specific forbidden mistakes
+2. visual storytelling device: what physically connects cause to consequence?
+3. identify which important objects are ambiguous at a glance
+4. assign exact short German object labels to those ambiguous objects only
+5. approved FinanzNeo YouTube style and material language
+6. deep-black/local-context rule
+7. wide 16:9 composition, depth, camera angle and readability requirements
+8. scene-specific forbidden mistakes, including the obvious boring/default composition for that scene
 
 Never replace scene design with a generic master prompt plus a few changed nouns.
+Never default to a desk/table just because documents are present.
+Never default to floating objects just because the black world allows it.
+Choose the staging that best turns the spoken point into a simple visual story.
 
 QUALITY CHECK
 Reject and regenerate when:
 - the frame no longer feels like the approved anchor’s stylized 3D world
 - the image becomes photorealistic
 - it reads like a flat infographic, dashboard or slide
+- it reads like a static product catalog or generic still life
 - the viewer must decode a vague metaphor
 - the main real-life situation is missing
 - cause and effect are unclear where they should be visible
+- there is no meaningful spatial/narrative relationship between the important objects
 - important objects are too small
 - an important document/card/object is ambiguous and lacks a short German label
 - a label is detached from the object it describes or too small to read
 - the local environment overwhelms the explanation
 - the image is only generic finance symbols
 - a recurring folder/coin/arrow motif was used without a content reason
+- the same staging pattern is repeated even though the content calls for a different visual story
 - text is excessive or unclear
 - black is no longer the dominant world
 - lighting/material treatment no longer feels premium and coherent
