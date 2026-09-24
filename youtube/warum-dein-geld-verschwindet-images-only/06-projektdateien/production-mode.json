@@ -1,12 +1,19 @@
 {
   "id": "images-only",
   "staticImageVisualsOnly": true,
+  "staticSceneLayoutRequired": true,
+  "staticLayoutAssemblyAllowed": true,
   "remotionExplainerVisualsAllowed": false,
   "remotionAnimationAllowed": false,
   "allowedVisualTypes": ["image"],
-  "assemblyIntent": "static-image-sequence-with-voiceover",
+  "assemblyIntent": "static-framed-layout-sequence-with-voiceover",
   "oneMainIdeaPerVisual": true,
   "recommendedVoiceoverSentencesPerImage": [1, 2],
   "targetDurationSeconds": 150,
-  "plannedVisualCount": 20
+  "plannedVisualCount": 20,
+  "layoutContractId": "finanzneo-youtube-framed-scene-v1",
+  "sceneHeadingRequired": true,
+  "sceneIconRequired": true,
+  "flowImageFullscreenForbidden": true,
+  "flowImagePlacement": "contained-visual-window"
 }
