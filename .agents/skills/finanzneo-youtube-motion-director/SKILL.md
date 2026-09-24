@@ -11,6 +11,8 @@ Make finance easy to understand. Do not try to make every scene visually unique.
 
 > **Clarity first. Simplicity second. Novelty only when it adds explanatory value.**
 
+Important: simple composition does **not** mean flat 2D illustration. When Google Flow is chosen, the approved premium stylized 3D FinanzNeo image world remains mandatory.
+
 ## Authority
 
 Read in this order:
@@ -36,9 +38,9 @@ Then choose the visual in this order:
 
 1. Can a simple Remotion visual explain it?
 2. Is there a real website/app/document/logo/product/source that should be shown directly?
-3. Only then: would a simple Google Flow everyday scene communicate it better?
+3. Only then: would a Google Flow everyday scene communicate it better?
 
-Do not begin with a library, effect, 3D technique or existing component.
+Do not begin with an effect, 3D technique or existing component. The 3D rule applies only after Flow has already been selected as the right source.
 
 ## Default tool roles
 
@@ -77,14 +79,17 @@ Never generate a fake version of a real source when the real source can be shown
 
 ### Google Flow — exception
 
-Use only for a concrete everyday situation where an illustration is faster and clearer than text/data, for example:
+Use only for a concrete everyday situation where an image is faster and clearer than text/data, for example:
 
-- broken washing machine + repair bill
-- grocery shopping + inflation
-- rent / insurance / contract situation
-- concrete financial stress or decision
+- a grocery-shopping inflation moment
+- a rent increase letter on a kitchen table
+- a car repair creating an unexpected cost
+- a salary or workplace money decision
+- an insurance or contract situation
 
 Before Flow, apply the mandatory gate from `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
+
+If Flow is used, the scene is rendered in the approved stylized 3D animation-film FinanzNeo world. Do not switch to flat editorial art just because the composition should be simple.
 
 ## Standard visual patterns
 
@@ -173,18 +178,34 @@ Avoid only meaningless copy/paste where the visual does not match the spoken poi
 
 For generated YouTube images use:
 
-`config/finanzneo-image-worlds/finanzneo-youtube-simple-editorial-v1.txt`
+`config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt`
 
 Important text, values, labels and captions belong in Remotion. Flow should generate the visual situation, not the explanation.
 
-Generated images should contain:
+Generated images must contain:
 
-- one main situation
-- few supporting objects
-- simple 2D/2.5D editorial treatment
-- no mandatory black world
-- no cinematic 3D environment
-- no decorative finance clutter
+- one clear real-world situation
+- only a few meaningful supporting objects
+- premium stylized 3D animation-film rendering
+- believable but clearly stylized people/objects
+- semi-realistic materials with refined rounded geometry
+- deep seamless black as the dominant FinanzNeo world
+- small local environment context only when it improves understanding
+- clean soft studio lighting and readable contact shadows
+- emerald green / warm red-orange only when semantically useful
+
+Generated images must **not** become:
+
+- generic flat editorial illustration
+- corporate vector / stock explainer art
+- Canva-style illustration
+- photorealistic photography
+- anime
+- isometric diagram art
+- generic coins/vault/piggy-bank scene
+- cluttered cinematic environment
+
+Simple means fewer elements and clearer composition — **not** lower-dimensional or flatter rendering.
 
 ## Hybrid
 
@@ -209,11 +230,12 @@ Before accepting a visual ask:
 2. Is there one dominant thought?
 3. Can anything be removed?
 4. Is Flow actually needed?
-5. Are important text/numbers rendered by Remotion?
-6. Does the motion explain or focus information?
-7. Could a simpler visual work equally well?
+5. If Flow is used: is the approved stylized 3D world unmistakable?
+6. Are important text/numbers rendered by Remotion?
+7. Does the motion explain or focus information?
+8. Could a simpler visual work equally well?
 
-If yes to question 7, simplify it.
+If yes to question 8, simplify the composition — not the approved image style.
 
 ## Phase ownership
 
