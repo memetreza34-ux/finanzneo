@@ -16,6 +16,8 @@ Sprechpunkt
 
 FinanzNeo Longform soll wie ein klarer Finance-Explainer funktionieren: seriöse, anfängerfreundliche Erklärung; konkrete Beispiele; große lesbare Informationen; wenige visuelle Elemente; einfache wiederverwendbare Motion.
 
+**Simple-first betrifft die Erklärlogik und Komposition. Wenn Google Flow gewählt wird, bleibt die freigegebene premium stylized 3D FinanzNeo-Bildwelt verbindlich.**
+
 ## Phase 1 — ChatGPT bereitet vollständig vor
 
 ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
@@ -68,13 +70,15 @@ Keine KI-Imitation, wenn das echte Asset verfügbar ist.
 
 #### Google Flow — Ausnahme
 
-Nur bei konkreten Alltagssituationen, die als Bild schneller verstanden werden, z. B. kaputtes Haushaltsgerät + Rechnung, Einkauf/Inflation oder Miet-/Versicherungssituation.
+Nur bei konkreten Alltagssituationen, die als Bild schneller verstanden werden, z. B. Einkauf/Inflation, Miet- oder Nebenkosten, Autoreparatur, Arbeitsplatz/Gehalt oder Versicherungs-/Vertragssituation.
 
 Pflichtfrage vor Flow:
 
 > Kann Text, Zahl, Icon, Chart, Diagramm, Screenshot oder echtes Asset diesen Punkt gleich gut oder besser erklären?
 
 **Ja → kein Flow. Nein → Flow mit konkreter `flowReason`.**
+
+Wenn Flow gewählt wird, wird die Szene als **premium stylized 3D animation-film frame** in der freigegebenen FinanzNeo-Welt gebaut. Keine flache 2D-/Corporate-Illustration.
 
 ### Motion V4 Simple
 
@@ -120,18 +124,22 @@ Flow arbeitet strikt:
 GENAU EIN BILD
 → VOLLSTÄNDIG WARTEN
 → EXAKT UMBENENNEN
-→ KLARHEIT + EINFACHHEIT + 16:9 + DATEINAME PRÜFEN
+→ KLARHEIT + STYLIZED-3D-BILDWELT + 16:9 + DATEINAME PRÜFEN
 → ERST DANN NÄCHSTES BILD
 ```
 
-- Bildwelt: `finanzneo-youtube-simple-editorial-v1`
-- einfache 2D/2.5D-Editorial-Illustration
-- wenige große Objekte
-- kein obligatorischer schwarzer 3D-Raum
+- Bildwelt: `finanzneo-youtube-grounded-3d-black-v1`
+- premium stylized 3D animation-film rendering
+- klar animierter 3D-Look, nicht fotorealistisch
+- keine flache Editorial-/Corporate-Vektorillustration
+- wenige große Objekte und ein dominanter Gedanke
+- tiefe schwarze FinanzNeo-Welt als dominanter Hintergrund
+- nur wenig lokaler Alltagskontext; Umgebung löst sich in Schwarz auf
+- weiche hochwertige Geometrie, semi-realistische Materialien, Studio-Licht und Kontakt-Schatten
 - keine Headline oder wichtige Zahl im generierten Bild
 - erklärende Texte/Zahlen später in Remotion
 - keine Fake-App, Fake-Website oder KI-Nachbildung realer Dokumente
-- Fehlerhafte Bildnummer wiederholen; nie Batch/parallel
+- fehlerhafte Bildnummer wiederholen; nie Batch/parallel
 - fertige Flow-Bilder gemeinsam nach `04-visuals/00-ALLE-BILDER-HIER-REIN/`
 - alle Flow-Bilder und Thumbnail horizontal 16:9
 
