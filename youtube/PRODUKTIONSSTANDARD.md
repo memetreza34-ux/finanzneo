@@ -64,6 +64,8 @@ Vor jedem Flow-Bild gilt:
 
 **Ja → kein Flow. Nein → Flow nur mit konkreter `flowReason`.**
 
+Wichtig: **Simple-first betrifft die Komposition und Erklärlogik, nicht die Bildstil-Dimension.** Wenn Flow gewählt wird, bleibt die freigegebene premium stylized 3D FinanzNeo-Welt Pflicht.
+
 ## Motion V4 Simple
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v4-simple`
@@ -137,25 +139,30 @@ Der Seal schützt danach die freigegebene Motion-Quelle und den einfachen V4-Ver
 
 ## Bildwelt und Google Flow
 
-`IMAGE_WORLD: finanzneo-youtube-simple-editorial-v1`
+`IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1`
 
 Kanonische Bildwelt:
 
 ```text
-config/finanzneo-image-worlds/finanzneo-youtube-simple-editorial-v1.txt
+config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
 ```
 
 ### Stil
 
-- einfache professionelle Editorial-Illustration
-- 2D / 2.5D statt obligatorischer Kino-3D-Welt
+- premium **stylized 3D animation-film rendering**
+- klar animierter 3D-Look, niemals flache Corporate-/Editorial-Vektorillustration
+- glaubwürdige Alltagsobjekte und stilisierte Figuren mit ansprechenden Animationsfilm-Proportionen
+- weiche, hochwertige Geometrie und semi-realistische Materialien, aber sichtbar stilisiert
 - ein klarer Hauptgedanke
-- wenige große Objekte
-- hohe Lesbarkeit
-- kein verpflichtender schwarzer Hintergrund
-- keine dekorative Komplexität
-- nicht fotorealistisch und nicht kindlich
+- wenige große, sofort lesbare Objekte
+- tiefe nahtlose schwarze FinanzNeo-Welt als dominanter Hintergrund
+- nur so viel lokaler Alltagskontext wie für das Verständnis nötig; Umgebung löst sich in Schwarz auf
+- sauberes weiches Studio-Licht, Kontakt-Schatten und kontrollierte Highlights
+- Emerald Green = positiv/Wert/Lösung; warmes Rot-Orange = Kosten/Risiko/Problem; Ivory/Grau = neutral
+- nicht fotorealistisch, nicht anime, nicht flache 2D-Illustration, nicht isometrisch
 - 16:9 horizontal
+
+**Simple bedeutet hier:** wenige Elemente, klare Komposition und schnelle Verständlichkeit. Es bedeutet **nicht** 2D, 2.5D oder flachen Vektor-Look.
 
 ### Text und Zahlen
 
@@ -163,10 +170,12 @@ Wichtige Texte, Zahlen, Vergleiche und Labels werden grundsätzlich mit **Remoti
 
 ### Flow eignet sich z. B. für
 
-- kaputte Waschmaschine + Reparaturrechnung
 - Einkauf / Inflation
-- Miete / Versicherung / Vertrag
-- konkrete finanzielle Alltagssituation
+- Miet- oder Nebenkosten-Situation
+- Autoreparatur / unerwartete Ausgabe
+- Arbeitsplatz / Gehalt / finanzielle Entscheidung
+- Versicherung / Vertrag / Kündigung
+- konkrete finanzielle Alltagssituation, bei der die 3D-Szene schneller verständlich ist als eine Grafik
 
 ### Flow eignet sich nicht für
 
@@ -200,9 +209,10 @@ Vor Freigabe jedes Visuals:
 2. Gibt es nur einen dominanten Gedanken?
 3. Kann etwas ohne Informationsverlust entfernt werden? Dann entfernen.
 4. Ist Flow wirklich notwendig?
-5. Werden wichtige Texte/Zahlen von Remotion gerendert?
-6. Hat die Bewegung einen Erklärzweck?
-7. Würde ein einfacheres Visual gleich gut funktionieren? Dann vereinfachen.
+5. Wenn Flow verwendet wird: sieht das Bild eindeutig nach der freigegebenen premium stylized 3D FinanzNeo-Welt aus?
+6. Werden wichtige Texte/Zahlen von Remotion gerendert?
+7. Hat die Bewegung einen Erklärzweck?
+8. Würde eine einfachere **Komposition** gleich gut funktionieren? Dann vereinfachen — aber nicht den Bildstil auf 2D herunterbrechen.
 
 ## Audio, Timing und Untertitel
 
