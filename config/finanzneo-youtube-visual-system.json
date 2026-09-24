@@ -4,10 +4,26 @@
   "defaultAssetSource": "mode-dependent",
   "imageWorld": "finanzneo-youtube-grounded-3d-black-v1",
   "flowStoryboardStandard": "finanzneo-youtube-flow-storyboard-v1",
+  "layoutContract": {
+    "id": "finanzneo-youtube-framed-scene-v1",
+    "sceneHeadingRequired": true,
+    "sceneIconRequired": true,
+    "flowImageFullscreenForbidden": true,
+    "flowImagePlacement": "contained-visual-window",
+    "deepBlackFrameBackgroundVisible": true,
+    "headingAndIconOutsideFlowImage": true,
+    "recommendedOuterMarginPx": 72,
+    "recommendedHeaderHeightPx": [150, 190],
+    "recommendedIconSizePx": [56, 72],
+    "recommendedVisualWindowMaxWidthRatio": 0.78,
+    "recommendedVisualWindowMaxHeightRatio": 0.70
+  },
   "productionModes": {
     "images-only": {
-      "description": "Static-image YouTube video using Flow images only, with no Remotion explainer visuals or animation scenes.",
+      "description": "Static YouTube scenes with the normal framed FinanzNeo layout: heading, matching icon and contained Flow image; no animation.",
       "allowedVisualTypes": ["image"],
+      "staticSceneLayoutRequired": true,
+      "staticLayoutAssemblyAllowed": true,
       "remotionExplainerVisualsAllowed": false,
       "remotionAnimationAllowed": false,
       "staticImageVisualsOnly": true,
@@ -15,8 +31,10 @@
       "recommendedVoiceoverSentencesPerImage": [1, 2]
     },
     "hybrid": {
-      "description": "Mixed YouTube explainer using Flow images, real assets and Remotion animation/data visuals.",
+      "description": "Same framed FinanzNeo scene layout as images-only, with heading, icon and contained visual; animation and additional explainer visuals are allowed.",
       "allowedVisualTypes": ["image", "hybrid", "animation", "data", "real-asset"],
+      "staticSceneLayoutRequired": true,
+      "staticLayoutAssemblyAllowed": true,
       "remotionExplainerVisualsAllowed": true,
       "remotionAnimationAllowed": true,
       "staticImageVisualsOnly": false,
@@ -29,8 +47,12 @@
     "oneMainIdeaPerVisual": true,
     "recommendedVoiceoverSentencesPerFlowImage": [1, 2],
     "splitMultiIdeaBeats": true,
+    "sceneHeadingRequiredInEveryMode": true,
+    "sceneIconRequiredInEveryMode": true,
+    "flowImageFullscreenForbiddenInEveryMode": true,
+    "sameSceneLayoutAcrossModes": true,
+    "imagesOnlyModeDisablesAnimationNotLayout": true,
     "remotionOwnsTextAndNumbersInHybridMode": true,
-    "imagesOnlyModeUsesNoRemotionOverlays": true,
     "flowRequiresJustificationInHybridMode": true,
     "flowIsPrimaryVisualSourceInImagesOnlyMode": true,
     "realAssetsPreferredOverGeneratedImitations": true,
@@ -111,7 +133,7 @@
     "SLOW_ZOOM"
   ],
   "flowGate": {
-    "images-only": "Flow is the planned visual source; still reject a scene if it cannot communicate one clear spoken point as a strong static image.",
+    "images-only": "Flow is the planned visual source; still reject a scene if it cannot communicate one clear spoken point as a strong static image inside the framed scene layout.",
     "hybrid": {
       "question": "Can text, number, icon, chart, diagram, screenshot or real asset explain this equally well or better?",
       "ifYes": "forbid-flow",
@@ -121,6 +143,10 @@
   "qa": [
     "main idea understandable in 1-2 seconds",
     "one dominant thought",
+    "scene has a short heading",
+    "scene has one matching icon",
+    "Flow image is contained inside the scene layout and never fills the whole frame",
+    "deep-black FinanzNeo frame remains visibly present around the contained visual",
     "Flow voiceover beat is normally 1-2 short sentences",
     "multi-idea beat is split into more visuals",
     "Flow image uses the approved stylized premium 3D animation-film world",
@@ -130,7 +156,7 @@
     "staging follows the spoken point instead of repeating a template",
     "ambiguous important objects use short physical German labels when needed",
     "nothing decorative can be removed without losing meaning",
-    "images-only mode contains no Remotion explainer visual or animation scene",
+    "images-only mode contains no animation but keeps the full static scene layout",
     "hybrid mode uses Flow only when justified",
     "simpler visual would not work equally well"
   ]
