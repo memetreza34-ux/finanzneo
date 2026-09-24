@@ -8,6 +8,8 @@ FinanzNeo Longform erklärt Finanzthemen so einfach wie möglich. Die Animation 
 
 > **Ein Gedanke → ein klares Visual → nur so viel Bewegung wie für das Verständnis nötig.**
 
+Simple bedeutet: wenige Elemente, klare Hierarchie und einfache Bewegung. **Es bedeutet nicht, dass Google-Flow-Bilder als flache 2D-Illustrationen erzeugt werden.** Wenn Flow gewählt wird, bleibt die freigegebene premium stylized 3D FinanzNeo-Bildwelt verbindlich.
+
 ## Reihenfolge
 
 Für jeden Sprechpunkt gilt:
@@ -86,12 +88,21 @@ Flow ist keine Standardquelle für jede Szene.
 
 Flow ist nur sinnvoll, wenn eine konkrete Alltagssituation schneller verstanden wird als eine Grafik, z. B.:
 
-- kaputte Waschmaschine + Reparaturkosten
 - Einkauf / Inflation
-- Miete / Versicherung / Vertrag
-- konkreter finanzieller Alltagsstress
+- Miet- oder Nebenkosten-Situation
+- Autoreparatur / unerwartete Ausgabe
+- Arbeitsplatz / Gehalt / finanzielle Entscheidung
+- Versicherung / Vertrag
 
 Vor jedem Flow-Einsatz gilt der Gate-Test aus `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
+
+Wenn Flow eingesetzt wird, gilt zwingend:
+
+```text
+config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
+```
+
+Das Ergebnis muss wie ein hochwertiger stilisierter 3D-Animationsfilm-Frame wirken: tiefe schwarze FinanzNeo-Welt, wenige große Objekte, semi-realistische Materialien, weiche hochwertige Geometrie, sauberes Studio-Licht. Kein flacher Corporate-/Editorial-Vektor-Look.
 
 ## Hybrid
 
@@ -161,7 +172,8 @@ Eine Szene besteht den V4-Test, wenn:
 3. unnötige Elemente entfernt wurden;
 4. die Bewegung eine Information erklärt oder fokussiert;
 5. wichtige Zahlen und Texte sauber lesbar sind;
-6. kein einfacheres Visual dieselbe Aussage gleich gut erklären würde.
+6. bei Flow die freigegebene stylized-3D-Bildwelt eingehalten wird;
+7. kein einfacheres Visual dieselbe Aussage gleich gut erklären würde.
 
 ## Rhythmus
 
