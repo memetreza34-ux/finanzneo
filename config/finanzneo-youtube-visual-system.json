@@ -1,16 +1,38 @@
 {
   "id": "finanzneo-youtube-simple-finance-v1",
   "scope": "youtube-longform-only",
-  "defaultAssetSource": "remotion",
+  "defaultAssetSource": "mode-dependent",
   "imageWorld": "finanzneo-youtube-grounded-3d-black-v1",
   "flowStoryboardStandard": "finanzneo-youtube-flow-storyboard-v1",
+  "productionModes": {
+    "images-only": {
+      "description": "Static-image YouTube video using Flow images only, with no Remotion explainer visuals or animation scenes.",
+      "allowedVisualTypes": ["image"],
+      "remotionExplainerVisualsAllowed": false,
+      "remotionAnimationAllowed": false,
+      "staticImageVisualsOnly": true,
+      "oneMainIdeaPerVisual": true,
+      "recommendedVoiceoverSentencesPerImage": [1, 2]
+    },
+    "hybrid": {
+      "description": "Mixed YouTube explainer using Flow images, real assets and Remotion animation/data visuals.",
+      "allowedVisualTypes": ["image", "hybrid", "animation", "data", "real-asset"],
+      "remotionExplainerVisualsAllowed": true,
+      "remotionAnimationAllowed": true,
+      "staticImageVisualsOnly": false,
+      "oneMainIdeaPerVisual": true,
+      "recommendedVoiceoverSentencesPerImage": [1, 2]
+    }
+  },
   "principles": {
     "simplestVisualFirst": true,
     "oneMainIdeaPerVisual": true,
     "recommendedVoiceoverSentencesPerFlowImage": [1, 2],
     "splitMultiIdeaBeats": true,
-    "remotionOwnsTextAndNumbers": true,
-    "flowRequiresJustification": true,
+    "remotionOwnsTextAndNumbersInHybridMode": true,
+    "imagesOnlyModeUsesNoRemotionOverlays": true,
+    "flowRequiresJustificationInHybridMode": true,
+    "flowIsPrimaryVisualSourceInImagesOnlyMode": true,
     "realAssetsPreferredOverGeneratedImitations": true,
     "stylized3DForFlowImages": true,
     "simpleCompositionDoesNotMeanFlatIllustration": true,
@@ -19,14 +41,13 @@
     "staticCatalogDefaultForbidden": true,
     "stagingMustFollowSpokenPoint": true,
     "repeatedFloatingObjectTemplateForbidden": true,
-    "reusableExplainerPatternsAreAllowed": true,
+    "reusableExplainerPatternsAreAllowedInHybridMode": true,
     "noveltyForItsOwnSake": false
   },
-  "assetDecisionOrder": [
-    "remotion",
-    "real-asset",
-    "google-flow"
-  ],
+  "assetDecisionOrderByMode": {
+    "images-only": ["google-flow"],
+    "hybrid": ["remotion", "real-asset", "google-flow"]
+  },
   "remotionBestFor": [
     "big-number",
     "comparison",
@@ -90,9 +111,12 @@
     "SLOW_ZOOM"
   ],
   "flowGate": {
-    "question": "Can text, number, icon, chart, diagram, screenshot or real asset explain this equally well or better?",
-    "ifYes": "forbid-flow",
-    "ifNo": "allow-flow-with-reason"
+    "images-only": "Flow is the planned visual source; still reject a scene if it cannot communicate one clear spoken point as a strong static image.",
+    "hybrid": {
+      "question": "Can text, number, icon, chart, diagram, screenshot or real asset explain this equally well or better?",
+      "ifYes": "forbid-flow",
+      "ifNo": "allow-flow-with-reason"
+    }
   },
   "qa": [
     "main idea understandable in 1-2 seconds",
@@ -106,9 +130,8 @@
     "staging follows the spoken point instead of repeating a template",
     "ambiguous important objects use short physical German labels when needed",
     "nothing decorative can be removed without losing meaning",
-    "Flow used only when necessary",
-    "important text and numbers rendered by Remotion",
-    "motion has explanatory purpose",
+    "images-only mode contains no Remotion explainer visual or animation scene",
+    "hybrid mode uses Flow only when justified",
     "simpler visual would not work equally well"
   ]
 }
