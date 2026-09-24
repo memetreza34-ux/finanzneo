@@ -2,14 +2,15 @@
   "id": "finanzneo-youtube-simple-finance-v1",
   "scope": "youtube-longform-only",
   "defaultAssetSource": "remotion",
-  "imageWorld": "finanzneo-youtube-simple-editorial-v1",
+  "imageWorld": "finanzneo-youtube-grounded-3d-black-v1",
   "principles": {
     "simplestVisualFirst": true,
     "oneMainIdeaPerVisual": true,
     "remotionOwnsTextAndNumbers": true,
     "flowRequiresJustification": true,
     "realAssetsPreferredOverGeneratedImitations": true,
-    "cinematic3DDefault": false,
+    "stylized3DForFlowImages": true,
+    "simpleCompositionDoesNotMeanFlatIllustration": true,
     "reusableExplainerPatternsAreAllowed": true,
     "noveltyForItsOwnSake": false
   },
@@ -66,6 +67,8 @@
   "qa": [
     "main idea understandable in 1-2 seconds",
     "one dominant thought",
+    "Flow image uses the approved stylized premium 3D animation-film world",
+    "Flow image is never generic flat corporate/editorial art",
     "nothing decorative can be removed without losing meaning",
     "Flow used only when necessary",
     "important text and numbers rendered by Remotion",
