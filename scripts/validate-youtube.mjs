@@ -100,10 +100,15 @@ if (index) {
   if (isV4) {
     assert(index.visualProfile?.id === YOUTUBE_VISUAL_PROFILE_ID, `visualProfile.id muss ${YOUTUBE_VISUAL_PROFILE_ID} sein.`);
     assert(index.visualProfile?.simplestVisualFirst === true, 'V4 muss simplestVisualFirst erzwingen.');
+    assert(index.visualProfile?.oneMainIdeaPerVisual === true, 'V4 muss genau einen Hauptgedanken pro Visual planen.');
+    assert(Array.isArray(index.visualProfile?.recommendedFlowVoiceoverSentences) && index.visualProfile.recommendedFlowVoiceoverSentences.join(',') === '1,2', 'Flow-Bilder müssen standardmäßig für 1–2 kurze Voiceover-Sätze geplant werden.');
+    assert(index.visualProfile?.splitMultiIdeaBeats === true, 'Multi-Idea-Beats müssen in mehrere Visuals geteilt werden.');
     assert(index.visualProfile?.remotionDefault === true, 'V4 muss Remotion als Standardquelle setzen.');
     assert(index.visualProfile?.flowRequiresJustification === true, 'V4 muss Flow begründungspflichtig machen.');
     assert(index.visualProfile?.realAssetsPreferred === true, 'V4 muss echte Assets gegenüber KI-Imitationen bevorzugen.');
     assert(index.visualProfile?.reusablePatternsAllowed === true, 'V4 muss wiederverwendbare Erklärmuster erlauben.');
+    assert(index.visualProfile?.flowVisualStorytellingRequired === true, 'Flow-Bilder müssen visuelles Storytelling verlangen.');
+    assert(index.visualProfile?.staticCatalogDefaultForbidden === true, 'Statische Katalog-/Tabletop-Inszenierung darf kein Default sein.');
 
     assert(index.imageWorld?.id === YOUTUBE_IMAGE_WORLD_ID, `imageWorld.id muss ${YOUTUBE_IMAGE_WORLD_ID} sein.`);
     assert(index.imageWorld?.brandWorldId === WORLD_ID, 'FinanzNeo Brand World ID fehlt.');
@@ -111,6 +116,7 @@ if (index) {
     assert(index.imageWorld?.generatedImageAspectRatio === GENERATED_IMAGE_ASPECT_RATIO, 'YouTube-Quellbilder müssen 16:9 sein.');
     assert(index.imageWorld?.stylized3D === true, 'YouTube-Flow-Bildwelt muss premium stylized 3D sein.');
     assert(index.imageWorld?.simpleComposition === true, 'YouTube-Flow-Bilder müssen einfach komponiert bleiben.');
+    assert(index.imageWorld?.visualStorytellingRequired === true, 'YouTube-Flow-Bilder müssen eine sichtbare Story/Beziehung enthalten.');
     assert(index.imageWorld?.deepBlackWorld === true, 'YouTube-Flow-Bilder müssen die freigegebene deep-black FinanzNeo-Welt verwenden.');
     assert(index.imageWorld?.remotionOwnsTextAndNumbers === true, 'Wichtige Texte und Zahlen müssen Remotion gehören.');
 
@@ -122,6 +128,11 @@ if (index) {
 
   assert(index.googleFlow?.protocolId === FLOW_AGENT_PROTOCOL_ID, 'Google-Flow-Agent-Protokoll fehlt.');
   assert(index.googleFlow?.generationMode === 'one-image-at-a-time' && index.googleFlow?.strictSequential === true, 'Google Flow muss strikt Bild für Bild arbeiten.');
+  if (isV4) {
+    assert(index.googleFlow?.sharedHandoffMayContainMultipleImageBlocks === true, 'Ein gemeinsamer Flow-Handoff muss mehrere Bildblöcke enthalten dürfen.');
+    assert(index.googleFlow?.fixedImageBlockCount === false, 'Flow-Handoff darf keine feste Bildanzahl erzwingen.');
+    assert(index.googleFlow?.stopAfterFinalPlannedImage === true, 'Flow muss nach dem letzten geplanten Bild stoppen.');
+  }
   assert(index.googleFlow?.waitForCurrentImage === true && index.googleFlow?.renameBeforeNext === true && index.googleFlow?.qaBeforeNext === true, 'Google Flow muss warten, umbenennen und prüfen, bevor es fortfährt.');
   assert(index.googleFlow?.retrySameImageOnFailure === true, 'Fehlerhafte Bilder müssen unter derselben Nummer neu erzeugt werden.');
   assert(index.googleFlow?.finalCollectionDirectory === `${IMAGE_INBOX}/`, 'Finaler gemeinsamer Bilderordner ist falsch.');
@@ -159,6 +170,7 @@ if (index) {
         assert(visual.assetSource === 'google-flow', `${id}: Flow-Visual braucht assetSource=google-flow.`);
         assert(visual.flowAllowed === true, `${id}: Flow-Visual braucht flowAllowed=true.`);
         assert(nonEmpty(visual.flowReason), `${id}: Flow-Visual braucht eine konkrete flowReason.`);
+        assert(nonEmpty(visual.visualStory), `${id}: Flow-Visual braucht visualStory (sichtbare Ursache → Beziehung → Folge).`);
       } else if (requiresYouTubeRealAsset(visual)) {
         assert(visual.assetSource === 'real-asset', `${id}: real-asset braucht assetSource=real-asset.`);
         assert(visual.flowAllowed === false, `${id}: echtes Asset darf Flow nicht benötigen.`);
@@ -179,11 +191,13 @@ if (index) {
       assert(nonEmpty(imagePlan) && imagePlan.endsWith('/bildprompt.txt') && existsSync(resolve(root, imagePlan)), `${id}: bildprompt.txt fehlt.`);
       if (isV4 && nonEmpty(imagePlan) && existsSync(resolve(root, imagePlan))) {
         const prompt = readFileSync(resolve(root, imagePlan), 'utf8');
-        for (const marker of ['FLOW_NECESSITY_REASON:', 'VOICEOVER_VISUAL_MATCH:', 'MAIN_SUBJECT:', 'SUPPORTING_OBJECTS:', 'IMAGE PROMPT:']) {
-          assert(prompt.includes(marker), `${id}: Simple-Flow-Marker fehlt: ${marker}`);
+        for (const marker of ['FLOW_NECESSITY_REASON:', 'VOICEOVER_VISUAL_MATCH:', 'VOICEOVER CONTEXT:', 'SCENE:', 'IMPORTANT GERMAN OBJECT LABELS:', 'OBJECTS:', 'VISUAL STORYTELLING:', 'COMPOSITION:', 'MATERIALS:', 'BACKGROUND:', 'LIGHTING:', 'COLOR LANGUAGE:', 'TEXT:', 'FORBIDDEN:']) {
+          assert(prompt.includes(marker), `${id}: Flow-Storyboard-Marker fehlt: ${marker}`);
         }
+        assert(/1-2 short voiceover sentences|1-2 short Voiceover sentences/i.test(prompt), `${id}: 1–2-Satz-Regel für Flow-Beat fehlt im Prompt.`);
         assert(/stylized 3D animation-film/i.test(prompt), `${id}: freigegebener stylized-3D-Bildstil fehlt im Flow-Prompt.`);
         assert(/deep-black|deep seamless black/i.test(prompt), `${id}: deep-black FinanzNeo-Welt fehlt im Flow-Prompt.`);
+        assert(/static tabletop|catalog|product catalog/i.test(prompt), `${id}: Anti-Katalog-/Tabletop-Regel fehlt im Flow-Prompt.`);
         assert(!/simple editorial finance illustration|clean 2D\/2\.5D visual style/i.test(prompt), `${id}: flacher Editorial-2D-Stil ist für Flow nicht erlaubt.`);
       }
     }
@@ -206,12 +220,17 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes(SERIES_LOCK_MARKER), `${ALL_PROMPTS} enthält keinen Same-World-Lock.`);
   assert(prompts.includes(GENERATED_IMAGE_ASPECT_MARKER), `${ALL_PROMPTS} schreibt 16:9 nicht vor.`);
   assert(prompts.includes(FLOW_AGENT_PROTOCOL_MARKER), `${ALL_PROMPTS} enthält kein Flow-Protokoll.`);
+  assert(prompts.includes('ONE shared Google Flow handoff'), 'Flow-Übergabe muss mehrere geplante Bildblöcke in einem gemeinsamen Handoff erlauben.');
   assert(prompts.includes('Generate exactly ONE image'), 'Google Flow muss exakt ein Bild pro Schritt erzeugen.');
   assert(prompts.includes('Rename it immediately'), 'Sofortige Umbenennung vor dem nächsten Bild fehlt.');
-  assert(prompts.includes('regenerate the same image number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
+  assert(/regenerate the SAME image number|regenerate the same image number/i.test(prompts), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
+  assert(prompts.includes('After the final planned image'), 'Stop-Regel nach dem letzten geplanten Bild fehlt.');
   assert(prompts.includes(IMAGE_INBOX), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
   assert(prompts.includes(YOUTUBE_IMAGE_WORLD_ID), `Freigegebene YouTube-Bildwelt ${YOUTUBE_IMAGE_WORLD_ID} fehlt in der Flow-Übergabe.`);
+  assert(/one dominant idea/i.test(prompts), 'Flow-Übergabe muss genau einen dominanten Gedanken pro Bild verlangen.');
+  assert(/1-2 short Voiceover sentences/i.test(prompts), 'Flow-Übergabe muss die 1–2-Satz-Regel enthalten.');
+  assert(/visual storytelling|cause-effect/i.test(prompts), 'Flow-Übergabe muss visuelles Storytelling/Ursache-Wirkung prüfen.');
   assert(/stylized 3D animation-film/i.test(prompts), 'Flow-Übergabe muss premium stylized 3D erzwingen.');
   assert(!/square 1:1 source image|portrait 9:16|vertical 9:16 image/i.test(prompts), 'YouTube-Prompts enthalten ein falsches Quellbildformat.');
 }
@@ -234,4 +253,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log(`  16:9 · Simple-first · Flow-Bilder premium stylized 3D · ${YOUTUBE_MOTION_STANDARD_ID} · Flow nur mit Begründung · echte Assets bevorzugt · keine Shorts`);
+console.log(`  16:9 · 1 Gedanke/Visual · Flow meist 1–2 Sätze · Storytelling statt Katalog · Flow-Bilder premium stylized 3D · ${YOUTUBE_MOTION_STANDARD_ID} · Flow nur mit Begründung · echte Assets bevorzugt · keine Shorts`);
