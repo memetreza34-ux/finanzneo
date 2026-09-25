@@ -48,12 +48,17 @@ src/production/
 Technische Produktionsvorlagen. Keine beliebigen Experimente hier ablegen.
 
 ```text
+src/experiments/
+```
+Expliziter Ablageort für isolierte Tests und Demos. Die erste risikoarme Migration ist abgeschlossen: `MockTest.tsx`, `MockMindmap.tsx`, `RealDataDemo.tsx` und `LottieTest.tsx` liegen hier und werden von `ExperimentCompositions.tsx` registriert.
+
+```text
 src/reels-test/
 src/zins/
 ```
 Historische/experimentelle Szenen. Sie dürfen als Lernmaterial existieren, sind aber keine Produktionsvorlage.
 
-Root-Dateien wie `MockTest.tsx`, `Showcase*.tsx`, `Thumbnail*.tsx`, `RealDataDemo.tsx` und `LottieTest.tsx` sind derzeit noch historisch gewachsene Demo-/Showcase-Dateien. Sie bleiben vorerst bestehen, damit Imports und Regressionstests nicht riskant umgebaut werden. Neue Arbeit soll dort nicht weiter anwachsen.
+Einige weitere historisch gewachsene Root-Dateien wie `PassivTest.tsx`, `PremiumTest.tsx`, `Signature.tsx`, `Variants.tsx`, `Showcase*.tsx` und `Thumbnail*.tsx` sind noch nicht migriert. Neue Arbeit soll im Root nicht weiter anwachsen.
 
 ## Composition-Registries
 
@@ -94,4 +99,4 @@ Details: `docs/DATA-PIPELINE.md`.
 
 ## Künftige Strukturverbesserung
 
-Die größte noch offene Strukturarbeit ist eine risikoarme Migration der historischen Root-Demos nach `src/experiments/` und `src/showcases/`. Diese Migration soll separat erfolgen, mit Import-Updates und grüner CI in kleinen Schritten. Keine Massenverschiebung innerhalb eines Produktionsumbaus.
+Die verbleibenden historischen Root-Demos werden weiterhin in kleinen, überprüfbaren Tranchen nach `src/experiments/` beziehungsweise `src/showcases/` verschoben. Jede Tranche aktualisiert zuerst die Zielkopien und Registry-Imports, entfernt erst danach die alten Root-Kopien und muss anschließend die vollständige CI bestehen. Keine Massenverschiebung innerhalb eines Produktionsumbaus.
