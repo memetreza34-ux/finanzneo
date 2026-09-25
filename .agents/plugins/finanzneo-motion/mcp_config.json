@@ -2,7 +2,7 @@
   "mcpServers": {
     "lottiefiles-creator": {
       "command": "npx",
-      "args": ["-y", "@lottiefiles/creator-mcp@latest"]
+      "args": ["-y", "@lottiefiles/creator-mcp@0.2.2"]
     }
   }
 }
