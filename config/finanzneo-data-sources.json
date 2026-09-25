@@ -1,0 +1,86 @@
+{
+  "id": "finanzneo-data-sources-v1",
+  "renderPolicy": {
+    "remoteRequestsDuringRenderForbidden": true,
+    "localSnapshotsRequired": true,
+    "snapshotDirectory": "public/data",
+    "sourceAndDateRequiredInDataVisuals": true
+  },
+  "priority": [
+    "official-primary-source",
+    "dbnomics-discovery-or-normalization",
+    "market-data-provider"
+  ],
+  "sources": {
+    "bundesbank": {
+      "class": "official-primary-source",
+      "name": "Deutsche Bundesbank",
+      "baseUrl": "https://api.statistiken.bundesbank.de/rest/data/",
+      "formats": ["sdmx_json", "sdmx_csv", "bbk_csv"],
+      "auth": "none",
+      "bestFor": ["German macroeconomic time series", "interest rates", "exchange rates", "banking statistics"]
+    },
+    "ecb": {
+      "class": "official-primary-source",
+      "name": "European Central Bank",
+      "baseUrl": "https://data-api.ecb.europa.eu/service/data/",
+      "formats": ["sdmx-json", "csvdata"],
+      "auth": "none",
+      "bestFor": ["Euro area statistics", "ECB rates", "HICP", "exchange rates", "monetary statistics"]
+    },
+    "destatis-genesis": {
+      "class": "official-primary-source",
+      "name": "Statistisches Bundesamt GENESIS",
+      "baseUrl": "https://www-genesis.destatis.de/genesisWS/rest/2020/",
+      "formats": ["json"],
+      "auth": "account-required-for-many-methods",
+      "bestFor": ["German official statistics", "population", "prices", "labour", "income", "national accounts"]
+    },
+    "dbnomics": {
+      "class": "dbnomics-discovery-or-normalization",
+      "name": "DBnomics",
+      "baseUrl": "https://api.db.nomics.world/v22/",
+      "formats": ["json"],
+      "auth": "none",
+      "bestFor": ["discovering economic series across providers", "normalizing heterogeneous public datasets"]
+    },
+    "yahoo-finance": {
+      "class": "market-data-provider",
+      "name": "Yahoo Finance",
+      "baseUrl": "https://query1.finance.yahoo.com/v8/finance/chart/",
+      "auth": "none-for-current-fetcher",
+      "bestFor": ["stocks", "ETFs", "indices", "market-history"],
+      "warning": "Always distinguish index, ETF and proxy."
+    },
+    "coingecko": {
+      "class": "market-data-provider",
+      "name": "CoinGecko",
+      "baseUrl": "https://api.coingecko.com/api/v3/",
+      "auth": "none-for-current-fetcher",
+      "bestFor": ["crypto-history"]
+    },
+    "exchange-rate-api": {
+      "class": "market-data-provider",
+      "name": "ExchangeRate-API open endpoint",
+      "baseUrl": "https://open.er-api.com/v6/latest/",
+      "auth": "none",
+      "bestFor": ["simple FX snapshots"]
+    }
+  },
+  "snapshotRequiredFields": [
+    "source",
+    "sourceUrl",
+    "fetchedAt"
+  ],
+  "timeseriesRecommendedFields": [
+    "schemaVersion",
+    "kind",
+    "provider",
+    "seriesId",
+    "frequency",
+    "unit",
+    "instrumentType",
+    "proxyFor",
+    "chart"
+  ]
+}
