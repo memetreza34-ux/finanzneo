@@ -94,7 +94,7 @@ LottieFinanzGrid.tsx
 src/reels-test/
 src/zins/
 ```
-Historische/experimentelle Szenen. Sie dürfen als Lernmaterial existieren, sind aber keine Produktionsvorlage.
+Historische/experimentelle Szenen. Sie dürfen als Lernmaterial existieren, sind aber keine Produktionsvorlage. Diese beiden Ordner bleiben vorerst bewusst bestehen, weil ein tieferer Move viele interne relative Imports betrifft und nur als eigene CI-geprüfte Tranche erfolgen soll.
 
 ## Composition-Registries
 
