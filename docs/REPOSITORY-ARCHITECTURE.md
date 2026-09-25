@@ -50,7 +50,20 @@ Technische Produktionsvorlagen. Keine beliebigen Experimente hier ablegen.
 ```text
 src/experiments/
 ```
-Expliziter Ablageort für isolierte Tests und Demos. Die erste risikoarme Migration ist abgeschlossen: `MockTest.tsx`, `MockMindmap.tsx`, `RealDataDemo.tsx` und `LottieTest.tsx` liegen hier und werden von `ExperimentCompositions.tsx` registriert.
+Expliziter Ablageort für isolierte Tests und Demos. Die Root-Experimentmigration ist jetzt für diese acht Dateien abgeschlossen:
+
+```text
+MockTest.tsx
+MockMindmap.tsx
+RealDataDemo.tsx
+LottieTest.tsx
+PassivTest.tsx
+PremiumTest.tsx
+Signature.tsx
+Variants.tsx
+```
+
+`ExperimentCompositions.tsx` registriert diese Dateien weiterhin unter denselben Composition-IDs; nur ihre physische Ablage wurde bereinigt.
 
 ```text
 src/reels-test/
@@ -58,7 +71,7 @@ src/zins/
 ```
 Historische/experimentelle Szenen. Sie dürfen als Lernmaterial existieren, sind aber keine Produktionsvorlage.
 
-Einige weitere historisch gewachsene Root-Dateien wie `PassivTest.tsx`, `PremiumTest.tsx`, `Signature.tsx`, `Variants.tsx`, `Showcase*.tsx` und `Thumbnail*.tsx` sind noch nicht migriert. Neue Arbeit soll im Root nicht weiter anwachsen.
+Die nächste Strukturtranche betrifft überwiegend historisch gewachsene Showcase-/Preview-Dateien wie `Showcase*.tsx`, `Thumbnail*.tsx`, `ProfilePic.tsx` und ähnliche Root-Demos. Neue Arbeit soll im `src/`-Root nicht weiter anwachsen.
 
 ## Composition-Registries
 
@@ -99,4 +112,4 @@ Details: `docs/DATA-PIPELINE.md`.
 
 ## Künftige Strukturverbesserung
 
-Die verbleibenden historischen Root-Demos werden weiterhin in kleinen, überprüfbaren Tranchen nach `src/experiments/` beziehungsweise `src/showcases/` verschoben. Jede Tranche aktualisiert zuerst die Zielkopien und Registry-Imports, entfernt erst danach die alten Root-Kopien und muss anschließend die vollständige CI bestehen. Keine Massenverschiebung innerhalb eines Produktionsumbaus.
+Die verbleibenden historischen Root-Demos werden weiterhin in kleinen, überprüfbaren Tranchen nach `src/showcases/` beziehungsweise in den jeweils passenden expliziten Bereich verschoben. Jede Tranche aktualisiert zuerst die Zielkopien und Registry-Imports, entfernt erst danach die alten Root-Kopien und muss anschließend die vollständige CI bestehen. Keine Massenverschiebung innerhalb eines Produktionsumbaus.
