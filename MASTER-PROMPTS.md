@@ -8,6 +8,7 @@
 CLAUDE.md
 config/finanzneo-production-standard.json
 reels/PRODUKTIONSSTANDARD.md
+docs/PHASE-1-BRIEFING.md
 docs/3-PHASEN-WORKFLOW.md
 docs/PHASE-1-ANIMATION-CODE-STANDARD.md
 docs/PHASE-3-COMPLETION-GATE.md
