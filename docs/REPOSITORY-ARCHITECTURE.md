@@ -68,7 +68,7 @@ Variants.tsx
 ```text
 src/showcases/
 ```
-Expliziter Ablageort für statische Previews, Branding-Demos und Baukasten-Showcases. Die bisherigen kleinen Root-Migrationen sind abgeschlossen:
+Expliziter Ablageort für statische Previews, Branding-Demos und Baukasten-Showcases. Die bisherige Root-Showcase-Migration ist abgeschlossen:
 
 ```text
 Thumbnail.tsx
@@ -83,17 +83,18 @@ Showcase2.tsx
 Showcase3.tsx
 Showcase4.tsx
 Showcase5.tsx
+Sizzle.tsx
+UpgradeShowcase.tsx
+LottieFinanzGrid.tsx
 ```
 
-`ShowcaseCompositions.tsx` behält die bestehenden Composition-IDs und zeigt jetzt auf diese neuen Pfade.
+`ShowcaseCompositions.tsx` behält die bestehenden Composition-IDs und zeigt auf diese Showcase-Pfade. Neue Showcase-/Preview-Arbeit gehört nicht mehr in den `src/`-Root.
 
 ```text
 src/reels-test/
 src/zins/
 ```
 Historische/experimentelle Szenen. Sie dürfen als Lernmaterial existieren, sind aber keine Produktionsvorlage.
-
-Weitere historisch gewachsene Showcase-Dateien `Sizzle.tsx`, `UpgradeShowcase.tsx` und `LottieFinanzGrid.tsx` liegen noch im `src/`-Root. Neue Arbeit soll dort nicht weiter anwachsen.
 
 ## Composition-Registries
 
@@ -134,4 +135,4 @@ Details: `docs/DATA-PIPELINE.md`.
 
 ## Künftige Strukturverbesserung
 
-Die verbleibenden historischen Root-Demos werden weiterhin in kleinen, überprüfbaren Tranchen nach `src/showcases/` beziehungsweise in den jeweils passenden expliziten Bereich verschoben. Jede Tranche aktualisiert zuerst die Zielkopien und Registry-Imports, entfernt erst danach die alten Root-Kopien und muss anschließend die vollständige CI bestehen. Keine Massenverschiebung innerhalb eines Produktionsumbaus.
+Die historische Root-Experiment- und Root-Showcase-Bereinigung ist abgeschlossen. Weitere Strukturänderungen nur noch gezielt und in kleinen, überprüfbaren Tranchen durchführen. Jede Tranche muss Registry-Imports, Dokumentation und vollständige CI gemeinsam grün halten; keine Massenverschiebungen ohne konkreten Nutzen.

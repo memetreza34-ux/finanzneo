@@ -4,7 +4,7 @@
 // ════════════════════════════════════════════════════════════════════════════
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
-import { C, FONT, Background, Vignette, LottieBox } from './brand';
+import { C, FONT, Background, Vignette, LottieBox } from '../brand';
 
 const ITEMS = [
   ['muenzen', 'Münzen — sparen'],

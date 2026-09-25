@@ -12,7 +12,7 @@ import {
   Scramble, KineticPunch, FlipIn3D, WaveText,
   MilestoneTimeline, StatsCards,
   sceneTransition,
-} from './brand';
+} from '../brand';
 
 const SEG = sec(4); // 4s pro Kapitel
 
