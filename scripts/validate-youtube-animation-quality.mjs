@@ -2,6 +2,7 @@
 import {existsSync, readFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {
+  isStaticYouTubeVisual,
   LEGACY_YOUTUBE_MOTION_STANDARD_IDS,
   requiresYouTubeMotion,
   validateYouTubeMotionMetadata,
@@ -56,6 +57,8 @@ const forbiddenSourcePatterns = [
   [/\b(TODO|PLACEHOLDER|EINFÜGEN|KURZER NAME|SCRIPT BEAT|VIEWER CHANGE|MOTION REASON)\b/i, 'animation.tsx enthält noch einen Platzhalter.'],
 ];
 
+let staticCount = 0;
+let animatedCount = 0;
 for (const visual of visuals.filter(requiresYouTubeMotion)) {
   const id = visual.id ?? 'Unbekanntes Visual';
   const sourcePath = resolve(root, visual.animationSourceFile ?? '');
@@ -69,9 +72,16 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
     if (pattern.test(source)) errors.push(`${id}: ${message}`);
   }
 
-  if (!/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: useCurrentFrame() fehlt.`);
-  if (!/\b(interpolate|spring)\s*\(/.test(source)) {
-    errors.push(`${id}: mindestens interpolate() oder spring() muss sichtbare Frame-Motion steuern.`);
+  if (isStaticYouTubeVisual(visual)) {
+    staticCount += 1;
+    if (/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: Phase-A-STATIC darf useCurrentFrame() nicht für Frame-Motion verwenden.`);
+    if (/\b(interpolate|spring)\s*\(/.test(source)) errors.push(`${id}: Phase-A-STATIC darf interpolate() oder spring() nicht verwenden.`);
+  } else {
+    animatedCount += 1;
+    if (!/useCurrentFrame\s*\(/.test(source)) errors.push(`${id}: useCurrentFrame() fehlt.`);
+    if (!/\b(interpolate|spring)\s*\(/.test(source)) {
+      errors.push(`${id}: mindestens interpolate() oder spring() muss sichtbare Frame-Motion steuern.`);
+    }
   }
 
   const safeExport = String(visual.animationExport ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -84,14 +94,14 @@ for (const visual of visuals.filter(requiresYouTubeMotion)) {
 }
 
 if (errors.length) {
-  console.error('\nYouTube Motion verletzt den Produktionsvertrag:\n');
+  console.error('\nYouTube Motion/Static-Remotion verletzt den Produktionsvertrag:\n');
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
 
-console.log('\n✓ YouTube Motion erfüllt den Produktionsvertrag.');
+console.log('\n✓ YouTube Remotion erfüllt den Produktionsvertrag.');
 if (index?.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID) {
-  console.log('  Motion V4 Simple · verständlich · wiederverwendbar · deterministisch · keine künstliche Variety-Quote.');
+  console.log(`  Motion V4 Simple · ${staticCount} statische Remotion-Visual(s) · ${animatedCount} animierte Visual(s) · deterministisch.`);
 } else {
   console.log('  Legacy Motion V3 akzeptiert; neue Projekte sollen Motion V4 Simple verwenden.');
 }

@@ -14,6 +14,11 @@ export * from '../finance/examples';
 export {FinanceBackground, VerticalSafeAreaGuide} from './FinanceBackground';
 export type {FinanceBackgroundVariant} from './FinanceBackground';
 
+// Statische YouTube-Phase-A-Erklärbausteine. Diese Komponenten enthalten bewusst
+// keine Frame-Animation und sind für exakte Labels, Zahlen, Vergleiche und Mini-Charts gedacht.
+export {StaticArrow, StaticCompare, StaticLabels, StaticMiniChart, StaticNumber} from './YouTubeStaticExplainers';
+export type {StaticTone} from './YouTubeStaticExplainers';
+
 // Premium-Erweiterungen bleiben bewusst in Namensräumen.
 // Dadurch entstehen keine Export-Kollisionen zwischen alten und neuen Komponenten.
 export * as PremiumCore from '../bausteine/fn_core';

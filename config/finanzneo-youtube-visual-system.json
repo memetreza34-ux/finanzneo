@@ -20,18 +20,33 @@
   },
   "productionModes": {
     "images-only": {
-      "description": "Static YouTube scenes with the normal framed FinanzNeo layout: heading, matching icon and contained Flow image; no animation.",
-      "allowedVisualTypes": ["image"],
+      "description": "Phase A Static: same FinanzNeo layout and same image world, but absolutely no animation. Static Flow stories, static Flow+Remotion explainers, static data visuals and real assets are allowed.",
+      "semanticName": "phase-a-static",
+      "animationDisabledOnly": true,
+      "allowedVisualTypes": ["image", "hybrid", "data", "real-asset"],
+      "forbiddenVisualTypes": ["animation"],
+      "allowedStaticVisualKinds": ["3d-story", "3d-explainer", "static-data", "real-asset"],
+      "staticImageVisualsOnly": false,
       "staticSceneLayoutRequired": true,
       "staticLayoutAssemblyAllowed": true,
-      "remotionExplainerVisualsAllowed": false,
+      "remotionExplainerVisualsAllowed": true,
+      "staticRemotionExplainerVisualsAllowed": true,
+      "staticDataVisualsAllowed": true,
+      "staticHybridOverlaysAllowed": true,
       "remotionAnimationAllowed": false,
-      "staticImageVisualsOnly": true,
+      "exactTextAndNumbersInStaticLayoutAllowed": true,
+      "flowImageRequiredForEveryScene": false,
       "oneMainIdeaPerVisual": true,
-      "recommendedVoiceoverSentencesPerImage": [1, 2]
+      "recommendedVoiceoverSentencesPerImage": [1, 2],
+      "recommendedMixExampleFor20": {
+        "3d-story": 13,
+        "3d-explainer": 4,
+        "static-data": 3
+      },
+      "mixIsHardQuota": false
     },
     "hybrid": {
-      "description": "Same framed FinanzNeo scene layout as images-only, with heading, icon and contained visual; animation and additional explainer visuals are allowed.",
+      "description": "Same framed FinanzNeo scene layout and same image world; animation and additional explainer visuals are allowed.",
       "allowedVisualTypes": ["image", "hybrid", "animation", "data", "real-asset"],
       "staticSceneLayoutRequired": true,
       "staticLayoutAssemblyAllowed": true,
@@ -52,9 +67,12 @@
     "flowImageFullscreenForbiddenInEveryMode": true,
     "sameSceneLayoutAcrossModes": true,
     "imagesOnlyModeDisablesAnimationNotLayout": true,
-    "remotionOwnsTextAndNumbersInHybridMode": true,
+    "imagesOnlyModeAllowsStaticRemotionExplainers": true,
+    "imagesOnlyModeAllowsStaticDataVisuals": true,
+    "remotionOwnsTextAndNumbersInEveryMode": true,
+    "flowImageCanReserveNegativeSpaceForStaticOverlays": true,
     "flowRequiresJustificationInHybridMode": true,
-    "flowIsPrimaryVisualSourceInImagesOnlyMode": true,
+    "flowIsPrimaryButNotExclusiveVisualSourceInImagesOnlyMode": true,
     "realAssetsPreferredOverGeneratedImitations": true,
     "stylized3DForFlowImages": true,
     "simpleCompositionDoesNotMeanFlatIllustration": true,
@@ -63,11 +81,11 @@
     "staticCatalogDefaultForbidden": true,
     "stagingMustFollowSpokenPoint": true,
     "repeatedFloatingObjectTemplateForbidden": true,
-    "reusableExplainerPatternsAreAllowedInHybridMode": true,
+    "reusableExplainerPatternsAreAllowedInEveryMode": true,
     "noveltyForItsOwnSake": false
   },
   "assetDecisionOrderByMode": {
-    "images-only": ["google-flow"],
+    "images-only": ["google-flow", "static-remotion", "real-asset"],
     "hybrid": ["remotion", "real-asset", "google-flow"]
   },
   "remotionBestFor": [
@@ -122,6 +140,7 @@
     "waitRenameQaBeforeNext": true
   },
   "standardMotionPresets": [
+    "STATIC",
     "FADE_IN",
     "SLIDE_UP",
     "SLIDE_LEFT",
@@ -133,7 +152,12 @@
     "SLOW_ZOOM"
   ],
   "flowGate": {
-    "images-only": "Flow is the planned visual source; still reject a scene if it cannot communicate one clear spoken point as a strong static image inside the framed scene layout.",
+    "images-only": {
+      "question": "Does a strong 3D story explain this best, or would exact static text, a comparison, mini-chart or real asset make the point clearer?",
+      "prefer3dStoryWhen": "physical cause-effect or everyday finance situation is the clearest explanation",
+      "prefer3dExplainerWhen": "the 3D story is useful but exact labels, arrows or numbers materially improve comprehension",
+      "preferStaticDataWhen": "a number, comparison, formula or mini-chart explains the point more directly than a generated image"
+    },
     "hybrid": {
       "question": "Can text, number, icon, chart, diagram, screenshot or real asset explain this equally well or better?",
       "ifYes": "forbid-flow",
@@ -155,8 +179,10 @@
     "Flow image is not a static tabletop/catalog product shot",
     "staging follows the spoken point instead of repeating a template",
     "ambiguous important objects use short physical German labels when needed",
-    "nothing decorative can be removed without losing meaning",
-    "images-only mode contains no animation but keeps the full static scene layout",
+    "exact explanatory text and important numbers are rendered by the video layout rather than entrusted to Flow",
+    "3d-explainer images reserve usable negative space when static overlays are planned",
+    "images-only mode contains no frame-to-frame animation",
+    "images-only mode may use static Remotion labels arrows numbers comparisons and mini-charts",
     "hybrid mode uses Flow only when justified",
     "simpler visual would not work equally well"
   ]

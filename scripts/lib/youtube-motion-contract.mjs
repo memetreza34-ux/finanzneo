@@ -7,6 +7,7 @@ export const YOUTUBE_IMAGE_VISUAL_TYPES = new Set(['image', 'hybrid']);
 export const YOUTUBE_REAL_ASSET_VISUAL_TYPES = new Set(['real-asset']);
 
 export const YOUTUBE_STANDARD_MOTION_PRESETS = [
+  'STATIC',
   'FADE_IN',
   'SLIDE_UP',
   'SLIDE_LEFT',
@@ -41,18 +42,24 @@ export const requiresYouTubeMotion = (visual) => YOUTUBE_MOTION_VISUAL_TYPES.has
 export const requiresYouTubeImage = (visual) => YOUTUBE_IMAGE_VISUAL_TYPES.has(visual?.type);
 export const requiresYouTubeRealAsset = (visual) => YOUTUBE_REAL_ASSET_VISUAL_TYPES.has(visual?.type);
 export const motionSourcePathFor = (visual) => visual?.animationSourceFile ?? '';
+export const isStaticYouTubeVisual = (visual) => visual?.animationDisabled === true
+  || String(visual?.motionPreset ?? '').trim().toUpperCase() === 'STATIC';
 
 const nonEmpty = (value) => typeof value === 'string' && value.trim();
 
 export const getYouTubeMotionReason = (visual) => visual?.reason ?? visual?.animationIntent ?? '';
-export const getYouTubeMotionPreset = (visual) => visual?.motionPreset
-  ?? (nonEmpty(visual?.visualTechniqueId) ? 'CUSTOM' : '');
+export const getYouTubeMotionPreset = (visual) => {
+  if (nonEmpty(visual?.motionPreset)) return visual.motionPreset;
+  if (isStaticYouTubeVisual(visual)) return 'STATIC';
+  return nonEmpty(visual?.visualTechniqueId) ? 'CUSTOM' : '';
+};
 
 export const validateYouTubeMotionMetadata = (visual) => {
   if (!requiresYouTubeMotion(visual)) return [];
 
   const id = visual?.id ?? 'Unbekanntes Visual';
   const errors = [];
+  const isStatic = isStaticYouTubeVisual(visual);
 
   if (!nonEmpty(visual?.viewerChange)) errors.push(`${id}: viewerChange fehlt.`);
   if (!nonEmpty(getYouTubeMotionReason(visual))) errors.push(`${id}: reason fehlt.`);
@@ -61,7 +68,14 @@ export const validateYouTubeMotionMetadata = (visual) => {
   if (!nonEmpty(motionPreset)) {
     errors.push(`${id}: motionPreset fehlt.`);
   } else if (!YOUTUBE_STANDARD_MOTION_PRESETS.includes(String(motionPreset).trim().toUpperCase())) {
-    errors.push(`${id}: motionPreset '${motionPreset}' ist unbekannt. Nutze einen Standard-Preset oder CUSTOM.`);
+    errors.push(`${id}: motionPreset '${motionPreset}' ist unbekannt. Nutze STATIC, einen Standard-Preset oder CUSTOM.`);
+  }
+
+  if (isStatic && String(motionPreset).trim().toUpperCase() !== 'STATIC') {
+    errors.push(`${id}: animationDisabled=true braucht motionPreset=STATIC.`);
+  }
+  if (String(motionPreset).trim().toUpperCase() === 'STATIC' && visual?.animationDisabled !== true) {
+    errors.push(`${id}: motionPreset=STATIC braucht animationDisabled=true.`);
   }
 
   if (!nonEmpty(visual?.animationSourceFile)) errors.push(`${id}: animationSourceFile fehlt.`);
@@ -69,7 +83,7 @@ export const validateYouTubeMotionMetadata = (visual) => {
 
   if (!nonEmpty(visual?.animationExport)) errors.push(`${id}: animationExport fehlt.`);
 
-  if (String(motionPreset).trim().toUpperCase() === 'CUSTOM' && !nonEmpty(visual?.advancedReason) && !nonEmpty(visual?.visualTechniqueId)) {
+  if (!isStatic && String(motionPreset).trim().toUpperCase() === 'CUSTOM' && !nonEmpty(visual?.advancedReason) && !nonEmpty(visual?.visualTechniqueId)) {
     errors.push(`${id}: CUSTOM braucht advancedReason, außer es handelt sich um ein Legacy-V3-Visual.`);
   }
 
