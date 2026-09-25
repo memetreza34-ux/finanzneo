@@ -16,6 +16,8 @@
     "build": "npx remotion bundle src/index.ts",
     "data:fetch": "node scripts/fetch-data.mjs",
     "data:validate": "node scripts/validate-data-snapshots.mjs",
+    "audio:process": "node scripts/process-voiceover.mjs",
+    "audio:validate": "node scripts/validate-voiceover-processing.mjs",
     "reel:create": "node scripts/create-finanzneo-reel.mjs",
     "reel:visual-world:v9": "node scripts/apply-stylized-animated-black-world-v9.mjs",
     "reel:sort-images": "node scripts/sort-reel-images.mjs",

@@ -21,6 +21,9 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 const contract = spawnSync(process.execPath, [resolve('scripts/validate-reel.mjs'), root], {stdio: 'inherit'});
 if (contract.status !== 0) process.exit(contract.status ?? 1);
 
+const voiceover = spawnSync(process.execPath, [resolve('scripts/validate-voiceover-processing.mjs'), root], {stdio: 'inherit'});
+if (voiceover.status !== 0) process.exit(voiceover.status ?? 1);
+
 const result = analyzeReelReadiness(root);
 
 const printBlockers = (title, blockers) => {
@@ -87,7 +90,8 @@ if (seal.status !== 0) {
 
 const executor = PHASE3_EXECUTORS[result.phase3Executor];
 console.log('\n✓ PHASE 3 STARTKLAR');
-console.log(`  ${result.expectedImages.length} quadratische 1:1-Bilder · 1 finales Voiceover · echte Wort-Zeitstempel`);
+console.log(`  ${result.expectedImages.length} quadratische 1:1-Bilder · 1 verarbeitetes Voiceover · echte Wort-Zeitstempel`);
+console.log(`  Voiceover-Pacing: 1,10× + lange Pausen verdichtet; processed voiceover ist Timing-Autorität.`);
 console.log(`  Executor: ${executor.label}`);
 console.log(`  Übergabe: ${executor.handoff}`);
 console.log('  Phase-1-Animationscode ist versiegelt und darf in Phase 3 nicht ersetzt werden.');
