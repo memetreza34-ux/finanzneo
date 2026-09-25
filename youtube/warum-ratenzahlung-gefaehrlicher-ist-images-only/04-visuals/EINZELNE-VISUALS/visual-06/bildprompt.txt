@@ -1,0 +1,53 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME: YouTube Bild 06 - Kleine Raten zusammen.png
+FLOW_NECESSITY_REASON: Flow shows several separate obligations converging; the exact addition is added later as static Remotion text.
+VOICEOVER_VISUAL_MATCH: Small individual rates visibly combine into one heavier monthly burden.
+STATIC_REMOTION_OVERLAY: Reserve clean space for “25 € + 40 € + 35 € + 20 €”.
+
+GOOGLE FLOW PROMPT — COPY/PASTE READY
+Create a premium stylized 3D animation-film scene for a German finance education video.
+
+VOICEOVER CONTEXT:
+Jede einzelne Rate wirkt noch klein. Zusammen wird daraus aber oft eine spürbare monatliche Belastung.
+This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
+
+SCENE:
+Create four small physical monthly-payment cards labeled only “Rate”, entering from different positions and converging into one heavier combined monthly-budget block or envelope. Do not generate any euro amounts.
+
+IMPORTANT GERMAN OBJECT LABELS:
+“Rate” on each small card.
+
+OBJECTS:
+- four small rate cards
+- one larger combined monthly-budget block/envelope
+- minimal grounding surface
+
+VISUAL STORYTELLING:
+Separate small commitments converge physically into one common burden, turning several harmless-looking pieces into one meaningful monthly load.
+
+COMPOSITION:
+Converging diagonal paths toward a larger central-right burden. Reserve a clean lower or side zone for exact static addition text.
+
+MATERIALS:
+Premium thick paper cards, matte budget envelope/block, soft contact reflections.
+
+BACKGROUND:
+Deep seamless black with minimal floor/contact shadow.
+
+LIGHTING:
+Neutral cards with progressively warmer risk accents near the combined burden.
+
+COLOR LANGUAGE:
+Deep black, warm neutral cards, restrained red-orange near the combined burden.
+
+TEXT:
+Do not generate euro amounts, plus signs or equation inside Flow. Only physical “Rate” labels. Exact numbers are added later by the static layout.
+
+FORBIDDEN:
+Infographic card grid, static tabletop/catalog staging, generated equation, floating UI, photorealism, flat 2D.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1

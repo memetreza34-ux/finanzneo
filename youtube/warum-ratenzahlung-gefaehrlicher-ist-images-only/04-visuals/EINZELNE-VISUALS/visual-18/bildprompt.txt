@@ -1,0 +1,54 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME: YouTube Bild 18 - Rate abwaegen.png
+FLOW_NECESSITY_REASON: A balanced physical weighing scene communicates nuance and prevents the message from becoming “all financing is bad”.
+VOICEOVER_VISUAL_MATCH: Useful purchase value and contractual commitment are visibly weighed against each other.
+STATIC_REMOTION_OVERLAY: None.
+
+GOOGLE FLOW PROMPT — COPY/PASTE READY
+Create a premium stylized 3D animation-film scene for a German finance education video.
+
+VOICEOVER CONTEXT:
+Ratenzahlungen sind nicht automatisch schlecht. Aber sie wirken oft harmloser, als sie in Wahrheit sind.
+This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
+
+SCENE:
+Show a premium physical balance scale. One side holds a useful purchased item. The other holds a financing contract labeled “Vertrag” plus a small card labeled “Rate”. The balance should not be catastrophically tipped; the point is deliberate weighing, not moral panic.
+
+IMPORTANT GERMAN OBJECT LABELS:
+“Vertrag” and “Rate”.
+
+OBJECTS:
+- physical balance scale
+- useful consumer item
+- contract labeled “Vertrag”
+- small card labeled “Rate”
+
+VISUAL STORYTELLING:
+The product’s usefulness and the financing commitment are both visible and physically weighed against each other.
+
+COMPOSITION:
+Medium 3/4 shot, balanced but slightly tense, strong subject separation and black negative space around the scale.
+
+MATERIALS:
+Brushed metal scale, premium paper, stylized product materials.
+
+BACKGROUND:
+Deep seamless black with subtle grounded reflection.
+
+LIGHTING:
+Neutral balanced lighting, small emerald accent on usefulness side and warm red-orange on commitment side.
+
+COLOR LANGUAGE:
+Deep black, warm neutrals, restrained semantic green/red accents.
+
+TEXT:
+No headline or long copy. Only “Vertrag” and “Rate” on the physical items.
+
+FORBIDDEN:
+Dramatic crash, skulls, oversized warning signs, moralizing cartoon, flat comparison slide, static tabletop/catalog staging, photorealism.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1

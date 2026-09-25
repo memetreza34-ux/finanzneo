@@ -1,0 +1,53 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME: YouTube Bild 13 - Feste Verpflichtung.png
+FLOW_NECESSITY_REASON: A physical contract binding future calendar months shows commitment more clearly than a definition slide.
+VOICEOVER_VISUAL_MATCH: The financing contract visibly ties together many upcoming months.
+STATIC_REMOTION_OVERLAY: None.
+
+GOOGLE FLOW PROMPT — COPY/PASTE READY
+Create a premium stylized 3D animation-film scene for a German finance education video.
+
+VOICEOVER CONTEXT:
+Eine Rate ist nicht einfach nur eine kleine Ausgabe. Sie ist eine feste Verpflichtung für viele kommende Monate.
+This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
+
+SCENE:
+Create a physical financing contract labeled “Vertrag” that visibly binds a sequence of upcoming monthly calendar pages together, as if the commitment locks them into one chain. The image should communicate ongoing obligation, not a one-time expense.
+
+IMPORTANT GERMAN OBJECT LABELS:
+“Vertrag”.
+
+OBJECTS:
+- financing contract labeled “Vertrag”
+- several monthly calendar pages
+- simple fastening/binding element
+
+VISUAL STORYTELLING:
+The contract is the physical cause; the bound sequence of future months is the visible consequence.
+
+COMPOSITION:
+Contract in strong foreground, calendar sequence extending behind through depth, clear physical binding relationship, useful black space around it.
+
+MATERIALS:
+Premium paper, metal clip/binding ring, subtle calendar paper texture.
+
+BACKGROUND:
+Deep seamless black with only minimal contact context.
+
+LIGHTING:
+Neutral premium key with restrained warm red-orange emphasis at the binding point.
+
+COLOR LANGUAGE:
+Deep black dominant, warm paper neutrals, limited risk accent.
+
+TEXT:
+No headline or long copy. Only “Vertrag” on the physical contract.
+
+FORBIDDEN:
+Padlock icon as the only idea, flat timeline, office flat lay, static tabletop/catalog staging, photorealism, flat 2D.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1

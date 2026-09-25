@@ -1,0 +1,53 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME: YouTube Bild 15 - Alle Raten zusammenrechnen.png
+FLOW_NECESSITY_REASON: Flow shows the separate real obligations; the exact summary logic is added later as a static Remotion overlay.
+VOICEOVER_VISUAL_MATCH: Several rate cards visibly converge into one monthly budget.
+STATIC_REMOTION_OVERLAY: Reserve clean space for “Alle laufenden Raten → Monatsbelastung”.
+
+GOOGLE FLOW PROMPT — COPY/PASTE READY
+Create a premium stylized 3D animation-film scene for a German finance education video.
+
+VOICEOVER CONTEXT:
+Rechne außerdem alle laufenden Raten zusammen. Nur so siehst du, wie stark sie dein Monatsbudget wirklich belasten.
+This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
+
+SCENE:
+Create three or four small physical financing cards/receipts from different purchases, each labeled only “Rate”, converging toward one monthly budget envelope. Leave a clean dark zone for the later static explanation. Do not generate totals.
+
+IMPORTANT GERMAN OBJECT LABELS:
+“Rate” on the small cards.
+
+OBJECTS:
+- three or four physical rate cards
+- one monthly budget envelope
+- subtle cues of different purchases without clutter
+
+VISUAL STORYTELLING:
+Separate commitments from different purchases physically converge toward the same monthly budget, revealing that they must be evaluated together.
+
+COMPOSITION:
+Converging left-to-center flow of rate cards, monthly budget on the right, clean upper-right or lower-right negative space for the static overlay.
+
+MATERIALS:
+Thick premium paper cards, matte envelope, small restrained product-material cues.
+
+BACKGROUND:
+Deep seamless black with minimal grounding.
+
+LIGHTING:
+Neutral cards with controlled warm risk accents; budget remains warm ivory/soft gray.
+
+COLOR LANGUAGE:
+Deep black, warm neutrals, restrained red-orange for obligations.
+
+TEXT:
+No euro totals, equation, headline or floating UI. Only physical “Rate” labels.
+
+FORBIDDEN:
+Spreadsheet/dashboard look, card grid, generated calculation, static tabletop/catalog staging, photorealism, flat 2D.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1

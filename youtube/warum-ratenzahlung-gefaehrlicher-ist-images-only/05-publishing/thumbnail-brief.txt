@@ -1,0 +1,17 @@
+# Thumbnail-Brief
+
+Kernidee: kleine Monatsrate vorne, lange Verpflichtung dahinter.
+
+Visual:
+- kleine physische Karte `50 €/Monat` deutlich im Vordergrund
+- dahinter großer Kaufgegenstand + lange Reihe Kalenderblätter + Vertrag
+- gleiche premium stylized 3D FinanzNeo-Welt
+- deep black dominant
+- rechte 2/3 Visual, linke Seite frei für späteren Text
+
+Textoption außerhalb des Flow-Bildes:
+`NUR 50 €?`
+oder
+`DIE RATEN-FALLE`
+
+Keine Coin-/Piggybank-Klischees, kein Fake-UI, keine Photorealistik.

@@ -1,0 +1,31 @@
+{
+  "version": 3,
+  "title": "Warum Ratenzahlung gefährlicher ist, als sie wirkt",
+  "fps": 30,
+  "timingSource": "03-audio/word-timings.json",
+  "audioAuthority": "03-audio/voiceover.processed.wav",
+  "cutRule": "voice-beat-and-chapter-driven",
+  "fixedVisualCount": false,
+  "visuals": [
+    {"id":"visual-01","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-02","type":"hybrid","startFrame":0,"durationFrames":0},
+    {"id":"visual-03","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-04","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-05","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-06","type":"hybrid","startFrame":0,"durationFrames":0},
+    {"id":"visual-07","type":"data","startFrame":0,"durationFrames":0},
+    {"id":"visual-08","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-09","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-10","type":"hybrid","startFrame":0,"durationFrames":0},
+    {"id":"visual-11","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-12","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-13","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-14","type":"data","startFrame":0,"durationFrames":0},
+    {"id":"visual-15","type":"hybrid","startFrame":0,"durationFrames":0},
+    {"id":"visual-16","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-17","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-18","type":"image","startFrame":0,"durationFrames":0},
+    {"id":"visual-19","type":"data","startFrame":0,"durationFrames":0},
+    {"id":"visual-20","type":"image","startFrame":0,"durationFrames":0}
+  ]
+}

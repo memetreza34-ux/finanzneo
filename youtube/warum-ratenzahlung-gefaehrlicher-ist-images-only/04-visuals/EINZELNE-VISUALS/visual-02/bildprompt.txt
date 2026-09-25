@@ -1,0 +1,53 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME: YouTube Bild 02 - Grosser Preis kleine Rate.png
+FLOW_NECESSITY_REASON: Flow supplies the concrete purchasing situation while the exact 1.200 € → 50 €/Monat comparison is added later as a static Remotion overlay.
+VOICEOVER_VISUAL_MATCH: The 3D staging makes the monthly payment feel visually smaller and easier than the purchase itself.
+STATIC_REMOTION_OVERLAY: Reserve clean right-side negative space for “1.200 € → 50 €/Monat”.
+
+GOOGLE FLOW PROMPT — COPY/PASTE READY
+Create a premium stylized 3D animation-film scene for a German finance education video.
+
+VOICEOVER CONTEXT:
+Statt 1.200 Euro siehst du plötzlich nur noch 50 Euro im Monat. Psychologisch fühlt sich der Kauf dadurch viel leichter an.
+This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
+
+SCENE:
+Show a large premium appliance or laptop package on the left that feels substantial and expensive. A small physical card labeled “Rate” sits much closer to camera and feels light and easy. Do not generate the exact amounts; they will be added statically later.
+
+IMPORTANT GERMAN OBJECT LABELS:
+“Rate” physically on the small card.
+
+OBJECTS:
+- large premium purchase object
+- small card labeled “Rate”
+- minimal payment-counter context
+
+VISUAL STORYTELLING:
+The large purchase remains physically heavy in the background while the rate card moves visually into the foreground and becomes easier to process.
+
+COMPOSITION:
+Concentrate the 3D story on the left 55–60% of the 16:9 image. Keep the right 35–40% clean and dark for exact static typography added later. Strong depth, no slide-like layout.
+
+MATERIALS:
+Premium stylized metal/plastic product, thick paper card, restrained matte checkout surface.
+
+BACKGROUND:
+Deep seamless black with only a narrow local checkout context under the objects.
+
+LIGHTING:
+Soft premium studio light; subtle warm red-orange risk accent around the rate card.
+
+COLOR LANGUAGE:
+Deep black dominant, warm ivory/gray neutrals, restrained red-orange for risk.
+
+TEXT:
+Do not generate 1.200 €, 50 €/Monat, arrows, headline or subtitle. Only “Rate” may appear physically on the card. Exact numbers are added by the static video layout.
+
+FORBIDDEN:
+Static tabletop/catalog staging, generated equation, fake UI, photorealism, flat 2D, symmetric product advertisement, generic finance clutter.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1

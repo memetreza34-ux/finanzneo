@@ -1,0 +1,41 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME: YouTube Thumbnail - Ratenzahlung Falle.png
+
+GOOGLE FLOW THUMBNAIL PROMPT — COPY/PASTE READY
+Create a high-impact horizontal 16:9 finance YouTube thumbnail in the approved premium stylized 3D animation-film FinanzNeo world.
+
+CORE TENSION:
+A purchase that looks cheap per month but is actually a large long-term commitment.
+
+SCENE:
+One large premium consumer product sits behind a deceptively small physical card labeled “50 €/Monat”. A long chain of calendar pages and a financing contract extend behind the small card, revealing the hidden duration and commitment. The small rate should feel visually innocent in front, while the long obligation behind it creates the tension.
+
+VISUAL STORYTELLING:
+The rate card hides the true scale of the commitment at first glance; the calendar chain and contract reveal what sits behind it.
+
+COMPOSITION:
+Large subject cluster on the right two-thirds. Leave strong clean negative space on the left for thumbnail typography added later. Medium-low 3/4 angle, large readable objects, strong depth, no clutter.
+
+MATERIALS:
+Premium stylized product metal/plastic, thick paper rate card, premium contract paper, calendar pages with believable thickness.
+
+BACKGROUND:
+Deep seamless black, tiny local purchase context only if needed.
+
+LIGHTING:
+Premium soft studio lighting with strong subject separation; restrained warm red-orange around the contract/calendar commitment, neutral product light.
+
+COLOR LANGUAGE:
+Deep black dominant, warm ivory/gray neutrals, restrained red-orange for obligation. Avoid neon.
+
+TEXT:
+The physical rate card may read “50 €/Monat”. Do not generate the YouTube headline. Leave the left side clean for later typography.
+
+FORBIDDEN:
+Static tabletop/catalog staging, generic piggy bank, pile of coins, fake app UI, photorealism, flat 2D, tiny diorama, cyberpunk, excessive glow.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1

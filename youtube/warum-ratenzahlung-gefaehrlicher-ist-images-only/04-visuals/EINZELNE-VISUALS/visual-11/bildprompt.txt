@@ -1,0 +1,53 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME: YouTube Bild 11 - Monatsrate im Mittelpunkt.png
+FLOW_NECESSITY_REASON: A real 3D retail display shows how an offer can visually prioritize the monthly rate over the total price.
+VOICEOVER_VISUAL_MATCH: The physical “Monatsrate” sign dominates while the “Gesamtpreis” remains secondary.
+STATIC_REMOTION_OVERLAY: None.
+
+GOOGLE FLOW PROMPT — COPY/PASTE READY
+Create a premium stylized 3D animation-film scene for a German finance education video.
+
+VOICEOVER CONTEXT:
+Viele Angebote sind extra so aufgebaut, dass die Monatsrate im Mittelpunkt steht. So soll sich der Kauf leichter anfühlen, als er wirklich ist.
+This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
+
+SCENE:
+Create a stylized retail financing display with a real physical sign labeled “Monatsrate” prominently placed beside a consumer product. A separate smaller physical tag labeled “Gesamtpreis” is present but clearly less dominant. It must feel like a real shop display, not a fake website.
+
+IMPORTANT GERMAN OBJECT LABELS:
+“Monatsrate” and “Gesamtpreis”.
+
+OBJECTS:
+- consumer product
+- large physical financing sign labeled “Monatsrate”
+- smaller physical tag labeled “Gesamtpreis”
+
+VISUAL STORYTELLING:
+The monthly-rate sign pulls attention first while the total-price tag remains visible but secondary, showing the communication hierarchy physically.
+
+COMPOSITION:
+Low-to-medium 3/4 view emphasizing the large physical rate sign, product secondary, smaller total-price tag lower or farther back.
+
+MATERIALS:
+Premium retail sign board, product metal/plastic, thick printed card.
+
+BACKGROUND:
+Small retail context fading into deep seamless black.
+
+LIGHTING:
+Clean local retail-style key with controlled highlights and restrained warm risk accent.
+
+COLOR LANGUAGE:
+Deep black dominant, warm neutrals, limited red-orange emphasis around the financing sign.
+
+TEXT:
+No headline, subtitle, fake UI or long copy. Only the two physical labels.
+
+FORBIDDEN:
+Fake app/website, browser UI, photorealistic bright store, generic advertisement poster, static tabletop/catalog staging, flat 2D.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1

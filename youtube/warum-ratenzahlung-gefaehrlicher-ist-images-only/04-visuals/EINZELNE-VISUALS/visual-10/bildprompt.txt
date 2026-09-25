@@ -1,0 +1,53 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME: YouTube Bild 10 - Zinsen erhoehen Kosten.png
+FLOW_NECESSITY_REASON: The 3D scene shows the real purchase plus an added interest burden; the exact formula is added later as a static Remotion overlay.
+VOICEOVER_VISUAL_MATCH: An additional “Zinsen” element visibly enlarges the original purchase obligation.
+STATIC_REMOTION_OVERLAY: Reserve clean space for “Kaufpreis + Zinsen = mehr Gesamtkosten”.
+
+GOOGLE FLOW PROMPT — COPY/PASTE READY
+Create a premium stylized 3D animation-film scene for a German finance education video.
+
+VOICEOVER CONTEXT:
+Noch teurer wird es, wenn Zinsen dazukommen. Dann zahlst du am Ende mehr, als der Gegenstand ursprünglich gekostet hat.
+This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
+
+SCENE:
+Show a purchased object with one physical document labeled “Kaufpreis” and a separate additional document or weight labeled “Zinsen” being added onto the same obligation, visibly making the burden larger. Leave clean space for the later formula.
+
+IMPORTANT GERMAN OBJECT LABELS:
+“Kaufpreis” and “Zinsen”.
+
+OBJECTS:
+- consumer purchase object
+- document labeled “Kaufpreis”
+- added document/weight labeled “Zinsen”
+
+VISUAL STORYTELLING:
+The original purchase cost is already present; the additional interest element visibly stacks onto it and increases the burden.
+
+COMPOSITION:
+Asymmetric 3/4 view, purchase and cost objects on left/middle, clean right-side negative space for static formula.
+
+MATERIALS:
+Stylized product materials, thick paper documents, subtle metal clip/binder.
+
+BACKGROUND:
+Deep seamless black with minimal purchase context.
+
+LIGHTING:
+Neutral product key; warm red-orange concentrated on the added “Zinsen” element.
+
+COLOR LANGUAGE:
+Deep black, warm neutrals, controlled red-orange for additional cost.
+
+TEXT:
+Do not generate formula, percentages or totals inside Flow. Only the physical labels “Kaufpreis” and “Zinsen”.
+
+FORBIDDEN:
+Calculator UI, floating infographic cards, generated equation, static tabletop/catalog staging, photorealism, flat 2D.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1

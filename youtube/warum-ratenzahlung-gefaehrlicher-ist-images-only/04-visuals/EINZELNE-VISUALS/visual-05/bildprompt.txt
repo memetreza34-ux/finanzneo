@@ -1,0 +1,55 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME: YouTube Bild 05 - Mehrere Raten stapeln sich.png
+FLOW_NECESSITY_REASON: Real financed purchases accumulating through depth communicate the stacking effect faster than abstract symbols.
+VOICEOVER_VISUAL_MATCH: Smartphone, television, laptop and furniture visibly accumulate as separate obligations.
+STATIC_REMOTION_OVERLAY: None.
+
+GOOGLE FLOW PROMPT — COPY/PASTE READY
+Create a premium stylized 3D animation-film scene for a German finance education video.
+
+VOICEOVER CONTEXT:
+Denn selten bleibt es bei einer einzigen Rate. Handy, Fernseher, Laptop oder Möbel kommen schnell zusammen.
+This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
+
+SCENE:
+Show smartphone, television, laptop and one simple furniture item accumulating through depth. Each purchase has a small physical tag labeled “Rate”. The chain must grow toward the viewer and feel progressively heavier, not like a retail catalog.
+
+IMPORTANT GERMAN OBJECT LABELS:
+Use “Rate” on the small financing tags only.
+
+OBJECTS:
+- smartphone
+- television
+- laptop
+- simple furniture item
+- small physical “Rate” tags
+
+VISUAL STORYTELLING:
+Each additional financed purchase adds another visible commitment and occupies more space, creating a clear accumulation from background to foreground.
+
+COMPOSITION:
+Diagonal progression from back-left to front-right, partial overlap through depth, burden cluster largest near foreground. Keep the frame simple and readable.
+
+MATERIALS:
+Stylized glass, metal, plastic, fabric/wood with believable proportions.
+
+BACKGROUND:
+Deep black world with only faint floor/contact context.
+
+LIGHTING:
+Soft premium studio light; slightly stronger warm red-orange accents toward the foreground accumulation.
+
+COLOR LANGUAGE:
+Deep black dominant, neutral products, restrained red-orange rate tags.
+
+TEXT:
+No headline, totals or floating UI. Only short physical “Rate” labels.
+
+FORBIDDEN:
+Electronics catalog grid, four equal product shots, floating icon collage, generic shopping cart scene, static tabletop/catalog staging, photorealism, flat 2D.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1

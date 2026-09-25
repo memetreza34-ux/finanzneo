@@ -1,0 +1,21 @@
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+Dieses Projekt verwendet unverändert die zentrale Bildwelt:
+`config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt`
+
+Pflicht:
+- premium clearly stylized 3D animation-film rendering
+- deep seamless black als dominante Welt
+- konkrete Alltagssituation mit sichtbarer Ursache/Wirkung
+- wenige große, sofort lesbare Objekte
+- keine photorealistische Optik
+- keine flache 2D-Infografik als Flow-Bild
+- kein statisches Katalog-/Tabletop-Layout als Default
+- kurze deutsche physische Objektlabels nur bei echtem Verständnissvorteil
+- wichtige exakte Zahlen und Erklärtexte werden statisch im Video-Layout gesetzt
+- horizontales 16:9
+
+Die Bildwelt wird für dieses Video nicht verändert. Verbesserungen betreffen nur die Auswahl zwischen 3D-Story, 3D-Explainer und Static-Data.

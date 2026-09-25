@@ -1,0 +1,53 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+CURRENT SINGLE STEP — DO NOT JUMP AHEAD
+FINAL FILE NAME: YouTube Bild 08 - Laufzeit bindet Geld.png
+FLOW_NECESSITY_REASON: A spatial sequence of future months makes long-term binding easier to understand than a text definition.
+VOICEOVER_VISUAL_MATCH: The same rate visibly continues through many future calendar months.
+STATIC_REMOTION_OVERLAY: None.
+
+GOOGLE FLOW PROMPT — COPY/PASTE READY
+Create a premium stylized 3D animation-film scene for a German finance education video.
+
+VOICEOVER CONTEXT:
+Dazu kommt die Laufzeit. Je länger eine Rate läuft, desto länger bleibt dein Geld gebunden.
+This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
+
+SCENE:
+Show a long physical sequence of monthly calendar pages receding into depth. The same small financing marker labeled “Rate” is attached to every month, making the commitment visibly continue far beyond the initial purchase.
+
+IMPORTANT GERMAN OBJECT LABELS:
+“Rate” on the recurring marker.
+
+OBJECTS:
+- series of monthly calendar pages
+- repeated physical rate marker
+- small wallet/budget cue near the front
+
+VISUAL STORYTELLING:
+The rate repeats month after month and creates a visible chain into the future.
+
+COMPOSITION:
+Perspective corridor through calendar months from foreground into deep background, clear repetition, no tiny unreadable dates.
+
+MATERIALS:
+Paper calendars, thick cards, subtle metal binder details.
+
+BACKGROUND:
+Deep seamless black around the calendar sequence.
+
+LIGHTING:
+Soft neutral key light with repeated warm red-orange accents on each rate marker.
+
+COLOR LANGUAGE:
+Deep black dominant, paper neutrals, restrained risk accents.
+
+TEXT:
+No headline or dates required. Only the short physical label “Rate”.
+
+FORBIDDEN:
+Generic timeline UI, wall of tiny calendars, flat infographic, static tabletop/catalog staging, photorealism.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
