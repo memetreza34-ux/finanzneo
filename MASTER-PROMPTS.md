@@ -83,6 +83,7 @@ reels/<Woche>/<Tag>/<Reel>
 4. npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
 5. Bildszene = exaktes Nutzerbild.
 6. Animationsszene = exakte versiegelte animationSourceFile + animationExport.
+   customAnimations vollständig auf den versiegelten Export binden; fehlendes Binding = harter Fehler.
 7. Hintergrund immer statisch #000000.
 8. Layout ausschließlich aus REEL_STYLE.
 9. npm run reel:phase3:preflight -- <Reel-Pfad>
@@ -98,6 +99,7 @@ Ersatzanimationen
 Dummy-/Debug-Bewegung
 Math.sin/Math.cos-QA-Wackeln
 Remote-Assets beim Render
+FNBgParticles / FNBgAurora / FNBgGrid / FNBgRadial als Reel-Hintergrund
 Background-Motion als Animationsersatz
 Caption-only-/Header-only-Szenen
 Candidate-MP4 als final ausgeben
