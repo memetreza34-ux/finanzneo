@@ -1,6 +1,6 @@
 import React from 'react';
 import { AbsoluteFill } from 'remotion';
-import { C, sec, IntroScene, StepsScene, ListScene, QuoteScene, SectionDivider } from './brand';
+import { C, sec, IntroScene, StepsScene, ListScene, QuoteScene, SectionDivider } from '../brand';
 
 // Demo der 5 neuen Szenen-Vorlagen.
 export const TemplateDemo2: React.FC = () => (

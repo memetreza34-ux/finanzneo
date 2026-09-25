@@ -5,7 +5,7 @@ import {
   LogoIntro, SubscribeBar, EndCard,
   HookScene, StatScene, CompareScene, CTAScene,
   Captions, CaptionWord,
-} from './brand';
+} from '../brand';
 
 // Beispiel-Captions (sonst aus scripts/captions.py → JSON).
 const SAMPLE: CaptionWord[] = [

@@ -3,7 +3,7 @@ import { AbsoluteFill, useVideoConfig } from 'remotion';
 import {
   C, FONT, Background, Vignette,
   Counter, Bars, NumberedSteps, CheckCards, Timeline, Icon,
-} from './brand';
+} from '../brand';
 
 // Statisches Übersichts-POSTER — zeigt alle Bausteine fertig (settled) mit Labels.
 // Zum Anschauen als Still gedacht (alle appear-Zeiten = 0, hoher Frame).
