@@ -50,7 +50,7 @@ Technische Produktionsvorlagen. Keine beliebigen Experimente hier ablegen.
 ```text
 src/experiments/
 ```
-Expliziter Ablageort für isolierte Tests und Demos. Die Root-Experimentmigration ist jetzt für diese acht Dateien abgeschlossen:
+Expliziter Ablageort für isolierte Tests und Demos. Die Root-Experimentmigration ist für diese acht Dateien abgeschlossen:
 
 ```text
 MockTest.tsx
@@ -66,12 +66,26 @@ Variants.tsx
 `ExperimentCompositions.tsx` registriert diese Dateien weiterhin unter denselben Composition-IDs; nur ihre physische Ablage wurde bereinigt.
 
 ```text
+src/showcases/
+```
+Expliziter Ablageort für statische Previews, Branding-Demos und Baukasten-Showcases. Die erste kleine Root-Migration ist abgeschlossen:
+
+```text
+Thumbnail.tsx
+ThumbnailFlux.tsx
+ProfilePic.tsx
+DisclaimerPreview.tsx
+```
+
+`ShowcaseCompositions.tsx` behält die bestehenden Composition-IDs und zeigt jetzt auf diese neuen Pfade.
+
+```text
 src/reels-test/
 src/zins/
 ```
 Historische/experimentelle Szenen. Sie dürfen als Lernmaterial existieren, sind aber keine Produktionsvorlage.
 
-Die nächste Strukturtranche betrifft überwiegend historisch gewachsene Showcase-/Preview-Dateien wie `Showcase*.tsx`, `Thumbnail*.tsx`, `ProfilePic.tsx` und ähnliche Root-Demos. Neue Arbeit soll im `src/`-Root nicht weiter anwachsen.
+Weitere historisch gewachsene Showcase-Dateien wie `Showcase*.tsx`, `Overview.tsx`, `TemplateDemo*.tsx`, `Sizzle.tsx`, `UpgradeShowcase.tsx` und `LottieFinanzGrid.tsx` liegen noch im `src/`-Root. Neue Arbeit soll dort nicht weiter anwachsen.
 
 ## Composition-Registries
 
