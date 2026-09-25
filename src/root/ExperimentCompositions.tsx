@@ -1,13 +1,13 @@
 import React from 'react';
 import {Composition} from 'remotion';
-import {MockTest} from '../MockTest';
-import {MockMindmap} from '../MockMindmap';
+import {MockTest} from '../experiments/MockTest';
+import {MockMindmap} from '../experiments/MockMindmap';
 import {PassivTest} from '../PassivTest';
 import {PremiumTest} from '../PremiumTest';
 import {Signature} from '../Signature';
 import {V1Clean, V2Glass, V3Editorial, V4Neon, V5Gradient, V6Duotone} from '../Variants';
-import {RealDataDemo, REAL_DATA_FRAMES} from '../RealDataDemo';
-import {LottieTest} from '../LottieTest';
+import {RealDataDemo, REAL_DATA_FRAMES} from '../experiments/RealDataDemo';
+import {LottieTest} from '../experiments/LottieTest';
 import {FinanceMotionLab, FINANCE_MOTION_LAB_FRAMES} from '../reels-test/FinanceMotionLab';
 import {
   FinanceMotionLabComplex,
