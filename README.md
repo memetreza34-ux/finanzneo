@@ -10,75 +10,85 @@ npm run validate
 npm run studio
 ```
 
-## Zwei getrennte Produktionswelten
+## Zuerst Produktionsart wählen
 
-### Reels
+FinanzNeo hat zwei getrennte Welten. Regeln nie vermischen.
 
-Die bestehende Reel-Produktion behält ihre eigenen Layout-, Bildwelt-, Flow- und Motion-Regeln. Aktiver Reel-Standard:
+### Reels — 9:16
+
+Autoritative Einstiegskette:
 
 ```text
-config/finanzneo-production-standard.json
-docs/3-PHASEN-WORKFLOW.md
+CLAUDE.md
+→ config/finanzneo-production-standard.json
+→ reels/PRODUKTIONSSTANDARD.md
+→ docs/3-PHASEN-WORKFLOW.md
 ```
 
-`docs/3-PHASEN-WORKFLOW.md` bleibt der verbindliche Einstieg für den bestehenden Reel-3-Phasen-Prozess. Der YouTube-Umbau verändert diese Reel-Regeln nicht.
+Reels bleiben IMAGE oder ANIMATION. Der aktive Standard entscheidet Layout, V9-Bildwelt, Flow, Motion, QA und Export.
 
-### YouTube Longform
+### YouTube Longform — 16:9
 
-YouTube nutzt bewusst ein **eigenes Simple-Finance-System**:
+Autoritative Einstiegskette:
 
 ```text
-youtube/PRODUKTIONSSTANDARD.md
-docs/YOUTUBE-LONGFORM-WORKFLOW.md
-docs/YOUTUBE-MOTION-V4-SIMPLE.md
-docs/FINANZNEO-VISUAL-SELECTION-RULE.md
 config/finanzneo-youtube-visual-system.json
+→ docs/YOUTUBE-PRODUCTION-MODES.md
+→ youtube/PRODUKTIONSSTANDARD.md
+→ docs/YOUTUBE-LONGFORM-WORKFLOW.md
 ```
 
-Grundregel für YouTube:
+YouTube besitzt zwei Produktionsmodi mit demselben Szenenlayout:
 
-```text
-Sprechpunkt
-→ Was muss verstanden werden?
-→ einfachste Visualform
-→ Remotion zuerst
-→ echtes Asset wenn Realität gezeigt werden soll
-→ Google Flow nur bei wirklich hilfreicher Alltagsszene
+- `images-only`: fertige statische Szene mit Überschrift + Icon + eingebettetem Flow-Bild; keine Animation.
+- `hybrid`: dasselbe Layout; zusätzlich Remotion, Charts, Daten, Animation und echte Assets erlaubt.
+
+In beiden Modi gilt: **Flow-Bilder niemals fullscreen.** Überschrift und Icon liegen außerhalb des Flow-Bildes. Die sichtbare deep-black FinanzNeo-Grundfläche bleibt erhalten.
+
+Im Hybrid-Modus gilt für abstrakte Zahlen, Vergleiche, Charts, Timelines und Prozesse weiterhin Remotion zuerst. Im `images-only`-Modus ist Flow die Hauptquelle, aber jedes Bild erklärt nur einen dominanten Gedanken.
+
+## Daten für Remotion
+
+Chart- und Statistikdaten werden **vor dem Rendern** geholt, geprüft und lokal unter `public/data/` gespeichert. Der Render selbst bleibt netzwerkfrei.
+
+```bash
+npm run data:fetch
+npm run data:validate
 ```
 
-Wichtige Texte und Zahlen werden in Remotion gerendert. Flow ist kein Default. Wenn Flow eingesetzt wird, bleibt die freigegebene premium stylized 3D Bildwelt `finanzneo-youtube-grounded-3d-black-v1` verbindlich. **Simple** bedeutet wenige klare Elemente und einfache Komposition — nicht flache 2D-Illustrationen.
-
-`CLAUDE.md` bleibt die höchste Regelquelle für Produktionsverantwortung und Repository-Sicherheit. Reel-spezifische V9-Regeln werden nicht automatisch auf YouTube Longform übertragen.
+Quellen- und Provenienzregeln: `docs/DATA-PIPELINE.md` und `config/finanzneo-data-sources.json`.
 
 ## Zentrale Befehle
 
 ```bash
+# Reels
 npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
 npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
-npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
 
-npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
+# YouTube
+npm run youtube:create:mode -- --mode images-only --target youtube/<Projekt> --title "Titel" --visual-count 20
+npm run youtube:create:mode -- --mode hybrid --target youtube/<Projekt> --title "Titel" --types image,animation,data
 npm run youtube:validate -- youtube/<Projekt>
-npm run youtube:animation:validate -- youtube/<Projekt>
-npm run youtube:phase1:seal -- youtube/<Projekt>
 npm run youtube:ready -- youtube/<Projekt>
 
-npm run protect:install
+# Repo
+npm run validate
 npm run build
 npm run smoke
-npm run render
 ```
 
 ## Struktur
 
-- `config/` — Maschinen-Konfiguration, Bildwelten und Locks
+- `config/` — Maschinen-Konfiguration, aktive Standards, Datenquellen und Locks
+- `docs/` — Workflows und Qualitätsstandards; nicht referenzierte alte Versionsdokumente sind nicht autoritativ
 - `src/design-system/` — öffentlicher Importpfad für neue Produktion
-- `src/production/reel-template/` — technische Reel-Vorlage
+- `src/production/` — produktive technische Vorlagen
 - `src/root/` — getrennte Production-, Experiment- und Showcase-Registries
+- `src/bausteine/` — wiederverwendbare Remotion-Bausteine
 - `reels/` — konkrete Reel-Projekte
 - `youtube/` — eigenständige YouTube-Longform-Projekte
-- `scripts/` — Scaffold, Validatoren und Render-Gates
-- `docs/` — Detailregeln, Workflows und Qualitätsstandards
+- `public/data/` — lokale Daten-Snapshots für reproduzierbare Charts
+- `scripts/` — Scaffold, Daten-Fetcher, Validatoren und Render-Gates
 
-Die Produktionsregistry bleibt bewusst eine Freigabeliste und kann leer sein, solange kein Reel den vollständigen Produktionspfad bestanden hat.
+Die Produktionsregistry ist bewusst eine Freigabeliste und darf leer bleiben, bis eine Produktion alle Gates bestanden hat. Repository-Orientierung: `docs/REPOSITORY-ARCHITECTURE.md`.
