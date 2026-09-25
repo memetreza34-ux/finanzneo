@@ -4,7 +4,7 @@ import {
   C, sec, life, Background, Vignette, Progress, Title, Kicker,
   Table, BigStat, Gauge, StatBar,
   CompareSplit, Checklist, Quote, Badge, FeatureGrid,
-} from './brand';
+} from '../brand';
 
 // Demo der finanz-fokussierten Bausteine.
 export const Showcase3: React.FC = () => {

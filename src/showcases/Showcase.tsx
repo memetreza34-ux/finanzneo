@@ -5,7 +5,7 @@ import {
   Title, Kicker, Counter,
   GrowthChart, Bars, NumberedSteps, CheckCards, Timeline,
   Icon, Particles,
-} from './brand';
+} from '../brand';
 
 // Demo aller FinanzNeo-Bausteine.
 // MUSTER: eine durchgehende Timeline, absolute Frames, jeder Beat per life()-Opacity

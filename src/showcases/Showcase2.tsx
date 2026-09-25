@@ -5,7 +5,7 @@ import {
   Donut, PercentRing, PhoneMockup, AppScreenDemo,
   Typewriter, MaskReveal, WordStagger, Underline,
   slideIn, zoomIn, wipeIn, blurIn, prog,
-} from './brand';
+} from '../brand';
 
 // Demo der NEUEN Bausteine: Übergänge, Handy-Mockup, Donut, Prozent-Ring, Text-FX.
 export const Showcase2: React.FC = () => {

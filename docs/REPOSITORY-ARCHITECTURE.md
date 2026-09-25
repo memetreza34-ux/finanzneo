@@ -78,6 +78,9 @@ DisclaimerPreview.tsx
 Overview.tsx
 TemplateDemo.tsx
 TemplateDemo2.tsx
+Showcase.tsx
+Showcase2.tsx
+Showcase3.tsx
 ```
 
 `ShowcaseCompositions.tsx` behält die bestehenden Composition-IDs und zeigt jetzt auf diese neuen Pfade.
@@ -88,7 +91,7 @@ src/zins/
 ```
 Historische/experimentelle Szenen. Sie dürfen als Lernmaterial existieren, sind aber keine Produktionsvorlage.
 
-Weitere historisch gewachsene Showcase-Dateien wie `Showcase*.tsx`, `Sizzle.tsx`, `UpgradeShowcase.tsx` und `LottieFinanzGrid.tsx` liegen noch im `src/`-Root. Neue Arbeit soll dort nicht weiter anwachsen.
+Weitere historisch gewachsene Showcase-Dateien wie `Showcase4.tsx`, `Showcase5.tsx`, `Sizzle.tsx`, `UpgradeShowcase.tsx` und `LottieFinanzGrid.tsx` liegen noch im `src/`-Root. Neue Arbeit soll dort nicht weiter anwachsen.
 
 ## Composition-Registries
 
