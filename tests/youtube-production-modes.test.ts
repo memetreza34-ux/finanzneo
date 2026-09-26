@@ -33,10 +33,12 @@ test('Phase A with visual-count keeps the framed 3D layout and disables animatio
     assert.equal(index.productionMode.remotionAnimationAllowed, false);
     assert.deepEqual(index.productionMode.allowedVisualTypes, ['image', 'hybrid', 'data', 'real-asset']);
     assert.deepEqual(index.productionMode.forbiddenVisualTypes, ['animation']);
+    assert.equal(index.layoutContract.id, 'finanzneo-youtube-framed-scene-v2');
     assert.equal(index.layoutContract.sceneHeadingRequired, true);
     assert.equal(index.layoutContract.sceneIconRequired, true);
     assert.equal(index.layoutContract.flowImageFullscreenForbidden, true);
     assert.equal(index.layoutContract.flowImagePlacement, 'contained-visual-window');
+    assert.equal(index.layoutContract.phaseAStaticUsesContainedVisualWindow, true);
     assert.equal(index.phaseA.imageWorldUnchanged, true);
     assert.equal(index.phaseA.imageWorldId, 'finanzneo-youtube-grounded-3d-black-v1');
     assert.equal(index.visuals.length, 3);
@@ -44,11 +46,13 @@ test('Phase A with visual-count keeps the framed 3D layout and disables animatio
     assert.deepEqual(index.visuals.map((visual: {phaseAVisualKind: string}) => visual.phaseAVisualKind), ['3d-story', '3d-story', '3d-story']);
 
     const layoutContract = JSON.parse(readFileSync(resolve(absolute, '06-projektdateien/layout-contract.json'), 'utf8'));
-    assert.equal(layoutContract.id, 'finanzneo-youtube-framed-scene-v1');
+    assert.equal(layoutContract.id, 'finanzneo-youtube-framed-scene-v2');
     assert.equal(layoutContract.sceneHeadingRequired, true);
     assert.equal(layoutContract.sceneIconRequired, true);
     assert.equal(layoutContract.flowImageFullscreenForbidden, true);
     assert.equal(layoutContract.headingAndIconOutsideFlowImage, true);
+    assert.equal(layoutContract.hybridPureRemotionMayUseFullFrame, true);
+    assert.equal(layoutContract.motionSafeAreaPx, 64);
 
     for (let i = 1; i <= 3; i += 1) {
       const id = String(i).padStart(2, '0');
@@ -65,8 +69,6 @@ test('Phase A with visual-count keeps the framed 3D layout and disables animatio
 
     const staticPlan = readFileSync(resolve(absolute, '06-projektdateien/remotion-plan.md'), 'utf8');
     assert.match(staticPlan, /Animation deaktiviert/i);
-    assert.match(staticPlan, /StaticNumber/i);
-    assert.match(staticPlan, /Mini-Charts/i);
     assert.match(staticPlan, /Flow-Bilder dürfen niemals fullscreen/i);
   } finally {
     rmSync(absolute, {recursive: true, force: true});
@@ -140,7 +142,7 @@ test('Phase A static design-system primitives contain no Remotion frame animatio
   assert.doesNotMatch(source, /\bspring\s*\(/);
 });
 
-test('hybrid mode keeps the exact same framed layout but allows animation', () => {
+test('hybrid mode keeps Flow contained but allows full-frame Remotion and image+Remotion overlays', () => {
   const target = `youtube/.tmp-hybrid-mode-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
@@ -154,12 +156,21 @@ test('hybrid mode keeps the exact same framed layout but allows animation', () =
 
     const index = JSON.parse(readFileSync(resolve(absolute, '04-visuals/visual-index.json'), 'utf8'));
     assert.equal(index.productionMode.id, 'hybrid');
-    assert.equal(index.productionMode.staticSceneLayoutRequired, true);
     assert.equal(index.productionMode.remotionAnimationAllowed, true);
+    assert.equal(index.productionMode.fullFrameRemotionAllowed, true);
+    assert.equal(index.productionMode.fullFrameFlowForbidden, true);
+    assert.equal(index.productionMode.hybridOverlayMayUseFullFrame, true);
+    assert.equal(index.layoutContract.id, 'finanzneo-youtube-framed-scene-v2');
     assert.equal(index.layoutContract.sceneHeadingRequired, true);
     assert.equal(index.layoutContract.sceneIconRequired, true);
     assert.equal(index.layoutContract.flowImageFullscreenForbidden, true);
     assert.equal(index.layoutContract.flowImagePlacement, 'contained-visual-window');
+    assert.equal(index.layoutContract.hybridPureRemotionMayUseFullFrame, true);
+    assert.equal(index.layoutContract.hybridRemotionOverlayMayExtendBeyondFlowWindow, true);
+    assert.equal(index.layoutContract.motionSafeAreaPx, 64);
+    assert.equal(index.layoutContract.unintentionalCroppingForbidden, true);
+    assert.equal(index.phaseB.contentFirst, true);
+    assert.equal(index.phaseB.imagePlusRemotionIsFirstClass, true);
     assert.deepEqual(index.visuals.map((visual: {type: string}) => visual.type), ['image', 'animation', 'hybrid']);
     assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx')), true);
     assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-03/animation.tsx')), true);
