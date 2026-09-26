@@ -1,0 +1,22 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Thumbnail - Mehr Gehalt trotzdem knapp.png
+STYLE_REFERENCE_PROJECT: youtube/warum-dein-geld-verschwindet-images-only
+
+Create a high-impact horizontal 16:9 YouTube thumbnail in EXACTLY the same premium stylized 3D animation-film world as the approved previous FinanzNeo video `warum-dein-geld-verschwindet-images-only`.
+
+SCENE:
+One appealing stylized animated-film character stands between two large physical money situations. On the left, a thick salary envelope is visibly fuller and highlighted in subtle emerald. On the right, an almost-empty wallet remains surprisingly thin because several everyday costs have already pulled money away. The character looks confused by the contradiction, but do not use floating question marks. The image should communicate immediately: income increased, but usable money did not.
+
+COMPOSITION:
+Character and money story on right two-thirds. Strong depth, clean deep-black world. Keep left third clean for final typography. Do not stage it like a product advertisement.
+
+TEXT:
+Do NOT generate critical headline text in Flow. Final layout must add exactly:
+`MEHR GEHALT, TROTZDEM KNAPP?`
+Large bold uppercase, highly readable. No subtitle.
+
+STYLE:
+Premium clearly stylized 3D animation-film rendering, refined rounded geometry, semi-realistic but visibly stylized materials, soft premium studio lighting, readable shadows, deep seamless black, emerald only for positive income/value, warm red-orange only for cost pressure.
+
+FORBIDDEN:
+photoreal human, blank mannequin, corporate 3D avatar, realistic studio photography, product-ad look, flat 2D, fake UI, random coins, piggy-bank cliché, tabletop/catalog staging, clutter, cyberpunk.
