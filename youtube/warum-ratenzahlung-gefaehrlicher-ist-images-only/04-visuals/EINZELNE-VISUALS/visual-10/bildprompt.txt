@@ -1,53 +1,15 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-CURRENT SINGLE STEP — DO NOT JUMP AHEAD
-FINAL FILE NAME: YouTube Bild 10 - Zinsen erhoehen Kosten.png
-FLOW_NECESSITY_REASON: The 3D scene shows the real purchase plus an added interest burden; the exact formula is added later as a static Remotion overlay.
-VOICEOVER_VISUAL_MATCH: An additional “Zinsen” element visibly enlarges the original purchase obligation.
-STATIC_REMOTION_OVERLAY: Reserve clean space for “Kaufpreis + Zinsen = mehr Gesamtkosten”.
-
-GOOGLE FLOW PROMPT — COPY/PASTE READY
-Create a premium stylized 3D animation-film scene for a German finance education video.
-
-VOICEOVER CONTEXT:
-Noch teurer wird es, wenn Zinsen dazukommen. Dann zahlst du am Ende mehr, als der Gegenstand ursprünglich gekostet hat.
-This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
-
-SCENE:
-Show a purchased object with one physical document labeled “Kaufpreis” and a separate additional document or weight labeled “Zinsen” being added onto the same obligation, visibly making the burden larger. Leave clean space for the later formula.
-
-IMPORTANT GERMAN OBJECT LABELS:
-“Kaufpreis” and “Zinsen”.
-
-OBJECTS:
-- consumer purchase object
-- document labeled “Kaufpreis”
-- added document/weight labeled “Zinsen”
-
-VISUAL STORYTELLING:
-The original purchase cost is already present; the additional interest element visibly stacks onto it and increases the burden.
-
-COMPOSITION:
-Asymmetric 3/4 view, purchase and cost objects on left/middle, clean right-side negative space for static formula.
-
-MATERIALS:
-Stylized product materials, thick paper documents, subtle metal clip/binder.
-
-BACKGROUND:
-Deep seamless black with minimal purchase context.
-
-LIGHTING:
-Neutral product key; warm red-orange concentrated on the added “Zinsen” element.
-
-COLOR LANGUAGE:
-Deep black, warm neutrals, controlled red-orange for additional cost.
-
-TEXT:
-Do not generate formula, percentages or totals inside Flow. Only the physical labels “Kaufpreis” and “Zinsen”.
-
-FORBIDDEN:
-Calculator UI, floating infographic cards, generated equation, static tabletop/catalog staging, photorealism, flat 2D.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+FLOW_NECESSITY_REASON: A concrete television financing scene can show extra cost being added, while the exact formula stays in the static layout.
+VOICEOVER_VISUAL_MATCH: An additional red-edged cost sheet extends beyond the original television purchase receipt.
+VOICEOVER CONTEXT: Noch teurer wird es, wenn Zinsen dazukommen. Dann zahlst du am Ende mehr, als der Gegenstand ursprünglich gekostet hat. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: A clearly recognizable flat-screen television sits left-mid frame. Beside it is one short original purchase receipt and a second visibly longer red-edged final-payment receipt extending beyond the first, showing extra cost without readable words or numbers.
+IMPORTANT GERMAN OBJECT LABELS: No generated labels. `Kaufpreis + Zinsen = mehr Gesamtkosten` is added later as exact static Remotion text.
+OBJECTS: flat-screen television; short original receipt; longer final-payment receipt.
+VISUAL STORYTELLING: The longer second receipt physically exceeds the original cost document, making the added expense visible.
+COMPOSITION: Television and receipts on left/center; clean dark right area reserved for the later formula overlay.
+MATERIALS: Premium stylized TV glass/metal, thick receipt paper.
+BACKGROUND: Deep seamless black with minimal living-room/store context.
+LIGHTING: Neutral key on TV, controlled warm red-orange edge on the longer receipt.
+COLOR LANGUAGE: Black dominant, warm neutrals, restrained risk accent.
+TEXT: No generated formula, amount, interest word, rating or UI.
+FORBIDDEN: Floating finance cards, generic consumer device, RATE placard, static tabletop/catalog staging, generated equation, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.

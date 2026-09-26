@@ -1,53 +1,15 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-CURRENT SINGLE STEP — DO NOT JUMP AHEAD
-FINAL FILE NAME: YouTube Bild 15 - Alle Raten zusammenrechnen.png
-FLOW_NECESSITY_REASON: Flow shows the separate real obligations; the exact summary logic is added later as a static Remotion overlay.
-VOICEOVER_VISUAL_MATCH: Several rate cards visibly converge into one monthly budget.
-STATIC_REMOTION_OVERLAY: Reserve clean space for “Alle laufenden Raten → Monatsbelastung”.
-
-GOOGLE FLOW PROMPT — COPY/PASTE READY
-Create a premium stylized 3D animation-film scene for a German finance education video.
-
-VOICEOVER CONTEXT:
-Rechne außerdem alle laufenden Raten zusammen. Nur so siehst du, wie stark sie dein Monatsbudget wirklich belasten.
-This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
-
-SCENE:
-Create three or four small physical financing cards/receipts from different purchases, each labeled only “Rate”, converging toward one monthly budget envelope. Leave a clean dark zone for the later static explanation. Do not generate totals.
-
-IMPORTANT GERMAN OBJECT LABELS:
-“Rate” on the small cards.
-
-OBJECTS:
-- three or four physical rate cards
-- one monthly budget envelope
-- subtle cues of different purchases without clutter
-
-VISUAL STORYTELLING:
-Separate commitments from different purchases physically converge toward the same monthly budget, revealing that they must be evaluated together.
-
-COMPOSITION:
-Converging left-to-center flow of rate cards, monthly budget on the right, clean upper-right or lower-right negative space for the static overlay.
-
-MATERIALS:
-Thick premium paper cards, matte envelope, small restrained product-material cues.
-
-BACKGROUND:
-Deep seamless black with minimal grounding.
-
-LIGHTING:
-Neutral cards with controlled warm risk accents; budget remains warm ivory/soft gray.
-
-COLOR LANGUAGE:
-Deep black, warm neutrals, restrained red-orange for obligations.
-
-TEXT:
-No euro totals, equation, headline or floating UI. Only physical “Rate” labels.
-
-FORBIDDEN:
-Spreadsheet/dashboard look, card grid, generated calculation, static tabletop/catalog staging, photorealism, flat 2D.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+FLOW_NECESSITY_REASON: A real home containing all financed purchases provides context for the later exact monthly-total overlay.
+VOICEOVER_VISUAL_MATCH: Several active purchases are seen together before the viewer is shown their combined monthly burden.
+VOICEOVER CONTEXT: Rechne außerdem alle laufenden Raten zusammen. Nur so siehst du, wie stark sie dein Monatsbudget wirklich belasten. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: A believable living-room/home-office corner shows four unmistakable financed items in natural use positions: a television on its stand, a sofa, an open laptop on a side desk and a smartphone near the laptop. A small plain payment paper is physically associated with each item, without readable text.
+IMPORTANT GERMAN OBJECT LABELS: No generated labels. `Alle laufenden Raten → Monatsbelastung` is added later as a static Remotion overlay.
+OBJECTS: flat-screen television; sofa; laptop; smartphone; four small plain payment papers.
+VISUAL STORYTELLING: The viewer can see that several normal household purchases are active at the same time and all hit the same monthly budget.
+COMPOSITION: Natural room arrangement, not a product grid. Keep the right side or lower-right area clean and dark for the later exact static overlay.
+MATERIALS: Premium stylized glass, metal, plastic, fabric, wood and paper.
+BACKGROUND: Local living-room/home-office context dissolving into deep seamless black.
+LIGHTING: Soft premium lighting with subtle warm risk on payment papers.
+COLOR LANGUAGE: Black dominant, neutral household colors, restrained risk accent.
+TEXT: No generated amounts, RATE words, ratings, brand logos or UI.
+FORBIDDEN: Catalog lineup, infographic grid, abstract cards-only scene, recurring RATE-card template, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.

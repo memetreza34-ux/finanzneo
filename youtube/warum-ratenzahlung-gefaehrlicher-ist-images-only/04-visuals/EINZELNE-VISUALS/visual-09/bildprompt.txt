@@ -1,54 +1,15 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-CURRENT SINGLE STEP — DO NOT JUMP AHEAD
-FINAL FILE NAME: YouTube Bild 09 - Weniger frei verfuegbar.png
-FLOW_NECESSITY_REASON: A physically blocked budget path makes lost flexibility more intuitive than an abstract percentage.
-VOICEOVER_VISUAL_MATCH: The rate visibly takes money before it can reach reserves or leisure.
-STATIC_REMOTION_OVERLAY: None.
-
-GOOGLE FLOW PROMPT — COPY/PASTE READY
-Create a premium stylized 3D animation-film scene for a German finance education video.
-
-VOICEOVER CONTEXT:
-Dieses gebundene Geld fehlt dir dann an anderer Stelle. Für Rücklagen, Freizeit oder unerwartete Ausgaben bleibt weniger übrig.
-This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
-
-SCENE:
-Create a monthly-budget scene where a fixed financing obligation labeled “Rate” physically blocks or diverts part of the available money before it can reach a reserve container labeled “Rücklage” and one modest leisure object.
-
-IMPORTANT GERMAN OBJECT LABELS:
-“Rate” and “Rücklage”.
-
-OBJECTS:
-- monthly budget envelope or wallet
-- blocking rate obligation
-- reserve container labeled “Rücklage”
-- one simple leisure object
-
-VISUAL STORYTELLING:
-Budget value starts on one side, is partially blocked by the rate in the middle, and only a smaller remainder reaches the other destinations.
-
-COMPOSITION:
-Directional left-to-right spatial relationship with the blockage at center. Avoid literal dashboard arrows; use physical positioning and flow.
-
-MATERIALS:
-Premium paper, leather/fabric, restrained stylized plastic/metal.
-
-BACKGROUND:
-Minimal home-budget context dissolving into deep black.
-
-LIGHTING:
-Neutral source light, warm red-orange at the blockage, subdued emerald only on the reserve destination.
-
-COLOR LANGUAGE:
-Deep black dominant, warm neutrals, semantic emerald/red-orange accents.
-
-TEXT:
-No headline, totals or floating UI. Only the two short physical labels.
-
-FORBIDDEN:
-Pie chart, dashboard, pile of finance icons, overcomplicated metaphor, static tabletop/catalog staging, photorealism, flat 2D.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+FLOW_NECESSITY_REASON: A real monthly-budget moment shows directly what fixed installment money crowds out.
+VOICEOVER_VISUAL_MATCH: A laptop-payment envelope takes money before savings, leisure and surprise costs can be covered.
+VOICEOVER CONTEXT: Dieses gebundene Geld fehlt dir dann an anderer Stelle. Für Rücklagen, Freizeit oder unerwartete Ausgaben bleibt weniger übrig. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: A believable kitchen-side budget scene. An everyday wallet with a limited number of banknotes sits center. A plain payment envelope connected to a recognizable laptop has already taken a visible portion. Farther away, a small emergency-savings container and two cinema tickets remain with noticeably less money available. No readable generated text.
+IMPORTANT GERMAN OBJECT LABELS: No generated labels.
+OBJECTS: wallet with limited cash; laptop; one payment envelope; emergency-savings container; cinema tickets.
+VISUAL STORYTELLING: The fixed payment physically takes its share first, leaving a visibly smaller remainder for other goals.
+COMPOSITION: Left-to-right money path with the payment taking the central share; objects integrated in a real kitchen/home context, not laid out as icons.
+MATERIALS: Leather/fabric wallet, paper money and envelope, laptop metal, paper tickets, matte savings container.
+BACKGROUND: Small home-budget context dissolving into deep seamless black.
+LIGHTING: Warm risk accent at the payment, subdued emerald accent at savings.
+COLOR LANGUAGE: Semantic green/red only, black dominant.
+TEXT: No generated labels, prices, UI or brand names.
+FORBIDDEN: Pie chart, dashboard, finance icon pile, generic device, recurring RATE card, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.

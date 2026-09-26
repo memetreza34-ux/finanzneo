@@ -1,54 +1,15 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-CURRENT SINGLE STEP — DO NOT JUMP AHEAD
-FINAL FILE NAME: YouTube Bild 17 - Sparen statt sofort finanzieren.png
-FLOW_NECESSITY_REASON: A concrete two-path decision scene communicates saving versus immediate financing more clearly than a text-only comparison.
-VOICEOVER_VISUAL_MATCH: One path goes through saving; the other takes a rate shortcut to the same product.
-STATIC_REMOTION_OVERLAY: None.
-
-GOOGLE FLOW PROMPT — COPY/PASTE READY
-Create a premium stylized 3D animation-film scene for a German finance education video.
-
-VOICEOVER CONTEXT:
-Wenn du sparst statt sofort zu finanzieren, bleibt der Kauf ehrlich sichtbar. Du merkst schneller, ob du ihn wirklich brauchst.
-This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
-
-SCENE:
-Place one desired product in the distance and create two physical routes toward it. One route passes through a reserve container labeled “Sparen”; the other creates a direct shortcut through a card labeled “Rate”. Keep it grounded and understated, not gamified.
-
-IMPORTANT GERMAN OBJECT LABELS:
-“Sparen” and “Rate”.
-
-OBJECTS:
-- desired product
-- reserve container labeled “Sparen”
-- financing card labeled “Rate”
-- two simple physical path cues
-
-VISUAL STORYTELLING:
-The controlled saving path keeps the full journey visible while the rate path shortens the immediate distance but introduces commitment.
-
-COMPOSITION:
-Wide 16:9 forked spatial composition, product at upper-middle depth, two routes readable in foreground, clean and premium.
-
-MATERIALS:
-Premium paper/card, matte path surface, realistic stylized product materials.
-
-BACKGROUND:
-Deep seamless black with only subtle floor/path grounding.
-
-LIGHTING:
-Emerald accent on saving route, restrained warm red-orange on rate shortcut, neutral product light.
-
-COLOR LANGUAGE:
-Deep black dominant with semantic green/red contrast only where justified.
-
-TEXT:
-No headline, totals or floating UI. Only physical labels “Sparen” and “Rate”.
-
-FORBIDDEN:
-Cartoon road signs, videogame level look, generic piggy-bank hero shot, static tabletop/catalog staging, photorealism, flat 2D.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+FLOW_NECESSITY_REASON: A fully saved-for laptop purchase makes the alternative to immediate financing concrete.
+VOICEOVER_VISUAL_MATCH: The complete purchase remains visible rather than being mentally reduced to a monthly installment.
+VOICEOVER CONTEXT: Wenn du sparst statt sofort zu finanzieren, bleibt der Kauf ehrlich sichtbar. Du merkst schneller, ob du ihn wirklich brauchst. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: A clearly recognizable premium laptop sits at a simple checkout/pickup counter. Beside it is a transparent or open savings envelope/container holding enough physical cash for the purchase, while a folded financing brochure is pushed aside and secondary. No readable generated text.
+IMPORTANT GERMAN OBJECT LABELS: No generated labels.
+OBJECTS: premium laptop; savings envelope/container with cash; folded financing brochure.
+VISUAL STORYTELLING: The viewer sees the full real purchase and the saved money together, while financing is physically moved out of the main decision path.
+COMPOSITION: Laptop and savings form one coherent purchase moment, financing brochure off to one side, asymmetrical 3/4 view.
+MATERIALS: Stylized aluminum, paper/card, physical banknotes.
+BACKGROUND: Minimal electronics checkout context dissolving into deep seamless black.
+LIGHTING: Soft premium key; subtle emerald positive accent on savings, no excessive glow.
+COLOR LANGUAGE: Deep black, warm neutrals, emerald only for savings/solution.
+TEXT: No generated finance words, amounts, price tags, brands, ratings or UI.
+FORBIDDEN: Piggy-bank template, generic device, RATE card, static tabletop/catalog staging, photorealism, flat 2D, fake ecommerce screen.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.

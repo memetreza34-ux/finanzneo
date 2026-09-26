@@ -1,53 +1,15 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-CURRENT SINGLE STEP — DO NOT JUMP AHEAD
-FINAL FILE NAME: YouTube Bild 16 - Erst sparen dann kaufen.png
-FLOW_NECESSITY_REASON: A visible spatial progression from saving to later purchase makes delayed buying intuitive.
-VOICEOVER_VISUAL_MATCH: The purchase waits in the distance while a reserve is built first.
-STATIC_REMOTION_OVERLAY: None.
-
-GOOGLE FLOW PROMPT — COPY/PASTE READY
-Create a premium stylized 3D animation-film scene for a German finance education video.
-
-VOICEOVER CONTEXT:
-Oft ist es klüger, etwas später zu kaufen und vorher Geld zurückzulegen. Das gibt dir mehr Kontrolle und kostet dich oft weniger.
-This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
-
-SCENE:
-Show a short real-world progression through depth: a reserve container labeled “Sparen” is clearly being built first, while the desired purchase sits farther back at the end of the path rather than being taken immediately. Keep the concept mature and restrained.
-
-IMPORTANT GERMAN OBJECT LABELS:
-“Sparen”.
-
-OBJECTS:
-- reserve container labeled “Sparen”
-- desired consumer item waiting farther back
-- two or three simple time cues
-
-VISUAL STORYTELLING:
-The viewer sees the saving step physically before the purchase step; the product waits instead of being acquired immediately.
-
-COMPOSITION:
-Perspective path from near reserve to later purchase, strong depth, product secondary in the far-mid frame.
-
-MATERIALS:
-Stylized paper/container, premium product materials, subtle calendar/time cue materials.
-
-BACKGROUND:
-Deep seamless black with minimal real-world context.
-
-LIGHTING:
-Soft premium light with restrained emerald emphasis around the saved reserve; purchase stays neutral.
-
-COLOR LANGUAGE:
-Deep black, warm neutrals, semantic emerald for saving/solution.
-
-TEXT:
-No headline, numbers or floating UI. Only physical “Sparen” label.
-
-FORBIDDEN:
-Plant-growing-from-coins cliché, timeline UI, flat process diagram, static tabletop/catalog staging, photorealism, childish toy look.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+FLOW_NECESSITY_REASON: Waiting for a concrete desired purchase while savings accumulate shows control better than an abstract finance symbol.
+VOICEOVER_VISUAL_MATCH: The desired e-bike stays in the shop while saved money is prepared first.
+VOICEOVER CONTEXT: Oft ist es klüger, etwas später zu kaufen und vorher Geld zurückzulegen. Das gibt dir mehr Kontrolle und kostet dich oft weniger. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: A desirable modern e-bike is visible behind a simple shop window or on a pickup stand in the background. In the foreground, a green savings envelope/container with real cash inside sits beside a single calendar page, showing deliberate waiting before purchase. No readable generated text.
+IMPORTANT GERMAN OBJECT LABELS: No generated labels.
+OBJECTS: modern e-bike; savings envelope/container with cash; one calendar page; minimal shop context.
+VISUAL STORYTELLING: The product remains slightly out of reach in the background while the savings in the foreground are prepared first, turning waiting into control.
+COMPOSITION: Savings foreground left, e-bike mid/background right, clear depth and visual connection; not a product advertisement.
+MATERIALS: Stylized metal/rubber bike, paper envelope/calendar, physical banknotes.
+BACKGROUND: Minimal shop context fading into deep seamless black.
+LIGHTING: Soft premium light; restrained emerald accent around savings, neutral light on bike.
+COLOR LANGUAGE: Black dominant, warm neutrals, emerald only for positive savings.
+TEXT: No generated amount, savings word, brand name, price tag or UI.
+FORBIDDEN: Piggy-bank cliché, growing coin stack, generic finance icon, static tabletop/catalog staging, photorealism, flat 2D, excessive glow.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.

@@ -1,53 +1,15 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-CURRENT SINGLE STEP — DO NOT JUMP AHEAD
-FINAL FILE NAME: YouTube Bild 03 - Gesamtpreis aus dem Blick.png
-FLOW_NECESSITY_REASON: A depth-based 3D focus shift makes the attention effect more intuitive than a text-only explanation.
-VOICEOVER_VISUAL_MATCH: The monthly rate is physically closer and more dominant while the total price recedes.
-STATIC_REMOTION_OVERLAY: None.
-
-GOOGLE FLOW PROMPT — COPY/PASTE READY
-Create a premium stylized 3D animation-film scene for a German finance education video.
-
-VOICEOVER CONTEXT:
-Das Problem ist: Dein Blick wandert weg vom Gesamtpreis. Du achtest fast nur noch auf die Monatsrate.
-This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
-
-SCENE:
-Show a financing decision where a physical tag/document labeled “Gesamtpreis” remains farther back and slightly subdued, while a small card labeled “Monatsrate” sits close to camera and receives stronger visual emphasis. Both must remain readable as physical objects, not UI.
-
-IMPORTANT GERMAN OBJECT LABELS:
-“Gesamtpreis” and “Monatsrate”.
-
-OBJECTS:
-- full-price tag/document labeled “Gesamtpreis”
-- small card labeled “Monatsrate”
-- minimal purchase context
-
-VISUAL STORYTELLING:
-Visible cause: the offer foregrounds the rate. Visible consequence: the total price loses attention. The depth relationship is the explanation.
-
-COMPOSITION:
-Strong perspective, “Monatsrate” in sharp foreground on one side, “Gesamtpreis” farther back but still readable. Asymmetric framing with useful black negative space.
-
-MATERIALS:
-Thick paper/card, subtle metal/plastic purchase cues.
-
-BACKGROUND:
-Deep seamless black with only tiny shop/checkout hints fading into black.
-
-LIGHTING:
-Brighter neutral key on the rate card; full-price object remains readable but less dominant.
-
-COLOR LANGUAGE:
-Deep black, warm neutrals, restrained warm risk accent on the rate.
-
-TEXT:
-No headline, subtitle, floating UI or explanatory paragraph. Only the two short physical object labels.
-
-FORBIDDEN:
-Literal eyeballs, dashboard, floating app cards, side-by-side presentation slide, static tabletop/catalog staging, photorealism, flat 2D.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+FLOW_NECESSITY_REASON: Physical depth can show attention shifting away from the full purchase cost without relying on generated text.
+VOICEOVER_VISUAL_MATCH: The complete purchase receipt recedes while a small monthly-payment booklet dominates the foreground.
+VOICEOVER CONTEXT: Das Problem ist: Dein Blick wandert weg vom Gesamtpreis. Du achtest fast nur noch auf die Monatsrate. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Use the same recognizable television-purchase world. A long full-purchase receipt connected to the television slips backward into shadow, while a small monthly-payment booklet sits much closer to camera and catches the light. Neither paper contains readable generated text.
+IMPORTANT GERMAN OBJECT LABELS: No generated labels. Heading and explanation are provided by the video layout.
+OBJECTS: flat-screen television in background; long purchase receipt; small monthly-payment booklet.
+VISUAL STORYTELLING: The complete cost is literally farther away and visually subdued, while the smaller monthly commitment steals foreground attention.
+COMPOSITION: Strong diagonal perspective, booklet foreground right, receipt leading back toward television left-rear. No slide-like side-by-side cards.
+MATERIALS: Premium paper, matte booklet cover, stylized television glass/metal.
+BACKGROUND: Deep seamless black with minimal checkout context.
+LIGHTING: Brighter key on foreground booklet; softer readable light on receipt and television.
+COLOR LANGUAGE: Deep black, warm neutrals, restrained warm risk edge.
+TEXT: No generated labels, price numbers, fake UI or finance words.
+FORBIDDEN: Floating text cards, review/rating card, literal eyeballs, generic gadget, static tabletop/catalog staging, symmetric infographic, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.

@@ -1,53 +1,15 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-CURRENT SINGLE STEP — DO NOT JUMP AHEAD
-FINAL FILE NAME: YouTube Bild 12 - Unerwartete Kosten treffen Rate.png
-FLOW_NECESSITY_REASON: A real household emergency competing with a fixed rate makes the budget conflict more tangible than numbers alone.
-VOICEOVER_VISUAL_MATCH: Unexpected repair costs and an unavoidable rate visibly squeeze the same monthly budget.
-STATIC_REMOTION_OVERLAY: None.
-
-GOOGLE FLOW PROMPT — COPY/PASTE READY
-Create a premium stylized 3D animation-film scene for a German finance education video.
-
-VOICEOVER CONTEXT:
-Wenn dann noch etwas Unerwartetes passiert, wird es schnell kritisch. Denn feste Raten laufen weiter – egal, ob dein Monat gerade passt oder nicht.
-This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
-
-SCENE:
-Show a believable everyday emergency such as a broken washing machine with a repair document labeled “Reparatur” entering the same budget space where a financing card labeled “Rate” remains fixed and unavoidable. Both obligations visibly compete for one limited monthly budget envelope.
-
-IMPORTANT GERMAN OBJECT LABELS:
-“Reparatur” and “Rate”.
-
-OBJECTS:
-- broken household appliance or repair document
-- fixed financing card labeled “Rate”
-- monthly budget envelope/wallet
-
-VISUAL STORYTELLING:
-Unexpected repair cost pushes in from one side while the fixed rate already occupies the other side, squeezing the budget between them.
-
-COMPOSITION:
-Tense triangular layout: emergency cost on one side, fixed rate on the other, budget trapped in the middle. Keep objects large and readable.
-
-MATERIALS:
-Stylized appliance metal/plastic, thick repair paper, premium card and paper/leather budget object.
-
-BACKGROUND:
-Small relevant household context dissolving quickly into deep black.
-
-LIGHTING:
-Soft premium key with controlled warm red-orange accents on both competing costs.
-
-COLOR LANGUAGE:
-Deep black, warm neutrals, semantic red-orange for cost/risk.
-
-TEXT:
-No headline, totals or floating UI. Only “Reparatur” and “Rate” on the relevant physical objects.
-
-FORBIDDEN:
-Generic warning triangle as main subject, coin-pile cliché, excessive drama, static tabletop/catalog staging, photorealism, flat 2D.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+FLOW_NECESSITY_REASON: A broken household appliance plus ongoing installment envelopes creates an immediate real-life budget conflict.
+VOICEOVER_VISUAL_MATCH: Unexpected repair cost arrives while fixed payments continue.
+VOICEOVER CONTEXT: Wenn dann noch etwas Unerwartetes passiert, wird es schnell kritisch. Denn feste Raten laufen weiter – egal, ob dein Monat gerade passt oder nicht. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: A clearly broken off-white washing machine in a small laundry corner, with a repair-tool case open nearby. In the foreground are two or three plain ongoing installment envelopes beside an almost-empty everyday wallet. No readable generated words or numbers.
+IMPORTANT GERMAN OBJECT LABELS: No generated labels. The scene heading explains the situation.
+OBJECTS: broken washing machine; repair tools; nearly empty wallet; 2–3 plain payment envelopes.
+VISUAL STORYTELLING: The repair problem demands money now, while the existing payment envelopes remain physically present and unavoidable.
+COMPOSITION: Washing machine large left-mid, wallet and envelopes foreground right, tools as supporting context; deep black around local laundry area.
+MATERIALS: Warm painted metal/plastic appliance, rubber, tool metal, leather/fabric wallet, paper envelopes.
+BACKGROUND: Small laundry context dissolving into deep seamless black.
+LIGHTING: Soft premium key; warm red-orange on repair/problem area and payment envelopes.
+COLOR LANGUAGE: Deep black, warm ivory/gray appliance, restrained risk accent.
+TEXT: No generated repair price, finance labels, ratings or UI.
+FORBIDDEN: Copying the old anchor composition exactly, generic gadget, RATE placard, static tabletop/catalog staging, photorealism, flat 2D, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.

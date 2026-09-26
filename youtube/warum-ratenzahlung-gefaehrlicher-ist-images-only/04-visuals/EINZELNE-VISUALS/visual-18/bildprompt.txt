@@ -1,54 +1,15 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-CURRENT SINGLE STEP — DO NOT JUMP AHEAD
-FINAL FILE NAME: YouTube Bild 18 - Rate abwaegen.png
-FLOW_NECESSITY_REASON: A balanced physical weighing scene communicates nuance and prevents the message from becoming “all financing is bad”.
-VOICEOVER_VISUAL_MATCH: Useful purchase value and contractual commitment are visibly weighed against each other.
-STATIC_REMOTION_OVERLAY: None.
-
-GOOGLE FLOW PROMPT — COPY/PASTE READY
-Create a premium stylized 3D animation-film scene for a German finance education video.
-
-VOICEOVER CONTEXT:
-Ratenzahlungen sind nicht automatisch schlecht. Aber sie wirken oft harmloser, als sie in Wahrheit sind.
-This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
-
-SCENE:
-Show a premium physical balance scale. One side holds a useful purchased item. The other holds a financing contract labeled “Vertrag” plus a small card labeled “Rate”. The balance should not be catastrophically tipped; the point is deliberate weighing, not moral panic.
-
-IMPORTANT GERMAN OBJECT LABELS:
-“Vertrag” and “Rate”.
-
-OBJECTS:
-- physical balance scale
-- useful consumer item
-- contract labeled “Vertrag”
-- small card labeled “Rate”
-
-VISUAL STORYTELLING:
-The product’s usefulness and the financing commitment are both visible and physically weighed against each other.
-
-COMPOSITION:
-Medium 3/4 shot, balanced but slightly tense, strong subject separation and black negative space around the scale.
-
-MATERIALS:
-Brushed metal scale, premium paper, stylized product materials.
-
-BACKGROUND:
-Deep seamless black with subtle grounded reflection.
-
-LIGHTING:
-Neutral balanced lighting, small emerald accent on usefulness side and warm red-orange on commitment side.
-
-COLOR LANGUAGE:
-Deep black, warm neutrals, restrained semantic green/red accents.
-
-TEXT:
-No headline or long copy. Only “Vertrag” and “Rate” on the physical items.
-
-FORBIDDEN:
-Dramatic crash, skulls, oversized warning signs, moralizing cartoon, flat comparison slide, static tabletop/catalog staging, photorealism.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+FLOW_NECESSITY_REASON: A transparent, fully visible appliance financing situation can show that installments are not automatically bad while still revealing the whole obligation.
+VOICEOVER_VISUAL_MATCH: The purchase is shown together with the complete payment schedule instead of hiding it behind one small monthly amount.
+VOICEOVER CONTEXT: Ratenzahlungen sind nicht automatisch schlecht. Aber sie wirken oft harmloser, als sie in Wahrheit sind. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: A recognizable household appliance, such as a washing machine, stands in a simple store pickup area. Beside it, the full financing paperwork is unfolded as one visible long schedule across several pages, all readable as documents but with NO generated text. Nothing is hidden behind a tiny rate card.
+IMPORTANT GERMAN OBJECT LABELS: No generated labels.
+OBJECTS: washing machine; complete multi-page financing schedule; simple pickup trolley/context.
+VISUAL STORYTELLING: The purchase can be reasonable, but the full obligation is physically visible at the same time rather than disguised as one tiny payment.
+COMPOSITION: Appliance large left, unfolded document sequence right, balanced but not symmetric; clear black space around both.
+MATERIALS: Stylized painted metal/plastic appliance, thick paper documents, metal trolley detail.
+BACKGROUND: Minimal store pickup context fading into deep seamless black.
+LIGHTING: Neutral premium studio light with only a restrained warm caution edge on documents.
+COLOR LANGUAGE: Black dominant, warm neutrals, balanced caution rather than alarm.
+TEXT: No generated labels, amounts, ratings, brands or UI.
+FORBIDDEN: Giant warning icon, scale cliché, recurring RATE card, generic device, static tabletop/catalog staging, photorealism, flat 2D, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.

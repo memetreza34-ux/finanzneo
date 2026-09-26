@@ -1,53 +1,15 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-CURRENT SINGLE STEP — DO NOT JUMP AHEAD
-FINAL FILE NAME: YouTube Bild 01 - Raten wirken harmlos.png
-FLOW_NECESSITY_REASON: A concrete 3D purchase moment makes the psychological contrast between a large purchase and a small monthly commitment instantly understandable.
-VOICEOVER_VISUAL_MATCH: The frame directly shows why a large purchase feels smaller when attention is pulled toward the rate.
-STATIC_REMOTION_OVERLAY: None.
-
-GOOGLE FLOW PROMPT — COPY/PASTE READY
-Create a premium stylized 3D animation-film scene for a German finance education video.
-
-VOICEOVER CONTEXT:
-Ratenzahlungen wirken oft klein und harmlos. Genau deshalb unterschätzen viele, wie teuer ein Kauf am Ende wirklich wird.
-This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
-
-SCENE:
-Show a premium consumer-electronics purchase moment. A large modern television box or laptop is visibly expensive and substantial, while a much smaller financing card labeled “Rate” is positioned closer to the viewer and steals attention. The viewer should instantly feel how a large purchase is mentally reduced to a small monthly commitment.
-
-IMPORTANT GERMAN OBJECT LABELS:
-“Rate” physically printed on the financing card. No other explanatory text.
-
-OBJECTS:
-- large premium consumer product
-- small physical financing card labeled “Rate”
-- only minimal checkout context
-
-VISUAL STORYTELLING:
-Visible cause: large expensive purchase. Visible consequence: the smaller rate feels easier. Physical relationship: the small card sits closer to camera and visually pulls focus away from the larger product.
-
-COMPOSITION:
-Medium 3/4 view, product dominant in left-mid frame, rate card closer to camera on the right, strong foreground/midground depth and useful black breathing room. Do not make a centered catalog shot.
-
-MATERIALS:
-Stylized cardboard packaging, matte plastic/metal product surfaces, thick premium paper card.
-
-BACKGROUND:
-Deep seamless black is dominant. Show only a narrow believable checkout/electronics-store context near the objects and let it dissolve into black.
-
-LIGHTING:
-Premium soft studio lighting, clear subject separation, controlled highlights and contact shadows; restrained warm red-orange accent around the rate card.
-
-COLOR LANGUAGE:
-Deep black dominant, warm ivory/soft gray neutrals, subtle gold only for value, restrained red-orange for risk.
-
-TEXT:
-No headline, no subtitle, no paragraph, no floating UI, no file name. Only the physical label “Rate”. Exact explanatory text is added later by the static video layout.
-
-FORBIDDEN:
-Static tabletop/catalog staging, symmetric product ad, photorealism, flat 2D illustration, corporate vector art, Canva style, fake app UI, generic piggy-bank/coin/vault scene, cyberpunk, clutter, tiny diorama.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+FLOW_NECESSITY_REASON: A concrete electronics purchase makes the harmless-looking installment psychologically visible.
+VOICEOVER_VISUAL_MATCH: A large television purchase is contrasted with one physically tiny payment slip.
+VOICEOVER CONTEXT: Ratenzahlungen wirken oft klein und harmlos. Genau deshalb unterschätzen viele, wie teuer ein Kauf am Ende wirklich wird. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Show an unmistakable 65-inch flat-screen television at a real electronics-store checkout. The TV box and screen are large and substantial. A single small plain installment-payment slip lies closer to camera, visually tiny compared with the television. No readable generated text.
+IMPORTANT GERMAN OBJECT LABELS: No generated labels. Exact explanatory text belongs to the static video layout.
+OBJECTS: 65-inch flat-screen television; one small plain payment slip; minimal checkout counter edge.
+VISUAL STORYTELLING: The purchase is physically large, while the payment slip occupies little visual space and therefore feels deceptively harmless.
+COMPOSITION: Medium 3/4 view. Television dominates left-mid frame; small slip sits foreground right; asymmetrical depth; generous black breathing room.
+MATERIALS: Premium stylized television glass and matte frame, cardboard packaging, thick paper slip.
+BACKGROUND: Deep seamless black with only a small believable electronics checkout context dissolving into black.
+LIGHTING: Soft premium studio lighting, clear subject separation, subtle warm risk accent on the payment slip.
+COLOR LANGUAGE: Deep black dominant, warm ivory/soft gray neutrals, restrained warm red-orange for risk.
+TEXT: No generated words, prices, ratings, stars, brand names or UI. All exact text is added later.
+FORBIDDEN: Generic consumer product, invented gadget, radio/heater/speaker, recurring RATE card, review card, static tabletop/catalog staging, symmetric product ad, photorealism, flat 2D, fake UI, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.

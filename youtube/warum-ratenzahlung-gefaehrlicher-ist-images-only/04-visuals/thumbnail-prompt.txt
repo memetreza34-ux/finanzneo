@@ -1,41 +1,32 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-CURRENT SINGLE STEP — DO NOT JUMP AHEAD
 FINAL FILE NAME: YouTube Thumbnail - Ratenzahlung Falle.png
 
-GOOGLE FLOW THUMBNAIL PROMPT — COPY/PASTE READY
-Create a high-impact horizontal 16:9 finance YouTube thumbnail in the approved premium stylized 3D animation-film FinanzNeo world.
+GOOGLE FLOW THUMBNAIL PROMPT — CORRECTED
 
-CORE TENSION:
-A purchase that looks cheap per month but is actually a large long-term commitment.
+Create a premium clearly stylized 3D animation-film frame in the unchanged FinanzNeo YouTube image world `finanzneo-youtube-grounded-3d-black-v1`.
 
 SCENE:
-One large premium consumer product sits behind a deceptively small physical card labeled “50 €/Monat”. A long chain of calendar pages and a financing contract extend behind the small card, revealing the hidden duration and commitment. The small rate should feel visually innocent in front, while the long obligation behind it creates the tension.
+A real, unmistakable 65-inch flat-screen television in a modern electronics-store checkout area. The television is large and visually valuable. Very close to camera sits one small, plain installment-payment slip with NO readable generated words or numbers. Behind the television, a long chain of monthly calendar pages recedes deep into the black background, making the long commitment physically visible.
 
 VISUAL STORYTELLING:
-The rate card hides the true scale of the commitment at first glance; the calendar chain and contract reveal what sits behind it.
+The tiny payment slip looks harmless in the foreground, while the large television and long calendar chain reveal the true scale and duration behind it.
 
 COMPOSITION:
-Large subject cluster on the right two-thirds. Leave strong clean negative space on the left for thumbnail typography added later. Medium-low 3/4 angle, large readable objects, strong depth, no clutter.
+Use the right two-thirds for the television, payment slip and calendar chain. Keep the left third clean, dark and uncluttered for later thumbnail typography. Medium-low 3/4 camera angle, strong depth, large readable objects.
 
 MATERIALS:
-Premium stylized product metal/plastic, thick paper rate card, premium contract paper, calendar pages with believable thickness.
+Premium stylized glass, matte black television frame, thick paper slip and calendar paper, believable but visibly animated-film materials.
 
 BACKGROUND:
-Deep seamless black, tiny local purchase context only if needed.
+Deep seamless black dominant world with only a small believable electronics-store checkout context dissolving into black.
 
 LIGHTING:
-Premium soft studio lighting with strong subject separation; restrained warm red-orange around the contract/calendar commitment, neutral product light.
-
-COLOR LANGUAGE:
-Deep black dominant, warm ivory/gray neutrals, restrained red-orange for obligation. Avoid neon.
+Soft premium studio lighting; neutral light on the television, restrained warm red-orange accent along the calendar chain.
 
 TEXT:
-The physical rate card may read “50 €/Monat”. Do not generate the YouTube headline. Leave the left side clean for later typography.
+Do not generate a headline, price, percentage, financing word, fake brand, rating, review stars or gibberish. All typography is added later in the video/thumbnail layout.
 
 FORBIDDEN:
-Static tabletop/catalog staging, generic piggy bank, pile of coins, fake app UI, photorealism, flat 2D, tiny diorama, cyberpunk, excessive glow.
+Generic or invented consumer device, radio/heater/speaker instead of the specified television, recurring RATE card template, review-card design, fake UI, static tabletop/catalog staging, symmetric product advertisement, photorealism, flat 2D, cyberpunk, clutter, tiny diorama.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+Horizontal 16:9. Same approved FinanzNeo image world. Do not redesign the style.

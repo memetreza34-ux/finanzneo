@@ -1,4 +1,4 @@
-FINANZNEO — GOOGLE FLOW HANDOFF
+FINANZNEO — GOOGLE FLOW HANDOFF — CORRECTED CONCRETE-SCENE PASS
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
@@ -6,378 +6,357 @@ FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
 
-IMPORTANT: This is ONE shared Google Flow handoff. It contains only the thumbnail and the 17 visuals that actually need Flow. Visual 07, 14 and 19 are static Remotion-only visuals and must NOT receive generated images.
+IMPORTANT: ONE shared Google Flow handoff. Generate only thumbnail plus IMAGE 01–06, 08–13, 15–18 and 20. VISUAL 07, 14 and 19 are static Remotion-only and must NOT receive generated images.
+
+CORRECTION LOCK — DO NOT CHANGE THE IMAGE WORLD:
+- The approved image world is unchanged.
+- Do NOT invent vague “consumer products”, mystery devices, radios/heaters/speakers or ambiguous gadgets.
+- Every scene below names the exact everyday object to generate.
+- Do NOT turn the series into a recurring RATE-card, review-card, rating-card or product-ad template.
+- Generate NO readable explanatory text, prices, monthly amounts, star ratings, reviews or fake brands unless a block explicitly says otherwise. Exact information is added later by the static video layout.
+- Keep real-life context, visible cause/effect, large readable objects and the deep-black FinanzNeo world.
+- Reject static tabletop/catalog staging when it does not tell the spoken story.
 
 STRICT SEQUENTIAL WORKFLOW:
 1. Read this ONE shared Google Flow handoff once.
 2. Generate exactly ONE image for the current block.
 3. Wait until it is fully complete.
 4. Rename it immediately to the exact FINAL FILE NAME.
-5. QA: one dominant idea, direct visual storytelling/cause-effect, premium stylized 3D animation-film look, deep-black FinanzNeo world, horizontal 16:9, required physical labels readable, no static tabletop/catalog default.
-6. If QA fails, regenerate the SAME image number and replace the failed file.
-7. Only after PASS continue to the next block.
-8. Put every final image into `04-visuals/00-ALLE-BILDER-HIER-REIN/`.
+5. QA the exact named object, one dominant idea, direct visual storytelling/cause-effect, premium stylized 3D animation-film look, deep seamless black world, horizontal 16:9, no unwanted generated text and no catalog/template look.
+6. If QA fails, regenerate the SAME image number and replace it.
+7. Only after PASS continue.
+8. Put final images in `04-visuals/00-ALLE-BILDER-HIER-REIN/`.
 9. After the final planned image, STOP. Never invent additional images.
 
-GLOBAL IMAGE LOCK:
-Every Flow image carries one dominant idea and normally 1-2 short Voiceover sentences. Keep only the main subject and necessary supporting objects. Use a meaningful physical/spatial relationship, tension, progression or consequence. Premium clearly stylized 3D animation-film rendering, never photorealistic and never flat 2D. Deep seamless black is dominant; local context is small and dissolves into black. Emerald green is reserved for positive/solution/value, warm red-orange for cost/risk/problem, warm ivory/soft gray for neutral surfaces, subtle gold only for value. No generic finance clutter, no fake app/website, no floating UI, no recurring piggy-bank/coin/vault template, no headline or explanatory paragraph inside generated images. Exact important numbers and comparison text belong to the static video layout.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 THUMBNAIL
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 FINAL FILE NAME: YouTube Thumbnail - Ratenzahlung Falle.png
-VOICEOVER CONTEXT: Thumbnail only; summarize the tension “small monthly rate, long hidden commitment”.
-SCENE: Small physical card `50 €/Monat` in the foreground; behind it a large desired product, a financing contract and a long chain of calendar pages revealing hidden duration.
-IMPORTANT GERMAN OBJECT LABELS: `50 €/Monat` may be printed naturally on the physical rate card; no headline in the image.
-OBJECTS: rate card, desired product, contract, calendar chain.
-VISUAL STORYTELLING: The small rate visually hides the scale of the long commitment behind it.
-COMPOSITION: Subject cluster on right two-thirds; clean left third for later thumbnail typography.
-MATERIALS: premium stylized product metal/plastic, thick paper card, contract paper, calendar paper.
-BACKGROUND: Deep seamless black with minimal purchase context.
-LIGHTING: Soft premium studio light, restrained warm red-orange around the long commitment.
-COLOR LANGUAGE: deep black dominant, warm neutrals, controlled risk accent.
-TEXT: no generated headline; only the natural physical rate-card label.
-FORBIDDEN: static tabletop/catalog staging, photorealism, flat 2D, fake UI, piggy-bank/coin cliché, cyberpunk, clutter.
+VOICEOVER CONTEXT: Thumbnail only. One dominant idea; 1-2 short Voiceover sentences equivalent: small monthly payment hides a long commitment.
+SCENE: Unmistakable 65-inch flat-screen television at an electronics-store checkout. One tiny plain installment slip near camera, NO text. Behind the TV, a long chain of monthly calendar pages recedes into black.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: flat-screen television, blank payment slip, calendar chain.
+VISUAL STORYTELLING: tiny slip feels harmless while the large product and long future commitment are revealed behind it.
+COMPOSITION: right two-thirds subject cluster, clean left third for later thumbnail typography.
+MATERIALS: stylized glass/metal/cardboard/paper.
+BACKGROUND: deep seamless black with minimal checkout context.
+LIGHTING: soft premium studio light, restrained warm risk accent on calendar chain.
+COLOR LANGUAGE: black dominant, warm neutrals, controlled red-orange risk.
+TEXT: no generated headline, price, RATE word, rating, reviews, stars, brand or UI.
+FORBIDDEN: generic invented device, radio/heater/speaker, review card, recurring RATE-card template, static tabletop/catalog staging, photorealism, flat 2D, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering in the unchanged FinanzNeo YouTube world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 01 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 01 — Raten wirken harmlos
 FINAL FILE NAME: YouTube Bild 01 - Raten wirken harmlos.png
-FLOW_NECESSITY_REASON: Concrete purchase moment makes the psychological contrast immediate.
-VOICEOVER_VISUAL_MATCH: A large purchase is mentally reduced by a small rate card.
+FLOW_NECESSITY_REASON: A concrete electronics purchase makes the harmless-looking installment psychologically visible.
+VOICEOVER_VISUAL_MATCH: A large television purchase is contrasted with one physically tiny payment slip.
 VOICEOVER CONTEXT: Ratenzahlungen wirken oft klein und harmlos. Genau deshalb unterschätzen viele, wie teuer ein Kauf am Ende wirklich wird. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Large premium consumer product feels substantial; small physical card labeled `Rate` sits closer to camera and steals attention.
-IMPORTANT GERMAN OBJECT LABELS: `Rate`.
-OBJECTS: large purchase object, small rate card, minimal checkout context.
-VISUAL STORYTELLING: big purchase is the cause; small foreground rate creates the misleading easy feeling.
-COMPOSITION: medium 3/4, product left-mid, rate card foreground right, strong depth, useful black space.
-MATERIALS: premium stylized cardboard, plastic/metal, thick paper card.
-BACKGROUND: deep seamless black, tiny local checkout context.
-LIGHTING: soft premium studio lighting, subtle warm risk accent on rate card.
-COLOR LANGUAGE: black dominant, warm neutrals, restrained red-orange.
-TEXT: no headline, totals or UI; only `Rate` physically on card.
-FORBIDDEN: static tabletop/catalog staging, symmetric product ad, photorealism, flat 2D, generic finance clutter.
+SCENE: Unmistakable 65-inch flat-screen television at a real electronics-store checkout; one tiny plain payment slip closer to camera; no readable text.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: television, one payment slip, minimal checkout edge.
+VISUAL STORYTELLING: large purchase versus tiny commitment cue.
+COMPOSITION: TV left-mid, slip foreground right, asymmetrical depth, black breathing room.
+MATERIALS: stylized TV glass/matte frame, cardboard, paper.
+BACKGROUND: deep seamless black with small checkout context.
+LIGHTING: soft premium studio lighting, restrained risk accent on slip.
+COLOR LANGUAGE: black dominant, warm neutrals, controlled red-orange.
+TEXT: no generated words, prices, ratings, brands or UI.
+FORBIDDEN: generic product, invented gadget, radio/heater/speaker, RATE card, review card, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 02 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 02 — Aus 1.200 € wird 50 €
 FINAL FILE NAME: YouTube Bild 02 - Grosser Preis kleine Rate.png
-FLOW_NECESSITY_REASON: Flow supplies the purchase situation; exact numbers are added later statically.
-VOICEOVER_VISUAL_MATCH: Large purchase recedes while small rate feels easy.
+FLOW_NECESSITY_REASON: A real TV purchase provides context for the exact static comparison.
+VOICEOVER_VISUAL_MATCH: Expensive television remains tangible while the later overlay shows 1.200 € → 50 €/Monat.
 VOICEOVER CONTEXT: Statt 1.200 Euro siehst du plötzlich nur noch 50 Euro im Monat. Psychologisch fühlt sich der Kauf dadurch viel leichter an. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Large premium purchase object on left; small physical card labeled `Rate` close to camera. Do not generate the exact amounts.
-IMPORTANT GERMAN OBJECT LABELS: `Rate`.
-OBJECTS: large purchase, rate card, minimal payment context.
-VISUAL STORYTELLING: the large price feels heavy; the small rate visually overtakes it.
-COMPOSITION: story on left 55–60%; clean dark right side reserved for `1.200 € → 50 €/Monat` static overlay.
-MATERIALS: premium product metal/plastic, thick paper card.
-BACKGROUND: deep seamless black.
-LIGHTING: soft premium studio light, restrained warm risk accent.
+SCENE: Recognizable premium 65-inch flat-screen television on a simple display stand, one small blank payment slip nearby, no text.
+IMPORTANT GERMAN OBJECT LABELS: None generated; exact comparison added later.
+OBJECTS: television, blank payment slip, display stand.
+VISUAL STORYTELLING: substantial purchase contrasted with tiny payment cue.
+COMPOSITION: story left 55–60%, clean dark right region reserved for static overlay.
+MATERIALS: stylized glass, metal/plastic, paper.
+BACKGROUND: deep seamless black with tiny store context.
+LIGHTING: soft premium light, restrained risk accent.
 COLOR LANGUAGE: black dominant, warm neutrals, red-orange only for risk.
-TEXT: no amounts or arrows inside Flow; exact comparison added later.
-FORBIDDEN: generated equation, static tabletop/catalog staging, fake UI, photorealism, flat 2D.
+TEXT: no generated price, monthly amount, arrow, rating or UI.
+FORBIDDEN: generic/invented device, radio/heater/speaker, generated equation, RATE card, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 03 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 03 — Der Gesamtpreis verschwindet
 FINAL FILE NAME: YouTube Bild 03 - Gesamtpreis aus dem Blick.png
-FLOW_NECESSITY_REASON: Depth-based focus shift communicates attention better than a slide.
-VOICEOVER_VISUAL_MATCH: `Monatsrate` dominates foreground; `Gesamtpreis` recedes.
+FLOW_NECESSITY_REASON: Physical depth shows attention shifting away from complete cost.
+VOICEOVER_VISUAL_MATCH: Full purchase receipt recedes while a small monthly-payment booklet dominates foreground.
 VOICEOVER CONTEXT: Das Problem ist: Dein Blick wandert weg vom Gesamtpreis. Du achtest fast nur noch auf die Monatsrate. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Physical `Gesamtpreis` tag/document farther back and subdued; physical `Monatsrate` card close and prominent.
-IMPORTANT GERMAN OBJECT LABELS: `Gesamtpreis`, `Monatsrate`.
-OBJECTS: two physical labeled cards/documents plus tiny purchase context.
-VISUAL STORYTELLING: foreground emphasis on rate causes total price to lose attention.
-COMPOSITION: strong perspective, asymmetric, rate sharp foreground, total price readable farther back.
-MATERIALS: premium paper/card with subtle purchase-object cues.
-BACKGROUND: deep seamless black.
-LIGHTING: brighter key on rate, subdued but readable total-price object.
-COLOR LANGUAGE: restrained warm risk accent on rate.
-TEXT: only the two physical labels.
-FORBIDDEN: literal eyeballs, dashboard, floating UI, presentation slide, static tabletop/catalog staging, photorealism, flat 2D.
+SCENE: Same TV-purchase world; long full-purchase receipt slips backward into shadow; small blank monthly-payment booklet close to camera; no text.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: television, long receipt, small payment booklet.
+VISUAL STORYTELLING: complete cost physically farther away; small commitment steals attention.
+COMPOSITION: diagonal perspective, booklet foreground right, receipt leading to TV left-rear.
+MATERIALS: premium paper, matte booklet, stylized TV materials.
+BACKGROUND: deep seamless black, minimal checkout context.
+LIGHTING: brighter booklet, softer receipt/TV.
+COLOR LANGUAGE: black, warm neutrals, restrained risk edge.
+TEXT: no labels, prices, ratings or UI.
+FORBIDDEN: floating cards, review card, generic gadget, static tabletop/catalog staging, symmetric infographic, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 04 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 04 — Eine Rate klingt machbar
 FINAL FILE NAME: YouTube Bild 04 - Eine Rate wirkt machbar.png
-FLOW_NECESSITY_REASON: A calm everyday budget scene best shows why one small rate feels harmless.
-VOICEOVER_VISUAL_MATCH: One rate occupies little space in an otherwise relaxed budget.
+FLOW_NECESSITY_REASON: Calm everyday smartphone purchase makes one installment feel manageable.
+VOICEOVER_VISUAL_MATCH: Only one financed item and one small commitment exist.
 VOICEOVER CONTEXT: Eine einzelne Rate wirkt oft noch machbar. Genau dort beginnt die Falle. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: One small card labeled `Rate` beside a wallet or monthly budget envelope; nothing overloaded yet.
-IMPORTANT GERMAN OBJECT LABELS: `Rate`.
-OBJECTS: single rate card, wallet/budget envelope, minimal home context.
-VISUAL STORYTELLING: a single obligation appears easy and manageable.
-COMPOSITION: medium-close 3/4, one clear subject, asymmetric, black breathing room.
-MATERIALS: leather/fabric wallet, premium paper card.
-BACKGROUND: small home-budget context dissolving into black.
-LIGHTING: calm neutral studio light, faint risk edge.
+SCENE: Recognizable modern smartphone with closed box on a small home entry shelf; one plain monthly-payment envelope and normal wallet nearby; no other financed goods.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: smartphone, box, one envelope, wallet.
+VISUAL STORYTELLING: one tiny obligation takes little space and feels harmless.
+COMPOSITION: medium-close 3/4, asymmetrical, real home context, black negative space.
+MATERIALS: stylized glass/metal/cardboard/leather/paper.
+BACKGROUND: small home context dissolving into deep seamless black.
+LIGHTING: calm premium neutral light, faint risk rim.
 COLOR LANGUAGE: black, warm neutrals, subtle red-orange.
-TEXT: only `Rate`.
-FORBIDDEN: multiple debts already shown, dramatic warning symbols, flat-lay catalog staging, photorealism, flat 2D.
+TEXT: no finance words, price, star rating, brand or UI.
+FORBIDDEN: several debts, generic device, RATE placard, review card, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 05 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 05 — Mehrere Raten stapeln sich
 FINAL FILE NAME: YouTube Bild 05 - Mehrere Raten stapeln sich.png
-FLOW_NECESSITY_REASON: Real financed goods accumulating through depth make stacking immediately understandable.
-VOICEOVER_VISUAL_MATCH: Smartphone, television, laptop and furniture form a growing chain of commitments.
+FLOW_NECESSITY_REASON: Real household products accumulating in one home communicate stacking immediately.
+VOICEOVER_VISUAL_MATCH: Smartphone, television, laptop and sofa are all separate purchases.
 VOICEOVER CONTEXT: Denn selten bleibt es bei einer einzigen Rate. Handy, Fernseher, Laptop oder Möbel kommen schnell zusammen. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Smartphone, television, laptop and one simple furniture item accumulate from background to foreground; each has a small physical `Rate` tag.
-IMPORTANT GERMAN OBJECT LABELS: `Rate`.
-OBJECTS: four everyday purchase items and small rate tags.
-VISUAL STORYTELLING: every new purchase adds visible spatial burden.
-COMPOSITION: diagonal back-left to front-right progression, partial depth overlap, no grid.
-MATERIALS: stylized glass, metal, plastic, fabric/wood.
-BACKGROUND: deep seamless black with faint ground contact.
-LIGHTING: soft premium light; warmer risk accents toward foreground.
-COLOR LANGUAGE: neutral products, restrained red-orange tags.
-TEXT: only short physical `Rate` labels.
-FORBIDDEN: electronics catalog grid, floating icon collage, shopping-cart cliché, static tabletop/catalog staging, photorealism, flat 2D.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 06 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FINAL FILE NAME: YouTube Bild 06 - Kleine Raten zusammen.png
-FLOW_NECESSITY_REASON: Flow shows separate obligations converging; exact addition remains static Remotion text.
-VOICEOVER_VISUAL_MATCH: Several small commitments physically become one monthly burden.
-VOICEOVER CONTEXT: Jede einzelne Rate wirkt noch klein. Zusammen wird daraus aber oft eine spürbare monatliche Belastung. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Four small cards labeled `Rate` converge into one larger monthly-budget block/envelope. Do not generate euro amounts.
-IMPORTANT GERMAN OBJECT LABELS: `Rate`.
-OBJECTS: four rate cards, one combined budget burden.
-VISUAL STORYTELLING: small separate pieces converge into one heavy combined result.
-COMPOSITION: diagonal convergence; reserve clean space for `25 € + 40 € + 35 € + 20 €` static overlay.
-MATERIALS: premium paper cards and matte envelope/block.
-BACKGROUND: deep seamless black.
-LIGHTING: warmer risk accent near combined burden.
+SCENE: Believable living-room corner with smartphone foreground, open laptop on side cabinet, flat-screen television midground and sofa farther back. One small blank payment paper near each item, no readable text.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: smartphone, laptop, television, sofa, four plain payment papers.
+VISUAL STORYTELLING: separate purchases accumulate through depth and occupy more of the same home.
+COMPOSITION: diagonal depth progression, no grid, no catalog lineup.
+MATERIALS: stylized glass, metal, plastic, fabric/wood, paper.
+BACKGROUND: local living-room context fades into deep seamless black.
+LIGHTING: soft premium light, slightly warmer risk accents on papers.
 COLOR LANGUAGE: black, warm neutrals, restrained red-orange.
-TEXT: no euro amounts or equation inside Flow.
-FORBIDDEN: infographic card grid, generated calculation, static tabletop/catalog staging, photorealism, flat 2D.
+TEXT: no RATE labels, amounts, ratings, brands or UI.
+FORBIDDEN: electronics catalog grid, floating icon collage, recurring RATE cards, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 06 — Alles einzeln klein
+FINAL FILE NAME: YouTube Bild 06 - Kleine Raten zusammen.png
+FLOW_NECESSITY_REASON: A real home with four financed items provides context for the later exact addition.
+VOICEOVER_VISUAL_MATCH: Four separate commitments visibly feed the same monthly budget.
+VOICEOVER CONTEXT: Jede einzelne Rate wirkt noch klein. Zusammen wird daraus aber oft eine spürbare monatliche Belastung. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Living-room/home-office corner with smartphone, laptop, TV and sofa in natural positions. A plain payment paper from each item points/overlaps toward one central budget envelope; no text.
+IMPORTANT GERMAN OBJECT LABELS: None generated; exact addition is added later.
+OBJECTS: smartphone, laptop, TV, sofa, four papers, central budget envelope.
+VISUAL STORYTELLING: separate real purchases converge on one monthly budget.
+COMPOSITION: natural room arrangement on left/center, clean dark area reserved for addition.
+MATERIALS: stylized household materials and paper.
+BACKGROUND: local home context dissolving into deep seamless black.
+LIGHTING: soft premium light, controlled warm risk around convergence.
+COLOR LANGUAGE: black, warm neutrals, restrained risk accent.
+TEXT: no euro amounts, equation, labels, ratings or UI.
+FORBIDDEN: abstract card-only scene, generic gadget, generated calculation, RATE cards, static tabletop/catalog staging, infographic grid, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
+
 VISUAL 07 — DATA / NO FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DO NOT GENERATE IMAGE 07. Static Remotion calculation only: `25 € + 40 € + 35 € + 20 € = 120 €/Monat`.
+DO NOT GENERATE IMAGE 07. Static Remotion calculation only.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 08 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 08 — Laufzeit bindet dich
 FINAL FILE NAME: YouTube Bild 08 - Laufzeit bindet Geld.png
-FLOW_NECESSITY_REASON: Calendar depth makes long-term binding visible.
-VOICEOVER_VISUAL_MATCH: The same `Rate` repeats through future months.
+FLOW_NECESSITY_REASON: E-bike tethered to many future calendar pages makes duration tangible.
+VOICEOVER_VISUAL_MATCH: The purchase remains connected to future months.
 VOICEOVER CONTEXT: Dazu kommt die Laufzeit. Je länger eine Rate läuft, desto länger bleibt dein Geld gebunden. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Long sequence of monthly calendar pages receding into depth, each carrying the same physical `Rate` marker.
-IMPORTANT GERMAN OBJECT LABELS: `Rate`.
-OBJECTS: calendar sequence, repeated rate marker, small wallet/budget cue.
-VISUAL STORYTELLING: commitment continues visibly month after month.
-COMPOSITION: perspective corridor, large readable near objects, no tiny calendar wall.
-MATERIALS: paper calendars, thick cards, binder details.
-BACKGROUND: deep seamless black.
-LIGHTING: neutral key with repeated restrained warm risk accents.
-COLOR LANGUAGE: warm paper neutrals on black.
-TEXT: only `Rate`.
-FORBIDDEN: timeline UI, tiny unreadable calendars, flat infographic, static tabletop/catalog staging, photorealism.
+SCENE: Recognizable modern e-bike in a minimal garage/store pickup area, physically connected by a restrained strap to a long sequence of blank calendar pages receding into depth.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: e-bike, calendar-page sequence, strap.
+VISUAL STORYTELLING: desirable purchase foreground is tethered to many future months.
+COMPOSITION: e-bike front-left, calendar path diagonally into right-rear depth.
+MATERIALS: stylized metal/rubber/paper/fabric.
+BACKGROUND: minimal context dissolving into deep seamless black.
+LIGHTING: soft premium light, restrained warm risk along calendar path.
+COLOR LANGUAGE: black, neutrals, controlled red-orange.
+TEXT: no month names, numbers, finance words or UI.
+FORBIDDEN: timeline UI, tiny calendar wall, generic gadget, RATE cards, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 09 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 09 — Weniger Freiheit im Monat
 FINAL FILE NAME: YouTube Bild 09 - Weniger frei verfuegbar.png
-FLOW_NECESSITY_REASON: A physically blocked budget path makes reduced flexibility intuitive.
-VOICEOVER_VISUAL_MATCH: `Rate` blocks part of the budget before it reaches `Rücklage` or leisure.
+FLOW_NECESSITY_REASON: A real budget moment directly shows what fixed payments crowd out.
+VOICEOVER_VISUAL_MATCH: Laptop payment takes money before savings/leisure can receive it.
 VOICEOVER CONTEXT: Dieses gebundene Geld fehlt dir dann an anderer Stelle. Für Rücklagen, Freizeit oder unerwartete Ausgaben bleibt weniger übrig. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Monthly budget flows toward other goals but a physical `Rate` obligation blocks/diverts a meaningful portion; only a smaller remainder reaches `Rücklage` and one leisure object.
-IMPORTANT GERMAN OBJECT LABELS: `Rate`, `Rücklage`.
-OBJECTS: budget envelope/wallet, rate block, reserve container, one leisure object.
-VISUAL STORYTELLING: fixed commitment interrupts value flow before other goals.
-COMPOSITION: left-to-right physical relationship with central blockage.
-MATERIALS: premium paper, leather/fabric, restrained stylized product materials.
-BACKGROUND: minimal home-budget context dissolving into black.
-LIGHTING: warm risk at blockage, subdued emerald at reserve.
-COLOR LANGUAGE: semantic green/red only.
-TEXT: only physical labels.
-FORBIDDEN: pie chart, dashboard, finance icon pile, static tabletop/catalog staging, photorealism, flat 2D.
+SCENE: Believable kitchen-side budget scene with wallet and limited banknotes. Plain payment envelope connected to a recognizable laptop has already taken a visible portion; emergency-savings container and cinema tickets remain with less money.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: wallet, cash, laptop, payment envelope, savings container, cinema tickets.
+VISUAL STORYTELLING: fixed payment physically gets its share first, leaving less for other goals.
+COMPOSITION: left-to-right relationship integrated into real home context.
+MATERIALS: leather/fabric, paper, laptop metal.
+BACKGROUND: small home context dissolving into deep seamless black.
+LIGHTING: warm risk at payment, subdued emerald at savings.
+COLOR LANGUAGE: semantic accents only, black dominant.
+TEXT: no labels, prices, ratings or UI.
+FORBIDDEN: pie chart, dashboard, finance icon pile, generic device, RATE card, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 10 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 10 — Zinsen machen es schlimmer
 FINAL FILE NAME: YouTube Bild 10 - Zinsen erhoehen Kosten.png
-FLOW_NECESSITY_REASON: Flow shows original purchase plus an added interest burden; exact formula is static Remotion text.
-VOICEOVER_VISUAL_MATCH: `Zinsen` visibly stack onto `Kaufpreis`.
+FLOW_NECESSITY_REASON: Concrete TV financing shows extra cost while formula stays static in layout.
+VOICEOVER_VISUAL_MATCH: Longer second receipt visibly exceeds original purchase receipt.
 VOICEOVER CONTEXT: Noch teurer wird es, wenn Zinsen dazukommen. Dann zahlst du am Ende mehr, als der Gegenstand ursprünglich gekostet hat. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Consumer purchase with a physical `Kaufpreis` document plus a separate added `Zinsen` document/weight that visibly enlarges the obligation.
-IMPORTANT GERMAN OBJECT LABELS: `Kaufpreis`, `Zinsen`.
-OBJECTS: purchase object, purchase-price document, added interest element.
-VISUAL STORYTELLING: additional cost stacks onto the original cost.
-COMPOSITION: objects left/middle; clean right space for `Kaufpreis + Zinsen = mehr Gesamtkosten`.
-MATERIALS: product materials, premium paper documents.
-BACKGROUND: deep seamless black.
-LIGHTING: neutral key, controlled red-orange on `Zinsen`.
+SCENE: Recognizable flat-screen TV left-mid, one short original purchase receipt and one visibly longer red-edged final-payment receipt; no readable text.
+IMPORTANT GERMAN OBJECT LABELS: None generated; exact formula added later.
+OBJECTS: TV, short receipt, longer final receipt.
+VISUAL STORYTELLING: final cost document physically extends beyond original cost.
+COMPOSITION: TV/receipts left-center, clean right region for static formula.
+MATERIALS: stylized TV glass/metal, paper.
+BACKGROUND: deep seamless black with minimal context.
+LIGHTING: neutral TV key, controlled red-orange on longer receipt.
 COLOR LANGUAGE: black, warm neutrals, risk accent.
-TEXT: no formula or totals inside Flow.
-FORBIDDEN: calculator UI, generated equation, floating cards, static tabletop/catalog staging, photorealism, flat 2D.
+TEXT: no formula, amount, interest word, rating or UI.
+FORBIDDEN: floating finance cards, generic device, RATE placard, static tabletop/catalog staging, generated equation, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 11 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 11 — Monatsrate im Mittelpunkt
 FINAL FILE NAME: YouTube Bild 11 - Monatsrate im Mittelpunkt.png
-FLOW_NECESSITY_REASON: Real retail staging shows visual prioritization better than abstract text.
-VOICEOVER_VISUAL_MATCH: `Monatsrate` is physically prominent, `Gesamtpreis` secondary.
+FLOW_NECESSITY_REASON: Real electronics-store presentation shows how attention is directed.
+VOICEOVER_VISUAL_MATCH: Small payment placard is visually prominent while full contract stays behind it.
 VOICEOVER CONTEXT: Viele Angebote sind extra so aufgebaut, dass die Monatsrate im Mittelpunkt steht. So soll sich der Kauf leichter anfühlen, als er wirklich ist. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Consumer product with large physical financing sign `Monatsrate` and a smaller, less prominent physical `Gesamtpreis` tag.
-IMPORTANT GERMAN OBJECT LABELS: `Monatsrate`, `Gesamtpreis`.
-OBJECTS: product, large rate sign, small total-price tag.
-VISUAL STORYTELLING: communication hierarchy is visible in physical scale and placement.
-COMPOSITION: low/medium 3/4, large rate sign first read, product secondary.
-MATERIALS: premium retail sign board, product metal/plastic, printed card.
-BACKGROUND: small retail context fading into black.
-LIGHTING: clean local retail light, controlled risk accent.
-COLOR LANGUAGE: black dominant, warm neutrals.
-TEXT: only the two physical labels.
-FORBIDDEN: fake app/website, bright photorealistic store, poster ad, static tabletop/catalog staging, flat 2D.
+SCENE: Recognizable laptop display in modern electronics store. One brightly lit blank payment placard in front; thicker full financing contract partly hidden behind the stand; no text.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: laptop, blank placard, financing contract, store stand.
+VISUAL STORYTELLING: placement/light pulls attention to small front placard while full contract is secondary.
+COMPOSITION: shopper-eye-level 3/4, placard foreground, laptop midground, contract behind.
+MATERIALS: stylized aluminum, matte stand, thick paper/card.
+BACKGROUND: minimal store context fading into deep seamless black.
+LIGHTING: bright neutral key front, subdued warm caution behind.
+COLOR LANGUAGE: black, neutrals, restrained risk.
+TEXT: no offer text, amount, rating, review, brand or UI.
+FORBIDDEN: review-card aesthetic, fake ecommerce page, generic device, RATE card, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 12 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FINAL FILE NAME: YouTube Bild 12 - Unerwartete Kosten treffen Rate.png
-FLOW_NECESSITY_REASON: A real emergency competing with a fixed rate makes the conflict tangible.
-VOICEOVER_VISUAL_MATCH: `Reparatur` and `Rate` squeeze the same limited budget.
+IMAGE 12 — Ohne Puffer wird es eng
+FINAL FILE NAME: YouTube Bild 12 - Unerwartete Kosten plus Raten.png
+FLOW_NECESSITY_REASON: Broken household appliance plus ongoing payments creates a direct real-life budget conflict.
+VOICEOVER_VISUAL_MATCH: Repair cost arrives while fixed payments continue.
 VOICEOVER CONTEXT: Wenn dann noch etwas Unerwartetes passiert, wird es schnell kritisch. Denn feste Raten laufen weiter – egal, ob dein Monat gerade passt oder nicht. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Broken household appliance or repair document labeled `Reparatur` enters the same budget space where a fixed `Rate` remains unavoidable.
-IMPORTANT GERMAN OBJECT LABELS: `Reparatur`, `Rate`.
-OBJECTS: repair problem, fixed rate card, monthly budget envelope/wallet.
-VISUAL STORYTELLING: two obligations physically compete for the same budget.
-COMPOSITION: triangular squeeze, budget in middle, large readable objects.
-MATERIALS: stylized appliance metal/plastic, premium paper/card.
-BACKGROUND: small household context dissolving into black.
-LIGHTING: restrained red-orange on both cost pressures.
-COLOR LANGUAGE: black, warm neutrals, semantic risk accent.
-TEXT: only physical labels.
-FORBIDDEN: warning-triangle cliché, coin pile, excessive drama, static tabletop/catalog staging, photorealism, flat 2D.
+SCENE: Clearly broken off-white washing machine in small laundry corner, repair-tool case open nearby. Foreground: two or three plain ongoing payment envelopes beside an almost-empty wallet. No text.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: broken washing machine, repair tools, empty wallet, 2–3 payment envelopes.
+VISUAL STORYTELLING: repair needs money now while existing payment envelopes remain unavoidable.
+COMPOSITION: washing machine left-mid, wallet/envelopes foreground right, tools support context.
+MATERIALS: stylized painted metal/plastic, rubber, tools, leather/fabric, paper.
+BACKGROUND: laundry context dissolving into deep seamless black.
+LIGHTING: soft premium key, controlled warm risk on problem/payment area.
+COLOR LANGUAGE: black, warm ivory/gray, restrained risk.
+TEXT: no repair price, finance labels, rating or UI.
+FORBIDDEN: exact copy of old anchor, generic gadget, RATE placard, static tabletop/catalog staging, photorealism, flat 2D, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 13 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FINAL FILE NAME: YouTube Bild 13 - Feste Verpflichtung.png
-FLOW_NECESSITY_REASON: Contract physically binding future months explains commitment better than definition text.
-VOICEOVER_VISUAL_MATCH: `Vertrag` ties many coming calendar months together.
+IMAGE 13 — Raten sind Verpflichtungen
+FINAL FILE NAME: YouTube Bild 13 - Feste Verpflichtung Monate.png
+FLOW_NECESSITY_REASON: Purchased sofa tied to future calendar pages makes fixed commitment concrete.
+VOICEOVER_VISUAL_MATCH: Purchase remains connected to many months after it is already in the home.
 VOICEOVER CONTEXT: Eine Rate ist nicht einfach nur eine kleine Ausgabe. Sie ist eine feste Verpflichtung für viele kommende Monate. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Financing contract labeled `Vertrag` physically binds a sequence of upcoming monthly calendar pages into one chain.
-IMPORTANT GERMAN OBJECT LABELS: `Vertrag`.
-OBJECTS: contract, calendar pages, fastening/binding element.
-VISUAL STORYTELLING: contract causes future months to remain linked.
-COMPOSITION: contract foreground, month sequence extending through depth.
-MATERIALS: premium paper, metal clip/ring.
-BACKGROUND: deep seamless black.
-LIGHTING: neutral key, subtle risk emphasis at binding point.
-COLOR LANGUAGE: black and warm neutrals.
-TEXT: only `Vertrag`.
-FORBIDDEN: padlock icon as sole idea, flat timeline, office flat lay, static tabletop/catalog staging, photorealism, flat 2D.
+SCENE: Recognizable modern sofa already in a living room. A long sturdy paper strip of blank monthly calendar pages extends from beneath one sofa leg and disappears into black distance.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: sofa, long calendar-page strip, minimal room context.
+VISUAL STORYTELLING: object is enjoyed today while obligation stays attached through future months.
+COMPOSITION: sofa large foreground/midground, strip leading strongly into depth.
+MATERIALS: stylized fabric, wood/metal, thick paper.
+BACKGROUND: local room context dissolving into deep seamless black.
+LIGHTING: soft premium light, restrained warm risk along calendar strip.
+COLOR LANGUAGE: black, warm neutrals, controlled risk.
+TEXT: no month names, finance words, numbers or UI.
+FORBIDDEN: metal-chain cliché, floating cards, generic product, RATE label, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 VISUAL 14 — DATA / NO FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DO NOT GENERATE IMAGE 14. Static Remotion priority list only: `1. Gesamtpreis` / `2. Laufzeit` / `3. Monatsrate`.
+DO NOT GENERATE IMAGE 14. Static Remotion checklist only.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 15 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FINAL FILE NAME: YouTube Bild 15 - Alle Raten zusammenrechnen.png
-FLOW_NECESSITY_REASON: Flow shows real separate obligations; exact summary logic is static Remotion text.
-VOICEOVER_VISUAL_MATCH: Several `Rate` cards converge toward one monthly budget.
+IMAGE 15 — Alle Raten zusammenrechnen
+FINAL FILE NAME: YouTube Bild 15 - Alle Raten zusammen.png
+FLOW_NECESSITY_REASON: Real home with all active financed purchases provides context for exact monthly-total overlay.
+VOICEOVER_VISUAL_MATCH: Several purchases are seen together before their combined monthly burden is shown.
 VOICEOVER CONTEXT: Rechne außerdem alle laufenden Raten zusammen. Nur so siehst du, wie stark sie dein Monatsbudget wirklich belasten. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Three or four physical rate cards from different purchases converge toward one monthly budget envelope. Leave clean dark space for later static text.
-IMPORTANT GERMAN OBJECT LABELS: `Rate`.
-OBJECTS: several rate cards, one monthly budget envelope, subtle purchase cues.
-VISUAL STORYTELLING: separate commitments reveal their common destination: the same monthly budget.
-COMPOSITION: converging left-to-center path, budget right, clean overlay zone.
-MATERIALS: thick premium paper and matte envelope.
-BACKGROUND: deep seamless black.
-LIGHTING: neutral with restrained warm risk accents.
-COLOR LANGUAGE: black, warm neutrals, risk accent.
-TEXT: no totals; only `Rate`.
-FORBIDDEN: spreadsheet/dashboard, card grid, generated calculation, static tabletop/catalog staging, photorealism, flat 2D.
+SCENE: Natural living-room/home-office corner with TV, sofa, open laptop and smartphone in normal use positions. One small blank payment paper physically associated with each item.
+IMPORTANT GERMAN OBJECT LABELS: None generated; exact explanation added later.
+OBJECTS: TV, sofa, laptop, smartphone, four plain payment papers.
+VISUAL STORYTELLING: several normal household purchases are active at the same time and hit the same budget.
+COMPOSITION: natural room arrangement, not grid; reserve clean dark area for static overlay.
+MATERIALS: stylized glass, metal, plastic, fabric, wood, paper.
+BACKGROUND: local room context dissolving into deep seamless black.
+LIGHTING: soft premium light, subtle warm caution on papers.
+COLOR LANGUAGE: black, neutrals, restrained risk.
+TEXT: no amounts, RATE words, ratings, brands or UI.
+FORBIDDEN: catalog lineup, infographic grid, abstract cards-only scene, RATE-card template, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 16 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FINAL FILE NAME: YouTube Bild 16 - Erst sparen dann kaufen.png
-FLOW_NECESSITY_REASON: Spatial progression from saving to later purchase makes delayed buying intuitive.
-VOICEOVER_VISUAL_MATCH: `Sparen` happens before the product is reached.
+IMAGE 16 — Warten schafft Kontrolle
+FINAL FILE NAME: YouTube Bild 16 - Warten und sparen.png
+FLOW_NECESSITY_REASON: Waiting for a concrete desired purchase while savings are prepared shows control.
+VOICEOVER_VISUAL_MATCH: Desired e-bike stays in shop while saved money comes first.
 VOICEOVER CONTEXT: Oft ist es klüger, etwas später zu kaufen und vorher Geld zurückzulegen. Das gibt dir mehr Kontrolle und kostet dich oft weniger. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Reserve container labeled `Sparen` clearly occupies the first step; desired product waits farther back at the end of the path.
-IMPORTANT GERMAN OBJECT LABELS: `Sparen`.
-OBJECTS: reserve, desired product, two or three time cues.
-VISUAL STORYTELLING: saving visibly precedes purchase.
-COMPOSITION: perspective path, strong depth, product secondary farther away.
-MATERIALS: premium stylized paper/container and product materials.
-BACKGROUND: deep seamless black.
-LIGHTING: restrained emerald on saving solution.
-COLOR LANGUAGE: black, warm neutrals, semantic emerald.
-TEXT: only `Sparen`.
-FORBIDDEN: plant-growing-from-coins cliché, timeline UI, flat process diagram, static tabletop/catalog staging, photorealism, childish toy look.
+SCENE: Desirable modern e-bike visible behind simple shop window/pickup stand in background. Foreground: green savings envelope/container with physical cash beside one blank calendar page.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: e-bike, savings container/cash, one calendar page.
+VISUAL STORYTELLING: product stays slightly out of reach while savings are prepared first.
+COMPOSITION: savings foreground left, e-bike mid/background right, strong depth.
+MATERIALS: stylized metal/rubber/paper/banknotes.
+BACKGROUND: minimal shop context fading into deep seamless black.
+LIGHTING: soft premium light, restrained emerald on savings.
+COLOR LANGUAGE: black, warm neutrals, emerald only for positive savings.
+TEXT: no amount, savings word, brand, price tag or UI.
+FORBIDDEN: piggy-bank cliché, coin-growth cliché, generic finance icon, static tabletop/catalog staging, photorealism, flat 2D, excessive glow.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 17 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FINAL FILE NAME: YouTube Bild 17 - Sparen statt sofort finanzieren.png
-FLOW_NECESSITY_REASON: A physical two-path decision scene makes saving versus instant financing obvious.
-VOICEOVER_VISUAL_MATCH: one path goes through `Sparen`, one shortcuts through `Rate`.
+IMAGE 17 — Sparen statt schönrechnen
+FINAL FILE NAME: YouTube Bild 17 - Sparen statt finanzieren.png
+FLOW_NECESSITY_REASON: Fully saved-for laptop purchase makes the alternative to immediate financing concrete.
+VOICEOVER_VISUAL_MATCH: Complete purchase stays visible instead of being reduced to a monthly installment.
 VOICEOVER CONTEXT: Wenn du sparst statt sofort zu finanzieren, bleibt der Kauf ehrlich sichtbar. Du merkst schneller, ob du ihn wirklich brauchst. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Desired product in distance; one grounded route passes through `Sparen`, the other through a `Rate` card as a shortcut.
-IMPORTANT GERMAN OBJECT LABELS: `Sparen`, `Rate`.
-OBJECTS: desired product, reserve, rate card, two subtle path cues.
-VISUAL STORYTELLING: controlled path versus shortcut with commitment.
-COMPOSITION: wide forked scene, product upper-middle depth, clean mature staging.
-MATERIALS: premium paper/card, matte path surface, product materials.
-BACKGROUND: deep seamless black with subtle grounding.
-LIGHTING: emerald on saving path, restrained red-orange on rate shortcut.
-COLOR LANGUAGE: semantic green/red on black.
-TEXT: only physical labels.
-FORBIDDEN: cartoon road signs, videogame look, piggy-bank hero shot, static tabletop/catalog staging, photorealism, flat 2D.
+SCENE: Recognizable premium laptop at simple checkout/pickup counter. Beside it an open savings envelope/container with physical cash; folded financing brochure pushed aside, secondary.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: laptop, savings container/cash, folded financing brochure.
+VISUAL STORYTELLING: full purchase and saved money are visible together; financing is moved out of main decision path.
+COMPOSITION: coherent purchase moment, asymmetrical 3/4 view.
+MATERIALS: stylized aluminum, paper/card, banknotes.
+BACKGROUND: minimal checkout context dissolving into deep seamless black.
+LIGHTING: soft premium key, subtle emerald on savings.
+COLOR LANGUAGE: black, warm neutrals, emerald only for solution.
+TEXT: no finance words, amounts, price tags, brands, ratings or UI.
+FORBIDDEN: piggy-bank template, generic device, RATE card, static tabletop/catalog staging, photorealism, flat 2D, fake ecommerce screen.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 18 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FINAL FILE NAME: YouTube Bild 18 - Rate abwaegen.png
-FLOW_NECESSITY_REASON: A balanced physical weighing scene communicates nuance.
-VOICEOVER_VISUAL_MATCH: useful purchase and financing commitment are both visible.
+IMAGE 18 — Nicht jede Rate ist schlecht
+FINAL FILE NAME: YouTube Bild 18 - Rate nicht automatisch schlecht.png
+FLOW_NECESSITY_REASON: A transparent appliance financing situation shows installments are not automatically bad when the full obligation remains visible.
+VOICEOVER_VISUAL_MATCH: Purchase and complete payment schedule are visible together instead of one tiny monthly amount.
 VOICEOVER CONTEXT: Ratenzahlungen sind nicht automatisch schlecht. Aber sie wirken oft harmloser, als sie in Wahrheit sind. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Premium physical balance scale; one side useful product, other side `Vertrag` plus `Rate`. Do not make it catastrophically tipped.
-IMPORTANT GERMAN OBJECT LABELS: `Vertrag`, `Rate`.
-OBJECTS: balance scale, useful item, contract, rate card.
-VISUAL STORYTELLING: benefit and commitment are physically weighed against each other.
-COMPOSITION: medium 3/4, balanced but slightly tense, clean black space.
-MATERIALS: brushed metal scale, premium paper, stylized product materials.
-BACKGROUND: deep seamless black with subtle reflection.
-LIGHTING: neutral balanced light, small green/red semantic accents.
-COLOR LANGUAGE: black, warm neutrals, restrained accents.
-TEXT: only physical labels.
-FORBIDDEN: crash, skulls, oversized warning, moralizing cartoon, flat comparison slide, static tabletop/catalog staging, photorealism.
+SCENE: Recognizable washing machine in simple store pickup area. Beside it, full financing paperwork unfolded as a visible multi-page schedule, with no readable generated text. No tiny rate card hiding the paperwork.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: washing machine, full multi-page financing schedule, simple pickup trolley/context.
+VISUAL STORYTELLING: purchase can be reasonable, but whole obligation is physically visible at the same time.
+COMPOSITION: appliance large left, document sequence right, balanced but not symmetric.
+MATERIALS: stylized appliance metal/plastic, thick paper, trolley metal.
+BACKGROUND: minimal pickup context fading into deep seamless black.
+LIGHTING: neutral premium light with restrained caution edge on documents.
+COLOR LANGUAGE: black, warm neutrals, balanced caution.
+TEXT: no labels, amounts, ratings, brands or UI.
+FORBIDDEN: giant warning icon, scale cliché, RATE card, generic device, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 VISUAL 19 — DATA / NO FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DO NOT GENERATE IMAGE 19. Static Remotion rules only: `Unnötiger Kauf ↑ → Vorsicht ↑` and `Knappes Budget ↑ → Risiko ↑`.
+DO NOT GENERATE IMAGE 19. Static Remotion rule visual only.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IMAGE 20 — FLOW IMAGE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FINAL FILE NAME: YouTube Bild 20 - Erst denken dann binden.png
-FLOW_NECESSITY_REASON: The payoff needs a real pause-before-signing decision moment.
-VOICEOVER_VISUAL_MATCH: desired product is ready, but `Vertrag` remains unsigned.
+IMAGE 20 — Erst denken, dann binden
+FINAL FILE NAME: YouTube Bild 20 - Erst denken dann kaufen.png
+FLOW_NECESSITY_REASON: Concrete pause before impulse electronics purchase turns final question into a real decision moment.
+VOICEOVER_VISUAL_MATCH: Buyer has not committed yet and can still choose.
 VOICEOVER CONTEXT: Frag dich also immer: Brauche ich das wirklich sofort? Denn was klein pro Monat wirkt, kann dich am Ende teuer und lange binden. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Desired purchase in background; financing contract labeled `Vertrag` in foreground; premium pen deliberately placed beside but not touching the signature line.
-IMPORTANT GERMAN OBJECT LABELS: `Vertrag`.
-OBJECTS: desired product, unsigned contract, pen.
-VISUAL STORYTELLING: visible physical pause between pen and signature creates reconsideration before commitment.
-COMPOSITION: close-to-medium 3/4, contract foreground, product farther back, calm black breathing room.
-MATERIALS: premium paper, metal pen, stylized product materials.
-BACKGROUND: deep seamless black with tiny local context.
-LIGHTING: soft neutral premium key, no dramatic warning palette.
-COLOR LANGUAGE: black, warm neutrals, restrained accents.
-TEXT: only `Vertrag`.
-FORBIDDEN: required human hand/person, fear imagery, fake app, generic finance-symbol ending, static tabletop/catalog staging, photorealism, flat 2D.
+SCENE: Premium recognizable smartphone on simple store pickup pedestal. A faceless shopper's hand pauses several centimeters before reaching for the boxed phone. Near the hand: closed wallet and small savings envelope. Behind phone: subtle row of blank future calendar pages.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: smartphone/box, paused faceless hand, wallet, savings envelope, subtle calendar pages.
+VISUAL STORYTELLING: physical pause represents the decision moment before long commitment begins.
+COMPOSITION: phone mid-right, hand entering lower-left, calendar pages receding behind, strong negative space.
+MATERIALS: stylized glass/metal/cardboard/leather/paper.
+BACKGROUND: minimal electronics-store context dissolving into deep seamless black.
+LIGHTING: soft premium light, slight emerald near savings, restrained warm caution behind calendar.
+COLOR LANGUAGE: black dominant, warm neutrals, semantic accents only.
+TEXT: no price, finance phrase, rating, review, brand or UI.
+FORBIDDEN: buy-button UI, ecommerce screenshot, generic invented gadget, RATE placard, static tabletop/catalog staging, photorealism, flat 2D, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged image world; horizontal 16:9.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FINISH
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-After the final planned image, STOP. Final image count for Flow: thumbnail + 17 scene images. Never create Flow images for Visual 07, 14 or 19.
+FINISH — STOP AFTER IMAGE 20.

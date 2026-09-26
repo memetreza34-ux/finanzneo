@@ -1,53 +1,15 @@
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-CURRENT SINGLE STEP — DO NOT JUMP AHEAD
-FINAL FILE NAME: YouTube Bild 20 - Erst denken dann binden.png
-FLOW_NECESSITY_REASON: The payoff needs a real pause-before-signing decision moment rather than an abstract end card.
-VOICEOVER_VISUAL_MATCH: The desired product is ready, but the financing contract remains unsigned.
-STATIC_REMOTION_OVERLAY: None.
-
-GOOGLE FLOW PROMPT — COPY/PASTE READY
-Create a premium stylized 3D animation-film scene for a German finance education video.
-
-VOICEOVER CONTEXT:
-Frag dich also immer: Brauche ich das wirklich sofort? Denn was klein pro Monat wirkt, kann dich am Ende teuer und lange binden.
-This Flow image carries exactly one dominant idea and normally 1-2 short Voiceover sentences.
-
-SCENE:
-Create a final decision moment: a desired purchase is ready in the background, while a financing contract labeled “Vertrag” lies in the foreground with a premium pen deliberately placed beside it but not touching the signature line. The image should feel like a conscious pause before commitment.
-
-IMPORTANT GERMAN OBJECT LABELS:
-“Vertrag”.
-
-OBJECTS:
-- desired product
-- financing contract labeled “Vertrag”
-- pen placed beside, not on, the signature line
-
-VISUAL STORYTELLING:
-The purchase is available, but the physical distance between pen and contract creates a clear moment of reconsideration before binding oneself.
-
-COMPOSITION:
-Close-to-medium 3/4 view, unsigned contract in foreground, product farther back, clear visual distance between pen and signature area, calm black breathing room.
-
-MATERIALS:
-Premium paper, metal pen, stylized product materials.
-
-BACKGROUND:
-Deep seamless black with only minimal checkout/home context dissolving away.
-
-LIGHTING:
-Soft neutral key with controlled contrast; no dramatic warning palette.
-
-COLOR LANGUAGE:
-Deep black, warm neutrals, restrained accents only.
-
-TEXT:
-No headline, CTA or floating UI. Only “Vertrag” on the physical document.
-
-FORBIDDEN:
-Human hand/person required, fear imagery, fake app, generic finance-symbol ending, static tabletop/catalog staging, photorealism, flat 2D.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+FLOW_NECESSITY_REASON: A concrete pause before an impulse electronics purchase turns the final question into a clear real-life decision moment.
+VOICEOVER_VISUAL_MATCH: The buyer has not committed yet and can still choose whether the purchase is truly needed now.
+VOICEOVER CONTEXT: Frag dich also immer: Brauche ich das wirklich sofort? Denn was klein pro Monat wirkt, kann dich am Ende teuer und lange binden. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: A premium smartphone sits on a simple electronics-store pickup pedestal. A faceless shopper's hand is paused several centimeters before reaching for the boxed phone, not touching it yet. Near the hand are a closed wallet and a small savings envelope; behind the phone, a subtle row of future calendar pages is visible but secondary. No readable generated text.
+IMPORTANT GERMAN OBJECT LABELS: No generated labels.
+OBJECTS: premium smartphone and box; paused faceless hand; closed wallet; savings envelope; subtle future calendar pages.
+VISUAL STORYTELLING: The physical pause before taking the phone represents the moment of choice before a long commitment begins.
+COMPOSITION: Phone mid-right, paused hand entering from lower-left, calendar pages receding behind, strong negative space and no UI.
+MATERIALS: Stylized glass/metal phone, cardboard box, leather/fabric wallet, paper envelope/calendar.
+BACKGROUND: Minimal electronics-store context dissolving into deep seamless black.
+LIGHTING: Soft premium light, neutral on phone, slight emerald hint near savings and restrained warm caution behind calendar pages.
+COLOR LANGUAGE: Deep black dominant, warm neutrals, semantic accents only.
+TEXT: No generated price, financing phrase, rating, review, brand name or UI.
+FORBIDDEN: Buy-button UI, ecommerce screenshot, generic invented gadget, RATE placard, static tabletop/catalog staging, photorealism, flat 2D, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
