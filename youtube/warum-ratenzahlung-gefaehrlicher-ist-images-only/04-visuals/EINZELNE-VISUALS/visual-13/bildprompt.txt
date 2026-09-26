@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: A purchased sofa physically tied to future calendar pages makes a fixed commitment concrete.
-VOICEOVER_VISUAL_MATCH: The purchase remains connected to many coming months even after it is already in the home.
+FLOW_NECESSITY_REASON: Enjoying the purchase today while future months remain attached creates a memorable commitment image.
+VOICEOVER_VISUAL_MATCH: The benefit is present now, but the obligation continues into the future.
 VOICEOVER CONTEXT: Eine Rate ist nicht einfach nur eine kleine Ausgabe. Sie ist eine feste Verpflichtung für viele kommende Monate. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: A clearly recognizable modern sofa is already placed in a living room. From beneath one sofa leg, a long sturdy paper strip made of monthly calendar pages extends backward through the room and into the black distance, like an obligation that continues after the purchase. No readable generated text.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels.
-OBJECTS: sofa; long calendar-page strip; minimal living-room floor/wall context.
-VISUAL STORYTELLING: The object is already enjoyed today, but the physical calendar strip remains attached and stretches through many future months.
-COMPOSITION: Sofa large foreground/midground, calendar strip leading strongly into background depth, asymmetrical perspective.
-MATERIALS: Premium stylized fabric upholstery, wood/metal sofa detail, thick paper calendar strip.
-BACKGROUND: Local living-room context dissolving into deep seamless black.
-LIGHTING: Soft premium studio light; restrained warm risk along the trailing calendar strip.
-COLOR LANGUAGE: Black dominant, warm neutral sofa, controlled risk accent.
-TEXT: No generated month names, finance words, numbers or UI.
-FORBIDDEN: Chain cliché made of metal, floating cards, generic product, recurring RATE label, static tabletop/catalog staging, photorealism, flat 2D.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Stylized faceless person sits comfortably on a modern sofa. From beneath the sofa a long ribbon of blank monthly calendar pages sweeps across the floor and disappears into black distance. The person turns slightly to look back at its surprising length.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, sofa, long calendar-page ribbon.
+VISUAL STORYTELLING: Product is enjoyed today while future commitment remains physically attached.
+COMPOSITION: Sofa/person large left-middle, ribbon diagonal into deep background.
+MATERIALS: Stylized fabric, wood/metal, thick paper.
+BACKGROUND: Small living context dissolving into deep seamless black.
+LIGHTING: Comfortable neutral key, restrained warm risk along ribbon.
+COLOR LANGUAGE: Black, warm neutrals, controlled risk accent.
+TEXT: No month names, words or numbers.
+FORBIDDEN: sofa catalog shot, contract stack, RATE label, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: A real monthly-budget moment shows directly what fixed installment money crowds out.
-VOICEOVER_VISUAL_MATCH: A laptop-payment envelope takes money before savings, leisure and surprise costs can be covered.
+FLOW_NECESSITY_REASON: Budget routing explains reduced freedom better than another product scene.
+VOICEOVER_VISUAL_MATCH: Fixed obligations consume the wide lane; other life goals receive narrow lanes.
 VOICEOVER CONTEXT: Dieses gebundene Geld fehlt dir dann an anderer Stelle. Für Rücklagen, Freizeit oder unerwartete Ausgaben bleibt weniger übrig. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: A believable kitchen-side budget scene. An everyday wallet with a limited number of banknotes sits center. A plain payment envelope connected to a recognizable laptop has already taken a visible portion. Farther away, a small emergency-savings container and two cinema tickets remain with noticeably less money available. No readable generated text.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels.
-OBJECTS: wallet with limited cash; laptop; one payment envelope; emergency-savings container; cinema tickets.
-VISUAL STORYTELLING: The fixed payment physically takes its share first, leaving a visibly smaller remainder for other goals.
-COMPOSITION: Left-to-right money path with the payment taking the central share; objects integrated in a real kitchen/home context, not laid out as icons.
-MATERIALS: Leather/fabric wallet, paper money and envelope, laptop metal, paper tickets, matte savings container.
-BACKGROUND: Small home-budget context dissolving into deep seamless black.
-LIGHTING: Warm risk accent at the payment, subdued emerald accent at savings.
-COLOR LANGUAGE: Semantic green/red only, black dominant.
-TEXT: No generated labels, prices, UI or brand names.
-FORBIDDEN: Pie chart, dashboard, finance icon pile, generic device, recurring RATE card, static tabletop/catalog staging, photorealism, flat 2D.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: One monthly-budget source on the left splits into four physical 3D lanes. The first lane is wide and filled with several fixed-payment blocks; the other three are narrow and end at a green emergency envelope, a leisure ticket and a repair-tool case.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: budget source, blocks, four lanes, reserve envelope, ticket, repair tools.
+VISUAL STORYTELLING: Most available width is consumed before money reaches the other goals.
+COMPOSITION: Left-to-right 3D schema with depth, never dashboard/UI.
+MATERIALS: Matte blocks, paper, metal tools, subtle ground.
+BACKGROUND: Deep seamless black.
+LIGHTING: Warm risk on fixed lane, subdued emerald on reserve.
+COLOR LANGUAGE: Black, warm neutrals, risk red-orange, emerald reserve.
+TEXT: No generated labels or totals.
+FORBIDDEN: pie chart, dashboard, finance-icon pile, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

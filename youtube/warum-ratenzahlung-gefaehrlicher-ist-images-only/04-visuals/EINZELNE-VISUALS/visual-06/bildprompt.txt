@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: A real home containing several financed purchases provides context for the later exact static addition.
-VOICEOVER_VISUAL_MATCH: Four small separate commitments visibly converge toward the same monthly budget.
+FLOW_NECESSITY_REASON: A clean 3D schema gives the later arithmetic a visual structure.
+VOICEOVER_VISUAL_MATCH: Four small purchase sources converge into one larger monthly burden.
 VOICEOVER CONTEXT: Jede einzelne Rate wirkt noch klein. Zusammen wird daraus aber oft eine spürbare monatliche Belastung. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: In a believable living-room/home-office corner, show four concrete financed items: smartphone, laptop, television and sofa. From each item, one thin plain receipt/envelope physically points or overlaps toward one central monthly-budget envelope. None contains readable generated text.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels. Exact addition `25 € + 40 € + 35 € + 20 €` is added later as a static Remotion overlay.
-OBJECTS: smartphone; laptop; flat-screen television; sofa; four small papers; one central budget envelope.
-VISUAL STORYTELLING: Separate everyday purchases visibly feed into the same monthly budget burden.
-COMPOSITION: Real room corner rather than a product lineup. Keep subjects on left/center and reserve a clean dark region for the exact static addition.
-MATERIALS: Premium stylized household materials, paper, leather/fabric, glass and metal.
-BACKGROUND: Local home context dissolving into deep seamless black.
-LIGHTING: Soft premium light with controlled warm risk emphasis around the converging papers.
-COLOR LANGUAGE: Black dominant, warm neutrals, restrained red-orange risk.
-TEXT: No generated euro amounts, equation, labels, ratings or fake UI.
-FORBIDDEN: Abstract card-only scene, generic gadget, generated calculation, recurring RATE cards, static tabletop/catalog staging, infographic grid, photorealism, flat 2D.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Four small recognizable 3D miniatures — smartphone, laptop, TV and sofa — connect through four simple physical paths into one larger central budget block. Reserve clean dark lower-right space for the static arithmetic.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: four miniatures, central budget block, four paths.
+VISUAL STORYTELLING: Separate small sources become one combined burden.
+COMPOSITION: Asymmetric converging 3D schema, not a flat infographic.
+MATERIALS: Premium stylized glass/metal/plastic/fabric, matte block.
+BACKGROUND: Deep seamless black.
+LIGHTING: Soft studio light, warmer central burden.
+COLOR LANGUAGE: Black, warm neutrals, controlled red-orange.
+TEXT: No generated euro amounts or labels.
+FORBIDDEN: generated calculation, flat infographic, product catalog, RATE cards, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

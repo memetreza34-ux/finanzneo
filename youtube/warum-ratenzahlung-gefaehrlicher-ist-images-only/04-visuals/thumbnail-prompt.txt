@@ -1,32 +1,30 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINAL FILE NAME: YouTube Thumbnail - Ratenzahlung Falle.png
 
-GOOGLE FLOW THUMBNAIL PROMPT — CORRECTED
-
 Create a premium clearly stylized 3D animation-film frame in the unchanged FinanzNeo YouTube image world `finanzneo-youtube-grounded-3d-black-v1`.
 
 SCENE:
-A real, unmistakable 65-inch flat-screen television in a modern electronics-store checkout area. The television is large and visually valuable. Very close to camera sits one small, plain installment-payment slip with NO readable generated words or numbers. Behind the television, a long chain of monthly calendar pages recedes deep into the black background, making the long commitment physically visible.
+A stylized faceless young adult stands at a purchase decision point in front of a recognizable large flat-screen television. The person holds one tiny blank installment slip and looks uncertain. Three large sculpted question-mark symbols float around the head as clear visual thought cues. Behind the television, a very long ribbon of blank monthly calendar pages disappears into the deep black background.
 
 VISUAL STORYTELLING:
-The tiny payment slip looks harmless in the foreground, while the large television and long calendar chain reveal the true scale and duration behind it.
+The thumbnail should read instantly as: “small-looking payment, much bigger hidden commitment, should I really do this?” The person is the emotional anchor; the television is context, not a product advertisement.
 
 COMPOSITION:
-Use the right two-thirds for the television, payment slip and calendar chain. Keep the left third clean, dark and uncluttered for later thumbnail typography. Medium-low 3/4 camera angle, strong depth, large readable objects.
+Person and TV on the right two-thirds. Keep the left third clean, deep black and high-contrast for later thumbnail typography. Medium 3/4 view, large readable figure and objects.
 
 MATERIALS:
-Premium stylized glass, matte black television frame, thick paper slip and calendar paper, believable but visibly animated-film materials.
+Premium stylized fabric, television glass/metal, thick paper, sculpted punctuation symbols.
 
 BACKGROUND:
-Deep seamless black dominant world with only a small believable electronics-store checkout context dissolving into black.
+Deep seamless black dominant world with only minimal electronics-store context dissolving into black.
 
 LIGHTING:
-Soft premium studio lighting; neutral light on the television, restrained warm red-orange accent along the calendar chain.
+Soft premium studio light on person and television; restrained warm red-orange accent along the calendar ribbon.
 
 TEXT:
-Do not generate a headline, price, percentage, financing word, fake brand, rating, review stars or gibberish. All typography is added later in the video/thumbnail layout.
+Do not generate a headline, price, percentage, financing word, fake brand, rating, review stars or gibberish. Question-mark symbols are allowed because they are nonverbal visual cues. Typography is added later.
 
 FORBIDDEN:
-Generic or invented consumer device, radio/heater/speaker instead of the specified television, recurring RATE card template, review-card design, fake UI, static tabletop/catalog staging, symmetric product advertisement, photorealism, flat 2D, cyberpunk, clutter, tiny diorama.
+Product-ad composition, generic mystery gadget, radio/heater/speaker, RATE-card template, review-card design, fake UI, static tabletop/catalog staging, photorealism, flat 2D, cyberpunk, clutter, tiny diorama.
 
 Horizontal 16:9. Same approved FinanzNeo image world. Do not redesign the style.

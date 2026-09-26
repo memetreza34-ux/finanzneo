@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: A real electronics-store offer can show how presentation directs attention toward the small monthly payment rather than the full contract.
-VOICEOVER_VISUAL_MATCH: The small-payment placard is visually prominent while the complete contract stays behind it.
+FLOW_NECESSITY_REASON: A shopper's attention demonstrates sales psychology better than another isolated placard.
+VOICEOVER_VISUAL_MATCH: Light and placement pull the shopper toward the easy-looking front cue while full paperwork stays secondary.
 VOICEOVER CONTEXT: Viele Angebote sind extra so aufgebaut, dass die Monatsrate im Mittelpunkt steht. So soll sich der Kauf leichter anfühlen, als er wirklich ist. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: A recognizable laptop display in a modern electronics store. In front of the laptop is one physically small but brightly lit blank payment placard; the thicker full financing contract is partially hidden behind the display stand. Generate NO readable words or numbers.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels.
-OBJECTS: premium laptop; small blank payment placard; thicker financing contract; simple store stand.
-VISUAL STORYTELLING: Lighting and placement pull attention to the small front placard while the full contract is present but visually secondary behind it.
-COMPOSITION: Shopper-eye-level 3/4 view, placard foreground, laptop midground, contract partly visible behind; asymmetrical and real-world grounded.
-MATERIALS: Stylized aluminum laptop, matte display stand, thick paper/card.
-BACKGROUND: Minimal electronics-store context fading into deep seamless black.
-LIGHTING: Bright neutral key on laptop/placard, subdued warm risk light behind on contract.
-COLOR LANGUAGE: Black dominant, neutral product colors, restrained warm risk accent.
-TEXT: No generated offer text, monthly amount, star ratings, reviews, labels, brand names or UI.
-FORBIDDEN: Review-card aesthetic, fake ecommerce page, generic invented device, recurring RATE card, static tabletop/catalog staging, photorealism, flat 2D.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Stylized faceless shopper at a laptop display. A small blank offer placard is brightly spotlighted at eye level. A thicker full financing document sits lower and farther back in shadow. Use a subtle physical direction cue from the shopper's head toward the placard.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, laptop, blank offer placard, full document, physical direction cue.
+VISUAL STORYTELLING: The environment visibly steers attention toward the simplified cue.
+COMPOSITION: Shopper left, placard center foreground, laptop right-mid, full document background.
+MATERIALS: Stylized fabric, aluminum, matte stand, paper/card.
+BACKGROUND: Minimal store context dissolving into deep seamless black.
+LIGHTING: Bright neutral spotlight on placard; subdued warm caution on full document.
+COLOR LANGUAGE: Black, neutrals, restrained risk.
+TEXT: No offer text, amounts, ratings, reviews, brands or UI.
+FORBIDDEN: review-card aesthetic, fake ecommerce page, isolated laptop ad, RATE card, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

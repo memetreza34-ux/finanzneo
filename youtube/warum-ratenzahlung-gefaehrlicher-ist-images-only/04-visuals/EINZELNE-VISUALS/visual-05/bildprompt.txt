@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: Real financed household products accumulating in one home communicate stacking immediately.
-VOICEOVER_VISUAL_MATCH: Smartphone, television, laptop and sofa are all visibly present as separate recent purchases.
+FLOW_NECESSITY_REASON: A person-centered system shows that different purchases draw from the same budget.
+VOICEOVER_VISUAL_MATCH: Smartphone, TV, laptop and sofa all connect to one wallet.
 VOICEOVER CONTEXT: Denn selten bleibt es bei einer einzigen Rate. Handy, Fernseher, Laptop oder Möbel kommen schnell zusammen. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: A believable modern living-room corner contains four unmistakable purchases: a smartphone in the foreground, an open laptop on a side cabinet, a flat-screen television in the midground and a sofa farther back. Each product has one small plain payment envelope or folded contract attached physically nearby, with NO readable generated text.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels.
-OBJECTS: smartphone; laptop; flat-screen television; sofa; four small plain payment papers.
-VISUAL STORYTELLING: The products accumulate through depth from one item in front to several items filling the home, so the viewer feels how separate commitments pile up.
-COMPOSITION: Diagonal depth progression from foreground smartphone to background sofa/TV; no grid, no catalog lineup, no symmetrical arrangement.
-MATERIALS: Stylized glass, metal, plastic, fabric upholstery, paper.
-BACKGROUND: Small living-room context that fades quickly into deep seamless black.
-LIGHTING: Soft premium lighting, slightly warmer risk accents on the attached payment papers.
-COLOR LANGUAGE: Deep black, warm neutrals, restrained red-orange only for risk.
-TEXT: No generated RATE words, prices, ratings, brand logos or UI.
-FORBIDDEN: Electronics catalog grid, product comparison layout, floating icon collage, recurring RATE-card template, static tabletop/catalog staging, photorealism, flat 2D, clutter.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Stylized faceless person stands center holding a wallet. Around the person at different depths: recognizable smartphone, flat-screen TV, laptop and sofa. Each connects to the wallet through a thin restrained warm-red physical ribbon.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, wallet, phone, TV, laptop, sofa, four ribbons.
+VISUAL STORYTELLING: Separate purchases visibly converge on the same limited wallet.
+COMPOSITION: Human center, objects distributed in depth, ribbons converge; never arrange as a grid.
+MATERIALS: Stylized fabric, leather, glass, metal, plastic, sofa fabric, satin ribbons.
+BACKGROUND: Deep seamless black with minimal local context.
+LIGHTING: Soft premium key, objects readable, controlled red ribbons.
+COLOR LANGUAGE: Black, warm neutrals, restrained risk red-orange.
+TEXT: No labels, prices, ratings, brands or UI.
+FORBIDDEN: electronics catalog, product lineup, RATE tags, floating icon collage, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

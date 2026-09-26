@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: A transparent, fully visible appliance financing situation can show that installments are not automatically bad while still revealing the whole obligation.
-VOICEOVER_VISUAL_MATCH: The purchase is shown together with the complete payment schedule instead of hiding it behind one small monthly amount.
+FLOW_NECESSITY_REASON: Two real-life contexts communicate nuance better than a literal balance scale.
+VOICEOVER_VISUAL_MATCH: The person compares a necessary replacement with an optional luxury purchase.
 VOICEOVER CONTEXT: Ratenzahlungen sind nicht automatisch schlecht. Aber sie wirken oft harmloser, als sie in Wahrheit sind. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: A recognizable household appliance, such as a washing machine, stands in a simple store pickup area. Beside it, the full financing paperwork is unfolded as one visible long schedule across several pages, all readable as documents but with NO generated text. Nothing is hidden behind a tiny rate card.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels.
-OBJECTS: washing machine; complete multi-page financing schedule; simple pickup trolley/context.
-VISUAL STORYTELLING: The purchase can be reasonable, but the full obligation is physically visible at the same time rather than disguised as one tiny payment.
-COMPOSITION: Appliance large left, unfolded document sequence right, balanced but not symmetric; clear black space around both.
-MATERIALS: Stylized painted metal/plastic appliance, thick paper documents, metal trolley detail.
-BACKGROUND: Minimal store pickup context fading into deep seamless black.
-LIGHTING: Neutral premium studio light with only a restrained warm caution edge on documents.
-COLOR LANGUAGE: Black dominant, warm neutrals, balanced caution rather than alarm.
-TEXT: No generated labels, amounts, ratings, brands or UI.
-FORBIDDEN: Giant warning icon, scale cliché, recurring RATE card, generic device, static tabletop/catalog staging, photorealism, flat 2D, clutter.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Stylized faceless person stands between two situations. Left: clearly broken essential washing machine. Right: optional large gaming television setup. The person looks between both, hands slightly open, with two sculpted question marks overhead. No scale object.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, broken washer, optional gaming TV setup, question marks.
+VISUAL STORYTELLING: Same financing tool can be more or less sensible depending on context.
+COMPOSITION: Person center, essential context left, optional context right; organic scene, not rigid comparison card.
+MATERIALS: Stylized fabric, appliance metal/plastic, TV glass/metal.
+BACKGROUND: Both local contexts dissolve into deep seamless black.
+LIGHTING: Neutral key, subtle positive restraint left, warm caution right.
+COLOR LANGUAGE: Black, warm neutrals, semantic accents only.
+TEXT: No generated labels, prices, brands or UI. Question marks allowed.
+FORBIDDEN: literal balance scale, product-comparison grid, RATE card, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

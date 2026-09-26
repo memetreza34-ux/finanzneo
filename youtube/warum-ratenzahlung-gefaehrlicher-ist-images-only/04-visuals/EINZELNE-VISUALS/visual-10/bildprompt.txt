@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: A concrete television financing scene can show extra cost being added, while the exact formula stays in the static layout.
-VOICEOVER_VISUAL_MATCH: An additional red-edged cost sheet extends beyond the original television purchase receipt.
+FLOW_NECESSITY_REASON: A physical cost extension makes the added-cost idea visible before the exact formula appears.
+VOICEOVER_VISUAL_MATCH: A neutral original-cost section is extended by a warm-red added-cost section.
 VOICEOVER CONTEXT: Noch teurer wird es, wenn Zinsen dazukommen. Dann zahlst du am Ende mehr, als der Gegenstand ursprünglich gekostet hat. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: A clearly recognizable flat-screen television sits left-mid frame. Beside it is one short original purchase receipt and a second visibly longer red-edged final-payment receipt extending beyond the first, showing extra cost without readable words or numbers.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels. `Kaufpreis + Zinsen = mehr Gesamtkosten` is added later as exact static Remotion text.
-OBJECTS: flat-screen television; short original receipt; longer final-payment receipt.
-VISUAL STORYTELLING: The longer second receipt physically exceeds the original cost document, making the added expense visible.
-COMPOSITION: Television and receipts on left/center; clean dark right area reserved for the later formula overlay.
-MATERIALS: Premium stylized TV glass/metal, thick receipt paper.
-BACKGROUND: Deep seamless black with minimal living-room/store context.
-LIGHTING: Neutral key on TV, controlled warm red-orange edge on the longer receipt.
-COLOR LANGUAGE: Black dominant, warm neutrals, restrained risk accent.
-TEXT: No generated formula, amount, interest word, rating or UI.
-FORBIDDEN: Floating finance cards, generic consumer device, RATE placard, static tabletop/catalog staging, generated equation, photorealism, flat 2D.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: One thick horizontal physical cost bar: warm-ivory base segment plus a separate warm-red extension attached to the end, clearly making the total longer. A small TV silhouette is only secondary purchase context. Reserve dark space for the static formula.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: two-part cost bar, small TV silhouette.
+VISUAL STORYTELLING: Added cost physically lengthens the original cost.
+COMPOSITION: Bar dominant left/middle, clean right area for formula.
+MATERIALS: Thick card/paper, stylized TV glass/metal.
+BACKGROUND: Deep seamless black.
+LIGHTING: Neutral base, controlled warm risk on extension.
+COLOR LANGUAGE: Black, ivory original, red-orange addition.
+TEXT: No generated formula, amounts or words.
+FORBIDDEN: floating finance cards, product catalog, generated equation, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

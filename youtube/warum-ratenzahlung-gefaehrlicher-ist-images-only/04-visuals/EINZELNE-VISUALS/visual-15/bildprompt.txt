@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: A real home containing all financed purchases provides context for the later exact monthly-total overlay.
-VOICEOVER_VISUAL_MATCH: Several active purchases are seen together before the viewer is shown their combined monthly burden.
+FLOW_NECESSITY_REASON: A central budget schema helps the viewer combine separate purchases mentally.
+VOICEOVER_VISUAL_MATCH: Four different purchases all terminate at the same monthly budget.
 VOICEOVER CONTEXT: Rechne außerdem alle laufenden Raten zusammen. Nur so siehst du, wie stark sie dein Monatsbudget wirklich belasten. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: A believable living-room/home-office corner shows four unmistakable financed items in natural use positions: a television on its stand, a sofa, an open laptop on a side desk and a smartphone near the laptop. A small plain payment paper is physically associated with each item, without readable text.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels. `Alle laufenden Raten → Monatsbelastung` is added later as a static Remotion overlay.
-OBJECTS: flat-screen television; sofa; laptop; smartphone; four small plain payment papers.
-VISUAL STORYTELLING: The viewer can see that several normal household purchases are active at the same time and all hit the same monthly budget.
-COMPOSITION: Natural room arrangement, not a product grid. Keep the right side or lower-right area clean and dark for the later exact static overlay.
-MATERIALS: Premium stylized glass, metal, plastic, fabric, wood and paper.
-BACKGROUND: Local living-room/home-office context dissolving into deep seamless black.
-LIGHTING: Soft premium lighting with subtle warm risk on payment papers.
-COLOR LANGUAGE: Black dominant, neutral household colors, restrained risk accent.
-TEXT: No generated amounts, RATE words, ratings, brand logos or UI.
-FORBIDDEN: Catalog lineup, infographic grid, abstract cards-only scene, recurring RATE-card template, static tabletop/catalog staging, photorealism, flat 2D.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Stylized faceless person beside one central monthly-budget meter/block. Four small recognizable 3D symbols — smartphone, laptop, TV and sofa — feed into that same block through simple physical lines. Reserve clean dark space for the static rule text.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, central budget block, four product symbols, four lines.
+VISUAL STORYTELLING: Separate decisions become one combined monthly load.
+COMPOSITION: Person left, central block mid, sources around at varied depth; clean lower-right overlay space.
+MATERIALS: Stylized fabric, matte blocks, glass/metal/plastic/fabric miniatures.
+BACKGROUND: Deep seamless black.
+LIGHTING: Soft premium studio light, controlled warm caution at central block.
+COLOR LANGUAGE: Black, warm neutrals, restrained risk.
+TEXT: No generated amounts or labels.
+FORBIDDEN: living-room catalog, product grid, RATE template, flat infographic, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

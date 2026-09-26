@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: An e-bike physically tied to a long sequence of future calendar pages makes duration tangible.
-VOICEOVER_VISUAL_MATCH: The financed purchase remains connected to many future months.
+FLOW_NECESSITY_REASON: Human movement plus a trailing month-chain makes long duration memorable.
+VOICEOVER_VISUAL_MATCH: Future months continue to pull on the same wallet.
 VOICEOVER CONTEXT: Dazu kommt die Laufzeit. Je länger eine Rate läuft, desto länger bleibt dein Geld gebunden. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: A clearly recognizable modern e-bike stands in a minimal garage/store pickup area. A restrained red-orange fastening strap or cable connects the bike to a long sequence of monthly calendar pages receding far into the background. The pages contain no readable dates or text.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels.
-OBJECTS: e-bike; long physical calendar-page sequence; restrained connecting strap.
-VISUAL STORYTELLING: The desirable purchase in the foreground is physically tethered to many future months, making the long commitment visible.
-COMPOSITION: E-bike large front-left; calendar path recedes diagonally into right-rear depth; strong perspective, no timeline UI.
-MATERIALS: Stylized metal bike frame, rubber tires, paper calendars, fabric strap.
-BACKGROUND: Minimal garage/store context dissolving into deep seamless black.
-LIGHTING: Soft premium studio light, restrained warm risk accent along the strap/calendar path.
-COLOR LANGUAGE: Deep black, neutral bike materials, controlled red-orange risk.
-TEXT: No generated month names, numbers, finance words or UI.
-FORBIDDEN: Tiny calendar wall, fake timeline interface, generic gadget, recurring RATE cards, static tabletop/catalog staging, photorealism, flat 2D.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Stylized faceless person walks forward carrying a wallet. A long chain made from blank monthly calendar pages is attached to the wallet strap and trails far backward into the black distance. Do not depict imprisonment.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, wallet, long calendar-page chain.
+VISUAL STORYTELLING: The wallet moves forward while dragging many future months behind it.
+COMPOSITION: Low-medium 3/4, person front-left, chain receding deep to back-right.
+MATERIALS: Stylized fabric, leather, thick paper.
+BACKGROUND: Deep seamless black.
+LIGHTING: Soft premium key, repeated restrained warm accents along chain.
+COLOR LANGUAGE: Black, warm neutrals, controlled risk accents.
+TEXT: No month names, numbers or labels.
+FORBIDDEN: timeline UI, calendar wall, metal shackles, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

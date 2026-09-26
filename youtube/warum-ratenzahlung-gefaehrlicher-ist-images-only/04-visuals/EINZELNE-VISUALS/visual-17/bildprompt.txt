@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: A fully saved-for laptop purchase makes the alternative to immediate financing concrete.
-VOICEOVER_VISUAL_MATCH: The complete purchase remains visible rather than being mentally reduced to a monthly installment.
+FLOW_NECESSITY_REASON: A visible savings-progress scene shows both control and time to reconsider the purchase.
+VOICEOVER_VISUAL_MATCH: The laptop remains a visible goal while the person builds savings and thinks.
 VOICEOVER CONTEXT: Wenn du sparst statt sofort zu finanzieren, bleibt der Kauf ehrlich sichtbar. Du merkst schneller, ob du ihn wirklich brauchst. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: A clearly recognizable premium laptop sits at a simple checkout/pickup counter. Beside it is a transparent or open savings envelope/container holding enough physical cash for the purchase, while a folded financing brochure is pushed aside and secondary. No readable generated text.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels.
-OBJECTS: premium laptop; savings envelope/container with cash; folded financing brochure.
-VISUAL STORYTELLING: The viewer sees the full real purchase and the saved money together, while financing is physically moved out of the main decision path.
-COMPOSITION: Laptop and savings form one coherent purchase moment, financing brochure off to one side, asymmetrical 3/4 view.
-MATERIALS: Stylized aluminum, paper/card, physical banknotes.
-BACKGROUND: Minimal electronics checkout context dissolving into deep seamless black.
-LIGHTING: Soft premium key; subtle emerald positive accent on savings, no excessive glow.
-COLOR LANGUAGE: Deep black, warm neutrals, emerald only for savings/solution.
-TEXT: No generated finance words, amounts, price tags, brands, ratings or UI.
-FORBIDDEN: Piggy-bank template, generic device, RATE card, static tabletop/catalog staging, photorealism, flat 2D, fake ecommerce screen.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Stylized faceless person places a banknote into a transparent green savings container. A recognizable laptop sits farther back on a simple shelf as the goal, not yet purchased. The person pauses with one hand thoughtfully at the chin. Use several simple stacked savings layers as nonverbal progress cues.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, transparent savings container, banknote, laptop goal, progress layers.
+VISUAL STORYTELLING: The goal stays visible while time/progress creates space to reconsider.
+COMPOSITION: Person left-mid, savings foreground center, laptop background right.
+MATERIALS: Stylized fabric, tinted glass/plastic, paper, laptop aluminum/glass.
+BACKGROUND: Deep seamless black with minimal shelf context.
+LIGHTING: Soft premium key, restrained emerald around savings.
+COLOR LANGUAGE: Black, warm neutrals, emerald positive accent.
+TEXT: No savings words, amounts, brands, ratings or UI.
+FORBIDDEN: checkout scene, piggy-bank cliché, RATE card, product catalog, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: A real television purchase gives the exact static price comparison a concrete context.
-VOICEOVER_VISUAL_MATCH: The expensive television remains tangible while the later overlay turns 1.200 € into 50 €/Monat.
+FLOW_NECESSITY_REASON: Human purchase context supports the exact static number comparison.
+VOICEOVER_VISUAL_MATCH: Large TV remains tangible while later overlay explains 1.200 € → 50 €/Monat.
 VOICEOVER CONTEXT: Statt 1.200 Euro siehst du plötzlich nur noch 50 Euro im Monat. Psychologisch fühlt sich der Kauf dadurch viel leichter an. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Show a clearly recognizable premium 65-inch flat-screen television on a simple electronics-store display stand. A small blank payment slip is physically near the television but contains no readable text or numbers.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels. The exact comparison `1.200 € → 50 €/Monat` is added later as a static Remotion layer.
-OBJECTS: flat-screen television; small blank payment slip; minimal display stand.
-VISUAL STORYTELLING: The large purchase is visibly substantial; the tiny payment slip creates the psychological contrast without carrying generated text.
-COMPOSITION: Keep the television and slip on the left 55–60% of the frame. Reserve a clean dark right side specifically for the later static comparison.
-MATERIALS: Premium stylized glass, matte plastic/metal, thick paper.
-BACKGROUND: Deep seamless black with tiny electronics-store context fading into black.
-LIGHTING: Soft premium studio lighting, controlled highlights, restrained warm risk accent.
-COLOR LANGUAGE: Black dominant, warm neutrals, restrained red-orange risk accent.
-TEXT: Generate no price, monthly amount, arrow, headline, label, rating or fake UI.
-FORBIDDEN: Generic/invented consumer device, radio/heater/speaker, generated equation, recurring RATE card template, static tabletop/catalog staging, photorealism, flat 2D, fake UI.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Stylized faceless shopper beside a large recognizable flat-screen TV, holding a tiny blank installment slip. Reserve a completely clean dark region on the right for the static comparison.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, TV, blank slip.
+VISUAL STORYTELLING: Small immediate cue feels easy next to the substantial purchase.
+COMPOSITION: Person + TV on left 55–60%; right region clean for text overlay.
+MATERIALS: Stylized fabric, glass/metal/plastic, paper.
+BACKGROUND: Deep seamless black.
+LIGHTING: Soft premium studio light with restrained risk accent.
+COLOR LANGUAGE: Deep black, warm neutrals, controlled red-orange.
+TEXT: No generated amounts, arrows, words, ratings or UI.
+FORBIDDEN: equation inside Flow, product catalog, RATE card, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

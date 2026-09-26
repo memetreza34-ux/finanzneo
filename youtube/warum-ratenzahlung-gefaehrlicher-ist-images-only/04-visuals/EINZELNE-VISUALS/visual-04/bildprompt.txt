@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: A calm everyday smartphone purchase makes one single installment feel plausibly manageable.
-VOICEOVER_VISUAL_MATCH: Only one financed item and one small payment commitment are visible.
+FLOW_NECESSITY_REASON: A light physical burden in a person's hand is a stronger memory cue than another checkout scene.
+VOICEOVER_VISUAL_MATCH: One obligation feels easy to carry.
 VOICEOVER CONTEXT: Eine einzelne Rate wirkt oft noch machbar. Genau dort beginnt die Falle. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: A clearly recognizable modern smartphone has just been bought and rests beside its closed box on a small entryway shelf at home. Next to it lies one single plain monthly-payment envelope, visually small and unobtrusive. No other financed products are present.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels or readable text.
-OBJECTS: smartphone; phone box; one plain payment envelope; everyday wallet.
-VISUAL STORYTELLING: The single payment envelope occupies very little space next to the wallet, creating a calm, manageable feeling before multiple commitments accumulate.
-COMPOSITION: Medium-close 3/4 view, asymmetrical, smartphone as clear real-world subject, envelope secondary, black negative space.
-MATERIALS: Stylized glass, anodized metal, cardboard, leather/fabric wallet, paper envelope.
-BACKGROUND: Small believable home-entry context softly dissolving into deep seamless black.
-LIGHTING: Calm neutral premium light with a very subtle warm risk rim.
-COLOR LANGUAGE: Black dominant, warm neutrals, restrained risk accent.
-TEXT: No generated finance word, price, star rating, brand or UI.
-FORBIDDEN: Several debts already shown, generic electronics device, RATE placard, product-review card, static tabletop/catalog staging, photorealism, flat 2D, clutter.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Stylized faceless person calmly holds one small smooth warm-red obligation block on an open palm. Far behind, a faint trail of similar blocks is barely visible in the black world as foreshadowing.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, one small block, faint distant blocks.
+VISUAL STORYTELLING: One burden looks harmless now; accumulation is only hinted at.
+COMPOSITION: Medium shot, hand/block dominant, distant trail secondary.
+MATERIALS: Stylized fabric, matte sculpted blocks.
+BACKGROUND: Deep seamless black.
+LIGHTING: Calm neutral key with subtle warm risk edge.
+COLOR LANGUAGE: Black, warm neutrals, restrained red-orange.
+TEXT: No generated text or UI.
+FORBIDDEN: wallet-on-table scene, RATE placard, product ad, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

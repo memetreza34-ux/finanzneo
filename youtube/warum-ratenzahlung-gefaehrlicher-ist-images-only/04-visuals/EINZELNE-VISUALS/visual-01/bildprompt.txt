@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: A concrete electronics purchase makes the harmless-looking installment psychologically visible.
-VOICEOVER_VISUAL_MATCH: A large television purchase is contrasted with one physically tiny payment slip.
+FLOW_NECESSITY_REASON: Human uncertainty makes the psychological trap memorable instead of producing another product shot.
+VOICEOVER_VISUAL_MATCH: The shopper focuses on a tiny immediate-looking commitment while a much larger consequence is easy to overlook.
 VOICEOVER CONTEXT: Ratenzahlungen wirken oft klein und harmlos. Genau deshalb unterschätzen viele, wie teuer ein Kauf am Ende wirklich wird. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: Show an unmistakable 65-inch flat-screen television at a real electronics-store checkout. The TV box and screen are large and substantial. A single small plain installment-payment slip lies closer to camera, visually tiny compared with the television. No readable generated text.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels. Exact explanatory text belongs to the static video layout.
-OBJECTS: 65-inch flat-screen television; one small plain payment slip; minimal checkout counter edge.
-VISUAL STORYTELLING: The purchase is physically large, while the payment slip occupies little visual space and therefore feels deceptively harmless.
-COMPOSITION: Medium 3/4 view. Television dominates left-mid frame; small slip sits foreground right; asymmetrical depth; generous black breathing room.
-MATERIALS: Premium stylized television glass and matte frame, cardboard packaging, thick paper slip.
-BACKGROUND: Deep seamless black with only a small believable electronics checkout context dissolving into black.
-LIGHTING: Soft premium studio lighting, clear subject separation, subtle warm risk accent on the payment slip.
-COLOR LANGUAGE: Deep black dominant, warm ivory/soft gray neutrals, restrained warm red-orange for risk.
-TEXT: No generated words, prices, ratings, stars, brand names or UI. All exact text is added later.
-FORBIDDEN: Generic consumer product, invented gadget, radio/heater/speaker, recurring RATE card, review card, static tabletop/catalog staging, symmetric product ad, photorealism, flat 2D, fake UI, clutter.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Stylized faceless person in front of a large flat-screen TV, holding one tiny blank payment slip. A long folded full-purchase receipt curls behind the TV. Two sculpted question marks near the head.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, TV, tiny blank slip, long receipt, question-mark symbols.
+VISUAL STORYTELLING: Tiny immediate cue gets attention; physically larger consequence stays behind it.
+COMPOSITION: Medium 3/4, person center-left, TV mid-right, receipt receding in depth; no tabletop.
+MATERIALS: Stylized fabric, TV glass/metal, thick paper, sculpted symbols.
+BACKGROUND: Deep seamless black with minimal store context.
+LIGHTING: Soft premium light; restrained warm risk accent on long receipt.
+COLOR LANGUAGE: Deep black, warm neutrals, controlled red-orange.
+TEXT: No words, prices, ratings, brands or UI. Question marks allowed.
+FORBIDDEN: isolated product ad, RATE card, review card, generic gadget, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

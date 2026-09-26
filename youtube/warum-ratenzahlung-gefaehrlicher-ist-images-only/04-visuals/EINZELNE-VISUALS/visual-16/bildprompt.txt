@@ -1,15 +1,15 @@
-FLOW_NECESSITY_REASON: Waiting for a concrete desired purchase while savings accumulate shows control better than an abstract finance symbol.
-VOICEOVER_VISUAL_MATCH: The desired e-bike stays in the shop while saved money is prepared first.
+FLOW_NECESSITY_REASON: A choice-path scene makes waiting an active strategy rather than a boring delay.
+VOICEOVER_VISUAL_MATCH: Both paths reach the same e-bike, but one creates immediate obligations while the other builds savings first.
 VOICEOVER CONTEXT: Oft ist es klüger, etwas später zu kaufen und vorher Geld zurückzulegen. Das gibt dir mehr Kontrolle und kostet dich oft weniger. One dominant idea; 1-2 short Voiceover sentences.
-SCENE: A desirable modern e-bike is visible behind a simple shop window or on a pickup stand in the background. In the foreground, a green savings envelope/container with real cash inside sits beside a single calendar page, showing deliberate waiting before purchase. No readable generated text.
-IMPORTANT GERMAN OBJECT LABELS: No generated labels.
-OBJECTS: modern e-bike; savings envelope/container with cash; one calendar page; minimal shop context.
-VISUAL STORYTELLING: The product remains slightly out of reach in the background while the savings in the foreground are prepared first, turning waiting into control.
-COMPOSITION: Savings foreground left, e-bike mid/background right, clear depth and visual connection; not a product advertisement.
-MATERIALS: Stylized metal/rubber bike, paper envelope/calendar, physical banknotes.
-BACKGROUND: Minimal shop context fading into deep seamless black.
-LIGHTING: Soft premium light; restrained emerald accent around savings, neutral light on bike.
-COLOR LANGUAGE: Black dominant, warm neutrals, emerald only for positive savings.
-TEXT: No generated amount, savings word, brand name, price tag or UI.
-FORBIDDEN: Piggy-bank cliché, growing coin stack, generic finance icon, static tabletop/catalog staging, photorealism, flat 2D, excessive glow.
-STYLE LOCK: Premium clearly stylized 3D animation-film rendering in `finanzneo-youtube-grounded-3d-black-v1`; unchanged image world; horizontal 16:9.
+SCENE: Stylized faceless person stands where two physical paths diverge. Short left path reaches a modern e-bike quickly but contains several warm-red obligation blocks. Longer right path passes a green savings container and a few blank calendar pages before reaching the same bike.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, two paths, e-bike, obligation blocks, savings container, calendar pages.
+VISUAL STORYTELLING: Same goal, different financial path.
+COMPOSITION: Person foreground center, paths clearly diverge through depth, e-bike shared destination.
+MATERIALS: Stylized fabric, metal/rubber bike, matte blocks, paper.
+BACKGROUND: Deep seamless black with minimal ground.
+LIGHTING: Warm caution on shortcut, subtle emerald on savings path.
+COLOR LANGUAGE: Black, red-orange risk, emerald savings.
+TEXT: No path labels, amounts, brands or UI.
+FORBIDDEN: simple bike product shot, piggy-bank cliché, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.
