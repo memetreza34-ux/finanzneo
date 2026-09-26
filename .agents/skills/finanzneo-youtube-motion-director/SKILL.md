@@ -1,215 +1,152 @@
 ---
 name: finanzneo-youtube-motion-director
-description: Directs FinanzNeo YouTube Longform with simplest-visual-first selection, simple reusable Remotion patterns, real assets where appropriate and Google Flow only when a real-world scene genuinely improves understanding.
+description: Directs FinanzNeo YouTube Longform with content-first visual selection, balanced image/image+Remotion/Remotion use, safe full-frame Phase-B motion and the locked FinanzNeo 3D world.
 ---
 
-# FinanzNeo YouTube Motion Director V4 Simple
+# FinanzNeo YouTube Motion Director V5 Balanced Hybrid
 
 ## Goal
 
-Make finance easy to understand. Do not try to make every scene visually unique. Choose the simplest visual that communicates the spoken point correctly and quickly.
+Make finance easy to understand and easy to remember. Choose the visual form from the spoken point, not from a preferred tool.
 
-> **Clarity first. Simplicity second. Novelty only when it adds explanatory value.**
-
-Important: simple composition does **not** mean flat 2D illustration or boring staging. When Google Flow is chosen, the approved premium stylized 3D FinanzNeo image world remains mandatory.
+> **Clarity first. Memory aid second. Tool choice third.**
 
 ## Authority
 
 Read in this order:
-
 1. `CLAUDE.md`
 2. `youtube/PRODUKTIONSSTANDARD.md`
-3. `docs/YOUTUBE-FLOW-STORYBOARD-STANDARD.md`
-4. `docs/YOUTUBE-MOTION-V4-SIMPLE.md`
-5. `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`
-6. `config/finanzneo-youtube-visual-system.json`
-7. target `04-visuals/visual-index.json`
-8. target visual plan/source files
-9. official Remotion skills
+3. `docs/YOUTUBE-PRODUCTION-MODES.md`
+4. `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`
+5. `docs/YOUTUBE-FLOW-STORYBOARD-STANDARD.md`
+6. `docs/YOUTUBE-MOTION-V4-SIMPLE.md`
+7. `config/finanzneo-youtube-visual-system.json`
+8. target `04-visuals/visual-index.json`
 
 Reel rules do not automatically apply to YouTube Longform.
 
-## Scene granularity — mandatory
+## Scene granularity
 
-For every visual beat, start with the spoken text and isolate exactly one main idea.
+One visual beat carries one dominant idea. A Flow image normally covers 1–2 short Voiceover sentences. Split multi-idea beats.
 
-For Google Flow images, the normal target is:
+## Phase-B decision — mandatory
 
-- **1 image = 1 main idea**;
-- **1–2 short Voiceover sentences per image**;
-- split the beat when several independent claims, examples or consequences are packed together;
-- do not force five separate spoken ideas into one generated image just to reduce image count.
+For every beat ask:
 
-A beat may be shorter or occasionally slightly longer when the sentences still express one indivisible idea. The rule is semantic, not a mechanical sentence counter.
+1. What must the viewer understand or remember?
+2. Is a concrete 3D image the strongest memory aid?
+3. Would image + Remotion explain it better than either alone?
+4. Is pure Remotion clearer because the point is mainly number/process/change?
+5. Is a real asset required?
 
-Ask:
+Use:
+- **image** for concrete situation, emotion, cause/effect or memorable everyday context;
+- **hybrid** for concrete image + exact temporal explanation;
+- **animation/data** for pure number/process/change when no image adds value;
+- **real-asset** for real sources/documents/websites/products.
 
-> Can I summarize what this one image must communicate in one short sentence?
+Do not default to Remotion just because it is available.
 
-If not, split it.
+## Balanced Hybrid guidance
 
-## First question
+No hard quota, but typical Phase-B target:
+- 25–40% image-only;
+- 30–50% image + Remotion;
+- 20–35% pure Remotion.
 
-For every spoken beat write one sentence:
+If pure Remotion starts dominating while strong images or hybrids would improve comprehension or memory, re-plan the storyboard.
 
-> What must the viewer understand from this beat?
+## Humans
 
-Then choose the visual in this order:
+Human characters are optional, never default.
 
-1. Can a simple Remotion visual explain it?
-2. Is there a real website/app/document/logo/product/source that should be shown directly?
-3. Only then: would a Google Flow everyday scene communicate it better?
+Use humans only when reaction, decision, attention or consequence materially improves the scene.
 
-Do not begin with an effect, 3D technique or existing component. The 3D rule applies only after Flow has already been selected as the right source.
+Avoid:
+- decorative person beside a chart;
+- repeated person + question mark staging;
+- several similar human scenes in a row.
 
-## Default tool roles
+Soft guidance: roughly no more than 40% human scenes unless the story clearly needs more.
 
-### Remotion — default
+When used, characters must belong to the approved premium stylized animation-film world — no blank faceless mannequins, photoreal people or corporate 3D avatars.
 
-Prefer for:
+## Abstraction guard
 
-- big numbers
-- percentages
-- comparisons
-- bar charts
-- line charts
-- timelines
-- fees
-- savings rates
-- compound growth
-- allocations
-- money flows
-- simple processes
-- formulas and calculations
-- short highlighted text
+Blocks, paths, bars and schemas are allowed only when they explain quickly.
 
-### Real asset — when reality matters
+If an abstract scene would be confusing without Voiceover:
+- add a concrete anchor;
+- simplify it;
+- or use image + Remotion.
 
-Prefer a real asset or screenshot for:
+Avoid chains of abstract-only scenes when a concrete or hybrid scene would improve recall.
 
-- websites
-- apps
-- official documents
-- ETF factsheets
-- source tables
-- logos
-- real products
+## Full-frame Phase-B motion
 
-Never generate a fake version of a real source when the real source can be shown.
+Pure Remotion scenes may use the entire 1920×1080 canvas.
 
-### Google Flow — exception
+- do not force animation into the contained Flow window;
+- place heading/icon within the full-frame composition/safe area;
+- keep critical content at least about 64px from edges;
+- no important element may be unintentionally cropped or clipped;
+- use the available frame meaningfully.
 
-Use only for a concrete everyday situation where an image is faster and clearer than text/data, for example:
+For image + Remotion:
+- Flow image itself stays contained and never fullscreen;
+- Remotion overlays may extend beyond the image window and use the full scene;
+- plan image and overlay as one composition.
 
-- a grocery-shopping inflation moment
-- a rent increase letter in a real housing context
-- a car repair creating an unexpected cost
-- a salary or workplace money decision
-- an insurance or contract situation
+## Flow image world
 
-Before Flow, apply the mandatory gate from `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
+Use exactly:
+`config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt`
 
-If Flow is used, the scene is rendered in the approved stylized 3D animation-film FinanzNeo world. Do not switch to flat editorial art just because the composition should be simple.
+Reference project:
+`youtube/warum-dein-geld-verschwindet-images-only`
 
-## Flow visual storytelling — mandatory
+Do not redesign the image world for a new topic.
 
-A Flow image must not merely contain the right objects. It must show a clear visual relationship between them.
+Flow images need visible storytelling/relationship, not catalog staging. They do not need to literally reenact every noun in the Voiceover; they should work as a visual memory aid.
 
-Before writing any Flow prompt, determine:
+## Thumbnail
 
-1. the visible cause;
-2. the visible consequence;
-3. the physical or spatial storytelling device that connects them.
+Final YouTube cover must contain a short strong readable headline before export.
 
-Good storytelling devices include, when appropriate:
+- normally 2–6 words;
+- exact text must be readable;
+- preferred: final layout owns typography;
+- Flow may generate a very short headline only if exact;
+- missing/wrong/unreadable headline = reject thumbnail.
 
-- progression through depth;
-- one object pulling, pushing, blocking, weighing down, splitting, covering or connecting another;
-- growing stacks, chains or sequences;
-- asymmetric / diagonal composition;
-- meaningful overlap and scale hierarchy;
-- objects suspended in space when no real surface is needed;
-- a believable local environment when grounding improves the story;
-- opening/revealing hidden costs or consequences;
-- lighting accents that support cost/risk/solution semantics.
+## Motion source rules
 
-Do not turn one successful device into a new template. Floating objects are not mandatory. Tables/desks are not mandatory. Every staging decision must come from the spoken point.
+Every animated production visual must:
+- use `useCurrentFrame()`;
+- use `interpolate()` and/or `spring()` for visible frame-driven motion;
+- be deterministic;
+- contain no TODO/placeholder;
+- contain no `Math.random()`, `Date.now()`, timer, runtime fetch or remote runtime dependency;
+- avoid CSS animation/transition as render motion;
+- export the component named in `visual-index.json`.
 
-Reject generic staging such as:
+## Standard patterns
 
-- object + document + object arranged neatly on a table;
-- centered product shot with finance props;
-- symmetrical catalog layout;
-- three unrelated objects lying side by side;
-- floating props with no cause/effect simply because the background is black.
+Prefer reusable patterns when clear:
+- BigNumber
+- Comparison
+- Percentage
+- BarChart
+- LineChart
+- Timeline
+- MoneyFlow
+- ProcessSteps
+- SimpleDiagram
+- HighlightText
+- Allocation
+- Formula
 
-The still frame should feel like a paused moment from an animated finance story while remaining immediately understandable.
-
-## Flow prompt format — production ready
-
-Every final Flow image prompt is written individually for that exact beat and contains:
-
-1. `FINAL FILE NAME`
-2. `VOICEOVER CONTEXT` — normally 1–2 short sentences
-3. `SCENE`
-4. `IMPORTANT GERMAN OBJECT LABELS`
-5. `OBJECTS`
-6. `VISUAL STORYTELLING`
-7. `COMPOSITION`
-8. `MATERIALS`
-9. `BACKGROUND`
-10. `LIGHTING`
-11. `COLOR LANGUAGE`
-12. `TEXT`
-13. `FORBIDDEN`
-
-The final production prompt must be directly copy/paste ready for Google Flow. Do not leave abstract placeholders, shorthand scene notes or generic master-prompt wording in the finished project.
-
-Short German object labels are used only when an important document/card/object could otherwise be misunderstood. Put the label physically on the object. Do not label obvious objects. Important explanatory totals, percentages and comparisons remain Remotion-owned unless a number is naturally part of the physical object and was explicitly planned.
-
-## Multi-image Flow handoff
-
-`04-visuals/alle-bildprompts.txt` may contain many completed image blocks in **one shared handoff prompt**.
-
-The handoff size is not fixed: 3, 5, 10 or more images are allowed when the script requires them.
-
-This does **not** permit parallel generation. Flow still works strictly:
-
-```text
-IMAGE 01
-→ generate exactly one image
-→ wait until complete
-→ rename immediately
-→ QA
-→ regenerate IMAGE 01 if needed
-→ only after PASS continue to IMAGE 02
-```
-
-Continue the same way until the final planned image, then stop. Never invent additional images.
-
-## Standard visual patterns
-
-Reusable patterns are encouraged:
-
-- `BigNumber`
-- `Comparison`
-- `Percentage`
-- `BarChart`
-- `LineChart`
-- `Timeline`
-- `MoneyFlow`
-- `ProcessSteps`
-- `SimpleDiagram`
-- `HighlightText`
-- `Allocation`
-- `Formula`
-
-Do not reject a pattern because it appeared earlier. If a bar chart is again the clearest explanation, use a bar chart again.
-
-## Standard motion presets
-
-Prefer:
-
+Standard motion presets:
 - `FADE_IN`
 - `SLIDE_UP`
 - `SLIDE_LEFT`
@@ -220,140 +157,30 @@ Prefer:
 - `HIGHLIGHT`
 - `SLOW_ZOOM`
 
-Usually one main motion preset is enough.
+Advanced motion only when a simpler pattern cannot communicate the idea equally well.
 
-## Motion decision
+## QA
 
-For a motion beat:
-
-1. write `viewerChange` — what does the viewer literally see change?
-2. write `reason` — why does this motion explain the spoken point?
-3. choose the simplest suitable `motionPreset`;
-4. build deterministic production-ready Remotion source;
-5. only use advanced motion if the simple options fail to communicate the point.
-
-## Minimal metadata
-
-Every motion-capable visual needs:
-
-- `viewerChange`
-- `reason`
-- `motionPreset`
-- `animationSourceFile`
-- `animationExport`
-
-Optional:
-
-- `advancedReason`
-- `toolStack`
-
-Do **not** invent unique mechanic IDs, technique IDs, composition-family IDs or motion signatures merely to satisfy variety. They are not V4 requirements.
-
-## Advanced motion gate
-
-SVG can be used freely when it is the simple way to draw paths/charts/connections.
-
-Canvas, CSS 3D, Three.js/R3F, Motion Blur, complex masks, simulations and camera journeys are advanced. Use them only if `advancedReason` explains why the standard patterns cannot communicate the idea equally well.
-
-Never use advanced motion because:
-
-- the previous scene used a similar layout;
-- it looks more premium;
-- the dependency exists;
-- variety is desired for its own sake.
-
-## Repetition
-
-There is no visual-novelty quota.
-
-Consistency is positive when it helps recognition and comprehension. Reusing the same comparison, chart or number pattern is allowed without a `repeatTechniqueReason`.
-
-For Flow staging, however, do not copy a successful physical composition when the new spoken point calls for a different visual story. Reuse the world, material language and semantic colors — not a forced scene template.
-
-## Image rules
-
-For generated YouTube images use:
-
-`config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt`
-
-Important text, values, labels and captions belong in Remotion. Flow should generate the visual situation, not the explanation.
-
-Generated images must contain:
-
-- one clear real-world situation;
-- one dominant thought;
-- normally only 1–2 short Voiceover sentences worth of content;
-- a visible cause/effect, progression, tension or relationship when the spoken point contains one;
-- only a few meaningful supporting objects;
-- premium stylized 3D animation-film rendering;
-- believable but clearly stylized people/objects;
-- semi-realistic materials with refined rounded geometry;
-- deep seamless black as the dominant FinanzNeo world;
-- small local environment context only when it improves understanding;
-- clean soft studio lighting and readable contact shadows;
-- emerald green / warm red-orange only when semantically useful.
-
-Generated images must **not** become:
-
-- generic flat editorial illustration;
-- corporate vector / stock explainer art;
-- Canva-style illustration;
-- photorealistic photography;
-- anime;
-- isometric diagram art;
-- generic coins/vault/piggy-bank scene;
-- cluttered cinematic environment;
-- static tabletop/catalog still life with no narrative relationship;
-- repeated floating-object template unrelated to the spoken point;
-- one image overloaded with several independent script ideas.
-
-Simple means fewer elements and clearer composition — **not** boring staging and not lower-dimensional or flatter rendering.
-
-## Hybrid
-
-Hybrid is allowed only when the still image is genuinely useful and Remotion must add temporal information. Do not create hybrid scenes just to keep a still image moving.
-
-## Source requirements
-
-Every production Phase-1 `animation.tsx` must:
-
-- use `useCurrentFrame()`;
-- use `interpolate()` and/or `spring()` for visible frame-driven motion;
-- export the component named in `visual-index.json`;
-- contain no TODO/placeholder content;
-- contain no `Math.random()`, `Date.now()`, timer, runtime fetch or remote runtime dependency;
-- avoid CSS animation/transition as a replacement for frame-driven Remotion motion.
-
-## Scene QA
-
-Before accepting a visual ask:
-
-1. Can the main idea be understood in about 1–2 seconds?
-2. Is there one dominant thought?
-3. Is the Flow beat normally only 1–2 short Voiceover sentences?
-4. If several independent thoughts are present, was the beat split?
-5. Can anything be removed?
-6. Is Flow actually needed?
-7. If Flow is used: is the approved stylized 3D world unmistakable?
-8. If the spoken point has cause/effect or progression: is that relationship visible in the staging?
-9. Does this look like a paused story moment rather than a catalog/product shot?
-10. Are important ambiguous physical objects labeled briefly in German when needed?
-11. Are important explanatory text/numbers rendered by Remotion?
-12. Does the motion explain or focus information?
-13. Could a simpler visual work equally well?
-
-If yes to question 13, simplify the composition — not the approved image style or meaningful visual storytelling.
+Before accepting each Phase-B scene:
+1. Main idea readable in 1–2 seconds?
+2. Is this the best of image / image+Remotion / pure Remotion / real asset?
+3. Does a person genuinely add explanatory value?
+4. Is the scene too abstract?
+5. Does motion explain rather than decorate?
+6. If pure Remotion: does it use full-frame space well?
+7. Is any important element clipped/cropped?
+8. If Flow: exact approved 3D world and contained image?
+9. Are exact text/numbers handled by layout/Remotion?
+10. Does the thumbnail have final readable text?
 
 ## Phase ownership
 
-Phase 1 owns the visual concept and production-ready motion source.
+Phase 1 owns visual concept and production-ready motion source.
 
 Run:
-
 `npm run youtube:animation:validate -- youtube/<Projekt>`
 
 then:
-
 `npm run youtube:phase1:seal -- youtube/<Projekt>`
 
-Phase 3 may retime the sealed source to the real voiceover and integrate captions/SFX/assets. It must not silently replace the explanatory idea with another one.
+Phase 3 may retime sealed source to the real processed voiceover, but must not replace the approved explanatory idea without explicit re-planning.

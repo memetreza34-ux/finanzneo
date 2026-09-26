@@ -1,51 +1,81 @@
-# FinanzNeo YouTube Motion V4 — Simple Finance
+# FinanzNeo YouTube Motion V4 — Simple Finance / Balanced Hybrid
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v4-simple`
 
 ## Ziel
 
-FinanzNeo Longform erklärt Finanzthemen so einfach wie möglich. Die Animation soll Verständnis erzeugen, nicht technische Komplexität zeigen.
+Ein Gedanke → ein klares Visual → nur so viel Bewegung wie nötig.
 
-> **Ein Gedanke → ein klares Visual → nur so viel Bewegung wie für das Verständnis nötig.**
+Phase B ist nicht automatisch Remotion-first. Die Toolwahl folgt dem Inhalt und der Visual-Selection-Regel.
 
-Simple bedeutet: wenige Elemente, klare Hierarchie und einfache Bewegung. **Es bedeutet nicht, dass Google-Flow-Bilder als flache 2D-Illustrationen erzeugt werden.** Wenn Flow gewählt wird, bleibt die freigegebene premium stylized 3D FinanzNeo-Bildwelt verbindlich.
+## Visualwahl in Phase B
 
-## Reihenfolge
-
-Für jeden Sprechpunkt gilt:
+Vor Motion immer prüfen:
 
 ```text
-1. Was muss der Zuschauer verstehen?
-2. Kann ein statisches, sehr simples Visual reichen?
-3. Falls Bewegung nötig ist: Was muss sich sichtbar verändern?
-4. Welche einfachste Remotion-Umsetzung zeigt genau das?
-5. Erst wenn einfache Mittel nicht reichen: komplexere Technik begründen.
+Was muss verstanden oder erinnert werden?
+→ konkrete Situation/Emotion? → Bild
+→ Situation + exakte Veränderung/Zahl? → Bild + Remotion
+→ Zahl/Prozess/Entwicklung allein klarer? → reine Remotion
+→ reale Quelle nötig? → echtes Asset
 ```
 
-Die Toolwahl kommt immer nach der Aussage.
+Kanonisch: `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
+
+## Reine Remotion darf Full-Frame sein
+
+Reine Animationen dürfen die komplette 1920×1080-Fläche nutzen.
+
+- nicht in das kleine Flow-Fenster zwängen;
+- Überschrift/Icon als Teil der Full-Frame-Komposition integrieren;
+- kritische Inhalte mindestens ca. 64 px vom Rand;
+- keine wichtigen Elemente außerhalb des Frames;
+- kein unbeabsichtigtes Clipping/Cropping;
+- Fläche sinnvoll nutzen, statt nur einen kleinen Block in die Mitte zu stellen.
+
+## Bild + Remotion
+
+Hybrid ist eine vollwertige Hauptform und ausdrücklich erwünscht, wenn beides hilft.
+
+- Flow-Bild liefert konkrete Situation / Erinnerung / Emotion;
+- Remotion liefert exakte Zahl, Pfeil, Geldfluss, Highlight, Vergleich oder zeitliche Veränderung;
+- Flow-Bild selbst bleibt contained und nie fullscreen;
+- Remotion darf über das Bildfenster hinaus die komplette Szene nutzen;
+- Bild und Motion als eine Komposition planen.
+
+Hybrid nicht nur nutzen, um ein Bild grundlos zu bewegen.
+
+## Balance
+
+Keine harte Quote. Weiche Orientierung:
+- 25–40 % Bild;
+- 30–50 % Bild + Remotion;
+- 20–35 % reine Remotion.
+
+Wenn der Inhalt anderes verlangt, abweichen. Ziel: kein monotones Remotion-only-Video.
+
+## Menschen und Abstraktion
+
+Menschen nur wenn Reaktion, Entscheidung, Aufmerksamkeit oder Konsequenz erklärt werden. Wiederholte Mensch+Fragezeichen-Schablonen vermeiden.
+
+Abstrakte Balken/Blöcke/Schemata nur wenn sie klarer erklären. Wenn ohne Voiceover unklar, konkreten Anker ergänzen oder Bild+Remotion wählen.
 
 ## Standard-Bausteine
 
-Bevorzugte Erklärmuster:
-
-- `BigNumber` — eine wichtige Zahl
-- `Comparison` — zwei oder drei Optionen direkt vergleichen
-- `Percentage` — Anteil oder Prozentwert
-- `BarChart` — Größenvergleich
-- `LineChart` — Entwicklung über Zeit
-- `Timeline` — Reihenfolge oder Zeitraum
-- `MoneyFlow` — einfacher Geldfluss
-- `ProcessSteps` — wenige Schritte
-- `SimpleDiagram` — Beziehung zwischen wenigen Elementen
-- `HighlightText` — kurze Kernaussage hervorheben
-- `Allocation` — einfache Aufteilung
-- `Formula` — nachvollziehbares Rechenbeispiel
-
-Diese Muster dürfen beliebig oft wiederverwendet werden, wenn sie die Aussage am besten erklären. Wiederholung ist keine Qualitätsverletzung.
+- BigNumber
+- Comparison
+- Percentage
+- BarChart
+- LineChart
+- Timeline
+- MoneyFlow
+- ProcessSteps
+- SimpleDiagram
+- HighlightText
+- Allocation
+- Formula
 
 ## Standard-Motion
-
-Bevorzugte Bewegungen:
 
 - `FADE_IN`
 - `SLIDE_UP`
@@ -57,130 +87,42 @@ Bevorzugte Bewegungen:
 - `HIGHLIGHT`
 - `SLOW_ZOOM`
 
-Mehrere Effekte gleichzeitig sind kein Qualitätsmerkmal. Meist reicht eine Hauptbewegung plus optional eine kleine Fokusbewegung.
-
-## Remotion ist Default
-
-Nutze Remotion zuerst für:
-
-- Zahlen
-- Prozente
-- Vergleiche
-- Gebühren
-- Sparraten
-- Rendite-/Kostenentwicklung
-- Zinseszins
-- Charts
-- Zeitachsen
-- ETF-/Portfolio-Aufteilungen
-- Prozessschritte
-- einfache Rechenwege
-
-Wichtige Texte und Zahlen werden in Remotion gerendert und nicht von einem Bildgenerator erzeugt.
-
-## Echte Assets
-
-Wenn der Sprechpunkt eine reale Website, App, Quelle, ein Dokument, Factsheet, Logo oder Produkt betrifft, nutze das echte Asset bzw. einen echten Screenshot. Kein KI-Bild soll eine vorhandene Quelle imitieren.
-
-## Google Flow
-
-Flow ist keine Standardquelle für jede Szene.
-
-Flow ist nur sinnvoll, wenn eine konkrete Alltagssituation schneller verstanden wird als eine Grafik, z. B.:
-
-- Einkauf / Inflation
-- Miet- oder Nebenkosten-Situation
-- Autoreparatur / unerwartete Ausgabe
-- Arbeitsplatz / Gehalt / finanzielle Entscheidung
-- Versicherung / Vertrag
-
-Vor jedem Flow-Einsatz gilt der Gate-Test aus `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
-
-Wenn Flow eingesetzt wird, gilt zwingend:
-
-```text
-config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
-```
-
-Das Ergebnis muss wie ein hochwertiger stilisierter 3D-Animationsfilm-Frame wirken: tiefe schwarze FinanzNeo-Welt, wenige große Objekte, semi-realistische Materialien, weiche hochwertige Geometrie, sauberes Studio-Licht. Kein flacher Corporate-/Editorial-Vektor-Look.
-
-## Hybrid
-
-`hybrid` ist erlaubt, aber selten. Ein Flow-Bild muss die reale Situation bereits klar tragen; Remotion ergänzt nur notwendige zeitliche Information oder Labels. Kein Hybrid nur deshalb, damit sich ein Bild bewegt.
-
-## Fortgeschrittene Techniken
-
-SVG, Canvas, CSS 3D, Three.js/R3F, Masks, Motion Blur, aufwendige Kamerawege oder komplexe Simulationen sind erlaubt, aber **nicht Default**.
-
-Wenn eine fortgeschrittene Technik eingesetzt wird, muss `advancedReason` konkret erklären, warum ein einfaches Standardmuster die Aussage nicht gleich gut verständlich machen kann.
-
-Ungültige Begründungen:
-
-- „sieht hochwertiger aus“
-- „mehr Abwechslung“
-- „wir hatten schon einen Balken“
-- „wir können Three.js benutzen“
-
-Gültige Begründung ist immer inhaltlich.
-
-## Minimale Motion-Metadaten
-
-Ein Motion-Visual braucht nur:
-
-```json
-{
-  "viewerChange": "Was sieht der Zuschauer konkret passieren?",
-  "reason": "Warum erklärt diese Bewegung den gesprochenen Punkt?",
-  "motionPreset": "BAR_GROW",
-  "animationSourceFile": "04-visuals/EINZELNE-VISUALS/visual-03/animation.tsx",
-  "animationExport": "YouTubeVisual03Animation"
-}
-```
-
-Optional bei Spezialfällen:
-
-```json
-{
-  "advancedReason": "Warum die Standardmuster hier nicht reichen",
-  "toolStack": ["SVG", "Remotion"]
-}
-```
-
-Keine Pflicht mehr für einzigartige `mechanicId`, `visualTechniqueId`, `compositionFamilyId`, Motion-Signatures, mehrere Motion-Channels oder künstlich verschiedene Mechaniken.
+Meist reicht eine Hauptbewegung plus kleine Fokusbewegung.
 
 ## Source-Regeln
 
 Produktive `animation.tsx`:
+- `useCurrentFrame()`;
+- sichtbare Bewegung mit `interpolate()` und/oder `spring()`;
+- deterministisch;
+- keine TODOs/Platzhalter;
+- kein `Math.random()`, `Date.now()`, Timer oder Runtime-Fetch;
+- keine CSS animation/transition als Ersatz für Remotion-Motion;
+- exportiert die in `visual-index.json` genannte Komponente.
 
-- verwendet `useCurrentFrame()`
-- steuert sichtbare Bewegung mit `interpolate()` und/oder `spring()`
-- ist deterministisch
-- enthält keine TODOs oder Platzhalter
-- kein `Math.random()`
-- kein `Date.now()`
-- keine Timer
-- kein Runtime-Fetch
-- keine CSS-Keyframe-/Transition-Animation als Ersatz für framebasierte Remotion-Motion
-- exportiert die in `visual-index.json` genannte Komponente
+## Bildwelt
+
+Wenn Flow genutzt wird:
+
+`config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt`
+
+Referenz:
+`youtube/warum-dein-geld-verschwindet-images-only`
+
+Keine Änderung der freigegebenen Bildwelt durch Hybrid-Planung.
 
 ## Qualitätsprüfung
 
-Eine Szene besteht den V4-Test, wenn:
+1. Hauptgedanke in 1–2 Sekunden verständlich?
+2. Bewegung erklärt oder fokussiert wirklich etwas?
+3. Wäre Bild+Remotion merkbarer als reine Remotion?
+4. Ist die Szene unnötig abstrakt?
+5. Wird ein Mensch nur bei echtem Mehrwert eingesetzt?
+6. Nutzt reine Motion die Fläche sinnvoll?
+7. Ist nichts Wichtiges abgeschnitten?
+8. Sind Texte/Zahlen groß und exakt lesbar?
+9. Wenn Flow: korrekte 3D-Bildwelt und Flow-Bild nicht fullscreen?
 
-1. die Hauptaussage nach ungefähr 1–2 Sekunden erkennbar ist;
-2. ein dominanter Gedanke sichtbar ist;
-3. unnötige Elemente entfernt wurden;
-4. die Bewegung eine Information erklärt oder fokussiert;
-5. wichtige Zahlen und Texte sauber lesbar sind;
-6. bei Flow die freigegebene stylized-3D-Bildwelt eingehalten wird;
-7. kein einfacheres Visual dieselbe Aussage gleich gut erklären würde.
+## Kurzregel
 
-## Rhythmus
-
-Keine starre Szenenlänge. Schnitte folgen Voiceover, Gedanken und Kapiteln. Ein Visual darf länger stehen, wenn es weiterhin genau den aktuellen Gedanken erklärt.
-
-## Leitidee
-
-**Finanzfluss-artige Erklärklarheit + Finanzbär-artige visuelle Direktheit + eigene FinanzNeo-Identität.**
-
-Nicht kopieren. Die übertragbaren Prinzipien sind: verständliche Struktur, konkrete Beispiele, große lesbare Informationen, wenige Elemente und zweckmäßige Bewegung.
+> Phase B = content-first: Bild, Bild+Remotion und reine Remotion bewusst mischen. Reine Motion darf Full-Frame sein. Flow bleibt contained. Motion erklärt, statt nur zu dekorieren.
