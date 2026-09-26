@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: Budget routing explains reduced freedom better than another product scene.
+VOICEOVER_VISUAL_MATCH: Fixed obligations consume the wide lane; other life goals receive narrow lanes.
+VOICEOVER CONTEXT: Dieses gebundene Geld fehlt dir dann an anderer Stelle. Für Rücklagen, Freizeit oder unerwartete Ausgaben bleibt weniger übrig. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: One monthly-budget source on the left splits into four physical 3D lanes. The first lane is wide and filled with several fixed-payment blocks; the other three are narrow and end at a green emergency envelope, a leisure ticket and a repair-tool case.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: budget source, blocks, four lanes, reserve envelope, ticket, repair tools.
+VISUAL STORYTELLING: Most available width is consumed before money reaches the other goals.
+COMPOSITION: Left-to-right 3D schema with depth, never dashboard/UI.
+MATERIALS: Matte blocks, paper, metal tools, subtle ground.
+BACKGROUND: Deep seamless black.
+LIGHTING: Warm risk on fixed lane, subdued emerald on reserve.
+COLOR LANGUAGE: Black, warm neutrals, risk red-orange, emerald reserve.
+TEXT: No generated labels or totals.
+FORBIDDEN: pie chart, dashboard, finance-icon pile, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

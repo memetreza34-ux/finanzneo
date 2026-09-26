@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: A visible savings-progress scene shows both control and time to reconsider the purchase.
+VOICEOVER_VISUAL_MATCH: The laptop remains a visible goal while the person builds savings and thinks.
+VOICEOVER CONTEXT: Wenn du sparst statt sofort zu finanzieren, bleibt der Kauf ehrlich sichtbar. Du merkst schneller, ob du ihn wirklich brauchst. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Stylized faceless person places a banknote into a transparent green savings container. A recognizable laptop sits farther back on a simple shelf as the goal, not yet purchased. The person pauses with one hand thoughtfully at the chin. Use several simple stacked savings layers as nonverbal progress cues.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, transparent savings container, banknote, laptop goal, progress layers.
+VISUAL STORYTELLING: The goal stays visible while time/progress creates space to reconsider.
+COMPOSITION: Person left-mid, savings foreground center, laptop background right.
+MATERIALS: Stylized fabric, tinted glass/plastic, paper, laptop aluminum/glass.
+BACKGROUND: Deep seamless black with minimal shelf context.
+LIGHTING: Soft premium key, restrained emerald around savings.
+COLOR LANGUAGE: Black, warm neutrals, emerald positive accent.
+TEXT: No savings words, amounts, brands, ratings or UI.
+FORBIDDEN: checkout scene, piggy-bank cliché, RATE card, product catalog, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

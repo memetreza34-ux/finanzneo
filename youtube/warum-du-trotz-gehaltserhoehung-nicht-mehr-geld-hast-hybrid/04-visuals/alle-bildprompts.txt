@@ -1,0 +1,94 @@
+FINANZNEO — GOOGLE FLOW HANDOFF — VARIANTE B / GEHALTSERHÖHUNG
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+STYLE_REFERENCE_PROJECT: youtube/warum-dein-geld-verschwindet-images-only
+
+IMPORTANT: This is ONE shared Google Flow handoff. It contains the thumbnail plus exactly six planned Flow image blocks. Generate exactly ONE image at a time. Wait until it is fully complete. Rename it immediately to the exact FINAL FILE NAME. QA it before continuing. If it fails, regenerate the SAME image number. Put every final image into `04-visuals/00-ALLE-BILDER-HIER-REIN/`. After the final planned image, STOP. Never invent additional images.
+
+Use EXACTLY the visual world of the last approved good video. Generate only THUMBNAIL and IMAGE 01, 05, 08, 11, 12 and 18. All other scenes are Remotion-first and must NOT receive Flow images.
+
+GLOBAL LOCK:
+Premium clearly stylized 3D animation-film rendering; refined rounded geometry; high-quality modeling; semi-realistic but visibly stylized materials; deep seamless black; premium studio lighting; warm ivory/soft gray neutrals; emerald only for positive/value; warm red-orange only for cost/risk. Never photorealistic. Humans are rare and must be appealing animated-film characters, never blank mannequins. Horizontal 16:9. Every Flow image carries one dominant idea and normally 1-2 short Voiceover sentences. Visual storytelling / cause-effect must be clear within 1–2 seconds. Static tabletop or product-catalog staging is forbidden as a default.
+
+STRICT WORKFLOW:
+1. Generate exactly ONE image for the current block.
+2. Wait until complete.
+3. Rename it immediately to the exact FINAL FILE NAME.
+4. QA: exact object/character, one dominant idea, useful visual storytelling/cause-effect, premium stylized 3D animation-film world, deep seamless black, horizontal 16:9, no unwanted text and no static tabletop/catalog staging.
+5. On failure regenerate the SAME image number.
+6. Continue only after PASS.
+7. After the final planned image, STOP.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THUMBNAIL
+FINAL FILE NAME: YouTube Thumbnail - Mehr Gehalt trotzdem knapp.png
+SCENE: Appealing stylized animated-film character between a visibly fuller salary envelope on the left and a surprisingly thin almost-empty wallet on the right. Several everyday cost forces have already pulled money away from the wallet. Character shows a clear confused reaction through face and pose. No floating question marks.
+COMPOSITION: Character/story right two-thirds, clean left third for final typography.
+TEXT: No generated headline. Final layout adds exactly `MEHR GEHALT, TROTZDEM KNAPP?`.
+FORBIDDEN: mannequin, photoreal human, product ad, piggy-bank, random coins, flat 2D, static tabletop/catalog staging.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 01 — Mehr Gehalt, gleiches Gefühl
+FINAL FILE NAME: YouTube Bild 01 - Mehr Gehalt gleiches Gefuehl.png
+VOICEOVER CONTEXT: Hast du dich schon mal gefragt, warum mehr Gehalt sich nach ein paar Monaten plötzlich wieder ganz normal anfühlt? Auf dem Papier verdienst du mehr – aber am Monatsende bleibt oft kaum mehr übrig. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Appealing stylized animated-film character holds a visibly thicker salary envelope in one hand and opens a surprisingly thin wallet with the other. The contradiction is the story. No floating symbols.
+VISUAL STORYTELLING: More income is visible, but the usable remainder still feels small.
+COMPOSITION: Character center-left, salary envelope foreground, thin wallet foreground-right, strong depth, deep-black world.
+TEXT: No generated amounts, salary words, labels or UI.
+FORBIDDEN: blank mannequin, realistic skin, product-shot composition, desk/table, static tabletop/catalog staging, photorealism, flat 2D.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 05 — Etwas besser hier
+FINAL FILE NAME: YouTube Bild 05 - Kleine Alltags Upgrades.png
+VOICEOVER CONTEXT: Du bestellst vielleicht öfter Essen, kaufst häufiger die bequemere Variante oder nimmst bei kleinen Dingen eher das etwas teurere Produkt. Jede Entscheidung für sich wirkt harmlos. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Three concrete everyday upgrade moments form one curved visual path through depth: a premium takeaway meal, a nicer coffee/snack, and a slightly higher-quality everyday purchase in a small shopping bag. Each object is recognizable and connected by a trail of small plain receipts, but no person is present.
+VISUAL STORYTELLING: Each upgrade looks harmless alone; the recurring receipt trail reveals the pattern.
+COMPOSITION: Curved foreground-to-background path, no grid, no table, strong depth.
+TEXT: No generated prices, labels, brands or UI.
+FORBIDDEN: generic luxury icons, product catalog, three objects simply side-by-side, random coins, static tabletop/catalog staging, flat infographic.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 08 — Fixkosten wachsen mit
+FINAL FILE NAME: YouTube Bild 08 - Fixkosten wachsen mit.png
+VOICEOVER CONTEXT: Besonders wichtig sind die festen Kosten. Eine größere Wohnung, ein teurerer Handyvertrag, zusätzliche Abos oder ein Auto wirken nicht nur einmal. Sie kommen jeden Monat wieder. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: One central monthly-budget envelope is physically pulled in four directions by concrete recurring-cost contexts: a larger apartment key/door fragment, a smartphone with a plain contract sheet, a small subscription-card cluster, and a compact car key/car silhouette. No person.
+VISUAL STORYTELLING: Different fixed commitments all pull on the same monthly budget at once.
+COMPOSITION: Budget envelope large center, four forces distributed asymmetrically through depth, black breathing room.
+TEXT: Only short physical labels if absolutely necessary; otherwise none. No amounts.
+FORBIDDEN: icon grid, dashboard, catalog lineup, floating cards with no connection, static tabletop/catalog staging, photorealism.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 11 — Schau auf den Rest
+FINAL FILE NAME: YouTube Bild 11 - Schau auf den Rest.png
+VOICEOVER CONTEXT: Viele schauen trotzdem nur auf das Einkommen und denken: Eigentlich verdiene ich doch genug. Entscheidend ist aber nicht nur, was reinkommt, sondern auch, was nach allen Verpflichtungen übrig bleibt. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Appealing stylized animated-film character looks proudly at a thick salary envelope held near eye level while a much smaller remaining stack of money sits clearly visible lower in the same frame. The character's attention is directed at the wrong quantity.
+VISUAL STORYTELLING: Viewer instantly sees the difference between impressive income and modest remainder.
+COMPOSITION: Salary envelope foreground upper-left, character center, small remainder lower-right, deep-black world.
+TEXT: No generated amounts or labels.
+FORBIDDEN: question-mark template, mannequin, fake banking UI, product-shot scene, static tabletop/catalog staging, photorealism.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 12 — Ohne Puffer wird es eng
+FINAL FILE NAME: YouTube Bild 12 - Ohne Puffer wird es eng.png
+VOICEOVER CONTEXT: Spätestens bei einer unerwarteten Reparatur merkst du den Unterschied. Wenn das höhere Gehalt komplett im neuen Alltag verschwunden ist, fehlt trotzdem ein echter Puffer. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Appealing stylized animated-film character kneels beside a clearly broken off-white washing machine with a small open tool case. The character opens an almost-empty emergency envelope/wallet. The repair is concrete and immediately understandable.
+VISUAL STORYTELLING: A normal unexpected repair meets a missing reserve.
+COMPOSITION: Character and washer left/mid, almost-empty reserve foreground right, small laundry context dissolving into black.
+TEXT: No generated repair price or labels.
+FORBIDDEN: exact copy of old washing-machine anchor composition, mannequin, giant warning icon, clutter, static tabletop/catalog staging, photorealism.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 18 — Was bleibt, zählt
+FINAL FILE NAME: YouTube Bild 18 - Was bleibt zaehlt.png
+VOICEOVER CONTEXT: Mehr Gehalt ist also nicht automatisch mehr Wohlstand. Entscheidend ist, wie viel von der Erhöhung dauerhaft bei dir bleibt – statt einfach nur dein neues Ausgabenniveau zu finanzieren. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Appealing stylized animated-film character stands calmly between a thick salary envelope and a clearly grown emerald reserve container. A restrained everyday-cost path remains visible in the background, but the reserve is now substantial. No question marks.
+VISUAL STORYTELLING: Income only becomes progress when some of it remains and accumulates.
+COMPOSITION: Character center, salary source left, reserve right, balanced depth, clean final-frame feeling.
+TEXT: No generated amounts, slogans or UI.
+FORBIDDEN: victory pose, money rain, piggy-bank cliché, mannequin, static tabletop/catalog staging, photorealism, flat 2D.
+
+FINISH — STOP AFTER IMAGE 18.

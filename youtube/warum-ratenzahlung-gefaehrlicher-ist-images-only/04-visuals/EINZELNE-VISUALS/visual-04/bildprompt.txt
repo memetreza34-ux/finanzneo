@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: A light physical burden in a person's hand is a stronger memory cue than another checkout scene.
+VOICEOVER_VISUAL_MATCH: One obligation feels easy to carry.
+VOICEOVER CONTEXT: Eine einzelne Rate wirkt oft noch machbar. Genau dort beginnt die Falle. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Stylized faceless person calmly holds one small smooth warm-red obligation block on an open palm. Far behind, a faint trail of similar blocks is barely visible in the black world as foreshadowing.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, one small block, faint distant blocks.
+VISUAL STORYTELLING: One burden looks harmless now; accumulation is only hinted at.
+COMPOSITION: Medium shot, hand/block dominant, distant trail secondary.
+MATERIALS: Stylized fabric, matte sculpted blocks.
+BACKGROUND: Deep seamless black.
+LIGHTING: Calm neutral key with subtle warm risk edge.
+COLOR LANGUAGE: Black, warm neutrals, restrained red-orange.
+TEXT: No generated text or UI.
+FORBIDDEN: wallet-on-table scene, RATE placard, product ad, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

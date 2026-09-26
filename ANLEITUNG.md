@@ -1,232 +1,145 @@
-# FinanzNeo — aktueller Produktionsablauf V9
+# FinanzNeo — praktischer Reel-Produktionsablauf
 
-> `CLAUDE.md` ist die höchste Regelquelle. Dieses Dokument beschreibt den praktischen Ablauf.
+> `CLAUDE.md` ist die höchste Regelquelle. Der aktive Maschinenstandard ist `config/finanzneo-production-standard.json`. Dieses Dokument erklärt nur den praktischen Ablauf und definiert keine parallelen Versionen.
 
-## Die drei Phasen
+## 1. Drei Phasen
 
 ```text
 PHASE 1 — ChatGPT
-Recherche + Szenenskript + V9-Bildprompts + Header/Icons + Captions
+Recherche + Szenenskript + V9-Bildprompts + Header/Icons + Caption
 + produktionsreife animation.tsx für jede Animationsszene
-
-        ↓
 
 PHASE 2 — Nutzer
 Google-Flow-Bilder + genau ein finales Voiceover + echte Wort-Timings
 
-        ↓
-
-PHASE 3 — konfigurierte Executor-Rolle
-Assets integrieren + versiegelte Phase-1-Animationen binden
-+ Preflight + Candidate-Render + Post-Render-QA + Export
+PHASE 3 — konfigurierter Executor
+Assets integrieren + versiegelte Animationen binden
++ Preflight + Candidate-Render + Visual-QA + Export
 ```
 
-`scene-index.json -> phase3Executor` entscheidet, ob Antigravity oder Claude Code Phase 3 ausführt.
+`scene-index.json -> phase3Executor` entscheidet, wer Phase 3 ausführt.
 
-## Phase 1
+## 2. Phase 1
 
-### Inhalt und Skript
+Aktive Regeln stehen in `reels/PRODUKTIONSSTANDARD.md`.
 
-- 60–90 Sekunden als Standard
-- Hook in den ersten 2 Sekunden
-- von Anfang an Szene für Szene schreiben
-- ungefähr 14–16 Visual-Beats als Zielkorridor
-- ungefähr 60 % Bild / 40 % Animation als Richtwert, Qualität vor Quote
-- Bildbeat ideal 3,5–5,5 s, absolut max. 6 s
-- Animation ideal 4,5–7 s
-- kurze deutsche Sätze
-- Zahlen und Fakten prüfen
+Für neue Future-V3-Reels:
 
-### V9-Bildwelt
+- Hook in den ersten 2 Sekunden.
+- keine feste Szenenzahl; zuerst Sprechgedanke → Visual Beat → Szene.
+- 1 gesprochener Gedanke = 1 sichtbarer Beat.
+- statischer Bildbeat ideal ca. 1,8–3,0 s.
+- ab ca. 3,6 s aktiv einen weiteren Beat prüfen.
+- ohne neue sichtbare Information hart max. 4,0 s.
+- 60/40 Bild/Animation ist nur Richtwert.
+- Animation darf länger sein, wenn der sichtbare Zustand mit der Sprache weiter fortschreitet.
 
-```text
-finanzneo-stylized-3d-animated-black-v9
-```
+### Bildwelt
 
-- Quellbilder inklusive Cover: 1:1
-- klar stylized 3D animated, nicht photorealistisch
-- soft rounded, vereinfachte erkennbare Formen
-- nahtloser tiefschwarzer Hintergrund Pflicht
-- Inhalt und Klarheit vor Deko
-- keine feste Objektanzahl
-- Support-Objekte nur, wenn sie helfen
-- Emerald positiv/Fokus
-- Ivory/Soft Gray neutral
-- Gold Geld/Wert
-- Red-Orange Warnung/Kosten
-- keine UI-/Dashboard-/Flowchart-/Microchip-/Diorama-Sprache
-- kein Clutter
-- Marken/Logos erkennbar, aber stilisiert; keine Screenshots/Flat-Paste-Logos
+Aktiv: `finanzneo-stylized-3d-animated-black-v9`.
 
-### Phase-1-Animationen
+- stylized 3D, niemals fotorealistisch
+- deep black
+- reale Ursache/Wirkung statt abstrakter Finanzsymbol-Sammlung
+- kurze deutsche Objektlabels nur wenn sie Verständnis schaffen
+- kein Dashboard, Flowchart, Clutter oder generisches Produktfoto
 
-Jede Animationsszene braucht:
+### Animationsszene
 
 ```text
-scene-XX/
+03-szenen/EINZELNE-SZENEN/scene-XX/
 ├── szene.md
 ├── remotion.md
 └── animation.tsx
 ```
 
-Pflicht:
+Mechanik:
 
 ```text
-START → SICHTBARER MECHANISMUS → ERGEBNIS
+START → TRIGGER → PHYSICAL ACTION → REACTION → RESULT → RESULT HOLD
 ```
 
-- Ergebnis mindestens 15 Frames stabil
-- `PremiumPhysicalStage` transparent
-- mindestens ein echtes sichtbares Hauptobjekt
-- keine feste Support-Objekt-Anzahl
-- keine Dummy-/Debug-/Wackelanimation
-- kein `Math.sin/Math.cos` als QA-Hack
-- keine Partikel/Aurora/Grid/Glow-Flächen als Hintergrund
-- Phase 3 darf diesen Code später nicht kreativ ersetzen
+Der Ergebniszustand bleibt mindestens 15 Frames stabil. Phase 3 darf den versiegelten Code nicht kreativ ersetzen.
 
-## Phase 2
+## 3. Phase 2
 
 ### Google Flow
 
 ```text
-GENAU EIN Bild erzeugen
+GENAU EIN Bild starten
 → vollständig warten
-→ sofort exakt umbenennen
+→ exakt umbenennen
 → V9-QA
 → bei Fehler dieselbe Bildnummer neu
 → erst dann nächstes Bild
 ```
 
-Kein Batch, kein paralleles Queueing, kein späteres Sammel-Umbenennen und kein Nutzer-„weiter“.
+`scene-01` ist automatisch das Cover. **Kein separater Bild-00-Job.**
 
-Alle finalen Bilder kommen nach:
+Finale Bilder:
 
 ```text
 03-szenen/00-ALLE-BILDER-HIER-REIN/
 ```
 
-### Audio und Timings
+### Audio
 
 - genau ein finales Voiceover in `02-audio/`
 - echte Wortzeiten aus genau diesem Audio
-- keine Ersatz-Audiodatei
 - keine erfundenen Timings
 
-## Finales Layout
+## 4. Layout
 
-Einzige technische Quelle: `REEL_STYLE`.
+Einzige technische Quelle: `src/brand/tokens.ts -> REEL_STYLE`.
 
 ```text
 Header Y154
 Header 56 px, Minimum 50 px, maximal 2 Zeilen
 Icon 34 px
 Visual Y320–1400
-Caption bottom340, 50 px, maximal 2 Zeilen
+Caption bottom340, maximal 2 Zeilen
 Transition 3 Frames
 ```
 
-Header: reines Weiß + semantisches Linien-Icon, keine Capsule/Chip/Pill/ALL CAPS.
+Produktiver Hintergrund bleibt statisch `#000000`.
 
-`AnimationStage` clippt sichtbare Animationen hart auf **Y320–1400**. Sie können dadurch nicht in Header oder Caption-Zone laufen.
-
-Quellenhinweise liegen oberhalb der Caption-Zone und dürfen zweizeilige Captions nicht überdecken.
-
-## Phase 3
-
-Start immer mit:
+## 5. Phase 3
 
 ```bash
 npm run reel:ready -- <Reel-Pfad>
-```
-
-Bei FAIL nicht mit Ersatzassets weiterbauen.
-
-Danach:
-
-```bash
 npm run reel:phase3:init -- <Reel-Pfad> <Composition-ID>
 npm run reel:phase3:preflight -- <Reel-Pfad>
 npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
-npm run reel:export -- <Reel-Pfad> <Final-MP4>
 ```
 
-### Bildszene
+`reel:render` erzeugt zuerst einen Candidate. Erst nach QA wird der finale Export freigegeben.
 
-- exaktes Nutzerbild
-- sichtbares Visual
-- kein Stock-/Placeholder-Ersatz
-- kein Header-/Caption-only-Fallback
+Bildszene: exaktes Nutzerbild, kein Ersatz.
 
-### Animationsszene
+Animationsszene: exakte versiegelte `animationSourceFile` + `animationExport`; fehlendes Binding = harter Fehler.
 
-- exakte `animationSourceFile`
-- exakter `animationExport`
-- exakter SHA-256-Seal
-- echtes `customAnimations[animationId]`-Binding
-- fehlendes Binding = harter Renderfehler
-- keine Ersatzanimation
+## 6. Publishing
 
-## Remotion-Hintergrund
-
-Produktive Reels:
-
-```text
-#000000
-statisch
-```
-
-Verboten als Background:
-
-- `FNBgAurora`
-- `FNBgParticles`
-- `FNBgGrid`
-- `FNBgRadial`
-- Partikelfelder
-- Aurora/Glow
-- bewegte Grids
-- Vignetten
-- dekorative Background-Gradienten
-- Hintergrundbewegung als Animationsnachweis
-
-## Post-Render-QA
-
-Candidate-MP4 ist nicht automatisch final.
-
-Prüfen:
-
-- visueller Kern jeder Szene wirklich belegt
-- Bildszene nicht leer
-- Animationsszene mit echtem Inhalt und echter Bewegung
-- Animation erklärt den gesprochenen Inhalt
-- Header/Caption allein zählen nicht
-- schwarzer/leerer Kern = FAIL
-- freier Rand bleibt statisch schwarz
-- keine Partikel/Aurora/Grid/Glow-Hintergründe
-- Audio vorhanden
-- 1080×1920
-- Timeline korrekt
-
-## Technische Prüfung
-
-```bash
-npm run validate
-npm run reel:validate -- <Reel-Pfad>
-npm run reel:ready -- <Reel-Pfad>
-```
-
-Ohne tatsächlichen Lauf niemals behaupten, Validator, Typecheck, Render oder QA seien bestanden.
-
-## Publishing
-
-`04-caption/` enthält:
+`04-caption/` enthält für neue Produktionen:
 
 ```text
 caption.txt
-instagram-reels.txt
-tiktok.txt
-facebook-reels.txt
-snapchat.txt
 word-timings.json
 ```
 
-Keine YouTube Shorts. YouTube-Longform bleibt separat unter `youtube/`.
+Der finale Export verwendet **eine universelle Social-Caption**, keine getrennten Plattformtexte.
+
+Keine YouTube Shorts. YouTube Longform bleibt separat unter `youtube/`.
+
+## 7. Daten in Remotion
+
+Statistik- und Marktdaten vor dem Render holen und lokal einfrieren:
+
+```bash
+npm run data:fetch
+npm run data:validate
+```
+
+Details: `docs/DATA-PIPELINE.md`.
+
+Ohne tatsächlichen Lauf niemals behaupten, Validator, Typecheck, Render oder QA seien bestanden.

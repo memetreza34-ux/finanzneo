@@ -23,6 +23,9 @@ if (contract.status !== 0) process.exit(contract.status ?? 1);
 const motion = spawnSync(process.execPath, [resolve('scripts/validate-youtube-animation-quality.mjs'), root], {stdio: 'inherit'});
 if (motion.status !== 0) process.exit(motion.status ?? 1);
 
+const voiceover = spawnSync(process.execPath, [resolve('scripts/validate-voiceover-processing.mjs'), root], {stdio: 'inherit'});
+if (voiceover.status !== 0) process.exit(voiceover.status ?? 1);
+
 const result = analyzeYouTubeReadiness(root);
 const printBlockers = (title, blockers) => {
   if (blockers.length === 0) return;
@@ -49,12 +52,12 @@ const ensureProbeSucceeded = (probe, mediaFile) => {
 };
 
 const audioFile = resolve(root, '03-audio', result.audioFiles[0]);
-const audioProbe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', audioFile], {encoding: 'utf8'});
+const audioProbe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', audioFile], {encoding:'utf8'});
 ensureProbeSucceeded(audioProbe, audioFile);
 
 for (const fileName of result.expectedImages) {
   const imageFile = resolve(root, IMAGE_INBOX, fileName);
-  const imageProbe = spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'json', imageFile], {encoding: 'utf8'});
+  const imageProbe = spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height', '-of', 'json', imageFile], {encoding:'utf8'});
   ensureProbeSucceeded(imageProbe, imageFile);
   let dimensions;
   try { dimensions = JSON.parse(imageProbe.stdout)?.streams?.[0]; }
@@ -68,5 +71,7 @@ for (const fileName of result.expectedImages) {
 }
 
 console.log('\n✓ YOUTUBE-PHASE 3 STARTKLAR');
-console.log(`  ${result.expectedImages.length} horizontale 16:9-Bilder · 1 finales Voiceover · echte Wort-Zeitstempel · versiegelte Motion V2 · vollständiges Publishing-Paket`);
-console.log('  Phase 3 integriert jetzt die versiegelten Animationen, retimed sie zum echten Audio und übernimmt QA/Render ohne kreative Mechanik-Ersetzung.');
+console.log(`  ${result.expectedImages.length} erwartete 16:9-Flow-/Thumbnail-Bilder · 1 verarbeitetes Voiceover · echte Wort-Zeitstempel · Motion V4 Simple versiegelt · Publishing vollständig`);
+console.log('  Voiceover-Pacing: 1,10× + lange Pausen verdichtet; processed voiceover ist Timing-Autorität für Captions und Visual-Timeline.');
+console.log('  Gilt identisch für images-only und hybrid. Musik/SFX bleiben vom Pacing-Prozess unberührt.');
+console.log('  Phase 3 integriert die simple freigegebene Motion, retimed sie zum echten Audio und übernimmt QA/Render ohne unnötige kreative Mechanik-Ersetzung.');

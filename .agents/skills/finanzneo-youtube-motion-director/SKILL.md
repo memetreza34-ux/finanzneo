@@ -1,262 +1,186 @@
 ---
 name: finanzneo-youtube-motion-director
-description: Directs FinanzNeo YouTube Longform motion with viewer-change-first technique selection, open-ended visual methods, semantic variety, deterministic Remotion code and sealed Phase-1 animation sources.
+description: Directs FinanzNeo YouTube Longform with content-first visual selection, balanced image/image+Remotion/Remotion use, safe full-frame Phase-B motion and the locked FinanzNeo 3D world.
 ---
 
-# FinanzNeo YouTube Motion Director V3
+# FinanzNeo YouTube Motion Director V5 Balanced Hybrid
 
 ## Goal
 
-Create longform motion that explains each spoken idea with the best visible mechanism for that exact idea. Do not begin by choosing an existing component, family or animation pattern. Begin by deciding what the viewer should literally see happen.
+Make finance easy to understand and easy to remember. Choose the visual form from the spoken point, not from a preferred tool.
 
-## Core rule
-
-**One FinanzNeo world, no fixed animation type.**
-
-Remotion has no predefined creative ceiling. Existing FinanzNeo components, Physical* primitives, previous animation patterns and named composition families are optional tools or descriptions, never mandatory templates.
-
-### Visual selection before technique
-
-Apply `docs/FINANZNEO-VISUAL-SELECTION-RULE.md` before choosing implementation details.
-
-Default decision:
-
-- simple, numeric or data-driven explanation → **pure Remotion**
-- complex, real-world or spatial explanation → **Flow image + Remotion hybrid**
-- SVG → precise paths, charts, connections and vector mechanics
-- icons → semantic shorthand only
-- Lottie → small support motion only
-
-The goal is not to maximize animation complexity. The goal is to make complex finance **look simple to understand**.
-
-Allowed when useful:
-
-- custom React / DOM
-- SVG and path animation
-- CSS 3D / perspective / masks / clip-path
-- Canvas
-- Three.js / React Three Fiber / @remotion/three
-- @remotion/shapes and @remotion/paths
-- @remotion/motion-blur
-- @remotion/effects
-- @remotion/layout-utils
-- Lottie as a support layer
-- consistent SVG icon sets as support
-- charts and data visualization
-- Flow image + Remotion hybrid compositing
-- kinetic typography
-- document/paper animation
-- timelines and temporal progression
-- split-screen comparison
-- simulations and spatial camera journeys
-- material/object transformations
-- map/network/process motion
-- new custom combinations when they explain the beat better
-
-All productive motion remains deterministic from the Remotion frame timeline.
+> **Clarity first. Memory aid second. Tool choice third.**
 
 ## Authority
 
 Read in this order:
-
 1. `CLAUDE.md`
 2. `youtube/PRODUKTIONSSTANDARD.md`
-3. `docs/YOUTUBE-MOTION-V3.md`
+3. `docs/YOUTUBE-PRODUCTION-MODES.md`
 4. `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`
-5. target `04-visuals/visual-index.json`
-6. target visual `remotion.md` / `bildprompt.txt` / `data-notes.md`
-7. target `animation.tsx`
-8. official Remotion skills
+5. `docs/YOUTUBE-FLOW-STORYBOARD-STANDARD.md`
+6. `docs/YOUTUBE-MOTION-V4-SIMPLE.md`
+7. `config/finanzneo-youtube-visual-system.json`
+8. target `04-visuals/visual-index.json`
 
-Reel-specific safe zones and PhysicalObject requirements do not automatically apply to YouTube Longform.
+Reel rules do not automatically apply to YouTube Longform.
 
-## Viewer-change-first technique selection
+## Scene granularity
 
-For each spoken beat, first write `viewerChange` as one clear sentence answering:
+One visual beat carries one dominant idea. A Flow image normally covers 1–2 short Voiceover sentences. Split multi-idea beats.
 
-> What should the viewer literally see change, reveal, compare, build, break apart or travel through?
+## Phase-B decision — mandatory
 
-Do this **without naming a tool, library, existing component or composition family**.
+For every beat ask:
 
-Then:
+1. What must the viewer understand or remember?
+2. Is a concrete 3D image the strongest memory aid?
+3. Would image + Remotion explain it better than either alone?
+4. Is pure Remotion clearer because the point is mainly number/process/change?
+5. Is a real asset required?
 
-1. decide the explanatory mechanism,
-2. classify the beat as simple/data-driven vs. complex/real-world/spatial,
-3. choose the visual type using the Visual Selection Rule,
-4. review the previous four motion visuals,
-5. choose or invent the clearest technique,
-6. record the actual tools and motion signature,
-7. build production-ready source code.
+Use:
+- **image** for concrete situation, emotion, cause/effect or memorable everyday context;
+- **hybrid** for concrete image + exact temporal explanation;
+- **animation/data** for pure number/process/change when no image adds value;
+- **real-asset** for real sources/documents/websites/products.
 
-Do not choose a technique because it is convenient to implement.
+Do not default to Remotion just because it is available.
 
-## Tool roles
+## Balanced Hybrid guidance
 
-### Pure Remotion
+No hard quota, but typical Phase-B target:
+- 25–40% image-only;
+- 30–50% image + Remotion;
+- 20–35% pure Remotion.
 
-Prefer for clear numbers, percentages, charts, simple flows, debt/fee development, simple comparisons and timelines.
+If pure Remotion starts dominating while strong images or hybrids would improve comprehension or memory, re-plan the storyboard.
 
-### Flow image + Remotion
+## Humans
 
-Prefer when a concrete scene makes the financial mechanism easier to understand: everyday money situations, inflation, emergency fund, overdraft, insurance, complex multi-stage money flows or spatial ETF/index explanations.
+Human characters are optional, never default.
 
-The still image must already explain the situation. Remotion adds temporal information such as focus, masks, value changes, selective highlights, meaningful 2.5D parallax, path overlays or before/after transformation.
+Use humans only when reaction, decision, attention or consequence materially improves the scene.
 
-### SVG
+Avoid:
+- decorative person beside a chart;
+- repeated person + question mark staging;
+- several similar human scenes in a row.
 
-Use for precise vector mechanics: lines, curves, paths, chart construction, network links, weighting, flow paths and geometric comparison.
+Soft guidance: roughly no more than 40% human scenes unless the story clearly needs more.
 
-### Icons
+When used, characters must belong to the approved premium stylized animation-film world — no blank faceless mannequins, photoreal people or corporate 3D avatars.
 
-Use only as semantic shorthand or support. Do not replace a complex explanation with an icon collection.
+## Abstraction guard
 
-### Lottie
+Blocks, paths, bars and schemas are allowed only when they explain quickly.
 
-Use only as a support layer for small self-contained actions such as check, warning, search, document state, status or short focus cues. A ready-made Lottie is never a reason to choose the scene concept.
+If an abstract scene would be confusing without Voiceover:
+- add a concrete anchor;
+- simplify it;
+- or use image + Remotion.
 
-## Composition families are open
+Avoid chains of abstract-only scenes when a concrete or hybrid scene would improve recall.
 
-Useful examples include:
+## Full-frame Phase-B motion
 
-- `spatial-3d`
-- `vector-motion`
-- `css-3d`
-- `kinetic-type`
-- `data-viz`
-- `timeline`
-- `document-motion`
-- `image-composite`
-- `simulation`
-- `comparison`
-- `camera-journey`
-- `physical-process`
-- `material-transformation`
-- `map-journey`
-- `macro-to-micro`
-- `network-simulation`
-- `custom`
+Pure Remotion scenes may use the entire 1920×1080 canvas.
 
-These are examples only. `compositionFamilyId` is free-form in V3. Create a better family name when the actual scene needs one.
+- do not force animation into the contained Flow window;
+- place heading/icon within the full-frame composition/safe area;
+- keep critical content at least about 64px from edges;
+- no important element may be unintentionally cropped or clipped;
+- use the available frame meaningfully.
 
-## Required metadata
+For image + Remotion:
+- Flow image itself stays contained and never fullscreen;
+- Remotion overlays may extend beyond the image window and use the full scene;
+- plan image and overlay as one composition.
 
-Every motion-capable visual defines:
+## Flow image world
 
-- `viewerChange`
-- `animationIntent`
-- `mechanicId`
-- `visualTechniqueId`
-- `techniqueDescription`
-- `compositionFamilyId`
-- `toolStack`
-- `motionSignature.camera`
-- `motionSignature.layout`
-- `motionSignature.transformation`
-- at least two meaningful `motionChannels`
-- at least two visible `visualBeats`
-- `animationSourceFile`
-- `animationExport`
+Use exactly:
+`config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt`
 
-`viewerChange` is the creative starting point. `visualTechniqueId` is the implementation concept. `techniqueDescription` describes how the scene actually works. `motionSignature` describes the dominant camera, layout and visible transformation so fake variety cannot be hidden behind renamed IDs.
+Reference project:
+`youtube/warum-dein-geld-verschwindet-images-only`
 
-## Variety rule
+Do not redesign the image world for a new topic.
 
-Variation is semantic, not cosmetic.
+Flow images need visible storytelling/relationship, not catalog staging. They do not need to literally reenact every noun in the Voiceover; they should work as a visual memory aid.
 
-Bad variation:
+## Thumbnail
 
-- same cards with different labels
-- same coin stack with different numbers
-- same camera push with a new technique name
-- same three-column layout with different colors
-- same slide-in blocks under different `MECHANIC_ID`s
+Final YouTube cover must contain a short strong readable headline before export.
 
-Good variation:
+- normally 2–6 words;
+- exact text must be readable;
+- preferred: final layout owns typography;
+- Flow may generate a very short headline only if exact;
+- missing/wrong/unreadable headline = reject thumbnail.
 
-- document comparison → SVG name/IBAN match
-- time progression → timeline or camera movement through dated layers
-- compound growth → simulation / spatial buildup
-- historical development → camera journey or map/time transformation
-- key number → restrained kinetic typography
-- real-life situation → Flow image hybrid with meaningful reveal
-- process → custom spatial or network simulation
+## Motion source rules
 
-The validator checks repeated technique, mechanism, technique description and identical camera+layout+transformation signatures. It also flags more than two consecutive visuals from the same family.
+Every animated production visual must:
+- use `useCurrentFrame()`;
+- use `interpolate()` and/or `spring()` for visible frame-driven motion;
+- be deterministic;
+- contain no TODO/placeholder;
+- contain no `Math.random()`, `Date.now()`, timer, runtime fetch or remote runtime dependency;
+- avoid CSS animation/transition as render motion;
+- export the component named in `visual-index.json`.
 
-## Repetition remains valid when it is best
+## Standard patterns
 
-Do not force novelty for novelty's sake. If the same technique is genuinely the clearest explanation, reuse it with a concrete `repeatTechniqueReason`.
+Prefer reusable patterns when clear:
+- BigNumber
+- Comparison
+- Percentage
+- BarChart
+- LineChart
+- Timeline
+- MoneyFlow
+- ProcessSteps
+- SimpleDiagram
+- HighlightText
+- Allocation
+- Formula
 
-The reason must explain why consistency improves understanding, comparison or continuity. “Looks good” or “same style” is not enough.
+Standard motion presets:
+- `FADE_IN`
+- `SLIDE_UP`
+- `SLIDE_LEFT`
+- `SCALE_IN`
+- `COUNT_UP`
+- `BAR_GROW`
+- `LINE_DRAW`
+- `HIGHLIGHT`
+- `SLOW_ZOOM`
 
-## Narrative
+Advanced motion only when a simpler pattern cannot communicate the idea equally well.
 
-A YouTube motion visual must visibly progress.
+## QA
 
-Valid structures include:
-
-- START → TRANSFORMATION → RESULT
-- QUESTION → REVEAL → CONSEQUENCE
-- BEFORE → MECHANISM → AFTER
-- DATA INPUT → CHANGE → COMPARISON
-- CAMERA ENTRY → DISCOVERY → PAYOFF
-- IMAGE ESTABLISH → MASK/DEPTH REVEAL → EXPLANATION
-- OBJECT ASSEMBLY → SYSTEM BEHAVIOR → OUTCOME
-- DOCUMENT STATE → MARK/COMPARE → DECISION
-
-Camera drift alone is not a new beat. Background motion alone is not a new beat.
-
-## Longform rhythm
-
-Do not cut on a fixed timer. Voiceover thought, visual information and chapter logic decide timing.
-
-A longer visual may remain on screen if it keeps producing new visible information. A static state must not sit under several new spoken thoughts without a visual reason.
-
-## Hybrid visuals
-
-Use `hybrid` when a strong Flow image provides the detailed world and Remotion can add meaningful temporal information:
-
-- controlled 2.5D parallax
-- masks/focus reveals
-- value changes
-- selective object highlights
-- document annotations
-- before/after transitions
-- chart overlays
-- depth/compositing
-
-Do not add movement merely to avoid a static image.
-
-## Data visuals
-
-Verified data may use charts, counters, tables, axes or model simulations when those are the clearest explanation. Data visuals are exempt from the rule that every scene must contain physical real-world objects.
-
-Never fabricate values for visual drama.
-
-## Source requirements
-
-Every Phase-1 `animation.tsx` must:
-
-- use `useCurrentFrame()`
-- use `interpolate()` and/or `spring()` for frame-driven motion
-- export `MECHANIC_ID`, `VISUAL_TECHNIQUE_ID`, `COMPOSITION_FAMILY_ID`
-- export `ANIMATION_NARRATIVE` containing at least START and RESULT
-- export the component named in `visual-index.json`
-- contain no placeholder/TODO content
-- contain no CSS animation/transition, timer, Math.random, runtime fetch or remote runtime dependency
-
-There is deliberately no requirement for `PremiumPhysicalStage`, `PhysicalObject` or any fixed primitive count.
+Before accepting each Phase-B scene:
+1. Main idea readable in 1–2 seconds?
+2. Is this the best of image / image+Remotion / pure Remotion / real asset?
+3. Does a person genuinely add explanatory value?
+4. Is the scene too abstract?
+5. Does motion explain rather than decorate?
+6. If pure Remotion: does it use full-frame space well?
+7. Is any important element clipped/cropped?
+8. If Flow: exact approved 3D world and contained image?
+9. Are exact text/numbers handled by layout/Remotion?
+10. Does the thumbnail have final readable text?
 
 ## Phase ownership
 
-Phase 1 owns creative motion design and production-ready source code.
+Phase 1 owns visual concept and production-ready motion source.
 
-After:
-
+Run:
 `npm run youtube:animation:validate -- youtube/<Projekt>`
 
-run:
-
+then:
 `npm run youtube:phase1:seal -- youtube/<Projekt>`
 
-The V3 seal protects both source hash and the creative motion contract. Phase 3 may retime/integrate the sealed source, captions, local SFX and final assets. It may not replace the sealed mechanism with an easier animation.
+Phase 3 may retime sealed source to the real processed voiceover, but must not replace the approved explanatory idea without explicit re-planning.

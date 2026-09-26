@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: A concrete grocery contradiction makes the hook understandable faster than a chart.
+VOICEOVER_VISUAL_MATCH: Same 100-euro note, visibly smaller achievable grocery basket. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 01 - 100 Euro gleich weniger Einkauf.png
+VOICEOVER CONTEXT: 100 Euro auf deinem Konto bleiben 100 Euro. Aber wenn Preise über Jahre steigen, kannst du mit denselben 100 Euro immer weniger kaufen.
+SCENE: In the approved FinanzNeo world, an appealing stylized animated-film character holds one large recognizable 100-euro note beside two grocery baskets shown as a time contrast: the nearer current basket is visibly smaller and contains fewer everyday groceries, while a fuller reference basket sits deeper in the scene. The money note itself is unchanged.
+IMPORTANT GERMAN OBJECT LABELS: None.
+OBJECTS: one stylized character, one 100-euro note, two grocery baskets, ordinary groceries.
+VISUAL STORYTELLING: The unchanged money amount is contrasted with a visibly reduced amount of goods.
+COMPOSITION: Medium-wide 3/4 view, character center-left, money foreground, baskets right at different depths. No tabletop grid.
+MATERIALS: Premium stylized fabric, paper money, matte basket, believable stylized food packaging without brands.
+BACKGROUND: Deep seamless black with only a minimal grocery context dissolving into black.
+LIGHTING: Soft premium animation-film lighting, restrained warm-red accent on the smaller basket side.
+COLOR LANGUAGE: Black dominant, warm ivory/gray neutrals, restrained red-orange problem accent.
+TEXT: No generated price labels, brands, UI or explanatory text.
+FORBIDDEN: photorealism, blank mannequin, static tabletop/catalog staging, product ad, flat 2D, piggy bank, random coins, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.

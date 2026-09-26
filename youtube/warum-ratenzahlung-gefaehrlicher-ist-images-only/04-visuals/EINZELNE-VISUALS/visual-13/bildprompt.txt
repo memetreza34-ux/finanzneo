@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: Enjoying the purchase today while future months remain attached creates a memorable commitment image.
+VOICEOVER_VISUAL_MATCH: The benefit is present now, but the obligation continues into the future.
+VOICEOVER CONTEXT: Eine Rate ist nicht einfach nur eine kleine Ausgabe. Sie ist eine feste Verpflichtung für viele kommende Monate. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Stylized faceless person sits comfortably on a modern sofa. From beneath the sofa a long ribbon of blank monthly calendar pages sweeps across the floor and disappears into black distance. The person turns slightly to look back at its surprising length.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, sofa, long calendar-page ribbon.
+VISUAL STORYTELLING: Product is enjoyed today while future commitment remains physically attached.
+COMPOSITION: Sofa/person large left-middle, ribbon diagonal into deep background.
+MATERIALS: Stylized fabric, wood/metal, thick paper.
+BACKGROUND: Small living context dissolving into deep seamless black.
+LIGHTING: Comfortable neutral key, restrained warm risk along ribbon.
+COLOR LANGUAGE: Black, warm neutrals, controlled risk accent.
+TEXT: No month names, words or numbers.
+FORBIDDEN: sofa catalog shot, contract stack, RATE label, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

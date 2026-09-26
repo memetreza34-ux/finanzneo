@@ -1,47 +1,64 @@
-# FinanzNeo — Repo-Status nach der Bereinigung
+# FinanzNeo — Repo-Cleanup-Status
 
-Stand: 21. August 2026
+Stand: 25. September 2026
 
-`CLAUDE.md` bleibt die höchste interne Regelquelle. Dieses Dokument hält nur den technischen Bereinigungsstand fest.
+`CLAUDE.md` bleibt höchste interne Regelquelle. Dieses Dokument protokolliert nur den technischen Bereinigungsstand.
 
-## Abgeschlossen
+## Jetzt sauber verankert
 
-- alle bestehenden Reel-Projekte sowie alten Reel- und `Short*`-Compositions entfernt
-- veraltetes paralleles System `legacy-main/` entfernt
-- Produktionsregistry geleert; Freigabe erfolgt künftig erst nach Manifest-, Fakten- und Asset-Prüfung
-- Reel-CLI auf einen gemeinsamen Vertrag und einen funktionierenden `reel:validate`-Wrapper vereinheitlicht
-- YouTube-Shorts-Widerspruch aus Scaffold und Validatoren entfernt
-- falschen Demo-Endwert `248.000 €` durch die zentrale Sparplanberechnung ersetzt
-- Remotion und zusammengehörige Pakete auf `4.0.514` vereinheitlicht
-- bekannte npm-Sicherheitslücken auf null reduziert
-- TypeScript `strict` aktiviert
-- ESLint mit Null-Warnungen ergänzt und tote Imports entfernt
-- reproduzierbare Finanz- und Reel-Vertragstests ergänzt
-- Registry-, Design-System-, Finanz-, Reel- und Setup-Validatoren gebündelt
-- Render-Smoke-Test für jede registrierte Composition ergänzt
-- Standard-Render auf die funktionierende `ReelTemplateDemo` umgestellt
-- CI um Lint, Tests, Dependency-Audit, Bundle und Render-Smoke-Test ergänzt
-- verbindlichen 3-Phasen-Workflow für ChatGPT, Nutzer und Antigravity dokumentiert
-- strenge `reel:ready`-Einsatzprüfung für Platzhalter, Bilder, Audio, Wortzeiten und Medienlesbarkeit ergänzt
-- gemeinsamen Google-Flow-Bilderordner und technische Szenenkopien widerspruchsfrei vereinheitlicht
-- Caption-Generator, Runtime-Typen und Validator auf dasselbe Wort-/Satzschema gebracht
+- getrennte Reel- und YouTube-Produktionswelten mit eindeutigen Einstiegsketten
+- YouTube Mode A = statisches fertiges Layout; Mode B = dasselbe Layout + Animation
+- Flow-Bilder in YouTube niemals fullscreen
+- `src/root/` trennt Production, Experiments und Showcases
+- Production-Registry bleibt leer, bis alle Produktions-Gates bestanden sind
+- aktive Reel-Regeln werden über `config/finanzneo-production-standard.json` geroutet
+- veraltete Widersprüche zu `Bild 00`, alten Bildbeat-Zeiten und getrennten Plattform-Captions aus den Root-Arbeitsdokumenten entfernt
+- `START-HIER.md` ist jetzt die zentrale Routing-Seite
+- `docs/REPOSITORY-ARCHITECTURE.md` dokumentiert Ordnerrollen und Autorität
+- Datenpipeline besitzt Quellenregister, Fetcher und lokale Snapshot-Validierung
+- offizielle ECB- und Bundesbank-Zeitreihen können vor dem Render als lokale JSON-Snapshots geholt werden
+- ETF-/Index-/Proxy-Unterscheidung ist in der Datenpipeline ausdrücklich festgehalten
 
-## Verbindliche Qualitätsbefehle
+## Bewusst noch nicht massenhaft verschoben
+
+`src/` enthält historisch gewachsene Root-Demos und experimentelle Dateien wie `Mock*`, `Showcase*`, `Thumbnail*`, `RealDataDemo.tsx`, `LottieTest.tsx` sowie ältere `zins/`-Szenen.
+
+Diese Dateien werden **nicht in einem großen Commit verschoben**, weil dadurch viele Imports und Regressionen gleichzeitig entstehen würden. Neue Arbeit darf dort nicht weiter ungeordnet anwachsen.
+
+Nächster Struktur-Schritt, separat und in kleinen grünen Commits:
+
+```text
+src/experiments/
+src/showcases/
+```
+
+mit schrittweiser Migration der historischen Demo-Dateien und sofortiger CI-Prüfung nach jeder Gruppe.
+
+## Dokumentationsregel
+
+Dateien mit `V2`, `V3`, `FUTURE-*` oder anderen alten Versionsnamen sind nicht automatisch aktiv. Sie gelten nur, wenn eine aktuelle autoritative Quelle darauf verweist.
+
+Autorität:
+
+```text
+CLAUDE.md
+→ aktiver config-Standard
+→ Format-PRODUKTIONSSTANDARD
+→ aktueller Workflow
+→ übrige Dokumentation
+```
+
+## Qualitätsbefehle
 
 ```bash
 npm ci
 npm run validate
 npm run build
 npm run smoke
-npm run render
+npm run data:validate
 npm audit --audit-level=high
 ```
 
-## Noch extern zu bestätigen
+## Produktionsfreigabe
 
-- erster grüner GitHub-Actions-Lauf nach Push des Cleanup-Branches
-- Bereinigung alter Remote-Branches nur nach ausdrücklicher Freigabe, da ungemergte Arbeit enthalten sein kann
-
-## Künftige Produktionsfreigabe
-
-Ein neues Reel bleibt zunächst in `ExperimentCompositions.tsx`. Erst nach vollständigen Nutzerbildern, finalem Audio, echten Wortzeiten, Faktenprüfung, Manifest, Preview und Sichtprüfung darf es nach `ProductionCompositions.tsx` verschoben werden.
+Eine Composition wird erst Production, wenn Fakten, Assets, Audio, Timings, Layout, Visual-QA, Render-QA und Export-Gates tatsächlich bestanden sind. Eine vorhandene MP4 oder ein grüner Typecheck allein genügt nicht.

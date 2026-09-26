@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: A human choice/ordering moment is useful here because the viewer must understand that different goals have different time distances.
+VOICEOVER_VISUAL_MATCH: Short-, medium- and long-term money are deliberately separated by time horizon. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 13 - Geld nach Zeithorizont.png
+VOICEOVER CONTEXT: Hilfreich ist deshalb, dein Geld nach Zeithorizont zu trennen: kurzfristige Reserve, mittelfristige Ziele und langfristige Planung.
+SCENE: Use one appealing stylized animated-film character — not faceless — standing at a simple planning moment. Three concrete goals sit at different spatial distances: a nearby emergency-repair envelope/tool case, a medium-distance travel/home-purchase goal object, and a far long-term folder/calendar path. Keep the lower third relatively clean for three exact Remotion labels.
+IMPORTANT GERMAN OBJECT LABELS: None generated; Remotion adds the exact time-horizon labels.
+OBJECTS: one stylized character, nearby reserve/repair goal, medium-term goal object, long-term folder/calendar path.
+VISUAL STORYTELLING: Spatial distance itself communicates different time horizons; the character is actively deciding how to organize the goals.
+COMPOSITION: Character left-center, three goal anchors progress from near foreground to far background/right; lower third clean for overlay.
+MATERIALS: Premium stylized fabric, paper, tool case, simple goal props, refined rounded geometry.
+BACKGROUND: Deep seamless black with minimal planning context.
+LIGHTING: Soft premium animation-film lighting; subtle emerald on organized/positive goal path.
+COLOR LANGUAGE: Black dominant, warm neutrals, restrained emerald for solution.
+TEXT: No generated time labels, amounts, UI or brands. Remotion owns exact labels.
+FORBIDDEN: blank faceless mannequin, question-mark template, rigid icon grid, static tabletop/catalog staging, photorealism, corporate 3D, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.

@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: Human contradiction makes the hook memorable.
+VOICEOVER_VISUAL_MATCH: Higher income is visible while the usable remainder still looks small.
+VOICEOVER CONTEXT: Mehr Gehalt fühlt sich nach kurzer Zeit wieder normal an und am Monatsende bleibt kaum mehr übrig. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Appealing stylized animated-film character holds a visibly thicker salary envelope in one hand and opens a surprisingly thin wallet with the other.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: character, salary envelope, thin wallet.
+VISUAL STORYTELLING: More income is obvious, but the remaining usable money is still small.
+COMPOSITION: Medium 3/4, character center-left, envelope foreground, wallet foreground-right, strong depth.
+MATERIALS: Stylized fabric, thick paper, satin leather.
+BACKGROUND: Deep seamless black with minimal context.
+LIGHTING: Premium soft studio lighting, emerald accent on income, restrained warm risk on the thin wallet.
+COLOR LANGUAGE: Black dominant, warm neutrals, semantic emerald/red-orange only.
+TEXT: No generated words, amounts, brands or UI.
+FORBIDDEN: blank mannequin, photoreal human, static tabletop/catalog staging, product-ad look, flat 2D, cheap toy 3D.
+STYLE: Premium clearly stylized 3D animation-film rendering in the exact last-good-video world.

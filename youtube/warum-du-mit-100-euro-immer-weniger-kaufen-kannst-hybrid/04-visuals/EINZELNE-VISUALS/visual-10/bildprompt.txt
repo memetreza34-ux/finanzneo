@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: Concrete salary-versus-cost objects keep the percentage example grounded while Remotion handles the exact math.
+VOICEOVER_VISUAL_MATCH: Salary rises slightly more than prices, leaving only a small real advantage. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 10 - Gehalt plus Preise Beispiel.png
+VOICEOVER CONTEXT: Ein einfaches Beispiel: fünf Prozent mehr Gehalt bei vier Prozent höheren Preisen bedeuten real nur ungefähr ein Prozent mehr Kaufkraft.
+SCENE: No person. A substantial salary envelope on the left faces a nearly equally substantial combined everyday-cost block on the middle-right. The salary is visibly only slightly larger. Reserve the rightmost 42% as clean deep-black negative space for the exact +5 %, +4 % and ≈ +1 % Remotion comparison.
+IMPORTANT GERMAN OBJECT LABELS: Optional physical label “Gehalt” on the envelope only.
+OBJECTS: salary envelope, compact combined cost block made from grocery/rent/energy cues, clean overlay space.
+VISUAL STORYTELLING: The nominal salary improvement looks larger at first, but costs nearly match it, leaving only a small advantage.
+COMPOSITION: Physical comparison left/middle, right side clean for typography, strong depth, no table.
+MATERIALS: Thick paper, matte cost elements, refined rounded stylized geometry.
+BACKGROUND: Deep seamless black.
+LIGHTING: Premium soft animation-film lighting; subtle emerald on salary, restrained warm-red on cost block.
+COLOR LANGUAGE: Black, warm neutrals, semantic green/red accents only.
+TEXT: No generated percentages, calculations, prices or UI. Remotion owns all exact numbers.
+FORBIDDEN: generated equation, flat infographic inside Flow, static tabletop/catalog staging, product ad, photorealism, corporate 3D, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.
