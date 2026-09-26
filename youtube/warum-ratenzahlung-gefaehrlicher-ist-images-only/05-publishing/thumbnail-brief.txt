@@ -1,17 +1,45 @@
-# Thumbnail-Brief
+# Thumbnail-Brief — Pflicht-Cover mit Schrift
 
-Kernidee: kleine Monatsrate vorne, lange Verpflichtung dahinter.
+STYLE_REFERENCE_PROJECT: `youtube/warum-dein-geld-verschwindet-images-only`
+IMAGE_WORLD: `finanzneo-youtube-grounded-3d-black-v1` — exakt wie beim letzten guten Video
 
-Visual:
-- kleine physische Karte `50 €/Monat` deutlich im Vordergrund
-- dahinter großer Kaufgegenstand + lange Reihe Kalenderblätter + Vertrag
-- gleiche premium stylized 3D FinanzNeo-Welt
-- deep black dominant
-- rechte 2/3 Visual, linke Seite frei für späteren Text
+## Pflicht
 
-Textoption außerhalb des Flow-Bildes:
-`NUR 50 €?`
-oder
+Der finale YouTube-Cover/Thumbnail hat **immer sichtbare große Schrift**.
+
+Exakter Cover-Text für dieses Video:
+
 `DIE RATEN-FALLE`
 
-Keine Coin-/Piggybank-Klischees, kein Fake-UI, keine Photorealistik.
+Keine textlose Thumbnail-Version ist final zulässig.
+
+## Visual
+
+- dieselbe premium clearly stylized 3D animation-film world wie beim letzten guten Video
+- ein klar stilisierter Animationsfilm-Charakter an einer Kaufentscheidung
+- großer Fernseher nur als Kontext
+- kleine sofort wirkende Verpflichtung vorne
+- lange zukünftige Monatskette im Hintergrund
+- zwei oder drei 3D-Fragezeichen als Denkstütze
+- deep seamless black dominant
+- keine Produktwerbung / kein Katalog-Look
+- keine gesichtslosen Mannequins
+
+## Typografie
+
+- `DIE RATEN-FALLE` groß und sofort lesbar
+- 2–3 Zeilen maximal
+- starke Hierarchie
+- warm ivory als neutraler Haupttext
+- `RATEN-FALLE` darf restrained warm red-orange als Risikoakzent nutzen
+- keine zweite Unterzeile
+- keine Preise, Sterne, Ratings oder Fake-UI
+
+## QA
+
+- [ ] exakte Schreibweise `DIE RATEN-FALLE`
+- [ ] Schrift bei kleiner YouTube-Vorschau lesbar
+- [ ] Bildwelt entspricht sichtbar dem letzten guten Video
+- [ ] klar stilisierte Animationsfilm-Figur statt realistischer/mannequinartiger Person
+- [ ] kein Product + Card + Table / Katalog-Look
+- [ ] 16:9

@@ -2,20 +2,42 @@ YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
+STYLE_REFERENCE_PROJECT: youtube/warum-dein-geld-verschwindet-images-only
+STYLE_REFERENCE_POLICY: COPY_THE_LAST_GOOD_VIDEO_WORLD_EXACTLY
 
-Dieses Projekt verwendet unverändert die zentrale Bildwelt:
-`config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt`
+FINANZNEO YOUTUBE IMAGE WORLD — LAST GOOD VIDEO LOCK
 
-Pflicht:
-- premium clearly stylized 3D animation-film rendering
-- deep seamless black als dominante Welt
-- konkrete Alltagssituation mit sichtbarer Ursache/Wirkung
-- wenige große, sofort lesbare Objekte
-- keine photorealistische Optik
-- keine flache 2D-Infografik als Flow-Bild
-- kein statisches Katalog-/Tabletop-Layout als Default
-- kurze deutsche physische Objektlabels nur bei echtem Verständnissvorteil
-- wichtige exakte Zahlen und Erklärtexte werden statisch im Video-Layout gesetzt
-- horizontales 16:9
+This project's image world is NOT being redesigned. Use the same visual world that produced the approved previous video `warum-dein-geld-verschwindet-images-only`.
 
-Die Bildwelt wird für dieses Video nicht verändert. Verbesserungen betreffen nur die Auswahl zwischen 3D-Story, 3D-Explainer und Static-Data.
+GLOBAL VISUAL WORLD — copied from the last good video:
+Premium clearly stylized 3D animation-film rendering, deep seamless black dominant world, high-quality modeling, refined rounded geometry, semi-realistic but visibly stylized materials, premium studio lighting, controlled highlights, readable shadows, strong depth. Warm ivory and soft gray are neutral. Emerald green means positive/value/solution. Warm red-orange means cost/risk/problem. Subtle gold only for money/value accents. Horizontal 16:9.
+
+The result must immediately read as a polished high-end animated feature-film frame, not as a realistic studio photo, product render, mannequin render, stock illustration or low-detail 3D mockup.
+
+CHARACTER RULE:
+If a person is useful as a visual memory aid, the person must belong to the SAME stylized animation-film world: appealing rounded forms, simplified but expressive face and pose, clean stylized hair/clothing, visibly animated-film proportions and materials. Never use a blank faceless mannequin, photoreal human, uncanny realistic skin, low-poly avatar or generic corporate 3D person. A human is optional; use one only when reaction, choice or attention improves understanding.
+
+STORY RULE:
+One image = one dominant idea = normally 1-2 short Voiceover sentences. The visual does not have to literally reenact every noun in the Voiceover. Its first job is to improve understanding, memory or orientation. It may use a human reaction, symbolic 3D relationship, spatial schema, cause/effect scene or direct real-life moment.
+
+Do not default to a desk/table, centered product shot, symmetric catalog layout, product + paper composition or unrelated floating props. Keep only the objects required for immediate understanding.
+
+PHASE A TEXT RULE:
+Exact explanatory numbers, equations, checklists and labels are normally added later as static video-layout typography. Flow should not invent critical text.
+
+THUMBNAIL EXCEPTION:
+The final YouTube cover MUST always contain a short strong headline. For this project the exact cover headline is `DIE RATEN-FALLE`. The Flow thumbnail may generate this exact short headline; if any letter is wrong, missing, duplicated or unreadable, reject and regenerate. Final QA must confirm the cover visibly contains the exact headline.
+
+FORBIDDEN STYLE DRIFT:
+- photorealism
+- realistic product-ad photography
+- dark studio product render with no animated-film character
+- blank faceless mannequins
+- low-poly avatars
+- flat 2D illustration
+- corporate stock illustration
+- cheap toy-like 3D
+- isometric infographic look
+- generic catalog/tabletop composition
+- excessive neon/cyberpunk glow
+- changing the approved image world because a new visual-logic idea is used

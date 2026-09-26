@@ -1,30 +1,41 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 FINAL FILE NAME: YouTube Thumbnail - Ratenzahlung Falle.png
+STYLE_REFERENCE_PROJECT: youtube/warum-dein-geld-verschwindet-images-only
 
-Create a premium clearly stylized 3D animation-film frame in the unchanged FinanzNeo YouTube image world `finanzneo-youtube-grounded-3d-black-v1`.
+GOOGLE FLOW THUMBNAIL PROMPT — LAST GOOD VIDEO WORLD
+
+Create a high-impact horizontal 16:9 YouTube thumbnail in EXACTLY the same premium stylized 3D animation-film world as the approved previous FinanzNeo video `warum-dein-geld-verschwindet-images-only`.
+
+VISUAL WORLD LOCK:
+Premium clearly stylized 3D animation-film rendering, deep seamless black dominant world, high-quality modeling, refined rounded geometry, semi-realistic but visibly stylized materials, premium studio lighting, controlled highlights, readable shadows and strong depth. Warm ivory/soft gray neutrals. Emerald green only for positive/value/solution. Warm red-orange only for cost/risk/problem. Subtle gold only for value accents. It must look like a polished frame from a high-end animated feature film, never like a realistic studio photo or product render.
+
+CHARACTER:
+Use one appealing stylized animated-film character with rounded proportions, simplified expressive facial features and clear body language. The character must visibly belong to the same 3D animated world. Do NOT use a blank faceless mannequin, photoreal person, realistic skin, low-poly avatar or corporate 3D character.
 
 SCENE:
-A stylized faceless young adult stands at a purchase decision point in front of a recognizable large flat-screen television. The person holds one tiny blank installment slip and looks uncertain. Three large sculpted question-mark symbols float around the head as clear visual thought cues. Behind the television, a very long ribbon of blank monthly calendar pages disappears into the deep black background.
-
-VISUAL STORYTELLING:
-The thumbnail should read instantly as: “small-looking payment, much bigger hidden commitment, should I really do this?” The person is the emotional anchor; the television is context, not a product advertisement.
+A stylized shopper stands beside a large recognizable flat-screen television at a purchase decision. The character looks uncertain at a very small blank installment slip while a long chain of future calendar pages curls behind the television into the black distance. Two or three sculpted question marks hover close to the character as part of the 3D scene. The visual should communicate: the monthly commitment looks small now, but the future commitment is much larger.
 
 COMPOSITION:
-Person and TV on the right two-thirds. Keep the left third clean, deep black and high-contrast for later thumbnail typography. Medium 3/4 view, large readable figure and objects.
+Character and television on the right two-thirds. Strong foreground/midground/background depth. Keep the left third clean enough for the headline, but the headline itself MUST be present in the generated thumbnail. Do not stage the scene like a product advertisement or catalog.
+
+MANDATORY COVER TEXT:
+Generate exactly this large headline on the left side:
+`DIE RATEN-FALLE`
+Use bold, highly readable uppercase typography integrated cleanly into the thumbnail. `DIE` may be warm ivory; `RATEN-FALLE` may use a restrained warm red-orange risk accent. No other headline or subtitle.
+
+TEXT QA:
+The exact visible headline must read `DIE RATEN-FALLE`. If any letter is wrong, missing, duplicated, distorted or unreadable, REJECT and regenerate the same thumbnail. Do not invent prices, monthly amounts, ratings, review stars, brands or UI.
 
 MATERIALS:
-Premium stylized fabric, television glass/metal, thick paper, sculpted punctuation symbols.
+Same as the previous good video: refined stylized fabric, glass, metal, thick paper and softly rounded sculpted forms; premium, tangible and visibly animated-film, not photorealistic.
 
 BACKGROUND:
-Deep seamless black dominant world with only minimal electronics-store context dissolving into black.
+Deep seamless black dominant world. Only a minimal purchase context may appear and must dissolve into black.
 
 LIGHTING:
-Soft premium studio light on person and television; restrained warm red-orange accent along the calendar ribbon.
-
-TEXT:
-Do not generate a headline, price, percentage, financing word, fake brand, rating, review stars or gibberish. Question-mark symbols are allowed because they are nonverbal visual cues. Typography is added later.
+Premium soft studio lighting with clear subject separation, controlled highlights, readable shadows and cinematic depth. Restrained warm red-orange only around the risk/commitment elements.
 
 FORBIDDEN:
-Product-ad composition, generic mystery gadget, radio/heater/speaker, RATE-card template, review-card design, fake UI, static tabletop/catalog staging, photorealism, flat 2D, cyberpunk, clutter, tiny diorama.
+Photorealism, realistic product-ad photography, blank faceless mannequin, realistic human skin/rendering, cheap low-poly avatar, corporate 3D character, generic product render, review-card design, RATE-card template, fake UI, static tabletop/catalog staging, flat 2D, isometric infographic, cyberpunk, clutter, tiny diorama.
 
-Horizontal 16:9. Same approved FinanzNeo image world. Do not redesign the style.
+Horizontal 16:9. Do not redesign the approved image world.
