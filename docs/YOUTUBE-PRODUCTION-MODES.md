@@ -1,161 +1,105 @@
-# FinanzNeo — YouTube Production Modes
+# FinanzNeo — YouTube Production Modes V2
 
-FinanzNeo YouTube Longform unterstützt zwei Produktionsarten. **Die Bildwelt, das Grundlayout und die visuelle Markenlogik bleiben in beiden Modi gleich.** Der wichtigste Unterschied ist Bewegung: Phase A bleibt vollständig statisch, Phase B darf animieren.
+## Gemeinsame Basis
 
-## Gemeinsamer Szenen-Lock — gilt IMMER
+Beide Modi verwenden dieselbe freigegebene Bildwelt:
 
-Jede YouTube-Szene ist ein fertiger 16:9-Frame mit klarer Hierarchie:
+`finanzneo-youtube-grounded-3d-black-v1`
 
-1. kurze Szenenüberschrift im oberen Bereich;
-2. direkt daneben ein passendes, einfaches Icon;
-3. darunter bzw. daneben das eigentliche FinanzNeo-Visual in einem klar begrenzten Bildfenster;
-4. ein Flow-Bild darf niemals den kompletten 16:9-Frame als Vollbild-Hintergrund ausfüllen.
+Referenzprojekt für den Stil:
 
-Kanonische Layoutregeln:
-- `sceneHeadingRequired: true`
-- `sceneIconRequired: true`
-- `flowImageFullscreenForbidden: true`
-- `flowImagePlacement: contained-visual-window`
-- tiefe schwarze FinanzNeo-Grundfläche bleibt sichtbar
-- Überschrift und Icon liegen außerhalb des Flow-Bildes
-- das Layout darf pro Szene leicht variieren, aber nie in ein Vollbild-Flow-Bild wechseln
+`youtube/warum-dein-geld-verschwindet-images-only`
 
-Empfohlene Geometrie für 1920 × 1080:
-- Außenabstand mindestens ca. 72 px
-- Headerzone ca. 150–190 px
-- Icon ca. 56–72 px
-- Visualfenster maximal ca. 78 % der Framebreite und ca. 70 % der Framehöhe
+Die Bildwelt wird nicht neu erfunden. Flow-Bilder bleiben premium stylized 3D animation-film, deep-black FinanzNeo-Welt, wenige große lesbare Elemente, keine Photorealistik, kein Corporate-3D, kein Katalog-/Tabletop-Default.
 
-## Mode A — `images-only` / Phase A Static
+## Thumbnail — harte Regel
 
-Der CLI-Name `images-only` bleibt aus Kompatibilitätsgründen bestehen. Inhaltlich bedeutet Phase A ab jetzt aber **nicht mehr „nur rohe Bilder“**, sondern:
+Ein finales YouTube-Thumbnail ist **niemals textlos**.
 
-> **Alles bleibt statisch. Keine Animation. Sonst darf die Szene die sinnvollste statische Erklärform nutzen.**
+- kurze starke Headline, normalerweise 2–6 Wörter;
+- Headline muss vor dem finalen Export sichtbar und lesbar sein;
+- bevorzugt wird die exakte Schrift im finalen Video-/Thumbnail-Layout gesetzt;
+- Flow darf eine sehr kurze Headline nur erzeugen, wenn sie exakt korrekt ist;
+- falsche, unlesbare oder fehlende Schrift = Thumbnail nicht freigeben.
 
-Die freigegebene Flow-Bildwelt bleibt unverändert: `finanzneo-youtube-grounded-3d-black-v1`.
+## Phase A — `images-only`
 
-### Erlaubte statische Visual-Arten
+Phase A bleibt vollständig statisch.
 
-**1. `3d-story`**
-- klassisches premium stylized 3D Flow-Bild
-- ein klarer Finanzgedanke
-- sichtbare Ursache/Wirkung oder räumliche Beziehung
-- Überschrift + Icon außerhalb des Bildes
+Erlaubt:
+- `image` / 3D-Storybild;
+- `hybrid` / 3D-Bild + statische Remotion-Labels, Pfeile, Zahlen oder Vergleiche;
+- `data` / statische Zahl, Rechnung, Mini-Chart oder Schema;
+- `real-asset`.
 
-**2. `3d-explainer`**
-- dasselbe 3D-Flow-Bild
-- zusätzlich dürfen exakte statische Remotion-Elemente erklären: kurze Labels, Pfeile, Zahlen, Gleichungen, Markierungen oder Vergleiche
-- Flow soll bei geplanten Overlays gezielt saubere freie Fläche lassen
-- exakte Texte/Zahlen werden nicht dem Bildgenerator überlassen
+Nicht erlaubt:
+- Frame-zu-Frame-Bewegung;
+- animierte Charts/Zahlen;
+- Kamerafahrten, Fades, Zooms, Slides oder andere Motion.
 
-**3. `static-data`**
-- statische Remotion-Grafik im normalen eingebetteten Visualfenster
-- z. B. Zahl, Vergleich, Mini-Chart, einfache Rechnung, Ablauf oder Aufteilung
-- kein Flow-Bild nötig, wenn eine statische Grafik den Punkt klarer erklärt
-- keinerlei Bewegung
+Flow-Bilder bleiben im eingebetteten Visualfenster und niemals fullscreen.
 
-**4. `real-asset`**
-- echtes Dokument, Screenshot oder anderes legitimes Asset
-- statisch in derselben Szenenstruktur
+## Phase B — `hybrid`
 
-### Harte Phase-A-Regeln
+Phase B ist **nicht einfach „mehr Remotion“**. Sie wählt pro Sprechpunkt die beste von drei Hauptformen:
 
-- **keine Bewegung innerhalb der Szene**
-- kein `useCurrentFrame()` für sichtbare Bewegung
-- kein `interpolate()` oder `spring()` für sichtbare Bewegung
-- keine animierten Zahlen, Charts, Icons, Texte, Zooms, Fades oder Kamerafahrten
-- statische Remotion-Texte, Pfeile, Zahlen, Vergleiche und Mini-Charts sind ausdrücklich erlaubt
-- normale harte Cuts zwischen statischen Szenen sind erlaubt
-- Flow-Bild niemals fullscreen
-- Überschrift + Icon bleiben immer Teil des Video-Layouts
-- wichtige exakte Texte/Zahlen gehören in das statische Layout, nicht in Flow
-- die bestehende FinanzNeo-3D-Bildwelt wird **nicht** verändert
+1. **Bild** — starke konkrete 3D-Szene, wenn Situation, Emotion oder Alltag die beste Denkstütze ist.
+2. **Bild + Remotion** — bevorzugt, wenn das Bild Kontext liefert und Remotion zusätzlich Zahl, Pfeil, Geldfluss, Highlight oder Veränderung erklärt.
+3. **Reine Remotion** — wenn Zahl, Vergleich, Entwicklung, Prozess oder Aufteilung ohne Bild klarer ist.
 
-### Startmischung, keine Quote
+Echte Assets bleiben eine vierte Option, wenn Realität oder Quellenbeleg wichtig sind.
 
-Für ein Video mit ungefähr 20 Szenen ist ein sinnvoller Startpunkt:
-- ca. 13 × `3d-story`
-- ca. 4 × `3d-explainer`
-- ca. 3 × `static-data`
+### Empfohlene Balance — keine harte Quote
 
-Das ist **keine feste Quote**. Der Sprechpunkt entscheidet. Wenn 18 starke Storybilder besser sind, werden 18 Storybilder verwendet.
+Als Startpunkt für ein typisches Hybrid-Video:
+- ca. 25–40 % reine Bildszenen;
+- ca. 30–50 % Bild + Remotion;
+- ca. 20–35 % reine Remotion-Szenen.
 
-## Mode B — `hybrid`
+Der Inhalt entscheidet. Diese Bereiche sind nur ein Schutz gegen ein zu Remotion-lastiges oder zu bildlastiges Video.
 
-Mode B nutzt dieselbe Szenenstruktur und dieselbe FinanzNeo-Bildwelt, erlaubt zusätzlich Bewegung.
+## Menschen-Regel
 
-Gemeinsam mit Phase A:
-- gleiche Headerzone
-- gleiche Überschrift-Logik
-- gleiche Icon-Logik
-- gleiches eingebettetes Visualfenster
-- Flow-Bild niemals fullscreen
-- gleiche premium stylized 3D FinanzNeo-Welt
+Menschen/Figuren nur verwenden, wenn ihre **Reaktion, Entscheidung, Aufmerksamkeit oder Konsequenz** die Aussage klarer macht.
 
-Zusätzlich erlaubt:
-- Remotion-Animationen
-- animierte Zahlen, Charts und Diagramme
-- animierte Icons und Überschriften
-- Hybrid-Szenen
-- echte Assets
+- nicht automatisch für jeden abstrakten Gedanken;
+- keine wiederholte `Mensch + Fragezeichen`-Schablone;
+- nicht mehrere Menschenszenen hintereinander, wenn Objekt, Schema oder Bild+Remotion klarer wäre;
+- als weiche Orientierung höchstens ungefähr 40 % Menschenszenen, außer die Story braucht bewusst mehr.
 
-## Entscheidungsregel pro Sprechpunkt
+## Abstraktions-Regel
 
-Für jeden Beat:
+Abstrakte Balken, Blöcke, Wege und Schemen sind erlaubt, aber nur wenn sie wirklich erklären.
+
+- keine mehrere abstrakten Schemen direkt hintereinander ohne Grund;
+- wenn ein Schema ohne Voiceover kaum verständlich wäre, konkrete visuelle Anker ergänzen;
+- lieber Bild + Remotion als eine unnötig abstrakte reine Motion-Szene, wenn das Bild den Gedanken merkbarer macht.
+
+## Vollfläche bei Animationen
+
+Für Phase B gilt neu:
+
+- reine Remotion-Animationen dürfen die **komplette 1920×1080-Fläche** nutzen;
+- sie müssen nicht künstlich in das kleine Flow-Visualfenster gezwängt werden;
+- Überschrift und Icon dürfen als Teil der Full-Frame-Komposition in der oberen Safe Area liegen;
+- wichtige Elemente bleiben mindestens ca. 64 px vom Rand entfernt;
+- nichts Wichtiges darf unbeabsichtigt abgeschnitten oder geclippt sein.
+
+Für `image + Remotion`:
+- das Flow-Bild selbst bleibt contained und nicht fullscreen;
+- Remotion-Elemente dürfen bei Bedarf über das Bildfenster hinaus die ganze Szene nutzen;
+- Overlay und Bild müssen als eine gemeinsame Komposition geplant werden.
+
+## Entscheidungsregel
 
 ```text
-Was muss der Zuschauer in 1–2 Sekunden verstehen?
-→ 3D-Story reicht? → 3d-story
-→ 3D-Bild + exakte kurze Erklärung besser? → 3d-explainer
-→ Zahl/Vergleich/Chart allein klarer? → static-data
-→ echtes Asset nötig? → real-asset
-```
-
-In Phase A bleibt das Ergebnis immer statisch.
-
-## Flow + statische Remotion-Overlays
-
-Wenn ein `3d-explainer` geplant ist:
-- Flow-Prompt nennt bewusst die benötigte freie Fläche;
-- Bildgenerator erzeugt keine Headline, Untertitel oder wichtige Erklärzahl;
-- Remotion setzt die exakten Inhalte später statisch darüber;
-- das Overlay darf die Bildgeschichte ergänzen, aber nicht das ganze Bild mit UI überdecken.
-
-Beispiel:
-
-```text
-5 € × 20 = 100 €
-```
-
-oder:
-
-```text
-2.500 € → 3.000 €  Gehalt
-1.900 € → 2.400 €  Ausgaben
-```
-
-## CLI
-
-### Phase A — nur 3D-Storybilder
-
-```bash
-npm run youtube:create:mode -- --mode images-only --target youtube/<projekt> --title "<Titel>" --visual-count 20
-```
-
-### Phase A — gemischte statische Visuals
-
-```bash
-npm run youtube:create:mode -- --mode images-only --target youtube/<projekt> --title "<Titel>" --types image,image,hybrid,data,image,real-asset
-```
-
-In Phase A ist der Typ `animation` verboten. `hybrid` bedeutet hier: Flow-Bild + statische Remotion-Erklärung, **ohne Animation**. `data` bedeutet hier: statische Daten-/Erklärgrafik.
-
-### Mode B — Animation erlaubt
-
-```bash
-npm run youtube:create:mode -- --mode hybrid --target youtube/<projekt> --title "<Titel>" --types image,animation,image,data,hybrid
+Was muss der Zuschauer verstehen oder erinnern?
+→ konkrete Situation / Emotion / Alltag? → BILD
+→ konkrete Situation + exakte Erklärung über Zeit? → BILD + REMOTION
+→ Zahl / Vergleich / Prozess / Entwicklung ohne Kontextbild klarer? → REMOTION
+→ reale Quelle / Website / Dokument nötig? → REAL ASSET
 ```
 
 ## Kurzregel
 
-> **Phase A = normales FinanzNeo-YouTube-Layout + dieselbe Bildwelt + die beste statische Erklärform. Der einzige harte Unterschied zu Phase B: keine Animation.**
+> Phase A = statisch. Phase B = Bild, Bild+Remotion und reine Remotion bewusst mischen. Reine Animation darf Full-Frame sein; Flow-Bilder bleiben contained. Thumbnail immer mit finaler Schrift.

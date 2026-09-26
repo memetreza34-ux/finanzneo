@@ -1,233 +1,170 @@
-# FinanzNeo Visual Selection Rule
+# FinanzNeo Visual Selection Rule V2
 
-`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v1`
+`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v2`
 
 ## Kernprinzip
 
-Nicht zuerst fragen, welches Tool verfügbar ist. Zuerst bestimmen:
+Nicht mit einem Tool beginnen. Immer zuerst:
 
 ```text
 Sprechpunkt
-→ was muss der Zuschauer sichtbar verstehen?
-→ welches EINFACHSTE Visual erklärt genau das?
-→ erst danach Werkzeug wählen
+→ was muss der Zuschauer verstehen oder erinnern?
+→ welches Visual macht das am schnellsten klar?
+→ erst dann Werkzeug wählen
 ```
 
 **Komplexer Inhalt bedeutet nicht komplexes Visual.**
 
-Die beste Szene ist die einfachste Szene, die den Gedanken korrekt und sofort verständlich macht.
+## YouTube Longform
 
----
+`YOUTUBE_VISUAL_PROFILE: finanzneo-youtube-simple-finance-v2`
 
-## YouTube Longform — Simple Finance Explainer V1
+Für YouTube gibt es keinen pauschalen „Remotion zuerst“-Zwang mehr. Das letzte Hybrid-Video war dadurch zu Remotion-lastig. Ab jetzt gilt **content-first**.
 
-`YOUTUBE_VISUAL_PROFILE: finanzneo-youtube-simple-finance-v1`
+### Vier mögliche Hauptformen
 
-Für YouTube Longform gilt: **Remotion ist das Standardwerkzeug. Google Flow ist eine begründete Ausnahme. Echte Assets werden niemals unnötig durch KI imitiert.**
+#### 1. Bild
 
-Wichtig: **Simple-first bedeutet einfache Komposition und klare Erklärlogik. Es bedeutet nicht 2D- oder Flat-Illustration.** Sobald Google Flow gewählt wird, bleibt die freigegebene premium stylized 3D FinanzNeo-Bildwelt verbindlich.
-
-### Entscheidungsbaum
-
-```text
-Was muss verstanden werden?
-│
-├─ Zahl / Prozent / Vergleich / Entwicklung / Verteilung?
-│  → REMOTION
-│
-├─ Ablauf / Ursache-Wirkung / Reihenfolge?
-│  → REMOTION + bei Bedarf SVG/Icon
-│
-├─ echte Website / App / Dokument / Factsheet / Logo / Produkt / Quelle?
-│  → ECHTES ASSET / SCREENSHOT
-│
-└─ konkrete Alltagssituation, die als Bild deutlich schneller verstanden wird?
-   → GOOGLE FLOW in der freigegebenen stylized-3D-Bildwelt
-```
-
-### Flow-Gate — Pflicht
-
-Vor jedem Google-Flow-Bild muss beantwortet werden:
-
-> Kann Text, Zahl, Icon, Chart, Diagramm, Screenshot oder ein echtes Asset diesen Sprechpunkt gleich gut oder besser erklären?
-
-- **JA → Flow verboten.**
-- **NEIN → Flow erlaubt, aber `flowReason` muss konkret erklären, warum ein Bild besser ist.**
+Nutzen, wenn konkrete Situation, Emotion, Alltag oder räumliche Ursache/Wirkung die beste Denkstütze ist.
 
 Beispiele:
+- unerwartete Reparatur;
+- Einkauf / Alltag;
+- Entscheidung vor einem Kauf;
+- Gehalt kommt an, aber Wallet bleibt dünn.
 
-- „ETF A kostet 0,2 %, ETF B 1,5 %“ → Remotion-Vergleich, **kein Flow**.
-- „100 € monatlich wachsen über 30 Jahre“ → Remotion-Chart, **kein Flow**.
-- „Die Miete steigt und der Haushaltsplan wird enger“ → Flow-Alltagsszene möglich.
-- „Der Wagen muss unerwartet in die Werkstatt“ → Flow-Alltagsszene möglich.
-- „Das steht im ETF-Factsheet“ → echtes Factsheet/Screenshot, **kein Flow-Nachbau**.
+#### 2. Bild + Remotion
 
-### Remotion — Standard
+Nutzen, wenn das Bild den Kontext merkbar macht und Remotion zusätzlich exakt erklären soll.
 
-Remotion ist bevorzugt für:
+Beispiele:
+- Alltagsszene + Zahl;
+- 3D-Bild + Geldfluss;
+- Bild + Pfeil/Highlight;
+- Bild + Vorher/Nachher-Wert;
+- Bild + animierte Kostenaufschlüsselung.
 
-- große Zahl
-- Prozentwert
-- Vorher/Nachher-Vergleich
-- zwei oder drei Optionen
-- Balken
-- Linie / Chart
-- Zeitstrahl
-- Sparrate
-- Kostenentwicklung
-- Geldfluss
-- Prozessschritte
-- einfache Diagramme
-- Allokation
-- Formel / Rechenbeispiel
-- kurze Text-Hervorhebung
+Das ist in Phase B eine **vollwertige Hauptform**, kein Notbehelf.
 
-Wiederverwendbare Erklärmuster sind ausdrücklich erwünscht. Wenn derselbe Balken- oder Vergleichstyp erneut die beste Erklärung ist, darf er ohne künstliche Neu-Erfindung wiederverwendet werden.
+#### 3. Reine Remotion
 
-### Einfache Standard-Motion
+Nutzen, wenn Zahl, Vergleich, Prozess, Aufteilung oder Entwicklung ohne Bild schneller und klarer ist.
 
-Bevorzugte Bewegungen:
+Beispiele:
+- Gehalt 2.500 € → 3.000 €;
+- Ausgaben steigen mit;
+- Fixkostenbalken;
+- Zeitverlauf;
+- Spar-/Investitionsaufteilung.
 
-- `FADE_IN`
-- `SLIDE_UP`
-- `SLIDE_LEFT`
-- `SCALE_IN`
-- `COUNT_UP`
-- `BAR_GROW`
-- `LINE_DRAW`
-- `HIGHLIGHT`
-- `SLOW_ZOOM` für ein ruhiges Bild
+Reine Remotion darf in Phase B die volle 1920×1080-Fläche nutzen.
 
-Andere Techniken sind erlaubt, aber nur wenn eine dieser einfachen Bewegungen den Inhalt nicht gleich gut erklärt.
+#### 4. Echtes Asset
 
-### Echte Assets
+Nutzen für reale Website, App, Dokument, Factsheet, Quelle, Logo oder Produkt, wenn Realität wichtig ist.
 
-Nutze reale Assets für:
+## Phase-B-Balance
 
-- Websites
-- App-Oberflächen
-- offizielle Dokumente
-- ETF-Factsheets
-- Tabellen/Quellen
-- Firmen-/Produktlogos
-- reale Produkte
+Keine harte Quote, aber als Schutz gegen monotone Videos:
 
-Kein KI-Bild soll eine existierende Website, App, Quelle oder ein Dokument erfinden oder nachbauen.
+- ungefähr 25–40 % Bild;
+- ungefähr 30–50 % Bild + Remotion;
+- ungefähr 20–35 % reine Remotion.
 
-### Google Flow
+Diese Bereiche dürfen verlassen werden, wenn der Inhalt es klar verlangt. Sie sollen nur verhindern, dass ein Hybrid-Video fast nur aus Remotion oder fast nur aus Bildern besteht.
 
-Google Flow ist für wenige konkrete Situationen gedacht, z. B.:
+## Menschen-Regel
 
-- Einkauf / Inflation
-- Miete / Nebenkosten
-- Autoreparatur / unerwartete Ausgabe
-- Arbeitsplatz / Gehalt / finanzielle Entscheidung
-- Versicherung / Vertrag / Kündigung
-- konkrete Alltagssituation, die mit Zahlen oder Diagrammen nicht gleich schnell verstanden wird
+Menschen/Figuren sind **kein Default**.
 
-Kanonische YouTube-Bildwelt:
+Ein Mensch ist sinnvoll, wenn mindestens einer dieser Punkte erfüllt ist:
+- Reaktion erklärt etwas;
+- Entscheidung ist der Kern;
+- Aufmerksamkeit/Fokus ist der Kern;
+- Konsequenz wird durch die Person klarer.
 
-```text
-config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
-```
+Nicht sinnvoll:
+- Mensch steht nur dekorativ neben einer Zahl;
+- dieselbe Figur schaut immer wieder fragend auf Objekte;
+- mehrere Szenen hintereinander nutzen dieselbe Menschen-Schablone.
 
-Wenn Flow eingesetzt wird, gilt:
+Weiche Orientierung: ungefähr maximal 40 % Menschenszenen, außer die Story braucht bewusst mehr.
 
-- premium stylized 3D animation-film look
-- klar erkennbare stilisierte 3D-Figuren und -Objekte
-- glaubwürdige Alltagsproportionen
-- semi-realistische Materialien mit sichtbar stilisiertem Rendering
-- tiefe schwarze FinanzNeo-Welt als dominanter Hintergrund
-- nur wenig lokaler Kontext
-- wenige große Objekte
-- keine flache Corporate-/Editorial-Vektorillustration
-- kein Canva-/Stock-Look
-- nicht fotorealistisch
-- keine generische Münz-/Tresor-/Sparschwein-Komposition
+## Abstraktions-Guard
 
-**Wichtige Regel:** Text, Zahlen und Erklärlabels gehören grundsätzlich in Remotion, nicht in das KI-Bild.
+Abstrakte Balken, Blöcke, Wege, Karten oder 3D-Schemata nur nutzen, wenn sie den Gedanken wirklich schneller erklären.
 
-### YouTube-Visual-Metadaten
+Prüfung:
 
-Jedes geplante Visual soll mindestens enthalten:
+> Würde der Zuschauer das Schema ohne Voiceover in 1–2 Sekunden ungefähr verstehen?
 
-```json
-{
-  "message": "Was soll der Zuschauer verstehen?",
-  "type": "animation | data | image | hybrid | real-asset",
-  "assetSource": "remotion | google-flow | real-asset",
-  "reason": "Warum ist diese Form die einfachste klare Erklärung?",
-  "overlayText": [],
-  "motionPreset": "FADE_IN",
-  "flowAllowed": false,
-  "flowReason": ""
-}
-```
+Wenn nein:
+- konkreten visuellen Anker ergänzen;
+- oder Bild + Remotion wählen;
+- oder das Schema vereinfachen.
 
-Für Motion kommen technische Felder nur hinzu, wenn sie wirklich gebraucht werden. Metadaten dürfen niemals dazu führen, dass eine simple Szene künstlich komplex gebaut wird.
+Mehrere abstrakte Schemata direkt hintereinander vermeiden, wenn konkrete Bilder oder Hybride dazwischen die Erinnerung verbessern.
 
-### YouTube-Qualitätsfragen
+## Flow-Regel
 
-Vor Freigabe jedes Visuals:
+Wenn Flow gewählt wird, bleibt die freigegebene Bildwelt verbindlich:
 
-1. Ist die Hauptaussage in ungefähr 1–2 Sekunden erkennbar?
-2. Gibt es genau einen dominanten Gedanken?
-3. Kann etwas entfernt werden, ohne Information zu verlieren? Dann entfernen.
-4. Ist Flow wirklich nötig?
-5. Wenn Flow genutzt wird: ist die freigegebene stylized-3D-Bildwelt eindeutig erkennbar?
-6. Kommen wichtige Texte und Zahlen aus Remotion?
-7. Hat die Bewegung einen Erklärzweck?
-8. Würde eine einfachere Komposition gleich gut funktionieren? Dann vereinfachen — nicht den Bildstil auf 2D reduzieren.
+`config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt`
 
----
+Referenz:
 
-## Reels — harte exklusive Auswahl
+`youtube/warum-dein-geld-verschwindet-images-only`
 
-Die bestehenden Reel-Regeln bleiben unverändert. Für neue FinanzNeo-Reels gilt pro Szene **genau eine Hauptform**:
+Pflicht:
+- premium stylized 3D animation-film look;
+- deep-black FinanzNeo-Welt;
+- hochwertige gerundete Geometrie;
+- stilisierte, nicht photorealistische Figuren;
+- kein blanker Faceless-Mannequin-Look;
+- sichtbare Story/Beziehung statt Katalog-Inszenierung.
 
-### IMAGE
+Flow-Bilder selbst bleiben niemals fullscreen.
 
-Nutzen, wenn eine konkrete Alltagssituation oder ein klarer Zustand als starkes Standbild schneller verständlich ist, z. B.:
+## Text und Zahlen
 
-- kaputte Waschmaschine + Reparaturrechnung + Notgroschen
-- Einkauf / Inflation
-- Rechnung / Versicherung / Vertrag
-- klarer realer Vorher-/Nachher-Zustand
+Wichtige exakte Texte, Zahlen, Vergleiche und Labels gehören in Remotion bzw. das finale Video-Layout.
 
-IMAGE bedeutet:
-- Google-Flow-Bild ist das Hauptvisual
-- Header/Icon und Captions werden von Remotion gerendert
-- kurze funktionale Objektlabels sind erlaubt
-- keine erklärende Remotion-Hauptanimation, Pfeilmechanik, Geldfluss-Animation oder Parallax-Erklärung über dem Bild
+Ausnahme Thumbnail:
+- finale Headline ist Pflicht;
+- sie muss vor Export sichtbar sein;
+- wenn Flow die kurze Headline erzeugt, muss sie exakt stimmen, sonst regenerieren;
+- bevorzugt wird exakte Typografie im finalen Thumbnail-Layout.
 
-### ANIMATION
+## Full-Frame-Motion
 
-Nutzen, wenn der Zuschauer eine **Veränderung, Entwicklung, Aufteilung, Reihenfolge oder Ursache/Wirkung über Zeit** sehen muss, z. B.:
+In Phase B darf eine reine Remotion-Szene die komplette 1920×1080-Fläche nutzen.
 
-- Zins/Tilgung teilt sich
-- Gebühren wirken über Jahre
-- regelmäßige Sparrate baut etwas auf
-- Risiko wird verteilt
-- Reihenfolge Sicherheit → Investieren
+- keine künstliche Beschränkung auf das Flow-Visualfenster;
+- mindestens ca. 64 px Safe Area für kritische Inhalte;
+- keine wichtigen Elemente außerhalb des Frames;
+- kein unbeabsichtigtes Clipping/Cropping;
+- Überschrift/Icon können als Teil der Full-Frame-Komposition integriert werden.
 
-ANIMATION bedeutet:
-- eigenständige Remotion-Hauptanimation
-- kein generiertes Flow-Bild als Hauptvisual
-- SVG, Icons, Lottie, Charts, Zahlen, Shapes und 3D-/Physical-Primitives sind Werkzeuge
-- Technik wird individuell nach dem Sprechpunkt gewählt
+Bei Bild + Remotion bleibt das Flow-Bild contained; Motion darf darüber hinausgehen, wenn es die Erklärung verbessert.
 
-### Für Reels verboten
+## Qualitätsfragen
 
-`Bild + Remotion Hybrid` ist **keine dritte Hauptform**. Ein starkes Bild wird nicht unnötig mit Erkläranimation überladen. Wenn zeitliche Erklärung nötig ist, wird daraus eine ANIMATION-Szene; wenn das Bild allein die Aussage trägt, bleibt es IMAGE.
+Vor jeder Szene:
 
-## Support-Werkzeuge
+1. Was soll der Zuschauer nach 1–2 Sekunden verstanden haben?
+2. Braucht die Szene wirklich einen Menschen?
+3. Ist ein konkretes Bild merkbarer als eine abstrakte Grafik?
+4. Würde Bild + Remotion besser funktionieren als nur eines von beiden?
+5. Wenn reine Remotion: nutzt sie die verfügbare Fläche sinnvoll und ohne Cropping?
+6. Wenn Flow: passt das Bild exakt zur freigegebenen Bildwelt?
+7. Ist wichtige Schrift/Zahl exakt und lesbar?
+8. Wiederholt die Szene unnötig die Visual-Logik der letzten Szenen?
+9. Kann etwas entfernt werden, ohne Verständnis zu verlieren?
 
-- **Icons:** schnelle semantische Erkennung
-- **SVG:** präzise Pfade, Linien, Charts, Verbindungen
-- **Lottie:** kleine Status-/Fokusbewegung
-- **Charts/Zahlen:** messbare Entwicklung
-- **Physical-Primitives:** nur wenn konkrete physische Mechanik wirklich hilft
+## Reels
+
+Die bestehenden Reel-Regeln bleiben unverändert. Für Reels gilt weiterhin das dort definierte IMAGE/ANIMATION-System; diese YouTube-Hybrid-Regeln werden nicht automatisch auf Reels übertragen.
 
 ## Kurzregel
 
-> **YouTube: Remotion zuerst, echte Assets wenn real vorhanden, Flow nur mit Begründung und dann immer in der freigegebenen stylized-3D-FinanzNeo-Welt. Reels behalten ihr bestehendes IMAGE/ANIMATION-System. Immer die einfachste verständliche Darstellung wählen.**
+> YouTube Phase B: content-first. Bild, Bild+Remotion und reine Remotion bewusst mischen. Menschen nur bei echtem Mehrwert. Abstraktion nur wenn sie erklärt. Reine Motion darf Full-Frame sein. Flow bleibt contained. Thumbnail immer mit finaler Schrift.
