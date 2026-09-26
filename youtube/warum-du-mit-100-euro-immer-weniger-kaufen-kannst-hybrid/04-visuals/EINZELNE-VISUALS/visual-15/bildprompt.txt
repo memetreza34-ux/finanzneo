@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: A tangible money source and three real destinations make the allocation animation easier to remember than abstract nodes alone.
+VOICEOVER_VISUAL_MATCH: Money gets explicit jobs instead of sitting without purpose. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 15 - Jeder Euro bekommt Aufgabe.png
+VOICEOVER CONTEXT: So bekommt jeder Euro eine Aufgabe, statt einfach nur irgendwo zu liegen. Das macht Entscheidungen übersichtlicher.
+SCENE: No person. A small organized stack of banknotes/salary envelope sits on the left as the source. Three concrete destination anchors sit across the middle/right at different depths: an emergency reserve envelope, one medium-term goal box, and one long-term planning folder. Leave clear physical routes between source and destinations for later animated Remotion flow lines.
+IMPORTANT GERMAN OBJECT LABELS: None generated; Remotion adds exact labels.
+OBJECTS: money source, reserve envelope, medium-term goal box, long-term folder, clean route space.
+VISUAL STORYTELLING: One pool of money has three clearly different jobs waiting to receive it.
+COMPOSITION: Source left, three destinations spread through middle/right depth, enough black negative space between them for motion paths; no rigid grid.
+MATERIALS: Thick paper money/envelopes, matte goal box, premium folder, refined rounded geometry.
+BACKGROUND: Deep seamless black.
+LIGHTING: Premium soft light with restrained emerald solution accents on destination anchors.
+COLOR LANGUAGE: Black dominant, warm neutrals, semantic emerald only.
+TEXT: No generated category names, amounts, slogans or UI.
+FORBIDDEN: piggy bank, coin piles, static tabletop/catalog staging, flat infographic, photorealism, corporate 3D, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.

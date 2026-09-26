@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: Everyday purchases are remembered better as a concrete recurring path than as another graph.
+VOICEOVER_VISUAL_MATCH: Food, drugstore and coffee purchases become slightly more expensive over repeated moments. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 04 - Preise steigen im Alltag.png
+VOICEOVER CONTEXT: Im Alltag merkst du das nicht an einem einzigen großen Sprung. Lebensmittel, Drogerie oder ein Kaffee werden Stück für Stück teurer.
+SCENE: Build one curved visual path through depth containing three recognizable everyday moments without a person: a grocery bag with basic food, a simple drugstore bag with household items, and a takeaway coffee. Small plain receipts trail behind the three moments and become slightly longer toward the back, without readable prices.
+IMPORTANT GERMAN OBJECT LABELS: None.
+OBJECTS: grocery bag, drugstore bag/items, takeaway coffee, several plain receipts.
+VISUAL STORYTELLING: No single dramatic event; repeated ordinary purchases create a gradually heavier receipt trail.
+COMPOSITION: Curved diagonal foreground-to-background path, asymmetric, strong depth, no grid and no tabletop.
+MATERIALS: Stylized paper bags, matte packaging, coated cup, thick receipts.
+BACKGROUND: Deep seamless black, tiny local retail hints only where useful.
+LIGHTING: Premium soft animation-film light; restrained warm-red accent gradually increases along the receipt trail.
+COLOR LANGUAGE: Warm neutrals, black dominant, controlled red-orange for rising cost.
+TEXT: No generated prices, labels, brands, ratings or UI.
+FORBIDDEN: three products lined up like a catalog, static tabletop/catalog staging, flat infographic, photorealism, corporate 3D, random coins, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.

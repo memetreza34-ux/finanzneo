@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: A concrete repair funded by an accessible reserve shows the safety function faster than abstract finance symbols.
+VOICEOVER_VISUAL_MATCH: Money for a near-term repair has a different job from long-term money. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 12 - Reserve hat andere Aufgabe.png
+VOICEOVER CONTEXT: Sicherheit und Rendite sind zwei verschiedene Aufgaben. Geld für die nächste Reparatur braucht eine andere Rolle als Geld für viele Jahre.
+SCENE: No person. A clearly broken off-white washing machine with one open repair panel sits on the left, beside a small practical tool case. A transparent emerald emergency-reserve envelope/container in the foreground visibly contains enough banknotes to handle the repair. A separate closed long-term folder sits far back and is not involved in the repair.
+IMPORTANT GERMAN OBJECT LABELS: Short physical label “Reserve” may appear on the emergency envelope if needed; no amount.
+OBJECTS: broken washing machine, repair tools, emergency reserve envelope/container, distant closed long-term folder.
+VISUAL STORYTELLING: The nearby reserve is immediately usable for the concrete repair, while long-term money remains untouched in the distance.
+COMPOSITION: Repair left/mid, reserve large foreground-right, distant folder small background, deep spatial separation.
+MATERIALS: Stylized appliance metal/plastic, matte tools, thick paper envelope, transparent tinted material.
+BACKGROUND: Minimal laundry context dissolving into deep seamless black.
+LIGHTING: Soft premium key; subtle emerald light on reserve, neutral/warm caution around broken appliance.
+COLOR LANGUAGE: Black, warm ivory/gray, emerald reserve, restrained red-orange problem accent.
+TEXT: No generated prices, percentages, long labels, brands or UI.
+FORBIDDEN: person/mannequin, piggy bank, random coin pile, static tabletop/catalog staging, photorealism, flat infographic, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.

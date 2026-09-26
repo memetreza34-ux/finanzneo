@@ -1,0 +1,29 @@
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+STYLE_REFERENCE_PROJECT: youtube/warum-dein-geld-verschwindet-images-only
+STYLE_REFERENCE_POLICY: COPY_THE_LAST_GOOD_VIDEO_WORLD_EXACTLY
+
+FINANZNEO YOUTUBE IMAGE WORLD — LOCKED
+
+Use the exact approved visual world from the last good video.
+
+Premium clearly stylized 3D animation-film rendering, deep seamless black dominant world, high-quality modeling, refined rounded geometry, semi-realistic but visibly stylized materials, premium studio lighting, controlled highlights, readable shadows and strong depth. Warm ivory and soft gray are neutral. Emerald green means positive/value/solution. Warm red-orange means cost/risk/problem. Subtle gold only for money/value accents. Horizontal 16:9.
+
+The frame must read as a polished high-end animated feature-film still, never as a realistic studio photo, corporate 3D illustration, blank mannequin render or product catalog.
+
+CHARACTERS:
+Use people only when reaction, choice, attention or consequence materially improves understanding. Characters must be appealing stylized animated-film people with rounded forms, simplified expressive faces, readable poses and the same material/light world. No faceless mannequins, no photoreal skin, no low-poly avatars.
+
+STORY:
+The image is a visual memory aid. It does not need to literally reenact every noun in the voiceover. Prefer concrete cause/effect, spatial relationship or everyday context over symbolic clutter.
+
+FLOW IMAGE RULE:
+Flow imagery itself stays contained in the final YouTube scene. In Phase B, Remotion may extend beyond the image window or use the full 1920x1080 frame, but Flow imagery itself is never fullscreen.
+
+TEXT:
+Exact explanatory text and numbers belong to Remotion. Only the final thumbnail is allowed to contain its explicitly approved short headline if the generated spelling is exact.
+
+FORBIDDEN:
+photorealism; blank faceless mannequins; corporate 3D; flat 2D; anime; cheap toy 3D; product-ad photography; tabletop/catalog default; repeated question-mark template; generic piggy-bank/coin-vault cliché; cyberpunk; clutter.

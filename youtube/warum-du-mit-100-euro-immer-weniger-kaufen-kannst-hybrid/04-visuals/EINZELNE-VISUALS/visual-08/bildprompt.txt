@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: A physical race between salary and everyday costs is a memorable concrete anchor before the numerical comparison.
+VOICEOVER_VISUAL_MATCH: Salary can rise while prices catch up. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 08 - Gehalt gegen Preise.png
+VOICEOVER CONTEXT: Auch beim Einkommen zählt deshalb nicht nur, ob dein Gehalt steigt. Wichtig ist, ob es stärker steigt als dein persönliches Preisniveau.
+SCENE: No person. One thick salary envelope moves forward along a simple physical path through the deep-black world. Behind and beside it, three concrete everyday cost forces — a grocery bag, apartment/rent document and energy bill — are visibly catching up along the same direction. The salary envelope is slightly ahead, but the gap is small.
+IMPORTANT GERMAN OBJECT LABELS: “Gehalt” may be physically printed on the envelope; no other label is necessary.
+OBJECTS: salary envelope, grocery bag, rent document, energy bill, shared movement path.
+VISUAL STORYTELLING: The important story is not merely salary rising; costs are moving in the same direction and nearly matching it.
+COMPOSITION: Diagonal left-to-right depth path, salary foreground-right, costs following from left/background, no table or product lineup.
+MATERIALS: Thick paper, stylized grocery bag, documents, softly rounded path elements.
+BACKGROUND: Deep seamless black.
+LIGHTING: Neutral/emerald restraint on salary, warm-red caution on cost forces, premium soft animation-film light.
+COLOR LANGUAGE: Black dominant, warm neutrals, subtle emerald salary/value, controlled red-orange costs.
+TEXT: Only optional physical “Gehalt”; no amounts, percentages, fake UI or brands.
+FORBIDDEN: racetrack cartoon, icon grid, floating unrelated objects, static tabletop/catalog staging, photorealism, flat 2D, corporate 3D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.

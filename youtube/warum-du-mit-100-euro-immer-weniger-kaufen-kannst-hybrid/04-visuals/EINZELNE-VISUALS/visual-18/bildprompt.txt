@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: The final human comparison gives the abstract purchasing-power lesson a calm everyday payoff.
+VOICEOVER_VISUAL_MATCH: The screen may still show 100 €, but real value is what that money can buy. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 18 - Kaufkraft ist entscheidend.png
+VOICEOVER CONTEXT: 100 Euro bleiben auf dem Bildschirm 100 Euro. Aber erst die Kaufkraft zeigt dir, was diese Zahl in deinem Alltag wirklich wert ist.
+SCENE: Use one appealing stylized animated-film character — not faceless — calmly comparing an unchanged 100-euro note / simple account amount cue with a real grocery basket containing the goods that amount can buy. The character has a thoughtful, resolved expression, not surprise. No question marks.
+IMPORTANT GERMAN OBJECT LABELS: None.
+OBJECTS: one stylized character, one 100-euro note or simple non-UI amount cue, one grocery basket with everyday goods.
+VISUAL STORYTELLING: The character stops focusing on the number alone and looks toward the real-world goods it represents.
+COMPOSITION: Character center-left, money cue foreground, grocery basket right, balanced strong depth and clean final-frame feeling.
+MATERIALS: Premium stylized fabric, thick paper money, matte basket, simplified grocery materials.
+BACKGROUND: Deep seamless black with minimal grocery context dissolving into black.
+LIGHTING: Soft premium animation-film lighting, neutral/emerald resolution accent, no dramatic warning glow.
+COLOR LANGUAGE: Black dominant, warm ivory/gray, restrained emerald positive accent.
+TEXT: No generated slogan, prices, brands, ratings or UI.
+FORBIDDEN: blank faceless mannequin, question-mark template, victory pose, money rain, piggy bank, static tabletop/catalog staging, photorealism, flat 2D, corporate 3D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.

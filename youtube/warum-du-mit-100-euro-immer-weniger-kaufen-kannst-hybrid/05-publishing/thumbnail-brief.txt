@@ -1,0 +1,22 @@
+# Thumbnail-Brief
+
+## Pflichttext
+`100 € WERDEN WENIGER`
+
+Der finale Export darf niemals textlos sein.
+
+## Visual
+- gleiche freigegebene FinanzNeo-3D-Bildwelt wie das Referenzvideo
+- großer unveränderter 100-€-Schein
+- sichtbar kleinerer erreichbarer Einkauf
+- maximal eine stilisierte Animationsfilm-Figur als Reaktionsanker
+- keine Fragezeichen-Schablone
+- deep-black Hintergrund, starke Tiefe
+
+## Typografie
+- groß, sofort lesbar, 2–4 Zeilen maximal
+- `100 €` neutral/ivory
+- `WERDEN WENIGER` mit zurückhaltendem warmem Rot-Orange möglich
+- keine Unterzeile nötig
+
+Wenn Flow den Text nicht exakt erzeugt, wird die Typografie im finalen Layout sauber gesetzt; vor Export muss der exakte Text sichtbar sein.
