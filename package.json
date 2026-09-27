@@ -44,6 +44,7 @@
     "youtube:animation:validate": "node scripts/validate-youtube-animation-quality.mjs",
     "youtube:motion:qa": "node scripts/render-youtube-motion-qa.mjs",
     "youtube:motion:qa:validate": "node scripts/validate-youtube-motion-qa.mjs",
+    "youtube:motion:lab:smoke": "node scripts/smoke-youtube-motion-lab.mjs",
     "youtube:phase1:seal": "node scripts/seal-youtube-phase1-animations.mjs",
     "youtube:ready": "node scripts/check-youtube-production-ready.mjs",
     "protect:install": "node scripts/install-git-guards.mjs",
