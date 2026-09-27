@@ -20,16 +20,30 @@ export {StaticArrow, StaticCompare, StaticLabels, StaticMiniChart, StaticNumber}
 export type {StaticTone} from './YouTubeStaticExplainers';
 
 // Reusable YouTube-Phase-B-Motion für klare Finanzmechaniken. Diese Bausteine sind
-// frame-deterministisch und ersetzen keine szenenspezifische Idee; sie liefern nur
-// hochwertige Grundmechaniken für Zahlen, Vergleiche, Linien und Geldflüsse.
+// frame-deterministisch und ersetzen keine szenenspezifische Idee; sie liefern
+// hochwertige Grundmechaniken für Zahlen, Vergleiche, Pfade, Budgets, Kaufkraft,
+// Sparpläne, Kredite und Timelines.
 export {
   MotionBeforeAfter,
+  MotionBudgetAllocation,
   MotionComparisonBars,
+  MotionCompoundGrowth,
   MotionLineChart,
+  MotionLoanPaydown,
   MotionMoneyFlow,
   MotionNumber,
+  MotionPathFlow,
+  MotionPurchasingPower,
+  MotionTimeline,
+  YOUTUBE_MOTION_PHYSICS,
 } from './YouTubeMotionExplainers';
-export type {ComparisonBarItem, MotionTone} from './YouTubeMotionExplainers';
+export type {
+  BudgetAllocationItem,
+  ComparisonBarItem,
+  MotionPhysicsPreset,
+  MotionTimelineStep,
+  MotionTone,
+} from './YouTubeMotionExplainers';
 
 // Premium-Erweiterungen bleiben bewusst in Namensräumen.
 // Dadurch entstehen keine Export-Kollisionen zwischen alten und neuen Komponenten.

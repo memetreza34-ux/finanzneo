@@ -23,6 +23,9 @@ if (contract.status !== 0) process.exit(contract.status ?? 1);
 const motion = spawnSync(process.execPath, [resolve('scripts/validate-youtube-animation-quality.mjs'), root], {stdio: 'inherit'});
 if (motion.status !== 0) process.exit(motion.status ?? 1);
 
+const motionQa = spawnSync(process.execPath, [resolve('scripts/validate-youtube-motion-qa.mjs'), root], {stdio: 'inherit'});
+if (motionQa.status !== 0) process.exit(motionQa.status ?? 1);
+
 const voiceover = spawnSync(process.execPath, [resolve('scripts/validate-voiceover-processing.mjs'), root], {stdio: 'inherit'});
 if (voiceover.status !== 0) process.exit(voiceover.status ?? 1);
 
@@ -72,6 +75,7 @@ for (const fileName of result.expectedImages) {
 
 console.log('\n✓ YOUTUBE-PHASE 3 STARTKLAR');
 console.log(`  ${result.expectedImages.length} erwartete 16:9-Flow-/Thumbnail-Bilder · 1 verarbeitetes Voiceover · echte Wort-Zeitstempel · Motion V4 Simple versiegelt · Publishing vollständig`);
+console.log('  Motion-Quality-V1-Projekte benötigen zusätzlich freigegebene 0/25/50/75/Result-Hold-QA-Frames.');
 console.log('  Voiceover-Pacing: 1,10× + lange Pausen verdichtet; processed voiceover ist Timing-Autorität für Captions und Visual-Timeline.');
 console.log('  Gilt identisch für images-only und hybrid. Musik/SFX bleiben vom Pacing-Prozess unberührt.');
 console.log('  Phase 3 integriert die simple freigegebene Motion, retimed sie zum echten Audio und übernimmt QA/Render ohne unnötige kreative Mechanik-Ersetzung.');

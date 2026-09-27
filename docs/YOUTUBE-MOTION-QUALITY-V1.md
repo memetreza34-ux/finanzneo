@@ -8,22 +8,19 @@ YouTube-Finanzanimationen sollen nicht wie animierte Präsentationen wirken. Mot
 
 ## Qualitätsreihenfolge
 
-Vor jeder Animation:
-
 ```text
 Kernaussage
 → stärkste statische Lösung prüfen
 → konkrete sichtbare Mechanik definieren
 → vorhandenen FinanzNeo-Baustein / Remotion-Werkzeug routen
-→ mehrere sichtbare Zustände planen
-→ erst dann implementieren
+→ START / Veränderung / RESULT planen
+→ implementieren
+→ Representative-Frame-QA
 ```
 
 Wenn eine statische Lösung gleich klar oder besser ist, wird nicht animiert.
 
 ## Pflicht für echte Animationsszenen
-
-Eine Animationsszene soll nach Möglichkeit diese Zustände besitzen:
 
 ```text
 START
@@ -36,90 +33,102 @@ START
 
 Nicht jeder Beat braucht alle sechs Phasen, aber `START`, eine sichtbare Veränderung und ein klarer `RESULT` müssen unterscheidbar sein.
 
-## Bestehenden Stack zuerst nutzen
+## Zentraler YouTube-Finance-Motion-Baukasten
 
-Neue Animationen sollen nicht jedes Mal bei null anfangen. Vor eigener Speziallösung prüfen:
+Neue Animationen sollen nicht jedes Mal bei null anfangen. Der erste Routing-Punkt ist `src/design-system/YouTubeMotionExplainers.tsx`.
 
-1. `src/design-system/YouTubeMotionExplainers.tsx`
-   - `MotionNumber`
-   - `MotionComparisonBars`
-   - `MotionLineChart`
-   - `MotionMoneyFlow`
-   - `MotionBeforeAfter`
+### Basis
+
+- `MotionNumber` — Betrag / Prozent / Kennzahl
+- `MotionComparisonBars` — zwei Werte auf gemeinsamer Skala
+- `MotionLineChart` — einfache Entwicklung
+- `MotionBeforeAfter` — klarer Zustand A → Zustand B
+
+### Bewegung mit echter Mechanik
+
+- `MotionPathFlow` / `MotionMoneyFlow` — Geld bewegt sich entlang eines echten SVG-Pfads
+- `MotionTimeline` — zeitliche Abfolge / Meilensteine
+- `MotionBudgetAllocation` — Budget wird sichtbar auf Bereiche verteilt
+
+### Finanzspezifisch mit zentralen Berechnungen
+
+- `MotionCompoundGrowth` — Sparplan / Zinseszins mit `calculateSavingsPlanSeries()`
+- `MotionLoanPaydown` — Kredit / Restschuld mit `calculateLoanSchedule()` und `calculateLoanSummary()`
+- `MotionPurchasingPower` — Inflation / Kaufkraft mit den zentralen Inflationsfunktionen
+
+Diese Komponenten erfinden keine Finanzwerte im JSX. Abgeleitete Werte kommen aus `src/finance/`.
+
+## Tool-Routing
+
+Bevorzugte Reihenfolge:
+
+1. passender Baustein aus `YouTubeMotionExplainers.tsx`
 2. zentrale Finanzberechnungen aus `src/finance/`
-3. vorhandene Chart-/Diagramm-/Finance-Bausteine über `src/design-system/index.ts`
+3. vorhandene PremiumCharts / FinanceBlocks / DiagramBlocks
 4. native Remotion-Komposition mit `useCurrentFrame()`, `interpolate()`, `spring()`
-5. `@remotion/paths` / `@remotion/shapes` für echte Pfade, Kurven und Vektorformen
-6. Three.js / React Three Fiber nur wenn räumliche Tiefe wirklich erklärt
-7. Lottie nur als unterstützende Mikroanimation
-8. Motion Blur nur bei schneller physischer Bewegung
-9. Transitions/Effects nur wenn sie den Szenenwechsel oder Fokus verbessern
+5. `@remotion/paths` / `@remotion/shapes`, wenn Pfad oder Geometrie die Erklärung trägt
+6. Recharts / PremiumCharts bei echten Datenreihen
+7. Three.js / React Three Fiber nur bei echtem räumlichem Erklärwert
+8. Lottie nur als unterstützende Mikroanimation
+9. Motion Blur / Effects / Transitions erst als zurückhaltender Polish
 
-Die Verfügbarkeit eines Werkzeugs ist kein Grund, es einzusetzen.
+Die Verfügbarkeit eines Tools ist kein Grund, es einzusetzen.
 
-## Finanzspezifische Routings
+## Paths + Shapes
+
+Der zentrale Baukasten nutzt `@remotion/paths` und `@remotion/shapes` produktiv:
+
+- `evolvePath()` für gezeichnete Kurven und Flüsse
+- `getLength()` / `getPointAtLength()` für Objekte entlang eines Pfads
+- `Rect` für deterministische geometrische Budgetsegmente
+
+Keine dekorativen Pfade ohne Informationswert.
+
+## Bewegungsphysik
+
+`YOUTUBE_MOTION_PHYSICS` stellt unterschiedliche physische Presets bereit:
+
+- `chart` — sauber, kontrolliert
+- `money` — schneller, kurzer kontrollierter Spring
+- `paper` — leichteres Slide/Settle
+- `heavy` — träger, wenig Overshoot
+- `confirm` — schneller klarer Abschluss
+
+Nicht alle Objekte dürfen dieselbe Bewegung erhalten.
+
+## Finanzspezifisches Routing
 
 ### Zahl / Prozent / Betrag
 
-Bevorzugt:
-- `MotionNumber`
-- BigNumber-/Percentage-Bausteine
-- statische Zahl, wenn Aufbau keinen Mehrwert hat
+`MotionNumber` oder statische Zahl. Count-up nur, wenn der Aufbau selbst etwas erklärt.
 
-### Zwei Werte vergleichen
+### Zwei Werte
 
-Bevorzugt:
-- `MotionComparisonBars`
-- `MotionBeforeAfter`
-- vorhandene Vergleichs-/Chart-Bausteine
+`MotionComparisonBars` oder `MotionBeforeAfter`.
 
 ### Entwicklung über Zeit
 
-Bevorzugt:
-- `MotionLineChart`
-- vorhandene PremiumCharts / Recharts
-- Timeline
+`MotionLineChart`, `MotionTimeline`, PremiumCharts oder Recharts.
 
-### Geld bewegt sich zwischen zwei Zielen
+### Geldfluss
 
-Bevorzugt:
-- `MotionMoneyFlow`
-- Pfad nur wenn die Route selbst Teil der Erklärung ist
+`MotionMoneyFlow` / `MotionPathFlow`. Der Pfad muss semantisch sinnvoll sein.
+
+### Budget
+
+`MotionBudgetAllocation`. Bei statischer Aussage darf ein statisches Diagramm besser sein.
 
 ### Inflation / Kaufkraft
 
-Bevorzugt:
-- konkretes Vorher/Nachher-Bild
-- Warenkorb-Vergleich
-- Linie oder Balken für Entwicklung
-- Animation nur, wenn die zeitliche Veränderung sichtbar erklärt werden soll
+`MotionPurchasingPower` oder konkretes Vorher/Nachher-Bild. Animation nur bei sichtbarer Veränderung.
 
 ### Sparplan / Zinseszins
 
-Bevorzugt:
-- zentrale Finanzberechnung
-- Linie + Einzahlungen + Wachstum
-- keine frei erfundenen Zahlen im JSX
+`MotionCompoundGrowth` oder PremiumChart. Werte aus zentraler Finanzberechnung.
 
 ### Kredit / Raten
 
-Bevorzugt:
-- Tilgungs-/Kostenvergleich
-- Geldfluss oder Timeline
-- reale Gesamtkosten sichtbar gegen Monatsrate stellen
-
-## Bewegungsqualität
-
-Nicht alle Objekte gleich bewegen.
-
-- Zahlen: kontrolliert, ruhig, tabular-nums
-- Geld: schneller, kurzer kontrollierter Spring
-- Balken: sauberer Build ohne Bounce-Orgie
-- Papier/Rechnung: leichtes Slide/Settle
-- schwere Objekte: träger, weniger Overshoot
-- Warnung: kurzer Impuls
-- Bestätigung: schneller sauberer Pop + Hold
-- Kamera: nur unterstützend, nie Hauptanimation
+`MotionLoanPaydown`, Tilgungs-/Kostenvergleich oder Timeline.
 
 ## Ablehnungsgründe
 
@@ -127,8 +136,8 @@ Animation neu planen oder durch statische Lösung ersetzen, wenn:
 
 - nur Textzeilen nacheinander einblenden;
 - nur drei Karten erscheinen;
-- ein Progress-Bar die ganze Aussage tragen muss;
-- Start und Resultat fast gleich aussehen;
+- ein Progress-Bar die ganze Aussage trägt;
+- START und RESULT fast gleich aussehen;
 - Bewegung nur Dekoration ist;
 - dieselbe Balken-/Kartenlogik mehrfach hintereinander wiederholt wird;
 - die Animation schwächer aussieht als ein gutes Standbild;
@@ -136,27 +145,36 @@ Animation neu planen oder durch statische Lösung ersetzen, wenn:
 - wichtige Objekte klein in viel leerer Fläche stehen;
 - die Szene wie Dashboard, PowerPoint oder App-UI wirkt.
 
-## Representative-Frame-QA für YouTube 16:9
+## Representative-Frame-QA
 
-Für jede echte Animation mindestens diese Zustände prüfen:
+Für Quality-V1-Hybridprojekte nach finaler Timeline:
 
-- Start
-- ca. 25 %
-- ca. 50 %
-- ca. 75 %
-- Result Hold
+```bash
+npm run youtube:motion:qa -- youtube/<Projekt>
+```
 
-Fragen:
+Das rendert pro animiertem Visual:
 
-1. Ist die Hauptveränderung sofort sichtbar?
-2. Kann man die Richtung der Aussage ohne Voiceover ungefähr verstehen?
-3. Nutzt die Szene 1920×1080 sinnvoll?
-4. Bleibt kritischer Inhalt innerhalb der YouTube-Motion-Safe-Area?
-5. Ist nichts unbeabsichtigt abgeschnitten?
-6. Ist der Result-Zustand als Still verständlich?
-7. Wäre ein starkes Standbild besser?
-8. Wiederholt die Szene unnötig die vorherigen Motion-Muster?
+- START
+- 25 %
+- 50 %
+- 75 %
+- RESULT HOLD
+
+Ergebnisse landen in `06-projektdateien/motion-qa-frames/`.
+
+Danach `06-projektdateien/motion-qa-review.json` prüfen und nur bei bestandener Sichtprüfung auf `PASS` setzen. Anschließend:
+
+```bash
+npm run youtube:motion:qa:validate -- youtube/<Projekt>
+```
+
+`youtube:ready` führt diese Validierung bei Quality-V1-Projekten ebenfalls aus. Ein `--draft`-Render ist nur für frühe Vorschau und zählt nicht als finale QA.
+
+## Interner Motion-Lab
+
+Die Showcase-Composition `YouTubeFinanceMotionLab` zeigt die zentralen Finanzmechaniken in 1920×1080 und ist ausdrücklich keine Produktionscomposition. Sie dient zum visuellen Vergleich und zur Weiterentwicklung des Baukastens.
 
 ## Kurzregel
 
-> Erst starke statische Idee. Motion muss zusätzlichen Informationswert liefern. Vorhandene FinanzNeo-Bausteine und Remotion-Werkzeuge gezielt routen. START und RESULT müssen klar verschieden sein. Schwache Animation lieber ersetzen als künstlich aufpolieren.
+> Erst starke statische Idee. Motion muss zusätzlichen Informationswert liefern. Vorhandenen FinanzNeo-Stack nutzen. START und RESULT müssen verschieden sein. Finanzwerte zentral berechnen. Fünf Representative Frames prüfen. Schwache Animation ersetzen statt aufpolieren.

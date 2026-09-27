@@ -4,96 +4,142 @@
 
 ## Scope
 
-Applies only to YouTube Longform under `youtube/`.
+Gilt nur für YouTube Longform unter `youtube/`.
 
-Do not reuse Reel pixel zones such as `Y320–1400` or `bottom 340` for YouTube. YouTube uses its own 1920×1080 layout and motion-safe-area contract.
+Reel-Pixelzonen wie `Y320–1400` oder `bottom 340` werden hier nicht übernommen. YouTube nutzt 1920×1080 mit eigener Motion-Safe-Area.
 
-## Required representative states
+## Pflichtzustände
 
-For every animated YouTube visual inspect at least:
+Für jedes animierte YouTube-Visual:
 
 1. START
-2. EARLY / about 25%
-3. MID / about 50%
-4. LATE / about 75%
+2. ca. 25 %
+3. ca. 50 %
+4. ca. 75 %
 5. RESULT HOLD
 
-For static/image scenes inspect at least one stable representative frame.
+Für statische Bild-/Diagrammszenen reicht ein stabiler repräsentativer Frame.
 
-## 16:9 layout checks
+## Automatischer Representative-Frame-Render
 
-- frame is 1920×1080
-- pure Remotion may use the full frame
-- Flow imagery itself remains contained
-- critical animated content stays at least about 64 px from the frame edges
-- no important label, number, chart point, object or result is clipped
-- header/icon and explanatory content do not collide
-- the main visual is large enough to read without excessive empty black space
-- the scene remains readable at normal YouTube viewing size, not only when zoomed in
+Nach finaler Timeline:
 
-## Motion-quality checks
+```bash
+npm run youtube:motion:qa -- youtube/<Projekt>
+```
 
-Reject or redesign when:
+Der Renderer erzeugt für jedes animierte Quality-V1-Visual fünf 1920×1080-PNGs unter:
 
-- START and RESULT look nearly the same
-- only camera drift/zoom changes
-- the scene is mainly sequential text fades
-- three cards or panels are the whole animation
-- a progress bar carries the entire explanation
-- motion exists only because Phase B allows motion
-- every object shares the same timing/easing
-- a strong static diagram/image would be clearer
-- an image and Remotion overlay explain the same thing twice
-- the mechanism is too small inside the 1920×1080 canvas
-- a result disappears before it can be understood
+```text
+06-projektdateien/motion-qa-frames/<visual-id>/
+```
 
-## Finance checks
+Zusätzlich entstehen:
 
-- numbers shown in the animation match the approved script/data/calculation source
-- comparisons use a common scale where needed
-- axes/units/percent signs are unambiguous
-- nominal vs real values are visually distinguishable when relevant
-- positive/negative color semantics stay consistent
-- no decorative chart animation implies a trend not present in the data
+- `06-projektdateien/motion-qa-manifest.json`
+- `06-projektdateien/motion-qa-review.json`
 
-## Tool-routing checks
+Frühe Vorschau ist mit `--draft` erlaubt. Ein Draft verwendet bei fehlenden Timings eine Fallback-Dauer und wird niemals als finale QA akzeptiert.
 
-Before approving a custom one-off animation, verify whether the scene could use:
+## Review
+
+`motion-qa-review.json` darf nur auf `PASS` gesetzt werden, wenn alle Pflichtchecks wahr sind:
+
+- START und RESULT unterscheiden sich klar
+- Hauptmechanik ist lesbar
+- Safe Area eingehalten
+- kein unbeabsichtigtes Clipping
+- Resultat als Still verständlich
+- Finanzwerte geprüft
+- statische Alternative nach Implementierung erneut geprüft
+- Nachbarszenen wiederholen das Muster nicht unnötig
+
+Validierung:
+
+```bash
+npm run youtube:motion:qa:validate -- youtube/<Projekt>
+```
+
+`npm run youtube:ready -- youtube/<Projekt>` führt diese Prüfung bei Motion-Quality-V1-Projekten automatisch aus.
+
+## 16:9 Layout Checks
+
+- Frame 1920×1080
+- reine Remotion darf Full Frame nutzen
+- Flow-Bild selbst bleibt contained
+- kritische Motion-Inhalte ungefähr 64 px von Außenkanten entfernt
+- keine wichtigen Labels, Zahlen, Chartpunkte, Objekte oder Resultate abgeschnitten
+- Header/Icon und Erklärinhalt kollidieren nicht
+- Hauptvisual groß genug für normale YouTube-Ansicht
+- kein unnötiger kleiner Innenrahmen für reine Motion
+
+## Motion Quality Checks
+
+Ablehnen oder neu planen, wenn:
+
+- START und RESULT nahezu identisch sind
+- nur Kamera-Drift/Zoom passiert
+- hauptsächlich Textfades stattfinden
+- drei Karten/Panels die komplette Animation sind
+- ein Progress-Bar die Erklärung trägt
+- Motion nur existiert, weil Hybrid erlaubt ist
+- alle Objekte dieselbe Timing-/Easing-Logik nutzen
+- ein starkes Standbild/Diagramm klarer wäre
+- Bild und Remotion dieselbe Aussage doppeln
+- Hauptmechanik im 1920×1080-Canvas zu klein ist
+- Resultat verschwindet, bevor es gelesen werden kann
+
+## Finance Checks
+
+- Werte stimmen mit Skript/Datenquelle/zentrale Berechnung überein
+- Vergleiche nutzen bei Bedarf gemeinsame Skala
+- Achsen, Einheiten und Prozentzeichen sind eindeutig
+- nominale und reale Werte sind unterscheidbar
+- positive/negative Farblogik bleibt konsistent
+- Chart-Animation suggeriert keinen Trend, den Daten nicht tragen
+
+## Tool Routing Checks
+
+Vor einer Custom-Animation prüfen:
 
 - `MotionNumber`
 - `MotionComparisonBars`
 - `MotionLineChart`
-- `MotionMoneyFlow`
 - `MotionBeforeAfter`
-- existing PremiumCharts / finance components
+- `MotionPathFlow` / `MotionMoneyFlow`
+- `MotionBudgetAllocation`
+- `MotionCompoundGrowth`
+- `MotionLoanPaydown`
+- `MotionPurchasingPower`
+- `MotionTimeline`
+- PremiumCharts / FinanceBlocks / DiagramBlocks
 - `@remotion/paths` / `@remotion/shapes`
-- Three/R3F when spatial depth is genuinely explanatory
-- Lottie only as a support layer
+- Recharts bei echten Datenreihen
+- Three/R3F nur bei räumlichem Erklärwert
+- Lottie nur als Support
 
-Using a reusable component is not mandatory when a custom implementation is clearly better. The check exists to avoid rebuilding weaker versions of existing mechanisms.
+Ein Custom-Ansatz bleibt erlaubt, wenn er sichtbar besser erklärt.
 
-## Cross-scene rhythm
+## Cross-Scene Rhythm
 
-Review adjacent scenes together:
+Nachbarszenen gemeinsam prüfen:
 
-- avoid several identical bar scenes in sequence
-- avoid several text-only motion scenes in sequence
-- avoid repeating the same left/right composition without reason
-- alternate concrete, comparative, numeric and diagrammatic views when that improves comprehension
-- repetition is allowed when it intentionally teaches a repeated structure
+- nicht mehrere identische Balkenszenen hintereinander
+- nicht mehrere Text-only-Motion-Szenen hintereinander
+- nicht dieselbe Links/Rechts-Komposition ohne Grund wiederholen
+- konkrete, vergleichende, numerische und diagrammatische Ansichten sinnvoll abwechseln
+- Wiederholung nur dann, wenn sie bewusst eine wiederkehrende Struktur lehrt
 
 ## Acceptance
 
-YouTube motion QA passes only when:
+YouTube Motion QA besteht nur, wenn:
 
-1. the explanatory change is visible across representative states
-2. the result state works as a still
-3. no critical content is clipped
-4. the full-frame canvas is used intentionally
-5. exact finance values are correct
-6. motion beats a reasonable static alternative
-7. adjacent scenes do not become visually monotonous without reason
+1. die Veränderung über die fünf Frames sichtbar ist
+2. der Result-Zustand als Still funktioniert
+3. kritischer Inhalt nicht geclippt ist
+4. Full Frame bewusst genutzt wird
+5. Finanzwerte korrekt sind
+6. Motion eine vernünftige statische Alternative schlägt
+7. Nachbarszenen nicht unbegründet monoton sind
 
-## Rule
-
-> A technically valid animation can still fail visual QA. If it looks weaker than a strong static solution, replace it rather than defending the motion.
+> Technisch valide Motion kann visuell trotzdem durchfallen. Wenn ein starkes Standbild besser ist, wird die Animation ersetzt.

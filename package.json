@@ -42,6 +42,8 @@
     "youtube:create:mode": "node scripts/create-finanzneo-youtube-mode.mjs",
     "youtube:validate": "node scripts/validate-youtube.mjs",
     "youtube:animation:validate": "node scripts/validate-youtube-animation-quality.mjs",
+    "youtube:motion:qa": "node scripts/render-youtube-motion-qa.mjs",
+    "youtube:motion:qa:validate": "node scripts/validate-youtube-motion-qa.mjs",
     "youtube:phase1:seal": "node scripts/seal-youtube-phase1-animations.mjs",
     "youtube:ready": "node scripts/check-youtube-production-ready.mjs",
     "protect:install": "node scripts/install-git-guards.mjs",

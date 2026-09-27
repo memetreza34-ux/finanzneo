@@ -15,6 +15,7 @@ import {Thumbnail} from '../showcases/Thumbnail';
 import {ThumbnailFlux} from '../showcases/ThumbnailFlux';
 import {ProfilePic1, ProfilePic2, ProfilePic3} from '../showcases/ProfilePic';
 import {DisclaimerPreview} from '../showcases/DisclaimerPreview';
+import {YouTubeFinanceMotionLab, YOUTUBE_FINANCE_MOTION_LAB_FRAMES} from '../showcases/YouTubeFinanceMotionLab';
 import {FNShowcase, FN_FRAMES} from '../bausteine/FNShowcase';
 import {FNKitShowcase, FNKIT_FRAMES} from '../bausteine/FNKitShowcase';
 import {FNKit2Showcase, FNKIT2_FRAMES} from '../bausteine/FNKit2Showcase';
@@ -52,6 +53,7 @@ export const ShowcaseCompositions: React.FC = () => (
     <Composition id="Sizzle" component={Sizzle} durationInFrames={510} fps={FPS} {...VERTICAL} />
     <Composition id="UpgradeShowcase" component={UpgradeShowcase} durationInFrames={UPGRADE_SHOWCASE_DURATION} fps={FPS} {...WIDE} />
     <Composition id="LottieFinanzGrid" component={LottieFinanzGrid} durationInFrames={90} fps={FPS} {...WIDE} />
+    <Composition id="YouTubeFinanceMotionLab" component={YouTubeFinanceMotionLab} durationInFrames={YOUTUBE_FINANCE_MOTION_LAB_FRAMES} fps={FPS} {...WIDE} />
     <Composition id="Thumbnail" component={Thumbnail} durationInFrames={1} fps={FPS} width={1280} height={720} />
     <Composition id="ThumbnailFlux" component={ThumbnailFlux} durationInFrames={1} fps={FPS} width={1280} height={720} />
     <Composition id="ProfilePic1" component={ProfilePic1} durationInFrames={1} fps={FPS} width={1080} height={1080} />
