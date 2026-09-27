@@ -41,6 +41,8 @@ test('Phase A with visual-count keeps the framed 3D layout and disables animatio
     assert.equal(index.layoutContract.phaseAStaticUsesContainedVisualWindow, true);
     assert.equal(index.phaseA.imageWorldUnchanged, true);
     assert.equal(index.phaseA.imageWorldId, 'finanzneo-youtube-grounded-3d-black-v1');
+    assert.equal(index.scriptVisualPlanning.standardId, 'finanzneo-youtube-script-visual-planning-v1');
+    assert.equal(existsSync(resolve(absolute, '06-projektdateien/script-visual-plan.md')), true);
     assert.equal(index.visuals.length, 3);
     assert.deepEqual(index.visuals.map((visual: {type: string}) => visual.type), ['image', 'image', 'image']);
     assert.deepEqual(index.visuals.map((visual: {phaseAVisualKind: string}) => visual.phaseAVisualKind), ['3d-story', '3d-story', '3d-story']);
@@ -142,7 +144,7 @@ test('Phase A static design-system primitives contain no Remotion frame animatio
   assert.doesNotMatch(source, /\bspring\s*\(/);
 });
 
-test('hybrid mode keeps Flow contained but allows full-frame Remotion and image+Remotion overlays', () => {
+test('hybrid mode uses script-first earned motion and forbids semantic image-motion overlap', () => {
   const target = `youtube/.tmp-hybrid-mode-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
@@ -160,6 +162,12 @@ test('hybrid mode keeps Flow contained but allows full-frame Remotion and image+
     assert.equal(index.productionMode.fullFrameRemotionAllowed, true);
     assert.equal(index.productionMode.fullFrameFlowForbidden, true);
     assert.equal(index.productionMode.hybridOverlayMayUseFullFrame, true);
+    assert.equal(index.productionMode.visualBalanceGuidance.percentageTargetsForbidden, true);
+    assert.equal(index.productionMode.motionGate.animationMustBeatStaticAlternative, true);
+    assert.equal(index.productionMode.motionGate.strongStaticImageMayReplaceAnimation, true);
+    assert.equal(index.productionMode.hybridOverlapGuard.imageAndMotionNeedDistinctJobs, true);
+    assert.equal(index.productionMode.hybridOverlapGuard.semanticOverlapForbidden, true);
+    assert.equal(index.productionMode.scriptVisualPlanning.planVisualBeforeFinalizingEachScriptBeat, true);
     assert.equal(index.layoutContract.id, 'finanzneo-youtube-framed-scene-v2');
     assert.equal(index.layoutContract.sceneHeadingRequired, true);
     assert.equal(index.layoutContract.sceneIconRequired, true);
@@ -169,9 +177,25 @@ test('hybrid mode keeps Flow contained but allows full-frame Remotion and image+
     assert.equal(index.layoutContract.hybridRemotionOverlayMayExtendBeyondFlowWindow, true);
     assert.equal(index.layoutContract.motionSafeAreaPx, 64);
     assert.equal(index.layoutContract.unintentionalCroppingForbidden, true);
+    assert.equal(index.scriptVisualPlanning.standardId, 'finanzneo-youtube-script-visual-planning-v1');
+    assert.equal(index.scriptVisualPlanning.staticAlternativeRequiredBeforeMotion, true);
+    assert.equal(index.scriptVisualPlanning.hybridSemanticOverlapForbidden, true);
     assert.equal(index.phaseB.contentFirst, true);
-    assert.equal(index.phaseB.imagePlusRemotionIsFirstClass, true);
+    assert.equal(index.phaseB.scriptFirstVisualPlanning, true);
+    assert.equal(index.phaseB.strongStaticMayReplaceWeakAnimation, true);
+    assert.equal(index.phaseB.imagePlusRemotionAllowedOnlyWhenRolesDiffer, true);
+    assert.equal(index.phaseB.motionGate.motionForMotionSakeForbidden, true);
+    assert.equal(index.phaseB.hybridOverlapGuard.ifRolesOverlapChooseSingleStrongerMedium, true);
     assert.deepEqual(index.visuals.map((visual: {type: string}) => visual.type), ['image', 'animation', 'hybrid']);
+
+    const scriptVisualPlan = readFileSync(resolve(absolute, '06-projektdateien/script-visual-plan.md'), 'utf8');
+    assert.match(scriptVisualPlan, /stärkste statische Lösung/i);
+    assert.match(scriptVisualPlan, /STATIC_ALTERNATIVE:/);
+    assert.match(scriptVisualPlan, /IMAGE_JOB:/);
+    assert.match(scriptVisualPlan, /MOTION_JOB:/);
+    assert.match(scriptVisualPlan, /OVERLAP_CHECK:/);
+    assert.match(scriptVisualPlan, /Keine Quote für Motion\/Hybrid/i);
+
     assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx')), true);
     assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-03/animation.tsx')), true);
     const animationSource = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx'), 'utf8');

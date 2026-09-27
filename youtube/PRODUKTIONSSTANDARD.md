@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform-Produktionsstandard V2
 
-> Bei Widersprüchen gilt `CLAUDE.md`. Für Visualwahl gilt `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`. Für Modi/Layout gilt `docs/YOUTUBE-PRODUCTION-MODES.md`. Für Flow-Storyboard gilt `docs/YOUTUBE-FLOW-STORYBOARD-STANDARD.md`. Für Motion gilt `docs/YOUTUBE-MOTION-V4-SIMPLE.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Für Script+Visual-Planung gilt `docs/YOUTUBE-SCRIPT-VISUAL-PLANNING.md`. Für Visualwahl gilt `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`. Für Modi/Layout gilt `docs/YOUTUBE-PRODUCTION-MODES.md`. Für Flow-Storyboard gilt `docs/YOUTUBE-FLOW-STORYBOARD-STANDARD.md`. Für Motion gilt `docs/YOUTUBE-MOTION-V4-SIMPLE.md`.
 
 ## Ziel
 
@@ -14,6 +14,31 @@ FinanzNeo ist ein seriöser Simple-Finance-Explainer mit klaren, merkbaren Visua
 - einfache Sprache
 - konkrete Beispiele
 - Zahlen/Annahmen prüfbar dokumentieren
+
+## Script und Visual gemeinsam planen
+
+Das Skript wird nicht erst final geschrieben und danach bebildert.
+
+Jeder Beat muss vor dem Script-Lock bereits eine Visualidee besitzen:
+
+```text
+Kernaussage
+→ stärkste statische Lösung suchen
+→ Bild / Beispiel / Vergleich / Diagramm / Rechnung prüfen
+→ nur dann Animation prüfen
+→ Hybrid nur bei klarer Aufgabenteilung
+→ Voiceover + Visual gemeinsam finalisieren
+```
+
+Pflichtfragen pro Beat:
+- Was soll verstanden oder erinnert werden?
+- Was ist die beste statische Visualisierung?
+- Braucht der Gedanke wirklich Bewegung?
+- Wenn Motion: was erklärt Bewegung zusätzlich?
+- Wenn Hybrid: welche Aufgabe hat das Bild, welche die Motion?
+- Wiederholt die Szene unnötig die letzten Szenen?
+
+Kanonisch: `docs/YOUTUBE-SCRIPT-VISUAL-PLANNING.md`.
 
 ## Gemeinsame Bildwelt
 
@@ -58,21 +83,53 @@ Flow-Bilder bleiben in einem contained Visualfenster, niemals fullscreen.
 
 ## Phase B — Hybrid
 
-Phase B / `hybrid` ist **nicht „Remotion zuerst“**. Pro Beat wird die beste Form gewählt:
+Phase B / `hybrid` bedeutet **Motion ist erlaubt, nicht vorgeschrieben**.
 
-1. **Bild** — Alltag, Emotion, Situation, konkrete Ursache/Wirkung
-2. **Bild + Remotion** — Bild liefert Kontext, Remotion erklärt Zahl/Pfeil/Geldfluss/Veränderung
-3. **Reine Remotion** — Zahl, Prozess, Vergleich, Entwicklung oder Aufteilung ist ohne Bild klarer
-4. **Echtes Asset** — Quelle/Website/Dokument/realer Beleg
+Mögliche Hauptformen:
 
-### Weiche Balance
+1. **Starkes Bild** — Alltag, Emotion, Situation, konkrete Ursache/Wirkung
+2. **Statischer Explainer** — Diagramm, Vergleich, Rechnung, Chart, Vorher/Nachher, Infokarte
+3. **Bild + Remotion** — nur wenn Bild und Motion unterschiedliche Aufgaben haben
+4. **Reine Remotion** — nur wenn Veränderung, Prozess oder Reihenfolge in Bewegung klarer ist
+5. **Echtes Asset** — Quelle/Website/Dokument/realer Beleg
 
-Kein harter Zwang, aber typischer Startpunkt:
-- 25–40 % Bild
-- 30–50 % Bild + Remotion
-- 20–35 % reine Remotion
+Es gibt **keine Zielquote** für diese Formen. Keine Animation und kein Hybrid werden eingebaut, nur um eine Mischung zu erfüllen.
 
-Wenn der Inhalt anderes verlangt, darf die Mischung abweichen. Ziel ist, reine Remotion nicht automatisch dominieren zu lassen.
+## Animation-Gate
+
+Vor jeder Animation muss geprüft werden:
+
+> Ist diese Aussage in Bewegung klarer als als starkes Standbild, Diagramm, Beispiel oder Vergleich?
+
+Animation behalten nur, wenn Bewegung echten Mehrwert liefert, z. B.:
+- Veränderung über Zeit
+- Reihenfolge / Prozess
+- Aufbau / Zerlegung / Verschiebung
+- Geldfluss
+- zeitlicher Vergleich
+- gezielte Blickführung zwischen Zuständen
+
+Wenn eine statische Lösung gleich gut oder besser ist, **statische Lösung wählen**.
+
+Schwache Animationen werden ersetzt, nicht verteidigt.
+
+## Bild + Remotion — Overlap-Guard
+
+Hybrid ist nur gut, wenn die Ebenen verschiedene Jobs haben.
+
+Beispiel gut:
+- Bild = konkrete Einkaufssituation
+- Remotion = exakter Preisunterschied / Verlauf
+
+Beispiel schlecht:
+- Bild zeigt bereits, dass der Einkauf schrumpft
+- Animation zeigt darüber nochmals denselben schrumpfenden Einkauf
+
+Regel:
+
+> **Wenn Bild und Motion dieselbe Bedeutung tragen, nur das stärkere Medium behalten.**
+
+Keine Doppel-Erklärung. Keine Overlay-Fläche nur damit sich etwas bewegt.
 
 ## Menschen-Regel
 
@@ -89,8 +146,28 @@ Abstrakte Balken, Blöcke, Wege und Schemen sind Werkzeuge, kein Default.
 
 - nur verwenden, wenn sie schneller erklären
 - wenn ohne Voiceover unklar: konkreten Anker ergänzen
-- Bild + Remotion bevorzugen, wenn konkrete Szene + exakte Erklärung zusammen stärker sind
+- statisches Diagramm/Beispiel bevorzugen, wenn Bewegung keinen Mehrwert hat
 - mehrere abstrakte Schemata direkt hintereinander vermeiden, wenn das Video dadurch monoton oder schwer merkbar wird
+
+## Visual-Vielfalt
+
+Nicht dieselbe Visual-Logik mechanisch wiederholen.
+
+Erlaubte Familien unter anderem:
+- 3D-Storybild
+- konkretes Beispiel
+- Vorher/Nachher
+- Side-by-Side-Vergleich
+- Diagramm
+- Chart
+- Beispielrechnung
+- Timeline
+- Infokarte
+- Ursache/Wirkung-Schema
+- echte Quelle
+- Animation bei echter zeitlicher Veränderung
+
+Vielfalt dient Verständnis und Rhythmus, nicht bloßer Neuheit.
 
 ## Full-Frame-Regel für Phase B
 
@@ -108,18 +185,21 @@ Reine Remotion-Animationen dürfen die **komplette 1920×1080-Fläche** nutzen.
 
 - Flow-Bild selbst bleibt contained, nie fullscreen
 - Remotion darf über das Bildfenster hinaus in die gesamte Szene greifen
-- Pfeile, Zahlen, Highlights, Geldfluss und Labels dürfen Bild und restlichen Frame verbinden
-- Bild und Motion werden als eine gemeinsame Komposition geplant
+- Bild und Motion nur kombinieren, wenn ihre Aufgaben nicht überlappen
+- wenn Overlay nur wiederholt, was das Bild bereits erklärt: Overlay entfernen
 
 ## Visualplanung
 
 ```text
 Sprechpunkt
 → Was muss verstanden oder erinnert werden?
+→ stärkste statische Form bestimmen
 → konkrete Szene besser? → Bild
-→ konkrete Szene + zeitliche/exakte Erklärung besser? → Bild + Remotion
-→ Zahl/Prozess/Entwicklung allein klarer? → Remotion
+→ Beispiel/Vergleich/Diagramm besser? → statischer Explainer
+→ braucht der Gedanke echte zeitliche Veränderung? → Remotion prüfen
+→ Bild + Motion nur bei klar getrennter Aufgabe
 → reale Quelle nötig? → echtes Asset
+→ danach erst Sprechtext final locken
 ```
 
 Es gibt keine feste Visualzahl. Ein Flow-Bild trägt normalerweise 1 dominanten Gedanken und 1–2 kurze Voiceover-Sätze.
@@ -178,14 +258,18 @@ Für beide Modi:
 
 1. Hauptaussage in 1–2 Sekunden verständlich?
 2. Nur ein dominanter Gedanke?
-3. Braucht die Szene wirklich einen Menschen?
-4. Ist das Visual unnötig abstrakt?
-5. Wäre Bild + Remotion stärker als nur Bild oder nur Remotion?
-6. Wenn Remotion: Fläche sinnvoll genutzt, nichts abgeschnitten?
-7. Wenn Flow: exakt freigegebene Bildwelt?
-8. Wenn Thumbnail: finale Schrift sichtbar und lesbar?
-9. Exakte Texte/Zahlen korrekt?
-10. Wiederholt die Szene unnötig die letzten Visuals?
+3. Wurde Visualform schon beim Script geplant?
+4. Ist die stärkste statische Alternative geprüft?
+5. Verdient eine Animation ihre Bewegung wirklich?
+6. Wenn Hybrid: haben Bild und Motion verschiedene Jobs?
+7. Überlappen sich Bild und Motion semantisch? Dann eines entfernen.
+8. Ist ein Diagramm/Beispiel/Vergleich stärker als die Animation?
+9. Braucht die Szene wirklich einen Menschen?
+10. Wiederholt die Szene unnötig die Visual-Logik der letzten Szenen?
+11. Wenn Remotion: Fläche sinnvoll genutzt, nichts abgeschnitten?
+12. Wenn Flow: exakt freigegebene Bildwelt?
+13. Wenn Thumbnail: finale Schrift sichtbar und lesbar?
+14. Exakte Texte/Zahlen korrekt?
 
 ## Validierung
 

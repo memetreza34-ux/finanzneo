@@ -134,14 +134,43 @@ const phaseBContract = {
   fullFrameFlowForbidden: true,
   hybridOverlayMayUseFullFrame: true,
   allowedVisualTypes: ['image', 'hybrid', 'animation', 'data', 'real-asset'],
-  assemblyIntent: 'content-first-mix-of-image-image-plus-remotion-and-full-frame-remotion',
+  assemblyIntent: 'script-first-content-first-earned-motion',
   oneMainIdeaPerVisual: true,
   recommendedVoiceoverSentencesPerImage: [1, 2],
   visualBalanceGuidance: {
-    imageOnlyShare: [0.25, 0.4],
-    imagePlusRemotionShare: [0.3, 0.5],
-    pureRemotionShare: [0.2, 0.35],
     hardQuota: false,
+    percentageTargetsForbidden: true,
+    diagnosticOnly: true,
+    rule: 'Never add motion or hybrid merely to hit a mix. The script determines the mix.',
+  },
+  motionGate: {
+    motionMustExplainTemporalChangeOrDirectAttention: true,
+    animationMustBeatStaticAlternative: true,
+    strongStaticImageMayReplaceAnimation: true,
+    staticDiagramMayReplaceAnimation: true,
+    weakAnimationMustBeDowngraded: true,
+    motionForMotionSakeForbidden: true,
+  },
+  hybridOverlapGuard: {
+    imageAndMotionNeedDistinctJobs: true,
+    semanticOverlapForbidden: true,
+    motionMustNotRepeatWhatImageAlreadyExplains: true,
+    imageMustNotRepeatWhatMotionAlreadyExplains: true,
+    ifRolesOverlapChooseSingleStrongerMedium: true,
+  },
+  scriptVisualPlanning: {
+    standardId: 'finanzneo-youtube-script-visual-planning-v1',
+    planVisualBeforeFinalizingEachScriptBeat: true,
+    eachBeatNeedsVisualIntent: true,
+    eachMotionBeatNeedsStaticAlternative: true,
+    eachHybridBeatNeedsDivisionOfLabor: true,
+    rewriteWeaklyVisualizableScriptBeat: true,
+    factsMustNotBeDistortedForVisualConvenience: true,
+  },
+  visualVarietyGuard: {
+    sameVisualLogicRepeatedWithoutReasonForbidden: true,
+    adjacentRepeatedTemplateNeedsReason: true,
+    varietyServesClarityNotNovelty: true,
   },
   humanUsageGuidance: {
     recommendedMaxShare: 0.4,
@@ -153,6 +182,7 @@ const phaseBContract = {
     abstractOnlySceneNeedsClearExplanatoryAdvantage: true,
     avoidMultipleAbstractSchemasInARow: true,
     preferConcreteAnchorWhenMeaningWouldOtherwiseBeAmbiguous: true,
+    staticDiagramOrExamplePreferredWhenMotionAddsNoValue: true,
   },
   layoutContractId: sharedLayoutContract.id,
 };
@@ -161,6 +191,9 @@ const modeContract = mode === 'images-only' ? phaseAContract : phaseBContract;
 
 writeFileSync(resolve(root, '06-projektdateien/production-mode.json'), `${JSON.stringify(modeContract, null, 2)}\n`);
 writeFileSync(resolve(root, '06-projektdateien/layout-contract.json'), `${JSON.stringify(sharedLayoutContract, null, 2)}\n`);
+
+const scriptVisualPlan = `# Script + Visual Plan\n\nSTANDARD: finanzneo-youtube-script-visual-planning-v1\nPRODUCTION_MODE: ${mode}\n\nDas Skript wird erst gelockt, wenn jeder Beat visuell geplant ist.\n\n## Pflicht pro Beat\n\n- CORE_MESSAGE:\n- VOICEOVER:\n- VISUAL_FORM: image | static-explainer | hybrid | animation | real-asset\n- VISUAL_IDEA:\n- WHY_THIS_FORM:\n- STATIC_ALTERNATIVE:\n- MOTION_VALUE: nur wenn Motion echten Mehrwert hat\n- IMAGE_JOB: nur bei Hybrid\n- MOTION_JOB: nur bei Hybrid\n- OVERLAP_CHECK: PASS nur wenn Bild und Motion verschiedene Jobs haben\n- VARIETY_CHECK: keine unnötige Wiederholung der letzten Szenen\n\n## Regeln\n\n1. Zuerst die stärkste statische Lösung suchen.\n2. Animation nur behalten, wenn Bewegung klarer erklärt als die statische Alternative.\n3. Starkes Bild, Diagramm, Beispiel oder Vergleich darf schwache Animation ersetzen.\n4. Bild + Remotion nur bei klar getrennter Aufgabenteilung.\n5. Wenn Bild und Motion dasselbe sagen, nur das stärkere Medium behalten.\n6. Keine Quote für Motion/Hybrid erfüllen.\n7. Script-Beat umschreiben oder teilen, wenn er keine klare Visualisierung zulässt.\n8. Fakten niemals für Visuals verbiegen.\n`;
+writeFileSync(resolve(root, '06-projektdateien/script-visual-plan.md'), scriptVisualPlan);
 
 const staticKindForType = (type) => {
   if (type === 'hybrid') return '3d-explainer';
@@ -177,6 +210,13 @@ const indexPath = resolve(root, '04-visuals/visual-index.json');
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 index.productionMode = modeContract;
 index.layoutContract = sharedLayoutContract;
+index.scriptVisualPlanning = {
+  standardId: 'finanzneo-youtube-script-visual-planning-v1',
+  planFile: '06-projektdateien/script-visual-plan.md',
+  scriptAndVisualDesignedTogether: true,
+  staticAlternativeRequiredBeforeMotion: mode === 'hybrid',
+  hybridSemanticOverlapForbidden: mode === 'hybrid',
+};
 index.thumbnail = {
   ...(index.thumbnail ?? {}),
   finalCoverTextRequired: true,
@@ -209,14 +249,21 @@ if (mode === 'images-only') {
   }
 } else {
   index.phaseB = {
-    id: 'finanzneo-youtube-phase-b-hybrid-v2',
+    id: 'finanzneo-youtube-phase-b-hybrid-v3-earned-motion',
     contentFirst: true,
+    scriptFirstVisualPlanning: true,
     imageWorldUnchanged: true,
     imageWorldId: 'finanzneo-youtube-grounded-3d-black-v1',
     pureRemotionMayUseFullFrame: true,
     flowImageFullscreenForbidden: true,
-    imagePlusRemotionIsFirstClass: true,
+    imagePlusRemotionAllowedOnlyWhenRolesDiffer: true,
+    staticAlternativeRequiredBeforeMotion: true,
+    strongStaticMayReplaceWeakAnimation: true,
     visualBalanceGuidance: phaseBContract.visualBalanceGuidance,
+    motionGate: phaseBContract.motionGate,
+    hybridOverlapGuard: phaseBContract.hybridOverlapGuard,
+    scriptVisualPlanning: phaseBContract.scriptVisualPlanning,
+    visualVarietyGuard: phaseBContract.visualVarietyGuard,
     humanUsageGuidance: phaseBContract.humanUsageGuidance,
     abstractionGuard: phaseBContract.abstractionGuard,
     motionSafeAreaPx: 64,
@@ -228,9 +275,9 @@ writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`);
 
 const readmePath = resolve(root, 'README.md');
 const readme = readFileSync(readmePath, 'utf8');
-writeFileSync(readmePath, `${readme.trimEnd()}\n\n## Production Mode\n\nPRODUCTION_MODE: ${mode}\nLAYOUT_CONTRACT: ${sharedLayoutContract.id}\nTHUMBNAIL: finaler Cover-Text ist Pflicht vor Export.\n\n${mode === 'images-only'
+writeFileSync(readmePath, `${readme.trimEnd()}\n\n## Production Mode\n\nPRODUCTION_MODE: ${mode}\nLAYOUT_CONTRACT: ${sharedLayoutContract.id}\nSCRIPT_VISUAL_PLAN: 06-projektdateien/script-visual-plan.md\nTHUMBNAIL: finaler Cover-Text ist Pflicht vor Export.\n\n${mode === 'images-only'
   ? 'Phase A bleibt vollständig statisch. Flow-Bilder sind contained und nie fullscreen; statische Remotion-Erklärungen sind erlaubt.'
-  : 'Phase B ist content-first: bewusst zwischen Bild, Bild+Remotion und reiner Remotion wählen. Reine Remotion darf die komplette 1920×1080-Fläche nutzen; Flow-Bilder bleiben contained. Menschen nur bei echtem Reaktions-/Entscheidungswert. Abstrakte Schemata nur bei klarem Erklärvorteil. Kritische Inhalte innerhalb ca. 64 px Safe Area halten und unbeabsichtigtes Cropping vermeiden.'}\n`);
+  : 'Phase B nutzt Earned Motion: Script und Visual zusammen planen, zuerst starke statische Alternative prüfen, Animation nur bei echtem Bewegungsmehrwert. Bild+Remotion nur bei klar getrennten Jobs ohne semantische Überlappung. Starke Bilder, Diagramme, Beispiele oder Vergleiche dürfen schwache Animation ersetzen. Keine Motion-Quote. Reine Remotion darf die komplette 1920×1080-Fläche nutzen; Flow-Bilder bleiben contained. Kritische Inhalte innerhalb ca. 64 px Safe Area halten.'}\n`);
 
 if (mode === 'images-only') {
   const replaceImageOnlyPolicy = (text) => text
@@ -262,5 +309,6 @@ if (mode === 'images-only') {
 console.log(scaffold.stdout.trim());
 console.log(`\n✓ Production Mode gesetzt: ${mode}`);
 console.log(`  Layout: ${sharedLayoutContract.id} · finaler Thumbnail-Text Pflicht · Flow niemals fullscreen`);
+console.log('  Script+Visual-Plan erzeugt: 06-projektdateien/script-visual-plan.md');
 if (mode === 'images-only') console.log('  Phase A Static · keine Animation');
-else console.log('  Phase B Hybrid · Bild + Remotion ausdrücklich erwünscht · reine Motion Full-Frame erlaubt · Crop-Safe-Area beachten');
+else console.log('  Phase B Earned Motion · statische Alternative zuerst · Hybrid nur ohne semantische Überlappung · keine Motion-Quote');

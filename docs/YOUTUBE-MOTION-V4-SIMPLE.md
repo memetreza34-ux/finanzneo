@@ -1,4 +1,4 @@
-# FinanzNeo YouTube Motion V4 — Simple Finance / Balanced Hybrid
+# FinanzNeo YouTube Motion V4 — Simple Finance / Earned Motion
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v4-simple`
 
@@ -6,21 +6,60 @@
 
 Ein Gedanke → ein klares Visual → nur so viel Bewegung wie nötig.
 
-Phase B ist nicht automatisch Remotion-first. Die Toolwahl folgt dem Inhalt und der Visual-Selection-Regel.
+Phase B erlaubt Motion, aber Motion ist **kein Ziel an sich**. Eine starke statische Lösung darf jede schwächere Animation ersetzen.
 
-## Visualwahl in Phase B
+## Vor Motion immer statisch denken
 
-Vor Motion immer prüfen:
+Pflicht-Reihenfolge:
 
 ```text
 Was muss verstanden oder erinnert werden?
-→ konkrete Situation/Emotion? → Bild
-→ Situation + exakte Veränderung/Zahl? → Bild + Remotion
-→ Zahl/Prozess/Entwicklung allein klarer? → reine Remotion
-→ reale Quelle nötig? → echtes Asset
+→ bestes Standbild / Beispiel / Diagramm / Vergleich bestimmen
+→ braucht die Aussage echte Veränderung über Zeit?
+→ ist Motion deutlich stärker als die statische Alternative?
+→ erst dann animieren
 ```
 
-Kanonisch: `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
+Kanonisch:
+- `docs/YOUTUBE-SCRIPT-VISUAL-PLANNING.md`
+- `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`
+
+## Animation muss ihren Mehrwert verdienen
+
+Motion ist sinnvoll bei:
+- Veränderung über Zeit;
+- Reihenfolge / Prozess;
+- Aufbau oder Zerlegung;
+- Geldfluss;
+- zeitlichem Vergleich;
+- gezielter Blickführung zwischen mehreren Zuständen.
+
+Motion ist nicht sinnvoll, wenn:
+- nur ein Objekt wackelt oder fährt, ohne neue Information;
+- ein Diagramm statisch bereits alles erklärt;
+- ein starkes Bild emotionaler und merkbarer ist;
+- Bewegung nur eingebaut wird, weil Phase B Animation erlaubt.
+
+**Schwache Animation → durch Bild, Diagramm, Vergleich oder statischen Explainer ersetzen.**
+
+## Bild + Remotion nur ohne Überlappung
+
+Hybrid ist nur zulässig, wenn Bild und Motion unterschiedliche Jobs haben.
+
+Beispiel gut:
+- Bild = konkrete Einkaufssituation;
+- Motion = exakte Preisentwicklung über Zeit.
+
+Beispiel schlecht:
+- Bild = kleiner werdender Einkauf;
+- Motion = nochmals kleiner werdender Einkauf.
+
+Vor Hybrid festlegen:
+- `IMAGE_JOB:`
+- `MOTION_JOB:`
+- `OVERLAP_CHECK:` PASS
+
+Wenn die Jobs gleich sind: nur die stärkere Ebene behalten.
 
 ## Reine Remotion darf Full-Frame sein
 
@@ -33,32 +72,37 @@ Reine Animationen dürfen die komplette 1920×1080-Fläche nutzen.
 - kein unbeabsichtigtes Clipping/Cropping;
 - Fläche sinnvoll nutzen, statt nur einen kleinen Block in die Mitte zu stellen.
 
-## Bild + Remotion
+## Keine Quoten
 
-Hybrid ist eine vollwertige Hauptform und ausdrücklich erwünscht, wenn beides hilft.
+Es gibt keine Zielquote für Animationen oder Hybrid-Szenen.
 
-- Flow-Bild liefert konkrete Situation / Erinnerung / Emotion;
-- Remotion liefert exakte Zahl, Pfeil, Geldfluss, Highlight, Vergleich oder zeitliche Veränderung;
-- Flow-Bild selbst bleibt contained und nie fullscreen;
-- Remotion darf über das Bildfenster hinaus die komplette Szene nutzen;
-- Bild und Motion als eine Komposition planen.
+Die Mischung folgt dem Script. Ein Video mit vielen starken Bildern und wenigen guten Animationen ist besser als ein Video mit vielen mittelmäßigen Animationen.
 
-Hybrid nicht nur nutzen, um ein Bild grundlos zu bewegen.
+## Visual-Vielfalt
 
-## Balance
+Motion ist nur eine Visualfamilie unter mehreren.
 
-Keine harte Quote. Weiche Orientierung:
-- 25–40 % Bild;
-- 30–50 % Bild + Remotion;
-- 20–35 % reine Remotion.
+Abwechseln, wenn es inhaltlich hilft:
+- 3D-Storybild;
+- konkretes Beispiel;
+- Vorher/Nachher;
+- Side-by-Side-Vergleich;
+- Diagramm;
+- Chart;
+- Beispielrechnung;
+- Timeline;
+- Infokarte;
+- Ursache/Wirkung-Schema;
+- echte Quelle;
+- Motion-Prozess.
 
-Wenn der Inhalt anderes verlangt, abweichen. Ziel: kein monotones Remotion-only-Video.
+Keine mechanische Wiederholung derselben Balken-, Karten- oder Geldfluss-Animation.
 
 ## Menschen und Abstraktion
 
 Menschen nur wenn Reaktion, Entscheidung, Aufmerksamkeit oder Konsequenz erklärt werden. Wiederholte Mensch+Fragezeichen-Schablonen vermeiden.
 
-Abstrakte Balken/Blöcke/Schemata nur wenn sie klarer erklären. Wenn ohne Voiceover unklar, konkreten Anker ergänzen oder Bild+Remotion wählen.
+Abstrakte Balken/Blöcke/Schemata nur wenn sie klarer erklären. Wenn ein statisches Beispiel oder Diagramm stärker ist, dieses bevorzugen.
 
 ## Standard-Bausteine
 
@@ -74,6 +118,8 @@ Abstrakte Balken/Blöcke/Schemata nur wenn sie klarer erklären. Wenn ohne Voice
 - HighlightText
 - Allocation
 - Formula
+
+Diese Bausteine dürfen **statisch oder animiert** gedacht werden. Animation nur, wenn der zeitliche Aufbau Mehrwert hat.
 
 ## Standard-Motion
 
@@ -114,15 +160,17 @@ Keine Änderung der freigegebenen Bildwelt durch Hybrid-Planung.
 ## Qualitätsprüfung
 
 1. Hauptgedanke in 1–2 Sekunden verständlich?
-2. Bewegung erklärt oder fokussiert wirklich etwas?
-3. Wäre Bild+Remotion merkbarer als reine Remotion?
-4. Ist die Szene unnötig abstrakt?
-5. Wird ein Mensch nur bei echtem Mehrwert eingesetzt?
-6. Nutzt reine Motion die Fläche sinnvoll?
-7. Ist nichts Wichtiges abgeschnitten?
-8. Sind Texte/Zahlen groß und exakt lesbar?
-9. Wenn Flow: korrekte 3D-Bildwelt und Flow-Bild nicht fullscreen?
+2. Was wäre die beste statische Alternative?
+3. Erklärt Bewegung etwas, das statisch schlechter wäre?
+4. Wenn nein: Animation entfernen.
+5. Wenn Hybrid: unterschiedliche Jobs ohne semantische Doppelung?
+6. Ist ein Diagramm/Beispiel/Vergleich stärker?
+7. Wiederholt die Szene eine Animation der letzten Szenen?
+8. Nutzt reine Motion die Fläche sinnvoll?
+9. Ist nichts Wichtiges abgeschnitten?
+10. Sind Texte/Zahlen groß und exakt lesbar?
+11. Wenn Flow: korrekte 3D-Bildwelt und Flow-Bild nicht fullscreen?
 
 ## Kurzregel
 
-> Phase B = content-first: Bild, Bild+Remotion und reine Remotion bewusst mischen. Reine Motion darf Full-Frame sein. Flow bleibt contained. Motion erklärt, statt nur zu dekorieren.
+> **Phase B = earned motion. Erst die stärkste statische Visualisierung suchen. Animation nur, wenn Bewegung wirklich besser erklärt. Hybrid nur mit getrennten Jobs.**

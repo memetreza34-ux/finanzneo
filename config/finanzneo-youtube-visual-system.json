@@ -6,6 +6,7 @@
   "imageWorldReferenceProject": "youtube/warum-dein-geld-verschwindet-images-only",
   "imageWorldReferencePolicy": "copy-last-good-video-exactly",
   "flowStoryboardStandard": "finanzneo-youtube-flow-storyboard-v1",
+  "scriptVisualPlanningStandard": "finanzneo-youtube-script-visual-planning-v1",
   "thumbnailContract": {
     "finalCoverTextRequired": true,
     "headlineMustBePresentBeforeFinalExport": true,
@@ -58,20 +59,60 @@
       "mixIsHardQuota": false
     },
     "hybrid": {
-      "description": "Phase B: keep the approved image world, but choose among image-only, image+Remotion and pure Remotion per beat. Pure Remotion may use the full 1920x1080 canvas; Flow images remain contained.",
+      "description": "Phase B permits motion but never requires it. Choose the strongest visual per beat: strong image, static explainer, image+Remotion with distinct jobs, pure motion only when time/change is clearer in motion, or a real asset.",
       "allowedVisualTypes": ["image", "hybrid", "animation", "data", "real-asset"],
       "remotionAnimationAllowed": true,
       "fullFrameRemotionAllowed": true,
       "fullFrameFlowForbidden": true,
-      "imagePlusRemotionEncouragedWhenBothContextAndTemporalExplanationHelp": true,
+      "imagePlusRemotionAllowedOnlyWhenRolesDiffer": true,
       "oneMainIdeaPerVisual": true,
       "recommendedVoiceoverSentencesPerImage": [1, 2],
       "visualBalanceGuidance": {
-        "imageOnlyShare": [0.25, 0.4],
-        "imagePlusRemotionShare": [0.3, 0.5],
-        "pureRemotionShare": [0.2, 0.35],
         "hardQuota": false,
-        "rule": "Do not let pure Remotion dominate when a strong 3D image or image+Remotion combination would make the idea easier to understand or remember."
+        "percentageTargetsForbidden": true,
+        "diagnosticOnly": true,
+        "rule": "Never add animation, hybrid layers or extra images merely to hit a mix. Use as many strong images, diagrams, examples or motion scenes as the script actually needs."
+      },
+      "motionGate": {
+        "motionMustExplainTemporalChangeOrDirectAttention": true,
+        "animationMustBeatStaticAlternative": true,
+        "strongStaticImageMayReplaceAnimation": true,
+        "staticDiagramMayReplaceAnimation": true,
+        "weakAnimationMustBeDowngraded": true,
+        "motionForMotionSakeForbidden": true
+      },
+      "hybridOverlapGuard": {
+        "imageAndMotionNeedDistinctJobs": true,
+        "semanticOverlapForbidden": true,
+        "motionMustNotRepeatWhatImageAlreadyExplains": true,
+        "imageMustNotRepeatWhatMotionAlreadyExplains": true,
+        "ifRolesOverlapChooseSingleStrongerMedium": true
+      },
+      "scriptVisualPlanning": {
+        "planVisualBeforeFinalizingEachScriptBeat": true,
+        "eachBeatNeedsVisualIntent": true,
+        "eachMotionBeatNeedsStaticAlternative": true,
+        "eachHybridBeatNeedsDivisionOfLabor": true,
+        "rewriteWeaklyVisualizableScriptBeat": true,
+        "factsMustNotBeDistortedForVisualConvenience": true
+      },
+      "visualVarietyGuard": {
+        "sameVisualLogicRepeatedWithoutReasonForbidden": true,
+        "adjacentRepeatedTemplateNeedsReason": true,
+        "varietyServesClarityNotNovelty": true,
+        "preferredFamilies": [
+          "3d-story-image",
+          "concrete-example",
+          "before-after",
+          "comparison",
+          "diagram",
+          "chart",
+          "calculation",
+          "timeline",
+          "static-info",
+          "motion-process",
+          "real-asset"
+        ]
       },
       "humanUsageGuidance": {
         "recommendedMaxShare": 0.4,
@@ -83,13 +124,15 @@
       "abstractionGuard": {
         "abstractOnlySceneNeedsClearExplanatoryAdvantage": true,
         "avoidMultipleAbstractSchemasInARow": true,
-        "preferConcreteAnchorWhenMeaningWouldOtherwiseBeAmbiguous": true
+        "preferConcreteAnchorWhenMeaningWouldOtherwiseBeAmbiguous": true,
+        "staticDiagramOrExamplePreferredWhenMotionAddsNoValue": true
       }
     }
   },
   "principles": {
     "simplestVisualFirst": true,
     "contentFirstNotToolFirst": true,
+    "scriptAndVisualPlanAreDesignedTogether": true,
     "oneMainIdeaPerVisual": true,
     "recommendedVoiceoverSentencesPerFlowImage": [1, 2],
     "splitMultiIdeaBeats": true,
@@ -99,10 +142,14 @@
     "sharedBrandLogicAcrossModes": true,
     "sameSceneLayoutAcrossModes": false,
     "phaseBMayUseFullFrameRemotion": true,
+    "phaseBDoesNotRequireMotion": true,
     "imagesOnlyModeDisablesAnimationNotLayout": true,
     "remotionOwnsExactTextAndNumbers": true,
     "flowImageCanReserveNegativeSpaceForOverlays": true,
-    "hybridImagePlusRemotionIsFirstClass": true,
+    "hybridOnlyWhenImageAndMotionHaveDistinctJobs": true,
+    "semanticImageMotionOverlapForbidden": true,
+    "strongStaticVisualMayReplaceWeakAnimation": true,
+    "diagramExampleOrComparisonMayReplaceAnimation": true,
     "flowIsNotAutomaticallyAnExceptionInHybridWhenStoryContextHelps": true,
     "realAssetsPreferredOverGeneratedImitations": true,
     "stylized3DForFlowImages": true,
@@ -117,20 +164,25 @@
     "staticCatalogDefaultForbidden": true,
     "stagingMustFollowSpokenPoint": true,
     "repeatedFloatingObjectTemplateForbidden": true,
+    "repeatedVisualLogicWithoutReasonForbidden": true,
     "reusableExplainerPatternsAreAllowed": true,
     "noveltyForItsOwnSake": false,
     "unintentionalCropForbidden": true
   },
   "hybridDecisionOrder": [
     "Decide what the viewer must understand or remember",
-    "Choose concrete 3D image when situation/emotion/context is the clearest memory aid",
-    "Choose image+Remotion when concrete context and exact temporal explanation both add value",
-    "Choose pure Remotion when numbers/process/change are clearer without a generated scene",
-    "Choose real asset when reality/source evidence matters"
+    "Choose the best static visual first: story image, concrete example, comparison, diagram, chart or calculation",
+    "Ask whether time/change is essential and whether motion is clearly stronger than the static alternative",
+    "Use image+Remotion only when image and motion have different non-overlapping jobs",
+    "If image and motion communicate the same thing, keep only the stronger medium",
+    "Choose pure Remotion when process/change over time is genuinely clearer in motion",
+    "Choose real asset when reality/source evidence matters",
+    "Before locking the script beat, confirm the chosen visual is producible and not a repeat of recent visual logic"
   ],
   "remotionBestFor": ["big-number", "comparison", "percentage", "bar-chart", "line-chart", "timeline", "money-flow", "process-steps", "simple-diagram", "highlight-text", "allocation", "formula"],
+  "staticExplainerBestFor": ["diagram", "before-after", "comparison", "worked-example", "calculation", "three-step-summary", "simple-chart", "labelled-object", "cause-effect-map"],
   "flowBestFor": ["everyday-finance-situation", "concrete-real-world-problem", "human-scale-context", "simple-emotional-moment", "physical-cause-effect-story"],
-  "hybridBestFor": ["real-world-image-plus-exact-number", "image-plus-money-flow", "image-plus-arrow-or-label", "image-plus-highlight", "image-plus-temporal-change"],
+  "hybridBestFor": ["real-world-image-plus-exact-number", "image-plus-nonredundant-money-flow", "image-plus-nonredundant-highlight", "image-plus-temporal-change-that-the-still-cannot-show"],
   "flowPromptSections": ["FINAL FILE NAME", "VOICEOVER CONTEXT", "SCENE", "IMPORTANT GERMAN OBJECT LABELS", "OBJECTS", "VISUAL STORYTELLING", "COMPOSITION", "MATERIALS", "BACKGROUND", "LIGHTING", "COLOR LANGUAGE", "TEXT", "FORBIDDEN"],
   "flowHandoff": {
     "singleSharedPromptMayContainMultipleImageBlocks": true,
@@ -142,6 +194,7 @@
   "qa": [
     "main idea understandable in 1-2 seconds",
     "one dominant thought",
+    "script beat already has a clear visual plan before it is considered final",
     "final thumbnail contains a short strong readable headline before export",
     "Flow image visibly matches the approved last-good-video stylized premium 3D animation-film world",
     "human characters are used only when reaction choice attention or consequence materially helps",
@@ -150,10 +203,14 @@
     "Flow image is not a static tabletop/catalog product shot",
     "exact explanatory text and important numbers are rendered by the video layout",
     "Phase A contains no frame-to-frame animation",
-    "Phase B deliberately mixes image-only, image+Remotion and pure Remotion when useful",
+    "Phase B never adds motion merely because motion is available",
+    "every animated beat is stronger in motion than its static alternative",
+    "image+Remotion layers have different non-overlapping jobs",
+    "a stronger still image diagram example or comparison replaces weak animation",
+    "visual logic does not repeat mechanically across neighboring scenes",
     "pure Remotion in Phase B may use the full 1920x1080 canvas",
     "Flow imagery itself is never fullscreen",
-    "hybrid Remotion overlays may extend outside the contained Flow window when this improves explanation",
+    "hybrid Remotion overlays may extend outside the contained Flow window only when this improves explanation",
     "no important animation element is unintentionally cropped or clipped",
     "critical animated content remains inside the motion safe area",
     "abstract schemas are used only when they explain more clearly than a concrete visual",

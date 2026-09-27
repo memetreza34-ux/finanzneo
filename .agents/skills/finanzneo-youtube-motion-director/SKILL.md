@@ -1,29 +1,48 @@
 ---
 name: finanzneo-youtube-motion-director
-description: Directs FinanzNeo YouTube Longform with content-first visual selection, balanced image/image+Remotion/Remotion use, safe full-frame Phase-B motion and the locked FinanzNeo 3D world.
+description: Directs FinanzNeo YouTube Longform with script-first visual planning, earned motion, non-overlapping hybrid layers, strong static alternatives, safe full-frame Phase-B motion and the locked FinanzNeo 3D world.
 ---
 
-# FinanzNeo YouTube Motion Director V5 Balanced Hybrid
+# FinanzNeo YouTube Motion Director V6 Earned Motion
 
 ## Goal
 
-Make finance easy to understand and easy to remember. Choose the visual form from the spoken point, not from a preferred tool.
+Make finance easy to understand and easy to remember. Script and visual are designed together. Choose the strongest visual form from the spoken point, not from a preferred tool.
 
-> **Clarity first. Memory aid second. Tool choice third.**
+> **Clarity first. Strong static idea second. Motion only when it earns its place.**
 
 ## Authority
 
 Read in this order:
 1. `CLAUDE.md`
 2. `youtube/PRODUKTIONSSTANDARD.md`
-3. `docs/YOUTUBE-PRODUCTION-MODES.md`
-4. `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`
-5. `docs/YOUTUBE-FLOW-STORYBOARD-STANDARD.md`
-6. `docs/YOUTUBE-MOTION-V4-SIMPLE.md`
-7. `config/finanzneo-youtube-visual-system.json`
-8. target `04-visuals/visual-index.json`
+3. `docs/YOUTUBE-SCRIPT-VISUAL-PLANNING.md`
+4. `docs/YOUTUBE-PRODUCTION-MODES.md`
+5. `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`
+6. `docs/YOUTUBE-FLOW-STORYBOARD-STANDARD.md`
+7. `docs/YOUTUBE-MOTION-V4-SIMPLE.md`
+8. `config/finanzneo-youtube-visual-system.json`
+9. target `04-visuals/visual-index.json`
 
 Reel rules do not automatically apply to YouTube Longform.
+
+## Script-first visual planning — mandatory
+
+Do not finish the Voiceover first and invent visuals afterward.
+
+For every beat before Script Lock define:
+- `CORE_MESSAGE`
+- `VOICEOVER`
+- `VISUAL_FORM`
+- `VISUAL_IDEA`
+- `WHY_THIS_FORM`
+- `STATIC_ALTERNATIVE`
+- `MOTION_VALUE` when motion is considered
+- `IMAGE_JOB` and `MOTION_JOB` when hybrid is considered
+- `OVERLAP_CHECK`
+- `VARIETY_CHECK`
+
+If a beat has no strong visual path, rewrite or split the beat before finalizing the script. Never distort facts for visual convenience.
 
 ## Scene granularity
 
@@ -34,27 +53,75 @@ One visual beat carries one dominant idea. A Flow image normally covers 1–2 sh
 For every beat ask:
 
 1. What must the viewer understand or remember?
-2. Is a concrete 3D image the strongest memory aid?
-3. Would image + Remotion explain it better than either alone?
-4. Is pure Remotion clearer because the point is mainly number/process/change?
-5. Is a real asset required?
+2. What is the strongest static solution: story image, example, comparison, diagram, chart, calculation or real asset?
+3. Does movement communicate something the static solution cannot communicate as clearly?
+4. If hybrid: do image and motion have different jobs?
+5. Does this repeat the visual logic of recent scenes?
 
 Use:
 - **image** for concrete situation, emotion, cause/effect or memorable everyday context;
-- **hybrid** for concrete image + exact temporal explanation;
-- **animation/data** for pure number/process/change when no image adds value;
+- **static explainer** for diagram, comparison, worked example, chart, calculation or before/after when motion adds no value;
+- **hybrid** only for concrete image + non-redundant temporal/exact explanation;
+- **animation/data** only when process/change over time is genuinely clearer in motion;
 - **real-asset** for real sources/documents/websites/products.
 
 Do not default to Remotion just because it is available.
 
-## Balanced Hybrid guidance
+## No visual quotas
 
-No hard quota, but typical Phase-B target:
-- 25–40% image-only;
-- 30–50% image + Remotion;
-- 20–35% pure Remotion.
+There is no target percentage for image, hybrid or animation.
 
-If pure Remotion starts dominating while strong images or hybrids would improve comprehension or memory, re-plan the storyboard.
+Never add motion or hybrid layers merely to create a balanced-looking mix. A video with many strong images and only a few strong animations is valid.
+
+## Earned-motion gate
+
+Before keeping an animation, name the static alternative.
+
+Animation is justified when motion materially explains:
+- change over time;
+- sequence/process;
+- build-up or breakdown;
+- money flow;
+- transition between meaningful states;
+- guided attention across several states.
+
+If a strong still image, diagram, example, comparison or static chart is equally clear or better looking, use the static solution.
+
+Weak motion must be downgraded instead of polished indefinitely.
+
+## Hybrid overlap guard
+
+Image + Remotion is allowed only when the layers have **different semantic jobs**.
+
+Good:
+- `IMAGE_JOB`: real grocery context;
+- `MOTION_JOB`: exact price increase over time.
+
+Bad:
+- image already shows a shrinking grocery basket;
+- motion repeats the same shrinking grocery basket.
+
+If `IMAGE_JOB` and `MOTION_JOB` overlap, keep only the stronger medium or redesign the scene.
+
+No double explanation. No overlay just to make the scene move.
+
+## Visual variety
+
+Use different visual families when they improve clarity or rhythm:
+- 3D story image;
+- concrete example;
+- before/after;
+- side-by-side comparison;
+- diagram;
+- chart;
+- worked calculation;
+- timeline;
+- static info card;
+- cause/effect map;
+- real asset;
+- motion process.
+
+Avoid repeating the same visual template in adjacent scenes unless the repetition itself is meaningful.
 
 ## Humans
 
@@ -67,8 +134,6 @@ Avoid:
 - repeated person + question mark staging;
 - several similar human scenes in a row.
 
-Soft guidance: roughly no more than 40% human scenes unless the story clearly needs more.
-
 When used, characters must belong to the approved premium stylized animation-film world — no blank faceless mannequins, photoreal people or corporate 3D avatars.
 
 ## Abstraction guard
@@ -78,9 +143,9 @@ Blocks, paths, bars and schemas are allowed only when they explain quickly.
 If an abstract scene would be confusing without Voiceover:
 - add a concrete anchor;
 - simplify it;
-- or use image + Remotion.
+- or replace it with a static example/diagram.
 
-Avoid chains of abstract-only scenes when a concrete or hybrid scene would improve recall.
+Avoid chains of abstract-only scenes when concrete images or examples improve recall.
 
 ## Full-frame Phase-B motion
 
@@ -94,8 +159,8 @@ Pure Remotion scenes may use the entire 1920×1080 canvas.
 
 For image + Remotion:
 - Flow image itself stays contained and never fullscreen;
-- Remotion overlays may extend beyond the image window and use the full scene;
-- plan image and overlay as one composition.
+- Remotion overlays may extend beyond the image window only when they add a different explanatory job;
+- remove overlays that merely restate the image.
 
 ## Flow image world
 
@@ -146,6 +211,8 @@ Prefer reusable patterns when clear:
 - Allocation
 - Formula
 
+These patterns may remain static if animation adds no explanatory value.
+
 Standard motion presets:
 - `FADE_IN`
 - `SLIDE_UP`
@@ -157,21 +224,24 @@ Standard motion presets:
 - `HIGHLIGHT`
 - `SLOW_ZOOM`
 
-Advanced motion only when a simpler pattern cannot communicate the idea equally well.
+Advanced motion only when a simpler static or animated pattern cannot communicate the idea equally well.
 
 ## QA
 
 Before accepting each Phase-B scene:
 1. Main idea readable in 1–2 seconds?
-2. Is this the best of image / image+Remotion / pure Remotion / real asset?
-3. Does a person genuinely add explanatory value?
-4. Is the scene too abstract?
-5. Does motion explain rather than decorate?
-6. If pure Remotion: does it use full-frame space well?
-7. Is any important element clipped/cropped?
-8. If Flow: exact approved 3D world and contained image?
-9. Are exact text/numbers handled by layout/Remotion?
-10. Does the thumbnail have final readable text?
+2. Was the visual planned together with the script beat?
+3. What is the strongest static alternative?
+4. Does motion add information, not decoration?
+5. If hybrid: are image and motion jobs different and non-overlapping?
+6. Would a diagram/example/comparison be stronger than this animation?
+7. Does a person genuinely add explanatory value?
+8. Does the scene repeat recent visual logic?
+9. If pure Remotion: does it use full-frame space well?
+10. Is any important element clipped/cropped?
+11. If Flow: exact approved 3D world and contained image?
+12. Are exact text/numbers handled by layout/Remotion?
+13. Does the thumbnail have final readable text?
 
 ## Phase ownership
 

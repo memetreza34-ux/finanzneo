@@ -1,6 +1,6 @@
-# FinanzNeo Visual Selection Rule V2
+# FinanzNeo Visual Selection Rule V3
 
-`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v2`
+`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v3`
 
 ## Kernprinzip
 
@@ -9,69 +9,128 @@ Nicht mit einem Tool beginnen. Immer zuerst:
 ```text
 Sprechpunkt
 → was muss der Zuschauer verstehen oder erinnern?
-→ welches Visual macht das am schnellsten klar?
-→ erst dann Werkzeug wählen
+→ stärkste statische Visualisierung bestimmen
+→ erst dann prüfen, ob Bewegung zusätzlich hilft
+→ erst danach Werkzeug wählen
 ```
 
 **Komplexer Inhalt bedeutet nicht komplexes Visual.**
+
+## Script und Visual werden zusammen gebaut
+
+Das Voiceover ist nicht unabhängig vom Visual.
+
+Vor Script-Lock braucht jeder Beat:
+- klare Kernaussage;
+- konkrete Visualidee;
+- gewählte Visualform;
+- statische Alternative;
+- bei Motion: klarer Bewegungsmehrwert;
+- bei Hybrid: klare Aufgabenteilung ohne semantische Überlappung;
+- Variety-Check gegen die letzten Szenen.
+
+Kanonisch: `docs/YOUTUBE-SCRIPT-VISUAL-PLANNING.md`.
 
 ## YouTube Longform
 
 `YOUTUBE_VISUAL_PROFILE: finanzneo-youtube-simple-finance-v2`
 
-Für YouTube gibt es keinen pauschalen „Remotion zuerst“-Zwang mehr. Das letzte Hybrid-Video war dadurch zu Remotion-lastig. Ab jetzt gilt **content-first**.
+Phase B ist **content-first und static-first in der Prüfung**: zuerst die beste statische Denkstütze suchen; Motion wird nur genommen, wenn sie stärker erklärt.
 
-### Vier mögliche Hauptformen
+### Fünf mögliche Hauptformen
 
-#### 1. Bild
+#### 1. Starkes Bild
 
 Nutzen, wenn konkrete Situation, Emotion, Alltag oder räumliche Ursache/Wirkung die beste Denkstütze ist.
 
+#### 2. Statischer Explainer
+
+Nutzen, wenn ein Diagramm, Vergleich, Vorher/Nachher, eine Beispielrechnung, Infokarte oder ein Schema klarer ist als eine animierte Szene.
+
+Ein Phase-B-Video darf bewusst statische Erklärbilder enthalten. Phase B erlaubt Motion; sie verpflichtet nicht dazu.
+
+#### 3. Bild + Remotion
+
+Nur nutzen, wenn beide Ebenen unterschiedliche Aufgaben haben.
+
+Gutes Beispiel:
+- Bild zeigt die reale Einkaufssituation;
+- Remotion zeigt den exakten Preisunterschied oder die Veränderung über Zeit.
+
+Schlechtes Beispiel:
+- Bild zeigt bereits einen schrumpfenden Einkauf;
+- Animation zeigt nochmals denselben schrumpfenden Einkauf.
+
+**Wenn Bild und Motion dasselbe sagen, nur die stärkere Ebene behalten.**
+
+#### 4. Reine Remotion
+
+Nur nutzen, wenn Veränderung, Reihenfolge, Prozess oder Aufbau in Bewegung tatsächlich klarer ist.
+
 Beispiele:
-- unerwartete Reparatur;
-- Einkauf / Alltag;
-- Entscheidung vor einem Kauf;
-- Gehalt kommt an, aber Wallet bleibt dünn.
-
-#### 2. Bild + Remotion
-
-Nutzen, wenn das Bild den Kontext merkbar macht und Remotion zusätzlich exakt erklären soll.
-
-Beispiele:
-- Alltagsszene + Zahl;
-- 3D-Bild + Geldfluss;
-- Bild + Pfeil/Highlight;
-- Bild + Vorher/Nachher-Wert;
-- Bild + animierte Kostenaufschlüsselung.
-
-Das ist in Phase B eine **vollwertige Hauptform**, kein Notbehelf.
-
-#### 3. Reine Remotion
-
-Nutzen, wenn Zahl, Vergleich, Prozess, Aufteilung oder Entwicklung ohne Bild schneller und klarer ist.
-
-Beispiele:
-- Gehalt 2.500 € → 3.000 €;
-- Ausgaben steigen mit;
-- Fixkostenbalken;
+- Geldfluss;
 - Zeitverlauf;
-- Spar-/Investitionsaufteilung.
+- schrittweiser Aufbau;
+- Aufteilung;
+- Wert verändert sich sichtbar über mehrere Zustände.
 
-Reine Remotion darf in Phase B die volle 1920×1080-Fläche nutzen.
+Nicht nutzen, wenn ein starkes Standbild, Diagramm oder Beispiel gleich gut oder besser funktioniert.
 
-#### 4. Echtes Asset
+#### 5. Echtes Asset
 
 Nutzen für reale Website, App, Dokument, Factsheet, Quelle, Logo oder Produkt, wenn Realität wichtig ist.
 
-## Phase-B-Balance
+## Keine Quoten
 
-Keine harte Quote, aber als Schutz gegen monotone Videos:
+Es gibt keine Zielprozente für Bild, Hybrid oder Remotion.
 
-- ungefähr 25–40 % Bild;
-- ungefähr 30–50 % Bild + Remotion;
-- ungefähr 20–35 % reine Remotion.
+Die Mischung ist ein Ergebnis des Scripts, kein Produktionsziel.
 
-Diese Bereiche dürfen verlassen werden, wenn der Inhalt es klar verlangt. Sie sollen nur verhindern, dass ein Hybrid-Video fast nur aus Remotion oder fast nur aus Bildern besteht.
+Verboten:
+- Animation einbauen, nur um mehr Motion zu haben;
+- Hybrid einbauen, nur um Abwechslung vorzutäuschen;
+- ein gutes Bild durch schwächere Animation ersetzen;
+- dieselbe Visual-Schablone mehrfach nutzen, nur weil sie schnell produzierbar ist.
+
+## Animation-Gate
+
+Vor jeder geplanten Animation:
+
+1. Was ist die beste statische Alternative?
+2. Welche Information liefert nur die Bewegung?
+3. Würde der Zuschauer ohne Motion genauso schnell verstehen?
+4. Sieht die statische Lösung sogar besser und merkbarer aus?
+
+Wenn 2 nicht klar beantwortet werden kann oder 3/4 für statisch sprechen: **keine Animation**.
+
+## Hybrid-Overlap-Guard
+
+Bild und Motion brauchen getrennte Rollen.
+
+- `IMAGE_JOB`: Kontext, Situation, räumlicher Anker, Emotion oder konkretes Beispiel.
+- `MOTION_JOB`: Veränderung, Ablauf, Zahl, Hervorhebung oder zeitliche Beziehung, die das Bild nicht bereits erklärt.
+
+Wenn sich `IMAGE_JOB` und `MOTION_JOB` inhaltlich überschneiden, Szene neu planen oder eine Ebene entfernen.
+
+## Visual-Vielfalt
+
+Nicht immer dieselben Bilder und nicht immer dieselben Diagramme.
+
+Mögliche Familien:
+- 3D-Storybild;
+- konkretes Beispiel;
+- Vorher/Nachher;
+- Side-by-Side;
+- Diagramm;
+- Chart;
+- Beispielrechnung;
+- Timeline;
+- Infokarte;
+- Ursache/Wirkung-Schema;
+- reales Asset;
+- Animation bei echter zeitlicher Veränderung.
+
+Mehrere benachbarte Szenen mit derselben Logik brauchen einen inhaltlichen Grund.
 
 ## Menschen-Regel
 
@@ -88,8 +147,6 @@ Nicht sinnvoll:
 - dieselbe Figur schaut immer wieder fragend auf Objekte;
 - mehrere Szenen hintereinander nutzen dieselbe Menschen-Schablone.
 
-Weiche Orientierung: ungefähr maximal 40 % Menschenszenen, außer die Story braucht bewusst mehr.
-
 ## Abstraktions-Guard
 
 Abstrakte Balken, Blöcke, Wege, Karten oder 3D-Schemata nur nutzen, wenn sie den Gedanken wirklich schneller erklären.
@@ -100,10 +157,8 @@ Prüfung:
 
 Wenn nein:
 - konkreten visuellen Anker ergänzen;
-- oder Bild + Remotion wählen;
+- oder statisches Beispiel/Diagramm wählen;
 - oder das Schema vereinfachen.
-
-Mehrere abstrakte Schemata direkt hintereinander vermeiden, wenn konkrete Bilder oder Hybride dazwischen die Erinnerung verbessern.
 
 ## Flow-Regel
 
@@ -145,26 +200,28 @@ In Phase B darf eine reine Remotion-Szene die komplette 1920×1080-Fläche nutze
 - kein unbeabsichtigtes Clipping/Cropping;
 - Überschrift/Icon können als Teil der Full-Frame-Komposition integriert werden.
 
-Bei Bild + Remotion bleibt das Flow-Bild contained; Motion darf darüber hinausgehen, wenn es die Erklärung verbessert.
+Bei Bild + Remotion bleibt das Flow-Bild contained; Motion darf darüber hinausgehen, wenn sie einen **anderen** Erklärjob übernimmt.
 
 ## Qualitätsfragen
 
 Vor jeder Szene:
 
 1. Was soll der Zuschauer nach 1–2 Sekunden verstanden haben?
-2. Braucht die Szene wirklich einen Menschen?
-3. Ist ein konkretes Bild merkbarer als eine abstrakte Grafik?
-4. Würde Bild + Remotion besser funktionieren als nur eines von beiden?
-5. Wenn reine Remotion: nutzt sie die verfügbare Fläche sinnvoll und ohne Cropping?
-6. Wenn Flow: passt das Bild exakt zur freigegebenen Bildwelt?
-7. Ist wichtige Schrift/Zahl exakt und lesbar?
-8. Wiederholt die Szene unnötig die Visual-Logik der letzten Szenen?
-9. Kann etwas entfernt werden, ohne Verständnis zu verlieren?
+2. Was ist die beste statische Lösung?
+3. Braucht die Szene wirklich Bewegung?
+4. Wenn Motion: was erklärt Bewegung zusätzlich?
+5. Wenn Hybrid: sind `IMAGE_JOB` und `MOTION_JOB` klar getrennt?
+6. Würde ein Diagramm, Beispiel oder Vergleich besser aussehen/funktionieren?
+7. Braucht die Szene wirklich einen Menschen?
+8. Wiederholt sie unnötig die Visual-Logik der letzten Szenen?
+9. Wenn Flow: passt das Bild exakt zur freigegebenen Bildwelt?
+10. Ist wichtige Schrift/Zahl exakt und lesbar?
+11. Kann etwas entfernt werden, ohne Verständnis zu verlieren?
 
 ## Reels
 
-Die bestehenden Reel-Regeln bleiben unverändert. Für Reels gilt weiterhin das dort definierte IMAGE/ANIMATION-System; diese YouTube-Hybrid-Regeln werden nicht automatisch auf Reels übertragen.
+Die bestehenden Reel-Regeln bleiben unverändert. Diese YouTube-Hybrid-Regeln werden nicht automatisch auf Reels übertragen.
 
 ## Kurzregel
 
-> YouTube Phase B: content-first. Bild, Bild+Remotion und reine Remotion bewusst mischen. Menschen nur bei echtem Mehrwert. Abstraktion nur wenn sie erklärt. Reine Motion darf Full-Frame sein. Flow bleibt contained. Thumbnail immer mit finaler Schrift.
+> **YouTube Phase B: erst statisch denken. Motion muss ihren Mehrwert verdienen. Hybrid nur mit getrennten Rollen. Wenn Bild und Animation dasselbe sagen, nur das stärkere behalten. Script und Visual werden gemeinsam geplant.**
