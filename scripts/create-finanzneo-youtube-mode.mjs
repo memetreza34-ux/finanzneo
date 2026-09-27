@@ -17,6 +17,9 @@ const visualCountArg = valueOf('--visual-count');
 
 const allowedModes = ['images-only', 'hybrid'];
 const phaseAAllowedTypes = new Set(['image', 'hybrid', 'data', 'real-asset']);
+const phaseBMotionTypes = new Set(['hybrid', 'animation', 'data']);
+const YOUTUBE_MOTION_QUALITY_STANDARD_ID = 'finanzneo-youtube-motion-quality-v1';
+const YOUTUBE_VISUAL_QA_STANDARD_ID = 'finanzneo-youtube-visual-qa-16x9-v1';
 if (!mode || !allowedModes.includes(mode)) {
   console.error(`--mode muss enthalten: ${allowedModes.join(' | ')}`);
   process.exit(1);
@@ -192,7 +195,7 @@ const modeContract = mode === 'images-only' ? phaseAContract : phaseBContract;
 writeFileSync(resolve(root, '06-projektdateien/production-mode.json'), `${JSON.stringify(modeContract, null, 2)}\n`);
 writeFileSync(resolve(root, '06-projektdateien/layout-contract.json'), `${JSON.stringify(sharedLayoutContract, null, 2)}\n`);
 
-const scriptVisualPlan = `# Script + Visual Plan\n\nSTANDARD: finanzneo-youtube-script-visual-planning-v1\nPRODUCTION_MODE: ${mode}\n\nDas Skript wird erst gelockt, wenn jeder Beat visuell geplant ist.\n\n## Pflicht pro Beat\n\n- CORE_MESSAGE:\n- VOICEOVER:\n- VISUAL_FORM: image | static-explainer | hybrid | animation | real-asset\n- VISUAL_IDEA:\n- WHY_THIS_FORM:\n- STATIC_ALTERNATIVE:\n- MOTION_VALUE: nur wenn Motion echten Mehrwert hat\n- IMAGE_JOB: nur bei Hybrid\n- MOTION_JOB: nur bei Hybrid\n- OVERLAP_CHECK: PASS nur wenn Bild und Motion verschiedene Jobs haben\n- VARIETY_CHECK: keine unnötige Wiederholung der letzten Szenen\n\n## Regeln\n\n1. Zuerst die stärkste statische Lösung suchen.\n2. Animation nur behalten, wenn Bewegung klarer erklärt als die statische Alternative.\n3. Starkes Bild, Diagramm, Beispiel oder Vergleich darf schwache Animation ersetzen.\n4. Bild + Remotion nur bei klar getrennter Aufgabenteilung.\n5. Wenn Bild und Motion dasselbe sagen, nur das stärkere Medium behalten.\n6. Keine Quote für Motion/Hybrid erfüllen.\n7. Script-Beat umschreiben oder teilen, wenn er keine klare Visualisierung zulässt.\n8. Fakten niemals für Visuals verbiegen.\n`;
+const scriptVisualPlan = `# Script + Visual Plan\n\nSTANDARD: finanzneo-youtube-script-visual-planning-v1\nPRODUCTION_MODE: ${mode}\n\nDas Skript wird erst gelockt, wenn jeder Beat visuell geplant ist.\n\n## Pflicht pro Beat\n\n- CORE_MESSAGE:\n- VOICEOVER:\n- VISUAL_FORM: image | static-explainer | hybrid | animation | real-asset\n- VISUAL_IDEA:\n- WHY_THIS_FORM:\n- STATIC_ALTERNATIVE:\n- MOTION_VALUE: nur wenn Motion echten Mehrwert hat\n- MOTION_MECHANISM: bei Motion als START → TRIGGER → ACTION → REACTION/CHANGE → RESULT → HOLD planen\n- TOOL_ROUTE: vorhandenen FinanzNeo-Baustein / Chart / Remotion-Werkzeug zuerst prüfen\n- REPRESENTATIVE_STATES: START | 25% | 50% | 75% | RESULT HOLD\n- IMAGE_JOB: nur bei Hybrid\n- MOTION_JOB: nur bei Hybrid\n- OVERLAP_CHECK: PASS nur wenn Bild und Motion verschiedene Jobs haben\n- VARIETY_CHECK: keine unnötige Wiederholung der letzten Szenen\n\n## Regeln\n\n1. Zuerst die stärkste statische Lösung suchen.\n2. Animation nur behalten, wenn Bewegung klarer erklärt als die statische Alternative.\n3. Starkes Bild, Diagramm, Beispiel oder Vergleich darf schwache Animation ersetzen.\n4. Bild + Remotion nur bei klar getrennter Aufgabenteilung.\n5. Wenn Bild und Motion dasselbe sagen, nur das stärkere Medium behalten.\n6. Keine Quote für Motion/Hybrid erfüllen.\n7. Script-Beat umschreiben oder teilen, wenn er keine klare Visualisierung zulässt.\n8. Fakten niemals für Visuals verbiegen.\n9. Bei Motion zuerst den bestehenden Stack prüfen: MotionNumber, MotionComparisonBars, MotionLineChart, MotionMoneyFlow, MotionBeforeAfter, PremiumCharts/Finance-Bausteine, native Remotion, Paths/Shapes, Recharts, Three/R3F, Lottie als Support.\n10. Eine technisch bewegte Szene reicht nicht: START, Mechanik und RESULT müssen sichtbar verschieden sein.\n`;
 writeFileSync(resolve(root, '06-projektdateien/script-visual-plan.md'), scriptVisualPlan);
 
 const staticKindForType = (type) => {
@@ -205,6 +208,12 @@ const staticKindForType = (type) => {
 const staticExplainerSource = (visual) => `import React from 'react';\nimport {AbsoluteFill} from 'remotion';\n\n/** PHASE A STATIC — keine Frame-Bewegung. */\nexport const ${visual.animationExport}: React.FC = () => (\n  <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>\n    <div>[EINFÜGEN: STATISCHE PHASE-A-ERKLÄRUNG]</div>\n  </AbsoluteFill>\n);\n`;
 
 const staticExplainerPlan = (visual) => `# Static-Remotion-Spezifikation ${visual.id}\n\nPRODUCTION_MODE: images-only\nMOTION_PRESET: STATIC\nANIMATION_DISABLED: true\n\n- Kapitel: [CHAPTER]\n- Sprechtext-Bezug: [SCRIPT BEAT]\n- Message: [WHAT MUST THE VIEWER UNDERSTAND?]\n- Static Visual Kind: ${staticKindForType(visual.type)}\n- Exact Text / Numbers: [ONLY THE EXACT SHORT CONTENT THAT IMPROVES COMPREHENSION]\n- Layout: [WHERE THE STATIC EXPLAINER SITS INSIDE THE CONTAINED VISUAL WINDOW]\n- Reason: [WHY THIS STATIC EXPLAINER IS CLEARER THAN A PURE 3D STORY]\n\nVerboten: useCurrentFrame(), interpolate(), spring(), CSS animation/transition oder jede Frame-zu-Frame-Bewegung.\n`;
+
+const hybridMotionStarterSource = (visual) => `import React from 'react';\nimport {AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';\n\n/**\n * PHASE-B MOTION ROUTING STARTER — not a final animation.\n * SCRIPT BEAT must be replaced in Phase 1 before validation/seal.\n *\n * Before implementing, inspect the existing stack:\n * MotionNumber · MotionComparisonBars · MotionLineChart · MotionMoneyFlow · MotionBeforeAfter\n * PremiumCharts / FinanceBlocks / DiagramBlocks · native Remotion · @remotion/paths · @remotion/shapes\n * Recharts · Three/R3F only for real spatial value · Lottie only as support.\n *\n * Build a visible mechanism: START → TRIGGER → ACTION → REACTION/CHANGE → RESULT → HOLD.\n * If a strong static image, diagram or comparison is equally clear or better, downgrade this scene instead.\n */\nexport const ${visual.animationExport}: React.FC = () => {\n  const frame = useCurrentFrame();\n  const {fps} = useVideoConfig();\n  const actionProgress = spring({\n    frame,\n    fps,\n    config: {damping: 18, stiffness: 120, mass: 0.9},\n  });\n  const resultHold = interpolate(frame, [24, 40], [0, 1], {\n    extrapolateLeft: 'clamp',\n    extrapolateRight: 'clamp',\n  });\n\n  // Keep the starter compile-safe without creating a fake default visual.\n  void actionProgress;\n  void resultHold;\n\n  return (\n    <AbsoluteFill style={{backgroundColor: '#000000'}}>\n      {/* SCRIPT BEAT: implement the approved mechanism here; do not ship this empty routing starter. */}\n    </AbsoluteFill>\n  );\n};\n`;
+
+const hybridMotionPlan = (visual) => `# Remotion-Spezifikation ${visual.id}\n\nMOTION_STANDARD: finanzneo-youtube-motion-v4-simple\nMOTION_QUALITY_STANDARD: ${YOUTUBE_MOTION_QUALITY_STANDARD_ID}\nYOUTUBE_VISUAL_QA_STANDARD: ${YOUTUBE_VISUAL_QA_STANDARD_ID}\nPRODUCTION_MODE: hybrid\n\n## Inhalt\n\n- Kapitel: [CHAPTER]\n- Sprechtext-Bezug: [SCRIPT BEAT]\n- Message: [WHAT MUST THE VIEWER UNDERSTAND?]\n- Viewer Change: [WHAT DOES THE VIEWER LITERALLY SEE CHANGE?]\n- Reason: [WHY DOES MOTION EXPLAIN THIS BETTER THAN A STRONG STATIC ALTERNATIVE?]\n- Overlay Text / Numbers: [ONLY EXACT CONTENT THAT IMPROVES COMPREHENSION]\n\n## Earned-Motion-Gate\n\n- STATIC_ALTERNATIVE: [STRONGEST IMAGE / DIAGRAM / COMPARISON / CALCULATION THAT COULD REPLACE THIS]\n- MOTION_VALUE: [WHAT THE MOVEMENT EXPLAINS THAT THE STATIC VERSION CANNOT EXPLAIN AS CLEARLY]\n- KEEP_MOTION: [YES ONLY IF MOTION CLEARLY WINS; OTHERWISE CHANGE VISUAL TYPE]\n\n## Sichtbare Mechanik\n\n- START: [CLEAR INITIAL STATE]\n- TRIGGER: [WHAT STARTS THE CHANGE]\n- ACTION: [MAIN VISIBLE MOTION]\n- REACTION_CHANGE: [SECONDARY CONSEQUENCE / STATE CHANGE]\n- RESULT: [CLEAR FINAL STATE]\n- RESULT_HOLD: [READABLE FINAL STATE, NO FILLER]\n\n## Tool-Routing — vorhandenen Stack zuerst prüfen\n\n- PRIMARY_ROUTE: [MotionNumber | MotionComparisonBars | MotionLineChart | MotionMoneyFlow | MotionBeforeAfter | PremiumCharts/FinanceBlocks/DiagramBlocks | native Remotion | Paths/Shapes | Recharts | Three/R3F | CUSTOM]\n- WHY_THIS_ROUTE: [WHY THIS IS THE SIMPLEST STRONG TOOL FOR THE MECHANISM]\n- OPTIONAL_SUPPORT: [Lottie micro-animation | motion blur | transition/effect | none]\n- ADVANCED_REASON: [REQUIRED ONLY FOR THREE/R3F OR OTHER ADVANCED CUSTOM MOTION]\n\n## Hybrid-Aufgabenteilung\n\n- IMAGE_JOB: ${visual.type === 'hybrid' ? '[WHAT THE FLOW IMAGE ALONE EXPLAINS]' : 'n/a'}\n- MOTION_JOB: [WHAT REMOTION ALONE ADDS]\n- OVERLAP_CHECK: ${visual.type === 'hybrid' ? '[PASS ONLY WHEN IMAGE_JOB AND MOTION_JOB ARE DIFFERENT]' : 'n/a'}\n\n## 16:9 QA\n\nRepresentative states: START | 25% | 50% | 75% | RESULT HOLD\n\n- [ ] START and RESULT are visibly different\n- [ ] Main mechanism is large enough on 1920×1080\n- [ ] Critical content stays about 64 px from edges\n- [ ] Nothing important is cropped or clipped\n- [ ] Not mainly sequential text fades, cards or a progress bar\n- [ ] Result works as a still\n- [ ] Adjacent scenes do not repeat the same motion template without reason\n- [ ] Exact finance values come from approved script/data/calculation source\n- [ ] Static alternative was reconsidered after implementation\n`;
+
+const hybridMotionQaPlan = `# YouTube 16:9 Motion QA\n\nSTANDARD: ${YOUTUBE_VISUAL_QA_STANDARD_ID}\nMOTION_QUALITY_STANDARD: ${YOUTUBE_MOTION_QUALITY_STANDARD_ID}\nPRODUCTION_MODE: hybrid\n\nFür jedes animierte Visual fünf repräsentative Zustände prüfen:\n\n1. START\n2. ca. 25 %\n3. ca. 50 %\n4. ca. 75 %\n5. RESULT HOLD\n\n## Pflichtfragen\n\n- Ist die Hauptveränderung ohne Voiceover grob verständlich?\n- Sind START, Mechanik und RESULT klar verschieden?\n- Ist die Hauptaktion groß genug für 1920×1080?\n- Bleiben kritische Inhalte ungefähr 64 px von den Kanten entfernt?\n- Ist nichts unbeabsichtigt abgeschnitten?\n- Sieht es nach Finanz-Erklärung statt PowerPoint/Dashboard aus?\n- Sind Zahlen, Einheiten und Skalen korrekt?\n- Ist ein Standbild, Diagramm oder Vergleich vielleicht doch stärker?\n- Wiederholt die Szene unnötig dieselbe Balken-/Karten-/Textlogik wie Nachbarszenen?\n\nDie visuelle QA kann eine technisch valide Animation ablehnen. Schwache Motion wird ersetzt, nicht verteidigt.\n`;
 
 const indexPath = resolve(root, '04-visuals/visual-index.json');
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
@@ -266,9 +275,49 @@ if (mode === 'images-only') {
     visualVarietyGuard: phaseBContract.visualVarietyGuard,
     humanUsageGuidance: phaseBContract.humanUsageGuidance,
     abstractionGuard: phaseBContract.abstractionGuard,
+    motionQualityStandardId: YOUTUBE_MOTION_QUALITY_STANDARD_ID,
+    visualQaStandardId: YOUTUBE_VISUAL_QA_STANDARD_ID,
+    reuseExistingMotionStackFirst: true,
+    representativeMotionStatesRequired: ['START', '25%', '50%', '75%', 'RESULT HOLD'],
     motionSafeAreaPx: 64,
     unintentionalCroppingForbidden: true,
   };
+
+  writeFileSync(resolve(root, '06-projektdateien/motion-qa.md'), hybridMotionQaPlan);
+
+  for (const visual of index.visuals ?? []) {
+    if (!phaseBMotionTypes.has(visual.type)) continue;
+
+    visual.motionQuality = {
+      standardId: YOUTUBE_MOTION_QUALITY_STANDARD_ID,
+      visualQaStandardId: YOUTUBE_VISUAL_QA_STANDARD_ID,
+      staticAlternative: '[STRONGEST STATIC ALTERNATIVE]',
+      motionValue: '[WHAT MOTION EXPLAINS BETTER]',
+      mechanism: {
+        start: '[START STATE]',
+        trigger: '[TRIGGER]',
+        action: '[ACTION]',
+        reactionChange: '[REACTION / CHANGE]',
+        result: '[RESULT]',
+        resultHold: '[SHORT READABLE HOLD]',
+      },
+      toolRoute: '[EXISTING FINANZNEO MOTION/FINANCE STACK FIRST]',
+      whyThisTool: '[WHY THIS TOOL IS THE SIMPLEST STRONG ROUTE]',
+      representativeStates: ['START', '25%', '50%', '75%', 'RESULT HOLD'],
+      replaceWithStaticIfNotStronger: true,
+      imageJob: visual.type === 'hybrid' ? '[IMAGE JOB]' : 'n/a',
+      motionJob: visual.type === 'hybrid' ? '[MOTION JOB]' : '[MOTION JOB]',
+      semanticOverlapForbidden: visual.type === 'hybrid',
+    };
+    visual.toolStack = ['Remotion', 'existing-finanzneo-motion-stack-first'];
+
+    if (visual.animationSourceFile) {
+      writeFileSync(resolve(root, visual.animationSourceFile), hybridMotionStarterSource(visual));
+    }
+    if (visual.planFile) {
+      writeFileSync(resolve(root, visual.planFile), hybridMotionPlan(visual));
+    }
+  }
 }
 
 writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`);
@@ -277,7 +326,7 @@ const readmePath = resolve(root, 'README.md');
 const readme = readFileSync(readmePath, 'utf8');
 writeFileSync(readmePath, `${readme.trimEnd()}\n\n## Production Mode\n\nPRODUCTION_MODE: ${mode}\nLAYOUT_CONTRACT: ${sharedLayoutContract.id}\nSCRIPT_VISUAL_PLAN: 06-projektdateien/script-visual-plan.md\nTHUMBNAIL: finaler Cover-Text ist Pflicht vor Export.\n\n${mode === 'images-only'
   ? 'Phase A bleibt vollständig statisch. Flow-Bilder sind contained und nie fullscreen; statische Remotion-Erklärungen sind erlaubt.'
-  : 'Phase B nutzt Earned Motion: Script und Visual zusammen planen, zuerst starke statische Alternative prüfen, Animation nur bei echtem Bewegungsmehrwert. Bild+Remotion nur bei klar getrennten Jobs ohne semantische Überlappung. Starke Bilder, Diagramme, Beispiele oder Vergleiche dürfen schwache Animation ersetzen. Keine Motion-Quote. Reine Remotion darf die komplette 1920×1080-Fläche nutzen; Flow-Bilder bleiben contained. Kritische Inhalte innerhalb ca. 64 px Safe Area halten.'}\n`);
+  : `Phase B nutzt Earned Motion: Script und Visual zusammen planen, zuerst starke statische Alternative prüfen, Animation nur bei echtem Bewegungsmehrwert. Bild+Remotion nur bei klar getrennten Jobs ohne semantische Überlappung. Starke Bilder, Diagramme, Beispiele oder Vergleiche dürfen schwache Animation ersetzen. Keine Motion-Quote. Reine Remotion darf die komplette 1920×1080-Fläche nutzen; Flow-Bilder bleiben contained. Kritische Inhalte innerhalb ca. 64 px Safe Area halten. Motion QA: 06-projektdateien/motion-qa.md (${YOUTUBE_VISUAL_QA_STANDARD_ID}).`}\n`);
 
 if (mode === 'images-only') {
   const replaceImageOnlyPolicy = (text) => text
@@ -311,4 +360,4 @@ console.log(`\n✓ Production Mode gesetzt: ${mode}`);
 console.log(`  Layout: ${sharedLayoutContract.id} · finaler Thumbnail-Text Pflicht · Flow niemals fullscreen`);
 console.log('  Script+Visual-Plan erzeugt: 06-projektdateien/script-visual-plan.md');
 if (mode === 'images-only') console.log('  Phase A Static · keine Animation');
-else console.log('  Phase B Earned Motion · statische Alternative zuerst · Hybrid nur ohne semantische Überlappung · keine Motion-Quote');
+else console.log(`  Phase B Earned Motion · ${YOUTUBE_MOTION_QUALITY_STANDARD_ID} · ${YOUTUBE_VISUAL_QA_STANDARD_ID} · vorhandenen Motion-Stack zuerst nutzen`);
