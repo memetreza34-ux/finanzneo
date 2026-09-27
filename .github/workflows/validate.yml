@@ -60,5 +60,8 @@ jobs:
       - name: YouTube-Finanz-Motion-Lab rendern
         run: npm run youtube:motion:lab:smoke
 
+      - name: YouTube-System vor Produktionsstart prüfen
+        run: npm run youtube:system:ready
+
       - name: Render-Smoke-Test ausführen
         run: npm run smoke
