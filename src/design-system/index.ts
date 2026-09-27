@@ -19,6 +19,18 @@ export type {FinanceBackgroundVariant} from './FinanceBackground';
 export {StaticArrow, StaticCompare, StaticLabels, StaticMiniChart, StaticNumber} from './YouTubeStaticExplainers';
 export type {StaticTone} from './YouTubeStaticExplainers';
 
+// Reusable YouTube-Phase-B-Motion für klare Finanzmechaniken. Diese Bausteine sind
+// frame-deterministisch und ersetzen keine szenenspezifische Idee; sie liefern nur
+// hochwertige Grundmechaniken für Zahlen, Vergleiche, Linien und Geldflüsse.
+export {
+  MotionBeforeAfter,
+  MotionComparisonBars,
+  MotionLineChart,
+  MotionMoneyFlow,
+  MotionNumber,
+} from './YouTubeMotionExplainers';
+export type {ComparisonBarItem, MotionTone} from './YouTubeMotionExplainers';
+
 // Premium-Erweiterungen bleiben bewusst in Namensräumen.
 // Dadurch entstehen keine Export-Kollisionen zwischen alten und neuen Komponenten.
 export * as PremiumCore from '../bausteine/fn_core';

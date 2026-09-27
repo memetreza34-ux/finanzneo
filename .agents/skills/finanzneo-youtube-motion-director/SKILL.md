@@ -21,8 +21,9 @@ Read in this order:
 5. `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`
 6. `docs/YOUTUBE-FLOW-STORYBOARD-STANDARD.md`
 7. `docs/YOUTUBE-MOTION-V4-SIMPLE.md`
-8. `config/finanzneo-youtube-visual-system.json`
-9. target `04-visuals/visual-index.json`
+8. `docs/YOUTUBE-MOTION-QUALITY-V1.md`
+9. `config/finanzneo-youtube-visual-system.json`
+10. target `04-visuals/visual-index.json`
 
 Reel rules do not automatically apply to YouTube Longform.
 
@@ -195,6 +196,34 @@ Every animated production visual must:
 - avoid CSS animation/transition as render motion;
 - export the component named in `visual-index.json`.
 
+## Existing motion stack routing — use before inventing new primitives
+
+For YouTube finance motion, inspect the existing repository stack before writing a custom one-off animation.
+
+Preferred order:
+1. `src/design-system/YouTubeMotionExplainers.tsx` for reusable finance motion:
+   - `MotionNumber`
+   - `MotionComparisonBars`
+   - `MotionLineChart`
+   - `MotionMoneyFlow`
+   - `MotionBeforeAfter`
+2. central finance calculations from `src/finance/` when numbers are derived;
+3. existing chart, diagram and finance namespaces from `src/design-system/index.ts`;
+4. native Remotion HTML/SVG with `useCurrentFrame()`, `interpolate()`, `spring()` and deliberate easing;
+5. `@remotion/paths` / `@remotion/shapes` when a route, curve or vector geometry itself carries meaning;
+6. Recharts / existing PremiumCharts for real data-series visualization;
+7. Three.js / React Three Fiber only when perspective, depth or spatial interaction materially improves understanding;
+8. Lottie only as a supporting micro-animation;
+9. motion blur, effects and transitions only as restrained polish after the core mechanism already works.
+
+Do not use more tools just because they exist. Route to the simplest tool that creates the strongest explanatory result.
+
+For any real animation, prefer a visible mechanism with distinguishable states:
+
+`START → TRIGGER → ACTION → CHANGE/REACTION → RESULT → SHORT HOLD`
+
+A fade-only text stack, three appearing cards or a progress bar is not a sufficient default animation concept.
+
 ## Standard patterns
 
 Prefer reusable patterns when clear:
@@ -242,6 +271,8 @@ Before accepting each Phase-B scene:
 11. If Flow: exact approved 3D world and contained image?
 12. Are exact text/numbers handled by layout/Remotion?
 13. Does the thumbnail have final readable text?
+14. Are START, middle mechanism and RESULT visibly different?
+15. Did the implementation reuse the existing motion/finance stack where appropriate before inventing a one-off primitive?
 
 ## Phase ownership
 
