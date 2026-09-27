@@ -8,11 +8,11 @@
 - [x] Layout V2: reine Remotion darf Full-Frame, Flow bleibt contained, 64-px-Safe-Area
 - [x] 12 Remotion-Motion-Szenen mit produktionsfähigem Frame-Motion-Code vorbereitet
 - [x] Motion-Quality-Metadaten und 16:9-QA-Plan vorbereitet
-- [ ] `npm run youtube:animation:validate -- youtube/warum-du-trotz-gehaltserhoehung-nicht-mehr-geld-hast-hybrid` erfolgreich
-- [ ] `npm run youtube:phase1:seal -- youtube/warum-du-trotz-gehaltserhoehung-nicht-mehr-geld-hast-hybrid` erfolgreich und Seal committed
+- [x] `npm run youtube:animation:validate -- youtube/warum-du-trotz-gehaltserhoehung-nicht-mehr-geld-hast-hybrid` erfolgreich
+- [x] `npm run youtube:phase1:seal -- youtube/warum-du-trotz-gehaltserhoehung-nicht-mehr-geld-hast-hybrid` erfolgreich und Seal committed
 - [ ] Flow-Bilder erzeugt und QA bestanden
 - [ ] finales Voiceover verarbeitet und echte Wort-Timings erzeugt
 - [ ] `npm run youtube:ready -- youtube/warum-du-trotz-gehaltserhoehung-nicht-mehr-geld-hast-hybrid` erfolgreich
 - [ ] finaler Render + QA
 
-Nach erfolgreichem Phase-1-CI bleiben vor dem eigentlichen Video-Bau nur externe Produktionsassets: 7 Flow-Generierungen inklusive Thumbnail sowie finales Voiceover/Timings.
+Phase 1 ist technisch abgeschlossen und versiegelt. Vor dem eigentlichen Video-Bau fehlen nur externe Produktionsassets: 7 Flow-Generierungen inklusive Thumbnail sowie finales Voiceover/Timings. Danach folgen `youtube:ready`, finaler Render und QA.
