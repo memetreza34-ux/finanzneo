@@ -33,6 +33,17 @@ Das Video übernimmt unverändert die freigegebene Bildwelt aus `youtube/warum-d
 
 Der gemeinsame FinanzNeo-Audiovertrag bleibt verbindlich: verarbeitetes Voiceover ca. 1,10×, unnötig lange Pausen kürzen, danach Wort-Timings und Timeline aus genau dieser verarbeiteten Datei ableiten.
 
-## Stand vor Phase 2
+## Phase-1-Status
 
-Skript, Visual-Routing, Flow-Handoff, Full-Frame-Motion-Vertrag, Motion-Quality-Metadaten und QA-Plan sind vorbereitet. Phase 2 startet erst nach erfolgreicher Motion-Validation und Phase-1-Seal. Danach fehlen für den eigentlichen Video-Bau nur noch die extern erzeugten Flow-Bilder und das finale Voiceover mit Timings.
+Phase 1 ist technisch abgeschlossen: System-CI, Motion-Validation, 16:9-Motion-Lab, Full-Frame-/Safe-Area-Regeln und alle 12 Motion-Szenen sind erfolgreich geprüft. Der deterministische `animation-seal.json` ist im Projekt committed und schützt den freigegebenen Motion-Stand.
+
+## Nächster Produktionsschritt
+
+Jetzt werden keine weiteren allgemeinen Systemänderungen benötigt. Für den eigentlichen Video-Bau fehlen nur noch die echten Produktionsassets:
+
+- Thumbnail + 6 geplante Flow-Bilder nach `04-visuals/alle-bildprompts.txt`
+- finales Voiceover
+- Verarbeitung nach FinanzNeo-Audiovertrag
+- echte Wort-Timings aus dem verarbeiteten Voiceover
+
+Danach folgen `npm run youtube:ready`, finale Montage, Render und QA.
