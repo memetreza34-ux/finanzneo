@@ -4,17 +4,7 @@ YouTube-Longform-Test für **Variante B / hybrid**.
 
 ## Produktionsziel
 
-Das Video übernimmt die freigegebene Bildwelt des letzten guten Videos `youtube/warum-dein-geld-verschwindet-images-only` und die feste FinanzNeo-YouTube-Struktur. Neu ist nur: gezielte Remotion-Animation dort, wo Bewegung die Erklärung verbessert.
-
-## Verbesserungen aus dem Ratenzahlungs-Test
-
-- deutlich weniger Menschen: nur 4 der 18 Szenen benötigen eine Figur
-- keine wiederholte `Mensch + Fragezeichen`-Schablone
-- weniger abstrakte Metaphern ohne direkten Erkenntnisgewinn
-- starke 3D-Storybilder dürfen statisch bleiben
-- Zahlen, Vergleiche, Geldflüsse, Balken, Budgetaufteilung und Zeitverlauf werden bevorzugt mit Remotion erklärt
-- Visual muss als Denkstütze funktionieren; es muss den Voiceover-Satz nicht wörtlich nachbauen
-- Bildwelt und Layout werden nicht verändert
+Das Video übernimmt unverändert die freigegebene Bildwelt aus `youtube/warum-dein-geld-verschwindet-images-only`. Neu ist gezielte Remotion-Motion nur dort, wo zeitliche Veränderung, Geldfluss, Vergleich oder Aufteilung klarer wird.
 
 ## Format
 
@@ -25,8 +15,24 @@ Das Video übernimmt die freigegebene Bildwelt des letzten guten Videos `youtube
 - 6 Flow-Storybilder
 - 12 Remotion-Erklär-/Datenszenen
 - 4 Szenen mit Menschen
-- Cover-Text final verpflichtend: `MEHR GEHALT, TROTZDEM KNAPP?`
+- Layout: `finanzneo-youtube-framed-scene-v2`
+- Cover-Text direkt im finalen Thumbnail: `MEHR GEHALT, TROTZDEM KNAPP?`
+
+## Verbesserungen
+
+- deutlich weniger Menschen und keine wiederholte `Mensch + Fragezeichen`-Schablone
+- starke 3D-Storybilder bleiben statisch
+- Motion nur bei echtem Erklärwert
+- reine Remotion-/Datenszenen dürfen die komplette 1920×1080-Fläche nutzen
+- kritische Motion-Inhalte bleiben mindestens 64 px vom Rand entfernt
+- kein unbeabsichtigtes Clipping/Cropping
+- Flow-Bilder selbst bleiben contained und nie fullscreen
+- Thumbnail wird direkt mit exakter sichtbarer Headline erzeugt; Fehler in der Schrift bedeuten Regeneration desselben Thumbnails
 
 ## Audio
 
 Der gemeinsame FinanzNeo-Audiovertrag bleibt verbindlich: verarbeitetes Voiceover ca. 1,10×, unnötig lange Pausen kürzen, danach Wort-Timings und Timeline aus genau dieser verarbeiteten Datei ableiten.
+
+## Stand vor Phase 2
+
+Skript, Visual-Routing, Flow-Handoff, Full-Frame-Motion-Vertrag, Motion-Quality-Metadaten und QA-Plan sind vorbereitet. Phase 2 startet erst nach erfolgreicher Motion-Validation und Phase-1-Seal. Danach fehlen für den eigentlichen Video-Bau nur noch die extern erzeugten Flow-Bilder und das finale Voiceover mit Timings.

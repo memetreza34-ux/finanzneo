@@ -63,5 +63,15 @@ jobs:
       - name: YouTube-System vor Produktionsstart prüfen
         run: npm run youtube:system:ready
 
+      - name: Gehaltserhöhungs-Testvideo Phase 1 validieren
+        run: npm run youtube:animation:validate -- youtube/warum-du-trotz-gehaltserhoehung-nicht-mehr-geld-hast-hybrid
+
+      - name: Gehaltserhöhungs-Testvideo Phase 1 versiegeln
+        shell: bash
+        run: |
+          npm run youtube:phase1:seal -- youtube/warum-du-trotz-gehaltserhoehung-nicht-mehr-geld-hast-hybrid
+          cat youtube/warum-du-trotz-gehaltserhoehung-nicht-mehr-geld-hast-hybrid/06-projektdateien/animation-seal.json
+          git diff --exit-code -- youtube/warum-du-trotz-gehaltserhoehung-nicht-mehr-geld-hast-hybrid/06-projektdateien/animation-seal.json
+
       - name: Render-Smoke-Test ausführen
         run: npm run smoke

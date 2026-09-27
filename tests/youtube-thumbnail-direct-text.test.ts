@@ -4,6 +4,9 @@ import {resolve} from 'node:path';
 import test from 'node:test';
 
 const scaffold = readFileSync(resolve('scripts/scaffold-finanzneo-youtube.mjs'), 'utf8');
+const system = JSON.parse(readFileSync(resolve('config/finanzneo-youtube-visual-system.json'), 'utf8'));
+const currentThumbnail = readFileSync(resolve('youtube/warum-du-trotz-gehaltserhoehung-nicht-mehr-geld-hast-hybrid/04-visuals/thumbnail-prompt.txt'), 'utf8');
+const currentHandoff = readFileSync(resolve('youtube/warum-du-trotz-gehaltserhoehung-nicht-mehr-geld-hast-hybrid/04-visuals/alle-bildprompts.txt'), 'utf8');
 
 test('future YouTube thumbnails are generated with final hook text from the start', () => {
   assert.match(scaffold, /THUMBNAIL_HEADLINE — REQUIRED FINAL TEXT/);
@@ -13,11 +16,19 @@ test('future YouTube thumbnails are generated with final hook text from the star
   assert.match(scaffold, /thumbnailStyleBlock/);
 });
 
-test('thumbnail contract forbids final textless covers and requires regeneration on bad Flow text', () => {
-  assert.match(scaffold, /finalCoverTextRequired:true/);
-  assert.match(scaffold, /flowHeadlineMustBeExactOrRegenerated:true/);
-  assert.match(scaffold, /headlineMustBePresentBeforeFinalExport:true/);
-  assert.match(scaffold, /noTextThumbnailForbiddenAsFinal:true/);
-  assert.match(scaffold, /thumbnailDirectTextException:true/);
-  assert.doesNotMatch(scaffold, /Do not generate the headline inside the image\./);
+test('global thumbnail contract makes direct generated text the preferred final route', () => {
+  assert.equal(system.thumbnailContract.preferredHeadlineOwner, 'flow-generated-final-thumbnail');
+  assert.equal(system.thumbnailContract.directGeneratedHeadlineRequired, true);
+  assert.equal(system.thumbnailContract.flowHeadlineMustBeExactOrRegenerated, true);
+  assert.equal(system.thumbnailContract.noTextThumbnailForbiddenAsFinal, true);
+  assert.equal(system.principles.thumbnailHeadlineIsDirectGenerationException, true);
+});
+
+test('current salary-raise test video requires exact headline inside Flow thumbnail', () => {
+  for (const source of [currentThumbnail, currentHandoff]) {
+    assert.match(source, /MEHR GEHALT, TROTZDEM KNAPP\?/);
+    assert.match(source, /regenerate the SAME thumbnail/i);
+    assert.doesNotMatch(source, /No generated headline/i);
+    assert.doesNotMatch(source, /Final layout adds exactly/i);
+  }
 });

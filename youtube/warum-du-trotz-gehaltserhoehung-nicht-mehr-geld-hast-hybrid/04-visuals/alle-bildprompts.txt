@@ -18,18 +18,20 @@ STRICT WORKFLOW:
 1. Generate exactly ONE image for the current block.
 2. Wait until complete.
 3. Rename it immediately to the exact FINAL FILE NAME.
-4. QA: exact object/character, one dominant idea, useful visual storytelling/cause-effect, premium stylized 3D animation-film world, deep seamless black, horizontal 16:9, no unwanted text and no static tabletop/catalog staging.
-5. On failure regenerate the SAME image number.
-6. Continue only after PASS.
-7. After the final planned image, STOP.
+4. QA: exact object/character, one dominant idea, useful visual storytelling/cause-effect, premium stylized 3D animation-film world, deep seamless black, horizontal 16:9 and no static tabletop/catalog staging.
+5. For the THUMBNAIL, the exact final headline must already be visible and readable inside the generated image.
+6. If thumbnail headline or any required image detail fails, regenerate the SAME current item.
+7. Continue only after PASS.
+8. After the final planned image, STOP.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 THUMBNAIL
 FINAL FILE NAME: YouTube Thumbnail - Mehr Gehalt trotzdem knapp.png
-SCENE: Appealing stylized animated-film character between a visibly fuller salary envelope on the left and a surprisingly thin almost-empty wallet on the right. Several everyday cost forces have already pulled money away from the wallet. Character shows a clear confused reaction through face and pose. No floating question marks.
-COMPOSITION: Character/story right two-thirds, clean left third for final typography.
-TEXT: No generated headline. Final layout adds exactly `MEHR GEHALT, TROTZDEM KNAPP?`.
-FORBIDDEN: mannequin, photoreal human, product ad, piggy-bank, random coins, flat 2D, static tabletop/catalog staging.
+THUMBNAIL_HEADLINE — REQUIRED FINAL TEXT: `MEHR GEHALT, TROTZDEM KNAPP?`
+SCENE: Appealing stylized animated-film character between a visibly fuller salary envelope and a surprisingly thin almost-empty wallet. Several everyday cost forces have already pulled money away. Character shows a clear confused reaction through face and pose. No floating question marks.
+COMPOSITION: Design headline and visual together from the start. Large high-contrast headline must stay clearly separated from the character and money story and remain readable at small YouTube size. Use the remaining frame for the character, fuller salary envelope and thin wallet; deep-black breathing room.
+TEXT: Generate exactly `MEHR GEHALT, TROTZDEM KNAPP?` directly inside the thumbnail. No subtitle or extra copy. Missing, misspelled, distorted or unreadable text = reject and regenerate the SAME thumbnail before IMAGE 01.
+FORBIDDEN: textless final thumbnail, empty typography placeholder area, wrong headline, mannequin, photoreal human, product ad, piggy-bank, random coins, flat 2D, static tabletop/catalog staging.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 IMAGE 01 — Mehr Gehalt, gleiches Gefühl
