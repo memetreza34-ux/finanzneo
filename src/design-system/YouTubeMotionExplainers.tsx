@@ -253,7 +253,7 @@ export const MotionPathFlow: React.FC<{
       />
       {Array.from({length: Math.max(1, tokenCount)}, (_, index) => {
         const p = clamp01(sprung(frame, fps, startFrame + 8 + index * 5, 'money'));
-        const point = getPointAtLength(path, length * p);
+        const point = getPointAtLength(path, length * p) ?? {x: 210, y: 220};
         return (
           <g key={index} opacity={Math.min(1, p * 3)} transform={`translate(${point.x} ${point.y}) scale(${0.72 + p * 0.28})`}>
             <circle r={18} fill={toneColor(tone)} />
