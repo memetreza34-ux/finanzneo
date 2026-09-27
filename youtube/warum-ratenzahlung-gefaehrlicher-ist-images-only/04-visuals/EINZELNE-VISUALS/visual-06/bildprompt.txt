@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: A clean 3D schema gives the later arithmetic a visual structure.
+VOICEOVER_VISUAL_MATCH: Four small purchase sources converge into one larger monthly burden.
+VOICEOVER CONTEXT: Jede einzelne Rate wirkt noch klein. Zusammen wird daraus aber oft eine spürbare monatliche Belastung. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Four small recognizable 3D miniatures — smartphone, laptop, TV and sofa — connect through four simple physical paths into one larger central budget block. Reserve clean dark lower-right space for the static arithmetic.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: four miniatures, central budget block, four paths.
+VISUAL STORYTELLING: Separate small sources become one combined burden.
+COMPOSITION: Asymmetric converging 3D schema, not a flat infographic.
+MATERIALS: Premium stylized glass/metal/plastic/fabric, matte block.
+BACKGROUND: Deep seamless black.
+LIGHTING: Soft studio light, warmer central burden.
+COLOR LANGUAGE: Black, warm neutrals, controlled red-orange.
+TEXT: No generated euro amounts or labels.
+FORBIDDEN: generated calculation, flat infographic, product catalog, RATE cards, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

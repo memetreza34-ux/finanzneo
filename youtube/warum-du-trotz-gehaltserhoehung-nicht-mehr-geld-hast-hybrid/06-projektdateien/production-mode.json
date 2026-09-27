@@ -1,0 +1,25 @@
+{
+  "id": "hybrid",
+  "semanticName": "variant-b-hybrid-v2",
+  "remotionAnimationAllowed": true,
+  "fullFrameRemotionAllowed": true,
+  "fullFrameFlowForbidden": true,
+  "hybridOverlayMayUseFullFrame": true,
+  "imagePlusRemotionAllowedOnlyWhenRolesDiffer": true,
+  "oneMainIdeaPerVisual": true,
+  "layoutContractId": "finanzneo-youtube-framed-scene-v2",
+  "motionQualityStandardId": "finanzneo-youtube-motion-quality-v1",
+  "visualQaStandardId": "finanzneo-youtube-visual-qa-16x9-v1",
+  "motionSafeAreaPx": 64,
+  "unintentionalCroppingForbidden": true,
+  "motionGate": {
+    "animationMustBeatStaticAlternative": true,
+    "strongStaticImageMayReplaceAnimation": true,
+    "motionForMotionSakeForbidden": true
+  },
+  "thumbnail": {
+    "directGeneratedHeadlineRequired": true,
+    "exactHeadline": "MEHR GEHALT, TROTZDEM KNAPP?",
+    "regenerateOnTextFailure": true
+  }
+}

@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: A central budget schema helps the viewer combine separate purchases mentally.
+VOICEOVER_VISUAL_MATCH: Four different purchases all terminate at the same monthly budget.
+VOICEOVER CONTEXT: Rechne außerdem alle laufenden Raten zusammen. Nur so siehst du, wie stark sie dein Monatsbudget wirklich belasten. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Stylized faceless person beside one central monthly-budget meter/block. Four small recognizable 3D symbols — smartphone, laptop, TV and sofa — feed into that same block through simple physical lines. Reserve clean dark space for the static rule text.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, central budget block, four product symbols, four lines.
+VISUAL STORYTELLING: Separate decisions become one combined monthly load.
+COMPOSITION: Person left, central block mid, sources around at varied depth; clean lower-right overlay space.
+MATERIALS: Stylized fabric, matte blocks, glass/metal/plastic/fabric miniatures.
+BACKGROUND: Deep seamless black.
+LIGHTING: Soft premium studio light, controlled warm caution at central block.
+COLOR LANGUAGE: Black, warm neutrals, restrained risk.
+TEXT: No generated amounts or labels.
+FORBIDDEN: living-room catalog, product grid, RATE template, flat infographic, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

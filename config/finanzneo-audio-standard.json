@@ -1,0 +1,34 @@
+{
+  "id": "finanzneo-narration-pacing-v1",
+  "voiceover": {
+    "outputFile": "voiceover.processed.wav",
+    "metadataFile": "voiceover-processing.json",
+    "playbackSpeed": 1.1,
+    "tightenLongPauses": true,
+    "silenceThresholdDb": -45,
+    "minimumSilenceSeconds": 0.75,
+    "targetLongPauseSeconds": 0.38,
+    "sampleRate": 48000,
+    "channels": 2
+  },
+  "timingAuthority": {
+    "processedVoiceoverRequired": true,
+    "wordTimingsMustUseProcessedVoiceover": true,
+    "captionsFollowProcessedVoiceover": true,
+    "visualTimelineFollowsProcessedVoiceover": true,
+    "durationToleranceSeconds": 0.35
+  },
+  "scope": [
+    "reels",
+    "youtube-images-only",
+    "youtube-hybrid"
+  ],
+  "exclusions": [
+    "music",
+    "sfx"
+  ],
+  "mastering": {
+    "handledSeparately": true,
+    "note": "Narration pacing never replaces the existing final mix loudness/true-peak mastering stage."
+  }
+}

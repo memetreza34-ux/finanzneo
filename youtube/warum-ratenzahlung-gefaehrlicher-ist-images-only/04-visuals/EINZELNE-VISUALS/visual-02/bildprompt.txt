@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: Human purchase context supports the exact static number comparison.
+VOICEOVER_VISUAL_MATCH: Large TV remains tangible while later overlay explains 1.200 € → 50 €/Monat.
+VOICEOVER CONTEXT: Statt 1.200 Euro siehst du plötzlich nur noch 50 Euro im Monat. Psychologisch fühlt sich der Kauf dadurch viel leichter an. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Stylized faceless shopper beside a large recognizable flat-screen TV, holding a tiny blank installment slip. Reserve a completely clean dark region on the right for the static comparison.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, TV, blank slip.
+VISUAL STORYTELLING: Small immediate cue feels easy next to the substantial purchase.
+COMPOSITION: Person + TV on left 55–60%; right region clean for text overlay.
+MATERIALS: Stylized fabric, glass/metal/plastic, paper.
+BACKGROUND: Deep seamless black.
+LIGHTING: Soft premium studio light with restrained risk accent.
+COLOR LANGUAGE: Deep black, warm neutrals, controlled red-orange.
+TEXT: No generated amounts, arrows, words, ratings or UI.
+FORBIDDEN: equation inside Flow, product catalog, RATE card, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

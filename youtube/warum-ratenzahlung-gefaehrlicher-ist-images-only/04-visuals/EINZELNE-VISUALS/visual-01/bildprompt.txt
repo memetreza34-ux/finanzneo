@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: Human uncertainty makes the psychological trap memorable instead of producing another product shot.
+VOICEOVER_VISUAL_MATCH: The shopper focuses on a tiny immediate-looking commitment while a much larger consequence is easy to overlook.
+VOICEOVER CONTEXT: Ratenzahlungen wirken oft klein und harmlos. Genau deshalb unterschätzen viele, wie teuer ein Kauf am Ende wirklich wird. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Stylized faceless person in front of a large flat-screen TV, holding one tiny blank payment slip. A long folded full-purchase receipt curls behind the TV. Two sculpted question marks near the head.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, TV, tiny blank slip, long receipt, question-mark symbols.
+VISUAL STORYTELLING: Tiny immediate cue gets attention; physically larger consequence stays behind it.
+COMPOSITION: Medium 3/4, person center-left, TV mid-right, receipt receding in depth; no tabletop.
+MATERIALS: Stylized fabric, TV glass/metal, thick paper, sculpted symbols.
+BACKGROUND: Deep seamless black with minimal store context.
+LIGHTING: Soft premium light; restrained warm risk accent on long receipt.
+COLOR LANGUAGE: Deep black, warm neutrals, controlled red-orange.
+TEXT: No words, prices, ratings, brands or UI. Question marks allowed.
+FORBIDDEN: isolated product ad, RATE card, review card, generic gadget, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

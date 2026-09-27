@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: A calm human payoff makes the core lesson emotionally memorable.
+VOICEOVER_VISUAL_MATCH: Higher income becomes meaningful only when a visible reserve has also grown.
+VOICEOVER CONTEXT: Mehr Gehalt verbessert erst dann die Lage, wenn ein Teil dauerhaft bleibt. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Appealing stylized animated-film character stands calmly between a thick salary envelope and a clearly grown emerald reserve container. A restrained everyday-cost path remains visible in the background, but the reserve is now substantial.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: character, salary envelope, grown reserve container, subtle cost path.
+VISUAL STORYTELLING: Income becomes progress only when part of it remains and accumulates.
+COMPOSITION: Character center, salary source left, reserve right, balanced cinematic depth.
+MATERIALS: Stylized fabric, thick paper, refined translucent/matte reserve container.
+BACKGROUND: Deep seamless black.
+LIGHTING: Premium soft key light, restrained emerald on reserve.
+COLOR LANGUAGE: Black dominant, warm neutrals, emerald only for retained value.
+TEXT: No generated amounts, slogans, brands or UI.
+FORBIDDEN: money rain, victory pose, piggy-bank cliché, blank mannequin, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE: Premium clearly stylized 3D animation-film rendering in the exact last-good-video world.

@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: An unchanged money note plus a smaller reachable basket gives the abstract nominal-vs-real distinction a concrete anchor.
+VOICEOVER_VISUAL_MATCH: Nominal 100 € stays visually unchanged while real purchasing power is lower. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 07 - Nominal gleich real weniger.png
+VOICEOVER CONTEXT: Genau deshalb ist nur auf den Kontostand zu schauen irreführend. Nominal können 100 Euro gleich bleiben, real sinkt ihre Kaufkraft.
+SCENE: A large unchanged 100-euro note stands clearly on the left. To its right are two connected grocery outcomes at different depths: a fuller reference basket farther back and a visibly reduced current basket nearer the viewer. Reserve clean upper-right space for Remotion’s nominal-vs-real bars.
+IMPORTANT GERMAN OBJECT LABELS: None.
+OBJECTS: one 100-euro note, two grocery baskets, simple everyday groceries.
+VISUAL STORYTELLING: The note itself does not shrink; the quantity of goods associated with it does.
+COMPOSITION: Money left, grocery contrast center/right, clean upper-right overlay zone, strong depth, no tabletop.
+MATERIALS: Stylized thick paper money, matte basket, premium simplified grocery materials.
+BACKGROUND: Deep seamless black with minimal grocery context.
+LIGHTING: Soft premium animation-film lighting; restrained warm-red accent on reduced outcome.
+COLOR LANGUAGE: Black, warm neutrals, controlled red-orange on loss of purchasing power.
+TEXT: No generated explanatory labels, prices, UI or brands. Remotion owns exact comparison text.
+FORBIDDEN: literal shrinking banknote, static tabletop/catalog staging, flat infographic, photorealism, corporate 3D, random coins, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.

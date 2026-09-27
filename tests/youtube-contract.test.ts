@@ -3,19 +3,21 @@ import test from 'node:test';
 import {
   FLOW_AGENT_PROTOCOL_ID,
   GENERATED_IMAGE_ASPECT_RATIO,
-  SOCIAL_PROMO_FILES,
   SERIES_LOCK_ID,
+  SOCIAL_PROMO_FILES,
   WORLD_ID,
+  YOUTUBE_IMAGE_WORLD_ID,
   YOUTUBE_MOTION_STANDARD_ID,
   YOUTUBE_PUBLISHING_FILES,
   YOUTUBE_VIDEO_ASPECT_RATIO,
   YOUTUBE_VIDEO_HEIGHT,
   YOUTUBE_VIDEO_WIDTH,
+  YOUTUBE_VISUAL_PROFILE_ID,
   YOUTUBE_VISUAL_TYPES,
 } from '../scripts/lib/youtube-contract.mjs';
 import {WORLD_ID as REEL_WORLD_ID} from '../scripts/lib/reel-contract.mjs';
 
-test('YouTube verwendet dieselbe FinanzNeo-Welt, aber ein eigenes 16:9-Format', () => {
+test('YouTube behält die FinanzNeo-Marke und nutzt die freigegebene stylized-3D-Bildwelt in 16:9', () => {
   assert.equal(WORLD_ID, 'finanzneo-connected-studio-v3');
   assert.equal(WORLD_ID, REEL_WORLD_ID);
   assert.equal(SERIES_LOCK_ID, 'finanzneo-same-world-v1');
@@ -24,11 +26,13 @@ test('YouTube verwendet dieselbe FinanzNeo-Welt, aber ein eigenes 16:9-Format', 
   assert.equal(YOUTUBE_VIDEO_ASPECT_RATIO, '16:9');
   assert.equal(YOUTUBE_VIDEO_WIDTH, 1920);
   assert.equal(YOUTUBE_VIDEO_HEIGHT, 1080);
+  assert.equal(YOUTUBE_VISUAL_PROFILE_ID, 'finanzneo-youtube-simple-finance-v1');
+  assert.equal(YOUTUBE_IMAGE_WORLD_ID, 'finanzneo-youtube-grounded-3d-black-v1');
 });
 
-test('YouTube Motion V3 trennt Longform-Motion von Reel-Pflichten und bleibt technikoffen', () => {
-  assert.equal(YOUTUBE_MOTION_STANDARD_ID, 'finanzneo-youtube-motion-v3');
-  assert.deepEqual(YOUTUBE_VISUAL_TYPES, ['image', 'animation', 'hybrid', 'data']);
+test('YouTube Motion V4 Simple unterstützt Remotion, Flow und echte Assets ohne künstliche Variety-Quote', () => {
+  assert.equal(YOUTUBE_MOTION_STANDARD_ID, 'finanzneo-youtube-motion-v4-simple');
+  assert.deepEqual(YOUTUBE_VISUAL_TYPES, ['animation', 'data', 'image', 'hybrid', 'real-asset']);
 });
 
 test('YouTube-Paket enthält Upload-Metadaten und vier Social-Promos', () => {

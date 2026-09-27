@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: The grocery image is a concrete memory anchor while Remotion explains the exact conceptual difference.
+VOICEOVER_VISUAL_MATCH: Same amount of money, visibly fewer goods. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 02 - Betrag und Kaufkraft.png
+VOICEOVER CONTEXT: Das ist der Unterschied zwischen Betrag und Kaufkraft. Auf dem Konto steht dieselbe Zahl, im Einkaufswagen landet trotzdem weniger.
+SCENE: One large unchanged 100-euro note on the left and one clearly smaller grocery basket on the lower-left/middle, both in the approved premium stylized 3D animation-film world. Keep the entire right half clean and dark for later Remotion text comparing Betrag and Kaufkraft.
+IMPORTANT GERMAN OBJECT LABELS: None.
+OBJECTS: one 100-euro note, one grocery basket, a few everyday groceries.
+VISUAL STORYTELLING: The money amount remains visually stable while the achievable basket is reduced.
+COMPOSITION: Objects grouped left 45–50%; right half clean negative space; strong depth; no table.
+MATERIALS: Thick stylized paper money, matte basket, simplified premium food packaging without brands.
+BACKGROUND: Deep seamless black with minimal grocery context dissolving into black.
+LIGHTING: Soft premium studio/animation-film lighting, clear separation and contact shadows.
+COLOR LANGUAGE: Black dominant, ivory/gray neutrals, restrained warm-red caution on the reduced basket.
+TEXT: No generated numbers beyond the natural 100-euro note, no explanatory labels, brands or UI. Remotion owns exact text.
+FORBIDDEN: static tabletop/catalog staging, flat infographic, photorealism, corporate 3D, faceless mannequin, piggy bank, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.

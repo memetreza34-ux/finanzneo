@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: A final human decision image turns the conclusion into a memorable question.
+VOICEOVER_VISUAL_MATCH: Immediate purchase and deliberate pause are both visible before commitment begins.
+VOICEOVER CONTEXT: Frag dich also immer: Brauche ich das wirklich sofort? Denn was klein pro Monat wirkt, kann dich am Ende teuer und lange binden. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Stylized faceless person stands before a desired smartphone display but has not reached for it. Three large sculpted question marks above the head. One short warm-red path reaches the phone immediately and continues into a long trail of blank calendar pages; a calmer green path turns toward a closed wallet and savings envelope before curving toward the same phone later.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, smartphone display, three question marks, two paths, calendar trail, wallet, savings envelope.
+VISUAL STORYTELLING: Final choice is visible: immediate commitment versus deliberate pause.
+COMPOSITION: Person foreground center-left, phone mid-right, paths readable through depth, strong black negative space.
+MATERIALS: Stylized fabric, smartphone glass/metal, leather wallet, paper.
+BACKGROUND: Deep seamless black with minimal store context.
+LIGHTING: Neutral key, warm caution on immediate path, subtle emerald on deliberate path.
+COLOR LANGUAGE: Black, warm neutrals, semantic red-orange/emerald.
+TEXT: No generated price, financing phrase, brands, ratings or UI. Question marks allowed.
+FORBIDDEN: buy-button UI, ecommerce screenshot, isolated phone ad, RATE placard, static tabletop/catalog staging, photorealism, flat 2D, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

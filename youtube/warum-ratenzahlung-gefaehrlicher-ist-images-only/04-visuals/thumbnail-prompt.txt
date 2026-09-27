@@ -1,0 +1,41 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Thumbnail - Ratenzahlung Falle.png
+STYLE_REFERENCE_PROJECT: youtube/warum-dein-geld-verschwindet-images-only
+
+GOOGLE FLOW THUMBNAIL PROMPT — LAST GOOD VIDEO WORLD
+
+Create a high-impact horizontal 16:9 YouTube thumbnail in EXACTLY the same premium stylized 3D animation-film world as the approved previous FinanzNeo video `warum-dein-geld-verschwindet-images-only`.
+
+VISUAL WORLD LOCK:
+Premium clearly stylized 3D animation-film rendering, deep seamless black dominant world, high-quality modeling, refined rounded geometry, semi-realistic but visibly stylized materials, premium studio lighting, controlled highlights, readable shadows and strong depth. Warm ivory/soft gray neutrals. Emerald green only for positive/value/solution. Warm red-orange only for cost/risk/problem. Subtle gold only for value accents. It must look like a polished frame from a high-end animated feature film, never like a realistic studio photo or product render.
+
+CHARACTER:
+Use one appealing stylized animated-film character with rounded proportions, simplified expressive facial features and clear body language. The character must visibly belong to the same 3D animated world. Do NOT use a blank faceless mannequin, photoreal person, realistic skin, low-poly avatar or corporate 3D character.
+
+SCENE:
+A stylized shopper stands beside a large recognizable flat-screen television at a purchase decision. The character looks uncertain at a very small blank installment slip while a long chain of future calendar pages curls behind the television into the black distance. Two or three sculpted question marks hover close to the character as part of the 3D scene. The visual should communicate: the monthly commitment looks small now, but the future commitment is much larger.
+
+COMPOSITION:
+Character and television on the right two-thirds. Strong foreground/midground/background depth. Keep the left third clean enough for the headline, but the headline itself MUST be present in the generated thumbnail. Do not stage the scene like a product advertisement or catalog.
+
+MANDATORY COVER TEXT:
+Generate exactly this large headline on the left side:
+`DIE RATEN-FALLE`
+Use bold, highly readable uppercase typography integrated cleanly into the thumbnail. `DIE` may be warm ivory; `RATEN-FALLE` may use a restrained warm red-orange risk accent. No other headline or subtitle.
+
+TEXT QA:
+The exact visible headline must read `DIE RATEN-FALLE`. If any letter is wrong, missing, duplicated, distorted or unreadable, REJECT and regenerate the same thumbnail. Do not invent prices, monthly amounts, ratings, review stars, brands or UI.
+
+MATERIALS:
+Same as the previous good video: refined stylized fabric, glass, metal, thick paper and softly rounded sculpted forms; premium, tangible and visibly animated-film, not photorealistic.
+
+BACKGROUND:
+Deep seamless black dominant world. Only a minimal purchase context may appear and must dissolve into black.
+
+LIGHTING:
+Premium soft studio lighting with clear subject separation, controlled highlights, readable shadows and cinematic depth. Restrained warm red-orange only around the risk/commitment elements.
+
+FORBIDDEN:
+Photorealism, realistic product-ad photography, blank faceless mannequin, realistic human skin/rendering, cheap low-poly avatar, corporate 3D character, generic product render, review-card design, RATE-card template, fake UI, static tabletop/catalog staging, flat 2D, isometric infographic, cyberpunk, clutter, tiny diorama.
+
+Horizontal 16:9. Do not redesign the approved image world.

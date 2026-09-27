@@ -1,146 +1,95 @@
-export const YOUTUBE_MOTION_STANDARD_ID = 'finanzneo-youtube-motion-v3';
+export const YOUTUBE_MOTION_STANDARD_ID = 'finanzneo-youtube-motion-v4-simple';
+export const LEGACY_YOUTUBE_MOTION_STANDARD_IDS = ['finanzneo-youtube-motion-v3'];
 
-export const YOUTUBE_VISUAL_TYPES = ['image', 'animation', 'hybrid', 'data'];
+export const YOUTUBE_VISUAL_TYPES = ['animation', 'data', 'image', 'hybrid', 'real-asset'];
 export const YOUTUBE_MOTION_VISUAL_TYPES = new Set(['animation', 'hybrid', 'data']);
 export const YOUTUBE_IMAGE_VISUAL_TYPES = new Set(['image', 'hybrid']);
+export const YOUTUBE_REAL_ASSET_VISUAL_TYPES = new Set(['real-asset']);
 
-// Beispiele zur Inspiration, ausdrücklich KEINE Whitelist.
-// Neue compositionFamilyId-Werte sind erlaubt, wenn sie die konkrete Szene besser beschreiben.
-export const YOUTUBE_MOTION_FAMILY_EXAMPLES = [
-  'spatial-3d',
-  'vector-motion',
-  'css-3d',
-  'kinetic-type',
-  'data-viz',
-  'timeline',
-  'document-motion',
-  'image-composite',
-  'simulation',
-  'comparison',
-  'camera-journey',
-  'physical-process',
-  'material-transformation',
-  'map-journey',
-  'macro-to-micro',
-  'network-simulation',
-  'custom',
+export const YOUTUBE_STANDARD_MOTION_PRESETS = [
+  'STATIC',
+  'FADE_IN',
+  'SLIDE_UP',
+  'SLIDE_LEFT',
+  'SCALE_IN',
+  'COUNT_UP',
+  'BAR_GROW',
+  'LINE_DRAW',
+  'HIGHLIGHT',
+  'SLOW_ZOOM',
+  'CUSTOM',
 ];
 
-// Kompatibilitätsalias für bestehende Imports. Semantik in V3: Beispiele, keine erlaubte Endmenge.
+// Kept as examples/compatibility for older projects. V4 does not require a family.
+export const YOUTUBE_MOTION_FAMILY_EXAMPLES = [
+  'big-number',
+  'comparison',
+  'percentage',
+  'data-viz',
+  'timeline',
+  'money-flow',
+  'process-steps',
+  'simple-diagram',
+  'allocation',
+  'formula',
+  'custom',
+];
 export const YOUTUBE_MOTION_FAMILIES = YOUTUBE_MOTION_FAMILY_EXAMPLES;
-export const YOUTUBE_MOTION_RECENT_WINDOW = 4;
+export const YOUTUBE_MOTION_RECENT_WINDOW = 0;
 export const YOUTUBE_MOTION_SIGNATURE_FIELDS = ['camera', 'layout', 'transformation'];
 
 export const requiresYouTubeMotion = (visual) => YOUTUBE_MOTION_VISUAL_TYPES.has(visual?.type);
 export const requiresYouTubeImage = (visual) => YOUTUBE_IMAGE_VISUAL_TYPES.has(visual?.type);
-
+export const requiresYouTubeRealAsset = (visual) => YOUTUBE_REAL_ASSET_VISUAL_TYPES.has(visual?.type);
 export const motionSourcePathFor = (visual) => visual?.animationSourceFile ?? '';
+export const isStaticYouTubeVisual = (visual) => visual?.animationDisabled === true
+  || String(visual?.motionPreset ?? '').trim().toUpperCase() === 'STATIC';
 
-const normalized = (value) => typeof value === 'string' ? value.trim().toLowerCase() : '';
-const validStringArray = (value, minimum) => Array.isArray(value)
-  && value.length >= minimum
-  && value.every((item) => typeof item === 'string' && item.trim());
+const nonEmpty = (value) => typeof value === 'string' && value.trim();
+
+export const getYouTubeMotionReason = (visual) => visual?.reason ?? visual?.animationIntent ?? '';
+export const getYouTubeMotionPreset = (visual) => {
+  if (nonEmpty(visual?.motionPreset)) return visual.motionPreset;
+  if (isStaticYouTubeVisual(visual)) return 'STATIC';
+  return nonEmpty(visual?.visualTechniqueId) ? 'CUSTOM' : '';
+};
 
 export const validateYouTubeMotionMetadata = (visual) => {
   if (!requiresYouTubeMotion(visual)) return [];
+
   const id = visual?.id ?? 'Unbekanntes Visual';
   const errors = [];
-  const requiredString = (field) => {
-    if (typeof visual?.[field] !== 'string' || !visual[field].trim()) {
-      errors.push(`${id}: ${field} fehlt.`);
-    }
-  };
+  const isStatic = isStaticYouTubeVisual(visual);
 
-  // Content-first: Erst beschreiben, was der Zuschauer tatsächlich sehen soll,
-  // danach Mechanik und Technik festlegen.
-  requiredString('viewerChange');
-  requiredString('animationIntent');
-  requiredString('mechanicId');
-  requiredString('visualTechniqueId');
-  requiredString('techniqueDescription');
-  requiredString('compositionFamilyId');
-  requiredString('animationSourceFile');
-  requiredString('animationExport');
+  if (!nonEmpty(visual?.viewerChange)) errors.push(`${id}: viewerChange fehlt.`);
+  if (!nonEmpty(getYouTubeMotionReason(visual))) errors.push(`${id}: reason fehlt.`);
 
-  if (!validStringArray(visual?.toolStack, 1)) {
-    errors.push(`${id}: toolStack benötigt mindestens 1 konkretes Werkzeug / Verfahren.`);
-  }
-  if (!validStringArray(visual?.motionChannels, 2)) {
-    errors.push(`${id}: motionChannels benötigt mindestens 2 sinnvolle Kanäle.`);
-  }
-  if (!validStringArray(visual?.visualBeats, 2)) {
-    errors.push(`${id}: visualBeats benötigt mindestens 2 sichtbare Zustände.`);
+  const motionPreset = getYouTubeMotionPreset(visual);
+  if (!nonEmpty(motionPreset)) {
+    errors.push(`${id}: motionPreset fehlt.`);
+  } else if (!YOUTUBE_STANDARD_MOTION_PRESETS.includes(String(motionPreset).trim().toUpperCase())) {
+    errors.push(`${id}: motionPreset '${motionPreset}' ist unbekannt. Nutze STATIC, einen Standard-Preset oder CUSTOM.`);
   }
 
-  const signature = visual?.motionSignature;
-  for (const field of YOUTUBE_MOTION_SIGNATURE_FIELDS) {
-    if (typeof signature?.[field] !== 'string' || !signature[field].trim()) {
-      errors.push(`${id}: motionSignature.${field} fehlt.`);
-    }
+  if (isStatic && String(motionPreset).trim().toUpperCase() !== 'STATIC') {
+    errors.push(`${id}: animationDisabled=true braucht motionPreset=STATIC.`);
+  }
+  if (String(motionPreset).trim().toUpperCase() === 'STATIC' && visual?.animationDisabled !== true) {
+    errors.push(`${id}: motionPreset=STATIC braucht animationDisabled=true.`);
   }
 
-  // V3 hat bewusst KEINE feste Liste erlaubter compositionFamilyId-Werte.
-  if (visual?.animationSourceFile && !visual.animationSourceFile.endsWith('/animation.tsx')) {
-    errors.push(`${id}: animationSourceFile muss auf animation.tsx zeigen.`);
-  }
-  return errors;
-};
+  if (!nonEmpty(visual?.animationSourceFile)) errors.push(`${id}: animationSourceFile fehlt.`);
+  else if (!visual.animationSourceFile.endsWith('/animation.tsx')) errors.push(`${id}: animationSourceFile muss auf animation.tsx zeigen.`);
 
-const sameSignature = (a, b) => YOUTUBE_MOTION_SIGNATURE_FIELDS.every(
-  (field) => normalized(a?.motionSignature?.[field])
-    && normalized(a?.motionSignature?.[field]) === normalized(b?.motionSignature?.[field]),
-);
+  if (!nonEmpty(visual?.animationExport)) errors.push(`${id}: animationExport fehlt.`);
 
-export const validateYouTubeMotionVariety = (visuals = []) => {
-  const errors = [];
-  const motion = visuals.filter(requiresYouTubeMotion);
-  const techniqueOwner = new Map();
-  const mechanicOwner = new Map();
-  const descriptionOwner = new Map();
-
-  for (const visual of motion) {
-    const repeatReason = visual?.repeatTechniqueReason?.trim();
-    const checks = [
-      ['visualTechniqueId', normalized(visual?.visualTechniqueId), techniqueOwner],
-      ['mechanicId', normalized(visual?.mechanicId), mechanicOwner],
-      ['techniqueDescription', normalized(visual?.techniqueDescription), descriptionOwner],
-    ];
-
-    for (const [label, value, owners] of checks) {
-      if (!value) continue;
-      if (owners.has(value) && !repeatReason) {
-        errors.push(`${visual.id}: ${label} wiederholt die Motion von ${owners.get(value)}. Wiederholung braucht repeatTechniqueReason.`);
-      } else if (!owners.has(value)) {
-        owners.set(value, visual.id);
-      }
-    }
-  }
-
-  let runFamily = null;
-  let runLength = 0;
-  for (const visual of motion) {
-    const family = normalized(visual?.compositionFamilyId) || null;
-    if (family === runFamily) runLength += 1;
-    else {
-      runFamily = family;
-      runLength = 1;
-    }
-    if (family && runLength > 2 && !visual?.repeatTechniqueReason?.trim()) {
-      errors.push(`${visual.id}: mehr als zwei Motion-Visuals hintereinander aus '${visual.compositionFamilyId}'. Nutze eine passendere andere Umsetzung oder begründe die Wiederholung.`);
-    }
-  }
-
-  // Anti-Fake-Variation: Ein neuer Technikname reicht nicht, wenn Kamera,
-  // räumlicher Aufbau UND Transformation in den letzten vier Motion-Visuals identisch sind.
-  for (let index = 0; index < motion.length; index += 1) {
-    const visual = motion[index];
-    if (visual?.repeatTechniqueReason?.trim()) continue;
-    const previous = motion.slice(Math.max(0, index - YOUTUBE_MOTION_RECENT_WINDOW), index);
-    const match = previous.find((candidate) => sameSignature(candidate, visual));
-    if (match) {
-      errors.push(`${visual.id}: motionSignature ist innerhalb der letzten ${YOUTUBE_MOTION_RECENT_WINDOW} Motion-Visuals identisch zu ${match.id}. Ändere die tatsächliche Bewegungslogik oder begründe die Wiederholung.`);
-    }
+  if (!isStatic && String(motionPreset).trim().toUpperCase() === 'CUSTOM' && !nonEmpty(visual?.advancedReason) && !nonEmpty(visual?.visualTechniqueId)) {
+    errors.push(`${id}: CUSTOM braucht advancedReason, außer es handelt sich um ein Legacy-V3-Visual.`);
   }
 
   return errors;
 };
+
+// V4 hat bewusst keine Novelty-/Variety-Quote. Wiederholung einfacher Erklärmuster
+// ist erwünscht, wenn sie inhaltlich die klarste Darstellung ist.
+export const validateYouTubeMotionVariety = () => [];

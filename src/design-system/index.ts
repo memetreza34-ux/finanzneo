@@ -14,6 +14,37 @@ export * from '../finance/examples';
 export {FinanceBackground, VerticalSafeAreaGuide} from './FinanceBackground';
 export type {FinanceBackgroundVariant} from './FinanceBackground';
 
+// Statische YouTube-Phase-A-Erklärbausteine. Diese Komponenten enthalten bewusst
+// keine Frame-Animation und sind für exakte Labels, Zahlen, Vergleiche und Mini-Charts gedacht.
+export {StaticArrow, StaticCompare, StaticLabels, StaticMiniChart, StaticNumber} from './YouTubeStaticExplainers';
+export type {StaticTone} from './YouTubeStaticExplainers';
+
+// Reusable YouTube-Phase-B-Motion für klare Finanzmechaniken. Diese Bausteine sind
+// frame-deterministisch und ersetzen keine szenenspezifische Idee; sie liefern
+// hochwertige Grundmechaniken für Zahlen, Vergleiche, Pfade, Budgets, Kaufkraft,
+// Sparpläne, Kredite und Timelines.
+export {
+  MotionBeforeAfter,
+  MotionBudgetAllocation,
+  MotionComparisonBars,
+  MotionCompoundGrowth,
+  MotionLineChart,
+  MotionLoanPaydown,
+  MotionMoneyFlow,
+  MotionNumber,
+  MotionPathFlow,
+  MotionPurchasingPower,
+  MotionTimeline,
+  YOUTUBE_MOTION_PHYSICS,
+} from './YouTubeMotionExplainers';
+export type {
+  BudgetAllocationItem,
+  ComparisonBarItem,
+  MotionPhysicsPreset,
+  MotionTimelineStep,
+  MotionTone,
+} from './YouTubeMotionExplainers';
+
 // Premium-Erweiterungen bleiben bewusst in Namensräumen.
 // Dadurch entstehen keine Export-Kollisionen zwischen alten und neuen Komponenten.
 export * as PremiumCore from '../bausteine/fn_core';

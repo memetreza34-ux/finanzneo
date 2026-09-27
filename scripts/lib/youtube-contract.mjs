@@ -11,6 +11,7 @@ import {
   YOUTUBE_VISUAL_TYPES,
   YOUTUBE_MOTION_VISUAL_TYPES,
   YOUTUBE_IMAGE_VISUAL_TYPES,
+  YOUTUBE_REAL_ASSET_VISUAL_TYPES,
 } from './youtube-motion-contract.mjs';
 
 export {
@@ -24,7 +25,12 @@ export {
   YOUTUBE_VISUAL_TYPES,
   YOUTUBE_MOTION_VISUAL_TYPES,
   YOUTUBE_IMAGE_VISUAL_TYPES,
+  YOUTUBE_REAL_ASSET_VISUAL_TYPES,
 };
+
+export const YOUTUBE_VISUAL_PROFILE_ID = 'finanzneo-youtube-simple-finance-v1';
+export const YOUTUBE_IMAGE_WORLD_ID = 'finanzneo-youtube-grounded-3d-black-v1';
+export const YOUTUBE_IMAGE_WORLD_FILE = 'config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt';
 
 export const GENERATED_IMAGE_ASPECT_RATIO = '16:9';
 export const GENERATED_IMAGE_ASPECT_MARKER = `GENERATED_IMAGE_ASPECT_RATIO: ${GENERATED_IMAGE_ASPECT_RATIO}`;

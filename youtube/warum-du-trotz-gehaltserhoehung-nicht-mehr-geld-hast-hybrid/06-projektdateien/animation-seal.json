@@ -1,0 +1,179 @@
+{
+  "version": 3,
+  "motionStandardId": "finanzneo-youtube-motion-v4-simple",
+  "sourceIndex": "04-visuals/visual-index.json",
+  "entries": [
+    {
+      "id": "visual-02",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx",
+      "exportName": "YouTubeVisual02Animation",
+      "viewerChange": "Ein Einkommensstrom verliert nacheinander kleine Teile an mehrere Alltagswege.",
+      "reason": "Geldfluss erklärt die Abzweigungen direkt.",
+      "motionPreset": "LINE_DRAW",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "@remotion/paths"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    },
+    {
+      "id": "visual-03",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-03/animation.tsx",
+      "exportName": "YouTubeVisual03Animation",
+      "viewerChange": "Der freie Bereich eines Monatsbudgets wächst sichtbar.",
+      "reason": "Ein wachsender freier Balken zeigt den Ausgangspunkt klar.",
+      "motionPreset": "BAR_GROW",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "MotionComparisonBars"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    },
+    {
+      "id": "visual-04",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx",
+      "exportName": "YouTubeVisual04Animation",
+      "viewerChange": "Gehalt wächst zuerst; Ausgaben folgen leicht verzögert.",
+      "reason": "Zwei nacheinander wachsende Werte sind am klarsten.",
+      "motionPreset": "BAR_GROW",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "MotionComparisonBars"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    },
+    {
+      "id": "visual-06",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-06/animation.tsx",
+      "exportName": "YouTubeVisual06Animation",
+      "viewerChange": "Kleine Beträge kommen nacheinander hinzu und heben die Monatsbasis stufenweise an.",
+      "reason": "Kleine Beträge, die eine Basis anheben, erklären Wiederholung sofort.",
+      "motionPreset": "SLIDE_UP",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "MotionTimeline"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    },
+    {
+      "id": "visual-07",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-07/animation.tsx",
+      "exportName": "YouTubeVisual07Animation",
+      "viewerChange": "Die Linie des normalen Lebensstandards steigt in drei ruhigen Stufen.",
+      "reason": "Eine ansteigende Basislinie ist klarer als ein weiteres Storybild.",
+      "motionPreset": "LINE_DRAW",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "MotionLineChart"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    },
+    {
+      "id": "visual-09",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-09/animation.tsx",
+      "exportName": "YouTubeVisual09Animation",
+      "viewerChange": "Drei Monate erscheinen; derselbe große Fixkostenblock bleibt bestehen.",
+      "reason": "Wiederholte Monatskarten zeigen Bindung ohne Metapher.",
+      "motionPreset": "SLIDE_LEFT",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "MotionTimeline"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    },
+    {
+      "id": "visual-10",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-10/animation.tsx",
+      "exportName": "YouTubeVisual10Animation",
+      "viewerChange": "Zwei Budgetspalten bauen sich auf; die zweite ist größer, aber der grüne Rest fast identisch.",
+      "reason": "Vorher/Nachher ist die präziseste Erklärung.",
+      "motionPreset": "BAR_GROW",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "MotionBeforeAfter",
+        "MotionComparisonBars"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    },
+    {
+      "id": "visual-13",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-13/animation.tsx",
+      "exportName": "YouTubeVisual13Animation",
+      "viewerChange": "Ein Budgetbalken wird entlang vier Wochen kleiner, bis nur ein schmaler Rest bleibt.",
+      "reason": "Zeitlicher Budgetverlauf erklärt das besser als eine Figur.",
+      "motionPreset": "BAR_GROW",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "MotionTimeline",
+        "MotionBudgetAllocation"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    },
+    {
+      "id": "visual-14",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-14/animation.tsx",
+      "exportName": "YouTubeVisual14Animation",
+      "viewerChange": "Ein zusätzlicher Einkommensblock teilt sich sichtbar in drei Wege.",
+      "reason": "Aufteilung ist ein Geldflussproblem und eignet sich direkt für Remotion.",
+      "motionPreset": "LINE_DRAW",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "MotionMoneyFlow"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    },
+    {
+      "id": "visual-15",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-15/animation.tsx",
+      "exportName": "YouTubeVisual15Animation",
+      "viewerChange": "300 € erscheint und teilt sich nacheinander in 150 €, 100 € und 50 €.",
+      "reason": "Exakte Zahlen gehören in Remotion und nicht in Flow.",
+      "motionPreset": "COUNT_UP",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "MotionNumber",
+        "MotionBudgetAllocation"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    },
+    {
+      "id": "visual-16",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-16/animation.tsx",
+      "exportName": "YouTubeVisual16Animation",
+      "viewerChange": "Gehalt kommt an; ein Teil fließt zuerst zu Rücklage/Anlage, danach der Rest zum Alltag.",
+      "reason": "Die Reihenfolge ist durch animierten Geldfluss sofort verständlich.",
+      "motionPreset": "LINE_DRAW",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "MotionMoneyFlow"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    },
+    {
+      "id": "visual-17",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-17/animation.tsx",
+      "exportName": "YouTubeVisual17Animation",
+      "viewerChange": "Sechs Monatsbalken wachsen nacheinander; der grüne Puffer wird größer.",
+      "reason": "Eine Zeitreihe ist hier die klarste Darstellung.",
+      "motionPreset": "BAR_GROW",
+      "advancedReason": "",
+      "toolStack": [
+        "Remotion",
+        "MotionComparisonBars",
+        "MotionLineChart"
+      ],
+      "sha256": "57dd286981e7da8802990f248c5c45c74c5c392d0a5ce20d1fd7e155ef34be15"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: Concrete everyday upgrades are clearer than another abstract diagram.
+VOICEOVER_VISUAL_MATCH: Several small convenience upgrades look harmless individually.
+VOICEOVER CONTEXT: Kleine bequemere oder teurere Alltagsentscheidungen wirken einzeln harmlos. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Three recognizable everyday upgrade moments form one curved visual path: a premium takeaway meal, a nicer coffee/snack and a slightly higher-quality everyday purchase in a small shopping bag.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: takeaway meal, coffee/snack, shopping bag, small plain receipt trail.
+VISUAL STORYTELLING: Each upgrade is small; the repeating receipt trail reveals the pattern.
+COMPOSITION: Curved foreground-to-background path with strong depth, never a grid or tabletop lineup.
+MATERIALS: Stylized paper, cardboard, cup coating, fabric/plastic bag details.
+BACKGROUND: Deep seamless black.
+LIGHTING: Premium soft studio light with restrained warm cost accents.
+COLOR LANGUAGE: Black dominant, warm neutrals, red-orange only for cost trail.
+TEXT: No generated prices, labels, brands or UI.
+FORBIDDEN: static tabletop/catalog staging, three products simply side by side, generic luxury icons, random coins, flat infographic, photorealism.
+STYLE: Premium clearly stylized 3D animation-film rendering in the exact last-good-video world.

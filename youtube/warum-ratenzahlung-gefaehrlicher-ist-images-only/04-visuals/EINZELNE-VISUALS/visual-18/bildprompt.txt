@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: Two real-life contexts communicate nuance better than a literal balance scale.
+VOICEOVER_VISUAL_MATCH: The person compares a necessary replacement with an optional luxury purchase.
+VOICEOVER CONTEXT: Ratenzahlungen sind nicht automatisch schlecht. Aber sie wirken oft harmloser, als sie in Wahrheit sind. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Stylized faceless person stands between two situations. Left: clearly broken essential washing machine. Right: optional large gaming television setup. The person looks between both, hands slightly open, with two sculpted question marks overhead. No scale object.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, broken washer, optional gaming TV setup, question marks.
+VISUAL STORYTELLING: Same financing tool can be more or less sensible depending on context.
+COMPOSITION: Person center, essential context left, optional context right; organic scene, not rigid comparison card.
+MATERIALS: Stylized fabric, appliance metal/plastic, TV glass/metal.
+BACKGROUND: Both local contexts dissolve into deep seamless black.
+LIGHTING: Neutral key, subtle positive restraint left, warm caution right.
+COLOR LANGUAGE: Black, warm neutrals, semantic accents only.
+TEXT: No generated labels, prices, brands or UI. Question marks allowed.
+FORBIDDEN: literal balance scale, product-comparison grid, RATE card, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

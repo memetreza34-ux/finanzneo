@@ -1,0 +1,33 @@
+{
+  "id": "hybrid",
+  "semanticName": "phase-b-hybrid-v2",
+  "staticImageVisualsOnly": false,
+  "staticLayoutAssemblyAllowed": true,
+  "remotionExplainerVisualsAllowed": true,
+  "remotionAnimationAllowed": true,
+  "fullFrameRemotionAllowed": true,
+  "fullFrameFlowForbidden": true,
+  "hybridOverlayMayUseFullFrame": true,
+  "allowedVisualTypes": ["image", "hybrid", "animation", "data", "real-asset"],
+  "assemblyIntent": "content-first-mix-of-image-image-plus-remotion-and-full-frame-remotion",
+  "oneMainIdeaPerVisual": true,
+  "recommendedVoiceoverSentencesPerImage": [1, 2],
+  "visualBalanceGuidance": {
+    "imageOnlyShare": [0.25, 0.4],
+    "imagePlusRemotionShare": [0.3, 0.5],
+    "pureRemotionShare": [0.2, 0.35],
+    "hardQuota": false
+  },
+  "humanUsageGuidance": {
+    "recommendedMaxShare": 0.4,
+    "hardLimit": false,
+    "useOnlyWhen": ["reaction", "choice", "attention", "consequence"],
+    "avoidRepeatedHumanTemplate": true
+  },
+  "abstractionGuard": {
+    "abstractOnlySceneNeedsClearExplanatoryAdvantage": true,
+    "avoidMultipleAbstractSchemasInARow": true,
+    "preferConcreteAnchorWhenMeaningWouldOtherwiseBeAmbiguous": true
+  },
+  "layoutContractId": "finanzneo-youtube-framed-scene-v2"
+}

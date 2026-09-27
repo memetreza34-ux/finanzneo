@@ -11,15 +11,23 @@ import {
   WORD_TIMINGS,
   YOUTUBE_MOTION_STANDARD_ID,
 } from './youtube-contract.mjs';
-import {requiresYouTubeImage, requiresYouTubeMotion, validateYouTubeMotionMetadata, validateYouTubeMotionVariety} from './youtube-motion-contract.mjs';
+import {
+  getYouTubeMotionPreset,
+  getYouTubeMotionReason,
+  requiresYouTubeImage,
+  requiresYouTubeMotion,
+  requiresYouTubeRealAsset,
+  validateYouTubeMotionMetadata,
+} from './youtube-motion-contract.mjs';
 
 export const AUDIO_EXTENSIONS = new Set(['.mp3', '.wav', '.aiff', '.aif', '.m4a']);
 export const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.avif']);
 
-const PLACEHOLDER_PATTERN = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|TITLE|SOURCE|HOOK|VISUAL|CHAPTER|SCRIPT BEAT|CORE|PROMISE|TENSION|VIEWER|MECHANIC|TECHNIQUE|FAMILY|TOOL|CHANNEL|CAMERA|LAYOUT|TRANSFORMATION|START|RESULT|ANIMATION INTENT|CONTEXT)[^\]]*)\]/i;
+const PLACEHOLDER_PATTERN = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|DESCRIBE|TITLE|SOURCE|HOOK|VISUAL|CHAPTER|SCRIPT BEAT|CORE|PROMISE|TENSION|VIEWER|MOTION|ASSET|REASON|WHAT|WHY|TEXT|NUMBER|SUBJECT|OBJECT|CROP|START|RESULT|CONTEXT)[^\]]*)\]/i;
 const readText = (path) => readFileSync(path, 'utf8');
 const isFile = (path) => existsSync(path) && statSync(path).isFile();
 const hasPlaceholder = (content) => PLACEHOLDER_PATTERN.test(content) || /\b(?:TODO|PLACEHOLDER)\b/i.test(content);
+const nonEmpty = (value) => typeof value === 'string' && value.trim();
 
 const listFiles = (directory, extensions) => {
   if (!existsSync(directory)) return [];
@@ -69,16 +77,10 @@ const sha256 = (path) => createHash('sha256').update(readFileSync(path)).digest(
 const sameJson = (left, right) => JSON.stringify(left) === JSON.stringify(right);
 const motionSealContract = (visual) => ({
   viewerChange: visual?.viewerChange,
-  animationIntent: visual?.animationIntent,
-  mechanicId: visual?.mechanicId,
-  visualTechniqueId: visual?.visualTechniqueId,
-  techniqueDescription: visual?.techniqueDescription,
-  compositionFamilyId: visual?.compositionFamilyId,
-  toolStack: visual?.toolStack,
-  motionSignature: visual?.motionSignature,
-  motionChannels: visual?.motionChannels,
-  visualBeats: visual?.visualBeats,
-  repeatTechniqueReason: visual?.repeatTechniqueReason ?? '',
+  reason: getYouTubeMotionReason(visual),
+  motionPreset: getYouTubeMotionPreset(visual),
+  advancedReason: visual?.advancedReason ?? '',
+  toolStack: Array.isArray(visual?.toolStack) ? visual.toolStack : [],
 });
 
 export const isSixteenNineDimensions = (widthValue, heightValue) => {
@@ -103,116 +105,134 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
   const index = readJson(resolve(root, VISUAL_INDEX), phase1Blockers, VISUAL_INDEX);
   const visuals = Array.isArray(index?.visuals) ? index.visuals : [];
   if (index && visuals.length === 0) phase1Blockers.push(`${VISUAL_INDEX} enthält keine Visuals.`);
-  if (index && (typeof index.title !== 'string' || !index.title.trim() || hasPlaceholder(index.title))) {
+  if (index && (!nonEmpty(index.title) || hasPlaceholder(index.title))) {
     phase1Blockers.push(`${VISUAL_INDEX}: title fehlt oder enthält einen Platzhalter.`);
   }
   if (index?.motionStandard?.id !== YOUTUBE_MOTION_STANDARD_ID) {
-    phase1Blockers.push(`${VISUAL_INDEX}: motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
+    warnings.push(`${VISUAL_INDEX}: Legacy-Motion-Standard erkannt; neue Projekte sollen ${YOUTUBE_MOTION_STANDARD_ID} verwenden.`);
   }
 
   const expectedImages = [];
   const thumbnailFileName = index?.thumbnail?.googleFlowFileName;
-  if (typeof thumbnailFileName !== 'string' || !thumbnailFileName.trim() || hasPlaceholder(thumbnailFileName)) {
+  if (!nonEmpty(thumbnailFileName) || hasPlaceholder(thumbnailFileName)) {
     phase1Blockers.push(`${VISUAL_INDEX}: thumbnail.googleFlowFileName fehlt oder enthält einen Platzhalter.`);
   } else {
     expectedImages.push(thumbnailFileName);
   }
 
+  const realAssets = [];
+
   for (const visual of visuals) {
-    const id = typeof visual?.id === 'string' ? visual.id : 'Unbekanntes Visual';
+    const id = nonEmpty(visual?.id) ? visual.id : 'Unbekanntes Visual';
+
     for (const field of ['chapter', 'scriptBeat']) {
-      if (typeof visual?.[field] !== 'string' || !visual[field].trim() || hasPlaceholder(visual[field])) {
+      if (!nonEmpty(visual?.[field]) || hasPlaceholder(visual[field])) {
         phase1Blockers.push(`${VISUAL_INDEX}: ${id}.${field} fehlt oder enthält einen Platzhalter.`);
+      }
+    }
+
+    if (index?.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID) {
+      for (const field of ['message', 'reason']) {
+        if (!nonEmpty(visual?.[field]) || hasPlaceholder(visual[field])) {
+          phase1Blockers.push(`${VISUAL_INDEX}: ${id}.${field} fehlt oder enthält einen Platzhalter.`);
+        }
       }
     }
 
     if (requiresYouTubeImage(visual)) {
       const fileName = visual.googleFlowFileName;
-      if (typeof fileName !== 'string' || !fileName.trim() || hasPlaceholder(fileName)) {
+      if (!nonEmpty(fileName) || hasPlaceholder(fileName)) {
         phase1Blockers.push(`${VISUAL_INDEX}: ${id}.googleFlowFileName fehlt oder enthält einen Platzhalter.`);
       } else expectedImages.push(fileName);
 
-      for (const field of ['expectedVisual']) {
-        if (typeof visual?.[field] !== 'string' || !visual[field].trim() || hasPlaceholder(visual[field])) {
-          phase1Blockers.push(`${VISUAL_INDEX}: ${id}.${field} fehlt oder enthält einen Platzhalter.`);
-        }
+      if (!nonEmpty(visual.expectedVisual) || hasPlaceholder(visual.expectedVisual)) {
+        phase1Blockers.push(`${VISUAL_INDEX}: ${id}.expectedVisual fehlt oder enthält einen Platzhalter.`);
       }
-      if (!Array.isArray(visual.objectLabels) || visual.objectLabels.some((label) => typeof label !== 'string' || !label.trim() || hasPlaceholder(label))) {
-        phase1Blockers.push(`${VISUAL_INDEX}: ${id}.objectLabels fehlen oder enthalten Platzhalter.`);
+      if (!Array.isArray(visual.objectLabels) || visual.objectLabels.some((label) => typeof label !== 'string' || hasPlaceholder(label))) {
+        phase1Blockers.push(`${VISUAL_INDEX}: ${id}.objectLabels ist ungültig.`);
       }
+      if (index?.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID) {
+        if (visual.flowAllowed !== true) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.flowAllowed muss true sein.`);
+        if (!nonEmpty(visual.flowReason) || hasPlaceholder(visual.flowReason)) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.flowReason fehlt oder enthält einen Platzhalter.`);
+      }
+
       const imagePlanFile = visual.type === 'hybrid' ? visual.imagePlanFile : visual.planFile;
-      if (typeof imagePlanFile !== 'string' || !imagePlanFile.trim()) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.image plan file fehlt.`);
+      if (!nonEmpty(imagePlanFile)) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.image plan file fehlt.`);
       else checkCompletedText(root, imagePlanFile, phase1Blockers);
+    }
+
+    if (requiresYouTubeRealAsset(visual)) {
+      if (!nonEmpty(visual.planFile)) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.planFile fehlt.`);
+      else checkCompletedText(root, visual.planFile, phase1Blockers);
+      if (!nonEmpty(visual.sourceNote) || hasPlaceholder(visual.sourceNote)) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.sourceNote fehlt oder enthält einen Platzhalter.`);
+      if (!nonEmpty(visual.assetFile) || hasPlaceholder(visual.assetFile)) {
+        phase1Blockers.push(`${VISUAL_INDEX}: ${id}.assetFile fehlt oder enthält einen Platzhalter.`);
+      } else {
+        realAssets.push({id, path: visual.assetFile});
+      }
     }
 
     if (requiresYouTubeMotion(visual)) {
       for (const error of validateYouTubeMotionMetadata(visual)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
+
       const sourceFile = visual.animationSourceFile;
-      if (typeof sourceFile !== 'string' || !sourceFile.trim()) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.animationSourceFile fehlt.`);
+      if (!nonEmpty(sourceFile)) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.animationSourceFile fehlt.`);
       else checkCompletedText(root, sourceFile, phase1Blockers);
-      if (typeof visual.planFile !== 'string' || !visual.planFile.trim()) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.planFile fehlt.`);
+
+      if (!nonEmpty(visual.planFile)) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.planFile fehlt.`);
       else checkCompletedText(root, visual.planFile, phase1Blockers);
 
-      for (const field of ['viewerChange', 'animationIntent', 'mechanicId', 'visualTechniqueId', 'techniqueDescription', 'compositionFamilyId', 'animationExport']) {
-        if (typeof visual?.[field] !== 'string' || !visual[field].trim() || hasPlaceholder(visual[field])) {
+      for (const [field, value] of [
+        ['viewerChange', visual.viewerChange],
+        ['reason', getYouTubeMotionReason(visual)],
+        ['motionPreset', getYouTubeMotionPreset(visual)],
+        ['animationExport', visual.animationExport],
+      ]) {
+        if (!nonEmpty(value) || hasPlaceholder(value)) {
           phase1Blockers.push(`${VISUAL_INDEX}: ${id}.${field} fehlt oder enthält einen Platzhalter.`);
         }
       }
-      if (!Array.isArray(visual.toolStack) || visual.toolStack.length < 1 || visual.toolStack.some((item) => typeof item !== 'string' || !item.trim() || hasPlaceholder(item))) {
-        phase1Blockers.push(`${VISUAL_INDEX}: ${id}.toolStack benötigt mindestens ein finales Werkzeug/Verfahren.`);
-      }
-      if (!Array.isArray(visual.motionChannels) || visual.motionChannels.length < 2 || visual.motionChannels.some((item) => typeof item !== 'string' || !item.trim() || hasPlaceholder(item))) {
-        phase1Blockers.push(`${VISUAL_INDEX}: ${id}.motionChannels benötigt mindestens zwei finale Kanäle.`);
-      }
-      if (!Array.isArray(visual.visualBeats) || visual.visualBeats.length < 2 || visual.visualBeats.some((item) => typeof item !== 'string' || !item.trim() || hasPlaceholder(item))) {
-        phase1Blockers.push(`${VISUAL_INDEX}: ${id}.visualBeats benötigt mindestens zwei finale Zustände.`);
-      }
-      for (const field of ['camera', 'layout', 'transformation']) {
-        const value = visual?.motionSignature?.[field];
-        if (typeof value !== 'string' || !value.trim() || hasPlaceholder(value)) {
-          phase1Blockers.push(`${VISUAL_INDEX}: ${id}.motionSignature.${field} fehlt oder enthält einen Platzhalter.`);
-        }
+      if (nonEmpty(visual.advancedReason) && hasPlaceholder(visual.advancedReason)) {
+        phase1Blockers.push(`${VISUAL_INDEX}: ${id}.advancedReason enthält einen Platzhalter.`);
       }
     }
 
     if (visual?.type === 'data') {
-      if (typeof visual.dataNotesFile !== 'string' || !visual.dataNotesFile.trim()) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.dataNotesFile fehlt.`);
+      if (!nonEmpty(visual.dataNotesFile)) phase1Blockers.push(`${VISUAL_INDEX}: ${id}.dataNotesFile fehlt.`);
       else checkCompletedText(root, visual.dataNotesFile, phase1Blockers);
     }
   }
-  for (const error of validateYouTubeMotionVariety(visuals)) phase1Blockers.push(`${VISUAL_INDEX}: ${error}`);
 
   const motionVisuals = visuals.filter(requiresYouTubeMotion);
   if (motionVisuals.length > 0) {
     const seal = readJson(resolve(root, ANIMATION_SEAL), phase1Blockers, ANIMATION_SEAL);
     if (seal) {
-      if (seal.version !== 2) phase1Blockers.push(`${ANIMATION_SEAL}: version muss 2 für Motion V3 sein.`);
-      if (seal.motionStandardId !== YOUTUBE_MOTION_STANDARD_ID) phase1Blockers.push(`${ANIMATION_SEAL}: motionStandardId ist falsch.`);
+      if (seal.version !== 3) phase1Blockers.push(`${ANIMATION_SEAL}: version muss 3 für Motion V4 sein. Phase 1 erneut versiegeln.`);
+      if (seal.motionStandardId !== index?.motionStandard?.id) phase1Blockers.push(`${ANIMATION_SEAL}: motionStandardId stimmt nicht mit visual-index.json überein.`);
       const entries = Array.isArray(seal.entries) ? seal.entries : [];
+
       for (const visual of motionVisuals) {
         const entry = entries.find((candidate) => candidate.id === visual.id);
         if (!entry) {
           phase1Blockers.push(`${ANIMATION_SEAL}: Eintrag für ${visual.id} fehlt.`);
           continue;
         }
+
         const sourcePath = resolve(root, visual.animationSourceFile ?? '');
-        if (isFile(sourcePath) && entry.sha256 !== sha256(sourcePath)) phase1Blockers.push(`${ANIMATION_SEAL}: Hash für ${visual.id} stimmt nicht mehr; Phase 1 erneut validieren und versiegeln.`);
+        if (isFile(sourcePath) && entry.sha256 !== sha256(sourcePath)) {
+          phase1Blockers.push(`${ANIMATION_SEAL}: Hash für ${visual.id} stimmt nicht mehr; Phase 1 erneut validieren und versiegeln.`);
+        }
         if (entry.exportName !== visual.animationExport) phase1Blockers.push(`${ANIMATION_SEAL}: Export für ${visual.id} stimmt nicht.`);
+
         const sealedContract = motionSealContract({
           viewerChange: entry.viewerChange,
-          animationIntent: entry.animationIntent,
-          mechanicId: entry.mechanicId,
-          visualTechniqueId: entry.visualTechniqueId,
-          techniqueDescription: entry.techniqueDescription,
-          compositionFamilyId: entry.compositionFamilyId,
+          reason: entry.reason,
+          motionPreset: entry.motionPreset,
+          advancedReason: entry.advancedReason,
           toolStack: entry.toolStack,
-          motionSignature: entry.motionSignature,
-          motionChannels: entry.motionChannels,
-          visualBeats: entry.visualBeats,
-          repeatTechniqueReason: entry.repeatTechniqueReason,
         });
         if (!sameJson(sealedContract, motionSealContract(visual))) {
-          phase1Blockers.push(`${ANIMATION_SEAL}: kreativer Motion-V3-Vertrag für ${visual.id} stimmt nicht mehr.`);
+          phase1Blockers.push(`${ANIMATION_SEAL}: Motion-V4-Vertrag für ${visual.id} stimmt nicht mehr.`);
         }
       }
       if (entries.length !== motionVisuals.length) phase1Blockers.push(`${ANIMATION_SEAL}: Anzahl versiegelter Animationen stimmt nicht.`);
@@ -228,6 +248,12 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
   }
   for (const fileName of actualImages) {
     if (!expectedSet.has(fileName)) phase2Blockers.push(`Unerwartetes Nutzerbild: ${IMAGE_INBOX}/${fileName}`);
+  }
+
+  for (const asset of realAssets) {
+    const assetPath = resolve(root, asset.path);
+    if (!isFile(assetPath)) phase2Blockers.push(`Echtes Asset fehlt für ${asset.id}: ${asset.path}`);
+    else if (statSync(assetPath).size === 0) phase2Blockers.push(`Echtes Asset ist leer für ${asset.id}: ${asset.path}`);
   }
 
   const audioFiles = listFiles(resolve(root, '03-audio'), AUDIO_EXTENSIONS);
@@ -249,7 +275,8 @@ export const analyzeYouTubeReadiness = (rootDirectory) => {
     }
   }
 
-  if (actualImages.length === expectedImages.length && expectedImages.length > 0) warnings.push('Alle erwarteten 16:9-Nutzerbilder sind vorhanden.');
+  if (actualImages.length === expectedImages.length && expectedImages.length > 0) warnings.push('Alle erwarteten Flow-/Thumbnail-Bilder sind vorhanden.');
+  if (realAssets.length > 0) warnings.push(`${realAssets.length} echtes/e Asset(s) eingeplant.`);
 
   return {
     ready: phase1Blockers.length === 0 && phase2Blockers.length === 0,

@@ -1,0 +1,16 @@
+{
+  "id": "finanzneo-youtube-framed-scene-v1",
+  "frameWidth": 1920,
+  "frameHeight": 1080,
+  "sceneHeadingRequired": true,
+  "sceneIconRequired": true,
+  "flowImageFullscreenForbidden": true,
+  "flowImagePlacement": "contained-visual-window",
+  "deepBlackFrameBackgroundVisible": true,
+  "headingAndIconOutsideFlowImage": true,
+  "recommendedOuterMarginPx": 72,
+  "recommendedHeaderHeightPx": [150, 190],
+  "recommendedIconSizePx": [56, 72],
+  "recommendedVisualWindowMaxWidthRatio": 0.78,
+  "recommendedVisualWindowMaxHeightRatio": 0.70
+}

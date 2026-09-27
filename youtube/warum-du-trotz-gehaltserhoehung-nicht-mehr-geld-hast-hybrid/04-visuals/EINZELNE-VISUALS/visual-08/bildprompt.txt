@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: A concrete recurring-cost system is faster to understand than a pure text list.
+VOICEOVER_VISUAL_MATCH: Several fixed commitments all pull on the same monthly budget.
+VOICEOVER CONTEXT: Wohnung, Vertrag, Abos oder Auto können die feste Monatsbasis erhöhen. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: One central monthly-budget envelope is physically pulled in four directions by a larger apartment key/door fragment, a smartphone with plain contract sheet, a small subscription-card cluster and a compact car key with simple car silhouette.
+IMPORTANT GERMAN OBJECT LABELS: None generated unless one object is ambiguous.
+OBJECTS: budget envelope, apartment key/door cue, smartphone/contract, subscription cards, car key/car silhouette.
+VISUAL STORYTELLING: Different recurring commitments visibly compete for the same monthly budget.
+COMPOSITION: Budget envelope large center, four forces asymmetric through depth, no icon grid.
+MATERIALS: Stylized paper, metal key, glass/plastic phone, matte cards.
+BACKGROUND: Deep seamless black.
+LIGHTING: Premium soft studio lighting with restrained warm cost accents.
+COLOR LANGUAGE: Black dominant, warm neutrals, red-orange only for recurring cost pressure.
+TEXT: No generated amounts, fake UI or long labels.
+FORBIDDEN: static tabletop/catalog staging, dashboard, icon grid, floating cards with no physical relation, photorealism, flat 2D.
+STYLE: Premium clearly stylized 3D animation-film rendering in the exact last-good-video world.

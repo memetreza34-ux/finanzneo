@@ -1,0 +1,20 @@
+# Thumbnail-Brief
+
+Kernidee: Mehr Gehalt ist sichtbar, aber der frei verfügbare Rest wirkt überraschend klein.
+
+## Finaler Hook — direkt im generierten Thumbnail
+
+`MEHR GEHALT, TROTZDEM KNAPP?`
+
+Der Text wird nicht später ergänzt. Motiv und Headline werden gemeinsam in Flow erzeugt. Exakte Schreibweise, Satzzeichen und gute Lesbarkeit bei kleiner YouTube-Größe sind Pflicht. Fehlender, falscher, verzerrter oder unlesbarer Text bedeutet: dasselbe Thumbnail neu erzeugen.
+
+## Visual
+
+- gleiche premium stylized 3D Bildwelt wie das letzte gute Video
+- eine stilisierte Animationsfilm-Figur
+- sichtbar voller Gehaltsumschlag
+- überraschend dünnes Wallet
+- Deep Black dominant
+- Headline und Motiv klar voneinander getrennt, ohne leeres Platzhalterfeld für spätere Typografie
+
+Keine Photorealistik, kein Mannequin, kein Produktwerbungs-Look, keine Coin-/Piggybank-Klischees.

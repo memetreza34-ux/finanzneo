@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: A real grocery outcome makes the final purchasing-power question concrete while Remotion supplies the exact question.
+VOICEOVER_VISUAL_MATCH: The viewer should ask what the money can actually buy today and later. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 17 - Was kannst du wirklich kaufen.png
+VOICEOVER CONTEXT: Die bessere Frage lautet deshalb nicht: Wie viel Geld habe ich? Sondern: Was kann ich damit heute und später tatsächlich bezahlen?
+SCENE: No person. One unchanged 100-euro note sits in the foreground facing a concrete grocery basket and a few everyday household goods. A second, more distant version of the same basket contains fewer items, suggesting a later point in time. Keep the lower third clean and dark for the exact Remotion question.
+IMPORTANT GERMAN OBJECT LABELS: None.
+OBJECTS: one 100-euro note, two time-separated grocery outcomes, everyday groceries/household goods.
+VISUAL STORYTELLING: The same money amount is connected to different real-world outcomes over time.
+COMPOSITION: Money foreground left, baskets middle/right at different depths, clean lower-third overlay zone, no table.
+MATERIALS: Thick stylized paper money, matte baskets, premium simplified grocery materials.
+BACKGROUND: Deep seamless black with minimal grocery context.
+LIGHTING: Soft premium animation-film lighting; later reduced basket receives restrained warm-red caution.
+COLOR LANGUAGE: Black, warm neutrals, controlled red-orange only where meaning needs it.
+TEXT: No generated question, prices, brands or UI. Remotion adds the exact final question.
+FORBIDDEN: static tabletop/catalog staging, product lineup, flat infographic, photorealism, corporate 3D, piggy bank, random coins.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.

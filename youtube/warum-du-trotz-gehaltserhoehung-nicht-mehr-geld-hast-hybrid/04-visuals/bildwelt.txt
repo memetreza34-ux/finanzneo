@@ -1,0 +1,23 @@
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-grounded-3d-black-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+STYLE_REFERENCE_PROJECT: youtube/warum-dein-geld-verschwindet-images-only
+STYLE_REFERENCE_POLICY: COPY_THE_LAST_GOOD_VIDEO_WORLD_EXACTLY
+
+FINANZNEO YOUTUBE IMAGE WORLD — LAST GOOD VIDEO LOCK
+
+Use exactly the same visual world as the approved previous video `warum-dein-geld-verschwindet-images-only`.
+
+Premium clearly stylized 3D animation-film rendering, deep seamless black dominant world, high-quality modeling, refined rounded geometry, semi-realistic but visibly stylized materials, premium studio lighting, controlled highlights, readable shadows, strong depth. Warm ivory and soft gray are neutral. Emerald green means positive/value/solution. Warm red-orange means cost/risk/problem. Subtle gold only for money/value accents. Horizontal 16:9.
+
+The result must read as a polished high-end animated feature-film frame, not a realistic studio photo, product advertisement, mannequin render, stock illustration or low-detail 3D mockup.
+
+CHARACTER RULE:
+Humans are rare in this project. Only use a human when attention, decision or consequence is the clearest memory aid. The character must belong to the same stylized animation-film world: rounded forms, appealing simplified face, expressive pose, clean stylized hair/clothing, visibly animated-film proportions. Never blank faceless mannequin, photoreal human, low-poly avatar or generic corporate 3D person.
+
+STORY RULE:
+The visual is a Denkstütze. It does not need to literally rebuild every spoken noun. Prefer the clearest concrete scene or simple physical relationship. Avoid abstract metaphor when a direct comparison, money flow, timeline or data visual explains the point faster.
+
+FORBIDDEN:
+photorealism; realistic product-ad photography; blank faceless mannequins; low-poly avatars; flat 2D illustration; corporate stock illustration; cheap toy-like 3D; isometric infographic look; recurring product + paper + table composition; generic catalog staging; excessive neon/cyberpunk; style drift away from the last good video.

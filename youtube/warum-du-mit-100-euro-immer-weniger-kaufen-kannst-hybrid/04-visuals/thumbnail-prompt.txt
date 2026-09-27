@@ -1,0 +1,32 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Thumbnail - 100 Euro werden weniger.png
+STYLE_REFERENCE_PROJECT: youtube/warum-dein-geld-verschwindet-images-only
+
+GOOGLE FLOW THUMBNAIL PROMPT
+
+Create a high-impact horizontal 16:9 YouTube thumbnail in EXACTLY the same premium stylized 3D animation-film FinanzNeo world as the approved reference video.
+
+SCENE:
+An appealing stylized animated-film character stands beside a large 100-euro note that stays visually unchanged. On the other side, a grocery basket is visibly much smaller / contains fewer everyday groceries than a second fuller reference basket behind it. The character reacts with clear surprise through face and pose. No question-mark symbols.
+
+VISUAL STORY:
+The money amount looks unchanged, but what it can buy has visibly shrunk.
+
+COMPOSITION:
+Character and grocery story on the right two-thirds. Strong depth, deep seamless black. Keep the left side clean for the headline, but the headline itself MUST be present.
+
+MANDATORY COVER TEXT:
+Generate exactly this large headline on the left:
+`100 € WERDEN WENIGER`
+Bold uppercase, high contrast, clean and readable. `100 €` may be warm ivory; `WERDEN WENIGER` may use restrained warm red-orange.
+
+TEXT QA:
+If any character, euro symbol, spacing or word is wrong, distorted, duplicated or unreadable, REJECT and regenerate the same thumbnail. No subtitle, no rating stars, no fake UI, no brands.
+
+STYLE:
+Premium clearly stylized 3D animation-film rendering, refined rounded geometry, expressive stylized character, semi-realistic but visibly animated-film materials, premium soft studio lighting, deep seamless black, warm neutrals, restrained red-orange risk accent.
+
+FORBIDDEN:
+Photorealism, blank faceless mannequin, realistic product-ad photography, stock/corporate 3D, flat 2D, piggy bank, random coin pile, catalog/tabletop staging, cyberpunk, clutter.
+
+Horizontal 16:9. Do not redesign the approved image world.

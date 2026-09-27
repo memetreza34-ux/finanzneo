@@ -1,0 +1,24 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Thumbnail - Mehr Gehalt trotzdem knapp.png
+STYLE_REFERENCE_PROJECT: youtube/warum-dein-geld-verschwindet-images-only
+
+Create a high-impact horizontal 16:9 YouTube thumbnail in EXACTLY the same premium stylized 3D animation-film world as the approved previous FinanzNeo video `warum-dein-geld-verschwindet-images-only`.
+
+THUMBNAIL_HEADLINE — REQUIRED FINAL TEXT:
+`MEHR GEHALT, TROTZDEM KNAPP?`
+The exact German headline above MUST be generated directly inside the final thumbnail image. Do not leave typography for a later layout step. Exact spelling, punctuation and readability are mandatory.
+
+SCENE:
+One appealing stylized animated-film character stands between a visibly fuller salary envelope and a surprisingly thin almost-empty wallet. Several everyday cost forces have already pulled money away. The character shows a clear confused reaction through face and pose, but there are no floating question marks. The image must communicate immediately: income increased, usable money did not.
+
+COMPOSITION:
+Design the headline and subject together from the start. Keep the large headline clearly separated from the character and objects, with strong contrast against the deep-black world. Use the remaining frame for the character, fuller salary envelope and thin wallet. Strong depth; no product-ad staging. The text must remain readable at small YouTube thumbnail size.
+
+TEXT QA:
+Only the exact hook `MEHR GEHALT, TROTZDEM KNAPP?` is allowed as headline. No subtitle and no extra copy. If any word, letter or punctuation mark is missing, misspelled, distorted or unreadable, REJECT and regenerate the SAME thumbnail before continuing.
+
+STYLE:
+Premium clearly stylized 3D animation-film rendering, refined rounded geometry, semi-realistic but visibly stylized materials, soft premium studio lighting, readable shadows, deep seamless black, emerald only for positive income/value, warm red-orange only for cost pressure.
+
+FORBIDDEN:
+textless final thumbnail, placeholder typography area, wrong headline, mannequin, photoreal human, corporate 3D avatar, realistic studio photography, product-ad look, flat 2D, fake UI, random coins, piggy-bank cliché, tabletop/catalog staging, clutter, cyberpunk.

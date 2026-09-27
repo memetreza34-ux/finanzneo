@@ -1,0 +1,144 @@
+FINANZNEO — GOOGLE FLOW HANDOFF — KAUFKRAFT / VARIANTE B
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+STYLE_REFERENCE_PROJECT: youtube/warum-dein-geld-verschwindet-images-only
+
+Use EXACTLY the approved last-good-video visual world: premium clearly stylized 3D animation-film rendering, refined rounded geometry, semi-realistic but visibly stylized materials, deep seamless black, premium soft studio lighting, warm ivory/soft gray neutrals, emerald only for positive/value/solution and warm red-orange only for cost/risk/problem. Never photorealistic, flat 2D, corporate 3D, blank mannequin or catalog/tabletop default.
+
+IMPORTANT: Generate only THUMBNAIL plus IMAGE 01, 02, 04, 05, 07, 08, 10, 12, 13, 15, 17 and 18. All other scenes are Remotion-only.
+
+STRICT WORKFLOW:
+1. Generate exactly ONE current image.
+2. Wait until it is complete.
+3. Rename it immediately to the exact FINAL FILE NAME.
+4. QA: horizontal 16:9, approved animation-film world, one dominant idea, useful visual memory aid, no unintended text, no catalog staging.
+5. On failure regenerate the SAME image number.
+6. Continue only after PASS.
+7. Stop after IMAGE 18.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+THUMBNAIL
+FINAL FILE NAME: YouTube Thumbnail - 100 Euro werden weniger.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SCENE: One appealing stylized animated-film character beside a large unchanged 100-euro note. On the other side, a visibly smaller grocery basket contains fewer everyday goods than a fuller reference basket behind it. Character reacts with clear surprise. No question marks.
+COMPOSITION: Story on right two-thirds, left area clean but headline MUST already be present.
+MANDATORY TEXT: `100 € WERDEN WENIGER`
+TEXT QA: If any character, euro sign or word is wrong or unreadable, reject and regenerate. No subtitle, ratings, fake UI or brands.
+FORBIDDEN: mannequin, photoreal human, product ad, piggy bank, coin pile, flat 2D, catalog staging.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 01 — 100 € bleiben 100 €?
+FINAL FILE NAME: YouTube Bild 01 - 100 Euro gleich weniger Einkauf.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: 100 Euro auf deinem Konto bleiben 100 Euro. Aber wenn Preise über Jahre steigen, kannst du mit denselben 100 Euro immer weniger kaufen.
+SCENE: Appealing stylized animated-film character holds one large recognizable 100-euro note beside two grocery baskets as a time contrast: current basket visibly smaller, fuller reference basket deeper in scene. The money note itself is unchanged.
+VISUAL STORYTELLING: Same money amount, reduced amount of goods.
+TEXT: No generated labels, prices, UI or brands.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 02 — Betrag ≠ Kaufkraft
+FINAL FILE NAME: YouTube Bild 02 - Betrag und Kaufkraft.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: Das ist der Unterschied zwischen Betrag und Kaufkraft. Auf dem Konto steht dieselbe Zahl, im Einkaufswagen landet trotzdem weniger.
+SCENE: One unchanged 100-euro note and one clearly smaller grocery basket grouped on left 45–50%. Entire right half remains clean deep black for later Remotion comparison.
+VISUAL STORYTELLING: Money stays stable; achievable basket is reduced.
+TEXT: No generated explanatory text. Remotion owns exact words.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 04 — Es passiert schrittweise
+FINAL FILE NAME: YouTube Bild 04 - Preise steigen im Alltag.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: Im Alltag merkst du das nicht an einem einzigen großen Sprung. Lebensmittel, Drogerie oder ein Kaffee werden Stück für Stück teurer.
+SCENE: Curved path through depth with grocery bag, drugstore purchase and takeaway coffee. Small plain receipts trail behind them and become slightly longer farther along the path. No person.
+VISUAL STORYTELLING: Repeated ordinary purchases create a gradually heavier receipt trail.
+TEXT: No prices, labels, brands or UI.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 05 — Große Kosten ziehen mit
+FINAL FILE NAME: YouTube Bild 05 - Groessere Kosten wachsen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: Dasselbe passiert bei größeren Kosten. Miete, Energie oder Dienstleistungen können einen immer größeren Teil deines Budgets beanspruchen.
+SCENE: One monthly-budget envelope left/middle. Apartment key/door fragment, energy meter/bill and service toolbox/invoice connect to it through restrained warm-red ribbons. Right half clean for Remotion bars. No person.
+VISUAL STORYTELLING: Three large recurring costs pull on the same budget.
+TEXT: Optional short physical `Miete` / `Energie` only if necessary. No amounts.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 07 — Nominal gleich, real weniger
+FINAL FILE NAME: YouTube Bild 07 - Nominal gleich real weniger.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: Genau deshalb ist nur auf den Kontostand zu schauen irreführend. Nominal können 100 Euro gleich bleiben, real sinkt ihre Kaufkraft.
+SCENE: Large unchanged 100-euro note left. Two connected grocery outcomes at different depths: fuller reference basket behind, reduced current basket nearer viewer. Clean upper-right space for Remotion bars. No person.
+VISUAL STORYTELLING: Note does not shrink; reachable goods do.
+TEXT: No generated explanatory labels or prices.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 08 — Gehalt muss mithalten
+FINAL FILE NAME: YouTube Bild 08 - Gehalt gegen Preise.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: Auch beim Einkommen zählt deshalb nicht nur, ob dein Gehalt steigt. Wichtig ist, ob es stärker steigt als dein persönliches Preisniveau.
+SCENE: No person. Thick salary envelope moves forward along one physical path. Grocery bag, rent document and energy bill follow on the same direction and nearly catch it. Salary is only slightly ahead.
+VISUAL STORYTELLING: Salary rises, but costs move with it.
+TEXT: Optional physical `Gehalt` only. No amounts.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 10 — 5 % minus 4 %?
+FINAL FILE NAME: YouTube Bild 10 - Gehalt plus Preise Beispiel.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: Ein einfaches Beispiel: fünf Prozent mehr Gehalt bei vier Prozent höheren Preisen bedeuten real nur ungefähr ein Prozent mehr Kaufkraft.
+SCENE: No person. Salary envelope on left faces a nearly equally substantial combined everyday-cost block in middle. Salary only slightly larger. Rightmost 42% clean for exact Remotion math.
+VISUAL STORYTELLING: Costs almost match the nominal salary increase.
+TEXT: No generated percentages/calculation. Remotion owns +5 %, +4 %, ≈ +1 %.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 12 — Sicherheit ≠ Rendite
+FINAL FILE NAME: YouTube Bild 12 - Reserve hat andere Aufgabe.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: Sicherheit und Rendite sind zwei verschiedene Aufgaben. Geld für die nächste Reparatur braucht eine andere Rolle als Geld für viele Jahre.
+SCENE: No person. Clearly broken off-white washing machine with small tool case. Transparent emerald emergency reserve envelope/container in foreground visibly has banknotes available for repair. Separate closed long-term folder remains far back and untouched.
+VISUAL STORYTELLING: Near-term reserve solves the near-term problem; long-term money is not involved.
+TEXT: Optional physical `Reserve` only; no amount.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 13 — Drei Zeiträume
+FINAL FILE NAME: YouTube Bild 13 - Geld nach Zeithorizont.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: Hilfreich ist deshalb, dein Geld nach Zeithorizont zu trennen: kurzfristige Reserve, mittelfristige Ziele und langfristige Planung.
+SCENE: One appealing stylized animated-film character actively organizes three goals at different spatial distances: nearby emergency-repair reserve, medium-distance goal, far long-term folder/calendar path. Lower third clean for three exact Remotion labels.
+VISUAL STORYTELLING: Spatial distance communicates time horizon.
+TEXT: No generated time labels or amounts.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 15 — Jeder Euro bekommt eine Aufgabe
+FINAL FILE NAME: YouTube Bild 15 - Jeder Euro bekommt Aufgabe.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: So bekommt jeder Euro eine Aufgabe, statt einfach nur irgendwo zu liegen. Das macht Entscheidungen übersichtlicher.
+SCENE: No person. Organized money source left. Three concrete destinations through middle/right: emergency reserve envelope, medium-term goal box, long-term planning folder. Leave clear black routes for animated Remotion flow lines.
+VISUAL STORYTELLING: One pool of money has three distinct jobs.
+TEXT: No generated categories or amounts.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 17 — Was kannst du wirklich kaufen?
+FINAL FILE NAME: YouTube Bild 17 - Was kannst du wirklich kaufen.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: Die bessere Frage lautet deshalb nicht: Wie viel Geld habe ich? Sondern: Was kann ich damit heute und später tatsächlich bezahlen?
+SCENE: No person. Unchanged 100-euro note foreground facing one concrete grocery basket and a more distant later basket with fewer items. Lower third clean for exact Remotion question.
+VISUAL STORYTELLING: Same money amount produces different real-world outcomes over time.
+TEXT: No generated question, prices or UI.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMAGE 18 — Kaufkraft ist entscheidend
+FINAL FILE NAME: YouTube Bild 18 - Kaufkraft ist entscheidend.png
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VOICEOVER CONTEXT: 100 Euro bleiben auf dem Bildschirm 100 Euro. Aber erst die Kaufkraft zeigt dir, was diese Zahl in deinem Alltag wirklich wert ist.
+SCENE: One appealing stylized animated-film character calmly compares an unchanged 100-euro note/simple amount cue with the real grocery basket it can buy. Thoughtful resolved expression, no question marks.
+VISUAL STORYTELLING: Attention shifts from the number alone to real-world goods.
+TEXT: No generated slogan, prices, brands or UI.
+
+GLOBAL FORBIDDEN FOR EVERY IMAGE:
+Photorealism, blank faceless mannequins, corporate/stock 3D, flat 2D, anime, cheap toy 3D, product-ad photography, static tabletop/catalog staging, repeated question-mark template, piggy-bank/coin-vault cliché, cyberpunk, clutter.
+
+FINISH — STOP AFTER IMAGE 18.

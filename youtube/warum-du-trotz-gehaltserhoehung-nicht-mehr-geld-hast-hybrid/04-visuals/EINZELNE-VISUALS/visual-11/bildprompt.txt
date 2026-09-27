@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: Human attention shows the thinking error more clearly than another chart.
+VOICEOVER_VISUAL_MATCH: The shopper focuses on income while the remainder is much smaller.
+VOICEOVER CONTEXT: Nicht nur Einkommen zählt, sondern was nach Verpflichtungen übrig bleibt. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Appealing stylized animated-film character looks proudly at a thick salary envelope held near eye level while a much smaller remaining stack of money sits clearly visible lower in the same frame.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: character, salary envelope, small remaining money stack.
+VISUAL STORYTELLING: The character's attention is directed at the impressive incoming amount instead of the modest remainder.
+COMPOSITION: Salary envelope foreground upper-left, character center, small remainder lower-right, strong depth.
+MATERIALS: Stylized fabric, thick paper, softly modeled money stack.
+BACKGROUND: Deep seamless black with minimal context.
+LIGHTING: Premium soft key light, emerald on income, neutral light on remainder.
+COLOR LANGUAGE: Black dominant, warm neutrals, restrained emerald.
+TEXT: No generated amounts, labels, brands or UI.
+FORBIDDEN: blank mannequin, photoreal human, question-mark template, fake banking UI, static tabletop/catalog staging, flat 2D.
+STYLE: Premium clearly stylized 3D animation-film rendering in the exact last-good-video world.

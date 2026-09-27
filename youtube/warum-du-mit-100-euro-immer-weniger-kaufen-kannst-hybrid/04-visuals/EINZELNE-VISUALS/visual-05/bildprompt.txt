@@ -1,0 +1,16 @@
+FLOW_NECESSITY_REASON: Concrete housing, energy and service-cost anchors make the later budget animation immediately understandable.
+VOICEOVER_VISUAL_MATCH: Larger recurring costs claim more of the same budget. One dominant idea; 1-2 short Voiceover sentences.
+FINAL FILE NAME: YouTube Bild 05 - Groessere Kosten wachsen.png
+VOICEOVER CONTEXT: Dasselbe passiert bei größeren Kosten. Miete, Energie oder Dienstleistungen können einen immer größeren Teil deines Budgets beanspruchen.
+SCENE: One central monthly-budget envelope sits left/middle. Three concrete recurring-cost forces connect to it through restrained physical ribbons: an apartment key with a small door fragment, an electricity meter/energy bill object, and a repair/service toolbox with invoice paper. Reserve the entire right half as clean dark negative space for Remotion budget bars.
+IMPORTANT GERMAN OBJECT LABELS: Short physical labels “Miete” and “Energie” may be used only if needed for clarity; no amounts.
+OBJECTS: monthly-budget envelope, apartment key/door fragment, electricity meter or bill, toolbox/service invoice, three connecting ribbons.
+VISUAL STORYTELLING: Three large recurring costs visibly pull on the same monthly budget rather than existing as unrelated icons.
+COMPOSITION: Budget anchor left-center; cost objects distributed in depth around it; right half clean for overlay; no grid.
+MATERIALS: Thick paper, brushed metal key, stylized meter plastic/glass, matte toolbox, fabric-like ribbons.
+BACKGROUND: Deep seamless black with tiny local context dissolving into black.
+LIGHTING: Soft premium light; restrained warm-red accents only on the cost connections.
+COLOR LANGUAGE: Black dominant, warm ivory/gray, controlled red-orange risk.
+TEXT: No generated prices, percentages, long labels, ratings or UI. Remotion owns exact explanatory values.
+FORBIDDEN: dashboard, icon grid, static tabletop/catalog staging, product advertising, flat 2D, photorealism, corporate 3D, clutter.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; exact last-good-video world; horizontal 16:9.

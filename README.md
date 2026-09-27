@@ -10,43 +10,85 @@ npm run validate
 npm run studio
 ```
 
-## Aktiver Produktionsstandard
+## Zuerst Produktionsart wählen
 
-Die aktuell zusammengehörige Kombination aus Reel-Layout, Hintergrund, Bildwelt, Flow-Modus, Animationsstandard und Produktions-Gates steht in:
+FinanzNeo hat zwei getrennte Welten. Regeln nie vermischen.
+
+### Reels — 9:16
+
+Autoritative Einstiegskette:
 
 ```text
-config/finanzneo-production-standard.json
+CLAUDE.md
+→ config/finanzneo-production-standard.json
+→ reels/PRODUKTIONSSTANDARD.md
+→ docs/3-PHASEN-WORKFLOW.md
 ```
 
-`CLAUDE.md` bleibt die höchste Regelquelle für Produktionsverantwortung und Agent-Verhalten. Der schnelle Einstieg liegt in `START-HIER.md`.
+Reels bleiben IMAGE oder ANIMATION. Der aktive Standard entscheidet Layout, V9-Bildwelt, Flow, Motion, QA und Export.
+
+### YouTube Longform — 16:9
+
+Autoritative Einstiegskette:
+
+```text
+config/finanzneo-youtube-visual-system.json
+→ docs/YOUTUBE-PRODUCTION-MODES.md
+→ youtube/PRODUKTIONSSTANDARD.md
+→ docs/YOUTUBE-LONGFORM-WORKFLOW.md
+```
+
+YouTube besitzt zwei Produktionsmodi mit demselben Szenenlayout:
+
+- `images-only`: fertige statische Szene mit Überschrift + Icon + eingebettetem Flow-Bild; keine Animation.
+- `hybrid`: dasselbe Layout; zusätzlich Remotion, Charts, Daten, Animation und echte Assets erlaubt.
+
+In beiden Modi gilt: **Flow-Bilder niemals fullscreen.** Überschrift und Icon liegen außerhalb des Flow-Bildes. Die sichtbare deep-black FinanzNeo-Grundfläche bleibt erhalten.
+
+Im Hybrid-Modus gilt für abstrakte Zahlen, Vergleiche, Charts, Timelines und Prozesse weiterhin Remotion zuerst. Im `images-only`-Modus ist Flow die Hauptquelle, aber jedes Bild erklärt nur einen dominanten Gedanken.
+
+## Daten für Remotion
+
+Chart- und Statistikdaten werden **vor dem Rendern** geholt, geprüft und lokal unter `public/data/` gespeichert. Der Render selbst bleibt netzwerkfrei.
+
+```bash
+npm run data:fetch
+npm run data:validate
+```
+
+Quellen- und Provenienzregeln: `docs/DATA-PIPELINE.md` und `config/finanzneo-data-sources.json`.
 
 ## Zentrale Befehle
 
 ```bash
+# Reels
 npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
 npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
 npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
-npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
-npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
+
+# YouTube
+npm run youtube:create:mode -- --mode images-only --target youtube/<Projekt> --title "Titel" --visual-count 20
+npm run youtube:create:mode -- --mode hybrid --target youtube/<Projekt> --title "Titel" --types image,animation,data
 npm run youtube:validate -- youtube/<Projekt>
 npm run youtube:ready -- youtube/<Projekt>
-npm run protect:install
+
+# Repo
+npm run validate
 npm run build
 npm run smoke
-npm run render
 ```
 
 ## Struktur
 
-- `config/` — aktive Maschinen-Konfiguration und Locks
+- `config/` — Maschinen-Konfiguration, aktive Standards, Datenquellen und Locks
+- `docs/` — Workflows und Qualitätsstandards; nicht referenzierte alte Versionsdokumente sind nicht autoritativ
 - `src/design-system/` — öffentlicher Importpfad für neue Produktion
-- `src/production/reel-template/` — technische Reel-Vorlage
+- `src/production/` — produktive technische Vorlagen
 - `src/root/` — getrennte Production-, Experiment- und Showcase-Registries
+- `src/bausteine/` — wiederverwendbare Remotion-Bausteine
 - `reels/` — konkrete Reel-Projekte
 - `youtube/` — eigenständige YouTube-Longform-Projekte
-- `scripts/` — Scaffold, Validatoren und Render-Gates
-- `docs/` — Detailregeln, Workflows und Qualitätsstandards
+- `public/data/` — lokale Daten-Snapshots für reproduzierbare Charts
+- `scripts/` — Scaffold, Daten-Fetcher, Validatoren und Render-Gates
 
-Verbindliche Abläufe: `docs/3-PHASEN-WORKFLOW.md` und `docs/YOUTUBE-LONGFORM-WORKFLOW.md`.
-
-Die Produktionsregistry bleibt bewusst eine Freigabeliste und kann leer sein, solange kein Reel den vollständigen Produktionspfad bestanden hat.
+Die Produktionsregistry ist bewusst eine Freigabeliste und darf leer bleiben, bis eine Produktion alle Gates bestanden hat. Repository-Orientierung: `docs/REPOSITORY-ARCHITECTURE.md`.

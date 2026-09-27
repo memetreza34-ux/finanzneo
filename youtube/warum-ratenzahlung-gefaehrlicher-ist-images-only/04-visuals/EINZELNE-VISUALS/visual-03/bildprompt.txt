@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: A human attention metaphor communicates selective focus faster than two labeled cards.
+VOICEOVER_VISUAL_MATCH: The shopper magnifies a small payment cue while a much larger full-cost document is overlooked.
+VOICEOVER CONTEXT: Das Problem ist: Dein Blick wandert weg vom Gesamtpreis. Du achtest fast nur noch auf die Monatsrate. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Stylized faceless person looks through a large magnifying glass at a tiny blank payment slip. A much larger folded purchase receipt remains behind the person in subdued shadow. One sculpted question mark near the magnifying glass.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: person, magnifying glass, tiny slip, large receipt, question mark.
+VISUAL STORYTELLING: Small cue is visually enlarged while the actually larger total cost loses attention.
+COMPOSITION: Magnifying glass foreground, person midground, large receipt background; strong depth.
+MATERIALS: Stylized glass, paper, fabric, matte metal.
+BACKGROUND: Deep seamless black.
+LIGHTING: Brighter key on magnified cue, subdued readable total-cost document.
+COLOR LANGUAGE: Black, warm neutrals, restrained risk accent.
+TEXT: No generated words or numbers. Question mark allowed.
+FORBIDDEN: two labeled cards, dashboard, floating UI, static tabletop/catalog staging, photorealism, flat 2D.
+STYLE LOCK: Premium clearly stylized 3D animation-film rendering; unchanged FinanzNeo image world; horizontal 16:9.

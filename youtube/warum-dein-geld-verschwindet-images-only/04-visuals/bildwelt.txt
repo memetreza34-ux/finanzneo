@@ -1,0 +1,10 @@
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1
+
+Premium clearly stylized 3D animation-film rendering. Deep seamless black dominant world. High-quality modeling, soft refined geometry, semi-realistic but visibly stylized materials, premium studio lighting, controlled highlights and readable shadows. Warm ivory/soft gray neutrals. Emerald green only for positive/value/solution. Warm red-orange only for cost/risk/problem. Subtle gold only for value accents.
+
+One image = one dominant idea = normally 1-2 short Voiceover sentences. Every image must contain a small visible story, cause-effect relationship, progression, tension or physical interaction. Do not default to a desk/table, centered product shot, symmetric catalog layout or unrelated floating props. Floating is allowed only when it serves the spoken point. Keep only the objects required for immediate understanding.
+
+PRODUCTION_MODE: images-only. No Remotion overlay will be added. The image must work by itself. No headline, subtitle, explanatory paragraph, critical amount or percentage. Only short German labels physically printed on important otherwise ambiguous objects are allowed.

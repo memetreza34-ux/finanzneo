@@ -1,0 +1,15 @@
+FLOW_NECESSITY_REASON: A real repair situation makes the missing reserve immediately understandable.
+VOICEOVER_VISUAL_MATCH: An unexpected repair arrives even though income had increased.
+VOICEOVER CONTEXT: Eine unerwartete Reparatur zeigt, ob wirklich Reserve aufgebaut wurde. One dominant idea; 1-2 short Voiceover sentences.
+SCENE: Appealing stylized animated-film character kneels beside a clearly broken off-white washing machine with a small open tool case. The character opens an almost-empty emergency envelope or wallet.
+IMPORTANT GERMAN OBJECT LABELS: None generated.
+OBJECTS: character, broken washing machine, repair tools, almost-empty reserve envelope/wallet.
+VISUAL STORYTELLING: A normal unexpected repair meets a missing financial buffer.
+COMPOSITION: Character and washer left/mid, almost-empty reserve foreground right, compact laundry context fading into black.
+MATERIALS: Stylized appliance metal/plastic, fabric, leather/paper reserve, metal tools.
+BACKGROUND: Deep seamless black with only necessary laundry context.
+LIGHTING: Premium soft lighting, restrained warm risk accent around the repair.
+COLOR LANGUAGE: Black dominant, warm ivory/gray, red-orange only for the problem.
+TEXT: No generated repair price, labels or UI.
+FORBIDDEN: exact copy of old anchor framing, blank mannequin, giant warning icon, static tabletop/catalog staging, clutter, photorealism, flat 2D.
+STYLE: Premium clearly stylized 3D animation-film rendering in the exact last-good-video world.
