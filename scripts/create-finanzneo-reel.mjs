@@ -70,8 +70,9 @@ console.log('  Bildwelt V9 + Storytelling V3: Literal first, creative second · 
 console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
 console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
-console.log('  ANIMATION: individuelle Remotion-Hauptanimation + Header/Icon + Caption; kein Flow-Bild als Hauptvisual.');
-console.log('  Motion Direction: Inhalt -> Verständnisziel -> visuelle Frage -> individuelle Mechanik -> Technik.');
+console.log('  ANIMATION: Remotion-Hauptanimation + Header/Icon + Caption; kein Flow-Bild als Hauptvisual.');
+console.log('  Motion Direction: Inhalt -> Verständnisziel -> beste Mechanik -> Finance Motion Library Best-Fit oder Custom-Build.');
+console.log('  Finance Motion Library: passende Mechaniken parametrisieren und wiederverwenden; keine passende Mechanik = individuell bauen.');
 console.log('  Source Diversity Guard: tatsächliche animation.tsx-Primitives werden verglichen; Metadaten allein reichen nicht.');
 console.log('  Animation Safe Zone: X72–1008 · Visual Y320–1400 · perspektivischer Innenabstand + Post-Render-Rand-QA.');
 console.log('  Lottie/Icons/SVG sind Support, nicht automatisch eine neue Hauptanimation.');

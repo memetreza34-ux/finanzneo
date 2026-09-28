@@ -1,21 +1,41 @@
+// Compatibility lock stays stable so existing sealed reels and the V9 image world
+// are not migrated by this animation-only change.
 export const PREMIUM_ANIMATION_LOCK = 'finanzneo-premium-physical-animation-v2';
 
 export const premiumAnimationContractFields = () => ({
   premiumVisualLock: PREMIUM_ANIMATION_LOCK,
   visualTargetWorld: 'finanzneo-stylized-3d-animated-black-v9',
-  requirePremiumPhysicalStage: true,
-  requirePhysicalObjects: true,
+
+  // Finance Motion Library V1: content decides first, library is the preferred
+  // implementation when it is a genuine semantic best-fit.
+  financeMotionLibraryId: 'finanzneo-finance-motion-library-v1',
+  financeMotionLibraryAvailable: true,
+  libraryBestFitBeforeCustom: true,
+  customAnimationAllowed: true,
+  reusableMechanicsPreferred: true,
+  libraryReuseMayRepeatAcrossScenes: true,
+  libraryParametersMustFollowSceneContent: true,
+
+  // Old physical primitives remain available but are no longer quality gates.
+  requirePremiumPhysicalStage: false,
+  requirePhysicalObjects: false,
+  premiumPhysicalStageOptional: true,
+  physicalObjectsOptional: true,
+
   supportingObjectCountFlexible: true,
   clarityBeforeObjectCount: true,
   requireMaterialDepthLighting: true,
   sameVisualLanguageAsFlowImages: true,
-  realWorldMechanismRequired: true,
   startMechanismResultRequired: true,
-  uniqueMechanismPerAnimationRequired: true,
+  uniqueMechanismPerAnimationRequired: false,
+  semanticMechanismRequired: true,
+  focalPathRequired: true,
+  primaryActionRequired: true,
+  cameraRoleRequired: true,
+  payoffRequired: true,
   labelsSupplementalOnly: true,
   genericCardRowsForbidden: true,
   progressBarAsPrimaryStoryForbidden: true,
-  physicalCauseEffectRequired: true,
   pureBlackCanvasRequired: true,
   transparentAnimationStageRequired: true,
   decorativeBackgroundEffectsForbidden: true,
