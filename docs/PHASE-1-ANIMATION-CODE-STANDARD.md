@@ -144,6 +144,7 @@ Folgende Punkte sind **keine Qualitäts-Pflicht mehr**:
 - mindestens zwei Realweltobjekte
 - mindestens drei `interpolate`-/`spring`-Variablen
 - eine weltweit oder innerhalb des Reels einzigartige Mechanik
+- **keine feste Support-Objekt-Anzahl**; Inhalt und Klarheit bestimmen, wie viele Support-Elemente sinnvoll sind
 
 Diese Bausteine bleiben verfügbar, wenn sie für eine konkrete Szene wirklich passen.
 
