@@ -131,7 +131,7 @@ export const FinanceMotionLibraryLabV1: React.FC = () => (
               </div>
               <div style={{marginTop: 8, fontSize: 42, fontWeight: 950, color: C.white}}>{id}</div>
             </div>
-            <div style={{fontSize: 25, fontWeight: 900, color: C.grayLt}}>
+            <div style={{fontSize: 25, fontWeight: 900, color: C.gray}}>
               {String(index + 1).padStart(2, '0')} / {FINANCE_MOTION_LAB_IDS.length}
             </div>
           </div>
@@ -146,7 +146,7 @@ export const FinanceMotionLibraryLabV1: React.FC = () => (
               fontFamily: FONT.body,
               fontSize: 20,
               fontWeight: 800,
-              color: C.grayLt,
+              color: C.gray,
               letterSpacing: 0.8,
             }}
           >
