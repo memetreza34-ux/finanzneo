@@ -17,14 +17,14 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 1,2 %
 
 IMAGE PROMPT:
-Create a premium stylized 3D real-world end-of-plan investment scene. Place two substantial physical 30-year depot folders side by side, both clearly belonging to the same original savings plan. Label the left variant “0,2 %” and the right variant “1,2 %”, with one shared time label “30 Jahre”. Attach a large physical accumulated savings stack to each folder: the lower-cost variant must be visibly and materially higher, while the higher-cost variant is clearly smaller. Do not reveal the exact final euro totals yet; the next animation will deliver that payoff.
+Create a premium stylized 3D real-world end-of-plan investment scene. Place two substantial physical 30-year depot folders side by side, both clearly belonging to the same original savings plan. Label the left variant “0,2 %” and the right variant “1,2 %”, with one shared time label “30 Jahre”. Attach a large physical accumulated savings stack to each folder: the lower-cost variant must be visibly and materially higher, while the higher-cost variant is clearly smaller. Do not reveal the exact final euro totals yet; the next animation will deliver that payoff. Keep the objects on one seamless deep black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 STYLE: Premium real-world-grounded stylized 3D, never photorealistic.
-BACKGROUND: Seamless deep black.
+BACKGROUND: Seamless deep black background.
 COLORS + LIGHT: Emerald for lower-cost retained value, subtle gold for money, restrained warning accent for higher costs, soft lighting.
 TEXT: Only the exact labels above.
 FORBIDDEN: No exact 297k/242k payoff text, no dashboard, chart, app UI, flowchart, floating cards, generic icon pile or clutter.

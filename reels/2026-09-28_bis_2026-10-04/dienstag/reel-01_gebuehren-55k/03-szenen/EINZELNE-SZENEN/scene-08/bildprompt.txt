@@ -18,14 +18,14 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 1,2 %
 
 IMAGE PROMPT:
-Create a premium stylized 3D long-term investment archive scene on a large physical desk. Arrange a readable sequence of annual investment folders progressing from “Jahr 1” toward “Jahr 30”. Within the same coherent scene, show two consistent depot variants labeled “0,2 %” and “1,2 %”. Near year 1 their physical savings amounts are almost equal; near year 30 their savings stacks are clearly far apart. The composition must feel like real long-term records laid out over time, not a line chart or dashboard. Make the growing separation the dominant consequence.
+Create a premium stylized 3D long-term investment archive scene on a large physical desk. Arrange a readable sequence of annual investment folders progressing from “Jahr 1” toward “Jahr 30”. Within the same coherent scene, show two consistent depot variants labeled “0,2 %” and “1,2 %”. Near year 1 their physical savings amounts are almost equal; near year 30 their savings stacks are clearly far apart. The composition must feel like real long-term records laid out over time, not a line chart or dashboard. Make the growing separation the dominant consequence on one seamless deep black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 STYLE: Premium stylized 3D, grounded in real investment paperwork, never photorealistic.
-BACKGROUND: Seamless deep black.
+BACKGROUND: Seamless deep black background.
 COLORS + LIGHT: Emerald/gold value cues, neutral folders, restrained warning accent on higher cost, soft studio lighting.
 TEXT: Only the exact labels above.
 FORBIDDEN: No line chart as main composition, no dashboard/app UI, no flowchart, no floating cards, no fantasy machine, no clutter.

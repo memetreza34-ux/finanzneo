@@ -18,14 +18,14 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 7 % vor Kosten
 
 IMAGE PROMPT:
-Create a premium stylized 3D personal investment planning scene on a physical desk. Arrange four large, believable planning objects as one coherent setup: a starting-money stack labeled “10.000 €”, a standing monthly transfer instruction labeled “200 €/Monat”, a substantial long-term calendar labeled “30 Jahre”, and a simple investment assumption card attached to the plan labeled “7 % vor Kosten”. The objects should clearly belong to one savings plan rather than float like infographic tiles. Make the exact model assumptions instantly readable while keeping the scene real-world grounded.
+Create a premium stylized 3D personal investment planning scene on a physical desk. Arrange four large, believable planning objects as one coherent setup: a starting-money stack labeled “10.000 €”, a standing monthly transfer instruction labeled “200 €/Monat”, a substantial long-term calendar labeled “30 Jahre”, and a simple investment assumption card attached to the plan labeled “7 % vor Kosten”. The objects should clearly belong to one savings plan rather than float like infographic tiles. Make the exact model assumptions instantly readable while keeping the scene real-world grounded on one seamless deep black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 STYLE: Premium stylized 3D with believable everyday finance materials; never photorealistic.
-BACKGROUND: Seamless deep black, no horizon or decorative gradients.
+BACKGROUND: Seamless deep black background, no horizon or decorative gradients.
 COLORS + LIGHT: Emerald positive accents, subtle gold money, ivory/gray paper and calendar, soft contact shadows.
 TEXT: Only the four exact labels above.
 FORBIDDEN: No dashboard, app UI, flowchart, floating UI tiles, generic symbols as the main explanation, clutter or tiny unreadable text.

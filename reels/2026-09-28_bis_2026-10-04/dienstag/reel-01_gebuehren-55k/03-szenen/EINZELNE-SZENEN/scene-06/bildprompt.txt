@@ -17,14 +17,14 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 1 Jahr
 
 IMAGE PROMPT:
-Create a premium stylized 3D real-world comparison of two substantial physical long-term savings containers placed side by side on the same desk after a short investment period. Both clearly started equal and are still almost the same height; one is only slightly fuller than the other. Label the fuller one “0,2 %”, the slightly lower one “1,2 %”, and add one small shared time marker “1 Jahr”. The difference must be intentionally subtle but visible, making the spoken point obvious: at first the cost gap looks almost irrelevant.
+Create a premium stylized 3D real-world comparison of two substantial physical long-term savings containers placed side by side on the same desk after a short investment period. Both clearly started equal and are still almost the same height; one is only slightly fuller than the other. Label the fuller one “0,2 %”, the slightly lower one “1,2 %”, and add one small shared time marker “1 Jahr”. The difference must be intentionally subtle but visible, making the spoken point obvious: at first the cost gap looks almost irrelevant. Use one seamless deep black background and keep both containers large.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 STYLE: Premium stylized 3D, real-world grounded and believable, never photorealistic.
-BACKGROUND: Seamless deep black, clean.
+BACKGROUND: Seamless deep black background, clean.
 COLORS + LIGHT: Emerald and subtle gold value cues, neutral ivory/gray structure, soft studio light and contact shadows.
 TEXT: Only the exact labels above.
 FORBIDDEN: No chart, dashboard, app UI, progress bars, floating cards, generic finance icons, clutter or photorealism.

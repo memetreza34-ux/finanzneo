@@ -18,14 +18,14 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Jahr 3
 
 IMAGE PROMPT:
-Create a premium stylized 3D real-world desk scene with one long-term investment folder and three successive physical annual fund statements spread in a readable sequence. Each statement belongs to the same investment and visibly contains the short German label “Laufende Kosten”; mark the statements only with “Jahr 1”, “Jahr 2”, and “Jahr 3”. A modest physical savings pile next to the folder is slightly reduced across the three statements, making the repeated annual charge concrete without turning the scene into a chart. The viewer should understand within one second that this cost returns every year.
+Create a premium stylized 3D real-world desk scene with one long-term investment folder and three successive physical annual fund statements spread in a readable sequence. Each statement belongs to the same investment and visibly contains the short German label “Laufende Kosten”; mark the statements only with “Jahr 1”, “Jahr 2”, and “Jahr 3”. A modest physical savings pile next to the folder is slightly reduced across the three statements, making the repeated annual charge concrete without turning the scene into a chart. The viewer should understand within one second that this cost returns every year. Keep the scene on one seamless deep black background with clear physical cause and consequence.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 STYLE: Real-world-grounded premium stylized 3D, believable paper and money materials, never photorealistic.
-BACKGROUND: Seamless deep black, clean and minimal.
+BACKGROUND: Seamless deep black background, clean and minimal.
 COLORS + LIGHT: Warm ivory statements, emerald investment value, subtle gold money, restrained red-orange on the cost line. Soft studio lighting and contact shadows.
 TEXT: Only the exact short German labels above.
 FORBIDDEN: No dashboard, app UI, flowchart, floating info cards, abstract icon composition, tiny unreadable documents, stock-photo look or clutter.

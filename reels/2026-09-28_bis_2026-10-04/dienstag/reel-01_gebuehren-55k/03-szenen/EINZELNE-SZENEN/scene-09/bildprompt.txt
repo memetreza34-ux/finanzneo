@@ -18,14 +18,14 @@ BESCHRIFTUNGEN – EXAKT SO:
 - ≈ 17.000 €
 
 IMAGE PROMPT:
-Create a premium stylized 3D physical comparison of two investment statement pairs on one desk. The first pair is marked “10 Jahre” and should show only a modest gap between the two corresponding savings amounts, with a short difference label “≈ 3.400 €”. The second pair is marked “20 Jahre” and should show a much larger physical savings gap, labeled “≈ 17.000 €”. Keep the documents and attached savings stacks substantial, coherent and readable. The key message is progression: the same cost difference becomes much more consequential with more time.
+Create a premium stylized 3D physical comparison of two investment statement pairs on one desk. The first pair is marked “10 Jahre” and should show only a modest gap between the two corresponding savings amounts, with a short difference label “≈ 3.400 €”. The second pair is marked “20 Jahre” and should show a much larger physical savings gap, labeled “≈ 17.000 €”. Keep the documents and attached savings stacks substantial, coherent and readable. The key message is progression: the same cost difference becomes much more consequential with more time. Keep the full composition on one seamless deep black background.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 STYLE: Premium stylized 3D, believable investment paperwork and money materials, never photorealistic.
-BACKGROUND: Seamless deep black.
+BACKGROUND: Seamless deep black background.
 COLORS + LIGHT: Emerald/gold for retained value, restrained red-orange for the gap, soft contact shadows.
 TEXT: Only the exact four labels above.
 FORBIDDEN: No dashboard, app UI, generic bar chart, flowchart, floating cards, clutter or photorealism.
