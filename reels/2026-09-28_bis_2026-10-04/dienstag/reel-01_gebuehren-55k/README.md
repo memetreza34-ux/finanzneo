@@ -1,12 +1,8 @@
-# Was passiert, wenn dein Konto ins Minus geht?
+# Reel 01 — Wie 1 % Gebühren 55.000 € kosten können
 
-Dienstags-Reel der Woche 31.08.–06.09.2026.
+Status: Phase 1 authored. Phase 2 wartet auf 9 finale Flow-Bilder, ein finales Voiceover und echte Wort-Timings.
 
-- 13 individuelle Szenen
-- 9 Nutzerbilder / 4 Remotion-Animationen
-- Visual-Beat-v1: ein gesprochener Gedanke = ein sichtbarer Beat
-- geplante Dauer vor echtem Voiceover: 53.3 s
-- V9 stylized 3D / pure black / Layout V5
-- scene-01 = Cover, kein Bild 00
-- genau eine Universal-Caption
-- Nutzer erstellt Bilder + Haupt-Voiceover; Antigravity integriert, synchronisiert SFX, prüft und rendert
+Thema: langfristiger Effekt laufender Fondskosten.
+Rechenmodell: 10.000 € Startkapital, 200 €/Monat, 30 Jahre, 7 % Rendite vor Kosten; Vergleich 0,2 % vs. 1,2 % laufende Kosten. Steuern und weitere Gebühren bleiben im Modell unberücksichtigt.
+
+Animationsprinzip: Jede ANIMATION wurde in Phase 1 individuell aus dem jeweiligen Sprechpunkt entwickelt. Die Finance Motion Library ist kein Auswahlmenü und wird in diesem Reel nicht als fertige Hauptanimation eingesetzt.

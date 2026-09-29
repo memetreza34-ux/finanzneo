@@ -2,36 +2,37 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 01 - Konto im Minus.png
+Bild 01 - Ein Prozent Gebuehren.png
 
-Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+Erzeuge ausschließlich dieses eine Bild. Vollständig warten → exakt umbenennen → V9-QA → erst danach nächstes Bild.
+
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Eine Anlegerin vergleicht an einem Schreibtisch zwei reale Fondsunterlagen mit 0,2 % und 1,2 % laufenden Kosten; dahinter zeigen zwei physische Sparstapel bereits unterschiedlich viel langfristig verfügbares Geld.
+REAL_WORLD_CONTEXT_ANCHOR: Privater ETF-Kauf am Schreibtisch mit Fondsunterlagen und langfristigem Sparvermögen.
+VOICEOVER_VISUAL_MATCH: Der sichtbare Unterschied 0,2 % gegen 1,2 % steht direkt neben zwei langfristigen Vermögensständen und macht den kleinen Prozentsatz mit großer Folge lesbar.
+TRANSFERABILITY_TEST: PASS — nur ein konkreter Vergleich laufender Fondskosten mit langfristig auseinanderliegenden Sparständen passt zu diesem Sprechpunkt.
+METAPHOR_JUSTIFICATION: none
 
 BESCHRIFTUNGEN – EXAKT SO:
-- Girokonto
-- -30 €
+- 0,2 %
+- 1,2 %
 
 IMAGE PROMPT:
-Create a real-world-grounded stylized 3D everyday payment scene immediately after someone has spent slightly more than was available. Show a substantial physical Girokonto account slab as the main object with a clearly readable negative state “-30 €”. Beside it, include one believable recently paid everyday receipt or shopping item so the cause is obvious: spending exceeded the available money. The relationship must visually explain cause-and-effect, not merely show finance symbols. Keep the negative account prominent and easy to read at a glance, with restrained warning color only where needed. The viewer should immediately understand that the account has fallen below zero.
+Create a premium stylized 3D real-world investment decision scene on a clean desk. A visible adult investor is comparing two believable physical fund information documents placed side by side. One document has the short object label “0,2 %”, the other “1,2 %”. Behind the documents, show two substantial physical long-term savings stacks that started from the same base but now differ clearly in size, with the lower stack visually tied to the higher-cost document. The cause-and-effect must be immediate: a tiny annual percentage difference can produce a large long-term money difference. Keep the investor, documents and savings stacks large and readable, with calm deep-black negative space above for the Remotion cover title. No headline inside the generated image.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: Real-world-grounded premium stylized 3D, believable proportions and material detail, clearly animated/stylized, never photorealistic.
+BACKGROUND: One seamless deep black background; no visible wall/floor horizon or decorative bands.
+COLORS + LIGHT: Emerald for positive value, subtle gold for money, warm ivory/gray for documents, restrained red-orange only for cost warning. Soft studio lighting and contact shadows.
+TEXT: Only the exact short German object labels listed above. No headline, subtitle, CTA or explanatory sentence.
+FORBIDDEN: No dashboard, app UI, screenshot, flowchart, generic finance-icon pile, floating cards, microchip look, miniature diorama, stock-photo look or decorative clutter.
 
-STYLE:
-Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
+COVER-HOOK V3 — NUR SZENE 01: Flow-Bild ohne Reel-Titel; oben ruhige tiefschwarze Negativfläche reservieren. Der exakte Titel wird ab Frame 0 in Remotion gerendert. Captions beginnen mit dem ersten gesprochenen Wort.
 
-BACKGROUND:
-One seamless deep black background, clean and uninterrupted.
-
-COMPOSITION:
-Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
-
-COLORS + LIGHT:
-Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
-
-TEXT:
-No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
-
-FORBIDDEN:
-No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+Literal first, creative second.
+TRANSFERABILITY-TEST bleibt Pflicht. Förderbänder, Schienen, Schranken, Käfige und generische Fantasiemechaniken sind keine Standard-Erklärung.

@@ -2,36 +2,34 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 02 - Minus ist geliehenes Geld.png
+Bild 02 - Laufende Kosten jedes Jahr.png
 
-Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Eine Jahresmappe eines Depots liegt auf dem Tisch; mehrere aufeinanderfolgende Jahresabrechnungen zeigen jeweils eine kleine Position „Laufende Kosten“, die aus demselben Anlagevermögen bezahlt wird.
+REAL_WORLD_CONTEXT_ANCHOR: Wiederkehrende Fondsabrechnung eines langfristigen Depots.
+VOICEOVER_VISUAL_MATCH: Mehrere Jahresabrechnungen mit derselben Kostenposition zeigen, dass die Belastung jedes Jahr erneut anfällt.
+TRANSFERABILITY_TEST: PASS — die wiederkehrende Kostenzeile auf mehreren Depot-Jahresabrechnungen erklärt exakt laufende Fondskosten und nicht allgemein irgendein Finanzthema.
+METAPHOR_JUSTIFICATION: none
 
 BESCHRIFTUNGEN – EXAKT SO:
-- Bank
-- Geliehen
+- Laufende Kosten
+- Jahr 1
+- Jahr 2
+- Jahr 3
 
 IMAGE PROMPT:
-Create a believable stylized 3D bank-and-account situation that visually explains where the missing money comes from. Place a recognizable physical bank building or bank counter on one side and a Girokonto account object on the other. Show a small controlled stream or stack of money moving from the bank toward the already overdrawn account, making the relationship unmistakable: the negative balance is borrowed money from the bank. Keep the scene grounded in normal banking reality, not an abstract arrow diagram. The viewer should immediately understand the lending relationship without reading a paragraph.
+Create a premium stylized 3D real-world desk scene with one long-term investment folder and three successive physical annual fund statements spread in a readable sequence. Each statement belongs to the same investment and visibly contains the short German label “Laufende Kosten”; mark the statements only with “Jahr 1”, “Jahr 2”, and “Jahr 3”. A modest physical savings pile next to the folder is slightly reduced across the three statements, making the repeated annual charge concrete without turning the scene into a chart. The viewer should understand within one second that this cost returns every year.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: Real-world-grounded premium stylized 3D, believable paper and money materials, never photorealistic.
+BACKGROUND: Seamless deep black, clean and minimal.
+COLORS + LIGHT: Warm ivory statements, emerald investment value, subtle gold money, restrained red-orange on the cost line. Soft studio lighting and contact shadows.
+TEXT: Only the exact short German labels above.
+FORBIDDEN: No dashboard, app UI, flowchart, floating info cards, abstract icon composition, tiny unreadable documents, stock-photo look or clutter.
 
-STYLE:
-Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
-
-BACKGROUND:
-One seamless deep black background, clean and uninterrupted.
-
-COMPOSITION:
-Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
-
-COLORS + LIGHT:
-Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
-
-TEXT:
-No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
-
-FORBIDDEN:
-No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+Literal first, creative second.
+TRANSFERABILITY-TEST bleibt Pflicht. Förderbänder, Schienen, Schranken, Käfige und generische Fantasiemechaniken sind keine Standard-Erklärung.

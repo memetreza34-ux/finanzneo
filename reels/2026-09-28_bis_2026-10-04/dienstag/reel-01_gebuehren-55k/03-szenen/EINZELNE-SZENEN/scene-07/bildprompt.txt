@@ -2,36 +2,32 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 07 - Geduldete Ueberziehung.png
+Bild 07 - Fehlendes Geld arbeitet nicht.png
 
-Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Auf einem Schreibtisch liegt eine Fondsabrechnung, auf der ein kleiner Gebührenbetrag vom Depot abgebucht wurde; daneben zeigen spätere Depotunterlagen, dass dieser abgebuchte Betrag nicht mehr zum investierten Bestand gehört.
+REAL_WORLD_CONTEXT_ANCHOR: Reale Fondsabrechnung mit Gebührenabbuchung und späterer Entwicklung desselben Depots.
+VOICEOVER_VISUAL_MATCH: Der abgebuchte Gebührenbetrag liegt sichtbar getrennt vom weiter investierten Bestand und kann deshalb an späterem Wachstum nicht mehr teilnehmen.
+TRANSFERABILITY_TEST: PASS — die Kombination aus konkreter Gebührenabbuchung und später fehlendem investiertem Betrag visualisiert exakt entgangenes Folge-Wachstum durch Fondskosten.
+METAPHOR_JUSTIFICATION: none
 
 BESCHRIFTUNGEN – EXAKT SO:
-- Überziehung
-- Zinsen
+- Gebühr
+- investiert
 
 IMAGE PROMPT:
-Create a real-world-grounded stylized 3D payment scene where a purchase is visibly accepted even though the Girokonto is already more deeply negative. The payment itself should look completed, while a separate additional bank cost marked “Zinsen” appears beside the overdrawn account. The viewer should clearly understand the sequence without narration: the bank allowed the deeper overdraft, but this creates another interest cost. Do not show a specific interest rate. Keep the objects large, simple and physically related rather than arranged like an infographic dashboard.
+Create a premium stylized 3D real-world investment paperwork scene. Show one believable fund statement where a small amount has just been charged as “Gebühr”. The charged money/value piece is physically separated beside the statement, while the remaining money is clearly attached to a later investment statement labeled “investiert” and has grown into a larger savings stack. The separated fee piece stays isolated and unchanged. This should directly explain that money removed today is no longer invested and therefore cannot earn future returns. Keep the paperwork readable as real objects, not UI panels.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: Premium real-world-grounded stylized 3D, believable paper/money materials, never photorealistic.
+BACKGROUND: Seamless deep black.
+COLORS + LIGHT: Emerald for invested value, gold for money, warm red-orange for the fee, ivory paper, soft shadows.
+TEXT: Only “Gebühr” and “investiert”.
+FORBIDDEN: No dashboard, chart-as-main-story, app UI, generic icon pile, fantasy machine, flowchart, clutter or tiny text.
 
-STYLE:
-Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
-
-BACKGROUND:
-One seamless deep black background, clean and uninterrupted.
-
-COMPOSITION:
-Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
-
-COLORS + LIGHT:
-Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
-
-TEXT:
-No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
-
-FORBIDDEN:
-No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+Literal first, creative second.
+TRANSFERABILITY-TEST bleibt Pflicht. Förderbänder, Schienen, Schranken, Käfige und generische Fantasiemechaniken sind keine Standard-Erklärung.

@@ -1,23 +1,10 @@
-# SFX-PLAN
+# Sound Cue Plan
 
-Voiceover bleibt dominant. SFX nur an sichtbaren Ereignissen.
+Voiceover bleibt dominant.
 
-## scene-03
-- Frame ~24: Rechnung/Purchase erscheint → kurzer paper/receipt whoosh
-- Frame ~58: Geld setzt sich in Bewegung → subtle money movement
-- Frame ~112: Konto kippt ins Minus → kurzer restrained warning impact
+- Scene 03: drei sehr kurze matte value-cut ticks exakt beim Ablösen der Kostenstücke; kein Casino-/Coin-Jingle.
+- Scene 05: weicher split-whoosh beim Aufteilen des 7-%-Kerns; zwei gedämpfte gate impacts; Result-Payoff ohne zusätzlichen Jingle.
+- Scene 10: dezente roll/air movement; kurze dumpfe brake hits an den drei Kostenschwellen der teuren Spur.
+- Scene 12: vier bis sechs leise build impacts beim Turmaufbau; ein klarer tiefer pull-out hit, wenn der ≈55.000-€-Block nach vorn kommt.
 
-## scene-05
-- Frames ~18 / 44 / 70: Kalenderwechsel → dezente page flips
-- Frame ~92: Kostenstapel erreicht Ergebnis → kleiner warning tick
-
-## scene-10
-- Frame ~26: Gehalt kommt → soft money movement
-- Frame ~94: Minus erreicht fast null → restrained account settle
-- Frame ~132: Rest wird frei → positive confirmation click
-
-## scene-12
-- Frame ~18: Waschmaschine fällt aus → soft mechanical stop
-- Frame ~38: Rechnung erscheint → paper impact
-- Frame ~70: Geld verlässt Notgroschen → subtle cash movement
-- Frame ~116: Rechnung bezahlt / Giro geschützt → clean confirmation
+Keine Remote-Sound-URLs. Keine Placeholder-Beeps. SFX müssen sichtbare Ereignisse bestätigen.

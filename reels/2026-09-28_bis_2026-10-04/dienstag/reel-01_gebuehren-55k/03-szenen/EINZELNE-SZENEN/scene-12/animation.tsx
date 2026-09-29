@@ -1,37 +1,64 @@
 import React from 'react';
-import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS, PhysicalAccount, PhysicalBill, PhysicalCoinStack, PhysicalReserveTank, PhysicalTag, PhysicalWasher, PremiumPhysicalStage} from '../../../../../../../src/design-system';
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {ANIMATION_COLORS, PhysicalObject, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
 
 /**
- * MECHANIC_ID: emergency-fund-prevents-long-overdraft
- * PRIMARY_ACTION: Eine kaputte Waschmaschine erzeugt eine Reparaturrechnung, die sichtbar aus dem Notgroschen statt aus einem neuen Minus bezahlt wird.
+ * MOTION_SOURCE: custom-build
+ * FINANCE_MOTION_ID: none
+ * MECHANIC_ID: final-capital-gap-becomes-missing-55k-block
+ * FOCAL_PATH: Der Blick verfolgt zwei Kapitaltürme von derselben Basis nach oben, springt auf die sichtbare Höhenlücke und folgt anschließend dem herausgezogenen 55.000-Euro-Block in die Mitte.
+ * PRIMARY_ACTION: Zwei Vermögen bauen sich aus denselben Startbedingungen auf; die langfristige Differenz wird am Ende als physisch fehlender Kapitalblock nach vorn gezogen.
+ * CAMERA_ROLE: Statische frontale Vergleichsbühne; der nach vorn kommende Differenzblock erzeugt den einzigen Tiefenimpuls und macht den Payoff dominant.
+ * PAYOFF: Zwischen ungefähr 297.000 Euro und 242.000 Euro wird ein eigener fehlender Block mit ungefähr 55.000 Euro sichtbar.
  * ANIMATION_NARRATIVE
- * START: Waschmaschine fällt aus; Girokonto steht stabil bereit.
- * MECHANISM: Reparaturrechnung erscheint; Notgroschen öffnet Geld; Geldstapel bewegt sich zur Rechnung.
- * RESULT: Rechnung ist bezahlt und Girokonto bleibt geschützt außerhalb des Minus.
+ * START: Zwei gleich breite Kapitalbasen beginnen auf derselben unteren Höhe.
+ * MECHANISM: Beide Türme wachsen gestaffelt nach oben, der günstigere baut mehr Kapitalhöhe auf und der teurere bleibt sichtbar darunter.
+ * RESULT: Ein roter Differenzblock löst sich aus der Höhenlücke nach vorn; erst danach erscheinen 297.000 Euro, 242.000 Euro und ungefähr 55.000 Euro Differenz.
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Waschmaschine, Reparaturrechnung und Reserve bilden eine reale Notfallsituation.
- * SUPPORT: Girokonto zeigt das vermiedene Minus.
- * MATERIAL: Ivory Maschine/Rechnung, Gold Reserve/Geld, Emerald für geschützten Ausgang.
- * DEPTH: Maschine links hinten, Rechnung Mitte vorne, Reserve rechts, Girokonto unten mittig.
+ * HERO: Zwei massive physische Kapitaltürme und der nach vorn gezogene Differenzblock tragen den gesamten Endvergleich.
+ * SUPPORT: Endwerte und Kostenfarben erscheinen erst spät als Orientierung und ersetzen nicht die Größenwirkung.
+ * MATERIAL: Emerald für das günstigere Endvermögen, Gold für das teurere und warmes Rot ausschließlich für die fehlende Differenz.
+ * DEPTH: Türme stehen links und rechts im Mittelgrund; der Differenzblock löst sich aus der rechten Höhenlücke und fährt zentral in den Vordergrund.
  */
 export const RESULT_HOLD_FRAMES = 24;
-const clamp = {extrapolateLeft:'clamp' as const, extrapolateRight:'clamp' as const};
-export const Scene12Animation: React.FC<{durationFrames?:number}> = ({durationFrames=156}) => {
+const CLAMP = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
+
+export const Scene12Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 165}) => {
   const frame = useCurrentFrame();
-  const emergency = interpolate(frame,[8,36],[0,1],clamp);
-  const billIn = interpolate(frame,[26,58],[0,1],clamp);
-  const pay = interpolate(frame,[54,112],[0,1],clamp);
-  const protect = interpolate(frame,[104,132],[0,1],clamp);
-  const result = interpolate(frame,[128,Math.max(136,durationFrames-RESULT_HOLD_FRAMES)],[0,1],clamp);
-  const coinX = 720 - pay*300;
-  const coinY = 760 + pay*35;
-  return <PremiumPhysicalStage>
-    <PhysicalWasher x={40} y={520+(1-emergency)*55} broken scale={0.82} opacity={emergency} />
-    <PhysicalBill x={360} y={670-(1-billIn)*90} label="Reparatur" amount="280 €" scale={0.72} opacity={billIn} paid={pay>0.78} />
-    <PhysicalReserveTank x={760} y={500} width={220} height={340} fill={0.72-pay*0.24} label="Notgroschen" scale={0.94+pay*0.06} />
-    <PhysicalCoinStack x={coinX} y={coinY} count={4} scale={0.58} opacity={billIn*(1-pay*0.32)} />
-    <PhysicalAccount x={390} y={990} label="Girokonto" balance="geschützt" state="protected" scale={0.88+protect*0.05} opacity={0.55+protect*0.45} />
-    <div style={{position:'absolute',left:685,top:1000,opacity:result,color:ANIMATION_COLORS.positive}}><PhysicalTag material="positive" style={{fontSize:25}}>KEIN DAUER-MINUS</PhysicalTag></div>
-  </PremiumPhysicalStage>;
+  const {fps} = useVideoConfig();
+  const cheapBuild = spring({frame: Math.max(0, frame - 14), fps, config: {damping: 24, stiffness: 92, mass: 1}});
+  const expensiveBuild = spring({frame: Math.max(0, frame - 22), fps, config: {damping: 24, stiffness: 86, mass: 1.02}});
+  const diffMove = spring({frame: Math.max(0, frame - 104), fps, config: {damping: 19, stiffness: 150, mass: 0.82}});
+  const payoff = interpolate(frame, [124, Math.max(136, durationFrames - RESULT_HOLD_FRAMES)], [0, 1], CLAMP);
+  const cheapHeight = interpolate(cheapBuild, [0, 1], [120, 590], CLAMP);
+  const expensiveHeight = interpolate(expensiveBuild, [0, 1], [120, 470], CLAMP);
+
+  return (
+    <PremiumPhysicalStage>
+      <PhysicalObject x={100} y={1030 - cheapHeight} width={310} height={cheapHeight} material="positive" radius={30}>
+        <div style={{position: 'absolute', left: 0, right: 0, bottom: 34, textAlign: 'center', fontSize: 27, fontWeight: 900}}>0,2 % Kosten</div>
+      </PhysicalObject>
+      <PhysicalObject x={670} y={1030 - expensiveHeight} width={310} height={expensiveHeight} material="money" radius={30}>
+        <div style={{position: 'absolute', left: 0, right: 0, bottom: 34, textAlign: 'center', fontSize: 27, fontWeight: 900}}>1,2 % Kosten</div>
+      </PhysicalObject>
+
+      <div
+        style={{
+          position: 'absolute',
+          left: interpolate(diffMove, [0, 1], [720, 430], CLAMP),
+          top: interpolate(diffMove, [0, 1], [505, 735], CLAMP),
+          width: 224, height: 112, borderRadius: 26,
+          border: `4px solid ${ANIMATION_COLORS.warning}`,
+          background: `linear-gradient(145deg,${ANIMATION_COLORS.warning},rgba(82,23,20,.48))`,
+          boxShadow: '0 28px 50px rgba(0,0,0,.48)',
+          opacity: diffMove, scale: 0.82 + diffMove * 0.18,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          color: '#fff', fontSize: 34, fontWeight: 950,
+        }}
+      >≈ 55.000 €</div>
+
+      <div style={{position: 'absolute', left: 112, top: 1070, opacity: payoff}}><PhysicalTag material="positive" style={{fontSize: 31}}>≈ 297.000 €</PhysicalTag></div>
+      <div style={{position: 'absolute', left: 682, top: 1070, opacity: payoff}}><PhysicalTag material="warning" style={{fontSize: 31}}>≈ 242.000 €</PhysicalTag></div>
+    </PremiumPhysicalStage>
+  );
 };

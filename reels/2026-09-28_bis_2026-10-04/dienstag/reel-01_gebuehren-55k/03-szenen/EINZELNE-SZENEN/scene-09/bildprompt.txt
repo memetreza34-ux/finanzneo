@@ -2,36 +2,34 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 09 - Dauerhaft im Minus.png
+Bild 09 - Zehn und zwanzig Jahre.png
 
-Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Zwei Paar physische Depotabrechnungen liegen offen: ein Paar nach 10 Jahren mit kleiner Vermögenslücke und ein Paar nach 20 Jahren mit deutlich größerer Lücke zwischen denselben Kostenvarianten.
+REAL_WORLD_CONTEXT_ANCHOR: Konkreter Depotvergleich zu zwei langfristigen Zeitpunkten.
+VOICEOVER_VISUAL_MATCH: Das 10-Jahre-Paar zeigt nur einige Tausend Euro Abstand, das 20-Jahre-Paar bereits einen deutlich größeren Unterschied.
+TRANSFERABILITY_TEST: PASS — zwei konkrete Zeitpunkte desselben 0,2-%-gegen-1,2-%-Kostenmodells erklären exakt den wachsenden Abstand dieses Rechenbeispiels.
+METAPHOR_JUSTIFICATION: none
 
 BESCHRIFTUNGEN – EXAKT SO:
-- Jeden Monat
-- Minus
+- 10 Jahre
+- 20 Jahre
+- ≈ 3.400 €
+- ≈ 17.000 €
 
 IMAGE PROMPT:
-Create a real-world-grounded stylized 3D recurring-money-problem scene. Show the same Girokonto falling into a negative state across several clearly separated monthly calendar moments, for example three consecutive months. Each month should visibly repeat the same negative outcome, with small accumulated cost cues becoming more noticeable. The visual should immediately explain repetition: this is not one short emergency but a pattern that returns every month. Keep the account and calendars large and readable, with no dashboard, chart or abstract flowchart layout.
+Create a premium stylized 3D physical comparison of two investment statement pairs on one desk. The first pair is marked “10 Jahre” and should show only a modest gap between the two corresponding savings amounts, with a short difference label “≈ 3.400 €”. The second pair is marked “20 Jahre” and should show a much larger physical savings gap, labeled “≈ 17.000 €”. Keep the documents and attached savings stacks substantial, coherent and readable. The key message is progression: the same cost difference becomes much more consequential with more time.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: Premium stylized 3D, believable investment paperwork and money materials, never photorealistic.
+BACKGROUND: Seamless deep black.
+COLORS + LIGHT: Emerald/gold for retained value, restrained red-orange for the gap, soft contact shadows.
+TEXT: Only the exact four labels above.
+FORBIDDEN: No dashboard, app UI, generic bar chart, flowchart, floating cards, clutter or photorealism.
 
-STYLE:
-Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
-
-BACKGROUND:
-One seamless deep black background, clean and uninterrupted.
-
-COMPOSITION:
-Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
-
-COLORS + LIGHT:
-Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
-
-TEXT:
-No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
-
-FORBIDDEN:
-No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+Literal first, creative second.
+TRANSFERABILITY-TEST bleibt Pflicht. Förderbänder, Schienen, Schranken, Käfige und generische Fantasiemechaniken sind keine Standard-Erklärung.

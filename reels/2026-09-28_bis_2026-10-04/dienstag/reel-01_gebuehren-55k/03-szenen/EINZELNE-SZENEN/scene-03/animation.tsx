@@ -1,34 +1,84 @@
 import React from 'react';
-import {interpolate, useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS, PhysicalAccount, PhysicalBill, PhysicalCoinStack, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
+import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {ANIMATION_COLORS, PhysicalReserveTank, PhysicalTag, PremiumPhysicalStage} from '../../../../../../../src/design-system';
 
 /**
- * MECHANIC_ID: spend-more-than-balance-creates-overdraft
- * PRIMARY_ACTION: Ein 100-Euro-Girokonto bezahlt sichtbar einen 130-Euro-Einkauf und kippt dadurch auf minus 30 Euro.
+ * MOTION_SOURCE: custom-build
+ * FINANCE_MOTION_ID: none
+ * MECHANIC_ID: annual-fee-cuts-growing-capital
+ * FOCAL_PATH: Der Blick startet am großen Kapitalreservoir, folgt drei herausgelösten Kostenstücken nach rechts unten und endet wieder beim sichtbar niedrigeren Füllstand.
+ * PRIMARY_ACTION: Ein wachsendes Depot verliert bei mehreren Jahresimpulsen nacheinander reale Wertstücke an laufende Kosten.
+ * CAMERA_ROLE: Die Bühne bleibt nah und ruhig; die große Reservoirform füllt den Kern der Visualzone, damit Entnahme und verbleibendes Kapital ohne Kameratrick lesbar bleiben.
+ * PAYOFF: Drei entfernte Wertstücke liegen getrennt als Kosten, während im Depot sichtbar weniger Kapital verbleibt.
  * ANIMATION_NARRATIVE
- * START: Girokonto zeigt 100 €, Geldstapel liegt verfügbar daneben.
- * MECHANISM: 130-€-Einkaufsrechnung erscheint; Geld bewegt sich zur Rechnung; die Zahlung übersteigt das Guthaben.
- * RESULT: Konto wechselt sichtbar auf -30 € und Warnzustand.
+ * START: Ein großes Depotreservoir ist fast vollständig mit grünem Kapital gefüllt.
+ * MECHANISM: Drei Jahresimpulse lösen nacheinander kleine Wertstücke aus dem Kapital; jedes Stück fällt separat aus dem Depot heraus.
+ * RESULT: Das Depotreservoir bleibt sichtbar niedriger gefüllt zurück und die gesammelten Kosten liegen getrennt daneben.
  * PREMIUM_VISUAL_NARRATIVE
- * HERO: Girokonto und 130-€-Rechnung tragen die Ursache/Wirkung.
- * SUPPORT: Geldstapel macht den Abfluss physisch sichtbar.
- * MATERIAL: Neutral für Konto, Ivory für Rechnung, Gold für Geld, Rot nur für Minus.
- * DEPTH: Konto zentral hinten, Rechnung rechts vorne, Geld bewegt sich dazwischen.
+ * HERO: Das große physische Kapitalreservoir trägt die Ursache-Wirkung und bleibt während der ganzen Szene fokal.
+ * SUPPORT: Drei herausgelöste Kostenstücke und kurze Jahresmarker zeigen die wiederkehrende Belastung.
+ * MATERIAL: Emerald steht für investiertes Kapital, warmes Rot nur für entfernte Kosten und Ivory für neutrale Jahresmarker.
+ * DEPTH: Das Reservoir steht groß links-mittig; Kostenstücke lösen sich von seiner rechten Seite und fallen in den rechten Vordergrund.
  */
 export const RESULT_HOLD_FRAMES = 24;
-const clamp = {extrapolateLeft:'clamp' as const, extrapolateRight:'clamp' as const};
-export const Scene03Animation: React.FC<{durationFrames?:number}> = ({durationFrames=174}) => {
+const CLAMP = {extrapolateLeft: 'clamp' as const, extrapolateRight: 'clamp' as const};
+const CUT_STARTS = [34, 67, 100];
+
+export const Scene03Animation: React.FC<{durationFrames?: number}> = ({durationFrames = 165}) => {
   const frame = useCurrentFrame();
-  const billIn = interpolate(frame,[20,55],[0,1],clamp);
-  const payment = interpolate(frame,[48,112],[0,1],clamp);
-  const deficit = interpolate(frame,[96,132],[0,1],clamp);
-  const result = interpolate(frame,[128,Math.max(136,durationFrames-RESULT_HOLD_FRAMES)],[0,1],clamp);
-  const coinX = 285 + payment*360;
-  const coinY = 790 + payment*60;
-  return <PremiumPhysicalStage>
-    <PhysicalAccount x={350} y={520} label="Girokonto" balance={deficit>0.55?'−30 €':'100 €'} state={deficit>0.55?'danger':'normal'} scale={1-deficit*0.035} tilt={deficit*2.5} />
-    <PhysicalCoinStack x={coinX} y={coinY} count={5} scale={0.72-payment*0.08} opacity={1-payment*0.58} />
-    <PhysicalBill x={690} y={690-(1-billIn)*90} label="Einkauf" amount="130 €" rotate={5} scale={0.76} opacity={billIn} paid={payment>0.78} />
-    <div style={{position:'absolute',left:405,top:950,opacity:result,transform:`translateY(${(1-result)*18}px)`,color:ANIMATION_COLORS.warning}}><PhysicalTag material="warning" style={{fontSize:27}}>MINUS 30 €</PhysicalTag></div>
-  </PremiumPhysicalStage>;
+  const {fps} = useVideoConfig();
+  const intro = spring({frame: Math.max(0, frame - 4), fps, config: {damping: 22, stiffness: 140, mass: 0.9}});
+  const cutProgress = CUT_STARTS.map((start) => interpolate(frame, [start, start + 21], [0, 1], CLAMP));
+  const removed = cutProgress.reduce((sum, value) => sum + value, 0);
+  const fill = interpolate(removed, [0, 3], [0.92, 0.68], CLAMP);
+  const payoff = interpolate(frame, [122, Math.max(134, durationFrames - RESULT_HOLD_FRAMES)], [0, 1], CLAMP);
+
+  return (
+    <PremiumPhysicalStage>
+      <PhysicalReserveTank
+        x={170}
+        y={500}
+        width={600}
+        height={390}
+        fill={fill}
+        label="Depotwert"
+        scale={0.9 + intro * 0.1}
+        opacity={intro}
+      />
+
+      {cutProgress.map((cut, index) => {
+        const x = interpolate(cut, [0, 1], [690 - index * 12, 820 + index * 24], CLAMP);
+        const y = interpolate(cut, [0, 1], [600 + index * 55, 865 + index * 45], CLAMP);
+        const turn = interpolate(cut, [0, 1], [0, 13 + index * 8], CLAMP);
+        const labelIn = interpolate(frame, [CUT_STARTS[index] - 10, CUT_STARTS[index] + 2], [0, 1], CLAMP);
+        return (
+          <React.Fragment key={index}>
+            <div style={{position: 'absolute', left: 178 + index * 130, top: 438, opacity: labelIn}}>
+              <PhysicalTag material="neutral" style={{fontSize: 21}}>JAHR {index + 1}</PhysicalTag>
+            </div>
+            <div
+              style={{
+                position: 'absolute',
+                left: x,
+                top: y,
+                width: 78,
+                height: 90,
+                borderRadius: 18,
+                border: `3px solid ${ANIMATION_COLORS.warning}`,
+                background: `linear-gradient(145deg,${ANIMATION_COLORS.warning},rgba(90,24,20,.38))`,
+                boxShadow: '0 20px 34px rgba(0,0,0,.44)',
+                opacity: cut,
+                rotate: `${turn}deg`,
+                scale: 0.78 + cut * 0.22,
+              }}
+            />
+          </React.Fragment>
+        );
+      })}
+
+      <div style={{position: 'absolute', left: 728, top: 1040, opacity: payoff, translate: `0 ${18 - payoff * 18}px`}}>
+        <PhysicalTag material="warning" style={{fontSize: 27}}>KOSTEN · JEDES JAHR</PhysicalTag>
+      </div>
+    </PremiumPhysicalStage>
+  );
 };

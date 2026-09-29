@@ -2,37 +2,32 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 13 - Minus Merksatz.png
+Bild 13 - Laufende Kosten pruefen.png
 
-Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Ein Anleger hält ein reales physisches Basisinformationsblatt in der Hand und zeigt mit dem Finger direkt auf die Kostenposition „Laufende Kosten“, bevor der Fonds gekauft wird.
+REAL_WORLD_CONTEXT_ANCHOR: Konkrete Fonds-/ETF-Kaufentscheidung anhand des Basisinformationsblatts.
+VOICEOVER_VISUAL_MATCH: Der Finger auf „Laufende Kosten“ zeigt exakt die Handlung aus dem Voiceover: vor dem Kauf die laufenden Kosten prüfen.
+TRANSFERABILITY_TEST: PASS — ein Basisinformationsblatt mit fokussierter Kostenposition ist spezifisch für die geforderte Kostenprüfung vor einem Fonds-/ETF-Kauf.
+METAPHOR_JUSTIFICATION: none
 
 BESCHRIFTUNGEN – EXAKT SO:
-- Geliehen
-- Kurz
-- Teuer
+- Basisinformationsblatt
+- Laufende Kosten
 
 IMAGE PROMPT:
-Create a clean real-world-grounded stylized 3D comparison using two simple everyday situations, not cards or panels. On the left, show one small short-lived overdraft with a nearby soon-arriving salary cue and the label “Kurz”. On the right, show the same type of Girokonto repeatedly negative across multiple months with visible interest costs and the label “Teuer”. The viewer should immediately understand the memory rule: a brief gap can be temporary, while repeated long overdraft use becomes costly. Keep the physical objects large and the contrast simple.
+Create a premium stylized 3D real-world investment purchase moment. Show a visible adult investor holding a believable physical fund “Basisinformationsblatt” before buying. The investor's finger points directly and unambiguously to the short highlighted document line “Laufende Kosten”. Keep the document large enough to understand the action, but do not reproduce a real branded document or tiny paragraphs. The scene should instantly communicate a practical behavior: check ongoing costs before buying.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: Premium real-world-grounded stylized 3D with believable paper and hand proportions, never photorealistic.
+BACKGROUND: Seamless deep black.
+COLORS + LIGHT: Neutral ivory document, emerald highlight on the relevant cost line, subtle finance-green accents, soft studio lighting.
+TEXT: Only “Basisinformationsblatt” and “Laufende Kosten”.
+FORBIDDEN: No real brand/logo screenshot, no dense tiny legal text, no dashboard/app UI, no generic finance icons, no flowchart or clutter.
 
-STYLE:
-Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
-
-BACKGROUND:
-One seamless deep black background, clean and uninterrupted.
-
-COMPOSITION:
-Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
-
-COLORS + LIGHT:
-Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
-
-TEXT:
-No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
-
-FORBIDDEN:
-No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+Literal first, creative second.
+TRANSFERABILITY-TEST bleibt Pflicht. Förderbänder, Schienen, Schranken, Käfige und generische Fantasiemechaniken sind keine Standard-Erklärung.

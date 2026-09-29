@@ -1,5 +1,7 @@
-# Phasenstatus
+# PHASENSTATUS
 
-- [ ] Phase 1: Inhalt, Fakten, Skript, Szenen, V9-Prompts, Header/Icons, produktionsreife animation.tsx und eine universelle Caption vollständig
-- [ ] Phase 2: alle exakt benannten Bilder, genau ein finales Voiceover und echte Wort-Zeitstempel vorhanden
-- [ ] Phase 3: `npm run reel:ready -- reels/2026-08-31_bis_2026-09-06/dienstag/reel-02_konto-im-minus` erfolgreich; Animations-Seal vorhanden; Preflight/Render-QA/Export abgeschlossen
+PHASE 1: AUTHORED — Script, 13 Szenen, 9 Flow-Prompts, 4 individuelle Remotion-Animationen, Quellen, Soundplan und Caption vorbereitet. CI/QA auf Branch noch ausstehend.
+
+PHASE 2: OFFEN — Nutzer erzeugt 9 Bilder einzeln in Google Flow, erstellt genau ein finales Voiceover und liefert echte Wort-Timings.
+
+PHASE 3: GESPERRT — erst nach vollständigen Phase-2-Assets und bestandenem Preflight.

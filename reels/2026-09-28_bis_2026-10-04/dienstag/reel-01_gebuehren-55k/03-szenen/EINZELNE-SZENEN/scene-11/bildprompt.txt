@@ -2,36 +2,33 @@ FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 11 - Puffer auf Girokonto.png
+Bild 11 - Nach dreissig Jahren.png
 
-Erzeuge ausschließlich dieses eine Bild. Vollständig warten → sofort exakt umbenennen → Aussage + erlaubte Labels + V9-Stil + deep black prüfen → erst nach PASS nächstes Bild. Keine Bildreferenz.
+VISUAL_STRATEGY: literal
+LITERAL_REAL_WORLD_SITUATION: Zwei langfristige 30-Jahre-Depotordner stehen nebeneinander; der zu 0,2 % gehörende physische Vermögensstapel ist klar höher als der zu 1,2 % gehörende Stapel.
+REAL_WORLD_CONTEXT_ANCHOR: Endvergleich zweier realer langfristiger Sparpläne nach 30 Jahren.
+VOICEOVER_VISUAL_MATCH: Die deutlich unterschiedlich hohen Endvermögen machen den großen Langzeitunterschied sichtbar, bevor die exakten Zahlen in der nächsten Animationsszene aufgelöst werden.
+TRANSFERABILITY_TEST: PASS — zwei konkret als 30-Jahre-Endstände desselben Kostenvergleichs erkennbare Depotordner passen nicht austauschbar zu allgemeinen Finanzthemen.
+METAPHOR_JUSTIFICATION: none
 
 BESCHRIFTUNGEN – EXAKT SO:
-- Puffer
-- Girokonto
+- 30 Jahre
+- 0,2 %
+- 1,2 %
 
 IMAGE PROMPT:
-Create a believable stylized 3D everyday scene where a small unexpected expense approaches a Girokonto, but a modest visible cash buffer inside or directly beside the account absorbs the cost before the balance can fall below zero. The main relationship should read instantly: a small reserve on the current account protects against a small surprise. Use a normal household receipt or minor repair cost as the cause, the buffer as the protection, and a stable non-negative Girokonto as the result. Avoid a giant emergency fund or investment imagery.
+Create a premium stylized 3D real-world end-of-plan investment scene. Place two substantial physical 30-year depot folders side by side, both clearly belonging to the same original savings plan. Label the left variant “0,2 %” and the right variant “1,2 %”, with one shared time label “30 Jahre”. Attach a large physical accumulated savings stack to each folder: the lower-cost variant must be visibly and materially higher, while the higher-cost variant is clearly smaller. Do not reveal the exact final euro totals yet; the next animation will deliver that payoff.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: Premium real-world-grounded stylized 3D, never photorealistic.
+BACKGROUND: Seamless deep black.
+COLORS + LIGHT: Emerald for lower-cost retained value, subtle gold for money, restrained warning accent for higher costs, soft lighting.
+TEXT: Only the exact labels above.
+FORBIDDEN: No exact 297k/242k payoff text, no dashboard, chart, app UI, flowchart, floating cards, generic icon pile or clutter.
 
-STYLE:
-Clearly stylized 3D animated finance-explainer world, real-world-grounded and believable, with recognizable everyday object construction and semi-realistic material detail. Premium, clean and simple. Never photorealistic.
-
-BACKGROUND:
-One seamless deep black background, clean and uninterrupted.
-
-COMPOSITION:
-Make the main explanatory action large and immediately readable. The viewer should clearly understand the message within 1–2 seconds without narration. Supporting objects only when they improve cause-and-effect clarity.
-
-COLORS + LIGHT:
-Emerald for positive/protected, warm ivory/soft gray for neutral objects, subtle gold for money, warm red-orange for warning/cost. Clean soft lighting and contact shadows.
-
-TEXT:
-No headline, subtitle, CTA or explanatory sentence. Only the exact short German object labels listed above.
-
-FORBIDDEN:
-No photorealism, no stock/product photo look, no dashboard, no app UI, no flowchart, no floating info cards, no tiny-box composition, no microchip/circuit language, no miniature diorama, no clutter.
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+Literal first, creative second.
+TRANSFERABILITY-TEST bleibt Pflicht. Förderbänder, Schienen, Schranken, Käfige und generische Fantasiemechaniken sind keine Standard-Erklärung.
