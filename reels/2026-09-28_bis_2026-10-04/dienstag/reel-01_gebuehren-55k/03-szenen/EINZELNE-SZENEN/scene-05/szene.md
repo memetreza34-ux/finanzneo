@@ -1,8 +1,6 @@
-# scene-05
+# Szene 05 — Aus 7 % werden zwei Wege
 
-**Typ:** Animation
-**Zwischenüberschrift:** Je länger, desto teurer
-**Icon:** calendar
-**Sprechtext:** Je länger du im Minus bleibst, desto länger zahlst du dafür Zinsen.
-**Geplante Dauer:** 4.5 s
-**Mechanik:** Minus-Konto bleibt bestehen → Kalender wechselt mehrfach → zusätzliche Zinskosten wachsen sichtbar → Ergebnis ZEIT KOSTET.
+Typ: ANIMATION
+Sprechpunkt: Gleiche Bruttorendite, aber 0,2 % und 1,2 % laufende Kosten erzeugen 6,8 % bzw. 5,8 % vereinfachte Nettorendite.
+Mechanik: gemeinsamer 7-%-Kern → symmetrische Teilung → zwei unterschiedlich starke physische Kostentore → Ergebnisse erst im Payoff.
+Kanonischer Code: `animation.tsx` / `Scene05Animation`.

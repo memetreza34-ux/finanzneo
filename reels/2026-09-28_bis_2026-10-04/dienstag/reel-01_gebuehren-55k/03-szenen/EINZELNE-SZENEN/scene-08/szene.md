@@ -1,9 +1,6 @@
-# scene-08
+# Szene 08 — Zeit vergrößert den Abstand
 
-**Typ:** Bild
-**Zwischenüberschrift:** Kurz kann ein Dispo helfen
-**Icon:** clock
-**Sprechtext:** Für einen kurzen Engpass kann ein Dispo helfen.
-**Geplante Dauer:** 3.0 s
-**Visual Beat:** Ein kleiner kurzfristiger Engpass wird überbrückt: eine fällige Rechnung wird bezahlt und ein nahes Gehaltsdatum ist sichtbar.
-**Google-Flow-Datei:** Bild 08 - Kurzer Engpass.png
+Typ: IMAGE
+Sprechpunkt: Der kleine Kostenunterschied verstärkt sich über lange Laufzeit.
+Visual: Jahresordner von Jahr 1 bis Jahr 30 zeigen zwei Depotserien, deren Vermögensstände zunehmend auseinanderliegen.
+Asset: `Bild 08 - Zeit vergroessert Abstand.png`

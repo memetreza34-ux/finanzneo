@@ -1,9 +1,6 @@
-# scene-07
+# Szene 07 — Verlorenes Geld wächst nicht mehr
 
-**Typ:** Bild
-**Zwischenüberschrift:** Oder sie lässt es trotzdem zu
-**Icon:** receipt
-**Sprechtext:** Lässt sie die Überziehung trotzdem zu, fallen in der Regel weitere Zinsen an.
-**Geplante Dauer:** 4.0 s
-**Visual Beat:** Eine Zahlung geht trotz bereits stark negativem Konto durch; daneben erscheint sichtbar eine zusätzliche Zinsbelastung.
-**Google-Flow-Datei:** Bild 07 - Geduldete Ueberziehung.png
+Typ: IMAGE
+Sprechpunkt: Geld, das heute als Gebühr fehlt, kann später keine Rendite mehr erwirtschaften.
+Visual: Abgebuchter Gebührenwert liegt getrennt; der weiterhin investierte Bestand ist auf späterer Depotunterlage sichtbar gewachsen.
+Asset: `Bild 07 - Fehlendes Geld arbeitet nicht.png`

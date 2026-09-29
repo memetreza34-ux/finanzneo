@@ -1,9 +1,6 @@
-# scene-04
+# Szene 04 — Unser Rechenbeispiel
 
-**Typ:** Bild
-**Zwischenüberschrift:** Dafür zahlst du Zinsen
-**Icon:** percent
-**Sprechtext:** Für dieses geliehene Geld verlangt die Bank normalerweise Zinsen.
-**Geplante Dauer:** 3.0 s
-**Visual Beat:** Ein überzogenes Girokonto liegt neben einer kleinen, klar als Zinsen markierten Zusatzforderung der Bank.
-**Google-Flow-Datei:** Bild 04 - Dispozinsen.png
+Typ: IMAGE
+Sprechpunkt: Vereinfachtes Modell mit 10.000 € Startkapital, 200 €/Monat, 30 Jahren und 7 % Rendite vor Kosten.
+Visual: Die vier Annahmen als zusammengehörige reale Finanzplanungsobjekte auf einem Tisch.
+Asset: `Bild 04 - Rechenbeispiel.png`

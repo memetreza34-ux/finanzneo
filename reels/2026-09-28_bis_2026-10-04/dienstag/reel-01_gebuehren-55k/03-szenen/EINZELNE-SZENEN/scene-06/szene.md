@@ -1,9 +1,6 @@
-# scene-06
+# Szene 06 — Anfangs fast unsichtbar
 
-**Typ:** Bild
-**Zwischenüberschrift:** Die Bank kann stoppen
-**Icon:** cross
-**Sprechtext:** Gehst du über deinen vereinbarten Rahmen hinaus, kann die Bank eine Zahlung ablehnen.
-**Geplante Dauer:** 4.2 s
-**Visual Beat:** Eine reale Kartenzahlung an einer Kasse wird sichtbar abgelehnt, weil das daneben gezeigte Girokonto seinen vereinbarten Rahmen erreicht hat.
-**Google-Flow-Datei:** Bild 06 - Zahlung kann abgelehnt werden.png
+Typ: IMAGE
+Sprechpunkt: Nach kurzer Zeit ist der Unterschied noch klein.
+Visual: Zwei nach einem Jahr fast gleich gefüllte Depotbehälter, eindeutig mit 0,2 % und 1,2 % markiert.
+Asset: `Bild 06 - Anfang fast gleich.png`

@@ -1,9 +1,6 @@
-# scene-09
+# Szene 09 — Nach 10 und 20 Jahren
 
-**Typ:** Bild
-**Zwischenüberschrift:** Dauerhaft wird es teuer
-**Icon:** repeat
-**Sprechtext:** Landest du jeden Monat im Minus, wird daraus schnell ein teures Problem.
-**Geplante Dauer:** 4.0 s
-**Visual Beat:** Mehrere Monatskalender zeigen denselben wiederkehrenden negativen Kontostand, sodass die Wiederholung sofort erkennbar ist.
-**Google-Flow-Datei:** Bild 09 - Dauerhaft im Minus.png
+Typ: IMAGE
+Sprechpunkt: Die Lücke wächst im Modell von rund 3.400 € nach zehn Jahren auf rund 17.000 € nach zwanzig Jahren.
+Visual: Zwei konkrete Depotvergleichspaare für 10 und 20 Jahre; das zweite Paar zeigt sichtbar mehr Abstand.
+Asset: `Bild 09 - Zehn und zwanzig Jahre.png`

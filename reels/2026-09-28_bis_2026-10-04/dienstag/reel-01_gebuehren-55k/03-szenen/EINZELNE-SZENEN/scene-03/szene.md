@@ -1,8 +1,7 @@
-# scene-03
+# Szene 03 — Die Gebühr schneidet mit
 
-**Typ:** Animation
-**Zwischenüberschrift:** So rutschst du ins Minus
-**Icon:** arrowRight
-**Sprechtext:** Hast du 100 Euro auf dem Konto und zahlst 130 Euro, landest du bei minus 30 Euro.
-**Geplante Dauer:** 5.8 s
-**Mechanik:** Girokonto 100 € → Einkauf 130 € erscheint → Geld wird abgezogen → Kontostand kippt auf -30 € → Warnzustand bleibt lesbar.
+Typ: ANIMATION
+Sprechpunkt: Jedes Jahr wird erneut ein Stück Wert aus dem wachsenden Depot genommen.
+Mechanik: großes Kapitalreservoir → drei Jahresimpulse → Wertstücke lösen sich → Kosten sammeln sich getrennt → niedrigerer verbleibender Füllstand.
+Kanonischer Code: `animation.tsx` / `Scene03Animation`.
+Library: nur geprüft; Custom-Build ist hier der semantisch bessere Fit.

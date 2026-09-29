@@ -1,8 +1,6 @@
-# scene-12
+# Szene 12 — Rund 55.000 € Differenz
 
-**Typ:** Animation
-**Zwischenüberschrift:** Notgroschen statt Dauer-Minus
-**Icon:** shield
-**Sprechtext:** Bei größeren Überraschungen ist ein Notgroschen besser, als dauerhaft Geld von der Bank zu leihen.
-**Geplante Dauer:** 5.2 s
-**Mechanik:** Waschmaschine kaputt → Reparaturrechnung erscheint → Notgroschen gibt Geld frei → Rechnung bezahlt → Girokonto bleibt außerhalb des Minus.
+Typ: ANIMATION
+Sprechpunkt: Im vereinfachten Modell stehen nach 30 Jahren rund 297.000 € rund 242.000 € gegenüber.
+Mechanik: zwei Kapitaltürme → sichtbare Höhenlücke → ein eigener ≈55.000-€-Kapitalblock wird aus der Differenz nach vorn gezogen → Endwerte erscheinen.
+Kanonischer Code: `animation.tsx` / `Scene12Animation`.

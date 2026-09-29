@@ -1,8 +1,6 @@
-# scene-10
+# Szene 10 — Gleicher Start, andere Geschwindigkeit
 
-**Typ:** Animation
-**Zwischenüberschrift:** Gehalt füllt erst das Minus
-**Icon:** wallet
-**Sprechtext:** Kommt dein Gehalt, wird zuerst das Minus ausgeglichen. Erst der Rest ist wieder frei.
-**Geplante Dauer:** 5.5 s
-**Mechanik:** Konto startet negativ → Gehalt kommt an → Geld füllt zuerst das Minus → Konto erreicht null → nur Rest bleibt als frei verfügbarer Stapel.
+Typ: ANIMATION
+Sprechpunkt: Beide Depots starten gleich; nur das teurere wird wiederholt durch laufende Kosten gebremst.
+Mechanik: zwei identische Depotkörper → gemeinsamer Aufstieg → drei Kostenschwellen nur rechts → unterschiedliche Höhe und Größe.
+Kanonischer Code: `animation.tsx` / `Scene10Animation`.

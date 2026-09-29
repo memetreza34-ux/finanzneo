@@ -1,6 +1,9 @@
 {
   "status": "PHASE_2_REQUIRED",
   "source": "final-user-voiceover",
+  "subtitleMode": "sentence-with-audio-synced-active-word",
+  "activeWordColor": "finance-green",
   "words": [],
+  "sentences": [],
   "note": "Echte Wort-Timings werden erst aus dem finalen Nutzer-Voiceover erzeugt. Plansekunden aus Phase 1 sind nicht final."
 }

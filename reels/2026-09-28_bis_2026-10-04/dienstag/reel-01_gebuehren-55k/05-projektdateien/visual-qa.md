@@ -1,20 +1,19 @@
-# PLAYWRIGHT VISUAL QA
+# VISUAL QA — Gebühren-Reel
 
-VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v1
+## Bilder
+- 9/9 Flow-Bilder müssen exakt 1:1 sein.
+- V9: stylized 3D, seamless deep black background, niemals photorealistisch.
+- Jeder Bildbeat muss ohne Voiceover die konkrete Finanzsituation erkennen lassen.
+- Keine Dashboard-/App-UI-/Flowchart-Hauptkomposition.
+- scene-01 reserviert oben echte schwarze Titel-Safe-Space und enthält keinen KI-generierten Reel-Titel.
 
-## Bildszenen
-Prüfe je mindestens einen stabilen Frame: 01, 02, 04, 06, 07, 08, 09, 11, 13.
+## Animationen
+- scene-03: mindestens drei sichtbare Jahresentnahmen aus demselben Kapitalreservoir.
+- scene-05: gemeinsamer 7-%-Start, zwei unterschiedlich starke Kostentore, Ergebnisse erst nach der Aktion.
+- scene-10: gleicher Start; nur die teure Spur erhält drei sichtbare Bremsimpulse.
+- scene-12: zwei Endvermögen bauen sich auf; ≈55.000-€-Block wird aus der sichtbaren Lücke gezogen.
+- Hauptobjekte bleiben innerhalb X72–1008 / Y320–1400.
+- Jede Animation zeigt Setup → Aktion → Reaktion → Ergebnis → stabilen Hold.
 
-Zusätzlich prüfen:
-- Kein statisches Bild bleibt nach seiner Aussage unnötig stehen.
-- Die Bilder 06→07→08→09 dürfen direkt aufeinander folgen, weil jeder Wechsel einen neuen Gedanken zeigt.
-- Hauptmotiv groß genug; keine übermäßige tote schwarze Fläche.
-- Header/Icon optisch konsistent.
-
-## Animationsszenen
-- scene-03: ca. 0.3 s / 1.7 s / 3.2 s / 4.8 s / final hold
-- scene-05: ca. 0.3 s / 1.8 s / 3.4 s / final hold
-- scene-10: ca. 0.3 s / 2.2 s / 4.2 s / final hold
-- scene-12: ca. 0.3 s / 2.0 s / 4.0 s / final hold
-
-FAIL wenn der gesprochene Gedanke wechselt, aber sichtbar nur Kamera/Zoom weiterläuft.
+## Phase 3
+Finaler Render muss Image-, Animation-, Caption-, Edge-Band-, Pure-Black- und Audio-QA bestehen. Phase 3 darf die vier kanonischen Phase-1-Animationen nicht kreativ ersetzen.
