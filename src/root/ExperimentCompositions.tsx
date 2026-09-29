@@ -18,6 +18,10 @@ import {
   FINANCE_MOTION_LAB_ADVANCED_FRAMES,
 } from '../reels-test/FinanceMotionLabAdvanced';
 import {
+  FinanceMotionLibraryLabV1,
+  FINANCE_MOTION_LAB_FRAMES as FINANCE_MOTION_LIBRARY_LAB_V1_FRAMES,
+} from '../reels-test/FinanceMotionLibraryLabV1';
+import {
   FinanceHeaderCaptionMotion,
   FINANCE_HEADER_CAPTION_MOTION_FRAMES,
 } from '../reels-test/FinanceHeaderCaptionMotion';
@@ -70,6 +74,14 @@ export const ExperimentCompositions: React.FC = () => (
       id="ReelsTestFinanceMotionLabAdvanced"
       component={FinanceMotionLabAdvanced}
       durationInFrames={FINANCE_MOTION_LAB_ADVANCED_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
+    <Composition
+      id="ReelsTestFinanceMotionLibraryV1"
+      component={FinanceMotionLibraryLabV1}
+      durationInFrames={FINANCE_MOTION_LIBRARY_LAB_V1_FRAMES}
       fps={FPS}
       {...VERTICAL}
     />
