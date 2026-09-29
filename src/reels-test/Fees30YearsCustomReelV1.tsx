@@ -17,7 +17,7 @@ const Caption: React.FC<{children: React.ReactNode}> = ({children}) => (
 );
 
 const GoldCoin: React.FC<{x:number;y:number;size?:number;opacity?:number;scale?:number;text?:string}> = ({x,y,size=120,opacity=1,scale=1,text}) => (
-  <div style={{position:'absolute',left:x,top:y,width:size,height:size,borderRadius:'50%',border:`4px solid ${C.goldLt}`,background:`radial-gradient(circle at 34% 28%,${C.white},${C.gold} 30%,${C.goldDk ?? C.gold} 76%)`,boxShadow:`0 28px 44px rgba(0,0,0,.44),0 0 24px rgba(255,202,74,.16)`,opacity,scale,display:'flex',alignItems:'center',justifyContent:'center',fontFamily:FONT.title,fontSize:size*.22,fontWeight:950,color:'#211600'}}>{text}</div>
+  <div style={{position:'absolute',left:x,top:y,width:size,height:size,borderRadius:'50%',border:`4px solid ${C.goldLt}`,background:`radial-gradient(circle at 34% 28%,${C.white},${C.gold} 30%,#6f4c00 76%)`,boxShadow:'0 28px 44px rgba(0,0,0,.44),0 0 24px rgba(255,202,74,.16)',opacity,scale,display:'flex',alignItems:'center',justifyContent:'center',fontFamily:FONT.title,fontSize:size*.22,fontWeight:950,color:'#211600'}}>{text}</div>
 );
 
 const SceneShell: React.FC<{title:string;caption:string;children:React.ReactNode}> = ({title,caption,children}) => (
@@ -34,13 +34,14 @@ const Scene01FeeWedge: React.FC = () => {
   const frame=useCurrentFrame();
   const {fps}=useVideoConfig();
   const hit=spring({frame:Math.max(0,frame-70),fps,config:{damping:17,stiffness:180,mass:.8}});
-  const repeats=Math.min(5,Math.floor(Math.max(0,frame-95)/34));
+  const shardOrigins=[
+    {x:640,y:280},{x:705,y:335},{x:730,y:425},{x:710,y:515},{x:650,y:585},{x:565,y:615},
+  ];
   return <SceneShell title="1 % klingt fast nach nichts" caption="Ein Prozent Gebühren wirkt klein. Aber es greift nicht nur einmal an.">
-    <div style={{position:'absolute',left:260,top:195,width:560,height:560,borderRadius:'50%',background:`radial-gradient(circle at 36% 28%,${ANIMATION_COLORS.positive},${C.accentDk} 68%,rgba(0,0,0,.72))`,border:`4px solid rgba(95,255,165,.5)`,boxShadow:'0 45px 75px rgba(0,0,0,.5)',scale:.94+hit*.06}}/>
-    {Array.from({length:6},(_,i)=>{
+    <div style={{position:'absolute',left:260,top:195,width:560,height:560,borderRadius:'50%',background:`radial-gradient(circle at 36% 28%,${ANIMATION_COLORS.positive},${C.accentDk} 68%,rgba(0,0,0,.72))`,border:'4px solid rgba(95,255,165,.5)',boxShadow:'0 45px 75px rgba(0,0,0,.5)',scale:.94+hit*.06}}/>
+    {shardOrigins.map((origin,i)=>{
       const p=pct(frame,74+i*34,102+i*34);
-      const angle=(-52+i*21)*Math.PI/180;
-      return <div key={i} style={{position:'absolute',left:515+Math.cos(angle)*210+p*170,top:445+Math.sin(angle)*210+p*120,width:72,height:72,borderRadius:18,background:ANIMATION_COLORS.warning,border:'2px solid rgba(255,255,255,.28)',opacity:p,rotate:`${12+i*8}deg`,boxShadow:'0 18px 32px rgba(0,0,0,.4)'}}/>;
+      return <div key={i} style={{position:'absolute',left:origin.x+p*170,top:origin.y+p*120,width:72,height:72,borderRadius:18,background:ANIMATION_COLORS.warning,border:'2px solid rgba(255,255,255,.28)',opacity:p,rotate:`${12+i*8}deg`,boxShadow:'0 18px 32px rgba(0,0,0,.4)'}}/>;
     })}
     <div style={{position:'absolute',left:390,top:405,width:300,textAlign:'center',fontFamily:FONT.title,fontSize:74,fontWeight:950,color:C.white}}>1 %</div>
     <div style={{position:'absolute',left:350,top:760,width:380,textAlign:'center',fontFamily:FONT.body,fontSize:28,fontWeight:850,color:ANIMATION_COLORS.warning,opacity:pct(frame,110,150)}}>jedes Jahr erneut</div>
@@ -72,9 +73,8 @@ const Scene02TwinPaths: React.FC = () => {
 const Scene03CompoundingSiphon: React.FC = () => {
   const frame=useCurrentFrame();
   const cycle=pct(frame,55,220);
-  const returnCount=Math.min(6,Math.floor(Math.max(0,frame-70)/27));
   return <SceneShell title="Gebühren nehmen auch künftige Rendite" caption="Das Problem ist nicht nur die Gebühr selbst: Das fehlende Geld kann später keine Rendite mehr erzeugen.">
-    <div style={{position:'absolute',left:340,top:245,width:400,height:300,borderRadius:90,border:'3px solid rgba(95,255,165,.48)',background:`radial-gradient(ellipse at 50% 30%,rgba(95,255,165,.28),rgba(0,0,0,.72) 72%)`,boxShadow:'0 35px 65px rgba(0,0,0,.5)'}}>
+    <div style={{position:'absolute',left:340,top:245,width:400,height:300,borderRadius:90,border:'3px solid rgba(95,255,165,.48)',background:'radial-gradient(ellipse at 50% 30%,rgba(95,255,165,.28),rgba(0,0,0,.72) 72%)',boxShadow:'0 35px 65px rgba(0,0,0,.5)'}}>
       <div style={{position:'absolute',left:0,right:0,top:102,textAlign:'center',fontFamily:FONT.title,fontSize:44,fontWeight:950,color:C.white}}>DEIN KAPITAL</div>
     </div>
     {Array.from({length:6},(_,i)=>{const p=pct(frame,62+i*27,88+i*27);const x=470+(i%3)*72;const y=620-(i%2)*55;return <GoldCoin key={i} x={x} y={y-p*245} size={62} opacity={p}/>})}
