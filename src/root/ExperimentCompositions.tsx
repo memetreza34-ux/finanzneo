@@ -29,6 +29,10 @@ import {
   FinanceImageSceneTest,
   FINANCE_IMAGE_SCENE_TEST_FRAMES,
 } from '../reels-test/FinanceImageSceneTest';
+import {
+  Fees30YearsCustomReelV1,
+  FEES_30_YEARS_CUSTOM_REEL_FRAMES,
+} from '../reels-test/Fees30YearsCustomReelV1';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
 import {Scene03SparbuchVs, SCENE03_FRAMES} from '../zins/Scene03SparbuchVs';
@@ -54,6 +58,14 @@ const WIDE = FORMAT.landscape;
 
 export const ExperimentCompositions: React.FC = () => (
   <>
+    <Composition
+      id="ReelsTestFees30YearsCustomV1"
+      component={Fees30YearsCustomReelV1}
+      durationInFrames={FEES_30_YEARS_CUSTOM_REEL_FRAMES}
+      fps={FPS}
+      {...VERTICAL}
+    />
+
     <Composition
       id="ReelsTestFinanceMotionLab"
       component={FinanceMotionLab}
