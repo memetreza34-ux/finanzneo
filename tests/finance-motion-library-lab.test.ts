@@ -7,8 +7,11 @@ import {
   FINANCE_MOTION_LAB_SEGMENT_FRAMES,
   FINANCE_MOTION_QA_LOCAL_FRAMES,
 } from '../src/finance-motion/lab-config';
+import {FINANCE_MOTION_PROFILES_V2} from '../src/finance-motion/motion-profiles-v2';
 
 const librarySource = readFileSync(resolve('src/finance-motion/index.tsx'), 'utf8');
+const directionV2Source = readFileSync(resolve('src/finance-motion/direction-v2.tsx'), 'utf8');
+const labSource = readFileSync(resolve('src/reels-test/FinanceMotionLibraryLabV1.tsx'), 'utf8');
 
 const registryBlock = librarySource.match(
   /FINANCE_MOTION_REGISTRY:\s*FinanceMotionDescriptor\[\]\s*=\s*\[([\s\S]*?)\n\];/,
@@ -43,4 +46,20 @@ test('Finance Motion Library behält die semantische Best-Fit-Suche', () => {
   assert.match(registryBlock, /ETF diversification/);
   assert.match(registryBlock, /loan repayment/);
   assert.match(registryBlock, /fees/);
+});
+
+test('Direction V2 besitzt sechs bewusst unterschiedliche Bewegungsprofile', () => {
+  const ids = Object.keys(FINANCE_MOTION_PROFILES_V2).sort();
+  assert.deepEqual(ids, ['comparison', 'compound', 'drain', 'growth', 'rebalance', 'transfer']);
+  const characters = Object.values(FINANCE_MOTION_PROFILES_V2).map((profile) => profile.character);
+  assert.equal(new Set(characters).size, characters.length);
+});
+
+test('Finance Motion Lab rendert die neue Direction-V2-Kalibrierung', () => {
+  assert.match(labSource, /finance-motion\/direction-v2/);
+  assert.match(labSource, /FINANCE MOTION DIRECTION V2/);
+  for (const component of ['MoneyTransfer', 'ValueGrowth', 'ValueDrain', 'Rebalancing', 'ScenarioComparison', 'CompoundGrowth']) {
+    assert.match(directionV2Source, new RegExp(`export const ${component}`));
+  }
+  assert.match(directionV2Source, /6 V2-Regien|six mechanics|six mechanics/i);
 });
