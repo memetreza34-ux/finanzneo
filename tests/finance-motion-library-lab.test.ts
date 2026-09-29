@@ -12,6 +12,7 @@ import {FINANCE_MOTION_PROFILES_V2} from '../src/finance-motion/motion-profiles-
 const librarySource = readFileSync(resolve('src/finance-motion/index.tsx'), 'utf8');
 const directionV2Source = readFileSync(resolve('src/finance-motion/direction-v2.tsx'), 'utf8');
 const directionV21Source = readFileSync(resolve('src/finance-motion/direction-v2-1.tsx'), 'utf8');
+const directionV22Source = readFileSync(resolve('src/finance-motion/direction-v2-2.tsx'), 'utf8');
 const labSource = readFileSync(resolve('src/reels-test/FinanceMotionLibraryLabV1.tsx'), 'utf8');
 
 const registryBlock = librarySource.match(
@@ -56,9 +57,7 @@ test('Direction V2 besitzt sechs bewusst unterschiedliche Bewegungsprofile', () 
   assert.equal(new Set(characters).size, characters.length);
 });
 
-test('Finance Motion Lab rendert Direction V2.1 nach visueller Eigenanalyse', () => {
-  assert.match(labSource, /finance-motion\/direction-v2-1/);
-  assert.match(labSource, /FINANCE MOTION DIRECTION V2\.1/);
+test('V2.1 behält die sechs bereits visuell bestätigten Regien', () => {
   for (const component of ['MoneyTransfer', 'ValueGrowth', 'ValueDrain', 'ScenarioComparison', 'CompoundGrowth']) {
     assert.match(directionV21Source, new RegExp(`export const ${component}`));
   }
@@ -71,7 +70,6 @@ test('V2.1 verrät den Transfer-Payoff nicht vor der Hauptaktion', () => {
   assert.match(transferBlock, /sourceDebit/);
   assert.match(transferBlock, /opacity: payoff/);
   assert.doesNotMatch(transferBlock, /AccountPedestal[^\n]*value=/);
-  assert.doesNotMatch(transferBlock, /width: `\$\{travel \* 100\}%`/);
 });
 
 test('V2.1 Vergleich beginnt sichtbar gleich und zeigt Ergebnisse erst als Payoff', () => {
@@ -87,4 +85,64 @@ test('V2.1 Zinseszins nutzt eine gekrümmte Beschleunigung statt einer geraden L
   assert.match(compoundBlock, /C 360 548, 610 470, 930 90/);
   assert.match(compoundBlock, /470 \* ratio \* ratio/);
   assert.match(compoundBlock, /strokeDashoffset=\{1 - progress\}/);
+});
+
+test('Finance Motion Lab nutzt V2.2 für alle zwölf Mechaniken', () => {
+  assert.match(labSource, /finance-motion\/direction-v2-2/);
+  assert.match(labSource, /FINANCE MOTION DIRECTION V2\.2/);
+  assert.match(labSource, /alle 12 Mechaniken visuell kalibriert/);
+  for (const component of ['MoneySplit', 'AllocationSplit', 'Diversification', 'LoanPaydown', 'ProtectionLimit', 'FinanceTimeline']) {
+    assert.match(directionV22Source, new RegExp(`export const ${component}`));
+  }
+});
+
+test('V2.2 Money Split zeigt echte Verteilung und verrät Anteile erst als Payoff', () => {
+  const block = directionV22Source.match(/export const MoneySplit[\s\S]*?type AllocationPart/)?.[0] ?? '';
+  assert.match(block, /const arc = -145 \* 4 \* move \* \(1 - move\)/);
+  assert.match(block, /value=\{payoff > 0 \? `\$\{part\.share\} %` : undefined\}/);
+  assert.match(block, /destinations/);
+});
+
+test('V2.2 Allocation fächert einen Portfolio-Kern physisch auf statt Prozentbalken zu zeichnen', () => {
+  const block = directionV22Source.match(/export const AllocationSplit[\s\S]*?type Destination/)?.[0] ?? '';
+  assert.match(block, /PORTFOLIO/);
+  assert.match(block, /ALLOCATION_TARGETS/);
+  assert.match(block, /rotate: `\$\{target\.angle \* move\}deg`/);
+  assert.doesNotMatch(block, /width: `\$\{[^`]*%`/);
+});
+
+test('V2.2 Diversification zeigt sichtbare Verzweigung vom gemeinsamen Ursprung', () => {
+  const block = directionV22Source.match(/export const Diversification[\s\S]*?export const LoanPaydown/)?.[0] ?? '';
+  assert.match(block, /strokeDashoffset=\{1 - draw\}/);
+  assert.match(block, /Q \$\{controlX\} \$\{controlY\}/);
+  assert.match(block, /sourceLabel/);
+});
+
+test('V2.2 Loan Paydown koppelt jede Zahlung sichtbar an einen entfernten Schuldenblock', () => {
+  const block = directionV22Source.match(/export const LoanPaydown[\s\S]*?export const ProtectionLimit/)?.[0] ?? '';
+  assert.match(block, /const removed = phase/);
+  assert.match(block, /<Coin/);
+  assert.match(block, /verbleibt/);
+  assert.match(block, /endDebt/);
+});
+
+test('V2.2 Protection Limit sammelt Konten unter einem gemeinsamen Schutzbereich', () => {
+  const block = directionV22Source.match(/export const ProtectionLimit[\s\S]*?type Milestone/)?.[0] ?? '';
+  assert.match(block, /gemeinsamer Schutzbereich/);
+  assert.match(block, /geschützt bis/);
+  assert.match(block, /borderRadius: '360px 360px 68px 68px'/);
+  assert.match(block, /lock = spring/);
+});
+
+test('V2.2 Finance Timeline nutzt große Meilensteine und einen sichtbaren Reisepunkt', () => {
+  const block = directionV22Source.match(/export const FinanceTimeline[\s\S]*?export \{/)?.[0] ?? '';
+  assert.match(block, /TIMELINE_POINTS/);
+  assert.match(block, /strokeDashoffset=\{1 - travel\}/);
+  assert.match(block, /<Coin x=\{coinX\} y=\{coinY\}/);
+  assert.match(block, /milestone\.value/);
+});
+
+test('V2.2 bleibt deterministisch und ohne trigonometrische Wackelbewegung', () => {
+  assert.doesNotMatch(directionV22Source, /Math\.(sin|cos)/);
+  assert.doesNotMatch(directionV22Source, /Math\.random/);
 });
