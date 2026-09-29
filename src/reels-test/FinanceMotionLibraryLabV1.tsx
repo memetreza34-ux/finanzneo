@@ -13,7 +13,7 @@ import {
   ScenarioComparison,
   ValueDrain,
   ValueGrowth,
-} from '../finance-motion';
+} from '../finance-motion/direction-v2';
 import {
   FINANCE_MOTION_LAB_FRAMES,
   FINANCE_MOTION_LAB_IDS,
@@ -127,7 +127,7 @@ export const FinanceMotionLibraryLabV1: React.FC = () => (
           >
             <div>
               <div style={{fontSize: 22, fontWeight: 800, color: C.whiteSoft, letterSpacing: 1.1}}>
-                FINANCE MOTION LIBRARY V1
+                FINANCE MOTION DIRECTION V2
               </div>
               <div style={{marginTop: 8, fontSize: 42, fontWeight: 950, color: C.white}}>{id}</div>
             </div>
@@ -150,7 +150,7 @@ export const FinanceMotionLibraryLabV1: React.FC = () => (
               letterSpacing: 0.8,
             }}
           >
-            RAW MOTION QA · keine Bildszene · keine Produktionsänderung
+            MOTION QA · 6 V2-Regien + 6 bewährte V1-Mechaniken · keine Bildweltänderung
           </div>
         </AbsoluteFill>
       </Sequence>
