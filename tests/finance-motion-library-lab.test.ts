@@ -11,6 +11,7 @@ import {FINANCE_MOTION_PROFILES_V2} from '../src/finance-motion/motion-profiles-
 
 const librarySource = readFileSync(resolve('src/finance-motion/index.tsx'), 'utf8');
 const directionV2Source = readFileSync(resolve('src/finance-motion/direction-v2.tsx'), 'utf8');
+const directionV21Source = readFileSync(resolve('src/finance-motion/direction-v2-1.tsx'), 'utf8');
 const labSource = readFileSync(resolve('src/reels-test/FinanceMotionLibraryLabV1.tsx'), 'utf8');
 
 const registryBlock = librarySource.match(
@@ -55,11 +56,35 @@ test('Direction V2 besitzt sechs bewusst unterschiedliche Bewegungsprofile', () 
   assert.equal(new Set(characters).size, characters.length);
 });
 
-test('Finance Motion Lab rendert die neue Direction-V2-Kalibrierung', () => {
-  assert.match(labSource, /finance-motion\/direction-v2/);
-  assert.match(labSource, /FINANCE MOTION DIRECTION V2/);
-  for (const component of ['MoneyTransfer', 'ValueGrowth', 'ValueDrain', 'Rebalancing', 'ScenarioComparison', 'CompoundGrowth']) {
-    assert.match(directionV2Source, new RegExp(`export const ${component}`));
+test('Finance Motion Lab rendert Direction V2.1 nach visueller Eigenanalyse', () => {
+  assert.match(labSource, /finance-motion\/direction-v2-1/);
+  assert.match(labSource, /FINANCE MOTION DIRECTION V2\.1/);
+  for (const component of ['MoneyTransfer', 'ValueGrowth', 'ValueDrain', 'ScenarioComparison', 'CompoundGrowth']) {
+    assert.match(directionV21Source, new RegExp(`export const ${component}`));
   }
-  assert.match(directionV2Source, /6 V2-Regien|six mechanics|six mechanics/i);
+  assert.match(directionV21Source, /Rebalancing was the strongest V2 scene/);
+  assert.match(directionV2Source, /export const Rebalancing/);
+});
+
+test('V2.1 verrät den Transfer-Payoff nicht vor der Hauptaktion', () => {
+  const transferBlock = directionV21Source.match(/export const MoneyTransfer[\s\S]*?export const ValueGrowth/)?.[0] ?? '';
+  assert.match(transferBlock, /sourceDebit/);
+  assert.match(transferBlock, /opacity: payoff/);
+  assert.doesNotMatch(transferBlock, /AccountPedestal[^\n]*value=/);
+  assert.doesNotMatch(transferBlock, /width: `\$\{travel \* 100\}%`/);
+});
+
+test('V2.1 Vergleich beginnt sichtbar gleich und zeigt Ergebnisse erst als Payoff', () => {
+  const comparisonBlock = directionV21Source.match(/export const ScenarioComparison[\s\S]*?export const CompoundGrowth/)?.[0] ?? '';
+  assert.match(comparisonBlock, /GLEICHER START/);
+  assert.match(comparisonBlock, /const branch/);
+  assert.match(comparisonBlock, /const build/);
+  assert.match(comparisonBlock, /opacity: payoff/);
+});
+
+test('V2.1 Zinseszins nutzt eine gekrümmte Beschleunigung statt einer geraden Linie', () => {
+  const compoundBlock = directionV21Source.match(/export const CompoundGrowth[\s\S]*?FINANCE_MOTION_DIRECTION_V2_1_COMPONENTS/)?.[0] ?? '';
+  assert.match(compoundBlock, /C 360 548, 610 470, 930 90/);
+  assert.match(compoundBlock, /470 \* ratio \* ratio/);
+  assert.match(compoundBlock, /strokeDashoffset=\{1 - progress\}/);
 });
