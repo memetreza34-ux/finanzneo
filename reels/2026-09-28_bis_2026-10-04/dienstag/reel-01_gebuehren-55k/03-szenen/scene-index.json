@@ -1,0 +1,920 @@
+{
+  "version": 28,
+  "title": "Was passiert, wenn dein Konto ins Minus geht?",
+  "sceneCount": 13,
+  "imageSceneCount": 9,
+  "animationSceneCount": 4,
+  "targetImageShare": 0.6923076923076923,
+  "targetAnimationShare": 0.3076923076923077,
+  "video": {
+    "aspectRatio": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "cover": {
+    "type": "scene-image",
+    "sourceSceneId": "scene-01",
+    "googleFlowFileName": "Bild 01 - Konto im Minus.png",
+    "planFile": "03-szenen/00-cover/cover.txt",
+    "aspectRatio": "1:1",
+    "sameAssetAsFirstScene": true,
+    "separateGenerationForbidden": true
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "phase3Executor": "antigravity",
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-sequential-v1",
+    "generationMode": "one-image-at-a-time",
+    "strictSequential": true,
+    "waitForCurrentImage": true,
+    "renameBeforeNext": true,
+    "qaBeforeNext": true,
+    "retrySameImageOnFailure": true,
+    "fileNameRule": "Bild XX - Kurzer Szenenname.png",
+    "numberSource": "real-scene-number",
+    "animationNumbersStayReserved": true,
+    "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
+    "distributeToSceneFolders": false,
+    "executionModeId": "finanzneo-flow-strict-single-job-v3",
+    "stateMachineId": "finanzneo-flow-state-machine-v1",
+    "autonomousFullRun": true,
+    "maxConcurrentGenerations": 1,
+    "batchGenerationForbidden": true,
+    "multiImageRequestForbidden": true,
+    "queueLaterImagesForbidden": true,
+    "galleryOrContactSheetForbidden": true,
+    "currentStepGateRequired": true,
+    "nextStepLockedUntilCurrentResultReturned": true,
+    "renameBeforeUnlockNext": true,
+    "qaBeforeUnlockNext": true,
+    "userContinueSignalForbidden": true,
+    "userApprovalBetweenImagesForbidden": true,
+    "internalWaitForGenerationOnly": true,
+    "autoContinueAfterQa": true,
+    "hardBlockerOnlyStop": true,
+    "structureLockId": "finanzneo-flow-structure-lock-v2",
+    "preserveStructureThroughLastImage": true,
+    "preserveStyleThroughLastImage": true
+  },
+  "phase1AnimationCode": {
+    "required": true,
+    "qualityLock": "finanzneo-phase1-animation-code-v1",
+    "canonicalSourceRequiredForEveryAnimation": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "placeholderMotionForbidden": true,
+    "decorativeMotionDoesNotCountAsExplanation": true,
+    "mathSinCosCompletionHackForbidden": true,
+    "realWorldMechanismRequired": true,
+    "uniqueMechanismPerAnimationRequired": true,
+    "physicalCauseEffectRequired": true,
+    "labelsSupplementalOnly": true,
+    "genericCardRowsForbidden": true,
+    "progressBarAsPrimaryStoryForbidden": true,
+    "narrativeMarkersRequired": [
+      "MECHANIC_ID",
+      "PRIMARY_ACTION",
+      "START",
+      "MECHANISM",
+      "RESULT",
+      "HERO",
+      "SUPPORT",
+      "MATERIAL",
+      "DEPTH"
+    ],
+    "resultHoldFramesMin": 15,
+    "premiumVisualLock": "finanzneo-premium-physical-animation-v2",
+    "visualTargetWorld": "finanzneo-stylized-3d-animated-black-v9",
+    "requirePremiumPhysicalStage": true,
+    "requirePhysicalObjects": true,
+    "supportingObjectCountFlexible": true,
+    "clarityBeforeObjectCount": true,
+    "requireMaterialDepthLighting": true,
+    "sameVisualLanguageAsFlowImages": true,
+    "startMechanismResultRequired": true,
+    "pureBlackCanvasRequired": true,
+    "transparentAnimationStageRequired": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridBackgroundForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "genericInfoCardsAsMainLanguageForbidden": true
+  },
+  "reelBackground": {
+    "contractId": "finanzneo-pure-black-background-v1",
+    "color": "#000000",
+    "staticRequired": true,
+    "decorativeEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridForbidden": true,
+    "glowBackgroundForbidden": true
+  },
+  "layoutVersion": "finanzneo-reel-layout-v5",
+  "layout": {
+    "headlineY": 154,
+    "visualTop": 320,
+    "visualBottom": 1400,
+    "subtitleBottom": 340,
+    "subtitleLeft": 72,
+    "subtitleRight": 140
+  },
+  "visualSafeZone": {
+    "top": 320,
+    "bottom": 1400,
+    "hardClipAnimations": true,
+    "headerIntrusionForbidden": true,
+    "captionIntrusionForbidden": true
+  },
+  "timingStandard": {
+    "imageSceneIdealSeconds": [
+      1.8,
+      3.4
+    ],
+    "imageSceneAbsoluteMaxSeconds": 4.5,
+    "animationSceneIdealSeconds": [
+      3.5,
+      6.5
+    ],
+    "splitOrAnimateIfImageExceedsMax": true,
+    "visualBeatContractId": "finanzneo-visual-beats-v1",
+    "actualTimingSource": "04-caption/word-timings.json",
+    "cameraMotionDoesNotResetVisualBeat": true
+  },
+  "clarityStandard": {
+    "mustReadInUnderSeconds": 2,
+    "oneMainIdeaPerBeat": true,
+    "sceneHeaderRequired": true,
+    "sceneIconRequired": true,
+    "animationStartMechanismResultRequired": true,
+    "blackTextOnDarkForbidden": true
+  },
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "seriesLockId": "finanzneo-same-world-v1",
+    "stylized3DLockId": "finanzneo-stylized-3d-editorial-v5",
+    "physicalExplainerLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "premiumVisualWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "animatedWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "generatedImageAspectRatio": "1:1",
+    "squareGeneratedImagesRequired": true,
+    "referencePromptFile": "03-szenen/bildwelt.txt",
+    "styleReferenceStrategy": "written-style-lock-only",
+    "referenceImageUse": "forbidden",
+    "style": "stylized-3d-animated-black-v9",
+    "sameWorldAcrossSeriesRequired": true,
+    "supportingObjectCountFlexible": true,
+    "supportingObjectsOnlyWhenHelpful": true,
+    "clarityBeforeObjectCount": true,
+    "contentFirstCompositionRequired": true,
+    "nonPhotorealisticRequired": true,
+    "stylized3DAnimatedRequired": true,
+    "softRoundedGeometryRequired": true,
+    "simplifiedDetailsRequired": true,
+    "premiumPlayfulBalanceRequired": true,
+    "clearMainSubjectOrActionRequired": true,
+    "deepBlackBackgroundRequired": true,
+    "cleanMinimalBackgroundRequired": true,
+    "subjectSeparationLightingRequired": true,
+    "softContactShadowsRequired": true,
+    "brandMarksRecognizableButStylizedRequired": true,
+    "flatPastedRealLogoForbidden": true,
+    "screenshotLikeBrandUiForbidden": true,
+    "objectLabelsOnly": true,
+    "headlinesInGeneratedImagesForbidden": true,
+    "subtitlesInGeneratedImagesForbidden": true,
+    "sentencesInGeneratedImagesForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "appUiCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "floatingUiTilesForbidden": true,
+    "microchipVisualLanguageForbidden": true,
+    "miniatureDioramaForbidden": true,
+    "photorealismForbidden": true,
+    "productPhotoLookForbidden": true,
+    "clutterForbidden": true,
+    "seamlessSingleBackgroundRequired": true,
+    "percentageZonesForbidden": true,
+    "floorWallBoundaryForbidden": true,
+    "horizonLineForbidden": true,
+    "backgroundBandsForbidden": true,
+    "visibleFaceRequiredWhenPersonPresent": true,
+    "realWorldGroundedSituationRequired": true,
+    "believableObjectProportionsRequired": true,
+    "recognizableEverydayDetailsRequired": true,
+    "completeExplanatorySceneRequired": true,
+    "causeEffectReadableRequired": true,
+    "understandableWithoutAudioRequired": true,
+    "germanObjectLabelsWhenHelpfulRequired": true,
+    "individuallyWrittenPromptRequired": true,
+    "genericPromptShorthandForbidden": true,
+    "abstractSymbolOnlyCompositionForbidden": true,
+    "genericFinanceIconCompositionForbidden": true,
+    "visualMetaphorInterpretationRequiredForbidden": true
+  },
+  "platformPublishing": {
+    "directory": "04-caption",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt",
+    "universalCaptionForAllReelPlatforms": true,
+    "platforms": [
+      "instagram-reels",
+      "tiktok",
+      "facebook-reels",
+      "snapchat"
+    ]
+  },
+  "timelineRules": {
+    "timingSource": "04-caption/word-timings.json",
+    "cutsFollowSentenceStarts": true,
+    "cutsFollowSentenceStartsAndMeaningfulPhraseStarts": true,
+    "equalLengthScenesForbiddenByDefault": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "imagePresentationContract": {
+    "imageFit": "contain",
+    "maxIntentionalImageScale": 1.04,
+    "maxSourceCropPerSide": 0.2,
+    "maxSourceCropTotal": 0.34,
+    "blurredImageBackgroundForbidden": true
+  },
+  "subtitleDisplay": {
+    "mode": "sentence-with-audio-synced-active-word",
+    "activeWordColor": "finance-green",
+    "normalWordColor": "white",
+    "maxLines": 2,
+    "noDeadGaps": true,
+    "holdDuringPauses": true,
+    "noWordJump": true,
+    "noWordScale": true,
+    "goldActiveWordForbidden": true,
+    "blackTextForbidden": true,
+    "clipToSceneBoundary": true,
+    "crossSceneSpillForbidden": true,
+    "textStrokeForbidden": true,
+    "fontWeight": 800,
+    "fontSize": 50,
+    "bottom": 340
+  },
+  "sceneHeader": {
+    "required": true,
+    "align": "center",
+    "presentation": "plain",
+    "headlineColor": "white",
+    "fontSize": 56,
+    "minFontSize": 50,
+    "maxLines": 2,
+    "iconSize": 34,
+    "defaultIconColor": "finance-green",
+    "semanticColorLivesOnIcon": true,
+    "capsuleForbidden": true,
+    "uppercaseTransformForbidden": true,
+    "uniqueIconPerScene": true,
+    "mustStateSceneMessage": true,
+    "samePositionAcrossReel": true
+  },
+  "animationColors": {
+    "neutral": "white",
+    "focus": "finance-green",
+    "warning": "red",
+    "money": "gold",
+    "blackOnDarkForbidden": true
+  },
+  "transitionContract": {
+    "continuityFrames": 3,
+    "continuityFramesMax": 3,
+    "imageEnterFrames": 4,
+    "fadeToBlackForbidden": true
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 108,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-01",
+      "headline": "Konto plötzlich im Minus?",
+      "icon": "warning",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
+      "googleFlowFileName": "Bild 01 - Konto im Minus.png",
+      "objectLabels": [
+        "Girokonto",
+        "-30 €"
+      ],
+      "expectedVisual": "A real-world-grounded Girokonto situation after a normal purchase, with the account visibly below zero and the cause still present.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.6,
+      "visualBeats": [
+        {
+          "id": "scene-01-beat-01",
+          "kind": "image",
+          "voiceText": "Dein Konto ist im Minus? Dann gibst du Geld aus, das dir gerade nicht gehört.",
+          "visualChange": "Ein normales Girokonto zeigt sichtbar einen negativen Stand; daneben liegt eine gerade bezahlte Alltagsausgabe, sodass sofort klar ist: Es wurde mehr ausgegeben als vorhanden.",
+          "startSecond": 0,
+          "endSecond": 3.6
+        }
+      ],
+      "audioTrigger": "Dein Konto ist im Minus? Dann gibst du Geld aus, das dir gerade nicht gehört.",
+      "targetSeconds": 3.6,
+      "mainIdea": "Ein normales Girokonto zeigt sichtbar einen negativen Stand; daneben liegt eine gerade bezahlte Alltagsausgabe, sodass sofort klar ist: Es wurde mehr ausgegeben als vorhanden."
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "startFrame": 108,
+      "durationFrames": 96,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-02",
+      "headline": "Minus heißt: Geld geliehen",
+      "icon": "bank",
+      "accent": "finance-green",
+      "headerTone": "neutral",
+      "planFile": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
+      "googleFlowFileName": "Bild 02 - Minus ist geliehenes Geld.png",
+      "objectLabels": [
+        "Bank",
+        "Geliehen"
+      ],
+      "expectedVisual": "A believable bank-to-account lending situation that makes the source of the negative balance obvious without an app interface.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.2,
+      "visualBeats": [
+        {
+          "id": "scene-02-beat-01",
+          "kind": "image",
+          "voiceText": "Das Minus ist geliehenes Geld von deiner Bank – kein kostenloses Extra.",
+          "visualChange": "Bank und Girokonto stehen in einer klaren Beziehung: Das fehlende Geld kommt sichtbar von der Bank zum überzogenen Konto.",
+          "startSecond": 0,
+          "endSecond": 3.2
+        }
+      ],
+      "audioTrigger": "Das Minus ist geliehenes Geld von deiner Bank – kein kostenloses Extra.",
+      "targetSeconds": 3.2,
+      "mainIdea": "Bank und Girokonto stehen in einer klaren Beziehung: Das fehlende Geld kommt sichtbar von der Bank zum überzogenen Konto."
+    },
+    {
+      "id": "scene-03",
+      "type": "animation",
+      "startFrame": 204,
+      "durationFrames": 174,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-03",
+      "headline": "So rutschst du ins Minus",
+      "icon": "arrowRight",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-03/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-03/animation.tsx",
+      "animationExport": "Scene03Animation",
+      "animationIntent": "Girokonto 100 € → Einkauf 130 € erscheint → Geld wird abgezogen → Kontostand kippt auf -30 € → Warnzustand bleibt lesbar.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 5.8,
+      "visualBeats": [
+        {
+          "id": "scene-03-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Kontostand: 100 Euro.",
+          "visualChange": "Das Girokonto startet sichtbar bei 100 €.",
+          "startSecond": 0,
+          "endSecond": 1.1
+        },
+        {
+          "id": "scene-03-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Du zahlst 130 Euro.",
+          "visualChange": "Eine reale 130-€-Einkaufsrechnung tritt in den Vordergrund.",
+          "startSecond": 1.1,
+          "endSecond": 2.4
+        },
+        {
+          "id": "scene-03-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Das Geld geht ab.",
+          "visualChange": "Der verfügbare Geldstapel bewegt sich vom Konto zur Rechnung.",
+          "startSecond": 2.4,
+          "endSecond": 4.1
+        },
+        {
+          "id": "scene-03-beat-04",
+          "kind": "animation-phase",
+          "voiceText": "Du landest bei minus 30 Euro.",
+          "visualChange": "Das Konto kippt sichtbar auf -30 € und wechselt in den Warnzustand.",
+          "startSecond": 4.1,
+          "endSecond": 5.8
+        }
+      ],
+      "audioTrigger": "Hast du 100 Euro auf dem Konto und zahlst 130 Euro, landest du bei minus 30 Euro.",
+      "targetSeconds": 5.8,
+      "mainIdea": "Ein Girokonto startet mit 100 €, eine 130-€-Zahlung trifft ein, vorhandenes Geld geht weg und das Konto kippt sichtbar auf -30 €."
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "startFrame": 378,
+      "durationFrames": 90,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-04",
+      "headline": "Dafür zahlst du Zinsen",
+      "icon": "percent",
+      "accent": "finance-green",
+      "headerTone": "money",
+      "planFile": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
+      "googleFlowFileName": "Bild 04 - Dispozinsen.png",
+      "objectLabels": [
+        "Dispo",
+        "Zinsen"
+      ],
+      "expectedVisual": "A real-life-grounded overdrawn account with a separate bank interest charge that visibly exists because money was borrowed.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3,
+      "visualBeats": [
+        {
+          "id": "scene-04-beat-01",
+          "kind": "image",
+          "voiceText": "Für dieses geliehene Geld verlangt die Bank normalerweise Zinsen.",
+          "visualChange": "Ein überzogenes Girokonto liegt neben einer kleinen, klar als Zinsen markierten Zusatzforderung der Bank.",
+          "startSecond": 0,
+          "endSecond": 3
+        }
+      ],
+      "audioTrigger": "Für dieses geliehene Geld verlangt die Bank normalerweise Zinsen.",
+      "targetSeconds": 3,
+      "mainIdea": "Ein überzogenes Girokonto liegt neben einer kleinen, klar als Zinsen markierten Zusatzforderung der Bank."
+    },
+    {
+      "id": "scene-05",
+      "type": "animation",
+      "startFrame": 468,
+      "durationFrames": 135,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-05",
+      "headline": "Je länger, desto teurer",
+      "icon": "calendar",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-05/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-05/animation.tsx",
+      "animationExport": "Scene05Animation",
+      "animationIntent": "Minus-Konto bleibt bestehen → Kalender wechselt mehrfach → zusätzliche Zinskosten wachsen sichtbar → Ergebnis ZEIT KOSTET.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 4.5,
+      "visualBeats": [
+        {
+          "id": "scene-05-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Du bleibst im Minus.",
+          "visualChange": "Das rote Minuskonto bleibt als Ausgangszustand bestehen.",
+          "startSecond": 0,
+          "endSecond": 1.3
+        },
+        {
+          "id": "scene-05-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Zeit vergeht.",
+          "visualChange": "Mehrere Monatskalender wechseln nacheinander sichtbar.",
+          "startSecond": 1.3,
+          "endSecond": 2.8
+        },
+        {
+          "id": "scene-05-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Du zahlst länger Zinsen.",
+          "visualChange": "Ein wachsender Zinskosten-Stapel erscheint neben dem weiterhin negativen Konto.",
+          "startSecond": 2.8,
+          "endSecond": 4.5
+        }
+      ],
+      "audioTrigger": "Je länger du im Minus bleibst, desto länger zahlst du dafür Zinsen.",
+      "targetSeconds": 4.5,
+      "mainIdea": "Das Konto bleibt im Minus, Kalenderblätter wechseln und die sichtbare Zinsbelastung wächst mit der Zeit."
+    },
+    {
+      "id": "scene-06",
+      "type": "image",
+      "startFrame": 603,
+      "durationFrames": 126,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-06",
+      "headline": "Die Bank kann stoppen",
+      "icon": "cross",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-06/bildprompt.txt",
+      "googleFlowFileName": "Bild 06 - Zahlung kann abgelehnt werden.png",
+      "objectLabels": [
+        "Zahlung",
+        "ABGELEHNT"
+      ],
+      "expectedVisual": "A normal checkout situation where a payment is clearly rejected after the account has reached its agreed overdraft limit.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4.2,
+      "visualBeats": [
+        {
+          "id": "scene-06-beat-01",
+          "kind": "image",
+          "voiceText": "Gehst du über deinen vereinbarten Rahmen hinaus, kann die Bank eine Zahlung ablehnen.",
+          "visualChange": "Eine reale Kartenzahlung an einer Kasse wird sichtbar abgelehnt, weil das daneben gezeigte Girokonto seinen vereinbarten Rahmen erreicht hat.",
+          "startSecond": 0,
+          "endSecond": 4.2
+        }
+      ],
+      "audioTrigger": "Gehst du über deinen vereinbarten Rahmen hinaus, kann die Bank eine Zahlung ablehnen.",
+      "targetSeconds": 4.2,
+      "mainIdea": "Eine reale Kartenzahlung an einer Kasse wird sichtbar abgelehnt, weil das daneben gezeigte Girokonto seinen vereinbarten Rahmen erreicht hat."
+    },
+    {
+      "id": "scene-07",
+      "type": "image",
+      "startFrame": 729,
+      "durationFrames": 120,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-07",
+      "headline": "Oder sie lässt es trotzdem zu",
+      "icon": "receipt",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-07/bildprompt.txt",
+      "googleFlowFileName": "Bild 07 - Geduldete Ueberziehung.png",
+      "objectLabels": [
+        "Überziehung",
+        "Zinsen"
+      ],
+      "expectedVisual": "A real-world payment that is accepted despite a deeper negative balance, with the additional interest consequence shown clearly.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-07-beat-01",
+          "kind": "image",
+          "voiceText": "Lässt sie die Überziehung trotzdem zu, fallen in der Regel weitere Zinsen an.",
+          "visualChange": "Eine Zahlung geht trotz bereits stark negativem Konto durch; daneben erscheint sichtbar eine zusätzliche Zinsbelastung.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "audioTrigger": "Lässt sie die Überziehung trotzdem zu, fallen in der Regel weitere Zinsen an.",
+      "targetSeconds": 4,
+      "mainIdea": "Eine Zahlung geht trotz bereits stark negativem Konto durch; daneben erscheint sichtbar eine zusätzliche Zinsbelastung."
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "startFrame": 849,
+      "durationFrames": 90,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-08",
+      "headline": "Kurz kann ein Dispo helfen",
+      "icon": "clock",
+      "accent": "finance-green",
+      "headerTone": "neutral",
+      "planFile": "EINZELNE-SZENEN/scene-08/bildprompt.txt",
+      "googleFlowFileName": "Bild 08 - Kurzer Engpass.png",
+      "objectLabels": [
+        "Kurz",
+        "Dispo"
+      ],
+      "expectedVisual": "A believable short cash-gap situation with one urgent bill and an imminent salary date, making the temporary nature obvious.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3,
+      "visualBeats": [
+        {
+          "id": "scene-08-beat-01",
+          "kind": "image",
+          "voiceText": "Für einen kurzen Engpass kann ein Dispo helfen.",
+          "visualChange": "Ein kleiner kurzfristiger Engpass wird überbrückt: eine fällige Rechnung wird bezahlt und ein nahes Gehaltsdatum ist sichtbar.",
+          "startSecond": 0,
+          "endSecond": 3
+        }
+      ],
+      "audioTrigger": "Für einen kurzen Engpass kann ein Dispo helfen.",
+      "targetSeconds": 3,
+      "mainIdea": "Ein kleiner kurzfristiger Engpass wird überbrückt: eine fällige Rechnung wird bezahlt und ein nahes Gehaltsdatum ist sichtbar."
+    },
+    {
+      "id": "scene-09",
+      "type": "image",
+      "startFrame": 939,
+      "durationFrames": 120,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-09",
+      "headline": "Dauerhaft wird es teuer",
+      "icon": "repeat",
+      "accent": "finance-green",
+      "headerTone": "warning",
+      "planFile": "EINZELNE-SZENEN/scene-09/bildprompt.txt",
+      "googleFlowFileName": "Bild 09 - Dauerhaft im Minus.png",
+      "objectLabels": [
+        "Jeden Monat",
+        "Minus"
+      ],
+      "expectedVisual": "A repeated monthly real-life pattern where the same account falls negative again and again, clearly showing a recurring problem.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-09-beat-01",
+          "kind": "image",
+          "voiceText": "Landest du jeden Monat im Minus, wird daraus schnell ein teures Problem.",
+          "visualChange": "Mehrere Monatskalender zeigen denselben wiederkehrenden negativen Kontostand, sodass die Wiederholung sofort erkennbar ist.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "audioTrigger": "Landest du jeden Monat im Minus, wird daraus schnell ein teures Problem.",
+      "targetSeconds": 4,
+      "mainIdea": "Mehrere Monatskalender zeigen denselben wiederkehrenden negativen Kontostand, sodass die Wiederholung sofort erkennbar ist."
+    },
+    {
+      "id": "scene-10",
+      "type": "animation",
+      "startFrame": 1059,
+      "durationFrames": 165,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-10",
+      "headline": "Gehalt füllt erst das Minus",
+      "icon": "wallet",
+      "accent": "finance-green",
+      "headerTone": "money",
+      "planFile": "EINZELNE-SZENEN/scene-10/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-10/animation.tsx",
+      "animationExport": "Scene10Animation",
+      "animationIntent": "Konto startet negativ → Gehalt kommt an → Geld füllt zuerst das Minus → Konto erreicht null → nur Rest bleibt als frei verfügbarer Stapel.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 5.5,
+      "visualBeats": [
+        {
+          "id": "scene-10-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Dein Konto ist noch im Minus.",
+          "visualChange": "Das Girokonto startet sichtbar mit negativem Stand.",
+          "startSecond": 0,
+          "endSecond": 1.4
+        },
+        {
+          "id": "scene-10-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Dann kommt dein Gehalt.",
+          "visualChange": "Ein Gehalts-Geldstapel landet am Konto und füllt zuerst die rote Lücke.",
+          "startSecond": 1.4,
+          "endSecond": 3.5
+        },
+        {
+          "id": "scene-10-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Erst der Rest ist frei.",
+          "visualChange": "Nach Erreichen von null trennt sich nur der verbleibende Geldstapel als frei verfügbar ab.",
+          "startSecond": 3.5,
+          "endSecond": 5.5
+        }
+      ],
+      "audioTrigger": "Kommt dein Gehalt, wird zuerst das Minus ausgeglichen. Erst der Rest ist wieder frei.",
+      "targetSeconds": 5.5,
+      "mainIdea": "Ein Gehaltsstapel trifft auf ein negatives Girokonto, füllt zuerst die rote Lücke bis null und nur der verbleibende Teil bleibt frei."
+    },
+    {
+      "id": "scene-11",
+      "type": "image",
+      "startFrame": 1224,
+      "durationFrames": 114,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-11",
+      "headline": "Ein kleiner Puffer hilft",
+      "icon": "shield",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-11/bildprompt.txt",
+      "googleFlowFileName": "Bild 11 - Puffer auf Girokonto.png",
+      "objectLabels": [
+        "Puffer",
+        "Girokonto"
+      ],
+      "expectedVisual": "A realistic small unexpected expense is intercepted by a modest current-account buffer before the account can fall below zero.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.8,
+      "visualBeats": [
+        {
+          "id": "scene-11-beat-01",
+          "kind": "image",
+          "voiceText": "Ein kleiner Puffer auf dem Girokonto kann dich vor kleinen Überraschungen schützen.",
+          "visualChange": "Ein normaler kleiner Geldpuffer liegt sichtbar zwischen Girokonto und einer unerwarteten kleinen Rechnung und verhindert den negativen Kontostand.",
+          "startSecond": 0,
+          "endSecond": 3.8
+        }
+      ],
+      "audioTrigger": "Ein kleiner Puffer auf dem Girokonto kann dich vor kleinen Überraschungen schützen.",
+      "targetSeconds": 3.8,
+      "mainIdea": "Ein normaler kleiner Geldpuffer liegt sichtbar zwischen Girokonto und einer unerwarteten kleinen Rechnung und verhindert den negativen Kontostand."
+    },
+    {
+      "id": "scene-12",
+      "type": "animation",
+      "startFrame": 1338,
+      "durationFrames": 156,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-12",
+      "headline": "Notgroschen statt Dauer-Minus",
+      "icon": "shield",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-12/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-12/animation.tsx",
+      "animationExport": "Scene12Animation",
+      "animationIntent": "Waschmaschine kaputt → Reparaturrechnung erscheint → Notgroschen gibt Geld frei → Rechnung bezahlt → Girokonto bleibt außerhalb des Minus.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 5.2,
+      "visualBeats": [
+        {
+          "id": "scene-12-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "Eine größere Überraschung kommt.",
+          "visualChange": "Eine kaputte Waschmaschine und Reparaturrechnung erscheinen als echter Notfall.",
+          "startSecond": 0,
+          "endSecond": 1.4
+        },
+        {
+          "id": "scene-12-beat-02",
+          "kind": "animation-phase",
+          "voiceText": "Der Notgroschen bezahlt.",
+          "visualChange": "Geld verlässt den Reservebehälter und bewegt sich zur Reparaturrechnung.",
+          "startSecond": 1.4,
+          "endSecond": 3.6
+        },
+        {
+          "id": "scene-12-beat-03",
+          "kind": "animation-phase",
+          "voiceText": "Das Girokonto bleibt geschützt.",
+          "visualChange": "Die Rechnung wechselt auf bezahlt und das Girokonto bleibt sichtbar außerhalb des Minus.",
+          "startSecond": 3.6,
+          "endSecond": 5.2
+        }
+      ],
+      "audioTrigger": "Bei größeren Überraschungen ist ein Notgroschen besser, als dauerhaft Geld von der Bank zu leihen.",
+      "targetSeconds": 5.2,
+      "mainIdea": "Eine kaputte Waschmaschine erzeugt eine Reparaturrechnung; der Notgroschen bezahlt sie sichtbar und das Girokonto bleibt geschützt."
+    },
+    {
+      "id": "scene-13",
+      "type": "image",
+      "startFrame": 1494,
+      "durationFrames": 105,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-13",
+      "headline": "Merke dir das",
+      "icon": "check",
+      "accent": "finance-green",
+      "headerTone": "positive",
+      "planFile": "EINZELNE-SZENEN/scene-13/bildprompt.txt",
+      "googleFlowFileName": "Bild 13 - Minus Merksatz.png",
+      "objectLabels": [
+        "Geliehen",
+        "Kurz",
+        "Teuer"
+      ],
+      "expectedVisual": "A simple real-world contrast between a short temporary overdraft and a repeated expensive overdraft, readable without narration.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.5,
+      "visualBeats": [
+        {
+          "id": "scene-13-beat-01",
+          "kind": "image",
+          "voiceText": "Merke: Minus heißt geliehenes Geld. Kurz okay, dauerhaft oft teuer.",
+          "visualChange": "Ein klarer realer Vergleich zeigt links einen kleinen kurzen Engpass und rechts ein wiederkehrend negatives Konto mit Zinskosten.",
+          "startSecond": 0,
+          "endSecond": 3.5
+        }
+      ],
+      "audioTrigger": "Merke: Minus heißt geliehenes Geld. Kurz okay, dauerhaft oft teuer.",
+      "targetSeconds": 3.5,
+      "mainIdea": "Ein klarer realer Vergleich zeigt links einen kleinen kurzen Engpass und rechts ein wiederkehrend negatives Konto mit Zinskosten."
+    }
+  ],
+  "phase3CompletionContract": {
+    "id": "finanzneo-phase3-completion-v1",
+    "required": true,
+    "productionManifest": "05-projektdateien/phase3-production-manifest.json",
+    "renderQa": "05-projektdateien/phase3-render-qa.json",
+    "phase1AnimationSeal": "05-projektdateien/phase1-animation-seal.json",
+    "reelBackgroundContractId": "finanzneo-pure-black-background-v1",
+    "allScenesMustBeImplemented": true,
+    "imageVisualRequired": true,
+    "animationVisualRequired": true,
+    "captionOnlySceneForbidden": true,
+    "postRenderVisualQaRequired": true,
+    "exportRequiresPassedRenderQa": true,
+    "exactVideoHashRequiredForExport": true,
+    "finalVideoExistsOnlyAfterQaPass": true,
+    "canonicalPhase1AnimationRequired": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "phase1AnimationHashMustMatchSeal": true,
+    "pureBlackBackgroundRequired": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "backgroundMotionDoesNotCountAsAnimation": true,
+    "blackOrEmptyVisualMustFail": true,
+    "visualQa": {
+      "sampleImageRatios": [
+        0.5
+      ],
+      "sampleAnimationRatios": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "sampleBackgroundPerScene": true,
+      "minStdDev": 4,
+      "minContrastP90P10": 12,
+      "minEdgeMean": 0.5,
+      "minActivePixelRatio": 0.04,
+      "minAnimationMeanAbsDiff": 1,
+      "maxBackgroundMean": 12,
+      "maxBackgroundStdDev": 4
+    },
+    "autoExportAfterPassedRenderQa": true,
+    "finalVideoDirectory": "06-export",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt"
+  },
+  "visualBeatContract": {
+    "id": "finanzneo-visual-beats-v1",
+    "sceneCountFlexible": true,
+    "visualBeatCountFlexible": true,
+    "oneSpokenThoughtPerBeatRequired": true,
+    "splitMultiThoughtSentenceWhenHelpful": true,
+    "oneImagePerSentenceAllowed": true,
+    "consecutiveImageScenesAllowedWhenMeaningAdvances": true,
+    "staticImageBeatIdealSeconds": [
+      1.8,
+      3.4
+    ],
+    "staticImageBeatHardMaxSeconds": 4.5,
+    "animationSceneTypicalSeconds": [
+      3.5,
+      6.5
+    ],
+    "animationMustContainMultipleVisibleStates": true,
+    "visualMustAdvanceWithVoiceover": true,
+    "cameraMotionAloneDoesNotCountAsNewBeat": true,
+    "unchangedVisualAfterMessageUnderstoodForbidden": true,
+    "actualCutsFollowRealWordTimings": true,
+    "ratioIsGuidelineNotQuota": true
+  }
+}
