@@ -32,3 +32,4 @@ jobs:
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Sync current Flow 5-pack handoff"
           git push origin HEAD:reel-fees-30-years-phase1-custom
+      # Temporary one-shot workflow; remove after the sync commit is confirmed.
