@@ -1,0 +1,34 @@
+name: Sync Current Flow Master Once
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/sync-flow-5pack-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: reel-fees-30-years-phase1-custom
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Regenerate central Flow handoff and scene-index Flow fields
+        run: node scripts/apply-flow-five-pack-reference-v1.mjs reels/2026-09-28_bis_2026-10-04/dienstag/reel-01_1-prozent-gebuehren
+      - name: Validate regenerated handoff
+        run: node scripts/validate-central-flow-prompts.mjs reels/2026-09-28_bis_2026-10-04/dienstag/reel-01_1-prozent-gebuehren
+      - name: Commit regenerated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reels/2026-09-28_bis_2026-10-04/dienstag/reel-01_1-prozent-gebuehren/03-szenen/alle-bildprompts.txt
+          git add reels/2026-09-28_bis_2026-10-04/dienstag/reel-01_1-prozent-gebuehren/03-szenen/scene-index.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Sync current Flow 5-pack handoff"
+          git push origin HEAD:reel-fees-30-years-phase1-custom
