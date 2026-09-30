@@ -1,15 +1,70 @@
 FINANZNEO — ZENTRALE GOOGLE-FLOW-PROMPTDATEI
+FLOW_WORKFLOW_ID: finanzneo-cover-reference-5pack-v1
 
 DIES IST KEIN BATCH-AUFTRAG.
-Arbeite strikt von oben nach unten und erzeuge immer genau EIN Bild gleichzeitig.
-Nach jedem Bild vollständig warten, exakt umbenennen und visuell prüfen. Erst danach mit dem nächsten Bild fortfahren.
-Animationsszenen sind reservierte Nummern und dürfen NICHT als Flow-Bild erzeugt werden.
-Cover = Bild 01. Kein separates Cover-Bild erzeugen.
+BLOCKGRÖSSE = 5
+MAX_CONCURRENT_GENERATIONS = 1
+COVER_VARIANT_COUNT = 3
+COVER-AUSWAHL ERFORDERLICH = JA
+STYLE-REFERENZ = GEWÄHLTES COVER
+
+WICHTIGER ABLAUF — NICHT ÜBERSPRINGEN:
+1. Zuerst ausschließlich COVER A erzeugen und vollständig auf das Ergebnis warten.
+2. Danach ausschließlich COVER B erzeugen und vollständig warten.
+3. Danach ausschließlich COVER C erzeugen und vollständig warten.
+4. STOPP. Nutzer muss A, B oder C auswählen. Vor der Auswahl KEINE weiteren Szenenbilder erzeugen.
+5. Gewählte Variante exakt umbenennen zu: Bild 01 - Ein Prozent wirkt klein.png
+6. Das gewählte Cover ist gleichzeitig finales Cover + Bild 01 + visuelle Style-Referenz für alle restlichen Bilder.
+7. Danach 5ER-BLOCK 1 abarbeiten: immer nur EIN Bild gleichzeitig, nach jedem Bild warten, prüfen und exakt umbenennen.
+8. Nach dem fünften Bild STOPP und auf Nutzerfreigabe warten.
+9. Erst nach „weiter“ 5ER-BLOCK 2 starten. Wieder strikt ein Bild gleichzeitig.
+
+STYLE-REFERENZ-REGEL:
+Das ausgewählte Cover wird bei allen folgenden Bildern als visuelle Referenz mitgegeben. Es stabilisiert NUR Materialgefühl, 3D-Formensprache, Beleuchtung, Kontrast, Farbcharakter, Kameragefühl und Render-Look.
+Jede Szene bekommt trotzdem eine komplett neue Komposition passend zu ihrem eigenen Inhalt.
+NIEMALS Cover-Text, Cover-Layout oder konkrete Cover-Objektanordnung in normale Szenen kopieren, außer der Szenenprompt verlangt es ausdrücklich.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 01 – BILDSZENE
+PHASE 0 — 3 COVER-VARIANTEN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
+COVER A
+Dateiname: Cover-A.png
+TEXT EXAKT:
+1 % KOSTEN
+SO TEUER?
+
+PROMPT:
+Create a bold premium stylized 3D finance cover. Show one dominant invested-capital object and one deceptively small 1% cost element physically taking value away. Make the visual instantly readable and dramatic without looking like an infographic. Use a large central hero composition with strong depth and clean negative space. Include exactly the cover text “1 % KOSTEN” and “SO TEUER?” as clear premium headline typography. No other text.
+
+COVER B
+Dateiname: Cover-B.png
+TEXT EXAKT:
+85.600 €
+WEGEN 1 %?
+
+PROMPT:
+Create a premium stylized 3D finance cover showing two long-term wealth outcomes with a dramatic physical gap between them. Make “85.600 €” the main payoff element and visually connect the difference to a small 1% cost/rendite gap. Use a strong asymmetrical composition, real 3D depth and substantial physical value objects. Include exactly the cover text “85.600 €” and “WEGEN 1 %?”. No dashboard, no chart UI, no extra text.
+
+COVER C
+Dateiname: Cover-C.png
+TEXT EXAKT:
+30 JAHRE
+1 % UNTERSCHIED
+
+PROMPT:
+Create a cinematic premium stylized 3D finance cover showing two investment paths beginning close together and separating visibly over a long 30-year journey. Use a strong foreground-to-background composition with real spatial depth and a clear physical cause-and-effect feeling, not a flat infographic. Include exactly the cover text “30 JAHRE” and “1 % UNTERSCHIED”. No other text.
+
+GEMEINSAMER COVER-STYLE:
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: stylized 3D animated finance-explainer world, real-world-grounded, premium clean materials, soft rounded but believable physical construction, simplified high-quality details, never photorealistic.
+BACKGROUND: one seamless deep black background.
+COLORS: emerald positive/growth, warm gold money/value, restrained red-orange cost/warning, ivory/soft gray neutral.
+LIGHT: clean premium studio lighting, readable shadows, soft contact shadows, strong subject separation.
+FORBIDDEN: dashboard, app UI, flowchart, floating cards, tiny icon collections, miniature diorama, microchip language, clutter, photorealism, product-photo look.
+
+BASIS-PROMPT SZENE 01 — MUSS IM GEWÄHLTEN COVER INHALTLICH ERKENNBAR BLEIBEN:
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
@@ -31,8 +86,35 @@ TEXT: no headline, subtitle, CTA or sentence; only exact labels above.
 FORBIDDEN: dashboard, app UI, flowchart, floating cards, tiny boxes, microchip language, miniature diorama, clutter, photorealism.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RESERVIERTE ANIMATIONSSZENEN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SZENE 03 – REMOTION-ANIMATION
+KEIN BILD 03 ERZEUGEN.
+
+SZENE 07 – REMOTION-ANIMATION
+KEIN BILD 07 ERZEUGEN.
+
+SZENE 11 – REMOTION-ANIMATION
+KEIN BILD 11 ERZEUGEN.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5ER-BLOCK 1
+BILDER: 02, 04, 05, 06, 08
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+REGEL FÜR JEDES BILD DIESES BLOCKS:
+- Gewähltes Cover als STYLE-REFERENZ mitgeben.
+- Immer nur EIN Bildjob gleichzeitig.
+- Ergebnis vollständig abwarten.
+- Motiv, V9-Look, tiefschwarzen Hintergrund und erlaubte Labels prüfen.
+- Exakt umbenennen.
+- Erst dann das nächste Bild.
+- Nach Bild 08 STOPP und auf „weiter“ warten.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 02 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE-REFERENZ: gewähltes Cover — nur Material/Licht/3D-Formensprache/Render-Look, nicht Layout oder Text kopieren.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -53,13 +135,9 @@ TEXT: only exact labels above.
 FORBIDDEN: dashboard, app UI, flowchart, floating cards, tiny boxes, miniature diorama, clutter, photorealism.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 03 – REMOTION-ANIMATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-KEIN BILD 03 ERZEUGEN.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 04 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE-REFERENZ: gewähltes Cover — nur Material/Licht/3D-Formensprache/Render-Look, nicht Layout oder Text kopieren.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -82,6 +160,7 @@ FORBIDDEN: dashboard, app UI, flowchart, floating cards, clutter, photorealism.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 05 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE-REFERENZ: gewähltes Cover — nur Material/Licht/3D-Formensprache/Render-Look, nicht Layout oder Text kopieren.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -104,6 +183,7 @@ FORBIDDEN: dashboard, app UI, flowchart, floating cards, clutter, photorealism.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 06 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE-REFERENZ: gewähltes Cover — nur Material/Licht/3D-Formensprache/Render-Look, nicht Layout oder Text kopieren.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -124,13 +204,9 @@ TEXT: only exact labels above.
 FORBIDDEN: dashboard, app UI, flowchart, tiny boxes, clutter, photorealism.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 07 – REMOTION-ANIMATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-KEIN BILD 07 ERZEUGEN.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 08 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE-REFERENZ: gewähltes Cover — nur Material/Licht/3D-Formensprache/Render-Look, nicht Layout oder Text kopieren.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -152,8 +228,25 @@ TEXT: only exact labels above.
 FORBIDDEN: dashboard, app UI, chart UI, floating cards, clutter, photorealism.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STOPP NACH 5ER-BLOCK 1
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Nicht automatisch weitermachen. Nutzerfreigabe „weiter“ abwarten.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5ER-BLOCK 2
+BILDER: 09, 10, 12, 13, 14
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+REGEL FÜR JEDES BILD DIESES BLOCKS:
+- Dasselbe ausgewählte Cover weiter als STYLE-REFERENZ verwenden.
+- Immer nur EIN Bildjob gleichzeitig.
+- Nach jedem Ergebnis prüfen + umbenennen.
+- Kein neues Style-Referenzbild auswählen.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 09 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE-REFERENZ: gewähltes Cover — nur Material/Licht/3D-Formensprache/Render-Look, nicht Layout oder Text kopieren.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -177,6 +270,7 @@ FORBIDDEN: dashboard, app UI, chart UI, floating cards, clutter, photorealism.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 10 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE-REFERENZ: gewähltes Cover — nur Material/Licht/3D-Formensprache/Render-Look, nicht Layout oder Text kopieren.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -199,13 +293,9 @@ TEXT: only exact labels above.
 FORBIDDEN: dashboard, app UI, flowchart, floating cards, clutter, photorealism.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 11 – REMOTION-ANIMATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-KEIN BILD 11 ERZEUGEN.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 12 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE-REFERENZ: gewähltes Cover — nur Material/Licht/3D-Formensprache/Render-Look, nicht Layout oder Text kopieren.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -228,6 +318,7 @@ FORBIDDEN: dashboard, app UI, chart UI, floating cards, clutter, photorealism.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 13 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE-REFERENZ: gewähltes Cover — nur Material/Licht/3D-Formensprache/Render-Look, nicht Layout oder Text kopieren.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -249,6 +340,7 @@ FORBIDDEN: dashboard, app UI, browser screenshot, floating cards, clutter, photo
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 14 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STYLE-REFERENZ: gewähltes Cover — nur Material/Licht/3D-Formensprache/Render-Look, nicht Layout oder Text kopieren.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -274,7 +366,8 @@ FORBIDDEN: dashboard, app UI, flowchart, floating cards, clutter, photorealism.
 ABSCHLUSS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Erwartete Flow-Bilder: 01, 02, 04, 05, 06, 08, 09, 10, 12, 13, 14.
+Erwartete finale Flow-Bilder: 01, 02, 04, 05, 06, 08, 09, 10, 12, 13, 14.
 Keine Bilder für 03, 07, 11.
-Alle fertigen Bilder anschließend nach:
+Nicht gewählte Cover-Kandidaten A/B/C sind KEINE Produktionsassets.
+Alle finalen Bilder anschließend nach:
 03-szenen/00-ALLE-BILDER-HIER-REIN/
