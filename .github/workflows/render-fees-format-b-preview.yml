@@ -1,0 +1,43 @@
+name: Render Fees Format B Preview
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/render-fees-format-b-preview.yml'
+      - 'src/reels-test/Fees30YearsFormatB2MinV1.tsx'
+      - 'src/root/ExperimentCompositions.tsx'
+      - 'reels/2026-09-28_bis_2026-10-04/dienstag/reel-01_1-prozent-gebuehren/**'
+
+permissions:
+  contents: read
+
+jobs:
+  render-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Abhängigkeiten installieren
+        run: npm ci
+
+      - name: Remotion Browser sicherstellen
+        run: npx remotion browser ensure
+
+      - name: Zwei-Minuten-Preview rendern
+        run: npx remotion render src/index.ts ReelsTestFees30YearsFormatB2MinV1 out/fees-format-b-2min-preview.mp4 --codec=h264 --crf=18 --scale=0.5
+
+      - name: Preview hochladen
+        uses: actions/upload-artifact@v4
+        with:
+          name: fees-format-b-2min-preview
+          path: out/fees-format-b-2min-preview.mp4
+          if-no-files-found: error
+          retention-days: 3
