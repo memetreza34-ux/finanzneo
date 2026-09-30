@@ -1,12 +1,13 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 04 - Startkapital.png
+Bild 04 - Startkapital und Sparrate.png
 
 BESCHRIFTUNGEN – EXAKT SO:
 - 10.000 €
+- 300 € / Monat
 
 IMAGE PROMPT:
-Show a substantial gold-and-emerald starting-capital stack with a clear object label “10.000 €”, prepared at the beginning of a long investment journey. Keep the composition simple, physical and immediately readable.
+Show one coherent premium stylized 3D investment setup: a substantial starting-capital stack labelled “10.000 €” and beside it a recurring monthly contribution bundle labelled “300 € / Monat”, supported by one simple physical calendar cue. Make the two inputs feel like the beginning of one long investment journey, not separate infographic cards.
 
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
