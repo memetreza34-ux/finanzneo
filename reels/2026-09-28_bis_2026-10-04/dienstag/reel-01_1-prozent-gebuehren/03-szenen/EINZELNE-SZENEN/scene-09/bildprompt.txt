@@ -8,11 +8,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 171.700 €
 
 IMAGE PROMPT:
-Show the same two investment paths twenty years later in one premium stylized 3D scene. The emerald wealth structure labelled “196.700 €” is now clearly taller and more substantial than the warm-gold structure labelled “171.700 €”. Preserve the same shared baseline so the growing gap is physically obvious without using a chart interface.
+Create the same premium stylized 3D investment setup as the earlier five-year checkpoint, now twenty years later. On the same dark shelf or desk, two matching transparent investment jars stand side by side, but the left jar is now clearly fuller and physically more substantial. Add one simple physical calendar marker labelled “20 Jahre”. Label the left jar “196.700 €” and the right jar “171.700 €”. The larger long-term gap must be immediately visible through the physical fill difference, not through a chart.
 
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: premium stylized 3D finance explainer, strong physical comparison, soft rounded geometry, never photorealistic.
-BACKGROUND: seamless deep black.
-TEXT: only exact labels above.
-FORBIDDEN: dashboard, app UI, chart UI, floating cards, clutter, photorealism.
+STYLE_REFERENCE_POLICY: selected-cover-style-only
+STYLE: premium real-world-grounded stylized 3D, believable transparent materials and object scale, clearly stylized and never photorealistic.
+BACKGROUND: seamless deep black with restrained shelf/desk context fading into black.
+COMPOSITION: same baseline and same object family as the five-year comparison, but now with a clearly larger physical gap.
+COLORS + LIGHT: emerald/gold value accents, neutral surroundings, premium soft studio lighting and readable contact shadows.
+TEXT: only “20 Jahre”, “196.700 €” and “171.700 €”.
+FORBIDDEN: chart bars, graph axes, dashboard, app UI, floating cards, abstract progress blocks, winding path, miniature diorama, clutter, photorealism.
