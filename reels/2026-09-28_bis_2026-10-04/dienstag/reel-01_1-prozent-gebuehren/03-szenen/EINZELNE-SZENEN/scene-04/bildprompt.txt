@@ -7,11 +7,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 300 € / Monat
 
 IMAGE PROMPT:
-Show one coherent premium stylized 3D investment setup: a substantial starting-capital stack labelled “10.000 €” and beside it a recurring monthly contribution bundle labelled “300 € / Monat”, supported by one simple physical calendar cue. Make the two inputs feel like the beginning of one long investment journey, not separate infographic cards.
+Create one premium stylized 3D personal-finance desk scene showing the beginning of a long investment plan. A substantial starting-capital envelope or cash bundle labelled “10.000 €” sits beside a recurring monthly contribution envelope labelled “300 € / Monat”. A simple physical desk calendar is open nearby to make the recurring monthly rhythm obvious. Arrange everything as one believable financial setup on the same desk, not as separate infographic cards.
 
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: stylized 3D animated finance-explainer world, premium clean materials, soft rounded geometry, simplified believable details, never photorealistic.
-BACKGROUND: seamless deep black.
-TEXT: only exact labels above.
-FORBIDDEN: dashboard, app UI, flowchart, floating cards, clutter, photorealism.
+STYLE_REFERENCE_POLICY: selected-cover-style-only
+STYLE: premium real-world-grounded stylized 3D, recognizable everyday objects, believable scale, polished materials, clearly stylized and never photorealistic.
+BACKGROUND: seamless deep black with only a small useful desk environment fading into black.
+COMPOSITION: one coherent savings setup, strong main grouping, immediate understanding within 1–2 seconds.
+COLORS + LIGHT: emerald accents for investing, subtle warm gold for money, ivory/soft gray for desk objects, premium soft studio light and contact shadows.
+TEXT: only “10.000 €” and “300 € / Monat”.
+FORBIDDEN: winding road, snake track, progress path, dashboard, app UI, floating cards, icon layout, miniature diorama, clutter, photorealism.
