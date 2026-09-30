@@ -41,15 +41,23 @@ index.googleFlow = {
   retrySameImageOnFailure: true,
   finalCollectionDirectory: '03-szenen/00-ALLE-BILDER-HIER-REIN/',
   distributeToSceneFolders: false,
+  controlledStyleReferenceException: 'selected-cover-only',
+  styleReferenceScope: ['material-feel', '3d-form-language', 'lighting', 'contrast', 'color-character', 'camera-feel', 'render-look'],
+  styleReferenceCopiesTextForbidden: true,
+  styleReferenceCopiesLayoutForbidden: true,
+  styleReferenceCopiesSceneContentForbidden: true,
 };
-index.imageWorld = {
-  ...(index.imageWorld ?? {}),
-  styleReferenceStrategy: 'selected-cover-style-anchor',
-  referenceImageUse: 'selected-cover-style-only',
-  selectedCoverStyleReferenceOnly: true,
-  referenceCopiesLayoutForbidden: true,
-  referenceCopiesContentForbidden: true,
-};
+
+// Der allgemeine V9-Vertrag verbietet weiterhin unkontrollierte Bild-zu-Bild-
+// Referenzen. Die einzige Ausnahme lebt explizit im googleFlow-Vertrag oben:
+// nur das vom Nutzer gewählte Cover darf als enger Style-Anker dienen.
+if (index.imageWorld) {
+  index.imageWorld.styleReferenceStrategy = 'written-style-lock-only';
+  index.imageWorld.referenceImageUse = 'forbidden';
+  delete index.imageWorld.selectedCoverStyleReferenceOnly;
+  delete index.imageWorld.referenceCopiesLayoutForbidden;
+  delete index.imageWorld.referenceCopiesContentForbidden;
+}
 writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`, 'utf8');
 
 const sceneNumber = (scene) => String(scene.id ?? '').match(/scene-(\d+)/)?.[1] ?? '??';
@@ -83,7 +91,7 @@ const coverPhase = hasCustomCoverVariants
       coverVariant('C', 'Cinematischere räumliche Komposition mit deutlicher Vordergrund-Hintergrund-Tiefe und physischer Ursache-Wirkung; trotzdem sofort verständlich.'),
     ].join('\n');
 
-const sceneBlock = (scene) => `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSZENE ${sceneNumber(scene)} – BILDSZENE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nSTYLE-REFERENZ:\nNutze das vom Nutzer ausgewählte Cover als VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.\nNICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt.\n\n${promptFor(scene)}\n`;
+const sceneBlock = (scene) => `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nSZENE ${sceneNumber(scene)} – BILDSZENE\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nSTYLE-REFERENZ:\nNutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.\nNICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.\n\n${promptFor(scene)}\n`;
 
 const animationReservations = animationScenes
   .map((scene) => `SZENE ${sceneNumber(scene)} – REMOTION-ANIMATION\nKEIN BILD ${sceneNumber(scene)} ERZEUGEN.`)
@@ -94,9 +102,9 @@ const blockText = blocks.map((block, blockIndex) => {
   return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n5ER-BLOCK ${blockIndex + 1}\nSZENEN: ${sceneList}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nWICHTIG: maximal 5 fertige Bilder in diesem Arbeitsblock, aber STRICT SINGLE JOB.\nErzeuge immer nur EIN Bild gleichzeitig. Nach jedem Bild: warten → prüfen → exakt umbenennen → erst dann das nächste Bild im selben Block.\nNach dem letzten Bild dieses Blocks STOPPEN und auf Nutzerfreigabe „weiter“ warten.\n\n${block.map(sceneBlock).join('\n')}`;
 }).join('\n');
 
-const output = `${AUTONOMY_BLOCK}\n${FLOW_AGENT_BLOCK}\nFINANZNEO — ZENTRALE GOOGLE-FLOW-PROMPTDATEI\nFLOW_WORKFLOW_ID: finanzneo-cover-reference-5pack-v1\n\nDIES IST KEIN BATCH-AUFTRAG.\nBLOCKGRÖSSE = 5\nMAX_CONCURRENT_GENERATIONS = 1\nCOVER_VARIANT_COUNT = 3\nCOVER-AUSWAHL ERFORDERLICH = JA\nSTYLE-REFERENZ = GEWÄHLTES COVER\n\nABLAUF — NICHT ÜBERSPRINGEN:\n1. Cover A einzeln erzeugen und vollständig abwarten.\n2. Cover B einzeln erzeugen und vollständig abwarten.\n3. Cover C einzeln erzeugen und vollständig abwarten.\n4. STOPP. Nutzer entscheidet A, B oder C. Vor dieser Entscheidung KEINE normalen Szenenbilder erzeugen.\n5. Gewählte Variante exakt umbenennen zu: ${firstFileName}\n6. Das gewählte Cover ist gleichzeitig finales Cover + Bild ${sceneNumber(firstImage)} + einzige erlaubte visuelle Style-Referenz für die restlichen Flow-Bilder.\n7. Danach 5ER-BLOCK 1 strikt sequenziell abarbeiten. STOPP und Nutzerfreigabe abwarten.\n8. Danach 5ER-BLOCK 2 usw.\n\nSTYLE-REFERENZ-REGEL:\nDas gewählte Cover stabilisiert ausschließlich die Bildwelt: Materialgefühl, Licht, 3D-Geometriesprache, Kontrast, Farbcharakter, Kameragefühl und Render-Look.\nJede normale Szene bekommt eine FRISCHE KOMPOSITION passend zu ihrem eigenen Inhalt. Niemals Cover-Text oder Cover-Layout in normale Szenen kopieren.\n\n${coverPhase}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nBASIS-PROMPT FÜR FINALES BILD 01\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${firstPrompt}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nNACH COVER-AUSWAHL\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${animationReservations}\n\n${blockText}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nErwartete finale Flow-Bilder inklusive gewähltem Cover/Bild ${sceneNumber(firstImage)}: ${imageScenes.map(sceneNumber).join(', ')}.\nKeine Bilder für Animationsszenen: ${animationScenes.map(sceneNumber).join(', ')}.\nNicht gewählte Cover-Kandidaten sind keine Produktionsassets.\nAlle finalen Bilder anschließend nach:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n`;
+const output = `${AUTONOMY_BLOCK}\n${FLOW_AGENT_BLOCK}\nFINANZNEO — ZENTRALE GOOGLE-FLOW-PROMPTDATEI\nFLOW_WORKFLOW_ID: finanzneo-cover-reference-5pack-v1\n\nDIES IST KEIN BATCH-AUFTRAG.\nBLOCKGRÖSSE = 5\nMAX_CONCURRENT_GENERATIONS = 1\nCOVER_VARIANT_COUNT = 3\nCOVER-AUSWAHL ERFORDERLICH = JA\nSTYLE-REFERENZ = GEWÄHLTES COVER\n\nABLAUF — NICHT ÜBERSPRINGEN:\n1. Cover A einzeln erzeugen und vollständig abwarten.\n2. Cover B einzeln erzeugen und vollständig abwarten.\n3. Cover C einzeln erzeugen und vollständig abwarten.\n4. STOPP. Nutzer entscheidet A, B oder C. Vor dieser Entscheidung KEINE normalen Szenenbilder erzeugen.\n5. Gewählte Variante exakt umbenennen zu: ${firstFileName}\n6. Das gewählte Cover ist gleichzeitig finales Cover + Bild ${sceneNumber(firstImage)} + einzige erlaubte visuelle Style-Referenz für die restlichen Flow-Bilder.\n7. Danach 5ER-BLOCK 1 strikt sequenziell abarbeiten. STOPP und Nutzerfreigabe abwarten.\n8. Danach 5ER-BLOCK 2 usw.\n\nSTYLE-REFERENZ-REGEL:\nDas gewählte Cover ist die einzige kontrollierte Ausnahme vom allgemeinen Bildreferenz-Verbot. Es stabilisiert ausschließlich Materialgefühl, Licht, 3D-Geometriesprache, Kontrast, Farbcharakter, Kameragefühl und Render-Look.\nJede normale Szene bekommt eine FRISCHE KOMPOSITION passend zu ihrem eigenen Inhalt. Niemals Cover-Text oder Cover-Layout in normale Szenen kopieren. Niemals ein normales Szenenbild als nächste Referenz weiterreichen.\n\n${coverPhase}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nBASIS-PROMPT FÜR FINALES BILD 01\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${firstPrompt}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nNACH COVER-AUSWAHL\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${animationReservations}\n\n${blockText}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nErwartete finale Flow-Bilder inklusive gewähltem Cover/Bild ${sceneNumber(firstImage)}: ${imageScenes.map(sceneNumber).join(', ')}.\nKeine Bilder für Animationsszenen: ${animationScenes.map(sceneNumber).join(', ')}.\nNicht gewählte Cover-Kandidaten sind keine Produktionsassets.\nAlle finalen Bilder anschließend nach:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n`;
 
 writeFileSync(centralPath, output, 'utf8');
 console.log(`✓ Flow 5er-Workflow synchronisiert: ${centralPath}`);
-console.log('  3 Cover-Varianten → Nutzerwahl → gewähltes Cover als Style-Referenz.');
+console.log('  3 Cover-Varianten → Nutzerwahl → gewähltes Cover als einziger Style-Anker.');
 console.log(`  Danach ${blocks.length} Block/Blöcke mit maximal 5 Bildern, concurrency=1.`);
