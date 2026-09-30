@@ -1,6 +1,37 @@
 COVER_SOURCE_SCENE: scene-01
-SEPARATE_GENERATION_FORBIDDEN: true
-SAME_AS_FIRST_SCENE_IMAGE: true
 FINAL_ASSET: Bild 01 - Ein Prozent wirkt klein.png
+COVER_VARIANT_COUNT: 3
+USER_SELECTION_REQUIRED: true
+SELECTED_COVER_BECOMES_SCENE_01: true
+SELECTED_COVER_IS_STYLE_REFERENCE: true
 
-Cover nutzt exakt das Bild aus Scene 01. Keine zweite Bildgenerierung. Der eigentliche Titel/Header wird in Remotion gesetzt, nicht in das Flow-Bild geschrieben.
+ABLAUF:
+1. Zuerst ausschließlich drei Cover-Kandidaten A, B und C erzeugen — strikt nacheinander, niemals parallel.
+2. Danach STOPP. Keine weiteren Szenenbilder erzeugen.
+3. Nutzer entscheidet A, B oder C.
+4. Nur die gewählte Variante wird exakt zu "Bild 01 - Ein Prozent wirkt klein.png" umbenannt.
+5. Dieses gewählte Bild ist gleichzeitig finales Cover + Scene 01 + visuelle Style-Referenz für alle folgenden Google-Flow-Bilder.
+6. Nicht gewählte Varianten sind nur Kandidaten und werden nicht in Phase 3 verwendet.
+
+COVER A — TEXT EXAKT:
+1 % KOSTEN
+SO TEUER?
+Komposition: ein dominantes großes Investment-Kapitalobjekt und ein scheinbar winziger 1-%-Kostenabzug; klare plakative Hero-Komposition.
+
+COVER B — TEXT EXAKT:
+85.600 €
+WEGEN 1 %?
+Komposition: starker Größenkontrast zwischen zwei langfristigen Vermögensausgängen; 85.600 € als visuell dominanter Payoff, aber keine Dashboard-/Chart-UI.
+
+COVER C — TEXT EXAKT:
+30 JAHRE
+1 % UNTERSCHIED
+Komposition: räumliche 30-Jahre-Finanzreise mit zwei Wegen, die am Anfang nahe beieinander liegen und sich sichtbar trennen; hochwertige 3D-Tiefe statt Infografik.
+
+STYLE-LOCK FÜR ALLE DREI:
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+Create a premium stylized 3D animated finance-explainer image with believable physical objects and clear depth. Use one seamless deep black background, emerald green for positive/growth, subtle warm gold for money/value, warm ivory/soft gray neutrals, red-orange only for costs/warnings. Use clean soft studio lighting, readable contact shadows, strong subject separation and recognizable physical construction. Never become photorealistic.
+
+WICHTIG:
+Das ausgewählte Cover stabilisiert bei den späteren Bildern nur Materialgefühl, Geometriesprache, Beleuchtung, Kontrast, Farbcharakter und Render-Look. Normale Szenen übernehmen NICHT Cover-Text, Cover-Layout oder konkrete Objektanordnung, sofern ihr eigener Prompt das nicht verlangt.
