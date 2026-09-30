@@ -9,11 +9,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Transaktion
 
 IMAGE PROMPT:
-Create one premium stylized 3D invested-capital object in the center. Around it, four distinct physical cost sources labelled “Fondskosten”, “Depot”, “Service”, and “Transaktion” each remove a small visible red-orange piece from the same capital. The scene must communicate that different fee names can all reduce investment value, without looking like a dashboard or flowchart.
+Create one coherent premium stylized 3D investment-desk scene. In the center lies a believable investment folder beside a transparent investment container. Around it are four distinct physical fee documents or receipts clearly connected to the same investment setup: one labelled “Fondskosten”, one “Depot”, one “Service”, and one “Transaktion”. Each fee document has a small warm-gold value piece physically resting on it, making it obvious that all four cost types can reduce the same invested wealth. Keep the scene natural and readable, not diagrammatic.
 
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: premium stylized 3D animated finance-explainer world, clear material depth, soft rounded geometry, never photorealistic.
-BACKGROUND: seamless deep black.
-TEXT: only exact labels above.
-FORBIDDEN: dashboard, app UI, flowchart, floating cards, clutter, photorealism.
+STYLE_REFERENCE_POLICY: selected-cover-style-only
+STYLE: premium real-world-grounded stylized 3D, believable paper, glass and money materials, clearly stylized and never photorealistic.
+BACKGROUND: seamless deep black with a restrained desk environment fading into black.
+COMPOSITION: one central investment setup with four real physical cost documents; no flowchart structure.
+COLORS + LIGHT: emerald/gold investment accents, red-orange restrained cost accents, ivory/soft gray documents, premium studio light and contact shadows.
+TEXT: only “Fondskosten”, “Depot”, “Service” and “Transaktion”.
+FORBIDDEN: floating info cards, arrows connecting boxes, flowchart, dashboard, app UI, abstract fee icons, pie/donut chart, clutter, miniature diorama, photorealism.
