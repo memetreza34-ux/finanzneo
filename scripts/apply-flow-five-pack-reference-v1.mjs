@@ -2,6 +2,7 @@
 
 import {existsSync, readFileSync, writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
+import {AUTONOMY_BLOCK, FLOW_AGENT_BLOCK, flowAutonomyFields} from './lib/flow-autonomy.mjs';
 
 const [target] = process.argv.slice(2);
 if (!target) {
@@ -27,6 +28,20 @@ if (imageScenes.length === 0) {
   console.error('Keine Bildszenen gefunden.');
   process.exit(1);
 }
+
+index.googleFlow = {
+  ...(index.googleFlow ?? {}),
+  ...flowAutonomyFields(),
+  generationMode: 'one-image-at-a-time',
+  strictSequential: true,
+  waitForCurrentImage: true,
+  renameBeforeNext: true,
+  qaBeforeNext: true,
+  retrySameImageOnFailure: true,
+  finalCollectionDirectory: '03-szenen/00-ALLE-BILDER-HIER-REIN/',
+  distributeToSceneFolders: false,
+};
+writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`, 'utf8');
 
 const sceneNumber = (scene) => String(scene.id ?? '').match(/scene-(\d+)/)?.[1] ?? '??';
 const resolvePlanFile = (planFile) => planFile?.startsWith('03-szenen/')
@@ -57,14 +72,14 @@ const animationReservations = animationScenes
   .map((scene) => `SZENE ${sceneNumber(scene)} – REMOTION-ANIMATION\nKEIN BILD ${sceneNumber(scene)} ERZEUGEN.`)
   .join('\n\n');
 
-const blockText = blocks.map((block, index) => {
+const blockText = blocks.map((block, blockIndex) => {
   const sceneList = block.map((scene) => sceneNumber(scene)).join(', ');
-  return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n5ER-BLOCK ${index + 1}\nSZENEN: ${sceneList}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nWICHTIG: Dieser Block enthält maximal 5 Bilder, aber es bleibt STRICT SINGLE JOB.\nErzeuge immer nur EIN Bild gleichzeitig. Nach jedem Bild: warten → prüfen → exakt umbenennen → erst dann das nächste Bild im selben Block.\nNach dem letzten Bild dieses Blocks STOPPEN und auf Nutzerfreigabe „weiter“ warten.\n\n${block.map(sceneBlock).join('\n')}`;
+  return `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n5ER-BLOCK ${blockIndex + 1}\nSZENEN: ${sceneList}\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nWICHTIG: Dieser Block enthält maximal 5 Bilder, aber es bleibt STRICT SINGLE JOB.\nErzeuge immer nur EIN Bild gleichzeitig. Nach jedem Bild: warten → prüfen → exakt umbenennen → erst dann das nächste Bild im selben Block.\nNach dem letzten Bild dieses Blocks STOPPEN und auf Nutzerfreigabe „weiter“ warten.\n\n${block.map(sceneBlock).join('\n')}`;
 }).join('\n');
 
-const output = `FINANZNEO — ZENTRALE GOOGLE-FLOW-PROMPTDATEI\nFLOW_WORKFLOW_ID: finanzneo-cover-reference-5pack-v1\n\nDIES IST KEIN BATCH-AUFTRAG.\nBLOCKGRÖSSE = 5\nMAX_CONCURRENT_GENERATIONS = 1\nCOVER_VARIANT_COUNT = 3\nCOVER-AUSWAHL ERFORDERLICH = JA\nSTYLE-REFERENZ = GEWÄHLTES COVER\n\nABLAUF — NICHT ÜBERSPRINGEN:\n1. Zuerst ausschließlich Cover A erzeugen und vollständig abwarten.\n2. Danach ausschließlich Cover B erzeugen und vollständig abwarten.\n3. Danach ausschließlich Cover C erzeugen und vollständig abwarten.\n4. STOPP. Nutzer entscheidet A, B oder C. Vor dieser Entscheidung KEINE Szenenbilder erzeugen.\n5. Gewählte Variante exakt umbenennen zu: ${firstFileName}\n6. Das gewählte Cover ist gleichzeitig Bild ${sceneNumber(firstImage)} und die einzige erlaubte visuelle Style-Referenz für die restlichen Flow-Bilder dieses Reels.\n7. Danach 5ER-BLOCK 1 strikt sequenziell abarbeiten. STOPP und Nutzerfreigabe abwarten.\n8. Danach 5ER-BLOCK 2 usw.\n\nSTYLE-REFERENZ-REGEL:\nDas gewählte Cover stabilisiert ausschließlich die BILDWELT: Materialgefühl, Licht, 3D-Geometriesprache, Kontrast, Farbcharakter und Render-Look.\nJede Szene bekommt trotzdem eine FRISCHE KOMPOSITION passend zu ihrem eigenen Inhalt. Niemals Cover-Text oder Cover-Layout in normale Szenen kopieren.\n\n${coverVariant('A', 'Großes zentrales Hero-Motiv, sehr klar, plakativ, hoher Kontrast, minimaler Aufbau.')}\n${coverVariant('B', 'Asymmetrische Premium-Komposition mit starkem Größenkontrast und klarer Tiefenstaffelung; nicht wie Variante A arrangieren.')}\n${coverVariant('C', 'Cinematischere räumliche Komposition mit deutlicher Vordergrund-Hintergrund-Tiefe und physischer Ursache-Wirkung; trotzdem sofort verständlich.')}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nNACH COVER-AUSWAHL\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${animationReservations}\n\n${blockText}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nErwartete Flow-Bilder inklusive gewähltem Cover/Bild ${sceneNumber(firstImage)}: ${imageScenes.map(sceneNumber).join(', ')}.\nKeine Bilder für Animationsszenen: ${animationScenes.map(sceneNumber).join(', ')}.\nAlle fertigen Bilder anschließend nach:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n`;
+const output = `${AUTONOMY_BLOCK}\n${FLOW_AGENT_BLOCK}\nFINANZNEO — ZENTRALE GOOGLE-FLOW-PROMPTDATEI\nFLOW_WORKFLOW_ID: finanzneo-cover-reference-5pack-v1\n\nDIES IST KEIN BATCH-AUFTRAG.\nBLOCKGRÖSSE = 5\nMAX_CONCURRENT_GENERATIONS = 1\nCOVER_VARIANT_COUNT = 3\nCOVER-AUSWAHL ERFORDERLICH = JA\nSTYLE-REFERENZ = GEWÄHLTES COVER\n\nABLAUF — NICHT ÜBERSPRINGEN:\n1. Zuerst ausschließlich Cover A erzeugen und vollständig abwarten.\n2. Danach ausschließlich Cover B erzeugen und vollständig abwarten.\n3. Danach ausschließlich Cover C erzeugen und vollständig abwarten.\n4. STOPP. Nutzer entscheidet A, B oder C. Vor dieser Entscheidung KEINE Szenenbilder erzeugen.\n5. Gewählte Variante exakt umbenennen zu: ${firstFileName}\n6. Das gewählte Cover ist gleichzeitig Bild ${sceneNumber(firstImage)} und die einzige erlaubte visuelle Style-Referenz für die restlichen Flow-Bilder dieses Reels.\n7. Danach 5ER-BLOCK 1 strikt sequenziell abarbeiten. STOPP und Nutzerfreigabe abwarten.\n8. Danach 5ER-BLOCK 2 usw.\n\nSTYLE-REFERENZ-REGEL:\nDas gewählte Cover stabilisiert ausschließlich die BILDWELT: Materialgefühl, Licht, 3D-Geometriesprache, Kontrast, Farbcharakter und Render-Look.\nJede Szene bekommt trotzdem eine FRISCHE KOMPOSITION passend zu ihrem eigenen Inhalt. Niemals Cover-Text oder Cover-Layout in normale Szenen kopieren.\n\n${coverVariant('A', 'Großes zentrales Hero-Motiv, sehr klar, plakativ, hoher Kontrast, minimaler Aufbau.')}\n${coverVariant('B', 'Asymmetrische Premium-Komposition mit starkem Größenkontrast und klarer Tiefenstaffelung; nicht wie Variante A arrangieren.')}\n${coverVariant('C', 'Cinematischere räumliche Komposition mit deutlicher Vordergrund-Hintergrund-Tiefe und physischer Ursache-Wirkung; trotzdem sofort verständlich.')}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nNACH COVER-AUSWAHL\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n${animationReservations}\n\n${blockText}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nABSCHLUSS\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nErwartete Flow-Bilder inklusive gewähltem Cover/Bild ${sceneNumber(firstImage)}: ${imageScenes.map(sceneNumber).join(', ')}.\nKeine Bilder für Animationsszenen: ${animationScenes.map(sceneNumber).join(', ')}.\nAlle fertigen Bilder anschließend nach:\n03-szenen/00-ALLE-BILDER-HIER-REIN/\n`;
 
 writeFileSync(centralPath, output, 'utf8');
 console.log(`✓ Flow 5er-Workflow geschrieben: ${centralPath}`);
-console.log(`  Cover: 3 Varianten → Nutzerwahl → Style-Referenz`);
+console.log('  Cover: 3 Varianten → Nutzerwahl → Style-Referenz');
 console.log(`  Danach ${blocks.length} Block/Blöcke mit maximal 5 Bildern, weiterhin concurrency=1.`);
