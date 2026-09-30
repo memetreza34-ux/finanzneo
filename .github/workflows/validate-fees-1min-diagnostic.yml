@@ -1,0 +1,37 @@
+name: Validate Fees 1Min Diagnostic
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/validate-fees-1min-diagnostic.yml'
+      - 'src/reels-test/Fees30YearsFormatB1MinV1.tsx'
+      - 'src/root/ExperimentCompositions.tsx'
+      - 'reels/2026-09-28_bis_2026-10-04/dienstag/reel-01_1-prozent-gebuehren/**'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-reel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: FFmpeg sicherstellen
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Abhaengigkeiten installieren
+        run: npm ci
+      - name: Validatoren und TypeScript
+        run: npm run validate
+      - name: Remotion Bundle
+        run: npm run build
+      - name: Render Smoke
+        run: npm run smoke
