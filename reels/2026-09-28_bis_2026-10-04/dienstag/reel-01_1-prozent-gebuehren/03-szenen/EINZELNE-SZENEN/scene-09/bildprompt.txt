@@ -1,17 +1,18 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 09 - Fuenf Jahre sechs Prozent.png
+Bild 09 - Zwanzig Jahre deutlicher Abstand.png
 
 BESCHRIFTUNGEN – EXAKT SO:
-- 5 Jahre
-- 34.400 €
+- 20 Jahre
+- 196.700 €
+- 171.700 €
 
 IMAGE PROMPT:
-Show the matching five-year milestone in the exact same visual world, but with a slightly lower warm-gold capital stack marked “34.400 €”. The difference should feel small, not dramatic.
+Show the same two investment paths twenty years later in one premium stylized 3D scene. The emerald wealth structure labelled “196.700 €” is now clearly taller and more substantial than the warm-gold structure labelled “171.700 €”. Preserve the same shared baseline so the growing gap is physically obvious without using a chart interface.
 
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: premium stylized 3D finance explainer, same framing language as the seven-percent milestone, never photorealistic.
+STYLE: premium stylized 3D finance explainer, strong physical comparison, soft rounded geometry, never photorealistic.
 BACKGROUND: seamless deep black.
 TEXT: only exact labels above.
 FORBIDDEN: dashboard, app UI, chart UI, floating cards, clutter, photorealism.
