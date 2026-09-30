@@ -1,17 +1,17 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 05 - Monatliche Sparrate.png
+Bild 05 - Gleiche Einzahlungen.png
 
 BESCHRIFTUNGEN – EXAKT SO:
-- 300 €
-- Monat
+- 30 Jahre
+- gleiche Einzahlungen
 
 IMAGE PROMPT:
-Show a recurring monthly saving situation using a physical calendar object and one neat 300-euro coin bundle moving conceptually toward an investment container, frozen as a still moment. Make repetition obvious without using an interface.
+Create two equal long-term investment paths in the same premium stylized 3D world. Both paths receive visibly identical stacks of recurring contributions across a simple physical 30-year timeline. The key message must be unmistakable: both sides receive the same money; only the later return rate will differ.
 
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: stylized 3D animated finance-explainer world, clean rounded materials, believable everyday construction, never photorealistic.
+STYLE: stylized 3D animated finance-explainer world, premium clean materials, soft rounded geometry, never photorealistic.
 BACKGROUND: seamless deep black.
 TEXT: only exact labels above.
-FORBIDDEN: dashboard, app UI, flowchart, clutter, photorealism.
+FORBIDDEN: dashboard, app UI, flowchart, floating cards, clutter, photorealism.
