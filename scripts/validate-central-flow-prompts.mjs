@@ -42,12 +42,15 @@ const requiredMarkers = [
   'COVER_VARIANT_COUNT = 3',
   'COVER-AUSWAHL ERFORDERLICH = JA',
   'STYLE-REFERENZ = GEWÄHLTES COVER',
-  'COVER-VARIANTE A',
-  'COVER-VARIANTE B',
-  'COVER-VARIANTE C',
 ];
 for (const marker of requiredMarkers) {
   if (!central.includes(marker)) fail(`alle-bildprompts.txt muss den Marker "${marker}" enthalten.`);
+}
+
+for (const label of ['A', 'B', 'C']) {
+  if (!central.includes(`COVER-VARIANTE ${label}`) && !central.includes(`COVER ${label}`)) {
+    fail(`Cover-Variante ${label} fehlt in alle-bildprompts.txt.`);
+  }
 }
 
 if (!/STOPP[\s\S]{0,160}Nutzer/i.test(central)) {
