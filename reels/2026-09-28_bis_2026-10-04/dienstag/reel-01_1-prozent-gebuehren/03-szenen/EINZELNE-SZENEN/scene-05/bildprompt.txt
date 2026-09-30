@@ -7,11 +7,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 - gleiche Einzahlungen
 
 IMAGE PROMPT:
-Create two equal long-term investment paths in the same premium stylized 3D world. Both paths receive visibly identical stacks of recurring contributions across a simple physical 30-year timeline. The key message must be unmistakable: both sides receive the same money; only the later return rate will differ.
+Create a premium stylized 3D financial planning scene on one dark desk. Two identical transparent investment jars or account containers stand side by side, each receiving the same visible monthly contribution envelope from the same central source. Behind them, one physical calendar strip clearly indicates “30 Jahre”. The two containers and incoming contribution amounts must look deliberately identical so the viewer instantly understands “gleiche Einzahlungen”. Keep the setup physical and believable rather than diagrammatic.
 
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: stylized 3D animated finance-explainer world, premium clean materials, soft rounded geometry, never photorealistic.
-BACKGROUND: seamless deep black.
-TEXT: only exact labels above.
-FORBIDDEN: dashboard, app UI, flowchart, floating cards, clutter, photorealism.
+STYLE_REFERENCE_POLICY: selected-cover-style-only
+STYLE: premium real-world-grounded stylized 3D with believable proportions and polished but clearly animated materials.
+BACKGROUND: seamless deep black with restrained desk context fading into black.
+COMPOSITION: two equal physical investment setups on one shared surface; equality must be obvious without a chart.
+COLORS + LIGHT: balanced neutral setup with restrained emerald/gold accents, soft premium studio lighting and contact shadows.
+TEXT: only “30 Jahre” and “gleiche Einzahlungen”.
+FORBIDDEN: winding track, racetrack, road, flowchart, arrows as main explanation, dashboard, app UI, floating cards, miniature diorama, clutter, photorealism.
