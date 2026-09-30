@@ -6,11 +6,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Kosten
 
 IMAGE PROMPT:
-Show a premium stylized 3D magnifying glass inspecting two physical investment documents on a deep-black surface: one product information sheet and one price/service document. A few cost rows are visibly highlighted, but do not turn the composition into a UI screenshot. The action must clearly communicate: check the costs before choosing the product.
+Create one premium stylized 3D personal-finance desk scene. A substantial magnifying glass is actively inspecting two believable physical investment documents: one product information sheet and one price/service document. Several cost rows are visibly highlighted and one short label “Kosten” anchors the action. The viewer must immediately understand: check the fees before choosing the investment product. Keep the documents physical and readable as objects, not as a browser or app screenshot.
 
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: premium stylized 3D finance explainer, believable documents, clean rounded materials, never photorealistic.
-BACKGROUND: seamless deep black.
-TEXT: only exact labels above.
-FORBIDDEN: dashboard, app UI, browser screenshot, floating cards, clutter, photorealism.
+STYLE_REFERENCE_POLICY: selected-cover-style-only
+STYLE: premium real-world-grounded stylized 3D, believable paper/glass materials, useful physical detail, clearly stylized and never photorealistic.
+BACKGROUND: seamless deep black with restrained desk context fading into black.
+COMPOSITION: one clear inspection action with large foreground magnifying glass and two documents; immediate cause/decision context.
+COLORS + LIGHT: restrained emerald/gold finance accents, ivory/soft gray documents, red-orange only for highlighted fee rows, premium soft studio lighting and contact shadows.
+TEXT: only the exact short label “Kosten”; no readable paragraphs or UI text.
+FORBIDDEN: browser screenshot, app UI, dashboard, floating info cards, flowchart, tiny text wall, generic finance icon layout, clutter, photorealism.
