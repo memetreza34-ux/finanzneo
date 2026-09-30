@@ -25,7 +25,7 @@ jobs:
       - run: npm ci
       - name: Regression tests
         run: npm test
-      - name: Validate current one-minute reel
-        run: npm run reel:validate -- reels/2026-09-28_bis_2026-10-04/dienstag/reel-01_1-prozent-gebuehren
+      - name: Validate central Flow handoff on current reel
+        run: node scripts/validate-central-flow-prompts.mjs reels/2026-09-28_bis_2026-10-04/dienstag/reel-01_1-prozent-gebuehren
       - name: TypeScript
         run: npm run typecheck
