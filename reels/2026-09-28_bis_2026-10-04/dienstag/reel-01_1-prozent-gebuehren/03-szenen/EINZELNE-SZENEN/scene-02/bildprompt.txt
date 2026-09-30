@@ -1,12 +1,12 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 02 - Kosten wirken unsichtbar.png
+Bild 02 - Kosten kommen aus dem Vermoegen.png
 
 BESCHRIFTUNGEN – EXAKT SO:
-- Gebühr
+- Kosten
 
 IMAGE PROMPT:
-Create a believable stylized 3D investment scene where a small red-orange cost piece is quietly removed from a substantial investment container while the owner would not receive a separate physical bill. The missing piece must be visible in the capital itself, not as an app interface.
+Create a premium stylized 3D investment scene where one clearly visible red-orange slice has been physically removed from a substantial emerald-and-gold invested-capital object. The missing value must visibly come out of the investment itself. Make the cause-and-effect immediately readable without any app interface or dashboard.
 
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
@@ -14,4 +14,4 @@ STYLE: stylized 3D animated finance-explainer world, premium clean materials, so
 BACKGROUND: one seamless deep black background.
 COLORS: emerald positive/growth, warm gold money, restrained red-orange cost/warning, ivory/soft gray neutral.
 TEXT: only exact labels above.
-FORBIDDEN: dashboard, app UI, flowchart, floating cards, tiny boxes, microchip language, miniature diorama, clutter, photorealism.
+FORBIDDEN: dashboard, app UI, flowchart, floating cards, tiny boxes, miniature diorama, clutter, photorealism.
