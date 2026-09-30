@@ -72,8 +72,8 @@ ABLAUF — NICHT ÜBERSPRINGEN:
 8. Danach 5ER-BLOCK 2 usw.
 
 STYLE-REFERENZ-REGEL:
-Das gewählte Cover stabilisiert ausschließlich die Bildwelt: Materialgefühl, Licht, 3D-Geometriesprache, Kontrast, Farbcharakter, Kameragefühl und Render-Look.
-Jede normale Szene bekommt eine FRISCHE KOMPOSITION passend zu ihrem eigenen Inhalt. Niemals Cover-Text oder Cover-Layout in normale Szenen kopieren.
+Das gewählte Cover ist die einzige kontrollierte Ausnahme vom allgemeinen Bildreferenz-Verbot. Es stabilisiert ausschließlich Materialgefühl, Licht, 3D-Geometriesprache, Kontrast, Farbcharakter, Kameragefühl und Render-Look.
+Jede normale Szene bekommt eine FRISCHE KOMPOSITION passend zu ihrem eigenen Inhalt. Niemals Cover-Text oder Cover-Layout in normale Szenen kopieren. Niemals ein normales Szenenbild als nächste Referenz weiterreichen.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 PHASE 0 — 3 COVER-VARIANTEN
@@ -168,8 +168,8 @@ SZENE 02 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 STYLE-REFERENZ:
-Nutze das vom Nutzer ausgewählte Cover als VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
-NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt.
+Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
+NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -198,8 +198,8 @@ SZENE 04 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 STYLE-REFERENZ:
-Nutze das vom Nutzer ausgewählte Cover als VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
-NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt.
+Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
+NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -229,8 +229,8 @@ SZENE 05 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 STYLE-REFERENZ:
-Nutze das vom Nutzer ausgewählte Cover als VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
-NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt.
+Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
+NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -260,8 +260,8 @@ SZENE 06 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 STYLE-REFERENZ:
-Nutze das vom Nutzer ausgewählte Cover als VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
-NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt.
+Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
+NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -291,8 +291,8 @@ SZENE 08 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 STYLE-REFERENZ:
-Nutze das vom Nutzer ausgewählte Cover als VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
-NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt.
+Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
+NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -332,8 +332,8 @@ SZENE 09 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 STYLE-REFERENZ:
-Nutze das vom Nutzer ausgewählte Cover als VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
-NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt.
+Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
+NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -364,8 +364,8 @@ SZENE 10 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 STYLE-REFERENZ:
-Nutze das vom Nutzer ausgewählte Cover als VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
-NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt.
+Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
+NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -397,8 +397,8 @@ SZENE 12 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 STYLE-REFERENZ:
-Nutze das vom Nutzer ausgewählte Cover als VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
-NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt.
+Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
+NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -428,8 +428,8 @@ SZENE 13 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 STYLE-REFERENZ:
-Nutze das vom Nutzer ausgewählte Cover als VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
-NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt.
+Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
+NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
@@ -458,8 +458,8 @@ SZENE 14 – BILDSZENE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 STYLE-REFERENZ:
-Nutze das vom Nutzer ausgewählte Cover als VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
-NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt.
+Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUELLE STYLE-REFERENZ für Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Sprache.
+NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:

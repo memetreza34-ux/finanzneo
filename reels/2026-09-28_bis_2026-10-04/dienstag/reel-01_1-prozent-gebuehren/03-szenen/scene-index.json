@@ -66,7 +66,20 @@
     "structureLockId": "finanzneo-flow-structure-lock-v2",
     "preserveStructureThroughLastImage": true,
     "preserveStyleThroughLastImage": true,
-    "distributeToSceneFolders": false
+    "distributeToSceneFolders": false,
+    "controlledStyleReferenceException": "selected-cover-only",
+    "styleReferenceScope": [
+      "material-feel",
+      "3d-form-language",
+      "lighting",
+      "contrast",
+      "color-character",
+      "camera-feel",
+      "render-look"
+    ],
+    "styleReferenceCopiesTextForbidden": true,
+    "styleReferenceCopiesLayoutForbidden": true,
+    "styleReferenceCopiesSceneContentForbidden": true
   },
   "phase1MotionDirectionContract": {
     "id": "finanzneo-phase1-hybrid-motion-v2",
@@ -171,11 +184,8 @@
     "appUiCompositionForbidden": true,
     "flowchartMainCompositionForbidden": true,
     "photorealismForbidden": true,
-    "styleReferenceStrategy": "selected-cover-style-anchor",
-    "referenceImageUse": "selected-cover-style-only",
-    "selectedCoverStyleReferenceOnly": true,
-    "referenceCopiesLayoutForbidden": true,
-    "referenceCopiesContentForbidden": true
+    "styleReferenceStrategy": "written-style-lock-only",
+    "referenceImageUse": "forbidden"
   },
   "calculation": {
     "kind": "illustrative-not-forecast",
