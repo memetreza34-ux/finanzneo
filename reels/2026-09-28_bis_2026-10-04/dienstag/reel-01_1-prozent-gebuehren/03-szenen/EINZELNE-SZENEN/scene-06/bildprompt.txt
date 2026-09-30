@@ -7,11 +7,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 6 %
 
 IMAGE PROMPT:
-Show two identical investment containers at the same starting line, one marked “7 %” and one marked “6 %”. Everything except the rate label must be visually equal so the viewer understands that only one percentage point differs.
+Create one premium stylized 3D investment-comparison scene on a shared dark desk or shelf. Two physically identical transparent investment containers stand side by side with the same starting level, same size, same materials and same surroundings. The only visible difference is one clean label “7 %” on the left and “6 %” on the right. The viewer must instantly understand that everything is equal except this one percentage point.
 
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: stylized 3D animated finance-explainer world, premium rounded physical objects, never photorealistic.
-BACKGROUND: seamless deep black.
-TEXT: only exact labels above.
-FORBIDDEN: dashboard, app UI, flowchart, tiny boxes, clutter, photorealism.
+STYLE_REFERENCE_POLICY: selected-cover-style-only
+STYLE: premium real-world-grounded stylized 3D, believable construction, polished physical materials, never photorealistic.
+BACKGROUND: seamless deep black with restrained real desk/shelf context.
+COMPOSITION: stable side-by-side physical comparison on one baseline; no chart interface.
+COLORS + LIGHT: equal neutral lighting on both sides, restrained emerald/gold investment accents, premium studio shadows.
+TEXT: only “7 %” and “6 %”.
+FORBIDDEN: chart bars, progress bars, racetrack, winding path, dashboard, app UI, floating comparison cards, icon collection, clutter, photorealism.
