@@ -6,12 +6,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Kosten
 
 IMAGE PROMPT:
-Create a premium stylized 3D investment scene where one clearly visible red-orange slice has been physically removed from a substantial emerald-and-gold invested-capital object. The missing value must visibly come out of the investment itself. Make the cause-and-effect immediately readable without any app interface or dashboard.
+Create one coherent premium stylized 3D home-investment scene on a dark desk. A believable investment folder and a sturdy transparent savings/investment container sit together as one setup. A human hand is physically removing one small warm-gold value piece from the invested container and placing it onto a red-orange fee receipt labelled “Kosten”. The viewer must instantly understand that the fee is paid out of the invested wealth itself. Keep the action large and readable, not miniature.
 
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: stylized 3D animated finance-explainer world, premium clean materials, soft rounded geometry, simplified believable details, never photorealistic.
-BACKGROUND: one seamless deep black background.
-COLORS: emerald positive/growth, warm gold money, restrained red-orange cost/warning, ivory/soft gray neutral.
-TEXT: only exact labels above.
-FORBIDDEN: dashboard, app UI, flowchart, floating cards, tiny boxes, miniature diorama, clutter, photorealism.
+STYLE_REFERENCE_POLICY: selected-cover-style-only
+STYLE: premium real-world-grounded stylized 3D, believable object proportions, clean semi-realistic material detail, clearly animated/stylized and never photorealistic.
+BACKGROUND: one seamless deep black background with only the useful desk context fading naturally into black.
+COMPOSITION: one clear physical action, large hero objects, direct cause and effect.
+COLORS + LIGHT: emerald investment object, subtle warm gold value, red-orange fee receipt, ivory/soft gray neutrals, clean premium studio lighting and soft contact shadows.
+TEXT: only the exact label “Kosten”.
+FORBIDDEN: pie chart, donut chart, floating fee slice, dashboard, app UI, flowchart, abstract arrows, icon collection, winding path, miniature diorama, clutter, photorealism.
