@@ -7,7 +7,10 @@ on:
       - 'scripts/apply-flow-five-pack-reference-v1.mjs'
       - 'scripts/create-finanzneo-reel.mjs'
       - 'scripts/validate-central-flow-prompts.mjs'
+      - 'scripts/validate-flow-autonomous-contract.mjs'
+      - 'scripts/lib/flow-autonomy.mjs'
       - 'tests/central-flow-prompts.test.ts'
+      - 'tests/flow-single-job.test.ts'
       - '.agents/rules/google-flow-5pack-cover-reference-v1.md'
       - 'reels/2026-09-28_bis_2026-10-04/dienstag/reel-01_1-prozent-gebuehren/**'
 
