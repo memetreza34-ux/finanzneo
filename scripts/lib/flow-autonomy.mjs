@@ -1,9 +1,9 @@
 // Verbindlicher Google-Flow-Vertrag — eine Quelle für alle Reels.
 //
-// V3 behebt einen echten Produktionsfehler: Ein Agent interpretierte den alten
-// "autonomen Gesamtdurchlauf" trotz "GENAU EIN Bild" als Batch-Auftrag und
-// startete mehrere Bilder auf einmal. Deshalb ist Autonomie jetzt ausdrücklich
-// eine STATE MACHINE mit maximal EINEM laufenden Generierungsjob.
+// Strict Single Job bleibt unverändert: niemals mehrere laufende Bildjobs.
+// Neu: Arbeit erfolgt in Nutzer-kontrollierten 5er-Blöcken. Innerhalb eines
+// Blocks läuft Flow autonom Bild für Bild; nach maximal 5 finalen Bildern ist
+// ein bewusster Nutzer-Checkpoint Pflicht. Vor Block 1 kommen 3 Cover-Varianten.
 
 import {
   FLOW_AGENT_PROTOCOL_MARKER,
@@ -15,7 +15,6 @@ import {
   FLOW_STRUCTURE_LOCK_MARKER,
 } from './reel-contract.mjs';
 
-/** Kopfblock: autonom bis zum Ende, aber NIEMALS Batch-Generierung. */
 export const AUTONOMY_BLOCK = [
   FLOW_EXECUTION_MODE_MARKER,
   FLOW_STRUCTURE_LOCK_MARKER,
@@ -24,39 +23,47 @@ export const AUTONOMY_BLOCK = [
   'STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH',
   '- DIES IST KEIN BATCH-AUFTRAG. DIE GESAMTE DATEI DARF NIEMALS ALS EIN MEHRBILD-PROMPT AUSGEFÜHRT WERDEN.',
   '- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.',
+  '- BLOCKGRÖSSE = 5. DAS BEDEUTET MAXIMAL FÜNF NACHEINANDER FERTIGGESTELLTE BILDER PRO ARBEITSBLOCK, NICHT FÜNF GLEICHZEITIGE JOBS.',
+  '- VOR DEM ERSTEN NORMALEN SZENENBLOCK: 3 COVER-VARIANTEN A/B/C STRIKT NACHEINANDER ERZEUGEN, DANN STOPP UND NUTZERWAHL.',
+  '- DAS GEWÄHLTE COVER WIRD BILD 01 UND DIE EINZIGE VISUELLE STYLE-REFERENZ FÜR DIE RESTLICHEN FLOW-BILDER.',
   '- STARTE NIEMALS MEHRERE BILDER, MEHRERE GENERIERUNGSJOBS ODER MEHRERE SZENEN IN EINEM SCHRITT / TOOL-CALL / BATCH.',
   '- ERZEUGE KEINE GALERIE, KEINEN KONTAKTBOGEN, KEIN MULTI-PANEL, KEINE COLLAGE UND KEIN BILD MIT MEHREREN SZENEN.',
-  '- INITIAL IST NUR DER ERSTE BENÖTIGTE BILDBLOCK FREIGESCHALTET. ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT.',
-  '- EIN SPÄTERER BILDBLOCK DARF ERST FREIGESCHALTET WERDEN, WENN DAS AKTUELLE BILD: (1) vollständig zurückgegeben, (2) exakt umbenannt und (3) per QA geprüft wurde.',
-  '- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE BILDBLOCK GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.',
-  '- NACH BESTANDENER QA WIRD GENAU DER NÄCHSTE BENÖTIGTE BILDBLOCK IN DOKUMENTREIHENFOLGE FREIGESCHALTET. NICHT VORHER.',
+  '- ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT, BIS DER AKTUELLE BLOCK VOLLSTÄNDIG FERTIG UND VOM NUTZER FREIGEGEBEN IST.',
+  '- INNERHALB EINES 5ER-BLOCKS DARF DER NÄCHSTE BILDSCHRITT ERST FREIGESCHALTET WERDEN, WENN DAS AKTUELLE BILD: (1) vollständig zurückgegeben, (2) exakt umbenannt und (3) per QA geprüft wurde.',
+  '- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, ERZEUGE NUR DIESELBE BILDNUMMER NEU.',
+  '- INNERHALB DES AKTUELLEN 5ER-BLOCKS KEINE NUTZERFREIGABE ZWISCHEN EINZELBILDERN ANFORDERN.',
+  '- NACH MAXIMAL FÜNF FERTIGEN BILDERN: STOPP UND AUF NUTZERFREIGABE / "WEITER" FÜR DEN NÄCHSTEN BLOCK WARTEN.',
   '- REMOTION-/ANIMATIONSNUMMERN WERDEN OHNE GENERIERUNG ÜBERSPRUNGEN.',
-  '- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTÄTIGUNG ODER FREIGABE DES NUTZERS.',
-  '- "WARTEN" BEDEUTET NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.',
+  '- "WARTEN" WÄHREND EINES BILDES BEDEUTET INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.',
   '- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.',
   '- STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.',
-  '- STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.',
   '',
 ].join('\n');
 
-/** Schrittfolge für den Agenten. */
 export const FLOW_AGENT_BLOCK = [
   FLOW_AGENT_PROTOCOL_MARKER,
   '',
-  'AUSFÜHRUNGSPROTOKOLL — STATE MACHINE, NICHT BATCH:',
-  '0. Betrachte spätere Bildblöcke zunächst nur als GESPERRTE DATEN. Sie sind noch KEINE ausführbaren Bildaufträge.',
-  '1. Setze ACTIVE_STEP auf den ersten benötigten Bildblock in Dokumentreihenfolge.',
-  '2. Nimm AUSSCHLIESSLICH den BILDPROMPT von ACTIVE_STEP. Sende niemals Text aus mehreren Bildblöcken gemeinsam an die Bildgenerierung.',
-  '3. Starte GENAU EINEN Bildgenerierungsjob für ACTIVE_STEP. MAX_CONCURRENT_GENERATIONS = 1.',
-  '4. Starte KEINEN weiteren Job, solange dieser Job läuft oder noch kein Ergebnis zurückgegeben wurde.',
-  '5. Sobald das einzelne Bild zurückgegeben wurde: benenne DIESE Datei SOFORT exakt auf den vorgegebenen finalen Dateinamen um.',
-  '6. Prüfe danach ausschließlich dieses eine Bild: Aussage/Beat-Zuordnung, erlaubte Labels, klarer stylized-3D-animated V9-Look, tiefschwarzer sauberer Hintergrund, sinnvolle statt quotierte Objektanzahl, sichtbares Gesicht falls Person, Marken nur erkennbar-stilisiert und exakter Dateiname.',
-  '7. QA FEHLER: ACTIVE_STEP bleibt unverändert. Erzeuge ausschließlich dieselbe Bildnummer neu. Alle späteren Schritte bleiben gesperrt.',
-  '8. QA BESTANDEN: markiere ACTIVE_STEP als DONE. Erst JETZT darfst du den nächsten benötigten Bildblock in Dokumentreihenfolge freischalten.',
-  '9. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Bildjob überspringen und zum nächsten benötigten Bildblock gehen.',
-  '10. Wiederhole 2–9, bis jedes erwartete Bild einzeln DONE ist. Keine Nutzerfreigabe dazwischen.',
-  '11. Erst NACH Abschluss aller Einzeljobs darfst du eine Abschlusszusammenfassung über alle finalen Dateien geben.',
-  '12. Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen oder anhängen.',
+  'AUSFÜHRUNGSPROTOKOLL — COVER-GATE + 5ER-BLÖCKE + SINGLE JOB:',
+  '0. Erzeuge zuerst Cover A, dann B, dann C — immer einzeln und nacheinander. Danach STOPP und Nutzerwahl A/B/C abwarten.',
+  '1. Benenne die gewählte Cover-Variante zum finalen Bild-01-Dateinamen um. Sie wird zugleich die einzige visuelle Style-Referenz für die restlichen Flow-Bilder.',
+  '2. Setze ACTIVE_BLOCK auf den ersten 5er-Block. Spätere Blöcke bleiben gesperrt.',
+  '3. Setze ACTIVE_STEP auf das erste benötigte Bild in ACTIVE_BLOCK.',
+  '4. Nimm AUSSCHLIESSLICH den BILDPROMPT von ACTIVE_STEP. Sende niemals Text aus mehreren Bildblöcken gemeinsam an die Bildgenerierung.',
+  '5. Starte GENAU EINEN Bildgenerierungsjob. MAX_CONCURRENT_GENERATIONS = 1.',
+  '6. Starte KEINEN weiteren Job, solange dieser Job läuft oder noch kein Ergebnis zurückgegeben wurde.',
+  '7. Sobald das Bild zurückgegeben wurde: benenne DIESE Datei SOFORT exakt auf den vorgegebenen finalen Dateinamen um.',
+  '8. Prüfe ausschließlich dieses eine Bild: Aussage, erlaubte Labels, gewählter Cover-Style, klarer stylized-3D-animated V9-Look, tiefschwarzer sauberer Hintergrund und exakter Dateiname.',
+  '9. QA FEHLER: ACTIVE_STEP bleibt unverändert. Erzeuge ausschließlich dieselbe Bildnummer neu.',
+  '10. QA BESTANDEN: markiere ACTIVE_STEP als DONE. Innerhalb desselben Blocks darf jetzt exakt der nächste benötigte Bildschritt freigeschaltet werden.',
+  '11. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Bildjob überspringen.',
+  '12. Nach maximal 5 DONE-Bildern in ACTIVE_BLOCK: STOPP. Warte auf Nutzerfreigabe / "weiter". Vorher darf der nächste Block nicht starten.',
+  '13. Nach Nutzerfreigabe: nächsten Block aktivieren und Schritte 3–12 wiederholen.',
+  '14. Nach dem letzten Block Abschlusszusammenfassung mit allen finalen Dateien geben.',
+  '',
+  'STYLE-REFERENZ:',
+  '- einzig erlaubt: das vom Nutzer ausgewählte Cover',
+  '- übernehmen: Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl, Render-Look',
+  '- nicht übernehmen: Cover-Text, Cover-Layout, konkrete Objektanordnung oder Szeneninhalt',
   '',
   'HART VERBOTEN:',
   '- mehrere Bilder in einem Generierungsaufruf',
@@ -67,11 +74,12 @@ export const FLOW_AGENT_BLOCK = [
   '',
 ].join('\n');
 
-/** googleFlow-Felder im scene-index. */
 export const flowAutonomyFields = () => ({
   executionModeId: FLOW_EXECUTION_MODE_ID,
   stateMachineId: FLOW_STATE_MACHINE_ID,
-  autonomousFullRun: true,
+  autonomousFullRun: false,
+  blockAutonomousRun: true,
+  blockSize: 5,
   maxConcurrentGenerations: 1,
   batchGenerationForbidden: true,
   multiImageRequestForbidden: true,
@@ -81,22 +89,22 @@ export const flowAutonomyFields = () => ({
   nextStepLockedUntilCurrentResultReturned: true,
   renameBeforeUnlockNext: true,
   qaBeforeUnlockNext: true,
-  userContinueSignalForbidden: true,
+  userContinueSignalForbidden: false,
   userApprovalBetweenImagesForbidden: true,
+  userApprovalBetweenBlocksRequired: true,
   internalWaitForGenerationOnly: true,
-  autoContinueAfterQa: true,
-  hardBlockerOnlyStop: true,
+  autoContinueAfterQaWithinBlock: true,
+  coverVariantCount: 3,
+  coverSelectionRequiredBeforeSceneImages: true,
+  selectedCoverAsOnlyStyleReference: true,
+  referenceCopiesLayoutForbidden: true,
+  hardBlockerOnlyStopWithinBlock: true,
   structureLockId: FLOW_STRUCTURE_LOCK_ID,
   preserveStructureThroughLastImage: true,
   preserveStyleThroughLastImage: true,
 });
 
-/** Bestandsreels sprachlich auf V3 heben. */
 export const modernizeLegacyWaitWording = (master) => master
   .replaceAll('AUTONOMER GESAMTDURCHLAUF — VERBINDLICH', 'STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH')
-  .replaceAll('1. Lies die gesamte Datei einmal, arbeite danach strikt von oben nach unten immer nur am aktuellen Bildblock.', '0. Betrachte spätere Bildblöcke zunächst nur als GESPERRTE DATEN. Sie sind noch KEINE ausführbaren Bildaufträge.')
-  .replaceAll('2. Erzeuge GENAU EIN Bild. Starte niemals mehrere Bilder gleichzeitig.', '1. Setze ACTIVE_STEP auf den ersten benötigten Bildblock und starte GENAU EINEN Bildjob. MAX_CONCURRENT_GENERATIONS = 1.')
-  .replaceAll('3. Vollständig warten.', '2. INTERN auf die Rückgabe dieses einzelnen Bildjobs warten; keinen weiteren Job starten.')
-  .replaceAll('3. Warte, bis dieses eine Bild vollständig erzeugt ist.', '2. INTERN auf die Rückgabe dieses einzelnen Bildjobs warten; keinen weiteren Job starten.')
-  .replaceAll('7. Erst nach bestandener QA das nächste Bild.', '7. Erst nach bestandener QA den nächsten Bildblock freischalten; vorher bleibt er gesperrt.')
-  .replaceAll('7. Erst nach bestandener QA darf der nächste Bildblock beginnen.', '7. Erst nach bestandener QA den nächsten Bildblock freischalten; vorher bleibt er gesperrt.');
+  .replaceAll('WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTÄTIGUNG ODER FREIGABE DES NUTZERS.', 'INNERHALB EINES 5ER-BLOCKS KEINE NUTZERFREIGABE ZWISCHEN EINZELBILDERN; NACH MAXIMAL FÜNF BILDERN STOPP UND FREIGABE ABWARTEN.')
+  .replaceAll('STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.', 'INNERHALB EINES BLOCKS STOPP NUR BEI HARD-BLOCKER; NACH JEDEM 5ER-BLOCK IST EIN NUTZER-ZWISCHENSTOPP PFLICHT.');
