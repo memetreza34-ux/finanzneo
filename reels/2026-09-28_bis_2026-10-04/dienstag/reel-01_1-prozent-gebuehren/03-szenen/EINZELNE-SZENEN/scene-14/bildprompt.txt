@@ -9,11 +9,16 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Qualität
 
 IMAGE PROMPT:
-Create a premium stylized 3D physical balance scale. One side represents “Kosten”; the other side contains three substantial objects labelled “Risiko”, “Diversifikation”, and “Qualität”. The scale should feel thoughtfully balanced rather than implying that the cheapest option always wins. Make this a strong final explanatory image, not an infographic card layout.
+Create one premium stylized 3D investment-decision scene on a dark desk. A person or pair of hands is comparing two believable investment folders side by side. In front of the folders lie four substantial physical decision tabs or markers labelled “Kosten”, “Risiko”, “Diversifikation”, and “Qualität”. The scene must communicate that fees matter, but they are only one of several important criteria when choosing an investment. Make the decision context feel practical and real rather than symbolic or diagrammatic.
 
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: premium stylized 3D animated finance-explainer world, clear physical metaphor, soft rounded geometry, never photorealistic.
-BACKGROUND: seamless deep black.
-TEXT: only exact labels above.
-FORBIDDEN: dashboard, app UI, flowchart, floating cards, clutter, photorealism.
+STYLE_REFERENCE_POLICY: selected-cover-style-only
+STYLE: premium real-world-grounded stylized 3D with believable documents, hands and desk objects, polished materials, clearly stylized and never photorealistic.
+BACKGROUND: seamless deep black with a restrained financial-planning desk environment fading into black.
+COMPOSITION: one practical comparison action, four clearly attached criteria, strong hero scale and clean negative space.
+COLORS + LIGHT: emerald/gold restrained finance accents, ivory/soft gray documents, red-orange only for cost/warning emphasis, premium studio lighting and soft contact shadows.
+TEXT: only “Kosten”, “Risiko”, “Diversifikation” and “Qualität”.
+FORBIDDEN: balance-scale infographic, floating cards, flowchart, dashboard, app UI, icon grid, abstract arrows, miniature diorama, clutter, photorealism.
