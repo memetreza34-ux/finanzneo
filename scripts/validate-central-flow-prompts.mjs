@@ -35,8 +35,29 @@ try {
 const normalize = (value) => value.replace(/\r\n/g, '\n').trim();
 const central = normalize(readFileSync(centralPath, 'utf8'));
 
-if (!central.includes('DIES IST KEIN BATCH-AUFTRAG')) {
-  fail('alle-bildprompts.txt muss den Strict-Single-Job-Hinweis "DIES IST KEIN BATCH-AUFTRAG" enthalten.');
+const requiredMarkers = [
+  'DIES IST KEIN BATCH-AUFTRAG',
+  'BLOCKGRÖSSE = 5',
+  'MAX_CONCURRENT_GENERATIONS = 1',
+  'COVER_VARIANT_COUNT = 3',
+  'COVER-AUSWAHL ERFORDERLICH = JA',
+  'STYLE-REFERENZ = GEWÄHLTES COVER',
+  'COVER-VARIANTE A',
+  'COVER-VARIANTE B',
+  'COVER-VARIANTE C',
+];
+for (const marker of requiredMarkers) {
+  if (!central.includes(marker)) fail(`alle-bildprompts.txt muss den Marker "${marker}" enthalten.`);
+}
+
+if (!/STOPP[\s\S]{0,160}Nutzer/i.test(central)) {
+  fail('Nach den drei Cover-Varianten muss zwingend auf die Nutzerwahl gewartet werden.');
+}
+if (!/gewählte(?:s|n)? Cover[\s\S]{0,220}Style-Referenz/i.test(central)) {
+  fail('Das gewählte Cover muss als Style-Referenz für die restlichen Bilder festgelegt sein.');
+}
+if (!/5ER-BLOCK 1/.test(central)) {
+  fail('Mindestens ein 5ER-BLOCK muss in der zentralen Flow-Datei vorhanden sein.');
 }
 
 const resolvePlanFile = (planFile) => {
@@ -63,11 +84,6 @@ for (const scene of imageScenes) {
   if (!central.includes(prompt)) {
     fail(`${scene.id}: der vollständige individuelle Bildprompt fehlt in 03-szenen/alle-bildprompts.txt.`);
   }
-
-  const number = String(scene.id ?? '').match(/scene-(\d+)/)?.[1];
-  if (number && !central.includes(`SZENE ${number}`)) {
-    fail(`${scene.id}: Szenenblock fehlt in alle-bildprompts.txt.`);
-  }
 }
 
 for (const scene of animationScenes) {
@@ -77,14 +93,12 @@ for (const scene of animationScenes) {
   }
 }
 
-const cover = index.cover;
-if (cover && cover.separateGenerationForbidden !== true && cover.planFile) {
-  const coverPath = resolvePlanFile(cover.planFile);
-  if (!coverPath || !existsSync(coverPath)) fail('Cover-Promptdatei fehlt.');
-  const coverPrompt = normalize(readFileSync(coverPath, 'utf8'));
-  if (coverPrompt && !central.includes(coverPrompt)) {
-    fail('Der separate Cover-Prompt fehlt in alle-bildprompts.txt.');
+const remainingImages = Math.max(0, imageScenes.length - 1);
+const expectedBlocks = Math.max(1, Math.ceil(remainingImages / 5));
+for (let i = 1; i <= expectedBlocks; i += 1) {
+  if (!central.includes(`5ER-BLOCK ${i}`)) {
+    fail(`5ER-BLOCK ${i} fehlt. Nach der Cover-Auswahl müssen die restlichen Bilder in Blöcken zu maximal 5 organisiert sein.`);
   }
 }
 
-console.log(`✓ Zentrale Google-Flow-Übergabe vollständig: ${imageScenes.length} Bildprompts · ${animationScenes.length} reservierte Animationsnummern.`);
+console.log(`✓ Zentrale Google-Flow-Übergabe vollständig: 3 Cover-Varianten · Nutzerwahl · Cover als Style-Referenz · ${expectedBlocks} 5er-Block/Blöcke · concurrency=1.`);
