@@ -4,24 +4,34 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE_REFERENCE_POLICY: selected-cover-style-only
 
 STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
+Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack, dashboard or stock photograph.
+
+SELECTED COVER STYLE ANCHOR:
+After the user chooses Cover A, B or C, use that exact chosen cover only as a visual STYLE reference for material feeling, 3D geometry language, lighting, contrast, color character, camera feeling and render quality. Never copy its headline, layout, object arrangement or scene content into normal image scenes unless the scene prompt explicitly asks for it.
 
 BACKGROUND:
-A seamless deep black background is mandatory. A small believable local environment may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
+A seamless deep black background is mandatory. A believable local environment may appear when it helps explain the situation: for example part of a desk, banking counter, home-finance workspace, document area, shelf or savings setup. The environment must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
 
 COMPOSITION:
-The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation.
+The image must visually explain the spoken point, not merely symbolize it. Prefer one coherent real-life finance situation with a physical context anchor. Show cause and effect directly in the same frame whenever possible. Supporting objects have no fixed count: include only what is needed for immediate understanding. The viewer should understand the intended meaning within 1–2 seconds without audio.
+
+REAL-WORLD ANCHOR RULE:
+Do not default to isolated abstract finance geometry. A normal scene should usually contain at least one believable context anchor such as a desk, document, folder, calendar, savings container, bank counter, receipt, envelope, real household object or human hand/person when useful. Pure comparison objects are allowed only when they are physically believable and clearly stronger than a real-world scene.
+
+ANTI-INFOGRAPHIC RULE:
+Do not use winding roads, snake tracks, racetracks, floating bars, pie/donut charts, generic progress blocks, abstract arrows, isolated stacks, icon collections or infographic layouts as the main scene unless the spoken point literally requires that object. Never solve a scene by arranging generic finance symbols on black.
 
 COLORS + LIGHT:
 Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
 
 TEXT:
-Only explicitly requested short German labels may appear. No headline, subtitle, CTA or long explanatory sentence.
+Only explicitly requested short German labels may appear. No headline, subtitle, CTA or long explanatory sentence in normal scene images. Cover candidates are the explicit exception and may contain their specified cover text.
 
 FORBIDDEN:
-No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
+No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no winding infographic path, no abstract road/timeline as the main composition, no pie/donut-chart metaphor, no dashboard or app UI, no flowchart, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene, no toy-like diorama and no decorative clutter.
 
 PROMPT POLICY:
-Every image prompt must be individually and completely written for the exact spoken point. Start with the concrete situation and visible cause/effect, add exact short German labels when they improve understanding, then give style/background/composition/forbidden rules.
+Every image prompt must be individually and completely written for the exact spoken point. Start with a concrete situation and visible cause/effect, identify the physical context anchor, add exact short German labels only when they improve understanding, then give style/background/composition/forbidden rules. The chosen cover keeps the rendering language consistent; the scene prompt keeps the content unique.
