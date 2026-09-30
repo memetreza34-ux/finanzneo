@@ -1,17 +1,16 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 13 - Zehn Jahre sechs Prozent.png
+Bild 13 - Kosten nachsehen.png
 
 BESCHRIFTUNGEN – EXAKT SO:
-- 10 Jahre
-- 67.400 €
+- Kosten
 
 IMAGE PROMPT:
-Show the corresponding ten-year warm-gold capital structure marked “67.400 €”, slightly but clearly lower than the seven-percent path. Match framing and object scale.
+Show a premium stylized 3D magnifying glass inspecting two physical investment documents on a deep-black surface: one product information sheet and one price/service document. A few cost rows are visibly highlighted, but do not turn the composition into a UI screenshot. The action must clearly communicate: check the costs before choosing the product.
 
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: premium stylized 3D finance explainer, consistent physical milestone world, never photorealistic.
+STYLE: premium stylized 3D finance explainer, believable documents, clean rounded materials, never photorealistic.
 BACKGROUND: seamless deep black.
 TEXT: only exact labels above.
-FORBIDDEN: dashboard, app UI, chart UI, clutter, photorealism.
+FORBIDDEN: dashboard, app UI, browser screenshot, floating cards, clutter, photorealism.
