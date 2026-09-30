@@ -1,23 +1,108 @@
-SCENE 01
-1 % klingt fast nach nichts
-Ein Prozent Gebühren wirkt klein. Aber es greift nicht nur einmal an.
+FORMAT B · 2:00 MIN · 30 FPS · 3600 FRAMES
+20 IMAGE · 6 ANIMATION
+IMAGE = 126 Frames / 4,2 s
+ANIMATION = 180 Frames / 6,0 s
 
-SCENE 02
-Der Abstand wächst langsam
-Beide starten gleich. Nur ein Weg verliert jedes Jahr ein kleines Stück an Kosten.
+SCENE 01 · IMAGE
+1 % klingt harmlos
+Ein Prozent Gebühren klingt harmlos. Über Jahrzehnte kann es teuer werden.
 
-SCENE 03
-Gebühren nehmen auch künftige Rendite
-Das Problem ist nicht nur die Gebühr selbst: Das fehlende Geld kann später keine Rendite mehr erzeugen.
+SCENE 02 · IMAGE
+Kosten siehst du nicht sofort
+Laufende Kosten wirken direkt im investierten Vermögen.
 
-SCENE 04
-Der kleine Unterschied wird groß
-Je länger du investierst, desto stärker arbeitet der Zinseszins auch gegen unnötige Kosten.
+SCENE 03 · ANIMATION
+Die Gebühr greift jedes Jahr an
+Wenn jedes Jahr Kosten anfallen, fehlt danach dauerhaft ein Stück Kapital.
 
-SCENE 05
-Nach 30 Jahren: rund 77.000 € Unterschied
-Beispiel: 10.000 € Start, 300 € monatlich, 7 % statt 6 % Rendite nach Kosten.
+SCENE 04 · IMAGE
+Unser Beispiel startet mit 10.000 €
+Wir beginnen mit 10.000 Euro Startkapital.
 
-SCENE 06
-1 % ist klein. 30 Jahre sind es nicht.
-Darum lohnt es sich, laufende Kosten zu prüfen – bevor sie jahrelang mitwachsen.
+SCENE 05 · IMAGE
+Dazu kommen 300 € im Monat
+Jeden Monat werden 300 Euro investiert, dreißig Jahre lang.
+
+SCENE 06 · IMAGE
+Nur 1 Prozentpunkt Unterschied
+Wir vergleichen sieben Prozent Rendite mit sechs Prozent.
+
+SCENE 07 · ANIMATION
+Am Anfang fast gleich
+Beide Wege starten identisch. Der langsamere verliert Jahr für Jahr Wachstum.
+
+SCENE 08 · IMAGE
+Nach 5 Jahren: 35.700 €
+Mit sieben Prozent stehen nach fünf Jahren rund 35.700 Euro.
+
+SCENE 09 · IMAGE
+Mit 6 %: rund 34.400 €
+Mit sechs Prozent sind es ungefähr 34.400 Euro.
+
+SCENE 10 · IMAGE
+Der Abstand ist noch klein
+Der Unterschied beträgt zunächst nur ungefähr 1.200 Euro.
+
+SCENE 11 · ANIMATION
+Gebühren kosten auch Rendite
+Fehlendes Kapital kann später selbst keine Rendite mehr erzeugen. Das verstärkt den Effekt.
+
+SCENE 12 · IMAGE
+Nach 10 Jahren: rund 72.000 €
+Der schnellere Weg liegt nach zehn Jahren bei rund 72.000 Euro.
+
+SCENE 13 · IMAGE
+Der andere Weg: rund 67.400 €
+Der langsamere Weg liegt bei ungefähr 67.400 Euro.
+
+SCENE 14 · IMAGE
+Jetzt fehlen schon rund 4.700 €
+Der kleine jährliche Unterschied wird sichtbar größer.
+
+SCENE 15 · ANIMATION
+Der Abstand beschleunigt
+Je länger die Laufzeit, desto stärker können beide Vermögenspfade auseinanderlaufen.
+
+SCENE 16 · IMAGE
+Nach 20 Jahren: rund 196.700 €
+Mit sieben Prozent sind es nach zwanzig Jahren rund 196.700 Euro.
+
+SCENE 17 · IMAGE
+Mit 6 %: rund 171.700 €
+Mit sechs Prozent stehen ungefähr 171.700 Euro.
+
+SCENE 18 · IMAGE
+Schon rund 25.000 € Abstand
+Nach zwanzig Jahren ist der Unterschied bereits deutlich.
+
+SCENE 19 · IMAGE
+Kosten können mehrere Quellen haben
+Zum Beispiel Fondskosten, Depot-, Service- oder Transaktionsgebühren.
+
+SCENE 20 · ANIMATION
+Nach 30 Jahren wird es groß
+Gleiche Einzahlungen: ungefähr 447.000 Euro gegenüber 362.000 Euro.
+
+SCENE 21 · IMAGE
+Beide zahlten gleich viel ein
+Startkapital und Sparrate sind auf beiden Wegen identisch.
+
+SCENE 22 · IMAGE
+Der Unterschied: rund 85.600 €
+Der Unterschied beträgt in diesem Beispiel rund 85.600 Euro.
+
+SCENE 23 · IMAGE
+Wo du Kosten findest
+Prüfe Produktunterlagen sowie Preis- und Leistungsverzeichnisse.
+
+SCENE 24 · ANIMATION
+Viele kleine Kosten werden groß
+Über Jahrzehnte sammeln sich kleine Kostenwirkungen zu einem großen Vermögensunterschied.
+
+SCENE 25 · IMAGE
+Billig ist nicht automatisch besser
+Auch Risiko, Diversifikation und Produktqualität zählen.
+
+SCENE 26 · IMAGE
+Der Punkt ist einfach
+Nimm Kosten ernst. Dieses Beispiel erklärt den Effekt, nicht die Zukunft.

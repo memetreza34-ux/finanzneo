@@ -8,11 +8,11 @@ export const pct = (frame: number, from: number, to: number) =>
   interpolate(frame, [from, to], [0, 1], CLAMP);
 
 export const Header: React.FC<{title: string}> = ({title}) => (
-  <div style={{position:'absolute',left:72,right:72,top:145,textAlign:'center',fontFamily:FONT.title,fontSize:56,fontWeight:950,color:C.white,lineHeight:1.05}}>{title}</div>
+  <div style={{position:'absolute',left:72,right:72,top:154,textAlign:'center',fontFamily:FONT.title,fontSize:54,fontWeight:950,color:C.white,lineHeight:1.05}}>{title}</div>
 );
 
 export const Caption: React.FC<{children: React.ReactNode}> = ({children}) => (
-  <div style={{position:'absolute',left:92,right:92,bottom:285,textAlign:'center',fontFamily:FONT.body,fontSize:43,fontWeight:850,color:C.white,lineHeight:1.18}}>{children}</div>
+  <div style={{position:'absolute',left:92,right:92,bottom:340,textAlign:'center',fontFamily:FONT.body,fontSize:46,fontWeight:850,color:C.white,lineHeight:1.16}}>{children}</div>
 );
 
 export const SceneShell: React.FC<{title:string;caption:string;children:React.ReactNode}> = ({title,caption,children}) => (

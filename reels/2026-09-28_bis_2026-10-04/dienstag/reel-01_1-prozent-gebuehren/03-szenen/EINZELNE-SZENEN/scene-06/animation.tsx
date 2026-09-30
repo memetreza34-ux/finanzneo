@@ -1,8 +1,0 @@
-import React from 'react';
-import {interpolate,useCurrentFrame} from 'remotion';
-import {ANIMATION_COLORS,C,CLAMP,FONT,SceneShell,pct} from '../../../05-projektdateien/animation-shared';
-
-// MECHANIC_ID: aggregate-fee-payoff
-// PRIMARY_ACTION: all removed fee fragments gather into one final lost-value pile before the payoff appears.
-// START -> MECHANISM -> RESULT | HERO: accumulated fee pile | SUPPORT: delayed payoff | MATERIAL: red 3D fragments | DEPTH: converging field
-export const FeesScene06Animation:React.FC=()=>{const frame=useCurrentFrame();const gather=pct(frame,35,190);const payoff=pct(frame,195,235);return <SceneShell title="1 % ist klein. 30 Jahre sind es nicht." caption="Darum lohnt es sich, laufende Kosten zu prüfen – bevor sie jahrelang mitwachsen.">{Array.from({length:14},(_,i)=>{const sx=80+(i%7)*145;const sy=90+Math.floor(i/7)*150;const tx=390+(i%5)*62;const ty=520-Math.floor(i/5)*48;return <div key={i} style={{position:'absolute',left:interpolate(gather,[0,1],[sx,tx],CLAMP),top:interpolate(gather,[0,1],[sy,ty],CLAMP),width:56,height:34,borderRadius:10,background:ANIMATION_COLORS.warning,border:'2px solid rgba(255,255,255,.2)',rotate:`${(i%4)*9-12}deg`,boxShadow:'0 16px 26px rgba(0,0,0,.4)'}}/>})}<div style={{position:'absolute',left:210,right:210,top:690,textAlign:'center',fontFamily:FONT.title,fontSize:80,fontWeight:950,color:ANIMATION_COLORS.warning,opacity:payoff,scale:.82+payoff*.18}}>≈ 77.000 €</div><div style={{position:'absolute',left:210,right:210,top:795,textAlign:'center',fontFamily:FONT.body,fontSize:32,fontWeight:900,color:C.whiteSoft,opacity:payoff}}>möglicher Unterschied im Beispiel</div></SceneShell>};
