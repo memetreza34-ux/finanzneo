@@ -1,0 +1,16 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Kleiner Abstand.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- ≈ 1.200 €
+
+IMAGE PROMPT:
+Show two nearly equal capital stacks with only a narrow physical gap between their tops. Place one small neutral bracket or distance object labelled “≈ 1.200 €” to make the early difference feel modest.
+
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: stylized 3D physical finance explanation, clean rounded forms, never photorealistic.
+BACKGROUND: seamless deep black.
+TEXT: only exact label above.
+FORBIDDEN: dashboard, app UI, flowchart, clutter, photorealism.

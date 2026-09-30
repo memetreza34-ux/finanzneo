@@ -1,0 +1,17 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 16 - Zwanzig Jahre sieben Prozent.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 20 Jahre
+- 196.700 €
+
+IMAGE PROMPT:
+Show a twenty-year milestone with a tall premium emerald wealth structure marked “196.700 €”, emphasizing accumulated scale without becoming a bar-chart dashboard.
+
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: premium stylized 3D finance explainer, substantial physical capital object, never photorealistic.
+BACKGROUND: seamless deep black.
+TEXT: only exact labels above.
+FORBIDDEN: dashboard, app UI, chart UI, clutter, photorealism.

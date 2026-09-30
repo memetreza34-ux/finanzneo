@@ -1,0 +1,6 @@
+COVER_SOURCE_SCENE: scene-01
+SEPARATE_GENERATION_FORBIDDEN: true
+SAME_AS_FIRST_SCENE_IMAGE: true
+FINAL_ASSET: Bild 01 - Ein Prozent wirkt klein.png
+
+Cover nutzt exakt das Bild aus Scene 01. Keine zweite Bildgenerierung. Der eigentliche Titel/Header wird in Remotion gesetzt, nicht in das Flow-Bild geschrieben.

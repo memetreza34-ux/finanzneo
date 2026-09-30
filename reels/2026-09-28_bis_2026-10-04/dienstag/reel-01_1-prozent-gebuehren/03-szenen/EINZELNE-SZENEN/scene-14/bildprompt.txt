@@ -1,0 +1,16 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 14 - Abstand nach zehn Jahren.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- ≈ 4.700 €
+
+IMAGE PROMPT:
+Show two ten-year capital stacks with a visibly wider physical height difference than at year five. Add one restrained distance marker labelled “≈ 4.700 €”.
+
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: stylized 3D physical finance explanation, clear comparative depth, never photorealistic.
+BACKGROUND: seamless deep black.
+TEXT: only exact label above.
+FORBIDDEN: dashboard, app UI, chart UI, clutter, photorealism.

@@ -1,0 +1,17 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Fuenf Jahre sieben Prozent.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 5 Jahre
+- 35.700 €
+
+IMAGE PROMPT:
+Show a five-year milestone pedestal with a strong emerald capital stack reaching “35.700 €”. Include a simple physical five-year marker; no charts or dashboards.
+
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE: premium stylized 3D finance explainer, soft rounded geometry, clean material depth, never photorealistic.
+BACKGROUND: seamless deep black.
+TEXT: only exact labels above.
+FORBIDDEN: dashboard, app UI, chart UI, floating cards, clutter, photorealism.
