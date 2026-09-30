@@ -7,15 +7,22 @@ import test from 'node:test';
 
 const validator = resolve('scripts/validate-central-flow-prompts.mjs');
 
-test('Reel-Scaffolder erzeugt die zentrale Google-Flow-Promptdatei dauerhaft', () => {
+test('Reel-Erstellung verankert den zentralen 5er-Flow mit Cover-Auswahl dauerhaft', () => {
   const scaffold = readFileSync(resolve('scripts/scaffold-finanzneo-reel.mjs'), 'utf8');
+  const createReel = readFileSync(resolve('scripts/create-finanzneo-reel.mjs'), 'utf8');
   const reelValidator = readFileSync(resolve('scripts/validate-reel.mjs'), 'utf8');
+  const applyFlow = readFileSync(resolve('scripts/apply-flow-five-pack-reference-v1.mjs'), 'utf8');
 
   assert.match(scaffold, /write\('03-szenen\/alle-bildprompts\.txt'/);
+  assert.match(createReel, /apply-flow-five-pack-reference-v1\.mjs/);
   assert.match(reelValidator, /validate-central-flow-prompts\.mjs/);
+  assert.match(applyFlow, /COVER_VARIANT_COUNT = 3/);
+  assert.match(applyFlow, /BLOCKGRÖSSE = 5/);
+  assert.match(applyFlow, /STYLE-REFERENZ = GEWÄHLTES COVER/);
+  assert.match(applyFlow, /MAX_CONCURRENT_GENERATIONS = 1/);
 });
 
-test('Zentrale Flow-Datei muss jeden Bildprompt und reservierte Animationsnummern enthalten', () => {
+test('Zentrale Flow-Datei verlangt 3 Cover-Varianten, Nutzerwahl, Style-Referenz und 5er-Blöcke', () => {
   const root = mkdtempSync(join(tmpdir(), 'finanzneo-central-flow-'));
   const scenesRoot = join(root, '03-szenen');
   const imageDir = join(scenesRoot, 'EINZELNE-SZENEN', 'scene-01');
@@ -33,7 +40,17 @@ test('Zentrale Flow-Datei muss jeden Bildprompt und reservierte Animationsnummer
   writeFileSync(join(scenesRoot, 'alle-bildprompts.txt'), [
     'FINANZNEO — ZENTRALE GOOGLE-FLOW-PROMPTDATEI',
     'DIES IST KEIN BATCH-AUFTRAG',
-    'SZENE 01 – BILDSZENE',
+    'BLOCKGRÖSSE = 5',
+    'MAX_CONCURRENT_GENERATIONS = 1',
+    'COVER_VARIANT_COUNT = 3',
+    'COVER-AUSWAHL ERFORDERLICH = JA',
+    'STYLE-REFERENZ = GEWÄHLTES COVER',
+    'COVER-VARIANTE A',
+    'COVER-VARIANTE B',
+    'COVER-VARIANTE C',
+    'STOPP. Nutzer entscheidet A, B oder C.',
+    'Das gewählte Cover dient danach als Style-Referenz.',
+    '5ER-BLOCK 1',
     prompt,
     'SZENE 02 – REMOTION-ANIMATION',
     'KEIN BILD 02 ERZEUGEN.',
