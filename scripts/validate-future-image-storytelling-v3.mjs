@@ -32,6 +32,7 @@ if (c.id === V2) {
 const errors = [];
 const fail = (message) => errors.push(message);
 const placeholder = /\[|EINFÜGEN|TODO|TBD|XXX|\.\.\./i;
+const abstractFinanceDefault = /\b(?:capital body|wealth tower|value block|investment block|fee token|capital tower|wealth structure)\b/i;
 const nonPlaceholder = (value, min = 8) => typeof value === 'string' && value.trim().length >= min && !placeholder.test(value);
 const readMarker = (source, marker) => {
   const line = source.split(/\r?\n/).find((item) => item.startsWith(marker + ':'));
@@ -64,6 +65,10 @@ for (const key of [
   'oneImagePerSentenceWhenItImprovesClarity',
   'extraImagePreferredOverOverloadedStill',
   'labelsSupplementalOnly',
+  'animationFilmRenderingRequired',
+  'groundedStoryMomentRequired',
+  'abstractFinanceObjectAsDefaultForbidden',
+  'phaseAQualityReferenceOnly',
 ]) {
   if (c[key] !== true) fail('imageStorytellingContract.' + key + ' muss true sein.');
 }
@@ -86,6 +91,7 @@ for (const relative of globalPaths) {
   if (!source.includes('Literal first, creative second')) fail(relative + ' enthält die Literal-first-Regel nicht.');
   if (!source.includes('TRANSFERABILITY-TEST')) fail(relative + ' enthält den Transferability-Test nicht.');
   if (!source.includes('Förderbänder, Schienen, Schranken, Käfige')) fail(relative + ' enthält das Verbot generischer Fantasiemechaniken nicht.');
+  if (!source.includes('ABSTRAKTE FINANZKÖRPER')) fail(relative + ' enthält die neue Sperre gegen abstrakte Finanzkörper als Standardsprache nicht.');
 }
 
 for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
@@ -143,6 +149,10 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
     fail(prefix + ': literal verlangt METAPHOR_JUSTIFICATION: none.');
   }
 
+  if (strategy === 'literal' && abstractFinanceDefault.test(source)) {
+    fail(prefix + ': abstrakte Finanzkörper wie capital body/wealth tower/value block sind als literal-Hauptidee gesperrt; reale Situation nutzen oder bewusst strategy=metaphor begründen.');
+  }
+
   if (meta && typeof meta === 'object') {
     if (strategy !== meta.strategy) fail(prefix + ': Prompt und scene-index widersprechen sich bei strategy.');
     if (literalSituation !== meta.literalSituation) fail(prefix + ': Prompt und scene-index widersprechen sich bei literalSituation.');
@@ -160,6 +170,6 @@ if (errors.length) {
 }
 
 console.log('\n✓ Future-Image-Storytelling erfüllt: ' + V3);
-console.log('✓ Literal first: reale Situation, Kontextanker und exaktes Voiceover-Match sind für jede Bildszene dokumentiert.');
+console.log('✓ V9 beschreibt Rendering; reale Situation, Kontextanker und Voiceover-Match tragen die Erklärung.');
+console.log('✓ Abstrakte Finanzkörper sind kein literal-Default und benötigen als Hauptmotiv eine begründete Metapher.');
 console.log('✓ Transferability-Test bestanden; generische Finanzbilder werden vor Flow blockiert.');
-console.log('✓ Metaphern sind weiterhin erlaubt, aber nur als begründeter Fallback.');
