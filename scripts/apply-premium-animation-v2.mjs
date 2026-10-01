@@ -4,6 +4,7 @@ import {existsSync, readFileSync, writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {
   PREMIUM_ANIMATION_LOCK,
+  STORY_MOMENT_REVISION,
   premiumAnimationContractFields,
 } from './lib/premium-animation-contract.mjs';
 
@@ -37,15 +38,25 @@ const contractHeading = '## FINANCE MOTION LIBRARY + CUSTOM ANIMATIONSVERTRAG';
 const contractBlock = `
 ${contractHeading}
 Premium Visual Lock: ${PREMIUM_ANIMATION_LOCK}
+Story Moment Revision: ${STORY_MOMENT_REVISION}
 Finance Motion Library: finanzneo-finance-motion-library-v1
 Visual Target World: finanzneo-stylized-3d-animated-black-v9
 
 GRUNDSATZ:
 Die Finance Motion Library ist ein Mechanik-Werkzeugkasten, KEINE Stilvorlage. Eine vorhandene Mechanik darf nur direkt gerendert werden, wenn sie sichtbar dieselbe FinanzNeo-Welt wie die Flow-Bilder trifft. Sonst wird die Mechanik individuell in der V9-Welt umgesetzt.
 
+DIE GLEICHE STORY-LOGIK WIE BEI DEN BILDERN:
+- bekannte Figuren und/oder bekannte Gegenstände tragen die Bedeutung
+- Animation wirkt wie eine kleine Szene aus einem hochwertigen 3D-Animationsfilm
+- es passiert sichtbar etwas: Handlung -> Reaktion -> Folge/Payoff
+- intuitive Übertreibungen und Metaphern sind ausdrücklich erlaubt, wenn sie ohne Erklärung sofort verständlich sind
+- Beispiel gute Richtung: mehrere bekannte Rechnungen greifen nacheinander auf dasselbe Portemonnaie zu; ein langer Kassenzettel rollt sichtbar weiter; kleine wiederkehrende Gebühren sammeln sich über Zeit
+- Beispiel schlechte Richtung: abstrakter capital body, fee token, value block oder geometrischer wealth tower ohne selbsterklärende reale Bedeutung
+- keine Corporate-3D-Figur als reine Dekoration; wenn eine Figur vorkommt, tragen Pose/Reaktion/Handlung die Aussage mit
+
 Verbindliche Reihenfolge in Phase 1:
 1. Sprechpunkt und sichtbares Verständnisziel bestimmen.
-2. Reale/erkennbare Situation oder Finanzhandlung bestimmen.
+2. Bekannte Figur/Gegenstände oder sofort verständlichen Story-Moment bestimmen.
 3. Visuelle Hauptmechanik herleiten.
 4. Finance Motion Library auf semantischen Best-Fit prüfen.
 5. Bei Best-Fit zusätzlich SAME-WORLD-PASS prüfen.
@@ -54,8 +65,8 @@ Verbindliche Reihenfolge in Phase 1:
 
 SAME-WORLD-PASS:
 - dieselbe stylized-3D-Animationsfilm-Sprache wie V9
-- erkennbare Finanz-/Alltagsobjekte bevorzugen, wenn sie den Punkt klarer machen
-- keine abstrakten Kapitalkörper, Value-Blöcke, Balken oder geometrischen Türme als automatische Standardsprache
+- bekannte Finanz-/Alltagsobjekte bevorzugen, wenn sie den Punkt klarer machen
+- intuitive physische Übertreibung ist erlaubt, abstrakte erfundene Finanzkörper sind kein Default
 - Emerald/Gold/Red-Orange bleiben Rollenfarben, aber Farbe allein ersetzt keine Bedeutung
 - Ursache -> sichtbare Aktion -> Reaktion -> Payoff muss ohne Untertitel grundsätzlich verständlich sein
 
@@ -111,6 +122,7 @@ if (existsSync(overviewPath)) {
 }
 
 console.log(`✓ Hybrid-Animationsvertrag angewendet: ${PREMIUM_ANIMATION_LOCK}`);
-console.log('  Content-first -> Mechanik -> Same-World-Pass -> Library oder Custom.');
-console.log('  Finance Motion Library ist Mechanik-Werkzeug, nicht automatische Stilvorlage.');
+console.log(`✓ Story-Moment-Revision: ${STORY_MOMENT_REVISION}`);
+console.log('  Bekannte Figuren/Gegenstände -> klare Handlung -> Same-World-Pass -> Library oder Custom.');
+console.log('  Intuitive Übertreibung/Metapher erlaubt; abstrakte Finanzkörper sind kein Default.');
 console.log('  animation.tsx bleibt transparenter Visual-Inhalt; Header/Caption/Canvas gehören dem Reel-Layout.');
