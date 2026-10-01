@@ -38,36 +38,46 @@ const contractBlock = `
 ${contractHeading}
 Premium Visual Lock: ${PREMIUM_ANIMATION_LOCK}
 Finance Motion Library: finanzneo-finance-motion-library-v1
-Visual Target World bleibt: finanzneo-stylized-3d-animated-black-v9
+Visual Target World: finanzneo-stylized-3d-animated-black-v9
+
+GRUNDSATZ:
+Die Finance Motion Library ist ein Mechanik-Werkzeugkasten, KEINE Stilvorlage. Eine vorhandene Mechanik darf nur direkt gerendert werden, wenn sie sichtbar dieselbe FinanzNeo-Welt wie die Flow-Bilder trifft. Sonst wird die Mechanik individuell in der V9-Welt umgesetzt.
 
 Verbindliche Reihenfolge in Phase 1:
 1. Sprechpunkt und sichtbares Verständnisziel bestimmen.
-2. Visuelle Hauptmechanik herleiten.
-3. Finance Motion Library auf echten semantischen Best-Fit prüfen.
-4. Bei Best-Fit vorhandene Mechanik parametrisieren.
-5. Wenn kein Best-Fit existiert, individuelle Animation bauen.
-6. Wiederverwendbare neue Mechaniken dürfen später in die Library aufgenommen werden.
+2. Reale/erkennbare Situation oder Finanzhandlung bestimmen.
+3. Visuelle Hauptmechanik herleiten.
+4. Finance Motion Library auf semantischen Best-Fit prüfen.
+5. Bei Best-Fit zusätzlich SAME-WORLD-PASS prüfen.
+6. Nur bei echtem Same-World-Pass direkt parametrisieren; sonst individuelle Animation bauen.
+7. Produktionsreife animation.tsx liefern.
+
+SAME-WORLD-PASS:
+- dieselbe stylized-3D-Animationsfilm-Sprache wie V9
+- erkennbare Finanz-/Alltagsobjekte bevorzugen, wenn sie den Punkt klarer machen
+- keine abstrakten Kapitalkörper, Value-Blöcke, Balken oder geometrischen Türme als automatische Standardsprache
+- Emerald/Gold/Red-Orange bleiben Rollenfarben, aber Farbe allein ersetzt keine Bedeutung
+- Ursache -> sichtbare Aktion -> Reaktion -> Payoff muss ohne Untertitel grundsätzlich verständlich sein
+
+LAYOUT-VERTRAG:
+- animation.tsx liefert NUR transparenten visuellen Inhalt für die Visualzone
+- der globale Reel-Canvas bleibt #000000
+- Header und Captions gehören ausschließlich dem globalen Reel-Layout
+- lokale SceneShells, lokale schwarze Vollflächen, eigene Header und eigene Captions in animation.tsx sind verboten
+- AnimationStage bleibt Y320–1400 und clippt den visuellen Inhalt zentral
 
 Qualitätsregeln:
 - START -> sichtbare Ursache/Aktion -> klares RESULT/PAYOFF
-- ein klarer FOCAL_PATH: das Auge weiß, was es verfolgen soll
+- ein klarer FOCAL_PATH
 - PRIMARY_ACTION trägt die Erklärung; Nebenbewegungen unterstützen nur
-- CAMERA_ROLE bewusst festlegen: still, follow, push oder reframe; keine zufällige Dauerfahrt
+- CAMERA_ROLE bewusst festlegen: still, follow, push oder reframe
 - Ergebnis mindestens 15 Frames stabil halten
 - kurze deutsche Labels dürfen helfen, tragen aber nie allein die Erklärung
-- vorhandene Finance-Motion-Mechanik darf im selben oder in späteren Reels wiederverwendet werden, wenn sie inhaltlich passt
 - Parameter müssen exakt zum Sprechpunkt passen; kein Template-Füllmaterial
 
-Nicht mehr verpflichtend:
-- PremiumPhysicalStage
-- PhysicalObject / PhysicalBill / PhysicalAccount / andere konkrete Physical-Primitives
-- eine neue Mechanik pro Szene nur um Wiederholung zu vermeiden
-- künstlich mindestens drei interpolate/spring-Kanäle
-- feste Anzahl von Realweltobjekten
-
 Weiterhin verboten als Hauptsprache:
-- generische Karten-/Kästchenreihe ohne echte erklärende Bewegung
-- Lade-/Fortschrittsbalken als Ersatz für die eigentliche Finanzmechanik
+- generische Karten-/Kästchenreihe
+- Lade-/Fortschrittsbalken als Ersatz für die Finanzmechanik
 - Dashboard-/Control-Panel-/App-UI-Look
 - Flowchart als Hauptkomposition
 - kleine Boxen mit dünnen Verbindungslinien
@@ -101,6 +111,6 @@ if (existsSync(overviewPath)) {
 }
 
 console.log(`✓ Hybrid-Animationsvertrag angewendet: ${PREMIUM_ANIMATION_LOCK}`);
-console.log('  Content-first -> Library-Best-Fit -> parametrisieren; sonst individuelle Animation.');
-console.log('  Physical-Primitives bleiben verfügbar, sind aber keine Pflicht mehr.');
-console.log('  Bildwelt, Flow-Prompts, Cover, Captions und Layout werden durch diesen Vertrag nicht verändert.');
+console.log('  Content-first -> Mechanik -> Same-World-Pass -> Library oder Custom.');
+console.log('  Finance Motion Library ist Mechanik-Werkzeug, nicht automatische Stilvorlage.');
+console.log('  animation.tsx bleibt transparenter Visual-Inhalt; Header/Caption/Canvas gehören dem Reel-Layout.');
