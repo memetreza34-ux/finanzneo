@@ -44,6 +44,10 @@ index.imageStorytellingContract = {
   oneImagePerSentenceWhenItImprovesClarity: true,
   extraImagePreferredOverOverloadedStill: true,
   labelsSupplementalOnly: true,
+  animationFilmRenderingRequired: true,
+  groundedStoryMomentRequired: true,
+  abstractFinanceObjectAsDefaultForbidden: true,
+  phaseAQualityReferenceOnly: true,
 };
 
 for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
@@ -74,17 +78,20 @@ LITERAL_FIRST_POLICY: Literal first, creative second.
 
 FUTURE IMAGE STORYTELLING V3 — VERBINDLICH:
 - Beginne beim exakten Sprechbeat: Was passiert in der echten Welt wirklich? Diese Situation ist die erste Wahl für das Bild.
-- Zeige einen sofort erkennbaren Finanz-/Alltagskontext wie Überweisung, Rechnung, Karte, Konto, Einkauf, Vertrag, Bankkontakt oder Zahlung, wenn dieser Kontext im Sprechbeat vorkommt.
+- V9 beschreibt die RENDERING-WELT: premium stylized 3D animation-film, sichtbar stilisiert, hochwertig modelliert, tiefschwarzer Hintergrund. V9 ersetzt keine konkrete Storyidee.
+- Zeige einen sofort erkennbaren Finanz-/Alltagskontext wie Überweisung, Rechnung, Karte, Konto, Einkauf, Vertrag, Bankkontakt, Sparrate oder Zahlung, wenn dieser Kontext im Sprechbeat vorkommt.
 - Das Bild muss die gesprochene Aussage direkt zeigen; es darf nicht nur allgemein zum Oberthema Finanzen passen.
 - SUBTITLE-OFF-TEST: Ohne Überschrift und Untertitel muss ein fremder Zuschauer ungefähr erkennen können, was gerade erklärt wird.
 - TRANSFERABILITY-TEST: Könnte dasselbe Bild unverändert auch zu fünf anderen Finanzthemen passen, ist es zu generisch und muss neu geplant werden.
 - Metaphern sind nur Fallback. Nutze sie erst, wenn die reale Situation visuell deutlich schlechter oder unverständlich wäre.
+- ABSTRAKTE FINANZKÖRPER sind KEINE Standardsprache: capital body, wealth tower, value block, investment block, fee token und ähnliche erfundene Wertobjekte dürfen eine reale Situation nicht ersetzen. Wenn sie ausnahmsweise Hauptmotiv werden, muss VISUAL_STRATEGY=metaphor gesetzt und METAPHOR_JUSTIFICATION konkret ausgefüllt werden.
 - Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale, Sortieranlagen, große Hebel und ähnliche Maschinen sind bei statischen Bildern KEINE Standard-Erklärung.
-- Wird trotzdem eine Metapher gewählt, muss VISUAL_STRATEGY=metaphor gesetzt und METAPHOR_JUSTIFICATION konkret ausgefüllt werden.
-- Ursache/Wirkung bleibt erwünscht, aber sie soll möglichst innerhalb der realen Situation stattfinden und nicht automatisch in eine Fantasiemaschine übersetzt werden.
+- Ursache/Wirkung soll möglichst innerhalb einer verständlichen Situation stattfinden und nicht automatisch in eine Fantasiemaschine übersetzt werden.
+- Wenige große, gut modellierte Hero-Objekte sind besser als viele kleine Symbole. Starke 3/4-, diagonale oder räumlich gestaffelte Kompositionen sind erlaubt, wenn sie die Aussage klarer machen.
+- Menschen sind optional. Nutze sie nur, wenn Handlung, Reaktion oder Maßstab dadurch klarer werden.
 - Kurze deutsche Objektlabels sind nur Ergänzung. Die Situation muss ohne Label verständlich bleiben.
-- Weniger, passendere Objekte schlagen eine dekorative Finanzobjekt-Sammlung.
 - Ein zusätzliches gutes Bild ist besser als ein überladener oder nur ungefähr passender Still.
+- Die frühere YouTube-Phase-A-DNA darf als Qualitätsreferenz für Modellierung, Licht, Tiefe und Story-Moment dienen, aber NICHT als separater Reel-Vertrag und nicht als Freibrief für abstrakte Wertkörper.
 - Die fünf Planwerte aus dem Bildprompt müssen identisch in scene-index.json unter scene.imageStorytelling stehen; Prompt und Index dürfen sich nicht widersprechen.`;
 
 const addPlanningBeforeImagePrompts = (source) => {
@@ -125,5 +132,5 @@ updatePolicyFile('05-projektdateien/szenenplan.md');
 updatePolicyFile('05-projektdateien/ANTIGRAVITY-AUFTRAG.md');
 
 console.log('✓ Future Image Storytelling gesetzt: ' + CONTRACT_ID);
-console.log('✓ Literal first, creative second · reale Situation + Kontextanker + Voiceover-Match + Transferability-Test sind Pflicht.');
-console.log('✓ Metaphern bleiben möglich, müssen aber bewusst gewählt und konkret begründet werden.');
+console.log('✓ V9 bleibt Rendering-Welt; echte Situation + Voiceover-Match tragen die Erklärung.');
+console.log('✓ Abstrakte Finanzkörper sind kein Default und brauchen als Hauptmotiv eine begründete Metapher.');
