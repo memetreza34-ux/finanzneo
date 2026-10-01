@@ -1,6 +1,6 @@
 # FinanzNeo — YouTube-Longform in drei Phasen
 
-> Bei Widersprüchen gilt `CLAUDE.md`. Für Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`.
+> Bei Widersprüchen gilt `CLAUDE.md`. Für Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`. Für externe Medien gilt zusätzlich `docs/FINANZNEO-EXTERNAL-ASSET-SOURCES.md`.
 
 YouTube-Longform ist ein eigenständiges Format. Ein Reel wird weder gestreckt noch als YouTube Short gespiegelt. Ein Thema gehört in Longform, wenn es für Verständnis echte Tiefe braucht: mehrere Schritte, Beispiele, Vergleiche, Rechnungen, Einordnung oder häufige Fehler.
 
@@ -22,6 +22,47 @@ ChatGPT erstellt im YouTube-Projektordner ohne offene Platzhalter:
 - Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords, Hashtags
 - Quellen-/Disclaimer-Text, angehefteten Kommentar, Community-Post und Upload-Checkliste
 - Promo-Texte für Instagram, TikTok, Facebook und Snapchat
+- bei echtem Mehrwert einen optionalen Plan für lizenzierte externe Support-Assets wie B-Roll, Icons, Fotos oder kleine Lottie-Cues
+
+### Externe Assets in Phase 1 — nur als geplanter Support
+
+Externe Medien werden **nicht** nachträglich zufällig in Phase 3 erfunden. Wenn ein Beat von echter Bewegung, einem präzisen Icon oder einem kleinen Support-Cue profitiert, plant Phase 1 dafür einen expliziten Asset-Slot.
+
+Reihenfolge:
+
+```text
+Sprechpunkt
+→ Viewer Change
+→ Hauptvisual bestimmen
+→ prüfen, ob externes Asset einen klaren Erklärwert bringt
+→ Asset-Slot mit Zweck und erlaubtem Typ dokumentieren
+→ Hauptmechanik bleibt unabhängig vom konkreten Stocktreffer verständlich
+```
+
+Zulässige Rollen:
+
+- `broll`: kurzer realer Cutaway oder Pattern Interrupt mit erklärender Bewegung
+- `icon`: semantische Kurzschrift innerhalb einer Remotion-Szene
+- `photo`: nur wenn ein reales Standbild klarer ist als Flow/Remotion
+- `lottie`: kleine Supportbewegung wie Check, Warning, Clock oder Document
+
+Nicht zulässig:
+
+- Stockmaterial als Ersatz für eine bereits definierte Hauptmechanik
+- generische Finance-B-Roll ohne Bezug zum gesprochenen Punkt
+- Asset-Auswahl nur weil ein Clip „gut aussieht“
+- Remote-Medien im produktiven Render
+- ungeklärte oder nicht kommerziell nutzbare Lizenz
+
+Projektbezogen werden dafür verwendet:
+
+```text
+06-projektdateien/external-assets-plan.md
+06-projektdateien/external-assets-manifest.json
+04-visuals/external-assets/external-assets-ledger.json
+```
+
+Das Manifest beschreibt nur erlaubte Slots und ihren Zweck. Ein Slot darf leer bleiben, wenn kein Asset die Qualitäts- und Lizenzprüfung besteht. Das Video muss auch ohne den optionalen Asset-Treffer inhaltlich funktionieren.
 
 ### Motion-Auswahl — Viewer Change zuerst
 
@@ -46,6 +87,8 @@ npm run youtube:phase1:seal -- youtube/<Projekt>
 ```
 
 Der Motion-V3-Seal bindet sowohl die kanonischen Motion-Quellen per SHA-256 als auch den kreativen Vertrag aus Viewer Change, Intent, Mechanik, Technikbeschreibung, Tool-Stack, Motion-Signatur, Channels und Beats.
+
+Externe Asset-Slots werden **nicht** in den Motion-Seal hineingefälscht. Der Seal schützt weiterhin die kreative Hauptmechanik. Ein später ausgewähltes Support-Asset darf diese Mechanik nicht ändern.
 
 ## Phase 2 — Nutzer erstellt Bilder und Audio
 
@@ -77,6 +120,8 @@ GENAU EIN BILD ERZEUGEN
 
 Antigravity erzeugt keine fehlenden Bilder und kein Ersatz-Voiceover.
 
+Externe Support-Assets gehören **nicht** zum schnellen Phase-2-Flow-Hand-off. Sie werden erst in Phase 3 anhand des Phase-1-Manifests gesucht, geprüft und lokal integriert. Dadurch bleibt Phase 2 schlank.
+
 ## Phase 3 — Integration, Retiming, QA und Render
 
 Der Auftrag lautet:
@@ -95,14 +140,48 @@ Bei erfolgreicher Prüfung arbeitet der Executor ohne Rückfragen und Zwischenst
 
 1. finale Audio- und Bildassets einlesen
 2. unveränderten Phase-1-Motion-V3-Seal prüfen
-3. Timeline aus Voiceover, Visual Beats und Kapiteln ableiten
-4. versiegelte Motion-Quellen integrieren und nur zeitlich an echtes Audio anpassen
-5. Texteinblendungen, Untertitel und freigegebene lokale SFX integrieren
-6. 1920 × 1080 bei 30 fps rendern
-7. Validator, Tests, Typecheck und Render-QA ausführen
-8. Bildsatz, Thumbnail, komplette MP4, Ton und Lautheit prüfen
-9. Kapitel-Zeitstempel und Upload-Paket an den finalen Render anpassen
+3. `external-assets-manifest.json` lesen und nur dort freigegebene externe Slots berücksichtigen
+4. für einen freigegebenen Slot zuerst vorhandene lokale Assets prüfen; andernfalls nur freigegebene Quellen aus `docs/FINANZNEO-EXTERNAL-ASSET-SOURCES.md` verwenden
+5. jedes ausgewählte externe Asset vor Nutzung auf Lizenz, Qualität, Logos/Personen und Format prüfen und in `external-assets-ledger.json` dokumentieren
+6. Asset lokal nach `04-visuals/external-assets/` speichern; produktiver Remotion-Code darf keine Remote-URL laden
+7. Timeline aus Voiceover, Visual Beats und Kapiteln ableiten
+8. versiegelte Motion-Quellen integrieren und nur zeitlich an echtes Audio anpassen
+9. freigegebene B-Roll/Icon/Lottie-Supportschichten nur innerhalb ihres dokumentierten Zwecks integrieren
+10. Texteinblendungen, Untertitel und freigegebene lokale SFX integrieren
+11. 1920 × 1080 bei 30 fps rendern
+12. Validator, Tests, Typecheck und Render-QA ausführen
+13. Bildsatz, Thumbnail, komplette MP4, Ton, Lautheit und externe Asset-Attributionen prüfen
+14. Kapitel-Zeitstempel und Upload-Paket an den finalen Render anpassen
 
-Phase 3 darf eine versiegelte Animation **nicht** durch eine einfachere Karten-, Balken-, Coin- oder Standardanimation ersetzen. Kreative Änderungen bedeuten zurück zu Phase 1, erneute Motion-Validation und erneuten Seal.
+### Harte Phase-3-Grenzen für externe Assets
+
+Phase 3 darf:
+
+- einen geplanten B-Roll-Slot mit einem passenden lizenzierten lokalen Clip füllen
+- geplante lokale SVG-Icons als semantischen Support verwenden
+- einen geplanten kleinen Lottie-Cue einsetzen
+- einen Slot leer lassen, wenn kein Treffer die Qualitäts-/Lizenzprüfung besteht
+- leichte technische Anpassungen wie Crop, Scale, Mask, Farbangleichung oder Timing vornehmen, wenn die Hauptmechanik unverändert bleibt
+
+Phase 3 darf **nicht**:
+
+- neue externe Asset-Slots erfinden, nur um das Video voller zu machen
+- einen Flow-/Remotion-Hauptbeat durch Stockmaterial ersetzen
+- eine versiegelte Animation kreativ umbauen, damit ein gefundener Clip hineinpasst
+- ungeklärte Assets „vorläufig“ verwenden
+- APIs/Remote-URLs zur Renderzeit aufrufen
+- API-Keys oder Tokens committen
+
+Wenn ein externes Asset eine kreative Änderung der versiegelten Hauptmechanik erfordern würde:
+
+```text
+STOP
+→ zurück zu Phase 1
+→ kanonische Motion/Planung ändern
+→ youtube:animation:validate erneut ausführen
+→ Phase-1-Seal neu erzeugen
+```
+
+Phase 3 darf eine versiegelte Animation **nicht** durch eine einfachere Karten-, Balken-, Coin-, Stock- oder Standardanimation ersetzen. Kreative Änderungen bedeuten zurück zu Phase 1, erneute Motion-Validation und erneuten Seal.
 
 Phase 3 stoppt nur bei einem echten Blocker und meldet alle Blocker gesammelt mit exakten Pfaden.

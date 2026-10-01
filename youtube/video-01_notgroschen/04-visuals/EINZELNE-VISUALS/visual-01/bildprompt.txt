@@ -1,0 +1,42 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FINAL FILE NAME: YouTube Bild 01 - Waschmaschine kaputt.png
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+ROLE: MASTER STYLE REFERENCE IMAGE FOR THIS YOUTUBE VIDEO
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+LITERAL_REAL_WORLD_SITUATION: Eine Waschmaschine fällt unerwartet aus und verursacht eine konkrete Reparaturrechnung von 480 Euro.
+REAL_WORLD_CONTEXT_ANCHOR: Alltagshaushalt mit klar erkennbarem Haushaltsgerät und Reparaturrechnung; kein abstraktes Finanzsymbol.
+VOICEOVER_VISUAL_MATCH: Das Bild zeigt exakt den Hook „Waschmaschine kaputt. 480 Euro Reparatur.“
+TRANSFERABILITY_TEST: Die Aussage bleibt ohne Voiceover sofort als unerwarteter notwendiger Kostenfall verständlich.
+VISUAL_STRATEGY: Literal first, creative second — konkrete Alltagssituation zuerst, stilisierte 3D-Inszenierung danach.
+METAPHOR_JUSTIFICATION: Keine Metapher nötig; der reale Defekt ist die klarste Darstellung.
+
+Generate exactly ONE image. Wait until it is fully complete. Rename it immediately to the exact final file name above. This image becomes the direct style reference for every later YouTube image in this project.
+
+CORE IDEA
+Waschmaschine kaputt = plötzlich 480 € Kosten.
+
+IMAGE PROMPT
+Create a premium cinematic animated-feature 3D scene on a deep black stage. The user wants a Pixar-like 3D animation feel, but the result must be original and must not copy existing characters or movie designs.
+
+Show ONE large broken washing machine as the hero object and ONE large repair invoice reading only `Reparatur 480 €`.
+
+Reality-inspired but NOT realistic:
+- washing machine instantly recognizable
+- smooth rounded simplified geometry
+- slightly exaggerated appealing proportions
+- simplified controls/details
+- soft sculpted materials
+- cinematic soft lighting
+- polished animated-film finish
+- strong depth and silhouette separation
+
+Minimal local laundry context is allowed only if it supports recognition. Do not build a realistic room.
+
+HARD NO:
+photorealism, semi-photorealistic appliance render, stock-photo look, realistic product-ad look, realistic household photography, cyberpunk, blue/purple neon, UI, finance icons, extra text, headline, subtitle, CTA.
+
+PALETTE
+Deep black stage, warm ivory/soft gray neutral, warm red-orange for repair/cost. Emerald only if semantically needed.
+
+The final accepted image defines the exact rendering style, material softness, shape language, lighting and depth for every later image in this YouTube production.

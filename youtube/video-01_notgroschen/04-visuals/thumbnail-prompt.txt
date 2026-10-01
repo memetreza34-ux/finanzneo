@@ -1,0 +1,30 @@
+FINANZNEO YOUTUBE THUMBNAIL — VIDEO 01 NOTGROSCHEN
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-animated-feature-3d-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+STYLE_REFERENCE_IMAGE: 04-visuals/00-ALLE-BILDER-HIER-REIN/YouTube Bild 01 - Waschmaschine kaputt.png
+
+Use Image 01 as the DIRECT style reference. Match its animated-feature 3D stylization, rounded geometry, simplified detail, material softness, cinematic lighting, depth and black-stage integration. Do not copy its exact composition.
+
+Create exactly one horizontal 16:9 thumbnail source image.
+
+ONE THUMBNAIL = ONE TENSION
+Unexpected repair cost versus protected emergency reserve.
+
+COMPOSITION
+Show ONE large stylized broken washing machine and ONE large invoice reading only `Reparatur 480 €` on one side. On the opposite side show ONE large emerald reserve object labeled `Notgroschen`. Large simple forms, strong separation, generous black negative space, immediate readability.
+
+LOOK
+Premium cinematic animated-feature 3D — reality-inspired but clearly not realistic. Smooth rounded forms, simplified construction, soft sculpted surfaces, appealing proportions, cinematic light and strong depth. The result should feel like a frame from a polished animated film, not a photo, stock render or realistic product advertisement.
+
+HARD NO
+No photorealism. No semi-realistic appliance render. No realistic room. No live-action look. No realistic person. No stock-photo aesthetic. No dashboard/UI. No random coins. No piggy bank. No vault. No cyberpunk. No blue/purple neon. No extra invented text such as `FinanzNeo V9`.
+
+PALETTE
+Deep black, emerald green for reserve, warm red-orange for repair cost, ivory/soft gray neutral, restrained gold only if value needs it.
+
+Leave clean space for typography added later in Remotion. Do not generate a headline, subtitle or CTA.
+
+Horizontal 16:9; main objects must remain clear on mobile, laptop and TV.
