@@ -184,3 +184,28 @@ test('Partikel-/Aurora-Hintergrundkomponenten werden in Animationen blockiert', 
     rmSync(fixture.root, {recursive: true, force: true});
   }
 });
+
+test('lokale SceneShell mit eigenem Header/Caption wird im konsolidierten Vertrag blockiert', () => {
+  const fixture = buildFixture();
+  try {
+    const cheated = fixture.validSource
+      .replace(
+        "import React from 'react';",
+        "import React from 'react';\nimport {SceneShell} from '../../../05-projektdateien/animation-shared';",
+      )
+      .replace(
+        'return (\n    <PremiumPhysicalStage>',
+        'return (\n    <SceneShell title="Falsch" caption="Doppelte Caption"><PremiumPhysicalStage>',
+      )
+      .replace(
+        '    </PremiumPhysicalStage>\n  );',
+        '    </PremiumPhysicalStage></SceneShell>\n  );',
+      );
+    writeFileSync(fixture.sourcePath, cheated);
+    const result = validate(fixture.root);
+    assert.notEqual(result.status, 0);
+    assert.match(`${result.stdout}\n${result.stderr}`, /SceneShell|globalen Reel-Layout/);
+  } finally {
+    rmSync(fixture.root, {recursive: true, force: true});
+  }
+});
