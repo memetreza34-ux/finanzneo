@@ -1,0 +1,37 @@
+SCENE_SPECIFIC_CONTENT
+Create a grounded finance scene showing how several harmless-looking everyday purchases become a meaningful monthly expense.
+
+VISUAL_STRATEGY: literal
+VISUAL_MODE: pov
+VISUAL_PURPOSE: make small spending accumulate visibly
+STORY_ACTION: several real small purchase receipts have just been laid around one bank card and one nearly empty cash pocket
+TENSION_OR_CONSEQUENCE: each purchase looks minor, but together they consume a clearly visible chunk of available spending money
+VISUAL_HOOK: extreme top-down closeness on three differently shaped everyday receipts with recognizable real objects beside them
+SHOT_SCALE: macro
+CAMERA_ANGLE: top-down
+DEPTH_PLAN: fingertips and one receipt corner close to lens, bank card and receipts central, coffee cup / takeaway box / small shopping bag around them
+EMOTIONAL_BEAT: surprise
+CAUSE_EFFECT: three small purchases are shown together next to the noticeably reduced remaining cash
+PATTERN_INTERRUPT: camera-change
+MOTION_HINT: none for this image-only test
+NOVELTY_CHECK: PASS — switches completely from face-led low angle to object-led top-down macro composition
+TRANSFERABILITY_TEST: PASS — coffee, delivery food and spontaneous retail purchase make the exact spending behavior unmistakable
+METAPHOR_JUSTIFICATION: none
+
+Use a real table surface that visually dissolves into the deep-black world. Show a premium stylized top-down POV with the viewer's fingertips near the lower edge. Place three believable small receipts near one neutral bank card: “Kaffee 4,20 €”, “Lieferessen 18,90 €” and “Spontankauf 27 €”. Beside the matching receipts show one takeaway coffee cup, one compact food-delivery container and one small shopping bag. Add one open simple cash pocket containing only a visibly small remainder, with no extra written sentence. The scene should read instantly as multiple small real purchases adding up. Do not use a graph, app screen, coin trail, giant arrow or floating symbols.
+
+BEGIN_FINANZNEO_SHARED_STYLE_LOCK_V1
+Render this scene in the exact FinanzNeo premium stylized 3D visual world. The result must be clearly non-photorealistic and visibly animated-film 3D, while all objects remain believable, correctly proportioned and immediately recognizable from everyday life. Use semi-realistic structure with softly rounded geometry, premium matte surfaces, warm ivory and soft-gray neutrals, graphite details, subtle paper/card texture, restrained brushed-metal cues and only subtle glass where physically plausible.
+
+Use one seamless deep-black background world with no visible studio wall, colored backdrop or bright environment. A small amount of grounded real-world context may exist around the subject, but it must dissolve naturally into the black world. Keep the main situation large and readable, never as a tiny miniature diorama or a small square object cluster floating in empty black space.
+
+Use the same color language in every FinanzNeo scene: emerald green only for positive, protected or preferred elements; warm red-orange only for cost, danger, loss or pressure; subtle gold only for money or value; ivory, gray and graphite for neutral objects. Do not add decorative neon colors.
+
+Use clean soft premium studio lighting with a gentle three-quarter key light, readable soft contact shadows, controlled highlights and strong separation from the black background. Keep a cinematic three-quarter perspective with moderate depth and no extreme wide-angle distortion. The image should feel polished, calm and premium rather than flashy.
+
+Build one coherent explanatory real-world scene with a clear cause-and-effect relationship. The viewer should understand the intended financial point within roughly one to two seconds without audio. Real objects and situations must carry the explanation. Do not replace the main explanation with floating finance icons, generic coins, shields, arrows, dashboards, UI cards, flowcharts or abstract visual riddles.
+
+Only short functional German labels that are explicitly requested in the scene description may appear. No headline, subtitle, CTA, paragraph, watermark or decorative typography. No pasted real-world logo, website, app screenshot or photorealistic branded product shot.
+
+Compose as a clean 1:1 image. Keep the hero objects large, central and clearly separated, with enough surrounding context to understand the situation but without clutter. Every supporting object must materially improve the explanation.
+END_FINANZNEO_SHARED_STYLE_LOCK_V1

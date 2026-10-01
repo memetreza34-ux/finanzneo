@@ -20,6 +20,9 @@ if (!relativeTarget || relativeTarget.startsWith('..') || relativeTarget.split(s
 const contract = spawnSync(process.execPath, [resolve('scripts/validate-youtube.mjs'), root], {stdio: 'inherit'});
 if (contract.status !== 0) process.exit(contract.status ?? 1);
 
+const visualDirection = spawnSync(process.execPath, [resolve('scripts/validate-youtube-visual-direction-v1.mjs'), root], {stdio: 'inherit'});
+if (visualDirection.status !== 0) process.exit(visualDirection.status ?? 1);
+
 const motion = spawnSync(process.execPath, [resolve('scripts/validate-youtube-animation-quality.mjs'), root], {stdio: 'inherit'});
 if (motion.status !== 0) process.exit(motion.status ?? 1);
 
@@ -69,4 +72,5 @@ for (const fileName of result.expectedImages) {
 
 console.log('\n✓ YOUTUBE-PHASE 3 STARTKLAR');
 console.log(`  ${result.expectedImages.length} horizontale 16:9-Bilder · 1 finales Voiceover · echte Wort-Zeitstempel · versiegelte Motion V2 · vollständiges Publishing-Paket`);
+console.log('  Visual Direction V1 ist geprüft: Bildwelt unverändert, aber Bildideen/Regie müssen Hook, Handlung, Kamera und Vielfalt erfüllen.');
 console.log('  Phase 3 integriert jetzt die versiegelten Animationen, retimed sie zum echten Audio und übernimmt QA/Render ohne kreative Mechanik-Ersetzung.');

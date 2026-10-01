@@ -1,0 +1,306 @@
+FINANZNEO IMAGE-ONLY V4 SHORT REEL TEST
+EIN GOOGLE-FLOW-GESAMTPROMPT — AUSFUEHRUNG TROTZDEM STRENG EINZELN
+
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+MAX_CONCURRENT_GENERATIONS = 1
+
+STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH
+- DIES IST EIN EINZIGER GESAMTPROMPT FUER GOOGLE FLOW, ABER KEIN BATCH-AUFTRAG.
+- DU MUSST ALLE 6 BILDER AUS DIESEM EINEN PROMPT AUTONOM NACHEINANDER ERZEUGEN.
+- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.
+- STARTE NIEMALS MEHRERE BILDER, MEHRERE GENERIERUNGSJOBS ODER MEHRERE SZENEN IN EINEM SCHRITT / TOOL-CALL / BATCH.
+- ERZEUGE KEINE GALERIE, KEINEN KONTAKTBOGEN, KEIN MULTI-PANEL, KEINE COLLAGE UND KEIN BILD MIT MEHREREN SZENEN.
+- INITIAL IST NUR BILDBLOCK 1 FREIGESCHALTET. ALLE SPAETEREN BILDBLOECKE SIND GESPERRT.
+- EIN SPAETERER BILDBLOCK DARF ERST FREIGESCHALTET WERDEN, WENN DAS AKTUELLE BILD: (1) vollstaendig zurueckgegeben, (2) exakt umbenannt und (3) per QA geprueft wurde.
+- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, BLEIBT DER NAECHSTE BILDBLOCK GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.
+- NACH BESTANDENER QA WIRD GENAU DER NAECHSTE BILDBLOCK IN DOKUMENTREIHENFOLGE FREIGESCHALTET.
+- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTAETIGUNG ODER FREIGABE DES NUTZERS.
+- "WARTEN" BEDEUTET NUR: INTERN AUF DIE RUECKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.
+- KEINE SPAETEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.
+- KEINE BILDREFERENZ VERWENDEN. KEIN VORHERIGES BILD HOCHLADEN ODER ANHAENGEN.
+- DIE FINANZNEO-V9-BILDWELT, FARBROLLEN, LICHTLOGIK UND DAS 1:1-FORMAT BIS ZUM LETZTEN BILD UNVERAENDERT BEIBEHALTEN.
+- STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.
+
+AUSFUEHRUNGSPROTOKOLL — STATE MACHINE, NICHT BATCH
+0. Betrachte spaetere Bildbloecke zunaechst nur als GESPERRTE DATEN. Sie sind noch KEINE ausfuehrbaren Bildauftraege.
+1. Setze ACTIVE_STEP auf BILDBLOCK 1.
+2. Nimm AUSSCHLIESSLICH den Inhalt des aktuellen BILDBLOCKS. Sende niemals Text aus mehreren Bildbloecken gemeinsam an die Bildgenerierung.
+3. Starte GENAU EINEN Bildgenerierungsjob fuer ACTIVE_STEP.
+4. Starte KEINEN weiteren Job, solange dieser Job laeuft oder noch kein Ergebnis zurueckgegeben wurde.
+5. Sobald das einzelne Bild zurueckgegeben wurde: benenne DIESE Datei SOFORT exakt auf den vorgegebenen finalen Dateinamen um.
+6. Pruefe ausschliesslich dieses eine Bild: Aussage, reale Finanzsituation, Story Action, Visual Hook, V9-Stil, stylized 3D statt Fotorealismus, Deep Black, erlaubte Labels, lesbare Ursache/Wirkung und finaler Dateiname.
+7. QA FEHLER: ACTIVE_STEP bleibt unveraendert. Erzeuge ausschliesslich dieselbe Bildnummer neu. Alle spaeteren Schritte bleiben gesperrt.
+8. QA BESTANDEN: markiere ACTIVE_STEP als DONE und schalte GENAU den naechsten Bildblock frei.
+9. Wiederhole, bis Bild 01 bis Bild 06 jeweils einzeln DONE sind.
+10. Erst NACH Abschluss aller sechs Einzeljobs darfst du eine kurze Abschlusszusammenfassung ueber die finalen Dateien geben.
+
+HART VERBOTEN
+- mehrere Bilder in einem Generierungsaufruf
+- mehrere Bildprompts zu einem einzelnen Bild zusammenfassen
+- spaetere Bilder vorab in eine Queue stellen
+- alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen
+- Kontaktbogen / Galerie / Collage / Multi-Panel als Ersatz fuer Einzelbilder
+- Nutzer nach jedem Bild um Fortsetzung bitten
+
+GLOBALE QA PRO BILD
+PASS nur wenn:
+- die reale Finanzsituation in 1–2 Sekunden erkennbar ist
+- eine sichtbare Handlung, Folge oder klare Gegenueberstellung vorhanden ist
+- das Bild nicht wie ein statischer Produktkatalog wirkt
+- Perspektive/Komposition sichtbar zum vorherigen Bild variiert
+- klarer premium stylized-3D-animated Look, niemals photorealistisch
+- ein nahtloser Deep-Black-Hintergrund die Bildwelt dominiert
+- Emerald nur positiv/geschuetzt, Rot-Orange nur Kosten/Risiko, Gold nur Geld/Wert
+- keine UI, kein Dashboard, kein Flowchart, keine generische Finance-Icon-Komposition
+- nur explizit erlaubte kurze deutsche Labels erscheinen
+- finaler Dateiname exakt stimmt
+
+
+===== BILDBLOCK 1/6 =====
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Gehalt trifft Fixkosten.png
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+Erzeuge ausschliesslich dieses eine Bild. Warte intern vollstaendig auf das Ergebnis, benenne es sofort exakt um und fuehre die QA aus. Erst nach PASS darf BILDBLOCK 2 starten.
+
+SCENE_SPECIFIC_CONTENT
+Create a grounded finance scene about payday arriving while fixed monthly costs are already waiting.
+
+VISUAL_STRATEGY: literal
+VISUAL_MODE: cause-effect
+VISUAL_PURPOSE: make the pressure of fixed costs instantly felt
+STORY_ACTION: a young adult has just placed a physical salary envelope on a dark kitchen table while several real monthly bills already overlap its edges
+TENSION_OR_CONSEQUENCE: most of the salary is visibly committed before discretionary spending begins
+VISUAL_HOOK: the large salary envelope fills the foreground while red-orange cost documents intrude from multiple directions
+SHOT_SCALE: close-up
+CAMERA_ANGLE: low-angle
+DEPTH_PLAN: bills extremely close in foreground, salary envelope as main middle subject, worried but clearly visible stylized face softly behind it
+EMOTIONAL_BEAT: pressure and immediate recognition
+CAUSE_EFFECT: salary arrives, fixed costs visibly cover and claim most of it in the same frame
+PATTERN_INTERRUPT: hook
+MOTION_HINT: hard hold, no source-image motion required for this test
+NOVELTY_CHECK: PASS — aggressive close foreground and low table-level perspective establish a visual grammar not reused by scene 02
+TRANSFERABILITY_TEST: PASS — the exact salary-versus-fixed-cost documents make this specifically about monthly cash flow, not generic finance
+METAPHOR_JUSTIFICATION: none
+
+Show one premium stylized young adult at a simple kitchen table that dissolves into the deep-black world. Keep the face visible and readable in the background, concerned but not exaggerated. In the foreground show one large physical warm-ivory envelope labeled exactly “Gehalt 2.400 €”. Around and partly overlapping its edges are three believable paper bills labeled exactly “Miete 900 €”, “Auto 420 €” and “Strom 85 €”. Use restrained warm red-orange accents only on the cost amounts. The papers should physically crowd the salary envelope so the financial pressure is understood immediately. Do not show a phone UI, dashboard, floating icons, generic coins or arrows. Keep the scene coherent and real-world grounded.
+
+BEGIN_FINANZNEO_SHARED_STYLE_LOCK_V1
+Render this scene in the exact FinanzNeo premium stylized 3D visual world. The result must be clearly non-photorealistic and visibly animated-film 3D, while all objects remain believable, correctly proportioned and immediately recognizable from everyday life. Use semi-realistic structure with softly rounded geometry, premium matte surfaces, warm ivory and soft-gray neutrals, graphite details, subtle paper/card texture, restrained brushed-metal cues and only subtle glass where physically plausible.
+Use one seamless deep-black background world with no visible studio wall, colored backdrop or bright environment. A small amount of grounded real-world context may exist around the subject, but it must dissolve naturally into the black world. Keep the main situation large and readable, never as a tiny miniature diorama or a small square object cluster floating in empty black space.
+Use the same color language in every FinanzNeo scene: emerald green only for positive, protected or preferred elements; warm red-orange only for cost, danger, loss or pressure; subtle gold only for money or value; ivory, gray and graphite for neutral objects. Do not add decorative neon colors.
+Use clean soft premium studio lighting with a gentle three-quarter key light, readable soft contact shadows, controlled highlights and strong separation from the black background. Keep a cinematic three-quarter perspective with moderate depth and no extreme wide-angle distortion. The image should feel polished, calm and premium rather than flashy.
+Build one coherent explanatory real-world scene with a clear cause-and-effect relationship. The viewer should understand the intended financial point within roughly one to two seconds without audio. Real objects and situations must carry the explanation. Do not replace the main explanation with floating finance icons, generic coins, shields, arrows, dashboards, UI cards, flowcharts or abstract visual riddles.
+Only short functional German labels that are explicitly requested in the scene description may appear. No headline, subtitle, CTA, paragraph, watermark or decorative typography. No pasted real-world logo, website, app screenshot or photorealistic branded product shot.
+Compose as a clean 1:1 image. Keep the hero objects large, central and clearly separated, with enough surrounding context to understand the situation but without clutter. Every supporting object must materially improve the explanation.
+END_FINANZNEO_SHARED_STYLE_LOCK_V1
+
+
+===== BILDBLOCK 2/6 =====
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Kleine Ausgaben werden gross.png
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+Erzeuge ausschliesslich dieses eine Bild. Warte intern vollstaendig auf das Ergebnis, benenne es sofort exakt um und fuehre die QA aus. Erst nach PASS darf BILDBLOCK 3 starten.
+
+SCENE_SPECIFIC_CONTENT
+Create a grounded finance scene showing how several harmless-looking everyday purchases become a meaningful monthly expense.
+
+VISUAL_STRATEGY: literal
+VISUAL_MODE: pov
+VISUAL_PURPOSE: make small spending accumulate visibly
+STORY_ACTION: several real small purchase receipts have just been laid around one bank card and one nearly empty cash pocket
+TENSION_OR_CONSEQUENCE: each purchase looks minor, but together they consume a clearly visible chunk of available spending money
+VISUAL_HOOK: extreme top-down closeness on three differently shaped everyday receipts with recognizable real objects beside them
+SHOT_SCALE: macro
+CAMERA_ANGLE: top-down
+DEPTH_PLAN: fingertips and one receipt corner close to lens, bank card and receipts central, coffee cup / takeaway box / small shopping bag around them
+EMOTIONAL_BEAT: surprise
+CAUSE_EFFECT: three small purchases are shown together next to the noticeably reduced remaining cash
+PATTERN_INTERRUPT: camera-change
+MOTION_HINT: none for this image-only test
+NOVELTY_CHECK: PASS — switches completely from face-led low angle to object-led top-down macro composition
+TRANSFERABILITY_TEST: PASS — coffee, delivery food and spontaneous retail purchase make the exact spending behavior unmistakable
+METAPHOR_JUSTIFICATION: none
+
+Use a real table surface that visually dissolves into the deep-black world. Show a premium stylized top-down POV with the viewer's fingertips near the lower edge. Place three believable small receipts near one neutral bank card: “Kaffee 4,20 €”, “Lieferessen 18,90 €” and “Spontankauf 27 €”. Beside the matching receipts show one takeaway coffee cup, one compact food-delivery container and one small shopping bag. Add one open simple cash pocket containing only a visibly small remainder, with no extra written sentence. The scene should read instantly as multiple small real purchases adding up. Do not use a graph, app screen, coin trail, giant arrow or floating symbols.
+
+BEGIN_FINANZNEO_SHARED_STYLE_LOCK_V1
+Render this scene in the exact FinanzNeo premium stylized 3D visual world. The result must be clearly non-photorealistic and visibly animated-film 3D, while all objects remain believable, correctly proportioned and immediately recognizable from everyday life. Use semi-realistic structure with softly rounded geometry, premium matte surfaces, warm ivory and soft-gray neutrals, graphite details, subtle paper/card texture, restrained brushed-metal cues and only subtle glass where physically plausible.
+Use one seamless deep-black background world with no visible studio wall, colored backdrop or bright environment. A small amount of grounded real-world context may exist around the subject, but it must dissolve naturally into the black world. Keep the main situation large and readable, never as a tiny miniature diorama or a small square object cluster floating in empty black space.
+Use the same color language in every FinanzNeo scene: emerald green only for positive, protected or preferred elements; warm red-orange only for cost, danger, loss or pressure; subtle gold only for money or value; ivory, gray and graphite for neutral objects. Do not add decorative neon colors.
+Use clean soft premium studio lighting with a gentle three-quarter key light, readable soft contact shadows, controlled highlights and strong separation from the black background. Keep a cinematic three-quarter perspective with moderate depth and no extreme wide-angle distortion. The image should feel polished, calm and premium rather than flashy.
+Build one coherent explanatory real-world scene with a clear cause-and-effect relationship. The viewer should understand the intended financial point within roughly one to two seconds without audio. Real objects and situations must carry the explanation. Do not replace the main explanation with floating finance icons, generic coins, shields, arrows, dashboards, UI cards, flowcharts or abstract visual riddles.
+Only short functional German labels that are explicitly requested in the scene description may appear. No headline, subtitle, CTA, paragraph, watermark or decorative typography. No pasted real-world logo, website, app screenshot or photorealistic branded product shot.
+Compose as a clean 1:1 image. Keep the hero objects large, central and clearly separated, with enough surrounding context to understand the situation but without clutter. Every supporting object must materially improve the explanation.
+END_FINANZNEO_SHARED_STYLE_LOCK_V1
+
+
+===== BILDBLOCK 3/6 =====
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 03 - Abos jeden Monat.png
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+Erzeuge ausschliesslich dieses eine Bild. Warte intern vollstaendig auf das Ergebnis, benenne es sofort exakt um und fuehre die QA aus. Erst nach PASS darf BILDBLOCK 4 starten.
+
+SCENE_SPECIFIC_CONTENT
+Create a grounded finance scene about recurring subscriptions quietly returning every month.
+
+VISUAL_STRATEGY: literal
+VISUAL_MODE: cinematic-literal
+VISUAL_PURPOSE: show repetition and recurring monthly pressure
+STORY_ACTION: a young adult sits at a desk while the same small subscription invoices are visibly repeated across three physical monthly calendar sheets
+TENSION_OR_CONSEQUENCE: small automatic costs return even when the person is not actively buying anything
+VISUAL_HOOK: high-angle wide view of one person visually surrounded by the same recurring bills across multiple months
+SHOT_SCALE: wide
+CAMERA_ANGLE: high-angle
+DEPTH_PLAN: one calendar sheet in foreground, person and desk in middle, two more monthly sheets and repeated invoices behind
+EMOTIONAL_BEAT: realization
+CAUSE_EFFECT: recurring contracts visibly reappear on each month sheet and reduce the money left in the nearby household envelope
+PATTERN_INTERRUPT: scale-change
+MOTION_HINT: none for this image-only test
+NOVELTY_CHECK: PASS — first wide human scene and first high-angle composition after the top-down macro scene
+TRANSFERABILITY_TEST: PASS — repeated monthly subscription invoices and physical calendar sheets make recurring costs specific and unmistakable
+METAPHOR_JUSTIFICATION: none
+
+Show one clearly stylized young adult seated at a simple desk, visible face, looking down at three large physical month sheets arranged around the desk: “Januar”, “Februar”, “März”. On each month sheet place the same three compact paper payment slips, each repeated once per month and labeled only “Abo 13 €”, “Abo 9 €” and “Abo 16 €”. Near the person place a neutral household-money envelope whose contents are visibly thinner by the March side. Use restrained red-orange accents on the recurring costs. Keep the scene believable: real paper calendar sheets, real receipts, desk, envelope. No app dashboard, floating UI, circular arrows or icon cloud.
+
+BEGIN_FINANZNEO_SHARED_STYLE_LOCK_V1
+Render this scene in the exact FinanzNeo premium stylized 3D visual world. The result must be clearly non-photorealistic and visibly animated-film 3D, while all objects remain believable, correctly proportioned and immediately recognizable from everyday life. Use semi-realistic structure with softly rounded geometry, premium matte surfaces, warm ivory and soft-gray neutrals, graphite details, subtle paper/card texture, restrained brushed-metal cues and only subtle glass where physically plausible.
+Use one seamless deep-black background world with no visible studio wall, colored backdrop or bright environment. A small amount of grounded real-world context may exist around the subject, but it must dissolve naturally into the black world. Keep the main situation large and readable, never as a tiny miniature diorama or a small square object cluster floating in empty black space.
+Use the same color language in every FinanzNeo scene: emerald green only for positive, protected or preferred elements; warm red-orange only for cost, danger, loss or pressure; subtle gold only for money or value; ivory, gray and graphite for neutral objects. Do not add decorative neon colors.
+Use clean soft premium studio lighting with a gentle three-quarter key light, readable soft contact shadows, controlled highlights and strong separation from the black background. Keep a cinematic three-quarter perspective with moderate depth and no extreme wide-angle distortion. The image should feel polished, calm and premium rather than flashy.
+Build one coherent explanatory real-world scene with a clear cause-and-effect relationship. The viewer should understand the intended financial point within roughly one to two seconds without audio. Real objects and situations must carry the explanation. Do not replace the main explanation with floating finance icons, generic coins, shields, arrows, dashboards, UI cards, flowcharts or abstract visual riddles.
+Only short functional German labels that are explicitly requested in the scene description may appear. No headline, subtitle, CTA, paragraph, watermark or decorative typography. No pasted real-world logo, website, app screenshot or photorealistic branded product shot.
+Compose as a clean 1:1 image. Keep the hero objects large, central and clearly separated, with enough surrounding context to understand the situation but without clutter. Every supporting object must materially improve the explanation.
+END_FINANZNEO_SHARED_STYLE_LOCK_V1
+
+
+===== BILDBLOCK 4/6 =====
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Gleiches Gehalt zwei Wege.png
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+Erzeuge ausschliesslich dieses eine Bild. Warte intern vollstaendig auf das Ergebnis, benenne es sofort exakt um und fuehre die QA aus. Erst nach PASS darf BILDBLOCK 5 starten.
+
+SCENE_SPECIFIC_CONTENT
+Create a grounded side-by-side finance comparison showing how two people with the same monthly income can end the month differently.
+
+VISUAL_STRATEGY: literal
+VISUAL_MODE: comparison
+VISUAL_PURPOSE: compare behavior instead of income
+STORY_ACTION: two comparable young adults each receive the same salary envelope but allocate it differently on two adjacent real tables
+TENSION_OR_CONSEQUENCE: one side spends first and has no meaningful reserve; the other side moves a fixed amount into savings before discretionary purchases
+VISUAL_HOOK: symmetric same-income setup with a dramatically different amount left protected at the end
+SHOT_SCALE: wide
+CAMERA_ANGLE: eye-level
+DEPTH_PLAN: two table edges in foreground, both people and salary envelopes central, spending objects versus savings folder behind them
+EMOTIONAL_BEAT: contrast and clarity
+CAUSE_EFFECT: identical income is visible on both sides while different choices produce visibly different reserves
+PATTERN_INTERRUPT: comparison
+MOTION_HINT: none for this image-only test
+NOVELTY_CHECK: PASS — first deliberately symmetrical comparison scene, visually unlike the previous single-person high-angle scene
+TRANSFERABILITY_TEST: PASS — identical salary labels and different allocation behavior make this specifically about saving rate, not generic success versus failure
+METAPHOR_JUSTIFICATION: none
+
+Create one coherent wide scene in the same deep-black world with two adjacent real table setups, not a graphic split screen and not UI panels. On the left, show one stylized young adult with a physical envelope labeled exactly “Gehalt 2.400 €”, several discretionary purchase receipts and shopping items, and an almost empty neutral folder labeled exactly “Rücklage”. On the right, show a comparable stylized young adult with the same physical envelope labeled exactly “Gehalt 2.400 €”, fewer discretionary items and a clearly fuller emerald-green folder labeled exactly “Rücklage 300 €”. Both faces must remain visible. The two salary envelopes must look equally sized so income is clearly the same. Keep the contrast grounded in real objects and behavior. No scales, arrows, winner icons, dashboards or floating labels.
+
+BEGIN_FINANZNEO_SHARED_STYLE_LOCK_V1
+Render this scene in the exact FinanzNeo premium stylized 3D visual world. The result must be clearly non-photorealistic and visibly animated-film 3D, while all objects remain believable, correctly proportioned and immediately recognizable from everyday life. Use semi-realistic structure with softly rounded geometry, premium matte surfaces, warm ivory and soft-gray neutrals, graphite details, subtle paper/card texture, restrained brushed-metal cues and only subtle glass where physically plausible.
+Use one seamless deep-black background world with no visible studio wall, colored backdrop or bright environment. A small amount of grounded real-world context may exist around the subject, but it must dissolve naturally into the black world. Keep the main situation large and readable, never as a tiny miniature diorama or a small square object cluster floating in empty black space.
+Use the same color language in every FinanzNeo scene: emerald green only for positive, protected or preferred elements; warm red-orange only for cost, danger, loss or pressure; subtle gold only for money or value; ivory, gray and graphite for neutral objects. Do not add decorative neon colors.
+Use clean soft premium studio lighting with a gentle three-quarter key light, readable soft contact shadows, controlled highlights and strong separation from the black background. Keep a cinematic three-quarter perspective with moderate depth and no extreme wide-angle distortion. The image should feel polished, calm and premium rather than flashy.
+Build one coherent explanatory real-world scene with a clear cause-and-effect relationship. The viewer should understand the intended financial point within roughly one to two seconds without audio. Real objects and situations must carry the explanation. Do not replace the main explanation with floating finance icons, generic coins, shields, arrows, dashboards, UI cards, flowcharts or abstract visual riddles.
+Only short functional German labels that are explicitly requested in the scene description may appear. No headline, subtitle, CTA, paragraph, watermark or decorative typography. No pasted real-world logo, website, app screenshot or photorealistic branded product shot.
+Compose as a clean 1:1 image. Keep the hero objects large, central and clearly separated, with enough surrounding context to understand the situation but without clutter. Every supporting object must materially improve the explanation.
+END_FINANZNEO_SHARED_STYLE_LOCK_V1
+
+
+===== BILDBLOCK 5/6 =====
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Lifestyle frisst Ruecklage.png
+
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+Erzeuge ausschliesslich dieses eine Bild. Warte intern vollstaendig auf das Ergebnis, benenne es sofort exakt um und fuehre die QA aus. Erst nach PASS darf BILDBLOCK 6 starten.
+
+SCENE_SPECIFIC_CONTENT
+Create a grounded finance scene about lifestyle inflation: nicer consumption grows while savings fail to grow with income.
+
+VISUAL_STRATEGY: literal
+VISUAL_MODE: cause-effect
+VISUAL_PURPOSE: make lifestyle inflation physically obvious
+STORY_ACTION: a young adult is placing another premium purchase onto a real living-room side table already occupied by upgraded lifestyle items
+TENSION_OR_CONSEQUENCE: the growing consumption area visibly pushes a small savings folder toward the edge instead of letting it grow
+VISUAL_HOOK: oversized new consumer objects dominate the frame while the emerald savings folder is visibly squeezed into a narrow remaining space
+SHOT_SCALE: medium
+CAMERA_ANGLE: eye-level
+DEPTH_PLAN: premium sneaker box and new phone package foreground, person central, larger television and thin savings folder behind/side
+EMOTIONAL_BEAT: recognition and discomfort
+CAUSE_EFFECT: more expensive lifestyle objects occupy more visual and financial space while the protected reserve remains small
+PATTERN_INTERRUPT: object-scale
+MOTION_HINT: none for this image-only test
+NOVELTY_CHECK: PASS — asymmetrical object-pressure composition replaces the previous balanced comparison layout
+TRANSFERABILITY_TEST: PASS — upgraded phone, sneakers, television and a thin savings folder make lifestyle inflation specifically readable
+METAPHOR_JUSTIFICATION: none
+
+Show one visible stylized young adult in a believable living-room context that dissolves into deep black. The person is putting down a newly purchased premium phone box beside a premium sneaker box. A larger modern television and one tasteful upgraded chair are visible as supporting context, not decoration. At the far edge of the same surface, show a small emerald-green physical folder labeled exactly “Rücklage”, visibly thin and partly crowded by the purchases. Add one small salary document labeled exactly “mehr Gehalt” near the person, but do not add a long sentence. The scene must feel like real lifestyle upgrades expanding faster than savings. Use warm red-orange only as restrained purchase-cost accents. No luxury-brand logos, no app screen, no generic arrows, no giant money symbols.
+
+BEGIN_FINANZNEO_SHARED_STYLE_LOCK_V1
+Render this scene in the exact FinanzNeo premium stylized 3D visual world. The result must be clearly non-photorealistic and visibly animated-film 3D, while all objects remain believable, correctly proportioned and immediately recognizable from everyday life. Use semi-realistic structure with softly rounded geometry, premium matte surfaces, warm ivory and soft-gray neutrals, graphite details, subtle paper/card texture, restrained brushed-metal cues and only subtle glass where physically plausible.
+Use one seamless deep-black background world with no visible studio wall, colored backdrop or bright environment. A small amount of grounded real-world context may exist around the subject, but it must dissolve naturally into the black world. Keep the main situation large and readable, never as a tiny miniature diorama or a small square object cluster floating in empty black space.
+Use the same color language in every FinanzNeo scene: emerald green only for positive, protected or preferred elements; warm red-orange only for cost, danger, loss or pressure; subtle gold only for money or value; ivory, gray and graphite for neutral objects. Do not add decorative neon colors.
+Use clean soft premium studio lighting with a gentle three-quarter key light, readable soft contact shadows, controlled highlights and strong separation from the black background. Keep a cinematic three-quarter perspective with moderate depth and no extreme wide-angle distortion. The image should feel polished, calm and premium rather than flashy.
+Build one coherent explanatory real-world scene with a clear cause-and-effect relationship. The viewer should understand the intended financial point within roughly one to two seconds without audio. Real objects and situations must carry the explanation. Do not replace the main explanation with floating finance icons, generic coins, shields, arrows, dashboards, UI cards, flowcharts or abstract visual riddles.
+Only short functional German labels that are explicitly requested in the scene description may appear. No headline, subtitle, CTA, paragraph, watermark or decorative typography. No pasted real-world logo, website, app screenshot or photorealistic branded product shot.
+Compose as a clean 1:1 image. Keep the hero objects large, central and clearly separated, with enough surrounding context to understand the situation but without clutter. Every supporting object must materially improve the explanation.
+END_FINANZNEO_SHARED_STYLE_LOCK_V1
+
+
+===== BILDBLOCK 6/6 =====
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 06 - Sparen zuerst.png
+
+AKTUELLER EINZELSCHRITT — LETZTES BILD
+Erzeuge ausschliesslich dieses eine Bild. Warte intern vollstaendig auf das Ergebnis, benenne es sofort exakt um und fuehre die QA aus. Nach PASS sind alle sechs Bilder DONE.
+
+SCENE_SPECIFIC_CONTENT
+Create a grounded payoff scene showing the simple system of saving first instead of hoping money remains at month-end.
+
+VISUAL_STRATEGY: literal
+VISUAL_MODE: object-story
+VISUAL_PURPOSE: show an immediately understandable solution
+STORY_ACTION: immediately after receiving salary, a young adult completes one standing-order form and places the fixed saving amount into a protected green savings folder before opening spending envelopes
+TENSION_OR_CONSEQUENCE: savings no longer depends on whatever happens to remain after consumption
+VISUAL_HOOK: the first visible money action is directed into the emerald savings folder while all discretionary spending envelopes are still closed
+SHOT_SCALE: medium
+CAMERA_ANGLE: over-shoulder
+DEPTH_PLAN: shoulder and hand foreground, standing-order paper and green savings folder central, unopened spending envelopes behind
+EMOTIONAL_BEAT: calm control and relief
+CAUSE_EFFECT: salary arrives and the fixed saving action happens first, leaving the later spending pool clearly separate
+PATTERN_INTERRUPT: payoff
+MOTION_HINT: none for this image-only test
+NOVELTY_CHECK: PASS — calm over-shoulder process shot gives a distinctly quieter final image after the pressure-heavy scenes
+TRANSFERABILITY_TEST: PASS — the standing-order form, salary envelope and protected savings folder make the specific save-first system unmistakable
+METAPHOR_JUSTIFICATION: none
+
+Show one clearly stylized young adult from an over-shoulder three-quarter view at a simple desk, with enough of the face profile visible to satisfy the human readability rule. In front of the person show a physical salary envelope labeled exactly “Gehalt”, a paper standing-order form labeled exactly “Dauerauftrag 300 €”, and one substantial emerald-green folder labeled exactly “Rücklage”. The person's hand is physically moving the standing-order form toward the green folder. Several neutral spending envelopes remain closed farther back on the desk, such as one labeled “Freizeit”. Make the sequence obvious in one frame: saving action first, spending later. The green folder should feel protected and intentional, not symbolic decoration. No phone app, dashboard, percentage chart, arrows, shields or floating coins.
+
+BEGIN_FINANZNEO_SHARED_STYLE_LOCK_V1
+Render this scene in the exact FinanzNeo premium stylized 3D visual world. The result must be clearly non-photorealistic and visibly animated-film 3D, while all objects remain believable, correctly proportioned and immediately recognizable from everyday life. Use semi-realistic structure with softly rounded geometry, premium matte surfaces, warm ivory and soft-gray neutrals, graphite details, subtle paper/card texture, restrained brushed-metal cues and only subtle glass where physically plausible.
+Use one seamless deep-black background world with no visible studio wall, colored backdrop or bright environment. A small amount of grounded real-world context may exist around the subject, but it must dissolve naturally into the black world. Keep the main situation large and readable, never as a tiny miniature diorama or a small square object cluster floating in empty black space.
+Use the same color language in every FinanzNeo scene: emerald green only for positive, protected or preferred elements; warm red-orange only for cost, danger, loss or pressure; subtle gold only for money or value; ivory, gray and graphite for neutral objects. Do not add decorative neon colors.
+Use clean soft premium studio lighting with a gentle three-quarter key light, readable soft contact shadows, controlled highlights and strong separation from the black background. Keep a cinematic three-quarter perspective with moderate depth and no extreme wide-angle distortion. The image should feel polished, calm and premium rather than flashy.
+Build one coherent explanatory real-world scene with a clear cause-and-effect relationship. The viewer should understand the intended financial point within roughly one to two seconds without audio. Real objects and situations must carry the explanation. Do not replace the main explanation with floating finance icons, generic coins, shields, arrows, dashboards, UI cards, flowcharts or abstract visual riddles.
+Only short functional German labels that are explicitly requested in the scene description may appear. No headline, subtitle, CTA, paragraph, watermark or decorative typography. No pasted real-world logo, website, app screenshot or photorealistic branded product shot.
+Compose as a clean 1:1 image. Keep the hero objects large, central and clearly separated, with enough surrounding context to understand the situation but without clutter. Every supporting object must materially improve the explanation.
+END_FINANZNEO_SHARED_STYLE_LOCK_V1
+
+
+ABSCHLUSS
+Wenn Bild 06 die QA bestanden hat:
+- bestaetige, dass Bild 01 bis Bild 06 jeweils einzeln generiert wurden
+- liste die sechs finalen Dateinamen auf
+- starte keine weitere Generation
