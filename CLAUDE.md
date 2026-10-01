@@ -115,61 +115,77 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STORY_MOMENT_REVISION: finanzneo-readable-story-moment-v1
 ```
 
 ### Kernregel
 
 V9 beschreibt **die Rendering-Welt**, nicht die Erklärung.
 
-Reihenfolge:
+Die Bildidee folgt verbindlich dieser Reihenfolge:
 
 ```text
 Sprechpunkt
-→ konkrete reale/erkennbare Situation
-→ sichtbare Ursache/Wirkung
+→ was soll in 1–2 Sekunden verstanden werden?
+→ bekannte Figur und/oder bekannte Gegenstände
+→ klarer sichtbarer Story-Moment
+→ intuitive Übertreibung/Metapher, wenn sie besser erklärt
 → Komposition
 → V9-Rendering
 ```
 
-Die Bilder sind Erklärszenen, keine Sammlung hübscher Finanzsymbole.
+Das Ziel ist ein **eingefrorener Frame aus einem hochwertigen 3D-Animationsfilm**, nicht eine trockene Finanzillustration und nicht eine Sammlung hübscher Symbole.
 
 Pflicht:
 
 - klar stylized 3D, niemals fotorealistisch
 - premium Animation-Film-Qualität
-- glaubwürdige erkennbare Gegenstände
+- bekannte Figuren/Gegenstände tragen die Bedeutung
+- sichtbare Handlung, Reaktion, Ursache/Wirkung, Konflikt oder Progression
 - hochwertige Materialien, Licht, Tiefe und Kontaktschatten
-- tiefschwarzer ruhiger Hintergrund
+- tiefschwarze ruhige Bühne
 - wichtige Gegenstände groß und sofort lesbar
 - gleiche Welt über das gesamte Reel
 - Zuschauer soll die Aussage in ca. 1–2 Sekunden auch ohne Ton verstehen
 
-Bevorzugte konkrete Anker:
+Bevorzugte bekannte Anker:
 
-- Rechnung
-- Konto / Überweisung
-- Karte / Zahlung
-- Kalender / Sparrate
-- Vertrag / Produktunterlagen
-- Einkauf / Haushaltskosten
-- Reparatur
-- Smartphone oder Bankkontakt, wenn inhaltlich passend
+- Person / Familie / Kunde / Arbeitnehmer
+- Rechnung / Kassenzettel / Gebührenbeleg
+- Geld / Portemonnaie / Konto / Karte
+- Smartphone / Vertrag / Kalender
+- Fernseher / Sofa / Laptop / Auto / Einkauf
+- Waschmaschine / Reparatur / Haushaltskosten
+- Sparrate / Depotunterlagen / Bankkontakt
 
-Menschen sind optional. Sie werden eingesetzt, wenn Handlung, Reaktion oder Maßstab dadurch klarer werden.
+Menschen sind optional, dürfen aber ausdrücklich Hauptträger der Szene sein. Wenn eine Figur vorkommt, muss Pose, Reaktion oder Handlung die Aussage mittragen. Eine generische Corporate-3D-Figur, die nur neben einem Objekt steht, ist keine gute Szene.
 
-### Abstraktion
+### Intuitive Metaphern und Übertreibung
 
-Nicht als automatische `literal`-Standardsprache:
+Metaphern sind **ausdrücklich erlaubt** und dürfen eine literal Darstellung schlagen, wenn sie schneller und klarer erklären.
+
+Gute Richtung:
+
+- kleiner Ratenzettel vorne, riesiger realer Kassenzettel dahinter
+- mehrere bekannte Produkte ziehen gleichzeitig am selben Budget/Portemonnaie
+- kleine Gebührenzettel sammeln sich sichtbar über viele Jahre zu einem großen Stapel
+- eine Figur läuft, während eine lange Reihe von Rechnungen sichtbar hinterherzieht
+
+Die Metapher darf kein Rätsel sein. Bekannte Dinge müssen die Bedeutung tragen.
+
+Nicht als automatische Standardsprache:
 
 - `capital body`
 - `wealth tower`
 - `value block`
 - `investment block`
 - `fee token`
+- Fantasie-Klammer
+- erfundene Finanzmaschine
 - isolierte geometrische Wertkörper
 - Tresor + Schild + Münzen + Pfeil als komplette Erklärung
 
-Solche Abstraktionen sind nur als bewusst begründete Metapher erlaubt.
+Solche abstrakten Hauptmotive sind nur als bewusst begründete Metapher erlaubt und müssen trotzdem den Instant-Read-Test bestehen.
 
 Die frühere YouTube-Phase-A-DNA darf als Qualitätsreferenz für Modellierung, Licht, Tiefe, Kamera und Story-Moment dienen. Sie ist kein separater Reel-Vertrag.
 
@@ -191,10 +207,19 @@ Kurze Objektlabels sind erlaubt, wenn sie Mehrdeutigkeit verhindern, z. B. `Notg
 
 ### Prompt-QA
 
+Neue Reels mit der Story-Moment-Revision dokumentieren zusätzlich:
+
+```text
+VISUAL_STORY_MOMENT
+INSTANT_READ_TEST
+```
+
 Jeder Prompt ist individuell und mittel-lang:
 
 ```text
-konkrete Situation + Ursache/Wirkung
+bekannte Figur/Gegenstände + sichtbarer Story-Moment
+→ Ursache/Wirkung oder klare Progression
+→ intuitive Übertreibung/Metapher wenn sinnvoll
 → kurze Labels wenn nötig
 → Style
 → Background
@@ -208,9 +233,11 @@ konkrete Situation + Ursache/Wirkung
 Bild verwerfen und dieselbe Nummer neu erzeugen, wenn:
 
 - es hübsch ist, aber den Sprechpunkt nicht erklärt
-- die Situation erst entschlüsselt werden muss
+- keine kleine sichtbare Geschichte/Beziehung vorhanden ist
+- die Situation oder Metapher erst entschlüsselt werden muss
 - Ursache/Wirkung unklar ist
 - es generisch zu vielen Finanzthemen passen würde
+- eine Figur nur dekorativ herumsteht
 - es fotorealistisch, UI-lastig, katalogartig oder cluttered wird
 - der Hintergrund nicht deep black bleibt
 
@@ -316,7 +343,7 @@ Kompatibilitäts-Lock:
 finanzneo-premium-physical-animation-v2
 ```
 
-Visuelles Ziel bleibt V9.
+Visuelles Ziel bleibt V9. Story-Moment-Revision bleibt `finanzneo-readable-story-moment-v1`.
 
 ### Eine Welt statt Motion-Sonderstil
 
@@ -327,7 +354,7 @@ Reihenfolge:
 ```text
 SPRECHPUNKT
 → VERSTÄNDNISZIEL
-→ REALE/ERKENNBARE AUSGANGSSITUATION
+→ BEKANNTE FIGUR/GEGENSTÄNDE ODER SOFORT VERSTÄNDLICHER STORY-MOMENT
 → HAUPTMECHANIK
 → FINANCE MOTION LIBRARY AUF SEMANTISCHEN FIT PRÜFEN
 → SAME-WORLD-PASS PRÜFEN
@@ -339,11 +366,11 @@ Die Finance Motion Library ist ein **Mechanik-Werkzeugkasten, keine Art-Directio
 Direkter Library-Einsatz ist nur zulässig, wenn:
 
 1. die Mechanik den gesprochenen Punkt wirklich erklärt und
-2. das Resultat sichtbar zur V9-Serie passt.
+2. das Resultat sichtbar zur V9-Serie und Story-Moment-Logik passt.
 
 Wenn eine Library-Komponente wie Dashboard, Infografik oder abstrakte Value-Geometrie wirkt, wird die Mechanik individuell in der V9-Welt umgesetzt.
 
-Konkrete Realweltobjekte sind bevorzugt, wenn sie den Punkt verständlicher machen; es gibt aber keine künstliche Mindestanzahl und keinen Zwang zu bestimmten Physical-Primitives.
+Auch Animationen dürfen intuitive Übertreibung/Metapher verwenden, wenn bekannte Figuren/Gegenstände die Bedeutung tragen und die Handlung ohne Untertitel lesbar bleibt.
 
 ### Pflichtlogik
 
@@ -392,6 +419,7 @@ Header, Caption, Canvas und Safe-Zone-Clipping werden exakt einmal vom zentralen
 - Flowchart
 - reine Texttafel mit Fade/Scale
 - kleine Boxen mit dünnen Verbindungslinien
+- abstrakte `capital body`/`value block`/`wealth tower`-Mechanik ohne sofort lesbare bekannte Bedeutung
 - Partikel/Aurora/Grid als Szenenhintergrund
 - `Math.sin` / `Math.cos` als Frame-Diff-Hack
 - Dummy-/Placeholder-Komponenten
