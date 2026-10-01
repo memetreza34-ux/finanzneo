@@ -9,6 +9,7 @@ const validator = resolve('scripts/validate-future-image-storytelling-v3.mjs');
 const POLICY = `IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 Literal first, creative second.
 TRANSFERABILITY-TEST
+ABSTRAKTE FINANZKÖRPER
 Förderbänder, Schienen, Schranken, Käfige`;
 
 const contract = {
@@ -37,6 +38,10 @@ const contract = {
   oneImagePerSentenceWhenItImprovesClarity: true,
   extraImagePreferredOverOverloadedStill: true,
   labelsSupplementalOnly: true,
+  animationFilmRenderingRequired: true,
+  groundedStoryMomentRequired: true,
+  abstractFinanceObjectAsDefaultForbidden: true,
+  phaseAQualityReferenceOnly: true,
 };
 
 const makeReel = (overrides: Record<string, string> = {}) => {
@@ -56,6 +61,7 @@ const makeReel = (overrides: Record<string, string> = {}) => {
     metaphorJustification: overrides.metaphorJustification ?? 'none',
   };
 
+  const imagePrompt = overrides.imagePrompt ?? 'Create a stylized 3D scene of a bank transfer before authorization. Show recipient name and IBAN visibly being compared, with a clear mismatch warning stopping the payment.';
   const prompt = `VISUAL_STRATEGY: ${meta.strategy}
 LITERAL_REAL_WORLD_SITUATION: ${meta.literalSituation}
 REAL_WORLD_CONTEXT_ANCHOR: ${meta.contextAnchor}
@@ -64,7 +70,7 @@ TRANSFERABILITY_TEST: ${meta.transferabilityTest}
 METAPHOR_JUSTIFICATION: ${meta.metaphorJustification}
 
 IMAGE PROMPT:
-Create a stylized 3D scene of a bank transfer before authorization. Show recipient name and IBAN visibly being compared, with a clear mismatch warning stopping the payment.
+${imagePrompt}
 
 ${POLICY}
 `;
@@ -115,6 +121,32 @@ test('Metapher ohne konkrete Begründung wird blockiert', () => {
     const result = spawnSync(process.execPath, [validator, root], {encoding: 'utf8'});
     assert.notEqual(result.status, 0);
     assert.match(result.stderr, /METAPHOR_JUSTIFICATION|Metapher/i);
+  } finally {
+    rmSync(root, {recursive: true, force: true});
+  }
+});
+
+test('abstrakter capital body wird als literal-Standard blockiert', () => {
+  const root = makeReel({
+    imagePrompt: 'Create a giant emerald capital body beside a red fee token on a black background.',
+  });
+  try {
+    const result = spawnSync(process.execPath, [validator, root], {encoding: 'utf8'});
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /abstrakte Finanzkörper|capital body|literal-Hauptidee/i);
+  } finally {
+    rmSync(root, {recursive: true, force: true});
+  }
+});
+
+test('abstrakte Darstellung bleibt als bewusst begründete Metapher erlaubt', () => {
+  const root = makeReel({
+    strategy: 'metaphor',
+    metaphorJustification: 'Die abstrahierte Form zeigt den langfristigen Größenunterschied klarer als eine konkrete Alltagsszene.',
+    imagePrompt: 'Create two stylized wealth towers as a deliberate comparison metaphor, clearly different in final height.',
+  });
+  try {
+    execFileSync(process.execPath, [validator, root], {stdio: 'pipe'});
   } finally {
     rmSync(root, {recursive: true, force: true});
   }
