@@ -1,14 +1,16 @@
 // Compatibility lock stays stable so existing sealed reels and the V9 image world
 // are not migrated by this animation-only hardening.
 export const PREMIUM_ANIMATION_LOCK = 'finanzneo-premium-physical-animation-v2';
+export const STORY_MOMENT_REVISION = 'finanzneo-readable-story-moment-v1';
 
 export const premiumAnimationContractFields = () => ({
   premiumVisualLock: PREMIUM_ANIMATION_LOCK,
   visualTargetWorld: 'finanzneo-stylized-3d-animated-black-v9',
+  storyMomentRevision: STORY_MOMENT_REVISION,
 
   // The Finance Motion Library is a semantic mechanism toolbox, not an art-style
   // reference. Direct reuse is allowed only when the rendered mechanism still
-  // looks like the same grounded FinanzNeo world as the Flow images.
+  // looks like the same FinanzNeo animated-film world as the Flow images.
   financeMotionLibraryId: 'finanzneo-finance-motion-library-v1',
   financeMotionLibraryAvailable: true,
   financeMotionLibraryRole: 'mechanism-tool-not-style-reference',
@@ -19,8 +21,20 @@ export const premiumAnimationContractFields = () => ({
   libraryReuseMayRepeatAcrossScenes: true,
   libraryParametersMustFollowSceneContent: true,
 
+  // Same visual storytelling rule as the image world: familiar things carry the
+  // meaning, and movement turns them into a readable mini-story. Intuitive
+  // exaggeration/metaphor is allowed when it improves instant comprehension.
+  familiarObjectsOrCharactersPreferred: true,
+  readableStoryMomentRequired: true,
+  instantMeaningWithoutCaptionRequired: true,
+  intuitiveMetaphorAllowed: true,
+  intuitiveMetaphorMayBeatLiteralWhenClearer: true,
+  exaggeratedPhysicalStoryAllowed: true,
+  familiarObjectMetaphorRequired: true,
+  corporateStockCharacterAsStaticDecorationForbidden: true,
+
   // Physical primitives remain optional. Grounding is about understandable
-  // real-world meaning, not about forcing one component family.
+  // meaning, not about forcing one component family.
   requirePremiumPhysicalStage: false,
   requirePhysicalObjects: false,
   premiumPhysicalStageOptional: true,
