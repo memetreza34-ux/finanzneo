@@ -1,4 +1,5 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 14 - Kosten sind nicht alles.png
 
@@ -9,16 +10,17 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Qualität
 
 IMAGE PROMPT:
-Create one premium stylized 3D investment-decision scene on a dark desk. A person or pair of hands is comparing two believable investment folders side by side. In front of the folders lie four substantial physical decision tabs or markers labelled “Kosten”, “Risiko”, “Diversifikation”, and “Qualität”. The scene must communicate that fees matter, but they are only one of several important criteria when choosing an investment. Make the decision context feel practical and real rather than symbolic or diagrammatic.
+Create a premium stylized 3D animation-film decision frame in the deep-black FinanzNeo world. One central investment-choice object is being evaluated by four substantial physical tabs attached around its edges: “Kosten”, “Risiko”, “Diversifikation” and “Qualität”. The red-orange “Kosten” tab is important but visibly only one of four equally real factors; the other three use neutral/emerald treatments. The frozen moment should feel like the viewer is seeing a product pass through a four-factor inspection, not looking at an icon grid.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D with believable documents, hands and desk objects, polished materials, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with a restrained financial-planning desk environment fading into black.
-COMPOSITION: one practical comparison action, four clearly attached criteria, strong hero scale and clean negative space.
-COLORS + LIGHT: emerald/gold restrained finance accents, ivory/soft gray documents, red-orange only for cost/warning emphasis, premium studio lighting and soft contact shadows.
-TEXT: only “Kosten”, “Risiko”, “Diversifikation” and “Qualität”.
-FORBIDDEN: balance-scale infographic, floating cards, flowchart, dashboard, app UI, icon grid, abstract arrows, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Investment choice → four real criteria act on it at once → cost matters, but it is not the whole decision.
+COMPOSITION:
+Investment object large center foreground at a slight angle, four tabs mechanically attached from different depths/directions, clean asymmetry and strong 3D separation.
+MATERIALS:
+Premium satin investment object, thick labeled tabs with rounded edges, subtle metal attachment points.
+LIGHTING:
+Neutral premium studio key, red-orange only on “Kosten”, emerald restrained on positive quality/diversification cues.
+TEXT:
+Only the four listed labels.
+FORBIDDEN:
+Desk, hands comparing folders, icon grid, balance-scale infographic, dashboard, flowchart, floating cards, photorealism, clutter.

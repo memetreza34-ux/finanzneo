@@ -1,37 +1,36 @@
-FINANZNEO STYLIZED 3D ANIMATED BLACK WORLD — V9
+FINANZNEO PHASE-A FROZEN STORY WORLD — FORMAT B
 
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
+DNA_SOURCE: youtube/warum-dein-geld-verschwindet-images-only
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 STYLE_REFERENCE_POLICY: selected-cover-style-only
 
-STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack, dashboard or stock photograph.
+VISUAL DNA:
+Premium clearly stylized 3D animation-film rendering. Deep seamless black dominant world. High-quality modeling, refined rounded geometry, semi-realistic but visibly stylized materials, premium studio lighting, controlled highlights, readable shadows and strong foreground-to-background depth. Warm ivory and soft gray are neutral. Emerald green means positive/value/growth. Warm red-orange means cost/risk/problem. Subtle gold is reserved for money/value accents.
 
-SELECTED COVER STYLE ANCHOR:
-After the user chooses Cover A, B or C, use that exact chosen cover only as a visual STYLE reference for material feeling, 3D geometry language, lighting, contrast, color character, camera feeling and render quality. Never copy its headline, layout, object arrangement or scene content into normal image scenes unless the scene prompt explicitly asks for it.
-
-BACKGROUND:
-A seamless deep black background is mandatory. A believable local environment may appear when it helps explain the situation: for example part of a desk, banking counter, home-finance workspace, document area, shelf or savings setup. The environment must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
+STORY RULE:
+One image = one dominant idea. Every image must feel like a frozen frame from an animated finance story. Show a visible relationship, physical interaction, cause-effect, progression, tension, transformation or payoff. The scene must communicate the spoken point through what the objects are doing, not through a generic infographic layout.
 
 COMPOSITION:
-The image must visually explain the spoken point, not merely symbolize it. Prefer one coherent real-life finance situation with a physical context anchor. Show cause and effect directly in the same frame whenever possible. Supporting objects have no fixed count: include only what is needed for immediate understanding. The viewer should understand the intended meaning within 1–2 seconds without audio.
+Use a small number of large readable hero objects. Prefer asymmetric 3/4 compositions, diagonals, foreground/midground/background staging and clear depth. A curved path, chain, strap, conveyor, calendar sequence or repeated object may be used when it physically carries the story. Do not ban visual metaphors when they are immediately readable and directly tied to the spoken point.
 
-REAL-WORLD ANCHOR RULE:
-Do not default to isolated abstract finance geometry. A normal scene should usually contain at least one believable context anchor such as a desk, document, folder, calendar, savings container, bank counter, receipt, envelope, real household object or human hand/person when useful. Pure comparison objects are allowed only when they are physically believable and clearly stronger than a real-world scene.
+NO DESK DEFAULT:
+Do NOT default to a desk, table, shelf, office, banking counter, room or realistic workspace. Use those only when the spoken point genuinely requires that environment. Most scenes should live directly in the deep-black FinanzNeo world with physical objects interacting in space.
 
-ANTI-INFOGRAPHIC RULE:
-Do not use winding roads, snake tracks, racetracks, floating bars, pie/donut charts, generic progress blocks, abstract arrows, isolated stacks, icon collections or infographic layouts as the main scene unless the spoken point literally requires that object. Never solve a scene by arranging generic finance symbols on black.
+NO CATALOG DEFAULT:
+No centered product shot, symmetric prop lineup, neat object collection or static tabletop arrangement. Objects must have a narrative relationship.
 
-COLORS + LIGHT:
-Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
+SELECTED COVER STYLE ANCHOR:
+After the user chooses Cover A, B or C, use that exact chosen cover only as the visual STYLE reference for material language, 3D abstraction level, lighting, contrast, color treatment, camera feeling and finish quality. Never copy its headline, layout, object arrangement or exact scene content into later images.
 
 TEXT:
-Only explicitly requested short German labels may appear. No headline, subtitle, CTA or long explanatory sentence in normal scene images. Cover candidates are the explicit exception and may contain their specified cover text.
+Normal image scenes use no headline, subtitle, CTA or explanatory paragraph. Only short German labels physically attached to an otherwise ambiguous object are allowed. Keep labels sparse. Cover candidates are the explicit exception and may contain their specified cover text.
 
 FORBIDDEN:
-No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no winding infographic path, no abstract road/timeline as the main composition, no pie/donut-chart metaphor, no dashboard or app UI, no flowchart, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene, no toy-like diorama and no decorative clutter.
+Photorealism, stock-photo look, real-photo hands as a default, generic finance icon collections, dashboard/app UI, flowchart, floating info-card grids, flat infographic layouts, static bar/pie-chart compositions, tiny miniature dioramas, excessive props, decorative clutter, cyberpunk effects and toy-like cheap 3D.
 
 PROMPT POLICY:
-Every image prompt must be individually and completely written for the exact spoken point. Start with a concrete situation and visible cause/effect, identify the physical context anchor, add exact short German labels only when they improve understanding, then give style/background/composition/forbidden rules. The chosen cover keeps the rendering language consistent; the scene prompt keeps the content unique.
+Write every image prompt individually from the spoken point. First define the frozen story moment and the physical cause/effect. Then define hero objects, action, composition, materials, light and only the labels that are truly necessary. The chosen cover keeps the rendering language consistent; the scene prompt keeps the story unique.

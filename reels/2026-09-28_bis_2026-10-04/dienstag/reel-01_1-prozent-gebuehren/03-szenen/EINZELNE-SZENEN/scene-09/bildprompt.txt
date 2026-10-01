@@ -1,4 +1,5 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 09 - Zwanzig Jahre deutlicher Abstand.png
 
@@ -8,16 +9,17 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 171.700 €
 
 IMAGE PROMPT:
-Create the same premium stylized 3D investment setup as the earlier five-year checkpoint, now twenty years later. On the same dark shelf or desk, two matching transparent investment jars stand side by side, but the left jar is now clearly fuller and physically more substantial. Add one simple physical calendar marker labelled “20 Jahre”. Label the left jar “196.700 €” and the right jar “171.700 €”. The larger long-term gap must be immediately visible through the physical fill difference, not through a chart.
+Create a premium stylized 3D animation-film frame in the same deep-black world, now showing a twenty-year checkpoint. Two related emerald wealth structures rise from equal bases, but the left has become visibly larger and extends much farther upward/back into depth. A physical milestone tile marked “20 Jahre” sits at the shared base. Attached value plates read “196.700 €” and “171.700 €”. The long-term gap must now be obvious at first glance.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable transparent materials and object scale, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with restrained shelf/desk context fading into black.
-COMPOSITION: same baseline and same object family as the five-year comparison, but now with a clearly larger physical gap.
-COLORS + LIGHT: emerald/gold value accents, neutral surroundings, premium soft studio lighting and readable contact shadows.
-TEXT: only “20 Jahre”, “196.700 €” and “171.700 €”.
-FORBIDDEN: chart bars, graph axes, dashboard, app UI, floating cards, abstract progress blocks, winding path, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Same equal base → much more time → small rate difference has become a large physical gap.
+COMPOSITION:
+Low dramatic 3/4 angle, equal bases foreground, tops separating strongly through vertical and depth staging, asymmetry created by the larger left outcome. No furniture.
+MATERIALS:
+Layered emerald wealth forms with restrained gold value accents, matte ivory milestone tile.
+LIGHTING:
+Premium studio light emphasizing the growing separation without turning it into a chart.
+TEXT:
+Only “20 Jahre”, “196.700 €”, “171.700 €”.
+FORBIDDEN:
+Desk/shelf, jars, graph axes, bar-chart interface, floating cards, dashboard, photorealism, clutter.

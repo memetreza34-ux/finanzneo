@@ -1,4 +1,5 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 13 - Kosten nachsehen.png
 
@@ -6,16 +7,17 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Kosten
 
 IMAGE PROMPT:
-Create one premium stylized 3D personal-finance desk scene. A substantial magnifying glass is actively inspecting two believable physical investment documents: one product information sheet and one price/service document. Several cost rows are visibly highlighted and one short label “Kosten” anchors the action. The viewer must immediately understand: check the fees before choosing the investment product. Keep the documents physical and readable as objects, not as a browser or app screenshot.
+Create a premium stylized 3D animation-film frame in a deep seamless black world. One oversized magnifying glass moves across a thick folded investment document, enlarging a short red-orange strip labeled “Kosten”. Behind the document, a second product document waits slightly out of focus, creating a clear frozen moment of checking fees before choosing. The magnifying glass and highlighted fee strip are the action, not a desk setup.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable paper/glass materials, useful physical detail, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with restrained desk context fading into black.
-COMPOSITION: one clear inspection action with large foreground magnifying glass and two documents; immediate cause/decision context.
-COLORS + LIGHT: restrained emerald/gold finance accents, ivory/soft gray documents, red-orange only for highlighted fee rows, premium soft studio lighting and contact shadows.
-TEXT: only the exact short label “Kosten”; no readable paragraphs or UI text.
-FORBIDDEN: browser screenshot, app UI, dashboard, floating info cards, flowchart, tiny text wall, generic finance icon layout, clutter, photorealism.
+VISUAL STORYTELLING:
+Investment document → active inspection → hidden cost line becomes impossible to miss.
+COMPOSITION:
+Document angled through midground, magnifying glass very large in foreground crossing it diagonally, second document in background depth, asymmetric and cinematic.
+MATERIALS:
+Thick ivory paper, refined glass lens, brushed-metal rim, red-orange printed fee strip.
+LIGHTING:
+Clean premium key light, bright lens highlight, restrained red-orange focus on the cost strip.
+TEXT:
+Only “Kosten”; no readable paragraph.
+FORBIDDEN:
+Desk, browser/app screenshot, tiny text wall, dashboard, floating info cards, static product shot, photorealism, clutter.

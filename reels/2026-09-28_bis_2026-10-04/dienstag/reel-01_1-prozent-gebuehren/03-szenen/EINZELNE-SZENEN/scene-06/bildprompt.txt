@@ -1,4 +1,5 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 06 - Sieben gegen sechs Prozent.png
 
@@ -7,16 +8,17 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 6 %
 
 IMAGE PROMPT:
-Create one premium stylized 3D investment-comparison scene on a shared dark desk or shelf. Two physically identical transparent investment containers stand side by side with the same starting level, same size, same materials and same surroundings. The only visible difference is one clean label “7 %” on the left and “6 %” on the right. The viewer must instantly understand that everything is equal except this one percentage point.
+Create a premium stylized 3D animation-film comparison in a deep seamless black world. Two physically identical emerald investment bodies begin from the same low starting level in the foreground. The left body marked “7 %” has grown only slightly more than the right body marked “6 %”. Their shapes, materials and starting point must be identical so the single percentage-point difference is the only variable.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable construction, polished physical materials, never photorealistic.
-BACKGROUND: seamless deep black with restrained real desk/shelf context.
-COMPOSITION: stable side-by-side physical comparison on one baseline; no chart interface.
-COLORS + LIGHT: equal neutral lighting on both sides, restrained emerald/gold investment accents, premium studio shadows.
-TEXT: only “7 %” and “6 %”.
-FORBIDDEN: chart bars, progress bars, racetrack, winding path, dashboard, app UI, floating comparison cards, icon collection, clutter, photorealism.
+VISUAL STORYTELLING:
+Same start, same structure, only one small growth-rate difference.
+COMPOSITION:
+Low 3/4 angle, two large matched investment bodies side by side with one shared starting baseline visible in foreground; tiny but readable height difference, strong depth and no surrounding furniture.
+MATERIALS:
+Refined rounded emerald forms with subtle gold inner value layers.
+LIGHTING:
+Exactly equal studio lighting on both sides; no color trick that biases the comparison.
+TEXT:
+Only “7 %” and “6 %”.
+FORBIDDEN:
+Desk/shelf, glass jars, chart axes, bar-chart UI, progress bars, floating cards, dashboard, photorealism, clutter.

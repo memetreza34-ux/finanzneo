@@ -1,4 +1,5 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 04 - Startkapital und Sparrate.png
 
@@ -7,16 +8,17 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 300 € / Monat
 
 IMAGE PROMPT:
-Create one premium stylized 3D personal-finance desk scene showing the beginning of a long investment plan. A substantial starting-capital envelope or cash bundle labelled “10.000 €” sits beside a recurring monthly contribution envelope labelled “300 € / Monat”. A simple physical desk calendar is open nearby to make the recurring monthly rhythm obvious. Arrange everything as one believable financial setup on the same desk, not as separate infographic cards.
+Create a premium stylized 3D animation-film frame in a deep seamless black world. A substantial starting-capital bundle marked “10.000 €” is already feeding into one emerald investment core. From behind it, a repeating chain of smaller monthly contribution packets marked “300 € / Monat” approaches the same core at regular spacing, making the ongoing saving rhythm immediately visible.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, recognizable everyday objects, believable scale, polished materials, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with only a small useful desk environment fading into black.
-COMPOSITION: one coherent savings setup, strong main grouping, immediate understanding within 1–2 seconds.
-COLORS + LIGHT: emerald accents for investing, subtle warm gold for money, ivory/soft gray for desk objects, premium soft studio light and contact shadows.
-TEXT: only “10.000 €” and “300 € / Monat”.
-FORBIDDEN: winding road, snake track, progress path, dashboard, app UI, floating cards, icon layout, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Large starting amount already invested + repeated smaller monthly contributions continue feeding the same investment.
+COMPOSITION:
+Investment core large center-right foreground, 10.000 € bundle entering from lower-left, repeating 300 € packets receding through depth from background-left toward the core. Strong diagonal depth, no table.
+MATERIALS:
+Premium paper money packets, satin emerald investment core, subtle gold value accents.
+LIGHTING:
+Clean studio light with gentle gold highlights on money and emerald separation on the investment core.
+TEXT:
+Only “10.000 €” and “300 € / Monat”.
+FORBIDDEN:
+Desk calendar setup, office scene, neat tabletop arrangement, dashboard, progress bar, generic road graphic, photorealism, clutter.

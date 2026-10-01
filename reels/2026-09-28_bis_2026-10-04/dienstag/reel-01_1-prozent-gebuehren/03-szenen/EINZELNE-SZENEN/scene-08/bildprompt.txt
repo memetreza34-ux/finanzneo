@@ -1,4 +1,5 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 08 - Fuenf Jahre kleiner Abstand.png
 
@@ -8,16 +9,17 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 34.400 €
 
 IMAGE PROMPT:
-Create one premium stylized 3D five-year investment checkpoint on a shared dark shelf or desk. Two matching transparent investment jars stand side by side, both visibly well filled and almost the same height. Add a small physical calendar marker labelled “5 Jahre”. The left jar is labelled “35.700 €”, the right jar “34.400 €”. The tiny difference in fill level must be noticeable only on closer look so the scene communicates that the early gap is still small.
+Create a premium stylized 3D animation-film checkpoint in the deep-black FinanzNeo world. Two matching emerald wealth towers stand close together after five years. Both are already substantial and almost the same height; the left is only slightly taller. A single thick physical milestone tile between/behind them reads “5 Jahre”. Small attached value plates read “35.700 €” and “34.400 €”. The early gap should feel almost disappointingly small.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable transparent materials, recognizable everyday scale, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with restrained shelf/desk context fading into black.
-COMPOSITION: same two physical containers, same baseline, very small visible difference.
-COLORS + LIGHT: emerald/gold value accents, neutral surroundings, premium soft studio light, readable contact shadows.
-TEXT: only “5 Jahre”, “35.700 €” and “34.400 €”.
-FORBIDDEN: chart bars, graph axes, dashboard, app UI, floating cards, abstract progress blocks, winding path, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Five years pass → both grow strongly → difference is still tiny.
+COMPOSITION:
+Two large towers dominate the frame, near-equal tops at slightly different depths, milestone tile receding behind them, tight 3/4 view and strong black negative space around the hero forms.
+MATERIALS:
+Rounded layered emerald structures with restrained gold value layers, matte ivory milestone tile.
+LIGHTING:
+Balanced premium studio light, crisp silhouette separation.
+TEXT:
+Only “5 Jahre”, “35.700 €”, “34.400 €”.
+FORBIDDEN:
+Desk/shelf, glass jars, graph axes, bar-chart UI, dashboard, floating cards, photorealism, clutter.

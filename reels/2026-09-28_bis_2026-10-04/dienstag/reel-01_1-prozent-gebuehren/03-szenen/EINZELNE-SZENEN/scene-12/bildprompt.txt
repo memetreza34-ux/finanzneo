@@ -1,4 +1,5 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 12 - Unterschied 85600 Euro.png
 
@@ -7,16 +8,17 @@ BESCHRIFTUNGEN – EXAKT SO:
 - gleiche Einzahlungen
 
 IMAGE PROMPT:
-Create one premium stylized 3D long-term investment result scene on a dark financial-planning desk. Two large matching investment containers stand side by side after the same saving journey. Behind both containers are visibly identical contribution envelopes or deposit records, reinforced by the short label “gleiche Einzahlungen”. Between the two outcomes sits one substantial physical stack of value labelled “≈ 85.600 €”, representing the wealth gap created by the different long-term return/cost path. Make the difference feel tangible and significant without turning the scene into a chart.
+Create a premium stylized 3D animation-film payoff frame in the deep-black FinanzNeo world. Two large wealth structures stand on the same shared base after the same contribution journey. A wide physical brace at their base is labeled “gleiche Einzahlungen”. Between their final heights, one substantial detachable gold value block marked “≈ 85.600 €” exactly fills the visible difference. The gap must feel tangible, heavy and surprising.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable physical money/value objects, polished materials, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with restrained desk context fading naturally into black.
-COMPOSITION: two believable long-term investment outcomes plus one tangible central difference stack; clear physical hierarchy.
-COLORS + LIGHT: emerald/gold value accents, neutral ivory/soft gray desk elements, premium studio lighting and soft contact shadows.
-TEXT: only “≈ 85.600 €” and “gleiche Einzahlungen”.
-FORBIDDEN: bar chart, graph axis, dashboard, app UI, floating cards, abstract progress blocks, winding path, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Same deposits → different long-term outcome → the missing wealth becomes one physical object the viewer can see.
+COMPOSITION:
+Shared base large foreground, two outcome structures rising behind it, gold difference block suspended/fitted between the two final levels, dramatic depth and one dominant payoff.
+MATERIALS:
+Layered emerald wealth structures, brushed-gold difference block, matte ivory base brace.
+LIGHTING:
+Premium studio light with gold payoff emphasis and deep black separation.
+TEXT:
+Only “≈ 85.600 €” and “gleiche Einzahlungen”.
+FORBIDDEN:
+Desk, jars, bar-chart UI, graph axes, dashboard, floating cards, photorealism, clutter.

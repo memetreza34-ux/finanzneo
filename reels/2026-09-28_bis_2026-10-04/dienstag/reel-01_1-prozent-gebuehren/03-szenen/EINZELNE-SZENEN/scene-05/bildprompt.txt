@@ -1,4 +1,5 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 05 - Gleiche Einzahlungen.png
 
@@ -7,16 +8,17 @@ BESCHRIFTUNGEN – EXAKT SO:
 - gleiche Einzahlungen
 
 IMAGE PROMPT:
-Create a premium stylized 3D financial planning scene on one dark desk. Two identical transparent investment jars or account containers stand side by side, each receiving the same visible monthly contribution envelope from the same central source. Behind them, one physical calendar strip clearly indicates “30 Jahre”. The two containers and incoming contribution amounts must look deliberately identical so the viewer instantly understands “gleiche Einzahlungen”. Keep the setup physical and believable rather than diagrammatic.
+Create a premium stylized 3D animation-film frame in the deep-black FinanzNeo world. One central stream of identical monthly contribution packets splits physically into two perfectly equal streams and feeds two matching emerald investment bodies. A sequence of thick calendar tiles recedes behind them into the black depth and is marked once with “30 Jahre”. Both sides must receive visibly identical packets so the fairness of the comparison is unmistakable.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D with believable proportions and polished but clearly animated materials.
-BACKGROUND: seamless deep black with restrained desk context fading into black.
-COMPOSITION: two equal physical investment setups on one shared surface; equality must be obvious without a chart.
-COLORS + LIGHT: balanced neutral setup with restrained emerald/gold accents, soft premium studio lighting and contact shadows.
-TEXT: only “30 Jahre” and “gleiche Einzahlungen”.
-FORBIDDEN: winding track, racetrack, road, flowchart, arrows as main explanation, dashboard, app UI, floating cards, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+One equal source → identical contributions split evenly → two matched long-term investments.
+COMPOSITION:
+Contribution source foreground-center, clean Y-shaped physical split, two investment bodies left/right midground, calendar tiles disappearing into background depth. Energetic but simple; not a chart.
+MATERIALS:
+Thick paper contribution packets, satin emerald investment bodies, matte ivory calendar tiles.
+LIGHTING:
+Balanced equal lighting on both sides, subtle gold on contribution packets.
+TEXT:
+Only “30 Jahre” and “gleiche Einzahlungen”.
+FORBIDDEN:
+Desk, jars on a shelf, flowchart boxes, dashboard, bar chart, racetrack, flat infographic, photorealism, clutter.

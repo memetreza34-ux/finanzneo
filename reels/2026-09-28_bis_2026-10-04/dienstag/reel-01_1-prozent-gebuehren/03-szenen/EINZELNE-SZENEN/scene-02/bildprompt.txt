@@ -1,4 +1,5 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 02 - Kosten kommen aus dem Vermoegen.png
 
@@ -6,16 +7,17 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Kosten
 
 IMAGE PROMPT:
-Create one coherent premium stylized 3D home-investment scene on a dark desk. A believable investment folder and a sturdy transparent savings/investment container sit together as one setup. A human hand is physically removing one small warm-gold value piece from the invested container and placing it onto a red-orange fee receipt labelled “Kosten”. The viewer must instantly understand that the fee is paid out of the invested wealth itself. Keep the action large and readable, not miniature.
+Create a premium stylized 3D animation-film frame in the deep-black FinanzNeo world. A large emerald investment-capital block is being physically pulled apart at one edge by a red-orange cost strap labeled “Kosten”. The strap has already extracted one warm-gold value segment and is dragging it away into the background. The missing segment remains visibly cut out of the capital body so the viewer instantly understands that the fee comes directly out of invested wealth.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable object proportions, clean semi-realistic material detail, clearly animated/stylized and never photorealistic.
-BACKGROUND: one seamless deep black background with only the useful desk context fading naturally into black.
-COMPOSITION: one clear physical action, large hero objects, direct cause and effect.
-COLORS + LIGHT: emerald investment object, subtle warm gold value, red-orange fee receipt, ivory/soft gray neutrals, clean premium studio lighting and soft contact shadows.
-TEXT: only the exact label “Kosten”.
-FORBIDDEN: pie chart, donut chart, floating fee slice, dashboard, app UI, flowchart, abstract arrows, icon collection, winding path, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Invested value → cost strap grabs a piece → capital is visibly smaller.
+COMPOSITION:
+Capital block large foreground-left, strap under tension pulling diagonally toward background-right, removed gold segment between them, strong depth and one clear action. No desk or realistic room.
+MATERIALS:
+Soft-rounded satin capital body, fabric-like red-orange strap, metallic-gold value segment.
+LIGHTING:
+Neutral premium key light on capital, warm red-orange accent along the outgoing cost direction.
+TEXT:
+Only “Kosten” physically on the strap/tag.
+FORBIDDEN:
+Hand taking cash from a jar, desk, receipt list, pie/donut chart, static product lineup, dashboard, floating cards, photorealism, clutter.

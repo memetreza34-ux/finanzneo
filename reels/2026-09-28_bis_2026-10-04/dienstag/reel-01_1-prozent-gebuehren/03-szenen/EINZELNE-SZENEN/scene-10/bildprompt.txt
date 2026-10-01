@@ -1,4 +1,5 @@
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 10 - Verschiedene Kostenquellen.png
 
@@ -9,16 +10,17 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Transaktion
 
 IMAGE PROMPT:
-Create one coherent premium stylized 3D investment-desk scene. In the center lies a believable investment folder beside a transparent investment container. Around it are four distinct physical fee documents or receipts clearly connected to the same investment setup: one labelled “Fondskosten”, one “Depot”, one “Service”, and one “Transaktion”. Each fee document has a small warm-gold value piece physically resting on it, making it obvious that all four cost types can reduce the same invested wealth. Keep the scene natural and readable, not diagrammatic.
+Create a premium stylized 3D animation-film frame in a deep seamless black world. One thick emerald investment envelope/core is caught under tension while four red-orange cost straps pull small gold value pieces away in four different directions. The four straps are physically labeled “Fondskosten”, “Depot”, “Service” and “Transaktion”. The investment remains the large hero object; the cost mechanisms are secondary but clearly connected to it.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable paper, glass and money materials, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with a restrained desk environment fading into black.
-COMPOSITION: one central investment setup with four real physical cost documents; no flowchart structure.
-COLORS + LIGHT: emerald/gold investment accents, red-orange restrained cost accents, ivory/soft gray documents, premium studio light and contact shadows.
-TEXT: only “Fondskosten”, “Depot”, “Service” and “Transaktion”.
-FORBIDDEN: floating info cards, arrows connecting boxes, flowchart, dashboard, app UI, abstract fee icons, pie/donut chart, clutter, miniature diorama, photorealism.
+VISUAL STORYTELLING:
+One investment → four different named cost mechanisms → all remove value from the same place.
+COMPOSITION:
+Investment hero large center-left foreground, four straps fan diagonally into different depths, visible tension and missing gold pieces, asymmetric frozen-action moment.
+MATERIALS:
+Thick satin investment envelope/core, fabric-like straps, small metallic-gold value pieces.
+LIGHTING:
+Neutral/emerald hero lighting with restrained red-orange emphasis along the outgoing straps.
+TEXT:
+Only the four physical cost labels.
+FORBIDDEN:
+Desk, receipt collection, neat document row, icon grid, flowchart, dashboard, pie chart, photorealism, clutter.

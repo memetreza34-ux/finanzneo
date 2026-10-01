@@ -4,34 +4,42 @@ COVER_VARIANT_COUNT: 3
 USER_SELECTION_REQUIRED: true
 SELECTED_COVER_BECOMES_SCENE_01: true
 SELECTED_COVER_IS_STYLE_REFERENCE: true
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 
 ABLAUF:
-1. Zuerst ausschließlich drei Cover-Kandidaten A, B und C erzeugen — strikt nacheinander, niemals parallel.
-2. Danach STOPP. Keine weiteren Szenenbilder erzeugen.
-3. Nutzer entscheidet A, B oder C.
-4. Nur die gewählte Variante wird exakt zu "Bild 01 - Ein Prozent wirkt klein.png" umbenannt.
-5. Dieses gewählte Bild ist gleichzeitig finales Cover + Scene 01 + visuelle Style-Referenz für alle folgenden Google-Flow-Bilder.
-6. Nicht gewählte Varianten sind nur Kandidaten und werden nicht in Phase 3 verwendet.
+1. Cover A einzeln erzeugen und vollständig abwarten.
+2. Cover B einzeln erzeugen und vollständig abwarten.
+3. Cover C einzeln erzeugen und vollständig abwarten.
+4. STOPP. Nutzer entscheidet A, B oder C.
+5. Nur die gewählte Variante wird exakt zu "Bild 01 - Ein Prozent wirkt klein.png" umbenannt.
+6. Das gewählte Bild ist finales Cover + Scene 01 + einzige visuelle Style-Referenz für die restlichen Flow-Bilder.
+
+GEMEINSAME BILDWELT FÜR A/B/C:
+Premium clearly stylized 3D animation-film rendering, deep seamless black world, refined rounded geometry, high-quality modeling, semi-realistic but visibly stylized materials, premium studio lighting, strong depth, warm ivory/soft gray neutrals, emerald positive/value, subtle gold money/value, red-orange cost/risk. The frame must look like a frozen moment from an animated finance story, never like a product photo, desk scene, dashboard or flat infographic. 1:1.
 
 COVER A — TEXT EXAKT:
 1 % KOSTEN
 SO TEUER?
-Komposition: ein dominantes großes Investment-Kapitalobjekt und ein scheinbar winziger 1-%-Kostenabzug; klare plakative Hero-Komposition.
+SCENE:
+One massive emerald investment-capital body dominates the frame while a tiny red-orange clamp marked “1 %” bites into one edge and physically pulls out a small gold value piece. The contrast must instantly communicate: tiny percentage, real extraction.
+COMPOSITION:
+Capital body large lower-left/center foreground, tiny clamp attacking from upper-right, extracted gold piece visibly between them, dramatic diagonal tension, deep black background, no desk.
 
 COVER B — TEXT EXAKT:
 85.600 €
 WEGEN 1 %?
-Komposition: starker Größenkontrast zwischen zwei langfristigen Vermögensausgängen; 85.600 € als visuell dominanter Payoff, aber keine Dashboard-/Chart-UI.
+SCENE:
+Two large stylized wealth structures rise from the same starting base. They begin almost equal but end at clearly different heights, with one substantial gold value chunk representing the final gap suspended between the endpoints.
+COMPOSITION:
+Same base in foreground, two outcomes diverging into depth, one large tangible gap object, cinematic 3D depth, no chart axes and no desk.
 
 COVER C — TEXT EXAKT:
 30 JAHRE
 1 % UNTERSCHIED
-Komposition: räumliche 30-Jahre-Finanzreise mit zwei Wegen, die am Anfang nahe beieinander liegen und sich sichtbar trennen; hochwertige 3D-Tiefe statt Infografik.
-
-STYLE-LOCK FÜR ALLE DREI:
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-Create a premium stylized 3D animated finance-explainer image with believable physical objects and clear depth. Use one seamless deep black background, emerald green for positive/growth, subtle warm gold for money/value, warm ivory/soft gray neutrals, red-orange only for costs/warnings. Use clean soft studio lighting, readable contact shadows, strong subject separation and recognizable physical construction. Never become photorealistic.
+SCENE:
+A repeated chain of identical monthly contribution packets travels through a long black-space time sequence and feeds two investment bodies. Near the foreground they are almost equal; deep in the scene one has become visibly larger than the other.
+COMPOSITION:
+Strong foreground-to-background progression, contribution packets create the 30-year journey, two final wealth bodies clearly separated, no infographic timeline and no desk.
 
 WICHTIG:
-Das ausgewählte Cover stabilisiert bei den späteren Bildern nur Materialgefühl, Geometriesprache, Beleuchtung, Kontrast, Farbcharakter und Render-Look. Normale Szenen übernehmen NICHT Cover-Text, Cover-Layout oder konkrete Objektanordnung, sofern ihr eigener Prompt das nicht verlangt.
+The chosen cover anchors only abstraction level, material language, lighting, colors, camera feeling and finish quality. Later images must use fresh compositions and fresh story moments.
