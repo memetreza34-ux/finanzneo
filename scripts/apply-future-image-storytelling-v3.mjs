@@ -10,6 +10,7 @@ if (!target) {
 }
 
 const CONTRACT_ID = 'finanzneo-image-storytelling-v3';
+const STORY_MOMENT_REVISION = 'finanzneo-readable-story-moment-v1';
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 if (!existsSync(indexPath)) {
@@ -21,13 +22,21 @@ const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 index.imageStorytellingContract = {
   id: CONTRACT_ID,
   appliesToNewReelsOnly: true,
+  storyMomentRevision: STORY_MOMENT_REVISION,
   literalFirstRequired: true,
   directRealWorldDepictionPreferred: true,
   recognizableFinanceContextRequired: true,
   exactVoiceBeatVisualMatchRequired: true,
   transferabilityTestRequired: true,
-  metaphorFallbackOnly: true,
+  metaphorFallbackOnly: false,
   metaphorNeedsExplicitJustification: true,
+  intuitiveMetaphorAllowed: true,
+  intuitiveMetaphorMayBeatLiteralWhenClearer: true,
+  familiarObjectsOrCharactersRequired: true,
+  instantStoryReadRequired: true,
+  exaggeratedPhysicalStoryAllowed: true,
+  familiarObjectMetaphorRequired: true,
+  animationFilmStoryFrameRequired: true,
   genericFantasyMechanismAsDefaultForbidden: true,
   railsConveyorsGatesCagesPortalsAsDefaultForbidden: true,
   practicalEverydaySituationRequired: true,
@@ -55,10 +64,12 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   if (!scene.imageStorytelling || typeof scene.imageStorytelling !== 'object') {
     scene.imageStorytelling = {
       strategy: 'literal',
-      literalSituation: '[EINFÜGEN — konkrete reale Situation, die im Sprechbeat wirklich passiert]',
-      contextAnchor: '[EINFÜGEN — klar erkennbarer Finanz-/Alltagskontext]',
+      literalSituation: '[EINFÜGEN — reale/erkennbare Ausgangslage oder bekannte Dinge, auf denen die Szene basiert]',
+      contextAnchor: '[EINFÜGEN — bekannte Figur/Gegenstände, die die Bedeutung tragen]',
+      storyMoment: '[EINFÜGEN — was passiert sichtbar im eingefrorenen Animationsfilm-Moment?]',
       voiceVisualMatch: '[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]',
-      transferabilityTest: '[EINFÜGEN — PASS: warum dieses Bild nicht genauso zu fünf anderen Finanzthemen passen könnte]',
+      instantReadTest: '[EINFÜGEN — PASS: warum versteht man die Szene in 1–2 Sekunden ohne Untertitel?]',
+      transferabilityTest: '[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]',
       metaphorJustification: 'none',
     };
   }
@@ -66,36 +77,40 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
 writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');
 
 const planningBlock = `VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: [EINFÜGEN — konkrete reale Situation, die im Sprechbeat wirklich passiert]
-REAL_WORLD_CONTEXT_ANCHOR: [EINFÜGEN — klar erkennbarer Finanz-/Alltagskontext]
+LITERAL_REAL_WORLD_SITUATION: [EINFÜGEN — reale/erkennbare Ausgangslage oder bekannte Dinge]
+REAL_WORLD_CONTEXT_ANCHOR: [EINFÜGEN — bekannte Figur/Gegenstände, die die Bedeutung tragen]
+VISUAL_STORY_MOMENT: [EINFÜGEN — konkrete sichtbare Handlung/Reaktion/Ursache-Wirkung im eingefrorenen Moment]
 VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum dieses Bild nicht genauso zu fünf anderen Finanzthemen passen könnte]
+INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Szene in 1–2 Sekunden ohne Untertitel?]
+TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
 METAPHOR_JUSTIFICATION: none`;
 
 const policyBlock = `IMAGE_STORYTELLING_CONTRACT: ${CONTRACT_ID}
+STORY_MOMENT_REVISION: ${STORY_MOMENT_REVISION}
 
-LITERAL_FIRST_POLICY: Literal first, creative second.
+FAMILIAR_STORY_FIRST_POLICY: Familiar things, clear story, creative when useful.
 
-FUTURE IMAGE STORYTELLING V3 — VERBINDLICH:
-- Beginne beim exakten Sprechbeat: Was passiert in der echten Welt wirklich? Diese Situation ist die erste Wahl für das Bild.
-- V9 beschreibt die RENDERING-WELT: premium stylized 3D animation-film, sichtbar stilisiert, hochwertig modelliert, tiefschwarzer Hintergrund. V9 ersetzt keine konkrete Storyidee.
-- Zeige einen sofort erkennbaren Finanz-/Alltagskontext wie Überweisung, Rechnung, Karte, Konto, Einkauf, Vertrag, Bankkontakt, Sparrate oder Zahlung, wenn dieser Kontext im Sprechbeat vorkommt.
-- Das Bild muss die gesprochene Aussage direkt zeigen; es darf nicht nur allgemein zum Oberthema Finanzen passen.
-- SUBTITLE-OFF-TEST: Ohne Überschrift und Untertitel muss ein fremder Zuschauer ungefähr erkennen können, was gerade erklärt wird.
+FUTURE IMAGE STORYTELLING V3 — STORY-MOMENT-REVISION VERBINDLICH:
+- Beginne beim exakten Sprechbeat: Was soll der Zuschauer in 1–2 Sekunden verstehen?
+- Wähle bekannte Figuren und/oder bekannte reale Gegenstände als Bedeutungsträger: z. B. Person, Geld, Rechnung, Kassenzettel, Karte, Konto, Smartphone, Kalender, Vertrag, Fernseher, Sofa, Einkauf, Waschmaschine.
+- Baue daraus einen klaren eingefrorenen STORY-MOMENT wie aus einem hochwertigen 3D-Animationsfilm. Es muss sichtbar etwas passieren: Handlung, Reaktion, Ursache/Wirkung, Konflikt, Vorher/Nachher oder Progression.
+- V9 beschreibt die RENDERING-WELT: premium stylized 3D animation-film, sichtbar stilisiert, hochwertig modelliert, tiefschwarze Bühne. V9 ersetzt keine Storyidee.
+- Eine intuitive Metapher oder Übertreibung ist ausdrücklich erlaubt und darf die wörtliche Darstellung schlagen, wenn sie schneller und klarer erklärt. Beispiel: kleiner Ratenzettel vorne, riesiger Gesamtkassenzettel dahinter.
+- Eine Metapher darf KEIN Rätsel sein. Bekannte Dinge müssen die Bedeutung tragen und INSTANT_READ_TEST muss PASS sein.
+- SUBTITLE-OFF-TEST: Ohne Überschrift und Untertitel muss ein fremder Zuschauer ungefähr erkennen können, was gerade passiert.
 - TRANSFERABILITY-TEST: Könnte dasselbe Bild unverändert auch zu fünf anderen Finanzthemen passen, ist es zu generisch und muss neu geplant werden.
-- Metaphern sind nur Fallback. Nutze sie erst, wenn die reale Situation visuell deutlich schlechter oder unverständlich wäre.
-- ABSTRAKTE FINANZKÖRPER sind KEINE Standardsprache: capital body, wealth tower, value block, investment block, fee token und ähnliche erfundene Wertobjekte dürfen eine reale Situation nicht ersetzen. Wenn sie ausnahmsweise Hauptmotiv werden, muss VISUAL_STRATEGY=metaphor gesetzt und METAPHOR_JUSTIFICATION konkret ausgefüllt werden.
-- Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale, Sortieranlagen, große Hebel und ähnliche Maschinen sind bei statischen Bildern KEINE Standard-Erklärung.
-- Ursache/Wirkung soll möglichst innerhalb einer verständlichen Situation stattfinden und nicht automatisch in eine Fantasiemaschine übersetzt werden.
-- Wenige große, gut modellierte Hero-Objekte sind besser als viele kleine Symbole. Starke 3/4-, diagonale oder räumlich gestaffelte Kompositionen sind erlaubt, wenn sie die Aussage klarer machen.
-- Menschen sind optional. Nutze sie nur, wenn Handlung, Reaktion oder Maßstab dadurch klarer werden.
-- Kurze deutsche Objektlabels sind nur Ergänzung. Die Situation muss ohne Label verständlich bleiben.
+- ABSTRAKTE FINANZKÖRPER sind KEINE Standardsprache: capital body, wealth tower, value block, investment block, fee token und ähnliche erfundene Wertobjekte dürfen bekannte Dinge nicht ersetzen. Wenn sie ausnahmsweise Hauptmotiv werden, muss VISUAL_STRATEGY=metaphor gesetzt und METAPHOR_JUSTIFICATION konkret ausgefüllt werden.
+- Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale, Sortieranlagen, große Hebel und ähnliche Maschinen sind KEINE Standard-Erklärung. Nur nutzen, wenn ihre Bedeutung ohne Erklärung sofort intuitiv ist und bekannte Dinge die Szene tragen.
+- Ursache/Wirkung soll sichtbar in einer verständlichen kleinen Geschichte stattfinden.
+- Wenige große, gut modellierte Hero-Objekte sind besser als viele kleine Symbole. Starke 3/4-, diagonale oder Vordergrund/Mittelgrund/Hintergrund-Kompositionen sind erwünscht, wenn sie die Story klarer machen.
+- Figuren dürfen ausdrücklich zentral sein. Keine generische Corporate-3D-Stockfigur, die nur neben einem Gegenstand steht: Pose, Reaktion oder Handlung muss die Aussage mittragen.
+- Kurze deutsche Objektlabels sind nur Ergänzung. Die Situation muss ohne Label grundsätzlich funktionieren.
 - Ein zusätzliches gutes Bild ist besser als ein überladener oder nur ungefähr passender Still.
-- Die frühere YouTube-Phase-A-DNA darf als Qualitätsreferenz für Modellierung, Licht, Tiefe und Story-Moment dienen, aber NICHT als separater Reel-Vertrag und nicht als Freibrief für abstrakte Wertkörper.
-- Die fünf Planwerte aus dem Bildprompt müssen identisch in scene-index.json unter scene.imageStorytelling stehen; Prompt und Index dürfen sich nicht widersprechen.`;
+- Die frühere YouTube-Phase-A-DNA darf als Qualitätsreferenz für Modellierung, Licht, Tiefe, Kamera und Story-Moment dienen, aber NICHT als separater Reel-Vertrag.
+- Die Planwerte aus Bildprompt und scene-index.json müssen identisch sein; Prompt und Index dürfen sich nicht widersprechen.`;
 
 const addPlanningBeforeImagePrompts = (source) => {
-  if (source.includes('LITERAL_REAL_WORLD_SITUATION:')) return source;
+  if (source.includes('VISUAL_STORY_MOMENT:')) return source;
   return source.replace(/(^|\n)IMAGE PROMPT:/g, `$1${planningBlock}\n\nIMAGE PROMPT:`);
 };
 
@@ -106,7 +121,7 @@ const updatePromptFile = (relativePath) => {
   if (!existsSync(path)) return;
   let source = readFileSync(path, 'utf8');
   source = addPlanningBeforeImagePrompts(source);
-  if (!source.includes(`IMAGE_STORYTELLING_CONTRACT: ${CONTRACT_ID}`)) {
+  if (!source.includes(`STORY_MOMENT_REVISION: ${STORY_MOMENT_REVISION}`)) {
     source += '\n\n' + policyBlock + '\n';
   }
   writeFileSync(path, source, 'utf8');
@@ -116,7 +131,7 @@ const updatePolicyFile = (relativePath) => {
   const path = resolve(root, relativePath);
   if (!existsSync(path)) return;
   let source = readFileSync(path, 'utf8');
-  if (!source.includes(`IMAGE_STORYTELLING_CONTRACT: ${CONTRACT_ID}`)) {
+  if (!source.includes(`STORY_MOMENT_REVISION: ${STORY_MOMENT_REVISION}`)) {
     source += '\n\n' + policyBlock + '\n';
     writeFileSync(path, source, 'utf8');
   }
@@ -132,5 +147,5 @@ updatePolicyFile('05-projektdateien/szenenplan.md');
 updatePolicyFile('05-projektdateien/ANTIGRAVITY-AUFTRAG.md');
 
 console.log('✓ Future Image Storytelling gesetzt: ' + CONTRACT_ID);
-console.log('✓ V9 bleibt Rendering-Welt; echte Situation + Voiceover-Match tragen die Erklärung.');
-console.log('✓ Abstrakte Finanzkörper sind kein Default und brauchen als Hauptmotiv eine begründete Metapher.');
+console.log('✓ Story-Moment-Revision: ' + STORY_MOMENT_REVISION);
+console.log('✓ Bekannte Figuren/Gegenstände + sofort verständliche Story + intuitive Metaphern wenn sie besser erklären.');
