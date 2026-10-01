@@ -10,6 +10,12 @@ Visuelles Ziel:
 finanzneo-stylized-3d-animated-black-v9
 ```
 
+Story-Moment-Revision:
+
+```text
+finanzneo-readable-story-moment-v1
+```
+
 Technischer Kompatibilitäts-Lock:
 
 ```text
@@ -29,8 +35,9 @@ Für jede Animationsszene gilt:
 ```text
 SPRECHPUNKT
 → WAS MUSS DER ZUSCHAUER SICHTBAR VERSTEHEN?
-→ WELCHE REALE / ERKENNBARE AUSGANGSSITUATION PASST?
-→ WELCHE HAUPTMECHANIK ZEIGT DAS AM KLARSTEN?
+→ WELCHE BEKANNTE FIGUR / WELCHE BEKANNTEN GEGENSTÄNDE TRAGEN DIE BEDEUTUNG?
+→ WELCHER KLARE STORY-MOMENT ZEIGT DAS AM SCHNELLSTEN?
+→ WELCHE HAUPTMECHANIK MACHT DIE VERÄNDERUNG SICHTBAR?
 → FINANCE MOTION LIBRARY AUF SEMANTISCHEN BEST-FIT PRÜFEN
 → SAME-WORLD-PASS PRÜFEN
 → PASS: PARAMETRISIEREN
@@ -43,26 +50,43 @@ Die Finance Motion Library ist ein Mechanik-Werkzeugkasten, **keine Art-Directio
 Direkter Library-Einsatz braucht zwei Treffer:
 
 1. **Semantischer Fit** — die Mechanik erklärt den gesprochenen Punkt.
-2. **Same-World-Fit** — das gerenderte Ergebnis sieht wie dieselbe FinanzNeo-V9-Serie aus.
+2. **Same-World-Fit** — das gerenderte Ergebnis sieht wie dieselbe FinanzNeo-V9-Serie und dieselbe Story-Moment-Sprache aus.
 
 Wenn die Library-Komponente wie Dashboard, Infografik, abstrakter Value-Block oder generische Geometrie wirkt, wird die Mechanik individuell in der V9-Welt umgesetzt.
 
 ## 2. Gleiche visuelle Sprache wie die Flow-Bilder
 
-Animationen sollen dieselben verständlichen Objektwelten verwenden wie Bilder, wenn das den Punkt klarer macht:
+Animationen benutzen dieselbe Grundlogik wie die guten Flow-Bilder:
 
-- Rechnung
-- Konto
-- Geld / Sparrate
-- Karte
-- Kalender
-- Vertrag
-- Einkauf
-- Reparatur
-- Überweisung
-- konkrete Finanzhandlung
+```text
+bekannte Dinge
+→ klare kleine Geschichte
+→ intuitive Übertreibung/Metapher wenn sie schneller erklärt
+→ hochwertige stylized-3D-Animationsfilm-Welt auf Schwarz
+```
 
-Abstrakte `capital body`, `wealth tower`, `value block`, Balken oder geometrische Wertkörper sind keine automatische Standardsprache. Sie sind nur sinnvoll, wenn sie den Inhalt klarer machen als eine erkennbare Situation.
+Geeignete Anker sind zum Beispiel:
+
+- Person / Familie / Kunde / Arbeitnehmer
+- Rechnung / Kassenzettel / Gebührenbeleg
+- Konto / Geld / Portemonnaie / Sparrate
+- Karte / Smartphone / Vertrag / Kalender
+- Fernseher / Sofa / Laptop / Einkauf
+- Waschmaschine / Reparatur / Haushaltskosten
+- Überweisung / konkrete Finanzhandlung
+
+Eine Animation darf bewusst übertreiben, wenn die Bedeutung sofort lesbar bleibt. Beispiele:
+
+- ein realer Kassenzettel rollt immer weiter aus,
+- mehrere bekannte Rechnungen greifen nacheinander auf dasselbe Budget zu,
+- kleine wiederkehrende Gebühren sammeln sich sichtbar über Zeit,
+- eine Figur wird von mehreren echten Verpflichtungen gleichzeitig beansprucht.
+
+Intuitive Metaphern sind erlaubt und können eine trockene literal Darstellung schlagen. Sie dürfen aber kein Rätsel sein.
+
+Abstrakte `capital body`, `wealth tower`, `value block`, `fee token`, Balken oder geometrische Wertkörper sind keine automatische Standardsprache. Sie dürfen bekannte Dinge nicht durch erfundene Finanzobjekte ersetzen.
+
+Eine Figur ist keine Dekoration. Wenn sie vorkommt, muss Pose, Reaktion oder Handlung den Sprechpunkt sichtbar mittragen. Generische Corporate-3D-Stockfiguren, die nur neben einem Objekt stehen, sind kein Qualitätsziel.
 
 ## 3. Pflichtdateien
 
@@ -80,6 +104,8 @@ Abstrakte `capital body`, `wealth tower`, `value block`, Balken oder geometrisch
 - `animationIntent`
 - `animationQualityLock`
 - `animationPremiumVisualLock`
+
+Der zentrale `phase1AnimationCode`-Vertrag trägt zusätzlich den Story-Moment-Revision-Lock.
 
 ## 4. Motion-Director-Pflicht
 
@@ -169,10 +195,11 @@ Die Bewegung erklärt die Aussage. Dekorative Bewegung zählt nicht als Mechanik
 
 Priorität:
 
-1. Primary Action
-2. Secondary Reaction
-3. Camera Role
-4. Payoff Hold
+1. Story-Moment und sofortige Verständlichkeit
+2. Primary Action
+3. Secondary Reaction
+4. Camera Role
+5. Payoff Hold
 
 Eine einzige starke Bewegung ist besser als mehrere unabhängige Effekte.
 
@@ -192,6 +219,8 @@ Eine einzige starke Bewegung ist besser als mehrere unabhängige Effekte.
 - eigener Partikel-/Aurora-/Grid-/Gradient-Hintergrund
 - schwarzer Szenenhintergrund innerhalb der Animation
 - lokale SceneShell mit dupliziertem Header oder Caption
+- abstrakter `capital body`, `fee token`, `value block` oder `wealth tower` als selbsterklärter Ersatz für die eigentliche Geschichte
+- Corporate-3D-Figur als statische Dekoration
 - eine Library-Animation zu benutzen, nur weil sie existiert
 
 ## 9. Phase-3-Sperre
@@ -215,7 +244,9 @@ Danach:
 Eine Animationsszene ist erst fertig, wenn:
 
 - Sprechpunkt und Mechanik 1:1 zusammenpassen
+- bekannte Figuren/Gegenstände oder eine sofort verständliche visuelle Situation die Bedeutung tragen
 - Start, Aktion, Reaktion und Ergebnis sichtbar sind
+- eine Metapher/Übertreibung ohne Erklärung intuitiv bleibt
 - Focal Path und Primary Action eindeutig sind
 - Library-Best-Fit und Same-World-Pass geprüft wurden
 - Code ohne Platzhalter vorliegt
