@@ -1,0 +1,23 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 13 - Kosten nachsehen.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Kosten
+
+IMAGE PROMPT:
+Create a premium stylized 3D animation-film frame in a deep seamless black world. One oversized magnifying glass moves across a thick folded investment document, enlarging a short red-orange strip labeled “Kosten”. Behind the document, a second product document waits slightly out of focus, creating a clear frozen moment of checking fees before choosing. The magnifying glass and highlighted fee strip are the action, not a desk setup.
+
+VISUAL STORYTELLING:
+Investment document → active inspection → hidden cost line becomes impossible to miss.
+COMPOSITION:
+Document angled through midground, magnifying glass very large in foreground crossing it diagonally, second document in background depth, asymmetric and cinematic.
+MATERIALS:
+Thick ivory paper, refined glass lens, brushed-metal rim, red-orange printed fee strip.
+LIGHTING:
+Clean premium key light, bright lens highlight, restrained red-orange focus on the cost strip.
+TEXT:
+Only “Kosten”; no readable paragraph.
+FORBIDDEN:
+Desk, browser/app screenshot, tiny text wall, dashboard, floating info cards, static product shot, photorealism, clutter.

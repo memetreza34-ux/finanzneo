@@ -1,0 +1,24 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 06 - Sieben gegen sechs Prozent.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 7 %
+- 6 %
+
+IMAGE PROMPT:
+Create a premium stylized 3D animation-film comparison in a deep seamless black world. Two physically identical emerald investment bodies begin from the same low starting level in the foreground. The left body marked “7 %” has grown only slightly more than the right body marked “6 %”. Their shapes, materials and starting point must be identical so the single percentage-point difference is the only variable.
+
+VISUAL STORYTELLING:
+Same start, same structure, only one small growth-rate difference.
+COMPOSITION:
+Low 3/4 angle, two large matched investment bodies side by side with one shared starting baseline visible in foreground; tiny but readable height difference, strong depth and no surrounding furniture.
+MATERIALS:
+Refined rounded emerald forms with subtle gold inner value layers.
+LIGHTING:
+Exactly equal studio lighting on both sides; no color trick that biases the comparison.
+TEXT:
+Only “7 %” and “6 %”.
+FORBIDDEN:
+Desk/shelf, glass jars, chart axes, bar-chart UI, progress bars, floating cards, dashboard, photorealism, clutter.

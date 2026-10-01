@@ -1,0 +1,24 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Startkapital und Sparrate.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 10.000 €
+- 300 € / Monat
+
+IMAGE PROMPT:
+Create a premium stylized 3D animation-film frame in a deep seamless black world. A substantial starting-capital bundle marked “10.000 €” is already feeding into one emerald investment core. From behind it, a repeating chain of smaller monthly contribution packets marked “300 € / Monat” approaches the same core at regular spacing, making the ongoing saving rhythm immediately visible.
+
+VISUAL STORYTELLING:
+Large starting amount already invested + repeated smaller monthly contributions continue feeding the same investment.
+COMPOSITION:
+Investment core large center-right foreground, 10.000 € bundle entering from lower-left, repeating 300 € packets receding through depth from background-left toward the core. Strong diagonal depth, no table.
+MATERIALS:
+Premium paper money packets, satin emerald investment core, subtle gold value accents.
+LIGHTING:
+Clean studio light with gentle gold highlights on money and emerald separation on the investment core.
+TEXT:
+Only “10.000 €” and “300 € / Monat”.
+FORBIDDEN:
+Desk calendar setup, office scene, neat tabletop arrangement, dashboard, progress bar, generic road graphic, photorealism, clutter.

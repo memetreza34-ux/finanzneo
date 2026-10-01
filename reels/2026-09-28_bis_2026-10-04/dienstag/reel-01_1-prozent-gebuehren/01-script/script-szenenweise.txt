@@ -1,0 +1,60 @@
+FORMAT B · 1:00 MIN · 30 FPS · 1800 FRAMES
+11 IMAGE · 3 ANIMATION
+IMAGE = 111 Frames / 3,7 s
+ANIMATION = 193 Frames / ca. 6,43 s
+
+SCENE 01 · IMAGE
+1 % klingt harmlos
+Ein Prozent Kosten klingt klein. Über Jahrzehnte kann genau das richtig teuer werden.
+
+SCENE 02 · IMAGE
+Die Kosten verschwinden nicht
+Sie werden direkt aus deinem investierten Vermögen bezahlt.
+
+SCENE 03 · ANIMATION
+Jedes Jahr fehlt wieder Kapital
+Die Gebühr nimmt regelmäßig einen Teil heraus. Dieses Geld kann danach nicht mehr mitwachsen.
+
+SCENE 04 · IMAGE
+Ein einfaches Beispiel
+Du startest mit 10.000 Euro und investierst jeden Monat 300 Euro.
+
+SCENE 05 · IMAGE
+30 Jahre lang
+Beide Wege bekommen exakt dieselben Einzahlungen.
+
+SCENE 06 · IMAGE
+Nur 1 Prozentpunkt Unterschied
+Wir vergleichen sieben Prozent mit sechs Prozent Rendite pro Jahr.
+
+SCENE 07 · ANIMATION
+Erst fast gleich, dann immer weiter auseinander
+Am Anfang siehst du kaum einen Unterschied. Mit der Zeit wächst der Abstand immer stärker.
+
+SCENE 08 · IMAGE
+Nach 5 Jahren kaum sichtbar
+Rund 35.700 Euro stehen ungefähr 34.400 Euro gegenüber.
+
+SCENE 09 · IMAGE
+Nach 20 Jahren deutlich
+Aus dem kleinen Unterschied werden ungefähr 196.700 Euro gegenüber 171.700 Euro.
+
+SCENE 10 · IMAGE
+Kosten haben viele Namen
+Fondskosten, Depot-, Service- oder Transaktionsgebühren können alle Rendite kosten.
+
+SCENE 11 · ANIMATION
+Nach 30 Jahren wird es groß
+Im Rechenbeispiel landen wir bei ungefähr 447.000 Euro gegenüber 362.000 Euro.
+
+SCENE 12 · IMAGE
+Rund 85.600 Euro Unterschied
+Obwohl auf beiden Wegen gleich viel eingezahlt wurde.
+
+SCENE 13 · IMAGE
+Deshalb Kosten prüfen
+Schau in Produktunterlagen sowie Preis- und Leistungsverzeichnisse.
+
+SCENE 14 · IMAGE
+Aber nicht nur auf Kosten schauen
+Risiko, Diversifikation und Produktqualität bleiben genauso wichtig.

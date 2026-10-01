@@ -1,0 +1,36 @@
+FINANZNEO PHASE-A FROZEN STORY WORLD — FORMAT B
+
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
+DNA_SOURCE: youtube/warum-dein-geld-verschwindet-images-only
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+STYLE_REFERENCE_POLICY: selected-cover-style-only
+
+VISUAL DNA:
+Premium clearly stylized 3D animation-film rendering. Deep seamless black dominant world. High-quality modeling, refined rounded geometry, semi-realistic but visibly stylized materials, premium studio lighting, controlled highlights, readable shadows and strong foreground-to-background depth. Warm ivory and soft gray are neutral. Emerald green means positive/value/growth. Warm red-orange means cost/risk/problem. Subtle gold is reserved for money/value accents.
+
+STORY RULE:
+One image = one dominant idea. Every image must feel like a frozen frame from an animated finance story. Show a visible relationship, physical interaction, cause-effect, progression, tension, transformation or payoff. The scene must communicate the spoken point through what the objects are doing, not through a generic infographic layout.
+
+COMPOSITION:
+Use a small number of large readable hero objects. Prefer asymmetric 3/4 compositions, diagonals, foreground/midground/background staging and clear depth. A curved path, chain, strap, conveyor, calendar sequence or repeated object may be used when it physically carries the story. Do not ban visual metaphors when they are immediately readable and directly tied to the spoken point.
+
+NO DESK DEFAULT:
+Do NOT default to a desk, table, shelf, office, banking counter, room or realistic workspace. Use those only when the spoken point genuinely requires that environment. Most scenes should live directly in the deep-black FinanzNeo world with physical objects interacting in space.
+
+NO CATALOG DEFAULT:
+No centered product shot, symmetric prop lineup, neat object collection or static tabletop arrangement. Objects must have a narrative relationship.
+
+SELECTED COVER STYLE ANCHOR:
+After the user chooses Cover A, B or C, use that exact chosen cover only as the visual STYLE reference for material language, 3D abstraction level, lighting, contrast, color treatment, camera feeling and finish quality. Never copy its headline, layout, object arrangement or exact scene content into later images.
+
+TEXT:
+Normal image scenes use no headline, subtitle, CTA or explanatory paragraph. Only short German labels physically attached to an otherwise ambiguous object are allowed. Keep labels sparse. Cover candidates are the explicit exception and may contain their specified cover text.
+
+FORBIDDEN:
+Photorealism, stock-photo look, real-photo hands as a default, generic finance icon collections, dashboard/app UI, flowchart, floating info-card grids, flat infographic layouts, static bar/pie-chart compositions, tiny miniature dioramas, excessive props, decorative clutter, cyberpunk effects and toy-like cheap 3D.
+
+PROMPT POLICY:
+Write every image prompt individually from the spoken point. First define the frozen story moment and the physical cause/effect. Then define hero objects, action, composition, materials, light and only the labels that are truly necessary. The chosen cover keeps the rendering language consistent; the scene prompt keeps the story unique.

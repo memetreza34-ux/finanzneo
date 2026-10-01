@@ -29,6 +29,7 @@ const validators = [
   'scripts/validate-premium-visual-contract.mjs',
   'scripts/validate-animation-source-quality.mjs',
   'scripts/validate-flow-autonomous-contract.mjs',
+  'scripts/validate-central-flow-prompts.mjs',
   'scripts/validate-phase3-contract.mjs',
   'scripts/validate-platform-publishing.mjs',
 ];

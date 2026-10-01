@@ -9,26 +9,12 @@ import {V1Clean, V2Glass, V3Editorial, V4Neon, V5Gradient, V6Duotone} from '../V
 import {RealDataDemo, REAL_DATA_FRAMES} from '../RealDataDemo';
 import {LottieTest} from '../LottieTest';
 import {FinanceMotionLab, FINANCE_MOTION_LAB_FRAMES} from '../reels-test/FinanceMotionLab';
-import {
-  FinanceMotionLabComplex,
-  FINANCE_MOTION_LAB_COMPLEX_FRAMES,
-} from '../reels-test/FinanceMotionLabComplex';
-import {
-  FinanceMotionLabAdvanced,
-  FINANCE_MOTION_LAB_ADVANCED_FRAMES,
-} from '../reels-test/FinanceMotionLabAdvanced';
-import {
-  FinanceMotionLibraryLabV1,
-  FINANCE_MOTION_LAB_FRAMES as FINANCE_MOTION_LIBRARY_LAB_V1_FRAMES,
-} from '../reels-test/FinanceMotionLibraryLabV1';
-import {
-  FinanceHeaderCaptionMotion,
-  FINANCE_HEADER_CAPTION_MOTION_FRAMES,
-} from '../reels-test/FinanceHeaderCaptionMotion';
-import {
-  FinanceImageSceneTest,
-  FINANCE_IMAGE_SCENE_TEST_FRAMES,
-} from '../reels-test/FinanceImageSceneTest';
+import {FinanceMotionLabComplex,FINANCE_MOTION_LAB_COMPLEX_FRAMES} from '../reels-test/FinanceMotionLabComplex';
+import {FinanceMotionLabAdvanced,FINANCE_MOTION_LAB_ADVANCED_FRAMES} from '../reels-test/FinanceMotionLabAdvanced';
+import {FinanceMotionLibraryLabV1,FINANCE_MOTION_LAB_FRAMES as FINANCE_MOTION_LIBRARY_LAB_V1_FRAMES} from '../reels-test/FinanceMotionLibraryLabV1';
+import {FinanceHeaderCaptionMotion,FINANCE_HEADER_CAPTION_MOTION_FRAMES} from '../reels-test/FinanceHeaderCaptionMotion';
+import {FinanceImageSceneTest,FINANCE_IMAGE_SCENE_TEST_FRAMES} from '../reels-test/FinanceImageSceneTest';
+import {Fees30YearsFormatB1MinV1,FEES_30_YEARS_FORMAT_B_1MIN_FRAMES} from '../reels-test/Fees30YearsFormatB1MinV1';
 import {Scene01Hook, SCENE01_FRAMES} from '../zins/Scene01Hook';
 import {Scene02Zinseszins, SCENE02_FRAMES} from '../zins/Scene02Zinseszins';
 import {Scene03SparbuchVs, SCENE03_FRAMES} from '../zins/Scene03SparbuchVs';
@@ -40,104 +26,47 @@ import {Scene08WieVielReicht, SCENE08_FRAMES} from '../zins/Scene08WieVielReicht
 import {Scene09RisikoEhrlich, SCENE09_FRAMES} from '../zins/Scene09RisikoEhrlich';
 import {Scene10ErsterSchritt, SCENE10_FRAMES} from '../zins/Scene10ErsterSchritt';
 import {Scene11PayoffCTA, SCENE11_FRAMES} from '../zins/Scene11PayoffCTA';
-import {
-  ReelTemplateDemo,
-  REEL_TEMPLATE_DEMO_FRAMES,
-} from '../production/reel-template';
+import {ReelTemplateDemo,REEL_TEMPLATE_DEMO_FRAMES} from '../production/reel-template';
 import {EinlagensicherungReel} from '../reels/einlagensicherung-100000/EinlagensicherungReel';
 import {TOTAL_FRAMES as EINLAGENSICHERUNG_LEGACY_FRAMES} from '../reels/einlagensicherung-100000/timeline';
 import {FORMAT} from '../brand/tokens';
 
-const FPS = FORMAT.fps;
-const VERTICAL = FORMAT.vertical;
-const WIDE = FORMAT.landscape;
+const FPS=FORMAT.fps;
+const VERTICAL=FORMAT.vertical;
+const WIDE=FORMAT.landscape;
 
-export const ExperimentCompositions: React.FC = () => (
-  <>
-    <Composition
-      id="ReelsTestFinanceMotionLab"
-      component={FinanceMotionLab}
-      durationInFrames={FINANCE_MOTION_LAB_FRAMES}
-      fps={FPS}
-      {...VERTICAL}
-    />
-
-    <Composition
-      id="ReelsTestFinanceMotionLabComplex"
-      component={FinanceMotionLabComplex}
-      durationInFrames={FINANCE_MOTION_LAB_COMPLEX_FRAMES}
-      fps={FPS}
-      {...VERTICAL}
-    />
-
-    <Composition
-      id="ReelsTestFinanceMotionLabAdvanced"
-      component={FinanceMotionLabAdvanced}
-      durationInFrames={FINANCE_MOTION_LAB_ADVANCED_FRAMES}
-      fps={FPS}
-      {...VERTICAL}
-    />
-
-    <Composition
-      id="ReelsTestFinanceMotionLibraryV1"
-      component={FinanceMotionLibraryLabV1}
-      durationInFrames={FINANCE_MOTION_LIBRARY_LAB_V1_FRAMES}
-      fps={FPS}
-      {...VERTICAL}
-    />
-
-    <Composition
-      id="ReelsTestFinanceHeaderCaptionMotion"
-      component={FinanceHeaderCaptionMotion}
-      durationInFrames={FINANCE_HEADER_CAPTION_MOTION_FRAMES}
-      fps={FPS}
-      {...VERTICAL}
-    />
-
-    <Composition
-      id="ReelsTestFinanceImageScenes"
-      component={FinanceImageSceneTest}
-      durationInFrames={FINANCE_IMAGE_SCENE_TEST_FRAMES}
-      fps={FPS}
-      {...VERTICAL}
-    />
-
-    <Composition id="ReelTemplateDemo" component={ReelTemplateDemo} durationInFrames={REEL_TEMPLATE_DEMO_FRAMES} fps={FPS} {...VERTICAL} />
-
-    <Composition
-      id="LegacyEinlagensicherung100000"
-      component={EinlagensicherungReel}
-      durationInFrames={EINLAGENSICHERUNG_LEGACY_FRAMES}
-      fps={FPS}
-      {...VERTICAL}
-    />
-
-    <Composition id="S1Hook" component={Scene01Hook} durationInFrames={SCENE01_FRAMES} fps={FPS} {...WIDE} />
-    <Composition id="S2Zinseszins" component={Scene02Zinseszins} durationInFrames={SCENE02_FRAMES} fps={FPS} {...WIDE} />
-    <Composition id="S3SparbuchVs" component={Scene03SparbuchVs} durationInFrames={SCENE03_FRAMES} fps={FPS} {...WIDE} />
-    <Composition id="S4MachtDerZeit" component={Scene04MachtDerZeit} durationInFrames={SCENE04_FRAMES} fps={FPS} {...WIDE} />
-    <Composition id="S5EchtesBeispiel" component={Scene05EchtesBeispiel} durationInFrames={SCENE05_FRAMES} fps={FPS} {...WIDE} />
-    <Composition id="S6Killer" component={Scene06Killer} durationInFrames={SCENE06_FRAMES} fps={FPS} {...WIDE} />
-    <Composition id="S7GroessterFehler" component={Scene07GroessterFehler} durationInFrames={SCENE07_FRAMES} fps={FPS} {...WIDE} />
-    <Composition id="S8WieVielReicht" component={Scene08WieVielReicht} durationInFrames={SCENE08_FRAMES} fps={FPS} {...WIDE} />
-    <Composition id="S9RisikoEhrlich" component={Scene09RisikoEhrlich} durationInFrames={SCENE09_FRAMES} fps={FPS} {...WIDE} />
-    <Composition id="S10ErsterSchritt" component={Scene10ErsterSchritt} durationInFrames={SCENE10_FRAMES} fps={FPS} {...WIDE} />
-    <Composition id="S11PayoffCTA" component={Scene11PayoffCTA} durationInFrames={SCENE11_FRAMES} fps={FPS} {...WIDE} />
-
-    <Composition id="MockTest" component={MockTest} durationInFrames={90} fps={FPS} {...WIDE} />
-    <Composition id="MockMindmap" component={MockMindmap} durationInFrames={150} fps={FPS} {...WIDE} />
-    <Composition id="PassivTest" component={PassivTest} durationInFrames={360} fps={FPS} {...VERTICAL} />
-    <Composition id="PremiumTest" component={PremiumTest} durationInFrames={150} fps={FORMAT.fps} width={FORMAT.vertical.width} height={FORMAT.vertical.height} />
-
-    <Composition id="V1Clean" component={V1Clean} durationInFrames={30} fps={FPS} {...VERTICAL} />
-    <Composition id="V2Glass" component={V2Glass} durationInFrames={30} fps={FPS} {...VERTICAL} />
-    <Composition id="V3Editorial" component={V3Editorial} durationInFrames={30} fps={FPS} {...VERTICAL} />
-    <Composition id="V4Neon" component={V4Neon} durationInFrames={30} fps={FPS} {...VERTICAL} />
-    <Composition id="V5Gradient" component={V5Gradient} durationInFrames={30} fps={FPS} {...VERTICAL} />
-    <Composition id="V6Duotone" component={V6Duotone} durationInFrames={30} fps={FPS} {...VERTICAL} />
-
-    <Composition id="Signature" component={Signature} durationInFrames={300} fps={FPS} {...VERTICAL} />
-    <Composition id="RealDataDemo" component={RealDataDemo} durationInFrames={REAL_DATA_FRAMES} fps={FPS} {...VERTICAL} />
-    <Composition id="LottieTest" component={LottieTest} durationInFrames={90} fps={FORMAT.fps} width={FORMAT.vertical.width} height={FORMAT.vertical.height} />
-  </>
-);
+export const ExperimentCompositions:React.FC=()=><>
+  <Composition id="ReelsTestFees30YearsFormatB1MinV1" component={Fees30YearsFormatB1MinV1} durationInFrames={FEES_30_YEARS_FORMAT_B_1MIN_FRAMES} fps={FPS} {...VERTICAL}/>
+  <Composition id="ReelsTestFinanceMotionLab" component={FinanceMotionLab} durationInFrames={FINANCE_MOTION_LAB_FRAMES} fps={FPS} {...VERTICAL}/>
+  <Composition id="ReelsTestFinanceMotionLabComplex" component={FinanceMotionLabComplex} durationInFrames={FINANCE_MOTION_LAB_COMPLEX_FRAMES} fps={FPS} {...VERTICAL}/>
+  <Composition id="ReelsTestFinanceMotionLabAdvanced" component={FinanceMotionLabAdvanced} durationInFrames={FINANCE_MOTION_LAB_ADVANCED_FRAMES} fps={FPS} {...VERTICAL}/>
+  <Composition id="ReelsTestFinanceMotionLibraryV1" component={FinanceMotionLibraryLabV1} durationInFrames={FINANCE_MOTION_LIBRARY_LAB_V1_FRAMES} fps={FPS} {...VERTICAL}/>
+  <Composition id="ReelsTestFinanceHeaderCaptionMotion" component={FinanceHeaderCaptionMotion} durationInFrames={FINANCE_HEADER_CAPTION_MOTION_FRAMES} fps={FPS} {...VERTICAL}/>
+  <Composition id="ReelsTestFinanceImageScenes" component={FinanceImageSceneTest} durationInFrames={FINANCE_IMAGE_SCENE_TEST_FRAMES} fps={FPS} {...VERTICAL}/>
+  <Composition id="ReelTemplateDemo" component={ReelTemplateDemo} durationInFrames={REEL_TEMPLATE_DEMO_FRAMES} fps={FPS} {...VERTICAL}/>
+  <Composition id="LegacyEinlagensicherung100000" component={EinlagensicherungReel} durationInFrames={EINLAGENSICHERUNG_LEGACY_FRAMES} fps={FPS} {...VERTICAL}/>
+  <Composition id="S1Hook" component={Scene01Hook} durationInFrames={SCENE01_FRAMES} fps={FPS} {...WIDE}/>
+  <Composition id="S2Zinseszins" component={Scene02Zinseszins} durationInFrames={SCENE02_FRAMES} fps={FPS} {...WIDE}/>
+  <Composition id="S3SparbuchVs" component={Scene03SparbuchVs} durationInFrames={SCENE03_FRAMES} fps={FPS} {...WIDE}/>
+  <Composition id="S4MachtDerZeit" component={Scene04MachtDerZeit} durationInFrames={SCENE04_FRAMES} fps={FPS} {...WIDE}/>
+  <Composition id="S5EchtesBeispiel" component={Scene05EchtesBeispiel} durationInFrames={SCENE05_FRAMES} fps={FPS} {...WIDE}/>
+  <Composition id="S6Killer" component={Scene06Killer} durationInFrames={SCENE06_FRAMES} fps={FPS} {...WIDE}/>
+  <Composition id="S7GroessterFehler" component={Scene07GroessterFehler} durationInFrames={SCENE07_FRAMES} fps={FPS} {...WIDE}/>
+  <Composition id="S8WieVielReicht" component={Scene08WieVielReicht} durationInFrames={SCENE08_FRAMES} fps={FPS} {...WIDE}/>
+  <Composition id="S9RisikoEhrlich" component={Scene09RisikoEhrlich} durationInFrames={SCENE09_FRAMES} fps={FPS} {...WIDE}/>
+  <Composition id="S10ErsterSchritt" component={Scene10ErsterSchritt} durationInFrames={SCENE10_FRAMES} fps={FPS} {...WIDE}/>
+  <Composition id="S11PayoffCTA" component={Scene11PayoffCTA} durationInFrames={SCENE11_FRAMES} fps={FPS} {...WIDE}/>
+  <Composition id="MockTest" component={MockTest} durationInFrames={90} fps={FPS} {...WIDE}/>
+  <Composition id="MockMindmap" component={MockMindmap} durationInFrames={150} fps={FPS} {...WIDE}/>
+  <Composition id="PassivTest" component={PassivTest} durationInFrames={360} fps={FPS} {...VERTICAL}/>
+  <Composition id="PremiumTest" component={PremiumTest} durationInFrames={150} fps={FORMAT.fps} width={FORMAT.vertical.width} height={FORMAT.vertical.height}/>
+  <Composition id="V1Clean" component={V1Clean} durationInFrames={30} fps={FPS} {...VERTICAL}/>
+  <Composition id="V2Glass" component={V2Glass} durationInFrames={30} fps={FPS} {...VERTICAL}/>
+  <Composition id="V3Editorial" component={V3Editorial} durationInFrames={30} fps={FPS} {...VERTICAL}/>
+  <Composition id="V4Neon" component={V4Neon} durationInFrames={30} fps={FPS} {...VERTICAL}/>
+  <Composition id="V5Gradient" component={V5Gradient} durationInFrames={30} fps={FPS} {...VERTICAL}/>
+  <Composition id="V6Duotone" component={V6Duotone} durationInFrames={30} fps={FPS} {...VERTICAL}/>
+  <Composition id="Signature" component={Signature} durationInFrames={300} fps={FPS} {...VERTICAL}/>
+  <Composition id="RealDataDemo" component={RealDataDemo} durationInFrames={REAL_DATA_FRAMES} fps={FPS} {...VERTICAL}/>
+  <Composition id="LottieTest" component={LottieTest} durationInFrames={90} fps={FORMAT.fps} width={FORMAT.vertical.width} height={FORMAT.vertical.height}/>
+</>;

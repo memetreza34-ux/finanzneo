@@ -1,0 +1,23 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Kosten kommen aus dem Vermoegen.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Kosten
+
+IMAGE PROMPT:
+Create a premium stylized 3D animation-film frame in the deep-black FinanzNeo world. A large emerald investment-capital block is being physically pulled apart at one edge by a red-orange cost strap labeled “Kosten”. The strap has already extracted one warm-gold value segment and is dragging it away into the background. The missing segment remains visibly cut out of the capital body so the viewer instantly understands that the fee comes directly out of invested wealth.
+
+VISUAL STORYTELLING:
+Invested value → cost strap grabs a piece → capital is visibly smaller.
+COMPOSITION:
+Capital block large foreground-left, strap under tension pulling diagonally toward background-right, removed gold segment between them, strong depth and one clear action. No desk or realistic room.
+MATERIALS:
+Soft-rounded satin capital body, fabric-like red-orange strap, metallic-gold value segment.
+LIGHTING:
+Neutral premium key light on capital, warm red-orange accent along the outgoing cost direction.
+TEXT:
+Only “Kosten” physically on the strap/tag.
+FORBIDDEN:
+Hand taking cash from a jar, desk, receipt list, pie/donut chart, static product lineup, dashboard, floating cards, photorealism, clutter.

@@ -5,6 +5,8 @@
 // Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
 // und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
 // Bildplanung bleibt: Literal first, creative second. Reel-Visual bleibt: Visual Y320–1400.
+// Google Flow: 3 Cover-Varianten -> Nutzerwahl -> gewähltes Cover als Style-Referenz -> 5er-Blöcke.
+// Innerhalb jedes Blocks bleibt Strict-Single-Job aktiv: niemals mehrere Bildjobs gleichzeitig.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -54,6 +56,7 @@ const steps = [
   ['scripts/apply-future-reel-presentation-v1.mjs', [target]],
   ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', [target]],
   ['scripts/apply-reel-quality-guards-v1.mjs', [target]],
+  ['scripts/apply-flow-five-pack-reference-v1.mjs', [target]],
 ];
 
 for (const [script, scriptArgs] of steps) {
@@ -65,7 +68,10 @@ for (const [script, scriptArgs] of steps) {
 }
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
-console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob.');
+console.log('  Google Flow: zuerst 3 Cover-Varianten; Nutzer wählt A/B/C.');
+console.log('  Gewähltes Cover = Bild 01 + visuelle Style-Referenz für alle weiteren Flow-Bilder.');
+console.log('  Danach 5er-Blöcke; innerhalb des Blocks strikt immer nur 1 laufender Bildjob.');
+console.log('  Nach jedem 5er-Block STOPP und Nutzerfreigabe abwarten.');
 console.log('  Bildwelt V9 + Storytelling V3: Literal first, creative second · reale Situation + Kontextanker + Voiceover-Match.');
 console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');

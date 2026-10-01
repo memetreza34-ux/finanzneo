@@ -1,0 +1,23 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 01 - Ein Prozent wirkt klein.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 1 %
+
+IMAGE PROMPT:
+Create a premium clearly stylized 3D animation-film frame in a deep seamless black world. One massive emerald investment-capital body dominates the frame while a tiny red-orange clamp or fee tag marked “1 %” physically bites into one edge and pulls out a small gold value piece. The viewer should first feel that the percentage looks tiny, but the physical extraction makes its consequence unmistakable.
+
+VISUAL STORYTELLING:
+Tiny percentage → physical bite → real value removed.
+COMPOSITION:
+Close-medium 3/4 view, capital body large foreground, tiny fee clamp entering diagonally from one side, extracted gold piece clearly visible between them, asymmetric tension and strong depth. No desk, room or tabletop.
+MATERIALS:
+Refined satin emerald body, subtle metallic-gold value piece, matte red-orange fee clamp, soft rounded premium geometry.
+LIGHTING:
+Premium studio key light, controlled highlights, readable contact shadows, red-orange only on the cost mechanism.
+TEXT:
+Only “1 %”.
+FORBIDDEN:
+Photorealism, product-photo look, desk scene, jar of money, receipt layout, dashboard, chart, floating UI, icon collection, flat infographic, clutter.

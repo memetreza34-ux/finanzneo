@@ -1,0 +1,24 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 12 - Unterschied 85600 Euro.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- ≈ 85.600 €
+- gleiche Einzahlungen
+
+IMAGE PROMPT:
+Create a premium stylized 3D animation-film payoff frame in the deep-black FinanzNeo world. Two large wealth structures stand on the same shared base after the same contribution journey. A wide physical brace at their base is labeled “gleiche Einzahlungen”. Between their final heights, one substantial detachable gold value block marked “≈ 85.600 €” exactly fills the visible difference. The gap must feel tangible, heavy and surprising.
+
+VISUAL STORYTELLING:
+Same deposits → different long-term outcome → the missing wealth becomes one physical object the viewer can see.
+COMPOSITION:
+Shared base large foreground, two outcome structures rising behind it, gold difference block suspended/fitted between the two final levels, dramatic depth and one dominant payoff.
+MATERIALS:
+Layered emerald wealth structures, brushed-gold difference block, matte ivory base brace.
+LIGHTING:
+Premium studio light with gold payoff emphasis and deep black separation.
+TEXT:
+Only “≈ 85.600 €” and “gleiche Einzahlungen”.
+FORBIDDEN:
+Desk, jars, bar-chart UI, graph axes, dashboard, floating cards, photorealism, clutter.

@@ -1,0 +1,25 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Zwanzig Jahre deutlicher Abstand.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 20 Jahre
+- 196.700 €
+- 171.700 €
+
+IMAGE PROMPT:
+Create a premium stylized 3D animation-film frame in the same deep-black world, now showing a twenty-year checkpoint. Two related emerald wealth structures rise from equal bases, but the left has become visibly larger and extends much farther upward/back into depth. A physical milestone tile marked “20 Jahre” sits at the shared base. Attached value plates read “196.700 €” and “171.700 €”. The long-term gap must now be obvious at first glance.
+
+VISUAL STORYTELLING:
+Same equal base → much more time → small rate difference has become a large physical gap.
+COMPOSITION:
+Low dramatic 3/4 angle, equal bases foreground, tops separating strongly through vertical and depth staging, asymmetry created by the larger left outcome. No furniture.
+MATERIALS:
+Layered emerald wealth forms with restrained gold value accents, matte ivory milestone tile.
+LIGHTING:
+Premium studio light emphasizing the growing separation without turning it into a chart.
+TEXT:
+Only “20 Jahre”, “196.700 €”, “171.700 €”.
+FORBIDDEN:
+Desk/shelf, jars, graph axes, bar-chart interface, floating cards, dashboard, photorealism, clutter.

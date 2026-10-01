@@ -1,0 +1,25 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Fuenf Jahre kleiner Abstand.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 5 Jahre
+- 35.700 €
+- 34.400 €
+
+IMAGE PROMPT:
+Create a premium stylized 3D animation-film checkpoint in the deep-black FinanzNeo world. Two matching emerald wealth towers stand close together after five years. Both are already substantial and almost the same height; the left is only slightly taller. A single thick physical milestone tile between/behind them reads “5 Jahre”. Small attached value plates read “35.700 €” and “34.400 €”. The early gap should feel almost disappointingly small.
+
+VISUAL STORYTELLING:
+Five years pass → both grow strongly → difference is still tiny.
+COMPOSITION:
+Two large towers dominate the frame, near-equal tops at slightly different depths, milestone tile receding behind them, tight 3/4 view and strong black negative space around the hero forms.
+MATERIALS:
+Rounded layered emerald structures with restrained gold value layers, matte ivory milestone tile.
+LIGHTING:
+Balanced premium studio light, crisp silhouette separation.
+TEXT:
+Only “5 Jahre”, “35.700 €”, “34.400 €”.
+FORBIDDEN:
+Desk/shelf, glass jars, graph axes, bar-chart UI, dashboard, floating cards, photorealism, clutter.

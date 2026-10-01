@@ -1,0 +1,26 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Verschiedene Kostenquellen.png
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Fondskosten
+- Depot
+- Service
+- Transaktion
+
+IMAGE PROMPT:
+Create a premium stylized 3D animation-film frame in a deep seamless black world. One thick emerald investment envelope/core is caught under tension while four red-orange cost straps pull small gold value pieces away in four different directions. The four straps are physically labeled “Fondskosten”, “Depot”, “Service” and “Transaktion”. The investment remains the large hero object; the cost mechanisms are secondary but clearly connected to it.
+
+VISUAL STORYTELLING:
+One investment → four different named cost mechanisms → all remove value from the same place.
+COMPOSITION:
+Investment hero large center-left foreground, four straps fan diagonally into different depths, visible tension and missing gold pieces, asymmetric frozen-action moment.
+MATERIALS:
+Thick satin investment envelope/core, fabric-like straps, small metallic-gold value pieces.
+LIGHTING:
+Neutral/emerald hero lighting with restrained red-orange emphasis along the outgoing straps.
+TEXT:
+Only the four physical cost labels.
+FORBIDDEN:
+Desk, receipt collection, neat document row, icon grid, flowchart, dashboard, pie chart, photorealism, clutter.
