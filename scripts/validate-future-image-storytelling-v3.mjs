@@ -3,14 +3,15 @@
 import {existsSync, readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 
+const V2 = 'finanzneo-image-storytelling-v2';
+const V3 = 'finanzneo-image-storytelling-v3';
+const STORY_MOMENT_REVISION = 'finanzneo-readable-story-moment-v1';
 const target = process.argv[2];
 if (!target) {
   console.error('Nutzung: node scripts/validate-future-image-storytelling-v3.mjs <Reel-Pfad>');
   process.exit(1);
 }
 
-const V2 = 'finanzneo-image-storytelling-v2';
-const V3 = 'finanzneo-image-storytelling-v3';
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 if (!existsSync(indexPath)) {
@@ -29,6 +30,7 @@ if (c.id === V2) {
   process.exit(0);
 }
 
+const revisedStoryMoment = c.storyMomentRevision === STORY_MOMENT_REVISION;
 const errors = [];
 const fail = (message) => errors.push(message);
 const placeholder = /\[|EINFÜGEN|TODO|TBD|XXX|\.\.\./i;
@@ -47,7 +49,6 @@ for (const key of [
   'recognizableFinanceContextRequired',
   'exactVoiceBeatVisualMatchRequired',
   'transferabilityTestRequired',
-  'metaphorFallbackOnly',
   'metaphorNeedsExplicitJustification',
   'genericFantasyMechanismAsDefaultForbidden',
   'railsConveyorsGatesCagesPortalsAsDefaultForbidden',
@@ -73,6 +74,23 @@ for (const key of [
   if (c[key] !== true) fail('imageStorytellingContract.' + key + ' muss true sein.');
 }
 
+if (revisedStoryMoment) {
+  if (c.metaphorFallbackOnly !== false) fail('Story-Moment-Revision verlangt metaphorFallbackOnly=false: intuitive Metaphern dürfen die literal-Darstellung schlagen.');
+  for (const key of [
+    'intuitiveMetaphorAllowed',
+    'intuitiveMetaphorMayBeatLiteralWhenClearer',
+    'familiarObjectsOrCharactersRequired',
+    'instantStoryReadRequired',
+    'exaggeratedPhysicalStoryAllowed',
+    'familiarObjectMetaphorRequired',
+    'animationFilmStoryFrameRequired',
+  ]) {
+    if (c[key] !== true) fail('imageStorytellingContract.' + key + ' muss in der Story-Moment-Revision true sein.');
+  }
+} else if (c.metaphorFallbackOnly !== true) {
+  fail('Legacy-V3 ohne Story-Moment-Revision erwartet metaphorFallbackOnly=true.');
+}
+
 const globalPaths = [
   '03-szenen/alle-bildprompts.txt',
   '03-szenen/bildwelt.txt',
@@ -88,10 +106,16 @@ for (const relative of globalPaths) {
   }
   const source = readFileSync(path, 'utf8');
   if (!source.includes('IMAGE_STORYTELLING_CONTRACT: ' + V3)) fail(relative + ' enthält den V3-Marker nicht.');
-  if (!source.includes('Literal first, creative second')) fail(relative + ' enthält die Literal-first-Regel nicht.');
   if (!source.includes('TRANSFERABILITY-TEST')) fail(relative + ' enthält den Transferability-Test nicht.');
   if (!source.includes('Förderbänder, Schienen, Schranken, Käfige')) fail(relative + ' enthält das Verbot generischer Fantasiemechaniken nicht.');
-  if (!source.includes('ABSTRAKTE FINANZKÖRPER')) fail(relative + ' enthält die neue Sperre gegen abstrakte Finanzkörper als Standardsprache nicht.');
+  if (!source.includes('ABSTRAKTE FINANZKÖRPER')) fail(relative + ' enthält die Sperre gegen abstrakte Finanzkörper als Standardsprache nicht.');
+  if (revisedStoryMoment) {
+    if (!source.includes('STORY_MOMENT_REVISION: ' + STORY_MOMENT_REVISION)) fail(relative + ' enthält den Story-Moment-Revision-Marker nicht.');
+    if (!source.includes('Familiar things, clear story, creative when useful')) fail(relative + ' enthält die Familiar-Story-First-Regel nicht.');
+    if (!source.includes('intuitive Metapher') && !source.includes('intuitive Metaphern')) fail(relative + ' erlaubt intuitive, sofort verständliche Metaphern nicht ausdrücklich.');
+  } else if (!source.includes('Literal first, creative second')) {
+    fail(relative + ' enthält für Legacy-V3 die Literal-first-Regel nicht.');
+  }
 }
 
 for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
@@ -102,11 +126,17 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
     fail(prefix + ': imageStorytelling-Metadaten fehlen.');
   } else {
     if (!['literal', 'metaphor'].includes(meta.strategy)) fail(prefix + ': imageStorytelling.strategy muss literal oder metaphor sein.');
-    if (!nonPlaceholder(meta.literalSituation, 18)) fail(prefix + ': konkrete reale Situation fehlt/ist Platzhalter.');
-    if (!nonPlaceholder(meta.contextAnchor, 12)) fail(prefix + ': erkennbarer Finanz-/Alltagskontext fehlt/ist Platzhalter.');
+    if (!nonPlaceholder(meta.literalSituation, 18)) fail(prefix + ': reale/erkennbare Ausgangslage fehlt/ist Platzhalter.');
+    if (!nonPlaceholder(meta.contextAnchor, 12)) fail(prefix + ': bekannte Figur/Gegenstände bzw. Kontextanker fehlen/ist Platzhalter.');
     if (!nonPlaceholder(meta.voiceVisualMatch, 18)) fail(prefix + ': direkte Verbindung zwischen Voiceover und sichtbarem Detail fehlt/ist Platzhalter.');
     if (!nonPlaceholder(meta.transferabilityTest, 20) || !/^PASS\b/i.test(meta.transferabilityTest.trim())) {
       fail(prefix + ': transferabilityTest muss mit PASS beginnen und konkret begründen, warum das Bild themenspezifisch ist.');
+    }
+    if (revisedStoryMoment) {
+      if (!nonPlaceholder(meta.storyMoment, 18)) fail(prefix + ': sichtbarer Story-Moment fehlt/ist Platzhalter.');
+      if (!nonPlaceholder(meta.instantReadTest, 20) || !/^PASS\b/i.test(meta.instantReadTest.trim())) {
+        fail(prefix + ': instantReadTest muss PASS + konkrete Begründung enthalten.');
+      }
     }
     if (meta.strategy === 'metaphor') {
       if (!nonPlaceholder(meta.metaphorJustification, 20) || /^none$/i.test(meta.metaphorJustification.trim())) {
@@ -132,7 +162,9 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   const strategy = readMarker(source, 'VISUAL_STRATEGY');
   const literalSituation = readMarker(source, 'LITERAL_REAL_WORLD_SITUATION');
   const contextAnchor = readMarker(source, 'REAL_WORLD_CONTEXT_ANCHOR');
+  const storyMoment = readMarker(source, 'VISUAL_STORY_MOMENT');
   const voiceMatch = readMarker(source, 'VOICEOVER_VISUAL_MATCH');
+  const instantReadTest = readMarker(source, 'INSTANT_READ_TEST');
   const transferability = readMarker(source, 'TRANSFERABILITY_TEST');
   const metaphorJustification = readMarker(source, 'METAPHOR_JUSTIFICATION');
 
@@ -143,6 +175,10 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   if (!nonPlaceholder(transferability, 20) || !/^PASS\b/i.test(transferability)) {
     fail(prefix + ': TRANSFERABILITY_TEST muss PASS + konkrete Begründung enthalten.');
   }
+  if (revisedStoryMoment) {
+    if (!nonPlaceholder(storyMoment, 18)) fail(prefix + ': VISUAL_STORY_MOMENT fehlt/ist Platzhalter.');
+    if (!nonPlaceholder(instantReadTest, 20) || !/^PASS\b/i.test(instantReadTest)) fail(prefix + ': INSTANT_READ_TEST muss PASS + konkrete Begründung enthalten.');
+  }
   if (strategy === 'metaphor') {
     if (!nonPlaceholder(metaphorJustification, 20) || /^none$/i.test(metaphorJustification)) fail(prefix + ': Metapher braucht eine konkrete METAPHOR_JUSTIFICATION.');
   } else if (metaphorJustification.toLowerCase() !== 'none') {
@@ -150,7 +186,7 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   }
 
   if (strategy === 'literal' && abstractFinanceDefault.test(source)) {
-    fail(prefix + ': abstrakte Finanzkörper wie capital body/wealth tower/value block sind als literal-Hauptidee gesperrt; reale Situation nutzen oder bewusst strategy=metaphor begründen.');
+    fail(prefix + ': abstrakte Finanzkörper wie capital body/wealth tower/value block sind als literal-Hauptidee gesperrt; bekannte Situation nutzen oder bewusst strategy=metaphor begründen.');
   }
 
   if (meta && typeof meta === 'object') {
@@ -160,6 +196,10 @@ for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
     if (voiceMatch !== meta.voiceVisualMatch) fail(prefix + ': Prompt und scene-index widersprechen sich bei voiceVisualMatch.');
     if (transferability !== meta.transferabilityTest) fail(prefix + ': Prompt und scene-index widersprechen sich beim transferabilityTest.');
     if (metaphorJustification !== meta.metaphorJustification) fail(prefix + ': Prompt und scene-index widersprechen sich bei metaphorJustification.');
+    if (revisedStoryMoment) {
+      if (storyMoment !== meta.storyMoment) fail(prefix + ': Prompt und scene-index widersprechen sich beim storyMoment.');
+      if (instantReadTest !== meta.instantReadTest) fail(prefix + ': Prompt und scene-index widersprechen sich beim instantReadTest.');
+    }
   }
 }
 
@@ -170,6 +210,10 @@ if (errors.length) {
 }
 
 console.log('\n✓ Future-Image-Storytelling erfüllt: ' + V3);
-console.log('✓ V9 beschreibt Rendering; reale Situation, Kontextanker und Voiceover-Match tragen die Erklärung.');
-console.log('✓ Abstrakte Finanzkörper sind kein literal-Default und benötigen als Hauptmotiv eine begründete Metapher.');
-console.log('✓ Transferability-Test bestanden; generische Finanzbilder werden vor Flow blockiert.');
+if (revisedStoryMoment) {
+  console.log('✓ Story-Moment-Revision aktiv: bekannte Figuren/Gegenstände + klare kleine Geschichte + intuitive Metaphern erlaubt.');
+  console.log('✓ INSTANT_READ_TEST und Transferability-Test bestanden.');
+} else {
+  console.log('✓ Legacy-V3 bleibt rückwärtskompatibel.');
+}
+console.log('✓ Abstrakte Finanzkörper bleiben als unmarkierter literal-Default gesperrt.');
