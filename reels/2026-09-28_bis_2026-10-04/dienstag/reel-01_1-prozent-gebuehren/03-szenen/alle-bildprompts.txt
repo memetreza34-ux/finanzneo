@@ -85,45 +85,52 @@ COVER_VARIANT_COUNT: 3
 USER_SELECTION_REQUIRED: true
 SELECTED_COVER_BECOMES_SCENE_01: true
 SELECTED_COVER_IS_STYLE_REFERENCE: true
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 
 ABLAUF:
-1. Zuerst ausschließlich drei Cover-Kandidaten A, B und C erzeugen — strikt nacheinander, niemals parallel.
-2. Danach STOPP. Keine weiteren Szenenbilder erzeugen.
-3. Nutzer entscheidet A, B oder C.
-4. Nur die gewählte Variante wird exakt zu "Bild 01 - Ein Prozent wirkt klein.png" umbenannt.
-5. Dieses gewählte Bild ist gleichzeitig finales Cover + Scene 01 + visuelle Style-Referenz für alle folgenden Google-Flow-Bilder.
-6. Nicht gewählte Varianten sind nur Kandidaten und werden nicht in Phase 3 verwendet.
+1. Cover A einzeln erzeugen und vollständig abwarten.
+2. Cover B einzeln erzeugen und vollständig abwarten.
+3. Cover C einzeln erzeugen und vollständig abwarten.
+4. STOPP. Nutzer entscheidet A, B oder C.
+5. Nur die gewählte Variante wird exakt zu "Bild 01 - Ein Prozent wirkt klein.png" umbenannt.
+6. Das gewählte Bild ist finales Cover + Scene 01 + einzige visuelle Style-Referenz für die restlichen Flow-Bilder.
+
+GEMEINSAME BILDWELT FÜR A/B/C:
+Premium clearly stylized 3D animation-film rendering, deep seamless black world, refined rounded geometry, high-quality modeling, semi-realistic but visibly stylized materials, premium studio lighting, strong depth, warm ivory/soft gray neutrals, emerald positive/value, subtle gold money/value, red-orange cost/risk. The frame must look like a frozen moment from an animated finance story, never like a product photo, desk scene, dashboard or flat infographic. 1:1.
 
 COVER A — TEXT EXAKT:
 1 % KOSTEN
 SO TEUER?
-Komposition: ein dominantes großes Investment-Kapitalobjekt und ein scheinbar winziger 1-%-Kostenabzug; klare plakative Hero-Komposition.
+SCENE:
+One massive emerald investment-capital body dominates the frame while a tiny red-orange clamp marked “1 %” bites into one edge and physically pulls out a small gold value piece. The contrast must instantly communicate: tiny percentage, real extraction.
+COMPOSITION:
+Capital body large lower-left/center foreground, tiny clamp attacking from upper-right, extracted gold piece visibly between them, dramatic diagonal tension, deep black background, no desk.
 
 COVER B — TEXT EXAKT:
 85.600 €
 WEGEN 1 %?
-Komposition: starker Größenkontrast zwischen zwei langfristigen Vermögensausgängen; 85.600 € als visuell dominanter Payoff, aber keine Dashboard-/Chart-UI.
+SCENE:
+Two large stylized wealth structures rise from the same starting base. They begin almost equal but end at clearly different heights, with one substantial gold value chunk representing the final gap suspended between the endpoints.
+COMPOSITION:
+Same base in foreground, two outcomes diverging into depth, one large tangible gap object, cinematic 3D depth, no chart axes and no desk.
 
 COVER C — TEXT EXAKT:
 30 JAHRE
 1 % UNTERSCHIED
-Komposition: räumliche 30-Jahre-Finanzreise mit zwei Wegen, die am Anfang nahe beieinander liegen und sich sichtbar trennen; hochwertige 3D-Tiefe statt Infografik.
-
-STYLE-LOCK FÜR ALLE DREI:
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-Create a premium stylized 3D animated finance-explainer image with believable physical objects and clear depth. Use one seamless deep black background, emerald green for positive/growth, subtle warm gold for money/value, warm ivory/soft gray neutrals, red-orange only for costs/warnings. Use clean soft studio lighting, readable contact shadows, strong subject separation and recognizable physical construction. Never become photorealistic.
+SCENE:
+A repeated chain of identical monthly contribution packets travels through a long black-space time sequence and feeds two investment bodies. Near the foreground they are almost equal; deep in the scene one has become visibly larger than the other.
+COMPOSITION:
+Strong foreground-to-background progression, contribution packets create the 30-year journey, two final wealth bodies clearly separated, no infographic timeline and no desk.
 
 WICHTIG:
-Das ausgewählte Cover stabilisiert bei den späteren Bildern nur Materialgefühl, Geometriesprache, Beleuchtung, Kontrast, Farbcharakter und Render-Look. Normale Szenen übernehmen NICHT Cover-Text, Cover-Layout oder konkrete Objektanordnung, sofern ihr eigener Prompt das nicht verlangt.
+The chosen cover anchors only abstraction level, material language, lighting, colors, camera feeling and finish quality. Later images must use fresh compositions and fresh story moments.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 BASIS-PROMPT FÜR FINALES BILD 01
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
-
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 01 - Ein Prozent wirkt klein.png
 
@@ -131,15 +138,20 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 1 %
 
 IMAGE PROMPT:
-Create one oversized premium 3D gold fee token marked “1 %” beside a much larger emerald investment-capital object. Make the fee token look visually tiny compared with the capital so the first impression is “that seems harmless”, while subtle red-orange cost lighting hints that this small percentage matters over time.
+Create a premium clearly stylized 3D animation-film frame in a deep seamless black world. One massive emerald investment-capital body dominates the frame while a tiny red-orange clamp or fee tag marked “1 %” physically bites into one edge and pulls out a small gold value piece. The viewer should first feel that the percentage looks tiny, but the physical extraction makes its consequence unmistakable.
 
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE: stylized 3D animated finance-explainer world, real-world-grounded, premium clean materials, soft rounded geometry, simplified believable details, never photorealistic.
-BACKGROUND: one seamless deep black background.
-COLORS: emerald positive/growth, warm gold money, restrained red-orange cost/warning, ivory/soft gray neutral.
-TEXT: no headline, subtitle, CTA or sentence; only exact labels above.
-FORBIDDEN: dashboard, app UI, flowchart, floating cards, tiny boxes, microchip language, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Tiny percentage → physical bite → real value removed.
+COMPOSITION:
+Close-medium 3/4 view, capital body large foreground, tiny fee clamp entering diagonally from one side, extracted gold piece clearly visible between them, asymmetric tension and strong depth. No desk, room or tabletop.
+MATERIALS:
+Refined satin emerald body, subtle metallic-gold value piece, matte red-orange fee clamp, soft rounded premium geometry.
+LIGHTING:
+Premium studio key light, controlled highlights, readable contact shadows, red-orange only on the cost mechanism.
+TEXT:
+Only “1 %”.
+FORBIDDEN:
+Photorealism, product-photo look, desk scene, jar of money, receipt layout, dashboard, chart, floating UI, icon collection, flat infographic, clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 NACH COVER-AUSWAHL
@@ -172,6 +184,7 @@ Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUEL
 NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 02 - Kosten kommen aus dem Vermoegen.png
 
@@ -179,19 +192,20 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Kosten
 
 IMAGE PROMPT:
-Create one coherent premium stylized 3D home-investment scene on a dark desk. A believable investment folder and a sturdy transparent savings/investment container sit together as one setup. A human hand is physically removing one small warm-gold value piece from the invested container and placing it onto a red-orange fee receipt labelled “Kosten”. The viewer must instantly understand that the fee is paid out of the invested wealth itself. Keep the action large and readable, not miniature.
+Create a premium stylized 3D animation-film frame in the deep-black FinanzNeo world. A large emerald investment-capital block is being physically pulled apart at one edge by a red-orange cost strap labeled “Kosten”. The strap has already extracted one warm-gold value segment and is dragging it away into the background. The missing segment remains visibly cut out of the capital body so the viewer instantly understands that the fee comes directly out of invested wealth.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable object proportions, clean semi-realistic material detail, clearly animated/stylized and never photorealistic.
-BACKGROUND: one seamless deep black background with only the useful desk context fading naturally into black.
-COMPOSITION: one clear physical action, large hero objects, direct cause and effect.
-COLORS + LIGHT: emerald investment object, subtle warm gold value, red-orange fee receipt, ivory/soft gray neutrals, clean premium studio lighting and soft contact shadows.
-TEXT: only the exact label “Kosten”.
-FORBIDDEN: pie chart, donut chart, floating fee slice, dashboard, app UI, flowchart, abstract arrows, icon collection, winding path, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Invested value → cost strap grabs a piece → capital is visibly smaller.
+COMPOSITION:
+Capital block large foreground-left, strap under tension pulling diagonally toward background-right, removed gold segment between them, strong depth and one clear action. No desk or realistic room.
+MATERIALS:
+Soft-rounded satin capital body, fabric-like red-orange strap, metallic-gold value segment.
+LIGHTING:
+Neutral premium key light on capital, warm red-orange accent along the outgoing cost direction.
+TEXT:
+Only “Kosten” physically on the strap/tag.
+FORBIDDEN:
+Hand taking cash from a jar, desk, receipt list, pie/donut chart, static product lineup, dashboard, floating cards, photorealism, clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 04 – BILDSZENE
@@ -202,6 +216,7 @@ Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUEL
 NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 04 - Startkapital und Sparrate.png
 
@@ -210,19 +225,20 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 300 € / Monat
 
 IMAGE PROMPT:
-Create one premium stylized 3D personal-finance desk scene showing the beginning of a long investment plan. A substantial starting-capital envelope or cash bundle labelled “10.000 €” sits beside a recurring monthly contribution envelope labelled “300 € / Monat”. A simple physical desk calendar is open nearby to make the recurring monthly rhythm obvious. Arrange everything as one believable financial setup on the same desk, not as separate infographic cards.
+Create a premium stylized 3D animation-film frame in a deep seamless black world. A substantial starting-capital bundle marked “10.000 €” is already feeding into one emerald investment core. From behind it, a repeating chain of smaller monthly contribution packets marked “300 € / Monat” approaches the same core at regular spacing, making the ongoing saving rhythm immediately visible.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, recognizable everyday objects, believable scale, polished materials, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with only a small useful desk environment fading into black.
-COMPOSITION: one coherent savings setup, strong main grouping, immediate understanding within 1–2 seconds.
-COLORS + LIGHT: emerald accents for investing, subtle warm gold for money, ivory/soft gray for desk objects, premium soft studio light and contact shadows.
-TEXT: only “10.000 €” and “300 € / Monat”.
-FORBIDDEN: winding road, snake track, progress path, dashboard, app UI, floating cards, icon layout, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Large starting amount already invested + repeated smaller monthly contributions continue feeding the same investment.
+COMPOSITION:
+Investment core large center-right foreground, 10.000 € bundle entering from lower-left, repeating 300 € packets receding through depth from background-left toward the core. Strong diagonal depth, no table.
+MATERIALS:
+Premium paper money packets, satin emerald investment core, subtle gold value accents.
+LIGHTING:
+Clean studio light with gentle gold highlights on money and emerald separation on the investment core.
+TEXT:
+Only “10.000 €” and “300 € / Monat”.
+FORBIDDEN:
+Desk calendar setup, office scene, neat tabletop arrangement, dashboard, progress bar, generic road graphic, photorealism, clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 05 – BILDSZENE
@@ -233,6 +249,7 @@ Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUEL
 NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 05 - Gleiche Einzahlungen.png
 
@@ -241,19 +258,20 @@ BESCHRIFTUNGEN – EXAKT SO:
 - gleiche Einzahlungen
 
 IMAGE PROMPT:
-Create a premium stylized 3D financial planning scene on one dark desk. Two identical transparent investment jars or account containers stand side by side, each receiving the same visible monthly contribution envelope from the same central source. Behind them, one physical calendar strip clearly indicates “30 Jahre”. The two containers and incoming contribution amounts must look deliberately identical so the viewer instantly understands “gleiche Einzahlungen”. Keep the setup physical and believable rather than diagrammatic.
+Create a premium stylized 3D animation-film frame in the deep-black FinanzNeo world. One central stream of identical monthly contribution packets splits physically into two perfectly equal streams and feeds two matching emerald investment bodies. A sequence of thick calendar tiles recedes behind them into the black depth and is marked once with “30 Jahre”. Both sides must receive visibly identical packets so the fairness of the comparison is unmistakable.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D with believable proportions and polished but clearly animated materials.
-BACKGROUND: seamless deep black with restrained desk context fading into black.
-COMPOSITION: two equal physical investment setups on one shared surface; equality must be obvious without a chart.
-COLORS + LIGHT: balanced neutral setup with restrained emerald/gold accents, soft premium studio lighting and contact shadows.
-TEXT: only “30 Jahre” and “gleiche Einzahlungen”.
-FORBIDDEN: winding track, racetrack, road, flowchart, arrows as main explanation, dashboard, app UI, floating cards, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+One equal source → identical contributions split evenly → two matched long-term investments.
+COMPOSITION:
+Contribution source foreground-center, clean Y-shaped physical split, two investment bodies left/right midground, calendar tiles disappearing into background depth. Energetic but simple; not a chart.
+MATERIALS:
+Thick paper contribution packets, satin emerald investment bodies, matte ivory calendar tiles.
+LIGHTING:
+Balanced equal lighting on both sides, subtle gold on contribution packets.
+TEXT:
+Only “30 Jahre” and “gleiche Einzahlungen”.
+FORBIDDEN:
+Desk, jars on a shelf, flowchart boxes, dashboard, bar chart, racetrack, flat infographic, photorealism, clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 06 – BILDSZENE
@@ -264,6 +282,7 @@ Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUEL
 NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 06 - Sieben gegen sechs Prozent.png
 
@@ -272,19 +291,20 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 6 %
 
 IMAGE PROMPT:
-Create one premium stylized 3D investment-comparison scene on a shared dark desk or shelf. Two physically identical transparent investment containers stand side by side with the same starting level, same size, same materials and same surroundings. The only visible difference is one clean label “7 %” on the left and “6 %” on the right. The viewer must instantly understand that everything is equal except this one percentage point.
+Create a premium stylized 3D animation-film comparison in a deep seamless black world. Two physically identical emerald investment bodies begin from the same low starting level in the foreground. The left body marked “7 %” has grown only slightly more than the right body marked “6 %”. Their shapes, materials and starting point must be identical so the single percentage-point difference is the only variable.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable construction, polished physical materials, never photorealistic.
-BACKGROUND: seamless deep black with restrained real desk/shelf context.
-COMPOSITION: stable side-by-side physical comparison on one baseline; no chart interface.
-COLORS + LIGHT: equal neutral lighting on both sides, restrained emerald/gold investment accents, premium studio shadows.
-TEXT: only “7 %” and “6 %”.
-FORBIDDEN: chart bars, progress bars, racetrack, winding path, dashboard, app UI, floating comparison cards, icon collection, clutter, photorealism.
+VISUAL STORYTELLING:
+Same start, same structure, only one small growth-rate difference.
+COMPOSITION:
+Low 3/4 angle, two large matched investment bodies side by side with one shared starting baseline visible in foreground; tiny but readable height difference, strong depth and no surrounding furniture.
+MATERIALS:
+Refined rounded emerald forms with subtle gold inner value layers.
+LIGHTING:
+Exactly equal studio lighting on both sides; no color trick that biases the comparison.
+TEXT:
+Only “7 %” and “6 %”.
+FORBIDDEN:
+Desk/shelf, glass jars, chart axes, bar-chart UI, progress bars, floating cards, dashboard, photorealism, clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 08 – BILDSZENE
@@ -295,6 +315,7 @@ Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUEL
 NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 08 - Fuenf Jahre kleiner Abstand.png
 
@@ -304,19 +325,20 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 34.400 €
 
 IMAGE PROMPT:
-Create one premium stylized 3D five-year investment checkpoint on a shared dark shelf or desk. Two matching transparent investment jars stand side by side, both visibly well filled and almost the same height. Add a small physical calendar marker labelled “5 Jahre”. The left jar is labelled “35.700 €”, the right jar “34.400 €”. The tiny difference in fill level must be noticeable only on closer look so the scene communicates that the early gap is still small.
+Create a premium stylized 3D animation-film checkpoint in the deep-black FinanzNeo world. Two matching emerald wealth towers stand close together after five years. Both are already substantial and almost the same height; the left is only slightly taller. A single thick physical milestone tile between/behind them reads “5 Jahre”. Small attached value plates read “35.700 €” and “34.400 €”. The early gap should feel almost disappointingly small.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable transparent materials, recognizable everyday scale, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with restrained shelf/desk context fading into black.
-COMPOSITION: same two physical containers, same baseline, very small visible difference.
-COLORS + LIGHT: emerald/gold value accents, neutral surroundings, premium soft studio light, readable contact shadows.
-TEXT: only “5 Jahre”, “35.700 €” and “34.400 €”.
-FORBIDDEN: chart bars, graph axes, dashboard, app UI, floating cards, abstract progress blocks, winding path, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Five years pass → both grow strongly → difference is still tiny.
+COMPOSITION:
+Two large towers dominate the frame, near-equal tops at slightly different depths, milestone tile receding behind them, tight 3/4 view and strong black negative space around the hero forms.
+MATERIALS:
+Rounded layered emerald structures with restrained gold value layers, matte ivory milestone tile.
+LIGHTING:
+Balanced premium studio light, crisp silhouette separation.
+TEXT:
+Only “5 Jahre”, “35.700 €”, “34.400 €”.
+FORBIDDEN:
+Desk/shelf, glass jars, graph axes, bar-chart UI, dashboard, floating cards, photorealism, clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 5ER-BLOCK 2
@@ -336,6 +358,7 @@ Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUEL
 NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 09 - Zwanzig Jahre deutlicher Abstand.png
 
@@ -345,19 +368,20 @@ BESCHRIFTUNGEN – EXAKT SO:
 - 171.700 €
 
 IMAGE PROMPT:
-Create the same premium stylized 3D investment setup as the earlier five-year checkpoint, now twenty years later. On the same dark shelf or desk, two matching transparent investment jars stand side by side, but the left jar is now clearly fuller and physically more substantial. Add one simple physical calendar marker labelled “20 Jahre”. Label the left jar “196.700 €” and the right jar “171.700 €”. The larger long-term gap must be immediately visible through the physical fill difference, not through a chart.
+Create a premium stylized 3D animation-film frame in the same deep-black world, now showing a twenty-year checkpoint. Two related emerald wealth structures rise from equal bases, but the left has become visibly larger and extends much farther upward/back into depth. A physical milestone tile marked “20 Jahre” sits at the shared base. Attached value plates read “196.700 €” and “171.700 €”. The long-term gap must now be obvious at first glance.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable transparent materials and object scale, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with restrained shelf/desk context fading into black.
-COMPOSITION: same baseline and same object family as the five-year comparison, but now with a clearly larger physical gap.
-COLORS + LIGHT: emerald/gold value accents, neutral surroundings, premium soft studio lighting and readable contact shadows.
-TEXT: only “20 Jahre”, “196.700 €” and “171.700 €”.
-FORBIDDEN: chart bars, graph axes, dashboard, app UI, floating cards, abstract progress blocks, winding path, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Same equal base → much more time → small rate difference has become a large physical gap.
+COMPOSITION:
+Low dramatic 3/4 angle, equal bases foreground, tops separating strongly through vertical and depth staging, asymmetry created by the larger left outcome. No furniture.
+MATERIALS:
+Layered emerald wealth forms with restrained gold value accents, matte ivory milestone tile.
+LIGHTING:
+Premium studio light emphasizing the growing separation without turning it into a chart.
+TEXT:
+Only “20 Jahre”, “196.700 €”, “171.700 €”.
+FORBIDDEN:
+Desk/shelf, jars, graph axes, bar-chart interface, floating cards, dashboard, photorealism, clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 10 – BILDSZENE
@@ -368,6 +392,7 @@ Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUEL
 NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 10 - Verschiedene Kostenquellen.png
 
@@ -378,19 +403,20 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Transaktion
 
 IMAGE PROMPT:
-Create one coherent premium stylized 3D investment-desk scene. In the center lies a believable investment folder beside a transparent investment container. Around it are four distinct physical fee documents or receipts clearly connected to the same investment setup: one labelled “Fondskosten”, one “Depot”, one “Service”, and one “Transaktion”. Each fee document has a small warm-gold value piece physically resting on it, making it obvious that all four cost types can reduce the same invested wealth. Keep the scene natural and readable, not diagrammatic.
+Create a premium stylized 3D animation-film frame in a deep seamless black world. One thick emerald investment envelope/core is caught under tension while four red-orange cost straps pull small gold value pieces away in four different directions. The four straps are physically labeled “Fondskosten”, “Depot”, “Service” and “Transaktion”. The investment remains the large hero object; the cost mechanisms are secondary but clearly connected to it.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable paper, glass and money materials, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with a restrained desk environment fading into black.
-COMPOSITION: one central investment setup with four real physical cost documents; no flowchart structure.
-COLORS + LIGHT: emerald/gold investment accents, red-orange restrained cost accents, ivory/soft gray documents, premium studio light and contact shadows.
-TEXT: only “Fondskosten”, “Depot”, “Service” and “Transaktion”.
-FORBIDDEN: floating info cards, arrows connecting boxes, flowchart, dashboard, app UI, abstract fee icons, pie/donut chart, clutter, miniature diorama, photorealism.
+VISUAL STORYTELLING:
+One investment → four different named cost mechanisms → all remove value from the same place.
+COMPOSITION:
+Investment hero large center-left foreground, four straps fan diagonally into different depths, visible tension and missing gold pieces, asymmetric frozen-action moment.
+MATERIALS:
+Thick satin investment envelope/core, fabric-like straps, small metallic-gold value pieces.
+LIGHTING:
+Neutral/emerald hero lighting with restrained red-orange emphasis along the outgoing straps.
+TEXT:
+Only the four physical cost labels.
+FORBIDDEN:
+Desk, receipt collection, neat document row, icon grid, flowchart, dashboard, pie chart, photorealism, clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 12 – BILDSZENE
@@ -401,6 +427,7 @@ Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUEL
 NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 12 - Unterschied 85600 Euro.png
 
@@ -409,19 +436,20 @@ BESCHRIFTUNGEN – EXAKT SO:
 - gleiche Einzahlungen
 
 IMAGE PROMPT:
-Create one premium stylized 3D long-term investment result scene on a dark financial-planning desk. Two large matching investment containers stand side by side after the same saving journey. Behind both containers are visibly identical contribution envelopes or deposit records, reinforced by the short label “gleiche Einzahlungen”. Between the two outcomes sits one substantial physical stack of value labelled “≈ 85.600 €”, representing the wealth gap created by the different long-term return/cost path. Make the difference feel tangible and significant without turning the scene into a chart.
+Create a premium stylized 3D animation-film payoff frame in the deep-black FinanzNeo world. Two large wealth structures stand on the same shared base after the same contribution journey. A wide physical brace at their base is labeled “gleiche Einzahlungen”. Between their final heights, one substantial detachable gold value block marked “≈ 85.600 €” exactly fills the visible difference. The gap must feel tangible, heavy and surprising.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable physical money/value objects, polished materials, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with restrained desk context fading naturally into black.
-COMPOSITION: two believable long-term investment outcomes plus one tangible central difference stack; clear physical hierarchy.
-COLORS + LIGHT: emerald/gold value accents, neutral ivory/soft gray desk elements, premium studio lighting and soft contact shadows.
-TEXT: only “≈ 85.600 €” and “gleiche Einzahlungen”.
-FORBIDDEN: bar chart, graph axis, dashboard, app UI, floating cards, abstract progress blocks, winding path, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Same deposits → different long-term outcome → the missing wealth becomes one physical object the viewer can see.
+COMPOSITION:
+Shared base large foreground, two outcome structures rising behind it, gold difference block suspended/fitted between the two final levels, dramatic depth and one dominant payoff.
+MATERIALS:
+Layered emerald wealth structures, brushed-gold difference block, matte ivory base brace.
+LIGHTING:
+Premium studio light with gold payoff emphasis and deep black separation.
+TEXT:
+Only “≈ 85.600 €” and “gleiche Einzahlungen”.
+FORBIDDEN:
+Desk, jars, bar-chart UI, graph axes, dashboard, floating cards, photorealism, clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 13 – BILDSZENE
@@ -432,6 +460,7 @@ Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUEL
 NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 13 - Kosten nachsehen.png
 
@@ -439,19 +468,20 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Kosten
 
 IMAGE PROMPT:
-Create one premium stylized 3D personal-finance desk scene. A substantial magnifying glass is actively inspecting two believable physical investment documents: one product information sheet and one price/service document. Several cost rows are visibly highlighted and one short label “Kosten” anchors the action. The viewer must immediately understand: check the fees before choosing the investment product. Keep the documents physical and readable as objects, not as a browser or app screenshot.
+Create a premium stylized 3D animation-film frame in a deep seamless black world. One oversized magnifying glass moves across a thick folded investment document, enlarging a short red-orange strip labeled “Kosten”. Behind the document, a second product document waits slightly out of focus, creating a clear frozen moment of checking fees before choosing. The magnifying glass and highlighted fee strip are the action, not a desk setup.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D, believable paper/glass materials, useful physical detail, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with restrained desk context fading into black.
-COMPOSITION: one clear inspection action with large foreground magnifying glass and two documents; immediate cause/decision context.
-COLORS + LIGHT: restrained emerald/gold finance accents, ivory/soft gray documents, red-orange only for highlighted fee rows, premium soft studio lighting and contact shadows.
-TEXT: only the exact short label “Kosten”; no readable paragraphs or UI text.
-FORBIDDEN: browser screenshot, app UI, dashboard, floating info cards, flowchart, tiny text wall, generic finance icon layout, clutter, photorealism.
+VISUAL STORYTELLING:
+Investment document → active inspection → hidden cost line becomes impossible to miss.
+COMPOSITION:
+Document angled through midground, magnifying glass very large in foreground crossing it diagonally, second document in background depth, asymmetric and cinematic.
+MATERIALS:
+Thick ivory paper, refined glass lens, brushed-metal rim, red-orange printed fee strip.
+LIGHTING:
+Clean premium key light, bright lens highlight, restrained red-orange focus on the cost strip.
+TEXT:
+Only “Kosten”; no readable paragraph.
+FORBIDDEN:
+Desk, browser/app screenshot, tiny text wall, dashboard, floating info cards, static product shot, photorealism, clutter.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 SZENE 14 – BILDSZENE
@@ -462,6 +492,7 @@ Nutze ausschließlich das vom Nutzer ausgewählte Cover als kontrollierte VISUEL
 NICHT übernehmen: Cover-Layout, Cover-Text, konkrete Cover-Objektanordnung oder Bildinhalt, sofern der Szenenprompt das nicht verlangt. Keine anderen Flow-Bilder als Referenz verwenden.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+IMAGE_GRAMMAR_ID: finanzneo-phase-a-frozen-story-v1
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 14 - Kosten sind nicht alles.png
 
@@ -472,19 +503,20 @@ BESCHRIFTUNGEN – EXAKT SO:
 - Qualität
 
 IMAGE PROMPT:
-Create one premium stylized 3D investment-decision scene on a dark desk. A person or pair of hands is comparing two believable investment folders side by side. In front of the folders lie four substantial physical decision tabs or markers labelled “Kosten”, “Risiko”, “Diversifikation”, and “Qualität”. The scene must communicate that fees matter, but they are only one of several important criteria when choosing an investment. Make the decision context feel practical and real rather than symbolic or diagrammatic.
+Create a premium stylized 3D animation-film decision frame in the deep-black FinanzNeo world. One central investment-choice object is being evaluated by four substantial physical tabs attached around its edges: “Kosten”, “Risiko”, “Diversifikation” and “Qualität”. The red-orange “Kosten” tab is important but visibly only one of four equally real factors; the other three use neutral/emerald treatments. The frozen moment should feel like the viewer is seeing a product pass through a four-factor inspection, not looking at an icon grid.
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STYLE_REFERENCE_POLICY: selected-cover-style-only
-STYLE: premium real-world-grounded stylized 3D with believable documents, hands and desk objects, polished materials, clearly stylized and never photorealistic.
-BACKGROUND: seamless deep black with a restrained financial-planning desk environment fading into black.
-COMPOSITION: one practical comparison action, four clearly attached criteria, strong hero scale and clean negative space.
-COLORS + LIGHT: emerald/gold restrained finance accents, ivory/soft gray documents, red-orange only for cost/warning emphasis, premium studio lighting and soft contact shadows.
-TEXT: only “Kosten”, “Risiko”, “Diversifikation” and “Qualität”.
-FORBIDDEN: balance-scale infographic, floating cards, flowchart, dashboard, app UI, icon grid, abstract arrows, miniature diorama, clutter, photorealism.
+VISUAL STORYTELLING:
+Investment choice → four real criteria act on it at once → cost matters, but it is not the whole decision.
+COMPOSITION:
+Investment object large center foreground at a slight angle, four tabs mechanically attached from different depths/directions, clean asymmetry and strong 3D separation.
+MATERIALS:
+Premium satin investment object, thick labeled tabs with rounded edges, subtle metal attachment points.
+LIGHTING:
+Neutral premium studio key, red-orange only on “Kosten”, emerald restrained on positive quality/diversification cues.
+TEXT:
+Only the four listed labels.
+FORBIDDEN:
+Desk, hands comparing folders, icon grid, balance-scale infographic, dashboard, flowchart, floating cards, photorealism, clutter.
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
