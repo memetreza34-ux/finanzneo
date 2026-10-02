@@ -5,6 +5,9 @@
 // Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
 // und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
 // Bildplanung: FORM FREI — BILDWELT FEST. Pro Beat die stärkste Darstellungsform wählen.
+// Google Flow wird am Ende erneut angewendet, damit Cover-Gate, Style-Anker,
+// 5er-Blöcke, Sofort-Rename und finaler Inventory-QA nicht von Zwischen-Skripten
+// überschrieben werden können.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -54,6 +57,9 @@ const steps = [
   ['scripts/apply-future-reel-presentation-v1.mjs', [target]],
   ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', [target]],
   ['scripts/apply-reel-quality-guards-v1.mjs', [target]],
+  // Final erneut anwenden: andere Produktionsverträge dürfen den zentralen
+  // Cover-/5Pack-/Inventory-Flow nicht versehentlich verwässern.
+  ['scripts/apply-flow-autonomous-contract.mjs', [target]],
 ];
 
 for (const [script, scriptArgs] of steps) {
@@ -65,7 +71,9 @@ for (const [script, scriptArgs] of steps) {
 }
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
-console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob.');
+console.log('  Google Flow: 3 Cover mit Text -> Nutzerwahl A/B/C -> gewähltes Cover als einziger Style-Anker.');
+console.log('  Danach: organisatorische 5er-Blöcke, technisch immer exakt 1 Bildjob -> Sofort-Rename -> QA -> automatisch weiter.');
+console.log('  Flow-Abschluss: vollständiger Inventory-/Dateinamen-QA; alle finalen Bilder gemeinsam im einen finalen Bildordner.');
 console.log('  Visual Form V1: Form frei — Bildwelt fest.');
 console.log('  IMAGE darf pro Beat character-story, object-story, comparison, chart, diagram, editorial-quote, illustration, metaphor oder hybrid sein.');
 console.log('  CHART/DIAGRAM bleibt fachlich echt: korrekte Achsen/Skalen/Labels/Proportionen soweit erforderlich; kein PowerPoint-/Excel-Default.');
