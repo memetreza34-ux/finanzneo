@@ -53,6 +53,7 @@ for (const scene of scenes) {
 const primitiveNames = ['PhysicalBill','PhysicalAccount','PhysicalWasher','PhysicalReserveTank','PhysicalCalendarPage','PhysicalCoinStack','PhysicalObject'];
 const coreNames = new Set(['PhysicalBill','PhysicalAccount','PhysicalWasher','PhysicalReserveTank','PhysicalCalendarPage','PhysicalObject']);
 const widths = {PhysicalBill:250, PhysicalAccount:310, PhysicalWasher:290, PhysicalReserveTank:250, PhysicalCalendarPage:210, PhysicalCoinStack:150};
+const semanticObjectPattern = /<[A-Za-z][^>]*\bdata-finanzneo-object=["']([a-z0-9]+(?:-[a-z0-9]+)*)["'][^>]*>/g;
 const prior = [];
 
 const parseNumberProp = (tag, name) => {
@@ -75,9 +76,13 @@ for (const scene of scenes.filter((item) => item?.type === 'animation')) {
   const source = readFileSync(sourcePath, 'utf8');
   const counts = new Map();
   for (const name of primitiveNames) counts.set(name, [...source.matchAll(new RegExp(`<${name}\\b`, 'g'))].length);
-  const core = [...coreNames].filter((name) => Number(counts.get(name)) > 0);
-  const allConcrete = primitiveNames.filter((name) => Number(counts.get(name)) > 0);
-  if (core.length === 0) fail(`${scene.id}: kein konkretes Hauptobjekt für echte Source-Diversität gefunden.`);
+  const physicalCore = [...coreNames].filter((name) => Number(counts.get(name)) > 0);
+  const semanticObjects = [...new Set([...source.matchAll(semanticObjectPattern)].map((match) => `semantic:${match[1]}`))];
+  const core = [...physicalCore, ...semanticObjects];
+  const allConcrete = [...primitiveNames.filter((name) => Number(counts.get(name)) > 0), ...semanticObjects];
+  if (core.length === 0) {
+    fail(`${scene.id}: kein konkretes Hauptobjekt im gerenderten Source gefunden. Nutze ein echtes Physical*-Primitive oder data-finanzneo-object="semantischer-slug" direkt auf einem sichtbaren JSX-Element.`);
+  }
 
   const recent = prior.slice(-4);
   for (const name of core) {
@@ -120,3 +125,4 @@ if (errors.length) {
 }
 console.log(`\n✓ Reel Quality Guards erfüllt: ${ID}`);
 console.log('✓ IMAGE xor ANIMATION · tatsächliche TSX-Diversität · horizontale Safe-Zone geprüft.');
+console.log('✓ Custom-Builds dürfen konkrete semantische Hauptobjekte mit data-finanzneo-object direkt im gerenderten JSX deklarieren.');
