@@ -1,5 +1,6 @@
 name: Populate 1pct Free Visual Test
 
+# rerun after premium visual validator sync
 on:
   push:
     branches:
