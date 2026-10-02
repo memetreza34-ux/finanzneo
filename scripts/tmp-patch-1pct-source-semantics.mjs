@@ -30,6 +30,9 @@ for(const [sceneId,repls] of Object.entries(patches)){
     if(!source.includes(from)) throw new Error(`${sceneId}: erwartete Source-Stelle fehlt für semantic object marker.`);
     source=source.replace(from,to);
   }
+  if(sceneId==='scene-07'){
+    source=source.replace("background:'radial-gradient(circle at 35% 30%,#FFE49A,#C78C13)'","background:'#E4B43A'");
+  }
   writeFileSync(path,source,'utf8');
 }
-console.log('✓ IMAGE xor ANIMATION bereinigt und gerenderte Custom-Hauptobjekte source-basiert markiert.');
+console.log('✓ IMAGE xor ANIMATION bereinigt, Custom-Hauptobjekte markiert und scene-07 ohne dekorativen Radial-Gradienten normalisiert.');
