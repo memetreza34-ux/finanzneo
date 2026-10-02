@@ -27,6 +27,8 @@ jobs:
         run: npm ci
       - name: Update highest project rule
         run: node scripts/tmp-apply-cover-parallel-v2.mjs
+      - name: Update source contract for cover parallelism
+        run: node scripts/tmp-fix-source-contract-cover-parallel.mjs
       - name: Apply Flow contract to current test reel
         run: node scripts/apply-flow-autonomous-contract.mjs reels/2026-09-28_bis_2026-10-04/freitag/reel-01_1-prozent-kosten-test
       - name: Validate reel
@@ -37,6 +39,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add CLAUDE.md reels/2026-09-28_bis_2026-10-04/freitag/reel-01_1-prozent-kosten-test
+          git add CLAUDE.md scripts/lib/flow-autonomy.mjs scripts/validate-reel-source-contract.mjs reels/2026-09-28_bis_2026-10-04/freitag/reel-01_1-prozent-kosten-test
           git diff --cached --quiet || git commit -m "Apply parallel cover V2 workflow to test reel"
           git push origin HEAD:reel/test-free-visual-form-1pct-fees
