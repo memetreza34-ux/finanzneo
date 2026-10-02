@@ -41,7 +41,7 @@
     "distributeToSceneFolders": false,
     "executionModeId": "finanzneo-flow-strict-single-job-v3",
     "stateMachineId": "finanzneo-flow-state-machine-v1",
-    "autonomousFullRun": true,
+    "autonomousFullRun": false,
     "maxConcurrentGenerations": 1,
     "batchGenerationForbidden": true,
     "multiImageRequestForbidden": true,
@@ -58,7 +58,89 @@
     "hardBlockerOnlyStop": true,
     "structureLockId": "finanzneo-flow-structure-lock-v2",
     "preserveStructureThroughLastImage": true,
-    "preserveStyleThroughLastImage": true
+    "preserveStyleThroughLastImage": true,
+    "coverFivePackWorkflowId": "finanzneo-flow-cover-anchor-5pack-v1",
+    "autonomousAfterCoverSelection": true,
+    "coverVariantCount": 3,
+    "coverTextRequired": true,
+    "coverSelectionRequiredBeforeSceneImages": true,
+    "userApprovalOnlyForCoverSelection": true,
+    "selectedCoverPromotedToFinalCover": true,
+    "selectedCoverPromotedToScene01": true,
+    "selectedCoverAsOnlyStyleReference": true,
+    "laterImagesMayNotBecomeStyleReference": true,
+    "styleReferenceTextLayoutContentCopyForbidden": true,
+    "imageBlockSize": 5,
+    "blockAutonomousRun": true,
+    "autoContinueBetweenBlocks": true,
+    "userApprovalBetweenBlocksForbidden": true,
+    "immediateRenameRequired": true,
+    "finalInventoryQaRequired": true,
+    "finalFileNameQaRequired": true,
+    "finalSingleDirectoryQaRequired": true,
+    "coverCandidateDirectory": "03-szenen/00-cover/KANDIDATEN/",
+    "coverCandidateFileNames": [
+      "Cover-A.png",
+      "Cover-B.png",
+      "Cover-C.png"
+    ],
+    "coverFinalFileName": "Bild 01 - Ein Prozent wirkt klein.png",
+    "selectedCoverSceneId": "scene-01",
+    "styleReferenceTransferOnly": [
+      "material-feel",
+      "3d-shape-language",
+      "lighting",
+      "contrast",
+      "color-character",
+      "camera-feel",
+      "render-look"
+    ],
+    "imageBlocksAfterCover": [
+      {
+        "block": 1,
+        "sceneIds": [
+          "scene-02",
+          "scene-04",
+          "scene-05",
+          "scene-06",
+          "scene-08"
+        ],
+        "finalFiles": [
+          "Bild 02 - Klein wirkt harmlos.png",
+          "Bild 04 - Sieben gegen sechs Prozent.png",
+          "Bild 05 - Gleicher Start.png",
+          "Bild 06 - Nach fünf Jahren.png",
+          "Bild 08 - Endvermoegen nach dreissig Jahren.png"
+        ]
+      },
+      {
+        "block": 2,
+        "sceneIds": [
+          "scene-09",
+          "scene-10",
+          "scene-12"
+        ],
+        "finalFiles": [
+          "Bild 09 - Sechs Prozent Endwert.png",
+          "Bild 10 - Fuenfundachtzigtausend Unterschied.png",
+          "Bild 12 - Kosten im Blick behalten.png"
+        ]
+      }
+    ],
+    "expectedFinalImageCount": 9,
+    "expectedFinalFiles": [
+      "Bild 01 - Ein Prozent wirkt klein.png",
+      "Bild 02 - Klein wirkt harmlos.png",
+      "Bild 04 - Sieben gegen sechs Prozent.png",
+      "Bild 05 - Gleicher Start.png",
+      "Bild 06 - Nach fünf Jahren.png",
+      "Bild 08 - Endvermoegen nach dreissig Jahren.png",
+      "Bild 09 - Sechs Prozent Endwert.png",
+      "Bild 10 - Fuenfundachtzigtausend Unterschied.png",
+      "Bild 12 - Kosten im Blick behalten.png"
+    ],
+    "temporaryCoverCandidatesExcludedFromFinalAudit": true,
+    "finalFolderMustContainAllExpectedFinalImages": true
   },
   "phase1AnimationCode": {
     "required": true,

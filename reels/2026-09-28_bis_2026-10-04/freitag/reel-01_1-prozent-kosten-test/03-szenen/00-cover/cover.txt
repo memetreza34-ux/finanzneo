@@ -1,3 +1,18 @@
+FLOW_COVER_FILE_BEGIN
+FLOW_COVER_WORKFLOW: finanzneo-flow-cover-anchor-5pack-v1
+COVER_VARIANT_COUNT: 3
+COVER_TEXT_REQUIRED: true
+COVER_SELECTION_REQUIRED: true
+SELECTED_COVER_BECOMES_SCENE_01: true
+SELECTED_COVER_IS_ONLY_STYLE_REFERENCE: true
+
+Erzeuge aus der unten stehenden Cover-Idee drei eigenständige Kandidaten A/B/C.
+Jeder Kandidat MUSS einen kurzen, lesbaren deutschen Cover-Hook enthalten.
+A = Hero-Zahl/Hero-Objekt. B = Kontrast/Gegenüberstellung. C = Objekt-Story/Metapher.
+Keine drei fast identischen Varianten. Keine erfundenen Fakten oder Zahlen.
+Nach A/B/C stoppen und Nutzer A/B/C wählen lassen. Nur die gewählte Variante wird final übernommen.
+Die gewählte Variante wird auf den finalen Scene-01-Dateinamen umbenannt und dient danach als einziger visueller Style-Anker.
+FLOW_COVER_FILE_END
 FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
 COVER_ALIAS: SZENE 01
 KEIN SEPARATER BILDJOB.
@@ -22,7 +37,7 @@ TRANSFERABILITY_TEST: PASS - die wiederholten 1-%-Gebührenzettel sind spezifisc
 DATA_INTEGRITY_TEST: not-applicable
 
 IMAGE PROMPT:
-Create a premium stylized 3D animated-film finance cover on a seamless deep-black stage. In the lower foreground place one very small, perfectly readable warm red-orange paper fee slip marked only “1 %”. Behind it, let dozens of identical small 1-% fee slips recede through strong cinematic depth and accumulate into a much larger pile in the distance. The first slip must feel almost harmless; the accumulated pile must feel surprisingly substantial. Use elegant paper materials, subtle edge wear, soft contact shadows, restrained emerald accents and warm ivory neutrals. Reserve calm deep-black negative space in the upper area for the Remotion title. Strong 3/4 perspective, premium studio lighting, high-end animated-film rendering. No person, no dashboard, no chart, no fantasy machine, no abstract capital block, no headline inside the generated image, no clutter, no photorealism.
+Create a premium stylized 3D animated-film finance cover on a seamless deep-black stage. In the lower foreground place one very small, perfectly readable warm red-orange paper fee slip marked only “1 %”. Behind it, let dozens of identical small 1-% fee slips recede through strong cinematic depth and accumulate into a much larger pile in the distance. The first slip must feel almost harmless; the accumulated pile must feel surprisingly substantial. Use elegant paper materials, subtle edge wear, soft contact shadows, restrained emerald accents and warm ivory neutrals. Reserve calm deep-black negative space in the upper area for the Remotion title. Strong 3/4 perspective, premium studio lighting, high-end animated-film rendering. No person, no dashboard, no chart, no fantasy machine, no abstract capital block, cover hook text is required; no additional text beyond the chosen short hook, no clutter, no photorealism.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1

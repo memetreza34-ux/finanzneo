@@ -1,44 +1,141 @@
 FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
 FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
 FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_COVER_WORKFLOW: finanzneo-flow-cover-anchor-5pack-v1
+FLOW_IMAGE_BLOCK_SIZE: 5
+
+COVER = SZENE 01
+KEIN separates Cover erzeugen. Die drei Cover-Kandidaten sind nur die Auswahlphase für dasselbe finale Scene-01-/Cover-Asset.
+KEIN Bild 00 erzeugen.
 
 STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH
-DIES IST KEIN BATCH-AUFTRAG.
-MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG.
-ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT, bis das aktuelle Bild vollständig zurückgegeben, exakt umbenannt und per QA geprüft wurde.
+- DIES IST KEIN BATCH-AUFTRAG. DIE GESAMTE DATEI DARF NIEMALS ALS EIN MEHRBILD-PROMPT AUSGEFÜHRT WERDEN.
+- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.
+- PHASE 0 IST DAS COVER-GATE: COVER A, B UND C NACHEINANDER ERZEUGEN; JEDES COVER MUSS SICHTBAREN, LESBAREN TEXT ENTHALTEN.
+- NACH DEN DREI COVER-KANDIDATEN STOPPEN UND NUR AUF DIE AUSWAHL A/B/C DES NUTZERS WARTEN. DIES IST DIE EINZIGE NUTZERFREIGABE IM FLOW.
+- DAS GEWÄHLTE COVER WIRD FINALER COVER-ASSET UND SZENE 01. NICHT NOCH EINMAL SEPARAT ALS SZENE 01 GENERIEREN.
+- DAS GEWÄHLTE COVER IST DIE EINZIGE VISUELLE STYLE-REFERENZ FÜR ALLE WEITEREN FLOW-BILDER.
+- VON DER STYLE-REFERENZ NUR MATERIALGEFÜHL, 3D-FORMSPRACHE, LICHT, KONTRAST, FARBCHARAKTER UND KAMERAGEFÜHL ÜBERNEHMEN. TEXT, LAYOUT, OBJEKTANORDNUNG UND SZENENINHALT NICHT KOPIEREN.
+- NACH DER COVER-WAHL WERDEN DIE ÜBRIGEN BILDER IN ORGANISATORISCHEN 5ER-BLÖCKEN ABGEARBEITET. EIN 5ER-BLOCK IST NIEMALS EIN 5-BILD-BATCH.
+- INNERHALB JEDES 5ER-BLOCKS UND ZWISCHEN DEN BLÖCKEN GILT WEITERHIN CONCURRENCY = 1.
+- JEDES BILD MUSS NACH DER RÜCKGABE SOFORT EXAKT UMBENANNT, IN DEN FINALEN BILDORDNER GELEGT UND PER QA GEPRÜFT WERDEN.
+- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE SCHRITT GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.
+- NACH BESTANDENER QA WIRD GENAU DAS NÄCHSTE BILD FREIGESCHALTET. NACH FÜNF BESTANDENEN BILDERN BEGINNT DER NÄCHSTE 5ER-BLOCK AUTOMATISCH.
+- REMOTION-/ANIMATIONSNUMMERN WERDEN OHNE BILDGENERIERUNG ÜBERSPRUNGEN UND BLEIBEN ALS SZENENNUMMERN RESERVIERT.
+- NACH DER COVER-WAHL: WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY" ODER EINE WEITERE NUTZERFREIGABE.
+- "WARTEN" BEDEUTET DANACH NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.
+- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.
+- NACH DEM LETZTEN BILD IST EIN FINALER INVENTORY-QA PFLICHT: VOLLSTÄNDIGKEIT, EXAKTE DATEINAMEN, KEINE DOPPELTEN DATEIEN, KEINE FEHLENDEN BILDER, KEINE ANIMATIONSNUMMERN ALS FLOW-BILD.
+- ALLE FINALEN FLOW-BILDER MÜSSEN AM ENDE GEMEINSAM IM EINEN FINALEN BILDORDNER LIEGEN. COVER-KANDIDATEN A/B/C SIND NUR TEMPORÄR; NUR DAS GEWÄHLTE COVER WIRD FINAL ÜBERNOMMEN.
+- STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.
+- STOPP NACH DER COVER-AUSWAHL NUR NOCH BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER.
 
-AKTIVER ABLAUF PRO BILD:
-1. Nur den aktuell freigegebenen Bildblock lesen und ausführen.
-2. Genau einen Bildgenerierungsjob starten und intern auf dessen Ergebnis warten.
-3. Das Ergebnis sofort exakt umbenennen.
-4. Das aktuelle Ergebnis per QA prüfen.
-5. Nur bei PASS den nächsten Bildblock freischalten und automatisch fortfahren.
-6. Bei FAIL ausschließlich dieselbe Bildnummer neu erzeugen.
-7. WARTE NIEMALS AUF "WEITER" oder eine Zwischenfreigabe des Nutzers.
+FLOW_COVER_5PACK_BEGIN
+FLOW_COVER_WORKFLOW: finanzneo-flow-cover-anchor-5pack-v1
+FLOW_IMAGE_BLOCK_SIZE: 5
+REEL_TITLE: Was 1 % Kosten wirklich ausmacht
+FINAL_IMAGE_DIRECTORY: 03-szenen/00-ALLE-BILDER-HIER-REIN/
+EXPECTED_FINAL_IMAGE_COUNT: 9
 
-AUSDRÜCKLICH VERBOTEN:
-- mehrere Bilder in einem Generierungsaufruf erzeugen
+COVER-GATE — IMMER ZUERST:
+1. Erzeuge exakt DREI unterschiedliche Cover-Kandidaten: COVER A, COVER B und COVER C.
+2. Cover A/B/C werden strikt nacheinander erzeugt. Nie parallel und nie als Kontaktbogen.
+3. COVER-TEXT IST IMMER PFLICHT: kurzer deutscher Hook, gut lesbar, maximal 2 Zeilen und möglichst 2–5 Wörter. Keine erfundenen Zahlen/Fakten; nur Aussagen aus dem Reel verwenden.
+4. Die drei Cover müssen sichtbar verschieden sein, aber dieselbe FinanzNeo-V9-Bildwelt verwenden:
+   - COVER A: starke Hero-Zahl oder dominantes Hero-Objekt, sehr direkte Aussage.
+   - COVER B: klare Gegenüberstellung / Kontrast / Vorher-nachher-Logik.
+   - COVER C: konkrete Objekt-Story oder verständliche visuelle Metapher mit räumlicher Tiefe.
+5. Temporäre Namen: Cover-A.png, Cover-B.png, Cover-C.png. Diese Kandidaten gehören NICHT in den finalen Bildordner.
+6. Wenn alle drei Kandidaten QA bestanden haben: STOPP und frage ausschließlich: A, B oder C?
+7. Erst nach der Nutzerwahl darf die Szenenbild-Produktion beginnen.
+8. Das gewählte Cover sofort exakt umbenennen in: Bild 01 - Ein Prozent wirkt klein.png
+9. Das gewählte Cover in 03-szenen/00-ALLE-BILDER-HIER-REIN/ legen. Es ist zugleich finaler Cover-Asset und scene-01; scene-01 NICHT erneut generieren.
+
+STYLE-REFERENZ NACH DER COVER-WAHL:
+- Das gewählte Cover ist die EINZIGE visuelle Style-Referenz für alle weiteren Google-Flow-Bilder.
+- Übernehmen: Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Look.
+- NICHT übernehmen/kopieren: Cover-Text, Layout, konkrete Objektpositionen, Objektanordnung oder Szeneninhalt.
+- Kein späteres Szenenbild darf den gewählten Cover-Anker ersetzen.
+
+5ER-SCHRITTE — NACH DER COVER-WAHL, MAXIMAL 5 BILDER PRO ORGANISATORISCHEM BLOCK:
+5ER-BLOCK 1:
+- scene-02 -> Bild 02 - Klein wirkt harmlos.png
+- scene-04 -> Bild 04 - Sieben gegen sechs Prozent.png
+- scene-05 -> Bild 05 - Gleicher Start.png
+- scene-06 -> Bild 06 - Nach fünf Jahren.png
+- scene-08 -> Bild 08 - Endvermoegen nach dreissig Jahren.png
+5ER-BLOCK 2:
+- scene-09 -> Bild 09 - Sechs Prozent Endwert.png
+- scene-10 -> Bild 10 - Fuenfundachtzigtausend Unterschied.png
+- scene-12 -> Bild 12 - Kosten im Blick behalten.png
+
+WICHTIG FÜR JEDEN 5ER-BLOCK:
+- Ein 5er-Block bedeutet NICHT fünf parallele Generierungen. Weiterhin exakt EIN Bildjob gleichzeitig.
+- Bild erzeugen -> Ergebnis vollständig zurück -> SOFORT exakt umbenennen -> in finalen Bildordner legen -> QA -> erst dann nächstes Bild.
+- Nach maximal fünf erfolgreichen Bildern automatisch mit dem nächsten Block fortfahren. Keine weitere Nutzerfreigabe und kein "weiter".
+
+FINAL INVENTORY QA — PFLICHT NACH DEM LETZTEN BILD:
+- Prüfe exakt den Ordner 03-szenen/00-ALLE-BILDER-HIER-REIN/
+- Erwartet werden genau 9 finale Flow-Bilder.
+- Prüfe: jede erwartete Datei vorhanden, jeder Dateiname exakt, keine Dubletten, keine fehlenden Bilder, keine falschen Szenennummern.
+- Animations-/Remotion-Szenen dürfen NICHT als finale Flow-Bilder auftauchen.
+- Temporäre Cover-A/B/C-Kandidaten dürfen NICHT als zusätzliche finale Dateien im finalen Bildordner liegen.
+- Bei einem Namens-/Ablagefehler nur verschieben/umbenennen; korrekte Bilder nicht neu generieren.
+- Abschlussmeldung erst bei FINAL INVENTORY QA = PASS.
+
+EXPECTED_FINAL_FILES:
+- Bild 01 - Ein Prozent wirkt klein.png
+- Bild 02 - Klein wirkt harmlos.png
+- Bild 04 - Sieben gegen sechs Prozent.png
+- Bild 05 - Gleicher Start.png
+- Bild 06 - Nach fünf Jahren.png
+- Bild 08 - Endvermoegen nach dreissig Jahren.png
+- Bild 09 - Sechs Prozent Endwert.png
+- Bild 10 - Fuenfundachtzigtausend Unterschied.png
+- Bild 12 - Kosten im Blick behalten.png
+FLOW_COVER_5PACK_END
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+
+AUSFÜHRUNGSPROTOKOLL — COVER-GATE + 5ER-BLÖCKE + SINGLE JOB:
+0. COVER-PHASE: Erzeuge Cover A, dann B, dann C — strikt nacheinander, jeweils als einzelner Job und jeweils mit sichtbarem Cover-Text.
+1. Prüfe jeden Cover-Kandidaten direkt nach Rückgabe auf Lesbarkeit, V9-Bildwelt und klare Abgrenzung zu den anderen Varianten.
+2. Sobald A, B und C vorhanden sind: STOPP. Zeige die drei Kandidaten und fordere ausschließlich die Auswahl A/B/C an.
+3. Gewählte Variante: sofort auf den finalen Scene-01-/Cover-Dateinamen umbenennen und in den finalen Bildordner legen. Ungewählte Kandidaten bleiben außerhalb des finalen Bildordners oder werden verworfen.
+4. Setze das gewählte Cover als EINZIGE Style-Referenz. Übernimm nur Material, 3D-Formensprache, Licht, Kontrast, Farbcharakter und Kameragefühl; kopiere niemals Cover-Text, Layout, Objektpositionen oder konkrete Szene.
+5. Scene 01 gilt damit als DONE. Sie darf nicht erneut generiert werden.
+6. Teile alle übrigen IMAGE-Szenen in Reihenfolge in Blöcke mit maximal 5 Bildern. Animationsszenen zählen nicht als Bild und bleiben reserviert.
+7. Setze ACTIVE_STEP auf das erste Bild des aktuellen Blocks. Sende ausschließlich dessen BILDPROMPT an die Bildgenerierung.
+8. Starte GENAU EINEN Bildgenerierungsjob. MAX_CONCURRENT_GENERATIONS = 1.
+9. Warte intern auf genau dieses Ergebnis. Kein weiterer Bildjob darf vorher starten.
+10. Nach Rückgabe: Datei SOFORT exakt auf den vorgesehenen finalen Dateinamen umbenennen und in den einen finalen Bildordner legen.
+11. Danach QA nur für dieses Bild: Aussage/Beat-Zuordnung, erlaubte Labels, V9-Stil, Style-Konsistenz zum gewählten Cover, tiefschwarzer Hintergrund, Datenintegrität falls Chart/Diagramm und exakter Dateiname.
+12. QA FEHLER: ACTIVE_STEP bleibt gleich. Ausschließlich dieselbe Bildnummer neu erzeugen.
+13. QA BESTANDEN: ACTIVE_STEP = DONE. Erst jetzt das nächste Bild des Blocks freischalten.
+14. Nach maximal fünf DONE-Bildern ist der Block abgeschlossen. Den nächsten Block automatisch beginnen — keine Nutzerfreigabe und kein "weiter".
+15. Wiederhole 7–14, bis alle erwarteten IMAGE-Szenen DONE sind.
+16. FINAL INVENTORY QA: erwartete Dateiliste gegen finalen Ordner prüfen. Fehlend, falsch benannt oder doppelt = FAIL. Korrekte Bilder nicht neu erzeugen.
+17. Abschluss nur bei PASS: alle erwarteten finalen Bilder liegen exakt benannt gemeinsam im finalen Bildordner; keine temporären Cover-Kandidaten und keine Animationsnummern zählen als finale Flow-Bilder.
+
+HART VERBOTEN:
+- mehrere Bilder in einem Generierungsaufruf
 - mehrere Bildprompts zusammenfassen
 - Bilder vorab in eine Queue stellen
 - alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen
-- Galerie oder Kontaktbogen als Ersatz für die einzelnen finalen Bilder
-
-KEIN Bild 00 erzeugen.
-KEIN separates Cover erzeugen.
-COVER = SZENE 01
-FINAL_IMAGE_DIRECTORY: 03-szenen/00-ALLE-BILDER-HIER-REIN/
-MAX_CONCURRENT_GENERATIONS=1
-FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
-FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
-MAX_CONCURRENT_GENERATIONS: 1
-
-Immer nur den nächsten Bildblock erzeugen, vollständig warten, exakt umbenennen, QA, dann weiter. Animationsnummern 03, 07 und 11 bleiben reserviert.
+- fünf Bilder eines 5er-Blocks gleichzeitig starten
+- Kontaktbogen / Galerie / Collage / Multi-Panel als Ersatz für Einzelbilder
+- nach der Cover-Auswahl erneut auf Nutzer-"weiter" oder Zwischenfreigabe warten
+- ein späteres Szenenbild als neue Style-Referenz verwenden
 
 ==================== scene-01 ====================
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 01 - Ein Prozent wirkt klein.png
 
@@ -78,6 +175,10 @@ TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 02 - Klein wirkt harmlos.png
 
@@ -118,6 +219,10 @@ TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 04 - Sieben gegen sechs Prozent.png
 
@@ -161,6 +266,10 @@ TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 05 - Gleicher Start.png
 
@@ -201,6 +310,10 @@ TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 06 - Nach fünf Jahren.png
 
@@ -242,6 +355,10 @@ TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 08 - Endvermoegen nach dreissig Jahren.png
 
@@ -285,6 +402,10 @@ TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 09 - Sechs Prozent Endwert.png
 
@@ -325,6 +446,10 @@ TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 10 - Fuenfundachtzigtausend Unterschied.png
 
@@ -365,6 +490,10 @@ TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
+FLOW_STEP_GATE: STRICT_CURRENT_ONLY
+CURRENT_STEP_ONLY: true
+NEXT_STEP_LOCKED_UNTIL_RENAME_AND_QA: true
+BATCH_WITH_OTHER_IMAGE_BLOCKS: FORBIDDEN
 GOOGLE FLOW – FINALER DATEINAME:
 Bild 12 - Kosten im Blick behalten.png
 
