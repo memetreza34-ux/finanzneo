@@ -1,0 +1,1227 @@
+{
+  "version": 28,
+  "title": "Was 1 % Kosten wirklich ausmacht",
+  "sceneCount": 12,
+  "imageSceneCount": 9,
+  "animationSceneCount": 3,
+  "targetImageShare": 0.6,
+  "targetAnimationShare": 0.4,
+  "video": {
+    "aspectRatio": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "cover": {
+    "type": "scene-image",
+    "sourceSceneId": "scene-01",
+    "googleFlowFileName": "Bild 01 - [KURZER SZENENNAME].png",
+    "planFile": "03-szenen/00-cover/cover.txt",
+    "aspectRatio": "1:1",
+    "sameAssetAsFirstScene": true,
+    "separateGenerationForbidden": true,
+    "renderedTitleOverlayRequired": true,
+    "finalExportSource": "final-video-frame-0"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "phase3Executor": "antigravity",
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-sequential-v1",
+    "generationMode": "one-image-at-a-time",
+    "strictSequential": true,
+    "waitForCurrentImage": true,
+    "renameBeforeNext": true,
+    "qaBeforeNext": true,
+    "retrySameImageOnFailure": true,
+    "fileNameRule": "Bild XX - Kurzer Szenenname.png",
+    "numberSource": "real-scene-number",
+    "animationNumbersStayReserved": true,
+    "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
+    "distributeToSceneFolders": false,
+    "executionModeId": "finanzneo-flow-strict-single-job-v3",
+    "stateMachineId": "finanzneo-flow-state-machine-v1",
+    "autonomousFullRun": true,
+    "maxConcurrentGenerations": 1,
+    "batchGenerationForbidden": true,
+    "multiImageRequestForbidden": true,
+    "queueLaterImagesForbidden": true,
+    "galleryOrContactSheetForbidden": true,
+    "currentStepGateRequired": true,
+    "nextStepLockedUntilCurrentResultReturned": true,
+    "renameBeforeUnlockNext": true,
+    "qaBeforeUnlockNext": true,
+    "userContinueSignalForbidden": true,
+    "userApprovalBetweenImagesForbidden": true,
+    "internalWaitForGenerationOnly": true,
+    "autoContinueAfterQa": true,
+    "hardBlockerOnlyStop": true,
+    "structureLockId": "finanzneo-flow-structure-lock-v2",
+    "preserveStructureThroughLastImage": true,
+    "preserveStyleThroughLastImage": true
+  },
+  "phase1AnimationCode": {
+    "required": true,
+    "qualityLock": "finanzneo-phase1-animation-code-v1",
+    "canonicalSourceRequiredForEveryAnimation": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "financeMotionLibraryId": "finanzneo-finance-motion-library-v1",
+    "libraryBestFitPreferred": true,
+    "libraryUseNeverForced": true,
+    "customAnimationAllowed": true,
+    "reusableMechanicsMayRepeat": true,
+    "placeholderMotionForbidden": true,
+    "decorativeMotionDoesNotCountAsExplanation": true,
+    "mathSinCosCompletionHackForbidden": true,
+    "semanticMechanismRequired": true,
+    "uniqueMechanismPerAnimationRequired": false,
+    "clarityBeforeObjectCount": true,
+    "labelsSupplementalOnly": true,
+    "genericCardRowsForbidden": true,
+    "progressBarAsPrimaryStoryForbidden": true,
+    "motionDirectorMarkersRequired": [
+      "MOTION_SOURCE",
+      "FINANCE_MOTION_ID",
+      "MECHANIC_ID",
+      "FOCAL_PATH",
+      "PRIMARY_ACTION",
+      "CAMERA_ROLE",
+      "PAYOFF"
+    ],
+    "narrativeMarkersRequired": [
+      "START",
+      "MECHANISM",
+      "RESULT",
+      "HERO",
+      "SUPPORT",
+      "MATERIAL",
+      "DEPTH"
+    ],
+    "resultHoldFramesMin": 15,
+    "premiumVisualLock": "finanzneo-premium-physical-animation-v2",
+    "visualTargetWorld": "finanzneo-stylized-3d-animated-black-v9",
+    "storyMomentRevision": "finanzneo-readable-story-moment-v1",
+    "financeMotionLibraryAvailable": true,
+    "financeMotionLibraryRole": "mechanism-tool-not-style-reference",
+    "libraryBestFitBeforeCustom": true,
+    "directLibraryRenderRequiresSameWorldPass": true,
+    "reusableMechanicsPreferred": true,
+    "libraryReuseMayRepeatAcrossScenes": true,
+    "libraryParametersMustFollowSceneContent": true,
+    "familiarObjectsOrCharactersPreferred": true,
+    "readableStoryMomentRequired": true,
+    "instantMeaningWithoutCaptionRequired": true,
+    "intuitiveMetaphorAllowed": true,
+    "intuitiveMetaphorMayBeatLiteralWhenClearer": true,
+    "exaggeratedPhysicalStoryAllowed": true,
+    "familiarObjectMetaphorRequired": true,
+    "corporateStockCharacterAsStaticDecorationForbidden": true,
+    "requirePremiumPhysicalStage": false,
+    "requirePhysicalObjects": false,
+    "premiumPhysicalStageOptional": true,
+    "physicalObjectsOptional": true,
+    "realWorldGroundingPreferred": true,
+    "abstractValueGeometryAsDefaultForbidden": true,
+    "recognizableFinanceOrEverydayObjectsPreferred": true,
+    "supportingObjectCountFlexible": true,
+    "requireMaterialDepthLighting": true,
+    "sameVisualLanguageAsFlowImages": true,
+    "startMechanismResultRequired": true,
+    "focalPathRequired": true,
+    "primaryActionRequired": true,
+    "cameraRoleRequired": true,
+    "payoffRequired": true,
+    "pureBlackCanvasRequired": true,
+    "transparentAnimationStageRequired": true,
+    "globalHeaderOwnedByReelLayout": true,
+    "globalCaptionsOwnedByReelLayout": true,
+    "localSceneShellForbidden": true,
+    "localBlackBackgroundForbidden": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridBackgroundForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "genericInfoCardsAsMainLanguageForbidden": true
+  },
+  "reelBackground": {
+    "contractId": "finanzneo-pure-black-background-v1",
+    "color": "#000000",
+    "staticRequired": true,
+    "decorativeEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridForbidden": true,
+    "glowBackgroundForbidden": true
+  },
+  "layoutVersion": "finanzneo-reel-layout-v5",
+  "layout": {
+    "headlineY": 154,
+    "visualTop": 320,
+    "visualBottom": 1400,
+    "subtitleBottom": 340,
+    "subtitleLeft": 72,
+    "subtitleRight": 140
+  },
+  "visualSafeZone": {
+    "top": 320,
+    "bottom": 1400,
+    "hardClipAnimations": true,
+    "headerIntrusionForbidden": true,
+    "captionIntrusionForbidden": true
+  },
+  "timingStandard": {
+    "imageSceneIdealSeconds": [
+      1.8,
+      3
+    ],
+    "imageSceneAbsoluteMaxSeconds": 4,
+    "animationSceneIdealSeconds": [
+      3,
+      5.5
+    ],
+    "splitOrAnimateIfImageExceedsMax": true,
+    "visualBeatContractId": "finanzneo-visual-beats-v2",
+    "actualTimingSource": "04-caption/word-timings.json",
+    "cameraMotionDoesNotResetVisualBeat": true,
+    "newConcreteVoiceIdeaShouldTriggerVisualChange": true,
+    "imageSceneSoftMaxSeconds": 3.6,
+    "longStaticSentenceNeedsAdditionalVisualBeat": true,
+    "extraImagePreferredOverLongHold": true
+  },
+  "clarityStandard": {
+    "mustReadInUnderSeconds": 2,
+    "oneMainIdeaPerBeat": true,
+    "sceneHeaderRequired": true,
+    "sceneIconRequired": true,
+    "animationStartMechanismResultRequired": true,
+    "blackTextOnDarkForbidden": true
+  },
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "seriesLockId": "finanzneo-same-world-v1",
+    "stylized3DLockId": "finanzneo-stylized-3d-editorial-v5",
+    "physicalExplainerLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "premiumVisualWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "animatedWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "generatedImageAspectRatio": "1:1",
+    "squareGeneratedImagesRequired": true,
+    "referencePromptFile": "03-szenen/bildwelt.txt",
+    "styleReferenceStrategy": "written-style-lock-only",
+    "referenceImageUse": "forbidden",
+    "style": "stylized-3d-animated-black-v9",
+    "sameWorldAcrossSeriesRequired": true,
+    "supportingObjectCountFlexible": true,
+    "supportingObjectsOnlyWhenHelpful": true,
+    "clarityBeforeObjectCount": true,
+    "contentFirstCompositionRequired": true,
+    "nonPhotorealisticRequired": true,
+    "stylized3DAnimatedRequired": true,
+    "softRoundedGeometryRequired": true,
+    "simplifiedDetailsRequired": true,
+    "premiumPlayfulBalanceRequired": true,
+    "clearMainSubjectOrActionRequired": true,
+    "deepBlackBackgroundRequired": true,
+    "cleanMinimalBackgroundRequired": true,
+    "subjectSeparationLightingRequired": true,
+    "softContactShadowsRequired": true,
+    "brandMarksRecognizableButStylizedRequired": true,
+    "flatPastedRealLogoForbidden": true,
+    "screenshotLikeBrandUiForbidden": true,
+    "objectLabelsOnly": true,
+    "headlinesInGeneratedImagesForbidden": true,
+    "subtitlesInGeneratedImagesForbidden": true,
+    "sentencesInGeneratedImagesForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "appUiCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "floatingUiTilesForbidden": true,
+    "microchipVisualLanguageForbidden": true,
+    "miniatureDioramaForbidden": true,
+    "photorealismForbidden": true,
+    "productPhotoLookForbidden": true,
+    "clutterForbidden": true,
+    "seamlessSingleBackgroundRequired": true,
+    "percentageZonesForbidden": true,
+    "floorWallBoundaryForbidden": true,
+    "horizonLineForbidden": true,
+    "backgroundBandsForbidden": true,
+    "visibleFaceRequiredWhenPersonPresent": true,
+    "realWorldGroundedSituationRequired": true,
+    "believableObjectProportionsRequired": true,
+    "recognizableEverydayDetailsRequired": true,
+    "completeExplanatorySceneRequired": true,
+    "causeEffectReadableRequired": true,
+    "understandableWithoutAudioRequired": true,
+    "germanObjectLabelsWhenHelpfulRequired": true,
+    "individuallyWrittenPromptRequired": true,
+    "genericPromptShorthandForbidden": true,
+    "abstractSymbolOnlyCompositionForbidden": true,
+    "genericFinanceIconCompositionForbidden": true,
+    "visualMetaphorInterpretationRequiredForbidden": true
+  },
+  "platformPublishing": {
+    "directory": "04-caption",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt",
+    "universalCaptionForAllReelPlatforms": true,
+    "platforms": [
+      "instagram-reels",
+      "tiktok",
+      "facebook-reels",
+      "snapchat"
+    ]
+  },
+  "timelineRules": {
+    "timingSource": "04-caption/word-timings.json",
+    "cutsFollowSentenceStarts": true,
+    "cutsFollowSentenceStartsAndMeaningfulPhraseStarts": true,
+    "equalLengthScenesForbiddenByDefault": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "imagePresentationContract": {
+    "imageFit": "contain",
+    "maxIntentionalImageScale": 1.04,
+    "maxSourceCropPerSide": 0.2,
+    "maxSourceCropTotal": 0.34,
+    "blurredImageBackgroundForbidden": true
+  },
+  "subtitleDisplay": {
+    "mode": "sentence-with-audio-synced-active-word",
+    "activeWordColor": "finance-green",
+    "normalWordColor": "white",
+    "maxLines": 2,
+    "noDeadGaps": true,
+    "holdDuringPauses": true,
+    "noWordJump": true,
+    "noWordScale": true,
+    "goldActiveWordForbidden": true,
+    "blackTextForbidden": true,
+    "clipToSceneBoundary": true,
+    "crossSceneSpillForbidden": true,
+    "textStrokeForbidden": true,
+    "fontWeight": 800,
+    "fontSize": 50,
+    "bottom": 340
+  },
+  "sceneHeader": {
+    "required": true,
+    "align": "center",
+    "presentation": "plain",
+    "headlineColor": "white",
+    "fontSize": 56,
+    "minFontSize": 50,
+    "maxLines": 2,
+    "iconSize": 34,
+    "defaultIconColor": "finance-green",
+    "semanticColorLivesOnIcon": true,
+    "capsuleForbidden": true,
+    "uppercaseTransformForbidden": true,
+    "uniqueIconPerScene": true,
+    "mustStateSceneMessage": true,
+    "samePositionAcrossReel": true
+  },
+  "animationColors": {
+    "neutral": "white",
+    "focus": "finance-green",
+    "warning": "red",
+    "money": "gold",
+    "blackOnDarkForbidden": true
+  },
+  "transitionContract": {
+    "continuityFrames": 3,
+    "continuityFramesMax": 3,
+    "imageEnterFrames": 4,
+    "fadeToBlackForbidden": true
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-01",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
+      "googleFlowFileName": "Bild 01 - [KURZER SZENENNAME].png",
+      "objectLabels": [
+        "[EINFÜGEN]"
+      ],
+      "expectedVisual": "[EINFÜGEN]",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-01-beat-01",
+          "kind": "image",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "coverHook": true,
+      "captionEnabled": true,
+      "subtitleMode": "sentence-with-audio-synced-active-word",
+      "captionsStartWithVoiceover": true,
+      "titleMode": "reel-title-overlay",
+      "titleVisibleFromFrame": 0,
+      "coverTitle": "Was 1 % Kosten wirklich ausmacht",
+      "imageStorytelling": {
+        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
+        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
+        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
+        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
+        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
+        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+      },
+      "presentation": {
+        "coverTitleRequired": true,
+        "standardHeaderRequired": false,
+        "iconRequired": false,
+        "captionsRequired": true,
+        "captionsFollowVoiceover": true
+      }
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-02",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
+      "googleFlowFileName": "Bild 02 - [KURZER SZENENNAME].png",
+      "objectLabels": [
+        "[EINFÜGEN]"
+      ],
+      "expectedVisual": "[EINFÜGEN]",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-02-beat-01",
+          "kind": "image",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
+        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
+        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
+        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
+        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
+        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-03",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-03",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-03/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-03/animation.tsx",
+      "animationExport": "Scene03Animation",
+      "animationIntent": "[EINFÜGEN — konkrete sichtbare Kette: Startzustand → Mechanismus → Ergebnis]",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-03-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "motionDesign": {
+        "viewerChange": "[EINFÜGEN — was der Zuschauer nach dieser Animation sichtbar verstanden hat]",
+        "visualMode": "[EINFÜGEN — pure-remotion | svg | data | physical | typography | spatial | other]",
+        "visualTechniqueId": "[EINFÜGEN — eindeutige Haupttechnik als slug]",
+        "compositionFamilyId": "[EINFÜGEN — visuelle Familie als slug]",
+        "heroObjectFamily": "[EINFÜGEN — dominierende sichtbare Objektfamilie als slug]",
+        "primaryAction": "[EINFÜGEN — konkrete sichtbare Hauptaktion, nicht nur Kamera oder Support-Asset]",
+        "motionSignature": {
+          "camera": "[EINFÜGEN — z. B. static-close, push-in, orbit, top-down]",
+          "layout": "[EINFÜGEN — z. B. single-hero, split, timeline, field, layered-depth]",
+          "transformation": "[EINFÜGEN — z. B. grow, redistribute, replace, compress, reveal]"
+        },
+        "supportTools": [],
+        "repetitionJustification": "none"
+      },
+      "phase1MotionDirection": {
+        "spokenPoint": "[EINFÜGEN — konkrete finanzielle Aussage dieser Szene]",
+        "viewerMustUnderstand": "[EINFÜGEN — was der Zuschauer danach sichtbar verstanden haben muss]",
+        "visualQuestion": "[EINFÜGEN — welche sichtbare Frage muss die Animation beantworten?]",
+        "chosenMechanism": "[EINFÜGEN — konkrete sichtbare Hauptmechanik, noch ohne Tool-first-Logik]",
+        "mechanismRationale": "[EINFÜGEN — warum erklärt genau diese Mechanik diesen Sprechpunkt am besten?]",
+        "implementationDecision": "custom-build",
+        "financeMotionId": "none",
+        "libraryFitReason": "none",
+        "parameterPlan": "none",
+        "customReason": "[EINFÜGEN — warum keine vorhandene Library-Mechanik ausreichend passt]",
+        "libraryPromotionCandidate": false
+      }
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-04",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
+      "googleFlowFileName": "Bild 04 - [KURZER SZENENNAME].png",
+      "objectLabels": [
+        "[EINFÜGEN]"
+      ],
+      "expectedVisual": "[EINFÜGEN]",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-04-beat-01",
+          "kind": "image",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
+        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
+        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
+        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
+        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
+        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-05",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-05",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
+      "googleFlowFileName": "Bild 05 - [KURZER SZENENNAME].png",
+      "objectLabels": [
+        "[EINFÜGEN]"
+      ],
+      "expectedVisual": "[EINFÜGEN]",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-05-beat-01",
+          "kind": "image",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
+        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
+        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
+        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
+        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
+        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-06",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-06",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-06/bildprompt.txt",
+      "googleFlowFileName": "Bild 06 - [KURZER SZENENNAME].png",
+      "objectLabels": [
+        "[EINFÜGEN]"
+      ],
+      "expectedVisual": "[EINFÜGEN]",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-06-beat-01",
+          "kind": "image",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
+        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
+        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
+        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
+        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
+        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-07",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-07",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-07/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-07/animation.tsx",
+      "animationExport": "Scene07Animation",
+      "animationIntent": "[EINFÜGEN — konkrete sichtbare Kette: Startzustand → Mechanismus → Ergebnis]",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-07-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "motionDesign": {
+        "viewerChange": "[EINFÜGEN — was der Zuschauer nach dieser Animation sichtbar verstanden hat]",
+        "visualMode": "[EINFÜGEN — pure-remotion | svg | data | physical | typography | spatial | other]",
+        "visualTechniqueId": "[EINFÜGEN — eindeutige Haupttechnik als slug]",
+        "compositionFamilyId": "[EINFÜGEN — visuelle Familie als slug]",
+        "heroObjectFamily": "[EINFÜGEN — dominierende sichtbare Objektfamilie als slug]",
+        "primaryAction": "[EINFÜGEN — konkrete sichtbare Hauptaktion, nicht nur Kamera oder Support-Asset]",
+        "motionSignature": {
+          "camera": "[EINFÜGEN — z. B. static-close, push-in, orbit, top-down]",
+          "layout": "[EINFÜGEN — z. B. single-hero, split, timeline, field, layered-depth]",
+          "transformation": "[EINFÜGEN — z. B. grow, redistribute, replace, compress, reveal]"
+        },
+        "supportTools": [],
+        "repetitionJustification": "none"
+      },
+      "phase1MotionDirection": {
+        "spokenPoint": "[EINFÜGEN — konkrete finanzielle Aussage dieser Szene]",
+        "viewerMustUnderstand": "[EINFÜGEN — was der Zuschauer danach sichtbar verstanden haben muss]",
+        "visualQuestion": "[EINFÜGEN — welche sichtbare Frage muss die Animation beantworten?]",
+        "chosenMechanism": "[EINFÜGEN — konkrete sichtbare Hauptmechanik, noch ohne Tool-first-Logik]",
+        "mechanismRationale": "[EINFÜGEN — warum erklärt genau diese Mechanik diesen Sprechpunkt am besten?]",
+        "implementationDecision": "custom-build",
+        "financeMotionId": "none",
+        "libraryFitReason": "none",
+        "parameterPlan": "none",
+        "customReason": "[EINFÜGEN — warum keine vorhandene Library-Mechanik ausreichend passt]",
+        "libraryPromotionCandidate": false
+      }
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-08",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-08/bildprompt.txt",
+      "googleFlowFileName": "Bild 08 - [KURZER SZENENNAME].png",
+      "objectLabels": [
+        "[EINFÜGEN]"
+      ],
+      "expectedVisual": "[EINFÜGEN]",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-08-beat-01",
+          "kind": "image",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
+        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
+        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
+        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
+        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
+        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-09",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-09",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-09/bildprompt.txt",
+      "googleFlowFileName": "Bild 09 - [KURZER SZENENNAME].png",
+      "objectLabels": [
+        "[EINFÜGEN]"
+      ],
+      "expectedVisual": "[EINFÜGEN]",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-09-beat-01",
+          "kind": "image",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
+        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
+        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
+        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
+        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
+        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-10",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-10",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
+      "googleFlowFileName": "Bild 10 - [KURZER SZENENNAME].png",
+      "objectLabels": [
+        "[EINFÜGEN]"
+      ],
+      "expectedVisual": "[EINFÜGEN]",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-10-beat-01",
+          "kind": "image",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
+        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
+        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
+        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
+        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
+        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-11",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-11",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-11/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-11/animation.tsx",
+      "animationExport": "Scene11Animation",
+      "animationIntent": "[EINFÜGEN — konkrete sichtbare Kette: Startzustand → Mechanismus → Ergebnis]",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-11-beat-01",
+          "kind": "animation-phase",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "motionDesign": {
+        "viewerChange": "[EINFÜGEN — was der Zuschauer nach dieser Animation sichtbar verstanden hat]",
+        "visualMode": "[EINFÜGEN — pure-remotion | svg | data | physical | typography | spatial | other]",
+        "visualTechniqueId": "[EINFÜGEN — eindeutige Haupttechnik als slug]",
+        "compositionFamilyId": "[EINFÜGEN — visuelle Familie als slug]",
+        "heroObjectFamily": "[EINFÜGEN — dominierende sichtbare Objektfamilie als slug]",
+        "primaryAction": "[EINFÜGEN — konkrete sichtbare Hauptaktion, nicht nur Kamera oder Support-Asset]",
+        "motionSignature": {
+          "camera": "[EINFÜGEN — z. B. static-close, push-in, orbit, top-down]",
+          "layout": "[EINFÜGEN — z. B. single-hero, split, timeline, field, layered-depth]",
+          "transformation": "[EINFÜGEN — z. B. grow, redistribute, replace, compress, reveal]"
+        },
+        "supportTools": [],
+        "repetitionJustification": "none"
+      },
+      "phase1MotionDirection": {
+        "spokenPoint": "[EINFÜGEN — konkrete finanzielle Aussage dieser Szene]",
+        "viewerMustUnderstand": "[EINFÜGEN — was der Zuschauer danach sichtbar verstanden haben muss]",
+        "visualQuestion": "[EINFÜGEN — welche sichtbare Frage muss die Animation beantworten?]",
+        "chosenMechanism": "[EINFÜGEN — konkrete sichtbare Hauptmechanik, noch ohne Tool-first-Logik]",
+        "mechanismRationale": "[EINFÜGEN — warum erklärt genau diese Mechanik diesen Sprechpunkt am besten?]",
+        "implementationDecision": "custom-build",
+        "financeMotionId": "none",
+        "libraryFitReason": "none",
+        "parameterPlan": "none",
+        "customReason": "[EINFÜGEN — warum keine vorhandene Library-Mechanik ausreichend passt]",
+        "libraryPromotionCandidate": false
+      }
+    },
+    {
+      "id": "scene-12",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-12",
+      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
+      "icon": "[EINFÜGEN]",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-12/bildprompt.txt",
+      "googleFlowFileName": "Bild 12 - [KURZER SZENENNAME].png",
+      "objectLabels": [
+        "[EINFÜGEN]"
+      ],
+      "expectedVisual": "[EINFÜGEN]",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 0,
+      "visualBeats": [
+        {
+          "id": "scene-12-beat-01",
+          "kind": "image",
+          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
+          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "startSecond": 0,
+          "endSecond": 0
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
+        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
+        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
+        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
+        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
+        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    }
+  ],
+  "phase3CompletionContract": {
+    "id": "finanzneo-phase3-completion-v1",
+    "required": true,
+    "productionManifest": "05-projektdateien/phase3-production-manifest.json",
+    "renderQa": "05-projektdateien/phase3-render-qa.json",
+    "phase1AnimationSeal": "05-projektdateien/phase1-animation-seal.json",
+    "reelBackgroundContractId": "finanzneo-pure-black-background-v1",
+    "allScenesMustBeImplemented": true,
+    "imageVisualRequired": true,
+    "animationVisualRequired": true,
+    "captionOnlySceneForbidden": true,
+    "postRenderVisualQaRequired": true,
+    "exportRequiresPassedRenderQa": true,
+    "exactVideoHashRequiredForExport": true,
+    "finalVideoExistsOnlyAfterQaPass": true,
+    "canonicalPhase1AnimationRequired": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "phase1AnimationHashMustMatchSeal": true,
+    "pureBlackBackgroundRequired": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "backgroundMotionDoesNotCountAsAnimation": true,
+    "blackOrEmptyVisualMustFail": true,
+    "visualQa": {
+      "sampleImageRatios": [
+        0.5
+      ],
+      "sampleAnimationRatios": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "sampleBackgroundPerScene": true,
+      "minStdDev": 4,
+      "minContrastP90P10": 12,
+      "minEdgeMean": 0.5,
+      "minActivePixelRatio": 0.04,
+      "minAnimationMeanAbsDiff": 1,
+      "maxBackgroundMean": 12,
+      "maxBackgroundStdDev": 4
+    },
+    "autoExportAfterPassedRenderQa": true,
+    "finalVideoDirectory": "06-export",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt"
+  },
+  "visualBeatContract": {
+    "id": "finanzneo-visual-beats-v2",
+    "sceneCountFlexible": true,
+    "visualBeatCountFlexible": true,
+    "visualBeatPlanBeforeSceneCount": true,
+    "oneSpokenThoughtPerBeatRequired": true,
+    "splitMultiThoughtSentenceWhenHelpful": true,
+    "oneImagePerSentenceAllowed": true,
+    "oneImagePerSentencePreferredWhenItImprovesClarity": true,
+    "consecutiveImageScenesAllowedWhenMeaningAdvances": true,
+    "visualChangeWhenVoiceoverIntroducesNewConcreteIdea": true,
+    "extraImagePreferredOverOverloadedStill": true,
+    "staticImageBeatIdealSeconds": [
+      1.8,
+      3
+    ],
+    "staticImageBeatHardMaxSeconds": 4,
+    "animationSceneTypicalSeconds": [
+      3,
+      5.5
+    ],
+    "longerAnimationRequiresVisibleProgression": true,
+    "animationMustContainMultipleVisibleStates": true,
+    "visualMustAdvanceWithVoiceover": true,
+    "cameraMotionAloneDoesNotCountAsNewBeat": true,
+    "unchangedVisualAfterMessageUnderstoodForbidden": true,
+    "actualCutsFollowRealWordTimings": true,
+    "ratioIsGuidelineNotQuota": true,
+    "longStaticSentenceNeedsAdditionalVisualBeat": true,
+    "extraImagePreferredOverLongHold": true
+  },
+  "coverHookContract": {
+    "id": "finanzneo-cover-hook-v3",
+    "sourceSceneId": "scene-01",
+    "titleSource": "scene-index.title",
+    "titleRenderedByRemotion": true,
+    "titleInGeneratedFlowImageForbidden": true,
+    "titleVisibleFromFrame": 0,
+    "titleVisibleWithinFirstSecond": true,
+    "titleHoldMinFrames": 30,
+    "captionsFollowVoiceoverFromFirstSpokenWord": true,
+    "captionlessSpokenAudioForbidden": true,
+    "standardSceneHeaderForbiddenDuringScene01": true,
+    "coverIconForbidden": true,
+    "secondaryTextForbidden": true,
+    "noIntroBeforeTitle": true,
+    "noFadeInDelay": true,
+    "flowImageMustReserveTitleSafeSpace": true,
+    "standaloneCoverRequired": true,
+    "exportedCoverSource": "final-video-frame-0"
+  },
+  "imageStorytellingContract": {
+    "id": "finanzneo-image-storytelling-v3",
+    "appliesToNewReelsOnly": true,
+    "visualFormRevision": "finanzneo-free-visual-form-v1",
+    "visualFormFreedomRequired": true,
+    "visualFormChosenPerBeatRequired": true,
+    "allowedVisualForms": [
+      "character-story",
+      "object-story",
+      "comparison",
+      "chart",
+      "diagram",
+      "editorial-quote",
+      "illustration",
+      "metaphor",
+      "hybrid"
+    ],
+    "v9StyleLockRequired": true,
+    "exactVoiceBeatVisualMatchRequired": true,
+    "instantReadRequired": true,
+    "transferabilityTestRequired": true,
+    "recognizableFinanceContextRequired": true,
+    "humanOptional": true,
+    "realWorldObjectsOptional": true,
+    "intuitiveMetaphorAllowed": true,
+    "illustrationAllowed": true,
+    "editorialQuoteAllowed": true,
+    "comparisonAllowed": true,
+    "chartAllowed": true,
+    "diagramAllowed": true,
+    "hybridAllowed": true,
+    "textMayBePrimaryForEditorialQuote": true,
+    "realChartMustRemainRealChart": true,
+    "chartAxesLabelsWhenApplicableRequired": true,
+    "chartDataIntegrityRequired": true,
+    "premiumChartStylingRequired": true,
+    "powerPointExcelDefaultLookForbidden": true,
+    "genericCorporateLookForbidden": true,
+    "genericFantasyMechanismAsDefaultForbidden": true,
+    "decorativeObjectPileForbidden": true,
+    "staticCatalogCompositionForbidden": true,
+    "abstractFinanceObjectAsDefaultForbidden": true,
+    "animationFilmRenderingRequired": true,
+    "phaseAQualityReferenceOnly": true
+  },
+  "futureProductionStandard": {
+    "id": "finanzneo-future-production-v3",
+    "appliesToNewReelsOnly": true,
+    "legacyReelsUntouched": true,
+    "timing": {
+      "staticImageIdealSeconds": [
+        1.8,
+        3
+      ],
+      "staticImageSoftMaxSeconds": 3.6,
+      "staticImageHardMaxSeconds": 4,
+      "longStaticSentenceNeedsAdditionalVisualBeat": true,
+      "sentenceMayUseMultipleImages": true,
+      "newConcreteIdeaNeedsVisualChange": true,
+      "extraImagePreferredOverLongHold": true,
+      "realWordTimingsRemainFinalAuthority": true
+    },
+    "animationFraming": {
+      "mainMechanismMustFeelFrameFilling": true,
+      "excessiveEmptySpaceForbidden": true,
+      "widerContextAllowedOnlyWhenStoryNeedsIt": true,
+      "wideContextMustProgressToCloserMechanismState": true,
+      "sampleRatios": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "minPeakActivePixelRatio": 0.15,
+      "minMedianActivePixelRatio": 0.12
+    },
+    "audioMastering": {
+      "normalizeBeforeRenderQa": true,
+      "targetIntegratedLufs": -16,
+      "integratedLufsTolerance": 1,
+      "targetTruePeakDbtp": -1,
+      "maxTruePeakDbtp": -0.8,
+      "targetLra": 11,
+      "audioBitrate": "320k",
+      "sampleRate": 48000
+    }
+  },
+  "futurePresentationContract": {
+    "id": "finanzneo-future-reel-presentation-v1",
+    "appliesToNewReelsOnly": true,
+    "legacyReelsUntouched": true,
+    "scene01CoverUsesTitleInsteadOfStandardHeader": true,
+    "scene01CaptionsFollowSpeech": true,
+    "captionlessSpokenAudioForbidden": true,
+    "standardHeaderRequiredFromScene02": true,
+    "standardIconRequiredFromScene02": true,
+    "captionsRequiredFromScene02": true,
+    "captionsMustUseRealWordTimings": true,
+    "phase3CompositionMustMountAudio": true,
+    "phase3CompositionMustMountSceneHeader": true,
+    "phase3CompositionMustMountCaptions": true,
+    "renderedHeaderQaRequired": true,
+    "renderedCaptionQaRequired": true,
+    "imageMustFeelFrameFilling": true,
+    "smallSquareCardLookForbidden": true,
+    "minImageActivePixelRatio": 0.1,
+    "motionDiversityRequired": true,
+    "supportToolSwapDoesNotCountAsNewTechnique": true,
+    "exactMotionSignatureRepeatWithinPreviousFourForbiddenWithoutReason": true,
+    "sameHeroObjectFamilyMoreThanTwiceWithinPreviousFourForbiddenWithoutReason": true
+  },
+  "phase1MotionDirectionContract": {
+    "id": "finanzneo-phase1-hybrid-motion-v2",
+    "financeMotionLibraryId": "finanzneo-finance-motion-library-v1",
+    "appliesToNewReelsOnly": true,
+    "legacyReelsUntouched": true,
+    "analyzeSpokenPointBeforeTechnique": true,
+    "viewerUnderstandingBeforeImplementation": true,
+    "visualQuestionBeforeTechnique": true,
+    "mechanismDerivedFromContent": true,
+    "librarySearchAfterMechanismDefinition": true,
+    "libraryBestFitPreferred": true,
+    "libraryUseNeverForced": true,
+    "customBuildAllowed": true,
+    "reusableCustomMechanicsMayBecomeLibraryCandidates": true,
+    "parametersMustFollowSceneContent": true,
+    "supportAssetsCannotDriveSceneConcept": true,
+    "phase1DirectionMustPrecedeMotionDesign": true,
+    "phase1DirectionMustPrecedeAnimationCode": true
+  },
+  "reelQualityGuards": {
+    "id": "finanzneo-reel-quality-guards-v1",
+    "appliesToNewReelsOnly": true,
+    "sceneTypeExclusive": true,
+    "imageAnimationHybridMainVisualForbidden": true,
+    "sourceBasedAnimationDiversityRequired": true,
+    "metadataOnlyDiversityForbidden": true,
+    "actualPrimitiveReuseLimited": true,
+    "horizontalAnimationSafeZoneRequired": true,
+    "animationHorizontalSafeZone": {
+      "left": 72,
+      "right": 1008,
+      "top": 320,
+      "bottom": 1400,
+      "perspectiveGuardPx": 24
+    },
+    "postRenderEdgeBandQaRequired": true,
+    "edgeBandActivePixelRatioMax": 0.012
+  }
+}

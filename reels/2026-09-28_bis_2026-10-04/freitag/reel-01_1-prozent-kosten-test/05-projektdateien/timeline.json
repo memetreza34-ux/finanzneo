@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "title": "Was 1 % Kosten wirklich ausmacht",
+  "fps": 30,
+  "timingSource": "04-caption/word-timings.json",
+  "cutRule": "voice-sentence-or-meaningful-phrase-start",
+  "sceneCount": 12,
+  "scenes": []
+}

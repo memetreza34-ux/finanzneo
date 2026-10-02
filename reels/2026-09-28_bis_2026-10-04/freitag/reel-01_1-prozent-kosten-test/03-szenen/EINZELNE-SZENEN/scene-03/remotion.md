@@ -1,0 +1,83 @@
+# Remotion-Spezifikation scene-03
+
+**Zwischenüberschrift:** [EINFÜGEN — natürliche Schreibweise; 56 px; max. 2 Zeilen; Plain Header]
+**Icon:** [EINFÜGEN]
+**Kanonische Codequelle:** animation.tsx
+**Quality Lock:** finanzneo-phase1-animation-code-v1
+**Visuelle Zielwelt:** finanzneo-stylized-3d-animated-black-v9
+**Stage:** transparent über zentralem #000000 Reel-Canvas; sichtbare Ausgabe hart Y320–1400; keine dekorativen Hintergrundeffekte.
+
+## STARTZUSTAND
+[EINFÜGEN]
+
+## SICHTBARER MECHANISMUS
+[EINFÜGEN]
+
+## ERGEBNIS
+[EINFÜGEN]
+
+## RESULT HOLD
+Mindestens 15 Frames stabil.
+
+## VERBOTEN
+Dummy/Placeholder/Debug-Boxen, wackelnde Rechtecke, Math.sin/Math.cos als künstlicher Frame-Diff, Hintergrundpartikel/Aurora/Grid/Glow, reine Dauerbewegung ohne Aussage, "erst Tests bestehen, später hübsch machen".
+
+## FINANCE MOTION LIBRARY + CUSTOM ANIMATIONSVERTRAG
+Premium Visual Lock: finanzneo-premium-physical-animation-v2
+Story Moment Revision: finanzneo-readable-story-moment-v1
+Finance Motion Library: finanzneo-finance-motion-library-v1
+Visual Target World: finanzneo-stylized-3d-animated-black-v9
+
+GRUNDSATZ:
+Die Finance Motion Library ist ein Mechanik-Werkzeugkasten, KEINE Stilvorlage. Eine vorhandene Mechanik darf nur direkt gerendert werden, wenn sie sichtbar dieselbe FinanzNeo-Welt wie die Flow-Bilder trifft. Sonst wird die Mechanik individuell in der V9-Welt umgesetzt.
+
+DIE GLEICHE STORY-LOGIK WIE BEI DEN BILDERN:
+- bekannte Figuren und/oder bekannte Gegenstände tragen die Bedeutung
+- Animation wirkt wie eine kleine Szene aus einem hochwertigen 3D-Animationsfilm
+- es passiert sichtbar etwas: Handlung -> Reaktion -> Folge/Payoff
+- intuitive Übertreibungen und Metaphern sind ausdrücklich erlaubt, wenn sie ohne Erklärung sofort verständlich sind
+- Beispiel gute Richtung: mehrere bekannte Rechnungen greifen nacheinander auf dasselbe Portemonnaie zu; ein langer Kassenzettel rollt sichtbar weiter; kleine wiederkehrende Gebühren sammeln sich über Zeit
+- Beispiel schlechte Richtung: abstrakter capital body, fee token, value block oder geometrischer wealth tower ohne selbsterklärende reale Bedeutung
+- keine Corporate-3D-Figur als reine Dekoration; wenn eine Figur vorkommt, tragen Pose/Reaktion/Handlung die Aussage mit
+
+Verbindliche Reihenfolge in Phase 1:
+1. Sprechpunkt und sichtbares Verständnisziel bestimmen.
+2. Bekannte Figur/Gegenstände oder sofort verständlichen Story-Moment bestimmen.
+3. Visuelle Hauptmechanik herleiten.
+4. Finance Motion Library auf semantischen Best-Fit prüfen.
+5. Bei Best-Fit zusätzlich SAME-WORLD-PASS prüfen.
+6. Nur bei echtem Same-World-Pass direkt parametrisieren; sonst individuelle Animation bauen.
+7. Produktionsreife animation.tsx liefern.
+
+SAME-WORLD-PASS:
+- dieselbe stylized-3D-Animationsfilm-Sprache wie V9
+- bekannte Finanz-/Alltagsobjekte bevorzugen, wenn sie den Punkt klarer machen
+- intuitive physische Übertreibung ist erlaubt, abstrakte erfundene Finanzkörper sind kein Default
+- Emerald/Gold/Red-Orange bleiben Rollenfarben, aber Farbe allein ersetzt keine Bedeutung
+- Ursache -> sichtbare Aktion -> Reaktion -> Payoff muss ohne Untertitel grundsätzlich verständlich sein
+
+LAYOUT-VERTRAG:
+- animation.tsx liefert NUR transparenten visuellen Inhalt für die Visualzone
+- der globale Reel-Canvas bleibt #000000
+- Header und Captions gehören ausschließlich dem globalen Reel-Layout
+- lokale SceneShells, lokale schwarze Vollflächen, eigene Header und eigene Captions in animation.tsx sind verboten
+- AnimationStage bleibt Y320–1400 und clippt den visuellen Inhalt zentral
+
+Qualitätsregeln:
+- START -> sichtbare Ursache/Aktion -> klares RESULT/PAYOFF
+- ein klarer FOCAL_PATH
+- PRIMARY_ACTION trägt die Erklärung; Nebenbewegungen unterstützen nur
+- CAMERA_ROLE bewusst festlegen: still, follow, push oder reframe
+- Ergebnis mindestens 15 Frames stabil halten
+- kurze deutsche Labels dürfen helfen, tragen aber nie allein die Erklärung
+- Parameter müssen exakt zum Sprechpunkt passen; kein Template-Füllmaterial
+
+Weiterhin verboten als Hauptsprache:
+- generische Karten-/Kästchenreihe
+- Lade-/Fortschrittsbalken als Ersatz für die Finanzmechanik
+- Dashboard-/Control-Panel-/App-UI-Look
+- Flowchart als Hauptkomposition
+- kleine Boxen mit dünnen Verbindungslinien
+- reine Texttafel mit Fade/Scale
+- Partikel/Aurora/Grid/Glow/Gradient als Animationshintergrund
+- dekorative Bewegung ohne erklärenden Mechanismus
