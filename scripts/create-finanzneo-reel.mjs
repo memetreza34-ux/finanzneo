@@ -4,7 +4,7 @@
 // Neue Reels erhalten Cover Hook V3: Titel ab Frame 0, Captions ab erstem gesprochenen Wort.
 // Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
 // und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
-// Bildplanung bleibt: Literal first, creative second. Reel-Visual bleibt: Visual Y320–1400.
+// Bildplanung: bekannte Figuren/Gegenstände -> klarer Story-Moment -> V9-Rendering.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -66,12 +66,13 @@ for (const [script, scriptArgs] of steps) {
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
 console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob.');
-console.log('  Bildwelt V9 + Storytelling V3: Literal first, creative second · reale Situation + Kontextanker + Voiceover-Match.');
+console.log('  Bildwelt V9 + Story-Moment V1: bekannte Figuren/Gegenstände -> klare kleine Geschichte -> intuitive Metapher wenn sie besser erklärt.');
+console.log('  Rendering: premium stylized 3D animated-film auf tiefschwarzer Bühne; keine abstrakten Finanzkörper als Default.');
 console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
 console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
-console.log('  ANIMATION: Remotion-Hauptanimation + Header/Icon + Caption; kein Flow-Bild als Hauptvisual.');
-console.log('  Motion Direction: Inhalt -> Verständnisziel -> beste Mechanik -> Finance Motion Library Best-Fit oder Custom-Build.');
+console.log('  ANIMATION: dieselbe Story-Moment-Logik wie Bilder; Remotion-Hauptanimation + Header/Icon + Caption.');
+console.log('  Motion Direction: Inhalt -> Story-Moment -> Mechanik -> Same-World-Pass -> Finance Motion Library oder Custom-Build.');
 console.log('  Finance Motion Library: passende Mechaniken parametrisieren und wiederverwenden; keine passende Mechanik = individuell bauen.');
 console.log('  Source Diversity Guard: tatsächliche animation.tsx-Primitives werden verglichen; Metadaten allein reichen nicht.');
 console.log('  Animation Safe Zone: X72–1008 · Visual Y320–1400 · perspektivischer Innenabstand + Post-Render-Rand-QA.');

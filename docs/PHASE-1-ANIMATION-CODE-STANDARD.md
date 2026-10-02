@@ -2,15 +2,21 @@
 
 ## Grundsatz
 
-Eine Animationsszene ist **in Phase 1 kreativ und technisch fertig**. `remotion.md` allein reicht nicht. Phase 1 liefert zusätzlich eine produktionsreife `animation.tsx`, die Phase 3 direkt verwendet.
+Eine Animationsszene ist in Phase 1 kreativ und technisch fertig. Phase 3 integriert nur die versiegelte Quelle; sie erfindet keine Ersatzanimation.
 
-Phase 3 darf keine Animation neu erfinden, vereinfachen oder durch einen technischen Platzhalter ersetzen.
+Visuelles Ziel:
 
-Diese Änderung betrifft **nur Animationen**. Bildwelt, Flow-Prompts, Bildszenen, Cover, Layout, Captions, Audio und der restliche 3-Phasen-Workflow bleiben unverändert.
+```text
+finanzneo-stylized-3d-animated-black-v9
+```
 
-## Technischer Lock + visuelles Ziel
+Story-Moment-Revision:
 
-Technischer Kompatibilitäts-Lock bleibt absichtlich stabil:
+```text
+finanzneo-readable-story-moment-v1
+```
+
+Technischer Kompatibilitäts-Lock:
 
 ```text
 finanzneo-premium-physical-animation-v2
@@ -22,58 +28,67 @@ Finance Motion Library:
 finanzneo-finance-motion-library-v1
 ```
 
-Visuelles Ziel bleibt unverändert:
+## 1. Content-first, nicht Library-first
 
-```text
-finanzneo-stylized-3d-animated-black-v9
-```
-
-Der technische Lock bleibt für bestehende Seals stabil. Die neue Library ersetzt keine Bildwelt und migriert keine bestehenden Reels.
-
-## Kernprinzip: Content-first, dann Library oder Custom
-
-Für jede Animationsszene gilt diese Reihenfolge:
+Für jede Animationsszene gilt:
 
 ```text
 SPRECHPUNKT
 → WAS MUSS DER ZUSCHAUER SICHTBAR VERSTEHEN?
-→ WELCHE HAUPTMECHANIK ZEIGT DAS AM KLARSTEN?
-→ FINANCE MOTION LIBRARY AUF ECHTEN BEST-FIT PRÜFEN
-→ PASSEND: LIBRARY PARAMETRISIEREN
-→ NICHT PASSEND: INDIVIDUELLE ANIMATION BAUEN
+→ WELCHE BEKANNTE FIGUR / WELCHE BEKANNTEN GEGENSTÄNDE TRAGEN DIE BEDEUTUNG?
+→ WELCHER KLARE STORY-MOMENT ZEIGT DAS AM SCHNELLSTEN?
+→ WELCHE HAUPTMECHANIK MACHT DIE VERÄNDERUNG SICHTBAR?
+→ FINANCE MOTION LIBRARY AUF SEMANTISCHEN BEST-FIT PRÜFEN
+→ SAME-WORLD-PASS PRÜFEN
+→ PASS: PARAMETRISIEREN
+→ FAIL: INDIVIDUELLE ANIMATION BAUEN
 → PRODUKTIONSREIFE animation.tsx
 ```
 
-Die Library ist ein Werkzeugkasten, **kein Zwangsmenü**. Eine vorhandene Mechanik wird nur genutzt, wenn sie die Aussage wirklich erklärt. Eine gute Library-Mechanik darf beliebig oft wiederverwendet werden, auch innerhalb eines Reels, wenn die Finanzlogik dieselbe ist.
+Die Finance Motion Library ist ein Mechanik-Werkzeugkasten, **keine Art-Direction**. Eine vorhandene Mechanik wird nicht benutzt, nur weil sie technisch passt.
 
-Individuelle Animationen bleiben ausdrücklich erlaubt. Ist eine neue Custom-Mechanik später sinnvoll verallgemeinerbar, kann sie als neuer Library-Baustein aufgenommen werden.
+Direkter Library-Einsatz braucht zwei Treffer:
 
-## Finance Motion Library V1
+1. **Semantischer Fit** — die Mechanik erklärt den gesprochenen Punkt.
+2. **Same-World-Fit** — das gerenderte Ergebnis sieht wie dieselbe FinanzNeo-V9-Serie und dieselbe Story-Moment-Sprache aus.
 
-Die Library liegt unter:
+Wenn die Library-Komponente wie Dashboard, Infografik, abstrakter Value-Block oder generische Geometrie wirkt, wird die Mechanik individuell in der V9-Welt umgesetzt.
+
+## 2. Gleiche visuelle Sprache wie die Flow-Bilder
+
+Animationen benutzen dieselbe Grundlogik wie die guten Flow-Bilder:
 
 ```text
-src/finance-motion/index.tsx
+bekannte Dinge
+→ klare kleine Geschichte
+→ intuitive Übertreibung/Metapher wenn sie schneller erklärt
+→ hochwertige stylized-3D-Animationsfilm-Welt auf Schwarz
 ```
 
-Startbestand:
+Geeignete Anker sind zum Beispiel:
 
-- `money-transfer`
-- `money-split`
-- `value-growth`
-- `value-drain`
-- `allocation-split`
-- `rebalancing`
-- `diversification`
-- `loan-paydown`
-- `protection-limit`
-- `scenario-comparison`
-- `finance-timeline`
-- `compound-growth`
+- Person / Familie / Kunde / Arbeitnehmer
+- Rechnung / Kassenzettel / Gebührenbeleg
+- Konto / Geld / Portemonnaie / Sparrate
+- Karte / Smartphone / Vertrag / Kalender
+- Fernseher / Sofa / Laptop / Einkauf
+- Waschmaschine / Reparatur / Haushaltskosten
+- Überweisung / konkrete Finanzhandlung
 
-Alle Library-Mechaniken sind parametrisiert. Werte, Labels, Gewichtungen, Zeitpunkte und semantische Rollen werden pro Szene gesetzt. Template-Füllmaterial ist verboten.
+Eine Animation darf bewusst übertreiben, wenn die Bedeutung sofort lesbar bleibt. Beispiele:
 
-## Pflichtdateien pro Animationsszene
+- ein realer Kassenzettel rollt immer weiter aus,
+- mehrere bekannte Rechnungen greifen nacheinander auf dasselbe Budget zu,
+- kleine wiederkehrende Gebühren sammeln sich sichtbar über Zeit,
+- eine Figur wird von mehreren echten Verpflichtungen gleichzeitig beansprucht.
+
+Intuitive Metaphern sind erlaubt und können eine trockene literal Darstellung schlagen. Sie dürfen aber kein Rätsel sein.
+
+Abstrakte `capital body`, `wealth tower`, `value block`, `fee token`, Balken oder geometrische Wertkörper sind keine automatische Standardsprache. Sie dürfen bekannte Dinge nicht durch erfundene Finanzobjekte ersetzen.
+
+Eine Figur ist keine Dekoration. Wenn sie vorkommt, muss Pose, Reaktion oder Handlung den Sprechpunkt sichtbar mittragen. Generische Corporate-3D-Stockfiguren, die nur neben einem Objekt stehen, sind kein Qualitätsziel.
+
+## 3. Pflichtdateien
 
 ```text
 03-szenen/EINZELNE-SZENEN/scene-XX/
@@ -82,9 +97,17 @@ Alle Library-Mechaniken sind parametrisiert. Werte, Labels, Gewichtungen, Zeitpu
 └── animation.tsx
 ```
 
-`scene-index.json` enthält weiterhin `animationSourceFile`, `animationExport`, `animationIntent`, `animationQualityLock` und `animationPremiumVisualLock`.
+`scene-index.json` enthält mindestens:
 
-## Motion-Director-Pflicht
+- `animationSourceFile`
+- `animationExport`
+- `animationIntent`
+- `animationQualityLock`
+- `animationPremiumVisualLock`
+
+Der zentrale `phase1AnimationCode`-Vertrag trägt zusätzlich den Story-Moment-Revision-Lock.
+
+## 4. Motion-Director-Pflicht
 
 Jede fertige `animation.tsx` dokumentiert:
 
@@ -92,7 +115,7 @@ Jede fertige `animation.tsx` dokumentiert:
 MOTION_SOURCE: library-best-fit | custom-build
 FINANCE_MOTION_ID: <library-slug> | none
 MECHANIC_ID: semantische Mechanik
-FOCAL_PATH: was das Auge von Start bis Ergebnis verfolgt
+FOCAL_PATH: was das Auge verfolgt
 PRIMARY_ACTION: Hauptbewegung, die die Aussage erklärt
 CAMERA_ROLE: still | follow | push | reframe + konkrete Rolle
 PAYOFF: klarer sichtbarer Endzustand
@@ -109,46 +132,56 @@ MATERIAL: Material- und Farblogik
 DEPTH: räumliche Staffelung, wenn sinnvoll
 ```
 
-Zusätzlich gilt:
+Zusätzlich:
 
 ```text
 RESULT_HOLD_FRAMES >= 15
 ```
 
-## Technischer Code-Vertrag
+## 5. Technischer Code-Vertrag
 
-### Bei `library-best-fit`
+### `library-best-fit`
 
-- `FINANCE_MOTION_ID` muss in `FINANCE_MOTION_REGISTRY` existieren.
-- Die Szene importiert die passende Mechanik aus `src/finance-motion`.
-- Die Parameter müssen exakt aus dem Sprechpunkt abgeleitet sein.
-- Ein dünner, klarer Wrapper ist erlaubt; die eigentliche Motion-Logik liegt in der Library.
-- Die Mechanik darf wiederverwendet werden.
+- `FINANCE_MOTION_ID` existiert in `FINANCE_MOTION_REGISTRY`.
+- Parameter kommen aus dem Sprechpunkt, nicht aus Template-Füllmaterial.
+- Direkter Einsatz nur bei Same-World-Pass.
+- Ein Wrapper darf die Mechanik in die konkrete Szene einbetten.
+- Wenn der direkte Library-Look visuell abweicht, wird stattdessen `custom-build` verwendet.
 
-### Bei `custom-build`
+### `custom-build`
 
 - `FINANCE_MOTION_ID: none`
 - `useCurrentFrame`
 - zentrale `ANIMATION_COLORS`
-- `prog`, `interpolate` oder `spring`
-- framegenaue, nachvollziehbare Motion-Logik
+- `interpolate`, `spring` oder vergleichbare framebasierte Remotion-Logik
 - vollständige individuelle visuelle Geschichte
 
-### Nicht mehr verpflichtend
+CSS-Keyframe-Animationen, zufällige Dauerbewegung und zeitunabhängige Fake-Motion sind keine Produktionslösung.
 
-Folgende Punkte sind **keine Qualitäts-Pflicht mehr**:
+## 6. animation.tsx besitzt NICHT das Reel-Layout
 
-- `PremiumPhysicalStage`
-- `PhysicalObject`
-- `PhysicalBill`, `PhysicalAccount`, `PhysicalWasher` oder andere konkrete Physical-Primitives
-- mindestens zwei Realweltobjekte
-- mindestens drei `interpolate`-/`spring`-Variablen
-- eine weltweit oder innerhalb des Reels einzigartige Mechanik
-- **keine feste Support-Objekt-Anzahl**; Inhalt und Klarheit bestimmen, wie viele Support-Elemente sinnvoll sind
+Die Szenenanimation liefert nur transparenten visuellen Inhalt für die zentrale `AnimationStage`.
 
-Diese Bausteine bleiben verfügbar, wenn sie für eine konkrete Szene wirklich passen.
+Verboten in `animation.tsx`:
 
-## Visuelle Pflichtlogik
+- eigener schwarzer Vollbild-Canvas
+- lokale `SceneShell`
+- eigener globaler Header
+- eigene globale Caption
+- eigener dekorativer Hintergrund
+
+Header, Captions, Reel-Canvas und Safe-Zone-Clipping werden genau einmal vom globalen Reel-Layout gerendert.
+
+Bühne:
+
+```text
+Header: Y154
+Visual: Y320–1400
+Caption: bottom340
+Canvas: #000000
+```
+
+## 7. Visuelle Pflichtlogik
 
 ```text
 STARTZUSTAND
@@ -160,85 +193,71 @@ STARTZUSTAND
 
 Die Bewegung erklärt die Aussage. Dekorative Bewegung zählt nicht als Mechanik.
 
-## Motion-Hierarchie
+Priorität:
 
-Eine hochwertige Szene braucht nicht möglichst viele Bewegungen, sondern eine klare Hierarchie:
+1. Story-Moment und sofortige Verständlichkeit
+2. Primary Action
+3. Secondary Reaction
+4. Camera Role
+5. Payoff Hold
 
-1. **Primary Action** — trägt die Aussage.
-2. **Secondary Reaction** — zeigt die Konsequenz der Hauptaktion.
-3. **Camera Role** — unterstützt die Aufmerksamkeit oder bleibt bewusst still.
-4. **Payoff Hold** — lässt das Ergebnis lesbar stehen.
+Eine einzige starke Bewegung ist besser als mehrere unabhängige Effekte.
 
-Eine einzige sehr klare Bewegung kann hochwertiger sein als fünf unabhängige Bewegungen.
-
-## Bühne und Hintergrund
-
-Die bestehende V5-Bühne bleibt unverändert:
-
-```text
-Header: Y 154
-Visual: Y 320–1400
-Caption: bottom 340
-```
-
-`AnimationStage` clippt produktive Animationen weiter technisch auf **Y320–1400**.
-
-Der einzige Reel-Hintergrund bleibt der zentrale statische Canvas:
-
-```text
-#000000
-```
-
-Library- und Custom-Animationen bleiben transparent und erzeugen keine eigene dekorative Hintergrundwelt.
-
-## Weiterhin verboten
+## 8. Weiterhin verboten
 
 - `Math.sin` / `Math.cos` als künstliches Dauerwackeln
-- wackelnde Rechtecke
-- Debug-Boxen und Testflächen
 - Dummy-/Placeholder-Komponenten
+- Debug-Flächen
 - Dashboard-/Control-Panel-Komposition als Hauptsprache
 - Flowchart als Hauptkomposition
-- kleine Boxen mit dünnen Verbindungslinien als Haupterklärung
+- kleine Boxen mit dünnen Verbindungslinien
 - generische Info-Cards als Hauptsprache
 - reine Texttafel
-- reine Zoom-/Fade-/Popup-Bewegung als komplette Erkläranimation
-- Lade-/Fortschrittsbalken als Ersatz für die eigentliche Finanzmechanik
+- reine Zoom-/Fade-/Popup-Bewegung als komplette Erklärung
+- Lade-/Fortschrittsbalken als Ersatz für die Finanzmechanik
 - Bewegung nur für Frame-Diff
-- eigener dekorativer Partikel-/Aurora-/Grid-/Gradient-Hintergrund
-- schwarzer Inhalt auf schwarzem Canvas
-- TODO / TBD / PLACEHOLDER / TEMP
-- eine Library-Animation zu benutzen, nur weil sie verfügbar ist
+- eigener Partikel-/Aurora-/Grid-/Gradient-Hintergrund
+- schwarzer Szenenhintergrund innerhalb der Animation
+- lokale SceneShell mit dupliziertem Header oder Caption
+- abstrakter `capital body`, `fee token`, `value block` oder `wealth tower` als selbsterklärter Ersatz für die eigentliche Geschichte
+- Corporate-3D-Figur als statische Dekoration
+- eine Library-Animation zu benutzen, nur weil sie existiert
 
-## Phase-3-Sperre
+## 9. Phase-3-Sperre
 
-Bei erfolgreichem `reel:ready` entsteht weiterhin:
+Bei erfolgreichem `reel:ready` entsteht:
 
 ```text
 05-projektdateien/phase1-animation-seal.json
 ```
 
-Danach gilt:
+Danach:
 
-- Phase 3 verwendet direkt die versiegelte Quelle.
-- `componentPath` darf nicht auf eine Ersatzkomponente zeigen.
-- `componentExport` muss stimmen.
-- Der SHA-256-Hash muss unverändert bleiben.
+- Phase 3 verwendet exakt die versiegelte Quelle.
+- `componentPath` und `componentExport` müssen stimmen.
+- SHA-256 bleibt unverändert.
 - Fehlendes Binding blockiert den Render.
-- Phase 3 darf nicht eigenmächtig zwischen Library und Custom wechseln.
+- Phase 3 wechselt nicht eigenmächtig zwischen Library und Custom.
 
-## Fertig bedeutet
+## 10. Fertig bedeutet
 
-Phase 1 darf eine Animationsszene erst als fertig markieren, wenn:
+Eine Animationsszene ist erst fertig, wenn:
 
-- gesprochener Satz und Mechanik 1:1 zusammenpassen
-- Start, Hauptaktion, Reaktion und Ergebnis konkret sichtbar sind
+- Sprechpunkt und Mechanik 1:1 zusammenpassen
+- bekannte Figuren/Gegenstände oder eine sofort verständliche visuelle Situation die Bedeutung tragen
+- Start, Aktion, Reaktion und Ergebnis sichtbar sind
+- eine Metapher/Übertreibung ohne Erklärung intuitiv bleibt
 - Focal Path und Primary Action eindeutig sind
-- Library-Best-Fit geprüft wurde
-- entweder eine passend parametrisierte Library-Mechanik oder ein begründeter Custom-Build vorliegt
+- Library-Best-Fit und Same-World-Pass geprüft wurden
 - Code ohne Platzhalter vorliegt
-- Animation auch ohne Ton grundsätzlich verständlich ist
-- sie optisch zum bestehenden FinanzNeo-Reel passt
-- der Stage keinen eigenen dekorativen Hintergrund erzeugt
-- die Visualzone Y320–1400 sinnvoll gefüllt ist
+- die Szene auch ohne Ton grundsätzlich verständlich ist
+- sie optisch zu den Flow-Bildern desselben Reels passt
+- sie keinen eigenen Reel-Shell rendert
+- die Visualzone sinnvoll gefüllt ist
 - Phase 3 keinen kreativen Umbau mehr vornehmen muss
+
+## 11. Visuelle Abnahme
+
+Technische Tests sind Pflicht, aber nicht ausreichend.
+
+Vor einer globalen Stil-Promotion muss mindestens ein echter Test-Render mit finaler Bild-/Animationssprache visuell geprüft werden. Platzhalterbilder, Textboxen oder reine Smoke-Frames beweisen keine visuelle Qualität.

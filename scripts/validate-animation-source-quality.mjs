@@ -27,6 +27,7 @@ const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 const scenes = Array.isArray(index.scenes) ? index.scenes : [];
 const animations = scenes.filter((scene) => scene?.type === 'animation');
 const hybridV2 = index.phase1MotionDirectionContract?.id === HYBRID_CONTRACT_ID;
+const consolidatedVisualContract = index.phase1AnimationCode?.financeMotionLibraryRole === 'mechanism-tool-not-style-reference';
 const errors = [];
 const fail = (message) => errors.push(message);
 const placeholder = /\[(?:[^\]]*(?:EINFÜGEN|VOLLSTÄNDIG|KURZER|OPTIONAL|THEMA|NAME|LABEL|METAPHOR|DESCRIBE|PLACE EACH|ONE LARGE|library-best-fit|custom-build|library-slug|none|SEMANTISCHE|WAS DAS AUGE|HAUPTBEWEGUNG|KLARER|HAUPTMOTIV|NUR NÖTIGE)[^\]]*)\]|TODO|TBD|PLACEHOLDER|PHASE 1 ANIMATION CODE NOT COMPLETED/i;
@@ -45,6 +46,16 @@ if (index.phase1AnimationCode?.sameVisualLanguageAsFlowImages !== true) fail('An
 if (index.phase1AnimationCode?.pureBlackCanvasRequired !== true) fail('Animationen müssen den zentralen pure-black Reel-Canvas verwenden.');
 if (index.phase1AnimationCode?.transparentAnimationStageRequired !== true) fail('Animations-Stage muss transparent bleiben.');
 if (index.phase1AnimationCode?.decorativeBackgroundEffectsForbidden !== true) fail('Dekorative Animations-Hintergrundeffekte müssen verboten sein.');
+
+if (consolidatedVisualContract) {
+  if (index.phase1AnimationCode?.directLibraryRenderRequiresSameWorldPass !== true) fail('Direktes Library-Rendering braucht directLibraryRenderRequiresSameWorldPass=true.');
+  if (index.phase1AnimationCode?.realWorldGroundingPreferred !== true) fail('Neue Animationen brauchen realWorldGroundingPreferred=true.');
+  if (index.phase1AnimationCode?.abstractValueGeometryAsDefaultForbidden !== true) fail('Abstrakte Value-Geometrie muss als Standardsprache gesperrt sein.');
+  if (index.phase1AnimationCode?.globalHeaderOwnedByReelLayout !== true) fail('Header muss dem globalen Reel-Layout gehören.');
+  if (index.phase1AnimationCode?.globalCaptionsOwnedByReelLayout !== true) fail('Captions müssen dem globalen Reel-Layout gehören.');
+  if (index.phase1AnimationCode?.localSceneShellForbidden !== true) fail('Lokale SceneShells müssen gesperrt sein.');
+  if (index.phase1AnimationCode?.localBlackBackgroundForbidden !== true) fail('Lokale schwarze Vollflächen müssen gesperrt sein.');
+}
 
 let librarySource = '';
 if (hybridV2) {
@@ -114,6 +125,10 @@ for (const scene of animations) {
   if (/\b(?:color|background(?:Color)?)\s*:\s*['"](?:black|#000(?:000)?)['"]/i.test(source)) fail(`${id}: Szene darf keinen eigenen schwarzen Hintergrund definieren; der zentrale Canvas ist bereits #000000.`);
   if (!source.includes(scene.animationExport)) fail(`${id}: Export ${scene.animationExport} ist im kanonischen Code nicht auffindbar.`);
 
+  if (consolidatedVisualContract && /(?:import[^\n]*\bSceneShell\b|<SceneShell\b|\bconst\s+SceneShell\b|\bfunction\s+SceneShell\b)/.test(source)) {
+    fail(`${id}: animation.tsx darf keine lokale SceneShell rendern; Header, Captions und Canvas gehören dem globalen Reel-Layout.`);
+  }
+
   if (/<(?:Flowchart|Dashboard|ControlPanel|WindowMock|IconTile)\b/.test(source)) {
     fail(`${id}: Dashboard-/Flowchart-/UI-Komponenten sind als Hauptsprache gesperrt.`);
   }
@@ -125,8 +140,6 @@ for (const scene of animations) {
   }
 
   if (!hybridV2) {
-    // Legacy-Reels behalten exakt ihre bisherige visuelle Qualitätslogik. So
-    // werden bestehende Seals nicht rückwirkend auf neue Library-Marker migriert.
     if (statSync(sourcePath).size < 2200) fail(`${id}: animation.tsx ist zu klein/leer; Legacy-Vertrag erwartet eine ausgearbeitete visuelle Geschichte.`);
     if (!/useCurrentFrame/.test(source)) fail(`${id}: Animation muss useCurrentFrame nutzen und sichtbar zeitgesteuert sein.`);
     if (!/ANIMATION_COLORS/.test(source)) fail(`${id}: Animation muss die zentrale ANIMATION_COLORS-Palette verwenden.`);
@@ -205,7 +218,7 @@ if (errors.length) {
 
 if (hybridV2) {
   console.log(`\n✓ ${animations.length} kanonische Phase-1-Animation(en) erfüllen den Hybrid-Animationsvertrag.`);
-  console.log('✓ Library-Best-Fit darf wiederverwendet und parametrisiert werden; Custom-Build bleibt erlaubt.');
+  console.log('✓ Library ist Mechanik-Werkzeug; direkter Einsatz braucht im konsolidierten Vertrag zusätzlich einen Same-World-Pass.');
   console.log('✓ Qualität wird über Focal Path, Hauptaktion, Kamera-Rolle, Payoff und Start -> Mechanismus -> Ergebnis geprüft.');
 } else {
   console.log(`\n✓ ${animations.length} Legacy-Animation(en) erfüllen weiterhin ihren bisherigen Qualitätsvertrag.`);
