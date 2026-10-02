@@ -24,17 +24,23 @@ export const IMAGE_INBOX = '03-szenen/00-ALLE-BILDER-HIER-REIN';
 export const SCENE_INDEX = '03-szenen/scene-index.json';
 export const ALL_PROMPTS = '03-szenen/alle-bildprompts.txt';
 
-// Google-Flow-Ausführung: autonom, aber als harte Single-Job-State-Machine.
-// Der Agent darf das Bildset NICHT als Batch interpretieren. Zu jedem Zeitpunkt
-// darf genau EIN Bildauftrag aktiv/laufend sein. Erst nachdem dessen Ergebnis
-// zurück ist, exakt umbenannt und geprüft wurde, wird der nächste Bildblock
-// freigeschaltet. Nutzer-Zwischenfreigaben bleiben weiterhin verboten.
+// Google-Flow-Ausführung: harte Single-Job-State-Machine.
+// Vor den Szenenbildern gibt es genau eine Nutzerentscheidung: drei Cover-
+// Kandidaten werden nacheinander erzeugt und der Nutzer wählt A/B/C. Das
+// gewählte Cover wird finaler Cover-/Scene-01-Asset und einziger Style-Anker.
+// Danach läuft Flow autonom in organisatorischen 5er-Blöcken weiter, technisch
+// aber weiterhin mit maximal EINEM laufenden Bildjob. Jedes Bild wird sofort
+// umbenannt und geprüft; am Ende folgt ein vollständiger Datei-/Namens-Audit.
 export const FLOW_EXECUTION_MODE_ID = 'finanzneo-flow-strict-single-job-v3';
 export const FLOW_EXECUTION_MODE_MARKER = `FLOW_EXECUTION_MODE: ${FLOW_EXECUTION_MODE_ID}`;
 export const FLOW_STRUCTURE_LOCK_ID = 'finanzneo-flow-structure-lock-v2';
 export const FLOW_STRUCTURE_LOCK_MARKER = `FLOW_STRUCTURE_LOCK: ${FLOW_STRUCTURE_LOCK_ID}`;
 export const FLOW_STATE_MACHINE_ID = 'finanzneo-flow-state-machine-v1';
 export const FLOW_STATE_MACHINE_MARKER = `FLOW_STATE_MACHINE: ${FLOW_STATE_MACHINE_ID}`;
+export const FLOW_COVER_WORKFLOW_ID = 'finanzneo-flow-cover-anchor-5pack-v1';
+export const FLOW_COVER_WORKFLOW_MARKER = `FLOW_COVER_WORKFLOW: ${FLOW_COVER_WORKFLOW_ID}`;
+export const FLOW_IMAGE_BLOCK_SIZE = 5;
+export const FLOW_IMAGE_BLOCK_SIZE_MARKER = `FLOW_IMAGE_BLOCK_SIZE: ${FLOW_IMAGE_BLOCK_SIZE}`;
 
 export const SUBTITLE_MODE = 'sentence-with-audio-synced-active-word';
 export const ACTIVE_WORD_COLOR = 'finance-green';
