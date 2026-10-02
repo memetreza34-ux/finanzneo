@@ -3,7 +3,24 @@ import {existsSync, readFileSync, writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 
 const root = resolve('reels/2026-09-28_bis_2026-10-04/freitag/reel-01_1-prozent-kosten-test');
-const index = JSON.parse(readFileSync(resolve(root,'03-szenen/scene-index.json'),'utf8'));
+const indexPath = resolve(root,'03-szenen/scene-index.json');
+const index = JSON.parse(readFileSync(indexPath,'utf8'));
+
+const sceneFixes = {
+  'scene-04': {headline:'Ein Prozentpunkt trennt die Renditen', icon:'chart-up'},
+  'scene-05': {icon:'coins'},
+  'scene-07': {icon:'trending'},
+  'scene-08': {icon:'chart-bar'},
+  'scene-09': {icon:'euro'},
+  'scene-12': {icon:'check'},
+};
+for (const scene of index.scenes ?? []) {
+  const fix = sceneFixes[scene.id];
+  if (!fix) continue;
+  Object.assign(scene, fix);
+}
+writeFileSync(indexPath,JSON.stringify(index,null,2)+'\n','utf8');
+
 const paths = [
   '03-szenen/alle-bildprompts.txt',
   '03-szenen/bildwelt.txt',
@@ -42,4 +59,4 @@ let scene01 = readFileSync(scene01Path,'utf8');
 if (!scene01.includes('finanzneo-cover-hook-v3')) scene01 = coverHookMarker + scene01;
 writeFileSync(scene01Path,scene01.endsWith('\n')?scene01:scene01+'\n','utf8');
 
-console.log('✓ Source-contract, scene-01 cover and Cover-Hook-V3 markers normalized.');
+console.log('✓ Test reel headers/icons and required production markers normalized.');
