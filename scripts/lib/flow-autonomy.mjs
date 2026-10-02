@@ -1,18 +1,23 @@
 // Verbindlicher Google-Flow-Vertrag — eine Quelle für alle Reels.
 //
-// Ablauf: 3 Cover-Kandidaten nacheinander -> Nutzer wählt A/B/C -> gewähltes
-// Cover wird finaler Cover-/Scene-01-Asset und einziger Style-Anker -> danach
-// alle übrigen Bilder in organisatorischen 5er-Blöcken, technisch weiterhin
-// exakt ein Bildjob zur Zeit -> sofort Rename + QA -> finaler Datei-Audit.
+// Ablauf: Cover A/B/C als drei getrennte Jobs gleichzeitig -> Nutzer wählt A/B/C
+// -> gewähltes Cover wird finaler Cover-/Scene-01-Asset, aber KEINE Style-Referenz
+// -> alle Bilder orientieren sich direkt an der verbindlichen FinanzNeo-V9-Welt
+// -> übrige Bilder in organisatorischen 5er-Blöcken, technisch exakt ein
+// Szenenbildjob zur Zeit -> sofort Rename + QA -> finaler Datei-Audit.
 
 import {
   FLOW_AGENT_PROTOCOL_MARKER,
+  FLOW_COVER_CONCURRENCY,
+  FLOW_COVER_CONCURRENCY_MARKER,
   FLOW_COVER_WORKFLOW_ID,
   FLOW_COVER_WORKFLOW_MARKER,
   FLOW_EXECUTION_MODE_ID,
   FLOW_EXECUTION_MODE_MARKER,
   FLOW_IMAGE_BLOCK_SIZE,
   FLOW_IMAGE_BLOCK_SIZE_MARKER,
+  FLOW_SCENE_CONCURRENCY,
+  FLOW_SCENE_CONCURRENCY_MARKER,
   FLOW_STATE_MACHINE_ID,
   FLOW_STATE_MACHINE_MARKER,
   FLOW_STRUCTURE_LOCK_ID,
@@ -25,29 +30,32 @@ export const AUTONOMY_BLOCK = [
   FLOW_STRUCTURE_LOCK_MARKER,
   FLOW_STATE_MACHINE_MARKER,
   FLOW_COVER_WORKFLOW_MARKER,
+  FLOW_COVER_CONCURRENCY_MARKER,
+  FLOW_SCENE_CONCURRENCY_MARKER,
   FLOW_IMAGE_BLOCK_SIZE_MARKER,
   '',
   'COVER = SZENE 01',
   'KEIN separates Cover erzeugen. Die drei Cover-Kandidaten sind nur die Auswahlphase für dasselbe finale Scene-01-/Cover-Asset.',
   'KEIN Bild 00 erzeugen.',
   '',
-  'STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH',
-  '- DIES IST KEIN BATCH-AUFTRAG. DIE GESAMTE DATEI DARF NIEMALS ALS EIN MEHRBILD-PROMPT AUSGEFÜHRT WERDEN.',
-  '- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.',
-  '- PHASE 0 IST DAS COVER-GATE: COVER A, B UND C NACHEINANDER ERZEUGEN; JEDES COVER MUSS SICHTBAREN, LESBAREN TEXT ENTHALTEN.',
+  'COVER-PARALLEL + SCENE-SINGLE-JOB STATE MACHINE — VERBINDLICH',
+  `- COVER-AUSNAHME: COVER A, B UND C ALS DREI GETRENNTE BILDJOBS GLEICHZEITIG STARTEN. COVER_CONCURRENCY = ${FLOW_COVER_CONCURRENCY}.`,
+  '- DIE DREI COVER DÜRFEN NICHT ALS KONTAKTBOGEN, COLLAGE ODER EIN GEMEINSAMER MULTI-IMAGE-PROMPT ERZEUGT WERDEN.',
+  '- JEDES COVER MUSS DIREKT DER FINANZNEO-V9-BILDWELT FOLGEN. KEIN COVER DIENT ALS STYLE-REFERENZ FÜR EIN ANDERES COVER ODER FÜR SPÄTERE SZENENBILDER.',
+  '- COVER-TEXT MUSS DEN VIDEOINHALT KURZ WIEDERGEBEN: MAXIMAL 2 ZEILEN, IDEAL 2–5 WÖRTER, KEINE LANGEN SÄTZE, KEIN TEXT OHNE DIREKTEN INHALTSBEZUG.',
   '- NACH DEN DREI COVER-KANDIDATEN STOPPEN UND NUR AUF DIE AUSWAHL A/B/C DES NUTZERS WARTEN. DIES IST DIE EINZIGE NUTZERFREIGABE IM FLOW.',
   '- DAS GEWÄHLTE COVER WIRD FINALER COVER-ASSET UND SZENE 01. NICHT NOCH EINMAL SEPARAT ALS SZENE 01 GENERIEREN.',
-  '- DAS GEWÄHLTE COVER IST DIE EINZIGE VISUELLE STYLE-REFERENZ FÜR ALLE WEITEREN FLOW-BILDER.',
-  '- VON DER STYLE-REFERENZ NUR MATERIALGEFÜHL, 3D-FORMSPRACHE, LICHT, KONTRAST, FARBCHARAKTER UND KAMERAGEFÜHL ÜBERNEHMEN. TEXT, LAYOUT, OBJEKTANORDNUNG UND SZENENINHALT NICHT KOPIEREN.',
+  '- DAS GEWÄHLTE COVER IST AUSDRÜCKLICH KEINE STYLE-VORLAGE. SPÄTERE BILDER DÜRFEN ES NICHT ALS BILDREFERENZ VERWENDEN.',
+  '- STYLE-AUTORITÄT FÜR COVER UND ALLE SZENENBILDER IST AUSSCHLIESSLICH DIE SCHRIFTLICH DEFINIERTE FINANZNEO-V9-BILDWELT.',
   '- NACH DER COVER-WAHL WERDEN DIE ÜBRIGEN BILDER IN ORGANISATORISCHEN 5ER-BLÖCKEN ABGEARBEITET. EIN 5ER-BLOCK IST NIEMALS EIN 5-BILD-BATCH.',
-  '- INNERHALB JEDES 5ER-BLOCKS UND ZWISCHEN DEN BLÖCKEN GILT WEITERHIN CONCURRENCY = 1.',
-  '- JEDES BILD MUSS NACH DER RÜCKGABE SOFORT EXAKT UMBENANNT, IN DEN FINALEN BILDORDNER GELEGT UND PER QA GEPRÜFT WERDEN.',
-  '- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE SCHRITT GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.',
-  '- NACH BESTANDENER QA WIRD GENAU DAS NÄCHSTE BILD FREIGESCHALTET. NACH FÜNF BESTANDENEN BILDERN BEGINNT DER NÄCHSTE 5ER-BLOCK AUTOMATISCH.',
+  `- FÜR ALLE SZENENBILDER NACH DER COVER-WAHL GILT MAXIMAL ${FLOW_SCENE_CONCURRENCY} LAUFENDER BILDGENERIERUNGSJOB.`,
+  '- JEDES SZENENBILD MUSS NACH DER RÜCKGABE SOFORT EXAKT UMBENANNT, IN DEN FINALEN BILDORDNER GELEGT UND PER QA GEPRÜFT WERDEN.',
+  '- WENN DAS AKTUELLE SZENENBILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE SCHRITT GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.',
+  '- NACH BESTANDENER QA WIRD GENAU DAS NÄCHSTE SZENENBILD FREIGESCHALTET. NACH FÜNF BESTANDENEN BILDERN BEGINNT DER NÄCHSTE 5ER-BLOCK AUTOMATISCH.',
   '- REMOTION-/ANIMATIONSNUMMERN WERDEN OHNE BILDGENERIERUNG ÜBERSPRUNGEN UND BLEIBEN ALS SZENENNUMMERN RESERVIERT.',
   '- NACH DER COVER-WAHL: WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY" ODER EINE WEITERE NUTZERFREIGABE.',
-  '- "WARTEN" BEDEUTET DANACH NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.',
-  '- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.',
+  '- "WARTEN" BEDEUTET DANACH NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN SZENENBILDJOBS WARTEN.',
+  '- KEINE SPÄTEREN SZENENBILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.',
   '- NACH DEM LETZTEN BILD IST EIN FINALER INVENTORY-QA PFLICHT: VOLLSTÄNDIGKEIT, EXAKTE DATEINAMEN, KEINE DOPPELTEN DATEIEN, KEINE FEHLENDEN BILDER, KEINE ANIMATIONSNUMMERN ALS FLOW-BILD.',
   '- ALLE FINALEN FLOW-BILDER MÜSSEN AM ENDE GEMEINSAM IM EINEN FINALEN BILDORDNER LIEGEN. COVER-KANDIDATEN A/B/C SIND NUR TEMPORÄR; NUR DAS GEWÄHLTE COVER WIRD FINAL ÜBERNOMMEN.',
   '- STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.',
@@ -59,35 +67,37 @@ export const AUTONOMY_BLOCK = [
 export const FLOW_AGENT_BLOCK = [
   FLOW_AGENT_PROTOCOL_MARKER,
   '',
-  'AUSFÜHRUNGSPROTOKOLL — COVER-GATE + 5ER-BLÖCKE + SINGLE JOB:',
-  '0. COVER-PHASE: Erzeuge Cover A, dann B, dann C — strikt nacheinander, jeweils als einzelner Job und jeweils mit sichtbarem Cover-Text.',
-  '1. Prüfe jeden Cover-Kandidaten direkt nach Rückgabe auf Lesbarkeit, V9-Bildwelt und klare Abgrenzung zu den anderen Varianten.',
-  '2. Sobald A, B und C vorhanden sind: STOPP. Zeige die drei Kandidaten und fordere ausschließlich die Auswahl A/B/C an.',
-  '3. Gewählte Variante: sofort auf den finalen Scene-01-/Cover-Dateinamen umbenennen und in den finalen Bildordner legen. Ungewählte Kandidaten bleiben außerhalb des finalen Bildordners oder werden verworfen.',
-  '4. Setze das gewählte Cover als EINZIGE Style-Referenz. Übernimm nur Material, 3D-Formensprache, Licht, Kontrast, Farbcharakter und Kameragefühl; kopiere niemals Cover-Text, Layout, Objektpositionen oder konkrete Szene.',
-  '5. Scene 01 gilt damit als DONE. Sie darf nicht erneut generiert werden.',
-  `6. Teile alle übrigen IMAGE-Szenen in Reihenfolge in Blöcke mit maximal ${FLOW_IMAGE_BLOCK_SIZE} Bildern. Animationsszenen zählen nicht als Bild und bleiben reserviert.`,
-  '7. Setze ACTIVE_STEP auf das erste Bild des aktuellen Blocks. Sende ausschließlich dessen BILDPROMPT an die Bildgenerierung.',
-  '8. Starte GENAU EINEN Bildgenerierungsjob. MAX_CONCURRENT_GENERATIONS = 1.',
-  '9. Warte intern auf genau dieses Ergebnis. Kein weiterer Bildjob darf vorher starten.',
-  '10. Nach Rückgabe: Datei SOFORT exakt auf den vorgesehenen finalen Dateinamen umbenennen und in den einen finalen Bildordner legen.',
-  '11. Danach QA nur für dieses Bild: Aussage/Beat-Zuordnung, erlaubte Labels, V9-Stil, Style-Konsistenz zum gewählten Cover, tiefschwarzer Hintergrund, Datenintegrität falls Chart/Diagramm und exakter Dateiname.',
-  '12. QA FEHLER: ACTIVE_STEP bleibt gleich. Ausschließlich dieselbe Bildnummer neu erzeugen.',
-  '13. QA BESTANDEN: ACTIVE_STEP = DONE. Erst jetzt das nächste Bild des Blocks freischalten.',
-  '14. Nach maximal fünf DONE-Bildern ist der Block abgeschlossen. Den nächsten Block automatisch beginnen — keine Nutzerfreigabe und kein "weiter".',
-  '15. Wiederhole 7–14, bis alle erwarteten IMAGE-Szenen DONE sind.',
-  '16. FINAL INVENTORY QA: erwartete Dateiliste gegen finalen Ordner prüfen. Fehlend, falsch benannt oder doppelt = FAIL. Korrekte Bilder nicht neu erzeugen.',
-  '17. Abschluss nur bei PASS: alle erwarteten finalen Bilder liegen exakt benannt gemeinsam im finalen Bildordner; keine temporären Cover-Kandidaten und keine Animationsnummern zählen als finale Flow-Bilder.',
+  'AUSFÜHRUNGSPROTOKOLL — 3 COVER PARALLEL + 5ER-BLÖCKE + SZENEN-SINGLE-JOB:',
+  '0. COVER-PHASE: Starte Cover A, Cover B und Cover C gleichzeitig als DREI GETRENNTE Einzelbild-Jobs.',
+  '1. Verwende für alle drei Cover direkt die FinanzNeo-V9-Art-Direction. Die Cover dürfen sich in Idee/Komposition unterscheiden, aber nicht aus einer anderen Bildwelt kommen.',
+  '2. Jeder Cover-Hook muss ausschließlich den Inhalt dieses Reels verdichten: maximal 2 Zeilen, ideal 2–5 Wörter; keine langen Sätze und keine generische Clickbait-Zeile ohne Inhaltsbezug.',
+  '3. Prüfe A/B/C nach Rückgabe jeweils auf Textlesbarkeit, direkten Inhaltsbezug, V9-Bildwelt und klare visuelle Unterscheidbarkeit.',
+  '4. Sobald A, B und C vorhanden sind: STOPP. Zeige die drei Kandidaten und fordere ausschließlich die Auswahl A/B/C an.',
+  '5. Gewählte Variante: sofort auf den finalen Scene-01-/Cover-Dateinamen umbenennen und in den finalen Bildordner legen. Ungewählte Kandidaten bleiben außerhalb des finalen Bildordners oder werden verworfen.',
+  '6. WICHTIG: Das gewählte Cover NICHT als Style-Referenz verwenden. Alle späteren Bilder werden ausschließlich aus dem schriftlichen FinanzNeo-V9-Bildweltvertrag erzeugt.',
+  '7. Scene 01 gilt damit als DONE. Sie darf nicht erneut generiert werden.',
+  `8. Teile alle übrigen IMAGE-Szenen in Reihenfolge in Blöcke mit maximal ${FLOW_IMAGE_BLOCK_SIZE} Bildern. Animationsszenen zählen nicht als Bild und bleiben reserviert.`,
+  '9. Setze ACTIVE_STEP auf das erste Bild des aktuellen Blocks. Sende ausschließlich dessen BILDPROMPT an die Bildgenerierung.',
+  `10. Starte GENAU EINEN Szenenbildjob. MAX_CONCURRENT_SCENE_GENERATIONS = ${FLOW_SCENE_CONCURRENCY}.`,
+  '11. Warte intern auf genau dieses Ergebnis. Kein weiterer Szenenbildjob darf vorher starten.',
+  '12. Nach Rückgabe: Datei SOFORT exakt auf den vorgesehenen finalen Dateinamen umbenennen und in den einen finalen Bildordner legen.',
+  '13. Danach QA nur für dieses Bild: Aussage/Beat-Zuordnung, erlaubte Labels, V9-Stil, tiefschwarzer Hintergrund, Datenintegrität falls Chart/Diagramm und exakter Dateiname.',
+  '14. QA FEHLER: ACTIVE_STEP bleibt gleich. Ausschließlich dieselbe Bildnummer neu erzeugen.',
+  '15. QA BESTANDEN: ACTIVE_STEP = DONE. Erst jetzt das nächste Bild des Blocks freischalten.',
+  '16. Nach maximal fünf DONE-Bildern ist der Block abgeschlossen. Den nächsten Block automatisch beginnen — keine Nutzerfreigabe und kein "weiter".',
+  '17. Wiederhole 9–16, bis alle erwarteten IMAGE-Szenen DONE sind.',
+  '18. FINAL INVENTORY QA: erwartete Dateiliste gegen finalen Ordner prüfen. Fehlend, falsch benannt oder doppelt = FAIL. Korrekte Bilder nicht neu erzeugen.',
+  '19. Abschluss nur bei PASS: alle erwarteten finalen Bilder liegen exakt benannt gemeinsam im finalen Bildordner; keine temporären Cover-Kandidaten und keine Animationsnummern zählen als finale Flow-Bilder.',
   '',
-  'HART VERBOTEN:',
-  '- mehrere Bilder in einem Generierungsaufruf',
-  '- mehrere Bildprompts zusammenfassen',
-  '- Bilder vorab in eine Queue stellen',
-  '- alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen',
+  'HART VERBOTEN NACH DER COVER-PHASE:',
+  '- mehrere Szenenbilder in einem Generierungsaufruf',
+  '- mehrere Szenenbildprompts zusammenfassen',
+  '- Szenenbilder vorab in eine Queue stellen',
+  '- alle Szenenbilder zuerst erzeugen und erst danach gesammelt umbenennen',
   '- fünf Bilder eines 5er-Blocks gleichzeitig starten',
   '- Kontaktbogen / Galerie / Collage / Multi-Panel als Ersatz für Einzelbilder',
   '- nach der Cover-Auswahl erneut auf Nutzer-"weiter" oder Zwischenfreigabe warten',
-  '- ein späteres Szenenbild als neue Style-Referenz verwenden',
+  '- das gewählte Cover oder ein späteres Szenenbild als Style-Referenz verwenden',
   '',
 ].join('\n');
 
@@ -98,7 +108,12 @@ export const flowAutonomyFields = () => ({
   coverFivePackWorkflowId: FLOW_COVER_WORKFLOW_ID,
   autonomousFullRun: false,
   autonomousAfterCoverSelection: true,
-  maxConcurrentGenerations: 1,
+  coverParallelGenerationRequired: true,
+  coverConcurrentGenerations: FLOW_COVER_CONCURRENCY,
+  coverSeparateJobsRequired: true,
+  coverMultiImageRequestForbidden: true,
+  maxConcurrentGenerations: FLOW_SCENE_CONCURRENCY,
+  sceneMaxConcurrentGenerations: FLOW_SCENE_CONCURRENCY,
   batchGenerationForbidden: true,
   multiImageRequestForbidden: true,
   queueLaterImagesForbidden: true,
@@ -109,12 +124,21 @@ export const flowAutonomyFields = () => ({
   qaBeforeUnlockNext: true,
   coverVariantCount: 3,
   coverTextRequired: true,
+  coverHookMaxLines: 2,
+  coverHookIdealWordMin: 2,
+  coverHookIdealWordMax: 5,
+  coverLongSentenceForbidden: true,
+  coverTextMustDescribeReelContent: true,
+  coverMustUseV9World: true,
   coverSelectionRequiredBeforeSceneImages: true,
   userApprovalOnlyForCoverSelection: true,
   selectedCoverPromotedToFinalCover: true,
   selectedCoverPromotedToScene01: true,
-  selectedCoverAsOnlyStyleReference: true,
+  selectedCoverAsOnlyStyleReference: false,
+  coverMayBeUsedAsStyleReference: false,
   laterImagesMayNotBecomeStyleReference: true,
+  imageToImageStyleReferenceForbidden: true,
+  canonicalStyleAuthority: 'finanzneo-stylized-3d-animated-black-v9',
   styleReferenceTextLayoutContentCopyForbidden: true,
   imageBlockSize: FLOW_IMAGE_BLOCK_SIZE,
   blockAutonomousRun: true,
@@ -136,10 +160,10 @@ export const flowAutonomyFields = () => ({
 
 /** Bestandsreels sprachlich auf den aktuellen Ablauf heben. */
 export const modernizeLegacyWaitWording = (master) => master
-  .replaceAll('AUTONOMER GESAMTDURCHLAUF — VERBINDLICH', 'STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH')
-  .replaceAll('1. Lies die gesamte Datei einmal, arbeite danach strikt von oben nach unten immer nur am aktuellen Bildblock.', '0. Betrachte spätere Bildblöcke zunächst nur als GESPERRTE DATEN. Sie sind noch KEINE ausführbaren Bildaufträge.')
-  .replaceAll('2. Erzeuge GENAU EIN Bild. Starte niemals mehrere Bilder gleichzeitig.', '1. Setze ACTIVE_STEP auf den ersten benötigten Bildblock und starte GENAU EINEN Bildjob. MAX_CONCURRENT_GENERATIONS = 1.')
-  .replaceAll('3. Vollständig warten.', '2. INTERN auf die Rückgabe dieses einzelnen Bildjobs warten; keinen weiteren Job starten.')
-  .replaceAll('3. Warte, bis dieses eine Bild vollständig erzeugt ist.', '2. INTERN auf die Rückgabe dieses einzelnen Bildjobs warten; keinen weiteren Job starten.')
-  .replaceAll('7. Erst nach bestandener QA das nächste Bild.', '7. Erst nach bestandener QA den nächsten Bildblock freischalten; vorher bleibt er gesperrt.')
-  .replaceAll('7. Erst nach bestandener QA darf der nächste Bildblock beginnen.', '7. Erst nach bestandener QA den nächsten Bildblock freischalten; vorher bleibt er gesperrt.');
+  .replaceAll('AUTONOMER GESAMTDURCHLAUF — VERBINDLICH', 'COVER-PARALLEL + SCENE-SINGLE-JOB STATE MACHINE — VERBINDLICH')
+  .replaceAll('1. Lies die gesamte Datei einmal, arbeite danach strikt von oben nach unten immer nur am aktuellen Bildblock.', '0. Betrachte spätere Szenenbildblöcke zunächst nur als GESPERRTE DATEN. Sie sind noch KEINE ausführbaren Bildaufträge.')
+  .replaceAll('2. Erzeuge GENAU EIN Bild. Starte niemals mehrere Bilder gleichzeitig.', '1. Nach abgeschlossener Cover-Auswahl: Setze ACTIVE_STEP auf den ersten benötigten Szenenbildblock und starte GENAU EINEN Szenenbildjob.')
+  .replaceAll('3. Vollständig warten.', '2. INTERN auf die Rückgabe dieses einzelnen Szenenbildjobs warten; keinen weiteren Szenenbildjob starten.')
+  .replaceAll('3. Warte, bis dieses eine Bild vollständig erzeugt ist.', '2. INTERN auf die Rückgabe dieses einzelnen Szenenbildjobs warten; keinen weiteren Szenenbildjob starten.')
+  .replaceAll('7. Erst nach bestandener QA das nächste Bild.', '7. Erst nach bestandener QA den nächsten Szenenbildblock freischalten; vorher bleibt er gesperrt.')
+  .replaceAll('7. Erst nach bestandener QA darf der nächste Bildblock beginnen.', '7. Erst nach bestandener QA den nächsten Szenenbildblock freischalten; vorher bleibt er gesperrt.');
