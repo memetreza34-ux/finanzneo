@@ -115,131 +115,184 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
-STORY_MOMENT_REVISION: finanzneo-readable-story-moment-v1
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
 ```
 
 ### Kernregel
 
-V9 beschreibt **die Rendering-Welt**, nicht die Erklärung.
+```text
+FORM FREI — BILDWELT FEST
+```
 
-Die Bildidee folgt verbindlich dieser Reihenfolge:
+V9 beschreibt **wie** FinanzNeo aussieht, nicht **welche Darstellungsform** verwendet werden muss.
+
+Die Bildidee folgt dieser Reihenfolge:
 
 ```text
 Sprechpunkt
 → was soll in 1–2 Sekunden verstanden werden?
-→ bekannte Figur und/oder bekannte Gegenstände
-→ klarer sichtbarer Story-Moment
-→ intuitive Übertreibung/Metapher, wenn sie besser erklärt
-→ Komposition
-→ V9-Rendering
+→ stärkste Darstellungsform frei wählen
+→ konkrete Bildidee bauen
+→ fachliche Logik/Daten prüfen
+→ V9-Art-Direction anwenden
 ```
 
-Das Ziel ist ein **eingefrorener Frame aus einem hochwertigen 3D-Animationsfilm**, nicht eine trockene Finanzillustration und nicht eine Sammlung hübscher Symbole.
+Erlaubte Formen:
 
-Pflicht:
+- `character-story`
+- `object-story`
+- `comparison`
+- `chart`
+- `diagram`
+- `editorial-quote`
+- `illustration`
+- `metaphor`
+- `hybrid`
 
-- klar stylized 3D, niemals fotorealistisch
-- premium Animation-Film-Qualität
-- bekannte Figuren/Gegenstände tragen die Bedeutung
-- sichtbare Handlung, Reaktion, Ursache/Wirkung, Konflikt oder Progression
+Es gibt keinen Zwang zu Menschen, Alltagsgegenständen oder Story-Metaphern. Ein echtes Diagramm darf die stärkste Lösung sein. Ein einzelnes Objekt darf reichen. Ein Zitat-/Editorialbild darf Hauptmotiv sein. Eine Figur darf zentral sein. Kombinationen sind erlaubt.
+
+### Was visuell fest bleibt
+
+- klar stylized 3D bzw. hochwertige FinanzNeo-Illustrationssprache
+- niemals Fotorealismus
+- premium Animation-Film-/Editorial-Qualität
+- tiefe schwarze Bühne
 - hochwertige Materialien, Licht, Tiefe und Kontaktschatten
-- tiefschwarze ruhige Bühne
-- wichtige Gegenstände groß und sofort lesbar
-- gleiche Welt über das gesamte Reel
-- Zuschauer soll die Aussage in ca. 1–2 Sekunden auch ohne Ton verstehen
-
-Bevorzugte bekannte Anker:
-
-- Person / Familie / Kunde / Arbeitnehmer
-- Rechnung / Kassenzettel / Gebührenbeleg
-- Geld / Portemonnaie / Konto / Karte
-- Smartphone / Vertrag / Kalender
-- Fernseher / Sofa / Laptop / Auto / Einkauf
-- Waschmaschine / Reparatur / Haushaltskosten
-- Sparrate / Depotunterlagen / Bankkontakt
-
-Menschen sind optional, dürfen aber ausdrücklich Hauptträger der Szene sein. Wenn eine Figur vorkommt, muss Pose, Reaktion oder Handlung die Aussage mittragen. Eine generische Corporate-3D-Figur, die nur neben einem Objekt steht, ist keine gute Szene.
-
-### Intuitive Metaphern und Übertreibung
-
-Metaphern sind **ausdrücklich erlaubt** und dürfen eine literal Darstellung schlagen, wenn sie schneller und klarer erklären.
-
-Gute Richtung:
-
-- kleiner Ratenzettel vorne, riesiger realer Kassenzettel dahinter
-- mehrere bekannte Produkte ziehen gleichzeitig am selben Budget/Portemonnaie
-- kleine Gebührenzettel sammeln sich sichtbar über viele Jahre zu einem großen Stapel
-- eine Figur läuft, während eine lange Reihe von Rechnungen sichtbar hinterherzieht
-
-Die Metapher darf kein Rätsel sein. Bekannte Dinge müssen die Bedeutung tragen.
-
-Nicht als automatische Standardsprache:
-
-- `capital body`
-- `wealth tower`
-- `value block`
-- `investment block`
-- `fee token`
-- Fantasie-Klammer
-- erfundene Finanzmaschine
-- isolierte geometrische Wertkörper
-- Tresor + Schild + Münzen + Pfeil als komplette Erklärung
-
-Solche abstrakten Hauptmotive sind nur als bewusst begründete Metapher erlaubt und müssen trotzdem den Instant-Read-Test bestehen.
-
-Die frühere YouTube-Phase-A-DNA darf als Qualitätsreferenz für Modellierung, Licht, Tiefe, Kamera und Story-Moment dienen. Sie ist kein separater Reel-Vertrag.
-
-### Deutsche Labels
-
-Kurze Objektlabels sind erlaubt, wenn sie Mehrdeutigkeit verhindern, z. B. `Notgroschen`, `Girokonto`, `Reparatur 280 €`, `Dauerauftrag`.
-
-- direkt am passenden Objekt/Zustand
-- kurz und lesbar
-- keine Headline, kein CTA, kein erklärender Absatz im Flow-Bild
-
-### Farbrollen
-
 - Emerald = positiv / Wachstum
-- Warm Ivory + Soft Gray = neutral
 - Gold = Geld / Wert
-- Warm Red-Orange = Warnung / Kosten / Verlust
-- Deep Black = Hintergrund
+- Warm Red-Orange = Kosten / Risiko / Verlust
+- wichtige Inhalte groß und sofort lesbar
+- gleiche visuelle DNA über das gesamte Reel
+- Zuschauer soll die Hauptaussage in etwa 1–2 Sekunden erfassen können
+- kein billiger Corporate-, Stock-, PowerPoint- oder Excel-Default-Look
+
+### Menschen
+
+Menschen sind optional.
+
+Wenn eine Figur vorkommt, muss Pose, Reaktion oder Handlung etwas erklären. Eine generische Corporate-3D-Figur, die nur neben einem Objekt steht, ist keine gute Szene.
+
+### Objekte
+
+Ein oder wenige Objekte dürfen die komplette Szene tragen, wenn sie stark genug sind. Keine Person hinzufügen, nur um eine Person im Bild zu haben.
+
+### Vergleiche
+
+A-vs-B darf direkt, symmetrisch, räumlich oder über unterschiedliche Größen/Verläufe gezeigt werden. Der Unterschied muss sofort lesbar sein.
+
+### Echte Charts und Diagramme
+
+Charts sind ausdrücklich erlaubt und sollen **wirklich richtige Charts** bleiben.
+
+Je nach Diagrammtyp gehören dazu:
+
+- echte Achsen, wenn fachlich erforderlich
+- Skalen
+- Kategorien
+- Zahlenwerte
+- Labels
+- mathematisch korrekte Proportionen
+- korrekte Start-/Endwerte
+
+Beispiele:
+
+- Liniendiagramm: X-Achse `Jahre`, Y-Achse `Vermögen`, korrekte Kurven
+- Balkendiagramm: gemeinsame Baseline, echte relative Höhen, Werte
+- Kreisdiagramm: korrekte Segmentanteile und Labels; keine künstliche X-/Y-Achse
+
+Ein Chart darf hochwertig in V9 inszeniert werden: physische 3D-Achsen, volumetrische Balken, hochwertige Linien/Ribbons, 3/4-Perspektive, Materialtiefe, Licht und Schatten. Die Datenlogik darf aber nie für Dekoration geopfert werden.
+
+Verboten:
+
+- Excel-/PowerPoint-Default-Look
+- dünne Standardachsen mit langweiligen Standardbalken als finale Bildwelt
+- generische Business-Infografik
+- Dashboard-Template als Ersatz für eine Bildidee
+- Datenwerte verändern, nur damit es schöner aussieht
+
+Für `chart` und `diagram` ist `DATA_INTEGRITY_TEST: PASS ...` Pflicht.
+
+### Editorial / Zitat / Typografie
+
+Text darf Hauptmotiv sein, wenn das die stärkste Form ist.
+
+Erlaubt:
+
+- kurze starke Aussage
+- physische 3D-Typografie
+- Magazin-/Editorial-Komposition
+- Typografie + visuelle Metapher
+
+Nicht erlaubt:
+
+- generische Social-Media-Template-Karte
+- langer Textabsatz
+- langweilige Standardtypografie ohne Bildidee
+
+### Illustration / Metapher
+
+Freie Illustration, intuitive Metapher und Übertreibung sind erlaubt.
+
+Sie dürfen kein Rätsel sein.
+
+Abstrakte Begriffe wie `capital body`, `wealth tower`, `value block`, `investment block`, `fee token`, Fantasie-Klammern oder erfundene Finanzmaschinen sind keine automatische Standardsprache. Wenn sie bewusst genutzt werden, dann nur als `illustration`, `metaphor` oder `hybrid` und nur bei bestandenem Instant-Read-Test.
+
+### Hybrid
+
+Kombinationen sind ausdrücklich erwünscht, wenn sie stärker erklären:
+
+- Figur + echtes Chart
+- Objekt + Diagramm
+- Editorial-Zitat + Metapher
+- Vergleich + Datenvisualisierung
+
+### Abwechslung
+
+Es gibt keine Pflichtquote pro Bildart. Der Sprechbeat entscheidet.
+
+Aufeinanderfolgende Szenen sollen nicht unnötig dieselbe Kompositionsidee wiederholen.
+
+Mögliche Mischung:
+
+```text
+Figur
+→ Objekt
+→ echtes Chart
+→ Metapher
+→ Vergleich
+→ Editorial
+→ Figur + Chart
+```
 
 ### Prompt-QA
 
-Neue Reels mit der Story-Moment-Revision dokumentieren zusätzlich:
+Neue Bildszenen dokumentieren:
 
 ```text
-VISUAL_STORY_MOMENT
+VISUAL_FORM
+VISUAL_CONCEPT
+VOICEOVER_VISUAL_MATCH
 INSTANT_READ_TEST
+TRANSFERABILITY_TEST
+DATA_INTEGRITY_TEST
 ```
 
-Jeder Prompt ist individuell und mittel-lang:
+`DATA_INTEGRITY_TEST`:
 
-```text
-bekannte Figur/Gegenstände + sichtbarer Story-Moment
-→ Ursache/Wirkung oder klare Progression
-→ intuitive Übertreibung/Metapher wenn sinnvoll
-→ kurze Labels wenn nötig
-→ Style
-→ Background
-→ Composition
-→ Brands/Logos falls relevant
-→ Colors/Light
-→ Text
-→ Forbidden
-```
+- bei `chart` / `diagram`: `PASS - ...`
+- bei allen anderen Formen: `not-applicable`
 
 Bild verwerfen und dieselbe Nummer neu erzeugen, wenn:
 
 - es hübsch ist, aber den Sprechpunkt nicht erklärt
-- keine kleine sichtbare Geschichte/Beziehung vorhanden ist
-- die Situation oder Metapher erst entschlüsselt werden muss
-- Ursache/Wirkung unklar ist
 - es generisch zu vielen Finanzthemen passen würde
+- ein Chart fachlich falsch oder wie ein Standard-Office-Chart aussieht
 - eine Figur nur dekorativ herumsteht
-- es fotorealistisch, UI-lastig, katalogartig oder cluttered wird
-- der Hintergrund nicht deep black bleibt
+- Text wie ein billiges Social-Template wirkt
+- es fotorealistisch, katalogartig oder cluttered wird
+- die Szene sichtbar nicht zur FinanzNeo-Welt gehört
+
+Die frühere YouTube-Phase-A-DNA bleibt Qualitätsreferenz für Modellierung, Licht, Tiefe, Kamera, Figuren und hochwertige 3D-Inszenierung, begrenzt aber nicht die Darstellungsform.
 
 ## 7. Google Flow — Strict Single Job V3
 
@@ -343,7 +396,7 @@ Kompatibilitäts-Lock:
 finanzneo-premium-physical-animation-v2
 ```
 
-Visuelles Ziel bleibt V9. Story-Moment-Revision bleibt `finanzneo-readable-story-moment-v1`.
+Visuelles Ziel bleibt V9. Auch Animationen folgen **Form frei — Bildwelt fest**.
 
 ### Eine Welt statt Motion-Sonderstil
 
@@ -354,7 +407,7 @@ Reihenfolge:
 ```text
 SPRECHPUNKT
 → VERSTÄNDNISZIEL
-→ BEKANNTE FIGUR/GEGENSTÄNDE ODER SOFORT VERSTÄNDLICHER STORY-MOMENT
+→ STÄRKSTE DARSTELLUNGSFORM FREI WÄHLEN
 → HAUPTMECHANIK
 → FINANCE MOTION LIBRARY AUF SEMANTISCHEN FIT PRÜFEN
 → SAME-WORLD-PASS PRÜFEN
@@ -363,14 +416,14 @@ SPRECHPUNKT
 
 Die Finance Motion Library ist ein **Mechanik-Werkzeugkasten, keine Art-Direction**.
 
+Eine Animation darf Figurenszene, Objektmechanik, Vergleich, echtes animiertes Chart/Diagramm, Illustration, Metapher oder Hybrid sein.
+
 Direkter Library-Einsatz ist nur zulässig, wenn:
 
 1. die Mechanik den gesprochenen Punkt wirklich erklärt und
-2. das Resultat sichtbar zur V9-Serie und Story-Moment-Logik passt.
+2. das Resultat sichtbar zur V9-Serie passt.
 
-Wenn eine Library-Komponente wie Dashboard, Infografik oder abstrakte Value-Geometrie wirkt, wird die Mechanik individuell in der V9-Welt umgesetzt.
-
-Auch Animationen dürfen intuitive Übertreibung/Metapher verwenden, wenn bekannte Figuren/Gegenstände die Bedeutung tragen und die Handlung ohne Untertitel lesbar bleibt.
+Wenn eine Library-Komponente wie langweilige Dashboard-/Corporate-Infografik oder unverständliche Value-Geometrie wirkt, wird die Mechanik individuell in der V9-Welt umgesetzt.
 
 ### Pflichtlogik
 
@@ -415,11 +468,11 @@ Header, Caption, Canvas und Safe-Zone-Clipping werden exakt einmal vom zentralen
 
 - generische Karten-/Kästchenreihe
 - Lade-/Fortschrittsbalken als Ersatz für die Finanzmechanik
-- Dashboard-/Control-Panel-Komposition
-- Flowchart
-- reine Texttafel mit Fade/Scale
+- langweilige Dashboard-/Control-Panel-Komposition
+- generische Corporate-Infografik
+- reine Texttafel mit Fade/Scale ohne Editorial-Idee
 - kleine Boxen mit dünnen Verbindungslinien
-- abstrakte `capital body`/`value block`/`wealth tower`-Mechanik ohne sofort lesbare bekannte Bedeutung
+- unverständliche abstrakte Value-Geometrie
 - Partikel/Aurora/Grid als Szenenhintergrund
 - `Math.sin` / `Math.cos` als Frame-Diff-Hack
 - Dummy-/Placeholder-Komponenten
