@@ -19,9 +19,20 @@ for (const rel of paths) {
   }
   writeFileSync(path,source.endsWith('\n')?source:source+'\n','utf8');
 }
+
 const masterPath = resolve(root,'03-szenen/alle-bildprompts.txt');
 let master = readFileSync(masterPath,'utf8');
 if (!/MAX_CONCURRENT_GENERATIONS\s*=\s*1/.test(master)) master = 'MAX_CONCURRENT_GENERATIONS=1\n'+master;
 if (!master.includes('00-ALLE-BILDER-HIER-REIN')) master = 'FINAL_IMAGE_DIRECTORY: 03-szenen/00-ALLE-BILDER-HIER-REIN/\n'+master;
+if (!/COVER = SZENE 01/i.test(master)) master = 'COVER = SZENE 01\n'+master;
+if (!/KEIN separates Cover erzeugen/i.test(master)) master = 'KEIN separates Cover erzeugen.\n'+master;
+if (!/KEIN Bild 00 erzeugen/i.test(master)) master = 'KEIN Bild 00 erzeugen.\n'+master;
 writeFileSync(masterPath,master.endsWith('\n')?master:master+'\n','utf8');
-console.log('✓ Source-contract prompt markers normalized.');
+
+const coverPath = resolve(root,'03-szenen/00-cover/cover.txt');
+let cover = readFileSync(coverPath,'utf8');
+const aliasHeader = 'COVER_ALIAS: SZENE 01\nKEIN SEPARATER BILDJOB.\nNo separate cover generation.\nno Bild 00.\n';
+if (!/KEIN SEPARATER BILDJOB/i.test(cover)) cover = aliasHeader + cover;
+writeFileSync(coverPath,cover.endsWith('\n')?cover:cover+'\n','utf8');
+
+console.log('✓ Source-contract and scene-01 cover markers normalized.');
