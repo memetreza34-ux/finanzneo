@@ -1,5 +1,6 @@
 name: Apply Flow Cover 5Pack Once
 
+# rerun after preserving scene-01 cover alias markers
 on:
   push:
     branches:
