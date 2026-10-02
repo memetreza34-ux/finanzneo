@@ -10,7 +10,19 @@ if (!target) {
 }
 
 const CONTRACT_ID = 'finanzneo-image-storytelling-v3';
-const STORY_MOMENT_REVISION = 'finanzneo-readable-story-moment-v1';
+const VISUAL_FORM_REVISION = 'finanzneo-free-visual-form-v1';
+const ALLOWED_VISUAL_FORMS = [
+  'character-story',
+  'object-story',
+  'comparison',
+  'chart',
+  'diagram',
+  'editorial-quote',
+  'illustration',
+  'metaphor',
+  'hybrid',
+];
+
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 if (!existsSync(indexPath)) {
@@ -22,95 +34,91 @@ const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 index.imageStorytellingContract = {
   id: CONTRACT_ID,
   appliesToNewReelsOnly: true,
-  storyMomentRevision: STORY_MOMENT_REVISION,
-  literalFirstRequired: true,
-  directRealWorldDepictionPreferred: true,
-  recognizableFinanceContextRequired: true,
+  visualFormRevision: VISUAL_FORM_REVISION,
+  visualFormFreedomRequired: true,
+  visualFormChosenPerBeatRequired: true,
+  allowedVisualForms: ALLOWED_VISUAL_FORMS,
+  v9StyleLockRequired: true,
   exactVoiceBeatVisualMatchRequired: true,
+  instantReadRequired: true,
   transferabilityTestRequired: true,
-  metaphorFallbackOnly: false,
-  metaphorNeedsExplicitJustification: true,
+  recognizableFinanceContextRequired: true,
+  humanOptional: true,
+  realWorldObjectsOptional: true,
   intuitiveMetaphorAllowed: true,
-  intuitiveMetaphorMayBeatLiteralWhenClearer: true,
-  familiarObjectsOrCharactersRequired: true,
-  instantStoryReadRequired: true,
-  exaggeratedPhysicalStoryAllowed: true,
-  familiarObjectMetaphorRequired: true,
-  animationFilmStoryFrameRequired: true,
+  illustrationAllowed: true,
+  editorialQuoteAllowed: true,
+  comparisonAllowed: true,
+  chartAllowed: true,
+  diagramAllowed: true,
+  hybridAllowed: true,
+  textMayBePrimaryForEditorialQuote: true,
+  realChartMustRemainRealChart: true,
+  chartAxesLabelsWhenApplicableRequired: true,
+  chartDataIntegrityRequired: true,
+  premiumChartStylingRequired: true,
+  powerPointExcelDefaultLookForbidden: true,
+  genericCorporateLookForbidden: true,
   genericFantasyMechanismAsDefaultForbidden: true,
-  railsConveyorsGatesCagesPortalsAsDefaultForbidden: true,
-  practicalEverydaySituationRequired: true,
-  directMeaningWithoutCaptionRequired: true,
-  visibleActionConflictOrConsequenceRequired: true,
-  genericSymbolOnlyForbidden: true,
-  isolatedFinanceIconAsMainStoryForbidden: true,
   decorativeObjectPileForbidden: true,
   staticCatalogCompositionForbidden: true,
-  entertainmentThroughActionContrastOrConflictRequired: true,
-  beforeAfterOrCauseEffectWhenHelpful: true,
-  humanContextWhenHelpful: true,
-  visualHookUnderOneSecondRequired: true,
-  oneImagePerSentenceWhenItImprovesClarity: true,
-  extraImagePreferredOverOverloadedStill: true,
-  labelsSupplementalOnly: true,
-  animationFilmRenderingRequired: true,
-  groundedStoryMomentRequired: true,
   abstractFinanceObjectAsDefaultForbidden: true,
+  animationFilmRenderingRequired: true,
   phaseAQualityReferenceOnly: true,
 };
 
 for (const scene of Array.isArray(index.scenes) ? index.scenes : []) {
   if (scene?.type !== 'image') continue;
-  if (!scene.imageStorytelling || typeof scene.imageStorytelling !== 'object') {
-    scene.imageStorytelling = {
-      strategy: 'literal',
-      literalSituation: '[EINFÜGEN — reale/erkennbare Ausgangslage oder bekannte Dinge, auf denen die Szene basiert]',
-      contextAnchor: '[EINFÜGEN — bekannte Figur/Gegenstände, die die Bedeutung tragen]',
-      storyMoment: '[EINFÜGEN — was passiert sichtbar im eingefrorenen Animationsfilm-Moment?]',
-      voiceVisualMatch: '[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]',
-      instantReadTest: '[EINFÜGEN — PASS: warum versteht man die Szene in 1–2 Sekunden ohne Untertitel?]',
-      transferabilityTest: '[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]',
-      metaphorJustification: 'none',
-    };
-  }
+  scene.imageStorytelling = {
+    visualForm: '[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]',
+    visualConcept: '[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]',
+    voiceVisualMatch: '[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]',
+    instantReadTest: '[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]',
+    transferabilityTest: '[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]',
+    dataIntegrityTest: '[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]',
+  };
 }
 writeFileSync(indexPath, JSON.stringify(index, null, 2) + '\n', 'utf8');
 
-const planningBlock = `VISUAL_STRATEGY: literal
-LITERAL_REAL_WORLD_SITUATION: [EINFÜGEN — reale/erkennbare Ausgangslage oder bekannte Dinge]
-REAL_WORLD_CONTEXT_ANCHOR: [EINFÜGEN — bekannte Figur/Gegenstände, die die Bedeutung tragen]
-VISUAL_STORY_MOMENT: [EINFÜGEN — konkrete sichtbare Handlung/Reaktion/Ursache-Wirkung im eingefrorenen Moment]
+const planningBlock = `VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
+VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
 VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Szene in 1–2 Sekunden ohne Untertitel?]
+INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
 TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-METAPHOR_JUSTIFICATION: none`;
+DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]`;
 
 const policyBlock = `IMAGE_STORYTELLING_CONTRACT: ${CONTRACT_ID}
-STORY_MOMENT_REVISION: ${STORY_MOMENT_REVISION}
+VISUAL_FORM_REVISION: ${VISUAL_FORM_REVISION}
 
-FAMILIAR_STORY_FIRST_POLICY: Familiar things, clear story, creative when useful.
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
 
-FUTURE IMAGE STORYTELLING V3 — STORY-MOMENT-REVISION VERBINDLICH:
+FUTURE IMAGE STORYTELLING V3 — FREE VISUAL FORM VERBINDLICH:
 - Beginne beim exakten Sprechbeat: Was soll der Zuschauer in 1–2 Sekunden verstehen?
-- Wähle bekannte Figuren und/oder bekannte reale Gegenstände als Bedeutungsträger: z. B. Person, Geld, Rechnung, Kassenzettel, Karte, Konto, Smartphone, Kalender, Vertrag, Fernseher, Sofa, Einkauf, Waschmaschine.
-- Baue daraus einen klaren eingefrorenen STORY-MOMENT wie aus einem hochwertigen 3D-Animationsfilm. Es muss sichtbar etwas passieren: Handlung, Reaktion, Ursache/Wirkung, Konflikt, Vorher/Nachher oder Progression.
-- V9 beschreibt die RENDERING-WELT: premium stylized 3D animation-film, sichtbar stilisiert, hochwertig modelliert, tiefschwarze Bühne. V9 ersetzt keine Storyidee.
-- Eine intuitive Metapher oder Übertreibung ist ausdrücklich erlaubt und darf die wörtliche Darstellung schlagen, wenn sie schneller und klarer erklärt. Beispiel: kleiner Ratenzettel vorne, riesiger Gesamtkassenzettel dahinter.
-- Eine Metapher darf KEIN Rätsel sein. Bekannte Dinge müssen die Bedeutung tragen und INSTANT_READ_TEST muss PASS sein.
-- SUBTITLE-OFF-TEST: Ohne Überschrift und Untertitel muss ein fremder Zuschauer ungefähr erkennen können, was gerade passiert.
-- TRANSFERABILITY-TEST: Könnte dasselbe Bild unverändert auch zu fünf anderen Finanzthemen passen, ist es zu generisch und muss neu geplant werden.
-- ABSTRAKTE FINANZKÖRPER sind KEINE Standardsprache: capital body, wealth tower, value block, investment block, fee token und ähnliche erfundene Wertobjekte dürfen bekannte Dinge nicht ersetzen. Wenn sie ausnahmsweise Hauptmotiv werden, muss VISUAL_STRATEGY=metaphor gesetzt und METAPHOR_JUSTIFICATION konkret ausgefüllt werden.
-- Förderbänder, Schienen, Schranken, Käfige, Fantasie-Portale, Sortieranlagen, große Hebel und ähnliche Maschinen sind KEINE Standard-Erklärung. Nur nutzen, wenn ihre Bedeutung ohne Erklärung sofort intuitiv ist und bekannte Dinge die Szene tragen.
-- Ursache/Wirkung soll sichtbar in einer verständlichen kleinen Geschichte stattfinden.
-- Wenige große, gut modellierte Hero-Objekte sind besser als viele kleine Symbole. Starke 3/4-, diagonale oder Vordergrund/Mittelgrund/Hintergrund-Kompositionen sind erwünscht, wenn sie die Story klarer machen.
-- Figuren dürfen ausdrücklich zentral sein. Keine generische Corporate-3D-Stockfigur, die nur neben einem Gegenstand steht: Pose, Reaktion oder Handlung muss die Aussage mittragen.
-- Kurze deutsche Objektlabels sind nur Ergänzung. Die Situation muss ohne Label grundsätzlich funktionieren.
-- Ein zusätzliches gutes Bild ist besser als ein überladener oder nur ungefähr passender Still.
-- Die frühere YouTube-Phase-A-DNA darf als Qualitätsreferenz für Modellierung, Licht, Tiefe, Kamera und Story-Moment dienen, aber NICHT als separater Reel-Vertrag.
-- Die Planwerte aus Bildprompt und scene-index.json müssen identisch sein; Prompt und Index dürfen sich nicht widersprechen.`;
+- Wähle danach FREI die stärkste Darstellungsform. Erlaubt sind: character-story, object-story, comparison, chart, diagram, editorial-quote, illustration, metaphor und hybrid.
+- Es gibt KEINEN Zwang zu Menschen, Alltagsobjekten, Story-Szenen oder Metaphern. Ein echtes Diagramm darf die beste Lösung sein. Ein einzelnes Objekt darf die beste Lösung sein. Ein starkes Zitat-/Editorialbild darf die beste Lösung sein.
+- Die Freiheit betrifft die FORM, nicht die Qualität: Jede Szene muss exakt zum Sprechbeat passen, in 1–2 Sekunden lesbar sein und wie dieselbe FinanzNeo-Serie wirken.
+- V9 bleibt der STYLE-LOCK: deep-black Bühne, premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache, starke Tiefe, saubere Materialien, Emerald/Gold/Red-Orange in ihren Rollen, niemals billiger Corporate-/PowerPoint-/Stock-Look.
+- CHARACTER-STORY: Figur nur einsetzen, wenn Pose, Reaktion oder Handlung wirklich etwas erklärt. Keine Corporate-3D-Figur, die nur dekorativ danebensteht.
+- OBJECT-STORY: Ein oder wenige bekannte Objekte dürfen allein tragen, wenn die Aussage sofort verständlich ist.
+- COMPARISON: A-vs-B darf direkt, symmetrisch oder räumlich inszeniert werden, solange der Unterschied sofort lesbar ist.
+- CHART/DIAGRAM: Es muss ein ECHTES Diagramm bleiben. Reale Achsen, Skalen, Werte, Kategorien, Labels und mathematisch korrekte Proportionen verwenden, soweit der Diagrammtyp sie braucht. Ein Kreisdiagramm braucht keine erfundene X-/Y-Achse; ein Linien-/Balkendiagramm schon, wenn fachlich erforderlich.
+- CHART/DIAGRAM darf hochwertig 3D inszeniert werden: physische Achsen, volumetrische Balken, elegante 3D-Linien, Materialtiefe, Licht und Schatten. Aber niemals Datenlogik für Dekoration opfern.
+- EDITORIAL-QUOTE: Text darf Hauptmotiv sein, wenn der Sprechbeat davon profitiert. Typografie muss Teil der FinanzNeo-Welt sein und darf nicht wie eine Standard-Social-Template-Karte aussehen.
+- ILLUSTRATION: freie erklärende Illustration ist erlaubt, auch ohne Mensch und ohne reale Mini-Szene, solange Bedeutung und Finanzbezug sofort klar sind.
+- METAPHOR: intuitive Metaphern und Übertreibungen sind erlaubt. Sie dürfen kein Rätsel sein.
+- HYBRID: Kombinationen sind ausdrücklich erlaubt, z. B. Figur + echtes Chart, Objekt + Diagramm, Zitat + visuelle Metapher oder Vergleich + Datenvisualisierung.
+- Abstrakte Fantasie-Finanzkörper wie capital body, wealth tower, value block, investment block oder fee token sind KEINE automatische Standardsprache. Nur nutzen, wenn sie bewusst als verständliche Illustration/Metapher geplant sind und den Instant-Read-Test bestehen.
+- Keine Bildart bekommt eine feste Quote. Nicht künstlich pro Video zwei Menschen, zwei Charts usw. erzwingen. Der Sprechbeat entscheidet.
+- Abwechslung ist erwünscht: aufeinanderfolgende Szenen sollen nicht unnötig dieselbe Kompositionsidee wiederholen.
+- POWERPOINT-/EXCEL-DEFAULT ist verboten: keine dünnen Standardachsen, langweiligen Standardbalken, generischen Diagrammvorlagen oder flachen Corporate-Infografiken als finale Bildwelt.
+- SUBTITLE-OFF-TEST: Ohne Untertitel muss die Hauptaussage grundsätzlich erkennbar sein; bei Editorial-Quote darf der bewusst integrierte Haupttext Teil der Aussage sein.
+- TRANSFERABILITY-TEST: Könnte dasselbe Bild unverändert zu fünf anderen Finanzthemen passen, ist es zu generisch.
+- DATA_INTEGRITY_TEST: Bei chart/diagram muss dieser mit PASS beginnen und konkret bestätigen, dass Werte, Proportionen, Achsen/Labels und Aussage fachlich zusammenpassen. Bei allen anderen Formen exakt: not-applicable.
+- Die frühere YouTube-Phase-A-DNA bleibt Qualitätsreferenz für Licht, Tiefe, Kamera, Figuren und hochwertige 3D-Inszenierung, aber sie begrenzt NICHT die Darstellungsform.
+- Prompt und scene-index.json müssen bei VISUAL_FORM, VISUAL_CONCEPT, VOICEOVER_VISUAL_MATCH, INSTANT_READ_TEST, TRANSFERABILITY_TEST und DATA_INTEGRITY_TEST identisch sein.`;
 
 const addPlanningBeforeImagePrompts = (source) => {
-  if (source.includes('VISUAL_STORY_MOMENT:')) return source;
+  if (source.includes('VISUAL_FORM:')) return source;
   return source.replace(/(^|\n)IMAGE PROMPT:/g, `$1${planningBlock}\n\nIMAGE PROMPT:`);
 };
 
@@ -121,7 +129,7 @@ const updatePromptFile = (relativePath) => {
   if (!existsSync(path)) return;
   let source = readFileSync(path, 'utf8');
   source = addPlanningBeforeImagePrompts(source);
-  if (!source.includes(`STORY_MOMENT_REVISION: ${STORY_MOMENT_REVISION}`)) {
+  if (!source.includes(`VISUAL_FORM_REVISION: ${VISUAL_FORM_REVISION}`)) {
     source += '\n\n' + policyBlock + '\n';
   }
   writeFileSync(path, source, 'utf8');
@@ -131,7 +139,7 @@ const updatePolicyFile = (relativePath) => {
   const path = resolve(root, relativePath);
   if (!existsSync(path)) return;
   let source = readFileSync(path, 'utf8');
-  if (!source.includes(`STORY_MOMENT_REVISION: ${STORY_MOMENT_REVISION}`)) {
+  if (!source.includes(`VISUAL_FORM_REVISION: ${VISUAL_FORM_REVISION}`)) {
     source += '\n\n' + policyBlock + '\n';
     writeFileSync(path, source, 'utf8');
   }
@@ -147,5 +155,6 @@ updatePolicyFile('05-projektdateien/szenenplan.md');
 updatePolicyFile('05-projektdateien/ANTIGRAVITY-AUFTRAG.md');
 
 console.log('✓ Future Image Storytelling gesetzt: ' + CONTRACT_ID);
-console.log('✓ Story-Moment-Revision: ' + STORY_MOMENT_REVISION);
-console.log('✓ Bekannte Figuren/Gegenstände + sofort verständliche Story + intuitive Metaphern wenn sie besser erklären.');
+console.log('✓ Visual-Form-Revision: ' + VISUAL_FORM_REVISION);
+console.log('✓ Form frei: Mensch, Objekt, Vergleich, echtes Chart/Diagramm, Editorial, Illustration, Metapher oder Hybrid.');
+console.log('✓ Bildwelt fest: FinanzNeo V9 + Instant-Read + fachlich korrekte Datenvisualisierung.');
