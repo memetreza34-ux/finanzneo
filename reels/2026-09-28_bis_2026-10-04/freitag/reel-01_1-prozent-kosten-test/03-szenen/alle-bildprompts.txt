@@ -1,37 +1,42 @@
-FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_EXECUTION_MODE: finanzneo-flow-cover-parallel-then-single-v4
 FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
-FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
-FLOW_COVER_WORKFLOW: finanzneo-flow-cover-anchor-5pack-v1
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v2
+FLOW_COVER_WORKFLOW: finanzneo-flow-cover-parallel-5pack-v2
+FLOW_COVER_CONCURRENCY: 3
+FLOW_SCENE_CONCURRENCY: 1
 FLOW_IMAGE_BLOCK_SIZE: 5
 
 COVER = SZENE 01
 KEIN separates Cover erzeugen. Die drei Cover-Kandidaten sind nur die Auswahlphase für dasselbe finale Scene-01-/Cover-Asset.
 KEIN Bild 00 erzeugen.
 
-STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH
-- DIES IST KEIN BATCH-AUFTRAG. DIE GESAMTE DATEI DARF NIEMALS ALS EIN MEHRBILD-PROMPT AUSGEFÜHRT WERDEN.
-- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.
-- PHASE 0 IST DAS COVER-GATE: COVER A, B UND C NACHEINANDER ERZEUGEN; JEDES COVER MUSS SICHTBAREN, LESBAREN TEXT ENTHALTEN.
+COVER-PARALLEL + SCENE-SINGLE-JOB STATE MACHINE — VERBINDLICH
+- COVER-AUSNAHME: COVER A, B UND C ALS DREI GETRENNTE BILDJOBS GLEICHZEITIG STARTEN. COVER_CONCURRENCY = 3.
+- DIE DREI COVER DÜRFEN NICHT ALS KONTAKTBOGEN, COLLAGE ODER EIN GEMEINSAMER MULTI-IMAGE-PROMPT ERZEUGT WERDEN.
+- JEDES COVER MUSS DIREKT DER FINANZNEO-V9-BILDWELT FOLGEN. KEIN COVER DIENT ALS STYLE-REFERENZ FÜR EIN ANDERES COVER ODER FÜR SPÄTERE SZENENBILDER.
+- COVER-TEXT MUSS DEN VIDEOINHALT KURZ WIEDERGEBEN: MAXIMAL 2 ZEILEN, IDEAL 2–5 WÖRTER, KEINE LANGEN SÄTZE, KEIN TEXT OHNE DIREKTEN INHALTSBEZUG.
 - NACH DEN DREI COVER-KANDIDATEN STOPPEN UND NUR AUF DIE AUSWAHL A/B/C DES NUTZERS WARTEN. DIES IST DIE EINZIGE NUTZERFREIGABE IM FLOW.
 - DAS GEWÄHLTE COVER WIRD FINALER COVER-ASSET UND SZENE 01. NICHT NOCH EINMAL SEPARAT ALS SZENE 01 GENERIEREN.
-- DAS GEWÄHLTE COVER IST DIE EINZIGE VISUELLE STYLE-REFERENZ FÜR ALLE WEITEREN FLOW-BILDER.
-- VON DER STYLE-REFERENZ NUR MATERIALGEFÜHL, 3D-FORMSPRACHE, LICHT, KONTRAST, FARBCHARAKTER UND KAMERAGEFÜHL ÜBERNEHMEN. TEXT, LAYOUT, OBJEKTANORDNUNG UND SZENENINHALT NICHT KOPIEREN.
+- DAS GEWÄHLTE COVER IST AUSDRÜCKLICH KEINE STYLE-VORLAGE. SPÄTERE BILDER DÜRFEN ES NICHT ALS BILDREFERENZ VERWENDEN.
+- STYLE-AUTORITÄT FÜR COVER UND ALLE SZENENBILDER IST AUSSCHLIESSLICH DIE SCHRIFTLICH DEFINIERTE FINANZNEO-V9-BILDWELT.
 - NACH DER COVER-WAHL WERDEN DIE ÜBRIGEN BILDER IN ORGANISATORISCHEN 5ER-BLÖCKEN ABGEARBEITET. EIN 5ER-BLOCK IST NIEMALS EIN 5-BILD-BATCH.
-- INNERHALB JEDES 5ER-BLOCKS UND ZWISCHEN DEN BLÖCKEN GILT WEITERHIN CONCURRENCY = 1.
-- JEDES BILD MUSS NACH DER RÜCKGABE SOFORT EXAKT UMBENANNT, IN DEN FINALEN BILDORDNER GELEGT UND PER QA GEPRÜFT WERDEN.
-- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE SCHRITT GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.
-- NACH BESTANDENER QA WIRD GENAU DAS NÄCHSTE BILD FREIGESCHALTET. NACH FÜNF BESTANDENEN BILDERN BEGINNT DER NÄCHSTE 5ER-BLOCK AUTOMATISCH.
+- FÜR ALLE SZENENBILDER NACH DER COVER-WAHL GILT MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB.
+- JEDES SZENENBILD MUSS NACH DER RÜCKGABE SOFORT EXAKT UMBENANNT, IN DEN FINALEN BILDORDNER GELEGT UND PER QA GEPRÜFT WERDEN.
+- WENN DAS AKTUELLE SZENENBILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE SCHRITT GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.
+- NACH BESTANDENER QA WIRD GENAU DAS NÄCHSTE SZENENBILD FREIGESCHALTET. NACH FÜNF BESTANDENEN BILDERN BEGINNT DER NÄCHSTE 5ER-BLOCK AUTOMATISCH.
 - REMOTION-/ANIMATIONSNUMMERN WERDEN OHNE BILDGENERIERUNG ÜBERSPRUNGEN UND BLEIBEN ALS SZENENNUMMERN RESERVIERT.
 - NACH DER COVER-WAHL: WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY" ODER EINE WEITERE NUTZERFREIGABE.
-- "WARTEN" BEDEUTET DANACH NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.
-- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.
+- "WARTEN" BEDEUTET DANACH NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN SZENENBILDJOBS WARTEN.
+- KEINE SPÄTEREN SZENENBILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.
 - NACH DEM LETZTEN BILD IST EIN FINALER INVENTORY-QA PFLICHT: VOLLSTÄNDIGKEIT, EXAKTE DATEINAMEN, KEINE DOPPELTEN DATEIEN, KEINE FEHLENDEN BILDER, KEINE ANIMATIONSNUMMERN ALS FLOW-BILD.
 - ALLE FINALEN FLOW-BILDER MÜSSEN AM ENDE GEMEINSAM IM EINEN FINALEN BILDORDNER LIEGEN. COVER-KANDIDATEN A/B/C SIND NUR TEMPORÄR; NUR DAS GEWÄHLTE COVER WIRD FINAL ÜBERNOMMEN.
 - STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.
 - STOPP NACH DER COVER-AUSWAHL NUR NOCH BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER.
 
 FLOW_COVER_5PACK_BEGIN
-FLOW_COVER_WORKFLOW: finanzneo-flow-cover-anchor-5pack-v1
+FLOW_COVER_WORKFLOW: finanzneo-flow-cover-parallel-5pack-v2
+FLOW_COVER_CONCURRENCY: 3
+FLOW_SCENE_CONCURRENCY: 1
 FLOW_IMAGE_BLOCK_SIZE: 5
 REEL_TITLE: Was 1 % Kosten wirklich ausmacht
 FINAL_IMAGE_DIRECTORY: 03-szenen/00-ALLE-BILDER-HIER-REIN/
@@ -39,23 +44,24 @@ EXPECTED_FINAL_IMAGE_COUNT: 9
 
 COVER-GATE — IMMER ZUERST:
 1. Erzeuge exakt DREI unterschiedliche Cover-Kandidaten: COVER A, COVER B und COVER C.
-2. Cover A/B/C werden strikt nacheinander erzeugt. Nie parallel und nie als Kontaktbogen.
-3. COVER-TEXT IST IMMER PFLICHT: kurzer deutscher Hook, gut lesbar, maximal 2 Zeilen und möglichst 2–5 Wörter. Keine erfundenen Zahlen/Fakten; nur Aussagen aus dem Reel verwenden.
-4. Die drei Cover müssen sichtbar verschieden sein, aber dieselbe FinanzNeo-V9-Bildwelt verwenden:
+2. Cover A/B/C werden ALS DREI GETRENNTE EINZELBILD-JOBS GLEICHZEITIG gestartet. COVER_CONCURRENCY = 3. Kein Kontaktbogen, keine Collage, kein gemeinsamer Multi-Image-Request.
+3. COVER-TEXT IST IMMER PFLICHT UND MUSS DEN VIDEOINHALT DIREKT VERDICHTEN: maximal 2 Zeilen, ideal 2–5 Wörter. Keine langen Sätze, kein generischer Clickbait ohne Inhaltsbezug, keine erfundenen Zahlen/Fakten.
+4. Alle drei Cover verwenden DIREKT die FinanzNeo-V9-Bildwelt. Sie dürfen unterschiedlich komponiert sein, aber keines dient als Style-Vorlage für ein anderes.
+5. Die drei Cover müssen sichtbar verschieden sein:
    - COVER A: starke Hero-Zahl oder dominantes Hero-Objekt, sehr direkte Aussage.
    - COVER B: klare Gegenüberstellung / Kontrast / Vorher-nachher-Logik.
    - COVER C: konkrete Objekt-Story oder verständliche visuelle Metapher mit räumlicher Tiefe.
-5. Temporäre Namen: Cover-A.png, Cover-B.png, Cover-C.png. Diese Kandidaten gehören NICHT in den finalen Bildordner.
-6. Wenn alle drei Kandidaten QA bestanden haben: STOPP und frage ausschließlich: A, B oder C?
-7. Erst nach der Nutzerwahl darf die Szenenbild-Produktion beginnen.
-8. Das gewählte Cover sofort exakt umbenennen in: Bild 01 - Ein Prozent wirkt klein.png
-9. Das gewählte Cover in 03-szenen/00-ALLE-BILDER-HIER-REIN/ legen. Es ist zugleich finaler Cover-Asset und scene-01; scene-01 NICHT erneut generieren.
+6. Temporäre Namen: Cover-A.png, Cover-B.png, Cover-C.png. Diese Kandidaten gehören NICHT in den finalen Bildordner.
+7. Wenn alle drei Kandidaten QA bestanden haben: STOPP und frage ausschließlich: A, B oder C?
+8. Erst nach der Nutzerwahl darf die Szenenbild-Produktion beginnen.
+9. Das gewählte Cover sofort exakt umbenennen in: Bild 01 - Ein Prozent wirkt klein.png
+10. Das gewählte Cover in 03-szenen/00-ALLE-BILDER-HIER-REIN/ legen. Es ist zugleich finaler Cover-Asset und scene-01; scene-01 NICHT erneut generieren.
 
-STYLE-REFERENZ NACH DER COVER-WAHL:
-- Das gewählte Cover ist die EINZIGE visuelle Style-Referenz für alle weiteren Google-Flow-Bilder.
-- Übernehmen: Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Look.
-- NICHT übernehmen/kopieren: Cover-Text, Layout, konkrete Objektpositionen, Objektanordnung oder Szeneninhalt.
-- Kein späteres Szenenbild darf den gewählten Cover-Anker ersetzen.
+STYLE-AUTORITÄT NACH DER COVER-WAHL:
+- Das gewählte Cover ist KEINE Style-Referenz und darf für spätere Bilder NICHT als Bildreferenz verwendet werden.
+- Alle weiteren Google-Flow-Bilder verwenden direkt die schriftlich definierte FinanzNeo-V9-Bildwelt als einzige Style-Autorität.
+- Kein späteres Szenenbild darf zum Style-Anker werden. Keine Bild-zu-Bild-Style-Referenz im kanonischen Flow.
+- V9 fest: stylized 3D / hochwertige FinanzNeo-Illustrationssprache, Deep Black, Premium-Licht, hochwertige Materialien, starke Tiefe, Emerald/Gold/Red-Orange gemäß Bedeutung, kein Fotorealismus, kein Corporate-/PowerPoint-Look.
 
 5ER-SCHRITTE — NACH DER COVER-WAHL, MAXIMAL 5 BILDER PRO ORGANISATORISCHEM BLOCK:
 5ER-BLOCK 1:
@@ -70,7 +76,7 @@ STYLE-REFERENZ NACH DER COVER-WAHL:
 - scene-12 -> Bild 12 - Kosten im Blick behalten.png
 
 WICHTIG FÜR JEDEN 5ER-BLOCK:
-- Ein 5er-Block bedeutet NICHT fünf parallele Generierungen. Weiterhin exakt EIN Bildjob gleichzeitig.
+- Ein 5er-Block bedeutet NICHT fünf parallele Generierungen. Ab hier exakt EIN Szenenbildjob gleichzeitig.
 - Bild erzeugen -> Ergebnis vollständig zurück -> SOFORT exakt umbenennen -> in finalen Bildordner legen -> QA -> erst dann nächstes Bild.
 - Nach maximal fünf erfolgreichen Bildern automatisch mit dem nächsten Block fortfahren. Keine weitere Nutzerfreigabe und kein "weiter".
 
@@ -97,35 +103,37 @@ FLOW_COVER_5PACK_END
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 
-AUSFÜHRUNGSPROTOKOLL — COVER-GATE + 5ER-BLÖCKE + SINGLE JOB:
-0. COVER-PHASE: Erzeuge Cover A, dann B, dann C — strikt nacheinander, jeweils als einzelner Job und jeweils mit sichtbarem Cover-Text.
-1. Prüfe jeden Cover-Kandidaten direkt nach Rückgabe auf Lesbarkeit, V9-Bildwelt und klare Abgrenzung zu den anderen Varianten.
-2. Sobald A, B und C vorhanden sind: STOPP. Zeige die drei Kandidaten und fordere ausschließlich die Auswahl A/B/C an.
-3. Gewählte Variante: sofort auf den finalen Scene-01-/Cover-Dateinamen umbenennen und in den finalen Bildordner legen. Ungewählte Kandidaten bleiben außerhalb des finalen Bildordners oder werden verworfen.
-4. Setze das gewählte Cover als EINZIGE Style-Referenz. Übernimm nur Material, 3D-Formensprache, Licht, Kontrast, Farbcharakter und Kameragefühl; kopiere niemals Cover-Text, Layout, Objektpositionen oder konkrete Szene.
-5. Scene 01 gilt damit als DONE. Sie darf nicht erneut generiert werden.
-6. Teile alle übrigen IMAGE-Szenen in Reihenfolge in Blöcke mit maximal 5 Bildern. Animationsszenen zählen nicht als Bild und bleiben reserviert.
-7. Setze ACTIVE_STEP auf das erste Bild des aktuellen Blocks. Sende ausschließlich dessen BILDPROMPT an die Bildgenerierung.
-8. Starte GENAU EINEN Bildgenerierungsjob. MAX_CONCURRENT_GENERATIONS = 1.
-9. Warte intern auf genau dieses Ergebnis. Kein weiterer Bildjob darf vorher starten.
-10. Nach Rückgabe: Datei SOFORT exakt auf den vorgesehenen finalen Dateinamen umbenennen und in den einen finalen Bildordner legen.
-11. Danach QA nur für dieses Bild: Aussage/Beat-Zuordnung, erlaubte Labels, V9-Stil, Style-Konsistenz zum gewählten Cover, tiefschwarzer Hintergrund, Datenintegrität falls Chart/Diagramm und exakter Dateiname.
-12. QA FEHLER: ACTIVE_STEP bleibt gleich. Ausschließlich dieselbe Bildnummer neu erzeugen.
-13. QA BESTANDEN: ACTIVE_STEP = DONE. Erst jetzt das nächste Bild des Blocks freischalten.
-14. Nach maximal fünf DONE-Bildern ist der Block abgeschlossen. Den nächsten Block automatisch beginnen — keine Nutzerfreigabe und kein "weiter".
-15. Wiederhole 7–14, bis alle erwarteten IMAGE-Szenen DONE sind.
-16. FINAL INVENTORY QA: erwartete Dateiliste gegen finalen Ordner prüfen. Fehlend, falsch benannt oder doppelt = FAIL. Korrekte Bilder nicht neu erzeugen.
-17. Abschluss nur bei PASS: alle erwarteten finalen Bilder liegen exakt benannt gemeinsam im finalen Bildordner; keine temporären Cover-Kandidaten und keine Animationsnummern zählen als finale Flow-Bilder.
+AUSFÜHRUNGSPROTOKOLL — 3 COVER PARALLEL + 5ER-BLÖCKE + SZENEN-SINGLE-JOB:
+0. COVER-PHASE: Starte Cover A, Cover B und Cover C gleichzeitig als DREI GETRENNTE Einzelbild-Jobs.
+1. Verwende für alle drei Cover direkt die FinanzNeo-V9-Art-Direction. Die Cover dürfen sich in Idee/Komposition unterscheiden, aber nicht aus einer anderen Bildwelt kommen.
+2. Jeder Cover-Hook muss ausschließlich den Inhalt dieses Reels verdichten: maximal 2 Zeilen, ideal 2–5 Wörter; keine langen Sätze und keine generische Clickbait-Zeile ohne Inhaltsbezug.
+3. Prüfe A/B/C nach Rückgabe jeweils auf Textlesbarkeit, direkten Inhaltsbezug, V9-Bildwelt und klare visuelle Unterscheidbarkeit.
+4. Sobald A, B und C vorhanden sind: STOPP. Zeige die drei Kandidaten und fordere ausschließlich die Auswahl A/B/C an.
+5. Gewählte Variante: sofort auf den finalen Scene-01-/Cover-Dateinamen umbenennen und in den finalen Bildordner legen. Ungewählte Kandidaten bleiben außerhalb des finalen Bildordners oder werden verworfen.
+6. WICHTIG: Das gewählte Cover NICHT als Style-Referenz verwenden. Alle späteren Bilder werden ausschließlich aus dem schriftlichen FinanzNeo-V9-Bildweltvertrag erzeugt.
+7. Scene 01 gilt damit als DONE. Sie darf nicht erneut generiert werden.
+8. Teile alle übrigen IMAGE-Szenen in Reihenfolge in Blöcke mit maximal 5 Bildern. Animationsszenen zählen nicht als Bild und bleiben reserviert.
+9. Setze ACTIVE_STEP auf das erste Bild des aktuellen Blocks. Sende ausschließlich dessen BILDPROMPT an die Bildgenerierung.
+10. Starte GENAU EINEN Szenenbildjob. MAX_CONCURRENT_SCENE_GENERATIONS = 1.
+11. Warte intern auf genau dieses Ergebnis. Kein weiterer Szenenbildjob darf vorher starten.
+12. Nach Rückgabe: Datei SOFORT exakt auf den vorgesehenen finalen Dateinamen umbenennen und in den einen finalen Bildordner legen.
+13. Danach QA nur für dieses Bild: Aussage/Beat-Zuordnung, erlaubte Labels, V9-Stil, tiefschwarzer Hintergrund, Datenintegrität falls Chart/Diagramm und exakter Dateiname.
+14. QA FEHLER: ACTIVE_STEP bleibt gleich. Ausschließlich dieselbe Bildnummer neu erzeugen.
+15. QA BESTANDEN: ACTIVE_STEP = DONE. Erst jetzt das nächste Bild des Blocks freischalten.
+16. Nach maximal fünf DONE-Bildern ist der Block abgeschlossen. Den nächsten Block automatisch beginnen — keine Nutzerfreigabe und kein "weiter".
+17. Wiederhole 9–16, bis alle erwarteten IMAGE-Szenen DONE sind.
+18. FINAL INVENTORY QA: erwartete Dateiliste gegen finalen Ordner prüfen. Fehlend, falsch benannt oder doppelt = FAIL. Korrekte Bilder nicht neu erzeugen.
+19. Abschluss nur bei PASS: alle erwarteten finalen Bilder liegen exakt benannt gemeinsam im finalen Bildordner; keine temporären Cover-Kandidaten und keine Animationsnummern zählen als finale Flow-Bilder.
 
-HART VERBOTEN:
-- mehrere Bilder in einem Generierungsaufruf
-- mehrere Bildprompts zusammenfassen
-- Bilder vorab in eine Queue stellen
-- alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen
+HART VERBOTEN NACH DER COVER-PHASE:
+- mehrere Szenenbilder in einem Generierungsaufruf
+- mehrere Szenenbildprompts zusammenfassen
+- Szenenbilder vorab in eine Queue stellen
+- alle Szenenbilder zuerst erzeugen und erst danach gesammelt umbenennen
 - fünf Bilder eines 5er-Blocks gleichzeitig starten
 - Kontaktbogen / Galerie / Collage / Multi-Panel als Ersatz für Einzelbilder
 - nach der Cover-Auswahl erneut auf Nutzer-"weiter" oder Zwischenfreigabe warten
-- ein späteres Szenenbild als neue Style-Referenz verwenden
+- das gewählte Cover oder ein späteres Szenenbild als Style-Referenz verwenden
 
 ==================== scene-01 ====================
 

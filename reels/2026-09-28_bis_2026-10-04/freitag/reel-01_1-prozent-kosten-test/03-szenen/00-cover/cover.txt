@@ -1,17 +1,22 @@
 FLOW_COVER_FILE_BEGIN
-FLOW_COVER_WORKFLOW: finanzneo-flow-cover-anchor-5pack-v1
+FLOW_COVER_WORKFLOW: finanzneo-flow-cover-parallel-5pack-v2
 COVER_VARIANT_COUNT: 3
+COVER_PARALLEL_GENERATION_REQUIRED: true
+COVER_CONCURRENCY: 3
+COVER_SEPARATE_JOBS_REQUIRED: true
+COVER_MULTI_IMAGE_REQUEST_FORBIDDEN: true
 COVER_TEXT_REQUIRED: true
+COVER_TEXT_MAX_LINES: 2
+COVER_TEXT_IDEAL_WORDS: 2-5
+COVER_TEXT_MUST_DESCRIBE_REEL_CONTENT: true
+COVER_LONG_SENTENCE_FORBIDDEN: true
 COVER_SELECTION_REQUIRED: true
 SELECTED_COVER_BECOMES_SCENE_01: true
-SELECTED_COVER_IS_ONLY_STYLE_REFERENCE: true
+SELECTED_COVER_IS_STYLE_REFERENCE: false
+IMAGE_TO_IMAGE_STYLE_REFERENCE_FORBIDDEN: true
+STYLE_AUTHORITY: finanzneo-stylized-3d-animated-black-v9
 
-Erzeuge aus der unten stehenden Cover-Idee drei eigenständige Kandidaten A/B/C.
-Jeder Kandidat MUSS einen kurzen, lesbaren deutschen Cover-Hook enthalten.
-A = Hero-Zahl/Hero-Objekt. B = Kontrast/Gegenüberstellung. C = Objekt-Story/Metapher.
-Keine drei fast identischen Varianten. Keine erfundenen Fakten oder Zahlen.
-Nach A/B/C stoppen und Nutzer A/B/C wählen lassen. Nur die gewählte Variante wird final übernommen.
-Die gewählte Variante wird auf den finalen Scene-01-Dateinamen umbenannt und dient danach als einziger visueller Style-Anker.
+A/B/C parallel als 3 getrennte Jobs. Alle direkt V9. Hook nur Reel-Inhalt: max. 2 Zeilen, ideal 2–5 Wörter; kein langer Satz, Clickbait oder erfundene Fakten. Danach A/B/C wählen; Gewinner = scene-01, nie Style-Referenz.
 FLOW_COVER_FILE_END
 FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
 COVER_ALIAS: SZENE 01
