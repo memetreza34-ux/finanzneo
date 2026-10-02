@@ -1,6 +1,5 @@
 name: Populate 1pct Free Visual Test
 
-# rerun after premium visual validator sync
 on:
   push:
     branches:
@@ -11,6 +10,7 @@ on:
       - scripts/tmp-patch-1pct-validation-markers.mjs
       - scripts/tmp-patch-1pct-motion-meta.mjs
       - scripts/tmp-patch-1pct-source-semantics.mjs
+      - scripts/tmp-patch-1pct-flow-master.mjs
 
 permissions:
   contents: write
@@ -38,6 +38,8 @@ jobs:
         run: node scripts/tmp-patch-1pct-motion-meta.mjs
       - name: Apply source-based semantic hero markers
         run: node scripts/tmp-patch-1pct-source-semantics.mjs
+      - name: Restore strict Flow master contract
+        run: node scripts/tmp-patch-1pct-flow-master.mjs
       - name: Validate reel
         run: npm run reel:validate -- reels/2026-09-28_bis_2026-10-04/freitag/reel-01_1-prozent-kosten-test
       - name: TypeScript
