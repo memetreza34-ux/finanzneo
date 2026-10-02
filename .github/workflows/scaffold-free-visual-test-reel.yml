@@ -1,0 +1,40 @@
+name: Scaffold Free Visual Test Reel
+
+on:
+  push:
+    branches:
+      - reel/test-free-visual-form-1pct-fees
+    paths:
+      - .github/workflows/scaffold-free-visual-test-reel.yml
+
+permissions:
+  contents: write
+
+jobs:
+  scaffold:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: reel/test-free-visual-form-1pct-fees
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Create test reel
+        run: |
+          npm run reel:create -- \
+            --target reels/2026-09-28_bis_2026-10-04/freitag/reel-01_1-prozent-kosten-test \
+            --title "Was 1 % Kosten wirklich ausmacht" \
+            --types image,image,animation,image,image,image,animation,image,image,image,animation,image
+      - name: Commit scaffold
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reels/2026-09-28_bis_2026-10-04/freitag/reel-01_1-prozent-kosten-test
+          git commit -m "Scaffold free visual form 1 percent fee test reel"
+          git push origin HEAD:reel/test-free-visual-form-1pct-fees
