@@ -29,10 +29,17 @@ if (!/KEIN separates Cover erzeugen/i.test(master)) master = 'KEIN separates Cov
 if (!/KEIN Bild 00 erzeugen/i.test(master)) master = 'KEIN Bild 00 erzeugen.\n'+master;
 writeFileSync(masterPath,master.endsWith('\n')?master:master+'\n','utf8');
 
+const coverHookMarker = 'FUTURE_COVER_HOOK: finanzneo-cover-hook-v3\n';
 const coverPath = resolve(root,'03-szenen/00-cover/cover.txt');
 let cover = readFileSync(coverPath,'utf8');
 const aliasHeader = 'COVER_ALIAS: SZENE 01\nKEIN SEPARATER BILDJOB.\nNo separate cover generation.\nno Bild 00.\n';
 if (!/KEIN SEPARATER BILDJOB/i.test(cover)) cover = aliasHeader + cover;
+if (!cover.includes('finanzneo-cover-hook-v3')) cover = coverHookMarker + cover;
 writeFileSync(coverPath,cover.endsWith('\n')?cover:cover+'\n','utf8');
 
-console.log('✓ Source-contract and scene-01 cover markers normalized.');
+const scene01Path = resolve(root,'03-szenen/EINZELNE-SZENEN/scene-01/bildprompt.txt');
+let scene01 = readFileSync(scene01Path,'utf8');
+if (!scene01.includes('finanzneo-cover-hook-v3')) scene01 = coverHookMarker + scene01;
+writeFileSync(scene01Path,scene01.endsWith('\n')?scene01:scene01+'\n','utf8');
+
+console.log('✓ Source-contract, scene-01 cover and Cover-Hook-V3 markers normalized.');
