@@ -15,7 +15,7 @@
   "cover": {
     "type": "scene-image",
     "sourceSceneId": "scene-01",
-    "googleFlowFileName": "Bild 01 - [KURZER SZENENNAME].png",
+    "googleFlowFileName": "Bild 01 - Ein Prozent wirkt klein.png",
     "planFile": "03-szenen/00-cover/cover.txt",
     "aspectRatio": "1:1",
     "sameAssetAsFirstScene": true,
@@ -348,31 +348,31 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-01",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "Was kostet 1 %?",
+      "icon": "percent",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
-      "googleFlowFileName": "Bild 01 - [KURZER SZENENNAME].png",
+      "googleFlowFileName": "Bild 01 - Ein Prozent wirkt klein.png",
       "objectLabels": [
-        "[EINFÜGEN]"
+        "1 %"
       ],
-      "expectedVisual": "[EINFÜGEN]",
+      "expectedVisual": "Ein winziger roter 1-%-Gebührenzettel liegt groß im Vordergrund; dahinter ziehen sich viele identische kleine Gebührenzettel in die schwarze Tiefe und sammeln sich zu einem deutlich größeren Papierberg.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 3.4,
       "visualBeats": [
         {
           "id": "scene-01-beat-01",
           "kind": "image",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "voiceText": "Ein Prozent Kosten klingt nach fast nichts.",
+          "visualChange": "Ein winziger roter 1-%-Gebührenzettel liegt groß im Vordergrund; dahinter ziehen sich viele identische kleine Gebührenzettel in die schwarze Tiefe und sammeln sich zu einem deutlich größeren Papierberg.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 3.4
         }
       ],
       "coverHook": true,
@@ -383,12 +383,12 @@
       "titleVisibleFromFrame": 0,
       "coverTitle": "Was 1 % Kosten wirklich ausmacht",
       "imageStorytelling": {
-        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
-        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
-        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
-        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
-        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
-        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+        "visualForm": "metaphor",
+        "visualConcept": "Ein winziger roter 1-%-Gebührenzettel liegt groß im Vordergrund; dahinter ziehen sich viele identische kleine Gebührenzettel in die schwarze Tiefe und sammeln sich zu einem deutlich größeren Papierberg.",
+        "voiceVisualMatch": "Der einzelne kleine 1-%-Zettel wirkt harmlos, die Masse derselben Zettel im Hintergrund zeigt sofort die langfristige Wirkung.",
+        "instantReadTest": "PASS - kleiner Einzelzettel vorne und großer angesammelter Gebührenberg hinten lesen sich sofort als klein einmal, groß über Zeit.",
+        "transferabilityTest": "PASS - die wiederholten 1-%-Gebührenzettel sind spezifisch für laufende Investmentkosten über viele Jahre.",
+        "dataIntegrityTest": "not-applicable"
       },
       "presentation": {
         "coverTitleRequired": true,
@@ -405,40 +405,41 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-02",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "Klein wirkt harmlos",
+      "icon": "receipt",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
-      "googleFlowFileName": "Bild 02 - [KURZER SZENENNAME].png",
+      "googleFlowFileName": "Bild 02 - Klein wirkt harmlos.png",
       "objectLabels": [
-        "[EINFÜGEN]"
+        "1 %",
+        "über Jahrzehnte"
       ],
-      "expectedVisual": "[EINFÜGEN]",
+      "expectedVisual": "Große hochwertige 3D-Typografie „1 %“ steht als Hauptmotiv auf schwarzer Bühne; direkt dahinter läuft eine lange Reihe kleiner Jahresmarken in die Tiefe, sodass die kleine Zahl visuell mit langer Zeit verbunden wird.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 4,
       "visualBeats": [
         {
           "id": "scene-02-beat-01",
           "kind": "image",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "voiceText": "Bei deinem Investment kann genau dieses eine Prozent über Jahrzehnte aber Zehntausende Euro Unterschied machen.",
+          "visualChange": "Große hochwertige 3D-Typografie „1 %“ steht als Hauptmotiv auf schwarzer Bühne; direkt dahinter läuft eine lange Reihe kleiner Jahresmarken in die Tiefe, sodass die kleine Zahl visuell mit langer Zeit verbunden wird.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 4
         }
       ],
       "imageStorytelling": {
-        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
-        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
-        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
-        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
-        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
-        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+        "visualForm": "editorial-quote",
+        "visualConcept": "Große hochwertige 3D-Typografie „1 %“ steht als Hauptmotiv auf schwarzer Bühne; direkt dahinter läuft eine lange Reihe kleiner Jahresmarken in die Tiefe, sodass die kleine Zahl visuell mit langer Zeit verbunden wird.",
+        "voiceVisualMatch": "Die riesige lesbare 1-%-Typografie stellt die kleine Prozentzahl in den Mittelpunkt; die lange räumliche Jahresfolge zeigt, warum Zeit sie relevant macht.",
+        "instantReadTest": "PASS - 1 % plus klarer langer Zeithorizont vermittelt sofort kleine Zahl mit langfristiger Wirkung.",
+        "transferabilityTest": "PASS - die Kombination aus 1 % und langem Investitionszeithorizont gehört konkret zur Gebührenaussage.",
+        "dataIntegrityTest": "not-applicable"
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -454,25 +455,41 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-03",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "Unser Beispiel",
+      "icon": "wallet",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-03/remotion.md",
       "animationSourceFile": "EINZELNE-SZENEN/scene-03/animation.tsx",
       "animationExport": "Scene03Animation",
-      "animationIntent": "[EINFÜGEN — konkrete sichtbare Kette: Startzustand → Mechanismus → Ergebnis]",
+      "animationIntent": "Zeige exakt: Nehmen wir ein einfaches Beispiel: Du startest mit 10.000 Euro und investierst 300 Euro im Monat. Die Mechanik muss ohne Caption verständlich sein und in der gleichen FinanzNeo-V9-Welt bleiben.",
       "animationQualityLock": "finanzneo-phase1-animation-code-v1",
       "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 5.2,
       "visualBeats": [
         {
           "id": "scene-03-beat-01",
-          "kind": "animation-phase",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "kind": "animation",
+          "voiceText": "Startkapital ist da.",
+          "visualChange": "Der Investmentordner steht mit 10.000 € Startkapital und einem ersten Goldwertstapel.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 1.2
+        },
+        {
+          "id": "scene-03-beat-02",
+          "kind": "animation",
+          "voiceText": "Dann kommen jeden Monat 300 Euro dazu.",
+          "visualChange": "Mehrere 300-€-Monatsumschläge gleiten nacheinander in den Ordner und erhöhen den Wertstapel sichtbar.",
+          "startSecond": 1.2,
+          "endSecond": 3.95
+        },
+        {
+          "id": "scene-03-beat-03",
+          "kind": "animation",
+          "voiceText": "Start und Sparrate arbeiten zusammen.",
+          "visualChange": "Der gewachsene Stapel bleibt stabil; Startkapital plus wiederkehrende Sparrate sind als gemeinsames Investment sichtbar.",
+          "startSecond": 3.95,
+          "endSecond": 5.2
         }
       ],
       "presentation": {
@@ -482,32 +499,32 @@
         "captionsRequired": true
       },
       "motionDesign": {
-        "viewerChange": "[EINFÜGEN — was der Zuschauer nach dieser Animation sichtbar verstanden hat]",
-        "visualMode": "[EINFÜGEN — pure-remotion | svg | data | physical | typography | spatial | other]",
-        "visualTechniqueId": "[EINFÜGEN — eindeutige Haupttechnik als slug]",
-        "compositionFamilyId": "[EINFÜGEN — visuelle Familie als slug]",
-        "heroObjectFamily": "[EINFÜGEN — dominierende sichtbare Objektfamilie als slug]",
-        "primaryAction": "[EINFÜGEN — konkrete sichtbare Hauptaktion, nicht nur Kamera oder Support-Asset]",
+        "viewerChange": "Der Zuschauer erkennt sichtbar, wie 10.000 Euro Startkapital und wiederkehrende 300-Euro-Raten gemeinsam den Investmentwert aufbauen.",
+        "visualMode": "physical",
+        "visualTechniqueId": "envelope-deposit-growth",
+        "compositionFamilyId": "folder-deposit-stage",
+        "heroObjectFamily": "investment-folder",
+        "primaryAction": "Mehrere physische 300-Euro-Umschläge gleiten nacheinander in den Investmentordner und erhöhen den sichtbaren Goldwertstapel.",
         "motionSignature": {
-          "camera": "[EINFÜGEN — z. B. static-close, push-in, orbit, top-down]",
-          "layout": "[EINFÜGEN — z. B. single-hero, split, timeline, field, layered-depth]",
-          "transformation": "[EINFÜGEN — z. B. grow, redistribute, replace, compress, reveal]"
+          "camera": "static-three-quarter",
+          "layout": "single-hero-input-stream",
+          "transformation": "deposit-stack-growth"
         },
         "supportTools": [],
         "repetitionJustification": "none"
       },
       "phase1MotionDirection": {
-        "spokenPoint": "[EINFÜGEN — konkrete finanzielle Aussage dieser Szene]",
-        "viewerMustUnderstand": "[EINFÜGEN — was der Zuschauer danach sichtbar verstanden haben muss]",
-        "visualQuestion": "[EINFÜGEN — welche sichtbare Frage muss die Animation beantworten?]",
-        "chosenMechanism": "[EINFÜGEN — konkrete sichtbare Hauptmechanik, noch ohne Tool-first-Logik]",
-        "mechanismRationale": "[EINFÜGEN — warum erklärt genau diese Mechanik diesen Sprechpunkt am besten?]",
+        "spokenPoint": "Du startest mit 10.000 Euro und investierst zusätzlich jeden Monat 300 Euro.",
+        "viewerMustUnderstand": "Startkapital und monatliche Sparrate fließen in dasselbe Investment und bauen gemeinsam Vermögen auf.",
+        "visualQuestion": "Wie kommen Startkapital und monatliche Sparrate sichtbar im selben Investment zusammen?",
+        "chosenMechanism": "Ein Investmentordner startet mit 10.000 Euro; wiederkehrende 300-Euro-Umschläge wandern hinein und lassen den Wertstapel wachsen.",
+        "mechanismRationale": "Die physische Einzahlungskette übersetzt Startbetrag und regelmäßige Monatsrate direkt in eine verständliche Ursache-Wirkung-Bewegung.",
         "implementationDecision": "custom-build",
         "financeMotionId": "none",
         "libraryFitReason": "none",
         "parameterPlan": "none",
-        "customReason": "[EINFÜGEN — warum keine vorhandene Library-Mechanik ausreichend passt]",
-        "libraryPromotionCandidate": false
+        "customReason": "Keine vorhandene Library-Mechanik verbindet konkrete Monatsumschläge, Startkapital und denselben wachsenden Investmentordner in dieser Story-Sprache.",
+        "libraryPromotionCandidate": true
       }
     },
     {
@@ -517,40 +534,44 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-04",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "Ein Prozentpunkt trennt die Renditen",
+      "icon": "chart-up",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
-      "googleFlowFileName": "Bild 04 - [KURZER SZENENNAME].png",
+      "googleFlowFileName": "Bild 04 - Sieben gegen sechs Prozent.png",
       "objectLabels": [
-        "[EINFÜGEN]"
+        "Jahre",
+        "Vermögen",
+        "7 %",
+        "6 %",
+        "30"
       ],
-      "expectedVisual": "[EINFÜGEN]",
+      "expectedVisual": "Ein echtes hochwertig inszeniertes Liniendiagramm mit X-Achse Jahre 0–30 und Y-Achse Vermögen; zwei korrekt startende Linien 7 % und 6 % trennen sich mit zunehmender Laufzeit sichtbar.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 4,
       "visualBeats": [
         {
           "id": "scene-04-beat-01",
           "kind": "image",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "voiceText": "Variante A bringt im Schnitt 7 Prozent pro Jahr, Variante B nach Kosten vereinfachend nur 6 Prozent.",
+          "visualChange": "Ein echtes hochwertig inszeniertes Liniendiagramm mit X-Achse Jahre 0–30 und Y-Achse Vermögen; zwei korrekt startende Linien 7 % und 6 % trennen sich mit zunehmender Laufzeit sichtbar.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 4
         }
       ],
       "imageStorytelling": {
-        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
-        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
-        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
-        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
-        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
-        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+        "visualForm": "chart",
+        "visualConcept": "Ein echtes hochwertig inszeniertes Liniendiagramm mit X-Achse Jahre 0–30 und Y-Achse Vermögen; zwei korrekt startende Linien 7 % und 6 % trennen sich mit zunehmender Laufzeit sichtbar.",
+        "voiceVisualMatch": "Die zwei beschrifteten Renditelinien zeigen exakt den einen Prozentpunkt Unterschied und seine Entwicklung über Zeit.",
+        "instantReadTest": "PASS - Achsen, 7-%- und 6-%-Linie machen den Vergleich ohne Zusatzinterpretation sofort klar.",
+        "transferabilityTest": "PASS - zwei konkrete Renditepfade 7 % versus 6 % über 30 Jahre passen spezifisch zum Rechenbeispiel.",
+        "dataIntegrityTest": "PASS - X-Achse zeigt 0 bis 30 Jahre, Y-Achse Vermögen; beide Reihen basieren auf 10.000 € Start plus 300 € monatlich bei 7 % bzw. 6 % nominaler Jahresrendite mit monatlicher Verzinsung."
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -566,40 +587,41 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-05",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "Am Anfang fast gleich",
+      "icon": "coins",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
-      "googleFlowFileName": "Bild 05 - [KURZER SZENENNAME].png",
+      "googleFlowFileName": "Bild 05 - Gleicher Start.png",
       "objectLabels": [
-        "[EINFÜGEN]"
+        "7 %",
+        "6 %"
       ],
-      "expectedVisual": "[EINFÜGEN]",
+      "expectedVisual": "Zwei identische transparente Investmentbehälter stehen nebeneinander, beide fast gleich hoch gefüllt; links 7 %, rechts 6 %, gleiche Basis und nur ein sehr kleiner sichtbarer Unterschied.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 3.3,
       "visualBeats": [
         {
           "id": "scene-05-beat-01",
           "kind": "image",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "voiceText": "Am Anfang sieht der Unterschied klein aus.",
+          "visualChange": "Zwei identische transparente Investmentbehälter stehen nebeneinander, beide fast gleich hoch gefüllt; links 7 %, rechts 6 %, gleiche Basis und nur ein sehr kleiner sichtbarer Unterschied.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 3.3
         }
       ],
       "imageStorytelling": {
-        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
-        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
-        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
-        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
-        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
-        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+        "visualForm": "comparison",
+        "visualConcept": "Zwei identische transparente Investmentbehälter stehen nebeneinander, beide fast gleich hoch gefüllt; links 7 %, rechts 6 %, gleiche Basis und nur ein sehr kleiner sichtbarer Unterschied.",
+        "voiceVisualMatch": "Die nahezu gleich hohen Füllstände zeigen direkt, dass der Effekt am Anfang kaum auffällt.",
+        "instantReadTest": "PASS - zwei gleiche Behälter mit fast identischem Füllstand lesen sich sofort als kleiner Anfangsunterschied.",
+        "transferabilityTest": "PASS - die Labels 7 % und 6 % verbinden den kleinen sichtbaren Abstand eindeutig mit dem Renditevergleich.",
+        "dataIntegrityTest": "not-applicable"
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -615,40 +637,42 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-06",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "Nach fünf Jahren",
+      "icon": "calendar",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-06/bildprompt.txt",
-      "googleFlowFileName": "Bild 06 - [KURZER SZENENNAME].png",
+      "googleFlowFileName": "Bild 06 - Nach fünf Jahren.png",
       "objectLabels": [
-        "[EINFÜGEN]"
+        "5 Jahre",
+        "35.654 €",
+        "34.420 €"
       ],
-      "expectedVisual": "[EINFÜGEN]",
+      "expectedVisual": "Ein großer physischer Kalenderblock „5 Jahre“ steht hinter zwei sauberen Geldstapeln; links 35.654 €, rechts 34.420 €, beide sichtbar ähnlich groß und nur leicht unterschiedlich.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 4,
       "visualBeats": [
         {
           "id": "scene-06-beat-01",
           "kind": "image",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "voiceText": "Nach fünf Jahren liegen die Ergebnisse noch relativ nah beieinander.",
+          "visualChange": "Ein großer physischer Kalenderblock „5 Jahre“ steht hinter zwei sauberen Geldstapeln; links 35.654 €, rechts 34.420 €, beide sichtbar ähnlich groß und nur leicht unterschiedlich.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 4
         }
       ],
       "imageStorytelling": {
-        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
-        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
-        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
-        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
-        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
-        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+        "visualForm": "comparison",
+        "visualConcept": "Ein großer physischer Kalenderblock „5 Jahre“ steht hinter zwei sauberen Geldstapeln; links 35.654 €, rechts 34.420 €, beide sichtbar ähnlich groß und nur leicht unterschiedlich.",
+        "voiceVisualMatch": "Die exakten Fünfjahreswerte liegen optisch eng beieinander und illustrieren den noch kleinen Abstand.",
+        "instantReadTest": "PASS - Kalender plus zwei fast gleich große beschriftete Geldstapel zeigen sofort fünf Jahre und geringen Unterschied.",
+        "transferabilityTest": "PASS - die konkreten Werte 35.654 € und 34.420 € machen die Szene spezifisch für dieses Rechenbeispiel.",
+        "dataIntegrityTest": "not-applicable"
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -664,25 +688,41 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-07",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "Der Abstand wächst",
+      "icon": "trending",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-07/remotion.md",
       "animationSourceFile": "EINZELNE-SZENEN/scene-07/animation.tsx",
       "animationExport": "Scene07Animation",
-      "animationIntent": "[EINFÜGEN — konkrete sichtbare Kette: Startzustand → Mechanismus → Ergebnis]",
+      "animationIntent": "Zeige exakt: Aber mit jedem weiteren Jahr arbeitet der Zinseszinseffekt gegen die teurere Variante. Die Mechanik muss ohne Caption verständlich sein und in der gleichen FinanzNeo-V9-Welt bleiben.",
       "animationQualityLock": "finanzneo-phase1-animation-code-v1",
       "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 5.6,
       "visualBeats": [
         {
           "id": "scene-07-beat-01",
-          "kind": "animation-phase",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "kind": "animation",
+          "voiceText": "Beide Varianten starten gleich.",
+          "visualChange": "Zwei identische Depots stehen auf derselben Basis und erhalten sichtbar dieselben Einzahlungen.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 1.29
+        },
+        {
+          "id": "scene-07-beat-02",
+          "kind": "animation",
+          "voiceText": "Mit jedem Jahr öffnet sich der Abstand.",
+          "visualChange": "Der 7-%-Goldstapel wächst pro Zeitstufe stärker als der 6-%-Stapel; der sichtbare Abstand nimmt kontinuierlich zu.",
+          "startSecond": 1.29,
+          "endSecond": 4.26
+        },
+        {
+          "id": "scene-07-beat-03",
+          "kind": "animation",
+          "voiceText": "Am Ende ist der Unterschied deutlich.",
+          "visualChange": "Der finale Höhenabstand bleibt stabil und macht den langfristigen Zinseszinseffekt klar.",
+          "startSecond": 4.26,
+          "endSecond": 5.6
         }
       ],
       "presentation": {
@@ -692,32 +732,32 @@
         "captionsRequired": true
       },
       "motionDesign": {
-        "viewerChange": "[EINFÜGEN — was der Zuschauer nach dieser Animation sichtbar verstanden hat]",
-        "visualMode": "[EINFÜGEN — pure-remotion | svg | data | physical | typography | spatial | other]",
-        "visualTechniqueId": "[EINFÜGEN — eindeutige Haupttechnik als slug]",
-        "compositionFamilyId": "[EINFÜGEN — visuelle Familie als slug]",
-        "heroObjectFamily": "[EINFÜGEN — dominierende sichtbare Objektfamilie als slug]",
-        "primaryAction": "[EINFÜGEN — konkrete sichtbare Hauptaktion, nicht nur Kamera oder Support-Asset]",
+        "viewerChange": "Der Zuschauer sieht, dass zwei anfangs gleiche Depots trotz identischer Einzahlungen mit der Zeit immer weiter auseinanderlaufen.",
+        "visualMode": "data",
+        "visualTechniqueId": "dual-depot-divergence",
+        "compositionFamilyId": "side-by-side-growth",
+        "heroObjectFamily": "twin-depot-vessels",
+        "primaryAction": "Zwei identische Depotbehälter erhalten gleiche Einzahlungen, während der 7-Prozent-Wertstapel sichtbar schneller wächst als der 6-Prozent-Stapel.",
         "motionSignature": {
-          "camera": "[EINFÜGEN — z. B. static-close, push-in, orbit, top-down]",
-          "layout": "[EINFÜGEN — z. B. single-hero, split, timeline, field, layered-depth]",
-          "transformation": "[EINFÜGEN — z. B. grow, redistribute, replace, compress, reveal]"
+          "camera": "subtle-push",
+          "layout": "dual-column-stage",
+          "transformation": "diverging-stack-growth"
         },
         "supportTools": [],
         "repetitionJustification": "none"
       },
       "phase1MotionDirection": {
-        "spokenPoint": "[EINFÜGEN — konkrete finanzielle Aussage dieser Szene]",
-        "viewerMustUnderstand": "[EINFÜGEN — was der Zuschauer danach sichtbar verstanden haben muss]",
-        "visualQuestion": "[EINFÜGEN — welche sichtbare Frage muss die Animation beantworten?]",
-        "chosenMechanism": "[EINFÜGEN — konkrete sichtbare Hauptmechanik, noch ohne Tool-first-Logik]",
-        "mechanismRationale": "[EINFÜGEN — warum erklärt genau diese Mechanik diesen Sprechpunkt am besten?]",
+        "spokenPoint": "Mit jedem weiteren Jahr vergrößert der Zinseszinseffekt den Abstand zwischen 7 Prozent und 6 Prozent Rendite.",
+        "viewerMustUnderstand": "Gleiche Einzahlungen können durch nur einen Prozentpunkt Renditeunterschied langfristig deutlich verschiedene Vermögensstände erzeugen.",
+        "visualQuestion": "Wie wird aus einem kleinen Renditeunterschied über Zeit ein sichtbar wachsender Vermögensabstand?",
+        "chosenMechanism": "Zwei gleich gestartete Depots bekommen dieselben Einzahlungen; ihre Goldstapel wachsen unterschiedlich schnell und öffnen einen immer größeren Gap.",
+        "mechanismRationale": "Die parallele Bewegung hält Einzahlung und Startbedingungen konstant und isoliert dadurch den einen Renditepunkt als sichtbare Ursache des wachsenden Abstands.",
         "implementationDecision": "custom-build",
         "financeMotionId": "none",
         "libraryFitReason": "none",
         "parameterPlan": "none",
-        "customReason": "[EINFÜGEN — warum keine vorhandene Library-Mechanik ausreichend passt]",
-        "libraryPromotionCandidate": false
+        "customReason": "Die Library bietet keinen Best-Fit, der gleiche Einzahlungen und eine kontinuierlich divergierende 7-gegen-6-Prozent-Depotentwicklung in derselben V9-Welt zeigt.",
+        "libraryPromotionCandidate": true
       }
     },
     {
@@ -727,40 +767,44 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-08",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "Nach 30 Jahren",
+      "icon": "chart-bar",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-08/bildprompt.txt",
-      "googleFlowFileName": "Bild 08 - [KURZER SZENENNAME].png",
+      "googleFlowFileName": "Bild 08 - Endvermoegen nach dreissig Jahren.png",
       "objectLabels": [
-        "[EINFÜGEN]"
+        "Endvermögen",
+        "7 %",
+        "6 %",
+        "447.156 €",
+        "361.580 €"
       ],
-      "expectedVisual": "[EINFÜGEN]",
+      "expectedVisual": "Ein echtes vertikales Balkendiagramm auf gemeinsamer Basis zeigt 447.156 € bei 7 % und 361.580 € bei 6 %; korrekte relative Balkenhöhen, echte Y-Achse Endvermögen.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 4,
       "visualBeats": [
         {
           "id": "scene-08-beat-01",
           "kind": "image",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "voiceText": "Nach 30 Jahren wären aus denselben Einzahlungen ungefähr 447.000 Euro bei 7 Prozent geworden.",
+          "visualChange": "Ein echtes vertikales Balkendiagramm auf gemeinsamer Basis zeigt 447.156 € bei 7 % und 361.580 € bei 6 %; korrekte relative Balkenhöhen, echte Y-Achse Endvermögen.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 4
         }
       ],
       "imageStorytelling": {
-        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
-        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
-        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
-        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
-        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
-        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+        "visualForm": "chart",
+        "visualConcept": "Ein echtes vertikales Balkendiagramm auf gemeinsamer Basis zeigt 447.156 € bei 7 % und 361.580 € bei 6 %; korrekte relative Balkenhöhen, echte Y-Achse Endvermögen.",
+        "voiceVisualMatch": "Der hohe 7-%-Balken mit 447.156 € zeigt direkt den Endwert nach 30 Jahren und stellt ihn korrekt dem 6-%-Wert gegenüber.",
+        "instantReadTest": "PASS - zwei echte beschriftete Balken mit Endwerten machen den 30-Jahre-Unterschied sofort sichtbar.",
+        "transferabilityTest": "PASS - die konkreten Endwerte und 7-/6-%-Kategorien gehören exakt zum Gebührenbeispiel.",
+        "dataIntegrityTest": "PASS - beide Balken teilen dieselbe Nullbasis und Y-Skala; 447.156 € zu 361.580 € wird proportional korrekt dargestellt, basierend auf 10.000 € Start plus 300 € monatlich über 30 Jahre."
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -776,40 +820,41 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-09",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "Nur 6 % Rendite",
+      "icon": "euro",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-09/bildprompt.txt",
-      "googleFlowFileName": "Bild 09 - [KURZER SZENENNAME].png",
+      "googleFlowFileName": "Bild 09 - Sechs Prozent Endwert.png",
       "objectLabels": [
-        "[EINFÜGEN]"
+        "6 %",
+        "≈ 362.000 €"
       ],
-      "expectedVisual": "[EINFÜGEN]",
+      "expectedVisual": "Ein einzelner großer stilisierter Investmentordner mit 6-%-Label steht neben einem klaren Endwert ≈ 362.000 € aus goldenen Wertscheinen; bewusst kein Diagramm, sondern ruhiger visueller Fokus auf den niedrigeren Endwert.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 3.8,
       "visualBeats": [
         {
           "id": "scene-09-beat-01",
           "kind": "image",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "voiceText": "Bei 6 Prozent sind es nur rund 362.000 Euro.",
+          "visualChange": "Ein einzelner großer stilisierter Investmentordner mit 6-%-Label steht neben einem klaren Endwert ≈ 362.000 € aus goldenen Wertscheinen; bewusst kein Diagramm, sondern ruhiger visueller Fokus auf den niedrigeren Endwert.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 3.8
         }
       ],
       "imageStorytelling": {
-        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
-        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
-        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
-        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
-        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
-        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+        "visualForm": "illustration",
+        "visualConcept": "Ein einzelner großer stilisierter Investmentordner mit 6-%-Label steht neben einem klaren Endwert ≈ 362.000 € aus goldenen Wertscheinen; bewusst kein Diagramm, sondern ruhiger visueller Fokus auf den niedrigeren Endwert.",
+        "voiceVisualMatch": "6-%-Label und klarer Endwert ≈ 362.000 € setzen genau die zweite Zahl des Rechenbeispiels ins Zentrum.",
+        "instantReadTest": "PASS - 6 % plus großer Endwert sind in einem Blick lesbar.",
+        "transferabilityTest": "PASS - der konkrete 6-%-Endwert 362.000 € ist spezifisch für diese Beispielrechnung.",
+        "dataIntegrityTest": "not-applicable"
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -825,40 +870,41 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-10",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "85.600 € Unterschied",
+      "icon": "coins",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
-      "googleFlowFileName": "Bild 10 - [KURZER SZENENNAME].png",
+      "googleFlowFileName": "Bild 10 - Fuenfundachtzigtausend Unterschied.png",
       "objectLabels": [
-        "[EINFÜGEN]"
+        "85.600 €",
+        "nur 1 Prozentpunkt"
       ],
-      "expectedVisual": "[EINFÜGEN]",
+      "expectedVisual": "Große physische 3D-Typografie „85.600 €“ steht im Zentrum; darunter klein „nur 1 Prozentpunkt“, flankiert von zwei subtilen Endwert-Markern 447k und 362k, ohne Dashboard-Look.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 4,
       "visualBeats": [
         {
           "id": "scene-10-beat-01",
           "kind": "image",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "voiceText": "Das sind etwa 85.600 Euro Unterschied – obwohl nur ein Prozentpunkt fehlt.",
+          "visualChange": "Große physische 3D-Typografie „85.600 €“ steht im Zentrum; darunter klein „nur 1 Prozentpunkt“, flankiert von zwei subtilen Endwert-Markern 447k und 362k, ohne Dashboard-Look.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 4
         }
       ],
       "imageStorytelling": {
-        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
-        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
-        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
-        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
-        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
-        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+        "visualForm": "editorial-quote",
+        "visualConcept": "Große physische 3D-Typografie „85.600 €“ steht im Zentrum; darunter klein „nur 1 Prozentpunkt“, flankiert von zwei subtilen Endwert-Markern 447k und 362k, ohne Dashboard-Look.",
+        "voiceVisualMatch": "Die große Differenzzahl und der kleine Hinweis auf nur einen Prozentpunkt stellen den überraschenden Gegensatz direkt gegenüber.",
+        "instantReadTest": "PASS - 85.600 € groß und „nur 1 Prozentpunkt“ klein vermitteln die Kernbotschaft sofort.",
+        "transferabilityTest": "PASS - 85.600 € Differenz bei einem Prozentpunkt ist die spezifische Pointe dieses Rechenbeispiels.",
+        "dataIntegrityTest": "not-applicable"
       },
       "presentation": {
         "coverTitleRequired": false,
@@ -874,25 +920,41 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-11",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "Kosten wirklich prüfen",
+      "icon": "search",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-11/remotion.md",
       "animationSourceFile": "EINZELNE-SZENEN/scene-11/animation.tsx",
       "animationExport": "Scene11Animation",
-      "animationIntent": "[EINFÜGEN — konkrete sichtbare Kette: Startzustand → Mechanismus → Ergebnis]",
+      "animationIntent": "Zeige exakt: Deshalb lohnt es sich, bei Fonds, Depot und Beratung auf laufende Kosten zu schauen. Die Mechanik muss ohne Caption verständlich sein und in der gleichen FinanzNeo-V9-Welt bleiben.",
       "animationQualityLock": "finanzneo-phase1-animation-code-v1",
       "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 5.8,
       "visualBeats": [
         {
           "id": "scene-11-beat-01",
-          "kind": "animation-phase",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "kind": "animation",
+          "voiceText": "Kosten stehen in den Unterlagen.",
+          "visualChange": "Fonds-, Depot- und Beratungsdokument liegen groß und noch unmarkiert auf der Bühne.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 1.33
+        },
+        {
+          "id": "scene-11-beat-02",
+          "kind": "animation",
+          "voiceText": "Man muss die laufenden Kosten finden.",
+          "visualChange": "Eine große Lupe fährt über die Dokumente und hebt TER, Depotkosten und Service nacheinander warm rot-orange hervor.",
+          "startSecond": 1.33,
+          "endSecond": 4.41
+        },
+        {
+          "id": "scene-11-beat-03",
+          "kind": "animation",
+          "voiceText": "Die relevanten Kosten sind geprüft.",
+          "visualChange": "Alle drei Kostenpositionen bleiben markiert und ein grüner Prüfhaken erscheint als stabiler Payoff.",
+          "startSecond": 4.41,
+          "endSecond": 5.8
         }
       ],
       "presentation": {
@@ -902,31 +964,31 @@
         "captionsRequired": true
       },
       "motionDesign": {
-        "viewerChange": "[EINFÜGEN — was der Zuschauer nach dieser Animation sichtbar verstanden hat]",
-        "visualMode": "[EINFÜGEN — pure-remotion | svg | data | physical | typography | spatial | other]",
-        "visualTechniqueId": "[EINFÜGEN — eindeutige Haupttechnik als slug]",
-        "compositionFamilyId": "[EINFÜGEN — visuelle Familie als slug]",
-        "heroObjectFamily": "[EINFÜGEN — dominierende sichtbare Objektfamilie als slug]",
-        "primaryAction": "[EINFÜGEN — konkrete sichtbare Hauptaktion, nicht nur Kamera oder Support-Asset]",
+        "viewerChange": "Der Zuschauer versteht sichtbar, wo laufende Kosten bei Fonds, Depot und Beratung gesucht und geprüft werden müssen.",
+        "visualMode": "physical",
+        "visualTechniqueId": "magnifier-document-scan",
+        "compositionFamilyId": "document-scan-stage",
+        "heroObjectFamily": "magnifier-documents",
+        "primaryAction": "Eine große physische Lupe wandert über Fonds-, Depot- und Beratungsunterlagen und hebt TER, Depotkosten und Servicekosten nacheinander hervor.",
         "motionSignature": {
-          "camera": "[EINFÜGEN — z. B. static-close, push-in, orbit, top-down]",
-          "layout": "[EINFÜGEN — z. B. single-hero, split, timeline, field, layered-depth]",
-          "transformation": "[EINFÜGEN — z. B. grow, redistribute, replace, compress, reveal]"
+          "camera": "horizontal-follow",
+          "layout": "three-document-spread",
+          "transformation": "scan-highlight-reveal"
         },
         "supportTools": [],
         "repetitionJustification": "none"
       },
       "phase1MotionDirection": {
-        "spokenPoint": "[EINFÜGEN — konkrete finanzielle Aussage dieser Szene]",
-        "viewerMustUnderstand": "[EINFÜGEN — was der Zuschauer danach sichtbar verstanden haben muss]",
-        "visualQuestion": "[EINFÜGEN — welche sichtbare Frage muss die Animation beantworten?]",
-        "chosenMechanism": "[EINFÜGEN — konkrete sichtbare Hauptmechanik, noch ohne Tool-first-Logik]",
-        "mechanismRationale": "[EINFÜGEN — warum erklärt genau diese Mechanik diesen Sprechpunkt am besten?]",
+        "spokenPoint": "Bei Fonds, Depot und Beratung lohnt es sich, die laufenden Kosten gezielt zu prüfen.",
+        "viewerMustUnderstand": "Laufende Kosten stehen in konkreten Unterlagen und können als TER, Depotkosten oder Servicekosten identifiziert werden.",
+        "visualQuestion": "Wo findet man die laufenden Kosten und wie wird das Prüfen als klare Handlung sichtbar?",
+        "chosenMechanism": "Eine Lupe scannt drei reale Dokumente nacheinander, markiert die relevante Kostenzeile und endet mit einem grünen Prüfhaken.",
+        "mechanismRationale": "Die bekannte Handlung des Prüfens mit einer Lupe verbindet die drei Kostenarten direkt mit echten Dokumenten und vermeidet abstrakte Dashboard-Symbolik.",
         "implementationDecision": "custom-build",
         "financeMotionId": "none",
         "libraryFitReason": "none",
         "parameterPlan": "none",
-        "customReason": "[EINFÜGEN — warum keine vorhandene Library-Mechanik ausreichend passt]",
+        "customReason": "Keine vorhandene Library-Animation bildet den konkreten Dokumenten-Scan mit TER, Depotkosten und Servicekosten als physische Prüfhandlung passend ab.",
         "libraryPromotionCandidate": false
       }
     },
@@ -937,40 +999,41 @@
       "durationFrames": 0,
       "cutReason": "voice-sentence-or-meaningful-phrase-start",
       "directory": "EINZELNE-SZENEN/scene-12",
-      "headline": "[EINFÜGEN — natürliche Aussage/Frage in normaler Schreibweise]",
-      "icon": "[EINFÜGEN]",
+      "headline": "Kleine Zahl, große Wirkung",
+      "icon": "check",
       "accent": "finance-green",
       "headerTone": "default",
       "planFile": "EINZELNE-SZENEN/scene-12/bildprompt.txt",
-      "googleFlowFileName": "Bild 12 - [KURZER SZENENNAME].png",
+      "googleFlowFileName": "Bild 12 - Kosten im Blick behalten.png",
       "objectLabels": [
-        "[EINFÜGEN]"
+        "Kosten prüfen",
+        "langfristig denken"
       ],
-      "expectedVisual": "[EINFÜGEN]",
+      "expectedVisual": "Ein hochwertiger Investmentordner liegt offen; links ein kleiner sauberer Kostenbeleg, rechts ein deutlich größerer goldener langfristiger Vermögensstapel; zwei kurze integrierte Labels „Kosten prüfen“ und „langfristig denken“ verbinden Handlung und Konsequenz.",
       "imagePresentation": {
         "scale": 1.01,
         "sourceCropTop": 0,
         "sourceCropBottom": 0,
         "cropSafe": true
       },
-      "plannedDurationSeconds": 0,
+      "plannedDurationSeconds": 4,
       "visualBeats": [
         {
           "id": "scene-12-beat-01",
           "kind": "image",
-          "voiceText": "[EINFÜGEN — genau dieser gesprochene Gedanke]",
-          "visualChange": "[EINFÜGEN — konkrete neue sichtbare Information oder Zustandsänderung]",
+          "voiceText": "Nicht jede Gebühr ist schlecht. Aber kleine Prozentzahlen können über lange Zeit sehr groß werden. Vereinfachtes Rechenbeispiel, ohne Steuern.",
+          "visualChange": "Ein hochwertiger Investmentordner liegt offen; links ein kleiner sauberer Kostenbeleg, rechts ein deutlich größerer goldener langfristiger Vermögensstapel; zwei kurze integrierte Labels „Kosten prüfen“ und „langfristig denken“ verbinden Handlung und Konsequenz.",
           "startSecond": 0,
-          "endSecond": 0
+          "endSecond": 4
         }
       ],
       "imageStorytelling": {
-        "visualForm": "[EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]",
-        "visualConcept": "[EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]",
-        "voiceVisualMatch": "[EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]",
-        "instantReadTest": "[EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]",
-        "transferabilityTest": "[EINFÜGEN — PASS: warum passt das Bild nicht unverändert zu fünf anderen Finanzthemen?]",
-        "dataIntegrityTest": "[EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]"
+        "visualForm": "hybrid",
+        "visualConcept": "Ein hochwertiger Investmentordner liegt offen; links ein kleiner sauberer Kostenbeleg, rechts ein deutlich größerer goldener langfristiger Vermögensstapel; zwei kurze integrierte Labels „Kosten prüfen“ und „langfristig denken“ verbinden Handlung und Konsequenz.",
+        "voiceVisualMatch": "Kostenbeleg und langfristiger Vermögensstapel zeigen gemeinsam, dass Gebühren bewertet werden sollen, ohne jede Gebühr pauschal schlecht darzustellen.",
+        "instantReadTest": "PASS - Kostenbeleg plus großer langfristiger Vermögenswert und zwei kurze Handlungslabels ergeben eine klare Abschlussbotschaft.",
+        "transferabilityTest": "PASS - die Kombination aus laufenden Kosten und langfristigem Investmentbezug schließt genau dieses Gebührenvideo ab.",
+        "dataIntegrityTest": "not-applicable"
       },
       "presentation": {
         "coverTitleRequired": false,

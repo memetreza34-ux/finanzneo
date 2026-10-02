@@ -1,81 +1,42 @@
-COVER = SZENE 01 — KEIN SEPARATER BILDJOB
+FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
+COVER_ALIAS: SZENE 01
+KEIN SEPARATER BILDJOB.
+No separate cover generation.
+no Bild 00.
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
-Die erste Reel-Szene ist automatisch das Cover. Google Flow darf KEIN zusätzliches Cover und KEIN Bild 00 erzeugen. Für Reel und Cover wird exakt dieselbe fertige Datei aus scene-01 verwendet.
-
-SOURCE_SCENE_ID: scene-01
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 01 - [KURZER SZENENNAME].png
+Bild 01 - Ein Prozent wirkt klein.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 1 %
+
+VISUAL_FORM: metaphor
+VISUAL_CONCEPT: Ein winziger roter 1-%-Gebührenzettel liegt groß im Vordergrund; dahinter ziehen sich viele identische kleine Gebührenzettel in die schwarze Tiefe und sammeln sich zu einem deutlich größeren Papierberg.
+VOICEOVER_VISUAL_MATCH: Der einzelne kleine 1-%-Zettel wirkt harmlos, die Masse derselben Zettel im Hintergrund zeigt sofort die langfristige Wirkung.
+INSTANT_READ_TEST: PASS - kleiner Einzelzettel vorne und großer angesammelter Gebührenberg hinten lesen sich sofort als klein einmal, groß über Zeit.
+TRANSFERABILITY_TEST: PASS - die wiederholten 1-%-Gebührenzettel sind spezifisch für laufende Investmentkosten über viele Jahre.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium stylized 3D animated-film finance cover on a seamless deep-black stage. In the lower foreground place one very small, perfectly readable warm red-orange paper fee slip marked only “1 %”. Behind it, let dozens of identical small 1-% fee slips recede through strong cinematic depth and accumulate into a much larger pile in the distance. The first slip must feel almost harmless; the accumulated pile must feel surprisingly substantial. Use elegant paper materials, subtle edge wear, soft contact shadows, restrained emerald accents and warm ivory neutrals. Reserve calm deep-black negative space in the upper area for the Remotion title. Strong 3/4 perspective, premium studio lighting, high-end animated-film rendering. No person, no dashboard, no chart, no fantasy machine, no abstract capital block, no headline inside the generated image, no clutter, no photorealism.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
-EXACT SHORT GERMAN OBJECT LABELS:
-- exakt dieselben Labels wie im kanonischen Bildprompt von scene-01
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-This file is a technical alias only and must never start a second image-generation job. The canonical cover is exactly the final image generated for scene-01. Use the scene-01 image unchanged as the Reel cover so the first visual beat and thumbnail use the same asset. The underlying scene remains a real-world-grounded explanatory situation with visible cause and effect, believable everyday objects and short German labels only when they improve immediate understanding. It must visually explain the spoken point without requiring interpretation, while remaining clearly stylized 3D and not photorealistic.
-
-STYLE:
-Keep the exact scene-01 stylized 3D visual language. Real-life context first, believable proportions, polished materials, never photorealistic.
-
-BACKGROUND:
-The deep black background is mandatory and must match scene-01 exactly.
-
-COMPOSITION:
-Do not redesign, crop into a different concept or replace scene-01 with symbolic finance icons. The cover is the same asset as the first scene.
-
-BRANDS + LOGOS:
-If relevant, recognizable but stylized only; never use pasted real logos or screenshot-like branded UI.
-
-FORBIDDEN:
-No separate cover generation, no Bild 00, no photorealism, no dashboard, no app UI, no flowchart, no abstract symbol-only replacement and no decorative clutter.
-
-
-FUTURE_COVER_HOOK: finanzneo-cover-hook-v3
-
-COVER-HOOK V3 — NUR SZENE 01:
-- Das Flow-Bild enthält KEINEN Reel-Titel, KEINE Headline, KEINEN Untertitel und KEINEN CTA.
-- Reserviere oben ruhige tiefschwarze Negativfläche für den exakten Remotion-Titel.
-- Zeige EIN starkes, sofort verständliches Hero-Motiv mit realer Alltagssituation, Konflikt oder Konsequenz.
-- Der exakte Titel wird ab Frame 0 in Remotion gerendert.
-- WICHTIG: Sobald das Voiceover spricht, laufen die normalen audio-synchronen Captions auch in scene-01. Es gibt keinen gesprochenen Abschnitt ohne Untertitel.
-
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
-
 FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
 
-FUTURE IMAGE STORYTELLING V3 — FREE VISUAL FORM VERBINDLICH:
-- Beginne beim exakten Sprechbeat: Was soll der Zuschauer in 1–2 Sekunden verstehen?
-- Wähle danach FREI die stärkste Darstellungsform. Erlaubt sind: character-story, object-story, comparison, chart, diagram, editorial-quote, illustration, metaphor und hybrid.
-- Es gibt KEINEN Zwang zu Menschen, Alltagsobjekten, Story-Szenen oder Metaphern. Ein echtes Diagramm darf die beste Lösung sein. Ein einzelnes Objekt darf die beste Lösung sein. Ein starkes Zitat-/Editorialbild darf die beste Lösung sein.
-- Die Freiheit betrifft die FORM, nicht die Qualität: Jede Szene muss exakt zum Sprechbeat passen, in 1–2 Sekunden lesbar sein und wie dieselbe FinanzNeo-Serie wirken.
-- V9 bleibt der STYLE-LOCK: deep-black Bühne, premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache, starke Tiefe, saubere Materialien, Emerald/Gold/Red-Orange in ihren Rollen, niemals billiger Corporate-/PowerPoint-/Stock-Look.
-- CHARACTER-STORY: Figur nur einsetzen, wenn Pose, Reaktion oder Handlung wirklich etwas erklärt. Keine Corporate-3D-Figur, die nur dekorativ danebensteht.
-- OBJECT-STORY: Ein oder wenige bekannte Objekte dürfen allein tragen, wenn die Aussage sofort verständlich ist.
-- COMPARISON: A-vs-B darf direkt, symmetrisch oder räumlich inszeniert werden, solange der Unterschied sofort lesbar ist.
-- CHART/DIAGRAM: Es muss ein ECHTES Diagramm bleiben. Reale Achsen, Skalen, Werte, Kategorien, Labels und mathematisch korrekte Proportionen verwenden, soweit der Diagrammtyp sie braucht. Ein Kreisdiagramm braucht keine erfundene X-/Y-Achse; ein Linien-/Balkendiagramm schon, wenn fachlich erforderlich.
-- CHART/DIAGRAM darf hochwertig 3D inszeniert werden: physische Achsen, volumetrische Balken, elegante 3D-Linien, Materialtiefe, Licht und Schatten. Aber niemals Datenlogik für Dekoration opfern.
-- EDITORIAL-QUOTE: Text darf Hauptmotiv sein, wenn der Sprechbeat davon profitiert. Typografie muss Teil der FinanzNeo-Welt sein und darf nicht wie eine Standard-Social-Template-Karte aussehen.
-- ILLUSTRATION: freie erklärende Illustration ist erlaubt, auch ohne Mensch und ohne reale Mini-Szene, solange Bedeutung und Finanzbezug sofort klar sind.
-- METAPHOR: intuitive Metaphern und Übertreibungen sind erlaubt. Sie dürfen kein Rätsel sein.
-- HYBRID: Kombinationen sind ausdrücklich erlaubt, z. B. Figur + echtes Chart, Objekt + Diagramm, Zitat + visuelle Metapher oder Vergleich + Datenvisualisierung.
-- Abstrakte Fantasie-Finanzkörper wie capital body, wealth tower, value block, investment block oder fee token sind KEINE automatische Standardsprache. Nur nutzen, wenn sie bewusst als verständliche Illustration/Metapher geplant sind und den Instant-Read-Test bestehen.
-- Keine Bildart bekommt eine feste Quote. Nicht künstlich pro Video zwei Menschen, zwei Charts usw. erzwingen. Der Sprechbeat entscheidet.
-- Abwechslung ist erwünscht: aufeinanderfolgende Szenen sollen nicht unnötig dieselbe Kompositionsidee wiederholen.
-- POWERPOINT-/EXCEL-DEFAULT ist verboten: keine dünnen Standardachsen, langweiligen Standardbalken, generischen Diagrammvorlagen oder flachen Corporate-Infografiken als finale Bildwelt.
-- SUBTITLE-OFF-TEST: Ohne Untertitel muss die Hauptaussage grundsätzlich erkennbar sein; bei Editorial-Quote darf der bewusst integrierte Haupttext Teil der Aussage sein.
-- TRANSFERABILITY-TEST: Könnte dasselbe Bild unverändert zu fünf anderen Finanzthemen passen, ist es zu generisch.
-- DATA_INTEGRITY_TEST: Bei chart/diagram muss dieser mit PASS beginnen und konkret bestätigen, dass Werte, Proportionen, Achsen/Labels und Aussage fachlich zusammenpassen. Bei allen anderen Formen exakt: not-applicable.
-- Die frühere YouTube-Phase-A-DNA bleibt Qualitätsreferenz für Licht, Tiefe, Kamera, Figuren und hochwertige 3D-Inszenierung, aber sie begrenzt NICHT die Darstellungsform.
-- Prompt und scene-index.json müssen bei VISUAL_FORM, VISUAL_CONCEPT, VOICEOVER_VISUAL_MATCH, INSTANT_READ_TEST, TRANSFERABILITY_TEST und DATA_INTEGRITY_TEST identisch sein.
+BACKGROUND_LOCK: Use one seamless deep black background.

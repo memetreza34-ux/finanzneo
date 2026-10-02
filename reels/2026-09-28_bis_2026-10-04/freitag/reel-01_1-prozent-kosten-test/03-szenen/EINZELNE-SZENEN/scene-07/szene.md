@@ -1,9 +1,7 @@
 # scene-07
 
 **Typ:** animation
-**Zwischenüberschrift:** [EINFÜGEN — natürliche Aussage/Frage; weiß, 56 px, max. 2 Zeilen + einfaches Icon]
-**Icon:** [EINFÜGEN — inhaltlich passend]
-**Sprechtext:** [EINFÜGEN — nur Wörter dieser Szene]
-
-**Google Flow:** KEIN Bild 07; Nummer bleibt reserviert.
-**Animation:** Phase 1 liefert remotion.md + fertige animation.tsx.
+**Zwischenüberschrift:** Der Abstand wächst
+**Icon:** split
+**Sprechtext:** Aber mit jedem weiteren Jahr arbeitet der Zinseszinseffekt gegen die teurere Variante.
+**Animation:** Zwei identische Depots starten auf gleicher Höhe. Beide bekommen dieselben Einzahlungen; der 7-%-Wertstapel wächst mit jeder Zeitstufe stärker als der 6-%-Stapel. Der Abstand zwischen beiden Depots ist am Ende deutlich sichtbar.

@@ -1,5 +1,5 @@
 # Phasenstatus
 
-- [ ] Phase 1: Inhalt, Fakten, Skript, Szenen, V9-Prompts, Header/Icons, produktionsreife animation.tsx und eine universelle Caption vollständig
-- [ ] Phase 2: alle exakt benannten Bilder, genau ein finales Voiceover und echte Wort-Zeitstempel vorhanden
-- [ ] Phase 3: `npm run reel:ready -- reels/2026-09-28_bis_2026-10-04/freitag/reel-01_1-prozent-kosten-test` erfolgreich; Animations-Seal vorhanden; Preflight/Render-QA/Export abgeschlossen
+- [x] Phase 1: Skript, Szenenplan, 9 individuelle Flow-Prompts, Header/Icons und 3 produktionsreife animation.tsx erstellt
+- [ ] Phase 2: 9 exakt benannte Flow-Bilder + finales Voiceover + echte Wort-Zeitstempel
+- [ ] Phase 3: Assets integrieren, Animation-Seal, Preflight, Candidate-Render, Render-QA, Export

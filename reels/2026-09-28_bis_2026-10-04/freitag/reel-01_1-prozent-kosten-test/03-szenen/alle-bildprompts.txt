@@ -3,702 +3,401 @@ FLOW_STRUCTURE_LOCK: finanzneo-flow-structure-lock-v2
 FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
 
 STRICT SINGLE-JOB STATE MACHINE — VERBINDLICH
-- DIES IST KEIN BATCH-AUFTRAG. DIE GESAMTE DATEI DARF NIEMALS ALS EIN MEHRBILD-PROMPT AUSGEFÜHRT WERDEN.
-- MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG. CONCURRENCY = 1.
-- STARTE NIEMALS MEHRERE BILDER, MEHRERE GENERIERUNGSJOBS ODER MEHRERE SZENEN IN EINEM SCHRITT / TOOL-CALL / BATCH.
-- ERZEUGE KEINE GALERIE, KEINEN KONTAKTBOGEN, KEIN MULTI-PANEL, KEINE COLLAGE UND KEIN BILD MIT MEHREREN SZENEN.
-- INITIAL IST NUR DER ERSTE BENÖTIGTE BILDBLOCK FREIGESCHALTET. ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT.
-- EIN SPÄTERER BILDBLOCK DARF ERST FREIGESCHALTET WERDEN, WENN DAS AKTUELLE BILD: (1) vollständig zurückgegeben, (2) exakt umbenannt und (3) per QA geprüft wurde.
-- WENN DAS AKTUELLE BILD DIE QA NICHT BESTEHT, BLEIBT DER NÄCHSTE BILDBLOCK GESPERRT. ERZEUGE NUR DIESELBE BILDNUMMER NEU.
-- NACH BESTANDENER QA WIRD GENAU DER NÄCHSTE BENÖTIGTE BILDBLOCK IN DOKUMENTREIHENFOLGE FREIGESCHALTET. NICHT VORHER.
-- REMOTION-/ANIMATIONSNUMMERN WERDEN OHNE GENERIERUNG ÜBERSPRUNGEN.
-- WARTE NIEMALS AUF "WEITER", "MACH WEITER", "OKAY", BESTÄTIGUNG ODER FREIGABE DES NUTZERS.
-- "WARTEN" BEDEUTET NUR: INTERN AUF DIE RÜCKGABE DES AKTUELLEN EINZELNEN BILDJOBS WARTEN.
-- KEINE SPÄTEREN BILDER VORPLANEN, QUEUEN, PARALLEL STARTEN ODER VORAB GENERIEREN.
-- STRUKTUR, DATEINAMENLOGIK, V9-BILDWELT, FARBROLLEN, LICHT UND QA BIS ZUM LETZTEN BILD UNVERÄNDERT BEIBEHALTEN.
-- STOPP NUR BEI EINEM ECHTEN TECHNISCHEN HARD-BLOCKER. KEIN NUTZER-ZWISCHENSTOPP.
+DIES IST KEIN BATCH-AUFTRAG.
+MAXIMAL 1 LAUFENDER BILDGENERIERUNGSJOB GLEICHZEITIG.
+ALLE SPÄTEREN BILDBLÖCKE SIND GESPERRT, bis das aktuelle Bild vollständig zurückgegeben, exakt umbenannt und per QA geprüft wurde.
 
-FINANZNEO — GOOGLE FLOW MASTERDATEI
+AKTIVER ABLAUF PRO BILD:
+1. Nur den aktuell freigegebenen Bildblock lesen und ausführen.
+2. Genau einen Bildgenerierungsjob starten und intern auf dessen Ergebnis warten.
+3. Das Ergebnis sofort exakt umbenennen.
+4. Das aktuelle Ergebnis per QA prüfen.
+5. Nur bei PASS den nächsten Bildblock freischalten und automatisch fortfahren.
+6. Bei FAIL ausschließlich dieselbe Bildnummer neu erzeugen.
+7. WARTE NIEMALS AUF "WEITER" oder eine Zwischenfreigabe des Nutzers.
 
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-
-AUSFÜHRUNGSPROTOKOLL — STATE MACHINE, NICHT BATCH:
-0. Betrachte spätere Bildblöcke zunächst nur als GESPERRTE DATEN. Sie sind noch KEINE ausführbaren Bildaufträge.
-1. Setze ACTIVE_STEP auf den ersten benötigten Bildblock in Dokumentreihenfolge.
-2. Nimm AUSSCHLIESSLICH den BILDPROMPT von ACTIVE_STEP. Sende niemals Text aus mehreren Bildblöcken gemeinsam an die Bildgenerierung.
-3. Starte GENAU EINEN Bildgenerierungsjob für ACTIVE_STEP. MAX_CONCURRENT_GENERATIONS = 1.
-4. Starte KEINEN weiteren Job, solange dieser Job läuft oder noch kein Ergebnis zurückgegeben wurde.
-5. Sobald das einzelne Bild zurückgegeben wurde: benenne DIESE Datei SOFORT exakt auf den vorgegebenen finalen Dateinamen um.
-6. Prüfe danach ausschließlich dieses eine Bild: Aussage/Beat-Zuordnung, erlaubte Labels, klarer stylized-3D-animated V9-Look, tiefschwarzer sauberer Hintergrund, sinnvolle statt quotierte Objektanzahl, sichtbares Gesicht falls Person, Marken nur erkennbar-stilisiert und exakter Dateiname.
-7. QA FEHLER: ACTIVE_STEP bleibt unverändert. Erzeuge ausschließlich dieselbe Bildnummer neu. Alle späteren Schritte bleiben gesperrt.
-8. QA BESTANDEN: markiere ACTIVE_STEP als DONE. Erst JETZT darfst du den nächsten benötigten Bildblock in Dokumentreihenfolge freischalten.
-9. Bei "KEIN BILD XX ERZEUGEN" die Nummer ohne Bildjob überspringen und zum nächsten benötigten Bildblock gehen.
-10. Wiederhole 2–9, bis jedes erwartete Bild einzeln DONE ist. Keine Nutzerfreigabe dazwischen.
-11. Erst NACH Abschluss aller Einzeljobs darfst du eine Abschlusszusammenfassung über alle finalen Dateien geben.
-12. Keine Bildreferenz verwenden. Kein vorheriges Bild hochladen oder anhängen.
-
-HART VERBOTEN:
-- mehrere Bilder in einem Generierungsaufruf
+AUSDRÜCKLICH VERBOTEN:
+- mehrere Bilder in einem Generierungsaufruf erzeugen
 - mehrere Bildprompts zusammenfassen
 - Bilder vorab in eine Queue stellen
 - alle Bilder zuerst erzeugen und erst danach gesammelt umbenennen
-- Kontaktbogen / Galerie / Collage / Multi-Panel als Ersatz für Einzelbilder
+- Galerie oder Kontaktbogen als Ersatz für die einzelnen finalen Bilder
 
+KEIN Bild 00 erzeugen.
+KEIN separates Cover erzeugen.
+COVER = SZENE 01
+FINAL_IMAGE_DIRECTORY: 03-szenen/00-ALLE-BILDER-HIER-REIN/
+MAX_CONCURRENT_GENERATIONS=1
+FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+MAX_CONCURRENT_GENERATIONS: 1
 
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-BILDWELT: realitätsnahe Alltagssituation als vollständige Erklärszene · klar stylized 3D statt fotorealistisch · deep black · Ursache/Wirkung direkt sichtbar · kurze deutsche Labels wenn hilfreich · keine Symbolrätsel · jeder Prompt individuell vollständig geschrieben.
+Immer nur den nächsten Bildblock erzeugen, vollständig warten, exakt umbenennen, QA, dann weiter. Animationsnummern 03, 07 und 11 bleiben reserviert.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-COVER = SZENE 01 — KEIN SEPARATER BILDJOB
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-KEIN separates Cover erzeugen. KEIN Bild 00 erzeugen. Das final erzeugte Bild von scene-01 (Bild 01 - [KURZER SZENENNAME].png) ist automatisch gleichzeitig das Reel-Cover. Direkt mit dem folgenden scene-01-Bildprompt starten.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 01 – BILDSZENE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+==================== scene-01 ====================
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
 
 GOOGLE FLOW – FINALER DATEINAME:
-Bild 01 - [KURZER SZENENNAME].png
+Bild 01 - Ein Prozent wirkt klein.png
 
-Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Motiv + erlaubte Labels + V9-Stil + tiefschwarzen Hintergrund + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
 
 BESCHRIFTUNGEN – EXAKT SO:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
+- 1 %
 
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
+VISUAL_FORM: metaphor
+VISUAL_CONCEPT: Ein winziger roter 1-%-Gebührenzettel liegt groß im Vordergrund; dahinter ziehen sich viele identische kleine Gebührenzettel in die schwarze Tiefe und sammeln sich zu einem deutlich größeren Papierberg.
+VOICEOVER_VISUAL_MATCH: Der einzelne kleine 1-%-Zettel wirkt harmlos, die Masse derselben Zettel im Hintergrund zeigt sofort die langfristige Wirkung.
+INSTANT_READ_TEST: PASS - kleiner Einzelzettel vorne und großer angesammelter Gebührenberg hinten lesen sich sofort als klein einmal, groß über Zeit.
+TRANSFERABILITY_TEST: PASS - die wiederholten 1-%-Gebührenzettel sind spezifisch für laufende Investmentkosten über viele Jahre.
+DATA_INTEGRITY_TEST: not-applicable
 
 IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-01. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
+Create a premium stylized 3D animated-film finance cover on a seamless deep-black stage. In the lower foreground place one very small, perfectly readable warm red-orange paper fee slip marked only “1 %”. Behind it, let dozens of identical small 1-% fee slips recede through strong cinematic depth and accumulate into a much larger pile in the distance. The first slip must feel almost harmless; the accumulated pile must feel surprisingly substantial. Use elegant paper materials, subtle edge wear, soft contact shadows, restrained emerald accents and warm ivory neutrals. Reserve calm deep-black negative space in the upper area for the Remotion title. Strong 3/4 perspective, premium studio lighting, high-end animated-film rendering. No person, no dashboard, no chart, no fantasy machine, no abstract capital block, no headline inside the generated image, no clutter, no photorealism.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
 GENERATED_IMAGE_ASPECT_RATIO: 1:1
 
-EXACT SHORT GERMAN OBJECT LABELS:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-01. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
-
-BACKGROUND:
-A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
-
-COMPOSITION:
-The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
-
-BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.
-
-COLORS + LIGHT:
-Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
-
-TEXT:
-Only explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.
-
-FORBIDDEN:
-No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no isolated vault + shield + coins + arrow scene without real-life context, no abstract visual riddle, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 02 – BILDSZENE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
-
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 02 - [KURZER SZENENNAME].png
-
-Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Motiv + erlaubte Labels + V9-Stil + tiefschwarzen Hintergrund + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.
-
-BESCHRIFTUNGEN – EXAKT SO:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-02. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
-EXACT SHORT GERMAN OBJECT LABELS:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-02. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
-
-BACKGROUND:
-A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
-
-COMPOSITION:
-The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
-
-BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.
-
-COLORS + LIGHT:
-Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
-
-TEXT:
-Only explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.
-
-FORBIDDEN:
-No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no isolated vault + shield + coins + arrow scene without real-life context, no abstract visual riddle, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 03 – REMOTION-ANIMATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-KEIN BILD 03 ERZEUGEN. Nummer 03 bleibt reserviert.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 04 – BILDSZENE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
-
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 04 - [KURZER SZENENNAME].png
-
-Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Motiv + erlaubte Labels + V9-Stil + tiefschwarzen Hintergrund + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.
-
-BESCHRIFTUNGEN – EXAKT SO:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-04. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
-EXACT SHORT GERMAN OBJECT LABELS:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-04. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
-
-BACKGROUND:
-A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
-
-COMPOSITION:
-The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
-
-BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.
-
-COLORS + LIGHT:
-Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
-
-TEXT:
-Only explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.
-
-FORBIDDEN:
-No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no isolated vault + shield + coins + arrow scene without real-life context, no abstract visual riddle, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 05 – BILDSZENE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
-
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 05 - [KURZER SZENENNAME].png
-
-Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Motiv + erlaubte Labels + V9-Stil + tiefschwarzen Hintergrund + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.
-
-BESCHRIFTUNGEN – EXAKT SO:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-05. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
-EXACT SHORT GERMAN OBJECT LABELS:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-05. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
-
-BACKGROUND:
-A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
-
-COMPOSITION:
-The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
-
-BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.
-
-COLORS + LIGHT:
-Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
-
-TEXT:
-Only explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.
-
-FORBIDDEN:
-No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no isolated vault + shield + coins + arrow scene without real-life context, no abstract visual riddle, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 06 – BILDSZENE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
-
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 06 - [KURZER SZENENNAME].png
-
-Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Motiv + erlaubte Labels + V9-Stil + tiefschwarzen Hintergrund + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.
-
-BESCHRIFTUNGEN – EXAKT SO:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-06. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
-EXACT SHORT GERMAN OBJECT LABELS:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-06. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
-
-BACKGROUND:
-A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
-
-COMPOSITION:
-The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
-
-BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.
-
-COLORS + LIGHT:
-Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
-
-TEXT:
-Only explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.
-
-FORBIDDEN:
-No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no isolated vault + shield + coins + arrow scene without real-life context, no abstract visual riddle, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 07 – REMOTION-ANIMATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-KEIN BILD 07 ERZEUGEN. Nummer 07 bleibt reserviert.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 08 – BILDSZENE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
-
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 08 - [KURZER SZENENNAME].png
-
-Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Motiv + erlaubte Labels + V9-Stil + tiefschwarzen Hintergrund + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.
-
-BESCHRIFTUNGEN – EXAKT SO:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-08. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
-EXACT SHORT GERMAN OBJECT LABELS:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-08. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
-
-BACKGROUND:
-A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
-
-COMPOSITION:
-The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
-
-BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.
-
-COLORS + LIGHT:
-Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
-
-TEXT:
-Only explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.
-
-FORBIDDEN:
-No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no isolated vault + shield + coins + arrow scene without real-life context, no abstract visual riddle, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 09 – BILDSZENE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
-
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 09 - [KURZER SZENENNAME].png
-
-Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Motiv + erlaubte Labels + V9-Stil + tiefschwarzen Hintergrund + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.
-
-BESCHRIFTUNGEN – EXAKT SO:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-09. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
-EXACT SHORT GERMAN OBJECT LABELS:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-09. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
-
-BACKGROUND:
-A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
-
-COMPOSITION:
-The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
-
-BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.
-
-COLORS + LIGHT:
-Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
-
-TEXT:
-Only explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.
-
-FORBIDDEN:
-No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no isolated vault + shield + coins + arrow scene without real-life context, no abstract visual riddle, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 10 – BILDSZENE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
-
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 10 - [KURZER SZENENNAME].png
-
-Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Motiv + erlaubte Labels + V9-Stil + tiefschwarzen Hintergrund + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.
-
-BESCHRIFTUNGEN – EXAKT SO:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-10. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
-EXACT SHORT GERMAN OBJECT LABELS:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-10. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
-
-BACKGROUND:
-A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
-
-COMPOSITION:
-The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
-
-BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.
-
-COLORS + LIGHT:
-Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
-
-TEXT:
-Only explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.
-
-FORBIDDEN:
-No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no isolated vault + shield + coins + arrow scene without real-life context, no abstract visual riddle, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 11 – REMOTION-ANIMATION
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-KEIN BILD 11 ERZEUGEN. Nummer 11 bleibt reserviert.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-SZENE 12 – BILDSZENE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
-
-GOOGLE FLOW – FINALER DATEINAME:
-Bild 12 - [KURZER SZENENNAME].png
-
-Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es SOFORT exakt wie oben um und prüfe Motiv + erlaubte Labels + V9-Stil + tiefschwarzen Hintergrund + Dateiname. Keine Bildreferenz verwenden. Bei Fehler ausschließlich DIESELBE Bildnummer neu erzeugen. Erst nach PASS darf das nächste Bild starten. Der Dateiname darf nicht sichtbar im Bild erscheinen.
-
-BESCHRIFTUNGEN – EXAKT SO:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-12. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
-GENERATED_IMAGE_ASPECT_RATIO: 1:1
-
-EXACT SHORT GERMAN OBJECT LABELS:
-- [KURZES DEUTSCHES OBJEKT-LABEL]
-- [OPTIONALES ZWEITES KURZES LABEL]
-
-VISUAL_FORM: [EINFÜGEN — character-story | object-story | comparison | chart | diagram | editorial-quote | illustration | metaphor | hybrid]
-VISUAL_CONCEPT: [EINFÜGEN — konkrete Bildidee für genau diesen Sprechbeat]
-VOICEOVER_VISUAL_MATCH: [EINFÜGEN — welches sichtbare Detail zeigt exakt die gesprochene Aussage]
-INSTANT_READ_TEST: [EINFÜGEN — PASS: warum versteht man die Aussage in 1–2 Sekunden?]
-TRANSFERABILITY_TEST: [EINFÜGEN — PASS: warum passt dieses Bild nicht unverändert zu fünf anderen Finanzthemen?]
-DATA_INTEGRITY_TEST: [EINFÜGEN — bei chart/diagram: PASS mit Daten-/Achsenlogik; sonst not-applicable]
-
-IMAGE PROMPT:
-Create a clear stylized 3D animated finance scene for scene-12. Show [CLEAR MAIN SUBJECT OR ACTION] and [DESCRIBE THE SIMPLE VISUAL CAUSE/EFFECT OR SITUATION]. Use supporting objects only when they improve understanding. Make the idea understandable within 1–2 seconds. Include only the specified short German labels.
-
-STYLE:
-Create a premium real-world-grounded stylized 3D explanatory scene. Everyday objects must keep believable proportions, recognizable construction and useful material detail, while the final rendering remains clearly stylized and never photorealistic. The result should feel polished and high quality, not like a toy, icon pack or stock photograph.
-
-BACKGROUND:
-A seamless deep black background is mandatory. A small believable local environment such as part of a laundry area, kitchen, desk, counter or banking context may appear when it helps explain the situation, but it must visually dissolve into the deep-black world. Keep the background clean and non-distracting.
-
-COMPOSITION:
-The image must visually explain the spoken point, not merely symbolize it. Build one coherent real-life situation with the necessary context and make cause and effect readable in the same frame whenever possible. Use familiar everyday objects that directly match the content. Supporting objects have no fixed count: include what is needed for immediate understanding and remove decorative clutter. The viewer should understand the intended meaning within 1–2 seconds without audio or interpretation. Abstract finance symbols such as shields, arrows, coins or vaults may only support the real situation; they must never replace it.
-
-BRANDS + LOGOS:
-If a brand, bank, app or logo is relevant, keep it recognizable but reinterpret it in the same stylized 3D world. Use matching materials and lighting. Never paste a flat real-world logo, website screenshot, app screenshot or photorealistic branded UI into the scene.
-
-COLORS + LIGHT:
-Use emerald green for positive elements, warm ivory and soft gray for neutral surfaces, subtle gold for money/value and warm red-orange only for warnings or cost. Use clean soft studio lighting, clear highlights, readable shadows, believable material cues and soft contact shadows.
-
-TEXT:
-Only explicitly requested short German labels may appear. Use short German labels when they remove ambiguity and attach them clearly to the exact object or state they describe. No headline, subtitle, CTA or long explanatory sentence.
-
-FORBIDDEN:
-No photorealism or stock-photo look, no generic finance-icon composition as the main explanation, no isolated vault + shield + coins + arrow scene without real-life context, no abstract visual riddle, no flat pasted real-world logo, no screenshot-like branded UI, no dashboard or app UI as the main composition, no flowchart as the main composition, no tiny floating info cards, no microchip/circuit look, no tiny unreadable miniature scene and no decorative clutter.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ABSCHLUSS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Beende erst, wenn jedes erwartete Bild EINZELN erzeugt, exakt umbenannt und nach V9-QA geprüft wurde. Verwerfe Bilder, die nur hübsche Finanzsymbole zeigen, aber den gesprochenen Inhalt nicht direkt erklären.
-
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
-
 FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
 
-FUTURE IMAGE STORYTELLING V3 — FREE VISUAL FORM VERBINDLICH:
-- Beginne beim exakten Sprechbeat: Was soll der Zuschauer in 1–2 Sekunden verstehen?
-- Wähle danach FREI die stärkste Darstellungsform. Erlaubt sind: character-story, object-story, comparison, chart, diagram, editorial-quote, illustration, metaphor und hybrid.
-- Es gibt KEINEN Zwang zu Menschen, Alltagsobjekten, Story-Szenen oder Metaphern. Ein echtes Diagramm darf die beste Lösung sein. Ein einzelnes Objekt darf die beste Lösung sein. Ein starkes Zitat-/Editorialbild darf die beste Lösung sein.
-- Die Freiheit betrifft die FORM, nicht die Qualität: Jede Szene muss exakt zum Sprechbeat passen, in 1–2 Sekunden lesbar sein und wie dieselbe FinanzNeo-Serie wirken.
-- V9 bleibt der STYLE-LOCK: deep-black Bühne, premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache, starke Tiefe, saubere Materialien, Emerald/Gold/Red-Orange in ihren Rollen, niemals billiger Corporate-/PowerPoint-/Stock-Look.
-- CHARACTER-STORY: Figur nur einsetzen, wenn Pose, Reaktion oder Handlung wirklich etwas erklärt. Keine Corporate-3D-Figur, die nur dekorativ danebensteht.
-- OBJECT-STORY: Ein oder wenige bekannte Objekte dürfen allein tragen, wenn die Aussage sofort verständlich ist.
-- COMPARISON: A-vs-B darf direkt, symmetrisch oder räumlich inszeniert werden, solange der Unterschied sofort lesbar ist.
-- CHART/DIAGRAM: Es muss ein ECHTES Diagramm bleiben. Reale Achsen, Skalen, Werte, Kategorien, Labels und mathematisch korrekte Proportionen verwenden, soweit der Diagrammtyp sie braucht. Ein Kreisdiagramm braucht keine erfundene X-/Y-Achse; ein Linien-/Balkendiagramm schon, wenn fachlich erforderlich.
-- CHART/DIAGRAM darf hochwertig 3D inszeniert werden: physische Achsen, volumetrische Balken, elegante 3D-Linien, Materialtiefe, Licht und Schatten. Aber niemals Datenlogik für Dekoration opfern.
-- EDITORIAL-QUOTE: Text darf Hauptmotiv sein, wenn der Sprechbeat davon profitiert. Typografie muss Teil der FinanzNeo-Welt sein und darf nicht wie eine Standard-Social-Template-Karte aussehen.
-- ILLUSTRATION: freie erklärende Illustration ist erlaubt, auch ohne Mensch und ohne reale Mini-Szene, solange Bedeutung und Finanzbezug sofort klar sind.
-- METAPHOR: intuitive Metaphern und Übertreibungen sind erlaubt. Sie dürfen kein Rätsel sein.
-- HYBRID: Kombinationen sind ausdrücklich erlaubt, z. B. Figur + echtes Chart, Objekt + Diagramm, Zitat + visuelle Metapher oder Vergleich + Datenvisualisierung.
-- Abstrakte Fantasie-Finanzkörper wie capital body, wealth tower, value block, investment block oder fee token sind KEINE automatische Standardsprache. Nur nutzen, wenn sie bewusst als verständliche Illustration/Metapher geplant sind und den Instant-Read-Test bestehen.
-- Keine Bildart bekommt eine feste Quote. Nicht künstlich pro Video zwei Menschen, zwei Charts usw. erzwingen. Der Sprechbeat entscheidet.
-- Abwechslung ist erwünscht: aufeinanderfolgende Szenen sollen nicht unnötig dieselbe Kompositionsidee wiederholen.
-- POWERPOINT-/EXCEL-DEFAULT ist verboten: keine dünnen Standardachsen, langweiligen Standardbalken, generischen Diagrammvorlagen oder flachen Corporate-Infografiken als finale Bildwelt.
-- SUBTITLE-OFF-TEST: Ohne Untertitel muss die Hauptaussage grundsätzlich erkennbar sein; bei Editorial-Quote darf der bewusst integrierte Haupttext Teil der Aussage sein.
-- TRANSFERABILITY-TEST: Könnte dasselbe Bild unverändert zu fünf anderen Finanzthemen passen, ist es zu generisch.
-- DATA_INTEGRITY_TEST: Bei chart/diagram muss dieser mit PASS beginnen und konkret bestätigen, dass Werte, Proportionen, Achsen/Labels und Aussage fachlich zusammenpassen. Bei allen anderen Formen exakt: not-applicable.
-- Die frühere YouTube-Phase-A-DNA bleibt Qualitätsreferenz für Licht, Tiefe, Kamera, Figuren und hochwertige 3D-Inszenierung, aber sie begrenzt NICHT die Darstellungsform.
-- Prompt und scene-index.json müssen bei VISUAL_FORM, VISUAL_CONCEPT, VOICEOVER_VISUAL_MATCH, INSTANT_READ_TEST, TRANSFERABILITY_TEST und DATA_INTEGRITY_TEST identisch sein.
+
+==================== scene-02 ====================
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Klein wirkt harmlos.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 1 %
+- über Jahrzehnte
+
+VISUAL_FORM: editorial-quote
+VISUAL_CONCEPT: Große hochwertige 3D-Typografie „1 %“ steht als Hauptmotiv auf schwarzer Bühne; direkt dahinter läuft eine lange Reihe kleiner Jahresmarken in die Tiefe, sodass die kleine Zahl visuell mit langer Zeit verbunden wird.
+VOICEOVER_VISUAL_MATCH: Die riesige lesbare 1-%-Typografie stellt die kleine Prozentzahl in den Mittelpunkt; die lange räumliche Jahresfolge zeigt, warum Zeit sie relevant macht.
+INSTANT_READ_TEST: PASS - 1 % plus klarer langer Zeithorizont vermittelt sofort kleine Zahl mit langfristiger Wirkung.
+TRANSFERABILITY_TEST: PASS - die Kombination aus 1 % und langem Investitionszeithorizont gehört konkret zur Gebührenaussage.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium editorial 3D finance illustration on a seamless deep-black stage. The hero is elegant physical 3D typography reading exactly “1 %”, rendered in warm ivory with refined beveled depth and subtle material highlights. Behind it, a long sequence of small physical year markers recedes into the black distance, ending with one small label “über Jahrzehnte”. The typography must feel integrated into the same high-end stylized 3D animated-film world, not like a flat social-media template. Add restrained gold value accents and a subtle warm red-orange cost accent. Strong depth, asymmetric composition, cinematic light and contact shadows. No dashboard, no stock icons, no PowerPoint style, no corporate template, no photorealism, no extra text.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+
+==================== scene-04 ====================
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Sieben gegen sechs Prozent.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Jahre
+- Vermögen
+- 7 %
+- 6 %
+- 30
+
+VISUAL_FORM: chart
+VISUAL_CONCEPT: Ein echtes hochwertig inszeniertes Liniendiagramm mit X-Achse Jahre 0–30 und Y-Achse Vermögen; zwei korrekt startende Linien 7 % und 6 % trennen sich mit zunehmender Laufzeit sichtbar.
+VOICEOVER_VISUAL_MATCH: Die zwei beschrifteten Renditelinien zeigen exakt den einen Prozentpunkt Unterschied und seine Entwicklung über Zeit.
+INSTANT_READ_TEST: PASS - Achsen, 7-%- und 6-%-Linie machen den Vergleich ohne Zusatzinterpretation sofort klar.
+TRANSFERABILITY_TEST: PASS - zwei konkrete Renditepfade 7 % versus 6 % über 30 Jahre passen spezifisch zum Rechenbeispiel.
+DATA_INTEGRITY_TEST: PASS - X-Achse zeigt 0 bis 30 Jahre, Y-Achse Vermögen; beide Reihen basieren auf 10.000 € Start plus 300 € monatlich bei 7 % bzw. 6 % nominaler Jahresrendite mit monatlicher Verzinsung.
+
+IMAGE PROMPT:
+Create a real, mathematically coherent premium 3D line chart in the FinanzNeo visual world on a seamless deep-black stage. Use a clearly readable horizontal x-axis labeled “Jahre” with 0, 5, 10, 15, 20, 25, 30 and a vertical y-axis labeled “Vermögen”. Show two clean lines starting from the same 10.000 € starting value: an emerald line labeled “7 %” and a warm-ivory line labeled “6 %”. Both include the same 300 € monthly contribution assumption and separate gradually, with a visibly wider gap toward year 30. Render axes as refined physical 3D elements with subtle depth, lines as elegant dimensional ribbons, and milestone points as small gold markers. Maintain correct chart geometry and readable labels. Cinematic 3/4 camera but not so oblique that data becomes distorted. No Excel/PowerPoint look, no dashboard UI, no decorative icons, no fantasy bars, no photorealism.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+
+==================== scene-05 ====================
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Gleicher Start.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 7 %
+- 6 %
+
+VISUAL_FORM: comparison
+VISUAL_CONCEPT: Zwei identische transparente Investmentbehälter stehen nebeneinander, beide fast gleich hoch gefüllt; links 7 %, rechts 6 %, gleiche Basis und nur ein sehr kleiner sichtbarer Unterschied.
+VOICEOVER_VISUAL_MATCH: Die nahezu gleich hohen Füllstände zeigen direkt, dass der Effekt am Anfang kaum auffällt.
+INSTANT_READ_TEST: PASS - zwei gleiche Behälter mit fast identischem Füllstand lesen sich sofort als kleiner Anfangsunterschied.
+TRANSFERABILITY_TEST: PASS - die Labels 7 % und 6 % verbinden den kleinen sichtbaren Abstand eindeutig mit dem Renditevergleich.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium stylized 3D comparison scene on a seamless deep-black stage. Show two identical transparent investment jars or account vessels side by side on the same baseline, both containing recognizable gold coins and value slips. Label the left vessel “7 %” and the right vessel “6 %”. Their fill levels should be almost equal, with only a subtle advantage on the 7-% side. Keep the vessels large, refined and highly readable, with elegant glass-like stylized materials, warm gold value, emerald accent on the 7-% side, neutral ivory on the 6-% side. Cinematic 3/4 perspective, premium lighting and contact shadows. No dashboard, no flat bar chart, no random icons, no person, no photorealism.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+
+==================== scene-06 ====================
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 06 - Nach fünf Jahren.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 5 Jahre
+- 35.654 €
+- 34.420 €
+
+VISUAL_FORM: comparison
+VISUAL_CONCEPT: Ein großer physischer Kalenderblock „5 Jahre“ steht hinter zwei sauberen Geldstapeln; links 35.654 €, rechts 34.420 €, beide sichtbar ähnlich groß und nur leicht unterschiedlich.
+VOICEOVER_VISUAL_MATCH: Die exakten Fünfjahreswerte liegen optisch eng beieinander und illustrieren den noch kleinen Abstand.
+INSTANT_READ_TEST: PASS - Kalender plus zwei fast gleich große beschriftete Geldstapel zeigen sofort fünf Jahre und geringen Unterschied.
+TRANSFERABILITY_TEST: PASS - die konkreten Werte 35.654 € und 34.420 € machen die Szene spezifisch für dieses Rechenbeispiel.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium stylized 3D comparison on a seamless deep-black stage. Place a substantial physical calendar block labeled “5 Jahre” in the rear center. In front, show two refined stacks of euro-value slips or coins on one baseline: left labeled “35.654 €”, right labeled “34.420 €”. The left stack should be only slightly taller, accurately reflecting the small difference after five years. Keep both hero stacks large and close enough for immediate comparison. Use emerald accent on the left, warm ivory/soft gray on the right, gold only for actual money/value. High-end animated-film materials, cinematic depth, soft studio lighting. No chart axes, no dashboard, no tiny diorama, no photorealism, no extra text.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+
+==================== scene-08 ====================
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Endvermoegen nach dreissig Jahren.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Endvermögen
+- 7 %
+- 6 %
+- 447.156 €
+- 361.580 €
+
+VISUAL_FORM: chart
+VISUAL_CONCEPT: Ein echtes vertikales Balkendiagramm auf gemeinsamer Basis zeigt 447.156 € bei 7 % und 361.580 € bei 6 %; korrekte relative Balkenhöhen, echte Y-Achse Endvermögen.
+VOICEOVER_VISUAL_MATCH: Der hohe 7-%-Balken mit 447.156 € zeigt direkt den Endwert nach 30 Jahren und stellt ihn korrekt dem 6-%-Wert gegenüber.
+INSTANT_READ_TEST: PASS - zwei echte beschriftete Balken mit Endwerten machen den 30-Jahre-Unterschied sofort sichtbar.
+TRANSFERABILITY_TEST: PASS - die konkreten Endwerte und 7-/6-%-Kategorien gehören exakt zum Gebührenbeispiel.
+DATA_INTEGRITY_TEST: PASS - beide Balken teilen dieselbe Nullbasis und Y-Skala; 447.156 € zu 361.580 € wird proportional korrekt dargestellt, basierend auf 10.000 € Start plus 300 € monatlich über 30 Jahre.
+
+IMAGE PROMPT:
+Create a real premium 3D vertical bar chart on a seamless deep-black stage. Use a clear y-axis labeled “Endvermögen” and a shared zero baseline. Two bars only: an emerald 7-% bar reaching exactly “447.156 €” and a warm-ivory 6-% bar reaching exactly “361.580 €”. Their relative heights must be mathematically proportional on the same scale. Make the bars refined physical 3D columns with subtle material depth and warm-gold money accents, not plain PowerPoint rectangles. Keep category labels “7 %” and “6 %” clear at the base and values large above each bar. Premium cinematic lighting, controlled 3/4 perspective that preserves data readability. No Excel/PowerPoint default style, no dashboard, no random icons, no person, no photorealism.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+
+==================== scene-09 ====================
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 09 - Sechs Prozent Endwert.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 6 %
+- ≈ 362.000 €
+
+VISUAL_FORM: illustration
+VISUAL_CONCEPT: Ein einzelner großer stilisierter Investmentordner mit 6-%-Label steht neben einem klaren Endwert ≈ 362.000 € aus goldenen Wertscheinen; bewusst kein Diagramm, sondern ruhiger visueller Fokus auf den niedrigeren Endwert.
+VOICEOVER_VISUAL_MATCH: 6-%-Label und klarer Endwert ≈ 362.000 € setzen genau die zweite Zahl des Rechenbeispiels ins Zentrum.
+INSTANT_READ_TEST: PASS - 6 % plus großer Endwert sind in einem Blick lesbar.
+TRANSFERABILITY_TEST: PASS - der konkrete 6-%-Endwert 362.000 € ist spezifisch für diese Beispielrechnung.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium stylized 3D finance illustration on a seamless deep-black stage. Hero object: one elegant physical investment folder or account book with a clear “6 %” tab. Beside and partly emerging from it, arrange a substantial but clean stack of gold value slips, with one integrated physical label reading exactly “≈ 362.000 €”. Keep the composition asymmetric and cinematic, with the account book large in the foreground and value stack creating depth. Warm ivory and soft gray for the folder, restrained red-orange detail to signal the cost drag, gold only for value. No chart, no dashboard, no corporate stock composition, no person, no photorealism, no extra labels.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+
+==================== scene-10 ====================
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 10 - Fuenfundachtzigtausend Unterschied.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 85.600 €
+- nur 1 Prozentpunkt
+
+VISUAL_FORM: editorial-quote
+VISUAL_CONCEPT: Große physische 3D-Typografie „85.600 €“ steht im Zentrum; darunter klein „nur 1 Prozentpunkt“, flankiert von zwei subtilen Endwert-Markern 447k und 362k, ohne Dashboard-Look.
+VOICEOVER_VISUAL_MATCH: Die große Differenzzahl und der kleine Hinweis auf nur einen Prozentpunkt stellen den überraschenden Gegensatz direkt gegenüber.
+INSTANT_READ_TEST: PASS - 85.600 € groß und „nur 1 Prozentpunkt“ klein vermitteln die Kernbotschaft sofort.
+TRANSFERABILITY_TEST: PASS - 85.600 € Differenz bei einem Prozentpunkt ist die spezifische Pointe dieses Rechenbeispiels.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium editorial 3D finance composition on a seamless deep-black stage. Main hero: large physical beveled 3D typography reading exactly “85.600 €” in warm gold, occupying most of the composition. Directly below, much smaller refined ivory text reads “nur 1 Prozentpunkt”. Add two subtle physical endpoint markers at the sides, “447k” in emerald and “362k” in warm ivory, connected only by spatial alignment—not a dashboard. Use cinematic depth, premium materials, soft rim lighting and clean contact shadows. It should feel like a high-end animated-film editorial frame, not a social template. No PowerPoint, no card UI, no person, no extra sentence, no photorealism.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+
+==================== scene-12 ====================
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 12 - Kosten im Blick behalten.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Kosten prüfen
+- langfristig denken
+
+VISUAL_FORM: hybrid
+VISUAL_CONCEPT: Ein hochwertiger Investmentordner liegt offen; links ein kleiner sauberer Kostenbeleg, rechts ein deutlich größerer goldener langfristiger Vermögensstapel; zwei kurze integrierte Labels „Kosten prüfen“ und „langfristig denken“ verbinden Handlung und Konsequenz.
+VOICEOVER_VISUAL_MATCH: Kostenbeleg und langfristiger Vermögensstapel zeigen gemeinsam, dass Gebühren bewertet werden sollen, ohne jede Gebühr pauschal schlecht darzustellen.
+INSTANT_READ_TEST: PASS - Kostenbeleg plus großer langfristiger Vermögenswert und zwei kurze Handlungslabels ergeben eine klare Abschlussbotschaft.
+TRANSFERABILITY_TEST: PASS - die Kombination aus laufenden Kosten und langfristigem Investmentbezug schließt genau dieses Gebührenvideo ab.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium hybrid stylized 3D finance closing scene on a seamless deep-black stage. Show one open high-quality investment folder as the central anchor. On the left page sits a small clear fee statement with the short physical label “Kosten prüfen”. On the right, a larger refined stack of warm-gold value slips rises upward with the short physical label “langfristig denken”. The composition should communicate balanced evaluation: fees are something to examine because long-term value matters, not that every fee is automatically bad. Use elegant ivory paper, emerald positive accents, restrained red-orange only on the cost line, cinematic 3/4 depth and premium animated-film lighting. No dashboard, no chart, no stock character, no clutter, no photorealism, no extra text.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+
+BACKGROUND_LOCK: Use one seamless deep black background.

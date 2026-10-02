@@ -1,9 +1,7 @@
 # scene-11
 
 **Typ:** animation
-**Zwischenüberschrift:** [EINFÜGEN — natürliche Aussage/Frage; weiß, 56 px, max. 2 Zeilen + einfaches Icon]
-**Icon:** [EINFÜGEN — inhaltlich passend]
-**Sprechtext:** [EINFÜGEN — nur Wörter dieser Szene]
-
-**Google Flow:** KEIN Bild 11; Nummer bleibt reserviert.
-**Animation:** Phase 1 liefert remotion.md + fertige animation.tsx.
+**Zwischenüberschrift:** Kosten wirklich prüfen
+**Icon:** search
+**Sprechtext:** Deshalb lohnt es sich, bei Fonds, Depot und Beratung auf laufende Kosten zu schauen.
+**Animation:** Fonds-, Depot- und Beratungsdokument liegen unmarkiert vor. Eine große Lupe fährt über die Dokumente und hebt TER, Depotkosten und Servicekosten nacheinander hervor. Alle Kostenpositionen sind identifiziert und ein grüner Prüfhaken erscheint.

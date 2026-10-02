@@ -1,9 +1,7 @@
 # scene-03
 
 **Typ:** animation
-**Zwischenüberschrift:** [EINFÜGEN — natürliche Aussage/Frage; weiß, 56 px, max. 2 Zeilen + einfaches Icon]
-**Icon:** [EINFÜGEN — inhaltlich passend]
-**Sprechtext:** [EINFÜGEN — nur Wörter dieser Szene]
-
-**Google Flow:** KEIN Bild 03; Nummer bleibt reserviert.
-**Animation:** Phase 1 liefert remotion.md + fertige animation.tsx.
+**Zwischenüberschrift:** Unser Beispiel
+**Icon:** wallet
+**Sprechtext:** Nehmen wir ein einfaches Beispiel: Du startest mit 10.000 Euro und investierst 300 Euro im Monat.
+**Animation:** 10.000 € Startkapital im Investmentordner. Mehrere 300-€-Monatsumschläge wandern nacheinander hinein und erhöhen den sichtbaren Goldwertstapel. Startkapital plus wiederkehrende 300-€-Sparrate ist als ein gemeinsames Investment sichtbar.

@@ -1,9 +1,9 @@
 # scene-01
 
 **Typ:** image
-**Zwischenüberschrift:** [EINFÜGEN — natürliche Aussage/Frage; weiß, 56 px, max. 2 Zeilen + einfaches Icon]
-**Icon:** [EINFÜGEN — inhaltlich passend]
-**Sprechtext:** [EINFÜGEN — nur Wörter dieser Szene]
-
-**Google-Flow-Dateiname:** Bild 01 - [KURZER SZENENNAME].png
-**Erlaubte kurze Objektlabels:** [EINFÜGEN]
+**Zwischenüberschrift:** Was kostet 1 %?
+**Icon:** percent
+**Sprechtext:** Ein Prozent Kosten klingt nach fast nichts.
+**Visual Form:** metaphor
+**Visual:** Ein winziger roter 1-%-Gebührenzettel liegt groß im Vordergrund; dahinter ziehen sich viele identische kleine Gebührenzettel in die schwarze Tiefe und sammeln sich zu einem deutlich größeren Papierberg.
+**Flow-Datei:** Bild 01 - Ein Prozent wirkt klein.png

@@ -1,9 +1,9 @@
 # scene-06
 
 **Typ:** image
-**Zwischenüberschrift:** [EINFÜGEN — natürliche Aussage/Frage; weiß, 56 px, max. 2 Zeilen + einfaches Icon]
-**Icon:** [EINFÜGEN — inhaltlich passend]
-**Sprechtext:** [EINFÜGEN — nur Wörter dieser Szene]
-
-**Google-Flow-Dateiname:** Bild 06 - [KURZER SZENENNAME].png
-**Erlaubte kurze Objektlabels:** [EINFÜGEN]
+**Zwischenüberschrift:** Nach fünf Jahren
+**Icon:** calendar
+**Sprechtext:** Nach fünf Jahren liegen die Ergebnisse noch relativ nah beieinander.
+**Visual Form:** comparison
+**Visual:** Ein großer physischer Kalenderblock „5 Jahre“ steht hinter zwei sauberen Geldstapeln; links 35.654 €, rechts 34.420 €, beide sichtbar ähnlich groß und nur leicht unterschiedlich.
+**Flow-Datei:** Bild 06 - Nach fünf Jahren.png

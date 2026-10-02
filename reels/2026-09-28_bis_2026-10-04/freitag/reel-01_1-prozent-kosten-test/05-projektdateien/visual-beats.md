@@ -1,25 +1,21 @@
-# Visual Beats
+# Visual Beats — Was 1 % Kosten wirklich ausmacht
 
 VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v2
 
-Planungsreihenfolge:
+Grundregel: Ein gesprochener Gedanke bekommt einen klaren sichtbaren Beat. Statische Bilder bleiben kurz; Animationen zeigen mehrere echte Zustände. Echte Wort-Timings bestimmen später die finalen Schnitte.
 
-1. gesprochene Gedanken bestimmen
-2. pro Gedanken einen sichtbaren Visual Beat festlegen
-3. zusätzliche Bilder einplanen, wenn ein Satz sonst visuell überladen oder zu lange statisch wäre
-4. erst danach Beats sinnvoll zu Szenen gruppieren
-5. finale Dauer aus echtem Voiceover ableiten
+Lieber ein zusätzliches gutes Bild als einen überladenen Still oder ein Standbild, das nach verstandener Aussage unnötig lange stehen bleibt.
 
-Regeln:
-- Szenenzahl ist frei und richtet sich nach Thema und Rhythmus.
-- Ein gesprochener Gedanke braucht einen sichtbaren Beat.
-- Ein Satz darf und soll ein eigenes Bild bekommen, wenn das die Aussage schneller verständlich macht.
-- Führt das Voiceover einen neuen konkreten Gedanken ein, soll sich auch die sichtbare Information ändern.
-- Enthält ein Satz zwei Aktionen, Beispiele, einen Vergleich oder Vorher/Nachher, wird er bei Bedarf in mehrere Beats geteilt.
-- Statische Bilder ideal 1,8–3,2 s; ohne neue sichtbare Information maximal 4,2 s.
-- Mehrere Bildszenen nacheinander sind ausdrücklich erlaubt, wenn jedes Bild die Aussage sichtbar weiterführt.
-- Lieber ein zusätzliches gutes Bild als ein einziges überladenes oder langweilig lang stehendes Bild.
-- Kamera-Push oder Zoom allein zählt nicht als neuer Beat.
-- Animationen brauchen mehrere sichtbare Zustände und müssen mit dem Voiceover fortschreiten.
-
-[BEAT-PLAN IN PHASE 1 AUSFÜLLEN]
+## Geplanter Ablauf
+- scene-01 IMAGE 3,4 s — kleiner 1-%-Zettel gegen angesammelte Gebühren über Zeit.
+- scene-02 IMAGE 4,0 s — editorialer 1-%-Zeithorizont.
+- scene-03 ANIMATION 5,2 s — 10.000 € Start → 300-€-Monatsumschläge → gewachsener Wertstapel.
+- scene-04 IMAGE 4,0 s — echtes 7-%-gegen-6-%-Liniendiagramm.
+- scene-05 IMAGE 3,3 s — am Anfang nahezu gleiche Füllstände.
+- scene-06 IMAGE 4,0 s — Fünfjahresvergleich 35.654 € gegen 34.420 €.
+- scene-07 ANIMATION 5,6 s — gleiche Einzahlung → zunehmende Wachstumsdifferenz → sichtbarer Gap.
+- scene-08 IMAGE 4,0 s — echtes Endvermögens-Balkendiagramm.
+- scene-09 IMAGE 3,8 s — ruhiger Fokus auf den 6-%-Endwert.
+- scene-10 IMAGE 4,0 s — editorialer Payoff 85.600 € Unterschied.
+- scene-11 ANIMATION 5,8 s — Dokumente → Lupe scannt Kosten → Prüfhaken.
+- scene-12 IMAGE 4,0 s — ausgewogener Abschluss: Kosten prüfen, langfristig denken.

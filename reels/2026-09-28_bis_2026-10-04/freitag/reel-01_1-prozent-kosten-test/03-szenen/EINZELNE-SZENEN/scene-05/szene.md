@@ -1,9 +1,9 @@
 # scene-05
 
 **Typ:** image
-**Zwischenüberschrift:** [EINFÜGEN — natürliche Aussage/Frage; weiß, 56 px, max. 2 Zeilen + einfaches Icon]
-**Icon:** [EINFÜGEN — inhaltlich passend]
-**Sprechtext:** [EINFÜGEN — nur Wörter dieser Szene]
-
-**Google-Flow-Dateiname:** Bild 05 - [KURZER SZENENNAME].png
-**Erlaubte kurze Objektlabels:** [EINFÜGEN]
+**Zwischenüberschrift:** Am Anfang fast gleich
+**Icon:** equal
+**Sprechtext:** Am Anfang sieht der Unterschied klein aus.
+**Visual Form:** comparison
+**Visual:** Zwei identische transparente Investmentbehälter stehen nebeneinander, beide fast gleich hoch gefüllt; links 7 %, rechts 6 %, gleiche Basis und nur ein sehr kleiner sichtbarer Unterschied.
+**Flow-Datei:** Bild 05 - Gleicher Start.png

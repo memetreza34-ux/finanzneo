@@ -1,62 +1,70 @@
-# SZENENPLAN
+# Szenenplan — Was 1 % Kosten wirklich ausmacht
 
-Für jede Szene: Typ, Sprechbeat, natürliche Zwischenüberschrift, Icon, Hauptaussage. Bildbeats max. 6 Sekunden.
+Ziel: ca. 60 Sekunden, 12 Visual Beats, 9 Bilder + 3 Animationen. Form frei, Bildwelt fest.
 
-V5:
-- Header mittig, 56 px (min. 50), max. 2 Zeilen, weißer Text + semantisch gefärbtes 34-px-Icon
-- keine Capsule/Chip/Pill und kein erzwungenes ALL CAPS
-- Header Y154; Visual Y320–1400; Caption bottom340
-- Untertitel enden an Szenengrenzen
-- Animationsszene besitzt fertige animation.tsx aus Phase 1 und bleibt sichtbar in Y320–1400
+01. IMAGE — Was kostet 1 %?
+   Sprechbeat: Ein Prozent Kosten klingt nach fast nichts.
+   Visual: Ein winziger roter 1-%-Gebührenzettel liegt groß im Vordergrund; dahinter ziehen sich viele identische kleine Gebührenzettel in die schwarze Tiefe und sammeln sich zu einem deutlich größeren Papierberg.
 
-[SZENENPLAN EINFÜGEN]
+02. IMAGE — Klein wirkt harmlos
+   Sprechbeat: Bei deinem Investment kann genau dieses eine Prozent über Jahrzehnte aber Zehntausende Euro Unterschied machen.
+   Visual: Große hochwertige 3D-Typografie „1 %“ steht als Hauptmotiv auf schwarzer Bühne; direkt dahinter läuft eine lange Reihe kleiner Jahresmarken in die Tiefe, sodass die kleine Zahl visuell mit langer Zeit verbunden wird.
 
-## Visual-Beat-Timing
+03. ANIMATION — Unser Beispiel
+   Sprechbeat: Nehmen wir ein einfaches Beispiel: Du startest mit 10.000 Euro und investierst 300 Euro im Monat.
+   Visual: Custom-Animation mit klarer Start→Mechanik→Payoff-Logik.
 
-VISUAL_BEAT_CONTRACT: finanzneo-visual-beats-v2
+04. IMAGE — 7 % gegen 6 %
+   Sprechbeat: Variante A bringt im Schnitt 7 Prozent pro Jahr, Variante B nach Kosten vereinfachend nur 6 Prozent.
+   Visual: Ein echtes hochwertig inszeniertes Liniendiagramm mit X-Achse Jahre 0–30 und Y-Achse Vermögen; zwei korrekt startende Linien 7 % und 6 % trennen sich mit zunehmender Laufzeit sichtbar.
 
-Nicht die Szenenzahl bestimmt den Rhythmus. Erst Voiceover-Gedanken und Visual Beats planen, dann Szenen gruppieren. Neue konkrete Aussage = möglichst neue sichtbare Information. Ein statisches Bild darf nicht weiterlaufen, nachdem seine Aussage bereits verstanden ist; lieber ein zusätzliches Bild als einen überladenen Still.
+05. IMAGE — Am Anfang fast gleich
+   Sprechbeat: Am Anfang sieht der Unterschied klein aus.
+   Visual: Zwei identische transparente Investmentbehälter stehen nebeneinander, beide fast gleich hoch gefüllt; links 7 %, rechts 6 %, gleiche Basis und nur ein sehr kleiner sichtbarer Unterschied.
 
+06. IMAGE — Nach fünf Jahren
+   Sprechbeat: Nach fünf Jahren liegen die Ergebnisse noch relativ nah beieinander.
+   Visual: Ein großer physischer Kalenderblock „5 Jahre“ steht hinter zwei sauberen Geldstapeln; links 35.654 €, rechts 34.420 €, beide sichtbar ähnlich groß und nur leicht unterschiedlich.
+
+07. ANIMATION — Der Abstand wächst
+   Sprechbeat: Aber mit jedem weiteren Jahr arbeitet der Zinseszinseffekt gegen die teurere Variante.
+   Visual: Custom-Animation mit klarer Start→Mechanik→Payoff-Logik.
+
+08. IMAGE — Nach 30 Jahren
+   Sprechbeat: Nach 30 Jahren wären aus denselben Einzahlungen ungefähr 447.000 Euro bei 7 Prozent geworden.
+   Visual: Ein echtes vertikales Balkendiagramm auf gemeinsamer Basis zeigt 447.156 € bei 7 % und 361.580 € bei 6 %; korrekte relative Balkenhöhen, echte Y-Achse Endvermögen.
+
+09. IMAGE — Nur 6 % Rendite
+   Sprechbeat: Bei 6 Prozent sind es nur rund 362.000 Euro.
+   Visual: Ein einzelner großer stilisierter Investmentordner mit 6-%-Label steht neben einem klaren Endwert ≈ 362.000 € aus goldenen Wertscheinen; bewusst kein Diagramm, sondern ruhiger visueller Fokus auf den niedrigeren Endwert.
+
+10. IMAGE — 85.600 € Unterschied
+   Sprechbeat: Das sind etwa 85.600 Euro Unterschied – obwohl nur ein Prozentpunkt fehlt.
+   Visual: Große physische 3D-Typografie „85.600 €“ steht im Zentrum; darunter klein „nur 1 Prozentpunkt“, flankiert von zwei subtilen Endwert-Markern 447k und 362k, ohne Dashboard-Look.
+
+11. ANIMATION — Kosten wirklich prüfen
+   Sprechbeat: Deshalb lohnt es sich, bei Fonds, Depot und Beratung auf laufende Kosten zu schauen.
+   Visual: Custom-Animation mit klarer Start→Mechanik→Payoff-Logik.
+
+12. IMAGE — Kleine Zahl, große Wirkung
+   Sprechbeat: Nicht jede Gebühr ist schlecht. Aber kleine Prozentzahlen können über lange Zeit sehr groß werden. Vereinfachtes Rechenbeispiel, ohne Steuern.
+   Visual: Ein hochwertiger Investmentordner liegt offen; links ein kleiner sauberer Kostenbeleg, rechts ein deutlich größerer goldener langfristiger Vermögensstapel; zwei kurze integrierte Labels „Kosten prüfen“ und „langfristig denken“ verbinden Handlung und Konsequenz.
 
 IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
 VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
-
 FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
 
-FUTURE IMAGE STORYTELLING V3 — FREE VISUAL FORM VERBINDLICH:
-- Beginne beim exakten Sprechbeat: Was soll der Zuschauer in 1–2 Sekunden verstehen?
-- Wähle danach FREI die stärkste Darstellungsform. Erlaubt sind: character-story, object-story, comparison, chart, diagram, editorial-quote, illustration, metaphor und hybrid.
-- Es gibt KEINEN Zwang zu Menschen, Alltagsobjekten, Story-Szenen oder Metaphern. Ein echtes Diagramm darf die beste Lösung sein. Ein einzelnes Objekt darf die beste Lösung sein. Ein starkes Zitat-/Editorialbild darf die beste Lösung sein.
-- Die Freiheit betrifft die FORM, nicht die Qualität: Jede Szene muss exakt zum Sprechbeat passen, in 1–2 Sekunden lesbar sein und wie dieselbe FinanzNeo-Serie wirken.
-- V9 bleibt der STYLE-LOCK: deep-black Bühne, premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache, starke Tiefe, saubere Materialien, Emerald/Gold/Red-Orange in ihren Rollen, niemals billiger Corporate-/PowerPoint-/Stock-Look.
-- CHARACTER-STORY: Figur nur einsetzen, wenn Pose, Reaktion oder Handlung wirklich etwas erklärt. Keine Corporate-3D-Figur, die nur dekorativ danebensteht.
-- OBJECT-STORY: Ein oder wenige bekannte Objekte dürfen allein tragen, wenn die Aussage sofort verständlich ist.
-- COMPARISON: A-vs-B darf direkt, symmetrisch oder räumlich inszeniert werden, solange der Unterschied sofort lesbar ist.
-- CHART/DIAGRAM: Es muss ein ECHTES Diagramm bleiben. Reale Achsen, Skalen, Werte, Kategorien, Labels und mathematisch korrekte Proportionen verwenden, soweit der Diagrammtyp sie braucht. Ein Kreisdiagramm braucht keine erfundene X-/Y-Achse; ein Linien-/Balkendiagramm schon, wenn fachlich erforderlich.
-- CHART/DIAGRAM darf hochwertig 3D inszeniert werden: physische Achsen, volumetrische Balken, elegante 3D-Linien, Materialtiefe, Licht und Schatten. Aber niemals Datenlogik für Dekoration opfern.
-- EDITORIAL-QUOTE: Text darf Hauptmotiv sein, wenn der Sprechbeat davon profitiert. Typografie muss Teil der FinanzNeo-Welt sein und darf nicht wie eine Standard-Social-Template-Karte aussehen.
-- ILLUSTRATION: freie erklärende Illustration ist erlaubt, auch ohne Mensch und ohne reale Mini-Szene, solange Bedeutung und Finanzbezug sofort klar sind.
-- METAPHOR: intuitive Metaphern und Übertreibungen sind erlaubt. Sie dürfen kein Rätsel sein.
-- HYBRID: Kombinationen sind ausdrücklich erlaubt, z. B. Figur + echtes Chart, Objekt + Diagramm, Zitat + visuelle Metapher oder Vergleich + Datenvisualisierung.
-- Abstrakte Fantasie-Finanzkörper wie capital body, wealth tower, value block, investment block oder fee token sind KEINE automatische Standardsprache. Nur nutzen, wenn sie bewusst als verständliche Illustration/Metapher geplant sind und den Instant-Read-Test bestehen.
-- Keine Bildart bekommt eine feste Quote. Nicht künstlich pro Video zwei Menschen, zwei Charts usw. erzwingen. Der Sprechbeat entscheidet.
-- Abwechslung ist erwünscht: aufeinanderfolgende Szenen sollen nicht unnötig dieselbe Kompositionsidee wiederholen.
-- POWERPOINT-/EXCEL-DEFAULT ist verboten: keine dünnen Standardachsen, langweiligen Standardbalken, generischen Diagrammvorlagen oder flachen Corporate-Infografiken als finale Bildwelt.
-- SUBTITLE-OFF-TEST: Ohne Untertitel muss die Hauptaussage grundsätzlich erkennbar sein; bei Editorial-Quote darf der bewusst integrierte Haupttext Teil der Aussage sein.
-- TRANSFERABILITY-TEST: Könnte dasselbe Bild unverändert zu fünf anderen Finanzthemen passen, ist es zu generisch.
-- DATA_INTEGRITY_TEST: Bei chart/diagram muss dieser mit PASS beginnen und konkret bestätigen, dass Werte, Proportionen, Achsen/Labels und Aussage fachlich zusammenpassen. Bei allen anderen Formen exakt: not-applicable.
-- Die frühere YouTube-Phase-A-DNA bleibt Qualitätsreferenz für Licht, Tiefe, Kamera, Figuren und hochwertige 3D-Inszenierung, aber sie begrenzt NICHT die Darstellungsform.
-- Prompt und scene-index.json müssen bei VISUAL_FORM, VISUAL_CONCEPT, VOICEOVER_VISUAL_MATCH, INSTANT_READ_TEST, TRANSFERABILITY_TEST und DATA_INTEGRITY_TEST identisch sein.
+FINANZNEO WORLD:
+- Deep Black als ruhige Bühne.
+- Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache.
+- Emerald = positiv/Wachstum, Gold = Geld/Wert, Warm Red-Orange = Kosten/Warnung, Ivory/Soft Gray = neutral.
+- Starke Tiefe, saubere Materialien, hochwertige Lichtsetzung, klare mobile Lesbarkeit.
+- Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
 
-## Future V3 Timing
-
-FUTURE_PRODUCTION_STANDARD: finanzneo-future-production-v3
-
-Statische Visuals nicht künstlich bis zum Satzende stehen lassen. Ab ca. 3,6 s aktiv einen weiteren Visual Beat prüfen; ohne neue sichtbare Information maximal 4,0 s. Ein Satz darf mehrere Bilder bekommen.
-
-## Phase 1 Hybrid Motion Direction V2
-
-PHASE1_MOTION_DIRECTION: finanzneo-phase1-hybrid-motion-v2
-FINANCE_MOTION_LIBRARY: finanzneo-finance-motion-library-v1
-
-Animationsszenen werden inhaltlich geplant. Die Library beschleunigt passende Standard-Finanzmechaniken, bestimmt aber nie den Sprechpunkt. Keine passende Library-Mechanik bedeutet individuelle Animation.
+FREE VISUAL FORM:
+- Pro Sprechbeat frei die stärkste Form wählen: character-story, object-story, comparison, chart, diagram, editorial-quote, illustration, metaphor oder hybrid.
+- Kein Zwang zu Menschen, Alltagsobjekten oder Metaphern.
+- Aufeinanderfolgende Szenen nicht unnötig mit derselben Kompositionsidee bauen.
+- CHART/DIAGRAM muss ein echtes Diagramm bleiben: korrekte Achsen/Skalen/Labels/Proportionen, soweit fachlich erforderlich; 3D-Inszenierung darf die Datenlogik nie verfälschen.
+- POWERPOINT-/EXCEL-DEFAULT ist verboten: keine langweiligen Standardbalken, dünnen Defaultachsen oder flachen Corporate-Templates.
+- TRANSFERABILITY_TEST: Bild muss spezifisch für den Sprechbeat sein.
