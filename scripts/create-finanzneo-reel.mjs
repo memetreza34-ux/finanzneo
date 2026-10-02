@@ -5,9 +5,9 @@
 // Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
 // und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
 // Bildplanung: FORM FREI — BILDWELT FEST. Pro Beat die stärkste Darstellungsform wählen.
-// Google Flow wird am Ende erneut angewendet, damit Cover-Gate, Style-Anker,
-// 5er-Blöcke, Sofort-Rename und finaler Inventory-QA nicht von Zwischen-Skripten
-// überschrieben werden können.
+// Google Flow wird am Ende erneut angewendet, damit paralleles 3-Cover-Gate,
+// V9 als einzige Style-Autorität, 5er-Blöcke, Sofort-Rename und finaler
+// Inventory-QA nicht von Zwischen-Skripten überschrieben werden können.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
@@ -71,14 +71,15 @@ for (const [script, scriptArgs] of steps) {
 }
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
-console.log('  Google Flow: 3 Cover mit Text -> Nutzerwahl A/B/C -> gewähltes Cover als einziger Style-Anker.');
-console.log('  Danach: organisatorische 5er-Blöcke, technisch immer exakt 1 Bildjob -> Sofort-Rename -> QA -> automatisch weiter.');
+console.log('  Google Flow: 3 Cover mit kurzem Inhalts-Hook gleichzeitig als getrennte Jobs -> Nutzerwahl A/B/C.');
+console.log('  Gewähltes Cover = Scene 01, aber KEINE Style-Referenz; V9 bleibt einzige Style-Autorität für alle Bilder.');
+console.log('  Danach: organisatorische 5er-Blöcke, technisch immer exakt 1 Szenenbildjob -> Sofort-Rename -> QA -> automatisch weiter.');
 console.log('  Flow-Abschluss: vollständiger Inventory-/Dateinamen-QA; alle finalen Bilder gemeinsam im einen finalen Bildordner.');
 console.log('  Visual Form V1: Form frei — Bildwelt fest.');
 console.log('  IMAGE darf pro Beat character-story, object-story, comparison, chart, diagram, editorial-quote, illustration, metaphor oder hybrid sein.');
 console.log('  CHART/DIAGRAM bleibt fachlich echt: korrekte Achsen/Skalen/Labels/Proportionen soweit erforderlich; kein PowerPoint-/Excel-Default.');
 console.log('  Bildwelt: premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf Deep Black; V9 bleibt Style-Lock.');
-console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
+console.log('  Cover Hook V3: Hero-Bild + kurzer inhaltsbezogener Hook; maximal 2 Zeilen, ideal 2–5 Wörter.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
 console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
 console.log('  ANIMATION: dieselbe freie visuelle Regie, aber in derselben V9-Welt; Remotion-Hauptanimation + Header/Icon + Caption.');
