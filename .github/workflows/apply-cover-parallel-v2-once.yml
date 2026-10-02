@@ -1,4 +1,4 @@
-# one-shot rerun after cover-header trim
+# one-shot rerun after reviewed protected-file changes
 name: Apply Cover Parallel V2 Once
 
 on:
@@ -43,5 +43,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add CLAUDE.md scripts/lib/flow-autonomy.mjs scripts/validate-reel-source-contract.mjs scripts/apply-flow-autonomous-contract.mjs reels/2026-09-28_bis_2026-10-04/freitag/reel-01_1-prozent-kosten-test
-          git diff --cached --quiet || git commit -m "Apply parallel cover V2 workflow to test reel"
+          git diff --cached --quiet || FINANZNEO_ALLOW_PROTECTED_CHANGES=1 git commit -m "Apply parallel cover V2 workflow to test reel"
           git push origin HEAD:reel/test-free-visual-form-1pct-fees
