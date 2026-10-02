@@ -1,0 +1,27 @@
+name: Free Visual Form Diagnostic
+
+on:
+  push:
+    branches:
+      - fix/visual-system-consolidation-v1
+  workflow_dispatch:
+
+jobs:
+  validate-free-visual-form:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Image storytelling tests
+        run: node --import tsx --test tests/image-storytelling-v3.test.ts
+      - name: Repository consistency
+        run: node scripts/validate-repo-consistency.mjs
+      - name: TypeScript
+        run: npm run typecheck
