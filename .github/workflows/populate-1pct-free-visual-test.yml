@@ -1,0 +1,41 @@
+name: Populate 1pct Free Visual Test
+
+on:
+  push:
+    branches:
+      - reel/test-free-visual-form-1pct-fees
+    paths:
+      - .github/workflows/populate-1pct-free-visual-test.yml
+      - scripts/tmp-populate-1pct-free-visual-test.mjs
+
+permissions:
+  contents: write
+
+jobs:
+  populate-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: reel/test-free-visual-form-1pct-fees
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Populate phase 1
+        run: node scripts/tmp-populate-1pct-free-visual-test.mjs
+      - name: Validate reel
+        run: npm run reel:validate -- reels/2026-09-28_bis_2026-10-04/freitag/reel-01_1-prozent-kosten-test
+      - name: TypeScript
+        run: npm run typecheck
+      - name: Commit phase 1
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reels/2026-09-28_bis_2026-10-04/freitag/reel-01_1-prozent-kosten-test
+          git commit -m "Build free visual form 1 percent fee test reel phase 1"
+          git push origin HEAD:reel/test-free-visual-form-1pct-fees
