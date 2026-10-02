@@ -6,83 +6,78 @@ import {join, resolve} from 'node:path';
 import test from 'node:test';
 
 const validator = resolve('scripts/validate-future-image-storytelling-v3.mjs');
-const STORY_MOMENT_REVISION = 'finanzneo-readable-story-moment-v1';
+const REVISION = 'finanzneo-free-visual-form-v1';
+const ALLOWED = ['character-story', 'object-story', 'comparison', 'chart', 'diagram', 'editorial-quote', 'illustration', 'metaphor', 'hybrid'];
 const POLICY = `IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
-STORY_MOMENT_REVISION: ${STORY_MOMENT_REVISION}
-Familiar things, clear story, creative when useful.
-TRANSFERABILITY-TEST
-ABSTRAKTE FINANZKÖRPER
-Förderbänder, Schienen, Schranken, Käfige
-intuitive Metaphern`;
+VISUAL_FORM_REVISION: ${REVISION}
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+TRANSFERABILITY_TEST
+CHART/DIAGRAM
+POWERPOINT-/EXCEL-DEFAULT`;
 
 const contract = {
   id: 'finanzneo-image-storytelling-v3',
   appliesToNewReelsOnly: true,
-  storyMomentRevision: STORY_MOMENT_REVISION,
-  literalFirstRequired: true,
-  directRealWorldDepictionPreferred: true,
-  recognizableFinanceContextRequired: true,
+  visualFormRevision: REVISION,
+  visualFormFreedomRequired: true,
+  visualFormChosenPerBeatRequired: true,
+  allowedVisualForms: ALLOWED,
+  v9StyleLockRequired: true,
   exactVoiceBeatVisualMatchRequired: true,
+  instantReadRequired: true,
   transferabilityTestRequired: true,
-  metaphorFallbackOnly: false,
-  metaphorNeedsExplicitJustification: true,
+  recognizableFinanceContextRequired: true,
+  humanOptional: true,
+  realWorldObjectsOptional: true,
   intuitiveMetaphorAllowed: true,
-  intuitiveMetaphorMayBeatLiteralWhenClearer: true,
-  familiarObjectsOrCharactersRequired: true,
-  instantStoryReadRequired: true,
-  exaggeratedPhysicalStoryAllowed: true,
-  familiarObjectMetaphorRequired: true,
-  animationFilmStoryFrameRequired: true,
+  illustrationAllowed: true,
+  editorialQuoteAllowed: true,
+  comparisonAllowed: true,
+  chartAllowed: true,
+  diagramAllowed: true,
+  hybridAllowed: true,
+  textMayBePrimaryForEditorialQuote: true,
+  realChartMustRemainRealChart: true,
+  chartAxesLabelsWhenApplicableRequired: true,
+  chartDataIntegrityRequired: true,
+  premiumChartStylingRequired: true,
+  powerPointExcelDefaultLookForbidden: true,
+  genericCorporateLookForbidden: true,
   genericFantasyMechanismAsDefaultForbidden: true,
-  railsConveyorsGatesCagesPortalsAsDefaultForbidden: true,
-  practicalEverydaySituationRequired: true,
-  directMeaningWithoutCaptionRequired: true,
-  visibleActionConflictOrConsequenceRequired: true,
-  genericSymbolOnlyForbidden: true,
-  isolatedFinanceIconAsMainStoryForbidden: true,
   decorativeObjectPileForbidden: true,
   staticCatalogCompositionForbidden: true,
-  entertainmentThroughActionContrastOrConflictRequired: true,
-  beforeAfterOrCauseEffectWhenHelpful: true,
-  humanContextWhenHelpful: true,
-  visualHookUnderOneSecondRequired: true,
-  oneImagePerSentenceWhenItImprovesClarity: true,
-  extraImagePreferredOverOverloadedStill: true,
-  labelsSupplementalOnly: true,
-  animationFilmRenderingRequired: true,
-  groundedStoryMomentRequired: true,
   abstractFinanceObjectAsDefaultForbidden: true,
+  animationFilmRenderingRequired: true,
   phaseAQualityReferenceOnly: true,
 };
 
 const makeReel = (overrides: Record<string, string> = {}) => {
-  const root = mkdtempSync(join(tmpdir(), 'finanzneo-image-v3-'));
+  const root = mkdtempSync(join(tmpdir(), 'finanzneo-image-v3-free-'));
   const write = (relative: string, content: string) => {
     const path = join(root, relative);
     mkdirSync(resolve(path, '..'), {recursive: true});
     writeFileSync(path, content, 'utf8');
   };
 
+  const visualForm = overrides.visualForm ?? 'object-story';
   const meta = {
-    strategy: overrides.strategy ?? 'literal',
-    literalSituation: overrides.literalSituation ?? 'Eine echte Überweisung wartet sichtbar vor der Freigabe.',
-    contextAnchor: overrides.contextAnchor ?? 'Bankkunde, Smartphone und konkrete Überweisungsdaten',
-    storyMoment: overrides.storyMoment ?? 'Der Kunde erkennt den sichtbaren Unterschied zwischen Empfängername und IBAN und stoppt vor der Freigabe.',
-    voiceVisualMatch: overrides.voiceVisualMatch ?? 'Die sichtbare Abweichung zwischen Name und IBAN löst die Reaktion der Figur aus.',
-    instantReadTest: overrides.instantReadTest ?? 'PASS - Figur, Smartphone und Warnung machen die gestoppte Überweisung sofort verständlich.',
-    transferabilityTest: overrides.transferabilityTest ?? 'PASS - Die konkrete Name-IBAN-Prüfung passt nicht unverändert zu anderen Finanzthemen.',
-    metaphorJustification: overrides.metaphorJustification ?? 'none',
+    visualForm,
+    visualConcept: overrides.visualConcept ?? 'Ein großes Portemonnaie verliert sichtbar mehrere kleine wiederkehrende Gebührenbelege.',
+    voiceVisualMatch: overrides.voiceVisualMatch ?? 'Die wiederkehrenden Gebührenbelege zeigen direkt, dass kleine Kosten mehrfach vom Geld abgehen.',
+    instantReadTest: overrides.instantReadTest ?? 'PASS - Portemonnaie und wiederkehrende Gebührenbelege machen den Geldabfluss sofort verständlich.',
+    transferabilityTest: overrides.transferabilityTest ?? 'PASS - Die wiederkehrenden Gebührenbelege passen spezifisch zum gesprochenen Gebührenproblem.',
+    dataIntegrityTest: overrides.dataIntegrityTest ?? (visualForm === 'chart' || visualForm === 'diagram'
+      ? 'PASS - Werte, Proportionen, Achsen und Labels entsprechen exakt dem beschriebenen Vergleich.'
+      : 'not-applicable'),
   };
 
-  const imagePrompt = overrides.imagePrompt ?? 'Create a premium stylized 3D animated-film frame: a bank customer checks a transfer on a smartphone, notices a clear recipient-name versus IBAN mismatch and visibly pauses before authorizing it.';
-  const prompt = `VISUAL_STRATEGY: ${meta.strategy}
-LITERAL_REAL_WORLD_SITUATION: ${meta.literalSituation}
-REAL_WORLD_CONTEXT_ANCHOR: ${meta.contextAnchor}
-VISUAL_STORY_MOMENT: ${meta.storyMoment}
+  const imagePrompt = overrides.imagePrompt ?? 'Create a premium FinanzNeo V9 image on deep black with a large wallet and recurring fee receipts visibly reducing the money inside.';
+  const prompt = `VISUAL_FORM: ${meta.visualForm}
+VISUAL_CONCEPT: ${meta.visualConcept}
 VOICEOVER_VISUAL_MATCH: ${meta.voiceVisualMatch}
 INSTANT_READ_TEST: ${meta.instantReadTest}
 TRANSFERABILITY_TEST: ${meta.transferabilityTest}
-METAPHOR_JUSTIFICATION: ${meta.metaphorJustification}
+DATA_INTEGRITY_TEST: ${meta.dataIntegrityTest}
 
 IMAGE PROMPT:
 ${imagePrompt}
@@ -110,7 +105,7 @@ ${POLICY}
   return root;
 };
 
-test('Story-Moment V1 akzeptiert eine konkrete verständliche Animationsfilm-Szene', () => {
+test('Free Visual Form akzeptiert object-story', () => {
   const root = makeReel();
   try {
     execFileSync(process.execPath, [validator, root], {stdio: 'pipe'});
@@ -119,7 +114,63 @@ test('Story-Moment V1 akzeptiert eine konkrete verständliche Animationsfilm-Sze
   }
 });
 
-test('Transferability-Test blockiert generische Bildplanung', () => {
+test('Free Visual Form akzeptiert echtes Chart mit Datenintegrität', () => {
+  const root = makeReel({
+    visualForm: 'chart',
+    visualConcept: 'Ein echtes Liniendiagramm mit X-Achse Jahre und Y-Achse Vermögen zeigt 7 Prozent und 6 Prozent über 30 Jahre.',
+    voiceVisualMatch: 'Die beiden korrekt beschrifteten Wachstumslinien machen die zunehmende Renditedifferenz sichtbar.',
+    instantReadTest: 'PASS - Zwei klar beschriftete Linien und der wachsende Abstand sind innerhalb einer Sekunde verständlich.',
+    transferabilityTest: 'PASS - 7 Prozent gegen 6 Prozent über 30 Jahre ist spezifisch für diesen Renditevergleich.',
+    dataIntegrityTest: 'PASS - X-Achse 0 bis 30 Jahre, Y-Achse Vermögen, beide Startwerte identisch und Endwerte proportional korrekt.',
+    imagePrompt: 'Create a premium FinanzNeo V9 real line chart with labeled X and Y axes, 7% and 6% growth lines, correct values and cinematic 3D depth on deep black.',
+  });
+  try {
+    execFileSync(process.execPath, [validator, root], {stdio: 'pipe'});
+  } finally {
+    rmSync(root, {recursive: true, force: true});
+  }
+});
+
+test('Free Visual Form akzeptiert editorial-quote als Hauptmotiv', () => {
+  const root = makeReel({
+    visualForm: 'editorial-quote',
+    visualConcept: 'Große physische 3D-Typografie Kleine Kosten. Große Wirkung. steht vor einem anwachsenden Berg kleiner Gebührenbelege.',
+    voiceVisualMatch: 'Die Hauptaussage wird direkt als Editorial-Text mit passender visueller Gebührenentwicklung gezeigt.',
+    instantReadTest: 'PASS - Der kurze Haupttext und der wachsende Belegberg transportieren die Aussage sofort.',
+    transferabilityTest: 'PASS - Text und Gebührenbelege beziehen sich konkret auf wiederkehrende Kosten.',
+    dataIntegrityTest: 'not-applicable',
+    imagePrompt: 'Create a premium FinanzNeo V9 editorial quote scene with physical 3D typography and a growing pile of fee receipts on deep black.',
+  });
+  try {
+    execFileSync(process.execPath, [validator, root], {stdio: 'pipe'});
+  } finally {
+    rmSync(root, {recursive: true, force: true});
+  }
+});
+
+test('unbekannte Visual Form wird blockiert', () => {
+  const root = makeReel({visualForm: 'boring-template'});
+  try {
+    const result = spawnSync(process.execPath, [validator, root], {encoding: 'utf8'});
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /visualForm|VISUAL_FORM/i);
+  } finally {
+    rmSync(root, {recursive: true, force: true});
+  }
+});
+
+test('Chart ohne Datenintegritäts-PASS wird blockiert', () => {
+  const root = makeReel({visualForm: 'chart', dataIntegrityTest: 'not-applicable'});
+  try {
+    const result = spawnSync(process.execPath, [validator, root], {encoding: 'utf8'});
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /DATA_INTEGRITY|dataIntegrity/i);
+  } finally {
+    rmSync(root, {recursive: true, force: true});
+  }
+});
+
+test('Transferability-Test blockiert generische Planung', () => {
   const root = makeReel({transferabilityTest: 'Dieses Bild ist allgemein passend.'});
   try {
     const result = spawnSync(process.execPath, [validator, root], {encoding: 'utf8'});
@@ -130,55 +181,32 @@ test('Transferability-Test blockiert generische Bildplanung', () => {
   }
 });
 
-test('Instant-Read-Test blockiert eine Szene ohne sofort lesbare Aussage', () => {
-  const root = makeReel({instantReadTest: 'Man versteht es vielleicht.'});
-  try {
-    const result = spawnSync(process.execPath, [validator, root], {encoding: 'utf8'});
-    assert.notEqual(result.status, 0);
-    assert.match(result.stderr, /INSTANT_READ_TEST|instantReadTest/i);
-  } finally {
-    rmSync(root, {recursive: true, force: true});
-  }
-});
-
-test('Metapher ohne konkrete Begründung wird blockiert', () => {
-  const root = makeReel({strategy: 'metaphor', metaphorJustification: 'none'});
-  try {
-    const result = spawnSync(process.execPath, [validator, root], {encoding: 'utf8'});
-    assert.notEqual(result.status, 0);
-    assert.match(result.stderr, /METAPHOR_JUSTIFICATION|Metapher/i);
-  } finally {
-    rmSync(root, {recursive: true, force: true});
-  }
-});
-
-test('intuitive Metapher mit bekannten Dingen ist ausdrücklich erlaubt', () => {
+test('abstrakter capital body ist außerhalb bewusster Illustration/Metapher gesperrt', () => {
   const root = makeReel({
-    strategy: 'metaphor',
-    literalSituation: 'Eine Ratenzahlung wirkt anfangs klein, verursacht aber über die Laufzeit deutlich höhere Gesamtkosten.',
-    contextAnchor: 'Stilisierte Person, Fernseher, kleiner Ratenzettel und echter langer Kassenzettel',
-    storyMoment: 'Die Figur hält vorne den winzigen Ratenzettel, während hinter dem Fernseher ein übertrieben langer Kassenzettel bis in die schwarze Tiefe ausrollt.',
-    voiceVisualMatch: 'Kleine Rate vorne und riesige Gesamtrechnung dahinter zeigen direkt den Gegensatz aus dem Voiceover.',
-    instantReadTest: 'PASS - Bekannte Figur, Fernseher und Kassenzettel machen klein jetzt versus teuer insgesamt sofort lesbar.',
-    transferabilityTest: 'PASS - Fernseher, Rate und langer Gesamtkassenzettel bilden spezifisch das Ratenzahlungsproblem ab.',
-    metaphorJustification: 'Die übertriebene Länge des echten Kassenzettels macht die langfristigen Gesamtkosten schneller verständlich als eine trockene Zahlentafel.',
-    imagePrompt: 'Create a premium stylized 3D animated-film frame on deep black: a character holds a tiny installment-payment slip beside a television while an absurdly long but recognizable real receipt unrolls behind the television into the distance.',
-  });
-  try {
-    execFileSync(process.execPath, [validator, root], {stdio: 'pipe'});
-  } finally {
-    rmSync(root, {recursive: true, force: true});
-  }
-});
-
-test('abstrakter capital body wird als literal-Standard blockiert', () => {
-  const root = makeReel({
+    visualForm: 'object-story',
     imagePrompt: 'Create a giant emerald capital body beside a red fee token on a black background.',
   });
   try {
     const result = spawnSync(process.execPath, [validator, root], {encoding: 'utf8'});
     assert.notEqual(result.status, 0);
-    assert.match(result.stderr, /abstrakte Finanzkörper|capital body|literal-Hauptidee/i);
+    assert.match(result.stderr, /abstrakte Finanzkörper|VISUAL_FORM|capital body/i);
+  } finally {
+    rmSync(root, {recursive: true, force: true});
+  }
+});
+
+test('bewusste Illustration darf abstrakter sein, wenn Planung und Instant-Read stimmen', () => {
+  const root = makeReel({
+    visualForm: 'illustration',
+    visualConcept: 'Eine bewusst abstrahierte, klar beschriftete Renditelandschaft visualisiert den langfristigen Abstand zweier Entwicklungen.',
+    voiceVisualMatch: 'Die zwei klar beschrifteten Verläufe zeigen exakt die unterschiedliche Entwicklung.',
+    instantReadTest: 'PASS - Zwei deutlich beschriftete Wege mit sichtbar wachsendem Abstand machen den Vergleich sofort klar.',
+    transferabilityTest: 'PASS - Die konkrete 7-Prozent-gegen-6-Prozent-Renditelandschaft gehört genau zu diesem Vergleich.',
+    dataIntegrityTest: 'not-applicable',
+    imagePrompt: 'Create a deliberate stylized finance illustration with two labeled return paths that separate over time, premium V9 depth and deep black stage.',
+  });
+  try {
+    execFileSync(process.execPath, [validator, root], {stdio: 'pipe'});
   } finally {
     rmSync(root, {recursive: true, force: true});
   }
@@ -189,33 +217,6 @@ test('bestehende V2-Reels bleiben rückwärtskompatibel', () => {
   try {
     mkdirSync(join(root, '03-szenen'), {recursive: true});
     writeFileSync(join(root, '03-szenen/scene-index.json'), JSON.stringify({imageStorytellingContract: {id: 'finanzneo-image-storytelling-v2'}}));
-    execFileSync(process.execPath, [validator, root], {stdio: 'pipe'});
-  } finally {
-    rmSync(root, {recursive: true, force: true});
-  }
-});
-
-test('Legacy-V3 ohne Story-Moment-Revision bleibt gültig', () => {
-  const root = mkdtempSync(join(tmpdir(), 'finanzneo-image-v3-legacy-'));
-  try {
-    const legacyContract = {...contract};
-    delete (legacyContract as {storyMomentRevision?: string}).storyMomentRevision;
-    (legacyContract as {metaphorFallbackOnly: boolean}).metaphorFallbackOnly = true;
-    for (const key of ['intuitiveMetaphorAllowed', 'intuitiveMetaphorMayBeatLiteralWhenClearer', 'familiarObjectsOrCharactersRequired', 'instantStoryReadRequired', 'exaggeratedPhysicalStoryAllowed', 'familiarObjectMetaphorRequired', 'animationFilmStoryFrameRequired']) {
-      delete (legacyContract as Record<string, unknown>)[key];
-    }
-    mkdirSync(join(root, '03-szenen'), {recursive: true});
-    writeFileSync(join(root, '03-szenen/scene-index.json'), JSON.stringify({imageStorytellingContract: legacyContract, scenes: []}));
-    for (const relative of ['alle-bildprompts.txt', 'bildwelt.txt', '00-cover/cover.txt']) {
-      const path = join(root, '03-szenen', relative);
-      mkdirSync(resolve(path, '..'), {recursive: true});
-      writeFileSync(path, 'IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3\nLiteral first, creative second.\nTRANSFERABILITY-TEST\nABSTRAKTE FINANZKÖRPER\nFörderbänder, Schienen, Schranken, Käfige');
-    }
-    for (const relative of ['szenenplan.md', 'ANTIGRAVITY-AUFTRAG.md']) {
-      const path = join(root, '05-projektdateien', relative);
-      mkdirSync(resolve(path, '..'), {recursive: true});
-      writeFileSync(path, 'IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3\nLiteral first, creative second.\nTRANSFERABILITY-TEST\nABSTRAKTE FINANZKÖRPER\nFörderbänder, Schienen, Schranken, Käfige');
-    }
     execFileSync(process.execPath, [validator, root], {stdio: 'pipe'});
   } finally {
     rmSync(root, {recursive: true, force: true});
