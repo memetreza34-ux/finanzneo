@@ -1,3 +1,4 @@
+# one-shot rerun after cover-header trim
 name: Apply Cover Parallel V2 Once
 
 on:
