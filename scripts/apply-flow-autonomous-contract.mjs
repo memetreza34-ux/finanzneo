@@ -123,29 +123,30 @@ const coverWorkflowBlock = [
   '',
 ].join('\n');
 
-let master = readFileSync(allPromptsPath, 'utf8');
+const originalMaster = readFileSync(allPromptsPath, 'utf8');
+let body = originalMaster
+  .replace(/FLOW_COVER_5PACK_BEGIN[\s\S]*?FLOW_COVER_5PACK_END\n*/g, '')
+  .replace(/^FLOW_EXECUTION_MODE:[\s\S]*?(?=FINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN|BILDNUMMERIERUNG:|={10,}\s*scene-)/, '');
 
-// Alten Kopf vollständig ersetzen, damit keine widersprüchliche Legacy-Autonomie
-// vor dem Cover-Gate stehen bleibt.
+// Bei individuell umgeschriebenen Reels kann der historische globale Flow-Kopf
+// ohne Handoff-/Nummerierungsmarker direkt vor scene-01 stehen. Dann bleibt nur
+// der eigentliche Szenenteil erhalten; der kanonische Kopf wird neu aufgebaut.
 const handoffMarker = 'FINANZNEO — EINZIGE ÜBERGABEDATEI FÜR DEN GOOGLE-FLOW-KI-AGENTEN';
-const handoffIndex = master.indexOf(handoffMarker);
-if (handoffIndex !== -1) {
-  master = `${AUTONOMY_BLOCK}\n${master.slice(handoffIndex)}`;
-} else {
-  const legacyStart = master.indexOf('FLOW_COVER_5PACK_BEGIN');
-  if (legacyStart === -1) master = `${AUTONOMY_BLOCK}\n${master}`;
+const handoffIndex = body.indexOf(handoffMarker);
+const numberingIndex = body.indexOf('BILDNUMMERIERUNG:');
+const firstSceneIndex = body.search(/={10,}\s*scene-/);
+if (handoffIndex > 0) body = body.slice(handoffIndex);
+else if (numberingIndex > 0 && (firstSceneIndex === -1 || numberingIndex < firstSceneIndex)) body = body.slice(numberingIndex);
+else if (firstSceneIndex > 0) body = body.slice(firstSceneIndex);
+
+// Falls ein alter globaler Agentenblock im erhaltenen Body steckt, entfernen.
+const globalProtocolIndex = body.indexOf('FLOW_AGENT_PROTOCOL:');
+const globalNumberingIndex = body.indexOf('BILDNUMMERIERUNG:', globalProtocolIndex);
+if (globalProtocolIndex !== -1 && globalNumberingIndex !== -1 && (firstSceneIndex === -1 || globalProtocolIndex < firstSceneIndex)) {
+  body = `${body.slice(0, globalProtocolIndex)}${body.slice(globalNumberingIndex)}`;
 }
 
-// Vorherige dynamische Cover-/Blocksektion idempotent entfernen.
-master = master.replace(/FLOW_COVER_5PACK_BEGIN[\s\S]*?FLOW_COVER_5PACK_END\n*/g, '');
-master = `${AUTONOMY_BLOCK}\n${coverWorkflowBlock}\n${master.replace(AUTONOMY_BLOCK, '').replace(/^\s+/, '')}`;
-
-// Agentenblock kanonisch ersetzen.
-const protocolIndex = master.indexOf('FLOW_AGENT_PROTOCOL:');
-const numberingIndex = master.indexOf('BILDNUMMERIERUNG:', protocolIndex);
-if (protocolIndex !== -1 && numberingIndex !== -1) {
-  master = `${master.slice(0, protocolIndex)}${FLOW_AGENT_BLOCK}\n${master.slice(numberingIndex)}`;
-}
+let master = `${AUTONOMY_BLOCK}\n${coverWorkflowBlock}\n${FLOW_AGENT_BLOCK}\n${body.replace(/^\s+/, '')}`;
 master = modernizeLegacyWaitWording(master);
 
 // Jeder konkrete Szenenbildblock bleibt zusätzlich ein harter Einzeljob.
