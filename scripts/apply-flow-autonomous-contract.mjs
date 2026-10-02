@@ -3,10 +3,13 @@ import {existsSync, readFileSync, writeFileSync} from 'node:fs';
 import {relative, resolve, sep} from 'node:path';
 import {
   ALL_PROMPTS,
+  FLOW_COVER_CONCURRENCY,
+  FLOW_COVER_CONCURRENCY_MARKER,
   FLOW_COVER_WORKFLOW_ID,
   FLOW_COVER_WORKFLOW_MARKER,
   FLOW_IMAGE_BLOCK_SIZE,
   FLOW_IMAGE_BLOCK_SIZE_MARKER,
+  FLOW_SCENE_CONCURRENCY_MARKER,
   IMAGE_INBOX,
   SCENE_INDEX,
 } from './lib/reel-contract.mjs';
@@ -75,6 +78,8 @@ const blockPlanLines = imageBlocks.length
 const coverWorkflowBlock = [
   'FLOW_COVER_5PACK_BEGIN',
   FLOW_COVER_WORKFLOW_MARKER,
+  FLOW_COVER_CONCURRENCY_MARKER,
+  FLOW_SCENE_CONCURRENCY_MARKER,
   FLOW_IMAGE_BLOCK_SIZE_MARKER,
   `REEL_TITLE: ${index.title ?? 'Reel'}`,
   `FINAL_IMAGE_DIRECTORY: ${finalDirectory}`,
@@ -82,29 +87,30 @@ const coverWorkflowBlock = [
   '',
   'COVER-GATE — IMMER ZUERST:',
   '1. Erzeuge exakt DREI unterschiedliche Cover-Kandidaten: COVER A, COVER B und COVER C.',
-  '2. Cover A/B/C werden strikt nacheinander erzeugt. Nie parallel und nie als Kontaktbogen.',
-  '3. COVER-TEXT IST IMMER PFLICHT: kurzer deutscher Hook, gut lesbar, maximal 2 Zeilen und möglichst 2–5 Wörter. Keine erfundenen Zahlen/Fakten; nur Aussagen aus dem Reel verwenden.',
-  '4. Die drei Cover müssen sichtbar verschieden sein, aber dieselbe FinanzNeo-V9-Bildwelt verwenden:',
+  `2. Cover A/B/C werden ALS DREI GETRENNTE EINZELBILD-JOBS GLEICHZEITIG gestartet. COVER_CONCURRENCY = ${FLOW_COVER_CONCURRENCY}. Kein Kontaktbogen, keine Collage, kein gemeinsamer Multi-Image-Request.`,
+  '3. COVER-TEXT IST IMMER PFLICHT UND MUSS DEN VIDEOINHALT DIREKT VERDICHTEN: maximal 2 Zeilen, ideal 2–5 Wörter. Keine langen Sätze, kein generischer Clickbait ohne Inhaltsbezug, keine erfundenen Zahlen/Fakten.',
+  '4. Alle drei Cover verwenden DIREKT die FinanzNeo-V9-Bildwelt. Sie dürfen unterschiedlich komponiert sein, aber keines dient als Style-Vorlage für ein anderes.',
+  '5. Die drei Cover müssen sichtbar verschieden sein:',
   '   - COVER A: starke Hero-Zahl oder dominantes Hero-Objekt, sehr direkte Aussage.',
   '   - COVER B: klare Gegenüberstellung / Kontrast / Vorher-nachher-Logik.',
   '   - COVER C: konkrete Objekt-Story oder verständliche visuelle Metapher mit räumlicher Tiefe.',
-  '5. Temporäre Namen: Cover-A.png, Cover-B.png, Cover-C.png. Diese Kandidaten gehören NICHT in den finalen Bildordner.',
-  '6. Wenn alle drei Kandidaten QA bestanden haben: STOPP und frage ausschließlich: A, B oder C?',
-  '7. Erst nach der Nutzerwahl darf die Szenenbild-Produktion beginnen.',
-  `8. Das gewählte Cover sofort exakt umbenennen in: ${coverFinalFileName}`,
-  `9. Das gewählte Cover in ${finalDirectory} legen. Es ist zugleich finaler Cover-Asset und ${coverScene.id}; ${coverScene.id} NICHT erneut generieren.`,
+  '6. Temporäre Namen: Cover-A.png, Cover-B.png, Cover-C.png. Diese Kandidaten gehören NICHT in den finalen Bildordner.',
+  '7. Wenn alle drei Kandidaten QA bestanden haben: STOPP und frage ausschließlich: A, B oder C?',
+  '8. Erst nach der Nutzerwahl darf die Szenenbild-Produktion beginnen.',
+  `9. Das gewählte Cover sofort exakt umbenennen in: ${coverFinalFileName}`,
+  `10. Das gewählte Cover in ${finalDirectory} legen. Es ist zugleich finaler Cover-Asset und ${coverScene.id}; ${coverScene.id} NICHT erneut generieren.`,
   '',
-  'STYLE-REFERENZ NACH DER COVER-WAHL:',
-  '- Das gewählte Cover ist die EINZIGE visuelle Style-Referenz für alle weiteren Google-Flow-Bilder.',
-  '- Übernehmen: Materialgefühl, 3D-Formensprache, Licht, Kontrast, Farbcharakter, Kameragefühl und Render-Look.',
-  '- NICHT übernehmen/kopieren: Cover-Text, Layout, konkrete Objektpositionen, Objektanordnung oder Szeneninhalt.',
-  '- Kein späteres Szenenbild darf den gewählten Cover-Anker ersetzen.',
+  'STYLE-AUTORITÄT NACH DER COVER-WAHL:',
+  '- Das gewählte Cover ist KEINE Style-Referenz und darf für spätere Bilder NICHT als Bildreferenz verwendet werden.',
+  '- Alle weiteren Google-Flow-Bilder verwenden direkt die schriftlich definierte FinanzNeo-V9-Bildwelt als einzige Style-Autorität.',
+  '- Kein späteres Szenenbild darf zum Style-Anker werden. Keine Bild-zu-Bild-Style-Referenz im kanonischen Flow.',
+  '- V9 fest: stylized 3D / hochwertige FinanzNeo-Illustrationssprache, Deep Black, Premium-Licht, hochwertige Materialien, starke Tiefe, Emerald/Gold/Red-Orange gemäß Bedeutung, kein Fotorealismus, kein Corporate-/PowerPoint-Look.',
   '',
   `5ER-SCHRITTE — NACH DER COVER-WAHL, MAXIMAL ${FLOW_IMAGE_BLOCK_SIZE} BILDER PRO ORGANISATORISCHEM BLOCK:`,
   ...blockPlanLines,
   '',
   'WICHTIG FÜR JEDEN 5ER-BLOCK:',
-  '- Ein 5er-Block bedeutet NICHT fünf parallele Generierungen. Weiterhin exakt EIN Bildjob gleichzeitig.',
+  '- Ein 5er-Block bedeutet NICHT fünf parallele Generierungen. Ab hier exakt EIN Szenenbildjob gleichzeitig.',
   '- Bild erzeugen -> Ergebnis vollständig zurück -> SOFORT exakt umbenennen -> in finalen Bildordner legen -> QA -> erst dann nächstes Bild.',
   '- Nach maximal fünf erfolgreichen Bildern automatisch mit dem nächsten Block fortfahren. Keine weitere Nutzerfreigabe und kein "weiter".',
   '',
@@ -159,27 +165,39 @@ master = master
   );
 writeFileSync(allPromptsPath, master, 'utf8');
 
-// Cover-Datei als konkrete Phase-0-Anweisung markieren. Der bestehende Cover-
-// Prompt bleibt Inhaltsbasis; dessen altes "kein Text" wird für Cover-Kandidaten
-// ausdrücklich durch die neue Textpflicht ersetzt.
+// Cover-Datei als konkrete Cover-Phase markieren. Der bestehende Cover-Prompt
+// bleibt Inhaltsbasis; Text ist kurz und ausschließlich inhaltsbezogen.
 let cover = readFileSync(coverPath, 'utf8');
 cover = cover.replace(/FLOW_COVER_FILE_BEGIN[\s\S]*?FLOW_COVER_FILE_END\n*/g, '');
-cover = cover.replace(/no headline inside the generated image/gi, 'cover hook text is required; no additional text beyond the chosen short hook');
+cover = cover.replace(/no headline inside the generated image/gi, 'short cover hook text is required; maximum two lines; no additional text beyond the chosen content-based hook');
 const coverFileHeader = [
   'FLOW_COVER_FILE_BEGIN',
   FLOW_COVER_WORKFLOW_MARKER,
   'COVER_VARIANT_COUNT: 3',
+  'COVER_PARALLEL_GENERATION_REQUIRED: true',
+  `COVER_CONCURRENCY: ${FLOW_COVER_CONCURRENCY}`,
+  'COVER_SEPARATE_JOBS_REQUIRED: true',
+  'COVER_MULTI_IMAGE_REQUEST_FORBIDDEN: true',
   'COVER_TEXT_REQUIRED: true',
+  'COVER_TEXT_MAX_LINES: 2',
+  'COVER_TEXT_IDEAL_WORDS: 2-5',
+  'COVER_TEXT_MUST_DESCRIBE_REEL_CONTENT: true',
+  'COVER_LONG_SENTENCE_FORBIDDEN: true',
   'COVER_SELECTION_REQUIRED: true',
   'SELECTED_COVER_BECOMES_SCENE_01: true',
-  'SELECTED_COVER_IS_ONLY_STYLE_REFERENCE: true',
+  'SELECTED_COVER_IS_STYLE_REFERENCE: false',
+  'IMAGE_TO_IMAGE_STYLE_REFERENCE_FORBIDDEN: true',
+  'STYLE_AUTHORITY: finanzneo-stylized-3d-animated-black-v9',
   '',
-  'Erzeuge aus der unten stehenden Cover-Idee drei eigenständige Kandidaten A/B/C.',
-  'Jeder Kandidat MUSS einen kurzen, lesbaren deutschen Cover-Hook enthalten.',
+  'Starte aus der unten stehenden Cover-Idee drei eigenständige Kandidaten A/B/C gleichzeitig als drei getrennte Bildjobs.',
+  'Jeder Kandidat MUSS einen kurzen, lesbaren deutschen Cover-Hook enthalten, der den tatsächlichen Inhalt dieses Reels direkt zusammenfasst.',
+  'Maximal 2 Zeilen, ideal 2–5 Wörter. Keine langen Sätze. Keine generische Clickbait-Aussage ohne Inhaltsbezug. Keine erfundenen Fakten oder Zahlen.',
+  'Alle drei Kandidaten müssen direkt in der FinanzNeo-V9-Bildwelt entstehen. Keines der Cover ist Vorlage für ein anderes.',
   'A = Hero-Zahl/Hero-Objekt. B = Kontrast/Gegenüberstellung. C = Objekt-Story/Metapher.',
-  'Keine drei fast identischen Varianten. Keine erfundenen Fakten oder Zahlen.',
+  'Keine drei fast identischen Varianten.',
   'Nach A/B/C stoppen und Nutzer A/B/C wählen lassen. Nur die gewählte Variante wird final übernommen.',
-  'Die gewählte Variante wird auf den finalen Scene-01-Dateinamen umbenannt und dient danach als einziger visueller Style-Anker.',
+  'Die gewählte Variante wird auf den finalen Scene-01-Dateinamen umbenannt. Sie ist danach ausdrücklich KEINE Style-Referenz für weitere Bilder.',
+  'Alle weiteren Bilder nutzen direkt die schriftliche FinanzNeo-V9-Bildwelt.',
   'FLOW_COVER_FILE_END',
   '',
 ].join('\n');
@@ -193,15 +211,8 @@ index.googleFlow = {
   coverCandidateFileNames: ['Cover-A.png', 'Cover-B.png', 'Cover-C.png'],
   coverFinalFileName,
   selectedCoverSceneId: coverScene.id,
-  styleReferenceTransferOnly: [
-    'material-feel',
-    '3d-shape-language',
-    'lighting',
-    'contrast',
-    'color-character',
-    'camera-feel',
-    'render-look',
-  ],
+  styleAuthority: 'finanzneo-stylized-3d-animated-black-v9',
+  styleReferenceTransferOnly: [],
   imageBlocksAfterCover: imageBlocks,
   expectedFinalImageCount: imageScenes.length,
   expectedFinalFiles,
@@ -211,6 +222,6 @@ index.googleFlow = {
 writeFileSync(indexPath, `${JSON.stringify(index, null, 2)}\n`, 'utf8');
 
 console.log(`✓ ${FLOW_COVER_WORKFLOW_ID} gesetzt.`);
-console.log(`  3 Cover mit Text -> Nutzerwahl -> gewähltes Cover als Style-Anker -> ${imageBlocks.length} 5er-Block/Blöcke.`);
-console.log('  Pro Bild: genau 1 Job -> sofort Rename -> finaler Ordner -> QA. Danach automatisches Weiterarbeiten.');
+console.log(`  3 Cover parallel als getrennte Jobs -> Nutzerwahl -> Cover nur Scene 01 -> V9 als einzige Style-Autorität -> ${imageBlocks.length} 5er-Block/Blöcke.`);
+console.log('  Danach pro Szenenbild: genau 1 Job -> sofort Rename -> finaler Ordner -> QA -> automatisch weiter.');
 console.log(`  Abschluss: Inventory-QA auf ${imageScenes.length} erwartete finale Bilder in ${finalDirectory}`);
