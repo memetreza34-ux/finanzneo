@@ -23,9 +23,7 @@ const replacement = `const coverFileHeader = [
   'IMAGE_TO_IMAGE_STYLE_REFERENCE_FORBIDDEN: true',
   'STYLE_AUTHORITY: finanzneo-stylized-3d-animated-black-v9',
   '',
-  'Cover A/B/C gleichzeitig als drei getrennte Einzelbild-Jobs starten; kein Kontaktbogen oder Multi-Image-Request.',
-  'Alle drei direkt in FinanzNeo-V9. Hook nur zum Reel-Inhalt: max. 2 Zeilen, ideal 2–5 Wörter; keine langen Sätze, kein generischer Clickbait, keine erfundenen Fakten.',
-  'Nach A/B/C stoppen und Nutzer wählen lassen. Gewähltes Cover = scene-01, aber KEINE Style-Referenz. Spätere Bilder nutzen direkt V9.',
+  'A/B/C parallel als 3 getrennte Jobs. Alle direkt V9. Hook nur Reel-Inhalt: max. 2 Zeilen, ideal 2–5 Wörter; kein langer Satz, Clickbait oder erfundene Fakten. Danach A/B/C wählen; Gewinner = scene-01, nie Style-Referenz.',
   'FLOW_COVER_FILE_END',
   '',
 ].join('\\n');`;
@@ -33,4 +31,4 @@ const replacement = `const coverFileHeader = [
 const next = source.replace(/const coverFileHeader = \[[\s\S]*?\]\.join\('\\n'\);/, replacement);
 if (next === source) throw new Error('coverFileHeader block not replaced');
 writeFileSync(path, next, 'utf8');
-console.log('✓ Cover-Header gekürzt, Regeln erhalten.');
+console.log('✓ Cover-Header unter V9-Limit gekürzt.');
