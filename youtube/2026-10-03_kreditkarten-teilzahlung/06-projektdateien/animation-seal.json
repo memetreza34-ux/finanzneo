@@ -37,6 +37,40 @@
       "sha256": "56eea9501b2beb102c745e049a5124fc48599af4469ecb8df9ee9070b9c48b8f"
     },
     {
+      "id": "visual-03",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-03/animation.tsx",
+      "exportName": "YouTubeVisual03Animation",
+      "viewerChange": "Eine große 100-€-Rate steht frei im Zentrum; ein roter Pfad zweigt 28,33 € Zinsen ab, während ein grüner Pfad 71,67 € Tilgung weiterführt. Danach erscheint die Restschuld.",
+      "animationIntent": "Die exakte Aufteilung wird frame-genau und ohne KI-generierte Infografik-Karten gezeigt.",
+      "mechanicId": "payment-stream-split",
+      "visualTechniqueId": "open-path-number-split",
+      "techniqueDescription": "Zwei offene SVG-Pfade teilen sich aus einem zentralen Betrag; Zahlen erscheinen an den Pfadenden, ohne Panels, Tiles oder Karten.",
+      "compositionFamilyId": "precision-flow-graphic",
+      "toolStack": [
+        "React",
+        "SVG",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "statische frontale 2D/2.5D Editorial-Ansicht",
+        "layout": "ein zentraler Betrag oben, zwei offene Pfade fächern nach links und rechts aus",
+        "transformation": "ein Betrag teilt sich räumlich in Zins- und Tilgungspfad, danach erscheint die Restschuld"
+      },
+      "motionChannels": [
+        "SVG-Pfad-Reveal",
+        "Zahlen-Opacity/Translation",
+        "Restschuld-Reveal"
+      ],
+      "visualBeats": [
+        "100 € Rate",
+        "28,33 € Zinsen",
+        "71,67 € Tilgung",
+        "1.928,33 € Restschuld"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "74f0299ad29d0bc91ec76425bf7b8a2dc15453fa06621cd2733935b8fd8d16f8"
+    },
+    {
       "id": "visual-04",
       "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx",
       "exportName": "YouTubeVisual04Animation",
@@ -68,6 +102,39 @@
       ],
       "repeatTechniqueReason": "",
       "sha256": "e92508d4d2de9dc401b90f8d3aee5ae88e8f23828bb5d861054a9777172c14d4"
+    },
+    {
+      "id": "visual-05",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-05/animation.tsx",
+      "exportName": "YouTubeVisual05Animation",
+      "viewerChange": "Auf einer textarmen gerenderten Abrechnungsszene erscheint zuerst 1.200 € gezahlt; danach tritt 1.069,72 € offen als klarer Gegenwert hinzu.",
+      "animationIntent": "Google Flow liefert nur die hochwertige Szene. Die exakten Zahlen werden fehlerfrei in Remotion gesetzt.",
+      "mechanicId": "paid-versus-open-reveal",
+      "visualTechniqueId": "scene-anchored-number-contrast",
+      "techniqueDescription": "Transparente Typografie-/Linienebene über dem Flow-Szenenbild; zwei Werte erscheinen zeitversetzt und werden durch eine schlanke vertikale Linie getrennt.",
+      "compositionFamilyId": "hybrid-document-overlay",
+      "toolStack": [
+        "React",
+        "CSS",
+        "Remotion interpolate",
+        "Flow scene plate"
+      ],
+      "motionSignature": {
+        "camera": "statische Kamera auf dem gerenderten Szenenbild",
+        "layout": "zwei große Zahlenanker am unteren Bildrand über einer räumlichen Papier-/Abrechnungsszene",
+        "transformation": "erst gezahlter Betrag, dann offene Restschuld; Trennlinie wächst dazwischen"
+      },
+      "motionChannels": [
+        "Opacity/Translation der beiden Werte",
+        "Wachstum der Trennlinie"
+      ],
+      "visualBeats": [
+        "nur Szenenbild",
+        "1.200 € gezahlt",
+        "1.069,72 € offen"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "66f8da1ebba9bc6b74f49117853b70246f1520c6bda0326679e47cca70a69bf4"
     },
     {
       "id": "visual-06",
@@ -103,37 +170,72 @@
       "sha256": "8cb90499a688a9a85d4c2e31e0184c6d9c1ab254e442b9c48ae86bbd7a704c10"
     },
     {
-      "id": "visual-08",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-08/animation.tsx",
-      "exportName": "YouTubeVisual08Animation",
-      "viewerChange": "Auf dem erzeugten Einstellungsbild wandert die Auswahl sichtbar von Teilzahlung zu Vollzahlung 100 %, danach wird ein grüner Bestätigungszustand eingeblendet.",
-      "animationIntent": "Der Schluss endet mit einer konkreten prüfbaren Handlung statt nur mit Warnung.",
-      "mechanicId": "payment-setting-switch",
-      "visualTechniqueId": "image-overlay-selection-shift",
-      "techniqueDescription": "Das Flow-Bild bildet die ruhige frontale Einstellungsbasis; Remotion legt einen animierten Auswahlrahmen und Bestätigungsstatus darüber.",
-      "compositionFamilyId": "image-composite",
+      "id": "visual-07",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-07/animation.tsx",
+      "exportName": "YouTubeVisual07Animation",
+      "viewerChange": "Eine große stilisierte Kreditkarte erscheint links; rechts kommen nacheinander drei frei stehende Check-Zeilen hinzu.",
+      "animationIntent": "Die Handlungsschritte bleiben exakt lesbar und werden bewusst in Remotion statt als KI-generierte Checklisten-Grafik gebaut.",
+      "mechanicId": "three-checks-sequential",
+      "visualTechniqueId": "open-checkline-reveal",
+      "techniqueDescription": "Große Kartenform als visueller Anker; drei Text-/Check-Zeilen gleiten zeitversetzt ein, ohne Panels, Cards oder Dashboard-Rahmen.",
+      "compositionFamilyId": "action-checklist-motion",
       "toolStack": [
         "React",
         "CSS",
         "Remotion interpolate"
       ],
       "motionSignature": {
-        "camera": "statische Frontansicht auf dem Nutzerbild",
-        "layout": "UI-Basisbild vollflächig, Fokus-Overlay auf den beiden Abrechnungsoptionen",
-        "transformation": "Fokus verschiebt sich von Teilzahlung zu Vollzahlung und bestätigt den Endzustand"
+        "camera": "statische frontale Editorial-Ansicht mit leicht perspektivischer Kartenform",
+        "layout": "große Karte links, drei offene Textzeilen rechts ohne Container",
+        "transformation": "Karte blendet ein, danach erscheinen drei Check-Zeilen nacheinander"
       },
       "motionChannels": [
-        "Position des Auswahlrahmens",
-        "Farb- und Opazitätswechsel des Bestätigungsstatus"
+        "Karten-Opacity/Perspektive",
+        "horizontale Bewegung der Check-Zeilen",
+        "zeitversetzte Opacity"
+      ],
+      "visualBeats": [
+        "nur Kreditkarte",
+        "Vollzahlung 100 %",
+        "Zinssatz prüfen",
+        "Teilzahlung deaktivieren"
+      ],
+      "repeatTechniqueReason": "",
+      "sha256": "f1a07479e1127637f97c854a328b5b8b3aa53894c5c433e45223baa3a31ede95"
+    },
+    {
+      "id": "visual-08",
+      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-08/animation.tsx",
+      "exportName": "YouTubeVisual08Animation",
+      "viewerChange": "Eine native, offene Remotion-Einstellung zeigt zunächst Teilzahlung; der Auswahlindikator wandert anschließend zu Vollzahlung 100 % und bestätigt den Endzustand.",
+      "animationIntent": "UI-Zustand und Text müssen exakt sein. Deshalb wird diese Szene vollständig code-basiert gebaut und nicht mehr als Google-Flow-Bild erzeugt.",
+      "mechanicId": "payment-setting-switch",
+      "visualTechniqueId": "native-open-row-selection-shift",
+      "techniqueDescription": "Zwei offene horizontale Einstellungszeilen ohne schwebendes Panel; ein vertikaler Auswahlindikator bewegt sich zwischen den Zuständen und wechselt von Rot-Orange zu Emerald.",
+      "compositionFamilyId": "settings-action-motion",
+      "toolStack": [
+        "React",
+        "CSS",
+        "Remotion interpolate"
+      ],
+      "motionSignature": {
+        "camera": "statische frontale Interface-Ansicht",
+        "layout": "zwei breite offene Zeilen auf schwarzem Hintergrund ohne Containerkarte",
+        "transformation": "Auswahlindikator verschiebt sich vertikal und bestätigt den neuen Zustand"
+      },
+      "motionChannels": [
+        "vertikale Indikatorbewegung",
+        "Farbwechsel",
+        "Bestätigungs-Opacity"
       ],
       "visualBeats": [
         "Teilzahlung aktiv",
         "Auswahl bewegt sich",
         "Vollzahlung 100 % aktiv",
-        "Einstellung prüfen"
+        "Einstellung geprüft"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "45191c45c83d544eb88e1a2e100d44ca5047f476099e16aa29d9c2ad8b2496df"
+      "sha256": "b2f26188a18ec46516ddacabbf53970067cca008309c755f9f9f971fc9118f22"
     }
   ]
 }
