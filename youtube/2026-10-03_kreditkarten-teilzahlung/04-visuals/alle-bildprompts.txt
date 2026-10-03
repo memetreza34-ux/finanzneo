@@ -1,0 +1,156 @@
+GOOGLE FLOW MASTER PROMPT — FINANZNEO
+VIDEO: Kreditkarten-Teilzahlung: Wie aus 2.000 € ein teurer Kredit wird
+
+DIESEN TEXT 1:1 AUSFÜHREN.
+NICHT erklären, NICHT zusammenfassen, NICHT nur Prompts zurückgeben.
+Starte unmittelbar mit den Bildgenerierungen.
+
+============================================================
+AUFGABE
+============================================================
+
+Erstelle die Google-Flow-Bildassets für dieses FinanzNeo-YouTube-Video.
+Du bist der ausführende Bild-Agent: Bildjob starten -> Ergebnis prüfen -> korrekt benennen -> bei Fehler denselben Job neu generieren -> weiterarbeiten.
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+THUMBNAIL_CONCURRENCY: 3
+IMAGE_BATCH_SIZE: 5
+IMAGE_CONCURRENCY: 5
+STYLE_AUTHORITY: finanzneo-stylized-3d-animated-black-v9
+PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
+GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+============================================================
+RICHTIGE FINANZNEO-BILDWELT — HÖCHSTE REGEL
+============================================================
+
+Die Bildwelt ist KEIN schwarzes Dashboard und KEINE Sammlung kleiner 3D-Karten.
+Sie ist eine hochwertige stilisierte 3D-Animationsfilm-/Editorial-Welt mit real verständlichen Situationen.
+
+GRUNDCHARAKTER:
+- klar stilisierte 3D-Animation, niemals fotorealistisch
+- reale, sofort erkennbare Alltagsobjekte und Finanzsituationen
+- semi-realistische Proportionen und Materialien, aber sichtbar stilisiert
+- erwachsen, hochwertig, sauber, nicht kindlich und nicht toy-like
+- tiefer nahtloser schwarzer bis charcoal-green-black Hintergrund
+- lokaler realer Kontext darf sichtbar sein, muss aber weich in die dunkle Welt übergehen
+- weiches Premium-Studiolicht, klare Highlights, lesbare Schatten, echte Kontaktschatten
+- wichtige Motive groß und bildfüllend, kein Mini-Objekt in riesiger Leere
+- Emerald = positiv/Lösung
+- warmes Rot-Orange = Risiko/Kosten/Schuld
+- Ivory/Soft Gray = neutral
+- Gold nur sehr sparsam für Geld/Wert
+
+ERKLÄRUNG VOR DEKORATION:
+- eine zusammenhängende visuelle Aussage statt isolierter Symbole
+- Ursache und Wirkung möglichst im selben Bild sichtbar
+- der Zuschauer muss die Aussage innerhalb von ca. 1–2 Sekunden verstehen
+- keine Rätselmetapher, kein abstraktes Finanzmaschinen-Design
+- einfache Visuals sind erlaubt, müssen aber wie ein bewusst gestaltetes FinanzNeo-Editorial aussehen
+
+ZWEI ERLAUBTE DARSTELLUNGSARTEN INNERHALB DERSELBEN WELT:
+A) GROUNDED SCENE — reale Objekte/Situation, räumlich, materialreich, 3D
+B) SIMPLE EXPLAINER — sehr klare frontale Zahl/Symbol/Diagramm-/Vergleichskomposition, großflächig und reduziert; trotzdem mit FinanzNeo-Farben, hochwertiger Tiefenwirkung, sauberem Licht und derselben Markenwelt
+
+WICHTIG: SIMPLE EXPLAINER bedeutet NICHT: kleine schwebende Rechtecke, Dashboard, App-Karten oder PowerPoint.
+
+HARD FAIL — DENSELBEN JOB SOFORT NEU GENERIEREN:
+- Hauptmotiv zu klein
+- überwiegend leerer schwarzer Raum
+- kleine schwebende Tiles/Karten/Module
+- Dashboard, Control Panel, HUD oder App-Screenshot
+- sterile Produktaufnahme ohne erklärende Situation
+- winzige isometrische/Diorama-Perspektive
+- Canva-/PowerPoint-/Stock-Vector-Look
+- generische 3D-Finanzicons ohne konkrete Aussage
+- übertriebene Gold-Luxus-Finanzoptik
+- photorealistisch
+- childish clay / toy / Pixar look
+- zu viele kleine Objekte
+- Bild versteht man erst nach langem Lesen
+
+============================================================
+AUSFÜHRUNGSREGELN
+============================================================
+
+1. Erzeuge pro Job exakt EIN Bild.
+2. Cover A/B/C sind drei getrennte Bildjobs und starten gleichzeitig.
+3. Prüfe jedes Ergebnis gegen die Bildwelt-Regeln.
+4. FAIL -> nur denselben Job neu generieren.
+5. Nach PASS den angegebenen Dateinamen verwenden.
+6. Den Dateinamen niemals in das Bild rendern.
+7. Alle Bilder horizontal 16:9.
+8. Das ausgewählte Cover ist KEINE Style-Referenz für die Szenenbilder; die oben geschriebene Bildwelt bleibt die einzige Autorität.
+9. Keine zusätzlichen Nutzerfragen außer der einmaligen Cover-Auswahl.
+
+============================================================
+PHASE A — JETZT SOFORT 3 COVER ERZEUGEN
+============================================================
+
+Starte JETZT drei getrennte Ein-Bild-Jobs gleichzeitig: A, B und C.
+
+COVER A
+Temporärer Dateiname: YouTube Thumbnail A.png
+Hook: TEURE TEILZAHLUNG
+
+IMAGE PROMPT:
+Horizontal 16:9 FinanzNeo premium stylized-3D editorial thumbnail. A large unbranded credit card dominates the frame and overlaps a substantial warm-ivory monthly credit-card statement. The statement and card are close to camera, large and immediately readable as real financial objects. A restrained warm red-orange printed/stamped mark “Teilzahlung” creates the risk tension. Deep seamless black/charcoal-green world, polished stylized animation-film materials, believable paper and premium polymer/metal cues, visible thickness, soft studio key light, readable highlights and strong soft contact shadows. The scene must feel like a coherent financial situation, not two floating cards. Hook typography “TEURE TEILZAHLUNG” clean, frontal and secondary to the visual. No dashboard, no UI tiles, no tiny centered object, no gold-luxury staging.
+
+COVER B
+Temporärer Dateiname: YouTube Thumbnail B.png
+Hook: 2.000 € → 2.368 €
+
+IMAGE PROMPT:
+Horizontal 16:9 FinanzNeo premium stylized-3D editorial thumbnail. Show one large real-world credit-card statement or long receipt as the dominant hero, close and filling most of the useful frame. The document visibly extends/unfolds from an initial 2.000 € amount toward 2.368 €, with one restrained warm red-orange stamped note “368 € ZINSEN”. Make the growing cost physically understandable through the extending statement itself, not through floating boxes. Deep seamless black/charcoal-green world, adult stylized 3D animation-film rendering, believable paper thickness, premium material cues, studio lighting, clear contact shadows. Hook typography “2.000 € → 2.368 €” frontal and clean. No dashboard, no split cards, no miniature diorama, no gold-luxury look.
+
+COVER C
+Temporärer Dateiname: YouTube Thumbnail C.png
+Hook: DIE KLEINE RATE
+
+IMAGE PROMPT:
+Horizontal 16:9 FinanzNeo premium stylized-3D editorial thumbnail. One large monthly credit-card statement dominates the frame. A clearly recognizable physical 100-€ payment enters the statement, while a warm red-orange “ZINSEN” portion visibly takes part of that payment before the remaining amount reaches the balance. Show cause and effect in one coherent scene, close to camera. Deep seamless black/charcoal-green world, premium stylized animation-film materials, soft studio light, strong contact shadows, believable depth. Hook typography “DIE KLEINE RATE” clean and frontal. No flowchart, no dashboard, no floating tile system, no tiny objects.
+
+Wenn A/B/C vollständig erzeugt und QA-geprüft sind, STOPP genau einmal und frage:
+„Welches Cover: A, B oder C?“
+
+Warte auf die Auswahl.
+Danach Gewinner umbenennen in:
+YouTube Thumbnail - Kreditkarten Teilzahlung.png
+
+Die anderen beiden nicht in den finalen Bilderordner übernehmen.
+
+============================================================
+PHASE B — NACH COVER-AUSWAHL AUTOMATISCH WEITER
+============================================================
+
+Erzeuge danach das folgende Szenenbild ohne weitere Freigabe.
+
+BILD 01
+Finaler Dateiname: YouTube Bild 01 - Karte und Monatsabrechnung.png
+
+IMAGE PROMPT:
+Horizontal 16:9 FinanzNeo grounded stylized-3D financial explainer scene. Show one large unbranded credit card as the main hero, occupying roughly half of the useful frame and physically lying across / overlapping a substantial warm-ivory monthly credit-card statement. The statement must look like a real printed document, not a UI card. Only two short printed German options are visible on the paper: “Vollzahlung” and “Teilzahlung”. “Teilzahlung” has one restrained warm red-orange printed/stamped emphasis; “Vollzahlung” remains neutral. Add just enough real document/desk context to make the situation instantly believable, but let the context dissolve naturally into the deep seamless black/charcoal-green FinanzNeo world. Use adult premium stylized 3D animation-film rendering, believable paper and card proportions, visible thickness, refined surfaces, soft premium studio key light, readable highlights, ambient occlusion and strong soft contact shadows. Main objects large, close and coherent. No floating cards, no settings panel, no dashboard, no generic finance icons, no product-ad emptiness.
+
+QA BILD 01 nach allen globalen Regeln. Bei FAIL nur BILD 01 neu generieren.
+
+============================================================
+FINALER FLOW-BESTAND
+============================================================
+
+Am Ende müssen exakt diese finalen Google-Flow-Dateien vorhanden sein:
+1. YouTube Thumbnail - Kreditkarten Teilzahlung.png
+2. YouTube Bild 01 - Karte und Monatsabrechnung.png
+
+Finaler Zielordner:
+04-visuals/00-ALLE-BILDER-HIER-REIN/
+
+SEPARATE one-image jobs
+rename immediately
+regenerate only that same number
+horizontal 16:9
+
+Nach BILD 01 keine weiteren Bildjobs erfinden und keine weitere Nutzerfreigabe verlangen.
