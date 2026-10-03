@@ -27,6 +27,8 @@ jobs:
         run: npm ci
       - name: Apply YouTube V4 migration
         run: node scripts/tmp-upgrade-youtube-production-v4.mjs
+      - name: Apply compatibility markers
+        run: node scripts/tmp-fix-youtube-v4-compat.mjs
       - name: Scaffold YouTube V4 contract test
         run: |
           node scripts/scaffold-finanzneo-youtube.mjs --target youtube/__ci_youtube_v4 --title "CI YouTube V4" --types image,animation,image,hybrid,image,animation,image
@@ -58,8 +60,10 @@ jobs:
       - name: TypeScript
         run: npm run typecheck
       - name: Remove CI test project
+        if: always()
         run: rm -rf youtube/__ci_youtube_v4
       - name: Commit reviewed migration
+        if: success()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
