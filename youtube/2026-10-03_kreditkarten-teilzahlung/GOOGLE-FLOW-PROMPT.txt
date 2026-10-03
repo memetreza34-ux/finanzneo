@@ -32,6 +32,15 @@ PHASE B — SZENENBILDER
 15. Beende die Arbeit erst, wenn das ausgewählte Cover und alle fünf Szenenbilder korrekt vorhanden sind.
 
 ============================================================
+MASCHINENREGELN — NICHT ALS ZWEITEN PROMPT KOPIEREN
+============================================================
+
+SEPARATE one-image jobs
+rename immediately
+regenerate only that same number
+FINAL_IMAGE_DIRECTORY: 04-visuals/00-ALLE-BILDER-HIER-REIN
+
+============================================================
 GLOBALE BILDWELT — GILT FÜR JEDEN EINZELNEN JOB
 ============================================================
 
