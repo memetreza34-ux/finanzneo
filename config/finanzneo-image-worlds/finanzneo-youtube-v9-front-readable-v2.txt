@@ -5,126 +5,189 @@ GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-TARGET_USE: YouTube Longform Flow images and thumbnails
+TARGET_USE: YouTube Longform images, thumbnails and hybrid sources
 
-FINANZNEO YOUTUBE V9 FRONT-READABLE WORLD — CORRECTED V2
+FINANZNEO YOUTUBE V9 FRONT-READABLE WORLD — CORRECTED DUAL-MODE SYSTEM
 
-CORE
-The approved FinanzNeo YouTube image world is a premium physical editorial stylized-3D world, not a black-background infographic template. The PRIMARY style authority is the existing `finanzneo-premium-physical-editorial-v8` language, adapted to horizontal 16:9. `finanzneo-youtube-grounded-3d-black-v1` remains the grounding reference for believable real-life cause/effect.
+PURPOSE
+Create clear, premium FinanzNeo explainer visuals without forcing every spoken idea into the same physical 3D-object template. The brand world stays fixed, but the visual form may change according to the content.
 
-The recurring failure to avoid is: small isolated cards, tiny tiles, control panels, sterile product shots or miniature objects floating in a large black void. A technically correct black background and the right colors are NOT enough.
+The recurring failure to avoid is NOT only flat design. It is also fake 3D: small plaques, floating tiles, dashboard cards, panels and miniature objects invented solely because the prompt demanded physical depth.
 
-ENGINE ROUTING — BEFORE WRITING ANY FLOW PROMPT
-Google Flow is for PHYSICAL / EDITORIAL / REAL-LIFE scene imagery that benefits from generated objects, materials and spatial storytelling.
+CORE BRAND DNA — ALWAYS ACTIVE
+- premium stylized adult animation-film / editorial rendering
+- deep seamless black to charcoal-green-black world
+- refined, restrained materials and clean studio lighting
+- emerald = positive / solution / growth when semantically correct
+- warm red-orange = cost / risk / debt / warning
+- warm ivory / soft gray = neutral information
+- gold/brass = small money/value accent only, never the dominant look
+- no photorealism
+- no childish clay/toy/Pixar styling
+- no generic corporate stock 3D
+- no generic gold-luxury AI-finance aesthetic
+- one clear visual idea that reads in roughly 1–2 seconds
 
-Prefer REMOTION / SVG / REACT instead of Flow when the beat is mainly:
-- exact numbers or arithmetic
-- a chart or graph
-- a checklist or multiple text labels
-- an interface/settings screen
-- a quote or key statement
-- a timeline
-- a comparison driven primarily by text/data
-- an icon/symbol that can be drawn cleanly in code
+============================================================
+MODE A — GROUNDED SCENE
+============================================================
 
-Do not ask Flow to imitate a data graphic, UI screenshot, checklist or presentation slide. Simple explainer visuals remain welcome, but precision-first visuals belong in Remotion.
+USE WHEN
+The spoken beat is best understood through a real situation, real object or visible cause/effect.
 
-NON-NEGOTIABLE FLOW HERO RULE
-For every normal Flow scene image:
-1. ONE dominant physical hero subject occupies roughly 45–65% of the useful frame.
-2. The hero is recognizable without reading labels.
-3. Use only 0–3 supporting physical objects when they materially improve the explanation.
-4. The main idea reads in about 1–2 seconds.
-5. The composition must not be mostly empty black space.
-6. The scene must feel intentionally composed, not like separate objects placed on a black table.
+EXAMPLES
+- credit card on a real monthly statement
+- invoice, receipt, calendar, bank document or contract
+- shopping basket, household object, payment terminal, phone, safe or account folder when genuinely relevant
+- a physical action such as a fee being added, a bill extending, a gate closing, a payment changing direction
 
-CAMERA + DEPTH FOR FLOW SCENES
-- default: medium-close gentle 3/4 editorial camera for physical scenes
-- hero near the camera with a strong silhouette
-- clear foreground / hero plane / secondary depth when useful
-- purposeful overlap rather than evenly spaced modules
+COMPOSITION
+- one dominant real-world hero subject, normally about 45–65% of useful frame
+- 0–3 supporting objects only when they improve understanding
+- medium-close editorial framing
+- natural perspective; gentle 3/4 view is allowed
+- clear foreground / hero / secondary depth where useful
+- believable proportions
+- purposeful overlap
 - soft contact shadows and ambient occlusion
-- mild depth-of-field only on secondary objects
-- front-facing view only when the content genuinely requires exact frontal readability
-- never distant isometric, tiny diorama or sterile centered product shot
+- real material cues and visible object thickness where the object actually has thickness
+- local real-world context may dissolve into the dark background
 
-MATERIAL LANGUAGE
-- premium stylized adult 3D animation-film rendering
-- satin dark-emerald/charcoal premium polymer or metal for structure
-- warm ivory/cream ceramic, paper or stone-like neutral surfaces
-- warm red-orange enamel only for cost/risk/debt/warning
-- brighter emerald only for positive/solution/value
-- restrained gold/brass only for money/value, never dominant
-- substantial thickness, visible edges, soft bevels and believable weight
-- restrained glass only as a secondary material
-- never flat vector cards pretending to be 3D
+DO NOT
+- turn text or abstract values into arbitrary thick plaques
+- create a sterile product shot with no explanatory situation
+- create tiny objects in a huge empty black studio
+- create a miniature diorama
 
-LIGHTING
-- cinematic soft key light from upper front-left
-- controlled emerald rim/separation light where useful
-- readable shadow-side fill
-- localized highlights and believable restrained reflections
-- clear contact shadows
-- subject must remain luminous and readable against the dark world
+============================================================
+MODE B — SIMPLE EXPLAINER
+============================================================
 
-BACKGROUND
-Use one seamless deep charcoal green-black environment with subtle tonal depth. No visible floor-wall boundary or horizon. Local context may dissolve into the dark world when it makes the situation believable, but the background must never become an empty black void around a tiny subject.
+USE WHEN
+A simple graphic explanation communicates the beat faster than a literal real-world scene.
 
-PHYSICAL STORYTELLING
-Prefer concrete cause-and-effect over abstract finance decoration. Examples: a card attached to a real monthly statement, a fee tag physically added to a receipt, a contract page being stamped, a payment being separated into physical parts, a scale tipping, a gate opening/closing, a bill extending, a calendar advancing. Do not reuse the same metaphor mechanically.
-
-SIMPLE VISUALS — SAME BRAND, DIFFERENT ENGINE
-The following simple forms are allowed and encouraged when they explain the point fastest:
-- number focus
-- simple chart
+ALLOWED FORMS
+- one large number / amount / percentage
+- one large symbol or recognizable object
+- simple chart or diagram
 - target / route / mountain / goal metaphor
-- clean symbol/object focus
-- UI/settings example
+- clean comparison
 - asset/object group
 - concept cluster
-- short quote/key statement
+- short quote or key statement
+- simple settings/UI-style explanation when the content genuinely requires it
+- front-facing explanatory illustration
 
-But choose the engine correctly:
-- if exact text/data/layout is central -> Remotion/SVG/React
-- if a tangible physical scene/object is central -> Google Flow
+CRITICAL RULE
+Simple does NOT mean flat template, and it also does NOT mean fake physical 3D.
 
-Do not force a simple Remotion-style graphic into fake 3D just to satisfy the image world.
+A number may simply be a large beautifully rendered number.
+A chart may simply be a clean front-facing chart.
+A symbol may simply be a large stylized symbol.
+A comparison may use two clear areas.
+Do NOT convert these automatically into physical tiles, plaques, cards, panels, pedestals, blocks or floating widgets.
 
-THUMBNAIL LOCK
-Thumbnails use the same premium physical editorial world.
-- one dominant topic-specific hero idea
-- hero large, close and readable
-- short German hook, max 2 lines, ideally 2–5 words
-- typography front-readable and secondary to the visual
-- no generic gold-luxury finance look
-- no tiny centered object in a huge black frame
-- no UI/dashboard thumbnail
-- selected thumbnail is never a style reference for scene images
+VISUAL TREATMENT
+- front-facing or near-front by default
+- large useful-frame occupancy; avoid tiny centered content
+- clean hierarchy
+- restrained 2.5D depth, soft shadows, subtle material cues or polished illustration treatment are allowed
+- use FinanzNeo color semantics and lighting language
+- keep black/charcoal world dominant without creating empty void
+- text is concise and secondary
+- exact labels must be legible and straight
 
-TEXT IN FLOW IMAGES
-Only short German labels that materially remove ambiguity. Labels should belong to physical objects as print, stamp, tag, plaque or document text when possible. No paragraph, CTA, subtitle, checklist or dashboard copy.
+CHART / DIAGRAM / DATA
+- straight-on front view
+- camera perpendicular to chart plane
+- no tilted axes
+- no foreshortened bars
+- no 3/4 chart perspective
+- mathematically correct values, scales and proportions
+- no Excel/PowerPoint default look
+- no fantasy chart sculpture
+- no fake 3D bars merely for decoration
 
-CHART / DATA RULE
-Exact charts, arithmetic, timelines and precision-heavy comparisons should normally be Remotion-native. If a chart is exceptionally used as a Flow source, it must remain frontal, mathematically correct, undistorted and visually integrated without becoming a fantasy 3D sculpture.
+UI / SETTINGS
+- use only when the interface state itself is the point
+- clean fictional/unbranded layout
+- straight-on and readable
+- may be visually flat/2.5D inside the FinanzNeo world
+- do NOT turn it into a thick floating control panel solely to make it 3D
+- no screenshot realism
 
-HARD FAIL — REGENERATE
-Reject a Flow result if ANY is true:
-- main subject is too small
-- frame is mostly empty black space
-- image reads like a dashboard, control panel or UI
-- image reads like a flowchart or presentation slide
-- multiple small tiles/cards/modules dominate
-- generic rectangular info cards are the main objects
-- sterile product-ad shot with no explanatory action
+============================================================
+MODE SELECTION — CONTENT FIRST
+============================================================
+
+Before writing an image prompt, ask:
+1. Is a real-world situation/object the clearest explanation? -> MODE A GROUNDED SCENE.
+2. Is a clean number/symbol/chart/comparison/metaphor clearer? -> MODE B SIMPLE EXPLAINER.
+
+Never choose MODE A merely because “FinanzNeo is 3D”.
+Never choose MODE B merely because it is easier.
+The clearest visual explanation wins.
+
+Remotion/SVG/React remains preferred when actual movement, exact dynamic data, sequential reveals or frame-perfect typography are essential. But a STATIC simple explainer may absolutely be generated by Google Flow if it is the best still-image solution.
+
+============================================================
+THUMBNAILS
+============================================================
+
+Thumbnails use the same brand world.
+- one dominant topic-specific idea
+- important subject large and close
+- hook max 2 lines, ideally 2–5 German words
+- typography front-readable and secondary to visual
+- either grounded-scene or simple-explainer mode may be used depending on concept
+- no separate gold-luxury thumbnail world
+- no tiny centered object
+- no generic dashboard thumbnail
+- selected thumbnail never becomes style reference for scene images
+
+============================================================
+TEXT
+============================================================
+
+Scene images:
+- only short German labels when they materially improve understanding
+- no paragraph, subtitle or CTA
+- text must be straight and legible
+
+Simple Explainer mode may use a short central number, short label or key phrase when that is the visual itself.
+
+============================================================
+GLOBAL HARD FAIL — REGENERATE
+============================================================
+
+Reject if ANY is true:
+- main information too small
+- frame mostly empty black space
+- floating tile/card/module system
+- dashboard/control-panel/HUD aesthetic without content reason
+- arbitrary thick plaques for values/text
+- generic rectangles pretending to be premium 3D
+- sterile product-ad shot
 - tiny isometric/diorama framing
-- flat stock icon or clipart look
-- gameboard / four-corner / orbit layout
-- objects appear weightless or lack contact shadows
-- no strong depth hierarchy or material contrast
-- photorealistic, childish clay/toy/Pixar, cyberpunk or generic corporate 3D
-- the idea only works after reading lots of text
-- black background + correct colors are present but the V8 premium physical editorial composition is missing
+- stock icon/clipart look
+- Canva/PowerPoint/social-template look
+- generic finance icon collage
+- unexplained abstract finance machine
+- trophy/plinth/gold-luxury staging
+- photorealism
+- childish clay/toy/Pixar
+- clutter
+- idea requires long reading or interpretation
+- visual form is more complicated than the spoken point
+
+QUALITY GATE
+The result must feel like FinanzNeo because of its consistent color logic, polished stylized rendering, lighting, hierarchy and explanation quality — NOT because every element was forced into a thick 3D object.
 
 GOOGLE FLOW EXECUTION
-Thumbnail phase: exactly 3 separate one-image jobs in parallel, then one A/B/C user selection.
-Scene-image phase: up to 5 separate one-image jobs in parallel per batch, but ONLY for beats that passed the engine-routing rule above. Each sub-job gets the complete style lock. Rename immediately and QA. Failed style/composition = regenerate only that same image number.
+- Cover phase: 3 separate one-image jobs in parallel, then one A/B/C selection.
+- Scene-image phase: up to 5 separate one-image jobs in parallel per batch.
+- Every sub-job contains its exact scene description plus the relevant mode rules.
+- Rename immediately.
+- QA every result.
+- Failed style/composition -> regenerate only that same image number.
+- Start next batch only after current batch passes.
