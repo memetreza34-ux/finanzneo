@@ -2,33 +2,41 @@
 
 Eigenständiges YouTube-Longform-Projekt nach FinanzNeo V4. Kein Reel und kein YouTube Short.
 
-## GOOGLE FLOW — NUR DAS HIER
+## GOOGLE FLOW — NUR EINE DATEI
 
 Der Nutzer kopiert **genau eine einzige Datei vollständig** in den Google-Flow-Agenten:
 
-`GOOGLE-FLOW-PROMPT.txt`
+`04-visuals/01-BILDPROMPTS/GOOGLE-FLOW-PROMPT.txt`
 
-Mehr musst du für die Bilder nicht kopieren.
+Der Master-Prompt liegt absichtlich im eigenen Bildprompt-Ordner und nicht mehr lose im Projekt-Root.
 
-Dieser eine Master-Prompt enthält bereits:
-- Cover A/B/C
-- 3 getrennte Cover-Jobs parallel
+Er enthält:
+- Cover A/B/C als 3 getrennte parallele Jobs
 - einmalige Nutzerwahl A/B/C
-- danach automatisch alle benötigten Szenenbilder
-- 5 getrennte Bild-Jobs parallel
-- alle exakten Dateinamen
-- vollständige Bildideen und Zahlen
+- die tatsächlich für Google Flow vorgesehenen Szenenbilder
+- exakte Dateinamen
 - 16:9
-- FinanzNeo-V9-Bildwelt
-- Kamera-/Text-/Datenregeln
-- QA und Regeneration fehlerhafter Bilder
+- Premium Physical Editorial V8 als primären Stilanker
+- QA und Regeneration fehlerhafter Ergebnisse
 
-Die Dateien unter `04-visuals/EINZELNE-VISUALS/` sowie `04-visuals/thumbnail-prompt.txt` sind **nur interne Produktions-/Validatorquellen**. Der Nutzer kopiert sie nicht einzeln in Google Flow.
+## WICHTIG: NICHT JEDES VISUAL IST EIN FLOW-BILD
+
+Google Flow wird nur für physische/editoriale Szenen verwendet.
+
+Präzise Zahlen, Charts, Checklisten, UI/Settings, Timelines und textlastige Vergleiche werden direkt in Remotion/SVG/React gebaut. Dadurch entstehen keine künstlichen 3D-Tiles, Mini-Panels oder fehlerhaften KI-Zahlenbilder.
+
+Für dieses konkrete Video erzeugt Google Flow nach der Cover-Auswahl nur noch:
+
+`YouTube Bild 01 - Karte und Monatsabrechnung.png`
+
+Visual 03, 05, 07 und 08 sind jetzt Remotion-native.
+
+Die Dateien unter `04-visuals/EINZELNE-VISUALS/` und `04-visuals/thumbnail-prompt.txt` sind interne Produktions-/Validatorquellen und werden nicht einzeln in Google Flow kopiert.
 
 ## Produktionsphasen
 
-Phase 1 enthält Recherche, Skript, Visualplanung, den einen Google-Flow-Master-Prompt, vier echte Motion-Visuals und das Publishing-Paket.
+Phase 1 enthält Recherche, Skript, Visualplanung, den Google-Flow-Master-Prompt, produktionsreife Motion-/Data-Visuals und das Publishing-Paket.
 
-Phase 2 ergänzt die finalen Flow-Bilder, genau ein Voiceover und echte Wort-Timings.
+Phase 2 ergänzt das ausgewählte Thumbnail, das eine benötigte Flow-Szenenbild, genau ein finales Voiceover und echte Wort-Timings.
 
 Phase 3 integriert die versiegelte Motion und rendert nach vollständigem Readiness-PASS.
