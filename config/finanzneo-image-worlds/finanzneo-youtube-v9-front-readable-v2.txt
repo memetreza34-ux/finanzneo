@@ -1,154 +1,130 @@
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
-APPROVED_YOUTUBE_ANCHOR: finanzneo-youtube-grounded-3d-black-v1
+PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
+GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-TARGET_USE: YouTube Longform image, thumbnail and hybrid source
+TARGET_USE: YouTube Longform Flow images and thumbnails
 
-FINANZNEO YOUTUBE V9 FRONT-READABLE WORLD — V2
+FINANZNEO YOUTUBE V9 FRONT-READABLE WORLD — CORRECTED V2
 
-CORE — STYLE AUTHORITY
-This YouTube world is NOT a flat infographic style and NOT a generic black-background finance template. Its visual authority is the already approved FinanzNeo grounded stylized-3D black world.
+CORE
+The approved FinanzNeo YouTube image world is a premium physical editorial stylized-3D world, not a black-background infographic template. The PRIMARY style authority is the existing `finanzneo-premium-physical-editorial-v8` language, adapted to horizontal 16:9. `finanzneo-youtube-grounded-3d-black-v1` remains the grounding reference for believable real-life cause/effect.
 
-The accepted anchor quality is the grounded everyday explainer scene language defined in `finanzneo-youtube-grounded-3d-black-v1`: tangible physical objects, believable proportions, premium stylized 3D animation-film rendering, semi-realistic materials, real depth, soft studio lighting, clear highlights, contact shadows, subtle grounded reflections and concrete cause/effect inside a deep seamless black world.
+The recurring failure to avoid is: small isolated cards, tiny tiles, control panels, sterile product shots or miniature objects floating in a large black void. A technically correct black background and the right colors are NOT enough.
 
-Every generated image must visibly belong to that same world. A viewer should be able to place a new frame next to the approved grounded 3D scenes and immediately recognize the same series.
+ENGINE ROUTING — BEFORE WRITING ANY FLOW PROMPT
+Google Flow is for PHYSICAL / EDITORIAL / REAL-LIFE scene imagery that benefits from generated objects, materials and spatial storytelling.
 
-WORLD FIXED — FORM FREE
-The VISUAL WORLD is fixed. Only the COMPOSITIONAL FORM may change.
+Prefer REMOTION / SVG / REACT instead of Flow when the beat is mainly:
+- exact numbers or arithmetic
+- a chart or graph
+- a checklist or multiple text labels
+- an interface/settings screen
+- a quote or key statement
+- a timeline
+- a comparison driven primarily by text/data
+- an icon/symbol that can be drawn cleanly in code
 
-Choose the clearest form for the spoken point: real-life scene, character scene, object scene, comparison, chart, diagram, editorial, illustration, metaphor, hybrid, symbol/object focus, single-number focus, route/goal visual, clean UI/app example, asset/object group, concept cluster or short quote/key-statement card.
+Do not ask Flow to imitate a data graphic, UI screenshot, checklist or presentation slide. Simple explainer visuals remain welcome, but precision-first visuals belong in Remotion.
 
-CRITICAL DISTINCTION:
-- `simple visual` means a simple composition, NOT a different rendering style.
-- `symbol focus` means one tangible premium FinanzNeo object, NOT flat stock clipart.
-- `number focus` means a clean premium number treatment with physical/material presence and grounded light/shadow, NOT a generic flat presentation slide.
-- `simple chart` means a clean front-readable chart integrated into the same premium V9 material/light world, NOT Excel/PowerPoint styling.
-- `UI/app example` means a restrained fictional interface rendered as a designed object/panel with depth, materials, light and contact shadow, NOT a screenshot or flat dashboard card.
-- `quote/key statement` means premium restrained typography integrated into the same world, NOT a white social-media slide.
+NON-NEGOTIABLE FLOW HERO RULE
+For every normal Flow scene image:
+1. ONE dominant physical hero subject occupies roughly 45–65% of the useful frame.
+2. The hero is recognizable without reading labels.
+3. Use only 0–3 supporting physical objects when they materially improve the explanation.
+4. The main idea reads in about 1–2 seconds.
+5. The composition must not be mostly empty black space.
+6. The scene must feel intentionally composed, not like separate objects placed on a black table.
 
-Do not force a complex cinematic scene into every beat. A single object, number or chart may carry the entire frame when that is clearest — but it must still look unmistakably like FinanzNeo V9.
+CAMERA + DEPTH FOR FLOW SCENES
+- default: medium-close gentle 3/4 editorial camera for physical scenes
+- hero near the camera with a strong silhouette
+- clear foreground / hero plane / secondary depth when useful
+- purposeful overlap rather than evenly spaced modules
+- soft contact shadows and ambient occlusion
+- mild depth-of-field only on secondary objects
+- front-facing view only when the content genuinely requires exact frontal readability
+- never distant isometric, tiny diorama or sterile centered product shot
 
-APPROVED GROUNDED-3D QUALITIES — MANDATORY
-Inherit these qualities from the approved YouTube grounded-3D anchor:
-- clearly stylized premium 3D animation-film rendering, never photorealistic
-- tangible objects with believable proportions
-- semi-realistic paper/plastic/metal/glass/material cues with visibly stylized rendering
-- real foreground/midground/background separation when applicable
-- physical thickness on cards, panels, documents and labels where appropriate
-- soft premium studio key light
-- readable highlights and rim separation
-- soft contact shadows beneath/behind physical elements
-- subtle grounded reflections when useful
-- concrete real-life cause/effect whenever the content is a real-life process
-- large readable hero elements rather than tiny dioramas
-- deep seamless black as the dominant world
-- small local real-world context may dissolve into black when it materially helps understanding
+MATERIAL LANGUAGE
+- premium stylized adult 3D animation-film rendering
+- satin dark-emerald/charcoal premium polymer or metal for structure
+- warm ivory/cream ceramic, paper or stone-like neutral surfaces
+- warm red-orange enamel only for cost/risk/debt/warning
+- brighter emerald only for positive/solution/value
+- restrained gold/brass only for money/value, never dominant
+- substantial thickness, visible edges, soft bevels and believable weight
+- restrained glass only as a secondary material
+- never flat vector cards pretending to be 3D
 
-FORBIDDEN STYLE DRIFT
-Reject flatness even if the information is technically correct. Forbidden as the final generated-image look:
-- flat 2D infographic cards floating on black
-- plain colored rectangles with text as the whole design
-- generic presentation-slide layout
-- stock icon / clipart language
-- generic dashboard tile language
-- screenshot-like UI
-- Canva/social-template look
-- PowerPoint/Excel default chart look
-- arbitrary vector illustration unrelated to the approved V9 materials
-- generic black-background finance graphics with no physical depth
-- sterile floating boxes with no material, lighting or grounding
+LIGHTING
+- cinematic soft key light from upper front-left
+- controlled emerald rim/separation light where useful
+- readable shadow-side fill
+- localized highlights and believable restrained reflections
+- clear contact shadows
+- subject must remain luminous and readable against the dark world
 
-SIMPLE EXPLAINER FORMS
-Simple is allowed and often preferred when it improves comprehension, but the approved 3D material/light language remains mandatory.
+BACKGROUND
+Use one seamless deep charcoal green-black environment with subtle tonal depth. No visible floor-wall boundary or horizon. Local context may dissolve into the dark world when it makes the situation believable, but the background must never become an empty black void around a tiny subject.
 
-SYMBOL / OBJECT FOCUS
-One large content-specific object may carry the frame. Render it as a tangible stylized premium 3D object with believable material, thickness, studio light and contact shadow. Never use a random flat icon.
+PHYSICAL STORYTELLING
+Prefer concrete cause-and-effect over abstract finance decoration. Examples: a card attached to a real monthly statement, a fee tag physically added to a receipt, a contract page being stamped, a payment being separated into physical parts, a scale tipping, a gate opening/closing, a bill extending, a calendar advancing. Do not reuse the same metaphor mechanically.
 
-NUMBER FOCUS
-One important amount, percentage, date or target may dominate the composition. Typography must be clean and front-readable, with controlled material presence or physical integration into the scene. Never use generic giant gold 3D numbers.
+SIMPLE VISUALS — SAME BRAND, DIFFERENT ENGINE
+The following simple forms are allowed and encouraged when they explain the point fastest:
+- number focus
+- simple chart
+- target / route / mountain / goal metaphor
+- clean symbol/object focus
+- UI/settings example
+- asset/object group
+- concept cluster
+- short quote/key statement
 
-SIMPLE CHART
-A bar, line, area or comparison chart may fill the frame if the data is the point. It remains mathematically exact, straight-on and highly readable, while the chart panel/lines/bars use the same refined V9 material, lighting, depth and semantic colors. Do not turn it into a fantasy sculpture.
+But choose the engine correctly:
+- if exact text/data/layout is central -> Remotion/SVG/React
+- if a tangible physical scene/object is central -> Google Flow
 
-ROUTE / GOAL / METAPHOR
-A target, route, mountain, bank, house, vehicle or other concrete metaphor is allowed when the mapping is immediate. Render it with the same tangible stylized 3D language. Avoid vague visual riddles.
+Do not force a simple Remotion-style graphic into fake 3D just to satisfy the image world.
 
-UI / APP MOCKUP
-Allowed when the interface itself explains a setting, account state or transaction flow. Use a clean fictional unbranded interface on a tangible premium panel/device/object, straight-on and readable, with subtle depth/material/light. Never output a flat screenshot.
+THUMBNAIL LOCK
+Thumbnails use the same premium physical editorial world.
+- one dominant topic-specific hero idea
+- hero large, close and readable
+- short German hook, max 2 lines, ideally 2–5 words
+- typography front-readable and secondary to the visual
+- no generic gold-luxury finance look
+- no tiny centered object in a huge black frame
+- no UI/dashboard thumbnail
+- selected thumbnail is never a style reference for scene images
 
-ASSET / OBJECT GROUP
-A small set of concrete objects may illustrate categories, wealth, choices or trade-offs. Each object must share the same V9 material/light language and feel like one coherent scene, not mixed clipart.
+TEXT IN FLOW IMAGES
+Only short German labels that materially remove ambiguity. Labels should belong to physical objects as print, stamp, tag, plaque or document text when possible. No paragraph, CTA, subtitle, checklist or dashboard copy.
 
-CONCEPT CLUSTER
-A central tangible object with a few surrounding factors/labels is allowed. Keep the cluster spatially coherent and premium, with no presentation-slide look.
+CHART / DATA RULE
+Exact charts, arithmetic, timelines and precision-heavy comparisons should normally be Remotion-native. If a chart is exceptionally used as a Flow source, it must remain frontal, mathematically correct, undistorted and visually integrated without becoming a fantasy 3D sculpture.
 
-QUOTE / KEY STATEMENT CARD
-A short sourced quote or verified statement may be typographic when the wording itself matters. Integrate the text into a premium physical/editorial composition in the black V9 world. No paragraph-heavy slide and no plain white card.
-
-DEFAULT CAMERA
-- normal front-facing or near-front eye-level view is default
-- level horizon
-- natural perspective
-- no dramatic dutch angle
-- no unnecessary extreme low/high angle
-- no heavy perspective distortion
-- mild 3/4 perspective only for a real narrative scene when it clearly helps
-
-CHART / DIAGRAM / DATA LOCK
-Charts and diagrams must be shown front-on, straight and readable.
-- camera perpendicular to chart plane
-- horizontal x-axis and vertical y-axis when appropriate
-- no 3/4 chart view
-- no tilted chart plane
-- no skewed axes
-- no foreshortened bars
-- no perspective-distorted labels
-- mathematically correct values, scales, proportions and segment sizes
-- V9 materials/depth/light may enhance the chart but never reduce data readability
-
-THUMBNAIL / COVER LOCK
-Every thumbnail belongs to this exact grounded V9 world.
-- one strong content-specific idea
-- same tangible stylized 3D materials and lighting as scene images
-- short visible German hook text, max 2 lines, ideally 2–5 words
-- clean front-facing typography
-- no separate gold-luxury thumbnail style
-- selected thumbnail is never a style reference; this written grounded-V9 world remains authority
-
-COLOR
-- deep black dominant
-- emerald = positive / growth / solution when semantically correct
-- warm red-orange = cost / risk / loss / warning
-- warm ivory / soft gray = neutral
-- gold = small money/value accent only
-- no rainbow, neon cyberpunk or excessive glow
-
-MATERIAL + LIGHT
-Premium stylized animation-film materials. Use believable physical cues and controlled surface detail. Cards and panels should have thickness; objects should cast readable contact shadows; paper should feel like paper; plastic/metal/glass should have restrained material response. Never photorealistic, never toy-like, never generic corporate stock 3D.
-
-READABILITY
-Important objects large. Main message reads within roughly 1–2 seconds. Deliberate negative space is allowed. The still frame must work without motion first.
-
-TEXT
-Use only short German labels that materially clarify the visual. A short verified quote/key statement is allowed only when wording itself is content. No paragraphs, subtitles, CTA or random decorative words.
-
-QUALITY GATE — HARD FAIL
-Reject and regenerate if any of these is true:
-- frame looks like a flat infographic or presentation slide
-- colored rectangles/text blocks replace real designed objects
-- flat icon/clipart look
-- screenshot/dashboard look
-- no visible material depth where physical elements are shown
-- no believable grounding/contact shadow on physical elements
-- frame does not feel like the approved grounded V9 series
-- generic AI-finance art
-- chart is tilted or mathematically wrong
-- gold dominates
-- spoken point is not immediately recognizable
-- simple visual looks cheap instead of deliberately premium
+HARD FAIL — REGENERATE
+Reject a Flow result if ANY is true:
+- main subject is too small
+- frame is mostly empty black space
+- image reads like a dashboard, control panel or UI
+- image reads like a flowchart or presentation slide
+- multiple small tiles/cards/modules dominate
+- generic rectangular info cards are the main objects
+- sterile product-ad shot with no explanatory action
+- tiny isometric/diorama framing
+- flat stock icon or clipart look
+- gameboard / four-corner / orbit layout
+- objects appear weightless or lack contact shadows
+- no strong depth hierarchy or material contrast
+- photorealistic, childish clay/toy/Pixar, cyberpunk or generic corporate 3D
+- the idea only works after reading lots of text
+- black background + correct colors are present but the V8 premium physical editorial composition is missing
 
 GOOGLE FLOW EXECUTION
-Thumbnail phase: exactly 3 separate one-image jobs in parallel.
-Scene-image phase: up to 5 separate one-image jobs in parallel per batch. Every sub-job must receive the full mandatory grounded-V9 style suffix, not only the scene description. Rename immediately and run QA. A style-drifted flat result is FAIL even when its text/numbers are correct; regenerate that same image number.
+Thumbnail phase: exactly 3 separate one-image jobs in parallel, then one A/B/C user selection.
+Scene-image phase: up to 5 separate one-image jobs in parallel per batch, but ONLY for beats that passed the engine-routing rule above. Each sub-job gets the complete style lock. Rename immediately and QA. Failed style/composition = regenerate only that same image number.
