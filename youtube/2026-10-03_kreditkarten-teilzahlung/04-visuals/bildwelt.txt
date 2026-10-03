@@ -4,50 +4,46 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
-APPROVED_YOUTUBE_ANCHOR: finanzneo-youtube-grounded-3d-black-v1
+PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
+GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
 
-STYLE AUTHORITY
-This project uses the approved FinanzNeo grounded stylized-3D black world. Deep black alone is NOT the style. Every Flow image must have tangible premium stylized-3D material presence, physical depth, believable proportions, soft studio light, readable highlights, contact shadows and restrained grounded reflections where useful.
+GOOGLE FLOW IS ONLY FOR PHYSICAL / EDITORIAL SCENES.
+Exact numbers, charts, checklists, UI/settings, quotes and text-heavy comparisons belong in Remotion/SVG/React instead of Flow.
 
-The visual form may be simple, but the rendering world may not change.
-- a symbol must look like a tangible premium 3D object, not a flat icon
-- a number may dominate the frame, but must be integrated with premium material/light/depth, not a presentation slide
-- a chart may be simple and front-facing, but must retain refined V9 material/light treatment, not Excel/PowerPoint styling
-- a UI example must be a tangible designed panel/device/object with depth and contact shadow, not a screenshot or flat dashboard card
-- labels may be front-facing and simple, but must sit on/with designed physical elements rather than floating generic rectangles
+FLOW HERO RULE
+- one dominant physical hero object, roughly 45–65% of useful frame
+- medium-close gentle 3/4 editorial camera by default
+- 0–3 supporting physical objects only when useful
+- clear foreground / hero / secondary depth
+- purposeful overlap and strong contact shadows
+- frame must not be mostly empty black
+- no tiny diorama, no sterile isolated product shot
 
-CORE STYLE
-- premium clearly stylized 3D animation-film / high-end illustration
-- tangible semi-realistic paper/plastic/metal/glass material cues
-- deep seamless black dominant world
-- refined rounded geometry where appropriate
-- real depth and physical thickness
-- clean soft studio lighting
-- readable contact shadows
-- subtle grounded reflections when useful
-- emerald for positive/solution
-- warm red-orange for cost/risk/debt
-- ivory and soft gray neutral
-- gold only as a small money/value accent
-- never photorealistic
-- never generic corporate 3D
-- never generic black-background finance graphics
+VISUAL STYLE
+- premium stylized adult 3D financial editorial illustration
+- substantial thickness, visible edges and believable weight
+- satin dark-emerald/charcoal structure
+- warm ivory/cream paper, ceramic or neutral surfaces
+- red-orange only for risk/cost/debt
+- brighter emerald only for positive/solution
+- restrained gold only for money/value accent
+- cinematic soft key light, readable fill, subtle rim separation
+- one seamless deep charcoal green-black environment with tonal depth
+- no visible floor-wall boundary
 
-SIMPLE EXPLAINER FORMS
-Simple compositions are still encouraged when clearer: symbol/object focus, one number, clean chart, route/goal metaphor, UI example, asset group, concept cluster, short sourced quote/key statement, or classic scene. But all must use the same physical/material FinanzNeo V9 rendering.
+TEXT
+Only short labels attached naturally to documents/objects when needed. No paragraph, checklist, dashboard copy or long explanatory text inside a Flow image.
 
-HARD FAIL / REGENERATE
-Reject even if numbers/text are correct when the image looks like:
-- flat 2D infographic
-- plain colored rectangles with text
-- generic presentation slide
-- stock/vector icon pack
-- screenshot/dashboard
-- Canva/social card
-- PowerPoint/Excel chart
-- sterile floating boxes with no material depth or grounding
+HARD FAIL
+- main subject too small
+- mostly empty black space
+- floating cards/tiles/modules
+- dashboard, control panel or screenshot/UI look
+- flowchart/presentation slide
+- flat stock icon/vector/Canva look
+- tiny isometric/gameboard/orbit composition
+- weightless objects or missing contact shadows
+- childish clay/toy/Pixar or photorealism
+- correct colors but wrong premium physical-editorial composition
 
-CAMERA
-Front-facing or near-front, eye-level, level horizon, natural perspective. Charts and diagrams exactly straight-on with undistorted axes/labels/proportions.
-
-horizontal 16:9 source image. Important subjects large enough for TV, laptop and mobile. One clear idea per image. Short German labels only when useful.
+The image must look like a frame from the same approved FinanzNeo premium physical editorial series before it is accepted.
