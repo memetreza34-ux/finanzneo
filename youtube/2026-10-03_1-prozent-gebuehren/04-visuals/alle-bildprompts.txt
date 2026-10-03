@@ -1,0 +1,96 @@
+FINANZNEO — GOOGLE FLOW YOUTUBE HANDOFF
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+THUMBNAIL_CONCURRENCY: 3
+IMAGE_BATCH_SIZE: 5
+IMAGE_CONCURRENCY: 5
+STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+PHASE A — THUMBNAILS
+Start A, B and C simultaneously as three SEPARATE one-image jobs. Each job produces exactly one horizontal 16:9 image. QA all three for the same written V9 world, short German hook text, front readability and anti-gold-drift. Ask the user exactly once for A/B/C. Rename only the selected candidate to `YouTube Thumbnail - 1 Prozent Kosten.png`. The selected thumbnail is never a style reference for scene images.
+
+Candidate A: text `1 % = 74.000 €?`; two identical investment paths start together, left with 0,2 % Kosten in emerald and right with 1,2 % Kosten in red-orange, with visibly different endpoints.
+Candidate B: text `Nur 1 %?`; a long emerald growth ribbon repeatedly loses a thin red-orange strip, with the cumulative missing section visible at the end.
+Candidate C: text `Gebühren fressen Rendite`; frontal split with final values around 410.000 € and 336.000 €, small fee labels, no gold-luxury staging.
+
+PHASE B — VIDEO IMAGES
+The five required image jobs are Visual 01, 02, 06, 07 and 08. Start all five as five SEPARATE one-image jobs at the same time. Never ask one job to output five images. As each result returns: rename immediately to its exact final file name, move it to `04-visuals/00-ALLE-BILDER-HIER-REIN/` and QA it. If one image fails, regenerate only that same number. Do not regenerate passed images. Final inventory QA is mandatory.
+
+CHART/DIAGRAM/DATA rule: Charts are straight-on and mathematically readable. No tilted axes, no perspective-distorted bars, no fake data.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 01 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINAL FILE NAME: YouTube Bild 01 - Ein Prozent wirkt klein.png
+VISUAL_FORM: comparison
+VISUAL_CONCEPT: Two identical long-term investment tracks start at the same 10.000 € block; one carries 0,2 % Kosten in emerald, the other 1,2 % Kosten in red-orange, while their distant endpoints diverge.
+VOICEOVER_VISUAL_MATCH: Shows the paradox that a tiny annual percentage gap can become a large long-term result gap.
+FRONT_READABILITY_TEST: PASS — both paths and labels are level and directly comparable.
+DATA_INTEGRITY_TEST: not-applicable
+IMAGE PROMPT: Premium stylized 3D comparison on a seamless deep-black stage. Two identical investment tracks start side by side from equal blocks labeled 10.000 €. Left label 0,2 % Kosten in emerald; right label 1,2 % Kosten in warm red-orange. Far endpoints visibly different in size. No coin mountains, no giant percent statue, no gold-luxury look. Horizontal 16:9, near-front, eye-level.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 02 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINAL FILE NAME: YouTube Bild 02 - Beispiel Annahmen.png
+VISUAL_FORM: diagram
+VISUAL_CONCEPT: One coherent four-part physical model shows 10.000 € Start, 300 € / Monat, 30 Jahre and 7 % brutto.
+VOICEOVER_VISUAL_MATCH: Makes every assumption visible before the result is shown.
+FRONT_READABILITY_TEST: PASS — all four elements share one frontal plane.
+DATA_INTEGRITY_TEST: PASS — all values match the model.
+IMAGE PROMPT: Premium stylized 3D model diagram on deep black. Four substantial connected explanatory objects in one balanced row: 10.000 € Start, 300 € / Monat, 30 Jahre, 7 % brutto. Ivory text, emerald growth accents, graphite materials. No PowerPoint cards or dashboard look. Horizontal 16:9, front-facing.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 03 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DO NOT GENERATE IMAGE 03. Keep the number reserved. Remotion shows recurring red cost slices leaving a growing emerald depot and accumulating separately.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 04 — DATA / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DO NOT GENERATE IMAGE 04. Keep the number reserved. Remotion draws the two exact model curves from year 0 to year 30 and reveals the final gap.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 05 — ANIMATION / REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DO NOT GENERATE IMAGE 05. Keep the number reserved. Remotion grows two final-value columns and reveals the approximate 74.000 € difference at the end.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 06 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINAL FILE NAME: YouTube Bild 06 - Kosten wirken im Produkt.png
+VISUAL_FORM: object-story
+VISUAL_CONCEPT: An investment-value object contains a small recurring red-orange cost channel inside it, showing that costs can reduce value without a separate monthly invoice.
+VOICEOVER_VISUAL_MATCH: Explains why ongoing product costs can appear through lower value or return rather than as a visible bill.
+FRONT_READABILITY_TEST: PASS — value flow, internal cost channel and remaining output are clear from a normal near-front view.
+DATA_INTEGRITY_TEST: not-applicable
+IMAGE PROMPT: One large premium stylized 3D investment-value object on deep black. Emerald value enters from the left. Inside, a small warm red-orange channel labeled laufende Kosten diverts a thin portion before the remaining value exits right. Add only a faint crossed-out paper invoice cue as support. Keep the mechanism physical and simple. Horizontal 16:9.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 07 — IMAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINAL FILE NAME: YouTube Bild 07 - Basisinformationsblatt Kosten.png
+VISUAL_FORM: editorial
+VISUAL_CONCEPT: A stylized key-information document is shown frontally with `Was sind die Kosten?` highlighted and three short cost categories.
+VOICEOVER_VISUAL_MATCH: Gives the viewer a concrete place to check costs before buying.
+FRONT_READABILITY_TEST: PASS — document is straight-on with one clear focal section.
+DATA_INTEGRITY_TEST: not-applicable
+IMAGE PROMPT: Premium stylized 3D ivory document on deep black, perfectly front-facing. Heading Basisinformationsblatt. Highlight section Was sind die Kosten?. Under it show only einmalige Kosten, laufende Kosten, Transaktionskosten. Restrained emerald highlight and small red-orange cost accents. No company logo, no screenshot look, no dense fake legal text. Horizontal 16:9.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+VISUAL 08 — HYBRID IMAGE + REMOTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FINAL FILE NAME: YouTube Bild 08 - Kosten vergleichen.png
+VISUAL_FORM: hybrid
+VISUAL_CONCEPT: A frontal comparison document shows two otherwise similar products with 0,2 % and 1,2 % annual costs and leaves open space for a later animated focus frame.
+VOICEOVER_VISUAL_MATCH: Supports the practical instruction to compare costs before buying.
+FRONT_READABILITY_TEST: PASS — both rows and the laufende Kosten column are straight and easy to scan.
+DATA_INTEGRITY_TEST: not-applicable
+IMAGE PROMPT: Premium stylized 3D comparison document on deep black, perfectly front-facing. Two neutral rows Produkt A and Produkt B. Right column titled laufende Kosten: 0,2 % for A in emerald, 1,2 % for B in warm red-orange. All other details visually equal and abstract. Leave breathing room around the cost column for a later animated focus frame. No logos, no recommendation badge, no trophy. Horizontal 16:9.
+
+FINISH
+Finish only when the selected final thumbnail and every expected scene image exist exactly once in `04-visuals/00-ALLE-BILDER-HIER-REIN/`.

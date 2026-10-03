@@ -1,0 +1,22 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+ONE JOB = ONE IMAGE
+
+FINAL FILE NAME:
+YouTube Bild 02 - Beispiel Annahmen.png
+
+Generate exactly one horizontal 16:9 image. Use only the written FinanzNeo YouTube V9 world. Do not use the selected thumbnail or another scene as a style reference. Rename immediately on return and run QA.
+
+VISUAL_FORM: diagram
+VISUAL_CONCEPT: A clean four-part model diagram shows the exact assumptions of the calculation without looking like a presentation slide.
+VOICEOVER_VISUAL_MATCH: The viewer can verify the model before seeing the result: start capital, monthly contribution, duration and gross return are all visible.
+FRONT_READABILITY_TEST: PASS — all four model elements are aligned on one frontal plane with short German labels.
+DATA_INTEGRITY_TEST: PASS — values match the spoken calculation exactly.
+
+IMAGE PROMPT:
+Build one premium stylized 3D model diagram on a deep-black studio background. Arrange four substantial physical information objects in one balanced row, front-facing and evenly spaced: a starting capital block labeled 10.000 € Start, a recurring contribution module labeled 300 € / Monat, a simple timeline object labeled 30 Jahre, and a clean growth marker labeled 7 % brutto. Use ivory text, emerald accents for growth and neutral graphite materials. Do not make it look like PowerPoint, a dashboard or four floating social cards. The objects should feel like one coherent physical explanatory set.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+Horizontal 16:9 source image. Premium stylized 3D animated-film look, deep black, emerald positive, red-orange cost, ivory neutral, clean frontal readability.

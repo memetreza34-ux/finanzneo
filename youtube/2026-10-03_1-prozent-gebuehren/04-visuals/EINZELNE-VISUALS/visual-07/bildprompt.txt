@@ -1,0 +1,22 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+ONE JOB = ONE IMAGE
+
+FINAL FILE NAME:
+YouTube Bild 07 - Basisinformationsblatt Kosten.png
+
+Generate exactly one horizontal 16:9 image. Use only the written FinanzNeo YouTube V9 world. Do not use the selected thumbnail or another scene as a style reference. Rename immediately on return and run QA.
+
+VISUAL_FORM: editorial
+VISUAL_CONCEPT: A premium stylized key-information document is shown frontally with the section Was sind die Kosten? clearly highlighted and three short cost categories underneath.
+VOICEOVER_VISUAL_MATCH: It converts the abstract cost lesson into a concrete place where a retail investor can look before buying a product.
+FRONT_READABILITY_TEST: PASS — the document is straight-on with no perspective distortion and the cost section is the single focal point.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a clean premium stylized 3D document scene on a seamless deep-black background. One ivory document sheet is shown perfectly front-facing, large and readable, with the heading Basisinformationsblatt and a highlighted section titled Was sind die Kosten?. Under it show only three short rows: einmalige Kosten, laufende Kosten, Transaktionskosten. Use a restrained emerald highlight around the section and small red-orange accents only for cost markers. No real company logo, no screenshot look, no dense fake legal text.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+Horizontal 16:9 source image. Premium stylized 3D animated-film look, deep black, emerald positive, red-orange cost, ivory neutral, clean frontal readability.

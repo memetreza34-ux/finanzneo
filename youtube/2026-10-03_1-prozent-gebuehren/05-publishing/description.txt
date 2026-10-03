@@ -1,0 +1,23 @@
+Ein Prozentpunkt Kostenunterschied klingt klein. Über Jahrzehnte kann er trotzdem einen großen Unterschied beim Endwert machen.
+
+In diesem Video rechnen wir ein transparentes Beispiel durch: 10.000 € Startkapital, 300 € monatlich, 30 Jahre und 7 % angenommene Bruttorendite. Verglichen werden 0,2 % und 1,2 % laufende Kosten pro Jahr. Unter diesen vereinfachten Annahmen entstehen rund 410.000 € gegenüber rund 336.000 € — etwa 74.000 € Differenz.
+
+Wichtig: Das ist keine Renditeprognose und keine Anlageempfehlung. Die Rechnung dient nur dazu, den langfristigen Kosteneffekt verständlich zu machen. Steuern, Inflation und reale Renditeschwankungen sind nicht berücksichtigt.
+
+Quellen und Hintergrund:
+ESMA — Costs and Performance of EU Retail Investment Products 2025
+https://www.esma.europa.eu/press-news/esma-news/new-investment-funds-drive-reduction-costs-investors
+
+ESMA — Cost of Investment Products
+https://www.esma.europa.eu/investor-corner/cost-investment-products
+
+Europäische Kommission — PRIIPs Key Information Documents
+https://finance.ec.europa.eu/consumer-finance-and-payments/retail-financial-services/key-information-documents-packaged-retail-and-insurance-based-investment-products-priips_en
+
+EUR-Lex — Kostenmethodik für PRIIPs
+https://eur-lex.europa.eu/eli/reg_del/2017/653/2023-01-01/eng
+
+BaFin — Kosteninformationen bei Publikumsfonds
+https://bafin.de/DE/Verbraucher/GeldanlageWertpapiere/Produkte/GeschlossenerPublikumsfonds/Geschlossener_Publikumsfonds_node.html
+
+FinanzNeo erklärt Finanzthemen einfach, visuell und ohne unnötigen Fachjargon.

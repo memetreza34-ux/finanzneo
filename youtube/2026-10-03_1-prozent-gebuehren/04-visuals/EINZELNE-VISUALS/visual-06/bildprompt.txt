@@ -1,0 +1,22 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+ONE JOB = ONE IMAGE
+
+FINAL FILE NAME:
+YouTube Bild 06 - Kosten wirken im Produkt.png
+
+Generate exactly one horizontal 16:9 image. Use only the written FinanzNeo YouTube V9 world. Do not use the selected thumbnail or another scene as a style reference. Rename immediately on return and run QA.
+
+VISUAL_FORM: object-story
+VISUAL_CONCEPT: A clean investment-fund value object contains a small recurring red-orange cost channel inside it, showing that costs can reduce value without appearing like a separate monthly bill.
+VOICEOVER_VISUAL_MATCH: It directly explains why ongoing product costs may be felt through lower value or return rather than as a visible invoice from the current account.
+FRONT_READABILITY_TEST: PASS — the fund-value body, internal cost channel and resulting lower output are all shown from a normal near-front view.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Show one large premium stylized 3D investment-value object on a seamless deep-black stage, near-front and eye-level. Emerald value enters from the left and continues through the object. Inside the object, a small warm red-orange channel labeled laufende Kosten diverts a thin portion away before the remaining emerald value exits on the right. Nearby place a faint crossed-out paper invoice icon to communicate not separate Rechnung without turning the scene into an icon collage. Keep the mechanism physical, clear and restrained.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+Horizontal 16:9 source image. Premium stylized 3D animated-film look, deep black, emerald positive, red-orange cost, ivory neutral, clean frontal readability.
