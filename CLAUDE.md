@@ -511,7 +511,7 @@ Der einzige produktive Reel-Hintergrund ist:
 statisch
 ```
 
-`FinanceBackground` darf keine optische Variante erzeugen. `PremiumPhysicalStage` bleibt transparent.
+`FinanceBackground` darf keine optische Variante erzeugen. Jede Animations-Stage — auch `PremiumPhysicalStage` — bleibt transparent.
 
 Streng verboten als Reel-Hintergrund:
 
@@ -539,7 +539,28 @@ Kompatibilitäts-Lock:
 finanzneo-premium-physical-animation-v2
 ```
 
+Animations-Standard für neue Reels:
+
+```text
+FINANCE_MOTION_LIBRARY: finanzneo-finance-motion-library-v1
+Quelle: src/finance-motion/index.tsx
+PHASE1_MOTION_DIRECTION: finanzneo-phase1-hybrid-motion-v2
+```
+
 Visuelles Ziel bleibt **V9**.
+
+Reihenfolge je Animationsszene:
+
+```text
+SPRECHPUNKT
+→ WAS MUSS DER ZUSCHAUER SICHTBAR VERSTEHEN?
+→ WELCHE HAUPTMECHANIK ZEIGT DAS AM KLARSTEN?
+→ FINANCE MOTION LIBRARY AUF ECHTEN BEST-FIT PRÜFEN
+→ PASSEND: Library-Mechanik parametrisieren (library-best-fit)
+→ NICHT PASSEND: individuelle Animation bauen (custom-build)
+```
+
+Die Library ist Werkzeug, **kein Zwangsmenü**. Erst steht die Mechanik aus dem Inhalt fest, dann wird geprüft, ob die Library sie schon kann. Eine gute Library-Mechanik darf wiederverwendet werden, auch mehrfach im selben Reel, wenn die Finanzlogik dieselbe ist und sich echte Inhaltsparameter ändern. Phase 3 wechselt nie eigenmächtig zwischen Library und Custom.
 
 Pflichtlogik:
 
@@ -550,18 +571,23 @@ STARTZUSTAND
 → Ergebnis mindestens 15 Frames stabil
 ```
 
-Pflicht:
+Pflicht in jeder `animation.tsx`:
 
-- `useCurrentFrame`
-- `ANIMATION_COLORS`
-- `prog`, `interpolate` oder `spring`
-- `PremiumPhysicalStage`
-- mindestens **ein echtes sichtbares Hauptobjekt**
-- semantische Materialrolle
+- `MOTION_SOURCE: library-best-fit | custom-build`
+- `FINANCE_MOTION_ID` — registrierte Library-ID oder `none`
+- `MECHANIC_ID`, `FOCAL_PATH`, `PRIMARY_ACTION`, `CAMERA_ROLE`, `PAYOFF`
 - korrekter Exportname
 - `RESULT_HOLD_FRAMES >= 15`
 - `ANIMATION_NARRATIVE` START / MECHANISM / RESULT
 - `PREMIUM_VISUAL_NARRATIVE` HERO / SUPPORT / MATERIAL / DEPTH
+
+Bei `library-best-fit` zusätzlich: Import aus `src/finance-motion`, Parameter exakt aus dem Sprechpunkt abgeleitet, kein Template-Füllmaterial.
+
+Bei `custom-build` zusätzlich: `useCurrentFrame`, `ANIMATION_COLORS`, `prog`/`interpolate`/`spring` und eine vollständig ausgearbeitete visuelle Geschichte.
+
+Nicht mehr Pflicht, aber weiter verfügbar: `PremiumPhysicalStage`, die Physical-Primitives, eine im Reel einmalige Mechanik, eine Mindestzahl an Motion-Channels.
+
+Bestehende Reels mit Motion Core V1 (`finanzneo-motion-core-v1`) behalten ihre Regeln — `PremiumPhysicalStage`, Physical-Primitives aus `src/motion`, eindeutige `MECHANIC_ID`, Mechanik-Ledger — und werden nicht migriert. Details: `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
 
 **Keine feste Objektanzahl — weder Mindestzahl noch Obergrenze.** Klarheit entscheidet.
 
@@ -583,9 +609,10 @@ REALE AUSGANGSSITUATION
 
 - reale bzw. unmittelbar erkennbare Gegenstände verwenden, wenn der Inhalt sie hergibt: Rechnung, Konto, Waschmaschine, Kalender, Geldstapel, Reservebehälter usw.
 - **keine Stückzahl in beide Richtungen**: ein einzelnes starkes Objekt darf eine Szene allein tragen, und viele Objekte sind erlaubt, solange jedes erklärt. Es zählt nur, ob die Szene gut aussieht und verstanden wird — nicht wie viele Gegenstände sie enthält. Geprüft wird deshalb die Qualität: mindestens ein klares gegenständliches Hauptmotiv, und beschriftete Kästen dürfen echte Gegenstände nie überstimmen
-- jede Szene erhält eine eindeutige `MECHANIC_ID`; dieselbe Mechanik nicht mehrfach im Reel wiederholen
-- `PRIMARY_ACTION` beschreibt die wirkliche physische Zustandsänderung
-- mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable
+- jede Szene benennt ihre `MECHANIC_ID`; dieselbe Mechanik darf wiederkommen, wenn dieselbe Finanzlogik mit anderen echten Werten erklärt wird — nicht als Füllmaterial
+- `PRIMARY_ACTION` beschreibt die wirkliche Zustandsänderung
+- `FOCAL_PATH` legt fest, was das Auge verfolgt; Nebenbewegungen unterstützen nur
+- koordinierte Bewegung statt einer einzigen globalen Progress-Variable, aber keine künstliche Mindestzahl an Kanälen
 - deutsche Labels nur unterstützend; die Handlung muss auch ohne Text verständlich sein
 - Animationen müssen visuell dieselbe Qualität und Welt wie die Flow-Bilder erreichen
 - bei Future-V3-Reels muss die physische Hauptmechanik im echten Render ausreichend groß/füllend sein; Post-Render-QA verlangt Peak-Visualbelegung >= 0,15 und Median >= 0,12 im visuellen Kern
@@ -596,9 +623,9 @@ Als Hauptsprache **verboten**:
 - Lade- oder Fortschrittsbalken als Ersatz für die eigentliche Animation
 - reine Texttafeln mit Fade/Scale
 - generische Shield-/Arrow-/Coin-Symbolik, wenn eine konkrete Alltagssituation darstellbar ist
-- wiederholte identische Mechanik über mehrere Animationsszenen
+- eine Library-Mechanik, die nur benutzt wird, weil sie verfügbar ist
 
-Zentrale konkrete Primitives stehen über `src/design-system` bereit: `PhysicalBill`, `PhysicalAccount`, `PhysicalWasher`, `PhysicalReserveTank`, `PhysicalCalendarPage`, `PhysicalCoinStack`. Generische `PhysicalObject`, `PhysicalTag` und `PhysicalRail` sind nur Support; insbesondere `PhysicalRail` darf niemals die Geschichte allein tragen.
+Die Finance Motion Library (`src/finance-motion`) liefert parametrisierte Mechaniken wie `money-transfer`, `money-split`, `value-growth`, `value-drain`, `loan-paydown` oder `compound-growth`. Konkrete Gegenstände wie `PhysicalBanknote`, `PhysicalInvoice`, `PhysicalAccount` oder `PhysicalCoinStack` bleiben als Bausteine verfügbar, wenn eine Szene sie braucht. `PhysicalRail` darf niemals die Geschichte allein tragen.
 
 Streng verboten:
 
@@ -624,6 +651,7 @@ Phase 3 verlangt danach:
 - exakten Export
 - unveränderten Hash
 - echtes `customAnimations[animationId]`-Binding
+- dieselbe Library-Mechanik bzw. denselben Custom-Code wie in Phase 1 festgelegt
 
 Fehlt ein Binding: **Render hart abbrechen.** Kein CTA-/Text-/Black-Screen-Fallback.
 

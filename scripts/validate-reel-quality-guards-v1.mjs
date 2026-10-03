@@ -10,6 +10,7 @@ if (!target) {
 }
 
 const ID = 'finanzneo-reel-quality-guards-v1';
+const HYBRID_CONTRACT_ID = 'finanzneo-phase1-hybrid-motion-v2';
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
 if (!existsSync(indexPath)) {
@@ -23,6 +24,9 @@ if (!contract) {
   process.exit(0);
 }
 
+// Im Hybrid-Vertrag sind Physical-Primitives keine Pflicht, und eine passende
+// Library-Mechanik darf wiederkommen. Safe-Zone und Custom-Diversität gelten weiter.
+const hybridV2 = index.phase1MotionDirectionContract?.id === HYBRID_CONTRACT_ID;
 const errors = [];
 const fail = (message) => errors.push(message);
 if (contract.id !== ID) fail(`reelQualityGuards.id muss ${ID} sein.`);
@@ -77,15 +81,16 @@ for (const scene of scenes.filter((item) => item?.type === 'animation')) {
   for (const name of primitiveNames) counts.set(name, [...source.matchAll(new RegExp(`<${name}\\b`, 'g'))].length);
   const core = [...coreNames].filter((name) => Number(counts.get(name)) > 0);
   const allConcrete = primitiveNames.filter((name) => Number(counts.get(name)) > 0);
-  if (core.length === 0) fail(`${scene.id}: kein konkretes Hauptobjekt für echte Source-Diversität gefunden.`);
+  const libraryBestFit = hybridV2 && /MOTION_SOURCE:\s*library-best-fit/i.test(source);
+  if (core.length === 0 && !hybridV2) fail(`${scene.id}: kein konkretes Hauptobjekt für echte Source-Diversität gefunden.`);
 
   const recent = prior.slice(-4);
-  for (const name of core) {
+  for (const name of libraryBestFit ? [] : core) {
     const recentUse = recent.filter((prev) => prev.core.includes(name)).length;
     if (recentUse >= 2 && !hasReason(scene)) fail(`${scene.id}: ${name} wäre in drei der letzten vier Animationen dieselbe tatsächliche Hauptobjekt-Sprache. Neue sichtbare Mechanik wählen oder konkret begründen.`);
   }
   const prev = prior.at(-1);
-  if (prev) {
+  if (prev && !libraryBestFit) {
     const setA = new Set(core);
     const setB = new Set(prev.core);
     const union = new Set([...setA, ...setB]);

@@ -1,6 +1,6 @@
 ---
 name: finanzneo-reel
-description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, V9 explanatory image world, canonical Motion Core V1, Motion Art Direction, controlled Lottie/SFX enhancement, Playwright visual QA, sealed animations, pure-black canvas and completion gates.
+description: Safely executes or reviews FinanzNeo Reel production while preserving the three-phase contract, V9 explanatory image world, Finance Motion Library (library-best-fit or custom-build), legacy Motion Core V1, Motion Art Direction, controlled Lottie/SFX enhancement, Playwright visual QA, sealed animations, pure-black canvas and completion gates.
 ---
 
 # FinanzNeo Reel Skill
@@ -16,8 +16,8 @@ Read in this order:
 5. `reels/PRODUKTIONSSTANDARD.md`
 6. `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`
 7. `.agents/rules/finanzneo-reel-safety.md`
-8. `src/motion/README.md`
-9. `src/motion/mechanics.ts`
+8. `src/finance-motion/index.tsx` (`FINANCE_MOTION_REGISTRY`)
+9. `src/motion/README.md` + `src/motion/mechanics.ts` (Motion-Core-V1 Reels and shared primitives)
 10. `.agents/plugins/finanzneo-motion/rules/mechanic-selection.md`
 11. `.agents/plugins/finanzneo-motion/rules/remotion-production.md`
 12. `.agents/plugins/finanzneo-motion/skills/remotion-director/SKILL.md`
@@ -35,11 +35,12 @@ Read in this order:
 
 Owns research, beginner-friendly scene-by-scene script, Flow prompts, headers/icons, captions and the final production-ready `animation.tsx` for every animation scene.
 
-For every animation scene, Phase 1 routes creative motion decisions through the FinanzNeo `remotion-director`, `src/motion/mechanics.ts` and the canonical `src/motion` core before writing JSX. After implementation, the Motion Art Director checks staging before Playwright visual QA.
+For every animation scene, Phase 1 first derives the mechanism from the spoken point, then checks the Finance Motion Library (`src/finance-motion`) for a genuine best fit: if it fits, parametrize it (`library-best-fit`); if not, build a custom animation (`custom-build`). After implementation, the Motion Art Director checks staging before Playwright visual QA.
 
 Phase 1 may use the FinanzNeo Motion Stack while authoring:
 
-- canonical `src/motion` Physical-Primitives + `FN_MOTION`
+- Finance Motion Library mechanics from `src/finance-motion`
+- `src/motion` Physical-Primitives + `FN_MOTION` where a scene needs concrete objects
 - Remotion / HTML / CSS primitives
 - React Three Fiber / Three.js where spatial depth genuinely helps
 - Lottie Creator MCP for focused support motion
@@ -102,9 +103,10 @@ The workspace plugin `.agents/plugins/finanzneo-motion/` extends Antigravity wit
 
 - official Remotion Agent Skills bootstrapped locally at workspace start;
 - `remotion-director` for content-first real-world motion choreography;
-- `src/motion/mechanics.ts` as machine-readable V1 mechanism registry;
-- `mechanic-selection` for semantic mechanism routing and anti-repetition;
-- canonical `src/motion` Motion Core V1 for Physical-Primitives, Stage, timing and springs;
+- `src/finance-motion` Finance Motion Library as the default mechanism source for new Reels;
+- `src/motion/mechanics.ts` as mechanism registry for legacy Motion-Core-V1 Reels;
+- `mechanic-selection` for semantic mechanism routing (anti-repetition applies to Motion-Core-V1 Reels);
+- `src/motion` for Physical-Primitives, Stage, timing and springs;
 - `motion-art-director` for composition, scale, material, depth, perspective, camera and result-state polish;
 - `motion-core-curator` for controlled primitive/mechanic promotion and de-duplication across Reels;
 - Lottie Creator MCP + `lottie-motion` for controlled vector support animation;
@@ -115,9 +117,26 @@ The workspace plugin `.agents/plugins/finanzneo-motion/` extends Antigravity wit
 
 Remotion remains the timeline/render authority.
 
-### Motion Core V1 — mandatory routing for new animations
+### Finance Motion Library — mandatory routing for new animations
 
-For new or intentionally reworked Reel animations:
+New Reels carry `finanzneo-phase1-hybrid-motion-v2` and `finanzneo-finance-motion-library-v1`. For every animation scene:
+
+1. derive the finance statement and the visible understanding goal;
+2. derive the best main mechanism from the content, before looking at any tool;
+3. check `FINANCE_MOTION_REGISTRY` in `src/finance-motion/index.tsx` for a genuine semantic best fit;
+4. fit: set `implementationDecision: library-best-fit`, `financeMotionId`, `libraryFitReason` and a concrete `parameterPlan`; import from `src/finance-motion`; every value comes from the spoken point;
+5. no fit: set `implementationDecision: custom-build`, `financeMotionId: none` and a concrete `customReason`; build a full custom animation;
+6. document `MOTION_SOURCE`, `FINANCE_MOTION_ID`, `MECHANIC_ID`, `FOCAL_PATH`, `PRIMARY_ACTION`, `CAMERA_ROLE`, `PAYOFF`, both narratives and `RESULT_HOLD_FRAMES >= 15` in `animation.tsx`;
+7. run Motion Art Direction;
+8. run Playwright Visual QA.
+
+The library is a toolbox, **not a forced menu**. A library mechanic may repeat, even inside one Reel, when the finance logic is the same and real content parameters change. Never pick a library mechanic only because it exists. `PremiumPhysicalStage` and the Physical-Primitives are optional. Phase 3 never switches between library and custom on its own.
+
+A promising custom mechanic may be marked `libraryPromotionCandidate: true`.
+
+### Legacy: Motion Core V1 routing
+
+Reels already created with `finanzneo-motion-core-v1` keep this route and are not migrated:
 
 1. read all animation scenes in the target Reel;
 2. read `src/motion/mechanics.ts`;
@@ -140,13 +159,13 @@ SCENE_ID | MECHANIC_ID | HERO_OBJECT | PRIMARY_ACTION | MOTION_AXIS | RESULT_TYP
 
 The same `MECHANIC_ID` must not occur twice inside one Motion-Core-V1 Reel. If at least three central ledger dimensions match another animation, redesign the physical explanation before coding.
 
-A different color, label, icon, Lottie, camera move, mirroring or speed is **not** a new mechanism.
+Inside a Motion-Core-V1 Reel, a different color, label, icon, Lottie, camera move, mirroring or speed is **not** a new mechanism.
 
 `src/motion` is a technical house-style core, **not a fixed creative template menu**. The content still decides the mechanism.
 
 A single strong physical Hero may be enough. Do not add support objects merely to satisfy an object count. Support exists only when it makes cause/effect clearer.
 
-New code prefers semantic primitive names:
+When a scene uses concrete objects, prefer semantic primitive names:
 
 - `PhysicalBanknote` for banknote/value unit
 - `PhysicalInvoice` for invoice/document
@@ -175,7 +194,7 @@ START
 → RESULT HOLD
 ```
 
-Prefer real-world objects and concrete cause/effect. Aim for several meaningful motion channels with different physical character rather than one global progress value controlling everything identically.
+Prefer concrete cause/effect and a clear focal path. Aim for coordinated motion with different character rather than one global progress value controlling everything identically — but never add channels only to reach a count.
 
 Camera movement, Three.js and Lottie are support tools. None of them may replace the explanatory mechanism.
 
@@ -192,7 +211,7 @@ After code/mechanism correctness, use `motion-art-director` to review:
 - camera support
 - RESULT HOLD as the cleanest state
 
-For new Motion-Core Reels, record the real pass in:
+For new Reels and Motion-Core-V1 Reels, record the real pass in:
 
 ```text
 05-projektdateien/visual-qa.md
@@ -232,12 +251,12 @@ For each production Reel:
 - compare one-line and two-line headers across scenes;
 - compare optical icon size, icon-to-text gap and vertical alignment;
 - inspect safe-zone boundaries, clipping, centering, hero scale and dead space;
-- for a new mechanism, changed Motion Core or representative pilot, prefer a full render when practical;
+- for a new mechanism, changed library mechanic, changed Motion Core or representative pilot, prefer a full render when practical;
 - treat visible inconsistency as QA failure even if TypeScript/bundle/smoke are green.
 
 Playwright screenshots and traces are temporary QA artifacts, not production assets.
 
-New Motion-Core Reels scaffold `05-projektdateien/visual-qa.md`. After the real review, every scene row must be PASS and the file must contain exactly:
+New Reels scaffold `05-projektdateien/visual-qa.md`. After the real review, every scene row must be PASS and the file must contain exactly:
 
 ```text
 PLAYWRIGHT_VISUAL_QA=PASS
@@ -256,7 +275,7 @@ For every animation scene:
 - missing binding = hard failure
 - Phase 3 may not replace or simplify the source
 
-For a new Reel carrying `finanzneo-motion-core-v1`, canonical Physical-/Motion-Primitives come from `src/motion`. A Reel that imports the old core primitives from `src/design-system` fails the Motion-Direction gate.
+A `library-best-fit` scene must use a mechanic registered in `FINANCE_MOTION_REGISTRY` and import it from `src/finance-motion`. For a Reel carrying `finanzneo-motion-core-v1`, canonical Physical-/Motion-Primitives come from `src/motion`; importing the old core primitives from `src/design-system` fails the Motion-Direction gate.
 
 No placeholders, debug rectangles, `Math.sin`/`Math.cos` QA-wiggle or motion whose only purpose is frame difference.
 
@@ -287,7 +306,7 @@ npm run reel:phase3:preflight -- <Reel>
 npm run reel:render -- <Reel>/05-projektdateien/phase3-production-manifest.json
 ```
 
-`reel:phase3:preflight` blocks Motion-Core-V1 Reels when `MOTION_ART_DIRECTION=PASS`, `PLAYWRIGHT_VISUAL_QA=PASS` or scene-level QA PASS rows are missing.
+`reel:phase3:preflight` blocks new Reels and Motion-Core-V1 Reels when `MOTION_ART_DIRECTION=PASS`, `PLAYWRIGHT_VISUAL_QA=PASS` or scene-level QA PASS rows are missing.
 
 `reel:render` creates the candidate, runs post-render QA and only after PASS releases the final MP4 and triggers the final export workflow. A direct `reel:export` call is reserved for a controlled re-export of an already validated final MP4.
 
@@ -301,11 +320,13 @@ QA must reject:
 - missing animation binding
 - animation with no real motion
 - animation that does not explain its beat
-- repeated physical mechanism disguised by color/text/camera changes
+- a library mechanic used although it does not explain the spoken point
+- library parameters that are template filler instead of the scene's real values
+- repeated physical mechanism disguised by color/text/camera changes inside a Motion-Core-V1 Reel
 - support objects added only to satisfy a quota
-- new Motion-Core Reel animation that bypasses `src/motion`
-- missing Motion Art Direction PASS on new Motion-Core Reel
-- missing Playwright Visual QA PASS on new Motion-Core Reel
+- Motion-Core-V1 Reel animation that bypasses `src/motion`
+- missing Motion Art Direction PASS on a new Reel
+- missing Playwright Visual QA PASS on a new Reel
 - visible header/icon inconsistency found by Playwright QA
 - safe-zone/clipping/centering defects found by Playwright QA
 - non-black/decorative background

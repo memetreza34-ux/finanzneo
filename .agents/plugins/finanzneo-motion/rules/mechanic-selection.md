@@ -1,5 +1,7 @@
 # FinanzNeo — Canonical Mechanic Selection
 
+> **Vorrang seit der Finance Motion Library:** Neue Reels (`finanzneo-phase1-hybrid-motion-v2`) leiten die Mechanik zuerst aus dem Sprechpunkt ab, prüfen dann `FINANCE_MOTION_REGISTRY` in `src/finance-motion/index.tsx` auf echten Best-Fit und bauen sonst individuell (`library-best-fit` oder `custom-build`). Eine passende Library-Mechanik darf im selben Reel wiederkommen. Diese Datei gilt in voller Strenge — `src/motion` als Quelle, eindeutige `MECHANIC_ID`, Mechanik-Ledger, Anti-Wiederholung — für Reels mit `finanzneo-motion-core-v1`; für neue Reels bleibt sie Handwerksleitfaden, soweit sie dem nicht widerspricht. Maßgeblich: `CLAUDE.md` §11 und `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
+
 Diese Regel verhindert, dass FinanzNeo-Reels trotz unterschiedlicher Sprechertexte visuell dieselbe Animation wiederholen.
 
 ## Kanonische Quelle

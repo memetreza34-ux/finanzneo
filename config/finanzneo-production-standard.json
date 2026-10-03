@@ -22,6 +22,17 @@
   "animation": {
     "id": "finanzneo-phase1-animation-code-v1",
     "source": "docs/PHASE-1-ANIMATION-CODE-STANDARD.md",
+    "financeMotionLibrary": {
+      "id": "finanzneo-finance-motion-library-v1",
+      "source": "src/finance-motion/index.tsx",
+      "motionDirection": "finanzneo-phase1-hybrid-motion-v2",
+      "lab": "src/reels-test/FinanceMotionLibraryLabV1.tsx",
+      "artDirector": ".agents/plugins/finanzneo-motion/skills/motion-art-director/SKILL.md",
+      "libraryBestFitBeforeCustom": true,
+      "customAnimationAllowed": true,
+      "libraryReuseMayRepeatAcrossScenes": true,
+      "appliesTo": "new-reels"
+    },
     "motionCore": {
       "id": "finanzneo-motion-core-v1",
       "source": "src/motion/index.ts",
@@ -32,7 +43,7 @@
       "curator": ".agents/plugins/finanzneo-motion/skills/motion-core-curator/SKILL.md",
       "mechanicSelection": ".agents/plugins/finanzneo-motion/rules/mechanic-selection.md",
       "singleHeroObjectAllowed": true,
-      "appliesTo": "new-or-intentionally-reworked-reel-animations"
+      "appliesTo": "legacy-reels-created-with-motion-core-v1"
     }
   },
   "pipeline": {
@@ -42,7 +53,7 @@
   "productionGate": {
     "source": "docs/PHASE-3-COMPLETION-GATE.md",
     "visualQaGate": {
-      "motionCoreV1Only": true,
+      "appliesTo": "contracts-with-visualQaGateRequiredBeforePhase3Render",
       "source": "05-projektdateien/visual-qa.md",
       "requiredMarkers": [
         "MOTION_ART_DIRECTION=PASS",

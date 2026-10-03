@@ -1,9 +1,11 @@
 ---
 name: remotion-director
-description: Directs FinanzNeo animation scenes through the canonical src/motion core, choosing unique physical finance mechanisms before implementation and preventing repeated reel motion patterns.
+description: Directs FinanzNeo animation scenes content-first — Finance Motion Library best-fit or custom build for new Reels, the src/motion core with unique mechanisms for legacy Motion-Core-V1 Reels.
 ---
 
 # FinanzNeo Remotion Director V2
+
+> **Precedence since the Finance Motion Library:** New Reels (`finanzneo-phase1-hybrid-motion-v2`) derive the mechanism from the spoken point first, then check `FINANCE_MOTION_REGISTRY` in `src/finance-motion/index.tsx` for a genuine best fit, otherwise build custom (`library-best-fit` or `custom-build`). A fitting library mechanic may repeat inside one Reel. This file applies in full — `src/motion` as source, unique `MECHANIC_ID`, mechanic ledger, anti-repetition — to Reels carrying `finanzneo-motion-core-v1`; for new Reels it stays craft guidance where it does not conflict. Authority: `CLAUDE.md` §11 and `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
 
 ## Goal
 

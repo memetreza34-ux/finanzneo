@@ -1,5 +1,7 @@
 # FinanzNeo — Remotion Production Rules
 
+> **Precedence since the Finance Motion Library:** New Reels (`finanzneo-phase1-hybrid-motion-v2`) derive the mechanism from the spoken point first, then check `FINANCE_MOTION_REGISTRY` in `src/finance-motion/index.tsx` for a genuine best fit, otherwise build custom (`library-best-fit` or `custom-build`). A fitting library mechanic may repeat inside one Reel. This file applies in full — `src/motion` as source, unique `MECHANIC_ID`, mechanic ledger, anti-repetition — to Reels carrying `finanzneo-motion-core-v1`; for new Reels it stays craft guidance where it does not conflict. Authority: `CLAUDE.md` §11 and `docs/PHASE-1-ANIMATION-CODE-STANDARD.md`.
+
 These rules apply whenever Antigravity authors, reviews or integrates FinanzNeo Remotion motion.
 
 ## Authority

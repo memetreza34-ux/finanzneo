@@ -8,7 +8,7 @@ Dieses Gate verhindert insbesondere:
 - nur Untertitel oder Header sind sichtbar
 - Nutzerbild wurde nicht eingebunden
 - Phase-1-Animation wurde vergessen/ersetzt
-- Motion-Core-Reel wurde ohne echte Art-Direction-/Playwright-Sichtprüfung freigegeben
+- ein neues Reel oder Motion-Core-Reel wurde ohne echte Art-Direction-/Playwright-Sichtprüfung freigegeben
 - künstliche Hintergrundbewegung lässt eine leere Szene technisch „bewegt“ wirken
 - Partikel/Aurora/Grid werden als Reel-Hintergrund benutzt
 - ein alter Candidate-Render wird als final exportiert
@@ -96,9 +96,9 @@ Als Hintergrund verboten:
 
 Der zentrale `FinanceBackground` ignoriert alte `standard/data/premium`-Varianten und rendert immer Schwarz. Die Props bleiben nur aus Kompatibilitätsgründen bestehen.
 
-## 4. Motion-Core Visual-QA-Gate
+## 4. Visual-QA-Gate
 
-Neue Reels mit `finanzneo-motion-core-v1` besitzen:
+Neue Reels (Finance Motion Library, `finanzneo-phase1-hybrid-motion-v2`) und Reels mit `finanzneo-motion-core-v1` besitzen:
 
 ```text
 05-projektdateien/visual-qa.md
@@ -121,7 +121,7 @@ Playwright Visual QA prüft Animationen mindestens an START, TRIGGER, MID-MECHAN
 
 Diese Marker dürfen niemals nur gesetzt werden, um den Preflight grün zu bekommen.
 
-Legacy-Reels ohne Motion-Core-V1-Marker werden dadurch nicht rückwirkend blockiert.
+Das Gate greift, sobald der Motion-Direction-Vertrag `visualQaGateRequiredBeforePhase3Render: true` trägt. Ältere Reels ohne dieses Flag werden dadurch nicht rückwirkend blockiert.
 
 ## 5. Preflight
 
@@ -139,7 +139,7 @@ Blockiert unter anderem:
 - Timeline-Lücken
 - fehlende Audio-/Caption-/Header-Layer
 - verbotene Reel-Hintergrundkomponenten in der Produktions-Composition
-- bei Motion-Core-V1: fehlendes Art-Direction-/Playwright-PASS oder offene QA-Szenenzeilen
+- bei neuen Reels und Motion-Core-V1: fehlendes Art-Direction-/Playwright-PASS oder offene QA-Szenenzeilen
 
 Bei FAIL darf kein produktiver Render gestartet werden.
 
@@ -207,8 +207,8 @@ Export blockiert bei fehlender/fehlgeschlagener QA oder Hash-Abweichung.
 reel:ready                 PASS
 Phase-1-Animations-Seal    vorhanden
 Manifest                   READY_TO_RENDER
-Motion Art Direction       PASS (Motion-Core V1)
-Playwright Visual QA       PASS (Motion-Core V1)
+Motion Art Direction       PASS (neue Reels + Motion-Core V1)
+Playwright Visual QA       PASS (neue Reels + Motion-Core V1)
 phase3 preflight           PASS
 Candidate render           SUCCESS
 Post-render QA             PASSED

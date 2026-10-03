@@ -17,7 +17,6 @@ if (!target) {
 }
 
 const PRESENTATION_ID = 'finanzneo-future-reel-presentation-v1';
-const MOTION_CORE_ID = 'finanzneo-motion-core-v1';
 
 try {
   const result = validatePhase3Manifest(resolve(target), manifestPath ?? null);
@@ -65,10 +64,11 @@ try {
   }
 
   const motionContract = result.index.phase1MotionDirectionContract;
-  const motionCoreQaRequired = motionContract?.motionCoreVersion === MOTION_CORE_ID
-    && motionContract?.visualQaGateRequiredBeforePhase3Render === true;
+  // Das Gate hängt am Vertrag, der es einschaltet: Motion-Core-V1 und der
+  // Hybrid-Vertrag mit Finance Motion Library setzen beide das Flag.
+  const visualQaRequired = motionContract?.visualQaGateRequiredBeforePhase3Render === true;
 
-  if (motionCoreQaRequired) {
+  if (visualQaRequired) {
     const visualQaPath = resolve(result.root, '05-projektdateien/visual-qa.md');
     const visualQaErrors = [];
     if (!existsSync(visualQaPath)) {
@@ -87,7 +87,7 @@ try {
       }
     }
     if (visualQaErrors.length) {
-      throw new Error(`Motion-Core Visual-QA-Gate verletzt:\n${visualQaErrors.map((error) => `- ${error}`).join('\n')}`);
+      throw new Error(`Visual-QA-Gate (Art Direction + Playwright) verletzt:\n${visualQaErrors.map((error) => `- ${error}`).join('\n')}`);
     }
   }
 
@@ -99,7 +99,7 @@ try {
   console.log(`  Timeline lückenlos: ${result.totalFrames} Frames`);
   console.log(`  Hintergrund: ${REEL_BACKGROUND_CONTRACT_ID} · statisch #000000 · keine Partikel/Aurora/Grid`);
   if (presentation) console.log('  Presentation V1: echte Composition enthält Audio + SceneHeader + Captions; echte Wort-Timings vorhanden.');
-  if (motionCoreQaRequired) console.log('  Motion Core V1: Motion Art Direction + Playwright Visual QA sind dokumentiert PASS.');
+  if (visualQaRequired) console.log('  Motion Art Direction + Playwright Visual QA sind dokumentiert PASS.');
   console.log('  Caption-only-Szenen sind laut Manifest verboten; Render-QA folgt nach dem Render.');
 } catch (error) {
   console.error(`\n✗ ${error instanceof Error ? error.message : String(error)}`);

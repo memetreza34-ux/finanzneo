@@ -33,26 +33,42 @@ const animations = Array.isArray(index.scenes)
   ? index.scenes.filter((scene) => scene?.type === 'animation')
   : [];
 
-const contractHeading = '## CINEMATIC REAL-WORLD ANIMATIONSVERTRAG';
+const contractHeading = '## FINANCE MOTION LIBRARY + CUSTOM ANIMATIONSVERTRAG';
 const contractBlock = `
 ${contractHeading}
 Premium Visual Lock: ${PREMIUM_ANIMATION_LOCK}
-Visual Target World: finanzneo-stylized-3d-animated-black-v9
+Finance Motion Library: finanzneo-finance-motion-library-v1
+Visual Target World bleibt: finanzneo-stylized-3d-animated-black-v9
 
-Pflicht:
+Verbindliche Reihenfolge in Phase 1:
+1. Sprechpunkt und sichtbares Verständnisziel bestimmen.
+2. Visuelle Hauptmechanik herleiten.
+3. Finance Motion Library auf echten semantischen Best-Fit prüfen.
+4. Bei Best-Fit vorhandene Mechanik parametrisieren.
+5. Wenn kein Best-Fit existiert, individuelle Animation bauen.
+6. Wiederverwendbare neue Mechaniken dürfen später in die Library aufgenommen werden.
+
+Qualitätsregeln:
 - dieselbe realitätsnahe stylized-3D-Welt wie die Flow-Bilder; klar nicht fotorealistisch
 - echte Alltagssituation bzw. konkrete Finanzhandlung zuerst, abstrakte Symbole nur unterstützend
-- STARTZUSTAND → konkrete physische Hauptaktion → sichtbare Ursache/Wirkung → eindeutiges Ergebnis
-- mindestens ein klar erkennbares physisches Hero-Objekt; ein starkes Hero darf allein reichen, Support-Objekte nur wenn sie die Aussage wirklich klarer machen
-- eindeutige MECHANIC_ID je Animationsszene; keine Mechanik im selben Reel doppelt verwenden
-- PRIMARY_ACTION benennt die tatsächliche physische Zustandsänderung
-- mehrere koordinierte Motion-Channels statt einer einzigen globalen Progress-Variable
-- kurze deutsche Labels dürfen helfen, tragen aber niemals allein die Erklärung
-- sichtbare Materialität, Dicke, Tiefe und Kontakt-Schatten
-- PremiumPhysicalStage bleibt transparent; der zentrale Reel-Canvas darunter ist statisch #000000
+- START -> sichtbare Ursache/Aktion -> klares RESULT/PAYOFF
+- ein klarer FOCAL_PATH: das Auge weiß, was es verfolgen soll
+- PRIMARY_ACTION trägt die Erklärung; Nebenbewegungen unterstützen nur
+- CAMERA_ROLE bewusst festlegen: still, follow, push oder reframe; keine zufällige Dauerfahrt
+- ein starkes Hero darf allein reichen; Support-Objekte nur, wenn sie die Aussage wirklich klarer machen
 - Ergebnis mindestens 15 Frames stabil halten
+- kurze deutsche Labels dürfen helfen, tragen aber nie allein die Erklärung
+- vorhandene Finance-Motion-Mechanik darf im selben oder in späteren Reels wiederverwendet werden, wenn sie inhaltlich passt
+- Parameter müssen exakt zum Sprechpunkt passen; kein Template-Füllmaterial
 
-Bevorzugte konkrete Primitives, wenn semantisch passend — niemals als Objektquote:
+Nicht mehr verpflichtend:
+- PremiumPhysicalStage
+- PhysicalObject / PhysicalBill / PhysicalAccount / andere konkrete Physical-Primitives
+- eine neue Mechanik pro Szene nur um Wiederholung zu vermeiden
+- künstlich mindestens drei interpolate/spring-Kanäle
+- feste Anzahl von Realweltobjekten
+
+Konkrete Primitives bleiben verfügbar, wenn semantisch passend — niemals als Objektquote:
 - PhysicalBanknote / PhysicalBill (Legacy-Alias)
 - PhysicalInvoice
 - PhysicalAccount
@@ -61,14 +77,13 @@ Bevorzugte konkrete Primitives, wenn semantisch passend — niemals als Objektqu
 - PhysicalCalendarPage
 - PhysicalCoinStack
 
-Streng verboten als Hauptsprache:
-- drei oder mehr generische beschriftete Kästen/Karten, die nur A → B → C darstellen
-- Lade-/Fortschrittsbalken als Ersatz für die eigentliche Handlung
+Weiterhin verboten als Hauptsprache:
+- generische Karten-/Kästchenreihe ohne echte erklärende Bewegung
+- Lade-/Fortschrittsbalken als Ersatz für die eigentliche Finanzmechanik
 - Dashboard-/Control-Panel-/App-UI-Look
 - Flowchart als Hauptkomposition
 - kleine Boxen mit dünnen Verbindungslinien
 - reine Texttafel mit Fade/Scale
-- abstrakte Schild-/Pfeil-/Münz-Metapher, wenn eine reale Situation darstellbar ist
 - Partikel/Aurora/Grid/Glow/Gradient als Animationshintergrund
 - dekorative Bewegung ohne erklärenden Mechanismus
 `;
@@ -97,7 +112,8 @@ if (existsSync(overviewPath)) {
   }
 }
 
-console.log(`✓ Cinematic Animation Contract angewendet: ${PREMIUM_ANIMATION_LOCK}`);
+console.log(`✓ Hybrid-Animationsvertrag angewendet: ${PREMIUM_ANIMATION_LOCK}`);
+console.log('  Content-first -> Library-Best-Fit -> parametrisieren; sonst individuelle Animation.');
 console.log('  Realwelt-Mechanik zuerst · ein klares Hero kann reichen · Support nur bei echtem Mehrwert.');
-console.log('  Generische Kartenreihen und Fortschrittsbalken dürfen die visuelle Geschichte nicht ersetzen.');
-console.log('  Transparenter Stage über statischem #000000 Canvas · keine Partikel/Aurora/Grid/Glow-Hintergründe.');
+console.log('  Physical-Primitives bleiben verfügbar, sind aber keine Pflicht mehr.');
+console.log('  Bildwelt, Flow-Prompts, Cover, Captions und Layout werden durch diesen Vertrag nicht verändert.');

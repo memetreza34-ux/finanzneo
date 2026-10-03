@@ -24,7 +24,7 @@
 - Header + Icons
 - fertige kanonische `animation.tsx` je Animationsszene
 - Sound-Cue-Plan
-- Motion Art Direction + Playwright Visual QA für Motion-Core-Reels
+- Motion Art Direction + Playwright Visual QA für neue Reels
 - genau eine universelle Caption: `04-caption/caption.txt`
 
 ### Phase 2 — Nutzer
@@ -102,7 +102,35 @@ Transition 3 Frames
 
 `AnimationStage` clippt vertikal auf Y320–1400. Quality Guards V1 schützen zusätzlich horizontal X72–1008 plus perspektivischen Innenabstand. Der produktive Hintergrund bleibt statisch `#000000`.
 
-## 8. Animationen — Motion Core V1
+## 8. Animationen — Finance Motion Library
+
+FINANCE_MOTION_LIBRARY: finanzneo-finance-motion-library-v1
+LIBRARY_SOURCE: src/finance-motion/index.tsx
+PHASE1_MOTION_DIRECTION: finanzneo-phase1-hybrid-motion-v2
+MOTION_ART_DIRECTOR: .agents/plugins/finanzneo-motion/skills/motion-art-director/SKILL.md
+
+Neue Reels folgen:
+
+```text
+Sprechpunkt
+→ Verständnisziel
+→ visuelle Frage
+→ beste Hauptmechanik
+→ Finance Motion Library auf echten Best-Fit prüfen
+→ passend: library-best-fit + financeMotionId + konkreter parameterPlan
+→ nicht passend: custom-build mit Begründung
+→ START → AKTION → ERGEBNIS → RESULT HOLD
+→ Motion Art Direction
+→ Playwright Visual QA
+```
+
+Die Library ist Werkzeug, kein Zwangsmenü. Die Mechanik kommt aus dem Sprechpunkt; erst danach wird geprüft, ob die Library sie schon kann. Eine passende Library-Mechanik darf beliebig oft wiederverwendet werden, auch im selben Reel, wenn die Finanzlogik dieselbe ist und sich echte Werte, Labels, Gewichtungen oder Zeitpunkte ändern. Gute Custom-Mechaniken können später als `libraryPromotionCandidate` in die Library wandern.
+
+Jede `animation.tsx` dokumentiert `MOTION_SOURCE`, `FINANCE_MOTION_ID`, `MECHANIC_ID`, `FOCAL_PATH`, `PRIMARY_ACTION`, `CAMERA_ROLE`, `PAYOFF`, die Narrative und mindestens 15 Frames Ergebnis-Hold. `PremiumPhysicalStage` und die Physical-Primitives sind keine Pflicht mehr, bleiben aber verfügbar. Phase 3 wechselt nie eigenmächtig zwischen Library und Custom.
+
+### Legacy: Motion Core V1
+
+Gilt weiter für Reels, die bereits mit Motion Core V1 angelegt wurden. Sie werden nicht migriert.
 
 MOTION_CORE: finanzneo-motion-core-v1
 CANONICAL_MOTION_SOURCE: src/motion
@@ -128,15 +156,15 @@ Sprechpunkt
 → Playwright Visual QA
 ```
 
-`src/motion` ist für **neue oder bewusst überarbeitete Reel-Animationen** die kanonische technische Basis. Vor lokalen Neuentwicklungen werden `PremiumPhysicalStage`, die Physical-Primitives, `FN_MOTION` und die Mechanik-Registry geprüft und wiederverwendet, wenn sie semantisch passen.
+`src/motion` ist für **Motion-Core-V1-Reels** die kanonische technische Basis. Vor lokalen Neuentwicklungen werden `PremiumPhysicalStage`, die Physical-Primitives, `FN_MOTION` und die Mechanik-Registry geprüft und wiederverwendet, wenn sie semantisch passen.
 
 Das bedeutet ausdrücklich **nicht**, dass Animationen aus einem festen Template-Menü ausgewählt werden. Die Mechanik wird weiterhin aus dem Sprechpunkt hergeleitet. Die Mechanik-Familien sind semantische Referenzen für Ursache/Wirkung; sie sind keine fertigen Layout-Schablonen. Neue lokale szenenspezifische Objekte bleiben erlaubt, wenn der Inhalt sie benötigt.
 
-### Hero vor Objektquote
+#### Hero vor Objektquote
 
 Pflicht ist ein **klares physisches Hero-Objekt**, nicht eine Mindestmenge an Objekten. Ein starkes Hero darf allein reichen. Support-Objekte werden nur ergänzt, wenn sie Ursache/Wirkung verständlicher machen.
 
-Neue Motion-Core-Szenen bevorzugen semantisch eindeutige Namen:
+Motion-Core-Szenen bevorzugen semantisch eindeutige Namen:
 
 - `PhysicalBanknote` = Geldschein/Werteinheit
 - `PhysicalInvoice` = Rechnung/Dokument
@@ -146,13 +174,13 @@ Neue Motion-Core-Szenen bevorzugen semantisch eindeutige Namen:
 - `PhysicalCalendarPage`
 - `PhysicalWasher`
 
-`PhysicalBill` bleibt nur als kompatibler alter Motion-Core-Name erhalten. Alte Physical-Exports aus `src/brand`/`src/design-system` sind Legacy-Kompatibilität, keine Quelle für neue Motion-Core-Reels.
+`PhysicalBill` bleibt nur als kompatibler alter Motion-Core-Name erhalten. Alte Physical-Exports aus `src/brand`/`src/design-system` sind Legacy-Kompatibilität, keine Quelle für Motion-Core-Reels.
 
 Pflicht: konkrete Ursache/Wirkung, mehrere koordinierte Motion-Channels, mindestens 15 Frames Ergebnis-Hold. Lottie, Three, Paths, Shapes und Motion Blur bleiben Support-Werkzeuge innerhalb der Remotion-Timeline und ersetzen keine schwache Hauptmechanik.
 
-### Mechanik-Ledger und Anti-Wiederholung
+#### Mechanik-Ledger und Anti-Wiederholung
 
-Vor Code wird für alle Animationsszenen eines Reels ein Mechanik-Ledger geführt:
+Vor Code wird für alle Animationsszenen eines Motion-Core-Reels ein Mechanik-Ledger geführt:
 
 ```text
 SCENE_ID | MECHANIC_ID | HERO_OBJECT | PRIMARY_ACTION | MOTION_AXIS | RESULT_TYPE
@@ -165,7 +193,7 @@ SCENE_ID | MECHANIC_ID | HERO_OBJECT | PRIMARY_ACTION | MOTION_AXIS | RESULT_TYP
 
 Quality Guards lesen zusätzlich die **echte `animation.tsx`**. Metadaten allein reichen nicht, wenn tatsächliche Hauptobjekte und Komposition sichtbar gleich bleiben. Wiederholung braucht eine konkrete inhaltliche Begründung.
 
-### Primitive Promotion
+#### Primitive Promotion
 
 Szenenspezifische Objekte dürfen lokal entstehen. Erst wenn dieselbe semantische Form in mindestens zwei unterschiedlichen Szenen/Reels wirklich wiederverwendet wird, prüft der `motion-core-curator` die Promotion nach `src/motion`. Der Core wird weder durch Copy-Paste fragmentiert noch mit Einmal-Komponenten aufgebläht.
 
@@ -175,7 +203,7 @@ SFX bestätigen sichtbare Ereignisse framegenau. Voiceover bleibt dominant. Kein
 
 ## 10. Motion Art Direction + Playwright Visual QA
 
-Neue Motion-Core-Reels besitzen automatisch:
+Neue Reels besitzen automatisch:
 
 ```text
 05-projektdateien/visual-qa.md
@@ -217,7 +245,7 @@ npm run reel:phase3:preflight -- <Reel-Pfad>
 npm run reel:render -- <Reel-Pfad>/05-projektdateien/phase3-production-manifest.json
 ```
 
-`reel:phase3:preflight` verlangt bei Motion-Core-V1-Reels zusätzlich Art-Direction- und Playwright-PASS.
+`reel:phase3:preflight` verlangt bei neuen Reels und Motion-Core-V1-Reels zusätzlich Art-Direction- und Playwright-PASS.
 
 `reel:render` erzeugt Candidate → Audio-Mastering → Render-QA → Presentation/Occupancy-QA → Edge-Band-QA → finalen Export.
 

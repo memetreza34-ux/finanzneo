@@ -97,13 +97,13 @@ const requiredMarkers = new Map([
   ['ANLEITUNG.md', ['finanzneo-stylized-3d-animated-black-v9', '#000000', 'phase3Executor']],
   ['CLAUDE.md', ['finanzneo-stylized-3d-animated-black-v9', '#000000', 'Visualzone           Y = 320–1400', 'Header Text          56 px', 'Keine feste Support-Objekt-Anzahl']],
   ['docs/IMAGE-SYSTEM.md', ['finanzneo-stylized-3d-animated-black-v9', 'keine feste', 'tiefschwarzen Hintergrund']],
-  ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['PremiumPhysicalStage', '#000000', 'Y 320–1400', 'keine feste Support-Objekt-Anzahl', 'singleHeroObjectAllowed=true', 'finanzneo-motion-core-v1', 'src/motion/mechanics.ts', 'PhysicalBanknote', 'PhysicalInvoice', 'Motion Art Direction', 'PLAYWRIGHT_VISUAL_QA=PASS', 'Anti-Wiederholung']],
+  ['docs/PHASE-1-ANIMATION-CODE-STANDARD.md', ['PremiumPhysicalStage', '#000000', 'Y 320–1400', 'keine feste Support-Objekt-Anzahl', 'singleHeroObjectAllowed=true', 'finanzneo-motion-core-v1', 'src/motion/mechanics.ts', 'PhysicalBanknote', 'PhysicalInvoice', 'Motion Art Direction', 'PLAYWRIGHT_VISUAL_QA=PASS', 'Anti-Wiederholung', 'finanzneo-finance-motion-library-v1', 'library-best-fit', 'custom-build', 'FINANCE_MOTION_REGISTRY']],
   ['docs/FINANZNEO-CAPTION-AND-SCENE-DESIGN-V2.md', ['56 px', 'Y = 320–1400', 'SourceNote']],
   ['docs/PHASE-3-COMPLETION-GATE.md', ['Post-Render', 'Caption-/Header-only', 'FINAL_COMPLETE']],
   ['docs/PLATFORM-PUBLISHING.md', ['caption-universal.txt', 'keine separaten Plattform-Captiondateien']],
-  ['reels/PRODUKTIONSSTANDARD.md', ['caption-universal.txt', 'Playwright Visual QA', 'Keine separaten Plattform-Captiondateien', 'MOTION_CORE: finanzneo-motion-core-v1', 'CANONICAL_MOTION_SOURCE: src/motion', 'MECHANIC_REGISTRY: src/motion/mechanics.ts', 'MOTION_ART_DIRECTOR', 'PhysicalBanknote', 'PhysicalInvoice', 'MOTION_ART_DIRECTION=PASS', 'PLAYWRIGHT_VISUAL_QA=PASS', 'Mechanik-Ledger']],
-  ['config/finanzneo-production-standard.json', ['finanzneo-motion-core-v1', 'src/motion/index.ts', 'mechanic-selection.md', 'remotion-director/SKILL.md']],
-  ['CLAUDE.md', ['caption-universal.txt', 'Playwright Visual QA']],
+  ['reels/PRODUKTIONSSTANDARD.md', ['caption-universal.txt', 'Playwright Visual QA', 'Keine separaten Plattform-Captiondateien', 'MOTION_CORE: finanzneo-motion-core-v1', 'CANONICAL_MOTION_SOURCE: src/motion', 'MECHANIC_REGISTRY: src/motion/mechanics.ts', 'MOTION_ART_DIRECTOR', 'PhysicalBanknote', 'PhysicalInvoice', 'MOTION_ART_DIRECTION=PASS', 'PLAYWRIGHT_VISUAL_QA=PASS', 'Mechanik-Ledger', 'FINANCE_MOTION_LIBRARY: finanzneo-finance-motion-library-v1', 'PHASE1_MOTION_DIRECTION: finanzneo-phase1-hybrid-motion-v2']],
+  ['config/finanzneo-production-standard.json', ['finanzneo-motion-core-v1', 'src/motion/index.ts', 'mechanic-selection.md', 'remotion-director/SKILL.md', 'finanzneo-finance-motion-library-v1', 'src/finance-motion/index.tsx']],
+  ['CLAUDE.md', ['caption-universal.txt', 'Playwright Visual QA', 'finanzneo-finance-motion-library-v1', 'library-best-fit', 'custom-build']],
   ['MASTER-PROMPTS.md', ['#000000', 'FNBgParticles', 'customAnimations']],
   ['src/brand/tokens.ts', ['fontSize:56', 'minFontSize:50', 'maxLines:2', 'top:320,bottom:1400', 'sourceNote']],
   ['src/brand/index.ts', ['Legacy Physical API', 'Neue Motion-Core-Reels', '../motion']],
@@ -124,14 +124,19 @@ const requiredMarkers = new Map([
   ['scripts/validate-reel-layout-v5.mjs', ['visualBottom === 1400', 'fontSize === 56', 'hardClipAnimations === true']],
   ['scripts/create-finanzneo-reel.mjs', ['apply-stylized-animated-black-world-v9.mjs', 'apply-future-image-storytelling-v3.mjs', 'apply-future-reel-phase1-motion-direction-v1.mjs', 'Literal first, creative second', 'Visual Y320–1400']],
   ['scripts/apply-premium-animation-v2.mjs', ['ein starkes Hero darf allein reichen', 'PhysicalBanknote', 'PhysicalInvoice', 'niemals als Objektquote']],
-  ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', ['finanzneo-motion-core-v1', "canonicalMotionSource: 'src/motion'", "mechanicRegistry: 'src/motion/mechanics.ts'", 'motionArtDirectorSkill', 'motionCoreCuratorSkill', 'visualQaGateRequiredBeforePhase3Render: true', 'motion-mechanic-ledger.md', 'visual-qa.md']],
-  ['scripts/validate-future-reel-phase1-motion-direction-v1.mjs', ['finanzneo-motion-core-v1', 'mechanicRegistry', 'motionArtDirectorSkill', 'motionCoreCuratorSkill', 'visualQaGateRequiredBeforePhase3Render', 'motion-mechanic-ledger.md', 'visual-qa.md', 'src/motion importieren']],
-  ['scripts/validate-animation-source-quality.mjs', ['singleHeroObjectAllowed', 'Ein starkes Hero darf allein reichen', 'boxesDominate']],
+  // Neue Reels laufen über die Finance Motion Library; das Art-Direction-/
+  // Playwright-Gate bleibt dabei Pflicht. Motion Core V1 prüft der Validator
+  // weiter für Reels, die damit angelegt wurden.
+  ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', ['finanzneo-phase1-hybrid-motion-v2', 'finanzneo-finance-motion-library-v1', 'Library ist Werkzeug', 'motionArtDirectorSkill', 'visualQaGateRequiredBeforePhase3Render: true', 'visual-qa.md', 'MOTION_ART_DIRECTION=PENDING', 'PLAYWRIGHT_VISUAL_QA=PENDING']],
+  ['scripts/validate-future-reel-phase1-motion-direction-v1.mjs', ['finanzneo-motion-core-v1', 'mechanicRegistry', 'motionArtDirectorSkill', 'motionCoreCuratorSkill', 'visualQaGateRequiredBeforePhase3Render', 'motion-mechanic-ledger.md', 'visual-qa.md', 'src/motion importieren', 'finanzneo-phase1-hybrid-motion-v2', 'libraryFitReason', 'customReason']],
+  ['scripts/validate-animation-source-quality.mjs', ['singleHeroObjectAllowed', 'Ein starkes Hero darf allein reichen', 'boxesDominate', 'FINANCE_MOTION_REGISTRY', 'library-best-fit', 'custom-build']],
+  ['src/finance-motion/index.tsx', ['FINANCE_MOTION_REGISTRY']],
+  ['.agents/skills/finanzneo-reel/SKILL.md', ['library-best-fit', 'custom-build', 'FINANCE_MOTION_REGISTRY', 'PLAYWRIGHT_VISUAL_QA=PASS']],
   // Die Liste der konkreten Gegenstände steht seit der Zusammenführung genau
   // einmal, in der gemeinsamen Quelle. Der Marker prüft sie dort statt in jedem
   // Validator, der sie benutzt.
   ['scripts/lib/visual-language.mjs', ['Physical(?:Banknote|Invoice|Bill', 'boxesDominate', 'hasRealSubject']],
-  ['scripts/validate-phase3-preflight.mjs', ['MOTION_ART_DIRECTION=PASS', 'PLAYWRIGHT_VISUAL_QA=PASS', 'Motion-Core Visual-QA-Gate']],
+  ['scripts/validate-phase3-preflight.mjs', ['MOTION_ART_DIRECTION=PASS', 'PLAYWRIGHT_VISUAL_QA=PASS', 'Visual-QA-Gate (Art Direction + Playwright)', 'visualQaGateRequiredBeforePhase3Render']],
   ['scripts/apply-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'Literal first, creative second', 'TRANSFERABILITY_TEST', 'Förderbänder, Schienen, Schranken, Käfige']],
   ['scripts/validate-future-image-storytelling-v3.mjs', ['finanzneo-image-storytelling-v3', 'finanzneo-image-storytelling-v2', 'TRANSFERABILITY_TEST', 'METAPHOR_JUSTIFICATION']],
   ['docs/FUTURE-IMAGE-STORYTELLING-V3.md', ['Literal first, creative second', 'Transferability-Test', 'METAPHOR_JUSTIFICATION']],
@@ -146,15 +151,16 @@ for (const [path, markers] of requiredMarkers) {
 }
 
 if (errors.length) {
-  console.error('\nAktive Reel-Regeln widersprechen dem V9/Pure-Black/Final-Layout-/Image-Storytelling-/Motion-Core-Stand:\n');
+  console.error('\nAktive Reel-Regeln widersprechen dem V9/Pure-Black/Final-Layout-/Image-Storytelling-/Finance-Motion-Stand:\n');
   errors.forEach((error) => console.error(`- ${error}`));
   process.exit(1);
 }
 
-console.log('\n✓ Aktive Reel-Regelquellen sind auf V9/Pure-Black/Final-Layout/Image-Storytelling-V3/Motion-Core-V1 ausgerichtet.');
+console.log('\n✓ Aktive Reel-Regelquellen sind auf V9/Pure-Black/Final-Layout/Image-Storytelling-V3/Finance-Motion-Library ausgerichtet.');
 console.log('✓ Keine aktive V4/V7/V8-Bildwelt, feste Objektquote, alte Y320–1480-Visualzone oder Partikel-Dekorationsregel gefunden.');
-console.log('✓ Motion Core V1 erlaubt ein starkes einzelnes Hero; PhysicalBanknote/PhysicalInvoice trennen Geldschein und Rechnung semantisch.');
+console.log('✓ Neue Reels: Library-Best-Fit oder Custom-Build; Motion Core V1 bleibt für bestehende Motion-Core-Reels gültig.');
+console.log('✓ Ein starkes einzelnes Hero darf reichen; PhysicalBanknote/PhysicalInvoice trennen Geldschein und Rechnung semantisch.');
 console.log('✓ Mechanik-Registry, Motion Art Director und Motion Core Curator sind repo-weit abgesichert.');
-console.log('✓ Neue Motion-Core-Reels brauchen vor Phase-3-Render dokumentierte Art Direction + Playwright Visual QA PASS.');
+console.log('✓ Neue Reels und Motion-Core-Reels brauchen vor Phase-3-Render dokumentierte Art Direction + Playwright Visual QA PASS.');
 console.log('✓ Header 56 px/max. 2 Zeilen, Visual Y320–1400 und Animation-Safe-Zone sind konsistent.');
 console.log('✓ Phase 1, Phase 2 und Phase 3 verweisen auf denselben aktuellen Produktionsstand.');
