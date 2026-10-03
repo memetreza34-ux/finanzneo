@@ -1,0 +1,174 @@
+GOOGLE FLOW MASTER PROMPT — FINANZNEO
+VIDEO: Kreditkarten-Teilzahlung: Wie aus 2.000 € ein teurer Kredit wird
+
+WICHTIG: DIESER GESAMTE TEXT IST EIN EINZIGER MASTER-PROMPT.
+Der Nutzer kopiert nur diesen einen Prompt einmal in den Google-Flow-Agenten. Du führst danach den gesamten Bild-Workflow selbstständig aus. Fordere den Nutzer NICHT auf, weitere Einzelprompts zu kopieren oder weitere Promptdateien zu öffnen.
+
+============================================================
+DEINE AUFGABE
+============================================================
+
+Erstelle alle benötigten Bild-Assets für dieses YouTube-Video in Google Flow.
+
+Verbindlicher Ablauf:
+
+PHASE A — COVER
+1. Erzeuge zuerst exakt drei unterschiedliche Cover-Kandidaten A, B und C.
+2. Starte A, B und C gleichzeitig als drei GETRENNTE Ein-Bild-Jobs.
+3. Jeder Job erzeugt exakt EIN horizontales 16:9-Bild. Keine Collage und kein Multi-Image-Request.
+4. Prüfe jedes Ergebnis auf Motiv, Text, Lesbarkeit und FinanzNeo-Bildwelt.
+5. Wenn ein Cover fehlerhaft ist, regeneriere nur diesen Kandidaten.
+6. Sobald A, B und C korrekt vorliegen, zeige/benenne sie eindeutig als A, B und C und frage den Nutzer GENAU EINMAL: „Welches Cover: A, B oder C?“
+7. WARTE dann auf die Auswahl. Vor der Auswahl keine Szenenbilder erzeugen.
+8. Nach der Auswahl behältst du nur den Gewinner als finales Cover. Der Gewinner ist KEINE Style-Referenz für die späteren Bilder.
+
+PHASE B — SZENENBILDER
+9. Nach der Cover-Auswahl erzeugst du die fünf unten definierten Szenenbilder.
+10. Starte alle fünf als fünf GETRENNTE Ein-Bild-Jobs gleichzeitig.
+11. Jeder Job erzeugt exakt EIN Bild. Niemals fünf Bilder in einem einzigen Generierungsauftrag anfordern.
+12. Sobald ein Bild fertig ist: sofort dem exakten Dateinamen zuordnen und QA durchführen.
+13. Ist ein Bild falsch, regeneriere nur dieselbe Bildnummer. Bereits korrekte Bilder niemals neu erzeugen.
+14. Keine weitere Nutzerfreigabe zwischen den Bildern verlangen.
+15. Beende die Arbeit erst, wenn das ausgewählte Cover und alle fünf Szenenbilder korrekt vorhanden sind.
+
+============================================================
+GLOBALE BILDWELT — GILT FÜR JEDEN EINZELNEN JOB
+============================================================
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+THUMBNAIL_CONCURRENCY: 3
+IMAGE_BATCH_SIZE: 5
+IMAGE_CONCURRENCY: 5
+STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+
+Alle Bilder gehören sichtbar zur exakt gleichen FinanzNeo-Welt:
+- premium stylized 3D animated-film / high-end illustration
+- tiefer nahtloser schwarzer Hintergrund
+- hochwertige Materialien
+- sauberes Studio-Licht
+- klare Kontaktschatten
+- Emerald nur für positive/gelöste Zustände
+- warmes Red-Orange für Risiko/Kosten
+- Ivory und Soft Gray neutral
+- Gold nur als kleiner Geld-/Wert-Akzent, niemals dominante Bildwelt
+- kein Fotorealismus
+- kein Corporate-Stock-3D
+- keine generische Gold-Luxus-KI-Finanzoptik
+- keine riesigen goldenen Prozentzeichen
+- keine Pokale/Sockel als Standardmotiv
+- keine Glasgefäße, dekorativen Münzberge oder generischen Geldstapel
+- keine unnötigen Dashboards oder PowerPoint-/Excel-Optik
+
+Kamera:
+- grundsätzlich frontal oder nahezu frontal
+- Augenhöhe
+- gerader Horizont
+- natürliche Perspektive
+- Charts/Diagramme exakt frontal, ohne perspektivische Verzerrung
+- Zahlen, Labels, Achsen und Proportionen fachlich korrekt
+
+WICHTIG ZUR KONSISTENZ:
+- kein Cover als Bildreferenz für spätere Szenen verwenden
+- kein Szenenbild als neue Style-Referenz verwenden
+- die geschriebene FinanzNeo-V9-Welt oben ist die einzige Style-Autorität
+- jedes Bild horizontal 16:9
+- Hauptmotiv groß genug für TV, Laptop und Handy
+- eine klare visuelle Aussage pro Bild
+- wenig Text; nur die unten ausdrücklich erlaubten deutschen Labels
+
+============================================================
+PHASE A — COVER JOBS A / B / C
+============================================================
+
+COVER A
+Temporärer Dateiname: YouTube Thumbnail A.png
+Sichtbarer deutscher Hook: TEURE TEILZAHLUNG
+Maximal 2 Zeilen.
+
+Generate one horizontal 16:9 YouTube thumbnail. Show one premium stylized unbranded credit card in straight front view. Behind it, a clean warm red-orange debt strip extends visibly to communicate an expensive revolving balance. Add one small readable ivory label: 2.000 €. The composition must immediately communicate credit-card debt and expensive partial repayment. No bank logo, no decorative coin piles, no extra numbers, no clutter. Hook text must be clean, front-facing and highly readable. Never giant metallic gold text.
+
+COVER B
+Temporärer Dateiname: YouTube Thumbnail B.png
+Sichtbarer deutscher Hook: 2.000 € → 2.368 €
+Maximal 2 Zeilen.
+
+Generate one horizontal 16:9 YouTube thumbnail. Create a strong before-versus-after composition. On the left show a clean premium stylized unbranded credit card with 2.000 €. On the right show the final total 2.368 €. Between them show the difference as a restrained warm red-orange label: 368 € ZINSEN. The cost difference must be understandable instantly. No decorative coins, no bank branding, no additional numbers, no clutter. Typography straight and highly readable.
+
+COVER C
+Temporärer Dateiname: YouTube Thumbnail C.png
+Sichtbarer deutscher Hook: DIE KLEINE RATE
+Maximal 2 Zeilen.
+
+Generate one horizontal 16:9 YouTube thumbnail. Show one large readable 100 € monthly payment entering a clean credit-card statement. A warm red-orange layer labeled ZINSEN visibly absorbs part of the payment before the remaining portion reaches the debt. The cause-and-effect must be immediately understandable: a small monthly rate does not reduce the debt by the full 100 €. No bank logos, no extra numbers, no clutter.
+
+Wenn A/B/C korrekt fertig sind: STOPP und frage ausschließlich nach der Auswahl A, B oder C.
+
+Nach Nutzerwahl:
+Finaler Dateiname des Gewinners: YouTube Thumbnail - Kreditkarten Teilzahlung.png
+Die zwei nicht gewählten Cover nicht als finale Assets übernehmen.
+Danach automatisch mit Phase B fortfahren.
+
+============================================================
+PHASE B — FÜNF SZENENBILDER, PARALLEL ALS GETRENNTE JOBS
+============================================================
+
+BILD 01
+Finaler Dateiname: YouTube Bild 01 - Karte und Monatsabrechnung.png
+
+Generate exactly one horizontal 16:9 image. Show a premium stylized unbranded credit card next to a clean monthly statement. The statement has exactly two clearly separated options: Vollzahlung and Teilzahlung. Vollzahlung is neutral ivory, Teilzahlung has a restrained warm red-orange warning accent. No bank brand, no clutter. Allowed short German labels only: Vollzahlung, Teilzahlung. Front-facing, eye-level, immediately readable.
+
+BILD 03
+Finaler Dateiname: YouTube Bild 03 - Erste 100 Euro Rate.png
+
+Generate exactly one horizontal 16:9 image. Show one clean 100 € payment entering from the left and splitting into exactly two front-facing labeled blocks: 28,33 € ZINSEN in warm red-orange and 71,67 € TILGUNG in emerald. A small neutral label below reads Restschuld 1.928,33 €. No extra numbers. Data integrity is mandatory: 28,33 € + 71,67 € = 100,00 €. All amounts must be straight, large and immediately readable. No perspective distortion.
+
+BILD 05
+Finaler Dateiname: YouTube Bild 05 - Kleine Rate grosse Restschuld.png
+
+Generate exactly one horizontal 16:9 image. Show exactly twelve simple monthly payment tiles of 100 € arranged in a clean row or grid, with one total label: 1.200 € GEZAHLT. Opposite them show one large remaining-balance card labeled 1.069,72 € OFFEN. Use warm red-orange only for the remaining debt and ivory for the paid tiles. No generic chart, no extra numbers. Data integrity is mandatory: exactly 12 × 100 € = 1.200 € paid; remaining balance exactly 1.069,72 €.
+
+BILD 07
+Finaler Dateiname: YouTube Bild 07 - Drei Kreditkarten Checks.png
+
+Generate exactly one horizontal 16:9 image. Show an unbranded premium stylized credit card centered with exactly three clean adjacent check items, each with one simple functional line icon. The three labels are exactly: Vollzahlung 100 %, Zinssatz prüfen, Teilzahlung deaktivieren. Use emerald check marks and ivory labels. No app logo, no decorative finance icons beyond these three functional symbols, no additional checklist items. Straight-on front view and highly readable.
+
+BILD 08
+Finaler Dateiname: YouTube Bild 08 - Vollzahlung Einstellung.png
+
+Generate exactly one horizontal 16:9 image. Show a clean fictional banking settings panel in exact straight-on front view on deep black. Exactly two payment options are visible: Teilzahlung and Vollzahlung 100 %. Teilzahlung is currently selected with a restrained warm red-orange indicator; Vollzahlung 100 % is unselected. No real bank brand, no tilted phone mockup, no extra settings. Keep the UI geometry clean and stable with enough empty margin because this image will later receive a Remotion motion overlay. Allowed labels only: Teilzahlung, Vollzahlung 100 %.
+
+============================================================
+QA — NACH JEDEM BILD
+============================================================
+
+Ein Bild ist nur PASS, wenn:
+- exakt horizontal 16:9
+- korrekter Inhalt und korrekte Bildnummer
+- keine falschen zusätzlichen Zahlen
+- deutsche Labels richtig geschrieben und lesbar
+- keine erfundene Bankmarke
+- keine Gold-Luxus-Drift
+- gleiche FinanzNeo-V9-Welt
+- frontal/normal lesbar
+- bei BILD 03 und BILD 05 alle Zahlen mathematisch exakt
+
+Bei FAIL: regenerate only that same number.
+
+============================================================
+FINALER BESTAND
+============================================================
+
+Am Ende müssen exakt diese sechs finalen Assets vorhanden sein:
+1. YouTube Thumbnail - Kreditkarten Teilzahlung.png
+2. YouTube Bild 01 - Karte und Monatsabrechnung.png
+3. YouTube Bild 03 - Erste 100 Euro Rate.png
+4. YouTube Bild 05 - Kleine Rate grosse Restschuld.png
+5. YouTube Bild 07 - Drei Kreditkarten Checks.png
+6. YouTube Bild 08 - Vollzahlung Einstellung.png
+
+Keine weiteren Nutzerfragen nach der Cover-Auswahl. Keine weiteren Prompts vom Nutzer verlangen. Führe den gesamten Bildworkflow aus diesem einen Master-Prompt aus.
