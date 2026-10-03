@@ -1,3 +1,7 @@
+INTERN — NICHT MANUELL IN GOOGLE FLOW KOPIEREN.
+Der Nutzer verwendet ausschließlich die eine Datei im Projekt-Root: GOOGLE-FLOW-PROMPT.txt
+Diese Datei bleibt nur als interne Produktions-/Validatorquelle erhalten.
+
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 YOUTUBE THUMBNAIL PHASE — THREE SEPARATE JOBS IN PARALLEL
 
