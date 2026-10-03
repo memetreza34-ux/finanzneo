@@ -1,77 +1,71 @@
-FINANZNEO YOUTUBE IMAGE WORLD
+FINANZNEO FLOW IMAGE WORLD — KREDITKARTEN-TEILZAHLUNG
 
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
 GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+FLOW_IMAGE_POLICY: scene-first-no-infographic-v1
+PRECISION_GRAPHICS_OWNER: REMOTION
 
-CORE
-FinanzNeo is a premium stylized animation-film / editorial finance world. The world stays consistent, but the visual form is chosen from the content instead of forcing everything into the same physical 3D template.
+GOOGLE FLOW IST HIER EIN SZENEN-RENDERER.
+Es erzeugt keine fertigen Datenkarten, Checklisten, Progress-Bars, Settings-Panels oder Zahlen-Infografiken.
 
-MODE A — GROUNDED SCENE
-Use for real situations/objects and visible cause/effect.
-- real recognizable objects
-- believable proportions
-- medium-close editorial framing
-- natural perspective
-- 0–3 useful supporting objects
-- clear depth, overlap, material cues and soft contact shadows
-- local context may dissolve into the deep black/charcoal-green world
-- do not create a sterile product shot or tiny diorama
+ERLAUBTE FLOW-BILDKLASSEN
 
-MODE B — SIMPLE EXPLAINER
-Use when a simple visual communicates faster than a literal scene.
-Allowed: large number, symbol, simple chart, comparison, target/route/goal metaphor, asset group, concept cluster, short quote/key statement, simple UI/settings explanation.
-- front-facing or near-front
-- large useful-frame occupancy
-- clean hierarchy
-- polished 2.5D / stylized editorial treatment is allowed
-- keep FinanzNeo colors, lighting and quality
-- do NOT turn values/text into arbitrary thick plaques, tiles, cards, panels, blocks or pedestals
+A) GROUNDED SCENE
+- reale, sofort erkennbare Situation oder Gegenstände
+- klar stilisiertes Premium-3D, niemals Fotorealismus
+- glaubwürdige Proportionen und Materialien
+- ein dominantes Hauptmotiv
+- medium-close, natürliche 3/4- oder nahe Frontkamera
+- erkennbare Tiefe, Überlappung und Kontaktschatten
+- lokaler Kontext darf weich in den tiefschwarzen/charcoal-grünen Hintergrund auslaufen
 
-CHART / DIAGRAM / DATA
-- straight-on front view
-- no skewed axes or 3/4 chart plane
-- mathematically correct proportions
-- no Excel/PowerPoint default style
-- no decorative fantasy 3D bars
+B) EDITORIAL 3D ILLUSTRATION
+- eine zusammenhängende gerenderte 3D-Illustration oder sofort verständliche Metapher
+- bildfüllendes Motiv statt Informationsmodule
+- räumliche Szene mit Materialität und Licht
+- keine Poster-, Slide-, Dashboard- oder Infografik-Komposition
 
-UI / SETTINGS
-- only when the state itself is the point
-- clean fictional/unbranded layout
-- straight-on and readable
-- no screenshot realism
-- do not make a thick floating control panel just to appear 3D
+PRÄZISION
+Exakte Zahlen, Datenaufteilungen, Charts, Checklisten, Timelines und UI-Zustände werden in Remotion/SVG/React gebaut.
+Bei Hybrid erzeugt Flow nur die textarme gerenderte Szenenbasis; exakte Overlays kommen danach aus Remotion.
 
-COLOR
-- emerald = positive / solution / growth
-- warm red-orange = risk / cost / debt / warning
-- warm ivory / soft gray = neutral
-- gold only as small money/value accent
-- black/charcoal-green remains dominant
+FARBEN
+- Deep Black / Charcoal Green = Grundwelt
+- Emerald = positiv / Lösung
+- warmes Red-Orange = Risiko / Kosten / Schuld
+- Warm Ivory / Soft Gray = neutral
+- Gold nur klein für Geld/Wert
 
-LIGHTING + QUALITY
-- premium clean studio light
-- readable highlights and shadows
-- soft contact shadows where physical objects touch
-- adult stylized 3D/editorial quality
-- never photorealistic, childish clay/toy/Pixar or generic corporate 3D
+TEXT
+- Szenenbilder standardmäßig ohne Text
+- höchstens kurze Objektlabels, wenn sie wirklich notwendig sind
+- kein Titel, kein Untertitel, kein Absatz, kein CTA
+- kein FinanzNeo-Logo, Wasserzeichen oder erfundener Markenname im Szenenbild
+- exakte Zahlen/Textgrafiken gehören Remotion
 
-GLOBAL HARD FAIL
-- main information too small
-- mostly empty black space
-- floating tile/card/module system
-- dashboard/control-panel/HUD without content reason
-- arbitrary plaques/blocks for values or text
-- sterile product-ad shot
-- tiny isometric/diorama framing
-- Canva/PowerPoint/Stock-Vector look
-- generic finance-icon collage
-- gold-luxury AI-finance styling
-- visual form more complicated than the spoken point
+HARD FAIL — SOFORT NEU GENERIEREN
+- flache Infografik
+- Social-Media-Card / Poster / Slide
+- Dashboard / HUD / Control Panel
+- Checklistenlayout
+- Settings-/UI-Layout
+- Progress-Bar als Hauptmotiv
+- Zahlenvergleich in Rechtecken, Kacheln oder Cards
+- schwebende Tiles / Karten / Widgets
+- FinanzNeo-Logo oder Wasserzeichen ohne ausdrückliche Anweisung
+- Mini-Objekt in riesiger schwarzer Leere
+- sterile Produktaufnahme
+- Mini-Diorama / entfernte Isometrie
+- Stock-Vector / Canva / PowerPoint
+- Fotorealismus
+- Toy / Clay / Pixar
+- generische Gold-Luxus-Finanzoptik
 
-QUALITY RULE
-The image must feel FinanzNeo because of consistent color logic, polished stylized rendering, lighting, hierarchy and explanatory clarity — not because every element was forced into a physical 3D object.
+QUALITÄTSFRAGE
+Würde das Bild ohne seine Texte immer noch wie eine hochwertige gerenderte FinanzNeo-Szene funktionieren?
+Wenn nein: FAIL.
