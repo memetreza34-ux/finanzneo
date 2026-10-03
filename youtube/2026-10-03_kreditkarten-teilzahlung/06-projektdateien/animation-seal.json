@@ -37,39 +37,6 @@
       "sha256": "56eea9501b2beb102c745e049a5124fc48599af4469ecb8df9ee9070b9c48b8f"
     },
     {
-      "id": "visual-03",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-03/animation.tsx",
-      "exportName": "YouTubeVisual03Animation",
-      "viewerChange": "Eine große 100-€-Rate teilt sich sichtbar in 28,33 € Zinsen und 71,67 € Tilgung; danach erscheint die Restschuld.",
-      "animationIntent": "Die präzise Rechenaufteilung bleibt typografisch sauber und muss nicht von einem Bildmodell gerendert werden.",
-      "mechanicId": "payment-split-reveal",
-      "visualTechniqueId": "precision-split-card",
-      "techniqueDescription": "Zwei große farbcodierte Remotion-Flächen trennen sich aus einer zentralen 100-€-Karte; Restschuld folgt als zweiter Informationsbeat.",
-      "compositionFamilyId": "precision-number-explainer",
-      "toolStack": [
-        "React",
-        "CSS",
-        "Remotion interpolate"
-      ],
-      "motionSignature": {
-        "camera": "statische frontale 2D/2.5D Editorial-Ansicht",
-        "layout": "zentrale Zahl teilt sich symmetrisch in zwei große Vergleichsflächen",
-        "transformation": "ein Element zerlegt sich räumlich in zwei semantische Teile"
-      },
-      "motionChannels": [
-        "horizontale Trennung der Zins-/Tilgungsflächen",
-        "Skalierung und Opacity der Ausgangszahl",
-        "Restschuld-Reveal"
-      ],
-      "visualBeats": [
-        "100 € Rate",
-        "28,33 € Zinsen / 71,67 € Tilgung",
-        "1.928,33 € Restschuld"
-      ],
-      "repeatTechniqueReason": "",
-      "sha256": "53755406d5bc99f296e2db62edca91bbfc4cb2d021cdf634b2cf199cce174e76"
-    },
-    {
       "id": "visual-04",
       "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-04/animation.tsx",
       "exportName": "YouTubeVisual04Animation",
@@ -101,39 +68,6 @@
       ],
       "repeatTechniqueReason": "",
       "sha256": "e92508d4d2de9dc401b90f8d3aee5ae88e8f23828bb5d861054a9777172c14d4"
-    },
-    {
-      "id": "visual-05",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-05/animation.tsx",
-      "exportName": "YouTubeVisual05Animation",
-      "viewerChange": "Zwölf 100-€-Monatszahlungen erscheinen nacheinander und summieren sich zu 1.200 €; anschließend tritt die Restschuld 1.069,72 € groß daneben.",
-      "animationIntent": "Der Widerspruch viel gezahlt, trotzdem viel offen soll ohne KI-generierte Zahlentafeln sofort verständlich sein.",
-      "mechanicId": "twelve-payments-vs-balance",
-      "visualTechniqueId": "monthly-grid-balance-contrast",
-      "techniqueDescription": "Code-basierte Monatsmatrix mit präziser Typografie; nach Aufbau der zwölf Raten erscheint eine große kontrastierende Restschuldfläche.",
-      "compositionFamilyId": "editorial-data-comparison",
-      "toolStack": [
-        "React",
-        "CSS Grid",
-        "Remotion interpolate"
-      ],
-      "motionSignature": {
-        "camera": "statische frontale Editorial-Ansicht",
-        "layout": "links 4×3-Monatsmatrix, rechts eine große Restschuldfläche",
-        "transformation": "sequenzieller Aufbau vieler kleiner Zahlungen gefolgt von einem einzelnen großen Gegenwert"
-      },
-      "motionChannels": [
-        "Monats-Reveal",
-        "Summen-Hierarchie",
-        "Restschuld-Skalierung"
-      ],
-      "visualBeats": [
-        "Monate bauen sich auf",
-        "1.200 € gezahlt",
-        "1.069,72 € offen"
-      ],
-      "repeatTechniqueReason": "",
-      "sha256": "704b484b0b0ab2d4c9514712be395a6ba29807ca49fcee22fa9da5512cfbafd2"
     },
     {
       "id": "visual-06",
@@ -169,72 +103,37 @@
       "sha256": "8cb90499a688a9a85d4c2e31e0184c6d9c1ab254e442b9c48ae86bbd7a704c10"
     },
     {
-      "id": "visual-07",
-      "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-07/animation.tsx",
-      "exportName": "YouTubeVisual07Animation",
-      "viewerChange": "Neben einer großen neutralen Kreditkarte erscheinen nacheinander exakt drei grüne Prüfpunkte.",
-      "animationIntent": "Präzise Handlungslabels sollen fehlerfrei lesbar sein; deshalb code-basiert statt Google-Flow-Bild.",
-      "mechanicId": "three-checks-sequential",
-      "visualTechniqueId": "checklist-step-reveal",
-      "techniqueDescription": "Große Kartenform links, drei typografische Check-Reveals rechts mit klarer visueller Hierarchie.",
-      "compositionFamilyId": "action-checklist",
-      "toolStack": [
-        "React",
-        "CSS",
-        "Remotion interpolate"
-      ],
-      "motionSignature": {
-        "camera": "statische frontale Editorial-Ansicht",
-        "layout": "große Karte links, vertikale Dreierliste rechts",
-        "transformation": "drei Handlungspunkte schieben sich zeitversetzt ein"
-      },
-      "motionChannels": [
-        "horizontale Bewegung der Check-Zeilen",
-        "Opacity je Prüfschritt",
-        "sequenzielles Timing"
-      ],
-      "visualBeats": [
-        "nur Kreditkarte",
-        "Vollzahlung 100 %",
-        "Zinssatz prüfen",
-        "Teilzahlung deaktivieren"
-      ],
-      "repeatTechniqueReason": "",
-      "sha256": "9e845dccb449210f968bef16ee25a1668e24fb0c624a87523c9c9eae41580833"
-    },
-    {
       "id": "visual-08",
       "sourceFile": "04-visuals/EINZELNE-VISUALS/visual-08/animation.tsx",
       "exportName": "YouTubeVisual08Animation",
-      "viewerChange": "Eine klar gestaltete Banking-Einstellung wird vollständig in Remotion aufgebaut; die Auswahl wandert von Teilzahlung zu Vollzahlung 100 % und bestätigt den Endzustand.",
-      "animationIntent": "UI-Text und Zustand müssen exakt, sauber und animierbar sein; deshalb kein Google-Flow-UI-Bild mehr.",
+      "viewerChange": "Auf dem erzeugten Einstellungsbild wandert die Auswahl sichtbar von Teilzahlung zu Vollzahlung 100 %, danach wird ein grüner Bestätigungszustand eingeblendet.",
+      "animationIntent": "Der Schluss endet mit einer konkreten prüfbaren Handlung statt nur mit Warnung.",
       "mechanicId": "payment-setting-switch",
-      "visualTechniqueId": "native-setting-selection-shift",
-      "techniqueDescription": "Native React/CSS-Einstellung mit zwei großen Zeilen; ein farbcodierter Auswahlrahmen bewegt sich zwischen den Optionen, Bestätigung erscheint danach.",
-      "compositionFamilyId": "settings-action",
+      "visualTechniqueId": "image-overlay-selection-shift",
+      "techniqueDescription": "Das Flow-Bild bildet die ruhige frontale Einstellungsbasis; Remotion legt einen animierten Auswahlrahmen und Bestätigungsstatus darüber.",
+      "compositionFamilyId": "image-composite",
       "toolStack": [
         "React",
         "CSS",
         "Remotion interpolate"
       ],
       "motionSignature": {
-        "camera": "statische frontale Interface-Ansicht",
-        "layout": "ein großes zentrales Einstellungsmodul mit zwei übereinanderliegenden Optionen",
-        "transformation": "Auswahlrahmen verschiebt sich vertikal und wechselt semantisch von Rot-Orange zu Emerald"
+        "camera": "statische Frontansicht auf dem Nutzerbild",
+        "layout": "UI-Basisbild vollflächig, Fokus-Overlay auf den beiden Abrechnungsoptionen",
+        "transformation": "Fokus verschiebt sich von Teilzahlung zu Vollzahlung und bestätigt den Endzustand"
       },
       "motionChannels": [
-        "vertikale Positionsänderung des Auswahlrahmens",
-        "Farbwechsel des Auswahlzustands",
-        "Bestätigungs-Opacity"
+        "Position des Auswahlrahmens",
+        "Farb- und Opazitätswechsel des Bestätigungsstatus"
       ],
       "visualBeats": [
-        "Teilzahlung ausgewählt",
-        "Auswahl wandert",
-        "Vollzahlung 100 % ausgewählt",
-        "Einstellung geprüft"
+        "Teilzahlung aktiv",
+        "Auswahl bewegt sich",
+        "Vollzahlung 100 % aktiv",
+        "Einstellung prüfen"
       ],
       "repeatTechniqueReason": "",
-      "sha256": "cf86b66bcf73c3cb99d0e1eadf0f818f40c4c4fea0449fe899865f50df1e7378"
+      "sha256": "45191c45c83d544eb88e1a2e100d44ca5047f476099e16aa29d9c2ad8b2496df"
     }
   ]
 }
