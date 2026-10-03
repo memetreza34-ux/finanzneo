@@ -1,34 +1,36 @@
 INTERN — NICHT MANUELL IN GOOGLE FLOW KOPIEREN.
-Der Nutzer verwendet ausschließlich die eine Datei im Projekt-Root: GOOGLE-FLOW-PROMPT.txt
-Diese Datei bleibt nur als interne Produktions-/Validatorquelle erhalten.
+Der Nutzer verwendet ausschließlich den Master-Prompt unter `04-visuals/01-BILDPROMPTS/GOOGLE-FLOW-PROMPT.txt`.
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 YOUTUBE THUMBNAIL PHASE — THREE SEPARATE JOBS IN PARALLEL
+PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
+GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
 
-APPROVED_YOUTUBE_ANCHOR: finanzneo-youtube-grounded-3d-black-v1
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+Create exactly three separate horizontal 16:9 thumbnail candidates A, B and C as three concurrent one-image jobs. Each candidate must look like the same premium physical editorial FinanzNeo world: one dominant hero object occupying roughly 45–65% of the useful frame, medium-close composition, substantial material depth, cinematic soft key light, clear contact shadows and a seamless deep charcoal green-black environment with subtle tonal depth. No tiny centered object in a huge empty black frame.
 
-Create exactly three separate 16:9 thumbnail candidates A, B and C as three concurrent one-image jobs. All three must use the approved FinanzNeo grounded stylized-3D black world directly. No candidate is a style reference for another image.
+TEXT RULE: visible German hook text required, max 2 lines, ideally 2–5 words. Clean front-facing ivory typography with one restrained red-orange risk emphasis if useful. Text is secondary to the physical hero composition.
 
-MANDATORY STYLE SUFFIX FOR EACH THUMBNAIL JOB:
-Render inside the approved FinanzNeo grounded stylized-3D black world: premium animation-film 3D, tangible physical objects with believable proportions, semi-realistic stylized materials, visible thickness, real depth, soft premium studio lighting, readable highlights, soft contact shadows and subtle grounded reflections on a deep seamless black world. Emerald is positive/solution, warm red-orange is cost/risk/debt, ivory/soft gray neutral, gold only a small value accent. NEVER render as a flat infographic, presentation slide, stock icon, screenshot, dashboard card, Canva graphic or plain colored rectangles with text. A black background by itself does not satisfy the style.
+THUMBNAIL A — Hook: TEURE TEILZAHLUNG
+Hero: one large premium unbranded credit card physically overlapping a thick monthly statement. A red-orange stamped/printed “Teilzahlung” mark creates the tension. The card and document must feel tangible and weighty, not like UI cards.
 
-TEXT RULE: visible German hook text required, max 2 lines, ideally 2–5 words. Clean front-facing ivory typography. Red-orange may emphasize risk. Never giant metallic gold text.
+THUMBNAIL B — Hook: 2.000 € → 2.368 €
+Hero: one large physical credit-card statement/receipt object that visibly extends or unfolds from 2.000 € toward 2.368 €, with a restrained red-orange “368 € ZINSEN” physical stamp/tag. Make the causal cost increase physical and immediate, not a side-by-side dashboard.
 
-THUMBNAIL A — Hook text: TEURE TEILZAHLUNG
-Visual: one large tangible premium stylized-3D credit card in front-readable view with visible physical thickness and material response. A grounded warm red-orange debt ribbon/track extends behind it. Small ivory physical label/plaque: 2.000 €. Real contact shadows and studio light. No flat card graphic.
+THUMBNAIL C — Hook: DIE KLEINE RATE
+Hero: one large physical monthly statement with a prominent 100-€ payment object entering it while a red-orange physical ZINSEN tag/section visibly takes part of the payment. Use a close editorial composition, not a flowchart.
 
-THUMBNAIL B — Hook text: 2.000 € → 2.368 €
-Visual: grounded stylized-3D before/after comparison. Left: tangible card and ivory 2.000 € plaque. Right: physical 2.368 € plaque. Between them: restrained warm red-orange physical 368 € ZINSEN marker. Same materials, depth, studio light and contact shadows. No flat infographic blocks.
+Temporary names: YouTube Thumbnail A.png, YouTube Thumbnail B.png, YouTube Thumbnail C.png. After all three pass QA, ask once for A/B/C. Rename only the selected winner to `YouTube Thumbnail - Kreditkarten Teilzahlung.png`. The selected thumbnail is never a style reference for scene images.
 
-THUMBNAIL C — Hook text: DIE KLEINE RATE
-Visual: tangible stylized-3D 100 € payment card/token physically approaches a credit-card statement object. A warm red-orange ZINSEN layer physically intercepts part of the payment before the remainder reaches the debt. Clear depth, thickness, studio light and contact shadows. No flowchart or flat UI.
+HARD FAIL:
+- small hero in mostly empty black
+- dashboard/control panel/UI
+- separate floating tiles/cards
+- sterile product shot
+- tiny isometric/diorama
+- flat infographic / Canva / PowerPoint / stock-vector look
+- childish toy/clay/Pixar look
+- missing physical thickness/contact shadow/depth hierarchy
+- gold-luxury finance cliché
 
-Temporary names: YouTube Thumbnail A.png, YouTube Thumbnail B.png, YouTube Thumbnail C.png. After user choice rename only the winner to YouTube Thumbnail - Kreditkarten Teilzahlung.png. The selected thumbnail is not a style reference for scene images.
-
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-
-DEFAULT CAMERA: front-facing or near-front, eye-level, level horizon, natural perspective.
-horizontal 16:9 source image. Important subjects large enough for TV, laptop and mobile.
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
