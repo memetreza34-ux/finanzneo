@@ -17,7 +17,8 @@ FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
 THUMBNAIL_CONCURRENCY: 3
 IMAGE_BATCH_SIZE: 5
 IMAGE_CONCURRENCY: 5
-STYLE_AUTHORITY: finanzneo-stylized-3d-animated-black-v9
+STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
 GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
@@ -54,8 +55,9 @@ ERKLÄRUNG VOR DEKORATION:
 
 ZWEI ERLAUBTE DARSTELLUNGSARTEN INNERHALB DERSELBEN WELT:
 A) GROUNDED SCENE — reale Objekte/Situation, räumlich, materialreich, 3D
-B) SIMPLE EXPLAINER — sehr klare frontale Zahl/Symbol/Diagramm-/Vergleichskomposition, großflächig und reduziert; trotzdem mit FinanzNeo-Farben, hochwertiger Tiefenwirkung, sauberem Licht und derselben Markenwelt
+B) SIMPLE EXPLAINER — sehr klare frontale Zahl/Symbol/Chart/Diagramm/Vergleichskomposition, großflächig und reduziert; trotzdem mit FinanzNeo-Farben, hochwertiger Tiefenwirkung, sauberem Licht und derselben Markenwelt
 
+CHART/DIAGRAM/DATA: immer frontal, sauber, ohne schräge Perspektive und mit korrekten Größenverhältnissen.
 WICHTIG: SIMPLE EXPLAINER bedeutet NICHT: kleine schwebende Rechtecke, Dashboard, App-Karten oder PowerPoint.
 
 HARD FAIL — DENSELBEN JOB SOFORT NEU GENERIEREN:
@@ -78,14 +80,15 @@ AUSFÜHRUNGSREGELN
 ============================================================
 
 1. Erzeuge pro Job exakt EIN Bild.
-2. Cover A/B/C sind drei getrennte Bildjobs und starten gleichzeitig.
+2. Cover A/B/C sind drei SEPARATE one-image jobs und starten gleichzeitig.
 3. Prüfe jedes Ergebnis gegen die Bildwelt-Regeln.
-4. FAIL -> nur denselben Job neu generieren.
-5. Nach PASS den angegebenen Dateinamen verwenden.
+4. FAIL -> regenerate only that same number / denselben Job neu generieren.
+5. Nach PASS den angegebenen Dateinamen verwenden und rename immediately.
 6. Den Dateinamen niemals in das Bild rendern.
 7. Alle Bilder horizontal 16:9.
 8. Das ausgewählte Cover ist KEINE Style-Referenz für die Szenenbilder; die oben geschriebene Bildwelt bleibt die einzige Autorität.
 9. Keine zusätzlichen Nutzerfragen außer der einmaligen Cover-Auswahl.
+10. Finaler Bilderordner: 04-visuals/00-ALLE-BILDER-HIER-REIN/
 
 ============================================================
 PHASE A — JETZT SOFORT 3 COVER ERZEUGEN
