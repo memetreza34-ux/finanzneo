@@ -1,0 +1,122 @@
+name: One-shot lock scene-first Flow routing
+
+on:
+  push:
+    branches:
+      - youtube/v4-kreditkarten-teilzahlung
+    paths:
+      - .github/workflows/one-shot-lock-scene-first-flow.yml
+
+permissions:
+  contents: write
+
+jobs:
+  lock-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: youtube/v4-kreditkarten-teilzahlung
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Patch validator and add regression test
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          validator = Path('scripts/validate-youtube.mjs')
+          text = validator.read_text()
+
+          old = "assert(index.imageWorld.flowVisualModes.includes('grounded-scene') && index.imageWorld.flowVisualModes.includes('simple-explainer'), 'Flow-Bildwelt muss Grounded Scene und Simple Explainer unterstützen.');"
+          new = """assert(index.imageWorld.flowVisualModes.includes('grounded-scene') && index.imageWorld.flowVisualModes.includes('editorial-3d-illustration'), 'Flow-Bildwelt muss Grounded Scene und Editorial 3D Illustration unterstützen.');
+            assert(index.imageWorld?.precisionGraphicsOwner === 'remotion', 'Präzise Daten/UI/Checklisten müssen Remotion gehören.');
+            assert(index.imageWorld?.flowInfographicLayoutsForbidden === true, 'Google Flow darf keine Infografik-/Dashboard-Layouts erzeugen.');"""
+          if old not in text:
+              raise SystemExit('old flowVisualModes validator snippet not found')
+          text = text.replace(old, new)
+
+          old = "assert(/GROUNDED SCENE/.test(prompts) && /SIMPLE EXPLAINER/.test(prompts), 'Flow-Master muss Grounded Scene und Simple Explainer als zwei zulässige Bildmodi enthalten.');"
+          new = """assert(/GROUNDED SCENE/.test(prompts) && /EDITORIAL 3D ILLUSTRATION/.test(prompts), 'Flow-Master muss Grounded Scene und Editorial 3D Illustration als zwei zulässige Flow-Bildklassen enthalten.');
+            assert(!/SIMPLE EXPLAINER/i.test(prompts), 'Flow-Master darf keinen Simple-Explainer-Infografikmodus mehr enthalten.');
+            assert(/PRECISION_GRAPHICS_OWNER:\\s*REMOTION/i.test(prompts), 'Präzisionsgrafiken müssen explizit Remotion gehören.');"""
+          if old not in text:
+              raise SystemExit('old Flow master mode validator snippet not found')
+          text = text.replace(old, new)
+
+          old = "console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · Grounded Scene + Simple Explainer · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · keine Shorts/Reels`);"
+          new = "console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · Grounded Scene + Editorial 3D Illustration · Precision = Remotion · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · keine Shorts/Reels`);"
+          if old not in text:
+              raise SystemExit('old final validator console snippet not found')
+          text = text.replace(old, new)
+          validator.write_text(text)
+
+          regression = Path('tests/youtube-flow-scene-routing.test.ts')
+          regression.write_text(r'''import assert from 'node:assert/strict';
+          import {readFileSync} from 'node:fs';
+          import test from 'node:test';
+
+          const read = (path: string) => readFileSync(path, 'utf8');
+
+          test('YouTube Flow bleibt scene-first und Präzisionsgrafiken gehören Remotion', () => {
+            const wrapper = read('scripts/create-finanzneo-youtube.mjs');
+            const world = read('config/finanzneo-image-worlds/finanzneo-youtube-v9-front-readable-v2.txt');
+            const standard = read('youtube/PRODUKTIONSSTANDARD.md');
+
+            for (const source of [wrapper, world, standard]) {
+              assert.match(source, /scene-first/i);
+              assert.match(source, /Remotion/);
+              assert.doesNotMatch(source, /SIMPLE EXPLAINER/i);
+            }
+
+            assert.match(wrapper, /PRECISION_GRAPHICS_OWNER: REMOTION/);
+            assert.match(wrapper, /editorial-3d-illustration/);
+            assert.doesNotMatch(wrapper, /number-focus|quote-card|ui-example|symbol-focus/);
+
+            assert.match(world, /FLOW_IMAGE_POLICY: scene-first-no-infographic-v1/);
+            assert.match(world, /flat infographic/i);
+            assert.match(world, /checklist/i);
+            assert.match(world, /settings UI/i);
+            assert.match(world, /progress bar/i);
+
+            assert.match(standard, /Google Flow ist kein Infografik-Generator/);
+            assert.match(standard, /exakte Zahlenaufteilung/i);
+            assert.match(standard, /UI-\/Settings-Zustand/i);
+          });
+          ''')
+          PY
+
+      - name: Install
+        run: npm ci
+
+      - name: Test repository
+        run: npm test
+
+      - name: Validate YouTube project
+        run: npm run youtube:validate -- youtube/2026-10-03_kreditkarten-teilzahlung
+
+      - name: Validate Motion V3
+        run: npm run youtube:animation:validate -- youtube/2026-10-03_kreditkarten-teilzahlung
+
+      - name: Reseal Phase 1
+        run: npm run youtube:phase1:seal -- youtube/2026-10-03_kreditkarten-teilzahlung
+
+      - name: Commit locked contracts and refreshed seal
+        env:
+          FINANZNEO_ALLOW_PROTECTED_CHANGES: '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/validate-youtube.mjs tests/youtube-flow-scene-routing.test.ts youtube/2026-10-03_kreditkarten-teilzahlung/06-projektdateien/animation-seal.json
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          git commit -m "fix: enforce scene-first Flow routing"
+          git push origin HEAD:youtube/v4-kreditkarten-teilzahlung
