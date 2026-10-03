@@ -2,41 +2,51 @@
 
 Eigenständiges YouTube-Longform-Projekt nach FinanzNeo V4. Kein Reel und kein YouTube Short.
 
-## GOOGLE FLOW — NUR EINE DATEI
+## GOOGLE FLOW — NUR DIESE EINE DATEI
 
-Der Nutzer kopiert **genau eine einzige Datei vollständig** in den Google-Flow-Agenten:
+Der Nutzer kopiert **genau eine einzige Datei vollständig und 1:1** in den Google-Flow-Agenten:
 
-`04-visuals/01-BILDPROMPTS/GOOGLE-FLOW-PROMPT.txt`
+`04-visuals/alle-bildprompts.txt`
 
-Der Master-Prompt liegt absichtlich im eigenen Bildprompt-Ordner und nicht mehr lose im Projekt-Root.
+Diese Datei ist der **vollständige ausführbare Google-Flow-Master-Prompt**. Sie darf niemals nur ein Hinweis, Redirect oder Platzhalter sein.
 
-Er enthält:
-- Cover A/B/C als 3 getrennte parallele Jobs
-- einmalige Nutzerwahl A/B/C
+Sie enthält:
+- den direkten Ausführungsbefehl für Google Flow
+- die komplette FinanzNeo-Bildwelt
+- Cover A/B/C als drei getrennte Bildjobs
+- genau eine Cover-Auswahl A/B/C
 - die tatsächlich für Google Flow vorgesehenen Szenenbilder
 - exakte Dateinamen
-- 16:9
-- Premium Physical Editorial V8 als primären Stilanker
-- QA und Regeneration fehlerhafter Ergebnisse
+- horizontales 16:9
+- QA und automatische Regeneration bei falscher Bildwelt
 
-## WICHTIG: NICHT JEDES VISUAL IST EIN FLOW-BILD
+## Bildwelt
 
-Google Flow wird nur für physische/editoriale Szenen verwendet.
+FinanzNeo erlaubt innerhalb derselben Markenwelt zwei Darstellungsarten:
 
-Präzise Zahlen, Charts, Checklisten, UI/Settings, Timelines und textlastige Vergleiche werden direkt in Remotion/SVG/React gebaut. Dadurch entstehen keine künstlichen 3D-Tiles, Mini-Panels oder fehlerhaften KI-Zahlenbilder.
+1. **Grounded Scene** — reale, sofort verständliche Objekte/Situationen als hochwertiges stilisiertes 3D.
+2. **Simple Explainer** — klare Zahl-, Symbol-, Vergleichs-, Chart- oder Metapherngestaltung, großflächig und reduziert, aber weiterhin in der FinanzNeo-Farb-/Licht-/Qualitätswelt.
 
-Für dieses konkrete Video erzeugt Google Flow nach der Cover-Auswahl nur noch:
+Verboten sind insbesondere kleine schwebende Karten/Tiles, Dashboard-/Control-Panel-Look, Mini-Objekte in riesiger schwarzer Leere, sterile Produktshots, Stock-Vector-, Canva-/PowerPoint- und Gold-Luxus-Finanzoptik.
+
+Interne Promptquellen liegen gesammelt unter:
+
+`04-visuals/01-BILDPROMPTS/`
+
+Diese internen Dateien werden **nicht** einzeln in Google Flow kopiert.
+
+## Dieses konkrete Video
+
+Nach der Cover-Auswahl erzeugt Google Flow derzeit das Szenenbild:
 
 `YouTube Bild 01 - Karte und Monatsabrechnung.png`
 
-Visual 03, 05, 07 und 08 sind jetzt Remotion-native.
-
-Die Dateien unter `04-visuals/EINZELNE-VISUALS/` und `04-visuals/thumbnail-prompt.txt` sind interne Produktions-/Validatorquellen und werden nicht einzeln in Google Flow kopiert.
+Die übrigen geplanten Motion-/Data-Visuals werden in Remotion/SVG/React gebaut.
 
 ## Produktionsphasen
 
-Phase 1 enthält Recherche, Skript, Visualplanung, den Google-Flow-Master-Prompt, produktionsreife Motion-/Data-Visuals und das Publishing-Paket.
+Phase 1 enthält Recherche, Skript, Visualplanung, den vollständigen Google-Flow-Master-Prompt, produktionsreife Motion-/Data-Visuals und das Publishing-Paket.
 
-Phase 2 ergänzt das ausgewählte Thumbnail, das eine benötigte Flow-Szenenbild, genau ein finales Voiceover und echte Wort-Timings.
+Phase 2 ergänzt das ausgewählte Thumbnail, die benötigten Flow-Szenenbilder, genau ein finales Voiceover und echte Wort-Timings.
 
 Phase 3 integriert die versiegelte Motion und rendert nach vollständigem Readiness-PASS.
