@@ -15,21 +15,31 @@ Sie enthält:
 - die komplette FinanzNeo-Bildwelt
 - Cover A/B/C als drei getrennte Bildjobs
 - genau eine Cover-Auswahl A/B/C
-- danach exakt fünf getrennte Szenenbild-Jobs parallel
-- alle exakten Dateinamen
+- danach nur die tatsächlich benötigten Flow-Szenenbilder
+- exakte Dateinamen
 - horizontales 16:9
 - QA und automatische Regeneration bei falscher Bildwelt
 
-## Bildwelt
+## Bildwelt — Scene First
 
-FinanzNeo erlaubt innerhalb derselben Markenwelt zwei Darstellungsarten:
+Google Flow ist in FinanzNeo ein **Szenen-Renderer**, kein Infografik-, Dashboard- oder UI-Generator.
+
+Erlaubte Flow-Bildklassen:
 
 1. **Grounded Scene** — reale, sofort verständliche Objekte/Situationen als hochwertiges stilisiertes 3D.
-2. **Simple Explainer** — klare Zahl-, Symbol-, Vergleichs-, Chart-, Checklisten-, UI- oder Metapherngestaltung, großflächig und reduziert, aber weiterhin in der FinanzNeo-Farb-/Licht-/Qualitätswelt.
+2. **Editorial 3D Illustration** — eine zusammenhängende, bildfüllende gerenderte Illustration oder sofort verständliche Metapher.
 
-Ein Simple Explainer wird ausdrücklich **nicht künstlich in dicke 3D-Plaketten, Tiles, Karten oder Panels verwandelt**.
+Präzise Zahlenaufteilungen, Charts, Checklisten, Timelines, Tabellen und UI-Zustände werden in **Remotion/SVG/React** gebaut. Ein statischer Beat wird nicht automatisch zu einem Flow-Bild.
 
-Verboten sind insbesondere kleine schwebende Karten/Tiles, Dashboard-/Control-Panel-Look ohne Inhaltsgrund, Mini-Objekte in riesiger schwarzer Leere, sterile Produktshots, Stock-Vector-, Canva-/PowerPoint- und Gold-Luxus-Finanzoptik.
+Für Flow gilt außerdem:
+- Szene muss auch ohne Text funktionieren
+- wichtige Motive groß und nah
+- Materialität, Tiefe, Licht und Kontaktschatten
+- kein ungefragtes FinanzNeo-Logo oder Wasserzeichen
+- keine schwebenden Cards/Tiles
+- keine Progress-Bar-/Checklisten-/Settings-Grafik
+- kein Canva-/PowerPoint-/Social-Card-Look
+- kein Fotorealismus
 
 Interne Promptquellen liegen gesammelt unter:
 
@@ -39,22 +49,26 @@ Diese internen Dateien werden **nicht** einzeln in Google Flow kopiert.
 
 ## Dieses konkrete Video
 
-Nach der Cover-Auswahl erzeugt Google Flow exakt diese fünf Szenenbilder:
+Nach der Cover-Auswahl erzeugt Google Flow nur diese zwei Szenenbilder:
 
 1. `YouTube Bild 01 - Karte und Monatsabrechnung.png`
-2. `YouTube Bild 03 - Erste 100 Euro Rate.png`
-3. `YouTube Bild 05 - Kleine Rate grosse Restschuld.png`
-4. `YouTube Bild 07 - Drei Kreditkarten Checks.png`
-5. `YouTube Bild 08 - Vollzahlung Einstellung.png`
+2. `YouTube Bild 05 - Kleine Rate grosse Restschuld.png`
 
-Dabei ist Bild 01 eine **Grounded Scene**. Bilder 03, 05, 07 und 08 verwenden den **Simple-Explainer-Modus**. Bild 08 ist zusätzlich die Flow-Basis für eine spätere Remotion-Auswahlbewegung.
+Bild 01 ist eine echte **Grounded Scene** mit Kreditkarte und Monatsabrechnung.
 
-Die echten Motion-/Data-Visuals 02, 04 und 06 sowie die Motion-Schicht von 08 werden in Remotion/SVG/React gebaut.
+Bild 05 ist eine textarme **Grounded-Scene-Hybridbasis**: räumliche Abrechnung/Papiertrail. Die exakten Werte `1.200 € gezahlt` und `1.069,72 € offen` werden anschließend in Remotion eingeblendet.
+
+Nicht mehr von Google Flow erzeugt werden:
+- Visual 03: exakte 100-€-Aufteilung → Remotion/SVG
+- Visual 07: drei Kreditkarten-Checks → Remotion
+- Visual 08: Teilzahlung/Vollzahlung-Einstellung → Remotion
+
+Visual 02, 03, 04, 05-Motion, 06, 07 und 08 werden als echte Motion-/Data-Visuals in Remotion/SVG/React umgesetzt.
 
 ## Produktionsphasen
 
 Phase 1 enthält Recherche, Skript, Visualplanung, den vollständigen Google-Flow-Master-Prompt, interne Bildpromptquellen, produktionsreife Motion-/Data-Visuals und das Publishing-Paket.
 
-Phase 2 ergänzt das ausgewählte Thumbnail, die fünf benötigten Flow-Szenenbilder, genau ein finales Voiceover und echte Wort-Timings.
+Phase 2 ergänzt das ausgewählte Thumbnail, die zwei benötigten Flow-Szenenbilder, genau ein finales Voiceover und echte Wort-Timings.
 
 Phase 3 integriert die versiegelte Motion und rendert nach vollständigem Readiness-PASS.
