@@ -1,205 +1,223 @@
 # FinanzNeo — YouTube-Longform-Produktionsstandard V4
 
-> Für neue FinanzNeo-Videos ist dies der aktive Produktionsstandard. Bei Konflikten gilt zusätzlich `CLAUDE.md`. Neue Reels sind pausiert; YouTube Shorts sind verboten.
+> Aktiver Standard für neue FinanzNeo-YouTube-Videos. Bei Konflikten gilt zusätzlich `CLAUDE.md`. Neue Reels sind pausiert; YouTube Shorts sind verboten.
 
 ## Format
 
-- eigenständiges YouTube-Longform-Video, kein verlängertes Reel
+- eigenständiges YouTube-Longform-Video
 - 1920 × 1080, horizontal 16:9, 30 fps
 - Länge folgt dem Thema
 - Hook ohne langes Intro
-- Kapitel mit klaren Zwischenzielen und Payoffs
 - einfache Sprache für Finanzanfänger
 - Daten, Annahmen und Rechenwege prüfbar
 
-## Visualplanung
+## Grundprinzip
 
-`FORM FREI — BILDWELT FEST`
+`FORM FREI — BILDWELT FEST — ENGINE PASSEND`
 
-Erlaubt sind Bilder, Animationen, Hybride und Datenvisualisierungen. Für jeden Sprechbeat wird die stärkste Darstellungsform gewählt. Menschen sind optional. Objekte, Vergleiche, echte Charts, Diagramme, Editorials, Illustrationen und klare Metaphern sind erlaubt.
+Für jeden Sprechbeat werden **zuerst Aussage und benötigte Präzision**, danach **das richtige Werkzeug** und erst danach die konkrete Gestaltung gewählt.
 
-### Einfache Erklärvisuals sind ausdrücklich erlaubt
+Nicht jeder Beat braucht ein Google-Flow-Bild. Nicht jeder Beat braucht komplexes 3D. Nicht jedes einfache Visual darf künstlich zu einem 3D-Panel gemacht werden.
 
-Nicht jeder Beat braucht eine komplexe 3D-Szene. Wenn der Inhalt schneller verständlich wird, darf ein einzelnes einfaches Visual den ganzen Frame tragen — **aber die Render-Welt bleibt dieselbe FinanzNeo-Grounded-3D-Welt.**
+---
 
-Erlaubte Formen sind insbesondere:
+# 1. Engine-Routing — verbindlich
 
-- **Symbol-/Objekt-Fokus:** ein großes inhaltsspezifisches greifbares Objekt
-- **Zahl-Fokus:** ein zentraler Betrag, Prozentsatz, Zeitpunkt oder Zielwert
-- **einfacher Chart:** Balken-, Linien-, Flächen- oder Vergleichsdiagramm
-- **Weg/Ziel/Metapher:** z. B. Zielscheibe, Bergpfad, Bank, Haus oder anderes klar passendes Motiv
-- **UI-/App-Beispiel:** frontal und unbranded, wenn die Aussage wirklich eine Einstellung, App-Ansicht oder Transaktion erklärt
-- **Asset-/Objektgruppe:** wenige konkrete Objekte zur Darstellung von Kategorien, Vermögen, Auswahl oder Trade-offs
-- **Konzept-Cluster:** ein zentrales Objekt mit wenigen umliegenden Begriffen/Faktoren
-- **Zitat-/Key-Statement:** nur kurz und nur wenn die exakte Aussage selbst der Inhalt ist
-- **klassische Story-/Objektszene, Vergleich, Editorial, Illustration, Metapher oder Hybrid**
+## Remotion / SVG / React bevorzugen
 
-### Kritische Trennung: Form ≠ Bildwelt
+Diese Visuals werden standardmäßig **code-basiert** gebaut:
 
-Eine reduzierte Komposition darf **niemals** zu einer neuen flachen Bildsprache werden.
+- exakte Zahlen und Rechenaufteilungen
+- Charts, Graphen und Datenverläufe
+- Checklisten
+- UI-/Settings-Ansichten
+- Timelines
+- Quotes / Key Statements
+- text- oder datengetriebene Vergleiche
+- einfache Symbole/Icons, wenn sie sauber in Code darstellbar sind
+- Visuals, bei denen korrekte Typografie/Geometrie wichtiger ist als generierte Materialität
 
-- simples Symbol = greifbares, hochwertiges stilisiertes 3D-Objekt; kein Stock-Icon
-- große Zahl = hochwertige Integration mit Material/Licht/Tiefe; keine Präsentationsfolie
-- einfacher Chart = mathematisch korrekt und frontal, aber mit FinanzNeo-Material/Licht/Tiefe; kein Excel-/PowerPoint-Look
-- UI-Beispiel = physisches Premium-Panel/Device mit Tiefe und Kontaktschatten; kein Screenshot oder flache Dashboard-Karte
-- Labels = klar und frontal, aber nicht bloß farbige Rechtecke mit Text
+Warum: Zahlen, Text, Achsen und UI-Zustände müssen exakt sein. Google Flow soll dafür keine künstlichen Tiles, Dashboards oder fehlerhaften KI-Texte erzeugen.
 
-**Einfach bedeutet reduziert, nicht flach.**
+## Google Flow verwenden
 
-### Auswahlregel pro Beat
+Flow ist für **physical / editorial / real-life scenes** gedacht:
 
-1. Was muss der Zuschauer in diesem Moment verstehen?
-2. Welche einfachste visuelle Form erklärt genau das am schnellsten?
-3. Diese Form muss danach in der verbindlichen FinanzNeo-Grounded-3D-Welt umgesetzt werden.
-4. Erst wenn ein simples Symbol, eine Zahl, ein Chart oder eine klare Metapher nicht reicht, wird die Szene komplexer.
-5. Keine Komplexität nur zur Dekoration.
+- greifbare reale Objekte
+- Alltagssituationen
+- physische Ursache/Wirkung
+- dokumentarisch-editoriale Objektmetaphern
+- Szenen, bei denen Materialien, Licht, räumliche Tiefe und echte Gegenstände den Inhalt besser erklären als Code
 
-### Animationen sind Pflicht
+Beispiele: Kreditkarte + echte Abrechnung, Rechnung + Kostenstempel, Vertrag + konkrete Klausel, Einkauf + Beleg, physische Waage, reale Dokument-/Objektsituation.
 
-Ein normales YouTube-Projekt darf keine reine Slideshow sein. Es braucht **mindestens zwei echte Motion-/Animationsvisuals**. Das ist eine Mindestanforderung, keine Zielquote. Mehr Motion wird nur eingesetzt, wenn sie tatsächlich etwas erklärt.
+## Hybrid
 
-Jede Animation wird bereits in Phase 1 als produktionsreife `animation.tsx` geplant und folgt Motion V3: Viewer Change zuerst, Technik danach. Animation und Bild müssen wie dieselbe FinanzNeo-Serie aussehen.
+Hybrid nur dann, wenn ein echtes Flow-Quellbild einen klaren Vorteil hat und Remotion danach eine sinnvolle Veränderung darauf ausführt. UI, Charts und reine Zahlengrafiken sind **kein Grund** für Hybrid.
 
-## Bildwelt
+---
+
+# 2. Google-Flow-Bildwelt
 
 `YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2`
+
+Primärer genehmigter Stilanker:
+
+`finanzneo-premium-physical-editorial-v8`
+
+Grounding-Referenz:
+
+`finanzneo-youtube-grounded-3d-black-v1`
 
 Kanonische Datei:
 
 `config/finanzneo-image-worlds/finanzneo-youtube-v9-front-readable-v2.txt`
 
-Verbindlicher Approved Anchor:
+## Nicht verhandelbare Flow-Komposition
 
-`APPROVED_YOUTUBE_ANCHOR: finanzneo-youtube-grounded-3d-black-v1`
+Jedes normale Flow-Szenenbild braucht:
 
-Die bereits genehmigte Grounded-3D-YouTube-Welt ist die **visuelle Stilautorität**. `front-readable-v2` ergänzt Frontlesbarkeit und Formfreiheit; es ersetzt diese Welt nicht.
+1. **ein dominantes physisches Hero-Objekt**, ungefähr 45–65 % der nutzbaren Bildfläche
+2. medium-close, sanfte 3/4-Editorial-Kamera als Standard
+3. höchstens wenige unterstützende Objekte, nur wenn sie die Aussage verbessern
+4. sichtbare Materialstärke, Kanten und Gewicht
+5. klare Vordergrund-/Hero-/Sekundärtiefe
+6. weiche Kontaktschatten und Ambient Occlusion
+7. eine Aussage, die in etwa 1–2 Sekunden verstanden wird
+8. keinen überwiegend leeren schwarzen Frame
 
-Verbindlich:
+## Material- und Farbwelt
 
-- Premium clearly stylized 3D animation-film / hochwertige Illustration
-- greifbare physische Objekte mit glaubwürdigen Proportionen
-- semi-realistische, aber sichtbar stilisierte Materialhinweise für Papier/Kunststoff/Metall/Glas
-- sichtbare Materialstärke bei Karten, Dokumenten, Panels und Tiles, wenn physisch passend
-- echte räumliche Tiefe
-- sauberes Premium-Studiolicht
-- klare Highlights und Trennung zum Hintergrund
-- lesbare Kontaktschatten
-- subtile geerdete Reflexionen, wenn sinnvoll
-- Deep Black dominant
-- Emerald positiv, Red-Orange Risiko/Kosten, Ivory/Grau neutral, Gold nur als kleiner Geld-/Wert-Akzent
-- reduzierte Symbol-, Zahlen-, Chart-, UI-, Metapher- und Statement-Visuals bleiben Teil **derselben** Welt
-- kein Fotorealismus
-- kein Corporate-Stock-Look
-- keine generische Gold-Luxus-KI-Finanzwelt
-- kein Cover oder anderes Bild wird Style-Referenz; die schriftliche Grounded-V9-Welt ist die einzige Style-Autorität
+- Premium stylized adult 3D financial editorial
+- Deep charcoal green-black dominant
+- Dark emerald/charcoal für Struktur
+- Warm ivory/cream für neutrale Flächen, Papier und Information
+- Red-orange nur für Risiko, Kosten, Verlust oder Schuld
+- Emerald für positive/Lösungszustände
+- Gold/Brass nur als kleiner Geld-/Wert-Akzent
+- hochwertige Polymer-, Papier-, Metall-, Keramik- oder Glasmaterialien, wenn passend
+- sichtbare Dicke, weiche Bevels, glaubwürdige Reflexionen
+- cinematic soft key light + readable fill + kontrollierte Rim-Separation
 
-### Hard-Fail gegen falsche Bildwelt
+## Flow Hard-Fail
 
-Ein Flow-Bild wird verworfen und unter derselben Nummer regeneriert, wenn es wie eines der folgenden aussieht — auch wenn Text und Zahlen korrekt sind:
+Sofort verwerfen und denselben Job neu generieren bei:
 
-- flache 2D-Infografik
-- bloße farbige Rechtecke mit Text
-- schwebende Textkarten auf Schwarz
-- generische Präsentationsfolie
-- Stock-/Vector-/Clipart-Look
-- Canva-/Social-Template-Look
-- Screenshot-/Dashboard-Look
-- PowerPoint-/Excel-Chart-Look
-- sterile schwebende Boxen ohne Materialtiefe oder Kontaktschatten
-- generische schwarze Finanzgrafik, die nicht wie die genehmigte FinanzNeo-3D-Serie wirkt
+- kleinem Motiv in riesiger schwarzer Leere
+- mehreren kleinen schwebenden Tiles/Karten/Modulen
+- Dashboard-/Control-Panel-Look
+- Screenshot-/App-UI-Look
+- Flowchart-/Präsentationsfolien-Look
+- steriler Produktaufnahme ohne erklärende Handlung
+- winziger isometrischer/Diorama-Kamera
+- Canva-/PowerPoint-/Stock-Vector-/Icon-Look
+- fehlender Tiefenhierarchie oder fehlenden Kontaktschatten
+- childish clay/toy/Pixar
+- Fotorealismus
+- generischer Gold-Luxus-Finanz-KI
+- richtigen Farben, aber falscher Physical-Editorial-Komposition
 
-### Kamera und Darstellung
+---
 
-Standard ist **normal, frontal bzw. nahe frontal, auf Augenhöhe und mit geradem Horizont**. Milde 3/4-Perspektive nur bei echten Story-Szenen, wenn sie die Handlung klarer macht. Keine schrägen Effekthascherei-Kameras.
+# 3. Einfache Erklärvisuals
 
-### Charts und Diagramme
+Einfache Visuals sind ausdrücklich erwünscht, wenn sie schneller erklären:
 
-Charts/Diagramme bleiben echte Charts und werden **frontal** gezeigt:
+- große Zahl
+- einzelnes Symbol
+- Balken-/Linienchart
+- Zielscheibe / Weg / Berg / Zielmetapher
+- Asset-Gruppe
+- Konzept-Cluster
+- UI-Einstellung
+- kurze Aussage / Quote
 
-- Kamera gerade vor dem Diagramm
-- keine schräge 3D-Perspektive
-- keine gekippten Ebenen
-- keine verzerrten Achsen
-- X-/Y-Achsen gerade, wenn sie fachlich dazugehören
-- Skalen, Werte, Labels und Proportionen korrekt
-- Kreisdiagramme mit korrekten Segmenten
-- V9-Material/Licht/Tiefe darf hochwertig sein, aber Datenlesbarkeit gewinnt immer
-- kein PowerPoint-/Excel-Look
+**Wichtig:** Einfach bezieht sich auf die **Komposition**, nicht auf ein bestimmtes Generierungswerkzeug.
 
-### UI, Text und Quote Cards
+- Zahl/Chart/UI/Quote/Checklist → meist Remotion
+- physische Objektmetapher / reale Szene → meist Flow
 
-- UI-Beispiele nur dann, wenn die UI selbst etwas erklärt
-- frontal, unbranded und groß lesbar
-- als gestaltetes physisches Premium-Panel/Device mit Materialstärke und Kontaktschatten, nicht als Screenshot
-- normale Szenenbilder bleiben textarm
-- kurze Begriffe oder Labels sind erlaubt
-- eine kurze Quote-/Key-Statement-Komposition ist erlaubt, wenn genau diese Aussage der Inhalt des Beats ist
-- keine langen Absätze oder Social-Media-Template-Optik
+So können Visuals ähnlich klar und reduziert sein wie gute Finance-Erklärkanäle, ohne die FinanzNeo-Identität zu verlieren.
 
-## Google Flow — Thumbnail 3 parallel, Bilder 5 parallel
+---
+
+# 4. Prompt-Struktur
+
+Alle nutzerseitigen und internen Bildprompt-Dateien liegen unter:
+
+`04-visuals/01-BILDPROMPTS/`
+
+Der Nutzer kopiert ausschließlich:
+
+`04-visuals/01-BILDPROMPTS/GOOGLE-FLOW-PROMPT.txt`
+
+Interne Bildpromptquellen, Bildwelt und Thumbnail-Prompt liegen im selben Ordnerbereich. Bildprompts werden nicht lose im Projekt-Root und nicht zwischen Remotion-Dateien verteilt.
+
+---
+
+# 5. Google Flow — Ausführung
 
 `FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4`
 
-### Style-Suffix ist in jedem Subjob Pflicht
+## Phase A — Cover
 
-Der Master-Prompt muss den Grounded-3D-Style-Lock nicht nur einmal global nennen. **Jeder einzelne Thumbnail- und Szenenbild-Job erhält den vollständigen verpflichtenden Style-Suffix mit:**
+1. Exakt drei Kandidaten A/B/C als drei getrennte Ein-Bild-Jobs gleichzeitig starten.
+2. Alle nutzen direkt dieselbe V9/V8-anchored Bildwelt.
+3. Unterschiedliche Kompositionen, aber dieselbe Welt.
+4. Kurzer deutscher Hook, maximal 2 Zeilen, ideal 2–5 Wörter.
+5. Alle drei QA-prüfen.
+6. Danach genau einmal A/B/C vom Nutzer wählen lassen.
+7. Nur den Gewinner final übernehmen.
+8. Der Gewinner wird niemals Style-Referenz für Szenenbilder.
 
-- Grounded stylized 3D
-- greifbaren physischen Objekten
-- Materialstärke und realer Tiefe
-- Studiolicht/Highlights
-- Kontaktschatten
-- Deep-Black-Welt
-- explizitem Verbot flacher Infografik-/Slide-/Dashboard-Optik
+## Phase B — Szenenbilder
 
-Der Szene-Prompt darf diesen Style-Suffix nie ersetzen.
+Nur Beats, die nach dem Engine-Routing tatsächlich **Flow-Bilder** sind, werden generiert.
 
-### Phase A — 3 Thumbnail-Kandidaten gleichzeitig
+- bis zu fünf getrennte Ein-Bild-Jobs parallel
+- niemals ein Multi-Image-Request
+- jedes Ergebnis sofort exakt umbenennen
+- jedes Ergebnis sofort QA-prüfen
+- bei Fehler nur dieselbe Bildnummer neu generieren
+- nächster Batch erst, wenn der aktuelle Batch vollständig PASS ist
+- keine weitere Nutzerfreigabe zwischen Batches
+- finaler Inventory-QA
 
-1. Exakt drei Kandidaten A/B/C als **drei getrennte Einzelbild-Jobs gleichzeitig** starten.
-2. Jeder Kandidat nutzt direkt `finanzneo-youtube-v9-front-readable-v2` plus den Grounded-3D-Style-Lock.
-3. Alle drei müssen sichtbar unterschiedliche Kompositionen testen, aber dieselbe Welt behalten.
-4. Jeder Kandidat enthält kurzen deutschen Hook-Text: max. 2 Zeilen, ideal 2–5 Wörter.
-5. Der Text beschreibt den echten Videoinhalt; keine langen Sätze, keine erfundenen Aussagen.
-6. Typografie sauber/front-facing, nicht als riesige goldene 3D-Schrift.
-7. Wenn A/B/C vorhanden sind, genau einmal Nutzerwahl A/B/C.
-8. Gewählten Kandidaten exakt als finales Thumbnail umbenennen; die beiden anderen nicht in den finalen Ordner übernehmen.
-9. Das gewählte Thumbnail ist **keine Style-Vorlage** für die Szenenbilder.
+---
 
-### Phase B — Szenenbilder in echten parallelen 5er-Batches
-
-Nach der Thumbnail-Auswahl werden die IMAGE-/HYBRID-Quellbilder in Reihenfolge in Blöcke mit maximal 5 Bildern aufgeteilt.
-
-Für jeden Block:
-
-1. Bis zu **5 getrennte Einzelbild-Jobs gleichzeitig starten**.
-2. Kein Multi-Image-Prompt und keine Collage: jeder Job enthält genau einen vollständigen Bildprompt, den Grounded-3D-Style-Suffix und erzeugt genau ein Bild.
-3. Sobald ein Ergebnis zurückkommt: sofort exakt umbenennen, in `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen und QA durchführen.
-4. Fehlerhaftes oder stilistisch flaches Bild nur unter derselben Nummer neu erzeugen; korrekte Bilder nicht neu generieren.
-5. Der nächste 5er-Block darf erst starten, wenn **alle Jobs des aktuellen Blocks PASS** haben.
-6. Zwischen Blöcken keine weitere Nutzerfreigabe.
-7. Animations-/Data-Visuals ohne Flow-Quellbild werden übersprungen und behalten ihre Visualnummer.
-8. Am Ende vollständiger Inventory-QA: alle erwarteten Dateien exakt, keine Dubletten, keine fehlenden/falschen Nummern.
-
-Wichtig: 5er-Batch bedeutet **fünf parallele getrennte Ein-Bild-Jobs**, nicht ein Auftrag, der fünf Bilder in einer Ausgabe erzeugt.
-
-## Thumbnail-Qualität
-
-Thumbnail und Szenenbilder gehören in dieselbe Grounded-V9-Welt. Ein Thumbnail darf auffälliger komponiert sein, aber nicht in einen separaten Stil wechseln. Verwerfen, wenn es wie generische goldene Finanz-KI, flache Infografik oder Präsentationsfolie aussieht, wenn Gold die Welt dominiert, wenn der Text zu lang ist oder wenn Motiv/Text das Thema nicht direkt kommunizieren.
-
-## Motion V3
+# 6. Motion V3
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
 
-- mindestens zwei Motion-Visuals pro Projekt
-- keine feste Obergrenze oder starre Quote
-- Viewer Change zuerst
-- produktionsreife `animation.tsx` in Phase 1
-- Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Datenvisualisierung und Bild+Motion-Hybrid erlaubt
-- bestehende Komponenten nur als Werkzeug, nie als Stilzwang
-- Motion muss dieselbe V9-Material-/Licht-/Farbwelt tragen
+- mindestens zwei echte Motion-/Animationsvisuals pro Projekt
+- keine starre Obergrenze oder Quote
+- Viewer Change zuerst, Technik danach
+- produktionsreife `animation.tsx` bereits in Phase 1
+- Custom React, SVG, CSS 3D, Canvas, Three.js/R3F und Datenvisualisierung erlaubt
+- bestehende Komponenten sind Werkzeuge, keine Stilpflicht
+- Variation muss in echter Kamera/Layout/Transformation bestehen, nicht nur in neuen Namen
+- Motion nutzt dieselbe FinanzNeo-Farb-/Typografie-/Premium-Logik
 
-## Audio und Timing
+Ein normales YouTube-Projekt darf keine reine Slideshow sein.
+
+---
+
+# 7. Kamera für präzise Code-Visuals
+
+Charts, Daten, UI und Typografie bleiben frontal und unverzerrt:
+
+- gerade Achsen
+- korrekte Skalen
+- mathematisch korrekte Werte
+- lesbare Labels
+- keine schrägen Datenebenen
+- keine Perspektivverzerrung, wenn Genauigkeit darunter leidet
+
+Flow-Szenen dürfen dagegen eine sanfte 3/4-Editorial-Kamera verwenden, wenn dadurch physische Tiefe entsteht.
+
+---
+
+# 8. Audio und Timing
 
 - genau ein finales Voiceover in `03-audio/`
 - echte Wort-Zeitstempel
@@ -208,11 +226,15 @@ Thumbnail und Szenenbilder gehören in dieselbe Grounded-V9-Welt. Ein Thumbnail 
 - Untertitel satzweise; aktives Wort grün, Rest weiß
 - Audioziel ca. -16 LUFS, True Peak max. -1 dBTP
 
-## Publishing
+---
+
+# 9. Publishing
 
 `05-publishing/` enthält Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords/Tags, Hashtags, Thumbnail-Brief, Quellen/Disclaimer, Pinned Comment, Community-Post, Upload-Checkliste und Social-Promo-Texte.
 
-## Startfreigabe
+---
+
+# 10. Startfreigabe
 
 ```bash
 npm run youtube:validate -- youtube/<Projekt>
