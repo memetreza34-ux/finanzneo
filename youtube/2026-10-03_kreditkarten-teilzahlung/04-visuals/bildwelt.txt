@@ -1,0 +1,14 @@
+FINANZNEO YOUTUBE IMAGE WORLD
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+
+FORM FREE — WORLD FIXED. Premium stylized 3D animated-film / high-end illustration, deep seamless black world, refined materials, clean studio lighting, readable contact shadows, emerald for positive or solved states, warm red-orange for cost or risk, ivory and soft gray neutral, gold only as a small money/value accent. Never photorealistic, never generic corporate 3D, never a gold-luxury AI-finance look.
+
+DEFAULT CAMERA: front-facing or near-front, eye-level, level horizon, natural perspective. Charts and diagrams are mandatory straight-on front view with undistorted axes, labels and proportions.
+
+ANTI-DRIFT: no giant gold percentage statues, trophy plinths, glossy luxury pedestals, generic glass money jars, decorative coin mountains, abstract finance machines, dashboards, PowerPoint or Excel default charts, or text-heavy social cards unless the exact content genuinely requires it.
+
+horizontal 16:9 source image. Important subjects large enough for TV, laptop and mobile. Use one clear idea. Short German object labels only when useful.

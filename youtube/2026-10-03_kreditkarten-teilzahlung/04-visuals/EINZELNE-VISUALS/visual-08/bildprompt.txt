@@ -1,0 +1,30 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+ONE JOB = ONE IMAGE
+
+FINAL FILE NAME:
+YouTube Bild 08 - Vollzahlung Einstellung.png
+
+Generate exactly one image. Use only the written FinanzNeo YouTube V9 world. Do not use the selected thumbnail or another scene as style reference. Rename immediately and place it in 04-visuals/00-ALLE-BILDER-HIER-REIN/.
+
+VISUAL_FORM: hybrid
+VISUAL_CONCEPT: Neutrale Banking-Einstellung mit Auswahl zwischen Teilzahlung und Vollzahlung.
+VOICEOVER_VISUAL_MATCH: Bereitet die Motion vor, in der der Schalter sichtbar auf Vollzahlung wechselt.
+FRONT_READABILITY_TEST: PASS — UI-Fläche exakt frontal und groß genug für Bildschirmlesbarkeit.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Show a clean fictional banking settings panel, straight-on front view, on deep black. Two payment options are visible: Teilzahlung and Vollzahlung 100 %. Teilzahlung is currently selected with a restrained red-orange indicator; Vollzahlung 100 % is unselected. No real bank brand, no phone mockup tilt.
+Short German object labels only when useful: Teilzahlung, Vollzahlung 100 %.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+
+FORM FREE — WORLD FIXED. Premium stylized 3D animated-film / high-end illustration, deep seamless black world, refined materials, clean studio lighting, readable contact shadows, emerald for positive or solved states, warm red-orange for cost or risk, ivory and soft gray neutral, gold only as a small money/value accent. Never photorealistic, never generic corporate 3D, never a gold-luxury AI-finance look.
+
+DEFAULT CAMERA: front-facing or near-front, eye-level, level horizon, natural perspective. Charts and diagrams are mandatory straight-on front view with undistorted axes, labels and proportions.
+
+ANTI-DRIFT: no giant gold percentage statues, trophy plinths, glossy luxury pedestals, generic glass money jars, decorative coin mountains, abstract finance machines, dashboards, PowerPoint or Excel default charts, or text-heavy social cards unless the exact content genuinely requires it.
+
+horizontal 16:9 source image. Important subjects large enough for TV, laptop and mobile. Use one clear idea. Short German object labels only when useful.
