@@ -4,24 +4,50 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+APPROVED_YOUTUBE_ANCHOR: finanzneo-youtube-grounded-3d-black-v1
 
-FORM FREE — WORLD FIXED. Premium stylized 3D animated-film / high-end illustration, deep seamless black world, refined materials, clean studio lighting, readable contact shadows, emerald for positive or solved states, warm red-orange for cost or risk, ivory and soft gray neutral, gold only as a small money/value accent. Never photorealistic, never generic corporate 3D, never a gold-luxury AI-finance look.
+STYLE AUTHORITY
+This project uses the approved FinanzNeo grounded stylized-3D black world. Deep black alone is NOT the style. Every Flow image must have tangible premium stylized-3D material presence, physical depth, believable proportions, soft studio light, readable highlights, contact shadows and restrained grounded reflections where useful.
 
-SIMPLE EXPLAINER FORMS ARE ALLOWED AND OFTEN PREFERRED WHEN CLEARER:
-- one large content-specific symbol or icon
-- one important number or target value as the main focus
-- a clean simple chart or comparison
-- a route/goal metaphor such as target, path, mountain, bank, house or other direct content metaphor
-- a straight-on fictional UI/app mockup when the interface itself is the point
-- a small group of concrete assets/objects
-- one central object with a few surrounding concepts
-- a short sourced quote or key-statement card when the exact wording itself matters
-- classic object/story scene, editorial, illustration, comparison, metaphor or hybrid
+The visual form may be simple, but the rendering world may not change.
+- a symbol must look like a tangible premium 3D object, not a flat icon
+- a number may dominate the frame, but must be integrated with premium material/light/depth, not a presentation slide
+- a chart may be simple and front-facing, but must retain refined V9 material/light treatment, not Excel/PowerPoint styling
+- a UI example must be a tangible designed panel/device/object with depth and contact shadow, not a screenshot or flat dashboard card
+- labels may be front-facing and simple, but must sit on/with designed physical elements rather than floating generic rectangles
 
-Do not force complex 3D scenery into every beat. The simplest form that explains the spoken point fastest wins. Simple visuals must still look intentionally designed in the same FinanzNeo V9 world — no random stock icons, no generic slide-template look, no foreign clipart style.
+CORE STYLE
+- premium clearly stylized 3D animation-film / high-end illustration
+- tangible semi-realistic paper/plastic/metal/glass material cues
+- deep seamless black dominant world
+- refined rounded geometry where appropriate
+- real depth and physical thickness
+- clean soft studio lighting
+- readable contact shadows
+- subtle grounded reflections when useful
+- emerald for positive/solution
+- warm red-orange for cost/risk/debt
+- ivory and soft gray neutral
+- gold only as a small money/value accent
+- never photorealistic
+- never generic corporate 3D
+- never generic black-background finance graphics
 
-DEFAULT CAMERA: front-facing or near-front, eye-level, level horizon, natural perspective. Charts and diagrams are mandatory straight-on front view with undistorted axes, labels and proportions.
+SIMPLE EXPLAINER FORMS
+Simple compositions are still encouraged when clearer: symbol/object focus, one number, clean chart, route/goal metaphor, UI example, asset group, concept cluster, short sourced quote/key statement, or classic scene. But all must use the same physical/material FinanzNeo V9 rendering.
 
-ANTI-DRIFT: no giant gold percentage statues, trophy plinths, glossy luxury pedestals, generic glass money jars, decorative coin mountains, abstract finance machines, generic dashboards, PowerPoint or Excel default charts, or text-heavy social cards unless the exact content genuinely requires it. Content-specific UI mockups and short key-statement cards are allowed when they directly explain the beat.
+HARD FAIL / REGENERATE
+Reject even if numbers/text are correct when the image looks like:
+- flat 2D infographic
+- plain colored rectangles with text
+- generic presentation slide
+- stock/vector icon pack
+- screenshot/dashboard
+- Canva/social card
+- PowerPoint/Excel chart
+- sterile floating boxes with no material depth or grounding
 
-horizontal 16:9 source image. Important subjects large enough for TV, laptop and mobile. Use one clear idea. Short German object labels only when useful.
+CAMERA
+Front-facing or near-front, eye-level, level horizon, natural perspective. Charts and diagrams exactly straight-on with undistorted axes/labels/proportions.
+
+horizontal 16:9 source image. Important subjects large enough for TV, laptop and mobile. One clear idea per image. Short German labels only when useful.
