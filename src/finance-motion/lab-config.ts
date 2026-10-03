@@ -21,3 +21,18 @@ export const FINANCE_MOTION_QA_LOCAL_FRAMES = [18, 72, 132] as const;
 
 export const FINANCE_MOTION_LAB_FRAMES =
   FINANCE_MOTION_LAB_IDS.length * FINANCE_MOTION_LAB_SEGMENT_FRAMES;
+
+// Die sechs Kern-Mechaniken (Mengen über Zeit), die neue Reels bevorzugt nutzen.
+export const FINANCE_MOTION_CORE_IDS = [
+  'value-growth',
+  'value-drain',
+  'compound-growth',
+  'scenario-comparison',
+  'loan-paydown',
+  'money-split',
+] as const;
+
+export type FinanceMotionCoreLabId = (typeof FINANCE_MOTION_CORE_IDS)[number];
+
+export const FINANCE_MOTION_CORE_LAB_FRAMES =
+  FINANCE_MOTION_CORE_IDS.length * FINANCE_MOTION_LAB_SEGMENT_FRAMES;

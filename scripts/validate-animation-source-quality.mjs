@@ -201,7 +201,12 @@ for (const scene of animations) {
     } else if (!librarySource.includes(`id: '${financeMotionId}'`) && !librarySource.includes(`id:'${financeMotionId}'`)) {
       fail(`${id}: FINANCE_MOTION_ID "${financeMotionId}" ist nicht in FINANCE_MOTION_REGISTRY registriert.`);
     }
-    if (!/finance-motion/.test(source)) fail(`${id}: library-best-fit muss aus src/finance-motion importieren.`);
+    // Nur der Library-Ordner selbst liefert die aktuelle Fassung. design-system/finance-motion
+    // sind Datenhelfer, direction-v2* und ...V1 sind Historie der Labs.
+    if (!/from\s+['"][^'"]*src\/finance-motion(?:\/index)?['"]/.test(source)) fail(`${id}: library-best-fit muss aus dem Ordner src/finance-motion importieren.`);
+    if (/finance-motion\/direction-v2|\b(?:ValueGrowth|ValueDrain|CompoundGrowth|ScenarioComparison|LoanPaydown|MoneySplit)V1\b/.test(source)) {
+      fail(`${id}: library-best-fit darf keine historische Library-Fassung (direction-v2*, ...V1) verwenden.`);
+    }
     if (statSync(sourcePath).size < 900) fail(`${id}: Library-Wrapper ist zu klein; Narrative, Parameter und Motion-Regie müssen vollständig dokumentiert sein.`);
   }
 

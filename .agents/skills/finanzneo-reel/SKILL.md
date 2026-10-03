@@ -123,8 +123,8 @@ New Reels carry `finanzneo-phase1-hybrid-motion-v2` and `finanzneo-finance-motio
 
 1. derive the finance statement and the visible understanding goal;
 2. derive the best main mechanism from the content, before looking at any tool;
-3. check `FINANCE_MOTION_REGISTRY` in `src/finance-motion/index.tsx` for a genuine semantic best fit;
-4. fit: set `implementationDecision: library-best-fit`, `financeMotionId`, `libraryFitReason` and a concrete `parameterPlan`; import from `src/finance-motion`; every value comes from the spoken point;
+3. check `FINANCE_MOTION_REGISTRY` in `src/finance-motion/index.tsx` for a genuine semantic best fit — `tier: 'core'` first; a `tier: 'situational'` hit is a signal that a Flow image or data scene may explain better (see its `preferInstead`);
+4. fit: set `implementationDecision: library-best-fit`, `financeMotionId`, `libraryFitReason` and a concrete `parameterPlan`; import from the `src/finance-motion` folder (never a `direction-v2*` file or a `…V1` export); pass amounts as numbers, every value comes from the spoken point;
 5. no fit: set `implementationDecision: custom-build`, `financeMotionId: none` and a concrete `customReason`; build a full custom animation;
 6. document `MOTION_SOURCE`, `FINANCE_MOTION_ID`, `MECHANIC_ID`, `FOCAL_PATH`, `PRIMARY_ACTION`, `CAMERA_ROLE`, `PAYOFF`, both narratives and `RESULT_HOLD_FRAMES >= 15` in `animation.tsx`;
 7. run Motion Art Direction;

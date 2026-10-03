@@ -59,26 +59,37 @@ Individuelle Animationen bleiben ausdrücklich erlaubt. Ist eine neue Custom-Mec
 
 ## Finance Motion Library V1
 
-Die Library liegt unter:
+Die Library liegt unter `src/finance-motion`. Reels importieren **immer** aus dem Ordner selbst:
 
-```text
-src/finance-motion/index.tsx
+```ts
+import {ValueGrowth} from '../../../../../../src/finance-motion';
 ```
 
-Startbestand:
+Der Index liefert automatisch die aktuelle Fassung. Die Dateien `direction-v2*.tsx` und die Exporte mit Endung `V1` sind Historie für die Labs und kein Import für neue Reels.
 
-- `money-transfer`
-- `money-split`
-- `value-growth`
-- `value-drain`
-- `allocation-split`
-- `rebalancing`
-- `diversification`
-- `loan-paydown`
-- `protection-limit`
-- `scenario-comparison`
-- `finance-timeline`
-- `compound-growth`
+### Kern-Mechaniken (`tier: 'core'`, Finance Motion Core V3)
+
+Sie zeigen eine **Menge über Zeit** und sind die erste Wahl:
+
+| ID | Komponente | zeigt |
+|---|---|---|
+| `value-growth` | `ValueGrowth` | ein Betrag wächst vom Start- auf den Endwert |
+| `value-drain` | `ValueDrain` | Kosten ziehen Münze für Münze Wert ab |
+| `compound-growth` | `CompoundGrowth` | Zuwächse werden pro Zeitraum größer |
+| `scenario-comparison` | `ScenarioComparison` | gleicher Start, unterschiedliches Ergebnis, Lücke als Zahl |
+| `loan-paydown` | `LoanPaydown` | jede Rate schlägt eine Scheibe von der Schuld ab |
+| `money-split` | `MoneySplit` | ein Betrag verteilt sich auf Töpfe |
+
+Gemeinsame Sprache: Münzen sind Geld, ihre Höhe ist der Betrag. Beträge werden als **Zahlen** übergeben (`startValue={10000}`, nicht `'10.000 €'`); Formatierung, Einheit (`unit`: `€`, `%` oder leer) und Nachkommastellen (`decimals`) übernimmt die Mechanik. Höhen bleiben proportional zum Betrag, Zähler landen exakt auf dem Wert aus dem Sprechpunkt, Beschriftungen zeigen immer die echte Zahl.
+
+### Situative Mechaniken (`tier: 'situational'`)
+
+`money-transfer`, `allocation-split`, `rebalancing`, `diversification`, `protection-limit` und `finance-timeline` zeigen ein Verhältnis oder eine Situation, keine Veränderung über Zeit. Für sie gilt die Reihenfolge aus `CLAUDE.md` §5: meist erklärt ein **Flow-Bild oder eine Datenszene** besser. Jeder Registry-Eintrag nennt in `preferInstead`, was stattdessen passt. Nutzen ist erlaubt, braucht aber in `libraryFitReason` eine Begründung, warum hier trotzdem Bewegung nötig ist.
+
+### Prüfung
+
+- Lab `ReelsTestFinanceMotionCore` zeigt die Kern-Mechaniken über den kanonischen Import.
+- `npm run smoke:finance-motion` prüft je Mechanik Start, Aktion und Ergebnis auf sichtbaren Unterschied und misst für die Kern-Mechaniken die Bildbelegung mit denselben Schwellen wie die Future-V3-Render-QA (Peak ≥ 0,15, Median ≥ 0,12).
 
 Alle Library-Mechaniken sind parametrisiert. Werte, Labels, Gewichtungen, Zeitpunkte und semantische Rollen werden pro Szene gesetzt. Template-Füllmaterial ist verboten.
 
@@ -136,8 +147,8 @@ RESULT_HOLD_FRAMES >= 15
 
 ### Bei `library-best-fit`
 
-- `FINANCE_MOTION_ID` muss in `FINANCE_MOTION_REGISTRY` existieren.
-- Die Szene importiert die passende Mechanik aus `src/finance-motion`.
+- `FINANCE_MOTION_ID` muss in `FINANCE_MOTION_REGISTRY` existieren; Kern-Mechaniken (`tier: 'core'`) zuerst prüfen.
+- Die Szene importiert die passende Mechanik aus `src/finance-motion` (Ordner, nicht Einzeldatei).
 - Die Parameter müssen exakt aus dem Sprechpunkt abgeleitet sein.
 - Ein dünner, klarer Wrapper ist erlaubt; die eigentliche Motion-Logik liegt in der Library.
 - Die Mechanik darf wiederverwendet werden.

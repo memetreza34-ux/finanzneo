@@ -25,10 +25,30 @@ export type FinanceMotionDescriptor = {
   suitableFor: string[];
   avoidFor?: string[];
   reusable: true;
+  /**
+   * core: zeigt eine Menge über Zeit, Kern-Mechanik aus core.tsx.
+   * situational: zeigt ein Verhältnis oder eine Situation; meist erklärt ein
+   * Flow-Bild oder eine Datenszene das besser (siehe preferInstead).
+   */
+  tier: 'core' | 'situational';
+  preferInstead?: string;
 };
 
-export type MotionBaseProps = {durationFrames?: number};
-export type FinanceTone = 'positive' | 'warning' | 'money' | 'neutral' | 'trust';
+import type {FinanceTone, MotionBaseProps} from './types';
+import {
+  CompoundGrowth,
+  LoanPaydown,
+  MoneySplit,
+  ScenarioComparison,
+  ValueDrain,
+  ValueGrowth,
+} from './core';
+
+export type {FinanceTone, MotionBaseProps, ValueUnit} from './types';
+
+// Kanonischer Import für Reels: die sechs Kern-Mechaniken kommen aus Core V3.
+// Die ursprünglichen V1-Fassungen bleiben unter ...V1 für Direction V2/V2.1.
+export {CompoundGrowth, LoanPaydown, MoneySplit, ScenarioComparison, ValueDrain, ValueGrowth};
 
 const toneColor = (tone: FinanceTone): string => {
   if (tone === 'positive') return ANIMATION_COLORS.positive;
@@ -202,7 +222,7 @@ const DEFAULT_SPLIT_PARTS: SplitPart[] = [
   {label: 'Sparen', share: 20, tone: 'positive'},
 ];
 
-export const MoneySplit: React.FC<
+export const MoneySplitV1: React.FC<
   MotionBaseProps & {sourceLabel?: string; amount?: string; parts?: SplitPart[]}
 > = ({durationFrames = 135, sourceLabel = 'Nettoeinkommen', amount = '2.500 €', parts = DEFAULT_SPLIT_PARTS}) => {
   const frame = useCurrentFrame();
@@ -250,7 +270,7 @@ export const MoneySplit: React.FC<
   );
 };
 
-export const ValueGrowth: React.FC<
+export const ValueGrowthV1: React.FC<
   MotionBaseProps & {label?: string; startValue?: string; endValue?: string; tone?: FinanceTone; steps?: number}
 > = ({durationFrames = 135, label = 'Vermögen', startValue = '10.000 €', endValue = '18.400 €', tone = 'positive', steps = 6}) => {
   const frame = useCurrentFrame();
@@ -288,7 +308,7 @@ export const ValueGrowth: React.FC<
   );
 };
 
-export const ValueDrain: React.FC<
+export const ValueDrainV1: React.FC<
   MotionBaseProps & {label?: string; startValue?: string; endValue?: string; drainLabel?: string}
 > = ({durationFrames = 135, label = 'Rendite', startValue = '100 %', endValue = '82 %', drainLabel = 'Kosten'}) => {
   const frame = useCurrentFrame();
@@ -432,7 +452,7 @@ export const Diversification: React.FC<
   );
 };
 
-export const LoanPaydown: React.FC<
+export const LoanPaydownV1: React.FC<
   MotionBaseProps & {label?: string; startDebt?: string; endDebt?: string; payments?: number}
 > = ({durationFrames = 150, label = 'Restschuld', startDebt = '20.000 €', endDebt = '12.000 €', payments = 4}) => {
   const frame = useCurrentFrame();
@@ -495,7 +515,7 @@ type Scenario = {label: string; value: string; tone?: FinanceTone};
 const DEFAULT_LEFT: Scenario = {label: 'Variante A', value: '91.000 €', tone: 'positive'};
 const DEFAULT_RIGHT: Scenario = {label: 'Variante B', value: '69.000 €', tone: 'warning'};
 
-export const ScenarioComparison: React.FC<
+export const ScenarioComparisonV1: React.FC<
   MotionBaseProps & {left?: Scenario; right?: Scenario}
 > = ({durationFrames = 135, left = DEFAULT_LEFT, right = DEFAULT_RIGHT}) => {
   const frame = useCurrentFrame();
@@ -556,7 +576,7 @@ export const FinanceTimeline: React.FC<
   );
 };
 
-export const CompoundGrowth: React.FC<
+export const CompoundGrowthV1: React.FC<
   MotionBaseProps & {periods?: string[]; values?: string[]}
 > = ({durationFrames = 150, periods = ['Start', '10 J.', '20 J.', '30 J.'], values = ['10k', '16k', '26k', '42k']}) => {
   const frame = useCurrentFrame();
@@ -585,18 +605,18 @@ export const CompoundGrowth: React.FC<
 };
 
 export const FINANCE_MOTION_REGISTRY: FinanceMotionDescriptor[] = [
-  {id: 'money-transfer', category: 'money', reusable: true, explains: ['money moves from one place to another', 'payment or contribution'], suitableFor: ['transfer', 'saving plan', 'tax payment', 'loan payment', 'deposit', 'withdrawal']},
-  {id: 'money-split', category: 'money', reusable: true, explains: ['one amount is distributed into multiple uses'], suitableFor: ['budget', 'income allocation', 'cashflow allocation', 'portfolio contribution']},
-  {id: 'value-growth', category: 'growth', reusable: true, explains: ['value rises over time or stages'], suitableFor: ['returns', 'savings growth', 'revenue growth', 'asset appreciation']},
-  {id: 'value-drain', category: 'costs', reusable: true, explains: ['recurring costs reduce value'], suitableFor: ['fees', 'tax drag', 'inflation', 'cost erosion']},
-  {id: 'allocation-split', category: 'portfolio', reusable: true, explains: ['one whole consists of weighted parts'], suitableFor: ['portfolio allocation', 'budget split', 'asset allocation']},
-  {id: 'rebalancing', category: 'portfolio', reusable: true, explains: ['weights move back to a target allocation'], suitableFor: ['portfolio rebalancing', '70/30', '60/40']},
-  {id: 'diversification', category: 'portfolio', reusable: true, explains: ['one investment spreads across multiple exposures'], suitableFor: ['ETF diversification', 'sector spread', 'country spread', 'risk spread']},
-  {id: 'loan-paydown', category: 'credit', reusable: true, explains: ['debt decreases through repeated payments'], suitableFor: ['loan repayment', 'mortgage amortization', 'debt reduction']},
-  {id: 'protection-limit', category: 'banking', reusable: true, explains: ['multiple items share one protection boundary or limit'], suitableFor: ['deposit insurance', 'bank limit', 'coverage aggregation']},
-  {id: 'scenario-comparison', category: 'comparison', reusable: true, explains: ['same or comparable start leads to different outcomes'], suitableFor: ['fee comparison', 'return comparison', 'cost comparison', 'strategy comparison']},
-  {id: 'finance-timeline', category: 'time', reusable: true, explains: ['financial values or states change across milestones'], suitableFor: ['deadlines', 'holding periods', 'long-term outcomes', 'age milestones']},
-  {id: 'compound-growth', category: 'growth', reusable: true, explains: ['growth accelerates across repeated periods'], suitableFor: ['compound interest', 'reinvested returns', 'long-term saving']},
+  {id: 'money-transfer', category: 'money', reusable: true, tier: 'situational', preferInstead: 'Flow-Bild: eine Überweisung ist eine Situation (Konto, Handy, Hand), keine Menge über Zeit.', explains: ['money moves from one place to another', 'payment or contribution'], suitableFor: ['transfer', 'saving plan', 'tax payment', 'loan payment', 'deposit', 'withdrawal']},
+  {id: 'money-split', category: 'money', reusable: true, tier: 'core', explains: ['one amount is distributed into multiple uses'], suitableFor: ['budget', 'income allocation', 'cashflow allocation', 'portfolio contribution']},
+  {id: 'value-growth', category: 'growth', reusable: true, tier: 'core', explains: ['value rises over time or stages'], suitableFor: ['returns', 'savings growth', 'revenue growth', 'asset appreciation']},
+  {id: 'value-drain', category: 'costs', reusable: true, tier: 'core', explains: ['recurring costs reduce value'], suitableFor: ['fees', 'tax drag', 'inflation', 'cost erosion']},
+  {id: 'allocation-split', category: 'portfolio', reusable: true, tier: 'situational', preferInstead: 'Datenszene oder Flow-Bild: eine Aufteilung ist ein Verhältnis, keine Veränderung.', explains: ['one whole consists of weighted parts'], suitableFor: ['portfolio allocation', 'budget split', 'asset allocation']},
+  {id: 'rebalancing', category: 'portfolio', reusable: true, tier: 'situational', preferInstead: 'Datenszene: Vorher/Nachher-Gewichte als belegte Zahlen; Bewegung ist hier selten nötig.', explains: ['weights move back to a target allocation'], suitableFor: ['portfolio rebalancing', '70/30', '60/40']},
+  {id: 'diversification', category: 'portfolio', reusable: true, tier: 'situational', preferInstead: 'Flow-Bild: Streuung ist eine Situation (ein Korb, viele Länder), keine Menge über Zeit.', explains: ['one investment spreads across multiple exposures'], suitableFor: ['ETF diversification', 'sector spread', 'country spread', 'risk spread']},
+  {id: 'loan-paydown', category: 'credit', reusable: true, tier: 'core', explains: ['debt decreases through repeated payments'], suitableFor: ['loan repayment', 'mortgage amortization', 'debt reduction']},
+  {id: 'protection-limit', category: 'banking', reusable: true, tier: 'situational', preferInstead: 'Flow-Bild: eine Grenze für mehrere Konten ist eine Situation, keine Veränderung.', explains: ['multiple items share one protection boundary or limit'], suitableFor: ['deposit insurance', 'bank limit', 'coverage aggregation']},
+  {id: 'scenario-comparison', category: 'comparison', reusable: true, tier: 'core', explains: ['same or comparable start leads to different outcomes'], suitableFor: ['fee comparison', 'return comparison', 'cost comparison', 'strategy comparison']},
+  {id: 'finance-timeline', category: 'time', reusable: true, tier: 'situational', preferInstead: 'compound-growth oder value-growth, wenn sich ein Betrag verändert; sonst Flow-Bild.', explains: ['financial values or states change across milestones'], suitableFor: ['deadlines', 'holding periods', 'long-term outcomes', 'age milestones']},
+  {id: 'compound-growth', category: 'growth', reusable: true, tier: 'core', explains: ['growth accelerates across repeated periods'], suitableFor: ['compound interest', 'reinvested returns', 'long-term saving']},
 ];
 
 export const FINANCE_MOTION_COMPONENTS = {
@@ -628,6 +648,7 @@ export const searchFinanceMotions = (query: string): FinanceMotionDescriptor[] =
       return {item, score};
     })
     .filter((entry) => entry.score > 0)
-    .sort((left, right) => right.score - left.score)
+    // Bei gleichem Treffer gewinnt die Kern-Mechanik.
+    .sort((left, right) => right.score - left.score || (left.item.tier === 'core' ? -1 : 0) - (right.item.tier === 'core' ? -1 : 0))
     .map((entry) => entry.item);
 };

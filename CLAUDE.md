@@ -625,7 +625,7 @@ Als Hauptsprache **verboten**:
 - generische Shield-/Arrow-/Coin-Symbolik, wenn eine konkrete Alltagssituation darstellbar ist
 - eine Library-Mechanik, die nur benutzt wird, weil sie verfügbar ist
 
-Die Finance Motion Library (`src/finance-motion`) liefert parametrisierte Mechaniken wie `money-transfer`, `money-split`, `value-growth`, `value-drain`, `loan-paydown` oder `compound-growth`. Konkrete Gegenstände wie `PhysicalBanknote`, `PhysicalInvoice`, `PhysicalAccount` oder `PhysicalCoinStack` bleiben als Bausteine verfügbar, wenn eine Szene sie braucht. `PhysicalRail` darf niemals die Geschichte allein tragen.
+Die Finance Motion Library (`src/finance-motion`) liefert sechs Kern-Mechaniken für Mengen über Zeit: `value-growth`, `value-drain`, `compound-growth`, `scenario-comparison`, `loan-paydown`, `money-split`. Beträge werden als Zahlen übergeben, Höhen bleiben proportional, Zähler landen exakt auf dem Sprechpunkt-Wert. Die situativen Einträge (`tier: 'situational'`) zeigen Verhältnisse oder Situationen — dafür ist meist ein Flow-Bild oder eine Datenszene die bessere Wahl. Konkrete Gegenstände wie `PhysicalBanknote`, `PhysicalInvoice`, `PhysicalAccount` oder `PhysicalCoinStack` bleiben als Bausteine verfügbar, wenn eine Szene sie braucht. `PhysicalRail` darf niemals die Geschichte allein tragen.
 
 Streng verboten:
 

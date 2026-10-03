@@ -124,6 +124,8 @@ Sprechpunkt
 → Playwright Visual QA
 ```
 
+Kern-Mechaniken für Mengen über Zeit: `value-growth`, `value-drain`, `compound-growth`, `scenario-comparison`, `loan-paydown`, `money-split` (Lab `ReelsTestFinanceMotionCore`). Situative Einträge zeigen Verhältnisse — dort zuerst Flow-Bild oder Datenszene prüfen.
+
 Die Library ist Werkzeug, kein Zwangsmenü. Die Mechanik kommt aus dem Sprechpunkt; erst danach wird geprüft, ob die Library sie schon kann. Eine passende Library-Mechanik darf beliebig oft wiederverwendet werden, auch im selben Reel, wenn die Finanzlogik dieselbe ist und sich echte Werte, Labels, Gewichtungen oder Zeitpunkte ändern. Gute Custom-Mechaniken können später als `libraryPromotionCandidate` in die Library wandern.
 
 Jede `animation.tsx` dokumentiert `MOTION_SOURCE`, `FINANCE_MOTION_ID`, `MECHANIC_ID`, `FOCAL_PATH`, `PRIMARY_ACTION`, `CAMERA_ROLE`, `PAYOFF`, die Narrative und mindestens 15 Frames Ergebnis-Hold. `PremiumPhysicalStage` und die Physical-Primitives sind keine Pflicht mehr, bleiben aber verfügbar. Phase 3 wechselt nie eigenmächtig zwischen Library und Custom.
