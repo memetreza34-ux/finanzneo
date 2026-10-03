@@ -1,0 +1,123 @@
+GOOGLE FLOW MASTER PROMPT — FINANZNEO
+VIDEO: Kreditkarten-Teilzahlung: Wie aus 2.000 € ein teurer Kredit wird
+
+WICHTIG: DIESER GESAMTE TEXT IST EIN EINZIGER MASTER-PROMPT.
+Der Nutzer kopiert nur diese eine Datei einmal in den Google-Flow-Agenten.
+
+============================================================
+AUFGABE
+============================================================
+
+Erstelle nur die Google-Flow-Bildassets dieses Projekts.
+Präzise Zahlenvisuals, Charts, Checklisten und UI-Einstellungen werden NICHT von dir erzeugt; sie sind absichtlich Remotion-native.
+
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
+THUMBNAIL_CONCURRENCY: 3
+IMAGE_BATCH_SIZE: 5
+IMAGE_CONCURRENCY: 5
+STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
+PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
+GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+
+============================================================
+DIE BILDWELT — VERBINDLICH
+============================================================
+
+Die richtige FinanzNeo-Bildwelt ist eine PREMIUM PHYSICAL EDITORIAL stylized-3D Welt.
+Ein schwarzer Hintergrund und richtige Farben allein reichen NICHT.
+
+Jeder Flow-Job braucht:
+- EIN dominantes physisches Hero-Objekt, ca. 45–65 % der nutzbaren Fläche
+- medium-close, sanfte 3/4 Editorial-Kamera als Standard
+- nur 0–3 unterstützende physische Objekte
+- klare Vordergrund-/Hero-/Sekundärtiefe
+- sichtbare Materialstärke, Kanten und Gewicht
+- starke weiche Kontaktschatten und Ambient Occlusion
+- hochwertiges erwachsenes stylized-3D, niemals Fotorealismus
+- satin dark-emerald/charcoal Struktur
+- warm ivory/cream neutrale Flächen und Papier
+- warm red-orange nur für Risiko/Kosten/Schuld
+- Emerald nur für positive/Lösung
+- Gold nur als kleiner Geld-/Wert-Akzent
+- cinematic soft key light, readable fill und kontrollierte Rim-Separation
+- ein nahtloser deep charcoal green-black Hintergrund mit subtiler tonaler Tiefe
+- kein winziges Motiv in riesiger schwarzer Leere
+
+HARD FAIL — SOFORT DENSELBEN JOB NEU GENERIEREN:
+- kleines Motiv / zu viel leerer schwarzer Raum
+- kleine schwebende Karten, Tiles oder Module
+- Dashboard, Control Panel, App-Screenshot oder UI-Look
+- Flowchart oder Präsentationsfolie
+- sterile Produktaufnahme ohne erklärende Handlung
+- winzige isometrische/Diorama-Perspektive
+- Canva/PowerPoint/Stock-Vector-/Icon-Look
+- Objekte ohne Gewicht/Kontaktschatten/Tiefenhierarchie
+- childish clay/toy/Pixar look
+- generische Gold-Luxus-Finanzoptik
+- korrekte Farben, aber falsche V8-Physical-Editorial-Komposition
+
+============================================================
+PHASE A — 3 COVER GLEICHZEITIG
+============================================================
+
+Erzeuge A, B und C als drei GETRENNTE Ein-Bild-Jobs gleichzeitig. Jeder Job erzeugt exakt EIN horizontales 16:9-Bild.
+
+COVER A
+Temporärer Dateiname: YouTube Thumbnail A.png
+Hook: TEURE TEILZAHLUNG
+
+Create one premium physical-editorial 16:9 thumbnail. ONE large unbranded credit card is the dominant hero, physically overlapping a thick warm-ivory monthly statement. A restrained warm red-orange stamped/printed “Teilzahlung” mark creates the risk tension. Hero close and large, substantial materials, clear contact shadows, no UI tiles, no tiny centered object. Hook typography clean and secondary to the hero.
+
+COVER B
+Temporärer Dateiname: YouTube Thumbnail B.png
+Hook: 2.000 € → 2.368 €
+
+Create one premium physical-editorial 16:9 thumbnail. ONE large physical credit-card statement or long receipt is the hero and visibly extends/unfolds from 2.000 € toward 2.368 €. Add a restrained warm red-orange physical stamp/tag “368 € ZINSEN”. Make the increasing cost a concrete physical cause-and-effect. No side-by-side dashboard cards, no floating boxes.
+
+COVER C
+Temporärer Dateiname: YouTube Thumbnail C.png
+Hook: DIE KLEINE RATE
+
+Create one premium physical-editorial 16:9 thumbnail. ONE large monthly statement is the hero. A substantial physical 100-€ payment marker enters the statement while a red-orange physical “ZINSEN” section visibly takes part of the payment. Close editorial framing, clear action, no flowchart or dashboard composition.
+
+QA A/B/C nach den globalen Regeln. Fehlerhaften Kandidaten nur selbst regenerieren.
+Wenn A/B/C PASS sind: STOPP und frage GENAU EINMAL: „Welches Cover: A, B oder C?“
+Warte auf die Auswahl.
+Finaler Gewinner-Dateiname: YouTube Thumbnail - Kreditkarten Teilzahlung.png
+Die anderen beiden nicht in den finalen Ordner übernehmen.
+Der Gewinner ist KEINE Style-Referenz.
+
+============================================================
+PHASE B — NUR DAS ECHTE FLOW-SZENENBILD
+============================================================
+
+Nach der Cover-Auswahl erzeuge genau EIN Szenenbild. Keine Bilder 03, 05, 07 oder 08 erzeugen; diese Visuals werden in Remotion gebaut.
+
+BILD 01
+Finaler Dateiname: YouTube Bild 01 - Karte und Monatsabrechnung.png
+
+Create exactly one horizontal 16:9 premium FinanzNeo physical-editorial scene. Use ONE dominant unbranded credit card as the hero object, occupying roughly 45–60% of the useful frame, medium-close gentle 3/4 camera. The card physically overlaps a substantial warm-ivory monthly statement made from thick premium paper. On the statement, show only two short printed German options: “Vollzahlung” and “Teilzahlung”. “Teilzahlung” has one restrained warm red-orange printed/stamped emphasis; “Vollzahlung” remains neutral ivory/charcoal. Make the objects feel weighty and tangible with visible thickness, soft bevels, paper texture, premium polymer/metal material cues, clear contact shadows and slight overlap. Add only minimal local desk/document context if it helps grounding, fading into one seamless deep charcoal green-black environment. The scene must look like a polished adult 3D financial editorial illustration, not a UI, not a settings panel and not separate floating cards. Main idea readable without relying on text.
+
+QA BILD 01. Bei FAIL nur BILD 01 neu generieren.
+
+============================================================
+FINALER FLOW-BESTAND
+============================================================
+
+Am Ende müssen aus Google Flow exakt diese ZWEI finalen Assets vorhanden sein:
+1. YouTube Thumbnail - Kreditkarten Teilzahlung.png
+2. YouTube Bild 01 - Karte und Monatsabrechnung.png
+
+Finaler Zielordner:
+04-visuals/00-ALLE-BILDER-HIER-REIN/
+
+SEPARATE one-image jobs
+rename immediately
+regenerate only that same number
+horizontal 16:9
+
+Keine weiteren Nutzerfragen nach der Cover-Auswahl. Keine zusätzlichen Bildjobs erfinden. Bilder 03, 05, 07 und 08 ausdrücklich NICHT generieren.
