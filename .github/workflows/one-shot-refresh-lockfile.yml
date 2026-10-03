@@ -1,0 +1,58 @@
+name: One-shot refresh lockfile
+
+on:
+  push:
+    branches:
+      - reel/test-free-visual-form-1pct-fees
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-and-verify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: reel/test-free-visual-form-1pct-fees
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Refresh compatible transitive dependency patches
+        run: npm install --package-lock-only --ignore-scripts
+
+      - name: Reproducible install
+        run: npm ci
+
+      - name: Security audit
+        run: npm audit --audit-level=high
+
+      - name: Full validation
+        run: npm run validate
+
+      - name: Remotion bundle
+        run: npm run build
+
+      - name: Render smoke tests
+        run: npm run smoke
+
+      - name: Commit refreshed lockfile
+        shell: bash
+        run: |
+          if git diff --quiet -- package-lock.json; then
+            echo "package-lock.json already current"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          git commit -m "chore(deps): refresh patched transitive dependencies"
+          git push origin HEAD:reel/test-free-visual-form-1pct-fees
