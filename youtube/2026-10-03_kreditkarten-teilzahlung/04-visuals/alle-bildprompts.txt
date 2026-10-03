@@ -9,6 +9,7 @@ STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+horizontal 16:9 source image
 
 PHASE A — THUMBNAILS
 Start A, B und C gleichzeitig als drei SEPARATE one-image jobs. Jeder Job erzeugt genau ein horizontales 16:9-Bild. QA jedes Ergebnis, frage danach einmal A/B/C und benenne nur den Gewinner in YouTube Thumbnail - Kreditkarten Teilzahlung.png um. Das gewählte Thumbnail darf niemals Style-Referenz für Szenenbilder werden.
