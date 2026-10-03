@@ -2,18 +2,19 @@
 
 MOTION_STANDARD: finanzneo-youtube-motion-v3
 
-- Kapitel: Von Teilzahlung zu Vollzahlung
-- Sprechtext-Bezug: siehe visual-index.json
-- Viewer Change: Auf dem erzeugten Einstellungsbild wandert die Auswahl sichtbar von Teilzahlung zu Vollzahlung 100 %, danach wird ein grüner Bestätigungszustand eingeblendet.
-- Animation Intent: Der Schluss endet mit einer konkreten prüfbaren Handlung statt nur mit Warnung.
+- Kapitel: Abschluss
+- Sprechtext-Bezug: Offener Saldo über Monate bedeutet: Du nutzt zusätzlich einen Kredit.
+- Viewer Change: Eine klar gestaltete Banking-Einstellung wird vollständig in Remotion aufgebaut; die Auswahl wandert von Teilzahlung zu Vollzahlung 100 % und bestätigt den Endzustand.
+- Animation Intent: UI-Text und Zustand müssen exakt, sauber und animierbar sein; deshalb kein Google-Flow-UI-Bild mehr.
 - Mechanik: payment-setting-switch
-- Technikbeschreibung: Das Flow-Bild bildet die ruhige UI-Basis; Remotion legt einen animierten Auswahlring und Bestätigungsstatus darüber.
+- Technikbeschreibung: Native React/CSS-Einstellung mit zwei großen Zeilen; ein farbcodierter Auswahlrahmen bewegt sich zwischen den Optionen, Bestätigung erscheint danach.
 - Tool Stack: React, CSS, Remotion interpolate
-- Composition Family: image-composite
-- Motion Signature Camera: statische Frontansicht auf dem Nutzerbild
-- Motion Signature Layout: UI-Basisbild vollflächig, Fokus-Overlay auf den beiden Abrechnungsoptionen
-- Motion Signature Transformation: Fokus verschiebt sich von Teilzahlung zu Vollzahlung und bestätigt den Endzustand
-- Motion Channels: Position des Auswahlrings; Farb- und Opazitätswechsel des Bestätigungsstatus
-- Sichtbare Beats: Teilzahlung aktiv; Auswahl bewegt sich; Vollzahlung 100 % aktiv; Einstellung prüfen
-
-Die Technik wurde aus dem Viewer Change gewählt. Keine Ersatzanimation in Phase 3.
+- Composition Family: settings-action
+- Motion Signature Camera: statische frontale Interface-Ansicht
+- Motion Signature Layout: ein großes zentrales Einstellungsmodul mit zwei übereinanderliegenden Optionen
+- Motion Signature Transformation: Auswahlrahmen verschiebt sich vertikal und wechselt semantisch von Rot-Orange zu Emerald
+- Startzustand: Teilzahlung ausgewählt
+- sichtbare Mechanik/Transformation: Auswahl wandert nach unten
+- Resultat: Vollzahlung 100 % ausgewählt und bestätigt
+- Motion Channels: vertikale Positionsänderung, Farbwechsel, Bestätigungs-Opacity
+- SFX-Cues: optional ein dezenter Auswahlklick und Bestätigungs-Tick
