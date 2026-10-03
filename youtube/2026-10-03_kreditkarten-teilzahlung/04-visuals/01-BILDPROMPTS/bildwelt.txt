@@ -4,46 +4,74 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
 GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
 
-GOOGLE FLOW IS ONLY FOR PHYSICAL / EDITORIAL SCENES.
-Exact numbers, charts, checklists, UI/settings, quotes and text-heavy comparisons belong in Remotion/SVG/React instead of Flow.
+CORE
+FinanzNeo is a premium stylized animation-film / editorial finance world. The world stays consistent, but the visual form is chosen from the content instead of forcing everything into the same physical 3D template.
 
-FLOW HERO RULE
-- one dominant physical hero object, roughly 45–65% of useful frame
-- medium-close gentle 3/4 editorial camera by default
-- 0–3 supporting physical objects only when useful
-- clear foreground / hero / secondary depth
-- purposeful overlap and strong contact shadows
-- frame must not be mostly empty black
-- no tiny diorama, no sterile isolated product shot
+MODE A — GROUNDED SCENE
+Use for real situations/objects and visible cause/effect.
+- real recognizable objects
+- believable proportions
+- medium-close editorial framing
+- natural perspective
+- 0–3 useful supporting objects
+- clear depth, overlap, material cues and soft contact shadows
+- local context may dissolve into the deep black/charcoal-green world
+- do not create a sterile product shot or tiny diorama
 
-VISUAL STYLE
-- premium stylized adult 3D financial editorial illustration
-- substantial thickness, visible edges and believable weight
-- satin dark-emerald/charcoal structure
-- warm ivory/cream paper, ceramic or neutral surfaces
-- red-orange only for risk/cost/debt
-- brighter emerald only for positive/solution
-- restrained gold only for money/value accent
-- cinematic soft key light, readable fill, subtle rim separation
-- one seamless deep charcoal green-black environment with tonal depth
-- no visible floor-wall boundary
+MODE B — SIMPLE EXPLAINER
+Use when a simple visual communicates faster than a literal scene.
+Allowed: large number, symbol, simple chart, comparison, target/route/goal metaphor, asset group, concept cluster, short quote/key statement, simple UI/settings explanation.
+- front-facing or near-front
+- large useful-frame occupancy
+- clean hierarchy
+- polished 2.5D / stylized editorial treatment is allowed
+- keep FinanzNeo colors, lighting and quality
+- do NOT turn values/text into arbitrary thick plaques, tiles, cards, panels, blocks or pedestals
 
-TEXT
-Only short labels attached naturally to documents/objects when needed. No paragraph, checklist, dashboard copy or long explanatory text inside a Flow image.
+CHART / DIAGRAM / DATA
+- straight-on front view
+- no skewed axes or 3/4 chart plane
+- mathematically correct proportions
+- no Excel/PowerPoint default style
+- no decorative fantasy 3D bars
 
-HARD FAIL
-- main subject too small
+UI / SETTINGS
+- only when the state itself is the point
+- clean fictional/unbranded layout
+- straight-on and readable
+- no screenshot realism
+- do not make a thick floating control panel just to appear 3D
+
+COLOR
+- emerald = positive / solution / growth
+- warm red-orange = risk / cost / debt / warning
+- warm ivory / soft gray = neutral
+- gold only as small money/value accent
+- black/charcoal-green remains dominant
+
+LIGHTING + QUALITY
+- premium clean studio light
+- readable highlights and shadows
+- soft contact shadows where physical objects touch
+- adult stylized 3D/editorial quality
+- never photorealistic, childish clay/toy/Pixar or generic corporate 3D
+
+GLOBAL HARD FAIL
+- main information too small
 - mostly empty black space
-- floating cards/tiles/modules
-- dashboard, control panel or screenshot/UI look
-- flowchart/presentation slide
-- flat stock icon/vector/Canva look
-- tiny isometric/gameboard/orbit composition
-- weightless objects or missing contact shadows
-- childish clay/toy/Pixar or photorealism
-- correct colors but wrong premium physical-editorial composition
+- floating tile/card/module system
+- dashboard/control-panel/HUD without content reason
+- arbitrary plaques/blocks for values or text
+- sterile product-ad shot
+- tiny isometric/diorama framing
+- Canva/PowerPoint/Stock-Vector look
+- generic finance-icon collage
+- gold-luxury AI-finance styling
+- visual form more complicated than the spoken point
 
-The image must look like a frame from the same approved FinanzNeo premium physical editorial series before it is accepted.
+QUALITY RULE
+The image must feel FinanzNeo because of consistent color logic, polished stylized rendering, lighting, hierarchy and explanatory clarity — not because every element was forced into a physical 3D object.
