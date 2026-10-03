@@ -1,35 +1,65 @@
 INTERN — NICHT MANUELL IN GOOGLE FLOW KOPIEREN.
-Der Nutzer verwendet ausschließlich den Master-Prompt unter `04-visuals/01-BILDPROMPTS/GOOGLE-FLOW-PROMPT.txt`.
+Der Nutzer verwendet ausschließlich den vollständigen Master-Prompt unter:
+`04-visuals/alle-bildprompts.txt`
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 YOUTUBE THUMBNAIL PHASE — THREE SEPARATE JOBS IN PARALLEL
+STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
+SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
 GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
+FLOW_IMAGE_POLICY: scene-first-no-infographic-v1
 
-Create exactly three separate horizontal 16:9 thumbnail candidates A, B and C as three concurrent one-image jobs. Each candidate must look like the same premium physical editorial FinanzNeo world: one dominant hero object occupying roughly 45–65% of the useful frame, medium-close composition, substantial material depth, cinematic soft key light, clear contact shadows and a seamless deep charcoal green-black environment with subtle tonal depth. No tiny centered object in a huge empty black frame.
+Create exactly three separate horizontal 16:9 thumbnail candidates A, B and C as three concurrent one-image jobs.
 
-TEXT RULE: visible German hook text required, max 2 lines, ideally 2–5 words. Clean front-facing ivory typography with one restrained red-orange risk emphasis if useful. Text is secondary to the physical hero composition.
+All three must be premium rendered FinanzNeo scenes/3D editorial illustrations first. The short hook text is secondary. Never build the thumbnail as a dashboard, infographic, progress graphic, card grid or UI layout.
 
-THUMBNAIL A — Hook: TEURE TEILZAHLUNG
-Hero: one large premium unbranded credit card physically overlapping a thick monthly statement. A red-orange stamped/printed “Teilzahlung” mark creates the tension. The card and document must feel tangible and weighty, not like UI cards.
+STYLE LOCK
+- clearly stylized premium 3D animation-film/editorial rendering, never photorealistic
+- one dominant close hero scene/object
+- medium-close composition with real depth and overlap
+- deep seamless black/charcoal-green world
+- believable paper/card materials
+- cinematic soft key light and strong soft contact shadows
+- emerald only for positive/solution
+- warm red-orange for debt/risk/cost
+- ivory/soft gray neutral
+- gold only as a tiny value accent
+- no generated FinanzNeo logo or watermark
 
-THUMBNAIL B — Hook: 2.000 € → 2.368 €
-Hero: one large physical credit-card statement/receipt object that visibly extends or unfolds from 2.000 € toward 2.368 €, with a restrained red-orange “368 € ZINSEN” physical stamp/tag. Make the causal cost increase physical and immediate, not a side-by-side dashboard.
+TEXT RULE
+Visible German hook required, max 2 lines, ideally 2–5 words. Clean front-readable ivory typography with at most one restrained semantic accent. Text must not become the main object.
+
+THUMBNAIL A — Hook: TEILZAHLUNG KOSTET
+One large unbranded credit card physically overlaps a substantial warm-ivory monthly statement. A restrained warm red-orange recurring-interest mark remains attached to the still-open balance area. One coherent real billing scene, not separate cards.
+
+THUMBNAIL B — Hook: 2.000 € WERDEN TEUER
+One large monthly statement physically extends toward the camera as a growing paper trail while the credit card remains linked to it. Restrained red-orange interest marks repeat along the real paper trail. No chart/timeline UI and no data-card layout.
 
 THUMBNAIL C — Hook: DIE KLEINE RATE
-Hero: one large physical monthly statement with a prominent 100-€ payment object entering it while a red-orange physical ZINSEN tag/section visibly takes part of the payment. Use a close editorial composition, not a flowchart.
+A close monthly statement and one large unbranded credit card dominate the scene. A small physical payment receipt enters the scene while a red-orange interest slip remains attached to the open-balance section. Cause/effect must be visible without needing an infographic.
 
-Temporary names: YouTube Thumbnail A.png, YouTube Thumbnail B.png, YouTube Thumbnail C.png. After all three pass QA, ask once for A/B/C. Rename only the selected winner to `YouTube Thumbnail - Kreditkarten Teilzahlung.png`. The selected thumbnail is never a style reference for scene images.
+Temporary names:
+- YouTube Thumbnail A.png
+- YouTube Thumbnail B.png
+- YouTube Thumbnail C.png
 
-HARD FAIL:
-- small hero in mostly empty black
+After all three pass QA, ask once for A/B/C. Rename only the selected winner to:
+`YouTube Thumbnail - Kreditkarten Teilzahlung.png`
+
+The selected thumbnail is never a style reference for scene images.
+
+HARD FAIL
+- flat infographic / slide / social-media card
 - dashboard/control panel/UI
-- separate floating tiles/cards
+- separate floating tiles/cards/widgets
+- generated FinanzNeo logo or watermark
 - sterile product shot
 - tiny isometric/diorama
-- flat infographic / Canva / PowerPoint / stock-vector look
-- childish toy/clay/Pixar look
-- missing physical thickness/contact shadow/depth hierarchy
+- mostly empty black frame
+- Canva/PowerPoint/stock-vector look
+- childish toy/clay/Pixar
+- photorealism
 - gold-luxury finance cliché
 
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
