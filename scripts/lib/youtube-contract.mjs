@@ -42,7 +42,7 @@ export const YOUTUBE_IMAGE_CONCURRENCY = 5;
 export const YOUTUBE_MIN_MOTION_VISUALS = 2;
 
 export const VISUAL_INDEX = '04-visuals/visual-index.json';
-export const ALL_PROMPTS = '04-visuals/alle-bildprompts.txt';
+export const ALL_PROMPTS = 'GOOGLE-FLOW-PROMPT.txt';
 export const IMAGE_INBOX = '04-visuals/00-ALLE-BILDER-HIER-REIN';
 export const WORD_TIMINGS = '03-audio/word-timings.json';
 export const ANIMATION_SEAL = '06-projektdateien/animation-seal.json';
