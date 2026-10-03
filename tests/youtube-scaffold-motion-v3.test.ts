@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 
-test('YouTube-Scaffolder erzeugt Motion V3 mit offener Technik und Viewer Change', () => {
+test('YouTube-Scaffolder erzeugt Motion V3 und die front-readable V9-Bildwelt', () => {
   const target = `youtube/.tmp-motion-v3-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
@@ -25,6 +25,7 @@ test('YouTube-Scaffolder erzeugt Motion V3 mit offener Technik und Viewer Change
     assert.equal(index.fixedImageAnimationRatio, false);
     assert.equal(index.motionStandard.id, 'finanzneo-youtube-motion-v3');
     assert.equal(index.motionStandard.viewerChangeFirstRequired, true);
+    assert.equal(index.motionStandard.contentFirstTechniqueSelection, true);
     assert.equal(index.motionStandard.openTechniqueSelection, true);
     assert.equal(index.motionStandard.compositionFamiliesAreExamplesOnly, true);
     assert.equal(index.motionStandard.motionSignatureRequired, true);
@@ -42,9 +43,16 @@ test('YouTube-Scaffolder erzeugt Motion V3 mit offener Technik und Viewer Change
     assert.match(remotionPlan, /Composition Family: \[FREE DESCRIPTIVE FAMILY/);
 
     const prompt = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt'), 'utf8');
-    assert.match(prompt, /finanzneo-youtube-grounded-3d-black-v1/);
-    assert.match(prompt, /Literal first, creative second/);
-    assert.match(prompt, /TRANSFERABILITY_TEST:/);
+    assert.match(prompt, /finanzneo-youtube-v9-front-readable-v2/);
+    assert.match(prompt, /FORM FREE — WORLD FIXED/);
+    assert.match(prompt, /front-facing or near-front/);
+    assert.match(prompt, /DATA_INTEGRITY_TEST:/);
+    assert.match(prompt, /no giant gold percentage statues/);
+
+    const flow = readFileSync(resolve(absolute, '04-visuals/alle-bildprompts.txt'), 'utf8');
+    assert.match(flow, /THUMBNAIL_CONCURRENCY: 3/);
+    assert.match(flow, /IMAGE_BATCH_SIZE: 5/);
+    assert.match(flow, /IMAGE_CONCURRENCY: 5/);
   } finally {
     rmSync(absolute, {recursive:true, force:true});
   }
