@@ -26,8 +26,8 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Refresh compatible transitive dependency patches
-        run: npm install --package-lock-only --ignore-scripts
+      - name: Apply compatible security fixes to lockfile
+        run: npm audit fix --package-lock-only --ignore-scripts
 
       - name: Reproducible install
         run: npm ci
