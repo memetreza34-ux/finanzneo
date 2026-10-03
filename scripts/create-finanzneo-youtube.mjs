@@ -30,14 +30,19 @@ if (!existsSync(allPromptsPath)) {
 }
 mkdirSync(promptDirectory, {recursive: true});
 
-const visualSystemRules = `FINANZNEO GOOGLE FLOW MASTER — VERBINDLICH\n\nDIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG. NICHT nur erklären oder Prompts zurückgeben: die geforderten Bildjobs tatsächlich starten.\n\nSTYLE_AUTHORITY: finanzneo-stylized-3d-animated-black-v9\nPRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8\nGROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1\n\nDie FinanzNeo-Bildwelt ist eine hochwertige stilisierte 3D-Animationsfilm-/Editorial-Welt mit real verständlichen Situationen. Ein schwarzer Hintergrund allein ist KEINE Bildwelt. Keine kleinen schwebenden Karten, Tiles, Dashboards oder Mini-Objekte in riesiger schwarzer Leere.\n\nZWEI ERLAUBTE DARSTELLUNGSARTEN INNERHALB DERSELBEN WELT:\nA) GROUNDED SCENE — reale Objekte/Situation, räumlich, materialreich, stilisiertes 3D.\nB) SIMPLE EXPLAINER — klare frontale Zahl/Symbol/Chart/Metapher/Vergleichskomposition, großflächig und reduziert, aber mit derselben FinanzNeo-Farb-, Licht- und Qualitätswelt.\n\nSIMPLE EXPLAINER bedeutet niemals PowerPoint, Canva, Dashboard oder kleine Floating Tiles. Die wichtigste Aussage muss groß sein und innerhalb von 1–2 Sekunden verstanden werden.\n\nHARD FAIL: Hauptmotiv zu klein; überwiegend leerer schwarzer Raum; Dashboard/UI-HUD; schwebende Kärtchen; sterile Produktaufnahme; Mini-Diorama; Stock-Vector; photorealistisch; toy/clay/Pixar; generische Gold-Luxus-Finanzoptik.\n`;
+const visualSystemRules = `FINANZNEO GOOGLE FLOW MASTER — VERBINDLICH\n\nDIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG. NICHT nur erklären oder Prompts zurückgeben: die geforderten Bildjobs tatsächlich starten.\n\nSTYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2\nSOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9\nPRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8\nGROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1\nFLOW_IMAGE_POLICY: scene-first-no-infographic-v1\nPRECISION_GRAPHICS_OWNER: REMOTION\n\nGoogle Flow ist in FinanzNeo ein SCENE-RENDERER, kein Infografik-/UI-Layout-Generator. Flow erzeugt nur Bilder, bei denen eine hochwertige gerenderte Szene oder Illustration einen echten visuellen Mehrwert hat. Exakte Zahlenaufteilungen, Charts, Checklisten, Tabellen, Timelines, UI-Zustände und textlastige Vergleiche gehören standardmäßig in Remotion/SVG/React.\n\nZWEI ERLAUBTE FLOW-BILDKLASSEN:\nA) GROUNDED SCENE — reale Objekte/Situationen, glaubwürdige Proportionen, räumlich, materialreich, klar stilisiertes 3D.\nB) EDITORIAL 3D ILLUSTRATION — eine zusammenhängende, bildfüllende stilisierte 3D-Illustration oder Metapher mit echter räumlicher Szene; niemals Poster, Slide, Dashboard oder Infografik.\n\nFür HYBRID darf Flow nur eine textarme Szene/Illustrations-Basis liefern. Präzise Zahlen, Labels, Checklisten, Charts und UI-Status werden danach in Remotion gesetzt.\n\nSCENE-FIRST: ein klares Hauptmotiv, medium-close, erkennbare Tiefe, Materialität, Kontaktschatten, Licht und Ursache/Wirkung. Das Bild muss auch ohne Text funktionieren. Kein FinanzNeo-Logo, kein Wasserzeichen und kein erfundener Markenname im Szenenbild.\n\nHARD FAIL: flache Infografik; Social-Media-Card; Poster/Slide; Dashboard/HUD; Settings-Panel; Progress-Bar als Hauptmotiv; Checklistenlayout; Zahlenvergleich als Kachel-/Boxsystem; schwebende Cards/Tiles; sterile Produktaufnahme; Mini-Diorama; Hauptmotiv zu klein; überwiegend leerer schwarzer Raum; Stock-Vector; photorealistisch; toy/clay/Pixar; generische Gold-Luxus-Finanzoptik.\n`;
 
 const allPrompts = readFileSync(allPromptsPath, 'utf8');
-const expandedVisualForms = allPrompts.replace(
-  'VISUAL_FORM: [character-story | object-story | comparison | chart | diagram | editorial | illustration | metaphor | hybrid]',
-  'VISUAL_FORM: [grounded-scene | simple-explainer | character-story | object-story | number-focus | symbol-focus | comparison | chart | diagram | editorial | illustration | metaphor | ui-example | asset-group | concept-cluster | quote-card | hybrid]',
-);
-writeFileSync(allPromptsPath, `${visualSystemRules}\n\n${expandedVisualForms}`);
+const sceneOnlyMaster = allPrompts
+  .replace(
+    'VISUAL_FORM: [character-story | object-story | comparison | chart | diagram | editorial | illustration | metaphor | hybrid]',
+    'VISUAL_FORM: [grounded-scene | editorial-3d-illustration | character-story | object-story | metaphor-scene | hybrid-scene-plate]',
+  )
+  .replace(
+    'Show [THE EXACT CONTENT-SPECIFIC VISUAL]. If this is a chart or diagram, show it straight-on from the front with undistorted axes/labels/proportions. Include only these short German object labels if needed: [LABELS].',
+    'Show [THE EXACT CONTENT-SPECIFIC SCENE OR EDITORIAL 3D ILLUSTRATION]. If exact numbers, a chart, checklist, timeline, table or UI state are the main information, this beat must be routed to Remotion/SVG/React instead of a Flow image. For hybrid, generate only the text-light scene plate; precision overlays belong to Remotion. Include only short German object labels when they are physically part of the scene and genuinely necessary: [LABELS].',
+  );
+writeFileSync(allPromptsPath, `${visualSystemRules}\n\n${sceneOnlyMaster}`);
 
 // Internal prompt sources live together under 04-visuals/01-BILDPROMPTS/.
 // The user-facing complete master prompt deliberately stays at 04-visuals/alle-bildprompts.txt.
@@ -70,7 +75,9 @@ const indexPath = resolve(projectRoot, '04-visuals/visual-index.json');
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 index.imageWorld.referencePromptFile = '04-visuals/01-BILDPROMPTS/bildwelt.txt';
 index.imageWorld.primaryApprovedStyleAnchor = 'finanzneo-premium-physical-editorial-v8';
-index.imageWorld.flowVisualModes = ['grounded-scene', 'simple-explainer'];
+index.imageWorld.flowVisualModes = ['grounded-scene', 'editorial-3d-illustration'];
+index.imageWorld.precisionGraphicsOwner = 'remotion';
+index.imageWorld.flowInfographicLayoutsForbidden = true;
 index.thumbnail.planFile = '04-visuals/01-BILDPROMPTS/thumbnail-prompt.txt';
 for (const visual of index.visuals ?? []) {
   const newImagePrompt = `04-visuals/01-BILDPROMPTS/${visual.id}/bildprompt.txt`;
@@ -83,10 +90,10 @@ const readmePath = resolve(projectRoot, 'README.md');
 const readme = readFileSync(readmePath, 'utf8');
 writeFileSync(
   readmePath,
-  `${readme.trim()}\n\n## Google Flow — genau eine Datei kopieren\n\nKopiere **genau diese Datei vollständig und 1:1** in den Google-Flow-Agenten:\n\n\`04-visuals/alle-bildprompts.txt\`\n\nDiese Datei ist immer der vollständige ausführbare Master-Prompt. Sie darf niemals durch einen Hinweis, Redirect oder Platzhalter ersetzt werden. Interne Stil-/Thumbnail-/Einzelpromptquellen liegen gesammelt unter \`04-visuals/01-BILDPROMPTS/\`.\n`,
+  `${readme.trim()}\n\n## Google Flow — genau eine Datei kopieren\n\nKopiere **genau diese Datei vollständig und 1:1** in den Google-Flow-Agenten:\n\n\`04-visuals/alle-bildprompts.txt\`\n\nDiese Datei ist immer der vollständige ausführbare Master-Prompt. Sie darf niemals durch einen Hinweis, Redirect oder Platzhalter ersetzt werden. Google Flow rendert ausschließlich Szenen/3D-Illustrationen; präzise Daten-, UI- und Textgrafiken gehören Remotion. Interne Stil-/Thumbnail-/Einzelpromptquellen liegen gesammelt unter \`04-visuals/01-BILDPROMPTS/\`.\n`,
 );
 
 console.log('✓ Google Flow: vollständiger Nutzer-Master-Prompt = 04-visuals/alle-bildprompts.txt');
 console.log('✓ Kein Redirect/Stub: die Datei enthält die tatsächlichen ausführbaren Bildjobs.');
 console.log('✓ Interne Promptquellen liegen gesammelt unter 04-visuals/01-BILDPROMPTS/.');
-console.log('✓ Bildwelt: Grounded Scene + Simple Explainer in derselben FinanzNeo-Welt.');
+console.log('✓ Bildwelt: Grounded Scene + Editorial 3D Illustration; Präzisionsgrafiken gehören Remotion.');
