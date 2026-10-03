@@ -18,38 +18,37 @@ if (scaffold.status !== 0) process.exit(scaffold.status ?? 1);
 const projectRoot = resolve(target);
 const visualsRoot = resolve(projectRoot, '04-visuals/EINZELNE-VISUALS');
 const promptDirectory = resolve(projectRoot, '04-visuals/01-BILDPROMPTS');
-const legacyPromptPath = resolve(projectRoot, '04-visuals/alle-bildprompts.txt');
-const masterPromptPath = resolve(promptDirectory, 'GOOGLE-FLOW-PROMPT.txt');
+const allPromptsPath = resolve(projectRoot, '04-visuals/alle-bildprompts.txt');
 const imageWorldOldPath = resolve(projectRoot, '04-visuals/bildwelt.txt');
 const imageWorldNewPath = resolve(promptDirectory, 'bildwelt.txt');
 const thumbnailOldPath = resolve(projectRoot, '04-visuals/thumbnail-prompt.txt');
 const thumbnailNewPath = resolve(promptDirectory, 'thumbnail-prompt.txt');
 
-if (!existsSync(legacyPromptPath)) {
-  console.error('Interner Scaffold-Flow-Prompt fehlt; Master-Prompt konnte nicht erzeugt werden.');
+if (!existsSync(allPromptsPath)) {
+  console.error('04-visuals/alle-bildprompts.txt fehlt; vollständiger Flow-Master-Prompt konnte nicht erzeugt werden.');
   process.exit(1);
 }
 mkdirSync(promptDirectory, {recursive: true});
-renameSync(legacyPromptPath, masterPromptPath);
 
-const routingRules = `FINANZNEO ENGINE ROUTING — VERBINDLICH\n\nGOOGLE FLOW nur für PHYSICAL / EDITORIAL / REAL-LIFE Szenen mit greifbaren Objekten, Material und räumlicher Ursache/Wirkung.\n\nREMOTION / SVG / REACT bevorzugen für exakte Zahlen/Rechenaufteilungen, Charts/Graphen, Checklisten, UI/Settings, Quotes/Key Statements, Timelines, text-/datengetriebene Vergleiche und einfache Symbole, die sauber in Code gebaut werden können.\n\nWICHTIG: Ein einfaches Visual darf einfach bleiben. Nicht künstlich in eine 3D-Tile-, Dashboard- oder Panel-Szene verwandeln.\n\nPRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8\nGROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1\n\nJeder echte Flow-Szenenjob braucht EIN dominantes physisches Hero-Objekt (ca. 45–65 % der nutzbaren Fläche), medium-close Editorial-Kamera, 0–3 sinnvolle Support-Objekte, echte Materialstärke, Tiefenhierarchie, weiche Kontaktschatten und einen nahtlosen deep-charcoal-green-black Hintergrund mit subtiler Tonalität. Kein kleines Motiv in riesiger schwarzer Leere. Keine Floating Tiles, Dashboards, UI-Panels, Dioramen, Canva-/PowerPoint-Optik oder sterile Produktaufnahme.\n`;
+const visualSystemRules = `FINANZNEO GOOGLE FLOW MASTER — VERBINDLICH\n\nDIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG. NICHT nur erklären oder Prompts zurückgeben: die geforderten Bildjobs tatsächlich starten.\n\nSTYLE_AUTHORITY: finanzneo-stylized-3d-animated-black-v9\nPRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8\nGROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1\n\nDie FinanzNeo-Bildwelt ist eine hochwertige stilisierte 3D-Animationsfilm-/Editorial-Welt mit real verständlichen Situationen. Ein schwarzer Hintergrund allein ist KEINE Bildwelt. Keine kleinen schwebenden Karten, Tiles, Dashboards oder Mini-Objekte in riesiger schwarzer Leere.\n\nZWEI ERLAUBTE DARSTELLUNGSARTEN INNERHALB DERSELBEN WELT:\nA) GROUNDED SCENE — reale Objekte/Situation, räumlich, materialreich, stilisiertes 3D.\nB) SIMPLE EXPLAINER — klare frontale Zahl/Symbol/Chart/Metapher/Vergleichskomposition, großflächig und reduziert, aber mit derselben FinanzNeo-Farb-, Licht- und Qualitätswelt.\n\nSIMPLE EXPLAINER bedeutet niemals PowerPoint, Canva, Dashboard oder kleine Floating Tiles. Die wichtigste Aussage muss groß sein und innerhalb von 1–2 Sekunden verstanden werden.\n\nHARD FAIL: Hauptmotiv zu klein; überwiegend leerer schwarzer Raum; Dashboard/UI-HUD; schwebende Kärtchen; sterile Produktaufnahme; Mini-Diorama; Stock-Vector; photorealistisch; toy/clay/Pixar; generische Gold-Luxus-Finanzoptik.\n`;
 
-const masterPrompt = readFileSync(masterPromptPath, 'utf8');
-const expandedVisualForms = masterPrompt.replace(
+const allPrompts = readFileSync(allPromptsPath, 'utf8');
+const expandedVisualForms = allPrompts.replace(
   'VISUAL_FORM: [character-story | object-story | comparison | chart | diagram | editorial | illustration | metaphor | hybrid]',
-  'VISUAL_FORM: [physical-editorial-scene | character-story | object-story | metaphor | comparison | hybrid]',
+  'VISUAL_FORM: [grounded-scene | simple-explainer | character-story | object-story | number-focus | symbol-focus | comparison | chart | diagram | editorial | illustration | metaphor | ui-example | asset-group | concept-cluster | quote-card | hybrid]',
 );
-writeFileSync(masterPromptPath, `${routingRules}\n\n${expandedVisualForms}`);
+writeFileSync(allPromptsPath, `${visualSystemRules}\n\n${expandedVisualForms}`);
 
-// Move all prompt-related sources under 04-visuals/01-BILDPROMPTS/.
+// Internal prompt sources live together under 04-visuals/01-BILDPROMPTS/.
+// The user-facing complete master prompt deliberately stays at 04-visuals/alle-bildprompts.txt.
 if (existsSync(imageWorldOldPath)) {
   const existing = readFileSync(imageWorldOldPath, 'utf8');
-  writeFileSync(imageWorldOldPath, `${routingRules}\n\n${existing}`);
+  writeFileSync(imageWorldOldPath, `${visualSystemRules}\n\n${existing}`);
   renameSync(imageWorldOldPath, imageWorldNewPath);
 }
 if (existsSync(thumbnailOldPath)) {
   const existing = readFileSync(thumbnailOldPath, 'utf8');
-  writeFileSync(thumbnailOldPath, `${routingRules}\n\n${existing}`);
+  writeFileSync(thumbnailOldPath, `${visualSystemRules}\n\n${existing}`);
   renameSync(thumbnailOldPath, thumbnailNewPath);
 }
 
@@ -62,17 +61,16 @@ if (existsSync(visualsRoot)) {
     const newPromptPath = resolve(newPromptDir, 'bildprompt.txt');
     mkdirSync(newPromptDir, {recursive: true});
     const existing = readFileSync(oldPromptPath, 'utf8');
-    writeFileSync(oldPromptPath, `${routingRules}\n\n${existing}`);
+    writeFileSync(oldPromptPath, `${visualSystemRules}\n\n${existing}`);
     renameSync(oldPromptPath, newPromptPath);
   }
 }
 
-// Rewrite the generated visual-index to the consolidated prompt locations and lock routing metadata.
 const indexPath = resolve(projectRoot, '04-visuals/visual-index.json');
 const index = JSON.parse(readFileSync(indexPath, 'utf8'));
 index.imageWorld.referencePromptFile = '04-visuals/01-BILDPROMPTS/bildwelt.txt';
 index.imageWorld.primaryApprovedStyleAnchor = 'finanzneo-premium-physical-editorial-v8';
-index.imageWorld.engineRouting = 'precision-first-remotion-physical-editorial-flow';
+index.imageWorld.flowVisualModes = ['grounded-scene', 'simple-explainer'];
 index.thumbnail.planFile = '04-visuals/01-BILDPROMPTS/thumbnail-prompt.txt';
 for (const visual of index.visuals ?? []) {
   const newImagePrompt = `04-visuals/01-BILDPROMPTS/${visual.id}/bildprompt.txt`;
@@ -85,10 +83,10 @@ const readmePath = resolve(projectRoot, 'README.md');
 const readme = readFileSync(readmePath, 'utf8');
 writeFileSync(
   readmePath,
-  `${readme.trim()}\n\n## Google Flow — Nutzerübergabe\n\nDer Nutzer kopiert **nur eine einzige Datei** vollständig in den Google-Flow-Agenten:\n\n\`04-visuals/01-BILDPROMPTS/GOOGLE-FLOW-PROMPT.txt\`\n\nAlle Bildprompt-Dateien liegen im selben Ordnerbereich. Präzise Zahlen-, Chart-, Checklist-, UI-, Quote- und Timeline-Visuals werden bevorzugt in Remotion/SVG/React gebaut statt als künstliche Flow-Infografik. \`EINZELNE-VISUALS/\` enthält dadurch primär Motion-/Datenquellen statt verstreuter Bildprompts.\n`,
+  `${readme.trim()}\n\n## Google Flow — genau eine Datei kopieren\n\nKopiere **genau diese Datei vollständig und 1:1** in den Google-Flow-Agenten:\n\n\`04-visuals/alle-bildprompts.txt\`\n\nDiese Datei ist immer der vollständige ausführbare Master-Prompt. Sie darf niemals durch einen Hinweis, Redirect oder Platzhalter ersetzt werden. Interne Stil-/Thumbnail-/Einzelpromptquellen liegen gesammelt unter \`04-visuals/01-BILDPROMPTS/\`.\n`,
 );
 
-console.log('✓ Google Flow: Master-Prompt liegt in 04-visuals/01-BILDPROMPTS/GOOGLE-FLOW-PROMPT.txt');
-console.log('✓ Alle Bildprompt-Quellen wurden unter 04-visuals/01-BILDPROMPTS/ konsolidiert.');
-console.log('✓ Routing: precision-first Remotion · physical/editorial Google Flow.');
-console.log('✓ Bildwelt: Premium Physical Editorial V8 ist primärer Flow-Stilanker.');
+console.log('✓ Google Flow: vollständiger Nutzer-Master-Prompt = 04-visuals/alle-bildprompts.txt');
+console.log('✓ Kein Redirect/Stub: die Datei enthält die tatsächlichen ausführbaren Bildjobs.');
+console.log('✓ Interne Promptquellen liegen gesammelt unter 04-visuals/01-BILDPROMPTS/.');
+console.log('✓ Bildwelt: Grounded Scene + Simple Explainer in derselben FinanzNeo-Welt.');
