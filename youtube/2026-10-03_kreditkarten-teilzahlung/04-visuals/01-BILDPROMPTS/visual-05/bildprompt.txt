@@ -9,17 +9,25 @@ GENERATED_IMAGE_ASPECT_RATIO: 16:9
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
 SOURCE_VISUAL_LANGUAGE: finanzneo-stylized-3d-animated-black-v9
 PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
-VISUAL_MODE: SIMPLE EXPLAINER
+FLOW_IMAGE_POLICY: scene-first-no-infographic-v1
+PRECISION_GRAPHICS_OWNER: REMOTION
 
-VISUAL_FORM: comparison editorial
-VISUAL_CONCEPT: Zwölf Monatsraten ergeben sichtbar 1.200 € gezahlt, während 1.069,72 € Restschuld weiterhin offen sind.
-VOICEOVER_VISUAL_MATCH: Macht den Zwischenstand nach zwölf Monaten sofort verständlich: viel gezahlt, trotzdem noch hohe Restschuld.
-FRONT_READABILITY_TEST: PASS — die zwei Kernwerte dominieren den Frame und sind frontal lesbar.
-DATA_INTEGRITY_TEST: PASS — 12 × 100 € = 1.200 €; Modell-Restschuld nach Monat 12 = 1.069,72 €.
+VISUAL_FORM: grounded-scene
+VISUAL_CONCEPT: Viele Monatsabrechnungen und geleistete Zahlungen liegen sichtbar hinter dem Nutzer, aber eine weiterhin große offene Restschuld bleibt als reale Abrechnung im Vordergrund bestehen.
+VOICEOVER_VISUAL_MATCH: Der Zuschauer sieht ohne Zahlenlayout sofort den Widerspruch: viele Monate gezahlt, trotzdem noch deutlich offene Schuld.
+FRONT_READABILITY_TEST: PASS — eine zusammenhängende physische Szene mit klarer Tiefenhierarchie statt Progress-Bar oder Infografik.
+DATA_INTEGRITY_TEST: not-applicable-in-flow — exakte Werte werden später in Remotion eingeblendet.
 
 IMAGE PROMPT:
-Generate exactly one horizontal 16:9 FinanzNeo SIMPLE EXPLAINER image. Create a clean front-facing full-frame composition that communicates twelve monthly payments without making twelve floating cards. Use one continuous monthly rhythm or progress structure spanning a large part of the frame, with twelve clearly readable month marks or repeated payment beats. Make the central takeaway visually dominant: “1.200 € GEZAHLT” in warm ivory/emerald-neutral treatment versus “1.069,72 € OFFEN” in warm red-orange. The two totals should be much more prominent than the month markers.
+Create exactly one horizontal 16:9 FinanzNeo GROUNDED SCENE in premium stylized 3D animation-film rendering. Build one coherent real-world credit-card billing scene, not an infographic.
 
-Keep the same FinanzNeo world: deep seamless black/charcoal-green background, premium editorial rendering, subtle 2.5D depth, controlled studio light, soft shadows and clean typography. Do NOT create twelve thick tiles, plaques, floating mini-cards, a spreadsheet, dashboard or PowerPoint grid. Do NOT turn the remaining debt into a chunky red block. No extra numbers. No photorealism, no gold-luxury look, no childish toy/clay style.
+In the foreground, show one substantial current monthly credit-card statement as the dominant hero object, still visibly carrying an unresolved balance area marked only by a restrained warm red-orange visual accent — no exact amount and no readable long text. Behind it, create a believable physical paper trail / layered stack of previous monthly statements and payment receipts, enough to communicate many repeated months of paying. A single unbranded credit card may partially overlap the paper trail to tie the scene clearly to the topic.
 
-If the result looks like a wall of small cards instead of one clear explanation, it is a FAIL and must be regenerated under the same image number.
+The scene should feel like a premium editorial 3D still: medium-close gentle 3/4 camera, believable paper thickness, refined card material, soft folds/edges, purposeful overlap, strong soft contact shadows, ambient occlusion, soft cinematic key light, restrained emerald rim separation, deep seamless black/charcoal-green environment. Let the paper trail create depth from foreground into midground instead of becoming a flat row or progress bar.
+
+Do NOT render the values 1.200 €, 1.069,72 €, month numbers or any chart. Remotion owns those precision overlays later.
+Do NOT render a FinanzNeo logo, watermark or channel name.
+Do NOT create a progress bar, 12 boxes, 12 cards, dashboard, timeline UI, checklist, poster, slide, infographic, spreadsheet, floating tiles, thick value plaques, tiny diorama, sterile product shot or photorealistic office photo.
+
+QUALITY TEST:
+If the image could be mistaken for a social-media finance graphic after removing the objects, FAIL. It must read as one believable stylized 3D scene first.
