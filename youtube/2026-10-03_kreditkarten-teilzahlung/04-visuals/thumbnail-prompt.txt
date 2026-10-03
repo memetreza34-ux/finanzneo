@@ -5,30 +5,30 @@ Diese Datei bleibt nur als interne Produktions-/Validatorquelle erhalten.
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
 YOUTUBE THUMBNAIL PHASE — THREE SEPARATE JOBS IN PARALLEL
 
-Create exactly three separate 16:9 thumbnail candidates A, B and C as three concurrent one-image jobs. All three use the written finanzneo-youtube-v9-front-readable-v2 world directly. No candidate is a style reference for another image.
+APPROVED_YOUTUBE_ANCHOR: finanzneo-youtube-grounded-3d-black-v1
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+
+Create exactly three separate 16:9 thumbnail candidates A, B and C as three concurrent one-image jobs. All three must use the approved FinanzNeo grounded stylized-3D black world directly. No candidate is a style reference for another image.
+
+MANDATORY STYLE SUFFIX FOR EACH THUMBNAIL JOB:
+Render inside the approved FinanzNeo grounded stylized-3D black world: premium animation-film 3D, tangible physical objects with believable proportions, semi-realistic stylized materials, visible thickness, real depth, soft premium studio lighting, readable highlights, soft contact shadows and subtle grounded reflections on a deep seamless black world. Emerald is positive/solution, warm red-orange is cost/risk/debt, ivory/soft gray neutral, gold only a small value accent. NEVER render as a flat infographic, presentation slide, stock icon, screenshot, dashboard card, Canva graphic or plain colored rectangles with text. A black background by itself does not satisfy the style.
 
 TEXT RULE: visible German hook text required, max 2 lines, ideally 2–5 words. Clean front-facing ivory typography. Red-orange may emphasize risk. Never giant metallic gold text.
 
 THUMBNAIL A — Hook text: TEURE TEILZAHLUNG
-Visual: one premium stylized credit card in front view, a clean red-orange debt strip visibly extending behind it, small white 2.000 € label, no brand logo.
+Visual: one large tangible premium stylized-3D credit card in front-readable view with visible physical thickness and material response. A grounded warm red-orange debt ribbon/track extends behind it. Small ivory physical label/plaque: 2.000 €. Real contact shadows and studio light. No flat card graphic.
 
 THUMBNAIL B — Hook text: 2.000 € → 2.368 €
-Visual: left side clean card with 2.000 €, right side total 2.368 €, red-orange 368 € ZINSEN between them; strong readable contrast, no decorative coin piles.
+Visual: grounded stylized-3D before/after comparison. Left: tangible card and ivory 2.000 € plaque. Right: physical 2.368 € plaque. Between them: restrained warm red-orange physical 368 € ZINSEN marker. Same materials, depth, studio light and contact shadows. No flat infographic blocks.
 
 THUMBNAIL C — Hook text: DIE KLEINE RATE
-Visual: large 100 € monthly payment entering a card statement while a red-orange ZINSEN layer visibly absorbs part of it; clear cause-and-effect.
+Visual: tangible stylized-3D 100 € payment card/token physically approaches a credit-card statement object. A warm red-orange ZINSEN layer physically intercepts part of the payment before the remainder reaches the debt. Clear depth, thickness, studio light and contact shadows. No flowchart or flat UI.
 
 Temporary names: YouTube Thumbnail A.png, YouTube Thumbnail B.png, YouTube Thumbnail C.png. After user choice rename only the winner to YouTube Thumbnail - Kreditkarten Teilzahlung.png. The selected thumbnail is not a style reference for scene images.
 
 FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
-YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
 
-FORM FREE — WORLD FIXED. Premium stylized 3D animated-film / high-end illustration, deep seamless black world, refined materials, clean studio lighting, readable contact shadows, emerald for positive or solved states, warm red-orange for cost or risk, ivory and soft gray neutral, gold only as a small money/value accent. Never photorealistic, never generic corporate 3D, never a gold-luxury AI-finance look.
-
-DEFAULT CAMERA: front-facing or near-front, eye-level, level horizon, natural perspective. Charts and diagrams are mandatory straight-on front view with undistorted axes, labels and proportions.
-
-ANTI-DRIFT: no giant gold percentage statues, trophy plinths, glossy luxury pedestals, generic glass money jars, decorative coin mountains, abstract finance machines, dashboards, PowerPoint or Excel default charts, or text-heavy social cards unless the exact content genuinely requires it.
-
-horizontal 16:9 source image. Important subjects large enough for TV, laptop and mobile. Use one clear idea. Short German object labels only when useful.
+DEFAULT CAMERA: front-facing or near-front, eye-level, level horizon, natural perspective.
+horizontal 16:9 source image. Important subjects large enough for TV, laptop and mobile.
