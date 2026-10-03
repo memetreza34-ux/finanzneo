@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import {existsSync, readFileSync, renameSync, writeFileSync} from 'node:fs';
+import {existsSync, readFileSync, readdirSync, renameSync, writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 
@@ -44,6 +44,27 @@ const expandedVisualForms = masterPrompt.replace(
 );
 writeFileSync(masterPromptPath, `${visualWorldLock}\n\n${simpleVisualForms}\n\n${expandedVisualForms}`);
 
+// Make the same grounded-3D authority visible in every internal prompt source too.
+const imageWorldPath = resolve(projectRoot, '04-visuals/bildwelt.txt');
+writeFileSync(imageWorldPath, `FINANZNEO YOUTUBE IMAGE WORLD\n\n${visualWorldLock}\n\n${simpleVisualForms}`);
+
+const thumbnailPromptPath = resolve(projectRoot, '04-visuals/thumbnail-prompt.txt');
+if (existsSync(thumbnailPromptPath)) {
+  const existing = readFileSync(thumbnailPromptPath, 'utf8');
+  writeFileSync(thumbnailPromptPath, `${visualWorldLock}\n\n${existing}`);
+}
+
+const visualsRoot = resolve(projectRoot, '04-visuals/EINZELNE-VISUALS');
+if (existsSync(visualsRoot)) {
+  for (const entry of readdirSync(visualsRoot, {withFileTypes:true})) {
+    if (!entry.isDirectory()) continue;
+    const imagePromptPath = resolve(visualsRoot, entry.name, 'bildprompt.txt');
+    if (!existsSync(imagePromptPath)) continue;
+    const existing = readFileSync(imagePromptPath, 'utf8');
+    writeFileSync(imagePromptPath, `${visualWorldLock}\n\n${existing}`);
+  }
+}
+
 const readmePath = resolve(projectRoot, 'README.md');
 const readme = readFileSync(readmePath, 'utf8');
 writeFileSync(
@@ -53,4 +74,5 @@ writeFileSync(
 
 console.log('✓ Google Flow: genau ein nutzerseitiger Master-Prompt erzeugt: GOOGLE-FLOW-PROMPT.txt');
 console.log('✓ Bildwelt: approved grounded stylized-3D black world ist harte Style-Autorität.');
+console.log('✓ Style-Lock wurde zusätzlich in bildwelt.txt, thumbnail-prompt.txt und alle Bildprompt-Quellen geschrieben.');
 console.log('✓ Visualformen: simpel oder komplex erlaubt; flache Infografik-/Slide-Drift ist verboten.');
