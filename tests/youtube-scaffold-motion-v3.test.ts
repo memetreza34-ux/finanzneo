@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 
-test('YouTube-Ersteller erzeugt Motion V3, V8-anchored V9 und einen Flow-Master-Prompt im Bildprompt-Ordner', () => {
+test('YouTube-Ersteller erzeugt Motion V3, V8-anchored V9 und konsolidierte Bildprompts', () => {
   const target = `youtube/.tmp-motion-v3-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
@@ -15,7 +15,10 @@ test('YouTube-Ersteller erzeugt Motion V3, V8-anchored V9 und einen Flow-Master-
       '--types', 'image,hybrid,animation,data',
     ], {encoding:'utf8'});
     assert.equal(run.status, 0, run.stderr || run.stdout);
-    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/bildprompt.txt')), true);
+
+    assert.equal(existsSync(resolve(absolute, '04-visuals/01-BILDPROMPTS/visual-01/bildprompt.txt')), true);
+    assert.equal(existsSync(resolve(absolute, '04-visuals/01-BILDPROMPTS/visual-02/bildprompt.txt')), true);
+    assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/bildprompt.txt')), false);
     assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-02/animation.tsx')), true);
     assert.equal(existsSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-04/data-notes.md')), true);
 
@@ -23,6 +26,10 @@ test('YouTube-Ersteller erzeugt Motion V3, V8-anchored V9 und einen Flow-Master-
     assert.equal(index.version, 3);
     assert.equal(index.fixedVisualCount, false);
     assert.equal(index.fixedImageAnimationRatio, false);
+    assert.equal(index.imageWorld.primaryApprovedStyleAnchor, 'finanzneo-premium-physical-editorial-v8');
+    assert.equal(index.imageWorld.engineRouting, 'precision-first-remotion-physical-editorial-flow');
+    assert.equal(index.imageWorld.referencePromptFile, '04-visuals/01-BILDPROMPTS/bildwelt.txt');
+    assert.equal(index.thumbnail.planFile, '04-visuals/01-BILDPROMPTS/thumbnail-prompt.txt');
     assert.equal(index.motionStandard.id, 'finanzneo-youtube-motion-v3');
     assert.equal(index.motionStandard.viewerChangeFirstRequired, true);
     assert.equal(index.motionStandard.contentFirstTechniqueSelection, true);
@@ -31,6 +38,8 @@ test('YouTube-Ersteller erzeugt Motion V3, V8-anchored V9 und einen Flow-Master-
     assert.equal(index.motionStandard.motionSignatureRequired, true);
     assert.equal(index.motionStandard.recentMotionWindow, 4);
     assert.deepEqual(index.visuals.map((visual: {type:string}) => visual.type), ['image','hybrid','animation','data']);
+    assert.equal(index.visuals[0].planFile, '04-visuals/01-BILDPROMPTS/visual-01/bildprompt.txt');
+    assert.equal(index.visuals[1].imagePlanFile, '04-visuals/01-BILDPROMPTS/visual-02/bildprompt.txt');
 
     const hybrid = index.visuals[1];
     assert.equal(typeof hybrid.viewerChange, 'string');
@@ -42,12 +51,12 @@ test('YouTube-Ersteller erzeugt Motion V3, V8-anchored V9 und einen Flow-Master-
     assert.match(remotionPlan, /Viewer Change/);
     assert.match(remotionPlan, /Composition Family: \[FREE DESCRIPTIVE FAMILY/);
 
-    const prompt = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt'), 'utf8');
+    const prompt = readFileSync(resolve(absolute, '04-visuals/01-BILDPROMPTS/visual-01/bildprompt.txt'), 'utf8');
     assert.match(prompt, /finanzneo-premium-physical-editorial-v8/);
-    assert.match(prompt, /precision-first|REMOTION \/ SVG \/ REACT/i);
+    assert.match(prompt, /REMOTION \/ SVG \/ REACT/i);
     assert.match(prompt, /45–65 %/);
 
-    const imageWorld = readFileSync(resolve(absolute, '04-visuals/bildwelt.txt'), 'utf8');
+    const imageWorld = readFileSync(resolve(absolute, '04-visuals/01-BILDPROMPTS/bildwelt.txt'), 'utf8');
     assert.match(imageWorld, /finanzneo-premium-physical-editorial-v8/);
     assert.match(imageWorld, /REMOTION \/ SVG \/ REACT/);
 
@@ -61,6 +70,8 @@ test('YouTube-Ersteller erzeugt Motion V3, V8-anchored V9 und einen Flow-Master-
     assert.match(flow, /REMOTION \/ SVG \/ REACT/);
     assert.equal(existsSync(resolve(absolute, 'GOOGLE-FLOW-PROMPT.txt')), false);
     assert.equal(existsSync(resolve(absolute, '04-visuals/alle-bildprompts.txt')), false);
+    assert.equal(existsSync(resolve(absolute, '04-visuals/bildwelt.txt')), false);
+    assert.equal(existsSync(resolve(absolute, '04-visuals/thumbnail-prompt.txt')), false);
 
     const readme = readFileSync(resolve(absolute, 'README.md'), 'utf8');
     assert.match(readme, /nur eine einzige Datei/);
