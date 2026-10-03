@@ -53,11 +53,17 @@ test('YouTube-Ersteller erzeugt Motion V3, V9 und genau einen nutzerseitigen Flo
     assert.match(flow, /THUMBNAIL_CONCURRENCY: 3/);
     assert.match(flow, /IMAGE_BATCH_SIZE: 5/);
     assert.match(flow, /IMAGE_CONCURRENCY: 5/);
+    assert.match(flow, /SIMPLE EXPLAINER FORMS/);
+    assert.match(flow, /SYMBOL \/ ICON FOCUS/);
+    assert.match(flow, /NUMBER FOCUS/);
+    assert.match(flow, /UI \/ APP MOCKUP/);
+    assert.match(flow, /QUOTE \/ KEY STATEMENT CARD/);
     assert.equal(existsSync(resolve(absolute, '04-visuals/alle-bildprompts.txt')), false);
 
     const readme = readFileSync(resolve(absolute, 'README.md'), 'utf8');
     assert.match(readme, /nur eine einzige Datei/);
     assert.match(readme, /GOOGLE-FLOW-PROMPT\.txt/);
+    assert.match(readme, /Symbol-, Zahl-, Chart-, UI-, Metapher-/);
   } finally {
     rmSync(absolute, {recursive:true, force:true});
   }
