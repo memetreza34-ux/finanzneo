@@ -11,7 +11,22 @@ CORE
 This is the horizontal YouTube version of the established FinanzNeo V9 world. Keep the same premium stylized 3D animated-film DNA, deep seamless black stage, refined materials, readable contact shadows, soft cinematic studio light and restrained semantic accent colors. Never invent a separate thumbnail world or chart world.
 
 FORM FREE — WORLD FIXED
-Choose the clearest form for the spoken point: character scene, object scene, comparison, chart, diagram, editorial, illustration, metaphor or hybrid. Do not force a person, money stack, jar, folder or metaphor into every beat. One clear idea beats decorative complexity.
+Choose the clearest form for the spoken point. The world stays consistent, but the visual form may change radically from beat to beat. Allowed forms include character scene, object scene, comparison, chart, diagram, editorial, illustration, metaphor, hybrid, symbol/icon focus, single-number focus, simple route/goal visual, clean UI/app mockup, asset/object group, concept cluster around one central object and short quote/key-statement card when the exact wording itself is the content.
+
+Do not force a person, money stack, jar, folder, complex 3D set or cinematic scene into every beat. A single strong symbol, a big number, one clean chart or one short statement can be the entire frame when that explains the point faster. One clear idea beats decorative complexity.
+
+SIMPLE EXPLAINER FORMS
+Simple is allowed and often preferred when it improves comprehension.
+- SYMBOL / ICON FOCUS: one large content-specific symbol or object can carry the whole frame.
+- NUMBER FOCUS: one important amount, percentage, date or target can dominate the composition. It must remain clean and semantic, never a generic giant gold 3D number.
+- SIMPLE CHART: a clean bar, line, area or comparison chart may fill the frame if the data is the point.
+- ROUTE / GOAL / METAPHOR: simple target, path, mountain, bank, house, vehicle or other concrete metaphor is allowed when it directly maps to the spoken idea.
+- UI / APP MOCKUP: a clean fictional interface may be the main composition when the spoken point is specifically about an app, setting, account view or transaction flow. Keep it straight-on, readable and unbranded.
+- ASSET / OBJECT GROUP: a small set of concrete assets or objects may illustrate categories, wealth, choices or trade-offs without needing a full scene.
+- CONCEPT CLUSTER: a central object with a small number of surrounding keywords or factors is allowed when relationships are the point.
+- QUOTE / KEY STATEMENT CARD: a short sourced quote or a short verified key statement may be shown typographically when the wording itself matters. Keep it brief, readable and visually restrained; no paragraph-heavy slide.
+
+These simple forms must still look intentionally designed in FinanzNeo V9. Do not imitate flat stock clipart, generic presentation templates or random icon packs. Use the same semantic colors, material cues, spacing discipline and premium finish as the rest of the series.
 
 DEFAULT CAMERA
 - normal front-facing or near-front eye-level view is the default
@@ -59,26 +74,26 @@ MATERIAL + LIGHT
 Premium stylized animation-film materials: refined rounded geometry where appropriate, believable paper/plastic/metal/glass cues, controlled surface detail, soft studio key light, subtle rim separation, readable contact shadows. Never photorealistic, never toy-like, never generic corporate stock 3D.
 
 READABILITY
-Important objects large. The main message must read quickly on TV, laptop and mobile. Avoid tiny dioramas, overly wide empty compositions and clutter. The still frame must work without motion first.
+Important objects large. The main message must read quickly on TV, laptop and mobile. Avoid tiny dioramas, overly wide empty compositions and clutter. Deliberate negative space is allowed when it strengthens one clear symbol, number, chart, quote or object. The still frame must work without motion first.
 
 TEXT IN SCENE IMAGES
-Short German object labels only when they remove ambiguity. No paragraphs, subtitles, CTA or random words. Thumbnail text follows the dedicated thumbnail rule above.
+Short German object labels only when they remove ambiguity. A short key statement or sourced quote card is allowed only when the wording itself is the content. No paragraphs, subtitles, CTA or random words. Thumbnail text follows the dedicated thumbnail rule above.
 
 ANTI-DRIFT / FORBIDDEN
 - photorealism
 - corporate stock 3D people
 - PowerPoint/Excel default styling
-- dashboard/app UI as main composition
+- generic dashboard/app UI used decoratively; content-specific UI mockups are allowed
 - giant gold 3D numbers or percent signs as generic hero motif
 - glossy trophy/plinth presentation
 - repeated glass jars, coin piles, money stacks or folders without content reason
 - abstract finance machines, clamps or unexplained value geometry
 - diagonal/tilted chart presentation
-- text-heavy social template
+- generic text-heavy social template; short quote/key-statement cards are allowed when content-driven
 - clutter
 
 QUALITY GATE
-Reject and regenerate if the image is visually impressive but not clearly FinanzNeo V9, if it feels like generic AI-finance art, if a chart is tilted, if gold dominates, if the subject is decorative rather than explanatory, or if the spoken point is not immediately recognizable.
+Reject and regenerate if the image is visually impressive but not clearly FinanzNeo V9, if it feels like generic AI-finance art, if a chart is tilted, if gold dominates, if the subject is decorative rather than explanatory, if a simple visual looks like cheap stock clipart, or if the spoken point is not immediately recognizable.
 
 GOOGLE FLOW
 Thumbnail phase: exactly 3 separate thumbnail jobs in parallel.
