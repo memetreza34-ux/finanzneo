@@ -18,6 +18,31 @@
 
 Erlaubt sind Bilder, Animationen, Hybride und Datenvisualisierungen. Für jeden Sprechbeat wird die stärkste Darstellungsform gewählt. Menschen sind optional. Objekte, Vergleiche, echte Charts, Diagramme, Editorials, Illustrationen und klare Metaphern sind erlaubt.
 
+### Einfache Erklärvisuals sind ausdrücklich erlaubt
+
+Nicht jeder Beat braucht eine komplexe 3D-Szene. Wenn der Inhalt schneller verständlich wird, darf ein einzelnes einfaches Visual den ganzen Frame tragen — aber weiterhin in derselben FinanzNeo-V9-Bildwelt.
+
+Erlaubte Formen sind insbesondere:
+
+- **Symbol-/Icon-Fokus:** ein großes inhaltsspezifisches Symbol oder Objekt
+- **Zahl-Fokus:** ein zentraler Betrag, Prozentsatz, Zeitpunkt oder Zielwert
+- **einfacher Chart:** Balken-, Linien-, Flächen- oder Vergleichsdiagramm
+- **Weg/Ziel/Metapher:** z. B. Zielscheibe, Bergpfad, Bank, Haus oder anderes klar passendes Motiv
+- **UI-/App-Mockup:** frontal und unbranded, wenn die Aussage wirklich eine Einstellung, App-Ansicht oder Transaktion erklärt
+- **Asset-/Objektgruppe:** wenige konkrete Objekte zur Darstellung von Kategorien, Vermögen, Auswahl oder Trade-offs
+- **Konzept-Cluster:** ein zentrales Objekt mit wenigen umliegenden Begriffen/Faktoren
+- **Zitat-/Key-Statement-Karte:** nur kurz und nur wenn die exakte Aussage selbst der Inhalt ist
+- **klassische Story-/Objektszene, Vergleich, Editorial, Illustration, Metapher oder Hybrid**
+
+Wichtig: **einfach bedeutet nicht billig**. Keine zufälligen Stock-Icons, keine generischen Präsentationsvorlagen und keine uneinheitlichen Fremdstile. Auch reduzierte Visuals müssen dieselbe Farbsemantik, Materialanmutung, Typografie-Disziplin und Premium-Wirkung wie FinanzNeo V9 haben.
+
+### Auswahlregel pro Beat
+
+1. Was muss der Zuschauer in diesem Moment verstehen?
+2. Welche **einfachste** visuelle Form erklärt genau das am schnellsten?
+3. Erst wenn ein simples Symbol, eine Zahl, ein Chart oder eine klare Metapher nicht reicht, wird die Szene komplexer.
+4. Keine Komplexität nur zur Dekoration.
+
 ### Animationen sind Pflicht
 
 Ein normales YouTube-Projekt darf keine reine Slideshow sein. Es braucht **mindestens zwei echte Motion-/Animationsvisuals**. Das ist eine Mindestanforderung, keine Zielquote. Mehr Motion wird nur eingesetzt, wenn sie tatsächlich etwas erklärt.
@@ -38,6 +63,7 @@ Verbindlich:
 - Premium stylized 3D animated-film / hochwertige Illustration
 - Deep Black dominant
 - Emerald positiv, Red-Orange Risiko/Kosten, Ivory/Grau neutral, Gold nur als kleiner Geld-/Wert-Akzent
+- reduzierte Symbol-, Zahlen-, Chart-, UI-, Metapher- und Statement-Visuals sind Teil derselben Welt
 - kein Fotorealismus
 - kein Corporate-Stock-Look
 - keine generische Gold-Luxus-KI-Finanzwelt
@@ -60,6 +86,15 @@ Charts/Diagramme bleiben echte Charts und werden **frontal** gezeigt:
 - Skalen, Werte, Labels und Proportionen korrekt
 - Kreisdiagramme mit korrekten Segmenten
 - V9-Material/Licht darf hochwertig sein, aber die Datenlesbarkeit gewinnt immer
+
+### UI, Text und Quote Cards
+
+- UI-Mockups nur dann, wenn die UI selbst etwas erklärt; keine generischen Dashboards als Dekoration
+- frontal, unbranded und groß lesbar
+- normale Szenenbilder bleiben textarm
+- kurze Begriffe oder Labels sind erlaubt
+- eine kurze Quote-/Key-Statement-Karte ist erlaubt, wenn genau diese Aussage der Inhalt des Beats ist
+- keine langen Absätze oder Social-Media-Template-Optik
 
 ## Google Flow — Thumbnail 3 parallel, Bilder 5 parallel
 
