@@ -1,0 +1,27 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+ONE JOB = ONE IMAGE
+
+FINAL FILE NAME:
+YouTube Bild 01 - Karte und Monatsabrechnung.png
+
+VISUAL_FORM: physical-editorial-object-story
+VISUAL_CONCEPT: Eine große physische Kreditkarte liegt teilweise auf einer hochwertigen Monatsabrechnung; die Abrechnung macht Vollzahlung und Teilzahlung als reale Dokumentoptionen sichtbar.
+VOICEOVER_VISUAL_MATCH: Zeigt sofort, dass dieselbe Kreditkarte unterschiedlich abgerechnet werden kann.
+FRONT_READABILITY_TEST: PASS — Hauptobjekte sind groß, nah und innerhalb von 1–2 Sekunden verständlich.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create exactly one horizontal 16:9 premium FinanzNeo physical-editorial scene. Use ONE dominant unbranded credit card as the hero object, occupying roughly 45–60% of the useful frame, medium-close gentle 3/4 camera. The card physically overlaps a substantial warm-ivory monthly statement made from thick premium paper. On the statement, show only two short printed German options: “Vollzahlung” and “Teilzahlung”. “Teilzahlung” has one restrained warm red-orange printed/stamped emphasis; “Vollzahlung” remains neutral ivory/charcoal. Make the objects feel weighty and tangible with visible thickness, soft bevels, paper texture, premium polymer/metal material cues, clear contact shadows and slight overlap. Add only minimal local desk/document context if it helps grounding, fading into one seamless deep charcoal green-black environment. The scene must look like a polished adult 3D financial editorial illustration, not a UI, not a settings panel and not separate floating cards. Main idea readable without relying on text.
+
+PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8
+GROUNDING_REFERENCE: finanzneo-youtube-grounded-3d-black-v1
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+
+MANDATORY STYLE:
+Premium stylized adult 3D animation-film/editorial rendering; ONE dominant physical hero; hero about 45–65% of useful frame; medium-close camera; clear foreground/hero depth; substantial physical thickness and weight; soft cinematic key light from upper front-left; controlled emerald rim separation; readable shadow-side fill; strong soft contact shadows; restrained reflections; deep charcoal green-black seamless world with subtle tonal depth. Dark emerald/charcoal structure, warm ivory neutral surfaces, red-orange only for risk/debt, gold only as a small value accent.
+
+HARD FAIL:
+Reject and regenerate if the hero is small, if the frame is mostly empty black, if objects look like floating tiles/cards, if it resembles a dashboard/control panel/UI, if it is a sterile product shot, if it uses a tiny isometric/diorama camera, if it looks like Canva/PowerPoint/stock vector art, if objects are weightless or lack contact shadows, or if correct colors are present but the premium physical-editorial composition is missing.

@@ -1,116 +1,223 @@
 # FinanzNeo — YouTube-Longform-Produktionsstandard V4
 
-> Für neue FinanzNeo-Videos ist dies der aktive Produktionsstandard. Bei Konflikten gilt zusätzlich `CLAUDE.md`. Neue Reels sind pausiert; YouTube Shorts sind verboten.
+> Aktiver Standard für neue FinanzNeo-YouTube-Videos. Bei Konflikten gilt zusätzlich `CLAUDE.md`. Neue Reels sind pausiert; YouTube Shorts sind verboten.
 
 ## Format
 
-- eigenständiges YouTube-Longform-Video, kein verlängertes Reel
+- eigenständiges YouTube-Longform-Video
 - 1920 × 1080, horizontal 16:9, 30 fps
 - Länge folgt dem Thema
 - Hook ohne langes Intro
-- Kapitel mit klaren Zwischenzielen und Payoffs
 - einfache Sprache für Finanzanfänger
 - Daten, Annahmen und Rechenwege prüfbar
 
-## Visualplanung
+## Grundprinzip
 
-`FORM FREI — BILDWELT FEST`
+`FORM FREI — BILDWELT FEST — ENGINE PASSEND`
 
-Erlaubt sind Bilder, Animationen, Hybride und Datenvisualisierungen. Für jeden Sprechbeat wird die stärkste Darstellungsform gewählt. Menschen sind optional. Objekte, Vergleiche, echte Charts, Diagramme, Editorials, Illustrationen und klare Metaphern sind erlaubt.
+Für jeden Sprechbeat werden **zuerst Aussage und benötigte Präzision**, danach **das richtige Werkzeug** und erst danach die konkrete Gestaltung gewählt.
 
-### Animationen sind Pflicht
+Nicht jeder Beat braucht ein Google-Flow-Bild. Nicht jeder Beat braucht komplexes 3D. Nicht jedes einfache Visual darf künstlich zu einem 3D-Panel gemacht werden.
 
-Ein normales YouTube-Projekt darf keine reine Slideshow sein. Es braucht **mindestens zwei echte Motion-/Animationsvisuals**. Das ist eine Mindestanforderung, keine Zielquote. Mehr Motion wird nur eingesetzt, wenn sie tatsächlich etwas erklärt.
+---
 
-Jede Animation wird bereits in Phase 1 als produktionsreife `animation.tsx` geplant und folgt Motion V3: Viewer Change zuerst, Technik danach. Animation und Bild müssen wie dieselbe FinanzNeo-Serie aussehen.
+# 1. Engine-Routing — verbindlich
 
-## Bildwelt
+## Remotion / SVG / React bevorzugen
+
+Diese Visuals werden standardmäßig **code-basiert** gebaut:
+
+- exakte Zahlen und Rechenaufteilungen
+- Charts, Graphen und Datenverläufe
+- Checklisten
+- UI-/Settings-Ansichten
+- Timelines
+- Quotes / Key Statements
+- text- oder datengetriebene Vergleiche
+- einfache Symbole/Icons, wenn sie sauber in Code darstellbar sind
+- Visuals, bei denen korrekte Typografie/Geometrie wichtiger ist als generierte Materialität
+
+Warum: Zahlen, Text, Achsen und UI-Zustände müssen exakt sein. Google Flow soll dafür keine künstlichen Tiles, Dashboards oder fehlerhaften KI-Texte erzeugen.
+
+## Google Flow verwenden
+
+Flow ist für **physical / editorial / real-life scenes** gedacht:
+
+- greifbare reale Objekte
+- Alltagssituationen
+- physische Ursache/Wirkung
+- dokumentarisch-editoriale Objektmetaphern
+- Szenen, bei denen Materialien, Licht, räumliche Tiefe und echte Gegenstände den Inhalt besser erklären als Code
+
+Beispiele: Kreditkarte + echte Abrechnung, Rechnung + Kostenstempel, Vertrag + konkrete Klausel, Einkauf + Beleg, physische Waage, reale Dokument-/Objektsituation.
+
+## Hybrid
+
+Hybrid nur dann, wenn ein echtes Flow-Quellbild einen klaren Vorteil hat und Remotion danach eine sinnvolle Veränderung darauf ausführt. UI, Charts und reine Zahlengrafiken sind **kein Grund** für Hybrid.
+
+---
+
+# 2. Google-Flow-Bildwelt
 
 `YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2`
+
+Primärer genehmigter Stilanker:
+
+`finanzneo-premium-physical-editorial-v8`
+
+Grounding-Referenz:
+
+`finanzneo-youtube-grounded-3d-black-v1`
 
 Kanonische Datei:
 
 `config/finanzneo-image-worlds/finanzneo-youtube-v9-front-readable-v2.txt`
 
-Verbindlich:
+## Nicht verhandelbare Flow-Komposition
 
-- dieselbe FinanzNeo-V9-DNA wie die guten früheren Bilder
-- Premium stylized 3D animated-film / hochwertige Illustration
-- Deep Black dominant
-- Emerald positiv, Red-Orange Risiko/Kosten, Ivory/Grau neutral, Gold nur als kleiner Geld-/Wert-Akzent
-- kein Fotorealismus
-- kein Corporate-Stock-Look
-- keine generische Gold-Luxus-KI-Finanzwelt
-- keine riesigen goldenen Prozentzeichen, Sockel/Pokale, Glasgefäße, Münzberge oder Geldstapel als wiederkehrender Default
-- kein Cover oder anderes Bild wird Style-Referenz; die schriftliche V9-Welt ist die einzige Style-Autorität
+Jedes normale Flow-Szenenbild braucht:
 
-### Kamera und Darstellung
+1. **ein dominantes physisches Hero-Objekt**, ungefähr 45–65 % der nutzbaren Bildfläche
+2. medium-close, sanfte 3/4-Editorial-Kamera als Standard
+3. höchstens wenige unterstützende Objekte, nur wenn sie die Aussage verbessern
+4. sichtbare Materialstärke, Kanten und Gewicht
+5. klare Vordergrund-/Hero-/Sekundärtiefe
+6. weiche Kontaktschatten und Ambient Occlusion
+7. eine Aussage, die in etwa 1–2 Sekunden verstanden wird
+8. keinen überwiegend leeren schwarzen Frame
 
-Standard ist **normal, frontal bzw. nahe frontal, auf Augenhöhe und mit geradem Horizont**. Milde 3/4-Perspektive nur bei echten Story-Szenen, wenn sie die Handlung klarer macht. Keine schrägen Effekthascherei-Kameras.
+## Material- und Farbwelt
 
-### Charts und Diagramme
+- Premium stylized adult 3D financial editorial
+- Deep charcoal green-black dominant
+- Dark emerald/charcoal für Struktur
+- Warm ivory/cream für neutrale Flächen, Papier und Information
+- Red-orange nur für Risiko, Kosten, Verlust oder Schuld
+- Emerald für positive/Lösungszustände
+- Gold/Brass nur als kleiner Geld-/Wert-Akzent
+- hochwertige Polymer-, Papier-, Metall-, Keramik- oder Glasmaterialien, wenn passend
+- sichtbare Dicke, weiche Bevels, glaubwürdige Reflexionen
+- cinematic soft key light + readable fill + kontrollierte Rim-Separation
 
-Charts/Diagramme bleiben echte Charts und werden **frontal** gezeigt:
+## Flow Hard-Fail
 
-- Kamera gerade vor dem Diagramm
-- keine schräge 3D-Perspektive
-- keine gekippten Ebenen
-- keine verzerrten Achsen
-- X-/Y-Achsen gerade, wenn sie fachlich dazugehören
-- Skalen, Werte, Labels und Proportionen korrekt
-- Kreisdiagramme mit korrekten Segmenten
-- V9-Material/Licht darf hochwertig sein, aber die Datenlesbarkeit gewinnt immer
+Sofort verwerfen und denselben Job neu generieren bei:
 
-## Google Flow — Thumbnail 3 parallel, Bilder 5 parallel
+- kleinem Motiv in riesiger schwarzer Leere
+- mehreren kleinen schwebenden Tiles/Karten/Modulen
+- Dashboard-/Control-Panel-Look
+- Screenshot-/App-UI-Look
+- Flowchart-/Präsentationsfolien-Look
+- steriler Produktaufnahme ohne erklärende Handlung
+- winziger isometrischer/Diorama-Kamera
+- Canva-/PowerPoint-/Stock-Vector-/Icon-Look
+- fehlender Tiefenhierarchie oder fehlenden Kontaktschatten
+- childish clay/toy/Pixar
+- Fotorealismus
+- generischer Gold-Luxus-Finanz-KI
+- richtigen Farben, aber falscher Physical-Editorial-Komposition
+
+---
+
+# 3. Einfache Erklärvisuals
+
+Einfache Visuals sind ausdrücklich erwünscht, wenn sie schneller erklären:
+
+- große Zahl
+- einzelnes Symbol
+- Balken-/Linienchart
+- Zielscheibe / Weg / Berg / Zielmetapher
+- Asset-Gruppe
+- Konzept-Cluster
+- UI-Einstellung
+- kurze Aussage / Quote
+
+**Wichtig:** Einfach bezieht sich auf die **Komposition**, nicht auf ein bestimmtes Generierungswerkzeug.
+
+- Zahl/Chart/UI/Quote/Checklist → meist Remotion
+- physische Objektmetapher / reale Szene → meist Flow
+
+So können Visuals ähnlich klar und reduziert sein wie gute Finance-Erklärkanäle, ohne die FinanzNeo-Identität zu verlieren.
+
+---
+
+# 4. Prompt-Struktur
+
+Alle nutzerseitigen und internen Bildprompt-Dateien liegen unter:
+
+`04-visuals/01-BILDPROMPTS/`
+
+Der Nutzer kopiert ausschließlich:
+
+`04-visuals/01-BILDPROMPTS/GOOGLE-FLOW-PROMPT.txt`
+
+Interne Bildpromptquellen, Bildwelt und Thumbnail-Prompt liegen im selben Ordnerbereich. Bildprompts werden nicht lose im Projekt-Root und nicht zwischen Remotion-Dateien verteilt.
+
+---
+
+# 5. Google Flow — Ausführung
 
 `FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4`
 
-### Phase A — 3 Thumbnail-Kandidaten gleichzeitig
+## Phase A — Cover
 
-1. Exakt drei Kandidaten A/B/C als **drei getrennte Einzelbild-Jobs gleichzeitig** starten.
-2. Jeder Kandidat nutzt direkt `finanzneo-youtube-v9-front-readable-v2`.
-3. Alle drei müssen sichtbar unterschiedliche Kompositionen testen, aber dieselbe Welt behalten.
-4. Jeder Kandidat enthält kurzen deutschen Hook-Text: max. 2 Zeilen, ideal 2–5 Wörter.
-5. Der Text beschreibt den echten Videoinhalt; keine langen Sätze, keine erfundenen Aussagen.
-6. Typografie sauber/front-facing, nicht als riesige goldene 3D-Schrift.
-7. Wenn A/B/C vorhanden sind, genau einmal Nutzerwahl A/B/C.
-8. Gewählten Kandidaten exakt als finales Thumbnail umbenennen; die beiden anderen nicht in den finalen Ordner übernehmen.
-9. Das gewählte Thumbnail ist **keine Style-Vorlage** für die Szenenbilder.
+1. Exakt drei Kandidaten A/B/C als drei getrennte Ein-Bild-Jobs gleichzeitig starten.
+2. Alle nutzen direkt dieselbe V9/V8-anchored Bildwelt.
+3. Unterschiedliche Kompositionen, aber dieselbe Welt.
+4. Kurzer deutscher Hook, maximal 2 Zeilen, ideal 2–5 Wörter.
+5. Alle drei QA-prüfen.
+6. Danach genau einmal A/B/C vom Nutzer wählen lassen.
+7. Nur den Gewinner final übernehmen.
+8. Der Gewinner wird niemals Style-Referenz für Szenenbilder.
 
-### Phase B — Szenenbilder in echten parallelen 5er-Batches
+## Phase B — Szenenbilder
 
-Nach der Thumbnail-Auswahl werden die IMAGE-/HYBRID-Quellbilder in Reihenfolge in Blöcke mit maximal 5 Bildern aufgeteilt.
+Nur Beats, die nach dem Engine-Routing tatsächlich **Flow-Bilder** sind, werden generiert.
 
-Für jeden Block:
+- bis zu fünf getrennte Ein-Bild-Jobs parallel
+- niemals ein Multi-Image-Request
+- jedes Ergebnis sofort exakt umbenennen
+- jedes Ergebnis sofort QA-prüfen
+- bei Fehler nur dieselbe Bildnummer neu generieren
+- nächster Batch erst, wenn der aktuelle Batch vollständig PASS ist
+- keine weitere Nutzerfreigabe zwischen Batches
+- finaler Inventory-QA
 
-1. Bis zu **5 getrennte Einzelbild-Jobs gleichzeitig starten**.
-2. Kein Multi-Image-Prompt und keine Collage: jeder Job enthält genau einen vollständigen Bildprompt und erzeugt genau ein Bild.
-3. Sobald ein Ergebnis zurückkommt: sofort exakt umbenennen, in `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen und QA durchführen.
-4. Fehlerhaftes Bild nur unter derselben Nummer neu erzeugen; korrekte Bilder nicht neu generieren.
-5. Der nächste 5er-Block darf erst starten, wenn **alle Jobs des aktuellen Blocks PASS** haben.
-6. Zwischen Blöcken keine weitere Nutzerfreigabe.
-7. Animations-/Data-Visuals ohne Flow-Quellbild werden übersprungen und behalten ihre Visualnummer.
-8. Am Ende vollständiger Inventory-QA: alle erwarteten Dateien exakt, keine Dubletten, keine fehlenden/falschen Nummern.
+---
 
-Wichtig: 5er-Batch bedeutet **fünf parallele getrennte Ein-Bild-Jobs**, nicht ein Auftrag, der fünf Bilder in einer Ausgabe erzeugt.
-
-## Thumbnail-Qualität
-
-Thumbnail und Szenenbilder gehören in dieselbe V9-Welt. Ein Thumbnail darf auffälliger komponiert sein, aber nicht in einen separaten Stil wechseln. Verwerfen, wenn es wie generische goldene Finanz-KI aussieht, wenn Gold die Welt dominiert, wenn der Text zu lang ist oder wenn Motiv/Text das Thema nicht direkt kommunizieren.
-
-## Motion V3
+# 6. Motion V3
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
 
-- mindestens zwei Motion-Visuals pro Projekt
-- keine feste Obergrenze oder starre Quote
-- Viewer Change zuerst
-- produktionsreife `animation.tsx` in Phase 1
-- Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Datenvisualisierung und Bild+Motion-Hybrid erlaubt
-- bestehende Komponenten nur als Werkzeug, nie als Stilzwang
-- Motion muss dieselbe V9-Material-/Licht-/Farbwelt tragen
+- mindestens zwei echte Motion-/Animationsvisuals pro Projekt
+- keine starre Obergrenze oder Quote
+- Viewer Change zuerst, Technik danach
+- produktionsreife `animation.tsx` bereits in Phase 1
+- Custom React, SVG, CSS 3D, Canvas, Three.js/R3F und Datenvisualisierung erlaubt
+- bestehende Komponenten sind Werkzeuge, keine Stilpflicht
+- Variation muss in echter Kamera/Layout/Transformation bestehen, nicht nur in neuen Namen
+- Motion nutzt dieselbe FinanzNeo-Farb-/Typografie-/Premium-Logik
 
-## Audio und Timing
+Ein normales YouTube-Projekt darf keine reine Slideshow sein.
+
+---
+
+# 7. Kamera für präzise Code-Visuals
+
+Charts, Daten, UI und Typografie bleiben frontal und unverzerrt:
+
+- gerade Achsen
+- korrekte Skalen
+- mathematisch korrekte Werte
+- lesbare Labels
+- keine schrägen Datenebenen
+- keine Perspektivverzerrung, wenn Genauigkeit darunter leidet
+
+Flow-Szenen dürfen dagegen eine sanfte 3/4-Editorial-Kamera verwenden, wenn dadurch physische Tiefe entsteht.
+
+---
+
+# 8. Audio und Timing
 
 - genau ein finales Voiceover in `03-audio/`
 - echte Wort-Zeitstempel
@@ -119,11 +226,15 @@ Thumbnail und Szenenbilder gehören in dieselbe V9-Welt. Ein Thumbnail darf auff
 - Untertitel satzweise; aktives Wort grün, Rest weiß
 - Audioziel ca. -16 LUFS, True Peak max. -1 dBTP
 
-## Publishing
+---
+
+# 9. Publishing
 
 `05-publishing/` enthält Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords/Tags, Hashtags, Thumbnail-Brief, Quellen/Disclaimer, Pinned Comment, Community-Post, Upload-Checkliste und Social-Promo-Texte.
 
-## Startfreigabe
+---
+
+# 10. Startfreigabe
 
 ```bash
 npm run youtube:validate -- youtube/<Projekt>
