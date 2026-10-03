@@ -1,40 +1,49 @@
 {
-  "standardId": "finanzneo-production-2026-09",
+  "standardId": "finanzneo-youtube-longform-v4",
   "status": "active",
-  "scope": "reels",
-  "layout": {
-    "id": "finanzneo-reel-layout-v5",
-    "source": "src/brand/tokens.ts#REEL_STYLE"
-  },
-  "background": {
-    "id": "finanzneo-pure-black-background-v1",
-    "renderMarker": "pure-black-v1",
-    "source": "src/design-system/FinanceBackground.tsx"
+  "scope": "youtube-longform",
+  "activeProductionMode": "youtube-longform-v4",
+  "newReelsPaused": true,
+  "youtubeShortsForbidden": true,
+  "format": {
+    "width": 1920,
+    "height": 1080,
+    "aspectRatio": "16:9",
+    "fps": 30,
+    "source": "youtube/PRODUKTIONSSTANDARD.md"
   },
   "imageWorld": {
-    "id": "finanzneo-stylized-3d-animated-black-v9",
-    "source": "config/finanzneo-image-world-lock.json"
+    "id": "finanzneo-youtube-v9-front-readable-v2",
+    "source": "config/finanzneo-image-worlds/finanzneo-youtube-v9-front-readable-v2.txt"
   },
   "flow": {
-    "id": "finanzneo-flow-strict-single-job-v3",
-    "source": "config/finanzneo-image-world-lock.json#googleFlow"
+    "id": "finanzneo-youtube-cover3-image5-parallel-v4",
+    "thumbnailCandidates": 3,
+    "thumbnailConcurrency": 3,
+    "imageBatchSize": 5,
+    "imageConcurrency": 5,
+    "source": "youtube/PRODUKTIONSSTANDARD.md"
   },
-  "animation": {
-    "id": "finanzneo-phase1-animation-code-v1",
-    "source": "docs/PHASE-1-ANIMATION-CODE-STANDARD.md"
+  "motion": {
+    "id": "finanzneo-youtube-motion-v3",
+    "minimumMotionVisuals": 2,
+    "source": "docs/YOUTUBE-MOTION-V3.md"
   },
   "pipeline": {
-    "id": "finanzneo-three-phase-production-v1",
-    "source": "docs/3-PHASEN-WORKFLOW.md"
+    "id": "finanzneo-youtube-longform-v4",
+    "source": "youtube/PRODUKTIONSSTANDARD.md"
   },
   "productionGate": {
-    "source": "docs/PHASE-3-COMPLETION-GATE.md",
+    "source": "youtube/PRODUKTIONSSTANDARD.md",
     "steps": [
-      "reel:ready",
-      "reel:phase3:preflight",
-      "reel:render",
-      "post-render-qa",
-      "reel:export"
+      "youtube:validate",
+      "youtube:animation:validate",
+      "youtube:phase1:seal",
+      "youtube:ready"
     ]
+  },
+  "legacyReels": {
+    "status": "paused-for-new-production",
+    "source": "reels/PRODUKTIONSSTANDARD.md"
   }
 }
