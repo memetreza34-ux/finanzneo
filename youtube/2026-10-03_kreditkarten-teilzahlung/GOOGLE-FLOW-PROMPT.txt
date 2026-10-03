@@ -16,7 +16,7 @@ PHASE A — COVER
 1. Erzeuge zuerst exakt drei unterschiedliche Cover-Kandidaten A, B und C.
 2. Starte A, B und C gleichzeitig als drei GETRENNTE Ein-Bild-Jobs.
 3. Jeder Job erzeugt exakt EIN horizontales 16:9-Bild. Keine Collage und kein Multi-Image-Request.
-4. Prüfe jedes Ergebnis auf Motiv, Text, Lesbarkeit und FinanzNeo-Bildwelt.
+4. Prüfe jedes Ergebnis auf Motiv, Text, Lesbarkeit UND korrekte FinanzNeo-Bildwelt.
 5. Wenn ein Cover fehlerhaft ist, regeneriere nur diesen Kandidaten.
 6. Sobald A, B und C korrekt vorliegen, zeige/benenne sie eindeutig als A, B und C und frage den Nutzer GENAU EINMAL: „Welches Cover: A, B oder C?“
 7. WARTE dann auf die Auswahl. Vor der Auswahl keine Szenenbilder erzeugen.
@@ -41,7 +41,7 @@ regenerate only that same number
 FINAL_IMAGE_DIRECTORY: 04-visuals/00-ALLE-BILDER-HIER-REIN
 
 ============================================================
-GLOBALE BILDWELT — GILT FÜR JEDEN EINZELNEN JOB
+GLOBALE BILDWELT — HARTE STYLE-AUTORITÄT
 ============================================================
 
 FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
@@ -54,67 +54,80 @@ FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
 FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
 GENERATED_IMAGE_ASPECT_RATIO: 16:9
 YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+APPROVED_YOUTUBE_ANCHOR: finanzneo-youtube-grounded-3d-black-v1
 
-Alle Bilder gehören sichtbar zur exakt gleichen FinanzNeo-Welt:
-- premium stylized 3D animated-film / high-end illustration
-- tiefer nahtloser schwarzer Hintergrund
-- hochwertige Materialien
-- sauberes Studio-Licht
-- klare Kontaktschatten
-- Emerald nur für positive/gelöste Zustände
-- warmes Red-Orange für Risiko/Kosten
-- Ivory und Soft Gray neutral
-- Gold nur als kleiner Geld-/Wert-Akzent, niemals dominante Bildwelt
-- kein Fotorealismus
-- kein Corporate-Stock-3D
-- keine generische Gold-Luxus-KI-Finanzoptik
-- keine riesigen goldenen Prozentzeichen
-- keine Pokale/Sockel als Standardmotiv
-- keine Glasgefäße, dekorativen Münzberge oder generischen Geldstapel
-- keine unnötigen Dashboards oder PowerPoint-/Excel-Optik
+DIE WICHTIGSTE REGEL:
+Der schwarze Hintergrund allein ist NICHT unsere Bildwelt. Unsere Bildwelt ist die bereits genehmigte FinanzNeo grounded stylized-3D black world.
 
-============================================================
-VISUELLE FORMEN — EINFACH DARF BESSER SEIN
-============================================================
+JEDER EINZELNE GENERIERUNGSJOB MUSS DIESE EIGENSCHAFTEN SICHTBAR HABEN:
+- premium clearly stylized 3D animation-film rendering
+- tangible real physical objects, not flat infographic shapes
+- believable proportions
+- semi-realistic but stylized paper/plastic/metal/glass material cues
+- physical thickness on cards, documents, panels and tiles where appropriate
+- real spatial depth
+- soft premium studio key light
+- readable highlights and rim separation
+- soft contact shadows that physically ground objects
+- restrained grounded reflections where useful
+- deep seamless black dominant world
+- emerald only for positive/solution/value
+- warm red-orange only for cost/risk/debt
+- ivory and soft gray neutral
+- gold only as a small money/value accent
+- never photorealistic
+- never stock-photo
+- never generic corporate 3D
 
-Die Bildwelt bleibt fest, aber die Darstellungsform ist frei. Nicht jeder Beat braucht eine komplexe 3D-Szene. Wähle immer die EINFACHSTE visuelle Form, die die Aussage sofort verständlich macht.
+FORM FREE — WORLD FIXED:
+Die Komposition darf simpel sein. Die Render-Welt darf NICHT wechseln.
+Erlaubt sind Symbol/Object Focus, Number Focus, Simple Chart, Route/Goal Metaphor, UI Example, Asset Group, Concept Cluster, Quote/Key Statement oder komplexere Story-Szene.
 
-Erlaubt und ausdrücklich erwünscht sind:
-- SYMBOL / ICON FOCUS: ein großes inhaltsspezifisches Symbol oder Objekt
-- NUMBER FOCUS: ein zentraler Betrag, Prozentsatz, Zeitpunkt oder Zielwert
-- SIMPLE CHART: sauberer Balken-, Linien-, Flächen- oder Vergleichschart
-- ROUTE / GOAL / METAPHOR: z. B. Zielscheibe, Bergpfad, Bank, Haus oder anderes direkt passendes Motiv
-- UI / APP MOCKUP: frontal, unbranded und nur wenn die Oberfläche selbst etwas erklärt
-- ASSET / OBJECT GROUP: wenige konkrete Objekte für Kategorien, Vermögen, Optionen oder Trade-offs
-- CONCEPT CLUSTER: ein zentrales Objekt mit wenigen umliegenden Begriffen/Faktoren
-- QUOTE / KEY STATEMENT CARD: kurze, überprüfte Aussage, wenn die exakte Formulierung selbst der Inhalt ist
-- klassische Story-/Objektszene, Vergleich, Editorial, Illustration, Metapher oder Hybrid
+Aber:
+- simple symbol = greifbares hochwertiges 3D-Objekt, KEIN flaches Icon
+- simple number = hochwertig integrierte Zahl mit Material/Licht/Tiefe, KEINE Präsentationsfolie
+- simple chart = frontal und mathematisch korrekt, aber mit V9-Material/Licht/Tiefe, KEIN Excel/PowerPoint-Look
+- UI example = physisches hochwertiges Panel/Device/Object mit Tiefe und Schatten, KEIN Screenshot/flat dashboard card
+- labels = sauber frontal, aber auf/mit gestalteten physischen Elementen, NICHT nur farbige Rechtecke mit Text
 
-Ein einzelnes Symbol, eine große Zahl, ein sauberer Chart oder eine kurze Aussage darf den gesamten Frame tragen. Keine künstliche 3D-Komplexität nur zur Dekoration.
-
-EINFACH BEDEUTET NICHT BILLIG:
-- keine zufälligen Stock-Icons
-- keine generischen Präsentationsvorlagen
-- keine fremde Clipart-Welt
-- keine uneinheitlichen Stile zwischen den Bildern
-- dieselbe FinanzNeo-V9-Farbsemantik, Materialanmutung, Typografie-Disziplin und Premium-Wirkung bleibt Pflicht
+HARD FAIL — SOFORT NEU GENERIEREN, AUCH WENN TEXT/ZAHLEN STIMMEN:
+- flat 2D infographic
+- plain colored rectangles with text
+- floating text cards on black
+- generic presentation slide
+- stock/vector icon look
+- Canva/social-template look
+- screenshot/dashboard look
+- PowerPoint/Excel chart look
+- sterile floating boxes without material depth
+- missing contact shadows / no grounding
+- generic black-background finance graphics that do not feel like the approved FinanzNeo 3D series
 
 Kamera:
-- grundsätzlich frontal oder nahezu frontal
+- frontal oder nahezu frontal
 - Augenhöhe
 - gerader Horizont
 - natürliche Perspektive
-- Charts/Diagramme exakt frontal, ohne perspektivische Verzerrung
-- Zahlen, Labels, Achsen und Proportionen fachlich korrekt
+- Charts/Diagramme exakt frontal
+- Zahlen/Labels/Achsen/Proportionen fachlich korrekt
 
-WICHTIG ZUR KONSISTENZ:
-- kein Cover als Bildreferenz für spätere Szenen verwenden
-- kein Szenenbild als neue Style-Referenz verwenden
-- die geschriebene FinanzNeo-V9-Welt oben ist die einzige Style-Autorität
+KONSISTENZ:
+- kein Cover als Style-Referenz benutzen
+- kein Szenenbild als Style-Referenz benutzen
+- nur diese geschriebene grounded-V9-Bildwelt ist Style-Autorität
 - jedes Bild horizontal 16:9
 - Hauptmotiv groß genug für TV, Laptop und Handy
 - eine klare visuelle Aussage pro Bild
-- wenig Text; nur die unten ausdrücklich erlaubten deutschen Labels
+
+============================================================
+MANDATORY STYLE SUFFIX — IN JEDEN EINZELNEN SUBJOB MITGEBEN
+============================================================
+
+Hänge bei JEDEM Cover- und Szenenbild-Job vollständig diese Stilregel an:
+
+"Render inside the approved FinanzNeo grounded stylized-3D black world: premium animation-film 3D, tangible physical objects with believable proportions, semi-realistic stylized materials, visible thickness, real depth, soft premium studio lighting, readable highlights, soft contact shadows and subtle grounded reflections on a deep seamless black world. Emerald is positive/solution, warm red-orange is cost/risk/debt, ivory/soft gray neutral, gold only a small value accent. The composition may be simple, but NEVER render it as a flat infographic, presentation slide, stock icon, screenshot, dashboard card, Canva graphic or plain colored rectangles with text. If the result is flat, it is a FAIL and must be regenerated."
+
+Die Szene-spezifische Beschreibung darf diese Style-Regel NIEMALS ersetzen.
 
 ============================================================
 PHASE A — COVER JOBS A / B / C
@@ -125,80 +138,82 @@ Temporärer Dateiname: YouTube Thumbnail A.png
 Sichtbarer deutscher Hook: TEURE TEILZAHLUNG
 Maximal 2 Zeilen.
 
-Generate one horizontal 16:9 YouTube thumbnail. Show one premium stylized unbranded credit card in straight front view. Behind it, a clean warm red-orange debt strip extends visibly to communicate an expensive revolving balance. Add one small readable ivory label: 2.000 €. The composition must immediately communicate credit-card debt and expensive partial repayment. No bank logo, no decorative coin piles, no extra numbers, no clutter. Hook text must be clean, front-facing and highly readable. Never giant metallic gold text.
+Generate one horizontal 16:9 YouTube thumbnail. Create one large tangible premium stylized 3D unbranded credit card as the hero object, straight/front-readable but with visible physical thickness and material response. Behind and partially around it, create a physical warm red-orange debt ribbon/track with depth that visibly communicates an expensive revolving balance. Integrate one small readable ivory physical label/plaque: 2.000 €. Use real contact shadows and polished studio lighting. The frame must feel like a premium animated-film scene, not a flat card graphic. No bank logo, decorative coin piles, extra numbers or clutter. Hook typography clean and front-facing.
 
 COVER B
 Temporärer Dateiname: YouTube Thumbnail B.png
 Sichtbarer deutscher Hook: 2.000 € → 2.368 €
 Maximal 2 Zeilen.
 
-Generate one horizontal 16:9 YouTube thumbnail. Create a strong before-versus-after composition. On the left show a clean premium stylized unbranded credit card with 2.000 €. On the right show the final total 2.368 €. Between them show the difference as a restrained warm red-orange label: 368 € ZINSEN. The cost difference must be understandable instantly. No decorative coins, no bank branding, no additional numbers, no clutter. Typography straight and highly readable.
+Generate one horizontal 16:9 YouTube thumbnail as a premium grounded stylized-3D before/after comparison. Left: one tangible unbranded credit card with a physical ivory amount plaque 2.000 €. Right: a second grounded physical amount plaque 2.368 €. Between them place a restrained warm red-orange physical cost marker 368 € ZINSEN and a clear spatial connection. All objects have real thickness, soft studio light and contact shadows on the black stage. Do NOT render flat infographic blocks or a presentation slide.
 
 COVER C
 Temporärer Dateiname: YouTube Thumbnail C.png
 Sichtbarer deutscher Hook: DIE KLEINE RATE
 Maximal 2 Zeilen.
 
-Generate one horizontal 16:9 YouTube thumbnail. Show one large readable 100 € monthly payment entering a clean credit-card statement. A warm red-orange layer labeled ZINSEN visibly absorbs part of the payment before the remaining portion reaches the debt. The cause-and-effect must be immediately understandable: a small monthly rate does not reduce the debt by the full 100 €. No bank logos, no extra numbers, no clutter.
+Generate one horizontal 16:9 YouTube thumbnail. Show a tangible stylized 3D 100 € payment card/token physically moving toward a premium credit-card statement object. Before reaching the debt, part of the payment is visibly intercepted by a warm red-orange physical ZINSEN layer, leaving a smaller remainder to continue toward the debt. Use depth, thickness, contact shadows and studio light so cause-and-effect is physical and instantly understandable. No flat flowchart, no bank logo, no clutter.
 
-Wenn A/B/C korrekt fertig sind: STOPP und frage ausschließlich nach der Auswahl A, B oder C.
+Wenn A/B/C korrekt UND stilistisch in der grounded-V9-Welt fertig sind: STOPP und frage ausschließlich nach A, B oder C.
 
 Nach Nutzerwahl:
 Finaler Dateiname des Gewinners: YouTube Thumbnail - Kreditkarten Teilzahlung.png
-Die zwei nicht gewählten Cover nicht als finale Assets übernehmen.
-Danach automatisch mit Phase B fortfahren.
+Danach automatisch Phase B.
 
 ============================================================
-PHASE B — FÜNF SZENENBILDER, PARALLEL ALS GETRENNTE JOBS
+PHASE B — FÜNF SZENENBILDER
 ============================================================
 
 BILD 01
 Finaler Dateiname: YouTube Bild 01 - Karte und Monatsabrechnung.png
 
-Generate exactly one horizontal 16:9 image. Show a premium stylized unbranded credit card next to a clean monthly statement. The statement has exactly two clearly separated options: Vollzahlung and Teilzahlung. Vollzahlung is neutral ivory, Teilzahlung has a restrained warm red-orange warning accent. No bank brand, no clutter. Allowed short German labels only: Vollzahlung, Teilzahlung. Front-facing, eye-level, immediately readable.
+Generate exactly one horizontal 16:9 grounded premium stylized-3D scene. Show a tangible unbranded credit card with visible thickness beside a physical monthly paper statement with believable paper thickness, slight curvature and contact shadow. On the statement are exactly two clean physical selection rows: Vollzahlung and Teilzahlung. Vollzahlung uses neutral ivory; Teilzahlung has a restrained warm red-orange warning accent. The objects sit in a minimal real desk/document context that dissolves into deep black. No flat UI screenshot, no dashboard cards, no presentation-slide layout. Allowed labels only: Vollzahlung, Teilzahlung.
 
 BILD 03
 Finaler Dateiname: YouTube Bild 03 - Erste 100 Euro Rate.png
 
-Generate exactly one horizontal 16:9 image. Show one clean 100 € payment entering from the left and splitting into exactly two front-facing labeled blocks: 28,33 € ZINSEN in warm red-orange and 71,67 € TILGUNG in emerald. A small neutral label below reads Restschuld 1.928,33 €. No extra numbers. Data integrity is mandatory: 28,33 € + 71,67 € = 100,00 €. All amounts must be straight, large and immediately readable. No perspective distortion.
+Generate exactly one horizontal 16:9 grounded premium stylized-3D explanatory scene. Show one tangible ivory 100 € payment token/card entering from the left with visible thickness and a contact shadow. It physically splits into two separate grounded 3D value pieces: a warm red-orange piece labeled 28,33 € ZINSEN and an emerald piece labeled 71,67 € TILGUNG. Below them place one smaller physical neutral plaque labeled Restschuld 1.928,33 €. Use real depth, rounded refined materials, studio light and contact shadows. The split must read as physical cause-and-effect, NOT as flat colored rectangles or a flowchart. No extra numbers. Data integrity mandatory: 28,33 € + 71,67 € = 100,00 €.
 
 BILD 05
 Finaler Dateiname: YouTube Bild 05 - Kleine Rate grosse Restschuld.png
 
-Generate exactly one horizontal 16:9 image. Show exactly twelve simple monthly payment tiles of 100 € arranged in a clean row or grid, with one total label: 1.200 € GEZAHLT. Opposite them show one large remaining-balance card labeled 1.069,72 € OFFEN. Use warm red-orange only for the remaining debt and ivory for the paid tiles. No generic chart, no extra numbers. Data integrity is mandatory: exactly 12 × 100 € = 1.200 € paid; remaining balance exactly 1.069,72 €.
+Generate exactly one horizontal 16:9 grounded premium stylized-3D explanatory scene. Show exactly twelve small tangible ivory monthly payment tiles, each with slight physical thickness, soft studio highlights and contact shadows, arranged cleanly as twelve months. Integrate one physical neutral total plaque: 1.200 € GEZAHLT. Opposite them, show one larger tangible warm red-orange remaining-debt object/plaque with visible thickness labeled 1.069,72 € OFFEN. The composition is simple but materially rich and grounded in the same animated-film 3D world. Do NOT render it as a flat grid infographic or presentation slide. Data integrity mandatory: exactly 12 × 100 € = 1.200 € paid; remaining balance exactly 1.069,72 €.
 
 BILD 07
 Finaler Dateiname: YouTube Bild 07 - Drei Kreditkarten Checks.png
 
-Generate exactly one horizontal 16:9 image. Show an unbranded premium stylized credit card centered with exactly three clean adjacent check items, each with one simple functional line icon. The three labels are exactly: Vollzahlung 100 %, Zinssatz prüfen, Teilzahlung deaktivieren. Use emerald check marks and ivory labels. No app logo, no decorative finance icons beyond these three functional symbols, no additional checklist items. Straight-on front view and highly readable.
+Generate exactly one horizontal 16:9 premium grounded stylized-3D scene. Center one tangible unbranded credit card with believable material and thickness. Around/beside it place exactly three small physical checklist objects/tokens with emerald check marks, each grounded with subtle depth and contact shadow. Labels exactly: Vollzahlung 100 %, Zinssatz prüfen, Teilzahlung deaktivieren. Keep spatial composition clean and coherent, not like three flat UI cards or a presentation template. No app logo, no extra checklist items.
 
 BILD 08
 Finaler Dateiname: YouTube Bild 08 - Vollzahlung Einstellung.png
 
-Generate exactly one horizontal 16:9 image. Show a clean fictional banking settings panel in exact straight-on front view on deep black. Exactly two payment options are visible: Teilzahlung and Vollzahlung 100 %. Teilzahlung is currently selected with a restrained warm red-orange indicator; Vollzahlung 100 % is unselected. No real bank brand, no tilted phone mockup, no extra settings. Keep the UI geometry clean and stable with enough empty margin because this image will later receive a Remotion motion overlay. Allowed labels only: Teilzahlung, Vollzahlung 100 %.
+Generate exactly one horizontal 16:9 premium grounded stylized-3D interface scene. Show one tangible fictional banking settings panel/device in exact straight-on readable view, but with visible physical thickness, refined material edges, studio highlights and a soft contact shadow on the deep-black stage. Exactly two options: Teilzahlung and Vollzahlung 100 %. Teilzahlung is currently selected with a restrained warm red-orange physical indicator; Vollzahlung 100 % is unselected. No real bank brand, no tilted phone, no screenshot look, no flat dashboard card, no extra settings. Leave clean margin for a later Remotion motion overlay.
 
 ============================================================
 QA — NACH JEDEM BILD
 ============================================================
 
 Ein Bild ist nur PASS, wenn:
-- exakt horizontal 16:9
-- korrekter Inhalt und korrekte Bildnummer
-- keine falschen zusätzlichen Zahlen
-- deutsche Labels richtig geschrieben und lesbar
+- horizontal 16:9
+- korrekter Inhalt und Dateiname
+- keine falschen Zusatz-Zahlen
+- deutsche Labels korrekt
 - keine erfundene Bankmarke
-- keine Gold-Luxus-Drift
-- gleiche FinanzNeo-V9-Welt
+- gleiche FinanzNeo grounded stylized-3D V9-Welt
+- sichtbare Materialtiefe bei physischen Elementen
+- Studio-Licht / Highlights vorhanden
+- physische Elemente sichtbar geerdet durch Kontaktschatten
+- NICHT flache Infografik / Slide / Dashboard / Icon-Pack
 - frontal/normal lesbar
-- bei BILD 03 und BILD 05 alle Zahlen mathematisch exakt
+- bei BILD 03 und BILD 05 mathematisch exakt
 
-Bei FAIL: regenerate only that same number.
+Bei Style-Drift oder anderem FAIL: regenerate only that same number.
 
 ============================================================
 FINALER BESTAND
 ============================================================
 
-Am Ende müssen exakt diese sechs finalen Assets vorhanden sein:
+Am Ende exakt diese sechs finalen Assets:
 1. YouTube Thumbnail - Kreditkarten Teilzahlung.png
 2. YouTube Bild 01 - Karte und Monatsabrechnung.png
 3. YouTube Bild 03 - Erste 100 Euro Rate.png
@@ -206,4 +221,4 @@ Am Ende müssen exakt diese sechs finalen Assets vorhanden sein:
 5. YouTube Bild 07 - Drei Kreditkarten Checks.png
 6. YouTube Bild 08 - Vollzahlung Einstellung.png
 
-Keine weiteren Nutzerfragen nach der Cover-Auswahl. Keine weiteren Prompts vom Nutzer verlangen. Führe den gesamten Bildworkflow aus diesem einen Master-Prompt aus.
+Keine weiteren Nutzerfragen nach der Cover-Auswahl. Keine weiteren Prompts verlangen. Führe den gesamten Bildworkflow aus diesem einen Master-Prompt aus.
