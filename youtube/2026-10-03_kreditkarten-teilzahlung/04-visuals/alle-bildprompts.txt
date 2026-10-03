@@ -1,33 +1,22 @@
-FINANZNEO — GOOGLE FLOW YOUTUBE HANDOFF
+WICHTIG — NICHT MEHR HIER ARBEITEN
 
-FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
-FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4
-THUMBNAIL_CONCURRENCY: 3
-IMAGE_BATCH_SIZE: 5
-IMAGE_CONCURRENCY: 5
-STYLE_AUTHORITY: finanzneo-youtube-v9-front-readable-v2
-GENERATED_IMAGE_ASPECT_RATIO: 16:9
-FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
-FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
-horizontal 16:9 source image
+Die frühere Datei hieß `alle-bildprompts.txt`, enthielt aber nur eine Zusammenfassung. Das war missverständlich.
 
-PHASE A — THUMBNAILS
-Start A, B und C gleichzeitig als drei SEPARATE one-image jobs. Jeder Job erzeugt genau ein horizontales 16:9-Bild. QA jedes Ergebnis, frage danach einmal A/B/C und benenne nur den Gewinner in YouTube Thumbnail - Kreditkarten Teilzahlung.png um. Das gewählte Thumbnail darf niemals Style-Referenz für Szenenbilder werden.
+Die vollständigen, direkt kopierbaren Google-Flow-Prompts liegen jetzt zentral im Projekt-Root:
 
-Thumbnail A: Text TEURE TEILZAHLUNG. Frontale unbranded Kreditkarte, red-orange debt strip, kleines 2.000-€-Label.
-Thumbnail B: Text 2.000 € → 2.368 €. Klarer Vorher-Nachher-Kostenvergleich, 368 € ZINSEN als red-orange Differenz.
-Thumbnail C: Text DIE KLEINE RATE. 100-€-Rate wird sichtbar teilweise von einer ZINSEN-Schicht absorbiert.
+`BILDPROMPTS-GOOGLE-FLOW.md`
 
-PHASE B — VIDEO IMAGES
-Erzeuge exakt diese fünf Szenenbilder als fünf SEPARATE one-image jobs im selben parallelen Batch; niemals ein Multi-Image-Request:
-1. YouTube Bild 01 - Karte und Monatsabrechnung.png — frontale Karte plus Abrechnung mit Vollzahlung und Teilzahlung.
-2. YouTube Bild 03 - Erste 100 Euro Rate.png — 100 € teilen sich exakt in 28,33 € ZINSEN und 71,67 € TILGUNG; Restschuld 1.928,33 €.
-3. YouTube Bild 05 - Kleine Rate grosse Restschuld.png — 1.200 € GEZAHLT gegenüber 1.069,72 € OFFEN.
-4. YouTube Bild 07 - Drei Kreditkarten Checks.png — Vollzahlung 100 %, Zinssatz prüfen, Teilzahlung deaktivieren.
-5. YouTube Bild 08 - Vollzahlung Einstellung.png — fiktive Banking-Einstellung mit Teilzahlung aktuell ausgewählt und Vollzahlung 100 % als zweite Option.
+Dort stehen vollständig:
+- Cover A
+- Cover B
+- Cover C
+- Bild 01
+- Bild 03
+- Bild 05
+- Bild 07
+- Bild 08
 
-Für jedes Bild gelten die Dateien unter 04-visuals/EINZELNE-VISUALS/visual-XX/bildprompt.txt als vollständiger Einzelprompt. rename immediately nach Rückgabe, danach in 04-visuals/00-ALLE-BILDER-HIER-REIN/ ablegen und QA durchführen. Bei Fehler regenerate only that same number. Nächster Batch erst nach Gesamt-PASS. Final inventory QA ist Pflicht.
+Jeder Block ist ein kompletter `1 Prompt = 1 Bild`-Job inklusive Dateiname, 16:9, V9-Bildwelt, Kamera-, Text-, Daten- und Anti-Drift-Regeln.
 
-CHART/DIAGRAM/DATA RULE: Charts und Diagramme ausschließlich frontal, gerade, ohne perspektivische Verzerrung; Zahlen und Proportionen müssen mathematisch korrekt bleiben.
-
-IMAGE WORLD: Premium stylized 3D animated-film / high-end illustration, deep black, emerald positiv, red-orange Risiko/Kosten, ivory/grau neutral, Gold nur kleiner Akzent; kein Fotorealismus und keine generische Gold-Luxus-Finanzwelt.
+Die einzelnen Promptquellen bleiben zusätzlich unter:
+`04-visuals/EINZELNE-VISUALS/visual-XX/bildprompt.txt`
