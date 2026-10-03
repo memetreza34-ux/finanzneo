@@ -73,6 +73,32 @@ Alle Bilder gehören sichtbar zur exakt gleichen FinanzNeo-Welt:
 - keine Glasgefäße, dekorativen Münzberge oder generischen Geldstapel
 - keine unnötigen Dashboards oder PowerPoint-/Excel-Optik
 
+============================================================
+VISUELLE FORMEN — EINFACH DARF BESSER SEIN
+============================================================
+
+Die Bildwelt bleibt fest, aber die Darstellungsform ist frei. Nicht jeder Beat braucht eine komplexe 3D-Szene. Wähle immer die EINFACHSTE visuelle Form, die die Aussage sofort verständlich macht.
+
+Erlaubt und ausdrücklich erwünscht sind:
+- SYMBOL / ICON FOCUS: ein großes inhaltsspezifisches Symbol oder Objekt
+- NUMBER FOCUS: ein zentraler Betrag, Prozentsatz, Zeitpunkt oder Zielwert
+- SIMPLE CHART: sauberer Balken-, Linien-, Flächen- oder Vergleichschart
+- ROUTE / GOAL / METAPHOR: z. B. Zielscheibe, Bergpfad, Bank, Haus oder anderes direkt passendes Motiv
+- UI / APP MOCKUP: frontal, unbranded und nur wenn die Oberfläche selbst etwas erklärt
+- ASSET / OBJECT GROUP: wenige konkrete Objekte für Kategorien, Vermögen, Optionen oder Trade-offs
+- CONCEPT CLUSTER: ein zentrales Objekt mit wenigen umliegenden Begriffen/Faktoren
+- QUOTE / KEY STATEMENT CARD: kurze, überprüfte Aussage, wenn die exakte Formulierung selbst der Inhalt ist
+- klassische Story-/Objektszene, Vergleich, Editorial, Illustration, Metapher oder Hybrid
+
+Ein einzelnes Symbol, eine große Zahl, ein sauberer Chart oder eine kurze Aussage darf den gesamten Frame tragen. Keine künstliche 3D-Komplexität nur zur Dekoration.
+
+EINFACH BEDEUTET NICHT BILLIG:
+- keine zufälligen Stock-Icons
+- keine generischen Präsentationsvorlagen
+- keine fremde Clipart-Welt
+- keine uneinheitlichen Stile zwischen den Bildern
+- dieselbe FinanzNeo-V9-Farbsemantik, Materialanmutung, Typografie-Disziplin und Premium-Wirkung bleibt Pflicht
+
 Kamera:
 - grundsätzlich frontal oder nahezu frontal
 - Augenhöhe
