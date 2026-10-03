@@ -2,6 +2,24 @@
 
 Remotion-Studio und Produktionspipeline für deutsche Finanz-Erklärvideos.
 
+## Aktiver Produktionsmodus
+
+**YouTube Longform V4** ist der aktive Produktionsweg für neue FinanzNeo-Videos.
+
+```text
+ACTIVE_PRODUCTION_MODE: youtube-longform-v4
+NEW_REELS_PAUSED: true
+YOUTUBE_SHORTS_FORBIDDEN: true
+```
+
+Die maschinenlesbare aktive Kombination steht in:
+
+```text
+config/finanzneo-production-standard.json
+```
+
+`CLAUDE.md` bleibt die höchste Regelquelle für Produktionsverantwortung und Agent-Verhalten. Der schnelle Einstieg liegt in `START-HIER.md`. Der verbindliche YouTube-Standard liegt in `youtube/PRODUKTIONSSTANDARD.md`.
+
 ## Start
 
 ```bash
@@ -10,43 +28,57 @@ npm run validate
 npm run studio
 ```
 
-## Aktiver Produktionsstandard
-
-Die aktuell zusammengehörige Kombination aus Reel-Layout, Hintergrund, Bildwelt, Flow-Modus, Animationsstandard und Produktions-Gates steht in:
-
-```text
-config/finanzneo-production-standard.json
-```
-
-`CLAUDE.md` bleibt die höchste Regelquelle für Produktionsverantwortung und Agent-Verhalten. Der schnelle Einstieg liegt in `START-HIER.md`.
-
-## Zentrale Befehle
+## Neues YouTube-Video
 
 ```bash
-npm run reel:create -- --target reels/<Woche>/<Tag>/<Reel> --title "Titel"
-npm run reel:validate -- reels/<Woche>/<Tag>/<Reel>
-npm run reel:ready -- reels/<Woche>/<Tag>/<Reel>
-npm run reel:sort-images -- reels/<Woche>/<Tag>/<Reel>
+npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
+```
+
+Mit vorgeplanten Visualtypen:
+
+```bash
+npm run youtube:create -- --target youtube/<Projekt> --title "Titel" --types image,animation,image,hybrid,image,animation,image
+```
+
+Normale Projekte brauchen mindestens zwei echte Motion-/Animationsvisuals.
+
+## Zentrale YouTube-Befehle
+
+```bash
 npm run youtube:create -- --target youtube/<Projekt> --title "Titel"
 npm run youtube:validate -- youtube/<Projekt>
+npm run youtube:animation:validate -- youtube/<Projekt>
+npm run youtube:phase1:seal -- youtube/<Projekt>
 npm run youtube:ready -- youtube/<Projekt>
-npm run protect:install
 npm run build
 npm run smoke
-npm run render
+npm run studio
 ```
+
+## V4-Kern
+
+- 1920 × 1080, 16:9, 30 fps
+- `FORM FREI — BILDWELT FEST`
+- Bildwelt `finanzneo-youtube-v9-front-readable-v2`
+- mindestens zwei Motion-/Animationsvisuals
+- drei Thumbnail-Kandidaten parallel, danach einmalige A/B/C-Auswahl
+- Szenenbilder anschließend in parallelen Batches mit maximal fünf getrennten Einzelbild-Jobs
+- Charts/Diagramme frontal und datenlesbar
+- die geschriebene V9-Welt ist die Style-Autorität; Thumbnail/Bilder sind keine Style-Referenzen
 
 ## Struktur
 
-- `config/` — aktive Maschinen-Konfiguration und Locks
-- `src/design-system/` — öffentlicher Importpfad für neue Produktion
-- `src/production/reel-template/` — technische Reel-Vorlage
+- `youtube/` — **aktive neue YouTube-Longform-Produktionen**
+- `config/` — aktive Maschinen-Konfiguration und Style-/Flow-Locks
+- `src/design-system/` — öffentlicher Importpfad für produktive Visuals
 - `src/root/` — getrennte Production-, Experiment- und Showcase-Registries
-- `reels/` — konkrete Reel-Projekte
-- `youtube/` — eigenständige YouTube-Longform-Projekte
-- `scripts/` — Scaffold, Validatoren und Render-Gates
-- `docs/` — Detailregeln, Workflows und Qualitätsstandards
+- `scripts/` — Scaffold, Validatoren, Seals, QA- und Render-Gates
+- `docs/` — Detailregeln, Motion- und Qualitätsstandards
+- `reels/` — Legacy-Reel-Projekte; für neue Produktion pausiert
+- `src/production/reel-template/` — Legacy-/Kompatibilitätsweg für bestehende Reels
 
-Verbindliche Abläufe: `docs/3-PHASEN-WORKFLOW.md` und `docs/YOUTUBE-LONGFORM-WORKFLOW.md`.
+## Legacy-Reels
 
-Die Produktionsregistry bleibt bewusst eine Freigabeliste und kann leer sein, solange kein Reel den vollständigen Produktionspfad bestanden hat.
+Bestehende Reel-Dateien, Tests und Tooling bleiben für Rückwärtskompatibilität erhalten. Sie sind **nicht** der aktive Produktionsweg für neue Videos. Keine neuen Reels und keine YouTube Shorts erstellen, solange `CLAUDE.md` bzw. der aktive Produktionsstandard dies nicht ausdrücklich wieder freigeben.
+
+Für bestehende Legacy-Reel-Projekte bleibt `docs/3-PHASEN-WORKFLOW.md` als Kompatibilitätsquelle erhalten. Die **Produktionsregistry** für Legacy-Reels bleibt weiterhin eine Freigabeliste für bereits vollständig validierte Reel-Produktionen; daraus entsteht keine Freigabe für neue Reels.

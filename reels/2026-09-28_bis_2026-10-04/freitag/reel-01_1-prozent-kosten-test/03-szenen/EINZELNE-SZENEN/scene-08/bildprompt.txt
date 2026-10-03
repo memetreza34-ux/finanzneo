@@ -1,0 +1,41 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 08 - Endvermoegen nach dreissig Jahren.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Endvermögen
+- 7 %
+- 6 %
+- 447.156 €
+- 361.580 €
+
+VISUAL_FORM: chart
+VISUAL_CONCEPT: Ein echtes vertikales Balkendiagramm auf gemeinsamer Basis zeigt 447.156 € bei 7 % und 361.580 € bei 6 %; korrekte relative Balkenhöhen, echte Y-Achse Endvermögen.
+VOICEOVER_VISUAL_MATCH: Der hohe 7-%-Balken mit 447.156 € zeigt direkt den Endwert nach 30 Jahren und stellt ihn korrekt dem 6-%-Wert gegenüber.
+INSTANT_READ_TEST: PASS - zwei echte beschriftete Balken mit Endwerten machen den 30-Jahre-Unterschied sofort sichtbar.
+TRANSFERABILITY_TEST: PASS - die konkreten Endwerte und 7-/6-%-Kategorien gehören exakt zum Gebührenbeispiel.
+DATA_INTEGRITY_TEST: PASS - beide Balken teilen dieselbe Nullbasis und Y-Skala; 447.156 € zu 361.580 € wird proportional korrekt dargestellt, basierend auf 10.000 € Start plus 300 € monatlich über 30 Jahre.
+
+IMAGE PROMPT:
+Create a real premium 3D vertical bar chart on a seamless deep-black stage. Use a clear y-axis labeled “Endvermögen” and a shared zero baseline. Two bars only: an emerald 7-% bar reaching exactly “447.156 €” and a warm-ivory 6-% bar reaching exactly “361.580 €”. Their relative heights must be mathematically proportional on the same scale. Make the bars refined physical 3D columns with subtle material depth and warm-gold money accents, not plain PowerPoint rectangles. Keep category labels “7 %” and “6 %” clear at the base and values large above each bar. Premium cinematic lighting, controlled 3/4 perspective that preserves data readability. No Excel/PowerPoint default style, no dashboard, no random icons, no person, no photorealism.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+BACKGROUND_LOCK: Use one seamless deep black background.

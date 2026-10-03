@@ -1,0 +1,38 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 02 - Klein wirkt harmlos.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 1 %
+- über Jahrzehnte
+
+VISUAL_FORM: editorial-quote
+VISUAL_CONCEPT: Große hochwertige 3D-Typografie „1 %“ steht als Hauptmotiv auf schwarzer Bühne; direkt dahinter läuft eine lange Reihe kleiner Jahresmarken in die Tiefe, sodass die kleine Zahl visuell mit langer Zeit verbunden wird.
+VOICEOVER_VISUAL_MATCH: Die riesige lesbare 1-%-Typografie stellt die kleine Prozentzahl in den Mittelpunkt; die lange räumliche Jahresfolge zeigt, warum Zeit sie relevant macht.
+INSTANT_READ_TEST: PASS - 1 % plus klarer langer Zeithorizont vermittelt sofort kleine Zahl mit langfristiger Wirkung.
+TRANSFERABILITY_TEST: PASS - die Kombination aus 1 % und langem Investitionszeithorizont gehört konkret zur Gebührenaussage.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium editorial 3D finance illustration on a seamless deep-black stage. The hero is elegant physical 3D typography reading exactly “1 %”, rendered in warm ivory with refined beveled depth and subtle material highlights. Behind it, a long sequence of small physical year markers recedes into the black distance, ending with one small label “über Jahrzehnte”. The typography must feel integrated into the same high-end stylized 3D animated-film world, not like a flat social-media template. Add restrained gold value accents and a subtle warm red-orange cost accent. Strong depth, asymmetric composition, cinematic light and contact shadows. No dashboard, no stock icons, no PowerPoint style, no corporate template, no photorealism, no extra text.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+BACKGROUND_LOCK: Use one seamless deep black background.

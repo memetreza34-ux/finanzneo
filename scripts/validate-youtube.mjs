@@ -25,6 +25,13 @@ import {
   YOUTUBE_VIDEO_HEIGHT,
   YOUTUBE_VIDEO_WIDTH,
   YOUTUBE_VISUAL_TYPES,
+  YOUTUBE_IMAGE_WORLD_LOCK,
+  YOUTUBE_FLOW_EXECUTION_MODE_ID,
+  YOUTUBE_THUMBNAIL_CANDIDATE_COUNT,
+  YOUTUBE_THUMBNAIL_CONCURRENCY,
+  YOUTUBE_IMAGE_BATCH_SIZE,
+  YOUTUBE_IMAGE_CONCURRENCY,
+  YOUTUBE_MIN_MOTION_VISUALS,
 } from './lib/youtube-contract.mjs';
 import {
   requiresYouTubeImage,
@@ -91,16 +98,25 @@ if (index) {
   assert(index.imageWorld?.generatedImageAspectRatio === GENERATED_IMAGE_ASPECT_RATIO, 'YouTube-Quellbilder müssen 16:9 sein.');
   assert(index.imageWorld?.horizontalGeneratedImagesRequired === true, 'Horizontale 16:9-Quellbilder müssen verpflichtend sein.');
   assert(index.imageWorld?.sameWorldAcrossSeriesRequired === true, 'Dieselbe Bildwelt muss für die ganze Serie vorgeschrieben sein.');
-  assert(index.imageWorld?.literalFirst === true && index.imageWorld?.metaphorOptional === true, 'YouTube-Bilder müssen Literal-first V3 verwenden.');
-  assert(index.imageWorld?.styleReferenceStrategy === 'approved-thumbnail-style-only', 'Das freigegebene Thumbnail muss reine Stilreferenz sein.');
+  assert(index.imageWorld?.styleLockId === YOUTUBE_IMAGE_WORLD_LOCK, `YouTube-Bildwelt muss ${YOUTUBE_IMAGE_WORLD_LOCK} sein.`);
+  assert(index.imageWorld?.formFree === true && index.imageWorld?.frontReadableDefault === true, 'YouTube-Bilder brauchen Form-frei + Front-readable V2.');
+  assert(index.imageWorld?.frontFacingChartsRequired === true, 'Charts/Diagramme müssen frontal dargestellt werden.');
+  assert(index.imageWorld?.styleReferenceStrategy === 'written-youtube-v9-lock-only', 'Nur die geschriebene YouTube-V9-Welt darf Style-Autorität sein.');
+  assert(index.imageWorld?.selectedThumbnailMayBeStyleReference === false, 'Das gewählte Thumbnail darf keine Style-Referenz sein.');
   assert(index.imageWorld?.referencePromptFile === '04-visuals/bildwelt.txt', 'referencePromptFile ist falsch.');
   assert(index.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID, `motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
   assert(index.motionStandard?.contentFirstTechniqueSelection === true, 'Motion-Technik muss aus dem Inhalt gewählt werden.');
   assert(index.motionStandard?.existingComponentsOptional === true && index.motionStandard?.physicalPrimitivesOptional === true, 'Bestehende/Physical-Primitives müssen optional bleiben.');
   assert(index.googleFlow?.protocolId === FLOW_AGENT_PROTOCOL_ID, 'Google-Flow-Agent-Protokoll fehlt.');
-  assert(index.googleFlow?.generationMode === 'one-image-at-a-time' && index.googleFlow?.strictSequential === true, 'Google Flow muss strikt Bild für Bild arbeiten.');
-  assert(index.googleFlow?.waitForCurrentImage === true && index.googleFlow?.renameBeforeNext === true && index.googleFlow?.qaBeforeNext === true, 'Google Flow muss warten, umbenennen und prüfen, bevor es fortfährt.');
-  assert(index.googleFlow?.retrySameImageOnFailure === true, 'Fehlerhafte Bilder müssen unter derselben Nummer neu erzeugt werden.');
+  assert(index.googleFlow?.executionModeId === YOUTUBE_FLOW_EXECUTION_MODE_ID, `Google Flow muss ${YOUTUBE_FLOW_EXECUTION_MODE_ID} verwenden.`);
+  assert(index.googleFlow?.generationMode === 'thumbnail3-parallel-then-image5-parallel-batches' && index.googleFlow?.strictSequential === false, 'Google Flow muss Thumbnail-3 parallel und danach Bild-5 parallel arbeiten.');
+  assert(Number(index.googleFlow?.thumbnailCandidateCount) === YOUTUBE_THUMBNAIL_CANDIDATE_COUNT && Number(index.googleFlow?.thumbnailConcurrency) === YOUTUBE_THUMBNAIL_CONCURRENCY, 'Thumbnail-Phase muss exakt 3 parallele getrennte Jobs verwenden.');
+  assert(index.googleFlow?.thumbnailSeparateJobsRequired === true && index.googleFlow?.thumbnailSelectionRequired === true, 'Thumbnail A/B/C müssen getrennte Jobs sein und eine einmalige Auswahl verlangen.');
+  assert(index.googleFlow?.selectedThumbnailMayBeStyleReference === false, 'Gewähltes Thumbnail darf keine Style-Referenz werden.');
+  assert(Number(index.googleFlow?.imageBatchSize) === YOUTUBE_IMAGE_BATCH_SIZE && Number(index.googleFlow?.imageConcurrency) === YOUTUBE_IMAGE_CONCURRENCY, 'Szenenbilder müssen in parallelen 5er-Batches laufen.');
+  assert(index.googleFlow?.separateOneImageJobsRequired === true && index.googleFlow?.multiImageRequestForbidden === true, '5er-Batch muss aus getrennten Ein-Bild-Jobs bestehen.');
+  assert(index.googleFlow?.renameImmediatelyOnReturn === true && index.googleFlow?.qaEachResult === true && index.googleFlow?.nextBatchLockedUntilCurrentBatchPasses === true, 'Jedes Batch-Ergebnis muss sofort umbenannt/QA-geprüft werden; nächster Batch erst nach Gesamt-PASS.');
+  assert(index.googleFlow?.retrySameImageOnFailure === true && index.googleFlow?.userApprovalBetweenBatchesForbidden === true && index.googleFlow?.finalInventoryQaRequired === true, 'Retry/Auto-Continue/Final-Inventory-Vertrag fehlt.');
   assert(index.googleFlow?.finalCollectionDirectory === `${IMAGE_INBOX}/`, 'Finaler gemeinsamer Bilderordner ist falsch.');
   assert(index.googleFlow?.distributeToVisualFolders === false, 'Google Flow darf Bilder nicht auf Visual-Ordner verteilen.');
   assert(index.timelineRules?.cutsFollowVoiceAndChapters === true && index.timelineRules?.beatFirst === true, 'Schnitte müssen Voiceover/Beats/Kapiteln folgen.');
@@ -108,6 +124,9 @@ if (index) {
   assert(Number(index.audio?.targetIntegratedLufs) === -16 && Number(index.audio?.targetTruePeakDbtp) === -1, 'Audioziel muss ungefähr -16 LUFS und höchstens -1 dBTP sein.');
   assert(index.thumbnail?.type === 'image' && typeof index.thumbnail?.googleFlowFileName === 'string', 'Thumbnail-Vertrag fehlt.');
   assert(index.thumbnail?.planFile === '04-visuals/thumbnail-prompt.txt', 'Thumbnail-Promptpfad ist falsch.');
+  assert(Number(index.thumbnail?.candidateCount) === YOUTUBE_THUMBNAIL_CANDIDATE_COUNT && Number(index.thumbnail?.concurrency) === YOUTUBE_THUMBNAIL_CONCURRENCY, 'Es müssen 3 Thumbnail-Kandidaten gleichzeitig geplant sein.');
+  assert(index.thumbnail?.textRequired === true && Number(index.thumbnail?.textMaxLines) === 2, 'Thumbnail braucht kurzen Inhalts-Hook mit max. 2 Zeilen.');
+  assert(index.thumbnail?.mustUseSameV9World === true && index.thumbnail?.mayBeStyleReference === false, 'Thumbnail muss dieselbe V9-Welt nutzen, darf aber nie Style-Referenz sein.');
   assert(Array.isArray(index.visuals) && index.visuals.length > 0, `${VISUAL_INDEX} benötigt nach Phase-1-Planung visuals[].`);
 
   for (const [key, expectedPath] of Object.entries(YOUTUBE_PUBLISHING_FILES)) {
@@ -136,8 +155,8 @@ if (index) {
       assert(typeof imagePlan === 'string' && imagePlan.endsWith('/bildprompt.txt') && existsSync(resolve(root, imagePlan)), `${id}: bildprompt.txt fehlt.`);
       if (typeof imagePlan === 'string' && existsSync(resolve(root, imagePlan))) {
         const prompt = readFileSync(resolve(root, imagePlan), 'utf8');
-        for (const marker of ['LITERAL_REAL_WORLD_SITUATION:', 'REAL_WORLD_CONTEXT_ANCHOR:', 'VOICEOVER_VISUAL_MATCH:', 'TRANSFERABILITY_TEST:', 'VISUAL_STRATEGY:', 'METAPHOR_JUSTIFICATION:']) {
-          assert(prompt.includes(marker), `${id}: Literal-first Marker fehlt: ${marker}`);
+        for (const marker of ['VISUAL_FORM:', 'VISUAL_CONCEPT:', 'VOICEOVER_VISUAL_MATCH:', 'FRONT_READABILITY_TEST:', 'DATA_INTEGRITY_TEST:']) {
+          assert(prompt.includes(marker), `${id}: YouTube-V4 Bildmarker fehlt: ${marker}`);
         }
       }
     }
@@ -152,6 +171,8 @@ if (index) {
       assert(typeof visual.dataNotesFile === 'string' && existsSync(resolve(root, visual.dataNotesFile ?? '')), `${id}: data-notes.md fehlt.`);
     }
   }
+  const motionCount = (index.visuals ?? []).filter(requiresYouTubeMotion).length;
+  assert(motionCount >= YOUTUBE_MIN_MOTION_VISUALS, `YouTube Longform braucht mindestens ${YOUTUBE_MIN_MOTION_VISUALS} echte Motion-Visuals; gefunden: ${motionCount}.`);
   errors.push(...validateYouTubeMotionVariety(index.visuals ?? []));
 }
 
@@ -161,12 +182,16 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes(SERIES_LOCK_MARKER), `${ALL_PROMPTS} enthält keinen Same-World-Lock.`);
   assert(prompts.includes(GENERATED_IMAGE_ASPECT_MARKER), `${ALL_PROMPTS} schreibt 16:9 nicht vor.`);
   assert(prompts.includes(FLOW_AGENT_PROTOCOL_MARKER), `${ALL_PROMPTS} enthält kein Flow-Protokoll.`);
-  assert(prompts.includes('Generate exactly ONE image'), 'Google Flow muss exakt ein Bild pro Schritt erzeugen.');
-  assert(prompts.includes('Rename it immediately'), 'Sofortige Umbenennung vor dem nächsten Bild fehlt.');
-  assert(prompts.includes('regenerate the same image number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
+  assert(prompts.includes(`FLOW_EXECUTION_MODE: ${YOUTUBE_FLOW_EXECUTION_MODE_ID}`), 'Aktueller YouTube-Flow-Modus fehlt.');
+  assert(prompts.includes(`THUMBNAIL_CONCURRENCY: ${YOUTUBE_THUMBNAIL_CONCURRENCY}`), '3 parallele Thumbnail-Jobs fehlen.');
+  assert(prompts.includes(`IMAGE_BATCH_SIZE: ${YOUTUBE_IMAGE_BATCH_SIZE}`) && prompts.includes(`IMAGE_CONCURRENCY: ${YOUTUBE_IMAGE_CONCURRENCY}`), 'Paralleler 5er-Bildbatch fehlt.');
+  assert(prompts.includes('SEPARATE one-image jobs'), '5er-Batch muss aus getrennten Ein-Bild-Jobs bestehen.');
+  assert(prompts.includes('rename immediately'), 'Sofortige Umbenennung bei Rückgabe fehlt.');
+  assert(prompts.includes('regenerate only that same number'), 'Wiederholungsregel für fehlerhafte Bilder fehlt.');
   assert(prompts.includes(IMAGE_INBOX), 'Gemeinsamer Bilderordner fehlt in der Flow-Übergabe.');
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
-  assert(prompts.includes('Literal first, creative second'), 'Literal-first Bildlogik fehlt in der Flow-Übergabe.');
+  assert(prompts.includes(`STYLE_AUTHORITY: ${YOUTUBE_IMAGE_WORLD_LOCK}`), 'Geschriebene V9-Bildwelt fehlt als einzige Style-Autorität.');
+  assert(prompts.includes('Charts') || prompts.includes('CHART/DIAGRAM/DATA'), 'Frontale Chart-/Diagramm-Regel fehlt.');
   assert(!/square 1:1 source image|portrait 9:16|vertical 9:16 image/i.test(prompts), 'YouTube-Prompts enthalten ein falsches Quellbildformat.');
 }
 
@@ -188,4 +213,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log('  16:9 · Beat-first · Literal-first V3 · Motion V2 · sequenzieller Flow · keine Shorts');
+console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · Cover 3 parallel · Bilder 5 parallel · Charts frontal · keine Shorts/Reels`);

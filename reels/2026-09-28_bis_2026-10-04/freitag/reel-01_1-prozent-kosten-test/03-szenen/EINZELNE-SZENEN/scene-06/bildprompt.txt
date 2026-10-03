@@ -1,0 +1,39 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 06 - Nach fünf Jahren.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 5 Jahre
+- 35.654 €
+- 34.420 €
+
+VISUAL_FORM: comparison
+VISUAL_CONCEPT: Ein großer physischer Kalenderblock „5 Jahre“ steht hinter zwei sauberen Geldstapeln; links 35.654 €, rechts 34.420 €, beide sichtbar ähnlich groß und nur leicht unterschiedlich.
+VOICEOVER_VISUAL_MATCH: Die exakten Fünfjahreswerte liegen optisch eng beieinander und illustrieren den noch kleinen Abstand.
+INSTANT_READ_TEST: PASS - Kalender plus zwei fast gleich große beschriftete Geldstapel zeigen sofort fünf Jahre und geringen Unterschied.
+TRANSFERABILITY_TEST: PASS - die konkreten Werte 35.654 € und 34.420 € machen die Szene spezifisch für dieses Rechenbeispiel.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium stylized 3D comparison on a seamless deep-black stage. Place a substantial physical calendar block labeled “5 Jahre” in the rear center. In front, show two refined stacks of euro-value slips or coins on one baseline: left labeled “35.654 €”, right labeled “34.420 €”. The left stack should be only slightly taller, accurately reflecting the small difference after five years. Keep both hero stacks large and close enough for immediate comparison. Use emerald accent on the left, warm ivory/soft gray on the right, gold only for actual money/value. High-end animated-film materials, cinematic depth, soft studio lighting. No chart axes, no dashboard, no tiny diorama, no photorealism, no extra text.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+BACKGROUND_LOCK: Use one seamless deep black background.

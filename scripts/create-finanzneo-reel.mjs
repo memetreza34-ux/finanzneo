@@ -4,11 +4,15 @@
 // Neue Reels erhalten Cover Hook V3: Titel ab Frame 0, Captions ab erstem gesprochenen Wort.
 // Zusätzlich gelten Quality Guards V1: IMAGE xor ANIMATION, tatsächliche Source-Diversität
 // und horizontale Animation-Safe-Zone mit Post-Render-Rand-QA.
-// Bildplanung: bekannte Figuren/Gegenstände -> klarer Story-Moment -> V9-Rendering.
+// Bildplanung: FORM FREI — BILDWELT FEST. Pro Beat die stärkste Darstellungsform wählen.
+// Google Flow wird am Ende erneut angewendet, damit paralleles 3-Cover-Gate,
+// V9 als einzige Style-Autorität, 5er-Blöcke, Sofort-Rename und finaler
+// Inventory-QA nicht von Zwischen-Skripten überschrieben werden können.
 
 import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
 import {dirname, resolve} from 'node:path';
+
 
 const args = process.argv.slice(2);
 const targetIndex = args.indexOf('--target');
@@ -25,7 +29,7 @@ const reelsWurzel = resolve('reels');
 
 const zuruecknehmen = () => {
   if (bestandVorher || !existsSync(absolutesZiel)) return;
-  rmSync(absolutesZiel, {recursive: true, force: true});
+  rmSync(absolutesZiel, {recursive: true, force:true});
   let ordner = dirname(absolutesZiel);
   while (ordner.startsWith(reelsWurzel) && ordner !== reelsWurzel) {
     if (!existsSync(ordner) || readdirSync(ordner).length > 0) break;
@@ -36,7 +40,7 @@ const zuruecknehmen = () => {
   console.error('Ursache oben beheben und reel:create erneut ausführen.');
 };
 
-const run = (script, scriptArgs = []) => spawnSync(process.execPath, [resolve(script), ...scriptArgs], {stdio: 'inherit'});
+const run = (script, scriptArgs = []) => spawnSync(process.execPath, [resolve(script), ...scriptArgs], {stdio:'inherit'});
 
 const steps = [
   ['scripts/scaffold-finanzneo-reel.mjs', args],
@@ -54,6 +58,9 @@ const steps = [
   ['scripts/apply-future-reel-presentation-v1.mjs', [target]],
   ['scripts/apply-future-reel-phase1-motion-direction-v1.mjs', [target]],
   ['scripts/apply-reel-quality-guards-v1.mjs', [target]],
+  // Final erneut anwenden: andere Produktionsverträge dürfen den zentralen
+  // Cover-/5Pack-/Inventory-Flow nicht versehentlich verwässern.
+  ['scripts/apply-flow-autonomous-contract.mjs', [target]],
 ];
 
 for (const [script, scriptArgs] of steps) {
@@ -65,14 +72,19 @@ for (const [script, scriptArgs] of steps) {
 }
 
 console.log('\n✓ Neues Reel vollständig angelegt.');
-console.log('  Google Flow: Strict-Single-Job V3 · immer genau 1 Bildjob.');
-console.log('  Bildwelt V9 + Story-Moment V1: bekannte Figuren/Gegenstände -> klare kleine Geschichte -> intuitive Metapher wenn sie besser erklärt.');
-console.log('  Rendering: premium stylized 3D animated-film auf tiefschwarzer Bühne; keine abstrakten Finanzkörper als Default.');
-console.log('  Cover Hook V3: Hero-Bild + exakter Titel ab Frame 0; Captions ab erstem gesprochenen Wort.');
+console.log('  Google Flow: 3 Cover mit kurzem Inhalts-Hook gleichzeitig als getrennte Jobs -> Nutzerwahl A/B/C.');
+console.log('  Gewähltes Cover = Scene 01, aber KEINE Style-Referenz; V9 bleibt einzige Style-Autorität für alle Bilder.');
+console.log('  Danach: organisatorische 5er-Blöcke, technisch immer exakt 1 Szenenbildjob -> Sofort-Rename -> QA -> automatisch weiter.');
+console.log('  Flow-Abschluss: vollständiger Inventory-/Dateinamen-QA; alle finalen Bilder gemeinsam im einen finalen Bildordner.');
+console.log('  Visual Form V1: Form frei — Bildwelt fest.');
+console.log('  IMAGE darf pro Beat character-story, object-story, comparison, chart, diagram, editorial-quote, illustration, metaphor oder hybrid sein.');
+console.log('  CHART/DIAGRAM bleibt fachlich echt: korrekte Achsen/Skalen/Labels/Proportionen soweit erforderlich; kein PowerPoint-/Excel-Default.');
+console.log('  Bildwelt: premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf Deep Black; V9 bleibt Style-Lock.');
+console.log('  Cover Hook V3: Hero-Bild + kurzer inhaltsbezogener Hook; maximal 2 Zeilen, ideal 2–5 Wörter.');
 console.log('  Szene-Typen: exakt IMAGE oder ANIMATION — kein Bild+Animations-Hybrid als Hauptvisual.');
 console.log('  IMAGE: Bild + Titel/Header/Icon + Caption; keine erklärende Remotion-Hauptanimation über dem Bild.');
-console.log('  ANIMATION: dieselbe Story-Moment-Logik wie Bilder; Remotion-Hauptanimation + Header/Icon + Caption.');
-console.log('  Motion Direction: Inhalt -> Story-Moment -> Mechanik -> Same-World-Pass -> Finance Motion Library oder Custom-Build.');
+console.log('  ANIMATION: dieselbe freie visuelle Regie, aber in derselben V9-Welt; Remotion-Hauptanimation + Header/Icon + Caption.');
+console.log('  Motion Direction: Inhalt -> stärkste Darstellungsform -> Mechanik -> Same-World-Pass -> Finance Motion Library oder Custom-Build.');
 console.log('  Finance Motion Library: passende Mechaniken parametrisieren und wiederverwenden; keine passende Mechanik = individuell bauen.');
 console.log('  Source Diversity Guard: tatsächliche animation.tsx-Primitives werden verglichen; Metadaten allein reichen nicht.');
 console.log('  Animation Safe Zone: X72–1008 · Visual Y320–1400 · perspektivischer Innenabstand + Post-Render-Rand-QA.');

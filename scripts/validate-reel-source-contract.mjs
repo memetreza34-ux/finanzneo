@@ -138,9 +138,14 @@ const googleFlow = index.googleFlow ?? {};
 assert(googleFlow.protocolId === FLOW_AGENT_PROTOCOL_ID, `googleFlow.protocolId muss ${FLOW_AGENT_PROTOCOL_ID} sein.`);
 assert(googleFlow.executionModeId === FLOW_EXECUTION_MODE_ID, `googleFlow.executionModeId muss ${FLOW_EXECUTION_MODE_ID} sein.`);
 assert(googleFlow.stateMachineId === FLOW_STATE_MACHINE_ID, `googleFlow.stateMachineId muss ${FLOW_STATE_MACHINE_ID} sein.`);
-assert(googleFlow.generationMode === 'one-image-at-a-time', 'Google Flow muss one-image-at-a-time verwenden.');
-assert(googleFlow.strictSequential === true, 'Google Flow muss strikt sequenziell arbeiten.');
-assert(Number(googleFlow.maxConcurrentGenerations) === 1, 'Google Flow darf maximal einen laufenden Bildjob haben.');
+assert(googleFlow.generationMode === 'cover-parallel-then-scene-single', 'Google Flow muss Cover-parallel und danach Scene-single arbeiten.');
+assert(googleFlow.strictSequential === false, 'Global darf strictSequential wegen der parallelen Cover-Phase nicht true sein.');
+assert(googleFlow.coverParallelGenerationRequired === true, 'Cover A/B/C müssen parallel erzeugt werden.');
+assert(Number(googleFlow.coverConcurrentGenerations) === 3, 'Cover-Phase muss concurrency=3 verwenden.');
+assert(googleFlow.coverSeparateJobsRequired === true, 'Cover A/B/C müssen drei getrennte Jobs sein.');
+assert(googleFlow.sceneGenerationMode === 'one-image-at-a-time', 'Szenenbilder müssen one-image-at-a-time verwenden.');
+assert(googleFlow.sceneStrictSequential === true, 'Szenenbilder müssen strikt sequenziell arbeiten.');
+assert(Number(googleFlow.maxConcurrentGenerations) === 1, 'Nach der Cover-Auswahl darf maximal ein Szenenbildjob laufen.');
 assert(googleFlow.batchGenerationForbidden === true, 'Batch-Generierung muss verboten sein.');
 assert(googleFlow.queueLaterImagesForbidden === true, 'Queueing späterer Bilder muss verboten sein.');
 assert(googleFlow.waitForCurrentImage === true, 'Auf den aktuellen einzelnen Bildjob muss intern gewartet werden.');
@@ -232,9 +237,10 @@ for (const [label, path] of promptFiles) {
 if (existsSync(allPromptsPath)) {
   const master = read(allPromptsPath);
   assert(master.includes(FLOW_AGENT_PROTOCOL_MARKER), 'Master-Prompt enthält das Flow-Agent-Protokoll nicht.');
-  assert(master.includes(`FLOW_EXECUTION_MODE: ${FLOW_EXECUTION_MODE_ID}`), 'Master-Prompt enthält Strict-Single-Job V3 nicht.');
+  assert(master.includes(`FLOW_EXECUTION_MODE: ${FLOW_EXECUTION_MODE_ID}`), 'Master-Prompt enthält den aktuellen Cover-parallel/Scene-single-Modus nicht.');
   assert(master.includes(`FLOW_STATE_MACHINE: ${FLOW_STATE_MACHINE_ID}`), 'Master-Prompt enthält die Flow-State-Machine nicht.');
-  assert(/MAX_CONCURRENT_GENERATIONS\s*=\s*1/.test(master) || /CONCURRENCY\s*=\s*1/.test(master), 'Master-Prompt begrenzt die Bildgenerierung nicht auf concurrency=1.');
+  assert(master.includes('FLOW_COVER_CONCURRENCY: 3'), 'Master-Prompt muss die drei Cover-Jobs parallel erlauben.');
+  assert(master.includes('FLOW_SCENE_CONCURRENCY: 1'), 'Master-Prompt muss Szenenbilder nach der Cover-Wahl auf concurrency=1 begrenzen.');
   assert(master.includes('00-ALLE-BILDER-HIER-REIN'), 'Master-Prompt nennt den finalen Bilderordner nicht.');
 }
 
@@ -275,7 +281,7 @@ for (const relativePath of [
 
 if (legacyImageWorld) notes.push('Legacy-Bildwelt erkannt: nur Strukturvertrag geprüft; V9-Migration wird nicht rückwirkend erzwungen.');
 else notes.push(`V9-Bildwelt geprüft: ${V9_WORLD_LOCK} · deep black · flexible Objektanzahl.`);
-notes.push(`Google Flow geprüft: ${FLOW_EXECUTION_MODE_ID} · concurrency=1.`);
+notes.push(`Google Flow geprüft: ${FLOW_EXECUTION_MODE_ID} · Cover concurrency=3 · Scene concurrency=1.`);
 notes.push(`Phase 3 geprüft: ${PURE_BLACK_CONTRACT} · leere/schwarze Visuals müssen scheitern.`);
 
 if (errors.length) {

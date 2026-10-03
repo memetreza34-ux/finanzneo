@@ -1,0 +1,1381 @@
+{
+  "version": 28,
+  "title": "Was 1 % Kosten wirklich ausmacht",
+  "sceneCount": 12,
+  "imageSceneCount": 9,
+  "animationSceneCount": 3,
+  "targetImageShare": 0.6,
+  "targetAnimationShare": 0.4,
+  "video": {
+    "aspectRatio": "9:16",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "cover": {
+    "type": "scene-image",
+    "sourceSceneId": "scene-01",
+    "googleFlowFileName": "Bild 01 - Ein Prozent wirkt klein.png",
+    "planFile": "03-szenen/00-cover/cover.txt",
+    "aspectRatio": "1:1",
+    "sameAssetAsFirstScene": true,
+    "separateGenerationForbidden": true,
+    "renderedTitleOverlayRequired": true,
+    "finalExportSource": "final-video-frame-0"
+  },
+  "userCreatesImages": true,
+  "antigravityGeneratesImages": false,
+  "phase3Executor": "antigravity",
+  "googleFlow": {
+    "protocolId": "finanzneo-flow-sequential-v1",
+    "generationMode": "cover-parallel-then-scene-single",
+    "strictSequential": false,
+    "waitForCurrentImage": true,
+    "renameBeforeNext": true,
+    "qaBeforeNext": true,
+    "retrySameImageOnFailure": true,
+    "fileNameRule": "Bild XX - Kurzer Szenenname.png",
+    "numberSource": "real-scene-number",
+    "animationNumbersStayReserved": true,
+    "finalCollectionDirectory": "03-szenen/00-ALLE-BILDER-HIER-REIN/",
+    "distributeToSceneFolders": false,
+    "executionModeId": "finanzneo-flow-cover-parallel-then-single-v4",
+    "stateMachineId": "finanzneo-flow-state-machine-v2",
+    "autonomousFullRun": false,
+    "maxConcurrentGenerations": 1,
+    "batchGenerationForbidden": true,
+    "multiImageRequestForbidden": true,
+    "queueLaterImagesForbidden": true,
+    "galleryOrContactSheetForbidden": true,
+    "currentStepGateRequired": true,
+    "nextStepLockedUntilCurrentResultReturned": true,
+    "renameBeforeUnlockNext": true,
+    "qaBeforeUnlockNext": true,
+    "userContinueSignalForbidden": true,
+    "userApprovalBetweenImagesForbidden": true,
+    "internalWaitForGenerationOnly": true,
+    "autoContinueAfterQa": true,
+    "hardBlockerOnlyStop": true,
+    "structureLockId": "finanzneo-flow-structure-lock-v2",
+    "preserveStructureThroughLastImage": true,
+    "preserveStyleThroughLastImage": true,
+    "coverFivePackWorkflowId": "finanzneo-flow-cover-parallel-5pack-v2",
+    "autonomousAfterCoverSelection": true,
+    "coverVariantCount": 3,
+    "coverTextRequired": true,
+    "coverSelectionRequiredBeforeSceneImages": true,
+    "userApprovalOnlyForCoverSelection": true,
+    "selectedCoverPromotedToFinalCover": true,
+    "selectedCoverPromotedToScene01": true,
+    "selectedCoverAsOnlyStyleReference": false,
+    "laterImagesMayNotBecomeStyleReference": true,
+    "styleReferenceTextLayoutContentCopyForbidden": true,
+    "imageBlockSize": 5,
+    "blockAutonomousRun": true,
+    "autoContinueBetweenBlocks": true,
+    "userApprovalBetweenBlocksForbidden": true,
+    "immediateRenameRequired": true,
+    "finalInventoryQaRequired": true,
+    "finalFileNameQaRequired": true,
+    "finalSingleDirectoryQaRequired": true,
+    "coverCandidateDirectory": "03-szenen/00-cover/KANDIDATEN/",
+    "coverCandidateFileNames": [
+      "Cover-A.png",
+      "Cover-B.png",
+      "Cover-C.png"
+    ],
+    "coverFinalFileName": "Bild 01 - Ein Prozent wirkt klein.png",
+    "selectedCoverSceneId": "scene-01",
+    "styleReferenceTransferOnly": [],
+    "imageBlocksAfterCover": [
+      {
+        "block": 1,
+        "sceneIds": [
+          "scene-02",
+          "scene-04",
+          "scene-05",
+          "scene-06",
+          "scene-08"
+        ],
+        "finalFiles": [
+          "Bild 02 - Klein wirkt harmlos.png",
+          "Bild 04 - Sieben gegen sechs Prozent.png",
+          "Bild 05 - Gleicher Start.png",
+          "Bild 06 - Nach fünf Jahren.png",
+          "Bild 08 - Endvermoegen nach dreissig Jahren.png"
+        ]
+      },
+      {
+        "block": 2,
+        "sceneIds": [
+          "scene-09",
+          "scene-10",
+          "scene-12"
+        ],
+        "finalFiles": [
+          "Bild 09 - Sechs Prozent Endwert.png",
+          "Bild 10 - Fuenfundachtzigtausend Unterschied.png",
+          "Bild 12 - Kosten im Blick behalten.png"
+        ]
+      }
+    ],
+    "expectedFinalImageCount": 9,
+    "expectedFinalFiles": [
+      "Bild 01 - Ein Prozent wirkt klein.png",
+      "Bild 02 - Klein wirkt harmlos.png",
+      "Bild 04 - Sieben gegen sechs Prozent.png",
+      "Bild 05 - Gleicher Start.png",
+      "Bild 06 - Nach fünf Jahren.png",
+      "Bild 08 - Endvermoegen nach dreissig Jahren.png",
+      "Bild 09 - Sechs Prozent Endwert.png",
+      "Bild 10 - Fuenfundachtzigtausend Unterschied.png",
+      "Bild 12 - Kosten im Blick behalten.png"
+    ],
+    "temporaryCoverCandidatesExcludedFromFinalAudit": true,
+    "finalFolderMustContainAllExpectedFinalImages": true,
+    "sceneGenerationMode": "one-image-at-a-time",
+    "sceneStrictSequential": true,
+    "coverParallelGenerationRequired": true,
+    "coverConcurrentGenerations": 3,
+    "coverSeparateJobsRequired": true,
+    "coverMultiImageRequestForbidden": true,
+    "sceneMaxConcurrentGenerations": 1,
+    "coverHookMaxLines": 2,
+    "coverHookIdealWordMin": 2,
+    "coverHookIdealWordMax": 5,
+    "coverLongSentenceForbidden": true,
+    "coverTextMustDescribeReelContent": true,
+    "coverMustUseV9World": true,
+    "coverMayBeUsedAsStyleReference": false,
+    "imageToImageStyleReferenceForbidden": true,
+    "canonicalStyleAuthority": "finanzneo-stylized-3d-animated-black-v9",
+    "styleAuthority": "finanzneo-stylized-3d-animated-black-v9"
+  },
+  "phase1AnimationCode": {
+    "required": true,
+    "qualityLock": "finanzneo-phase1-animation-code-v1",
+    "canonicalSourceRequiredForEveryAnimation": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "financeMotionLibraryId": "finanzneo-finance-motion-library-v1",
+    "libraryBestFitPreferred": true,
+    "libraryUseNeverForced": true,
+    "customAnimationAllowed": true,
+    "reusableMechanicsMayRepeat": true,
+    "placeholderMotionForbidden": true,
+    "decorativeMotionDoesNotCountAsExplanation": true,
+    "mathSinCosCompletionHackForbidden": true,
+    "semanticMechanismRequired": true,
+    "uniqueMechanismPerAnimationRequired": false,
+    "clarityBeforeObjectCount": true,
+    "labelsSupplementalOnly": true,
+    "genericCardRowsForbidden": true,
+    "progressBarAsPrimaryStoryForbidden": true,
+    "motionDirectorMarkersRequired": [
+      "MOTION_SOURCE",
+      "FINANCE_MOTION_ID",
+      "MECHANIC_ID",
+      "FOCAL_PATH",
+      "PRIMARY_ACTION",
+      "CAMERA_ROLE",
+      "PAYOFF"
+    ],
+    "narrativeMarkersRequired": [
+      "START",
+      "MECHANISM",
+      "RESULT",
+      "HERO",
+      "SUPPORT",
+      "MATERIAL",
+      "DEPTH"
+    ],
+    "resultHoldFramesMin": 15,
+    "premiumVisualLock": "finanzneo-premium-physical-animation-v2",
+    "visualTargetWorld": "finanzneo-stylized-3d-animated-black-v9",
+    "storyMomentRevision": "finanzneo-readable-story-moment-v1",
+    "financeMotionLibraryAvailable": true,
+    "financeMotionLibraryRole": "mechanism-tool-not-style-reference",
+    "libraryBestFitBeforeCustom": true,
+    "directLibraryRenderRequiresSameWorldPass": true,
+    "reusableMechanicsPreferred": true,
+    "libraryReuseMayRepeatAcrossScenes": true,
+    "libraryParametersMustFollowSceneContent": true,
+    "familiarObjectsOrCharactersPreferred": true,
+    "readableStoryMomentRequired": true,
+    "instantMeaningWithoutCaptionRequired": true,
+    "intuitiveMetaphorAllowed": true,
+    "intuitiveMetaphorMayBeatLiteralWhenClearer": true,
+    "exaggeratedPhysicalStoryAllowed": true,
+    "familiarObjectMetaphorRequired": true,
+    "corporateStockCharacterAsStaticDecorationForbidden": true,
+    "requirePremiumPhysicalStage": false,
+    "requirePhysicalObjects": false,
+    "premiumPhysicalStageOptional": true,
+    "physicalObjectsOptional": true,
+    "realWorldGroundingPreferred": true,
+    "abstractValueGeometryAsDefaultForbidden": true,
+    "recognizableFinanceOrEverydayObjectsPreferred": true,
+    "supportingObjectCountFlexible": true,
+    "requireMaterialDepthLighting": true,
+    "sameVisualLanguageAsFlowImages": true,
+    "startMechanismResultRequired": true,
+    "focalPathRequired": true,
+    "primaryActionRequired": true,
+    "cameraRoleRequired": true,
+    "payoffRequired": true,
+    "pureBlackCanvasRequired": true,
+    "transparentAnimationStageRequired": true,
+    "globalHeaderOwnedByReelLayout": true,
+    "globalCaptionsOwnedByReelLayout": true,
+    "localSceneShellForbidden": true,
+    "localBlackBackgroundForbidden": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridBackgroundForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "genericInfoCardsAsMainLanguageForbidden": true
+  },
+  "reelBackground": {
+    "contractId": "finanzneo-pure-black-background-v1",
+    "color": "#000000",
+    "staticRequired": true,
+    "decorativeEffectsForbidden": true,
+    "particlesForbidden": true,
+    "auroraForbidden": true,
+    "gridForbidden": true,
+    "glowBackgroundForbidden": true
+  },
+  "layoutVersion": "finanzneo-reel-layout-v5",
+  "layout": {
+    "headlineY": 154,
+    "visualTop": 320,
+    "visualBottom": 1400,
+    "subtitleBottom": 340,
+    "subtitleLeft": 72,
+    "subtitleRight": 140
+  },
+  "visualSafeZone": {
+    "top": 320,
+    "bottom": 1400,
+    "hardClipAnimations": true,
+    "headerIntrusionForbidden": true,
+    "captionIntrusionForbidden": true
+  },
+  "timingStandard": {
+    "imageSceneIdealSeconds": [
+      1.8,
+      3
+    ],
+    "imageSceneAbsoluteMaxSeconds": 4,
+    "animationSceneIdealSeconds": [
+      3,
+      5.5
+    ],
+    "splitOrAnimateIfImageExceedsMax": true,
+    "visualBeatContractId": "finanzneo-visual-beats-v2",
+    "actualTimingSource": "04-caption/word-timings.json",
+    "cameraMotionDoesNotResetVisualBeat": true,
+    "newConcreteVoiceIdeaShouldTriggerVisualChange": true,
+    "imageSceneSoftMaxSeconds": 3.6,
+    "longStaticSentenceNeedsAdditionalVisualBeat": true,
+    "extraImagePreferredOverLongHold": true
+  },
+  "clarityStandard": {
+    "mustReadInUnderSeconds": 2,
+    "oneMainIdeaPerBeat": true,
+    "sceneHeaderRequired": true,
+    "sceneIconRequired": true,
+    "animationStartMechanismResultRequired": true,
+    "blackTextOnDarkForbidden": true
+  },
+  "imageWorld": {
+    "id": "finanzneo-connected-studio-v3",
+    "seriesLockId": "finanzneo-same-world-v1",
+    "stylized3DLockId": "finanzneo-stylized-3d-editorial-v5",
+    "physicalExplainerLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "premiumVisualWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "animatedWorldLockId": "finanzneo-stylized-3d-animated-black-v9",
+    "generatedImageAspectRatio": "1:1",
+    "squareGeneratedImagesRequired": true,
+    "referencePromptFile": "03-szenen/bildwelt.txt",
+    "styleReferenceStrategy": "written-style-lock-only",
+    "referenceImageUse": "forbidden",
+    "style": "stylized-3d-animated-black-v9",
+    "sameWorldAcrossSeriesRequired": true,
+    "supportingObjectCountFlexible": true,
+    "supportingObjectsOnlyWhenHelpful": true,
+    "clarityBeforeObjectCount": true,
+    "contentFirstCompositionRequired": true,
+    "nonPhotorealisticRequired": true,
+    "stylized3DAnimatedRequired": true,
+    "softRoundedGeometryRequired": true,
+    "simplifiedDetailsRequired": true,
+    "premiumPlayfulBalanceRequired": true,
+    "clearMainSubjectOrActionRequired": true,
+    "deepBlackBackgroundRequired": true,
+    "cleanMinimalBackgroundRequired": true,
+    "subjectSeparationLightingRequired": true,
+    "softContactShadowsRequired": true,
+    "brandMarksRecognizableButStylizedRequired": true,
+    "flatPastedRealLogoForbidden": true,
+    "screenshotLikeBrandUiForbidden": true,
+    "objectLabelsOnly": true,
+    "headlinesInGeneratedImagesForbidden": true,
+    "subtitlesInGeneratedImagesForbidden": true,
+    "sentencesInGeneratedImagesForbidden": true,
+    "dashboardCompositionForbidden": true,
+    "appUiCompositionForbidden": true,
+    "flowchartMainCompositionForbidden": true,
+    "smallBoxesThinLinesForbidden": true,
+    "floatingUiTilesForbidden": true,
+    "microchipVisualLanguageForbidden": true,
+    "miniatureDioramaForbidden": true,
+    "photorealismForbidden": true,
+    "productPhotoLookForbidden": true,
+    "clutterForbidden": true,
+    "seamlessSingleBackgroundRequired": true,
+    "percentageZonesForbidden": true,
+    "floorWallBoundaryForbidden": true,
+    "horizonLineForbidden": true,
+    "backgroundBandsForbidden": true,
+    "visibleFaceRequiredWhenPersonPresent": true,
+    "realWorldGroundedSituationRequired": true,
+    "believableObjectProportionsRequired": true,
+    "recognizableEverydayDetailsRequired": true,
+    "completeExplanatorySceneRequired": true,
+    "causeEffectReadableRequired": true,
+    "understandableWithoutAudioRequired": true,
+    "germanObjectLabelsWhenHelpfulRequired": true,
+    "individuallyWrittenPromptRequired": true,
+    "genericPromptShorthandForbidden": true,
+    "abstractSymbolOnlyCompositionForbidden": true,
+    "genericFinanceIconCompositionForbidden": true,
+    "visualMetaphorInterpretationRequiredForbidden": true
+  },
+  "platformPublishing": {
+    "directory": "04-caption",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt",
+    "universalCaptionForAllReelPlatforms": true,
+    "platforms": [
+      "instagram-reels",
+      "tiktok",
+      "facebook-reels",
+      "snapchat"
+    ]
+  },
+  "timelineRules": {
+    "timingSource": "04-caption/word-timings.json",
+    "cutsFollowSentenceStarts": true,
+    "cutsFollowSentenceStartsAndMeaningfulPhraseStarts": true,
+    "equalLengthScenesForbiddenByDefault": true
+  },
+  "audio": {
+    "targetIntegratedLufs": -16,
+    "targetTruePeakDbtp": -1
+  },
+  "imagePresentationContract": {
+    "imageFit": "contain",
+    "maxIntentionalImageScale": 1.04,
+    "maxSourceCropPerSide": 0.2,
+    "maxSourceCropTotal": 0.34,
+    "blurredImageBackgroundForbidden": true
+  },
+  "subtitleDisplay": {
+    "mode": "sentence-with-audio-synced-active-word",
+    "activeWordColor": "finance-green",
+    "normalWordColor": "white",
+    "maxLines": 2,
+    "noDeadGaps": true,
+    "holdDuringPauses": true,
+    "noWordJump": true,
+    "noWordScale": true,
+    "goldActiveWordForbidden": true,
+    "blackTextForbidden": true,
+    "clipToSceneBoundary": true,
+    "crossSceneSpillForbidden": true,
+    "textStrokeForbidden": true,
+    "fontWeight": 800,
+    "fontSize": 50,
+    "bottom": 340
+  },
+  "sceneHeader": {
+    "required": true,
+    "align": "center",
+    "presentation": "plain",
+    "headlineColor": "white",
+    "fontSize": 56,
+    "minFontSize": 50,
+    "maxLines": 2,
+    "iconSize": 34,
+    "defaultIconColor": "finance-green",
+    "semanticColorLivesOnIcon": true,
+    "capsuleForbidden": true,
+    "uppercaseTransformForbidden": true,
+    "uniqueIconPerScene": true,
+    "mustStateSceneMessage": true,
+    "samePositionAcrossReel": true
+  },
+  "animationColors": {
+    "neutral": "white",
+    "focus": "finance-green",
+    "warning": "red",
+    "money": "gold",
+    "blackOnDarkForbidden": true
+  },
+  "transitionContract": {
+    "continuityFrames": 3,
+    "continuityFramesMax": 3,
+    "imageEnterFrames": 4,
+    "fadeToBlackForbidden": true
+  },
+  "scenes": [
+    {
+      "id": "scene-01",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-01",
+      "headline": "Was kostet 1 %?",
+      "icon": "percent",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-01/bildprompt.txt",
+      "googleFlowFileName": "Bild 01 - Ein Prozent wirkt klein.png",
+      "objectLabels": [
+        "1 %"
+      ],
+      "expectedVisual": "Ein winziger roter 1-%-Gebührenzettel liegt groß im Vordergrund; dahinter ziehen sich viele identische kleine Gebührenzettel in die schwarze Tiefe und sammeln sich zu einem deutlich größeren Papierberg.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.4,
+      "visualBeats": [
+        {
+          "id": "scene-01-beat-01",
+          "kind": "image",
+          "voiceText": "Ein Prozent Kosten klingt nach fast nichts.",
+          "visualChange": "Ein winziger roter 1-%-Gebührenzettel liegt groß im Vordergrund; dahinter ziehen sich viele identische kleine Gebührenzettel in die schwarze Tiefe und sammeln sich zu einem deutlich größeren Papierberg.",
+          "startSecond": 0,
+          "endSecond": 3.4
+        }
+      ],
+      "coverHook": true,
+      "captionEnabled": true,
+      "subtitleMode": "sentence-with-audio-synced-active-word",
+      "captionsStartWithVoiceover": true,
+      "titleMode": "reel-title-overlay",
+      "titleVisibleFromFrame": 0,
+      "coverTitle": "Was 1 % Kosten wirklich ausmacht",
+      "imageStorytelling": {
+        "visualForm": "metaphor",
+        "visualConcept": "Ein winziger roter 1-%-Gebührenzettel liegt groß im Vordergrund; dahinter ziehen sich viele identische kleine Gebührenzettel in die schwarze Tiefe und sammeln sich zu einem deutlich größeren Papierberg.",
+        "voiceVisualMatch": "Der einzelne kleine 1-%-Zettel wirkt harmlos, die Masse derselben Zettel im Hintergrund zeigt sofort die langfristige Wirkung.",
+        "instantReadTest": "PASS - kleiner Einzelzettel vorne und großer angesammelter Gebührenberg hinten lesen sich sofort als klein einmal, groß über Zeit.",
+        "transferabilityTest": "PASS - die wiederholten 1-%-Gebührenzettel sind spezifisch für laufende Investmentkosten über viele Jahre.",
+        "dataIntegrityTest": "not-applicable"
+      },
+      "presentation": {
+        "coverTitleRequired": true,
+        "standardHeaderRequired": false,
+        "iconRequired": false,
+        "captionsRequired": true,
+        "captionsFollowVoiceover": true
+      }
+    },
+    {
+      "id": "scene-02",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-02",
+      "headline": "Klein wirkt harmlos",
+      "icon": "receipt",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-02/bildprompt.txt",
+      "googleFlowFileName": "Bild 02 - Klein wirkt harmlos.png",
+      "objectLabels": [
+        "1 %",
+        "über Jahrzehnte"
+      ],
+      "expectedVisual": "Große hochwertige 3D-Typografie „1 %“ steht als Hauptmotiv auf schwarzer Bühne; direkt dahinter läuft eine lange Reihe kleiner Jahresmarken in die Tiefe, sodass die kleine Zahl visuell mit langer Zeit verbunden wird.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-02-beat-01",
+          "kind": "image",
+          "voiceText": "Bei deinem Investment kann genau dieses eine Prozent über Jahrzehnte aber Zehntausende Euro Unterschied machen.",
+          "visualChange": "Große hochwertige 3D-Typografie „1 %“ steht als Hauptmotiv auf schwarzer Bühne; direkt dahinter läuft eine lange Reihe kleiner Jahresmarken in die Tiefe, sodass die kleine Zahl visuell mit langer Zeit verbunden wird.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "editorial-quote",
+        "visualConcept": "Große hochwertige 3D-Typografie „1 %“ steht als Hauptmotiv auf schwarzer Bühne; direkt dahinter läuft eine lange Reihe kleiner Jahresmarken in die Tiefe, sodass die kleine Zahl visuell mit langer Zeit verbunden wird.",
+        "voiceVisualMatch": "Die riesige lesbare 1-%-Typografie stellt die kleine Prozentzahl in den Mittelpunkt; die lange räumliche Jahresfolge zeigt, warum Zeit sie relevant macht.",
+        "instantReadTest": "PASS - 1 % plus klarer langer Zeithorizont vermittelt sofort kleine Zahl mit langfristiger Wirkung.",
+        "transferabilityTest": "PASS - die Kombination aus 1 % und langem Investitionszeithorizont gehört konkret zur Gebührenaussage.",
+        "dataIntegrityTest": "not-applicable"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-03",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-03",
+      "headline": "Unser Beispiel",
+      "icon": "wallet",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-03/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-03/animation.tsx",
+      "animationExport": "Scene03Animation",
+      "animationIntent": "Zeige exakt: Nehmen wir ein einfaches Beispiel: Du startest mit 10.000 Euro und investierst 300 Euro im Monat. Die Mechanik muss ohne Caption verständlich sein und in der gleichen FinanzNeo-V9-Welt bleiben.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 5.2,
+      "visualBeats": [
+        {
+          "id": "scene-03-beat-01",
+          "kind": "animation",
+          "voiceText": "Startkapital ist da.",
+          "visualChange": "Der Investmentordner steht mit 10.000 € Startkapital und einem ersten Goldwertstapel.",
+          "startSecond": 0,
+          "endSecond": 1.2
+        },
+        {
+          "id": "scene-03-beat-02",
+          "kind": "animation",
+          "voiceText": "Dann kommen jeden Monat 300 Euro dazu.",
+          "visualChange": "Mehrere 300-€-Monatsumschläge gleiten nacheinander in den Ordner und erhöhen den Wertstapel sichtbar.",
+          "startSecond": 1.2,
+          "endSecond": 3.95
+        },
+        {
+          "id": "scene-03-beat-03",
+          "kind": "animation",
+          "voiceText": "Start und Sparrate arbeiten zusammen.",
+          "visualChange": "Der gewachsene Stapel bleibt stabil; Startkapital plus wiederkehrende Sparrate sind als gemeinsames Investment sichtbar.",
+          "startSecond": 3.95,
+          "endSecond": 5.2
+        }
+      ],
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "motionDesign": {
+        "viewerChange": "Der Zuschauer erkennt sichtbar, wie 10.000 Euro Startkapital und wiederkehrende 300-Euro-Raten gemeinsam den Investmentwert aufbauen.",
+        "visualMode": "physical",
+        "visualTechniqueId": "envelope-deposit-growth",
+        "compositionFamilyId": "folder-deposit-stage",
+        "heroObjectFamily": "investment-folder",
+        "primaryAction": "Mehrere physische 300-Euro-Umschläge gleiten nacheinander in den Investmentordner und erhöhen den sichtbaren Goldwertstapel.",
+        "motionSignature": {
+          "camera": "static-three-quarter",
+          "layout": "single-hero-input-stream",
+          "transformation": "deposit-stack-growth"
+        },
+        "supportTools": [],
+        "repetitionJustification": "none"
+      },
+      "phase1MotionDirection": {
+        "spokenPoint": "Du startest mit 10.000 Euro und investierst zusätzlich jeden Monat 300 Euro.",
+        "viewerMustUnderstand": "Startkapital und monatliche Sparrate fließen in dasselbe Investment und bauen gemeinsam Vermögen auf.",
+        "visualQuestion": "Wie kommen Startkapital und monatliche Sparrate sichtbar im selben Investment zusammen?",
+        "chosenMechanism": "Ein Investmentordner startet mit 10.000 Euro; wiederkehrende 300-Euro-Umschläge wandern hinein und lassen den Wertstapel wachsen.",
+        "mechanismRationale": "Die physische Einzahlungskette übersetzt Startbetrag und regelmäßige Monatsrate direkt in eine verständliche Ursache-Wirkung-Bewegung.",
+        "implementationDecision": "custom-build",
+        "financeMotionId": "none",
+        "libraryFitReason": "none",
+        "parameterPlan": "none",
+        "customReason": "Keine vorhandene Library-Mechanik verbindet konkrete Monatsumschläge, Startkapital und denselben wachsenden Investmentordner in dieser Story-Sprache.",
+        "libraryPromotionCandidate": true
+      }
+    },
+    {
+      "id": "scene-04",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-04",
+      "headline": "Ein Prozentpunkt trennt die Renditen",
+      "icon": "chart-up",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-04/bildprompt.txt",
+      "googleFlowFileName": "Bild 04 - Sieben gegen sechs Prozent.png",
+      "objectLabels": [
+        "Jahre",
+        "Vermögen",
+        "7 %",
+        "6 %",
+        "30"
+      ],
+      "expectedVisual": "Ein echtes hochwertig inszeniertes Liniendiagramm mit X-Achse Jahre 0–30 und Y-Achse Vermögen; zwei korrekt startende Linien 7 % und 6 % trennen sich mit zunehmender Laufzeit sichtbar.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-04-beat-01",
+          "kind": "image",
+          "voiceText": "Variante A bringt im Schnitt 7 Prozent pro Jahr, Variante B nach Kosten vereinfachend nur 6 Prozent.",
+          "visualChange": "Ein echtes hochwertig inszeniertes Liniendiagramm mit X-Achse Jahre 0–30 und Y-Achse Vermögen; zwei korrekt startende Linien 7 % und 6 % trennen sich mit zunehmender Laufzeit sichtbar.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "chart",
+        "visualConcept": "Ein echtes hochwertig inszeniertes Liniendiagramm mit X-Achse Jahre 0–30 und Y-Achse Vermögen; zwei korrekt startende Linien 7 % und 6 % trennen sich mit zunehmender Laufzeit sichtbar.",
+        "voiceVisualMatch": "Die zwei beschrifteten Renditelinien zeigen exakt den einen Prozentpunkt Unterschied und seine Entwicklung über Zeit.",
+        "instantReadTest": "PASS - Achsen, 7-%- und 6-%-Linie machen den Vergleich ohne Zusatzinterpretation sofort klar.",
+        "transferabilityTest": "PASS - zwei konkrete Renditepfade 7 % versus 6 % über 30 Jahre passen spezifisch zum Rechenbeispiel.",
+        "dataIntegrityTest": "PASS - X-Achse zeigt 0 bis 30 Jahre, Y-Achse Vermögen; beide Reihen basieren auf 10.000 € Start plus 300 € monatlich bei 7 % bzw. 6 % nominaler Jahresrendite mit monatlicher Verzinsung."
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-05",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-05",
+      "headline": "Am Anfang fast gleich",
+      "icon": "coins",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-05/bildprompt.txt",
+      "googleFlowFileName": "Bild 05 - Gleicher Start.png",
+      "objectLabels": [
+        "7 %",
+        "6 %"
+      ],
+      "expectedVisual": "Zwei identische transparente Investmentbehälter stehen nebeneinander, beide fast gleich hoch gefüllt; links 7 %, rechts 6 %, gleiche Basis und nur ein sehr kleiner sichtbarer Unterschied.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.3,
+      "visualBeats": [
+        {
+          "id": "scene-05-beat-01",
+          "kind": "image",
+          "voiceText": "Am Anfang sieht der Unterschied klein aus.",
+          "visualChange": "Zwei identische transparente Investmentbehälter stehen nebeneinander, beide fast gleich hoch gefüllt; links 7 %, rechts 6 %, gleiche Basis und nur ein sehr kleiner sichtbarer Unterschied.",
+          "startSecond": 0,
+          "endSecond": 3.3
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "comparison",
+        "visualConcept": "Zwei identische transparente Investmentbehälter stehen nebeneinander, beide fast gleich hoch gefüllt; links 7 %, rechts 6 %, gleiche Basis und nur ein sehr kleiner sichtbarer Unterschied.",
+        "voiceVisualMatch": "Die nahezu gleich hohen Füllstände zeigen direkt, dass der Effekt am Anfang kaum auffällt.",
+        "instantReadTest": "PASS - zwei gleiche Behälter mit fast identischem Füllstand lesen sich sofort als kleiner Anfangsunterschied.",
+        "transferabilityTest": "PASS - die Labels 7 % und 6 % verbinden den kleinen sichtbaren Abstand eindeutig mit dem Renditevergleich.",
+        "dataIntegrityTest": "not-applicable"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-06",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-06",
+      "headline": "Nach fünf Jahren",
+      "icon": "calendar",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-06/bildprompt.txt",
+      "googleFlowFileName": "Bild 06 - Nach fünf Jahren.png",
+      "objectLabels": [
+        "5 Jahre",
+        "35.654 €",
+        "34.420 €"
+      ],
+      "expectedVisual": "Ein großer physischer Kalenderblock „5 Jahre“ steht hinter zwei sauberen Geldstapeln; links 35.654 €, rechts 34.420 €, beide sichtbar ähnlich groß und nur leicht unterschiedlich.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-06-beat-01",
+          "kind": "image",
+          "voiceText": "Nach fünf Jahren liegen die Ergebnisse noch relativ nah beieinander.",
+          "visualChange": "Ein großer physischer Kalenderblock „5 Jahre“ steht hinter zwei sauberen Geldstapeln; links 35.654 €, rechts 34.420 €, beide sichtbar ähnlich groß und nur leicht unterschiedlich.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "comparison",
+        "visualConcept": "Ein großer physischer Kalenderblock „5 Jahre“ steht hinter zwei sauberen Geldstapeln; links 35.654 €, rechts 34.420 €, beide sichtbar ähnlich groß und nur leicht unterschiedlich.",
+        "voiceVisualMatch": "Die exakten Fünfjahreswerte liegen optisch eng beieinander und illustrieren den noch kleinen Abstand.",
+        "instantReadTest": "PASS - Kalender plus zwei fast gleich große beschriftete Geldstapel zeigen sofort fünf Jahre und geringen Unterschied.",
+        "transferabilityTest": "PASS - die konkreten Werte 35.654 € und 34.420 € machen die Szene spezifisch für dieses Rechenbeispiel.",
+        "dataIntegrityTest": "not-applicable"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-07",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-07",
+      "headline": "Der Abstand wächst",
+      "icon": "trending",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-07/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-07/animation.tsx",
+      "animationExport": "Scene07Animation",
+      "animationIntent": "Zeige exakt: Aber mit jedem weiteren Jahr arbeitet der Zinseszinseffekt gegen die teurere Variante. Die Mechanik muss ohne Caption verständlich sein und in der gleichen FinanzNeo-V9-Welt bleiben.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 5.6,
+      "visualBeats": [
+        {
+          "id": "scene-07-beat-01",
+          "kind": "animation",
+          "voiceText": "Beide Varianten starten gleich.",
+          "visualChange": "Zwei identische Depots stehen auf derselben Basis und erhalten sichtbar dieselben Einzahlungen.",
+          "startSecond": 0,
+          "endSecond": 1.29
+        },
+        {
+          "id": "scene-07-beat-02",
+          "kind": "animation",
+          "voiceText": "Mit jedem Jahr öffnet sich der Abstand.",
+          "visualChange": "Der 7-%-Goldstapel wächst pro Zeitstufe stärker als der 6-%-Stapel; der sichtbare Abstand nimmt kontinuierlich zu.",
+          "startSecond": 1.29,
+          "endSecond": 4.26
+        },
+        {
+          "id": "scene-07-beat-03",
+          "kind": "animation",
+          "voiceText": "Am Ende ist der Unterschied deutlich.",
+          "visualChange": "Der finale Höhenabstand bleibt stabil und macht den langfristigen Zinseszinseffekt klar.",
+          "startSecond": 4.26,
+          "endSecond": 5.6
+        }
+      ],
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "motionDesign": {
+        "viewerChange": "Der Zuschauer sieht, dass zwei anfangs gleiche Depots trotz identischer Einzahlungen mit der Zeit immer weiter auseinanderlaufen.",
+        "visualMode": "data",
+        "visualTechniqueId": "dual-depot-divergence",
+        "compositionFamilyId": "side-by-side-growth",
+        "heroObjectFamily": "twin-depot-vessels",
+        "primaryAction": "Zwei identische Depotbehälter erhalten gleiche Einzahlungen, während der 7-Prozent-Wertstapel sichtbar schneller wächst als der 6-Prozent-Stapel.",
+        "motionSignature": {
+          "camera": "subtle-push",
+          "layout": "dual-column-stage",
+          "transformation": "diverging-stack-growth"
+        },
+        "supportTools": [],
+        "repetitionJustification": "none"
+      },
+      "phase1MotionDirection": {
+        "spokenPoint": "Mit jedem weiteren Jahr vergrößert der Zinseszinseffekt den Abstand zwischen 7 Prozent und 6 Prozent Rendite.",
+        "viewerMustUnderstand": "Gleiche Einzahlungen können durch nur einen Prozentpunkt Renditeunterschied langfristig deutlich verschiedene Vermögensstände erzeugen.",
+        "visualQuestion": "Wie wird aus einem kleinen Renditeunterschied über Zeit ein sichtbar wachsender Vermögensabstand?",
+        "chosenMechanism": "Zwei gleich gestartete Depots bekommen dieselben Einzahlungen; ihre Goldstapel wachsen unterschiedlich schnell und öffnen einen immer größeren Gap.",
+        "mechanismRationale": "Die parallele Bewegung hält Einzahlung und Startbedingungen konstant und isoliert dadurch den einen Renditepunkt als sichtbare Ursache des wachsenden Abstands.",
+        "implementationDecision": "custom-build",
+        "financeMotionId": "none",
+        "libraryFitReason": "none",
+        "parameterPlan": "none",
+        "customReason": "Die Library bietet keinen Best-Fit, der gleiche Einzahlungen und eine kontinuierlich divergierende 7-gegen-6-Prozent-Depotentwicklung in derselben V9-Welt zeigt.",
+        "libraryPromotionCandidate": true
+      }
+    },
+    {
+      "id": "scene-08",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-08",
+      "headline": "Nach 30 Jahren",
+      "icon": "chart-bar",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-08/bildprompt.txt",
+      "googleFlowFileName": "Bild 08 - Endvermoegen nach dreissig Jahren.png",
+      "objectLabels": [
+        "Endvermögen",
+        "7 %",
+        "6 %",
+        "447.156 €",
+        "361.580 €"
+      ],
+      "expectedVisual": "Ein echtes vertikales Balkendiagramm auf gemeinsamer Basis zeigt 447.156 € bei 7 % und 361.580 € bei 6 %; korrekte relative Balkenhöhen, echte Y-Achse Endvermögen.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-08-beat-01",
+          "kind": "image",
+          "voiceText": "Nach 30 Jahren wären aus denselben Einzahlungen ungefähr 447.000 Euro bei 7 Prozent geworden.",
+          "visualChange": "Ein echtes vertikales Balkendiagramm auf gemeinsamer Basis zeigt 447.156 € bei 7 % und 361.580 € bei 6 %; korrekte relative Balkenhöhen, echte Y-Achse Endvermögen.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "chart",
+        "visualConcept": "Ein echtes vertikales Balkendiagramm auf gemeinsamer Basis zeigt 447.156 € bei 7 % und 361.580 € bei 6 %; korrekte relative Balkenhöhen, echte Y-Achse Endvermögen.",
+        "voiceVisualMatch": "Der hohe 7-%-Balken mit 447.156 € zeigt direkt den Endwert nach 30 Jahren und stellt ihn korrekt dem 6-%-Wert gegenüber.",
+        "instantReadTest": "PASS - zwei echte beschriftete Balken mit Endwerten machen den 30-Jahre-Unterschied sofort sichtbar.",
+        "transferabilityTest": "PASS - die konkreten Endwerte und 7-/6-%-Kategorien gehören exakt zum Gebührenbeispiel.",
+        "dataIntegrityTest": "PASS - beide Balken teilen dieselbe Nullbasis und Y-Skala; 447.156 € zu 361.580 € wird proportional korrekt dargestellt, basierend auf 10.000 € Start plus 300 € monatlich über 30 Jahre."
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-09",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-09",
+      "headline": "Nur 6 % Rendite",
+      "icon": "euro",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-09/bildprompt.txt",
+      "googleFlowFileName": "Bild 09 - Sechs Prozent Endwert.png",
+      "objectLabels": [
+        "6 %",
+        "≈ 362.000 €"
+      ],
+      "expectedVisual": "Ein einzelner großer stilisierter Investmentordner mit 6-%-Label steht neben einem klaren Endwert ≈ 362.000 € aus goldenen Wertscheinen; bewusst kein Diagramm, sondern ruhiger visueller Fokus auf den niedrigeren Endwert.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 3.8,
+      "visualBeats": [
+        {
+          "id": "scene-09-beat-01",
+          "kind": "image",
+          "voiceText": "Bei 6 Prozent sind es nur rund 362.000 Euro.",
+          "visualChange": "Ein einzelner großer stilisierter Investmentordner mit 6-%-Label steht neben einem klaren Endwert ≈ 362.000 € aus goldenen Wertscheinen; bewusst kein Diagramm, sondern ruhiger visueller Fokus auf den niedrigeren Endwert.",
+          "startSecond": 0,
+          "endSecond": 3.8
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "illustration",
+        "visualConcept": "Ein einzelner großer stilisierter Investmentordner mit 6-%-Label steht neben einem klaren Endwert ≈ 362.000 € aus goldenen Wertscheinen; bewusst kein Diagramm, sondern ruhiger visueller Fokus auf den niedrigeren Endwert.",
+        "voiceVisualMatch": "6-%-Label und klarer Endwert ≈ 362.000 € setzen genau die zweite Zahl des Rechenbeispiels ins Zentrum.",
+        "instantReadTest": "PASS - 6 % plus großer Endwert sind in einem Blick lesbar.",
+        "transferabilityTest": "PASS - der konkrete 6-%-Endwert 362.000 € ist spezifisch für diese Beispielrechnung.",
+        "dataIntegrityTest": "not-applicable"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-10",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-10",
+      "headline": "85.600 € Unterschied",
+      "icon": "coins",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-10/bildprompt.txt",
+      "googleFlowFileName": "Bild 10 - Fuenfundachtzigtausend Unterschied.png",
+      "objectLabels": [
+        "85.600 €",
+        "nur 1 Prozentpunkt"
+      ],
+      "expectedVisual": "Große physische 3D-Typografie „85.600 €“ steht im Zentrum; darunter klein „nur 1 Prozentpunkt“, flankiert von zwei subtilen Endwert-Markern 447k und 362k, ohne Dashboard-Look.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-10-beat-01",
+          "kind": "image",
+          "voiceText": "Das sind etwa 85.600 Euro Unterschied – obwohl nur ein Prozentpunkt fehlt.",
+          "visualChange": "Große physische 3D-Typografie „85.600 €“ steht im Zentrum; darunter klein „nur 1 Prozentpunkt“, flankiert von zwei subtilen Endwert-Markern 447k und 362k, ohne Dashboard-Look.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "editorial-quote",
+        "visualConcept": "Große physische 3D-Typografie „85.600 €“ steht im Zentrum; darunter klein „nur 1 Prozentpunkt“, flankiert von zwei subtilen Endwert-Markern 447k und 362k, ohne Dashboard-Look.",
+        "voiceVisualMatch": "Die große Differenzzahl und der kleine Hinweis auf nur einen Prozentpunkt stellen den überraschenden Gegensatz direkt gegenüber.",
+        "instantReadTest": "PASS - 85.600 € groß und „nur 1 Prozentpunkt“ klein vermitteln die Kernbotschaft sofort.",
+        "transferabilityTest": "PASS - 85.600 € Differenz bei einem Prozentpunkt ist die spezifische Pointe dieses Rechenbeispiels.",
+        "dataIntegrityTest": "not-applicable"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    },
+    {
+      "id": "scene-11",
+      "type": "animation",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-11",
+      "headline": "Kosten wirklich prüfen",
+      "icon": "search",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-11/remotion.md",
+      "animationSourceFile": "EINZELNE-SZENEN/scene-11/animation.tsx",
+      "animationExport": "Scene11Animation",
+      "animationIntent": "Zeige exakt: Deshalb lohnt es sich, bei Fonds, Depot und Beratung auf laufende Kosten zu schauen. Die Mechanik muss ohne Caption verständlich sein und in der gleichen FinanzNeo-V9-Welt bleiben.",
+      "animationQualityLock": "finanzneo-phase1-animation-code-v1",
+      "animationPremiumVisualLock": "finanzneo-premium-physical-animation-v2",
+      "plannedDurationSeconds": 5.8,
+      "visualBeats": [
+        {
+          "id": "scene-11-beat-01",
+          "kind": "animation",
+          "voiceText": "Kosten stehen in den Unterlagen.",
+          "visualChange": "Fonds-, Depot- und Beratungsdokument liegen groß und noch unmarkiert auf der Bühne.",
+          "startSecond": 0,
+          "endSecond": 1.33
+        },
+        {
+          "id": "scene-11-beat-02",
+          "kind": "animation",
+          "voiceText": "Man muss die laufenden Kosten finden.",
+          "visualChange": "Eine große Lupe fährt über die Dokumente und hebt TER, Depotkosten und Service nacheinander warm rot-orange hervor.",
+          "startSecond": 1.33,
+          "endSecond": 4.41
+        },
+        {
+          "id": "scene-11-beat-03",
+          "kind": "animation",
+          "voiceText": "Die relevanten Kosten sind geprüft.",
+          "visualChange": "Alle drei Kostenpositionen bleiben markiert und ein grüner Prüfhaken erscheint als stabiler Payoff.",
+          "startSecond": 4.41,
+          "endSecond": 5.8
+        }
+      ],
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      },
+      "motionDesign": {
+        "viewerChange": "Der Zuschauer versteht sichtbar, wo laufende Kosten bei Fonds, Depot und Beratung gesucht und geprüft werden müssen.",
+        "visualMode": "physical",
+        "visualTechniqueId": "magnifier-document-scan",
+        "compositionFamilyId": "document-scan-stage",
+        "heroObjectFamily": "magnifier-documents",
+        "primaryAction": "Eine große physische Lupe wandert über Fonds-, Depot- und Beratungsunterlagen und hebt TER, Depotkosten und Servicekosten nacheinander hervor.",
+        "motionSignature": {
+          "camera": "horizontal-follow",
+          "layout": "three-document-spread",
+          "transformation": "scan-highlight-reveal"
+        },
+        "supportTools": [],
+        "repetitionJustification": "none"
+      },
+      "phase1MotionDirection": {
+        "spokenPoint": "Bei Fonds, Depot und Beratung lohnt es sich, die laufenden Kosten gezielt zu prüfen.",
+        "viewerMustUnderstand": "Laufende Kosten stehen in konkreten Unterlagen und können als TER, Depotkosten oder Servicekosten identifiziert werden.",
+        "visualQuestion": "Wo findet man die laufenden Kosten und wie wird das Prüfen als klare Handlung sichtbar?",
+        "chosenMechanism": "Eine Lupe scannt drei reale Dokumente nacheinander, markiert die relevante Kostenzeile und endet mit einem grünen Prüfhaken.",
+        "mechanismRationale": "Die bekannte Handlung des Prüfens mit einer Lupe verbindet die drei Kostenarten direkt mit echten Dokumenten und vermeidet abstrakte Dashboard-Symbolik.",
+        "implementationDecision": "custom-build",
+        "financeMotionId": "none",
+        "libraryFitReason": "none",
+        "parameterPlan": "none",
+        "customReason": "Keine vorhandene Library-Animation bildet den konkreten Dokumenten-Scan mit TER, Depotkosten und Servicekosten als physische Prüfhandlung passend ab.",
+        "libraryPromotionCandidate": false
+      }
+    },
+    {
+      "id": "scene-12",
+      "type": "image",
+      "startFrame": 0,
+      "durationFrames": 0,
+      "cutReason": "voice-sentence-or-meaningful-phrase-start",
+      "directory": "EINZELNE-SZENEN/scene-12",
+      "headline": "Kleine Zahl, große Wirkung",
+      "icon": "check",
+      "accent": "finance-green",
+      "headerTone": "default",
+      "planFile": "EINZELNE-SZENEN/scene-12/bildprompt.txt",
+      "googleFlowFileName": "Bild 12 - Kosten im Blick behalten.png",
+      "objectLabels": [
+        "Kosten prüfen",
+        "langfristig denken"
+      ],
+      "expectedVisual": "Ein hochwertiger Investmentordner liegt offen; links ein kleiner sauberer Kostenbeleg, rechts ein deutlich größerer goldener langfristiger Vermögensstapel; zwei kurze integrierte Labels „Kosten prüfen“ und „langfristig denken“ verbinden Handlung und Konsequenz.",
+      "imagePresentation": {
+        "scale": 1.01,
+        "sourceCropTop": 0,
+        "sourceCropBottom": 0,
+        "cropSafe": true
+      },
+      "plannedDurationSeconds": 4,
+      "visualBeats": [
+        {
+          "id": "scene-12-beat-01",
+          "kind": "image",
+          "voiceText": "Nicht jede Gebühr ist schlecht. Aber kleine Prozentzahlen können über lange Zeit sehr groß werden. Vereinfachtes Rechenbeispiel, ohne Steuern.",
+          "visualChange": "Ein hochwertiger Investmentordner liegt offen; links ein kleiner sauberer Kostenbeleg, rechts ein deutlich größerer goldener langfristiger Vermögensstapel; zwei kurze integrierte Labels „Kosten prüfen“ und „langfristig denken“ verbinden Handlung und Konsequenz.",
+          "startSecond": 0,
+          "endSecond": 4
+        }
+      ],
+      "imageStorytelling": {
+        "visualForm": "hybrid",
+        "visualConcept": "Ein hochwertiger Investmentordner liegt offen; links ein kleiner sauberer Kostenbeleg, rechts ein deutlich größerer goldener langfristiger Vermögensstapel; zwei kurze integrierte Labels „Kosten prüfen“ und „langfristig denken“ verbinden Handlung und Konsequenz.",
+        "voiceVisualMatch": "Kostenbeleg und langfristiger Vermögensstapel zeigen gemeinsam, dass Gebühren bewertet werden sollen, ohne jede Gebühr pauschal schlecht darzustellen.",
+        "instantReadTest": "PASS - Kostenbeleg plus großer langfristiger Vermögenswert und zwei kurze Handlungslabels ergeben eine klare Abschlussbotschaft.",
+        "transferabilityTest": "PASS - die Kombination aus laufenden Kosten und langfristigem Investmentbezug schließt genau dieses Gebührenvideo ab.",
+        "dataIntegrityTest": "not-applicable"
+      },
+      "presentation": {
+        "coverTitleRequired": false,
+        "standardHeaderRequired": true,
+        "iconRequired": true,
+        "captionsRequired": true
+      }
+    }
+  ],
+  "phase3CompletionContract": {
+    "id": "finanzneo-phase3-completion-v1",
+    "required": true,
+    "productionManifest": "05-projektdateien/phase3-production-manifest.json",
+    "renderQa": "05-projektdateien/phase3-render-qa.json",
+    "phase1AnimationSeal": "05-projektdateien/phase1-animation-seal.json",
+    "reelBackgroundContractId": "finanzneo-pure-black-background-v1",
+    "allScenesMustBeImplemented": true,
+    "imageVisualRequired": true,
+    "animationVisualRequired": true,
+    "captionOnlySceneForbidden": true,
+    "postRenderVisualQaRequired": true,
+    "exportRequiresPassedRenderQa": true,
+    "exactVideoHashRequiredForExport": true,
+    "finalVideoExistsOnlyAfterQaPass": true,
+    "canonicalPhase1AnimationRequired": true,
+    "phase3MayNotReplaceCanonicalAnimation": true,
+    "phase1AnimationHashMustMatchSeal": true,
+    "pureBlackBackgroundRequired": true,
+    "decorativeBackgroundEffectsForbidden": true,
+    "backgroundMotionDoesNotCountAsAnimation": true,
+    "blackOrEmptyVisualMustFail": true,
+    "visualQa": {
+      "sampleImageRatios": [
+        0.5
+      ],
+      "sampleAnimationRatios": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "sampleBackgroundPerScene": true,
+      "minStdDev": 4,
+      "minContrastP90P10": 12,
+      "minEdgeMean": 0.5,
+      "minActivePixelRatio": 0.04,
+      "minAnimationMeanAbsDiff": 1,
+      "maxBackgroundMean": 12,
+      "maxBackgroundStdDev": 4
+    },
+    "autoExportAfterPassedRenderQa": true,
+    "finalVideoDirectory": "06-export",
+    "universalCaptionSource": "04-caption/caption.txt",
+    "universalCaptionExport": "06-export/caption-universal.txt"
+  },
+  "visualBeatContract": {
+    "id": "finanzneo-visual-beats-v2",
+    "sceneCountFlexible": true,
+    "visualBeatCountFlexible": true,
+    "visualBeatPlanBeforeSceneCount": true,
+    "oneSpokenThoughtPerBeatRequired": true,
+    "splitMultiThoughtSentenceWhenHelpful": true,
+    "oneImagePerSentenceAllowed": true,
+    "oneImagePerSentencePreferredWhenItImprovesClarity": true,
+    "consecutiveImageScenesAllowedWhenMeaningAdvances": true,
+    "visualChangeWhenVoiceoverIntroducesNewConcreteIdea": true,
+    "extraImagePreferredOverOverloadedStill": true,
+    "staticImageBeatIdealSeconds": [
+      1.8,
+      3
+    ],
+    "staticImageBeatHardMaxSeconds": 4,
+    "animationSceneTypicalSeconds": [
+      3,
+      5.5
+    ],
+    "longerAnimationRequiresVisibleProgression": true,
+    "animationMustContainMultipleVisibleStates": true,
+    "visualMustAdvanceWithVoiceover": true,
+    "cameraMotionAloneDoesNotCountAsNewBeat": true,
+    "unchangedVisualAfterMessageUnderstoodForbidden": true,
+    "actualCutsFollowRealWordTimings": true,
+    "ratioIsGuidelineNotQuota": true,
+    "longStaticSentenceNeedsAdditionalVisualBeat": true,
+    "extraImagePreferredOverLongHold": true
+  },
+  "coverHookContract": {
+    "id": "finanzneo-cover-hook-v3",
+    "sourceSceneId": "scene-01",
+    "titleSource": "scene-index.title",
+    "titleRenderedByRemotion": true,
+    "titleInGeneratedFlowImageForbidden": true,
+    "titleVisibleFromFrame": 0,
+    "titleVisibleWithinFirstSecond": true,
+    "titleHoldMinFrames": 30,
+    "captionsFollowVoiceoverFromFirstSpokenWord": true,
+    "captionlessSpokenAudioForbidden": true,
+    "standardSceneHeaderForbiddenDuringScene01": true,
+    "coverIconForbidden": true,
+    "secondaryTextForbidden": true,
+    "noIntroBeforeTitle": true,
+    "noFadeInDelay": true,
+    "flowImageMustReserveTitleSafeSpace": true,
+    "standaloneCoverRequired": true,
+    "exportedCoverSource": "final-video-frame-0"
+  },
+  "imageStorytellingContract": {
+    "id": "finanzneo-image-storytelling-v3",
+    "appliesToNewReelsOnly": true,
+    "visualFormRevision": "finanzneo-free-visual-form-v1",
+    "visualFormFreedomRequired": true,
+    "visualFormChosenPerBeatRequired": true,
+    "allowedVisualForms": [
+      "character-story",
+      "object-story",
+      "comparison",
+      "chart",
+      "diagram",
+      "editorial-quote",
+      "illustration",
+      "metaphor",
+      "hybrid"
+    ],
+    "v9StyleLockRequired": true,
+    "exactVoiceBeatVisualMatchRequired": true,
+    "instantReadRequired": true,
+    "transferabilityTestRequired": true,
+    "recognizableFinanceContextRequired": true,
+    "humanOptional": true,
+    "realWorldObjectsOptional": true,
+    "intuitiveMetaphorAllowed": true,
+    "illustrationAllowed": true,
+    "editorialQuoteAllowed": true,
+    "comparisonAllowed": true,
+    "chartAllowed": true,
+    "diagramAllowed": true,
+    "hybridAllowed": true,
+    "textMayBePrimaryForEditorialQuote": true,
+    "realChartMustRemainRealChart": true,
+    "chartAxesLabelsWhenApplicableRequired": true,
+    "chartDataIntegrityRequired": true,
+    "premiumChartStylingRequired": true,
+    "powerPointExcelDefaultLookForbidden": true,
+    "genericCorporateLookForbidden": true,
+    "genericFantasyMechanismAsDefaultForbidden": true,
+    "decorativeObjectPileForbidden": true,
+    "staticCatalogCompositionForbidden": true,
+    "abstractFinanceObjectAsDefaultForbidden": true,
+    "animationFilmRenderingRequired": true,
+    "phaseAQualityReferenceOnly": true
+  },
+  "futureProductionStandard": {
+    "id": "finanzneo-future-production-v3",
+    "appliesToNewReelsOnly": true,
+    "legacyReelsUntouched": true,
+    "timing": {
+      "staticImageIdealSeconds": [
+        1.8,
+        3
+      ],
+      "staticImageSoftMaxSeconds": 3.6,
+      "staticImageHardMaxSeconds": 4,
+      "longStaticSentenceNeedsAdditionalVisualBeat": true,
+      "sentenceMayUseMultipleImages": true,
+      "newConcreteIdeaNeedsVisualChange": true,
+      "extraImagePreferredOverLongHold": true,
+      "realWordTimingsRemainFinalAuthority": true
+    },
+    "animationFraming": {
+      "mainMechanismMustFeelFrameFilling": true,
+      "excessiveEmptySpaceForbidden": true,
+      "widerContextAllowedOnlyWhenStoryNeedsIt": true,
+      "wideContextMustProgressToCloserMechanismState": true,
+      "sampleRatios": [
+        0.2,
+        0.5,
+        0.8
+      ],
+      "minPeakActivePixelRatio": 0.15,
+      "minMedianActivePixelRatio": 0.12
+    },
+    "audioMastering": {
+      "normalizeBeforeRenderQa": true,
+      "targetIntegratedLufs": -16,
+      "integratedLufsTolerance": 1,
+      "targetTruePeakDbtp": -1,
+      "maxTruePeakDbtp": -0.8,
+      "targetLra": 11,
+      "audioBitrate": "320k",
+      "sampleRate": 48000
+    }
+  },
+  "futurePresentationContract": {
+    "id": "finanzneo-future-reel-presentation-v1",
+    "appliesToNewReelsOnly": true,
+    "legacyReelsUntouched": true,
+    "scene01CoverUsesTitleInsteadOfStandardHeader": true,
+    "scene01CaptionsFollowSpeech": true,
+    "captionlessSpokenAudioForbidden": true,
+    "standardHeaderRequiredFromScene02": true,
+    "standardIconRequiredFromScene02": true,
+    "captionsRequiredFromScene02": true,
+    "captionsMustUseRealWordTimings": true,
+    "phase3CompositionMustMountAudio": true,
+    "phase3CompositionMustMountSceneHeader": true,
+    "phase3CompositionMustMountCaptions": true,
+    "renderedHeaderQaRequired": true,
+    "renderedCaptionQaRequired": true,
+    "imageMustFeelFrameFilling": true,
+    "smallSquareCardLookForbidden": true,
+    "minImageActivePixelRatio": 0.1,
+    "motionDiversityRequired": true,
+    "supportToolSwapDoesNotCountAsNewTechnique": true,
+    "exactMotionSignatureRepeatWithinPreviousFourForbiddenWithoutReason": true,
+    "sameHeroObjectFamilyMoreThanTwiceWithinPreviousFourForbiddenWithoutReason": true
+  },
+  "phase1MotionDirectionContract": {
+    "id": "finanzneo-phase1-hybrid-motion-v2",
+    "financeMotionLibraryId": "finanzneo-finance-motion-library-v1",
+    "appliesToNewReelsOnly": true,
+    "legacyReelsUntouched": true,
+    "analyzeSpokenPointBeforeTechnique": true,
+    "viewerUnderstandingBeforeImplementation": true,
+    "visualQuestionBeforeTechnique": true,
+    "mechanismDerivedFromContent": true,
+    "librarySearchAfterMechanismDefinition": true,
+    "libraryBestFitPreferred": true,
+    "libraryUseNeverForced": true,
+    "customBuildAllowed": true,
+    "reusableCustomMechanicsMayBecomeLibraryCandidates": true,
+    "parametersMustFollowSceneContent": true,
+    "supportAssetsCannotDriveSceneConcept": true,
+    "phase1DirectionMustPrecedeMotionDesign": true,
+    "phase1DirectionMustPrecedeAnimationCode": true
+  },
+  "reelQualityGuards": {
+    "id": "finanzneo-reel-quality-guards-v1",
+    "appliesToNewReelsOnly": true,
+    "sceneTypeExclusive": true,
+    "imageAnimationHybridMainVisualForbidden": true,
+    "sourceBasedAnimationDiversityRequired": true,
+    "metadataOnlyDiversityForbidden": true,
+    "actualPrimitiveReuseLimited": true,
+    "horizontalAnimationSafeZoneRequired": true,
+    "animationHorizontalSafeZone": {
+      "left": 72,
+      "right": 1008,
+      "top": 320,
+      "bottom": 1400,
+      "perspectiveGuardPx": 24
+    },
+    "postRenderEdgeBandQaRequired": true,
+    "edgeBandActivePixelRatioMax": 0.012
+  }
+}

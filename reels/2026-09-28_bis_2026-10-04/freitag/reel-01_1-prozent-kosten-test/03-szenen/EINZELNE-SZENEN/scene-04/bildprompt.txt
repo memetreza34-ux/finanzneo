@@ -1,0 +1,41 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 04 - Sieben gegen sechs Prozent.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- Jahre
+- Vermögen
+- 7 %
+- 6 %
+- 30
+
+VISUAL_FORM: chart
+VISUAL_CONCEPT: Ein echtes hochwertig inszeniertes Liniendiagramm mit X-Achse Jahre 0–30 und Y-Achse Vermögen; zwei korrekt startende Linien 7 % und 6 % trennen sich mit zunehmender Laufzeit sichtbar.
+VOICEOVER_VISUAL_MATCH: Die zwei beschrifteten Renditelinien zeigen exakt den einen Prozentpunkt Unterschied und seine Entwicklung über Zeit.
+INSTANT_READ_TEST: PASS - Achsen, 7-%- und 6-%-Linie machen den Vergleich ohne Zusatzinterpretation sofort klar.
+TRANSFERABILITY_TEST: PASS - zwei konkrete Renditepfade 7 % versus 6 % über 30 Jahre passen spezifisch zum Rechenbeispiel.
+DATA_INTEGRITY_TEST: PASS - X-Achse zeigt 0 bis 30 Jahre, Y-Achse Vermögen; beide Reihen basieren auf 10.000 € Start plus 300 € monatlich bei 7 % bzw. 6 % nominaler Jahresrendite mit monatlicher Verzinsung.
+
+IMAGE PROMPT:
+Create a real, mathematically coherent premium 3D line chart in the FinanzNeo visual world on a seamless deep-black stage. Use a clearly readable horizontal x-axis labeled “Jahre” with 0, 5, 10, 15, 20, 25, 30 and a vertical y-axis labeled “Vermögen”. Show two clean lines starting from the same 10.000 € starting value: an emerald line labeled “7 %” and a warm-ivory line labeled “6 %”. Both include the same 300 € monthly contribution assumption and separate gradually, with a visibly wider gap toward year 30. Render axes as refined physical 3D elements with subtle depth, lines as elegant dimensional ribbons, and milestone points as small gold markers. Maintain correct chart geometry and readable labels. Cinematic 3/4 camera but not so oblique that data becomes distorted. No Excel/PowerPoint look, no dashboard UI, no decorative icons, no fantasy bars, no photorealism.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+BACKGROUND_LOCK: Use one seamless deep black background.

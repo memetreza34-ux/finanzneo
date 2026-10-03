@@ -1,16 +1,38 @@
 # FinanzNeo — verbindliches Projekt-Gehirn
 
-> Höchste interne Quelle für Reel-Produktion. Bei Widersprüchen mit älteren Dateien gilt diese Datei. `docs/VISUAL-SYSTEM-CONSOLIDATION-V1.md` präzisiert die gemeinsame Bild-/Animationssprache, ohne eine neue Bildwelt einzuführen. Für neue Reels mit `futureProductionStandard.id = finanzneo-future-production-v3` gelten zusätzlich die Future-V3-Gates.
+> Höchste interne Quelle für FinanzNeo. **Aktiver Produktionsmodus ist YouTube Longform. Neue Reels sind bis auf ausdrückliche spätere Freigabe pausiert.** Für neue Videos gilt `youtube/PRODUKTIONSSTANDARD.md`; Reel-spezifische Abschnitte in dieser Datei bleiben nur für bestehende Legacy-Reels erhalten.
+
+## 0. Aktiver Produktionsmodus — YouTube Longform
+
+```text
+ACTIVE_PRODUCTION_MODE: youtube-longform-v4
+NEW_REELS_PAUSED: true
+YOUTUBE_SHORTS_FORBIDDEN: true
+```
+
+Verbindlich für neue Arbeit:
+
+- **keine neuen Reels erstellen**
+- neue Videos ausschließlich als eigenständige horizontale YouTube-Longform-Projekte unter `youtube/`
+- 1920×1080, 16:9, 30 fps
+- Bilder und Animationen gehören sichtbar zur selben FinanzNeo-V9-Welt
+- jedes normale YouTube-Projekt enthält **mindestens zwei echte Motion-/Animationsvisuals**; keine reine Slideshow
+- Google Flow: zuerst 3 Thumbnail-Kandidaten parallel, danach Szenenbilder in echten parallelen 5er-Batches
+- Diagramme/Charts standardmäßig frontal, gerade und sofort lesbar; keine schrägen 3D-Perspektiven
+
+Für neue YouTube-Projekte überschreibt `youtube/PRODUKTIONSSTANDARD.md` alle späteren Reel-spezifischen Layout-/Caption-/Flow-Angaben dieser Datei.
 
 ## 1. Kanal und Format
 
 - Kanal: **FinanzNeo**
 - Sprache: Deutsch
 - Ziel: Finanzgrundlagen einfach, professionell und verständlich erklären
-- Reel-Plattformen: TikTok, Instagram Reels, Facebook Reels, Snapchat
-- YouTube ausschließlich Longform unter `youtube/`; keine YouTube Shorts
-- Reel: 1080×1920, 9:16, 30 fps
-- Länge ergibt sich aus Inhalt und finalem Voiceover; typische Anfänger-Reels ca. 45–70 s
+- **Aktiv: YouTube Longform**
+- 1920×1080, horizontal 16:9, 30 fps
+- Länge folgt dem Thema; kein künstliches Strecken
+- YouTube Shorts verboten
+- neue Reels aktuell pausiert
+- bestehende Reel-Dateien bleiben als Legacy/Referenz im Repo, sind aber nicht der Produktionsweg für neue Videos
 
 ## 2. Repository-Sicherheit
 
@@ -294,35 +316,89 @@ Bild verwerfen und dieselbe Nummer neu erzeugen, wenn:
 
 Die frühere YouTube-Phase-A-DNA bleibt Qualitätsreferenz für Modellierung, Licht, Tiefe, Kamera, Figuren und hochwertige 3D-Inszenierung, begrenzt aber nicht die Darstellungsform.
 
-## 7. Google Flow — Strict Single Job V3
+## 7. Google Flow — Cover Parallel V2 + Scene Single Job
 
 ```text
-FLOW_EXECUTION_MODE: finanzneo-flow-strict-single-job-v3
-FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v1
+FLOW_EXECUTION_MODE: finanzneo-flow-cover-parallel-then-single-v4
+FLOW_STATE_MACHINE: finanzneo-flow-state-machine-v2
+FLOW_COVER_WORKFLOW: finanzneo-flow-cover-parallel-5pack-v2
+FLOW_COVER_CONCURRENCY: 3
+FLOW_SCENE_CONCURRENCY: 1
 ```
 
-Globaler Standard:
+### Cover-Phase
+
+Vor allen Szenenbildern werden exakt drei Cover-Kandidaten **gleichzeitig** erzeugt:
 
 ```text
-aktuellen Bildblock lesen
-→ GENAU EIN Bild starten
+Cover A ┐
+Cover B ├→ drei getrennte Einzelbild-Jobs gleichzeitig
+Cover C ┘
+→ QA
+→ Nutzer wählt A/B/C
+→ gewähltes Cover = scene-01
+```
+
+Verbindlich:
+
+- A/B/C sind drei getrennte Jobs, kein Kontaktbogen, keine Collage und kein gemeinsamer Multi-Image-Request
+- jedes Cover entsteht direkt in der FinanzNeo-V9-Bildwelt
+- Cover-Text muss den tatsächlichen Videoinhalt kurz verdichten
+- maximal 2 Zeilen, ideal 2–5 Wörter
+- keine langen Sätze
+- kein generischer Clickbait ohne direkten Inhaltsbezug
+- keine erfundenen Zahlen oder Aussagen
+- die drei Cover sollen sichtbar unterschiedliche Ideen/Kompositionen testen
+- nach A/B/C genau einmal auf die Nutzerwahl warten
+- das gewählte Cover wird finaler Cover-Asset und `scene-01`; kein separates `Bild 00`
+
+### Kein Cover als Style-Vorlage
+
+Das gewählte Cover ist **ausdrücklich keine Style-Referenz** für die späteren Bilder.
+
+Die einzige Style-Autorität bleibt:
+
+```text
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+```
+
+Damit gilt:
+
+- Cover A/B/C orientieren sich direkt an V9
+- alle Szenenbilder orientieren sich direkt an V9
+- kein Cover wird als Bildreferenz an spätere Prompts übergeben
+- kein späteres Szenenbild wird neuer Style-Anker
+- keine Bild-zu-Bild-Style-Referenzen im kanonischen Flow
+- Bildideen bleiben frei; nur die gemeinsame V9-DNA bleibt fest
+
+### Szenenbilder nach der Cover-Wahl
+
+Nach der Nutzerwahl gilt wieder strikt Single Job:
+
+```text
+aktuellen Szenenbildblock lesen
+→ GENAU EIN Szenenbild starten
 → intern auf Ergebnis warten
 → sofort exakt umbenennen
+→ in finalen Bildordner legen
 → V9-QA
 → bei Fehler dieselbe Bildnummer neu erzeugen
-→ bei PASS nächsten Bildblock freischalten
+→ bei PASS nächstes Bild freischalten
 ```
 
-Verboten:
+Die restlichen IMAGE-Szenen werden organisatorisch in 5er-Blöcke geteilt. Ein 5er-Block ist niemals ein Parallel-Batch.
 
-- Batch
-- parallele Jobs
-- Queue späterer Bilder
+Verboten nach der Cover-Phase:
+
+- parallele Szenenbild-Jobs
+- Queue späterer Szenenbilder
 - Kontaktbogen/Galerie als Ersatz
-- Nutzer-„weiter“ zwischen Bildern
-- Bild-zu-Bild-Referenzen im kanonischen Flow
+- mehrere Szenenbildprompts in einem Request
+- Nutzer-„weiter“ zwischen Bildern oder 5er-Blöcken
+- spätes Sammel-Umbenennen statt Sofort-Rename
+- Cover oder Szenenbild als Style-Referenz verwenden
 
-Experimente mit Cover-Auswahl, Referenzbild oder Blockstopps sind nicht automatisch globale Regeln. Erst nach erfolgreichem Praxistest und ausdrücklicher Promotion dürfen sie den kanonischen Flow ersetzen.
+Nach dem letzten Bild ist ein vollständiger Inventory-/Dateinamen-QA Pflicht; alle finalen Flow-Bilder liegen gemeinsam in `03-szenen/00-ALLE-BILDER-HIER-REIN/`.
 
 ## 8. Finales Reel-Layout V5
 

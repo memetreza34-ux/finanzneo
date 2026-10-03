@@ -33,6 +33,14 @@ export const YOUTUBE_VIDEO_WIDTH = 1920;
 export const YOUTUBE_VIDEO_HEIGHT = 1080;
 export const YOUTUBE_VIDEO_FPS = 30;
 
+export const YOUTUBE_IMAGE_WORLD_LOCK = 'finanzneo-youtube-v9-front-readable-v2';
+export const YOUTUBE_FLOW_EXECUTION_MODE_ID = 'finanzneo-youtube-cover3-image5-parallel-v4';
+export const YOUTUBE_THUMBNAIL_CANDIDATE_COUNT = 3;
+export const YOUTUBE_THUMBNAIL_CONCURRENCY = 3;
+export const YOUTUBE_IMAGE_BATCH_SIZE = 5;
+export const YOUTUBE_IMAGE_CONCURRENCY = 5;
+export const YOUTUBE_MIN_MOTION_VISUALS = 2;
+
 export const VISUAL_INDEX = '04-visuals/visual-index.json';
 export const ALL_PROMPTS = '04-visuals/alle-bildprompts.txt';
 export const IMAGE_INBOX = '04-visuals/00-ALLE-BILDER-HIER-REIN';

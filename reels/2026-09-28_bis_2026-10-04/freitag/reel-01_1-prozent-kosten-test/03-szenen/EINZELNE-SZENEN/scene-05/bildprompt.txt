@@ -1,0 +1,38 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+AKTUELLER EINZELSCHRITT — NICHT VORSPRINGEN
+
+GOOGLE FLOW – FINALER DATEINAME:
+Bild 05 - Gleicher Start.png
+
+Erzeuge ausschließlich dieses eine Bild. Warte vollständig auf das Ergebnis, benenne es sofort exakt wie oben um und prüfe Aussage, erlaubte Labels, V9-Stil, tiefschwarze Bühne und Dateiname. Bei Fehler ausschließlich dieselbe Bildnummer neu erzeugen. Erst nach PASS zum nächsten Bild.
+
+BESCHRIFTUNGEN – EXAKT SO:
+- 7 %
+- 6 %
+
+VISUAL_FORM: comparison
+VISUAL_CONCEPT: Zwei identische transparente Investmentbehälter stehen nebeneinander, beide fast gleich hoch gefüllt; links 7 %, rechts 6 %, gleiche Basis und nur ein sehr kleiner sichtbarer Unterschied.
+VOICEOVER_VISUAL_MATCH: Die nahezu gleich hohen Füllstände zeigen direkt, dass der Effekt am Anfang kaum auffällt.
+INSTANT_READ_TEST: PASS - zwei gleiche Behälter mit fast identischem Füllstand lesen sich sofort als kleiner Anfangsunterschied.
+TRANSFERABILITY_TEST: PASS - die Labels 7 % und 6 % verbinden den kleinen sichtbaren Abstand eindeutig mit dem Renditevergleich.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium stylized 3D comparison scene on a seamless deep-black stage. Show two identical transparent investment jars or account vessels side by side on the same baseline, both containing recognizable gold coins and value slips. Label the left vessel “7 %” and the right vessel “6 %”. Their fill levels should be almost equal, with only a subtle advantage on the 7-% side. Keep the vessels large, refined and highly readable, with elegant glass-like stylized materials, warm gold value, emerald accent on the 7-% side, neutral ivory on the 6-% side. Cinematic 3/4 perspective, premium lighting and contact shadows. No dashboard, no flat bar chart, no random icons, no person, no photorealism.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+PREMIUM_VISUAL_WORLD_LOCK: finanzneo-stylized-3d-animated-black-v9
+GENERATED_IMAGE_ASPECT_RATIO: 1:1
+
+STYLE LOCK:
+Premium stylized 3D / hochwertige FinanzNeo-Illustrationssprache auf nahtloser deep-black Bühne. Starke Tiefe, saubere Materialien, weiche Kontaktschatten, hochwertige Lichtsetzung. Emerald für positiv/Wachstum, Gold für Geld/Wert, Warm Red-Orange für Kosten/Warnung, Ivory/Soft Gray neutral. Kein Fotorealismus, kein Corporate-Stock-Look, kein PowerPoint-/Excel-Default.
+
+IMAGE_STORYTELLING_CONTRACT: finanzneo-image-storytelling-v3
+VISUAL_FORM_REVISION: finanzneo-free-visual-form-v1
+FREE_VISUAL_FORM_POLICY: Form frei, Bildwelt fest.
+CHART/DIAGRAM: echte Datenvisualisierung mit fachlich korrekten Achsen/Skalen/Labels/Proportionen, soweit der Typ sie braucht.
+POWERPOINT-/EXCEL-DEFAULT: verboten.
+TRANSFERABILITY_TEST muss spezifisch zum Sprechbeat sein.
+
+BACKGROUND_LOCK: Use one seamless deep black background.

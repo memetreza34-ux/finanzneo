@@ -11,6 +11,7 @@ if (!target) {
 }
 
 const WORLD_LOCK = 'finanzneo-stylized-3d-animated-black-v9';
+const FREE_VISUAL_FORM = 'finanzneo-free-visual-form-v1';
 const MAX_INDIVIDUAL_PROMPT_CHARS = 4200;
 const root = resolve(target);
 const indexPath = resolve(root, '03-szenen/scene-index.json');
@@ -29,6 +30,7 @@ if (index.imageWorld?.legacyAssetSet === true) {
   process.exit(0);
 }
 
+const freeVisualForm = index.imageStorytellingContract?.visualFormRevision === FREE_VISUAL_FORM;
 const world = index.imageWorld ?? {};
 if (world.premiumVisualWorldLockId !== WORLD_LOCK) fail(`imageWorld.premiumVisualWorldLockId muss ${WORLD_LOCK} sein.`);
 if (world.physicalExplainerLockId !== WORLD_LOCK) fail(`imageWorld.physicalExplainerLockId muss ${WORLD_LOCK} sein.`);
@@ -85,7 +87,8 @@ for (const scene of scenes) {
 }
 individualPromptPaths.push(resolve(root, '03-szenen/00-cover/cover.txt'));
 
-const explanatoryLanguage = /cause-and-effect|cause and effect|Ursache.{0,20}Wirkung|visually explain|visuell erklären|viewer.{0,120}(?:understand|recognize)|(?:instantly|immediately|clearly).{0,50}(?:understand|explain|read)|understandable.{0,50}(?:without|in 1|within 1)|message without narration|meaning.{0,40}(?:obvious|clear)|sequence.{0,50}(?:explain|understand|read)|relationship.{0,50}(?:understandable|clear)/i;
+const explanatoryLanguage = /cause-and-effect|cause and effect|Ursache.{0,20}Wirkung|visually explain|visuell erklären|viewer.{0,120}(?:understand|recognize)|(?:instantly|immediately|clearly).{0,50}(?:understand|explain|read)|understandable.{0,50}(?:without|in 1|within 1)|message without narration|meaning.{0,40}(?:obvious|clear)|sequence.{0,50}(?:explain|understand|read)|relationship.{0,50}(?:understandable|clear)|INSTANT_READ_TEST|VOICEOVER_VISUAL_MATCH/i;
+const freeFormLanguage = /VISUAL_FORM|FREE_VISUAL_FORM|chart|diagram|editorial|comparison|illustration|metaphor|hybrid|character-story|object-story/i;
 
 for (const path of promptPaths) {
   if (!existsSync(path)) {
@@ -101,11 +104,22 @@ for (const path of promptPaths) {
     if (!content.toLowerCase().includes(marker.toLowerCase())) fail(`${path}: V9-Marker fehlt: ${marker}`);
   }
   if (!/stylized 3d/i.test(content)) fail(`${path}: stylized-3D-Zielsprache fehlt.`);
-  if (!/real-world-grounded|real-life|Alltagssituation|realitätsnah/i.test(content)) fail(`${path}: realitätsnahe Alltagssituation als Erklärbasis fehlt.`);
-  if (!explanatoryLanguage.test(content)) fail(`${path}: direkte visuelle Erklär-/Verständnislogik fehlt.`);
+
+  if (freeVisualForm) {
+    if (!content.includes(`VISUAL_FORM_REVISION: ${FREE_VISUAL_FORM}`) && !freeFormLanguage.test(content)) {
+      fail(`${path}: Free-Visual-Form-Zielsprache fehlt.`);
+    }
+    if (!explanatoryLanguage.test(content) && !freeFormLanguage.test(content)) {
+      fail(`${path}: verständliche visuelle Erklär-/Darstellungslogik fehlt.`);
+    }
+  } else {
+    if (!/real-world-grounded|real-life|Alltagssituation|realitätsnah/i.test(content)) fail(`${path}: realitätsnahe Alltagssituation als Erklärbasis fehlt.`);
+    if (!explanatoryLanguage.test(content)) fail(`${path}: direkte visuelle Erklär-/Verständnislogik fehlt.`);
+    if (!/dashboard/i.test(content)) fail(`${path}: Dashboard-Verbot fehlt.`);
+    if (!/flowchart/i.test(content)) fail(`${path}: Flowchart-Verbot fehlt.`);
+  }
+
   if (!/photorealism|photorealistic|Fotorealismus/i.test(content)) fail(`${path}: Fotorealismus-Verbot fehlt.`);
-  if (!/dashboard/i.test(content)) fail(`${path}: Dashboard-Verbot fehlt.`);
-  if (!/flowchart/i.test(content)) fail(`${path}: Flowchart-Verbot fehlt.`);
   if (/\b(?:2|3)[–-](?:4|6)\s+(?:supporting|concrete supporting)/i.test(content)) fail(`${path}: feste Supporting-Object-Anzahl ist nicht erlaubt.`);
   if (/hero.{0,30}45[–-]65\s*%/i.test(content)) fail(`${path}: alter Hero-Prozentkorridor ist in V9 nicht erlaubt.`);
   if (/finanzneo-premium-physical-editorial-v8/.test(content)) fail(`${path}: alter Premium-Physical-V8-Lock darf nicht mehr vorkommen.`);
@@ -135,8 +149,12 @@ if (errors.length) {
 }
 
 console.log(`\n✓ Stylized 3D Animated Black World ${WORLD_LOCK} ist im Reel vollständig verankert.`);
-console.log('✓ Realitätsnahe Alltagsszenen · klar stylized 3D · niemals fotorealistisch · deep black Pflicht.');
-console.log('✓ Bilder erklären den Sprechpunkt direkt: Ursache/Wirkung, Klassifikation, Vergleich oder Zustand müssen ohne Rätsel verständlich sein.');
+if (freeVisualForm) {
+  console.log('✓ Free Visual Form V1: Darstellungsform frei; V9/Deep Black/Material-/Lichtqualität bleiben fest.');
+  console.log('✓ Charts, Diagramme, Editorial, Illustration, Vergleich, Figur, Objekt, Metapher und Hybrid dürfen den Sprechpunkt tragen.');
+} else {
+  console.log('✓ Legacy-V9: realitätsnahe Alltagsszenen · klar stylized 3D · niemals fotorealistisch · deep black Pflicht.');
+}
 console.log('✓ Jeder konkrete Bildprompt ist individuell vollständig geschrieben; deutsche Objektlabels sind explizit festgelegt.');
 console.log(`✓ Einzelprompts bleiben mittel-lang (max. ${MAX_INDIVIDUAL_PROMPT_CHARS} Zeichen).`);
 console.log(`✓ Phase-1-Animation-Lock bleibt ${PREMIUM_ANIMATION_LOCK}.`);
