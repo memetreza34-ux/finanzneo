@@ -15,15 +15,15 @@
 
 `FORM FREI — BILDWELT FEST — WERKZEUG PASSEND`
 
-Für jeden Sprechbeat werden zuerst Aussage und gewünschte Zuschauerwirkung bestimmt. Danach wird entschieden, ob ein statisches Flow-Bild, ein Simple-Explainer-Bild, Remotion-Motion oder eine Kombination die klarste Lösung ist.
+Für jeden Sprechbeat wird zuerst bestimmt, was der Zuschauer sehen und verstehen soll. Danach wird das Werkzeug gewählt. Google Flow rendert hochwertige Szenen/Illustrationen. Remotion/SVG/React übernimmt präzise Daten-, Text-, Checklisten-, Timeline- und UI-Grafiken.
 
-Nicht jeder Beat braucht komplexes 3D. Ein simples Visual darf simpel bleiben. Gleichzeitig darf ein einfaches Visual niemals automatisch zu Dashboard, Tile-System oder künstlichem 3D-Panel werden.
+**Wichtig:** Google Flow ist kein Infografik-Generator. Ein Beat darf nicht nur deshalb zu Flow werden, weil er statisch ist.
 
 ---
 
 # 1. Werkzeugwahl — verbindlich
 
-## Google Flow kann zwei Arten statischer Visuals erzeugen
+## Google Flow: nur gerenderte Szenen und 3D-Illustrationen
 
 ### A) Grounded Scene
 
@@ -33,27 +33,36 @@ Für reale, sofort erkennbare Situationen und Gegenstände:
 - Rechnung / Beleg / Vertrag / Kalender
 - reale Haushalts- oder Konsumobjekte
 - sichtbare physische Ursache/Wirkung
-- dokumentarisch-editoriale Objektmetaphern
+- dokumentarisch-editoriale Objektgeschichten
 
-### B) Simple Explainer
+### B) Editorial 3D Illustration
 
-Für reduzierte statische Erklärungen, wenn sie schneller verständlich sind:
+Für eine einzelne zusammenhängende gerenderte Illustration/Metapher, wenn keine reale Szene nötig ist:
 
-- große Zahl
-- einzelnes Symbol
-- einfacher Chart oder Diagramm
-- Vergleich
-- Zielscheibe / Weg / Berg / Zielmetapher
-- Asset-Gruppe
-- Concept Cluster
-- kurze Aussage / Quote
-- einfache UI-/Settings-Erklärung, wenn genau dieser Zustand der Inhalt ist
+- ein klarer physischer Weg / eine Schranke / eine Waage
+- ein einzelnes Objekt, das sichtbar seinen Zustand verändert
+- eine bildfüllende stilisierte 3D-Metapher mit sofort verständlicher Aussage
 
-**Wichtig:** Simple Explainer ist weiterhin FinanzNeo. Er darf klarer, frontaler und reduzierter sein, muss aber dieselbe Farb-, Licht-, Qualitäts- und Markenlogik behalten.
+Auch hier gilt: **eine Szene, kein Layout aus Informationsmodulen.**
+
+## Nicht mit Google Flow als finales Erklärbild erzeugen
+
+Wenn der Kern des Beats hauptsächlich aus präzisen Informationen besteht, gehört er in Remotion/SVG/React:
+
+- exakte Zahlenaufteilung
+- Chart oder Datenverlauf
+- Checkliste
+- Timeline
+- Tabelle
+- mehrere Textzeilen
+- UI-/Settings-Zustand
+- mathematisch exakter Vergleich
+
+Flow darf bei einem Hybrid nur eine **textarme Szenen-/Illustrations-Basis** erzeugen. Präzise Zahlen, Labels, UI-Zustände und Daten legt Remotion darüber.
 
 ## Remotion / SVG / React verwenden
 
-Code-basierte Visuals sind besonders sinnvoll, wenn echte Bewegung oder Frame-genaue Präzision zentral ist:
+Code-basierte Visuals sind die Standardwahl für:
 
 - animierte Rechenaufteilung
 - dynamische Charts / Datenverläufe
@@ -61,13 +70,12 @@ Code-basierte Visuals sind besonders sinnvoll, wenn echte Bewegung oder Frame-ge
 - Timelines
 - UI-Zustandswechsel
 - frame-genaue Typografie
-- komplexe Vergleiche mit mehreren Zuständen
-
-Ein statisches Zahlen-/Symbol-/Chartbild darf trotzdem Flow sein, wenn Flow die klarere Still-Image-Lösung ist. Es wird nicht mehr allein wegen seiner Einfachheit aus Flow ausgeschlossen.
+- exakte Zahlen und mathematische Proportionen
+- Vergleiche, bei denen Text und Werte fehlerfrei sein müssen
 
 ## Hybrid
 
-Hybrid nur, wenn ein Flow-Quellbild einen echten visuellen Vorteil bietet und Remotion danach eine sinnvolle Veränderung darauf ausführt.
+Hybrid nur, wenn das Flow-Bild als echte gerenderte Szene einen visuellen Mehrwert bringt. Ein Hybrid darf nicht benutzt werden, um eine Flow-Infografik nachträglich zu animieren.
 
 ---
 
@@ -94,78 +102,80 @@ Kanonische Datei:
 ## Immer gleich
 
 - erwachsene hochwertige stylized-3D-/Editorial-Qualität
+- klar stilisiert, niemals fotorealistisch
 - tiefer nahtloser Schwarz-/Charcoal-Green-Hintergrund
 - Emerald = positiv / Lösung / Wachstum
 - warmes Rot-Orange = Risiko / Kosten / Schuld
 - Ivory / Soft Gray = neutral
 - Gold nur sparsam für Geld/Wert
 - sauberes Premium-Studiolicht
-- gute Hierarchie und sofortige Verständlichkeit
-- niemals Fotorealismus
+- erkennbare Materialität und Kontaktschatten
+- wichtige Motive groß und nah
 - niemals childish clay / toy / Pixar
 - niemals generische Gold-Luxus-Finanz-KI
 
-## Mode A — Grounded Scene
+## Grounded Scene
 
-- reale Objekte, glaubwürdige Proportionen
-- ein klares Hauptmotiv
+- reale Objekte und glaubwürdige Proportionen
+- ein klares Hauptmotiv oder eine klare Handlung
 - medium-close Editorial-Framing
 - natürliche Perspektive
 - sinnvolle Tiefe und Überlappung
 - weiche Kontaktschatten
 - lokale Umgebung darf in die dunkle Welt auslaufen
 
-Nicht erzwingen:
-- künstliche dicke Plaketten für Zahlen/Text
-- sterile Produktaufnahme
-- Mini-Diorama
-- kleines Objekt in riesiger schwarzer Leere
+## Editorial 3D Illustration
 
-## Mode B — Simple Explainer
+- ein zusammenhängendes bildfüllendes Motiv
+- klarer räumlicher Aufbau
+- starke Silhouette
+- kein Karten-/Modul-/Dashboard-Aufbau
+- keine textlastige Erklärung im generierten Bild
+- Metapher nur, wenn sie sofort verständlich ist
 
-- frontal oder nahezu frontal
-- große nutzbare Bildfläche
-- klare visuelle Hierarchie
-- polierte 2.5D-/Editorial-Tiefenwirkung erlaubt
-- Zahl/Symbol/Chart darf selbst das Hauptvisual sein
-- keine Pflicht, aus abstrakten Informationen physische Gegenstände zu bauen
+## Text in Szenenbildern
 
-Nicht erzwingen:
-- Tiles
-- Cards
-- Panels
-- Blocks
-- Pedestals
-- Floating Widgets
+- standardmäßig kein Text
+- kurze deutsche Objektlabels nur, wenn sie wirklich nötig und an ein Objekt gebunden sind
+- kein Titel, Untertitel, CTA oder Absatz
+- kein automatisch erzeugtes FinanzNeo-Logo / Wasserzeichen / Markenlabel
+- exakte Zahlen und längere Texte gehören Remotion
 
 ## Charts / Diagramme / Daten
 
+Werden standardmäßig in Remotion/SVG/React gebaut:
+
 - gerade Frontansicht
-- keine schrägen Achsen
-- keine 3/4-Chart-Perspektive
+- korrekte Achsen
 - mathematisch korrekte Werte und Proportionen
-- kein Excel-/PowerPoint-Default-Look
-- keine dekorativen Fantasy-3D-Balken
+- keine Perspektivverzerrung
 
 ## UI / Settings
 
-- nur wenn der UI-Zustand selbst der Inhalt ist
+Werden standardmäßig in Remotion/React gebaut:
+
 - fiktiv/unbranded
 - gerade und lesbar
-- kein Screenshot-Realismus
-- kein dickes schwebendes Control-Panel nur deshalb, weil die Welt 3D ist
+- frame-genau
+- kein Flow-Screenshot und kein dickes schwebendes Control-Panel
 
 ---
 
-# 3. Globaler Bild-Hard-Fail
+# 3. Globaler Flow-Hard-Fail
 
 Sofort verwerfen und denselben Job neu generieren bei:
 
-- Hauptinformation zu klein
-- überwiegend leerer schwarzer Frame
+- flacher Infografik / Slide / Poster
+- Social-Media-Card-Look
+- Dashboard-/Control-Panel-/HUD-Look
+- Checklistenlayout als generiertes Bild
+- Settings-/UI-Layout als generiertes Bild
+- Progress-Bar als Hauptmotiv
+- Chart-/Datengrafik als generiertes Bild
+- Zahlenvergleich in Rechtecken/Tiles/Cards
 - kleine schwebende Tiles/Karten/Module
-- Dashboard-/Control-Panel-/HUD-Look ohne Inhaltsgrund
-- künstliche dicke Plaketten/Blöcke für Werte oder Text
+- künstliche dicke Plaketten für Werte oder Text
+- FinanzNeo-Logo/Wasserzeichen ohne ausdrückliche Anweisung
 - sterile Produktaufnahme
 - winzige isometrische/Diorama-Perspektive
 - Canva-/PowerPoint-/Stock-Vector-Look
@@ -174,10 +184,10 @@ Sofort verwerfen und denselben Job neu generieren bei:
 - Trophy-/Plinth-/Gold-Luxury-Staging
 - Fotorealismus
 - childish clay/toy/Pixar
-- unnötiger visueller Komplexität
-- Bild versteht man erst nach langem Lesen
+- unnötige visuelle Komplexität
+- Bild funktioniert nur, wenn man viel Text liest
 
-FinanzNeo soll an konsistenter Farbwelt, Rendering, Licht, Hierarchie und Erklärqualität erkennbar sein — nicht daran, dass alles zwanghaft ein dickes 3D-Objekt ist.
+Qualitätsfrage: **Würde das Bild ohne seine Texte immer noch wie eine hochwertige gerenderte Szene funktionieren?** Wenn nein, gehört es nicht als finales Flow-Szenenbild in FinanzNeo.
 
 ---
 
@@ -213,6 +223,7 @@ Der Master-Prompt muss ausdrücklich verlangen:
 
 - Bilder tatsächlich generieren
 - nicht nur Prompts erklären oder zurückgeben
+- nur geplante Scene-Jobs ausführen
 - jeden Job QA-prüfen
 - bei FAIL nur denselben Bildjob wiederholen
 
@@ -220,7 +231,7 @@ Der Master-Prompt muss ausdrücklich verlangen:
 
 1. Exakt drei Kandidaten A/B/C als drei getrennte Ein-Bild-Jobs gleichzeitig starten.
 2. Alle verwenden dieselbe FinanzNeo-Bildwelt.
-3. Unterschiedliche Kompositionen sind erwünscht.
+3. Unterschiedliche Szenen/Kompositionen sind erwünscht.
 4. Kurzer deutscher Hook, maximal 2 Zeilen, ideal 2–5 Wörter.
 5. Alle drei QA-prüfen.
 6. Danach genau einmal A/B/C vom Nutzer wählen lassen.
@@ -229,6 +240,7 @@ Der Master-Prompt muss ausdrücklich verlangen:
 
 ## Phase B — Szenenbilder
 
+- nur Visuals mit tatsächlichem Flow-Szenenbedarf
 - bis zu fünf getrennte Ein-Bild-Jobs parallel
 - niemals ein Multi-Image-Request
 - jedes Ergebnis sofort exakt umbenennen
@@ -237,6 +249,8 @@ Der Master-Prompt muss ausdrücklich verlangen:
 - nächster Batch erst, wenn der aktuelle Batch vollständig PASS ist
 - keine weitere Nutzerfreigabe zwischen Batches
 - finaler Inventory-QA
+
+`IMAGE_BATCH_SIZE = 5` ist eine maximale Batchgröße, keine Pflicht, fünf Bilder zu erzeugen.
 
 ---
 
@@ -252,6 +266,7 @@ Der Master-Prompt muss ausdrücklich verlangen:
 - bestehende Komponenten sind Werkzeuge, keine Stilpflicht
 - Variation muss in echter Kamera/Layout/Transformation bestehen, nicht nur in neuen Namen
 - Motion nutzt dieselbe FinanzNeo-Farb-/Typografie-/Premium-Logik
+- Präzisionsgrafiken dürfen bewusst grafisch und frontal sein; sie müssen nicht wie Flow-Bilder aussehen, aber farblich/typografisch zur Serie passen
 
 Ein normales YouTube-Projekt darf keine reine Slideshow sein.
 
@@ -267,7 +282,7 @@ Bei präzisen Charts, Daten, UI und Typografie:
 - lesbare Labels
 - keine Perspektivverzerrung, wenn Genauigkeit darunter leidet
 
-Grounded Scenes dürfen eine sanfte 3/4-Editorial-Kamera verwenden. Simple Explainer bleiben standardmäßig frontal oder nahezu frontal.
+Flow-Szenen dürfen eine sanfte 3/4-Editorial-Kamera verwenden.
 
 ---
 
