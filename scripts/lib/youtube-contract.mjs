@@ -43,7 +43,9 @@ export const YOUTUBE_MIN_MOTION_VISUALS = 2;
 
 export const VISUAL_INDEX = '04-visuals/visual-index.json';
 export const PROMPT_DIRECTORY = '04-visuals/01-BILDPROMPTS';
-export const ALL_PROMPTS = `${PROMPT_DIRECTORY}/GOOGLE-FLOW-PROMPT.txt`;
+// This is intentionally the user-facing, directly copyable Google Flow master prompt.
+// Never replace it with a redirect/stub. Internal prompt sources stay under PROMPT_DIRECTORY.
+export const ALL_PROMPTS = '04-visuals/alle-bildprompts.txt';
 export const IMAGE_WORLD_PROMPT = `${PROMPT_DIRECTORY}/bildwelt.txt`;
 export const THUMBNAIL_PROMPT = `${PROMPT_DIRECTORY}/thumbnail-prompt.txt`;
 export const IMAGE_INBOX = '04-visuals/00-ALLE-BILDER-HIER-REIN';
