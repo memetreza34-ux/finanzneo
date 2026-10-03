@@ -80,3 +80,5 @@ npm run studio
 ## Legacy-Reels
 
 Bestehende Reel-Dateien, Tests und Tooling bleiben für Rückwärtskompatibilität erhalten. Sie sind **nicht** der aktive Produktionsweg für neue Videos. Keine neuen Reels und keine YouTube Shorts erstellen, solange `CLAUDE.md` bzw. der aktive Produktionsstandard dies nicht ausdrücklich wieder freigeben.
+
+Für bestehende Legacy-Reel-Projekte bleibt `docs/3-PHASEN-WORKFLOW.md` als Kompatibilitätsquelle erhalten. Die **Produktionsregistry** für Legacy-Reels bleibt weiterhin eine Freigabeliste für bereits vollständig validierte Reel-Produktionen; daraus entsteht keine Freigabe für neue Reels.
