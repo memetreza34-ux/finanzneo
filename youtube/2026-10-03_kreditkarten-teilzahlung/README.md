@@ -2,30 +2,32 @@
 
 Eigenständiges YouTube-Longform-Projekt nach FinanzNeo V4. Kein Reel und kein YouTube Short.
 
-## START HIER FÜR GOOGLE FLOW
+## GOOGLE FLOW — NUR DAS HIER
 
-**Alle vollständigen, direkt kopierbaren Bildprompts liegen hier:**
+Der Nutzer kopiert **genau eine einzige Datei vollständig** in den Google-Flow-Agenten:
 
-`BILDPROMPTS-GOOGLE-FLOW.md`
+`GOOGLE-FLOW-PROMPT.txt`
 
-Dort stehen in richtiger Reihenfolge:
+Mehr musst du für die Bilder nicht kopieren.
 
-- Cover A
-- Cover B
-- Cover C
-- Bild 01
-- Bild 03
-- Bild 05
-- Bild 07
-- Bild 08
+Dieser eine Master-Prompt enthält bereits:
+- Cover A/B/C
+- 3 getrennte Cover-Jobs parallel
+- einmalige Nutzerwahl A/B/C
+- danach automatisch alle benötigten Szenenbilder
+- 5 getrennte Bild-Jobs parallel
+- alle exakten Dateinamen
+- vollständige Bildideen und Zahlen
+- 16:9
+- FinanzNeo-V9-Bildwelt
+- Kamera-/Text-/Datenregeln
+- QA und Regeneration fehlerhafter Bilder
 
-Jeder Block ist bereits ein vollständiger **1 Prompt = 1 Bild**-Job inklusive Dateiname, 16:9-Regel, FinanzNeo-V9-Bildwelt, Anti-Drift und den benötigten Zahlen/Labels.
-
-Die einzelnen kanonischen Promptdateien bleiben zusätzlich unter `04-visuals/EINZELNE-VISUALS/visual-XX/bildprompt.txt` erhalten.
+Die Dateien unter `04-visuals/EINZELNE-VISUALS/` sowie `04-visuals/thumbnail-prompt.txt` sind **nur interne Produktions-/Validatorquellen**. Der Nutzer kopiert sie nicht einzeln in Google Flow.
 
 ## Produktionsphasen
 
-Phase 1 enthält Recherche, Skript, Visualplanung, vollständige Flow-Prompts, vier echte Motion-Visuals und das Publishing-Paket.
+Phase 1 enthält Recherche, Skript, Visualplanung, den einen Google-Flow-Master-Prompt, vier echte Motion-Visuals und das Publishing-Paket.
 
 Phase 2 ergänzt die finalen Flow-Bilder, genau ein Voiceover und echte Wort-Timings.
 
