@@ -1,0 +1,22 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+ONE JOB = ONE IMAGE
+
+FINAL FILE NAME:
+YouTube Bild 08 - Kosten vergleichen.png
+
+Generate exactly one horizontal 16:9 image. Use only the written FinanzNeo YouTube V9 world. Do not use the selected thumbnail or another scene as a style reference. Rename immediately on return and run QA.
+
+VISUAL_FORM: hybrid
+VISUAL_CONCEPT: A clean frontal comparison document shows two otherwise similar product rows with different annual cost percentages and leaves generous open space for a later animated focus frame.
+VOICEOVER_VISUAL_MATCH: It supports the final practical instruction to compare costs before buying instead of treating a one-percentage-point difference as irrelevant.
+FRONT_READABILITY_TEST: PASS — both rows and the column laufende Kosten are straight, centered and easy to scan.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium stylized 3D comparison document on a seamless deep-black background, perfectly front-facing. Show two neutral product rows named Produkt A and Produkt B. Use a clear right-hand column titled laufende Kosten with 0,2 % for Produkt A in emerald and 1,2 % for Produkt B in warm red-orange. Keep all other row details abstract and visually equal so the cost difference is the only meaningful contrast. Leave clean breathing room around the cost column for a later animated highlight frame. No logos, no recommendation badge, no winner trophy.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+Horizontal 16:9 source image. Premium stylized 3D animated-film look, deep black, emerald positive, red-orange cost, ivory neutral, clean frontal readability.

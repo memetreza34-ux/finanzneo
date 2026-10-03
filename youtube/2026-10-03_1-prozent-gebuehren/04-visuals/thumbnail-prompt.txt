@@ -1,0 +1,27 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+YOUTUBE THUMBNAIL PHASE — THREE SEPARATE JOBS IN PARALLEL
+
+Create exactly three separate horizontal 16:9 thumbnail candidates A, B and C as three concurrent one-image jobs. All three use the written finanzneo-youtube-v9-front-readable-v2 world directly. No candidate is a style reference for another image.
+
+TEXT RULE FOR ALL THREE: visible German hook text is required, maximum 2 lines and ideally 2 to 5 words. Clean front-facing white or ivory typography with at most one emerald or red-orange emphasis. Never giant metallic or extruded gold text.
+
+THUMBNAIL A
+Hook text: 1 % = 74.000 €?
+Visual: two identical investment paths start together on a deep-black stage. The left path has a small emerald label 0,2 % Kosten and ends at a visibly larger clean emerald value block. The right path has a small red-orange label 1,2 % Kosten and ends lower. Keep the one-percentage-point contrast immediately readable without a generic money pile.
+
+THUMBNAIL B
+Hook text: Nur 1 %?
+Visual: a long emerald growth ribbon runs from left to right while a very thin red-orange cost strip is repeatedly removed from it. At the far right the missing cumulative section is visibly large. One strong mechanism, no extra icons.
+
+THUMBNAIL C
+Hook text: Gebühren fressen Rendite
+Visual: frontal split comparison with two clean final-value towers: around 410.000 € on the emerald side and around 336.000 € on the red-orange side, each with a small cost label. The gap between them is the hero, not gold coins.
+
+Temporary names: YouTube Thumbnail A.png, YouTube Thumbnail B.png, YouTube Thumbnail C.png. After all three pass QA, stop once and ask A/B/C. Rename only the selected candidate to YouTube Thumbnail - 1 Prozent Kosten.png. The selected thumbnail is not a style reference for scene images.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+
+FORM FREE — WORLD FIXED. Premium stylized 3D animated-film or high-end illustration, deep seamless black world, refined materials, clean studio lighting, readable contact shadows, emerald positive, warm red-orange cost, ivory or soft gray neutral, gold only as a tiny money accent. Never photorealistic and never generic gold-luxury AI finance.

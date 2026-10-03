@@ -1,0 +1,22 @@
+FLOW_AGENT_PROTOCOL: finanzneo-flow-sequential-v1
+ONE JOB = ONE IMAGE
+
+FINAL FILE NAME:
+YouTube Bild 01 - Ein Prozent wirkt klein.png
+
+Generate exactly one horizontal 16:9 image. Use only the written FinanzNeo YouTube V9 world. Do not use the selected thumbnail or another scene as a style reference. Rename immediately on return and run QA.
+
+VISUAL_FORM: comparison
+VISUAL_CONCEPT: Two identical long-term investment tracks begin at the same 10.000 € starting block; one carries a tiny emerald 0,2 % cost tag and the other a tiny red-orange 1,2 % cost tag, yet their distant endpoints are visibly far apart.
+VOICEOVER_VISUAL_MATCH: It makes the central paradox readable in one glance: the annual percentage difference is tiny, while the long-term result can become large.
+FRONT_READABILITY_TEST: PASS — both tracks, fee labels and endpoints are straight-on, level and immediately comparable.
+DATA_INTEGRITY_TEST: not-applicable
+
+IMAGE PROMPT:
+Create a premium stylized 3D comparison on a seamless deep-black stage. Two identical investment tracks start side by side from equal small blocks labeled 10.000 €. Above the left track place a small clean label 0,2 % Kosten in emerald; above the right track place 1,2 % Kosten in warm red-orange. The tracks extend into the distance but remain near-front and level. At the far end show a noticeably larger emerald endpoint on the left than the muted red-orange endpoint on the right. No coin mountains, no giant percent symbol, no luxury gold. Keep the visual simple and cinematic.
+
+FINANZNEO_WORLD_ID: finanzneo-connected-studio-v3
+FINANZNEO_SERIES_LOCK: finanzneo-same-world-v1
+GENERATED_IMAGE_ASPECT_RATIO: 16:9
+YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
+Horizontal 16:9 source image. Premium stylized 3D animated-film look, deep black, emerald positive, red-orange cost, ivory neutral, clean frontal readability.

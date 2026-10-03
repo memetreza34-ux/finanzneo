@@ -1,0 +1,3 @@
+Quellen: ESMA, Europäische Kommission, EUR-Lex und BaFin; vollständige Links stehen in der Videobeschreibung und in `01-recherche/recherche-quellen.md`.
+
+Disclaimer: Dieses Video dient ausschließlich der allgemeinen finanziellen Bildung und stellt keine Anlage-, Rechts- oder Steuerberatung dar. Die gezeigte 30-Jahre-Rechnung ist ein vereinfachtes Modell mit konstanter angenommener Bruttorendite. Reale Renditen schwanken; Steuern, Inflation und produktspezifische Kosten können Ergebnisse verändern. Vergangene oder modellierte Werte garantieren keine zukünftige Entwicklung.
