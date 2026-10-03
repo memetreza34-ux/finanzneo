@@ -7,8 +7,21 @@ YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2
 
 FORM FREE — WORLD FIXED. Premium stylized 3D animated-film / high-end illustration, deep seamless black world, refined materials, clean studio lighting, readable contact shadows, emerald for positive or solved states, warm red-orange for cost or risk, ivory and soft gray neutral, gold only as a small money/value accent. Never photorealistic, never generic corporate 3D, never a gold-luxury AI-finance look.
 
+SIMPLE EXPLAINER FORMS ARE ALLOWED AND OFTEN PREFERRED WHEN CLEARER:
+- one large content-specific symbol or icon
+- one important number or target value as the main focus
+- a clean simple chart or comparison
+- a route/goal metaphor such as target, path, mountain, bank, house or other direct content metaphor
+- a straight-on fictional UI/app mockup when the interface itself is the point
+- a small group of concrete assets/objects
+- one central object with a few surrounding concepts
+- a short sourced quote or key-statement card when the exact wording itself matters
+- classic object/story scene, editorial, illustration, comparison, metaphor or hybrid
+
+Do not force complex 3D scenery into every beat. The simplest form that explains the spoken point fastest wins. Simple visuals must still look intentionally designed in the same FinanzNeo V9 world — no random stock icons, no generic slide-template look, no foreign clipart style.
+
 DEFAULT CAMERA: front-facing or near-front, eye-level, level horizon, natural perspective. Charts and diagrams are mandatory straight-on front view with undistorted axes, labels and proportions.
 
-ANTI-DRIFT: no giant gold percentage statues, trophy plinths, glossy luxury pedestals, generic glass money jars, decorative coin mountains, abstract finance machines, dashboards, PowerPoint or Excel default charts, or text-heavy social cards unless the exact content genuinely requires it.
+ANTI-DRIFT: no giant gold percentage statues, trophy plinths, glossy luxury pedestals, generic glass money jars, decorative coin mountains, abstract finance machines, generic dashboards, PowerPoint or Excel default charts, or text-heavy social cards unless the exact content genuinely requires it. Content-specific UI mockups and short key-statement cards are allowed when they directly explain the beat.
 
 horizontal 16:9 source image. Important subjects large enough for TV, laptop and mobile. Use one clear idea. Short German object labels only when useful.
