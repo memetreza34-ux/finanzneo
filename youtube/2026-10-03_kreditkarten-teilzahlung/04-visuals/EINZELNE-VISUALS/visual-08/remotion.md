@@ -4,19 +4,17 @@ MOTION_STANDARD: finanzneo-youtube-motion-v3
 
 - Kapitel: Abschluss
 - Sprechtext-Bezug: Offener Saldo über Monate bedeutet: Du nutzt zusätzlich einen Kredit.
-- Viewer Change: Auf dem von Google Flow erzeugten Einstellungsbild wandert die Auswahl sichtbar von Teilzahlung zu Vollzahlung 100 %; danach erscheint ein grüner Bestätigungszustand.
-- Animation Intent: Der Schluss endet mit einer konkreten prüfbaren Handlung statt nur mit einer Warnung. Das statische Flow-Bild liefert die ruhige lesbare Basis, Remotion übernimmt nur die Zustandsänderung.
+- Viewer Change: Eine native, offene Remotion-Einstellung zeigt zunächst Teilzahlung; der Auswahlindikator wandert anschließend zu Vollzahlung 100 % und bestätigt den Endzustand.
+- Animation Intent: UI-Zustand und Text müssen exakt sein. Deshalb wird diese Szene vollständig code-basiert gebaut und nicht mehr als Google-Flow-Bild erzeugt.
 - Mechanik: payment-setting-switch
-- Technikbeschreibung: Image-Composite. Auf dem frontalen Flow-Basisbild verschiebt sich ein farbcodierter Auswahlrahmen von Teilzahlung zu Vollzahlung 100 %; danach erscheint die Bestätigung.
-- Tool Stack: React, CSS, Remotion interpolate, Flow source image
-- Composition Family: image-composite
-- Motion Signature Camera: statische Frontansicht auf dem Nutzerbild
-- Motion Signature Layout: Flow-Basisbild vollflächig, Fokus-Overlay auf den beiden Abrechnungsoptionen
-- Motion Signature Transformation: Fokus verschiebt sich von Teilzahlung zu Vollzahlung und bestätigt den Endzustand
-- Startzustand: Teilzahlung ist im Flow-Bild markiert
-- sichtbare Mechanik/Transformation: Auswahlrahmen bewegt sich zur zweiten Zeile und wechselt semantisch von Rot-Orange zu Emerald
-- Resultat: Vollzahlung 100 % ist sichtbar ausgewählt und bestätigt
-- Motion Channels: Position des Auswahlrahmens; Farbwechsel; Bestätigungs-Opacity
+- Technikbeschreibung: Zwei offene horizontale Einstellungszeilen ohne schwebendes Panel; ein vertikaler Auswahlindikator bewegt sich zwischen den Zuständen und wechselt von Rot-Orange zu Emerald.
+- Tool Stack: React, CSS, Remotion interpolate
+- Composition Family: settings-action-motion
+- Motion Signature Camera: statische frontale Interface-Ansicht
+- Motion Signature Layout: zwei breite offene Zeilen auf schwarzem Hintergrund ohne Containerkarte
+- Motion Signature Transformation: Auswahlindikator verschiebt sich vertikal und bestätigt den neuen Zustand
+- Startzustand: Teilzahlung ist markiert
+- sichtbare Mechanik/Transformation: Indikator bewegt sich zur Vollzahlung und wechselt die semantische Farbe
+- Resultat: Vollzahlung 100 % ist ausgewählt und „Einstellung geprüft“ erscheint
+- Motion Channels: vertikale Indikatorbewegung, Farbwechsel, Bestätigungs-Opacity
 - SFX-Cues: optional dezenter Auswahlklick und Bestätigungs-Tick
-
-Wichtig: Das Flow-Bild bleibt unverändert die Bildbasis. Remotion darf keine neue UI-Welt erfinden und ersetzt die im Flow-Bild vorhandene Typografie nicht.
