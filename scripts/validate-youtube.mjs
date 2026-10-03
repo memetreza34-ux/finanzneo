@@ -108,7 +108,9 @@ if (index) {
   assert(index.imageWorld?.selectedThumbnailMayBeStyleReference === false, 'Das gewählte Thumbnail darf keine Style-Referenz sein.');
   assert(index.imageWorld?.referencePromptFile === IMAGE_WORLD_PROMPT, 'referencePromptFile ist falsch.');
   assert(index.imageWorld?.primaryApprovedStyleAnchor === 'finanzneo-premium-physical-editorial-v8', 'Premium Physical Editorial V8 muss primärer Flow-Stilanker sein.');
-  assert(index.imageWorld?.engineRouting === 'precision-first-remotion-physical-editorial-flow', 'Flow/Remotion Engine-Routing fehlt.');
+  if (Array.isArray(index.imageWorld?.flowVisualModes)) {
+    assert(index.imageWorld.flowVisualModes.includes('grounded-scene') && index.imageWorld.flowVisualModes.includes('simple-explainer'), 'Flow-Bildwelt muss Grounded Scene und Simple Explainer unterstützen.');
+  }
   assert(index.motionStandard?.id === YOUTUBE_MOTION_STANDARD_ID, `motionStandard.id muss ${YOUTUBE_MOTION_STANDARD_ID} sein.`);
   assert(index.motionStandard?.contentFirstTechniqueSelection === true, 'Motion-Technik muss aus dem Inhalt gewählt werden.');
   assert(index.motionStandard?.existingComponentsOptional === true && index.motionStandard?.physicalPrimitivesOptional === true, 'Bestehende/Physical-Primitives müssen optional bleiben.');
@@ -198,7 +200,10 @@ if (existsSync(resolve(root, ALL_PROMPTS))) {
   assert(prompts.includes('horizontal 16:9'), 'Horizontales 16:9-Quellbild fehlt in der Flow-Übergabe.');
   assert(prompts.includes(`STYLE_AUTHORITY: ${YOUTUBE_IMAGE_WORLD_LOCK}`), 'Geschriebene V9-Bildwelt fehlt als Style-Autorität.');
   assert(prompts.includes('PRIMARY_APPROVED_STYLE_ANCHOR: finanzneo-premium-physical-editorial-v8'), 'Premium Physical Editorial V8 fehlt als primärer Flow-Stilanker.');
-  assert(/REMOTION|Remotion/.test(prompts) && /FLOW|Flow/.test(prompts), 'Engine-Routing zwischen Remotion und Flow fehlt.');
+  assert(/GROUNDED SCENE/.test(prompts) && /SIMPLE EXPLAINER/.test(prompts), 'Flow-Master muss Grounded Scene und Simple Explainer als zwei zulässige Bildmodi enthalten.');
+  assert(/DIESEN TEXT 1:1 AUSFÜHREN|DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG/.test(prompts), 'Flow-Master muss die direkte Bildausführung ausdrücklich anweisen.');
+  assert(!/NICHT MEHR HIER ARBEITEN/i.test(prompts), `${ALL_PROMPTS} darf kein Redirect-/Stub-Hinweis sein.`);
+  assert(!/vollständigen.{0,80}(liegen|findest du|stehen).{0,80}(ander|zentral)/is.test(prompts), `${ALL_PROMPTS} darf nicht auf einen anderen Master-Prompt verweisen.`);
   assert(!/square 1:1 source image|portrait 9:16|vertical 9:16 image/i.test(prompts), 'YouTube-Prompts enthalten ein falsches Quellbildformat.');
 }
 
@@ -220,4 +225,4 @@ if (errors.length > 0) {
 }
 
 console.log('\n✓ YouTube-Longform-Vertrag erfüllt.');
-console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · V8 Physical Editorial Flow · precision-first Remotion · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · keine Shorts/Reels`);
+console.log(`  16:9 · ${YOUTUBE_IMAGE_WORLD_LOCK} · Grounded Scene + Simple Explainer · min. ${YOUTUBE_MIN_MOTION_VISUALS} Motion · keine Shorts/Reels`);
