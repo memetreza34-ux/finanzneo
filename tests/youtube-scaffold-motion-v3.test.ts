@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 
-test('YouTube-Ersteller erzeugt Motion V3, V9 und genau einen nutzerseitigen Flow-Master-Prompt', () => {
+test('YouTube-Ersteller erzeugt Motion V3, grounded V9 und genau einen Flow-Master-Prompt', () => {
   const target = `youtube/.tmp-motion-v3-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
@@ -43,27 +43,38 @@ test('YouTube-Ersteller erzeugt Motion V3, V9 und genau einen nutzerseitigen Flo
     assert.match(remotionPlan, /Composition Family: \[FREE DESCRIPTIVE FAMILY/);
 
     const prompt = readFileSync(resolve(absolute, '04-visuals/EINZELNE-VISUALS/visual-01/bildprompt.txt'), 'utf8');
+    assert.match(prompt, /finanzneo-youtube-grounded-3d-black-v1/);
+    assert.match(prompt, /grounded stylized-3D black world/);
+    assert.match(prompt, /NEVER render it as a flat infographic/);
+    assert.match(prompt, /soft contact shadows/);
     assert.match(prompt, /finanzneo-youtube-v9-front-readable-v2/);
-    assert.match(prompt, /FORM FREE — WORLD FIXED/);
-    assert.match(prompt, /front-facing or near-front/);
-    assert.match(prompt, /DATA_INTEGRITY_TEST:/);
-    assert.match(prompt, /no giant gold percentage statues/);
+
+    const imageWorld = readFileSync(resolve(absolute, '04-visuals/bildwelt.txt'), 'utf8');
+    assert.match(imageWorld, /GROUNDED 3D STYLE LOCK/);
+    assert.match(imageWorld, /EINFACH BEDEUTET NICHT FLACH/);
+
+    const thumbnailPrompt = readFileSync(resolve(absolute, '04-visuals/thumbnail-prompt.txt'), 'utf8');
+    assert.match(thumbnailPrompt, /finanzneo-youtube-grounded-3d-black-v1/);
+    assert.match(thumbnailPrompt, /flat infographic/);
 
     const flow = readFileSync(resolve(absolute, 'GOOGLE-FLOW-PROMPT.txt'), 'utf8');
     assert.match(flow, /THUMBNAIL_CONCURRENCY: 3/);
     assert.match(flow, /IMAGE_BATCH_SIZE: 5/);
     assert.match(flow, /IMAGE_CONCURRENCY: 5/);
+    assert.match(flow, /GROUNDED 3D STYLE LOCK/);
+    assert.match(flow, /MANDATORY STYLE SUFFIX FOR EVERY SUBJOB/);
     assert.match(flow, /SIMPLE EXPLAINER FORMS/);
-    assert.match(flow, /SYMBOL \/ ICON FOCUS/);
+    assert.match(flow, /SYMBOL \/ OBJECT FOCUS/);
     assert.match(flow, /NUMBER FOCUS/);
-    assert.match(flow, /UI \/ APP MOCKUP/);
-    assert.match(flow, /QUOTE \/ KEY STATEMENT CARD/);
+    assert.match(flow, /UI \/ APP EXAMPLE/);
+    assert.match(flow, /QUOTE \/ KEY STATEMENT/);
+    assert.match(flow, /flat 2D infographic/);
     assert.equal(existsSync(resolve(absolute, '04-visuals/alle-bildprompts.txt')), false);
 
     const readme = readFileSync(resolve(absolute, 'README.md'), 'utf8');
     assert.match(readme, /nur eine einzige Datei/);
     assert.match(readme, /GOOGLE-FLOW-PROMPT\.txt/);
-    assert.match(readme, /Symbol-, Zahl-, Chart-, UI-, Metapher-/);
+    assert.match(readme, /Grounded-3D-Style-Lock/);
   } finally {
     rmSync(absolute, {recursive:true, force:true});
   }
