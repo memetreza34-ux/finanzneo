@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 
-test('YouTube-Ersteller erzeugt Motion V3 und vollständigen alle-bildprompts Flow-Master', () => {
+test('YouTube-Ersteller erzeugt Motion V3 und scene-first Flow-Master', () => {
   const target = `youtube/.tmp-motion-v3-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
@@ -27,7 +27,9 @@ test('YouTube-Ersteller erzeugt Motion V3 und vollständigen alle-bildprompts Fl
     assert.equal(index.fixedVisualCount, false);
     assert.equal(index.fixedImageAnimationRatio, false);
     assert.equal(index.imageWorld.primaryApprovedStyleAnchor, 'finanzneo-premium-physical-editorial-v8');
-    assert.deepEqual(index.imageWorld.flowVisualModes, ['grounded-scene', 'simple-explainer']);
+    assert.deepEqual(index.imageWorld.flowVisualModes, ['grounded-scene', 'editorial-3d-illustration']);
+    assert.equal(index.imageWorld.precisionGraphicsOwner, 'remotion');
+    assert.equal(index.imageWorld.flowInfographicLayoutsForbidden, true);
     assert.equal(index.imageWorld.referencePromptFile, '04-visuals/01-BILDPROMPTS/bildwelt.txt');
     assert.equal(index.thumbnail.planFile, '04-visuals/01-BILDPROMPTS/thumbnail-prompt.txt');
     assert.equal(index.motionStandard.id, 'finanzneo-youtube-motion-v3');
@@ -54,12 +56,16 @@ test('YouTube-Ersteller erzeugt Motion V3 und vollständigen alle-bildprompts Fl
     const prompt = readFileSync(resolve(absolute, '04-visuals/01-BILDPROMPTS/visual-01/bildprompt.txt'), 'utf8');
     assert.match(prompt, /finanzneo-premium-physical-editorial-v8/);
     assert.match(prompt, /GROUNDED SCENE/);
-    assert.match(prompt, /SIMPLE EXPLAINER/);
+    assert.match(prompt, /EDITORIAL 3D ILLUSTRATION/);
+    assert.match(prompt, /PRECISION_GRAPHICS_OWNER: REMOTION/);
+    assert.doesNotMatch(prompt, /SIMPLE EXPLAINER/i);
 
     const imageWorld = readFileSync(resolve(absolute, '04-visuals/01-BILDPROMPTS/bildwelt.txt'), 'utf8');
     assert.match(imageWorld, /finanzneo-premium-physical-editorial-v8/);
     assert.match(imageWorld, /GROUNDED SCENE/);
-    assert.match(imageWorld, /SIMPLE EXPLAINER/);
+    assert.match(imageWorld, /EDITORIAL 3D ILLUSTRATION/);
+    assert.match(imageWorld, /PRECISION_GRAPHICS_OWNER: REMOTION/);
+    assert.doesNotMatch(imageWorld, /SIMPLE EXPLAINER/i);
 
     const flowPath = resolve(absolute, '04-visuals/alle-bildprompts.txt');
     assert.equal(existsSync(flowPath), true);
@@ -67,7 +73,9 @@ test('YouTube-Ersteller erzeugt Motion V3 und vollständigen alle-bildprompts Fl
     assert.match(flow, /DIESER TEXT IST ZUR DIREKTEN AUSFÜHRUNG/);
     assert.match(flow, /finanzneo-premium-physical-editorial-v8/);
     assert.match(flow, /GROUNDED SCENE/);
-    assert.match(flow, /SIMPLE EXPLAINER/);
+    assert.match(flow, /EDITORIAL 3D ILLUSTRATION/);
+    assert.match(flow, /PRECISION_GRAPHICS_OWNER: REMOTION/);
+    assert.doesNotMatch(flow, /SIMPLE EXPLAINER/i);
     assert.doesNotMatch(flow, /NICHT MEHR HIER ARBEITEN/);
     assert.doesNotMatch(flow, /vollständigen.*liegen jetzt/i);
 
