@@ -13,53 +13,71 @@
 
 ## Grundprinzip
 
-`FORM FREI — BILDWELT FEST — ENGINE PASSEND`
+`FORM FREI — BILDWELT FEST — WERKZEUG PASSEND`
 
-Für jeden Sprechbeat werden **zuerst Aussage und benötigte Präzision**, danach **das richtige Werkzeug** und erst danach die konkrete Gestaltung gewählt.
+Für jeden Sprechbeat werden zuerst Aussage und gewünschte Zuschauerwirkung bestimmt. Danach wird entschieden, ob ein statisches Flow-Bild, ein Simple-Explainer-Bild, Remotion-Motion oder eine Kombination die klarste Lösung ist.
 
-Nicht jeder Beat braucht ein Google-Flow-Bild. Nicht jeder Beat braucht komplexes 3D. Nicht jedes einfache Visual darf künstlich zu einem 3D-Panel gemacht werden.
+Nicht jeder Beat braucht komplexes 3D. Ein simples Visual darf simpel bleiben. Gleichzeitig darf ein einfaches Visual niemals automatisch zu Dashboard, Tile-System oder künstlichem 3D-Panel werden.
 
 ---
 
-# 1. Engine-Routing — verbindlich
+# 1. Werkzeugwahl — verbindlich
 
-## Remotion / SVG / React bevorzugen
+## Google Flow kann zwei Arten statischer Visuals erzeugen
 
-Diese Visuals werden standardmäßig **code-basiert** gebaut:
+### A) Grounded Scene
 
-- exakte Zahlen und Rechenaufteilungen
-- Charts, Graphen und Datenverläufe
-- Checklisten
-- UI-/Settings-Ansichten
-- Timelines
-- Quotes / Key Statements
-- text- oder datengetriebene Vergleiche
-- einfache Symbole/Icons, wenn sie sauber in Code darstellbar sind
-- Visuals, bei denen korrekte Typografie/Geometrie wichtiger ist als generierte Materialität
+Für reale, sofort erkennbare Situationen und Gegenstände:
 
-Warum: Zahlen, Text, Achsen und UI-Zustände müssen exakt sein. Google Flow soll dafür keine künstlichen Tiles, Dashboards oder fehlerhaften KI-Texte erzeugen.
-
-## Google Flow verwenden
-
-Flow ist für **physical / editorial / real-life scenes** gedacht:
-
-- greifbare reale Objekte
-- Alltagssituationen
-- physische Ursache/Wirkung
+- Kreditkarte + Abrechnung
+- Rechnung / Beleg / Vertrag / Kalender
+- reale Haushalts- oder Konsumobjekte
+- sichtbare physische Ursache/Wirkung
 - dokumentarisch-editoriale Objektmetaphern
-- Szenen, bei denen Materialien, Licht, räumliche Tiefe und echte Gegenstände den Inhalt besser erklären als Code
 
-Beispiele: Kreditkarte + echte Abrechnung, Rechnung + Kostenstempel, Vertrag + konkrete Klausel, Einkauf + Beleg, physische Waage, reale Dokument-/Objektsituation.
+### B) Simple Explainer
+
+Für reduzierte statische Erklärungen, wenn sie schneller verständlich sind:
+
+- große Zahl
+- einzelnes Symbol
+- einfacher Chart oder Diagramm
+- Vergleich
+- Zielscheibe / Weg / Berg / Zielmetapher
+- Asset-Gruppe
+- Concept Cluster
+- kurze Aussage / Quote
+- einfache UI-/Settings-Erklärung, wenn genau dieser Zustand der Inhalt ist
+
+**Wichtig:** Simple Explainer ist weiterhin FinanzNeo. Er darf klarer, frontaler und reduzierter sein, muss aber dieselbe Farb-, Licht-, Qualitäts- und Markenlogik behalten.
+
+## Remotion / SVG / React verwenden
+
+Code-basierte Visuals sind besonders sinnvoll, wenn echte Bewegung oder Frame-genaue Präzision zentral ist:
+
+- animierte Rechenaufteilung
+- dynamische Charts / Datenverläufe
+- sequenzielle Checklisten
+- Timelines
+- UI-Zustandswechsel
+- frame-genaue Typografie
+- komplexe Vergleiche mit mehreren Zuständen
+
+Ein statisches Zahlen-/Symbol-/Chartbild darf trotzdem Flow sein, wenn Flow die klarere Still-Image-Lösung ist. Es wird nicht mehr allein wegen seiner Einfachheit aus Flow ausgeschlossen.
 
 ## Hybrid
 
-Hybrid nur dann, wenn ein echtes Flow-Quellbild einen klaren Vorteil hat und Remotion danach eine sinnvolle Veränderung darauf ausführt. UI, Charts und reine Zahlengrafiken sind **kein Grund** für Hybrid.
+Hybrid nur, wenn ein Flow-Quellbild einen echten visuellen Vorteil bietet und Remotion danach eine sinnvolle Veränderung darauf ausführt.
 
 ---
 
-# 2. Google-Flow-Bildwelt
+# 2. FinanzNeo-Bildwelt
 
 `YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2`
+
+Source Visual Language:
+
+`finanzneo-stylized-3d-animated-black-v9`
 
 Primärer genehmigter Stilanker:
 
@@ -73,85 +91,117 @@ Kanonische Datei:
 
 `config/finanzneo-image-worlds/finanzneo-youtube-v9-front-readable-v2.txt`
 
-## Nicht verhandelbare Flow-Komposition
+## Immer gleich
 
-Jedes normale Flow-Szenenbild braucht:
+- erwachsene hochwertige stylized-3D-/Editorial-Qualität
+- tiefer nahtloser Schwarz-/Charcoal-Green-Hintergrund
+- Emerald = positiv / Lösung / Wachstum
+- warmes Rot-Orange = Risiko / Kosten / Schuld
+- Ivory / Soft Gray = neutral
+- Gold nur sparsam für Geld/Wert
+- sauberes Premium-Studiolicht
+- gute Hierarchie und sofortige Verständlichkeit
+- niemals Fotorealismus
+- niemals childish clay / toy / Pixar
+- niemals generische Gold-Luxus-Finanz-KI
 
-1. **ein dominantes physisches Hero-Objekt**, ungefähr 45–65 % der nutzbaren Bildfläche
-2. medium-close, sanfte 3/4-Editorial-Kamera als Standard
-3. höchstens wenige unterstützende Objekte, nur wenn sie die Aussage verbessern
-4. sichtbare Materialstärke, Kanten und Gewicht
-5. klare Vordergrund-/Hero-/Sekundärtiefe
-6. weiche Kontaktschatten und Ambient Occlusion
-7. eine Aussage, die in etwa 1–2 Sekunden verstanden wird
-8. keinen überwiegend leeren schwarzen Frame
+## Mode A — Grounded Scene
 
-## Material- und Farbwelt
+- reale Objekte, glaubwürdige Proportionen
+- ein klares Hauptmotiv
+- medium-close Editorial-Framing
+- natürliche Perspektive
+- sinnvolle Tiefe und Überlappung
+- weiche Kontaktschatten
+- lokale Umgebung darf in die dunkle Welt auslaufen
 
-- Premium stylized adult 3D financial editorial
-- Deep charcoal green-black dominant
-- Dark emerald/charcoal für Struktur
-- Warm ivory/cream für neutrale Flächen, Papier und Information
-- Red-orange nur für Risiko, Kosten, Verlust oder Schuld
-- Emerald für positive/Lösungszustände
-- Gold/Brass nur als kleiner Geld-/Wert-Akzent
-- hochwertige Polymer-, Papier-, Metall-, Keramik- oder Glasmaterialien, wenn passend
-- sichtbare Dicke, weiche Bevels, glaubwürdige Reflexionen
-- cinematic soft key light + readable fill + kontrollierte Rim-Separation
+Nicht erzwingen:
+- künstliche dicke Plaketten für Zahlen/Text
+- sterile Produktaufnahme
+- Mini-Diorama
+- kleines Objekt in riesiger schwarzer Leere
 
-## Flow Hard-Fail
+## Mode B — Simple Explainer
 
-Sofort verwerfen und denselben Job neu generieren bei:
+- frontal oder nahezu frontal
+- große nutzbare Bildfläche
+- klare visuelle Hierarchie
+- polierte 2.5D-/Editorial-Tiefenwirkung erlaubt
+- Zahl/Symbol/Chart darf selbst das Hauptvisual sein
+- keine Pflicht, aus abstrakten Informationen physische Gegenstände zu bauen
 
-- kleinem Motiv in riesiger schwarzer Leere
-- mehreren kleinen schwebenden Tiles/Karten/Modulen
-- Dashboard-/Control-Panel-Look
-- Screenshot-/App-UI-Look
-- Flowchart-/Präsentationsfolien-Look
-- steriler Produktaufnahme ohne erklärende Handlung
-- winziger isometrischer/Diorama-Kamera
-- Canva-/PowerPoint-/Stock-Vector-/Icon-Look
-- fehlender Tiefenhierarchie oder fehlenden Kontaktschatten
-- childish clay/toy/Pixar
-- Fotorealismus
-- generischer Gold-Luxus-Finanz-KI
-- richtigen Farben, aber falscher Physical-Editorial-Komposition
+Nicht erzwingen:
+- Tiles
+- Cards
+- Panels
+- Blocks
+- Pedestals
+- Floating Widgets
+
+## Charts / Diagramme / Daten
+
+- gerade Frontansicht
+- keine schrägen Achsen
+- keine 3/4-Chart-Perspektive
+- mathematisch korrekte Werte und Proportionen
+- kein Excel-/PowerPoint-Default-Look
+- keine dekorativen Fantasy-3D-Balken
+
+## UI / Settings
+
+- nur wenn der UI-Zustand selbst der Inhalt ist
+- fiktiv/unbranded
+- gerade und lesbar
+- kein Screenshot-Realismus
+- kein dickes schwebendes Control-Panel nur deshalb, weil die Welt 3D ist
 
 ---
 
-# 3. Einfache Erklärvisuals
+# 3. Globaler Bild-Hard-Fail
 
-Einfache Visuals sind ausdrücklich erwünscht, wenn sie schneller erklären:
+Sofort verwerfen und denselben Job neu generieren bei:
 
-- große Zahl
-- einzelnes Symbol
-- Balken-/Linienchart
-- Zielscheibe / Weg / Berg / Zielmetapher
-- Asset-Gruppe
-- Konzept-Cluster
-- UI-Einstellung
-- kurze Aussage / Quote
+- Hauptinformation zu klein
+- überwiegend leerer schwarzer Frame
+- kleine schwebende Tiles/Karten/Module
+- Dashboard-/Control-Panel-/HUD-Look ohne Inhaltsgrund
+- künstliche dicke Plaketten/Blöcke für Werte oder Text
+- sterile Produktaufnahme
+- winzige isometrische/Diorama-Perspektive
+- Canva-/PowerPoint-/Stock-Vector-Look
+- generische Finance-Icon-Collage
+- abstrakte Finanzmaschine ohne verständliche Aussage
+- Trophy-/Plinth-/Gold-Luxury-Staging
+- Fotorealismus
+- childish clay/toy/Pixar
+- unnötiger visueller Komplexität
+- Bild versteht man erst nach langem Lesen
 
-**Wichtig:** Einfach bezieht sich auf die **Komposition**, nicht auf ein bestimmtes Generierungswerkzeug.
-
-- Zahl/Chart/UI/Quote/Checklist → meist Remotion
-- physische Objektmetapher / reale Szene → meist Flow
-
-So können Visuals ähnlich klar und reduziert sein wie gute Finance-Erklärkanäle, ohne die FinanzNeo-Identität zu verlieren.
+FinanzNeo soll an konsistenter Farbwelt, Rendering, Licht, Hierarchie und Erklärqualität erkennbar sein — nicht daran, dass alles zwanghaft ein dickes 3D-Objekt ist.
 
 ---
 
 # 4. Prompt-Struktur
 
-Alle nutzerseitigen und internen Bildprompt-Dateien liegen unter:
+Der Nutzer kopiert **genau eine einzige Datei vollständig und 1:1** in Google Flow:
+
+`04-visuals/alle-bildprompts.txt`
+
+Diese Datei ist immer der vollständige ausführbare Master-Prompt.
+
+Sie darf niemals ersetzt werden durch:
+
+- Redirect
+- Hinweistext
+- Platzhalter
+- „nicht mehr hier arbeiten“-Datei
+- Verweis auf einen anderen Master-Prompt
+
+Interne Promptquellen liegen gesammelt unter:
 
 `04-visuals/01-BILDPROMPTS/`
 
-Der Nutzer kopiert ausschließlich:
-
-`04-visuals/01-BILDPROMPTS/GOOGLE-FLOW-PROMPT.txt`
-
-Interne Bildpromptquellen, Bildwelt und Thumbnail-Prompt liegen im selben Ordnerbereich. Bildprompts werden nicht lose im Projekt-Root und nicht zwischen Remotion-Dateien verteilt.
+Dort dürfen Bildwelt, Thumbnail-Prompt und einzelne interne Bildpromptquellen liegen. Der Nutzer kopiert diese Dateien nicht einzeln.
 
 ---
 
@@ -159,11 +209,18 @@ Interne Bildpromptquellen, Bildwelt und Thumbnail-Prompt liegen im selben Ordner
 
 `FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4`
 
+Der Master-Prompt muss ausdrücklich verlangen:
+
+- Bilder tatsächlich generieren
+- nicht nur Prompts erklären oder zurückgeben
+- jeden Job QA-prüfen
+- bei FAIL nur denselben Bildjob wiederholen
+
 ## Phase A — Cover
 
 1. Exakt drei Kandidaten A/B/C als drei getrennte Ein-Bild-Jobs gleichzeitig starten.
-2. Alle nutzen direkt dieselbe V9/V8-anchored Bildwelt.
-3. Unterschiedliche Kompositionen, aber dieselbe Welt.
+2. Alle verwenden dieselbe FinanzNeo-Bildwelt.
+3. Unterschiedliche Kompositionen sind erwünscht.
 4. Kurzer deutscher Hook, maximal 2 Zeilen, ideal 2–5 Wörter.
 5. Alle drei QA-prüfen.
 6. Danach genau einmal A/B/C vom Nutzer wählen lassen.
@@ -171,8 +228,6 @@ Interne Bildpromptquellen, Bildwelt und Thumbnail-Prompt liegen im selben Ordner
 8. Der Gewinner wird niemals Style-Referenz für Szenenbilder.
 
 ## Phase B — Szenenbilder
-
-Nur Beats, die nach dem Engine-Routing tatsächlich **Flow-Bilder** sind, werden generiert.
 
 - bis zu fünf getrennte Ein-Bild-Jobs parallel
 - niemals ein Multi-Image-Request
@@ -202,18 +257,17 @@ Ein normales YouTube-Projekt darf keine reine Slideshow sein.
 
 ---
 
-# 7. Kamera für präzise Code-Visuals
+# 7. Kamera und Präzision
 
-Charts, Daten, UI und Typografie bleiben frontal und unverzerrt:
+Bei präzisen Charts, Daten, UI und Typografie:
 
 - gerade Achsen
 - korrekte Skalen
 - mathematisch korrekte Werte
 - lesbare Labels
-- keine schrägen Datenebenen
 - keine Perspektivverzerrung, wenn Genauigkeit darunter leidet
 
-Flow-Szenen dürfen dagegen eine sanfte 3/4-Editorial-Kamera verwenden, wenn dadurch physische Tiefe entsteht.
+Grounded Scenes dürfen eine sanfte 3/4-Editorial-Kamera verwenden. Simple Explainer bleiben standardmäßig frontal oder nahezu frontal.
 
 ---
 
