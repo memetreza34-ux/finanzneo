@@ -4,12 +4,12 @@ import {resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 
-test('YouTube-Scaffolder erzeugt Motion V3 und die front-readable V9-Bildwelt', () => {
+test('YouTube-Ersteller erzeugt Motion V3, V9 und genau einen nutzerseitigen Flow-Master-Prompt', () => {
   const target = `youtube/.tmp-motion-v3-${process.pid}-${Date.now()}`;
   const absolute = resolve(target);
   try {
     const run = spawnSync(process.execPath, [
-      resolve('scripts/scaffold-finanzneo-youtube.mjs'),
+      resolve('scripts/create-finanzneo-youtube.mjs'),
       '--target', target,
       '--title', 'Motion V3 Test',
       '--types', 'image,hybrid,animation,data',
@@ -49,10 +49,15 @@ test('YouTube-Scaffolder erzeugt Motion V3 und die front-readable V9-Bildwelt', 
     assert.match(prompt, /DATA_INTEGRITY_TEST:/);
     assert.match(prompt, /no giant gold percentage statues/);
 
-    const flow = readFileSync(resolve(absolute, '04-visuals/alle-bildprompts.txt'), 'utf8');
+    const flow = readFileSync(resolve(absolute, 'GOOGLE-FLOW-PROMPT.txt'), 'utf8');
     assert.match(flow, /THUMBNAIL_CONCURRENCY: 3/);
     assert.match(flow, /IMAGE_BATCH_SIZE: 5/);
     assert.match(flow, /IMAGE_CONCURRENCY: 5/);
+    assert.equal(existsSync(resolve(absolute, '04-visuals/alle-bildprompts.txt')), false);
+
+    const readme = readFileSync(resolve(absolute, 'README.md'), 'utf8');
+    assert.match(readme, /nur eine einzige Datei/);
+    assert.match(readme, /GOOGLE-FLOW-PROMPT\.txt/);
   } finally {
     rmSync(absolute, {recursive:true, force:true});
   }
