@@ -13,6 +13,7 @@ import {spawnSync} from 'node:child_process';
 import {existsSync, readdirSync, rmSync, rmdirSync} from 'node:fs';
 import {dirname, resolve} from 'node:path';
 
+
 const args = process.argv.slice(2);
 const targetIndex = args.indexOf('--target');
 const target = targetIndex === -1 ? null : args[targetIndex + 1] ?? null;

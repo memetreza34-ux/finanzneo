@@ -2,7 +2,7 @@
   "name": "finanzneo-brandkit",
   "version": "1.0.0",
   "private": true,
-  "description": "FinanzNeo Remotion-Studio für vertikale Finanz-Erklärvideos",
+  "description": "FinanzNeo YouTube-Longform Produktionssystem mit Remotion, Google Flow und Premium-V9-Bildwelt",
   "engines": {
     "node": ">=20.19.0"
   },

@@ -1,16 +1,38 @@
 # FinanzNeo — verbindliches Projekt-Gehirn
 
-> Höchste interne Quelle für Reel-Produktion. Bei Widersprüchen mit älteren Dateien gilt diese Datei. `docs/VISUAL-SYSTEM-CONSOLIDATION-V1.md` präzisiert die gemeinsame Bild-/Animationssprache, ohne eine neue Bildwelt einzuführen. Für neue Reels mit `futureProductionStandard.id = finanzneo-future-production-v3` gelten zusätzlich die Future-V3-Gates.
+> Höchste interne Quelle für FinanzNeo. **Aktiver Produktionsmodus ist YouTube Longform. Neue Reels sind bis auf ausdrückliche spätere Freigabe pausiert.** Für neue Videos gilt `youtube/PRODUKTIONSSTANDARD.md`; Reel-spezifische Abschnitte in dieser Datei bleiben nur für bestehende Legacy-Reels erhalten.
+
+## 0. Aktiver Produktionsmodus — YouTube Longform
+
+```text
+ACTIVE_PRODUCTION_MODE: youtube-longform-v4
+NEW_REELS_PAUSED: true
+YOUTUBE_SHORTS_FORBIDDEN: true
+```
+
+Verbindlich für neue Arbeit:
+
+- **keine neuen Reels erstellen**
+- neue Videos ausschließlich als eigenständige horizontale YouTube-Longform-Projekte unter `youtube/`
+- 1920×1080, 16:9, 30 fps
+- Bilder und Animationen gehören sichtbar zur selben FinanzNeo-V9-Welt
+- jedes normale YouTube-Projekt enthält **mindestens zwei echte Motion-/Animationsvisuals**; keine reine Slideshow
+- Google Flow: zuerst 3 Thumbnail-Kandidaten parallel, danach Szenenbilder in echten parallelen 5er-Batches
+- Diagramme/Charts standardmäßig frontal, gerade und sofort lesbar; keine schrägen 3D-Perspektiven
+
+Für neue YouTube-Projekte überschreibt `youtube/PRODUKTIONSSTANDARD.md` alle späteren Reel-spezifischen Layout-/Caption-/Flow-Angaben dieser Datei.
 
 ## 1. Kanal und Format
 
 - Kanal: **FinanzNeo**
 - Sprache: Deutsch
 - Ziel: Finanzgrundlagen einfach, professionell und verständlich erklären
-- Reel-Plattformen: TikTok, Instagram Reels, Facebook Reels, Snapchat
-- YouTube ausschließlich Longform unter `youtube/`; keine YouTube Shorts
-- Reel: 1080×1920, 9:16, 30 fps
-- Länge ergibt sich aus Inhalt und finalem Voiceover; typische Anfänger-Reels ca. 45–70 s
+- **Aktiv: YouTube Longform**
+- 1920×1080, horizontal 16:9, 30 fps
+- Länge folgt dem Thema; kein künstliches Strecken
+- YouTube Shorts verboten
+- neue Reels aktuell pausiert
+- bestehende Reel-Dateien bleiben als Legacy/Referenz im Repo, sind aber nicht der Produktionsweg für neue Videos
 
 ## 2. Repository-Sicherheit
 

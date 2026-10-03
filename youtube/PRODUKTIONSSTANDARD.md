@@ -1,195 +1,127 @@
-# FinanzNeo — YouTube-Longform-Produktionsstandard
+# FinanzNeo — YouTube-Longform-Produktionsstandard V4
 
-> Bei Widersprüchen gilt `CLAUDE.md`. Für YouTube-Motion gilt zusätzlich `docs/YOUTUBE-MOTION-V3.md`. Für die Wahl zwischen Remotion, Bild+Remotion, SVG, Icons und Lottie gilt `docs/FINANZNEO-VISUAL-SELECTION-RULE.md`.
+> Für neue FinanzNeo-Videos ist dies der aktive Produktionsstandard. Bei Konflikten gilt zusätzlich `CLAUDE.md`. Neue Reels sind pausiert; YouTube Shorts sind verboten.
 
-## Projektstruktur
+## Format
 
-```text
-01-recherche/
-02-script/
-03-audio/
-04-visuals/
-05-publishing/
-06-projektdateien/
-README.md
-```
-
-## Format und Inhalt
-
-- eigenständiges längeres Finanz-Erklärvideo, kein verlängertes Reel
-- keine YouTube Shorts
+- eigenständiges YouTube-Longform-Video, kein verlängertes Reel
 - 1920 × 1080, horizontal 16:9, 30 fps
-- Länge folgt dem Thema; keine künstlichen Füllpassagen
+- Länge folgt dem Thema
 - Hook ohne langes Intro
 - Kapitel mit klaren Zwischenzielen und Payoffs
 - einfache Sprache für Finanzanfänger
-- Zahlen, Annahmen und Datenstand prüfbar dokumentieren
-- keine individuelle Anlageberatung oder garantierte Rendite
+- Daten, Annahmen und Rechenwege prüfbar
 
-## Viewer-change-first Visualplanung
+## Visualplanung
 
-Es gibt **keine feste Visualzahl, keine feste Bild-/Animationsquote und keine feste Animationsbibliothek**.
+`FORM FREI — BILDWELT FEST`
 
-```text
-Skript
-→ gesprochene Gedanken
-→ sichtbare Visual Beats
-→ Viewer Change: Was soll der Zuschauer tatsächlich sehen, das sich verändert?
-→ beste Visualart und Technik für genau diesen Beat
-→ sinnvolle Gruppierung
-```
+Erlaubt sind Bilder, Animationen, Hybride und Datenvisualisierungen. Für jeden Sprechbeat wird die stärkste Darstellungsform gewählt. Menschen sind optional. Objekte, Vergleiche, echte Charts, Diagramme, Editorials, Illustrationen und klare Metaphern sind erlaubt.
 
-Erlaubte Visualtypen:
+### Animationen sind Pflicht
 
-- `image`
-- `animation`
-- `hybrid`
-- `data`
+Ein normales YouTube-Projekt darf keine reine Slideshow sein. Es braucht **mindestens zwei echte Motion-/Animationsvisuals**. Das ist eine Mindestanforderung, keine Zielquote. Mehr Motion wird nur eingesetzt, wenn sie tatsächlich etwas erklärt.
 
-## Visual Selection V1
+Jede Animation wird bereits in Phase 1 als produktionsreife `animation.tsx` geplant und folgt Motion V3: Viewer Change zuerst, Technik danach. Animation und Bild müssen wie dieselbe FinanzNeo-Serie aussehen.
 
-`VISUAL_SELECTION_STANDARD: finanzneo-visual-selection-v1`
+## Bildwelt
 
-Vor der konkreten Technik wird die Visualart festgelegt:
+`YOUTUBE_VISUAL_WORLD_LOCK: finanzneo-youtube-v9-front-readable-v2`
 
-- **einfache, zahlen-/datengetriebene Erklärung → pure Remotion**
-- **komplexe, reale oder räumliche Erklärung → Bild + Remotion Hybrid**
-- **SVG → präzise Pfade, Charts, Linien, Verbindungen und Vektor-Mechaniken**
-- **Icons → semantische Kurzschrift / Support**
-- **Lottie → kleine Support-Bewegung, niemals Hauptstil**
+Kanonische Datei:
 
-Komplexes Thema bedeutet nicht automatisch komplexe Animation. Ziel ist, schwierige Finanzlogik so einfach sichtbar zu machen, dass der Zuschauer die Erklärung versteht und nicht die technische Komplexität wahrnimmt.
+`config/finanzneo-image-worlds/finanzneo-youtube-v9-front-readable-v2.txt`
 
-Icons, Lottie und SVG werden nur ergänzt, wenn sie einen konkreten Erklärwert haben. Ein vorhandenes Asset ist niemals allein ein Grund für die Visualwahl.
+Verbindlich:
 
-Kanonische Detailregel:
+- dieselbe FinanzNeo-V9-DNA wie die guten früheren Bilder
+- Premium stylized 3D animated-film / hochwertige Illustration
+- Deep Black dominant
+- Emerald positiv, Red-Orange Risiko/Kosten, Ivory/Grau neutral, Gold nur als kleiner Geld-/Wert-Akzent
+- kein Fotorealismus
+- kein Corporate-Stock-Look
+- keine generische Gold-Luxus-KI-Finanzwelt
+- keine riesigen goldenen Prozentzeichen, Sockel/Pokale, Glasgefäße, Münzberge oder Geldstapel als wiederkehrender Default
+- kein Cover oder anderes Bild wird Style-Referenz; die schriftliche V9-Welt ist die einzige Style-Autorität
 
-```text
-docs/FINANZNEO-VISUAL-SELECTION-RULE.md
-```
+### Kamera und Darstellung
 
-## Remotion / Motion V3
+Standard ist **normal, frontal bzw. nahe frontal, auf Augenhöhe und mit geradem Horizont**. Milde 3/4-Perspektive nur bei echten Story-Szenen, wenn sie die Handlung klarer macht. Keine schrägen Effekthascherei-Kameras.
+
+### Charts und Diagramme
+
+Charts/Diagramme bleiben echte Charts und werden **frontal** gezeigt:
+
+- Kamera gerade vor dem Diagramm
+- keine schräge 3D-Perspektive
+- keine gekippten Ebenen
+- keine verzerrten Achsen
+- X-/Y-Achsen gerade, wenn sie fachlich dazugehören
+- Skalen, Werte, Labels und Proportionen korrekt
+- Kreisdiagramme mit korrekten Segmenten
+- V9-Material/Licht darf hochwertig sein, aber die Datenlesbarkeit gewinnt immer
+
+## Google Flow — Thumbnail 3 parallel, Bilder 5 parallel
+
+`FLOW_EXECUTION_MODE: finanzneo-youtube-cover3-image5-parallel-v4`
+
+### Phase A — 3 Thumbnail-Kandidaten gleichzeitig
+
+1. Exakt drei Kandidaten A/B/C als **drei getrennte Einzelbild-Jobs gleichzeitig** starten.
+2. Jeder Kandidat nutzt direkt `finanzneo-youtube-v9-front-readable-v2`.
+3. Alle drei müssen sichtbar unterschiedliche Kompositionen testen, aber dieselbe Welt behalten.
+4. Jeder Kandidat enthält kurzen deutschen Hook-Text: max. 2 Zeilen, ideal 2–5 Wörter.
+5. Der Text beschreibt den echten Videoinhalt; keine langen Sätze, keine erfundenen Aussagen.
+6. Typografie sauber/front-facing, nicht als riesige goldene 3D-Schrift.
+7. Wenn A/B/C vorhanden sind, genau einmal Nutzerwahl A/B/C.
+8. Gewählten Kandidaten exakt als finales Thumbnail umbenennen; die beiden anderen nicht in den finalen Ordner übernehmen.
+9. Das gewählte Thumbnail ist **keine Style-Vorlage** für die Szenenbilder.
+
+### Phase B — Szenenbilder in echten parallelen 5er-Batches
+
+Nach der Thumbnail-Auswahl werden die IMAGE-/HYBRID-Quellbilder in Reihenfolge in Blöcke mit maximal 5 Bildern aufgeteilt.
+
+Für jeden Block:
+
+1. Bis zu **5 getrennte Einzelbild-Jobs gleichzeitig starten**.
+2. Kein Multi-Image-Prompt und keine Collage: jeder Job enthält genau einen vollständigen Bildprompt und erzeugt genau ein Bild.
+3. Sobald ein Ergebnis zurückkommt: sofort exakt umbenennen, in `04-visuals/00-ALLE-BILDER-HIER-REIN/` legen und QA durchführen.
+4. Fehlerhaftes Bild nur unter derselben Nummer neu erzeugen; korrekte Bilder nicht neu generieren.
+5. Der nächste 5er-Block darf erst starten, wenn **alle Jobs des aktuellen Blocks PASS** haben.
+6. Zwischen Blöcken keine weitere Nutzerfreigabe.
+7. Animations-/Data-Visuals ohne Flow-Quellbild werden übersprungen und behalten ihre Visualnummer.
+8. Am Ende vollständiger Inventory-QA: alle erwarteten Dateien exakt, keine Dubletten, keine fehlenden/falschen Nummern.
+
+Wichtig: 5er-Batch bedeutet **fünf parallele getrennte Ein-Bild-Jobs**, nicht ein Auftrag, der fünf Bilder in einer Ausgabe erzeugt.
+
+## Thumbnail-Qualität
+
+Thumbnail und Szenenbilder gehören in dieselbe V9-Welt. Ein Thumbnail darf auffälliger komponiert sein, aber nicht in einen separaten Stil wechseln. Verwerfen, wenn es wie generische goldene Finanz-KI aussieht, wenn Gold die Welt dominiert, wenn der Text zu lang ist oder wenn Motiv/Text das Thema nicht direkt kommunizieren.
+
+## Motion V3
 
 `MOTION_STANDARD: finanzneo-youtube-motion-v3`
 
-### Grundregel
+- mindestens zwei Motion-Visuals pro Projekt
+- keine feste Obergrenze oder starre Quote
+- Viewer Change zuerst
+- produktionsreife `animation.tsx` in Phase 1
+- Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Datenvisualisierung und Bild+Motion-Hybrid erlaubt
+- bestehende Komponenten nur als Werkzeug, nie als Stilzwang
+- Motion muss dieselbe V9-Material-/Licht-/Farbwelt tragen
 
-**Eine FinanzNeo-Welt, aber keine feste Animationsart.**
-
-Die visuelle Technik wird erst gewählt, nachdem feststeht, was der Zuschauer tatsächlich sehen soll. Custom React, SVG, CSS 3D, Canvas, Three.js/R3F, Masks, Paths/Shapes, Motion Blur, Effects, Lottie als Support, konsistente SVG-Icons als Support, Datenvisualisierung, Bild+Motion-Hybrid sowie neue sinnvolle Kombinationen sind erlaubt.
-
-Die bekannten Familien wie `spatial-3d`, `timeline`, `document-motion`, `data-viz`, `simulation` oder `camera-journey` sind **nur Beispiele zur Beschreibung**, keine Whitelist. Neue `compositionFamilyId`-Werte dürfen jederzeit entstehen, wenn sie die Szene besser beschreiben.
-
-`PremiumPhysicalStage`, `Physical*` und bestehende FinanzNeo-Komponenten sind **optionale Werkzeuge**, keine Pflichtvorlagen.
-
-Jedes Motion-Visual braucht:
-
-- produktionsreife `animation.tsx` bereits in Phase 1
-- `viewerChange` — was der Zuschauer konkret sichtbar verändern/enthüllen/vergleichen/reisen sehen soll
-- `animationIntent` — warum genau diese Veränderung den gesprochenen Punkt erklärt
-- `mechanicId`
-- `visualTechniqueId`
-- `techniqueDescription`
-- freien `compositionFamilyId`
-- `toolStack`
-- `motionSignature` mit `camera`, `layout`, `transformation`
-- mindestens zwei sinnvolle Motion Channels
-- mindestens zwei sichtbare Visual Beats
-
-### Echte Vielfalt statt umbenannter Wiederholung
-
-Ein neuer Technikname allein zählt nicht als neue Animation.
-
-Die CI prüft zusätzlich:
-
-- doppelte `visualTechniqueId`
-- doppelte `mechanicId`
-- identische `techniqueDescription`
-- mehr als zwei gleiche Familien direkt hintereinander
-- identische Kombination aus **Kamera + Layout + Transformation** innerhalb der letzten vier Motion-Visuals
-
-Wiederholung bleibt erlaubt, wenn sie für den Inhalt tatsächlich die beste Lösung ist. Dann braucht sie eine konkrete `repeatTechniqueReason`.
-
-Das Ziel ist **nicht**, zwanghaft jeden Effekt nur einmal zu verwenden. Das Ziel ist, für jeden Gedanken die klarste visuelle Erklärung zu wählen und bequeme Copy-Paste-Motion zu verhindern.
-
-Vor Phase 2:
-
-```bash
-npm run youtube:animation:validate -- youtube/<Projekt>
-npm run youtube:phase1:seal -- youtube/<Projekt>
-```
-
-Der Phase-1-Seal schützt danach sowohl den Motion-Code als auch den kreativen V3-Vertrag (`viewerChange`, Technikbeschreibung, Tool-Stack, Motion-Signatur, Beats und Channels). Phase 3 darf die Mechanik nicht kreativ ersetzen oder vereinfachen.
-
-## Bildwelt und Google Flow
-
-`IMAGE_WORLD: finanzneo-youtube-grounded-3d-black-v1`
-
-Kanonische YouTube-Bildwelt:
-
-```text
-config/finanzneo-image-worlds/finanzneo-youtube-grounded-3d-black-v1.txt
-```
-
-Sie übernimmt die bestehende FinanzNeo-Grundwelt:
-
-- `finanzneo-connected-studio-v3`
-- `finanzneo-same-world-v1`
-- stilistische Herkunft: `finanzneo-stylized-3d-animated-black-v9`
-- YouTube-Quellbilder horizontal 16:9
-
-Der freigegebene Stilanker ist die **Waschmaschinen-/Reparatur-/Notgroschen-Szene**. Übernommen werden ausschließlich ihre visuellen Qualitäten: realitätsnahe Alltagssituation, klar stilisiertes Premium-3D, semi-realistische Materialien, große lesbare Objekte, tiefe schwarze Welt mit wenig glaubwürdigem Umgebungskontext, sichtbare Ursache/Wirkung, kontrolliertes Grün/Rot und sauberes Studio-Licht.
-
-Die konkreten Motive des Referenzbildes sind **keine Vorlage**. Waschmaschine, grüner Ordner, Münzen oder Geldfluss dürfen nicht automatisch in andere Themen kopiert werden. Ebenso sind Ordner, Münzstapel, Sparschwein, Pflanzen, Pfeile oder leuchtende Geldpfade keine wiederkehrenden FinanzNeo-YouTube-Pflichtmotive. Jede Szene wird aus dem tatsächlichen Sprechpunkt neu entwickelt.
-
-Für neue YouTube-Bilder gilt **Literal first, creative second**:
-
-- konkrete reale Situation zuerst
-- klarer Finanz-/Alltagskontext
-- sichtbarer Bezug zum Voiceover
-- Ursache und Wirkung möglichst im selben Bild verständlich
-- Metapher nur, wenn sie wirklich klarer ist
-- kein generisches Finanzsymbolbild als Default
-- keine flache Infografik oder Präsentationsfolie als Standardbild
-- wichtige Objekte groß und auch im YouTube-Playback sofort lesbar
-- lokaler Umgebungskontext nur, wenn er die Situation glaubwürdiger oder klarer macht; er löst sich in die schwarze FinanzNeo-Welt auf
-- das Standbild muss bereits funktionieren, bevor Remotion-Bewegung hinzukommt
-
-Bildprompts immer Englisch; nur ausdrücklich gewünschte kurze Objektlabels im Bild sind Deutsch. Keine Headline, Untertitel oder erklärenden Sätze im KI-Bild.
-
-Einzige Übergabe an Google Flow:
-
-```text
-04-visuals/alle-bildprompts.txt
-```
-
-Jedes Bild wird einzeln erzeugt, vollständig abgewartet, sofort exakt umbenannt und geprüft. Erst danach folgt das nächste Bild. Alle fertigen Dateien liegen gemeinsam in `04-visuals/00-ALLE-BILDER-HIER-REIN/`.
-
-## Audio, Timing und Untertitel
+## Audio und Timing
 
 - genau ein finales Voiceover in `03-audio/`
-- echte Wort-Zeitstempel aus genau diesem Audio
-- Schnitte folgen Sprache, Visual Beats, Kapiteln und Payoffs
+- echte Wort-Zeitstempel
+- Schnitte folgen Sprache, Visual Beats und Kapiteln
 - keine pauschal gleich langen Visuals
 - Untertitel satzweise; aktives Wort grün, Rest weiß
-- Audioziel ungefähr -16 LUFS, True Peak höchstens -1 dBTP
+- Audioziel ca. -16 LUFS, True Peak max. -1 dBTP
 
-## Vollständiges Publishing-Paket
+## Publishing
 
-`05-publishing/` enthält:
-
-- fünf belastbare Titelvarianten und einen finalen Titel
-- vollständige Beschreibung
-- Kapitel-Zeitstempel
-- Keywords/Tags und passende Hashtags
-- Thumbnail-Brief
-- Quellen-/Disclaimer-Text
-- angehefteten Kommentar
-- Community-Post
-- Upload-Checkliste
-- Promo-Texte für Instagram, TikTok, Facebook und Snapchat
-
-Titel und Thumbnail dürfen neugierig machen, aber nichts versprechen, was das Video nicht erfüllt.
+`05-publishing/` enthält Titelvarianten, finalen Titel, Beschreibung, Kapitel, Keywords/Tags, Hashtags, Thumbnail-Brief, Quellen/Disclaimer, Pinned Comment, Community-Post, Upload-Checkliste und Social-Promo-Texte.
 
 ## Startfreigabe
 
@@ -200,4 +132,4 @@ npm run youtube:phase1:seal -- youtube/<Projekt>
 npm run youtube:ready -- youtube/<Projekt>
 ```
 
-`youtube:ready` prüft Phase 1, den unveränderten Motion-V3-Seal, exakte Nutzerbilder, 16:9-Abmessungen, genau ein lesbares Voiceover, passende Wortzeiten und das vollständige Publishing-Paket. Nur ein erfolgreicher Lauf gibt Phase 3 frei.
+Nur ein erfolgreicher Lauf gibt Phase 3 frei.
